@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@id/resume_call_popup_buttons_usa" android:background="@drawable/sec_call_popup_background" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/sec_call_popup_button_height" android:layout_below="@id/call_popup_info"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/popup_call_resume_layout" style="@style/SecPopupButtonIconLayoutStyle">
+        <com.android.incallui.widget.SecPopupVoiceButton android:textSize="@dimen/sec_call_popup_button_text_size" android:textColor="@color/sec_popup_call_resume_color" android:id="@id/popup_call_resume" android:padding="0.0dip" android:layout_width="@dimen/sec_call_popup_button_two_icon_width" android:text="@string/secOnscreenResumeCallText" android:drawableLeft="@drawable/voicecall_popup_resume" android:contentDescription="@string/secOnscreenResumeCallText" style="@style/SecPopupButtonIconStyle" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/popup_call_resume_end_layout" android:layout_toEndOf="@id/popup_call_resume_layout" style="@style/SecPopupButtonIconLayoutStyle">
+        <com.android.incallui.widget.SecPopupVoiceButton android:textSize="@dimen/sec_call_popup_button_text_size" android:textColor="@color/sec_popup_call_end_text_color" android:id="@id/popup_call_resume_end" android:padding="0.0dip" android:layout_width="@dimen/sec_call_popup_button_two_icon_width" android:text="@string/secOnscreenPopupEnd" android:drawableLeft="@drawable/voicecall_popup_end" android:contentDescription="@string/secOnscreenPopupEnd" style="@style/SecPopupButtonIconStyle" />
+    </RelativeLayout>
+</LinearLayout>

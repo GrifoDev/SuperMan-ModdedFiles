@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="emailAddressTypes">
+        <item>Perso.</item>
+        <item>Pro.</item>
+        <item>Autre</item>
+        <item>Personnalisé</item>
+    </string-array>
+    <string-array name="imProtocols">
+        <item>AIM</item>
+        <item>Windows Live</item>
+        <item>Yahoo</item>
+        <item>Skype</item>
+        <item>QQ</item>
+        <item>Google Talk</item>
+        <item>ICQ</item>
+        <item>Jabber</item>
+    </string-array>
+    <string-array name="organizationTypes">
+        <item>Pro.</item>
+        <item>Autre</item>
+        <item>Personnalisé</item>
+    </string-array>
+    <string-array name="phoneTypes">
+        <item>Perso.</item>
+        <item>Mobile</item>
+        <item>Pro.</item>
+        <item>Fax pro</item>
+        <item>Fax perso</item>
+        <item>Pager</item>
+        <item>Autre</item>
+        <item>Personnalisé</item>
+    </string-array>
+    <string-array name="postalAddressTypes">
+        <item>Perso.</item>
+        <item>Pro.</item>
+        <item>Autre</item>
+        <item>Personnalisé</item>
+    </string-array>
+    <string-array name="wfcOperatorErrorAlertMessages">
+        <item>"Pour effectuer des appels et envoyer des messages via le Wi-Fi, demandez tout d'abord à votre opérateur de configurer ce service. Réactivez ensuite les appels Wi-Fi dans les paramètres."</item>
+    </string-array>
+    <string-array name="wfcOperatorErrorNotificationMessages">
+        <item>Inscrivez-vous auprès de votre opérateur.</item>
+    </string-array>
+    <string-array name="wfcSpnFormats">
+        <item>%s</item>
+        <item>Appels Wi-Fi %s</item>
+    </string-array>
+    <array name="fingerprint_acquired_vendor" />
+    <array name="fingerprint_error_vendor" />
+    <string-array name="imAddressTypes">
+        <item>Perso.</item>
+        <item>Pro.</item>
+        <item>Autre</item>
+        <item>Personnalisé</item>
+    </string-array>
+</resources>

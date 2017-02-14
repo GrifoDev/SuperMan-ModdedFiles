@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:key="applications_settings"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <PreferenceScreen android:title="@string/app_permissions" android:key="manage_perms" settings:keywords="@string/keywords_app_permissions" />
+    <PreferenceCategory android:title="@string/launch_application_settings">
+        <PreferenceScreen android:title="@string/domain_urls_title" android:key="domain_urls" android:fragment="com.android.settings.applications.ManageApplications">
+            <extra android:name="classname" android:value="com.android.settings.Settings$DomainsURLsAppListActivity" />
+        </PreferenceScreen>
+        <Preference android:title="@string/assist_and_voice_input_title" android:key="assist_and_voice_input" android:fragment="com.android.settings.applications.ManageAssist" />
+        <com.android.settings.applications.DefaultHomePreference android:title="@string/home_settings" android:key="default_home" android:summary="@string/no_default_home" settings:keywords="@string/keywords_home" />
+        <com.android.settings.applications.DefaultBrowserPreference android:title="@string/default_browser_title" android:key="default_browser" android:summary="@string/no_default_app" />
+        <com.android.settings.applications.DefaultPhonePreference android:title="@string/default_phone_title" android:key="default_phone_app" settings:keywords="@string/keywords_default_phone_app" />
+        <com.android.settings.applications.DefaultEmergencyPreference android:title="@string/default_emergency_app" android:key="default_emergency_app" settings:keywords="@string/keywords_emergency_app" />
+        <com.android.settings.applications.DefaultSmsPreference android:title="@string/sms_application_title" android:key="default_sms_app" settings:keywords="@string/keywords_more_default_sms_app" />
+    </PreferenceCategory>
+    <com.android.settings.WorkOnlyCategory android:title="@string/default_for_work" android:key="work_defaults">
+        <com.android.settings.applications.DefaultBrowserPreference android:title="@string/default_browser_title" android:key="work_default_browser" android:summary="@string/no_default_app" settings:forWork="true" />
+        <com.android.settings.applications.DefaultPhonePreference android:title="@string/default_phone_title" android:key="work_default_phone_app" settings:keywords="@string/keywords_default_phone_app" settings:forWork="true" />
+    </com.android.settings.WorkOnlyCategory>
+    <PreferenceCategory android:title="@string/advanced_apps">
+        <PreferenceScreen android:title="@string/special_access" android:key="special_access" android:fragment="com.android.settings.applications.SpecialAccessSettings" />
+    </PreferenceCategory>
+</PreferenceScreen>

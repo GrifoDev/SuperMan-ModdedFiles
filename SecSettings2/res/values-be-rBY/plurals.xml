@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d гадз.</item>
+        <item quantity="one">1 гадзіна</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d хв.</item>
+        <item quantity="one">1 хвіліна</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d секунд(ы)</item>
+        <item quantity="one">1 секунда</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Вы ў %d кроках ад таго, каб быць распрацоўшчыкам.</item>
+        <item quantity="one">Вы ў 1 кроку ад таго, каб быць распрацоўшчыкам.</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Выдаліць выбраныя мовы</item>
+        <item quantity="one">Выдаліць выбраную мову</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Мінімум літар у паролі: %d.</item>
+        <item quantity="one">Пароль мусіць змяшчаць мінімум 1 літару.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Мінімум літар ніжняга рэгістра у паролі: %d.</item>
+        <item quantity="one">Пароль мусіць змяшчаць мінімум 1 літару ніжняга рэгістра.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Мінімум літар верхняга рэгістра ў паролі: %d.</item>
+        <item quantity="one">Пароль мусіць змяшчаць мінімум 1 літару верхняга рэгістра.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Мінімум лічбаў у паролі: %d.</item>
+        <item quantity="one">Пароль мусіць змяшчаць мінімум 1 лічбу.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Мінімум спец. сімвалаў у паролі: %d.</item>
+        <item quantity="one">Пароль мусіць змяшчаць мінімум 1 спец. сімвал.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Мінімум лічбаў ці спец. сімвалаў у паролі: %d.</item>
+        <item quantity="one">Пароль мусіць змяшчаць мінімум 1 лічбу ці сімвал.</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Доступ да некалькіх папак/файлаў (%d)</item>
+        <item quantity="one">Доступ да 1 папкі/файла</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"Адміністратар %s усталяваў сертыфікаты ЦС на вашай прыладзе, што можа дазволіць яму адсочваць дзейнасць вашай прылады, у тым ліку выкарыстанне электроннай пошты, праграм і бяспечных сайтаў.
+
+Для атрымання падрабязнай інфармацыі пра гэтыя сертыфікаты звярніцеся да свайго IT-адміністратара."</item>
+        <item quantity="one">"Адміністратар %s усталяваў сертыфікат ЦС на вашай прыладзе, што можа дазволіць яму адсочваць дзейнасць вашай прылады, у тым ліку выкарыстанне электроннай пошты, праграм і бяспечных сайтаў.
+
+Для атрымання падрабязнай інфармацыі пра гэты сертыфікат звярніцеся да свайго IT-адміністратара."</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">Праграмам %d можна зачытваць апавяшчэнні.</item>
+        <item quantity="one">Праграме %d дазволена зачытваць апавяшчэнні.</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">Яшчэ %d дазволаў</item>
+        <item quantity="one">Яшчэ %d дазвол</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$d працэсы(-аў) выкарыстоўвалі RAM за апошнія %2$s</item>
+        <item quantity="one">%1$d працэс выкарыстоўваў RAM за апошнія %2$s</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d праграмам дазволена выкарыстоўваць мабільныя даныя без абмежаванняў пры ўключанай функцыі эканоміі трафіку</item>
+        <item quantity="one">1 праграме дазволена выкарыстоўваць мабільныя даныя без абмежаванняў, калі ўключана функцыя эканоміі трафіку</item>
+    </plurals>
+</resources>

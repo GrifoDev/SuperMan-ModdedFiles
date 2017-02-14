@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ImageView android:layout_gravity="center" android:id="@id/safetycare_emergency_image" android:paddingTop="@dimen/power_saving_ultra_description_top_margin" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/setting_lower_power_home_image" />
+        <TextView android:id="@id/safetycare_emergency_text" android:paddingLeft="@dimen/power_saving_ultra_descripion_left" android:paddingTop="@dimen/power_saving_ultra_description_top_margin" android:paddingRight="@dimen/power_saving_ultra_descripion_left" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/powersaving_ultra_text" style="@style/body_text_style" />
+        <TextView android:id="@id/safetycare_emergency_more_info" android:paddingLeft="@dimen/power_saving_ultra_descripion_left" android:paddingTop="@dimen/power_saving_ultra_description_top_margin" android:paddingRight="@dimen/power_saving_ultra_descripion_left" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/powersaving_more_info" style="@style/body_text_style" />
+        <LinearLayout android:orientation="vertical" android:id="@id/safetycare_emergency_more_info_description" android:paddingLeft="@dimen/power_saving_ultra_sub_descripion_left" android:paddingTop="@dimen/power_saving_ultra_description_inner_margin" android:paddingRight="@dimen/ultra_power_saving_divider_left_margine" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    </LinearLayout>
+</ScrollView>

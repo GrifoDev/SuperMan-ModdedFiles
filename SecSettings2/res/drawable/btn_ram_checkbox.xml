@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <size android:height="@dimen/storage_and_ram_clean_tick_image_dimension" android:width="@dimen/storage_and_ram_clean_tick_image_dimension" />
+            <solid android:color="#1a000000" />
+        </shape>
+    </item>
+    <item android:left="1.0dip" android:top="1.0dip" android:right="1.0dip" android:bottom="2.0dip">
+        <shape android:shape="oval">
+            <size android:height="@dimen/storage_and_ram_clean_tick_image_dimension" android:width="@dimen/storage_and_ram_clean_tick_image_dimension" />
+            <solid android:color="@color/feature_background" />
+        </shape>
+    </item>
+</layer-list>

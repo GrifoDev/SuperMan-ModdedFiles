@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="applock_white_list_pkg">
+        <item>com.android.settings</item>
+        <item>com.samsung.android.sm</item>
+        <item>com.samsung.android.sm_cn</item>
+        <item>com.samsung.android.lool</item>
+        <item>com.android.stk</item>
+        <item>com.android.stk2</item>
+        <item>com.sec.android.app.camera</item>
+        <item>com.sec.android.app.clockpackage</item>
+        <item>com.sec.android.app.clockpackagechina</item>
+        <item>com.sec.knox.switcher</item>
+        <item>com.sec.knox.switchknoxI</item>
+        <item>com.sec.enterprise.knox.express</item>
+        <item>com.sec.android.app.irsettings</item>
+        <item>com.samsung.android.app.sprotect</item>
+        <item>com.samsung.android.spay</item>
+    </string-array>
+    <string-array name="changed_component_list">
+        <item>com.samsung.android.email.ui/.activity.MessageListXL| com.samsung.android.email.provider/com.samsung.android.email.ui.activity.MessageListXL</item>
+        <item>com.android.contacts/.activities.PeopleActivity| com.samsung.android.contacts/com.android.contacts.activities.PeopleActivity</item>
+        <item>com.android.mms/.ui.ConversationComposer| com.samsung.android.messaging/com.android.mms.ui.ConversationComposer</item>
+        <item>com.android.contacts/com.android.dialer.DialtactsActivity| com.samsung.android.contacts/com.android.dialer.DialtactsActivity</item>
+        <item>com.android.calendar/.AllInOneActivity| com.samsung.android.calendar/com.android.calendar.AllInOneActivity</item>
+        <item>com.sec.android.app.clockpackage/.common.activity.ClockPackage| com.sec.android.app.clockpackage/.ClockPackage</item>
+        <item>com.sec.android.app.clockpackagechina/com.sec.android.app.clockpackage.ClockPackage| com.sec.android.app.clockpackage/.ClockPackage</item>
+        <item>com.samsung.contacts/com.android.contacts.activities.PeopleActivity| com.samsung.android.contacts/com.android.contacts.activities.PeopleActivity</item>
+        <item>com.samsung.contacts/com.android.dialer.DialtactsActivity| com.samsung.android.contacts/com.android.dialer.DialtactsActivity</item>
+    </string-array>
+    <string-array name="changed_component_widgetlist">
+        <item>com.android.calendar/.widget.MonthWidgetProvider| com.samsung.android.calendar/com.android.calendar.widget.MonthWidgetProvider</item>
+        <item>com.samsung.android.app.memo/.control.ui.widget.ToolbarWidgetProvider| com.samsung.android.app.notes/.widget.WidgetToolBarProvider</item>
+        <item>com.samsung.android.app.memo/.control.ui.widget.MemoWidgetProvider| com.samsung.android.app.notes/.widget.WidgetProvider</item>
+        <item>com.android.mms/.widget.MmsWidgetProvider| com.samsung.android.messaging/com.android.mms.widget.MmsWidgetProvider</item>
+        <item>com.samsung.android.calendar/com.android.calendar.widget.MonthWidgetProvider| com.samsung.android.calendar/com.android.calendar.widget.month.MonthWidgetProvider</item>
+        <item>com.samsung.android.calendar/com.android.calendar.widget.ListWidgetProvider| com.samsung.android.calendar/com.android.calendar.widget.list.ListWidgetProvider</item>
+        <item>com.samsung.android.calendar/com.android.calendar.widget.TaskWidgetProvider| com.samsung.android.calendar/com.android.calendar.widget.task.TaskWidgetProvider</item>
+        <item>com.android.calendar/com.android.calendar.widget.MonthWidgetProvider| com.samsung.android.calendar/com.android.calendar.widget.month.MonthWidgetProvider</item>
+        <item>com.android.calendar/com.android.calendar.widget.ListWidgetProvider| com.samsung.android.calendar/com.android.calendar.widget.list.ListWidgetProvider</item>
+        <item>com.android.calendar/com.android.calendar.widget.TaskWidgetProvider| com.samsung.android.calendar/com.android.calendar.widget.task.TaskWidgetProvider</item>
+    </string-array>
+    <string-array name="csc_folder_title_for_translation">
+        <item>Google|folder_google</item>
+        <item>Microsoft Apps|folder_microsoft_apps</item>
+        <item>Samsung|folder_samsung</item>
+        <item>Tools|tools_folder_name</item>
+        <item>Social|folder_facebook</item>
+    </string-array>
+    <string-array name="duplicated_shortcut_extrakey_blacklist">
+        <item>isCreateShortcut</item>
+        <item>FROM_SHORTCUT</item>
+        <item>package</item>
+        <item>extra_data</item>
+        <item>tName</item>
+        <item>duplicate</item>
+        <item>isShortCut</item>
+    </string-array>
+    <string-array name="index_string_favorite_array_stroke">
+        <item>&amp;</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+        <item>F</item>
+        <item>G</item>
+        <item>H</item>
+        <item>I</item>
+        <item>J</item>
+        <item>K</item>
+        <item>L</item>
+        <item>M</item>
+        <item>N</item>
+        <item>O</item>
+        <item>P</item>
+        <item>Q</item>
+        <item>R</item>
+        <item>S</item>
+        <item>T</item>
+        <item>U</item>
+        <item>V</item>
+        <item>W</item>
+        <item>X</item>
+        <item>Y</item>
+        <item>Z</item>
+    </string-array>
+    <string-array name="string_indicator_for_HK">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+    </string-array>
+    <string-array name="supportGridSizeArray">
+        <item>4x4</item>
+        <item>4x5</item>
+        <item>5x5</item>
+    </string-array>
+    <string-array name="transition_effect_entry_value">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+</resources>

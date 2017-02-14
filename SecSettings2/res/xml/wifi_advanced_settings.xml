@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/wifi_advanced_titlebar" settings:parent="@xml/wifi_settings"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <SwitchPreference android:persistent="true" android:title="@string/auto_connect_xfinity_wifi" android:key="auto_connect_xfinity_wifi" android:summary="@string/auto_connect_xfinity_wifi_summary" />
+    <SwitchPreference android:persistent="true" android:visibility="gone" android:title="@string/notify_me_available_network" android:key="show_wifi_popup" android:summary="@string/notify_me_available_network_summary" />
+    <SwitchPreference android:persistent="true" android:title="@string/wifi_watchdog_connectivity_check" android:key="wifi_poor_network_detection" android:summary="@string/wifi_sns_setting_alert" />
+    <com.samsung.android.settings.SettingsSwitchPreference android:title="@string/wifi_watchdog_connectivity_check" android:key="wifi_poor_network_detection_aggressive_mode" android:summary="@string/wifi_sns_setting_alert" android:fragment="com.android.settings.wifi.SmartNetworkSwitchSettings" />
+    <SwitchPreference android:persistent="true" android:title="@string/wifi_notify_open_networks" android:key="notify_open_networks" android:summary="@string/wifi_notify_open_networks_summary" />
+    <SwitchPreference android:persistent="true" android:title="@string/wifi_hotspot20_enable" android:key="wifi_hs20_enable" android:summary="@string/wifi_hotspot20_summary" />
+    <SwitchPreference android:persistent="true" android:title="@string/wlan_permission_available" android:key="wlan_permission_available" android:summary="@string/wlan_permission_available_message" />
+    <SwitchPreference android:persistent="true" android:title="@string/wifi_auto_wifi_title" android:key="auto_wifi" android:summary="@string/wifi_auto_wifi_summary" />
+    <Preference android:persistent="false" android:title="@string/wifi_manage_network" android:key="wifi_manage_network" android:summary="@string/wifi_manage_network_summary" />
+    <Preference android:persistent="false" android:title="@string/wifi_menu_wps_pbc" android:key="wps_push_button" android:summary="@string/wifi_menu_wps_pbc_summary" />
+    <Preference android:persistent="false" android:title="@string/wifi_menu_wps_pin" android:key="wps_pin_entry" android:summary="@string/wifi_menu_wps_pin_summary" />
+    <ListPreference android:persistent="false" android:entries="@array/wifi_sleep_policy_entries" android:title="@string/wifi_setting_sleep_policy_title" android:key="sleep_policy" android:entryValues="@array/wifi_sleep_policy_values" />
+    <com.android.settings.AppListSwitchPreference android:persistent="false" android:title="@string/wifi_automatically_connect_title" android:key="wifi_assistant" android:summary="@string/wifi_automatically_connect_summary" android:dialogTitle="@string/wifi_select_assistant_dialog_title" />
+    <ListPreference android:persistent="false" android:entries="@array/wifi_connect_entries" android:title="@string/wifi_connect_type_title" android:key="wifi_connection_type" android:entryValues="@array/wifi_connect_values" />
+    <SwitchPreference android:persistent="true" android:title="@string/wifi_att_auto_connect" android:key="att_auto_connect" android:summary="@string/wifi_att_auto_connect_summary" />
+    <SwitchPreference android:persistent="true" android:title="@string/wifi_scan_for_free_wlans_title" android:key="wifi_scan_for_free_wlans" android:summary="@string/wifi_scan_for_free_wlans_summary" />
+    <Preference android:persistent="false" android:title="@string/wifi_install_network_certificates" android:key="install_credentials" android:summary="@string/wifi_install_network_credentials_summary" />
+    <Preference android:persistent="false" android:title="@string/wifi_control_history_title" android:key="wifi_control_history" />
+    <Preference android:title="@string/wifi_advanced_mac_address_title" android:key="mac_address" style="?android:preferenceInformationStyle" />
+    <Preference android:title="@string/wifi_advanced_ip_address_title" android:key="current_ip_address" style="?android:preferenceInformationStyle" />
+</PreferenceScreen>

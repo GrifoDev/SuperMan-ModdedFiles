@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple android:color="@color/ssw_ripple_16_color"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/ssw_show_background_option_background_color">
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/white" />
+            <corners android:radius="3.0dip" />
+        </shape>
+    </item>
+</ripple>

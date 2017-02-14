@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheckedTextView android:ellipsize="end" android:gravity="center_vertical" android:id="@android:id/text1" android:paddingLeft="@dimen/list_item_checkbox_margin_left" android:paddingTop="@dimen/list_item_top_padding" android:paddingRight="@dimen/list_item_checkbox_margin_right" android:paddingBottom="@dimen/list_item_bottom_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:checkMark="?android:listChoiceIndicatorSingle" android:minHeight="?android:listPreferredItemHeightSmall" style="@style/list_title_text_style"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

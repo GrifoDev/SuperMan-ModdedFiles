@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/fota_stub" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:background="@color/add_quick_settings_bg_color" android:layout_width="fill_parent" android:layout_height="@dimen/dashboard_fota_stub_margin" />
+    <LinearLayout android:orientation="vertical" android:id="@id/fota_stub_view" android:background="?android:selectableItemBackground" android:focusable="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/alert_dialog_padding_left_right" android:paddingEnd="@dimen/alert_dialog_padding_left_right" android:elevation="2.0dip">
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="@dimen/dashboard_fota_title_size" android:textColor="?android:textColorPrimary" android:ellipsize="marquee" android:id="@id/title" android:paddingTop="@dimen/dashboard_fota_stub_text_margin" android:paddingBottom="@dimen/dashboard_fota_stub_text_padding_bottom" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/software_update_settings_list_item_title" android:singleLine="true" android:layout_weight="1.0" android:textAllCaps="true" android:fontFamily="sec-roboto-condensed" />
+            <LinearLayout android:gravity="center" android:layout_gravity="center" android:background="@drawable/selectable_card" android:focusable="true" android:layout_width="@dimen/dashboard_fota_close_size" android:layout_height="@dimen/dashboard_fota_close_size">
+                <ImageView android:id="@id/cancel" android:layout_width="@dimen/dashboard_fota_close_icon_size" android:layout_height="@dimen/dashboard_fota_close_icon_size" android:src="@drawable/dashboard_fota_close" />
+            </LinearLayout>
+        </LinearLayout>
+        <TextView android:textSize="@dimen/dashboard_fota_summary_size" android:textColor="@color/dashboard_fota_summary_color" android:id="@id/status" android:paddingBottom="@dimen/dashboard_fota_stub_padding_bottom" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/fota_update_summary" android:layout_below="@id/title" android:fontFamily="sec-roboto-regular" android:layout_alignStart="@android:id/title" />
+    </LinearLayout>
+    <View android:background="@color/add_quick_settings_bg_color" android:layout_width="fill_parent" android:layout_height="@dimen/dashboard_fota_stub_margin" />
+</LinearLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:gravity="fill_vertical|center" android:id="@id/background">
+        <shape android:tint="#ff000000" android:shape="rectangle"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+            <size android:width="@dimen/tw_seekbar_track_height_material" />
+        </shape>
+    </item>
+</layer-list>

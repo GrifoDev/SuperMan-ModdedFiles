@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@id/fingerprint_list_category" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:orientation="horizontal" android:id="@id/favorite_category" android:layout_width="fill_parent" android:layout_height="3.0dip" android:layout_marginTop="@dimen/category_seperator_top_margin" android:paddingStart="0.0dip" android:paddingEnd="0.0dip" style="?android:attr/listSeparatorTextViewStyle" />
+</LinearLayout>

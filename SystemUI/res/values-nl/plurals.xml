@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">1 scherm in Overzicht</item>
+        <item quantity="one">%d schermen in Overzicht</item>
+    </plurals>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">Onjuiste pincode voor simkaart. Je hebt nog %d pogingen over.</item>
+        <item quantity="one">Onjuiste pincode voor simkaart. Je hebt nog %d poging over voordat u contact met je provider moet opnemen om je apparaat te ontgrendelen.</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">Onjuiste pukcode voor simkaart. Je hebt nog %d pogingen over voordat de simkaart definitief onbruikbaar wordt.</item>
+        <item quantity="one">Onjuiste pukcode voor simkaart. Je hebt nog %d poging over voordat de simkaart definitief onbruikbaar wordt.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="other">Apparaat is al %d uur niet ontgrendeld. Bevestig het patroon.</item>
+        <item quantity="one">Apparaat is al %d uur niet ontgrendeld. Bevestig het patroon.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="other">Apparaat is al %d uur niet ontgrendeld. Bevestig de pincode.</item>
+        <item quantity="one">Apparaat is al %d uur niet ontgrendeld. Bevestig de pincode.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">Apparaat is al %d uur niet ontgrendeld. Bevestig het wachtwoord.</item>
+        <item quantity="one">Apparaat is al %d uur niet ontgrendeld. Bevestig het wachtwoord.</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(%d pogingen over)</item>
+        <item quantity="one">(1 poging over)</item>
+    </plurals>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">%d pogingen over</item>
+        <item quantity="one">%d poging over</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_min">
+        <item quantity="other">Probeer opnieuw over %d minuten</item>
+        <item quantity="one">Probeer het opnieuw over %d minuut</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_sec">
+        <item quantity="other">Probeer opnieuw over %d seconden</item>
+        <item quantity="one">Probeer het opnieuw over %d seconde</item>
+    </plurals>
+</resources>

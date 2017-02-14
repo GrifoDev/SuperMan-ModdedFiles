@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/launch_application_settings" android:key="default_apps"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <com.android.settings.applications.DefaultBrowserPreference android:title="@string/default_browser_title" android:key="default_browser" />
+    <com.android.settings.applications.DefaultPhonePreference android:title="@string/default_phone_title" android:key="default_phone_app" settings:keywords="@string/keywords_default_phone_app" />
+    <com.android.settings.applications.DefaultEmergencyPreference android:title="@string/default_emergency_app" android:key="default_emergency_app" settings:keywords="@string/keywords_emergency_app" />
+    <com.android.settings.applications.DefaultSmsPreference android:title="@string/sms_application_title" android:key="default_sms_app" settings:keywords="@string/keywords_more_default_sms_app" />
+    <com.android.settings.WorkOnlyCategory android:title="@string/default_for_work" android:key="work_defaults">
+        <com.android.settings.applications.DefaultBrowserPreference android:title="@string/default_browser_title" android:key="work_default_browser" settings:forWork="true" />
+        <com.android.settings.applications.DefaultPhonePreference android:title="@string/default_phone_title" android:key="work_default_phone_app" settings:keywords="@string/keywords_default_phone_app" settings:forWork="true" />
+    </com.android.settings.WorkOnlyCategory>
+    <PreferenceCategory />
+    <com.android.settings.SecDropDownPreference android:entries="@array/defaul_app_selection_entry" android:title="@string/default_app_selection" android:selectable="true" android:key="default_app_selection" android:entryValues="@array/defaul_app_selection_value" />
+    <PreferenceScreen android:title="@string/default_app_title" android:key="domain_urls" android:fragment="com.android.settings.applications.ManageApplications">
+        <extra android:name="classname" android:value="com.android.settings.Settings$DomainsURLsAppListActivity" />
+    </PreferenceScreen>
+    <PreferenceCategory />
+    <com.android.settings.applications.DefaultHomePreference android:title="@string/home_settings" android:key="default_home" settings:keywords="@string/keywords_home" />
+    <PreferenceScreen android:persistent="false" android:title="@string/home_settings" android:key="home_dcm" android:summary="@string/none" android:fragment="com.samsung.android.settings.DCMHomeSettings" />
+    <Preference android:title="@string/assist_and_voice_input_title" android:key="assist_and_voice_input" android:summary="@string/assist_and_voice_input_summary" android:fragment="com.android.settings.applications.ManageAssist" />
+</PreferenceScreen>

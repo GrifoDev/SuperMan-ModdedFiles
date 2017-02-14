@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/textview" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/body_text_top_padding" android:layout_marginBottom="@dimen/body_text_bottom_padding" android:text="@string/battery_usage_description" android:layout_marginStart="@dimen/body_text_side_padding" android:layout_marginEnd="@dimen/body_text_side_padding" style="@style/body_text_style" />
+</LinearLayout>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/headerbar" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?android:attr/actionBarStyle">
+        <Toolbar android:id="@id/my_toolbar" android:layout_width="fill_parent" android:layout_height="?android:actionBarSize" android:navigationIcon="?android:homeAsUpIndicator" />
+    </LinearLayout>
+    <View android:id="@id/list_dialog_top_padding_view" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/list_dialog_padding_top" />
+    <LinearLayout android:orientation="vertical" android:id="@id/list_description_container" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:id="@id/list_description" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/body_text_top_padding" android:layout_marginBottom="@dimen/body_text_top_padding" android:layout_marginStart="@dimen/body_text_side_padding" android:layout_marginEnd="@dimen/body_text_side_padding" style="@style/description_text" />
+        <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" />
+    </LinearLayout>
+    <ListView android:id="@id/mode_list" android:layout_width="fill_parent" android:layout_height="fill_parent" android:choiceMode="singleChoice" android:paddingStart="@dimen/list_dialog_padding_left_right" android:paddingEnd="@dimen/list_dialog_padding_left_right" />
+    <FrameLayout android:id="@id/customPanel" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <FrameLayout android:id="@android:id/custom" android:paddingTop="5.0dip" android:paddingBottom="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    </FrameLayout>
+    <View android:id="@id/list_dialog_bottom_padding_view" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/list_dialog_padding_bottom" />
+</LinearLayout>

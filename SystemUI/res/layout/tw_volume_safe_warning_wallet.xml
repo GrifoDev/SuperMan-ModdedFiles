@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/tw_cover_volume_warning_popup_bg_color_light" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/sview_cover_mini_fpopup_textsize" android:textColor="@color/tw_cover_volume_warning_popup_text_color" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/description" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/tw_cover_volume_warning_message" android:maxLines="3" android:layout_centerHorizontal="true" android:layout_centerVertical="true" android:paddingStart="@dimen/sview_cover_mini_fpopup_padding" android:paddingEnd="@dimen/sview_cover_mini_fpopup_padding" />
+    <LinearLayout android:layout_gravity="center" android:orientation="horizontal" android:id="@id/buttonbar" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <Button android:textSize="15.0sp" android:layout_gravity="center_horizontal" android:id="@id/button1" android:layout_width="100.0dip" android:layout_height="20.0dip" android:layout_marginLeft="0.0dip" android:layout_marginRight="0.0dip" android:text="@string/no" android:maxLines="2" android:layout_weight="1.0" android:layout_marginStart="0.0dip" android:layout_marginEnd="0.0dip" style="?android:attr/buttonBarButtonStyle" />
+        <Button android:textSize="15.0sp" android:layout_gravity="end" android:id="@id/button2" android:layout_width="100.0dip" android:layout_height="20.0dip" android:layout_marginLeft="0.0dip" android:layout_marginRight="0.0dip" android:text="@string/yes" android:maxLines="2" android:layout_weight="1.0" android:layout_marginStart="0.0dip" android:layout_marginEnd="0.0dip" style="?android:attr/buttonBarButtonStyle" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:id="@id/biometrics_desc" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/body_text_top_padding" android:layout_marginBottom="@dimen/body_text_bottom_padding" android:layout_marginStart="@dimen/body_text_side_padding" android:layout_marginEnd="@dimen/body_text_side_padding" style="@style/body_text_style" />
+            <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" style="@style/lock_screen_dialog_list_divider_wrapping_style" />
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/fingerprint_layout" android:background="?android:listChoiceBackgroundIndicator" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeightSmall">
+                <TextView android:textSize="@dimen/font_preveiw_text_size" android:gravity="center_vertical" android:id="@id/fingerprint_text" android:paddingTop="@dimen/list_item_top_padding" android:paddingBottom="@dimen/list_item_bottom_padding" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/fingerprint" android:layout_weight="1.0" android:paddingStart="@dimen/body_text_side_padding" style="@style/lock_screen_dialog_list_item_wrapping_style" />
+                <Switch android:id="@id/fingerprint_switch" android:paddingTop="@dimen/list_item_top_padding" android:paddingBottom="@dimen/list_item_bottom_padding" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeightSmall" android:paddingStart="@dimen/list_item_inner_padding" android:paddingEnd="@dimen/list_item_inner_padding" />
+            </LinearLayout>
+            <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" style="@style/lock_screen_dialog_list_divider_wrapping_style" />
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/iris_layout" android:background="?android:listChoiceBackgroundIndicator" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeightSmall">
+                <TextView android:textSize="@dimen/font_preveiw_text_size" android:gravity="center_vertical" android:id="@id/iris_text" android:paddingTop="@dimen/list_item_top_padding" android:paddingBottom="@dimen/list_item_bottom_padding" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/iris_title" android:layout_weight="1.0" android:paddingStart="@dimen/body_text_side_padding" style="@style/lock_screen_dialog_list_item_wrapping_style" />
+                <Switch android:id="@id/iris_switch" android:paddingTop="@dimen/list_item_top_padding" android:paddingBottom="@dimen/list_item_bottom_padding" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeightSmall" android:paddingStart="@dimen/list_item_inner_padding" android:paddingEnd="@dimen/list_item_inner_padding" />
+            </LinearLayout>
+            <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" style="@style/lock_screen_dialog_list_divider_wrapping_style" />
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout android:orientation="horizontal" style="@style/SecurityPreferenceButtonContainer">
+        <com.samsung.android.settings.widget.BottomBarButton android:textSize="@dimen/fingerprint_lock_settings_bottom_bar_button_text_size" android:id="@id/later_button" android:text="@string/fingerprint_setupwizard_later" style="@style/SecurityPreferenceButton" />
+        <com.samsung.android.settings.widget.BottomBarButton android:textSize="@dimen/fingerprint_lock_settings_bottom_bar_button_text_size" android:id="@id/ok_button" android:text="@string/fingerprint_lock_setttings_button_setup" style="@style/SecurityPreferenceButton" />
+    </LinearLayout>
+</LinearLayout>

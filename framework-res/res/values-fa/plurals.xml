@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="pinpuk_attempts">
+        <item quantity="other">%d بار دیگر می‌توانید تلاش کنید و پس از آن سیم‌کارت قفل می‌شود.</item>
+        <item quantity="one">%d بار دیگر می‌توانید تلاش کنید و پس از آن سیم‌کارت قفل می‌شود.</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_warning">
+        <item quantity="other">کنترل احتمالی شبکه</item>
+        <item quantity="one">مرجع صدور گواهی نصب شد</item>
+    </plurals>
+    <plurals name="bugreport_countdown">
+        <item quantity="other">تا %d ثانیه دیگر عکس صفحه‌نمایش برای گزارش اشکال گرفته می‌شود.</item>
+        <item quantity="one">تا %d ثانیه دیگر عکس صفحه‌نمایش برای گزارش اشکال گرفته می‌شود.</item>
+    </plurals>
+    <plurals name="last_num_days">
+        <item quantity="other">‎%d روز گذشته</item>
+        <item quantity="one">%d روز قبل</item>
+    </plurals>
+    <plurals name="duration_seconds">
+        <item quantity="other">%dثانیه</item>
+        <item quantity="one">۱ ثانیه</item>
+    </plurals>
+    <plurals name="duration_minutes">
+        <item quantity="other">%d دقيقه</item>
+        <item quantity="one">۱ دقیقه</item>
+    </plurals>
+    <plurals name="duration_hours">
+        <item quantity="other">ساعت ‎%d</item>
+        <item quantity="one">۱ ساعت</item>
+    </plurals>
+    <plurals name="duration_minutes_shortest">
+        <item quantity="other">%d دقیقه</item>
+        <item quantity="one">%d دقیقه</item>
+    </plurals>
+    <plurals name="duration_hours_shortest">
+        <item quantity="other">%d ساعت</item>
+        <item quantity="one">%d ساعت</item>
+    </plurals>
+    <plurals name="duration_days_shortest">
+        <item quantity="other">%d روز</item>
+        <item quantity="one">%d روز</item>
+    </plurals>
+    <plurals name="duration_years_shortest">
+        <item quantity="other">%d سال</item>
+        <item quantity="one">%d سال</item>
+    </plurals>
+    <plurals name="duration_minutes_shortest_future">
+        <item quantity="other">در %d دقیقه</item>
+        <item quantity="one">در %d دقیقه</item>
+    </plurals>
+    <plurals name="duration_hours_shortest_future">
+        <item quantity="other">در %d ساعت</item>
+        <item quantity="one">در %d ساعت</item>
+    </plurals>
+    <plurals name="duration_days_shortest_future">
+        <item quantity="other">در %d روز</item>
+        <item quantity="one">در %d روز</item>
+    </plurals>
+    <plurals name="duration_years_shortest_future">
+        <item quantity="other">در %d سال</item>
+        <item quantity="one">در %d سال</item>
+    </plurals>
+    <plurals name="wifi_available">
+        <item quantity="other">شبکه‌های Wi-Fi در دسترس</item>
+        <item quantity="one">شبکه Wi-Fi در دسترس</item>
+    </plurals>
+    <plurals name="wifi_available_detailed">
+        <item quantity="other">باز کردن شبکه های Wi-Fi در دسترس</item>
+        <item quantity="one">باز کردن شبکه های Wi-Fi در دسترس</item>
+    </plurals>
+    <plurals name="matches_found">
+        <item quantity="other">%1$d از %2$d</item>
+        <item quantity="one">1 مورد منطبق شد.</item>
+    </plurals>
+    <plurals name="restr_pin_countdown">
+        <item quantity="other">%d ثانیه دیگر دوباره امتحان کنید</item>
+        <item quantity="one">طی 1 ثانیه دوباره امتحان کنید.</item>
+    </plurals>
+    <plurals name="zen_mode_duration_minutes_summary">
+        <item quantity="other">‏به مدت %1$d دقیقه (تا %2$s)</item>
+        <item quantity="one">‏به مدت %1$d دقیقه (تا %2$s)</item>
+    </plurals>
+    <plurals name="zen_mode_duration_minutes_summary_short">
+        <item quantity="other">‏برای %1$d دقیقه (تا %2$s)</item>
+        <item quantity="one">‏برای %1$d دقیقه (تا %2$s)</item>
+    </plurals>
+    <plurals name="zen_mode_duration_hours_summary">
+        <item quantity="other">‏به مدت %1$d ساعت (تا %2$s)</item>
+        <item quantity="one">‏به مدت %1$d ساعت (تا %2$s)</item>
+    </plurals>
+    <plurals name="zen_mode_duration_hours_summary_short">
+        <item quantity="other">‏برای %1$d ساعت (تا %2$s)</item>
+        <item quantity="one">‏برای %1$d ساعت (تا %2$s)</item>
+    </plurals>
+    <plurals name="zen_mode_duration_minutes">
+        <item quantity="other">‏به مدت %d دقیقه</item>
+        <item quantity="one">‏به مدت %d دقیقه</item>
+    </plurals>
+    <plurals name="zen_mode_duration_minutes_short">
+        <item quantity="other">‏برای %d دقیقه</item>
+        <item quantity="one">‏برای %d دقیقه</item>
+    </plurals>
+    <plurals name="zen_mode_duration_hours">
+        <item quantity="other">‏به مدت %d ساعت</item>
+        <item quantity="one">‏به مدت %d ساعت</item>
+    </plurals>
+    <plurals name="zen_mode_duration_hours_short">
+        <item quantity="other">‏برای %d ساعت</item>
+        <item quantity="one">‏برای %d ساعت</item>
+    </plurals>
+    <plurals name="selected_count">
+        <item quantity="other">‏%1$d انتخاب شد</item>
+        <item quantity="one">‏%1$d انتخاب شد</item>
+    </plurals>
+    <plurals name="tw_clipboard_files">
+        <item quantity="other">%dفایل</item>
+        <item quantity="one">1 فایل</item>
+    </plurals>
+</resources>

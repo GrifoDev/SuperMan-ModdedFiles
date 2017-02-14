@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/user_settings_title"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <PreferenceCategory android:title="@string/user_you_section" android:key="user_you" />
+    <PreferenceCategory android:title="@string/user_list_title" android:key="user_list" />
+    <com.android.settings.DimmableIconPreference android:icon="@drawable/ic_menu_add_dark" android:title="@string/user_add_user_or_profile_menu" android:key="user_add" />
+    <PreferenceCategory android:title="@string/user_lockscreen_settings" android:key="lock_screen_settings">
+        <com.samsung.android.settingslib.RestrictedSwitchPreference android:title="@string/user_add_on_lockscreen_menu" android:key="add_users_when_locked" android:summary="@string/user_add_on_lockscreen_menu_summary" settings:useAdditionalSummary="true" />
+    </PreferenceCategory>
+    <Preference android:title="@string/emergency_info_title" android:key="emergency_info" />
+</PreferenceScreen>

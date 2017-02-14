@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="bottom" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="@dimen/crypt_keeper_password_top_margin" android:layout_marginStart="@dimen/crypt_keeper_password_width_margin" android:layout_marginEnd="@dimen/crypt_keeper_password_width_margin"
+      xmlns:android="http://schemas.android.com/apk/res/android">
+        <TextView android:textSize="19.0sp" android:textColor="#ffffffff" android:gravity="center_horizontal" android:layout_gravity="center_horizontal" android:id="@id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/crypt_keeper_description" />
+        <TextView android:textSize="16.0sp" android:textColor="#fffafafa" android:gravity="center_horizontal" android:layout_gravity="center_horizontal" android:id="@id/status" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="19.0dip" style="@style/crypt_keeper_description" />
+    </LinearLayout>
+    <LinearLayout android:layout_width="wrap_content" android:layout_height="0.0dip" android:layout_weight="1.0" />
+    <LinearLayout android:gravity="bottom" android:layout_gravity="center_horizontal" android:orientation="horizontal" android:id="@id/CryptKeeperButton_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="27.0dip">
+        <Button android:layout_gravity="center" android:id="@id/factory_reset" android:layout_width="@dimen/crypt_keeper_button_width" android:layout_height="@dimen/crypt_keeper_button_height" android:text="@string/master_clear_button_text" style="@style/CryptKeeperButton" />
+    </LinearLayout>
+</LinearLayout>

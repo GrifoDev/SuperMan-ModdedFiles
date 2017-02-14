@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pointer-icon android:bitmap="@drawable/pointer_arrow_knox_desktop" android:hotSpotX="@dimen/tw_pointer_spot_hovering_mouse_knox_desktop_default_hotspot" android:hotSpotY="@dimen/tw_pointer_spot_hovering_mouse_knox_desktop_default_hotspot"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

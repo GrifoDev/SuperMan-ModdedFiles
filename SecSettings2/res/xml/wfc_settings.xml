@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.samsung.tmowfc.wfcutils.WfcSwitchPreference android:persistent="false" android:title="@string/wfc_title" android:key="wfc_settings_key" android:summary="@string/wfc_summary" android:switchTextOn="@string/wfc_on" android:switchTextOff="@string/wfc_off">
+        <intent android:targetPackage="com.samsung.tmowfc.wfcpref" android:action="android.intent.action.VIEW" android:targetClass="com.samsung.tmowfc.wfcpref.WfcPrefActivity">
+            <extra android:name="home" android:value="true" />
+        </intent>
+    </com.samsung.tmowfc.wfcutils.WfcSwitchPreference>
+</PreferenceScreen>

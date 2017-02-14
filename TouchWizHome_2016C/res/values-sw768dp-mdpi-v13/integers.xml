@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="home_cellCountX">6</integer>
+    <integer name="home_cellCountY">6</integer>
+    <integer name="hotseat_cellCountX">6</integer>
+    <integer name="hotseat_cellCountY">1</integer>
+</resources>

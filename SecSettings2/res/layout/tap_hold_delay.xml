@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="0.45">
+            <ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1.0">
+                <TextView android:id="@id/perform_longpress" android:paddingLeft="@dimen/body_text_side_padding" android:paddingTop="@dimen/body_text_top_padding" android:paddingRight="@dimen/body_text_side_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/perform_long_press_text" style="@style/body_text_style" />
+            </ScrollView>
+            <LinearLayout android:gravity="center_horizontal" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="@dimen/custom_tap_and_hold_view_time_height">
+                <TextView android:id="@id/longpress_time" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/custom_tap_and_hold_time_text_style" />
+                <LinearLayout android:id="@id/emptyLayout" android:layout_width="@dimen/custom_tap_and_hold_between_time_text" android:layout_height="fill_parent" android:layout_toEndOf="@id/longpress_time" />
+                <TextView android:id="@id/text_sec" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/longpress_sec_text" android:layout_toEndOf="@id/emptyLayout" style="@style/custom_tap_and_hold_sec_text_style" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="0.55" android:contentDescription="@string/perform_long_press_text" android:importantForAccessibility="yes">
+            <com.samsung.android.settings.accessibility.touchsensibility.TapAndHoldView android:id="@id/tapandholdview" android:background="@color/custom_tap_and_hold_view_bg" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@id/linearLayout" android:layout_alignParentBottom="true" style="@style/bottom_bar_container">
+        <com.samsung.android.settings.widget.BottomBarButton android:id="@id/longpress_cancel" android:text="@string/common_cancel" android:includeFontPadding="false" style="@style/bottom_bar_button" />
+        <com.samsung.android.settings.widget.BottomBarButton android:id="@id/longpress_save" android:focusable="false" android:text="@string/longpress_save_text" android:includeFontPadding="false" style="@style/bottom_bar_button" />
+    </LinearLayout>
+</LinearLayout>

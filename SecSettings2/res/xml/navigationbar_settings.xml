@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/navigationbar_title" android:key="navibationbar_setting"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <com.android.settings.SecDropDownPreference android:title="@string/navigationbar_height_title" android:key="height" />
+    <com.android.settings.SecDropDownPreference android:title="@string/navigationbar_order_title" android:key="order_option" />
+    <PreferenceScreen android:title="@string/navigationbar_pressureaction_title" android:fragment="com.samsung.android.settings.navigationbar.PressureTouchActionSettings" />
+</PreferenceScreen>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inset android:insetLeft="@dimen/wifi_p2p_list_divider_left_inset" android:insetRight="@dimen/list_divider_padding"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <shape android:shape="rectangle">
+        <solid android:color="@color/wifi_list_divider_color" />
+        <size android:height="1.0px" android:width="1.0dip" />
+    </shape>
+</inset>

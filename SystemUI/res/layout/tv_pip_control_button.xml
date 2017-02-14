@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/button" android:background="@drawable/tv_pip_button_focused" android:padding="5.0dip" android:focusable="true" android:layout_width="34.0dip" android:layout_height="34.0dip" android:src="@drawable/ic_fullscreen_white_24dp" android:layerType="software" />
+    <TextView android:textSize="12.0sp" android:textColor="#ffeeeeee" android:gravity="center" android:id="@id/desc" android:layout_width="100.0dip" android:layout_height="wrap_content" android:layout_marginTop="3.0dip" android:text="@string/pip_fullscreen" android:alpha="0.0" android:importantForAccessibility="no" android:fontFamily="sans-serif" />
+</merge>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeight" android:paddingStart="?android:listPreferredItemPaddingStart" android:paddingEnd="?android:listPreferredItemPaddingEnd"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginTop="6.0dip" android:layout_marginBottom="6.0dip" android:layout_weight="1.0">
+        <TextView android:textAppearance="?android:textAppearanceListItem" android:ellipsize="marquee" android:id="@android:id/title" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+        <TextView android:textAppearance="?android:textAppearanceListItemSecondary" android:textColor="?android:textColorSecondary" android:id="@android:id/summary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="10" android:layout_below="@android:id/title" android:layout_alignStart="@android:id/title" />
+    </RelativeLayout>
+    <TextView android:textSize="@dimen/dashboard_badge_text_size" android:textColor="@color/dashboard_badge_text_color" android:gravity="center" android:id="@id/badge" android:background="@drawable/badge_icon" android:focusable="false" android:visibility="gone" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="centerInside" android:text="@string/icon_number_1" android:layout_centerVertical="true" android:textAlignment="center" android:layout_marginStart="8.0dip" android:layout_alignParentEnd="true" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:id="@android:id/widget_frame" android:layout_width="wrap_content" android:layout_height="fill_parent" />
+</LinearLayout>

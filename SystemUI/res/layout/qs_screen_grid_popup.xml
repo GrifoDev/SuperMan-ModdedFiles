@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <ImageView android:layout_width="fill_parent" android:layout_height="72.0dip" android:src="@drawable/qs_screen_grid_preview_3_3" android:scaleType="center" android:tint="@color/qs_screen_grid_preview_tint" />
+        <TextView android:textAppearance="@style/TextAppearance.QS.ScreenGridPopup" android:gravity="center|top" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/qs_screen_grid_3_3" />
+        <tag android:value="3" android:id="@id/qs_screen_grid_column" />
+        <tag android:value="6" android:id="@id/qs_screen_grid_column_landscape" />
+        <tag android:value="3" android:id="@id/qs_screen_grid_row" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <ImageView android:layout_width="fill_parent" android:layout_height="72.0dip" android:src="@drawable/qs_screen_grid_preview_4_3" android:scaleType="center" android:tint="@color/qs_screen_grid_preview_tint" />
+        <TextView android:textAppearance="@style/TextAppearance.QS.ScreenGridPopup" android:gravity="center|top" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/qs_screen_grid_4_3" />
+        <tag android:value="4" android:id="@id/qs_screen_grid_column" />
+        <tag android:value="6" android:id="@id/qs_screen_grid_column_landscape" />
+        <tag android:value="3" android:id="@id/qs_screen_grid_row" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <ImageView android:layout_width="fill_parent" android:layout_height="72.0dip" android:src="@drawable/qs_screen_grid_preview_5_3" android:scaleType="center" android:tint="@color/qs_screen_grid_preview_tint" />
+        <TextView android:textAppearance="@style/TextAppearance.QS.ScreenGridPopup" android:gravity="center|top" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/qs_screen_grid_5_3" />
+        <tag android:value="5" android:id="@id/qs_screen_grid_column" />
+        <tag android:value="8" android:id="@id/qs_screen_grid_column_landscape" />
+        <tag android:value="3" android:id="@id/qs_screen_grid_row" />
+    </LinearLayout>
+</LinearLayout>

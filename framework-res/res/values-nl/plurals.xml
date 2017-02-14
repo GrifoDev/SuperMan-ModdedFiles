@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="pinpuk_attempts">
+        <item quantity="other">Je hebt nog %d pogingen over voordat de simkaart wordt vergrendeld.</item>
+        <item quantity="one">Je hebt nog %d poging over voordat de simkaart wordt vergrendeld.</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_warning">
+        <item quantity="other">Mogelijke netwerkcontrole</item>
+        <item quantity="one">Certificeringsinstantie geïnstalleerd</item>
+    </plurals>
+    <plurals name="bugreport_countdown">
+        <item quantity="other">Er wordt over %d seconden een screenshot gemaakt voor het bugrapport.</item>
+        <item quantity="one">Er wordt over %d seconde een screenshot gemaakt voor het bugrapport.</item>
+    </plurals>
+    <plurals name="last_num_days">
+        <item quantity="other">Laatste %d dagen</item>
+        <item quantity="one">Afgelopen %d dag</item>
+    </plurals>
+    <plurals name="duration_seconds">
+        <item quantity="other">%d seconden</item>
+        <item quantity="one">1 seconde</item>
+    </plurals>
+    <plurals name="duration_minutes">
+        <item quantity="other">%d minuten</item>
+        <item quantity="one">1 minuut</item>
+    </plurals>
+    <plurals name="duration_hours">
+        <item quantity="other">%d uur</item>
+        <item quantity="one">1 uur</item>
+    </plurals>
+    <plurals name="duration_minutes_shortest">
+        <item quantity="other">%d m</item>
+        <item quantity="one">%d m</item>
+    </plurals>
+    <plurals name="duration_hours_shortest">
+        <item quantity="other">%d u</item>
+        <item quantity="one">%d u</item>
+    </plurals>
+    <plurals name="duration_days_shortest">
+        <item quantity="other">%d d</item>
+        <item quantity="one">%d d</item>
+    </plurals>
+    <plurals name="duration_years_shortest">
+        <item quantity="other">%d j</item>
+        <item quantity="one">%d j</item>
+    </plurals>
+    <plurals name="duration_minutes_shortest_future">
+        <item quantity="other">over %d m</item>
+        <item quantity="one">over %d m</item>
+    </plurals>
+    <plurals name="duration_hours_shortest_future">
+        <item quantity="other">over %d u</item>
+        <item quantity="one">over %d u</item>
+    </plurals>
+    <plurals name="duration_days_shortest_future">
+        <item quantity="other">over %d d</item>
+        <item quantity="one">over %d d</item>
+    </plurals>
+    <plurals name="duration_years_shortest_future">
+        <item quantity="other">over %d j</item>
+        <item quantity="one">over %d j</item>
+    </plurals>
+    <plurals name="wifi_available">
+        <item quantity="other">Wi-Fi-netw. beschikbaar</item>
+        <item quantity="one">Wi-Fi-netwerk beschikbaar</item>
+    </plurals>
+    <plurals name="wifi_available_detailed">
+        <item quantity="other">Open beschikbare Wi-Fi-netwerken</item>
+        <item quantity="one">Open beschikbare Wi-Fi-netwerken</item>
+    </plurals>
+    <plurals name="matches_found">
+        <item quantity="other">%1$d van %2$d</item>
+        <item quantity="one">1 resultaat.</item>
+    </plurals>
+    <plurals name="restr_pin_countdown">
+        <item quantity="other">Probeer het over %d seconden opnieuw</item>
+        <item quantity="one">Probeer opnieuw over 1 seconde.</item>
+    </plurals>
+    <plurals name="zen_mode_duration_minutes_summary">
+        <item quantity="other">%1$d minuten (tot %2$s)</item>
+        <item quantity="one">Eén minuut (tot %2$s)</item>
+    </plurals>
+    <plurals name="zen_mode_duration_minutes_summary_short">
+        <item quantity="other">Gedurende %1$d min (tot %2$s)</item>
+        <item quantity="one">Gedurende 1 min (tot %2$s)</item>
+    </plurals>
+    <plurals name="zen_mode_duration_hours_summary">
+        <item quantity="other">%1$d uur (tot %2$s)</item>
+        <item quantity="one">Eén uur (tot %2$s)</item>
+    </plurals>
+    <plurals name="zen_mode_duration_hours_summary_short">
+        <item quantity="other">Gedurende %1$d u (tot %2$s)</item>
+        <item quantity="one">Gedurende 1 u (tot %2$s)</item>
+    </plurals>
+    <plurals name="zen_mode_duration_minutes">
+        <item quantity="other">%d minuten</item>
+        <item quantity="one">Eén minuut</item>
+    </plurals>
+    <plurals name="zen_mode_duration_minutes_short">
+        <item quantity="other">Gedurende %d min</item>
+        <item quantity="one">Gedurende 1 min</item>
+    </plurals>
+    <plurals name="zen_mode_duration_hours">
+        <item quantity="other">%d uur</item>
+        <item quantity="one">Eén uur</item>
+    </plurals>
+    <plurals name="zen_mode_duration_hours_short">
+        <item quantity="other">Gedurende %d u</item>
+        <item quantity="one">Gedurende 1 u</item>
+    </plurals>
+    <plurals name="selected_count">
+        <item quantity="other">%1$d geselecteerd</item>
+        <item quantity="one">%1$d geselecteerd</item>
+    </plurals>
+    <plurals name="tw_clipboard_files">
+        <item quantity="other">%d bestanden</item>
+        <item quantity="one">1 bestand</item>
+    </plurals>
+</resources>

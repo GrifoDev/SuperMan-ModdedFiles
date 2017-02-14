@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/display_settings"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+  xmlns:touchwiz="http://schemas.android.com/apk/res/touchwiz">
+    <PreferenceScreen android:title="@string/nfc_quick_toggle_title" android:key="nfc_setting" android:summary="@string/nfc_quick_toggle_summary" android:fragment="com.samsung.android.settings.nfc.NfcSettings" />
+    <PreferenceScreen android:title="@string/allshare_nearby" android:key="nearby_setting" android:summary="@string/allshare_title_summary" android:fragment="com.samsung.android.settings.nearby.NearbySettings" />
+    <PreferenceScreen android:title="@string/print_settings" android:key="print_setting" android:fragment="com.android.settings.print.PrintSettingsFragment" />
+    <PreferenceScreen android:title="@string/wfd_settings_title" android:key="screen_mirroring_settings" android:summary="@string/wfd_settings_summary" android:fragment="com.android.settings.wfd.WifiDisplaySettings" />
+    <PreferenceScreen android:title="@string/mirror_link_title" android:key="mirror_link_settings" android:summary="" android:fragment="com.android.settings.mirrorlink.MirrorLink" />
+</PreferenceScreen>

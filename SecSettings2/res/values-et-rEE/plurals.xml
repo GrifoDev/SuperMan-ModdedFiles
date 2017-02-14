@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d tundi</item>
+        <item quantity="one">1 tund</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d minutit</item>
+        <item quantity="one">1 minut</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d sekundit</item>
+        <item quantity="one">1 sekund</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Olete nuud %d sammu kaugusel arendajaks olemisest.</item>
+        <item quantity="one">Olete nuud 1 sammu kaugusel arendajaks olemisest.</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Valitud keelte eemaldamine</item>
+        <item quantity="one">Valitud keele eemaldamine</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Parool peab sisaldama vahemalt %d tahte.</item>
+        <item quantity="one">Parool peab sisaldama vahemalt 1 tahte.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Parool peab sisaldama vahemalt %d vaiketahte.</item>
+        <item quantity="one">Parool peab sisaldama vahemalt 1 vaiketahte.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Parool peab sisaldama vahemalt %d suurtahte.</item>
+        <item quantity="one">Parool peab sisaldama vahemalt 1 suurtahte.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Parool peab sisaldama vahemalt %d numbrit.</item>
+        <item quantity="one">Parool peab sisaldama vahemalt 1 numbrit.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Parool peab sisaldama vahemalt %d sumbolit.</item>
+        <item quantity="one">Parool peab sisaldama vahemalt uhte sumbolit.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Parool peab sisaldama vahemalt %d numbrit voi sumbolit.</item>
+        <item quantity="one">Parool peab sisaldama vahemalt uhte numbrit voi sumbolit.</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Juurdepääs %d kaustale/failile</item>
+        <item quantity="one">Juurdepääs 1 kaustale/failile</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s installis teie seadmesse sertifitseerimiskeskuse sertifikaate, mis võivad anda võimaluse jälgida teie seadme võrgutegevust, sh e-posti, rakenduste ja turvaliste veebisaitide kasutamist.
+
+Lisateabe saamiseks nende sertifikaatide kohta võtke ühendust oma IT-administraatoriga."</item>
+        <item quantity="one">"%s installis teie seadmesse sertifitseerimiskeskuse sertifikaadi, mis võib anda võimaluse jälgida teie seadme võrgutegevust, sh e-posti, rakenduste ja turvaliste veebisaitide kasutamist.
+
+Lisateabe saamiseks selle sertifikaadi kohta võtke ühendust oma IT-administraatoriga."</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d rakendust saavad lugeda teavitusi.</item>
+        <item quantity="one">%d rakendusel on lubatud lugeda teavitusi.</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">Veel %d õigust</item>
+        <item quantity="one">Veel %d õigust</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">Viimase %2$s jooksul kasutasid RAM-i %1$d protsessi</item>
+        <item quantity="one">Viimase %2$s jooksul kasutas RAM-i %1$d protsess</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d rakendust tohivad kasutada mobiilset andmesidet ajal, kui Andmesäästja on aktiveeritud</item>
+        <item quantity="one">1 rakendus tohib piiranguteta kasutada mobiilset andmesidet, kui Andmesäästja on aktiveeritud</item>
+    </plurals>
+</resources>

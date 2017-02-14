@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/menu_path_divider" android:background="?android:listDivider" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" android:layout_marginTop="@dimen/category_seperator_divider_top_margin" android:layout_marginBottom="@dimen/category_seperator_top_margin" />
+    <com.samsung.android.settings.widget.CategoryTextView android:id="@id/category_title" android:layout_width="fill_parent" android:layout_marginTop="@dimen/section_divider_top_padding" android:text="@string/search_results_label" android:paddingStart="@dimen/list_item_start_padding" android:paddingEnd="@dimen/list_item_end_padding" style="?android:attr/listSeparatorTextViewStyle" />
+</LinearLayout>

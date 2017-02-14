@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="emailAddressTypes">
+        <item>නිවස</item>
+        <item>කාර්යාලය</item>
+        <item>වෙනත්</item>
+        <item>අභිමත</item>
+    </string-array>
+    <string-array name="imProtocols">
+        <item>AIM</item>
+        <item>වින්ඩෝස් ලයිව්</item>
+        <item>යාහූ</item>
+        <item>ස්කයිප්</item>
+        <item>QQ</item>
+        <item>ගූගල් ටෝක්</item>
+        <item>ICQ</item>
+        <item>ජැබර්</item>
+    </string-array>
+    <string-array name="organizationTypes">
+        <item>කාර්යාලය</item>
+        <item>වෙනත්</item>
+        <item>අභිමත</item>
+    </string-array>
+    <string-array name="phoneTypes">
+        <item>නිවස</item>
+        <item>ජංගමය</item>
+        <item>කාර්යාලය</item>
+        <item>කාර්යාල ෆැක්ස්</item>
+        <item>නිවෙස් ෆැක්ස්</item>
+        <item>පේජරය</item>
+        <item>වෙනත්</item>
+        <item>අභිමත</item>
+    </string-array>
+    <string-array name="postalAddressTypes">
+        <item>නිවස</item>
+        <item>කාර්යාලය</item>
+        <item>වෙනත්</item>
+        <item>අභිමත</item>
+    </string-array>
+    <string-array name="imAddressTypes">
+        <item>නිවස</item>
+        <item>කාර්යාලය</item>
+        <item>වෙනත්</item>
+        <item>අභිමත</item>
+    </string-array>
+</resources>

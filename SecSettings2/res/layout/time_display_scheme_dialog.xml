@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="?android:textAppearanceMedium" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="3.0dip" android:text="@string/time_display_scheme_info" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <RadioButton android:id="@id/beijing_time" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="false" />
+        <TextView android:textAppearance="?android:textAppearanceMedium" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="3.0dip" android:text="@string/beijing_time" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <RadioButton android:id="@id/local_time" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="false" />
+        <TextView android:textAppearance="?android:textAppearanceMedium" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="3.0dip" android:text="@string/local_time" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/metered_divider" android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <TextView android:gravity="top" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/body_text_top_padding" android:text="@string/data_usage_metered_body" android:layout_marginStart="@dimen/body_text_side_padding" android:layout_marginEnd="@dimen/body_text_side_padding" style="@style/body_text_style" />
+</LinearLayout>

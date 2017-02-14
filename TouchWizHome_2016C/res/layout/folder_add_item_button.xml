@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/add_folder_item" android:background="@drawable/focusable_view_bg" android:paddingTop="@dimen/folder_icon_paddingTop" android:focusable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/folder_add_btn" android:scaleType="center"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center|top" android:id="@id/add_folder_icon" android:background="@drawable/focusable_view_bg" android:focusable="false" android:layout_width="@dimen/app_icon_size" android:layout_height="@dimen/app_icon_size" android:src="@drawable/folder_add_btn" android:scaleType="fitXY" android:contentDescription="@string/folder_add_app" />
+</FrameLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <TextView android:textSize="@dimen/fingerprint_lock_settings_description_text_size" android:textColor="@color/body_text_color" android:id="@id/fingerprint_lock_setting_description" android:paddingTop="@dimen/body_text_top_padding" android:paddingBottom="@dimen/body_text_bottom_padding" android:layout_width="fill_parent" android:layout_height="0.0dip" android:lineSpacingExtra="@dimen/fingerprint_lock_settings_lineSpacingExtra" android:fontFamily="sans-serif" android:paddingStart="@dimen/body_text_side_padding" android:paddingEnd="@dimen/body_text_side_padding" />
+    </ScrollView>
+    <LinearLayout android:orientation="horizontal" android:layout_alignParentEnd="true" style="@style/SecurityPreferenceButtonContainer">
+        <com.samsung.android.settings.widget.BottomBarButton android:textSize="@dimen/fingerprint_lock_settings_bottom_bar_button_text_size" android:id="@id/later_button" android:text="@string/fingerprint_setupwizard_later" style="@style/SecurityPreferenceButton" />
+        <com.samsung.android.settings.widget.BottomBarButton android:textSize="@dimen/fingerprint_lock_settings_bottom_bar_button_text_size" android:id="@id/ok_button" style="@style/SecurityPreferenceButton" />
+    </LinearLayout>
+</LinearLayout>

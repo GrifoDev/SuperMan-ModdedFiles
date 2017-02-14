@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:paddingTop="@dimen/body_text_top_padding" android:paddingBottom="@dimen/list_item_bottom_padding" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeightSmall" android:paddingStart="@dimen/list_item_start_padding" android:paddingEnd="@dimen/list_item_end_padding">
+        <TextView android:id="@id/textView1" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/body_text_style" />
+        <TextView android:ellipsize="marquee" android:id="@id/title" android:visibility="gone" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" style="@style/list_title_text_style" />
+        <TextView android:id="@id/summary" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="10" style="@style/list_summary_text_style" />
+    </LinearLayout>
+</ScrollView>

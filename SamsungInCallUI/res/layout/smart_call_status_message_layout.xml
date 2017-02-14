@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="?android:textAppearanceSmall" android:textSize="@dimen/sec_call_label_text_size" android:textColor="@color/sec_incall_call_banner_default_subtext_color" android:id="@id/smartCallStatus" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="@dimen/sec_primary_call_name_maxwidth" android:singleLine="true" android:layout_centerHorizontal="true" android:fontFamily="sec-roboto-light" />
+    <ImageView android:id="@id/status_cp_logo" android:visibility="gone" android:layout_width="@dimen/sec_smart_call_cp_logo_width" android:layout_height="@dimen/sec_smart_call_cp_logo_height" />
+</LinearLayout>

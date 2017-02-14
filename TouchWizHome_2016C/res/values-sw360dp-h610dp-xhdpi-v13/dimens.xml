@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="home_cellGapX_port">1.0dip</dimen>
+    <dimen name="home_cellGapY_port">5.0dip</dimen>
+    <dimen name="home_editmode_panel_page_padding_top">5.0dip</dimen>
+    <dimen name="home_icon_drawablepadding">-1.0dip</dimen>
+    <dimen name="home_icon_paddingTop">16.0dip</dimen>
+    <dimen name="home_pageIndicatorTop">473.0dip</dimen>
+    <dimen name="home_pageIndicatorTopDrag">485.0dip</dimen>
+    <dimen name="home_screen_option_menu_icon_width">86.0dip</dimen>
+    <dimen name="home_screen_option_menu_text_padding">12.0dip</dimen>
+    <dimen name="homescreen_option_menu_margin_top">0.0dip</dimen>
+    <dimen name="hotseat_cellHeight">86.0dip</dimen>
+    <dimen name="menuAppsGrid_cellGapX">0.0dip</dimen>
+    <dimen name="menuAppsGrid_cellGapY">0.0dip</dimen>
+    <dimen name="menuAppsGrid_cellHeight">108.0dip</dimen>
+    <dimen name="menuAppsGrid_cellWidth">87.0dip</dimen>
+    <item type="dimen" name="menu_edit_translation_view_factor">0.95</item>
+    <item type="dimen" name="menu_edit_zoom_out_scale_factor">0.95</item>
+    <dimen name="menu_pageIndicatorTop">535.0dip</dimen>
+    <dimen name="menu_titleHeight">56.0dip</dimen>
+    <dimen name="widget_pageIndicatorTop">557.0dip</dimen>
+    <dimen name="workspaceEditModeShrink_top_adjust">220.0dip</dimen>
+    <dimen name="apps_5x5_cellHeight_port">108.0dip</dimen>
+    <dimen name="home_4x5_cellGapY">4.0dip</dimen>
+    <dimen name="home_5x5_cellGapY">4.0dip</dimen>
+    <dimen name="homefolder_icon_drawablepadding">-1.0dip</dimen>
+    <dimen name="homefolder_icon_paddingTop">16.0dip</dimen>
+    <dimen name="hotseat_barSize_drag">102.0dip</dimen>
+    <dimen name="hotseat_icon_drawablepadding_4">-1.0dip</dimen>
+    <dimen name="hotseat_icon_paddingTop_4">7.0dip</dimen>
+    <dimen name="hotseatfolder_icon_drawablepadding_4">-1.0dip</dimen>
+    <dimen name="hotseatfolder_icon_paddingTop_4">7.0dip</dimen>
+    <dimen name="home_4x5_cellGapX">1.0dip</dimen>
+    <dimen name="home_5x5_cellGapX">1.0dip</dimen>
+    <item type="dimen" name="menu5x5_edit_translation_view_factor">0.975</item>
+    <dimen name="moveApps_scroll_margin">20.0dip</dimen>
+    <dimen name="moveApps_topGap">12.0dip</dimen>
+    <dimen name="moveApps_cellHeight">74.0dip</dimen>
+    <dimen name="app_searchview_margin_top">8.0dip</dimen>
+    <item type="dimen" name="config_hotseatDragModeShrinkFactor">0.92</item>
+    <dimen name="moveApps_topGpadding">-2.0dip</dimen>
+</resources>

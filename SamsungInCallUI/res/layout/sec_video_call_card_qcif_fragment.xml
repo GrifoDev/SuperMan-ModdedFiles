@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/primary_call_info_container" android:background="@color/incall_call_banner_active_bg_theme" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_centerHorizontal="true">
+        <include layout="@layout/sec_primary_call_info_video_qcif" />
+    </LinearLayout>
+    <LinearLayout android:id="@id/incomingHideMeLayout" android:focusable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_centerHorizontal="true">
+        <ToggleButton android:id="@id/incomingHideMe" android:background="@drawable/sec_video_hideme_button_background" android:visibility="gone" android:clickable="false" android:textOn="@string/sec_showme_text" android:textOff="@string/sec_hideme_text" android:drawableLeft="@drawable/sec_video_incomingcall_hide_me_icon" style="@style/SecIncomingVideoCallHideMeButton" />
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/main_content" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TabHost android:id="@android:id/tabhost" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ViewStub android:id="@id/fota_update_stub" android:layout="@layout/fota_update_stub" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+            <HorizontalScrollView android:id="@id/hscroll" android:background="@drawable/dashboard_tab_bg" android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="wrap_content" android:fillViewport="true" android:requiresFadingEdge="horizontal" android:elevation="1.0dip">
+                <TabWidget android:id="@android:id/tabs" android:layout_width="fill_parent" android:layout_height="wrap_content" android:importantForAccessibility="no" />
+            </HorizontalScrollView>
+            <FrameLayout android:id="@android:id/tabcontent" android:layout_width="wrap_content" android:layout_height="fill_parent">
+                <FrameLayout android:id="@id/quick_settings_tab_view" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+                <FrameLayout android:id="@id/connections_tab_view" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+                <FrameLayout android:id="@id/device_tab_view" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+                <FrameLayout android:id="@id/personal_tab_view" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+                <FrameLayout android:id="@id/system_tab_view" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+                <android.support.v4.view.ViewPager android:id="@id/pager" android:layout_width="fill_parent" android:layout_height="wrap_content"
+                  xmlns:android="http://schemas.android.com/apk/res/android" />
+            </FrameLayout>
+        </LinearLayout>
+    </TabHost>
+</RelativeLayout>

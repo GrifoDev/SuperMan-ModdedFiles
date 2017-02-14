@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/layout_root" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="0.0px" android:layout_weight="1.0">
+        <fragment android:id="@id/accessibilityfragment" android:layout_width="fill_parent" android:layout_height="fill_parent" class="com.samsung.android.settings.accessibility.AccessibilitySettings" />
+    </LinearLayout>
+    <View android:id="@id/bottom_button_bar" android:background="@color/ssw_bottom_button_divider_color" android:layout_width="fill_parent" android:layout_height="@dimen/ssw_bottom_button_bar_height" />
+    <RelativeLayout android:gravity="end|center" android:layout_gravity="bottom" android:orientation="horizontal" android:id="@id/bottom_buttons" android:background="@color/ssw_bottom_view_color" android:layout_width="fill_parent" android:layout_height="@dimen/ssw_bottom_buttons_area_height" android:paddingStart="@dimen/ssw_bottom_buttons_padding_start_margin" android:paddingEnd="@dimen/ssw_bottom_buttons_padding_end_margin">
+        <LinearLayout android:gravity="center" android:layout_gravity="center_vertical" android:orientation="horizontal" android:id="@id/second_btn_area" android:background="@drawable/ripple_setupwizard_next_btn" android:focusable="true" android:layout_width="wrap_content" android:layout_height="fill_parent" android:paddingStart="@dimen/ssw_bottom_buttons_padding_start_margin" android:paddingEnd="@dimen/ssw_bottom_buttons_padding_end_margin" android:layout_marginEnd="@dimen/ssw_wifi_button_end_margin" android:layout_alignParentEnd="true">
+            <TextView android:id="@id/second_btn_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/next_label" android:textAllCaps="true" android:layout_marginStart="@dimen/ssw_bottom_button_text_right_margin" android:layout_marginEnd="@dimen/ssw_bottom_button_text_right_margin" style="@style/ssw_bottom_button_text" />
+            <ImageView android:id="@id/second_btn_arrow" android:layout_width="@dimen/ssw_bottom_button_image_size" android:layout_height="@dimen/ssw_bottom_button_image_size" android:layout_marginTop="@dimen/ssw_bottom_button_image_top_margin" android:src="@drawable/setupwizard_next_arrow_auto_mirrored" android:tint="@color/ssw_bottom_button_text_color" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

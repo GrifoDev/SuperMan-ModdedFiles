@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.internal.widget.DirectionLockView android:layout_gravity="center" android:id="@id/directionLockView" android:background="@color/cryptkeeper_direction_lock_view_background" android:layout_width="@dimen/crypt_keeper_direction_width" android:layout_height="@dimen/crypt_keeper_direction_height" />
+</merge>

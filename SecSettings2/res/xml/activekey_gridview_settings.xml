@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/active_key_title"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <PreferenceCategory android:title="@string/category_customize" android:key="customize_category_key">
+        <PreferenceScreen android:title="@string/active_key_short_press" android:key="short_press_key" android:fragment="com.samsung.android.settings.activekey.ActiveKeyAppGridView">
+            <extra android:name="pressed_type" android:value="short" />
+        </PreferenceScreen>
+        <PreferenceScreen android:title="@string/active_key_long_press" android:key="long_press_key" android:fragment="com.samsung.android.settings.activekey.ActiveKeyAppGridView">
+            <extra android:name="pressed_type" android:value="long" />
+        </PreferenceScreen>
+        <PreferenceScreen android:title="@string/active_key_double_press" android:key="double_press_key" android:fragment="com.samsung.android.settings.activekey.ActiveKeyAppGridView">
+            <extra android:name="pressed_type" android:value="double" />
+        </PreferenceScreen>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/active_key_setting_category" android:key="active_key_setting_category_key">
+        <SwitchPreference android:title="@string/active_key_on_lockscreen" android:key="active_key_on_lockscreen_key" android:summary="@string/active_key_on_lockscreen_summary" />
+    </PreferenceCategory>
+</PreferenceScreen>

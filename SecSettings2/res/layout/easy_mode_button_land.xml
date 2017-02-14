@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:descendantFocusability="afterDescendants" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:layout_gravity="center_vertical" android:orientation="vertical" android:layout_width="0.0px" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <ImageView android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/preview_image" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/easy_img_preview" android:scaleType="fitCenter" android:adjustViewBounds="true" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:layout_width="0.0px" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <LinearLayout android:orientation="vertical" android:id="@id/mode_radio_group" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <LinearLayout android:gravity="center_vertical" android:id="@id/standard_mode_layout" android:background="?android:listChoiceBackgroundIndicator" android:paddingRight="@dimen/list_item_end_padding" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeightSmall">
+                <RadioButton android:gravity="center_vertical" android:id="@id/radio_standard_mode" android:background="@null" android:focusable="false" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/list_item_checkbox_margin_left" android:layout_marginEnd="@dimen/list_item_checkbox_margin_right" />
+                <TextView android:id="@id/std_textview" android:paddingTop="@dimen/list_item_top_padding" android:paddingBottom="@dimen/list_item_bottom_padding" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/standard_mode" style="@style/list_title_text_style" />
+            </LinearLayout>
+            <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginStart="@dimen/list_checkbox_width_for_divider_inset_padding">
+                <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginStart="@dimen/list_radiobox_width_for_divider_inset" />
+            </LinearLayout>
+            <LinearLayout android:gravity="center_vertical" android:id="@id/easy_mode_layout" android:background="?android:listChoiceBackgroundIndicator" android:paddingRight="@dimen/list_item_end_padding" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeightSmall">
+                <RadioButton android:gravity="center_vertical" android:id="@id/radio_easy_mode" android:background="@null" android:focusable="false" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/list_item_checkbox_margin_left" android:layout_marginEnd="@dimen/list_item_checkbox_margin_right" />
+                <TextView android:id="@id/easy_textview" android:paddingTop="@dimen/list_item_top_padding" android:paddingBottom="@dimen/list_item_bottom_padding" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easy_mode" style="@style/list_title_text_style" />
+            </LinearLayout>
+            <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginStart="@dimen/list_checkbox_width_for_divider_inset_padding">
+                <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginStart="@dimen/list_radiobox_width_for_divider_inset" />
+            </LinearLayout>
+        </LinearLayout>
+        <TextView android:id="@id/help_instruction" android:focusable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/body_text_top_padding" android:layout_marginBottom="@dimen/body_text_top_padding" android:text="@string/easy_mode_app_help" android:layout_marginStart="@dimen/body_text_side_padding" android:layout_marginEnd="@dimen/body_text_side_padding" style="@style/body_text_style" />
+    </LinearLayout>
+</LinearLayout>

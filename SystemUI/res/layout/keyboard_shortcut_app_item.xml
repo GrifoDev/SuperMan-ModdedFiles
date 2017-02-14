@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_gravity="start|center" android:orientation="horizontal" android:paddingBottom="8.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="48.0dip" android:paddingStart="24.0dip" android:paddingEnd="24.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="start|center" android:id="@id/keyboard_shortcuts_icon" android:visibility="gone" android:layout_width="24.0dip" android:layout_height="24.0dip" android:layout_marginEnd="24.0dip" />
+    <TextView android:textSize="16.0sp" android:textColor="@color/ksh_keyword_color" android:ellipsize="marquee" android:layout_gravity="start|center" android:id="@id/keyboard_shortcuts_keyword" android:focusable="true" android:layout_width="0.0dip" android:layout_height="wrap_content" android:singleLine="true" android:layout_weight="1.0" android:paddingEnd="12.0dip" />
+    <LinearLayout android:layout_gravity="end|center" android:orientation="horizontal" android:id="@id/keyboard_shortcuts_item_container" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+</LinearLayout>

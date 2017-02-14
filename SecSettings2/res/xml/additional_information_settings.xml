@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/additional_information_title" android:key="parent"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <SwitchPreference android:title="@string/common_music_controller" android:key="key_music_controller" />
+    <SwitchPreference android:title="@string/today_schedule" android:key="key_today_schedule" />
+    <SwitchPreference android:title="@string/steps" android:key="key_steps" />
+</PreferenceScreen>

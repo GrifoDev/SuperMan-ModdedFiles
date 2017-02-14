@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:paddingLeft="@dimen/wfd_dialog_layout_margin_left" android:paddingTop="@dimen/wfd_dialog_layout_margin_top" android:paddingRight="@dimen/wfd_dialog_layout_margin_right" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="17.0sp" android:textStyle="normal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/wfd_tag_write_message" android:fontFamily="sec-roboto-light" />
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="-5.0dip">
+            <CheckBox android:id="@id/wfd_write_nfc_is_readonly" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="8.0dip" />
+            <TextView android:textSize="17.0sp" android:textStyle="normal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/wfd_nfc_readonly" android:fontFamily="sec-roboto-light" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

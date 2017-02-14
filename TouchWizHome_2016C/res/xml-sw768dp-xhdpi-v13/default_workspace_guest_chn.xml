@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<favorites
+  xmlns:launcher="http://schemas.android.com/apk/res/com.sec.android.app.launcher">
+    <home>
+        <appwidget launcher:className="com.sec.android.daemonapp.appwidget.WeatherAppWidget" launcher:packageName="com.sec.android.daemonapp" launcher:screen="0" launcher:x="0" launcher:y="0" launcher:spanX="6" launcher:spanY="2" />
+        <appwidget launcher:className="com.baidu.searchbox.SearchWidgetProvider" launcher:packageName="com.baidu.searchbox_samsung" launcher:screen="0" launcher:x="0" launcher:y="2" launcher:spanX="6" launcher:spanY="1" />
+        <appwidget launcher:className="com.sec.android.widgetapp.samsungapps.WidgetProvider42" launcher:packageName="com.sec.android.widgetapp.samsungapps" launcher:screen="1" launcher:x="0" launcher:y="0" launcher:spanX="6" launcher:spanY="1" />
+    </home>
+    <hotseat>
+        <favorite launcher:className="com.sec.android.app.myfiles.common.MainActivity" launcher:packageName="com.sec.android.app.myfiles" launcher:screen="0" />
+        <favorite launcher:className="com.sec.android.gallery3d.app.GalleryOpaqueActivity" launcher:packageName="com.sec.android.gallery3d" launcher:screen="1" />
+        <favorite launcher:className="com.sec.android.app.camera.Camera" launcher:packageName="com.sec.android.app.camera" launcher:screen="2" />
+        <favorite launcher:className="com.samsung.android.email.ui.activity.MessageListXL" launcher:packageName="com.samsung.android.email.provider" launcher:screen="3" />
+        <favorite launcher:className="com.sec.android.app.sbrowser.SBrowserMainActivity" launcher:packageName="com.sec.android.app.sbrowser" launcher:screen="4" />
+    </hotseat>
+</favorites>

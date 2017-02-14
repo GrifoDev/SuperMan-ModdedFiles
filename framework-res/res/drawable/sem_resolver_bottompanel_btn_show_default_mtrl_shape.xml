@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inset android:insetLeft="@dimen/sem_resolver_bottompanel_button_show_background_inset_horizontal" android:insetRight="@dimen/sem_resolver_bottompanel_button_show_background_inset_horizontal" android:insetTop="@dimen/sem_resolver_bottompanel_button_show_background_inset_vertical" android:insetBottom="@dimen/sem_resolver_bottompanel_button_show_background_inset_vertical"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <shape android:shape="rectangle">
+        <corners android:radius="@dimen/control_corner_material" />
+        <solid android:color="@color/sem_resolver_bottompanel_button_show_background_color_material_light" />
+        <stroke android:width="@dimen/sem_resolver_bottompanel_button_show_background_stroke_size" android:color="@color/sem_resolver_bottompanel_button_show_background_stroke_color_material_light" />
+    </shape>
+</inset>

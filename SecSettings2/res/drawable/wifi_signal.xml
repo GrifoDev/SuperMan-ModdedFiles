@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <item settings:state_encrypted="true" settings:state_wifi_giga="false" settings:state_wifi_wechat="false">
+        <level-list>
+            <item android:drawable="@drawable/ic_wifi_signal_lock_0" android:maxLevel="0" />
+            <item android:drawable="@drawable/ic_wifi_signal_lock_1" android:maxLevel="1" />
+            <item android:drawable="@drawable/ic_wifi_signal_lock_2" android:maxLevel="2" />
+            <item android:drawable="@drawable/ic_wifi_signal_lock_3" android:maxLevel="3" />
+            <item android:drawable="@drawable/ic_wifi_signal_lock_4" android:maxLevel="4" />
+            <item android:drawable="@drawable/ic_wifi_signal_no" android:maxLevel="5" />
+        </level-list>
+    </item>
+    <item settings:state_encrypted="false" settings:state_wifi_giga="false" settings:state_wifi_wechat="false">
+        <level-list>
+            <item android:drawable="@drawable/ic_wifi_signal_0" android:maxLevel="0" />
+            <item android:drawable="@drawable/ic_wifi_signal_1" android:maxLevel="1" />
+            <item android:drawable="@drawable/ic_wifi_signal_2" android:maxLevel="2" />
+            <item android:drawable="@drawable/ic_wifi_signal_3" android:maxLevel="3" />
+            <item android:drawable="@drawable/ic_wifi_signal_4" android:maxLevel="4" />
+            <item android:drawable="@drawable/ic_wifi_signal_no" android:maxLevel="5" />
+        </level-list>
+    </item>
+    <item settings:state_encrypted="true" settings:state_wifi_giga="true" settings:state_wifi_wechat="false">
+        <layer-list>
+            <item>
+                <level-list>
+                    <item android:drawable="@drawable/ic_wifi_signal_lock_shift_0" android:maxLevel="0" />
+                    <item android:drawable="@drawable/ic_wifi_signal_lock_shift_1" android:maxLevel="1" />
+                    <item android:drawable="@drawable/ic_wifi_signal_lock_shift_2" android:maxLevel="2" />
+                    <item android:drawable="@drawable/ic_wifi_signal_lock_shift_3" android:maxLevel="3" />
+                    <item android:drawable="@drawable/ic_wifi_signal_lock_shift_4" android:maxLevel="4" />
+                    <item android:drawable="@drawable/ic_wifi_signal_no" android:maxLevel="5" />
+                </level-list>
+            </item>
+        </layer-list>
+    </item>
+    <item settings:state_encrypted="false" settings:state_wifi_giga="true" settings:state_wifi_wechat="false">
+        <layer-list>
+            <item>
+                <level-list>
+                    <item android:drawable="@drawable/ic_wifi_signal_shift_0" android:maxLevel="0" />
+                    <item android:drawable="@drawable/ic_wifi_signal_shift_1" android:maxLevel="1" />
+                    <item android:drawable="@drawable/ic_wifi_signal_shift_2" android:maxLevel="2" />
+                    <item android:drawable="@drawable/ic_wifi_signal_shift_3" android:maxLevel="3" />
+                    <item android:drawable="@drawable/ic_wifi_signal_shift_4" android:maxLevel="4" />
+                    <item android:drawable="@drawable/ic_wifi_signal_no" android:maxLevel="5" />
+                </level-list>
+            </item>
+        </layer-list>
+    </item>
+    <item settings:state_wifi_giga="false" settings:state_wifi_wechat="true" state_encrypted="false">
+        <layer-list>
+            <item>
+                <level-list>
+                    <item android:drawable="@drawable/ic_wifi_signal_wechat_0" android:maxLevel="0" />
+                    <item android:drawable="@drawable/ic_wifi_signal_wechat_1" android:maxLevel="1" />
+                    <item android:drawable="@drawable/ic_wifi_signal_wechat_2" android:maxLevel="2" />
+                    <item android:drawable="@drawable/ic_wifi_signal_wechat_3" android:maxLevel="3" />
+                    <item android:drawable="@drawable/ic_wifi_signal_wechat_4" android:maxLevel="4" />
+                    <item android:drawable="@drawable/ic_wifi_signal_no" android:maxLevel="5" />
+                </level-list>
+            </item>
+        </layer-list>
+    </item>
+</selector>

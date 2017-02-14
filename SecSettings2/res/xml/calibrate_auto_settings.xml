@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceScreen android:title="Code customization by user" android:key="code_custom_by_user" />
+    <PreferenceScreen android:title="Update calibration DB" android:key="update_calibration_db" />
+    <PreferenceScreen android:title="Code customization by user" android:key="code_custom_by_user_1" />
+    <PreferenceScreen android:title="Update calibration DB" android:key="update_calibration_db_1" />
+</PreferenceScreen>

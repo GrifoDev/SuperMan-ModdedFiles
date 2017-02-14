@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:background="@color/spam_color" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/sec_call_spam_text_size" android:textColor="@color/sec_incall_call_banner_text_color" android:gravity="center" android:id="@id/spam_reject" android:background="@drawable/sec_incall_button_background_rectangle" android:focusable="true" android:clickable="true" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/incall_spam_call_reject" android:singleLine="true" android:layout_weight="1.0" android:textAllCaps="true" android:fontFamily="sans-serif" />
+    <TextView android:textSize="@dimen/sec_call_spam_text_size" android:textColor="@color/sec_incall_call_banner_text_color" android:gravity="center" android:id="@id/spam_report" android:background="@drawable/sec_incall_button_background_rectangle" android:focusable="true" android:clickable="true" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/incall_spam_call_report" android:singleLine="true" android:layout_weight="1.0" android:textAllCaps="true" android:fontFamily="sec-roboto-light" />
+</LinearLayout>

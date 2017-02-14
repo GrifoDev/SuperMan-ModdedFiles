@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="wrap_content" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/sec_cover_call_elapsed_time_text_size" android:textColor="@color/sec_cover_call_state_label" android:id="@id/divider" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/record_time_call_time_divider" android:layout_centerVertical="true" android:layout_marginStart="@dimen/sec_call_popup_divider_margin" android:layout_marginEnd="@dimen/sec_call_popup_divider_margin" />
+    <TextView android:textSize="@dimen/sec_cover_call_elapsed_time_text_size" android:textColor="@color/sec_cover_call_state_label" android:id="@id/holdCallText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="sans-serif" android:layout_toEndOf="@id/divider" />
+</RelativeLayout>

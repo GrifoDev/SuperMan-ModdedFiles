@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/wifi_settings" settings:keywords="@string/keywords_wifi"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <CheckBoxPreference android:persistent="true" android:visibility="gone" android:key="show_wifi_smart_network_switch_dialog" android:defaultValue="true" />
+    <com.android.settings.ProgressCategoryWifi android:persistent="false" android:title="@string/wifi_access_points" android:selectable="false" android:key="wifi_progress_category" />
+</PreferenceScreen>

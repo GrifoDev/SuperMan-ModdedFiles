@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/data_saver_title"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:settings="http://schemas.android.com/apk/res-auto">
+    <Preference android:title="@string/unrestricted_data_saver" android:key="unrestricted_access" android:fragment="com.android.settings.datausage.UnrestrictedDataAccess" />
+    <com.samsung.android.settings.UnclickablePreference android:title="@string/data_saver_description" android:key="description" style="@style/description_text" />
+</PreferenceScreen>

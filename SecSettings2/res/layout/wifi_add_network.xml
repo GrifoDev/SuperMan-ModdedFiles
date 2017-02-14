@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:id="@id/wifi_add_network" android:background="?android:selectableItemBackground" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/list_item_start_padding" android:paddingEnd="@dimen/list_divider_padding"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeightSmall">
+        <LinearLayout android:gravity="center" android:id="@android:id/icon" android:layout_width="@dimen/list_app_icon_size" android:layout_height="@dimen/list_app_icon_size" android:minHeight="?android:listPreferredItemHeightSmall" android:layout_marginEnd="@dimen/wifi_list_item_end_padding">
+            <ImageView style="@style/item_add_button" />
+        </LinearLayout>
+        <TextView android:ellipsize="end" android:id="@android:id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/wifi_ap_pref_paddingTop" android:layout_marginBottom="@dimen/wifi_ap_pref_paddingBottom" android:text="@string/wifi_add_network" android:singleLine="true" android:layout_marginEnd="@dimen/list_item_inner_padding" style="@style/list_title_text_style" />
+    </LinearLayout>
+</LinearLayout>

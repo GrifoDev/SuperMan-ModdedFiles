@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:id="@id/wifi_ap_pref" android:background="?android:selectableItemBackground" android:paddingTop="@dimen/wifi_ap_pref_paddingTop" android:paddingBottom="@dimen/wifi_ap_pref_paddingBottom" android:focusable="true" android:clickable="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/listItemMinHeight" android:paddingStart="0.0dip" android:paddingEnd="0.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="fill_parent">
+        <ImageView android:layout_gravity="center" android:id="@id/wifi_ap_settings_allowed_toggle" android:background="@drawable/wifi_ap_icon_tethering_icon_bg_new" android:focusable="false" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="24.0dip" android:layout_marginRight="?android:scrollbarSize" android:src="@drawable/ic_list_tethering" />
+        <TextView android:textSize="19.0sp" android:textColor="@color/wifi_p2p_preference_title_color" android:ellipsize="end" android:layout_gravity="center" android:id="@android:id/title" android:focusable="false" android:fadingEdge="horizontal" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="6.0dip" android:singleLine="true" android:fontFamily="sec-roboto-light" />
+    </LinearLayout>
+</LinearLayout>

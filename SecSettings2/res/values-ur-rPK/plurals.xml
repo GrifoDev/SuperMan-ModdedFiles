@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d گھنٹے</item>
+        <item quantity="one">1 گھنٹہ</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d منٹ</item>
+        <item quantity="one">1 منٹ</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d سیکنڈ</item>
+        <item quantity="one">1 سیکینڈ</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">آپ ایک ڈیویلپر ہونے کے لئے اس وقت %d مراحل دور ہیں</item>
+        <item quantity="one">آپ ایک ڈیویلپر ہونے کے لئے اس وقت 1 قدم دور ہیں</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">منتخب شدہ زبانیں ہٹائیں</item>
+        <item quantity="one">منتخب شدہ زبان کو ہٹائیں</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">پاس ورڈ میں کم از کم %d حروف شامل ہونا ضروری ہے</item>
+        <item quantity="one">پاس ورڈ میں کم از کم 1 حرف شامل ہونا ضروری ہے</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">پاس ورڈ میں کم از کم %d چھوٹے حروف شامل ہونا ضروری ہے</item>
+        <item quantity="one">پاس ورڈ میں کم از کم 1 چھوٹا حرف شامل ہونا ضروری ہے</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">پاس ورڈ میں کم از کم %d بڑے حروف شامل ہونا ضروری ہے</item>
+        <item quantity="one">پاس ورڈ میں کم از کم 1 بڑا حرف شامل ہونا ضروری ہے</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">پاس ورڈ میں کم از کم ‎%d عدد شامل ہونا ضروری ہے</item>
+        <item quantity="one">پاس ورڈ میں کم از کم 1 عدد شامل ہونا ضروری ہے</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">پاس ورڈ میں کم از کم %d علامات شامل ہونا ضروری ہے</item>
+        <item quantity="one">پاس ورڈ میں کم از کم 1 علامت شامل ہونا ضروری ہے</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">پاس ورڈ میں کم از کم ‎%d اعدد یا علامات شامل ہونا ضروری ہے</item>
+        <item quantity="one">پاس ورڈ میں کم از کم 1 عدد یا علامت شامل ہونا ضروری ہے</item>
+    </plurals>
+    <plurals name="wrong_pin_code">
+        <item quantity="other">‏غلط SIM PIN کوڈ، آپ کے پاس %d کوشش بچی ہے، اس کے بعد آپ کو اپنا آلہ غیر مقفل کرنے کیلئے اپنے کریئر سے رابطہ کرنا ہوگا۔</item>
+        <item quantity="one">‏غلط SIM PIN کوڈ، آپ کے پاس %d کوششیں بچی ہیں۔</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">%d فولڈرز/فائلز تک رسائی کریں</item>
+        <item quantity="one">1 فولڈر/فائل تک رسائی کریں</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"آپ کے آلہ پر CA سرٹیفکیٹ %s تنصیب کیاگيا ہے، جو آپ کے آلہ کا نیٹ ورک سرگرمی، بشمول آپ کے ای میلز، ایپلیکیشنز، اور محفوظ ویب سائٹ کے استعمال کو مانیٹر کرنے کی اجازت دے سکتا ہے۔
+
+اس اسناد سے متعلق مزید جانکاری کے لیے، اپنے IT منتظم سے رابطہ کریں۔"</item>
+        <item quantity="one">"آپ کے آلہ پر CA سرٹیفکیٹ %s تنصیب کیاگيا ہے، جو آپ کے آلہ کا نیٹ ورک سرگرمی، بشمول آپ کے ای میلز، ایپلیکیشنز، اور محفوظ ویب سائٹ کے استعمال کو مانیٹر کرنے کی اجازت دے سکتا ہے۔
+
+اس سرٹیفکیٹ سے متعلق مزید جان کاری کے لیے، اپنے IT منتظم سے رابطہ کریں۔"</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d ایپلیکیشنز نوٹیفیکیشنز پڑھ سکتے ہیں۔</item>
+        <item quantity="one">نوٹیفیکیشنز پڑھنے کیلئے %d ایپلیکیشن کی اجازت ہے۔</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d مزید اجازتیں</item>
+        <item quantity="one">%d مزید اجازتیں</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">گزشتہ %2$s میں %1$d پروسیسیز نے RAM استعمال کیا</item>
+        <item quantity="one">گزشتہ %2$s میں %1$d پروسیس نے RAM استعمال کیا</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d ایپلیکیشنز کی طرف سے ڈیٹا سرور کے اہل ہونے پر بغیر تحدید کے موبائل ڈیٹا استعمال کرنے کی اجازت ہے</item>
+        <item quantity="one">1 ایپلیکیش کو تحدید کے بغیر ڈیٹا سرور کے اہل ہونے پر موبائل ڈیٹا استعمال کرنے کی اجازت ہے</item>
+    </plurals>
+</resources>

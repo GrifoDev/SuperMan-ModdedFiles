@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d hodin</item>
+        <item quantity="one">1 hodina</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">Počet minut: %d</item>
+        <item quantity="one">1 minuta</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">Počet sekund: %d</item>
+        <item quantity="one">1 sekunda</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Nyní jste %d kroků od toho stát se vývojářem.</item>
+        <item quantity="one">Nyní jste 1 krok od toho stát se vývojářem.</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Odebrat vybrané jazyky</item>
+        <item quantity="one">Odebrat vybraný jazyk</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Heslo musí obsahovat alespoň %d písmen.</item>
+        <item quantity="one">Heslo musí obsahovat alespoň jedno písmeno.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Heslo musí obsahovat alespoň %d malých písmen.</item>
+        <item quantity="one">Heslo musí obsahovat alespoň jedno malé písmeno.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Heslo musí obsahovat alespoň %d velkých písmen.</item>
+        <item quantity="one">Heslo musí obsahovat alespoň jedno velké písmeno.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Heslo musí obsahovat alespoň %d číslic.</item>
+        <item quantity="one">Heslo musí obsahovat alespoň jednu číslici.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Heslo musí obsahovat alespoň %d symbolů.</item>
+        <item quantity="one">Heslo musí obsahovat alespoň 1 symbol.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Heslo musí obsahovat alespoň %d číslic nebo symbolů.</item>
+        <item quantity="one">Heslo musí obsahovat alespoň 1 číslici nebo symbol.</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Přístup do %d složek/souborů</item>
+        <item quantity="one">Přístup do 1 složky/souboru</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s nainstaloval do zařízení certifikáty CÚ, které umožňují monitorovat aktivitu tohoto zařízení v síti včetně e-mailů, aplikací a návštěv zabezpečených webových stránek.
+
+Další informace o certifikátech získáte od správce IT."</item>
+        <item quantity="one">"%s nainstaloval do zařízení certifikát CÚ, který umožňuje monitorovat aktivitu tohoto zařízení v síti včetně e-mailů, aplikací a návštěv zabezpečených webových stránek.
+
+Další informace o certifikátu získáte od správce IT."</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">Počet aplikací, které mohou číst oznámení: %d.</item>
+        <item quantity="one">Aplikace (%d) smí číst oznámení.</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d dalších oprávnění</item>
+        <item quantity="one">%d další oprávnění</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">Během posledních %2$s použilo paměť RAM %1$d procesů</item>
+        <item quantity="one">Během posledních %2$s použil paměť RAM %1$d proces</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d aplikací může používat mobilní data bez omezení, když je zapnutá funkce Spořič dat</item>
+        <item quantity="one">1 aplikace smí používat mobilní data bez omezení, když je zapnutý Spořič dat</item>
+    </plurals>
+</resources>

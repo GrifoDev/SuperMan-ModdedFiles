@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/divider_manage" android:background="@android:drawable/divider_horizontal_dark" android:layout_width="2.0dip" android:layout_height="fill_parent" android:layout_marginTop="5.0dip" android:layout_marginBottom="5.0dip" />
+    <ImageView android:layout_gravity="center" android:id="@id/manage" android:background="@drawable/dashboard_favorite_view_bg" android:layout_width="wrap_content" android:layout_height="fill_parent" android:contentDescription="@string/settings_label" android:paddingStart="@dimen/dialog_bottom_button_padding_left_right" android:paddingEnd="@dimen/dialog_bottom_button_padding_left_right" style="@style/list_item_config_icon" />
+</LinearLayout>

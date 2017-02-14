@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/pen_settings_pen_input" android:key="settings_main"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/pen_settings_pen_input_more" android:key="settings_more_information">
+        <SwitchPreference android:persistent="true" android:title="@string/pen_settings_pen_input_predictive_text" android:key="predictive_text" android:defaultValue="false" />
+    </PreferenceCategory>
+</PreferenceScreen>

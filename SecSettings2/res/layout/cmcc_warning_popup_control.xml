@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <CheckBox android:layout_gravity="start" android:id="@id/cmcc_wlan" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:layout_marginBottom="5.0dip" android:text="@string/cmcc_warning_dialog_control_summary_1" android:layout_marginStart="@dimen/alert_dialog_padding_left_right" android:layout_marginEnd="@dimen/alert_dialog_padding_left_right" />
+        <CheckBox android:layout_gravity="start" android:id="@id/wlan_aplist" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:layout_marginBottom="5.0dip" android:text="@string/cmcc_warning_dialog_control_summary_2" android:layout_marginStart="@dimen/alert_dialog_padding_left_right" android:layout_marginEnd="@dimen/alert_dialog_padding_left_right" />
+        <CheckBox android:layout_gravity="start" android:id="@id/always_ask" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:layout_marginBottom="5.0dip" android:text="@string/cmcc_warning_dialog_control_summary_3" android:layout_marginStart="@dimen/alert_dialog_padding_left_right" android:layout_marginEnd="@dimen/alert_dialog_padding_left_right" />
+        <CheckBox android:layout_gravity="start" android:id="@id/fight_mode" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:layout_marginBottom="5.0dip" android:text="@string/flight_mode_enable_popup_title" android:layout_marginStart="@dimen/alert_dialog_padding_left_right" android:layout_marginEnd="@dimen/alert_dialog_padding_left_right" />
+    </LinearLayout>
+</ScrollView>

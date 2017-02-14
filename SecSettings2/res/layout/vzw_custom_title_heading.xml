@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:background="@drawable/setupwizard_header_bg" android:layout_width="fill_parent" android:layout_height="@dimen/custom_title_height"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="end|bottom|center" android:id="@id/vzw_wifi_device_image" android:layout_width="@dimen/custom_title_icon_width" android:layout_height="@dimen/custom_title_icon_height" android:src="@drawable/vzw_setupwizard_wifi" android:scaleType="fitXY" />
+    <RelativeLayout android:layout_gravity="end|bottom|center" android:id="@id/vzw_wifi_effect_container" android:visibility="gone" android:layout_width="@dimen/custom_title_icon_width" android:layout_height="@dimen/custom_title_icon_height">
+        <FrameLayout android:layout_width="@dimen/vzw_wifi_vi_effect_width" android:layout_height="@dimen/vzw_wifi_vi_effect_height" android:layout_marginRight="@dimen/vzw_wifi_vi_effect_marginEnd" android:layout_marginBottom="@dimen/vzw_wifi_vi_effect_marginBottom" android:layout_alignParentRight="true" android:layout_alignParentBottom="true">
+            <ImageView android:id="@id/vzw_wifi_effect_image_1" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/wifi_01" android:scaleType="fitXY" />
+            <ImageView android:id="@id/vzw_wifi_effect_image_2" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/wifi_02" android:scaleType="fitXY" />
+            <ImageView android:id="@id/vzw_wifi_effect_image_3" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/wifi_03" android:scaleType="fitXY" />
+            <ImageView android:id="@id/vzw_wifi_effect_image_4" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/wifi_04" android:scaleType="fitXY" />
+        </FrameLayout>
+    </RelativeLayout>
+    <TextView android:id="@id/stepIndicator" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <include android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" layout="@layout/page_indicator" />
+</FrameLayout>

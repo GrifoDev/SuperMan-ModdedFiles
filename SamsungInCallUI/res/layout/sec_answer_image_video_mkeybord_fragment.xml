@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/answerImageFragment" android:layout_width="fill_parent" android:layout_height="fill_parent" android:splitMotionEvents="false"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.incallui.widget.incomingwidget.IncomingCallImageWidget android:gravity="center" android:id="@id/incomingCallImageWidget" android:background="@color/incoming_call_image_widget_background" android:layout_width="fill_parent" android:layout_height="@dimen/sec_mkeyboard_video_incoming_call_widget_height" android:layout_marginBottom="@dimen/reject_call_with_message_handler_height" android:layout_alignParentBottom="true" />
+    <View android:background="@color/incoming_call_image_widget_background" android:layout_width="fill_parent" android:layout_height="@dimen/reject_call_with_message_handler_height" android:layout_alignParentBottom="true" />
+    <View android:id="@id/maskPanelForSlidingDrawer" android:background="@color/incoming_call_sliding_drawer_mask_panel_color" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <include layout="@layout/reject_call_with_message_sliding_drawer" />
+</RelativeLayout>

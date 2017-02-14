@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/mobility_and_cognitive_title" android:key="mother_mobility_and_cognitive_title" settings:parent="@xml/accessibility_settings"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+  xmlns:touchwiz="http://schemas.android.com/apk/res/touchwiz">
+    <com.samsung.android.settings.SettingsSwitchPreference android:title="@string/accessibility_assistant_menu" android:key="assistant_menu_preference" android:summary="@string/assistant_menu_summary">
+        <intent android:targetPackage="com.samsung.android.app.assistantmenu" android:action="android.intent.action.MAIN" android:targetClass="com.samsung.android.app.assistantmenu.settings.AssistantMenu">
+            <extra android:name=":android:show_fragment" android:value="com.samsung.android.app.assistantmenu.settings.AssistantMenuPreferenceFragment" />
+        </intent>
+    </com.samsung.android.settings.SettingsSwitchPreference>
+    <com.samsung.android.settings.SettingsSwitchPreference android:title="@string/motion2014_air_wake_up_title" android:key="air_wake_up" android:summary="@string/motion2014_air_wake_up_summary" android:fragment="com.samsung.android.settings.accessibility.ToggleAirWakeUpPreferenceFragment" />
+    <com.samsung.android.settings.SettingsSwitchPreference android:title="@string/accessibility_autoclick_preference_title" android:key="autoclick_preference_screen" android:fragment="com.android.settings.accessibility.ToggleAutoclickPreferenceFragment" />
+    <ListPreference android:persistent="false" android:entries="@array/long_press_timeout_titles_selector" android:title="@string/accessibility_long_press_timeout_preference_title" android:key="select_long_press_timeout_preference" android:entryValues="@array/long_press_timeout_selector_items" />
+    <com.samsung.android.settings.SettingsSwitchPreference android:title="@string/accessibility_access_control_title" android:key="access_control_key" android:summary="@string/accessibility_access_control_subtitle" android:fragment="com.samsung.android.settings.accessibility.ToggleAccessControlPreferenceFragment" />
+</PreferenceScreen>

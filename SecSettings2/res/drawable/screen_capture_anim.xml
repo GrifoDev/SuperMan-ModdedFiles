@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:oneshot="false"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:duration="500" android:drawable="@drawable/screen_capture_setting_00" />
+    <item android:duration="500" android:drawable="@drawable/screen_capture_setting_01" />
+    <item android:duration="1500" android:drawable="@drawable/screen_capture_setting_02" />
+    <item android:duration="500" android:drawable="@drawable/screen_capture_setting_03" />
+    <item android:duration="500" android:drawable="@drawable/screen_capture_setting_04" />
+    <item android:duration="500" android:drawable="@drawable/screen_capture_setting_05" />
+    <item android:duration="500" android:drawable="@drawable/screen_capture_setting_06" />
+    <item android:duration="1500" android:drawable="@drawable/screen_capture_setting_07" />
+</animation-list>

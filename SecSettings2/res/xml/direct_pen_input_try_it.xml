@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingLeft="@dimen/body_text_side_padding" android:paddingTop="@dimen/body_text_top_padding" android:paddingRight="@dimen/body_text_side_padding" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/motions_description_card_summary_text_size" android:textColor="?android:textColorPrimary" android:id="@id/description_view" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/pen_settings_pen_input_descriptions" android:lineSpacingExtra="4.0dip" android:fontFamily="sec-roboto-light" />
+    <ImageView android:gravity="center" android:layout_gravity="center" android:id="@id/image_view" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/spen_help_margin_top" android:layout_marginBottom="24.0dip" android:src="@drawable/writing_buddy_filling_in_forms" android:adjustViewBounds="true" />
+    <Button android:layout_gravity="center" android:id="@id/try_btn" android:padding="10.0dip" android:visibility="gone" android:layout_width="@dimen/help_button_width" android:layout_height="wrap_content" android:layout_marginLeft="32.0dip" android:layout_marginRight="32.0dip" android:layout_marginBottom="10.0dip" android:text="@string/pen_settings_pen_input_try_btn" />
+    <ListView android:id="@android:id/list" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+</LinearLayout>

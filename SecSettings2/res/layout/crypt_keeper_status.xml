@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="bottom" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="@dimen/crypt_keeper_password_top_margin" android:layout_marginStart="@dimen/crypt_keeper_password_width_margin" android:layout_marginEnd="@dimen/crypt_keeper_password_width_margin"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="#fffafafa" android:gravity="center_horizontal" android:layout_gravity="center_horizontal" android:id="@id/warning_msg_header" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="19.0dip" style="@style/crypt_keeper_description" />
+    <TextView android:textSize="16.0sp" android:textColor="#fffafafa" android:gravity="center_horizontal" android:layout_gravity="center_horizontal" android:id="@id/status" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/enter_password" style="@style/crypt_keeper_description" />
+    <TextView android:textSize="16.0sp" android:textColor="#fffafafa" android:ellipsize="marquee" android:gravity="center_horizontal" android:id="@id/owner_info" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:singleLine="true" android:marqueeRepeatLimit="marquee_forever" style="@style/crypt_keeper_description" />
+</LinearLayout>

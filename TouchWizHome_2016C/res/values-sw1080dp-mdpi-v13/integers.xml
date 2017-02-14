@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="app_shadow_offset_y">11</integer>
+    <integer name="config_workspaceDefaultScreenCount">2</integer>
+    <integer name="home_cellCountX">8</integer>
+    <integer name="home_cellCountY">4</integer>
+    <integer name="home_maxCellCountX">8</integer>
+    <integer name="home_maxCellCountY">4</integer>
+    <integer name="home_pageIndicatorMaxVisible">22</integer>
+    <integer name="homescreen_option_menu_maxline">1</integer>
+    <integer name="hotseat_cellCountX">8</integer>
+    <integer name="hotseat_cellCountY">1</integer>
+    <integer name="icon_drop_animation_duration">200</integer>
+    <integer name="menuAppsGrid_cellCountX">8</integer>
+    <integer name="menuAppsGrid_cellCountY">5</integer>
+    <integer name="menuAppsGrid_clingFocusedX">1</integer>
+    <integer name="menuAppsGrid_clingFocusedY">1</integer>
+    <integer name="menuWidgets_cellCountX">4</integer>
+    <integer name="menuWidgets_cellCountY">2</integer>
+    <integer name="menuWidgets_widgetFolderOpen_max_rows">2</integer>
+    <integer name="menu_pageIndicatorMaxVisible">22</integer>
+    <integer name="menu_uninstall_icon_ani_duration">250</integer>
+    <integer name="menu_uninstall_icon_translate_x">10</integer>
+    <integer name="menu_uninstall_icon_translate_y">10</integer>
+    <integer name="open_folder_appicon_max_visible_cols">5</integer>
+    <integer name="open_folder_appicon_max_visible_rows">4</integer>
+    <integer name="page_snap_animation_duration">550</integer>
+</resources>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:orientation="vertical" android:id="@id/incomingcall_incallscreen_main_layout" android:background="@color/button_background_color" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/call_card" layout="@layout/sec_voice_call_card_fragment" />
+    <com.android.incallui.widget.incomingwidget.IncomingCallImageWidget android:layout_gravity="bottom" android:id="@id/incomingcall_tutorial_incomingCallWidget" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <FrameLayout android:layout_gravity="bottom|center|left" android:id="@id/help_tip_accept" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/tutorial_help_tip_accept_left_margin" android:layout_marginRight="@dimen/tutorial_help_tip_accept_right_margin" android:layout_marginBottom="@dimen/tutorial_popup_bottom_margin">
+        <FrameLayout android:id="@id/help_tip_accept_text" android:background="@drawable/help_popup_picker_bg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/tutorial_popup_bottom_tail_margin">
+            <TextView android:text="@string/interactive_tutorial_accept" style="@style/TutorialPopupStyle" />
+        </FrameLayout>
+        <ImageView android:layout_gravity="bottom" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/tutorial_popup_picker_left_margin" android:src="@drawable/help_popup_picker_b_c" />
+    </FrameLayout>
+    <FrameLayout android:layout_gravity="bottom|center|right" android:id="@id/help_tip_reject" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/tutorial_help_tip_reject_left_margin" android:layout_marginRight="@dimen/tutorial_help_tip_reject_right_margin" android:layout_marginBottom="@dimen/tutorial_popup_bottom_margin">
+        <FrameLayout android:id="@id/help_tip_reject_text" android:background="@drawable/help_popup_picker_bg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/tutorial_popup_bottom_tail_margin">
+            <TextView android:text="@string/interactive_tutorial_reject" style="@style/TutorialPopupStyle" />
+        </FrameLayout>
+        <ImageView android:layout_gravity="bottom|center|right" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/tutorial_popup_picker_left_margin" android:src="@drawable/help_popup_picker_b_c" />
+    </FrameLayout>
+    <LinearLayout android:gravity="bottom" android:layout_gravity="bottom" android:orientation="vertical" android:id="@id/reject_call_with_message_handle" android:layout_width="fill_parent" android:layout_height="@dimen/reject_call_with_message_handle_height">
+        <ImageView android:layout_gravity="center_horizontal" android:id="@id/reject_call_with_message_open_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/voicecall_btn_open" />
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/reject_call_with_message_handler" android:background="@color/reject_with_message_handler_color" android:layout_width="fill_parent" android:layout_height="@dimen/reject_call_with_message_handler_height">
+            <TextView android:textSize="@dimen/reject_call_with_message_handle_text_size" android:textColor="@color/reject_with_message_handle_text_color" android:id="@id/reject_call_with_message_handle_text" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/reject_call_with_msg" android:singleLine="true" android:textAllCaps="true" android:fontFamily="sans-serif" />
+        </LinearLayout>
+    </LinearLayout>
+    <ImageView android:layout_gravity="bottom" android:id="@id/help_tap_accept" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/help_tap_accept_margin_left" android:layout_marginBottom="@dimen/help_tap_accept_margin_bottom" android:src="@drawable/help_cue_drag_right" />
+    <ImageView android:layout_gravity="bottom|center|right" android:id="@id/help_tap_reject" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/help_tap_accept_margin_right" android:layout_marginBottom="@dimen/help_tap_accept_margin_bottom" android:src="@drawable/help_cue_drag_left" />
+    <RelativeLayout android:id="@id/inCallControls" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_alignParentTop="true" android:splitMotionEvents="false">
+        <include layout="@layout/sec_voice_call_button_fragment" />
+    </RelativeLayout>
+    <ImageView android:layout_gravity="bottom|center" android:id="@id/help_tab_endcall" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/help_tap_accept_margin_bottom" android:src="@drawable/help_tap_1_default" />
+    <FrameLayout android:layout_gravity="bottom|center" android:id="@id/help_tip_endcall" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/tutorial_help_tip_endcall_margin_bottom">
+        <FrameLayout android:id="@id/help_tip_endcall_text" android:background="@drawable/help_popup_picker_bg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/tutorial_popup_bottom_tail_margin">
+            <TextView android:text="@string/interactive_tutorial_endcall" style="@style/TutorialPopupStyle" />
+        </FrameLayout>
+        <ImageView android:layout_gravity="bottom|center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/help_popup_picker_b_c" />
+    </FrameLayout>
+    <FrameLayout android:layout_gravity="bottom|center" android:id="@id/help_tip_accept_reject_complete" android:background="@drawable/help_popup_picker_bg" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/tutorial_popup_side_margin" android:layout_marginRight="@dimen/tutorial_popup_side_margin" android:layout_marginBottom="@dimen/tutorial_popup_complete_bottom_margin">
+        <TextView android:text="@string/interactive_tutorial_call_answer_reject_complete" style="@style/TutorialPopupStyle" />
+    </FrameLayout>
+</FrameLayout>

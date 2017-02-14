@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingTop="@dimen/bluetooth_dual_play_settings_content_padding_top" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/switchbar_margin_start" android:paddingEnd="@dimen/switchbar_margin_start"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="@drawable/bluetooth_dualplay_img" android:scaleType="centerInside" android:adjustViewBounds="true" />
+    <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/bluetooth_dual_play_settings_content_padding_between" android:text="@string/bluetooth_dual_play_description" android:maxLines="10" android:textAlignment="viewStart" style="@style/body_text_style" />
+</LinearLayout>

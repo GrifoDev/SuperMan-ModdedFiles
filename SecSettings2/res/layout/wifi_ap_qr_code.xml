@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:id="@id/wifi_ap_qr_scroll" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <RelativeLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <TextView android:id="@id/wifi_ap_qr_code_generate_text" android:paddingTop="@dimen/body_text_top_padding" android:paddingBottom="@dimen/wifi_ap_qr_text_png_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/wifi_ap_qr_code_generate_desc" android:layout_alignParentTop="true" android:paddingStart="@dimen/body_text_side_padding" android:paddingEnd="@dimen/body_text_side_padding" style="@style/body_text_style" />
+            <ImageView android:id="@id/wifi_ap_qr_code_generate_image" android:visibility="gone" android:layout_width="@dimen/wifi_ap_qr_code_size" android:layout_height="@dimen/wifi_ap_qr_code_size" android:layout_marginBottom="@dimen/wifi_ap_qr_text_png_padding" android:layout_below="@id/wifi_ap_qr_code_generate_text" android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+    </ScrollView>
+    <Button android:id="@id/wifi_ap_qr_code_generate_button" android:layout_width="fill_parent" android:layout_height="@dimen/wifi_ap_qr_button_height" android:layout_marginLeft="@dimen/wifi_ap_qr_text_png_padding" android:layout_marginRight="@dimen/wifi_ap_qr_text_png_padding" android:text="@string/wifi_ap_qr_code_generate_button" android:layout_below="@id/wifi_ap_qr_scroll" />
+</RelativeLayout>

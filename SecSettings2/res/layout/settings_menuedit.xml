@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:focusable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginRight="2.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <GridView android:gravity="center" android:id="@id/gridviewupper" android:focusable="true" android:nextFocusLeft="@id/gridviewupper" android:nextFocusDown="@id/gridviewlower" android:layout_width="fill_parent" android:layout_height="210.0dip" android:layout_marginTop="13.0dip" android:listSelector="@drawable/menu_icon_button" android:horizontalSpacing="6.0dip" android:verticalSpacing="9.0dip" android:columnWidth="74.0dip" android:numColumns="4" />
+    <ImageView android:id="@id/controlbar" android:background="@drawable/menu_edit_bar" android:layout_width="fill_parent" android:layout_height="16.0dip" />
+    <GridView android:gravity="center" android:id="@id/gridviewlower" android:paddingTop="11.0dip" android:focusable="true" android:nextFocusLeft="@id/gridviewlower" android:nextFocusUp="@id/gridviewupper" android:layout_width="fill_parent" android:layout_height="fill_parent" android:listSelector="@drawable/menu_icon_button" android:horizontalSpacing="6.0dip" android:verticalSpacing="9.0dip" android:columnWidth="74.0dip" android:numColumns="4" />
+</LinearLayout>

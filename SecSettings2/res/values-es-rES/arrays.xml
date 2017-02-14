@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="screen_timeout_entries">
+        <item>15 segundos</item>
+        <item>30 segundos</item>
+        <item>1 minuto</item>
+        <item>2 minutos</item>
+        <item>5 minutos</item>
+        <item>10 minutos</item>
+        <item>30 minutos</item>
+    </string-array>
+    <string-array name="screen_timeout_for_device_lock_entries">
+        <item>15 segundos</item>
+        <item>30 segundos</item>
+        <item>1 minuto</item>
+        <item>3 minutos</item>
+        <item>5 minutos</item>
+        <item>10 minutos</item>
+        <item>15 minutos</item>
+        <item>30 minutos</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>Inmediatamente con la tecla de encendido o cuando se agote el tiempo de espera de la pantalla</item>
+        <item>15 segundos</item>
+        <item>30 segundos</item>
+        <item>1 minuto</item>
+        <item>3 minutos</item>
+        <item>5 minutos</item>
+        <item>10 minutos</item>
+        <item>15 minutos</item>
+        <item>30 minutos</item>
+        <item>1 hora</item>
+    </string-array>
+    <string-array name="lock_after_timeout_entries">
+        <item>Inmediatamente</item>
+        <item>5 segundos</item>
+        <item>15 segundos</item>
+        <item>30 segundos</item>
+        <item>1 minuto</item>
+        <item>2 minutos</item>
+        <item>5 minutos</item>
+        <item>10 minutos</item>
+        <item>30 minutos</item>
+    </string-array>
+    <string-array name="wifi_ap_security_testmode">
+        <item>Abierta</item>
+        <item>WPA2 PSK</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>Conectado</item>
+        <item>Invitado</item>
+        <item>Error de conexión</item>
+        <item>Pulse aquí para conectarse.</item>
+        <item>Fuera de intervalo</item>
+        <item>Conectado con otro dispositivo</item>
+    </string-array>
+    <string-array name="wifi_ap_wifi_sharing">
+        <item>Compartir Wi-Fi</item>
+        <item>No compartir Wi-Fi</item>
+    </string-array>
+    <string-array name="wifi_ap_timeout">
+        <item>Sin tiempo de espera</item>
+        <item>5 minutos</item>
+        <item>10 minutos</item>
+        <item>20 minutos</item>
+        <item>30 minutos</item>
+        <item>60 minutos</item>
+    </string-array>
+    <string-array name="wifi_ap_channel">
+        <item>Auto</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+    </string-array>
+    <string-array name="wifi_signal">
+        <item>Débil</item>
+        <item>Buena</item>
+        <item>Buena</item>
+        <item>Fuerte</item>
+        <item>Muy fuerte</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_entries">
+        <item>"Siempre
+(Aumenta el consumo de la batería)"</item>
+        <item>Mientras se carga</item>
+        <item>"Nunca
+(Aumenta el uso de datos)"</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_entries_wifi_only">
+        <item>"Siempre
+(Aumenta el consumo de la batería)"</item>
+        <item>Mientras se carga</item>
+        <item>Nunca</item>
+    </string-array>
+    <string-array name="wifi_peap_phase2_entries">
+        <item>No</item>
+        <item>MSCHAPV2</item>
+        <item>GTC</item>
+    </string-array>
+    <string-array name="wifi_ip_settings">
+        <item>DHCP</item>
+        <item>Estático</item>
+    </string-array>
+    <string-array name="wifi_proxy_settings">
+        <item>No</item>
+        <item>Manual</item>
+        <item>Configuración automática</item>
+    </string-array>
+    <string-array name="apn_auth_entries">
+        <item>No</item>
+        <item>PAP</item>
+        <item>CHAP</item>
+        <item>PAP o CHAP</item>
+    </string-array>
+    <string-array name="bearer_entries">
+        <item>Sin especificar</item>
+        <item>LTE</item>
+        <item>HSPAP</item>
+        <item>HSPA</item>
+        <item>HSUPA</item>
+        <item>HSDPA</item>
+        <item>UMTS</item>
+        <item>EDGE</item>
+        <item>GPRS</item>
+        <item>eHRPD</item>
+        <item>EVDO_B</item>
+        <item>EVDO_A</item>
+        <item>EVDO_0</item>
+        <item>1xRTT</item>
+        <item>IS95B</item>
+        <item>IS95A</item>
+    </string-array>
+    <string-array name="mvno_type_entries">
+        <item>No</item>
+        <item>SPN</item>
+        <item>IMSI</item>
+        <item>GID</item>
+    </string-array>
+    <string-array name="captioning_typeface_selector_titles">
+        <item>Predeterminado</item>
+        <item>Sans serif</item>
+        <item>Sans serif condensed</item>
+        <item>Sans serif monospace</item>
+        <item>Serif</item>
+        <item>Serif monospace</item>
+        <item>Informal</item>
+        <item>Cursiva</item>
+        <item>Versalitas</item>
+    </string-array>
+    <string-array name="captioning_font_size_selector_titles">
+        <item>Muy pequeño</item>
+        <item>Pequeño</item>
+        <item>Normal</item>
+        <item>Grande</item>
+        <item>Muy grande</item>
+    </string-array>
+    <string-array name="captioning_edge_type_selector_titles">
+        <item>Predeterminado</item>
+        <item>No</item>
+        <item>Contorno</item>
+        <item>Sombra paralela</item>
+        <item>Resaltado</item>
+        <item>Hundido</item>
+    </string-array>
+    <string-array name="captioning_preset_selector_titles">
+        <item>Predeterminado</item>
+        <item>Blanco sobre negro</item>
+        <item>Negro sobre blanco</item>
+        <item>Amarillo sobre negro</item>
+        <item>Amarillo sobre azul</item>
+        <item>Personalizar</item>
+    </string-array>
+    <string-array name="vpn_states">
+        <item>Desconectado</item>
+        <item>Inicializando…</item>
+        <item>Conectando…</item>
+        <item>Conectado</item>
+        <item>Tiempo de espera</item>
+        <item>Incorrecto</item>
+    </string-array>
+    <string-array name="long_press_timeout_titles_selector">
+        <item>Corta (0,5 segundos)</item>
+        <item>Media (1 segundo)</item>
+        <item>Larga (1,5 segundos)</item>
+        <item>Personalizar</item>
+    </string-array>
+    <string-array name="time_interval_entries_selectable">
+        <item>1 minuto</item>
+        <item>3 minutos</item>
+        <item>5 minutos</item>
+        <item>10 minutos</item>
+        <item>15 minutos</item>
+    </string-array>
+    <string-array name="wifi_connect_entries">
+        <item>Automático</item>
+        <item>Manual</item>
+        <item>Preguntar siempre</item>
+    </string-array>
+    <string-array name="touch_key_light_entries">
+        <item>1.5 segundos</item>
+        <item>6 segundos</item>
+        <item>Siempre desactiv</item>
+        <item>Siempre activada</item>
+    </string-array>
+</resources>

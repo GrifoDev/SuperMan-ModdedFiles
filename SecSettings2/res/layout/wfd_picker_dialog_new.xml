@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/wfd_picker_alert_dialog_layout" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <fragment android:id="@id/wfd_picker_dialog_fragment" android:layout_width="fill_parent" android:layout_height="@dimen/wfd_dialog_height" android:layout_weight="1.0" class="com.android.settings.wfd.WifiDisplaySettings" />
+</FrameLayout>

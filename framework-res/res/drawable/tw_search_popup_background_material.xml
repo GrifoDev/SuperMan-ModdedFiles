@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:top="@dimen/tw_menu_popup_bottom_margin" android:bottom="@dimen/tw_menu_popup_bottom_margin">
+        <shape android:shape="rectangle">
+            <stroke android:width="@dimen/sem_menu_popup_stroke_width" android:color="@color/tw_search_popup_stroke_color_material" />
+            <padding android:top="@dimen/tw_menu_popup_bottom_margin" android:bottom="@dimen/tw_menu_popup_bottom_margin" />
+            <corners android:radius="@dimen/sem_menu_popup_corner_radius" />
+            <solid android:color="@color/tw_search_popup_background_material" />
+        </shape>
+    </item>
+</layer-list>

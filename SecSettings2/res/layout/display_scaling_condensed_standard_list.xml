@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="@dimen/condensed_standard_list_padding_start"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/camera_layout2" android:layout_width="fill_parent" android:layout_height="@dimen/list_size_condensed_standard">
+        <ImageView android:layout_gravity="center" android:id="@id/icon_camera2" android:layout_width="@dimen/list_app_icon_size_condensed_standard" android:layout_height="@dimen/list_app_icon_size_condensed_standard" />
+        <TextView android:textSize="@dimen/condensed__standrad_text_size" android:ellipsize="marquee" android:id="@id/title_camera2" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/application_name_camera" android:singleLine="true" android:paddingStart="@dimen/condensed_standard_list_item_inner_padding" style="@style/TextAppearance.DisplayScale.AppName" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/contacts_layout2" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" android:layout_marginStart="@dimen/condensed_standard_list_divier_margin_start" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="@dimen/list_size_condensed_standard">
+            <ImageView android:layout_gravity="center" android:id="@id/icon_contacts2" android:layout_width="@dimen/list_app_icon_size_condensed_standard" android:layout_height="@dimen/list_app_icon_size_condensed_standard" />
+            <TextView android:textSize="@dimen/condensed__standrad_text_size" android:ellipsize="marquee" android:id="@id/title_contacts2" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/sync_contacts" android:singleLine="true" android:paddingStart="@dimen/condensed_standard_list_item_inner_padding" style="@style/TextAppearance.DisplayScale.AppName" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/email_layout2" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" android:layout_marginStart="@dimen/condensed_standard_list_divier_margin_start" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="@dimen/list_size_condensed_standard">
+            <ImageView android:layout_gravity="center" android:id="@id/icon_email2" android:layout_width="@dimen/list_app_icon_size_condensed_standard" android:layout_height="@dimen/list_app_icon_size_condensed_standard" />
+            <TextView android:textSize="@dimen/condensed__standrad_text_size" android:ellipsize="marquee" android:id="@id/title_email2" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/application_name_email" android:singleLine="true" android:paddingStart="@dimen/condensed_standard_list_item_inner_padding" style="@style/TextAppearance.DisplayScale.AppName" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/gallery_layout2" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" android:layout_marginStart="@dimen/condensed_standard_list_divier_margin_start" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="@dimen/list_size_condensed_standard">
+            <ImageView android:layout_gravity="center" android:id="@id/icon_gallery2" android:layout_width="@dimen/list_app_icon_size_condensed_standard" android:layout_height="@dimen/list_app_icon_size_condensed_standard" />
+            <TextView android:textSize="@dimen/condensed__standrad_text_size" android:ellipsize="marquee" android:id="@id/title_gallery2" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/application_name_gallery" android:singleLine="true" android:paddingStart="@dimen/condensed_standard_list_item_inner_padding" style="@style/TextAppearance.DisplayScale.AppName" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/internet_layout2" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" android:layout_marginStart="@dimen/condensed_standard_list_divier_margin_start" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="@dimen/list_size_condensed_standard">
+            <ImageView android:layout_gravity="center" android:id="@id/icon_internet2" android:layout_width="@dimen/list_app_icon_size_condensed_standard" android:layout_height="@dimen/list_app_icon_size_condensed_standard" />
+            <TextView android:textSize="@dimen/condensed__standrad_text_size" android:ellipsize="marquee" android:id="@id/title_internet2" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/application_name_internet" android:singleLine="true" android:paddingStart="@dimen/condensed_standard_list_item_inner_padding" style="@style/TextAppearance.DisplayScale.AppName" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/messages_layout2" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" android:layout_marginStart="@dimen/condensed_standard_list_divier_margin_start" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="@dimen/list_size_condensed_standard">
+            <ImageView android:layout_gravity="center" android:id="@id/icon_messages2" android:layout_width="@dimen/list_app_icon_size_condensed_standard" android:layout_height="@dimen/list_app_icon_size_condensed_standard" />
+            <TextView android:textSize="@dimen/condensed__standrad_text_size" android:ellipsize="marquee" android:gravity="center_vertical" android:id="@id/title_messages2" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/application_name_message" android:singleLine="true" android:paddingStart="@dimen/condensed_standard_list_item_inner_padding" style="@style/TextAppearance.DisplayScale.AppName" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/music_layout2" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" android:layout_marginStart="@dimen/condensed_standard_list_divier_margin_start" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="@dimen/list_size_condensed_standard">
+            <ImageView android:layout_gravity="center" android:id="@id/icon_music2" android:layout_width="@dimen/list_app_icon_size_condensed_standard" android:layout_height="@dimen/list_app_icon_size_condensed_standard" />
+            <TextView android:textSize="@dimen/condensed__standrad_text_size" android:ellipsize="marquee" android:id="@id/title_music2" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/application_name_music" android:singleLine="true" android:paddingStart="@dimen/condensed_standard_list_item_inner_padding" style="@style/TextAppearance.DisplayScale.AppName" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/calendar_layout2" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" android:layout_marginStart="@dimen/condensed_standard_list_divier_margin_start" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="@dimen/list_size_condensed_standard">
+            <ImageView android:layout_gravity="center" android:id="@id/icon_calendar2" android:layout_width="@dimen/list_app_icon_size_condensed_standard" android:layout_height="@dimen/list_app_icon_size_condensed_standard" />
+            <TextView android:textSize="@dimen/condensed__standrad_text_size" android:ellipsize="marquee" android:id="@id/title_calendar2" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/application_name_splanner" android:singleLine="true" android:paddingStart="@dimen/condensed_standard_list_item_inner_padding" style="@style/TextAppearance.DisplayScale.AppName" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/s_voice_layout2" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" android:layout_marginStart="@dimen/condensed_standard_list_divier_margin_start" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="@dimen/list_size_condensed_standard">
+            <ImageView android:layout_gravity="center" android:id="@id/icon_s_voice2" android:layout_width="@dimen/list_app_icon_size_condensed_standard" android:layout_height="@dimen/list_app_icon_size_condensed_standard" />
+            <TextView android:textSize="@dimen/condensed__standrad_text_size" android:ellipsize="marquee" android:id="@id/title_s_voice2" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/application_name_svoice" android:singleLine="true" android:paddingStart="@dimen/condensed_standard_list_item_inner_padding" style="@style/TextAppearance.DisplayScale.AppName" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/weather_layout2" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" android:layout_marginStart="@dimen/condensed_standard_list_divier_margin_start" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="@dimen/list_size_condensed_standard">
+            <ImageView android:layout_gravity="center" android:id="@id/icon_weather2" android:layout_width="@dimen/list_app_icon_size_condensed_standard" android:layout_height="@dimen/list_app_icon_size_condensed_standard" />
+            <TextView android:textSize="@dimen/condensed__standrad_text_size" android:ellipsize="marquee" android:id="@id/title_weather2" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/lock_screen_menu_weather" android:singleLine="true" android:paddingStart="@dimen/condensed_standard_list_item_inner_padding" style="@style/TextAppearance.DisplayScale.AppName" />
+        </LinearLayout>
+    </LinearLayout>
+    <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" android:layout_marginStart="@dimen/condensed_standard_list_divier_margin_start" />
+</LinearLayout>

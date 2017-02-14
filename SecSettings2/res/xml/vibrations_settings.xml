@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/vibrations_title" settings:parent="@xml/notification_settings"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <PreferenceScreen android:title="@string/vibration_intensity" android:key="vibration_feedback_intensity" android:fragment="com.android.settings.notification.VibrationIntensitySettings" settings:SettingsMode="UPSM" />
+    <PreferenceCategory android:title="" android:key="vibration_intensity_category" />
+    <PreferenceScreen android:title="@string/phone_vibration_title" android:key="phone_vibration" android:widgetLayout="@layout/round_more_icon" settings:dbMatchingName="default_vibration_pattern" settings:dbMatchingTable="system">
+        <intent android:targetPackage="com.android.settings" android:action="android.intent.action.MAIN" android:targetClass="com.android.settings.personalvibration.SelectPatternDialog" />
+    </PreferenceScreen>
+    <PreferenceCategory android:title="" android:key="vibration_pattern_category" />
+    <SwitchPreference android:persistent="false" android:title="@string/vibrate_on_ring_title" android:key="vibrate_when_ringing" settings:dbMatchingName="vibrate_when_ringing" settings:dbMatchingTable="system" />
+    <SwitchPreference android:persistent="false" android:title="@string/vibrate_on_touch_title" android:key="vibrate_on_touch" android:summary="@string/vibrate_on_touch_summary" />
+    <SwitchPreference android:persistent="false" android:title="@string/keyboard_vibration" android:key="keyboard_vibration" android:summary="@string/keyboard_vibration_summary" />
+</PreferenceScreen>

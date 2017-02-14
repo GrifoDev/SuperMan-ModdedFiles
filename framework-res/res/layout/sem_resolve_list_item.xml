@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="?activatedBackgroundIndicator" android:paddingTop="@dimen/sem_resolver_item_padding_top" android:paddingBottom="@dimen/sem_resolver_item_padding_bottom" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="@dimen/sem_resolver_item_minwidth"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center" android:id="@id/icon" android:layout_width="@dimen/sem_resolver_item_icon_size" android:layout_height="@dimen/sem_resolver_item_icon_size" android:scaleType="fitCenter" />
+    <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/sem_resolver_item_text_margin_top"
+      xmlns:android="http://schemas.android.com/apk/res/android">
+        <TextView android:textAppearance="?textAppearanceSmall" android:textSize="@dimen/sem_resolver_item_text_size" android:textColor="@color/sem_resolver_item_text_color" android:ellipsize="end" android:gravity="center" android:id="@id/text1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="@dimen/sem_resolver_item_text_minheight" android:maxLines="2" android:minLines="2" android:fontFamily="sec-roboto-light" />
+        <TextView android:textAppearance="?textAppearanceSmall" android:textSize="@dimen/sem_resolver_item_sub_text_size" android:textColor="@color/sem_resolver_item_sub_text_color" android:gravity="center" android:id="@id/text2" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="@dimen/sem_resolver_item_sub_text_minheight" android:maxLines="2" android:minLines="2" android:fontFamily="sec-roboto-light" />
+    </LinearLayout>
+</LinearLayout>

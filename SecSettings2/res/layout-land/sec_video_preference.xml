@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:paddingTop="@dimen/description_dot_text_padding" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="@dimen/accessibility_layout_margin_start_end" android:paddingEnd="@dimen/accessibility_layout_margin_start_end"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/sub_body_text_top_padding" android:layout_weight="6.0">
+        <FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <VideoView android:id="@id/video" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true" />
+            <ImageView android:id="@id/video_background" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="@drawable/accessibility_screen_magnification_init_img" android:scaleType="fitXY" android:adjustViewBounds="true" />
+        </FrameLayout>
+    </LinearLayout>
+    <ScrollView android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/body_text_side_padding" android:layout_marginRight="@dimen/body_text_side_padding" android:fillViewport="true" android:layout_weight="4.0">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <TextView android:textAppearance="?android:textAppearanceMedium" android:textSize="@dimen/body_text_size" android:textColor="@color/body_text_color" android:ellipsize="marquee" android:id="@id/magnification_description" android:fadingEdge="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:lineSpacingExtra="@dimen/body_text_line_spacing_extra" android:fontFamily="sec-roboto-light" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

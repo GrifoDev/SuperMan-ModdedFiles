@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:ellipsize="marquee" android:id="@id/app_title" android:layout_width="0.0dip" android:layout_height="wrap_content" android:singleLine="true" android:layout_weight="1.0" android:textAlignment="viewStart" style="@style/list_title_text_style" />
+    <TextView android:textSize="@dimen/data_usage_detail_summary_text_size" android:id="@id/app_summary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAlignment="viewEnd" style="@style/sub_body_text_style" />
+</LinearLayout>

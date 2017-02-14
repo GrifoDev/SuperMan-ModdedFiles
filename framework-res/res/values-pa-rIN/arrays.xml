@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="emailAddressTypes">
+        <item>ਘਰ</item>
+        <item>ਕੰਮ</item>
+        <item>ਹੋਰ</item>
+        <item>ਕਸਟਮ</item>
+    </string-array>
+    <string-array name="imProtocols">
+        <item>AIM</item>
+        <item>ਵਿੰਡੋਜ਼ ਲਾਈਵ</item>
+        <item>Yahoo</item>
+        <item>ਸਕਾਈਪ</item>
+        <item>QQ</item>
+        <item>ਗੂਗਲ ਟਾੱਕ</item>
+        <item>ICQ</item>
+        <item>ਜੈਬਰ</item>
+    </string-array>
+    <string-array name="organizationTypes">
+        <item>ਕੰਮ</item>
+        <item>ਹੋਰ</item>
+        <item>ਕਸਟਮ</item>
+    </string-array>
+    <string-array name="phoneTypes">
+        <item>ਘਰ</item>
+        <item>ਮੋਬਾਈਲ</item>
+        <item>ਕੰਮ</item>
+        <item>ਕੰਮ ਫੈਕਸ</item>
+        <item>ਘਰ ਫੈਕਸ</item>
+        <item>ਪੇਜਰ</item>
+        <item>ਹੋਰ</item>
+        <item>ਕਸਟਮ</item>
+    </string-array>
+    <string-array name="postalAddressTypes">
+        <item>ਘਰ</item>
+        <item>ਕੰਮ</item>
+        <item>ਹੋਰ</item>
+        <item>ਕਸਟਮ</item>
+    </string-array>
+    <string-array name="wfcOperatorErrorAlertMessages">
+        <item>Wi-Fi ਤੇ ਕਾਲਾਂ ਕਰਨ ਅਤੇ ਸੁਨੇਹੇ ਭੇਜਣ ਲਈ, ਪਹਿਲਾਂ ਆਪਣੇ ਕੈਰੀਅਰ ਨੂੰ ਇਹ ਸੇਵਾ ਸੈਟ ਅਪ ਕਰਨ ਲਈ ਕਹੋ। ਫਿਰ ਸੈਟਿੰਗਾਂ ਵਿੱਚੋਂ Wi-Fi ਕਾਲਿੰਗ ਦੁਬਾਰਾ ਚਾਲੂ ਕਰੋ।</item>
+    </string-array>
+    <string-array name="wfcOperatorErrorNotificationMessages">
+        <item>ਆਪਣੇ ਕੈਰੀਅਰ ਨਾਲ ਰਜਿਸਟਰ ਕਰੋ</item>
+    </string-array>
+    <string-array name="wfcSpnFormats">
+        <item>%s</item>
+        <item>%s Wi-Fi ਕਾਲਿੰਗ</item>
+    </string-array>
+    <array name="fingerprint_acquired_vendor" />
+    <array name="fingerprint_error_vendor" />
+    <string-array name="imAddressTypes">
+        <item>ਘਰ</item>
+        <item>ਕੰਮ</item>
+        <item>ਹੋਰ</item>
+        <item>ਕਸਟਮ</item>
+    </string-array>
+</resources>

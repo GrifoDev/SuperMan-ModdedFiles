@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<view android:orientation="horizontal" android:padding="8.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" class="com.android.contacts.common.widget.ActivityTouchLinearLayout"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/icon" android:layout_width="48.0dip" android:layout_height="48.0dip" android:scaleType="center" />
+    <LinearLayout android:gravity="start|center" android:orientation="vertical" android:id="@id/text" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_marginLeft="8.0dip" android:layout_weight="1.0">
+        <TextView android:textAppearance="?android:textAppearanceMedium" android:textColor="@color/dialtacts_primary_text_color" android:id="@id/label" android:layout_width="fill_parent" android:layout_height="wrap_content" android:includeFontPadding="false" />
+        <TextView android:textAppearance="?android:textAppearanceSmall" android:id="@id/number" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:includeFontPadding="false" />
+    </LinearLayout>
+</view>

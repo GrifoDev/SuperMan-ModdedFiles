@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+  xmlns:touchwiz="http://schemas.android.com/apk/res/touchwiz">
+    <com.samsung.android.settings.UnclickablePreference android:title="@string/accessibility_notification_summary_no_led" android:key="notification_reminder_guide" />
+    <PreferenceCategory android:title="@string/notification_app_settings_button" android:key="notification_reminder_category_options">
+        <SwitchPreference android:title="@string/notification_reminder_preference_vibrate" android:key="notification_reminder_vibrate" />
+        <com.android.settings.SecDropDownPreference android:entries="@array/time_interval_entries_selectable" android:title="@string/accessibility_notification_reminder_time" android:key="notification_time_interval" android:entryValues="@array/time_interval_values_selectable" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/notifications_show_applications" android:key="notification_reminder_category_packages">
+        <SwitchPreference android:title="@string/notifications_all_apps" android:key="notification_reminder_select_all" android:defaultValue="true" />
+    </PreferenceCategory>
+</PreferenceScreen>

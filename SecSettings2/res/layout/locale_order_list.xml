@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent" android:textDirection="locale" android:layoutDirection="locale"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <TextView android:paddingLeft="@dimen/body_text_side_padding" android:paddingTop="@dimen/body_text_top_padding" android:paddingRight="@dimen/body_text_side_padding" android:paddingBottom="@dimen/body_text_top_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/language_settings_summary" android:selectable="false" style="@style/body_text_style" />
+        <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" android:layout_alignParentBottom="true" />
+        <com.android.settings.localepicker.LocaleRecyclerView android:id="@id/dragList" android:scrollbars="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" android:layout_alignParentBottom="true" android:paddingStart="?android:listPreferredItemPaddingStart" android:paddingEnd="?android:listPreferredItemPaddingEnd" />
+        <Button android:textAppearance="?android:textAppearanceListItem" android:textSize="@dimen/vpn_title_text_size" android:id="@id/add_language" android:background="?android:selectableItemBackground" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeightSmall" android:text="@string/add_a_language" android:drawablePadding="@dimen/list_item_inner_padding" android:drawableStart="@drawable/tw_list_icon_create_mtrl" android:fontFamily="sec-roboto-regular" android:textAlignment="textStart" android:paddingStart="?android:listPreferredItemPaddingStart" android:paddingEnd="?android:listPreferredItemPaddingEnd" />
+    </LinearLayout>
+</ScrollView>

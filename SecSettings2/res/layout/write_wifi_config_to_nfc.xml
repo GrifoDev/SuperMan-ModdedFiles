@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:scrollbarStyle="outsideOverlay" android:orientation="vertical" android:paddingStart="@dimen/wifi_alert_dialog_scrollview_padding_side" android:paddingEnd="@dimen/wifi_alert_dialog_scrollview_padding_side" style="@style/wifi_section"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="start" android:orientation="vertical" android:id="@id/password_layout" android:paddingTop="@dimen/alert_dialog_padding_top" android:paddingBottom="@dimen/wifi_alert_dialog_margin_bottom" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ImageView android:layout_gravity="center" android:id="@id/tag_image_for_grace" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/wifi_dialog_margin_bottom_p" android:src="@drawable/wifi_nfc_tags" />
+        <LinearLayout style="@style/wifi_item">
+            <TextView android:id="@id/password_label" android:text="@string/wifi_password" style="@style/wifi_item_dialog_label" />
+            <EditText android:id="@id/password" android:hint="@string/wifi_enter_password" android:password="true" android:singleLine="true" android:maxLength="64" android:imeOptions="flagForceAscii" style="@style/wifi_item_edit_content" />
+            <TextView android:id="@id/password_error_label" android:visibility="gone" android:text="@string/status_invalid_password" style="@style/wifi_item_error_text" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/show_password_layout" android:layout_marginTop="@dimen/wifi_nfc_tag_checkbox_margin_top" style="@style/wifi_dialog_checkbox_layout_style">
+            <CheckBox android:id="@id/show_password" android:text="@string/wifi_show_password" style="@style/wifi_dialog_checkbox_style" />
+        </LinearLayout>
+        <ImageView android:layout_gravity="center" android:id="@id/tag_image" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/alert_dialog_padding_top" android:layout_marginBottom="@dimen/wifi_dialog_margin_bottom_p" android:src="@drawable/wifi_nfc_tags" />
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d ore</item>
+        <item quantity="one">1 ora</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d minuti</item>
+        <item quantity="one">1 minuto</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d secondi</item>
+        <item quantity="one">1 secondo</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Ti mancano %d passaggi per diventare uno sviluppatore.</item>
+        <item quantity="one">Ti manca 1 passaggio per diventare uno sviluppatore.</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Rimuovi lingue selezionate</item>
+        <item quantity="one">Rimuovi lingua selezionata</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">La password deve contenere almeno %d lettere.</item>
+        <item quantity="one">La password deve contenere almeno una lettera.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">La password deve contenere almeno %d lettere minuscole.</item>
+        <item quantity="one">La password deve contenere almeno una lettera minuscola.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">La password deve contenere almeno %d lettere maiuscole.</item>
+        <item quantity="one">La password deve contenere almeno una lettera maiuscola.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">La password deve contenere almeno %d numeri.</item>
+        <item quantity="one">La password deve contenere almeno un numero.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">La password deve contenere almeno %d simboli.</item>
+        <item quantity="one">La password deve contenere almeno 1 simbolo.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">La password deve contenere almeno %d numeri o simboli.</item>
+        <item quantity="one">La password deve contenere almeno 1 numero o simbolo.</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Accesso a %d cartelle/file</item>
+        <item quantity="one">Accesso a 1 cartella/file</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s ha installato dei certificati CA sul dispositivo che potrebbero consentirgli di monitorare l'attività di rete del dispositivo, incluso l'uso di e-mail, applicazioni e siti Web protetti.
+
+Per ulteriori informazioni sui certificati, contattate l'amministratore IT."</item>
+        <item quantity="one">"%s ha installato un certificato CA sul dispositivo che potrebbe consentirgli di monitorare l'attività di rete del dispositivo, incluso l'uso di e-mail, applicazioni e siti Web protetti.
+
+Per ulteriori informazioni sul certificato, contattate l'amministratore IT."</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d applicazioni sono in grado di leggere le notifiche.</item>
+        <item quantity="one">"L'applicazione %d ha il consenso di leggere le notifiche."</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">Altre %d autorizzazioni</item>
+        <item quantity="one">%d altra autorizzazione</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$d processi hanno utilizzato la RAM nelle ultime %2$s</item>
+        <item quantity="one">%1$d processo ha utilizzato la RAM nelle ultime %2$s</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d applicazioni autorizzate a utilizzare la connessione dati senza restrizioni mentre la funzione Risparmio dati è attivata</item>
+        <item quantity="one">"1 applicazione dispone dell'autorizzazione per utilizzare la connessione dati senza restrizioni mentre la funzione Risparmio dati è attiva"</item>
+    </plurals>
+</resources>

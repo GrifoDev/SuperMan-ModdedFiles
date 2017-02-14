@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/lock_screen_swipe_lock_settings_title" settings:parent="@xml/security_settings_chooser"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <SwitchPreference android:persistent="false" android:title="@string/action_meno_on_lock_screen_title" android:key="action_meno_on_lock_screen" android:summary="@string/action_meno_on_lock_screen_summary" />
+</PreferenceScreen>

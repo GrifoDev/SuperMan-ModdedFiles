@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple android:color="?colorControlHighlight"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@id/mask" android:drawable="@drawable/tw_spinner_background_mask_material" />
+    <item android:drawable="@drawable/tw_ab_spinner_background_mtrl_am_alpha" />
+</ripple>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/RL" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:weightSum="100.0" android:layout_above="@id/footer_layout">
+        <RelativeLayout android:id="@id/helpTextLayout" android:layout_width="fill_parent" android:layout_height="@dimen/direction_lock_zero_height" android:layout_weight="33.0" android:layout_above="@id/directionLockView">
+            <RelativeLayout android:id="@id/helpTextInnerLayout" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="@dimen/choose_lock_direction_help_text_horizontal_margin" android:layout_marginTop="@dimen/choose_lock_direction_input_info_top_margin" android:layout_marginRight="@dimen/choose_lock_direction_help_text_horizontal_margin" android:layout_above="@id/step_circle_outer_layout">
+                <ScrollView android:gravity="center" android:id="@id/scrollView" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+                    <TextView android:textSize="@dimen/choose_lock_direction_arrow_help_text_size" android:gravity="center" android:id="@id/headerText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/direction_lock_direction_inital_text" android:layout_centerInParent="true" style="@style/direction_lock_body_text_style" />
+                </ScrollView>
+            </RelativeLayout>
+            <RelativeLayout android:gravity="center_vertical" android:id="@id/step_circle_outer_layout" android:layout_width="fill_parent" android:layout_height="@dimen/choose_lock_direction_step_circle_layout_height" android:layout_alignParentBottom="true">
+                <LinearLayout android:orientation="horizontal" android:id="@id/step_circle_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true" />
+            </RelativeLayout>
+        </RelativeLayout>
+        <com.android.internal.widget.DirectionLockView android:id="@id/directionLockView" android:background="@color/settings_direction_lock_view_background" android:focusable="true" android:layout_width="fill_parent" android:layout_height="@dimen/direction_lock_zero_height" android:layout_weight="67.0" android:layout_above="@id/footer_layout" android:layout_centerHorizontal="true" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/footer_layout" android:layout_width="fill_parent" android:layout_height="@dimen/bottom_bar_height" android:layout_alignParentBottom="true" style="@style/bottom_bar_container">
+        <com.samsung.android.settings.widget.BottomBarButton android:id="@id/left_button" android:text="@string/common_reset" style="@style/bottom_bar_button" />
+        <com.samsung.android.settings.widget.BottomBarButton android:id="@id/right_button" android:text="@string/common_continue" style="@style/bottom_bar_button" />
+    </LinearLayout>
+</RelativeLayout>

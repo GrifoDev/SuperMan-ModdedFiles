@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="home_icon_col5_drawablepadding">-2.0dip</dimen>
+    <dimen name="homefolder_icon_col5_drawablepadding">-2.0dip</dimen>
+    <dimen name="zeropageSwitch_topgap">37.0dip</dimen>
+    <dimen name="searchbar_searchview_padding_end">-18.5dip</dimen>
+    <dimen name="moveApps_help_imgWidth">288.0dip</dimen>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:id="@id/ScrollView01" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:paddingTop="@dimen/alert_dialog_padding_top" android:paddingBottom="@dimen/alert_dialog_padding_bottom" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/alert_dialog_padding_left_right" android:paddingEnd="@dimen/alert_dialog_padding_left_right"
+      xmlns:android="http://schemas.android.com/apk/res/android">
+        <TextView android:id="@id/mobile_t_roaming_warning" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/roaming_mobile_t_warning" style="@style/dialog_body_text_style" />
+        <TextView android:textColor="@color/title_color" android:id="@id/mobile_t_roaming_warning_customercenter" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/roaming_mobile_t_number" style="@style/dialog_body_text_style" />
+    </LinearLayout>
+</ScrollView>

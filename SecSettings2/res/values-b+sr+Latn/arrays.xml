@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="wifi_status">
+        <item></item>
+        <item>Skeniranje...</item>
+        <item>Povezivanje…</item>
+        <item>Potvrđuje se autentičnost...</item>
+        <item>Preuzimanje IP adrese...</item>
+        <item>Povezano</item>
+        <item>Obustavljeno</item>
+        <item>Prekidanje veze...</item>
+        <item>Veza je prekinuta</item>
+        <item>Neuspešno</item>
+        <item>Blokirano</item>
+        <item>Privremeno izbegavanje loše veze</item>
+    </string-array>
+    <string-array name="wifi_status_with_ssid">
+        <item></item>
+        <item>Skeniranje...</item>
+        <item>Povezivanje sa mrežom %1$s…</item>
+        <item>Proveravanje identiteta mreže %1$s...</item>
+        <item>Dobijanje IP adrese od mreže %1$s…</item>
+        <item>Povezano sa mrežom %1$s</item>
+        <item>Obustavljeno</item>
+        <item>Prekidanje veze sa mrežom %1$s…</item>
+        <item>Veza je prekinuta</item>
+        <item>Neuspešno</item>
+        <item>Blokirano</item>
+        <item>Privremeno izbegavanje loše veze</item>
+    </string-array>
+    <string-array name="hdcp_checking_titles">
+        <item>Nikad ne proveravaj</item>
+        <item>Potraži samo DRM sadržaj</item>
+        <item>Uvek proveravaj</item>
+    </string-array>
+    <string-array name="hdcp_checking_summaries">
+        <item>Nikada ne koristi HDCP proveru</item>
+        <item>Koristi HDCP proveru samo za DRM sadržaj</item>
+        <item>Uvek koristi HDCP proveru</item>
+    </string-array>
+    <string-array name="select_logd_size_titles">
+        <item>Isključeno</item>
+        <item>64 kB</item>
+        <item>256 kB</item>
+        <item>1 MB</item>
+        <item>4 MB</item>
+        <item>16 MB</item>
+    </string-array>
+    <string-array name="select_logd_size_lowram_titles">
+        <item>Isključeno</item>
+        <item>64 kB</item>
+        <item>256 kB</item>
+        <item>1 MB</item>
+    </string-array>
+    <string-array name="select_logd_size_summaries">
+        <item>Isključeno</item>
+        <item>64 kB po međumemoriji evidencije</item>
+        <item>256 kB po međumemoriji evidencije</item>
+        <item>1 MB po međumemoriji evidencije</item>
+        <item>4 MB po međumemoriji evidencije</item>
+        <item>16 MB po međumemoriji evidencije</item>
+    </string-array>
+    <string-array name="window_animation_scale_entries">
+        <item>Animacija je isključena</item>
+        <item>Razmera animacije 0,5x</item>
+        <item>Razmera animacije 1x</item>
+        <item>Razmera animacije 1,5x</item>
+        <item>Razmera animacije 2x</item>
+        <item>Razmera animacije 5x</item>
+        <item>Razmera animacije 10x</item>
+    </string-array>
+    <string-array name="transition_animation_scale_entries">
+        <item>Animacija je isključena</item>
+        <item>Razmera animacije 0,5x</item>
+        <item>Razmera animacije 1x</item>
+        <item>Razmera animacije 1,5x</item>
+        <item>Razmera animacije 2x</item>
+        <item>Razmera animacije 5x</item>
+        <item>Razmera animacije 10x</item>
+    </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>Animacija je isključena</item>
+        <item>Razmera animacije 0,5x</item>
+        <item>Razmera animacije 1x</item>
+        <item>Razmera animacije 1,5x</item>
+        <item>Razmera animacije 2x</item>
+        <item>Razmera animacije 5x</item>
+        <item>Razmera animacije 10x</item>
+    </string-array>
+    <string-array name="overlay_display_devices_entries">
+        <item>Nijedno</item>
+        <item>480 piksela</item>
+        <item>480 piksela (bezbedno)</item>
+        <item>720 piksela</item>
+        <item>720 piksela (bezbedno)</item>
+        <item>1080 piksela</item>
+        <item>1080 piksela (bezbedno)</item>
+        <item>4K</item>
+        <item>4K (bezbedno)</item>
+        <item>4K (uvećana rezolucija)</item>
+        <item>4K (uvećana rezolucija, bezbedno)</item>
+        <item>720 piksela, 1080 piks. (2 ekrana)</item>
+    </string-array>
+    <string-array name="enable_opengl_traces_entries">
+        <item>Nijedan</item>
+        <item>Logcat</item>
+        <item>Systrace (grafika)</item>
+        <item>Grupno pozivanje funkcije glGetError</item>
+    </string-array>
+    <string-array name="show_non_rect_clip_entries">
+        <item>Isključeno</item>
+        <item>Nacrtaj oblast za isecanje koja nije pravougaonog oblika plavom bojom</item>
+        <item>Istakni zelenom testirane komande za crtanje</item>
+    </string-array>
+    <string-array name="track_frame_time_entries">
+        <item>Isključeno</item>
+        <item>Na ekranu u vidu traka</item>
+        <item>U adb shell dumpsys gfxinfo</item>
+    </string-array>
+    <string-array name="debug_hw_overdraw_entries">
+        <item>Isključi</item>
+        <item>Prikaži oblasti preklapanja</item>
+        <item>Prikaži oblasti za deuteranomaliju</item>
+    </string-array>
+    <string-array name="app_process_limit_entries">
+        <item>Standardno ograničenje</item>
+        <item>Bez pozadinskih procesa</item>
+        <item>Najviše jedan proces</item>
+        <item>Najviše dva procesa</item>
+        <item>Najviše tri procesa</item>
+        <item>Najviše četiri procesa</item>
+    </string-array>
+    <string-array name="usb_configuration_titles">
+        <item>Punjenje</item>
+        <item>MTP (protokol za transfer medija)</item>
+        <item>PTP (protokol za prenos slika)</item>
+        <item>RNDIS (USB eternet)</item>
+        <item>Izvor zvuka</item>
+        <item>MIDI</item>
+    </string-array>
+    <string-array name="tts_rate_entries">
+        <item>Veoma sporo</item>
+        <item>Sporo</item>
+        <item>Normalno</item>
+        <item>Brzo</item>
+        <item>Brže</item>
+        <item>Veoma brzo</item>
+        <item>Ubrzano</item>
+        <item>Veoma ubrzano</item>
+        <item>Najbrže</item>
+    </string-array>
+    <string-array name="color_mode_names">
+        <item>Živopisan (podrazumevano)</item>
+        <item>Prirodan</item>
+        <item>Standardan</item>
+    </string-array>
+    <string-array name="color_mode_descriptions">
+        <item>Poboljšane boje</item>
+        <item>Prirodne boje nalik onima koje registruje oko</item>
+        <item>Boje optimizovane za digitalni sadržaj</item>
+    </string-array>
+</resources>

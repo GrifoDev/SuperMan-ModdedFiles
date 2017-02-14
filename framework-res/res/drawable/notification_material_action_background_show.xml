@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple android:color="@color/notification_panel_theme_ripple_color"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <inset android:insetTop="@dimen/notification_action_button_vertical_inset" android:insetBottom="@dimen/notification_action_button_vertical_inset"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+            <shape android:shape="rectangle">
+                <corners android:radius="2.0dip" />
+                <stroke android:width="2.0px" android:color="#1a000000" />
+            </shape>
+        </inset>
+    </item>
+    <item android:id="@id/mask">
+        <inset android:insetTop="@dimen/notification_action_button_vertical_inset" android:insetBottom="@dimen/notification_action_button_vertical_inset"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+            <shape android:shape="rectangle">
+                <corners android:radius="2.0dip" />
+                <solid android:color="@color/white" />
+                <padding android:left="@dimen/carrier_and_clear_side_padding" android:right="@dimen/carrier_and_clear_side_padding" />
+            </shape>
+        </inset>
+    </item>
+</ripple>

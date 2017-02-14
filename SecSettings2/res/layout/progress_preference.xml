@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:paddingTop="@dimen/progres_pref_top_padding" android:paddingBottom="@dimen/progres_pref_bottom_padding" android:duplicateParentState="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeight" android:paddingStart="@dimen/list_item_start_padding" android:paddingEnd="@dimen/list_item_end_padding"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center" android:id="@android:id/icon" android:visibility="gone" android:duplicateParentState="true" android:layout_width="@dimen/list_app_icon_size" android:layout_height="@dimen/list_app_icon_size" android:scaleType="centerInside" android:contentDescription="@null" android:layout_marginEnd="@dimen/list_item_inner_padding" />
+    <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:duplicateParentState="true" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <TextView android:ellipsize="marquee" android:id="@android:id/title" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:textAlignment="viewStart" style="@style/list_title_text_style" />
+        <TextView android:ellipsize="marquee" android:id="@android:id/summary" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:textAlignment="viewStart" style="@style/list_summary_text_style" />
+        <FrameLayout android:id="@android:id/widget_frame" android:duplicateParentState="true" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    </LinearLayout>
+    <Switch android:layout_gravity="center_vertical" android:id="@id/widget_switch" android:background="@null" android:focusable="false" android:visibility="gone" android:clickable="false" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+</LinearLayout>

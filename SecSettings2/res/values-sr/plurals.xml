@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d sati</item>
+        <item quantity="one">1 sat</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d minuta</item>
+        <item quantity="one">1 minut</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d sekundi</item>
+        <item quantity="one">1 sekunda</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">%d koraka te deli od toga da postaneš projektant.</item>
+        <item quantity="one">1 korak te deli od toga da postaneš projektant.</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Uklonite izabrane jezike</item>
+        <item quantity="one">Uklonite izabrani jezik</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Lozinka mora da sadrži najmanje %d slova.</item>
+        <item quantity="one">Lozinka mora da sadrži bar 1 slovo.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Lozinka mora da sadrži najmanje %d malih slova.</item>
+        <item quantity="one">Lozinka mora da sadrži bar jedno malo slovo.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Lozinka mora da sadrži najmanje %d velikih slova.</item>
+        <item quantity="one">Lozinka mora da sadrži bar 1 veliko slovo.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Lozinka mora da sadrži najmanje %d brojeva.</item>
+        <item quantity="one">Lozinka mora da sadrži bar jedan broj.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Lozinka mora da sadrži najmanje %d simbola.</item>
+        <item quantity="one">Lozinka mora da sadrži bar jedan simbol.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Lozinka mora da sadrži najmanje %d brojeva ili simbola.</item>
+        <item quantity="one">Lozinka mora da sadrži najmanje jedan broj ili simbol.</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Pristup sledećem broju foldera/fajlova: %d</item>
+        <item quantity="one">Pristup 1 folderu/fajlu</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"Osoba %s je instalirala CA sertifikate na vašem uređaju, što može da joj omogući da nadgleda aktivnost vašeg uređaja na mreži, uključujući vaše korišćenje e-poruka, aplikacija i bezbednih sajtova.
+
+Za više informacija o ovim sertifikatima, kontaktirajte svog IT administratora."</item>
+        <item quantity="one">"Osoba %s je instalirala CA sertifikat na vašem uređaju, što može da joj omogući da nadgleda aktivnost vašeg uređaja na mreži, uključujući vaše korišćenje e-poruka, aplikacija i bezbednih sajtova.
+
+Za više informacija o ovom sertifikatu, kontaktirajte svog IT administratora."</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d aplikacija može da čita obaveštenja.</item>
+        <item quantity="one">%d aplikacija sme da čita obaveštenja.</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">Još %d dozvola</item>
+        <item quantity="one">Još %d dozvola</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">Sledeći broj procesa: %1$d je koristio RAM u poslednjih %2$s</item>
+        <item quantity="one">%1$d proces je koristio RAM u poslednjih %2$s</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">Sledećem broju aplikacija je dozvoljeno da koriste mobilne podatke bez ograničenja dok je omogućen Čuvar podataka: %d</item>
+        <item quantity="one">Jednoj aplikaciji je dozvoljeno da koristi mobilne podatke bez ograničenja dok je omogućena funkcija Čuvar podataka</item>
+    </plurals>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">An incorrect PIN has been entered. You have %d attempts left.</item>
+        <item quantity="one">An incorrect PIN has been entered. If an incorrect PIN is entered %d more times, you will have to contact your service provider to unlock your device.</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">An incorrect PUK has been entered. If an incorrect PUK is entered %d more times, the SIM card will be permanently locked.</item>
+        <item quantity="one">An incorrect PUK has been entered. If an incorrect PUK is entered %d more times, the SIM card will be permanently locked.</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(preostalo je %d pokušaja)</item>
+        <item quantity="one">(1 pokušaj je preostao)</item>
+    </plurals>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">Preostali broj pokušaja: %d</item>
+        <item quantity="one">Preostao je %d pokušaj</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_min">
+        <item quantity="other">Pokušajte ponovno za %d minuta</item>
+        <item quantity="one">Pokušaj ponovno za %d minut</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_sec">
+        <item quantity="other">Pokušajte ponovno za %d sekunde/i</item>
+        <item quantity="one">Pokušaj ponovno za %d sekundu</item>
+    </plurals>
+</resources>

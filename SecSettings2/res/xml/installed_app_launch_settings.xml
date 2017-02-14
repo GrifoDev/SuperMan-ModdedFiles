@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/application_info_label"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:key="app_launch_other_defaults">
+        <com.android.settings.applications.ClearDefaultsPreference android:persistent="false" android:key="app_launch_clear_defaults" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/app_launch_domain_links_title" android:key="app_launch_domain_links">
+        <com.samsung.android.settings.UnclickablePreference android:clickable="false" android:title="@string/domain_urls_description" style="@style/description_text" />
+        <com.android.settings.SecDropDownPreference android:persistent="false" android:title="@string/app_launch_open_domain_urls_title" android:key="app_link_state" />
+        <Preference android:persistent="false" android:title="@string/app_launch_supported_domain_urls_title" android:key="app_launch_supported_domain_urls" android:dependency="app_link_state" />
+    </PreferenceCategory>
+</PreferenceScreen>

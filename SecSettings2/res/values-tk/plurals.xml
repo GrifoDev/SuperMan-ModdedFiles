@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d sagat</item>
+        <item quantity="one">1 sagat</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d minut</item>
+        <item quantity="one">1 minut</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d sekunt</item>
+        <item quantity="one">1 sekunt</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Siziň indi işläp düzüji bolmagyňyza %d ädim galdy.</item>
+        <item quantity="one">Siziň indi işläp düzüji bolmagyňyza 1 ädim galdy.</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Saýlanan dilleri aýyr</item>
+        <item quantity="one">Saýlanan dili aýyr</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Açar söz azyndan %d harpdan ybarat bolmaly</item>
+        <item quantity="one">Açar sözde azyndan 1 harp bolmaly</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Açar sözde azyndan %d setir harp bolmaly</item>
+        <item quantity="one">Açarsözde azyndan 1 setir harp bolmaly</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Açar sözde azyndan %d baş harplar bolmaly</item>
+        <item quantity="one">Açarsözde azyndan 1 baş harp bolmaly</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Açar sözde azyndan %d belgi bolmaly</item>
+        <item quantity="one">Açarsözde azyndan 1 belgi bolmaly</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Açar sözde azyndan %d şekiller bolmaly</item>
+        <item quantity="one">Açarsözde azyndan 1 şekil bolmaly</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Açar sözde azyndan %d belgiler we şekiller bolmaly</item>
+        <item quantity="one">Açarsözde azyndan 1 belgi ýa-da şekil bolmaly</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">%d bukja/faýla gir</item>
+        <item quantity="one">1 bukja/faýla gir</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s enjamyňyza CA sertifikatlaryny gurnady, ol onuň enjamyňyzyň tor işjeňligine, şol sanda e-poçtalary, goýmalary we howpsuz websaýtlary ulanyşyňyza gözegçilik etmäge mümkinçilik berip biler.
+
+Bu sertifikatlar hakda goşmaça maglumat üçin, IT administratoryňyza ýüz tutuň."</item>
+        <item quantity="one">"%s enjamyňyza CA sertifikatyny gurnady, ol onuň enjamyňyzyň tor işjeňligine, şol sanda e-poçtalary, goýmalary we howpsuz websaýtlary ulanyşyňyza gözegçilik etmäge mümkinçilik berip biler.
+
+Bu sertifikat hakda goşmaça maglumat üçin, IT administratoryňyza ýüz tutuň."</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d gollanma duýduryşlary okap bilýär.</item>
+        <item quantity="one">%d gollanmasyna bildirişleri okamaga rugsat berildi.</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">Ýene %d rugsat</item>
+        <item quantity="one">Ýene %d rugsat</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">Soňky %2$s dowamynda %1$d proses RAM ulandy</item>
+        <item quantity="one">Soňky %2$s dowamynda %1$d proses RAM ulandy</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d goýma Maglumat tygşytlaýjy açyk wagty, mobil maglumaty çäklendirmesiz ulanmaga rugsat berildi</item>
+        <item quantity="one">Maglumat tygşytlaýjy açyk wagty, 1 goýmanyň çäklendirmesiz mobil maglumat ulanmagyna rugsat berildi</item>
+    </plurals>
+</resources>

@@ -1,0 +1,21 @@
+!!brut.androlib.meta.MetaInfo
+apkFileName: framework-res.apk
+compressionType: false
+doNotCompress:
+- arsc
+isFrameworkApk: true
+packageInfo:
+  forcedPackageId: '1'
+  renameManifestPackage: null
+sdkInfo:
+  minSdkVersion: '24'
+  targetSdkVersion: '24'
+sharedLibrary: false
+unknownFiles:
+  SEC-INF/buildConfirm.crt: '8'
+  SEC-INF/buildinfo.xml: '8'
+usesFramework: null
+version: 2.2.2
+versionInfo:
+  versionCode: '24'
+  versionName: '7.0'

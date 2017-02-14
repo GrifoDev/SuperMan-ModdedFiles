@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<searchable android:label="@string/settings_label" android:hint="@string/settings_label" android:searchSuggestAuthority="com.android.settings.sfinderconncet" android:searchSuggestSelection=" ?" android:searchSuggestIntentAction="com.samsung.settings.REQUEST_FINDO_SEARCH_CALL_SETTING_MENU" android:searchSuggestIntentData="content://com.android.settings.sfinderconncet/searchinfo/rowid" android:voiceSearchMode="launchRecognizer|showVoiceSearchButton" android:searchSuggestThreshold="1" android:includeInGlobalSearch="false" android:searchSettingsDescription="@string/settings_label"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <extra-attr android:name="includeInInsightSearch" android:value="true" />
+    <extra-attr android:name="searchLayoutStyle" android:value="suggest_template_settings" />
+    <extra-attr android:name="categoryFilters" android:value="help" />
+</searchable>

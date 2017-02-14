@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="unlock_effect_image_bottom_margin">11.0dip</dimen>
+    <dimen name="unlock_effect_image_height">273.0dip</dimen>
+    <dimen name="unlock_effect_image_left_margin">16.0dip</dimen>
+    <dimen name="unlock_effect_image_top_margin">11.0dip</dimen>
+    <dimen name="unlock_effect_image_width">312.0dip</dimen>
+</resources>

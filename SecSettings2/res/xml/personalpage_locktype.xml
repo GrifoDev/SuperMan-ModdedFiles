@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:touchwiz="http://schemas.android.com/apk/res/touchwiz">
+    <com.samsung.android.settings.UnclickablePreference android:key="personalpage_inline_help" />
+    <PreferenceCategory android:title="@string/vpn_type" android:key="locktype_category" />
+    <Preference android:title="@string/unlock_set_unlock_pattern_title" android:key="personalpage_locktype_pattern" />
+    <Preference android:title="@string/unlock_set_unlock_pin_title" android:key="personalpage_locktype_pin" />
+    <Preference android:title="@string/unlock_set_unlock_password_title" android:key="personalpage_locktype_password" />
+    <PreferenceCategory android:title="@string/personal_page_fingerprint_category" android:key="peraonlpage_finger_category" />
+    <SwitchPreference android:title="@string/fingerprint" android:key="personalpage_locktype_fingerprint" android:summary="@string/personal_page_use_fingerprint_summary" />
+</PreferenceScreen>

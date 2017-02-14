@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:key="fingersetting"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:touchwiz="http://schemas.android.com/apk/res/touchwiz">
+    <PreferenceCategory android:title="@string/fingerprint_manager_z" android:key="register_category" />
+    <PreferenceCategory android:title="@string/fingerprint_settings_fingerprint_verification" android:key="feature_category">
+        <SwitchPreference android:title="@string/fingerprint_web" android:key="support_web_signin" android:summary="@string/fingerprint_web_summary" />
+        <PreferenceScreen android:title="@string/iris_use_samsung_pass" android:key="samsung_pass" />
+        <com.android.settings.fingerprint.FingerprintSwitchPreference android:title="@string/fingerprint_samsung_account" android:key="support_samsung_account" android:summary="@string/fingerprint_samsung_account_summary" />
+        <PreferenceScreen android:title="@string/fingerprint_use_samsungpay" android:key="samsung_pay" android:summary="@string/fingerprint_samsung_pay_summary" />
+        <PreferenceScreen android:title="@string/fingerprint_alipay_payments" android:key="alipay_payment" />
+    </PreferenceCategory>
+    <PreferenceCategory android:layout="@layout/fingerprint_unlock_category" android:key="unlock_category">
+        <com.android.settings.fingerprint.FingerprintSwitchPreference android:title="@string/fingerprint_set_as_screen_lock" android:key="set_screen_lock" android:summary="@string/fingerprint_set_as_screen_lock_summary" />
+    </PreferenceCategory>
+</PreferenceScreen>

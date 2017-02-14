@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">%d ekrana u Pregledu</item>
+        <item quantity="one">%d ekran u Pregledu</item>
+        <item quantity="few">%d ekrana u Pregledu</item>
+    </plurals>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">Netačan SIM PIN kôd. Imate još %d pokušaja.</item>
+        <item quantity="one">Netačan SIM PIN kôd. Imate još %d pokušaj.</item>
+        <item quantity="few">Netačan SIM PIN kôd. Imate još %d pokušaja.</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">Netačan SIM PUK kôd. Imate još %d pokušaja pre nego što SIM kartica postane trajno neupotrebljiva.</item>
+        <item quantity="one">Netačan SIM PUK kôd. Imate još %d pokušaj pre nego što SIM kartica postane trajno neupotrebljiva.</item>
+        <item quantity="few">Netačan SIM PUK kôd. Imate još %d pokušaja pre nego što SIM kartica postane trajno neupotrebljiva.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="other">Niste otključali uređaj %d sati. Potvrdite šablon.</item>
+        <item quantity="one">Niste otključali uređaj %d sat. Potvrdite šablon.</item>
+        <item quantity="few">Niste otključali uređaj %d sata. Potvrdite šablon.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="other">Niste otključali uređaj %d sati. Potvrdite PIN.</item>
+        <item quantity="one">Niste otključali uređaj %d sat. Potvrdite PIN.</item>
+        <item quantity="few">Niste otključali uređaj %d sata. Potvrdite PIN.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">Niste otključali uređaj %d sati. Potvrdite lozinku.</item>
+        <item quantity="one">Niste otključali uređaj %d sat. Potvrdite lozinku.</item>
+        <item quantity="few">Niste otključali uređaj %d sata. Potvrdite lozinku.</item>
+    </plurals>
+</resources>

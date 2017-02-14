@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="keyguard_affordance_height">58.0dip</dimen>
+    <dimen name="keyguard_affordance_width">58.0dip</dimen>
+    <dimen name="keyguard_secure_icon_height">34.0dip</dimen>
+    <dimen name="keyguard_secure_icon_width">34.0dip</dimen>
+    <dimen name="keyguard_indication_area_height">199.0dip</dimen>
+    <dimen name="shortuct_smart_lock_icon_margin">168.0dip</dimen>
+    <dimen name="shortuct_icon_default_size">78.0dip</dimen>
+    <dimen name="kg_security_input_box_side_margin">228.0dip</dimen>
+    <dimen name="kg_fmm_title_font_size">30.0dip</dimen>
+    <dimen name="kg_fmm_message_font_size">15.0dip</dimen>
+</resources>

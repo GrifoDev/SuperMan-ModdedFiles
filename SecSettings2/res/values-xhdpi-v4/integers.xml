@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="font_preveiw_seekbar_stroke_width">7</integer>
+    <integer name="font_preveiw_seekbar_marker_radius">12</integer>
+    <integer name="fingerprint_register_progress_strokeWidth">13</integer>
+</resources>

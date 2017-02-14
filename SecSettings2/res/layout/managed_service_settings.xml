@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:layout_width="fill_parent" android:layout_height="0.0px" android:layout_weight="1.0">
+        <ListView android:scrollbarStyle="insideOverlay" android:id="@android:id/list" android:paddingTop="@dimen/listview_top_padding" android:layout_width="fill_parent" android:layout_height="fill_parent" android:drawSelectorOnTop="false" android:paddingStart="@dimen/settings_side_margin" android:paddingEnd="@dimen/settings_side_margin" />
+        <TextView android:id="@android:id/empty" android:paddingTop="@dimen/body_text_top_padding" android:paddingBottom="@dimen/body_text_top_padding" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="@dimen/body_text_side_padding" android:paddingEnd="@dimen/body_text_side_padding" style="@style/body_text_style" />
+    </FrameLayout>
+</LinearLayout>

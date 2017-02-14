@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="false">
+        <nine-patch android:src="@drawable/scrubber_primary_mtrl_alpha" android:tint="@color/delta_progress_disabled" />
+    </item>
+    <item>
+        <layer-list
+          xmlns:android="http://schemas.android.com/apk/res/android">
+            <item android:id="@android:id/background">
+                <nine-patch android:src="@drawable/scrubber_primary_mtrl_alpha" android:tint="@color/delta_progress_disabled" />
+            </item>
+            <item android:id="@android:id/secondaryProgress">
+                <scale android:scaleWidth="100%">
+                    <nine-patch android:src="@drawable/scrubber_primary_mtrl_alpha" android:tint="@color/delta_progress_primary" />
+                </scale>
+            </item>
+            <item android:id="@android:id/progress">
+                <scale android:scaleWidth="100%">
+                    <nine-patch android:src="@drawable/scrubber_primary_mtrl_alpha" android:tint="@color/delta_progress_primary" />
+                </scale>
+            </item>
+        </layer-list>
+    </item>
+</selector>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="rectangle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <size android:height="@dimen/sec_primary_call_photo_size" android:width="@dimen/sec_primary_call_photo_size" />
+    <solid android:color="@color/sec_photo_container_hold_background" />
+    <padding android:left="@dimen/sec_resume_button_stroke_width" android:top="@dimen/sec_resume_button_stroke_width" android:right="@dimen/sec_resume_button_stroke_width" android:bottom="@dimen/sec_resume_button_stroke_width" />
+</shape>

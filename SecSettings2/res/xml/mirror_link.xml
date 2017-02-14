@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/mirror_link_title" settings:parent="@xml/wireless_settings"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <SwitchPreference android:persistent="false" android:title="@string/mirror_link_ncm_usb_tethering_title" android:key="ncm_usb_tether_settings" />
+    <Preference android:layout="@layout/mirror_link_help_text" android:selectable="false" android:key="mirror_link_applications" />
+</PreferenceScreen>

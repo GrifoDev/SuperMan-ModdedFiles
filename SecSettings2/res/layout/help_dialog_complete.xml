@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="bottom|center" android:id="@id/guide_view_container" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:background="@drawable/grace_help_popup_picker_bg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/powersavingmode_help_edit_bubble_margin_bottom">
+        <TextView android:textColor="@android:color/black" android:id="@id/help_edit_bubble_summary" android:paddingLeft="@dimen/guide_port_closed_bubble_padding_bottom" android:paddingTop="@dimen/guide_port_closed_bubble_padding_bottom" android:paddingRight="@dimen/guide_port_closed_bubble_padding_bottom" android:paddingBottom="@dimen/guide_port_closed_bubble_padding_bottom" android:text="@string/wifi_help_tutorial_complete" style="@style/GuideBubbleText" />
+    </RelativeLayout>
+</LinearLayout>

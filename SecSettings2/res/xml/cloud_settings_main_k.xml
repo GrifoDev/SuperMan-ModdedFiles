@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:key="mainFragement"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.settings.cloud.CloudDescriptionPreference android:layout="@layout/cloud_description" android:selectable="false" android:key="cloud_description" android:widgetLayout="@layout/preference_widget_checkbox" />
+    <Preference android:title="@string/scloud_set_sync_account" android:key="pref_set_account" />
+    <Preference android:key="dropbox_sync_account" android:summary="@string/scloud_dropbox" />
+    <Preference android:title="@string/scloud_storage_usage" android:key="pref_usage" />
+    <Preference android:title="@string/scloud_photos" android:key="pref_photos" android:summary="@string/scloud_off" />
+    <Preference android:title="@string/scloud_videos" android:key="pref_videos" android:summary="@string/scloud_off" />
+    <Preference android:title="@string/scloud_music" android:key="pref_musics" android:summary="@string/scloud_off" />
+    <Preference android:title="@string/scloud_documents" android:key="pref_document" android:summary="@string/scloud_off" />
+</PreferenceScreen>

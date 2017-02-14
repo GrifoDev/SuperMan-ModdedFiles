@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d ຊົ່ວໂມງ</item>
+        <item quantity="one">1 ຊົ່ວໂມງ</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d ນາທີ</item>
+        <item quantity="one">1 ນາທີ</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d ວິນາທີ</item>
+        <item quantity="one">1 ວິນາທີ</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">ປະຈຸບັນນີ້ທ່ານຍັງຢູ່ %d ຂັ້ນຕອນຈາກຜູ້ພັດທະນາ.</item>
+        <item quantity="one">ປະຈຸບັນນີ້ທ່ານຍັງຢູ່ຫ່າງໄກຈາກ 1 ຂັ້ນຕອນຂອງການເປັນຜູ້ພັດທະນາ.</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">ເອົາພາສາທີ່ເລືອກໄວ້ອອກໄປ</item>
+        <item quantity="one">ເອົາພາສາທີ່ເລືອກໄວ້ອອກໄປ</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">ລະຫັດຈະຕ້ອງມີຢ່າງໜ້ອຍ %d ຕົວອັກສອນ.</item>
+        <item quantity="one">ລະຫັດຈະຕ້ອງມີຢ່າງໜ້ອຍ 1 ຕົວອັກສອນ.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">ລະຫັດຈະຕ້ອງມີຢ່າງໜ້ອຍ %d ຕົວອັກສອນນ້ອຍ.</item>
+        <item quantity="one">ລະຫັດຈະຕ້ອງມີຢ່າງໜ້ອຍ 1 ຕົວອັກສອນນ້ອຍ.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">ລະຫັດຈະຕ້ອງມີຢ່າງໜ້ອຍ %d ຕົວອັກສອນໃຫຍ່.</item>
+        <item quantity="one">ລະຫັດຈະຕ້ອງມີຢ່າງໜ້ອຍ 1 ຕົວອັກສອນໃຫຍ່.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">ລະຫັດຈະຕ້ອງມີຢ່າງໜ້ອຍ %d ຕົວເລກ.</item>
+        <item quantity="one">ລະຫັດຈະຕ້ອງມີຢ່າງໜ້ອຍ 1 ຕົວເລກ.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">ລະຫັດຈະຕ້ອງມີຢ່າງໜ້ອຍ %d ຕົວສັນຍາລັກ.</item>
+        <item quantity="one">ລະຫັດຈະຕ້ອງມີຢ່າງໜ້ອຍ 1 ຕົວສັນຍາລັກ.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">ລະຫັດຈະຕ້ອງມີຢ່າງໜ້ອຍ %d ຕົວເລກ ຫຼືຕົວສັນຍາລັກ.</item>
+        <item quantity="one">ລະຫັດຈະຕ້ອງມີຢ່າງໜ້ອຍ 1 ຕົວເລກ ແລະຕົວສັນຍາລັກ.</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">ເຂົ້າໃຊ້ %d ໂຟລເດີ/ໄຟລ໌</item>
+        <item quantity="one">ເຂົ້າໃຊ້ 1 ໂຟລເດີ/ໄຟລ໌</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s ໄດ້ຕິດຕັ້ງໃບຢັ້ງຢືນ CA ໃນອຸປະກອນຂອງທ່ານ, ເຊິ່ງອາດອະນຸຍາດໃຫ້ພວກມັນຕິດຕາມກິດຈະກຳເຄືອຂ່າຍອຸປະກອນຂອງທ່ານ, ລວມທັງການນຳໃຊ້ອີເມລ໌, ແອັບ, ແລະເວັບໄຊທ໌ຕ່າງໆທີ່ປອດໄພຂອງທ່ານ.
+
+ສຳລັບຂໍ້ມູນເພີ່ມເຕີມກ່ຽວກັບໃບຢັ້ງຢືນເຫຼົ່ານີ້, ຕິດຕໍ່ຜູ້ເບິ່ງແຍງລະບົບ IT ຂອງທ່ານ."</item>
+        <item quantity="one">"%s ໄດ້ຕິດຕັ້ງໃບຢັ້ງຢືນ CA ໃນອຸປະກອນຂອງທ່ານ, ເຊິ່ງອາດອະນຸຍາດໃຫ້ພວກມັນຕິດຕາມກິດຈະກຳເຄືອຂ່າຍອຸປະກອນຂອງທ່ານ, ລວມທັງການນຳໃຊ້ອີເມລ໌, ແອັບ, ແລະເວັບໄຊທ໌ຕ່າງໆທີ່ປອດໄພຂອງທ່ານ.
+
+ສຳລັບຂໍ້ມູນເພີ່ມເຕີມກ່ຽວກັບໃບຢັ້ງຢືນນີ້, ຕິດຕໍ່ຜູ້ເບິ່ງແຍງລະບົບ IT ຂອງທ່ານ."</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">ແອພພລິເຄຊັນ %d ອັນສາມາດອ່ານການແຈ້ງເຕືອນໄດ້.</item>
+        <item quantity="one">%d ແອພພລິເຄຊັນໄດ້ຮັບອະນຸຍາດໃຫ້ອ່ານການແຈ້ງເຕືອນ.</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d ການອະນຸຍາດເພີ່ມເຕີມ</item>
+        <item quantity="one">%d ການອະນຸຍາດເພີ່ມເຕີມ</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$d ການປະມວນຜົນທີ່ໃຊ້ RAM ໃນ %2$s ສຸດທ້າຍ</item>
+        <item quantity="one">%1$d ການປະມວນຜົນທີ່ໃຊ້ RAM ໃນ %2$s ສຸດທ້າຍ</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d ແອັບທີ່ດາວໂຫຼດເພື່ອໃຊ້ຂໍ້ມູນມືຖືໂດຍບໍ່ມີການຈຳກັດໃນຂະນະທີ່ຕົວປະຢັດຂໍ້ມູນເປີດໃຊ້ງານຢູ່</item>
+        <item quantity="one">1 ແອັບຖືກອະນຸຍາດໃຫ້ໃຊ້ຂໍ້ມູນມືຖືໂດຍບໍ່ຕ້ອງມີການຈຳກັດ ໃນຂະນະທີ່ຕົວປະຢັດຂໍ້ມູນເປີດໃຊ້ງານຢູ່</item>
+    </plurals>
+</resources>

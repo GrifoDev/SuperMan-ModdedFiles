@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/all_details" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="?android:listPreferredItemPaddingStart" android:paddingEnd="?android:listPreferredItemPaddingEnd"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:gravity="start|center" android:id="@id/memory_state" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/progres_state_text_height" style="@style/ProgressBarStateText" />
+    <LinearLayout android:background="#ccfafafa" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/progres_bar_bottom_padding">
+        <com.android.settings.applications.LinearColorBar android:id="@id/color_bar" android:layout_width="fill_parent" android:layout_height="@dimen/progres_bar_height" android:layout_margin="@dimen/colorbar_theme_padding" />
+    </LinearLayout>
+</LinearLayout>

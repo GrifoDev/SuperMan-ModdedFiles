@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/triangle_to_left" android:background="@drawable/sem_toolbar_sweep_arrow_to_left" android:layout_width="35.0dip" android:layout_height="48.0dip" android:alpha="0.0" />
+    <View android:id="@id/triangle_to_right" android:background="@drawable/sem_toolbar_sweep_arrow_to_right" android:layout_width="35.0dip" android:layout_height="48.0dip" android:alpha="0.0" />
+</FrameLayout>

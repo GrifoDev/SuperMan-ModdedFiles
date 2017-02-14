@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/lock_and_security_settings_title"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <PreferenceCategory android:title="@string/security_settings_title" android:key="sec_security_category">
+        <PreferenceScreen android:persistent="false" android:title="@string/fingerprint" android:key="finger_scanner" />
+        <PreferenceScreen android:persistent="false" android:title="@string/iris_title" android:key="iris_settings" />
+        <PreferenceScreen android:persistent="false" android:title="@string/iris_use_samsung_pass" android:key="samsung_pass" android:summary="@string/lockscreen_samsung_pass_summary" />
+        <PreferenceScreen android:persistent="false" android:title="@string/find_my_mobile" android:key="find_my_mobile" android:summary="@string/find_my_mobile_summary" android:fragment="com.samsung.android.settings.fmm.FindMyMobileSettings" />
+        <PreferenceScreen android:persistent="false" android:title="@string/app_ops_settings" android:key="app_ops_settings" android:summary="@string/app_ops_settings_summary" android:fragment="com.android.settings.applications.AppOpsSummary" />
+        <com.android.settingslib.SecRestrictedSwitchPreference android:persistent="false" android:title="@string/install_applications" android:key="toggle_install_applications" android:summary="@string/install_applications_summary" />
+        <PreferenceScreen android:title="@string/personal_page" android:key="key_private_mode" android:summary="@string/switch_off_text" android:fragment="com.samsung.android.settings.personalpage.PersonalPageSettings" />
+        <PreferenceScreen android:persistent="false" android:title="@string/secure_folder_title" android:key="secure_folder" android:summary="@string/secure_folder_summary" />
+    </PreferenceCategory>
+</PreferenceScreen>

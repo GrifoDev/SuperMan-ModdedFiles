@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeightSmall" android:drawablePadding="@dimen/list_item_inner_padding" android:paddingEnd="@dimen/body_text_side_padding" android:layout_marginStart="@dimen/body_text_side_padding" style="@style/body_text_style"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

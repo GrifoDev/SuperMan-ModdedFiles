@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/ringtones_and_sounds_title" settings:parent="@xml/notification_settings"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <PreferenceScreen android:title="@string/download_ringtones" android:key="download_ringtone" android:summary="">
+        <intent android:action="android.intent.action.VIEW" android:data="http://waprd.telstra.com/redirect?target=3glatesttones" />
+    </PreferenceScreen>
+    <com.android.settings.DefaultRingtonePreference android:persistent="false" android:title="@string/ringtone_title" android:key="ringtone" android:widgetLayout="@layout/round_more_icon" android:dialogTitle="@string/ringtone_title" android:ringtoneType="ringtone" settings:dbMatchingName="ringtone" settings:dbMatchingTable="system" />
+    <com.android.settings.DefaultRingtonePreference android:persistent="false" android:title="@string/ringtone_title" android:key="ringtone2" android:widgetLayout="@layout/round_more_icon" android:dialogTitle="@string/ringtone_title" android:ringtoneType="ringtone" />
+    <PreferenceScreen android:persistent="false" android:title="@string/incoming_call_volume_title" android:key="ds_ring_tone" android:summary="@string/incoming_call_volume_title" />
+    <PreferenceCategory android:title="" android:key="ringtones_category" />
+    <com.android.settings.DefaultRingtonePreference android:persistent="false" android:title="@string/notification_ringtone_title" android:key="notification_sound" android:widgetLayout="@layout/round_more_icon" android:dialogTitle="@string/notification_sound_title" android:ringtoneType="notification" settings:dbMatchingName="notification_sound" settings:dbMatchingTable="system" />
+    <PreferenceCategory android:title="" android:key="notification_sound_category" />
+    <PreferenceScreen android:title="@string/tcoloring" android:key="tcoloring" android:summary="@string/operator_ringtone_link_summary" />
+    <PreferenceScreen android:title="@string/ringtoyou" android:key="ringtoyou" android:summary="@string/operator_ringtone_link_summary" />
+    <PreferenceScreen android:title="@string/application_name_message" android:key="mms_sound">
+        <intent android:action="com.samsung.mms.settings.NotificationSettings" />
+    </PreferenceScreen>
+    <PreferenceScreen android:title="@string/application_name_message" android:key="mms_sound_ds">
+        <intent android:action="com.samsung.mms.setting.SoundSettingMultiSIM" />
+    </PreferenceScreen>
+    <PreferenceScreen android:title="@string/application_name_splanner" android:key="splanner_sound">
+        <intent android:action="com.sec.android.intent.calendar.soundsettings" />
+    </PreferenceScreen>
+    <PreferenceScreen android:title="@string/application_name_email" android:key="email_sound">
+        <intent android:action="com.samsung.android.email.setup.NOTISETUP" />
+    </PreferenceScreen>
+    <PreferenceCategory android:title="" android:key="system_sounds" />
+    <SwitchPreference android:persistent="false" android:title="@string/touch_sounds_title" android:key="touch_sounds" android:summary="@string/touch_sounds_summary" />
+    <SwitchPreference android:persistent="false" android:title="@string/dial_pad_tones_title" android:key="dial_pad_tones" android:summary="@string/dial_pad_tones_summary" />
+    <SwitchPreference android:persistent="false" android:title="@string/screen_locking_sounds_title" android:key="screen_locking_sounds" android:summary="@string/screen_locking_sounds_summary" />
+    <SwitchPreference android:persistent="false" android:title="@string/gps_notification_sounds_title" android:key="gps_notification_sounds" android:summary="@string/gps_notification_sounds_summary" />
+    <SwitchPreference android:persistent="false" android:title="@string/docking_sounds_title" android:key="docking_sounds" />
+    <com.android.settings.SecDropDownPreference android:persistent="false" android:title="@string/dock_audio_media_title" android:key="dock_audio_media" />
+    <com.android.settings.SecDropDownPreference android:persistent="false" android:title="@string/emergency_tone_title" android:key="emergency_tone" />
+    <SwitchPreference android:persistent="false" android:title="@string/keyboard_sound" android:key="keyboard_sound" android:summary="@string/keyboard_sound_summary" />
+    <SwitchPreference android:persistent="false" android:title="@string/folder_sounds" android:key="folder_sounds" android:summary="@string/folder_sounds_summary" />
+    <SwitchPreference android:persistent="false" android:title="@string/charging_sounds_title" android:key="charging_sounds" android:summary="@string/charging_sounds_summary" />
+</PreferenceScreen>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/sound_mode" android:key="sound_mode_settings"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.samsung.android.settings.notification.RadioPreference android:persistent="false" android:title="@string/sound_settings" android:key="sound" />
+    <com.samsung.android.settings.notification.RadioPreference android:persistent="false" android:title="@string/sound_mode_vibrate" android:key="vibrate" />
+    <com.samsung.android.settings.notification.RadioPreference android:persistent="false" android:title="@string/sound_mode_mute" android:key="mute" />
+    <SwitchPreference android:persistent="false" android:title="@string/sound_temporary_mute" android:key="temporary_mute" />
+    <com.android.settings.SecDropDownPreference android:persistent="false" android:title="@string/sound_mute_duration" android:key="mute_duration" />
+</PreferenceScreen>

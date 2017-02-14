@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/powersaving_noti_view" android:focusable="false" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:background="@color/section_divider_color" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" android:layout_marginLeft="@dimen/list_divider_padding" android:layout_marginRight="@dimen/list_divider_padding" />
+    <TextView android:id="@id/powersaving_description_1" android:paddingTop="@dimen/body_text_top_padding" android:paddingBottom="@dimen/body_text_top_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/powersaving_description" android:paddingStart="@dimen/body_text_side_padding" android:paddingEnd="@dimen/body_text_side_padding" style="@style/body_text_style" />
+    <View android:background="@color/section_divider_color" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" android:layout_marginLeft="@dimen/list_divider_padding" android:layout_marginRight="@dimen/list_divider_padding" />
+</LinearLayout>

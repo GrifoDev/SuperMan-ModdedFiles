@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:fillViewport="true">
+        <LinearLayout android:layout_gravity="center_horizontal" android:orientation="vertical" android:id="@id/nfc_payment_vert" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="@dimen/body_text_side_padding" android:paddingEnd="@dimen/body_text_side_padding">
+            <ImageView android:layout_gravity="center_horizontal" android:id="@id/nfc_payment_tap_image_vert" android:paddingTop="@dimen/body_text_top_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:adjustViewBounds="true" />
+            <TextView android:paddingBottom="6.0dip" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/not_topside_body_text_top_padding" android:text="@string/nfc_other_no_apps" style="@style/body_text_style" />
+        </LinearLayout>
+    </ScrollView>
+    <ScrollView android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:fillViewport="true" android:layout_weight="4.0">
+        <LinearLayout android:layout_gravity="center_horizontal" android:orientation="horizontal" android:id="@id/nfc_payment_land" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="@dimen/body_text_side_padding" android:paddingEnd="@dimen/body_text_side_padding">
+            <ImageView android:layout_gravity="center_horizontal" android:id="@id/nfc_payment_tap_image_land" android:paddingTop="@dimen/body_text_top_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:adjustViewBounds="true" android:layout_weight="6.0" />
+            <TextView android:paddingTop="@dimen/body_text_top_padding" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/nfc_other_no_apps" android:layout_weight="4.0" android:paddingStart="@dimen/body_text_side_padding" style="@style/body_text_style" />
+        </LinearLayout>
+    </ScrollView>
+    <ListView android:id="@android:id/list" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+</FrameLayout>

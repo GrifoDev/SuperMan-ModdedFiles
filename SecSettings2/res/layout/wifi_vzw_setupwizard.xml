@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/wifiscreen_layout_id" android:background="@color/ssw_background_color" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/setupwizard_title" layout="@layout/vzw_custom_title_heading" />
+    <RelativeLayout android:background="@color/ssw_title_area_background_color" android:layout_width="fill_parent" android:layout_height="wrap_content" android:elevation="@dimen/vzw_subtitle_bar_elevation">
+        <TextView android:id="@id/wifi_setup_screentitle" android:text="@string/vzw_wifi_setup_screentitle" style="@style/SubTitleTextStyle" />
+        <ProgressBar android:id="@id/progress" android:visibility="gone" android:layout_width="24.0dip" android:layout_height="24.0dip" android:indeterminate="true" android:layout_centerVertical="true" android:layout_marginEnd="@dimen/add_button_margine_right" android:layout_alignParentEnd="true" android:indeterminateTint="@color/subtitle_text_color" style="?android:attr/progressBarStyleSmall" />
+    </RelativeLayout>
+    <TextView android:id="@id/add_network" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/common_add" />
+    <LinearLayout android:orientation="vertical" android:id="@id/wififragmentlayout" android:layout_width="fill_parent" android:layout_height="0.0px" android:layout_marginLeft="@dimen/wifi_fragment_margin_left" android:layout_marginRight="@dimen/wifi_fragment_margin_right" android:layout_weight="1.0">
+        <TextView android:id="@id/wifi_description" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <FrameLayout android:id="@id/wifi_picker_dialog_fragment_layout" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="@dimen/wifi_fragment_margin_top" />
+    </LinearLayout>
+    <View android:background="@color/vzw_wifi_bottom_button_divider_color" android:layout_width="fill_parent" android:layout_height="@dimen/bottom_button_divider_width" />
+    <LinearLayout android:id="@id/bottomButtonPanel" style="@style/bottom_button_layout">
+        <RelativeLayout android:id="@id/negative_button" style="@style/SoftKeyLeftButtonsStyle">
+            <TextView android:id="@id/negative_button_text" android:focusable="true" android:nextFocusRight="@id/positive_button_text" android:text="@string/vzw_wifi_scan" android:nextFocusForward="@id/positive_button_text" style="@style/SoftKeyLeftButtonTextsStyle" />
+        </RelativeLayout>
+        <RelativeLayout android:id="@id/positive_button" style="@style/ActionBarBottomButtonRightStyle">
+            <requestFocus />
+            <TextView android:id="@id/positive_button_text" android:focusable="true" android:nextFocusLeft="@id/negative_button_text" android:text="@string/skip_wifi_setup" android:drawableRight="@drawable/tw_btn_icon_next_mtrl" android:drawablePadding="@dimen/margin_between_button_and_arrow" android:layout_marginEnd="@dimen/softbutton_margin_right" android:layout_alignParentEnd="true" android:drawableTint="@color/softkey_text_color_on_press" style="@style/SoftKeyTextStyle" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

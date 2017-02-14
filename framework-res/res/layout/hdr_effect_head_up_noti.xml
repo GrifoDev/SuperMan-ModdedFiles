@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:internal="http://schemas.android.com/apk/prv/res/android">
+    <FrameLayout android:layout_width="64.0dip" android:layout_height="64.0dip">
+        <ImageView android:id="@id/hdr_effect_icon" android:background="@drawable/hdr_effect_icon_background" android:padding="10.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="17.0dip" android:layout_marginBottom="7.0dip" android:src="@drawable/video_hdr_ic_video" android:scaleType="centerInside" android:layout_marginStart="13.0dip" android:layout_marginEnd="11.0dip" />
+    </FrameLayout>
+    <LinearLayout android:layout_gravity="top" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="14.0dip" android:minHeight="64.0dip" android:layout_marginStart="64.0dip">
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginEnd="12.0dip">
+            <TextView android:textSize="16.0dip" android:textColor="#ff000000" android:ellipsize="marquee" android:id="@id/hdr_effect_title" android:fadingEdge="horizontal" android:layout_width="0.0dip" android:layout_height="wrap_content" android:singleLine="true" android:layout_weight="1.0" android:fontFamily="sec-roboto-light" />
+        </LinearLayout>
+        <LinearLayout android:gravity="top" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginEnd="12.0dip">
+            <TextView android:textSize="13.0dip" android:textColor="#ff435463" android:ellipsize="end" android:id="@id/hdr_effect_text" android:layout_width="0.0dip" android:layout_height="wrap_content" android:maxLines="3" android:layout_weight="1.0" android:fontFamily="sec-roboto-light" />
+        </LinearLayout>
+        <RelativeLayout android:orientation="horizontal" android:id="@id/actions" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <Button android:textSize="15.0dip" android:textStyle="bold" android:textColor="#ff499ebd" android:ellipsize="end" android:gravity="start|center" android:id="@id/hdr_effect_action_0" android:background="#00000000" android:layout_width="wrap_content" android:layout_height="38.0dip" android:layout_marginTop="4.0dip" android:minWidth="1.0dip" android:singleLine="true" android:includeFontPadding="false" android:drawablePadding="6.0dip" android:fontFamily="sec-roboto-light" android:paddingStart="12.0dip" android:paddingEnd="12.0dip" android:layout_alignParentEnd="true" />
+            <Button android:textSize="15.0dip" android:textStyle="bold" android:textColor="#ff499ebd" android:ellipsize="end" android:gravity="end|center" android:id="@id/hdr_effect_action_1" android:background="#00000000" android:layout_width="wrap_content" android:layout_height="38.0dip" android:layout_marginTop="4.0dip" android:minWidth="1.0dip" android:singleLine="true" android:includeFontPadding="false" android:drawablePadding="6.0dip" android:fontFamily="sec-roboto-light" android:paddingStart="12.0dip" android:paddingEnd="12.0dip" android:layout_toStartOf="@id/hdr_effect_action_0" />
+        </RelativeLayout>
+    </LinearLayout>
+</FrameLayout>

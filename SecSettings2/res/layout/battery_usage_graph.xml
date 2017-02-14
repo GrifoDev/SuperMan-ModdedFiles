@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="?android:listPreferredItemPaddingStart" android:paddingEnd="?android:listPreferredItemPaddingEnd"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:settings="http://schemas.android.com/apk/res-auto">
+    <TextView android:textAppearance="?android:textAppearanceLarge" android:textSize="36.0sp" android:id="@id/charge" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <TextView android:textAppearance="@style/body_text_style" android:id="@id/estimation" android:paddingTop="@dimen/body_text_top_padding" android:paddingBottom="@dimen/body_text_bottom_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <com.android.settingslib.graph.UsageView android:gravity="end" android:id="@id/battery_usage" android:layout_width="fill_parent" android:layout_height="141.0dip" android:colorAccent="?android:colorAccent" settings:textColor="?android:textColorSecondary" />
+    <TextView android:textSize="@dimen/battery_description_text_size" android:textColor="@color/battery_chart_second_text_color" android:id="@id/battery_history_chart_desc" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/battery_history_chart_margin_middle" android:text="@string/power_usage_estimated_remaining_battery" />
+</LinearLayout>

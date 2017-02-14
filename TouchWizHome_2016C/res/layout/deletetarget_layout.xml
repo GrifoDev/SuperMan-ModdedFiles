@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.launcher2.QuickViewDragBar android:gravity="center" android:orientation="horizontal" android:focusable="true" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/home_editTitleBar" android:layout_marginStart="@dimen/home_editTitleBar_side_margin" android:layout_marginEnd="@dimen/home_editTitleBar_side_margin"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:launcher="http://schemas.android.com/apk/res/com.sec.android.app.launcher">
+    <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ImageView android:id="@id/quickview_editbar_background" android:src="@drawable/circle_shape_remove" android:alpha="0.0" style="@style/EditBarCircle" />
+        <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:id="@id/quickview_delete_linear" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:layout_gravity="center_horizontal" android:id="@id/quickview_delete_icon" android:paddingTop="@dimen/delete_drawable_paddingTop" android:paddingBottom="@dimen/delete_drawable_paddingBottom" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/toolbar_ic_delete" />
+            <TextView android:id="@id/quickview_delete_text" android:text="@string/quickview_drag_bar_delete_title" style="@style/HomeEditDragBarIcon" />
+        </LinearLayout>
+    </FrameLayout>
+</com.android.launcher2.QuickViewDragBar>

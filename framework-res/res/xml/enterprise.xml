@@ -1,0 +1,1198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<database>
+    <table name="ADMIN_INFO">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="adminName" type="text" properties="NOT NULL" />
+        <column name="canRemove" type="numeric" properties="NOT NULL" />
+    </table>
+    <table name="CONTAINER">
+        <column name="containerID" type="int" primarykey="true" />
+        <column name="adminUid" type="int" properties="REFERENCES ADMIN_INFO(adminUid) ON UPDATE CASCADE" />
+    </table>
+    <table name="MUMCONTAINER" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="containerID" type="int" primarykey="true" />
+        <column name="adminUid" type="int" />
+    </table>
+    <table name="ADMIN" foreignrefertable="ADMIN_INFO" foreignreferkey="adminUid" foreignkeyname="adminId">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="adminId" type="int" />
+        <column name="containerID" type="int" properties="REFERENCES CONTAINER(containerID) ON DELETE CASCADE ON UPDATE CASCADE" />
+        <column name="userID" type="int" default="0" properties="UNSIGNED" />
+    </table>
+    <table name="PROXY_ADMIN_INFO">
+        <column name="adminUid" type="int" />
+        <column name="proxyUid" type="int" primarykey="true" />
+        <column name="proxyType" type="int" default="2" />
+        <column name="componentName" type="text" properties="NOT NULL" />
+        <column name="proxyComponentName" type="text" properties="NOT NULL" />
+        <column name="label" type="text" default="NULL" />
+        <column name="icon" type="blob" default="NULL" />
+        <column name="description" type="text" default="NULL" />
+        <column name="permissions" type="text" default="NULL" />
+    </table>
+    <table name="ADMIN_UID_AUTHORIZATION_INFO" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="authorizedUid" type="int" primarykey="true" />
+    </table>
+    <table name="APPLICATION" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="packageName" type="text" primarykey="true" />
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="applicationInstallationCount" type="int" default="0" properties="UNSIGNED" />
+        <column name="applicationUninstallationCount" type="int" default="0" properties="UNSIGNED" />
+        <column name="managedApp" type="int" default="0" properties="UNSIGNED" />
+        <column name="install_sourceMDM" type="int" default="0" properties="UNSIGNED" />
+        <column name="controlState" type="int" default="0" properties="UNSIGNED" />
+    </table>
+    <table name="APPLICATION_PERMISSION" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="permission" type="text" primarykey="true" />
+        <column name="adminUid" type="int" primarykey="true" />
+    </table>
+    <table name="APPLICATION_SIGNATURE2" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="signature" type="text" primarykey="true" />
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="controlState" type="int" default="0" properties="UNSIGNED" />
+    </table>
+    <table name="APPLICATION_GENERAL" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="installToSdCard" type="numeric" default="0" />
+    </table>
+    <table name="APPLICATION_MISC" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="widgetWhitelistEnabled" type="numeric" default="0" />
+        <column name="appNotificationMode" type="numeric" default="2" />
+    </table>
+    <table name="APPLICATION_COMPONENT" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="component" type="text" primarykey="true" />
+        <column name="componentControlState" type="int" default="0" properties="UNSIGNED" />
+    </table>
+    <table name="LOCATION" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="blockedProviders" type="text" default="NULL" />
+        <column name="forceProviders" type="numeric" default="0" />
+    </table>
+    <table name="KNOX_CUSTOM" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="sealedState" type="numeric" default="0" />
+        <column name="sealedPinCode" type="text" default="NULL" />
+        <column name="sealedExitUiPackage" type="text" default="NULL" />
+        <column name="sealedExitUiClass" type="text" default="NULL" />
+        <column name="sealedPowerDialogOptionMode" type="numeric" default="2" />
+        <column name="sealedModeStringOn" type="text" default="NULL" />
+        <column name="sealedModeStringOff" type="text" default="NULL" />
+        <column name="sealedModeStringOption" type="text" default="NULL" />
+        <column name="sealedHomeActivity" type="text" default="NULL" />
+        <column name="statusBarMode" type="numeric" default="2" />
+        <column name="statusBarClockState" type="numeric" default="2" />
+        <column name="statusBarIconsState" type="numeric" default="2" />
+        <column name="statusBarNotificationsState" type="numeric" default="1" />
+        <column name="usbMassStorageState" type="numeric" default="1" />
+        <column name="usbMassStorageStateIndependentSealed" type="numeric" default="1" />
+        <column name="usbNetState" type="numeric" default="0" />
+        <column name="usbNetSource" type="text" default="NULL" />
+        <column name="usbNetDest" type="text" default="NULL" />
+        <column name="notificationMessagesState" type="numeric" default="1" />
+        <column name="autoRotationState" type="numeric" default="1" />
+        <column name="autoRotationValue" type="numeric" default="0" />
+        <column name="inputRestrictionState" type="numeric" default="0" />
+        <column name="multiWindowFixed" type="numeric" default="0" />
+        <column name="multiWindowPercentageSplit" type="numeric" default="50" />
+        <column name="sealedPowerDialogItems" type="numeric" default="68" />
+        <column name="powerCustomItemsState" type="numeric" default="0" />
+        <column name="powerCustomItems" type="blob" />
+        <column name="extendedCallInfoState" type="numeric" default="0" />
+        <column name="settingsState" type="numeric" default="0" />
+        <column name="notificationMessagesMask" type="numeric" default="0" />
+        <column name="checkCoverPopupState" type="numeric" default="1" />
+        <column name="navigationBarMode" type="numeric" default="4" />
+        <column name="recentLongPressActivity" type="text" default="NULL" />
+        <column name="recentLongPressMode" type="numeric" default="0" />
+        <column name="batteryLevelColourItems" type="blob" />
+        <column name="volumeControlStream" type="numeric" default="0" />
+        <column name="LTESettingState" type="numeric" default="0" />
+        <column name="wifiConnectedMessageState" type="numeric" default="1" />
+        <column name="toastEnabledState" type="numeric" default="1" />
+        <column name="toastShowPackageNameState" type="numeric" default="0" />
+        <column name="customOperatorName" type="text" default="NULL" />
+        <column name="sensorDisabled" type="numeric" default="0" />
+        <column name="infraredState" type="numeric" default="1" />
+        <column name="callScreenItems" type="numeric" default="0" />
+        <column name="sealedHardKeyIntentState" type="numeric" default="0" />
+        <column name="lockScreenItems" type="numeric" default="0" />
+        <column name="statusBarText" type="text" default="NULL" />
+        <column name="statusBarTextStyle" type="numeric" default="0" />
+        <column name="statusBarTextSize" type="numeric" default="0" />
+        <column name="statusBarTextScroll" type="numeric" default="0" />
+        <column name="blockingModeNotificationState" type="numeric" default="1" />
+        <column name="volumePanelEnabledState" type="numeric" default="1" />
+        <column name="volumeButtonRotationState" type="numeric" default="0" />
+        <column name="volumeKeyAppsList" type="text" default="NULL" />
+        <column name="volumeKeyAppState" type="numeric" default="0" />
+        <column name="powerMenuLockedState" type="numeric" default="1" />
+        <column name="wifiAutoSwitchState" type="numeric" default="0" />
+        <column name="wifiAutoSwitchThreshold" type="numeric" default="-200" />
+        <column name="wifiAutoSwitchDelay" type="numeric" default="20" />
+        <column name="screenOffOnStatusBarDoubleTapState" type="numeric" default="0" />
+        <column name="screenOffOnHomeLongPressState" type="numeric" default="0" />
+        <column name="gearNotificationState" type="numeric" default="1" />
+        <column name="excludedSMSNumbers" type="text" default="NULL" />
+        <column name="smsIDsToDelete" type="text" default="NULL" />
+        <column name="blockDownloadState" type="numeric" default="0" />
+        <column name="blockDownloadNamespaces" type="text" default="NULL" />
+        <column name="screenWakeupOnPowerState" type="numeric" default="1" />
+        <column name="toastGravityEnabledState" type="numeric" default="0" />
+        <column name="toastGravity" type="numeric" default="0" />
+        <column name="toastGravityXOffset" type="numeric" default="0" />
+        <column name="toastGravityYOffset" type="numeric" default="0" />
+        <column name="ethernetState" type="numeric" default="0" />
+        <column name="ethernetConnectionType" type="numeric" default="0" />
+        <column name="ethernetInterfaceName" type="text" default="NULL" />
+        <column name="ethernetStaticIpAddr" type="text" default="NULL" />
+        <column name="ethernetStaticNetMask" type="text" default="NULL" />
+        <column name="ethernetStaticDnsAddr" type="text" default="NULL" />
+        <column name="ethernetStaticDfltRouter" type="text" default="NULL" />
+        <column name="chargerConnectionSoundEnabledState" type="numeric" default="1" />
+        <column name="keyboardMode" type="numeric" default="0" />
+        <column name="sealedModeSettingsState" type="numeric" default="0" />
+        <column name="simUnlockOnBoot" type="numeric" default="0" />
+        <column name="simUnlockPin" type="text" default="NULL" />
+        <column name="forceUsbCurrent" type="numeric" default="0" />
+        <column name="forceUsbHostCurrent" type="numeric" default="0" />
+        <column name="prokioskPinCode" type="text" default="NULL" />
+        <column name="quickPanelEditMode" type="numeric" default="1" />
+        <column name="quickPanelQuickConnect" type="numeric" default="1" />
+        <column name="quickPanelSFinder" type="numeric" default="1" />
+        <column name="quickPanelBrightness" type="numeric" default="1" />
+        <column name="deviceSpeakerEnabledState" type="numeric" default="0" />
+        <column name="ownerInfoHide" type="numeric" default="0" />
+        <column name="WifiState" type="numeric" default="0" />
+        <column name="AutoStartUpState" type="numeric" default="0" />
+        <column name="usbConnectionType" type="numeric" default="0" />
+        <column name="autoCallPickupState" type="numeric" default="0" />
+        <column name="autoCallNumberList" type="text" default="NULL" />
+        <column name="upsmAppLists" type="text" default="NULL" />
+        <column name="quickPanelTileList" type="text" default="NULL" />
+    </table>
+    <table name="SPDCONTROL">
+        <column name="spdEnforcing" type="int" default="0" primarykey="true" />
+        <column name="spdAdminUid" type="int" default="-1" />
+        <column name="spdUpdate" type="int" default="-1" />
+        <column name="spdDefaultValue" type="int" default="-1" />
+    </table>
+    <table name="RESTRICTION" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="usbTetheringEnabled" type="numeric" default="1" />
+        <column name="wifiTetheringEnabled" type="numeric" default="1" />
+        <column name="bluetoothTetheringEnabled" type="numeric" default="1" />
+        <column name="microphoneEnabled" type="numeric" default="1" />
+        <column name="cameraEnabled" type="numeric" default="1" />
+        <column name="usbDebuggingEnabled" type="numeric" default="1" />
+        <column name="screenCaptureEnabled" type="numeric" default="1" />
+        <column name="massStorageEnabled" type="numeric" default="1" />
+        <column name="mockLocationEnabled" type="numeric" default="1" />
+        <column name="backupEnabled" type="numeric" default="1" />
+        <column name="cellularDataEnabled" type="numeric" default="1" />
+        <column name="allowSettingsChanges" type="numeric" default="1" />
+        <column name="factoryresetallowed" type="numeric" default="1" />
+        <column name="homeKeyEnabled" type="numeric" default="1" />
+        <column name="nfcEnabled" type="numeric" default="1" />
+        <column name="backgroundDataEnabled" type="numeric" default="1" />
+        <column name="sdCardEnabled" type="numeric" default="1" />
+        <column name="clipboardEnabled" type="numeric" default="1" />
+        <column name="allowNonMarketApp" type="numeric" default="1" />
+        <column name="usbKiesEnabled" type="numeric" default="1" />
+        <column name="usbMediaPlayerEnabled" type="numeric" default="1" />
+        <column name="nativeVpnAllowed" type="numeric" default="1" />
+        <column name="wallpaperEnabled" type="numeric" default="1" />
+        <column name="statusBarExpansionEnabled" type="numeric" default="1" />
+        <column name="powerOffAllowed" type="numeric" default="1" />
+        <column name="MarketNetworkType" type="numeric" default="0" />
+        <column name="OTAUpgradeEnabled" type="numeric" default="1" />
+        <column name="DateTimeEnabled" type="numeric" default="1" />
+        <column name="googleCrashReportEnabled" type="numeric" default="1" />
+        <column name="sdCardWriteEnabled" type="numeric" default="1" />
+        <column name="allowOnlySecureVPN" type="numeric" default="0" />
+        <column name="allowAudioRecording" type="numeric" default="1" />
+        <column name="allowVideoRecording" type="numeric" default="1" />
+        <column name="allowWifiDirect" type="numeric" default="1" />
+        <column name="limitOfBackgroundProcess" type="numeric" default="1" />
+        <column name="allowKeepActivities" type="numeric" default="1" />
+        <column name="allowMobileDataLimit" type="numeric" default="1" />
+        <column name="allowClipboardShare" type="numeric" default="1" />
+        <column name="allowSVoice" type="numeric" default="1" />
+        <column name="allowUsbHostStorage" type="numeric" default="1" />
+        <column name="allowStopSystemApp" type="numeric" default="1" />
+        <column name="allowSBeam" type="numeric" default="1" />
+        <column name="allowAndroidBeam" type="numeric" default="1" />
+        <column name="allowShareList" type="numeric" default="1" />
+        <column name="useSecureKeypad" type="numeric" default="0" />
+        <column name="blockNonTrustedApp" type="numeric" default="0" />
+        <column name="allowSafeMode" type="numeric" default="1" />
+        <column name="allowLockScreenFavApps" type="numeric" default="1" />
+        <column name="allowLockScreenViews" type="int" default="65535" properties="UNSIGNED" />
+        <column name="lockScreenEnabled" type="numeric" default="1" />
+        <column name="allowDeveloperMode" type="numeric" default="1" />
+        <column name="allowAirplaneMode" type="numeric" default="1" />
+        <column name="allowGoogleAccountsAutoSync" type="int" default="1" />
+        <column name="allowFirmwareAutoUpdate" type="numeric" default="0" />
+        <column name="allowActivationLock" type="numeric" default="1" />
+        <column name="setHeadphoneState" type="numeric" default="1" />
+        <column name="allowSDCardMove" type="numeric" default="1" />
+        <column name="allowFastEncryption" type="numeric" default="0" />
+        <column name="setCCMode" type="numeric" default="0" />
+        <column name="firmwarerecoveryallowed" type="numeric" default="1" />
+        <column name="globalProxy" type="numeric" default="0" />
+        <column name="ODETrustedBootVerification" type="numeric" default="0" />
+        <column name="preventAdminInstallation" type="numeric" default="0" />
+        <column name="preventAdminActivation" type="numeric" default="0" />
+        <column name="preventAdminActivationWhiteList" type="text" default="NULL" />
+        <column name="allowRemoteControl" type="numeric" default="1" />
+        <column name="smartClipAllowed" type="numeric" default="1" />
+        <column name="screenPinningAllowed" type="numeric" default="1" />
+        <column name="wearablePolicyEnabled" type="int" default="65535" properties="UNSIGNED" />
+        <column name="iriscameraEnabled" type="numeric" default="1" />
+        <column name="allowDataSaving" type="numeric" default="1" />
+        <column name="allowPowerSavingMode" type="numeric" default="1" />
+    </table>
+    <table name="PASSWORD" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="unlockDelay" type="numeric" default="-1" />
+        <column name="passwordChangeTimeout" type="numeric" default="-1" />
+        <column name="passwordRequiredPattern" type="text" default="NULL" />
+        <column name="passwordAttemptDeviceDisable" type="numeric" default="0" />
+        <column name="passwordMaximumNumericSequenceLength" type="numeric" default="0" />
+        <column name="passwordForbiddenStrings" type="text" default="NULL" />
+        <column name="passwordMaximumCharacterOccurences" type="numeric" default="0" />
+        <column name="screenLockPatternVisibility" type="numeric" default="1" />
+        <column name="passwordMaximumCharacterSequenceLength" type="numeric" default="0" />
+        <column name="passwordMinimumCharacterChangeUpdatingPasswordLength" type="numeric" default="0" />
+        <column name="passwordVisibilityEnabled" type="numeric" default="1" />
+        <column name="excludeExternalStorageWipe" type="numeric" default="1" />
+        <column name="passwordBioAuthEnabled" type="int" default="-1" />
+    </table>
+    <table name="MISC" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="CallingLogEnabled" type="numeric" default="0" />
+        <column name="smsLogEnabled" type="numeric" default="0" />
+        <column name="mmsLogEnabled" type="numeric" default="0" />
+        <column name="enableWifiDataStatistic" type="numeric" default="0" />
+        <column name="miscDataStatisticTimer" type="int" default="3" />
+        <column name="lockscreenstring" type="int" default="0" />
+        <column name="nfcStateChangeAllowed" type="numeric" default="1" />
+    </table>
+    <table name="SMS">
+        <column name="smsType" type="numeric" default="-1" />
+        <column name="smsTimeStamp" type="text" default="NULL" />
+        <column name="smsAddress" type="text" default="NULL" />
+        <column name="smsBody" type="text" default="NULL" />
+        <column name="smsCaptureAdmin" type="text" default="NULL" />
+    </table>
+    <table name="MMS">
+        <column name="mmsType" type="numeric" default="-1" />
+        <column name="mmsTimeStamp" type="text" default="NULL" />
+        <column name="mmsAddress" type="text" default="NULL" />
+        <column name="mmsBody" type="text" default="NULL" />
+        <column name="mmsCaptureAdmin" type="text" default="NULL" />
+    </table>
+    <table name="ROAMING" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="roamingSyncEnabled" type="numeric" default="1" />
+        <column name="roamingPushEnabled" type="numeric" default="1" />
+        <column name="roamingDataEnabled" type="numeric" default="1" />
+        <column name="roamingVoiceCallsEnabled" type="numeric" default="1" />
+    </table>
+    <table name="VPN" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" properties="NOT NULL" />
+        <column name="VpnID" type="numeric" primarykey="true" />
+        <column name="UsrName" type="text" default="NULL" />
+        <column name="UsrPwd" type="text" default="NULL" />
+        <column name="allowUserSetAlwaysOn" type="numeric" default="1" />
+        <column name="allowUserChangeProfiles" type="numeric" default="1" />
+        <column name="allowUserAddProfiles" type="numeric" default="1" />
+    </table>
+    <table name="WIFI" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="networkUuidMatchList" type="text" default="NULL" />
+        <column name="blockedSSIDList" type="text" default="NULL" />
+        <column name="DHCPEnabled" type="numeric" default="1" />
+        <column name="allowUserChanges" type="numeric" default="1" />
+        <column name="passwordHidden" type="numeric" default="0" />
+        <column name="promptCredentials" type="numeric" default="1" />
+        <column name="minimumRequiredSecurity" type="numeric" default="0" />
+        <column name="allowWifi" type="numeric" default="1" />
+        <column name="allowUserProfiles" type="numeric" default="1" />
+        <column name="tlsCertificateSecurityLevel" type="numeric" default="0" />
+        <column name="allowWifiApSettingModification" type="numeric" default="1" />
+        <column name="wifiSsidRestriction" type="numeric" default="0" />
+        <column name="allowOpenWifi" type="numeric" default="1" />
+        <column name="allowAutomaticConnection" type="numeric" default="1" />
+        <column name="allowWifiStateChanges" type="numeric" default="1" />
+    </table>
+    <table name="WIFI_SSID_BLACK_WHITE_LIST" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="WIFI_SSID" type="text" primarykey="true" />
+        <column name="WIFI_LIST_TYPE" type="text" primarykey="true" />
+    </table>
+    <table name="WIFI_CONF" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" properties="NOT NULL" />
+        <column name="networkSSID" type="text" primarykey="true" />
+        <column name="networkBSSID" type="text" default="NULL" />
+        <column name="networkKeyMgmt" type="text" default="NULL" />
+        <column name="networkAuthAlg" type="text" default="NULL" />
+        <column name="networkAllowedProtos" type="text" default="NULL" />
+        <column name="networkAllowedPairwiseCiphers" type="text" default="NULL" />
+        <column name="networkAllowedGroupProtocols" type="text" default="NULL" />
+        <column name="networkWEPKeyId" type="numeric" default="0" />
+        <column name="networkWEPKey1" type="text" default="NULL" />
+        <column name="networkWEPKey2" type="text" default="NULL" />
+        <column name="networkWEPKey3" type="text" default="NULL" />
+        <column name="networkWEPKey4" type="text" default="NULL" />
+        <column name="networkPSK" type="text" default="NULL" />
+        <column name="networkEAP" type="text" default="NULL" />
+        <column name="networkPhase1" type="text" default="NULL" />
+        <column name="networkPhase2" type="text" default="NULL" />
+        <column name="networkPacFile" type="text" default="NULL" />
+        <column name="networkIdentity" type="text" default="NULL" />
+        <column name="networkAnonymousId" type="text" default="NULL" />
+        <column name="networkPassword" type="text" default="NULL" />
+        <column name="networkClientCertification" type="text" default="NULL" />
+        <column name="networkPrivateKey" type="text" default="NULL" />
+        <column name="networkCaCertificate" type="text" default="NULL" />
+        <column name="networkStaticIpEnabled" type="numeric" default="0" />
+        <column name="networkStaticIp" type="text" default="NULL" />
+        <column name="networkStaticGateway" type="text" default="NULL" />
+        <column name="networkStaticPrimaryDns" type="text" default="NULL" />
+        <column name="networkStaticSecondaryDns" type="text" default="NULL" />
+        <column name="networkStaticSubnetMask" type="text" default="NULL" />
+        <column name="networkManualProxyEnabled" type="numeric" default="0" />
+        <column name="networProxyName" type="text" default="NULL" />
+        <column name="networkProxyPort" type="numeric" default="0" />
+        <column name="networkProxyExclList" type="text" default="NULL" />
+        <column name="networkProxyState" type="numeric" default="NULL" />
+        <column name="networkProxyUsername" type="text" default="NULL" />
+        <column name="networkProxyPassword" type="text" default="NULL" />
+        <column name="networkProxyPacUrl" type="text" default="NULL" />
+        <column name="networkEngineID" type="numeric" default="0" />
+    </table>
+    <table name="BLUETOOTH" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="bluetoothEnabled" type="numeric" default="1" />
+        <column name="bluetoothLogEnabled" type="numeric" default="0" />
+        <column name="allowDataTransfer" type="numeric" default="1" />
+        <column name="pairingEnabled" type="numeric" default="1" />
+        <column name="allowOutgoingCalls" type="numeric" default="1" />
+        <column name="limitedDiscoverableEnabled" type="numeric" default="1" />
+        <column name="discoverableModeEnabled" type="numeric" default="1" />
+        <column name="desktopConnectivityEnabled" type="numeric" default="1" />
+        <column name="profileSettings" type="int" default="65535" properties="UNSIGNED" />
+        <column name="profilePolicyEnabled" type="numeric" default="0" />
+        <column name="devicePolicyEnabled" type="numeric" default="0" />
+        <column name="allowCallerID" type="numeric" default="1" />
+        <column name="allowLockScreenContactsAccess" type="numeric" default="1" />
+    </table>
+    <table name="BLUETOOTH_DEVICE_BWLIST" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="Object" type="text" primarykey="true" />
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="ListType" type="text" primarykey="true" />
+    </table>
+    <table name="BLUETOOTH_PROFILE_BWLIST" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="Object" type="text" primarykey="true" />
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="ListType" type="text" primarykey="true" />
+    </table>
+    <table name="BROWSER" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="browserSettings" type="int" default="23" properties="UNSIGNED" />
+    </table>
+    <table name="BROWSER_PROXY" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="proxyServer" type="text" default="NULL" />
+    </table>
+    <table name="PHONERESTRICTION" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="outgoingPattern" type="text" default="NULL" />
+        <column name="incomingPattern" type="text" default="NULL" />
+        <column name="emergencyCallOnly" type="numeric" default="0" />
+        <column name="limitCallEnable" type="numeric" default="0" />
+        <column name="outgoingCallByDay" type="numeric" default="0" />
+        <column name="outgoingCallByWeek" type="numeric" default="0" />
+        <column name="outgoingCallByMonth" type="numeric" default="0" />
+        <column name="incomingCallByDay" type="numeric" default="0" />
+        <column name="incomingCallByWeek" type="numeric" default="0" />
+        <column name="incomingCallByMonth" type="numeric" default="0" />
+        <column name="smsRestrictionIncomingPattern" type="text" default="NULL" />
+        <column name="smsRestrictionOutgoingPattern" type="text" default="NULL" />
+        <column name="limitSmsEnable" type="numeric" default="0" />
+        <column name="outgoingSmsByDay" type="numeric" default="0" />
+        <column name="outgoingSmsByWeek" type="numeric" default="0" />
+        <column name="outgoingSmsByMonth" type="numeric" default="0" />
+        <column name="incomingSmsByDay" type="numeric" default="0" />
+        <column name="incomingSmsByWeek" type="numeric" default="0" />
+        <column name="incomingSmsByMonth" type="numeric" default="0" />
+        <column name="enableWifiDataCallDataStatistic" type="numeric" default="0" />
+        <column name="enableDataCallLogging" type="numeric" default="0" />
+        <column name="enableLimitDataCall" type="numeric" default="0" />
+        <column name="dataCallByDay" type="numeric" default="0" />
+        <column name="dataCallByWeek" type="numeric" default="0" />
+        <column name="dataCallByMonth" type="numeric" default="0" />
+        <column name="allowIncomingSms" type="numeric" default="1" />
+        <column name="allowOutgoingSms" type="numeric" default="1" />
+        <column name="allowIncomingMms" type="numeric" default="1" />
+        <column name="allowOutgoingMms" type="numeric" default="1" />
+        <column name="blockSmsWithStorage" type="numeric" default="0" />
+        <column name="blockMmsWithStorage" type="numeric" default="0" />
+        <column name="wapPushEnabled" type="numeric" default="1" />
+        <column name="allowCallerID" type="numeric" default="1" />
+        <column name="copyContactToSimEnabled" type="numeric" default="1" />
+        <column name="outgoingCallExceptionPattern" type="text" default="NULL" />
+        <column name="incomingCallExceptionPattern" type="text" default="NULL" />
+        <column name="outgoingSmsExceptionPattern" type="text" default="NULL" />
+        <column name="incomingSmsExceptionPattern" type="text" default="NULL" />
+        <column name="disclaimerText" type="text" default="NULL" />
+    </table>
+    <table name="DEVICE">
+        <column name="deviceWifiSent" type="int" default="0" />
+        <column name="deviceWifiReceived" type="int" default="0" />
+        <column name="deviceNetworkSent" type="int" default="0" />
+        <column name="deviceNetworkReceived" type="int" default="0" />
+    </table>
+    <table name="DATACALLLOG">
+        <column name="dataCallDate" type="int" primarykey="true" />
+        <column name="dataCallStatus" type="text" default="NULL" />
+        <column name="dataCallNetType" type="text" default="NULL" />
+        <column name="dataCallBytes" type="int" default="0" />
+    </table>
+    <table name="generic" foreignrefertable="CONTAINER" foreignreferkey="containerID" foreignkeyname="containerID">
+        <column name="name" type="text" primarykey="true" />
+        <column name="value" type="text" default="NULL" />
+        <column name="containerID" type="int" primarykey="true" default="0" />
+        <column name="userID" type="int" primarykey="true" default="0" />
+    </table>
+    <table name="CallingLog">
+        <column name="callingType" type="numeric" default="-1" />
+        <column name="callingTimeStamp" type="text" default="NULL" />
+        <column name="callingAddress" type="text" default="NULL" />
+        <column name="callingDuration" type="text" default="NULL" />
+        <column name="callingStatus" type="text" default="NULL" />
+        <column name="callingCaptureAdmin" type="text" default="NULL" />
+    </table>
+    <table name="FirewallTable" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="text" properties="NOT NULL" />
+        <column name="rules" type="text" default="NULL" />
+        <column name="type" type="text" default="NULL" />
+        <column name="enabled" type="text" default="NULL" />
+        <column name="ruleId" type="int" primarykey="true" />
+        <column name="timestamp" type="int" default="0" />
+        <column name="globalProxy" type="numeric" default="1" />
+    </table>
+    <table name="DNSPerApp" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" />
+        <column name="packageName" type="text" default="NULL" />
+        <column name="dns1" type="text" default="NULL" />
+        <column name="dns2" type="text" default="NULL" />
+        <column name="interface" type="text" default="NULL" primarykey="true" />
+    </table>
+    <table name="APPLICATION_PERMISSIONCONTROL" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="permission" type="text" primarykey="true" />
+        <column name="Object" type="text" primarykey="true" />
+        <column name="ListType" type="text" primarykey="true" />
+    </table>
+    <table name="KIOSKMODE" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="kioskModeEnabled" type="numeric" default="0" />
+        <column name="kioskModeDefaultPackage" type="text" default="NULL" />
+        <column name="kioskModeKioskPackage" type="text" default="NULL" />
+        <column name="systemBarEnabled" type="numeric" default="0" />
+        <column name="blockedHwKeyList" type="text" default="NULL" />
+        <column name="taskManagerEnabled" type="numeric" default="1" />
+        <column name="multiWindowEnabled" type="numeric" default="1" />
+        <column name="kioskModeAirCommandAllowed" type="numeric" default="1" />
+        <column name="kioskModeAirViewAllowed" type="numeric" default="1" />
+        <column name="edgeScreenBlockedFunctions" type="numeric" default="0" />
+    </table>
+    <table name="WebFilterTable" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="text" default="NULL" />
+        <column name="url" type="text" default="NULL" />
+        <column name="id" type="numeric" primarykey="true" />
+    </table>
+    <table name="WebFilterLogTable">
+        <column name="url" type="text" default="NULL" />
+        <column name="time" type="text" default="NULL" />
+        <column name="id" type="int" primarykey="true" />
+        <column name="containerID" type="int" properties="REFERENCES CONTAINER(containerID) ON DELETE CASCADE ON UPDATE CASCADE" default="0" />
+        <column name="userID" type="int" default="0" properties="UNSIGNED" />
+    </table>
+    <table name="WebFilterSettingsTable" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="text" default="NULL" />
+        <column name="logging" type="text" default="'false'" />
+        <column name="filtering" type="text" default="'false'" />
+        <column name="id" type="numeric" primarykey="true" />
+    </table>
+    <table name="BluetoothLogTable">
+        <column name="time" type="text" default="NULL" />
+        <column name="log" type="text" default="NULL" />
+        <column name="id" type="numeric" primarykey="true" />
+    </table>
+    <table name="EmailSettingsTable" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="EmailAddress" type="text" primarykey="true" />
+        <column name="EmailAllowHTML" type="numeric" default="1" />
+        <column name="EmailAllowForward" type="numeric" default="1" />
+        <column name="EmailAllowSettingChange" type="numeric" default="1" />
+        <column name="EmailAllowNotificationChange" type="numeric" default="1" />
+    </table>
+    <table name="ExchangeAccountTable" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="AccountId" type="numeric" primarykey="true" />
+        <column name="ReqSigSmime" type="numeric" default="0" />
+        <column name="ReqEncryptSmime" type="numeric" default="0" />
+        <column name="ForceSmimeCert" type="numeric" default="0" />
+        <column name="ForceSmimeCertForEncryption" type="numeric" default="0" />
+        <column name="ForceSmimeCertForSigning" type="numeric" default="0" />
+        <column name="AllowSettingChange" type="numeric" default="1" />
+        <column name="AllowNotificationChange" type="numeric" default="1" />
+        <column name="AttachmentEnable" type="numeric" default="1" />
+        <column name="IncomingAttachmentSize" type="numeric" default="0" />
+        <column name="MaxCalendarAgeFilter" type="numeric" default="0" />
+        <column name="MaxEmailAgeFilter" type="numeric" default="0" />
+        <column name="MaxEmailBodyTruncationSize" type="numeric" default="0" />
+        <column name="MaxEmailHTMLBodyTruncationSize" type="numeric" default="0" />
+    </table>
+    <table name="AUDITLOG" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="auditLogEnabled" type="numeric" default="0" />
+        <column name="auditLogIptables" type="numeric" default="0" />
+        <column name="auditLogMDM" type="numeric" default="0" />
+        <column name="auditCriticalSize" type="numeric" default="70" />
+        <column name="auditMaximumSize" type="numeric" default="90" />
+        <column name="auditNumberOfDepFiles" type="numeric" default="0" />
+        <column name="auditLogRuleOutcome" type="numeric" default="2" />
+        <column name="auditLogRuleSeverity" type="numeric" default="5" />
+        <column name="auditLogRuleGroups" type="numeric" />
+        <column name="auditLogKernelEnabled" type="text" default="'false'" />
+        <column name="auditLogRuleUsers" type="numeric" />
+        <column name="auditLogBufferSize" type="numeric" default="0" />
+        <column name="auditLogLastTimestamp" type="numeric" default="0" />
+    </table>
+    <table name="CERTIFICATE" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="trustedCaList" type="text" primarykey="true" />
+        <column name="untrustedCertsList" type="text" primarykey="true" />
+        <column name="signatureIdentityInformationEnabled" type="numeric" default="0" />
+        <column name="notificateSignatureFailureToUser" type="numeric" default="0" />
+        <column name="validateCertificateAtInstall" type="numeric" default="0" />
+        <column name="allowUserRemoveCertificate" type="numeric" default="1" />
+    </table>
+    <table name="SmartCardEmailTable" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="emailAddress" type="text" primarykey="true" />
+        <column name="emailAuthEnabled" type="numeric" default="0" />
+        <column name="signatureCertificateAlias" type="text" default="NULL" />
+        <column name="encryptionCertificateAlias" type="text" default="NULL" />
+    </table>
+    <table name="SmartCardVpnTable" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="vpnProfile" type="text" primarykey="true" />
+        <column name="vpnAuthEnabled" type="numeric" default="0" />
+    </table>
+    <table name="SmartCardBrowserTable" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="browserAuthEnabled" type="numeric" default="0" />
+    </table>
+    <table name="SmartCardBrowserCertAliasTable" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="hostUrl" type="text" primarykey="true" properties="NOT NULL" />
+        <column name="port" type="int" primarykey="true" default="0" />
+        <column name="certAlias" type="text" properties="NOT NULL" />
+    </table>
+    <table name="SmartCardLockscreenTable" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="smartcardAuth" type="numeric" default="0" />
+    </table>
+    <table name="SmartCardAccessTable" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="allowBTAccess" type="numeric" default="0" />
+    </table>
+    <table name="SmartCardAccessWhitelistTable" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="whitelistPackageName" type="text" primarykey="true" />
+    </table>
+    <table name="UsbApplicationPermissionDetailsTable" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="packageName" type="text" primarykey="true" />
+        <column name="usbDeviceVendorId" type="int" primarykey="true" properties="NOT NULL" />
+        <column name="usbDeviceProductId" type="int" primarykey="true" properties="NOT NULL" />
+    </table>
+    <table name="ADMIN_REF" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="row_id" type="int" primarykey="true" />
+        <column name="adminUid" type="int" properties="NOT NULL" />
+        <column name="policyName" type="text" properties="NOT NULL" />
+        <column name="accountObject" type="blob" />
+    </table>
+    <table name="EnumLSOItemTypes">
+        <column name="Item_Type" type="int" primarykey="true" />
+        <column name="Item_Description" type="text" />
+    </table>
+    <table name="EnumLSOOrientation">
+        <column name="Id" type="int" primarykey="true" />
+        <column name="Description" type="text" />
+    </table>
+    <table name="LOCKSCREEN_OVERLAY">
+        <column name="Item_RowId" type="int" primarykey="true" />
+        <column name="Item_Type" type="int" properties="NOT NULL REFERENCES EnumLSOItemTypes(Item_Type)" />
+        <column name="Item_Id" type="text" default="NULL" />
+        <column name="Item_Width" type="int" default="-99" />
+        <column name="Item_Height" type="int" default="-99" />
+        <column name="Item_Weight" type="real" default="0" />
+        <column name="Item_Bg_Color" type="int" default="-1" />
+        <column name="Item_Gravity" type="int" default="-1" />
+        <column name="Item_TxtColor_or_PollingInterval" type="int" default="-1" />
+        <column name="Item_Txt_or_ImgPath" type="text" />
+        <column name="Item_TxtStyle_or_ScaleType" type="int" default="-1" />
+        <column name="Item_TxtSize" type="real" default="0" />
+        <column name="Item_Url" type="text" />
+        <column name="Item_Orientation" type="int" default="0" properties="REFERENCES EnumLSOOrientation(Id)" />
+        <column name="Item_PackageName" type="text" default="NULL" />
+        <column name="Item_Attributes" type="blob" />
+        <column name="Item_Layer" type="int" default="1" />
+        <column name="Item_ParentId" type="int" default="0" properties="NOT NULL" />
+    </table>
+    <table name="GEOFENCING" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="_id" type="int" primarykey="true" />
+        <column name="adminUid" type="int" properties="NOT NULL" />
+        <column name="type" type="int" />
+        <column name="blobdata" type="blob" properties="NOT NULL UNIQUE" />
+    </table>
+    <table name="GEOFENCINGSETTINGS" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="state" type="int" default="0" />
+        <column name="time" type="text" default="0" />
+        <column name="distance" type="text" default="0" />
+    </table>
+    <table name="SMSMMSBlockedDelivery">
+        <column name="smsMmsBlockedRowId" type="int" primarykey="true" />
+        <column name="smsMmsOrigAddress" type="text" default="NULL" />
+        <column name="smsMmsTimeStamp" type="text" default="NULL" />
+        <column name="smsMmsSendType" type="numeric" default="-1" />
+        <column name="smsMmsType" type="numeric" default="-1" />
+        <column name="smsMmsPdu" type="text" default="NULL" />
+    </table>
+    <table name="AccountBlackWhiteList" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="type" type="text" primarykey="true" />
+        <column name="name" type="text" primarykey="true" />
+        <column name="listType" type="text" primarykey="true" />
+    </table>
+    <table name="LICENSE">
+        <column name="pkgName" type="text" primarykey="true" />
+        <column name="pkgVersion" type="text" />
+        <column name="rightsObject" type="blob" />
+        <column name="instanceId" type="text" properties="NOT NULL" />
+    </table>
+    <table name="LICENSE_LOG">
+        <column name="pkgName" type="text" primarykey="true" />
+        <column name="id" type="text" primarykey="true" />
+        <column name="value" type="int" default="1" />
+        <column name="date" type="text" primarykey="true" />
+    </table>
+    <table name="SimTable" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" default="-1" />
+        <column name="SimIccId" type="text" primarykey="true" />
+        <column name="SimPinCode" type="text" default="NULL" />
+    </table>
+    <table name="SE_ANDROID_TABLE" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="SeAndroidPolicyLocked" type="int" default="0" />
+    </table>
+    <table name="SECURITY" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="deviceEnrolled" type="numeric" default="0" />
+        <column name="bannerText" type="text" default="NULL" />
+    </table>
+    <table name="VpnPackageInfo" foreignrefertable="VpnProfileInfo" foreignreferkey="profileName" foreignkeyname="profileName">
+        <column name="profileName" type="text" properties="NULL" />
+        <column name="packageName" type="text" primarykey="true" properties="NULL" />
+        <column name="packageCid" type="int" properties="NULL" />
+        <column name="packageUid" type="int" properties="NULL" />
+    </table>
+    <table name="VpnProfileInfo" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="profileName" primarykey="true" type="text" properties="NULL" />
+        <column name="defaultRoute" type="int" properties="NULL" />
+        <column name="adminUid" type="int" properties="NULL" />
+        <column name="personaId" type="int" properties="NULL" />
+        <column name="vendorName" type="text" properties="NULL" />
+        <column name="protocolType" type="text" properties="NULL" />
+        <column name="activateState" type="int" properties="NULL" />
+        <column name="containerVpnState" type="int" default="-1" properties="NULL" />
+        <column name="vpnServiceType" type="int" default="0" properties="NULL" />
+        <column name="chainingEnabled" type="int" default="-1" properties="NULL" />
+        <column name="vpnConnectionType" type="int" default="0" properties="NULL" />
+        <column name="uidPidSearch" type="int" default="0" properties="NULL" />
+        <column name="proxyServer" type="text" properties="NULL" />
+        <column name="proxyPort" type="int" default="-1" properties="NULL" />
+        <column name="pacurl" type="text" properties="NULL" />
+        <column name="ipv6" type="int" default="0" properties="NULL" />
+        <column name="proxyAuth" type="int" default="0" properties="NULL" />
+    </table>
+    <table name="EnterpriseVpn" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" properties="NOT NULL" />
+        <column name="CID" type="int" properties="NULL" />
+        <column name="applicationInfo" type="text" primarykey="true" properties="NOT NULL" />
+        <column name="profileName" type="text" properties="NOT NULL" />
+        <column name="UID_APP" type="int" properties="NULL" />
+        <column name="containerState" type="int" properties="NULL" />
+    </table>
+    <table name="Vpn_table" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" properties="NOT NULL" />
+        <column name="profile" type="text" primarykey="true" properties="NOT NULL" />
+        <column name="Authentication" type="int" properties="NULL" />
+        <column name="BackupServer_status" type="int" properties="NULL" />
+        <column name="BackupServer" type="text" properties="NULL" />
+        <column name="DPD" type="int" properties="NULL" />
+        <column name="GroupName" type="text" properties="NULL" />
+        <column name="IPSEC_Type" type="int" properties="NULL" />
+        <column name="IKE" type="int" properties="NULL" />
+        <column name="Default_Route" type="int" properties="NULL" />
+        <column name="User_Auth" type="int" properties="NULL" />
+        <column name="Mobike" type="int" properties="NULL" />
+        <column name="DH_Group" type="int" properties="NULL" />
+        <column name="Phase_Mode" type="int" properties="NULL" />
+        <column name="PFS" type="int" properties="NULL" />
+        <column name="PSK" type="text" properties="NULL" />
+        <column name="SuiteBType" type="int" properties="NULL" />
+        <column name="Host" type="text" properties="NULL" />
+        <column name="Username" type="text" properties="NULL" />
+        <column name="Password" type="text" properties="NULL" />
+        <column name="Split_Tunnel_type" type="int" properties="NULL" />
+        <column name="Forward_Routes" type="blob" properties="NULL" />
+        <column name="CA_Certificate" type="blob" properties="NULL" />
+        <column name="CA_Password" type="text" properties="NULL" />
+        <column name="User_Certificate" type="blob" properties="NULL" />
+        <column name="User_Password" type="text" properties="NULL" />
+    </table>
+    <table name="Fips_Vpn_table" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" properties="NOT NULL" primarykey="true" />
+        <column name="fips_mode" type="int" properties="NOT NULL" />
+    </table>
+    <table name="EnterpriseIslFpTable" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" properties="NOT NULL" />
+        <column name="packageName" type="text" primarykey="true" properties="NOT NULL" />
+        <column name="isaPackageName" type="text" primarykey="true" default="&quot;com.fixmo.isa&quot;" properties="NOT NULL" />
+        <column name="fpBaseLined" type="blob" default="NULL" />
+        <column name="fpCurrent" type="blob" default="NULL" />
+        <column name="fpDirty" type="int" default="0" />
+        <column name="fpNewRow" type="int" default="0" />
+    </table>
+    <table name="DualSim" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="DS_IccId" type="text" properties="NOT NULL" />
+        <column name="SimDataForce" type="numeric" default="0" />
+        <column name="SimActiveData" type="numeric" default="0" />
+        <column name="SimActiveMessaging" type="numeric" default="0" />
+    </table>
+    <table name="DualSim_Policy" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="PreferredSim" type="int" default="-1" />
+    </table>
+    <table name="DSWhiteList" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="DS_IccId" type="text" properties="NOT NULL" />
+        <column name="WhiteListNumbers" type="int" default="0" />
+    </table>
+    <table name="MULTI_USER_MGMT" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="multiUserAllowed" type="numeric" default="1" />
+        <column name="multiUserCreationAllowed" type="numeric" default="1" />
+        <column name="multiUserRemovalAllowed" type="numeric" default="1" />
+    </table>
+    <table name="WhiteListInstallApps" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="packageName" type="text" primarykey="true" />
+    </table>
+    <table name="BluetoothSecureModeTable" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="BluetoothSecureModeEnabled" type="numeric" default="0" />
+    </table>
+    <table name="ContainerSettings" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="passwordEnabledContainerLockTimeout" type="numeric" default="0" />
+        <column name="allowContactInfoToNonKnox" type="numeric" default="0" />
+    </table>
+    <table name="RCP_DATA" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="cid" type="int" primarykey="true" properties="REFERENCES MUMCONTAINER(containerID) ON DELETE CASCADE ON UPDATE CASCADE" />
+        <column name="name" type="text" properties="NOT NULL" primarykey="true" />
+        <column name="propertyName" type="text" properties="NOT NULL" primarykey="true" />
+        <column name="propertyValue" type="text" properties="NOT NULL" />
+    </table>
+    <table name="RCP_NOTIFICATION" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="name" type="text" properties="NOT NULL" primarykey="true" />
+        <column name="propertyName" type="text" properties="NOT NULL" primarykey="true" />
+        <column name="propertyValue" type="text" properties="NOT NULL" />
+    </table>
+    <table name="CONTAINER_POLICY" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="cid" type="int" primarykey="true" properties="REFERENCES MUMCONTAINER(containerID) ON DELETE CASCADE ON UPDATE CASCADE" />
+        <column name="propertyName" type="text" properties="NOT NULL" primarykey="true" />
+        <column name="propertyValue" type="text" properties="NOT NULL" />
+    </table>
+    <table name="UniversalCredentialCACertificateTable">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="userId" type="int" primarykey="true" default="0" />
+        <column name="alias" type="text" primarykey="true" properties="NOT NULL" />
+        <column name="location" type="text" default="NULL" />
+    </table>
+    <table name="UniversalCredentialWhiteListTable">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="userId" type="int" primarykey="true" default="0" />
+        <column name="storageName" type="text" primarykey="true" properties="NOT NULL" />
+        <column name="storagePackageName" type="text" primarykey="true" properties="NOT NULL" />
+        <column name="storageManufacture" type="text" default="NULL" />
+        <column name="accessType" type="int" primarykey="true" default="0" />
+        <column name="appUid" type="int" default="0" />
+        <column name="appPackage" type="text" primarykey="true" default="NULL" />
+        <column name="appSignature" type="text" default="NULL" />
+        <column name="alias" type="text" primarykey="true" default="NULL" />
+    </table>
+    <table name="UniversalCredentialCertificateTable">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="userId" type="int" primarykey="true" default="0" />
+        <column name="storageName" type="text" primarykey="true" properties="NOT NULL" />
+        <column name="storagePackageName" type="text" primarykey="true" properties="NOT NULL" />
+        <column name="storageManufacture" type="text" default="NULL" />
+        <column name="alias" type="text" primarykey="true" properties="NOT NULL" />
+        <column name="wifi" type="int" default="0" />
+    </table>
+    <table name="UniversalCredentialInfoTable">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="userId" type="int" primarykey="true" default="0" />
+        <column name="appUid" type="int" default="0" />
+        <column name="storageName" type="text" primarykey="true" properties="NOT NULL" />
+        <column name="storagePackageName" type="text" primarykey="true" properties="NOT NULL" />
+        <column name="storageManufacture" type="text" default="NULL" />
+        <column name="storageAuthType" type="int" default="0" />
+        <column name="status" type="int" default="0" />
+    </table>
+    <table name="UniversalCredentialDefaultInstallTable">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="userId" type="int" primarykey="true" default="0" />
+        <column name="storageName" type="text" primarykey="true" properties="NOT NULL" />
+        <column name="storagePackageName" type="text" primarykey="true" properties="NOT NULL" />
+        <column name="storageManufacture" type="text" default="NULL" />
+    </table>
+    <table name="UniversalCredentialEnforcedLockTypeTable">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="userId" type="int" primarykey="true" default="0" />
+        <column name="storageName" type="text" primarykey="true" properties="NOT NULL" />
+        <column name="storagePackageName" type="text" primarykey="true" properties="NOT NULL" />
+        <column name="storageManufacture" type="text" default="NULL" />
+    </table>
+    <table name="UniversalCredentialEnabledLockTypeTable">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="userId" type="int" primarykey="true" default="0" />
+        <column name="storageName" type="text" primarykey="true" properties="NOT NULL" />
+        <column name="storagePackageName" type="text" primarykey="true" properties="NOT NULL" />
+        <column name="storageManufacture" type="text" default="NULL" />
+    </table>
+    <table name="UniversalCredentialExemptTable">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="userId" type="int" primarykey="true" default="0" />
+        <column name="storageName" type="text" primarykey="true" properties="NOT NULL" />
+        <column name="storagePackageName" type="text" primarykey="true" properties="NOT NULL" />
+        <column name="storageManufacture" type="text" default="NULL" />
+        <column name="exemptType" type="int" primarykey="true" default="0" />
+        <column name="appUid" type="int" default="0" />
+        <column name="appPackage" type="text" primarykey="true" default="NULL" />
+        <column name="appSignature" type="text" default="NULL" />
+    </table>
+    <table name="UniversalCredentialKeyguardTable">
+        <column name="userId" type="int" primarykey="true" default="0" />
+        <column name="storageName" type="text" primarykey="true" properties="NOT NULL" />
+    </table>
+    <table name="PermAppPrivateKey" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="pkgName" type="text" primarykey="true" />
+        <column name="host" type="text" primarykey="true" />
+        <column name="port" type="numeric" primarykey="true" />
+        <column name="alias" type="text" properties="NOT NULL" />
+        <column name="storageName" type="text" default="NULL" />
+    </table>
+    <table name="KnoxFeatureAccess" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="featureType" type="text" properties="NOT NULL" primarykey="true" />
+        <column name="featureValue" type="text" properties="NOT NULL" />
+    </table>
+    <table name="KnoxFIDOSettingTable" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="cid" type="int" primarykey="true" default="0" properties="REFERENCES MUMCONTAINER(containerID) ON DELETE CASCADE ON UPDATE CASCADE" />
+        <column name="request" type="text" default="NULL" />
+        <column name="respond" type="text" default="NULL" />
+    </table>
+    <table name="PlayForWorkProxy" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="packageName" type="text" properties="NOT NULL" />
+        <column name="signature" type="text" properties="NOT NULL" />
+        <column name="flags" type="int" properties="NOT NULL" />
+    </table>
+    <table name="KnoxExternalStorageWhitelist" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="packageName" type="text" properties="NOT NULL" primarykey="true" />
+        <column name="signatures" type="text" properties="NOT NULL" />
+    </table>
+    <table name="KnoxExternalStorageSBABlacklist" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="packageName" type="text" properties="NOT NULL" primarykey="true" />
+        <column name="signatures" type="text" properties="NOT NULL" />
+    </table>
+    <table name="TimaKeystorePolicy">
+        <column name="uid" type="int" primarykey="true" />
+        <column name="pkgName" type="text" primarykey="true" />
+        <column name="enabled" type="numeric" default="0" />
+    </table>
+    <table name="TimaKeystorePerAppPolicy">
+        <column name="uid" type="int" primarykey="true" />
+        <column name="pkgName" type="text" primarykey="true" />
+    </table>
+    <table name="ClientCertificateManagerTable" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="uid" type="int" primarykey="true" default="0" />
+        <column name="accessType" type="text" primarykey="true" default="NULL" />
+        <column name="pinLen" type="int" default="6" />
+        <column name="pkgName" type="text" primarykey="true" default="NULL" />
+        <column name="allowAllPkgs" type="numeric" default="0" />
+        <column name="slotId" type="int" default="0" />
+        <column name="containerState" type="int" default="0" />
+        <column name="loginRetry" type="int" default="0" />
+        <column name="loginExpiration" type="int" default="0" />
+    </table>
+    <table name="CCMCertTable" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="uid" type="int" primarykey="true" default="0" />
+        <column name="alias" type="text" primarykey="true" properties="NOT NULL" />
+        <column name="pkgName" type="text" primarykey="true" default="NULL" />
+        <column name="allowAllPkgs" type="numeric" default="0" />
+        <column name="allowWiFi" type="numeric" default="0" />
+        <column name="installerId" type="int" primarykey="true" />
+        <column name="csr" type="numeric" default="0" />
+        <column name="allowRawSigning" type="numeric" default="0" />
+    </table>
+    <table name="CCMDefaultPolicy">
+        <column name="uid" type="int" primarykey="true" />
+        <column name="enabled" type="numeric" default="1" />
+    </table>
+    <table name="knox_active_protection">
+        <column name="licensestate" type="numeric" default="0" />
+        <column name="kapstate" type="numeric" default="0" />
+    </table>
+    <table name="ContainerOnly_wifiAP" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="wifiSSIDforKNOX" type="text" default="NULL" />
+    </table>
+    <table name="EnterpriseCertEnrollPolicy">
+        <column name="cepAgentUid" type="int" primarykey="true" default="0" />
+        <column name="containerID" type="int" primarykey="true" default="0" />
+        <column name="protocol" type="text" primarykey="true" properties="NOT NULL" />
+    </table>
+    <table name="eb_mapping_table" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="_id" type="int" primarykey="true" />
+        <column name="adminUid" type="int" />
+        <column name="profile_name" type="text" />
+        <column name="package" type="text" default="NULL" />
+        <column name="container_id" type="int" default="-1" />
+    </table>
+    <table name="eb_profiles_table" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" />
+        <column name="profile_name" type="text" properties="NOT NULL" />
+        <column name="apn" type="text" primarykey="true" />
+        <column name="mcc" type="text" primarykey="true" />
+        <column name="mnc" type="text" primarykey="true" />
+        <column name="profile_creator" type="int" primarykey="true" />
+    </table>
+    <table name="eb_profile_settings_table" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="_id" type="int" primarykey="true" />
+        <column name="adminUid" type="int" />
+        <column name="profile_name" type="text" primarykey="true" properties="NOT NULL UNIQUE" />
+        <column name="turn_on" type="int" default="1" />
+        <column name="activate" type="int" default="0" />
+        <column name="allow_on_wifi" type="int" default="1" />
+        <column name="allow_on_roaming" type="int" default="0" />
+    </table>
+    <table name="eb_vpn_profiles_table" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="_id" type="int" primarykey="true" />
+        <column name="adminUid" type="int" />
+        <column name="profile_name" type="text" properties="NOT NULL" />
+        <column name="vpn_profile_name" type="text" properties="NOT NULL UNIQUE" />
+        <column name="vpn_vendor_packge_name" type="text" properties="NOT NULL" />
+        <column name="vpn_container_id" type="int" />
+    </table>
+    <table name="eapn_mapping_table" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="_id" type="int" primarykey="true" />
+        <column name="adminUid" type="int" />
+        <column name="eapn_type" type="text" properties="NOT NULL" />
+        <column name="default_type" type="text" properties="NULL" />
+        <column name="profile_name" type="text" properties="NULL" />
+    </table>
+    <table name="uid_exception_list" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="_id" type="int" primarykey="true" />
+        <column name="adminUid" type="int" />
+        <column name="caller_id" type="text" properties="NULL" />
+        <column name="vpn_package_name" type="text" properties="NULL" />
+        <column name="app_uid" type="int" default="-1" />
+    </table>
+    <table name="active_profile_table" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="_id" type="int" primarykey="true" />
+        <column name="adminUid" type="int" />
+        <column name="apn" type="text" properties="NOT NULL" />
+        <column name="mcc" type="text" properties="NOT NULL" />
+        <column name="mnc" type="text" properties="NOT NULL" />
+        <column name="profile_name" type="text" properties="NULL" />
+    </table>
+    <table name="ConstrainedStateTable" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="status" type="numeric" default="0" />
+    </table>
+    <table name="KnoxSettingsOptionsTable" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="optionName" type="text" primarykey="true" />
+        <column name="optionValue" type="text" properties="NOT NULL" />
+    </table>
+    <table name="ApplicationDefault" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="intentAction" type="text" primarykey="true" />
+        <column name="intentCategory" type="text" primarykey="true" />
+        <column name="intentScheme" type="text" primarykey="true" />
+        <column name="intentType" type="text" primarykey="true" />
+        <column name="intentData" type="text" />
+        <column name="packageName" type="text" />
+        <column name="activityName" type="text" />
+    </table>
+    <table name="FirewallStatus" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="id" type="int" primarykey="true" />
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="userID" type="int" primarykey="true" />
+    </table>
+    <table name="FirewallRule" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" />
+        <column name="id" type="int" primarykey="true" />
+        <column name="ruleType" type="text" default="NULL" />
+        <column name="status" type="text" default="DISABLED" />
+        <column name="ipAddress" type="text" default="NULL" />
+        <column name="portNumber" type="text" default="NULL" />
+        <column name="portLocation" type="text" default="NULL" />
+        <column name="packageName" type="text" default="NULL" />
+        <column name="signature" type="text" default="NULL" />
+        <column name="networkInterface" type="text" default="NULL" />
+        <column name="direction" type="text" default="NULL" />
+        <column name="protocol" type="text" default="NULL" />
+        <column name="addressType" type="text" default="NULL" />
+        <column name="targetIpAddress" type="text" default="NULL" />
+        <column name="targetPortNumber" type="text" default="NULL" />
+    </table>
+    <table name="FirewallHostnames" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="id" type="int" primarykey="true" />
+        <column name="adminUid" type="int" />
+        <column name="hostName" type="text" default="NULL" />
+        <column name="ipAddress" type="text" default="NULL" />
+    </table>
+    <table name="IRMProviderCapabilitiesTable" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" />
+        <column name="userid" type="int" primarykey="true" />
+        <column name="irmVendor" type="text" primarykey="true" />
+        <column name="status" type="int" properties="NOT NULL" default="0" />
+        <column name="supportedRights" type="int" />
+        <column name="extraCapability" type="int" />
+        <column name="fileFormatSupported" type="text" />
+        <column name="protectedFileFormat" type="text" />
+        <column name="authMethodSupported" type="text" />
+    </table>
+    <table name="IRMDocumentRightsTable" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" />
+        <column name="userid" type="int" primarykey="true" />
+        <column name="fileUri" type="text" primarykey="true" />
+        <column name="irmProvider" type="text" />
+        <column name="rights" type="int" />
+        <column name="templateId" type="text" />
+        <column name="canScreenCapture" type="int" properties="NOT NULL" default="0" />
+        <column name="isOwner" type="int" />
+        <column name="validFrom" type="int" />
+        <column name="validTill" type="int" />
+    </table>
+    <table name="IRMServiceInformationTable" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="_id" type="int" primarykey="true" />
+        <column name="adminUid" type="int" />
+        <column name="type" type="int" properties="NOT NULL" default="0" />
+        <column name="userid" type="int" properties="NOT NULL" default="0" />
+        <column name="data_int1" type="int" properties="NOT NULL" default="0" />
+        <column name="data_int2" type="int" properties="NOT NULL" default="0" />
+        <column name="data_int3" type="int" properties="NOT NULL" default="0" />
+        <column name="data_int4" type="int" properties="NOT NULL" default="0" />
+        <column name="option1" type="int" properties="NOT NULL" default="0" />
+        <column name="option2" type="int" properties="NOT NULL" default="0" />
+        <column name="data_text1" type="text" />
+        <column name="data_text2" type="text" />
+    </table>
+    <table name="SHAREDDEVICE">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="enabled" type="int" default="0" />
+    </table>
+    <table name="ApplicationRuntimePermissions" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" properties="NOT NULL" primarykey="true" />
+        <column name="packageName" type="text" primarykey="true" properties="NOT NULL" />
+        <column name="signature" type="text" default="NULL" />
+        <column name="permissions" type="text" default="NULL" />
+        <column name="permState" type="int" properties="NOT NULL" primarykey="true" />
+    </table>
+    <table name="SelectiveFotaTable" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="corpid" type="text" primarykey="true" />
+        <column name="version" type="text" />
+    </table>
+    <table name="DomainFilterTable" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="packageName" type="text" primarykey="true" />
+        <column name="blacklist" type="text" default="NULL" />
+        <column name="whitelist" type="text" default="NULL" />
+        <column name="signature" type="text" default="NULL" />
+        <column name="dns1" type="text" default="NULL" />
+        <column name="dns2" type="text" default="NULL" />
+        <column name="networkId" type="int" default="-1" />
+    </table>
+    <table name="SeamsClipboardTable">
+        <column name="containerID" type="int" primarykey="true" />
+        <column name="mode" type="int" default="0" />
+    </table>
+    <table name="DomainFilterReportStatus" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="status" type="int" default="0" />
+        <column name="userId" type="int" default="0" />
+    </table>
+    <table name="DomainFilterReportTable">
+        <column name="packageName" type="text" properties="NOT NULL" />
+        <column name="url" type="text" properties="NOT NULL" />
+        <column name="userId" type="int" />
+        <column name="time" type="text" properties="NOT NULL" />
+        <column name="id" type="int" primarykey="true" />
+    </table>
+    <table name="GlobalProxyAuthTable" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="host" type="text" properties="NOT NULL" primarykey="true" />
+        <column name="port" type="int" primarykey="true" />
+        <column name="username" type="text" properties="NOT NULL" />
+        <column name="password" type="text" properties="NOT NULL" />
+    </table>
+    <table name="WifiProxyAuthTable" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" />
+        <column name="networkSSID" type="text" primarykey="true" />
+        <column name="host" type="text" properties="NOT NULL" primarykey="true" />
+        <column name="port" type="int" primarykey="true" />
+        <column name="username" type="text" properties="NOT NULL" />
+        <column name="password" type="text" properties="NOT NULL" />
+    </table>
+    <table name="CertificateWhiteListTable" foreignrefertable="ADMIN" foreignreferkey="adminUid" foreignkeyname="adminUid">
+        <column name="adminUid" type="int" primarykey="true" properties="NOT NULL" />
+        <column name="packageName" type="text" primarykey="true" properties="NOT NULL" />
+        <column name="signature" type="text" default="NULL" />
+    </table>
+</database>

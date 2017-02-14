@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/mute_pause_title"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:touchwiz="http://schemas.android.com/apk/res/touchwiz"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <PreferenceCategory android:title="@string/merged_mute_pause_by_title" android:key="mute_pause_by" />
+    <CheckBoxPreference android:persistent="false" android:title="@string/merged_mute_pause_palm_touch_title" android:key="palm_touch" settings:dbMatchingName="surface_palm_touch" settings:dbMatchingTable="system" />
+    <CheckBoxPreference android:persistent="false" android:title="@string/merged_mute_pause_turn_over_title" android:key="turn_over" settings:dbMatchingName="motion_overturn" settings:dbMatchingTable="system" />
+    <PreferenceCategory android:title="@string/application_name_video" android:key="smart_screen_pause_category" />
+    <CheckBoxPreference android:persistent="false" android:title="@string/merged_mute_pause_smart_pause_title" android:key="smart_pause" settings:dbMatchingName="smart_pause" settings:dbMatchingTable="system" />
+</PreferenceScreen>

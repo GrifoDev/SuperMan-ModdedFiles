@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector android:height="32.0dip" android:width="32.0dip" android:viewportWidth="128.0" android:viewportHeight="128.0"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillColor="@color/wifi_wps_fg" android:pathData="M109.5,46.2c0,0-2-9-10.9-17c-8.9-8.1-19.7-8.9-19.7-8.9S70.5,27.3,68,39c-2.6,11.7,1,20.2,1,20.2l11.8-3.8 c0,0,7.9,25.1-12.6,48.6c0,0,38.9-10.9,31.6-54.7L109.5,46.2z" />
+    <path android:fillColor="@color/wifi_wps_fg" android:pathData="M18.5,81.8c0,0,2,9,10.9,17s19.7,8.9,19.7,8.9s8.3-7,10.9-18.7c2.6-11.7-1-20.2-1-20.2l-11.8,3.8 c0,0-7.9-25.1,12.6-48.6c0,0-38.9,10.9-31.6,54.7L18.5,81.8z" />
+</vector>

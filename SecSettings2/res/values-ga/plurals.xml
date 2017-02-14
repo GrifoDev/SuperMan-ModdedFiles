@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d uair an chloig</item>
+        <item quantity="one">1 uair an chloig</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d nóiméad</item>
+        <item quantity="one">1 nóiméad</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d soicind</item>
+        <item quantity="one">1 soicind</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">"Tá %d céim eile ann anois roimh duit bheith i d'fhorbróir"</item>
+        <item quantity="one">"Níl fágtha agat ach 1 chéim eile le bheith i d'fhorbróir."</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Bain na teangacha roghnaithe</item>
+        <item quantity="one">Bain an teanga roghnaithe</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Ní mór %d litir ar a laghad a bheith sa phasfhocal</item>
+        <item quantity="one">Ní mór litir amháin ar a laghad a bheith sa phasfhocal</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Ní mór %d litir chás íochtair ar a laghad a bheith sa phasfhocal</item>
+        <item quantity="one">Ní mór litir chás íochtair amháin ar a laghad a bheith sa phasfhocal</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Ní mór %d litir chás uachtair ar a laghad a bheith sa phasfhocal</item>
+        <item quantity="one">Ní mór litir chás uachtair amháin ar a laghad a bheith sa phasfhocal</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Ní mór %d uimhir ar a laghad a bheith sa phasfhocal</item>
+        <item quantity="one">Ní mór uimhir amháin ar a laghad a bheith sa phasfhocal</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Ní mór %d siombail ar a laghad a bheith sa phasfhocal</item>
+        <item quantity="one">Ní mór siombail amháin ar a laghad a bheith sa phasfhocal</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Ní mór %d uimhir nó siombail ar a laghad a bheith sa phasfhocal</item>
+        <item quantity="one">Ní mór uimhir nó siombail amháin ar a laghad a bheith sa phasfhocal</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Rochtain ar %d fillteán/comhad</item>
+        <item quantity="one">Rochtain ar 1 fhillteán/chomhad</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"Tá deimhnithe CA suiteáilte ar do ghléas ag %s, rud a d'fhéadfadh ligean dóibh monatóireacht a dhéanamh ar ghníomhaíocht líonra do ghléis, lena n-áirítear an úsáid a bhaineann tú as r-phoist, feidhmchláir, agus láithreáin ghréasáin shlána.
+
+Le tuilleadh faisnéise a fháil faoi na deimhnithe seo, déan teagmháil le do riarthóir TF."</item>
+        <item quantity="one">"Tá deimhniú CA suiteáilte ar do ghléas ag %s, rud a d'fhéadfadh ligean dóibh monatóireacht a dhéanamh ar ghníomhaíocht líonra do ghléis, lena n-áirítear an úsáid a bhaineann tú as r-phoist, feidhmchláir, agus láithreáin ghréasáin shlána.
+
+Le tuilleadh faisnéise a fháil faoin deimhniú seo, déan teagmháil le do riarthóir TF."</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">Ní féidir le %d feidhmchlár fógraí a léamh.</item>
+        <item quantity="one">Ceadaítear do %d feidhmchlár fógraí a léamh.</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d cead eile</item>
+        <item quantity="one">%d chead eile</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">"D'úsáid %1$d próiseas RAM le %2$s anuas"</item>
+        <item quantity="one">"D'úsáid %1$d phróiseas RAM le %2$s anuas"</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">Tá cead ag %d feidhmchlár sonraí móibíleacha a úsáid gan srianta agus Coigilteoir sonraí cumasaithe</item>
+        <item quantity="one">Tá cead ag 1 fheidhmchlár sonraí móibíleacha a úsáid gan srianta agus Coigilteoir sonraí cumasaithe</item>
+    </plurals>
+</resources>

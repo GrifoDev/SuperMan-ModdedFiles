@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set android:interpolator="@anim/activity_interpolator" android:zAdjustment="top"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <scale android:duration="250" android:pivotX="50.0%p" android:pivotY="50.0%p" android:fromXScale="100.0%p" android:toXScale="98.0%p" android:fromYScale="100.0%p" android:toYScale="98.0%p" />
+    <alpha android:duration="250" android:repeatCount="0" android:fromAlpha="1.0" android:toAlpha="0.0" />
+</set>

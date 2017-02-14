@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <PreferenceCategory android:key="empty_category">
+        <SwitchPreference android:key="app_ops_settings_switch" />
+    </PreferenceCategory>
+    <Preference android:key="app_ops_settings_preference" />
+    <com.samsung.android.settings.UnclickablePreference android:clickable="false" android:key="app_ops_settings_description" style="@style/description_text" />
+</PreferenceScreen>

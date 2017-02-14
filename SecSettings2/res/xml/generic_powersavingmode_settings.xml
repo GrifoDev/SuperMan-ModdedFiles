@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/power_saving_mode_title" settings:parentTitle="@string/power_usage_summary_title"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <android.support.v7.preference.DropDownPreference android:persistent="false" android:title="@string/powersaving_mode_when_title" android:key="turn_on_automatically" android:entryValues="@array/battery_saver_trigger_entryvalue" />
+</PreferenceScreen>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.launcher2.WidgetFolderPagedView android:layout_width="fill_parent" android:layout_height="wrap_content" launcher:pageSpacing="@dimen/menuWidgets_widgetFolderOpen_pageSpacing" launcher:pageIndicatorGap="@dimen/menuWidgets_widgetFolderOpen_pageIndicatorGap" launcher:pageIndicatorMaxVisible="@integer/menuWidgets_widgetFolderOpen_pageIndicatorMaxVisible" launcher:pageIndicatorImageStyle="1"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:launcher="http://schemas.android.com/apk/res/com.sec.android.app.launcher" />

@@ -1,0 +1,30 @@
+!!brut.androlib.meta.MetaInfo
+apkFileName: framework.jar
+compressionType: false
+doNotCompress: null
+isFrameworkApk: false
+packageInfo: null
+sdkInfo: null
+sharedLibrary: false
+unknownFiles:
+  fragmentshadernv12.glsl: '8'
+  fragmentshadernv21.glsl: '8'
+  vertexshader2d.glsl: '8'
+  vertexshader3d.glsl: '8'
+  vertexshader.glsl: '8'
+  com/absolute/android/persistence/AppInfoProperties.aidl: '8'
+  com/absolute/android/persistence/AppProfile.aidl: '8'
+  com/absolute/android/persistence/IABTDownloadReceiver.aidl: '8'
+  com/absolute/android/persistence/IABTGetAppInfoReceiver.aidl: '8'
+  com/absolute/android/persistence/IABTLogIterator.aidl: '8'
+  com/absolute/android/persistence/IABTPersistedFile.aidl: '8'
+  com/absolute/android/persistence/IABTPersistence.aidl: '8'
+  com/absolute/android/persistence/IABTPersistenceLog.aidl: '8'
+  com/absolute/android/persistence/IABTPing.aidl: '8'
+  com/absolute/android/persistence/IABTResultReceiver.aidl: '8'
+  com/absolute/android/persistence/LogEntry.aidl: '8'
+  com/absolute/android/persistence/MethodReturnValue.aidl: '8'
+  com/absolute/android/persistence/MethodSpec.aidl: '8'
+usesFramework: null
+version: 2.2.2
+versionInfo: null

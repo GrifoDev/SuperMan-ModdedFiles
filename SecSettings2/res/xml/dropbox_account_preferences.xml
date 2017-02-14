@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/scloud_dropbox_pref_category" />
+    <PreferenceScreen android:title="@string/scloud_dropbox_pref" android:key="account_settings">
+        <intent android:action="com.sec.android.cloudagent.account.EDIT" />
+    </PreferenceScreen>
+</PreferenceScreen>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/guideLine" android:background="@color/line_effect_guide_color" android:layout_width="fill_parent" android:layout_height="@dimen/line_effect_guide_height" android:layout_centerVertical="true" />
+    <View android:id="@id/effectLine" android:background="@color/line_effect_color" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="@dimen/line_effect_height" android:layout_centerVertical="true" />
+    <View android:id="@id/gradientLine" android:background="@drawable/line_effect_gradient" android:visibility="invisible" android:layout_width="@dimen/line_effect_gradient_width" android:layout_height="@dimen/line_effect_height" android:layout_centerVertical="true" />
+</merge>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">Nädogry PIN girizildi. Ýene %d synanyşygyňyz galdy.</item>
+        <item quantity="one">Nädogry PIN girizildi. Ýene %d gezek nädogry PIN girizseňiz, enjamyň gulpuny açmak üçin, öz hyzmat üpjün edijiňize ýüz tutmaly bolarsyňyz.</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">Nädogry PUK girizildi. Ýene %d gezek nädogry PUK girizseňiz, SIM karta hemişelik gulplanar.</item>
+        <item quantity="one">Nädogry PUK girizildi. Ýene %d gezek nädogry PUK girizseňiz, SIM karta hemişelik gulplanar.</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(%d synanyşyk galdy)</item>
+        <item quantity="one">(1 synanyşyk galdy)</item>
+    </plurals>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">%d synanyşyk galdy</item>
+        <item quantity="one">%d synanyşyk galdy</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_min">
+        <item quantity="other">Ýene %d minutdan synanyş</item>
+        <item quantity="one">Ýene %d minutdan synanyş</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_sec">
+        <item quantity="other">Ýene %d sekuntdan synanyş</item>
+        <item quantity="one">Ýene %d sekuntdan synanyş</item>
+    </plurals>
+</resources>

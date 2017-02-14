@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true" android:id="@id/checked">
+        <bitmap android:src="@drawable/tw_btn_check_to_on_mtrl_015" android:tint="@drawable/wifi_p2p_checked_bitmap_color_list" />
+    </item>
+    <item android:state_checked="false" android:id="@id/unchecked">
+        <bitmap android:src="@drawable/tw_btn_check_to_on_mtrl_000" android:tint="@drawable/wifi_p2p_checked_bitmap_color_list" />
+    </item>
+    <transition android:toId="@id/checked" android:fromId="@id/unchecked" android:reversible="true">
+        <animation-list
+          xmlns:android="http://schemas.android.com/apk/res/android">
+            <item android:duration="15">
+                <bitmap android:src="@drawable/tw_btn_check_to_on_mtrl_000" android:tint="@drawable/wifi_p2p_checked_bitmap_color_list" />
+            </item>
+            <item android:duration="15">
+                <bitmap android:src="@drawable/tw_btn_check_to_on_mtrl_001" android:tint="@drawable/wifi_p2p_checked_bitmap_color_list" />
+            </item>
+            <item android:duration="15">
+                <bitmap android:src="@drawable/tw_btn_check_to_on_mtrl_002" android:tint="@drawable/wifi_p2p_checked_bitmap_color_list" />
+            </item>
+            <item android:duration="15">
+                <bitmap android:src="@drawable/tw_btn_check_to_on_mtrl_003" android:tint="@drawable/wifi_p2p_checked_bitmap_color_list" />
+            </item>
+            <item android:duration="15">
+                <bitmap android:src="@drawable/tw_btn_check_to_on_mtrl_004" android:tint="@drawable/wifi_p2p_checked_bitmap_color_list" />
+            </item>
+            <item android:duration="15">
+                <bitmap android:src="@drawable/tw_btn_check_to_on_mtrl_005" android:tint="@drawable/wifi_p2p_checked_bitmap_color_list" />
+            </item>
+            <item android:duration="15">
+                <bitmap android:src="@drawable/tw_btn_check_to_on_mtrl_006" android:tint="@drawable/wifi_p2p_checked_bitmap_color_list" />
+            </item>
+            <item android:duration="15">
+                <bitmap android:src="@drawable/tw_btn_check_to_on_mtrl_007" android:tint="@drawable/wifi_p2p_checked_bitmap_color_list" />
+            </item>
+            <item android:duration="15">
+                <bitmap android:src="@drawable/tw_btn_check_to_on_mtrl_008" android:tint="@drawable/wifi_p2p_checked_bitmap_color_list" />
+            </item>
+            <item android:duration="15">
+                <bitmap android:src="@drawable/tw_btn_check_to_on_mtrl_009" android:tint="@drawable/wifi_p2p_checked_bitmap_color_list" />
+            </item>
+            <item android:duration="15">
+                <bitmap android:src="@drawable/tw_btn_check_to_on_mtrl_010" android:tint="@drawable/wifi_p2p_checked_bitmap_color_list" />
+            </item>
+            <item android:duration="15">
+                <bitmap android:src="@drawable/tw_btn_check_to_on_mtrl_011" android:tint="@drawable/wifi_p2p_checked_bitmap_color_list" />
+            </item>
+            <item android:duration="15">
+                <bitmap android:src="@drawable/tw_btn_check_to_on_mtrl_012" android:tint="@drawable/wifi_p2p_checked_bitmap_color_list" />
+            </item>
+            <item android:duration="15">
+                <bitmap android:src="@drawable/tw_btn_check_to_on_mtrl_013" android:tint="@drawable/wifi_p2p_checked_bitmap_color_list" />
+            </item>
+            <item android:duration="15">
+                <bitmap android:src="@drawable/tw_btn_check_to_on_mtrl_014" android:tint="@drawable/wifi_p2p_checked_bitmap_color_list" />
+            </item>
+            <item android:duration="15">
+                <bitmap android:src="@drawable/tw_btn_check_to_on_mtrl_015" android:tint="@drawable/wifi_p2p_checked_bitmap_color_list" />
+            </item>
+        </animation-list>
+    </transition>
+</animated-selector>

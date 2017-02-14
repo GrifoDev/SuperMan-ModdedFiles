@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/nfc_type_settings_title" android:key="@string/nfc_type_set_screen_key"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBoxPreference android:layout="@layout/preference_nfctype_setting" android:title="@string/nfc_type_summary1" android:key="@string/nfc_checkbob_key_abf" android:widgetLayout="@layout/preference_widget_radiobutton" />
+    <CheckBoxPreference android:layout="@layout/preference_nfctype_setting" android:title="@string/nfc_type_summary2" android:key="@string/nfc_checkbob_key_af" android:summary="@string/status2_summay" android:widgetLayout="@layout/preference_widget_radiobutton" />
+    <CheckBoxPreference android:layout="@layout/preference_nfctype_setting" android:title="@string/nfc_type_summary3" android:key="@string/nfc_checkbob_key_bf" android:summary="@string/status3_summay" android:widgetLayout="@layout/preference_widget_radiobutton" />
+</PreferenceScreen>

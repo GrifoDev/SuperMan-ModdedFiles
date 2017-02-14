@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <Preference android:title="@string/pen_settings_title" android:key="pen_settings_title" android:fragment="com.samsung.android.settings.spen.SPenSettingsMenu" />
+    <Preference android:title="@string/active_key_title" android:key="active_key_settings" android:fragment="com.samsung.android.settings.activekey.ActiveKeySettings" />
+    <Preference android:title="@string/accessory" android:key="dock_settings" android:fragment="com.samsung.android.settings.DockSettings" />
+    <com.android.settings.SecSettingsSwitchPreference android:title="@string/intelligent_sleep_title" android:key="smartscreen_stay" android:fragment="com.samsung.android.settings.SmartStaySettings" />
+    <PreferenceScreen android:title="@string/game_home_title" android:key="game_home" android:summary="@string/game_home_summary" />
+    <com.android.settings.SecSettingsSwitchPreference android:title="@string/airmessage_settings_title" android:key="display_airmessage" />
+    <PreferenceScreen android:title="@string/festival_effect_settings_title" android:key="key_festival_effect">
+        <intent android:action="com.samsung.android.myeventcenter.MY_EVENT" />
+    </PreferenceScreen>
+    <PreferenceScreen android:title="@string/applock_app_name" android:key="key_applock" android:summary="@string/applock_switch_off_text">
+        <intent android:targetPackage="com.samsung.android.applock" android:action="android.intent.action.VIEW" android:targetClass="com.samsung.android.applock.settings.AppLockSettingsActivity" />
+    </PreferenceScreen>
+    <PreferenceScreen android:title="@string/identify_unsaved_numbers_title" android:key="identify_unsaved_numbers" />
+    <PreferenceScreen android:title="@string/call_message_spam_filter_title" android:key="call_message_spam_filter" />
+    <Preference android:title="@string/accelerate_hongbao_receiving_title" android:key="accelerate_hongbao_receiving" android:fragment="com.android.settings.RedPacketModeSettings">
+        <extra android:name="type" android:value="accelerate_hongbao_receiving" />
+    </Preference>
+    <com.android.settings.SecSettingsSwitchPreference android:title="@string/hongbao_assistant_title" android:key="hongbao_assistant" android:fragment="com.samsung.android.settings.HongBaoAssistantPreferenceFragment" />
+    <PreferenceCategory android:key="category_two" />
+    <com.android.settings.SecSettingsSwitchPreference android:title="@string/onehand_settings_title" android:key="onehand_operation_settings" android:fragment="com.samsung.android.settings.NewOneHandOperationSettings" />
+    <PreferenceCategory android:key="category_three" />
+    <SwitchPreference android:title="@string/quick_dial_title" android:key="quick_dial" android:summary="@string/quick_dial_summary" />
+    <SwitchPreference android:title="@string/quick_camera_launch_title" android:key="quick_camera_launch" android:summary="@string/quick_camera_launch_summary" />
+    <PreferenceScreen android:title="@string/multi_window_screen_title" android:key="multi_window_setting" android:summary="@string/multi_window_screen_summary" android:fragment="com.samsung.android.settings.usefulfeature.MultiWindowSettings" />
+    <com.android.settings.SecSettingsSwitchPreference android:title="@string/smart_capture_title" android:key="smart_capture" android:fragment="com.samsung.android.settings.usefulfeature.UsefulFeatureHub">
+        <extra android:name="type" android:value="smart_capture" />
+    </com.android.settings.SecSettingsSwitchPreference>
+    <com.android.settings.SecSettingsSwitchPreference android:title="@string/palm_swipe_title" android:key="palm_swipe_switch" android:fragment="com.samsung.android.settings.usefulfeature.UsefulFeatureHub">
+        <extra android:name="type" android:value="palm_swipe_switch" />
+    </com.android.settings.SecSettingsSwitchPreference>
+    <PreferenceScreen android:title="@string/screen_recorder_title" android:key="screen_recorder" android:summary="@string/screen_recorder_summary" />
+    <com.android.settings.SecSettingsSwitchPreference android:title="@string/pick_up_to_call_out_title" android:key="pick_up_to_call_out_switch" android:fragment="com.samsung.android.settings.usefulfeature.UsefulFeatureHub">
+        <extra android:name="type" android:value="pick_up_to_call_out_switch" />
+    </com.android.settings.SecSettingsSwitchPreference>
+    <com.android.settings.SecSettingsSwitchPreference android:title="@string/pick_up_title" android:key="pick_up_switch" android:fragment="com.samsung.android.settings.usefulfeature.UsefulFeatureHub">
+        <extra android:name="type" android:value="pick_up_switch" />
+    </com.android.settings.SecSettingsSwitchPreference>
+    <com.android.settings.SecSettingsSwitchPreference android:title="@string/mute_title" android:key="merged_mute_or_pause_switch" android:fragment="com.samsung.android.settings.usefulfeature.UsefulFeatureHub">
+        <extra android:name="type" android:value="merged_mute_or_pause_switch" />
+    </com.android.settings.SecSettingsSwitchPreference>
+    <PreferenceCategory android:key="category_four" />
+    <Preference android:title="@string/galaxy_labs_title" android:key="galaxy_labs" android:summary="@string/galaxy_labs_summary" />
+    <PreferenceScreen android:title="@string/panic_mode_settings_title" android:key="key_panic_mode" android:summary="@string/panic_mode_settings_summary" android:fragment="com.samsung.android.settings.safetycare.PanicModeSettings" />
+    <Preference android:title="@string/safetycare_send_emergency_message_title" android:key="key_safety_assistance">
+        <intent android:targetPackage="com.sec.android.app.safetyassurance" android:action="android.intent.action.MAIN" android:targetClass="com.sec.android.app.safetyassurance.settings.SafetyAssuranceSetting" />
+    </Preference>
+    <com.android.settings.SecSettingsSwitchPreference android:title="@string/direct_share_title" android:key="direct_share" android:fragment="com.samsung.android.settings.usefulfeature.UsefulFeatureHub">
+        <extra android:name="type" android:value="direct_share" />
+    </com.android.settings.SecSettingsSwitchPreference>
+    <com.samsung.android.settings.usefulfeature.DisabledAppearanceSecSettingsSwitchPreference android:title="@string/hdr_setting" android:key="hdr_settings" />
+    <SwitchPreference android:title="@string/increase_touch_sensetivity_title" android:key="increse_touch_sensetivity" android:summary="@string/increase_touch_sensetivity_summary" />
+</PreferenceScreen>

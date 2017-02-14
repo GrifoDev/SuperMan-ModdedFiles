@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@id/icon_holder_background" android:drawable="@drawable/multi_user_dlg_icon_circle_stroke" />
+    <item android:id="@id/icon_holder_image" android:drawable="@drawable/multiuser_mode_image_btn" android:left="5.0dip" android:top="5.0dip" android:right="5.0dip" android:bottom="5.0dip" />
+</layer-list>

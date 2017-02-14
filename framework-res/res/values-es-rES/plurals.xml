@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="ssl_ca_cert_warning">
+        <item quantity="other">Posible supervisión de red</item>
+        <item quantity="one">Certificate authority installed</item>
+    </plurals>
+    <plurals name="last_num_days">
+        <item quantity="other">Últimos %d días</item>
+        <item quantity="one">Last %d day</item>
+    </plurals>
+    <plurals name="duration_seconds">
+        <item quantity="other">%d segundos</item>
+        <item quantity="one">1 segundo</item>
+    </plurals>
+    <plurals name="duration_minutes">
+        <item quantity="other">%d minutos</item>
+        <item quantity="one">1 minuto</item>
+    </plurals>
+    <plurals name="duration_hours">
+        <item quantity="other">%d horas</item>
+        <item quantity="one">1 hora</item>
+    </plurals>
+    <plurals name="wifi_available">
+        <item quantity="other">Redes Wi-Fi disponibles</item>
+        <item quantity="one">Red Wi-Fi disponible</item>
+    </plurals>
+    <plurals name="wifi_available_detailed">
+        <item quantity="other">Abrir redes Wi-Fi disponibles</item>
+        <item quantity="one">Abrir redes Wi-Fi disponibles</item>
+    </plurals>
+    <plurals name="matches_found">
+        <item quantity="other">%1$d de %2$d</item>
+        <item quantity="one">1 coincidencia</item>
+    </plurals>
+    <plurals name="restr_pin_countdown">
+        <item quantity="other">Try again in %d seconds</item>
+        <item quantity="one">Inténtelo de nuevo en 1 segundo</item>
+    </plurals>
+    <plurals name="tw_clipboard_files">
+        <item quantity="other">%d archivos</item>
+        <item quantity="one">1 archivo</item>
+    </plurals>
+</resources>

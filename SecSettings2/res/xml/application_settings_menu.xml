@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+  xmlns:touchwiz="http://schemas.android.com/apk/res/touchwiz">
+    <PreferenceScreen android:title="@string/application_name_call" android:key="call_settings">
+        <intent android:targetPackage="com.android.phone" android:action="android.intent.action.MAIN" android:targetClass="com.android.phone.CallFeaturesSetting">
+            <extra android:name="from_settings" android:value="true" />
+        </intent>
+    </PreferenceScreen>
+    <PreferenceScreen android:title="@string/sync_contacts" android:key="contact_settings">
+        <intent android:targetPackage="com.android.contacts" android:action="android.intent.action.MAIN" android:targetClass="com.android.contacts.preference.ContactsPreferenceActivity">
+            <extra android:name="from_settings" android:value="true" />
+        </intent>
+    </PreferenceScreen>
+    <PreferenceScreen android:title="@string/sync_contacts" android:key="contact_settings_jpn">
+        <intent android:targetPackage="com.samsung.contacts" android:action="android.intent.action.MAIN" android:targetClass="com.samsung.contacts.preference.ContactsPreferenceActivity">
+            <extra android:name="from_settings" android:value="true" />
+        </intent>
+    </PreferenceScreen>
+    <PreferenceScreen android:title="@string/application_name_email" android:key="email_settings">
+        <intent android:action="com.android.email.activity.setup.GENERAL_SETTINGS">
+            <extra android:name="from_settings" android:value="true" />
+        </intent>
+    </PreferenceScreen>
+    <PreferenceScreen android:title="@string/application_name_gallery" android:key="gallery_settings">
+        <intent android:targetPackage="com.sec.android.gallery3d" android:action="android.intent.action.MAIN" android:targetClass="com.sec.android.gallery3d.settings.AccountSettingActivity">
+            <extra android:name="from_settings" android:value="true" />
+        </intent>
+    </PreferenceScreen>
+    <PreferenceScreen android:title="@string/application_name_internet" android:key="browser_settings">
+        <intent android:targetPackage="com.sec.android.app.sbrowser" android:action="android.intent.action.MAIN" android:targetClass="com.sec.android.app.sbrowser.preferences.Settings">
+            <extra android:name="from_settings" android:value="true" />
+        </intent>
+    </PreferenceScreen>
+    <PreferenceScreen android:title="@string/application_name_message" android:key="message_settings">
+        <intent android:targetPackage="com.android.mms" android:action="android.intent.action.MAIN" android:targetClass="com.android.mms.settings.EntrancePrefActivity">
+            <extra android:name="from_settings" android:value="true" />
+        </intent>
+    </PreferenceScreen>
+    <PreferenceScreen android:title="@string/application_name_splanner" android:key="splanner_settings">
+        <intent android:action="com.sec.android.intent.calendar.setting">
+            <extra android:name="from_settings" android:value="true" />
+        </intent>
+    </PreferenceScreen>
+    <PreferenceScreen android:title="@string/application_name_svoice" android:key="svoice_settings" />
+</PreferenceScreen>

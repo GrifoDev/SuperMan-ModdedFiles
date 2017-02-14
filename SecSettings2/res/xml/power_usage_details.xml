@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <com.android.settings.applications.SecLayoutPreference android:layout="@layout/power_usage_details" android:selectable="false" android:key="two_buttons" />
+    <PreferenceCategory android:title="@string/controls_subtitle" android:key="controls_parent">
+        <Preference android:layout="@layout/power_usage_details_preference" android:title="@string/high_power_apps" android:key="high_power" />
+    </PreferenceCategory>
+    <PreferenceCategory android:layout="@layout/tall_preference_category" android:title="@string/details_subtitle" android:key="details_parent" />
+    <PreferenceCategory android:layout="@layout/tall_preference_category" android:key="messages_parent" />
+    <PreferenceCategory android:layout="@layout/tall_preference_category" android:title="@string/packages_subtitle" android:key="packages_parent" />
+</PreferenceScreen>

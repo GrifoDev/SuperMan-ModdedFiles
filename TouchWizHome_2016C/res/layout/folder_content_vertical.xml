@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:id="@id/scroll_view" android:layout_width="wrap_content" android:layout_height="0.0dip" android:overScrollMode="ifContentScrolls"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:launcher="http://schemas.android.com/apk/res/com.sec.android.app.launcher">
+    <FrameLayout android:id="@id/folder_content_parent" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <com.android.launcher2.CellLayoutNoGap android:id="@id/folder_content" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/open_folder_appicon_margin_top" android:layout_marginBottom="@dimen/open_folder_appicon_margin_bottom" android:hapticFeedbackEnabled="false" android:paddingStart="@dimen/open_folder_appicon_padding_left" android:paddingEnd="@dimen/open_folder_appicon_padding_right" launcher:cellWidth="@dimen/open_folder_appicon_cell_width" launcher:cellHeight="@dimen/open_folder_appicon_cell_height" launcher:cellGapX="@dimen/open_folder_appicon_cell_gap_x" launcher:cellGapY="@dimen/open_folder_appicon_cell_gap_y"
+          xmlns:launcher="http://schemas.android.com/apk/res/com.sec.android.app.launcher" />
+    </FrameLayout>
+</ScrollView>

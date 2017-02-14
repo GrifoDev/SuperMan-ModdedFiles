@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d timer</item>
+        <item quantity="one">1 time</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d minutter</item>
+        <item quantity="one">1 minut</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d sekunder</item>
+        <item quantity="one">1 sekund</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Du er nu %d trin fra at blive en udvikler.</item>
+        <item quantity="one">Du er nu 1 trin fra at blive en udvikler.</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Fjern de valgte sprog</item>
+        <item quantity="one">Fjern det valgte sprog</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Adgangskode skal indeholde mindst %d bogstaver.</item>
+        <item quantity="one">Adgangskoden skal indeholde mindst 1 bogstav.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Adgangskode skal indeholde mindst %d små bogstaver.</item>
+        <item quantity="one">Adgangskoden skal indeholde mindst 1 lille bogstav.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Adgangskode skal indeholde mindst %d store bogstaver.</item>
+        <item quantity="one">Adgangskode skal indeholde mindst 1 stort bogstav.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Adgangskode skal indeholde mindst %d tal.</item>
+        <item quantity="one">Adgangskode skal indeholde mindst 1 tal.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Adgangskode skal indeholde mindst %d symboler.</item>
+        <item quantity="one">Adgangskoden skal indeholde mindst 1 symbol.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Adgangskode skal indeholde mindst %d tal eller symboler.</item>
+        <item quantity="one">Adgangskoden skal indeholde mindst 1 tal eller symbol.</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Adgang til %d mapper/filer</item>
+        <item quantity="one">Adgang til 1 mappe/fil</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s har installeret CA-certifikater på din enhed, hvilket gør det muligt for dem at overvåge din enheds netværksaktivitet – herunder din brug af e-mails, apps og sikre websteder.
+
+Kontakt din it-administrator, hvis du vil have flere oplysninger om disse certifikater."</item>
+        <item quantity="one">"%s har installeret et CA-certifikat på din enhed, hvilket gør det muligt for dem at overvåge din enheds netværksaktivitet – herunder din brug af e-mails, apps og sikre websteder.
+
+Kontakt din it-administrator, hvis du vil have flere oplysninger om dette certifikat."</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d applikationer kan læse meddelelser.</item>
+        <item quantity="one">%d applikation har tilladelse til at læse meddelelser.</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d tilladelser mere</item>
+        <item quantity="one">%d tilladelse mere</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$d processer har brugt RAM den seneste %2$s</item>
+        <item quantity="one">%1$d proces har brugt RAM den seneste %2$s</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d apps har tilladelse til at bruge mobile data uden begrænsninger, mens Datasparer er aktiveret</item>
+        <item quantity="one">1 app har tilladelse til at bruge mobile data uden begrænsninger, når Datasparer er aktiveret</item>
+    </plurals>
+</resources>

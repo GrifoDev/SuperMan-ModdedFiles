@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/dialpad" android:layout_width="@dimen/sec_video_vga_dialpad_keys_width_onehand" android:layout_height="@dimen/sec_video_vga_dialpad_keys_height_onehand"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View style="@style/SecVideoDialpadHorizontalDividerStyle" />
+    <View android:layout_below="@id/container_pound" style="@style/SecVideoDialpadHorizontalDividerStyle" />
+    <View style="@style/SecVideoDialpadVerticalDividerStyle" />
+    <View android:layout_toRightOf="@id/container_three" style="@style/SecVideoDialpadVerticalDividerStyle" />
+    <RelativeLayout android:id="@id/container_one" style="@style/SecVideoCallVGAOnehandDialpadButtonStyle">
+        <include android:id="@id/one" layout="@layout/sec_videocall_onehand_dialpad_key" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/container_two" android:layout_alignBottom="@id/container_one" android:layout_toEndOf="@id/container_one" style="@style/SecVideoCallVGAOnehandDialpadButtonStyle">
+        <include android:id="@id/two" layout="@layout/sec_videocall_onehand_dialpad_key" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/container_three" android:layout_alignBottom="@id/container_two" android:layout_toEndOf="@id/container_two" style="@style/SecVideoCallVGAOnehandDialpadButtonStyle">
+        <include android:id="@id/three" layout="@layout/sec_videocall_onehand_dialpad_key" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/container_four" android:layout_below="@id/container_one" style="@style/SecVideoCallVGAOnehandDialpadButtonStyle">
+        <include android:id="@id/four" layout="@layout/sec_videocall_onehand_dialpad_key" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/container_five" android:layout_below="@id/container_two" android:layout_alignBottom="@id/container_four" android:layout_toEndOf="@id/container_four" style="@style/SecVideoCallVGAOnehandDialpadButtonStyle">
+        <include android:id="@id/five" layout="@layout/sec_videocall_onehand_dialpad_key" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/container_six" android:layout_below="@id/container_three" android:layout_alignBottom="@id/container_five" android:layout_toEndOf="@id/container_five" style="@style/SecVideoCallVGAOnehandDialpadButtonStyle">
+        <include android:id="@id/six" layout="@layout/sec_videocall_onehand_dialpad_key" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/container_seven" android:layout_below="@id/container_four" style="@style/SecVideoCallVGAOnehandDialpadButtonStyle">
+        <include android:id="@id/seven" layout="@layout/sec_videocall_onehand_dialpad_key" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/container_eight" android:layout_below="@id/container_five" android:layout_alignBottom="@id/container_seven" android:layout_toEndOf="@id/container_seven" style="@style/SecVideoCallVGAOnehandDialpadButtonStyle">
+        <include android:id="@id/eight" layout="@layout/sec_videocall_onehand_dialpad_key" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/container_nine" android:layout_below="@id/container_six" android:layout_alignBottom="@id/container_eight" android:layout_toEndOf="@id/container_eight" style="@style/SecVideoCallVGAOnehandDialpadButtonStyle">
+        <include android:id="@id/nine" layout="@layout/sec_videocall_onehand_dialpad_key" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/container_star" android:layout_below="@id/container_seven" style="@style/SecVideoCallVGAOnehandDialpadButtonStyle">
+        <include android:id="@id/star" layout="@layout/sec_videocall_onehand_dialpad_star_key" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/container_zero" android:layout_below="@id/container_eight" android:layout_alignBottom="@id/container_star" android:layout_toEndOf="@id/container_star" style="@style/SecVideoCallVGAOnehandDialpadButtonStyle">
+        <include android:id="@id/zero" layout="@layout/sec_videocall_onehand_dialpad_zero_key" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/container_pound" android:layout_below="@id/container_nine" android:layout_alignBottom="@id/container_zero" android:layout_toEndOf="@id/container_zero" style="@style/SecVideoCallVGAOnehandDialpadButtonStyle">
+        <include android:id="@id/pound" layout="@layout/sec_videocall_onehand_dialpad_star_key" />
+    </RelativeLayout>
+</RelativeLayout>

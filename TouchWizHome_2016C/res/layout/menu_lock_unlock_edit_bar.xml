@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.launcher2.MenuEditBar android:id="@id/menu_lock_unlock_editbar" style="@style/HomeEditDragBar"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/menu_unlock_container" style="@style/HomeEditDragBarItemContainer">
+        <ImageView android:id="@id/menu_unlock_anim_background" android:src="@drawable/circle_shape_normal" android:alpha="0.0" style="@style/EditBarCircle" />
+        <TextView android:id="@id/menu_unlock" android:text="@string/unlock" android:drawableTop="@drawable/sm_ic_home_edit_unlock" style="@style/HomeEditDragBarIcon" />
+    </FrameLayout>
+    <FrameLayout android:id="@id/menu_lock_container" style="@style/HomeEditDragBarItemContainer">
+        <ImageView android:id="@id/menu_lock_anim_background" android:src="@drawable/circle_shape_normal" android:alpha="0.0" style="@style/EditBarCircle" />
+        <TextView android:id="@id/menu_lock" android:text="@string/lock" android:drawableTop="@drawable/sm_ic_home_edit_lock" style="@style/HomeEditDragBarIcon" />
+    </FrameLayout>
+</com.android.launcher2.MenuEditBar>

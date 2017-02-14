@@ -1,0 +1,134 @@
+.class Lcom/android/server/display/WifiDisplayAdapter$24;
+.super Ljava/lang/Object;
+.source "WifiDisplayAdapter.java"
+
+# interfaces
+.implements Ljava/lang/Runnable;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/server/display/WifiDisplayAdapter;->requestEnableLocked(Ljava/lang/String;)V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x0
+    name = null
+.end annotation
+
+
+# instance fields
+.field final synthetic this$0:Lcom/android/server/display/WifiDisplayAdapter;
+
+.field final synthetic val$params:Ljava/lang/String;
+
+
+# direct methods
+.method constructor <init>(Lcom/android/server/display/WifiDisplayAdapter;Ljava/lang/String;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/server/display/WifiDisplayAdapter$24;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
+
+    iput-object p2, p0, Lcom/android/server/display/WifiDisplayAdapter$24;->val$params:Ljava/lang/String;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public run()V
+    .locals 6
+
+    iget-object v3, p0, Lcom/android/server/display/WifiDisplayAdapter$24;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
+
+    invoke-static {v3}, Lcom/android/server/display/WifiDisplayAdapter;->-get12(Lcom/android/server/display/WifiDisplayAdapter;)Lcom/android/server/display/IpRemoteDisplayController;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_1
+
+    :try_start_0
+    new-instance v2, Lorg/json/JSONObject;
+
+    iget-object v3, p0, Lcom/android/server/display/WifiDisplayAdapter$24;->val$params:Ljava/lang/String;
+
+    invoke-direct {v2, v3}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
+
+    const-string/jumbo v3, "deviceType"
+
+    invoke-virtual {v2, v3}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
+
+    move-result v0
+
+    iget-object v3, p0, Lcom/android/server/display/WifiDisplayAdapter$24;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
+
+    invoke-static {v3, v0}, Lcom/android/server/display/WifiDisplayAdapter;->-wrap1(Lcom/android/server/display/WifiDisplayAdapter;I)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const-string/jumbo v3, "WifiDisplayAdapter"
+
+    const-string/jumbo v4, "requestEnableLocked SEM_CONNECT_STATE_SCREEN_SHARING_AP call requestStopScan."
+
+    invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v3, p0, Lcom/android/server/display/WifiDisplayAdapter$24;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
+
+    invoke-static {v3}, Lcom/android/server/display/WifiDisplayAdapter;->-get9(Lcom/android/server/display/WifiDisplayAdapter;)Lcom/android/server/display/WifiDisplayController;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/android/server/display/WifiDisplayController;->requestStopScan()V
+
+    :cond_0
+    iget-object v3, p0, Lcom/android/server/display/WifiDisplayAdapter$24;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
+
+    invoke-static {v3}, Lcom/android/server/display/WifiDisplayAdapter;->-get12(Lcom/android/server/display/WifiDisplayAdapter;)Lcom/android/server/display/IpRemoteDisplayController;
+
+    move-result-object v3
+
+    iget-object v4, p0, Lcom/android/server/display/WifiDisplayAdapter$24;->val$params:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Lcom/android/server/display/IpRemoteDisplayController;->requestEnableWifiDisplay(Ljava/lang/String;)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_1
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v1
+
+    const-string/jumbo v3, "WifiDisplayAdapter"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "requestEnableLocked error : "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v1}, Ljava/lang/Exception;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+.end method

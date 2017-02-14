@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d ساعات</item>
+        <item quantity="one">ساعة واحدة</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d دقيقة</item>
+        <item quantity="one">دقيقة واحدة</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d ثانية</item>
+        <item quantity="one">ثانية واحدة</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">أنت على بعد %d من الخطوات من أن تكون مطوراً.</item>
+        <item quantity="one">أنت على بعد خطوة واحدة من أن تكون مطورا</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">إزالة اللغات المحددة</item>
+        <item quantity="one">إزالة اللغة المحددة</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">يجب أن تحتوي كلمة المرور على %d حروف على الأقل.</item>
+        <item quantity="one">يجب أن تحتوي كلمة المرور على حرف واحد على الأقل.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">يجب أن تحتوي كلمة المرور على %d حروف صغيرة على الأقل.</item>
+        <item quantity="one">يجب أن تحتوي كلمة المرور على حرف واحد صغير على الأقل.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">يجب أن تحتوي كلمة المرور على %d حروف كبيرة على الأقل.</item>
+        <item quantity="one">يجب أن تحتوي كلمة المرور على حرف واحد كبير على الأقل.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">يجب أن تحتوي كلمة المرور على %d أرقام على الأقل.</item>
+        <item quantity="one">يجب أن تحتوي كلمة المرور على رقم واحد على الأقل.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">يجب أن تحتوي كلمة المرور على %d رموز على الأقل.</item>
+        <item quantity="one">يجب أن تحتوي كلمة المرور على رمز واحد على الأقل.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">يجب أن تحتوي كلمة المرور على %d أرقام أو رموز على الأقل.</item>
+        <item quantity="one">يجب أن تحتوي كلمة المرور على رقم أو رمز واحد على الأقل.</item>
+    </plurals>
+    <plurals name="wrong_pin_code">
+        <item quantity="other">‏رمز رقم التعريف الشخصي لبطاقة SIM غير صحيح، ويتبقى لديك محاولتان (%d).</item>
+        <item quantity="one">‏رمز رقم التعريف الشخصي لبطاقة SIM غير صحيح، ولم يتبق لديك أية محاولات (%d).</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">الوصول إلى %d من المجلدات/الملفات</item>
+        <item quantity="one">الوصول إلى مجلد/ملف واحد</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"تم تثبيت شهادات مراجع مصدقة من قبل %s على جهازك، ما قد يتيح له مراقبة نشاط شبكة جهازك، بما في ذلك استخدامك رسائل البريد الإلكتروني والتطبيقات ومواقع الويب الآمنة.
+
+للحصول على مزيد من المعلومات حول هذه الشهادات، اتصل بمسؤول تقنية المعلومات."</item>
+        <item quantity="one">"تم تثبيت شهادة مرجع مصدق من قبل %s على جهازك، ما قد يتيح له مراقبة نشاط شبكة جهازك، بما في ذلك استخدامك رسائل البريد الإلكتروني والتطبيقات ومواقع الويب الآمنة.
+
+للحصول على مزيد من المعلومات حول هذه الشهادة، اتصل بمسؤول تقنية المعلومات."</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">يمكن لـ %d من التطبيقات قراءة الإشعارات.</item>
+        <item quantity="one">يسمح لـ %d من التطبيقات بقراءة الإشعارات.</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d من الأذونات الإضافية</item>
+        <item quantity="one">%d المزيد من الأذونات</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$d من العمليات استخدمت RAM في آخر %2$s</item>
+        <item quantity="one">%1$d عملية استخدمت RAM في آخر %2$s</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">تم السماح لـ %d من التطبيقات باستخدام بيانات الهاتف المحمول من دون قيود عندما يكون موفر البيانات مفعلاً</item>
+        <item quantity="one">يُسمح لتطبيق واحد باستخدام بيانات الهاتف المحمول من دون قيود عندما يكون موفّر الطاقة مفعلاً</item>
+    </plurals>
+</resources>

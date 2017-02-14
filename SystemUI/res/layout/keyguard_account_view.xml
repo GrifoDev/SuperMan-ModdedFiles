@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.keyguard.KeyguardAccountView android:gravity="bottom" android:orientation="vertical" android:id="@id/keyguard_account_view" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:androidprv="http://schemas.android.com/apk/res-auto">
+    <Space android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="7.0" />
+    <FrameLayout android:theme="@style/PasswordTheme" android:layout_gravity="center_horizontal" android:id="@id/keyguard_bouncer_frame" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginStart="20.0dip" android:layout_marginEnd="20.0dip">
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <include android:gravity="center_vertical" android:id="@id/keyguard_message_area" android:layout_width="fill_parent" android:layout_height="48.0dip" android:layout_alignParentTop="true" layout="@layout/keyguard_message_area" />
+            <LinearLayout android:orientation="vertical" android:id="@id/login_area" android:layout_width="fill_parent" android:layout_height="41.0dip" android:layout_below="@id/keyguard_message_area">
+                <EditText android:textColorHint="@color/keyguard_text_color_white" android:id="@id/login" android:background="@null" android:layout_width="fill_parent" android:layout_height="40.0dip" android:hint="@string/kg_login_username_hint" android:shadowColor="#80000000" android:inputType="textEmailAddress|textNoSuggestions" android:privateImeOptions="inputType=option" style="@style/keyguard_text_shadow" />
+                <View android:id="@id/divider1" android:background="#40ffffff" android:layout_width="fill_parent" android:layout_height="1.0dip" />
+            </LinearLayout>
+            <com.android.keyguard.KeyguardButton android:textColor="@color/keyguard_text_color_white" android:id="@id/ok" android:background="@drawable/ripple_effect_transparent_button_drawable" android:layout_width="wrap_content" android:layout_height="43.0dip" android:layout_marginTop="7.0dip" android:text="@string/kg_login_submit_button" android:layout_below="@id/login_area" android:layout_alignParentEnd="true" style="@style/keyguard_button_style" />
+            <LinearLayout android:orientation="vertical" android:id="@id/password_area" android:layout_width="fill_parent" android:layout_height="41.0dip" android:layout_marginTop="10.0dip" android:layout_marginRight="5.0dip" android:layout_below="@id/login_area" android:layout_toStartOf="@id/ok">
+                <EditText android:textColorHint="@color/keyguard_text_color_white" android:id="@id/password" android:background="@null" android:nextFocusRight="@id/ok" android:nextFocusDown="@id/ok" android:layout_width="fill_parent" android:layout_height="40.0dip" android:hint="@string/kg_login_password_hint" android:shadowColor="#80000000" android:inputType="textPassword" android:privateImeOptions="inputType=option" style="@style/keyguard_text_shadow" />
+                <View android:id="@id/divider2" android:background="#40ffffff" android:layout_width="fill_parent" android:layout_height="1.0dip" />
+            </LinearLayout>
+        </RelativeLayout>
+    </FrameLayout>
+    <Space android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="2.0" />
+</com.android.keyguard.KeyguardAccountView>

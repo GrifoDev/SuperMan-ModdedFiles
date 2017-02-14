@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="false">
+        <bitmap android:src="@drawable/videocall_ic_videocall" android:tint="@color/sec_incall_button_dim_tint" />
+    </item>
+    <item>
+        <bitmap android:src="@drawable/videocall_ic_videocall" />
+    </item>
+</selector>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/dnd_mode_settings_title" settings:parent="@xml/notification_settings"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <com.samsung.android.settings.UnclickablePreference android:title="@string/dnd_description" android:selectable="false" android:key="dnd_description" style="@style/description_text" />
+    <PreferenceCategory android:title="" />
+    <SwitchPreference android:persistent="false" android:title="@string/enable_now" android:key="enable_now" />
+    <PreferenceCategory android:title="" android:key="downtime">
+        <SwitchPreference android:persistent="false" android:title="@string/enable_as_scheduled" android:key="scheduling_switch" android:summary="@string/scheduling_switch_summary" />
+        <Preference android:persistent="false" android:title="@string/zen_mode_downtime_days" android:key="days" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="" android:key="exceptions" />
+    <PreferenceScreen android:title="@string/allow_exceptions" android:key="allow_exceptions" android:fragment="com.samsung.android.settings.notification.ZenModeDNDPrioritySettings" />
+    <PreferenceScreen android:title="@string/zen_mode_visual_interruptions_settings_title" android:key="visual_interruptions_settings" android:fragment="com.android.settings.notification.ZenModeVisualInterruptionSettings" />
+</PreferenceScreen>

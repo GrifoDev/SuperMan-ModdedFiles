@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/zen_mode_priority_settings_title" android:key="zen_mode_priority_settings"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <SwitchPreference android:enabled="false" android:title="@string/zen_mode_alarms" android:key="alarms" android:defaultValue="true" />
+    <SwitchPreference android:title="@string/zen_mode_reminders" android:key="reminders" />
+    <SwitchPreference android:title="@string/zen_mode_events" android:key="events" />
+    <com.android.settings.SecDropDownPreference android:title="@string/zen_mode_messages" android:key="messages" android:summary="%s" />
+    <com.android.settings.SecDropDownPreference android:title="@string/zen_mode_calls" android:key="calls" android:summary="%s" />
+    <SwitchPreference android:title="@string/zen_mode_repeat_callers" android:key="repeat_callers" />
+</PreferenceScreen>

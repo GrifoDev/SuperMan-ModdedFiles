@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="bluetooth_preference_device_text_size">17.0sp</dimen>
+    <dimen name="bluetooth_scandialog_frame_layout_padding_start_end">20.0dip</dimen>
+    <dimen name="brightness_icon_inner_circle_size">18.5px</dimen>
+    <dimen name="dashboard_favorite_tile_image_size">49.0dip</dimen>
+    <dimen name="dashboard_favorite_tile_text_size">14.0dip</dimen>
+    <dimen name="dashboard_favorite_tile_text_view_height">48.0dip</dimen>
+    <dimen name="dashboard_tile_image_margin_top">10.0dip</dimen>
+    <dimen name="font_preveiw_size_side_padding">24.0dip</dimen>
+    <dimen name="header_text_size_setup_choose_lock_pattern">13.0sp</dimen>
+    <dimen name="lock_app_shortcut_item_higth">110.0dip</dimen>
+    <dimen name="personal_vibration_center_text_size">33.0dip</dimen>
+    <dimen name="wifi_ap_add_dialog_edit_margin_left">-6.0dip</dimen>
+    <dimen name="wifi_ap_device_dialog_label_text_size">19.0sp</dimen>
+    <dimen name="wifi_ap_dialog_edit_margin_left">-3.0dip</dimen>
+    <dimen name="wifi_ap_popup_paddingStart">24.0dip</dimen>
+    <item type="dimen" name="personal_vibration_big_o_val_offset">127.0</item>
+    <item type="dimen" name="personal_vibration_niddle_width">2.0</item>
+    <item type="dimen" name="personal_vibration_small_o_val_offset">88.0</item>
+    <item type="dimen" name="personal_vibration_thickness">78.0</item>
+    <dimen name="edit_app_bar_divider_height">3.0px</dimen>
+</resources>

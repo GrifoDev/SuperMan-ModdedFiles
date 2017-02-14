@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:background="@drawable/qs_background_primary" android:layout_width="fill_parent" android:layout_height="@dimen/qs_panel_handler_height"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/handler_image_view" android:layout_width="16.0dip" android:layout_height="5.0dip" android:src="@drawable/quickpanel_handler" android:scaleType="fitXY" android:tint="@color/qs_handler_color" />
+    <FrameLayout android:id="@id/handler_cue_image_view_layout" android:visibility="gone" android:layout_width="16.0dip" android:layout_height="wrap_content">
+        <ImageView android:id="@id/handler_cue_image_view_top" android:layout_width="16.0dip" android:layout_height="4.0dip" android:src="@drawable/quickpanel_handler_cue_arrow" android:scaleType="fitXY" android:tint="@color/qs_handler_color" />
+        <ImageView android:id="@id/handler_cue_image_view_bottom" android:layout_width="16.0dip" android:layout_height="4.0dip" android:layout_marginTop="3.0dip" android:src="@drawable/quickpanel_handler_cue_arrow" android:scaleType="fitXY" android:tint="@color/qs_handler_color" />
+    </FrameLayout>
+</LinearLayout>

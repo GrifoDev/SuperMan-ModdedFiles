@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:scrollbarStyle="outsideOverlay" android:paddingTop="@dimen/wifi_alert_dialog_padding_scroll" android:paddingBottom="@dimen/wifi_alert_dialog_padding_scroll" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingStart="@dimen/wifi_alert_dialog_scrollview_padding_side" android:paddingEnd="@dimen/wifi_alert_dialog_scrollview_padding_side" android:scrollIndicators="bottom|top"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:paddingTop="@dimen/wifi_alert_dialog_padding_top" android:paddingBottom="@dimen/wifi_alert_dialog_padding_bottom" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:id="@id/password_layout" style="@style/wifi_dialog_edit_layout_style">
+            <TextView android:text="@string/wifi_password" style="@style/wifi_item_dialog_label" />
+            <EditText android:ellipsize="end" android:id="@id/password" android:password="true" android:singleLine="true" style="@style/wifi_item_edit_content" />
+            <TextView android:id="@id/wifi_password_error_text" android:visibility="gone" style="@style/wifi_item_error_text" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/show_password_layout" style="@style/wifi_dialog_checkbox_layout_style">
+            <CheckBox android:id="@id/show_password" android:text="@string/wifi_show_password" style="@style/wifi_dialog_checkbox_style" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

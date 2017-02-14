@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/service_information_title"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <PreferenceScreen android:title="@string/warranty_information_title" android:key="warranty_info" android:fragment="com.samsung.android.settings.WarrantyInfoFragment" />
+    <PreferenceScreen android:title="@string/contact_us_title" android:key="contact_us" />
+</PreferenceScreen>

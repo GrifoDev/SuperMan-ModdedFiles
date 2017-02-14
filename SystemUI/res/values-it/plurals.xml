@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">1 schermata in Panoramica</item>
+        <item quantity="one">%d schermate in Panoramica</item>
+    </plurals>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">Codice PIN della SIM errato. Hai ancora %d tentativi a disposizione.</item>
+        <item quantity="one">"Codice PIN della SIM errato. Hai ancora %d tentativo a disposizione, dopodiché dovrai contattare l'operatore per sbloccare il dispositivo."</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">Codice PUK della SIM errato. Hai ancora %d tentativi a disposizione prima che la SIM diventi definitivamente inutilizzabile.</item>
+        <item quantity="one">Codice PUK della SIM errato. Hai ancora %d tentativo a disposizione prima che la SIM diventi definitivamente inutilizzabile.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="other">Il dispositivo non viene sbloccato da %d ore. Conferma la sequenza.</item>
+        <item quantity="one">Il dispositivo non viene sbloccato da %d ora. Conferma la sequenza.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="other">Il dispositivo non viene sbloccato da %d ore. Conferma il PIN.</item>
+        <item quantity="one">Il dispositivo non viene sbloccato da %d ora. Conferma il PIN.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">Il dispositivo non viene sbloccato da %d ore. Conferma la password.</item>
+        <item quantity="one">Il dispositivo non viene sbloccato da %d ora. Conferma la password.</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(%d tentativi rimasti)</item>
+        <item quantity="one">(1 tentativo rimasto)</item>
+    </plurals>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">%d tentativi rimasti</item>
+        <item quantity="one">%d tentativi rimasti</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_min">
+        <item quantity="other">Riprovate tra %d minuti</item>
+        <item quantity="one">Riprovate tra %d minuto</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_sec">
+        <item quantity="other">Riprovate tra %d secondi</item>
+        <item quantity="one">Riprovate tra %d secondo</item>
+    </plurals>
+</resources>

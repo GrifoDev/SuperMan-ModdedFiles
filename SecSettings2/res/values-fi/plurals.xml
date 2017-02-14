@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d tuntia </item>
+        <item quantity="one">1 tunti</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d minuuttia</item>
+        <item quantity="one">1 minuutti</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d sekuntia</item>
+        <item quantity="one">1 sekunti</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Olet nyt %d vaiheen päässä kehittäjä-tasosta.</item>
+        <item quantity="one">Olet nyt 1 vaiheen päässä kehittäjätasosta.</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Poista valitut kielet</item>
+        <item quantity="one">Poista valittu kieli</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Salasanassa on oltava ainakin %d kirjainta.</item>
+        <item quantity="one">Salasanassa on oltava ainakin 1 kirjain.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Salasanassa on oltava ainakin %d pientä kirjainta.</item>
+        <item quantity="one">Salasanassa on oltava ainakin 1 pieni kirjain.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Salasanassa on oltava ainakin %d suurta kirjainta.</item>
+        <item quantity="one">Salasanassa on oltava ainakin 1 suuri kirjain.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Salasanassa on oltava ainakin %d numeroa.</item>
+        <item quantity="one">Salasanassa on oltava ainakin 1 numero.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Salasanassa on oltava ainakin %d symbolia.</item>
+        <item quantity="one">Salasanassa on oltava ainakin 1 symboli.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Salasanassa on oltava ainakin %d numeroa tai symbolia.</item>
+        <item quantity="one">Salasanassa on oltava ainakin 1 numero tai symboli.</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">%d kansion/tiedoston käyttöoikeus</item>
+        <item quantity="one">1 kansion/tiedoston käyttöoikeus</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s on asentanut laitteeseen myöntäjävarmenteita, joilla se pystyy ehkä valvomaan laitteen verkkotoimintaa, muun muassa sähköpostin, sovellusten ja suojattujen sivustojen käyttöä.
+
+Lisätietoja näistä varmenteista saat järjestelmänvalvojalta."</item>
+        <item quantity="one">"%s on asentanut laitteeseen myöntäjävarmenteen, jolla se pystyy ehkä valvomaan laitteen verkkotoimintaa, muun muassa sähköpostin, sovellusten ja suojattujen sivustojen käyttöä.
+
+Lisätietoja tästä varmenteesta saat järjestelmänvalvojalta."</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d sovellusta pystyy lukemaan ilmoituksia.</item>
+        <item quantity="one">%d sovellusta saa lukea ilmoituksia.</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">Vielä %d käyttöoikeutta</item>
+        <item quantity="one">Vielä %d käyttöoikeus</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">Viimeiset %2$s, RAM-muistia käyttänyt %1$d prosessia</item>
+        <item quantity="one">Viimeiset %2$s, RAM-muistia käyttänyt %1$d prosessi</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d sovellusta voi käyttää mobiilidataa ilman rajoituksia, kun Datansäästö-toiminto on käytössä</item>
+        <item quantity="one">1 sovellus voi käyttää mobiilidataa ilman rajoituksia, kun Datansäästö-toiminto on käytössä</item>
+    </plurals>
+</resources>

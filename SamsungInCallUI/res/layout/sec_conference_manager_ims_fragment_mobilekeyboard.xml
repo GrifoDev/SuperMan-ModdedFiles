@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/conference_manage_layout" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/manageConferencePanel" android:background="@color/conference_call_manager_background_color" android:paddingTop="@dimen/conference_call_manager_padding_mobilekeyboard_top" android:paddingBottom="@dimen/conference_call_manager_padding_mobilekeyboard_bottom" android:clickable="true" android:layout_width="fill_parent" android:layout_height="@dimen/conference_call_manager_mobilekeyboard_height" android:layout_marginTop="@dimen/conference_call_manager_margin_mobilekeyboard_top">
+        <ListView android:id="@id/participantList" android:background="@color/conference_call_manager_background_color" android:paddingTop="@dimen/conference_call_manager_padding_top" android:paddingBottom="@dimen/conference_call_manager_padding_bottom" android:focusable="true" android:focusableInTouchMode="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="@dimen/conference_call_manager_mobilekeyboard_height" android:listSelector="@null" android:divider="@null" />
+        <View android:id="@id/confPanelEndLine" android:background="@color/line_effect_color" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="@dimen/line_effect_height" android:layout_marginTop="@dimen/sec_conference_panel_end_line_margin_top" />
+    </FrameLayout>
+</FrameLayout>

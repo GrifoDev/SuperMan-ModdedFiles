@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@id/psm_select_layout" android:background="@drawable/power_saving_btn_background" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/list_item_top_padding" android:layout_marginBottom="@dimen/list_item_bottom_padding" android:layout_marginStart="?android:listPreferredItemPaddingStart" android:layout_marginEnd="?android:listPreferredItemPaddingEnd"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/psm_off_btn" android:background="@drawable/power_saving_btn_left_background" android:focusable="true" android:layout_width="0.0dip" android:layout_height="wrap_content" android:minHeight="@dimen/power_saving_button_layout_height" android:layout_weight="1.0">
+        <TextView android:textSize="14.0dip" android:gravity="center" android:id="@id/psm_off_text_status" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="12.0dip" android:gravity="center" android:id="@id/psm_off_text_time" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/psm_mid_btn" android:background="@drawable/power_saving_btn_center_background" android:focusable="true" android:layout_width="0.0dip" android:layout_height="wrap_content" android:minHeight="@dimen/power_saving_button_layout_height" android:layout_weight="1.0">
+        <TextView android:textSize="14.0dip" android:gravity="center" android:id="@id/psm_mid_text_status" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="12.0dip" android:gravity="center" android:id="@id/psm_mid_text_time" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="12.0dip" android:gravity="center" android:id="@id/psm_mid_text_custom" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/button_customized" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/psm_max_btn" android:background="@drawable/power_saving_btn_right_background" android:focusable="true" android:layout_width="0.0dip" android:layout_height="wrap_content" android:minHeight="@dimen/power_saving_button_layout_height" android:layout_weight="1.0">
+        <TextView android:textSize="14.0dip" android:gravity="center" android:id="@id/psm_max_text_status" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="12.0dip" android:gravity="center" android:id="@id/psm_max_text_time" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="12.0dip" android:gravity="center" android:id="@id/psm_max_text_custom" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/button_customized" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+      xmlns:android="http://schemas.android.com/apk/res/android">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginStart="@dimen/bluetooth_dialog_padding" android:layout_marginEnd="@dimen/bluetooth_dialog_padding">
+            <TextView android:gravity="center_vertical" android:id="@id/message" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/bluetooth_dialog_padding" android:layout_marginBottom="@dimen/bluetooth_dialog_padding" style="@style/dialog_body_text_style" />
+            <TextView android:textAppearance="?android:textAppearanceMedium" android:textSize="@dimen/bluetooth_pairing_dialog_edittext_title_text_size" android:textColor="@color/bt_pairing_dialog_edittext_title_color" android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/unlock_set_unlock_pin_title" />
+            <EditText android:id="@id/pincode_edit_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" android:inputType="textPassword" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginStart="@dimen/do_not_show_again_popup_checkbox_margin_left" android:layout_marginEnd="@dimen/bluetooth_dialog_padding">
+            <CheckBox android:textAppearance="?android:textAppearanceSmall" android:textSize="@dimen/bluetooth_pairing_dialog_checkbox_text_size" android:textColor="@color/bt_pairing_dialog_body_text_color" android:gravity="center_vertical" android:id="@id/alphanumeric_pin" android:paddingLeft="@dimen/alert_dialog_bottom_checkbox_padding_left" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/bluetooth_pairing_dialog_checkbox_margin_top" android:layout_marginBottom="@dimen/bluetooth_dialog_padding" android:text="@string/bluetooth_enable_alphanumeric_pin" android:soundEffectsEnabled="true" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

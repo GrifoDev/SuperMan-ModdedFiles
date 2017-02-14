@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="0.0px" android:layout_weight="0.4">
+        <ImageView android:id="@id/preview_image" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/st_screen_mode_previewmode_img" android:scaleType="fitXY" android:layout_centerHorizontal="true" />
+        <TextView android:textSize="@dimen/new_mode_summary_size" android:textColor="@color/screen_mode_text_color" android:id="@id/auto_adaptive_description" android:background="@color/screen_mode_text_bg_color" android:paddingTop="10.0dip" android:paddingBottom="10.0dip" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/screen_mode_auto_adaptive_description" android:layout_alignParentBottom="true" android:fontFamily="sec-roboto-light" android:paddingStart="14.0dip" android:paddingEnd="14.0dip" />
+    </RelativeLayout>
+    <ListView android:id="@id/mode_list" android:layout_width="fill_parent" android:layout_height="0.0px" android:choiceMode="singleChoice" android:layout_weight="0.6" android:footerDividersEnabled="true" />
+</LinearLayout>

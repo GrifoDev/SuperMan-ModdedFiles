@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical" android:id="@id/topDisplayGroup" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentTop="true">
+            <TextView android:textAppearance="?android:textAppearanceMedium" android:textColor="?android:textColorPrimary" android:gravity="center" android:id="@id/headerText" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="9.0dip" android:lines="3" />
+            <RelativeLayout android:background="@android:drawable/edit_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="6.0dip" android:layout_marginTop="9.0dip" android:layout_marginRight="6.0dip">
+                <TextView android:textSize="36.0sp" android:textColor="#ff000000" android:id="@id/pinDisplay" android:focusable="false" android:layout_width="wrap_content" android:layout_height="64.0dip" android:maxLines="1" android:layout_centerInParent="true" android:inputType="textPassword" />
+                <ImageButton android:id="@id/backspace" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="1.0dip" android:src="@drawable/ic_input_delete" android:tint="?android:textColorPrimary" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/keyPad" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:layout_below="@id/topDisplayGroup">
+            <include android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/twelve_key_area" />
+        </LinearLayout>
+        <Button android:textAppearance="?android:textAppearanceMedium" android:id="@id/confirmPassword" android:visibility="gone" android:layout_width="98.0dip" android:layout_height="wrap_content" android:layout_marginRight="7.0dip" android:text="@android:string/ok" android:drawablePadding="8.0dip" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+        <View android:id="@id/spacerBottom" android:background="@android:drawable/divider_horizontal_dark" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_marginBottom="6.0dip" />
+    </RelativeLayout>
+</ScrollView>

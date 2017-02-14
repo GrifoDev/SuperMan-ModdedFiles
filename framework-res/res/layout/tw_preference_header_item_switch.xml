@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:background="?activatedBackgroundIndicator" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="48.0dip" android:paddingStart="16.0dip" android:paddingEnd="?scrollbarSize"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center" android:id="@id/icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="0.0dip" android:layout_marginEnd="8.0dip" />
+    <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6.0dip" android:layout_marginBottom="6.0dip" android:layout_weight="1.0" android:layout_marginStart="0.0dip" android:layout_marginEnd="6.0dip">
+        <TextView android:textAppearance="?textAppearanceListItem" android:textColor="?^attr-private/twTextColorPrimaryActivated" android:ellipsize="marquee" android:id="@id/title" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+        <TextView android:textAppearance="?textAppearanceListItemSecondary" android:textColor="?^attr-private/twTextColorSecondaryActivated" android:ellipsize="end" android:id="@id/summary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="10" android:layout_below="@id/title" android:layout_alignStart="@id/title" />
+    </RelativeLayout>
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/widget_frame" android:layout_width="wrap_content" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <View android:id="@id/dynamic_spacer" android:background="?dividerVertical" android:focusable="false" android:layout_width="1.0dip" android:layout_height="fill_parent" android:layout_marginRight="8.0dip" />
+            <Switch android:layout_gravity="center" android:id="@id/switch_widget" android:focusable="false" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

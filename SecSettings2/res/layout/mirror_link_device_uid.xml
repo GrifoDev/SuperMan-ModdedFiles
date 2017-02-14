@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:scrollbarStyle="@integer/preference_scrollbar_style" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/all_details" android:paddingBottom="5.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <TextView android:id="@id/mirror_link_uid_title" android:paddingTop="@dimen/list_item_top_padding" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/mirror_link_uid" android:paddingStart="?android:listPreferredItemPaddingStart" android:paddingEnd="?android:listPreferredItemPaddingEnd" style="@style/list_title_text_style" />
+        <TextView android:id="@id/mirror_link_uid" android:paddingBottom="@dimen/list_item_bottom_padding" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingStart="?android:listPreferredItemPaddingStart" android:paddingEnd="?android:listPreferredItemPaddingEnd" style="@style/list_summary_text_style" />
+    </LinearLayout>
+</ScrollView>

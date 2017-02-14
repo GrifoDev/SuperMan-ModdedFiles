@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="abc_action_bar_embed_tabs">true</bool>
+    <bool name="abc_allow_stacked_button_bar">true</bool>
+    <bool name="abc_config_actionMenuItemAllCaps">true</bool>
+    <bool name="abc_config_closeDialogWhenTouchOutside">true</bool>
+    <bool name="abc_config_showMenuShortcutsWhenKeyboardPresent">false</bool>
+    <bool name="config_allow_export">true</bool>
+    <bool name="config_allow_import_from_vcf_file">true</bool>
+    <bool name="config_allow_share_contacts">true</bool>
+    <bool name="config_allow_sim_import">true</bool>
+    <bool name="config_default_account_user_changeable">true</bool>
+    <bool name="config_default_display_order_primary">true</bool>
+    <bool name="config_default_sort_order_primary">true</bool>
+    <bool name="config_display_order_user_changeable">true</bool>
+    <bool name="config_editor_field_order_primary">true</bool>
+    <bool name="config_sort_order_user_changeable">true</bool>
+    <bool name="has_large_photo">false</bool>
+    <bool name="is_layout_landscape">false</bool>
+    <bool name="video_call_auto_fullscreen">true</bool>
+</resources>

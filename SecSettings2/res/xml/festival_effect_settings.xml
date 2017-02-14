@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/festival_effect_settings_title" android:key="parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Preference android:key="festival_effect_help" />
+    <PreferenceCategory android:title="@string/allowed_functions" android:key="allowed_functions_category" />
+    <com.android.settings.SwitchPreferenceScreen android:title="@string/home_lock_screen_title" android:key="home_lock_screen" android:fragment="com.android.settings.festivaleffect.FestivalEffectGuide">
+        <extra android:name="type" android:value="home_lock_screen" />
+    </com.android.settings.SwitchPreferenceScreen>
+    <com.android.settings.SwitchPreferenceScreen android:title="@string/notification_panel_title" android:key="notification_panel" android:fragment="com.android.settings.festivaleffect.FestivalEffectGuide">
+        <extra android:name="type" android:value="notification_panel" />
+    </com.android.settings.SwitchPreferenceScreen>
+    <com.android.settings.SwitchPreferenceScreen android:title="@string/weather_widget_title" android:key="weather_widget" android:fragment="com.android.settings.festivaleffect.FestivalEffectGuide">
+        <extra android:name="type" android:value="weather_widget" />
+    </com.android.settings.SwitchPreferenceScreen>
+    <com.android.settings.SwitchPreferenceScreen android:title="@string/key_melody_title" android:key="key_melody" android:fragment="com.android.settings.festivaleffect.FestivalEffectGuide">
+        <extra android:name="type" android:value="key_melody" />
+    </com.android.settings.SwitchPreferenceScreen>
+    <PreferenceCategory android:title="@string/allowed_personalization" android:key="allowed_personalization_category" />
+    <com.android.settings.SwitchPreferenceScreen android:title="@string/customize_event_title" android:key="customize_event" android:fragment="com.android.settings.festivaleffect.FestivalEffectGuide">
+        <extra android:name="type" android:value="weather_widget" />
+    </com.android.settings.SwitchPreferenceScreen>
+</PreferenceScreen>

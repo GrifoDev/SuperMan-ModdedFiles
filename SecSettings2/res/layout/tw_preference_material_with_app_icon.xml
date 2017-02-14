@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/list_item_container_style"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="start|center" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="fill_parent">
+        <ImageView android:id="@android:id/icon" android:layout_width="@dimen/list_app_icon_size" android:layout_height="@dimen/list_app_icon_size" android:scaleType="centerInside" android:layout_marginEnd="@dimen/list_item_inner_padding" />
+    </LinearLayout>
+    <RelativeLayout android:paddingTop="@dimen/list_item_top_padding" android:paddingBottom="@dimen/list_item_bottom_padding" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <TextView android:ellipsize="marquee" android:id="@android:id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" style="@style/list_title_text_style" />
+        <TextView android:id="@android:id/summary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="10" android:layout_below="@android:id/title" android:layout_alignStart="@android:id/title" style="@style/list_summary_text_style" />
+    </RelativeLayout>
+    <LinearLayout android:gravity="end|center" android:orientation="vertical" android:id="@android:id/widget_frame" android:layout_width="wrap_content" android:layout_height="fill_parent" android:minWidth="32.0dip" />
+</LinearLayout>

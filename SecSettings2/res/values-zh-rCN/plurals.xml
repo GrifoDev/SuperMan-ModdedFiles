@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d 小时</item>
+        <item quantity="one">1 小时</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d 分钟</item>
+        <item quantity="one">1 分钟</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d秒</item>
+        <item quantity="one">1 秒</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">您只差 %d 步即可成为开发者。</item>
+        <item quantity="one">您现在距开发者仅一步之遥。</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">移除选定的语言</item>
+        <item quantity="one">移除选定的语言</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">密码必须至少包含%d个字母。</item>
+        <item quantity="one">密码必须至少包含一个字母。</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">密码必须至少包含%d个小写字母。</item>
+        <item quantity="one">密码必须至少包含一个小写字母。</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">密码必须至少包含%d个大写字母。</item>
+        <item quantity="one">密码必须至少包含一个大写字母。</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">密码必须至少包含%d个数字。</item>
+        <item quantity="one">密码必须至少包含一个数字。</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">密码必须至少包含%d个符号。</item>
+        <item quantity="one">密码必须至少包含1个符号。</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">密码必须至少包含%d个数字或符号。</item>
+        <item quantity="one">密码必须至少包含1个数字或符号。</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">访问 %d 个文件夹/文件</item>
+        <item quantity="one">访问 1 个文件夹/文件</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s 已在您的设备上安装 CA 证书，这可能允许其监视设备的网络活动，包括邮件、应用程序和安全网站的使用信息。
+
+若需有关此证书的更多信息，请联系您的 IT 管理员。"</item>
+        <item quantity="one">"%s 已在您的设备上安装 1 个 CA 证书，这可能允许其监视设备的网络活动，包括邮件、应用程序和安全网站的使用信息。
+
+有关此证书的更多信息，请联系您的 IT 管理员。"</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d 个应用程序可以读取通知</item>
+        <item quantity="one">允许 %d 个应用程序读取通知</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">其他 %d 项权限</item>
+        <item quantity="one">其他 %d 项权限</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">最近%2$s内有 %1$d 个程序使用了内存</item>
+        <item quantity="one">最近%2$s内有 %1$d 个程序使用了内存</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">已允许 %d 个应用程序在启用【数据节省】期间随意使用移动数据</item>
+        <item quantity="one">已允许 1 个应用程序在启用【流量节省】期间随意使用数据流量</item>
+    </plurals>
+</resources>

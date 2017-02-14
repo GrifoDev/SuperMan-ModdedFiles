@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/zen_mode_automation_settings_title" android:key="zen_mode_settings"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

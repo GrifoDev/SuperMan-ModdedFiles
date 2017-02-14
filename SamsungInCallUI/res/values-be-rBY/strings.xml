@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="abc_action_bar_home_description">Перайсці на галоўную старонку</string>
+    <string name="abc_action_bar_home_description_format">%1$s, %2$s</string>
+    <string name="abc_action_bar_home_subtitle_description_format">%1$s, %2$s, %3$s</string>
+    <string name="abc_action_bar_up_description">Перайсці ўверх</string>
+    <string name="abc_action_menu_overflow_description">Дадатковыя параметры</string>
+    <string name="abc_action_mode_done">Гатова</string>
+    <string name="abc_activity_chooser_view_see_all">Прагледзець усё</string>
+    <string name="abc_activitychooserview_choose_application">Выбраць праграму</string>
+    <string name="abc_capital_off">ВЫКЛ.</string>
+    <string name="abc_capital_on">УКЛ.</string>
+    <string name="abc_search_hint">Пошук...</string>
+    <string name="abc_searchview_description_clear">Выдалiць запыт</string>
+    <string name="abc_searchview_description_query">Запыт на пошук</string>
+    <string name="abc_searchview_description_search">Пошук</string>
+    <string name="abc_searchview_description_submit">Адправіць запыт</string>
+    <string name="abc_searchview_description_voice">Галасавы пошук</string>
+    <string name="abc_shareactionprovider_share_with">Абагуліць з</string>
+    <string name="abc_shareactionprovider_share_with_application">Абагуліць з %s</string>
+    <string name="abc_toolbar_collapse_description">Згарнуць</string>
+    <string name="audio_mode_speaker">Вонкавы дынамік</string>
+    <string name="onscreenSwapCallsText">Перакл.</string>
+    <string name="status_bar_notification_info_overflow">больш за 999</string>
+    <string name="BirthDay_remainedDays1">Дзень нараджэння заўтра</string>
+    <string name="TS_ADD_REASON_BUTTON_ABB_VODA">Дад прычыну</string>
+    <string name="add_reminder">Дад. напамін</string>
+    <string name="conferencing_dialog_Available_for_VoiceCalls">Conferencing is only available for voice calls.</string>
+    <string name="data_usage_limit_dialog_message_tmo">Data limit that you have set on your phone has reached and data is turned off. Video call requires a data connection. Turn on mobile data or connect to any available Wi-Fi network.</string>
+    <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
+    <string name="incoming_video_call_no_dot">Уваходны відэавыклік</string>
+    <string name="low_batt_upgrade_disallowed">Немагчыма пераключыцца на відэавыклік. Нізкі зарад акумулятара.</string>
+    <string name="mt_vt_not_possible">%s cannot receive video calls at this time. You will now be connected through a voice call.</string>
+    <string name="open_folder_for_speakeroff">To turn off the speakerphone, open the flip phone.</string>
+    <string name="preferred_sim_for_callback">Прыяр. SIM для выклікаў</string>
+    <string name="rcs_share_donot_send_my_video">Схаваць мяне</string>
+    <string name="rcs_share_send_my_video">Show me</string>
+    <string name="recently_use_sim_for_callback">Нядаўна выкар. SIM-карта</string>
+    <string name="record_notification_button_text_record_list">Запісы</string>
+    <string name="record_notification_content">Краніце «ЗАПІСЫ», каб прагледзець свае запісаныя выклікі.</string>
+    <string name="save_record_msg_myfiles">Запіс захаваны ў «Мае файлы».</string>
+    <string name="secConferenceCallMerging">Аб’яднанне выклікаў…</string>
+    <string name="secOnscreenMenuSpeakerOffText">Выкл.вонкавы дынамік</string>
+    <string name="secOnscreenMenuSpeakerOnText">Уключыць дынамік</string>
+    <string name="secOnscreenMenuSwitchToVoiceCallText">Перакл на гал выклік</string>
+    <string name="secOnscreenSpeaker">Вонкавы дынамік</string>
+    <string name="secOnscreenSwapText">Пераключ.</string>
+    <string name="select_callback_sim_card">Выберыце SIM-карту для зваротнага набору</string>
+    <string name="select_callback_sim_card_content">Пры апошнім выкліку або паведамленні на гэты нумар ці з яго не выкарыстоўвалася прыярытэтная SIM-карта для выклікаў. Выберыце SIM-карту для выкарыстання.</string>
+    <string name="smart_call_block_msg">Блакірав. нумар</string>
+    <string name="smart_call_block_report_number">Заблак./павед. пра нумар</string>
+    <string name="smart_call_report_msg">Павед. пра нумар</string>
+    <string name="switched_to_voip_mo">Пераключана на галасавы выклік.</string>
+    <string name="switched_to_voip_mt">Пераключана на галасавы выклік па просьбе вашага абанента.</string>
+    <string name="switched_to_voip_mt_att_tmo">%s turned off video.</string>
+    <string name="tutorial_incoming_call_app_reject">Націсніце, каб адхіліць выклік.</string>
+    <string name="usa_gsm_modify_receive_to_video">%s хоча пераключыцца на відэавыклік.</string>
+    <string name="usa_vzw_volte_weak_wifi_text">"We tried, but we can’t switch your video call to Wi-Fi at this time.
+
+Your video call is still running on the mobile network. (Data usage applies if you choose to continue.)"</string>
+    <string name="usa_vzw_vowifi_wifi_low_signal_text">"The Wi-Fi signal was not strong enough to continue your video call.
+
+Your video call is now running on the mobile network. (Data usage applies if you choose to continue.)"</string>
+    <string name="waiting_call_dialog_Merging">Аб’яднаць з %s</string>
+</resources>

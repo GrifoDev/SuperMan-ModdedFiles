@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bitmap android:src="@drawable/voicecall_multiparty_group_img" android:tint="@color/sec_quick_panel_photo_tint_color" android:tintMode="src_in"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

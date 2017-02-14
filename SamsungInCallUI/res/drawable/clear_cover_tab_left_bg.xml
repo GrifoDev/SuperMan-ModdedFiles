@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="oval"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/sec_clear_cover_tab_bg_color" />
+    <size android:height="@dimen/incoming_call_tab_circle_size" android:width="@dimen/incoming_call_tab_circle_size" />
+</shape>

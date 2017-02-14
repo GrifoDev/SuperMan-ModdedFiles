@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d နာရီ</item>
+        <item quantity="one">1 နာရီ</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d မိနစ္</item>
+        <item quantity="one">၁ မိနစ္</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d စကၠန္႔</item>
+        <item quantity="one">၁ စကၠန္႔</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">ဖြံ႔ၿဖိဳးေအာင္ ေဆာင္ရြက္သူတစ္ဦးအျဖစ္မွ %d ဆင့္အကြာတြင္ ယခုေရာက္ေနသည္။</item>
+        <item quantity="one">ယခု သင္သည္ ဖြံ႔ၿဖိဳးေစသူ တစ္ဦးအျဖစ္မွ ၁ ဆင့္ လိုေသးသည္။</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">ေ႐ြးထားေသာ ဘာသာစကားမ်ားကို ဖယ္႐ွားပါ</item>
+        <item quantity="one">ေ႐ြးထားေသာ ဘာသာစကားကို ဖယ္႐ွားပါ</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">စကားဝွက္သည္ အနည္းဆံုး စာလံုး %d လံုး ပါဝင္ရမည္။</item>
+        <item quantity="one">စကားဝွက္သည္ အနည္းဆံုး စာ ၁ လံုး ပါရမည္။</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">စကားဝွက္သည္ အနည္းဆံုး စာလံုးေသး %d လံုး ပါဝင္ရမည္။</item>
+        <item quantity="one">စကားဝွက္သည္ အနည္းဆံုး စာအေသး ၁ လံုး ပါရမည္။</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">စကားဝွက္သည္ အနည္းဆံုး စာလံုးၾကီး %d လံုး ပါဝင္ရမည္။</item>
+        <item quantity="one">စကားဝွက္သည္ အနည္းဆံုး စာလံုးအၾကီး ၁ လံုး ပါရမည္။</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">စကားဝွက္သည္ အနည္းဆံုး ဂဏန္း %d လံုး ပါဝင္ရမည္။</item>
+        <item quantity="one">စကားဝွက္သည္ အနည္းဆံုး ဂဏန္း ၁ လံုး ပါရမည္။</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">စကားဝွက္သည္ အနည္းဆံုး သေကၤတ %d ခု ပါဝင္ရမည္။</item>
+        <item quantity="one">စကားဝွက္သည္ အနည္းဆံုး သေကၤတ ၁ လံုး ပါရမည္။</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">စကားဝွက္သည္ အနည္းဆံုး ဂဏန္း သို႔မဟုတ္ သေကၤတ %d ခု ပါဝင္ရမည္။</item>
+        <item quantity="one">စကားဝွက္သည္ အနည္းဆံုး ဂဏန္း သို႔မဟုတ္ သေကၤတ ၁ လံုး ပါရမည္။</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">ဖိုဒါ/ဖိုင္ %d ထဲ ဝင္ၾကည့္ပါ</item>
+        <item quantity="one">ဖိုဒါ/ဖိုင္ ၁ ခုထဲ ဝင္ၾကည့္ပါ</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s သည္ CA ဆာတီဖီကိတ္မ်ားကို ကိရိယာတြင္ တပ္ဆင္ထားၿပီး၊ တပ္ဆင္ျခင္းျဖင့္ ၎ကို သင့္အီးေမးလ္မ်ား၊ အက္ပ္မ်ား ႏွင့္၊ စိတ္ခ်ရေသာဝဘ္ဆိုဒ္မ်ား အသုံးျပဳမႈ အပါအဝင္၊ သင့္ကိရိယာ၏ ကြန္ရက္လုပ္ေဆာင္မႈမ်ားကို ေစာင့္ၾကည့္မွတ္သားရန္ ခြင့္ျပဳလိုက္သည္။
+
+ဤဆာတီဖီကိတ္မ်ားႏွင့္ပတ္သက္၍ ေနာက္ထပ္ အခ်က္အလက္အတြက္၊ သင္၏ IT စီမံသူကို ဆက္သြယ္ပါ။"</item>
+        <item quantity="one">"%s သည္ CA ဆာတီဖီကိတ္တစ္ခုကို ကိရိယာတြင္ တပ္ဆင္ထားၿပီး၊ တပ္ဆင္ျခင္းျဖင့္ ၎ကို သင့္အီးေမးလ္မ်ား၊ အက္ပ္မ်ား ႏွင့္၊ စိတ္ခ်ရေသာဝဘ္ဆိုဒ္မ်ား အသုံးျပဳမႈ အပါအဝင္၊ သင့္ကိရိယာ၏ ကြန္ရက္လုပ္ေဆာင္မႈမ်ားကို ေစာင့္ၾကည့္မွတ္သားရန္ ခြင့္ျပဳလိုက္သည္။
+
+ဤဆာတီဖီကိတ္ႏွင့္ပတ္သက္၍ ေနာက္ထပ္ အခ်က္အလက္အတြက္၊ သင္၏ IT စီမံသူကို ဆက္သြယ္ပါ။"</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">အပလီေကးရွင္း %d ခုက အသိေပးခ်က္မ်ားကို ဖတ္ႏိုင္ၾကသည္။</item>
+        <item quantity="one">%d အပလီေကးရွင္းကို အေၾကာင္းၾကားစာမ်ား ဖတ္ရန္အတြက္ ခြင့္ျပထားပါသည္။</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">ေနာက္ထပ္ ခြင့္ျပဳခ်က္ %d ခု</item>
+        <item quantity="one">ေနာက္ထပ္ ခြင့္ျပဳခ်က္ %d ခု</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">လုပ္ငန္းစဥ္ %1$d ခုတို႔သည္ လြန္ခဲ့သည့္ %2$s အတြင္း RAM အသုံးျပဳထားသည္</item>
+        <item quantity="one">လုပ္ငန္းစဥ္ %1$d ခုသည္ လြန္ခဲ့သည့္ %2$s အတြင္း RAM အသုံးျပဳထားသည္</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">အက္ပ္ %d ခုကို ေဒတာဆာဗာဖြင့္ထားစဥ္အတြင္း မိုဘိုင္းေဒတာအား ကန္႔သတ္ခ်က္မ်ားမ႐ွိဘဲႏွင့္ အသုံးျပဳရန္ ခြင့္ျပဳသည္</item>
+        <item quantity="one">အက္ပ္ ၁ ခုကို ေဒတာဆာဗာဖြင့္ထားစဥ္အတြင္း ေဒတာႏႈန္းကန္႔မသတ္ဘဲ အသုံးျပဳရန္ ခြင့္ျပဳသည္</item>
+    </plurals>
+</resources>

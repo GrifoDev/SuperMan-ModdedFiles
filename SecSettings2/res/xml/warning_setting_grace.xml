@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <TextView android:textAppearance="?android:textAppearanceMedium" android:textSize="@dimen/bluetooth_is_visible_message_text_size" android:textColor="@color/bt_pairing_dialog_body_text_color" android:gravity="center_vertical" android:paddingTop="@dimen/bluetooth_is_visible_message_text_padding_top_bottom" android:paddingBottom="@dimen/bluetooth_is_visible_message_text_padding_top_bottom" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/data_usage_warning_help_text" android:paddingStart="@dimen/bluetooth_is_visible_message_text_padding_top_bottom" android:paddingEnd="@dimen/bluetooth_is_visible_message_text_padding_top_bottom" />
+        <RelativeLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dip">
+            <TextView android:textSize="14.0dip" android:textColor="@color/bt_pairing_dialog_body_text_color" android:id="@id/start_percent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_alignParentLeft="true" android:layout_marginStart="14.0dip" />
+            <TextView android:textSize="14.0dip" android:textColor="@color/bt_pairing_dialog_body_text_color" android:id="@id/end_percent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_alignParentRight="true" android:layout_marginEnd="10.0dip" />
+        </RelativeLayout>
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dip">
+            <SeekBar android:id="@id/seekbar" android:layout_width="fill_parent" android:layout_height="wrap_content" android:max="60" android:progress="0" android:layout_centerInParent="true" android:layout_marginStart="14.0dip" android:layout_marginEnd="14.0dip" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dip">
+            <TextView android:textSize="14.0dip" android:textColor="@color/delta_progress_primary" android:id="@id/medium_text" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="14.0dip" />
+            <TextView android:textSize="14.0dip" android:textColor="@color/delta_progress_primary" android:id="@id/medium_text_below" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="14.0dip" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

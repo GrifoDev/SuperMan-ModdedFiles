@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple android:color="@color/sec_end_call_tint_press"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="@color/sec_end_call_tint_theme_bg" />
+        </shape>
+    </item>
+</ripple>

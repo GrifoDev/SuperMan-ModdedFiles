@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/home_widget_root" android:layout_width="@dimen/sview_cover_pager_width" android:layout_height="@dimen/sview_cover_height"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:layout_gravity="center_horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/sview_cover_battery_state_view_top_margin" android:minHeight="@dimen/sview_cover_unlock_area_shortcut_icon_size">
+        <TextView android:textSize="12.0dip" android:textColor="@color/sview_cover_theme_charging_text_font_color" android:gravity="center" android:id="@id/battery_charging" android:focusable="false" android:focusableInTouchMode="false" android:visibility="gone" android:layout_width="@dimen/sview_cover_battery_state_view_width" android:layout_height="wrap_content" android:fontFamily="roboto-regular" style="@style/sview_text_shadow" />
+    </LinearLayout>
+    <include layout="@layout/s_view_cover_unlock_area" />
+</FrameLayout>

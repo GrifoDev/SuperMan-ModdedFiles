@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:key="access_control_key"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Preference android:title="@string/accessibility_access_control_time_options" android:key="access_control_time" android:summary="@string/accessibility_access_control_time_limit_preference_summary" />
+    <PreferenceCategory android:title="@string/accessibility_access_control_block_options" android:key="access_control_block_category">
+        <SwitchPreference android:title="@string/accessibility_access_control_block_power" android:key="access_control_block_power" />
+        <SwitchPreference android:title="@string/accessibility_access_control_block_volume" android:key="access_control_block_volume" />
+        <SwitchPreference android:title="@string/accessibility_access_control_block_keyboard" android:key="access_control_block_keyboard" />
+    </PreferenceCategory>
+</PreferenceScreen>

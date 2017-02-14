@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/auto_policy_dpdate_title_us" settings:parent="@xml/security_settings_misc"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <PreferenceScreen android:persistent="false" android:title="@string/update_title" android:key="manual_updates" />
+    <SwitchPreference android:persistent="false" android:title="@string/auto_updates_title_touchwiz" android:key="auto_policy_update" android:summary="@string/auto_updates_summary_touchwiz" />
+    <com.android.settings.SecDropDownPreference android:title="@string/download_update_via_title" android:key="use_wifi_only" />
+</PreferenceScreen>

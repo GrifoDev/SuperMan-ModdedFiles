@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_horizontal" android:orientation="horizontal" android:id="@id/bottom_layout" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <Button android:id="@id/knox_two_factor_confirm_btn" android:text="@string/two_factor_setup" style="@style/two_factor_setup_btn" />
+        <LinearLayout android:orientation="vertical" android:id="@id/bottom_layout_ksw" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="48.0dip" android:layout_alignParentBottom="true">
+            <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/btn_previous" android:background="@drawable/tw_btn_ripple" android:focusable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0" />
+                <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0">
+                    <LinearLayout android:gravity="end|center" android:orientation="horizontal" android:id="@id/btn_next" android:background="@drawable/tw_btn_ripple" android:focusable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingEnd="24.0dip">
+                        <TextView android:textSize="17.0dip" android:textColor="@color/unlock_method_bottom_bar_text_color" android:id="@id/txt_next" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/next_label" android:textAllCaps="true" />
+                        <View android:layout_width="8.0dip" android:layout_height="fill_parent" />
+                        <ImageView android:id="@id/img_next" android:duplicateParentState="true" style="@style/bottom_bar_button_image_right" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

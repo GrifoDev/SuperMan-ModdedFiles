@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceScreen android:title="@string/health_and_safety" android:key="health_safety">
+        <intent android:action="com.samsung.safetyinformation.SAFETY_INFORMATION" />
+    </PreferenceScreen>
+    <PreferenceScreen android:title="@string/warranty" android:key="warranty">
+        <intent android:action="com.samsung.safetyinformation.WARRANTY" />
+    </PreferenceScreen>
+    <PreferenceScreen android:title="@string/end_user_license_agreement" android:key="end_user_license_agreement">
+        <intent android:action="com.sec.android.app.SecSetupWizard.SamsungLegalActivity" />
+    </PreferenceScreen>
+</PreferenceScreen>

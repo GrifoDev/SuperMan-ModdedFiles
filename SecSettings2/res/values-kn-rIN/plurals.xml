@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d ಗಂಟೆಗಳು</item>
+        <item quantity="one">1 ಗಂಟೆ</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d ನಿಮಿಷಗಳು</item>
+        <item quantity="one">1 ನಿಮಿಷ</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d ಸೆಕೆಂಡುಗಳು</item>
+        <item quantity="one">1 ಸೆಕೆಂಡು</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">ನೀವು ಈಗ ಡೆವಲಪರ್ ಆಗುವುದರಿಂದ %d ಹೆಜ್ಜೆಗಳಷ್ಟು ದೂರದಲ್ಲಿದ್ದೀರಿ.</item>
+        <item quantity="one">ನೀವು ಈಗ ಡೆವಲಪರ್ ಆಗುವುದರಿಂದ 1 ಹಂತದಷ್ಟು ದೂರದಲ್ಲಿದ್ದೀರಿ.</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">ಆಯ್ಕೆಮಾಡಿದ ಭಾಷೆಗಳನ್ನು ತೆಗೆದುಹಾಕಿ</item>
+        <item quantity="one">ಆಯ್ಕೆಮಾಡಿದ ಭಾಷೆಯನ್ನು ತೆಗೆದುಹಾಕಿ</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">ಪಾಸ್‌ವರ್ಡ್ ಕನಿಷ್ಠ %d ಅಕ್ಷರಗಳನ್ನು ಒಳಗೊಂಡಿರಬೇಕು.</item>
+        <item quantity="one">ಪಾಸ್‌ವರ್ಡ್ ಕನಿಷ್ಠ 1 ಅಕ್ಷರವನ್ನು ಒಳಗೊಂಡಿರಬೇಕು.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">ಪಾಸ್‌ವರ್ಡ್ ಕನಿಷ್ಠ %d ಕೆಳಸ್ತರದ ಅಕ್ಷರಗಳನ್ನು ಒಳಗೊಂಡಿರಬೇಕು.</item>
+        <item quantity="one">ಪಾಸ್‌ವರ್ಡ್ ಕನಿಷ್ಠ 1 ಕೆಳಸ್ತರದ ಅಕ್ಷರವನ್ನು ಒಳಗೊಂಡಿರಬೇಕು.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">ಪಾಸ್‌ವರ್ಡ್ ಕನಿಷ್ಠ %d ಮೇಲಿನಸ್ತರದ ಅಕ್ಷರಗಳನ್ನು ಒಳಗೊಂಡಿರಬೇಕು.</item>
+        <item quantity="one">ಪಾಸ್‌ವರ್ಡ್ ಕನಿಷ್ಠ 1 ಮೇಲಿನಸ್ತರದ ಅಕ್ಷರವನ್ನು ಒಳಗೊಂಡಿರಬೇಕು.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">ಪಾಸ್‌ವರ್ಡ್ ಕನಿಷ್ಠ %d ಸಂಖ್ಯೆಗಳನ್ನು ಒಳಗೊಂಡಿರಬೇಕು.</item>
+        <item quantity="one">ಪಾಸ್‌ವರ್ಡ್ ಕನಿಷ್ಠ 1 ಸಂಖ್ಯೆಯನ್ನು ಒಳಗೊಂಡಿರಬೇಕು.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">ಪಾಸ್‌ವರ್ಡ್ ಕನಿಷ್ಠ %d ಚಿಹ್ನೆಗಳನ್ನು ಒಳಗೊಂಡಿರಬೇಕು.</item>
+        <item quantity="one">ಪಾಸ್‌ವರ್ಡ್ ಕನಿಷ್ಠ 1 ಚಿಹ್ನೆಯನ್ನು ಒಳಗೊಂಡಿರಬೇಕು.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">ಪಾಸ್‌ವರ್ಡ್ ಕನಿಷ್ಠ %d ಸಂಖ್ಯೆಗಳು ಅಥವಾ ಚಿಹ್ನೆಗಳನ್ನು ಒಳಗೊಂಡಿರಬೇಕು.</item>
+        <item quantity="one">ಪಾಸ್‌ವರ್ಡ್ ಕನಿಷ್ಠ 1 ಸಂಖ್ಯೆ ಅಥವಾ ಚಿಹ್ನೆಯನ್ನು ಒಳಗೊಂಡಿರಬೇಕು.</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">%d ಫೋಲ್ಡರ್‍‌ಗಳು/ಫೈಲ್‍ಗಳಿಗೆ ಪ್ರವೇಶಿಸಿ</item>
+        <item quantity="one">1 ಫೋಲ್ಡರ್/ಫೈಲ್‍ಗೆ ಪ್ರವೇಶಿಸಿ</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s ನಿಮ್ಮ ಸಾಧನದಲ್ಲಿ CA ಪ್ರಮಾಣಪತ್ರವನ್ನು ಸ್ಥಾಪಿಸಿದೆ, ನಿಮ್ಮ ಇಮೇಲ್‍ಗಳ ಬಳಕೆ, ಅನ್ವಯಿಸುವಿಕೆಗಳು ಮತ್ತು ಸುರಕ್ಷಿತ ವೆಬ್‍ಸೈಟ್‍ಗಳನ್ನು ಒಳಗೊಂಡಂತೆ, ನಿಮ್ಮ ಸಾಧನದ ನೆಟ್‍ವರ್ಕ್ ಚಟುವಟಿಕೆಯನ್ನು ಮೇಲ್ವಿಚಾರಣೆ ಮಾಡಲು ಅವರನ್ನು ಅನುಮತಿ ನೀಡಬಹುದು.
+
+ಈ ಪ್ರಮಾಣಪತ್ರಗಳ ಕುರಿತು ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ, ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ."</item>
+        <item quantity="one">"%s ನಿಮ್ಮ ಸಾಧನದಲ್ಲಿ CA ಪ್ರಮಾಣಪತ್ರವನ್ನು ಸ್ಥಾಪಿಸಿದೆ, ನಿಮ್ಮ ಇಮೇಲ್‍ಗಳ ಬಳಕೆ, ಅನ್ವಯಿಸುವಿಕೆಗಳು ಮತ್ತು ಸುರಕ್ಷಿತ ವೆಬ್‍ಸೈಟ್‍ಗಳನ್ನು ಒಳಗೊಂಡಂತೆ, ನಿಮ್ಮ ಸಾಧನದ ನೆಟ್‍ವರ್ಕ್ ಚಟುವಟಿಕೆಯನ್ನು ಮೇಲ್ವಿಚಾರಣೆ ಮಾಡಲು ಅವರನ್ನು ಅನುಮತಿ ನೀಡಬಹುದು.
+
+ಪ್ರಮಾಣಪತ್ರಗಳ ಕುರಿತು ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ, ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ."</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d ಅನ್ವಯಿಸುವಿಕೆಗಳ ಪ್ರಕಟಣೆಗಳನ್ನು ಓದಬಹುದು.</item>
+        <item quantity="one">ಪ್ರಕಟಣೆಗಳನ್ನು ಓದಲು %d ಅನ್ವಯಿಸುವಿಕೆಗೆ ಅನುಮತಿಸಲಾಗಿದೆ.</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d ಹೆಚ್ಚಿನ ಅನುಮತಿಗಳು</item>
+        <item quantity="one">%d ಹೆಚ್ಚಿನ ಅನುಮತಿ</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$d ಪ್ರಕ್ರಿಯೆಗಳು ಕಳೆದ %2$sನಲ್ಲಿ RAM ಬಳಸಿವೆ</item>
+        <item quantity="one">%1$d ಪ್ರಕ್ರಿಯೆಯು ಕಳೆದ %2$sನಲ್ಲಿ RAM ಬಳಸಿದೆ</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">ಡೇಟಾ ಸೇವರ್ ಶಕ್ತಗೊಂಡಿರುವಾಗ ಯಾವುದೇ ನಿರ್ಬಂಧಗಳಿಲ್ಲದೇ ಮೊಬೈಲ್ ಡೇಟಾ ಬಳಸಲು %d ಅನ್ವಯಿಸುವಿಕೆಗಳಿಗೆ ಅನುಮತಿಸಲಾಗಿದೆ</item>
+        <item quantity="one">ಡೇಟಾ ಸೇವರ್ ಶಕ್ತಗೊಂಡಿರುವಾಗ ಯಾವುದೇ ನಿರ್ಬಂಧಗಳಿಲ್ಲದೇ ಮೊಬೈಲ್ ಡೇಟಾ ಬಳಸಲು 1 ಅನ್ವಯಿಸುವಿಕೆಗೆ ಅನುಮತಿಸಲಾಗಿದೆ</item>
+    </plurals>
+</resources>

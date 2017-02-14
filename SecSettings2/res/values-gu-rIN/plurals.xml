@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d કલાક</item>
+        <item quantity="one">1 કલાક</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d મિનિટ્સ</item>
+        <item quantity="one">1 મિનિટ</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d સેકંડ્સ</item>
+        <item quantity="one">1 સેકંડ</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">હવે તમે વિકાસક બનવાથી %d પગલાં જ દૂર છો.</item>
+        <item quantity="one">હવે તમે વિકાસક બનવાથી 1 પગલું જ દૂર છો.</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">પસંદ કરેલ ભાષાઓ દૂર કરો</item>
+        <item quantity="one">પસંદ કરેલ ભાષા દૂર કરો</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">પાસવર્ડમાં ઓછામાં ઓછા %d વર્ણો હોવા જોઈએ.</item>
+        <item quantity="one">પાસવર્ડમાં ઓછામાં ઓછો 1 અક્ષર હોવો જોઈએ.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">પાસવર્ડમાં ઓછામાં ઓછા %d લોઅરકેસ વર્ણો હોવા જોઈએ.</item>
+        <item quantity="one">પાસવર્ડમાં ઓછામાં ઓછો 1 લોઅરકેસ અક્ષર હોવો જોઈએ.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">પાસવર્ડમાં ઓછામાં ઓછા %d અપરકેસ વર્ણો હોવા જોઈએ.</item>
+        <item quantity="one">પાસવર્ડમાં ઓછામાં ઓછો 1 અપરકેસ અક્ષર હોવો જોઈએ.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">પાસવર્ડમાં ઓછામાં ઓછા %d નંબરો હોવા જોઈએ.</item>
+        <item quantity="one">પાસવર્ડમાં ઓછામાં ઓછો 1 નંબર હોવો જોઈએ.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">પાસવર્ડમાં ઓછામાં ઓછા %d ચિહ્નો હોવા જોઈએ.</item>
+        <item quantity="one">પાસવર્ડમાં ઓછામાં ઓછું 1 ચિહ્ન હોવું જોઈએ.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">પાસવર્ડમાં ઓછામાં ઓછા %d નંબર અથવા પ્રતીક હોવા જોઈએ.</item>
+        <item quantity="one">પાસવર્ડમાં ઓછામાં ઓછો 1 નંબર અથવા પ્રતીક હોવો જોઈએ.</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">%d ફોલ્ડર્સ/ફાઇલ્સની ઍક્સેસ આપો</item>
+        <item quantity="one">1 ફોલ્ડર/ફાઇલની ઍક્સેસ આપો</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s એ CA પ્રમાણપત્રો તમારા ઉપકરણ પર ઇન્સ્ટોલ કર્યા છે, જે તેમને ઇમેલ્સ, એપ્સ અને સુરક્ષિત વેબસાઇટ્સના તમારા વપરાશ સહિત તમારા ઉપકરણની નેટવર્ક પ્રવૃત્તિનું નિરીક્ષણ કરવાની મંજૂરી આપી શકે છે.
+
+આ પ્રમાણપત્રો વિશે વધુ માહિતી માટે, તમારા આઇટી વ્યવસ્થાપકનો સંપર્ક કરો."</item>
+        <item quantity="one">"%s એ એક CA પ્રમાણપત્ર તમારા ઉપકરણ પર ઇન્સ્ટોલ કર્યું છે, જે તેને ઇમેલ્સ, એપ્સ અને સુરક્ષિત વેબસાઇટ્સના તમારા વપરાશ સહિત તમારા ઉપકરણની નેટવર્ક પ્રવૃત્તિનું નિરીક્ષણ કરવાની મંજૂરી આપી શકે છે.
+
+ આ પ્રમાણપત્ર વિશે વધુ માહિતી માટે, તમારા IT વ્યવસ્થાપકનો સંપર્ક કરો."</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d એપ્લિકેશનો સૂચનાઓને વાંચી શકે છે.</item>
+        <item quantity="one">%d એપ્લિકેશનને સૂચનાઓ વાંચવાની મંજૂરી છે.</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d વધુ પરવાનગીઓ</item>
+        <item quantity="one">%d વધુ પરવાનગીઓ</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$d પ્રક્રિયાઓએ છેલ્લાં %2$s માં RAM નો ઉપયોગ કર્યો</item>
+        <item quantity="one">%1$d પ્રક્રિયાએ છેલ્લાં %2$s માં RAM નો ઉપયોગ કર્યો</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d જયારે ડેટા બચાવેલમાં સક્ષમ હોવ ત્યારે એપસને મોબાઈલ ડેટા પર પ્રતિબંધો વગર વપરાશની મંજૂરી આપો</item>
+        <item quantity="one">ડેટા સેવર સક્ષમ કરેલ હોય ત્યારે 1 એપને વિના પ્રતિબંધોએ મોબાઇલ ડેટાનો ઉપયોગ કરવાની મંજૂરી આપેલી છે</item>
+    </plurals>
+</resources>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/empty_vzw" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/switchPref" android:background="?android:selectableItemBackground" android:paddingTop="@dimen/wifi_ap_pref_paddingTop" android:paddingBottom="@dimen/wifi_ap_pref_paddingBottom" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/listItemMinHeight" android:paddingStart="0.0dip" android:paddingEnd="0.0dip">
+            <RelativeLayout android:focusable="false" android:clickable="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginRight="6.0dip" android:layout_weight="1.0" android:layout_marginStart="16.0dip">
+                <TextView android:textSize="19.0sp" android:textColor="@color/wifi_p2p_preference_title_color" android:ellipsize="end" android:id="@android:id/title" android:focusable="false" android:fadingEdge="horizontal" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/wifiap_allowed_devices_only" android:singleLine="true" android:fontFamily="sec-roboto-light" />
+                <TextView android:textSize="14.0sp" android:textColor="@color/wifi_p2p_preference_summary_color" android:ellipsize="end" android:id="@id/summary_text" android:focusable="false" android:fadingEdge="horizontal" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/wifi_ap_allow_only_allowlist" android:singleLine="true" android:layout_below="@android:id/title" android:fontFamily="sec-roboto-light" android:layout_alignStart="@android:id/title" />
+            </RelativeLayout>
+            <ProgressBar android:layout_gravity="center" android:id="@id/reset_progress_circle" android:visibility="gone" android:layout_width="25.0dip" android:layout_height="25.0dip" android:layout_marginRight="10.0dip" style="?android:attr/progressBarStyleSmall" />
+            <Switch android:layout_gravity="center" android:id="@id/allowed_device_switchWidget" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="15.0dip" />
+        </LinearLayout>
+        <RelativeLayout android:id="@id/bubble_popup_landscape" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="46.0dip" android:layout_marginTop="3.0dip" android:layout_marginRight="6.0dip" android:layout_alignParentRight="true">
+            <TextView android:textSize="15.0sp" android:background="@drawable/tw_no_item_popup_bg_holo_dark" android:paddingLeft="20.0dip" android:paddingTop="23.0dip" android:paddingRight="20.0dip" android:paddingBottom="12.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/wifi_ap_allowed_list_empty" android:lineSpacingExtra="2.0sp" />
+        </RelativeLayout>
+        <RelativeLayout android:id="@id/bubble_popup_portrait" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="46.0dip" android:layout_marginTop="3.0dip" android:layout_marginRight="6.0dip" android:layout_alignParentRight="true">
+            <TextView android:textSize="15.0sp" android:background="@drawable/tw_no_item_popup_bg_holo_dark" android:paddingLeft="20.0dip" android:paddingTop="23.0dip" android:paddingRight="20.0dip" android:paddingBottom="12.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/wifi_ap_allowed_list_empty" android:lineSpacingExtra="2.0sp" />
+        </RelativeLayout>
+    </FrameLayout>
+    <View android:background="@color/ssw_bottom_button_divider_color" android:layout_width="fill_parent" android:layout_height="2.0dip" />
+    <RelativeLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ListView android:scrollbarAlwaysDrawVerticalTrack="true" android:id="@id/allowedDevicesListView" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent"
+          xmlns:android="http://schemas.android.com/apk/res/android" />
+        <FrameLayout android:id="@android:id/empty" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <RelativeLayout android:id="@id/empty_screen_portrait" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="280.0dip" android:layout_alignParentBottom="true" />
+                <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+                    <TextView android:textAppearance="?android:textAppearanceMedium" android:textSize="20.0sp" android:textColor="#ff499ebd" android:ellipsize="marquee" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:text="@string/wifi_ap_no_devices" android:singleLine="true" />
+                </LinearLayout>
+            </RelativeLayout>
+            <RelativeLayout android:id="@id/empty_screen_landscape" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_alignParentBottom="true" />
+                <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+                    <TextView android:textAppearance="?android:textAppearanceMedium" android:textSize="20.0sp" android:textColor="#ff499ebd" android:ellipsize="marquee" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:text="@string/wifi_ap_no_devices" android:singleLine="true" />
+                </LinearLayout>
+            </RelativeLayout>
+        </FrameLayout>
+    </RelativeLayout>
+</LinearLayout>

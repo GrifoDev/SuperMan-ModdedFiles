@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="end" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageButton android:id="@id/inviteGroupVideoButton" android:visibility="gone" android:src="@drawable/sec_video_invite_group_video_call_icon" android:contentDescription="@string/secOnscreenMenuVideoConfCallText" android:layout_marginEnd="@dimen/sec_video_incall_invite_button_margin_right" style="@style/SecSwitchVideoCallButtonStyle" />
+</LinearLayout>

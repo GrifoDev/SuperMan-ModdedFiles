@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:id="@id/dashboard_tile" android:background="?android:selectableItemBackground" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeightSmall"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ImageView android:gravity="center" android:id="@android:id/icon" android:layout_width="@dimen/dashboard_tile_image_size" android:layout_height="@dimen/dashboard_tile_image_size" android:scaleType="centerInside" android:layout_marginStart="@dimen/dashboard_tile_image_margin_start" android:layout_marginEnd="@dimen/dashboard_tile_image_margin_end" />
+        <LinearLayout android:orientation="vertical" android:paddingTop="@dimen/list_item_top_padding" android:paddingBottom="@dimen/list_item_bottom_padding" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" android:paddingEnd="?android:listPreferredItemPaddingEnd">
+            <TextView android:ellipsize="marquee" android:id="@android:id/title" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" style="@style/list_title_text_style" />
+            <TextView android:id="@android:id/summary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" style="@style/list_summary_text_style" />
+        </LinearLayout>
+        <TextView android:textSize="@dimen/dashboard_badge_text_size" android:textColor="@color/dashboard_badge_text_color" android:gravity="end" android:id="@id/badge" android:background="@drawable/badge_icon" android:focusable="false" android:visibility="gone" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="centerInside" android:textAlignment="center" android:layout_marginEnd="@dimen/list_item_inner_padding" />
+    </LinearLayout>
+    <View android:id="@id/tile_divider" android:background="@color/list_divider_color" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" android:layout_marginStart="@dimen/dashboard_tile_divider_margin_start" android:layout_marginEnd="@dimen/dashboard_tile_divider_margin_end" />
+</LinearLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <layer-list>
+            <item>
+                <bitmap android:gravity="center|right|top" android:src="@drawable/voicecall_mini_multisim_02" />
+            </item>
+            <item>
+                <bitmap android:gravity="center" android:src="@drawable/voicecall_mini_multisim_call" />
+            </item>
+        </layer-list>
+    </item>
+</selector>

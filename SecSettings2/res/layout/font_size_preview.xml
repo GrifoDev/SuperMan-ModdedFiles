@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent" android:fillViewport="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <view android:id="@id/frame" android:layout_width="fill_parent" android:layout_height="wrap_content" class="com.android.settings.TouchBlockingFrameLayout">
+        <LinearLayout android:orientation="vertical" android:paddingTop="16.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="16.0dip" android:paddingEnd="16.0dip">
+            <TextView android:textAppearance="@android:style/TextAppearance.Material.Headline" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/font_size_preview_text_headline" />
+            <TextView android:textAppearance="@android:style/TextAppearance.Material.Title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/font_size_preview_text_title" />
+            <TextView android:textAppearance="@android:style/TextAppearance.Material.Subhead" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/font_size_preview_text_subtitle" />
+            <TextView android:textAppearance="@android:style/TextAppearance.Material.Body1" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/font_size_preview_text_body" />
+        </LinearLayout>
+    </view>
+</ScrollView>

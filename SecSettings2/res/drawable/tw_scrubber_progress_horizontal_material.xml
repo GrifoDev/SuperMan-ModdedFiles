@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:gravity="fill_horizontal|center" android:id="@android:id/background">
+        <shape android:tint="@android:color/tw_progress_color_control_normal" android:shape="rectangle">
+            <size android:height="@dimen/tw_seekbar_track_height_material" />
+        </shape>
+    </item>
+    <item android:gravity="fill_horizontal|center" android:id="@android:id/secondaryProgress">
+        <shape android:tint="@android:color/tw_progress_color_control_normal" android:shape="rectangle">
+            <size android:height="@dimen/tw_seekbar_track_height_material" />
+        </shape>
+    </item>
+    <item android:gravity="fill_horizontal|center" android:id="@android:id/progress">
+        <shape android:tint="@android:color/tw_progress_color_control_normal" android:shape="rectangle">
+            <size android:height="@dimen/tw_seekbar_track_height_material" />
+        </shape>
+    </item>
+</layer-list>

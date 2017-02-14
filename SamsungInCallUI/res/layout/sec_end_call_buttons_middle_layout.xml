@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/endCallButtonsMiddle" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.incallui.widget.SecVoiceButton android:id="@id/rcsCallPlus" android:visibility="gone" android:text="@string/TS_ADD_REASON_BUTTON_ABB_VODA" android:drawableTop="@drawable/vodafone_callplus_unanswered_icon" android:layout_marginEnd="@dimen/sec_endcall_buttons_margin_between_vertical" style="@style/SecEndCallButton" />
+</LinearLayout>

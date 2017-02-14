@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d तास</item>
+        <item quantity="one">1 तास</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d मिनिटे</item>
+        <item quantity="one">1 मिनिट</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d सेकंद</item>
+        <item quantity="one">1 सेकंद</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">आपण डेव्हलपर होण्यापासून %d चरण लांब आहात.</item>
+        <item quantity="one">आपण आता डेव्‍हलपर पासून 1 पाऊल दूर आहात.</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">निवडलेल्या भाषा काढा</item>
+        <item quantity="one">निवडलेल्या भाषा काढा</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">पासवर्ड मध्ये कमीत कमी %d अक्षरे असणे आवश्यक आहे.</item>
+        <item quantity="one">पासवर्ड मध्ये कमीत कमी 1 अक्षर असणे आवश्यक आहे.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">पासवर्ड मध्ये कमीत कमी %d लोअरकेस अक्षरे असणे आवश्यक आहे.</item>
+        <item quantity="one">पासवर्ड मध्ये कमीत कमी 1 लोअरकेस अक्षर असणे आवश्यक आहे.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">पासवर्डमध्ये कमीत कमी %d अपरकेस अक्षरे असणे आवश्यक आहे.</item>
+        <item quantity="one">पासवर्ड मध्ये कमीत कमी 1 अपरकेस अक्षर असणे आवश्यक आहे.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">पासवर्ड मध्ये कमीत कमी %d क्रमांक्स असणे आवश्यक आहे.</item>
+        <item quantity="one">पासवर्डमध्ये कमीत कमी 1 क्रमांक असणे आवश्यक आहे.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">पासवर्ड मध्ये कमीत कमी %d प्रतीक असणे आवश्यक आहे.</item>
+        <item quantity="one">पासवर्डमध्ये कमीत कमी 1 प्रतीक असणे आवश्यक आहे.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">पासवर्ड मध्ये कमीत कमी %d क्रमांक्स किंवा प्रतीके असणे आवश्यक आहे.</item>
+        <item quantity="one">पासवर्ड मध्ये कमीत कमी 1 क्रमांक किंवा प्रतीक असणे आवश्यक आहे.</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">%d फोल्डर/फाइल्सवर ऍक्सेस</item>
+        <item quantity="one">1 फोल्डर/फाइलवर ऍक्सेस</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s ने आपल्या उपकरणावर CA प्रमाणपत्र इन्‍स्‍टॉल केले आहे, जे आपल्याला आपल्या उपकरणाचे नेटवर्क क्रियाकलाप नियंत्रित करण्याची अनुमती देऊ शकते, ज्यात आपल्या ईमेल्स, अनुप्रयोग आणि सुरक्षा वेबसाइट्सच्या वापराचा समावेश आहे. 
+
+प्रमाणपत्रा विषयी अधिक माहिती साठी, आपल्या IT प्रशासकाशी संपर्क साधा."</item>
+        <item quantity="one">"%s ने आपल्या उपकरणावर CA प्रमाणपत्र इन्‍स्‍टॉल केले आहे, जे आपल्याला आपल्या उपकरणाचे नेटवर्क क्रियाकलाप नियंत्रित करण्याची अनुमती देऊ शकते, ज्यात आपल्या ईमेल्स, अनुप्रयोग आणि सुरक्षा वेबसाइट्सच्या वापराचा समावेश आहे.
+
+प्रमाणपत्रा विषयी अधिक माहिती साठी, आपल्या IT प्रशासकाशी संपर्क साधा."</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d अनुप्रयोग अधिसूचना वाचू शकतात.</item>
+        <item quantity="one">%d अनुप्रयोगाला अधिसूचना वाचण्‍याची अनुमती आहे.</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d अधिक परवानग्या</item>
+        <item quantity="one">%d अधिक परवानग्या</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%2$s मध्ये %1$d प्रक्रियांनी RAM वापरले</item>
+        <item quantity="one">%2$s मध्ये %1$d प्रक्रियेने RAM वापरले</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d अनुप्रयोगांना डेटा सेव्हर सक्षम केलेला असताना प्रतिबंधनां शिवाय मोबाईल डेटा वापरण्याची अनुमती दिली</item>
+        <item quantity="one">डेटा सेव्हर सक्षम केलेला असताना 1 अनुप्रयोगाला प्रतिबंधनां शिवाय मोबाईल डेटा वापरण्याची अनुमती आहे</item>
+    </plurals>
+</resources>

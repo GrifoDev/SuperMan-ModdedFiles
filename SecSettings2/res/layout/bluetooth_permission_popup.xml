@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/bluetooth_dialog_text_margin_top_bottom" android:layout_marginBottom="@dimen/bluetooth_dialog_text_margin_top_bottom" android:text="@string/asks_your_permission_to_use" android:layout_marginStart="@dimen/bluetooth_dialog_text_margin_left_right_from_single_choice" android:layout_marginEnd="@dimen/bluetooth_dialog_text_margin_left_right_from_single_choice" style="@style/dialog_body_text_style" />
+</LinearLayout>

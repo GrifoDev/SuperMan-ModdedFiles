@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d ساعت</item>
+        <item quantity="one">۱ ساعت</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d دقيقه</item>
+        <item quantity="one">۱ دقيقه</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%dثانیه</item>
+        <item quantity="one">۱ ثانیه</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">اکنون %d مرحله تا تبدیل شدن به برنامه نویس فاصله دارید.</item>
+        <item quantity="one">اکنون 1 مرحله تا تبدیل شدن به برنامه نویس فاصله دارید</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">حذف زبان‌های انتخابی</item>
+        <item quantity="one">حذف زبان انتخابی</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">رمز عبور باید حداقل %d حرف داشته باشد.</item>
+        <item quantity="one">رمز عبور باید حداقل 1 حرف داشته باشد.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">رمز عبور باید حداقل %d حرف کوچک داشته باشد.</item>
+        <item quantity="one">رمز عبور باید حداقل 1 حرف کوچک داشته باشد.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">رمز عبور باید حداقل %d حرف بزرگ داشته باشد.</item>
+        <item quantity="one">رمز عبور باید حداقل 1 حرف بزرگ داشته باشد.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">رمز عبور باید حداقل %d عدد داشته باشد.</item>
+        <item quantity="one">رمز عبور باید حداقل 1 عدد داشته باشد.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">رمز ورود باید حداقل دارای %d نماد باشد.</item>
+        <item quantity="one">رمز ورود باید حداقل دارای 1 نماد باشد.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">رمز ورود باید حداقل دارای %d عدد یا نماد باشد.</item>
+        <item quantity="one">رمز ورود باید حداقل دارای 1 عدد یا نماد باشد.</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">دسترسی به %d پوشه/فایل</item>
+        <item quantity="one">دسترسی به ۱ پوشه/فایل</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s در دستگاه شما یک گواهی CA نصب کرده است، که به وی اجازه کنترل عملکرد شبکه دستگاه از جمله استفاده از ایمیل‌ها، برنامه‌ها و وب‌سایت‌های امن را می‌دهد.
+
+برای اطلاعات بیشتر درباره این گواهی، با مدیر IT خود تماس بگیرید."</item>
+        <item quantity="one">"%s در دستگاه شما یک گواهی CA نصب کرده است، که به وی اجازه کنترل عملکرد شبکه دستگاه از جمله استفاده از ایمیل‌ها، برنامه‌ها و وب‌سایت‌های امن را می‌دهد.
+
+برای اطلاعات بیشتر درباره این گواهی، با مدیر IT خود تماس بگیرید."</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">‎%d برنامه می‌توانند اعلان‌ها را بخوانند.</item>
+        <item quantity="one">‎%d برنامه مجاز هستند که اعلان‌ها را بخوانند.</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d مجوز دیگر</item>
+        <item quantity="one">%d مجوز دیگر</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$d عملکرد در %2$s گذشته از RAM استفاده کرده است</item>
+        <item quantity="one">%1$d عملکرد در %2$s گذشته از RAM استفاده کرده است</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">در حالی که ذخیره اینترنت همراه فعال است، %d برنامه بدون محدودیت، مجاز به مصرف اینترنت همراه هستند</item>
+        <item quantity="one">در حالی که ذخیره اینترنت همراه فعال است، ۱ برنامه بدون محدودیت، مجاز به مصرف اینترنت همراه است</item>
+    </plurals>
+</resources>

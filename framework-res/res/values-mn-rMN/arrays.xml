@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="emailAddressTypes">
+        <item>Гэр</item>
+        <item>Ажил</item>
+        <item>Бусад</item>
+        <item>Дурын</item>
+    </string-array>
+    <string-array name="imProtocols">
+        <item>AIM</item>
+        <item>Windows Live</item>
+        <item>Yahoo</item>
+        <item>Skype</item>
+        <item>QQ</item>
+        <item>Google Talk</item>
+        <item>ICQ</item>
+        <item>Jabber</item>
+    </string-array>
+    <string-array name="organizationTypes">
+        <item>Ажил</item>
+        <item>Бусад</item>
+        <item>Дурын</item>
+    </string-array>
+    <string-array name="phoneTypes">
+        <item>Гэр</item>
+        <item>Гар утас</item>
+        <item>Ажил</item>
+        <item>Ажлын факс</item>
+        <item>Гэрийн факс</item>
+        <item>Пейжэр</item>
+        <item>Бусад</item>
+        <item>Дурын</item>
+    </string-array>
+    <string-array name="postalAddressTypes">
+        <item>Гэр</item>
+        <item>Ажил</item>
+        <item>Бусад</item>
+        <item>Дурын</item>
+    </string-array>
+    <string-array name="wfcOperatorErrorAlertMessages">
+        <item>Wi-Fi-аар дуудлага хийх болон мессеж илгээхээр бол эхлээд оператороосоо энэ төхөөрөмжийг тохируулж өгөхийг хүсээрэй. Дараа нь Тохиргооноос Wi-Fi дуудлага хийх үйлдлийг асаагаарай.</item>
+    </string-array>
+    <string-array name="wfcOperatorErrorNotificationMessages">
+        <item>Операторт бүртгүүлэх</item>
+    </string-array>
+    <string-array name="wfcSpnFormats">
+        <item>%s</item>
+        <item>%s Wi-Fi Дуудлага</item>
+    </string-array>
+    <array name="fingerprint_acquired_vendor" />
+    <array name="fingerprint_error_vendor" />
+    <string-array name="imAddressTypes">
+        <item>Гэр</item>
+        <item>Ажил</item>
+        <item>Бусад</item>
+        <item>Дурын</item>
+    </string-array>
+</resources>

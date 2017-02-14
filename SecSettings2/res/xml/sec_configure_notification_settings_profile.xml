@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/security_settings_title"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <com.samsung.android.settings.lockscreen.LockNotiRestrictedPreference android:title="@string/work_profile_lockscreen_notifications" android:key="lock_screen_notifications_profile" android:summary="%s" />
+</PreferenceScreen>

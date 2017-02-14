@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:background="@drawable/switchbar_background" android:layout_width="fill_parent" android:layout_height="?android:actionBarSize">
+        <TextView android:textAppearance="@style/TextAppearance.Switch" android:ellipsize="end" android:layout_gravity="center_vertical" android:id="@id/switch_text" android:layout_width="0.0dip" android:layout_height="wrap_content" android:maxLines="2" android:layout_weight="1.0" android:textAlignment="viewStart" />
+        <ImageView android:theme="@android:style/Theme.Material" android:layout_gravity="center_vertical" android:id="@id/restricted_icon" android:visibility="gone" android:layout_width="@dimen/restricted_icon_size" android:layout_height="@dimen/restricted_icon_size" android:src="@drawable/ic_info" android:layout_marginEnd="@dimen/restricted_icon_margin_end" />
+        <ProgressBar android:layout_gravity="center_vertical" android:id="@id/scanning_progress" android:visibility="gone" android:layout_width="25.0dip" android:layout_height="25.0dip" android:layout_marginRight="10.0dip" style="?android:attr/progressBarStyleSmall" />
+        <com.android.settings.widget.ToggleSwitch android:theme="@style/ThemeOverlay.SwitchBar" android:layout_gravity="center_vertical" android:id="@id/switch_widget" android:focusable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </LinearLayout>
+    <View android:id="@id/sub_app_bar_divider" android:background="@color/sub_app_bar_divider_color" android:layout_width="fill_parent" android:layout_height="@dimen/sub_app_bar_divider_height" />
+</merge>

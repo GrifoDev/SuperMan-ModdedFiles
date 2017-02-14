@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="data_usage_available_text_size">15.0dip</dimen>
+    <dimen name="data_usage_limit_text_size">16.0dip</dimen>
+    <dimen name="data_usage_used_text_size">16.0dip</dimen>
+    <dimen name="sub_donut_radius">60.0dip</dimen>
+    <dimen name="fingerprint_register_firstGuide_marginTop">375.0dip</dimen>
+    <dimen name="fingerprint_register_guideButton_marginBottom">40.0dip</dimen>
+    <dimen name="fingerprint_register_guideClip_marginTop">65.0dip</dimen>
+    <dimen name="fingerprint_register_secondGuideClip_marginTop">65.0dip</dimen>
+    <dimen name="pie_layout_width_land">311.0dip</dimen>
+    <dimen name="ram_detail_container_margin_bottom">65.0dip</dimen>
+    <dimen name="ram_detail_container_margin_bottom_land">102.0dip</dimen>
+    <dimen name="ram_info_text_size">11.0dip</dimen>
+    <dimen name="ram_info_text_size_land">8.0dip</dimen>
+    <dimen name="second_depth_circle_normal_margin_top">18.0dip</dimen>
+    <dimen name="second_depth_circle_normal_margin_top_land">30.0dip</dimen>
+    <dimen name="storage_and_ram_available_text_size_land">12.0dip</dimen>
+    <dimen name="storage_and_ram_pie_chart_layout_height">225.0dip</dimen>
+    <dimen name="storage_and_ram_total_bottom_margin">6.0dip</dimen>
+    <dimen name="sub_donut_layout_text_start_margin">155.0dip</dimen>
+    <dimen name="sub_donut_layout_text_start_margin_land">139.0dip</dimen>
+    <dimen name="sub_donut_width">120.0dip</dimen>
+    <dimen name="text_and_vertify_button_top_margin">8.0dip</dimen>
+    <dimen name="total_ram_bottom_margin">56.0dip</dimen>
+    <dimen name="total_ram_bottom_margin_land">70.0dip</dimen>
+    <dimen name="used_text_size_land">1.0dip</dimen>
+    <dimen name="ram_detail_container_margin_top_land">67.0dip</dimen>
+    <dimen name="storage_and_ram_total_layout_height_land">47.0dip</dimen>
+    <dimen name="storage_and_ram_total_bottom_margin_land">10.0dip</dimen>
+    <dimen name="second_depth_circle_normal_margin_bottom_land">120.0dip</dimen>
+    <dimen name="ram_data_info_layout_bottom_land">159.0dip</dimen>
+</resources>

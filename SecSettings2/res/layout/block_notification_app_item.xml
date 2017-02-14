@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="?android:listChoiceBackgroundIndicator" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="?android:listPreferredItemPaddingStart"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/row_divider" android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_marginStart="@dimen/notification_app_list_margin" />
+    <ImageView android:id="@android:id/icon" android:layout_width="@dimen/list_app_icon_size" android:layout_height="@dimen/list_app_icon_size" android:layout_centerVertical="true" android:contentDescription="@null" android:layout_marginEnd="@dimen/list_item_inner_padding" />
+    <Switch android:textAppearance="?android:textAppearanceListItem" android:textColor="@color/fingerprint_paypal_main_text_color" android:id="@id/switchWidget" android:paddingTop="@dimen/list_item_top_padding" android:paddingBottom="@dimen/list_item_bottom_padding" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeightSmall" android:layout_centerVertical="true" android:textAlignment="viewStart" android:paddingEnd="?android:listPreferredItemPaddingEnd" android:layout_toEndOf="@android:id/icon" android:layout_alignParentEnd="true" />
+</RelativeLayout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">%d ekrana u Pregledu</item>
+        <item quantity="one">%d ekran u Pregledu</item>
+        <item quantity="few">%d ekrana u Pregledu</item>
+    </plurals>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">PIN kôd za SIM karticu je netačan. Imate još %d pokušaja.</item>
+        <item quantity="one">PIN kôd za SIM karticu je netačan. Imate još %d pokušaj.</item>
+        <item quantity="few">PIN kôd za SIM karticu je netačan. Imate još %d pokušaja.</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">PUK kôd za SIM karticu je netačan. Imate još %d pokušaja prije nego SIM kartica postane trajno neupotrebljiva.</item>
+        <item quantity="one">PUK kôd za SIM karticu je netačan. Imate još %d pokušaj prije nego SIM kartica postane trajno neupotrebljiva.</item>
+        <item quantity="few">PUK kôd za SIM karticu je netačan. Imate još %d pokušaja prije nego SIM kartica postane trajno neupotrebljiva.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="other">Uređaj nije bio otključan %d sati. Potvrdite obrazac.</item>
+        <item quantity="one">Uređaj nije bio otključan %d sat. Potvrdite obrazac.</item>
+        <item quantity="few">Uređaj nije bio otključan %d sata. Potvrdite obrazac.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="other">Uređaj nije bio otključan %d sati. Potvrdite PIN.</item>
+        <item quantity="one">Uređaj nije bio otključan %d sat. Potvrdite PIN.</item>
+        <item quantity="few">Uređaj nije bio otključan %d sata. Potvrdite PIN.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">Uređaj nije bio otključan %d sati. Potvrdite lozinku.</item>
+        <item quantity="one">Uređaj nije bio otključan %d sat. Potvrdite lozinku.</item>
+        <item quantity="few">Uređaj nije bio otključan %d sata. Potvrdite lozinku.</item>
+    </plurals>
+</resources>

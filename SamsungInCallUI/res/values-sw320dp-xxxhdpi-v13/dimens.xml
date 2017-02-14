@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="sec_incoming_volte_video_call_widget_background_height">176.0dip</dimen>
+    <dimen name="sec_video_qcif_video_height">260.5dip</dimen>
+    <dimen name="sec_video_qcif_video_width">320.0dip</dimen>
+    <dimen name="mw_min_height_for_caller_info_card">1110.0px</dimen>
+    <dimen name="sec_clear_cover_video_call_guide_text_margin_bottom">200.0dip</dimen>
+    <dimen name="sec_cover_video_call_guide_text_margin_bottom">40.0dip</dimen>
+    <dimen name="sec_hideme_layer_margin_top">347.5dip</dimen>
+    <dimen name="sec_incoming_video_call_widget_background_height">176.0dip</dimen>
+    <dimen name="sec_mkey_incoming_video_call_widget_height">87.69998dip</dimen>
+    <dimen name="sec_mkeyboard_hideme_layer_margin_top">239.5dip</dimen>
+    <dimen name="sec_mkeyboard_video_hideme_bottom_margin">45.0dip</dimen>
+    <dimen name="sec_mkeyboard_video_qcif_video_height">188.79999dip</dimen>
+    <dimen name="sec_mkeyboard_video_qcif_video_side_margin">44.5dip</dimen>
+    <dimen name="sec_mkeyboard_video_qcif_video_width">230.69998dip</dimen>
+    <dimen name="sec_mkeyboard_video_view_incoming_margin_bottom">117.0dip</dimen>
+    <dimen name="sec_video_button_side_margin">2.0dip</dimen>
+    <dimen name="sec_video_end_button_horizontal_margin">8.0dip</dimen>
+    <dimen name="sec_video_qcif_incoming_call_widget_height">184.5dip</dimen>
+    <dimen name="sec_video_view_margin_top">284.5dip</dimen>
+    <dimen name="sec_keyscreen_video_qcif_view_margin_top">6.799988dip</dimen>
+</resources>

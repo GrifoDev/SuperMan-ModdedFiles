@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="wifi_alert_dialog_scrollview_padding_side">24.0dip</dimen>
+    <dimen name="wifi_ap_add_dialog_edit_margin_left">-6.0dip</dimen>
+    <dimen name="wifi_ap_dialog_edit_margin_left">-3.0dip</dimen>
+    <dimen name="wifi_item_edit_content_padding_top">2.0dip</dimen>
+    <dimen name="wifi_spinner_padding_bottom">2.0dip</dimen>
+    <dimen name="wifi_spinner_padding_top">1.0dip</dimen>
+</resources>

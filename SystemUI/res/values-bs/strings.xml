@@ -1,0 +1,971 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="snapview_cancel">Otkaži</string>
+    <string name="snapview_done">Gotovo</string>
+    <string name="mw_divider_button_snap">Hvatanje prozora</string>
+    <string name="mw_divider_button_switch">Promijeni prozore</string>
+    <string name="mw_divider_button_freeform">Otvori u iskočnom prikazu</string>
+    <string name="mw_divider_button_close">Zatvori aplikaciju</string>
+    <string name="multi_window_title_text">Više prozora</string>
+    <string name="dock_minimized_notification_text">Aplikacija %s je umanjena</string>
+    <string name="dock_minimized_notification_dimiss_text">Zatvori</string>
+    <string name="dock_minimized_notification_content_text">Dodirnite ovdje za otvaranje.</string>
+    <string name="clearcover_1_missed_call">Imate jedan propušten poziv.</string>
+    <string name="clearcover_n_missed_calls">Propušteno poziva: %d.</string>
+    <string name="s_view_screen_home">Kuća</string>
+    <string name="battery_wireless_fast_charging_percent">Brzo bežično punjenje: %d%%</string>
+    <string name="battery_charged">Napunjena.</string>
+    <string name="time_format_hour_minute">%1$d sat %2$d min.</string>
+    <string name="time_format_hour">%d sat</string>
+    <string name="time_format_minute">%d minuta</string>
+    <string name="s_view_cover_missed_event_secured_popup">Uređaj je zaključan. Otvorite omot za prikaz više detalja.</string>
+    <string name="s_view_cover_open_cover_popup_for_detail_message">Otvori omot za prikaz detalja o poruci.</string>
+    <string name="s_view_cover_open_cover_popup_view_notification_details">Otvori omot za prikaz detalja o obavještenju.</string>
+    <string name="s_view_cover_open_cover_popup_for_detail_call">Otvorite omot za prikaz detalja o pozivu.</string>
+    <string name="s_view_cover_camera_button_accessibiliy">Dodirnite dvaput i prevucite za otvaranje Kamere.</string>
+    <string name="s_view_cover_favourite_button_accessibiliy">Dodirnite dvaput i prevucite da biste otvorili Omiljene kontakte.</string>
+    <string name="pinwindowcover_warning_content">Da biste koristili zakačenu aplikaciju, otvorite omot.</string>
+    <string name="permission_sviewcover_access_description">Ova aplikacija može prikazivati informacije u prozoru S View.</string>
+    <string name="sview_led_cover_download_feature_summary_vzw">Download and install additional features for LED View Cover. You can create your own LED icons and set them as your notification icons. To download them later, go to Settings > Accessories > LED View Cover, then select Download additional features.</string>
+    <string name="minimized_notification_talkback_description_open">Dvaput dodirnite da biste otvorili obavještenje aplikacije %s.</string>
+    <string name="minimized_notification_talkback_description_open_more">Double tap to open notification panel.</string>
+    <string name="ok">OK</string>
+    <string name="battery_history_hours_no_seconds">%1$dh %2$dm</string>
+    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="wifi_failed_to_obtain_IP">Dobivanje IP adrese nije uspjelo.</string>
+    <string name="wifi_disabled_no_internet">Internet nije dostupan</string>
+    <string name="wifi_disabled_password_failure">Došlo je do greške u provjeri vjerodostojnosti</string>
+    <string name="wifi_auto_reconnect_disabled">Automatsko ponovno povezivanje onemogućeno</string>
+    <string name="wifi_reconnecting">Spreman za povezivanje kada se poboljša kvalitet mreže</string>
+    <string name="wifi_connected_checking_quality">Provjera kvaliteta Internet veze…</string>
+    <string name="wifi_setup_title_connected_network">Povezan na Wi-Fi mrežu %s.</string>
+    <string name="wifi_sign_in_to_the_network">Prijavite se na mrežu.</string>
+    <string name="wifi_disabled_captive_portal">Prijava je neophodna.</string>
+    <string name="bluetooth_disconnect_message">Bluetooth veza sa uređajem %s je prekinuta.</string>
+    <string name="bluetooth_disconnecting">Prekidanje veze…</string>
+    <string name="bluetooth_connecting">Povezivanje…</string>
+    <string name="bluetooth_connected">Povezano</string>
+    <string name="bluetooth_pairing">Sparivanje…</string>
+    <string name="bluetooth_profile_a2dp">Zvuk medija</string>
+    <string name="bluetooth_profile_headset">Zvuk poziva</string>
+    <string name="bluetooth_profile_hid">Ulazni uređaj</string>
+    <string name="bluetooth_profile_pan">Internet access</string>
+    <string name="bluetooth_profile_pbap">Pristup kontaktima</string>
+    <string name="bluetooth_profile_pan_nap">Dijeljenje Internet veze</string>
+    <string name="bluetooth_profile_map">Pristup poruci</string>
+    <string name="bluetooth_profile_sap">Pristup SIM kartici</string>
+    <string name="bluetooth_a2dp_profile_summary_connected">Priključen radi audio medija</string>
+    <string name="bluetooth_headset_profile_summary_connected">Priključen radi audio poziva</string>
+    <string name="bluetooth_hid_profile_summary_connected">Povezan kao ulazni uređaj</string>
+    <string name="bluetooth_pan_user_profile_summary_connected">Povezano na uređaj za Internet pristup.</string>
+    <string name="bluetooth_spp_profile_summary_connected">Povezan putem Prof. serij. priklj.</string>
+    <string name="bluetooth_pan_profile_summary_use_for">Omogućite Bluetooth vezivanje na sparenom uređaju da biste pristupili Internetu na ovom uređaju.</string>
+    <string name="bluetooth_profile_textinput">Unos teksta</string>
+    <string name="bluetooth_summary_connected_to_a2dp_headset">Priključen radi poziva i audio medija</string>
+    <string name="bluetooth_pan_nap_connected">Povezano za omogućavanje Internet veze</string>
+    <string name="bluetooth_pan_panu_connected">Povezano radi pristupa Internet vezi</string>
+    <string name="bluetooth_pairing_error_message">Nije moguća komunikacija sa %1$s.</string>
+    <string name="bluetooth_pairing_pin_error_message">Uparivanje sa uređajem %1$s nije moguće. Provjerite da li je uređaj %2$s spreman za uparivanje.</string>
+    <string name="bluetooth_pairing_rejected_error_message">Sparivanje je odbacio %s.</string>
+    <string name="tether_settings_title_all">Mobilna pristupna tačka i dijeljenje</string>
+    <string name="tts_settings_title">Čitanje teksta</string>
+    <string name="tts_default_rate_title">Brzina govora</string>
+    <string name="tts_default_rate_summary">Brzina izgovaranja teksta.</string>
+    <string name="tts_default_pitch_title">Glasnoća</string>
+    <string name="tts_default_lang_title">Jezik</string>
+    <string name="tts_lang_use_system">Koristi jezik sistema</string>
+    <string name="tts_lang_not_selected">Nijedan jezik nije izabran</string>
+    <string name="tts_default_lang_summary">Postavite izgovaranje teksta glasom karakterističnim za dati jezik.</string>
+    <string name="tts_play_example_title">Poslušaj primjer</string>
+    <string name="tts_play_example_summary">Reprodukujte kratku demonstraciju sinteze govora.</string>
+    <string name="tts_install_data_title">Instaliraj glasovne podatke</string>
+    <string name="tts_install_data_summary">Instalirajte glasovne podatke potrebne za sintezu govora.</string>
+    <string name="tts_engine_security_warning">Ovaj mehanizam za sintezu govora može prikupljati sve što je izgovoreno, uključujući lozinke, brojeve kreditnih kartica i druge lične podatke. Nastaviti?</string>
+    <string name="tts_default_sample_string">Primjer sintetizovanja govora</string>
+    <string name="tts_status_title">Status zadanog jezika</string>
+    <string name="tts_status_ok">%s je u potpunosti podržan.</string>
+    <string name="tts_status_requires_network">Potrebno je povezivanje na mrežu da bi se pružila podrška za %s.</string>
+    <string name="tts_status_not_supported">%s nije podržan.</string>
+    <string name="tts_status_checking">Provjeravanje…</string>
+    <string name="tts_engine_settings_title">Postavke za %s</string>
+    <string name="tts_engine_settings_button">Otvorite postavke mehanizma opcije Tekst u govor.</string>
+    <string name="tts_engine_preference_section_title">Omiljeni mehanizam Tekst u govor</string>
+    <string name="tts_general_section_title">Opšte</string>
+    <string name="tts_reset_speech_pitch_title">Ponovno postavi glasnoću</string>
+    <string name="tts_reset_speech_pitch_summary">Ponovno postavite visinu tona čitanja teksta na zadanu postavku.</string>
+    <string name="choose_profile">Izaberi profil</string>
+    <string name="power_charging_duration">%1$s: preostalo je %2$s do potpunog punjenja</string>
+    <string name="power_charging_duration_ac">%1$s: preostalo je %2$s do potpunog punjenja putem naizmjenične struje</string>
+    <string name="power_charging_duration_usb">%1$s: preostalo je %2$s do potpunog punjenja putem USB-a</string>
+    <string name="power_charging_duration_wireless">%1$s: još %2$s za dovršavanje punjenja (bežično punjenje)</string>
+    <string name="battery_info_status_charging">Punjenje</string>
+    <string name="battery_info_status_adaptive_fast_charging">Brzo punjenje</string>
+    <string name="battery_info_power_ac">AC</string>
+    <string name="battery_info_power_usb">USB</string>
+    <string name="battery_info_power_wireless">Bežično</string>
+    <string name="charge_length_format">Prije %s</string>
+    <string name="remaining_length_format">%s preostalo</string>
+    <string name="battery_discharging_duration">Procjena preostalog vremena korištenja: %s</string>
+    <string name="bluetooth_tethering_cannot_connect_while_connected_to_wifi">Nije moguće koristiti Bluetooth dijeljenje kada je uspostavljena veza sa Wi-Fi mrežom.</string>
+    <string name="app_label">Kor. int. sist.</string>
+    <string name="status_bar_clear_all_button">Izbriši sve</string>
+    <string name="brightness_controller_label_text">Auto</string>
+    <string name="quick_settings_brightness_controller_hbm">Maks. uvećano za najbolji prikaz na suncu</string>
+    <string name="tw_recents_lock_to_app_button_label">Zakači aplikaciju</string>
+    <string name="tw_lock_to_app_title">Omogući opciju Zakači prozore</string>
+    <string name="tw_lock_to_app_description_1">Ova funkcija vam dozvoljava da zakačite aplikaciju na ekran uređaja tako da se ne možete udaljiti od nje.</string>
+    <string name="tw_lock_to_app_description_2">Tokom kačenja aplikacije, obavještenja drugih aplikacija će biti blokirana i druge funkcije, kao što su pozivanje i razmjena poruka, možda neće biti dostupne.</string>
+    <string name="tw_lock_to_app_description_tablet_wifi">Kada je neka aplikacija zakačena, obavještenja će biti blokirana i druge funkcije možda neće biti dostupne.</string>
+    <string name="tw_lock_to_app_description_recents_and_back">Da biste otkačili aplikaciju, istovremeno pritisnite i zadržite Nedavno korištene tipke i tipku Nazad.</string>
+    <string name="tw_lock_to_app_description_menu_and_back">Da biste otkačili aplikaciju, istovremeno pritisnite i zadržite tipku Meni i Nazad.</string>
+    <string name="tw_lock_to_app_description_recents_and_back_accessible">Da biste otkačili aplikaciju, pritisnite i zadržite nedavno korištene tipke.</string>
+    <string name="tw_lock_to_app_description_menu_and_back_accessible">Da biste otkačili aplikaciju, pritisnite i zadržite tipku menija.</string>
+    <string name="tw_unable_to_pin_title">Ne može se zakačiti aplikacija %s</string>
+    <string name="tw_unable_to_pin_description">Ova aplikacija ne podržava opciju Zakači prozore.</string>
+    <string name="tw_unable_to_pin_description_toast">Nije moguće zakačiti aplikaciju. Aplikacija %s je zatvorena. Došlo je do nepoznate greške.</string>
+    <string name="tw_screen_pinning_positive">Započni</string>
+    <string name="tw_screen_pinning_negative">Ne, HVALA</string>
+    <string name="accessibility_recents_item_pin">Zakači</string>
+    <string name="accessibility_recents_item_unpin">Otkači</string>
+    <string name="memory_full_dialog_title">Nije moguće snimiti ekran</string>
+    <string name="memory_full_dialog_msg">Nema dovoljno prostora u pohrani uređaja. Izbrišite neke datoteke i pokušajte ponovno.</string>
+    <string name="screen_capture_fail_for_storage_capacity">Nema dovoljno prostora na pohrani uređaja. Izbrišite neke datoteke i pokušajte ponovno.</string>
+    <string name="screen_capture_fail_for_security_policy">Snimanje ekrana nije moguće. Pravila sigurnost ovo sprječavaju.</string>
+    <string name="screen_capture_edit">Uredi</string>
+    <string name="screen_capture_share">Podijeli</string>
+    <string name="screen_capture_delete">Izbriši</string>
+    <string name="qs_detail_capture_screen">Snimi ekran</string>
+    <string name="qs_detail_recorder_screen">Record screen</string>
+    <string name="qs_detail_capture_mode">Screen capture mode</string>
+    <string name="qs_detail_capture_mode_text">Select the function you want to add to the quick settings panel.</string>
+    <string name="unable_to_open_ps_in_emergency_mode">Nije moguće otvoriti aplikaciju %s u režimu Opasnost.</string>
+    <string name="unable_to_open_ps_in_upsm">Nije moguće otvoriti %s u režimu Izuzetna ušteda energije.</string>
+    <string name="unable_to_open_ps_in_mpsm">Nije moguće otvoriti %s u režimu Maksimalna štednja energije.</string>
+    <string name="image_viewer">Prikazivač slika</string>
+    <string name="photo_editor">Uređivač fotografija</string>
+    <string name="to_use_this_function_download_the_following_application">"Da biste koristili ovu funkciju, preuzmite sljedeću aplikaciju:
+
+%s"</string>
+    <string name="accessibility_desc_recent_apps">Nedavne aplikacije</string>
+    <string name="wifi_not_found_hidden_ap">Nije moguće povezivanje na mrežu. Nije pronađena mreža sa imenom %s.</string>
+    <string name="it_policy_not_allow_wifi">Pravila sigurnosti sprječavaju korištenje Wi-Fi veze.</string>
+    <string name="it_policy_not_allow_wifiap">Pravila sigurnosti ograničavaju korištenje dijeljenja Interneta.</string>
+    <string name="wifi_authentication_succeed_kt">Wi-Fi AP authenticated.</string>
+    <string name="wifi_authentication_failed_kt">Failed to authenticate Wi-Fi AP.</string>
+    <string name="wifi_authentication_no_response">Failed to connect to Wi-Fi AP.</string>
+    <string name="wifi_authentication_invalid_value">Authentication failed. Check ID and password.</string>
+    <string name="wifi_exceeded_max_configured_networks_dialog_title">Upozorenje</string>
+    <string name="wifi_exceeded_max_configured_networks_dialog_message">Nazivi pristupnih tačaka za više od %1$d mreža su sačuvani. Preporučujemo vam da izbrišete starije nazive %2$d pristupnih tačaka za bolje Wi-Fi iskustvo.</string>
+    <string name="wifi_exceeded_max_configured_networks_dialog_ok">Izb. najs. naz. %d pr. tač.</string>
+    <string name="quick_settings_bluetooth_label">Bluetooth</string>
+    <string name="quick_settings_bluetooth_detail_empty_text_available">U blizini nema Bluetooth uređaja.</string>
+    <string name="quick_settings_bluetooth_detail_paired_devices_title">Upareni uređaji</string>
+    <string name="quick_settings_bluetooth_detail_available_devices_title">Dostupni uređaji</string>
+    <string name="quick_settings_bluetooth_detail_off_text">Uključite Bluetooth da biste vidjeli spisak uređaja sa kojima se možete se spariti ili sa kojima ste već spareni.</string>
+    <string name="quick_settings_sound_mode_detail_label">Režim zvuka</string>
+    <string name="quick_settings_sound_mode_detail_temporary_mute_title">Privremeno isključ. zvuka</string>
+    <string name="quick_settings_sound_mode_detail_temporary_mute_summary">Izaberite koliko dugo će zvuk uređaja biti isključen prije nego što se vrati na prethodni režim zvuka (%s).</string>
+    <string name="quick_settings_sound_mode_detail_temporary_mute_duration">Trajanje isključiv. zvuka</string>
+    <string name="quick_settings_rotation_unlocked_label">"Autom.
+rotiraj"</string>
+    <string name="quick_settings_rotation_locked_portrait_label">Portret</string>
+    <string name="quick_settings_location_label">Lokacija</string>
+    <string name="quick_settings_wifi_label">Wi-Fi</string>
+    <string name="quick_settings_wifi_detail_scanning_text">Skeniranje Wi-Fi mreža…</string>
+    <string name="quick_settings_wifi_detail_off_text">Da biste vidjeli dostupne mreže, uključite Wi-Fi.</string>
+    <string name="quick_settings_brightness_strain_warning">"Korištenje visokih nivoa osvjetljenja tokom dužeg perioda može uzrokovati naprezanje očiju i povećati potrošnju energije baterije.
+Dodirnite OK da biste dozvolili povećanje osvjetljenja iznad sigurnog nivoa."</string>
+    <string name="quick_settings_more_settings">Detalji</string>
+    <string name="quick_settings_done">GOTOVO</string>
+    <string name="quick_settings_flashlight_label">Lampa</string>
+    <string name="quick_settings_sound_mode_sound_label">Zvuk</string>
+    <string name="quick_settings_sound_mode_vibrate_label">Vibracija</string>
+    <string name="quick_settings_sound_mode_mute_label">Isključi zvuk</string>
+    <string name="quick_settings_nfc_card_mode_label">"NFC
+card mode"</string>
+    <string name="quick_settings_nfc_p2p_label">"Čitaj/
+piši P2P"</string>
+    <string name="quick_settings_my_device_visibility_label">"Vidljivost
+uređaja"</string>
+    <string name="quick_settings_aod_label">"Always On
+Display"</string>
+    <string name="quick_settings_screen_mirroring_label">"Screen
+Mirroring"</string>
+    <string name="quick_settings_power_saving_label">"Štednja
+energije"</string>
+    <string name="quick_settings_sec_dnd_label">"Ne 
+uznemiravaj"</string>
+    <string name="quick_settings_mobile_hotspot_label">"Mob.
+prist. tačka"</string>
+    <string name="quick_settings_airplane_mode_label">"Avio.
+režim"</string>
+    <string name="quick_settings_bluelightfilter_label">"Filter
+plavog svj."</string>
+    <string name="quick_settings_mobile_data_label">"Mobilni
+podaci"</string>
+    <string name="quick_settings_wificalling_label">"Wi-Fi
+pozivanje"</string>
+    <string name="quick_settings_personal_mode_label">"Privatni
+režim"</string>
+    <string name="quick_settings_data_roaming_label">"Roaming
+podataka"</string>
+    <string name="quick_settings_gps_label">GPS</string>
+    <string name="quick_settings_sync_label">Sinhron.</string>
+    <string name="quick_settings_ultra_power_saving_label">"Izu. šted.
+energ."</string>
+    <string name="quick_settings_data_monitor_label">"Izuz. čuv.
+podataka"</string>
+    <string name="uds_toast_flight_mode_enabled">Nije moguće omogućiti režim Izuzetno čuvanje podataka u Avionskom režimu. Onemogućite Avionski režim i pokušajte ponovno.</string>
+    <string name="qs_detail_flashlight_title">Lampa</string>
+    <string name="quick_settings_reading_mode_label">"Režim
+čitanja"</string>
+    <string name="quick_settings_bike_mode_label">"S režim
+motocikla"</string>
+    <string name="qs_detail_bike_mode_title">S režim motocikla</string>
+    <string name="qs_detail_bike_mode_text">Omogućite ovaj režim da biste filtrirali sve dolazne pozive. Bit ćete obaviješteni samo o hitnim pozivima tokom vožnje. Nećete moći koristiti uređaj dok vozite. Možete također pregledati propuštene pozive dok je S režim vožnje bicikla bio omogućen, slati automatske tekstualne poruke koje sadrže procijenjeno vrijeme putovanja izabranim kontaktima koji vas pozivaju, pregledati informacije o putovanju, te zaraditi bedževe.</string>
+    <string name="qs_edit_summary">Prevucite dugmad brzih postavki u gornje područje da biste ih dodali u tablu brzih postavki.</string>
+    <string name="notification_panel_unable_remove_minimum">Uklanjanje dugmeta nije moguće. Dostignut je minimalan broj dugmadi (%d).</string>
+    <string name="disable">Onemogući</string>
+    <string name="agree">Slažem se</string>
+    <string name="disagree">Ne slažem se</string>
+    <string name="quick_settings_it_policy_prevents">Pravila sigurnosti sprječavaju korištenje aplikacije %s.</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message">Umetnite SIM karticu da biste koristili Mobilnu pristupnu tačku kao i druge funkcije vezivanja.</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_title">Mobilna pristupna tačka</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_title_jpn">Unable to enable Wi-Fi tethering</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message_jpn">Insert a SIM card to use Wi-Fi tethering.</string>
+    <string name="mobile_hotspot_dialog_nousim_or_nosim_warning">Insert a UIM/SIM card to use Mobile hotspot and other tethering functions.</string>
+    <string name="mobile_hotspot_toast_disable_airplne_mode">Povezivanje na mobilne mreže nije moguće kada je omogućen Avionski režim. Onemogućite Avionski režim i pokušajte ponovno.</string>
+    <string name="mobile_hotspot_toast_internet_sharing">Internet sharing</string>
+    <string name="mobile_hotspot_detail_title">Mobilna pristupna tačka</string>
+    <string name="mobile_hotspot_detail_title_vzw">Mobile Hotspot</string>
+    <string name="mobile_hotspot_detail_title_jpn">Wi-Fi dijeljenje</string>
+    <string name="mobile_hotspot_detail_connection_mode_allowed_device">Samo dozvoljeni uređaji</string>
+    <string name="mobile_hotspot_detail_connected_devices">Povezani uređaji</string>
+    <string name="mobile_hotspot_detail_connection_mode_allow_all">Dozvoli da se povežu svi uređaji</string>
+    <string name="insert_sim_card">Umetni SIM karticu</string>
+    <string name="insert_sim_card_message">Umetnite SIM karticu za korištenje mrežnih usluga.</string>
+    <string name="mobile_data_show_toast_airplane_mode">Povezivanje na mobilne mreže nije moguće kada je omogućen Avionski režim. Onemogućite Avionski režim i pokušajte ponovno.</string>
+    <string name="volte_show_toast_airplane_mode">Nije moguće koristiti VoLTE dok je omogućen Avionski režim. Onemogućite Avionski režim i pokušajte ponovno.</string>
+    <string name="volte_show_toast_impossible_during_volte_call">Nije moguće omogućiti opciju Koristi VoLTE kada je ona omogućena tokom VoLTE poziva.</string>
+    <string name="volte_show_toast_disable_not_allowed">Davaocu usluge nije dozvoljeno onemogućavanje opcije VoLTE.</string>
+    <string name="volte_show_toast_not_support_operator">Trenutna verzija softvera ne podržava VoLTE. Kontaktirajte korisničku službu za više informacija.</string>
+    <string name="volte_show_toast_enable_message">Da biste koristili uslugu VoLTE, pretplatite se na VoLTE. Kontaktirajte davaoca usluge za detalje.</string>
+    <string name="unable_to_turn_on_being_used_by_camera">Nije moguće uključiti %s. Kamera trenutno koristi Lampicu kamere.</string>
+    <string name="aod_title">Always On Display</string>
+    <string name="aod_power_saving_mode">Režim štednje energije</string>
+    <string name="aod_voice_assistant_title">Voice Assistant</string>
+    <string name="aod_magnification_gesture">Uvećanje pokretima</string>
+    <string name="aod_magnifier_window">Prozor za povećavanje</string>
+    <string name="aod_magnifier_assistant_menu">Prozor za povećavanje</string>
+    <string name="aod_talkback">TalkBack</string>
+    <string name="aod_show_toast_unavailable_with_at_same_time">Nije moguće istovremeno omogućiti funkciju %1$s i %2$s.</string>
+    <string name="aod_show_popup_title">Omogući %s</string>
+    <string name="aod_show_popup_unavailable_with_at_same_time">%1$s i %2$s se ne mogu omogućiti istovremeno. %3$s će biti onemogućen.</string>
+    <string name="aod_show_popup_description">Ne mogu se istovremeno omogućiti %s i opcije u nastavku. Opcije će biti onemogućene.</string>
+    <string name="wificalling_show_popup_use_location_inform">Wi-Fi pozivanje mora koristiti informacije o vašoj lokaciji. Podaci o lokaciji se anonimno prikupljaju i šalju kompaniji Google i vašem davaocu usluge. Kontaktirajte svog davaoca usluge za detalje.</string>
+    <string name="wificalling_show_popup_enable_location_title">Omogući lokaciju</string>
+    <string name="wificalling_show_popup_enable_location_message">Wi-Fi pozivanje mora koristiti informacije o vašoj lokaciji. Opcija Lokacija će biti omogućena. Podaci o lokaciji se anonimno prikupljaju i šalju kompaniji Google i vašem davaocu usluge. Kontaktirajte svog davaoca usluge za detalje.</string>
+    <string name="personal_mode_popup_diable_msg_while_afw_profile">Privatni režim nije dostupan u radnom profilu.</string>
+    <string name="personal_mode_popup_diable_msg_while_moving_item">Nije moguće onemogućiti Privatni režim tokom premještanja stavki u Privatni folder.</string>
+    <string name="mobile_data_title">Mobilni podaci</string>
+    <string name="mobile_data_show_popup_disable">"Ukoliko ne koristite Wi-Fi, više nećete moći koristiti Internet, E-poštu ili druge aplikacije koje zahtijevaju podatkovnu vezu.
+
+Mobilni podaci neće biti omogućeni."</string>
+    <string name="mobile_data_show_popup_disable_vzw">"Unless you use Wi-Fi, you will not be able to use the Internet, Email, or other apps that require a data connection.
+
+Turn off Mobile data?"</string>
+    <string name="mobile_data_show_popup_disable_vzw_volte">"Unless you use Wi-Fi, you will not be able to use Internet, Email, or other apps that require a data connection. Your phone will not be able to use Video Calling while Mobile data is off.
+Turn off Mobile data?"</string>
+    <string name="mobile_data_show_popup_disable_kor_skt_kt">"Unless you use Wi-Fi, you will no longer be able to use Internet, Email, or other apps that require a data connection.
+
+Mobile data will be turned off."</string>
+    <string name="mobile_data_show_popup_disable_kor_lgt">"Unless you use Wi-Fi, you will no longer be able to use Internet, Email, or other apps that require a data connection.
+
+Mobile data will be turned off."</string>
+    <string name="mobile_data_show_popup_enable_kor_skt_kt">Mobile data will be turned on. Connecting to mobile networks may result in additional charges depending on your payment plan.</string>
+    <string name="mobile_data_show_popup_enable_kor_lgt">Mobile data will be turned on. Connecting to mobile networks may result in additional charges depending on your payment plan.</string>
+    <string name="mobile_data_roaming_title">Slanje podataka u roamingu</string>
+    <string name="mobile_data_show_popup_roaming_enable">Data roaming may incur additional charges in addition to your domestic flat rate plan. Automatic updates for email or applications may also incur additional charges. Using large-data services such as video or email may incur charges over 20,000 won per minute.</string>
+    <string name="mobile_data_show_toast_not_disable_during_voltecall">Unable to turn Mobile data on or off while Advanced calling enabled.</string>
+    <string name="flash_light_notification_title">Lampa je uključena</string>
+    <string name="flash_light_notification_button">Isključi</string>
+    <string name="flash_light_disabled_by_low_battery">Nije moguće uključiti Lampu. Baterija je na izmaku.</string>
+    <string name="flash_light_turn_off_by_low_battery">Baterija je na izmaku. Lampa će biti isključena.</string>
+    <string name="mobile_data_roaming_disable_toast_lgt">Data roaming disabled.</string>
+    <string name="location_show_enable_popup_title_vzw">Pristanak za objavu lokacije</string>
+    <string name="location_show_enable_popup_message_vzw">"Your phone can share its approximate location with apps and services like maps, shopping and weather. Apps and services that use your location should inform you. Read the privacy policy of any app or service provider you are considering to understand how they collect, use and share your location information before you use them.
+
+Determining your location will use the mobile network. Data usage will apply."</string>
+    <string name="location_show_enable_popup_message_tablet_vzw">"Your tablet can share its approximate location with apps and services like maps, shopping and weather.
+
+Apps and services that use your location should inform you. Read the privacy policy of any app or service provider you’re considering to understand how they collect, use and share your location information before you use them.
+
+Determining your location will use the mobile network. Data usage will apply."</string>
+    <string name="location_show_enable_popup_title_dcm">Pristanak korisnika</string>
+    <string name="location_show_enable_popup_message_dcm">Korištene aplikacije kontrolišu GPS lokaciju i korištenje podataka o lokaciji.</string>
+    <string name="location_show_popup_disable_wificalling_title">Onemogući opciju Lokacija</string>
+    <string name="location_show_popup_disable_wificalling_when_disable_location">Disabling Location will disable Wi-Fi calling.</string>
+    <string name="sync_show_popup_title_enable">Omogući automatsko sinhronizovanje</string>
+    <string name="sync_show_popup_title_disable">Onemogući automatsko sinhronizovanje</string>
+    <string name="sync_show_popup_message_enable">"Sve promjene koje načinite na svojim računima na webu automatski će se kopirati na uređaj.
+
+Neki računi također mogu automatski kopirati sve promjene koje načinite na uređaju na webu. Automatska sinhronizacija će biti omogućena."</string>
+    <string name="sync_show_popup_message_disable">Ovim se smanjuje korištenje podataka i štedi potrošnja baterije, ali račune morate ručno sinhronizovati da biste prikupili najnovije informacije. Kada je ova opcija omogućena, nećete primati obavještenja o ažuriranjima.</string>
+    <string name="airplane_mode">Avionski režim</string>
+    <string name="airplane_mode_show_popup_title">Omogući Avionski režim</string>
+    <string name="airplane_mode_show_popup_title_vzw">Turn on Airplane mode</string>
+    <string name="airplane_mode_show_popup_message">Avionski režim omogućava da isključite pozive, poruke i funkcije podatkovne mreže. Ovaj režim isključuje i veze kao što su Wi-Fi i Bluetooth. Ako želite koristiti Wi-Fi i Bluetooth, uključite ih u Postavkama ili na tabli obavještenja.</string>
+    <string name="airplane_mode_show_popup_message_wifi_without_bluetooth">Avionski režim omogućava da isključite funkcije mreže, uključujući Wi-Fi. Da biste koristili Wi-Fi, uključite ga u Postavkama ili na tabli obavještenja.</string>
+    <string name="airplane_mode_show_popup_message_without_bluetooth">Avionski režim vam dozvoljava onemogućavanje pozivanja, razmjene poruka i funkcije mobilne mreže.</string>
+    <string name="airplane_mode_show_popup_message_wifi">Avionski režim omogućava da isključite funkcije mreže, uključujući Wi-Fi i Bluetooth. Da biste koristili Wi-Fi i Bluetooth, uključite ih u Postavkama ili na tabli obavještenja.</string>
+    <string name="airplane_mode_show_popup_message_cmcc">Avionski režim omogućava da isključite pozive, poruke i funkcije podatkovne mreže. Ovaj režim isključuje i veze kao što su Wi-Fi i Bluetooth. Ako želite koristiti Wi-Fi i Bluetooth, uključite ih u Postavkama ili na tabli obavještenja.</string>
+    <string name="airplane_mode_show_popup_message_vzw">"Unless you use Wi-Fi, you will not be able to use the Internet, Email, or other apps that require a data connection.
+Turn on Airplane mode?"</string>
+    <string name="airplane_mode_show_popup_message_vzw_volte">"Unless you use Wi-Fi, you will not be able to use Internet, Email, Wi-Fi Calling or other apps that require a data connection.
+Turn on Airplane mode?"</string>
+    <string name="airplane_mode_show_popup_safelock">Unable to enable Flight mode while Block power off while locked enabled. Try again after unlocking screen.</string>
+    <string name="airplane_mode_show_popup_disabled_on_demo_devices">Avionski režim je onemogućen na demo uređajima.</string>
+    <string name="airplane_mode_show_toast_turn_on_wifi_for_wificalling">Uključite Wi-Fi da biste koristili Wi-Fi poziv.</string>
+    <string name="rotation_lock_auto_rotate">Automatski rotiraj</string>
+    <string name="rotation_lock_show_toast_mobile_keyboard_message">Da biste omogućili %s, uklonite omot tastature sa uređaja.</string>
+    <string name="quick_settings_location_detail_high_accuracy">Izuzetna tačnost</string>
+    <string name="quick_settings_location_detail_battery_saving">Štednja baterije</string>
+    <string name="quick_settings_location_detail_device_only">Samo uređaj</string>
+    <string name="quick_settings_location_detail_subtitle">Način lociranja</string>
+    <string name="quick_settings_location_detail_summary">Koristi GPS, Wi-Fi i mobilne mreže za određivanje lokacije.</string>
+    <string name="quick_settings_flight_mode_detail_title">Avionski režim</string>
+    <string name="quick_settings_flight_mode_detail_summary">"Onemogućite funkcije pozivanja i razmjene poruka i isključite Mobilne podatke.
+
+Wi-Fi i Bluetooth će također biti isključeni, ali se mogu ponovno uključiti u Postavkama ili na tabli brzih postavki."</string>
+    <string name="quick_settings_flight_mode_detail_off_summary_volte_vzw">Airplane mode turns off all network connections, including mobile data and Wi-Fi. Your phone will not be able to use Video Calling while Airplane mode is on. Turn on Wi-Fi to use apps that require a data connection.</string>
+    <string name="quick_settings_flight_mode_detail_on_summary_volte_vzw">Unless you use Wi-Fi, you will not be able to use Internet, Email, or other apps that require a data connection. Your phone will not be able to use Video Calling while Airplane mode is on.</string>
+    <string name="quick_settings_flight_mode_detail_off_summary_non_volte_vzw">Airplane mode turns off all network connections, including mobile data and Wi-Fi. Turn on Wi-Fi to use apps that require a data connection.</string>
+    <string name="quick_settings_flight_mode_detail_on_summary_non_volte_vzw">Unless you use Wi-Fi, you will not be able to use the Internet, Email, or other apps that require a data connection.</string>
+    <string name="quick_settings_mobile_data_detail_title">Podaci za mob. uređaje</string>
+    <string name="quick_settings_data_roaming_detail_title">Slanje podataka u roamingu</string>
+    <string name="quick_settings_mobile_data_detail_summary">Ako je isključena funkcija Mobilni podaci, uređaj mora biti povezan na Wi-Fi mrežu da biste koristili usluge koje zahtijevaju mrežnu vezu.</string>
+    <string name="quick_settings_dnd_detail_title">Ne uznemiravaj</string>
+    <string name="quick_settings_dnd_summary">Postavite uređaj da isključi zvuk svih poziva, upozorenja i medija osim izabranih izuzetaka.</string>
+    <string name="quick_settings_dnd_summary_vzw">Silence all calls, alerts and media sound. You can allow exceptions.</string>
+    <string name="quick_settings_rotation_lock_auto_rotate">Automatsko rotiranje</string>
+    <string name="quick_settings_rotation_lock_detail_title">Rotacija ekrana</string>
+    <string name="quick_settings_rotation_lock_detail_summary">Izaberite orijentaciju prikaza.</string>
+    <string name="quick_settings_flashlight_detail_level">Nivo</string>
+    <string name="quick_settings_flashlight_detail_title">Osvjetljenje</string>
+    <string name="quick_settings_flashlight_detail_warning">Svjetlo kamere može uzrokovati manje opekotine kada je koža izložena duži vremenski period. Izbjegavajte ostavljati uključen %s na duži vremenski period.</string>
+    <string name="quick_settings_reading_mode_summary">Ekran je optimizovan za čitanje. Ovaj režim je dostupan samo za izabrane aplikacije.</string>
+    <string name="quick_settings_volte_summary">Koristi VoLTE kada je dostupan</string>
+    <string name="quick_settings_blf_detail_title">Filter plavog svjetla</string>
+    <string name="quick_settings_blf_detail_summary">Smanjite naprezanje očiju tako što ćete ograničiti količinu plavog svjetla koju emituje ekran.</string>
+    <string name="quick_settings_blf_detail_seekbar">Prozirnost</string>
+    <string name="quick_settings_wificalling_summary">"Koristite Wi-Fi mreže za upućivanje ili prijem poziva gdje god se nalazili bez povezivanja na mobilnu mrežu.
+
+Ikona za Wi-Fi pozivanje će se pojavljivati na tabli sa obavještenjima kao što je prikazano u nastavku dok je usluga dostupna."</string>
+    <string name="quick_settings_wificalling_wifi_preferred">Predviđena je Wi-Fi mreža</string>
+    <string name="quick_settings_wificalling_cs_preferred">Željena mobilna mreža</string>
+    <string name="quick_settings_wificalling_wifi_only">Samo Wi-Fi</string>
+    <string name="quick_settings_dual_label_content_description">%s, oznaka dugmeta, dvaput dodirnite za prikaz odgovarajućih brzih postavki.</string>
+    <string name="accessibility_button">Tipka</string>
+    <string name="quick_settings_brightness_auto_brightness">Automatsko osvjetljenje</string>
+    <string name="quick_settings_brightness_quick_access">Prikaži kontrolu na vrhu</string>
+    <string name="quick_settings_brightness_quick_access_summary">Prikažite kontrolu osvijetljenosti iznad table obavještenja.</string>
+    <string name="quick_settings_brightness_detail_level">Nivo</string>
+    <string name="recents_empty_message">Nema nedavno korištenih aplikacija</string>
+    <string name="recents_drag_hint_message">Otvori u prikazu podijeljenog ekrana</string>
+    <string name="recents_drag_freeform_hint_message">Otvori u iskočnom prikazu</string>
+    <string name="user_add_user">Dodaj korisnika</string>
+    <string name="guest_nickname">Gost</string>
+    <string name="guest_exit_guest">Izbriši gosta</string>
+    <string name="sanitized_content_text">Dodirnite ovdje da biste unijeli %s.</string>
+    <string name="secure_folder_title">Sigurni folder</string>
+    <string name="tw_safe_media_volume_warning">Slušanje zvuka velike jačine duži vremenski period može oštetiti sluh. Dodirnite OK da biste dozvolili da se jačina zvuka poveća iznad sigurnog nivoa.</string>
+    <string name="tw_cover_volume_warning_message">Slušanje zvuka velike jačine duži vremenski period može oštetiti sluh. Da biste povećali jačinu zvuka, otvorite omot.</string>
+    <string name="tw_safe_media_volume_warning_kids_mode">Jačina zvuka ne smije prekoračiti preporučenu sigurnosnu granicu (%s) dok su slušalice priključene u Režimu za djecu.</string>
+    <string name="yes">OK</string>
+    <string name="no">Otkaži</string>
+    <string name="volume_limiter_notice_toast">Da biste povećali jačinu zvuka, dodirnite POSTAVKE, zatim onemogućite Ograničavač jačine zvuka medija ili promijenite ograničenje jačine zvuka.</string>
+    <string name="volume_limiter_open_cover_toast">Otvorite omot da biste nastavili.</string>
+    <string name="quick_settings_settings">POSTAVKE</string>
+    <string name="mobileap">Mobilna pristupna tačka</string>
+    <string name="mobile_hotspot_wifi_off_warning">Omogućavanjem Mobilne pristupne tačke isključuje se Wi-Fi.</string>
+    <string name="mobile_hotspot_wifi_off_warning_vzw">Mobile Hotspot uses your mobile data connection. Your Wi-Fi connection will be turned off.</string>
+    <string name="mobile_hotspot_wifi_off_warning_china">Enabling Mobile hotspot will turn off WLAN.</string>
+    <string name="mobile_hotspot_wifi_off_warning_jpn">Enabling Wi-Fi tethering will turn off Wi-Fi.</string>
+    <string name="tethering_attention_title">Pažnja</string>
+    <string name="mobile_data_enable_toast_text">Povezivanje na mobilne mreže nije moguće kada je omogućen Avionski režim. Onemogućite Avionski režim i pokušajte ponovno.</string>
+    <string name="wifi_ap_wifi_p2p_off_warn">Omogućavanjem Mobilne pristupne tačke prekinut će se veza sa bilo kojim uređajem koji je trenutno povezan putem opcije Wi-Fi Direct.</string>
+    <string name="wifi_ap_wifi_p2p_off_warn_china">Enabling Portable WLAN hotspot will disconnect device connected via WLAN Direct.</string>
+    <string name="dialog_battery_data_warning">Mobilna pristupna tačka će biti omogućena. Time će se povećati potrošnja baterije i korištenje podataka.</string>
+    <string name="keyboard_shortcut_group_applications_email">E-pošta</string>
+    <string name="qs_edit">UREDI</string>
+    <string name="sec_qs_edit">Uredi</string>
+    <string name="screen_grid">Raspored dugmadi</string>
+    <string name="brightness_control_on_top">Kontr. osvjetlj. na vrhu</string>
+    <string name="screen_grid_popup_title">Raspored dugmadi</string>
+    <string name="screen_grid_popup_apply">Primijeni</string>
+    <string name="screen_grid_popup_ok">OK</string>
+    <string name="qs_contact_us">Kontaktirajte nas</string>
+    <string name="multiwindow_forced_resizable">Ova aplikacija možda neće ispravno funkcionisati u prikazu Više prozora.</string>
+    <string name="accessibility_quick_settings_more_option">Još opcija</string>
+    <string name="accessibility_quick_settings_voice_search">Glasovno pretraživanje</string>
+    <string name="recents_close_all_button_text">Zatvori sve</string>
+    <string name="recents_split_button_description">Otvori u prikazu podijeljenog ekrana</string>
+    <string name="recents_lock_button_description">Zakačite ovu aplikaciju ili je otkačite sa ekrana Nedavne aplikacije</string>
+    <string name="recents_menu_more">Još</string>
+    <string name="recents_menu_contact_us">Kontaktirajte nas</string>
+    <string name="recents_help_dlg_full_page1">Dodirnite %s na naslovnoj traci prozora aplikacije da biste otvorili aplikacije u prikazu podijeljenog ekrana. Ova ikona se prikazuje kada aplikacija podržava funkciju Više prozora.</string>
+    <string name="recents_help_dlg_full_page1_desc">Dodirnite ikonu Podijeljeni ekran na naslovnoj traci prozora aplikacije da biste otvorili aplikacije u prikazu podijeljenog ekrana. Ova ikona se prikazuje kada aplikacija podržava funkciju Više prozora.</string>
+    <string name="recents_help_dlg_full_page2_hardkey">Držite pritisnutim Nedavno korištenu tipku, dok koristite aplikaciju u prikazu preko cijelog ekrana, da biste prešli na prikaz podijeljenog ekrana.</string>
+    <string name="recents_help_dlg_next_button_text">Sljedeće</string>
+    <string name="recents_help_dlg_split_page1">Izaberite nedavnu aplikaciju za otvaranje na donjoj polovini ekrana ili idite na Početni ekran i otvorite novu aplikaciju u prikazu podijeljenog ekrana.</string>
+    <string name="recents_help_dlg_split_page2_hardkey">Pritisnite tipku Početak da umanjite aplikaciju na donjoj polovini ekrana u prikazu podijeljenog ekrana. Ako otvorite drugu aplikaciju s Početnog ekrana dok je aplikacija umanjena, ona će se otvoriti u donjoj polovini ekrana u prikazu podijeljenog ekrana.</string>
+    <string name="recents_help_dlg_split_page2_softkey">Dodirnite dugme Početak da umanjite aplikaciju na donjoj polovini ekrana u prikazu podijeljenog ekrana. Ako otvorite drugu aplikaciju s Početnog ekrana dok je aplikacija umanjena, ona će se otvoriti u donjoj polovini ekrana u prikazu podijeljenog ekrana.</string>
+    <string name="recents_app_list_more_apps">Više aplikac.</string>
+    <string name="recents_app_list_recommendations">Preporuke</string>
+    <string name="recents_app_list_multi_window_apps">Aplik. u više prozora</string>
+    <string name="data_connection_error_toast_notification">Neophodna je Wi-Fi veza. Povežite se na Wi-Fi mrežu i pokušajte ponovno.</string>
+    <string name="data_connection_error_no_network_connection">Nema mrežne veze</string>
+    <string name="data_connection_error_flight_mode_on">Povezivanje na mobilne mreže nije moguće kada je omogućen Avionski režim. Umjesto toga, povežite se na Wi-Fi mrežu ili onemogućite Avionski režim i pokušajte ponovno.</string>
+    <string name="data_connection_error_mobile_data_off">Mobilni podaci nisu omogućeni. Umjesto toga, povežite se na Wi-Fi mrežu ili omogućite mobilne podatke, zatim pokušajte ponovno.</string>
+    <string name="data_connection_error_data_roaming_off">Prenos podataka u roamingu nije omogućen. Umjesto toga, povežite se na Wi-Fi mrežu ili omogućite prenos podataka u roamingu i pokušajte ponovno.</string>
+    <string name="data_connection_error_no_signal_no_sim">Neophodna je Wi-Fi veza. Povežite se na Wi-Fi mrežu i pokušajte ponovno.</string>
+    <string name="data_connection_error_no_signal">Signal mobilne mreže nije pronađen.</string>
+    <string name="retry">Pokušaj ponovno</string>
+    <string name="later">Kasnije</string>
+    <string name="mobile_device_warning_toast_notification">Korištenje mobilnog uređaja tokom šetnji ili vožnje može izazvati nesreću.</string>
+    <string name="flight_mode_enabled_dialog_title">Airplane mode turned on</string>
+    <string name="flight_mode_enabled_dialog_body">Unless you use Wi-Fi, you will not be able to use the Internet, Email, or other apps that require a data connection.</string>
+    <string name="flight_mode_enabled_dialog_body_volte_and_vowifi">Unless you use Wi-Fi, you will not be able to use Internet, Email, Wi-Fi Calling or other apps that require a data connection.</string>
+    <string name="popup_notification_title">Obavještenje</string>
+    <string name="mcc_setting_dialog_body">Mreža ne omogućuje informacije o datumu i vremenu. Da biste ih ručno postavili, idite na postavke datuma i vremena.</string>
+    <string name="mcc_setting_dialog_body_vzw">Date and time information is not updating automatically. Go to Settings > Date and time to set manually.</string>
+    <string name="popup_set_manually_button_vzw">Set manually</string>
+    <string name="mcc_setting_toast_notification">Izaberite vremensku zonu prije postavljanja vremena.</string>
+    <string name="sim_card_tray_water_protection_dialog_title">Provjeri ležište SIM/SD kartice</string>
+    <string name="sim_card_tray_water_protection_dialog_body">"Nije moguće detektovati SIM karticu. Vaš uređaj neće moći obavljati radnje kao što su upućivanje poziva i povezivanje na mobilne mreže.
+
+Radi zaštite od oštećenja uzrokovanih vodom, provjerite da li ste čvrsto zatvorili ležište SIM/SD kartice."</string>
+    <string name="sim_card_tray_empty_water_protection_dialog_body">Radi zaštite od oštećenja uzrokovanih vodom, provjerite da li ste čvrsto zatvorili ležište SIM/SD kartice.</string>
+    <string name="water_protection_notification_title">Provjerite priključak</string>
+    <string name="water_protection_notification_body">Detektovana je vlaga. Da biste napunili svoj uređaj, uvjerite se da je punjač/USB priključak suh.</string>
+    <string name="full_battery_title">Informacije</string>
+    <string name="full_battery_noti_text">Baterija je u potpunosti napunjena.</string>
+    <string name="cooling_title">Uređaj se pregrijava</string>
+    <string name="cooling_noti_text">Dodirnite ovdje da biste prikazali detalje.</string>
+    <string name="cooling_body">"Uređaj se pregrijava. Bit će preduzete mjere kako bi se ohladio.
+
+I dalje možete koristiti uređaj, ali:
+- ekran će možda biti zatamnjen.
+- uređaj će se možda usporiti.
+- punjenje će možda biti pauzirano.
+
+Kada se uređaj ohladi, performanse će se automatski vratiti na uobičajene."</string>
+    <string name="colling_high_level_noti_text">Nije moguće otvoriti aplikacije. Možete koristiti samo aplikacije Telefon i Kontakti.</string>
+    <string name="cooling_title_vzw">Cooling down</string>
+    <string name="cooling_noti_text_vzw">Dodirnite ovdje i saznajte više.</string>
+    <string name="cooling_body_vzw">"Your phone is getting hot, so it's taking steps to cool itself down.
+
+You can still use it, but you may notice:
+- The screen might dim.
+- The phone might slow down.
+- Charging might pause.
+
+Your phone will return to normal once it cools down."</string>
+    <string name="cooling_body_tablet_vzw">"Your tablet is getting too hot, so it’s taking steps to cool itself down.
+
+You can still use your tablet, but you may notice:
+The screen might dim.
+The tablet might slow down.
+Charging might pause.
+
+After the tablet cools down, performance willAutomatically go back to normal."</string>
+    <string name="cooling_popup_title">Uređaj se hladi</string>
+    <string name="overheat_shutdown_warning_title">Turning off</string>
+    <string name="overheat_shutdown_warning_text">"Your phone is getting hot.
+It will now turn off to cool down."</string>
+    <string name="overheat_shutdown_warning_text_tablet">Your tablet is getting too hot. It will now turn off to cool down.</string>
+    <string name="overheat_shutdown_warning_button_text">"Don't turn off"</string>
+    <string name="overheat_shutdown_notice_title">Why did my phone turn off by itself?</string>
+    <string name="overheat_shutdown_notice_title_tablet">Why did my tablet turn off by itself?</string>
+    <string name="overheat_shutdown_notice_text">"Your phone got hot. It turned off to prevent damage to the phone.
+
+This can be caused by:
+Using graphics-intensive apps, like video games and navigation apps, for long periods of time.
+Downloading or uploading large files.
+Using your phone in a very hot location."</string>
+    <string name="overheat_shutdown_notice_text_tablet">"Your tablet got too hot. It turned off to prevent damage to the tablet.
+
+Overheating can be caused by:
+Using graphics intensive apps like video games and navigation apps for long periods of time.
+Downloading or uploading large files.
+Using your tablet in a very hot location."</string>
+    <string name="overheat_poweroff_warning_title">Isključivanje uređaja</string>
+    <string name="overheat_poweroff_warning_text">Uređaj se pregrijava. Isključit će se odmah da bi se ohladio.</string>
+    <string name="overheat_poweroff_warning_text_new">Uređaj se pregrijava. Da bi se ohladio, isključit će se za sljedeći broj sekundi: %d.</string>
+    <string name="overheat_poweroff_warning_text_append">Nećete moći ponovno uključiti uređaj dok se ne ohladi.</string>
+    <string name="overheat_poweroff_warning_button_text">Ne isključuj uređaj</string>
+    <string name="overheat_poweroff_notice_title">Uređaj se automatski isključio</string>
+    <string name="overheat_poweroff_notice_text">"Uređaj se pregrijao. Isključio se da bi se spriječilo oštećenje.
+
+Pregrijavanje može nastati usljed:
+- korištenja grafički zahtjevnih aplikacija, kao što su igre i aplikacije za navigaciju, duži vremenski period.
+- prenosa velikih datoteka.
+- korištenja uređaja u izuzetno toplom okruženju."</string>
+    <string name="safe_mode_noti_title">Sigurni režim je omogućen</string>
+    <string name="safe_mode_noti_body">Dodirnite tu za onem. Sigurn. režima.</string>
+    <string name="safe_mode_alert_title">Ponovno postavite uređaj</string>
+    <string name="safe_mode_alert_body">Da bi se onemogućio Sigurni režim, uređaj će se ponovno pokrenuti. Tada će sve aplikacije biti dostupne.</string>
+    <string name="safe_mode_alert_positive_button">Ponovno pokreni sada</string>
+    <string name="safe_mode_noti_title_vzw">Safe Mode Is On</string>
+    <string name="safe_mode_noti_body_vzw">Tap to turn off Safe Mode.</string>
+    <string name="safe_mode_alert_title_vzw">Turn Off Safe Mode</string>
+    <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
+    <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
+    <string name="battery_low_sec_title">Nivo baterije %d%%</string>
+    <string name="battery_low_sec_body_in_normal_mode">Napunite uređaj ili dodirnite ovdje za omogućavanje režima Štednja energije.</string>
+    <string name="battery_low_sec_body_in_ups_mode">Priključite uređaj na punjač.</string>
+    <string name="battery_cable_charging_title">Kabl za punjenje</string>
+    <string name="battery_charging_title">Punjenje</string>
+    <string name="battery_fast_charging_title">Brzo punjenje</string>
+    <string name="battery_wireless_charging_title">Bežično punjenje</string>
+    <string name="battery_fast_wireless_charging_title">Brzo bežično punjenje</string>
+    <string name="battery_wireless_charging_disconnect_text">Bežično punjenje je pauzirano.</string>
+    <string name="battery_wireless_charging_from_cable_to_wireless_text">Prelazak sa punjenja putem kabla na bežično punjenje</string>
+    <string name="battery_cable_charging_from_wireless_to_cable_text">Prelazak sa bežičnog punjenja na punjenje putem kabla</string>
+    <string name="battery_slow_charging_title">Sporo punjenje uređaja</string>
+    <string name="battery_slow_charging_text">Za brže punjenje koristite originalni punjač.</string>
+    <string name="battery_slow_charging_toast_text">To charge faster, use the charger and cable that were provided with this phone</string>
+    <string name="battery_charging_level_and_time_text">"Punjenje: %1$d%%
+(približno %2$s do trenutka kada će se u potpunosti napuniti)"</string>
+    <string name="battery_charging_level_text">Punjenje: %d%%</string>
+    <string name="medium_power_saving_mode_notification_title">Omogućen je režim Umjerena štednja energije</string>
+    <string name="battery_saver_notification_text_time_extend">Životni vijek baterije je produžen.</string>
+    <string name="button_detail">Detalji</string>
+    <string name="battery_saver_recommend_notification_title">Nivo baterije %d%%</string>
+    <string name="battery_saver_recommend_notification_text">Napunite uređaj ili dodirnite ovdje za omogućavanje režima Štednja energije.</string>
+    <string name="button_close">Zatvori</string>
+    <string name="battery_health_interruption_title">Punjenje nije moguće</string>
+    <string name="battery_health_interruption_by_terminal_open_text">Uređaj se ne može puniti. Uvjerite se da koristite Samsung kompatibilnu bateriju i punjač, kao i da je uređaj pravilno priključen na punjač.</string>
+    <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">Punjenje je pauzirano. Temperatura baterije je previsoka.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">Punjenje je pauzirano. Temperatura baterije je preniska.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"Uređaj se prestao puniti. Temperatura baterije je previsoka. Budite pažljivi prilikom isključivanja punjača. On može biti izuzetno vruć.
+
+Isključivanjem i ponovnim priključivanjem punjača može se omogućiti normalan nastavak punjenja. Ako i dalje bude dolazilo do pregrijavanja, kontaktirajte korisničku službu jer postoji opasnost od požara ili povrede."</string>
+    <string name="incompatible_charger_title">Ne puni se.</string>
+    <string name="incompatible_charger_dialog_text">The connected charger is incompatible with this phone. To prevent damage to your phone, charging has been stopped. To continue charging, use the original charger and cable that were provided with this phone.</string>
+    <string name="incompatible_charger_notification_text">Unable to charge. Use the original charger.</string>
+    <string name="incompatible_charger_ticker">Ne puni se.</string>
+    <string name="warning_alert_check">Ne prikazuj ponovno.</string>
+    <string name="power_supplying_low_battery_alert_title">Baterija je na izmaku</string>
+    <string name="power_supplying_low_battery_alert_body">Ovaj uređaj puni drugi uređaj koji je povezan putem USB veze. Ovo povećava potrošnju baterije ovog uređaja. Uklonite USB kabl da biste zaustavili punjenje povezanog uređaja.</string>
+    <string name="kg_iris_or_fingerprint_active_instructions">Koristite otisak prsta za otvaranje ili prevucite ekran za upotrebu šarenice oka umjesto toga</string>
+    <string name="kg_iris_or_fingerprint_unlock_instructions">Koris. otisak prsta za otklj. ili prev. po ekranu za upot. šarenice</string>
+    <string name="kg_fingerprint_or_swipe_active_instructions">Koristi otisak prsta ili prevuci po ekranu za otvaranje</string>
+    <string name="kg_fingerprint_or_swipe_unlock_instructions">Koristite otisak prsta ili prevucite ekran za otključavanje</string>
+    <string name="kg_iris_unlock_instructions">Prevucite prstom da biste koristili šarenicu za otključavanje</string>
+    <string name="kg_voice_assistant_active_instructions">Prevucite dva prsta po ekranu radi otvaranja.</string>
+    <string name="kg_voice_assistant_unlock_instructions">Prevucite dva prsta preko ekrana za njegovo otključavanje.</string>
+    <string name="kg_swipe_active_instructions">Prevucite prstom po ekranu radi otvaranja</string>
+    <string name="kg_swipe_unlock_instructions">Prevuci prstom po ekranu za otključavanje</string>
+    <string name="kg_power_connect_charger">Priključite punjač</string>
+    <string name="kg_power_fully_charged">Potpuno napunjeno</string>
+    <string name="kg_power_fast_charging">Brzo punjenje: %d%%</string>
+    <string name="kg_power_charging_wirelessly">Bežično punjenje: %d%%</string>
+    <string name="kg_power_fast_charging_wirelessly">Brzo bežično punjenje: %d%%</string>
+    <string name="kg_power_charging">Punjenje: %d%%</string>
+    <string name="kg_power_charging_remaining_time">(Približno %s do pune napunjenosti)</string>
+    <string name="kg_power_time_format_hour_minute">%1$d sat %2$d min.</string>
+    <string name="kg_power_time_format_hour">%d sat</string>
+    <string name="kg_power_time_format_minute">%d minuta</string>
+    <string name="kg_smart_lock_content_description">Dodirnite dvaput i prevucite da biste zaključali uređaj.</string>
+    <string name="keyguard_skt_usim_unregistered">Unable to use USIM card. Download USIM card information.</string>
+    <string name="keyguard_missing_sim_message">Insert USIM card, then restart device</string>
+    <string name="keyguard_usim_not_used">Cannot use USIM card. Incorrect PIN unlock (PUK) code entered %d times. Purchase new USIM card.</string>
+    <string name="lockscreen_nosim_text_kor_only">"USIM card not detected
+Emergency calls only"</string>
+    <string name="qs_sfinder_search_phone">Pretraži telefon i traži obližnje uređaje</string>
+    <string name="noti_setting_text">Post. obavješ.</string>
+    <string name="dnd_noti_title">Režim Ne uznemiravaj je omogućen</string>
+    <string name="dnd_noti_message">Isključen je zvuk alarma</string>
+    <string name="dnd_noti_action_disable">Onemogući</string>
+    <string name="do_not_show_again">Ne prikazuj ponovno</string>
+    <string name="quick_settings_hongbao_assistant_label">"Hongbao
+assistant"</string>
+    <string name="hongbao_assistant_dialog_message">"Hongbao assistant will be enabled. This function will allow you to receive WeChat red envelopes more quickly and get notifications when they are received.
+A network connection is required.
+You can enable and disable this function via the quick settings panel."</string>
+    <string name="hongbao_assistant_noti_title">Hongbao assistant</string>
+    <string name="hongbao_assistant_noti_text">Receive WeChat red envelopes more quickly and get notifications when they are received. Tap here to enable this function.</string>
+    <string name="no_sim_notification_title">Nema SIM kartice</string>
+    <string name="no_sim_notification_title_tmo">Nije umetnuta SIM kartica</string>
+    <string name="no_sim_notification_title_vzw">No SIM found</string>
+    <string name="no_sim_notification_text">Umetnite SIM karticu.</string>
+    <string name="no_sim_notification_text_vzw">Tap for more information.</string>
+    <string name="accessibility_phone_four_bars">Četiri linije telefonskog signala</string>
+    <string name="quick_settings_screen_capture_label">"Capture
+screen"</string>
+    <string name="quick_settings_screen_recorder_label">"Record
+screen"</string>
+    <string name="airplane_mode_plmn">Avionski režim</string>
+    <string name="default_carrier_text_searching">Pretraživanje</string>
+    <string name="sec_data_usage_disabled_dialog_mobile_title">Mobilna podaci su onemogućeni</string>
+    <string name="sec_data_usage_disabled_dialog_mobile_title_vzw">Mobile data is now off</string>
+    <string name="sec_data_usage_disabled_dialog_body">Dostignuto je zadano ograničenje korištenja podataka. Davalac usluge može naplatiti dodatno korištenje podataka.</string>
+    <string name="sec_data_usage_disabled_dialog_body_vzw">"You've reached your specified data usage limit, so mobile data has been turned off.
+
+If you turn mobile data back on, you may be charged for data usage by your carrier."</string>
+    <string name="sec_data_usage_disabled_dialog_enable">Uklj. mob. podatke</string>
+    <string name="sec_data_usage_disabled_dialog_enable_vzw">Turn on data</string>
+    <string name="quick_panel_data_usage">Data usage</string>
+    <string name="qs_multisim_voice_preffered_btn_title">Pozivi</string>
+    <string name="qs_multisim_sms_preffered_btn_title">Tekstualne poruke</string>
+    <string name="qs_multisim_data_preffered_btn_title">Mobilni podaci</string>
+    <string name="qs_multisim_voice_ask_always">Uvijek pitaj</string>
+    <string name="qs_multisim_data_turned_off">Isključeno</string>
+    <string name="app_locked">App locked</string>
+    <string name="uhq_toast_earphone_connect_request">Connect earphones to use UHQ upscaler.</string>
+    <string name="quick_settings_uhq_mode_label">"UHQ skal.
+naviše"</string>
+    <string name="uhq_mode_noti_title">UHQ upscaler</string>
+    <string name="uhq_mode_noti_text">Poboljšaj rezoluciju zvuka muzike i video zapisa za osjećaj čišćeg zvuka tokom slušanja.</string>
+    <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
+    <string name="assistance_app_setting_item_none">Nema</string>
+    <string name="keyguard_password_enter_pin_code">Unesite PIN kod.</string>
+    <string name="keyguard_password_wrong_pin_code">Neispravan PIN kod.</string>
+    <string name="keyguard_charged">Potpuno napunjeno</string>
+    <string name="keyguard_plugged_in">Punjenje: %d%%</string>
+    <string name="keyguard_low_battery">Priključite punjač.</string>
+    <string name="keyguard_instructions_when_pattern_disabled">Pritisnite Meni za otključavanje.</string>
+    <string name="keyguard_network_locked_message">Mreža je zaključana.</string>
+    <string name="keyguard_missing_sim_message_short">Nema SIM kartice</string>
+    <string name="keyguard_sim_locked_message">SIM kartica je zaključana</string>
+    <string name="keyguard_sim_puk_locked_message">SIM kartica je zaključana PUK kodom</string>
+    <string name="keyguard_sim_unlock_progress_dialog_message">Otključavanje SIM kartice</string>
+    <string name="keyguard_accessibility_pattern_unlock">Obrazac za otključavanje</string>
+    <string name="keyboardview_keycode_enter">Unesi</string>
+    <string name="kg_forgot_pattern_button_text">Zaboravili ste obrazac?</string>
+    <string name="kg_wrong_pattern">Nacrtan je neispravan obrazac</string>
+    <string name="kg_wrong_password">Unesena je neispravna lozinka</string>
+    <string name="kg_wrong_pin">Unesen je neispravan PIN kod</string>
+    <string name="kg_too_many_failed_attempts_countdown">Probaj ponovno za %d sekundi</string>
+    <string name="kg_pattern_instructions">Nacrtajte svoj obrazac za otključavanje.</string>
+    <string name="kg_sim_pin_instructions">Unesite PIN kod za otključavanje SIM kartice.</string>
+    <string name="kg_pin_instructions">Unesi PIN kod</string>
+    <string name="kg_password_instructions">Unesi lozinku</string>
+    <string name="kg_puk_enter_puk_hint">SIM kartica je zaključana. Unesite PUK. Detalje potražite kod davaoca usluge.</string>
+    <string name="kg_puk_enter_pin_hint">Unesite novi PIN kod.</string>
+    <string name="kg_enter_confirm_pin_hint">Potvrdite novi PIN kod.</string>
+    <string name="kg_sim_unlock_progress_dialog_message">Otključavanje SIM kartice…</string>
+    <string name="kg_invalid_sim_pin_hint">Unesi PIN koji ima četiri do osam brojki</string>
+    <string name="kg_invalid_sim_puk_hint">Vaš PUK kod mora sadržavati 8 ili više cifara.</string>
+    <string name="kg_invalid_confirm_pin_hint">Uneseni PIN kodovi se ne poklapaju.</string>
+    <string name="kg_too_many_failed_pin_attempts_dialog_message">"Unesen je netačan PIN kod %1$d puta.
+
+Pokušajte ponovno za %2$d sekundi."</string>
+    <string name="kg_too_many_failed_password_attempts_dialog_message">Unesena je netačna lozinka %1$d puta. Pokušajte ponovno za %2$d sekundi.</string>
+    <string name="kg_too_many_failed_pattern_attempts_dialog_message">%1$d neuspješnih pokušaja otključavanja uređaja. Pokušajte ponovno za %2$d sekundi.</string>
+    <string name="kg_failed_attempts_almost_at_wipe">Unijeli ste netačnu lozinku. Preostalo vam je još %d pokušaja prije nego što se uređaj ponovno postavi na fabrički zadane vrijednosti i svi podaci izbrišu.</string>
+    <string name="kg_sec_1_failed_attempt_almost_at_wipe">Pokušali ste otključati uređaj. Preostalo vam je još %d pokušaja prije nego što se uređaj ponovno postavi na fabrički zadane postavke i svi podaci izbrišu, uključujući fajlove i preuzete aplikacije.</string>
+    <string name="kg_sec_failed_attempts_almost_at_wipe">Pokušali ste otključati uređaj %1$d puta. Preostalo vam je još %2$d pokušaja prije nego što se uređaj ponovno postaviti na fabrički zadane postavke i svi podaci izbrišu, uključujući fajlove i preuzete aplikacije.</string>
+    <string name="kg_sec_1_remaing_count_almost_at_wipe">Pokušali ste %d puta otključati uređaj. Preostao vam je još jedan pokušaj prije nego što se uređaj ponovno postavi na fabrički zadane postavke i svi podaci izbrišu, uključujući fajlove i preuzete aplikacije.</string>
+    <string name="kg_pin_accepted">Kod je prihvaćen.</string>
+    <string name="keyguard_carrier_default">Nema usluge</string>
+    <string name="kg_sim_locked_message">SIM kartica je zaključana</string>
+    <string name="kg_missing_sim_message_short">Nema SIM kartice</string>
+    <string name="kg_default_carrier_text_searching">Pretraživanje</string>
+    <string name="kg_perso_locked_message">Block other USIM</string>
+    <string name="kg_pin_locked_message">Enter PIN</string>
+    <string name="kg_puk_locked_message">Enter PUK</string>
+    <string name="kg_flight_mode">Avionski režim</string>
+    <string name="kg_lockscreen_emergency_call_button_text">Pozivi u hitnim slučajevima</string>
+    <string name="keyguard_dualclock_locale_view_home">Kuća</string>
+    <string name="keyguard_dualclock_locale_view_roaming">Roaming</string>
+    <string name="keyguard_dualclock_locale_view_seoul">Seoul</string>
+    <string name="keyguard_dualclock_locale_view_korea">Roaming</string>
+    <string name="kg_wrong_direction_lock">Nacrtan je netačan pravac</string>
+    <string name="kg_direction_lock_instructions_normal_mode">Nacrtaj niz pravaca za otključavanje ekrana</string>
+    <string name="keyguard_accessibility_direction_lock_unlock">Pravac zaključavanja</string>
+    <string name="kg_wrong_direction_lock_vzw">Incorrect directions (%d attempts remaining)</string>
+    <string name="direction_lock_too_many_failed_attempts_countdown">Probaj ponovno za %d sekundi</string>
+    <string name="kg_iris_direction_instructions">Koristite šarenicu oka ili nacrtajte niz pravaca</string>
+    <string name="kg_1_attempt_remaining">(1 pokušaj je preostao)</string>
+    <string name="kg_n_attempts_remaining">(preostalo je %d pokušaja)</string>
+    <string name="kg_multi_biometrics_strong_auth_prompt_reason_restarting_universal_lock">Vaš uređaj je ponovno pokrenut i treba ga otključati pomoću niza pravaca. Sljedeći put kada budete otključavali uređaj možete koristiti biometriju.</string>
+    <string name="kg_iris_strong_auth_prompt_reason_restarting_universal_lock">Vaš uređaj je ponovno pokrenut i treba ga otključati pomoću niza pravaca. Sljedeći put kada budete otključavali uređaj možete koristiti šarenice očiju.</string>
+    <string name="kg_multi_biometrics_prompt_reason_timeout_universal_lock_strong_auth">Nacrtajte niz pravaca umjesto da koristite biometrijsko prepoznavanje zbog pravila sigurnosti</string>
+    <string name="kg_iris_strong_auth_prompt_reason_universal_lock_security_policy">Nacrtajte niz pravaca umjesto da koristite prepoznavanje šarenice oka zbog pravila sigurnosti</string>
+    <string name="kg_multi_biometrics_strong_auth_prompt_reason_24_timeout_universal_lock">Niste koristili uređaj duže od 24 sata i treba ga otključati pomoću niza pravaca. Sljedeći put kada budete otključavali uređaj možete koristiti biometriju.</string>
+    <string name="kg_iris_strong_auth_prompt_reason_24_timeout_universal_lock">Niste koristili uređaj duže od 24 sata i treba ga otključati pomoću niza pravaca. Sljedeći put kada budete otključavali uređaj možete koristiti šarenice očiju.</string>
+    <string name="kg_none_pin_none_frp">"If you do not enter the correct PIN within the next %d attempts, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_none_pin_1_frp">"If you do not enter the correct PIN in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_tablet_pin_none_frp">"If you do not enter the correct PIN within the next %d attempts, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_tablet_pin_1_frp">"If you do not enter the correct PIN in the next attempt, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_none_pattern_none_frp">"If you do not enter the correct pattern within the next %d attempts, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_none_pattern_1_frp">"If you do not enter the correct pattern in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_tablet_pattern_none_frp">"If you do not draw the correct pattern within the next %d attempts, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_tablet_pattern_1_frp">"If you do not draw the correct pattern in the next attempt, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_none_password_none_frp">"If you do not enter the correct password within the next %d attempts, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_none_password_1_frp">"If you do not enter the correct password in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_tablet_password_none_frp">"If you do not enter the correct password within the next %d attempts, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_tablet_password_1_frp">"If you do not enter the correct password in the next attempt, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_none_direction_none_frp">"If you do not draw the correct series of directions within the next %d attempts, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_none_direction_1_frp">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_tablet_direction_none_frp">"If you do not draw the correct series of directions within the next %d attempts, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_tablet_direction_1_frp">"If you do not draw the correct series of directions in the next attempt, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_warning_none_1_none_auto_wipe">There has been 1 attempt to unlock this phone. You have %d attempts left before the phone is reset to factory default settings and all data is erased, including files and downloaded apps.</string>
+    <string name="kg_warning_tablet_1_none_auto_wipe">There has been 1 attempt to unlock this tablet. You have %d attempts left before the tablet is reset to factory default settings and all data is erased, including files and downloaded apps.</string>
+    <string name="kg_warning_none_none_none_auto_wipe">There have been %1$d attempts to unlock this phone. You have %2$d attempts left before the phone is reset to factory default settings and all data is erased, including files and downloaded apps.</string>
+    <string name="kg_warning_tablet_none_none_auto_wipe">There have been %1$d attempts to unlock this tablet. You have %2$d attempts left before the tablet is reset to factory default settings and all data is erased, including files and downloaded apps.</string>
+    <string name="kg_warning_none_none_1_auto_wipe">There have been %d attempts to unlock this phone. You have 1 attempt left before the phone is reset to factory default settings and all data is erased, including files and downloaded apps.</string>
+    <string name="kg_warning_tablet_none_1_auto_wipe">There have been %d attempts to unlock this tablet. You have 1 attempt left before the tablet is reset to factory default settings and all data is erased, including files and downloaded apps.</string>
+    <string name="kg_multi_pin_none_instructions">Koristite otisak prsta ili šarenicu oka, ili unesite PIN kod</string>
+    <string name="kg_multi_pin_active_instructions">Koristite otisak prsta ili šarenicu oka, ili unesite PIN kod da biste otvorili</string>
+    <string name="kg_multi_pin_shutdown_instructions">Koristi otisak prsta ili šarenice očiju, ili unesi PIN za isključivanje</string>
+    <string name="kg_fingerprint_pin_none_instructions">Koristite otisak prsta ili unesite PIN kod</string>
+    <string name="kg_fingerprint_pin_active_instructions">Koristite otisak prsta ili unesite PIN kod da biste otvorili</string>
+    <string name="kg_fingerprint_pin_shutdown_instructions">Koristi otisak prsta ili unesi PIN za isključivanje</string>
+    <string name="kg_iris_pin_none_instructions">Koristite šarenicu oka ili unesite PIN kod</string>
+    <string name="kg_iris_pin_active_instructions">Koristite šarenicu oka ili unesite PIN kod da biste otvorili</string>
+    <string name="kg_iris_pin_shutdown_instructions">Koristi šarenicu oka ili unesi PIN za isključivanje</string>
+    <string name="kg_none_pin_none_instructions">Unesi PIN kod</string>
+    <string name="kg_none_pin_active_instructions">Unesi PIN za otvaranje</string>
+    <string name="kg_none_pin_shutdown_instructions">Unesi PIN za isključivanje</string>
+    <string name="kg_multi_pattern_none_instructions">Koristite otisak prsta ili šarenicu oka, ili nacrtajte obrazac</string>
+    <string name="kg_multi_pattern_active_instructions">Koristite otisak prsta ili šarenicu oka, ili nacrtajte obrazac da biste otvorili</string>
+    <string name="kg_multi_pattern_shutdown_instructions">Koristi otisak prsta ili šarenice očiju, ili nacrtaj obrazac za isključivanje</string>
+    <string name="kg_fingerprint_pattern_none_instructions">Koristite otisak prsta ili nacrtajte obrazac za otključavanje</string>
+    <string name="kg_fingerprint_pattern_active_instructions">Koristite otisak prsta ili nacrtajte obrazac da biste otvorili</string>
+    <string name="kg_fingerprint_pattern_shutdown_instructions">Koristi otisak prsta ili nacrtaj obrazac za isključivanje</string>
+    <string name="kg_iris_pattern_none_instructions">Koristite šarenicu oka ili nacrtajte obrazac</string>
+    <string name="kg_iris_pattern_active_instructions">Koristite šarenicu oka ili nacrtajte obrazac da biste otvorili</string>
+    <string name="kg_iris_pattern_shutdown_instructions">Koristi šarenicu oka ili nacrtaj obrazac za isključivanje</string>
+    <string name="kg_none_pattern_none_instructions">Nacrtaj obrazac za otključavanje</string>
+    <string name="kg_none_pattern_active_instructions">Za otvaranje nacrtajte obrazac za otključavanje</string>
+    <string name="kg_none_pattern_shutdown_instructions">Nacrtaj obrazac za isključivanje</string>
+    <string name="kg_multi_password_none_instructions">Koristite otisak prsta ili šarenicu oka, ili unesite lozinku</string>
+    <string name="kg_multi_password_active_instructions">Koristite otisak prsta ili šarenicu oka, ili unesite lozinku da biste otvorili</string>
+    <string name="kg_multi_password_shutdown_instructions">Koristi otisak prsta ili šarenice očiju, ili unesi lozinku za isključivanje</string>
+    <string name="kg_fingerprint_password_none_instructions">Koristite otisak prsta ili unesite lozinku</string>
+    <string name="kg_fingerprint_password_active_instructions">Koristite otisak prsta ili unesite lozinku da biste otvorili</string>
+    <string name="kg_fingerprint_password_shutdown_instructions">Koristi otisak prsta ili unesi lozinku za isključivanje</string>
+    <string name="kg_iris_password_none_instructions">Koristite šarenicu oka ili unesite lozinku</string>
+    <string name="kg_iris_password_active_instructions">Koristite šarenicu oka ili unesite lozinku da biste otvorili</string>
+    <string name="kg_iris_password_shutdown_instructions">Koristi šarenicu oka ili unesi lozinku za isključivanje</string>
+    <string name="kg_none_password_none_instructions">Unesi lozinku</string>
+    <string name="kg_none_password_active_instructions">Unesi lozinku za otvaranje</string>
+    <string name="kg_none_password_shutdown_instructions">Unesi lozinku za isključivanje</string>
+    <string name="kg_multi_direction_none_instructions">Koristite otisak prsta ili šarenicu očiju, ili nacrtajte niz pravaca</string>
+    <string name="kg_multi_direction_active_instructions">Za otvaranje koristite otisak prsta ili šarenicu očiju, ili nacrtajte niz pravaca</string>
+    <string name="kg_multi_direction_shutdown_instructions">Koristi otisak prsta ili šarenice očiju, ili nacrtaj niz pravaca za isključivanje</string>
+    <string name="kg_fingerprint_direction_none_instructions">Koristite otisak prsta ili nacrtajte niz pravaca</string>
+    <string name="kg_fingerprint_direction_active_instructions">Za otvaranje koristite otisak prsta ili nacrtajte niz pravaca</string>
+    <string name="kg_fingerprint_direction_shutdown_instructions">Koristi otisak prsta ili nacrtaj niz pravaca za isključivanje</string>
+    <string name="kg_iris_direction_none_instructions">Koristite šarenicu oka ili nacrtajte niz pravaca</string>
+    <string name="kg_iris_direction_active_instructions">Za otvaranje koristite šarenicu očiju ili nacrtajte niz pravaca</string>
+    <string name="kg_iris_direction_shutdown_instructions">Koristi šarenicu oka ili nacrtaj niz pravaca za isključivanje</string>
+    <string name="kg_none_direction_none_instructions">Nacrtaj niz pravaca za otključavanje ekrana</string>
+    <string name="kg_none_direction_active_instructions">Nacrtaj niz pravaca za otvaranje</string>
+    <string name="kg_none_direction_shutdown_instructions">Nacrtaj niz pravaca za isključivanje</string>
+    <string name="kg_none_multi_pin_restart_instructions">Vaš uređaj je ponovno pokrenut i treba ga otključati pomoću PIN koda. Sljedeći put kada budete otključavali uređaj možete koristiti biometriju.</string>
+    <string name="kg_tablet_multi_pin_restart_instructions">Vaš uređaj je ponovno pokrenut i treba ga otključati pomoću PIN koda. Sljedeći put kada budete otključavali uređaj možete koristiti biometriju.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">Vaš uređaj je ponovno pokrenut i treba ga otključati pomoću PIN koda. Sljedeći put kada budete otključavali uređaj možete koristiti otiske prstiju.</string>
+    <string name="kg_tablet_fingerprint_pin_restart_instructions">Vaš uređaj je ponovno pokrenut i treba ga otključati pomoću PIN koda. Sljedeći put kada budete otključavali uređaj možete koristiti otiske prstiju.</string>
+    <string name="kg_none_iris_pin_restart_instructions">Vaš uređaj je ponovno pokrenut i treba ga otključati pomoću PIN koda. Sljedeći put kada budete otključavali uređaj možete koristiti šarenice očiju.</string>
+    <string name="kg_tablet_iris_pin_restart_instructions">Vaš uređaj je ponovno pokrenut i treba ga otključati pomoću PIN koda. Sljedeći put kada budete otključavali uređaj možete koristiti šarenice očiju.</string>
+    <string name="kg_none_multi_pin_timeout_instructions">Niste koristili uređaj duže od 24 sata i treba ga otključati pomoću PIN-a. Sljedeći put kada budete otključavali uređaj možete koristiti biometriju.</string>
+    <string name="kg_tablet_multi_pin_timeout_instructions">Niste koristili uređaj duže od 24 sata i treba ga otključati pomoću PIN-a. Sljedeći put kada budete otključavali uređaj možete koristiti biometriju.</string>
+    <string name="kg_none_fingerprint_pin_timeout_instructions">Niste koristili uređaj duže od 24 sata i treba ga otključati pomoću PIN-a. Sljedeći put kada budete otključavali uređaj možete koristiti otiske prstiju.</string>
+    <string name="kg_tablet_fingerprint_pin_timeout_instructions">Niste koristili uređaj duže od 24 sata i treba ga otključati pomoću PIN-a. Sljedeći put kada budete otključavali uređaj možete koristiti otiske prstiju.</string>
+    <string name="kg_none_iris_pin_timeout_instructions">Niste koristili uređaj duže od 24 sata i treba ga otključati pomoću PIN-a. Sljedeći put kada budete otključavali uređaj možete koristiti šarenice očiju.</string>
+    <string name="kg_tablet_iris_pin_timeout_instructions">Niste koristili uređaj duže od 24 sata i treba ga otključati pomoću PIN-a. Sljedeći put kada budete otključavali uređaj možete koristiti šarenice očiju.</string>
+    <string name="kg_none_multi_pin_deviceadmin_instructions">Unesite PIN kod umjesto da koristite biometrijsko prepoznavanje zbog pravila sigurnosti</string>
+    <string name="kg_none_fingerprint_pin_deviceadmin_instructions">Unesite PIN kod umjesto da koristite prepoznavanje otiska prsta zbog pravila sigurnosti</string>
+    <string name="kg_none_iris_pin_deviceadmin_instructions">Unesite PIN kod umjesto da koristite prepoznavanje šarenice oka zbog pravila sigurnosti</string>
+    <string name="kg_none_multi_pattern_restart_instructions">Vaš uređaj je ponovno pokrenut i treba ga otključati pomoću obrasca. Sljedeći put kada budete otključavali uređaj možete koristiti biometriju.</string>
+    <string name="kg_tablet_multi_pattern_restart_instructions">Vaš uređaj je ponovno pokrenut i treba ga otključati pomoću obrasca. Sljedeći put kada budete otključavali uređaj možete koristiti biometriju.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">Vaš uređaj je ponovno pokrenut i treba ga otključati pomoću obrasca. Sljedeći put kada budete otključavali uređaj možete koristiti otiske prstiju.</string>
+    <string name="kg_tablet_fingerprint_pattern_restart_instructions">Vaš uređaj je ponovno pokrenut i treba ga otključati pomoću obrasca. Sljedeći put kada budete otključavali uređaj možete koristiti otiske prstiju.</string>
+    <string name="kg_none_iris_pattern_restart_instructions">Vaš uređaj je ponovno pokrenut i treba ga otključati pomoću obrasca. Sljedeći put kada budete otključavali uređaj možete koristiti šarenice očiju.</string>
+    <string name="kg_tablet_iris_pattern_restart_instructions">Vaš uređaj je ponovno pokrenut i treba ga otključati pomoću obrasca. Sljedeći put kada budete otključavali uređaj možete koristiti šarenice očiju.</string>
+    <string name="kg_none_multi_pattern_timeout_instructions">Niste koristili uređaj duže od 24 sata i treba ga otključati pomoću obrasca. Sljedeći put kada budete otključavali uređaj možete koristiti biometriju.</string>
+    <string name="kg_tablet_multi_pattern_timeout_instructions">Niste koristili uređaj duže od 24 sata i treba ga otključati pomoću obrasca. Sljedeći put kada budete otključavali uređaj možete koristiti biometriju.</string>
+    <string name="kg_none_fingerprint_pattern_timeout_instructions">Niste koristili uređaj duže od 24 sata i treba ga otključati pomoću obrasca. Sljedeći put kada budete otključavali uređaj možete koristiti otiske prstiju.</string>
+    <string name="kg_tablet_fingerprint_pattern_timeout_instructions">Niste koristili uređaj duže od 24 sata i treba ga otključati pomoću obrasca. Sljedeći put kada budete otključavali uređaj možete koristiti otiske prstiju.</string>
+    <string name="kg_none_iris_pattern_timeout_instructions">Niste koristili uređaj duže od 24 sata i treba ga otključati pomoću obrasca. Sljedeći put kada budete otključavali uređaj možete koristiti šarenice očiju.</string>
+    <string name="kg_tablet_iris_pattern_timeout_instructions">Niste koristili uređaj duže od 24 sata i treba ga otključati pomoću obrasca. Sljedeći put kada budete otključavali uređaj možete koristiti šarenice očiju.</string>
+    <string name="kg_none_multi_pattern_deviceadmin_instructions">Nacrtajte obrazac umjesto da koristite biometrijsko prepoznavanje zbog pravila sigurnosti</string>
+    <string name="kg_none_fingerprint_pattern_deviceadmin_instructions">Nacrtajte obrazac umjesto da koristite prepoznavanje otiska prsta zbog pravila sigurnosti</string>
+    <string name="kg_none_iris_pattern_deviceadmin_instructions">Nacrtajte obrazac umjesto da koristite prepoznavanje šarenice oka zbog pravila sigurnosti</string>
+    <string name="kg_none_multi_password_restart_instructions">Vaš uređaj je ponovo pokrenut i treba ga otključati pomoću lozinke. Sljedeći put kada budete otključavali uređaj možete koristiti biometriju.</string>
+    <string name="kg_tablet_multi_password_restart_instructions">Vaš uređaj je ponovo pokrenut i treba ga otključati pomoću lozinke. Sljedeći put kada budete otključavali uređaj možete koristiti biometriju.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">Vaš uređaj je ponovno pokrenut i treba ga otključati pomoću lozinke. Sljedeći put kada budete otključavali uređaj možete koristiti otiske prstiju.</string>
+    <string name="kg_tablet_fingerprint_password_restart_instructions">Vaš uređaj je ponovno pokrenut i treba ga otključati pomoću lozinke. Sljedeći put kada budete otključavali uređaj možete koristiti otiske prstiju.</string>
+    <string name="kg_none_iris_password_restart_instructions">Vaš uređaj je ponovno pokrenut i treba ga otključati pomoću lozinke. Sljedeći put kada budete otključavali uređaj možete koristiti šarenice očiju.</string>
+    <string name="kg_tablet_iris_password_restart_instructions">Vaš uređaj je ponovno pokrenut i treba ga otključati pomoću lozinke. Sljedeći put kada budete otključavali uređaj možete koristiti šarenice očiju.</string>
+    <string name="kg_none_multi_password_timeout_instructions">Niste koristili uređaj duže od 24 sata i treba ga otključati pomoću lozinke. Sljedeći put kada budete otključavali uređaj možete koristiti biometriju.</string>
+    <string name="kg_tablet_multi_password_timeout_instructions">Niste koristili uređaj duže od 24 sata i treba ga otključati pomoću lozinke. Sljedeći put kada budete otključavali uređaj možete koristiti biometriju.</string>
+    <string name="kg_none_fingerprint_password_timeout_instructions">Niste koristili uređaj duže od 24 sata i treba ga otključati pomoću lozinke. Sljedeći put kada budete otključavali uređaj možete koristiti otiske prstiju.</string>
+    <string name="kg_tablet_fingerprint_password_timeout_instructions">Niste koristili uređaj duže od 24 sata i treba ga otključati pomoću lozinke. Sljedeći put kada budete otključavali uređaj možete koristiti otiske prstiju.</string>
+    <string name="kg_none_iris_password_timeout_instructions">Niste koristili uređaj duže od 24 sata i treba ga otključati pomoću lozinke. Sljedeći put kada budete otključavali uređaj možete koristiti šarenice očiju.</string>
+    <string name="kg_tablet_iris_password_timeout_instructions">Niste koristili uređaj duže od 24 sata i treba ga otključati pomoću lozinke. Sljedeći put kada budete otključavali uređaj možete koristiti šarenice očiju.</string>
+    <string name="kg_none_multi_password_deviceadmin_instructions">Unesite lozinku umjesto da koristite biometrijsko prepoznavanje zbog pravila sigurnosti</string>
+    <string name="kg_none_fingerprint_password_deviceadmin_instructions">Unesite lozinku umjesto da koristite prepoznavanje otiska prsta zbog pravila sigurnosti</string>
+    <string name="kg_none_iris_password_deviceadmin_instructions">Unesite lozinku umjesto da koristite prepoznavanje šarenice oka zbog pravila sigurnosti</string>
+    <string name="kg_none_multi_direction_restart_instructions">Vaš uređaj je ponovno pokrenut i treba ga otključati pomoću niza pravaca. Sljedeći put kada budete otključavali uređaj možete koristiti biometriju.</string>
+    <string name="kg_tablet_multi_direction_restart_instructions">Vaš uređaj je ponovno pokrenut i treba ga otključati pomoću niza pravaca. Sljedeći put kada budete otključavali uređaj možete koristiti biometriju.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">Vaš uređaj je ponovno pokrenut i treba ga otključati pomoću niza pravaca. Sljedeći put kada budete otključavali uređaj možete koristiti otiske prstiju.</string>
+    <string name="kg_tablet_fingerprint_direction_restart_instructions">Vaš uređaj je ponovno pokrenut i treba ga otključati pomoću niza pravaca. Sljedeći put kada budete otključavali uređaj možete koristiti otiske prstiju.</string>
+    <string name="kg_none_iris_direction_restart_instructions">Vaš uređaj je ponovno pokrenut i treba ga otključati pomoću niza pravaca. Sljedeći put kada budete otključavali uređaj možete koristiti šarenice očiju.</string>
+    <string name="kg_tablet_iris_direction_restart_instructions">Vaš uređaj je ponovno pokrenut i treba ga otključati pomoću niza pravaca. Sljedeći put kada budete otključavali uređaj možete koristiti šarenice očiju.</string>
+    <string name="kg_none_multi_direction_timeout_instructions">Niste koristili uređaj duže od 24 sata i treba ga otključati pomoću niza pravaca. Sljedeći put kada budete otključavali uređaj možete koristiti biometriju.</string>
+    <string name="kg_tablet_multi_direction_timeout_instructions">Niste koristili uređaj duže od 24 sata i treba ga otključati pomoću niza pravaca. Sljedeći put kada budete otključavali uređaj možete koristiti biometriju.</string>
+    <string name="kg_none_fingerprint_direction_timeout_instructions">Niste koristili uređaj duže od 24 sata i treba ga otključati pomoću niza pravaca. Sljedeći put kada budete otključavali uređaj možete koristiti otiske prstiju.</string>
+    <string name="kg_tablet_fingerprint_direction_timeout_instructions">Niste koristili uređaj duže od 24 sata i treba ga otključati pomoću niza pravaca. Sljedeći put kada budete otključavali uređaj možete koristiti otiske prstiju.</string>
+    <string name="kg_none_iris_direction_timeout_instructions">Niste koristili uređaj duže od 24 sata i treba ga otključati pomoću niza pravaca. Sljedeći put kada budete otključavali uređaj možete koristiti šarenice očiju.</string>
+    <string name="kg_tablet_iris_direction_timeout_instructions">Niste koristili uređaj duže od 24 sata i treba ga otključati pomoću niza pravaca. Sljedeći put kada budete otključavali uređaj možete koristiti šarenice očiju.</string>
+    <string name="kg_none_multi_direction_deviceadmin_instructions">Nacrtajte niz pravaca umjesto da koristite biometrijsko prepoznavanje zbog pravila sigurnosti</string>
+    <string name="kg_none_fingerprint_direction_deviceadmin_instructions">Nacrtajte niz pravaca umjesto da koristite prepoznavanje otisaka prstiju zbog pravila sigurnosti</string>
+    <string name="kg_none_iris_direction_deviceadmin_instructions">Nacrtajte niz pravaca umjesto da koristite prepoznavanje šarenice oka zbog pravila sigurnosti</string>
+    <string name="kg_none_recovery_none_instructions">Unesite lozinku za oporavak da biste otključali.</string>
+    <string name="kg_incorrect_pattern">Nacrtan je neispravan obrazac</string>
+    <string name="kg_incorrect_password">Unesena je neispravna lozinka</string>
+    <string name="kg_incorrect_pin">Unesen je neispravan PIN kod</string>
+    <string name="kg_pin_sub_instructions">Vaš PIN kod mora sadržavati barem %d broj(ev)a.</string>
+    <string name="kg_password_sub_instructions">Lozinka mora sadržavati najmanje %d karaktera, uključujući najmanje jedno slovo.</string>
+    <string name="card_crash">Kvar na SIM kartici</string>
+    <string name="kg_unlock_sim_pin_instructions">Unesite PIN kod za otključavanje SIM kartice.</string>
+    <string name="kg_unlock_sim_pin_remaining_1_attempt">Unesite PIN kod za otključavanje SIM kartice. Preostao je 1 pokušaj.</string>
+    <string name="kg_unlock_sim_pin_remaining_attempts">Unesite PIN kod za otključavanje SIM kartice. Preostalo je pokušaja: %d.</string>
+    <string name="kg_password_wrong_pin_code_one">Unijeli ste neispravan PIN kod SIM kartice. Imate još jedan pokušaj.</string>
+    <string name="kg_password_wrong_pin_code_other">Unijeli ste neispravan PIN kod SIM kartice. Preostalo vam je još %d pokušaja.</string>
+    <string name="kg_sim_puk_instructions">SIM kartica je zaključana. Unesite PUK kod. Detalje potražite kod davaoca usluge.</string>
+    <string name="kg_sim_puk_remaining_1_attempt">Ako više puta unesete neispravan PUK 1, SIM će se zaključati.</string>
+    <string name="kg_sim_puk_remaining_attempts">Ako više puta unesete neispravan PUK %d, SIM će se zaključati.</string>
+    <string name="kg_sec_sim_unlock_progress_dialog_message">Otključavanje SIM kartice…</string>
+    <string name="kg_skt_sim_perso_instructions">Enter USIM card unlock PIN (4 digits)</string>
+    <string name="kg_ktt_sim_perso_instructions">Enter 4- to 8-digit password (PIN)</string>
+    <string name="kg_kor_sim_unlock_progress_dialog_message">Otključavanje SIM kartice</string>
+    <string name="kg_empty_sim_perso_hint">No password entered. Enter password (PIN).</string>
+    <string name="kg_password_perso_failed">Incorrect PIN. Check PIN and try again.</string>
+    <string name="kg_password_perso_max_failed">Incorrect PIN entered for USIM card lock. Maximum number of retries reached. Restart device or visit CS centre.</string>
+    <string name="kg_sim_pin_remaining_1_attempt">Preostao vam je jedan pokušaj.</string>
+    <string name="kg_sim_pin_remaining_attempts">Imaš još %d pokušaja.</string>
+    <string name="kg_kor_sim_pin_instructions">Enter USIM card unlock PIN (4 to 8 digits)</string>
+    <string name="kg_kor_password_wrong_pin_code">An incorrect PIN has been entered. %d attempts are remaining. Contact customer services.</string>
+    <string name="kg_kor_sim_puk_instructions">Enter the PUK.</string>
+    <string name="kg_kor_invalid_sim_puk_hint">Enter 8-digit PIN unlock (PUK) code</string>
+    <string name="kg_kor_empty_sim_puk_hint">No PIN unlock (PUK) code entered. Try again.</string>
+    <string name="kg_kor_puk_enter_pin_hint">"Create a new USIM card PIN.
+The PIN must be 4 to 8 digits long."</string>
+    <string name="kg_kor_enter_confirm_pin_hint">Enter the USIM card PIN again to confirm it.</string>
+    <string name="kg_kor_invalid_confirm_pin_hint">The new PINs do not match.</string>
+    <string name="kg_kor_wrong_puk_code">Unlock code input error</string>
+    <string name="kg_kor_sim_puk_remaining_attempts">"An incorrect PUK has been entered %1$d times. If an incorrect PUK is entered %2$d more times, the USIM card will be permanently blocked.
+
+If you do not know your PUK, visit a customer service centre."</string>
+    <string name="kg_kor_success_pin_message">New password (PIN) saved successfully.</string>
+    <string name="kg_ctc_unlock_sim_pin_instructions">Enter UIM/SIM card unlock PIN</string>
+    <string name="kg_ctc_sim_puk_instructions">UIM/SIM card locked. Enter PUK. Contact service provider for details.</string>
+    <string name="kg_ctc_puk_enter_pin_hint">Enter new UIM/SIM card unlock PIN</string>
+    <string name="kg_ctc_enter_confirm_pin_hint">Enter new UIM/SIM card unlock PIN again to confirm it</string>
+    <string name="kg_ctc_sim_unlock_progress_dialog_message">Unlocking UIM/SIM card…</string>
+    <string name="kg_ctc_password_wrong_pin_code_one">Incorrect UIM/SIM card PIN entered. 1 attempt left.</string>
+    <string name="kg_ctc_password_wrong_pin_code_other">Incorrect UIM/SIM card PIN entered. %d attempts left.</string>
+    <string name="kg_ctc_sim_puk_remaining_1_attempt">Incorrect PUK entered. If incorrect PUK is entered 1 more time, UIM/SIM card will be locked.</string>
+    <string name="kg_ctc_sim_puk_remaining_attempts">Incorrect PUK entered. If incorrect PUK is entered %d more times, UIM/SIM card will be permanently locked.</string>
+    <string name="kg_dcm_sim_puk_instructions">PIN kod je blokiran. Unesite PUK kod za nastavak.</string>
+    <string name="kg_sim_lock_accepted">Kod je prihvaćen.</string>
+    <string name="kg_carrier_lock_wrong_password">Unijeli ste neispravnu lozinku.</string>
+    <string name="kg_carrier_lock_too_many_failed_attempts">Lozinka je neispravno unesena pet puta. Pokušajte ponovno za deset minuta.</string>
+    <string name="keyguard_fmm_phone_locked_title">Telefon je zaključan.</string>
+    <string name="keyguard_fmm_owner_phone">Broj vlasnika</string>
+    <string name="keyguard_accessibility_call">Poziv</string>
+    <string name="kg_fingerprint_no_match">Nema podudaranja</string>
+    <string name="kg_finger_print_not_responding_error_message">Senzor za otisak prsta ne reaguje. Pokušajte ponovno kasnije.</string>
+    <string name="kg_finger_print_database_error_message">Podaci o otiscima prstiju su oštećeni. Ponovno postavite opciju Otisak prsta kao vrstu zaključavanja ekrana, zatim ponovno dodajte svoje otiske prstiju ili promijenite vrstu zaključavanja ekrana.</string>
+    <string name="kg_finger_print_sensor_with_recalibration_error_message">Uvjerite se da je tipka Početak čista i suha, zatim pokušajte ponovno.</string>
+    <string name="kg_finger_print_sensor_changed_error_message">Senzor otiska prsta nije promijenjen pravilno. Kontaktirajte korisničku službu.</string>
+    <string name="kg_fingerprints_direction_instructions">Koristite otisak prsta ili nacrtajte niz pravaca</string>
+    <string name="kg_fingerprints_direction_bouncer_instructions">Za otvaranje koristite otisak prsta ili nacrtajte niz pravaca</string>
+    <string name="kg_strong_auth_prompt_reason_timeout_direction_lock">Niste koristili uređaj duže od 24 sata i treba ga otključati pomoću niza pravaca. Sljedeći put kada budete otključavali uređaj možete koristiti otiske prstiju.</string>
+    <string name="kg_fingerprints_direction_unabled_instructions">Vaš uređaj je ponovno pokrenut i treba ga otključati pomoću niza pravaca. Sljedeći put kada budete otključavali uređaj možete koristiti otiske prstiju.</string>
+    <string name="kg_prompt_reason_timeout_universal_lock_strong_auth">Nacrtajte niz pravaca umjesto da koristite prepoznavanje otisaka prstiju zbog pravila sigurnosti</string>
+    <string name="kg_tablet_strong_auth_prompt_reason_timeout_direction_lock">Niste koristili uređaj duže od 24 sata i treba ga otključati pomoću niza pravaca. Sljedeći put kada budete otključavali uređaj možete koristiti otiske prstiju.</string>
+    <string name="kg_tablet_fingerprints_direction_unabled_instructions">Vaš uređaj je ponovno pokrenut i treba ga otključati pomoću niza pravaca. Sljedeći put kada budete otključavali uređaj možete koristiti otiske prstiju.</string>
+    <string name="keyguard_progress_erasing_all">Deleting all data…</string>
+    <string name="iris_guide_str_enable_toggle">Dod. ovd. za korišt. šarenice</string>
+    <string name="kg_login_username_hint">Korisničko ime (e-pošta)</string>
+    <string name="kg_login_password_hint">Lozinka</string>
+    <string name="kg_login_submit_button">Prijava</string>
+    <string name="kg_login_invalid_input">Nevažeće korisničko ime ili lozinka.</string>
+    <string name="no_network_connection">Nema mrežne veze</string>
+    <string name="kg_forgot_spass_button_text">Samsung račun</string>
+    <string name="kg_login_checking_password">Checking account…</string>
+    <string name="kg_too_many_failed_attempts_countdown_mins_with_auto_wipe">"Pokušali ste %1$d puta da otključate uređaj. Preostalo vam je još %2$d pokušaja prije vraćanja uređaja na fabrički zadane postavke i brisanja svih podataka.
+
+Pokušajte ponovno za %3$d minuta"</string>
+    <string name="kg_too_many_failed_attempts_countdown_secs_with_auto_wipe">"Pokušali ste %1$d puta otključati uređaj. Preostalo vam je još %2$d pokušaja prije nego što se uređaj ponovno postavi na fabrički zadane postavke i svi podaci izbrišu.
+
+Pokušajte ponovno za %3$d sekunde/i"</string>
+    <string name="kg_too_many_failed_attempts_countdown_1_min_with_auto_wipe">"Pokušali ste %1$d puta da otključate uređaj. Preostalo vam je još %2$d pokušaja prije vraćanja uređaja na fabrički zadane postavke i brisanja svih podataka.
+
+Pokušajte ponovno za 1 minut"</string>
+    <string name="kg_too_many_failed_attempts_countdown_1_sec_with_auto_wipe">"Pokušali ste %1$d puta otključati uređaj. Preostalo vam je još %2$d pokušaja prije nego što se uređaj ponovno postavi na fabrički zadane postavke i svi podaci izbrišu.
+
+Pokušajte ponovno za 1 sekundu"</string>
+    <string name="kg_too_many_failed_countdown_1_sec_with_auto_wipe">Pokušajte ponovno nakon jedne sekunde</string>
+    <string name="kg_too_many_failed_attempt_countdown">Pokušajte ponovno nakon jedne sekunde</string>
+    <string name="kg_remained_1_attempt_countdown_mins_with_auto_wipe">"Pokušali ste %1$d puta da otključate uređaj. Preostao vam je još 1 pokušaj prije vraćanja uređaja na fabrički zadane postavke i brisanja svih podataka.
+
+Pokušajte ponovno za %2$d minuta"</string>
+    <string name="kg_remained_1_attempt_countdown_secs_with_auto_wipe">"Pokušali ste %1$d puta otključati uređaj. Preostao vam je još 1 pokušaj prije nego što se uređaj ponovno postavi na fabrički zadane postavke i izbrišu svi podaci.
+
+Pokušajte ponovno za %2$d sekunde/i"</string>
+    <string name="kg_remained_1_attempt_countdown_1_min_with_auto_wipe">"Pokušali ste %d puta da otključate uređaj. Preostao vam je 1 pokušaj prije vraćanja uređaja na fabrički zadane postavke i brisanja svih podataka.
+
+Pokušajte ponovno za 1 minut"</string>
+    <string name="kg_remained_1_attempt_countdown_1_sec_with_auto_wipe">"Pokušali ste %d puta otključati uređaj. Preostao vam je još 1 pokušaj prije nego što se uređaj ponovno postavi na fabrički zadane postavke i izbrišu svi podaci.
+
+Pokušajte ponovno za 1 sekundu"</string>
+    <string name="recents_help_dlg_split_icon_text">Dodirnite %s na naslovnoj traci prozora aplikacije da biste otvorili aplikacije u prikazu podijeljenog ekrana. Ova ikona se prikazuje kada aplikacija podržava funkciju Više prozora.</string>
+    <string name="recents_help_dlg_split_icon_desc">Dodirnite ikonu Podijeljeni ekran na naslovnoj traci prozora aplikacije da biste otvorili aplikacije u prikazu podijeljenog ekrana. Ova ikona se prikazuje kada aplikacija podržava funkciju Više prozora.</string>
+    <string name="recents_help_dlg_long_click_recents_key_text">Držite pritisnutim Nedavno korištenu tipku, dok koristite aplikaciju u prikazu preko cijelog ekrana, da biste prešli na prikaz podijeljenog ekrana.</string>
+    <string name="recents_help_dlg_home_key_in_split_text">Ukoliko pritisnete tipku Početak dok koristite prikaz podijeljenog ekrana, aplikacija prikazana na gornjoj polovini ekrana će biti umanjenja. Ukoliko otvorite aplikaciju sa početnog ekrana dok je boja statusne trake plava, aplikacija će se otvoriti u prikazu podijeljenog ekrana na donjoj polovini ekrana.</string>
+    <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+</resources>

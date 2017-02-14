@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="emailAddressTypes">
+        <item>ပင္မ</item>
+        <item>အလုပ္</item>
+        <item>အျခား</item>
+        <item>လုပ္အပ္သလုိ အထူးျပဳလုပ္ပါ</item>
+    </string-array>
+    <string-array name="imProtocols">
+        <item>AIM</item>
+        <item>Windows Live</item>
+        <item>Yahoo</item>
+        <item>Skype</item>
+        <item>QQ</item>
+        <item>Google Talk</item>
+        <item>ICQ</item>
+        <item>ဂ်က္ဘာ</item>
+    </string-array>
+    <string-array name="organizationTypes">
+        <item>အလုပ္</item>
+        <item>အျခား</item>
+        <item>လုပ္အပ္သလုိ အထူးျပဳလုပ္ပါ</item>
+    </string-array>
+    <string-array name="phoneTypes">
+        <item>ပင္မ</item>
+        <item>မိုဘိုင္း</item>
+        <item>အလုပ္</item>
+        <item>အလုပ္ ဖက္စ္</item>
+        <item>အိမ္ဖက္စ္</item>
+        <item>ေပဂ်ာ</item>
+        <item>အျခား</item>
+        <item>လုပ္အပ္သလုိ အထူးျပဳလုပ္ပါ</item>
+    </string-array>
+    <string-array name="postalAddressTypes">
+        <item>ပင္မ</item>
+        <item>အလုပ္</item>
+        <item>အျခား</item>
+        <item>လုပ္အပ္သလုိ အထူးျပဳလုပ္ပါ</item>
+    </string-array>
+    <string-array name="imAddressTypes">
+        <item>ပင္မ</item>
+        <item>အလုပ္</item>
+        <item>အျခား</item>
+        <item>လုပ္အပ္သလုိ အထူးျပဳလုပ္ပါ</item>
+    </string-array>
+</resources>

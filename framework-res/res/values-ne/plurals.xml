@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="ssl_ca_cert_warning">
+        <item quantity="other">सम्भावित नेटवर्क निरिक्षण</item>
+        <item quantity="one">Certificate authority installed</item>
+    </plurals>
+    <plurals name="last_num_days">
+        <item quantity="other">अन्तिम %d दिन</item>
+        <item quantity="one">Last %d day</item>
+    </plurals>
+    <plurals name="duration_seconds">
+        <item quantity="other">%d सेकेन्डहरु</item>
+        <item quantity="one">1 सेकेन्ड</item>
+    </plurals>
+    <plurals name="duration_minutes">
+        <item quantity="other">%d मिनट</item>
+        <item quantity="one">1 मिनट</item>
+    </plurals>
+    <plurals name="duration_hours">
+        <item quantity="other">%d घण्टाहरु</item>
+        <item quantity="one">1 घण्‍टा</item>
+    </plurals>
+    <plurals name="wifi_available">
+        <item quantity="other">Wi-Fi नेटवर्कहरू उपलब्ध छन्</item>
+        <item quantity="one">Wi-Fi नेटवर्क उपलब्ध छ</item>
+    </plurals>
+    <plurals name="wifi_available_detailed">
+        <item quantity="other">उपलब्ध Wi-Fi नेटवर्कहरू खोल्नुहोस्</item>
+        <item quantity="one">उपलब्ध Wi-Fi नेटवर्कहरू खोल्नुहोस्</item>
+    </plurals>
+    <plurals name="matches_found">
+        <item quantity="other">%1$d को %2$d</item>
+        <item quantity="one">1मिल्दो।</item>
+    </plurals>
+    <plurals name="restr_pin_countdown">
+        <item quantity="other">Try again in %d seconds</item>
+        <item quantity="one">1 सेकेन्डमा फेरि प्रयास गर्नुहोस्।</item>
+    </plurals>
+    <plurals name="tw_clipboard_files">
+        <item quantity="other">%d फाइलहरू</item>
+        <item quantity="one">1 फाइल</item>
+    </plurals>
+</resources>

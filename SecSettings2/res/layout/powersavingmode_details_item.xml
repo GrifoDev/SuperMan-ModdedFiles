@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:paddingTop="@dimen/power_saving_dialog_list_item_top_bottom_padding" android:paddingBottom="@dimen/power_saving_dialog_list_item_top_bottom_padding" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:ellipsize="end" android:gravity="start" android:id="@id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:layout_weight="1.0" style="@style/list_title_text_style" />
+        <TextView android:gravity="end" android:id="@id/status" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:paddingStart="@dimen/power_saving_dialog_list_item_text_inner_padding" style="@style/list_title_text_style" />
+    </LinearLayout>
+    <TextView android:id="@id/summary" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/list_summary_text_style" />
+</LinearLayout>

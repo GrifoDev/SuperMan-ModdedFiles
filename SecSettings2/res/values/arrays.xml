@@ -1,0 +1,2720 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="wifi_status">
+        <item></item>
+        <item>Scanning…</item>
+        <item>Connecting…</item>
+        <item>Authenticating…</item>
+        <item>Obtaining IP address…</item>
+        <item>Connected</item>
+        <item>Suspended</item>
+        <item>Disconnecting…</item>
+        <item>Disconnected</item>
+        <item>Unsuccessful</item>
+        <item>Blocked</item>
+        <item>Checking the quality of your Internet connection…</item>
+    </string-array>
+    <string-array name="wifi_status_with_ssid">
+        <item></item>
+        <item>Scanning…</item>
+        <item>Connecting to %1$s…</item>
+        <item>Authenticating with %1$s…</item>
+        <item>Obtaining IP address from %1$s…</item>
+        <item>Connected to %1$s</item>
+        <item>Suspended</item>
+        <item>Disconnecting from %1$s…</item>
+        <item>Disconnected</item>
+        <item>Unsuccessful</item>
+        <item>Blocked</item>
+        <item>Checking the quality of your Internet connection…</item>
+    </string-array>
+    <string-array name="hdcp_checking_titles">
+        <item>Never check</item>
+        <item>Check for DRM content only</item>
+        <item>Always check</item>
+    </string-array>
+    <string-array name="hdcp_checking_values">
+        <item>never</item>
+        <item>drm-only</item>
+        <item>always</item>
+    </string-array>
+    <string-array name="hdcp_checking_summaries">
+        <item>Never use HDCP checking</item>
+        <item>Use HDCP checking for DRM content only</item>
+        <item>Always use HDCP checking</item>
+    </string-array>
+    <string-array name="select_logd_size_titles">
+        <item>Off</item>
+        <item>64K</item>
+        <item>256K</item>
+        <item>1M</item>
+        <item>4M</item>
+        <item>16M</item>
+    </string-array>
+    <string-array name="select_logd_size_lowram_titles">
+        <item>64K</item>
+        <item>256K</item>
+        <item>1M</item>
+    </string-array>
+    <string-array name="select_logd_size_values">
+        <item>32768</item>
+        <item>65536</item>
+        <item>262144</item>
+        <item>1048576</item>
+        <item>4194304</item>
+        <item>16777216</item>
+    </string-array>
+    <string-array name="select_logd_size_summaries">
+        <item>Off</item>
+        <item>64K per log buffer</item>
+        <item>256K per log buffer</item>
+        <item>1M per log buffer</item>
+        <item>4M per log buffer</item>
+        <item>16M per log buffer</item>
+    </string-array>
+    <string-array name="window_animation_scale_entries">
+        <item>Animation off</item>
+        <item>Animation scale 0.5x</item>
+        <item>Animation scale 1x</item>
+        <item>Animation scale 1.5x</item>
+        <item>Animation scale 2x</item>
+        <item>Animation scale 5x</item>
+        <item>Animation scale 10x</item>
+    </string-array>
+    <string-array name="window_animation_scale_values">
+        <item>0</item>
+        <item>.5</item>
+        <item>1</item>
+        <item>1.5</item>
+        <item>2</item>
+        <item>5</item>
+        <item>10</item>
+    </string-array>
+    <string-array name="transition_animation_scale_entries">
+        <item>Animation off</item>
+        <item>Animation scale 0.5x</item>
+        <item>Animation scale 1x</item>
+        <item>Animation scale 1.5x</item>
+        <item>Animation scale 2x</item>
+        <item>Animation scale 5x</item>
+        <item>Animation scale 10x</item>
+    </string-array>
+    <string-array name="transition_animation_scale_values">
+        <item>0</item>
+        <item>.5</item>
+        <item>1</item>
+        <item>1.5</item>
+        <item>2</item>
+        <item>5</item>
+        <item>10</item>
+    </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>Animation off</item>
+        <item>Animation scale 0.5x</item>
+        <item>Animation scale 1x</item>
+        <item>Animation scale 1.5x</item>
+        <item>Animation scale 2x</item>
+        <item>Animation scale 5x</item>
+        <item>Animation scale 10x</item>
+    </string-array>
+    <string-array name="animator_duration_scale_values">
+        <item>0</item>
+        <item>.5</item>
+        <item>1</item>
+        <item>1.5</item>
+        <item>2</item>
+        <item>5</item>
+        <item>10</item>
+    </string-array>
+    <string-array name="overlay_display_devices_entries">
+        <item>None</item>
+        <item>480p</item>
+        <item>480p (secure)</item>
+        <item>720p</item>
+        <item>720p (secure)</item>
+        <item>1080p</item>
+        <item>1080p (secure)</item>
+        <item>4K</item>
+        <item>4K (secure)</item>
+        <item>4K (upscaled)</item>
+        <item>4K (upscaled, secure)</item>
+        <item>720p, 1080p (dual screen)</item>
+    </string-array>
+    <string-array name="overlay_display_devices_values">
+        <item></item>
+        <item>720x480/142</item>
+        <item>720x480/142,secure</item>
+        <item>1280x720/213</item>
+        <item>1280x720/213,secure</item>
+        <item>1920x1080/320</item>
+        <item>1920x1080/320,secure</item>
+        <item>3840x2160/320</item>
+        <item>3840x2160/320,secure</item>
+        <item>1920x1080/320|3840x2160/640</item>
+        <item>1920x1080/320|3840x2160/640,secure</item>
+        <item>1280x720/213;1920x1080/320</item>
+    </string-array>
+    <string-array name="enable_opengl_traces_entries">
+        <item>None</item>
+        <item>Logcat</item>
+        <item>Systrace (Graphics)</item>
+        <item>Call stack on glGetError</item>
+    </string-array>
+    <string-array name="enable_opengl_traces_values">
+        <item>0</item>
+        <item>1</item>
+        <item>systrace</item>
+        <item>error</item>
+    </string-array>
+    <string-array name="show_non_rect_clip_entries">
+        <item>Off</item>
+        <item>Draw non-rectangular clip region in blue</item>
+        <item>Highlight tested drawing commands in green</item>
+    </string-array>
+    <string-array name="show_non_rect_clip_values">
+        <item>hide</item>
+        <item>region</item>
+        <item>highlight</item>
+    </string-array>
+    <string-array name="track_frame_time_entries">
+        <item>Off</item>
+        <item>On screen as bars</item>
+        <item>In adb shell dumpsys gfxinfo</item>
+    </string-array>
+    <string-array name="track_frame_time_values">
+        <item>false</item>
+        <item>visual_bars</item>
+        <item>true</item>
+    </string-array>
+    <string-array name="debug_hw_overdraw_entries">
+        <item>Off</item>
+        <item>Show overdraw areas</item>
+        <item>Show areas for Deuteranomaly</item>
+    </string-array>
+    <string-array name="debug_hw_overdraw_values">
+        <item>false</item>
+        <item>show</item>
+        <item>show_deuteranomaly</item>
+    </string-array>
+    <string-array name="app_process_limit_entries">
+        <item>Standard limit</item>
+        <item>No background processes</item>
+        <item>At most 1 process</item>
+        <item>At most 2 processes</item>
+        <item>At most 3 processes</item>
+        <item>At most 4 processes</item>
+    </string-array>
+    <string-array name="app_process_limit_values">
+        <item>-1</item>
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+    <string-array name="usb_configuration_titles">
+        <item>@string/usb_use_charging_only</item>
+        <item>MTP (Media Transfer Protocol)</item>
+        <item>PTP (Picture Transfer Protocol)</item>
+        <item>RNDIS (USB Ethernet)</item>
+        <item>Audio Source</item>
+        <item>MIDI</item>
+    </string-array>
+    <string-array name="usb_configuration_values">
+        <item>none</item>
+        <item>mtp</item>
+        <item>ptp</item>
+        <item>rndis</item>
+        <item>audio_source</item>
+        <item>midi</item>
+    </string-array>
+    <string-array name="simulate_color_space_entries">
+        <item>@string/daltonizer_mode_disabled</item>
+        <item>@string/daltonizer_mode_monochromacy</item>
+        <item>@string/daltonizer_mode_deuteranomaly</item>
+        <item>@string/daltonizer_mode_protanomaly</item>
+        <item>@string/daltonizer_mode_tritanomaly</item>
+    </string-array>
+    <string-array name="simulate_color_space_values">
+        <item>-1</item>
+        <item>0</item>
+        <item>2</item>
+        <item>1</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="tts_rate_entries">
+        <item>Very slow</item>
+        <item>Slow</item>
+        <item>Normal</item>
+        <item>Fast</item>
+        <item>Faster</item>
+        <item>Very fast</item>
+        <item>Rapid</item>
+        <item>Very rapid</item>
+        <item>Fastest</item>
+    </string-array>
+    <string-array name="tts_rate_values">
+        <item>60</item>
+        <item>80</item>
+        <item>100</item>
+        <item>150</item>
+        <item>200</item>
+        <item>250</item>
+        <item>300</item>
+        <item>350</item>
+        <item>400</item>
+    </string-array>
+    <string-array name="tts_demo_strings">
+        <item>This is an example of speech synthesis in English.</item>
+        <item>Voici un chantillon de synthse vocale en franais.</item>
+        <item>Dies ist ein Beispiel fr Sprachsynthese in Deutsch.</item>
+        <item>Questo un esempio di sintesi vocale in italiano.</item>
+        <item>Este es un ejemplo de sntesis de voz en espaol.</item>
+        <item>.</item>
+    </string-array>
+    <string-array name="tts_demo_string_langs">
+        <item>eng</item>
+        <item>fra</item>
+        <item>deu</item>
+        <item>ita</item>
+        <item>spa</item>
+        <item>kor</item>
+    </string-array>
+    <string-array name="color_mode_names">
+        <item>Vibrant (default)</item>
+        <item>Natural</item>
+        <item>Standard</item>
+    </string-array>
+    <string-array name="color_mode_descriptions">
+        <item>Enhanced colors</item>
+        <item>Natural colors as seen by the eye</item>
+        <item>Colors optimized for digital content</item>
+    </string-array>
+    <string-array name="battery_labels">
+        <item>0%</item>
+        <item>50%</item>
+        <item>100%</item>
+    </string-array>
+    <string-array name="timezone_filters">
+        <item>America</item>
+        <item>Europe</item>
+        <item>Africa</item>
+        <item>Asia</item>
+        <item>Australia</item>
+        <item>Pacific</item>
+        <item>All</item>
+    </string-array>
+    <string-array name="battery_keywords">
+        <item>@string/power_saving_mode_title</item>
+        <item>@string/powersaving_ultra</item>
+    </string-array>
+    <array name="navigationbar_color_values">
+        <item>@color/navigationbar_default_color_1</item>
+        <item>@color/navigationbar_default_color_2</item>
+        <item>@color/navigationbar_default_color_3</item>
+        <item>@color/navigationbar_default_color_4</item>
+        <item>@color/navigationbar_default_color_5</item>
+        <item>@color/navigationbar_default_color_6</item>
+        <item>@color/navigationbar_default_color_7</item>
+    </array>
+    <string-array name="navigationbar_action_values">
+        <item>None</item>
+        <item>FullScreen</item>
+        <item>AutoRotate</item>
+        <item>Flash</item>
+        <item>QuickPanel</item>
+        <item>Capture</item>
+        <item>Onehand</item>
+        <item>LaunchApp</item>
+        <item>DirectCall</item>
+    </string-array>
+    <string-array name="navigationbar_action_values_res">
+        <item>@string/unlock_effect_none</item>
+        <item>@string/navigationbar_action_full_screen</item>
+        <item>@string/navigationbar_action_auto_rotation</item>
+        <item>@string/navigationbar_action_flash</item>
+        <item>@string/navigationbar_action_quick_panel</item>
+        <item>@string/navigationbar_action_screen_capture</item>
+        <item>@string/navigationbar_action_onehand_mode</item>
+        <item>@string/navigationbar_action_launch_app</item>
+        <item>@string/navigationbar_action_direct_call</item>
+    </string-array>
+    <string-array name="screen_timeout_entries">
+        <item>15 seconds</item>
+        <item>30 seconds</item>
+        <item>1 minute</item>
+        <item>2 minutes</item>
+        <item>5 minutes</item>
+        <item>10 minutes</item>
+        <item>30 minutes</item>
+    </string-array>
+    <string-array name="screen_timeout_values">
+        <item>15000</item>
+        <item>30000</item>
+        <item>60000</item>
+        <item>120000</item>
+        <item>300000</item>
+        <item>600000</item>
+        <item>1800000</item>
+    </string-array>
+    <string-array name="dream_timeout_entries">
+        <item>Never</item>
+        <item>15 seconds</item>
+        <item>30 seconds</item>
+        <item>1 minute</item>
+        <item>2 minutes</item>
+        <item>5 minutes</item>
+        <item>10 minutes</item>
+        <item>30 minutes</item>
+    </string-array>
+    <string-array name="dream_timeout_values">
+        <item>0</item>
+        <item>15000</item>
+        <item>30000</item>
+        <item>60000</item>
+        <item>120000</item>
+        <item>300000</item>
+        <item>600000</item>
+        <item>1800000</item>
+    </string-array>
+    <string-array name="screen_timeout_for_device_lock_entries">
+        <item>15 seconds</item>
+        <item>30 seconds</item>
+        <item>1 minute</item>
+        <item>3 minutes</item>
+        <item>5 minutes</item>
+        <item>10 minutes</item>
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+    </string-array>
+    <string-array name="screen_timeout_for_device_lock_values">
+        <item>15000</item>
+        <item>30000</item>
+        <item>60000</item>
+        <item>180000</item>
+        <item>300000</item>
+        <item>600000</item>
+        <item>900000</item>
+        <item>1800000</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>Instantly with the power key or when the screen times out</item>
+        <item>15 seconds</item>
+        <item>30 seconds</item>
+        <item>1 minute</item>
+        <item>3 minutes</item>
+        <item>5 minutes</item>
+        <item>10 minutes</item>
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+    </string-array>
+    <string-array name="device_lock_timeout_values">
+        <item>0</item>
+        <item>15000</item>
+        <item>30000</item>
+        <item>60000</item>
+        <item>180000</item>
+        <item>300000</item>
+        <item>600000</item>
+        <item>900000</item>
+        <item>1800000</item>
+        <item>3600000</item>
+    </string-array>
+    <string-array name="lock_after_timeout_entries">
+        <item>Immediately</item>
+        <item>5 seconds</item>
+        <item>15 seconds</item>
+        <item>30 seconds</item>
+        <item>1 minute</item>
+        <item>2 minutes</item>
+        <item>5 minutes</item>
+        <item>10 minutes</item>
+        <item>30 minutes</item>
+    </string-array>
+    <string-array name="lock_after_timeout_values">
+        <item>0</item>
+        <item>5000</item>
+        <item>15000</item>
+        <item>30000</item>
+        <item>60000</item>
+        <item>120000</item>
+        <item>300000</item>
+        <item>600000</item>
+        <item>1800000</item>
+    </string-array>
+    <string-array name="lockscreen_app_shortcut_black_list_DCM">
+        <item>jp.co.fsi.fs1seg</item>
+        <item>jp.co.mmbi.app</item>
+    </string-array>
+    <string-array name="entries_font_size">
+        <item>Tiny</item>
+        <item>Small</item>
+        <item>Normal</item>
+        <item>Large</item>
+        <item>Huge</item>
+    </string-array>
+    <string-array name="entryvalues_font_size">
+        <item>0.85</item>
+        <item>0.93</item>
+        <item>1.0</item>
+        <item>1.30</item>
+        <item>1.80</item>
+    </string-array>
+    <string-array name="entry_7_step_font_size">
+        <item>@string/tiny</item>
+        <item>@string/extra_small</item>
+        <item>@string/small</item>
+        <item>@string/medium</item>
+        <item>@string/large</item>
+        <item>@string/extra_large</item>
+        <item>@string/huge</item>
+        <item>@string/extra_huge</item>
+        <item>@string/extra_huge</item>
+        <item>@string/extra_huge</item>
+        <item>@string/extra_huge</item>
+    </string-array>
+    <string-array name="entryvalues_7_step_font_size">
+        <item>0.8</item>
+        <item>0.9</item>
+        <item>1.0</item>
+        <item>1.1</item>
+        <item>1.2</item>
+        <item>1.35</item>
+        <item>1.5</item>
+        <item>1.6</item>
+        <item>1.7</item>
+        <item>1.8</item>
+        <item>1.9</item>
+    </string-array>
+    <string-array name="entryvalues_easy_mode_font_size">
+        <item>1.09</item>
+        <item>1.19</item>
+        <item>1.42</item>
+        <item>1.71</item>
+    </string-array>
+    <string-array name="entryvalues_big_font_size">
+        <item>1.0</item>
+        <item>1.15</item>
+        <item>1.52</item>
+    </string-array>
+    <string-array name="wifi_scan_always_allow_strings">
+        <item>@string/wifi_scan_always</item>
+        <item>@string/wifi_scan_only_while_wifi_is_on</item>
+    </string-array>
+    <string-array name="wifi_security">
+        <item>@string/wifi_security_none</item>
+        <item>@string/wifi_security_wep</item>
+        <item>@string/wifi_security_psk_generic</item>
+        <item>@string/wifi_security_eap</item>
+    </string-array>
+    <string-array name="wifi_security_ft">
+        <item>@string/wifi_security_none</item>
+        <item>@string/wifi_security_wep</item>
+        <item>@string/wifi_security_wpa_wpa2_ft</item>
+        <item>@string/wifi_security_eap</item>
+    </string-array>
+    <string-array name="wifi_wapi_security">
+        <item>@string/wifi_security_none</item>
+        <item>@string/wifi_security_wep</item>
+        <item>@string/wifi_security_psk_generic</item>
+        <item>@string/wifi_security_eap</item>
+        <item>@string/wifi_security_wapi_psk</item>
+        <item>@string/wifi_security_wapi_cert</item>
+    </string-array>
+    <string-array name="wifi_wapi_security_ft">
+        <item>@string/wifi_security_none</item>
+        <item>@string/wifi_security_wep</item>
+        <item>@string/wifi_security_wpa_wpa2_ft</item>
+        <item>@string/wifi_security_eap</item>
+        <item>@string/wifi_security_wapi_psk</item>
+        <item>@string/wifi_security_wapi_cert</item>
+    </string-array>
+    <string-array name="wifi_wapi_psk_type">
+        <item>@string/wifi_security_wapi_psk_ascii</item>
+        <item>@string/wifi_security_wapi_psk_hexadecimal</item>
+    </string-array>
+    <string-array name="wifi_security_no_eap">
+        <item>@string/wifi_security_none</item>
+        <item>@string/wifi_security_wep</item>
+        <item>@string/wifi_security_psk_generic</item>
+    </string-array>
+    <string-array name="wifi_ap_security">
+        <item>@string/wifi_security_none</item>
+        <item>@string/wifi_security_wpa2</item>
+    </string-array>
+    <string-array name="wifi_ap_security_testmode">
+        <item>Open</item>
+        <item>WPA2 PSK</item>
+    </string-array>
+    <string-array name="wifi_eap_method">
+        <item>PEAP</item>
+        <item>TLS</item>
+        <item>TTLS</item>
+        <item>PWD</item>
+        <item>SIM</item>
+        <item>AKA</item>
+        <item>"AKA'"</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>Connected</item>
+        <item>Invited</item>
+        <item>Connection failed</item>
+        <item>Tap here to connect.</item>
+        <item>Out-of-range</item>
+        <item>Connected with another device</item>
+    </string-array>
+    <string-array name="wifi_ap_wifi_sharing">
+        <item>Enable Wi-Fi sharing</item>
+        <item>Disable Wi-Fi sharing</item>
+    </string-array>
+    <string-array name="wifi_ap_timeout">
+        <item>Never timeout</item>
+        <item>5 minutes</item>
+        <item>10 minutes</item>
+        <item>20 minutes</item>
+        <item>30 minutes</item>
+        <item>60 minutes</item>
+    </string-array>
+    <string-array name="wifi_ap_connection_mode">
+        <item>Allow all devices</item>
+        <item>Allowed devices only</item>
+    </string-array>
+    <string-array name="wifi_ap_channel">
+        <item>Auto</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+    </string-array>
+    <string-array name="wifi_ap_maxclient">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+    <string-array name="wifi_share_profile_access_timeout">
+        <item>6 hours</item>
+        <item>12 hours</item>
+        <item>24 hours</item>
+        <item>No time limit</item>
+    </string-array>
+    <string-array name="wifi_alertdialog_radio_on_off">
+        <item>@string/wifi_settings_dialog_radio_on</item>
+        <item>@string/wifi_settings_dialog_radio_off</item>
+    </string-array>
+    <string-array name="wifi_smart_network_switch_aggressive_mode_list_item">
+        <item>@string/wifi_smart_network_switch_aggressive_switching</item>
+        <item>@string/wifi_smart_network_switch_normal_switching</item>
+    </string-array>
+    <string-array name="bluetooth_alertdialog_radio_on_off">
+        <item>@string/wifi_settings_dialog_radio_on</item>
+        <item>@string/wifi_settings_dialog_radio_off</item>
+    </string-array>
+    <string-array name="eap_method_without_sim_auth">
+        <item>PEAP</item>
+        <item>TLS</item>
+        <item>TTLS</item>
+        <item>PWD</item>
+    </string-array>
+    <string-array name="wifi_ap_band_config_full">
+        <item>@string/wifi_ap_choose_2G</item>
+        <item>@string/wifi_ap_choose_5G</item>
+    </string-array>
+    <string-array name="wifi_ap_band_config_2G_only">
+        <item>@string/wifi_ap_choose_2G</item>
+    </string-array>
+    <string-array name="wifi_p2p_wps_setup">
+        <item>Push button</item>
+        <item>PIN from peer device</item>
+        <item>PIN from this device</item>
+    </string-array>
+    <string-array name="bluetooth_visibility_timeout_entries">
+        <item>2 minutes</item>
+        <item>5 minutes</item>
+        <item>1 hour</item>
+        <item>Never time out</item>
+    </string-array>
+    <string-array name="wifi_signal">
+        <item>Weak</item>
+        <item>Fair</item>
+        <item>Good</item>
+        <item>Strong</item>
+        <item>Very Strong</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_entries">
+        <item>"Always
+(Increases battery consumption)"</item>
+        <item>While charging</item>
+        <item>"Never
+(Increases data usage)"</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_entries_wifi_only">
+        <item>"Always
+(Increases battery consumption)"</item>
+        <item>While charging</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_values">
+        <item>2</item>
+        <item>1</item>
+        <item>0</item>
+    </string-array>
+    <string-array name="wifi_frequency_band_entries">
+        <item>Automatic</item>
+        <item>5 GHz only</item>
+        <item>2.4 GHz only</item>
+    </string-array>
+    <string-array name="wifi_frequency_band_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="wifi_preferred_band_entries">
+        <item>Automatic</item>
+        <item>Use 5 GHz bandwidth</item>
+        <item>Use 2.4 GHz bandwidth</item>
+    </string-array>
+    <string-array name="wifi_preferred_band_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="wifi_signal_strength_entries">
+        <item>Very Strong</item>
+        <item>Strong</item>
+        <item>Fair</item>
+        <item>All</item>
+    </string-array>
+    <string-array name="wifi_signal_strength_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="data_usage_data_range">
+        <item>Last 30 days</item>
+        <item>Set usage cycle...</item>
+    </string-array>
+    <string-array name="usage_stats_display_order_types">
+        <item>Usage time</item>
+        <item>Last time used</item>
+        <item>App name</item>
+    </string-array>
+    <string-array name="wifi_eap_entries">
+        <item>PEAP</item>
+        <item>TLS</item>
+        <item>TTLS</item>
+        <item>PWD</item>
+    </string-array>
+    <string-array name="wifi_phase1_entries">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="wifi_peap_phase2_entries">
+        <item>None</item>
+        <item>MSCHAPV2</item>
+        <item>GTC</item>
+    </string-array>
+    <string-array name="wifi_phase2_entries">
+        <item>None</item>
+        <item>PAP</item>
+        <item>MSCHAP</item>
+        <item>MSCHAPV2</item>
+        <item>GTC</item>
+    </string-array>
+    <string-array name="wifi_ip_settings">
+        <item>DHCP</item>
+        <item>Static</item>
+    </string-array>
+    <string-array name="wifi_proxy_settings">
+        <item>None</item>
+        <item>Manual</item>
+        <item>Auto-config</item>
+    </string-array>
+    <string-array name="wifi_iwlan_settings">
+        <item>On</item>
+        <item>Off</item>
+    </string-array>
+    <string-array name="sound_mode_values">
+        <item>2</item>
+        <item>1</item>
+        <item>0</item>
+    </string-array>
+    <string-array name="special_locale_codes">
+        <item>zh_CN</item>
+        <item>zh_TW</item>
+    </string-array>
+    <string-array name="special_locale_names">
+        <item>()</item>
+        <item>()</item>
+    </string-array>
+    <string-array name="apn_auth_entries">
+        <item>None</item>
+        <item>PAP</item>
+        <item>CHAP</item>
+        <item>PAP or CHAP</item>
+    </string-array>
+    <string-array name="apn_auth_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="cpa_auth_entries">
+        <item>PAP</item>
+        <item>CHAP</item>
+    </string-array>
+    <string-array name="cpa_auth_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="apn_protocol_entries">
+        <item>IPv4</item>
+        <item>IPv6</item>
+        <item>IPv4/IPv6</item>
+    </string-array>
+    <string-array name="apn_protocol_values">
+        <item>IP</item>
+        <item>IPV6</item>
+        <item>IPV4V6</item>
+    </string-array>
+    <string-array name="bearer_entries">
+        <item>Unspecified</item>
+        <item>LTE</item>
+        <item>HSPAP</item>
+        <item>HSPA</item>
+        <item>HSUPA</item>
+        <item>HSDPA</item>
+        <item>UMTS</item>
+        <item>EDGE</item>
+        <item>GPRS</item>
+        <item>eHRPD</item>
+        <item>EVDO_B</item>
+        <item>EVDO_A</item>
+        <item>EVDO_0</item>
+        <item>1xRTT</item>
+        <item>IS95B</item>
+        <item>IS95A</item>
+    </string-array>
+    <string-array name="bearer_values">
+        <item>0</item>
+        <item>14</item>
+        <item>15</item>
+        <item>11</item>
+        <item>10</item>
+        <item>9</item>
+        <item>3</item>
+        <item>2</item>
+        <item>1</item>
+        <item>13</item>
+        <item>12</item>
+        <item>8</item>
+        <item>7</item>
+        <item>6</item>
+        <item>5</item>
+        <item>4</item>
+    </string-array>
+    <string-array name="mvno_type_entries">
+        <item>None</item>
+        <item>SPN</item>
+        <item>IMSI</item>
+        <item>GID</item>
+    </string-array>
+    <string-array name="mvno_type_values">
+        <item></item>
+        <item>spn</item>
+        <item>imsi</item>
+        <item>gid</item>
+    </string-array>
+    <string-array name="allshare_download_to">
+        <item>@string/allshare_device</item>
+        <item>@string/allshare_sdcard</item>
+    </string-array>
+    <string-array name="allshare_download_to_value">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="allshare_download_from">
+        <item>@string/allshare_always_accept</item>
+        <item>@string/allshare_always_ask</item>
+        <item>@string/allshare_always_reject</item>
+    </string-array>
+    <string-array name="allshare_download_from_value">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="allshare_contents_share">
+        <item>@string/allshare_check_video</item>
+        <item>@string/allshare_check_photo</item>
+        <item>@string/allshare_check_music</item>
+    </string-array>
+    <string-array name="apn_ently_key">
+        <item>Internet + MMS</item>
+        <item>Internet</item>
+        <item>MMS</item>
+    </string-array>
+    <string-array name="apn_type_key">
+        <item>default,supl,mms</item>
+        <item>default,supl</item>
+        <item>mms</item>
+    </string-array>
+    <string-array name="apn_ently_key_includeDUN">
+        <item>Internet + MMS + DUN</item>
+        <item>Internet + MMS</item>
+        <item>Internet + DUN</item>
+        <item>Internet</item>
+        <item>MMS</item>
+        <item>DUN</item>
+    </string-array>
+    <string-array name="apn_type_key_includeDUN">
+        <item>default,supl,mms,dun</item>
+        <item>default,supl,mms</item>
+        <item>default,supl,dun</item>
+        <item>default,supl</item>
+        <item>mms</item>
+        <item>dun</item>
+    </string-array>
+    <string-array name="apn_ently_key_includeIMS">
+        <item>Internet + MMS</item>
+        <item>Internet</item>
+        <item>MMS</item>
+        <item>IMS</item>
+    </string-array>
+    <string-array name="apn_type_key_includeIMS">
+        <item>default,supl,mms</item>
+        <item>default,supl</item>
+        <item>mms</item>
+        <item>ims</item>
+    </string-array>
+    <string-array name="apn_ently_key_includeDUN_IMS">
+        <item>Internet + MMS + DUN</item>
+        <item>Internet + MMS</item>
+        <item>Internet + DUN</item>
+        <item>Internet</item>
+        <item>MMS</item>
+        <item>DUN</item>
+        <item>IMS</item>
+    </string-array>
+    <string-array name="apn_type_key_includeDUN_IMS">
+        <item>default,supl,mms,dun</item>
+        <item>default,supl,mms</item>
+        <item>default,supl,dun</item>
+        <item>default,supl</item>
+        <item>mms</item>
+        <item>dun</item>
+        <item>ims</item>
+    </string-array>
+    <string-array name="app_install_location_entries">
+        <item>Internal device storage</item>
+        <item>Removable SD card</item>
+        <item>Let the system decide</item>
+    </string-array>
+    <string-array name="app_install_location_values">
+        <item>device</item>
+        <item>sdcard</item>
+        <item>auto</item>
+    </string-array>
+    <string-array name="app_ops_categories">
+        <item>Location</item>
+        <item>Personal</item>
+        <item>Messaging</item>
+        <item>Media</item>
+        <item>Device</item>
+        <item>Auto run</item>
+    </string-array>
+    <string-array name="app_ops_summaries">
+        <item>Access approximate location</item>
+        <item>Access exact location</item>
+        <item>GPS</item>
+        <item>Vibrate</item>
+        <item>Read contacts</item>
+        <item>Edit contacts</item>
+        <item>Read call log</item>
+        <item>Write call log</item>
+        <item>Read calendar</item>
+        <item>Manage calendar</item>
+        <item>Scan for Wi-Fi networks</item>
+        <item>Notification</item>
+        <item>Scan cells</item>
+        <item>Make phone calls</item>
+        <item>Read text messages</item>
+        <item>Write text messages</item>
+        <item>Receive text messages</item>
+        <item>Receive emergency text messages</item>
+        <item>Receive multimedia messages</item>
+        <item>Receive WAP push messages</item>
+        <item>Send text messages</item>
+        <item>Read text messages on SIM card</item>
+        <item>Write text messages to SIM card</item>
+        <item>Modify settings</item>
+        <item>Overlay application interface</item>
+        <item>Access notifications</item>
+        <item>Camera</item>
+        <item>Record audio</item>
+        <item>Play audio files</item>
+        <item>Read clipboard data</item>
+        <item>Manage clipboard data</item>
+        <item>Control media</item>
+        <item>Control audio focus</item>
+        <item>Adjust master volume</item>
+        <item>Adjust in-call volume</item>
+        <item>Adjust ringtone volume</item>
+        <item>Adjust media volume</item>
+        <item>Adjust alarm volume</item>
+        <item>Adjust alert volume</item>
+        <item>Adjust volume of sound played via Bluetooth devices</item>
+        <item>Keep screen on</item>
+        <item>Monitor location information</item>
+        <item>Monitor highly accurate location information</item>
+        <item>Read device usage statistics</item>
+        <item>Turn microphone on and off</item>
+        <item>Show toast pop-ups</item>
+        <item>Capture media</item>
+        <item>Enable VPN</item>
+        <item>Turn Wi-Fi on/off</item>
+        <item>Turn Bluetooth on/off</item>
+        <item>Send multimedia messages</item>
+        <item>Read multimedia messages</item>
+        <item>Write multimedia messages</item>
+        <item>Auto run</item>
+        <item>Turn NFC on/off</item>
+        <item>Delete text messages</item>
+        <item>Delete multimedia messages</item>
+        <item>Delete contacts</item>
+        <item>Delete call log</item>
+        <item>Turn Mobile data on/off</item>
+    </string-array>
+    <string-array name="app_ops_labels">
+        <item>Location</item>
+        <item>Location</item>
+        <item>Location</item>
+        <item>Vibrate</item>
+        <item>Read contacts</item>
+        <item>Edit contacts</item>
+        <item>Read call log</item>
+        <item>Write call log</item>
+        <item>Read calendar</item>
+        <item>Manage calendar</item>
+        <item>Location</item>
+        <item>Show notifications</item>
+        <item>Location</item>
+        <item>Make phone calls</item>
+        <item>Read text messages</item>
+        <item>Write text messages</item>
+        <item>Receive text messages</item>
+        <item>Receive emergency text messages</item>
+        <item>Receive multimedia messages</item>
+        <item>Receive WAP push messages</item>
+        <item>Send text messages</item>
+        <item>Read text messages on SIM card</item>
+        <item>Write text messages to SIM card</item>
+        <item>Modify settings</item>
+        <item>Overlay application interface</item>
+        <item>Access notifications</item>
+        <item>Camera</item>
+        <item>Record audio</item>
+        <item>Play audio files</item>
+        <item>Read clipboard data</item>
+        <item>Manage clipboard data</item>
+        <item>Control media</item>
+        <item>Control audio focus</item>
+        <item>Adjust master volume</item>
+        <item>Adjust in-call volume</item>
+        <item>Adjust ringtone volume</item>
+        <item>Adjust media volume</item>
+        <item>Adjust alarm volume</item>
+        <item>Adjust alert volume</item>
+        <item>Adjust volume of sound played via Bluetooth devices</item>
+        <item>Keep screen on</item>
+        <item>Location</item>
+        <item>Location</item>
+        <item>Read device usage statistics</item>
+        <item>Turn microphone on and off</item>
+        <item>Show toast pop-ups</item>
+        <item>Capture media</item>
+        <item>Enable VPN</item>
+        <item>Turn Wi-Fi on/off</item>
+        <item>Turn Bluetooth on/off</item>
+        <item>Send multimedia messages</item>
+        <item>Read multimedia messages</item>
+        <item>Write multimedia messages</item>
+        <item>Auto run</item>
+        <item>Turn NFC on/off</item>
+        <item>Delete text messages</item>
+        <item>Delete multimedia messages</item>
+        <item>Delete contacts</item>
+        <item>delete call log</item>
+        <item>Turn Mobile data on/off</item>
+    </string-array>
+    <string-array name="long_press_timeout_selector_titles">
+        <item>Short</item>
+        <item>Medium</item>
+        <item>Long</item>
+    </string-array>
+    <string-array name="long_press_timeout_selector_values">
+        <item>500</item>
+        <item>1000</item>
+        <item>1500</item>
+    </string-array>
+    <string-array name="captioning_typeface_selector_titles">
+        <item>Default</item>
+        <item>Sans serif</item>
+        <item>Sans serif condensed</item>
+        <item>Sans serif monospace</item>
+        <item>Serif</item>
+        <item>Serif monospace</item>
+        <item>Casual</item>
+        <item>Cursive</item>
+        <item>Small caps</item>
+    </string-array>
+    <string-array name="captioning_typeface_selector_values">
+        <item></item>
+        <item>sans-serif</item>
+        <item>sans-serif-condensed</item>
+        <item>sans-serif-monospace</item>
+        <item>serif</item>
+        <item>serif-monospace</item>
+        <item>casual</item>
+        <item>cursive</item>
+        <item>sans-serif-smallcaps</item>
+    </string-array>
+    <string-array name="captioning_font_size_selector_titles">
+        <item>Very small</item>
+        <item>Small</item>
+        <item>Normal</item>
+        <item>Large</item>
+        <item>Very large</item>
+    </string-array>
+    <string-array name="captioning_font_size_selector_values">
+        <item>0.25</item>
+        <item>0.5</item>
+        <item>1.0</item>
+        <item>1.5</item>
+        <item>2.0</item>
+    </string-array>
+    <string-array name="captioning_edge_type_selector_titles">
+        <item>Default</item>
+        <item>None</item>
+        <item>Outline</item>
+        <item>Drop shadow</item>
+        <item>Raised</item>
+        <item>Depressed</item>
+    </string-array>
+    <integer-array name="captioning_edge_type_selector_values">
+        <item>-1</item>
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </integer-array>
+    <string-array name="captioning_color_selector_titles">
+        <item>@string/color_unspecified</item>
+        <item>@string/color_white</item>
+        <item>@string/color_black</item>
+        <item>@string/color_red</item>
+        <item>@string/color_yellow</item>
+        <item>@string/color_green</item>
+        <item>@string/color_cyan</item>
+        <item>@string/color_blue</item>
+        <item>@string/color_magenta</item>
+    </string-array>
+    <integer-array name="captioning_color_selector_values">
+        <item>0x00FFFFFF</item>
+        <item>0xFFFFFFFF</item>
+        <item>0xFF000000</item>
+        <item>0xFFFF0000</item>
+        <item>0xFFFFFF00</item>
+        <item>0xFF00FF00</item>
+        <item>0xFF00FFFF</item>
+        <item>0xFF0000FF</item>
+        <item>0xFFFF00FF</item>
+        <item>0xFF000055</item>
+        <item>0xFF0000AA</item>
+        <item>0xFF005500</item>
+        <item>0xFF005555</item>
+        <item>0xFF0055AA</item>
+        <item>0xFF0055FF</item>
+        <item>0xFF00AA00</item>
+        <item>0xFF00AA55</item>
+        <item>0xFF00AAAA</item>
+        <item>0xFF00AAFF</item>
+        <item>0xFF00FF55</item>
+        <item>0xFF00FFAA</item>
+        <item>0xFF550000</item>
+        <item>0xFF550055</item>
+        <item>0xFF5500AA</item>
+        <item>0xFF5500FF</item>
+        <item>0xFF555500</item>
+        <item>0xFF555555</item>
+        <item>0xFF5555AA</item>
+        <item>0xFF5555FF</item>
+        <item>0xFF55AA00</item>
+        <item>0xFF55AA55</item>
+        <item>0xFF55AAAA</item>
+        <item>0xFF55AAFF</item>
+        <item>0xFF55FF00</item>
+        <item>0xFF55FF55</item>
+        <item>0xFF55FFAA</item>
+        <item>0xFF55FFFF</item>
+        <item>0xFFAA0000</item>
+        <item>0xFFAA0055</item>
+        <item>0xFFAA00AA</item>
+        <item>0xFFAA00FF</item>
+        <item>0xFFAA5500</item>
+        <item>0xFFAA5555</item>
+        <item>0xFFAA55AA</item>
+        <item>0xFFAA55FF</item>
+        <item>0xFFAAAA00</item>
+        <item>0xFFAAAA55</item>
+        <item>0xFFAAAAAA</item>
+        <item>0xFFAAAAFF</item>
+        <item>0xFFAAFF00</item>
+        <item>0xFFAAFF55</item>
+        <item>0xFFAAFFAA</item>
+        <item>0xFFAAFFFF</item>
+        <item>0xFFFF0055</item>
+        <item>0xFFFF00AA</item>
+        <item>0xFFFF5500</item>
+        <item>0xFFFF5555</item>
+        <item>0xFFFF55AA</item>
+        <item>0xFFFF55FF</item>
+        <item>0xFFFFAA00</item>
+        <item>0xFFFFAA55</item>
+        <item>0xFFFFAAAA</item>
+        <item>0xFFFFAAFF</item>
+        <item>0xFFFFFF55</item>
+        <item>0xFFFFFFAA</item>
+    </integer-array>
+    <string-array name="captioning_opacity_selector_titles">
+        <item>25%</item>
+        <item>50%</item>
+        <item>75%</item>
+        <item>100%</item>
+    </string-array>
+    <integer-array name="captioning_opacity_selector_values">
+        <item>0x40FFFFFF</item>
+        <item>0x80FFFFFF</item>
+        <item>0xC0FFFFFF</item>
+        <item>0xFFFFFFFF</item>
+    </integer-array>
+    <string-array name="captioning_preset_selector_titles">
+        <item>Use app defaults</item>
+        <item>White on black</item>
+        <item>Black on white</item>
+        <item>Yellow on black</item>
+        <item>Yellow on blue</item>
+        <item>Custom</item>
+    </string-array>
+    <integer-array name="captioning_preset_selector_values">
+        <item>4</item>
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>-1</item>
+    </integer-array>
+    <string-array name="vpn_types">
+        <item>PPTP</item>
+        <item>L2TP/IPSec PSK</item>
+        <item>L2TP/IPSec RSA</item>
+        <item>IPSec Xauth PSK</item>
+        <item>IPSec Xauth RSA</item>
+        <item>IPSec Hybrid RSA</item>
+    </string-array>
+    <string-array name="vpn_types_long">
+        <item>PPTP VPN</item>
+        <item>L2TP/IPSec VPN with pre-shared keys</item>
+        <item>L2TP/IPSec VPN with certificates</item>
+        <item>IPSec VPN with certificates and hybrid authentication</item>
+        <item>IPSec VPN with pre-shared keys and Xauth authentication</item>
+        <item>IPSec VPN with certificates and Xauth authentication</item>
+        <item>IPSec VPN with IKEv2 and pre-shared key-based authentication</item>
+        <item>IPSec VPN with IKEv2 and certificate-based authentication</item>
+    </string-array>
+    <string-array name="vpn_types_with_strongswan">
+        <item>PPTP</item>
+        <item>L2TP/IPSec PSK</item>
+        <item>L2TP/IPSec RSA</item>
+        <item>IPSec Hybrid RSA</item>
+        <item>IPSec Xauth PSK</item>
+        <item>IPSec Xauth RSA</item>
+        <item>IPSec IKEv2 PSK</item>
+        <item>IPSec IKEv2 RSA</item>
+    </string-array>
+    <string-array name="vpn_types_cc_mode">
+        <item>IPSec Xauth PSK</item>
+        <item>IPSec Xauth RSA</item>
+        <item>IPSec IKEv2 PSK</item>
+        <item>IPSec IKEv2 RSA</item>
+    </string-array>
+    <string-array name="vpn_states">
+        <item>Disconnected</item>
+        <item>Initializing…</item>
+        <item>Connecting…</item>
+        <item>Connected</item>
+        <item>Timeout</item>
+        <item>Unsuccessful</item>
+    </string-array>
+    <string-array name="user_content_ratings_entries">
+        <item>Ascended being</item>
+        <item>Human</item>
+        <item>Neanderthal</item>
+        <item>Chimp</item>
+        <item>Monkey</item>
+    </string-array>
+    <string-array name="user_content_ratings_values">
+        <item>5</item>
+        <item>4</item>
+        <item>3</item>
+        <item>2</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Ask</item>
+        <item>Never allow</item>
+        <item>Always allow</item>
+    </string-array>
+    <string-array name="ram_states">
+        <item>Normal</item>
+        <item>Moderate</item>
+        <item>Low</item>
+        <item>Critical</item>
+        <item>\?</item>
+    </string-array>
+    <string-array name="entry_big_font_size">
+        <item>@string/small</item>
+        <item>@string/normal</item>
+        <item>@string/large</item>
+    </string-array>
+    <string-array name="long_press_timeout_titles_selector">
+        <item>Short (0.5 seconds)</item>
+        <item>Medium (1.0 second)</item>
+        <item>Long (1.5 seconds)</item>
+        <item>Custom</item>
+    </string-array>
+    <string-array name="long_press_timeout_selector_items">
+        <item>500</item>
+        <item>1000</item>
+        <item>1500</item>
+        <item>700</item>
+    </string-array>
+    <string-array name="time_interval_entries">
+        <item>3 minutes</item>
+        <item>5 minutes</item>
+        <item>10 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+    </string-array>
+    <string-array name="time_interval_values">
+        <item>180</item>
+        <item>300</item>
+        <item>600</item>
+        <item>1800</item>
+        <item>3600</item>
+    </string-array>
+    <string-array name="time_interval_entries_selectable">
+        <item>1 minute</item>
+        <item>3 minutes</item>
+        <item>5 minutes</item>
+        <item>10 minutes</item>
+        <item>15 minutes</item>
+    </string-array>
+    <string-array name="time_interval_values_selectable">
+        <item>60</item>
+        <item>180</item>
+        <item>300</item>
+        <item>600</item>
+        <item>900</item>
+    </string-array>
+    <string-array name="fmpad_size_entries">
+        <item>@string/fmpad_size_small</item>
+        <item>@string/fmpad_size_med</item>
+        <item>@string/fmpad_size_big</item>
+    </string-array>
+    <string-array name="fmpad_size_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="fmpad_size_entries_five_step">
+        <item>@string/fmpad_size_small</item>
+        <item>@string/fmpad_size_med</item>
+        <item>@string/fmpad_size_big</item>
+        <item>@string/fmpad_size_extra</item>
+        <item>@string/fmpad_size_huge</item>
+    </string-array>
+    <string-array name="fmpad_size_values_five_step">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+    <array name="ram_colors">
+        <item>@color/memory_normal</item>
+        <item>@color/memory_moderate</item>
+        <item>@color/memory_low</item>
+        <item>@color/memory_critical</item>
+    </array>
+    <string-array name="daltonizer_type_entries">
+        <item>@string/daltonizer_mode_deuteranomaly</item>
+        <item>@string/daltonizer_mode_protanomaly</item>
+        <item>@string/daltonizer_mode_tritanomaly</item>
+    </string-array>
+    <string-array name="daltonizer_type_values">
+        <item>12</item>
+        <item>11</item>
+        <item>13</item>
+    </string-array>
+    <integer-array name="battery_saver_trigger_values">
+        <item>0</item>
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+    </integer-array>
+    <string-array name="battery_saver_trigger_entryvalue">
+        <item>0</item>
+        <item>5</item>
+        <item>15</item>
+        <item>20</item>
+        <item>50</item>
+    </string-array>
+    <string-array name="proc_stats_memory_states">
+        <item>Normal</item>
+        <item>Moderate</item>
+        <item>Low</item>
+        <item>Critical</item>
+    </string-array>
+    <string-array name="proc_stats_process_states">
+        <item>Persistent</item>
+        <item>Top activity</item>
+        <item>Important (foreground)</item>
+        <item>Important (background)</item>
+        <item>Backup</item>
+        <item>Heavy weight</item>
+        <item>Service (running)</item>
+        <item>Service (restarting)</item>
+        <item>Receiver</item>
+        <item>Home</item>
+        <item>Last activity</item>
+        <item>Cached (activity)</item>
+        <item>Cached (activity client)</item>
+        <item>Cached (empty)</item>
+    </string-array>
+    <string-array name="personal_page_apps">
+        <item>com.sec.android.gallery3d</item>
+        <item>com.samsung.android.video</item>
+        <item>com.samsung.android.videolist</item>
+        <item>com.samsung.android.onlinevideo</item>
+        <item>com.sec.android.app.music</item>
+        <item>com.sec.android.app.voicenote</item>
+        <item>com.sec.android.app.myfiles</item>
+        <item>com.samsung.android.snote</item>
+    </string-array>
+    <string-array name="applock_white_list_pkg">
+        <item>com.android.settings</item>
+        <item>com.samsung.android.sm</item>
+        <item>com.samsung.android.lool</item>
+        <item>com.samsung.android.sm_cn</item>
+        <item>com.android.stk</item>
+        <item>com.android.stk2</item>
+        <item>com.sec.android.app.camera</item>
+        <item>com.sec.android.app.clockpackage</item>
+        <item>com.sec.knox.switcher</item>
+        <item>com.sec.knox.switchknoxI</item>
+        <item>com.sec.enterprise.knox.express</item>
+    </string-array>
+    <string-array name="wifi_connect_entries">
+        <item>Automatic</item>
+        <item>Manually</item>
+        <item>Always ask</item>
+    </string-array>
+    <string-array name="wifi_connect_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="audio_output_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="cover_note_weather_unit_entries">
+        <item>℃</item>
+        <item>℉</item>
+    </string-array>
+    <string-array name="cover_note_weather_unit_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="led_cover_caller_id_name_entries">
+        <item>@string/sview_led_cover_caller_id_type_father</item>
+        <item>@string/sview_led_cover_caller_id_type_mother</item>
+        <item>@string/sview_led_cover_caller_id_type_boy</item>
+        <item>@string/sview_led_cover_caller_id_type_girl</item>
+        <item>@string/sview_led_cover_caller_id_type_smiley</item>
+        <item>@string/sview_led_cover_caller_id_type_house</item>
+        <item>@string/sview_led_cover_caller_id_type_skyscraper</item>
+        <item>@string/sview_led_cover_caller_id_type_car</item>
+        <item>@string/sview_led_cover_caller_id_type_gift</item>
+        <item>@string/sview_led_cover_caller_id_type_heart</item>
+        <item>@string/sview_led_cover_caller_id_type_whale</item>
+        <item>@string/sview_led_cover_caller_id_type_butterfly</item>
+        <item>@string/sview_led_cover_caller_id_type_tree</item>
+        <item>@string/sview_led_cover_caller_id_type_tulip</item>
+        <item>@string/sview_led_cover_caller_id_type_coffee</item>
+        <item>@string/sview_led_cover_caller_id_type_bird</item>
+        <item>@string/sview_led_cover_caller_id_type_elephant</item>
+        <item>@string/sview_led_cover_caller_id_type_bear</item>
+        <item>@string/sview_led_cover_caller_id_type_rabbit</item>
+        <item>@string/sview_led_cover_caller_id_type_horse</item>
+        <item>@string/sview_led_cover_caller_id_type_chicken</item>
+        <item>@string/sview_led_cover_caller_id_type_surprise</item>
+        <item>@string/sview_led_cover_caller_id_type_neutral_mood</item>
+        <item>@string/sview_led_cover_caller_id_type_sleepy</item>
+        <item>@string/sview_led_cover_caller_id_type_family</item>
+        <item>@string/sview_led_cover_caller_id_type_friends</item>
+        <item>@string/sview_led_cover_caller_id_type_turtle</item>
+        <item>@string/sview_led_cover_caller_id_type_squeeze</item>
+        <item>@string/sview_led_cover_caller_id_type_wave</item>
+        <item>@string/sview_led_cover_caller_id_type_blinking</item>
+        <item>@string/sview_led_cover_caller_id_type_decalcomania</item>
+        <item>@string/sview_led_cover_caller_id_type_jaws</item>
+        <item>@string/sview_led_cover_caller_id_type_grinding</item>
+        <item>@string/sview_led_cover_caller_id_type_twinkling</item>
+        <item>@string/sview_led_cover_caller_id_type_sea</item>
+        <item>@string/sview_led_cover_caller_id_type_dna</item>
+        <item>@string/sview_led_cover_caller_id_type_snow</item>
+        <item>@string/sview_led_cover_caller_id_type_firework</item>
+        <item>@string/sview_led_cover_caller_id_type_infinity</item>
+    </string-array>
+    <array name="led_cover_caller_id_icon_entries">
+        <item>@drawable/led_cover_father</item>
+        <item>@drawable/led_cover_mother</item>
+        <item>@drawable/led_cover_boy</item>
+        <item>@drawable/led_cover_girl</item>
+        <item>@drawable/led_cover_smile</item>
+        <item>@drawable/led_cover_home</item>
+        <item>@drawable/led_cover_office</item>
+        <item>@drawable/led_cover_taxi</item>
+        <item>@drawable/led_cover_gift</item>
+        <item>@drawable/led_cover_heart_white</item>
+        <item>@drawable/led_cover_whale</item>
+        <item>@drawable/led_cover_butterfly</item>
+        <item>@drawable/led_cover_tree</item>
+        <item>@drawable/led_cover_tulip</item>
+        <item>@drawable/led_cover_coffee</item>
+        <item>@drawable/led_cover_bird</item>
+        <item>@drawable/led_cover_elephant</item>
+        <item>@drawable/led_cover_bear</item>
+        <item>@drawable/led_cover_rabbit</item>
+        <item>@drawable/led_cover_horse</item>
+        <item>@drawable/led_cover_chicken</item>
+        <item>@drawable/led_cover_emotion_surprised</item>
+        <item>@drawable/led_cover_emotion_mood_neutral</item>
+        <item>@drawable/led_cover_emotion_sleepy</item>
+        <item>@drawable/led_cover_group_family</item>
+        <item>@drawable/led_cover_group_friends</item>
+        <item>@drawable/led_cover_turtle</item>
+        <item>@drawable/led_cover_preset_squeeze</item>
+        <item>@drawable/led_cover_preset_wave</item>
+        <item>@drawable/led_cover_preset_blinking</item>
+        <item>@drawable/led_cover_preset_decalcomanie</item>
+        <item>@drawable/led_cover_preset_jaws</item>
+        <item>@drawable/led_cover_preset_grinding</item>
+        <item>@drawable/led_cover_preset_twinkle</item>
+        <item>@drawable/led_cover_preset_sea</item>
+        <item>@drawable/led_cover_preset_dna</item>
+        <item>@drawable/led_cover_preset_snow</item>
+        <item>@drawable/led_cover_preset_firework</item>
+        <item>@drawable/led_cover_infinity</item>
+    </array>
+    <integer-array name="led_cover_caller_id_index_entries">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>7</item>
+        <item>6</item>
+        <item>8</item>
+        <item>20</item>
+        <item>18</item>
+        <item>11</item>
+        <item>9</item>
+        <item>17</item>
+        <item>16</item>
+        <item>19</item>
+        <item>10</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>38</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>39</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+        <item>31</item>
+        <item>32</item>
+        <item>33</item>
+        <item>34</item>
+        <item>35</item>
+        <item>36</item>
+        <item>37</item>
+    </integer-array>
+    <string-array name="data_usage_display_unit">
+        <item>MB/GB (auto change)</item>
+        <item>MB only</item>
+        <item>GB only</item>
+    </string-array>
+    <array name="multi_user_color_values">
+        <item>@color/owner_color</item>
+        <item>@color/new_user_color_1</item>
+        <item>@color/new_user_color_2</item>
+        <item>@color/new_user_color_3</item>
+        <item>@color/new_user_color_4</item>
+        <item>@color/new_user_color_5</item>
+        <item>@color/new_user_color_6</item>
+        <item>@color/new_user_color_7</item>
+    </array>
+    <string-array name="call_block_mode">
+        <item>@string/block_settings_off</item>
+        <item>@string/block_all_calls</item>
+        <item>@string/block_number</item>
+    </string-array>
+    <string-array name="voice_call_block_mode">
+        <item>@string/block_settings_off</item>
+        <item>@string/block_all_voice_calls</item>
+        <item>@string/block_number</item>
+    </string-array>
+    <string-array name="video_call_block_mode">
+        <item>@string/block_settings_off</item>
+        <item>@string/block_all_video_calls</item>
+        <item>@string/block_number</item>
+    </string-array>
+    <string-array name="message_block_mode">
+        <item>@string/block_settings_off</item>
+        <item>@string/block_all_messages</item>
+        <item>@string/block_number_and_phrases</item>
+    </string-array>
+    <string-array name="color_picker">
+        <item>Teal</item>
+        <item>Blue</item>
+        <item>Indigo</item>
+        <item>Purple</item>
+        <item>Pink</item>
+        <item>Red</item>
+    </string-array>
+    <string-array name="security_policy_pref_network_entries">
+        <item>@string/wifi_or_mobile_network</item>
+        <item>@string/wifi_network_only</item>
+    </string-array>
+    <string-array name="security_policy_pref_network_value">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="touch_key_light_values">
+        <item>1500</item>
+        <item>6000</item>
+        <item>0</item>
+        <item>-1</item>
+        <item>-2</item>
+    </string-array>
+    <string-array name="touch_key_light_entries">
+        <item>1.5 seconds</item>
+        <item>6 seconds</item>
+        <item>Always off</item>
+        <item>Always on</item>
+    </string-array>
+    <string-array name="key_backlight_entries">
+        <item>Always off</item>
+        <item>1 second</item>
+        <item>3 seconds</item>
+        <item>5 seconds</item>
+        <item>10 seconds</item>
+        <item>15 seconds</item>
+    </string-array>
+    <string-array name="key_backlight_values">
+        <item>0</item>
+        <item>1000</item>
+        <item>3000</item>
+        <item>5000</item>
+        <item>10000</item>
+        <item>15000</item>
+    </string-array>
+    <string-array name="stms_appgroup">
+        <item>L_DEV_Settings_NILE_SecSettings2_arrays</item>
+    </string-array>
+    <string-array name="night_mode_entries">
+        <item>@string/night_mode_no</item>
+        <item>@string/night_mode_yes</item>
+        <item>@string/night_mode_auto</item>
+    </string-array>
+    <string-array name="night_mode_values">
+        <item>1</item>
+        <item>2</item>
+        <item>0</item>
+    </string-array>
+    <string-array name="entries_operator_choose">
+        <item>China Mobile</item>
+        <item>China Unicom</item>
+        <item>China Telecom</item>
+    </string-array>
+    <string-array name="entriesvalues_operator_choose">
+        <item>3</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="entries_province_choose">
+        <item>Beijing</item>
+        <item>Tianjin</item>
+        <item>Shanghai</item>
+        <item>Chongqing</item>
+        <item>Guangdong</item>
+        <item>Shandong</item>
+        <item>Shanxi</item>
+        <item>Liaoning</item>
+        <item>Gansu</item>
+        <item>Xinjiang</item>
+        <item>Jilin</item>
+        <item>Jiangsu</item>
+        <item>Heilongjiang</item>
+        <item>Neimenggu</item>
+        <item>Shaanxi</item>
+        <item>Sichuan</item>
+        <item>Hubei</item>
+        <item>Hunan</item>
+        <item>Yunnan</item>
+        <item>Guizhou</item>
+        <item>Fujian</item>
+        <item>Jiangxi</item>
+        <item>Henan</item>
+        <item>Hebei</item>
+        <item>Qinghai</item>
+        <item>Xizang</item>
+        <item>Zhejiang</item>
+        <item>Anhui</item>
+        <item>Guangxi</item>
+        <item>Ningxia</item>
+        <item>Hainan</item>
+        <item>Hongkong</item>
+        <item>Macao</item>
+        <item>Taiwan</item>
+    </string-array>
+    <string-array name="entriesvalues_province_choose">
+        <item>BJ</item>
+        <item>TJ</item>
+        <item>SH</item>
+        <item>CQ</item>
+        <item>GD</item>
+        <item>SD</item>
+        <item>SX</item>
+        <item>LN</item>
+        <item>GS</item>
+        <item>XJ</item>
+        <item>JL</item>
+        <item>JS</item>
+        <item>HL</item>
+        <item>NM</item>
+        <item>XA</item>
+        <item>SC</item>
+        <item>WH</item>
+        <item>CS</item>
+        <item>YN</item>
+        <item>GZ</item>
+        <item>FJ</item>
+        <item>JX</item>
+        <item>HN</item>
+        <item>HB</item>
+        <item>QH</item>
+        <item>XZ</item>
+        <item>ZJ</item>
+        <item>AW</item>
+        <item>GX</item>
+        <item>NX</item>
+        <item>HK</item>
+        <item>XG</item>
+        <item>OM</item>
+        <item>TW</item>
+    </string-array>
+    <string-array name="entries_hebei_city_choose">
+        <item>ShiJiaZhuang</item>
+        <item>TangShan</item>
+        <item>QinHuangDao</item>
+        <item>HanDan</item>
+        <item>XingTai</item>
+        <item>BaoDing</item>
+        <item>ZhangJiaKou</item>
+        <item>ChengDe</item>
+        <item>CangZhou</item>
+        <item>LangFang</item>
+        <item>HengShui</item>
+    </string-array>
+    <string-array name="entriesvalues_hebei_city_choose">
+        <item>Shijiazhuang</item>
+        <item>Tangshan</item>
+        <item>Qinhuangdao</item>
+        <item>Handan</item>
+        <item>Xingtai</item>
+        <item>Baoding</item>
+        <item>Zhangjiakou</item>
+        <item>Chengde</item>
+        <item>Cangzhou</item>
+        <item>Langfang</item>
+        <item>Hengshui</item>
+    </string-array>
+    <string-array name="entries_hainan_city_choose">
+        <item>Haikou</item>
+        <item>Sanya</item>
+        <item>Sansha</item>
+    </string-array>
+    <string-array name="entriesvalues_hainan_city_choose">
+        <item>Haikou</item>
+        <item>Sanya</item>
+        <item>Sansha</item>
+    </string-array>
+    <string-array name="entries_guangxi_city_choose">
+        <item>Nanning</item>
+        <item>Liuzhou</item>
+        <item>Guilin</item>
+        <item>Wuzhou</item>
+        <item>Beihai</item>
+        <item>Chongzuo</item>
+        <item>Laibin</item>
+        <item>GuiGang</item>
+        <item>Hezhou</item>
+        <item>Yulin</item>
+        <item>Baise</item>
+        <item>Hechi</item>
+        <item>Qinzhou</item>
+        <item>Fangchenggang</item>
+    </string-array>
+    <string-array name="entriesvalues_guangxi_city_choose">
+        <item>Nanning</item>
+        <item>Liuzhou</item>
+        <item>Guilin</item>
+        <item>Wuzhou</item>
+        <item>Beihai</item>
+        <item>Songzuo</item>
+        <item>Laibin</item>
+        <item>GuiGang</item>
+        <item>Hezhou</item>
+        <item>Yulin</item>
+        <item>Baise</item>
+        <item>Hechi</item>
+        <item>Qinzhou</item>
+        <item>Fangchengang</item>
+    </string-array>
+    <string-array name="entries_henan_city_choose">
+        <item>ZhengZhou</item>
+        <item>KaiFeng</item>
+        <item>LuoYang</item>
+        <item>ShangQiu</item>
+        <item>AnYang</item>
+        <item>PingDingShan</item>
+        <item>XinXiang</item>
+        <item>JiaoZuo</item>
+        <item>PuYang</item>
+        <item>XuChang</item>
+        <item>LuoHe</item>
+        <item>SanMenXia</item>
+        <item>HeBi</item>
+        <item>ZhouKou</item>
+        <item>ZhuMaDian</item>
+        <item>NanYang</item>
+        <item>XinYang</item>
+    </string-array>
+    <string-array name="entriesvalues_henan_city_choose">
+        <item>Zhengzhou</item>
+        <item>Kaifeng</item>
+        <item>Luoyang</item>
+        <item>Shangqiu</item>
+        <item>Anyang</item>
+        <item>Pingdingshan</item>
+        <item>Xinxiang</item>
+        <item>Jiaozuo</item>
+        <item>Puyang</item>
+        <item>Xuchang</item>
+        <item>Luohe</item>
+        <item>Sanmenxia</item>
+        <item>Hebi</item>
+        <item>Zhoukou</item>
+        <item>Zhumadian</item>
+        <item>Nanyang</item>
+        <item>Xinyang</item>
+    </string-array>
+    <string-array name="entries_beijing_city_choose">
+        <item>BeiJing</item>
+    </string-array>
+    <string-array name="entriesvalues_beijing_city_choose">
+        <item>Beijing</item>
+    </string-array>
+    <string-array name="entries_tianjin_city_choose">
+        <item>TianJin</item>
+    </string-array>
+    <string-array name="entriesvalues_tianjin_city_choose">
+        <item>Tianjin</item>
+    </string-array>
+    <string-array name="entries_shanghai_city_choose">
+        <item>ShangHai</item>
+    </string-array>
+    <string-array name="entriesvalues_shanghai_city_choose">
+        <item>Shanghai</item>
+    </string-array>
+    <string-array name="entries_chongqing_city_choose">
+        <item>ChongQing</item>
+    </string-array>
+    <string-array name="entriesvalues_chongqing_city_choose">
+        <item>Chongqing</item>
+    </string-array>
+    <string-array name="entries_guangdong_city_choose">
+        <item>Guangzhou</item>
+        <item>Shenzhen</item>
+        <item>Zhuhai</item>
+        <item>Shantou</item>
+        <item>Foshan</item>
+        <item>Shaoguan</item>
+        <item>Zhanjiang</item>
+        <item>Zhaoqing</item>
+        <item>Jiangmen</item>
+        <item>Maoming</item>
+        <item>Huizhou</item>
+        <item>Meizhou</item>
+        <item>Shanwei</item>
+        <item>Heiyuan</item>
+        <item>Yangjiang</item>
+        <item>Qingyuan</item>
+        <item>Dongguan</item>
+        <item>Zhongshan</item>
+        <item>Chaozhou</item>
+        <item>Jieyang</item>
+        <item>Yunfu</item>
+    </string-array>
+    <string-array name="entriesvalues_guangdong_city_choose">
+        <item>Guangzhou</item>
+        <item>Shenzhen</item>
+        <item>Zhuhai</item>
+        <item>Shantou</item>
+        <item>Foshan</item>
+        <item>Shaoguan</item>
+        <item>Zhanjiang</item>
+        <item>Zhaoqing</item>
+        <item>Jiangmen</item>
+        <item>Maoming</item>
+        <item>Huizhou</item>
+        <item>Meizhou</item>
+        <item>Shanwei</item>
+        <item>Heiyuan</item>
+        <item>Yangjiang</item>
+        <item>Qingyuan</item>
+        <item>Dongguan</item>
+        <item>Zhongshan</item>
+        <item>Chaozhou</item>
+        <item>Jieyang</item>
+        <item>Yunfu</item>
+    </string-array>
+    <string-array name="entries_shandong_city_choose">
+        <item>JiNan</item>
+        <item>QingDao</item>
+        <item>ZiBo</item>
+        <item>ZaoZhuang</item>
+        <item>DongYing</item>
+        <item>YanTai</item>
+        <item>WeiFang</item>
+        <item>JiNing</item>
+        <item>TaiAn</item>
+        <item>WeiHai</item>
+        <item>RiZhao</item>
+        <item>BinZhou</item>
+        <item>DeZhou</item>
+        <item>LiaoCheng</item>
+        <item>LinYi</item>
+        <item>HeZe</item>
+        <item>LaiWu</item>
+    </string-array>
+    <string-array name="entriesvalues_shandong_city_choose">
+        <item>Jinan</item>
+        <item>Qingdao</item>
+        <item>Zibo</item>
+        <item>Zaozhuang</item>
+        <item>Dongying</item>
+        <item>Yantai</item>
+        <item>Weifang</item>
+        <item>Jining</item>
+        <item>Taian</item>
+        <item>Weihai</item>
+        <item>Rizhao</item>
+        <item>Binzhou</item>
+        <item>Dezhou</item>
+        <item>Liaocheng</item>
+        <item>Linyi</item>
+        <item>Heze</item>
+        <item>Laiwu</item>
+    </string-array>
+    <string-array name="entries_shanxi_city_choose">
+        <item>TaiYuan</item>
+        <item>DaTong</item>
+        <item>YangQuan</item>
+        <item>ChangZhi</item>
+        <item>JinCheng</item>
+        <item>ShuoZhou</item>
+        <item>JinZhong</item>
+        <item>YunCheng</item>
+        <item>XinZhou</item>
+        <item>LinFen</item>
+        <item>LvLiang</item>
+    </string-array>
+    <string-array name="entriesvalues_shanxi_city_choose">
+        <item>Taiyuan</item>
+        <item>Datong</item>
+        <item>Yangquan</item>
+        <item>Changzhi</item>
+        <item>Jincheng</item>
+        <item>Shuozhou</item>
+        <item>JinZhong</item>
+        <item>Yuncheng</item>
+        <item>Xinzhou</item>
+        <item>Linfen</item>
+        <item>Lvliang</item>
+    </string-array>
+    <string-array name="entries_shanxii_city_choose">
+        <item>XiAn</item>
+        <item>BaoJi</item>
+        <item>XianYang</item>
+        <item>TongChuan</item>
+        <item>WeiNan</item>
+        <item>HanZhong</item>
+        <item>AnKang</item>
+        <item>ShangLuo</item>
+        <item>YanAn</item>
+        <item>YuLin</item>
+    </string-array>
+    <string-array name="entriesvalues_shanxii_city_choose">
+        <item>Xian</item>
+        <item>Baoji</item>
+        <item>Xianyang</item>
+        <item>Tongchuan</item>
+        <item>Weinan</item>
+        <item>Hanzhong</item>
+        <item>Ankang</item>
+        <item>Shangluo</item>
+        <item>Yanan</item>
+        <item>Yulin</item>
+    </string-array>
+    <string-array name="entries_liaoning_city_choose">
+        <item>ShenYang</item>
+        <item>DaLian</item>
+        <item>AnShan</item>
+        <item>FuShun</item>
+        <item>BenXi</item>
+        <item>DanDong</item>
+        <item>JinZhou</item>
+        <item>YingKou</item>
+        <item>FuXin</item>
+        <item>LiaoYang</item>
+        <item>PanJin</item>
+        <item>TieLing</item>
+        <item>ChaoYang</item>
+        <item>HuLuDao</item>
+    </string-array>
+    <string-array name="entriesvalues_liaoning_city_choose">
+        <item>Shenyang</item>
+        <item>Dalian</item>
+        <item>Anshan</item>
+        <item>Fushun</item>
+        <item>Benxi</item>
+        <item>Dandong</item>
+        <item>Jinzhou</item>
+        <item>Yingkou</item>
+        <item>Fuxin</item>
+        <item>Liaoyang</item>
+        <item>Panjin</item>
+        <item>Tieling</item>
+        <item>Chaoyang</item>
+        <item>Huludao</item>
+    </string-array>
+    <string-array name="entries_gansu_city_choose">
+        <item>LanZhou</item>
+        <item>JiaYuGuan</item>
+        <item>JinChang</item>
+        <item>BaiYin</item>
+        <item>TianShui</item>
+        <item>JiuQuan</item>
+        <item>ZhangYe</item>
+        <item>WuWei</item>
+        <item>DingXi</item>
+        <item>LongNan</item>
+        <item>PingLiang</item>
+        <item>QingYang</item>
+        <item>GanNan</item>
+        <item>LinXia</item>
+    </string-array>
+    <string-array name="entriesvalues_gansu_city_choose">
+        <item>Lanzhou</item>
+        <item>Jiayuguan</item>
+        <item>Jinchang</item>
+        <item>BaiYin</item>
+        <item>Tianshui</item>
+        <item>Jiuquan</item>
+        <item>Zhangye</item>
+        <item>Wuwei</item>
+        <item>Dingxi</item>
+        <item>Longnan</item>
+        <item>Pingliang</item>
+        <item>Qingyang</item>
+        <item>Gannan</item>
+        <item>Linxia</item>
+    </string-array>
+    <string-array name="entries_xinjiang_city_choose">
+        <item>WuLuMuQi</item>
+        <item>KeLaMaYi</item>
+        <item>TuLuFan</item>
+        <item>HaMi</item>
+        <item>AKeSu</item>
+        <item>TaCheng</item>
+        <item>ALeTai</item>
+        <item>KaShi</item>
+        <item>HeTian</item>
+        <item>BaYinGuoLengMeng</item>
+        <item>ChangJi</item>
+        <item>BoErTaLaMengGu</item>
+        <item>YiLiHaShaKe</item>
+        <item>KeZiLeSuKeErKeZi</item>
+    </string-array>
+    <string-array name="entriesvalues_xinjiang_city_choose">
+        <item>Wulumuqi</item>
+        <item>Kelamayi</item>
+        <item>Tulufan</item>
+        <item>Hami</item>
+        <item>Akesu</item>
+        <item>Tacheng</item>
+        <item>Aletai</item>
+        <item>Kashi</item>
+        <item>HeTian</item>
+        <item>Bayinguolengmeng</item>
+        <item>Changji</item>
+        <item>Boertalamenggu</item>
+        <item>Yilihashake</item>
+        <item>Kezilesukeerkezi</item>
+    </string-array>
+    <string-array name="entries_jilin_city_choose">
+        <item>ChangChun</item>
+        <item>JiLin</item>
+        <item>SiPing</item>
+        <item>LiaoYuan</item>
+        <item>TongHua</item>
+        <item>BaiShan</item>
+        <item>SongYuan</item>
+        <item>BaiCheng</item>
+        <item>YanBianChaoXianZuZiZhiQu</item>
+    </string-array>
+    <string-array name="entriesvalues_jilin_city_choose">
+        <item>Changchun</item>
+        <item>Jilin</item>
+        <item>Siping</item>
+        <item>Liaoyuan</item>
+        <item>Tonghua</item>
+        <item>Baishan</item>
+        <item>Songyuan</item>
+        <item>Baicheng</item>
+        <item>Yanbianchaoxianzuzizhiqu</item>
+    </string-array>
+    <string-array name="entries_jiangsu_city_choose">
+        <item>NanJing</item>
+        <item>WuXi</item>
+        <item>XuZhou</item>
+        <item>ChangZhou</item>
+        <item>SuZhou</item>
+        <item>NanTong</item>
+        <item>LianYunGang</item>
+        <item>HuaiAn</item>
+        <item>YanCheng</item>
+        <item>YangZhou</item>
+        <item>ZhenJiang</item>
+        <item>TaiZhou</item>
+        <item>SuQian</item>
+    </string-array>
+    <string-array name="entriesvalues_jiangsu_city_choose">
+        <item>Nanjing</item>
+        <item>Wuxi</item>
+        <item>Xuzhou</item>
+        <item>Changzhou</item>
+        <item>Suzhou</item>
+        <item>Nantong</item>
+        <item>Lianyungang</item>
+        <item>Huaian</item>
+        <item>Yancheng</item>
+        <item>Yangzhou</item>
+        <item>Zhenjiang</item>
+        <item>Taizhou</item>
+        <item>Suqian</item>
+    </string-array>
+    <string-array name="entries_zhejiang_city_choose">
+        <item>HangZhou</item>
+        <item>NingBo</item>
+        <item>WenZhou</item>
+        <item>JiaXing</item>
+        <item>HuZhou</item>
+        <item>ShaoXing</item>
+        <item>JinHua</item>
+        <item>QuZhou</item>
+        <item>DanShan</item>
+        <item>TaiZhou</item>
+        <item>LiShui</item>
+    </string-array>
+    <string-array name="entriesvalues_zhejiang_city_choose">
+        <item>Hangzhou</item>
+        <item>Ningbo</item>
+        <item>Wenzhou</item>
+        <item>Jiaxing</item>
+        <item>Huzhou</item>
+        <item>Shaoxing</item>
+        <item>Jinhua</item>
+        <item>Quzhou</item>
+        <item>Danshan</item>
+        <item>Taizhou</item>
+        <item>Lishui</item>
+    </string-array>
+    <string-array name="entries_anhui_city_choose">
+        <item>HeFei</item>
+        <item>WuHu</item>
+        <item>BengBu</item>
+        <item>HuaiNan</item>
+        <item>MaAnShan</item>
+        <item>HuaiBei</item>
+        <item>TongLing</item>
+        <item>AnQing</item>
+        <item>HuangShan</item>
+        <item>ChuZhou</item>
+        <item>FuYang</item>
+        <item>SuZhou</item>
+        <item>LuAn</item>
+        <item>BoZhou</item>
+        <item>ChiZhou</item>
+        <item>XuanCheng</item>
+    </string-array>
+    <string-array name="entriesvalues_anhui_city_choose">
+        <item>Hefei</item>
+        <item>Wuhu</item>
+        <item>Bengbu</item>
+        <item>Huainan</item>
+        <item>MaAnshan</item>
+        <item>Huaibei</item>
+        <item>Tongling</item>
+        <item>Anqing</item>
+        <item>Huangshan</item>
+        <item>Chuzhou</item>
+        <item>Fuyang</item>
+        <item>Suzhou</item>
+        <item>Luan</item>
+        <item>Bozhou</item>
+        <item>Chizhou</item>
+        <item>Xuancheng</item>
+    </string-array>
+    <string-array name="entries_heilongjiang_city_choose">
+        <item>HaErBin</item>
+        <item>QiQiHaEr</item>
+        <item>MuDanJiang</item>
+        <item>JiaMuSi</item>
+        <item>DaQing</item>
+        <item>YiChun</item>
+        <item>JiXi</item>
+        <item>HeGang</item>
+        <item>ShuangYaShan</item>
+        <item>QiTaiHe</item>
+        <item>SuiHua</item>
+        <item>HeiHe</item>
+        <item>DaXingAnLing</item>
+    </string-array>
+    <string-array name="entriesvalues_heilongjiang_city_choose">
+        <item>Haerbin</item>
+        <item>Qiqihaer</item>
+        <item>Mudanjiang</item>
+        <item>Jiamusi</item>
+        <item>Daqing</item>
+        <item>Yichun</item>
+        <item>Jixi</item>
+        <item>Hegang</item>
+        <item>Shuangyashan</item>
+        <item>Qitaihe</item>
+        <item>Suihua</item>
+        <item>Heihe</item>
+        <item>Daxinganling</item>
+    </string-array>
+    <string-array name="entries_neimenggu_city_choose">
+        <item>HuHeHaoTe</item>
+        <item>BaoTou</item>
+        <item>WuHai</item>
+        <item>ChiFeng</item>
+        <item>TongLiao</item>
+        <item>EErDuoSi</item>
+        <item>HuLunBeiEr</item>
+        <item>BaYanNaoEr</item>
+        <item>WuLanChaBu</item>
+        <item>ALaShanMeng</item>
+        <item>XiLinGuoLeMeng</item>
+        <item>XingAnMeng</item>
+    </string-array>
+    <string-array name="entriesvalues_neimenggu_city_choose">
+        <item>Huhehaote</item>
+        <item>Baotou</item>
+        <item>Wuhai</item>
+        <item>Chifeng</item>
+        <item>Tongliao</item>
+        <item>Eerduosi</item>
+        <item>Hulunbeier</item>
+        <item>Bayannaoer</item>
+        <item>Wulanchabu</item>
+        <item>Alashanmeng</item>
+        <item>Xilinguolemeng</item>
+        <item>Xinganmeng</item>
+    </string-array>
+    <string-array name="entries_sichuan_city_choose">
+        <item>ChengDu</item>
+        <item>MianYang</item>
+        <item>ZiGong</item>
+        <item>PanZhiHua</item>
+        <item>LuZhou</item>
+        <item>DeYang</item>
+        <item>GuangYuan</item>
+        <item>SuiNing</item>
+        <item>NeiJiang</item>
+        <item>LeShan</item>
+        <item>ZiYang</item>
+        <item>YiBin</item>
+        <item>NanChong</item>
+        <item>DaZhou</item>
+        <item>YaAn</item>
+        <item>GuangAn</item>
+        <item>BaZhong</item>
+        <item>MeiShan</item>
+        <item>LiangShan</item>
+        <item>ABa</item>
+        <item>GanZi</item>
+    </string-array>
+    <string-array name="entriesvalues_sichuan_city_choose">
+        <item>Chengdu</item>
+        <item>Mianyang</item>
+        <item>Zigong</item>
+        <item>Panzhihua</item>
+        <item>Luzhou</item>
+        <item>Deyang</item>
+        <item>Guangyuan</item>
+        <item>Suining</item>
+        <item>Neijiang</item>
+        <item>Leshan</item>
+        <item>Ziyang</item>
+        <item>Yibin</item>
+        <item>NanChong</item>
+        <item>Dazhou</item>
+        <item>YaAn</item>
+        <item>Guangan</item>
+        <item>Bazhong</item>
+        <item>Meishan</item>
+        <item>Liangshan</item>
+        <item>Aba</item>
+        <item>Ganzi</item>
+    </string-array>
+    <string-array name="entries_hubei_city_choose">
+        <item>WuHan</item>
+        <item>HuangShi</item>
+        <item>ShiYan</item>
+        <item>JingZhou</item>
+        <item>YiChang</item>
+        <item>XiangYang</item>
+        <item>EZhou</item>
+        <item>JingMen</item>
+        <item>HuangGang</item>
+        <item>XiaoGan</item>
+        <item>XianNing</item>
+        <item>SuiZhou</item>
+        <item>EnShiJiaZuMiaoZuZiZhiQu</item>
+    </string-array>
+    <string-array name="entriesvalues_hubei_city_choose">
+        <item>Wuhan</item>
+        <item>Huangshi</item>
+        <item>Shiyan</item>
+        <item>Jingzhou</item>
+        <item>Yichang</item>
+        <item>Xiangyang</item>
+        <item>Ezhou</item>
+        <item>Jingmen</item>
+        <item>Huanggang</item>
+        <item>Xiaogan</item>
+        <item>Xianning</item>
+        <item>Suizhou</item>
+        <item>Enshijiazumiaozuzizhiqu</item>
+    </string-array>
+    <string-array name="entries_hunan_city_choose">
+        <item>ChangSha</item>
+        <item>ZhuZhou</item>
+        <item>XiangTan</item>
+        <item>HengYang</item>
+        <item>ShaoYang</item>
+        <item>YueYang</item>
+        <item>ZhangJiaJie</item>
+        <item>YiYang</item>
+        <item>ChangDe</item>
+        <item>LouDi</item>
+        <item>ChenZhou</item>
+        <item>YongHua</item>
+        <item>HuaiHua</item>
+        <item>XiangXiTuJiaMiaoZuZiZhiQu</item>
+    </string-array>
+    <string-array name="entriesvalues_hunan_city_choose">
+        <item>Changsha</item>
+        <item>Zhuzhou</item>
+        <item>Xiangtan</item>
+        <item>Hengyang</item>
+        <item>Shaoyang</item>
+        <item>Yueyang</item>
+        <item>Zhangjiajie</item>
+        <item>Yiyang</item>
+        <item>Changde</item>
+        <item>Loudi</item>
+        <item>Chenzhou</item>
+        <item>Yonghua</item>
+        <item>Huaihua</item>
+        <item>Xiangxitujiamiaozuzizhiqu</item>
+    </string-array>
+    <string-array name="entries_yunnan_city_choose">
+        <item>KunMing</item>
+        <item>ShaoTong</item>
+        <item>QuJing</item>
+        <item>YuXi</item>
+        <item>PuEr</item>
+        <item>Baoshan</item>
+        <item>LiJiang</item>
+        <item>LinCang</item>
+        <item>DiQing</item>
+        <item>ChuXiong</item>
+        <item>HongHe</item>
+        <item>XiShuangBanNa</item>
+        <item>DaLi</item>
+        <item>DeHong</item>
+        <item>NuJiang</item>
+        <item>WenShan</item>
+    </string-array>
+    <string-array name="entriesvalues_yunnan_city_choose">
+        <item>Kunming</item>
+        <item>Shaotong</item>
+        <item>Qujing</item>
+        <item>Yuxi</item>
+        <item>Puer</item>
+        <item>BaoShan</item>
+        <item>Lijiang</item>
+        <item>Lincang</item>
+        <item>Diqing</item>
+        <item>Chuxiong</item>
+        <item>Honghe</item>
+        <item>Xishuangbanna</item>
+        <item>Dali</item>
+        <item>Dehong</item>
+        <item>Nujiang</item>
+        <item>Wenshan</item>
+    </string-array>
+    <string-array name="entries_guizhou_city_choose">
+        <item>GuiYang</item>
+        <item>LiuPanShui</item>
+        <item>ZunYi</item>
+        <item>AnShun</item>
+        <item>BiJie</item>
+        <item>TongRen</item>
+        <item>QianXiNan</item>
+        <item>Qiannan</item>
+        <item>QianDongNan</item>
+    </string-array>
+    <string-array name="entriesvalues_guizhou_city_choose">
+        <item>Guiyang</item>
+        <item>Liupanshui</item>
+        <item>Zunyi</item>
+        <item>Anshun</item>
+        <item>Bijie</item>
+        <item>Tongren</item>
+        <item>Qianxinan</item>
+        <item>Qiannan</item>
+        <item>Qiandongnan</item>
+    </string-array>
+    <string-array name="entries_fujian_city_choose">
+        <item>FuZhou</item>
+        <item>XiaMen</item>
+        <item>PuTian</item>
+        <item>SanMing</item>
+        <item>QuanZhou</item>
+        <item>ZhangZhou</item>
+        <item>NanPing</item>
+        <item>LongYan</item>
+        <item>NingDe</item>
+    </string-array>
+    <string-array name="entriesvalues_fujian_city_choose">
+        <item>Fuzhou</item>
+        <item>Xiamen</item>
+        <item>Putian</item>
+        <item>Sanming</item>
+        <item>Quanzhou</item>
+        <item>Zhangzhou</item>
+        <item>Nanping</item>
+        <item>Longyan</item>
+        <item>Ningde</item>
+    </string-array>
+    <string-array name="entries_jiangxi_city_choose">
+        <item>NanChang</item>
+        <item>GanZhou</item>
+        <item>YiChun</item>
+        <item>JiAn</item>
+        <item>ShangRao</item>
+        <item>FuZhou</item>
+        <item>JiuJiang</item>
+        <item>JingDeZhen</item>
+        <item>PingXiang</item>
+        <item>XinYu</item>
+        <item>YingTan</item>
+    </string-array>
+    <string-array name="entriesvalues_jiangxi_city_choose">
+        <item>Nanchang</item>
+        <item>Ganzhou</item>
+        <item>Yichun</item>
+        <item>Jian</item>
+        <item>Shangrao</item>
+        <item>Fuzhou</item>
+        <item>Jiujiang</item>
+        <item>Jingdezhen</item>
+        <item>Pingxiang</item>
+        <item>Xinyu</item>
+        <item>Yingtan</item>
+    </string-array>
+    <string-array name="entries_ningxia_city_choose">
+        <item>YinChuan</item>
+        <item>ShiZuiShan</item>
+        <item>WuZhong</item>
+        <item>GuYuan</item>
+        <item>ZhongWei</item>
+    </string-array>
+    <string-array name="entriesvalues_ningxia_city_choose">
+        <item>Yinchuan</item>
+        <item>Shizuishan</item>
+        <item>Wuzhong</item>
+        <item>Guyuan</item>
+        <item>Zhongwei</item>
+    </string-array>
+    <string-array name="entries_qinghai_city_choose">
+        <item>XiNing</item>
+        <item>HaiDong</item>
+        <item>HaiBeiZangZu</item>
+        <item>HuangNanZangZu</item>
+        <item>HaiNanZangZu</item>
+        <item>HaiXiMengGuZuZangZu</item>
+        <item>GuoLuoZangZu</item>
+        <item>Yushuzangzu</item>
+    </string-array>
+    <string-array name="entriesvalues_qinghai_city_choose">
+        <item>Xining</item>
+        <item>Haidong</item>
+        <item>Haibeizangzu</item>
+        <item>Huangnanzangzu</item>
+        <item>Hainanzangzu</item>
+        <item>Haiximengguzuzangzu</item>
+        <item>Guoluozangzu</item>
+        <item>YuShuZangZu</item>
+    </string-array>
+    <string-array name="entries_xizang_city_choose">
+        <item>LaSa</item>
+        <item>LinZhi</item>
+        <item>ALi</item>
+        <item>ShanNan</item>
+        <item>RiKaZe</item>
+        <item>NaQu</item>
+        <item>ChangDu</item>
+    </string-array>
+    <string-array name="entriesvalues_xizang_city_choose">
+        <item>Lasa</item>
+        <item>Linzhi</item>
+        <item>Ali</item>
+        <item>Shannan</item>
+        <item>Rikaze</item>
+        <item>Naqu</item>
+        <item>Changdu</item>
+    </string-array>
+    <string-array name="entries_none_choose">
+        <item>Please choose a province</item>
+    </string-array>
+    <string-array name="entriesvalues_none_choose">
+        <item>none</item>
+    </string-array>
+    <string-array name="entries_warning_choose">
+        <item>@string/switch_off_text</item>
+        <item>40%</item>
+        <item>50%</item>
+        <item>60%</item>
+        <item>70%</item>
+        <item>80%</item>
+        <item>90%</item>
+        <item>100%</item>
+    </string-array>
+    <string-array name="entriesvalues_warning_choose">
+        <item>off</item>
+        <item>40</item>
+        <item>50</item>
+        <item>60</item>
+        <item>70</item>
+        <item>80</item>
+        <item>90</item>
+        <item>100</item>
+    </string-array>
+    <string-array name="entries_none_operator_choose">
+        <item>Please choose a operator</item>
+    </string-array>
+    <string-array name="entriesvalues_none_operator_choose">
+        <item>ect</item>
+    </string-array>
+    <string-array name="entries_cmcc_choose">
+        <item>Global Commu</item>
+        <item>M-Zone</item>
+        <item>Easy OWN</item>
+    </string-array>
+    <string-array name="dominant_hand_side_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="fmpointer_speed_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="fmpointer_size_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="entriesvalues_cmcc_choose">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="entries_ctc_choose">
+        <item>2G/3G</item>
+        <item>4G</item>
+    </string-array>
+    <string-array name="entriesvalues_ctc_choose">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="entries_cu_choose">
+        <item>2G</item>
+        <item>3G</item>
+        <item>4G</item>
+    </string-array>
+    <string-array name="entriesvalues_cu_choose">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="nfc_preferred_sim_entries">
+        <item>SIM 1</item>
+        <item>SIM 2</item>
+        <item>SIM 3</item>
+    </string-array>
+    <string-array name="nfc_preferred_sim_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="auto_power_repeat_entry">
+        <item>@string/auto_power_days_everyday</item>
+        <item>@string/auto_power_days_sunday</item>
+        <item>@string/auto_power_days_Monday</item>
+        <item>@string/auto_power_days_Tuesday</item>
+        <item>@string/auto_power_days_Wednesday</item>
+        <item>@string/auto_power_days_Thursday</item>
+        <item>@string/auto_power_days_Friday</item>
+        <item>@string/auto_power_days_Saturday</item>
+    </string-array>
+    <integer-array name="battery_cutoff_level">
+        <item>4</item>
+        <item>0</item>
+        <item>0</item>
+        <item>99</item>
+        <item>100</item>
+    </integer-array>
+    <integer-array name="battery_drawing_level">
+        <item>0</item>
+        <item>0</item>
+        <item>7</item>
+        <item>99</item>
+        <item>100</item>
+    </integer-array>
+    <string-array name="view_type_entry">
+        <item>@string/uimode_grace</item>
+        <item>@string/uimode_hero</item>
+    </string-array>
+    <string-array name="defaul_app_selection_value">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="defaul_app_selection_entry">
+        <item>@string/default_app_selection_auto_set</item>
+        <item>@string/default_app_selection_ask</item>
+    </string-array>
+    <string-array name="location_use_in_background_entries">
+        <item>@string/background_location_options_0</item>
+        <item>@string/background_location_options_1</item>
+        <item>@string/background_location_options_2</item>
+    </string-array>
+    <string-array name="input_method_selector_titles">
+        <item>@string/input_method_selector_show_automatically_title</item>
+        <item>@string/input_method_selector_always_show_title</item>
+        <item>@string/input_method_selector_always_hide_title</item>
+    </string-array>
+    <string-array name="input_method_selector_values">
+        <item>@string/input_method_selector_show_automatically_value</item>
+        <item>@string/input_method_selector_always_show_value</item>
+        <item>@string/input_method_selector_always_hide_value</item>
+    </string-array>
+    <string-array name="wifi_calling_mode_choices">
+        <item>Wi-Fi preferred</item>
+        <item>Cellular preferred</item>
+        <item>Wi-Fi only</item>
+    </string-array>
+    <string-array name="wifi_calling_mode_values">
+        <item>2</item>
+        <item>1</item>
+        <item>0</item>
+    </string-array>
+    <string-array name="wifi_calling_mode_choices_without_wifi_only">
+        <item>Wi-Fi preferred</item>
+        <item>Cellular preferred</item>
+    </string-array>
+    <string-array name="wifi_calling_mode_values_without_wifi_only">
+        <item>2</item>
+        <item>1</item>
+    </string-array>
+    <array name="bytes_picker_sizes">
+        <item>@android:string/megabyteShort</item>
+        <item>@android:string/gigabyteShort</item>
+    </array>
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <ripple android:color="@color/tw_toolbar_ripple_color_light" />
+    </item>
+    <item>
+        <selector>
+            <item android:state_enabled="false" android:drawable="@drawable/sem_action_item_icon_button_background_shape_disabled" />
+            <item android:drawable="@drawable/sem_action_item_icon_button_background_shape" />
+        </selector>
+    </item>
+</layer-list>

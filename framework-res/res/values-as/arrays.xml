@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="emailAddressTypes">
+        <item>গৃহ</item>
+        <item>কাম</item>
+        <item>অন্য</item>
+        <item>"কাষ্ট'ম"</item>
+    </string-array>
+    <string-array name="imProtocols">
+        <item>এইম</item>
+        <item>"উইণ্ড'জ লাইভ"</item>
+        <item>Yahoo</item>
+        <item>স্কাইপ</item>
+        <item>QQ</item>
+        <item>Google Talk</item>
+        <item>ICQ</item>
+        <item>Jabber</item>
+    </string-array>
+    <string-array name="organizationTypes">
+        <item>কাম</item>
+        <item>অন্য</item>
+        <item>"কাষ্ট'ম"</item>
+    </string-array>
+    <string-array name="phoneTypes">
+        <item>গৃহ</item>
+        <item>"ম'বাইল"</item>
+        <item>কাম</item>
+        <item>কাৰ্য্য ফেক্স</item>
+        <item>গৃহ ফেক্স</item>
+        <item>পেজাৰ</item>
+        <item>অন্য</item>
+        <item>"কাষ্ট'ম"</item>
+    </string-array>
+    <string-array name="postalAddressTypes">
+        <item>গৃহ</item>
+        <item>কাম</item>
+        <item>অন্য</item>
+        <item>"কাষ্ট'ম"</item>
+    </string-array>
+    <string-array name="imAddressTypes">
+        <item>গৃহ</item>
+        <item>কাম</item>
+        <item>অন্য</item>
+        <item>"কাষ্ট'ম"</item>
+    </string-array>
+</resources>

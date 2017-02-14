@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent" android:fillViewport="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textAppearance="?android:textAppearanceMedium" android:gravity="top" android:id="@id/tags_connecting_devices_explained" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="16.0dip" android:layout_marginTop="11.0dip" android:layout_marginRight="12.0dip" android:text="@string/nfc_settings_rw_p2p_summary" style="@style/body_text_style" />
+    </LinearLayout>
+</ScrollView>

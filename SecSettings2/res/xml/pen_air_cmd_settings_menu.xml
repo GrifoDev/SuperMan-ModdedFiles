@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/air_button_title" android:key="pen_air_cmd_settings_menu" settings:parent="@xml/pen_settings_s_pen_ui"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <PreferenceScreen android:layout="@layout/preference_aircmd_layout" android:selectable="false" android:key="key_air_cmd_help_screen" />
+    <Preference android:title="@string/air_cmd_apps_and_functions_title" android:key="key_air_cmd_apps_and_functions" />
+    <SwitchPreference android:title="@string/air_cmd_use_minimized_title" android:key="key_air_cmd_use_minimized" android:summary="@string/air_cmd_use_minimized_summary" />
+    <SwitchPreference android:title="@string/air_cmd_detachment_option_title" android:key="key_air_cmd_detachment_option" android:summary="@string/air_cmd_detachment_option_summary" />
+    <PreferenceCategory android:key="about_spen_features_category" />
+    <PreferenceScreen android:title="@string/about_spen_features_title" android:key="about_spen_features" />
+    <PreferenceCategory android:key="spen_contact_us_category" />
+    <PreferenceScreen android:title="@string/contact_us_title" android:key="spen_contact_us" />
+</PreferenceScreen>

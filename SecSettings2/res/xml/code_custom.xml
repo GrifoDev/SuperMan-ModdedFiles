@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditTextPreference android:title="Code" android:key="code" />
+    <EditTextPreference android:numeric="integer" android:title="Receiving number" android:key="Receiving_num" />
+    <EditTextPreference android:title="Code" android:key="code_1" />
+    <EditTextPreference android:numeric="integer" android:title="Receiving number" android:key="Receiving_num_1" />
+</PreferenceScreen>

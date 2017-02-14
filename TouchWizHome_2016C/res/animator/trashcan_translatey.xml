@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<objectAnimator android:duration="266" android:valueFrom="0.0dip" android:valueTo="@dimen/delete_drawable_offsetY" android:valueType="floatType" android:propertyName="translationY"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

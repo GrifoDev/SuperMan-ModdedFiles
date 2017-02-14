@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingBottom="@dimen/power_saving_dialog_bottom_padding" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ListView android:scrollbarStyle="outsideOverlay" android:id="@android:id/list" android:focusable="false" android:layout_width="fill_parent" android:layout_height="0.0dip" android:drawSelectorOnTop="false" android:divider="@null" android:layout_weight="1.0" android:headerDividersEnabled="false" android:footerDividersEnabled="false" android:paddingStart="@dimen/alert_dialog_padding_left_right" android:paddingEnd="@dimen/alert_dialog_padding_left_right" />
+    <View android:id="@id/maximum_dialog_lower_divider" android:background="@drawable/powersaving_dialog_divider" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="@dimen/power_saving_dialog_divider_height" android:layout_marginBottom="@dimen/power_saving_dialog_list_bottom_padding" android:layout_marginStart="@dimen/alert_dialog_padding_left_right" android:layout_marginEnd="@dimen/alert_dialog_padding_left_right" />
+    <include android:id="@id/round_button" layout="@layout/battery_round_button_layout" />
+    <include android:id="@id/round_button_cancel" layout="@layout/battery_round_button_layout" />
+</LinearLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/sim_dropdown_list_item_minHeight"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center_vertical" android:id="@id/nfc_sim_list_view_row_image_view" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:contentDescription="@null" android:layout_marginStart="@dimen/list_dialog_sim_icon_margin" />
+    <RelativeLayout android:ellipsize="marquee" android:id="@id/nfc_sim_list_view_radio_text_button" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <RelativeLayout android:id="@id/nfc_sim_list_view_info_layout" android:paddingTop="@dimen/sim_dropdown_list_item_padding" android:paddingBottom="@dimen/sim_dropdown_list_item_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_centerVertical="true">
+            <CheckedTextView android:ellipsize="marquee" android:id="@id/nfc_sim_list_view_radio_text_title" android:paddingTop="@null" android:paddingBottom="@null" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@null" android:singleLine="true" style="?android:attr/spinnerDropDownItemStyle" />
+            <CheckedTextView android:id="@id/nfc_sim_list_summary" android:visibility="gone" android:layout_below="@id/nfc_sim_list_view_radio_text_title" android:layout_marginStart="@dimen/list_dialog_sim_icon_margin" style="@style/SecondaryListItemStyle" />
+        </RelativeLayout>
+    </RelativeLayout>
+</LinearLayout>

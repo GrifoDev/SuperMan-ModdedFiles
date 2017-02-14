@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="Blue light filter"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <com.samsung.android.settings.bluelightfilter.BlueLightFilterSeekBarPreference android:title="@string/blue_light_filter_seekbar" android:key="blue_light_filter_seekbar" />
+    <com.samsung.android.settings.UnclickablePreference android:title="@string/blue_light_filter_desc" android:key="blue_light_filter_desc" style="@style/description_text" />
+    <SwitchPreference android:title="@string/blue_light_filter_enable_now" android:key="blue_light_filter_turn_on_now" />
+    <SwitchPreference android:title="@string/blue_light_filter_enable_as_scheduled" android:key="blue_light_filter_turn_on_as_scheduled" />
+    <com.samsung.android.settings.bluelightfilter.BlueLightFilterRadioButtonPreference android:title="@string/blue_light_filter_auto_schedule_title" android:key="blue_light_filter_auto_schedule" />
+    <com.samsung.android.settings.bluelightfilter.BlueLightFilterRadioButtonPreference android:title="@string/blue_light_filter_user_schedule_title" android:key="blue_light_filter_user_schedule" />
+    <PreferenceScreen android:title="@string/blue_light_filter_on_time" android:key="blue_light_filter_on_time" />
+    <PreferenceScreen android:title="@string/blue_light_filter_off_time" android:key="blue_light_filter_off_time" />
+</PreferenceScreen>

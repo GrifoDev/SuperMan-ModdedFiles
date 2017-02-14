@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/navigationbar_pressureaction_title" android:key="navibationbar_setting"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <com.samsung.android.settings.navigationbar.NavigationBarDropDownPreference android:title="@string/navigationbar_set_left" android:key="left_key" />
+    <com.samsung.android.settings.navigationbar.NavigationBarDropDownPreference android:title="@string/navigationbar_set_center" android:key="center_key" />
+    <com.samsung.android.settings.navigationbar.NavigationBarDropDownPreference android:title="@string/navigationbar_set_right" android:key="right_key" />
+</PreferenceScreen>

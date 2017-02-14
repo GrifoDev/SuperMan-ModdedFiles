@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_window_focused="false" android:state_enabled="true" android:drawable="@drawable/voicecall_rcs_popup_check" />
+    <item android:state_window_focused="false" android:state_enabled="false" android:drawable="@drawable/voicecall_rcs_popup_check_focus" />
+    <item android:state_pressed="true" android:drawable="@drawable/voicecall_rcs_popup_check_press" />
+    <item android:state_focused="true" android:state_enabled="true" android:drawable="@drawable/voicecall_rcs_popup_check_press" />
+    <item android:state_enabled="true" android:drawable="@drawable/voicecall_rcs_popup_check" />
+    <item android:state_focused="true" android:drawable="@drawable/voicecall_rcs_popup_check_focus" />
+    <item android:drawable="@drawable/voicecall_rcs_popup_check_focus" />
+</selector>

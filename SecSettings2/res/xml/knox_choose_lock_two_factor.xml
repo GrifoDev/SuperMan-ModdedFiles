@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:key="pref_security_locktype"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.settings.MultiLinePreference android:title="@string/knox_twofactor_description" android:selectable="false" android:key="pref_two_factor_description" />
+    <PreferenceCategory android:title="@string/two_step_first_category" android:key="first_step_category" />
+    <SwitchPreference android:title="@string/fingerprint" android:key="switch_fingerprint" />
+    <SwitchPreference android:title="@string/iris_title" android:key="switch_iris" />
+    <PreferenceCategory android:title="@string/two_step_second_category" android:key="second_step_category" />
+    <CheckBoxPreference android:layout="@layout/knox_preference" android:title="@string/unlock_set_unlock_password_title" android:key="pref_lock_password" android:summary="@string/unlock_set_unlock_password_summary" android:widgetLayout="@xml/radiobutton_preference" />
+    <CheckBoxPreference android:layout="@layout/knox_preference" android:title="@string/unlock_set_unlock_pin_title" android:key="pref_lock_pin" android:summary="@string/unlock_set_unlock_pin_summary" android:widgetLayout="@xml/radiobutton_preference" />
+    <CheckBoxPreference android:layout="@layout/knox_preference" android:title="@string/unlock_set_unlock_pattern_title" android:key="pref_lock_pattern" android:summary="@string/unlock_set_unlock_pattern_summary" android:widgetLayout="@xml/radiobutton_preference" />
+    <CheckBoxPreference android:layout="@layout/knox_preference" android:title="@string/unlock_set_unlock_enterprise_identity_title" android:key="pref_lock_enterprise_identity" android:widgetLayout="@xml/radiobutton_preference" />
+</PreferenceScreen>

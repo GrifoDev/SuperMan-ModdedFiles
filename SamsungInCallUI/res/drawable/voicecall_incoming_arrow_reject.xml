@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bitmap android:src="@drawable/voicecall_incoming_left" android:tint="@color/incoming_voicecall_reject_arrow_color_theme"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

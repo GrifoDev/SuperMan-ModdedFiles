@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:paddingTop="@dimen/cpa_dialog_padding_top_bootom" android:paddingBottom="@dimen/cpa_dialog_padding_top_bootom" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/cpa_dialog_padding_left_right" android:paddingEnd="@dimen/cpa_dialog_padding_left_right">
+        <RadioGroup android:id="@id/apn_type" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <RadioButton android:id="@id/add_apn" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeight" android:text="@string/add_apn" android:paddingStart="@dimen/apn_list_padding_start" style="?android:attr/textAppearanceMedium" />
+            <RadioButton android:id="@id/add_cpa" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeight" android:text="@string/add_cpa" android:paddingStart="@dimen/apn_list_padding_start" style="?android:attr/textAppearanceMedium" />
+        </RadioGroup>
+    </LinearLayout>
+</LinearLayout>

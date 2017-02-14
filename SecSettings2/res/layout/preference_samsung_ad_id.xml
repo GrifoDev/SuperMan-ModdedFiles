@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:scrollbarStyle="outsideInset" android:orientation="vertical" android:id="@id/samsung_ad_id_scroll" android:padding="24.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <TextView android:textAppearance="?android:textAppearanceMedium" android:gravity="start" android:id="@id/samsung_about_ad_id_description" android:duplicateParentState="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/samsung_about_ad_id_description" android:includeFontPadding="false" android:shadowColor="#ffffffff" android:editable="false" android:fontFamily="sec-roboto-light" />
+    </ScrollView>
+</LinearLayout>

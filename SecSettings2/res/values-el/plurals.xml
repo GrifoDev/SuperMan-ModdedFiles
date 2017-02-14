@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d ώρες</item>
+        <item quantity="one">1 ώρα</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d λεπτά</item>
+        <item quantity="one">1 λεπτό</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d δευτερόλεπτα</item>
+        <item quantity="one">1 δευτερόλεπτο</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Απομένουν μόνο %d βήματα για να γίνετε προγραμματιστής.</item>
+        <item quantity="one">Απομένει μόνο 1 βήμα, για να γίνετε προγραμματιστής.</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Κατάργηση επιλεγμένων γλωσσών</item>
+        <item quantity="one">Κατάργηση επιλεγμένης γλώσσας</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Ο κωδικός πρόσβασης πρέπει να περιέχει τουλάχιστον %d γράμματα.</item>
+        <item quantity="one">Ο κωδικός πρόσβασης πρέπει να περιέχει τουλάχιστον ένα γράμμα.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Ο κωδικός πρόσβασης θα πρέπει να περιέχει τουλάχιστον %d πεζούς χαρακτήρες.</item>
+        <item quantity="one">Ο κωδικός πρόσβασης θα πρέπει να περιέχει τουλάχιστον έναν πεζό χαρακτήρα.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Ο κωδικός πρόσβασης θα πρέπει να περιέχει τουλάχιστον %d κεφαλαίους χαρακτήρες.</item>
+        <item quantity="one">Ο κωδικός πρόσβασης θα πρέπει να περιέχει τουλάχιστον έναν κεφαλαίο χαρακτήρα.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Ο κωδικός πρόσβασης θα πρέπει να περιέχει τουλάχιστον %d αριθμούς.</item>
+        <item quantity="one">Ο κωδικός πρόσβασης θα πρέπει να περιλαμβάνει τουλάχιστον 1 αριθμό.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Ο κωδικός πρόσβασης πρέπει να περιέχει τουλάχιστον %d σύμβολα.</item>
+        <item quantity="one">Ο κωδικός πρόσβασης πρέπει να περιέχει τουλάχιστον 1 σύμβολο.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Ο κωδικός πρόσβασης πρέπει να περιέχει τουλάχιστον %d αριθμούς ή σύμβολα.</item>
+        <item quantity="one">Ο κωδικός πρόσβασης πρέπει να περιέχει τουλάχιστον 1 αριθμό ή σύμβολο.</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Πρόσβαση σε %d φακέλους/αρχεία</item>
+        <item quantity="one">Πρόσβαση σε 1 φάκελο/αρχείο</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"Ο χρήστης %s εγκατέστησε πιστοποιητικά CA στη συσκευή σας, τα οποία μπορεί να του επιτρέψουν να παρακολουθεί τη δραστηριότητα δικτύου της συσκευής, συμπεριλαμβανομένης της χρήσης των email, των εφαρμογών και των ασφαλών τοποθεσιών web.
+
+Για περισσότερες πληροφορίες σχετικά με αυτά τα πιστοποιητικά, επικοινωνήστε με το διαχειριστή IT."</item>
+        <item quantity="one">"Ο χρήστης %s εγκατέστησε ένα πιστοποιητικό CA στη συσκευή σας, το οποίο μπορεί να του επιτρέψει να παρακολουθεί τη δραστηριότητα δικτύου της συσκευής, συμπεριλαμβανομένης της χρήσης των email, των εφαρμογών και των ασφαλών τοποθεσιών web.
+
+Για περισσότερες πληροφορίες σχετικά με αυτό το πιστοποιητικό, επικοινωνήστε με το διαχειριστή IT."</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d εφαρμογές μπορούν να διαβάσουν ειδοποιήσεις.</item>
+        <item quantity="one">Επιτρέπεται η ανάγνωση ειδοποιήσεων από την εφαρμογή %d.</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d ακόμη δικαιώματα</item>
+        <item quantity="one">%d ακόμη δικαίωμα</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$d διεργασίες χρησιμοποίησαν RAM τις τελευταίες %2$s</item>
+        <item quantity="one">%1$d διεργασία χρησιμοποίησε RAM τις τελευταίες %2$s</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d εφαρμογές επιτρέπεται να χρησιμοποιούν δεδομένα κινητής τηλεφωνίας χωρίς περιορισμούς όσο είναι ενεργοποιημένη η λειτουργία εξοικονόμησης δεδομένων</item>
+        <item quantity="one">1 εφαρμογή επιτρέπεται να χρησιμοποιεί δεδομένα κινητής τηλεφωνίας χωρίς περιορισμούς όσο είναι ενεργοποιημένη η Εξοικονόμηση δεδομένων</item>
+    </plurals>
+</resources>

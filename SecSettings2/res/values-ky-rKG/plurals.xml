@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d саат</item>
+        <item quantity="one">1 саат</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d минут</item>
+        <item quantity="one">1 минут</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d секунда</item>
+        <item quantity="one">1 секунда</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Сиз азыр иштеп чыгуучу болуудан %d кадам алыс турасыз</item>
+        <item quantity="one">Иштеп чыгуучу болооруңузга 1 гана кадам калды</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Тандалган тилдерди өчүрүү</item>
+        <item quantity="one">Тандалган тилди өчүрүү</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Сырсөздө кеминде %d тамгалар болушу керек</item>
+        <item quantity="one">Сырсөздө кеминде 1 тамга болушу керек</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Сырсөздө кеминде %d кичинекей тамгалар болушу керек</item>
+        <item quantity="one">Сырсөздө кеминде 1 кичинекей тамга болушу керек</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Сырсөздө кеминде %d баш тамгалар болушу керек</item>
+        <item quantity="one">Сырсөздө кеминде 1 баш тамга болушу керек</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Сырсөздө жок дегенде %d сандар болушу керек</item>
+        <item quantity="one">Сырсөздө кеминде 1 сан болушу керек</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Сырсөздө кеминде %d символдор болушу керек</item>
+        <item quantity="one">Сырсөздө кеминде 1 символ болушу керек</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Сырсөздө кеминде %d сандар же символдор болушу керек</item>
+        <item quantity="one">Сырсөздө кеминде 1 сан же символ болушу керек</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">%d папка/файлга кошулуу</item>
+        <item quantity="one">1 папка/файлга кошулуу</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s, алардын email, колдонмо, жана коопсуз вебсайттарды керектөөңүздү камтыган, түзмөгүңүздүн тармак иш-аракетин байкоосуна уруксат берүүсү мүмкүн болгон CA тастыктамасын түзмөгүңүзгө орнотту.
+
+Бул тастыктамалар жөнүндө дагы маалымат алуу үчүн, IT администраторуңуз менен байланышыңыз."</item>
+        <item quantity="one">"%s, алардын email, колдонмо, жана коопсуз вебсайттарды керектөөңүздү камтыган, түзмөгүңүздүн тармак иш-аракетин байкоосуна уруксат берүүсү мүмкүн болгон CA тастыктамасын түзмөгүңүзгө орнотту.
+
+Бул тастыктама жөнүндө дагы маалымат алуу үчүн, IT администраторуңуз менен байланышыңыз."</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d сунуучу билдирүүлөрдү окуй алат.</item>
+        <item quantity="one">%d сунуучуда, билдирүүлөрдү окуу уруксаты бар.</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">Дагы %d уруксат</item>
+        <item quantity="one">Дагы %d уруксат</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">Акыркы %2$s ичинде %1$d RAM колдонулду</item>
+        <item quantity="one">Акыркы %2$s ичинде %1$d RAM колдонулду</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">Маалымат сактагычы иштетилген учурда, %d колдонмого мобилдик маалыматтарды чектөөсүз колдонууга уруксат берилди</item>
+        <item quantity="one">1 колдонмого Маалымат сактагычы иштетилген учурда, мобилдик маалыматтарды чектөөсүз колдонууга уруксат берилди</item>
+    </plurals>
+</resources>

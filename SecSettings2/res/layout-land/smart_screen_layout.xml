@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent" android:fillViewport="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ImageView android:id="@id/smart_stay_animation_view" android:layout_width="0.0px" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/body_text_side_padding" android:layout_marginTop="@dimen/body_text_top_padding" android:layout_marginRight="@dimen/body_text_side_padding" android:src="@drawable/smart_stay_animation" android:scaleType="fitStart" android:adjustViewBounds="true" android:layout_weight="4.0" android:contentDescription="@null" />
+        <LinearLayout android:orientation="vertical" android:id="@id/smart_stay_description" android:paddingTop="@dimen/body_text_top_padding" android:layout_width="0.0px" android:layout_height="wrap_content" android:layout_weight="6.0" android:paddingEnd="@dimen/body_text_side_padding">
+            <TextView android:id="@id/smart_screen_noti0" android:paddingBottom="@dimen/body_text_bottom_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/intelligent_help_0" style="@style/description_text" />
+            <TextView android:id="@id/smart_screen_noti1" android:paddingBottom="@dimen/smart_stay_line_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/intelligent_help_1" style="@style/description_text" />
+            <LinearLayout android:orientation="horizontal" android:paddingBottom="@dimen/smart_stay_line_padding" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/sub_description_bullet" android:paddingStart="@dimen/description_dot_text_padding" android:paddingEnd="@dimen/smart_stay_bullet_right_padding" style="@style/description_sub_text" />
+                <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/intelligent_help_summary_0" android:paddingEnd="@dimen/body_text_side_padding" style="@style/description_sub_text" />
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:paddingBottom="@dimen/smart_stay_line_padding" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/sub_description_bullet" android:paddingStart="@dimen/description_dot_text_padding" android:paddingEnd="@dimen/smart_stay_bullet_right_padding" style="@style/description_sub_text" />
+                <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/intelligent_help_summary_1" style="@style/description_sub_text" />
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:paddingBottom="@dimen/smart_stay_line_padding" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/sub_description_bullet" android:paddingStart="@dimen/description_dot_text_padding" android:paddingEnd="@dimen/smart_stay_bullet_right_padding" style="@style/description_sub_text" />
+                <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/intelligent_help_summary_2" style="@style/description_sub_text" />
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:id="@id/description_for_dual_folder_model" android:paddingBottom="@dimen/smart_stay_line_padding" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/sub_description_bullet" android:paddingStart="@dimen/description_dot_text_padding" android:paddingEnd="@dimen/smart_stay_bullet_right_padding" style="@style/description_sub_text" />
+                <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/function_inner_screen_only" style="@style/description_sub_text" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

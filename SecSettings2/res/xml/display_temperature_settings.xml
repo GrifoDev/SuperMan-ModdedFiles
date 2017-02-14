@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/display_temperature"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <com.samsung.android.settings.display.DisplayTemperatureDescPreference android:title="@string/adjust_your_display_colour" android:key="display_temperature_desc" style="@style/description_text" />
+    <com.samsung.android.settings.display.DisplayTemperatureSeekBarPreferenceRed android:title="@string/color_red" android:key="diplay_temperature_red" />
+    <com.samsung.android.settings.display.DisplayTemperatureSeekBarPreferenceGreen android:title="@string/color_green" android:key="diplay_temperature_green" />
+    <com.samsung.android.settings.display.DisplayTemperatureSeekBarPreferenceBlue android:title="@string/color_blue" android:key="diplay_temperature_blue" />
+</PreferenceScreen>

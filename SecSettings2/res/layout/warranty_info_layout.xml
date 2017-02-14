@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:scrollbarStyle="outsideInset" android:orientation="vertical" android:id="@id/warranty_scroll" android:padding="@dimen/warranty_info_scroll_padding" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <TextView android:textSize="@dimen/warranty_info_txt_size" android:textColor="@color/warranty_info_color" android:gravity="left" android:id="@id/warranty_legal" android:duplicateParentState="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:editable="false" android:lineSpacingExtra="1.5dip" />
+    </ScrollView>
+</LinearLayout>

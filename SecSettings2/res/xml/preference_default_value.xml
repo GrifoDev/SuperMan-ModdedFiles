@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ListPreference android:key="dominant_hand_side" android:defaultValue="@string/preference_dominant_hand_default" />
+    <ListPreference android:key="menu_type_side" android:defaultValue="@string/preference_menu_type_default" />
+    <PreferenceScreen android:title="@string/menu_edit" android:key="menu_edit" android:summary="@string/menu_edit_summary" />
+</PreferenceScreen>

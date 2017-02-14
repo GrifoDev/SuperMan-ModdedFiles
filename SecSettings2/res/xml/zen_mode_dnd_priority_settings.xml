@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/zen_mode_priority_settings_title" android:key="zen_mode_priority_settings"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.samsung.android.settings.notification.RadioPreference android:persistent="false" android:title="@string/no_exceptions" android:key="no_exception" android:summary="@string/no_exceptions_summary" />
+    <com.samsung.android.settings.notification.RadioPreference android:persistent="false" android:title="@string/zen_mode_option_alarms" android:key="alarm_only" android:summary="@string/alarms_only_summary" />
+    <com.samsung.android.settings.notification.RadioPreference android:persistent="false" android:title="@string/longpress_custom_button" android:key="custom" android:summary="@string/custrom_summary" />
+    <PreferenceCategory android:title="" android:key="custom_category" />
+    <SwitchPreference android:persistent="false" android:title="@string/zen_mode_alarms" android:key="alarms" />
+    <SwitchPreference android:persistent="false" android:title="@string/zen_mode_repeat_callers" android:key="repeat_callers" />
+    <com.android.settings.SecDropDownPreference android:persistent="false" android:title="@string/zen_mode_calls" android:key="calls" />
+    <com.android.settings.SecDropDownPreference android:persistent="false" android:title="@string/zen_mode_messages" android:key="messages" />
+    <SwitchPreference android:persistent="false" android:title="@string/zen_mode_events" android:key="events" android:summary="@string/zen_mode_events_summary" />
+    <SwitchPreference android:persistent="false" android:title="@string/zen_mode_reminders" android:key="reminders" android:summary="@string/zen_mode_reminders_summary" />
+    <PreferenceScreen android:title="@string/app_notification_priority_app_list_title" android:key="app_notifications" android:summary="@string/dnd_app_noti_summary" android:fragment="com.samsung.android.settings.notification.PriorityNotiAppList" />
+</PreferenceScreen>

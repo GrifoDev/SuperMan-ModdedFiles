@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <PreferenceScreen android:title="@string/power_usage_summary_title" android:key="battery_settings" settings:related_keywords="@array/battery_keywords">
+        <intent android:action="com.samsung.android.sm.ACTION_BATTERY" />
+    </PreferenceScreen>
+    <PreferenceScreen android:title="@string/storage_settings" android:key="storage_settings" android:fragment="com.android.settings.deviceinfo.StorageSettings" />
+    <PreferenceScreen android:title="@string/memory" android:key="memory_settings" android:fragment="com.android.settings.applications.ProcessStatsSummary" />
+    <PreferenceCategory android:title="@string/language_and_time_category" />
+    <PreferenceScreen android:title="@string/language_settings" android:key="device_info_language_settings" android:fragment="com.android.settings.inputmethod.InputMethodAndLanguageSettings" />
+    <PreferenceScreen android:title="@string/date_and_time_settings_title" android:key="device_info_date_time_settings" android:fragment="com.samsung.android.settings.DateTimeSettings" />
+    <PreferenceCategory android:title="@string/support" android:key="support" />
+    <PreferenceScreen android:title="@string/contact_us_title" android:key="device_info_contact_us" />
+    <SwitchPreference android:title="@string/label_diagnostics_info" android:key="device_info_report_diagnostics_info" settings:dbMatchingName="samsung_errorlog_agree" settings:dbMatchingTable="system" />
+    <PreferenceScreen android:title="@string/samsung_ad_id" android:key="samsung_ad_id" android:fragment="com.samsung.android.settings.deviceinfo.SamsungAdId" />
+    <PreferenceScreen android:title="@string/device_info_marketing_information_title" android:key="marketing_information" />
+    <PreferenceCategory android:key="reset_category" />
+    <PreferenceScreen android:title="@string/reset" android:key="reset_preference" android:fragment="com.samsung.android.settings.PrivacyResetSettings" />
+</PreferenceScreen>

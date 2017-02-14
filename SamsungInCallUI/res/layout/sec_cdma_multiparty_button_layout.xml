@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Button android:id="@id/cdma_multiparty_button" android:visibility="gone" android:text="@string/secOnscreenSwapText" android:layout_alignParentEnd="true" style="@style/SecVoiceMenuButton" />
+</RelativeLayout>

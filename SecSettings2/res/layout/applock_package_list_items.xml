@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeightSmall" android:paddingStart="@dimen/applock_list_item_padding" android:paddingEnd="@dimen/applock_list_item_padding"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/list_iv_icon" android:layout_width="@dimen/applock_list_app_icon_size" android:layout_height="@dimen/applock_list_app_icon_size" android:layout_centerVertical="true" android:layout_marginEnd="@dimen/applock_list_item_inner_padding" />
+    <LinearLayout android:orientation="vertical" android:paddingTop="11.75dip" android:paddingBottom="11.75dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_marginStart="@dimen/applock_list_item_inner_padding" android:layout_marginEnd="@dimen/applock_list_item_text_marginEnd" android:layout_toEndOf="@id/list_iv_icon">
+        <TextView android:textAppearance="@android:attr/textAppearanceListItem" android:textSize="@dimen/applock_list_item_textsize" android:textColor="?android:textColorPrimary" android:id="@id/list_tx_appname" android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="sec-roboto-light" />
+        <TextView android:textAppearance="?android:textAppearanceListItemSecondary" android:textColor="?android:textColorSecondary" android:id="@id/list_tx_summary" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="sec-roboto-light" />
+    </LinearLayout>
+    <Switch android:id="@id/list_btn_lock" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_alignParentEnd="true" />
+</RelativeLayout>

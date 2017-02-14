@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="58.0dip" android:baselineAligned="false" android:paddingStart="12.0dip" android:paddingEnd="20.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/llayoutConferenceCallerStatus" android:layout_width="50.0dip" android:layout_height="fill_parent">
+        <ImageView android:id="@id/conferenceCallerStatus" android:layout_width="@dimen/conference_call_manager_button_dimension" android:layout_height="@dimen/conference_call_manager_button_dimension" android:src="@drawable/voicecall_multiparty_btn_conneting" android:scaleType="center" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_marginLeft="1.0dip" android:layout_weight="1.0">
+        <ImageView android:id="@id/callerPhoto" android:layout_width="@dimen/contact_browser_list_item_photo_size" android:layout_height="@dimen/contact_browser_list_item_photo_size" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="177.0dip" android:layout_height="wrap_content" android:layout_marginStart="13.0dip" android:layout_marginEnd="12.0dip">
+            <TextView android:textAppearance="?android:textAppearanceLarge" android:textSize="19.0sp" android:textColor="@color/sec_incall_default_text_color" android:id="@id/conferenceCallerName" android:layout_width="wrap_content" android:layout_height="fill_parent" android:singleLine="true" android:fontFamily="sec-roboto-light" android:layout_marginEnd="2.0dip" />
+            <LinearLayout android:gravity="bottom" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="fill_parent">
+                <TextView android:textSize="14.0sp" android:textColor="@color/conference_call_manager_secondary_text_color" android:ellipsize="marquee" android:id="@id/conferenceCallerNumber" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_marginEnd="8.0dip" />
+                <TextView android:textSize="12.0sp" android:textColor="@color/conference_call_manager_secondary_text_color" android:ellipsize="marquee" android:gravity="start" android:id="@id/conferenceCallerNumberType" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:textAllCaps="true" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/air_turn_title"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+  xmlns:touchwiz="http://schemas.android.com/apk/res/touchwiz">
+    <Preference android:title="@string/learn_about_the_sensor_title" android:key="learn_about_the_sensor" android:widgetLayout="@layout/round_more_icon" />
+    <PreferenceCategory android:title="@string/category_applications" android:key="applications_category" />
+    <CheckBoxPreference android:persistent="false" android:title="@string/air_browse_email_body_title" android:key="email_body" android:summary="@string/air_browse_email_body_summary" settings:dbMatchingName="air_motion_scroll_email_body" settings:dbMatchingTable="system" />
+    <CheckBoxPreference android:persistent="false" android:title="@string/application_name_gallery" android:key="single_photo_view" android:summary="@string/air_browse_gallery_summary" settings:dbMatchingName="air_motion_turn_single_photo_view" settings:dbMatchingTable="system" />
+    <CheckBoxPreference android:persistent="false" android:title="@string/application_name_internet" android:key="internet_window" android:summary="@string/air_browse_internet_summary" settings:dbMatchingName="air_motion_turn_internet_window" settings:dbMatchingTable="system" />
+    <CheckBoxPreference android:persistent="false" android:title="@string/application_name_music_player" android:key="now_playing_on_music" android:summary="@string/air_browse_music_player_summary" settings:dbMatchingName="air_motion_turn_now_playing_on_music" settings:dbMatchingTable="system" />
+    <CheckBoxPreference android:persistent="false" android:title="@string/air_browse_music_on_lock_screen_title" android:key="bgm_on_lock_screen" android:summary="@string/air_browse_music_on_lock_screen_summary" settings:dbMatchingName="air_motion_turn_bgm_on_lock_screen" settings:dbMatchingTable="system" />
+    <CheckBoxPreference android:persistent="false" android:title="@string/application_name_snote" android:key="note_page_view" android:summary="@string/air_browse_note_summary" settings:dbMatchingName="air_motion_turn_note_page_view" settings:dbMatchingTable="system" />
+</PreferenceScreen>

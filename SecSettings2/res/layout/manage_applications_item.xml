@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeightSmall" android:columnCount="4"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center_vertical" android:id="@id/app_icon" android:layout_width="@dimen/list_app_icon_size" android:layout_height="@dimen/list_app_icon_size" android:scaleType="centerInside" android:contentDescription="@null" android:layout_rowSpan="2" android:layout_marginEnd="@dimen/list_item_inner_padding" />
+    <TextView android:ellipsize="marquee" android:layout_gravity="fill_horizontal" android:id="@id/app_name" android:layout_width="0.0dip" android:layout_marginTop="@dimen/list_item_top_padding" android:singleLine="true" android:layout_columnSpan="2" android:textAlignment="viewStart" style="@style/list_title_text_style" />
+    <CheckBox android:layout_gravity="center_vertical" android:id="@id/app_on_sdcard" android:background="@null" android:focusable="false" android:visibility="gone" android:clickable="false" android:layout_rowSpan="2" android:layout_marginStart="@dimen/list_item_inner_padding" />
+    <TextView android:layout_gravity="fill_horizontal|center|top" android:id="@id/app_size" android:layout_width="0.0dip" android:layout_marginBottom="@dimen/list_item_bottom_padding" android:textAlignment="viewStart" style="@style/list_summary_text_style" />
+    <TextView android:layout_gravity="top" android:id="@id/app_disabled" android:layout_marginStart="@dimen/list_item_inner_padding" style="@style/list_summary_text_style" />
+</GridLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/coverInCallButtonLayout" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layoutDirection="ltr">
+        <com.android.incallui.widget.incomingwidget.IncomingCallImageWidget android:id="@id/inCallImageWidget" android:tag="clear_cover_incall" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginBottom="@dimen/sec_clear_cover_incoming_widget_margin_bottom" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/coverEndCallButtonLayout" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <com.android.incallui.widget.incomingwidget.IncomingCallImageWidget android:id="@id/endCallImageWidget" android:tag="clear_cover_redial_call" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/sec_clear_cover_incoming_widget_margin_bottom" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <ViewStub android:id="@id/coverModifyCallViewStub" android:layout="@layout/sec_clear_cover_modify_call_layout" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+</RelativeLayout>

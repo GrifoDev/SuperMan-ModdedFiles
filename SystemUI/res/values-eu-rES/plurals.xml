@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">Pantaila bat dago ikuspegi orokorrean</item>
+        <item quantity="one">%d pantaila daude ikuspegi orokorrean</item>
+    </plurals>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">SIM txartelaren PIN kodea okerra da. %d saiakera geratzen zaizkizu gailua desblokeatzeko.</item>
+        <item quantity="one">SIM txartelaren PIN kodea okerra da. %d saiakera geratzen zaizu gailua desblokeatzeko.</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">SIM txartelaren PUK kodea okerra da. %d saiakera geratzen zaizkizu SIM txartela betiko erabilgaitz geratu aurretik.</item>
+        <item quantity="one">SIM txartelaren PUK kodea okerra da. %d saiakera geratzen zaizu SIM txartela betiko erabilgaitz geratu aurretik.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="other">Gailua ez da desblokeatu %d orduz. Berretsi eredua.</item>
+        <item quantity="one">Gailua ez da desblokeatu %d orduz. Berretsi eredua.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="other">Gailua ez da desblokeatu %d orduz. Berretsi PIN kodea.</item>
+        <item quantity="one">Gailua ez da desblokeatu %d orduz. Berretsi PIN kodea.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">Gailua ez da desblokeatu %d orduz. Berretsi pasahitza.</item>
+        <item quantity="one">Gailua ez da desblokeatu %d orduz. Berretsi pasahitza.</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(%d saio geratzen dira)</item>
+        <item quantity="one">(1 saiakera geratzen da)</item>
+    </plurals>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">Beste %d saiakera geratzen dira</item>
+        <item quantity="one">%d saiakera geratzen zaizu</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_min">
+        <item quantity="other">Saiatu berriz %d minutu barru</item>
+        <item quantity="one">Saiatu berriz %d minutu barru</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_sec">
+        <item quantity="other">Saiatu berriz %d segundo barru</item>
+        <item quantity="one">Saiatu berriz %d segundo barru</item>
+    </plurals>
+</resources>

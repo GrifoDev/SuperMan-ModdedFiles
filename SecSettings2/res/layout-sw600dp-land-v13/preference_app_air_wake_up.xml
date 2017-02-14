@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:paddingTop="@dimen/list_item_top_padding" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ImageView android:layout_gravity="center" android:id="@id/air_wake_up_image" android:layout_width="fill_parent" android:layout_height="wrap_content" android:scaleType="fitXY" android:adjustViewBounds="true" android:paddingStart="@dimen/list_item_start_padding" android:paddingEnd="@dimen/list_item_end_padding" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:paddingTop="@dimen/not_topside_body_text_top_padding" android:paddingBottom="@dimen/list_item_bottom_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/list_item_start_padding" android:paddingEnd="@dimen/list_item_end_padding">
+        <TextView android:id="@id/air_wake_up_explained" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/motion2014_air_wake_up_guide_content" style="@style/body_text_style" />
+    </LinearLayout>
+</ScrollView>

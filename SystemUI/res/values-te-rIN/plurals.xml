@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">స్థూలదృష్టిలో 1 స్క్రీన్ ఉంది</item>
+        <item quantity="one">స్థూలదృష్టిలో %d స్క్రీన్‌లు ఉన్నాయి</item>
+    </plurals>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">SIM PIN కోడ్ చెల్లదు, మీకు %d ప్రయత్నాలు మిగిలి ఉన్నాయి.</item>
+        <item quantity="one">SIM PIN కోడ్ చెల్లదు, మీరు మీ పరికరాన్ని అన్‌లాక్ చేయడానికి తప్పనిసరిగా మీ క్యారియర్‌ను సంప్రదించడానికి ముందు మీకు %d ప్రయత్నం మిగిలి ఉంది.</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">SIM PUK కోడ్ చెల్లదు, SIM శాశ్వతంగా నిరుపయోగం కాకుండా ఉండటానికి మీకు %d ప్రయత్నాలు మిగిలి ఉన్నాయి.</item>
+        <item quantity="one">SIM PUK కోడ్ చెల్లదు, SIM శాశ్వతంగా నిరుపయోగం కాకుండా ఉండటానికి మీకు %d ప్రయత్నం మిగిలి ఉంది.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="other">పరికరం %d గంటల పాటు అన్‌లాక్ చేయబడలేదు. నమూనాను నిర్ధారించండి.</item>
+        <item quantity="one">పరికరం %d గంట పాటు అన్‌లాక్ చేయబడలేదు. నమూనాను నిర్ధారించండి.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="other">పరికరం %d గంటల పాటు అన్‌లాక్ చేయబడలేదు. PINను నిర్ధారించండి.</item>
+        <item quantity="one">పరికరం %d గంట పాటు అన్‌లాక్ చేయబడలేదు. PINను నిర్ధారించండి.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">పరికరం %d గంటల పాటు అన్‌లాక్ చేయబడలేదు. పాస్‌వర్డ్‌ని నిర్ధారించండి.</item>
+        <item quantity="one">పరికరం %d గంట పాటు అన్‌లాక్ చేయబడలేదు. పాస్‌వర్డ్‌ని నిర్ధారించండి.</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(%d ప్రయత్నాలు మిగిలి ఉన్నాయి)</item>
+        <item quantity="one">(1 ప్రయత్నం మిగిలి ఉంది)</item>
+    </plurals>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">%d ప్రయత్నాలు మిగిలి ఉన్నాయి</item>
+        <item quantity="one">%d ప్రయత్నం మిగిలింది</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_min">
+        <item quantity="other">%d నిమిషాల తర్వాత మళ్లీ ప్రయత్నించండి</item>
+        <item quantity="one">%d నిమిషాల్లో మళ్లీ ప్రయత్నించండి</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_sec">
+        <item quantity="other">%d సెకన్ల తర్వాత మళ్లీ ప్రయత్నించండి</item>
+        <item quantity="one">%d సెకన్లలో మళ్లీ ప్రయత్నించండి</item>
+    </plurals>
+</resources>

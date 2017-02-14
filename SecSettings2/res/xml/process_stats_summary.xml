@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/memory_usage" android:key="app_list"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/average_memory_use" />
+    <com.samsung.android.settings.SecSummaryPreference android:selectable="false" android:key="status_header" />
+    <Preference android:layout="@layout/horizontal_preference" android:title="@string/memory_performance" android:selectable="false" android:key="performance" />
+    <Preference android:layout="@layout/horizontal_preference" android:title="@string/total_memory" android:selectable="false" android:key="total_memory" />
+    <Preference android:layout="@layout/horizontal_preference" android:title="@string/average_used" android:selectable="false" android:key="average_used" />
+    <Preference android:layout="@layout/horizontal_preference" android:title="@string/free_memory" android:selectable="false" android:key="free" />
+    <com.android.settings.applications.SpacePreference android:layout_height="15.0dip" />
+    <PreferenceCategory />
+    <Preference android:title="@string/memory_usage_apps" android:key="apps_list" />
+</PreferenceScreen>

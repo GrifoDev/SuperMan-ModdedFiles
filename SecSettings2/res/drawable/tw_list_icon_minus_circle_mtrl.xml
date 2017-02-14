@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bitmap android:gravity="center" android:src="@drawable/tw_list_icon_circle" android:tint="@color/ic_list_item_account_delete_circle_bg_color" android:tintMode="multiply"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

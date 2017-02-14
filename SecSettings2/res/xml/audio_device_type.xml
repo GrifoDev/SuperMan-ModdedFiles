@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.samsung.android.settings.UnclickablePreference android:title="@string/audio_device_type_descryption" style="@style/description_text" />
+    <com.samsung.android.settings.notification.RadioPreference android:persistent="false" android:title="@string/my_phone_title" android:key="my_phone" />
+    <com.samsung.android.settings.notification.RadioPreference android:persistent="false" android:title="@string/bluetooth_device_title" android:key="bluetooth_device" android:summary="@string/no_connected_devices" />
+</PreferenceScreen>

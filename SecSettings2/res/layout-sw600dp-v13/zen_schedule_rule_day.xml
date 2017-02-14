@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/day_layout" android:background="?android:selectableItemBackground" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/padding_start_days_listview"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBox android:textAppearance="?android:textAppearanceListItem" android:textColor="?android:textColorPrimary" android:gravity="center_vertical" android:id="@id/day_checkbox" android:background="@null" android:paddingTop="@dimen/list_item_top_padding" android:paddingBottom="@dimen/list_item_bottom_padding" android:focusable="false" android:clickable="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/sms_preference_item_height" android:paddingStart="@dimen/list_item_inner_padding"
+      xmlns:android="http://schemas.android.com/apk/res/android" />
+    <View android:id="@id/day_list_divier" android:layout_width="fill_parent" android:layout_marginStart="@dimen/list_radio_button_divier_margin_start" style="@style/list_divider_style" />
+</LinearLayout>

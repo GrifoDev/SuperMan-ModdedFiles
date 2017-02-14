@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeight"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <TextView android:textAppearance="?android:textAppearanceMedium" android:ellipsize="marquee" android:id="@id/title" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_marginStart="@dimen/search_title_padding_start" />
+    </RelativeLayout>
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="fill_parent" android:minWidth="@android:dimen/preference_icon_minWidth">
+        <ImageView android:id="@id/icon" android:layout_width="@dimen/search_suggestion_item_image_size" android:layout_height="@dimen/search_suggestion_item_image_size" android:src="@drawable/ic_search_history" android:scaleType="centerInside" android:layout_marginStart="@dimen/search_suggestion_item_image_margin_start" android:layout_marginEnd="@dimen/search_suggestion_item_image_margin_end" />
+    </LinearLayout>
+</LinearLayout>

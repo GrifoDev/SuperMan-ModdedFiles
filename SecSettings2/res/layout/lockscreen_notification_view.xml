@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:gravity="start" android:id="@id/description_text" android:padding="@android:dimen/preference_fragment_padding_side" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/lock_screen_notifications_interstitial_message" style="@style/body_text_style" />
+    <ListView android:id="@android:id/list" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+</LinearLayout>

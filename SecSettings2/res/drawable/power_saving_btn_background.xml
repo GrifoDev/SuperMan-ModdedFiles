@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list android:color="?android:colorControlHighlight"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@id/btn_background_stroke">
+        <shape android:shape="rectangle">
+            <stroke android:width="@dimen/power_saving_button_stroke" android:color="@color/low_battery_stroke_color" />
+            <corners android:radius="@dimen/power_saving_button_background_radius" />
+        </shape>
+    </item>
+    <item android:id="@id/btn_background_solid" android:left="@dimen/power_saving_button_stroke" android:top="@dimen/power_saving_button_stroke" android:right="@dimen/power_saving_button_stroke" android:bottom="@dimen/power_saving_button_stroke">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/power_saving_mode_button_background_color" />
+            <corners android:radius="@dimen/power_saving_button_background_radius" />
+        </shape>
+    </item>
+</layer-list>

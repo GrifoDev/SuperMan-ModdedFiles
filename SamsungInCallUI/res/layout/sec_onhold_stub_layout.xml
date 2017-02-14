@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/onhold_stub" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/sec_call_elapsed_time_text_size" android:textColor="@color/sec_incall_call_banner_text_color" android:id="@id/onholdLayoutForwardSlash" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/forwardSlash" android:singleLine="true" android:layout_centerVertical="true" android:fontFamily="sec-roboto-light" android:layout_marginEnd="@dimen/sec_onhold_layout_divider_margin" />
+    <TextView android:textSize="@dimen/sec_call_elapsed_time_text_size" android:textColor="@color/sec_incall_call_banner_text_color" android:id="@id/onholdLayoutText" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/onHold" android:layout_toRightOf="@id/onholdLayoutForwardSlash" android:layout_centerVertical="true" android:fontFamily="sec-roboto-light" />
+</RelativeLayout>

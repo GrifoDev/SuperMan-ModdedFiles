@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/accessibility_vision_category" android:key="vision_category" settings:parent="@xml/accessibility_settings"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+  xmlns:touchwiz="http://schemas.android.com/apk/res/touchwiz">
+    <PreferenceScreen android:title="@string/accessibility_talkback_tutorial" android:key="talkback_tutorial_preference" />
+    <SwitchPreference android:persistent="false" android:title="@string/lcd_curtain_title" android:key="lcd_curtain" android:summary="@string/lcd_curtain_summary" />
+    <SwitchPreference android:persistent="false" android:title="@string/rapid_key_input_title" android:key="rapid_key_input" android:summary="@string/rapid_key_input_summary" />
+    <SwitchPreference android:persistent="false" android:title="@string/accessibility_toggle_speak_password_preference_title" android:key="toggle_speak_password_preference" android:summary="@string/accessibility_speak_password_summary" />
+    <com.samsung.android.settings.SettingsSwitchPreference android:title="@string/accessibility_global_gesture_preference_title" android:key="enable_global_gesture_preference_screen" android:fragment="com.android.settings.accessibility.ToggleGlobalGesturePreferenceFragment" />
+    <PreferenceScreen android:persistent="false" android:title="@string/voice_label_title" android:key="voice_label" android:summary="@string/voice_label_summary" />
+    <SwitchPreference android:persistent="false" android:title="@string/accessibility_toggle_screen_reader_preference_title" android:key="toggle_screen_reader_preference" android:summary="@string/accessibility_screen_reader_summary" />
+    <PreferenceScreen android:title="@string/screen_zoom_and_font" android:key="font_preview" />
+    <SwitchPreference android:title="@string/accessibility_toggle_high_font_contrast_preference_title" android:key="toggle_high_font_contrast_preference" android:summary="@string/accessibility_toggle_high_font_contrast_preference_description" />
+    <SwitchPreference android:title="@string/accessibility_toggle_high_keyboard_contrast_preference_title" android:key="toggle_high_keyboard_contrast_preference" android:summary="@string/accessibility_toggle_high_keyboard_contrast_preference_description" />
+    <SwitchPreference android:title="@string/show_button_background_title" android:key="show_button_bg" android:summary="@string/show_button_background_summary" />
+    <com.samsung.android.settings.SettingsSwitchPreference android:title="@string/accessibility_magnifier_title" android:key="magnifier_preference_screen" android:summary="@string/accessibility_magnifier_description" android:fragment="com.samsung.android.settings.accessibility.ToggleMagnifierPreferenceFragment" />
+    <com.samsung.android.settings.SettingsSwitchPreference android:title="@string/accessibility_screen_magnification_title" android:key="screen_magnification_preference_screen" android:summary="@string/accessibility_screen_magnification_summary" android:fragment="com.android.settings.accessibility.ToggleScreenMagnificationPreferenceFragment" />
+    <SwitchPreference android:title="@string/accessibility_toggle_large_pointer_icon_title" android:key="toggle_large_pointer_icon" />
+    <SwitchPreference android:persistent="false" android:title="@string/greyscale_mode_title" android:key="greyscale_mode" />
+    <SwitchPreference android:persistent="false" android:title="@string/high_contrast_title" android:key="high_contrast" />
+    <PreferenceScreen android:title="@string/color_blind_title" android:key="color_blind" />
+    <SwitchPreference android:persistent="false" android:title="@string/accessibility_display_inversion_preference_title" android:key="toggle_inversion_preference" />
+    <PreferenceScreen android:title="@string/accessibility_display_daltonizer_preference_title" android:key="daltonizer_preference_screen" android:fragment="com.android.settings.accessibility.ToggleDaltonizerPreferenceFragment" />
+</PreferenceScreen>

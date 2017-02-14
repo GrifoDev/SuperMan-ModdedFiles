@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/left_icon" android:layout_width="wrap_content" android:layout_height="fill_parent" android:src="@drawable/tw_category_list_arrow_material" />
+    <TextView android:textSize="@dimen/tw_fragment_breadcrumbs_text_size" android:textColor="@color/tw_preference_fragment_bread_crumb_color_light" android:ellipsize="marquee" android:gravity="center_vertical" android:id="@id/title" android:background="@drawable/tw_preference_fragment_bread_crumb_background_mtrl" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="fill_parent" android:minHeight="31.0dip" android:singleLine="true" android:fontFamily="sans-serif" android:paddingStart="0.0dip" android:paddingEnd="0.0dip" />
+</LinearLayout>

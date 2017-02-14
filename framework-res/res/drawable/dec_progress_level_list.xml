@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:oneshot="false"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:duration="500" android:drawable="@drawable/dec_security_policy_icon_ing_00" />
+    <item android:duration="500" android:drawable="@drawable/dec_security_policy_icon_ing_01" />
+    <item android:duration="500" android:drawable="@drawable/dec_security_policy_icon_ing_02" />
+    <item android:duration="500" android:drawable="@drawable/dec_security_policy_icon_ing_03" />
+    <item android:duration="500" android:drawable="@drawable/dec_security_policy_icon_ing_04" />
+</animation-list>

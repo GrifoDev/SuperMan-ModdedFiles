@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/motion_and_gesture_title"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <SwitchPreference android:title="@string/pick_up_to_call_out_title" android:key="pick_up_to_call_out_switch" />
+    <SwitchPreference android:title="@string/pick_up_title" android:key="pick_up_switch" />
+    <SwitchPreference android:title="@string/mute_title" android:key="merged_mute_or_pause_switch" />
+    <SwitchPreference android:title="@string/palm_swipe_title" android:key="palm_swipe_switch" />
+    <SwitchPreference android:title="@string/multi_window_setting_title" android:key="multi_window_setting_switch" />
+</PreferenceScreen>

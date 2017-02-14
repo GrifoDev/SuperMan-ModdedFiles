@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/nfc_osaifukeitai_title" android:key="nfc_setting_title"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Preference android:layout="@layout/nfcosaifukeitai_explain" android:selectable="false" android:key="nfcosaifukeitai_help" android:summary="@string/nfcosaifukeitai_explained" />
+    <PreferenceScreen android:title="@string/nfc_osaifukeitai_lock_title" android:key="toggle_osaifukeitai_lock" android:fragment="com.samsung.android.settings.nfc.NfcOsaifukeitaiLock" />
+    <PreferenceScreen android:persistent="false" android:title="@string/nfc_settings_rwp2p_title" android:key="toggle_nfc" android:fragment="com.samsung.android.settings.nfc.NfcReaderWriterP2P" />
+    <PreferenceScreen android:title="@string/android_beam_settings_title" android:key="toggle_android_beam" android:fragment="com.samsung.android.settings.nfc.AndroidBeam" />
+    <PreferenceScreen android:title="@string/nfc_type_settings_title" android:key="nfc_type_settings_key" android:fragment="com.samsung.android.settings.nfc.NfcListenStatusChange" />
+    <PreferenceScreen android:title="@string/nfc_payment_settings_title" android:key="nfc_payment_settings" android:summary="@string/nfc_payment_settings_summary">
+        <intent android:targetPackage="com.nttdocomo.android.tapandpay" android:action="android.intent.action.MAIN" android:targetClass="com.nttdocomo.android.tapandpay.TapAndPay">
+            <extra android:name="com.nttdocomo.android.tapandpay.extra.PAGE_VIEW" android:value="0" />
+        </intent>
+    </PreferenceScreen>
+</PreferenceScreen>

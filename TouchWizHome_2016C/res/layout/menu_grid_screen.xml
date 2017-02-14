@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.launcher2.CellLayoutMenu android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/menuAppsGrid_pageMarginPlusPaddingTop" android:hapticFeedbackEnabled="false" launcher:cellWidth="@dimen/menuAppsGrid_cellWidth" launcher:cellHeight="@dimen/menuAppsGrid_cellHeight" launcher:cellGapX="@dimen/menuAppsGrid_cellGapX" launcher:cellGapY="@dimen/menuAppsGrid_cellGapY"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:launcher="http://schemas.android.com/apk/res/com.sec.android.app.launcher" />

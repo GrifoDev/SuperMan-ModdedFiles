@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="#ff008a73" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="left" android:orientation="horizontal" android:paddingLeft="9.0dip" android:paddingTop="6.0dip" android:paddingBottom="6.0dip" android:layout_width="wrap_content" android:layout_height="24.0dip">
+        <ImageView android:layout_width="12.0dip" android:layout_height="12.0dip" android:layout_marginRight="2.0dip" android:src="@drawable/fota_indicator_dim" />
+        <ImageView android:layout_width="12.0dip" android:layout_height="12.0dip" android:src="@drawable/fota_indicator_nomal" />
+    </LinearLayout>
+    <FrameLayout android:layout_gravity="center_horizontal" android:layout_width="@dimen/tw_fota_upgade_gear_width" android:layout_height="@dimen/tw_fota_upgade_gear_height" android:layout_marginTop="@dimen/tw_fota_upgade_gear_margin_top" android:layout_marginBottom="@dimen/tw_fota_upgade_gear_margin_bottom">
+        <ImageView android:layout_gravity="center|left|top" android:id="@id/fota_big_gear" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/fota_upgrading_icon_03" />
+        <ImageView android:layout_gravity="bottom|center|right" android:id="@id/fota_small_gear" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/fota_upgrading_icon_02" />
+    </FrameLayout>
+    <TextView android:textSize="@dimen/tw_fota_upgade_msg_title_text_size" android:textColor="#ffffffff" android:layout_gravity="center" android:id="@id/title_msg" android:visibility="visible" android:layout_width="@dimen/tw_fota_upgade_msg_width" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/tw_fota_upgade_msg_title_margin_bottom" android:fontFamily="sec-roboto-regular" />
+    <TextView android:textSize="@dimen/tw_fota_upgade_msg_progress_text_size" android:textColor="#ffffffff" android:layout_gravity="center" android:id="@id/upgrade_progress_msg" android:visibility="visible" android:layout_width="@dimen/tw_fota_upgade_msg_width" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/tw_fota_upgade_msg_progress_margin_bottom" android:fontFamily="sec-roboto-regular" />
+    <ProgressBar android:layout_gravity="center" android:id="@id/upgrade_progressbar" android:layout_width="@dimen/tw_fota_upgade_msg_width" android:layout_height="5.0dip" android:max="100" android:progress="0" android:progressDrawable="@drawable/progressbar_custom" style="@android:style/Widget.ProgressBar.Horizontal" />
+</LinearLayout>

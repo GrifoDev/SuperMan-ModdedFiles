@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/wifi_control_history_title"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Preference android:persistent="false" android:layout="@layout/wifi_control_history_description" android:title="@string/wifi_control_history_description" android:selectable="false" />
+    <PreferenceCategory android:title="@string/wifi_control_history_sub_title" android:key="control_applications" android:order="100" />
+</PreferenceScreen>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:id="@id/scrollView" android:layout_width="fill_parent" android:layout_height="fill_parent" android:fillViewport="true">
+        <FrameLayout android:gravity="center_vertical" android:id="@id/global_actions_bg" android:layout_width="fill_parent" android:layout_height="wrap_content" android:soundEffectsEnabled="false" />
+    </ScrollView>
+    <LinearLayout android:gravity="center" android:layout_gravity="bottom" android:orientation="horizontal" android:id="@id/global_actions_bottomView" android:background="#73000000" android:focusable="false" android:layout_width="fill_parent" android:layout_height="60.0dip" android:importantForAccessibility="no">
+        <FrameLayout android:gravity="center" android:layout_width="296.0dip" android:layout_height="40.0dip">
+            <Button android:textSize="17.0dip" android:textColor="#ffffffff" android:ellipsize="marquee" android:gravity="center" android:layout_gravity="center" android:id="@id/cancel_button" android:background="@drawable/global_actions_cancel_button_bg" android:focusable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/cancel" android:singleLine="true" android:contentDescription="@string/cancel" android:textAllCaps="true" android:importantForAccessibility="yes" />
+            <LinearLayout android:layout_gravity="center" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <ImageView android:background="@drawable/global_actions_bottomview_cancel" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+</FrameLayout>

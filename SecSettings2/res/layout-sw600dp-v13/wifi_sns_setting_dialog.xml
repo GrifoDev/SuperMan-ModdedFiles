@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView>
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+      xmlns:android="http://schemas.android.com/apk/res/android">
+        <TextView android:id="@id/wifi_sns_setting_dialog_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/list_dialog_padding_top" android:layout_marginBottom="@dimen/list_dialog_padding_top" android:minHeight="?android:listPreferredItemHeightSmall" android:layout_marginStart="@dimen/wifi_dialog_text_margin_left_right_from_single_choice" android:layout_marginEnd="@dimen/wifi_dialog_text_margin_left_right_from_single_choice" style="@style/dialog_body_text_style" />
+    </LinearLayout>
+</ScrollView>

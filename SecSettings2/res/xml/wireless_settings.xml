@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/more_settings_title"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <SwitchPreference android:title="@string/airplane_mode" android:key="toggle_airplane" android:disableDependentsState="true" />
+    <SwitchPreference android:title="@string/nfc_quick_toggle_title" android:key="toggle_nfc" android:summary="@string/nfc_quick_toggle_summary" />
+    <PreferenceScreen android:title="@string/wifi_calling_settings_title" android:key="wifi_calling_settings" android:fragment="com.android.settings.WifiCallingSettings" settings:keywords="@string/keywords_wifi_calling" />
+    <com.android.settingslib.RestrictedPreference android:title="@string/android_beam_settings_title" android:key="android_beam_settings" android:fragment="com.samsung.android.settings.nfc.AndroidBeam" />
+    <com.android.settingslib.RestrictedPreference android:title="@string/tether_settings_title_all" android:key="tether_settings" android:fragment="com.android.settings.TetherSettings" settings:userRestriction="no_config_tethering" settings:useAdminDisabledSummary="true" />
+    <com.android.settingslib.RestrictedPreference android:title="@string/vpn_settings_title" android:key="vpn_settings" android:fragment="com.android.settings.vpn2.VpnSettings" settings:userRestriction="no_config_vpn" settings:useAdminDisabledSummary="true" />
+    <PreferenceScreen android:title="@string/vpn_settings_title" android:key="vpn_settings_for_att" android:summary="@string/vpn_settings_summary" android:fragment="com.android.settings.vpn2.VpnSettingsForATT" />
+    <com.android.settingslib.RestrictedPreference android:title="@string/network_settings_title" android:key="mobile_network_settings" android:dependency="toggle_airplane" settings:userRestriction="no_config_mobile_networks" settings:useAdminDisabledSummary="true" settings:keywords="@string/keywords_more_mobile_networks">
+        <intent android:targetPackage="com.android.phone" android:action="android.intent.action.MAIN" android:targetClass="com.android.phone.MobileNetworkSettings" />
+    </com.android.settingslib.RestrictedPreference>
+    <com.android.settingslib.RestrictedPreference android:persistent="false" android:title="@string/manage_mobile_plan_title" android:key="manage_mobile_plan" settings:userRestriction="no_config_mobile_networks" settings:useAdminDisabledSummary="true" />
+    <com.android.settingslib.RestrictedPreference android:title="@string/wimax_settings" android:key="wimax_settings" settings:userRestriction="no_config_mobile_networks" settings:useAdminDisabledSummary="true">
+        <intent android:targetPackage="com.android.settings.wimax" android:action="android.intent.action.MAIN" android:targetClass="com.android.settings.wimax.WimaxSettings" />
+    </com.android.settingslib.RestrictedPreference>
+    <PreferenceScreen android:title="@string/proxy_settings_title" android:key="proxy_settings" android:fragment="com.android.settings.ProxySelector" />
+    <Preference android:persistent="false" android:key="wfc_settings_holder_key" />
+</PreferenceScreen>

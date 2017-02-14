@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="config_dockedStackDividerSnapMode">2</integer>
+    <integer name="kg_glowpad_rotation_offset">-90</integer>
+    <integer name="date_picker_header_max_lines_material">4</integer>
+    <integer name="config_preferences_left_pane_weight">30</integer>
+    <integer name="config_preferences_right_pane_weight">70</integer>
+    <integer name="tw_menu_popup_max_item_count">5</integer>
+    <integer name="sem_resolver_pagemode_label_linenum">1</integer>
+    <integer name="sem_resolver_sharelink_desc_linenum_max">2</integer>
+    <integer name="kg_selector_gravity">0x00000013</integer>
+    <integer name="kg_widget_region_weight">45</integer>
+    <integer name="kg_security_flipper_weight">55</integer>
+</resources>

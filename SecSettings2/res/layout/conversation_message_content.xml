@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/message_content" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="32.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.settings.display.MessageBubbleBackground android:gravity="center_vertical" android:orientation="vertical" android:id="@id/message_text_and_info" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="0.0dip">
+        <TextView android:textSize="@dimen/conversation_message_text_size" android:id="@id/message_text" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </com.android.settings.display.MessageBubbleBackground>
+</LinearLayout>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="app_shadow_offset_y">11</integer>
+    <integer name="config_workspaceDefaultScreenCount">2</integer>
+    <integer name="home_cellCountX">6</integer>
+    <integer name="home_cellCountY">5</integer>
+    <integer name="home_maxCellCountX">6</integer>
+    <integer name="home_maxCellCountY">5</integer>
+    <integer name="home_pageIndicatorMaxVisible">41</integer>
+    <integer name="hotseat_cellCountX">6</integer>
+    <integer name="hotseat_cellCountY">1</integer>
+    <integer name="icon_drop_animation_duration">200</integer>
+    <integer name="menuAppsGrid_cellCountX">5</integer>
+    <integer name="menuAppsGrid_cellCountY">6</integer>
+    <integer name="menuAppsGrid_clingFocusedX">1</integer>
+    <integer name="menuAppsGrid_clingFocusedY">1</integer>
+    <integer name="menuWidgets_cellCountX">3</integer>
+    <integer name="menuWidgets_cellCountY">3</integer>
+    <integer name="menuWidgets_widgetFolderOpen_max_rows">2</integer>
+    <integer name="menu_pageIndicatorMaxVisible">22</integer>
+    <integer name="menu_uninstall_icon_ani_duration">300</integer>
+    <integer name="menu_uninstall_icon_translate_x">15</integer>
+    <integer name="menu_uninstall_icon_translate_y">15</integer>
+    <integer name="open_folder_appicon_max_visible_cols">5</integer>
+    <integer name="open_folder_appicon_max_visible_rows">4</integer>
+    <integer name="page_snap_animation_duration">550</integer>
+    <integer name="menu_icon_text_maxline">2</integer>
+    <integer name="config_appSearchRecentLineCount">2</integer>
+    <integer name="config_workspaceEditModeShrinkPercentage">83</integer>
+    <integer name="moveApps_base_grid_size">7</integer>
+    <integer name="appsearch_title_bar_text_size_int">14</integer>
+    <integer name="appsearch_default_cellCountX">5</integer>
+    <integer name="folder_multi_container_folder_count">5</integer>
+    <integer name="homescreen_option_menu_text_shadow_radius">3</integer>
+    <integer name="widget_resize_touch_area_deviation">10</integer>
+    <integer name="zeropageSwitch_shadow_radius">3</integer>
+</resources>

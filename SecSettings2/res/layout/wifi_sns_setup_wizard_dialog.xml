@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView>
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+      xmlns:android="http://schemas.android.com/apk/res/android">
+        <TextView android:id="@id/text_sns_setup_wizard_dialog" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="24.0dip" android:layout_marginBottom="24.0dip" android:textAlignment="viewStart" android:layout_marginStart="24.0dip" android:layout_marginEnd="24.0dip" style="@style/dialog_body_text_style" />
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="16.0dip" android:layout_marginStart="24.0dip" android:layout_marginEnd="24.0dip">
+            <Button android:textSize="@dimen/wifi_dialog_button_text_size" android:textStyle="bold" android:textColor="@color/wifi_dialog_button_color" android:gravity="center|right" android:layout_gravity="right" android:id="@id/button_sns_setup_wizard_dialog_do_not_enable" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/wifi_sns_setting_alert_button_do_not_enable" android:textAllCaps="true" android:fontFamily="sec-roboto-light" style="?android:attr/buttonBarPositiveButtonStyle" />
+            <Button android:textSize="@dimen/wifi_dialog_button_text_size" android:textStyle="bold" android:textColor="@color/wifi_dialog_button_color" android:gravity="center|right" android:layout_gravity="right" android:id="@id/button_sns_setup_wizard_dialog_enable" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/common_enable" android:textAllCaps="true" android:fontFamily="sec-roboto-light" style="?android:attr/buttonBarPositiveButtonStyle" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

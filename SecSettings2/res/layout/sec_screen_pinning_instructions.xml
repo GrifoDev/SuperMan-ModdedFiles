@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:id="@id/instructions_area" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <View android:id="@id/metered_divider" android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <LinearLayout android:orientation="vertical" android:paddingTop="@dimen/body_text_top_padding" android:paddingBottom="@dimen/body_text_bottom_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/body_text_side_padding" android:paddingEnd="@dimen/body_text_side_padding">
+            <TextView android:id="@id/screen_pinning_description" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/screen_pinning_description" style="@style/body_text_style" />
+            <TextView android:id="@id/screen_pinning_description_sub" android:paddingTop="@dimen/sub_body_text_top_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:includeFontPadding="false" android:paddingStart="@dimen/description_dot_text_padding" style="@style/sub_body_text_style" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

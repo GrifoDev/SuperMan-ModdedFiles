@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d ਘੰਟੇ</item>
+        <item quantity="one">1 ਘੰਟਾ</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d ਮਿੰਟ</item>
+        <item quantity="one">1 ਮਿੰਟ</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d ਸਕਿੰਟ</item>
+        <item quantity="one">1 ਸਕਿੰਟ</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">ਤੁਸੀਂ ਡਿਵੈਲਪਰ ਬਣਨ ਤੋਂ ਹੁਣ %d ਕਦਮ ਦੂਰ ਹੋ।</item>
+        <item quantity="one">ਹੁਣ ਤੁਸੀਂ ਇੱਕ ਡਿਵੈਲਪਰ ਬਣਨ ਤੋਂ 1 ਕਦਮ ਦੂਰ ਹੋ।</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">ਚੁਣੀਆਂ ਹੋਈਆਂ ਭਾਸ਼ਾਵਾਂ ਹਟਾਉ</item>
+        <item quantity="one">ਚੁਣੀ ਹੋਈ ਭਾਸ਼ਾ ਹਟਾਉ</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">ਪਾਸਵਰਡ ਵਿੱਚ ਘੱਟ ਤੋਂ ਘੱਟ %d ਅੱਖਰ ਹੋਣੇ ਜ਼ਰੂਰੀ ਹਨ।</item>
+        <item quantity="one">ਪਾਸਵਰਡ ਵਿੱਚ ਘੱਟ ਤੋਂ ਘੱਟ 1 ਅੱਖਰ ਹੋਣਾ ਜ਼ਰੂਰੀ ਹੈ।</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">ਪਾਸਵਰਡ ਵਿੱਚ ਘੱਟ ਤੋਂ ਘੱਟ %d ਛੋਟੇ ਅੱਖਰ ਹੋਣੇ ਜ਼ਰੂਰੀ ਹਨ।</item>
+        <item quantity="one">ਪਾਸਵਰਡ ਵਿੱਚ ਘੱਟ ਤੋਂ ਘੱਟ 1 ਛੋਟਾ ਅੱਖਰ ਹੋਣਾ ਜ਼ਰੂਰੀ ਹੈ।</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">ਪਾਸਵਰਡ ਵਿੱਚ ਘੱਟ ਤੋਂ ਘੱਟ %d ਵੱਡੇ ਅੱਖਰ ਹੋਣੇ ਜ਼ਰੂਰੀ ਹਨ।</item>
+        <item quantity="one">ਪਾਸਵਰਡ ਵਿੱਚ ਘੱਟ ਤੋਂ ਘੱਟ 1 ਵੱਡਾ ਅੱਖਰ ਹੋਣਾ ਜ਼ਰੂਰੀ ਹੈ।</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">ਪਾਸਵਰਡ ਵਿੱਚ ਘੱਟ ਤੋਂ ਘੱਟ %d ਨੰਬਰ ਹੋਣੇ ਜ਼ਰੂਰੀ ਹਨ।</item>
+        <item quantity="one">ਪਾਸਵਰਡ ਵਿੱਚ ਘੱਟ ਤੋਂ ਘੱਟ 1 ਨੰਬਰ ਹੋਣਾ ਜ਼ਰੂਰੀ ਹੈ।</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">ਪਾਸਵਰਡ ਵਿੱਚ ਘੱਟ ਤੋਂ ਘੱਟ %d ਚਿੰਨ੍ਹ ਹੋਣੇ ਜ਼ਰੂਰੀ ਹਨ।</item>
+        <item quantity="one">ਪਾਸਵਰਡ ਵਿੱਚ ਘੱਟ ਤੋਂ ਘੱਟ 1 ਚਿੰਨ੍ਹ ਹੋਣਾ ਜ਼ਰੂਰੀ ਹੈ।</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">ਪਾਸਵਰਡ ਵਿੱਚ ਘੱਟ ਤੋਂ ਘੱਟ %d ਨੰਬਰ ਜਾਂ ਚਿੰਨ੍ਹ ਹੋਣੇ ਜ਼ਰੂਰੀ ਹਨ।</item>
+        <item quantity="one">ਪਾਸਵਰਡ ਵਿੱਚ ਘੱਟ ਤੋਂ ਘੱਟ 1 ਨੰਬਰ ਜਾਂ ਚਿੰਨ੍ਹ ਹੋਣਾ ਜ਼ਰੂਰੀ ਹਨ।</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">%d ਫੋਲਡਰਸ/ਫਾਈਲਾਂ ਦੀ ਐਕਸੈੱਸ</item>
+        <item quantity="one">1 ਫੋਲਡਰ/ਫਾਈਲ ਦੀ ਐਕਸੈੱਸ</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s ਨੇ ਤੁਹਾਡੇ ਡਿਵਾਈਸ ਤੇ CA ਪ੍ਰਮਾਣਪੱਤਰ ਸਥਾਪਿਤ ਕੀਤੇ ਹਨ, ਜਿਸ ਨਾਲ ਉਨ੍ਹਾਂ ਨੂੰ ਤੁਹਾਡੇ ਡਿਵਾਈਸ ਦੀ ਨੈੱਟਵਰਕ ਗਤੀਵਿਧੀ ਨੂੰ ਮੋਨੀਟਰ ਕਰਨ ਦੀ ਆਗਿਆ ਮਿਲ ਸਕਦੀ ਹੈ, ਜਿਸ ਵਿੱਚ ਤੁਹਾਡਾ ਈਮੇਲਸ, ਐਪਸ, ਅਤੇ ਸੁਰੱਖਿਅਤ ਵੈੱਬਸਾਈਟਸ ਦਾ ਉਪਯੋਗ ਸ਼ਾਮਲ ਹੈ।
+
+ਇਨ੍ਹਾਂ ਪ੍ਰਮਾਣਪੱਤਰਾਂ ਬਾਰੇ ਹੋਰ ਜਾਣਕਾਰੀ ਲਈ, ਆਪਣੇ IT ਪ੍ਰਬੰਧਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"</item>
+        <item quantity="one">"%s ਨੇ ਤੁਹਾਡੇ ਡਿਵਾਈਸ ਤੇ ਇੱਕ CA ਪ੍ਰਮਾਣਪੱਤਰ ਸਥਾਪਿਤ ਕੀਤਾ ਹੈ, ਜਿਸ ਨਾਲ ਉਨ੍ਹਾਂ ਨੂੰ ਤੁਹਾਡੇ ਡਿਵਾਈਸ ਦੀ ਨੈੱਟਵਰਕ ਗਤੀਵਿਧੀ ਨੂੰ ਮੋਨੀਟਰ ਕਰਨ ਦੀ ਆਗਿਆ ਮਿਲ ਸਕਦੀ ਹੈ, ਜਿਸ ਵਿੱਚ ਤੁਹਾਡਾ ਈਮੇਲਸ, ਐਪਸ, ਅਤੇ ਸੁਰੱਖਿਅਤ ਵੈੱਬਸਾਈਟਸ ਦਾ ਉਪਯੋਗ ਸ਼ਾਮਲ ਹੈ।
+
+ਇਸ ਪ੍ਰਮਾਣਪੱਤਰ ਬਾਰੇ ਹੋਰ ਜਾਣਕਾਰੀ ਲਈ, ਆਪਣੇ IT ਪ੍ਰਬੰਧਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d ਅਨੁਪ੍ਰਯੋਗ ਸੂਚਨਾਵਾਂ ਨੂੰ ਪੜ੍ਹ ਸਕਦੇ ਹਨ।</item>
+        <item quantity="one">%d ਅਨੁਪ੍ਰਯੋਗ ਨੂੰ ਸੂਚਨਾਵਾਂ ਪੜ੍ਹਨ ਦੀ ਇਜ਼ਾਜਤ ਹੈ।</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d ਹੋਰ ਅਨੁਮਤੀਆਂ</item>
+        <item quantity="one">%d ਹੋਰ ਅਨੁਮਤੀ</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$d ਪ੍ਰਕਿਰਿਆਵਾਂ ਨੇ ਪਿਛਲੇ %2$s ਵਿੱਚ RAM ਦੀ ਵਰਤੋਂ ਕੀਤੀ ਹੈ</item>
+        <item quantity="one">%1$d ਪ੍ਰਕਿਰਿਆ ਨੇ ਪਿਛਲੇ %2$s ਵਿੱਚ RAM ਦੀ ਵਰਤੋਂ ਕੀਤੀ ਹੈ</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">ਡੈਟਾ ਸੇਵਰ ਦੇ ਸਮਰੱਥ ਹੋਣ ਦੌਰਾਨ %d ਐਪਸ ਨੂੰ ਪਾਬੰਦੀਆਂ ਤੋਂ ਬਿਨਾਂ ਮੋਬਾਈਲ ਡੈਟਾ ਦੀ ਵਰਤੋਂ ਕਰਨ ਦੀ ਆਗਿਆ ਹੈ</item>
+        <item quantity="one">ਡੈਟਾ ਸੇਵਰ ਦੇ ਸਮਰੱਥ ਹੋਣ ਦੌਰਾਨ 1 ਐਪ ਨੂੰ ਪਾਬੰਦੀਆਂ ਤੋਂ ਬਿਨਾਂ ਮੋਬਾਈਲ ਡੈਟਾ ਦੀ ਵਰਤੋਂ ਕਰਨ ਦੀ ਆਗਿਆ ਹੈ</item>
+    </plurals>
+</resources>

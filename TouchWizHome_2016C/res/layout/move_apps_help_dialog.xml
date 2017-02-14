@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_gravity="center_horizontal" android:orientation="vertical" android:background="#af000000" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center|top" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="@dimen/moveApps_help_margin" android:layout_marginRight="@dimen/moveApps_help_margin">
+        <View android:id="@id/dumyview_top" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+        <ViewSwitcher android:id="@id/imgView_switcher" android:background="@drawable/homescreen_moveapps_overlayhelp_01" android:layout_width="@dimen/moveApps_help_imgWidth" android:layout_height="@dimen/moveApps_help_imgHeight" android:layout_marginTop="11.0dip" android:inAnimation="@anim/fade_in_fast" android:outAnimation="@anim/fade_out_fast">
+            <ImageView android:layout_width="fill_parent" android:layout_height="fill_parent" android:foreground="@drawable/homescreen_moveapps_overlayhelp_01" />
+            <ImageView android:layout_width="fill_parent" android:layout_height="fill_parent" android:foreground="@drawable/homescreen_moveapps_overlayhelp_02" />
+        </ViewSwitcher>
+        <TextView android:textSize="@dimen/moveApps_help_text_size" android:textStyle="normal" android:textColor="#fffafafa" android:gravity="center" android:id="@id/helpText" android:nextFocusLeft="@id/next_button_text" android:nextFocusRight="@id/next_button_text" android:nextFocusUp="@id/next_button_text" android:nextFocusDown="@id/next_button_text" android:layout_width="@dimen/moveApps_help_imgWidth" android:layout_height="wrap_content" android:layout_marginTop="@dimen/moveApps_help_text_margin" android:layout_marginBottom="@dimen/moveApps_help_text_margin" android:text="@string/move_apps_help_text" android:singleLine="false" android:lineSpacingExtra="4.0dip" android:fontFamily="Roboto_Regular" android:paddingStart="15.0dip" android:paddingEnd="15.0dip" />
+        <LinearLayout android:gravity="end" android:id="@id/next_button" android:layout_width="@dimen/moveApps_help_imgWidth" android:layout_height="wrap_content">
+            <TextView android:textSize="@dimen/moveApps_help_next_text_size" android:textStyle="normal" android:textColor="#fffafafa" android:gravity="center" android:id="@id/next_button_text" android:background="@drawable/help_next_button_background_ripple" android:focusable="true" android:nextFocusLeft="@id/helpText" android:nextFocusRight="@id/helpText" android:nextFocusUp="@id/helpText" android:nextFocusDown="@id/helpText" android:clickable="true" android:layout_width="@dimen/moveApps_help_next_button_width" android:layout_height="@dimen/moveApps_help_next_button_height" android:text="@string/move_apps_help_btn_next" android:fontFamily="Roboto_Regular" />
+        </LinearLayout>
+        <View android:id="@id/dumyview_bottom" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+    </LinearLayout>
+</LinearLayout>

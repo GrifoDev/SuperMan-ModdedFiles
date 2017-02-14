@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bitmap android:src="@drawable/videocall_during_ic_endcall" android:tint="@color/sec_end_call_icon_tint_theme"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <PreferenceScreen android:title="@string/set_application_title" android:key="set_application" android:summary="@string/set_application_summary" android:fragment="com.samsung.android.settings.multisound.SelectAudioApplications" />
+    <PreferenceScreen android:title="@string/audio_device_type_title" android:key="device_type" android:summary="@string/audio_device_type_summary" android:fragment="com.samsung.android.settings.multisound.AudioDeviceType" />
+</PreferenceScreen>

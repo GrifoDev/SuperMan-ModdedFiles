@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:clipChildren="false" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:id="@id/item_container" android:clipChildren="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/folder_multi_container_margin_top" android:layout_marginBottom="@dimen/folder_multi_container_margin_bottom" android:layout_marginStart="@dimen/folder_multi_container_margin_start" android:layout_marginEnd="@dimen/folder_multi_container_margin_start" />
+</LinearLayout>

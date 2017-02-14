@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="bottom" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="bottom" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginStart="@dimen/crypt_keeper_password_width_margin" android:layout_marginEnd="@dimen/crypt_keeper_password_width_margin">
+        <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="#fffafafa" android:gravity="center_horizontal" android:id="@id/warning_msg_header" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/crypt_keeper_top_margin_unit" android:text="@string/crypt_keeper_warn_wipe_header" style="@style/crypt_keeper_description" />
+        <TextView android:textSize="16.0sp" android:textColor="#fffafafa" android:gravity="center_horizontal" android:layout_gravity="center_horizontal" android:id="@id/status" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/enter_password" style="@style/crypt_keeper_description" />
+        <TextView android:textSize="16.0sp" android:textColor="#fffafafa" android:ellipsize="marquee" android:gravity="center_horizontal" android:id="@id/owner_info" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" android:marqueeRepeatLimit="marquee_forever" style="@style/crypt_keeper_description" />
+    </LinearLayout>
+    <LinearLayout android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="@dimen/crypt_keeper_pattern_size" android:layout_marginTop="@dimen/crypt_keeper_pattern_margin_to_text">
+        <include layout="@layout/crypt_keeper_pattern_field" />
+    </LinearLayout>
+    <include android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:layout_marginBottom="27.0dip" layout="@layout/crypt_keeper_emergency_button" />
+</LinearLayout>

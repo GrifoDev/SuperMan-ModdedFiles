@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/home_zero_page_1" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/home_zero_page_dual_image_gap">
+        <FrameLayout android:layout_gravity="top" android:id="@id/home_zero_page_image_1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="7.0dip">
+            <ImageView android:layout_gravity="center" android:id="@id/home_zero_page_dual_first_bg" android:visibility="visible" android:layout_width="@dimen/home_zero_page_dual_image_width" android:layout_height="@dimen/home_zero_page_dual_image_height" android:scaleType="fitXY" />
+            <ImageView android:layout_gravity="center" android:id="@id/home_zero_page_dual_first_check" android:visibility="invisible" android:layout_width="@dimen/home_zero_page_dual_checkbox_width" android:layout_height="@dimen/home_zero_page_dual_checkbox_height" android:src="@drawable/homescreen_ic_check" />
+        </FrameLayout>
+        <TextView android:textSize="@dimen/home_zero_page_dual_text_size" android:textColor="#fffafafa" android:gravity="center_horizontal" android:id="@id/home_zero_page_dual_first_text" android:layout_width="@dimen/home_zero_page_dual_image_width" android:layout_height="wrap_content" android:maxLines="2" android:shadowColor="#33000000" android:shadowDy="3.0" android:shadowRadius="2.0" android:fontFamily="Roboto_Regular" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/home_zero_page_2" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <FrameLayout android:layout_gravity="top" android:id="@id/home_zero_page_image_2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="7.0dip">
+            <ImageView android:layout_gravity="center" android:id="@id/home_zero_page_dual_second_bg" android:visibility="visible" android:layout_width="@dimen/home_zero_page_dual_image_width" android:layout_height="@dimen/home_zero_page_dual_image_height" android:scaleType="fitXY" />
+            <ImageView android:layout_gravity="center" android:id="@id/home_zero_page_dual_second_check" android:visibility="invisible" android:layout_width="@dimen/home_zero_page_dual_checkbox_width" android:layout_height="@dimen/home_zero_page_dual_checkbox_height" android:src="@drawable/homescreen_ic_check" />
+        </FrameLayout>
+        <TextView android:textSize="@dimen/home_zero_page_dual_text_size" android:textColor="#fffafafa" android:gravity="center_horizontal" android:id="@id/home_zero_page_dual_second_text" android:layout_width="@dimen/home_zero_page_dual_image_width" android:layout_height="wrap_content" android:maxLines="2" android:shadowColor="#33000000" android:shadowDy="3.0" android:shadowRadius="2.0" android:fontFamily="Roboto_Regular" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/privacy_settings"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <PreferenceCategory android:layout_width="fill_parent" android:title="@string/smart_switch_menu_header" android:key="category_smart_switch">
+        <Preference android:title="@string/smart_switch_list_name" android:key="pref_smartswitch" android:summary="@string/running_smart_switch_summary" />
+    </PreferenceCategory>
+    <PreferenceCategory android:layout_width="fill_parent" android:title="@string/samsung_bnr_section_title" android:key="category_samsungservices">
+        <Preference android:title="@string/backup_samsung_account_title" android:key="pref_backUp" android:summary="@string/samsung_backup_summary" />
+        <Preference android:title="@string/restore_samsung_account_title" android:key="pref_restore" android:summary="@string/samsung_restore_summary" />
+        <Preference android:persistent="false" android:enabled="false" android:title="@string/backup_inactive_title" android:selectable="false" android:key="samsung_backup_inactive" android:summary="@string/backup_inactive_summary" />
+        <Preference android:title="@string/samsung_storage_usage" android:key="pref_storage" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/master_clear_desc_google_account" android:key="backup_category">
+        <com.android.settings.SecSettingsSwitchPreference android:persistent="false" android:title="@string/backup_data_title" android:key="backup_data" android:fragment="com.android.settings.backup.ToggleBackupSettingFragment" />
+        <PreferenceScreen android:persistent="false" android:title="@string/backup_configure_account_title" android:key="configure_account" />
+        <PreferenceScreen android:persistent="false" android:key="data_management" />
+        <SwitchPreference android:title="@string/auto_restore_title" android:key="auto_restore" android:summary="@string/auto_restore_summary" />
+        <Preference android:persistent="false" android:enabled="false" android:title="@string/backup_inactive_title" android:selectable="false" android:key="backup_inactive" />
+    </PreferenceCategory>
+    <PreferenceCategory android:layout_width="fill_parent" android:title="@string/auto_restart_header" android:key="category_restart">
+        <com.android.settings.SecSettingsSwitchPreference android:title="@string/auto_restart_title" android:key="pref_auto_clean" />
+        <PreferenceScreen android:title="@string/auto_power_on_off_title" android:key="pref_auto_power_on_off" android:fragment="com.samsung.android.settings.autopoweronoff.AutoPowerOnOffSettings" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/personal_data_section_title" android:key="personal_data_category">
+        <com.samsung.android.settingslib.RestrictedPreference android:title="@string/settings_reset_title" android:key="settings_reset" android:summary="@string/settings_reset_list_summary" android:fragment="com.samsung.android.settings.ResetSettings" settings:userRestriction="no_factory_reset" />
+        <com.samsung.android.settingslib.RestrictedPreference android:title="@string/reset_network_settings" android:key="network_reset" android:summary="@string/reset_network_settings_list_summary" android:fragment="com.android.settings.ResetNetwork" settings:userRestriction="no_network_reset" settings:keywords="@string/keywords_network_reset" />
+        <com.samsung.android.settingslib.RestrictedPreference android:title="@string/master_clear_title" android:key="factory_reset" android:summary="@string/master_clear_list_summary" android:fragment="com.android.settings.MasterClear" settings:userRestriction="no_factory_reset" settings:keywords="@string/keywords_factory_data_reset" />
+    </PreferenceCategory>
+    <PreferenceScreen android:title="@string/collect_diagnostics_title" android:key="collect_diagnostics" android:summary="@string/collect_diagnostics_summary" />
+</PreferenceScreen>

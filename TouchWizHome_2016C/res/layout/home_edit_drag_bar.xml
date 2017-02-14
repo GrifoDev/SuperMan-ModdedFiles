@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.launcher2.HomeEditBar android:id="@id/home_edit_bar" style="@style/HomeEditDragBar"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:launcher="http://schemas.android.com/apk/res/com.sec.android.app.launcher">
+    <FrameLayout android:id="@id/disable_container" style="@style/HomeEditDragBarItemContainer">
+        <ImageView android:id="@id/disable_anim_background" android:src="@drawable/circle_shape_remove" android:alpha="0.0" style="@style/EditBarCircle" />
+        <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:id="@id/delete_linear" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:layout_gravity="center_horizontal" android:id="@id/disable_icon" android:paddingTop="@dimen/delete_drawable_paddingTop" android:src="@drawable/toolbar_ic_disable" style="@style/HomeEditBarIconImage" />
+            <TextView android:id="@id/disable_text" android:text="@string/options_menu_disableApp" style="@style/HomeEditDragBarIcon" />
+        </LinearLayout>
+    </FrameLayout>
+    <FrameLayout android:id="@id/uninstall_container" style="@style/HomeEditDragBarItemContainer">
+        <ImageView android:id="@id/uninstall_anim_background" android:src="@drawable/circle_shape_remove" android:alpha="0.0" style="@style/EditBarCircle" />
+        <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:layout_gravity="center_horizontal" android:id="@id/uninstall_icon" android:paddingTop="@dimen/delete_drawable_paddingTop" android:src="@drawable/toolbar_ic_uninstall" style="@style/HomeEditBarIconImage" />
+            <TextView android:id="@id/uninstall_text" android:text="@string/home_edit_bar_uninstall_title" style="@style/HomeEditDragBarIcon" />
+        </LinearLayout>
+    </FrameLayout>
+    <FrameLayout android:id="@id/addToPersonal_container" style="@style/HomeEditDragBarItemContainer">
+        <ImageView android:id="@id/addToPersonal_anim_background" android:src="@drawable/circle_shape_normal" android:alpha="0.0" style="@style/EditBarCircle" />
+        <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:layout_gravity="center_horizontal" android:id="@id/addToPersonal_icon" android:paddingTop="@dimen/delete_drawable_paddingTop" android:src="@drawable/toolbar_ic_add_to_personal_normal" style="@style/HomeEditBarIconImage" />
+            <TextView android:id="@id/addToPersonal_text" android:text="@string/home_edit_add_to_personal" style="@style/HomeEditDragBarIcon" />
+        </LinearLayout>
+    </FrameLayout>
+    <FrameLayout android:id="@id/cancel_container" style="@style/HomeEditDragBarItemContainer">
+        <ImageView android:id="@id/cancel_anim_background" android:src="@drawable/circle_shape_normal" android:alpha="0.0" style="@style/EditBarCircle" />
+        <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:layout_gravity="center_horizontal" android:id="@id/cancel_icon" android:paddingTop="@dimen/delete_drawable_paddingTop" android:src="@drawable/toolbar_ic_cancel" style="@style/HomeEditBarIconImage" />
+            <TextView android:id="@id/cancel_text" android:text="@string/uninstall_cancel" style="@style/HomeEditDragBarIcon" />
+        </LinearLayout>
+    </FrameLayout>
+    <FrameLayout android:id="@id/delete_container" style="@style/HomeEditDragBarItemContainer">
+        <ImageView android:id="@id/delete_anim_background" android:src="@drawable/circle_shape_remove" android:alpha="0.0" style="@style/EditBarCircle" />
+        <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:layout_gravity="center_horizontal" android:id="@id/delete_icon" android:paddingTop="@dimen/delete_drawable_paddingTop" android:paddingBottom="@dimen/delete_drawable_paddingBottom" android:src="@drawable/toolbar_ic_delete" style="@style/HomeEditBarIconImage" />
+            <TextView android:id="@id/delete_text" android:text="@string/home_edit_bar_delete_title" style="@style/HomeEditDragBarIcon" />
+        </LinearLayout>
+    </FrameLayout>
+    <FrameLayout android:id="@id/move_apps_container" style="@style/HomeEditDragBarItemContainer">
+        <ImageView android:id="@id/move_apps_anim_background" android:src="@drawable/circle_shape_normal" android:alpha="0.0" style="@style/EditBarCircle" />
+        <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:layout_gravity="center_horizontal" android:id="@id/move_apps_icon" android:paddingTop="@dimen/delete_drawable_paddingTop" android:src="@drawable/homescreen_option_ic_moveapps_normal" style="@style/HomeEditBarIconImage" />
+            <TextView android:id="@id/move_apps_text" android:text="@string/move_apps" style="@style/HomeEditDragBarIcon" />
+        </LinearLayout>
+    </FrameLayout>
+    <FrameLayout android:id="@id/lock_container" android:visibility="gone" style="@style/HomeEditDragBarItemContainer">
+        <ImageView android:id="@id/lock_anim_background" android:src="@drawable/circle_shape_normal" android:alpha="0.0" style="@style/EditBarCircle" />
+        <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:layout_gravity="center_horizontal" android:id="@id/lock_icon" android:paddingTop="@dimen/delete_drawable_paddingTop" android:src="@drawable/sm_ic_home_edit_lock" style="@style/HomeEditBarIconImage" />
+            <TextView android:id="@id/lock_text" android:text="@string/lock" style="@style/HomeEditDragBarIcon" />
+        </LinearLayout>
+    </FrameLayout>
+    <FrameLayout android:id="@id/unlock_container" android:visibility="gone" style="@style/HomeEditDragBarItemContainer">
+        <ImageView android:id="@id/unlock_anim_background" android:src="@drawable/circle_shape_normal" android:alpha="0.0" style="@style/EditBarCircle" />
+        <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:layout_gravity="center_horizontal" android:id="@id/unlock_icon" android:paddingTop="@dimen/delete_drawable_paddingTop" android:src="@drawable/sm_ic_home_edit_unlock" style="@style/HomeEditBarIconImage" />
+            <TextView android:id="@id/unlock_text" android:text="@string/unlock" style="@style/HomeEditDragBarIcon" />
+        </LinearLayout>
+    </FrameLayout>
+</com.android.launcher2.HomeEditBar>

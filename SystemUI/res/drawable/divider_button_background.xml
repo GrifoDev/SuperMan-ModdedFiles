@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="oval"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <size android:height="@dimen/multiwindow_divider_button_bg_height" android:width="@dimen/multiwindow_divider_button_bg_width" />
+    <solid android:color="@color/multiwindow_divider_button_color_bg" />
+</shape>

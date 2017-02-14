@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+  xmlns:touchwiz="http://schemas.android.com/apk/res/touchwiz">
+    <com.samsung.android.settings.UnclickablePreference android:title="@string/hongbao_guide_title" android:key="hongbao_guide" style="@style/description_text" />
+    <com.android.settings.SecSettingsSwitchPreference android:title="@string/hongbao_sound_title" android:key="notification_sound" android:summary="@string/hongbao_sound_summary" />
+    <SwitchPreference android:title="@string/hongbao_launch_app_title" android:key="launch_app" android:summary="@string/hongbao_launch_app_summary" />
+</PreferenceScreen>

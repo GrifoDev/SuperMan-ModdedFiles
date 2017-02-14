@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@android:color/transparent" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ListView android:scrollbarAlwaysDrawVerticalTrack="true" android:scrollbarStyle="@android:integer/preference_fragment_scrollbarStyle" android:id="@android:id/list" android:paddingTop="0.0dip" android:paddingBottom="0.0dip" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:drawSelectorOnTop="false" android:cacheColorHint="@android:color/transparent" style="@style/PreferenceHeaderListSinglePane" />
+    <android.support.v4.widget.SwipeRefreshLayout android:id="@id/swiperefresh" android:layout_width="fill_parent" android:layout_height="fill_parent"
+      xmlns:android="http://schemas.android.com/apk/res/android">
+        <ListView android:scrollbarAlwaysDrawVerticalTrack="true" android:scrollbarStyle="@android:integer/preference_fragment_scrollbarStyle" android:id="@id/twlist" android:paddingTop="0.0dip" android:paddingBottom="@android:dimen/preference_fragment_padding_bottom" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="0.0px" android:drawSelectorOnTop="false" android:cacheColorHint="@android:color/transparent" android:layout_weight="1.0" style="@style/PreferenceHeaderListSinglePane" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+    <TextView android:gravity="center" android:id="@android:id/empty" android:paddingTop="@dimen/body_text_top_padding" android:paddingBottom="@dimen/body_text_top_padding" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/body_text_side_padding" android:paddingEnd="@dimen/body_text_side_padding" />
+    <include layout="@layout/admin_support_details_empty_view" />
+    <RelativeLayout android:id="@id/button_bar" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="0.0">
+        <Button android:id="@id/back_button" android:layout_width="150.0dip" android:layout_height="wrap_content" android:layout_margin="5.0dip" android:text="@android:string/back_button_label" android:layout_alignParentStart="true" />
+        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentEnd="true">
+            <Button android:id="@id/skip_button" android:visibility="gone" android:layout_width="150.0dip" android:layout_height="wrap_content" android:layout_margin="5.0dip" android:text="@android:string/skip_button_label" />
+            <Button android:id="@id/next_button" android:layout_width="150.0dip" android:layout_height="wrap_content" android:layout_margin="5.0dip" android:text="@android:string/next_button_label" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

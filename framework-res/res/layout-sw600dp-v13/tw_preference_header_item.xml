@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:background="@drawable/tw_preference_header_item_background_mtrl" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/tw_list_preferred_item_height_small" android:paddingStart="@dimen/tw_list_preferred_listview_item_padding" android:paddingEnd="8.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center" android:id="@id/icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="0.0dip" android:layout_marginEnd="8.0dip" />
+    <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6.0dip" android:layout_marginBottom="6.0dip" android:layout_weight="1.0" android:layout_marginStart="0.0dip" android:layout_marginEnd="6.0dip">
+        <TextView android:textAppearance="?textAppearanceListItem" android:textColor="@color/tw_primary_text_color_light" android:ellipsize="marquee" android:id="@id/title" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+        <TextView android:textAppearance="?textAppearanceListItemSecondary" android:textColor="@color/tw_primary_text_color_light" android:ellipsize="end" android:id="@id/summary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="10" android:layout_below="@id/title" android:layout_alignStart="@id/title" />
+    </RelativeLayout>
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/widget_frame" android:layout_width="wrap_content" android:layout_height="fill_parent" />
+</LinearLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_marginTop="@dimen/body_text_top_padding" android:layout_weight="1.0">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginStart="@dimen/body_text_side_padding" android:layout_marginEnd="@dimen/body_text_side_padding">
+                <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/reset_network_desc" style="@style/body_text_style" />
+                <TextView android:id="@id/reset_network_list" android:paddingTop="@dimen/sub_body_text_top_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:includeFontPadding="false" android:layout_marginStart="@dimen/description_dot_text_padding" style="@style/sub_body_text_style" />
+                <Spinner android:layout_gravity="center_horizontal" android:id="@id/reset_network_subscription" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dip" />
+            </LinearLayout>
+            <com.samsung.android.settings.widget.RoundButtonView android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/initiate_reset_network" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/reset_button_top_margin" android:layout_marginBottom="@dimen/reset_button_top_margin" android:minHeight="@dimen/reset_button_min_height" android:text="@string/settings_reset_title" android:paddingStart="@dimen/reset_button_side_padding" android:paddingEnd="@dimen/reset_button_side_padding" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

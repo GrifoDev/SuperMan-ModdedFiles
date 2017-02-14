@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0">
+        <LinearLayout android:orientation="vertical" android:id="@id/linearLayout1" android:layout_width="fill_parent" android:layout_height="wrap_content" android:weightSum="1.0">
+            <TextView android:textSize="19.0sp" android:textColor="@color/alert_dialog_text_color" android:id="@id/message" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="23.0dip" android:layout_marginBottom="17.0dip" android:text="@string/new_connect_alert" android:layout_marginStart="24.0dip" android:layout_marginEnd="17.0dip" />
+            <CheckBox android:textSize="@dimen/alert_dialog_text_size" android:textColor="@color/alert_dialog_text_color" android:id="@id/remember_selection_checkbox" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="18.0dip" android:checked="true" android:text="@string/dont_show_dialog" android:paddingStart="8.0dip" android:layout_marginStart="19.0dip" android:layout_marginEnd="17.0dip" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

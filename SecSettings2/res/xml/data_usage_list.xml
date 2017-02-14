@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/data_usage_summary_title"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/data_used_template" android:key="usage_amount">
+        <com.android.settings.datausage.ChartDataUsagePreference android:key="chart_data" />
+        <Preference android:selectable="false" android:summary="@string/operator_warning" />
+    </PreferenceCategory>
+    <com.android.settings.datausage.MTRPreference android:title="@string/total_received_data" android:key="total_received_data" android:widgetLayout="@layout/reset_icon" />
+    <com.android.settings.datausage.MTRPreference android:title="@string/total_sent_data" android:key="total_sent_data" android:widgetLayout="@layout/reset_icon" />
+    <com.android.settings.datausage.MTRPreference android:title="@string/lifetime_data" android:key="lifetime_data" />
+    <PreferenceCategory android:layout="@layout/preference_category_no_label" android:key="apps_group" />
+</PreferenceScreen>

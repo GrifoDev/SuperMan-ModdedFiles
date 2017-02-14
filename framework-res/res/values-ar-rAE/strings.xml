@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="permlab_knoxCustomSetting">إدارة ضبط التخصيص</string>
+    <string name="permdesc_knoxCustomSetting">اسمح بتغيير ضبط النظام الآمن.</string>
+    <string name="permlab_knoxCustomSystem">إدارة نظام التخصيص</string>
+    <string name="permdesc_knoxCustomSystem">تحكم في سلوك النظام للأنظمة التي لا يمكن الوصول إليها في العادة.</string>
+    <string name="permlab_knoxCustomSealedMode">إدارة التخصيص في Sealed mode</string>
+    <string name="permdesc_knoxCustomSealedMode">تحكم في الجهاز في Sealed mode.</string>
+    <string name="global_action_toggle_sealed_mode">Sealed mode</string>
+    <string name="global_action_sealed_mode_on_status">في Sealed mode</string>
+    <string name="global_action_sealed_mode_off_status">ليس في Sealed mode</string>
+    <string name="global_action_sealed_mode_title">الخروج من Sealed mode</string>
+    <string name="global_action_sealed_mode_enter_passcode">أدخل كلمة المرور للخروج من Sealed mode.</string>
+</resources>

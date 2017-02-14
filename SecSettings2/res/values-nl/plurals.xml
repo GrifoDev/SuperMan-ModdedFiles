@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d uur</item>
+        <item quantity="one">1 uur</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d minuten</item>
+        <item quantity="one">1 minuut</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d seconden</item>
+        <item quantity="one">1 seconde</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Nog %d stappen en u bent een ontwikkelaar.</item>
+        <item quantity="one">Nog 1 stap en u bent een ontwikkelaar.</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Geselecteerde talen verwijderen</item>
+        <item quantity="one">Geselecteerde taal verwijderen</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Wachtwoord moet ten minste %d letters bevatten.</item>
+        <item quantity="one">Wachtwoord moet ten minste 1 letter bevatten.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Wachtwoord moet ten minste %d kleine letters bevatten.</item>
+        <item quantity="one">Wachtwoord moet ten minste 1 kleine letter bevatten.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Wachtwoord moet ten minste %d hoofdletters bevatten.</item>
+        <item quantity="one">Wachtwoord moet ten minste 1 hoofdletter bevatten.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Wachtwoord moet ten minste %d cijfers bevatten.</item>
+        <item quantity="one">Wachtwoord moet ten minste 1 cijfer bevatten.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Wachtwoord moet ten minste %d symbolen bevatten.</item>
+        <item quantity="one">Wachtwoord moet ten minste 1 symbool bevatten.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Wachtwoord moet ten minste %d cijfers of symbolen bevatten.</item>
+        <item quantity="one">Wachtwoord moet ten minste 1 cijfer of symbool bevatten.</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Toegang tot %d mappen/bestanden</item>
+        <item quantity="one">Toegang tot 1 map/bestand</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s heeft CA-certificaten op uw apparaat geïnstalleerd en kan hiermee mogelijk de netwerkactiviteit van uw apparaat controleren, waaronder uw gebruik van e-mails, apps en veilige websites.
+
+Neem voor meer informatie over deze certificaten contact op met uw IT-beheerder."</item>
+        <item quantity="one">"%s heeft een CA-certificaat op uw apparaat geïnstalleerd en kan hiermee mogelijk de netwerkactiviteit van uw apparaat controleren, waaronder uw gebruik van e-mails, apps en veilige websites.
+
+Neem voor meer informatie over dit certificaat contact op met uw IT-beheerder."</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d applicaties kunnen meldingen lezen.</item>
+        <item quantity="one">%d applicatie mag meldingen voorlezen.</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d andere machtigingen</item>
+        <item quantity="one">%d andere machtiging</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$d processen hebben RAM gebruikt in afgelopen %2$s</item>
+        <item quantity="one">%1$d proces heeft RAM gebruikt in afgelopen %2$s</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d apps mogen mobiele gegevens zonder restricties gebruiken terwijl Gegevens opslaan is ingeschakeld</item>
+        <item quantity="one">1 app mag mobiele gegevens zonder restricties gebruiken terwijl Gegevens opslaan is ingeschakeld</item>
+    </plurals>
+</resources>

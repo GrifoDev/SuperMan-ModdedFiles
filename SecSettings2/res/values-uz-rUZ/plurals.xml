@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d soat</item>
+        <item quantity="one">1 soat</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d daqiqa</item>
+        <item quantity="one">1 daqiqa</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d soniya</item>
+        <item quantity="one">1 soniya</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Siz %d qadamdan so‘ng ishlab chiqaruvchi bo‘lishingiz mumkin.</item>
+        <item quantity="one">Siz 1 qadamdan so‘ng ishlab chiqaruvchi bo‘lishingiz mumkin.</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Tanlangan tillarni olib tashlash</item>
+        <item quantity="one">Tanlangan tilni olib tashlash</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Parol tarkibida kamida %d harf bo‘lishi lozim.</item>
+        <item quantity="one">Parol tarkibida kamida 1 harf bo‘lishi lozim.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Parol tarkibida kamida %d kichik harf bo‘lishi lozim.</item>
+        <item quantity="one">Parol tarkibida kamida 1 kichik harf bo‘lishi lozim.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Parol tarkibida kamida %d bosh harf bo‘lishi lozim.</item>
+        <item quantity="one">Parol tarkibida kamida 1 bosh harf bo‘lishi lozim.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Parol tarkibida kamida %d raqam bo‘lishi lozim.</item>
+        <item quantity="one">Parol tarkibida kamida 1 raqam bo‘lishi lozim.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Parol eng kamida %d belgidan tashkil topishi lozim.</item>
+        <item quantity="one">Parol eng kamida 1 belgidan tashkil topishi lozim.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Parol eng kamida %d raqam yoki belgidan tashkil topishi lozim.</item>
+        <item quantity="one">Parol eng kamida 1 raqam yoki belgidan tashkil topishi lozim.</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">%d ta jild/faylga kirish</item>
+        <item quantity="one">1 ta jild/faylga kirish</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s qurilmangizga qurilma tarmoq faoliyatini, jumladan, e-pochta, ilova va xavfsiz veb-saytlarni, kuzatish imkonini beruvchi CA sertifikatlarini o‘rnatdi.
+
+Ushbu sertifikatlar haqida qo‘shimcha ma’lumot olish uchun AT ma’muri bilan bog‘laning."</item>
+        <item quantity="one">"%s qurilmangizga qurilma tarmoq faoliyatini, jumladan, e-pochta, ilova va xavfsiz veb-saytlarni, kuzatish imkonini beruvchi CA sertifikatini o‘rnatdi.
+
+Ushbu sertifikat haqida qo‘shimcha ma’lumot olish uchun AT ma’muri bilan bog‘laning."</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%dta ilova bildirishnomalarni o‘qishi mumkin.</item>
+        <item quantity="one">%dta ilovaga bildirishnomalarni o‘qish uchun ruxsat berilgan.</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">Yana %d ta ruxsat</item>
+        <item quantity="one">Yana %d ta ruxsat</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">So‘nggi %2$s davomida %1$d ta jarayon RAM’dan foydalandi</item>
+        <item quantity="one">So‘nggi %2$s davomida %1$d ta jarayon RAM’dan foydalandi</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">Ma’lumot tejash yoqilgan vaqtda %d ta ilovaga mobil internetdan cheklovlarsiz foydalanishga ruxsat beriladi</item>
+        <item quantity="one">1 ta ilovaga Ma’lumot tejash yoqilgan vaqtda mobil internetdan cheklovlarsiz foydalanish uchun ruxsat berilgan</item>
+    </plurals>
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/active_key_title"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <PreferenceCategory android:title="@string/xcover_key_category_customize" android:key="customize_category_key" />
+    <PreferenceScreen android:title="@string/xcover_key_shortcut_normal_mode" android:key="short_press_key" />
+    <PreferenceScreen android:title="@string/xcover_key_shortcut_battery_conserving_mode" android:key="long_press_key" />
+    <PreferenceCategory android:title="@string/xcover_key_category_lock_screen" android:key="lock_screen_category_key" />
+    <SwitchPreference android:title="@string/xcover_key_on_lockscreen" android:key="active_key_on_lockscreen_key" android:summary="@string/xcover_key_on_lockscreen_summary" />
+</PreferenceScreen>

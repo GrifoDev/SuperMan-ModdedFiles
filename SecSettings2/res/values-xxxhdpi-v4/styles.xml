@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CustomTitleTextStyle">
+        <item name="android:textSize">@dimen/custom_title_heading_font_size</item>
+        <item name="android:textColor">@color/custom_title_text_color</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:layout_marginLeft">@dimen/custom_title_appname_margin_left</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+    <style name="StepIndicatorTextStyle">
+        <item name="android:textSize">@dimen/step_indicator_font_size</item>
+        <item name="android:textColor">@color/step_indicator_text_color</item>
+        <item name="android:layout_marginRight">@dimen/custom_title_margin_right</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:fontFamily">sec-roboto-light</item>
+    </style>
+    <style name="SubTitleTextStyle">
+        <item name="android:textSize">@dimen/subtitle_font_size</item>
+        <item name="android:textColor">@color/subtitle_text_color</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:gravity">center|left</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/subtitle_margin_top</item>
+        <item name="android:layout_marginBottom">@dimen/subtitle_margin_bottom</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:paddingStart">@dimen/subtitle_margin_left</item>
+    </style>
+    <style name="ActionBarBottomButtonLeftStyle">
+        <item name="android:background">?android:actionBarItemBackground</item>
+        <item name="android:minHeight">@dimen/bottom_button_height</item>
+    </style>
+    <style name="ActionBarBottomButtonRightStyle">
+        <item name="android:layout_width">0.0dip</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_weight">0.5</item>
+    </style>
+    <style name="SoftKeyTextStyle">
+        <item name="android:textSize">@dimen/bottom_btn_font_size</item>
+        <item name="android:textColor">@color/softkey_text_color_on_press</item>
+        <item name="android:gravity">center|right</item>
+        <item name="android:background">?android:actionBarItemBackground</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">@dimen/bottom_button_height</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:paddingStart">@dimen/softbutton_margin_middle</item>
+    </style>
+    <style name="bottom_button_layout">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@color/ssw_btn_color</item>
+        <item name="android:paddingTop">@dimen/bottom_button_divider_width</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">@dimen/bottom_button_height</item>
+    </style>
+    <style name="SettingsTheme.VzwSetupWizardWifi" parent="@style/Theme.Settings">
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+    <style name="SoftKeyLeftButtonsStyle">
+        <item name="android:layout_width">0.0dip</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_weight">0.5</item>
+    </style>
+    <style name="SoftKeyLeftButtonTextsStyle">
+        <item name="android:textSize">@dimen/bottom_btn_font_size</item>
+        <item name="android:textColor">@color/softkey_text_color_default</item>
+        <item name="android:gravity">center|left</item>
+        <item name="android:background">?android:actionBarItemBackground</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">@dimen/bottom_button_height</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:paddingStart">@dimen/softbutton_margin_middle</item>
+        <item name="android:paddingEnd">@dimen/softbutton_margin_middle</item>
+        <item name="android:layout_marginStart">@dimen/softbutton_margin_left</item>
+        <item name="android:layout_alignParentStart">true</item>
+    </style>
+</resources>

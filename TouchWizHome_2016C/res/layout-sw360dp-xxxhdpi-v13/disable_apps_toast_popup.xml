@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="start|center" android:orientation="horizontal" android:id="@id/CheckBar" android:layout_width="fill_parent" android:layout_height="50.0dip" android:layout_marginTop="7.0dip" android:layout_marginBottom="8.0dip" android:layout_marginStart="5.0dip" android:layout_marginEnd="17.0dip">
+        <CheckBox android:textSize="19.0sp" android:textColor="#ffffffff" android:ellipsize="marquee" android:id="@id/chk_disable" android:layout_width="wrap_content" android:layout_height="30.0dip" android:layout_marginTop="10.0dip" android:layout_marginBottom="10.0dip" android:checked="true" android:text="@string/cling_do_not_show_again" android:singleLine="true" android:paddingStart="8.0dip" android:layout_marginStart="12.0dip" android:layout_marginEnd="8.0dip" />
+    </LinearLayout>
+</RelativeLayout>

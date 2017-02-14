@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="dimen" name="time_picker_column_start_material">1</item>
+    <item type="dimen" name="time_picker_column_end_material">0</item>
+    <dimen name="sem_more_show_button_background_inset_right">2.0dip</dimen>
+    <dimen name="sem_more_show_button_background_inset_left">20.0dip</dimen>
+</resources>

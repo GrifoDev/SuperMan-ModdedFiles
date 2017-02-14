@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d שעות</item>
+        <item quantity="one">שעה אחת</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d דקות</item>
+        <item quantity="one">דקה</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d שניות</item>
+        <item quantity="one">שנייה אחת</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">עוד %d צעדים תהפוך למפתח.</item>
+        <item quantity="one">עוד צעד אחד תהפוך למפתח</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">הסרת השפות שנבחרו</item>
+        <item quantity="one">הסרת השפה שנבחרה</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">הסיסמה חייבת להכיל לפחות ‎%d אותיות.</item>
+        <item quantity="one">הסיסמה חייבת להכיל לפחות ‎אות אחת.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">הסיסמה חייבת להכיל לפחות ‎%d אותיות קטנות.</item>
+        <item quantity="one">הסיסמה חייבת להכיל לפחות ‎אות אחת קטנה.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">הסיסמה חייבת להכיל לפחות ‎%d אותיות גדולות.</item>
+        <item quantity="one">הסיסמה חייבת להכיל לפחות ‎אות אחת גדולה.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">הסיסמה חייבת להכיל לפחות %d ספרות.</item>
+        <item quantity="one">הסיסמה חייבת להכיל לפחות ‎ספרה אחד.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">הסיסמה חייבת להכיל לפחות ‎%d סמלים.</item>
+        <item quantity="one">הסיסמה חייבת להכיל לפחות ‎סמל אחד.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">הסיסמה חייבת להכיל לפחות %d ספרות או סמלים.</item>
+        <item quantity="one">הסיסמה חייבת להכיל לפחות ספרה אחת או סמל אחד.</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">גישה אל %d תיקיות/קבצים</item>
+        <item quantity="one">גישה אל תיקייה/קובץ אחד</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s התקין אישורי CA במכשיר שלך, דבר העשוי לאפשר לגורם זה לעקוב אחר הפעילות של המכשיר שלך ברשת, כולל השימוש שלך בדוא״ל, יישומים ואתרי אינטרנט מאובטחים.
+
+לקבלת מידע נוסף על אישורים אלה, פנה אל מנהל המערכת שלך."</item>
+        <item quantity="one">"%s התקין אישור CA במכשיר שלך, דבר העשוי לאפשר לגורם זה לעקוב אחר הפעילות של המכשיר שלך ברשת, כולל השימוש שלך בדוא״ל, יישומים ואתרי אינטרנט מאובטחים.
+
+לקבלת מידע נוסף על אישור זה, פנה אל מנהל המערכת שלך."</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d יישומים יכולים לקרוא התראות.</item>
+        <item quantity="one">%d יישום מורשה לקרוא התראות.</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d הרשאות נוספות</item>
+        <item quantity="one">עוד %d הרשאה</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$d תהליכים השתמשו ב-RAM ב-%2$s האחרונים</item>
+        <item quantity="one">%1$d תהליך השתמש ב-RAM ב-%2$s האחרונים</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">"%d יישומים מורשים להשתמש בנתונים ניידים ללא הגבלה כאשר 'שומר הנתונים' מופעל"</item>
+        <item quantity="one">"יישום אחד מורשה להשתמש בנתונים ניידים ללא הגבלה כאשר 'שומר הנתונים' מופעל"</item>
+    </plurals>
+</resources>

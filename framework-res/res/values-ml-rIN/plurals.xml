@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="pinpuk_attempts">
+        <item quantity="other">SIM ലോക്കാകുന്നതിന് മുമ്പായി നിങ്ങൾക്ക് %d ശ്രമങ്ങൾ കൂടി ശേഷിക്കുന്നു.</item>
+        <item quantity="one">SIM ലോക്കാകുന്നതിന് മുമ്പായി നിങ്ങൾക്ക് %d ശ്രമം കൂടി ശേഷിക്കുന്നു.</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_warning">
+        <item quantity="other">നെറ്റ്‌വർക്ക് നിരീക്ഷണം സാധ്യമാണ്</item>
+        <item quantity="one">സർട്ടിഫിക്കറ്റ് അതോറിറ്റി ഇൻസ്റ്റാൾ ചെയ്തു</item>
+    </plurals>
+    <plurals name="bugreport_countdown">
+        <item quantity="other">ബഗ് റിപ്പോർട്ടിനായി %d സെക്കൻഡിൽ സ്ക്രീൻഷോട്ട് എടുക്കുന്നു.</item>
+        <item quantity="one">ബഗ് റിപ്പോർട്ടിനായി %d സെക്കൻഡിൽ സ്ക്രീൻഷോട്ട് എടുക്കുന്നു.</item>
+    </plurals>
+    <plurals name="last_num_days">
+        <item quantity="other">അവസാന %d ദിവസങ്ങൾ</item>
+        <item quantity="one">അവസാന %d ദിവസം</item>
+    </plurals>
+    <plurals name="duration_seconds">
+        <item quantity="other">%d നിമിഷം</item>
+        <item quantity="one">1 സെക്കന്‍റ്</item>
+    </plurals>
+    <plurals name="duration_minutes">
+        <item quantity="other">%d മിനിട്ടുകള്‍</item>
+        <item quantity="one">1 മിനിറ്റ്</item>
+    </plurals>
+    <plurals name="duration_hours">
+        <item quantity="other">%d മണിക്കൂർ</item>
+        <item quantity="one">1 മണിക്കൂര്‍</item>
+    </plurals>
+    <plurals name="duration_minutes_shortest">
+        <item quantity="other">%dമീറ്റർ</item>
+        <item quantity="one">%dമിനിറ്റ്</item>
+    </plurals>
+    <plurals name="duration_hours_shortest">
+        <item quantity="other">%dമണിക്കൂർ</item>
+        <item quantity="one">%dമണിക്കൂർ</item>
+    </plurals>
+    <plurals name="duration_days_shortest">
+        <item quantity="other">%dദിവസം</item>
+        <item quantity="one">%dദിവസം</item>
+    </plurals>
+    <plurals name="duration_years_shortest">
+        <item quantity="other">%dവർഷം</item>
+        <item quantity="one">%dവർഷം</item>
+    </plurals>
+    <plurals name="duration_minutes_shortest_future">
+        <item quantity="other">%dമീറ്ററിൽ</item>
+        <item quantity="one">%dമീറ്ററിൽ</item>
+    </plurals>
+    <plurals name="duration_hours_shortest_future">
+        <item quantity="other">%dമണിക്കൂറിൽ</item>
+        <item quantity="one">%dമണിക്കൂറിൽ</item>
+    </plurals>
+    <plurals name="duration_days_shortest_future">
+        <item quantity="other">%dദിവസത്തിൽ</item>
+        <item quantity="one">%dദിവസത്തിൽ</item>
+    </plurals>
+    <plurals name="duration_years_shortest_future">
+        <item quantity="other">%dവർഷത്തിൽ</item>
+        <item quantity="one">%dവർഷത്തിൽ</item>
+    </plurals>
+    <plurals name="wifi_available">
+        <item quantity="other">Wi-Fi നെറ്റ്‌വര്‍ക്കുകള്‍ ലഭ്യം</item>
+        <item quantity="one">Wi-Fi നെറ്റ്‌വർക്ക് ലഭ്യം</item>
+    </plurals>
+    <plurals name="wifi_available_detailed">
+        <item quantity="other">ലഭ്യമായ Wi-Fi നെറ്റ്‌വര്‍ക്കുകള്‍ തുറക്കുക</item>
+        <item quantity="one">ലഭ്യമായ Wi-Fi നെറ്റ്‌വര്‍ക്കുകള്‍ തുറക്കുക</item>
+    </plurals>
+    <plurals name="matches_found">
+        <item quantity="other">%1$d ന്‍റെ %2$d</item>
+        <item quantity="one">1 ചേര്‍ച്ച.</item>
+    </plurals>
+    <plurals name="restr_pin_countdown">
+        <item quantity="other">%d സെക്കൻഡിനുള്ളിൽ വീണ്ടും ശ്രമിക്കുക</item>
+        <item quantity="one">1 സെക്കന്‍റില്‍ വീണ്ടും ശ്രമിക്കുക.</item>
+    </plurals>
+    <plurals name="zen_mode_duration_minutes_summary">
+        <item quantity="other">%1$d മിനിറ്റ് സമയത്തേക്ക് (%2$s വരെ)</item>
+        <item quantity="one">ഒരു മിനിറ്റ് സമയത്തേക്ക് (%2$s വരെ)</item>
+    </plurals>
+    <plurals name="zen_mode_duration_minutes_summary_short">
+        <item quantity="other">%1$d മിനിറ്റത്തേക്ക് (%2$s വരെ)</item>
+        <item quantity="one">ഒരു മിനിറ്റത്തേക്ക് (%2$s വരെ)</item>
+    </plurals>
+    <plurals name="zen_mode_duration_hours_summary">
+        <item quantity="other">%1$d മണിക്കൂർ സമയത്തേക്ക് (%2$s വരെ)</item>
+        <item quantity="one">ഒരു മണിക്കൂർ സമയത്തേക്ക് (%2$s വരെ)</item>
+    </plurals>
+    <plurals name="zen_mode_duration_hours_summary_short">
+        <item quantity="other">%1$d മണിക്കൂറത്തേക്ക് (%2$s വരെ)</item>
+        <item quantity="one">ഒരു മണിക്കൂറത്തേക്ക് (%2$s വരെ)</item>
+    </plurals>
+    <plurals name="zen_mode_duration_minutes">
+        <item quantity="other">%d മിനിറ്റ് സമയത്തേക്ക്</item>
+        <item quantity="one">ഒരു മിനിറ്റ് സമയത്തേക്ക്</item>
+    </plurals>
+    <plurals name="zen_mode_duration_minutes_short">
+        <item quantity="other">%d മിനിറ്റത്തേക്ക്</item>
+        <item quantity="one">ഒരു മിനിറ്റത്തേക്ക്</item>
+    </plurals>
+    <plurals name="zen_mode_duration_hours">
+        <item quantity="other">%d മണിക്കൂർ സമയത്തേക്ക്</item>
+        <item quantity="one">ഒരു മണിക്കൂർ സമയത്തേക്ക്</item>
+    </plurals>
+    <plurals name="zen_mode_duration_hours_short">
+        <item quantity="other">%d മണിക്കൂറത്തേക്ക്</item>
+        <item quantity="one">ഒരു മണിക്കൂറത്തേക്ക്</item>
+    </plurals>
+    <plurals name="selected_count">
+        <item quantity="other">%1$d തിരഞ്ഞെടുത്തു</item>
+        <item quantity="one">%1$d തിരഞ്ഞെടുത്തു</item>
+    </plurals>
+    <plurals name="tw_clipboard_files">
+        <item quantity="other">%d ഫയലുകള്‍</item>
+        <item quantity="one">1 ഫയല്‍</item>
+    </plurals>
+</resources>

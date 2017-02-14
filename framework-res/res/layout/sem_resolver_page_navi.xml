@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:layout_gravity="bottom|center" android:orientation="horizontal" android:background="@color/sem_resolver_bg_color" android:paddingTop="@dimen/sem_resolver_pagemode_navi_top_padding" android:paddingBottom="@dimen/sem_resolver_pagemode_navi_bottom_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/sem_resolver_pagemode_navi_height" android:elevation="@dimen/sem_resolver_elevation" android:layout_alwaysShow="true" android:layout_ignoreOffset="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

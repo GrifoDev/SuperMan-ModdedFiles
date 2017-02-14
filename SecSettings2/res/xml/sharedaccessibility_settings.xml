@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/share_accessibility_settings" android:key="shared_accessibility_menus"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.samsung.android.settings.accessibility.sharedaccessibility.AccessibilityDialogPreference android:title="@string/import_export" android:key="shared_accessibility_export_import" android:summary="@string/import_export_description" />
+    <com.samsung.android.settings.accessibility.sharedaccessibility.AccessibilityDialogPreference android:title="@string/share" android:key="shared_accessibility_share" android:summary="@string/share_description_listmenu" />
+</PreferenceScreen>

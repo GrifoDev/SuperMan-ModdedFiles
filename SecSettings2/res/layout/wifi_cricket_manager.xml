@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/wifi_cricket_manager_header" android:background="?android:selectableItemBackground" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="18.0dip" android:paddingEnd="18.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/wifi_ap_pref_paddingTop" android:layout_marginBottom="@dimen/wifi_ap_pref_paddingBottom" android:minHeight="@dimen/two_line_preference_minheight">
+        <TextView android:textSize="@dimen/text_size_primary_list_item" android:textColor="@color/wifi_p2p_preference_title_color" android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/wifi_cricket_manager_title" android:paddingStart="6.0dip" android:paddingEnd="6.0dip" />
+        <TextView android:textSize="@dimen/text_size_secondary_list_item" android:textColor="@color/wifi_p2p_preference_summary_color" android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/wifi_cricket_manager_summary" android:paddingStart="6.0dip" android:paddingEnd="6.0dip" />
+    </LinearLayout>
+    <LinearLayout android:background="@color/list_divider_color" android:layout_width="fill_parent" android:layout_height="2.0px" />
+</LinearLayout>

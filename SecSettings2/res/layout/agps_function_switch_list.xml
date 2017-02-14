@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/settinglayout" android:scrollbars="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:touchwiz="http://schemas.android.com/apk/res/touchwiz">
+    <LinearLayout android:orientation="vertical" android:id="@id/scrolllayout" android:scrollbars="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <TextView android:textSize="15.0sp" android:textStyle="bold" android:textColor="?android:textColorPrimary" android:gravity="center_vertical" android:id="@id/subTitle1" android:paddingLeft="16.0dip" android:layout_width="fill_parent" android:layout_height="28.0dip" android:text="@string/assisted_gps_function_switch" />
+        <RadioGroup android:orientation="vertical" android:id="@id/radio_group1_agps" android:paddingLeft="16.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <RadioButton android:textSize="18.0sp" android:textColor="?android:textColorPrimary" android:gravity="center_vertical" android:id="@id/radio1_agps" android:paddingLeft="16.0dip" android:layout_width="fill_parent" android:layout_height="56.0dip" android:text="@string/agps_on_for_home_network" />
+            <View android:background="#ffcecece" android:layout_width="fill_parent" android:layout_height="1.0px" android:layout_marginRight="16.0dip" />
+            <RadioButton android:textSize="18.0sp" android:textColor="?android:textColorPrimary" android:id="@id/radio2_agps" android:paddingLeft="16.0dip" android:layout_width="fill_parent" android:layout_height="56.0dip" android:text="@string/agps_on_for_all_network" />
+            <View android:background="#ffcecece" android:layout_width="fill_parent" android:layout_height="1.0px" android:layout_marginRight="16.0dip" />
+            <RadioButton android:textSize="18.0sp" android:textColor="?android:textColorPrimary" android:id="@id/radio3_agps" android:paddingLeft="16.0dip" android:layout_width="fill_parent" android:layout_height="56.0dip" android:text="@string/agps_off" />
+        </RadioGroup>
+        <TextView android:textSize="15.0sp" android:textStyle="bold" android:textColor="?android:textColorPrimary" android:gravity="center_vertical" android:id="@id/subTitle3" android:paddingLeft="16.0dip" android:layout_width="fill_parent" android:layout_height="28.0dip" android:text="@string/agps_note" />
+        <TextView android:textSize="18.0sp" android:textColor="?android:textColorPrimary" android:gravity="center_vertical" android:id="@id/readme" android:paddingLeft="16.0dip" android:paddingTop="5.0dip" android:paddingRight="16.0dip" android:paddingBottom="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/agps_international_roaming_note" />
+        <View android:background="#ffcecece" android:layout_width="fill_parent" android:layout_height="1.0px" android:layout_marginLeft="16.0dip" android:layout_marginRight="16.0dip" />
+    </LinearLayout>
+</LinearLayout>

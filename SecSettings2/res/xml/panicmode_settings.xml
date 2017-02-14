@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/panic_mode_settings_title"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <PreferenceScreen android:title="@string/safetycare_send_emergency_message_title" android:key="key_safety_assistance_swa">
+        <intent android:targetPackage="com.sec.android.app.safetyassurance" android:action="android.intent.action.MAIN" android:targetClass="com.sec.android.app.safetyassurance.settings.SafetyAssuranceSetting" />
+    </PreferenceScreen>
+</PreferenceScreen>

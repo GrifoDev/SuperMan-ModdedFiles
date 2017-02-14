@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/day_item_layout" android:background="?android:selectableItemBackground" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBox android:textAppearance="?android:textAppearanceListItem" android:textColor="?android:textColorPrimary" android:gravity="center_vertical" android:id="@id/day_item_checkbox" android:background="@null" android:focusable="false" android:clickable="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeightSmall" android:paddingStart="@dimen/checkbox_layout_padding" android:layout_marginStart="@dimen/list_item_start_padding" android:layout_marginEnd="@dimen/list_item_start_padding" />
+    <View android:id="@id/day_item_divier" android:layout_width="fill_parent" android:layout_marginStart="@dimen/checkbox_widget_min_width" android:layout_marginEnd="@dimen/list_divider_padding" style="@style/list_divider_style" />
+</LinearLayout>

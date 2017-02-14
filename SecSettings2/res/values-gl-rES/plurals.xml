@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d horas</item>
+        <item quantity="one">1 hora</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d minutos</item>
+        <item quantity="one">1 minuto</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d segundos</item>
+        <item quantity="one">1 segundo</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Agora fáltanche %d pasos para ser un programador</item>
+        <item quantity="one">Agora fáltache 1 paso para ser un programador</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Eliminar os idiomas seleccionados</item>
+        <item quantity="one">Eliminar o idioma seleccionado</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">O contrasinal debe conter polo menos %d letras</item>
+        <item quantity="one">O contrasinal debe conter polo menos 1 letra</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">O contrasinal debe conter polo menos %d letras minúsculas</item>
+        <item quantity="one">O contrasinal debe conter polo menos 1 letra minúscula</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">O contrasinal debe conter polo menos %d letras maiúsculas</item>
+        <item quantity="one">O contrasinal debe conter polo menos 1 letra maiúscula</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">O contrasinal debe conter polo menos %d números</item>
+        <item quantity="one">O contrasinal debe conter polo menos 1 número</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">O contrasinal debe conter polo menos %d símbolos</item>
+        <item quantity="one">O contrasinal debe conter polo menos 1 símbolo</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">O contrasinal debe conter polo menos %d números ou símbolos</item>
+        <item quantity="one">O contrasinal debe conter polo menos 1 número ou símbolo</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Acceder a %d carpetas/arquivos</item>
+        <item quantity="one">Acceder a 1 carpeta/arquivo</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s instalou certificados de CA no teu dispositivo que é posible que lles permita supervisar a actividade na rede deste, incluído o teu uso de correos electrónicos, aplicacións e sitios web seguros.
+
+Para obter máis información acerca destes certificados, contacta co teu administrador de TI."</item>
+        <item quantity="one">"%s instalou un certificado de CA no teu dispositivo que é posible que lles permita supervisar a actividade na rede deste, incluído o teu uso de correos electrónicos, aplicacións e sitios web seguros.
+
+Para obter máis información acerca deste certificado, contacta co teu administrador de TI."</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d aplicacións poden ler notificacións.</item>
+        <item quantity="one">A aplicación %d está autorizada para ler notificacións.</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d permisos máis</item>
+        <item quantity="one">%d permiso máis</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$d procesos utilizaron a RAM durante a última %2$s</item>
+        <item quantity="one">%1$d proceso utilizou a RAM durante a última %2$s</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d aplicacións poden utilizar datos móbiles sen restricións con Aforro de datos activado</item>
+        <item quantity="one">Permitir a 1 aplicación usar datos móbiles sen restricións mentres o aforro de datos se atope activado</item>
+    </plurals>
+</resources>

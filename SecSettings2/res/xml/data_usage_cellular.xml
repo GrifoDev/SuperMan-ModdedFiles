@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.settings.datausage.TemplatePreferenceCategory android:title="@string/data_usage_list_mobile" android:key="mobile_category">
+        <com.android.settings.datausage.CellDataPreference android:title="@string/data_usage_enable_mobile" android:key="data_usage_enable" />
+        <com.android.settings.datausage.DataSavingChnPreference android:title="@string/data_compression_title" android:key="data_saving_chn" />
+        <SwitchPreference android:title="@string/data_usage_enable_confirmation" android:key="confirm_at_boot" />
+        <com.android.settings.datausage.AlertAtWarningPreference android:title="@string/data_usage_alert_at_warning_title" android:key="alert_at_warning" />
+        <com.android.settings.datausage.DataUsagePreference android:title="@string/cellular_data_usage" android:key="cellular_data_usage" />
+        <com.android.settings.datausage.BillingCyclePreference android:title="@string/billing_cycle" android:key="billing_preference" />
+        <com.android.settings.datausage.BillingCycleChnPreference android:title="@string/data_monitoring" android:key="billing_preference_chn" />
+        <Preference android:title="@string/manual_calibration_button" android:key="set_used_data" />
+        <Preference android:key="top_up_phone_balance" />
+        <Preference android:key="check_phone_balance" />
+        <Preference android:title="@string/operator_set" android:key="operator_set" />
+        <com.android.settings.datausage.DataSaverPreference android:title="@string/data_saver_title" android:key="restrict_background" android:fragment="com.android.settings.datausage.DataSaverSummary" />
+        <com.samsung.android.settings.datausage.networkconnect.ManagaAppDataChnPreference android:title="@string/restrcit_network" android:key="restrict_app_data" />
+        <SwitchPreference android:title="@string/data_usage_reminder_title" android:key="data_usage_reminder" android:summary="@string/data_usage_reminder_item_summary" />
+    </com.android.settings.datausage.TemplatePreferenceCategory>
+</PreferenceScreen>

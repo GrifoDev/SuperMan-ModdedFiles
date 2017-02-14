@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">ওভারভিউ-এ %dটি স্ক্রীন</item>
+        <item quantity="one">ওভারভিউ-এ %dটি স্ক্রীন</item>
+    </plurals>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">ভুল SIM পিন কোড, আপনার কাছে আর %dটি প্রচেষ্টা বাকি রয়েছে৷</item>
+        <item quantity="one">ভুল SIM পিন কোড, আপনার কাছে আর %dটি প্রচেষ্টা বাকি রয়েছে৷</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">ভুল SIM PUK কোড, আপনার কাছে আর %dটি প্রচেষ্টা বাকি রয়েছে এটির পরেই আপনার SIM স্থায়ীভাবে অব্যবহারযোগ্য হবে৷</item>
+        <item quantity="one">ভুল SIM PUK কোড, আপনার কাছে আর %dটি প্রচেষ্টা বাকি রয়েছে এটির পরেই আপনার SIM স্থায়ীভাবে অব্যবহারযোগ্য হবে৷</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="other">ডিভাইস %d ঘন্টার জন্য আনলক করা হয়নি। প্যাটার্ন নিশ্চিত করুন।</item>
+        <item quantity="one">ডিভাইস %d ঘন্টার জন্য আনলক করা হয়নি। প্যাটার্ন নিশ্চিত করুন।</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="other">ডিভাইস %d ঘন্টার জন্য আনলক করা হয়নি। পিন নিশ্চিত করুন৷</item>
+        <item quantity="one">ডিভাইস %d ঘন্টার জন্য আনলক করা হয়নি। পিন নিশ্চিত করুন৷</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">ডিভাইস %d ঘন্টার জন্য আনলক করা হয়নি। পাসওয়ার্ড নিশ্চিত করুন৷</item>
+        <item quantity="one">ডিভাইস %d ঘন্টার জন্য আনলক করা হয়নি। পাসওয়ার্ড নিশ্চিত করুন৷</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(%dটি প্রচেষ্টা বাকি আছে)</item>
+        <item quantity="one">(1টি প্রচেষ্টা বাকি আছে)</item>
+    </plurals>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">%d বার প্রচেষ্টা বাকি আছে</item>
+        <item quantity="one">%dটি প্রচেষ্টা বাকি আছে</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_min">
+        <item quantity="other">%d মিনিট পর আবার চেষ্টা করুন</item>
+        <item quantity="one">%d মিনিট পর আবার চেষ্টা করুন</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_sec">
+        <item quantity="other">%d সেকেন্ড পর আবার চেষ্টা করুন</item>
+        <item quantity="one">%d সেকেন্ড পর আবার চেষ্টা করুন</item>
+    </plurals>
+</resources>

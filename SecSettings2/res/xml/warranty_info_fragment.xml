@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/service_information_title"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <PreferenceScreen android:title="@string/general_term_and_conditions_title" android:key="general_terms" />
+    <PreferenceScreen android:title="@string/warranty_exception_title" android:key="warranty_exceptions" />
+    <PreferenceScreen android:title="@string/product_warranty_title" android:key="product_warranty" />
+</PreferenceScreen>

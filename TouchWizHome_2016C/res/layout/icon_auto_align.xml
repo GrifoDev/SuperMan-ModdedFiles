@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.launcher2.IconAutoAlign android:layout_gravity="center|top" android:id="@id/icon_auto_align_button" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="@dimen/iconAutoAlign_height" android:layout_marginTop="@dimen/iconAutoAlign_margin_top" android:minWidth="@dimen/iconAutoAlign_width"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:launcher="http://schemas.android.com/apk/res/com.sec.android.app.launcher">
+    <FrameLayout android:id="@id/dummy_layout" android:layout_width="fill_parent" android:layout_height="fill_parent" android:minWidth="@dimen/iconAutoAlign_width">
+        <TextView android:textSize="@dimen/iconAutoAlign_textSize" android:textColor="#fffafafa" android:gravity="center" android:id="@id/icon_auto_align_text" android:background="@drawable/icon_auto_align_btn_bg" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/home_icon_auto_align" android:shadowColor="#15000000" android:shadowDx="3.0" android:shadowDy="3.0" android:shadowRadius="2.0" />
+        <ImageView android:background="@drawable/rectangle" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    </FrameLayout>
+</com.android.launcher2.IconAutoAlign>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent" android:fillViewport="true">
+        <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:background="#fffafafa" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="19.0sp" android:textColor="#ff252525" android:id="@id/headerText" android:paddingTop="11.0dip" android:paddingBottom="11.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/knox_guide_enroll_fingerprint_b2c" android:fontFamily="sec-roboto-light" android:layout_marginStart="16.0dip" android:layout_marginEnd="16.0dip" />
+            <ImageView android:layout_gravity="center_horizontal" android:id="@id/knox_security_fingerprint" android:background="@drawable/knox_security_fingerprint_img" android:layout_width="100.0dip" android:layout_height="100.0dip" android:layout_marginTop="16.0dip" />
+            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="68.0dip" android:layout_marginStart="16.0dip" android:layout_marginEnd="16.0dip">
+                <TextView android:textSize="19.0sp" android:textColor="#ff252525" android:gravity="center" android:id="@id/helpText_fingerprint_set" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/security_settings_fingerprint_enroll_onboard_title" android:fontFamily="sec-roboto-light" />
+                <TextView android:textSize="14.0sp" android:textColor="#47252525" android:gravity="center" android:id="@id/helpText_fingerprint_summary" android:layout_width="fill_parent" android:layout_height="wrap_content" android:fontFamily="sec-roboto-light" />
+            </LinearLayout>
+            <ImageView android:layout_gravity="center_horizontal" android:id="@id/knox_security_next" android:background="@drawable/knox_security_next_img" android:layout_width="32.0dip" android:layout_height="32.0dip" />
+            <ImageView android:layout_gravity="center_horizontal" android:id="@id/knox_security_next" android:background="@drawable/knox_security_knoxlock_img" android:layout_width="100.0dip" android:layout_height="100.0dip" />
+            <TextView android:textSize="19.0sp" android:textColor="#ff252525" android:gravity="center" android:id="@id/helpText_password_set" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/knox_password_setup" android:fontFamily="sec-roboto-light" android:layout_marginStart="16.0dip" android:layout_marginEnd="16.0dip" />
+            <View android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+            <Button android:textSize="17.0dip" android:id="@id/btn_start" android:background="@drawable/tw_btn_ripple" android:layout_width="fill_parent" android:layout_height="48.0dip" android:text="@string/start" android:layout_alignParentBottom="true" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

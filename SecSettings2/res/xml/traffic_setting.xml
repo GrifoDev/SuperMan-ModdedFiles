@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Preference android:title="@string/set_limit" android:key="set_data_limit" />
+    <Preference android:title="@string/set_data_warning_percentage" android:key="data_warning_set" />
+    <SwitchPreference android:title="@string/restrict_data" android:key="restrict_data_check_box" android:summary="@string/restrict_data_summary" android:defaultValue="false" />
+    <Preference android:title="@string/set_start_date" android:key="set_package_start_date" />
+</PreferenceScreen>

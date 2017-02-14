@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="close_folder_mini_icon_3x3_gap">1.0dip</dimen>
+    <item type="dimen" name="home_cellGapY">@dimen/home_cellGapY_port</item>
+    <dimen name="home_icon_drawablepadding">-1.0dip</dimen>
+    <dimen name="home_icon_paddingTop">16.0dip</dimen>
+    <dimen name="menuWidgets_cellGapX">16.0dip</dimen>
+    <dimen name="menuWidgets_cellGapY">22.0dip</dimen>
+    <dimen name="menuWidgets_pagePaddingLeft">13.0dip</dimen>
+    <dimen name="menuWidgets_pagePaddingRight">10.0dip</dimen>
+    <dimen name="menuWidgets_previewHeight">112.0dip</dimen>
+    <dimen name="menuWidgets_previewWidth">154.0dip</dimen>
+    <dimen name="menuWidgets_preview_imageContentHeightPlus">3.0dip</dimen>
+    <dimen name="menuWidgets_preview_imagePaddingBottom">1.0dip</dimen>
+    <dimen name="menuWidgets_widgetFolderOpen_title_margin_bottom">16.0dip</dimen>
+    <dimen name="menuWidgets_widgetFolderOpen_title_margin_top">15.0dip</dimen>
+    <dimen name="menu_edit_button_text_size">16.0sp</dimen>
+    <item type="dimen" name="menu_edit_translation_view_factor">0.93</item>
+    <item type="dimen" name="menu_edit_zoom_out_scale_factor">0.95</item>
+    <dimen name="menu_tabMarginLeft">-6.0dip</dimen>
+    <dimen name="menu_tabMarginRight">6.0dip</dimen>
+    <dimen name="open_folder_appicon_cell_height">98.0dip</dimen>
+    <dimen name="open_folder_appicon_padding_left">22.0dip</dimen>
+    <dimen name="open_folder_appicon_padding_right">22.0dip</dimen>
+    <dimen name="open_folder_title_layout_height">40.0dip</dimen>
+    <dimen name="open_folder_title_name_margin_bottom">11.0dip</dimen>
+    <dimen name="open_folder_title_name_margin_top">16.0dip</dimen>
+    <dimen name="open_folder_title_option_button_height">25.0dip</dimen>
+    <dimen name="open_folder_title_option_button_margin_right">22.0dip</dimen>
+    <dimen name="open_folder_title_option_button_margin_top">19.0dip</dimen>
+    <dimen name="open_folder_title_option_button_width">25.0dip</dimen>
+    <dimen name="open_folder_title_underbar_margin_bottom">4.0dip</dimen>
+    <dimen name="popup_menu_listView_offsetY">8.0dip</dimen>
+    <dimen name="popup_menu_toast_right_padding">-5.0dip</dimen>
+    <dimen name="popup_menu_toast_top_padding">-2.0dip</dimen>
+    <dimen name="qv_home_option_menu_padding">4.0dip</dimen>
+    <dimen name="widget_pageIndicatorTop">557.0dip</dimen>
+    <dimen name="homefolder_icon_drawablepadding">-1.0dip</dimen>
+    <dimen name="homefolder_icon_paddingTop">16.0dip</dimen>
+    <dimen name="home_5x5_cellGapX">1.0dip</dimen>
+    <dimen name="home_5x5_cellWidth_port">68.0dip</dimen>
+    <item type="dimen" name="menu5x5_edit_translation_view_factor">0.93</item>
+    <dimen name="menu_edit_button_margin_end">14.0dip</dimen>
+    <dimen name="menuwidget_dim_marginbottom">3.0dip</dimen>
+    <item type="dimen" name="page_scale">0.9</item>
+    <item type="dimen" name="transition_bounce_min_scale">0.89</item>
+    <dimen name="apps_search_titlebar_padding_left">6.0dip</dimen>
+    <dimen name="apps_search_titlebar_padding_right">12.0dip</dimen>
+    <dimen name="folder_multi_title_count_text_size">15.0sp</dimen>
+    <dimen name="popup_menu_listView_offsetX">9.0dip</dimen>
+    <dimen name="searchbar_searchview_padding_end">-19.0dip</dimen>
+    <dimen name="folder_multi_container_margin_top">0.0dip</dimen>
+    <dimen name="folder_multi_header_line_height">0.5dip</dimen>
+    <dimen name="folder_multi_icon_layout_height">100.0dip</dimen>
+    <dimen name="more_icon_btn_height">36.0dip</dimen>
+    <dimen name="searchbar_divider_height">36.0dip</dimen>
+    <dimen name="open_folder_appicon_margin_bottom">16.0dip</dimen>
+    <dimen name="open_folder_appicon_margin_top">0.0dip</dimen>
+    <dimen name="appsearch_grid_cell_padding">0.0dip</dimen>
+    <dimen name="folder_multi_margin_bottom">0.0dip</dimen>
+    <dimen name="appsearch_grid_padding_left_right">2.0dip</dimen>
+    <dimen name="folder_multi_header_text_height">28.0dip</dimen>
+    <dimen name="folder_multi_icon_text_size">14.0dip</dimen>
+    <dimen name="menuWidgets_edit_button_margin_end">8.0dip</dimen>
+    <dimen name="menuWidgets_fragment_margin_left">-3.5dip</dimen>
+    <dimen name="open_folder_title_option_button_img_padding">0.0dip</dimen>
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:scrollbarStyle="outsideOverlay" android:paddingTop="@dimen/list_dialog_padding_top" android:paddingBottom="@dimen/list_dialog_padding_bottom" android:focusable="false" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="@dimen/list_dialog_padding_left_right" android:paddingEnd="@dimen/list_dialog_padding_left_right" android:scrollIndicators="bottom|top"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:focusable="false" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:id="@id/container" android:focusable="false" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <TextView android:textSize="@dimen/overlay_help_text_size" android:textColor="@color/weblink_color" android:id="@id/link_usb_help" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/learn_more" android:paddingStart="@dimen/list_dialog_item_padding_left_right" android:paddingEnd="@dimen/list_dialog_item_padding_left_right" />
+    </LinearLayout>
+</ScrollView>

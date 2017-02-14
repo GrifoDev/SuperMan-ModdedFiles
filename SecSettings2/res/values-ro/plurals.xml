@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d ore</item>
+        <item quantity="one">1 oră</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d minute</item>
+        <item quantity="one">1 minut</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d secunde</item>
+        <item quantity="one">1 secundă</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Sunteți la %d pași distanță de a deveni dezvoltator.</item>
+        <item quantity="one">Sunteți la 1 pas distanță de a deveni dezvoltator.</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Eliminare limbi selectate</item>
+        <item quantity="one">Eliminare limbă selectată</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Parola trebuie să conțină cel puțin %d litere.</item>
+        <item quantity="one">Parola trebuie să conțină cel puțin o literă.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Parola trebuie să conțină cel puțin %d litere mici.</item>
+        <item quantity="one">Parola trebuie să conțină cel puțin o literă mică.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Parola trebuie să conțină cel puțin %d majuscule.</item>
+        <item quantity="one">Parola trebuie să conțină cel puțin o literă mare.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Parola trebuie să conțină cel puțin %d numere.</item>
+        <item quantity="one">Parola trebuie să conțină cel puțin un număr.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Parola trebuie să conțină cel puțin %d simboluri.</item>
+        <item quantity="one">Parola trebuie să conțină cel puțin 1 simbol.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Parola trebuie să conțină cel puțin %d numere sau simboluri.</item>
+        <item quantity="one">Parola trebuie să conțină cel puțin 1 număr sau simbol.</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Acces la %d foldere/fișiere</item>
+        <item quantity="one">Acces la 1 folder/fișier</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s a instalat certificate CA pe dispozitivul dvs. care îi pot permite să monitorizeze activitatea în rețea a acestuia, inclusiv modul în care se utilizează e-mailurile, aplicațiile și site-urile web securizate
+
+Pentru mai multe informații privind certificatele, contactați administratorul IT."</item>
+        <item quantity="one">"%s a instalat un certificat CA pe dispozitivul dvs. care îi poate permite să monitorizeze activitatea în rețea a acestuia, inclusiv modul în care se utilizează e-mailurile, aplicațiile și site-urile web securizate
+
+Pentru mai multe informații privind certificatul, contactați administratorul IT."</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d aplicații pot citi notificările.</item>
+        <item quantity="one">%d aplicație poate citi notificările.</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d mai multe permisiuni</item>
+        <item quantity="one">%d permisiune în plus</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$d procese au utilizat memoria RAM în ultimele %2$s</item>
+        <item quantity="one">%1$d proces a utilizat memoria RAM în ultimele %2$s</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d aplicații pot să utilizeze date mobile fără restricții cât timp funcția Economisire date este activată</item>
+        <item quantity="one">Se permite unei aplicații să utilizeze datele mobile fără restricții cât timp funcția Economisire date este activată</item>
+    </plurals>
+</resources>

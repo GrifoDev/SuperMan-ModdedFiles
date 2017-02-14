@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">概览中有 1 个屏幕</item>
+        <item quantity="one">概览中有 %d 个屏幕</item>
+    </plurals>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">SIM%1$d卡 PIN 码不正确, 您还可尝试%2$d 次。</item>
+        <item quantity="one">SIM%1$d卡 PIN 码不正确, 您还可尝试 %2$d次。如果仍不正确，则需要联系运营商帮您解锁设备。</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">SIM 卡 PUK 码不正确，您还可尝试 %d 次。如果仍不正确，SIM 卡将永远无法使用。</item>
+        <item quantity="one">SIM 卡 PUK 码不正确，您还可尝试 %d 次。如果仍不正确，SIM 卡将永远无法使用。</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="other">设备已保持锁定状态达 %d 小时。请确认解锁图案。</item>
+        <item quantity="one">设备已保持锁定状态达 %d 小时。请确认解锁图案。</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="other">设备已保持锁定状态达 %d 小时。请确认 PIN 码。</item>
+        <item quantity="one">设备已保持锁定状态达 %d 小时。请确认 PIN 码。</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">设备已保持锁定状态达 %d 小时。请确认密码。</item>
+        <item quantity="one">设备已保持锁定状态达 %d 小时。请确认密码。</item>
+    </plurals>
+    <plurals name="kg_password_default_pin_message">
+        <item quantity="other">输入 SIM%1$d PIN, 您还有 %2$d 次尝试机会。</item>
+        <item quantity="one">输入 SIM%1$d PIN, 您还有 %2$d 次尝试机会。如果仍然失败，则必须联系运营商帮您解锁设备。</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(还可尝试 %d 次)</item>
+        <item quantity="one">(还可尝试 1 次)</item>
+    </plurals>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">剩余 %d 次机会</item>
+        <item quantity="one">还可以尝试 %d 次</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_min">
+        <item quantity="other">请在 %d 分钟后重试</item>
+        <item quantity="one">请在 %d 分钟后重试</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_sec">
+        <item quantity="other">请在 %d 秒钟后重试</item>
+        <item quantity="one">请在 %d 秒后重试</item>
+    </plurals>
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(%d प्रयासहरू बाँकी)</item>
+        <item quantity="one">(1 प्रयास बाँकी)</item>
+    </plurals>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">%d प्रयासहरू बाँकी छन्</item>
+        <item quantity="one">%d प्रयास बाँकी छ</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_min">
+        <item quantity="other">%d मिनटमा फेरि प्रयास गर्नुहोस्</item>
+        <item quantity="one">%d मिनटमा फेरि प्रयास गर्नुहोस्</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_sec">
+        <item quantity="other">%d सेकेण्डमा फेरि प्रयास गर्नुहोस्</item>
+        <item quantity="one">%d सेकेन्डमा फेरि प्रयास गर्नुहोस्</item>
+    </plurals>
+</resources>

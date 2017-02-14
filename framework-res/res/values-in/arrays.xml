@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="emailAddressTypes">
+        <item>Depan</item>
+        <item>Kantor</item>
+        <item>Lain</item>
+        <item>Kustomisasi</item>
+    </string-array>
+    <string-array name="imProtocols">
+        <item>AIM</item>
+        <item>Windows Live</item>
+        <item>Yahoo</item>
+        <item>Skype</item>
+        <item>QQ</item>
+        <item>Google Talk</item>
+        <item>ICQ</item>
+        <item>Jabber</item>
+    </string-array>
+    <string-array name="organizationTypes">
+        <item>Kantor</item>
+        <item>Lain</item>
+        <item>Kustomisasi</item>
+    </string-array>
+    <string-array name="phoneTypes">
+        <item>Depan</item>
+        <item>Ponsel</item>
+        <item>Kantor</item>
+        <item>Faks kantor</item>
+        <item>Faks Rumah</item>
+        <item>Penyeranta</item>
+        <item>Lain</item>
+        <item>Kustomisasi</item>
+    </string-array>
+    <string-array name="postalAddressTypes">
+        <item>Depan</item>
+        <item>Kantor</item>
+        <item>Lain</item>
+        <item>Kustomisasi</item>
+    </string-array>
+    <string-array name="wfcOperatorErrorAlertMessages">
+        <item>Untuk melakukan panggilan telepon dan mengirim pesan melalui Wi-Fi, terlebih dahulu minta operator untuk menyiapkan layanan ini. Lalu, aktifkan lagi panggilan telepon Wi-Fi dari Setelan.</item>
+    </string-array>
+    <string-array name="wfcOperatorErrorNotificationMessages">
+        <item>Harap daftarkan ke operator</item>
+    </string-array>
+    <string-array name="wfcSpnFormats">
+        <item>%s</item>
+        <item>%s Panggilan Wi-Fi</item>
+    </string-array>
+    <array name="fingerprint_acquired_vendor" />
+    <array name="fingerprint_error_vendor" />
+    <string-array name="imAddressTypes">
+        <item>Depan</item>
+        <item>Kantor</item>
+        <item>Lain</item>
+        <item>Kustomisasi</item>
+    </string-array>
+</resources>

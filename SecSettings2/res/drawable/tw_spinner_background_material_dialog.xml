@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple android:color="?android:colorControlHighlight"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@android:id/mask" android:drawable="@drawable/tw_spinner_background_mask_material" />
+    <item>
+        <nine-patch android:src="@drawable/tw_spinner_mtrl_am_alpha" android:tint="@color/common_dialog_spinner_arrow_tint_color" android:autoMirrored="true" />
+    </item>
+</ripple>

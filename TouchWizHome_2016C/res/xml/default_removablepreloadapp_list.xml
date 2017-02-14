@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<removablepreloadapps
+  xmlns:launcher="http://schemas.android.com/apk/res/com.sec.android.app.launcher">
+    <item>com.sec.android.app.clockpackage</item>
+    <item>com.sec.android.app.voicenote</item>
+    <item>com.sec.chaton</item>
+    <item>com.sec.watchon.phone</item>
+    <item>com.samsung.android.app.memo</item>
+    <item>com.sec.android.app.shealth</item>
+    <item>com.sec.android.app.popupcalculator</item>
+    <item>com.dropbox.android</item>
+    <item>flipboard.app</item>
+</removablepreloadapps>

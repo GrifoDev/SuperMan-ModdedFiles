@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingTop="@dimen/lock_screen_shortcut_applist_item_padding_top" android:paddingBottom="@dimen/lock_screen_shortcut_applist_item_padding_bottom" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeightSmall" android:paddingStart="@dimen/list_item_start_padding" android:paddingEnd="@dimen/list_item_end_padding"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBox android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@id/floatableCheckbox" android:focusable="false" android:visibility="gone" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/list_item_inner_padding" />
+    <RelativeLayout android:id="@id/citystateimgPanel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentLeft="true">
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/caller_id" android:layout_width="@dimen/list_app_icon_size" android:layout_height="@dimen/list_app_icon_size" android:layout_marginRight="@dimen/list_item_inner_padding" android:scaleType="fitCenter" />
+        <TextView android:ellipsize="marquee" android:gravity="center|left" android:layout_gravity="center_vertical" android:id="@id/caller_id_name" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" android:layout_toRightOf="@id/caller_id" android:layout_centerVertical="true" style="@style/list_title_text_style" />
+    </RelativeLayout>
+</RelativeLayout>

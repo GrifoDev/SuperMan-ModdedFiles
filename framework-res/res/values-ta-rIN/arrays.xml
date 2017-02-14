@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="emailAddressTypes">
+        <item>வீடு</item>
+        <item>வேலை</item>
+        <item>மற்றவை</item>
+        <item>தனிப்பயன்</item>
+    </string-array>
+    <string-array name="imProtocols">
+        <item>AIM</item>
+        <item>வின்டோஸ் லைவ்</item>
+        <item>Yahoo</item>
+        <item>ஸ்கைப்</item>
+        <item>QQ</item>
+        <item>கூகுள் டாக்</item>
+        <item>ICQ</item>
+        <item>ஜாபர்</item>
+    </string-array>
+    <string-array name="organizationTypes">
+        <item>வேலை</item>
+        <item>மற்றவை</item>
+        <item>தனிப்பயன்</item>
+    </string-array>
+    <string-array name="phoneTypes">
+        <item>வீடு</item>
+        <item>மொபைல்</item>
+        <item>வேலை</item>
+        <item>பணி தொலைநகலி</item>
+        <item>வீட்டு தொலைநகலி</item>
+        <item>பேஜர்</item>
+        <item>மற்றவை</item>
+        <item>தனிப்பயன்</item>
+    </string-array>
+    <string-array name="postalAddressTypes">
+        <item>வீடு</item>
+        <item>வேலை</item>
+        <item>மற்றவை</item>
+        <item>தனிப்பயன்</item>
+    </string-array>
+    <string-array name="wfcOperatorErrorAlertMessages">
+        <item>வைஃபை மூலம் அழைக்க மற்றும் செய்திகள் அனுப்ப, முதலில் மொபைல் நிறுவனத்திடம் இந்தச் சேவையை அமைக்குமாறு கேட்கவும். பிறகு அமைப்புகளில் மீண்டும் வைஃபை அழைப்பை இயக்கவும்.</item>
+    </string-array>
+    <string-array name="wfcOperatorErrorNotificationMessages">
+        <item>உங்கள் மொபைல் நிறுவனத்தில் பதிவுசெய்யவும்</item>
+    </string-array>
+    <string-array name="wfcSpnFormats">
+        <item>%s</item>
+        <item>%s வைஃபை அழைப்பு</item>
+    </string-array>
+    <array name="fingerprint_acquired_vendor" />
+    <array name="fingerprint_error_vendor" />
+    <string-array name="imAddressTypes">
+        <item>வீடு</item>
+        <item>வேலை</item>
+        <item>மற்றவை</item>
+        <item>தனிப்பயன்</item>
+    </string-array>
+</resources>

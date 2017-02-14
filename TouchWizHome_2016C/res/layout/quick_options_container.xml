@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/quick_options_container" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/quick_options_arrow_up" android:visibility="gone" android:layout_width="@dimen/quick_options_arrow_width" android:layout_height="@dimen/quick_options_arrow_height" android:src="@drawable/quick_option_popup_arrow_up" />
+    <LinearLayout android:orientation="vertical" android:id="@id/quick_options_body" android:background="@drawable/quick_option_popup_bg" android:paddingLeft="@dimen/quick_options_popup_padding_left" android:paddingTop="@dimen/quick_options_popup_padding_top" android:paddingRight="@dimen/quick_options_popup_padding_right" android:paddingBottom="@dimen/quick_options_popup_padding_bottom" android:layout_width="@dimen/quick_options_item_width" android:layout_height="wrap_content">
+        <ListView android:id="@id/quick_options_listview" android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="wrap_content" android:divider="#00ffffff" android:dividerHeight="@dimen/quick_options_popup_divider_height" />
+    </LinearLayout>
+    <ImageView android:id="@id/quick_options_arrow_down" android:visibility="gone" android:layout_width="@dimen/quick_options_arrow_width" android:layout_height="@dimen/quick_options_arrow_height" android:src="@drawable/quick_option_popup_arrow_down" />
+</LinearLayout>

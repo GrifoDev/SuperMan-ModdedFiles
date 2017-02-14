@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CreateFolderDialog" parent="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+    <style name="FavoriteFolder" parent="@android:style/Theme.DeviceDefault.Light.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+    <style name="FolderCreateText" parent="@style/FolderEditText">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:paddingLeft">@dimen/create_folder_text_padding</item>
+        <item name="android:paddingTop">@dimen/open_folder_title_name_padding_top</item>
+        <item name="android:paddingRight">@dimen/create_folder_text_padding</item>
+        <item name="android:paddingBottom">@dimen/open_folder_title_name_padding_bottom</item>
+        <item name="android:layout_marginLeft">@dimen/create_folder_text_margin_left</item>
+        <item name="android:layout_marginTop">@dimen/create_folder_text_margin_top</item>
+        <item name="android:layout_marginRight">@dimen/create_folder_text_margin_right</item>
+        <item name="android:layout_marginBottom">@dimen/open_folder_title_name_margin_bottom</item>
+    </style>
+    <style name="FolderEditBase">
+        <item name="android:textSize">@dimen/open_folder_title_name_text_size_normal</item>
+        <item name="android:textColorHint">#ff7f7f7f</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@drawable/open_folder_title_bg</item>
+        <item name="android:layout_width">@dimen/open_folder_title_layout_width</item>
+        <item name="android:layout_height">@dimen/open_folder_title_layout_height</item>
+        <item name="android:hint">@string/create_folder_dialog_msg</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:maxLength">30</item>
+        <item name="android:imeOptions">flagNoExtractUi</item>
+    </style>
+    <style name="HomeEditDragBarIcon">
+        <item name="android:textSize">@dimen/home_editTitleBarIcon_textSize</item>
+        <item name="android:textColor">@color/home_title_bar_text_color</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:gravity">center|top</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:paddingLeft">2.0dip</item>
+        <item name="android:paddingTop">0.0dip</item>
+        <item name="android:paddingRight">2.0dip</item>
+        <item name="android:paddingBottom">0.0dip</item>
+        <item name="android:layout_width">@dimen/home_edit_bar_focus_bg_width</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:lines">2</item>
+        <item name="android:shadowColor">#99000000</item>
+        <item name="android:shadowDy">1.0</item>
+        <item name="android:shadowRadius">2.0</item>
+        <item name="android:drawablePadding">-2.0dip</item>
+        <item name="android:lineSpacingMultiplier">0.9</item>
+    </style>
+    <style name="HomeIcon" parent="@style/BaseHomeIcon">
+        <item name="android:textSize">@dimen/home_icon_textsize</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:paddingLeft">0.0dip</item>
+        <item name="android:paddingTop">@dimen/home_icon_paddingTop</item>
+        <item name="android:paddingRight">0.0dip</item>
+        <item name="android:paddingBottom">0.0dip</item>
+        <item name="android:lines">@integer/home_icon_text_maxline</item>
+        <item name="android:shadowDy">@integer/home_icon_text_shadowDy</item>
+        <item name="android:shadowRadius">@integer/home_icon_text_shadowRadius</item>
+        <item name="android:drawablePadding">@dimen/home_icon_drawablepadding</item>
+        <item name="android:fontFamily">Roboto_Regular</item>
+    </style>
+    <style name="HomeIcon.Folder" parent="@style/HomeIcon">
+        <item name="android:paddingTop">@dimen/homefolder_icon_paddingTop</item>
+        <item name="android:drawablePadding">@dimen/homefolder_icon_drawablepadding</item>
+    </style>
+    <style name="HotseatIcon" parent="@style/BaseHotseatIcon">
+        <item name="android:textSize">@dimen/hotseat_icon_textsize</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:paddingLeft">0.0dip</item>
+        <item name="android:paddingTop">@dimen/hotseat_icon_paddingTop</item>
+        <item name="android:paddingRight">0.0dip</item>
+        <item name="android:paddingBottom">0.0dip</item>
+        <item name="android:lines">1</item>
+        <item name="android:shadowDy">@integer/home_icon_text_shadowDy</item>
+        <item name="android:shadowRadius">@integer/home_icon_text_shadowRadius</item>
+        <item name="android:drawablePadding">@dimen/hotseat_icon_drawablepadding</item>
+        <item name="android:fontFamily">Roboto_Regular</item>
+    </style>
+    <style name="LauncherActionBar" parent="@android:style/Widget.DeviceDefault.Light.ActionBar">
+        <item name="android:displayOptions">showTitle</item>
+    </style>
+    <style name="MenuIcon" parent="@style/BaseMenuIcon">
+        <item name="android:textSize">@dimen/menu_icon_textsize</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:paddingLeft">1.0dip</item>
+        <item name="android:paddingTop">@dimen/menu_icon_paddingTop</item>
+        <item name="android:paddingRight">1.0dip</item>
+        <item name="android:paddingBottom">0.0dip</item>
+        <item name="android:lines">@integer/menu_icon_text_maxline</item>
+        <item name="android:shadowDy">2.0</item>
+        <item name="android:shadowRadius">1.0</item>
+        <item name="android:drawablePadding">@dimen/menu_icon_drawable_paddingTop</item>
+        <item name="android:fontFamily">Roboto_Regular</item>
+    </style>
+    <style name="MenuIcon.Folder" parent="@style/MenuIcon">
+        <item name="android:paddingTop">@dimen/menu_icon_paddingTop</item>
+        <item name="android:drawablePadding">@dimen/menu_icon_drawable_paddingTop</item>
+        <item name="destination">menu</item>
+    </style>
+    <style name="MenuIcon.FolderItem" parent="@style/MenuIcon">
+        <item name="android:textSize">@dimen/home_icon_textsize</item>
+        <item name="android:textColor">#fffafafa</item>
+        <item name="android:paddingTop">@dimen/folder_icon_paddingTop</item>
+        <item name="android:layout_marginTop">@dimen/folder_icon_marginTop</item>
+        <item name="android:shadowDy">1.0</item>
+        <item name="android:shadowRadius">1.0</item>
+        <item name="android:drawablePadding">2.0dip</item>
+        <item name="destination">folderItem</item>
+    </style>
+    <style name="ShortcutToast" parent="@android:style/Theme.DeviceDefault.Light" />
+    <style name="Theme.DeviceDefault" parent="@android:style/Theme.DeviceDefault.Light">
+        <item name="android:actionBarStyle">@style/LauncherActionBar</item>
+    </style>
+    <style name="TouchWiz" parent="@android:style/Theme.DeviceDefault.Light">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowShowWallpaper">true</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:dialogTheme">@android:style/Theme.DeviceDefault.Dialog</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+    <style name="TouchWiz.ChooserActivity" parent="@android:style/Theme.DeviceDefault.Light.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+    <style name="MenuIcon_COL5" parent="@style/BaseMenuIcon">
+        <item name="android:textSize">@dimen/menu_icon_textsize_5</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:paddingLeft">1.0dip</item>
+        <item name="android:paddingTop">@dimen/menu_icon_paddingTop_5</item>
+        <item name="android:paddingRight">1.0dip</item>
+        <item name="android:paddingBottom">0.0dip</item>
+        <item name="android:textScaleX">0.96</item>
+        <item name="android:lines">@integer/menu_icon_text_maxline</item>
+        <item name="android:shadowDy">2.0</item>
+        <item name="android:shadowRadius">1.0</item>
+        <item name="android:drawablePadding">@dimen/menu_icon_drawable_paddingTop_5</item>
+        <item name="android:fontFamily">Roboto_Regular</item>
+    </style>
+    <style name="MenuIcon_COL5.Folder" parent="@style/MenuIcon_COL5">
+        <item name="android:paddingTop">@dimen/menu_icon_paddingTop_5</item>
+        <item name="android:drawablePadding">@dimen/menu_icon_drawable_paddingTop_5</item>
+    </style>
+    <style name="MenuIcon_COL5.FolderItem" parent="@style/MenuIcon.FolderItem">
+        <item name="android:textSize">@dimen/home_icon_textsize_5</item>
+    </style>
+    <style name="HomeIconMovie" parent="@style/BaseHomeIcon">
+        <item name="android:textSize">13.5dip</item>
+        <item name="android:textColor">#ff000000</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/contacts_text_bg</item>
+        <item name="android:paddingLeft">0.0dip</item>
+        <item name="android:paddingTop">0.0dip</item>
+        <item name="android:paddingRight">0.0dip</item>
+        <item name="android:lines">2</item>
+        <item name="android:drawablePadding">0.0dip</item>
+    </style>
+    <style name="HotseatIcon.Folder" parent="@style/HotseatIcon">
+        <item name="android:paddingTop">@dimen/hotseatfolder_icon_paddingTop</item>
+        <item name="android:drawablePadding">@dimen/hotseatfolder_icon_drawablepadding</item>
+    </style>
+    <style name="HomeIcon_COL5" parent="@style/BaseHomeIcon">
+        <item name="android:textSize">@dimen/home_icon_textsize_5</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:paddingLeft">0.0dip</item>
+        <item name="android:paddingTop">@dimen/home_icon_col5_paddingTop</item>
+        <item name="android:paddingRight">0.0dip</item>
+        <item name="android:paddingBottom">0.0dip</item>
+        <item name="android:lines">@integer/home_icon_text_maxline</item>
+        <item name="android:singleLine">false</item>
+        <item name="android:shadowDy">@integer/home_icon_text_shadowDy</item>
+        <item name="android:shadowRadius">@integer/home_icon_text_shadowRadius</item>
+        <item name="android:drawablePadding">@dimen/home_icon_col5_drawablepadding</item>
+        <item name="android:fontFamily">Roboto_Regular</item>
+    </style>
+    <style name="HomeIcon_COL5.Folder" parent="@style/HomeIcon_COL5">
+        <item name="android:paddingTop">@dimen/homefolder_icon_col5_paddingTop</item>
+        <item name="android:drawablePadding">@dimen/homefolder_icon_col5_drawablepadding</item>
+    </style>
+    <style name="HotseatIcon_COL4" parent="@style/BaseHotseatIcon">
+        <item name="android:textSize">@dimen/hotseat_icon_textsize_4</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:paddingLeft">0.0dip</item>
+        <item name="android:paddingTop">@dimen/hotseat_icon_paddingTop_4</item>
+        <item name="android:paddingRight">0.0dip</item>
+        <item name="android:paddingBottom">0.0dip</item>
+        <item name="android:lines">1</item>
+        <item name="android:shadowDy">@integer/home_icon_text_shadowDy</item>
+        <item name="android:shadowRadius">@integer/home_icon_text_shadowRadius</item>
+        <item name="android:drawablePadding">@dimen/hotseat_icon_drawablepadding_4</item>
+        <item name="android:fontFamily">Roboto_Regular</item>
+    </style>
+    <style name="HotseatIcon_COL4.Folder" parent="@style/HotseatIcon_COL4">
+        <item name="android:paddingTop">@dimen/hotseatfolder_icon_paddingTop_4</item>
+        <item name="android:drawablePadding">@dimen/hotseatfolder_icon_drawablepadding_4</item>
+    </style>
+</resources>

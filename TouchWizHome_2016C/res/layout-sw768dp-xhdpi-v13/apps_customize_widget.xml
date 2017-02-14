@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.launcher2.PagedViewWidget android:background="@drawable/focusable_view_bg" android:focusable="true" android:layout_width="@dimen/menuWidgets_previewWidth" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:launcher="http://schemas.android.com/apk/res/com.sec.android.app.launcher">
+    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" launcher:blurColor="#ff6b8cf0" launcher:outlineColor="#ff8cd2ff">
+        <LinearLayout android:paddingBottom="@dimen/menuWidgets_preview_imagePaddingBottom" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <LinearLayout android:layout_gravity="start|center|top" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginStart="@dimen/menu_widgets_padding" android:layout_marginEnd="@dimen/menu_widgets_padding">
+                <TextView android:ellipsize="end" android:id="@id/widget_name" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:paddingStart="2.0dip" style="@style/WidgetListText" />
+                <TextView android:id="@id/widget_dims" android:layout_width="fill_parent" android:layout_height="wrap_content" android:lines="1" android:paddingStart="2.0dip" android:layout_marginEnd="@dimen/menu_widgets_padding" style="@style/WidgetListText" />
+            </LinearLayout>
+            <ImageView android:layout_gravity="end|center" android:id="@id/widget_uninstall_icon" android:focusable="false" android:visibility="gone" android:clickable="false" android:layout_width="@dimen/menuWidgets_widgetFolderClose_Arrow_size" android:layout_height="@dimen/menuWidgets_widgetFolderClose_Arrow_size" />
+        </LinearLayout>
+        <FrameLayout android:layout_gravity="center" android:id="@id/widget_preview_container" android:paddingTop="@dimen/menu_widgets_folder_margin_top" android:paddingBottom="@dimen/menu_widgets_padding" android:layout_width="@dimen/menuWidgets_previewWidth" android:layout_height="@dimen/menuWidgets_previewHeight" android:paddingStart="@dimen/menu_widgets_padding" android:paddingEnd="@dimen/menu_widgets_padding">
+            <LinearLayout android:gravity="center" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/menuWidgets_preview_imagePaddingBottom" android:layout_marginBottom="@dimen/menuWidgets_preview_imagePaddingBottom">
+                <ImageView android:id="@id/widget_preview" android:paddingBottom="@dimen/menuWidgets_preview_imagePaddingBottom" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="fitCenter" android:paddingStart="@dimen/menuWidgets_preview_imagePaddingLeft" android:paddingEnd="@dimen/menuWidgets_preview_imagePaddingRight" />
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+</com.android.launcher2.PagedViewWidget>

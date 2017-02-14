@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/print_settings_title" settings:keywords="@string/keywords_printing" settings:parent="@xml/wireless_settings"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <PreferenceCategory android:title="@string/print_print_jobs" android:key="print_jobs_category" android:order="0" />
+    <PreferenceCategory android:title="@string/print_settings_title" android:key="print_services_category" android:order="1" />
+    <Preference android:icon="@drawable/tw_list_icon_create_mtrl" android:title="@string/print_menu_item_add_service" android:key="key_add_print_services" android:summary="@string/print_download_subtitle" android:order="2" />
+</PreferenceScreen>

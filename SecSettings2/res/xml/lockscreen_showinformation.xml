@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/info_and_app_shortcut_title" settings:parent="@xml/security_settings_chooser"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <com.samsung.android.settings.SettingsSwitchPreference android:title="@string/dualclock_settings_title" android:key="lock_screen_dualclock" android:fragment="com.samsung.android.settings.dualclock.DualClockSetting" />
+    <com.samsung.android.settings.SettingsSwitchPreference android:title="@string/additional_information_title" android:key="lock_screen_additional_info" android:summary="@string/additional_information_summary" android:fragment="com.samsung.android.settings.lockscreen.AdditionalInformationSettings" />
+    <PreferenceScreen android:title="@string/lock_screen_menu_weather" android:key="lock_screen_menu_weather" />
+    <PreferenceScreen android:title="@string/lock_screen_menu_weather" android:key="lock_screen_settings_weather" />
+    <com.samsung.android.settingslib.RestrictedPreference android:title="@string/lock_screen_menu_owner_infomation" android:key="lock_screen_menu_owner_infomation" />
+    <PreferenceScreen android:title="@string/lock_app_shortcut_title" android:key="lock_app_shortcut" android:summary="@string/lock_screen_app_shortcut_summary" android:fragment="com.samsung.android.settings.lockappshortcut.LockAppShortcutSettings" />
+</PreferenceScreen>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/search_root" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Toolbar android:id="@id/search_toolbar" android:layout_width="fill_parent" android:layout_height="?android:actionBarSize" style="?android:attr/actionBarStyle" />
+    <FrameLayout android:id="@id/search_panel" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="@dimen/search_result_dashboard_side_margin" android:layout_marginRight="@dimen/search_result_dashboard_side_margin">
+        <ScrollView android:id="@id/loading_panel" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <ProgressBar android:layout_gravity="center_vertical" android:id="@id/loading" android:layout_width="fill_parent" android:layout_height="@dimen/loading_progress_size_large" style="@style/LoadingTheme" />
+            </LinearLayout>
+        </ScrollView>
+        <ScrollView android:id="@id/no_result_panel" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <TextView android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/no_result" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/no_results_found" android:layout_marginStart="@dimen/margin_no_result_text" android:layout_marginEnd="@dimen/margin_no_result_text" style="@style/no_result_text_style" />
+            </LinearLayout>
+        </ScrollView>
+        <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:id="@id/layout_suggestions" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0">
+                <ListView android:scrollbarStyle="outsideOverlay" android:id="@id/list_suggestions" android:paddingTop="@dimen/dashboard_padding_top" android:paddingBottom="@dimen/dashboard_padding_bottom" android:layout_width="fill_parent" android:layout_height="fill_parent" android:headerDividersEnabled="false" android:paddingStart="@dimen/dashboard_padding_start" android:paddingEnd="@dimen/dashboard_padding_end" android:elevation="@dimen/search_panel_elevation" />
+            </LinearLayout>
+            <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:id="@id/layout_results" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0">
+                <ListView android:scrollbarStyle="outsideOverlay" android:id="@id/list_results" android:paddingTop="@dimen/dashboard_padding_top" android:paddingBottom="@dimen/dashboard_padding_bottom" android:layout_width="fill_parent" android:layout_height="fill_parent" android:headerDividersEnabled="false" android:paddingStart="@dimen/dashboard_padding_start" android:paddingEnd="@dimen/dashboard_padding_end" android:elevation="@dimen/search_panel_elevation" />
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>

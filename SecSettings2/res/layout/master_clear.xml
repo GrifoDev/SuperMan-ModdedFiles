@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:scrollbarStyle="outsideOverlay" android:id="@id/master_clear_scrollview" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1.0"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:paddingTop="@dimen/body_text_top_padding" android:layout_width="fill_parent" android:layout_height="wrap_content"
+      xmlns:android="http://schemas.android.com/apk/res/android">
+        <LinearLayout android:orientation="vertical" android:id="@id/master_clear_container" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingEnd="@dimen/body_text_side_padding" android:layout_marginStart="@dimen/body_text_side_padding">
+                <TextView android:id="@id/master_clear_desc" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/master_clear_desc_sec" style="@style/body_text_style" />
+                <TextView android:id="@id/also_erases_external" android:paddingTop="@dimen/sub_body_text_top_padding" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/description_dot_text_padding" android:text="@string/master_clear_desc_also_erases_external" android:includeFontPadding="false" style="@style/sub_body_text_style" />
+                <TextView android:id="@id/also_erases_external_encrypted" android:paddingTop="@dimen/sub_body_text_line_spacing_extra" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/description_dot_text_padding" android:text="@string/sdcard_settings_factory_reset_warning" style="@style/sub_body_text_style" />
+                <TextView android:id="@id/accounts_label" android:paddingTop="@dimen/body_text_top_padding" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/master_clear_accounts" style="@style/body_text_style" />
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:id="@id/accounts" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/body_text_top_padding" />
+            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingEnd="@dimen/body_text_side_padding" android:layout_marginStart="@dimen/body_text_side_padding">
+                <TextView android:textSize="18.0sp" android:id="@id/other_users_present" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/body_text_top_padding" android:layout_marginBottom="3.0dip" android:text="@string/master_clear_other_users_present" />
+                <TextView android:id="@id/erase_external_option_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/master_clear_desc_erase_external_storage" style="@style/body_text_style" />
+                <LinearLayout android:orientation="horizontal" android:id="@id/erase_external_container" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <CheckBox android:layout_gravity="center_vertical" android:id="@id/erase_external" android:focusable="false" android:clickable="false" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingEnd="8.0dip" />
+                    <LinearLayout android:layout_gravity="center_vertical" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                        <TextView android:id="@id/erase_external_storage_textview" android:paddingTop="12.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/erase_external_storage" style="@style/body_text_style" />
+                        <TextView android:id="@id/erase_external_storage_description_textview" android:paddingTop="4.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/erase_external_storage_description" style="@style/body_text_style" />
+                    </LinearLayout>
+                </LinearLayout>
+                <TextView android:id="@id/master_clear_desc_app" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="12.0dip" android:layout_marginBottom="3.0dip" android:text="@string/master_clear_desc_app" style="@style/body_text_style" />
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:id="@id/removable_preload_apps" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <com.samsung.android.settings.widget.RoundButtonView android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/initiate_master_clear" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/reset_button_top_margin" android:layout_marginBottom="@dimen/reset_button_top_margin" android:minHeight="@dimen/reset_button_min_height" android:text="@string/master_clear_button_text" android:paddingStart="@dimen/reset_button_side_padding" android:paddingEnd="@dimen/reset_button_side_padding" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

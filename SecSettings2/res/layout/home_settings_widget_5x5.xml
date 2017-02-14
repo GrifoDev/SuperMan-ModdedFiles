@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center|top" android:orientation="vertical" android:id="@id/id_widget" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:gravity="center" android:layout_width="@dimen/home_change_widget_bg_width_1x1_for_home_grid_5x5" android:layout_height="@dimen/home_change_widget_bg_height_1x1_for_home_grid_5x5" android:layout_marginTop="@dimen/home_change_widget_bg_margin_top_1x1_for_home_grid_5x5">
+        <ImageView android:id="@id/widget_image" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/shortcut_home" />
+    </RelativeLayout>
+    <TextView android:textSize="@dimen/home_change_widget_text_font_size_for_home_grid_5x5" android:textColor="@color/home_change_widget_text" android:ellipsize="end" android:gravity="center_horizontal" android:layout_gravity="center" android:id="@id/widget_label" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/home_change_widget_text_margin_top_for_home_grid_5x5" android:text="@string/home_settings_header" android:maxLines="1" android:shadowColor="@color/apptext_shadow_color" android:shadowDy="2.0" android:shadowRadius="2.0" android:lineSpacingExtra="@dimen/home_change_widget_text_line_spacing_extra_for_home_grid_5x5" />
+</LinearLayout>

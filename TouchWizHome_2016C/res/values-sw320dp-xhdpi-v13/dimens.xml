@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="menu_edit_button_text_size">16.0sp</dimen>
+    <dimen name="menu_tabMarginLeft">-6.0dip</dimen>
+    <dimen name="menu_tabMarginRight">6.0dip</dimen>
+    <dimen name="apps_search_titlebar_padding_left">6.0dip</dimen>
+    <dimen name="apps_search_titlebar_padding_right">12.0dip</dimen>
+    <dimen name="folder_multi_title_count_text_size">15.0sp</dimen>
+    <dimen name="popup_menu_listView_offsetX">9.0dip</dimen>
+    <dimen name="searchbar_searchview_padding_end">-19.0dip</dimen>
+</resources>

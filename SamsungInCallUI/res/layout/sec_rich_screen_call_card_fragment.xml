@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/primary_call_info_container" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_centerHorizontal="true">
+        <include layout="@layout/sec_primary_call_info_rich_screen" />
+    </LinearLayout>
+    <ViewStub android:id="@id/callerInfoCardStub" android:layout="@layout/sec_caller_info_card_layout" android:layout_width="fill_parent" android:layout_height="@dimen/caller_info_card_height" android:layout_marginLeft="@dimen/caller_info_card_side_padding" android:layout_marginTop="@dimen/caller_info_card_top_margin" android:layout_marginRight="@dimen/caller_info_card_side_padding" />
+    <ViewStub android:id="@id/amStatusView" android:layout="@layout/sec_answering_message_status_view" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="320.0dip" />
+    <ViewStub android:id="@id/epdgNotifyInfoBanner" android:layout="@layout/sec_epdg_notify_banner_layout" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/caller_info_card_side_padding" android:layout_marginTop="@dimen/caller_info_card_top_margin" android:layout_marginRight="@dimen/caller_info_card_side_padding" />
+</RelativeLayout>

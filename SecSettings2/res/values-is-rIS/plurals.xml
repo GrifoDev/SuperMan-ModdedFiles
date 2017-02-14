@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d klukkustundir</item>
+        <item quantity="one">1 klst.</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d mínútur</item>
+        <item quantity="one">1 mínúta</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d sekúndur</item>
+        <item quantity="one">1 sekúnda</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Nú ertu %d skrefum frá því að gerast forritari.</item>
+        <item quantity="one">Nú ertu einu skrefi frá því að gerast forritari.</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Fjarlægja valin tungumál</item>
+        <item quantity="one">Fjarlægja valið tungumál</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Lykilorð verður að innihalda minnst %d stafi.</item>
+        <item quantity="one">Lykilorð verður að innihalda minnst 1 staf.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Lykilorð verður að innihalda minnst %d lágstafi.</item>
+        <item quantity="one">Lykilorð verður að innihalda minnst 1 lágstaf.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Lykilorð verður að innihalda minnst %d hástafi.</item>
+        <item quantity="one">Lykilorð verður að innihalda minnst 1 hástaf.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Lykilorð verður að innihalda minnst %d tölustafi.</item>
+        <item quantity="one">Lykilorð verður að innihalda minnst 1 tölustaf.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Lykilorð verður að innihalda minnst %d tákn.</item>
+        <item quantity="one">Lykilorð verður að innihalda minnst eitt tákn.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Lykilorð verður að innihalda minnst %d tölur eða tákn.</item>
+        <item quantity="one">Lykilorð verður að innihalda minnst eina tölu eða tákn.</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Aðgangur að %d möppum/skrám</item>
+        <item quantity="one">Aðgangur að 1 möppu/skrá</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s setti upp CA-vottorð í tækinu sem gera honum kleift að fylgjast með netvirkni tækisins, þ. á m. notkun þinni á tölvupósti, forritum og öruggum vefsvæðum.
+
+Hafðu samband við kerfisstjórann til að fá frekari upplýsingar um þessi vottorð."</item>
+        <item quantity="one">"%s setti upp CA-vottorð í tækinu sem gerir honum kleift að fylgjast með netvirkni tækisins, þ. á m. notkun þinni á tölvupósti, forritum og öruggum vefsvæðum.
+
+Hafðu samband við kerfisstjórann til að fá frekari upplýsingar um þetta vottorð."</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d forrit geta lesið tilkynningar.</item>
+        <item quantity="one">%d forrit hefur heimild til að lesa tilkynningar.</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d fleiri heimildir</item>
+        <item quantity="one">%d heimild til viðbótar</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$d ferli notuðu vinnsluminni síðustu %2$s</item>
+        <item quantity="one">%1$d ferli notaði vinnsluminni síðustu %2$s</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d forrit mega nota farsímagögn án takmarkana á meðan kveikt er á gagnasparnaði</item>
+        <item quantity="one">1 forrit hefur leyfi til að nota farsímagögn án takmarkana þegar kveikt er á gagnasparnaði</item>
+    </plurals>
+</resources>

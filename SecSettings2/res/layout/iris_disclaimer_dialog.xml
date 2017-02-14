@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.samsung.android.settings.widget.BottomScrollView android:scrollbarStyle="outsideInset" android:id="@id/disclaimer_dialog_scroll" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="@dimen/lock_iris_disclaimer_dialog_text_margin" android:paddingEnd="@dimen/lock_iris_disclaimer_dialog_text_margin"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:paddingBottom="@dimen/lock_iris_disclaimer_dialog_text_margin" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <TextView android:textSize="@dimen/lock_iris_disclaimer_dialog_text_size" android:textStyle="bold" android:textColor="@color/alert_dialog_text_color" android:id="@id/disclaimer_dialog_header_1" android:paddingTop="@dimen/lock_iris_disclaimer_dialog_text_margin" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/description_text" />
+        <TextView android:textSize="@dimen/lock_iris_disclaimer_dialog_text_size" android:textColor="@color/alert_dialog_text_color" android:id="@id/disclaimer_dialog_msg_1" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/lock_iris_disclaimer_dialog_text_margin" style="@style/description_text" />
+        <TextView android:textSize="@dimen/lock_iris_disclaimer_dialog_text_size" android:textStyle="bold" android:textColor="@color/alert_dialog_text_color" android:id="@id/disclaimer_dialog_header_2" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/description_text" />
+        <TextView android:textSize="@dimen/lock_iris_disclaimer_dialog_text_size" android:textColor="@color/alert_dialog_text_color" android:id="@id/disclaimer_dialog_msg_2" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/lock_iris_disclaimer_dialog_text_margin" style="@style/description_text" />
+    </LinearLayout>
+</com.samsung.android.settings.widget.BottomScrollView>

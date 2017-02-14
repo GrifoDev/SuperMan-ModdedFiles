@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/profileIcon" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/voicecall_info_ic_work" android:tint="@color/call_popup_icon_tint_color" android:layout_marginEnd="@dimen/sec_call_popup_profile_icon_margin_end" />
+</RelativeLayout>

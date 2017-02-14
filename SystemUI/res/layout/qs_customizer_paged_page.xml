@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<view android:id="@id/tile_page" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:scaleX="0.96" android:scaleY="0.96" class="com.android.systemui.qs.customize.CustomizerPagedTileLayout$CustomizerTilePage"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

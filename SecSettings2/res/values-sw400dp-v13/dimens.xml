@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="fingerprint_ring_radius">106.0dip</dimen>
+    <dimen name="fingerprint_find_sensor_graphic_size">240.0dip</dimen>
+    <dimen name="fingerprint_animation_size">100.0dip</dimen>
+    <dimen name="fingerprint_progress_bar_size">220.0dip</dimen>
+    <dimen name="fingerprint_enrolling_content_margin_top">56.0dip</dimen>
+    <dimen name="fingerprint_in_app_indicator_size">176.0dip</dimen>
+    <dimen name="setup_fingerprint_ring_radius">92.0dip</dimen>
+    <dimen name="setup_fingerprint_progress_bar_size">192.0dip</dimen>
+</resources>

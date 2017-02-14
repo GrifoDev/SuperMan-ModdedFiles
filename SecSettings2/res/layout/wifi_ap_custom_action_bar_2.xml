@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:id="@id/button_layout" android:layout_width="fill_parent" android:layout_height="fill_parent" android:minHeight="48.0dip">
+        <LinearLayout android:layout_gravity="center_vertical" android:id="@id/revert_menu_item" android:focusable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" style="?android:attr/actionButtonStyle">
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/icon" android:paddingLeft="0.0dip" android:paddingRight="0.0dip" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/header_btn_icon_cancel" android:adjustViewBounds="true" />
+            <TextView android:textAppearance="?android:actionMenuTextAppearance" android:textSize="17.0dip" android:layout_gravity="center_vertical" android:id="@id/revert_menu_text" android:paddingLeft="0.0dip" android:paddingRight="0.0dip" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/wifi_cancel" />
+        </LinearLayout>
+        <LinearLayout android:layout_gravity="center_vertical" android:id="@id/save_menu_item" android:focusable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" style="?android:attr/actionButtonStyle">
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/icon" android:paddingLeft="0.0dip" android:paddingRight="0.0dip" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/header_btn_icon_check" android:adjustViewBounds="true" />
+            <TextView android:textAppearance="?android:actionMenuTextAppearance" android:textSize="17.0dip" android:layout_gravity="center_vertical" android:id="@id/save_menu_text" android:paddingLeft="0.0dip" android:paddingRight="0.0dip" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/done" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

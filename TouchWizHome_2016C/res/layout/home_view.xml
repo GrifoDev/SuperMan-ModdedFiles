@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.launcher2.HomeView android:id="@id/home_view" android:layout_width="fill_parent" android:layout_height="fill_parent" android:splitMotionEvents="false"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:launcher="http://schemas.android.com/apk/res/com.sec.android.app.launcher">
+    <FrameLayout android:id="@id/home_container" android:layout_width="fill_parent" android:layout_height="fill_parent" android:splitMotionEvents="false">
+        <include android:id="@id/hotseat" layout="@layout/hotseat" />
+        <com.android.launcher2.Workspace android:id="@id/workspace" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="@dimen/status_bar_height" android:splitMotionEvents="false" launcher:cellCountX="@integer/home_cellCountX" launcher:cellCountY="@integer/home_cellCountY" launcher:pageSpacing="@dimen/home_pageSpacing" launcher:pageIndicatorTop="@dimen/home_pageIndicatorTop" launcher:pageIndicatorGap="@dimen/home_pageIndicatorGap" launcher:pageIndicatorMaxVisible="@integer/home_pageIndicatorMaxVisible" launcher:pageIndicatorImageStyle="1" launcher:defaultScreen="2" />
+        <include android:layout_gravity="top" android:id="@id/layout_deletedroptarget" android:layout_width="fill_parent" android:layout_height="@dimen/home_editTitleBar" android:layout_marginTop="@dimen/quickview_dragBar_marginTop" layout="@layout/deletetarget_layout" />
+        <include layout="@layout/quickview_workspace" />
+        <include android:layout_gravity="bottom|center" android:id="@id/home_screen_option_menu" android:focusable="true" android:focusableInTouchMode="true" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="@dimen/home_screen_option_menu_height" layout="@layout/home_screen_option_menu" />
+    </FrameLayout>
+    <Switch android:textSize="@dimen/zeropageSwitch_textSize" android:textColor="#fffafafa" android:ellipsize="end" android:layout_gravity="center|top" android:id="@id/zero_page_switch" android:visibility="gone" android:layout_width="@dimen/home_editmode_panel_width_port" android:layout_height="wrap_content" android:layout_marginTop="@dimen/zeropageSwitch_topgap" android:maxLines="1" android:shadowColor="#99000000" android:shadowDy="1.0" android:shadowRadius="@integer/zeropageSwitch_shadow_radius" android:switchPadding="0.0dip" android:fontFamily="Roboto_Regular" android:paddingStart="@dimen/zeropageSwitch_paddingLeft" android:paddingEnd="@dimen/zeropageSwitch_paddingLeft" />
+    <include android:visibility="gone" layout="@layout/icon_auto_align" />
+    <include android:visibility="gone" layout="@layout/home_edit_drag_bar" />
+    <include android:visibility="gone" layout="@layout/icon_move_container" />
+    <View android:id="@id/home_darken_layer" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="@dimen/status_bar_height" android:alpha="0.0" />
+    <ViewStub android:id="@id/market_sample" android:layout="@layout/market_sample" android:inflatedId="@id/market_sample" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="@dimen/status_bar_height" />
+</com.android.launcher2.HomeView>

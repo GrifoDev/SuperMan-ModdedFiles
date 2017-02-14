@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/motion_and_gesture_title" android:key="parent"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <Preference android:title="@string/air_turn_title" android:key="air_turn_and_scroll" android:fragment="com.android.settings.motion.MotionGuideHub" settings:dbMatchingName="air_motion_turn" settings:dbMatchingTable="system">
+        <extra android:name="type" android:value="air_turn_and_scroll" />
+        <extra android:name="hasAdvancedSettings" android:value="true" />
+    </Preference>
+    <Preference android:title="@string/pick_up_to_call_out_title" android:key="pick_up_to_call_out" android:fragment="com.android.settings.motion.MotionGuideHub" settings:dbMatchingName="motion_pick_up_to_call_out" settings:dbMatchingTable="system">
+        <extra android:name="type" android:value="pick_up_to_call_out" />
+    </Preference>
+    <Preference android:title="@string/pick_up_title" android:key="pick_up" android:fragment="com.android.settings.motion.MotionGuideHub" settings:dbMatchingName="motion_pick_up" settings:dbMatchingTable="system">
+        <extra android:name="type" android:value="pick_up" />
+    </Preference>
+    <Preference android:title="@string/mute_pause_title" android:key="merged_mute_or_pause" android:fragment="com.android.settings.motion.MotionGuideHub" settings:dbMatchingName="motion_merged_mute_pause" settings:dbMatchingTable="system">
+        <extra android:name="type" android:value="merged_mute_or_pause" />
+        <extra android:name="hasAdvancedSettings" android:value="true" />
+        <extra android:name="AdvancedSettingsIsTop" android:value="true" />
+    </Preference>
+    <Preference android:title="@string/palm_swipe_title" android:key="palm_swipe" android:fragment="com.android.settings.motion.MotionGuideHub" settings:dbMatchingName="surface_palm_swipe" settings:dbMatchingTable="system">
+        <extra android:name="type" android:value="palm_swipe" />
+    </Preference>
+</PreferenceScreen>

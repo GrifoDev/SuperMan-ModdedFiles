@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/wifi_offload_layout" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/dialogTitle" android:paddingLeft="@dimen/wifi_ap_dialog_title_padding_left" android:paddingTop="@dimen/wifi_ap_dialog_title_padding_top" android:paddingRight="@dimen/wifi_ap_dialog_title_padding_right" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/wifi_on_dialog_summary" android:maxLines="2" android:textAllCaps="true" style="?android:attr/windowTitleStyle" />
+    <FrameLayout android:id="@id/wifi_picker_dialog_fragment_layout" android:layout_width="fill_parent" android:layout_height="@dimen/wifi_ap_list_height" android:layout_marginTop="@dimen/wifi_offload_dialog_marginTop" android:layout_weight="1.0" android:paddingStart="@dimen/wifi_ap_dialog_layout_margin_left">
+        <fragment android:id="@id/wifi_picker_dialog_fragment" android:layout_width="fill_parent" android:layout_height="fill_parent" class="com.android.settings.wifi.WifiSettings" />
+    </FrameLayout>
+    <LinearLayout android:gravity="center|right" android:orientation="vertical" android:paddingRight="@dimen/wifi_ap_buttonlayout_paddingright" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?android:attr/buttonBarStyle">
+        <Button android:id="@id/dont_disturb" android:layout_width="wrap_content" android:layout_height="@dimen/wifi_ap_button_layout_height" android:layout_marginTop="@dimen/wifi_ap_button1_layout_margintop" android:layout_marginBottom="@dimen/wifi_ap_button1_layout_marginbottom" android:text="@string/notifyme_later" style="?android:attr/buttonBarPositiveButtonStyle" />
+        <Button android:id="@id/dont_notifyme" android:layout_width="wrap_content" android:layout_height="@dimen/wifi_ap_button_layout_height" android:layout_marginTop="@dimen/wifi_ap_button2_layout_margintop" android:layout_marginBottom="@dimen/wifi_ap_button2_layout_marginbottom" android:text="@string/do_not_show_again" style="?android:attr/buttonBarPositiveButtonStyle" />
+    </LinearLayout>
+</LinearLayout>

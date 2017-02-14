@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d Stunden</item>
+        <item quantity="one">1 Stunde</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d Minuten</item>
+        <item quantity="one">1 Minute</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d Sekunden</item>
+        <item quantity="one">1 Sekunde</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Sie sind nun in %d Schritten ein Entwickler.</item>
+        <item quantity="one">Noch 1 Schritt, und Sie sind Entwickler.</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Entfernen von ausgewählten Sprachen</item>
+        <item quantity="one">Entfernen der ausgewählten Sprache</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Passwort muss mind. %d Buchstaben enthalten.</item>
+        <item quantity="one">Passwort muss mind. einen Buchstaben enthalten.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Passwort muss mind. %d Kleinbuchstaben enthalten.</item>
+        <item quantity="one">Passwort muss mind. einen Kleinbuchstaben enthalten.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Passwort muss mind. %d Großbuchstaben enthalten.</item>
+        <item quantity="one">Passwort muss mind. einen Großbuchstaben enthalten.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Passwort muss mindestens %d Ziffern enthalten.</item>
+        <item quantity="one">Passwort muss mindestens eine Ziffer enthalten.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Passwort muss mindestens %d Symbole enthalten.</item>
+        <item quantity="one">Passwort muss mindestens 1 Symbol enthalten.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Passwort muss mindestens %d Ziffern oder Symbole enthalten.</item>
+        <item quantity="one">Passwort muss mindestens 1 Ziffer oder Symbol enthalten.</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Zugriff auf %d Ordner/Dateien</item>
+        <item quantity="one">Zugriff auf 1 Ordner/Datei</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s hat CA-Zertifikate auf Ihrem Gerät installiert. Dadurch kann möglicherweise die Netzwerkaktivität, einschließlich Ihrer Nutzung von E-Mails, Apps und sicheren Webseiten, überwacht werden.
+
+Weitere Informationen zu diesen Zertifikaten erhalten Sie von Ihrem IT-Administrator."</item>
+        <item quantity="one">"%s hat ein CA-Zertifikat auf Ihrem Gerät installiert. Dadurch kann möglicherweise die Netzwerkaktivität, einschließlich Ihrer Nutzung von E-Mails, Apps und sicheren Webseiten, überwacht werden.
+
+Weitere Informationen zu diesem Zertifikat erhalten Sie von Ihrem IT-Administrator."</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d Anwendungen können Benachrichtigungen lesen.</item>
+        <item quantity="one">Anwendung „%d“ darf Benachrichtigungen lesen.</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d weitere Berechtigungen</item>
+        <item quantity="one">%d weitere Berechtigung</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$d Prozesse haben in der/den letzten %2$s RAM verwendet.</item>
+        <item quantity="one">%1$d Prozess hat in der/den letzten %2$s RAM verwendet.</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d Apps dürfen mobile Daten ohne Einschränkungen verwenden, wenn das Datensparen aktiviert ist</item>
+        <item quantity="one">Zugelassen, dass 1 App mobile Daten ohne Beschränkungen verwendet, wenn das Datensparen aktiviert ist.</item>
+    </plurals>
+</resources>

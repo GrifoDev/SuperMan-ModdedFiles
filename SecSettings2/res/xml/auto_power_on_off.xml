@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/auto_power_on_off_title" android:key="auto_power_on_off_mode"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings.autopoweronoff">
+    <com.samsung.android.settings.UnclickablePreference android:title="@string/auto_power_on_off_description" android:selectable="false" android:key="auto_power_on_off_description" />
+    <PreferenceCategory android:title="@string/auto_power_on" android:key="auto_power_on">
+        <SwitchPreference android:persistent="false" android:title="@string/auto_power_on" android:key="auto_power_on_switch" />
+        <Preference android:title="@string/auto_power_on_off_time" android:key="auto_power_on_time" android:dependency="auto_power_on_switch" />
+        <com.samsung.android.settings.autopoweronoff.AutoPowerOnOffDaysPreference android:title="@string/auto_power_on_off_days" android:key="auto_power_on_days" android:dependency="auto_power_on_switch" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/auto_power_off" android:key="auto_power_off">
+        <SwitchPreference android:persistent="false" android:title="@string/auto_power_off" android:key="auto_power_off_switch" />
+        <Preference android:title="@string/auto_power_on_off_time" android:key="auto_power_off_time" android:dependency="auto_power_off_switch" />
+        <com.samsung.android.settings.autopoweronoff.AutoPowerOnOffDaysPreference android:title="@string/auto_power_on_off_days" android:key="auto_power_off_days" android:dependency="auto_power_off_switch" />
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/auto_policy_dpdate_title_us" settings:parent="@xml/security_settings_misc"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <SwitchPreference android:persistent="false" android:title="@string/auto_updates_title" android:key="auto_policy_update" android:summary="@string/auto_updates_summary" />
+    <SwitchPreference android:persistent="false" android:title="@string/wifi_only" android:key="use_wifi_only" android:summary="@string/use_wifi_only_update_security_policy_summary" />
+    <PreferenceCategory android:persistent="false" android:title="@string/manual_updates">
+        <PreferenceScreen android:persistent="false" android:title="@string/update_summary_abb" android:key="manual_updates" />
+    </PreferenceCategory>
+</PreferenceScreen>

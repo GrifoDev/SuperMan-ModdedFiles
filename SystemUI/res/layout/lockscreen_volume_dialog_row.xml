@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:clipChildren="false" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.keyguard.AlphaOptimizedImageButton android:id="@id/volume_row_icon" android:focusable="false" android:clickable="false" android:layout_width="@dimen/status_bar_header_height_keyguard" android:layout_height="@dimen/status_bar_header_height_keyguard" android:soundEffectsEnabled="false" android:layout_marginEnd="@dimen/gap_between_volume_button_and_volume_slider" style="@style/VolumeButtons" />
+    <SeekBar android:id="@id/volume_row_slider" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_marginStart="@dimen/set_zero_volume_slider_own_margin" android:layout_marginEnd="@dimen/set_zero_volume_slider_own_margin" android:layout_toEndOf="@id/volume_row_icon" />
+</RelativeLayout>

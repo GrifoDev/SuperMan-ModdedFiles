@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="HomeIcon" parent="@style/BaseHomeIcon">
+        <item name="android:textSize">20.0dip</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:paddingLeft">0.0dip</item>
+        <item name="android:paddingTop">@dimen/home_icon_paddingTop</item>
+        <item name="android:paddingRight">0.0dip</item>
+        <item name="android:paddingBottom">0.0dip</item>
+        <item name="android:lines">1</item>
+        <item name="android:drawablePadding">4.0dip</item>
+        <item name="android:fontFamily">Roboto_Regular</item>
+    </style>
+    <style name="HomeIcon.Folder" parent="@style/HomeIcon">
+        <item name="android:paddingTop">@dimen/home_icon_paddingTop</item>
+        <item name="android:drawablePadding">4.0dip</item>
+    </style>
+    <style name="HotseatIcon" parent="@style/BaseHotseatIcon">
+        <item name="android:textSize">20.0dip</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:paddingLeft">0.0dip</item>
+        <item name="android:paddingTop">@dimen/hotseat_icon_paddingTop</item>
+        <item name="android:paddingRight">0.0dip</item>
+        <item name="android:paddingBottom">0.0dip</item>
+        <item name="android:lines">1</item>
+        <item name="android:drawablePadding">4.0dip</item>
+        <item name="android:fontFamily">Roboto_Regular</item>
+    </style>
+    <style name="MenuIcon" parent="@style/BaseMenuIcon">
+        <item name="android:textSize">20.0dip</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:paddingLeft">0.0dip</item>
+        <item name="android:paddingTop">@dimen/menu_icon_paddingTop</item>
+        <item name="android:paddingRight">0.0dip</item>
+        <item name="android:paddingBottom">8.0dip</item>
+        <item name="android:lines">1</item>
+        <item name="android:shadowDy">1.0</item>
+        <item name="android:shadowRadius">2.0</item>
+        <item name="android:drawablePadding">0.0dip</item>
+        <item name="android:fontFamily">Roboto_Regular</item>
+    </style>
+    <style name="MenuIcon.Folder" parent="@style/MenuIcon">
+        <item name="android:paddingTop">@dimen/menu_icon_paddingTop</item>
+        <item name="android:drawablePadding">0.0dip</item>
+        <item name="destination">menu</item>
+    </style>
+    <style name="MenuIcon.FolderItem" parent="@style/MenuIcon">
+        <item name="android:textColor">#fffafafa</item>
+        <item name="android:paddingTop">@dimen/folder_icon_paddingTop</item>
+        <item name="android:shadowDy">1.0</item>
+        <item name="android:shadowRadius">2.0</item>
+        <item name="destination">folderItem</item>
+    </style>
+    <style name="HotseatIcon.Folder" parent="@style/HotseatIcon">
+        <item name="android:paddingTop">@dimen/hotseatfolder_icon_paddingTop</item>
+        <item name="android:drawablePadding">4.0dip</item>
+    </style>
+</resources>

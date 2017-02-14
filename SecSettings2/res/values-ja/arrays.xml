@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="wifi_status">
+        <item></item>
+        <item>スキャン中...</item>
+        <item>接続中...</item>
+        <item>認証中...</item>
+        <item>IPアドレスを取得中...</item>
+        <item>接続済み</item>
+        <item>保留中</item>
+        <item>切断中...</item>
+        <item>切断されました</item>
+        <item>失敗しました</item>
+        <item>ブロック中</item>
+        <item>接続不良により一時的に無効</item>
+    </string-array>
+    <string-array name="wifi_status_with_ssid">
+        <item></item>
+        <item>スキャン中...</item>
+        <item>%1$sに接続中...</item>
+        <item>%1$sによる認証中...</item>
+        <item>IPアドレスを%1$sから取得中...</item>
+        <item>%1$sに接続しました</item>
+        <item>保留中</item>
+        <item>%1$sから切断中...</item>
+        <item>切断されました</item>
+        <item>失敗しました</item>
+        <item>ブロック中</item>
+        <item>接続不良により一時的に無効</item>
+    </string-array>
+    <string-array name="hdcp_checking_titles">
+        <item>チェックしない</item>
+        <item>DRMコンテンツのみをチェック</item>
+        <item>常にチェック</item>
+    </string-array>
+    <string-array name="hdcp_checking_summaries">
+        <item>HDCPチェックを使用しない</item>
+        <item>DRMコンテンツにのみHDCPチェックを使用する</item>
+        <item>HDCPチェックを常に使用する</item>
+    </string-array>
+    <string-array name="select_logd_size_titles">
+        <item>OFF</item>
+        <item>64 K</item>
+        <item>256 K</item>
+        <item>1 M</item>
+        <item>4 M</item>
+        <item>16 M</item>
+    </string-array>
+    <string-array name="select_logd_size_lowram_titles">
+        <item>OFF</item>
+        <item>64 K</item>
+        <item>256 K</item>
+        <item>1 M</item>
+    </string-array>
+    <string-array name="select_logd_size_summaries">
+        <item>OFF</item>
+        <item>64 K / ログバッファ</item>
+        <item>256 K / ログバッファ</item>
+        <item>1 M / ログバッファ</item>
+        <item>4 M / ログバッファ</item>
+        <item>16 M / ログバッファ</item>
+    </string-array>
+    <string-array name="window_animation_scale_entries">
+        <item>アニメーションオフ</item>
+        <item>アニメーションスケール.5x</item>
+        <item>アニメーションスケール1x</item>
+        <item>アニメーションスケール1.5x</item>
+        <item>アニメーションスケール2x</item>
+        <item>アニメーションスケール5x</item>
+        <item>アニメーションスケール10x</item>
+    </string-array>
+    <string-array name="transition_animation_scale_entries">
+        <item>アニメーションオフ</item>
+        <item>アニメーションスケール.5x</item>
+        <item>アニメーションスケール1x</item>
+        <item>アニメーションスケール1.5x</item>
+        <item>アニメーションスケール2x</item>
+        <item>アニメーションスケール5x</item>
+        <item>アニメーションスケール10x</item>
+    </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>アニメーションオフ</item>
+        <item>アニメーションスケール.5x</item>
+        <item>アニメーションスケール1x</item>
+        <item>アニメーションスケール1.5x</item>
+        <item>アニメーションスケール2x</item>
+        <item>アニメーションスケール5x</item>
+        <item>アニメーションスケール10x</item>
+    </string-array>
+    <string-array name="overlay_display_devices_entries">
+        <item>なし</item>
+        <item>480p</item>
+        <item>480p（セキュア）</item>
+        <item>720p</item>
+        <item>720p（セキュア）</item>
+        <item>1080p</item>
+        <item>1080p（セキュア）</item>
+        <item>4K</item>
+        <item>4K（セキュア）</item>
+        <item>4K（アップスケール）</item>
+        <item>4K（アップスケール、セキュア）</item>
+        <item>720p、1080p（デュアルスクリーン）</item>
+    </string-array>
+    <string-array name="enable_opengl_traces_entries">
+        <item>なし</item>
+        <item>Logcat</item>
+        <item>Systrace（画像）</item>
+        <item>glGetErrorでのスタック呼び出し</item>
+    </string-array>
+    <string-array name="show_non_rect_clip_entries">
+        <item>OFF</item>
+        <item>非矩形クリップ領域を青で描画</item>
+        <item>テスト済み描画コマンドを緑でハイライト表示</item>
+    </string-array>
+    <string-array name="track_frame_time_entries">
+        <item>OFF</item>
+        <item>バーとして画面に表示</item>
+        <item>adb shell dumpsys gfxinfoを使用</item>
+    </string-array>
+    <string-array name="debug_hw_overdraw_entries">
+        <item>OFF</item>
+        <item>オーバードロー領域の表示</item>
+        <item>第二色弱の方向けの領域の表示</item>
+    </string-array>
+    <string-array name="app_process_limit_entries">
+        <item>標準の上限</item>
+        <item>バックグラウンドプロセスを使用しない</item>
+        <item>プロセスの上限: 1</item>
+        <item>プロセスの上限: 2</item>
+        <item>プロセスの上限: 3</item>
+        <item>プロセスの上限: 4</item>
+    </string-array>
+    <string-array name="usb_configuration_titles">
+        <item>充電しています</item>
+        <item>MTP（Media Transfer Protocol）</item>
+        <item>PTP（Picture Transfer Protocol）</item>
+        <item>RNDIS（USBイーサネット）</item>
+        <item>オーディオソース</item>
+        <item>MIDI</item>
+    </string-array>
+    <string-array name="tts_rate_entries">
+        <item>非常に遅い</item>
+        <item>遅い</item>
+        <item>標準</item>
+        <item>速い</item>
+        <item>より速い</item>
+        <item>非常に速い</item>
+        <item>高速</item>
+        <item>非常に高速</item>
+        <item>最高速</item>
+    </string-array>
+    <string-array name="color_mode_names">
+        <item>鮮やか（既定）</item>
+        <item>自然</item>
+        <item>標準</item>
+    </string-array>
+    <string-array name="color_mode_descriptions">
+        <item>拡張色</item>
+        <item>目に自然な色</item>
+        <item>デジタルコンテンツに最適な色</item>
+    </string-array>
+    <string-array name="screen_timeout_entries">
+        <item>15秒</item>
+        <item>30秒</item>
+        <item>1分</item>
+        <item>2分</item>
+        <item>5分</item>
+        <item>10分</item>
+        <item>30分</item>
+    </string-array>
+    <string-array name="screen_timeout_for_device_lock_entries">
+        <item>15秒</item>
+        <item>30秒</item>
+        <item>1分</item>
+        <item>3分</item>
+        <item>5分</item>
+        <item>10分</item>
+        <item>15分</item>
+        <item>30分</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>電源キーを押すか、画面タイムアウトの直後</item>
+        <item>15秒</item>
+        <item>30秒</item>
+        <item>1分</item>
+        <item>3分</item>
+        <item>5分</item>
+        <item>10分</item>
+        <item>15分</item>
+        <item>30分</item>
+        <item>1時間</item>
+    </string-array>
+    <string-array name="lock_after_timeout_entries">
+        <item>すぐ</item>
+        <item>5秒</item>
+        <item>15秒</item>
+        <item>30秒</item>
+        <item>1分</item>
+        <item>2分</item>
+        <item>5分</item>
+        <item>10分</item>
+        <item>30分</item>
+    </string-array>
+    <string-array name="wifi_ap_security_testmode">
+        <item>オープン</item>
+        <item>WPA2 PSK</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>接続</item>
+        <item>招待しました。</item>
+        <item>接続失敗</item>
+        <item>接続するには、ここをタップしてください。</item>
+        <item>上限を超えています。</item>
+        <item>他のデバイスと接続中</item>
+    </string-array>
+    <string-array name="wifi_ap_wifi_sharing">
+        <item>Wi-Fi共有を有効にする</item>
+        <item>Wi-Fi共有を無効にする</item>
+    </string-array>
+    <string-array name="wifi_ap_timeout">
+        <item>タイムアウトなし</item>
+        <item>5分</item>
+        <item>10分</item>
+        <item>20分</item>
+        <item>30分</item>
+        <item>1時間</item>
+    </string-array>
+    <string-array name="wifi_ap_channel">
+        <item>自動</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+    </string-array>
+    <string-array name="wifi_signal">
+        <item>弱い</item>
+        <item>普通</item>
+        <item>良い</item>
+        <item>強い</item>
+        <item>非常に強い</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_entries">
+        <item>"常にON
+(バッテリー消費量が増加)"</item>
+        <item>充電時</item>
+        <item>"常にOFF
+(データ使用量が増加)"</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_entries_wifi_only">
+        <item>"常にON
+(バッテリー消費量が増加)"</item>
+        <item>充電時</item>
+        <item>なし</item>
+    </string-array>
+    <string-array name="wifi_peap_phase2_entries">
+        <item>なし</item>
+        <item>MSCHAPV2</item>
+        <item>GTC</item>
+    </string-array>
+    <string-array name="wifi_ip_settings">
+        <item>DHCP</item>
+        <item>静的</item>
+    </string-array>
+    <string-array name="wifi_proxy_settings">
+        <item>なし</item>
+        <item>手動</item>
+        <item>自動設定</item>
+    </string-array>
+    <string-array name="apn_auth_entries">
+        <item>なし</item>
+        <item>PAP</item>
+        <item>CHAP</item>
+        <item>PAP または CHAP</item>
+    </string-array>
+    <string-array name="bearer_entries">
+        <item>設定なし</item>
+        <item>LTE</item>
+        <item>HSPAP</item>
+        <item>HSPA</item>
+        <item>HSUPA</item>
+        <item>HSDPA</item>
+        <item>UMTS</item>
+        <item>EDGE</item>
+        <item>GPRS</item>
+        <item>eHRPD</item>
+        <item>EVDO_B</item>
+        <item>EVDO_A</item>
+        <item>EVDO_0</item>
+        <item>1xRTT</item>
+        <item>IS95B</item>
+        <item>IS95A</item>
+    </string-array>
+    <string-array name="mvno_type_entries">
+        <item>なし</item>
+        <item>SPN</item>
+        <item>IMSI</item>
+        <item>GID</item>
+    </string-array>
+    <string-array name="captioning_typeface_selector_titles">
+        <item>標準</item>
+        <item>サンセリフ体</item>
+        <item>字幅の狭いサンセリフ体</item>
+        <item>サンセリフ体モノスペース</item>
+        <item>セリフ体</item>
+        <item>セリフ体モノスペース</item>
+        <item>カジュアル</item>
+        <item>筆記体</item>
+        <item>小型英大文字</item>
+    </string-array>
+    <string-array name="captioning_font_size_selector_titles">
+        <item>最小</item>
+        <item>小</item>
+        <item>標準</item>
+        <item>大</item>
+        <item>最大</item>
+    </string-array>
+    <string-array name="captioning_edge_type_selector_titles">
+        <item>標準</item>
+        <item>なし</item>
+        <item>アウトライン</item>
+        <item>影</item>
+        <item>浮き出し</item>
+        <item>型押し</item>
+    </string-array>
+    <string-array name="captioning_preset_selector_titles">
+        <item>標準</item>
+        <item>黒地に白</item>
+        <item>白地に黒</item>
+        <item>黒地に黄</item>
+        <item>青地に黄</item>
+        <item>カスタム</item>
+    </string-array>
+    <string-array name="vpn_states">
+        <item>切断</item>
+        <item>初期化中…</item>
+        <item>接続中…</item>
+        <item>接続</item>
+        <item>タイムアウト</item>
+        <item>失敗</item>
+    </string-array>
+    <string-array name="long_press_timeout_titles_selector">
+        <item>短い(0.5秒)</item>
+        <item>標準(1.0秒)</item>
+        <item>長い(1.5秒)</item>
+        <item>カスタム</item>
+    </string-array>
+    <string-array name="time_interval_entries_selectable">
+        <item>1分</item>
+        <item>3分</item>
+        <item>5分</item>
+        <item>10分</item>
+        <item>15分</item>
+    </string-array>
+    <string-array name="wifi_connect_entries">
+        <item>自動</item>
+        <item>手動</item>
+        <item>毎回確認</item>
+    </string-array>
+    <string-array name="touch_key_light_entries">
+        <item>1.5秒</item>
+        <item>6秒</item>
+        <item>常にOFF</item>
+        <item>常にON</item>
+    </string-array>
+</resources>

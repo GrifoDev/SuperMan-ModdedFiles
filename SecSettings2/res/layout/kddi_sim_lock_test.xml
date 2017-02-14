@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:paddingTop="@dimen/alert_dialog_padding_top" android:paddingBottom="@dimen/alert_dialog_padding_bottom" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/alert_dialog_padding_left_right" android:paddingEnd="@dimen/alert_dialog_padding_left_right">
+        <LinearLayout android:id="@id/normal_test" android:paddingBottom="@dimen/alert_dialog_padding_bottom" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/kddi_normal_test" style="?android:attr/textAppearanceMedium" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/chage_username1" android:paddingBottom="@dimen/alert_dialog_padding_bottom" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/kddi_Authorization" style="?android:attr/textAppearanceMedium" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/chage_username2" android:paddingBottom="@dimen/alert_dialog_padding_bottom" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/kddi_wrong_http" style="?android:attr/textAppearanceMedium" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/chage_username3" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/kddi_verification" style="?android:attr/textAppearanceMedium" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

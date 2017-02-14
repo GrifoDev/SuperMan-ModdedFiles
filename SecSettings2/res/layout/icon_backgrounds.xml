@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/edit_bar_layout" />
+    <ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical" android:id="@id/mode_radio_group" android:paddingTop="@dimen/listview_top_padding" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <LinearLayout android:gravity="center_vertical" android:id="@id/icon_only_layout" android:background="?android:listChoiceBackgroundIndicator" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeightSmall" android:paddingStart="@dimen/list_item_start_padding" android:paddingEnd="@dimen/list_item_end_padding">
+                <RadioButton android:gravity="center_vertical" android:id="@id/icon_only_radio" android:background="@null" android:focusable="false" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                <TextView android:paddingTop="@dimen/list_item_top_padding" android:paddingBottom="@dimen/list_item_bottom_padding" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/icon_only_title" android:paddingStart="@dimen/list_item_inner_padding" style="@style/list_title_text_style" />
+            </LinearLayout>
+            <LinearLayout android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" android:layout_marginStart="@dimen/list_item_inner_padding">
+                <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginStart="@dimen/list_radiobox_width_for_divider_inset" />
+            </LinearLayout>
+            <LinearLayout android:gravity="center_vertical" android:id="@id/icon_backgrounds_layout" android:background="?android:listChoiceBackgroundIndicator" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeightSmall" android:paddingStart="@dimen/list_item_start_padding" android:paddingEnd="@dimen/list_item_end_padding">
+                <RadioButton android:gravity="center_vertical" android:id="@id/icon_backgrounds_radio" android:background="@null" android:focusable="false" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                <LinearLayout android:orientation="vertical" android:paddingTop="@dimen/list_item_top_padding" android:paddingBottom="@dimen/list_item_bottom_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/list_item_inner_padding" android:paddingEnd="@dimen/list_item_inner_padding">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/icon_backgrounds" android:singleLine="true" style="@style/list_title_text_style" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/icon_backgrounds_summary" style="@style/list_summary_text_style" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" android:layout_marginStart="@dimen/list_item_inner_padding">
+                <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginStart="@dimen/list_radiobox_width_for_divider_inset" />
+            </LinearLayout>
+            <ImageView android:layout_gravity="center" android:id="@id/preview_image" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/body_text_top_padding" android:layout_marginBottom="@dimen/body_text_top_padding" android:paddingStart="@dimen/body_text_side_padding" android:paddingEnd="@dimen/body_text_side_padding" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

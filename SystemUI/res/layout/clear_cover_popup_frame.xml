@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:layout_gravity="bottom" android:orientation="vertical" android:id="@id/popup_frame" android:background="@drawable/tw_toast_frame_mtrl" android:paddingTop="@dimen/clear_cover_popup_toast_top_bottom_padding" android:paddingBottom="@dimen/clear_cover_popup_toast_top_bottom_padding" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/clear_cover_popup_bottom_margin" android:paddingStart="@dimen/clear_cover_popup_toast_start_end_padding" android:paddingEnd="@dimen/clear_cover_popup_toast_start_end_padding" android:layout_marginStart="@dimen/clear_cover_popup_margin" android:layout_marginEnd="@dimen/clear_cover_popup_margin">
+        <TextView android:textSize="@dimen/clear_cover_popup_toast_font_size" android:textColor="@color/clear_cover_font_color" android:gravity="center" android:id="@id/popup_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="sec-roboto-light" />
+    </LinearLayout>
+</FrameLayout>

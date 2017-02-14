@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:key="access_control_key"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <SwitchPreference android:title="@string/accessibility_access_control_unlock_none" android:key="use_screen_lock" />
+</PreferenceScreen>

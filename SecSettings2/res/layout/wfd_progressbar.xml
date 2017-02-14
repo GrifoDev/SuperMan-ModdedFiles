@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:paddingLeft="@dimen/wfd_picker_dialog_layout_padding_left" android:paddingTop="@dimen/wfd_picker_dialog_layout_padding_top" android:paddingRight="@dimen/wfd_picker_dialog_layout_padding_left" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="?android:textAppearance" android:textSize="18.0sp" android:textStyle="bold" android:id="@id/wfd_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/wfd_select_device" android:layout_weight="1.0" android:fontFamily="sec-roboto-light" />
+    <ProgressBar android:gravity="right" android:layout_gravity="center" android:id="@id/scanning_progress" android:visibility="gone" android:layout_width="24.0dip" android:layout_height="24.0dip" android:layout_marginRight="4.0dip" android:layout_weight="0.0" style="?android:attr/progressBarStyleSmall" />
+</LinearLayout>

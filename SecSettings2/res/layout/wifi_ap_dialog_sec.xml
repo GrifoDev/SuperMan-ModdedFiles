@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:scrollbarStyle="outsideOverlay" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:layout_marginBottom="8.0dip" android:paddingStart="24.0dip" android:paddingEnd="24.0dip" android:scrollIndicators="bottom|top"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:paddingBottom="24.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:id="@id/info" style="@style/wifi_item" />
+        <LinearLayout android:gravity="start" android:orientation="vertical" android:id="@id/type" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginStart="0.0dip">
+            <TextView android:layout_marginTop="8.0dip" android:text="@string/wifi_ssid" android:layout_marginStart="4.0dip" style="@style/wifi_ap_item_label" />
+            <EditText android:id="@id/ssid" android:singleLine="true" android:inputType="textCapSentences|textNoSuggestions" android:privateImeOptions="inputType=PredictionOff;disableEmoticonInput=true" android:layout_marginStart="0.0dip" style="@style/wifi_ap_edittext_style" />
+            <TextView android:id="@id/ssid_error_text" android:visibility="gone" android:layout_marginStart="4.0dip" style="@style/wifi_item_error_text" />
+            <LinearLayout android:id="@id/hide_ssid_view" android:visibility="gone" android:layout_marginTop="18.0dip" android:layout_marginStart="0.0dip" android:layout_marginEnd="0.0dip" style="@style/wifi_ap_dialog_checkbox_layout_style">
+                <CheckBox android:textColor="@color/alert_dialog_text_color" android:id="@id/hide_ssid" style="@style/wifi_ap_dialog_checkbox_style" />
+            </LinearLayout>
+            <TextView android:layout_marginTop="8.0dip" android:text="@string/wifi_security" android:layout_marginStart="4.0dip" style="@style/wifi_ap_item_label" />
+            <Spinner android:entries="@array/wifi_ap_security" android:id="@id/security" android:layout_marginBottom="16.0dip" android:prompt="@string/wifi_security" android:layout_marginStart="4.0dip" style="@style/wifi_ap_spinner_item_content" />
+            <Spinner android:entries="@array/wifi_ap_security_testmode" android:id="@id/security_testmode" android:visibility="gone" android:layout_marginBottom="16.0dip" android:prompt="@string/wifi_security" android:layout_marginStart="4.0dip" style="@style/wifi_ap_spinner_item_content" />
+            <TextView android:id="@id/security_msg" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:layout_marginBottom="18.0dip" android:text="@string/wifi_security_open_msg" android:layout_marginStart="4.0dip" style="@style/wifi_ap_item_label" />
+        </LinearLayout>
+        <LinearLayout android:gravity="start" android:orientation="vertical" android:id="@id/fields" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginStart="0.0dip">
+            <TextView android:layout_marginTop="5.0dip" android:text="@string/wifi_password" android:layout_marginStart="4.0dip" style="@style/wifi_ap_item_label" />
+            <EditText android:id="@id/password" android:password="true" android:singleLine="true" android:imeOptions="flagForceAscii" android:layout_marginStart="0.0dip" style="@style/wifi_ap_edittext_style" />
+            <TextView android:id="@id/password_error_text" android:visibility="gone" android:layout_marginStart="4.0dip" style="@style/wifi_item_error_text" />
+            <TextView android:textSize="14.0sp" android:textColor="@color/wifi_ap_dialog_hint_text_color" android:id="@id/hint" android:paddingTop="6.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="18.0dip" android:text="@string/credentials_password_too_short" android:layout_marginStart="4.0dip" style="?android:attr/textAppearanceSmall" />
+            <LinearLayout android:id="@id/show_password_view" android:layout_marginBottom="8.0dip" android:layout_marginStart="0.0dip" android:layout_marginEnd="0.0dip" style="@style/wifi_ap_dialog_checkbox_layout_style">
+                <CheckBox android:textColor="@color/alert_dialog_text_color" android:id="@id/show_password" android:text="@string/wifi_show_password" style="@style/wifi_ap_dialog_checkbox_style" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:gravity="start" android:orientation="vertical" android:id="@id/show_advanced_view" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginStart="0.0dip">
+            <CheckBox android:textColor="@color/alert_dialog_text_color" android:id="@id/show_advanced" android:text="@string/wifi_ap_show_advanced" style="@style/wifi_ap_dialog_checkbox_style" />
+        </LinearLayout>
+        <LinearLayout android:gravity="start" android:orientation="vertical" android:id="@id/advanced_fields" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginStart="0.0dip">
+            <TextView android:layout_marginTop="8.0dip" android:text="@string/wifi_ap_channel" android:layout_marginStart="4.0dip" style="@style/wifi_ap_item_label" />
+            <LinearLayout android:id="@id/wifi_ap_channel_5g_prefer_view" android:visibility="gone" android:layout_marginTop="18.0dip" android:layout_marginStart="0.0dip" android:layout_marginEnd="0.0dip" style="@style/wifi_ap_dialog_checkbox_layout_style">
+                <CheckBox android:textColor="@color/alert_dialog_text_color" android:id="@id/checkbox_wifi_ap_channel_5g_prefer" android:text="@string/wifi_ap_channel_5g_prefer" style="@style/wifi_ap_dialog_checkbox_style" />
+            </LinearLayout>
+            <TextView android:textSize="17.0sp" android:textColor="@color/alert_dialog_text_color" android:id="@id/textview_wifi_ap_band_2g" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/wifi_ap_channel_2g" android:layout_marginStart="4.0dip" />
+            <LinearLayout android:id="@id/wifi_ap_channel_2g_view" android:visibility="gone" android:layout_marginTop="18.0dip" android:layout_marginStart="0.0dip" android:layout_marginEnd="0.0dip" style="@style/wifi_ap_dialog_checkbox_layout_style">
+                <RadioButton android:textColor="@color/alert_dialog_text_color" android:id="@id/checkbox_wifi_ap_channel_2g" android:text="@string/wifi_ap_channel_2g" style="@style/wifi_ap_dialog_checkbox_style" />
+            </LinearLayout>
+            <LinearLayout android:id="@id/wifi_ap_channel_5g_view" android:visibility="gone" android:layout_marginStart="0.0dip" android:layout_marginEnd="0.0dip" style="@style/wifi_ap_dialog_checkbox_layout_style">
+                <RadioButton android:textColor="@color/alert_dialog_text_color" android:id="@id/checkbox_wifi_ap_channel_5g" android:text="@string/wifi_ap_channel_5g" style="@style/wifi_ap_dialog_checkbox_style" />
+            </LinearLayout>
+            <Spinner android:entries="@array/wifi_ap_channel" android:id="@id/wifi_ap_channel" android:prompt="@string/wifi_ap_channel_5g" android:layout_marginStart="4.0dip" style="@style/wifi_ap_spinner_item_content" />
+            <TextView android:textSize="17.0sp" android:textColor="@color/alert_dialog_text_color" android:id="@id/wifi_ap_channel_5g" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:text="@string/wifi_ap_channel_5g_149" android:paddingStart="7.0dip" android:layout_marginStart="4.0dip" />
+            <TextView android:id="@id/wifi_ap_maxclient_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:text="@string/wifi_ap_maxclient" android:layout_marginStart="4.0dip" />
+            <Spinner android:entries="@array/wifi_ap_maxclient" android:id="@id/wifi_ap_maxclient" android:prompt="@string/wifi_ap_maxclient" android:layout_marginStart="4.0dip" style="@style/wifi_ap_spinner_item_content" />
+            <TextView android:id="@id/wifi_ap_timeout_settings_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:text="@string/wifi_ap_menu_timeout" android:layout_marginStart="4.0dip" />
+            <Spinner android:entries="@array/wifi_ap_timeout" android:id="@id/wifi_ap_timeout_settings" android:prompt="@string/wifi_ap_menu_timeout" android:layout_marginStart="4.0dip" style="@style/wifi_ap_spinner_item_content" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

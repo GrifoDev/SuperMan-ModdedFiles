@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView android:textSize="@dimen/alarm_customize_text_button_size" android:textColor="@color/common_dialog_spinner_text_color" android:ellipsize="marquee" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" android:paddingStart="@dimen/edit_event_spinner_text_padding_left" android:paddingEnd="@dimen/edit_event_spinner_text_padding_right"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <SwitchPreference android:persistent="false" android:title="@string/auto_updates_title" android:key="msa_auto_update" android:summary="@string/auto_updates_summary" />
+    <ListPreference android:persistent="false" android:entries="@array/security_policy_pref_network_entries" android:title="@string/preferred_networks" android:key="msa_pref_network" android:widgetLayout="@layout/round_more_icon" android:entryValues="@array/security_policy_pref_network_value" />
+    <PreferenceCategory android:persistent="false" android:title="@string/manual_updates">
+        <Preference android:persistent="false" android:title="@string/update_summary" android:key="manual_updates" />
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/qs_edit_summary_parent" android:layout_width="@dimen/notification_panel_width" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/qs_edit_summary_text" android:textColor="@color/qs_edit_panel_summary_color" android:id="@id/qs_edit_summary" android:paddingTop="5.0dip" android:paddingBottom="2.0dip" android:clickable="false" android:layout_width="@dimen/notification_panel_width" android:layout_height="wrap_content" android:text="@string/qs_edit_summary" android:fontFamily="sec-roboto-condensed" android:paddingStart="@dimen/qs_edit_page_start_padding" android:paddingEnd="@dimen/qs_edit_page_end_padding" />
+</LinearLayout>

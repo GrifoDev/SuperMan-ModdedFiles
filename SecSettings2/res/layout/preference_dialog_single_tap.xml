@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <TextView android:textAppearance="?android:textAppearanceMedium" android:id="@id/singletap_noti" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/alert_dialog_padding_top" android:text="@string/single_tap_mode_description" android:fontFamily="sec-roboto-light" android:layout_marginStart="@dimen/alert_dialog_padding_left_right" android:layout_marginEnd="@dimen/alert_dialog_padding_left_right" />
+        <CheckBox android:textAppearance="?android:textAppearanceMedium" android:layout_gravity="start" android:id="@id/enable_single_tap_checkbox" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/alert_dialog_bottom_checkbox_margin_top" android:layout_marginBottom="@dimen/alert_dialog_bottom_checkbox_margin_top" android:text="@string/dont_show_dialog" android:fontFamily="sec-roboto-light" android:paddingStart="@dimen/alert_dialog_bottom_checkbox_padding_left" android:layout_marginStart="@dimen/do_not_show_again_popup_checkbox_margin_left" android:layout_marginEnd="@dimen/do_not_show_again_popup_checkbox_margin_right" />
+    </LinearLayout>
+</ScrollView>

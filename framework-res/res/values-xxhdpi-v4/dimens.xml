@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="thumbnail_height">192.0dip</dimen>
+    <dimen name="thumbnail_width">192.0dip</dimen>
+    <dimen name="mdm_app_icon_size">159.0px</dimen>
+    <dimen name="tw_scroll_indicator_height">2.0px</dimen>
+    <dimen name="tw_list_primary_text_size">17.0sp</dimen>
+    <dimen name="tw_floating_popup_divider_width">2.0px</dimen>
+    <dimen name="tw_edittext_field_cursor_width">5.0px</dimen>
+    <dimen name="tw_list_divider_height">2.0px</dimen>
+    <dimen name="tw_list_preferred_item_height">58.5dip</dimen>
+    <dimen name="tw_list_preferred_item_height_small">46.5dip</dimen>
+    <dimen name="sem_resolver_divider_height">2.0px</dimen>
+    <dimen name="tw_pointer_pen_select_hovering_spen_pointer_dark_hotspot">10.0dip</dimen>
+    <dimen name="tw_pointer_scroll_hovering_spen_pointer_dark_hotspot">10.659973dip</dimen>
+    <dimen name="tw_pointer_spot_hovering_spen_hotspot">7.5dip</dimen>
+    <dimen name="tw_pointer_spot_hovering_spen_cursor_dark_hotspot">16.0dip</dimen>
+    <dimen name="tw_pointer_spot_hovering_spen_hide_hotspot">1.0dip</dimen>
+    <dimen name="tw_pointer_spot_hovering_spen_more_hotspot">7.5dip</dimen>
+    <dimen name="tw_pointer_spot_hovering_spen_move_dark_hotspot">16.0dip</dimen>
+    <dimen name="tw_pointer_spot_hovering_spen_resize_dark_hotspot">16.0dip</dimen>
+    <dimen name="tw_pointer_spot_hovering_spen_split_dark_hotspot">16.0dip</dimen>
+    <dimen name="sem_action_bar_divider_height">3.0px</dimen>
+</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/font_bg_color" android:paddingLeft="@dimen/preview_pager_padding_left" android:paddingTop="@dimen/preview_pager_padding_top" android:paddingRight="@dimen/preview_pager_padding_left" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <android.support.v4.view.ViewPager android:id="@id/preview_pager" android:background="@drawable/font_preview_bg" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0" android:contentDescription="@string/preview_pager_content_description" />
+    <LinearLayout android:gravity="center" android:layout_gravity="center_horizontal" android:orientation="horizontal" android:id="@id/point_area" android:focusable="false" android:layout_width="fill_parent" android:layout_height="@dimen/preview_pager_padding_left" android:importantForAccessibility="noHideDescendants" android:layoutDirection="ltr" />
+</LinearLayout>

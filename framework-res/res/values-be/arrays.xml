@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="emailAddressTypes">
+        <item>Галоўн</item>
+        <item>Працоўны</item>
+        <item>Іншае</item>
+        <item>Адмысловае</item>
+    </string-array>
+    <string-array name="imProtocols">
+        <item>AIM</item>
+        <item>Windows Live</item>
+        <item>Yahoo</item>
+        <item>Skype</item>
+        <item>QQ</item>
+        <item>Google Talk</item>
+        <item>ICQ</item>
+        <item>Jabber</item>
+    </string-array>
+    <string-array name="organizationTypes">
+        <item>Працоўны</item>
+        <item>Іншае</item>
+        <item>Адмысловае</item>
+    </string-array>
+    <string-array name="phoneTypes">
+        <item>Галоўн</item>
+        <item>Mobile</item>
+        <item>Працоўны</item>
+        <item>Працоўны факс</item>
+        <item>Хатні факс</item>
+        <item>Пэйджар</item>
+        <item>Іншае</item>
+        <item>Адмысловае</item>
+    </string-array>
+    <string-array name="postalAddressTypes">
+        <item>Галоўн</item>
+        <item>Працоўны</item>
+        <item>Іншае</item>
+        <item>Адмысловае</item>
+    </string-array>
+    <string-array name="imAddressTypes">
+        <item>Галоўн</item>
+        <item>Працоўны</item>
+        <item>Іншае</item>
+        <item>Адмысловае</item>
+    </string-array>
+</resources>

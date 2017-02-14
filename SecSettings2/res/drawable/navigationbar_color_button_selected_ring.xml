@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="ring" android:useLevel="false" android:innerRadius="@dimen/navigationbar_color_gridview_item_content_radius" android:thickness="@dimen/navigation_bar_color_gridview_item_stroke_width"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <size android:height="@dimen/navigationbar_color_gridview_item_selecter_size" android:width="@dimen/navigationbar_color_gridview_item_selecter_size" />
+    <solid android:color="@color/navigationbar_stroke_color" />
+    <stroke android:width="@dimen/navigation_bar_color_gridview_item_stroke_shadow_width" android:color="@color/navigationbar_stroke_shadow_color" />
+</shape>

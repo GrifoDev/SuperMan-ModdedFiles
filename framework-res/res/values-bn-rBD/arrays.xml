@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="emailAddressTypes">
+        <item>বাড়ি</item>
+        <item>কর্মক্ষেত্র</item>
+        <item>অন্যান্য</item>
+        <item>কাস্টম</item>
+    </string-array>
+    <string-array name="imProtocols">
+        <item>AIM</item>
+        <item>উইন্ডোজ লাইভ</item>
+        <item>Yahoo</item>
+        <item>স্কাইপ</item>
+        <item>QQ</item>
+        <item>Google Talk</item>
+        <item>ICQ</item>
+        <item>জ্যাবার</item>
+    </string-array>
+    <string-array name="organizationTypes">
+        <item>কর্মক্ষেত্র</item>
+        <item>অন্যান্য</item>
+        <item>কাস্টম</item>
+    </string-array>
+    <string-array name="phoneTypes">
+        <item>বাড়ি</item>
+        <item>Mobile</item>
+        <item>কর্মক্ষেত্র</item>
+        <item>কাজের ফ্যাক্স</item>
+        <item>বাড়ির ফ্যাক্স</item>
+        <item>পেজার</item>
+        <item>অন্যান্য</item>
+        <item>কাস্টম</item>
+    </string-array>
+    <string-array name="postalAddressTypes">
+        <item>বাড়ি</item>
+        <item>কর্মক্ষেত্র</item>
+        <item>অন্যান্য</item>
+        <item>কাস্টম</item>
+    </string-array>
+    <string-array name="wfcOperatorErrorAlertMessages">
+        <item>Wi-Fi এর মাধ্যমে কল করতে ও বার্তা পাঠাতে, প্রথমে আপনার পরিষেবা প্রদানকারীকে এই পরিষেবার সেট আপ করার বিষয়ে জিজ্ঞাসা করুন। তারপরে আবার সেটিংস থেকে Wi-Fi কলিং চালু করুন।</item>
+    </string-array>
+    <string-array name="wfcOperatorErrorNotificationMessages">
+        <item>আপনার পরিষেবা প্রদানকারীকে নথিভুক্ত করুন</item>
+    </string-array>
+    <string-array name="wfcSpnFormats">
+        <item>%s</item>
+        <item>%s Wi-Fi কলিং</item>
+    </string-array>
+    <array name="fingerprint_acquired_vendor" />
+    <array name="fingerprint_error_vendor" />
+    <string-array name="imAddressTypes">
+        <item>বাড়ি</item>
+        <item>কর্মক্ষেত্র</item>
+        <item>অন্যান্য</item>
+        <item>কাস্টম</item>
+    </string-array>
+</resources>

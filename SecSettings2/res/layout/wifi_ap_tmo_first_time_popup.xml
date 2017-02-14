@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="300.0sp" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/wifi_ap_popup_paddingStart">
+        <TextView android:textSize="18.0sp" android:textColor="@color/alert_dialog_text_color" android:id="@id/wifi_ap_tmo_first_time_popup" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:layout_marginRight="4.0dip" android:fontFamily="sec-roboto-light" style="?android:attr/textAppearanceMedium" />
+        <LinearLayout android:gravity="bottom" android:orientation="horizontal" android:id="@id/wifi_ap_do_not_show" android:background="?android:selectableItemBackground" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="17.0sp" android:layout_marginBottom="18.0sp" android:paddingStart="-5.0dip">
+            <CheckBox android:textSize="18.0sp" android:textColor="@color/alert_dialog_text_color" android:id="@id/wifi_ap_do_not_show_again" android:background="@null" android:focusable="false" android:focusableInTouchMode="false" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="4.0dip" android:minHeight="32.0dip" android:text="@string/wifi_ap_do_not_show_again" android:fontFamily="sec-roboto-light" android:paddingStart="8.0dip" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

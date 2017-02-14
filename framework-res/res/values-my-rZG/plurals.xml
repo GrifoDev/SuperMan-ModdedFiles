@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="ssl_ca_cert_warning">
+        <item quantity="other">ျဖစ္ႏိုင္ေသာ ကြန္ယက္ ေစာင့္ၾကည့္ျခင္း</item>
+        <item quantity="one">Certificate authority installed</item>
+    </plurals>
+    <plurals name="last_num_days">
+        <item quantity="other">ေနာက္ဆံုး %d ရက္</item>
+        <item quantity="one">Last %d day</item>
+    </plurals>
+    <plurals name="duration_seconds">
+        <item quantity="other">%d စကၠန္႔</item>
+        <item quantity="one">၁ စကၠန္႔</item>
+    </plurals>
+    <plurals name="duration_minutes">
+        <item quantity="other">%d မိနစ္</item>
+        <item quantity="one">၁ မိနစ္</item>
+    </plurals>
+    <plurals name="duration_hours">
+        <item quantity="other">%d နာရီ</item>
+        <item quantity="one">1 နာရီ</item>
+    </plurals>
+    <plurals name="wifi_available">
+        <item quantity="other">Wi-Fi ကြန္ရက္မ်ား ရႏိုင္ပါသည္</item>
+        <item quantity="one">Wi-Fi ကြန္ရက္ ရႏိုင္ပါသည္</item>
+    </plurals>
+    <plurals name="wifi_available_detailed">
+        <item quantity="other">ရႏုိင္ေသာ Wi-Fi ကြန္ယက္မ်ားဖြင့္ပါ</item>
+        <item quantity="one">ရႏုိင္ေသာ Wi-Fi ကြန္ယက္မ်ားဖြင့္ပါ</item>
+    </plurals>
+    <plurals name="matches_found">
+        <item quantity="other">%1$d ၏ %2$d</item>
+        <item quantity="one">တူညီမႈ ၁ ခု</item>
+    </plurals>
+    <plurals name="restr_pin_countdown">
+        <item quantity="other">Try again in %d seconds</item>
+        <item quantity="one">၁ စကၠန္႔အၾကာမွာ ထပ္ၾကိဳးစားပါ။</item>
+    </plurals>
+    <plurals name="tw_clipboard_files">
+        <item quantity="other">%d ဖုိင္မ်ား</item>
+        <item quantity="one">ဖိုင္ ၁ ခု</item>
+    </plurals>
+</resources>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple android:color="@color/bottom_bar_btn_mask_ripple"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@id/right_btn_stroke">
+        <shape android:shape="rectangle">
+            <corners android:topRightRadius="@dimen/power_saving_button_background_radius" android:bottomRightRadius="@dimen/power_saving_button_background_radius" />
+            <stroke android:width="@dimen/power_saving_button_stroke" android:color="@color/power_saving_mode_stroke_color" />
+        </shape>
+    </item>
+    <item android:id="@id/right_btn_solid" android:left="@dimen/power_saving_button_stroke" android:top="@dimen/power_saving_button_stroke" android:right="@dimen/power_saving_button_stroke" android:bottom="@dimen/power_saving_button_stroke">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/power_saving_mode_button_background_pressed_color" />
+            <corners android:topRightRadius="@dimen/power_saving_button_background_radius" android:bottomRightRadius="@dimen/power_saving_button_background_radius" />
+        </shape>
+    </item>
+</ripple>

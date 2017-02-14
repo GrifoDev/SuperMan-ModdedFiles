@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d 個小時</item>
+        <item quantity="one">1 小時</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d 分鐘</item>
+        <item quantity="one">1 分鐘</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d 秒</item>
+        <item quantity="one">1 秒</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">成為開發者前只差 %d 個步驟。</item>
+        <item quantity="one">成為開發者前只差 1 個步驟。</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">移除已選擇的語言</item>
+        <item quantity="one">移除已選擇的語言</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">密碼必須至少包含 %d 個字母。</item>
+        <item quantity="one">密碼必須至少包含 1 個字母。</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">密碼必須至少包含 %d 個小寫字母。</item>
+        <item quantity="one">密碼必須至少包含 1 個小寫字母。</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">密碼必須至少包含 %d 個大寫字母。</item>
+        <item quantity="one">密碼必須至少包含 1 個大寫字母。</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">密碼必須至少包含 %d 個數字。</item>
+        <item quantity="one">密碼必須至少包含 1 個數字。</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">密碼必須至少包含 %d 個符號。</item>
+        <item quantity="one">密碼必須至少包含 1 個符號。</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">密碼必須至少包含 %d 個數字或符號。</item>
+        <item quantity="one">密碼必須至少包含 1 個數字或符號。</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">存取 %d 個資料夾/檔案</item>
+        <item quantity="one">存取 1 個資料夾/檔案</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s 已於您的裝置中安裝 CA 證書，這可能會允許其監控裝置中包含電子郵件的使用、應用程式與安全網站等網絡活動。
+
+如欲瞭解更多證書相關資訊，請聯絡您的 IT 管理員。"</item>
+        <item quantity="one">"%s 已於您的裝置中安裝 CA 證書，這可能會允許其監控裝置中包含電子郵件的使用、應用程式與安全網站等網絡活動。
+
+如欲瞭解更多證書相關資訊，請聯絡您的 IT 管理員。"</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d 個應用程式可讀取通知。</item>
+        <item quantity="one">允許 %d 個應用程式讀取通知。</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">增加 %d 個權限</item>
+        <item quantity="one">其他 %d 個權限</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$d 個程序在過去 %2$s 小時內使用過 RAM</item>
+        <item quantity="one">%1$d 個程序在過去 %2$s 小時內使用過 RAM</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">數據節省器已開啟時，允許 %d 個應用程式無限制地使用流動數據</item>
+        <item quantity="one">[數據節省器] 已啟用時允許 1 個應用程式無限制使用流動數據</item>
+    </plurals>
+</resources>

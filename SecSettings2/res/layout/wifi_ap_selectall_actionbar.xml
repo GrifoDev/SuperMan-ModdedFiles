@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="5.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_alignParentStart="true">
+        <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:id="@id/action_checkbox" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <CheckBox android:id="@id/selection_menu_checkbox" android:layout_width="fill_parent" android:layout_height="wrap_content" android:button="@drawable/actionbar_wifi_ap_check_box_animator_list" android:singleLine="true" style="@android:style/Widget.CompoundButton.CheckBox" />
+            <TextView android:textSize="11.0dip" android:textColor="@color/actionbar_text_color" android:gravity="center" android:id="@id/revert_menu_text_all" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/filter_apps_all" android:singleLine="true" />
+        </LinearLayout>
+        <LinearLayout android:layout_gravity="center" android:orientation="horizontal" android:id="@id/text_layout" android:layout_width="wrap_content" android:layout_height="fill_parent">
+            <TextView android:textSize="20.0sp" android:textColor="@color/actionbar_text_color" android:gravity="center" android:id="@id/text_layout_select_devices" android:layout_width="wrap_content" android:layout_height="fill_parent" android:singleLine="true" android:paddingStart="14.0dip" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:gravity="end" android:layout_gravity="end|center" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginEnd="0.0dip" android:layout_alignParentEnd="true">
+        <LinearLayout android:id="@id/save_menu_item" android:focusable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" style="?android:attr/actionButtonStyle">
+            <TextView android:textAppearance="?android:actionMenuTextAppearance" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/save_menu_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/delete" android:singleLine="true" android:paddingStart="0.0dip" android:paddingEnd="0.0dip" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

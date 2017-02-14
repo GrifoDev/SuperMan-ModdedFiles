@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="menu_icon_paddingTop">2.0dip</dimen>
+    <dimen name="menu_pageIndicatorTop">360.0dip</dimen>
+    <dimen name="menu_titleHeight">52.0dip</dimen>
+    <dimen name="menu_icon_paddingTop_5">8.0dip</dimen>
+    <dimen name="menu_icon_textsize">13.0dip</dimen>
+    <dimen name="app_searchview_margin_top">4.0dip</dimen>
+    <dimen name="appsearch_menu_searchHeight">40.0dip</dimen>
+</resources>

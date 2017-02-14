@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:touchwiz="http://schemas.android.com/apk/res/touchwiz">
+    <Preference android:key="premium_watch_help_key" />
+    <PreferenceScreen android:title="@string/watch_style_title" android:key="premium_watch_style_key" android:summary="@string/watch_style1" />
+    <PreferenceScreen android:title="@string/premiumwatch_signature" android:key="premium_watch_signature_key" android:fragment="com.android.settings.premiumwatch.WatchSignatureSettings" />
+    <CheckBoxPreference android:title="@string/premium_watch_sound" android:key="premium_watch_sound_key" />
+</PreferenceScreen>

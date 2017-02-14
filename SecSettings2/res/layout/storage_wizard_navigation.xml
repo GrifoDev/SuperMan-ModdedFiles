@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:gravity="end|center" android:layout_gravity="bottom" android:orientation="vertical" android:id="@id/suw_layout_navigation_bar" android:background="@color/storage_wizard_button_contanier_background" android:layout_width="fill_parent" android:layout_height="@dimen/storage_wizard_height">
+        <LinearLayout android:gravity="center" android:layout_gravity="end" android:orientation="horizontal" android:id="@id/swg_linearlayout_focus" android:background="@drawable/ripple_setupwizard_next_btn" android:focusable="true" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginEnd="@dimen/storage_wizard_container_margin_end" android:layout_alignParentEnd="true">
+            <TextView android:id="@id/swg_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAllCaps="true" android:layout_marginEnd="@dimen/storage_wizard_textview_margin_end" style="@style/storage_wizrad_button_text" />
+            <ImageView android:layout_width="@dimen/storage_wizard_image_size" android:layout_height="@dimen/storage_wizard_image_size" android:src="@drawable/setupwizard_next_arrow_auto_mirrored" android:tint="@color/ssw_bottom_button_text_color" />
+        </LinearLayout>
+        <View android:layout_gravity="top" android:id="@id/storage_wizard_divider" android:background="@color/storage_wizard_button_divider" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/storage_wizard_divider_height" />
+    </FrameLayout>
+</LinearLayout>

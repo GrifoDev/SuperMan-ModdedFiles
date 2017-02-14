@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="home_icon_drawablepadding">-1.0dip</dimen>
+    <dimen name="home_icon_paddingTop">2.0dip</dimen>
+    <dimen name="home_pageIndicatorTop">607.0dip</dimen>
+    <dimen name="home_pageMarginTop">2.0dip</dimen>
+    <dimen name="hotseat_barSize">115.0dip</dimen>
+    <dimen name="hotseat_bottomGap">2.0dip</dimen>
+    <dimen name="hotseat_cellGapX">7.0dip</dimen>
+    <dimen name="hotseat_cellGapY">0.0dip</dimen>
+    <dimen name="hotseat_cellHeight">114.0dip</dimen>
+    <dimen name="hotseat_cellWidth">151.0dip</dimen>
+    <dimen name="hotseat_icon_drawablepadding">4.0dip</dimen>
+    <dimen name="hotseat_icon_paddingTop">10.0dip</dimen>
+    <dimen name="hotseat_leftGap">33.0dip</dimen>
+    <dimen name="hotseat_rightGap">33.0dip</dimen>
+    <dimen name="hotseat_topGap">0.0dip</dimen>
+    <dimen name="hotseatfolder_icon_paddingTop">10.0dip</dimen>
+    <dimen name="open_folder_appicon_cell_height">108.0dip</dimen>
+    <dimen name="folder_icon_paddingTop">3.0dip</dimen>
+</resources>

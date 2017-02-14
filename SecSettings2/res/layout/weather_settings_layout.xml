@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingTop="@dimen/body_text_top_padding" android:paddingBottom="@dimen/body_text_top_padding" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="@dimen/body_text_side_padding" android:paddingEnd="@dimen/body_text_side_padding"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/weather_settings_desc" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/lock_setting_weather_desc" style="@style/body_text_style" />
+    <Button android:layout_gravity="center_horizontal" android:id="@id/weather_settings_btn" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/weather_settings_btn_margintop" android:text="@string/lock_setting_weather_btn" android:layout_marginStart="@dimen/weather_settings_btn_side_margin" android:layout_marginEnd="@dimen/weather_settings_btn_side_margin" />
+</LinearLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Preference android:persistent="false" android:title="@string/data_usage_enable_mobile" android:key="mobile_data_att" />
+    <Preference android:persistent="false" android:title="@string/international_data_roaming" android:key="roaming_att" />
+</PreferenceScreen>

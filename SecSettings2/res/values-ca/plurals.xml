@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d hores</item>
+        <item quantity="one">1 hora</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d minuts</item>
+        <item quantity="one">1 minut</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d segons</item>
+        <item quantity="one">1 segon</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Ara està a %d passos de convertir-se en programador</item>
+        <item quantity="one">Ara està a 1 pas de convertir-se en desenvolupador</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Eliminar els idiomes seleccionats</item>
+        <item quantity="one">"Eliminar l'idioma seleccionat"</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">La contrasenya ha de contenir almenys %d lletres</item>
+        <item quantity="one">La contrasenya ha de contenir almenys 1 lletra</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">La contrasenya ha de contenir almenys %d lletres minúscules</item>
+        <item quantity="one">La contrasenya ha de contenir almenys 1 lletra minúscula</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">La contrasenya ha de contenir almenys %d lletres majúscules</item>
+        <item quantity="one">La contrasenya ha de contenir almenys 1 lletra majúscula</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">La contrasenya ha de contenir almenys %d números</item>
+        <item quantity="one">La contrasenya ha de contenir almenys 1 número</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">La contrasenya ha de contenir almenys %d símbols</item>
+        <item quantity="one">La contrasenya ha de contenir almenys 1 símbol</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">La contrasenya ha de contenir almenys %d números o símbols</item>
+        <item quantity="one">La contrasenya ha de contenir almenys 1 número o símbol</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Accedir a %d carpetes/fitxers</item>
+        <item quantity="one">Accedir a 1 carpeta/fitxer</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s ha instal·lat uns certificats CA al dispositiu que podrien permetre controlar l'activitat de xarxa del dispositiu, com ara l'ús dels correus electrònics, les aplicacions i els llocs web segurs.
+
+Per obtenir més informació sobre aquests certificats, posi's en contacte amb l'administrador de TI."</item>
+        <item quantity="one">"%s ha instal·lat un certificat CA al dispositiu que podria permetre controlar l'activitat de xarxa del dispositiu, com ara l'ús dels correus electrònics, les aplicacions i els llocs web segurs.
+
+Per obtenir més informació sobre el certificat, posi's en contacte amb l'administrador de TI."</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d aplicacions poden llegir notificacions.</item>
+        <item quantity="one">"L'aplicació %d està autoritzada a llegir notificacions."</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d permisos més</item>
+        <item quantity="one">%d permís més</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$d processos han utilitzat la RAM durant les %2$s últimes hores</item>
+        <item quantity="one">%1$d procés ha utilitzat la RAM durant les %2$s últimes hores</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">"%d aplicacions que tinguin permís per utilitzar dades mòbils sense restriccions mentre l'estalvi de dades estigui activat"</item>
+        <item quantity="one">"1 app té permès utilitzar dades sense restriccions mentre l'estalvi de dades estigui activat"</item>
+    </plurals>
+</resources>

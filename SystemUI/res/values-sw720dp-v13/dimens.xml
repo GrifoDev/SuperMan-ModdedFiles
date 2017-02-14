@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="status_bar_icon_padding">1.0dip</dimen>
+    <dimen name="keyguard_security_width">420.0dip</dimen>
+    <dimen name="keyguard_security_height">420.0dip</dimen>
+    <dimen name="widget_big_font_size">122.0dip</dimen>
+    <dimen name="notification_panel_min_height">770.0dip</dimen>
+    <dimen name="panel_float">56.0dip</dimen>
+</resources>

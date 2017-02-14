@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/volume_dialog_row" android:clipChildren="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="24.0dip" android:paddingEnd="16.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="@style/TextAppearance.Volume.Header" android:ellipsize="end" android:id="@id/volume_row_header" android:paddingTop="6.0dip" android:paddingBottom="6.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:paddingEnd="32.0dip" />
+    <com.android.keyguard.AlphaOptimizedImageButton android:id="@id/volume_row_icon" android:background="@drawable/volume_dialog_ripple_drawable" android:layout_width="@dimen/volume_button_size" android:layout_height="@dimen/volume_button_size" android:layout_below="@id/volume_row_header" android:soundEffectsEnabled="false" style="@style/VolumeButtons" />
+    <SeekBar android:id="@id/volume_row_slider" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/volume_row_header" android:layout_alignBottom="@id/volume_row_icon" android:layout_alignWithParentIfMissing="true" android:paddingStart="20.0dip" android:paddingEnd="7.0dip" android:layout_marginEnd="20.0dip" android:layout_toEndOf="@id/volume_row_icon" />
+</RelativeLayout>

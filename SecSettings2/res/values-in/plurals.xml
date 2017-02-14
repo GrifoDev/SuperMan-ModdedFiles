@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d jam</item>
+        <item quantity="one">1 jam</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d menit</item>
+        <item quantity="one">1 menit</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d detik</item>
+        <item quantity="one">1 detik</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Hanya %d langkah lagi agar Anda menjadi pengembang.</item>
+        <item quantity="one">Hanya 1 langkah lagi agar Anda menjadi pengembang.</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Hapus bahasa yang dipilih</item>
+        <item quantity="one">Hapus bahasa yang dipilih</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Kata sandi harus terdiri setidaknya %d huruf.</item>
+        <item quantity="one">Kata sandi harus terdiri setidaknya 1 huruf.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Kata sandi harus terdiri setidaknya %d huruf kecil.</item>
+        <item quantity="one">Kata sandi harus terdiri setidaknya 1 huruf kecil.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Kata sandi harus terdiri setidaknya %d huruf besar.</item>
+        <item quantity="one">Kata sandi harus terdiri setidaknya 1 huruf besar.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Kata sandi harus terdiri setidaknya %d angka.</item>
+        <item quantity="one">Kata sandi harus terdiri setidaknya 1 angka.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Kata sandi harus terdiri setidaknya %d simbol.</item>
+        <item quantity="one">Kata sandi harus terdiri setidaknya 1 simbol.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Kata sandi harus terdiri setidaknya %d angka atau simbol.</item>
+        <item quantity="one">Kata sandi harus terdiri setidaknya 1 angka atau simbol.</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Akses ke %d folder/file</item>
+        <item quantity="one">Akses ke 1 folder/file</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s telah menginstal sertifikat CA di perangkat, yang memungkinkannya untuk mengawasi aktivitas jaringan perangkat Anda, termasuk penggunaan email, aplikasi, dan situs web aman.
+
+Untuk informasi selengkapnya mengenai sertifikat ini, hubungi administrator TI."</item>
+        <item quantity="one">"%s telah menginstal sertifikat CA di perangkat, yang memungkinkannya untuk mengawasi aktivitas jaringan perangkat Anda, termasuk penggunaan email, aplikasi, dan situs web aman.
+
+Untuk informasi selengkapnya mengenai sertifikat ini, hubungi administrator TI."</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d aplikasi dapat membaca notifikasi.</item>
+        <item quantity="one">%d aplikasi diperbolehkan membaca notifikasi.</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d izin lainnya</item>
+        <item quantity="one">%d izin lainnya</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$d proses menggunakan RAM dalam %2$s terakhir</item>
+        <item quantity="one">%1$d proses menggunakan RAM dalam %2$s terakhir</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d aplikasi diizinkan untuk menggunakan data seluler tanpa batasan saat Penghemat data aktif</item>
+        <item quantity="one">1 aplikasi diizinkan untuk menggunakan data seluler tanpa pembatasan saat Penghemat data aktif</item>
+    </plurals>
+</resources>

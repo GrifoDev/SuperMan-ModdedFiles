@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <TextView android:id="@id/allow_one_installation_description" android:paddingTop="@dimen/alert_dialog_padding_top" android:paddingBottom="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/alert_dialog_padding_left_right" android:layout_marginRight="@dimen/alert_dialog_padding_left_right" android:text="@string/install_all_warning" style="@style/dialog_body_text_style" />
+    </ScrollView>
+    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="35.0dip">
+        <CheckBox android:id="@id/allow_one_installation" android:paddingLeft="@dimen/alert_dialog_bottom_checkbox_padding_left" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/alert_dialog_bottom_checkbox_margin_left" android:layout_marginTop="5.0dip" android:layout_marginRight="@dimen/alert_dialog_bottom_checkbox_margin_left" android:layout_marginBottom="@dimen/alert_dialog_padding_bottom" android:text="@string/allow_one_installation" style="@style/dialog_body_text_style" />
+    </LinearLayout>
+</LinearLayout>

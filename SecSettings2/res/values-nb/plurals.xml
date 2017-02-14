@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d timer</item>
+        <item quantity="one">1 time</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d minutter</item>
+        <item quantity="one">1 minutt</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d sekunder</item>
+        <item quantity="one">1 sekund</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Du er nå %d trinn unna å bli en utvikler.</item>
+        <item quantity="one">Du er nå 1 trinn fra å bli en utvikler.</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Fjern valgte språk</item>
+        <item quantity="one">Fjern valgt språk</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Passordet må inneholde minst %d bokstaver.</item>
+        <item quantity="one">Passordet må inneholde minst én bokstav.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Passordet må inneholde minst %d små bokstaver.</item>
+        <item quantity="one">Passordet må inneholde minst én liten bokstav.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Passordet må inneholde minst %d store bokstaver.</item>
+        <item quantity="one">Passordet må inneholde minst én stor bokstav.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Passordet må inneholde minst %d sifre.</item>
+        <item quantity="one">Passordet må inneholde minst ett siffer.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Passordet må inneholde minst %d symboler.</item>
+        <item quantity="one">Passordet må inneholde minst ett symbol.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Passordet må inneholde minst %d sifre eller symboler.</item>
+        <item quantity="one">Passordet må inneholde minst ett siffer eller symbol.</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Tilgang til %d mapper/filer</item>
+        <item quantity="one">Tilgang til 1 mappe/fil</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s har installert CA-sertifikater på enheten, som kan gi dem tillatelse til å overvåke enhetens nettverksaktivitet, deriblant bruk av e-post, apper og sikre nettsteder.
+
+For mer informasjon om disse sertifikatene kontakter du IT-administratoren."</item>
+        <item quantity="one">"%s har installert et CA-sertifikat på enheten, som kan gi dem tillatelse til å overvåke enhetens nettverksaktivitet, deriblant bruk av e-post, apper og sikre nettsteder.
+
+For mer informasjon om dette sertifikatet kontakter du IT-administratoren."</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d apper kan lese varsler.</item>
+        <item quantity="one">%d app har tillatelse til å lese varsler.</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d tillatelser til</item>
+        <item quantity="one">%d tillatelse til</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$d prosesser brukte RAM de siste %2$s</item>
+        <item quantity="one">%1$d prosess brukte RAM de siste %2$s</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d apper er tillatt å bruke mobildata uten begrensninger mens Datasparing er aktivert</item>
+        <item quantity="one">1 app tillates å bruke mobildata uten begrensninger mens Datasparing er aktivert</item>
+    </plurals>
+</resources>

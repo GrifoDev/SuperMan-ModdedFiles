@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="entry_7_step_font_size">
+        <item>@string/tiny</item>
+        <item>@string/extra_small</item>
+        <item>@string/small</item>
+        <item>@string/medium</item>
+        <item>@string/large</item>
+        <item>@string/extra_large</item>
+        <item>@string/huge</item>
+        <item>@string/extra_huge</item>
+        <item>@string/extra_huge</item>
+        <item>@string/extra_huge</item>
+        <item>@string/extra_huge</item>
+    </string-array>
+    <string-array name="entryvalues_7_step_font_size">
+        <item>0.89</item>
+        <item>0.945</item>
+        <item>1.0</item>
+        <item>1.165</item>
+        <item>1.33</item>
+        <item>1.55</item>
+        <item>1.77</item>
+        <item>1.88</item>
+        <item>1.99</item>
+        <item>2.1</item>
+        <item>2.21</item>
+    </string-array>
+    <string-array name="fmpad_size_entries">
+        <item>@string/fmpad_size_small</item>
+        <item>@string/fmpad_size_med</item>
+        <item>@string/fmpad_size_big</item>
+        <item>@string/fmpad_size_extra</item>
+        <item>@string/fmpad_size_huge</item>
+    </string-array>
+    <string-array name="fmpad_size_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+</resources>

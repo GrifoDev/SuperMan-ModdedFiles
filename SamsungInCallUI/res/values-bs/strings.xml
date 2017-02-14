@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="audio_mode_bluetooth">Bluetooth</string>
+    <string name="audio_mode_speaker">Zvučnik</string>
+    <string name="description_target_decline">Odbij</string>
+    <string name="onscreenSwapCallsText">Zamijeni</string>
+    <string name="BirthDay_remainedDays1">Rođendan je sutra</string>
+    <string name="TS_ADD_REASON_BUTTON_ABB_VODA">Add reason</string>
+    <string name="add_reminder">Dodaj podsj.</string>
+    <string name="call_drug_up_panel_for_kk_tts">Prevucite tablu sa porukama za odbijanje poziva prema gore da biste poslali poruku za odbijanje poziva u trenutku kada odbijete dolazni poziv.</string>
+    <string name="call_incoming_voice_call2_tts">Dodirnite dugme za prihvatanje poziva da biste odgovorili na poziv.</string>
+    <string name="call_incoming_voice_call3_tts">Dodirnite dugme za odbijanje poziva da biste odbili poziv.</string>
+    <string name="call_incoming_voice_call_for_kk_1_tts">Prevucite dugme za prihvatanje poziva s lijeve strane na desnu da biste prihvatili poziv.</string>
+    <string name="call_incoming_voice_call_for_kk_2_tts">Prevucite dugme za odbijanje poziva s desne strane na lijevu da biste odbili poziv.</string>
+    <string name="call_menu_during_call_list1_tts">Dodirnite dugme tastature za unos brojeva tokom poziva.</string>
+    <string name="call_menu_during_call_list2_tts">Dodirnite dugme zvučnika za uključivanje telefonskog zvučnika.</string>
+    <string name="call_menu_during_call_list3_tts">Dodirnite dugme za isključivanje zvuka da biste isključili sve zvukove sa vaše strane koji se mogu čuti tokom poziva.</string>
+    <string name="call_menu_during_call_list4_tts">Dodirnite dugme Bluetooth da biste nastavili poziv na povezanom Bluetooth uređaju.</string>
+    <string name="call_menu_during_call_list5_tts">Dodirnite dugme Prekini poziv da biste prekinuli poziv.</string>
+    <string name="call_menu_during_call_list6_tts">Dodirnite dugme za dodatnu jačinu zvuka da biste pojačali jačinu zvuka.</string>
+    <string name="call_menu_during_call_list7_tts">Dodirnite dugme Dodaj poziv da biste pozvali drugu osobu i dodali je aktuelnom pozivu.</string>
+    <string name="conferencing_dialog_Available_for_VoiceCalls">Conferencing is only available for voice calls.</string>
+    <string name="data_usage_limit_dialog_message_tmo">Data limit that you have set on your phone has reached and data is turned off. Video call requires a data connection. Turn on mobile data or connect to any available Wi-Fi network.</string>
+    <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
+    <string name="incoming_video_call_no_dot">Dolazni video poziv</string>
+    <string name="low_batt_upgrade_disallowed">Unable to switch to video call. Battery low.</string>
+    <string name="mt_vt_not_possible">%s cannot receive video calls at this time. You will now be connected through a voice call.</string>
+    <string name="open_folder_for_speakeroff">To turn off the speakerphone, open the flip phone.</string>
+    <string name="preferred_sim_for_callback">Preferirani SIM za pozive</string>
+    <string name="rcs_share_donot_send_my_video">Hide me</string>
+    <string name="rcs_share_send_my_video">Show me</string>
+    <string name="recently_use_sim_for_callback">Nedav. koriš. SIM kartica</string>
+    <string name="record_notification_button_text_record_list">Snimci</string>
+    <string name="record_notification_content">Dodirnite SNIMCI da biste prikazali snimljene pozive.</string>
+    <string name="reject">Odbij</string>
+    <string name="save_record_msg_myfiles">Snimak je sačuvan u folderu Moje datoteke.</string>
+    <string name="secConferenceCallMerging">Objedinjavanje poziva…</string>
+    <string name="secOnscreenMenuSpeakerOffText">Isključi zvučnik</string>
+    <string name="secOnscreenMenuSpeakerOnText">Uključi zvučnik</string>
+    <string name="secOnscreenMenuSwitchToVoiceCallText">Pređi na glas. poziv</string>
+    <string name="secOnscreenPopupReject">Odbij</string>
+    <string name="secOnscreenSpeaker">Zvučnik</string>
+    <string name="secOnscreenSwapText">Zamijeni</string>
+    <string name="secOnscreenViewContactText">Prikaži kontakt</string>
+    <string name="select_callback_sim_card">Izaberi SIM karticu za uzvratni poziv</string>
+    <string name="select_callback_sim_card_content">Posljednji poziv ili poruka, poslana na ovaj broj ili sa njega, nije koristila preferiranu SIM karticu za pozive. Izaberite koju SIM karticu želite koristiti.</string>
+    <string name="smart_call_block_msg">Blokiraj broj</string>
+    <string name="smart_call_block_report_number">Blokiraj/prijavi broj</string>
+    <string name="smart_call_report_msg">Broj izvještaja</string>
+    <string name="smart_call_unblock_button">Deblokiraj</string>
+    <string name="switched_to_voip_mo">Prebačeno na glasovni poziv.</string>
+    <string name="switched_to_voip_mt">Prebačeno na glasovni poziv po zahtjevu pozvane strane.</string>
+    <string name="switched_to_voip_mt_att_tmo">%s turned off video.</string>
+    <string name="tutorial_incoming_call_app_reject">Dodirnite da biste odbili poziv.</string>
+    <string name="usa_gsm_modify_receive_to_video">%s želi da pređe na video poziv.</string>
+    <string name="usa_vzw_volte_weak_wifi_text">"We tried, but we can’t switch your video call to Wi-Fi at this time.
+
+Your video call is still running on the mobile network. (Data usage applies if you choose to continue.)"</string>
+    <string name="usa_vzw_vowifi_wifi_low_signal_text">"The Wi-Fi signal was not strong enough to continue your video call.
+
+Your video call is now running on the mobile network. (Data usage applies if you choose to continue.)"</string>
+    <string name="waiting_call_dialog_Merging">Spajanje sa brojem %s</string>
+</resources>

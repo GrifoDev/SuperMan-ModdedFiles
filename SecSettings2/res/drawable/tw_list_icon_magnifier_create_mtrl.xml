@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:gravity="center" android:height="@dimen/magnifier_icon_zoom_size" android:width="@dimen/magnifier_icon_zoom_size" android:drawable="@drawable/tw_list_icon_create_circle_mtrl" />
+    <item android:gravity="center" android:height="@dimen/magnifier_icon_zoom_size" android:width="@dimen/magnifier_icon_zoom_size">
+        <bitmap android:gravity="center" android:src="@drawable/accessibility_magnifier_progress_plus" android:tint="@color/list_icon_color" />
+    </item>
+</layer-list>

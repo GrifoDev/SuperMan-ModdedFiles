@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:key="direct_access_screen"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.samsung.android.settings.UnclickablePreference android:title="@string/direct_access_summary" android:key="direct_access_guide" />
+    <PreferenceCategory android:title="@string/direct_access_category_title" android:key="direct_access_category">
+        <SwitchPreference android:title="@string/direct_access_actions_accessibility_title" android:key="direct_accessibility" />
+        <SwitchPreference android:title="@string/direct_access_actions_talkback_title" android:key="direct_talkback" />
+        <SwitchPreference android:title="@string/direct_access_actions_s_talkback_title" android:key="direct_s_talkback" />
+        <SwitchPreference android:title="@string/direct_access_actions_universal_switch_title" android:key="direct_universal_switch" />
+        <SwitchPreference android:title="@string/accessibility_toggle_screen_reader_preference_title" android:key="direct_page_reader" />
+        <SwitchPreference android:title="@string/direct_access_actions_magnifier_title" android:key="direct_magnifier" />
+        <SwitchPreference android:title="@string/direct_access_actions_negative_title" android:key="direct_negative" />
+        <SwitchPreference android:title="@string/direct_access_actions_greyscale_title" android:key="direct_greyscale" />
+        <SwitchPreference android:title="@string/direct_access_actions_color_adjustment_title" android:key="direct_color_adjustment" />
+        <SwitchPreference android:title="@string/direct_access_actions_accesscontrol_title" android:key="direct_accesscontrol" />
+    </PreferenceCategory>
+</PreferenceScreen>

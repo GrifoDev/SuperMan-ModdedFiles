@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="TS_ADD_REASON_BUTTON_ABB_VODA">Add reason</string>
+    <string name="conferencing_dialog_Available_for_VoiceCalls">Conferencing is only available for voice calls.</string>
+    <string name="mt_vt_not_possible">%s cannot receive video calls at this time. You will now be connected through a voice call.</string>
+    <string name="rcs_share_donot_send_my_video">Hide me</string>
+    <string name="rcs_share_send_my_video">Show me</string>
+</resources>

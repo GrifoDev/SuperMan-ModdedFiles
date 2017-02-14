@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/lgt_service_global_auto_roaming" android:key="root_global_roaming"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:phone="http://schemas.android.com/apk/res/com.android.phone">
+    <Preference android:title="@string/roaming_reset_lgt" android:key="button_reset_setting" />
+    <Preference android:title="@string/lgt_service_global_auto_roaming_country_update" android:key="button_country_update" />
+    <SwitchPreference android:title="@string/roaming_lte_preference_lgt" android:key="button_lte_roaming" />
+</PreferenceScreen>

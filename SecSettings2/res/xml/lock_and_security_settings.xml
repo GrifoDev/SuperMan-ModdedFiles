@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/lock_and_security_settings_title"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <Preference android:persistent="false" android:title="@string/lockscreen_wallpaper" android:key="lock_screen" android:fragment="com.samsung.android.settings.lockscreen.LockscreenMenuSettings" />
+    <Preference android:persistent="false" android:title="@string/fingerprint" android:key="finger_scanner">
+        <intent android:targetPackage="com.android.settings" android:action="android.intent.action.MAIN" android:targetClass="com.android.settings.fingerprint.FingerprintEntry" />
+    </Preference>
+    <Preference android:persistent="false" android:title="@string/find_my_mobile" android:key="find_my_mobile" android:fragment="com.android.settings.fmm.FindMyMobileSettings" />
+    <Preference android:persistent="false" android:title="@string/app_ops_settings" android:key="app_ops_settings" android:summary="@string/app_ops_settings_summary" android:fragment="com.android.settings.applications.AppOpsSummary" />
+    <SwitchPreference android:persistent="false" android:title="@string/install_applications" android:key="toggle_install_applications" />
+</PreferenceScreen>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inset android:insetLeft="@dimen/tw_list_divider_inset_left" android:insetRight="@dimen/tw_list_divider_inset_right"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <selector>
+        <item>
+            <nine-patch android:src="@drawable/tw_section_divider_default_mtrl" android:tint="@color/tw_section_divider_color_mtrl" />
+        </item>
+    </selector>
+</inset>

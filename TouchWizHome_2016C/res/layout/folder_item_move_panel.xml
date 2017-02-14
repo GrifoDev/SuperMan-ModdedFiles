@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.launcher2.FolderItemMovePanel android:id="@id/folder_item_move_panel" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <HorizontalScrollView android:layout_gravity="bottom" android:id="@id/folderItemMovePanel_ScrollView" android:background="@drawable/bottom_bar" android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="horizontal" android:id="@id/folderItemMovePanel_List" android:layout_width="fill_parent" android:layout_height="@dimen/folder_move_item_panel_height" android:layout_marginTop="@dimen/folder_move_item_panel_marginTop" />
+    </HorizontalScrollView>
+</com.android.launcher2.FolderItemMovePanel>

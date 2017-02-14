@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:id="@id/main" android:background="@color/sec_incall_screen_background" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <RelativeLayout android:orientation="vertical" android:id="@id/remote_call_pull_button_container" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/sec_endcall_button_margin_bottom" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true">
+            <ImageButton android:id="@id/btn_remotecall_pull" android:background="@drawable/sec_remote_call_pull_button_background" android:layout_width="@dimen/sec_endcall_button_diameter" android:layout_height="@dimen/sec_endcall_button_diameter" android:src="@drawable/vzw_remote_call_ic_pull" android:layout_centerHorizontal="true" />
+            <TextView android:textSize="14.0dip" android:textColor="@color/line_effect_color" android:id="@id/text_remotecall_pull_btn" android:layout_width="wrap_content" android:layout_height="20.0dip" android:layout_marginTop="5.0dip" android:text="@string/remotecall_pull" android:layout_below="@id/btn_remotecall_pull" android:layout_centerHorizontal="true" />
+            <include layout="@layout/remotecall_end_fragment" />
+        </RelativeLayout>
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_above="@id/remote_call_pull_button_container" android:layout_alignParentTop="true">
+            <LinearLayout android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="3.0">
+                <com.android.incallui.widget.GradientAnimationView android:id="@id/gradient_animation_view" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+            </LinearLayout>
+            <LinearLayout android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:clipChildren="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_above="@id/remote_call_pull_button_container" android:layout_alignParentTop="true">
+            <LinearLayout android:id="@id/in_call_card_container" android:clipChildren="false" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="3.0" />
+            <LinearLayout android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

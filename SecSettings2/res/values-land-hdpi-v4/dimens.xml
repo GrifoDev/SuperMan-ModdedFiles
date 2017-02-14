@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="bluetooth_scandialog_fragment_height">150.0dip</dimen>
+</resources>

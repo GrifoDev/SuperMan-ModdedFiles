@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:paddingTop="@dimen/list_item_top_padding" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ImageView android:layout_gravity="center" android:id="@id/image_view" android:layout_width="fill_parent" android:layout_height="wrap_content" android:scaleType="fitXY" android:adjustViewBounds="true" android:paddingStart="@dimen/list_item_start_padding" android:paddingEnd="@dimen/list_item_end_padding" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:paddingTop="@dimen/not_topside_body_text_top_padding" android:paddingBottom="@dimen/list_item_bottom_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/list_item_start_padding" android:paddingEnd="@dimen/list_item_end_padding">
+        <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/accessibility_access_control_summary_1" style="@style/body_text_style" />
+    </LinearLayout>
+</LinearLayout>

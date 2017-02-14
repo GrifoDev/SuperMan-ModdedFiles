@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d ঘণ্টা</item>
+        <item quantity="one">1 ঘণ্টা</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d মিনিট</item>
+        <item quantity="one">১ মিনিট</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d সেকেন্ড</item>
+        <item quantity="one">1 সেকেন্ড</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">ডেভেলপার হওয়া থেকে আপনি আর %dটি পদক্ষেপ দূরে আছেন।</item>
+        <item quantity="one">ডেভেলপার হওয়া থেকে আপনি আর এক পদক্ষেপ দূরে আছেন।</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">নির্বাচিত ভাষাগুলো অপসারণ করুন</item>
+        <item quantity="one">নির্বাচিত ভাষাটি অপসারণ করুন</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">পাসওয়ার্ডে অবশ্যই কমপক্ষে %dটি বর্ণ থাকতে হবে।</item>
+        <item quantity="one">পাসওয়ার্ডে অন্তত একটি বর্ণ থাকতে হবে।</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">পাসওয়ার্ডে অবশ্যই কমপক্ষে %dটি ছোটহাতের বর্ণ থাকতে হবে।</item>
+        <item quantity="one">পাসওয়ার্ডে অবশ্যই কমপক্ষে একটি ছোটহাতের বর্ণ থাকতে হবে।</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">পাসওয়ার্ডে অবশ্যই কমপক্ষে %dটি বড়হাতের বর্ণ থাকতে হবে।</item>
+        <item quantity="one">পাসওয়ার্ডে অবশ্যই কমপক্ষে একটি বড়হাতের বর্ণ থাকতে হবে।</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">পাসওয়ার্ডে অবশ্যই কমপক্ষে %dটি সংখ্যা থাকতে হবে।</item>
+        <item quantity="one">পাসওয়ার্ডে অন্তত একটি সংখ্যা থাকতে হবে।</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">পাসওয়ার্ডে অবশ্যই কমপক্ষে %dটি চিহ্ন থাকতে হবে।</item>
+        <item quantity="one">পাসওয়ার্ডে কমপক্ষে একটি চিহ্ন থাকতে হবে।</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">পাসওয়ার্ডে অবশ্যই কমপক্ষে %dটি সংখ্যা বা চিহ্ন থাকতে হবে।</item>
+        <item quantity="one">পাসওয়ার্ডে অবশ্যই কমপক্ষে একটি সংখ্যা বা চিহ্ন থাকতে হবে।</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">%dটি ফোল্ডারে/ফাইলে প্রবেশাধিকার</item>
+        <item quantity="one">1টি ফোল্ডারে/ফাইলে প্রবেশাধিকার</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s আপনার ডিভাইসে CA সার্টিফিকেট ইনস্টল করেছে, যার মাধ্যমে তারা হয়তো আপনার ইমেইল, অ্যাপ, ও নিরাপদ ওয়েবসাইট ব্যবহারসহ আপনার ডিভাইসের নেটওয়ার্ক অ্যাক্টিভিটি পর্যবেক্ষণ করতে পারবে৷
+
+এই সার্টিফিকেটগুলো সম্পর্কে আরো তথ্যের জন্য আপনার আইটি এডমিনের সাথে যোগাযোগ করুন।"</item>
+        <item quantity="one">"%s আপনার ডিভাইসে একটি CA সার্টিফিকেট ইনস্টল করেছে, যার মাধ্যমে তারা হয়তো আপনার ইমেইল, অ্যাপ, ও নিরাপদ ওয়েবসাইট ব্যবহারসহ আপনার ডিভাইসের নেটওয়ার্ক অ্যাক্টিভিটি পর্যবেক্ষণ করতে পারবে৷
+
+এই সার্টিফিকেট সম্পর্কে আরো তথ্যের জন্য আপনার আইটি এডমিনের সাথে যোগাযোগ করুন।"</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%dটি অ্যাপ্লিকেশন নোটিফিকেশন পড়তে পারে।</item>
+        <item quantity="one">নোটিফিকেশন পড়ার জন্য %dটি অ্যাপ্লিকেশন অনুমতিপ্রাপ্ত।</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d আরো অনুমতি</item>
+        <item quantity="one">%d আরো অনুমতি</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">গত %2$s %1$dটি প্রক্রিয়া র‌্যাম ব্যবহার করেছে</item>
+        <item quantity="one">গত %2$s %1$dটি প্রক্রিয়া RAM ব্যবহার করেছে</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">‘ডাটা সেভার’ অপশনটি সক্রিয় থাকাকালীন %dটি অ্যাপকে অবাধে মোবাইল ডাটা ব্যবহারের অনুমতি দেয়া হয়েছে</item>
+        <item quantity="one">‘ডাটা সেভার’ সক্রিয় থাকাকালীন 1টি অ্যাপকে অবাধে মোবাইল ডাটা ব্যবহারের অনুমতি দেয়া হয়েছে৷</item>
+    </plurals>
+</resources>

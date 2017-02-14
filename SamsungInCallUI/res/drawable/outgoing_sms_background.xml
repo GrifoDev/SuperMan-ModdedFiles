@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="rectangle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:topLeftRadius="@dimen/person_contact_context_message_background_main_radius" android:topRightRadius="@dimen/person_contact_context_message_background_main_radius" android:bottomLeftRadius="@dimen/person_contact_context_message_background_main_radius" android:bottomRightRadius="@dimen/person_contact_context_message_background_accent_radius" />
+    <solid android:color="@color/person_contact_context_message_background_color" />
+</shape>

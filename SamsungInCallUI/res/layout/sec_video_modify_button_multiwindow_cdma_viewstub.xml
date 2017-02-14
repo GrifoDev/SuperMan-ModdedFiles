@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:id="@id/inCallModifyCallButtons" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/sec_video_incall_button_height" android:baselineAligned="false">
+        <RelativeLayout android:id="@id/changeToVideoButtonContainer" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <com.android.incallui.widget.SecVideoButton android:id="@id/changeToVideoButton" android:drawableTop="@drawable/sec_video_incall_button_video_vzw_icon" android:contentDescription="@string/usa_vzw_change_to_video" style="@style/SecVideoCallMultiwindowModifyButtonWithText" />
+        </RelativeLayout>
+        <RelativeLayout android:id="@id/changeToVideoShareButtonContainer" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <com.android.incallui.widget.SecVideoButton android:id="@id/changeToVideoShareButton" android:visibility="gone" android:drawableTop="@drawable/sec_video_incall_button_video_vzw_icon" android:contentDescription="@string/usa_vzw_change_to_oneway_video" style="@style/SecVideoCallMultiwindowModifyButtonWithText" />
+        </RelativeLayout>
+        <View android:layout_gravity="center" android:id="@id/modifyButtonDivider" android:background="@color/sec_modify_button_divider_color" android:layout_width="@dimen/sec_video_incall_modify_button_divider_width" android:layout_height="@dimen/sec_video_incall_modify_button_divider_height" />
+        <RelativeLayout android:id="@id/stayOnVoiceButtonContainer" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <com.android.incallui.widget.SecVideoButton android:id="@id/stayOnVoiceButton" android:drawableTop="@drawable/sec_video_incall_button_voice_vzw_icon" android:contentDescription="@string/usa_vzw_stay_on_voice" style="@style/SecVideoCallMultiwindowModifyButtonWithText" />
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

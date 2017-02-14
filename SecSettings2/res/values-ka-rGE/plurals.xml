@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d საათი</item>
+        <item quantity="one">1 საათი</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d წუთი</item>
+        <item quantity="one">1 წუთი</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d წამი</item>
+        <item quantity="one">1 წამი</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">ახლა %d ნაბიჯი დაგრჩათ, რომ დეველოპერი გახდეთ.</item>
+        <item quantity="one">ახლა 1 ნაბიჯი დაგრჩათ, რომ დეველოპერი გახდეთ.</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">შერჩეული ენების წაშლა</item>
+        <item quantity="one">შერჩეული ენის წაშლა</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">პაროლი უნდა შეიცავდეს მინიმუმ %d ასოს.</item>
+        <item quantity="one">პაროლი უნდა შეიცავდეს მინიმუმ 1 ასოს.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">პაროლი უნდა შეიცავდეს ქვედა რეგისტრის მინიმუმ %d ასოს.</item>
+        <item quantity="one">პაროლი უნდა შეიცავდეს ქვედა რეგისტრის მინიმუმ 1 ასოს.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">პაროლი უნდა შეიცავდეს ზედა რეგისტრის მინიმუმ %d ასოს.</item>
+        <item quantity="one">პაროლი უნდა შეიცავდეს ზედა რეგისტრის მინიმუმ 1 ასოს.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">პაროლი უნდა შეიცავდეს მინიმუმ %d ციფრს.</item>
+        <item quantity="one">პაროლი უნდა შეიცავდეს მინიმუმ 1 ციფრს.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">პაროლი უნდა შეიცავდეს მინიმუმ %d სიმბოლოს.</item>
+        <item quantity="one">პაროლი უნდა შეიცავდეს მინიმუმ 1 სიმბოლოს.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">პაროლი უნდა შეიცავდეს მინიმუმ %d ციფრს ან სიმბოლოს.</item>
+        <item quantity="one">პაროლი უნდა შეიცავდეს მინიმუმ 1 ციფრს ან სიმბოლოს.</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">წვდომა %d საქაღალდეზე/ფაილზე</item>
+        <item quantity="one">წვდომა 1 საქაღალდეზე/ფაილზე</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s-მ დააინსტალირა CA სერტიფიკატები თქვენს მოწყობილობაში, რომელიც მას მისცემს თქვენი მოწყობილობის მიერ ქსელში შესრულებული აქტივობის მონიტორინგის შესაძლებლობას, მათ შორის თვალი ადევნოს ელფოსტების, აპლიკაციებისა და დაცული ვებსაიტების გამოყენებას.
+
+ამ სერტიფიკატების შესახებ დამატებითი ინფორმაციისთვის, მიმართეთ თქვენს IT ადმინისტრატორს."</item>
+        <item quantity="one">"%s-მ დააინსტალირა CA სერტიფიკატი თქვენს მოწყობილობაში, რომელიც მას მისცემს თქვენი მოწყობილობის მიერ ქსელში შესრულებული აქტივობის მონიტორინგის შესაძლებლობას, მათ შორის თვალი ადევნოს ელფოსტების, აპლიკაციებისა და დაცული ვებსაიტების გამოყენებას.
+
+ამ სერტიფიკატის შესახებ დამატებითი ინფორმაციისთვის, მიმართეთ თქვენს IT ადმინისტრატორს."</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d პროგრამა ვერ კითხულობს შეტყობინებებს.</item>
+        <item quantity="one">%d პროგრამას აქვს შეტყობინებების წაკითხვის ნებართვა.</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d სხვა ნებართვა</item>
+        <item quantity="one">კიდევ %d ნებართვა</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$d-მა პროცესმა გამოიყენა RAM ბოლო %2$s-ში</item>
+        <item quantity="one">%1$d-მა პროცესმა გამოიყენა RAM ბოლო %2$s-ში</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d აპლიკაციას აქვს მობილურ მონაცემთა შეუზღუდავი გამოყენების ნებართვა, როდესაც „მონაცემთა დაზოგვა“ ჩართულია</item>
+        <item quantity="one">1 აპლიკაციას აქვს მობილურ მონაცემთა შეუზღუდავად გამოყენების ნებართვა, როდესაც „მონაცემთა დაზოგვა“ ჩართულია</item>
+    </plurals>
+</resources>

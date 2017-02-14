@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@id/cnapNameLayout" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/sec_call_label_text_size" android:textColor="@color/sec_video_call_banner_text_color" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/message_greeting" android:includeFontPadding="false" android:fontFamily="sans-serif" android:layout_marginEnd="@dimen/sec_call_label_margin_right" />
+    <TextView android:textSize="@dimen/sec_call_label_text_size" android:textColor="@color/sec_video_call_banner_text_color" android:ellipsize="marquee" android:id="@id/cnapName" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:includeFontPadding="false" android:fontFamily="sans-serif" />
+</LinearLayout>

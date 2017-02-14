@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:rowCount="2" android:columnCount="4" style="@style/list_item_container_style"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center" android:id="@id/icon" android:layout_width="@dimen/list_app_icon_size" android:layout_height="@dimen/list_app_icon_size" android:scaleType="centerInside" android:layout_column="0" android:contentDescription="@null" android:layout_rowSpan="2" android:layout_marginEnd="@dimen/list_item_start_padding" />
+    <TextView android:ellipsize="marquee" android:gravity="center_vertical" android:layout_gravity="fill_horizontal" android:id="@id/name" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_marginTop="@dimen/list_item_top_padding" android:layout_column="1" android:singleLine="true" android:layout_row="0" android:textAlignment="viewStart" style="@style/list_title_text_style" />
+    <LinearLayout android:gravity="center" android:layout_gravity="center_vertical" android:layout_width="@dimen/firewall_item_width" android:layout_height="fill_parent" android:layout_column="2" android:layout_rowSpan="2">
+        <CheckBox android:id="@id/switch_mobile_data" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:layout_gravity="center_vertical" android:layout_width="@dimen/firewall_item_width" android:layout_height="fill_parent" android:layout_column="3" android:layout_rowSpan="2" android:layout_marginStart="@dimen/firewall_item_checkbox_margin_start" android:layout_marginEnd="@dimen/firewall_item_checkbox_margin_end">
+        <CheckBox android:id="@id/switch_wifi" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:layout_gravity="fill_horizontal|center|top" android:orientation="horizontal" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/list_item_bottom_padding" android:layout_column="1" android:layout_row="1">
+        <TextView android:ellipsize="marquee" android:id="@id/data_usage" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:textAlignment="viewStart" android:layout_marginEnd="@dimen/firewall_item_margin_end" style="@style/list_summary_text_style" />
+        <TextView android:ellipsize="marquee" android:id="@id/wlan_usage" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:textAlignment="viewStart" style="@style/list_summary_text_style" />
+    </LinearLayout>
+</GridLayout>

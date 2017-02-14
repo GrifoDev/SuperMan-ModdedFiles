@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:background="@drawable/relative_link_footerview_bg" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/relative_link_view_margin_top" android:layout_marginBottom="@dimen/relative_link_view_margin_top" android:layout_marginStart="@dimen/relative_link_view_margin_start" android:layout_marginEnd="@dimen/relative_link_view_margin_start">
+        <LinearLayout android:orientation="vertical" android:padding="@dimen/relative_link_padding" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:id="@id/link_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/relative_description" android:layout_weight="1.0" style="@style/relative_link_title" />
+            <LinearLayout android:orientation="vertical" android:id="@id/link_container" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

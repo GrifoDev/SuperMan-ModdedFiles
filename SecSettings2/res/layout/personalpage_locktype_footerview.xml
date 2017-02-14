@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/descprtion_divider" android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginStart="@dimen/list_item_start_padding" android:layout_marginEnd="@dimen/list_item_end_padding">
+        <TextView android:id="@id/guide_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/private_mode_disclaimer_layout_marginTop" android:text="@string/personal_page_add_fingerprint_desc" style="@style/description_text" />
+        <TextView android:id="@id/link_text" android:background="?android:listChoiceBackgroundIndicator" android:paddingTop="4.0dip" android:paddingBottom="4.0dip" android:focusable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/list_item_top_padding" android:layout_marginBottom="@dimen/list_item_bottom_padding" android:text="@string/personal_page_link_fingerprint" style="@style/description_link_text" />
+    </LinearLayout>
+</LinearLayout>

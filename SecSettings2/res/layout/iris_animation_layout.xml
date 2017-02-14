@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:paddingBottom="@dimen/iris_preview_img_view_margin" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:background="@color/iris_preview_img_background" android:layout_width="@dimen/iris_preview_img_width" android:layout_height="@dimen/iris_preview_img_height" android:src="@drawable/hud_preview_bg" />
+    <FrameLayout android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="26.0dip">
+        <ImageView android:layout_gravity="center" android:id="@id/left_ani_01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/hud_left_ani_01" />
+        <ImageView android:layout_gravity="center" android:id="@id/left_ani_02" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/hud_left_ani_02" />
+        <ImageView android:layout_gravity="center" android:id="@id/left_ani_03" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/hud_left_ani_03" />
+    </FrameLayout>
+    <FrameLayout android:layout_gravity="end|center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="26.0dip">
+        <ImageView android:layout_gravity="center" android:id="@id/right_ani_01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/hud_right_ani_01" />
+        <ImageView android:layout_gravity="center" android:id="@id/right_ani_02" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/hud_right_ani_02" />
+    </FrameLayout>
+    <LinearLayout android:gravity="center" android:layout_gravity="center" android:id="@id/iris_check_btn_layout" android:background="@layout/iris_preview_style_selected_background" android:layout_width="@dimen/iris_preview_img_width" android:layout_height="@dimen/iris_preview_img_height">
+        <ImageView android:id="@id/check_btn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/iris_setting_preview_selected" />
+    </LinearLayout>
+</FrameLayout>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d ժամ</item>
+        <item quantity="one">1 ժամ</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d րոպե</item>
+        <item quantity="one">1 րոպե</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d վայրկյան</item>
+        <item quantity="one">1 վայրկյան</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Ձեզ հիմա %d քայլ է բաժանում մշակող լինելուց:</item>
+        <item quantity="one">Ձեզ հիմա 1 քայլ է բաժանում մշակող լինելուց:</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Հեռացնել ընտրված լեզուները</item>
+        <item quantity="one">Հեռացնել ընտրված լեզուն</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Գաղտնաբառը պետք է պարունակի առնվազն %d տառ:</item>
+        <item quantity="one">Գաղտնաբառը պետք է պարունակի առնվազն 1 տառ:</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Գաղտնաբառը պետք է պարունակի առնվազն %d փոքրատառ:</item>
+        <item quantity="one">Գաղտնաբառը պետք է պարունակի առնվազն 1 փոքրատառ:</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Գաղտնաբառը պետք է պարունակի առնվազն %d մեծատառ:</item>
+        <item quantity="one">Գաղտնաբառը պետք է պարունակի առնվազն 1 մեծատառ:</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Գաղտնաբառը պետք է պարունակի առնվազն %d թիվ:</item>
+        <item quantity="one">Գաղտնաբառը պետք է պարունակի առնվազն 1 թիվ:</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Գաղտնաբառը պետք է պարունակի առնվազն %d սիմվոլ:</item>
+        <item quantity="one">Գաղտնաբառը պետք է պարունակի առնվազն 1 սիմվոլ:</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Գաղտնաբառը պետք է պարունակի առնվազն %d թիվ կամ սիմվոլ:</item>
+        <item quantity="one">Գաղտնաբառը պետք է պարունակի առնվազն 1 թիվ կամ սիմվոլ:</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Մուտք դեպի %d պանակ կամ ֆայլ</item>
+        <item quantity="one">Մուտք դեպի 1 պանակ կամ ֆայլ</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s-ը ՎԿ վկայականներ է տեղադրել Ձեր սարքում, ինչը թույլ կտա մշտադիտարկել սարքի ցանցային գործունեությունը, ներառյալ էլեկտրոնային փոստերի, ծրագրերի և պաշտպանված կայքերի օգտագործումը:
+
+Այդ վկայականների մասին լրացուցիչ տեղեկությունների համար դիմեք Ձեր ՏՏ վարիչին:"</item>
+        <item quantity="one">"%s-ը ՎԿ վկայական է տեղադրել Ձեր սարքում, ինչը թույլ կտա մշտադիտարկել սարքի ցանցային գործունեությունը, ներառյալ էլեկտրոնային փոստերի, ծրագրերի և պաշտպանված կայքերի օգտագործումը:
+
+Այդ վկայականի մասին լրացուցիչ տեղեկությունների համար դիմեք Ձեր ՏՏ վարիչին:"</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d ծրագրեր կարող են ծանուցումներ կարդալ:</item>
+        <item quantity="one">%d հավելվածը կարող են կարդալ ծանուցումներ:</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">Եվս %d թույլտվություն</item>
+        <item quantity="one">Եվս %d թույլտվություն</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$d գործընթացներ վերջին %2$s-ում RAM են օգտագործել</item>
+        <item quantity="one">%1$d գործընթաց վերջին %2$s-ում RAM է օգտագործել</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d ծրագրերի թույլատրված է շարժական տվյալներ օգտագործել առանց սահմանափակումների, քանի դեռ Տվյալների խնայիչն ընձեռված է</item>
+        <item quantity="one">1 ծրագրի թույլատրված է շարժական տվյալներ օգտագործել առանց սահմանափակումների, քանի դեռ Տվյալների խնայիչն ընձեռված է</item>
+    </plurals>
+</resources>

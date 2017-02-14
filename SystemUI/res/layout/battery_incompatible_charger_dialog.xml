@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="17.0sp" android:id="@id/notice_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/checkbox_popup_text_top_margin" android:fontFamily="sec-roboto-light" android:layout_marginStart="@dimen/checkbox_popup_text_margin" android:layout_marginEnd="@dimen/checkbox_popup_text_margin" style="?android:attr/textAppearance" />
+        <CheckBox android:textSize="17.0sp" android:id="@id/do_not_show_again" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="18.0dip" android:text="@string/warning_alert_check" android:fontFamily="sec-roboto-light" android:paddingStart="5.0dip" android:layout_marginStart="@dimen/checkbox_popup_checkbox_margin" style="?android:attr/textAppearance" />
+    </LinearLayout>
+</ScrollView>

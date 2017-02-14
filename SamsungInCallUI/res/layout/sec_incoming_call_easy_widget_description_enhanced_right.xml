@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView android:textSize="@dimen/sec_easy_enhanced_incoming_widget_hint_text_size" android:textColor="@color/incoming_call_easy_image_widget_description_swipe_left_text_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="@dimen/sec_easy_enhanced_incoming_widget_hint_max_width" android:text="@string/swipe_left" android:singleLine="true" android:fontFamily="sans-serif"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

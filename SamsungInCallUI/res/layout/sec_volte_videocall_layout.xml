@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.incallui.widget.SecMenuButton android:textSize="@dimen/sec_menu_button_text" android:textColor="@drawable/sec_incall_menu_button_text_color" android:id="@id/videoCallMenuText" android:background="@drawable/sec_incall_button_background" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="@dimen/sec_call_state_layout_height" android:minWidth="0.0dip" android:minHeight="0.0dip" android:text="@string/onscreenVideoCallText" android:includeFontPadding="false" android:layout_centerVertical="true" android:textAllCaps="true" android:fontFamily="sans-serif" />
+</RelativeLayout>

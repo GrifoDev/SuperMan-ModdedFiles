@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent" android:fillViewport="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textAppearance="?android:textAppearanceMedium" android:gravity="top" android:id="@id/nfc_mobilecashbee_explained" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/nfc_osaifukeitai_list_item_margin_left" android:layout_marginTop="@dimen/nfc_osaifukeitai_list_item_margin_top" android:layout_marginRight="@dimen/nfc_osaifukeitai_list_item_margin_right" android:text="@string/nfc_mobile_cashbee_off_explained" />
+    </LinearLayout>
+</ScrollView>

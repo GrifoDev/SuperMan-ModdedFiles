@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center" android:id="@id/img_alert_bracket" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/popup_alert_bracket" />
+    <ImageView android:layout_gravity="center" android:id="@id/img_alert_fingerprint_01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/popup_alert_fingerprint" />
+    <ImageView android:layout_gravity="center" android:id="@id/img_alert_fingerprint_02" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/popup_alert_fingerprint" />
+    <ImageView android:layout_gravity="center" android:id="@id/img_alert_fingerprint_03" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/popup_alert_fingerprint" />
+</FrameLayout>

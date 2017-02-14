@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Widget.Design.TabLayout" parent="@style/Base.Widget.Design.TabLayout">
+        <item name="tabMode">fixed</item>
+        <item name="tabGravity">center</item>
+    </style>
+    <style name="wifi_ap_item_label">
+        <item name="android:textSize">17.0sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/wifi_ap_dialog_label_text_color</item>
+        <item name="android:paddingBottom">@dimen/wifi_ap_add_dialog_label_padding_bottom</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">roboto-regular</item>
+    </style>
+    <style name="wifi_ap_edittext2_style">
+        <item name="android:textSize">17.0sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:paddingTop">@dimen/wifi_ap_add_dialog_edit_padding_top</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">sec-roboto-light</item>
+        <item name="android:layout_marginStart">@dimen/wifi_ap_add_dialog_edit_margin_left</item>
+    </style>
+    <style name="Theme.CreateShortCut" parent="@android:style/Theme.Holo.Dialog">
+        <item name="android:windowNoTitle">true</item>
+    </style>
+    <style name="BluetoothSettings.DevicePicker" parent="@style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+    </style>
+    <style name="setup_wizard_button">
+        <item name="android:textAppearance">?android:textAppearanceMedium</item>
+        <item name="android:textSize">20.0sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">48.0dip</item>
+        <item name="android:minWidth">208.0dip</item>
+    </style>
+    <style name="LockScreenTheme" parent="@android:style/Theme.DeviceDefault.Light.Dialog">
+        <item name="android:regularColor">@color/lock_pattern_view_regular_color</item>
+        <item name="android:errorColor">@color/lock_pattern_view_error_color</item>
+        <item name="android:successColor">@color/lock_pattern_view_success_color</item>
+        <item name="preferenceTheme">@style/PreferenceTheme</item>
+        <item name="switchBarMarginStart">@dimen/switchbar_margin_start_singlepane</item>
+        <item name="switchBarMarginEnd">@dimen/switchbar_margin_end</item>
+    </style>
+    <style name="SecurityPreferenceButton" parent="@style/bottom_bar_button">
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:layout_width">0.0dip</item>
+        <item name="android:layout_height">@dimen/bottom_bar_height</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_weight">1.0</item>
+    </style>
+    <style name="KeyguardAppWidgetItem">
+        <item name="android:textSize">16.0sp</item>
+    </style>
+    <style name="SettingsTheme.DialogWhenLarge" parent="@style/Theme.Dialog" />
+    <style name="CustomPopupMenu" parent="@android:style/Widget.DeviceDefault.Light.PopupMenu">
+        <item name="android:dropDownHorizontalOffset">88.0dip</item>
+    </style>
+    <style name="WifiDirectPreferenceMydeviceSummaryText">
+        <item name="android:textSize">15.0sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/body_text_color</item>
+        <item name="android:lineSpacingExtra">4.0sp</item>
+        <item name="android:fontFamily">roboto-regular</item>
+    </style>
+    <style name="choose_lock_activity_style" parent="@style/Theme.Settings.SinglePreference">
+        <item name="android:backgroundDimAmount">0.3</item>
+        <item name="android:windowBackground">@color/choose_lock_activity_background</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowElevation">12.0dip</item>
+    </style>
+    <style name="SetupWizardFingerprintLayoutTheme">
+        <item name="suwBackgroundTile">@drawable/setup_illustration_tile</item>
+        <item name="suwIllustration">@drawable/setup_illustration_lock_screen_tablet</item>
+        <item name="suwIllustrationHorizontalTile">@drawable/setup_illustration_horizontal_tile</item>
+    </style>
+    <style name="Theme.DialogWhenLarge" parent="@style/Theme.Dialog">
+        <item name="android:colorBackground">#fffafafa</item>
+        <item name="android:windowMinWidthMajor">@android:dimen/dialog_min_width_major</item>
+        <item name="android:windowMinWidthMinor">@android:dimen/dialog_min_width_minor</item>
+    </style>
+    <style name="Theme.NoActionBar" parent="@style/Theme.Settings">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowActionModeOverlay">true</item>
+    </style>
+    <style name="Theme.ConfirmDeviceCredentials" parent="@style/Theme.SubSettings">
+        <item name="confirmDeviceCredentialsSideMargin">0.0dip</item>
+        <item name="confirmDeviceCredentialsTopMargin">64.0dip</item>
+    </style>
+</resources>

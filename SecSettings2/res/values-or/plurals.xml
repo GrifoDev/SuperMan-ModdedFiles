@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d ଘଣ୍ଟା</item>
+        <item quantity="one">1 ଘଣ୍ଟା</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d ମିନିଟ୍</item>
+        <item quantity="one">1 ମିନିଟ୍</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d ସେକେଣ୍ଡ</item>
+        <item quantity="one">1 ସେକେଣ୍ଡ୍</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">ବର୍ତ୍ତମାନ ଆପଣ ଏକ ବିକାଶକଙ୍କରୁ %d ପାଦ ଦୂରରେ ଅଛନ୍ତି।</item>
+        <item quantity="one">ଆପଣ ବର୍ତ୍ତମାନ ଜଣେ ଡେଭଲପରଙ୍କ ଠାରୁ 1 ପାଦ ଦୂରରେ ଅଛନ୍ତି।</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">ଚୟନିତ ଭାଷାଗୁଡିକ ଅପସାରଣ</item>
+        <item quantity="one">ଚୟନିତ ଭାଷା ଅପସାରଣ</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">ପାସୱାର୍ଡ୍ ଅତିକମରେ %dଟି ଅକ୍ଷର ଧାରଣ କରିବା ଜରୁରୀ।</item>
+        <item quantity="one">ପାସୱାର୍ଡ୍ ନିଶ୍ଚିତ ଭାବେ ଅତିକମରେ 1 ଅକ୍ଷର ଧାରଣ କରିଥିବା ଆବଶ୍ୟକ।</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">ପାସୱାର୍ଡ୍ ଅତିକମରେ %dଟି ଲୋୟରକେସ୍ ଅକ୍ଷରଗୁଡିକ ଧାରଣ କରିବା ଜରୁରୀ।</item>
+        <item quantity="one">ପାସୱାର୍ଡ୍ ନିଶ୍ଚିତ ଭାବେ ଅତିକମରେ 1 ଲୋୟରକେସ୍ ଅକ୍ଷର ଧାରଣ କରିଥିବା ଆବଶ୍ୟକ।</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">ପାସୱାର୍ଡ୍ ଅତିକମରେ %dଟି ଅପରକେସ୍ ଅକ୍ଷରଗୁଡିକ ଧାରଣ କରିବା ଜରୁରୀ।</item>
+        <item quantity="one">ପାସୱାର୍ଡ୍ ନିଶ୍ଚିତ ଭାବେ ଅତିକମରେ 1 ଅପରକେସ୍ ଅକ୍ଷର ଧାରଣ କରିଥିବା ଆବଶ୍ୟକ।</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">ପାସୱାର୍ଡ୍ ଅତିକମରେ %d ସଂଖ୍ୟା ଧାରଣ କରିବା ଜରୁରୀ।</item>
+        <item quantity="one">ପାସୱାର୍ଡ୍ ନିଶ୍ଚିତ ଭାବେ ଅତିକମରେ 1 ସଂଖ୍ୟା ଧାରଣ କରିଥିବା ଆବଶ୍ୟକ।</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">ପାସୱାର୍ଡ୍ ଅତିକମରେ %d ସଙ୍କେତ ଧାରଣ କରିବା ଆବଶ୍ୟକ।</item>
+        <item quantity="one">ପାସୱାର୍ଡ୍ ନିଶ୍ଚିତ ଭାବେ ଅତିକମରେ 1 ଚିହ୍ନ ଧାରଣ କରିବା ଆବଶ୍ୟକ।</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">ପାସୱାର୍ଡ୍ ଅତିକମରେ %dଟି ସଂଖ୍ୟା ଏବଂ ଚିହ୍ନଗୁଡିକ ଧାରଣ କରିବା ଆବଶ୍ୟକ।</item>
+        <item quantity="one">ପାସୱାର୍ଡ୍ ନିଶ୍ଚିତ ଭାବେ ଅତିକମରେ 1 ସଂଖ୍ୟା କିମ୍ଵା ଚିହ୍ନ ଧାରଣ କରିଥିବା ଆବଶ୍ୟକ।</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">%dଟି ଫୋଲ୍ଡର୍/ଫାଇଲକୁ ଆକସେସ୍</item>
+        <item quantity="one">1 ଫୋଲ୍ଡର୍/ଫାଇଲକୁ ଆକସେସ୍</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s ଆପଣଙ୍କ ଡିଭାଇସରେ ଏକ CA ସାର୍ଟିଫିକେଟ୍ ସଂସ୍ଥାପିତ କରିଛି, ଯାହାକି ସେମାନଙ୍କୁ ଆପଣଙ୍କ ଡିଭାଇସର ନେଟୱାର୍କ୍ କାର୍ଯ୍ୟକଳାପ ମନିଟର୍ କରିବାକୁ ଅନୁମତି ଦେଇପାରେ, ଏଥିରେ ଆପଣଙ୍କ ଇମେଲଗୁଡିକର ବ୍ୟବହାର, ଆପ୍ଲିକେସନ୍, ଏବଂ ସୁରକ୍ଷିତ ୱେବସାଇଟ୍ ଅନ୍ତର୍ଭୁକ୍ତ।
+
+ଏହିସବୁ ସାର୍ଟିଫିକେଟ୍ ବିଷୟରେ ଅଧିକ ସୂଚନା ପାଇଁ, ଆପଣଙ୍କ IT ପ୍ରଶାସକଙ୍କ ସହ ସମ୍ପର୍କ କରନ୍ତୁ।"</item>
+        <item quantity="one">"%s ଆପଣଙ୍କ ଡିଭାଇସରେ ଏକ CA ସାର୍ଟିଫିକେଟ୍ ସଂସ୍ଥାପିତ କରିଛି, ଯାହାକି ସେମାନଙ୍କୁ ଆପଣଙ୍କ ଡିଭାଇସର ନେଟୱାର୍କ୍ କାର୍ଯ୍ୟକଳାପ ମନିଟର୍ କରିବାକୁ ଅନୁମତି ଦେଇପାରେ, ଏଥିରେ ଆପଣଙ୍କ ଇମେଲଗୁଡିକର ବ୍ୟବହାର, ଆପ୍ଲିକେସନ୍, ଏବଂ ସୁରକ୍ଷିତ ୱେବସାଇଟ୍ ଅନ୍ତର୍ଭୁକ୍ତ।
+
+ଏହି ସାର୍ଟିଫିକେଟ୍ ବିଷୟରେ ଅଧିକ ସୂଚନା ପାଇଁ, ଆପଣଙ୍କ IT ପ୍ରଶାସକଙ୍କ ସହ ସମ୍ପର୍କ କରନ୍ତୁ।"</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d ଆପ୍ଲିକେସନ୍ ବିଜ୍ଞପ୍ତି ପଠନ କରିପାରିବେ।</item>
+        <item quantity="one">%d ଆପ୍ଲିକେସନକୁ ସୂଚନାଗୁଡିକ ପଢିବାକୁ ଅନୁମତି ଦିଆଯାଇଛି।</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d ଅଧିକ ଅନୁମତି</item>
+        <item quantity="one">%d ଅଧିକ ଅନୁମତି</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">ଶେଷ %2$sରେ %1$dଟି ପ୍ରକ୍ରିୟା RAM ବ୍ୟବହାର କରିଛି</item>
+        <item quantity="one">ଶେଷ %2$sରେ %1$dଟି ପ୍ରକ୍ରିୟା RAM ବ୍ୟବହାର କରିଛି</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">ଡାଟା ସଞ୍ଚୟ ସକ୍ଷମ ହୋଇଥିବା ସମୟରେ %d ଆପସ୍ ପ୍ରତିବନ୍ଧକଗୁଡିକ ବ୍ୟତୀତ ମୋବାଇଲ୍ ଡାଟା ବ୍ୟବହାର କରିବାକୁ ଅନୁମତି ଦେଇଥାଏ</item>
+        <item quantity="one">ଡାଟା ସେଭର୍ ସକ୍ଷମ ହୋଇଥିବା ସମୟରେ ପ୍ରତିବନ୍ଧକଗୁଡିକ ବ୍ୟତୀତ ମୋବାଇଲ୍ ଡାଟା ବ୍ୟବହାର କରିବାକୁ 1 ଆପ୍ଲିକେସନକୁ ଅନୁମତି ଦିଅନ୍ତୁ</item>
+    </plurals>
+</resources>

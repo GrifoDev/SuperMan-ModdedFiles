@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:systemui="http://schemas.android.com/apk/res/com.android.systemui">
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <FrameLayout android:descendantFocusability="afterDescendants" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <com.android.systemui.settings.ToggleSeekBar android:layout_gravity="center" android:id="@id/slider" android:background="@drawable/tw_seek_bar_background_borderless_material" android:layout_width="fill_parent" android:layout_height="wrap_content" android:progressDrawable="@drawable/tw_scrubber_progress_horizontal_material" android:thumb="@drawable/sec_ic_brightness_thumb" android:paddingStart="@dimen/brightness_controller_slider_padding_start" android:paddingEnd="@dimen/brightness_controller_slider_padding_end" android:splitTrack="false" />
+            <TextView android:textSize="@dimen/brightness_controller_label_text_size" android:textColor="@color/brightness_controller_hbm_text" android:gravity="center" android:layout_gravity="bottom|center" android:id="@id/brightness_controller_slider_hbm_text" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/brightness_controller_slider_hbm_text_height" android:text="@string/quick_settings_brightness_controller_hbm" android:singleLine="true" android:layout_below="@id/slider" android:fontFamily="sec-roboto-light" />
+        </FrameLayout>
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/brightness_controller_toggle_group" android:descendantFocusability="afterDescendants" android:layout_width="wrap_content" android:layout_height="fill_parent">
+            <CheckBox android:layout_gravity="center" android:id="@id/toggle" android:focusable="true" android:visibility="gone" android:layout_width="32.0dip" android:layout_height="32.0dip" android:scaleX="@integer/brightness_controller_toggle_size" android:scaleY="@integer/brightness_controller_toggle_size" />
+            <TextView android:textSize="12.0dip" android:textColor="@color/qs_tile_label" android:gravity="center" android:layout_gravity="center" android:id="@id/label" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:fontFamily="sec-roboto-light" android:layout_marginStart="-2.0dip" />
+            <ImageView android:id="@id/headerview_divider" android:background="@color/brightness_controller_divider_color" android:visibility="gone" android:layout_width="1.0dip" android:layout_height="18.0dip" android:alpha="0.4" android:layout_marginStart="@dimen/brightness_controller_divider_start_magin" android:layout_marginEnd="@dimen/brightness_controller_divider_end_magin" />
+            <ImageButton android:layout_gravity="center_vertical" android:id="@id/brightness_settings" android:background="@drawable/ripple_drawable" android:visibility="gone" android:layout_width="@dimen/brightness_controller_settings_icon_width" android:layout_height="@dimen/brightness_controller_settings_icon_height" android:src="@drawable/quickpanel_icon_brightness_setting" android:scaleType="fitCenter" android:tint="@color/animated_brightness_setting_icon_color" />
+        </LinearLayout>
+    </LinearLayout>
+</merge>

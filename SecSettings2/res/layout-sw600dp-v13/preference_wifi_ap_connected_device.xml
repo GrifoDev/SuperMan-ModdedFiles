@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:focusable="false" android:clickable="false" android:layout_width="fill_parent" android:layout_height="56.0dip" android:minHeight="?android:listPreferredItemHeight"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:id="@id/wifi_ap_connected_device_pref" android:background="?android:selectableItemBackground" android:focusable="true" android:clickable="true" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+        <RelativeLayout android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginStart="32.0dip">
+            <TextView android:textAppearance="?android:textAppearanceLarge" android:textSize="19.0sp" android:ellipsize="marquee" android:id="@android:id/title" android:focusable="false" android:fadingEdge="horizontal" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="2.0dip" android:singleLine="true" android:fontFamily="sec-roboto-light" android:layout_marginEnd="6.0dip" />
+            <TextView android:textAppearance="?android:textAppearanceMedium" android:textSize="14.0sp" android:textColor="@color/wifi_p2p_preference_summary_color" android:id="@android:id/summary" android:paddingBottom="3.0dip" android:focusable="false" android:visibility="gone" android:clickable="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:maxLines="4" android:layout_below="@android:id/title" android:fontFamily="sec-roboto-light" android:layout_marginEnd="6.0dip" android:layout_alignStart="@android:id/title" />
+        </RelativeLayout>
+        <LinearLayout android:layout_gravity="center_vertical" android:orientation="horizontal" android:id="@id/wifi_ap_add_or_delete_button" android:focusable="true" android:visibility="gone" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="5.0dip">
+            <ImageView android:gravity="center_vertical" android:id="@id/button_img" android:focusable="true" android:clickable="true" android:layout_width="32.0dip" android:layout_height="32.0dip" android:layout_marginEnd="6.0dip" style="?android:attr/actionButtonStyle" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

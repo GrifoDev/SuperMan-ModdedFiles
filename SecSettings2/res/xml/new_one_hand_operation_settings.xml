@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/onehand_settings_title" settings:parent="@xml/useful_feature"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <PreferenceCategory android:title="@string/onehand_settings_using_category">
+        <com.samsung.android.settings.SecRadioButtonPreference android:title="@string/onehand_settings_using_gesture" android:key="gesture_type" android:summary="@string/onehand_settings_using_gesture_summary" />
+        <com.samsung.android.settings.SecRadioButtonPreference android:title="@string/onehand_settings_using_button" android:key="button_type" android:summary="@string/onehand_settings_using_button_summary" />
+    </PreferenceCategory>
+    <SwitchPreference android:title="@string/onehand_settings_hardware_key_title" android:key="switch_show_hard_keys" android:summary="@string/onehand_settings_hardware_key_summary" />
+</PreferenceScreen>

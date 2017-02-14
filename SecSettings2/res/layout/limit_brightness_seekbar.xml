@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeightSmall"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="fill_parent">
+        <ImageView android:layout_gravity="center" android:id="@android:id/icon" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </LinearLayout>
+    <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <TextView android:ellipsize="marquee" android:id="@android:id/title" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/seekbar_preference_item_top_padding" android:singleLine="true" android:layout_marginStart="@dimen/list_item_start_padding" android:layout_marginEnd="@dimen/list_item_end_padding" style="@style/list_title_text_style" />
+        <TextView android:textAppearance="?android:textAppearanceSmall" android:textColor="?android:textColorSecondary" android:id="@android:id/summary" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="4" android:layout_below="@android:id/title" android:layout_marginStart="@dimen/list_item_start_padding" android:layout_marginEnd="@dimen/list_item_end_padding" android:layout_alignStart="@android:id/title" />
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@android:id/widget_frame" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="fill_parent" android:minWidth="48.0dip" android:layout_below="@android:id/summary" android:layout_marginStart="@dimen/custom_title_margin_left" android:layout_marginEnd="@dimen/custom_title_margin_right" android:layout_alignStart="@android:id/title" />
+        <RelativeLayout android:orientation="horizontal" android:id="@id/sensitivity" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/seekbar_preference_seekbar_label_top_padding" android:layout_below="@android:id/title">
+            <TextView android:id="@id/brightness_min" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/seekbar_preference_seekbar_additional_side_padding" style="@style/seekbar_preference_seekbar_label_text_style" />
+            <TextView android:id="@id/brightness_max" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_marginEnd="@dimen/seekbar_preference_seekbar_additional_side_padding" style="@style/seekbar_preference_seekbar_label_text_style" />
+        </RelativeLayout>
+        <SeekBar android:id="@android:id/seekbar" android:layout_width="fill_parent" android:layout_height="@dimen/font_preveiw_seekbar_height" android:layout_marginBottom="@dimen/seekbar_preference_item_bottom_padding" android:layout_below="@id/sensitivity" android:paddingStart="@dimen/seekbar_preference_intervalseekbar_additional_side_padding" android:paddingEnd="@dimen/seekbar_preference_intervalseekbar_additional_side_padding" android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+</LinearLayout>

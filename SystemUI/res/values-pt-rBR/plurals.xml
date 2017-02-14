@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">%d telas em \"Visão geral\"</item>
+        <item quantity="one">%d telas em \"Visão geral\"</item>
+    </plurals>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">Código PIN do SIM incorreto. Tentativas restantes: %d.</item>
+        <item quantity="one">Código PIN do SIM incorreto. Tentativas restantes: %d.</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">Código PUK do SIM incorreto. Tentativas restantes: %d. Caso o código correto não seja digitado, o SIM não poderá mais ser usado.</item>
+        <item quantity="one">Código PUK do SIM incorreto. Tentativas restantes: %d. Caso o código correto não seja digitado, o SIM não poderá mais ser usado.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="other">O dispositivo não foi desbloqueado há %d horas. Confirme o padrão.</item>
+        <item quantity="one">O dispositivo não foi desbloqueado há %d horas. Confirme o padrão.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="other">O dispositivo não foi desbloqueado há %d horas. Confirme o PIN.</item>
+        <item quantity="one">O dispositivo não foi desbloqueado há %d horas. Confirme o PIN.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">O dispositivo não foi desbloqueado há %d horas. Confirme a senha.</item>
+        <item quantity="one">O dispositivo não foi desbloqueado há %d horas. Confirme a senha.</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(%d tentativas restantes)</item>
+        <item quantity="one">(1 tentativa restante)</item>
+    </plurals>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">Restam %d tentativas</item>
+        <item quantity="one">Resta %d tentativa</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_min">
+        <item quantity="other">Tentar novamente em %d minutos</item>
+        <item quantity="one">Tentar novamente em %d minuto</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_sec">
+        <item quantity="other">Tentar novamente em %d segundos</item>
+        <item quantity="one">Tentar novamente em %d segundo</item>
+    </plurals>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:id="@id/applock_switch_bar" android:background="@drawable/switchbar_background" android:clickable="true" android:layout_width="fill_parent" android:layout_height="?android:actionBarSize" android:paddingStart="@dimen/applock_switchbar_padding" android:elevation="@dimen/sub_app_bar_shadow_elevation">
+        <TextView android:textAppearance="@style/TextAppearance.Switch" android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@id/applock_master_text" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" android:textAlignment="viewStart" android:layout_marginStart="@dimen/applock_switchbar_text_margin_start" />
+        <Switch android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@id/applock_master_switch" android:background="@drawable/switchbar_background" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingStart="@dimen/applock_switchbar_padding" android:paddingEnd="@dimen/applock_switchbar_padding" />
+    </LinearLayout>
+    <fragment android:name="com.android.settings.applock.AppLockSettingsActivity$AppLockListFragment" android:id="@id/list_fragement" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+</LinearLayout>

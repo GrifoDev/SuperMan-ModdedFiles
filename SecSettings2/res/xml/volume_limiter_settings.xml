@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.samsung.android.settings.UnclickablePreference android:title="@string/volume_limiter_descryption" android:selectable="false" android:key="limiter_descryption" style="@style/description_text" />
+    <com.samsung.android.settings.notification.VolumeLimiterSeekBarPreference android:title="@string/maximum_volume_title" android:key="maximum_volume" />
+    <SwitchPreference android:persistent="false" android:title="@string/use_password_title" android:key="use_password" />
+</PreferenceScreen>

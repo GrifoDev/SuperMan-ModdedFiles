@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/guide_view_container" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:touchwiz="http://schemas.android.com/apk/res/com.android.settings">
+    <com.android.settings.helpdialog.TwTouchPunchView android:id="@id/guide_punch" android:layout_width="@dimen/guide_switcher_width" android:layout_height="@dimen/guide_switcher_height" android:layout_marginTop="@dimen/guide_vzw_wifi_switcher_step_1_port_margin_top" android:layout_marginRight="@dimen/guide_wifi_switcher_step_1_port_margin_right" android:layout_alignParentTop="true" android:layout_alignParentRight="true" touchwiz:punchshape="rectangle" touchwiz:punchshow="false" />
+    <ImageView android:id="@id/guide_hand_pointer" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/guide_vzw_wifi_pointer_step_1_port_margin_top" android:layout_marginRight="@dimen/guide_wifi_pointer_step_1_port_margin_right" android:src="@drawable/step_by_step_hand_01_w" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:contentDescription="@string/content_description_hand" />
+    <FrameLayout android:id="@id/guide_bubble_summary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/guide_hand_pointer" android:layout_alignParentRight="true">
+        <TextView android:id="@id/help_tap_bubble_summary" android:layout_marginTop="4.0dip" android:text="@string/guide_tap_area" style="@style/help_bubble" />
+        <ImageView android:layout_gravity="right" android:id="@id/help_tap_bubble_picker" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="-8.0dip" android:layout_marginRight="@dimen/guide_settings_bluetooth_port_right" android:src="@drawable/help_popup_picker_t_r" />
+    </FrameLayout>
+</RelativeLayout>

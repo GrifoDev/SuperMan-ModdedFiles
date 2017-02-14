@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView android:textSize="@dimen/folder_dialog_text_size" android:textColor="?android:textColorAlertDialogListItem" android:gravity="center_vertical" android:id="@android:id/text1" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeightSmall" android:paddingStart="?android:listPreferredItemPaddingLeft" android:paddingEnd="?android:listPreferredItemPaddingRight"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Widget.Holo.TabWidget" parent="@style/Widget.TabWidget">
+        <item name="divider">?dividerVertical</item>
+        <item name="tabStripLeft">@null</item>
+        <item name="tabStripRight">@null</item>
+        <item name="tabStripEnabled">false</item>
+        <item name="measureWithLargestChild">true</item>
+        <item name="showDividers">middle</item>
+        <item name="dividerPadding">8.0dip</item>
+        <item name="tabLayout">@layout/tab_indicator_holo</item>
+    </style>
+    <style name="Widget.DeviceDefault.ActionMode" parent="@style/Widget.Material.ActionMode">
+        <item name="titleTextStyle">@style/TextAppearance.DeviceDefault.Widget.ActionMode.Title</item>
+        <item name="subtitleTextStyle">@style/TextAppearance.DeviceDefault.Widget.ActionMode.Subtitle</item>
+        <item name="paddingEnd">0.0dip</item>
+        <item name="closeItemLayout">@layout/tw_action_mode_close_item_material</item>
+    </style>
+    <style name="Widget.DeviceDefault.ActionBar.TabText" parent="@style/Widget.Material.ActionBar.TabText">
+        <item name="textSize">@dimen/sem_tab_text_size</item>
+        <item name="textColor">@color/sem_tab_indicator_text</item>
+        <item name="ellipsize">end</item>
+        <item name="maxLines">1</item>
+        <item name="fontFamily">sec-roboto-light</item>
+    </style>
+    <style name="Widget.DeviceDefault.Light.Button" parent="@style/Widget.Material.Light.Button">
+        <item name="textSize">@dimen/tw_btn_text_size</item>
+        <item name="textColor">@color/tw_btn_default_material_text_light</item>
+        <item name="background">@drawable/tw_btn_default_material_light</item>
+        <item name="fontFamily">sans-serif</item>
+        <item name="stateListAnimator">@null</item>
+    </style>
+    <style name="Widget.DeviceDefault.Light.Button.Small" parent="@style/Widget.Material.Light.Button.Small">
+        <item name="textSize">@dimen/tw_btn_text_size</item>
+        <item name="textColor">@color/tw_btn_default_material_text_light</item>
+        <item name="background">@drawable/tw_btn_default_material_light</item>
+        <item name="fontFamily">sans-serif</item>
+        <item name="stateListAnimator">@null</item>
+    </style>
+    <style name="Widget.DeviceDefault.Light.ActionMode" parent="@style/Widget.Material.Light.ActionMode">
+        <item name="titleTextStyle">@style/TextAppearance.DeviceDefault.Widget.ActionMode.Title.Inverse</item>
+        <item name="subtitleTextStyle">@style/TextAppearance.DeviceDefault.Widget.ActionMode.Subtitle.Inverse</item>
+        <item name="paddingEnd">0.0dip</item>
+        <item name="closeItemLayout">@layout/tw_action_mode_close_item_material</item>
+    </style>
+    <style name="Widget.DeviceDefault.Light.ActionBar.TabText" parent="@style/Widget.Material.Light.ActionBar.TabText">
+        <item name="textSize">@dimen/sem_tab_text_size</item>
+        <item name="textColor">@color/sem_tab_indicator_text</item>
+        <item name="ellipsize">end</item>
+        <item name="maxLines">1</item>
+        <item name="fontFamily">sec-roboto-light</item>
+    </style>
+    <style name="Widget.Material.Toolbar" parent="@style/Widget.Toolbar">
+        <item name="paddingStart">0.0dip</item>
+        <item name="paddingEnd">0.0dip</item>
+        <item name="titleTextAppearance">@style/TextAppearance.DeviceDefault.Widget.ActionBar.Title.Inverse</item>
+        <item name="subtitleTextAppearance">@style/TextAppearance.DeviceDefault.Widget.ActionBar.Subtitle.Inverse</item>
+        <item name="contentInsetStart">@dimen/sem_toolbar_content_inset_start</item>
+        <item name="touchscreenBlocksFocus">false</item>
+        <item name="navigationContentDescription">@string/action_bar_up_description</item>
+        <item name="titleMargin">0.0dip</item>
+        <item name="maxButtonHeight">@dimen/action_bar_default_height_material</item>
+        <item name="contentInsetStartWithNavigation">0.0dip</item>
+        <item name="navigationButtonStyle">@style/Widget.Material.Toolbar.Button.Navigation</item>
+    </style>
+    <style name="Widget.DeviceDefault.FragmentBreadCrumbs" parent="@style/Widget.Material.FragmentBreadCrumbs">
+        <item name="padding">0.0dip</item>
+        <item name="itemLayout">@layout/tw_preference_fragment_bread_crumb_item_light</item>
+    </style>
+    <style name="Widget.DeviceDefault.Light.FragmentBreadCrumbs" parent="@style/Widget.Material.Light.FragmentBreadCrumbs">
+        <item name="padding">0.0dip</item>
+        <item name="itemLayout">@layout/tw_preference_fragment_bread_crumb_item_light</item>
+    </style>
+    <style name="TextAppearance.DeviceDefault.Light.Dialog" parent="@style/TextAppearance.Material">
+        <item name="textSize">@dimen/tw_dialog_body_text_size</item>
+        <item name="textColor">@color/tw_dialog_body_text_color_material_light</item>
+        <item name="fontFamily">sans-serif</item>
+    </style>
+    <style name="TextAppearance.DeviceDefault.Subhead" parent="@style/TextAppearance.Material.Subhead">
+        <item name="textSize">@dimen/tw_list_primary_text_size</item>
+        <item name="textColor">?^attr-private/twListTextColorPrimary</item>
+        <item name="fontFamily">sans-serif</item>
+    </style>
+    <style name="TextAppearance.DeviceDefault.SubheadSecondary" parent="@style/TextAppearance.Material.Body1">
+        <item name="textSize">@dimen/tw_list_secondary_text_size</item>
+        <item name="textColor">?^attr-private/twListTextColorSecondary</item>
+        <item name="fontFamily">sans-serif</item>
+    </style>
+    <style name="PreferenceHeaderPanel.DeviceDefault" parent="@style/PreferenceHeaderPanel.Material">
+        <item name="paddingTop">0.0dip</item>
+        <item name="paddingBottom">0.0dip</item>
+        <item name="paddingStart">0.0dip</item>
+        <item name="paddingEnd">0.0dip</item>
+    </style>
+    <style name="PreferenceHeaderPanel.DeviceDefault.Light" parent="@style/PreferenceHeaderPanel.Material">
+        <item name="background">@color/tw_preference_contents_bg_mtrl</item>
+        <item name="paddingTop">0.0dip</item>
+        <item name="paddingBottom">0.0dip</item>
+        <item name="paddingStart">0.0dip</item>
+        <item name="paddingEnd">0.0dip</item>
+    </style>
+    <style name="PreferenceHeaderList.DeviceDefault" parent="@style/PreferenceHeaderList.Material">
+        <item name="paddingTop">0.0dip</item>
+        <item name="paddingBottom">0.0dip</item>
+        <item name="paddingStart">0.0dip</item>
+        <item name="paddingEnd">0.0dip</item>
+    </style>
+</resources>

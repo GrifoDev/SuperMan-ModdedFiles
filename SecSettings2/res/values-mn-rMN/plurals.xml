@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d цаг</item>
+        <item quantity="one">1 цаг</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d минут</item>
+        <item quantity="one">1 минут</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d секунд</item>
+        <item quantity="one">1 секунд</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Танд одоо хөгжүүлэгч болоход %d алхам дутуу байна</item>
+        <item quantity="one">Танд одоо хөгжүүлэгч болоход 1 алхам дутуу байна</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Сонгосон хэлүүдийг арилгах</item>
+        <item quantity="one">Сонгосон хэлийг арилгах</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Нууц үг дор хаяж %d үсэг агуулах ёстой</item>
+        <item quantity="one">Нууц үг дор хаяж 1 үсэг агуулах ёстой</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Нууц үг дор хаяж %d жижиг үсэг агуулах ёстой</item>
+        <item quantity="one">Нууц үг дор хаяж 1 жижиг үсэг агуулах ёстой</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Нууц үг дор хаяж %d том үсэг агуулах ёстой</item>
+        <item quantity="one">Нууц үг дор хаяж 1 том үсэг агуулах ёстой</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Нууц үг дор хаяж %d тоо агуулах ёстой</item>
+        <item quantity="one">Нууц үг дор хаяж 1 тоо агуулах ёстой</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Нууц үг дор хаяж %d тэмдэглэгээ агуулах ёстой</item>
+        <item quantity="one">Нууц үг дор хаяж 1 тэмдэглэгээ агуулах ёстой</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Нууц үг дор хаяж %d тоо эсвэл тэмдэглэгээ агуулах ёстой</item>
+        <item quantity="one">Нууц үг дор хаяж 1 тоо эсвэл тэмдэглэгээ агуулах ёстой</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">%d хавтас/файл руу хандах</item>
+        <item quantity="one">1 хавтас/файл руу хандах</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s таны төхөөрөмж дээр CA сертификатууд суулгасан ба энэ нь таны төхөөрөмжийн сүлжээний үйлдлийг, тухайлбал, э-шуудан, хэрэглүүр, хамгаалалттай вэб сайтуудад хандаж байгааг хянах боломж олгоно.
+
+Эдгээр сертификатын тухай нэмэлт мэдээлэл авахын тулд МТ админдаа хандана уу."</item>
+        <item quantity="one">"%s таны төхөөрөмж дээр CA сертификат суулгасан ба энэ нь таны төхөөрөмжийн сүлжээний үйлдлийг, тухайлбал, э-шуудан, хэрэглүүр, хамгаалалттай вэб сайтуудад хандаж байгааг хянах боломж олгоно.
+
+Энэ сертификатын тухай нэмэлт мэдээлэл авахын тулд МТ админдаа хандана уу."</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d програм мэдэгдлүүдийг унших боломжтой.</item>
+        <item quantity="one">%d програмд мэдэгдэл унших зөвшөөрнө.</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d нэмэлт зөвшөөрөл</item>
+        <item quantity="one">%d нэмэлт зөвшөөрөл</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">Сүүлийн %2$s цаг %1$d-т ашиглаж буй RAM</item>
+        <item quantity="one">Сүүлийн %2$s цаг %1$d-т ашигласан RAM</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">Өгөгдөл хэмнэгч идэвхжсэн үед %d хэрэглүүрт хөдөлгөөнт өгөгдлийг хязгаарлалтгүйгээр ашиглахыг зөвшөөрсөн</item>
+        <item quantity="one">Өгөгдөл хэмнэгч идэвхжсэн үед 1 хэрэглүүрт хөдөлгөөнт өгөгдлийг хязгаарлалтгүй ашиглахыг зөвшөөрсөн</item>
+    </plurals>
+</resources>

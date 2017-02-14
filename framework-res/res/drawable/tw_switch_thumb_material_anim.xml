@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector android:constantSize="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="false" android:state_checked="true" android:drawable="@drawable/tw_switch_thumb_material_disabled_on" />
+    <item android:state_enabled="false" android:drawable="@drawable/tw_switch_thumb_material_disabled_off" />
+    <item android:state_checked="true" android:drawable="@drawable/tw_switch_thumb_material_on" />
+    <item android:drawable="@drawable/tw_switch_thumb_material_off" />
+</selector>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="wrap_content" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/secondaryElapsedTimeView" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <TextView android:textSize="@dimen/sec_multiparty_video_call_name_text_size" android:textColor="@color/sec_multiparty_video_call_text_color" android:id="@id/secondaryElapsedTime" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_centerVertical="true" android:importantForAccessibility="no" android:fontFamily="sans-serif" android:layout_marginEnd="@dimen/sec_multiparty_video_call_secondary_elapsed_text_margin_left" />
+        <TextView android:textSize="@dimen/sec_multiparty_video_call_name_text_size" android:textColor="@color/sec_multiparty_video_call_text_color" android:id="@id/secondaryForwardSlash" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/forwardSlash" android:singleLine="true" android:layout_toRightOf="@id/secondaryElapsedTime" android:layout_centerVertical="true" android:importantForAccessibility="no" android:fontFamily="sans-serif" />
+    </RelativeLayout>
+</RelativeLayout>

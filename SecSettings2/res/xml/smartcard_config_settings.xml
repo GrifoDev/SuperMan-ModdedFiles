@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:layout_width="wrap_content" android:layout_height="wrap_content" android:title="@string/smartcard_credential_settings"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Preference android:title="@string/wifi_status" android:selectable="false" android:key="smartcardstatus" android:summary="@string/smartcard_notregisterd" />
+    <PreferenceCategory android:title="@string/smartcard_config" android:key="smartcard_association">
+        <Preference android:title="@string/smartcard_register" android:key="smartcardregister" android:summary="@string/smartcard_register_summary" />
+        <Preference android:title="@string/smartcard_unregister" android:key="smartcardunregister" android:summary="@string/smartcard_unregister_summary" />
+    </PreferenceCategory>
+    <Preference android:title="@string/smartcard_help" android:key="smartcardhelp" />
+</PreferenceScreen>

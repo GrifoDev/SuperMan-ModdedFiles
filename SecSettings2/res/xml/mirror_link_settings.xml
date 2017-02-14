@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:icon="@drawable/ic_settings_mirror_link" android:id="@id/mirror_link_settings" android:title="@string/mirror_link_title" android:summary="@string/mirror_link_summary" android:fragment="com.android.settings.mirrorlink.MirrorLink"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

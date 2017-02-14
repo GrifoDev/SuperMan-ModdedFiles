@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:persistent="true" android:title="@string/accessibility_settings"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <PreferenceCategory android:title="@string/accessibility_categories_title" android:key="categories_category">
+        <PreferenceScreen android:title="@string/accessibility_vision_category" android:key="vision_preferences" android:fragment="com.samsung.android.settings.accessibility.AccessibilitySettingsVision" />
+        <PreferenceScreen android:title="@string/audio_preference_title" android:key="audio_preference_key" android:fragment="com.samsung.android.settings.accessibility.AccessibilitySettingsHearing" />
+        <PreferenceScreen android:title="@string/mobility_and_cognitive_title" android:key="mobility_preference_key" android:fragment="com.samsung.android.settings.accessibility.AccessibilitySettingsMobility" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/accessibility_system_title" android:key="moresettings_category">
+        <PreferenceScreen android:title="@string/tts_settings_title" android:key="tts_settings_preference" android:fragment="com.android.settings.tts.TextToSpeechSettings" />
+        <PreferenceScreen android:title="@string/direction_lock_title" android:key="direction_lock" android:summary="@string/direction_lock_summary" android:fragment="com.samsung.android.settings.accessibility.directionlock.DirectionLockSplashActivity" />
+        <PreferenceScreen android:title="@string/direct_access_title" android:key="direct_access" android:summary="@string/direct_access_description" android:fragment="com.samsung.android.settings.accessibility.directaccess.DirectAccessFragment" />
+        <PreferenceScreen android:title="@string/accessibility_notification_reminder" android:key="notification_preference" android:fragment="com.samsung.android.settings.accessibility.notificationreminder.NotificationReminderPreferenceFragment" />
+        <PreferenceScreen android:title="@string/answering_end_call_title" android:key="call_answering_ending" />
+        <SwitchPreference android:persistent="false" android:title="@string/accessibility_easy_interaction_preference_title" android:key="toggle_easy_interaction_preference" android:summary="@string/accessibility_easy_interaction_summary" />
+        <PreferenceScreen android:title="@string/share_accessibility_settings" android:key="share_acc_setting_menu" android:summary="@string/share_accessibility_settings_summary" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/accessibility_services_title" android:key="services_category" />
+</PreferenceScreen>

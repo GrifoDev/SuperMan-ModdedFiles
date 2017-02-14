@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.keyguard.KeyguardPatternView android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/keyguard_pattern_view" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent" androidprv:layout_maxWidth="@dimen/keyguard_security_width" androidprv:layout_maxHeight="@dimen/keyguard_security_height"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:androidprv="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:layout_gravity="bottom|center" android:orientation="vertical" android:id="@id/container" android:clipChildren="false" android:clipToPadding="false" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <include android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/keyguard_message_area" />
+            <com.android.keyguard.LockDecoPatternView android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/lockPatternView" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_marginBottom="4.0dip" android:layout_weight="1.0" android:layout_marginStart="8.0dip" android:layout_marginEnd="8.0dip" />
+            <include android:gravity="center_horizontal" android:layout_gravity="bottom|center" android:orientation="vertical" android:id="@id/keyguard_selector_fade_container" android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/keyguard_eca" />
+        </LinearLayout>
+    </FrameLayout>
+</com.android.keyguard.KeyguardPatternView>

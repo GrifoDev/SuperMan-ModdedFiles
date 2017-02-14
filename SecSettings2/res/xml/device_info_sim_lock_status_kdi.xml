@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/sim_lock_status_kddi"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Preference android:title="@string/wifi_status" android:key="sim_state_status" android:summary="@string/device_info_default" style="?android:attr/preferenceInformationStyle" />
+    <Preference android:title="@string/sim_status_code" android:key="sim_state_code" android:summary="@string/device_info_default" style="?android:attr/preferenceInformationStyle" />
+</PreferenceScreen>

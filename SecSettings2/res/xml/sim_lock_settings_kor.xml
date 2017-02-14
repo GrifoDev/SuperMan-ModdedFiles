@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/sim_lock_settings_category" settings:parent="@xml/security_settings_misc"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <SwitchPreference android:persistent="false" android:title="@string/sim_pin_toggle" android:key="sim_toggle" android:summaryOn="@string/sim_lock_on" android:summaryOff="@string/sim_lock_off" android:disableDependentsState="false" />
+    <Preference android:persistent="false" android:title="@string/sim_pin_change" android:key="sim_pin" android:dependency="sim_toggle" />
+    <Preference android:persistent="false" android:title="@string/sim_perso_change" android:key="perso_pw_change" android:dependency="perso_toggle" />
+    <SwitchPreference android:persistent="false" android:title="@string/sim_perso_toggle" android:key="perso_toggle" android:summaryOn="@string/sim_perso_on" android:summaryOff="@string/sim_perso_off" android:disableDependentsState="false" />
+</PreferenceScreen>

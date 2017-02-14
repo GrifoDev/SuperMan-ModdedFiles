@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d orë</item>
+        <item quantity="one">1 orë</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d minuta</item>
+        <item quantity="one">1 minutë</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d sekonda</item>
+        <item quantity="one">1 sekondë</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">"Ti tani të duhen edhe %d hapa për t'u bërë programues."</item>
+        <item quantity="one">"Ty tani të duhet edhe 1 hap për t'u bërë programues."</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Hiq gjuhët e përzgjedhura</item>
+        <item quantity="one">Hiq gjuhën e përzgjedhur</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Fjalëkalimi duhet të përmbajë së paku %d shkronja.</item>
+        <item quantity="one">Fjalëkalimi duhet të përmbajë të paktën 1 shkronjë.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Fjalëkalimi duhet të përmbajë së paku %d shkronja të pakapitalizuara.</item>
+        <item quantity="one">Fjalëkalimi duhet të përmbajë të paktën 1 shkronjë të pakapitalizuar.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Fjalëkalimi duhet të përmbajë së paku %d shkronja të kapitalizuara.</item>
+        <item quantity="one">Fjalëkalimi duhet të përmbajë të paktën 1 shkronjë të kapitalizuar.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Fjalëkalimi duhet të përmbajë së paku %d numra.</item>
+        <item quantity="one">Fjalëkalimi duhet të përmbajë të paktën 1 numër.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Fjalëkalimi duhet të përmbajë të paktën %d simbole.</item>
+        <item quantity="one">Fjalëkalimi duhet të përmbajë të paktën 1 simbol.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Fjalëkalimi duhet të përmbajë të paktën %d numra ose simbole.</item>
+        <item quantity="one">Fjalëkalimi duhet të përmbajë të paktën 1 numër ose simbol.</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Akses në %d dosje/skedarë</item>
+        <item quantity="one">Akses në 1 dosje/skedar</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s ka instaluar certifikata CA në pajisje, të cilat mund ta lejojnë të monitorojë aktivitetin e pajisjes sate në rrjet, përfshi përdorimin prej teje të e-postës, app-eve dhe uebsajteve të sigurta.
+
+Për më shumë informacion rreth këtyre certifikatave, lidhu me administratorin tënd IT."</item>
+        <item quantity="one">"%s ka instaluar një certifikatë CA në pajisje, e cila mund ta lejojë të monitorojë aktivitetin e pajisjes sate në rrjet, përfshi përdorimin prej teje të e-postës, app-eve dhe uebsajteve të sigurta.
+
+Për më shumë informacion rreth kësaj certifikate, lidhu me administratorin tënd IT."</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">"%d aplikacione mund t'i lexojnë njoftimet."</item>
+        <item quantity="one">%d aplikacion lejohet të lexojë njoftimet.</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d leje të tjera</item>
+        <item quantity="one">%d leje tjetër</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$d procese përdorën RAM në %2$s të fundit</item>
+        <item quantity="one">%1$d proces përdori RAM në %2$s të fundit</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d app-e lejohen të përdorin të dhënat celulare pa kufizim, kur është aftësuar Kursyesi i të dhënave</item>
+        <item quantity="one">1 app lejohet të përdorë të dhëna celulare pa kufizime, kur është aftësuar Kursyesi i të dhënave</item>
+    </plurals>
+</resources>

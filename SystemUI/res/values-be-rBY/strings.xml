@@ -1,0 +1,1958 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="snapview_cancel">Скасаваць</string>
+    <string name="snapview_done">Гатова</string>
+    <string name="mw_divider_button_snap">Імгненнае ўзнікненне акна</string>
+    <string name="mw_divider_button_switch">Пераключыць вокны</string>
+    <string name="mw_divider_button_freeform">Адкрыць ва ўсплывальным акне</string>
+    <string name="mw_divider_button_close">Закрыць праграму</string>
+    <string name="multi_window_title_text">Некалькі вокнаў</string>
+    <string name="dock_minimized_notification_text">%s згорнута</string>
+    <string name="dock_minimized_notification_dimiss_text">Закрыць</string>
+    <string name="dock_minimized_notification_content_text">Націсніце тут, каб адкрыць.</string>
+    <string name="cancel">Адмяніць</string>
+    <string name="time_format_hour_minute">%1$dг %2$dхв</string>
+    <string name="time_format_hour">%d гадз.</string>
+    <string name="time_format_minute">%d хв.</string>
+    <string name="s_view_cover_open_cover_popup_view_notification_details">Адкрыйце вечка, каб убачыць звесткі пра апавяшчэнне.</string>
+    <string name="minimized_notification_talkback_description_open">Націсніце двойчы, каб адкрыць апавяшчэнне ад %s.</string>
+    <string name="minimized_notification_talkback_description_open_more">Double tap to open notification panel.</string>
+    <string name="save">Захаваць</string>
+    <string name="ok">ОК</string>
+    <string name="battery_history_hours_no_seconds">%1$dг %2$dх</string>
+    <string name="battery_history_minutes_no_seconds">%dх</string>
+    <string name="wifi_fail_to_scan">Не атрымлiваецца выканаць сканаванне для сетак</string>
+    <string name="wifi_failed_to_obtain_IP">Не ўдалося атрымаць IP-адрас.</string>
+    <string name="wifi_security_none">Няма</string>
+    <string name="wifi_remembered">Захавана</string>
+    <string name="wifi_disabled_generic">Адключаная</string>
+    <string name="wifi_disabled_network_failure">Збой канфігурацыі IP</string>
+    <string name="wifi_disabled_wifi_failure">Збой падлучэння Wi-Fi</string>
+    <string name="wifi_disabled_no_internet">Інтэрнэт недаступны</string>
+    <string name="wifi_disabled_password_failure">Памылка праверкі сапраўднасці</string>
+    <string name="wifi_not_in_range">Не ў зоне дасягальнасці</string>
+    <string name="wifi_no_internet">Доступ да інтэрнэту не выяўлены, аўтаматычнае перападлучэнне не адбудзецца.</string>
+    <string name="saved_network">Хто захаваў: %1$s</string>
+    <string name="wifi_auto_reconnect_disabled">Аўтаматычнае паўторнае падлучэнне выключана</string>
+    <string name="connected_via_wfa">Падлучана праз памочніка Wi‑Fi</string>
+    <string name="connected_via_passpoint">Падлучана праз %1$s</string>
+    <string name="available_via_passpoint">Даступна праз %1$s</string>
+    <string name="wifi_connected_no_internet">Падлучана, няма інтэрнэту</string>
+    <string name="wifi_reconnecting">Падлучэнне адбудзецца пры паляпшэнні якасці сеткі</string>
+    <string name="wifi_connected_checking_quality">Праверка якасці інтэрнэт-злучэння…</string>
+    <string name="wifi_setup_title_connected_network">Падлучана да сеткі Wi-Fi «%s».</string>
+    <string name="wifi_sign_in_to_the_network">Увайдзіце ў сетку.</string>
+    <string name="wifi_disabled_captive_portal">Патрабуецца ўваход у сістэму.</string>
+    <string name="bluetooth_disconnect_message">Злучэнне Bluetooth з %s скончана.</string>
+    <string name="bluetooth_disconnected">Адключана</string>
+    <string name="bluetooth_disconnecting">Адлучэнне…</string>
+    <string name="bluetooth_connecting">Злучэнне…</string>
+    <string name="bluetooth_connected">Падлучана</string>
+    <string name="bluetooth_pairing">Спалучэнне…</string>
+    <string name="bluetooth_connected_no_headset">Падключана (без тэлефона)</string>
+    <string name="bluetooth_connected_no_a2dp">Падключэнне (без носьбіта)</string>
+    <string name="bluetooth_connected_no_map">Падлучана (без доступу да паведамленняў)</string>
+    <string name="bluetooth_connected_no_headset_no_a2dp">Падключаны (без тэлефона або носьбіта)</string>
+    <string name="bluetooth_profile_a2dp">Гук мультымедыя</string>
+    <string name="bluetooth_profile_headset">Гук пры выкліку</string>
+    <string name="bluetooth_profile_opp">Перадача файлаў</string>
+    <string name="bluetooth_profile_hid">Прылада ўводу</string>
+    <string name="bluetooth_profile_pan">Доступ да інтэрнэту</string>
+    <string name="bluetooth_profile_pbap">Доступ да кантакта</string>
+    <string name="bluetooth_profile_pbap_summary">Выкарыстоўваць для абагулення кантактаў</string>
+    <string name="bluetooth_profile_pan_nap">Абагуленне інтэрнэт-злучэння</string>
+    <string name="bluetooth_profile_map">Доступ для паведамлення</string>
+    <string name="bluetooth_profile_sap">Доступ да SIM-карты</string>
+    <string name="bluetooth_a2dp_profile_summary_connected">Падлучана для мультымедыйнага аўдыя</string>
+    <string name="bluetooth_headset_profile_summary_connected">Падлучана для аўдыя выклікаў</string>
+    <string name="bluetooth_opp_profile_summary_connected">Падключаны да серверу перадачы файлаў</string>
+    <string name="bluetooth_map_profile_summary_connected">Падлучана да карты</string>
+    <string name="bluetooth_sap_profile_summary_connected">Падключана да SAP</string>
+    <string name="bluetooth_opp_profile_summary_not_connected">Няма падключэння да серверу перадачы файлаў</string>
+    <string name="bluetooth_hid_profile_summary_connected">Падлучана як прылада ўводу</string>
+    <string name="bluetooth_pan_user_profile_summary_connected">Падлучана да прылады для доступу ў інтэрнэт.</string>
+    <string name="bluetooth_pan_nap_profile_summary_connected">Сумеснае выкарыстанне лакальнага падключэння да інтэрнэту з прыладай</string>
+    <string name="bluetooth_spp_profile_summary_connected">Падлучана праз профіль пасляд.порта</string>
+    <string name="bluetooth_pan_profile_summary_use_for">Уключыць Bluetooth-мадэм на спалучанай прыладзе, каб атрымаць доступ да Інтэрнэту на гэтай прыладзе.</string>
+    <string name="bluetooth_map_profile_summary_use_for">Выкарыстоўваць для карты</string>
+    <string name="bluetooth_sap_profile_summary_use_for">Выкарыстоўваць для доступу да SIM-карты</string>
+    <string name="bluetooth_a2dp_profile_summary_use_for">Выкарыстоўваць для аўдыё-медыя</string>
+    <string name="bluetooth_headset_profile_summary_use_for">Выкарыстоўваць для аўдыё тэлефона</string>
+    <string name="bluetooth_opp_profile_summary_use_for">Выкарыстоўваць для перадачы файлаў</string>
+    <string name="bluetooth_hid_profile_summary_use_for">Выкарыстоўваць для ўводу</string>
+    <string name="bluetooth_profile_textinput">Увод тэксту</string>
+    <string name="bluetooth_summary_connected_to_a2dp_headset">Падлучана для выклікаў і мультым.аўдыя</string>
+    <string name="bluetooth_pan_nap_connected">Падлучана для забеспячэння да інтэрнэт-злучэння</string>
+    <string name="bluetooth_pan_panu_connected">Падлучана для доступу да інтэрнэт-злучэння</string>
+    <string name="bluetooth_pairing_accept">Падлучыць</string>
+    <string name="bluetooth_pairing_accept_all_caps">СПАЛУЧЫЦЬ</string>
+    <string name="bluetooth_pairing_decline">Адмена</string>
+    <string name="bluetooth_pairing_will_share_phonebook">Спалучэнне дае доступ да вашых кантактаў і гісторыі выклікаў пры падлучэнні.</string>
+    <string name="bluetooth_pairing_error_message">Немагчыма ўсталяваць сувязь з прыладай %1$s.</string>
+    <string name="bluetooth_pairing_pin_error_message">Немагчыма спалучыць з %1$s. Упэўніцеся, што %2$s гатовы для спалучэння.</string>
+    <string name="bluetooth_pairing_device_down_error_message">Не магу размаўляць з прыладай %1$s.</string>
+    <string name="bluetooth_pairing_rejected_error_message">Карыстальнік %s адхіліў спалучэнне.</string>
+    <string name="accessibility_wifi_off">Wi-Fi выключаны.</string>
+    <string name="accessibility_no_wifi">Wi-Fi адлучаны.</string>
+    <string name="accessibility_wifi_one_bar">Адзiн слупок Wi-Fi.</string>
+    <string name="accessibility_wifi_two_bars">Два слупкi Wi-Fi.</string>
+    <string name="accessibility_wifi_three_bars">Тры слупкi Wi-Fi.</string>
+    <string name="accessibility_wifi_signal_full">Поўны сігнал Wi-Fi.</string>
+    <string name="process_kernel_label">АС Android</string>
+    <string name="data_usage_uninstalled_apps">Выдаленыя прыкладанні</string>
+    <string name="data_usage_uninstalled_apps_users">Выдаленыя прыкладанні і карыстальнiкi</string>
+    <string name="tether_settings_title_usb">USB-мадэм</string>
+    <string name="tether_settings_title_wifi">Партатыўная кропка доступу</string>
+    <string name="tether_settings_title_bluetooth">Bluetooth-мадэм</string>
+    <string name="tether_settings_title_usb_bluetooth">Мадэм</string>
+    <string name="tether_settings_title_all">Мабільны хот-спот і мадэм</string>
+    <string name="managed_user_title">Усе працоўныя праграмы</string>
+    <string name="user_guest">Госць</string>
+    <string name="unknown">Невядома</string>
+    <string name="running_process_item_user_label">Карыстальнiк: %1$s</string>
+    <string name="launch_defaults_some">Некат. параметры па змаўч. усталяваныя</string>
+    <string name="launch_defaults_none">Параметры па змаўчанні не ўсталяваныя</string>
+    <string name="tts_settings">Налады Text-to-speech</string>
+    <string name="tts_settings_title">Пераўтварэнне тэксту ў маўленне</string>
+    <string name="tts_default_rate_title">Хуткасць маўлення</string>
+    <string name="tts_default_rate_summary">Хуткасць прамаўлення тэксту.</string>
+    <string name="tts_default_pitch_title">Тон голасу</string>
+    <string name="tts_default_pitch_summary">Уплывае на тон сінтэзаванага маўлення</string>
+    <string name="tts_default_lang_title">Мова</string>
+    <string name="tts_lang_use_system">Выкарыстоўваць сістэмную мову</string>
+    <string name="tts_lang_not_selected">Мова не выбрана</string>
+    <string name="tts_default_lang_summary">Задаць голас агучвання тэксту для пэўнай мовы.</string>
+    <string name="tts_play_example_title">Праслухаць прыклад</string>
+    <string name="tts_play_example_summary">Прайграваць кароткую дэманстрацыю сінтэзатара маўлення.</string>
+    <string name="tts_install_data_title">Усталяваць галасавыя даныя</string>
+    <string name="tts_install_data_summary">Усталяваць галасавыя даныя, патрэбныя для сінтэзу маўлення.</string>
+    <string name="tts_engine_security_warning">Гэты модуль сінтэзу маўлення можа збіраць усе даныя маўлення, уключаючы паролі, нумары крэдытных карт і іншыя асабістыя даныя. Працягнуць?</string>
+    <string name="tts_engine_network_required">Гэта мова патрабуе актыўнага падключэння да сеткі, каб выконваць функцыю прамаўлення тэксту.</string>
+    <string name="tts_default_sample_string">Прыклад сінтэзу маўлення</string>
+    <string name="tts_status_title">Стандартная мова</string>
+    <string name="tts_status_ok">%s цалкам падтрымліваецца.</string>
+    <string name="tts_status_requires_network">Для падтрымкі %s патрабуецца сеткавае падлучэнне.</string>
+    <string name="tts_status_not_supported">%s не падтрымліваецца.</string>
+    <string name="tts_status_checking">Правяраецца…</string>
+    <string name="tts_engine_settings_title">Налады для %s</string>
+    <string name="tts_engine_settings_button">Адкрыць налады модуля пераўтварэння тэксту ў маўленне.</string>
+    <string name="tts_engine_preference_section_title">Прыярытэтная сістэма TTS</string>
+    <string name="tts_general_section_title">Агульны</string>
+    <string name="tts_reset_speech_pitch_title">Скінуць тон</string>
+    <string name="tts_reset_speech_pitch_summary">Скіньце тон маўлення, з якім зачытваецца тэкст, да стандартных налад.</string>
+    <string name="choose_profile">Выбраць профіль</string>
+    <string name="category_personal">Асабісты</string>
+    <string name="category_work">Рабочы</string>
+    <string name="development_settings_title">Опцыі распрацоўшчыка</string>
+    <string name="development_settings_enable">Уключыць параметры распрацоўшчыка</string>
+    <string name="development_settings_summary">Налада параметраў для распрацоўкі прыкладанняў</string>
+    <string name="development_settings_not_available">Параметры распрацоўшчыка недаступныя для гэтага карыстальніка</string>
+    <string name="vpn_settings_not_available">Налады VPN недаступныя для гэтага карыстальніка</string>
+    <string name="tethering_settings_not_available">Налады мадэма недаступныя для гэтага карыстальніка</string>
+    <string name="apn_settings_not_available">Налады Імя пункту доступу недаступныя для гэтага карыстальніка</string>
+    <string name="enable_adb">Адладка USB</string>
+    <string name="enable_adb_summary">Рэжым адладкі, калі USB падключаны</string>
+    <string name="clear_adb_keys">Адклікаць дазвол USB-адладкі</string>
+    <string name="bugreport_in_power">Ярлык для справаздачы пра памылкі</string>
+    <string name="bugreport_in_power_summary">Паказаць кнопку для прыняцця справаздачы пра памылку ў меню сілкавання</string>
+    <string name="keep_screen_on">Прадухіляць ад пераходу ў рэжым сну</string>
+    <string name="keep_screen_on_summary">Экран ніколі не ўвайдзе ў рэжым сну падчас зарадкі</string>
+    <string name="bt_hci_snoop_log">Уключыць журнал адсочвання Bluetooth HCI</string>
+    <string name="bt_hci_snoop_log_summary">Захаваць усе пакеты bluetooth HCI у адным файле</string>
+    <string name="oem_unlock_enable">Разблакіроўка OEM</string>
+    <string name="oem_unlock_enable_summary">Дазволіць разблакіроўку загрузчыка</string>
+    <string name="confirm_enable_oem_unlock_title">Дазволіць разблакіроўку OEM?</string>
+    <string name="confirm_enable_oem_unlock_text">ПАПЯРЭДЖАННЕ: Пакуль гэты параметр уключаны, абарона прылады не функцыянуе.</string>
+    <string name="mock_location_app">Выбраць дадатак эмуляцыі месцазнаходжання</string>
+    <string name="mock_location_app_not_set">Няма дадатку эмуляцыі месцазнаходжання</string>
+    <string name="mock_location_app_set">Дадатак эмуляцыі месцазнаходжання: %1$s</string>
+    <string name="debug_networking_category">Сеткі</string>
+    <string name="wifi_display_certification">Сертыфікацыя бесправаднога дысплея</string>
+    <string name="wifi_verbose_logging">Уключыць падрабязны журнал Wi‑Fi</string>
+    <string name="wifi_aggressive_handover">Агрэсіўны пераход з Wi‑Fi на маб. сетку</string>
+    <string name="wifi_allow_scan_with_traffic">Заўсёды дазваляць роўмінгавае сканіраванне Wi‑Fi</string>
+    <string name="mobile_data_always_on">Перадача даных мабільнай сувязі заўсёды актыўна</string>
+    <string name="bluetooth_disable_absolute_volume">Адключыць абсалютны гук</string>
+    <string name="wifi_display_certification_summary">Паказаць опцыі сертыфікацыі бесправаднога дысплея</string>
+    <string name="wifi_verbose_logging_summary">Падвыс. узровень дэтал-цыі журнала Wi‑Fi у залежн. ад SSID RSSI у Wi‑Fi Picker</string>
+    <string name="wifi_aggressive_handover_summary">Калі ўкл., прылада будзе больш інтэнсіўна імкнуцца перайсці з падлуч. да Wi-Fi на падлуч. да маб. сеткі, калі сігнал Wi‑Fi слабы</string>
+    <string name="wifi_allow_scan_with_traffic_summary">"Дазволіць/забараніць роўмінгавае сканіраванне Wi‑Fi ў залежнасці ад аб'ёму трафіку даных у інтэрфейсе"</string>
+    <string name="select_logd_size_title">Памеры буфера для сродку вядзення журнала</string>
+    <string name="select_logd_size_dialog_title">Выберыце памеры сродку вядзення журнала для буфераў журнала</string>
+    <string name="select_usb_configuration_title">Выберыце канфігурацыю USB</string>
+    <string name="select_usb_configuration_dialog_title">Выберыце канфігурацыю USB</string>
+    <string name="allow_mock_location">Дазволіць несапраўдныя месцы</string>
+    <string name="allow_mock_location_summary">Дазволіць несапраўдныя месцы</string>
+    <string name="debug_view_attributes">Уключыць прагляд атрыбутаў</string>
+    <string name="legacy_dhcp_client_summary">Выкарыстоўвайце кліент DHCP ад Lollipop замест новага кліента Android DHCP.</string>
+    <string name="mobile_data_always_on_summary">Перадача даных мабільнай сувязі заўсёды актыўна, нават калі актыўна сетка Wi‑Fi (для хуткага пераключэння паміж сеткамі).</string>
+    <string name="adb_warning_title">Дазволіць адладку USB?</string>
+    <string name="adb_warning_message">Адладка USB прызначана толькі для мэтаў распрацоўкі. Яна можа выкарыстоўвацца, каб капіяваць дадзеныя паміж кампутарам і прыладай, усталёўваць прыкладанні на прыладзе без папярэдняга апавяшчэння і чытаць дадзеныя дзённiка.</string>
+    <string name="adb_keys_warning_message">"Адклікаць доступ да адладкі USB з усіх камп'ютараў, на якiх вы уваходзiлi ў сiстэму?"</string>
+    <string name="dev_settings_warning_title">Дазволiць налады распрацоўшчыка?</string>
+    <string name="dev_settings_warning_message">Гэтыя налады прызначаны толькi для распрацоўшыкаў. Яны могуць выклікаць збоi прылад i ўсталяваных на iх прыкладанняў, а таксама перашкаджаць iх працы.</string>
+    <string name="verify_apps_over_usb_title">Праверце прыкладаннi па USB</string>
+    <string name="verify_apps_over_usb_summary">Праверце прыкладаннi, усталяваныя з дапамогай ADB/ADT, на нестабiльныя паводзiны.</string>
+    <string name="bluetooth_disable_absolute_volume_summary">Адключыць функцыю абсалютнага гуку Bluetooth у выпадку праблем з гукам на аддаленых прыладах, напр., пры непрымальна высокай гучнасці або адсутнасці кіравання.</string>
+    <string name="enable_terminal_title">Лакальны тэрмінал</string>
+    <string name="enable_terminal_summary">Уключэнне прыкладання тэрмінала, якое прапануе доступ да лакальнай абалонкі</string>
+    <string name="hdcp_checking_title">Праверка HDCP</string>
+    <string name="hdcp_checking_dialog_title">Усталяваць рэжым праверкі HDCP</string>
+    <string name="debug_debugging_category">Адладка</string>
+    <string name="debug_app">Выберыце прыкладанне для адладкi</string>
+    <string name="debug_app_not_set">Няма прыкладанняў для адладкi</string>
+    <string name="debug_app_set">Адладка прыкладання: %1$s</string>
+    <string name="select_application">Выберыце прыкладанне</string>
+    <string name="no_application">Нічога</string>
+    <string name="wait_for_debugger">Пачакайце адладчык</string>
+    <string name="wait_for_debugger_summary">Адладжанае прыкладанне чакае далучэння да iнструмента для адладкi перад працай</string>
+    <string name="debug_input_category">Увод</string>
+    <string name="debug_drawing_category">Чарцёж</string>
+    <string name="debug_hw_drawing_category">Апаратнае паскарэнне рэндэрынгу</string>
+    <string name="media_category">Медыя</string>
+    <string name="debug_monitoring_category">Маніторынг</string>
+    <string name="strict_mode">Уключаны строгі рэжым</string>
+    <string name="strict_mode_summary">Міг. экр., калі пр.. вык. працяг. апер. ў асн. пат.</string>
+    <string name="pointer_location">Пазіцыя паказальніка</string>
+    <string name="pointer_location_summary">Наклад на экран з бягучым выкар. сэнсар. дадзеных</string>
+    <string name="show_touches">Паказваць дотыкі</string>
+    <string name="show_touches_summary">Паказваць візуалізацыю дотыкаў</string>
+    <string name="show_screen_updates">Паказ. абнаўл. паверхні</string>
+    <string name="show_screen_updates_summary">Мігаць ўсёй паверхней акна пры абнаўленні</string>
+    <string name="show_hw_screen_updates">Паказ. абн. выгляду GPU</string>
+    <string name="show_hw_screen_updates_summary">Мігнуць вакном пры чарчэнні з дапамогай GPU</string>
+    <string name="show_hw_layers_updates">Паказаць абнаўленнi апаратнага пласта</string>
+    <string name="show_hw_layers_updates_summary">Апаратныя пласты набываюць зялёны колер, калi абнаўляюцца</string>
+    <string name="debug_hw_overdraw">Адладка перамалёўкі GPU</string>
+    <string name="disable_overlays">Адкл. апаратн. накладання</string>
+    <string name="disable_overlays_summary">Заўсёды выкарыстоўваць GPU для экраннай кампаноўкі</string>
+    <string name="simulate_color_space">Сімуляцыя каляр. прасторы</string>
+    <string name="enable_opengl_traces_title">Уключэнне слядоў OpenGL</string>
+    <string name="usb_audio_disable_routing">Адключыць аўдыёмаршрутызацыю USB</string>
+    <string name="usb_audio_disable_routing_summary">Адкл. аўт. перанакір. на перыфер. USB-прыл. аўдыё</string>
+    <string name="debug_layout">Паказаць межы размяшчэння</string>
+    <string name="debug_layout_summary">Паказаць межы кліпу, палі і г. д.</string>
+    <string name="force_rtl_layout_all_locales">Прымусовая раскладка справа налева</string>
+    <string name="force_rtl_layout_all_locales_summary">Прымусовая раскладка экрана справа налева для ўсіх рэгіянальных налад</string>
+    <string name="show_cpu_usage">Паказаць выкарыстанне ЦП</string>
+    <string name="show_cpu_usage_summary">Наклад на экран з бягучым выкарыстаннем працэсара</string>
+    <string name="force_hw_ui">Прымусовае адлюстраванне GPU</string>
+    <string name="force_hw_ui_summary">Прымусовае выкарыстанне GPU для 2-мерных чарцяжоў</string>
+    <string name="force_msaa">Прымусовае выкананне 4x MSAA</string>
+    <string name="force_msaa_summary">Уключыць 4x MSAA у прыкладаннях з OpenGL ES 2.0</string>
+    <string name="show_non_rect_clip">Адладка аперацый непрамавугольнага кліпа</string>
+    <string name="track_frame_time">Апрацоўка профілю GPU</string>
+    <string name="window_animation_scale_title">Маштаб анімацыі акна</string>
+    <string name="transition_animation_scale_title">Маштаб перадачы анімацыі</string>
+    <string name="animator_duration_scale_title">Шкала працягласці анiматара</string>
+    <string name="overlay_display_devices_title">Мадэляванне другасных дысплеяў</string>
+    <string name="debug_applications_category">Прыкладаннi</string>
+    <string name="immediately_destroy_activities">Не захоўваць дзеянні</string>
+    <string name="immediately_destroy_activities_summary">Знішч. кож.дзеянне, як толькі карыст.пакідае яго</string>
+    <string name="app_process_limit_title">Ліміт фонавага працэсу</string>
+    <string name="show_all_anrs">Паказаць усе ANRS</string>
+    <string name="show_all_anrs_summary">Паказаць дыялогавае акно \"Праграма не адказвае\" для фонавых прыкладанняў</string>
+    <string name="force_allow_on_external">Прымусова дазволіць праграмы на вонкавым сховішчы</string>
+    <string name="force_allow_on_external_summary">Робіць любую праграму даступнай для запісу на вонкавае сховішча, незалежна ад значэнняў маніфеста</string>
+    <string name="force_resizable_activities">Зрабіць вокны дзеянняў даступнымі для змены памеру</string>
+    <string name="force_resizable_activities_summary">Робіць усе віды дзейнасці даступнымі для змены памеру ў рэжыме некалькіх вокнаў, незалежна ад значэнняў маніфеста.</string>
+    <string name="enable_freeform_support">Уключыць адвольную форму вокнаў</string>
+    <string name="enable_freeform_support_summary">Уключыць падтрымку для эксперыментальнай адвольнай формы акна.</string>
+    <string name="local_backup_password_title">Пароль для рэз. копіі ПК</string>
+    <string name="local_backup_password_summary_none">Поўнае рэзервовае капіраванне працоўнага стала зараз не абаронена</string>
+    <string name="local_backup_password_summary_change">Краніце, каб змяніць або выдаліць пароль для поўнага рэзервовага капіравання працоўнага стала</string>
+    <string name="local_backup_password_toast_success">Усталяваны новы пароль для рэзервовага капіявання</string>
+    <string name="local_backup_password_toast_confirmation_mismatch">Новы пароль і яго пацвярджэнне не супадаюць</string>
+    <string name="local_backup_password_toast_validation_failure">Збой пры ўсталёўцы паролю для рэзервовага капіявання</string>
+    <string name="inactive_apps_title">Неактыўныя дадаткі</string>
+    <string name="inactive_app_inactive_summary">Неактыўная. Краніце, каб пераключыць.</string>
+    <string name="inactive_app_active_summary">Актыўная. Краніце, каб пераключыць.</string>
+    <string name="runningservices_settings_title">Запушчаныя службы</string>
+    <string name="runningservices_settings_summary">Прагляд запушчаных службаў i кіраванне iмi</string>
+    <string name="enable_webview_multiprocess">Уключыць шматпрацэсны WebView</string>
+    <string name="enable_webview_multiprocess_desc">Запусціць апрацоўшчыкі WebView у ізаляваным працэсе.</string>
+    <string name="select_webview_provider_title">Рэалізацыя WebView</string>
+    <string name="select_webview_provider_dialog_title">Наладзіць рэалізацыю WebView</string>
+    <string name="select_webview_provider_toast_text">Гэты варыянт больш не даступны. Паспрабуйце яшчэ раз.</string>
+    <string name="convert_to_file_encryption">Перайсці на шыфраванне файлаў</string>
+    <string name="convert_to_file_encryption_enabled">Пераход...</string>
+    <string name="convert_to_file_encryption_done">Шыфраванне файлаў ужо дзейнічае</string>
+    <string name="title_convert_fbe">Пераход на шыфраванне файлаў</string>
+    <string name="convert_to_fbe_warning">"Перайдзіце з шыфравання раздзелаў даных на шыфраванне файлаў.
+ !!Увага!! Гэта прывядзе да выдалення ўсіх даных.
+ Гэта функцыя ў альфа-версіі, яна можа працаваць няправільна.
+ Каб працягнуць, націсніце «Сцерці і перайсці...»."</string>
+    <string name="button_convert_fbe">Сцерці і перайсці...</string>
+    <string name="picture_color_mode">Каляровы рэжым выявы</string>
+    <string name="picture_color_mode_desc">Выкарыстоўваць sRGB</string>
+    <string name="daltonizer_mode_disabled">Выключана</string>
+    <string name="daltonizer_mode_monochromacy">Монахрамазія</string>
+    <string name="daltonizer_mode_deuteranomaly">Дэйтэранамалія (чырвоны-зялёны)</string>
+    <string name="daltonizer_mode_protanomaly">Пратанамалія (чырвоны-зялёны)</string>
+    <string name="daltonizer_mode_tritanomaly">Трытанамалія (сіні-жоўты)</string>
+    <string name="accessibility_display_daltonizer_preference_title">Карэкцыя колеру</string>
+    <string name="accessibility_display_daltonizer_preference_subtitle">"Гэтая функцыя з'яўляецца эксперыментальнай і можа паўплываць на прадукцыйнасць."</string>
+    <string name="daltonizer_type_overridden">Перавызначаны %1$s</string>
+    <string name="power_remaining_duration_only">Засталося прыблізна %1$s</string>
+    <string name="power_remaining_duration_only_short">Засталося %1$s</string>
+    <string name="power_discharging_duration">%1$s – засталося прыблізна %2$s</string>
+    <string name="power_discharging_duration_short">%1$s – засталося %2$s</string>
+    <string name="power_charging">%1$s – %2$s</string>
+    <string name="power_charging_duration">%1$s: %2$s засталося да поўнай зарадкі</string>
+    <string name="power_charging_duration_short">%1$s – %2$s</string>
+    <string name="power_charging_duration_ac">%1$s: %2$s засталося да поўнай зарадкі праз AC</string>
+    <string name="power_charging_duration_ac_short">%1$s – %2$s</string>
+    <string name="power_charging_duration_usb">%1$s: %2$s засталося да поўнай зарадкі праз USB</string>
+    <string name="power_charging_duration_usb_short">%1$s – %2$s</string>
+    <string name="power_charging_duration_wireless">%1$s: %2$s засталося да поўнай зарадкі (бесправадная зарадка)</string>
+    <string name="power_charging_duration_wireless_short">%1$s – %2$s</string>
+    <string name="battery_info_status_unknown">Невядома</string>
+    <string name="battery_info_status_charging">Зарадка</string>
+    <string name="battery_info_status_charging_ac">Зар. ад сеткі пер. току</string>
+    <string name="battery_info_status_charging_ac_short">Зарадка</string>
+    <string name="battery_info_status_charging_usb">Зарадка па USB</string>
+    <string name="battery_info_status_charging_usb_short">Зарадка</string>
+    <string name="battery_info_status_charging_wireless">Бесправадная зарадка</string>
+    <string name="battery_info_status_charging_wireless_short">Зарадка</string>
+    <string name="battery_info_status_discharging">Не зараджаецца</string>
+    <string name="battery_info_status_not_charging">Не зараджаецца</string>
+    <string name="battery_info_status_full">Поўная</string>
+    <string name="battery_info_status_adaptive_fast_charging">Хуткая зарадка</string>
+    <string name="battery_info_power_ac">AC</string>
+    <string name="battery_info_power_usb">USB</string>
+    <string name="battery_info_power_wireless">Бесправадн.</string>
+    <string name="disabled_by_admin_summary_text">Кантралюецца адміністратарам</string>
+    <string name="enabled_by_admin">Уключана адміністратарам</string>
+    <string name="disabled_by_admin">Адключана адміністратарам</string>
+    <string name="home">Галоўная старонка налад</string>
+    <string name="charge_length_format">%s назад</string>
+    <string name="remaining_length_format">%s засталося</string>
+    <string name="screen_zoom_summary_small">Маленькі</string>
+    <string name="screen_zoom_summary_default">Стандартны</string>
+    <string name="screen_zoom_summary_large">Вялікі</string>
+    <string name="screen_zoom_summary_very_large">Большы</string>
+    <string name="screen_zoom_summary_extremely_large">Найвялікшы</string>
+    <string name="screen_zoom_summary_custom">Карыстальніцкі (%d)</string>
+    <string name="help_feedback_label">Даведка і водгукі</string>
+    <string name="battery_discharging_duration">Прыблізна засталося часу выкарыстання: %s</string>
+    <string name="bluetooth_tethering_cannot_connect_while_connected_to_wifi">Нельга карыстацца Bluetooth-мадэмам падчас злучэння з сеткай Wi-Fi.</string>
+    <string name="lb_navigation_menu_contentDescription">Меню навігацыі</string>
+    <string name="orb_search_action">Аперацыя пошуку</string>
+    <string name="lb_search_bar_hint">Шукаць</string>
+    <string name="lb_search_bar_hint_speech">Пачніце гаварыць, каб пачаць пошук</string>
+    <string name="lb_search_bar_hint_with_title">Шукаць у %1$s</string>
+    <string name="lb_search_bar_hint_with_title_speech">Пачніце гаварыць, каб пачаць пошук у %1$s</string>
+    <string name="lb_control_display_fast_forward_multiplier">%1$dX</string>
+    <string name="lb_control_display_rewind_multiplier">%1$dX</string>
+    <string name="lb_playback_controls_play">Прайграць</string>
+    <string name="lb_playback_controls_pause">Прыпыніць</string>
+    <string name="lb_playback_controls_fast_forward">Перамотка ўперад</string>
+    <string name="lb_playback_controls_fast_forward_multiplier">Перамотка ўперад %1$dX</string>
+    <string name="lb_playback_controls_rewind">Перамотка назад</string>
+    <string name="lb_playback_controls_rewind_multiplier">Перамотка назад %1$dX</string>
+    <string name="lb_playback_controls_skip_next">Перайсці да наступнага элемента</string>
+    <string name="lb_playback_controls_skip_previous">Перайсці да папярэдняга элемента</string>
+    <string name="lb_playback_controls_more_actions">Дадатковыя дзеянні</string>
+    <string name="lb_playback_controls_thumb_up">Зняць адзнаку «Падабаецца»</string>
+    <string name="lb_playback_controls_thumb_up_outline">Паставіць адзнаку «Падабаецца»</string>
+    <string name="lb_playback_controls_thumb_down">Зняць адзнаку «Не падабаецца»</string>
+    <string name="lb_playback_controls_thumb_down_outline">Паставіць адзнаку «Не падабаецца»</string>
+    <string name="lb_playback_controls_repeat_none">Не паўтараць нічога</string>
+    <string name="lb_playback_controls_repeat_all">Паўтарыць усё</string>
+    <string name="lb_playback_controls_repeat_one">Паўтарыць адзін элемент</string>
+    <string name="lb_playback_controls_shuffle_enable">Уключыць выпадковы парадак</string>
+    <string name="lb_playback_controls_shuffle_disable">Адключыць выпадковы парадак</string>
+    <string name="lb_playback_controls_high_quality_enable">Уключыць высокую якасць</string>
+    <string name="lb_playback_controls_high_quality_disable">Адключыць высокую якасць</string>
+    <string name="lb_playback_controls_closed_captioning_enable">Уключыць схаваныя цітры</string>
+    <string name="lb_playback_controls_closed_captioning_disable">Адключыць схаваныя цітры</string>
+    <string name="lb_playback_controls_picture_in_picture">Калі ласка, увядзіце выяву ў рэжыме Выяў</string>
+    <string name="lb_guidedaction_finish_title">Завяршыць</string>
+    <string name="lb_guidedaction_continue_title">Далей</string>
+    <string name="lb_date_separator">/</string>
+    <string name="lb_time_separator">:</string>
+    <string name="lb_onboarding_get_started">ПАЧАЦЬ</string>
+    <string name="lb_onboarding_accessibility_next">Далей</string>
+    <string name="abc_action_mode_done">Гатова</string>
+    <string name="abc_action_bar_home_description">Перайсці на галоўную старонку</string>
+    <string name="abc_action_bar_up_description">Перайсці ўверх</string>
+    <string name="abc_action_menu_overflow_description">Дадатковыя параметры</string>
+    <string name="abc_toolbar_collapse_description">Згарнуць</string>
+    <string name="abc_action_bar_home_description_format">%1$s, %2$s</string>
+    <string name="abc_action_bar_home_subtitle_description_format">%1$s, %2$s, %3$s</string>
+    <string name="abc_searchview_description_search">Пошук</string>
+    <string name="abc_search_hint">Пошук...</string>
+    <string name="abc_searchview_description_query">Запыт на пошук</string>
+    <string name="abc_searchview_description_clear">Выдалiць запыт</string>
+    <string name="abc_searchview_description_submit">Адправіць запыт</string>
+    <string name="abc_searchview_description_voice">Галасавы пошук</string>
+    <string name="abc_activitychooserview_choose_application">Выбраць праграму</string>
+    <string name="abc_activity_chooser_view_see_all">Прагледзець усё</string>
+    <string name="abc_shareactionprovider_share_with_application">Абагуліць з %s</string>
+    <string name="abc_shareactionprovider_share_with">Абагуліць з</string>
+    <string name="status_bar_notification_info_overflow">больш за 999</string>
+    <string name="abc_capital_on">УКЛ.</string>
+    <string name="abc_capital_off">ВЫКЛ.</string>
+    <string name="app_label">Сіст.інтэрф.</string>
+    <string name="status_bar_clear_all_button">Ачысц. усё</string>
+    <string name="status_bar_recent_remove_item_title">Выдаліць са спісу</string>
+    <string name="status_bar_recent_inspect_item_title">Звесткі аб прыкладанні</string>
+    <string name="status_bar_no_recent_apps">"Вашы апошнія экраны з'яўляюцца тут"</string>
+    <string name="status_bar_accessibility_dismiss_recents">Закрыць нядаўнія прыкладаннi</string>
+    <string name="status_bar_no_notifications_title">Без апавяшчэнняў</string>
+    <string name="status_bar_ongoing_events_title">Пастаянныя</string>
+    <string name="status_bar_latest_events_title">Апавяшчэнні</string>
+    <string name="battery_low_title">Нізкі ўзровень зараду акумулятара</string>
+    <string name="battery_low_percent_format">Засталося %s</string>
+    <string name="battery_low_percent_format_saver_started">Засталося %s. Уключана эканомія зараду.</string>
+    <string name="invalid_charger">"USB-зарадка не падтрымліваецца.
+Карыстайцеся толькі зарадкай для прылады."</string>
+    <string name="invalid_charger_title">Зарадка па USB не падтрымліваецца.</string>
+    <string name="invalid_charger_text">Выкарыстоўвайце толькі зарадную прыладу ў камплекце.</string>
+    <string name="battery_low_why">Налады</string>
+    <string name="battery_saver_confirmation_title">Уключыць эканомію зараду?</string>
+    <string name="battery_saver_confirmation_ok">Уключыць</string>
+    <string name="battery_saver_start_action">Уключыць рэжым эканоміі зараду</string>
+    <string name="status_bar_settings_settings_button">Налады</string>
+    <string name="status_bar_settings_wifi_button">Wi-Fi</string>
+    <string name="status_bar_settings_auto_rotation">Аўтаматычны паварот экрана</string>
+    <string name="status_bar_settings_auto_brightness_label">АЎТА</string>
+    <string name="brightness_controller_label_text">Аўтаматычна</string>
+    <string name="quick_settings_brightness_controller_hbm">Максіміз. для лепш. прагл. пад сонеч. промн.</string>
+    <string name="status_bar_settings_notifications">Паведамленні</string>
+    <string name="bluetooth_tethered">Прывязаныя праз Bluetooth</string>
+    <string name="status_bar_input_method_settings_configure_input_methods">Налада метадаў уводу</string>
+    <string name="status_bar_use_physical_keyboard">Фізічная клавіятура</string>
+    <string name="usb_device_permission_prompt">Дазволіць праыкладанню %1$s атрымлiваць доступ да прылады USB?</string>
+    <string name="usb_accessory_permission_prompt">Дазволіць прыкладанню %1$s доступ да прылады USB?</string>
+    <string name="usb_device_confirm_prompt">Адкрыць %1$s, калі гэтая USB-прылада падлучаная?</string>
+    <string name="title_usb_accessory">USB-прылада</string>
+    <string name="always_use_device">Выкарыстоўваць налады па змаўчанні для дадзенай USB-прылады</string>
+    <string name="usb_debugging_title">Дазволіць адладку USB?</string>
+    <string name="usb_debugging_message">"Адбiтак ключа RSA на гэтым камп'ютары:
+%1$s"</string>
+    <string name="usb_debugging_always">"Заўсёды дазваляць з гэтага камп'ютара"</string>
+    <string name="usb_debugging_secondary_user_title">Адладка USB не дапускаецца</string>
+    <string name="usb_debugging_secondary_user_message">Карыстальнік, які зараз увайшоў на гэту прыладу, не можа ўключыць адладку USB. Каб выкарыстоўваць гэту функцыю, пераключыцеся на карыстальніка-адміністратара.</string>
+    <string name="compat_mode_on">Павял. на ўвесь экран</string>
+    <string name="compat_mode_off">Расцягн. на ўвесь экран</string>
+    <string name="tw_recents_lock_to_app_button_label">Замацаваць праграму</string>
+    <string name="tw_lock_to_app_title">Уключыць функцыю «Замацаваць вокны»</string>
+    <string name="tw_lock_to_app_description_1">Гэта функцыя дазваляе замацаваць праграму на экране прылады, каб нельга было выйсці з яе.</string>
+    <string name="tw_lock_to_app_description_2">Пакуль праграма замацавана, апавяшчэнні з іншых праграм будуць блакіравацца, а іншыя функцыі, напрыклад, выклікі і абмен паведамленнямі, будуць недаступны.</string>
+    <string name="tw_lock_to_app_description_tablet_wifi">Пакуль праграма замацавана, апавяшчэнні будуць блакіравацца і іншыя функцыі могуць быць недаступны.</string>
+    <string name="tw_lock_to_app_description_recents_and_back">Каб адмацаваць праграму, націсніце і ўтрымлівайце клавішу «Апошнія» і клавішу вяртання адначасова.</string>
+    <string name="tw_lock_to_app_description_menu_and_back">Каб адмацаваць праграму, націсніце і ўтрымлівайце клавішу меню і клавішу вяртання адначасова.</string>
+    <string name="tw_lock_to_app_description_recents_and_back_accessible">Каб адмацаваць праграму, націсніце і ўтрымлівайце клавішу «Апошнія».</string>
+    <string name="tw_lock_to_app_description_menu_and_back_accessible">Каб адмацаваць праграму, націсніце і ўтрымлівайце клавішу меню.</string>
+    <string name="tw_unable_to_pin_title">Немагчыма замацаваць %s</string>
+    <string name="tw_unable_to_pin_description">Гэта праграма не падтрымлівае замацаванне вокнаў.</string>
+    <string name="tw_unable_to_pin_description_toast">Немагчыма замацаваць праграму. %s закрыта. Адбылася невядомая памылка.</string>
+    <string name="tw_screen_pinning_positive">Пачаць</string>
+    <string name="tw_screen_pinning_negative">Не, ДЗЯКУЙ</string>
+    <string name="accessibility_recents_item_pin">Замацаваць</string>
+    <string name="accessibility_recents_item_unpin">Адмацаваць</string>
+    <string name="screenshot_saving_ticker">Захаванне скрыншота...</string>
+    <string name="screenshot_saving_title">Захаванне скрыншота...</string>
+    <string name="screenshot_saving_text">Скрыншот захаваны.</string>
+    <string name="screenshot_saved_title">Скрыншот зроблены</string>
+    <string name="screenshot_failed_title">Не атрымалася зрабiць скрыншот.</string>
+    <string name="memory_full_dialog_title">Немагчыма стварыць здымак экрана</string>
+    <string name="memory_full_dialog_msg">Недастаткова прасторы на сховішчы прылады. Выдаліце некаторыя файлы і паўтарыце спробу.</string>
+    <string name="screen_capture_fail_for_storage_capacity">Недастаткова прасторы ў сховішчы прылады. Выдаліце некаторыя файлы і паўтарыце спробу.</string>
+    <string name="screen_capture_fail_for_security_policy">Немагчыма зрабіць здымак экрана. Забаронена палітыкай бяспекі.</string>
+    <string name="screen_capture_edit">Рэд.</string>
+    <string name="screen_capture_share">Абагуліць</string>
+    <string name="screen_capture_delete">Выдаліць</string>
+    <string name="qs_detail_capture_screen">Здымак экрана</string>
+    <string name="qs_detail_recorder_screen">Record screen</string>
+    <string name="qs_detail_capture_mode">Screen capture mode</string>
+    <string name="qs_detail_capture_mode_text">Select the function you want to add to the quick settings panel.</string>
+    <string name="unable_to_open_ps_in_emergency_mode">Немагчыма адкрыць %s у экстранным рэжыме.</string>
+    <string name="unable_to_open_ps_in_upsm">Немагчыма адкрыць %s у рэжыме максімальнага энергазберажэння.</string>
+    <string name="unable_to_open_ps_in_mpsm">Немагчыма адкрыць %s у рэжыме максімальнага энергазберажэння.</string>
+    <string name="image_viewer">Прагляд відарысаў</string>
+    <string name="photo_editor">Фотарэдактар</string>
+    <string name="to_use_this_function_download_the_following_application">"Каб карыстацца гэтай функцыяй, спампуйце наступную праграму:
+
+%s"</string>
+    <string name="usb_preference_title">Парам. перадачы файлаў па USB</string>
+    <string name="use_mtp_button_title">Падлучыць як медыяпрайгравальнік (ССП)</string>
+    <string name="use_ptp_button_title">Падлучыць як камеру (PTP)</string>
+    <string name="installer_cd_button_title">Усталяваць прыклад. Android File Transfer для Mac</string>
+    <string name="accessibility_back">Назад</string>
+    <string name="accessibility_home">На Галоўную старонку</string>
+    <string name="accessibility_menu">Меню</string>
+    <string name="accessibility_recent">Агляд</string>
+    <string name="accessibility_camera_button">Камера</string>
+    <string name="accessibility_phone_button">Тэлефон</string>
+    <string name="accessibility_voice_assist_button">Галасавая дапамога</string>
+    <string name="accessibility_unlock_button">Разблакiраваць</string>
+    <string name="accessibility_unlock_button_fingerprint">Кнопка разблакіроўкі, чаканне адбітка пальца</string>
+    <string name="accessibility_unlock_without_fingerprint">Разблакіроўка без выкарыстання адбітка пальца</string>
+    <string name="unlock_label">разблакiраваць</string>
+    <string name="phone_label">адкрыць тэлефон</string>
+    <string name="voice_assist_label">адкрыць галасавую дапамогу</string>
+    <string name="camera_label">адкрыць камеру</string>
+    <string name="recents_caption_resize">Выберыце новы макет заданняў</string>
+    <string name="accessibility_compatibility_zoom_button">Кнопка сумяшчальнасці маштаба.</string>
+    <string name="accessibility_compatibility_zoom_example">Маштабаванне малых элементаў для большага экрана.</string>
+    <string name="accessibility_bluetooth_connected">Bluetooth-сувязь.</string>
+    <string name="accessibility_bluetooth_disconnected">Bluetooth адключаны.</string>
+    <string name="accessibility_no_battery">Без акумулятара.</string>
+    <string name="accessibility_battery_one_bar">Адна планка акумулятара.</string>
+    <string name="accessibility_battery_two_bars">2 планкі акумулятара.</string>
+    <string name="accessibility_battery_three_bars">Тры планкі акумулятара.</string>
+    <string name="accessibility_battery_full">Акумулятар поўны.</string>
+    <string name="accessibility_no_phone">Няма тэлефона.</string>
+    <string name="accessibility_phone_one_bar">Адна планка на тэлефоне.</string>
+    <string name="accessibility_phone_two_bars">2 планкі тэлефона.</string>
+    <string name="accessibility_phone_three_bars">3 планкі тэлефона.</string>
+    <string name="accessibility_phone_signal_full">Поўны сігнал тэлефона.</string>
+    <string name="accessibility_no_data">Няма дадзеных.</string>
+    <string name="accessibility_data_one_bar">Адна планка дадзеных.</string>
+    <string name="accessibility_data_two_bars">2 планкі дадзеных.</string>
+    <string name="accessibility_data_three_bars">3 планкі дадзеных.</string>
+    <string name="accessibility_data_signal_full">Поўны сігнал перадачы дадзеных.</string>
+    <string name="accessibility_wifi_name">Падключаны да %s.</string>
+    <string name="accessibility_bluetooth_name">Падлучаны да %s.</string>
+    <string name="accessibility_cast_name">Ёсць падключэнне да %s.</string>
+    <string name="accessibility_no_wimax">Няма сiгналу WiMAX.</string>
+    <string name="accessibility_wimax_one_bar">Адзiн слупок сiгналу WiMAX.</string>
+    <string name="accessibility_wimax_two_bars">Два слупкi сiгналу WiMAX.</string>
+    <string name="accessibility_wimax_three_bars">Тры слупкi сiгналу WiMAX.</string>
+    <string name="accessibility_wimax_signal_full">Моцны сiгнал WiMAX.</string>
+    <string name="accessibility_ethernet_disconnected">Ethernet адлучаны.</string>
+    <string name="accessibility_ethernet_connected">Ethernet падлучаны.</string>
+    <string name="accessibility_no_signal">Няма сігналу.</string>
+    <string name="accessibility_not_connected">Няма падключэння.</string>
+    <string name="accessibility_zero_bars">Няма.</string>
+    <string name="accessibility_one_bar">Адзiн слупок.</string>
+    <string name="accessibility_two_bars">Два слупкi.</string>
+    <string name="accessibility_three_bars">Тры слупкi.</string>
+    <string name="accessibility_signal_full">Сігнал поўны.</string>
+    <string name="accessibility_desc_on">Уключана.</string>
+    <string name="accessibility_desc_off">Адключана.</string>
+    <string name="accessibility_desc_connected">Падключана.</string>
+    <string name="accessibility_desc_connecting">Падлучэнне.</string>
+    <string name="accessibility_data_connection_gprs">GPRS</string>
+    <string name="accessibility_data_connection_1x">1 X</string>
+    <string name="accessibility_data_connection_hspa">HSPA</string>
+    <string name="accessibility_data_connection_3g">3G</string>
+    <string name="accessibility_data_connection_3.5g">3.5G</string>
+    <string name="accessibility_data_connection_4g">4G</string>
+    <string name="accessibility_data_connection_lte">LTE</string>
+    <string name="accessibility_data_connection_cdma">CDMA</string>
+    <string name="accessibility_data_connection_roaming">Роўмінг</string>
+    <string name="accessibility_data_connection_edge">Edge</string>
+    <string name="accessibility_data_connection_wifi">Wi-Fi</string>
+    <string name="accessibility_no_sim">Няма SIM-карты.</string>
+    <string name="accessibility_cell_data">Сотавая перадача даных</string>
+    <string name="accessibility_cell_data_on">Сотавая перадача даных уключана</string>
+    <string name="accessibility_cell_data_off">Мабільная перадача даных адключана</string>
+    <string name="accessibility_bluetooth_tether">Сувязь па Bluetooth.</string>
+    <string name="accessibility_airplane_mode">Рэжым палёту.</string>
+    <string name="accessibility_no_sims">Няма SIM-карты.</string>
+    <string name="accessibility_carrier_network_change_mode">Змяненне аператара сеткі.</string>
+    <string name="accessibility_battery_details">Паказаць падрабязную інфармацыю пра акумулятар</string>
+    <string name="accessibility_battery_level_charging">Зарадка акумулятара, працэнтаў: %d.</string>
+    <string name="accessibility_settings_button">Сістэмныя налады.</string>
+    <string name="accessibility_notifications_button">Апавяшчэнні.</string>
+    <string name="accessibility_remove_notification">Выдаліць апавяшчэнне.</string>
+    <string name="accessibility_gps_enabled">GPS уключаны.</string>
+    <string name="accessibility_gps_acquiring">Атрыманне GPS.</string>
+    <string name="accessibility_tty_enabled">TeleTypewriter уключаны.</string>
+    <string name="accessibility_ringer_vibrate">Выклік з вібрацыяй.</string>
+    <string name="accessibility_work_mode">Рэжым працы</string>
+    <string name="accessibility_recents_item_will_be_dismissed">Выдаліць %s са спіса апошніх.</string>
+    <string name="accessibility_recents_item_dismissed">%s выдалены.</string>
+    <string name="accessibility_recents_all_items_dismissed">Усе апошнія праграмы адхілены.</string>
+    <string name="accessibility_recents_item_open_app_info">Адкрыць інфармацыю пра праграму \"%s\".</string>
+    <string name="accessibility_recents_item_launched">Запускаецца %s.</string>
+    <string name="accessibility_recents_task_header">%1$s %2$s</string>
+    <string name="accessibility_notification_dismissed">Апавяшчэнне прапушчана.</string>
+    <string name="accessibility_desc_notification_shade">Цень апавяшчэння..</string>
+    <string name="accessibility_desc_quick_settings">Хуткія налады.</string>
+    <string name="accessibility_desc_lock_screen">Экран блакіроўкі.</string>
+    <string name="accessibility_desc_settings">Налады</string>
+    <string name="accessibility_desc_recent_apps">Апошнія праграмы</string>
+    <string name="accessibility_desc_close">Закрыць</string>
+    <string name="accessibility_quick_settings_user">Карыстальнік: %s.</string>
+    <string name="accessibility_quick_settings_wifi">%1$s.</string>
+    <string name="accessibility_quick_settings_wifi_changed_off">Wi-Fi выключаны.</string>
+    <string name="accessibility_quick_settings_wifi_changed_on">Wi-Fi уключаны.</string>
+    <string name="accessibility_quick_settings_mobile">Мабiльны сiгнал: %1$s. %2$s. %3$s.</string>
+    <string name="accessibility_quick_settings_battery">Акумулятар: %s.</string>
+    <string name="accessibility_quick_settings_airplane_off">Рэжым палёту выключаны.</string>
+    <string name="accessibility_quick_settings_airplane_on">Рэжым палёту ўключаны.</string>
+    <string name="accessibility_quick_settings_airplane_changed_off">Рэжым палёту выключаецца.</string>
+    <string name="accessibility_quick_settings_airplane_changed_on">Рэжым палёту ўключаецца.</string>
+    <string name="accessibility_quick_settings_dnd_priority_on">Рэжым «Не турбаваць» укл., толькі прыярытэтныя.</string>
+    <string name="accessibility_quick_settings_dnd_none_on">Рэжым «Не турбаваць» укл., поўная цішыня.</string>
+    <string name="accessibility_quick_settings_dnd_alarms_on">Рэжым «Не турбаваць» укл., толькі будзільнікі.</string>
+    <string name="accessibility_quick_settings_dnd">Не турбаваць.</string>
+    <string name="accessibility_quick_settings_dnd_off">Рэжым «Не турбаваць» выкл.</string>
+    <string name="accessibility_quick_settings_dnd_changed_off">Рэжым «Не турбаваць» выкл.</string>
+    <string name="accessibility_quick_settings_dnd_changed_on">Рэжым «Не турбаваць» укл.</string>
+    <string name="accessibility_quick_settings_bluetooth">Bluetooth.</string>
+    <string name="accessibility_quick_settings_bluetooth_off">Bluetooth выключаны.</string>
+    <string name="accessibility_quick_settings_bluetooth_on">Bluetooth уключаны.</string>
+    <string name="accessibility_quick_settings_bluetooth_connecting">Bluetooth падлучаецца.</string>
+    <string name="accessibility_quick_settings_bluetooth_connected">Bluetooth падлучаны.</string>
+    <string name="accessibility_quick_settings_bluetooth_changed_off">Bluetooth выключаны.</string>
+    <string name="accessibility_quick_settings_bluetooth_changed_on">Bluetooth уключаны.</string>
+    <string name="accessibility_quick_settings_location_off">Адпраўка даных аб месцазнаходжанні выключана.</string>
+    <string name="accessibility_quick_settings_location_on">Адпраўка даных аб месцазнаходжанні ўключана.</string>
+    <string name="accessibility_quick_settings_location_changed_off">Адпраўка даных аб месцазнаходжанні выключаецца.</string>
+    <string name="accessibility_quick_settings_location_changed_on">Адпраўка даных аб месцазнаходжанні ўключаецца.</string>
+    <string name="accessibility_quick_settings_alarm">Наладжаны будзiльнiк: %s.</string>
+    <string name="accessibility_quick_settings_close">Закрыць панэль.</string>
+    <string name="accessibility_quick_settings_more_time">Больш часу.</string>
+    <string name="accessibility_quick_settings_less_time">Менш часу.</string>
+    <string name="accessibility_quick_settings_flashlight_off">Ліхтарык выключаны.</string>
+    <string name="accessibility_quick_settings_flashlight_unavailable">Ліхтарык недаступны.</string>
+    <string name="accessibility_quick_settings_flashlight_on">Ліхтарык уключаны.</string>
+    <string name="accessibility_quick_settings_flashlight_changed_off">Ліхтарык выключаецца.</string>
+    <string name="accessibility_quick_settings_flashlight_changed_on">Ліхтарык уключаецца.</string>
+    <string name="accessibility_quick_settings_color_inversion_changed_off">Інверсія колеру адключаецца.</string>
+    <string name="accessibility_quick_settings_color_inversion_changed_on">Інверсія колеру ўключаецца.</string>
+    <string name="accessibility_quick_settings_hotspot_changed_off">Мабільны хот-спот выключаецца.</string>
+    <string name="accessibility_quick_settings_hotspot_changed_on">Мабільны хот-спот ўключаецца.</string>
+    <string name="accessibility_casting_turned_off">Трансляцыя экрана спынена.</string>
+    <string name="accessibility_quick_settings_work_mode_off">Рэжым працы выкл.</string>
+    <string name="accessibility_quick_settings_work_mode_on">Рэжым працы ўкл.</string>
+    <string name="accessibility_quick_settings_work_mode_changed_off">Рэжым працы выключаны.</string>
+    <string name="accessibility_quick_settings_work_mode_changed_on">Рэжым працы ўключаны.</string>
+    <string name="accessibility_quick_settings_data_saver_changed_off">Эканомія трафіку адключана.</string>
+    <string name="accessibility_quick_settings_data_saver_changed_on">Эканомія трафіку ўключана.</string>
+    <string name="accessibility_brightness">Яркасць дысплэя</string>
+    <string name="data_usage_disabled_dialog_3g_title">Перадача даных 2G-3G прыпынена</string>
+    <string name="data_usage_disabled_dialog_4g_title">Перадача даных 4G прыпынена</string>
+    <string name="data_usage_disabled_dialog_mobile_title">Мабільная перадача даных прыпынена</string>
+    <string name="data_usage_disabled_dialog_title">Перадача даных прыпынена</string>
+    <string name="data_usage_disabled_dialog">"Быў дасягнуты ліміт перадачы даных, таму прылада прыпыніла перадачу даных на астатнюю частку гэтага цыкла.
+
+Узнаўленне перадачы можа прывесці да спагнання платы вашым аператарам."</string>
+    <string name="data_usage_disabled_dialog_enable">Узнавіць</string>
+    <string name="status_bar_settings_signal_meter_disconnected">Няма падключэння да Iнтэрнэту</string>
+    <string name="status_bar_settings_signal_meter_wifi_nossid">Wi-Fi падключаны</string>
+    <string name="gps_notification_searching_text">Пошук GPS</string>
+    <string name="gps_notification_found_text">Месца задана праз GPS</string>
+    <string name="accessibility_location_active">Ёсць актыўныя запыты пра месцазнаходжанне</string>
+    <string name="accessibility_clear_all">Выдалiць усе апавяшчэннi.</string>
+    <string name="notification_group_overflow_indicator">+ %s</string>
+    <string name="status_bar_notification_inspect_item_title">Налады апавяшчэнняў</string>
+    <string name="status_bar_notification_app_settings_title">Налады %s</string>
+    <string name="accessibility_rotation_lock_off">Экран паварочваецца аўтаматычна.</string>
+    <string name="accessibility_rotation_lock_on_landscape">Экран заблакiраваны ў альбомнай арыентацыі.</string>
+    <string name="accessibility_rotation_lock_on_portrait">Экран заблакiраваны ў партрэтнай арыентацыі.</string>
+    <string name="accessibility_rotation_lock_off_changed">Цяпер экран будзе паварочвацца аўтаматычна.</string>
+    <string name="accessibility_rotation_lock_on_landscape_changed">Цяпер экран заблакіраваны ў альбомнай арыентацыі.</string>
+    <string name="accessibility_rotation_lock_on_portrait_changed">Цяпер экран заблакiраваны ў кніжнай арыентацыі.</string>
+    <string name="dessert_case">Вітрына з дэсертамі</string>
+    <string name="start_dreams">Экранная застаўка</string>
+    <string name="ethernet_label">Ethernet</string>
+    <string name="wifi_not_found_hidden_ap">Немагчыма падлучыцца да сеткі. Сеткі з імём %s не знойдзена.</string>
+    <string name="it_policy_not_allow_wifi">Палітыка бяспекі забараняе выкарыстанне Wi-Fi.</string>
+    <string name="it_policy_not_allow_wifiap">Палітыка бяспекі абмяжоўвае выкарыстанне супольнага доступу да інтэрнэту.</string>
+    <string name="wifi_authentication_succeed_kt">Пункт доступу Wi-Fi аўтэнтыфікаваны.</string>
+    <string name="wifi_authentication_failed_kt">Не ўдалося праверыць сапраўднасць пункту доступу Wi-Fi.</string>
+    <string name="wifi_authentication_no_response">Немагчыма падлучыцца да пункта доступу Wi-Fi.</string>
+    <string name="wifi_authentication_invalid_value">Памылка праверкі сапраўднасці. Праверце ідэнтыфікатар і пароль.</string>
+    <string name="wifi_exceeded_max_configured_networks_dialog_title">Папярэджанне</string>
+    <string name="wifi_exceeded_max_configured_networks_dialog_message">Імёны кропак доступу для больш чым %1$d сетак захаваны. Рэкамендуем выдаліць старэйшыя імёны кропак доступу %2$d для больш плаўнай працы Wi-Fi.</string>
+    <string name="wifi_exceeded_max_configured_networks_dialog_ok">Выд. стар. ім. кр. дост. %d</string>
+    <string name="quick_settings_dnd_label">Не турбаваць</string>
+    <string name="quick_settings_dnd_priority_label">Толькі прыярытэтныя</string>
+    <string name="quick_settings_dnd_alarms_label">Толькі будзільнікі</string>
+    <string name="quick_settings_dnd_none_label">Поўная цішыня</string>
+    <string name="quick_settings_bluetooth_label">Bluetooth</string>
+    <string name="quick_settings_bluetooth_multiple_devices_label">Bluetooth (прылады: %d)</string>
+    <string name="quick_settings_bluetooth_off_label">Bluetooth выключаны</string>
+    <string name="quick_settings_bluetooth_detail_empty_text">Няма даступных спалучаных прылад</string>
+    <string name="quick_settings_bluetooth_detail_empty_text_available">Не знойдзены прылады Bluetooth паблізу</string>
+    <string name="quick_settings_bluetooth_detail_paired_devices_title">Спалучаныя прылады</string>
+    <string name="quick_settings_bluetooth_detail_available_devices_title">Даступныя прылады</string>
+    <string name="quick_settings_bluetooth_detail_off_text">Уключыце Bluetooth, каб пабачыць спіс прылад, з якімі вы можаце злучыцца або ўжо злучыліся.</string>
+    <string name="quick_settings_sound_mode_detail_label">Рэжым гуку</string>
+    <string name="quick_settings_sound_mode_detail_temporary_mute_title">Часова адключыць гук</string>
+    <string name="quick_settings_sound_mode_detail_temporary_mute_summary">Выберыце, як доўга трэба трымаць прыладу ў бязгучным рэжыме, перш чым вярнуцца да папярэдняга гукавога рэжыму (%s).</string>
+    <string name="quick_settings_sound_mode_detail_temporary_mute_duration">Працягласць часу без гуку</string>
+    <string name="quick_settings_brightness_label">Яркасць</string>
+    <string name="quick_settings_rotation_unlocked_label">"Аўтам
+павярн"</string>
+    <string name="accessibility_quick_settings_rotation">Аўтаматычны паварот экрана</string>
+    <string name="accessibility_quick_settings_rotation_value">Усталявана на %s</string>
+    <string name="quick_settings_rotation_locked_label">Паварот заблакіраваны</string>
+    <string name="quick_settings_rotation_locked_portrait_label">Кніжны</string>
+    <string name="quick_settings_rotation_locked_landscape_label">Альбомная арыентацыя</string>
+    <string name="quick_settings_ime_label">Метад уводу</string>
+    <string name="quick_settings_location_label">Месцазнаходжанне</string>
+    <string name="quick_settings_location_off_label">Вызначэнне месцазнаходжання адключана</string>
+    <string name="quick_settings_media_device_label">Мультымедыйная прылада</string>
+    <string name="quick_settings_rssi_label">RSSI</string>
+    <string name="quick_settings_rssi_emergency_only">Толькі экстраныя выклікі</string>
+    <string name="quick_settings_settings_label">Налады</string>
+    <string name="quick_settings_time_label">Час</string>
+    <string name="quick_settings_user_label">Я</string>
+    <string name="quick_settings_user_title">Карыстальнік</string>
+    <string name="quick_settings_user_new_user">Новы карыстальнік</string>
+    <string name="quick_settings_wifi_label">Wi-Fi</string>
+    <string name="quick_settings_wifi_not_connected">Няма падключэння</string>
+    <string name="quick_settings_wifi_no_network">Няма сеткi</string>
+    <string name="quick_settings_wifi_off_label">Wi-Fi адключаны</string>
+    <string name="quick_settings_wifi_on_label">Wi-Fi уключаны</string>
+    <string name="quick_settings_wifi_detail_empty_text">Няма даступнай сеткі Wi-Fi</string>
+    <string name="quick_settings_wifi_detail_scanning_text">Пошук сетак Wi-Fi…</string>
+    <string name="quick_settings_wifi_detail_off_text">Каб убачыць даступныя сеткі, уключыце Wi-Fi.</string>
+    <string name="quick_settings_cast_title">Трансляцыя</string>
+    <string name="quick_settings_casting">Ідзе перадача</string>
+    <string name="quick_settings_cast_device_default_name">Прылада без назвы</string>
+    <string name="quick_settings_cast_device_default_description">Гатова для трансляцыі</string>
+    <string name="quick_settings_cast_detail_empty_text">Няма даступных прылад</string>
+    <string name="quick_settings_brightness_dialog_title">Яркасць</string>
+    <string name="quick_settings_brightness_dialog_auto_brightness_label">АЎТА</string>
+    <string name="quick_settings_brightness_strain_warning">"Выкарыстанне высокіх узроўняў яркасці на працягу доўгага часу можа прывесці да напружання вачэй і павялічыць спажыванне зараду акумулятара.
+Націсніце «ОК», каб дазволіць павелічэнне яркасці вышэй за бяспечныя ўзроўні."</string>
+    <string name="quick_settings_inversion_label">Інвертаваць колеры</string>
+    <string name="quick_settings_color_space_label">Рэжым карэкцыі колеру</string>
+    <string name="quick_settings_more_settings">Падрабязнасці</string>
+    <string name="quick_settings_done">ГАТОВА</string>
+    <string name="quick_settings_connected">Падлучана</string>
+    <string name="quick_settings_connecting">Падлучэнне...</string>
+    <string name="quick_settings_tethering_label">Мадэм</string>
+    <string name="quick_settings_notifications_label">Апавяшчэнні</string>
+    <string name="quick_settings_flashlight_label">Ліхтар</string>
+    <string name="quick_settings_cellular_detail_title">Мабільная перадача даных</string>
+    <string name="quick_settings_cellular_detail_data_usage">Выкарыстанне трафіку</string>
+    <string name="quick_settings_cellular_detail_remaining_data">Засталося трафіку</string>
+    <string name="quick_settings_cellular_detail_over_limit">Ліміт перавышаны</string>
+    <string name="quick_settings_cellular_detail_data_used">Выкарыстана %s</string>
+    <string name="quick_settings_cellular_detail_data_limit">Ліміт %s</string>
+    <string name="quick_settings_cellular_detail_data_warning">Папярэджанне: %s</string>
+    <string name="quick_settings_work_mode_label">Рэжым працы</string>
+    <string name="quick_settings_sound_mode_sound_label">Гук</string>
+    <string name="quick_settings_sound_mode_vibrate_label">Вібрацыя</string>
+    <string name="quick_settings_sound_mode_mute_label">Выключыць гук</string>
+    <string name="quick_settings_nfc_card_mode_label">"NFC
+card mode"</string>
+    <string name="quick_settings_nfc_p2p_label">"R/W
+P2P"</string>
+    <string name="quick_settings_my_device_visibility_label">"Бачнасць
+прылады"</string>
+    <string name="quick_settings_aod_label">"Always On
+Display"</string>
+    <string name="quick_settings_screen_mirroring_label">"Screen
+Mirroring"</string>
+    <string name="quick_settings_power_saving_label">"Энерга-
+збераж."</string>
+    <string name="quick_settings_sec_dnd_label">"Не
+турбаваць"</string>
+    <string name="quick_settings_mobile_hotspot_label">"Мабільны
+хот-спот"</string>
+    <string name="quick_settings_airplane_mode_label">"Рэжым
+Самалёт"</string>
+    <string name="quick_settings_bluelightfilter_label">"Фільтр сін
+святла"</string>
+    <string name="quick_settings_mobile_data_label">"Маб.пер.
+даных"</string>
+    <string name="quick_settings_wificalling_label">"Выклікі
+праз Wi-Fi"</string>
+    <string name="quick_settings_personal_mode_label">"Прыватны
+рэжым"</string>
+    <string name="quick_settings_data_roaming_label">"Даныя ў
+роўмінгу"</string>
+    <string name="quick_settings_gps_label">GPS</string>
+    <string name="quick_settings_sync_label">Сінхраніз.</string>
+    <string name="quick_settings_ultra_power_saving_label">"Макс.
+энергазб"</string>
+    <string name="quick_settings_data_monitor_label">"Макс. зах.
+даных"</string>
+    <string name="uds_toast_flight_mode_enabled">Немагчыма ўключыць рэжым максімальнага захавання даных пры ўключаным рэжыме «У самалёце». Адключыце рэжым «У самалёце» і паўтарыце спробу.</string>
+    <string name="qs_detail_flashlight_title">Ліхтар</string>
+    <string name="quick_settings_reading_mode_label">"Рэжым
+чытання"</string>
+    <string name="quick_settings_bike_mode_label">"Рэжым
+S bike"</string>
+    <string name="qs_detail_bike_mode_title">Рэжым S bike</string>
+    <string name="qs_detail_bike_mode_text">Уключыце гэты рэжым, каб фільтраваць усе ўваходныя выклікі. Падчас кіравання аўтамабілям вы будзеце атрымліваць апавяшчэнні толькі пра тэрміновыя выклікі. Прыладай немагчыма будзе карыстацца падчас кіравання аўтамабілям. Вы таксама можаце праглядаць выклікі, прапушчаныя ў той час, калі быў уключаны рэжым S bike, аўтаматычна адпраўляць тэкставыя паведамленні з інфармацыяй пра разліковы час у дарозе выбраным кантактам, калі яны тэлефануюць вам, праглядайце звесткі пра падарожжа і атрымліваць значкі.</string>
+    <string name="qs_edit_summary">Перацягніце кнопкі хуткіх налад на вобласць вышэй, каб дадаць іх на панэль хуткіх налад.</string>
+    <string name="notification_panel_unable_remove_minimum">Немагчыма выдаліць кнопку. Дасягнута мінімальная колькасць кнопак (%d).</string>
+    <string name="disable">Адключыць</string>
+    <string name="agree">Згадзіцца</string>
+    <string name="disagree">Не згаджацца</string>
+    <string name="quick_settings_it_policy_prevents">Палітыка бяспекі забараняе выкарыстанне %s.</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message">Устаўце SIM-карту, каб карыстацца мабільным хот-спотам і іншымі функцыямі мадэма.</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_title">Мабільны хот-спот</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_title_jpn">Unable to enable Wi-Fi tethering</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message_jpn">Insert a SIM card to use Wi-Fi tethering.</string>
+    <string name="mobile_hotspot_dialog_nousim_or_nosim_warning">Insert a UIM/SIM card to use Mobile hotspot and other tethering functions.</string>
+    <string name="mobile_hotspot_toast_disable_airplne_mode">Рэжым «у самалёце» не дазваляе злучэнне з мабільнымі сеткамі. Выйдзіце з рэжыму «у самалёце» і паўтарыце спробу.</string>
+    <string name="mobile_hotspot_toast_internet_sharing">Internet sharing</string>
+    <string name="mobile_hotspot_detail_title">Мабільны хот-спот</string>
+    <string name="mobile_hotspot_detail_title_vzw">Mobile Hotspot</string>
+    <string name="mobile_hotspot_detail_title_jpn">Wi-Fi-мадэм</string>
+    <string name="mobile_hotspot_detail_connection_mode_allowed_device">Толькі дазволеныя прылады</string>
+    <string name="mobile_hotspot_detail_connected_devices">Падлучаныя прылады</string>
+    <string name="mobile_hotspot_detail_connection_mode_allow_all">Дазволіць усім прыладам падлучацца</string>
+    <string name="insert_sim_card">Устаўце SIM-карту</string>
+    <string name="insert_sim_card_message">Устаўце SIM-карту, каб атрымаць доступ да паслуг сеткі.</string>
+    <string name="mobile_data_show_toast_airplane_mode">Рэжым «у самалёце» не дазваляе злучэнне з мабільнымі сеткамі. Выйдзіце з рэжыму «у самалёце» і паўтарыце спробу.</string>
+    <string name="volte_show_toast_airplane_mode">Немагчыма выкарыстоўваць VoLTE, пакуль уключаны рэжым «У самалёце». Адключыце рэжым «У самалёце» і паўтарыце спробу.</string>
+    <string name="volte_show_toast_impossible_during_volte_call">Немагчыма адключыць «Выкарыстоўваць сетку VoLTE, калі даступна» падчас выкліку VoLTE.</string>
+    <string name="volte_show_toast_disable_not_allowed">Пастаўшчык паслуг не дазволіў адключыць VoLTE.</string>
+    <string name="volte_show_toast_not_support_operator">VoLTE не падтрымліваецца вашай цяперашняй версіяй праграмнага забеспячэння. Звярніцеся ў службу абслугоўвання кліентаў за падрабязнай інфармацыяй.</string>
+    <string name="volte_show_toast_enable_message">Каб карыстацца сэрвісам VoLTE, падпішыцеся на VoLTE. За дадатковай інфармацыяй звяртайцеся да пастаўшчыка паслуг.</string>
+    <string name="unable_to_turn_on_being_used_by_camera">Немагчыма ўключыць %s. Успышка камеры выкарыстоўваецца камерай.</string>
+    <string name="aod_title">Always On Display</string>
+    <string name="aod_power_saving_mode">Рэжым энергазберажэння</string>
+    <string name="aod_voice_assistant_title">Voice Assistant</string>
+    <string name="aod_magnification_gesture">Жэсты павелічэння</string>
+    <string name="aod_magnifier_window">Акно лупы</string>
+    <string name="aod_magnifier_assistant_menu">Акно лупы</string>
+    <string name="aod_talkback">TalkBack</string>
+    <string name="aod_show_toast_unavailable_with_at_same_time">%1$s і %2$s не могуць быць адначасова ўключаны.</string>
+    <string name="aod_show_popup_title">Уключыць %s</string>
+    <string name="aod_show_popup_unavailable_with_at_same_time">%1$s і %2$s не могуць быць адначасова ўключаны. %3$s будзе адключаны.</string>
+    <string name="aod_show_popup_description">Немагчыма адначасова ўключыць параметры, пералічаныя ніжэй, і функцыю %s. Пералічаныя ніжэй параметры будуць адключаны.</string>
+    <string name="wificalling_show_popup_use_location_inform">Выклікам праз Wi-Fi патрабуецца інфармацыя пра ваша месцазнаходжанне. Ананімныя даныя пра месцазнаходжанне будуць збірацца і адпраўляцца кампаніі Google і вашаму пастаўшчыку паслуг. За дадатковай інфармацыяй звяртайцеся да пастаўшчыка паслуг.</string>
+    <string name="wificalling_show_popup_enable_location_title">Уключыць вызначэнне месцазнаходжання</string>
+    <string name="wificalling_show_popup_enable_location_message">Выклікам праз Wi-Fi патрабуецца інфармацыя пра ваша месцазнаходжанне. Будзе ўключана вызначэнне месцазнаходжання. Ананімныя даныя пра месцазнаходжанне будуць збірацца і адпраўляцца кампаніі Google і вашаму пастаўшчыку паслуг. За дадатковай інфармацыяй звяртайцеся да пастаўшчыка паслуг.</string>
+    <string name="personal_mode_popup_diable_msg_while_afw_profile">Прыватны рэжым недаступны ў рабочым профілі.</string>
+    <string name="personal_mode_popup_diable_msg_while_moving_item">Немагчыма адключыць прыватны рэжым падчас перамяшчэння элементаў у Прыватнае.</string>
+    <string name="mobile_data_title">Маб дан</string>
+    <string name="mobile_data_show_popup_disable">"Калі толькі вы не карыстаецеся Wi-Fi, вы больш не зможаце карыстацца інтэрнэтам, электроннай поштай ці іншымі праграмамі, якія патрабуюць злучэння перадачы даных.
+
+Перадача мабільных даных будзе адключана."</string>
+    <string name="mobile_data_show_popup_disable_vzw">"Unless you use Wi-Fi, you will not be able to use the Internet, Email, or other apps that require a data connection.
+
+Turn off Mobile data?"</string>
+    <string name="mobile_data_show_popup_disable_vzw_volte">"Unless you use Wi-Fi, you will not be able to use Internet, Email, or other apps that require a data connection. Your phone will not be able to use Video Calling while Mobile data is off.
+Turn off Mobile data?"</string>
+    <string name="mobile_data_show_popup_disable_kor_skt_kt">"Калі толькі вы не карыстаецеся Wi-Fi, вы больш не зможаце карыстацца Інтэрнэтам, электроннай поштай ці іншымі праграмамі, якія патрабуюць злучэння перадачы даных.
+
+Мабільная перадача даных будзе выключана."</string>
+    <string name="mobile_data_show_popup_disable_kor_lgt">"Калі толькі вы не карыстаецеся Wi-Fi, вы больш не зможаце карыстацца Інтэрнэтам, электроннай поштай ці іншымі праграмамі, якія патрабуюць злучэння перадачы даных.
+
+Мабільная перадача даных будзе выключана."</string>
+    <string name="mobile_data_show_popup_enable_kor_skt_kt">Мабільная перадача даных будзе ўключана. Злучэнне з мабільнымі сеткамі можа патрабаваць дадатковай аплаты ў залежнасці ад тарыфнага плана.</string>
+    <string name="mobile_data_show_popup_enable_kor_lgt">Мабільная перадача даных будзе ўключана. Злучэнне з мабільнымі сеткамі можа патрабаваць дадатковай аплаты ў залежнасці ад тарыфнага плана.</string>
+    <string name="mobile_data_roaming_title">Даныя ў роўмінгу</string>
+    <string name="mobile_data_show_popup_roaming_enable">Data roaming may incur additional charges in addition to your domestic flat rate plan. Automatic updates for email or applications may also incur additional charges. Using large-data services such as video or email may incur charges over 20,000 won per minute.</string>
+    <string name="mobile_data_show_toast_not_disable_during_voltecall">Unable to turn Mobile data on or off while Advanced calling enabled.</string>
+    <string name="flash_light_notification_title">Ліхтарык уключаны</string>
+    <string name="flash_light_notification_button">Выключыць</string>
+    <string name="flash_light_disabled_by_low_battery">Немагчыма ўключыць ліхтарык. Нізкі зарад акумулятара.</string>
+    <string name="flash_light_turn_off_by_low_battery">Нізкі зарад акумулятара. Ліхтарык будзе выключаны.</string>
+    <string name="mobile_data_roaming_disable_toast_lgt">Перадача даных у роўмінгу адключана.</string>
+    <string name="location_show_enable_popup_title_vzw">Дазволіць вызначэнне месцазнаходжання</string>
+    <string name="location_show_enable_popup_message_vzw">"Your phone can share its approximate location with apps and services like maps, shopping and weather. Apps and services that use your location should inform you. Read the privacy policy of any app or service provider you are considering to understand how they collect, use and share your location information before you use them.
+
+Determining your location will use the mobile network. Data usage will apply."</string>
+    <string name="location_show_enable_popup_message_tablet_vzw">"Your tablet can share its approximate location with apps and services like maps, shopping and weather.
+
+Apps and services that use your location should inform you. Read the privacy policy of any app or service provider you’re considering to understand how they collect, use and share your location information before you use them.
+
+Determining your location will use the mobile network. Data usage will apply."</string>
+    <string name="location_show_enable_popup_title_dcm">Згода карыстальніка</string>
+    <string name="location_show_enable_popup_message_dcm">Кіраванне GPS і выкарыстанне даных месцазнаходжання адбываецца пры дапамозе праграмы, якой вы карыстаецеся.</string>
+    <string name="location_show_popup_disable_wificalling_title">Выключэнне вызначэння месцазнаходжання</string>
+    <string name="location_show_popup_disable_wificalling_when_disable_location">Disabling Location will disable Wi-Fi calling.</string>
+    <string name="sync_show_popup_title_enable">Уключыць аўтасінхранізацыю</string>
+    <string name="sync_show_popup_title_disable">Адключыць аўтасінхранізацыю</string>
+    <string name="sync_show_popup_message_enable">"Усе змены, якія вы робіце ў сваіх уліковых запісах у Інтэрнэце, будуць аўтаматычна капіравацца на прыладу.
+
+Некаторыя ўліковыя запісы могуць таксама аўтаматычна капіраваць усе зробленыя на прыладзе змены ў Інтэрнэт. Будзе ўключана аўтаматычная сінхранізацыя."</string>
+    <string name="sync_show_popup_message_disable">Такім чынам паменшыцца выкарыстанне даных і зараду акумулятара, але каб сабраць апошнія звесткі, трэба будзе сінхранізаваць уліковыя запісы ўручную. Калі ўключыць гэты параметр, не будуць прыходзіць апавяшчэнні пра абнаўленні.</string>
+    <string name="airplane_mode">Рэжым палёту</string>
+    <string name="airplane_mode_show_popup_title">Уключ.рэжым «У самалёце»</string>
+    <string name="airplane_mode_show_popup_title_vzw">Turn on Airplane mode</string>
+    <string name="airplane_mode_show_popup_message">Рэжым «У самалёце» дае магчымасць выключыць выклікі, абмен паведамленнямі і сеткавыя функцыі. А таксама ў гэтым рэжыме выключаюцца функцыі злучэння, напрыклад, Wi-Fi і Bluetooth. Каб скарыстацца функцыяй Wi-Fi і Bluetooth, іх у наладах ці панэлі апавяшчэнняў.</string>
+    <string name="airplane_mode_show_popup_message_wifi_without_bluetooth">Рэжым «У самалёце» дае магчымасць выключыць функцыі сеткі, у тым ліку Wi-Fi. Каб скарыстацца функцыяй Wi-Fi, уключыце яе ў наладах ці на панэлі апавяшчэнняў.</string>
+    <string name="airplane_mode_show_popup_message_without_bluetooth">Рэжым «У самалёце» дае магчымасць адключыць функцыі выкліку, абмену паведамленнямі і мабільнай сеткі.</string>
+    <string name="airplane_mode_show_popup_message_wifi">Рэжым «У самалёце» дае магчымасць выключыць адключыць сеткавыя функцыі, у тым ліку Wi-Fi і Bluetooth. Каб скарыстацца Wi-Fi ці Bluetooth, уключыце іх у наладах ці на панэлі апавяшчэнняў.</string>
+    <string name="airplane_mode_show_popup_message_cmcc">Рэжым «У самалёце» дае магчымасць выключыць выклікі, абмен паведамленнямі і сеткавыя функцыі. А таксама ў гэтым рэжыме выключаюцца функцыі злучэння, напрыклад, Wi-Fi і Bluetooth. Каб скарыстацца функцыяй Wi-Fi і Bluetooth, іх у наладах ці панэлі апавяшчэнняў.</string>
+    <string name="airplane_mode_show_popup_message_vzw">"Unless you use Wi-Fi, you will not be able to use the Internet, Email, or other apps that require a data connection.
+Turn on Airplane mode?"</string>
+    <string name="airplane_mode_show_popup_message_vzw_volte">"Unless you use Wi-Fi, you will not be able to use Internet, Email, Wi-Fi Calling or other apps that require a data connection.
+Turn on Airplane mode?"</string>
+    <string name="airplane_mode_show_popup_safelock">Немагчыма ўключыць рэжым «У самалёце» пры ўключанай функцыі «Не дазваляць адключэнне сілкавання падчас блакіроўкі». Паўтарыце спробу пасля разблакіроўкі экрана.</string>
+    <string name="airplane_mode_show_popup_disabled_on_demo_devices">Рэжым «У самалёце» адключаны на пробных прыладах.</string>
+    <string name="airplane_mode_show_toast_turn_on_wifi_for_wificalling">Уключыце Wi-Fi для выкарыстання выклікаў праз Wi-Fi.</string>
+    <string name="rotation_lock_auto_rotate">Аўтапаварот</string>
+    <string name="rotation_lock_show_toast_mobile_keyboard_message">Каб уключыць %s, адмацуйце накрыўку для клавіятуры ад прылады.</string>
+    <string name="quick_settings_location_detail_high_accuracy">Высокая дакладнасць</string>
+    <string name="quick_settings_location_detail_battery_saving">Эканомія зараду акумулятара</string>
+    <string name="quick_settings_location_detail_device_only">Толькі прылада</string>
+    <string name="quick_settings_location_detail_subtitle">Спосаб вызначэння месцазнаходжання</string>
+    <string name="quick_settings_location_detail_summary">Выкарыстанне GPS, Wi-Fi і мабільных сетак для вызначэння месцазнаходжання.</string>
+    <string name="quick_settings_flight_mode_detail_title">Рэжым «у самалёце»</string>
+    <string name="quick_settings_flight_mode_detail_summary">"Адключыце функцыі тэлефанавання і абмену паведамленнямі, а таксама перадачу мабільных даных.
+
+Wi-Fi і Bluetooth таксама будуць выключаны, але іх можна будзе ўключыць зноў у наладах або ў панэлі хуткіх налад."</string>
+    <string name="quick_settings_flight_mode_detail_off_summary_volte_vzw">Airplane mode turns off all network connections, including mobile data and Wi-Fi. Your phone will not be able to use Video Calling while Airplane mode is on. Turn on Wi-Fi to use apps that require a data connection.</string>
+    <string name="quick_settings_flight_mode_detail_on_summary_volte_vzw">Unless you use Wi-Fi, you will not be able to use Internet, Email, or other apps that require a data connection. Your phone will not be able to use Video Calling while Airplane mode is on.</string>
+    <string name="quick_settings_flight_mode_detail_off_summary_non_volte_vzw">Airplane mode turns off all network connections, including mobile data and Wi-Fi. Turn on Wi-Fi to use apps that require a data connection.</string>
+    <string name="quick_settings_flight_mode_detail_on_summary_non_volte_vzw">Unless you use Wi-Fi, you will not be able to use the Internet, Email, or other apps that require a data connection.</string>
+    <string name="quick_settings_mobile_data_detail_title">Мабіл.перадача даных</string>
+    <string name="quick_settings_data_roaming_detail_title">Даныя ў роўмінгу</string>
+    <string name="quick_settings_mobile_data_detail_summary">Калі опцыя «Мабільная перадача даных» выключана, вашу прыладу трэба далучыць да сеткі Wi-Fi для выкарыстання паслуг, якія патрабуюць сеткавага падлучэння.</string>
+    <string name="quick_settings_dnd_detail_title">Не турбаваць</string>
+    <string name="quick_settings_dnd_summary">Наладзьце прыладу так, каб яна адключала гук усіх выклікаў, абвестак і мультымедыя, акрамя выбраных вамі выключэнняў.</string>
+    <string name="quick_settings_dnd_summary_vzw">Silence all calls, alerts and media sound. You can allow exceptions.</string>
+    <string name="quick_settings_rotation_lock_auto_rotate">Аўтапаварот</string>
+    <string name="quick_settings_rotation_lock_detail_title">Паварот экрана</string>
+    <string name="quick_settings_rotation_lock_detail_summary">Выберыце арыентацыю дысплэя.</string>
+    <string name="quick_settings_flashlight_detail_level">Узровень</string>
+    <string name="quick_settings_flashlight_detail_title">Яркасць</string>
+    <string name="quick_settings_flashlight_detail_warning">Успышка камеры можа прывесці да нізкатэмпературных апёкаў падчас працяглага кантакту са скурай. Не ўключайце %s на працяглы перыяд часу.</string>
+    <string name="quick_settings_reading_mode_summary">Экран аптымізаваны для чытання. Гэты рэжым даступны толькі для выбраных праграм.</string>
+    <string name="quick_settings_volte_summary">Выкарыстоўваць сетку VoLTE, калі даступна</string>
+    <string name="quick_settings_blf_detail_title">Фільтр сіняга святла</string>
+    <string name="quick_settings_blf_detail_summary">Зменшыце напружанне вачэй, абмяжоўваючы колькасць сіняга святла, якое выпраменьваецца экранам.</string>
+    <string name="quick_settings_blf_detail_seekbar">Непразрыстасць</string>
+    <string name="quick_settings_wificalling_summary">"Выкарыстоўвайце сеткі Wi-Fi, каб рабіць і атрымліваць выклікі паўсюль, без неабходнасці падлучэння да мабільнай сеткі.
+
+Значок выкліку праз Wi-Fi з’явіцца на панэлі апавяшчэнняў, як паказана ніжэй, калі сэрвіс будзе даступны."</string>
+    <string name="quick_settings_wificalling_wifi_preferred">Прыярытэтны Wi-Fi</string>
+    <string name="quick_settings_wificalling_cs_preferred">Прыярытэтна маб. сетка</string>
+    <string name="quick_settings_wificalling_wifi_only">Толькі Wi-Fi</string>
+    <string name="quick_settings_dual_label_content_description">%s, метка кнопкі, націсніце двойчы, каб праглядзець адпаведныя хуткія налады.</string>
+    <string name="accessibility_button">Кнопка</string>
+    <string name="quick_settings_brightness_auto_brightness">Аўтаматычная яркасць</string>
+    <string name="quick_settings_brightness_quick_access">Паказ эл. кірав. паверх іншага</string>
+    <string name="quick_settings_brightness_quick_access_summary">Паказваць элемент рэгулявання яркасці вышэй панэлі апавяшчэнняў.</string>
+    <string name="quick_settings_brightness_detail_level">Узровень</string>
+    <string name="recents_empty_message">Няма нядаўна выкарыстаных праграм</string>
+    <string name="recents_empty_message_dismissed_all">Вы ачысцілі усё</string>
+    <string name="recents_lock_to_app_button_label">замацаванне экрана</string>
+    <string name="recents_search_bar_label">пошук</string>
+    <string name="recents_launch_error_message">Не атрымалася запусціць %s.</string>
+    <string name="recents_launch_disabled_message">%s адключана ў бяспечным рэжыме.</string>
+    <string name="recents_stack_action_button_label">Ачысціць усё</string>
+    <string name="recents_incompatible_app_message">Праграма не падтрымлівае функцыю дзялення экрана</string>
+    <string name="recents_drag_hint_message">Адкрыць у рэжыме падзеленага экрана</string>
+    <string name="recents_drag_freeform_hint_message">Адкрыць ва ўсплывальным экране</string>
+    <string name="recents_multistack_add_stack_dialog_split_horizontal">Падзяліць гарызантальна</string>
+    <string name="recents_multistack_add_stack_dialog_split_vertical">Падзяліць вертыкальна</string>
+    <string name="recents_multistack_add_stack_dialog_split_custom">Падзяліць іншым чынам</string>
+    <string name="expanded_header_battery_charged">Зараджаны</string>
+    <string name="expanded_header_battery_charging">Зарадка</string>
+    <string name="expanded_header_battery_charging_with_time">%s да поўнай зарадкі</string>
+    <string name="expanded_header_battery_not_charging">Не зараджаецца</string>
+    <string name="ssl_ca_cert_warning">"За сеткай
+можа назіраць"</string>
+    <string name="description_target_search">Пошук</string>
+    <string name="description_direction_up">Правядзіце пальцам уверх, каб атрымаць %s.</string>
+    <string name="description_direction_left">Правядзіце пальцам улева, каб атрымаць %s.</string>
+    <string name="zen_priority_introduction">Вас не будуць турбаваць гукі і вібрацыя, за выключэннем будзільнікаў, мерапрыемстваў, падзей і выбраных вамі абанентаў.</string>
+    <string name="zen_priority_customize_button">Дапасаваць</string>
+    <string name="zen_silence_introduction_voice">Гэта заблакіруе ЎСЕ гукі і вібрацыі, у тым ліку ад будзільнікаў, музыкі, відэа і гульняў. Вы па-ранейшаму зможаце тэлефанаваць.</string>
+    <string name="zen_silence_introduction">Гэта заблакіруе ЎСЕ гукі і вібрацыі, у тым ліку ад будзільнікаў, музыкі, відэа і гульняў.</string>
+    <string name="keyguard_more_overflow_text">+%d</string>
+    <string name="speed_bump_explanation">Менш тэрміновыя апавяшчэнні ніжэй</string>
+    <string name="keyguard_unlock">Правядзіце пальцам уверх, каб разблакіраваць</string>
+    <string name="phone_hint">Тэлефон: правядзіце пальцам ад значка</string>
+    <string name="voice_hint">Галасавая дапамога: правядзіце пальцам ад значка</string>
+    <string name="camera_hint">Камера: правядзіце пальцам ад значка</string>
+    <string name="interruption_level_none_with_warning">Поўная цішыня. Гэта таксама адключыць гук чытання з экрана.</string>
+    <string name="interruption_level_none">Поўная цішыня</string>
+    <string name="interruption_level_priority">Толькі прыярытэтныя</string>
+    <string name="interruption_level_alarms">Толькі будзільнікі</string>
+    <string name="interruption_level_none_twoline">"Поўная
+цішыня"</string>
+    <string name="interruption_level_priority_twoline">"Толькі
+прыярытэтныя"</string>
+    <string name="interruption_level_alarms_twoline">"Толькі
+будзільнікі"</string>
+    <string name="keyguard_indication_charging_time">Зарадка (%s да поўнай зарадкі)</string>
+    <string name="keyguard_indication_charging_time_fast">Зараджаецца хутка (%s да канца)</string>
+    <string name="keyguard_indication_charging_time_slowly">Зараджаецца павольна (%s да канца)</string>
+    <string name="accessibility_multi_user_switch_switcher">Перайсці да іншага карыстальніка</string>
+    <string name="accessibility_multi_user_switch_switcher_with_current">Перайсці да іншага карыстальніка, бягучы карыстальнік %s</string>
+    <string name="accessibility_multi_user_switch_inactive">Бягучы карыстальнік %s</string>
+    <string name="accessibility_multi_user_switch_quick_contact">Паказаць профіль</string>
+    <string name="user_add_user">Дадаць карыстальніка</string>
+    <string name="user_new_user_name">Новы карыстальнік</string>
+    <string name="guest_nickname">Госць</string>
+    <string name="guest_new_guest">Дадаць госця</string>
+    <string name="guest_exit_guest">Выдаліць госця</string>
+    <string name="guest_exit_guest_dialog_title">Выдаліць госця?</string>
+    <string name="guest_exit_guest_dialog_message">Усе праграмы і даныя гэтага сеанса будуць выдалены.</string>
+    <string name="guest_exit_guest_dialog_remove">Выдаліць</string>
+    <string name="guest_wipe_session_title">З вяртаннем, госць!</string>
+    <string name="guest_wipe_session_message">Хочаце працягнуць сеанс?</string>
+    <string name="guest_wipe_session_wipe">Пачаць зноў</string>
+    <string name="guest_wipe_session_dontwipe">Так, працягнуць</string>
+    <string name="guest_notification_title">Гасцявы карыстальнік</string>
+    <string name="guest_notification_text">Каб выдаліць праграмы і даныя, выдаліце гасцявога карыстальніка</string>
+    <string name="guest_notification_remove_action">ВЫДАЛІЦЬ ГОСЦЯ</string>
+    <string name="user_logout_notification_title">Выканаць выхад карыстальніка</string>
+    <string name="user_logout_notification_text">Выканаць выхад бягучага карыстальніка</string>
+    <string name="user_logout_notification_action">ВЫКАНАЦЬ ВЫХАД КАРЫСТАЛЬНІКА</string>
+    <string name="user_add_user_title">Дадаць новага карыстальніка?</string>
+    <string name="user_add_user_message_short">"Калі вы дадаяце новага карыстальніка, ён павінен наладзіць свой раздзел.
+
+Любы карыстальнік можа абнаўляць праграмы для ўсіх астатніх карыстальнікаў."</string>
+    <string name="user_remove_user_title">Выдаліць карыстальніка?</string>
+    <string name="user_remove_user_message">Усе праграмы і даныя гэтага карыстальніка будуць выдалены.</string>
+    <string name="user_remove_user_remove">Выдаліць</string>
+    <string name="battery_saver_notification_title">Рэжым эканоміі зараду ўключаны</string>
+    <string name="battery_saver_notification_text">Памяншае прадукцыйнасць і фонавую перадачу даных</string>
+    <string name="battery_saver_notification_action_text">Адключыць рэжым эканоміі зараду</string>
+    <string name="sanitized_content_text">Націсніце сюды, каб увайсці ў %s.</string>
+    <string name="secure_folder_title">Бяспечная папка</string>
+    <string name="media_projection_dialog_text">%s атрымае доступ да ўсяго, што адлюстроўваецца на вашым экране.</string>
+    <string name="media_projection_remember_text">Не паказваць зноў</string>
+    <string name="media_projection_action_text">Пачаць зараз</string>
+    <string name="empty_shade_text">Апавяшчэнняў няма</string>
+    <string name="device_owned_footer">За прыладай могуць назіраць</string>
+    <string name="profile_owned_footer">За профілем могуць назіраць</string>
+    <string name="vpn_footer">За сеткай могуць назіраць</string>
+    <string name="monitoring_title_device_owned">Маніторынг прылад</string>
+    <string name="monitoring_title_profile_owned">Маніторынг профіляў</string>
+    <string name="monitoring_title">Маніторынг сеткі</string>
+    <string name="disable_vpn">Адключыць VPN</string>
+    <string name="disconnect_vpn">Адлучыць VPN</string>
+    <string name="monitoring_description_device_owned">"Ваша прылада знаходзіцца пад кіраваннем %1$s.
+
+Ваш адміністратар можа сачыць і кіраваць наладамі, карпаратыўным доступам, праграмамі, данымі, звязанымі з вашай прыладай, і звесткамі пра месцазнаходжанне вашай прылады. Для атрымання дадатковай інфармацыі звярніцеся да адміністратара."</string>
+    <string name="monitoring_description_vpn">"Вы далі праграме дазвол на наладжванне злучэння VPN.
+
+Гэта праграма можа сачыць за актыўнасцю вашай прылады і вашай сеткавай актыўнасцю, уключаючы электронную пошту, праграмы і вэб-сайты."</string>
+    <string name="monitoring_description_vpn_device_owned">"Ваша прылада знаходзіцца пад кіраваннем %1$s.
+
+Ваш адміністратар можа сачыць і кіраваць наладамі, доступам да карпаратыўных рэсурсаў, праграмамі, данымі, звязанымі з вашай прыладай, і звесткамі пра месцазнаходжанне прылады.
+
+Вы падлучаны да VPN, які можа сачыць за вашай сеткавай актыўнасцю, уключаючы электронную пошту, праграмы і вэб-сайты.
+
+Для атрымання дадатковай інфармацыі звярніцеся да адміністратара."</string>
+    <string name="monitoring_description_vpn_profile_owned">"Ваш працоўны профіль знаходзіцца пад кіраваннем %1$s.
+
+Ваш адміністратар можа сачыць і кіраваць наладамі, доступам да карпаратыўных рэсурсаў, праграмамі, данымі, звязанымі з вашай прыладай, і звесткамі пра месцазнаходжанне прылады.
+
+Для атрымання дадатковай інфармацыі звярніцеся да адміністратара.
+
+Вы таксама падключаны да VPN, які можа сачыць за вашай сеткавай актыўнасцю."</string>
+    <string name="legacy_vpn_name">VPN</string>
+    <string name="monitoring_description_app">Вы падлучаны да праграмы %1$s, якая можа сачыць за вашай сеткавай актыўнасцю, уключаючы электронную пошту, праграмы і вэб-сайты.</string>
+    <string name="monitoring_description_app_personal">Вы падлучаны да праграмы %1$s, якая сачыць за вашай асабістай сеткавай актыўнасцю, уключаючы электронную пошту, праграмы і вэб-сайты.</string>
+    <string name="monitoring_description_app_work">"Ваш працоўны профіль знаходзіцца пад кіраваннем %1$s. Ён падлучаны да праграмы %2$s, якая можа сачыць за вашай сеткавай актыўнасцю, уключаючы электронную пошту, праграмы і вэб-сайты.
+
+Для атрымання дадатковай інфармацыі звярніцеся да адміністратара."</string>
+    <string name="monitoring_description_app_personal_work">"Ваш працоўны профіль знаходзіцца пад кіраваннем %1$s. Ён падлучаны да праграмы %2$s, якая можа сачыць за вашай сеткавай актыўнасцю, уключаючы электронную пошту, праграмы і вэб-сайты.
+
+Вы таксама падлучаны да праграмы %3$s, якая можа сачыць за вашай асабістай сеткавай актыўнасцю."</string>
+    <string name="monitoring_description_vpn_app_device_owned">"Ваша прылада знаходзіцца пад кіраваннем %1$s.
+
+Ваш адміністратар можа сачыць і кіраваць наладамі, доступам да карпаратыўных рэсурсаў, праграмамі, данымі, звязанымі з вашай прыладай, і звесткамі пра месцазнаходжанне прылады.
+
+Вы падлучаны да праграмы %2$s,  якая можа сачыць за вашай сеткавай актыўнасцю, уключаючы электронную пошту, праграмы і вэб-сайты.
+
+Для атрымання дадатковай інфармацыі звярніцеся да адміністратара."</string>
+    <string name="keyguard_indication_trust_disabled">Прылада будзе заставацца заблакіраванай, пакуль вы не разблакіруеце яе ўручную</string>
+    <string name="hidden_notifications_title">Атрымлівайце апавяшчэнні хутчэй</string>
+    <string name="hidden_notifications_text">Праглядайце іх перад разблакіроўкай</string>
+    <string name="hidden_notifications_cancel">Не, дзякуй</string>
+    <string name="hidden_notifications_setup">Наладзіць</string>
+    <string name="zen_mode_and_condition">%1$s. %2$s</string>
+    <string name="volume_zen_end_now">Завяршыць зараз</string>
+    <string name="accessibility_volume_expand">Разгарнуць</string>
+    <string name="accessibility_volume_collapse">Згарнуць</string>
+    <string name="screen_pinning_title">Экран замацаваны</string>
+    <string name="screen_pinning_description">Будзе паказвацца, пакуль не адмацуеце. Дакраніцеся і ўтрымлівайце кнопку \"Назад\", каб адмацаваць.</string>
+    <string name="screen_pinning_negative">Не, дзякуй</string>
+    <string name="quick_settings_reset_confirmation_title">Схаваць %1$s?</string>
+    <string name="quick_settings_reset_confirmation_message">"Гэта паведамленне з'явіцца зноў у наступны раз, калі вы ўключыце яго ў наладах."</string>
+    <string name="quick_settings_reset_confirmation_button">Схаваць</string>
+    <string name="volumeui_prompt_message">%1$s хоча быць дыялогам гучнасці.</string>
+    <string name="volumeui_prompt_allow">Дазволіць</string>
+    <string name="volumeui_prompt_deny">Адхiлiць</string>
+    <string name="volumeui_notification_title">"%1$s з'яўляецца дыялогам гучнасці"</string>
+    <string name="volumeui_notification_text">Дакраніцеся, каб аднавіць арыгінал.</string>
+    <string name="managed_profile_foreground_toast">Вы выкарыстоўваеце свой працоўны профіль</string>
+    <string name="volume_stream_content_description_unmute">%1$s. Дакраніцеся, каб уключыць гук.</string>
+    <string name="volume_stream_content_description_vibrate">%1$s. Дакраніцеся, каб уключыць вібрацыю. Можа быць адключаны гук службаў спецыяльных магчымасцей.</string>
+    <string name="volume_stream_content_description_mute">%1$s. Дакраніцеся, каб адключыць гук. Можа быць адключаны гук службаў спецыяльных магчымасцей.</string>
+    <string name="volume_dialog_accessibility_shown_message">Паказваецца наступная колькасць рэгулятараў гучнасці: %s. Правядзіце пальцам уверх, каб закрыць іх.</string>
+    <string name="volume_dialog_accessibility_dismissed_message">Рэгулятары гучнасці схаваны</string>
+    <string name="tw_safe_media_volume_warning">Працяглае праслухоўванне на вялікай гучнасці можа пашкодзіць слых. Націснуць OK, каб дазволіць павялічваць гук вышэй бяспечнага ўзроўня.</string>
+    <string name="tw_cover_volume_warning_message">Працяглае праслухоўванне на вялікай гучнасці можа пашкодзіць слых. Каб павялічыць гучнасць, адчыніце вечка.</string>
+    <string name="tw_safe_media_volume_warning_kids_mode">Гучнасць не можа перавышаць рэкамендаваны ліміт бяспекі (%s), калі навушнікі падлучаны ў Дзіцячым рэжыме.</string>
+    <string name="yes">ОК</string>
+    <string name="no">Скасаваць</string>
+    <string name="volume_limiter_notice_toast">Каб павялічыць гучнасць, націсніце «НАЛАДЫ», потым адключыце абмежавальнік гучнасці медыя або змяніце ліміт гучнасці.</string>
+    <string name="volume_limiter_open_cover_toast">Каб працягнуць, адкрыйце вечка.</string>
+    <string name="quick_settings_settings">НАЛАДЫ</string>
+    <string name="system_ui_tuner">Наладка сістэмнага інтэрфейсу карыстальніка</string>
+    <string name="show_battery_percentage">Паказваць працэнт зараду акумулятара</string>
+    <string name="show_battery_percentage_summary">Паказваць працэнт узроўню акумулятара ўнутры значка панэлі стану, калі ён не зараджаецца</string>
+    <string name="quick_settings">Хуткія налады</string>
+    <string name="status_bar">Панэль стану</string>
+    <string name="overview">Агляд</string>
+    <string name="demo_mode">Дэманстрацыйны рэжым</string>
+    <string name="enable_demo_mode">Уключыць дэманстрацыйны рэжым</string>
+    <string name="show_demo_mode">Паказваць дэманстрацыйны рэжым</string>
+    <string name="status_bar_ethernet">Ethernet</string>
+    <string name="status_bar_alarm">Будзільнік</string>
+    <string name="status_bar_work">Працоўны профіль</string>
+    <string name="status_bar_airplane">Рэжым палёту</string>
+    <string name="add_tile">Дадаць плітку</string>
+    <string name="broadcast_tile">Плітка трансляцыі</string>
+    <string name="mobileap">Мабільны хот-спот</string>
+    <string name="mobile_hotspot_wifi_off_warning">Пры ўключэнні Мабільнага хот-спота выключыцца Wi-Fi.</string>
+    <string name="mobile_hotspot_wifi_off_warning_vzw">Mobile Hotspot uses your mobile data connection. Your Wi-Fi connection will be turned off.</string>
+    <string name="mobile_hotspot_wifi_off_warning_china">Enabling Mobile hotspot will turn off WLAN.</string>
+    <string name="mobile_hotspot_wifi_off_warning_jpn">Enabling Wi-Fi tethering will turn off Wi-Fi.</string>
+    <string name="tethering_attention_title">Увага</string>
+    <string name="mobile_data_enable_toast_text">Рэжым «у самалёце» не дазваляе злучэнне з мабільнымі сеткамі. Выйдзіце з рэжыму «у самалёце» і паўтарыце спробу.</string>
+    <string name="wifi_ap_wifi_p2p_off_warn">Enabling Mobile hotspot will disconnect any devices currently connected via Wi-Fi Direct.</string>
+    <string name="wifi_ap_wifi_p2p_off_warn_china">Enabling Portable WLAN hotspot will disconnect device connected via WLAN Direct.</string>
+    <string name="dialog_battery_data_warning">Мабільны хот-спот будзе ўключаны. Гэта павысіць спажыванне зараду акумулятара і выкарыстанне даных.</string>
+    <string name="zen_alarm_warning_indef">Вы не пачуеце наступны будзільнік %1$s, пакуль папярэдне не выключыце гэты</string>
+    <string name="zen_alarm_warning">Вы не пачуеце наступны будзільнік %1$s</string>
+    <string name="alarm_template">у %1$s</string>
+    <string name="alarm_template_far">у %1$s</string>
+    <string name="accessibility_quick_settings_detail">Хуткія налады, %s.</string>
+    <string name="accessibility_status_bar_hotspot">Хот-спот</string>
+    <string name="accessibility_managed_profile">Працоўны профіль</string>
+    <string name="tuner_warning_title">Цікава для некаторых, але не для ўсіх</string>
+    <string name="tuner_warning">Наладка сістэмнага інтэрфейсу карыстальніка дае вам дадатковыя спосабы наладжвання і дапасоўвання карыстальніцкага інтэрфейсу Android. Гэтыя эксперыментальныя функцыі могуць змяніцца, перастаць працаваць або знікнуць у будучых версіях. Карыстайцеся з асцярожнасцю.</string>
+    <string name="tuner_persistent_warning">Гэтыя эксперыментальныя функцыі могуць змяніцца, перастаць працаваць або знікнуць у будучых версіях. Карыстайцеся з асцярожнасцю.</string>
+    <string name="got_it">Зразумела</string>
+    <string name="tuner_toast">Віншуем! Наладка сістэмнага інтэрфейсу карыстальніка была дададзена ў Налады</string>
+    <string name="remove_from_settings">Выдаліць з налад</string>
+    <string name="remove_from_settings_prompt">Выдаліць Наладку сістэмнага інтэрфейсу карыстальніка з Налад і спыніць выкарыстанне ўсіх яе функцый?</string>
+    <string name="activity_not_found">Праграма не ўсталявана на вашым тэлефоне</string>
+    <string name="clock_seconds">Паказваць секунды гадзінніка</string>
+    <string name="clock_seconds_desc">Паказваць секунды гадзінніка на панэлі стану. Можа паўплываць на рэсурс акумулятара.</string>
+    <string name="qs_rearrange">Змяніць парадак Хуткіх налад</string>
+    <string name="show_brightness">Паказваць яркасць у Хуткіх наладах</string>
+    <string name="overview_nav_bar_gesture">Уключ. пераход да рэжыму дзялення экрана правядзеннем уверх</string>
+    <string name="overview_nav_bar_gesture_desc">Уключыць пераход да рэжыму дзялення экрана правядзеннем пальцам уверх ад кнопкі «Агляд»</string>
+    <string name="experimental">Эксперыментальныя</string>
+    <string name="enable_bluetooth_title">Уключыць Bluetooth?</string>
+    <string name="enable_bluetooth_message">Для падлучэння клавіятуры да планшэта трэба спачатку ўключыць Bluetooth.</string>
+    <string name="enable_bluetooth_confirmation_ok">Уключыць</string>
+    <string name="show_silently">Паказваць апавяшчэнні бязгучна</string>
+    <string name="block">Блакіраваць усе апавяшчэнні</string>
+    <string name="do_not_silence">Не адключаць гук</string>
+    <string name="do_not_silence_block">Не адключаць гук і не блакіраваць</string>
+    <string name="tuner_full_importance_settings">Пашыранае кіраванне апавяшчэннямі</string>
+    <string name="tuner_full_importance_settings_on">Уключана</string>
+    <string name="tuner_full_importance_settings_off">Адключана</string>
+    <string name="power_notification_controls_description">"З дапамогай пашыранага кіравання апавяшчэннямі вы можаце задаваць узровень важнасці апавяшчэнняў праграмы ад 0 да 5. 
+
+"<b>Узровень 5</b>" 
+- Паказваць уверсе спіса апавяшчэнняў 
+- Дазваляць перапыняць рэжым поўнага экрана 
+- Заўсёды дазваляць кароткі паказ 
+
+"<b>Узровень 4</b>" 
+- Забараняць перапыняць рэжым поўнага экрана 
+- Заўсёды дазваляць кароткі паказ 
+
+"<b>Узровень 3</b>" 
+- Забараняць перапыняць рэжым поўнага экрана 
+- Ніколі не дазваляць кароткі паказ 
+
+"<b>Узровень 2</b>" 
+- Забараняць перапыняць рэжым поўнага экрана 
+- Ніколі не дазваляць кароткі паказ 
+- Ніколі не прайграваць гук і не вібрыраваць 
+
+"<b>Узровень 1</b>" 
+- Забараняць перапыняць рэжым поўнага экрана 
+- Ніколі не дазваляць кароткі паказ 
+- Ніколі не прайграваць гук і не вібрыраваць 
+- Хаваць з экрана блакіроўкі і панэлі стану 
+- Паказваць унізе спіса апавяшчэнняў 
+
+"<b>Узровень 0</b>" 
+- Блакіраваць усе апавяшчэнні ад праграмы"</string>
+    <string name="user_unspecified_importance">Важнасць: аўтаматычна</string>
+    <string name="blocked_importance">Важнасць: узровень 0</string>
+    <string name="min_importance">Важнасць: узровень 1</string>
+    <string name="low_importance">Важнасць: узровень 2</string>
+    <string name="default_importance">Важнасць: узровень 3</string>
+    <string name="high_importance">Важнасць: узровень 4</string>
+    <string name="max_importance">Важнасць: узровень 5</string>
+    <string name="notification_importance_user_unspecified">Праграма вызначае важнасць кожнага апавяшчэння.</string>
+    <string name="notification_importance_blocked">Ніколі не паказваць апавяшчэнні ад гэтай праграмы.</string>
+    <string name="notification_importance_min">Не перап. рэжым поўн. экр., не дазв. карот. паказ, гук або вібр. Хаваць з экр. блак. і панэлі стану.</string>
+    <string name="notification_importance_low">Не перапыняць рэжым поўнага экрана, не дазваляць кароткі паказ, прайгранне гуку або вібрацыю.</string>
+    <string name="notification_importance_default">Не перапыняць рэжым поўнага экрана і не дазваляць кароткі паказ.</string>
+    <string name="notification_importance_high">Заўсёды дазваляць кароткі паказ. Не перапыняць рэжым поўнага экрана.</string>
+    <string name="notification_importance_max">Заўсёды дазваляць кароткі паказ, дазваляць перапыняць рэжым поўнага экрана.</string>
+    <string name="notification_more_settings">Дадатковыя налады</string>
+    <string name="notification_done">Гатова</string>
+    <string name="notification_gear_accessibility">Элементы кантролю апавяшчэнняў %1$s</string>
+    <string name="color_and_appearance">Колер і выгляд</string>
+    <string name="night_mode">Начны рэжым</string>
+    <string name="calibrate_display">Каліброўка дысплэя</string>
+    <string name="night_mode_on">Уключана</string>
+    <string name="night_mode_off">Адключана</string>
+    <string name="turn_on_automatically">Уключаць аўтаматычна</string>
+    <string name="turn_on_auto_summary">Пераключэнне ў начны рэжым у залежнасці ад канкрэтнай мясцовасці і часу сутак</string>
+    <string name="when_night_mode_on">Калі ўключаны Начны рэжым</string>
+    <string name="use_dark_theme">Выкарыстоўваць цёмную тэму для АС Android</string>
+    <string name="adjust_tint">Рэгуляванне адценняў</string>
+    <string name="adjust_brightness">Рэгуляванне яркасці</string>
+    <string name="night_mode_disclaimer">Цёмная тэма ўжываецца да асноўных вобласцяў АС Android, да якіх звычайна шжываецца светлая тэма, напрыклад, Налады.</string>
+    <string name="color_apply">Ужыць</string>
+    <string name="color_revert_title">Пацвердзіце налады</string>
+    <string name="color_revert_message">Некаторыя налады колеру могуць зрабіць гэту прыладу непрыдатнай для выкарыстання. Націсніце кнопку «ОК», каб пацвердзіць гэтыя налады колеру, у адваротным выпадку гэтыя налады будуць скінуты праз 10 секунд.</string>
+    <string name="battery_panel_title">Выкарыстанне зараду</string>
+    <string name="battery_detail_charging_summary">Эканомія зараду акумулятара недаступная падчас зарадкі</string>
+    <string name="battery_detail_switch_title">Эканомія зараду</string>
+    <string name="battery_detail_switch_summary">Памяншае прадукцыйнасць і фонавую перадачу даных</string>
+    <string name="keyboard_key_button_template">Кнопка %1$s</string>
+    <string name="keyboard_key_home">Home</string>
+    <string name="keyboard_key_back">Назад</string>
+    <string name="keyboard_key_dpad_up">Уверх</string>
+    <string name="keyboard_key_dpad_down">Уніз</string>
+    <string name="keyboard_key_dpad_left">Улева</string>
+    <string name="keyboard_key_dpad_right">Управа</string>
+    <string name="keyboard_key_dpad_center">Цэнтр</string>
+    <string name="keyboard_key_tab">Tab</string>
+    <string name="keyboard_key_space">Прабел</string>
+    <string name="keyboard_key_enter">Enter</string>
+    <string name="keyboard_key_backspace">Backspace</string>
+    <string name="keyboard_key_media_play_pause">Прайграванне/Паўза</string>
+    <string name="keyboard_key_media_stop">Спыніць</string>
+    <string name="keyboard_key_media_next">Наступны</string>
+    <string name="keyboard_key_media_previous">Папярэдні</string>
+    <string name="keyboard_key_media_rewind">Перамотка назад</string>
+    <string name="keyboard_key_media_fast_forward">Перамотка ўперад</string>
+    <string name="keyboard_key_page_up">Page Up</string>
+    <string name="keyboard_key_page_down">Page Down</string>
+    <string name="keyboard_key_forward_del">Delete</string>
+    <string name="keyboard_key_move_home">Home</string>
+    <string name="keyboard_key_move_end">End</string>
+    <string name="keyboard_key_insert">Insert</string>
+    <string name="keyboard_key_num_lock">Num Lock</string>
+    <string name="keyboard_key_numpad_template">Лічбавая клавіятура: %1$s</string>
+    <string name="keyboard_shortcut_group_system">Сістэмныя</string>
+    <string name="keyboard_shortcut_group_system_home">Галоўная</string>
+    <string name="keyboard_shortcut_group_system_recents">Апошнія</string>
+    <string name="keyboard_shortcut_group_system_back">Назад</string>
+    <string name="keyboard_shortcut_group_system_notifications">Апавяшчэнні</string>
+    <string name="keyboard_shortcut_group_system_shortcuts_helper">Спалучэнні клавіш</string>
+    <string name="keyboard_shortcut_group_system_switch_input">Пераключэнне рэжыму ўводу</string>
+    <string name="keyboard_shortcut_group_applications">Праграмы</string>
+    <string name="keyboard_shortcut_group_applications_assist">Памочнік</string>
+    <string name="keyboard_shortcut_group_applications_browser">Браўзер</string>
+    <string name="keyboard_shortcut_group_applications_contacts">Кантакты</string>
+    <string name="keyboard_shortcut_group_applications_email">Пошта</string>
+    <string name="keyboard_shortcut_group_applications_im">Iмгненныя паведамленнi</string>
+    <string name="keyboard_shortcut_group_applications_music">Музыка</string>
+    <string name="keyboard_shortcut_group_applications_youtube">YouTube</string>
+    <string name="keyboard_shortcut_group_applications_calendar">Каляндар</string>
+    <string name="tuner_full_zen_title">Паказаць з рэгулятарамі гучнасці</string>
+    <string name="volume_and_do_not_disturb">Не турбаваць</string>
+    <string name="volume_dnd_silent">Доступ праз кнопкі рэгулявання гучнасці</string>
+    <string name="volume_up_silent">Выхад з рэжыму «Не турбав.» пры націску кнопкі павел. гучн.</string>
+    <string name="battery">Акумулятар</string>
+    <string name="clock">Гадзіннік</string>
+    <string name="headset">Гарнітура</string>
+    <string name="accessibility_status_bar_headphones">Навушнікі падключаны</string>
+    <string name="accessibility_status_bar_headset">Гарнітура падлучана</string>
+    <string name="data_saver">Эканомія трафіку</string>
+    <string name="accessibility_data_saver_on">Эканомія трафіку ўключана</string>
+    <string name="accessibility_data_saver_off">Эканомія трафіку адключана</string>
+    <string name="switch_bar_on">Уключана</string>
+    <string name="switch_bar_off">Адключана</string>
+    <string name="nav_bar">Панэль навігацыі</string>
+    <string name="start">Пачатак</string>
+    <string name="center">Цэнтр</string>
+    <string name="end">Завяршыць</string>
+    <string name="space">Падзяляльнік</string>
+    <string name="menu_ime">Пераключальнік Меню/Клавіятура</string>
+    <string name="select_button">Выберыце, якую кнопку дадаць</string>
+    <string name="add_button">Дадаць кнопку</string>
+    <string name="reset">Скінуць</string>
+    <string name="no_home_title">Кнопка гал. экр. не знойдзена</string>
+    <string name="no_home_message">Для навігацыі па гэтай прыладзе патрабуецца кнопка галоўнага экрана. Калі ласка, дадайце кнопку галоўнага экрана перад захаваннем.</string>
+    <string name="adjust_button_width">Адрэгуляваць шырыню кнопкі</string>
+    <string name="clipboard">Буфер абмену</string>
+    <string name="clipboard_description">З дапамогай кнопкі Буфер абмену можна перацягваць элементы непасрэдна ў буфер абмену. Элементы можна таксама перацягваць непасрэдна з буфера абмену, калі яны там ёсць.</string>
+    <string name="accessibility_key">Кнопка карыстальніцкай навігацыі</string>
+    <string name="keycode">Код клавішы</string>
+    <string name="keycode_description">Кнопка Код клавішы дазваляе дадаваць клавішы ў Панэль навігацыі. Пры націску гэтай кнопкі эмулюецца выбраная клавіша. Спачатку трэба выбраць клавішу для кнопкі, а потым відарыс, які будзе паказвацца на кнопцы.</string>
+    <string name="select_keycode">Выберыце клавішу клавіятуры</string>
+    <string name="preview">Папярэдні прагляд</string>
+    <string name="drag_to_add_tiles">Перацягніце, каб дадаць пліткі</string>
+    <string name="drag_to_remove_tiles">Перацягніце сюды, каб выдаліць</string>
+    <string name="qs_edit">РЭДАГАВ.</string>
+    <string name="sec_qs_edit">Рэдагаваць</string>
+    <string name="screen_grid">Макет кнопкі</string>
+    <string name="brightness_control_on_top">Кірав. ярк. паверх іншых</string>
+    <string name="screen_grid_popup_title">Макет кнопкі</string>
+    <string name="screen_grid_popup_apply">Прымяніць</string>
+    <string name="screen_grid_popup_ok">OK</string>
+    <string name="qs_contact_us">Звязацца з намі</string>
+    <string name="tuner_time">Час</string>
+    <string name="other">Іншае</string>
+    <string name="accessibility_divider">Раздзяляльнік падзеленага экрана</string>
+    <string name="accessibility_action_divider_left_full">Левы экран – поўнаэкранны рэжым</string>
+    <string name="accessibility_action_divider_left_70">Левы экран – 70%</string>
+    <string name="accessibility_action_divider_left_50">Левы экран – 50%</string>
+    <string name="accessibility_action_divider_left_30">Левы экран – 30%</string>
+    <string name="accessibility_action_divider_right_full">Правы экран – поўнаэкранны рэжым</string>
+    <string name="accessibility_action_divider_top_full">Верхні экран – поўнаэкранны рэжым</string>
+    <string name="accessibility_action_divider_top_70">Верхні экран – 70%</string>
+    <string name="accessibility_action_divider_top_50">Верхні экран – 50%</string>
+    <string name="accessibility_action_divider_top_30">Верхні экран – 30%</string>
+    <string name="accessibility_action_divider_bottom_full">Ніжні экран – поўнаэкранны рэжым</string>
+    <string name="accessibility_qs_edit_tile_label">Месца: %1$d, %2$s. Краніце двойчы, каб рэдагаваць.</string>
+    <string name="accessibility_qs_edit_add_tile_label">%1$s. Краніце двойчы, каб дадаць.</string>
+    <string name="accessibility_qs_edit_position_label">Месца: %1$d. Краніце двойчы, каб выбраць.</string>
+    <string name="accessibility_qs_edit_move_tile">Перамясціць %1$s</string>
+    <string name="accessibility_qs_edit_remove_tile">Выдаліць %1$s</string>
+    <string name="accessibility_qs_edit_tile_added">Плітка %1$s дададзена ў наступнае месца: %2$d</string>
+    <string name="accessibility_qs_edit_tile_removed">Плітка %1$s выдалена</string>
+    <string name="accessibility_qs_edit_tile_moved">%1$s перамешчана ў наступнае месца: %2$d</string>
+    <string name="accessibility_desc_quick_settings_edit">Рэдактар хуткіх налад.</string>
+    <string name="accessibility_desc_notification_icon">Апавяшчэнне %1$s: %2$s</string>
+    <string name="dock_forced_resizable">Праграма можа не працаваць у рэжыме дзялення экрана.</string>
+    <string name="dock_non_resizeble_failed_to_dock_text">Праграма не падтрымлівае функцыю дзялення экрана.</string>
+    <string name="multiwindow_forced_resizable">Гэта праграма можа працаваць няправільна ў рэжыме некалькіх вокнаў.</string>
+    <string name="accessibility_quick_settings_settings">Адкрыць налады.</string>
+    <string name="accessibility_quick_settings_expand">Адкрыць хуткія налады.</string>
+    <string name="accessibility_quick_settings_collapse">Закрыць хуткія налады.</string>
+    <string name="accessibility_quick_settings_alarm_set">Будзільнік пастаўлены.</string>
+    <string name="accessibility_quick_settings_no_internet">Няма інтэрнэту.</string>
+    <string name="accessibility_quick_settings_open_details">Паказаць падрабязную інфармацыю.</string>
+    <string name="accessibility_quick_settings_open_settings">Адкрыць налады %s.</string>
+    <string name="accessibility_quick_settings_edit">Змяніць парадак налад.</string>
+    <string name="accessibility_quick_settings_page">Старонка %1$d з %2$d</string>
+    <string name="accessibility_quick_settings_more_option">Іншыя параметры</string>
+    <string name="accessibility_quick_settings_voice_search">Галасавы пошук</string>
+    <string name="recents_close_all_button_text">Закрыць усё</string>
+    <string name="recents_split_button_description">Адкрыць у рэжыме падзеленага экрана</string>
+    <string name="recents_lock_button_description">Замацуйце праграму на экране апошніх праграм або адмацуйце яе адтуль</string>
+    <string name="recents_menu_more">Яшчэ</string>
+    <string name="recents_menu_contact_us">Звязацца з намі</string>
+    <string name="recents_help_dlg_full_page1">Націсніце %s ў радку загалоўка акна праграмы, каб адкрыць праграмы ў рэжыме падзеленага экрана. Гэты значок паказваецца, калі праграма падтрымлівае рэжым некалькіх вокнаў.</string>
+    <string name="recents_help_dlg_full_page1_desc">Націсніце значок рэжыму падзеленага экрана ў радку загалоўка акна праграмы, каб адкрыць праграмы ў рэжыме падзеленага экрана. Гэты значок паказваецца, калі праграма падтрымлівае рэжым некалькіх вокнаў.</string>
+    <string name="recents_help_dlg_full_page2_hardkey">Націсніце і ўтрымлівайце клавішу «Апошнія» падчас выкарыстання праграмы ў поўнаэкранным рэжыме, каб змяніць выгляд на рэжым падзеленага экрана.</string>
+    <string name="recents_help_dlg_next_button_text">Далей</string>
+    <string name="recents_help_dlg_split_page1">Выберыце нядаўнюю праграму, каб адкрыць у ніжняй палове экрана, або перайдзіце на галоўны экран і адкрыйце новую праграму ў рэжыме падзеленага экрана.</string>
+    <string name="recents_help_dlg_split_page2_hardkey">Націсніце клавішу галоўнага экрана, каб згарнуць праграму, паказаную ў верхняй палове экрана, падчас выкарыстання рэжыму падзеленага экрана. Калі вы адкрыеце іншую праграму з галоўнага экрана, калі праграма згорнута, яна будзе адкрыта ў ніжняй палове экрана ў рэжыме падзеленага экрана.</string>
+    <string name="recents_help_dlg_split_page2_softkey">Націсніце кнопку галоўнага экрана, каб згарнуць праграму, паказаную ў верхняй палове экрана, падчас выкарыстання рэжыму падзеленага экрана. Калі вы адкрыеце іншую праграму з галоўнага экрана, калі праграма згорнута, яна будзе адкрыта ў ніжняй палове экрана ў рэжыме падзеленага экрана.</string>
+    <string name="recents_app_list_more_apps">Іншыя праграмы</string>
+    <string name="recents_app_list_recommendations">Рэкамендацыі</string>
+    <string name="recents_app_list_multi_window_apps">Праграмы з нек. вокнамі</string>
+    <string name="data_connection_error_toast_notification">Патрабуецца злучэнне Wi-Fi. Далучыцеся да сеткі Wi-Fi і паўтарыце спробу.</string>
+    <string name="data_connection_error_no_network_connection">Няма злучэння з сеткай</string>
+    <string name="data_connection_error_flight_mode_on">Рэжым «у самалёце» не дазваляе злучэнне з мабільнымі сеткамі. Замест гэтага пераключыцеся на Wi-Fi або адключыце рэжым «у самалёце» і паўтарыце спробу.</string>
+    <string name="data_connection_error_mobile_data_off">Мабільная перадача даных адключана. Злучыцеся лепш з Wi-Fi або зноў уключыце мабільную перадачу даных і паўтарыце спробу.</string>
+    <string name="data_connection_error_data_roaming_off">Перадача даных у роўмінгу адключана. Злучыцеся лепш з Wi-Fi або зноў уключыце перадачу даных у роўмінгу і паўтарыце спробу.</string>
+    <string name="data_connection_error_no_signal_no_sim">Патрабуецца злучэнне Wi-Fi. Далучыцеся да сеткі Wi-Fi і паўтарыце спробу.</string>
+    <string name="data_connection_error_no_signal">Няма сігналу мабільнай сеткі.</string>
+    <string name="retry">Паўтарыць</string>
+    <string name="later">Пазней</string>
+    <string name="mobile_device_warning_toast_notification">Выкарыстанне мабільнай прылады падчас хады або кіравання аўтамабілем можа прывесці да няшчаснага выпадку.</string>
+    <string name="flight_mode_enabled_dialog_title">Airplane mode turned on</string>
+    <string name="flight_mode_enabled_dialog_body">Unless you use Wi-Fi, you will not be able to use the Internet, Email, or other apps that require a data connection.</string>
+    <string name="flight_mode_enabled_dialog_body_volte_and_vowifi">Unless you use Wi-Fi, you will not be able to use Internet, Email, Wi-Fi Calling or other apps that require a data connection.</string>
+    <string name="popup_notification_title">Апавяшчэнне</string>
+    <string name="mcc_setting_dialog_body">Сетка не дае інфармацыі аб даце і часе. Перайдзіце да налад даты і часу, каб задаць іх уручную.</string>
+    <string name="mcc_setting_dialog_body_vzw">Date and time information is not updating automatically. Go to Settings > Date and time to set manually.</string>
+    <string name="popup_set_manually_button_vzw">Set manually</string>
+    <string name="mcc_setting_toast_notification">Перад навядзеннем часу выберыце часавы пояс.</string>
+    <string name="sim_card_tray_water_protection_dialog_title">Праверце латок SIM- або SD-карты</string>
+    <string name="sim_card_tray_water_protection_dialog_body">"Немагчыма выявіць SIM-карту. Ваша прылада не зможа выконваць такія дзеянні, як выклікі і падлучэнне да мабільных сетак.
+
+Каб абараніць прыладу ад вады, упэўніцеся, што латок SIM- або SD-карты шчыльна закрыты."</string>
+    <string name="sim_card_tray_empty_water_protection_dialog_body">Каб абараніць прыладу ад вады, упэўніцеся, што латок SIM- або SD-карты шчыльна закрыты.</string>
+    <string name="water_protection_notification_title">Праверце порт</string>
+    <string name="water_protection_notification_body">Выяўлена вільгаць. Каб зарадзіць прыладу, упэўніцеся, што порт зарадная прылада (USB) сухі.</string>
+    <string name="full_battery_title">Звесткі</string>
+    <string name="full_battery_noti_text">Акумулятар цалкам зараджаны.</string>
+    <string name="cooling_title">Перагрэў прылады</string>
+    <string name="cooling_noti_text">Націсніце сюды, каб убачыць дэталі.</string>
+    <string name="cooling_body">"Прылада пераграваецца. Будуць прыняты меры, каб яна астыла.
+
+Вы можаце карыстацца прыладай, але:
+- Экран можа пацямнець.
+- Прылада можа працаваць марудней.
+- Зарадка можа быць прыпынена.
+
+Астыўшы, прылада аўтаматычна вернецца да звычайнай работы."</string>
+    <string name="colling_high_level_noti_text">Немагчыма адкрыць праграмы. Можна ўжываць толькі праграмы «Тэлефон» і «Кантакты».</string>
+    <string name="cooling_title_vzw">Cooling down</string>
+    <string name="cooling_noti_text_vzw">Націсніце сюды, каб даведацца больш.</string>
+    <string name="cooling_body_vzw">"Your phone is getting hot, so it's taking steps to cool itself down.
+
+You can still use it, but you may notice:
+- The screen might dim.
+- The phone might slow down.
+- Charging might pause.
+
+Your phone will return to normal once it cools down."</string>
+    <string name="cooling_body_tablet_vzw">"Your tablet is getting too hot, so it’s taking steps to cool itself down.
+
+You can still use your tablet, but you may notice:
+The screen might dim.
+The tablet might slow down.
+Charging might pause.
+
+After the tablet cools down, performance willAutomatically go back to normal."</string>
+    <string name="cooling_popup_title">Прылада астывае</string>
+    <string name="overheat_shutdown_warning_title">Turning off</string>
+    <string name="overheat_shutdown_warning_text">"Your phone is getting hot.
+It will now turn off to cool down."</string>
+    <string name="overheat_shutdown_warning_text_tablet">Your tablet is getting too hot. It will now turn off to cool down.</string>
+    <string name="overheat_shutdown_warning_button_text">"Don't turn off"</string>
+    <string name="overheat_shutdown_notice_title">Why did my phone turn off by itself?</string>
+    <string name="overheat_shutdown_notice_title_tablet">Why did my tablet turn off by itself?</string>
+    <string name="overheat_shutdown_notice_text">"Your phone got hot. It turned off to prevent damage to the phone.
+
+This can be caused by:
+Using graphics-intensive apps, like video games and navigation apps, for long periods of time.
+Downloading or uploading large files.
+Using your phone in a very hot location."</string>
+    <string name="overheat_shutdown_notice_text_tablet">"Your tablet got too hot. It turned off to prevent damage to the tablet.
+
+Overheating can be caused by:
+Using graphics intensive apps like video games and navigation apps for long periods of time.
+Downloading or uploading large files.
+Using your tablet in a very hot location."</string>
+    <string name="overheat_poweroff_warning_title">Адключыць прыладу</string>
+    <string name="overheat_poweroff_warning_text">Прылада пераграваецца. Зараз яна адключыцца, каб астыць.</string>
+    <string name="overheat_poweroff_warning_text_new">Прылада пераграваецца. Яна выключыцца праз %d секунд(ы), каб астыць.</string>
+    <string name="overheat_poweroff_warning_text_append">Вы не зможаце зноў уключыць прыладу, пакуль яна не астыне.</string>
+    <string name="overheat_poweroff_warning_button_text">Не адключайце</string>
+    <string name="overheat_poweroff_notice_title">Прылада адключаецца аўтаматычна</string>
+    <string name="overheat_poweroff_notice_text">"Прылада перагрэлася. Каб прадухіліць пашкоджанне, яна была адключана.
+
+Прычынай перагрэву можа быць:
+- Доўгачасовае выкарыстанне праграм з вялікай графічнай нагрузкай, напрыклад, гульняў або праграм навігацыі.
+- Перадача вялікіх файлаў.
+- Выкарыстанне прылады ў высокатэмпературных умовах."</string>
+    <string name="safe_mode_noti_title">Бяспечны рэжым уключаны</string>
+    <string name="safe_mode_noti_body">Нац. сюды, каб адкл. Бясп. рэж.</string>
+    <string name="safe_mode_alert_title">Перазапусціць прыладу</string>
+    <string name="safe_mode_alert_body">Каб адключыць бяспечны рэжым, прылада будзе перазапушчана. Пасля гэтага ўсе праграмы будуць даступны.</string>
+    <string name="safe_mode_alert_positive_button">Перазапусціць зараз</string>
+    <string name="safe_mode_noti_title_vzw">Safe Mode Is On</string>
+    <string name="safe_mode_noti_body_vzw">Tap to turn off Safe Mode.</string>
+    <string name="safe_mode_alert_title_vzw">Turn Off Safe Mode</string>
+    <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
+    <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
+    <string name="battery_low_sec_title">Зарад акумулятара: %d%%</string>
+    <string name="battery_low_sec_body_in_normal_mode">Зарадзіце прыладу або націсніце тут, каб уключыць рэжым энергазберажэння.</string>
+    <string name="battery_low_sec_body_in_ups_mode">Падлучыце прыладу да зараднага прыстасавання.</string>
+    <string name="battery_cable_charging_title">Зарадка пры дапамозе кабелю</string>
+    <string name="battery_charging_title">Зарадка</string>
+    <string name="battery_fast_charging_title">Хуткая зарадка</string>
+    <string name="battery_wireless_charging_title">Бесправадная зарадка</string>
+    <string name="battery_fast_wireless_charging_title">Хуткая бесправад. зарадка</string>
+    <string name="battery_wireless_charging_disconnect_text">Бесправадная зарадка прыпынена.</string>
+    <string name="battery_wireless_charging_from_cable_to_wireless_text">Пераключэнне з зарадкі кабелем на бесправадную зарадку</string>
+    <string name="battery_cable_charging_from_wireless_to_cable_text">Пераключэнне з бесправадной зарадкі на зарадку кабелем</string>
+    <string name="battery_slow_charging_title">Прыл. зараджаецца марудна</string>
+    <string name="battery_slow_charging_text">Каб зараджаць хутчэй, выкарыстайце арыгінальную зарадную прыладу.</string>
+    <string name="battery_slow_charging_toast_text">To charge faster, use the charger and cable that were provided with this phone</string>
+    <string name="battery_charging_level_and_time_text">"Зарадка: %1$d%%
+(прыкладна %2$s засталося да поўнай зарадкі)"</string>
+    <string name="battery_charging_level_text">Зарадка: %d %%</string>
+    <string name="medium_power_saving_mode_notification_title">Рэжым умеранага энергазберажэння ўключаны</string>
+    <string name="battery_saver_notification_text_time_extend">Час працы акумулятара быў падоўжаны.</string>
+    <string name="button_detail">Дэталі</string>
+    <string name="battery_saver_recommend_notification_title">Зарад акумулятара: %d%%</string>
+    <string name="battery_saver_recommend_notification_text">Зарадзіце прыладу або націсніце тут, каб уключыць рэжым энергазберажэння.</string>
+    <string name="button_close">Закрыць</string>
+    <string name="battery_health_interruption_title">Немагчыма зарадзіць</string>
+    <string name="battery_health_interruption_by_terminal_open_text">Немагчыма зарадзіць вашу прыладу. Пераканайцеся, што карыстаецеся акумулятарам і зарадным прыстасаваннем, сумяшчальнымі з прыладай Samsung, а таксама што ваша прылада належным чынам падлучана да зараднага прыстасавання.</string>
+    <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">Зарадка прыпынена. Тэмпература акумулятара завысокая.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">Зарадка прыпынена. Тэмпература акумулятара занізкая.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"Прылада спыніла працэс зарадкі. Занадта высокая тэмпература акумулятара. Будзьце асцярожны, адлучаючы зараднае прыстасаванне. Магчыма, вельмі горача.
+
+Адлучэнне і паўторнае падлучэнне зараднага прыстасавання можа даць магчымасць нармальнай зарадкі. Калі перагрэў не знікае, звярніцеся ў службу падтрымкі кліентаў, бо існуе небяспека пажару ці траўмы."</string>
+    <string name="incompatible_charger_title">Не зараджаецца.</string>
+    <string name="incompatible_charger_dialog_text">The connected charger is incompatible with this phone. To prevent damage to your phone, charging has been stopped. To continue charging, use the original charger and cable that were provided with this phone.</string>
+    <string name="incompatible_charger_notification_text">Unable to charge. Use the original charger.</string>
+    <string name="incompatible_charger_ticker">Не зараджаецца.</string>
+    <string name="warning_alert_check">Больш не паказваць.</string>
+    <string name="power_supplying_low_battery_alert_title">Нізкі зарад акумулятара</string>
+    <string name="power_supplying_low_battery_alert_body">Гэта прылада зараджае іншую прыладу, падлучаную праз USB. Гэта павялічвае спажыванне зараду акумулятара гэтай прылады. Адключыце кабель USB, каб спыніць зарадку падлучанай прылады.</string>
+    <string name="kg_iris_or_fingerprint_active_instructions">Выкарыстайце адбітак пальца, каб адкрыць, або правядзіце па экране, каб выкарыстаць замест гэтага вясёлкавую абалонку</string>
+    <string name="kg_iris_or_fingerprint_unlock_instructions">Вык. адб. пальца для разбл. або прав. па экране, каб вык. вяс. абал.</string>
+    <string name="kg_fingerprint_or_swipe_active_instructions">Каб адкрыць, выкар. адбіткі пальцаў або правядзіце па экране</string>
+    <string name="kg_fingerprint_or_swipe_unlock_instructions">Вык адбітак пальца або прав па экране, каб разблак</string>
+    <string name="kg_iris_unlock_instructions">Прав. па экране, каб выкар. вясёлкавую абалонку для разблакіроўкі</string>
+    <string name="kg_voice_assistant_active_instructions">Каб адкрыць, правядзіце па экране двума пальцамі.</string>
+    <string name="kg_voice_assistant_unlock_instructions">Правядзіце двума пальцамі, каб разблакіраваць экран.</string>
+    <string name="kg_swipe_active_instructions">Правядзіце па экране, каб адкрыць</string>
+    <string name="kg_swipe_unlock_instructions">Правядзіце па экране, каб разблакіраваць</string>
+    <string name="kg_power_connect_charger">Падлучыце зарадную прыладу</string>
+    <string name="kg_power_fully_charged">Поўнасцю зараджаны</string>
+    <string name="kg_power_fast_charging">Хуткая зарадка: %d%%</string>
+    <string name="kg_power_charging_wirelessly">Бесправадная зарадка: %d %%</string>
+    <string name="kg_power_fast_charging_wirelessly">Хуткая бесправад. зарадка: %d%%</string>
+    <string name="kg_power_charging">Зарадка: %d %%</string>
+    <string name="kg_power_charging_remaining_time">(Прыбл. %s да поўнай зарадкі)</string>
+    <string name="kg_power_time_format_hour_minute">%1$dг %2$dхв</string>
+    <string name="kg_power_time_format_hour">%d гадз.</string>
+    <string name="kg_power_time_format_minute">%d хв.</string>
+    <string name="kg_smart_lock_content_description">Двойчы націсніце і перацягніце, каб заблакіраваць прыладу.</string>
+    <string name="keyguard_skt_usim_unregistered">Немагчыма выкарыстаць USIM-карту. Спампуйце інфармацыю USIM-карты.</string>
+    <string name="keyguard_missing_sim_message">Устаўце USIM-карту і перазапусціце прыладу</string>
+    <string name="keyguard_usim_not_used">Немагчыма выкарыстоўваць USIM-карту. Няправільны PIN-код разблакіроўкі (PUK) уведзены %d разы(-оў). Купіце новую USIM-карту.</string>
+    <string name="lockscreen_nosim_text_kor_only">"USIM-карта не выяўлена
+Толькі экстраныя выклікі"</string>
+    <string name="qs_sfinder_search_phone">Шукайце тэлефон і прылады паблізу</string>
+    <string name="noti_setting_text">Налады апав.</string>
+    <string name="dnd_noti_title">Рэжым «Не турбаваць» уключаны</string>
+    <string name="dnd_noti_message">Гук будзільнікаў выключаны</string>
+    <string name="dnd_noti_action_disable">Адключыць</string>
+    <string name="do_not_show_again">Больш не паказваць</string>
+    <string name="quick_settings_hongbao_assistant_label">"Hongbao
+assistant"</string>
+    <string name="hongbao_assistant_dialog_message">"Hongbao assistant will be enabled. This function will allow you to receive WeChat red envelopes more quickly and get notifications when they are received.
+A network connection is required.
+You can enable and disable this function via the quick settings panel."</string>
+    <string name="hongbao_assistant_noti_title">Hongbao assistant</string>
+    <string name="hongbao_assistant_noti_text">Receive WeChat red envelopes more quickly and get notifications when they are received. Tap here to enable this function.</string>
+    <string name="no_sim_notification_title">Няма SIM-карты</string>
+    <string name="no_sim_notification_title_tmo">SIM-карта не ўстаўлена</string>
+    <string name="no_sim_notification_title_vzw">No SIM found</string>
+    <string name="no_sim_notification_text">Уставіць SIM-карту.</string>
+    <string name="no_sim_notification_text_vzw">Tap for more information.</string>
+    <string name="accessibility_phone_four_bars">Чатыры палоскі сігналу тэлефоннай сеткі</string>
+    <string name="quick_settings_screen_capture_label">"Capture
+screen"</string>
+    <string name="quick_settings_screen_recorder_label">"Record
+screen"</string>
+    <string name="airplane_mode_plmn">Рэжым «у самалёце»</string>
+    <string name="default_carrier_text_searching">Пошук</string>
+    <string name="sec_data_usage_disabled_dialog_mobile_title">Перадача мабільных даных адключана</string>
+    <string name="sec_data_usage_disabled_dialog_mobile_title_vzw">Mobile data is now off</string>
+    <string name="sec_data_usage_disabled_dialog_body">Дасягнуты вызначаны ліміт выкарыстанне даных. Пастаўшчык паслуг можа патрабаваць аплаты за далейшае выкарыстанне перадачы даных.</string>
+    <string name="sec_data_usage_disabled_dialog_body_vzw">"You've reached your specified data usage limit, so mobile data has been turned off.
+
+If you turn mobile data back on, you may be charged for data usage by your carrier."</string>
+    <string name="sec_data_usage_disabled_dialog_enable">Уключ. маб. даныя</string>
+    <string name="sec_data_usage_disabled_dialog_enable_vzw">Turn on data</string>
+    <string name="quick_panel_data_usage">Data usage</string>
+    <string name="qs_multisim_voice_preffered_btn_title">Выклікі</string>
+    <string name="qs_multisim_sms_preffered_btn_title">Тэкставыя паведамленні</string>
+    <string name="qs_multisim_data_preffered_btn_title">Мабільная перадача даных</string>
+    <string name="qs_multisim_voice_ask_always">Заўсёды пытацца</string>
+    <string name="qs_multisim_data_turned_off">Выключана</string>
+    <string name="app_locked">App locked</string>
+    <string name="uhq_toast_earphone_connect_request">Connect earphones to use UHQ upscaler.</string>
+    <string name="quick_settings_uhq_mode_label">"UHQ
+upscaler"</string>
+    <string name="uhq_mode_noti_title">Удасканаленне UHQ</string>
+    <string name="uhq_mode_noti_text">Павялічце выразнасць гуку музыкі і відэа для больш якаснага праслухоўвання.</string>
+    <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
+    <string name="assistance_app_setting_item_none">Няма</string>
+    <string name="car_lockscreen_disclaimer_title">Кіруйце аўтамабілем бяспечна</string>
+    <string name="car_lockscreen_disclaimer_text">Будзьце заўсёды ў курсе дарожных умоў і заўсёды прытрымлівайцеся дзеючага заканадаўства. Указанні могуць быць недакладнымі, няпоўнымі, небяспечнымі, непадыходзячымі, забароненымі ці прадугледжваць уезд на адміністрацыйныя тэрыторыі. Інфармацыя пра кампаніі таксама можа быць недакладнай ці няпоўнай. Даныя не прадстаўляюцца ў рэжыме рэальнага часу, і дакладнасць вызначэння месцазнаходжання не можа быць гарантавана. Не выкарыстоўвайце сваю мабільную прыладу або праграмы, не прызначаныя для Android Auto, падчас кіравання.</string>
+    <string name="pip_close">Закрыць PIP</string>
+    <string name="pip_fullscreen">Ва ўвесь экран</string>
+    <string name="pip_play">Прайграць</string>
+    <string name="pip_pause">Прыпыніць</string>
+    <string name="pip_hold_home">Утрым. <b>HOME</b> для кір. PIP</string>
+    <string name="pip_onboarding_title">Відарыс у відарысе</string>
+    <string name="pip_onboarding_description">Гэта дазваляе захоўваць ваша відэа ў полі зроку, пакуль вы не пачняце прайграванне іншага. Націсніце і ўтрымлівайце <b>HOME</b> для кіравання.</string>
+    <string name="pip_onboarding_button">Зразумела</string>
+    <string name="recents_tv_dismiss">Адхіліць</string>
+    <string name="app_name">Keyguard</string>
+    <string name="keyguard_password_enter_pin_code">Увядзіце PIN-код</string>
+    <string name="keyguard_password_enter_puk_code">Увядзіце PUK-код і новы PIN-код SIM-карты</string>
+    <string name="keyguard_password_enter_puk_prompt">PUK-код SIM-карты</string>
+    <string name="keyguard_password_enter_pin_prompt">Новы PIN-код SIM-карты</string>
+    <string name="keyguard_password_entry_touch_hint"><font size="17">Дакраніцеся, каб увесці пароль</font></string>
+    <string name="keyguard_password_enter_password_code">Увядзіце пароль для разблакавання</string>
+    <string name="keyguard_password_enter_pin_password_code">Каб разблакаваць, увядзіце PIN-код</string>
+    <string name="keyguard_password_wrong_pin_code">Няправільны PIN-код.</string>
+    <string name="keyguard_charged">Зараджаны</string>
+    <string name="keyguard_plugged_in">Зарадка</string>
+    <string name="keyguard_plugged_in_charging_fast">Зараджаецца хутка</string>
+    <string name="keyguard_plugged_in_charging_slowly">Зараджаецца павольна</string>
+    <string name="keyguard_low_battery">Падключыце зарадную прыладу.</string>
+    <string name="keyguard_instructions_when_pattern_disabled">Націсніце кнопку \"Меню\", каб разблакіраваць.</string>
+    <string name="keyguard_network_locked_message">Сетка заблакiраваная</string>
+    <string name="keyguard_missing_sim_message_short">Няма SIM-карты</string>
+    <string name="keyguard_missing_sim_instructions">Устаўце SIM-карту.</string>
+    <string name="keyguard_missing_sim_instructions_long">SIM-карта адсутнічае ці не чытаецца. Устаўце SIM-карту.</string>
+    <string name="keyguard_permanent_disabled_sim_message_short">SIM-карту немагчыма выкарыстоўваць.</string>
+    <string name="keyguard_permanent_disabled_sim_instructions">"Ваша SIM-карта была адключана назаўсёды.
+ Звяжыцеся з аператарам бесправадной сувязі, каб атрымаць іншую SIM-карту."</string>
+    <string name="keyguard_sim_locked_message">SIM-карта заблакіравана</string>
+    <string name="keyguard_sim_puk_locked_message">SIM-карта заблакіравана PUK-кодам</string>
+    <string name="keyguard_sim_unlock_progress_dialog_message">Unlocking SIM card</string>
+    <string name="keyguard_accessibility_pattern_unlock">Узор разблакiроўкі.</string>
+    <string name="keyguard_accessibility_pin_unlock">PIN-код разблакiроўкі.</string>
+    <string name="keyguard_accessibility_password_unlock">Пароль разблакiроўкі.</string>
+    <string name="keyguard_accessibility_pattern_area">Вобласць узора.</string>
+    <string name="keyguard_accessibility_slide_area">Вобласць слайда.</string>
+    <string name="keyguard_accessibility_pin_area">Поле для PIN-кода</string>
+    <string name="keyguard_accessibility_sim_pin_area">Поле для PIN-кода SIM-карты</string>
+    <string name="keyguard_accessibility_sim_puk_area">Поле для PUK-кода SIM-карты</string>
+    <string name="keyguard_accessibility_next_alarm">Наступны будзільнік пастаўлены на %1$s</string>
+    <string name="keyboardview_keycode_delete">Выдаліць</string>
+    <string name="keyboardview_keycode_enter">Enter</string>
+    <string name="kg_forgot_pattern_button_text">Забылі ключ</string>
+    <string name="kg_wrong_pattern">Няправільна ключ</string>
+    <string name="kg_wrong_password">Няправiльны пароль</string>
+    <string name="kg_wrong_pin">Уведзены няправільны PIN</string>
+    <string name="kg_too_many_failed_attempts_countdown">Паўтарыце спробу праз %d с.</string>
+    <string name="kg_pattern_instructions">Намалюйце ключ</string>
+    <string name="kg_sim_pin_instructions">Увядзіце PIN-код SIM-карты</string>
+    <string name="kg_sim_pin_instructions_multi">Увядзіце PIN-код SIM-карты «%1$s»</string>
+    <string name="kg_pin_instructions">Увядзіце PIN-код</string>
+    <string name="kg_password_instructions">Увядзіце пароль</string>
+    <string name="kg_puk_enter_puk_hint">SIM-карта зараз адключана. Увядзіце PUK-код, каб працягнуць. Звяжыцеся са сваiм аператарам, каб атрымаць дадатковую iнфармацыю.</string>
+    <string name="kg_puk_enter_puk_hint_multi">SIM-карта «%1$s» зараз адключана. Увядзіце PUK-код, каб працягнуць. Каб атрымаць дадатковую iнфармацыю, звяжыцеся з аператарам.</string>
+    <string name="kg_puk_enter_pin_hint">Увядзіце жаданы PIN-код</string>
+    <string name="kg_enter_confirm_pin_hint">Пацвердзіце жадан PIN-код</string>
+    <string name="kg_sim_unlock_progress_dialog_message">Разблакiроўка SIM-карты...</string>
+    <string name="kg_invalid_sim_pin_hint">Увядзіце PIN-код, які змяшчае ад 4 да 8 лічбаў.</string>
+    <string name="kg_invalid_sim_puk_hint">PUK-код павінен утрымлiваць 8 лiчбаў і больш.</string>
+    <string name="kg_invalid_puk">Паўторна увядзіце правільны PUK-код. Неаднаразовыя спробы назаўжды адключаць SIM-карту.</string>
+    <string name="kg_invalid_confirm_pin_hint">PIN-коды не супадаюць</string>
+    <string name="kg_login_too_many_attempts">Занадта шмат спроб паўтарыць шаблон!</string>
+    <string name="kg_too_many_failed_pin_attempts_dialog_message">"Вы няправільна ўвялі PIN-код пэўную колькасць разоў: %1$d. 
+
+Паўтарыце спробу праз %2$d с."</string>
+    <string name="kg_too_many_failed_password_attempts_dialog_message">"Вы няправільна ўвялі пароль пэўную колькасць разоў: %1$d. 
+
+Паўтарыце спробу праз %2$d с."</string>
+    <string name="kg_too_many_failed_pattern_attempts_dialog_message">"Вы няправільна ўвялі графічны ключ разблакiроўкi пэўную колькасць разоў: %1$d. 
+
+Паўтарыце спробу праз %2$d с."</string>
+    <string name="kg_failed_attempts_almost_at_wipe">Вы не змаглі разблакіраваць тэлефон столькі разоў: %1$d. Пасля яшчэ некалькіх няўдалых спроб (%2$d) ён будзе скінуты да заводскіх налад, гэта прывядзе да выдалення ўсіх даных.</string>
+    <string name="kg_failed_attempts_now_wiping">Вы не змаглі разблакіраваць тэлефон столькі разоў: %d. Цяпер ён будзе скінуты да заводскіх налад, гэты прывядзе да выдалення ўсіх даных.</string>
+    <string name="kg_failed_attempts_almost_at_erase_user">Вы не змаглі разблакіраваць тэлефон столькі разоў: %1$d. Пасля яшчэ некалькіх няўдалых спроб (%2$d) гэты карыстальнік будзе выдалены, гэта прывядзе да выдалення ўсіх карыстальніцкіх даных.</string>
+    <string name="kg_failed_attempts_now_erasing_user">Вы не змаглі разблакіраваць тэлефон столькі разоў: %d. Гэты карыстальнік будзе выдалены, гэта прывядзе да выдалення ўсіх карыстальніцкіх даных.</string>
+    <string name="kg_failed_attempts_almost_at_erase_profile">Вы не змаглі разблакіраваць тэлефон столькі разоў: %1$d. Пасля яшчэ некалькіх няўдалых спроб (%2$d) працоўны профіль будзе выдалены, гэта прывядзе да выдалення ўсіх даных у профілі.</string>
+    <string name="kg_failed_attempts_now_erasing_profile">Вы не змаглі разблакіраваць тэлефон столькі разоў: %d. Працоўны профіль будзе выдалены, гэта прывядзе да выдалення ўсіх даных у профілі.</string>
+    <string name="kg_sec_1_failed_attempt_almost_at_wipe">Была зроблена спроба разблакіраваць прыладу. У вас засталося %d спроб(-ы), перш чым налады прылады будуць скінуты да заводскіх значэнняў, а ўсе даныя сцёрты, у тым ліку файлы і спампаваныя праграмы.</string>
+    <string name="kg_sec_failed_attempts_almost_at_wipe">Зроблена спроб разблакіраваць прыладу: %1$d. У вас засталося %2$d спроб(-ы), перш чым налады прылады будуць скінуты да заводскіх значэнняў, а ўсе даныя сцёрты, у тым ліку файлы і спампаваныя праграмы.</string>
+    <string name="kg_sec_1_remaing_count_almost_at_wipe">Спроба разблакіраваць прыладу была зроблена %d раз(-оў). У вас засталася 1 спроба, перш чым налады прылады будуць скінуты да заводскіх значэнняў, а ўсе даныя сцёрты, у тым ліку файлы і спампаваныя праграмы.</string>
+    <string name="kg_failed_attempts_almost_at_login">"Вы няправільна ўвялі графічны ключ разблакiроўкi пэўную колькасць разоў: %1$d. Пасля яшчэ некалькiх няўдалых спроб (%2$d) вам будзе прапанавана разблакiраваць тэлефон, увайшоўшы ў Google.
+
+ Паўтарыце спробу праз %3$d с."</string>
+    <string name="kg_password_wrong_pin_code_pukked">Няправільны PIN-код SIM-карты, цяпер вы павінны звязацца з аператарам для разблакіроўкі прылады.</string>
+    <string name="kg_password_wrong_puk_code_dead">SIM-карта не прыдатная для выкарыстання. Звяжыцеся з аператарам.</string>
+    <string name="kg_password_pin_failed">Разблакіраваць SIM-карту PIN-кодам не атрымалася!</string>
+    <string name="kg_password_puk_failed">Разблакіраваць SIM-карту PUK-кодам не атрымалася!</string>
+    <string name="kg_pin_accepted">Код прыняты!</string>
+    <string name="keyguard_carrier_default">Не абслугоўваецца.</string>
+    <string name="accessibility_ime_switch_button">Пераключэнне рэжыму ўводу</string>
+    <string name="kg_prompt_reason_restart_pattern">Пасля перазапуску прылады патрабуецца ўзор</string>
+    <string name="kg_prompt_reason_restart_pin">Пасля перазапуску прылады патрабуецца PIN-код</string>
+    <string name="kg_prompt_reason_restart_password">Пасля перазапуску прылады патрабуецца пароль</string>
+    <string name="kg_prompt_reason_timeout_pattern">Для забеспячэння дадатковай бяспекі патрабуецца ўзор</string>
+    <string name="kg_prompt_reason_timeout_pin">Для забеспячэння дадатковай бяспекі патрабуецца PIN-код</string>
+    <string name="kg_prompt_reason_timeout_password">Для забеспячэння дадатковай бяспекі патрабуецца пароль</string>
+    <string name="kg_prompt_reason_switch_profiles_pattern">Пры пераключэнні профіляў патрабуецца ўзор</string>
+    <string name="kg_prompt_reason_switch_profiles_pin">Пры пераключэнні профіляў патрабуецца PIN-код</string>
+    <string name="kg_prompt_reason_switch_profiles_password">Пры пераключэнні профіляў патрабуецца пароль</string>
+    <string name="kg_prompt_reason_device_admin">Адміністратар прылады заблакіраваў прыладу</string>
+    <string name="kg_prompt_reason_user_request">Прылада была заблакіравана ўручную</string>
+    <string name="fingerprint_not_recognized">Не распазнаны</string>
+    <string name="kg_sim_locked_message">SIM-карта заблакіравана</string>
+    <string name="kg_missing_sim_message_short">Няма SIM-карты</string>
+    <string name="kg_default_carrier_text_searching">Пошук</string>
+    <string name="kg_perso_locked_message">Block other USIM</string>
+    <string name="kg_pin_locked_message">Увядзіце PIN-код</string>
+    <string name="kg_puk_locked_message">Увядзіце PUK-код</string>
+    <string name="kg_flight_mode">Рэжым «у самалёце»</string>
+    <string name="kg_lockscreen_emergency_call_button_text">Экстранны выклік</string>
+    <string name="keyguard_dualclock_locale_view_home">Дома</string>
+    <string name="keyguard_dualclock_locale_view_roaming">Роўмінг</string>
+    <string name="keyguard_dualclock_locale_view_seoul">Сеул</string>
+    <string name="keyguard_dualclock_locale_view_korea">Роўмінг</string>
+    <string name="kg_wrong_direction_lock">Рух у няправільным напрамку</string>
+    <string name="kg_direction_lock_instructions_normal_mode">Правядзіце ў розных напрамках, каб разблакіраваць экран</string>
+    <string name="keyguard_accessibility_direction_lock_unlock">Напрамак блакіроўкі</string>
+    <string name="kg_wrong_direction_lock_vzw">Incorrect directions (%d attempts remaining)</string>
+    <string name="direction_lock_too_many_failed_attempts_countdown">Паўтарыце праз %d сек.</string>
+    <string name="kg_iris_direction_instructions">Выкарыстоўвайце вясёлкавую абалонку або правядзіце ў розных напрамках</string>
+    <string name="kg_1_attempt_remaining">(Засталася 1 спроба)</string>
+    <string name="kg_n_attempts_remaining">(Засталося спроб: %d)</string>
+    <string name="kg_multi_biometrics_strong_auth_prompt_reason_restarting_universal_lock">Ваша прылада была перазапушчана і патрабуе разблакіроўкі з дапамогай шэрагу напрамкаў. Каб разблакіраваць прыладу, наступным разам вы можаце выкарыстоўваць біяметрычныя даныя.</string>
+    <string name="kg_iris_strong_auth_prompt_reason_restarting_universal_lock">Ваша прылада была перазапушчана, і яе трэба разблакіраваць з дапамогай шэрагу напрамкаў. У наступны раз для разблакіроўкі прылады вы зможаце выкарыстоўваць вясёлкавыя абалонкі.</string>
+    <string name="kg_multi_biometrics_prompt_reason_timeout_universal_lock_strong_auth">Намалюйце шэраг напрамкаў замест выкарыстання біяметрычнай ідэнтыфікацыі з-за палітыкі бяспекі</string>
+    <string name="kg_iris_strong_auth_prompt_reason_universal_lock_security_policy">Намалюйце шэраг напрамкаў замест выкарыстання распазнавання вясёлкавай абалонкі з-за палітыкі бяспекі</string>
+    <string name="kg_multi_biometrics_strong_auth_prompt_reason_24_timeout_universal_lock">Ваша прылада не выкарыстоўвалася больш за 24 гадзіны, і яе трэба разблакіраваць з дапамогай шэрагу напрамкаў. Каб разблакіраваць прыладу, наступным разам вы можаце выкарыстоўваць біяметрычныя даныя.</string>
+    <string name="kg_iris_strong_auth_prompt_reason_24_timeout_universal_lock">Ваша прылада не выкарыстоўвалася на працягу больш чым 24 гадзін, яе трэба разблакіраваць з дапамогай вашага шэрагу напрамкаў. У наступны раз вы зможаце выкарыстоўваць сваю вясёлкавую абалонку для разблакіроўкі прылады.</string>
+    <string name="kg_none_pin_none_frp">"If you do not enter the correct PIN within the next %d attempts, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_none_pin_1_frp">"If you do not enter the correct PIN in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_tablet_pin_none_frp">"If you do not enter the correct PIN within the next %d attempts, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_tablet_pin_1_frp">"If you do not enter the correct PIN in the next attempt, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_none_pattern_none_frp">"If you do not enter the correct pattern within the next %d attempts, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_none_pattern_1_frp">"If you do not enter the correct pattern in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_tablet_pattern_none_frp">"If you do not draw the correct pattern within the next %d attempts, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_tablet_pattern_1_frp">"If you do not draw the correct pattern in the next attempt, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_none_password_none_frp">"If you do not enter the correct password within the next %d attempts, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_none_password_1_frp">"If you do not enter the correct password in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_tablet_password_none_frp">"If you do not enter the correct password within the next %d attempts, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_tablet_password_1_frp">"If you do not enter the correct password in the next attempt, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_none_direction_none_frp">"If you do not draw the correct series of directions within the next %d attempts, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_none_direction_1_frp">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_tablet_direction_none_frp">"If you do not draw the correct series of directions within the next %d attempts, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_tablet_direction_1_frp">"If you do not draw the correct series of directions in the next attempt, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_warning_none_1_none_auto_wipe">There has been 1 attempt to unlock this phone. You have %d attempts left before the phone is reset to factory default settings and all data is erased, including files and downloaded apps.</string>
+    <string name="kg_warning_tablet_1_none_auto_wipe">There has been 1 attempt to unlock this tablet. You have %d attempts left before the tablet is reset to factory default settings and all data is erased, including files and downloaded apps.</string>
+    <string name="kg_warning_none_none_none_auto_wipe">There have been %1$d attempts to unlock this phone. You have %2$d attempts left before the phone is reset to factory default settings and all data is erased, including files and downloaded apps.</string>
+    <string name="kg_warning_tablet_none_none_auto_wipe">There have been %1$d attempts to unlock this tablet. You have %2$d attempts left before the tablet is reset to factory default settings and all data is erased, including files and downloaded apps.</string>
+    <string name="kg_warning_none_none_1_auto_wipe">There have been %d attempts to unlock this phone. You have 1 attempt left before the phone is reset to factory default settings and all data is erased, including files and downloaded apps.</string>
+    <string name="kg_warning_tablet_none_1_auto_wipe">There have been %d attempts to unlock this tablet. You have 1 attempt left before the tablet is reset to factory default settings and all data is erased, including files and downloaded apps.</string>
+    <string name="kg_multi_pin_none_instructions">Выкарыстайце адбітак пальца, вясёлкавую абалонку або ўвядзіце PIN-код</string>
+    <string name="kg_multi_pin_active_instructions">Каб адкрыць, выкарыстайце адбітак пальца, вясёлкавую абалонку або ўвядзіце PIN-код</string>
+    <string name="kg_multi_pin_shutdown_instructions">Для выключэння выкарыстайце адбітак пальца, вясёлкавыя абалонкі або ўвядзіце PIN-код</string>
+    <string name="kg_fingerprint_pin_none_instructions">Выкарыстоўвайце адбіткі пальцаў або ўвядзіце PIN-код</string>
+    <string name="kg_fingerprint_pin_active_instructions">Для адкрыцця выкарыстоўвайце адбітак пальца або ўвядзіце PIN-код</string>
+    <string name="kg_fingerprint_pin_shutdown_instructions">Для выключэння выкарыстайце адбітак пальца або ўвядзіце PIN-код</string>
+    <string name="kg_iris_pin_none_instructions">Выкарыстайце вясёлкавую абалонку або ўвядзіце PIN-код</string>
+    <string name="kg_iris_pin_active_instructions">Каб адкрыць, выкарыстайце вясёлкавую абалонку або ўвядзіце PIN-код</string>
+    <string name="kg_iris_pin_shutdown_instructions">Для выключэння выкарыстайце вясёлкавую абалонку або ўвядзіце PIN-код</string>
+    <string name="kg_none_pin_none_instructions">Увядзіце PIN-код</string>
+    <string name="kg_none_pin_active_instructions">Увядзіце PIN-код, каб адкрыць</string>
+    <string name="kg_none_pin_shutdown_instructions">Для выключэння ўвядзіце PIN-код</string>
+    <string name="kg_multi_pattern_none_instructions">Выкарыстайце адбітак пальца, вясёлкавую абалонку або намалюйце ўзор</string>
+    <string name="kg_multi_pattern_active_instructions">Каб адкрыць, выкарыстайце адбітак пальца, вясёлкавую абалонку або намалюйце ўзор</string>
+    <string name="kg_multi_pattern_shutdown_instructions">Для выключэння выкарыстайце адбітак пальца, вясёлкавыя абалонкі або намалюйце ўзор</string>
+    <string name="kg_fingerprint_pattern_none_instructions">Выкарыстоўвайце адбіткі пальцаў або намалюйце ўзор разблакіроўкі</string>
+    <string name="kg_fingerprint_pattern_active_instructions">Для адкрыцця выкарыстоўвайце адбітак пальца або намалюйце ўзор</string>
+    <string name="kg_fingerprint_pattern_shutdown_instructions">Для выключэння выкарыстайце адбітак пальца або намалюйце ўзор</string>
+    <string name="kg_iris_pattern_none_instructions">Выкарыстайце вясёлкавую абалонку або намалюйце ўзор</string>
+    <string name="kg_iris_pattern_active_instructions">Каб адкрыць, выкарыстайце вясёлкавую абалонку або намалюйце ўзор</string>
+    <string name="kg_iris_pattern_shutdown_instructions">Для выключэння выкарыстайце вясёлкавую абалонку або намалюйце ўзор</string>
+    <string name="kg_none_pattern_none_instructions">Нарысаваць узор разблакіроўкі</string>
+    <string name="kg_none_pattern_active_instructions">Нарысуйце ўзор разблакіроўкі, каб адкрыць</string>
+    <string name="kg_none_pattern_shutdown_instructions">Для выключэння намалюйце ўзор</string>
+    <string name="kg_multi_password_none_instructions">Выкарыстайце адбітак пальца, вясёлкавую абалонку або ўвядзіце пароль</string>
+    <string name="kg_multi_password_active_instructions">Каб адкрыць, выкарыстайце адбітак пальца, вясёлкавую абалонку або ўвядзіце пароль</string>
+    <string name="kg_multi_password_shutdown_instructions">Для выключэння выкарыстайце адбітак пальца, вясёлкавыя абалонкі або ўвядзіце пароль</string>
+    <string name="kg_fingerprint_password_none_instructions">Выкарыстоўвайце адбіткі пальцаў або ўвядзіце пароль</string>
+    <string name="kg_fingerprint_password_active_instructions">Для адкрыцця выкарыстоўвайце адбітак пальца або ўвядзіце пароль</string>
+    <string name="kg_fingerprint_password_shutdown_instructions">Для выключэння выкарыстайце адбітак пальца або ўвядзіце пароль</string>
+    <string name="kg_iris_password_none_instructions">Выкарыстайце вясёлкавую абалонку або ўвядзіце пароль</string>
+    <string name="kg_iris_password_active_instructions">Каб адкрыць, выкарыстайце вясёлкавую абалонку або ўвядзіце пароль</string>
+    <string name="kg_iris_password_shutdown_instructions">Для выключэння выкарыстайце вясёлкавую абалонку або ўвядзіце пароль</string>
+    <string name="kg_none_password_none_instructions">Увядзіце пароль</string>
+    <string name="kg_none_password_active_instructions">Увядзіце пароль, каб адкрыць</string>
+    <string name="kg_none_password_shutdown_instructions">Для выключэння ўвядзіце пароль</string>
+    <string name="kg_multi_direction_none_instructions">Выкарыстайце адбітак пальца або вясёлкавую абалонку ці намалюйце шэраг напрамкаў</string>
+    <string name="kg_multi_direction_active_instructions">Каб адкрыць, выкарыстайце адбітак пальца або вясёлкавую абалонку ці намалюйце шэраг напрамкаў</string>
+    <string name="kg_multi_direction_shutdown_instructions">Для выключэння выкарыстайце адбітак пальца, вясёлкавыя абалонкі або намалюйце шэраг напрамкаў</string>
+    <string name="kg_fingerprint_direction_none_instructions">Выкарыстоўвайце адбітак пальца або правядзіце ў розных напрамках</string>
+    <string name="kg_fingerprint_direction_active_instructions">Каб адкрыць, выкарыстайце адбітак пальца ці намалюйце шэраг напрамкаў</string>
+    <string name="kg_fingerprint_direction_shutdown_instructions">Для выключэння выкарыстайце адбітак пальца або намалюйце шэраг напрамкаў</string>
+    <string name="kg_iris_direction_none_instructions">Выкарыстоўвайце вясёлкавую абалонку або правядзіце ў розных напрамках</string>
+    <string name="kg_iris_direction_active_instructions">Каб адкрыць, выкарыстайце вясёлкавую абалонку ці намалюйце шэраг напрамкаў</string>
+    <string name="kg_iris_direction_shutdown_instructions">Для выключэння выкарыстайце вясёлкавую абалонку або намалюйце шэраг напрамкаў</string>
+    <string name="kg_none_direction_none_instructions">Правядзіце ў розных напрамках, каб разблакіраваць экран</string>
+    <string name="kg_none_direction_active_instructions">Каб адкрыць, правядзіце ў розных напрамках</string>
+    <string name="kg_none_direction_shutdown_instructions">Для выключэння намалюйце шэраг напрамкаў</string>
+    <string name="kg_none_multi_pin_restart_instructions">Ваша прылада была перазапушчана і патрабуе разблакіроўкі з дапамогай PIN-кода. Каб разблакіраваць прыладу, наступным разам вы можаце выкарыстоўваць біяметрычныя даныя.</string>
+    <string name="kg_tablet_multi_pin_restart_instructions">Ваша прылада была перазапушчана і патрабуе разблакіроўкі з дапамогай PIN-кода. Каб разблакіраваць прыладу, наступным разам вы можаце выкарыстоўваць біяметрычныя даныя.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">Ваша прылада была перазапушчана, і яе трэба разблакіраваць з дапамогай PIN-кода. У наступны раз для разблакіроўкі прылады вы зможаце выкарыстоўваць адбіткі пальцаў.</string>
+    <string name="kg_tablet_fingerprint_pin_restart_instructions">Ваша прылада была перазапушчана, і яе трэба разблакіраваць з дапамогай PIN-кода. У наступны раз для разблакіроўкі прылады вы зможаце выкарыстоўваць адбіткі пальцаў.</string>
+    <string name="kg_none_iris_pin_restart_instructions">Ваша прылада была перазапушчана, і яе трэба разблакіраваць з дапамогай PIN-кода. У наступны раз для разблакіроўкі прылады вы зможаце выкарыстоўваць вясёлкавыя абалонкі.</string>
+    <string name="kg_tablet_iris_pin_restart_instructions">Ваша прылада была перазапушчана, і яе трэба разблакіраваць з дапамогай PIN-кода. У наступны раз для разблакіроўкі прылады вы зможаце выкарыстоўваць вясёлкавыя абалонкі.</string>
+    <string name="kg_none_multi_pin_timeout_instructions">Ваша прылада не выкарыстоўвалася больш за 24 гадзіны, і яе трэба разблакіраваць з дапамогай PIN-кода. Каб разблакіраваць прыладу, наступным разам вы можаце выкарыстоўваць біяметрычныя даныя.</string>
+    <string name="kg_tablet_multi_pin_timeout_instructions">Ваша прылада не выкарыстоўвалася больш за 24 гадзіны, і яе трэба разблакіраваць з дапамогай PIN-кода. Каб разблакіраваць прыладу, наступным разам вы можаце выкарыстоўваць біяметрычныя даныя.</string>
+    <string name="kg_none_fingerprint_pin_timeout_instructions">Ваша прылада не выкарыстоўвалася больш за 24 гадзіны, і яе трэба разблакіраваць з дапамогай PIN-кода. У наступны раз для разблакіроўкі прылады вы зможаце выкарыстоўваць адбіткі пальцаў.</string>
+    <string name="kg_tablet_fingerprint_pin_timeout_instructions">Ваша прылада не выкарыстоўвалася больш за 24 гадзіны, і яе трэба разблакіраваць з дапамогай PIN-кода. У наступны раз для разблакіроўкі прылады вы зможаце выкарыстоўваць адбіткі пальцаў.</string>
+    <string name="kg_none_iris_pin_timeout_instructions">Ваша прылада не выкарыстоўвалася на працягу больш чым 24 гадзін, яе трэба разблакіраваць з дапамогай вашага PIN-кода. У наступны раз вы зможаце выкарыстоўваць сваю вясёлкавую абалонку для разблакіроўкі прылады.</string>
+    <string name="kg_tablet_iris_pin_timeout_instructions">Ваша прылада не выкарыстоўвалася на працягу больш чым 24 гадзін, яе трэба разблакіраваць з дапамогай вашага PIN-кода. У наступны раз вы зможаце выкарыстоўваць сваю вясёлкавую абалонку для разблакіроўкі прылады.</string>
+    <string name="kg_none_multi_pin_deviceadmin_instructions">Увядзіце PIN-код замест выкарыстання біяметрычнай ідэнтыфікацыі з-за палітыкі бяспекі</string>
+    <string name="kg_none_fingerprint_pin_deviceadmin_instructions">Увядзіце PIN-код замест выкарыстання распазнавання адбітка пальца з-за палітыкі бяспекі</string>
+    <string name="kg_none_iris_pin_deviceadmin_instructions">Увядзіце PIN-код замест выкарыстання распазнавання вясёлкавай абалонкі з-за палітыкі бяспекі</string>
+    <string name="kg_none_multi_pattern_restart_instructions">Ваша прылада была перазапушчана і патрабуе разблакіроўкі з дапамогай узору. Каб разблакіраваць прыладу, наступным разам вы можаце выкарыстоўваць біяметрычныя даныя.</string>
+    <string name="kg_tablet_multi_pattern_restart_instructions">Ваша прылада была перазапушчана і патрабуе разблакіроўкі з дапамогай узору. Каб разблакіраваць прыладу, наступным разам вы можаце выкарыстоўваць біяметрычныя даныя.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">Ваша прылада была перазапушчана, і яе трэба разблакіраваць з дапамогай узору. У наступны раз для разблакіроўкі прылады вы зможаце выкарыстоўваць адбіткі пальцаў.</string>
+    <string name="kg_tablet_fingerprint_pattern_restart_instructions">Ваша прылада была перазапушчана, і яе трэба разблакіраваць з дапамогай узору. У наступны раз для разблакіроўкі прылады вы зможаце выкарыстоўваць адбіткі пальцаў.</string>
+    <string name="kg_none_iris_pattern_restart_instructions">Ваша прылада была перазапушчана, і яе трэба разблакіраваць з дапамогай узору. У наступны раз для разблакіроўкі прылады вы зможаце выкарыстоўваць вясёлкавыя абалонкі.</string>
+    <string name="kg_tablet_iris_pattern_restart_instructions">Ваша прылада была перазапушчана, і яе трэба разблакіраваць з дапамогай узору. У наступны раз для разблакіроўкі прылады вы зможаце выкарыстоўваць вясёлкавыя абалонкі.</string>
+    <string name="kg_none_multi_pattern_timeout_instructions">Ваша прылада не выкарыстоўвалася больш за 24 гадзіны, і яе трэба разблакіраваць з дапамогай узору. Каб разблакіраваць прыладу, наступным разам вы можаце выкарыстоўваць біяметрычныя даныя.</string>
+    <string name="kg_tablet_multi_pattern_timeout_instructions">Ваша прылада не выкарыстоўвалася больш за 24 гадзіны, і яе трэба разблакіраваць з дапамогай узору. Каб разблакіраваць прыладу, наступным разам вы можаце выкарыстоўваць біяметрычныя даныя.</string>
+    <string name="kg_none_fingerprint_pattern_timeout_instructions">Ваша прылада не выкарыстоўвалася больш за 24 гадзіны, і яе трэба разблакіраваць з дапамогай узору. У наступны раз для разблакіроўкі прылады вы зможаце выкарыстоўваць адбіткі пальцаў.</string>
+    <string name="kg_tablet_fingerprint_pattern_timeout_instructions">Ваша прылада не выкарыстоўвалася больш за 24 гадзіны, і яе трэба разблакіраваць з дапамогай узору. У наступны раз для разблакіроўкі прылады вы зможаце выкарыстоўваць адбіткі пальцаў.</string>
+    <string name="kg_none_iris_pattern_timeout_instructions">Ваша прылада не выкарыстоўвалася на працягу больш чым 24 гадзін, яе трэба разблакіраваць з дапамогай вашага ўзора. У наступны раз вы зможаце выкарыстоўваць сваю вясёлкавую абалонку для разблакіроўкі прылады.</string>
+    <string name="kg_tablet_iris_pattern_timeout_instructions">Ваша прылада не выкарыстоўвалася на працягу больш чым 24 гадзін, яе трэба разблакіраваць з дапамогай вашага ўзора. У наступны раз вы зможаце выкарыстоўваць сваю вясёлкавую абалонку для разблакіроўкі прылады.</string>
+    <string name="kg_none_multi_pattern_deviceadmin_instructions">Намалюйце ўзор замест выкарыстання біяметрычнай ідэнтыфікацыі з-за палітыкі бяспекі</string>
+    <string name="kg_none_fingerprint_pattern_deviceadmin_instructions">Намалюйце ўзор замест выкарыстання распазнавання адбітка пальца з-за палітыкі бяспекі</string>
+    <string name="kg_none_iris_pattern_deviceadmin_instructions">Намалюйце ўзор замест выкарыстання распазнавання вясёлкавай абалонкі з-за палітыкі бяспекі</string>
+    <string name="kg_none_multi_password_restart_instructions">Ваша прылада была перазапушчана, і яе трэба разблакіраваць з дапамогай пароля. Вы зможаце выкарыстаць свае біяметрычныя даныя пры наступнай разблакіроўцы прылады.</string>
+    <string name="kg_tablet_multi_password_restart_instructions">Ваша прылада была перазапушчана, і яе трэба разблакіраваць з дапамогай пароля. Вы зможаце выкарыстаць свае біяметрычныя даныя пры наступнай разблакіроўцы прылады.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">Ваша прылада была перазапушчана, і яе трэба разблакіраваць з дапамогай пароля. У наступны раз для разблакіроўкі прылады вы зможаце выкарыстоўваць адбіткі пальцаў.</string>
+    <string name="kg_tablet_fingerprint_password_restart_instructions">Ваша прылада была перазапушчана, і яе трэба разблакіраваць з дапамогай пароля. У наступны раз для разблакіроўкі прылады вы зможаце выкарыстоўваць адбіткі пальцаў.</string>
+    <string name="kg_none_iris_password_restart_instructions">Ваша прылада была перазапушчана, і яе трэба разблакіраваць з дапамогай пароля. У наступны раз для разблакіроўкі прылады вы зможаце выкарыстоўваць вясёлкавыя абалонкі.</string>
+    <string name="kg_tablet_iris_password_restart_instructions">Ваша прылада была перазапушчана, і яе трэба разблакіраваць з дапамогай пароля. У наступны раз для разблакіроўкі прылады вы зможаце выкарыстоўваць вясёлкавыя абалонкі.</string>
+    <string name="kg_none_multi_password_timeout_instructions">Ваша прылада не выкарыстоўвалася больш за 24 гадзіны, і яе трэба разблакіраваць з дапамогай пароля. Каб разблакіраваць прыладу, наступным разам вы можаце выкарыстоўваць біяметрычныя даныя.</string>
+    <string name="kg_tablet_multi_password_timeout_instructions">Ваша прылада не выкарыстоўвалася больш за 24 гадзіны, і яе трэба разблакіраваць з дапамогай пароля. Каб разблакіраваць прыладу, наступным разам вы можаце выкарыстоўваць біяметрычныя даныя.</string>
+    <string name="kg_none_fingerprint_password_timeout_instructions">Ваша прылада не выкарыстоўвалася больш за 24 гадзіны, і яе трэба разблакіраваць з дапамогай пароля. У наступны раз для разблакіроўкі прылады вы зможаце выкарыстоўваць адбіткі пальцаў.</string>
+    <string name="kg_tablet_fingerprint_password_timeout_instructions">Ваша прылада не выкарыстоўвалася больш за 24 гадзіны, і яе трэба разблакіраваць з дапамогай пароля. У наступны раз для разблакіроўкі прылады вы зможаце выкарыстоўваць адбіткі пальцаў.</string>
+    <string name="kg_none_iris_password_timeout_instructions">Ваша прылада не выкарыстоўвалася на працягу больш чым 24 гадзін, яе трэба разблакіраваць з дапамогай вашага пароля. У наступны раз вы зможаце выкарыстоўваць сваю вясёлкавую абалонку для разблакіроўкі прылады.</string>
+    <string name="kg_tablet_iris_password_timeout_instructions">Ваша прылада не выкарыстоўвалася на працягу больш чым 24 гадзін, яе трэба разблакіраваць з дапамогай вашага пароля. У наступны раз вы зможаце выкарыстоўваць сваю вясёлкавую абалонку для разблакіроўкі прылады.</string>
+    <string name="kg_none_multi_password_deviceadmin_instructions">Увядзіце пароль замест выкарыстання біяметрычнай ідэнтыфікацыі з-за палітыкі бяспекі</string>
+    <string name="kg_none_fingerprint_password_deviceadmin_instructions">Увядзіце пароль замест выкарыстання распазнавання адбітка пальца з-за палітыкі бяспекі</string>
+    <string name="kg_none_iris_password_deviceadmin_instructions">Увядзіце пароль замест выкарыстання распазнавання вясёлкавай абалонкі з-за палітыкі бяспекі</string>
+    <string name="kg_none_multi_direction_restart_instructions">Ваша прылада была перазапушчана і патрабуе разблакіроўкі з дапамогай шэрагу напрамкаў. Каб разблакіраваць прыладу, наступным разам вы можаце выкарыстоўваць біяметрычныя даныя.</string>
+    <string name="kg_tablet_multi_direction_restart_instructions">Ваша прылада была перазапушчана і патрабуе разблакіроўкі з дапамогай шэрагу напрамкаў. Каб разблакіраваць прыладу, наступным разам вы можаце выкарыстоўваць біяметрычныя даныя.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">Ваша прылада была перазапушчана, і яе трэба разблакіраваць з дапамогай шэрагу напрамкаў. У наступны раз для разблакіроўкі прылады вы зможаце выкарыстоўваць адбіткі пальцаў.</string>
+    <string name="kg_tablet_fingerprint_direction_restart_instructions">Ваша прылада была перазапушчана, і яе трэба разблакіраваць з дапамогай шэрагу напрамкаў. У наступны раз для разблакіроўкі прылады вы зможаце выкарыстоўваць адбіткі пальцаў.</string>
+    <string name="kg_none_iris_direction_restart_instructions">Ваша прылада была перазапушчана, і яе трэба разблакіраваць з дапамогай шэрагу напрамкаў. У наступны раз для разблакіроўкі прылады вы зможаце выкарыстоўваць вясёлкавыя абалонкі.</string>
+    <string name="kg_tablet_iris_direction_restart_instructions">Ваша прылада была перазапушчана, і яе трэба разблакіраваць з дапамогай шэрагу напрамкаў. У наступны раз для разблакіроўкі прылады вы зможаце выкарыстоўваць вясёлкавыя абалонкі.</string>
+    <string name="kg_none_multi_direction_timeout_instructions">Ваша прылада не выкарыстоўвалася больш за 24 гадзіны, і яе трэба разблакіраваць з дапамогай шэрагу напрамкаў. Каб разблакіраваць прыладу, наступным разам вы можаце выкарыстоўваць біяметрычныя даныя.</string>
+    <string name="kg_tablet_multi_direction_timeout_instructions">Ваша прылада не выкарыстоўвалася больш за 24 гадзіны, і яе трэба разблакіраваць з дапамогай шэрагу напрамкаў. Каб разблакіраваць прыладу, наступным разам вы можаце выкарыстоўваць біяметрычныя даныя.</string>
+    <string name="kg_none_fingerprint_direction_timeout_instructions">Ваша прылада не выкарыстоўвалася больш за 24 гадзіны, і яе трэба разблакіраваць з дапамогай шэрагу напрамкаў. У наступны раз для разблакіроўкі прылады вы зможаце выкарыстоўваць адбіткі пальцаў.</string>
+    <string name="kg_tablet_fingerprint_direction_timeout_instructions">Ваша прылада не выкарыстоўвалася больш за 24 гадзіны, і яе трэба разблакіраваць з дапамогай шэрагу напрамкаў. У наступны раз для разблакіроўкі прылады вы зможаце выкарыстоўваць адбіткі пальцаў.</string>
+    <string name="kg_none_iris_direction_timeout_instructions">Ваша прылада не выкарыстоўвалася на працягу больш чым 24 гадзін, яе трэба разблакіраваць з дапамогай вашага шэрагу напрамкаў. У наступны раз вы зможаце выкарыстоўваць сваю вясёлкавую абалонку для разблакіроўкі прылады.</string>
+    <string name="kg_tablet_iris_direction_timeout_instructions">Ваша прылада не выкарыстоўвалася на працягу больш чым 24 гадзін, яе трэба разблакіраваць з дапамогай вашага шэрагу напрамкаў. У наступны раз вы зможаце выкарыстоўваць сваю вясёлкавую абалонку для разблакіроўкі прылады.</string>
+    <string name="kg_none_multi_direction_deviceadmin_instructions">Намалюйце шэраг напрамкаў замест выкарыстання біяметрычнай ідэнтыфікацыі з-за палітыкі бяспекі</string>
+    <string name="kg_none_fingerprint_direction_deviceadmin_instructions">Намалюйце шэраг напрамкаў замест выкарыстання распазнавання адбітка пальца з-за палітыкі бяспекі</string>
+    <string name="kg_none_iris_direction_deviceadmin_instructions">Намалюйце шэраг напрамкаў замест выкарыстання распазнавання вясёлкавай абалонкі з-за палітыкі бяспекі</string>
+    <string name="kg_none_recovery_none_instructions">Для разблакіроўкі ўвядзіце пароль аднаўлення.</string>
+    <string name="kg_incorrect_pattern">Нарысаваны няправільны ўзор</string>
+    <string name="kg_incorrect_password">Уведзены няправільны пароль</string>
+    <string name="kg_incorrect_pin">Уведзены няправільны PIN</string>
+    <string name="kg_pin_sub_instructions">Ваш PIN-код павінен мець не менш за %d лічбаў.</string>
+    <string name="kg_password_sub_instructions">Пароль павінны змяшчаць прынамсі %d сімвалаў, у тым ліку прынамсі адну літару.</string>
+    <string name="card_crash">Збой SIM-карты</string>
+    <string name="kg_unlock_sim_pin_instructions">Увядзіце PIN-код разблакіроўкі SIM-карты.</string>
+    <string name="kg_unlock_sim_pin_remaining_1_attempt">Увядзіце PIN-код разблакіроўкі SIM-карты. Засталася 1 спроба.</string>
+    <string name="kg_unlock_sim_pin_remaining_attempts">Увядзіце PIN-код разблакіроўкі SIM-карты. Засталося спроб: %d.</string>
+    <string name="kg_password_wrong_pin_code_one">Быў уведзены няправільны PIN-код SIM-карты. Засталася 1 спроба.</string>
+    <string name="kg_password_wrong_pin_code_other">Быў уведзены няправільны PIN-код SIM-карты. Засталося спроб: %d.</string>
+    <string name="kg_sim_puk_instructions">SIM-карта заблакіравана. Увядзіце PUK. Па падрабязнасці звяртайцеся да пастаўшчыка паслуг.</string>
+    <string name="kg_sim_puk_remaining_1_attempt">Калі яшчэ 1 раз увесці няправ. PUK, SIM-карта заблакіруецца.</string>
+    <string name="kg_sim_puk_remaining_attempts">Калі яшчэ %d раз(ы) увесці няправ. PUK, SIM-карта заблакіруец.</string>
+    <string name="kg_sec_sim_unlock_progress_dialog_message">Разблакіроўка SIM-карты…</string>
+    <string name="kg_skt_sim_perso_instructions">Увядзіце PIN-код разблакіроўкі USIM-карты (4 лічбы)</string>
+    <string name="kg_ktt_sim_perso_instructions">Enter 4- to 8-digit password (PIN)</string>
+    <string name="kg_kor_sim_unlock_progress_dialog_message">Unlocking SIM card</string>
+    <string name="kg_empty_sim_perso_hint">No password entered. Enter password (PIN).</string>
+    <string name="kg_password_perso_failed">Incorrect PIN. Check PIN and try again.</string>
+    <string name="kg_password_perso_max_failed">Incorrect PIN entered for USIM card lock. Maximum number of retries reached. Restart device or visit CS centre.</string>
+    <string name="kg_sim_pin_remaining_1_attempt">Засталася 1 спроба.</string>
+    <string name="kg_sim_pin_remaining_attempts">You have %d attempts left.</string>
+    <string name="kg_kor_sim_pin_instructions">Увядзіце PIN-код разблакіроўкі USIM-карты (ад 4 да 8 лічбаў)</string>
+    <string name="kg_kor_password_wrong_pin_code">Быў уведзены няправільны PIN-код. Засталося спробаў: %d. Звярніцеся ў службу абслугоўвання кліентаў.</string>
+    <string name="kg_kor_sim_puk_instructions">Увядзіце PUK-код.</string>
+    <string name="kg_kor_invalid_sim_puk_hint">Enter 8-digit PIN unlock (PUK) code</string>
+    <string name="kg_kor_empty_sim_puk_hint">Код разблакіроўкі PIN-кода (PUK) не ўведзены. Паўтарыце спробу.</string>
+    <string name="kg_kor_puk_enter_pin_hint">"Стварыце новы PIN-код USIM-карты.
+PIN-код павінен утрымліваць ад 4 да 8 лічбаў."</string>
+    <string name="kg_kor_enter_confirm_pin_hint">Паўторна ўвядзіце PIN-код USIM-карты, каб пацвердзіць яго.</string>
+    <string name="kg_kor_invalid_confirm_pin_hint">Новыя PIN-коды не супадаюць.</string>
+    <string name="kg_kor_wrong_puk_code">Unlock code input error</string>
+    <string name="kg_kor_sim_puk_remaining_attempts">"Няправільны PUK-код уведзены %1$d разы(-оў). Калі няправільны PUK-код будзе ўведзены %2$d разы(-оў), USIM-карта будзе заблакіравана назаўжды.
+
+Калі вы не ведаеце свой PUK-код, наведайце цэнтр абслугоўвання кліентаў."</string>
+    <string name="kg_kor_success_pin_message">New password (PIN) saved successfully.</string>
+    <string name="kg_ctc_unlock_sim_pin_instructions">Enter UIM/SIM card unlock PIN</string>
+    <string name="kg_ctc_sim_puk_instructions">UIM/SIM card locked. Enter PUK. Contact service provider for details.</string>
+    <string name="kg_ctc_puk_enter_pin_hint">Enter new UIM/SIM card unlock PIN</string>
+    <string name="kg_ctc_enter_confirm_pin_hint">Enter new UIM/SIM card unlock PIN again to confirm it</string>
+    <string name="kg_ctc_sim_unlock_progress_dialog_message">Unlocking UIM/SIM card…</string>
+    <string name="kg_ctc_password_wrong_pin_code_one">Incorrect UIM/SIM card PIN entered. 1 attempt left.</string>
+    <string name="kg_ctc_password_wrong_pin_code_other">Incorrect UIM/SIM card PIN entered. %d attempts left.</string>
+    <string name="kg_ctc_sim_puk_remaining_1_attempt">Incorrect PUK entered. If incorrect PUK is entered 1 more time, UIM/SIM card will be locked.</string>
+    <string name="kg_ctc_sim_puk_remaining_attempts">Incorrect PUK entered. If incorrect PUK is entered %d more times, UIM/SIM card will be permanently locked.</string>
+    <string name="kg_dcm_sim_puk_instructions">PIN-код быў заблакіраваны. Увядзіце PUK-код, каб працягнуць.</string>
+    <string name="kg_sim_lock_accepted">Код прыняты.</string>
+    <string name="kg_carrier_lock_wrong_password">Уведзены няправільны пароль.</string>
+    <string name="kg_carrier_lock_too_many_failed_attempts">Няправільны пароль уведзены 5 разоў. Паўтарыце спробу праз 10 хвілін.</string>
+    <string name="keyguard_fmm_phone_locked_title">Тэлефон заблакіраваны.</string>
+    <string name="keyguard_fmm_owner_phone">Нумар уладальніка</string>
+    <string name="keyguard_accessibility_call">Выклік</string>
+    <string name="kg_fingerprint_no_match">Супадзення няма</string>
+    <string name="kg_finger_print_not_responding_error_message">Датчык адбіткаў пальцаў не адказвае. Паўтарыце спробу пазней.</string>
+    <string name="kg_finger_print_database_error_message">Даныя адбіткаў пальцаў былі пашкоджаны. Скіньце «Адбітак пальца» ў якасці тыпу блакіроўкі экрана і затым дадайце вашы адбіткі пальцаў ці змяніце тып блакіроўкі экрана.</string>
+    <string name="kg_finger_print_sensor_with_recalibration_error_message">Пераканайцеся, што клавіша галоўнага экрана чыстая і сухая, затым паўтарыце спробу.</string>
+    <string name="kg_finger_print_sensor_changed_error_message">Датчык адбіткаў пальцаў не быў зменены належным чынам. Звярніцеся ў службу абслугоўвання кліентаў.</string>
+    <string name="kg_fingerprints_direction_instructions">Выкарыстоўвайце адбітак пальца або правядзіце ў розных напрамках</string>
+    <string name="kg_fingerprints_direction_bouncer_instructions">Каб адкрыць, выкарыстайце адбітак пальца ці намалюйце шэраг напрамкаў</string>
+    <string name="kg_strong_auth_prompt_reason_timeout_direction_lock">Ваша прылада не выкарыстоўвалася больш за 24 гадзіны, і яе трэба разблакіраваць з дапамогай шэрагу напрамкаў. У наступны раз для разблакіроўкі прылады вы зможаце выкарыстоўваць адбіткі пальцаў.</string>
+    <string name="kg_fingerprints_direction_unabled_instructions">Ваша прылада была перазапушчана, і яе трэба разблакіраваць з дапамогай шэрагу напрамкаў. У наступны раз для разблакіроўкі прылады вы зможаце выкарыстоўваць адбіткі пальцаў.</string>
+    <string name="kg_prompt_reason_timeout_universal_lock_strong_auth">Намалюйце шэраг напрамкаў замест выкарыстання распазнавання адбітка пальца з-за палітыкі бяспекі</string>
+    <string name="kg_tablet_strong_auth_prompt_reason_timeout_direction_lock">Ваша прылада не выкарыстоўвалася больш за 24 гадзіны, і яе трэба разблакіраваць з дапамогай шэрагу напрамкаў. У наступны раз для разблакіроўкі прылады вы зможаце выкарыстоўваць адбіткі пальцаў.</string>
+    <string name="kg_tablet_fingerprints_direction_unabled_instructions">Ваша прылада была перазапушчана, і яе трэба разблакіраваць з дапамогай шэрагу напрамкаў. У наступны раз для разблакіроўкі прылады вы зможаце выкарыстоўваць адбіткі пальцаў.</string>
+    <string name="keyguard_progress_erasing_all">Deleting all data…</string>
+    <string name="iris_guide_str_enable_toggle">Нац. тут, каб вык. вяс. абал.</string>
+    <string name="kg_login_username_hint">Імя карыстальніка (эл. пошта)</string>
+    <string name="kg_login_password_hint">Пароль</string>
+    <string name="kg_login_submit_button">Увайсці</string>
+    <string name="kg_login_invalid_input">Памылковае імя карыстальніка або пароль.</string>
+    <string name="no_network_connection">Няма злучэння з сеткай</string>
+    <string name="kg_forgot_spass_button_text">Ул. запіс Samsung</string>
+    <string name="kg_login_checking_password">Праверка ўліковага запісу…</string>
+    <string name="kg_too_many_failed_attempts_countdown_mins_with_auto_wipe">"Зроблена спроб разблакіраваць прыладу: %1$d. У вас засталося %2$d спроб(-ы), перш чым налады прылады будуць скінуты да заводскіх значэнняў, а ўсе даныя сцёрты.
+
+Паспрабуйце яшчэ раз праз %3$d хвілін(-ы)"</string>
+    <string name="kg_too_many_failed_attempts_countdown_secs_with_auto_wipe">"Зроблена спроб разблакіраваць прыладу: %1$d. У вас засталося %2$d спроб(-ы), перш чым налады прылады будуць скінуты да заводскіх значэнняў, а ўсе даныя сцёрты.
+
+Паспрабуйце яшчэ раз праз %3$d секунд(ы)"</string>
+    <string name="kg_too_many_failed_attempts_countdown_1_min_with_auto_wipe">"Зроблена спроб разблакіраваць прыладу: %1$d. У вас засталося %2$d спроб(-ы), перш чым налады прылады будуць скінуты да заводскіх значэнняў, а ўсе даныя сцёрты.
+
+Паспрабуйце яшчэ раз праз 1 хвіліну"</string>
+    <string name="kg_too_many_failed_attempts_countdown_1_sec_with_auto_wipe">"Зроблена спроб разблакіраваць прыладу: %1$d. У вас засталося %2$d спроб(-ы), перш чым налады прылады будуць скінуты да заводскіх значэнняў, а ўсе даныя сцёрты.
+
+Паспрабуйце яшчэ раз праз 1 секунду"</string>
+    <string name="kg_too_many_failed_countdown_1_sec_with_auto_wipe">Паспрабуйце яшчэ раз праз 1 секунду</string>
+    <string name="kg_too_many_failed_attempt_countdown">Паспрабуйце яшчэ раз праз 1 секунду</string>
+    <string name="kg_remained_1_attempt_countdown_mins_with_auto_wipe">"Зроблена спроб разблакіраваць прыладу: %1$d. У вас засталася 1 спроба, перш чым налады прылады будуць скінуты да заводскіх значэнняў, а ўсе даныя сцёрты.
+
+Паспрабуйце яшчэ раз праз %2$d хвілін(-ы)"</string>
+    <string name="kg_remained_1_attempt_countdown_secs_with_auto_wipe">"Зроблена спроб разблакіраваць прыладу: %1$d. У вас засталася 1 спроба, перш чым налады прылады будуць скінуты да заводскіх значэнняў, а ўсе даныя сцёрты.
+
+Паспрабуйце яшчэ раз праз %2$d секунд(ы)"</string>
+    <string name="kg_remained_1_attempt_countdown_1_min_with_auto_wipe">"Зроблена спроб разблакіраваць прыладу: %d. У вас засталася 1 спроба, перш чым налады прылады будуць скінуты да заводскіх значэнняў, а ўсе даныя сцёрты.
+
+Паспрабуйце яшчэ раз праз 1 хвіліну"</string>
+    <string name="kg_remained_1_attempt_countdown_1_sec_with_auto_wipe">"Зроблена спроб разблакіраваць прыладу: %d. У вас засталася 1 спроба, перш чым налады прылады будуць скінуты да заводскіх значэнняў, а ўсе даныя сцёрты.
+
+Паспрабуйце яшчэ раз праз 1 секунду"</string>
+    <string name="recents_help_dlg_split_icon_text">Націсніце %s ў радку загалоўка акна праграмы, каб адкрыць праграмы ў рэжыме падзеленага экрана. Гэты значок паказваецца, калі праграма падтрымлівае рэжым некалькіх вокнаў.</string>
+    <string name="recents_help_dlg_split_icon_desc">Націсніце значок рэжыму падзеленага экрана ў радку загалоўка акна праграмы, каб адкрыць праграмы ў рэжыме падзеленага экрана. Гэты значок паказваецца, калі праграма падтрымлівае рэжым некалькіх вокнаў.</string>
+    <string name="recents_help_dlg_long_click_recents_key_text">Націсніце і ўтрымлівайце клавішу «Апошнія» падчас выкарыстання праграмы ў поўнаэкранным рэжыме, каб змяніць выгляд на рэжым падзеленага экрана.</string>
+    <string name="recents_help_dlg_home_key_in_split_text">Калі вы націснеце клавішу галоўнага экрана падчас выкарыстання рэжыму падзеленага экрана, праграма, паказаная ў верхняй палове экрана, будзе згорнута. Калі вы адкрыеце праграму з галоўнага экрана, падчас таго як панэль стану афарбавана ў сіні колер, праграма будзе адкрыта ў рэжыме падзеленага экрана ў верхняй палове экрана.</string>
+    <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+</resources>

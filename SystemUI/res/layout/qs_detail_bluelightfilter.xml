@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.keyguard.AlphaOptimizedLinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/qs_detail_items_seekbar_padding" android:paddingEnd="@dimen/qs_detail_items_seekbar_padding"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="@style/TextAppearance.QS.DetailEmpty" android:layout_gravity="top" android:id="@id/summary" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/quick_settings_blf_detail_summary" android:paddingStart="@dimen/qs_detail_items_seekbar_side_padding" android:paddingEnd="@dimen/qs_detail_items_seekbar_side_padding" />
+    <LinearLayout android:orientation="vertical" android:id="@id/opacity" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/qs_detail_items_padding_top">
+        <View android:background="@color/qs_detail_divider" android:layout_width="wrap_content" android:layout_height="@dimen/qs_detail_divider_height" android:layout_marginStart="@dimen/qs_detail_items_seekbar_padding" android:layout_marginEnd="@dimen/qs_detail_items_seekbar_padding" />
+        <TextView android:textAppearance="@style/TextAppearance.QS.DetailTorchTitle" android:gravity="center_vertical" android:id="@id/op_title" android:focusable="false" android:clickable="false" android:layout_width="wrap_content" android:layout_height="@dimen/qs_detail_item_height" android:text="@string/quick_settings_blf_detail_seekbar" android:singleLine="true" android:paddingStart="@dimen/qs_detail_items_seekbar_side_padding" android:paddingEnd="@dimen/qs_detail_items_seekbar_side_padding" />
+        <SeekBar android:id="@id/op_slider" android:layout_width="fill_parent" android:layout_height="32.0dip" />
+    </LinearLayout>
+</com.android.keyguard.AlphaOptimizedLinearLayout>

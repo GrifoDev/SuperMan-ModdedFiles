@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/descprtion_divider" android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <LinearLayout android:orientation="vertical" android:id="@id/personalpagesettings_description_layout" android:tag="has_help_option_menu" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginStart="@dimen/list_item_start_padding" android:layout_marginEnd="@dimen/list_item_end_padding">
+        <TextView android:id="@id/header_msg" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/private_mode_disclaimer_layout_marginTop" android:text="@string/personal_page_tutorial_app_title_message" style="@style/description_text" />
+        <LinearLayout android:orientation="vertical" android:id="@id/personal_page_linear_layout" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/private_mode_disclaimer_layout_marginTop" android:layout_marginBottom="@dimen/private_mode_disclaimer_layout_marginBottom" />
+    </LinearLayout>
+</LinearLayout>

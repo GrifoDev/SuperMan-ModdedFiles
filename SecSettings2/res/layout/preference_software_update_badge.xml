@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/dashboard_badge_text_size" android:textColor="@color/dashboard_badge_text_color" android:gravity="end" android:id="@id/badge" android:background="@drawable/badge_icon" android:focusable="false" android:clickable="false" android:layout_width="@dimen/dashboard_badge_size" android:layout_height="@dimen/dashboard_badge_size" android:scaleType="centerInside" android:text="@string/icon_number_1" android:textAlignment="center" />
+</LinearLayout>

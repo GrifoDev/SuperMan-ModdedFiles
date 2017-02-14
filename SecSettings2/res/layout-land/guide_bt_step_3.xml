@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:touchwiz="http://schemas.android.com/apk/res/com.android.settings">
+    <com.samsung.android.settings.helpdialog.TwTouchPunchView android:id="@id/guide_punch" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="@dimen/guide_bottom_buttons_height" touchwiz:punchshape="rectangle" touchwiz:punchshow="false" />
+    <com.samsung.android.settings.helpdialog.TwTouchPunchView android:id="@id/guide_punch_land" android:layout_width="fill_parent" android:layout_height="@dimen/guide_actionbar_land_height" android:layout_marginLeft="@dimen/guide_actionbar_land_buttons_margin_left" touchwiz:punchshape="rectangle" touchwiz:punchshow="false" />
+    <FrameLayout android:id="@id/guide_bubble" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentTop="true">
+        <include android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/guide_top_image_height_land" layout="@layout/guide_dialog_bubble_2" />
+    </FrameLayout>
+</RelativeLayout>

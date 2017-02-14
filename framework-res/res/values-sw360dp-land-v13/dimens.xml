@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="sem_datepicker_calendar_day_height_mtrl">28.0dip</dimen>
+    <dimen name="sem_datepicker_calendar_header_button_width_mtrl">32.0dip</dimen>
+    <dimen name="sem_datepicker_calendar_header_button_height_mtrl">32.0dip</dimen>
+    <dimen name="sem_datepicker_calendar_header_height_mtrl">32.0dip</dimen>
+    <dimen name="sem_datepicker_calendar_view_height_mtrl">168.0dip</dimen>
+    <dimen name="sem_datepicker_calendar_week_height_mtrl">28.0dip</dimen>
+    <dimen name="sem_datepicker_day_number_select_circle_radius_mtrl">12.0dip</dimen>
+    <dimen name="sem_datepicker_spinner_view_margin_top_mtrl">15.0dip</dimen>
+    <dimen name="sem_datepicker_spinner_view_margin_bottom_mtrl">24.0dip</dimen>
+    <dimen name="sem_datepicker_gap_between_header_and_weekend">9.0dip</dimen>
+    <dimen name="sem_datepicker_gap_between_weekend_and_calender">7.0dip</dimen>
+</resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/container" android:background="?android:listChoiceBackgroundIndicator" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeightSmall" android:layout_weight="1.0" android:paddingStart="@dimen/list_item_start_padding" android:paddingEnd="@dimen/list_item_end_padding">
+        <ImageView android:gravity="center_vertical" android:id="@android:id/icon" android:layout_width="@dimen/list_app_icon_size" android:layout_height="@dimen/list_app_icon_size" android:scaleType="centerInside" android:layout_marginEnd="@dimen/list_item_inner_padding" />
+        <RelativeLayout android:paddingTop="@dimen/list_item_top_padding" android:paddingBottom="@dimen/list_item_bottom_padding" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <TextView android:ellipsize="marquee" android:id="@android:id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:labelFor="@id/manage_user" style="@style/list_title_text_style" />
+            <TextView android:id="@android:id/summary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="10" android:layout_below="@android:id/title" android:layout_alignStart="@android:id/title" style="@style/list_summary_text_style" />
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout android:id="@id/trash_button_layout" android:focusable="false" android:visibility="gone" android:clickable="false" android:layout_width="wrap_content" android:layout_height="fill_parent" android:contentDescription="@string/user_delete_user_description" android:paddingStart="@dimen/list_item_start_padding" android:paddingEnd="@dimen/list_item_end_padding" android:layout_marginEnd="8.0dip">
+        <ImageView android:layout_gravity="center" android:id="@id/trash_user" android:background="@drawable/dashboard_favorite_view_bg" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:contentDescription="@string/user_delete_user_description" style="@style/list_item_delete_icon" />
+    </LinearLayout>
+    <LinearLayout android:id="@id/manage_button_layout" android:focusable="false" android:visibility="gone" android:clickable="false" android:layout_width="wrap_content" android:layout_height="fill_parent" android:contentDescription="@string/settings_label" android:paddingStart="@dimen/list_item_start_padding" android:paddingEnd="@dimen/list_item_end_padding" android:layout_marginEnd="8.0dip">
+        <ImageView android:layout_gravity="center" android:id="@id/manage_user" android:background="@drawable/dashboard_favorite_view_bg" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:contentDescription="@string/settings_label" style="@style/list_item_config_icon" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.samsung.android.settings.fmm.RecipientsMinusView android:orientation="vertical" android:id="@id/row" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/condensed_standard_list_divier_margin_start" android:layout_marginStart="@dimen/list_divider_padding">
+        <EditText android:textSize="@dimen/edit_text_size" android:layout_gravity="center_vertical" android:id="@id/account" android:layout_width="0.0dip" android:layout_height="wrap_content" android:hint="@string/hint_recipient" android:singleLine="true" android:maxLength="50" android:layout_weight="1.0" android:inputType="phone" android:imeOptions="actionDone" />
+        <ImageView android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@id/linked_contact_minus_imageView" android:background="@drawable/tw_item_background_borderless_material" android:paddingBottom="3.0dip" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/tw_list_icon_minus_mtrl" android:contentDescription="@string/delete" android:layout_marginStart="@dimen/add_delete_button_padding_start" android:layout_marginEnd="@dimen/add_delete_button_padding_end" />
+    </LinearLayout>
+</com.samsung.android.settings.fmm.RecipientsMinusView>

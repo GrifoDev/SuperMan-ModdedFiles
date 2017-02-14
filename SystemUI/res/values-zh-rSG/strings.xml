@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="clear_cover_wday_day">EEE</string>
+    <string name="clear_cover_month_day_no_year">MMM d</string>
+    <string name="clear_cover_day_month_no_year">d日 MMM</string>
+    <string name="sview_cover_wday_month_day_no_year">MMMM d日, E</string>
+    <string name="sview_cover_wday_day_month_no_year">E d日 MMMM</string>
+    <string name="sview_cover_dual_wday_month_day_no_year">MMM d日, E</string>
+    <string name="sview_cover_dual_wday_day_month_no_year">E d日 MMM</string>
+    <string name="mini_cover_month_day_no_year">MMMM d日</string>
+    <string name="mini_cover_day_month_no_year">d日 MMMM</string>
+</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center_horizontal" android:id="@id/image_view" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/body_text_top_padding" android:scaleType="fitXY" android:adjustViewBounds="true" android:layout_marginStart="@dimen/body_text_side_padding" android:layout_marginEnd="@dimen/body_text_side_padding" />
+    <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/not_topside_body_text_top_padding" android:layout_marginBottom="@dimen/body_text_top_padding" android:text="@string/accessibility_access_control_summary_1" android:layout_marginStart="@dimen/body_text_side_padding" android:layout_marginEnd="@dimen/body_text_side_padding" style="@style/body_text_style" />
+</LinearLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingTop="@dimen/alert_dialog_padding_top" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/alert_dialog_padding_left_right" android:paddingEnd="@dimen/alert_dialog_padding_left_right"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/datausage_description" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="false" android:textAlignment="viewStart" style="@style/list_title_text_style" />
+    <com.samsung.android.settings.widget.DataUsageListView android:id="@android:id/list" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:smoothScrollbar="true" style="@style/PreferenceFragmentListSinglePane" />
+</LinearLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/personal_page" settings:parent="@xml/safetycare_settings"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <Preference android:title="@string/personal_page_secretbox_lock_type_title" android:key="personalpage_lock_type" />
+    <SwitchPreference android:title="@string/personal_page_auto_mode_switch_title" android:key="personalpage_auto_disable_screen_off" android:summary="@string/personal_page_secretbox_auto_disable_when_screen_off" />
+</PreferenceScreen>

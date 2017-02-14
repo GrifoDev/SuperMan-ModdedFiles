@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:id="@id/button_sellect_all" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/fingerprint_select_all_wrapper" android:layout_width="64.0dip" android:layout_height="wrap_content">
+            <CheckBox android:id="@id/toggle_selection_fingerprint_check" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/fingerprint_actionbar_all_checkbox_margintop_port" android:layout_alignParentLeft="true" />
+            <TextView android:textSize="11.0dip" android:textColor="@color/actionbar_text_color" android:gravity="center" android:id="@id/number_selected_fingerprint_all" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/fingerprint_actionbar_text_margintop_port" android:text="@string/filter_apps_all" android:singleLine="true" />
+        </LinearLayout>
+        <TextView android:textColor="@color/actionbar_text_color" android:layout_gravity="center|left" android:id="@id/number_selected_fingerprint_text" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_toLeftOf="@id/select_all_wrapper" style="@style/fingerprint_selection_text_style" />
+    </LinearLayout>
+</RelativeLayout>

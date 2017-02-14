@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="wifi_status">
+        <item></item>
+        <item>സ്‌കാൻചെയ്യുന്നു...</item>
+        <item>കണക്‌റ്റുചെയ്യുന്നു...</item>
+        <item>പ്രാമാണീകരിക്കുന്നു...</item>
+        <item>IP വിലാസം നേടുന്നു...</item>
+        <item>കണക്റ്റുചെയ്‌തു</item>
+        <item>താൽക്കാലികമായി നിർത്തി</item>
+        <item>വിച്‌ഛേദിക്കുന്നു...</item>
+        <item>വിച്ഛേദിച്ചു</item>
+        <item>പരാജയപ്പെട്ടു</item>
+        <item>തടഞ്ഞിരിക്കുന്നു</item>
+        <item>മോശം കണക്ഷൻ താൽക്കാലികമായി ഒഴിവാക്കുന്നു</item>
+    </string-array>
+    <string-array name="wifi_status_with_ssid">
+        <item></item>
+        <item>സ്‌കാൻചെയ്യുന്നു...</item>
+        <item>%1$s എന്നതിലേക്ക് കണക്‌റ്റുചെയ്യുന്നു...</item>
+        <item>%1$s മുഖേന പ്രമാണീകരിക്കുന്നു...</item>
+        <item>%1$s എന്നതിൽ നിന്ന് IP വിലാസം നേടുന്നു...</item>
+        <item>%1$s എന്നതിൽ കണക്‌റ്റുചെയ്‌തു</item>
+        <item>താൽക്കാലികമായി നിർത്തി</item>
+        <item>%1$s എന്നതിൽ നിന്ന് വിച്‌ഛേദിക്കുന്നു...</item>
+        <item>വിച്ഛേദിച്ചു</item>
+        <item>പരാജയപ്പെട്ടു</item>
+        <item>തടഞ്ഞിരിക്കുന്നു</item>
+        <item>മോശം കണക്ഷൻ താൽക്കാലികമായി ഒഴിവാക്കുന്നു</item>
+    </string-array>
+    <string-array name="hdcp_checking_titles">
+        <item>ഒരിക്കലും പരിശോധിക്കരുത്</item>
+        <item>DRM ഉള്ളടക്കത്തിനുമാത്രമായി പരിശോധിക്കുക</item>
+        <item>എല്ലായ്‌പ്പോഴും പരിശോധിക്കുക</item>
+    </string-array>
+    <string-array name="hdcp_checking_summaries">
+        <item>ഒരിക്കലും HDCP പരിശോധന ഉപയോഗിക്കരുത്</item>
+        <item>DRM ഉള്ളടക്കത്തിനുമാത്രമായി HDCP പരിശോധന ഉപയോഗിക്കുക</item>
+        <item>എല്ലായ്‌പ്പോഴും HDCP പരിശോധന ഉപയോഗിക്കുക</item>
+    </string-array>
+    <string-array name="select_logd_size_titles">
+        <item>ഓഫ്</item>
+        <item>64K</item>
+        <item>256K</item>
+        <item>1M</item>
+        <item>4M</item>
+        <item>16M</item>
+    </string-array>
+    <string-array name="select_logd_size_lowram_titles">
+        <item>ഓഫ്</item>
+        <item>64K</item>
+        <item>256K</item>
+        <item>1M</item>
+    </string-array>
+    <string-array name="select_logd_size_summaries">
+        <item>ഓഫ്</item>
+        <item>ഓരോ ലോഗ് ബഫറിനും 64K</item>
+        <item>ഓരോ ലോഗ് ബഫറിനും 256K</item>
+        <item>ഓരോ ലോഗ് ബഫറിനും 1M</item>
+        <item>ഓരോ ലോഗ് ബഫറിനും 4M</item>
+        <item>ഓരോ ലോഗ് ബഫറിനും 16M</item>
+    </string-array>
+    <string-array name="window_animation_scale_entries">
+        <item>ആനിമേഷൻ ഓഫുചെയ്യുക</item>
+        <item>ആനിമേഷൻ സ്‌കെയിൽ .5x</item>
+        <item>ആനിമേഷൻ സ്‌കെയിൽ 1x</item>
+        <item>ആനിമേഷൻ സ്‌കെയിൽ 1.5x</item>
+        <item>ആനിമേഷൻ സ്‌കെയിൽ 2x</item>
+        <item>ആനിമേഷൻ സ്‌കെയിൽ 5x</item>
+        <item>ആനിമേഷൻ സ്‌കെയിൽ 10x</item>
+    </string-array>
+    <string-array name="transition_animation_scale_entries">
+        <item>ആനിമേഷൻ ഓഫുചെയ്യുക</item>
+        <item>ആനിമേഷൻ സ്‌കെയിൽ .5x</item>
+        <item>ആനിമേഷൻ സ്‌കെയിൽ 1x</item>
+        <item>ആനിമേഷൻ സ്‌കെയിൽ 1.5x</item>
+        <item>ആനിമേഷൻ സ്‌കെയിൽ 2x</item>
+        <item>ആനിമേഷൻ സ്‌കെയിൽ 5x</item>
+        <item>ആനിമേഷൻ സ്‌കെയിൽ 10x</item>
+    </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>ആനിമേഷൻ രഹിതം</item>
+        <item>ആനിമേഷൻ സ്‌കെയിൽ .5x</item>
+        <item>ആനിമേഷൻ സ്‌കെയിൽ 1x</item>
+        <item>ആനിമേഷൻ സ്‌കെയിൽ 1.5x</item>
+        <item>ആനിമേഷൻ സ്‌കെയിൽ 2x</item>
+        <item>ആനിമേഷൻ സ്‌കെയിൽ 5x</item>
+        <item>ആനിമേഷൻ സ്‌കെയിൽ 10x</item>
+    </string-array>
+    <string-array name="overlay_display_devices_entries">
+        <item>ഒന്നുമില്ല</item>
+        <item>480p</item>
+        <item>480p (സുരക്ഷിതം)</item>
+        <item>720p</item>
+        <item>720p (സുരക്ഷിതം)</item>
+        <item>1080p</item>
+        <item>1080p (സുരക്ഷിതം)</item>
+        <item>4K</item>
+        <item>4K (സുരക്ഷിതം)</item>
+        <item>4K (അപ്‌സ്കെയിൽ ചെയ്തത്)</item>
+        <item>4K (അപ്‌സ്കെയിൽ ചെയ്തത്, സുരക്ഷിതം)</item>
+        <item>720p, 1080p (ഇരട്ട സ്ക്രീൻ)</item>
+    </string-array>
+    <string-array name="enable_opengl_traces_entries">
+        <item>ഒന്നുമില്ല</item>
+        <item>ലോഗ്‌ക്യാറ്റ്</item>
+        <item>സിസ്‌ട്രേസ് (ഗ്രാഫിക്‌സ്)</item>
+        <item>glGetError-ലെ കോൾ സ്റ്റാക്ക്</item>
+    </string-array>
+    <string-array name="show_non_rect_clip_entries">
+        <item>ഓഫ്</item>
+        <item>നീലനിറത്തിൽ ചതുരമല്ലാത്ത ക്ലിപ്പ് ഭാഗം വരയ്‌ക്കുക</item>
+        <item>പരിശോധിച്ച ഡ്രോയിംഗ് കമാൻഡുകൾ പച്ചനിറത്തിൽ ഹൈലൈറ്റുചെയ്യുക</item>
+    </string-array>
+    <string-array name="track_frame_time_entries">
+        <item>ഓഫ്</item>
+        <item>സ്‌ക്രീനിൽ ബാറുകളായി</item>
+        <item>adb ഷെൽ dumpsys gfxinfo-യിൽ</item>
+    </string-array>
+    <string-array name="debug_hw_overdraw_entries">
+        <item>ഓഫ്</item>
+        <item>ഓവർഡ്രോ ഭാഗങ്ങൾ ദൃശ്യമാക്കുക</item>
+        <item>വർണ്ണാന്ധതയ്‌ക്കായുള്ള ഭാഗങ്ങൾ ദൃശ്യമാക്കുക</item>
+    </string-array>
+    <string-array name="app_process_limit_entries">
+        <item>അടിസ്ഥാന പരിധി</item>
+        <item>പശ്ചാത്തല പ്രോസ‌സ്സുകൾ ഒന്നുമില്ല</item>
+        <item>പരമാവധി ഒരു പ്രോസ‌സ്സ്</item>
+        <item>പരമാവധി 2 പ്രോസസ്സുകൾ</item>
+        <item>പരമാവധി 3 പ്രോസ‌സ്സുകൾ</item>
+        <item>പരമാവധി 4 പ്രോസ‌സ്സുകൾ</item>
+    </string-array>
+    <string-array name="usb_configuration_titles">
+        <item>ചാർജ്ജുചെയ്യുന്നു</item>
+        <item>MTP (മീഡിയ ട്രാൻസ്‌ഫർ പ്രോട്ടോക്കോള്‍)</item>
+        <item>PTP (പിക്‌ചർ ട്രാൻസ്‌ഫർ പ്രോട്ടോക്കോള്‍)</item>
+        <item>RNDIS (USB ഇതർനെറ്റ്)</item>
+        <item>ഓഡിയോ ഉറവിടം</item>
+        <item>MIDI</item>
+    </string-array>
+    <string-array name="tts_rate_entries">
+        <item>വളരെ കുറഞ്ഞ വേഗത്തിൽ</item>
+        <item>കുറഞ്ഞ വേഗത്തിൽ</item>
+        <item>സാധാരണ വേഗത്തിൽ</item>
+        <item>വേഗത്തിൽ</item>
+        <item>കൂടുതൽ വേഗത്തിൽ</item>
+        <item>വളരെ വേഗത്തിൽ</item>
+        <item>ശീഘ്രം</item>
+        <item>വളരെ ശീഘ്രം</item>
+        <item>ഏറ്റവും വേഗത്തിൽ</item>
+    </string-array>
+    <string-array name="color_mode_names">
+        <item>വൈബ്രന്റ് (സ്ഥിരമായത്)</item>
+        <item>സ്വാഭാവികം</item>
+        <item>സ്റ്റാന്‍ഡേര്‍ഡ്</item>
+    </string-array>
+    <string-array name="color_mode_descriptions">
+        <item>മെച്ചപ്പെടുത്തിയ വര്‍ണ്ണങ്ങൾ</item>
+        <item>നമ്മൾ കാണുന്നത് പോലെയുള്ള സ്വാഭാവിക വർണ്ണങ്ങൾ</item>
+        <item>ഡിജിറ്റൽ ഉള്ളടക്കത്തിനായി വർണ്ണങ്ങൾ ഒപ്റ്റിമൈസ് ചെയ്തു</item>
+    </string-array>
+    <string-array name="screen_timeout_entries">
+        <item>15 സെക്കന്‍റ്</item>
+        <item>30 സെക്കന്‍റ്</item>
+        <item>1 മിനിറ്റ്</item>
+        <item>2 മിനിറ്റ്</item>
+        <item>5 മിനിറ്റ്</item>
+        <item>10 മിനിറ്റ്</item>
+        <item>30 മിനിറ്റ്</item>
+    </string-array>
+    <string-array name="screen_timeout_for_device_lock_entries">
+        <item>15 സെക്കന്‍റ്</item>
+        <item>30 സെക്കന്‍റ്</item>
+        <item>1 മിനിറ്റ്</item>
+        <item>3 മിനിറ്റ്</item>
+        <item>5 മിനിറ്റ്</item>
+        <item>10 മിനിറ്റ്</item>
+        <item>15 മിനിട്ട്</item>
+        <item>30 മിനിറ്റ്</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>പവര്‍ കീ ഉപയോഗിച്ച് തല്‍ക്ഷണമോ അല്ലെങ്കില്‍ സ്ക്രീന്‍ സമയപരിധി കഴിയുമ്പോഴോ</item>
+        <item>15 സെക്കന്‍റ്</item>
+        <item>30 സെക്കന്‍റ്</item>
+        <item>1 മിനിറ്റ്</item>
+        <item>3 മിനിറ്റ്</item>
+        <item>5 മിനിറ്റ്</item>
+        <item>10 മിനിറ്റ്</item>
+        <item>15 മിനിട്ട്</item>
+        <item>30 മിനിറ്റ്</item>
+        <item>1 മണിക്കൂര്‍</item>
+    </string-array>
+    <string-array name="lock_after_timeout_entries">
+        <item>ഉടന്‍തന്നെ</item>
+        <item>5 സെക്കന്‍റ്</item>
+        <item>15 സെക്കന്‍റ്</item>
+        <item>30 സെക്കന്‍റ്</item>
+        <item>1 മിനിറ്റ്</item>
+        <item>2 മിനിറ്റ്</item>
+        <item>5 മിനിറ്റ്</item>
+        <item>10 മിനിറ്റ്</item>
+        <item>30 മിനിറ്റ്</item>
+    </string-array>
+    <string-array name="wifi_ap_security_testmode">
+        <item>തുറന്നത്</item>
+        <item>WPA2 PSK</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>ബന്ധിപ്പിച്ചു</item>
+        <item>ക്ഷണിച്ചിരിക്കുന്നു.</item>
+        <item>കണക്ഷന്‍ പരാജയപ്പെട്ടു</item>
+        <item>ബന്ധിപ്പിക്കാൻ ഇവിടെ തട്ടുക.</item>
+        <item>പരിധിക്കു പുറത്താണ്.</item>
+        <item>മറ്റൊരു ഉപകരണവുമായി കണക്ട് ചെയ്തു</item>
+    </string-array>
+    <string-array name="wifi_ap_wifi_sharing">
+        <item>Wi-Fi പങ്കിടൽ പ്രാപ്തമാക്കുക</item>
+        <item>Wi-Fi പങ്കിടൽ അപ്രാപ്തമാക്കുക</item>
+    </string-array>
+    <string-array name="wifi_ap_timeout">
+        <item>സമയപരിധിയില്ല</item>
+        <item>5 മിനിറ്റ്</item>
+        <item>10 മിനിറ്റ്</item>
+        <item>20 മിനിട്ട്</item>
+        <item>30 മിനിറ്റ്</item>
+        <item>60 മിനിറ്റ്</item>
+    </string-array>
+    <string-array name="wifi_ap_channel">
+        <item>യാന്ത്രികം</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+    </string-array>
+    <string-array name="wifi_signal">
+        <item>ശക്തികുറഞ്ഞ</item>
+        <item>നല്ലത്</item>
+        <item>നല്ലത്</item>
+        <item>ശക്തമായ</item>
+        <item>ശക്തമായ സിഗ്നല്‍</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_entries">
+        <item>"എപ്പോഴും
+(ബാറ്ററി ഉപഭോഗം വർദ്ധിപ്പിക്കുന്നു)"</item>
+        <item>ചാര്‍ജുചെയ്യുമ്പോള്‍</item>
+        <item>"ഒരിക്കലും അരുത്
+(ഡാറ്റാ ഉപയോഗം വർദ്ധിപ്പിക്കുന്നു)"</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_entries_wifi_only">
+        <item>"എപ്പോഴും
+(ബാറ്ററി ഉപഭോഗം വർദ്ധിപ്പിക്കുന്നു)"</item>
+        <item>ചാര്‍ജുചെയ്യുമ്പോള്‍</item>
+        <item>ഒരിക്കലുമില്ല</item>
+    </string-array>
+    <string-array name="wifi_peap_phase2_entries">
+        <item>ഒന്നുമില്ല</item>
+        <item>MSCHAPV2</item>
+        <item>GTC</item>
+    </string-array>
+    <string-array name="wifi_ip_settings">
+        <item>DHCP</item>
+        <item>സ്റ്റാറ്റിക്</item>
+    </string-array>
+    <string-array name="wifi_proxy_settings">
+        <item>ഒന്നുമില്ല</item>
+        <item>മാനുവല്‍</item>
+        <item>ഓട്ടോ-കോൺഫിഗ്</item>
+    </string-array>
+    <string-array name="apn_auth_entries">
+        <item>ഒന്നുമില്ല</item>
+        <item>PAP</item>
+        <item>CHAP</item>
+        <item>PAP അല്ലെങ്കില്‍ CHAP</item>
+    </string-array>
+    <string-array name="bearer_entries">
+        <item>സൂചിപ്പിക്കാത്തവ</item>
+        <item>LTE</item>
+        <item>HSPAP</item>
+        <item>HSPA</item>
+        <item>HSUPA</item>
+        <item>HSDPA</item>
+        <item>UMTS</item>
+        <item>EDGE</item>
+        <item>GPRS</item>
+        <item>eHRPD</item>
+        <item>EVDO_B</item>
+        <item>EVDO_A</item>
+        <item>EVDO_0</item>
+        <item>1xRTT</item>
+        <item>IS95B</item>
+        <item>IS95A</item>
+    </string-array>
+    <string-array name="mvno_type_entries">
+        <item>ഒന്നുമില്ല</item>
+        <item>SPN</item>
+        <item>IMSI</item>
+        <item>GID</item>
+    </string-array>
+    <string-array name="captioning_typeface_selector_titles">
+        <item>ഡിഫോള്‍ട്ട്</item>
+        <item>Sans Serif</item>
+        <item>Sans serif condensed</item>
+        <item>Sans serif monospace</item>
+        <item>Serif</item>
+        <item>Serif monospace</item>
+        <item>കാഷ്വല്‍</item>
+        <item>കർസീവ്</item>
+        <item>വലിയക്ഷരങ്ങൾ ചെറുത്</item>
+    </string-array>
+    <string-array name="captioning_font_size_selector_titles">
+        <item>വളരെ ചെറുത്</item>
+        <item>ചെറുത്</item>
+        <item>സാധാരണം</item>
+        <item>വലുത്</item>
+        <item>വളരെ വലുത്</item>
+    </string-array>
+    <string-array name="captioning_edge_type_selector_titles">
+        <item>ഡിഫോള്‍ട്ട്</item>
+        <item>ഒന്നുമില്ല</item>
+        <item>രൂപരേഖ</item>
+        <item>ഡ്രോപ് ഷാഡോ</item>
+        <item>ഉയർന്ന് നിൽക്കുന്നത്</item>
+        <item>വിഷാദം</item>
+    </string-array>
+    <string-array name="captioning_preset_selector_titles">
+        <item>സ്ഥിരസ്ഥിതി</item>
+        <item>കറുപ്പിൽ വെളുപ്പ്</item>
+        <item>വെളുപ്പിൽ കറുപ്പ്</item>
+        <item>കറുപ്പിൽ മഞ്ഞ</item>
+        <item>നീലയിൽ മഞ്ഞ</item>
+        <item>ഇച്ഛാനുസൃതം</item>
+    </string-array>
+    <string-array name="vpn_states">
+        <item>വിച്ഛേദിച്ചു</item>
+        <item>സമാരംഭിക്കുന്നു…</item>
+        <item>ബന്ധിപ്പിക്കുന്നു…</item>
+        <item>ബന്ധിപ്പിച്ചു</item>
+        <item>സമയം കഴിഞ്ഞു</item>
+        <item>വിജയകരമല്ല</item>
+    </string-array>
+    <string-array name="long_press_timeout_titles_selector">
+        <item>ഹ്രസ്വം (0.5 സെക്കന്‍റ്)</item>
+        <item>ഇടത്തരം (1.0 സെക്കന്‍റ്)</item>
+        <item>നീണ്ടത് (1.5 സെക്കന്‍റ്)</item>
+        <item>ഇച്ഛാനുസൃതം</item>
+    </string-array>
+    <string-array name="time_interval_entries_selectable">
+        <item>1 മിനിറ്റ്</item>
+        <item>3 മിനിറ്റ്</item>
+        <item>5 മിനിറ്റ്</item>
+        <item>10 മിനിറ്റ്</item>
+        <item>15 മിനിറ്റ്</item>
+    </string-array>
+    <string-array name="wifi_connect_entries">
+        <item>ഓട്ടോമാറ്റിക്</item>
+        <item>മാനുവല്‍</item>
+        <item>എപ്പോഴും ചോദിക്കുക</item>
+    </string-array>
+    <string-array name="touch_key_light_entries">
+        <item>1.5 സെക്കന്‍റുകള്‍</item>
+        <item>6 സെക്കന്‍റ്</item>
+        <item>എപ്പോഴും ഓഫ്</item>
+        <item>എപ്പോഴും ഓൺ</item>
+    </string-array>
+</resources>

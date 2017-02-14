@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">An incorrect PIN has been entered. You have %d attempts left.</item>
+        <item quantity="one">An incorrect PIN has been entered. If an incorrect PIN is entered %d more times, you will have to contact your service provider to unlock your device.</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">An incorrect PUK has been entered. If an incorrect PUK is entered %d more times, the SIM card will be permanently locked.</item>
+        <item quantity="one">An incorrect PUK has been entered. If an incorrect PUK is entered %d more times, the SIM card will be permanently locked.</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(%d attempts remaining)</item>
+        <item quantity="one">(1 attempt remaining)</item>
+    </plurals>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">%d attempts left</item>
+        <item quantity="one">%d attempt left</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_min">
+        <item quantity="other">Try again in %d minutes</item>
+        <item quantity="one">Try again in %d minute</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_sec">
+        <item quantity="other">Try again in %d seconds</item>
+        <item quantity="one">Try again in %d second</item>
+    </plurals>
+</resources>

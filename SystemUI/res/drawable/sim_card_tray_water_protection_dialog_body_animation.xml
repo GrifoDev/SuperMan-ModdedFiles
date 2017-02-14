@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:duration="500" android:drawable="@drawable/sim_card_tray_water_protection_body_01" />
+    <item android:duration="500" android:drawable="@drawable/sim_card_tray_water_protection_body_02" />
+    <item android:duration="500" android:drawable="@drawable/sim_card_tray_water_protection_body_03" />
+    <item android:duration="1500" android:drawable="@drawable/sim_card_tray_water_protection_body_04" />
+</animation-list>

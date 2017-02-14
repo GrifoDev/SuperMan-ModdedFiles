@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="recents_layout_inset_for_close_all_button_margin">50</integer>
+</resources>

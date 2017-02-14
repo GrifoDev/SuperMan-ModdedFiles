@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="?android:actionMenuTextAppearance" android:id="@id/wifi_direct" android:focusable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/wifi_menu_p2p" style="?android:attr/actionButtonStyle" />
+    <TextView android:textAppearance="?android:actionMenuTextAppearance" android:ellipsize="end" android:id="@id/wifi_advanced" android:focusable="true" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/wifi_menu_advanced_button" android:singleLine="true" style="?android:attr/actionButtonStyle" />
+</LinearLayout>

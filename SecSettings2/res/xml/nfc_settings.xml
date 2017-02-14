@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/nfc_quick_toggle_title" android:key="nfc_settings"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <Preference android:layout="@layout/nfc_explain" android:selectable="false" android:key="nfc_android_beam_help" />
+    <PreferenceCategory android:title="@string/nfc_mode_general_title" android:key="nfc_mode_general" />
+    <com.samsung.android.settings.nfc.NfcRadioButtonPreference android:title="@string/nfc_standard_mode_title" android:key="mode_standard_mode" android:summary="@string/nfc_standard_mode_desc" />
+    <com.samsung.android.settings.nfc.NfcRadioButtonPreference android:title="@string/nfc_card_mode_title" android:key="mode_card_mode" android:summary="@string/nfc_card_mode_desc" />
+    <com.android.settingslib.SecRestrictedSettingsSwitchPreference android:title="@string/android_beam_settings_title" android:key="android_beam_settings" android:fragment="com.samsung.android.settings.nfc.AndroidBeam" />
+    <PreferenceScreen android:title="@string/nfc_payment_settings_title" android:key="nfc_payment_settings" android:fragment="com.samsung.android.settings.nfc.PaymentBaseSettings" />
+    <PreferenceCategory android:title="@string/nfc_preferred_general_title" android:key="nfc_preferred_general" />
+    <com.samsung.android.settings.nfc.PaymentDropDownPreference android:entries="@array/nfc_preferred_sim_entries" android:title="@string/nfc_payment_services_title" android:key="nfc_payment_sim" android:entryValues="@array/nfc_preferred_sim_values" />
+</PreferenceScreen>

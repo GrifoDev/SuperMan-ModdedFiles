@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:key="category_software_update_top" />
+    <PreferenceScreen android:title="@string/samsung_update" android:key="device_info_software_update" android:summary="@string/update_summary" />
+    <SwitchPreference android:title="@string/auto_update" android:key="device_info_software_update_auto_update" android:summary="@string/auto_update_summary" />
+    <PreferenceScreen android:title="@string/scheduled_update" android:key="scheduled_update" android:summary="@string/scheduled_update_summary_default" />
+    <PreferenceCategory android:key="category_software_update_bottom" />
+</PreferenceScreen>

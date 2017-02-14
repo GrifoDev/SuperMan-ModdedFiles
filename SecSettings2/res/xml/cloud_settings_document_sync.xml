@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBoxPreference android:title="@string/scloud_sync_wifi_only" android:key="pref_wifi_only" android:summary="@string/scloud_wifi_only_description" android:widgetLayout="@layout/preference_widget_checkbox" />
+    <com.android.settings.cloud.DocumentsSyncDescriptionPreference android:layout="@layout/sync_description" android:selectable="false" android:key="sync_description" android:widgetLayout="@layout/preference_widget_checkbox" />
+</PreferenceScreen>

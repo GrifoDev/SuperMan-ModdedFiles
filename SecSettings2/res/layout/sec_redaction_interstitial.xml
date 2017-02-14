@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.settings.widget.SwitchBar android:theme="?switchBarTheme" android:gravity="center_vertical" android:id="@id/switch_bar" android:background="@drawable/tw_sub_action_bar_bg_mtrl" android:clickable="false" android:layout_width="fill_parent" android:layout_height="?android:actionBarSize" android:elevation="@dimen/sub_app_bar_shadow_elevation" />
+    <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" style="@style/lock_screen_dialog_list_divider_wrapping_style" />
+    <ListView android:id="@android:id/list" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+</LinearLayout>

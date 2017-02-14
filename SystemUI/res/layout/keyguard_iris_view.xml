@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.keyguard.iris.KeyguardIrisView android:orientation="horizontal" android:id="@id/keyguard_iris_view" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:gravity="center" android:id="@id/keyguard_iris_preview" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="@dimen/kg_iris_preview_height" />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/kg_iris_help_text_top_margin" android:layout_marginStart="14.0dip" android:layout_marginEnd="14.0dip">
+        <TextView android:gravity="center" android:id="@id/iris_help_text" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/keyguard_message_area_style" />
+        <include android:gravity="center" android:id="@id/iris_nomatch_text" android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/keyguard_message_area" />
+    </LinearLayout>
+</com.android.keyguard.iris.KeyguardIrisView>

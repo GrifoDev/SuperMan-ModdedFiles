@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:oneshot="false"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:duration="25" android:drawable="@drawable/fingerprint_setupwizard_fingerprint_01" />
+    <item android:duration="25" android:drawable="@drawable/fingerprint_setupwizard_fingerprint_02" />
+    <item android:duration="25" android:drawable="@drawable/fingerprint_setupwizard_fingerprint_03" />
+    <item android:duration="25" android:drawable="@drawable/fingerprint_setupwizard_fingerprint_04" />
+    <item android:duration="25" android:drawable="@drawable/fingerprint_setupwizard_fingerprint_05" />
+    <item android:duration="25" android:drawable="@drawable/fingerprint_setupwizard_fingerprint_06" />
+    <item android:duration="25" android:drawable="@drawable/fingerprint_setupwizard_fingerprint_07" />
+    <item android:duration="25" android:drawable="@drawable/fingerprint_setupwizard_fingerprint_08" />
+    <item android:duration="25" android:drawable="@drawable/fingerprint_setupwizard_fingerprint_09" />
+    <item android:duration="25" android:drawable="@drawable/fingerprint_setupwizard_fingerprint_10" />
+    <item android:duration="25" android:drawable="@drawable/fingerprint_setupwizard_fingerprint_11" />
+    <item android:duration="25" android:drawable="@drawable/fingerprint_setupwizard_fingerprint_12" />
+    <item android:duration="25" android:drawable="@drawable/fingerprint_setupwizard_fingerprint_13" />
+    <item android:duration="25" android:drawable="@drawable/fingerprint_setupwizard_fingerprint_14" />
+    <item android:duration="25" android:drawable="@drawable/fingerprint_setupwizard_fingerprint_15" />
+    <item android:duration="25" android:drawable="@drawable/fingerprint_setupwizard_fingerprint_16" />
+    <item android:duration="25" android:drawable="@drawable/fingerprint_setupwizard_fingerprint_17" />
+    <item android:duration="25" android:drawable="@drawable/fingerprint_setupwizard_fingerprint_18" />
+    <item android:duration="25" android:drawable="@drawable/fingerprint_setupwizard_fingerprint_19" />
+    <item android:duration="25" android:drawable="@drawable/fingerprint_setupwizard_fingerprint_20" />
+    <item android:duration="25" android:drawable="@drawable/fingerprint_setupwizard_fingerprint_21" />
+    <item android:duration="25" android:drawable="@drawable/fingerprint_setupwizard_fingerprint_22" />
+    <item android:duration="25" android:drawable="@drawable/fingerprint_setupwizard_fingerprint_23" />
+    <item android:duration="25" android:drawable="@drawable/fingerprint_setupwizard_fingerprint_24" />
+    <item android:duration="25" android:drawable="@drawable/fingerprint_setupwizard_fingerprint_25" />
+    <item android:duration="25" android:drawable="@drawable/fingerprint_setupwizard_fingerprint_26" />
+    <item android:duration="25" android:drawable="@drawable/fingerprint_setupwizard_fingerprint_27" />
+    <item android:duration="25" android:drawable="@drawable/fingerprint_setupwizard_fingerprint_28" />
+    <item android:duration="25" android:drawable="@drawable/fingerprint_setupwizard_fingerprint_29" />
+    <item android:duration="25" android:drawable="@drawable/fingerprint_setupwizard_fingerprint_30" />
+    <item android:duration="1600" android:drawable="@drawable/fingerprint_setupwizard_fingerprint_30" />
+</animation-list>

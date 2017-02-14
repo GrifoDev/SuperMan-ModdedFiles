@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bitmap android:src="@android:drawable/ic_print_error" android:tint="@color/print_icon_color"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

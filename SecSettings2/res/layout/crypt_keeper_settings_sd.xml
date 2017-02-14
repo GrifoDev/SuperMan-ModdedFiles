@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/description_layout" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ScrollView android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+            <LinearLayout android:orientation="vertical" android:paddingTop="@dimen/body_text_top_padding" android:paddingBottom="@dimen/body_text_top_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/body_text_side_padding" android:paddingEnd="@dimen/body_text_side_padding">
+                <TextView android:gravity="start|bottom|center" android:id="@id/desc" android:scrollbars="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/crypt_keeper_description" />
+            </LinearLayout>
+        </ScrollView>
+        <LinearLayout android:orientation="horizontal" android:id="@id/crypt_keeper_sd_layout" android:layout_width="fill_parent" android:layout_height="wrap_content" android:baselineAligned="false" style="@style/SecurityPreferenceButtonContainer">
+            <com.samsung.android.settings.widget.BottomBarButton android:id="@id/left_button" android:layout_width="fill_parent" android:text="@string/sdcard_decrypt_select_button" style="@style/SecurityPreferenceButton">
+                <requestFocus />
+            </com.samsung.android.settings.widget.BottomBarButton>
+            <com.samsung.android.settings.widget.BottomBarButton android:id="@id/right_button" android:layout_width="fill_parent" android:text="@string/sdcard_encrypt_select_button" style="@style/SecurityPreferenceButton">
+                <requestFocus />
+            </com.samsung.android.settings.widget.BottomBarButton>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/progress_layout" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <TextView android:id="@id/sdcard_enc_confirm_message_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginStart="53.0dip" android:layout_marginEnd="53.0dip" style="@style/crypt_keeper_description" />
+        <RelativeLayout android:gravity="center" android:id="@id/top_divider" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginStart="53.0dip" android:layout_marginEnd="53.0dip">
+            <ProgressBar android:id="@id/progress_bar" android:layout_width="fill_parent" android:layout_height="wrap_content" android:indeterminate="true" style="?android:attr/progressBarStyleHorizontal" />
+        </RelativeLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginStart="53.0dip" android:layout_marginEnd="53.0dip">
+            <TextView android:id="@id/sdcard_enc_progress_storage" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" android:textAlignment="viewStart" style="@style/crypt_keeper_description" />
+            <TextView android:id="@id/sdcard_enc_progress_percent" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/crypt_keeper_description" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

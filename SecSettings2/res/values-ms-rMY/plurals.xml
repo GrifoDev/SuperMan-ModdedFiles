@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d jam</item>
+        <item quantity="one">1 jam</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d minit</item>
+        <item quantity="one">1 minit</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d saat</item>
+        <item quantity="one">1 saat</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">%d langkah lagi dan anda akan menjadi seorang pembangun.</item>
+        <item quantity="one">1 langkah lagi dan anda akan menjadi seorang pembangun.</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Alih keluar bahasa dipilih</item>
+        <item quantity="one">Alih keluar bahasa dipilih</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Kata laluan mesti ada sekurang-kurangnya %d huruf.</item>
+        <item quantity="one">Kata laluan mesti ada sekurang-kurangnya 1 huruf.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Kata laluan mesti ada sekurang-kurangnya %d huruf kecil.</item>
+        <item quantity="one">Kata laluan mesti ada sekurang-kurangnya 1 huruf kecil.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Kata laluan mesti ada sekurang-kurangnya %d huruf besar.</item>
+        <item quantity="one">Kata laluan mesti ada sekurang-kurangnya 1 huruf besar.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Kata laluan mesti ada sekurang-kurangnya %d angka.</item>
+        <item quantity="one">Kata laluan mesti ada sekurang-kurangnya 1 angka.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Kata laluan mesti ada sekurang-kurangnya %d simbol.</item>
+        <item quantity="one">Kata laluan mesti ada sekurang-kurangnya 1 simbol.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Kata laluan mesti ada sekurang-kurangnya %d angka atau simbol.</item>
+        <item quantity="one">Kata laluan mesti ada sekurang-kurangnya 1 angka atau simbol.</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Capaian ke %d pelipat/fail</item>
+        <item quantity="one">Capaian ke 1 pelipat/fail</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s telah memasang sijil CA pada peranti anda, ini membenarkannya memantau aktiviti rangkaian peranti anda termasuklah penggunaan e-mel, aplikasi dan laman web selamat anda.
+
+ Untuk maklumat lanjut mengenai sijil ini, hubungi pentadbir IT anda."</item>
+        <item quantity="one">"%s telah memasang sijil CA pada peranti anda, ini membenarkannya memantau aktiviti rangkaian peranti anda termasuklah penggunaan e-mel, aplikasi dan laman web selamat anda.
+
+Untuk maklumat lanjut mengenai sijil ini, hubungi pentadbir IT anda."</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d aplikasi boleh membaca pemberitahuan.</item>
+        <item quantity="one">%d aplikasi dibenarkan membaca pemberitahuan.</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d lebih banyak kebenaran</item>
+        <item quantity="one">%d lebih banyak kebenaran</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$d proses menggunakan RAM dalam %2$s yang lalu</item>
+        <item quantity="one">%1$d proses menggunakan RAM dalam %2$s yang lalu</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d aplikasi dibenarkan untuk menggunakan data mudah alih tanpa sekatan apabila Penjimat data diaktifkan</item>
+        <item quantity="one">1 aplikasi dibenarkan untuk menggunakan data mudah alih tanpa sekatan semasa Penjimat data diaktifkan</item>
+    </plurals>
+</resources>

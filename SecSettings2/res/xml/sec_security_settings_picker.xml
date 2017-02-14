@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/lock_settings_picker_title" android:key="lock_settings_picker" settings:parent="@xml/security_settings"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <com.samsung.android.settingslib.RestrictedPreference android:persistent="false" android:title="@string/unlock_set_unlock_none_title" android:key="unlock_set_none" android:summary="@string/unlock_set_unlock_none_summary" />
+    <com.samsung.android.settingslib.RestrictedPreference android:persistent="false" android:title="@string/unlock_set_direction_title" android:key="unlock_set_direction" android:summary="@string/unlock_set_unlock_direction_summary" />
+    <com.samsung.android.settingslib.RestrictedPreference android:persistent="false" android:title="@string/unlock_set_unlock_pattern_title" android:key="unlock_set_pattern" android:summary="@string/unlock_set_unlock_pattern_summary" />
+    <com.samsung.android.settingslib.RestrictedPreference android:persistent="false" android:title="@string/unlock_set_unlock_pin_title" android:key="unlock_set_pin" android:summary="@string/unlock_set_unlock_pin_summary" />
+    <com.samsung.android.settingslib.RestrictedPreference android:persistent="false" android:title="@string/unlock_set_unlock_password_title" android:key="unlock_set_password" android:summary="@string/unlock_set_unlock_password_summary" />
+    <com.samsung.android.settingslib.RestrictedPreference android:persistent="false" android:title="@string/b_unlock_title" android:key="unlock_set_smart" />
+    <com.samsung.android.settingslib.RestrictedPreference android:persistent="false" android:title="@string/unlock_set_unlock_cac_pin_title" android:key="unlock_set_cac_pin" android:summary="@string/unlock_set_unlock_cac_pin_summary" />
+    <com.samsung.android.settingslib.RestrictedPreference android:persistent="false" android:key="unlock_set_managed" />
+    <com.samsung.android.settingslib.RestrictedPreference android:persistent="false" android:title="@string/unlock_set_unlock_off_title" android:key="unlock_set_off" />
+    <com.samsung.android.settingslib.RestrictedPreference android:persistent="false" android:title="@string/unlock_set_unlock_two_factor_title" android:key="unlock_set_two_factor" />
+    <com.samsung.android.settingslib.RestrictedPreference android:persistent="false" android:title="@string/unlock_set_unlock_enterprise_identity_title" android:key="unlock_set_enterprise_identity" />
+    <PreferenceCategory android:key="fingerprint_category" />
+    <com.samsung.android.settingslib.RestrictedPreference android:persistent="false" android:title="@string/fingerprint" android:key="unlock_set_fingerprint" android:summary="@string/unlock_set_unlock_off_summary" />
+    <com.samsung.android.settingslib.RestrictedPreference android:title="@string/iris_title" android:key="unlock_set_iris" />
+    <SwitchPreference android:title="@string/fingerprint" android:key="switch_fingerprint" />
+    <SwitchPreference android:title="@string/iris_title" android:key="switch_iris" />
+    <com.samsung.android.settingslib.RestrictedPreference android:persistent="false" android:title="@string/pref_lock_type_title" android:key="pref_lock_type" android:summary="@string/pref_lock_type_summary" />
+    <PreferenceCategory android:title="@string/biometrics" android:key="biometrics_category" />
+    <com.android.settings.MultiLinePreference android:selectable="false" android:key="pref_biometrics_description" />
+    <PreferenceCategory android:title="" android:key="pref_divider" />
+</PreferenceScreen>

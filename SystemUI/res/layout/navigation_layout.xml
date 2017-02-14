@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:systemui="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:id="@id/nav_buttons" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="horizontal" android:id="@id/ends_group" android:clipChildren="false" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/center_group" android:clipChildren="false" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/nav_bar_widget" android:clipChildren="false" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    </FrameLayout>
+    <com.android.systemui.statusbar.policy.DeadZone android:layout_gravity="top" android:id="@id/deadzone" android:layout_width="fill_parent" android:layout_height="fill_parent" systemui:minSize="@dimen/navigation_bar_deadzone_size" systemui:maxSize="@dimen/navigation_bar_deadzone_size_max" systemui:holdTime="@integer/navigation_bar_deadzone_hold" systemui:decayTime="@integer/navigation_bar_deadzone_decay" systemui:orientation="horizontal" />
+</FrameLayout>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="pinpuk_attempts">
+        <item quantity="other">អ្នកនៅសល់ការព្យាយាម %d ដងទៀត មុនពេលស៊ីមត្រូវចាក់សោ។</item>
+        <item quantity="one">អ្នកនៅសល់ការព្យាយាម %d ដងទៀត មុនពេលស៊ីមត្រូវចាក់សោ។</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_warning">
+        <item quantity="other">ការត្រួតពិនិត្យ​បណ្ដាញ​ដែល​មាន</item>
+        <item quantity="one">បានដំឡើងអាជ្ញាធរវិញ្ញាបនបត្រ</item>
+    </plurals>
+    <plurals name="bugreport_countdown">
+        <item quantity="other">នឹងថតរូបអេក្រង់សម្រាប់របាយការណ៍កំហុសក្នុងរយៈពេល %d វិនាទីទៀត។</item>
+        <item quantity="one">នឹងថតរូបអេក្រង់សម្រាប់របាយការណ៍កំហុសក្នុងរយៈពេល %d វិនាទីទៀត។</item>
+    </plurals>
+    <plurals name="last_num_days">
+        <item quantity="other">%d ថ្ងៃ​ចុងក្រោយ</item>
+        <item quantity="one">%d ថ្ងៃចុងក្រោយ</item>
+    </plurals>
+    <plurals name="duration_seconds">
+        <item quantity="other">%d វិនាទី</item>
+        <item quantity="one">1 វិនាទី</item>
+    </plurals>
+    <plurals name="duration_minutes">
+        <item quantity="other">%d នាទី</item>
+        <item quantity="one">1 នាទី</item>
+    </plurals>
+    <plurals name="duration_hours">
+        <item quantity="other">%d ម៉ោង</item>
+        <item quantity="one">1 ម៉ោង</item>
+    </plurals>
+    <plurals name="duration_minutes_shortest">
+        <item quantity="other">%dន</item>
+        <item quantity="one">%dន</item>
+    </plurals>
+    <plurals name="duration_hours_shortest">
+        <item quantity="other">%dម៉</item>
+        <item quantity="one">%dម៉</item>
+    </plurals>
+    <plurals name="duration_days_shortest">
+        <item quantity="other">%dថ</item>
+        <item quantity="one">%dថ</item>
+    </plurals>
+    <plurals name="duration_years_shortest">
+        <item quantity="other">%dឆ</item>
+        <item quantity="one">%dឆ</item>
+    </plurals>
+    <plurals name="duration_minutes_shortest_future">
+        <item quantity="other">ក្នុងពេល %dន</item>
+        <item quantity="one">ក្នុងពេល %dន</item>
+    </plurals>
+    <plurals name="duration_hours_shortest_future">
+        <item quantity="other">ក្នុងពេល %dម៉</item>
+        <item quantity="one">ក្នុងពេល %dម៉</item>
+    </plurals>
+    <plurals name="duration_days_shortest_future">
+        <item quantity="other">ក្នុងពេល %dថ</item>
+        <item quantity="one">ក្នុងពេល %dថ</item>
+    </plurals>
+    <plurals name="duration_years_shortest_future">
+        <item quantity="other">ក្នុងពេល %dឆ</item>
+        <item quantity="one">ក្នុងពេល %dឆ</item>
+    </plurals>
+    <plurals name="wifi_available">
+        <item quantity="other">មាន​បណ្ដាញ Wi-Fi</item>
+        <item quantity="one">មាន​បណ្ដាញ Wi-Fi</item>
+    </plurals>
+    <plurals name="wifi_available_detailed">
+        <item quantity="other">បើក​បណ្ដាញ Wi-Fi ដែល​មាន</item>
+        <item quantity="one">បើក​បណ្ដាញ Wi-Fi ដែល​មាន</item>
+    </plurals>
+    <plurals name="matches_found">
+        <item quantity="other">%1$d នៃ %2$d</item>
+        <item quantity="one">1 ផ្គូផ្គង។</item>
+    </plurals>
+    <plurals name="restr_pin_countdown">
+        <item quantity="other">ព្យាយាមម្តងទៀតក្នុងរយៈពេល %d វិនាទី</item>
+        <item quantity="one">សាកល្បង​ម្ដងទៀត​ក្នុង​ពេល 1 វិនាទី។</item>
+    </plurals>
+    <plurals name="zen_mode_duration_minutes_summary">
+        <item quantity="other">រយៈពេល %1$d នាទី (រហូតដល់ %2$s)</item>
+        <item quantity="one">រយៈពេលមួយនាទី (រហូតដល់ %2$s)</item>
+    </plurals>
+    <plurals name="zen_mode_duration_minutes_summary_short">
+        <item quantity="other">អស់រយៈពេល %1$d នាទី (រហូតដល់ %2$s)</item>
+        <item quantity="one">អស់រយៈពេល 1 នាទី (រហូតដល់ %2$s)</item>
+    </plurals>
+    <plurals name="zen_mode_duration_hours_summary">
+        <item quantity="other">រយៈពេល %1$d ម៉ោង (រហូតដល់ %2$s)</item>
+        <item quantity="one">រយៈពេលមួយម៉ោង (រហូតដល់ %2$s)</item>
+    </plurals>
+    <plurals name="zen_mode_duration_hours_summary_short">
+        <item quantity="other">អស់រយៈពេល %1$d ម៉ោង (រហូតដល់ %2$s)</item>
+        <item quantity="one">អស់រយៈពេល 1 ម៉ោង (រហូតដល់ %2$s)</item>
+    </plurals>
+    <plurals name="zen_mode_duration_minutes">
+        <item quantity="other">រយៈពេល %d នាទី</item>
+        <item quantity="one">រយៈពេលមួយនាទី</item>
+    </plurals>
+    <plurals name="zen_mode_duration_minutes_short">
+        <item quantity="other">អស់រយៈពេល %d នាទី</item>
+        <item quantity="one">អស់រយៈពេល 1 នាទី</item>
+    </plurals>
+    <plurals name="zen_mode_duration_hours">
+        <item quantity="other">រយៈពេល %d ម៉ោង</item>
+        <item quantity="one">រយៈពេលមួយម៉ោង</item>
+    </plurals>
+    <plurals name="zen_mode_duration_hours_short">
+        <item quantity="other">អស់រយៈពេល %d ម៉ោង</item>
+        <item quantity="one">អស់រយៈពេល 1 ម៉ោង</item>
+    </plurals>
+    <plurals name="selected_count">
+        <item quantity="other">បានជ្រើស %1$d</item>
+        <item quantity="one">បានជ្រើស %1$d</item>
+    </plurals>
+    <plurals name="tw_clipboard_files">
+        <item quantity="other">%d ឯកសារ</item>
+        <item quantity="one">ឯកសារ 1</item>
+    </plurals>
+</resources>

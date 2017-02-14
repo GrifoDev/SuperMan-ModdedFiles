@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="rectangle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:topLeftRadius="@dimen/sem_colorpicker_last_current_selected_color_radius" android:bottomLeftRadius="@dimen/sem_colorpicker_last_current_selected_color_radius" />
+    <size android:height="@dimen/sem_colorpicker_last_current_selected_color_height" android:width="@dimen/sem_colorpicker_last_current_selected_color_width" />
+    <solid android:color="@color/sem_colorpicker_gradient_color_seekbar_stroke_color" />
+</shape>

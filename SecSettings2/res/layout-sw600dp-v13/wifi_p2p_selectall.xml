@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@id/selectall_layout" android:clickable="false" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="16.0dip" android:contentInsetStart="0.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/action_checkbox" android:layout_width="64.0dip" android:layout_height="wrap_content">
+        <CheckBox android:layout_gravity="center" android:id="@id/checkbox" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+        <TextView android:textSize="11.0dip" android:textColor="@color/wifi_p2p_select_all_text_color" android:layout_gravity="center" android:id="@id/text_all" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="-3.0dip" android:text="@string/filter_apps_all" android:singleLine="true" />
+    </LinearLayout>
+    <LinearLayout android:layout_gravity="center" android:orientation="horizontal" android:id="@id/text_layout" android:layout_width="wrap_content" android:layout_height="fill_parent">
+        <TextView android:textSize="@dimen/wifi_p2p_selectall_text_size" android:textColor="@color/wifi_p2p_select_all_text_color" android:gravity="center_vertical" android:id="@id/selectTextNumber" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="@string/wifi_p2p_select_device" android:singleLine="true" />
+    </LinearLayout>
+</LinearLayout>

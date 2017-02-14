@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:gravity="center_vertical" android:id="@id/holdCallBanner" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/sec_video_vga_incall_button_wrapper_height">
+        <TextView android:textSize="@dimen/sec_video_secondary_hold_banner_text_size" android:textColor="@color/sec_incall_call_banner_text_color" android:gravity="center" android:id="@id/holdCallBannerText" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/sec_video_secondary_hold_banner_side_padding" android:paddingEnd="@dimen/sec_video_secondary_hold_banner_side_padding" />
+    </RelativeLayout>
+</RelativeLayout>

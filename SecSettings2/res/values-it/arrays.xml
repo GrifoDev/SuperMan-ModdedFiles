@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="wifi_status">
+        <item></item>
+        <item>Ricerca...</item>
+        <item>Connessione...</item>
+        <item>Autenticazione...</item>
+        <item>Acquisizione indirizzo IP...</item>
+        <item>Connessa</item>
+        <item>Sospesa</item>
+        <item>Disconnessione...</item>
+        <item>Disconnessa</item>
+        <item>Operazione non riuscita</item>
+        <item>Bloccato</item>
+        <item>Al momento vengono evitate connessioni deboli</item>
+    </string-array>
+    <string-array name="wifi_status_with_ssid">
+        <item></item>
+        <item>Ricerca...</item>
+        <item>Connessione a %1$s...</item>
+        <item>Autenticazione con %1$s...</item>
+        <item>Acquisizione indirizzo IP da %1$s...</item>
+        <item>Connessa a %1$s</item>
+        <item>Sospesa</item>
+        <item>Disconnessione da %1$s...</item>
+        <item>Disconnessa</item>
+        <item>Operazione non riuscita</item>
+        <item>Bloccato</item>
+        <item>Al momento vengono evitate connessioni deboli</item>
+    </string-array>
+    <string-array name="hdcp_checking_titles">
+        <item>Non verificare mai</item>
+        <item>Verifica solo per contenuti DRM</item>
+        <item>Verifica sempre</item>
+    </string-array>
+    <string-array name="hdcp_checking_summaries">
+        <item>Non utilizzare mai la verifica HDCP</item>
+        <item>Usa la verifica HDCP solo per contenuti DRM</item>
+        <item>Usa sempre la verifica HDCP</item>
+    </string-array>
+    <string-array name="select_logd_size_titles">
+        <item>Non attiva</item>
+        <item>64 kB</item>
+        <item>256 kB</item>
+        <item>1 MB</item>
+        <item>4 MB</item>
+        <item>16 MB</item>
+    </string-array>
+    <string-array name="select_logd_size_lowram_titles">
+        <item>Non attiva</item>
+        <item>64 kB</item>
+        <item>256 kB</item>
+        <item>1 MB</item>
+    </string-array>
+    <string-array name="select_logd_size_summaries">
+        <item>Non attiva</item>
+        <item>64 kB/buffer log</item>
+        <item>256 kB/buffer log</item>
+        <item>1 MB/buffer log</item>
+        <item>4 MB/buffer log</item>
+        <item>16 MB/buffer log</item>
+    </string-array>
+    <string-array name="window_animation_scale_entries">
+        <item>Animazione disattivata</item>
+        <item>Scala animazione 0,5x</item>
+        <item>Scala animazione 1x</item>
+        <item>Scala animazione 1,5x</item>
+        <item>Scala animazione 2x</item>
+        <item>Scala animazione 5x</item>
+        <item>Scala animazione 10x</item>
+    </string-array>
+    <string-array name="transition_animation_scale_entries">
+        <item>Animazione disattivata</item>
+        <item>Scala animazione 0,5x</item>
+        <item>Scala animazione 1x</item>
+        <item>Scala animazione 1,5x</item>
+        <item>Scala animazione 2x</item>
+        <item>Scala animazione 5x</item>
+        <item>Scala animazione 10x</item>
+    </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>Animazione disattivata</item>
+        <item>Scala animazione 0,5x</item>
+        <item>Scala animazione 1x</item>
+        <item>Scala animazione 1,5x</item>
+        <item>Scala animazione 2x</item>
+        <item>Scala animazione 5x</item>
+        <item>Scala animazione 10x</item>
+    </string-array>
+    <string-array name="overlay_display_devices_entries">
+        <item>Nessuno</item>
+        <item>480p</item>
+        <item>480p (protetto)</item>
+        <item>720p</item>
+        <item>720p (protetto)</item>
+        <item>1080p</item>
+        <item>1080p (protetto)</item>
+        <item>4K</item>
+        <item>4K (protetto)</item>
+        <item>4K (ottimizzato)</item>
+        <item>4K (ottimizzato, protetto)</item>
+        <item>720p, 1080p (doppio schermo)</item>
+    </string-array>
+    <string-array name="enable_opengl_traces_entries">
+        <item>Nessuna</item>
+        <item>Logcat</item>
+        <item>Systrace (grafica)</item>
+        <item>Stack di chiamate su glGetError</item>
+    </string-array>
+    <string-array name="show_non_rect_clip_entries">
+        <item>OFF</item>
+        <item>Area ritaglio non rettangolare blu</item>
+        <item>Evidenzia cmd disegno test in verde</item>
+    </string-array>
+    <string-array name="track_frame_time_entries">
+        <item>OFF</item>
+        <item>Su schermo sotto forma di barre</item>
+        <item>In adb shell dumpsys gfxinfo</item>
+    </string-array>
+    <string-array name="debug_hw_overdraw_entries">
+        <item>OFF</item>
+        <item>Mostra aree overdraw</item>
+        <item>Mostra aree con deuteranomalia</item>
+    </string-array>
+    <string-array name="app_process_limit_entries">
+        <item>Limite standard</item>
+        <item>Nessun processo in background</item>
+        <item>1 processo al massimo</item>
+        <item>2 processi al massimo</item>
+        <item>3 processi al massimo</item>
+        <item>4 processi al massimo</item>
+    </string-array>
+    <string-array name="usb_configuration_titles">
+        <item>Ricarica</item>
+        <item>MTP (Media Transfer Protocol)</item>
+        <item>PTP (Picture Transfer Protocol)</item>
+        <item>RNDIS (Ethernet USB)</item>
+        <item>Sorgente audio</item>
+        <item>MIDI</item>
+    </string-array>
+    <string-array name="tts_rate_entries">
+        <item>Molto lenta</item>
+        <item>Lenta</item>
+        <item>Normale</item>
+        <item>Veloce</item>
+        <item>Più veloce</item>
+        <item>Molto veloce</item>
+        <item>Rapida</item>
+        <item>Molto rapida</item>
+        <item>Massima velocità</item>
+    </string-array>
+    <string-array name="color_mode_names">
+        <item>Vivaci (opzione predefinita)</item>
+        <item>Naturali</item>
+        <item>Standard</item>
+    </string-array>
+    <string-array name="color_mode_descriptions">
+        <item>Colori migliorati</item>
+        <item>Colori naturali e realistici</item>
+        <item>Colori ottimizzati per i contenuti digitali</item>
+    </string-array>
+    <string-array name="screen_timeout_entries">
+        <item>15 secondi</item>
+        <item>30 secondi</item>
+        <item>1 minuto</item>
+        <item>2 minuti</item>
+        <item>5 minuti</item>
+        <item>10 minuti</item>
+        <item>30 minuti</item>
+    </string-array>
+    <string-array name="screen_timeout_for_device_lock_entries">
+        <item>15 secondi</item>
+        <item>30 secondi</item>
+        <item>1 minuto</item>
+        <item>3 minuti</item>
+        <item>5 minuti</item>
+        <item>10 minuti</item>
+        <item>15 minuti</item>
+        <item>30 minuti</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>Immediatamente con il tasto di accensione o quando lo schermo viene sbloccato</item>
+        <item>15 secondi</item>
+        <item>30 secondi</item>
+        <item>1 minuto</item>
+        <item>3 minuti</item>
+        <item>5 minuti</item>
+        <item>10 minuti</item>
+        <item>15 minuti</item>
+        <item>30 minuti</item>
+        <item>1 ora</item>
+    </string-array>
+    <string-array name="lock_after_timeout_entries">
+        <item>Immediatamente</item>
+        <item>5 secondi</item>
+        <item>15 secondi</item>
+        <item>30 secondi</item>
+        <item>1 minuto</item>
+        <item>2 minuti</item>
+        <item>5 minuti</item>
+        <item>10 minuti</item>
+        <item>30 minuti</item>
+    </string-array>
+    <string-array name="wifi_ap_security_testmode">
+        <item>Non protetta</item>
+        <item>WPA2 PSK</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>Connesso</item>
+        <item>Invitato.</item>
+        <item>Connes. non riuscita</item>
+        <item>Tocca qui per connetterti.</item>
+        <item>Fuori intervallo.</item>
+        <item>Connessi con altro dispositivo</item>
+    </string-array>
+    <string-array name="wifi_ap_wifi_sharing">
+        <item>Attiva Condivis. Wi-Fi</item>
+        <item>Disatt. Condivis. Wi-Fi</item>
+    </string-array>
+    <string-array name="wifi_ap_timeout">
+        <item>Nessun timeout</item>
+        <item>5 minuti</item>
+        <item>10 minuti</item>
+        <item>20 minuti</item>
+        <item>30 minuti</item>
+        <item>60 minuti</item>
+    </string-array>
+    <string-array name="wifi_ap_channel">
+        <item>Auto</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+    </string-array>
+    <string-array name="wifi_signal">
+        <item>Debole</item>
+        <item>Buono</item>
+        <item>Buono</item>
+        <item>Forte</item>
+        <item>Molto forte</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_entries">
+        <item>"Sempre
+(Aumenta il consumo della batteria)"</item>
+        <item>Quando in carica</item>
+        <item>"Mai
+(Aumenta l'uso dei dati)"</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_entries_wifi_only">
+        <item>"Sempre
+(Aumenta il consumo della batteria)"</item>
+        <item>Quando in carica</item>
+        <item>Mai</item>
+    </string-array>
+    <string-array name="wifi_peap_phase2_entries">
+        <item>Nessuno</item>
+        <item>MSCHAPV2</item>
+        <item>GTC</item>
+    </string-array>
+    <string-array name="wifi_ip_settings">
+        <item>DHCP</item>
+        <item>Statico</item>
+    </string-array>
+    <string-array name="wifi_proxy_settings">
+        <item>Nessuno</item>
+        <item>Manuale</item>
+        <item>Configurazione automatica</item>
+    </string-array>
+    <string-array name="apn_auth_entries">
+        <item>Nessuno</item>
+        <item>PAP</item>
+        <item>CHAP</item>
+        <item>PAP o CHAP</item>
+    </string-array>
+    <string-array name="bearer_entries">
+        <item>Non specificato</item>
+        <item>LTE</item>
+        <item>HSPAP</item>
+        <item>HSPA</item>
+        <item>HSUPA</item>
+        <item>HSDPA</item>
+        <item>UMTS</item>
+        <item>EDGE</item>
+        <item>GPRS</item>
+        <item>eHRPD</item>
+        <item>EVDO_B</item>
+        <item>EVDO_A</item>
+        <item>EVDO_0</item>
+        <item>1xRTT</item>
+        <item>IS95B</item>
+        <item>IS95A</item>
+    </string-array>
+    <string-array name="mvno_type_entries">
+        <item>Nessuno</item>
+        <item>SPN</item>
+        <item>IMSI</item>
+        <item>GID</item>
+    </string-array>
+    <string-array name="captioning_typeface_selector_titles">
+        <item>Predefinito</item>
+        <item>Sans serif</item>
+        <item>Sans serif condensed</item>
+        <item>Sans serif monospace</item>
+        <item>Serif</item>
+        <item>Serif monospace</item>
+        <item>Casuale</item>
+        <item>Corsivo</item>
+        <item>Minuscole</item>
+    </string-array>
+    <string-array name="captioning_font_size_selector_titles">
+        <item>Molto piccolo</item>
+        <item>Piccolo</item>
+        <item>Normale</item>
+        <item>Grande</item>
+        <item>Molto grande</item>
+    </string-array>
+    <string-array name="captioning_edge_type_selector_titles">
+        <item>Predefinito</item>
+        <item>Nessuno</item>
+        <item>Contorno</item>
+        <item>Ombra esterna</item>
+        <item>Sollevato</item>
+        <item>Depresso</item>
+    </string-array>
+    <string-array name="captioning_preset_selector_titles">
+        <item>Predefinito</item>
+        <item>Bianco su nero</item>
+        <item>Bianco o nero</item>
+        <item>Giallo su nero</item>
+        <item>Giallo su blu</item>
+        <item>Personale</item>
+    </string-array>
+    <string-array name="vpn_states">
+        <item>Disconnesso</item>
+        <item>Inizializzazione…</item>
+        <item>Connessione…</item>
+        <item>Connesso</item>
+        <item>Timeout</item>
+        <item>Non riuscita</item>
+    </string-array>
+    <string-array name="long_press_timeout_titles_selector">
+        <item>Breve (0,5 secondi)</item>
+        <item>Medio (1,0 secondi)</item>
+        <item>Lungo (1,5 secondi)</item>
+        <item>Personale</item>
+    </string-array>
+    <string-array name="time_interval_entries_selectable">
+        <item>1 minuto</item>
+        <item>3 minuti</item>
+        <item>5 minuti</item>
+        <item>10 minuti</item>
+        <item>15 minuti</item>
+    </string-array>
+    <string-array name="wifi_connect_entries">
+        <item>Automatica</item>
+        <item>Manuale</item>
+        <item>Chiedi sempre</item>
+    </string-array>
+    <string-array name="touch_key_light_entries">
+        <item>1,5 secondi</item>
+        <item>6 secondi</item>
+        <item>Sempre disattiva</item>
+        <item>Sempre attiva</item>
+    </string-array>
+</resources>

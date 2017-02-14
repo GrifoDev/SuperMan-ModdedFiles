@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:paddingTop="20.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/data_usage_cycle_padding_start" android:paddingEnd="@dimen/data_usage_cycle_padding_end">
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:textAppearance="?android:textAppearanceMedium" android:textSize="19.0dip" android:textColor="@color/seekbar_preference_seekbar_label_text_color" android:id="@id/data_used_subtitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/data_used_editor_subtitle" android:layout_alignParentStart="true" />
+            <EditText android:textSize="19.0dip" android:id="@id/data_used" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/data_usage_editor_title_padding" android:numeric="decimal" android:layout_below="@id/data_used_subtitle" android:privateImeOptions="inputType=ipAddress" android:imeOptions="actionDone" android:layout_toStartOf="@id/data_usage_unit_spinner" />
+            <EditText android:textSize="19.0dip" android:id="@id/data_limit" android:focusable="true" android:focusableInTouchMode="true" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/data_usage_editor_title_padding" android:numeric="integer" android:layout_below="@id/data_used_subtitle" android:imeOptions="actionDone" android:layout_toStartOf="@id/data_usage_unit_spinner" />
+            <Spinner android:ellipsize="marquee" android:entries="@array/bytes_picker_sizes" android:id="@id/data_usage_unit_spinner" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/data_usage_editor_title_padding" android:singleLine="true" android:layout_below="@id/data_used_subtitle" android:paddingStart="16.0dip" android:layout_alignParentEnd="true" style="@style/TextAppearance.EditEvent_Spinner" />
+        </RelativeLayout>
+    </LinearLayout>
+</ScrollView>

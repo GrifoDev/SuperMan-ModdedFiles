@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <LinearLayout android:orientation="vertical" android:id="@id/list_container" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <FrameLayout android:id="@id/pinned_header" android:paddingBottom="@dimen/sub_app_bar_shadow_elevation" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+            <View android:id="@id/pinned_header_divider" android:background="?android:listDivider" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" />
+            <FrameLayout android:layout_width="fill_parent" android:layout_height="0.0px" android:layout_weight="1.0">
+                <ListView android:scrollbarStyle="@integer/preference_scrollbar_style" android:id="@android:id/list" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent" android:drawSelectorOnTop="false" />
+                <TextView android:gravity="center" android:id="@android:id/empty" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/no_applications" style="@style/no_item_text_style" />
+            </FrameLayout>
+        </LinearLayout>
+        <include layout="@layout/loading_container" />
+    </FrameLayout>
+</LinearLayout>

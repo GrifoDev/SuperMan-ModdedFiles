@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.keyguard.AlphaOptimizedLinearLayout android:id="@id/notification_icon_area_inner" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.systemui.statusbar.StatusBarIconView android:id="@id/moreIcon" android:visibility="gone" android:layout_width="@dimen/status_bar_icon_size" android:layout_height="fill_parent" android:src="@drawable/stat_notify_more" />
+    <com.android.systemui.statusbar.phone.IconMerger android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/notificationIcons" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_alignParentStart="true" />
+</com.android.keyguard.AlphaOptimizedLinearLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:orientation="vertical" android:id="@id/select_all_wrapper" android:layout_width="32.0dip" android:layout_height="fill_parent">
+        <CheckBox android:id="@id/toggle_selection_check" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3.0dip" android:layout_alignParentTop="true" />
+        <TextView android:textSize="11.0dip" android:textColor="@color/actionbar_text_color" android:gravity="center" android:id="@id/number_selected_all" android:clickable="true" android:layout_width="fill_parent" android:layout_height="14.0dip" android:layout_marginBottom="4.0dip" android:text="@string/filter_apps_all" android:singleLine="true" android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+    <TextView android:textSize="18.0sp" android:textColor="@color/actionbar_text_color" android:id="@id/number_selected_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_toRightOf="@id/select_all_wrapper" android:layout_centerVertical="true" android:layout_marginStart="16.0dip" style="@style/Custom_Button_Text" />
+</RelativeLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.systemui.stackdivider.DividerButtonsGroup android:background="@drawable/dsv_divider_buttons_background" android:layout_width="@dimen/mw_dsv_buttons_long_len" android:layout_height="@dimen/mw_dsv_buttons_short_len" android:elevation="@dimen/mw_buttons_elevation"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/mw_buttons_ripple_view" android:background="@drawable/divider_buttons_ripple" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:layout_gravity="center" android:id="@id/mw_buttons_wrapper" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:id="@id/mw_snapview_button" android:src="@drawable/multiwindow_split_option_btn_crop_mtrl" android:contentDescription="@string/mw_divider_button_snap" style="@style/DividerButtonIcon" />
+            <ImageView android:id="@id/mw_switch_button" android:src="@drawable/multiwindow_split_option_btn_switch_mtrl" android:contentDescription="@string/mw_divider_button_switch" style="@style/DividerButtonIcon" />
+            <ImageView android:id="@id/mw_freeform_button" android:src="@drawable/multiwindow_split_option_btn_popup_mtrl" android:contentDescription="@string/mw_divider_button_freeform" style="@style/DividerButtonIcon" />
+            <ImageView android:id="@id/mw_close_button" android:src="@drawable/multiwindow_split_option_btn_close_mtrl" android:contentDescription="@string/mw_divider_button_close" style="@style/DividerButtonIcon" />
+        </LinearLayout>
+    </FrameLayout>
+</com.android.systemui.stackdivider.DividerButtonsGroup>

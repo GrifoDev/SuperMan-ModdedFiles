@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="32.0dip" android:layout_marginTop="24.0dip" android:layout_marginRight="32.0dip">
+            <ImageView android:layout_gravity="center" android:id="@id/animation" android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="@drawable/screen_sharing_off" android:scaleType="fitXY" android:adjustViewBounds="true" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="32.0dip" android:layout_marginTop="24.0dip" android:layout_marginRight="32.0dip">
+            <TextView android:textSize="@dimen/motions_description_card_summary_text_size" android:textColor="@color/motions_description_card_summary_text_color" android:id="@id/description_summary" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/screen_sharing_ready_msg" android:singleLine="false" android:lineSpacingExtra="4.0dip" android:fontFamily="sec-roboto-light" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

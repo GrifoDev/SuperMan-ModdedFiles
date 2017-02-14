@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="home_pageIndicatorTop">321.0dip</dimen>
+    <dimen name="home_pageIndicatorTopDrag">325.0dip</dimen>
+    <dimen name="home_pageIndicatorTopEdit">321.0dip</dimen>
+    <dimen name="menu_pageIndicatorTop">355.0dip</dimen>
+    <dimen name="home_pageIndicatorTopScreenGrid">280.0dip</dimen>
+</resources>

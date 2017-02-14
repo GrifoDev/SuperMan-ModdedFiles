@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:scrollbarStyle="outsideOverlay" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:id="@id/reset_settings_descrption" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/body_text_top_padding" android:text="@string/reset_settings_desc" android:paddingEnd="@dimen/body_text_side_padding" android:layout_marginStart="@dimen/body_text_side_padding" style="@style/body_text_style" />
+            <com.samsung.android.settings.widget.RoundButtonView android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/reset_soft_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/reset_button_top_margin" android:layout_marginBottom="@dimen/reset_button_top_margin" android:minHeight="@dimen/reset_button_min_height" android:text="@string/settings_reset_title" android:paddingStart="@dimen/reset_button_side_padding" android:paddingEnd="@dimen/reset_button_side_padding" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

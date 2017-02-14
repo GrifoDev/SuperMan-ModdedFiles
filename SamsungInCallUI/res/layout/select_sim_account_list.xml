@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="?android:textAppearanceMedium" android:textSize="15.0dip" android:gravity="center_vertical" android:id="@id/select_sim_account_list_content" android:paddingTop="24.0dip" android:paddingBottom="17.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/select_callback_sim_card_content" android:layout_marginStart="24.0dip" android:layout_marginEnd="24.0dip" />
+    <ListView android:id="@id/list" android:paddingBottom="24.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:divider="@null" android:layout_marginStart="24.0dip" android:layout_marginEnd="24.0dip" />
+</LinearLayout>

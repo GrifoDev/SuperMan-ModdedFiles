@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:background="@android:color/transparent" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeight"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/dpdivider1" style="@style/SettingsDeviceDefaultListDivider" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:paddingTop="@dimen/list_item_top_padding" android:paddingBottom="@dimen/list_item_bottom_padding" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingStart="@dimen/list_item_start_padding" android:paddingEnd="@dimen/list_item_end_padding">
+        <TextView android:ellipsize="marquee" android:gravity="start|center" android:id="@android:id/text1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" style="@style/list_title_text_style" />
+        <TextView android:ellipsize="marquee" android:gravity="start|center" android:id="@android:id/text2" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/list_summary_text_style" />
+    </LinearLayout>
+    <View android:id="@id/dpdivider2" style="@style/SettingsDeviceDefaultListDivider" />
+</LinearLayout>

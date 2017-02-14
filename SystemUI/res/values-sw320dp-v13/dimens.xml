@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="qs_tile_width_4x3">66.0dip</dimen>
+    <dimen name="qs_tile_width_5x3">56.0dip</dimen>
+    <dimen name="qs_tile_width_8x2">64.0dip</dimen>
+    <dimen name="qs_time_collapsed_size">14.0dip</dimen>
+    <dimen name="recents_close_all_button_width">180.0dip</dimen>
+    <dimen name="keyguard_security_height">345.0dip</dimen>
+</resources>

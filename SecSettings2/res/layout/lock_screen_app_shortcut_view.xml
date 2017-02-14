@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:id="@id/loading_panel" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <ProgressBar android:layout_gravity="center_vertical" android:id="@id/loading" android:layout_width="fill_parent" android:layout_height="@dimen/loading_progress_size_large" style="@style/LoadingTheme" />
+        </LinearLayout>
+    </ScrollView>
+    <GridView android:scrollbarStyle="outsideOverlay" android:gravity="center" android:id="@id/appshortcutview" android:paddingTop="@dimen/appshortcutview_pading_top" android:paddingBottom="@dimen/appshortcutview_pading_bottom" android:layout_width="fill_parent" android:layout_height="wrap_content" android:horizontalSpacing="@dimen/app_shortcut_list_horizontal_spacing" android:verticalSpacing="@dimen/app_shortcut_list_vertical_spacing" android:stretchMode="columnWidth" android:columnWidth="@dimen/appshortcutview_column_width" android:numColumns="auto_fit" android:paddingStart="@dimen/appshortcutview_pading_start_end" android:paddingEnd="@dimen/appshortcutview_pading_start_end" />
+    <TextView android:gravity="start" android:id="@android:id/empty" android:padding="@android:dimen/preference_fragment_padding_side" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" style="@style/body_text_style" />
+</LinearLayout>

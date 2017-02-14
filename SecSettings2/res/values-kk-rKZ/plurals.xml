@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d сағат</item>
+        <item quantity="one">1 сағат</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d минут</item>
+        <item quantity="one">1 минут</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d секунд</item>
+        <item quantity="one">1 секунд</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Әзірлеуші болуға %d қадам жердесіз.</item>
+        <item quantity="one">Әзірлеуші болуға 1 қадам жердесіз.</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Таңдалған тілдерді жою</item>
+        <item quantity="one">Таңдалған тілді жою</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Құпиясөзде кемінде %d әріп болуға тиісті.</item>
+        <item quantity="one">Құпиясөзде кемінде 1 әріп болуға тиісті.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Құпиясөзде кемінде %d кіші әріп болуға тиісті.</item>
+        <item quantity="one">Құпиясөзде кемінде 1 кіші әріп болуға тиісті.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Құпиясөзде кемінде %d үлкен әріп болуға тиісті.</item>
+        <item quantity="one">Құпиясөзде кемінде 1 үлкен әріп болуға тиісті.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Құпиясөзде кемінде %d сан болуға тиісті.</item>
+        <item quantity="one">Құпиясөзде кемінде 1 сан болуға тиісті.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Құпиясөзде кемінде %d таңба болуы керек.</item>
+        <item quantity="one">Құпиясөзде кемінде 1 таңба болуы керек.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Құпиясөзде кемінде %d сан немесе таңба болуы керек.</item>
+        <item quantity="one">Құпиясөзде кемінде 1 сан немесе таңба болуы керек.</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">%d қалтаға/файлға қатынасу</item>
+        <item quantity="one">1 қалтаға/файлға қатынасу</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s сіздің құрылғыңызда CA сертификаттарын орнатты, бұл оларға сіздің құрылғыңыздың желілік әрекетін, оның ішінде электрондық пошталарды, қолданбалар мен қорғалған веб-сайттарды пайдалануыңызды қоса, бақылауға мүмкіндік бере алады.
+
+Осы сертификаттар туралы қосымша ақпарат алу үшін, АТ әкімшіңізге хабарласыңыз."</item>
+        <item quantity="one">"%s сіздің құрылғыңызда CA сертификатын орнатты, бұл оларға сіздің құрылғыңыздың желілік әрекетін, оның ішінде электрондық пошталарды, қолданбалар мен қорғалған веб-сайттарды пайдалануыңызды қоса, бақылауға мүмкіндік бере алады.
+
+Осы сертификат туралы қосымша ақпарат алу үшін, АТ әкімшіңізге хабарласыңыз."</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d бағдарлама хабарландыруларды оқымайды.</item>
+        <item quantity="one">%d бағдарламасына хабарларды оқу рұқсат етілген.</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">Тағы %d рұқсат</item>
+        <item quantity="one">%d қосымша рұқсат</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">Оперативті жадты соңғы %2$s ішінде %1$d процесс пайдаланды</item>
+        <item quantity="one">Оперативті жадты соңғы %2$s ішінде %1$d процесс пайдаланды</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d қолданбаға “Деректерді сақтаушы” функциясы қосулы кезде ұялы деректерді ешқандай шектеулерсіз пайдалануына рұқсат берілді</item>
+        <item quantity="one">1 қолданбаға “Деректерді үнемдеу” функциясы қосулы кезде ұялы деректерді ешқандай шектеулерсіз пайдалануына рұқсат берілді</item>
+    </plurals>
+</resources>

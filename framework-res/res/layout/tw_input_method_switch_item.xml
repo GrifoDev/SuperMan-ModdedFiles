@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="@color/transparent" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?listPreferredItemHeightSmall"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RadioButton android:gravity="center_vertical" android:id="@id/radio" android:background="@null" android:focusable="false" android:clickable="false" android:layout_width="32.0dip" android:layout_height="wrap_content" android:layout_marginEnd="16.0dip" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="@dimen/tw_inputmethod_switch_dialog_listview_minheight" android:layout_weight="1.0">
+        <TextView android:textAppearance="?textAppearanceListItem" android:textSize="@dimen/tw_select_dialog_list_item_text_size" android:textColor="@color/tw_dialog_main_text_color_material_light" android:ellipsize="marquee" android:gravity="start|center" android:id="@id/text1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+        <TextView android:textAppearance="?textAppearanceListItemSecondary" android:textColor="@color/tw_dialog_sub_text_color_material_light" android:ellipsize="marquee" android:gravity="start|center" android:id="@id/text2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+    </LinearLayout>
+</LinearLayout>

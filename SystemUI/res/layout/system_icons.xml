@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:id="@id/system_icons" android:layout_width="wrap_content" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.systemui.statusbar.policy.NetspeedView android:textAppearance="@style/TextAppearance.StatusBar.Clock" android:layout_gravity="center" android:id="@id/networkSpeed" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:importantForAccessibility="no" android:layout_marginEnd="@dimen/netspeed_margin_end" />
+    <com.android.keyguard.AlphaOptimizedLinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/statusIcons" android:layout_width="wrap_content" android:layout_height="fill_parent" />
+    <include android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/signal_cluster_margin_start" layout="@layout/signal_cluster_view" />
+    <TextView android:textSize="@dimen/battery_text_size" android:textColor="@color/batterymeter_text_color" android:layout_gravity="center" android:id="@id/battery_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:importantForAccessibility="no" android:fontFamily="sec-roboto-condensed" android:layout_marginEnd="@dimen/battery_text_margin_end" />
+    <com.android.systemui.BatteryMeterView android:id="@id/battery" android:layout_width="@dimen/status_bar_battery_icon_width" android:layout_height="@dimen/status_bar_battery_icon_height" android:layout_marginBottom="@dimen/battery_margin_bottom" />
+</LinearLayout>

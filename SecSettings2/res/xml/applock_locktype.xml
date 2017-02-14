@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:touchwiz="http://schemas.android.com/apk/res/touchwiz">
+    <Preference android:title="@string/unlock_set_unlock_pattern_title" android:key="applock_locktype_pattern" android:summary="@string/unlock_set_unlock_pattern_summary" />
+    <Preference android:title="@string/unlock_set_unlock_pin_title" android:key="applock_locktype_pin" android:summary="@string/unlock_set_unlock_pin_summary" />
+    <Preference android:title="@string/unlock_set_unlock_password_title" android:key="applock_locktype_password" android:summary="@string/unlock_set_unlock_password_summary" />
+    <Preference android:title="@string/applock_type_fingerprint" android:key="applock_locktype_fingerprint" />
+</PreferenceScreen>

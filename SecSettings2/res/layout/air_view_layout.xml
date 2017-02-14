@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:id="@id/ScrollView01" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+      xmlns:android="http://schemas.android.com/apk/res/android">
+        <TextView android:textSize="@dimen/motions_description_card_summary_text_size" android:textColor="?android:textColorPrimary" android:paddingTop="@dimen/list_item_top_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/pen_air_view_setting_guide" android:singleLine="false" android:lineSpacingExtra="4.0dip" android:fontFamily="sec-roboto-light" android:paddingStart="@dimen/list_item_start_padding" />
+        <include layout="@layout/guide" />
+    </LinearLayout>
+</ScrollView>

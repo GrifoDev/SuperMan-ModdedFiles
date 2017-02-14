@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" style="@style/DialogPopupStyle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingBottom="12.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeight">
+        <TextView android:textSize="17.0sp" android:id="@id/transfer_secondcall" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+        <AutoCompleteTextView android:textSize="17.0sp" android:textColor="#ff000000" android:id="@id/transfer_number" android:visibility="gone" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="12.0dip" android:layout_weight="1.0" android:inputType="phone|textNoSuggestions" android:imeOptions="actionDone" />
+        <ImageButton android:gravity="center" android:id="@id/search_button" android:background="@drawable/sec_incall_button_background" android:visibility="gone" android:layout_width="25.0dip" android:layout_height="25.0dip" android:layout_marginLeft="16.0dip" android:layout_marginRight="20.0dip" android:src="@drawable/call_btn_contacts" />
+    </LinearLayout>
+</LinearLayout>

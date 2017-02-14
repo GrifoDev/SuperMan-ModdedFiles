@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.systemui.tuner.AutoScrollView android:background="@color/system_secondary_color" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/all_details" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="?android:listPreferredItemPaddingStart" android:paddingEnd="?android:listPreferredItemPaddingEnd">
+        <View android:background="@color/qs_tile_divider" android:layout_width="fill_parent" android:layout_height="2.0dip" />
+        <FrameLayout android:id="@id/remove_target" android:layout_width="105.0dip" android:layout_height="@dimen/qs_tile_height" />
+        <FrameLayout android:id="@id/add_target" android:layout_width="105.0dip" android:layout_height="@dimen/qs_tile_height" />
+    </LinearLayout>
+</com.android.systemui.tuner.AutoScrollView>

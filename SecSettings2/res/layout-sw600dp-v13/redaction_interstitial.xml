@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginStart="@dimen/alert_dialog_padding_left_right" android:layout_marginEnd="@dimen/alert_dialog_padding_left_right">
+            <TextView android:textAppearance="?android:textAppearanceMedium" android:id="@id/message" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/lock_screen_dialog_text_top_margin" android:text="@string/lock_screen_notifications_interstitial_message" />
+            <RadioGroup android:id="@id/radio_group" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/redaction_vertical_margins" android:checkedButton="@id/redact_sensitive" android:layout_marginStart="?android:listPreferredItemPaddingStart" android:layout_marginEnd="?android:listPreferredItemPaddingEnd">
+                <com.android.settings.RestrictedRadioButton android:id="@id/show_all" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/redaction_vertical_margins" android:text="@string/lock_screen_notifications_summary_show" style="@style/lock_screen_dialog_list_item_wrapping_style" />
+                <com.android.settings.RestrictedRadioButton android:id="@id/redact_sensitive" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/redaction_vertical_margins" android:text="@string/lock_screen_notifications_summary_hide" style="@style/lock_screen_dialog_list_item_wrapping_style" />
+                <RadioButton android:id="@id/hide_all" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/redaction_vertical_margins" android:text="@string/lock_screen_notifications_summary_disable" style="@style/lock_screen_dialog_list_item_wrapping_style" />
+            </RadioGroup>
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout android:orientation="horizontal" style="@style/dialog_button_area_container">
+        <Button android:id="@id/button_done" android:text="@string/done_button" style="@style/dialog_button_area" />
+    </LinearLayout>
+</LinearLayout>

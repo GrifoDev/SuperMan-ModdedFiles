@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:gravity="bottom|center" android:id="@id/photoring" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_alignParentBottom="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/image_viewer" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="fitCenter" />
+    <LinearLayout android:gravity="bottom|center" android:id="@id/video_background" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <VideoView android:gravity="center" android:id="@id/video_viewer" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    </LinearLayout>
+    <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ImageView android:layout_gravity="top" android:id="@id/photoring_blending_top" android:background="@drawable/photoring_blending_top" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/mcid_blending_image_top_height" />
+        <ImageView android:layout_gravity="bottom" android:id="@id/photoring_blending_bottom" android:background="@drawable/photoring_blending_bottom" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/mcid_blending_image_bottom_height" />
+    </FrameLayout>
+    <FrameLayout android:layout_gravity="bottom" android:id="@id/photoring_blending_button_background" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/mcid_blending_image_bottom_height" android:layout_marginBottom="@dimen/mcid_blending_button_margin_bottom">
+        <ImageView android:layout_gravity="bottom|center" android:id="@id/photoring_blending_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/voicecall_btn_expander_close" />
+    </FrameLayout>
+    <ImageView android:layout_gravity="right" android:id="@id/photoring_block" android:visibility="gone" android:layout_width="@dimen/mcid_block_icon_size" android:layout_height="@dimen/mcid_block_icon_size" android:layout_marginTop="@dimen/mcid_block_icon_margin_top" android:layout_marginRight="@dimen/mcid_block_icon_margin_right" android:src="@drawable/call_lgu_shut_off" />
+    <ImageView android:layout_gravity="right" android:id="@id/photoring_sound" android:background="@drawable/call_lgu_sound_bg" android:visibility="gone" android:layout_width="@dimen/mcid_block_icon_size" android:layout_height="@dimen/mcid_block_icon_size" android:layout_marginTop="@dimen/mcid_sound_icon_margin_top" android:layout_marginRight="@dimen/mcid_block_icon_margin_right" android:src="@drawable/call_lgu_sound_off" />
+</FrameLayout>

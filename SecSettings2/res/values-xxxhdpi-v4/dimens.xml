@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="add_button_margine_right">36.0dip</dimen>
+    <dimen name="bottom_btn_font_size">16.0sp</dimen>
+    <dimen name="bottom_btn_layout_margin_top">0.0dip</dimen>
+    <dimen name="bottom_button_divider_width">5.0px</dimen>
+    <dimen name="bottom_button_height">56.0dip</dimen>
+    <dimen name="brightness_icon_inner_circle_size">25.299988px</dimen>
+    <dimen name="custom_title_appname_margin_left">10.0dip</dimen>
+    <dimen name="custom_title_heading_font_size">20.0sp</dimen>
+    <dimen name="custom_title_height">158.0dip</dimen>
+    <dimen name="custom_title_margin_left">30.0dip</dimen>
+    <dimen name="custom_title_margin_right">10.0dip</dimen>
+    <dimen name="custom_title_margin_top">0.0dip</dimen>
+    <dimen name="list_divider_height">2.0px</dimen>
+    <dimen name="lock_app_shortcut_item_higth">112.0dip</dimen>
+    <dimen name="lock_app_shortcut_item_image_bottom_margin">8.0dip</dimen>
+    <dimen name="lock_app_shortcut_item_image_hight">53.0dip</dimen>
+    <dimen name="lock_app_shortcut_item_image_top_margin">15.0dip</dimen>
+    <dimen name="lock_app_shortcut_item_image_widht">53.0dip</dimen>
+    <dimen name="lock_app_shortcut_item_text_size">14.0dip</dimen>
+    <dimen name="lock_app_shortcut_item_width">79.0dip</dimen>
+    <dimen name="margin_between_button_and_arrow">6.0dip</dimen>
+    <dimen name="screen_description_font_size">17.0sp</dimen>
+    <dimen name="softbutton_margin_left">34.0dip</dimen>
+    <dimen name="softbutton_margin_middle">6.0dip</dimen>
+    <dimen name="softbutton_margin_right">34.0dip</dimen>
+    <dimen name="step_indicator_font_size">15.0sp</dimen>
+    <dimen name="subtitle_font_size">24.0sp</dimen>
+    <dimen name="subtitle_margin_bottom">20.0dip</dimen>
+    <dimen name="subtitle_margin_left">40.0dip</dimen>
+    <dimen name="subtitle_margin_right">16.0dip</dimen>
+    <dimen name="subtitle_margin_top">16.0dip</dimen>
+    <dimen name="vzw_subtitle_bar_elevation">3.0dip</dimen>
+    <dimen name="vzw_wifi_vi_effect_height">40.0dip</dimen>
+    <dimen name="vzw_wifi_vi_effect_marginBottom">68.0dip</dimen>
+    <dimen name="vzw_wifi_vi_effect_marginEnd">24.0dip</dimen>
+    <dimen name="vzw_wifi_vi_effect_width">50.0dip</dimen>
+    <dimen name="wifi_ap_dialog_edit_margin_left">-3.0dip</dimen>
+    <dimen name="wifi_description_text_margin_top">16.0sp</dimen>
+    <dimen name="wifi_fragment_margin_left">16.0dip</dimen>
+    <dimen name="wifi_fragment_margin_right">16.0dip</dimen>
+    <dimen name="wifi_fragment_margin_top">12.0dip</dimen>
+    <item type="dimen" name="personal_vibration_big_o_val_offset">168.0</item>
+    <item type="dimen" name="personal_vibration_niddle_width">2.0</item>
+    <item type="dimen" name="personal_vibration_small_o_val_offset">118.0</item>
+    <item type="dimen" name="personal_vibration_thickness">100.0</item>
+    <dimen name="custom_title_icon_width">180.0dip</dimen>
+    <dimen name="custom_title_icon_height">134.0dip</dimen>
+    <dimen name="custom_title_divider_line_height">1.0dip</dimen>
+    <dimen name="ssw_welcome_page_title_top_margin">80.0dip</dimen>
+</resources>

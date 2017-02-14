@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/bottomButtons" android:background="@color/button_background_color" android:padding="0.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="0.0dip" android:layout_alignParentBottom="true" android:animateLayoutChanges="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="bottom|center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:baselineAligned="false">
+        <ToggleButton android:id="@id/audioButton" android:background="@drawable/btn_compound_audio" android:contentDescription="@string/audio_mode_speaker" style="@style/InCallCompoundButton" />
+        <ToggleButton android:id="@id/muteButton" android:background="@drawable/btn_compound_mute" android:contentDescription="@string/onscreenMuteText_unselected" style="@style/InCallCompoundButton" />
+        <ToggleButton android:id="@id/dialpadButton" android:background="@drawable/btn_compound_dialpad" android:contentDescription="@string/onscreenShowDialpadText_unselected" style="@style/InCallCompoundButton" />
+        <ToggleButton android:id="@id/holdButton" android:background="@drawable/btn_compound_hold" android:contentDescription="@string/onscreenHoldText_unselected" style="@style/InCallCompoundButton" />
+        <ImageButton android:id="@id/swapButton" android:background="@drawable/btn_swap" android:visibility="gone" android:contentDescription="@string/onscreenSwapCallsText" style="@style/InCallButton" />
+        <ImageButton android:id="@id/changeToVideoButton" android:background="@drawable/btn_change_to_video" android:visibility="gone" android:contentDescription="@string/onscreenVideoCallText" style="@style/InCallButton" />
+        <ToggleButton android:id="@id/switchCameraButton" android:background="@drawable/btn_compound_video_switch" android:visibility="gone" android:contentDescription="@string/onscreenSwitchCameraText" style="@style/InCallCompoundButton" />
+        <ToggleButton android:id="@id/pauseVideoButton" android:background="@drawable/btn_compound_video_off" android:visibility="gone" android:contentDescription="@string/onscreenPauseVideoText" style="@style/InCallCompoundButton" />
+        <ImageButton android:id="@id/changeToVoiceButton" android:background="@drawable/btn_change_to_voice" android:visibility="gone" android:contentDescription="@string/onscreenChangeToVoiceText" style="@style/InCallButton" />
+        <ImageButton android:id="@id/addButton" android:background="@drawable/btn_add" android:visibility="gone" android:contentDescription="@string/onscreenAddCallText" style="@style/InCallButton" />
+        <ImageButton android:id="@id/mergeButton" android:background="@drawable/btn_merge" android:visibility="gone" android:contentDescription="@string/onscreenMergeCallsText" style="@style/InCallButton" />
+        <ImageButton android:id="@id/overflowButton" android:background="@drawable/btn_overflow" android:visibility="gone" android:contentDescription="@string/onscreenOverflowText" style="@style/InCallButton" />
+        <ImageButton android:id="@id/manageVideoCallConferenceButton" android:background="@drawable/ic_group_white_24dp" android:visibility="gone" android:contentDescription="@string/onscreenManageConferenceText" style="@style/InCallButton" />
+    </LinearLayout>
+</LinearLayout>

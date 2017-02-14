@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="screen_timeout_entries">
+        <item>15 सेकेन्ड</item>
+        <item>30 सेकेन्ड</item>
+        <item>1 मिनट</item>
+        <item>2 मिनट</item>
+        <item>5 मिनट</item>
+        <item>10 मिनट</item>
+        <item>30 मिनट</item>
+    </string-array>
+    <string-array name="screen_timeout_for_device_lock_entries">
+        <item>15 सेकेन्ड</item>
+        <item>30 सेकेन्ड</item>
+        <item>1 मिनट</item>
+        <item>3 मिनट</item>
+        <item>5 मिनट</item>
+        <item>10 मिनट</item>
+        <item>15 मिनट</item>
+        <item>30 मिनट</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>तत्काल पावर कुञ्जीसंग वा जब स्क्रीन समयावधि सकिन्छ</item>
+        <item>15 सेकेन्ड</item>
+        <item>30 सेकेन्ड</item>
+        <item>1 मिनट</item>
+        <item>3 मिनट</item>
+        <item>5 मिनट</item>
+        <item>10 मिनट</item>
+        <item>15 मिनट</item>
+        <item>30 मिनट</item>
+        <item>1 घण्टा</item>
+    </string-array>
+    <string-array name="lock_after_timeout_entries">
+        <item>तुरन्तै</item>
+        <item>5 सेकेन्ड</item>
+        <item>15 सेकेन्ड</item>
+        <item>30 सेकेन्ड</item>
+        <item>1 मिनट</item>
+        <item>2 मिनट</item>
+        <item>5 मिनट</item>
+        <item>10 मिनट</item>
+        <item>30 मिनट</item>
+    </string-array>
+    <string-array name="wifi_ap_security_testmode">
+        <item>खोल्नुहोस्</item>
+        <item>WPA2 PSK</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>जडान गरिएको छ</item>
+        <item>निमन्त्रित।</item>
+        <item>जडान असफल भयो</item>
+        <item>जडान गर्नको लागि यहाँ ट्याप गर्नुहोस्।</item>
+        <item>क्षेत्र बाहिर।</item>
+        <item>अर्को डिभाइससंग जोडिएको छ</item>
+    </string-array>
+    <string-array name="wifi_ap_wifi_sharing">
+        <item>Wi-Fi साझेदारी सक्षम गर्नुहोस्</item>
+        <item>Wi-Fi साझेदारी अक्षम गर्नुहोस्</item>
+    </string-array>
+    <string-array name="wifi_ap_timeout">
+        <item>काल-समापन कहिल्यै नगर्नुहोस्</item>
+        <item>5 मिनट</item>
+        <item>10 मिनट</item>
+        <item>20 मिनट</item>
+        <item>30 मिनट</item>
+        <item>60 मिनट</item>
+    </string-array>
+    <string-array name="wifi_ap_channel">
+        <item>स्‍वचालित</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+    </string-array>
+    <string-array name="wifi_signal">
+        <item>कमजोर</item>
+        <item>सुन्दर</item>
+        <item>राम्रो</item>
+        <item>शक्तिशाली</item>
+        <item>निकै शक्तिशाली</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_entries">
+        <item>"सधैं
+(बैटरी खपत बढाउँछ)"</item>
+        <item>चार्जिङ गरिरहेको बेला</item>
+        <item>"कहिल्यै पनि
+(डाटा प्रयोग बढाउँदैन)"</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_entries_wifi_only">
+        <item>"सधैं
+(बैटरी खपत बढाउँछ)"</item>
+        <item>चार्जिङ गरिरहेको बेला</item>
+        <item>कहिल्यै नहुने</item>
+    </string-array>
+    <string-array name="wifi_peap_phase2_entries">
+        <item>शून्‍य</item>
+        <item>MSCHAPV2</item>
+        <item>GTC</item>
+    </string-array>
+    <string-array name="wifi_ip_settings">
+        <item>DHCP</item>
+        <item>स्‍थिर</item>
+    </string-array>
+    <string-array name="wifi_proxy_settings">
+        <item>शून्‍य</item>
+        <item>हस्तचालित</item>
+        <item>स्वतः-कन्फिगरेसन</item>
+    </string-array>
+    <string-array name="apn_auth_entries">
+        <item>शून्‍य</item>
+        <item>PAP</item>
+        <item>CHAP</item>
+        <item>PAP or CHAP</item>
+    </string-array>
+    <string-array name="bearer_entries">
+        <item>अनिर्दिष्ट</item>
+        <item>LTE</item>
+        <item>HSPAP</item>
+        <item>HSPA</item>
+        <item>HSUPA</item>
+        <item>HSDPA</item>
+        <item>UMTS</item>
+        <item>EDGE</item>
+        <item>GPRS</item>
+        <item>eHRPD</item>
+        <item>EVDO_B</item>
+        <item>EVDO_A</item>
+        <item>EVDO_0</item>
+        <item>1xRTT</item>
+        <item>IS95B</item>
+        <item>IS95A</item>
+    </string-array>
+    <string-array name="mvno_type_entries">
+        <item>शून्‍य</item>
+        <item>SPN</item>
+        <item>IMSI</item>
+        <item>GID</item>
+    </string-array>
+    <string-array name="captioning_typeface_selector_titles">
+        <item>पूर्वनिर्धारित</item>
+        <item>स्यान्स सेरिफ</item>
+        <item>स्यान्स सेरिफ कन्डेन्सड</item>
+        <item>स्यान्स सेरिफ मोनोस्पेस</item>
+        <item>सेरिफ</item>
+        <item>सेरिफ मोनोस्पेस</item>
+        <item>अनौपचारिक</item>
+        <item>कर्सिभ</item>
+        <item>साना क्याप्स</item>
+    </string-array>
+    <string-array name="captioning_font_size_selector_titles">
+        <item>धेरै सानो</item>
+        <item>सानो</item>
+        <item>सामान्य</item>
+        <item>ठूलो</item>
+        <item>अति ठूलो</item>
+    </string-array>
+    <string-array name="captioning_edge_type_selector_titles">
+        <item>पूर्वनिर्धारित</item>
+        <item>शून्‍य</item>
+        <item>रूपरेखा</item>
+        <item>छाँया ड्रप गर्नुहोस्</item>
+        <item>उठाइएको</item>
+        <item>दबाइएको</item>
+    </string-array>
+    <string-array name="captioning_preset_selector_titles">
+        <item>पूर्वनिर्धारित</item>
+        <item>कालोमा सेतो</item>
+        <item>सेतोमा कालो</item>
+        <item>कालोमा पहेंलो</item>
+        <item>नीलोमा पहेंलो</item>
+        <item>कस्टम</item>
+    </string-array>
+    <string-array name="vpn_states">
+        <item>जोडन विच्छेद भयो</item>
+        <item>चालू गरिँदै छ…</item>
+        <item>जोडिँदै छ…</item>
+        <item>जडान गरिएको छ</item>
+        <item>टाइमाउट</item>
+        <item>असफल</item>
+    </string-array>
+    <string-array name="long_press_timeout_titles_selector">
+        <item>छोटो (0.5 सेकेन्ड)</item>
+        <item>मध्यम (1.0 सेकेन्ड)</item>
+        <item>लामो (1.5 सेकेन्ड)</item>
+        <item>कस्टम</item>
+    </string-array>
+    <string-array name="time_interval_entries_selectable">
+        <item>1 मिनट</item>
+        <item>3 मिनट</item>
+        <item>5 मिनट</item>
+        <item>10 मिनट</item>
+        <item>15 मिनट</item>
+    </string-array>
+    <string-array name="wifi_connect_entries">
+        <item>स्वचालित</item>
+        <item>हस्तचालित</item>
+        <item>सधैं सोध्नुहोस्</item>
+    </string-array>
+    <string-array name="touch_key_light_entries">
+        <item>1.5 सेकेन्ड</item>
+        <item>6 सेकेन्ड</item>
+        <item>सधैं अफ गर्ने</item>
+        <item>सधैं अन गर्ने</item>
+    </string-array>
+</resources>

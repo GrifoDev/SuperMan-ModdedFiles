@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<crystalinfo>
+    <crystal title="home_screen_mode_only_home" description="labs_alert_description" image="labs_homeapps" intent="com.samsung.android.action.homemodechange" remove="CHC,CTC,CHU,CHM,SKC,KTC,LUC,SKO,KTO,LUO,KOO" />
+</crystalinfo>

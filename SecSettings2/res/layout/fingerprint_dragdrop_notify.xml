@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:background="@android:color/transparent" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:background="@drawable/fingerprint_shape_notify" android:layout_width="fill_parent" android:layout_height="fill_parent" android:elevation="@dimen/fingerprint_drag_drop_content_elevation">
+        <TextView android:textSize="@dimen/fingerprint_drag_drop_content_text_size" android:textColor="@color/fingerprint_drag_drop_notify_textcolor" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/fingerprint_mainmenu_huntip_message" android:paddingStart="@dimen/fingerprint_drag_drop_content_left_padding" android:paddingEnd="@dimen/fingerprint_drag_drop_content_right_padding" />
+    </LinearLayout>
+</LinearLayout>

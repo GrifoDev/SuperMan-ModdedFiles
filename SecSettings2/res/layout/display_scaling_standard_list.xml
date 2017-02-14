@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="@dimen/standard_list_padding_start"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/camera_layout" android:layout_width="fill_parent" android:layout_height="@dimen/list_size_standard">
+        <ImageView android:layout_gravity="center" android:id="@id/icon_camera" android:layout_width="@dimen/list_app_icon_size" android:layout_height="@dimen/list_app_icon_size" />
+        <TextView android:textSize="@dimen/standard_text_size" android:ellipsize="marquee" android:id="@id/title_camera" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/application_name_camera" android:singleLine="true" android:paddingStart="@dimen/list_item_inner_padding" style="@style/TextAppearance.DisplayScale.AppName" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/contacts_layout" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" android:layout_marginStart="@dimen/list_radio_button_divier_margin_start" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="@dimen/list_size_standard">
+            <ImageView android:layout_gravity="center" android:id="@id/icon_contacts" android:layout_width="@dimen/list_app_icon_size" android:layout_height="@dimen/list_app_icon_size" />
+            <TextView android:textSize="@dimen/standard_text_size" android:ellipsize="marquee" android:id="@id/title_contacts" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/sync_contacts" android:singleLine="true" android:paddingStart="@dimen/list_item_inner_padding" style="@style/TextAppearance.DisplayScale.AppName" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/email_layout" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" android:layout_marginStart="@dimen/list_radio_button_divier_margin_start" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="@dimen/list_size_standard">
+            <ImageView android:layout_gravity="center" android:id="@id/icon_email" android:layout_width="@dimen/list_app_icon_size" android:layout_height="@dimen/list_app_icon_size" />
+            <TextView android:textSize="@dimen/standard_text_size" android:ellipsize="marquee" android:id="@id/title_email" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/application_name_email" android:singleLine="true" android:paddingStart="@dimen/list_item_inner_padding" style="@style/TextAppearance.DisplayScale.AppName" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/gallery_layout" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" android:layout_marginStart="@dimen/list_radio_button_divier_margin_start" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="@dimen/list_size_standard">
+            <ImageView android:layout_gravity="center" android:id="@id/icon_gallery" android:layout_width="@dimen/list_app_icon_size" android:layout_height="@dimen/list_app_icon_size" />
+            <TextView android:textSize="@dimen/standard_text_size" android:ellipsize="marquee" android:id="@id/title_gallery" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/application_name_gallery" android:singleLine="true" android:paddingStart="@dimen/list_item_inner_padding" style="@style/TextAppearance.DisplayScale.AppName" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/internet_layout" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" android:layout_marginStart="@dimen/list_radio_button_divier_margin_start" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="@dimen/list_size_standard">
+            <ImageView android:layout_gravity="center" android:id="@id/icon_internet" android:layout_width="@dimen/list_app_icon_size" android:layout_height="@dimen/list_app_icon_size" />
+            <TextView android:textSize="@dimen/standard_text_size" android:ellipsize="marquee" android:id="@id/title_internet" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/application_name_internet" android:singleLine="true" android:paddingStart="@dimen/list_item_inner_padding" style="@style/TextAppearance.DisplayScale.AppName" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/messages_layout" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" android:layout_marginStart="@dimen/list_radio_button_divier_margin_start" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="@dimen/list_size_standard">
+            <ImageView android:layout_gravity="center" android:id="@id/icon_messages" android:layout_width="@dimen/list_app_icon_size" android:layout_height="@dimen/list_app_icon_size" />
+            <TextView android:textSize="@dimen/standard_text_size" android:ellipsize="marquee" android:id="@id/title_messages" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/application_name_message" android:singleLine="true" android:paddingStart="@dimen/list_item_inner_padding" style="@style/TextAppearance.DisplayScale.AppName" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/music_layout" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" android:layout_marginStart="@dimen/list_radio_button_divier_margin_start" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="@dimen/list_size_standard">
+            <ImageView android:layout_gravity="center" android:id="@id/icon_music" android:layout_width="@dimen/list_app_icon_size" android:layout_height="@dimen/list_app_icon_size" />
+            <TextView android:textSize="@dimen/standard_text_size" android:ellipsize="marquee" android:id="@id/title_music" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/application_name_music" android:singleLine="true" android:paddingStart="@dimen/list_item_inner_padding" style="@style/TextAppearance.DisplayScale.AppName" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/calendar_layout" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" android:layout_marginStart="@dimen/list_radio_button_divier_margin_start" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="@dimen/list_size_standard">
+            <ImageView android:layout_gravity="center" android:id="@id/icon_calendar" android:layout_width="@dimen/list_app_icon_size" android:layout_height="@dimen/list_app_icon_size" />
+            <TextView android:textSize="@dimen/standard_text_size" android:ellipsize="marquee" android:id="@id/title_calendar" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/application_name_splanner" android:singleLine="true" android:paddingStart="@dimen/list_item_inner_padding" style="@style/TextAppearance.DisplayScale.AppName" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/s_voice_layout" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" android:layout_marginStart="@dimen/list_radio_button_divier_margin_start" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="@dimen/list_size_standard">
+            <ImageView android:layout_gravity="center" android:id="@id/icon_s_voice" android:layout_width="@dimen/list_app_icon_size" android:layout_height="@dimen/list_app_icon_size" />
+            <TextView android:textSize="@dimen/standard_text_size" android:ellipsize="marquee" android:id="@id/title_s_voice" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/application_name_svoice" android:singleLine="true" android:paddingStart="@dimen/list_item_inner_padding" style="@style/TextAppearance.DisplayScale.AppName" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/weather_layout" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" android:layout_marginStart="@dimen/list_radio_button_divier_margin_start" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="@dimen/list_size_standard">
+            <ImageView android:layout_gravity="center" android:id="@id/icon_weather" android:layout_width="@dimen/list_app_icon_size" android:layout_height="@dimen/list_app_icon_size" />
+            <TextView android:textSize="@dimen/standard_text_size" android:ellipsize="marquee" android:id="@id/title_weather" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/lock_screen_menu_weather" android:singleLine="true" android:paddingStart="@dimen/list_item_inner_padding" style="@style/TextAppearance.DisplayScale.AppName" />
+        </LinearLayout>
+    </LinearLayout>
+    <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" android:layout_marginStart="@dimen/list_radio_button_divier_margin_start" />
+</LinearLayout>

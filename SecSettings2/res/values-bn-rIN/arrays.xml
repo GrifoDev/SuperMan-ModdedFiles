@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="screen_timeout_entries">
+        <item>15 সেকেন্ড</item>
+        <item>30 সেকেন্ড</item>
+        <item>1 মিনিট</item>
+        <item>2 মিনিট</item>
+        <item>5 মিনিট</item>
+        <item>10 মিনিট</item>
+        <item>30 মিনিট</item>
+    </string-array>
+    <string-array name="screen_timeout_for_device_lock_entries">
+        <item>15 সেকেন্ড</item>
+        <item>30 সেকেন্ড</item>
+        <item>1 মিনিট</item>
+        <item>3 মিনিট</item>
+        <item>5 মিনিট</item>
+        <item>10 মিনিট</item>
+        <item>15 মিনিট</item>
+        <item>30 মিনিট</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>পাওয়ার কী দিয়ে সঙ্গে সঙ্গে বা যখন স্ক্রিন সময়সীমা শেষ হয়</item>
+        <item>15 সেকেন্ড</item>
+        <item>30 সেকেন্ড</item>
+        <item>1 মিনিট</item>
+        <item>3 মিনিট</item>
+        <item>5 মিনিট</item>
+        <item>10 মিনিট</item>
+        <item>15 মিনিট</item>
+        <item>30 মিনিট</item>
+        <item>1 ঘন্টা</item>
+    </string-array>
+    <string-array name="lock_after_timeout_entries">
+        <item>এখনই</item>
+        <item>5 সেকেন্ড</item>
+        <item>15 সেকেন্ড</item>
+        <item>30 সেকেন্ড</item>
+        <item>1 মিনিট</item>
+        <item>2 মিনিট</item>
+        <item>5 মিনিট</item>
+        <item>10 মিনিট</item>
+        <item>30 মিনিট</item>
+    </string-array>
+    <string-array name="wifi_ap_security_testmode">
+        <item>খোলা</item>
+        <item>WPA2 PSK</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>সংযুক্ত</item>
+        <item>আমন্ত্রিত।</item>
+        <item>সংযোগ ব্যর্থ</item>
+        <item>সংযোগ করতে এখানে ট্যাপ করুন।</item>
+        <item>সীমার বাইরে।</item>
+        <item>অন্য একটি ডিভাইসের সাথে সংযুক্ত</item>
+    </string-array>
+    <string-array name="wifi_ap_wifi_sharing">
+        <item>Wi-Fi শেয়ারিং সক্ষম করুন</item>
+        <item>Wi-Fi শেয়ারিং অক্ষম করুন</item>
+    </string-array>
+    <string-array name="wifi_ap_timeout">
+        <item>সময় সমাপ্তি কখনও নয়</item>
+        <item>5 মিনিট</item>
+        <item>10 মিনিট</item>
+        <item>20 মিনিট</item>
+        <item>30 মিনিট</item>
+        <item>60 মিনিট</item>
+    </string-array>
+    <string-array name="wifi_ap_channel">
+        <item>স্বতঃ</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+    </string-array>
+    <string-array name="wifi_signal">
+        <item>দূর্বল</item>
+        <item>ভাল</item>
+        <item>ভালো</item>
+        <item>শক্তিশালী</item>
+        <item>অত্যন্ত শক্তিশালী</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_entries">
+        <item>"সর্বদা
+(ব্যাটারি অপচয় বৃদ্ধি করে)"</item>
+        <item>চার্জ করার সময়</item>
+        <item>"কখনও না
+(তথ্য ব্যবহার বৃদ্ধি পায় না)"</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_entries_wifi_only">
+        <item>"সর্বদা
+(ব্যাটারি অপচয় বৃদ্ধি করে)"</item>
+        <item>চার্জ করার সময়</item>
+        <item>কখনো না</item>
+    </string-array>
+    <string-array name="wifi_peap_phase2_entries">
+        <item>কিছু না</item>
+        <item>MSCHAPV2</item>
+        <item>GTC</item>
+    </string-array>
+    <string-array name="wifi_ip_settings">
+        <item>DHCP</item>
+        <item>নিশ্চল</item>
+    </string-array>
+    <string-array name="wifi_proxy_settings">
+        <item>কিছু না</item>
+        <item>ম্যানুয়াল</item>
+        <item>স্বতঃ-কনফিগার</item>
+    </string-array>
+    <string-array name="apn_auth_entries">
+        <item>কিছু না</item>
+        <item>PAP</item>
+        <item>CHAP</item>
+        <item>PAP অথবা CHAP</item>
+    </string-array>
+    <string-array name="bearer_entries">
+        <item>অনির্দিষ্ট</item>
+        <item>LTE</item>
+        <item>HSPAP</item>
+        <item>HSPA</item>
+        <item>HSUPA</item>
+        <item>HSDPA</item>
+        <item>UMTS</item>
+        <item>EDGE</item>
+        <item>GPRS</item>
+        <item>eHRPD</item>
+        <item>EVDO_B</item>
+        <item>EVDO_A</item>
+        <item>EVDO_0</item>
+        <item>1xRTT</item>
+        <item>IS95B</item>
+        <item>IS95A</item>
+    </string-array>
+    <string-array name="mvno_type_entries">
+        <item>কিছু না</item>
+        <item>SPN</item>
+        <item>IMSI</item>
+        <item>GID</item>
+    </string-array>
+    <string-array name="captioning_typeface_selector_titles">
+        <item>ডিফল্ট</item>
+        <item>সান্স সেরিফ</item>
+        <item>সান্স সেরিফ কন্ডেন্সড</item>
+        <item>স্যান্স সেরিফ মোনোস্পেস</item>
+        <item>সেরিফ</item>
+        <item>সেরিফ মোনোস্পেস</item>
+        <item>ক্যাজুয়াল</item>
+        <item>টানা-লেখা</item>
+        <item>ছোট হাতের অক্ষর</item>
+    </string-array>
+    <string-array name="captioning_font_size_selector_titles">
+        <item>অত্যন্ত ছোট</item>
+        <item>ছোট</item>
+        <item>সাধারণ</item>
+        <item>বড়</item>
+        <item>অত্যন্ত বড়</item>
+    </string-array>
+    <string-array name="captioning_edge_type_selector_titles">
+        <item>ডিফল্ট</item>
+        <item>কিছু না</item>
+        <item>বহিঃসীমা</item>
+        <item>ছায়া ছাড়ুন</item>
+        <item>বাড়ানো হয়েছে</item>
+        <item>অস্পষ্ট</item>
+    </string-array>
+    <string-array name="captioning_preset_selector_titles">
+        <item>ডিফল্ট</item>
+        <item>কালোতে সাদা</item>
+        <item>সাদাতে কালো</item>
+        <item>কালোতে হলুদ</item>
+        <item>নীলে হলুদ</item>
+        <item>রীতি</item>
+    </string-array>
+    <string-array name="vpn_states">
+        <item>সংযোগ বিচ্ছিন্ন</item>
+        <item>আরম্ভ হচ্ছে….</item>
+        <item>সংযোগ হচ্ছে…</item>
+        <item>সংযুক্ত</item>
+        <item>সময়সীমা সমাপ্ত</item>
+        <item>অসফল</item>
+    </string-array>
+    <string-array name="long_press_timeout_titles_selector">
+        <item>সংক্ষিপ্ত (0.5 সেকেন্ড)</item>
+        <item>মাঝারি (1.0 সেকেন্ড)</item>
+        <item>দীর্ঘ (1.5 সেকেন্ড)</item>
+        <item>রীতি</item>
+    </string-array>
+    <string-array name="time_interval_entries_selectable">
+        <item>1 মিনিট</item>
+        <item>3 মিনিট</item>
+        <item>5 মিনিট</item>
+        <item>10 মিনিট</item>
+        <item>15 মিনিট</item>
+    </string-array>
+    <string-array name="wifi_connect_entries">
+        <item>স্বয়ংক্রিয়</item>
+        <item>ম্যানুয়াল</item>
+        <item>সর্বদা জিজ্ঞাসা করুন</item>
+    </string-array>
+    <string-array name="touch_key_light_entries">
+        <item>1.5 সেকেন্ড</item>
+        <item>6 সেকেন্ড</item>
+        <item>সর্বদা বন্ধ</item>
+        <item>সর্বদা চালু</item>
+    </string-array>
+</resources>

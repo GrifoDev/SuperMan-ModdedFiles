@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set>
+    <objectAnimator android:interpolator="@android:anim/accelerate_interpolator" android:duration="360" android:valueFrom="0" android:valueTo="1" android:propertyName="alpha"
+      xmlns:android="http://schemas.android.com/apk/res/android" />
+</set>

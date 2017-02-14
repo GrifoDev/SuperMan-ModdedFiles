@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-selector android:constantSize="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="false">
+        <bitmap android:gravity="center" android:src="@drawable/scrubber_control_to_pressed_mtrl_000" android:tint="@color/brightness_controller_seekbar_color_disabled_thumb" />
+    </item>
+    <item android:state_pressed="true" android:id="@id/pressed">
+        <bitmap android:gravity="center" android:src="@drawable/scrubber_control_to_pressed_mtrl_005" android:tint="@color/brightness_controller_seekbar_color_activated_thumb" />
+    </item>
+    <item android:id="@id/not_pressed">
+        <bitmap android:gravity="center" android:src="@drawable/scrubber_control_to_pressed_mtrl_000" android:tint="@color/brightness_controller_seekbar_color_thumb" />
+    </item>
+</animated-selector>

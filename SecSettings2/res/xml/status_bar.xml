@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/status_bar" settings:keywords="@string/keywords_display"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <SwitchPreference android:persistent="false" android:title="@string/recent_notification_status_bar_title" android:key="recent_notification_status_bar" android:summary="@string/recent_notification_status_bar_summary" />
+    <SwitchPreference android:persistent="false" android:title="@string/display_battery_percentage" android:key="display_battery_percent" />
+    <SwitchPreference android:title="@string/real_time_network_speed_title" android:key="network_speed" android:summary="@string/real_time_network_speed_summary" />
+</PreferenceScreen>

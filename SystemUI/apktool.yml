@@ -1,0 +1,46 @@
+!!brut.androlib.meta.MetaInfo
+apkFileName: SystemUI.apk
+compressionType: false
+doNotCompress:
+- arsc
+- qio
+- qmg
+- res/drawable-xhdpi-v4/lb_card_shadow_focused.9.qmg
+- res/drawable-xhdpi-v4/lb_card_shadow_normal.9.qmg
+- pio
+- res/drawable-xxhdpi-v4/abc_menu_hardkey_panel_mtrl_mult.9.qmg
+- res/drawable-xxhdpi-v4/abc_popup_background_mtrl_mult.9.qmg
+- res/drawable-xxhdpi-v4/ic_call_lock_pressed.9.qmg
+- res/drawable-xxhdpi-v4/ic_email_lock_normal.9.qmg
+- res/drawable-xxhdpi-v4/ic_email_lock_pressed.9.qmg
+- res/drawable-xxhdpi-v4/ic_notification_overlay.9.qmg
+- res/drawable-xxhdpi-v4/lb_in_app_search_shadow_focused.9.qmg
+- res/drawable-xxhdpi-v4/lb_in_app_search_shadow_normal.9.qmg
+- res/drawable-xxhdpi-v4/recents_task_shadow.9.qmg
+- res/drawable-xxhdpi-v4/screenshot_panel.9.qmg
+- webp
+- res/drawable-xxxhdpi-v4/abc_btn_switch_to_on_mtrl_00001.9.qmg
+- res/drawable-xxxhdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.qmg
+- res/drawable-xxxhdpi-v4/abc_switch_track_mtrl_alpha.9.qmg
+- res/drawable-xxxhdpi-v4/tw_toast_frame_mtrl.9.qmg
+isFrameworkApk: false
+packageInfo:
+  forcedPackageId: '127'
+  renameManifestPackage: null
+sdkInfo:
+  minSdkVersion: '24'
+  targetSdkVersion: '24'
+sharedLibrary: false
+unknownFiles:
+  SEC-INF/buildConfirm.crt: '8'
+  SEC-INF/buildinfo.xml: '8'
+  mockito-extensions/org.mockito.plugins.MockMaker: '8'
+  mockito-extensions/org.mockito.plugins.StackTraceCleanerProvider: '8'
+usesFramework:
+  ids:
+  - 1
+  tag: null
+version: 2.2.2
+versionInfo:
+  versionCode: '24'
+  versionName: '7.0'

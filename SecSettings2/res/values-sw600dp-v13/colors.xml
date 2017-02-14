@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="highlight_text_color">#ff499ebd</color>
+    <color name="switchbar_background_color">#ffeeeeee</color>
+    <color name="actionbar_text_color">#ff252525</color>
+    <color name="alert_dialog_text_color">#ff252525</color>
+    <color name="auto_brightness_checkbox_text_color">#ff545454</color>
+    <color name="battery_chart_second_text_color">#ff929292</color>
+    <color name="bluetooth_device_title_text_color_scandialog">#ff252525</color>
+    <color name="bluetooth_is_visible_message_text_color_scandialog">#ff252525</color>
+    <color name="bluetooth_no_nearby_text_color">#ff499ebd</color>
+    <color name="bluetooth_no_nearby_help_text_color">#7f252525</color>
+    <color name="bluetooth_no_nearby_dialog_text_color">#ff252525</color>
+    <color name="bluetooth_no_nearby_dialog_help_text_color">#ff979797</color>
+    <color name="bluetooth_progress_category_text_color_scandialog">#ff838383</color>
+    <color name="bottom_bar_button_text_color">#ff499ebd</color>
+    <color name="bt_pairing_dialog_body_text_color">#ff252525</color>
+    <color name="custom_tap_and_hold_sec">#ff00a5c4</color>
+    <color name="dashboard_category_text_view_background_color">#ffe2e2e2</color>
+    <color name="dashboard_category_text_view_text_color">#ff7d7d7d</color>
+    <color name="dashboard_icon_color">#fffafafa</color>
+    <color name="dashboard_tab_bg_color">#fff6f6f6</color>
+    <color name="dialog_body_text_color">#ff252525</color>
+    <color name="fingerprint_paypal_main_text_color">#ff252525</color>
+    <color name="fingerprint_setup_wizard_next_arrow_color">#de000000</color>
+    <color name="ic_list_item_config_normal_color">#ff56c0e5</color>
+    <color name="list_icon_color">#ff56c0e5</color>
+    <color name="ssw_bottom_button_next_arrow_color">#ff0094b0</color>
+    <color name="ssw_bottom_button_text_color">#ff4e4f50</color>
+    <color name="ssw_bottom_button_welcome_page_text_color">#ff0094b0</color>
+    <color name="vib_center_text">#fffafafa</color>
+    <color name="wifi_ap_device_dialog_label_text_color">#ff252525</color>
+    <color name="wifi_dialog_body_text">#ff252525</color>
+    <color name="wifi_p2p_preference_summary_color">#ff86898b</color>
+    <color name="wifi_p2p_preference_title_color">#ff252525</color>
+    <color name="fingerprint_backuplock_helptext_color">#ff86898b</color>
+</resources>

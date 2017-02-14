@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d stundas</item>
+        <item quantity="one">1 stunda</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d minūtes</item>
+        <item quantity="one">1 minūte</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d sekundes</item>
+        <item quantity="one">1 sekunde</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Lai kļūtu par izstrādātāju, jums ir jāveic vēl tikai %d darbības.</item>
+        <item quantity="one">Lai kļūtu par izstrādātāju, jums ir jāveic vēl tikai 1 darbība.</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Noņemt izvēlētās valodas</item>
+        <item quantity="one">Noņemt izvēlēto valodu</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Parolē ir jābūt vismaz %d burtiem.</item>
+        <item quantity="one">Parolē ir jābūt vismaz 1 burtam.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Parolē ir jābūt vismaz %d mazajiem burtiem.</item>
+        <item quantity="one">Parolē ir jābūt vismaz 1 mazajam burtam.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Parolē ir jābūt vismaz %d lielajiem burtiem.</item>
+        <item quantity="one">Parolē ir jābūt vismaz 1 lielajam burtam.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Parolē ir jābūt vismaz %d cipariem.</item>
+        <item quantity="one">Parolē ir jābūt vismaz 1 ciparam.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Parolē ir jābūt vismaz %d simboliem.</item>
+        <item quantity="one">Parolē ir jābūt vismaz 1 simbolam.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Parolē ir jābūt vismaz %d cipariem vai simboliem.</item>
+        <item quantity="one">Parolē ir jābūt vismaz 1 ciparam vai simbolam.</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Piekļuve %d mapēm/failiem</item>
+        <item quantity="one">Piekļuve 1 mapei/failam</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s instalēja CA sertifikātus jūsu ierīcē, kas var ļaut pārraudzīt jūsu ierīces tīkla darbību, tostarp e-pasta, programmu un aizsargāto tīmekļa vietņu lietojumu.
+
+Lai iegūtu papildinformāciju par šiem sertifikātiem, sazinieties ar savu IT administratoru."</item>
+        <item quantity="one">"%s instalēja CA sertifikātu jūsu ierīcē, kas var ļaut pārraudzīt jūsu ierīces tīkla darbību, tostarp e-pasta, programmu un aizsargāto tīmekļa vietņu lietojumu.
+
+Lai iegūtu papildinformāciju par šo sertifikātu, sazinieties ar savu IT administratoru."</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d programmas var nolasīt paziņojumus.</item>
+        <item quantity="one">%d programmai ir atļauts nolasīt paziņojumus.</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d citas atļaujas</item>
+        <item quantity="one">%d cita atļauja</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">Pēdējo %2$s laikā RAM izmantoja %1$d procesi</item>
+        <item quantity="one">Pēdējo %2$s laikā RAM izmantoja %1$d process</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d programmām ir atļauts lietot mobilos datus bez ierobežojumiem, kamēr ir aktivizēta datu taupīšana</item>
+        <item quantity="one">Kad ir aktivizēta datu taupīšanas funkcija, 1 programma var lietot mobilos datus bez ierobežojumiem</item>
+    </plurals>
+</resources>

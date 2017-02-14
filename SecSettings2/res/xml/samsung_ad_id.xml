@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/samsung_ad_id_activitiy_title"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <PreferenceScreen android:persistent="true" android:title="@string/samsung_your_ad_id" android:key="ad_id" />
+    <PreferenceScreen android:enabled="true" android:title="@string/samsung_reset_ad_id" android:key="reset_ad_id" />
+    <PreferenceScreen android:title="@string/samsung_about_ad_id" android:key="about_ad_id">
+        <intent android:targetPackage="com.android.settings" android:targetClass="com.samsung.android.settings.deviceinfo.SamsungAdIdAboutActivity" />
+    </PreferenceScreen>
+</PreferenceScreen>

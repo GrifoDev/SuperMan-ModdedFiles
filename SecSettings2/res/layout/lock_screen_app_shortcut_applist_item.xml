@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/app_item" android:background="?android:listChoiceBackgroundIndicator" android:clickable="true" android:layout_width="@dimen/lock_app_shortcut_item_width" android:layout_height="@dimen/lock_app_shortcut_item_higth"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center" android:id="@id/app_icon" android:layout_width="@dimen/lock_app_shortcut_item_image_widht" android:layout_height="@dimen/lock_app_shortcut_item_image_hight" android:layout_marginTop="@dimen/lock_app_shortcut_item_image_top_margin" android:layout_marginBottom="@dimen/lock_app_shortcut_item_image_bottom_margin" android:scaleType="fitCenter" />
+    <TextView android:textSize="@dimen/lock_app_shortcut_item_text_size" android:ellipsize="marquee" android:gravity="center|top" android:layout_gravity="center" android:id="@id/app_name" android:layout_width="fill_parent" android:layout_height="fill_parent" android:maxLines="2" android:layout_marginStart="@dimen/lock_app_shortcut_item_textview_margin_left_right" android:layout_marginEnd="@dimen/lock_app_shortcut_item_textview_margin_left_right" style="@style/list_title_text_style" />
+</LinearLayout>

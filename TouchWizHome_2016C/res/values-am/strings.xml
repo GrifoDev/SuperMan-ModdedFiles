@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="activity_not_found">ትግበራ አልተጫነም።</string>
+    <string name="all_apps_button_label">ትግበራ</string>
+    <string name="application_name">አስነሺ</string>
+    <string name="cancel_action">ይቅር</string>
+    <string name="gadget_error_text">ፍርግም የመጫን ችግር</string>
+    <string name="long_press_widget_to_add">ፍርግም ለማንሳት ንካ &amp; በመጫን ያዝ</string>
+    <string name="menu_item_add_item">ወደ መነሻ ማያ አክል</string>
+    <string name="menu_search">" ፈልግ"</string>
+    <string name="out_of_space">በዚህ መነሻ ማያ ላይ ምንም ቦታ የለም።</string>
+    <string name="shortcut_duplicate">አቋራጭ \"%s\" አስቀድሞ አለ።</string>
+    <string name="shortcut_installed">አቋራጭ\"%s \"ተፈጥሯል።</string>
+    <string name="shortcut_uninstalled">አቋራጭ \"%s\" ተወግዶ ነበር።</string>
+    <string name="widgets_tab_label">" ፍርግሞች"</string>
+    <string name="folder_hint_text">ስም አልባ አቃፊ</string>
+    <string name="market">ሸምት</string>
+    <string name="permdesc_write_settings">ቅንብሮችን እና አቋራጮችን በመነሻለመለወጥ ትግበራ ይፈቅዳል።</string>
+    <string name="permlab_write_settings">መነሻ ቅንብሮች እና አቋራጮች ፃፍ</string>
+</resources>

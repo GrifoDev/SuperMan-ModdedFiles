@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceScreen android:title="@string/help_title" android:key="device_info_online_help">
+        <intent android:action="android.intent.action.VIEW" android:data="http://www.samsung.com/m-manual/common" />
+    </PreferenceScreen>
+    <PreferenceCategory android:key="category_online_help_bottom" />
+</PreferenceScreen>

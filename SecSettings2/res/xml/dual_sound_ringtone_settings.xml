@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/sound_category_calls_title" />
+    <com.android.settings.DefaultRingtonePreference android:persistent="false" android:title="@string/ringtone_title" android:key="ringtone" android:summary="@string/ringtone_summary" android:widgetLayout="@layout/round_more_icon" android:dialogTitle="@string/ringtone_title" android:ringtoneType="ringtone" />
+    <PreferenceCategory android:title="@string/notification_sound_title" />
+    <com.android.settings.DefaultRingtonePreference android:persistent="false" android:title="@string/notification_sound_title" android:key="notification_sound" android:summary="@string/notification_sound_summary" android:widgetLayout="@layout/round_more_icon" android:dialogTitle="@string/notification_sound_dialog_title" android:ringtoneType="notification" />
+</PreferenceScreen>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/sound_effect_title" android:key="sound_effect_settings" settings:parent="@xml/other_sound_settings"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <PreferenceScreen android:title="@string/my_sound_title" android:key="my_sound" android:summary="@string/my_sound_summary" />
+    <SwitchPreference android:persistent="false" android:title="@string/uhq_upscaler_title" android:key="uhq_upscaler" android:summary="@string/uhq_upscaler_summary" />
+    <SwitchPreference android:persistent="false" android:title="@string/sound_alive_title" android:key="sound_alive" android:summary="@string/sound_alive_summary" />
+    <SwitchPreference android:persistent="false" android:title="@string/k2hd_title" android:key="k2hd" android:summary="@string/k2hd_summary" />
+    <SwitchPreference android:persistent="false" android:title="@string/tube_amp_title" android:key="tube_amp" android:summary="@string/tube_amp_summary" />
+    <SwitchPreference android:persistent="false" android:title="@string/tube_amp_pro_title" android:key="tube_amp_pro" android:summary="@string/tube_amp_summary" />
+    <com.samsung.android.settings.UnclickablePreference android:title="@string/sound_effect_description" android:key="sound_effect_description" style="@style/description_text" />
+</PreferenceScreen>

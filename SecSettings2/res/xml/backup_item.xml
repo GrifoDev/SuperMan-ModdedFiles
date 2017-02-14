@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<backup_items>
+    <backup_item name="ACCESSIBILITYSETTINGS" quick_backup="true" contents_id="X6qErjsfs2" category="ACCESSIBILITYSETTINGS" client_impl_class="com.samsung.android.settings.accessibility.sharedaccessibility.scloud.BNRTask" />
+    <backup_item name="CONNECTIONS" quick_backup="true" contents_id="C0phMaUuZZ" category="SETTINGS" client_impl_class="com.samsung.android.settings.wifi.mobileap.WifiApBackupRestore" />
+    <backup_item name="WiFi" quick_backup="true" contents_id="C0phMaUuZZ" category="SETTINGS" client_impl_class="com.samsung.android.settings.wifi.WifiBackupRestore" />
+</backup_items>

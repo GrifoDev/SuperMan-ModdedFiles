@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<audio_assets version="1.0">
+    <group name="touch_sounds">
+        <asset id="FX_KEY_CLICK" file="TW_Touch.ogg" />
+        <asset id="FX_FOCUS_NAVIGATION_UP" file="TW_Touch.ogg" />
+        <asset id="FX_FOCUS_NAVIGATION_DOWN" file="TW_Touch.ogg" />
+        <asset id="FX_FOCUS_NAVIGATION_LEFT" file="TW_Touch.ogg" />
+        <asset id="FX_FOCUS_NAVIGATION_RIGHT" file="TW_Touch.ogg" />
+        <asset id="FX_KEYPRESS_STANDARD" file="TW_SIP.ogg" />
+        <asset id="FX_KEYPRESS_SPACEBAR" file="TW_SIP.ogg" />
+        <asset id="FX_KEYPRESS_DELETE" file="TW_SIP.ogg" />
+        <asset id="FX_KEYPRESS_RETURN" file="TW_SIP.ogg" />
+        <asset id="FX_KEYPRESS_INVALID" file="KeypressInvalid_1.ogg" />
+        <asset id="SEM_SOUND_TOUCH" file="TW_Touch.ogg" />
+        <asset id="SOUND_SILENT_MODE_OFF" file="TW_Silent_mode_off.ogg" />
+        <asset id="SEM_SOUND_HW_TOUCH" file="S_HW_Touch.ogg" />
+        <asset id="SOUND_TW_HIGHLIGHT" file="Highlight.ogg" />
+        <asset id="SOUND_TIME_PICKER" file="Timepicker.ogg" />
+        <asset id="SOUND_TIME_PICKER_SCROLL" file="Timepicker_scroll.ogg" />
+    </group>
+</audio_assets>

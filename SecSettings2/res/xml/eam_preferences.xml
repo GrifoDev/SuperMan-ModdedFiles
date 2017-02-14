@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/enhanced_assistant_title" android:key="eam_options"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+  xmlns:touchwiz="http://schemas.android.com/apk/res/touchwiz">
+    <SwitchPreference android:title="@string/select_all" android:key="selectAll_pref" android:defaultValue="true" />
+</PreferenceScreen>

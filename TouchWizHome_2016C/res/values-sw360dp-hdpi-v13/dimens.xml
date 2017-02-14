@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="badge_fontsize_default">14.0dip</dimen>
+    <dimen name="badge_fontsize_small">11.0dip</dimen>
+    <dimen name="home_cellHeight_port">110.0dip</dimen>
+    <dimen name="home_cellWidth_port">86.0dip</dimen>
+    <dimen name="menu_scroll_zone_left_width">22.0dip</dimen>
+    <dimen name="menu_scroll_zone_right_width">22.0dip</dimen>
+    <dimen name="home_4x5_cellHeight_port">89.0dip</dimen>
+    <dimen name="home_5x5_cellHeight_port">89.0dip</dimen>
+    <item type="dimen" name="home_4x5_cellHeight">@dimen/home_4x5_cellHeight_port</item>
+    <item type="dimen" name="home_4x5_cellWidth">@dimen/home_4x5_cellWidth_port</item>
+    <dimen name="home_4x5_cellWidth_port">85.0dip</dimen>
+    <dimen name="home_5x5_cellWidth_port">68.0dip</dimen>
+</resources>

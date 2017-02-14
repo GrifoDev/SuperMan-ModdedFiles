@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="activity_not_found">Programu bado haijasakinishwa.</string>
+    <string name="all_apps_button_label">Programu</string>
+    <string name="application_name">Kizinduzi</string>
+    <string name="cancel_action">Ghairi</string>
+    <string name="gadget_error_text">Tatizo la kupakia wijeti</string>
+    <string name="long_press_widget_to_add">Gusa na ushikilie ili uteue wijeti</string>
+    <string name="menu_item_add_item">Ongeza kwa skrini ya Nyumbani</string>
+    <string name="menu_search">Tafuta</string>
+    <string name="out_of_space">Hakuna nafasi katika skrini hii ya nyumbani.</string>
+    <string name="shortcut_duplicate">Njia ya mkato ya \"%s\" tayari ipo.</string>
+    <string name="shortcut_installed">Njia ya mkato ya \"%s\" imeundwa.</string>
+    <string name="shortcut_uninstalled">Njia ya mkato ya \"%s\" iliondolewa.</string>
+    <string name="widgets_tab_label">Wijeti</string>
+    <string name="folder_hint_text">Folda isiyo na jina</string>
+    <string name="market">Duka</string>
+    <string name="permdesc_write_settings">Huruhusu programu kubadilisha mipangilio na njia za mkato Nyumbani.</string>
+    <string name="permlab_write_settings">andika mipangilio ya Nyumbani na njia za mkato</string>
+</resources>

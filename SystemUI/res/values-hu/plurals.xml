@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">1 képernyő áttekintés alatt</item>
+        <item quantity="one">%d képernyő áttekintés alatt</item>
+    </plurals>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">A SIM kártya PIN kódja helytelen. %d próbálkozás maradt.</item>
+        <item quantity="one">A SIM kártya PIN kódja helytelen. %d próbálkozás maradt. Utána a szolgáltatótól kell feloldást kérnie.</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">Helytelen PUK kód a SIM kártyához. Még %d próbálkozása van, mielőtt a SIM kártya végleg használhatatlanná válik.</item>
+        <item quantity="one">Helytelen PUK kód a SIM kártyához. Még %d próbálkozása van, mielőtt a SIM kártya végleg használhatatlanná válik.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="other">Az eszköz zárolása %d órája nem lett feloldva. Erősítse meg a mintát.</item>
+        <item quantity="one">Az eszköz zárolása %d órája nem lett feloldva. Erősítse meg a mintát.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="other">Az eszköz zárolása %d órája nem lett feloldva. Erősítse meg a PIN kódot.</item>
+        <item quantity="one">Az eszköz zárolása %d órája nem lett feloldva. Erősítse meg a PIN kódot.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">Az eszköz zárolása %d órája nem lett feloldva. Erősítse meg a jelszót.</item>
+        <item quantity="one">Az eszköz zárolása %d órája nem lett feloldva. Erősítse meg a jelszót.</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(még %d alkalommal próbálkozhat)</item>
+        <item quantity="one">(még 1 alkalommal próbálkozhat)</item>
+    </plurals>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">Még %d próbálkozása van</item>
+        <item quantity="one">Még %d próbálkozása van</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_min">
+        <item quantity="other">Próbálja meg %d perc múlva</item>
+        <item quantity="one">Próbálja meg %d perc múlva</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_sec">
+        <item quantity="other">Próbálja meg %d másodperc múlva</item>
+        <item quantity="one">Próbálja meg %d másodperc múlva</item>
+    </plurals>
+</resources>

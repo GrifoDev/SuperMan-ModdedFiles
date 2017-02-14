@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="rectangle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <stroke android:width="@dimen/sec_photo_stroke_width" android:color="@color/sec_smart_photo_stroke_background_color" android:alpha="0.4" />
+    <size android:height="@dimen/sec_cover_photo_size" android:width="@dimen/sec_cover_photo_size" />
+    <solid android:color="@color/smart_call_photo_background_color_spam" />
+    <padding android:left="@dimen/sec_smart_photo_stroke_padding_width" android:top="@dimen/sec_smart_photo_stroke_padding_width" android:right="@dimen/sec_smart_photo_stroke_padding_width" android:bottom="@dimen/sec_smart_photo_stroke_padding_width" />
+</shape>

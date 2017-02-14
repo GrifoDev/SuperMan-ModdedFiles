@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d ч</item>
+        <item quantity="one">1 час</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d мин.</item>
+        <item quantity="one">1 минута</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d сек.</item>
+        <item quantity="one">1 секунда</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Шагов до включения параметров разработчика: %d</item>
+        <item quantity="one">Теперь вы в одном шаге от того, чтобы стать разработчиком.</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Удаление выбранных языков</item>
+        <item quantity="one">Удаление выбранного языка</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Пароль должен содержать не менее %d букв.</item>
+        <item quantity="one">Пароль должен содержать по крайней мере 1 букву.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Пароль должен содержать не менее %d букв в нижнем регистре.</item>
+        <item quantity="one">Пароль должен содержать по крайней мере 1 букву в нижнем регистре.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Пароль должен содержать не менее %d букв в верхнем регистре.</item>
+        <item quantity="one">Пароль должен содержать по крайней мере 1 букву в верхнем регистре.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Пароль должен содержать не менее %d чисел.</item>
+        <item quantity="one">Пароль должен содержать по крайней мере 1 цифру.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Пароль должен содержать не менее %d символов.</item>
+        <item quantity="one">Пароль должен содержать не менее 1 символа.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">PIN-код должен содержать не менее %d цифр или символов.</item>
+        <item quantity="one">Пароль должен содержать не менее 1 цифры или символа.</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Доступ к нескольким папкам/файлам (%d)</item>
+        <item quantity="one">Доступ к 1 папке/файлу</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"Администратор %s установил сертификаты ЦС на устройстве. Администратор сможет отслеживать сетевую активность устройства, в том числе использование электронной почты, приложений и защищенных веб-сайтов.
+
+Для получения дополнительных сведений об этих сертификатах обратитесь к IT-администратору."</item>
+        <item quantity="one">"Администратор %s установил сертификат ЦС на устройстве. Администратор сможет отслеживать сетевую активность устройства, в том числе использование электронной почты, приложений и защищенных веб-сайтов.
+
+Для получения дополнительных сведений об этом сертификате обратитесь к IT-администратору."</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d приложен. могут озвучивать уведомления.</item>
+        <item quantity="one">Приложение %d может читать уведомления.</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">Еще разрешений: %d</item>
+        <item quantity="one">Еще %d разрешение</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">Процессов, использовавших ОЗУ за последние %2$s: %1$d</item>
+        <item quantity="one">%1$d процесс использовал ОЗУ за последние %2$s</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">Несколько приложений (%d) могут неограниченно использовать данные, когда включена функция экономии трафика</item>
+        <item quantity="one">1 приложение может использовать мобильные данные без ограничений, когда работает функция экономии трафика</item>
+    </plurals>
+</resources>

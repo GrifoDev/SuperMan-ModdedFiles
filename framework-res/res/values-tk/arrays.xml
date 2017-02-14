@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="emailAddressTypes">
+        <item>Öý</item>
+        <item>Iş</item>
+        <item>Başga</item>
+        <item>Islendik</item>
+    </string-array>
+    <string-array name="imProtocols">
+        <item>AIM</item>
+        <item>Windows Live</item>
+        <item>Yahoo</item>
+        <item>Skype</item>
+        <item>QQ</item>
+        <item>Google Talk</item>
+        <item>ICQ</item>
+        <item>Lakgyldy</item>
+    </string-array>
+    <string-array name="organizationTypes">
+        <item>Iş</item>
+        <item>Başga</item>
+        <item>Islendik</item>
+    </string-array>
+    <string-array name="phoneTypes">
+        <item>Öý</item>
+        <item>Mobile</item>
+        <item>Iş</item>
+        <item>Iş faksy</item>
+        <item>Öý faksy</item>
+        <item>Peýjer</item>
+        <item>Başga</item>
+        <item>Islendik</item>
+    </string-array>
+    <string-array name="postalAddressTypes">
+        <item>Öý</item>
+        <item>Iş</item>
+        <item>Başga</item>
+        <item>Islendik</item>
+    </string-array>
+    <string-array name="imAddressTypes">
+        <item>Öý</item>
+        <item>Iş</item>
+        <item>Başga</item>
+        <item>Islendik</item>
+    </string-array>
+</resources>

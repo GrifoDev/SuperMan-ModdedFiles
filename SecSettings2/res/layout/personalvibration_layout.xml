@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+      xmlns:android="http://schemas.android.com/apk/res/android">
+        <FrameLayout android:layout_width="@dimen/personal_vibration_recorder_size" android:layout_height="@dimen/personal_vibration_recorder_size" android:layout_marginTop="@dimen/personal_vibration_recorder_top_padding" android:layout_marginBottom="@dimen/personal_vibration_recorder_bottom_padding" android:layout_marginStart="@dimen/personal_vibration_recorder_side_padding" android:layout_marginEnd="@dimen/personal_vibration_recorder_side_padding">
+            <com.samsung.android.settings.personalvibration.BackgroundView android:id="@id/background" android:layout_width="@dimen/personal_vibration_recorder_size" android:layout_height="@dimen/personal_vibration_recorder_size" />
+            <ImageView android:layout_gravity="center" android:id="@id/center_button" android:background="@drawable/play_button" android:focusable="true" android:visibility="gone" android:layout_width="@dimen/personal_vibration_center_icon_size" android:layout_height="@dimen/personal_vibration_center_icon_size" />
+            <TextView android:textSize="@dimen/personal_vibration_center_text_size" android:textColor="@color/vib_center_text" android:gravity="center" android:layout_gravity="center" android:id="@id/center_text" android:paddingLeft="@dimen/personal_vibration_center_text_side_padding" android:paddingRight="@dimen/personal_vibration_center_text_side_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/tap_to_start" android:fontFamily="sec-roboto-light" />
+        </FrameLayout>
+        <LinearLayout android:gravity="bottom" android:id="@id/bottom_button_bar" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <LinearLayout android:gravity="bottom" android:orientation="horizontal" android:id="@id/stop_button_layout" style="@style/SecurityPreferenceButtonContainer">
+                <com.samsung.android.settings.widget.BottomBarButton android:id="@id/stop_button" android:text="@string/service_stop" android:layout_weight="2.0" style="@style/SecurityPreferenceButton" />
+            </LinearLayout>
+            <LinearLayout android:gravity="bottom" android:orientation="horizontal" android:id="@id/button_layout" android:visibility="gone" style="@style/SecurityPreferenceButtonContainer">
+                <com.samsung.android.settings.widget.BottomBarButton android:id="@id/right_button" android:text="@string/cancel" style="@style/SecurityPreferenceButton" />
+                <com.samsung.android.settings.widget.BottomBarButton android:id="@id/left_button" android:text="@string/menu_save" style="@style/SecurityPreferenceButton" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

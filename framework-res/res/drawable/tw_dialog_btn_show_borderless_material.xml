@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inset android:insetLeft="@dimen/tw_dialog_button_show_background_inset_horizontal" android:insetRight="@dimen/tw_dialog_button_show_background_inset_horizontal" android:insetTop="@dimen/tw_dialog_button_show_background_inset_vertical" android:insetBottom="@dimen/tw_dialog_button_show_background_inset_vertical"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ripple android:color="?colorControlHighlight">
+        <item android:id="@id/mask" android:drawable="@drawable/tw_dialog_btn_show_default_ripple_mtrl_shape" />
+    </ripple>
+</inset>

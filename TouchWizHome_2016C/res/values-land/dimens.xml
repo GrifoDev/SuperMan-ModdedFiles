@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="dimen" name="ged_home_CellHeight">@dimen/ged_home_cellHeight_land</item>
+    <item type="dimen" name="ged_home_CellWidth">@dimen/ged_home_cellWidth_land</item>
+</resources>

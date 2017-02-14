@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">%d zaslona v pregledu</item>
+        <item quantity="one">%d zaslon v pregledu</item>
+    </plurals>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">Napačna koda PIN kartice SIM. Na voljo imate še %d poskusov.</item>
+        <item quantity="one">Napačna koda PIN kartice SIM. Na voljo imate še %d poskus.</item>
+        <item quantity="two">Napačna koda PIN kartice SIM. Na voljo imate še %d poskusa.</item>
+        <item quantity="few">Napačna koda PIN kartice SIM. Na voljo imate še %d poskuse.</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">Napačna koda PUK kartice SIM. Na voljo imate še %d poskusov. Potem bo kartica SIM postala trajno neuporabna.</item>
+        <item quantity="one">Napačna koda PUK kartice SIM. Na voljo imate še %d poskus. Potem bo kartica SIM postala trajno neuporabna.</item>
+        <item quantity="two">Napačna koda PUK kartice SIM. Na voljo imate še %d poskusa. Potem bo kartica SIM postala trajno neuporabna.</item>
+        <item quantity="few">Napačna koda PUK kartice SIM. Na voljo imate še %d poskuse. Potem bo kartica SIM postala trajno neuporabna.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="other">Naprava ni bila odklenjena %d ur. Potrdite vzorec.</item>
+        <item quantity="one">Naprava ni bila odklenjena %d uro. Potrdite vzorec.</item>
+        <item quantity="two">Naprava ni bila odklenjena %d uri. Potrdite vzorec.</item>
+        <item quantity="few">Naprava ni bila odklenjena %d ure. Potrdite vzorec.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="other">Naprava ni bila odklenjena %d ur. Potrdite kodo PIN.</item>
+        <item quantity="one">Naprava ni bila odklenjena %d uro. Potrdite kodo PIN.</item>
+        <item quantity="two">Naprava ni bila odklenjena %d uri. Potrdite kodo PIN.</item>
+        <item quantity="few">Naprava ni bila odklenjena %d ure. Potrdite kodo PIN.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">Naprava ni bila odklenjena %d ur. Potrdite geslo.</item>
+        <item quantity="one">Naprava ni bila odklenjena %d uro. Potrdite geslo.</item>
+        <item quantity="two">Naprava ni bila odklenjena %d uri. Potrdite geslo.</item>
+        <item quantity="few">Naprava ni bila odklenjena %d ure. Potrdite geslo.</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(še toliko poskusov: %d)</item>
+        <item quantity="one">(še 1 poskus)</item>
+    </plurals>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">Še toliko poskusov: %d</item>
+        <item quantity="one">Še %d poskus</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_min">
+        <item quantity="other">Poskusite znova čez %d min</item>
+        <item quantity="one">Poskusite znova čez %d min</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_sec">
+        <item quantity="other">Poskusite znova čez %d s</item>
+        <item quantity="one">Poskusite znova čez %d s</item>
+    </plurals>
+</resources>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/pen_settings_title" android:key="pen_settings_menu"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <PreferenceCategory android:title="@string/pen_settings_general_section_title" android:key="pen_general_category" />
+    <Preference android:title="@string/air_button_title" android:key="key_air_button" android:fragment="com.samsung.android.settings.spen.PenAirCmdSettingsMenu" />
+    <com.android.settings.SecSettingsSwitchPreference android:title="@string/hovering_title" android:key="pen_air_view" android:fragment="com.samsung.android.settings.spen.PenAirViewSettingsMenu" />
+    <com.android.settings.SecSettingsSwitchPreference android:title="@string/pen_settings_pen_input" android:key="key_writing_buddy" android:fragment="com.samsung.android.settings.spen.DirectPenInputSettings" />
+    <SwitchPreference android:title="@string/hovering_pointer" android:key="key_spen_pointer_switch" android:summary="@string/hovering_pointer_summary" />
+    <PreferenceCategory android:title="@string/pen_detachment_category_title" android:key="pen_detachment_category" />
+    <com.android.settings.SecDropDownPreference android:title="@string/pen_detachment_option" android:key="pen_detachment_option_list" />
+    <SwitchPreference android:title="@string/action_memo_onoff_screen_title" android:key="action_memo_on_off_screen" android:summary="@string/action_memo_onoff_screen_summary" />
+    <SwitchPreference android:title="@string/action_memo_onoff_screen_title" android:key="screen_off_note" android:summary="@string/screen_off_note_summary" />
+    <SwitchPreference android:title="@string/loss_prevention_alert_title" android:key="loss_prevention_alert" android:summary="@string/loss_prevention_alert_msg" />
+    <SwitchPreference android:title="@string/pen_setings_disable_pen_detection" android:key="battery_saving" android:summary="@string/battery_saving_msg" />
+    <SwitchPreference android:title="@string/spen_screen_on_title" android:key="key_spen_screen_on" android:summary="@string/spen_screen_on_summary" />
+    <PreferenceCategory android:title="@string/pen_air_view_additional_feedback_title" android:key="Additional_feedback_category" />
+    <SwitchPreference android:title="@string/pen_feedback_pen_sound_title" android:key="key_additional_feedback_pen_sound" android:summary="@string/pen_feedback_pen_sound_summary" />
+    <SwitchPreference android:title="@string/pen_feedback_pen_haptic_title" android:key="key_additional_feedback_pen_haptic" android:summary="@string/pen_feedback_pen_haptic_summary" />
+    <PreferenceCategory android:key="spen_contact_us_category" />
+    <PreferenceScreen android:title="@string/contact_us_title" android:key="spen_contact_us" />
+</PreferenceScreen>

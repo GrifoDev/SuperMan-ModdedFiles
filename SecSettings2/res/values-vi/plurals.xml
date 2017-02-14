@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d giờ</item>
+        <item quantity="one">1 giờ</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d phút</item>
+        <item quantity="one">1 phút</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d giây</item>
+        <item quantity="one">1 giây</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Hiện còn %d bước để bạn trở thành nhà phát triển.</item>
+        <item quantity="one">Còn 1 bước nữa và bạn sẽ trở thành nhà phát triển.</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Xóa các ngôn ngữ đã chọn</item>
+        <item quantity="one">Xóa ngôn ngữ đã chọn</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Mật mã phải bao gồm ít nhất %d chữ cái.</item>
+        <item quantity="one">Mật mã phải bao gồm ít nhất 1 chữ cái.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Mật mã phải bao gồm ít nhất %d chữ cái viết thường.</item>
+        <item quantity="one">Mật mã phải bao gồm ít nhất 1 chữ cái viết thường.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Mật mã phải bao gồm ít nhất %d chữ cái viết hoa.</item>
+        <item quantity="one">Mật mã phải bao gồm ít nhất 1 chữ cái viết hoa.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Mật mã phải bao gồm ít nhất %d số.</item>
+        <item quantity="one">Mật mã phải bao gồm ít nhất 1 số.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Mật mã phải bao gồm ít nhất %d ký hiệu.</item>
+        <item quantity="one">Mật mã phải bao gồm ít nhất 1 ký hiệu.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Mật mã phải bao gồm ít nhất %d số và ký hiệu.</item>
+        <item quantity="one">Mật mã phải bao gồm ít nhất 1 số hoặc ký hiệu.</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Truy cập vào %d thư mục/file</item>
+        <item quantity="one">Truy cập vào 1 thư mục/file</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s đã cài đặt các chứng chỉ CA trên thiết bị của bạn, điều này có thể cho phép họ theo dõi hoạt động mạng trên thiết bị của bạn, bao gồm việc sử dụng email, ứng dụng và trang web bảo mật.
+
+Để biết thêm thông tin về các chứng chỉ này, hãy liên hệ người quản trị IT của bạn."</item>
+        <item quantity="one">"%s đã cài đặt một chứng chỉ CA trên thiết bị của bạn, điều này có thể cho phép họ theo dõi hoạt động mạng trên thiết bị của bạn, bao gồm việc sử dụng email, ứng dụng và trang web bảo mật.
+
+Để biết thêm thông tin về chứng chỉ này, hãy liên hệ người quản trị IT của bạn."</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d ứng dụng có thể đọc thông báo.</item>
+        <item quantity="one">%d ứng dụng được phép đọc thông báo.</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d quyền khác</item>
+        <item quantity="one">%d quyền khác</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$d tiến trình đã sử dụng RAM trong %2$s qua</item>
+        <item quantity="one">%1$d tiến trình đã sử dụng RAM trong %2$s qua</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d ứng dụng được phép sử dụng dữ liệu di động mà không bị hạn chế khi bật Tiết kiệm dữ liệu</item>
+        <item quantity="one">1 ứng dụng được phép sử dụng dữ liệu di động mà không bị hạn chế khi bật Tiết kiệm dữ liệu</item>
+    </plurals>
+</resources>

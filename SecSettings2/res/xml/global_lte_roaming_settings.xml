@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/roaming_lte_roaming_lgt" android:key="root_global_lte_roaming"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:phone="http://schemas.android.com/apk/res/com.android.phone">
+    <PreferenceCategory android:title="@string/settings_label" android:key="lte_roaming_settings" />
+    <SwitchPreference android:title="@string/roaming_lte_preference_lgt" android:key="button_lte_roaming" />
+    <PreferenceCategory android:title="@string/lte_roaming_charge_category" android:key="lte_roaming_charge_help" />
+    <com.samsung.android.settings.UnclickablePreference android:title="@string/lte_roaming_charge_content" android:key="lte_roaming_desc" />
+</PreferenceScreen>

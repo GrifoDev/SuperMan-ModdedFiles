@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="thumbnail_height">320.0dip</dimen>
+    <dimen name="thumbnail_width">320.0dip</dimen>
+    <dimen name="tw_floating_popup_divider_width">1.0px</dimen>
+    <dimen name="tw_edittext_field_cursor_width">2.0px</dimen>
+    <dimen name="sem_resolver_divider_height">1.0px</dimen>
+</resources>

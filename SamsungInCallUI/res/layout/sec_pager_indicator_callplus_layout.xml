@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@id/call_plus_importance" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:gravity="center" android:id="@id/pagerIndicatorCallPlus_wrapper" android:visibility="gone" android:layout_width="@dimen/sec_incall_pager_indicator_diameter_wrapper" android:layout_height="@dimen/sec_incall_pager_indicator_diameter_wrapper" android:layout_marginRight="@dimen/sec_incall_pager_indicator_between_margin">
+        <ImageView android:id="@id/pagerIndicatorCallPlus" android:background="@drawable/sec_pager_indicator_off" android:layout_width="@dimen/sec_incall_pager_indicator_diameter" android:layout_height="@dimen/sec_incall_pager_indicator_diameter" />
+    </RelativeLayout>
+</LinearLayout>

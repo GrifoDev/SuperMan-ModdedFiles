@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" style="@style/lock_screen_dialog_container_wrapping_style">
+        <TextView android:id="@id/encryption_message" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/lock_screen_notifications_interstitial_message" style="@style/lock_screen_dialog_text_wrapping_style" />
+        <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/list_item_top_padding" android:text="@string/encrypt_require_sub_header" style="?android:attr/listSeparatorTextViewStyle" />
+        <RadioGroup android:layout_width="fill_parent" android:layout_height="wrap_content" android:checkedButton="@id/encrypt_require_password">
+            <CheckedTextView android:ellipsize="marquee" android:gravity="center_vertical" android:id="@id/encrypt_require_password" android:background="?android:selectableItemBackground" android:focusable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:checkMark="?android:listChoiceIndicatorSingle" android:minHeight="?android:listPreferredItemHeightSmall" style="@style/lock_screen_dialog_list_item_wrapping_style" />
+            <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" android:layout_marginStart="@dimen/list_radio_button_divier_margin_start" style="@style/lock_screen_dialog_list_divider_wrapping_style" />
+            <CheckedTextView android:ellipsize="marquee" android:gravity="center_vertical" android:id="@id/encrypt_dont_require_password" android:background="?android:selectableItemBackground" android:focusable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:checkMark="?android:listChoiceIndicatorSingle" android:minHeight="?android:listPreferredItemHeightSmall" style="@style/lock_screen_dialog_list_item_wrapping_style" />
+            <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" android:layout_marginStart="@dimen/list_radio_button_divier_margin_start" style="@style/lock_screen_dialog_list_divider_wrapping_style" />
+        </RadioGroup>
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/reset"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <PreferenceCategory android:title="@string/personal_data_section_title" android:key="personal_data_category">
+        <PreferenceScreen android:title="@string/settings_reset_title" android:key="settings_reset" android:summary="@string/settings_reset_list_summary" android:fragment="com.samsung.android.settings.ResetSettings" />
+        <PreferenceScreen android:title="@string/reset_network_settings" android:key="network_reset" android:summary="@string/reset_network_settings_list_summary" android:fragment="com.android.settings.ResetNetwork" settings:keywords="@string/keywords_network_reset" />
+        <PreferenceScreen android:title="@string/master_clear_title" android:key="factory_reset" android:summary="@string/master_clear_list_summary" android:fragment="com.android.settings.MasterClear" settings:keywords="@string/keywords_factory_data_reset" />
+    </PreferenceCategory>
+    <PreferenceScreen android:title="@string/collect_diagnostics_title" android:key="collect_diagnostics" android:summary="@string/collect_diagnostics_summary" />
+    <PreferenceCategory android:layout_width="fill_parent" android:title="@string/auto_restart_header" android:key="category_restart">
+        <com.android.settings.SecSettingsSwitchPreference android:title="@string/auto_restart_title" android:key="pref_auto_clean" android:summary="@string/auto_restart_summary" />
+        <PreferenceScreen android:title="@string/auto_power_on_off_title" android:key="pref_auto_power_on_off" android:fragment="com.samsung.android.settings.autopoweronoff.AutoPowerOnOffSettings" />
+    </PreferenceCategory>
+</PreferenceScreen>

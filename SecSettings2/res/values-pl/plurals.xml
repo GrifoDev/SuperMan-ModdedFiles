@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d godz.</item>
+        <item quantity="one">1 godzina</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d min</item>
+        <item quantity="one">1 min</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d sek.</item>
+        <item quantity="one">1 sek.</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Zostaniesz programistą już po wykonaniu następującej liczby kroków: %d.</item>
+        <item quantity="one">Jeszcze jeden krok, a zostaniesz programistą.</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Usuwanie wybranych języków</item>
+        <item quantity="one">Usuwanie wybranego języka</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Hasło musi zawierać co najmniej następującą liczbę liter: %d.</item>
+        <item quantity="one">Hasło musi zawierać co najmniej 1 literę.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Hasło musi zawierać co najmniej następującą liczbę małych liter: %d.</item>
+        <item quantity="one">Hasło musi zawierać co najmniej 1 małą literę.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Hasło musi zawierać co najmniej następującą liczbę wielkich liter: %d.</item>
+        <item quantity="one">Hasło musi zawierać co najmniej 1 wielką literę.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Hasło musi zawierać co najmniej następującą liczbę cyfr: %d.</item>
+        <item quantity="one">Hasło musi zawierać co najmniej 1 cyfrę.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Hasło musi zawierać co najmniej następującą liczbę symboli: %d.</item>
+        <item quantity="one">Hasło musi zawierać co najmniej następującą liczbę symboli: 1.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Hasło musi zawierać co najmniej następującą liczbę cyfr lub symboli: %d.</item>
+        <item quantity="one">Hasło musi zawierać co najmniej następującą liczbę cyfr lub symboli: 1.</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Dostęp do %d katalogów/plików</item>
+        <item quantity="one">Dostęp do 1 katalogu/pliku</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s zainstalował certyfikaty CA na Twoim urządzeniu, dzięki czemu może mieć możliwość monitorowania Twojej aktywności sieciowej, w tym korzystania z poczty elektronicznej, aplikacji i zabezpieczonych witryn internetowych.
+
+Aby uzyskać więcej informacji na temat tych certyfikatów, skontaktuj się z administratorem IT."</item>
+        <item quantity="one">"%s zainstalował certyfikat CA na Twoim urządzeniu, dzięki czemu może mieć możliwość monitorowania Twojej aktywności sieciowej, w tym korzystania z poczty elektronicznej, aplikacji i zabezpieczonych witryn internetowych.
+
+Aby uzyskać więcej informacji na temat tego certyfikatu, skontaktuj się z administratorem IT."</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">Aplikacji, które mogą odczytywać powiadomienia: %d.</item>
+        <item quantity="one">Aplikacji mogących odczytywać powiadomienia: %d.</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">Więcej uprawnień: %d</item>
+        <item quantity="one">%d dodatkowe uprawnienie</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">Procesów: %1$d używało pamięci RAM przez ostatnie %2$s</item>
+        <item quantity="one">%1$d proces używał pamięci RAM przez ostatnie %2$s</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">Zezwolono %d aplikacjom na korzystanie z danych komórkowych bez ograniczeń przy włączonej funkcji Oszczędzanie danych</item>
+        <item quantity="one">Zezwolono 1 aplikacji na korzystanie z danych komórkowych bez ograniczeń przy włączonej funkcji Oszczędzanie danych</item>
+    </plurals>
+</resources>

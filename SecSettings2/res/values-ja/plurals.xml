@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d時間</item>
+        <item quantity="one">1時間</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d分</item>
+        <item quantity="one">1分</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d秒</item>
+        <item quantity="one">1秒</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">あと%dステップでデベロッパーモードになります。</item>
+        <item quantity="one">あと1ステップでデベロッパーモードになります。</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">選択した言語を削除</item>
+        <item quantity="one">選択した言語を削除</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">パスワードには%d文字以上の文字を含める必要があります。</item>
+        <item quantity="one">パスワードには1文字以上の文字を含める必要があります。</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">パスワードには%d文字以上の小文字を含める必要があります。</item>
+        <item quantity="one">パスワードには1文字以上の小文字を含める必要があります。</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">パスワードには%d文字以上の大文字を含める必要があります。</item>
+        <item quantity="one">パスワードには1文字以上の大文字を含める必要があります。</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">パスワードには%d個以上の数字を含める必要があります。</item>
+        <item quantity="one">パスワードには1個以上の数字を含める必要があります。</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">パスワードには%d文字以上の記号を含める必要があります。</item>
+        <item quantity="one">パスワードには1文字以上の記号を含める必要があります。</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">パスワードには%d文字以上の数字または記号を含める必要があります。</item>
+        <item quantity="one">パスワードには1文字以上の数字または記号を含める必要があります。</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">%d件のフォルダ/ファイルへのアクセス</item>
+        <item quantity="one">1件のフォルダ/ファイルへのアクセス</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%sはこの端末にCA証明書をインストールしました。これにより、Eメール、アプリ、セキュリティで保護されたWebサイトを含む端末のネットワーク活動が監視される可能性があります。
+
+これらの証明書の詳細については、IT管理者にお問い合わせください。"</item>
+        <item quantity="one">"%sはこの端末にCA証明書をインストールしました。これにより、Eメール、アプリ、セキュリティで保護されたWebサイトを含む端末のネットワーク活動が監視される可能性があります。
+
+この証明書の詳細については、IT管理者にお問い合わせください。"</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d個のアプリケーションで通知の読み取りが可能です。</item>
+        <item quantity="one">%d個のアプリケーションで通知の読み取りが可能です。</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">追加の権限%d件</item>
+        <item quantity="one">追加の権限%d件</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">過去%2$sで%1$d件のプロセスがRAMを使用</item>
+        <item quantity="one">過去%2$sで%1$d件のプロセスがRAMを使用</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">データセーバーが有効な間、%d件のアプリに制限なしでモバイルデータを使用することを許可</item>
+        <item quantity="one">1件のアプリに、データセーバーが有効な場合でもモバイルデータを無制限に使用することを許可</item>
+    </plurals>
+</resources>

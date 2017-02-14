@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:gravity="center" android:height="@dimen/list_icon_create_width" android:width="@dimen/list_icon_create_width" android:drawable="@drawable/tw_list_icon_create_circle_mtrl" />
+    <item android:gravity="center" android:height="@dimen/list_icon_create_width" android:width="@dimen/list_icon_create_width">
+        <bitmap android:gravity="center" android:src="@drawable/tw_list_icon_create" android:tint="@color/account_add_icon_color" />
+    </item>
+</layer-list>

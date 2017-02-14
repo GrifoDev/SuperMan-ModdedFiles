@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="@style/TextAppearance.QS.TileLabel" android:textColor="@color/qs_tile_label" android:ellipsize="end" android:gravity="center_horizontal" android:id="@id/tile_label" android:padding="0.0dip" android:clickable="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:lines="2" android:minLines="2" />
+    <ImageView android:id="@id/restricted_padlock" android:paddingBottom="@dimen/qs_tile_text_size" android:visibility="gone" android:layout_width="@dimen/qs_tile_text_size" android:layout_height="fill_parent" android:layout_marginLeft="@dimen/restricted_padlock_pading" android:src="@drawable/ic_info" android:scaleType="centerInside" />
+</LinearLayout>

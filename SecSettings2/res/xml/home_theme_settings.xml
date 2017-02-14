@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/home_theme_settings_titles" android:key="home_theme_settings"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceScreen android:title="@string/home_screen_settings_title" android:key="key_home_screen_settings">
+        <intent android:targetPackage="com.sec.android.app.launcher" android:action="android.intent.action.MAIN" android:targetClass="com.android.launcher2.Launcher">
+            <extra android:name="StartEdit" android:value="true" />
+        </intent>
+    </PreferenceScreen>
+    <PreferenceCategory android:key="key_theme_festival" />
+    <PreferenceScreen android:title="@string/theme_settings" android:key="key_theme">
+        <intent android:action="com.samsung.android.action.themelaunch">
+            <extra android:name="prevPackage" android:value="settings" />
+        </intent>
+    </PreferenceScreen>
+    <PreferenceScreen android:title="@string/festival_effect_settings_title" android:key="key_festival_effect">
+        <intent android:action="com.samsung.android.myeventcenter.MY_EVENT" />
+    </PreferenceScreen>
+    <PreferenceCategory android:key="key_easy_category" />
+    <PreferenceScreen android:title="@string/easy_mode" android:key="key_easy_mode">
+        <intent android:targetPackage="com.android.settings" android:action="android.intent.action.MAIN" android:targetClass="com.android.settings.Settings$EasyModeAppActivity" />
+    </PreferenceScreen>
+</PreferenceScreen>

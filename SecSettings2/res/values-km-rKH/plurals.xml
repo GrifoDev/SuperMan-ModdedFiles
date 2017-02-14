@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d ម៉ោង</item>
+        <item quantity="one">1 ម៉ោង</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d នាទី</item>
+        <item quantity="one">1 នាទី</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d វិនាទី</item>
+        <item quantity="one">1 វិនាទី</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">ឥឡូវ អ្នក​នៅ​សល់ %d ជំហាន​ទៀត​ពី​ការក្លាយ​ជា​អភិវឌ្ឍនករ។</item>
+        <item quantity="one">ឥឡូវ អ្នក​នៅ​សល់ 1 ជំហាន​ទៀត​ពី​ការក្លាយ​ជា​អភិវឌ្ឍនករ។</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">លុប​ភាសា​ដែល​បាន​ជ្រើស</item>
+        <item quantity="one">លុប​ភាសា​ដែល​បាន​ជ្រើស</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">ពាក្យសម្ងាត់​ត្រូវតែ​មាន​យ៉ាង​តិច %d អក្សរ។</item>
+        <item quantity="one">ពាក្យសម្ងាត់​ត្រូវតែ​មាន​យ៉ាង​តិច 1 អក្សរ។</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">ពាក្យសម្ងាត់​ត្រូវតែ​មាន​យ៉ាង​តិច %d អក្សរ​តូច។</item>
+        <item quantity="one">ពាក្យសម្ងាត់​ត្រូវតែ​មាន​យ៉ាង​តិច 1 អក្សរ​តូច។</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">ពាក្យសម្ងាត់​ត្រូវតែ​មាន​យ៉ាង​តិច %d អក្សរ​ធំ។</item>
+        <item quantity="one">ពាក្យសម្ងាត់​ត្រូវតែ​មាន​យ៉ាង​តិច 1 អក្សរ​ធំ។</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">ពាក្យសម្ងាត់​ត្រូវតែ​មាន​យ៉ាង​តិច​លេខ %d ខ្ទង់។</item>
+        <item quantity="one">ពាក្យសម្ងាត់​ត្រូវតែ​មាន​យ៉ាង​តិច​លេខ 1 ខ្ទង់។</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">ពាក្យសម្ងាត់​ត្រូវតែ​មាន​យ៉ាង​តិច %d និមិត្ត​សញ្ញា។</item>
+        <item quantity="one">ពាក្យសម្ងាត់​ត្រូវតែ​មាន​យ៉ាង​តិច 1 និមិត្ត​សញ្ញា។</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">ពាក្យសម្ងាត់​ត្រូវតែ​មាន​យ៉ាង​តិច​លេខ ឬ និមិត្ត​សញ្ញា %d។</item>
+        <item quantity="one">ពាក្យសម្ងាត់​ត្រូវតែ​មាន​យ៉ាង​តិច​លេខ ឬ និមិត្ត​សញ្ញា 1។</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">ចូលប្រើ​សឺមី/​ឯកសារ %d</item>
+        <item quantity="one">ចូលប្រើ​សឺមី/​ឯកសារ 1</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s បាន​ដំឡើង​វិញ្ញាបនបត្រ CA លើ​ឧបករណ៍​របស់​អ្នក ដែល​អាច​អនុញ្ញាត​ឲ្យ​ពួកវា​ត្រួតពិនិត្យ​សកម្មភាព​បណ្ដាញ​របស់​ឧបករណ៍​អ្នក រួមទាំង​ការប្រើប្រាស់​អ៊ីមែល, កម្មវិធី និង វិបសៃ​មាន​សន្តិសុខ​របស់​អ្នក។
+
+សម្រាប់​ព័ត៌មាន​បន្ថែម​អំពី​វិញ្ញាបនបត្រ​ទាំងនេះ សូម​ទាក់ទង​អ្នកគ្រប់គ្រង IT របស់​អ្នក។"</item>
+        <item quantity="one">"%s បាន​ដំឡើង​វិញ្ញាបនបត្រ CA លើ​ឧបករណ៍​របស់​អ្នក ដែល​អាច​អនុញ្ញាត​ឲ្យ​ពួកវា​ត្រួតពិនិត្យ​សកម្មភាព​បណ្ដាញ​របស់​ឧបករណ៍​អ្នក រួមទាំង​ការប្រើប្រាស់​អ៊ីមែល, កម្មវិធី និង វិបសៃ​មាន​សន្តិសុខ​របស់​អ្នក។
+
+សម្រាប់​ព័ត៌មាន​បន្ថែម​អំពី​វិញ្ញាបនបត្រ​នេះ សូម​ទាក់ទង​អ្នកគ្រប់គ្រង IT របស់​អ្នក។"</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">កម្មវិធី %d អាច​អាន​ការជូនដំណឹង។</item>
+        <item quantity="one">បាន​អនុញ្ញាត​កម្មវិធី %d ដើម្បី​អាន​ការជូនដំណឹង។</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">ការអនុញ្ញាត %d ទៀត</item>
+        <item quantity="one">ការអនុញ្ញាត %d ទៀត</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">ដំណើរការ %1$d បាន​ប្រើ RAM នៅ %2$s មុន</item>
+        <item quantity="one">ដំណើរការ %1$d បាន​ប្រើ RAM នៅ %2$s មុន</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">កម្មវិធី %d ទទួល​ការអនុញ្ញាត​ឲ្យ​ប្រើ​ទិន្នន័យ​ចល័ត​ដោយ​គ្មាន​កំហិត ខណៈពេល​បើកប្រើ​មុខងារ​សំចៃ​ទិន្នន័យ</item>
+        <item quantity="one">បាន​អនុញ្ញាត​ឲ្យ​កម្មវិធី 1 ប្រើ​ទិន្នន័យ​ចល័ត​ដោយ​គ្មាន​កំហិត ខណៈពេល​បាន​បើកប្រើ​មុខងារ​សំចៃ​ទិន្នន័យ</item>
+    </plurals>
+</resources>

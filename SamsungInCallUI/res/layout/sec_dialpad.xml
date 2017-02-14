@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/dialpad" android:layout_width="fill_parent" android:layout_height="@dimen/sec_dialpad_keys_height" android:splitMotionEvents="false" android:layout_marginStart="@dimen/sec_dialpad_keys_margin" android:layout_marginEnd="@dimen/sec_dialpad_keys_margin"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:id="@id/first_row" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0">
+        <RelativeLayout android:id="@id/container_one" style="@style/SecDialpadButtonStyle">
+            <include android:id="@id/one" layout="@layout/sec_dialpad_key" />
+        </RelativeLayout>
+        <RelativeLayout android:id="@id/container_two" android:splitMotionEvents="false" android:layout_toEndOf="@id/container_one" style="@style/SecDialpadButtonStyle">
+            <include android:id="@id/two" layout="@layout/sec_dialpad_key" />
+        </RelativeLayout>
+        <RelativeLayout android:id="@id/container_three" android:splitMotionEvents="false" android:layout_toEndOf="@id/container_two" style="@style/SecDialpadButtonStyle">
+            <include android:id="@id/three" layout="@layout/sec_dialpad_key" />
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout android:id="@id/second_row" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0" android:layout_below="@id/first_row">
+        <RelativeLayout android:id="@id/container_four" android:layout_below="@id/container_one" android:splitMotionEvents="false" style="@style/SecDialpadButtonStyle">
+            <include android:id="@id/four" layout="@layout/sec_dialpad_key" />
+        </RelativeLayout>
+        <RelativeLayout android:id="@id/container_five" android:layout_below="@id/container_two" android:layout_alignBottom="@id/container_four" android:splitMotionEvents="false" android:layout_toEndOf="@id/container_four" style="@style/SecDialpadButtonStyle">
+            <include android:id="@id/five" layout="@layout/sec_dialpad_key" />
+        </RelativeLayout>
+        <RelativeLayout android:id="@id/container_six" android:layout_below="@id/container_three" android:layout_alignBottom="@id/container_five" android:splitMotionEvents="false" android:layout_toEndOf="@id/container_five" style="@style/SecDialpadButtonStyle">
+            <include android:id="@id/six" layout="@layout/sec_dialpad_key" />
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout android:id="@id/third_row" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0" android:layout_below="@id/second_row">
+        <RelativeLayout android:id="@id/container_seven" android:layout_below="@id/container_four" android:splitMotionEvents="false" style="@style/SecDialpadButtonStyle">
+            <include android:id="@id/seven" layout="@layout/sec_dialpad_key" />
+        </RelativeLayout>
+        <RelativeLayout android:id="@id/container_eight" android:layout_below="@id/container_five" android:layout_alignBottom="@id/container_seven" android:splitMotionEvents="false" android:layout_toEndOf="@id/container_seven" style="@style/SecDialpadButtonStyle">
+            <include android:id="@id/eight" layout="@layout/sec_dialpad_key" />
+        </RelativeLayout>
+        <RelativeLayout android:id="@id/container_nine" android:layout_below="@id/container_six" android:layout_alignBottom="@id/container_eight" android:layout_toEndOf="@id/container_eight" style="@style/SecDialpadButtonStyle">
+            <include android:id="@id/nine" layout="@layout/sec_dialpad_key" />
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout android:id="@id/forth_row" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0" android:layout_below="@id/third_row">
+        <RelativeLayout android:id="@id/container_star" android:layout_below="@id/container_seven" android:splitMotionEvents="false" style="@style/SecDialpadButtonStyle">
+            <include android:id="@id/star" layout="@layout/sec_dialpad_star_key" />
+        </RelativeLayout>
+        <RelativeLayout android:id="@id/container_zero" android:layout_below="@id/container_eight" android:layout_alignBottom="@id/container_star" android:splitMotionEvents="false" android:layout_toEndOf="@id/container_star" style="@style/SecDialpadButtonStyle">
+            <include android:id="@id/zero" layout="@layout/sec_dialpad_zero_key" />
+        </RelativeLayout>
+        <RelativeLayout android:id="@id/container_pound" android:layout_below="@id/container_nine" android:layout_alignBottom="@id/container_zero" android:splitMotionEvents="false" android:layout_toEndOf="@id/container_zero" style="@style/SecDialpadButtonStyle">
+            <include android:id="@id/pound" layout="@layout/sec_dialpad_star_key" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

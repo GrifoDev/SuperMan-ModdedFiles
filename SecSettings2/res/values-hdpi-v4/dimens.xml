@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="bluetooth_list_divider_height">1.0px</dimen>
+    <dimen name="bluetooth_scandialog_fragment_height">355.0dip</dimen>
+    <dimen name="brightness_icon_inner_circle_size">12.5px</dimen>
+    <dimen name="easymode_preview_image_land_marginleft">10.0dip</dimen>
+    <dimen name="easymode_preview_image_margintop">20.0dip</dimen>
+    <dimen name="wifi_ap_add_dialog_edit_margin_left">-6.0dip</dimen>
+    <dimen name="wifi_ap_dialog_edit_margin_left">-3.0dip</dimen>
+    <dimen name="wifi_picker_dialog_margin_left_right">25.0dip</dimen>
+    <item type="dimen" name="personal_vibration_big_o_val_offset">40.5</item>
+    <item type="dimen" name="personal_vibration_niddle_width">1.0</item>
+    <item type="dimen" name="personal_vibration_small_o_val_offset">19.5</item>
+    <item type="dimen" name="personal_vibration_thickness">46.0</item>
+</resources>

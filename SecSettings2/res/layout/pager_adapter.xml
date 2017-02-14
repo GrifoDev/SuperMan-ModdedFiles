@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:paddingTop="@dimen/body_text_top_padding" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <ImageView android:layout_gravity="center" android:id="@id/animation" android:layout_width="fill_parent" android:layout_height="wrap_content" android:scaleType="fitXY" android:adjustViewBounds="true" android:paddingStart="@dimen/list_item_start_padding" android:paddingEnd="@dimen/list_item_end_padding" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:paddingTop="@dimen/not_topside_body_text_top_padding" android:paddingBottom="@dimen/list_item_bottom_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/list_item_start_padding" android:paddingEnd="@dimen/list_item_end_padding">
+            <TextView android:textSize="@dimen/motions_description_card_title_text_size" android:textColor="@color/motions_description_card_title_text_color" android:gravity="center_vertical" android:id="@id/description_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/motions_description_card_title_margin_bottom" android:minHeight="@dimen/motions_description_card_title_area_height" android:singleLine="true" android:fontFamily="sec-roboto-light" />
+            <TextView android:textSize="@dimen/motions_description_card_summary_text_size" android:textColor="@color/motions_description_card_summary_text_color" android:id="@id/description_summary" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="false" android:lineSpacingExtra="4.0dip" android:fontFamily="sec-roboto-light" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

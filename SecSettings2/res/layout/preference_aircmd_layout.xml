@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/textView1" android:paddingTop="@dimen/list_item_top_padding" android:paddingBottom="@dimen/list_item_bottom_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/air_command_help_text" android:paddingStart="@dimen/list_item_start_padding" android:paddingEnd="@dimen/list_item_end_padding" style="@style/body_text_style" />
+    <View android:id="@id/divider" android:layout_width="fill_parent" android:layout_marginLeft="@dimen/list_divider_padding" android:layout_marginRight="@dimen/list_divider_padding" android:layout_below="@id/textView1" style="@style/list_divider_style" />
+</RelativeLayout>

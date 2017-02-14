@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/memory_usage"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:layout="@layout/preference_category_short" android:title="@string/average_memory_use" />
+    <com.samsung.android.settings.SecSummaryPreference android:selectable="false" android:key="status_header" />
+    <com.android.settings.applications.SpacePreference android:layout_height="5.0dip" />
+    <Preference android:layout="@layout/horizontal_preference" android:title="@string/running_frequency" android:selectable="false" android:key="frequency" />
+    <Preference android:layout="@layout/horizontal_preference" android:title="@string/memory_maximum_usage" android:selectable="false" android:key="max_usage" />
+    <PreferenceCategory android:title="@string/memory_details" android:key="processes" />
+</PreferenceScreen>

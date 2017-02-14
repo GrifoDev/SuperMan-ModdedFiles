@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:gravity="center_vertical" android:id="@id/result_layout" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="32.0dip" android:layout_marginTop="24.0dip" android:layout_marginRight="32.0dip" android:layout_marginBottom="15.0dip">
+        <TextView android:textSize="17.0dip" android:textColor="@color/default_text" android:id="@id/result_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/test_result" android:fontFamily="sans-serif" />
+    </RelativeLayout>
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="32.0dip" android:layout_marginRight="32.0dip" android:layout_below="@id/result_layout">
+        <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/default_image" android:layout_width="fill_parent" android:layout_height="wrap_content" android:weightSum="2.0" android:layout_weight="1.0">
+            <ImageView android:layout_width="wrap_content" android:layout_height="0.0dip" android:src="@drawable/cb_result_image_1" android:scaleType="fitXY" android:adjustViewBounds="true" android:layout_weight="1.0" />
+            <ImageView android:layout_width="wrap_content" android:layout_height="0.0dip" android:src="@drawable/cb_result_image_2" android:scaleType="fitXY" android:adjustViewBounds="true" android:layout_weight="1.0" />
+        </LinearLayout>
+        <TextView android:textAppearance="?android:textAppearanceListItem" android:textSize="17.0dip" android:id="@id/colour_adjustment_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:text="@string/colour_adjustment" android:layout_below="@id/default_image" android:fontFamily="sans-serif" />
+        <SeekBar android:id="@id/colour_adjustment_seekbar" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:layout_below="@id/colour_adjustment_text" />
+    </RelativeLayout>
+</RelativeLayout>

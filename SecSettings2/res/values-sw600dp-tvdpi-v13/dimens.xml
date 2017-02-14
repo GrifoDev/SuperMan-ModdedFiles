@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="wifi_dialog_edit_margin_left">-6.0dip</dimen>
+    <dimen name="wifi_dialog_edit_padding_start">6.0dip</dimen>
+</resources>

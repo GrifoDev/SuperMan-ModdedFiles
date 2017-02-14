@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="wifi_status">
+        <item></item>
+        <item>Etsitään...</item>
+        <item>Yhdistetään…</item>
+        <item>Varmennetaan…</item>
+        <item>Haetaan IP-osoitetta...</item>
+        <item>Yhdistetty</item>
+        <item>Pidätetty</item>
+        <item>Katkaistaan yhteyttä...</item>
+        <item>Yhteys katkaistu</item>
+        <item>Epäonnistui</item>
+        <item>Estetty</item>
+        <item>Vältetään huonoa yhteyttä tilapäisesti</item>
+    </string-array>
+    <string-array name="wifi_status_with_ssid">
+        <item></item>
+        <item>Etsitään...</item>
+        <item>Yhdistetään verkkoon %1$s...</item>
+        <item>Varmennetaan verkkoon %1$s...</item>
+        <item>Haetaan IP-osoitetta verkosta %1$s...</item>
+        <item>Yhdistetty verkkoon %1$s</item>
+        <item>Pidätetty</item>
+        <item>Katkaistaan yhteys verkosta %1$s…</item>
+        <item>Yhteys katkaistu</item>
+        <item>Epäonnistui</item>
+        <item>Estetty</item>
+        <item>Vältetään huonoa yhteyttä tilapäisesti</item>
+    </string-array>
+    <string-array name="hdcp_checking_titles">
+        <item>Älä tarkista koskaan</item>
+        <item>Tarkista vain DRM-suojattu sisältö</item>
+        <item>Tarkista aina</item>
+    </string-array>
+    <string-array name="hdcp_checking_summaries">
+        <item>Älä koskaan käytä HDCP-tarkistusta</item>
+        <item>Käytä HDCP-tarkistusta vain DRM-suojatulle sisällölle</item>
+        <item>Käytä aina HDCP-tarkistusta</item>
+    </string-array>
+    <string-array name="select_logd_size_titles">
+        <item>Ei käytössä</item>
+        <item>64 kt</item>
+        <item>256 kt</item>
+        <item>1 Mt</item>
+        <item>4 Mt</item>
+        <item>16 Mt</item>
+    </string-array>
+    <string-array name="select_logd_size_lowram_titles">
+        <item>Ei käytössä</item>
+        <item>64 kt</item>
+        <item>256 kt</item>
+        <item>1 Mt</item>
+    </string-array>
+    <string-array name="select_logd_size_summaries">
+        <item>Ei käytössä</item>
+        <item>64 kt / lokipuskuri</item>
+        <item>256 kt / lokipuskuri</item>
+        <item>1 Mt / lokipuskuri</item>
+        <item>4 Mt / lokipuskuri</item>
+        <item>16 Mt / lokipuskuri</item>
+    </string-array>
+    <string-array name="window_animation_scale_entries">
+        <item>Animaatio pois käytöstä</item>
+        <item>Animaatioasteikko 0,5-kertainen</item>
+        <item>Animaatioasteikko 1-kertainen</item>
+        <item>Animaatioasteikko 1,5-kertainen</item>
+        <item>Animaatioasteikko 2-kertainen</item>
+        <item>Animaatioasteikko 5-kertainen</item>
+        <item>Animaatioasteikko 10-kertainen</item>
+    </string-array>
+    <string-array name="transition_animation_scale_entries">
+        <item>Animaatio pois käytöstä</item>
+        <item>Animaatioasteikko 0,5-kertainen</item>
+        <item>Animaatioasteikko 1-kertainen</item>
+        <item>Animaatioasteikko 0,5-kertainen</item>
+        <item>Animaatioasteikko 2-kertainen</item>
+        <item>Animaatioasteikko 5-kertainen</item>
+        <item>Animaatioasteikko 10-kertainen</item>
+    </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>Animaatio pois käytöstä</item>
+        <item>Animaatioasteikko 0,5-kertainen</item>
+        <item>Animaatioasteikko 1-kertainen</item>
+        <item>Animaatioasteikko 1,5-kertainen</item>
+        <item>Animaatioasteikko 2-kertainen</item>
+        <item>Animaatioasteikko 5-kertainen</item>
+        <item>Animaatioasteikko 10-kertainen</item>
+    </string-array>
+    <string-array name="overlay_display_devices_entries">
+        <item>Ei mitään</item>
+        <item>480p</item>
+        <item>480p (turvallinen)</item>
+        <item>720p</item>
+        <item>720p (turvallinen)</item>
+        <item>1080p</item>
+        <item>1080p (turvallinen)</item>
+        <item>4K</item>
+        <item>4K (turvallinen)</item>
+        <item>4K (skaalattu)</item>
+        <item>4K (skaalattu, turvallinen)</item>
+        <item>720p, 1080p (kaksoisnäyttö)</item>
+    </string-array>
+    <string-array name="enable_opengl_traces_entries">
+        <item>Ei mitään</item>
+        <item>Logcat</item>
+        <item>Systrace (grafiikka)</item>
+        <item>Kutsu pinoa, jos glGetError tapaht.</item>
+    </string-array>
+    <string-array name="show_non_rect_clip_entries">
+        <item>Pois</item>
+        <item>Piirrä ei-suorakulm. leikealue sinisellä</item>
+        <item>Korosta testatut piirtokom. vihreällä</item>
+    </string-array>
+    <string-array name="track_frame_time_entries">
+        <item>Pois käytöstä</item>
+        <item>Ruudulla palkkeina</item>
+        <item>Adb shell dumpsys gfxinfo</item>
+    </string-array>
+    <string-array name="debug_hw_overdraw_entries">
+        <item>Ei käytössä</item>
+        <item>Näytä päällekkäiset alueet</item>
+        <item>Näytä alueet puna-vihersokeille näkyvinä</item>
+    </string-array>
+    <string-array name="app_process_limit_entries">
+        <item>Vakioraja</item>
+        <item>Ei taustaprosesseja</item>
+        <item>Enintään 4 prosessia</item>
+        <item>Enintään 2 prosessia</item>
+        <item>Enintään 3 prosessia</item>
+        <item>Enintään 4 prosessia</item>
+    </string-array>
+    <string-array name="usb_configuration_titles">
+        <item>Lataaminen</item>
+        <item>MTP (median siirtoprotokolla)</item>
+        <item>PTP (kuvan siirtoprotokolla)</item>
+        <item>RNDIS (USB-ethernet)</item>
+        <item>Äänilähde</item>
+        <item>MIDI</item>
+    </string-array>
+    <string-array name="tts_rate_entries">
+        <item>Hyvin hidas</item>
+        <item>Hidas</item>
+        <item>Normaali</item>
+        <item>Nopea</item>
+        <item>Nopeampi</item>
+        <item>Hyvin nopea</item>
+        <item>Nopea</item>
+        <item>Erittäin nopea</item>
+        <item>Nopein</item>
+    </string-array>
+    <string-array name="color_mode_names">
+        <item>Voimakas (oletus)</item>
+        <item>Luonnollinen</item>
+        <item>Normaali</item>
+    </string-array>
+    <string-array name="color_mode_descriptions">
+        <item>Tehostetut värit</item>
+        <item>Ihmissilmän näkemät luonnolliset värit</item>
+        <item>Digitaaliselle sisällölle parhaiten sopivat värit</item>
+    </string-array>
+    <string-array name="screen_timeout_entries">
+        <item>15 sekuntia</item>
+        <item>30 sekuntia</item>
+        <item>1 minuutti</item>
+        <item>2 minuuttia</item>
+        <item>5 minuuttia</item>
+        <item>10 minuuttia</item>
+        <item>30 minuuttia</item>
+    </string-array>
+    <string-array name="screen_timeout_for_device_lock_entries">
+        <item>15 sekuntia</item>
+        <item>30 sekuntia</item>
+        <item>1 minuutti</item>
+        <item>3 minuuttia</item>
+        <item>5 minuuttia</item>
+        <item>10 minuuttia</item>
+        <item>15 minuuttia</item>
+        <item>30 minuuttia</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>Heti virtanäppäimellä tai kun näyttö aikakatkaistaan</item>
+        <item>15 sekuntia</item>
+        <item>30 sekuntia</item>
+        <item>1 minuutti</item>
+        <item>3 minuuttia</item>
+        <item>5 minuuttia</item>
+        <item>10 minuuttia</item>
+        <item>15 minuuttia</item>
+        <item>30 minuuttia</item>
+        <item>1 tunti</item>
+    </string-array>
+    <string-array name="lock_after_timeout_entries">
+        <item>Heti</item>
+        <item>5 sekuntia</item>
+        <item>15 sekuntia</item>
+        <item>30 sekuntia</item>
+        <item>1 minuutti</item>
+        <item>2 minuuttia</item>
+        <item>5 minuuttia</item>
+        <item>10 minuuttia</item>
+        <item>30 minuuttia</item>
+    </string-array>
+    <string-array name="wifi_ap_security_testmode">
+        <item>Avoin</item>
+        <item>WPA2 PSK</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>Yhdistetty</item>
+        <item>Kutsuttu.</item>
+        <item>Yhdist. epäonnistui</item>
+        <item>Muodosta yhteys napauttamalla tätä.</item>
+        <item>Liian suuri tai pieni</item>
+        <item>Yhdistetty toiseen laitteeseen</item>
+    </string-array>
+    <string-array name="wifi_ap_wifi_sharing">
+        <item>Ota Wi-Fi-jako k.</item>
+        <item>Poista Wi-Fi-jako k.</item>
+    </string-array>
+    <string-array name="wifi_ap_timeout">
+        <item>Ei aikakatkaisua koskaan</item>
+        <item>5 minuuttia</item>
+        <item>10 minuuttia</item>
+        <item>20 minuuttia</item>
+        <item>30 minuuttia</item>
+        <item>60 minuuttia</item>
+    </string-array>
+    <string-array name="wifi_ap_channel">
+        <item>Auto</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+    </string-array>
+    <string-array name="wifi_signal">
+        <item>Heikko</item>
+        <item>Kohtalainen</item>
+        <item>Hyvä</item>
+        <item>Voimakas</item>
+        <item>Erittäin voimakas</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_entries">
+        <item>"Aina
+(Lisää akkuvirran kulutusta)"</item>
+        <item>Ladattaessa</item>
+        <item>"Ei koskaan
+(Lisää datankäyttöä)"</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_entries_wifi_only">
+        <item>"Aina
+(Lisää akkuvirran kulutusta)"</item>
+        <item>Ladattaessa</item>
+        <item>Ei koskaan</item>
+    </string-array>
+    <string-array name="wifi_peap_phase2_entries">
+        <item>Ei mitään</item>
+        <item>MSCHAPV2</item>
+        <item>GTC</item>
+    </string-array>
+    <string-array name="wifi_ip_settings">
+        <item>DHCP</item>
+        <item>Staattinen</item>
+    </string-array>
+    <string-array name="wifi_proxy_settings">
+        <item>Ei mitään</item>
+        <item>Manuaalinen</item>
+        <item>Automaattinen määritys</item>
+    </string-array>
+    <string-array name="apn_auth_entries">
+        <item>Ei mitään</item>
+        <item>PAP</item>
+        <item>CHAP</item>
+        <item>PAP tai CHAP</item>
+    </string-array>
+    <string-array name="bearer_entries">
+        <item>Määrittelemätön</item>
+        <item>LTE</item>
+        <item>HSPAP</item>
+        <item>HSPA</item>
+        <item>HSUPA</item>
+        <item>HSDPA</item>
+        <item>UMTS</item>
+        <item>EDGE</item>
+        <item>GPRS</item>
+        <item>eHRPD</item>
+        <item>EVDO_B</item>
+        <item>EVDO_A</item>
+        <item>EVDO_0</item>
+        <item>1xRTT</item>
+        <item>IS95B</item>
+        <item>IS95A</item>
+    </string-array>
+    <string-array name="mvno_type_entries">
+        <item>Ei mitään</item>
+        <item>SPN</item>
+        <item>IMSI</item>
+        <item>GID</item>
+    </string-array>
+    <string-array name="captioning_typeface_selector_titles">
+        <item>Oletus</item>
+        <item>Sans serif</item>
+        <item>Sans serif condensed</item>
+        <item>Sans serif monospace</item>
+        <item>Serif</item>
+        <item>Serif monospace</item>
+        <item>Huoleton</item>
+        <item>Kursiivi</item>
+        <item>Kapiteelit</item>
+    </string-array>
+    <string-array name="captioning_font_size_selector_titles">
+        <item>Erittäin pieni</item>
+        <item>Pieni</item>
+        <item>Normaali</item>
+        <item>Suuri</item>
+        <item>Erittäin suuri</item>
+    </string-array>
+    <string-array name="captioning_edge_type_selector_titles">
+        <item>Oletus</item>
+        <item>Ei mitään</item>
+        <item>Ääriviivat</item>
+        <item>Varjo</item>
+        <item>Kohotettu</item>
+        <item>Masentunut</item>
+    </string-array>
+    <string-array name="captioning_preset_selector_titles">
+        <item>Oletus</item>
+        <item>Valkoinen mustalla</item>
+        <item>Musta valkoisella</item>
+        <item>Keltainen mustalla</item>
+        <item>Keltainen sinisellä</item>
+        <item>Mukautettu</item>
+    </string-array>
+    <string-array name="vpn_states">
+        <item>Yhteys katkaistu</item>
+        <item>Valmistellaan…</item>
+        <item>Yhdistetään…</item>
+        <item>Yhdistetty</item>
+        <item>Aikakatkaisu</item>
+        <item>Epäonnistui</item>
+    </string-array>
+    <string-array name="long_press_timeout_titles_selector">
+        <item>Lyhyt (0,5 sekuntia)</item>
+        <item>Keskipitkä (1,0 sekuntia)</item>
+        <item>Pitkä (1,5 sekuntia)</item>
+        <item>Mukautettu</item>
+    </string-array>
+    <string-array name="time_interval_entries_selectable">
+        <item>1 minuutti</item>
+        <item>3 minuuttia</item>
+        <item>5 minuuttia</item>
+        <item>10 minuuttia</item>
+        <item>15 minuuttia</item>
+    </string-array>
+    <string-array name="wifi_connect_entries">
+        <item>Automaattinen</item>
+        <item>Manuaalinen</item>
+        <item>Kysy aina</item>
+    </string-array>
+    <string-array name="touch_key_light_entries">
+        <item>1,5 sekuntia</item>
+        <item>6 sekuntia</item>
+        <item>Aina pois</item>
+        <item>Aina päällä</item>
+    </string-array>
+</resources>

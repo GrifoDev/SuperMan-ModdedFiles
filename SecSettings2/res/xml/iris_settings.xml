@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:touchwiz="http://schemas.android.com/apk/res/touchwiz">
+    <PreferenceCategory android:title="@string/manage_irises" android:key="iris_manage_category">
+        <com.samsung.android.settings.UnclickablePreference android:title="@string/my_irises" android:key="my_irises" />
+        <PreferenceScreen android:layout="@layout/iris_preference_register" android:title="@string/register_irises" android:key="register_irises" android:widgetLayout="@layout/fingerprint_registericon" />
+        <PreferenceScreen android:title="@string/fingerprint_change_reset_password" android:key="change_reset_password" />
+        <PreferenceScreen android:title="@string/iris_preview_style_title" android:key="iris_preview_style" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/iris_verification" android:key="iris_feature_category">
+        <SwitchPreference android:title="@string/fingerprint_web" android:key="iris_web_signin" android:summary="@string/iris_web_sign_in_summary" />
+        <PreferenceScreen android:title="@string/iris_use_samsung_pass" android:key="iris_samsung_pass" />
+        <SwitchPreference android:title="@string/iris_verify_samsung_acccount" android:key="iris_samsung_account" android:summary="@string/iris_verify_samsung_acccount_summary" />
+        <PreferenceScreen android:title="@string/iris_use_samsung_pay" android:key="iris_samsung_pay" android:summary="@string/iris_use_samsung_pay_summary" />
+    </PreferenceCategory>
+    <PreferenceCategory android:layout="@layout/fingerprint_unlock_category" android:key="iris_unlock_category">
+        <SwitchPreference android:title="@string/iris_unlock" android:key="iris_screen_lock" android:summary="@string/iris_unlock_summary" />
+    </PreferenceCategory>
+    <SwitchPreference android:title="@string/use_iris_first_lock" android:key="use_iris_first_lock" />
+    <PreferenceScreen android:title="@string/tips_for_iris" android:key="tips_for_iris" />
+</PreferenceScreen>

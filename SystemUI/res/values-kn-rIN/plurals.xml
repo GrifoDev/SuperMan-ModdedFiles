@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">ಸಮಗ್ರ ನೋಟದಲ್ಲಿರುವ %d ಪರದೆಗಳು</item>
+        <item quantity="one">ಸಮಗ್ರ ನೋಟದಲ್ಲಿರುವ %d ಪರದೆಗಳು</item>
+    </plurals>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">ಸಿಮ್‌ ಪಿನ್ ಕೋಡ್‌ ತಪ್ಪಾಗಿದೆ, ನಿಮ್ಮಲ್ಲಿ %d ಪ್ರಯತ್ನಗಳು ಬಾಕಿ ಉಳಿದಿವೆ.</item>
+        <item quantity="one">ಸಿಮ್‌ ಪಿನ್ ಕೋಡ್‌ ತಪ್ಪಾಗಿದೆ, ನಿಮ್ಮಲ್ಲಿ %d ಪ್ರಯತ್ನಗಳು ಬಾಕಿ ಉಳಿದಿವೆ.</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">ತಪ್ಪಾಗಿರುವ ಸಿಮ್‌ PUK ಕೋಡ್‌, ಸಿಮ್‌ ಶಾಶ್ವತವಾಗಿ ನಿಷ್ಪ್ರಯೋಜಕವಾಗುವುದಕ್ಕೂ ಮೊದಲು ನಿಮ್ಮಲ್ಲಿ %d ಪ್ರಯತ್ನಗಳು ಬಾಕಿ ಉಳಿದಿವೆ.</item>
+        <item quantity="one">ತಪ್ಪಾಗಿರುವ ಸಿಮ್‌ PUK ಕೋಡ್‌, ಸಿಮ್‌ ಶಾಶ್ವತವಾಗಿ ನಿಷ್ಪ್ರಯೋಜಕವಾಗುವುದಕ್ಕೂ ಮೊದಲು ನಿಮ್ಮಲ್ಲಿ %d ಪ್ರಯತ್ನಗಳು ಬಾಕಿ ಉಳಿದಿವೆ.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="other">ಸಾಧನವನ್ನು %d ಗಂಟೆಗಳ ಕಾಲ ಅನ್‌ಲಾಕ್‌ ಮಾಡಲಾಗಿಲ್ಲ. ನಮೂನೆಯನ್ನು ಖಚಿತಪಡಿಸಿ.</item>
+        <item quantity="one">ಸಾಧನವನ್ನು %d ಗಂಟೆಗಳ ಕಾಲ ಅನ್‌ಲಾಕ್‌ ಮಾಡಲಾಗಿಲ್ಲ. ನಮೂನೆಯನ್ನು ಖಚಿತಪಡಿಸಿ.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="other">ಸಾಧನವನ್ನು %d ಗಂಟೆಗಳ ಕಾಲ ಅನ್‌ಲಾಕ್‌ ಮಾಡಲಾಗಿಲ್ಲ. ಪಿನ್ ದೃಢೀಕರಿಸಿ.</item>
+        <item quantity="one">ಸಾಧನವನ್ನು %d ಗಂಟೆಗಳ ಕಾಲ ಅನ್‌ಲಾಕ್‌ ಮಾಡಲಾಗಿಲ್ಲ. ಪಿನ್ ದೃಢೀಕರಿಸಿ.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">ಸಾಧನವನ್ನು %d ಗಂಟೆಗಳ ಕಾಲ ಅನ್‌ಲಾಕ್‌ ಮಾಡಲಾಗಿಲ್ಲ. ಪಾಸ್‌ವರ್ಡ್‌ ಖಚಿತಪಡಿಸಿ.</item>
+        <item quantity="one">ಸಾಧನವನ್ನು %d ಗಂಟೆಗಳ ಕಾಲ ಅನ್‌ಲಾಕ್‌ ಮಾಡಲಾಗಿಲ್ಲ. ಪಾಸ್‌ವರ್ಡ್‌ ಖಚಿತಪಡಿಸಿ.</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(%d ಪ್ರಯತ್ನಗಳು ಉಳಿದಿದೆ)</item>
+        <item quantity="one">(1 ಪ್ರಯತ್ನ ಉಳಿದಿದೆ)</item>
+    </plurals>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">%d ಪ್ರಯತ್ನಗಳು ಬಾಕಿ ಉಳಿದಿವೆ</item>
+        <item quantity="one">%d ಪ್ರಯತ್ನ ಉಳಿದಿವೆ</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_min">
+        <item quantity="other">%d ನಿಮಿಷಗಳಲ್ಲಿ ಮತ್ತೊಮ್ಮೆ ಪ್ರಯತ್ನಿಸಿ</item>
+        <item quantity="one">%d ನಿಮಿಷದಲ್ಲಿ ಮತ್ತೊಮ್ಮೆ ಪ್ರಯತ್ನಿಸಿ</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_sec">
+        <item quantity="other">%d ಸೆಕೆಂಡುಗಳಲ್ಲಿ ಮತ್ತೊಮ್ಮೆ ಪ್ರಯತ್ನಿಸಿ</item>
+        <item quantity="one">%d ಸೆಕೆಂಡಿನಲ್ಲಿ ಮತ್ತೊಮ್ಮೆ ಪ್ರಯತ್ನಿಸಿ</item>
+    </plurals>
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:touchwiz="http://schemas.android.com/apk/res/touchwiz">
+    <com.samsung.android.settings.UnclickablePreference android:title="@string/direction_lock_description" android:key="descriptionText" />
+    <PreferenceCategory android:title="@string/lock_settings_title" android:key="lock_screen_security_category" />
+    <PreferenceScreen android:title="@string/unlock_set_unlock_launch_picker_title" android:key="unlock_set_or_change" android:summary="@string/unlock_set_unlock_mode_none" />
+    <SwitchPreference android:title="@string/fingerprint_set_as_screen_lock" android:key="lock_screen_fingerprint" android:summary="@string/fingerprint_set_as_screen_lock_summary" android:defaultValue="false" />
+    <SwitchPreference android:title="@string/iris_unlock" android:key="lock_screen_iris" android:summary="@string/iris_unlock_summary" android:defaultValue="false" />
+    <PreferenceCategory android:title="@string/direction_lock_feedback_options" android:key="lock_screen_options_category" />
+    <SwitchPreference android:title="@string/direction_lock_vibration" android:key="lock_screen_vibration" android:defaultValue="true" />
+    <SwitchPreference android:title="@string/direction_lock_sound" android:key="lock_screen_beep" android:defaultValue="true" />
+    <SwitchPreference android:title="@string/direction_lock_visible" android:key="lock_screen_visible" android:defaultValue="false" />
+    <SwitchPreference android:title="@string/direction_lock_voice" android:key="lock_screen_voice" android:defaultValue="false" />
+</PreferenceScreen>

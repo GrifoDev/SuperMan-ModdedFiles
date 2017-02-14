@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:layout_width="fill_parent" android:layout_height="fill_parent" android:title="@string/troaming_activity_name"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceScreen android:persistent="false" android:title="@string/roaming_current_title" android:key="key_roaming_current" />
+    <PreferenceScreen android:persistent="false" android:title="@string/roaming_selection" android:key="key_roaming_selection" />
+    <SwitchPreference android:title="@string/roaming_use_data_roaming" android:key="key_roaming_use_data_roaming" />
+    <SwitchPreference android:title="@string/roaming_use_lte_roaming" android:key="key_roaming_use_lte_roaming" />
+    <SwitchPreference android:title="@string/data_usage_menu_restrict_background" android:key="key_roaming_background_data" />
+    <SwitchPreference android:title="@string/roaming_use_hd_voice_roaming" android:key="key_roaming_hd_voice_roaming" android:summary="@string/roaming_hd_voice_guide" />
+    <PreferenceScreen android:persistent="false" android:title="@string/roaming_auto_dial" android:key="key_roaming_auto_dial" />
+    <PreferenceScreen android:persistent="false" android:title="@string/roaming_guide" android:key="key_roaming_guide" android:summary="@string/roaming_guide" />
+    <PreferenceScreen android:persistent="false" android:title="@string/roaming_join_cancel" android:key="key_roaming_join_cancel" />
+    <PreferenceScreen android:persistent="false" android:title="@string/troaming_use_roaming_packages" android:key="key_roaming_mobile_t" />
+    <PreferenceScreen android:persistent="false" android:title="@string/troaming_customer_center" android:key="key_roaming_customer_service" android:summary="@string/call_roaming_customer_center_summary" />
+    <PreferenceScreen android:persistent="false" android:title="@string/call_roaming_customer_center" android:key="key_roaming_customer_service_kt" />
+</PreferenceScreen>

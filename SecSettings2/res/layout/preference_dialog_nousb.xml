@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginBottom="@dimen/alert_dialog_padding_bottom"
+      xmlns:android="http://schemas.android.com/apk/res/android">
+        <TextView android:id="@id/no_usb" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/alert_dialog_padding_left_right" android:layout_marginTop="@dimen/alert_dialog_padding_top" android:layout_marginRight="@dimen/alert_dialog_padding_left_right" android:text="@string/nousbdriver_attention_message" style="@style/dialog_body_text_style" />
+        <CheckBox android:id="@id/do_not_show_again" android:paddingLeft="@dimen/alert_dialog_bottom_checkbox_padding_left" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/alert_dialog_bottom_checkbox_margin_left" android:layout_marginTop="@dimen/alert_dialog_bottom_checkbox_margin_top" android:checked="true" android:text="@string/do_not_show_again" style="@style/dialog_body_text_style" />
+    </LinearLayout>
+</ScrollView>

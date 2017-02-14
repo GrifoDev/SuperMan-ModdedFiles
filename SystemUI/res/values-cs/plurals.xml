@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">%d obrazovky v Přehledu</item>
+        <item quantity="one">%d obrazovky v Přehledu</item>
+    </plurals>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">Zadali jste nesprávný kód PIN SIM karty. Máte ještě %d pokusů.</item>
+        <item quantity="one">Zadali jste nesprávný PIN SIM karty. Zbývá %d pokus, poté bude muset zařízení odemknout operátor.</item>
+        <item quantity="few">Zadali jste nesprávný kód PIN SIM karty. Máte ještě %d pokusy.</item>
+        <item quantity="many">Zadali jste nesprávný kód PIN SIM karty. Máte ještě %d pokusu.</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">Nesprávný kód PUK SIM karty. Máte ještě %d pokusů, poté bude SIM karta natrvalo zablokována.</item>
+        <item quantity="one">Nesprávný kód PUK SIM karty. Máte ještě %d pokus, poté bude SIM karta natrvalo zablokována.</item>
+        <item quantity="few">Nesprávný kód PUK SIM karty. Máte ještě %d pokusy, poté bude SIM karta natrvalo zablokována.</item>
+        <item quantity="many">Nesprávný kód PUK SIM karty. Máte ještě %d pokusu, poté bude SIM karta natrvalo zablokována.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="other">Zařízení již %d hodin nebylo odemknuto. Potvrďte gesto.</item>
+        <item quantity="one">Zařízení již %d hodinu nebylo odemknuto. Potvrďte gesto.</item>
+        <item quantity="few">Zařízení již %d hodiny nebylo odemknuto. Potvrďte gesto.</item>
+        <item quantity="many">Zařízení již %d hodiny nebylo odemknuto. Potvrďte gesto.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="other">Zařízení již %d hodin nebylo odemknuto. Potvrďte PIN.</item>
+        <item quantity="one">Zařízení již %d hodinu nebylo odemknuto. Potvrďte PIN.</item>
+        <item quantity="few">Zařízení již %d hodiny nebylo odemknuto. Potvrďte PIN.</item>
+        <item quantity="many">Zařízení již %d hodiny nebylo odemknuto. Potvrďte PIN.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">Zařízení již %d hodin nebylo odemknuto. Potvrďte heslo.</item>
+        <item quantity="one">Zařízení již %d hodinu nebylo odemknuto. Potvrďte heslo.</item>
+        <item quantity="few">Zařízení již %d hodiny nebylo odemknuto. Potvrďte heslo.</item>
+        <item quantity="many">Zařízení již %d hodiny nebylo odemknuto. Potvrďte heslo.</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(zbývá %d pokusů)</item>
+        <item quantity="one">(zbývá 1 pokus)</item>
+    </plurals>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">Zbývá %d pokusů</item>
+        <item quantity="one">Zbývá %d pokusů</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_min">
+        <item quantity="other">Opakujte akci za %d minut</item>
+        <item quantity="one">Opakujte akci za %d minutu</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_sec">
+        <item quantity="other">Opakovat akci za %d sekund</item>
+        <item quantity="one">Opakovat akci za %d sekundu</item>
+    </plurals>
+</resources>

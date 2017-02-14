@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:layout_width="0.0px" android:layout_height="fill_parent" android:layout_weight="1.0">
+        <ImageView android:id="@id/preview_image" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/st_screen_mode_previewmode_img_h" android:scaleType="fitXY" android:layout_centerHorizontal="true" />
+        <TextView android:textSize="@dimen/new_mode_summary_size" android:textColor="#fffafafa" android:id="@id/auto_adaptive_description" android:background="@color/screen_mode_text_bg_color" android:paddingTop="10.0dip" android:paddingBottom="10.0dip" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/screen_mode_auto_adaptive_description" android:layout_alignParentBottom="true" android:fontFamily="sec-roboto-light" android:paddingStart="14.0dip" android:paddingEnd="14.0dip" />
+    </RelativeLayout>
+    <View android:layout_width="1.0dip" android:layout_height="fill_parent" style="@style/list_divider_style" />
+    <LinearLayout android:orientation="vertical" android:layout_width="0.0px" android:layout_height="fill_parent" android:layout_weight="1.0">
+        <ListView android:id="@id/mode_list" android:layout_width="fill_parent" android:layout_height="fill_parent" android:choiceMode="singleChoice" />
+    </LinearLayout>
+</LinearLayout>

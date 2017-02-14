@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <stroke android:width="@dimen/add_icon_with_oval_stroke" android:color="@color/add_quick_settings_oval_color" />
+            <solid android:color="@android:color/transparent" />
+            <size android:height="@dimen/add_quick_settings_oval_size" android:width="@dimen/add_quick_settings_oval_size" />
+        </shape>
+    </item>
+    <item>
+        <bitmap android:gravity="center" android:src="@drawable/st_add_thumbnail" android:tint="@color/add_quick_settings_icon_color" />
+    </item>
+</layer-list>

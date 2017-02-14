@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <LinearLayout android:orientation="vertical" android:paddingTop="@dimen/body_text_top_padding" android:paddingBottom="@dimen/body_text_top_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/body_text_side_padding" android:paddingEnd="@dimen/body_text_side_padding">
+            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/crypt_keeper_desc" style="@style/crypt_keeper_description" />
+            <TextView android:textStyle="bold" android:id="@id/warning_unplugged" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:layout_marginBottom="8.0dip" android:text="@string/crypt_keeper_unplugged_text_sec" style="@style/crypt_keeper_description" />
+            <TextView android:textStyle="bold" android:id="@id/warning_low_charge" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:layout_marginBottom="8.0dip" android:text="@string/crypt_keeper_low_charge_text_sec" style="@style/crypt_keeper_description" />
+            <TextView android:textStyle="bold" android:id="@id/warning_low_password_quality" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:layout_marginBottom="8.0dip" android:text="@string/encrypt_tablet_require_password" style="@style/crypt_keeper_description" />
+            <TextView android:textStyle="bold" android:id="@id/warning_sdcard_ongoing_enc" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:layout_marginBottom="8.0dip" android:text="@string/sdcard_encrypt_disabled_ongoing_enc" style="@style/crypt_keeper_description" />
+            <TextView android:textStyle="bold" android:id="@id/warning_sdcard_ongoing_dec" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:layout_marginBottom="8.0dip" android:text="@string/sdcard_encrypt_disabled_ongoing_dec" style="@style/crypt_keeper_description" />
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" style="@style/SecurityPreferenceButtonContainer">
+        <com.samsung.android.settings.widget.BottomBarButton android:id="@id/initiate_encrypt" android:layout_width="fill_parent" android:text="@string/crypt_keeper_button_text" style="@style/SecurityPreferenceButton" />
+    </LinearLayout>
+</LinearLayout>

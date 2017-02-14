@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:ellipsize="marquee" android:id="@id/textview" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/choose_lock_privatebackupkey_marginTopBottom" android:layout_marginBottom="@dimen/choose_lock_privatebackupkey_marginTopBottom" android:text="@string/backup_key_for_privatemode_header" android:singleLine="false" android:paddingStart="?android:listPreferredItemPaddingStart" android:paddingEnd="?android:listPreferredItemPaddingEnd" style="@style/description_text" />
+</LinearLayout>

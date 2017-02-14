@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeightSmall"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:id="@id/nfctype_setting_pref" android:background="?android:listChoiceBackgroundIndicator" android:addStatesFromChildren="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeightSmall" android:layout_weight="1.0">
+        <RadioButton android:layout_gravity="center" android:orientation="vertical" android:id="@android:id/checkbox" android:background="@null" android:focusable="false" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/list_item_start_padding" android:layout_marginEnd="@dimen/list_item_inner_padding" />
+        <RelativeLayout android:id="@id/nfctype_setting_pref_text" android:paddingTop="@dimen/list_item_top_padding" android:paddingBottom="@dimen/list_item_bottom_padding" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0" android:paddingEnd="@dimen/list_item_inner_padding">
+            <TextView android:ellipsize="marquee" android:id="@android:id/title" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" style="@style/list_title_text_style" />
+            <TextView android:id="@android:id/summary" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="4" android:layout_below="@android:id/title" android:layout_alignStart="@android:id/title" style="@style/list_summary_text_style" />
+        </RelativeLayout>
+    </LinearLayout>
+    <View android:layout_width="0.0px" android:layout_height="fill_parent" />
+</LinearLayout>

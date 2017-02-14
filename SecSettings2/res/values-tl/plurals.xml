@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d (na) oras</item>
+        <item quantity="one">1 oras</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d (na) minuto</item>
+        <item quantity="one">1 minuto</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d (na) segundo</item>
+        <item quantity="one">1 segundo</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">May %d (na) hakbang na lang bago ka maging isang developer.</item>
+        <item quantity="one">1 hakbang ka na lang bago ka maging developer.</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Alisin ang mga piniling wika</item>
+        <item quantity="one">Alisin ang piniling wika</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Dapat maglaman ng kahit %d titik ang password.</item>
+        <item quantity="one">Dapat maglaman ng kahit 1 titik ang password.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Dapat maglaman ng kahit %d maliit na titik ang password.</item>
+        <item quantity="one">Dapat maglaman ng kahit 1 maliit na titik ang password.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Dapat maglaman ng kahit %d malaking titik ang password.</item>
+        <item quantity="one">Dapat maglaman ng kahit 1 malaking titik ang password.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Dapat maglaman ng kahit %d numero ang password.</item>
+        <item quantity="one">Dapat maglaman ng kahit 1 numero ang password.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Dapat maglaman ng kahit %d simbolo ang password.</item>
+        <item quantity="one">Dapat maglaman ng kahit 1 simbolo ang password.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Dapat maglaman ng kahit %d numero o simbolo ang password.</item>
+        <item quantity="one">Dapat maglaman ng kahit 1 numero o simbolo ang password.</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Access sa %d folder/file</item>
+        <item quantity="one">Access sa 1 folder/file</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"Nag-install ang %s ng mga CA certificate sa device mo, na maaaring magbigay-daan na mamanmanan ng mga ito ang aktibidad ng device mo sa network, kabilang na ang paggamit mo ng mga Email, app at mga secure website.
+
+Para sa dagdag na impormasyon tungkol sa mga certificate na ito, makipag-ugnayan sa IT administrator mo."</item>
+        <item quantity="one">"Nag-install ang %s ng CA certificate sa device mo, na maaaring magbigay-daan na mamanmanan ng mga ito ang aktibidad ng device mo sa network, kabilang na ang paggamit mo ng mga Email, app at mga secure website.
+
+Para sa dagdag na impormasyon tungkol sa certificate na ito, makipag-ugnayan sa IT administrator mo."</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">Nakakabasa ang %d (na) application ng mga notification.</item>
+        <item quantity="one">%d application ang pinayagang magbasa ng mga notification.</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d pang pahintulot</item>
+        <item quantity="one">%d pang pahintulot</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">Pinoproseso ng %1$d ang nagamit na RAM sa nakalipas na %2$s</item>
+        <item quantity="one">Pinoproseso ng %1$d ang nagamit na RAM sa nakalipas na %2$s</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d app ang pinayagang gumamit ng mobile data nang walang pagbabawal habang gumagana ang Data saver</item>
+        <item quantity="one">1 app ang pinayagan na gumamit ng mobile data nang walang pagbabawal habang gumagana ang Data saver</item>
+    </plurals>
+</resources>

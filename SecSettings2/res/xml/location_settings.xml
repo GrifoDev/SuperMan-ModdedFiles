@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/location_settings_title" android:key="location_settings" settings:keywords="@string/keywords_location"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <Preference android:title="@string/location_mode_title" android:key="location_mode" android:summary="@string/location_mode_location_off_title" settings:keywords="@string/keywords_location_mode" settings:SettingsMode="UPSM" />
+    <Preference android:title="@string/security_settings_improve_accuracy_title" android:key="improve_location" android:fragment="com.android.settings.location.ScanningSettings" settings:SettingsMode="UPSM" />
+    <Preference android:title="@string/background_location_title" android:key="use_in_background_location" android:fragment="com.samsung.android.settings.location.LocationUseInBackground" settings:SettingsMode="UPSM" />
+    <com.android.settingslib.SecRestrictedSwitchPreference android:enabled="false" android:title="@string/managed_profile_location_switch_title" android:selectable="true" android:key="managed_profile_location_switch" settings:useAdminDisabledSummary="true" />
+    <com.android.settings.DividedCategory android:title="@string/location_category_recent_location_requests" android:key="recent_location_requests" />
+    <PreferenceCategory android:title="@string/location_category_location_services" android:key="location_services" />
+    <PreferenceCategory android:title="@string/usage_type_gps" android:key="cmcc_agpsmenu" />
+    <PreferenceScreen android:persistent="false" android:title="@string/assisted_gps_function_switch" android:key="assisted_gps_function_switch" android:summary="@string/assisted_gps_function_switch_summary">
+        <intent android:targetPackage="com.android.settings" android:action="android.intent.action.MAIN" android:targetClass="com.samsung.android.settings.location.AGPSFunctionSwitchList" />
+    </PreferenceScreen>
+    <PreferenceScreen android:title="@string/satellite_view" android:key="satellite_view" android:summary="@string/satellite_view_summary">
+        <intent android:targetPackage="com.android.settings" android:action="android.intent.action.MAIN" android:targetClass="com.samsung.android.settings.location.SatelliteView" />
+    </PreferenceScreen>
+    <SwitchPreference android:title="@string/clock_sync" android:key="clock_sync" android:summaryOn="@string/clock_sync_enabled" android:summaryOff="@string/clock_sync_disabled" />
+</PreferenceScreen>

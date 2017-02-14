@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d sati</item>
+        <item quantity="one">1 sat</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d min</item>
+        <item quantity="one">1 min</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d sekundi</item>
+        <item quantity="one">1 sek</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Udaljeni ste %d koraka od postanka programerom.</item>
+        <item quantity="one">Udaljeni ste 1 korak od postanka programerom.</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Uklanjanje odabranih jezika</item>
+        <item quantity="one">Uklanjanje odabranog jezika</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Lozinka mora sadržavati min. %d slova.</item>
+        <item quantity="one">Lozinka mora sadržavati min. 1 slovo.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Lozinka mora sadržavati min. %d malih slova.</item>
+        <item quantity="one">Lozinka mora sadržavati min. 1 malo slovo.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Lozinka mora sadržavati min. %d velikih slova.</item>
+        <item quantity="one">Lozinka mora sadržavati min. 1 veliko slovo.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Lozinka mora sadržavati min. %d brojeva.</item>
+        <item quantity="one">Lozinka mora sadržavati min. 1 broj.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Lozinka mora sadržavati min. %d simbola.</item>
+        <item quantity="one">Lozinka mora sadržavati min. 1 simbol.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Lozinka mora sadržavati min. %d brojeva ili simbola.</item>
+        <item quantity="one">Lozinka mora sadržavati min. 1 broj ili simbol.</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Pristupite većem broju datoteka/mapa (njih %d)</item>
+        <item quantity="one">Pristupite jednoj mapi/datoteci</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"Administrator %s instalirao je CA certifikate na vaš uređaj te stoga može nadzirati mrežnu aktivnost vašeg uređaja, uključujući vašu upotrebu e-pošte, aplikacija i sigurnih web-mjesta.
+
+Za više informacija o ovim certifikatima obratite se svom IT administratoru."</item>
+        <item quantity="one">"Administrator %s instalirao je CA certifikat na vaš uređaj te stoga može nadzirati mrežnu aktivnost vašeg uređaja, uključujući vašu upotrebu e-pošte, aplikacija i sigurnih web-mjesta.
+
+Za više informacija o ovom certifikatu obratite se svojem IT administratoru."</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d aplikacija ne mogu čitati obavijesti.</item>
+        <item quantity="one">%d aplikaciji je dopušteno čitati obavijesti.</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d dodatna/ih dopuštenja</item>
+        <item quantity="one">%d dodatno dopuštenje</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">Više procesa (njih %1$d) upotrebljavalo je RAM u posljednja/ih %2$s</item>
+        <item quantity="one">%1$d proces upotrebljavao je RAM u posljednja/ih %2$s</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">Više aplikacija (njih %d) ima dopuštenje za upotrebu mobilnih podataka bez ograničenja dok je uključena Ušteda podataka</item>
+        <item quantity="one">1 aplikaciji dopuštena je upotreba mobilnih podataka bez ograničenja dok je uključena Ušteda podataka</item>
+    </plurals>
+</resources>

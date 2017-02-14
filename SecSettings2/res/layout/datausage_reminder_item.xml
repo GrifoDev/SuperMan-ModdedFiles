@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="?android:listPreferredItemHeight" android:paddingStart="0.0dip" android:paddingEnd="0.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center" android:id="@id/appicon" android:layout_width="@dimen/list_app_icon_size" android:layout_height="@dimen/list_app_icon_size" android:scaleType="centerInside" android:contentDescription="@null" android:layout_marginEnd="@dimen/list_item_inner_padding_layout" />
+    <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:duplicateParentState="true" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <TextView android:textSize="@dimen/datausage_reminde_item_title_text_size" android:ellipsize="marquee" android:id="@id/appname" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" android:textAlignment="viewStart" style="@style/list_title_text_style" />
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="@dimen/datausage_reminde_item_summary_text_size" android:ellipsize="end" android:id="@id/datausage_reminder_item_summary" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" android:layout_weight="1.0" style="@style/list_summary_text_style" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

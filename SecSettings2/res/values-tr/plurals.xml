@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d saat</item>
+        <item quantity="one">1 saat</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d dakika</item>
+        <item quantity="one">1 dakika</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d saniye</item>
+        <item quantity="one">1 saniye</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Artık bir geliştirici olmaktan yalnızca %d adım uzaktasınız.</item>
+        <item quantity="one">Artık bir geliştirici olmaktan yalnızca 1 adım uzaktasınız</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Seçilen dilleri kaldır</item>
+        <item quantity="one">Seçilen dili kaldır</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Şifre en az %d harf içermelidir.</item>
+        <item quantity="one">Şifre en az 1 harf içermelidir.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Şifre en az %d küçük harf içermelidir.</item>
+        <item quantity="one">Şifre en az 1 küçük harf içermelidir.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Şifre en az %d büyük harf içermelidir.</item>
+        <item quantity="one">Şifre en az 1 büyük harf içermelidir.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Şifre en az %d sayı içermelidir.</item>
+        <item quantity="one">Şifre en az 1 sayı içermelidir.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Şifre en az %d simge içermelidir.</item>
+        <item quantity="one">Şifre en az 1 simge içermelidir.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Şifre en az %d sayı veya simge içermelidir.</item>
+        <item quantity="one">Şifre en az 1 sayı veya simge içermelidir.</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">%d klasör/dosyaya erişim</item>
+        <item quantity="one">1 klasör/dosyaya erişim</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s, cihazınıza CA sertifikaları yükledi. Bu sertifikalar; e-postalar, uygulamalar ve güvenli web sitelerini kullanımınız dahil olmak üzere cihazınızın ağ etkinliğini izlemelerine olanak tanıyabilir.
+
+Bu sertifikalarla ilgili daha fazla bilgi için BT yöneticinizle iletişim kurun."</item>
+        <item quantity="one">"%s, cihazınıza bir CA sertifikası yükledi. Bu sertifika; e-postaları, uygulamaları ve güvenli web sitelerini kullanımınız dahil olmak üzere cihazınızın ağ etkinliğini izlemelerine olanak tanıyabilir.
+
+Bu sertifikayla ilgili daha fazla bilgi için BT yöneticinizle iletişim kurun."</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d uygulama bildirimleri okuyabilir.</item>
+        <item quantity="one">%d uygulamaya bildirim okuma izni verildi.</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d izin daha</item>
+        <item quantity="one">%d izin daha</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$d işlem, RAM kullandı (son %2$s içinde)</item>
+        <item quantity="one">%1$d işlem, RAM kullandı (son %2$s içinde)</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d uygulamanın, Veri tasarrufu etkinken kısıtlama olmadan mobil veri kullanmasına izin veriliyor</item>
+        <item quantity="one">1 uygulama, Veri tasarrufu etkinken kısıtlama olmadan mobil veri kullanmaya izin verdi</item>
+    </plurals>
+</resources>

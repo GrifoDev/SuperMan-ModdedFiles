@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bitmap android:src="@drawable/ic_setting_grid_roaming" android:tint="@color/dashboard_t_roaming_color"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

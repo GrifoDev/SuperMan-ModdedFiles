@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="appshortcutview_pading_start_end">10.0dip</dimen>
+    <dimen name="appshortcutview_pading_top">4.0dip</dimen>
+    <dimen name="bluetooth_list_divider_height">1.0px</dimen>
+    <dimen name="brightness_icon_inner_circle_size">12.5px</dimen>
+    <dimen name="dashboard_favorite_tile_text_view_height">49.0dip</dimen>
+    <dimen name="header_text_size_setup_choose_lock_pattern">13.0sp</dimen>
+    <dimen name="list_divider_height">1.0px</dimen>
+    <dimen name="lock_app_shortcut_item_higth">110.0dip</dimen>
+    <dimen name="lock_app_shortcut_item_image_bottom_margin">6.0dip</dimen>
+    <dimen name="lock_password_entry_marginLeft">26.0dip</dimen>
+    <dimen name="lock_pattern_header_text_hight">96.0dip</dimen>
+    <dimen name="lock_pattern_header_text_marginTop_land">40.0dip</dimen>
+    <dimen name="lock_simple_shortcut_icon_margin">7.0dip</dimen>
+    <dimen name="lock_simple_shortcut_icon_marginBottom">7.0dip</dimen>
+    <dimen name="lock_simple_shortcut_icon_size">30.0dip</dimen>
+    <dimen name="power_usage_details_padding_top_bottom">6.0dip</dimen>
+    <dimen name="speech_rate_seekbar_height">32.0dip</dimen>
+    <dimen name="storage_summary_inner_padding">10.0dip</dimen>
+    <dimen name="storage_volume_img_margin">18.0dip</dimen>
+    <dimen name="storage_volume_inner_marginBottom">3.0dip</dimen>
+    <dimen name="wifi_ap_add_dialog_edit_margin_left">-6.0dip</dimen>
+    <dimen name="wifi_ap_dialog_edit_margin_left">-3.0dip</dimen>
+    <dimen name="wifi_picker_dialog_layout_margin_left">10.0dip</dimen>
+    <dimen name="wifi_picker_dialog_margin_left_right">15.0dip</dimen>
+    <item type="dimen" name="personal_vibration_big_o_val_offset">52.0</item>
+    <item type="dimen" name="personal_vibration_niddle_width">1.0</item>
+    <item type="dimen" name="personal_vibration_small_o_val_offset">21.0</item>
+    <item type="dimen" name="personal_vibration_thickness">62.0</item>
+    <dimen name="edit_app_bar_divider_height">1.0px</dimen>
+</resources>

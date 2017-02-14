@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/wifi_watchdog_connectivity_check" android:key="sns_settings"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <Preference android:layout="@layout/sns_explain" android:selectable="false" android:key="sns_help" />
+    <SwitchPreference android:persistent="true" android:title="@string/wifi_smart_network_switch_aggressive_switching" android:key="sns_aggressive_switching" android:summary="@string/wifi_smart_network_switch_aggressive_switching_summary" />
+    <PreferenceCategory android:title="@string/wifi_smart_network_switch_excluded_networks" android:selectable="false" android:key="sns_excluded_device" />
+</PreferenceScreen>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/notification_sound_title"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <SwitchPreference android:title="@string/simple_status_bar_title" android:key="simple_status_bar" android:summary="@string/simple_status_bar_summary" />
+    <com.samsung.android.settings.UnclickablePreference android:title="@string/app_notification_block_list_describtion" android:selectable="false" style="@style/description_text" />
+    <PreferenceCategory android:title="" />
+    <SwitchPreference android:title="@string/notifications_all_apps" android:key="notification_all_apps" />
+    <PreferenceCategory android:title="" android:key="notification_apps" />
+</PreferenceScreen>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="ssl_ca_cert_warning">
+        <item quantity="other">Moguće nadgledanje mreže</item>
+        <item quantity="one">Certificate authority installed</item>
+    </plurals>
+    <plurals name="last_num_days">
+        <item quantity="other">Zadnjih %d dana</item>
+        <item quantity="one">Last %d day</item>
+    </plurals>
+    <plurals name="duration_seconds">
+        <item quantity="other">%d sekundi</item>
+        <item quantity="one">Jedna sekunda</item>
+    </plurals>
+    <plurals name="duration_minutes">
+        <item quantity="other">%d minuta</item>
+        <item quantity="one">1 minute</item>
+    </plurals>
+    <plurals name="duration_hours">
+        <item quantity="other">%d sati</item>
+        <item quantity="one">Jedan sat</item>
+    </plurals>
+    <plurals name="wifi_available">
+        <item quantity="other">Dostupne su Wi-Fi mreže</item>
+        <item quantity="one">Wi-Fi mreža je dostupna</item>
+    </plurals>
+    <plurals name="wifi_available_detailed">
+        <item quantity="other">Otvori dostupne Wi-Fi mreže</item>
+        <item quantity="one">Otvori dostupne Wi-Fi mreže</item>
+    </plurals>
+    <plurals name="matches_found">
+        <item quantity="other">%1$d od %2$d</item>
+        <item quantity="one">Jedno podudaranje.</item>
+    </plurals>
+    <plurals name="restr_pin_countdown">
+        <item quantity="other">Try again in %d seconds</item>
+        <item quantity="one">Pokušajte ponovno nakon jedne sekunde.</item>
+    </plurals>
+    <plurals name="tw_clipboard_files">
+        <item quantity="other">%d fajla/ova</item>
+        <item quantity="one">Jedan fajl</item>
+    </plurals>
+</resources>

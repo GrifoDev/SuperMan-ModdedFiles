@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">%d екрани во Краток преглед</item>
+        <item quantity="one">%d екран во Краток преглед</item>
+    </plurals>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">Погрешен ПИН-код за СИМ, ви преостануваат уште %d обиди.</item>
+        <item quantity="one">Погрешен ПИН-код за СИМ, ви преостанува уште %d обид.</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">Погрешен ПУК-код за СИМ, ви преостануваат уште %d обиди пред СИМ-картичката да стане трајно неупотреблива.</item>
+        <item quantity="one">Погрешен ПУК-код за СИМ, ви преостанува уште %d обид пред СИМ-картичката да стане трајно неупотреблива.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="other">Уредот не е отклучен за %d часа. Потврдете ја шемата.</item>
+        <item quantity="one">Уредот не е отклучен за %d час. Потврдете ја шемата.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="other">Уредот не е отклучен за %d часа. Потврдете го ПИН-кодот.</item>
+        <item quantity="one">Уредот не е отклучен за %d час. Потврдете го ПИН-кодот.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">Уредот не е отклучен за %d часа. Потврдете ја лозинката.</item>
+        <item quantity="one">Уредот не е отклучен за %d час. Потврдете ја лозинката.</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(Има уште %d обиди)</item>
+        <item quantity="one">(Има уште 1 обид)</item>
+    </plurals>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">Имате уште %d обиди</item>
+        <item quantity="one">Останува уште %d обид</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_min">
+        <item quantity="other">Обидете се повторно за %d минути</item>
+        <item quantity="one">Обидете се повторно за %d минута</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_sec">
+        <item quantity="other">Обидете се повторно за %d секунди</item>
+        <item quantity="one">Обидете се повторно за %d секунда</item>
+    </plurals>
+</resources>

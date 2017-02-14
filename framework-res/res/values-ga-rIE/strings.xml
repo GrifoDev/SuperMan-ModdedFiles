@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="lock_pattern_view_aspect">square</string>
+    <string name="icu_abbrev_wday_month_day_no_year">eeeMMMMd</string>
+    <string name="system_ui_date_pattern">@string/icu_abbrev_wday_month_day_no_year</string>
+</resources>

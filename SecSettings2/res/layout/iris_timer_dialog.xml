@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingTop="@dimen/alert_dialog_padding_top" android:paddingBottom="@dimen/alert_dialog_padding_bottom" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="@dimen/alert_dialog_padding_left_right" android:paddingEnd="@dimen/alert_dialog_padding_left_right"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/iris_count_desc" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginBottom="@dimen/list_dialog_padding_bottom" style="@style/dialog_body_text_style" />
+    <TextView android:id="@id/iris_timer_desc" android:layout_width="fill_parent" android:layout_height="fill_parent" style="@style/dialog_body_text_style" />
+</LinearLayout>

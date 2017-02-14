@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="dimen" name="sem_config_prefDialogWidth">94.00001%</item>
+    <item type="dimen" name="tw_dialog_min_width_major">71.5%</item>
+    <item type="dimen" name="tw_dialog_min_width_minor">94.00001%</item>
+</resources>

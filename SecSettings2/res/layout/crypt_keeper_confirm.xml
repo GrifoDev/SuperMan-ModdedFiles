@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <LinearLayout android:orientation="vertical" android:paddingTop="@dimen/body_text_top_padding" android:paddingBottom="@dimen/body_text_top_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/body_text_side_padding" android:paddingEnd="@dimen/body_text_side_padding">
+            <TextView android:id="@id/crypt_keeper_confirm_desc" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:layout_marginBottom="16.0dip" android:text="@string/crypt_keeper_final_desc" style="@style/crypt_keeper_description" />
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout android:orientation="vertical" android:paddingTop="@dimen/body_text_top_padding" android:paddingBottom="@dimen/body_text_top_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/body_text_side_padding" android:paddingEnd="@dimen/body_text_side_padding">
+        <CheckBox android:gravity="top" android:layout_gravity="bottom" android:id="@id/fast_encryption" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/encrypt_tablet_fast_encryption" style="@style/crypt_keeper_checkbox" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" style="@style/SecurityPreferenceButtonContainer">
+        <com.samsung.android.settings.widget.BottomBarButton android:textSize="17.0sp" android:id="@id/execute_encrypt" android:layout_width="fill_parent" android:text="@string/crypt_keeper_button_text" style="@style/SecurityPreferenceButton" />
+    </LinearLayout>
+</LinearLayout>

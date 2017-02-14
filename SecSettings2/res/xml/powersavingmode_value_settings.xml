@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.settings.widget.SecIntervalSeekbarPreference android:max="5" android:title="@string/maximum_brightness_title" android:key="secbrightness" />
+    <com.android.settings.widget.SecIntervalSeekbarPreference android:max="3" android:title="@string/screen_resolution_title" android:key="psm_screen_seekbar" android:summary="@string/psm_screen_resolution_summary" />
+    <SwitchPreference android:title="@string/psm_restricted_device_performance" android:key="psm_restricted_device" />
+    <SwitchPreference android:title="@string/psm_restricted_background_data" android:key="psm_restricted_bgdata" android:summary="@string/psm_restricted_background_data_summary" />
+    <SwitchPreference android:title="@string/psm_restricted_network" android:key="psm_restricted_network" android:summary="@string/psm_restricted_network_summary" />
+    <SwitchPreference android:title="@string/always_on_display_title" android:key="psm_aod_disable" />
+</PreferenceScreen>

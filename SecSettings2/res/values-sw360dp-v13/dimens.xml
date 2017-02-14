@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="fingerprint_register_firstGuide_marginTop">430.0dip</dimen>
+    <dimen name="fingerprint_register_guideButton_marginBottom">57.0dip</dimen>
+    <dimen name="fingerprint_register_guideClip_marginTop">81.75dip</dimen>
+    <dimen name="fingerprint_register_secondGuideClip_marginTop">81.75dip</dimen>
+    <dimen name="pie_layout_width_land">311.0dip</dimen>
+    <dimen name="ram_detail_container_margin_bottom_land">102.0dip</dimen>
+    <dimen name="second_depth_circle_normal_margin_top">18.0dip</dimen>
+    <dimen name="storage_and_ram_total_bottom_margin">6.0dip</dimen>
+    <dimen name="sub_donut_layout_text_start_margin">155.0dip</dimen>
+    <dimen name="sub_donut_layout_text_start_margin_land">139.0dip</dimen>
+    <dimen name="total_ram_bottom_margin">56.0dip</dimen>
+    <dimen name="total_ram_bottom_margin_land">80.0dip</dimen>
+    <dimen name="storage_and_ram_total_layout_height_land">47.0dip</dimen>
+    <dimen name="second_depth_circle_normal_margin_bottom_land">130.0dip</dimen>
+    <dimen name="ram_data_info_layout_bottom_land">169.0dip</dimen>
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/application_info_label"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.settings.applications.SecLayoutPreference android:layout="@layout/installed_app_details" android:selectable="false" android:key="header_view" />
+    <PreferenceCategory android:title="@string/usage_status" />
+    <com.samsung.android.settings.ProgressPreference android:title="@string/data_usage_enable_mobile" android:selectable="true" android:key="data_settings" />
+    <com.samsung.android.settings.ProgressPreference android:title="@string/power_usage_summary_title" android:selectable="true" android:key="battery" />
+    <com.samsung.android.settings.ProgressPreference android:title="@string/storage_settings" android:selectable="true" android:key="storage_settings" />
+    <com.samsung.android.settings.ProgressPreference android:enabled="false" android:title="@string/memory_settings_title" android:selectable="true" android:key="memory" />
+    <PreferenceCategory android:title="@string/detail_settings" />
+    <Preference android:title="@string/notifications_label" android:selectable="true" android:key="notification_settings" />
+    <Preference android:title="@string/permissions_label" android:selectable="true" android:key="permission_settings" />
+    <Preference android:title="@string/default_app_title" android:selectable="true" android:key="preferred_settings" />
+    <Preference android:title="@string/app_info_more_settings" android:selectable="true" android:key="apps_settings" />
+    <com.android.settings.applications.DefaultHomePreference android:title="@string/home_settings" android:key="default_home" />
+    <PreferenceScreen android:persistent="false" android:title="@string/home_settings" android:key="home_dcm" android:fragment="com.samsung.android.settings.DCMHomeSettings" />
+    <com.android.settings.applications.DefaultBrowserPreference android:title="@string/default_browser_title" android:key="default_browser" />
+    <com.android.settings.applications.DefaultPhonePreference android:title="@string/default_phone_title" android:key="default_phone_app" />
+    <com.android.settings.applications.DefaultEmergencyPreference android:title="@string/default_emergency_app" android:key="default_emergency_app" />
+    <com.android.settings.applications.DefaultSmsPreference android:title="@string/sms_application_title" android:key="default_sms_app" />
+</PreferenceScreen>

@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="wifi_status">
+        <item></item>
+        <item>Скенирање...</item>
+        <item>Се поврзува...</item>
+        <item>Автентицирање...</item>
+        <item>Добивање ИП адреса...</item>
+        <item>Поврзана</item>
+        <item>Суспендирана</item>
+        <item>Се исклучува...</item>
+        <item>Исклучено</item>
+        <item>Неуспешна</item>
+        <item>Блокирана</item>
+        <item>Привремено избегнува лоша врска</item>
+    </string-array>
+    <string-array name="wifi_status_with_ssid">
+        <item></item>
+        <item>Скенирање...</item>
+        <item>Поврзување на %1$s...</item>
+        <item>Автентикација со %1$s...</item>
+        <item>Добивање ИП адреса од %1$s...</item>
+        <item>Поврзано на %1$s</item>
+        <item>Суспендирана</item>
+        <item>Исклучување од %1$s...</item>
+        <item>Исклучено</item>
+        <item>Неуспешна</item>
+        <item>Блокирано</item>
+        <item>Привремено избегнува лоша врска</item>
+    </string-array>
+    <string-array name="hdcp_checking_titles">
+        <item>Никогаш не проверувај</item>
+        <item>Провери само ДРМ содржина</item>
+        <item>Секогаш проверувај</item>
+    </string-array>
+    <string-array name="hdcp_checking_summaries">
+        <item>Никогаш не користи ХДЦП проверка</item>
+        <item>Користи ХДЦП проверка само за ДРМ содржина</item>
+        <item>Секогаш користи ХДЦП проверка</item>
+    </string-array>
+    <string-array name="select_logd_size_titles">
+        <item>Исклучено</item>
+        <item>64.000</item>
+        <item>256.000</item>
+        <item>1 M</item>
+        <item>4 M</item>
+        <item>16 M</item>
+    </string-array>
+    <string-array name="select_logd_size_lowram_titles">
+        <item>Исклучено</item>
+        <item>64.000</item>
+        <item>256.000</item>
+        <item>1 M</item>
+    </string-array>
+    <string-array name="select_logd_size_summaries">
+        <item>Исклучено</item>
+        <item>64 K/меѓумеморија</item>
+        <item>256 K/меѓумеморија</item>
+        <item>1 M/меѓумеморија</item>
+        <item>4 M/меѓумеморија</item>
+        <item>16 M/меѓумеморија</item>
+    </string-array>
+    <string-array name="window_animation_scale_entries">
+        <item>Без анимација</item>
+        <item>Опсег на анимација 0,5x</item>
+        <item>Опсег на анимација 1x</item>
+        <item>Опсег на анимација 1,5x</item>
+        <item>Опсег на анимација 2x</item>
+        <item>Опсег на анимација 5x</item>
+        <item>Опсег на анимација 10x</item>
+    </string-array>
+    <string-array name="transition_animation_scale_entries">
+        <item>Без анимација</item>
+        <item>Опсег на анимација 0,5x</item>
+        <item>Опсег на анимација 1x</item>
+        <item>Опсег на анимација 1,5x</item>
+        <item>Опсег на анимација 2x</item>
+        <item>Опсег на анимација 5x</item>
+        <item>Опсег на анимација 10x</item>
+    </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>Исклучи анимација</item>
+        <item>Опсег на анимација 5x</item>
+        <item>Опсег на анимација 1x</item>
+        <item>Опсег на анимација 1,5x</item>
+        <item>Опсег на анимација 2x</item>
+        <item>Опсег на анимација 5x</item>
+        <item>Опсег на анимација 10x</item>
+    </string-array>
+    <string-array name="overlay_display_devices_entries">
+        <item>Ниедна</item>
+        <item>480p</item>
+        <item>480p (безбедно)</item>
+        <item>720p</item>
+        <item>720p (безбедно)</item>
+        <item>1080p</item>
+        <item>1080p (безбедно)</item>
+        <item>4 илјади</item>
+        <item>4 илјади (безбедно)</item>
+        <item>4 илјади (подобрено)</item>
+        <item>4 илјади (подобрено, безбедно)</item>
+        <item>720p, 1080p (двоен екран)</item>
+    </string-array>
+    <string-array name="enable_opengl_traces_entries">
+        <item>Ниедна</item>
+        <item>Евиденција за систем</item>
+        <item>Systrace (Графика)</item>
+        <item>Повици насобрани во glGetError</item>
+    </string-array>
+    <string-array name="show_non_rect_clip_entries">
+        <item>Исклучено</item>
+        <item>Нацртај неправоаголен реон со сино</item>
+        <item>Со зелено тестир. наредби за цртање</item>
+    </string-array>
+    <string-array name="track_frame_time_entries">
+        <item>Исклучено</item>
+        <item>На екранот како цртички</item>
+        <item>Во adb shell dumpsys gfxinfo</item>
+    </string-array>
+    <string-array name="debug_hw_overdraw_entries">
+        <item>Исклучено</item>
+        <item>Прикажи пречекорени делови</item>
+        <item>Прикажи делови за лица со девтераномалија</item>
+    </string-array>
+    <string-array name="app_process_limit_entries">
+        <item>Стандардна граница</item>
+        <item>Нема процеси во заднина</item>
+        <item>Најмногу 1 процес</item>
+        <item>Најмногу 2 процеса</item>
+        <item>Најмногу 3 процеси</item>
+        <item>Најмногу 4 процеси</item>
+    </string-array>
+    <string-array name="usb_configuration_titles">
+        <item>Се полни</item>
+        <item>МТП (Протокол за трансфер на медиуми)</item>
+        <item>ПТП (Протокол за трансфер на слика)</item>
+        <item>РНДИС (УСБ за етернет)</item>
+        <item>Аудиоизвор</item>
+        <item>МИДИ</item>
+    </string-array>
+    <string-array name="tts_rate_entries">
+        <item>Многу бавно</item>
+        <item>Бавно</item>
+        <item>Нормално</item>
+        <item>Брзо</item>
+        <item>Побрзо</item>
+        <item>Многу брзо</item>
+        <item>Рапидно</item>
+        <item>Многу рапидно</item>
+        <item>Најбрзо</item>
+    </string-array>
+    <string-array name="color_mode_names">
+        <item>Динамично (стандардно)</item>
+        <item>Природно</item>
+        <item>Стандардно</item>
+    </string-array>
+    <string-array name="color_mode_descriptions">
+        <item>Подобрени бои</item>
+        <item>Природни бои како што со гледаат со голо око</item>
+        <item>Оптимизирани бои за дигитална содржина</item>
+    </string-array>
+    <string-array name="screen_timeout_entries">
+        <item>15 секунди</item>
+        <item>30 секунди</item>
+        <item>1 минута</item>
+        <item>2 минути</item>
+        <item>5 минути</item>
+        <item>10 минути</item>
+        <item>30 минути</item>
+    </string-array>
+    <string-array name="screen_timeout_for_device_lock_entries">
+        <item>15 секунди</item>
+        <item>30 секунди</item>
+        <item>1 минута</item>
+        <item>3 минути</item>
+        <item>5 минути</item>
+        <item>10 минути</item>
+        <item>15 минути</item>
+        <item>30 минути</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>Моментално со копчето за вклучување или кога екранот ќе се изгасне</item>
+        <item>15 секунди</item>
+        <item>30 секунди</item>
+        <item>1 минута</item>
+        <item>3 минути</item>
+        <item>5 минути</item>
+        <item>10 минути</item>
+        <item>15 минути</item>
+        <item>30 минути</item>
+        <item>1 час</item>
+    </string-array>
+    <string-array name="lock_after_timeout_entries">
+        <item>Веднаш</item>
+        <item>5 секунди</item>
+        <item>15 секунди</item>
+        <item>30 секунди</item>
+        <item>1 минута</item>
+        <item>2 минути</item>
+        <item>5 минути</item>
+        <item>10 минути</item>
+        <item>30 минути</item>
+    </string-array>
+    <string-array name="wifi_ap_security_testmode">
+        <item>Отворени</item>
+        <item>WPA2 PSK</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>Поврзано</item>
+        <item>Поканет.</item>
+        <item>Неусп. поврзување</item>
+        <item>Допрете тука за да се поврзете.</item>
+        <item>Надвор од опсег.</item>
+        <item>Поврзани со друг уред</item>
+    </string-array>
+    <string-array name="wifi_ap_wifi_sharing">
+        <item>Овозможи Сподел.Wi-Fi</item>
+        <item>Оневоз. Сподел. Wi-Fi</item>
+    </string-array>
+    <string-array name="wifi_ap_timeout">
+        <item>Никогаш не исклучувај</item>
+        <item>5 минути</item>
+        <item>10 минути</item>
+        <item>20 минути</item>
+        <item>30 минути</item>
+        <item>60 минути</item>
+    </string-array>
+    <string-array name="wifi_ap_channel">
+        <item>Автоматски</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+    </string-array>
+    <string-array name="wifi_signal">
+        <item>Слаб</item>
+        <item>Добар</item>
+        <item>Добро</item>
+        <item>Јак</item>
+        <item>Многу јак</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_entries">
+        <item>"Секогаш
+(Ја зголемува потрошувачката на батеријата)"</item>
+        <item>Додека се полни</item>
+        <item>"Никогаш
+(Го зголемува користењето податоци)"</item>
+    </string-array>
+    <string-array name="wifi_sleep_policy_entries_wifi_only">
+        <item>"Секогаш
+(Ја зголемува потрошувачката на батеријата)"</item>
+        <item>Додека се полни</item>
+        <item>Никогаш</item>
+    </string-array>
+    <string-array name="wifi_peap_phase2_entries">
+        <item>Ништо</item>
+        <item>MSCHAPV2</item>
+        <item>GTC</item>
+    </string-array>
+    <string-array name="wifi_ip_settings">
+        <item>DHCP</item>
+        <item>Статично</item>
+    </string-array>
+    <string-array name="wifi_proxy_settings">
+        <item>Ништо</item>
+        <item>Рачно</item>
+        <item>Автоматско конфигурирање</item>
+    </string-array>
+    <string-array name="apn_auth_entries">
+        <item>Ништо</item>
+        <item>PAP</item>
+        <item>CHAP</item>
+        <item>PAP или CHAP</item>
+    </string-array>
+    <string-array name="bearer_entries">
+        <item>Неодредено</item>
+        <item>LTE</item>
+        <item>HSPAP</item>
+        <item>HSPA</item>
+        <item>HSUPA</item>
+        <item>HSDPA</item>
+        <item>UMTS</item>
+        <item>EDGE</item>
+        <item>GPRS</item>
+        <item>eHRPD</item>
+        <item>EVDO_B</item>
+        <item>EVDO_A</item>
+        <item>EVDO_0</item>
+        <item>1xRTT</item>
+        <item>IS95B</item>
+        <item>IS95A</item>
+    </string-array>
+    <string-array name="mvno_type_entries">
+        <item>Ништо</item>
+        <item>SPN</item>
+        <item>IMSI</item>
+        <item>GID</item>
+    </string-array>
+    <string-array name="captioning_typeface_selector_titles">
+        <item>Основно</item>
+        <item>Sans serif</item>
+        <item>Sans serif condensed</item>
+        <item>Sans serif monospace</item>
+        <item>Serif</item>
+        <item>Serif monospace</item>
+        <item>Лефтерно</item>
+        <item>Закосени</item>
+        <item>Мали големи букви</item>
+    </string-array>
+    <string-array name="captioning_font_size_selector_titles">
+        <item>Многу мали</item>
+        <item>Мал</item>
+        <item>Нормален</item>
+        <item>Голем</item>
+        <item>Многу големи</item>
+    </string-array>
+    <string-array name="captioning_edge_type_selector_titles">
+        <item>Основно</item>
+        <item>Ништо</item>
+        <item>Обрабено</item>
+        <item>Рабна сенка</item>
+        <item>Издигнат</item>
+        <item>Притиснато</item>
+    </string-array>
+    <string-array name="captioning_preset_selector_titles">
+        <item>Основно</item>
+        <item>Бело на црно</item>
+        <item>Црно на бело</item>
+        <item>Жолто на црно</item>
+        <item>Жолто на сино</item>
+        <item>Прилагодено</item>
+    </string-array>
+    <string-array name="vpn_states">
+        <item>Врската е прекината</item>
+        <item>Започнување…</item>
+        <item>Поврзување…</item>
+        <item>Поврзано</item>
+        <item>Дозволено време</item>
+        <item>Неуспешно</item>
+    </string-array>
+    <string-array name="long_press_timeout_titles_selector">
+        <item>Кратко (0,5 секунди)</item>
+        <item>Средно (1 секунда)</item>
+        <item>Долго (1,5 секунди)</item>
+        <item>Прилагодено</item>
+    </string-array>
+    <string-array name="time_interval_entries_selectable">
+        <item>1 минута</item>
+        <item>3 минути</item>
+        <item>5 минути</item>
+        <item>10 минути</item>
+        <item>15 минути</item>
+    </string-array>
+    <string-array name="wifi_connect_entries">
+        <item>Автоматски</item>
+        <item>Рачно</item>
+        <item>Прашувај секогаш</item>
+    </string-array>
+    <string-array name="touch_key_light_entries">
+        <item>1.5 секунди</item>
+        <item>6 секунди</item>
+        <item>Секогаш искл.</item>
+        <item>Секогаш вкл.</item>
+    </string-array>
+</resources>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/application_info_label"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.settings.applications.SpacePreference android:layout_height="8.0dip" android:key="storage_space" />
+    <Preference android:layout="@layout/horizontal_preference" android:title="@string/used_template" android:selectable="false" android:key="storage_used" android:summary="@string/storage_type_internal" />
+    <com.android.settings.applications.SecLayoutPreference android:layout="@layout/single_button_panel" android:key="change_storage_button" />
+    <PreferenceCategory android:title="@string/storage_settings" android:key="storage_category">
+        <Preference android:layout="@layout/horizontal_preference" android:title="@string/total_size_label" android:selectable="false" android:key="total_size" />
+        <Preference android:layout="@layout/horizontal_preference" android:title="@string/application_size_label" android:selectable="false" android:key="app_size" />
+        <Preference android:layout="@layout/horizontal_preference" android:title="@string/external_code_size_label" android:selectable="false" android:key="external_code_size" />
+        <Preference android:layout="@layout/horizontal_preference" android:title="@string/data_size_label" android:selectable="false" android:key="data_size" />
+        <Preference android:layout="@layout/horizontal_preference" android:title="@string/external_data_size_label" android:selectable="false" android:key="external_data_size" />
+        <com.android.settings.applications.SecLayoutPreference android:layout="@layout/single_button_panel" android:key="clear_data_button" />
+    </PreferenceCategory>
+    <Preference android:layout="@layout/horizontal_preference" android:title="@string/cache_size_label" android:selectable="false" android:key="cache_size" />
+    <com.android.settings.applications.SecLayoutPreference android:layout="@layout/single_button_panel" android:selectable="false" android:key="clear_cache_button" />
+    <PreferenceCategory android:layout="@layout/headerless_preference_category" android:key="uri_category">
+        <com.android.settings.applications.SecLayoutPreference android:layout="@layout/single_button_panel" android:selectable="false" android:key="clear_uri_button" />
+    </PreferenceCategory>
+</PreferenceScreen>

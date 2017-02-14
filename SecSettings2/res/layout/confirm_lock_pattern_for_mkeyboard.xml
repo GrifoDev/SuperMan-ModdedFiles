@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.internal.widget.LinearLayoutWithDefaultTouchRecepient android:orientation="vertical" android:id="@id/topLayout" android:paddingTop="@dimen/lock_pattern_mkkyeboard_paddingTop" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/headerText" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <TextView android:textSize="@dimen/lock_pattern_mkkyeboard_header_text_size" android:gravity="bottom|center" android:id="@id/detailsText" android:layout_width="fill_parent" android:layout_height="wrap_content" android:lines="3" style="@style/lockscreen_body_text_style" />
+    <Button android:id="@id/cancelButton" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/cancel" />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" style="@style/pattern_lock_background">
+        <com.android.internal.widget.LockPatternView android:layout_gravity="center_horizontal" android:id="@id/lockPattern" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    </LinearLayout>
+    <TextView android:textSize="@dimen/lock_pattern_mkkyeboard_footer_text_size" android:gravity="center" android:id="@id/errorText" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/lock_pattern_mkkyeboard_footer_text_marginBottom" style="@style/pattern_lock_background" />
+    <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/pattern_lock_background">
+        <com.samsung.android.settings.widget.BottomBarButton android:layout_gravity="bottom" android:id="@id/backupPin" android:background="@drawable/ripple_lockpattern_backup_pin_button" android:visibility="gone" android:text="@string/lockpattern_backup_pin" android:textAlignment="center" style="@style/SecurityPreferenceButton" />
+        <ImageView android:layout_gravity="center_horizontal" android:id="@id/fingerprintIcon" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </LinearLayout>
+</com.android.internal.widget.LinearLayoutWithDefaultTouchRecepient>

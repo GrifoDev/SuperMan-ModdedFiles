@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.setupwizardlib.SetupWizardLayout android:id="@id/setup_wizard_layout" android:layout_width="fill_parent" android:layout_height="fill_parent" setupwizard:suwHeaderText="@string/setup_lock_screen_intro_title" setupwizard:suwBackgroundTile="@drawable/setup_illustration_tile" setupwizard:suwIllustrationHorizontalTile="@drawable/setup_illustration_horizontal_tile" setupwizard:suwIllustrationImage="@drawable/setup_illustration_lock_screen"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:setupwizard="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:focusableInTouchMode="true" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/SuwContentFrame">
+        <TextView android:id="@id/description_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/setup_lock_screen_intro_text" style="@style/SuwDescription" />
+        <TextView android:textStyle="bold" android:id="@id/description_text_leran_more" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/learn_more" style="@style/suw_learn_more_text" />
+        <CheckBox android:id="@id/lock_screen_intro_check_box" android:layout_width="fill_parent" android:layout_height="wrap_content" android:checked="true" android:text="@string/setup_lock_screen_intro_check_box" style="@style/SuwCheckBox.Multiline" />
+        <RadioGroup android:id="@id/lock_screen_intro_radio_group" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <RadioButton android:id="@id/lock_screen_intro_option_fingerprint" android:layout_width="fill_parent" android:layout_height="wrap_content" android:checked="true" android:text="@string/setup_lock_screen_intro_radio_fingerprint" style="@style/SuwRadioButton" />
+            <RadioButton android:id="@id/lock_screen_intro_option_iris" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/setup_lock_screen_intro_radio_iris" style="@style/SuwRadioButton" />
+            <RadioButton android:id="@id/lock_screen_intro_option_generic" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/setup_lock_screen_intro_radio_generic" style="@style/SuwRadioButton" />
+            <RadioButton android:id="@id/lock_screen_intro_option_no" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/setup_lock_screen_intro_radio_no" style="@style/SuwRadioButton" />
+        </RadioGroup>
+    </LinearLayout>
+</com.android.setupwizardlib.SetupWizardLayout>

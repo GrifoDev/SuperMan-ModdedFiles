@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:touchwiz="http://schemas.android.com/apk/res/touchwiz">
+    <SwitchPreference android:title="@string/lock_screen_notifications_summary_hide" android:key="set_visibility" />
+    <SwitchPreference android:title="@string/lockscreen_notification_icons_only" android:key="notification_icons_only" android:summary="@string/lockscreen_notification_icons_only_summary" />
+    <PreferenceCategory android:title="@string/notifications_show_applications" android:key="applist_category" />
+    <SwitchPreference android:title="@string/notifications_all_apps" android:key="notification_all_apps" />
+    <PreferenceCategory android:key="pref_category" />
+</PreferenceScreen>

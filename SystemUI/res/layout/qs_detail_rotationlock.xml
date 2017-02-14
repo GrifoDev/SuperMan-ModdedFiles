@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.keyguard.AlphaOptimizedLinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/qs_detail_items_side_padding" android:paddingEnd="@dimen/qs_detail_items_side_padding"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="@style/TextAppearance.QS.DetailEmpty" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/qs_detail_items_summary_padding_top" android:text="@string/quick_settings_rotation_lock_detail_summary" />
+    <RadioGroup android:theme="@android:style/Theme.DeviceDefault.Light" android:id="@id/rotation_lock" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <RadioButton android:textAppearance="@style/TextAppearance.QS.DetailRadio" android:id="@android:id/button1" android:text="@string/quick_settings_rotation_lock_auto_rotate" style="@style/QSDetailRadioButton" />
+        <RadioButton android:textAppearance="@style/TextAppearance.QS.DetailRadio" android:id="@android:id/button2" android:text="@string/quick_settings_rotation_locked_portrait_label" style="@style/QSDetailRadioButton" />
+    </RadioGroup>
+</com.android.keyguard.AlphaOptimizedLinearLayout>

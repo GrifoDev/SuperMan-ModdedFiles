@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bitmap android:src="@drawable/st_ic_developer_option" android:tint="@color/dashboard_development_color"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="ssl_ca_cert_warning">
+        <item quantity="other">Назорати эҳтимолии шабака</item>
+        <item quantity="one">Certificate authority installed</item>
+    </plurals>
+    <plurals name="last_num_days">
+        <item quantity="other">%d рӯзи охир</item>
+        <item quantity="one">Last %d day</item>
+    </plurals>
+    <plurals name="duration_seconds">
+        <item quantity="other">%d сония</item>
+        <item quantity="one">1 сония</item>
+    </plurals>
+    <plurals name="duration_minutes">
+        <item quantity="other">%d дақиқа</item>
+        <item quantity="one">1 дақиқа</item>
+    </plurals>
+    <plurals name="duration_hours">
+        <item quantity="other">%d соат</item>
+        <item quantity="one">1 соат</item>
+    </plurals>
+    <plurals name="wifi_available">
+        <item quantity="other">Шабакаҳои Wi-Fi дастрас-д</item>
+        <item quantity="one">Шабакаи Wi-Fi дастрас аст</item>
+    </plurals>
+    <plurals name="wifi_available_detailed">
+        <item quantity="other">Кушодани шабакаҳои дастраси Wi-Fi</item>
+        <item quantity="one">Кушодани шабакаҳои дастраси Wi-Fi</item>
+    </plurals>
+    <plurals name="matches_found">
+        <item quantity="other">%1$d аз %2$d</item>
+        <item quantity="one">1 мувофиқат</item>
+    </plurals>
+    <plurals name="restr_pin_countdown">
+        <item quantity="other">Try again in %d seconds</item>
+        <item quantity="one">Пас аз 1 сония аз нав кӯшиш кунед.</item>
+    </plurals>
+    <plurals name="tw_clipboard_files">
+        <item quantity="other">%d файл</item>
+        <item quantity="one">1 файл</item>
+    </plurals>
+</resources>

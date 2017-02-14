@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.systemui.statusbar.phone.KeyguardUsimTextView android:textAppearance="?android:textAppearance" android:textSize="@dimen/kg_usim_text_size" android:textColor="@color/keyguard_message_area_color" android:gravity="center_horizontal" android:layout_gravity="center|top" android:id="@id/keyguard_usim_carrier_text" android:layout_width="fill_parent" android:layout_height="@dimen/keyguard_usim_text_height" android:layout_marginTop="@dimen/keyguard_usim_text_margin_top" android:shadowColor="@color/keyguard_avatar_frame_shadow_color" android:accessibilityLiveRegion="polite" style="@style/keyguard_text_shadow"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:systemui="http://schemas.android.com/apk/res/com.android.systemui" />

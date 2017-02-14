@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/category_applications" android:key="parent"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <PreferenceScreen android:title="@string/applications_settings" android:key="application_manager_settings" android:summary="@string/applications_settings_summary" android:fragment="com.android.settings.applications.ManageApplications" />
+    <PreferenceScreen android:title="@string/app_ops_settings" android:key="application_permission">
+        <intent android:targetPackage="com.sec.android.app.capabilitymanager" android:action="android.intent.action.MAIN" android:targetClass="com.sec.android.app.cm.ui.CMApplicationListActivity" />
+    </PreferenceScreen>
+    <PreferenceScreen android:title="@string/launch_application_settings" android:key="launch_application_settings" android:summary="@string/launch_application_settings_summary" android:fragment="com.samsung.android.settings.applications.ManageDefaultApps" />
+    <PreferenceCategory android:title="@string/header_menu_application_settings" android:key="apps_category" />
+</PreferenceScreen>

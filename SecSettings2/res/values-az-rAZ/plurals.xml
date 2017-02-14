@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d saat</item>
+        <item quantity="one">1 saat</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d dəqiqə</item>
+        <item quantity="one">1 dəqiqə</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d saniyə</item>
+        <item quantity="one">1 saniyə</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Sizin yaradıcı olmanıza %d addım qalır.</item>
+        <item quantity="one">Sizin yaradıcı olmanıza 1 addım qalır.</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Seçilən dilləri sil</item>
+        <item quantity="one">Seçilən dili sil</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Parola ən azı %d hərf daxil olmalıdır.</item>
+        <item quantity="one">Parola ən az 1 hərf daxil olmalıdır.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Parola ən azı %d kiçik hərf daxil olmalıdır.</item>
+        <item quantity="one">Parola ən az 1 kiçik hərf daxil olmalıdır.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Parola ən azı %d böyük hərf daxil olmalıdır.</item>
+        <item quantity="one">Parola ən az 1 böyük hərf daxil olmalıdır.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Parola ən azı %d rəqəm daxil olmalıdır.</item>
+        <item quantity="one">Parola ən az 1 rəqəm daxil olmalıdır.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Parola ən azı %d simvol daxil olmalıdır.</item>
+        <item quantity="one">Parola ən azı 1 simvol daxil olmalıdır.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Parola ən azı %d rəqəm və ya simvol daxil olmalıdır.</item>
+        <item quantity="one">Parola ən azı 1 rəqəm və ya simvol daxil olmalıdır.</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">%d qovluq/fayla çıxış</item>
+        <item quantity="one">1 qovluq/fayla çıxış</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s cihazınızın CA sertifikatlarında quraşdırıldı və bu onlara cihazınızda e-poçt, proqramlar və təhlükəsiz vebsaytlardan istifadə daxil olmaqla şəbəkə fəaliyyətini yoxlamağa imkan verə bilər.
+
+Bu sertifikatlar barədə ətraflı məlumat almaq üçün İT administratoru ilə əlaqə saxlayın."</item>
+        <item quantity="one">"%s cihazınızın CA sertifikatında quraşdırıldı və bu onlara cihazınızda e-poçt, proqramlar və təhlükəsiz vebsaytlardan istifadə daxil olmaqla şəbəkə fəaliyyətini yoxlamağa imkan verə bilər.
+
+Bu sertifikat barədə ətraflı məlumat almaq üçün İT administratoru ilə əlaqə saxlayın."</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d proqram bildirişləri oxuya bilər.</item>
+        <item quantity="one">%d proqrama bildirişləri oxumaq icazəsi verilmişdir.</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">Daha %d icazə</item>
+        <item quantity="one">Daha %d icazə</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$d proses son %2$s-də RAM-dan istifadə edib</item>
+        <item quantity="one">%1$d proses son %2$s-də RAM-dan istifadə edib</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d proqrama Data qənaəti aktiv olan zaman məhdudiyyətsiz mobil datadan istifadə icazəsi verilib</item>
+        <item quantity="one">1 proqrama Dataya qənaət aktiv olan zaman məhdudiyyətsiz mobil datadan istifadə etmək icazəsi verildi</item>
+    </plurals>
+</resources>

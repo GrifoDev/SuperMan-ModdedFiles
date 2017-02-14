@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/iris_lock_settings_desc" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_marginTop="@dimen/body_text_top_padding" android:layout_weight="1.0" android:layout_marginStart="@dimen/body_text_side_padding" android:layout_marginEnd="@dimen/body_text_side_padding" style="@style/body_text_style" />
+    <LinearLayout android:orientation="horizontal" android:layout_alignParentEnd="true" style="@style/SecurityPreferenceButtonContainer">
+        <com.samsung.android.settings.widget.BottomBarButton android:textSize="@dimen/fingerprint_lock_settings_bottom_bar_button_text_size" android:id="@id/later_button" android:text="@string/fingerprint_setupwizard_later" style="@style/SecurityPreferenceButton" />
+        <com.samsung.android.settings.widget.BottomBarButton android:textSize="@dimen/fingerprint_lock_settings_bottom_bar_button_text_size" android:id="@id/ok_button" android:text="@string/common_enable" style="@style/SecurityPreferenceButton" />
+    </LinearLayout>
+</LinearLayout>

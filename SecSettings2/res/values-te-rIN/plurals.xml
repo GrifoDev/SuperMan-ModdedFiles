@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d గంటలు</item>
+        <item quantity="one">1 గంట</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d నిమిషాలు</item>
+        <item quantity="one">1 నిమిషం</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d సెకన్లు</item>
+        <item quantity="one">1 సెకను</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">మీరు ఇప్పుడు డెవలపర్ కావడానికి %d దశలు మిగిలి ఉన్నాయి.</item>
+        <item quantity="one">ఇప్పుడు డెవలపర్ కావడానికి మీకు 1 దశ మిగిలి ఉంది.</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">ఎంచుకున్న భాషలను తీసివేయి</item>
+        <item quantity="one">ఎంచుకున్న భాషను తీసివేయి</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">పాస్‌వర్డ్ కనీసం %d అక్షరాలను కలిగి ఉండాలి.</item>
+        <item quantity="one">పాస్‌వర్డ్‌ కనీసం 1 అక్షరంను కలిగి ఉండాలి.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">పాస్‌వర్డ్ కనీసం %d లోవర్‌కేస్ అక్షరాలను కలిగి ఉండాలి.</item>
+        <item quantity="one">పాస్‌వర్డ్ కనీసం 1 లోవర్‌కేస్ అక్షరంను కలిగి ఉండాలి.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">పాస్‌వర్డ్ కనీసం %d అప్పర్‌కేస్ అక్షరాలను కలిగి ఉండాలి.</item>
+        <item quantity="one">పాస్‌వర్డ్ కనీసం 1 అప్పర్‌కేస్ అక్షరంను కలిగి ఉండాలి.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">పాస్‌వర్డ్ కనీసం %d నంబర్లను కలిగి ఉండాలి.</item>
+        <item quantity="one">పాస్‌వర్డ్‌ కనీసం 1 నంబర్‌ను కలిగి ఉండాలి.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">పాస్‌వర్డ్ కనీసం %d చిహ్నాలను కలిగి ఉండాలి.</item>
+        <item quantity="one">పాస్‌వర్డ్ కనీసం 1 చిహ్నంను కలిగి ఉండాలి.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">పాస్‌వర్డ్ కనీసం %d నంబర్లను లేదా చిహ్నాలను కలిగి ఉండాలి.</item>
+        <item quantity="one">పాస్‌వర్డ్ కనీసం 1 నంబర్‌ను లేదా చిహ్నంను కలిగి ఉండాలి.</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">%d ఫోల్డర్‌లు/ఫైల్‌లకి ప్రాప్యత చేయండి</item>
+        <item quantity="one">1 ఫోల్డర్/ఫైల్‌కి ప్రాప్యత చేయండి</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"మీ పరికరంలో %s ఇన్‌స్టాల్ చేయబడిన CA సర్టిఫికేట్‌లను కలిగి ఉంది, అది, మీ ఇమెయిల్‌ల వినియోగం, అప్లికేషన్‌లు మరియు సురక్షిత వెబ్‌సైట్‌లతో సహా మీ పరికరం నెట్‌వర్క్ కార్యాచరణను పర్యవేక్షించడానికి వాటిని అనుమతిస్తుంది.
+
+ఈ సర్టిఫికేట్‌ల గురించి మరింత సమాచారం కోసం, మీ IT నిర్వాహకుడిని సంప్రదించండి."</item>
+        <item quantity="one">"మీ పరికరంలో %s ఇన్‌స్టాల్ చేయబడిన CA సర్టిఫికేట్‌ను కలిగి ఉంది, అది, మీ ఇమెయిల్‌ల వినియోగం, అప్లికేషన్‌లు మరియు సురక్షిత వెబ్‌సైట్‌లతో సహా మీ పరికరం నెట్‌వర్క్ కార్యాచరణను పర్యవేక్షించడానికి వాటిని అనుమతిస్తుంది.
+
+ఈ సర్టిఫికేట్ గురించి మరింత సమాచారం కోసం, మీ IT నిర్వాహకుడిని సంప్రదించండి."</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d అప్లికేషన్‌లు నోటిఫికేషన్‌లను చదువుతాయి.</item>
+        <item quantity="one">%d అప్లికేషన్ నోటిఫికేషన్‌లను చదవడానికి అనుమతించబడింది.</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d మరిన్ని అనుమతులు</item>
+        <item quantity="one">%d మరిన్ని అనుమతులు</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$d ప్రాసెస్‌లు గత %2$sలో RAMని ఉపయోగించాయి</item>
+        <item quantity="one">%1$d ప్రాసెస్ గత %2$sలో RAMని ఉపయోగించింది</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">డేటా సర్వర్ ప్రారంభించబడినప్పుడు పరిమితులు లేకుండా మొబైల్ డేటాని ఉపయోగించడానికి %d అప్లికేషన్‌లు అనుమతించబడ్డాయి</item>
+        <item quantity="one">డేటా సేవర్ ప్రారంభించబడినప్పుడు పరిమితులు లేకుండా మొబైల్ డేటాని ఉపయోగించడానికి 1 అప్లికేషన్ అనుమతించబడింది</item>
+    </plurals>
+</resources>

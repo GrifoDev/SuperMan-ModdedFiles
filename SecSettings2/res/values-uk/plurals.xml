@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d годин</item>
+        <item quantity="one">1 годину</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d хвилин</item>
+        <item quantity="one">1 хвилина</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d секунд</item>
+        <item quantity="one">1 секунда</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Кроків до початку розробки: %d</item>
+        <item quantity="one">1 крок до початку розробки.</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Видалення вибраних мов</item>
+        <item quantity="one">Видалення вибраної мови</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Пароль має містити принаймні таку кількість літер: %d</item>
+        <item quantity="one">Пароль має містити принаймні таку кількість літер: 1</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Пароль має містити принаймні таку кількість літер нижнього регістру: %d</item>
+        <item quantity="one">Пароль має містити принаймні таку кількість літер нижнього регістру: 1</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Пароль має містити принаймні таку кількість літер верхнього регістру: %d</item>
+        <item quantity="one">Пароль має містити принаймні таку кількість літер верхнього регістру: 1</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Пароль має містити принаймні таку кількість цифр: %d</item>
+        <item quantity="one">Пароль має містити принаймні таку кількість цифр: 1</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Пароль має містити принаймні таку кількість символів: %d</item>
+        <item quantity="one">Пароль має містити принаймні таку кількість символів: 1</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Пароль має містити принаймні таку кількість цифр чи символів: %d</item>
+        <item quantity="one">Пароль має містити принаймні таку кількість цифр чи символів: 1</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Доступ до декількох папок/файлів (%d)</item>
+        <item quantity="one">Доступ до 1 папки/файлу</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"Адміністратор %s установив сертифікати ЦС на пристрої. Адміністратор зможе відстежувати мережеву активність пристрою, зокрема використання електронної пошти, програм і захищених веб-сайтів.
+
+Для отримання додаткових відомостей про ці сертифікати зверніться до IT-адміністратора."</item>
+        <item quantity="one">"Адміністратор %s установив сертифікат ЦС на пристрої. Адміністратор зможе відстежувати мережеву активність пристрою, зокрема використання електронної пошти, програм і захищених веб-сайтів.
+
+Для отримання додаткових відомостей про цей сертифікат зверніться до IT-адміністратора."</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">Прочитання сповіщень за допомогою %d програм.</item>
+        <item quantity="one">Програмі %d надано дозвіл на прочитання сповіщень.</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">Ще дозволів: %d</item>
+        <item quantity="one">Ще %d дозвіл</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">Процесів, які використовували ОЗП протягом останніх %2$s: %1$d</item>
+        <item quantity="one">%1$d процес використовував ОЗП протягом останніх %2$s</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">Декілька програм (%d) можуть необмежено користуватися даними, коли ввімкнено функцію заощадження трафіку</item>
+        <item quantity="one">1 програма може використовувати мобільні дані без обмежень, коли працює функція заощадження трафіку</item>
+    </plurals>
+</resources>

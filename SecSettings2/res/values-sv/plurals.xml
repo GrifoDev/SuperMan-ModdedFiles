@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d timmar</item>
+        <item quantity="one">1 timme</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d minuter</item>
+        <item quantity="one">1 minut</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d sekunder</item>
+        <item quantity="one">1 sekund</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Nu är du %d steg från att vara en utvecklare.</item>
+        <item quantity="one">Du är nu 1 steg från att vara en utvecklare.</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Ta bort de valda språken</item>
+        <item quantity="one">Ta bort det valda språket</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Lösenordet måste innehålla minst %d bokstäver.</item>
+        <item quantity="one">Lösenordet måste innehålla minst 1 bokstav.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Lösenordet måste innehålla minst %d små bokstäver.</item>
+        <item quantity="one">Lösenordet måste innehålla minst 1 liten bokstav.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Lösenordet måste innehålla minst %d stora bokstäver.</item>
+        <item quantity="one">Lösenordet måste innehålla minst 1 stor bokstav.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Lösenordet måste innehålla minst %d siffror.</item>
+        <item quantity="one">Lösenordet måste innehålla minst 1 siffra.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Lösenordet måste innehålla minst %d symboler.</item>
+        <item quantity="one">Lösenordet måste innehålla minst 1 symbol.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Lösenordet måste innehålla minst %d siffror eller symboler.</item>
+        <item quantity="one">Lösenordet måste innehålla minst 1 siffra eller symbol.</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Åtkomst till %d mappar/filer</item>
+        <item quantity="one">Åtkomst till 1 mapp/fil</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"%s har installerat CA-certifikat på din enhet, vilket kan ge dem möjlighet att övervaka enhetens nätverksaktivitet, däribland hur du använder e-post, program och säkra webbplatser.
+
+Kontakta IT-administratören om du vill ha mer information om dessa certifikat."</item>
+        <item quantity="one">"%s har installerat ett CA-certifikat på din enhet, vilket kan ge dem möjlighet att övervaka enhetens nätverksaktivitet, däribland hur du använder e-post, program och säkra webbplatser.
+
+Kontakta IT-administratören om du vill ha mer information om det här certifikatet."</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">%d program kan läsa meddelanden.</item>
+        <item quantity="one">Programmet %d har tillstånd att läsa avviseringar.</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">%d fler behörigheter</item>
+        <item quantity="one">%d behörighet till</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">%1$d processer använde RAM-minnet under senaste %2$s</item>
+        <item quantity="one">%1$d process använde RAM-minnet under senaste %2$s</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">%d program får använda mobildata utan begränsningar när Datasparare är aktiverat</item>
+        <item quantity="one">Ett program tillåts använda mobildata utan begränsningar när datasparandet är aktiverat</item>
+    </plurals>
+</resources>

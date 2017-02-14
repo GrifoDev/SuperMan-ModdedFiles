@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="wifi_status">
+        <item></item>
+        <item>Սկանավորում…</item>
+        <item>Միանում է...</item>
+        <item>Նույնականացում…</item>
+        <item>IP հասցեն գտնվում է....</item>
+        <item>Միացված է</item>
+        <item>Կասեցված է</item>
+        <item>Անջատվում է…</item>
+        <item>Անջատված է</item>
+        <item>Անհաջող</item>
+        <item>Արգելափակված</item>
+        <item>Ժամանակավորապես խուսափելով թույլ կապից</item>
+    </string-array>
+    <string-array name="wifi_status_with_ssid">
+        <item></item>
+        <item>Սկանավորում....</item>
+        <item>Միանում է %1$s-ին…</item>
+        <item>Նույնականացում %1$s-ի հետ…</item>
+        <item>IP հասցեի ստացում %1$s-ից…</item>
+        <item>Միացված է %1$s-ին</item>
+        <item>Անջատված</item>
+        <item>Անջատվում է %1$s-ից…</item>
+        <item>Անջատված</item>
+        <item>Անհաջող</item>
+        <item>Արգելափակված</item>
+        <item>Վատ ցանցից ժամանակավոր խուսափում</item>
+    </string-array>
+    <string-array name="hdcp_checking_titles">
+        <item>Երբեք չստուգել</item>
+        <item>Ստուգել միայն DRM բովանդակությունը</item>
+        <item>Միշտ ստուգել</item>
+    </string-array>
+    <string-array name="hdcp_checking_summaries">
+        <item>Երբեք չօգտագործել HDCP ստուգումը</item>
+        <item>Օգտագործել HDCP-ը` միայն DRM-ի բովանդակությունը ստուգելու համար</item>
+        <item>Միշտ օգտագործել HDCP ստուգումը</item>
+    </string-array>
+    <string-array name="select_logd_size_titles">
+        <item>Անջատված է</item>
+        <item>64ԿԲ</item>
+        <item>256ԿԲ</item>
+        <item>1ՄԲ</item>
+        <item>4ՄԲ</item>
+        <item>16ՄԲ</item>
+    </string-array>
+    <string-array name="select_logd_size_lowram_titles">
+        <item>Անջատված է</item>
+        <item>64ԿԲ</item>
+        <item>256ԿԲ</item>
+        <item>1ՄԲ</item>
+    </string-array>
+    <string-array name="select_logd_size_summaries">
+        <item>Անջատված է</item>
+        <item>Պահնակ՝ առավ. 64ԿԲ</item>
+        <item>Պահնակ՝ առավ. 256ԿԲ</item>
+        <item>Պահնակ՝ առավ. 1ՄԲ</item>
+        <item>Պահնակ՝ առավ. 4ՄԲ</item>
+        <item>Պահնակ՝ առավ. 16ՄԲ</item>
+    </string-array>
+    <string-array name="window_animation_scale_entries">
+        <item>Անջատել շարժապատկերը</item>
+        <item>Շարժապատկերի սանդղակը` .5x</item>
+        <item>Շարժապատկերի սանդղակը` 1x</item>
+        <item>Շարժապատկերի սանդղակը` 1.5x</item>
+        <item>Շարժապատկերի սանդղակը` 2x</item>
+        <item>Շարժապատկերի սանդղակը` 5x</item>
+        <item>Շարժապատկերի սանդղակը` 10x</item>
+    </string-array>
+    <string-array name="transition_animation_scale_entries">
+        <item>Անջատել շարժապատկերը</item>
+        <item>Շարժապատկերի սանդղակը` .5x</item>
+        <item>Շարժապատկերի սանդղակը` 1x</item>
+        <item>Շարժապատկերի սանդղակը` 1.5x</item>
+        <item>Շարժապատկերի սանդղակը` 2x</item>
+        <item>Շարժապատկերի սանդղակը` 5x</item>
+        <item>Շարժապատկերի սանդղակը` 10x</item>
+    </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>Անջատել շարժապատկերը</item>
+        <item>Շարժապատկերի սանդղակը .5x</item>
+        <item>Շարժապատկերի սանդղակը` 1x</item>
+        <item>Շարժապատկերի սանդղակը 1.5x</item>
+        <item>Շարժապատկերի սանդղակը` 2x</item>
+        <item>Շարժանկարի սանդղակը` 5x</item>
+        <item>Շարժապատկերի սանդղակը` 10x</item>
+    </string-array>
+    <string-array name="overlay_display_devices_entries">
+        <item>Ոչ մեկը</item>
+        <item>480p</item>
+        <item>480p (ապահով)</item>
+        <item>720p</item>
+        <item>720p (ապահով)</item>
+        <item>1080p</item>
+        <item>1080p (ապահով)</item>
+        <item>4K</item>
+        <item>4K (ապահով)</item>
+        <item>4K (մասշտաբավորված)</item>
+        <item>4K (մասշտաբավորված, ապահով)</item>
+        <item>720p, 1080p (երկէկրան)</item>
+    </string-array>
+    <string-array name="enable_opengl_traces_entries">
+        <item>Ոչ մեկը</item>
+        <item>Logcat</item>
+        <item>Համակարգային հետագիծ (գծապատկերներ)</item>
+        <item>glGetError կանչերի ցուցակ</item>
+    </string-array>
+    <string-array name="show_non_rect_clip_entries">
+        <item>Անջատված</item>
+        <item>Ներկել ոչ ուղղանկյունային կտրվածքի տարածքը կապույտով</item>
+        <item>Փորձարկված թեստի գունանշումը կանաչով</item>
+    </string-array>
+    <string-array name="track_frame_time_entries">
+        <item>Անջատել</item>
+        <item>Էկրանի վրա որպես գոտիներ</item>
+        <item>adb shell dumpsys gfxinfo-ում</item>
+    </string-array>
+    <string-array name="debug_hw_overdraw_entries">
+        <item>Անջատված է</item>
+        <item>Ցույց տալ գերազանցված հատվածները</item>
+        <item>Ցույց տալ դալտոնիզմի ոլորտները</item>
+    </string-array>
+    <string-array name="app_process_limit_entries">
+        <item>Սովորական սահման</item>
+        <item>Հետնաշերտում գործողություններ չկան</item>
+        <item>Առավելագույնը 1 գործընթաց</item>
+        <item>Առավելագույնը 2 գործընթաց</item>
+        <item>"Առավելագույնը 3  գործընթաց"</item>
+        <item>Ամենաշատը 4 գործընթաց</item>
+    </string-array>
+    <string-array name="usb_configuration_titles">
+        <item>Լիցքավորում</item>
+        <item>MTP (Մեդիա ֆայլերի փոխանցման հաղորդակարգ)</item>
+        <item>PTP (Նկարների փոխանցման հաղորդակարգ)</item>
+        <item>RNDIS (USB Ethernet)</item>
+        <item>Ձայնի աղբյուրը</item>
+        <item>MIDI</item>
+    </string-array>
+    <string-array name="tts_rate_entries">
+        <item>Շատ դանդաղ</item>
+        <item>Դանդաղ</item>
+        <item>Սովորական</item>
+        <item>Արագ</item>
+        <item>Ավելի արագ</item>
+        <item>Շատ արագ</item>
+        <item>Սրընթաց</item>
+        <item>Չափազանց արագ</item>
+        <item>Ամենաարագ</item>
+    </string-array>
+    <string-array name="color_mode_names">
+        <item>Պայծառ (կանխադրված)</item>
+        <item>Բնական</item>
+        <item>Սովորական</item>
+    </string-array>
+    <string-array name="color_mode_descriptions">
+        <item>Բարելավված գույներ</item>
+        <item>Բնական գույներ</item>
+        <item>Թվային բովանդակության համար հարմարեցված գույներ</item>
+    </string-array>
+    <string-array name="clock_options">
+        <item>Ցույց տալ ժամերը, րոպեները և վայրկյանները</item>
+        <item>Ցույց տալ ժամերը և րոպեները (կանխադրված է)</item>
+        <item>Ցույց չտալ այս պատկերակը</item>
+    </string-array>
+    <string-array name="battery_options">
+        <item>Միշտ ցույց տալ տոկոսը</item>
+        <item>Ցույց տալ տոկոսը լիցքավորելու ժամանակ (կանխադրված է)</item>
+        <item>Ցույց չտալ այս պատկերակը</item>
+    </string-array>
+    <array name="recents_tv_blacklist_array" />
+</resources>

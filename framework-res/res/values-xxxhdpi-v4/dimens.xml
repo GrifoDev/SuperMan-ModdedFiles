@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="mdm_app_icon_size">48.0dip</dimen>
+    <dimen name="tw_floating_popup_divider_width">2.0px</dimen>
+    <dimen name="tw_edittext_field_cursor_width">5.0px</dimen>
+    <dimen name="tw_list_divider_height">2.0px</dimen>
+    <dimen name="sem_resolver_divider_height">2.0px</dimen>
+    <dimen name="tw_pointer_pen_select_hovering_spen_pointer_dark_hotspot">7.5dip</dimen>
+    <dimen name="tw_pointer_scroll_hovering_spen_pointer_dark_hotspot">8.0dip</dimen>
+    <dimen name="tw_pointer_spot_hovering_spen_hotspot">5.5dip</dimen>
+    <dimen name="tw_pointer_spot_hovering_spen_cursor_dark_hotspot">12.0dip</dimen>
+    <dimen name="tw_pointer_spot_hovering_spen_hide_hotspot">1.0dip</dimen>
+    <dimen name="tw_pointer_spot_hovering_spen_more_hotspot">5.5dip</dimen>
+    <dimen name="tw_pointer_spot_hovering_spen_move_dark_hotspot">12.0dip</dimen>
+    <dimen name="tw_pointer_spot_hovering_spen_resize_dark_hotspot">12.0dip</dimen>
+    <dimen name="tw_pointer_spot_hovering_spen_split_dark_hotspot">12.0dip</dimen>
+    <dimen name="wb_button_cue_margin_left">21.0dip</dimen>
+    <dimen name="wb_button_cue_margin_top">16.0dip</dimen>
+    <dimen name="wb_button_cue_offset_from_cursor">8.0dip</dimen>
+    <dimen name="wb_button_cue_image_padding_bottom">-6.0dip</dimen>
+</resources>

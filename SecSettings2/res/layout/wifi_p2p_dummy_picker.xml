@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@id/blank_layout" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/left_container" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_alignParentLeft="true" />
+    <RelativeLayout android:id="@id/center_container" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <fragment android:name="com.samsung.android.settings.wifi.p2p.WifiP2pDevicePicker" android:id="@id/wifi_p2p_device_picker_fragment" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/right_container" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_alignParentRight="true" />
+</LinearLayout>

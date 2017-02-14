@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/radio_controls_title"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <com.samsung.android.settings.SettingsSwitchPreference android:title="@string/rcs_settings_title" android:key="rcs_settings" android:summary="@string/rcs_description" />
+    <com.samsung.android.settings.SettingsSwitchPreference android:title="@string/rcs_settings_title_when_partial_branded" android:key="rcs_settings_partial_branded" android:summary="@string/rcs_description" />
+    <com.samsung.android.settings.SettingsSwitchPreference android:title="@string/rcs_settings_title_when_partial_branded_for_cpr" android:key="rcs_settings_partial_branded_cpr" android:summary="@string/rcs_description" />
+    <com.samsung.android.settings.SettingsSwitchPreference android:title="@string/nearby_scanning_title" android:key="nearby_scanning_setting_category" android:fragment="com.samsung.android.settings.nearbyscan.NearbyScanning" />
+    <com.samsung.android.settings.SettingsSwitchPreference android:title="@string/device_visibility_title" android:key="device_visibility_settings" android:summary="@string/device_visibility_text" android:fragment="com.samsung.android.settings.devicevisibility.DeviceVisibilitySettings" />
+    <PreferenceScreen android:title="@string/wifi_calling_settings_title" android:key="wifi_calling_settings" android:fragment="com.android.settings.WifiCallingSettings" settings:keywords="@string/keywords_wifi_calling" />
+    <PreferenceScreen android:persistent="false" android:title="@string/wifi_tether_checkbox_text" android:key="wifi_ap_settings" android:fragment="com.samsung.android.settings.wifi.mobileap.WifiApSettings">
+        <intent android:targetPackage="com.android.settings" android:action="android.intent.action.MAIN" android:targetClass="com.samsung.android.settings.wifi.mobileap.WifiApSettings" />
+    </PreferenceScreen>
+    <com.samsung.android.settingslib.RestrictedPreference android:title="@string/tether_settings_title_usb_bluetooth" android:key="tether_settings" android:fragment="com.android.settings.TetherSettings" settings:userRestriction="no_config_tethering" settings:useAdminDisabledSummary="true" />
+    <PreferenceScreen android:title="@string/data_usage_summary_title" android:key="data_usage_settings" android:fragment="com.android.settings.datausage.DataUsageSummary" />
+    <PreferenceScreen android:title="@string/mobile_networks_settings_title" android:key="mobile_network_settings_for_C">
+        <intent android:targetPackage="com.android.phone" android:action="android.intent.action.MAIN" android:targetClass="com.android.phone.MobileNetworkSettings" />
+    </PreferenceScreen>
+    <SwitchPreference android:persistent="false" android:title="@string/airplane_mode" android:key="toggle_airplane" android:summary="@string/airplane_mode_summary_sceries" android:disableDependentsState="true" />
+    <PreferenceScreen android:title="@string/nfcpayment_quick_toggle_title" android:key="nfc_setting" android:fragment="com.samsung.android.settings.nfc.NfcSettings" />
+    <PreferenceScreen android:title="@string/tether_settings_title_all" android:key="header_connection_tethering_hotspot" android:fragment="com.android.settings.TetherSettings" />
+    <com.samsung.android.settingslib.RestrictedPreference android:title="@string/network_settings_title" android:key="mobile_network_settings" settings:userRestriction="no_config_mobile_networks" settings:useAdminDisabledSummary="true" settings:keywords="@string/keywords_more_mobile_networks">
+        <intent android:targetPackage="com.android.phone" android:action="android.intent.action.MAIN" android:targetClass="com.android.phone.MobileNetworkSettings" />
+    </com.samsung.android.settingslib.RestrictedPreference>
+    <PreferenceScreen android:title="@string/print_settings" android:key="print_settings" android:fragment="com.android.settings.print.PrintSettingsFragment" />
+    <PreferenceScreen android:title="@string/mirror_link_title" android:key="mirror_link_settings" android:summary="@string/mirror_link_summary" android:fragment="com.samsung.android.settings.mirrorlink.MirrorLink" />
+    <com.samsung.android.settings.SettingsSwitchPreference android:title="@string/smart_bonding" android:key="smart_bonding_settings" android:fragment="com.samsung.android.settings.smartbonding.SmartBondingSettings" />
+    <PreferenceScreen android:title="@string/multi_path_title" android:key="multi_path" android:fragment="com.samsung.android.settings.GigaMultiPath" />
+    <PreferenceScreen android:title="@string/vpn_settings_title" android:key="vpn_settings" android:summary="@string/vpn_settings_summary" android:fragment="com.android.settings.vpn2.VpnSettings" />
+    <PreferenceScreen android:title="@string/vpn_settings_title" android:key="vpn_settings_for_att" android:summary="@string/vpn_settings_summary" android:fragment="com.android.settings.vpn2.VpnSettingsForATT" />
+    <PreferenceScreen android:title="@string/network_unlock_title" android:key="network_unlock" android:summary="@string/network_unlock_summary">
+        <intent android:targetPackage="com.android.settings" android:action="android.intent.action.MAIN" android:targetClass="com.samsung.android.settings.networklock.NetworkUnlockVZW" />
+    </PreferenceScreen>
+    <PreferenceScreen android:title="@string/vzw_emergency_alert_title" android:key="key_vzw_emergency_alert">
+        <intent android:targetPackage="com.sec.android.app.cmas" android:action="android.intent.action.MAIN" android:targetClass="com.sec.android.app.cmas.CmasListActivity" />
+    </PreferenceScreen>
+    <PreferenceScreen android:title="@string/reset_network_settings" android:key="network_reset" android:fragment="com.android.settings.ResetNetwork" />
+    <PreferenceScreen android:title="@string/eth_radio_ctrl_title" android:key="ethernet_settings" android:fragment="com.samsung.android.settings.ethernet.EthernetSettings" />
+    <PreferenceScreen android:title="@string/screen_sharing_ready_title" android:key="screen_sharing_ready_category" android:fragment="com.android.settings.screensharing.ScreenSharingReady" />
+    <PreferenceCategory android:title="@string/media_share_title" android:key="media_share_category_vzw">
+        <PreferenceScreen android:title="@string/allshare_nearby" android:key="nearby_setting_vzw" android:summary="@string/allshare_title_summary" android:fragment="com.samsung.android.settings.nearby.NearbySettings" />
+    </PreferenceCategory>
+    <Preference android:persistent="false" android:key="wfc_settings_holder_key" />
+    <PreferenceCategory android:title="@string/data_plan_category" android:key="data_plan_category">
+        <Preference android:title="@string/cdma_pay_as_you_go" android:key="pay_as_you_go">
+            <intent android:action="com.samsung.vzw.activationagent.intent.action.START_MY_VERIZON_DATA_ACTIVITY" />
+        </Preference>
+    </PreferenceCategory>
+</PreferenceScreen>

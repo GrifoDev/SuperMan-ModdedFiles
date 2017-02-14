@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/clear_badge_text" android:background="@drawable/badge_clear_btn_bg" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_width="@dimen/badge_clear_icon_size" android:layout_height="@dimen/badge_clear_icon_size" android:layout_marginLeft="@dimen/badge_clear_icon_margin_left" android:src="@drawable/page_view_clear_ic" />
+    <TextView android:textSize="@dimen/badge_clear_text_size" android:textColor="@color/badge_clear_text_color" android:gravity="center_vertical" android:paddingLeft="@dimen/badge_clear_text_padding_left" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/badge_clear_text_margin_right" android:text="@string/clear_badge_text" android:fontFamily="Roboto_Regular" />
+</LinearLayout>

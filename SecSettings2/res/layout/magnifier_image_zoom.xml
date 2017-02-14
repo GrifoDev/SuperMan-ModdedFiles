@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingTop="@dimen/seekbar_preference_item_top_padding" android:paddingBottom="@dimen/seekbar_preference_item_bottom_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/list_item_start_padding" android:paddingEnd="@dimen/list_item_start_padding"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/text_size_primary_list_item" android:layout_gravity="start" android:id="@id/magnifier_zoom" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/zoom_percentage" android:fontFamily="sec-roboto-light" style="@style/seekbar_preference_title_text_style" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content"
+      xmlns:android="http://schemas.android.com/apk/res/android">
+        <LinearLayout android:orientation="horizontal" android:id="@id/zoom_layer" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/zoom_minus" android:background="@drawable/switch_ripple_bg" android:layout_width="@dimen/volume_seekbar_icon_size" android:layout_height="@dimen/volume_seekbar_icon_size" android:src="@drawable/assistant_btn_minus" android:scaleType="center" android:contentDescription="@string/magnifier_seekbar_minus_tts" />
+            <SeekBar android:layout_gravity="center_vertical" android:id="@id/zoom_seekbar" android:focusable="true" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" />
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/zoom_plus" android:background="?android:selectableItemBackgroundBorderless" android:layout_width="@dimen/volume_seekbar_icon_size" android:layout_height="@dimen/volume_seekbar_icon_size" android:src="@drawable/assistant_btn_plus" android:scaleType="center" android:contentDescription="@string/magnifier_seekbar_plus_tts" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

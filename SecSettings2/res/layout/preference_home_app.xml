@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeightSmall"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:id="@id/home_app_pref" android:background="?android:listChoiceBackgroundIndicator" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_weight="1.0" android:paddingStart="@dimen/list_item_start_padding" android:paddingEnd="@dimen/list_item_inner_padding">
+        <RadioButton android:layout_gravity="center_vertical" android:orientation="vertical" android:id="@id/home_radio" android:background="@null" android:focusable="false" android:clickable="false" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginEnd="@dimen/list_item_inner_padding" />
+        <ImageView android:layout_gravity="center" android:id="@android:id/icon" android:layout_width="@dimen/list_app_icon_size" android:layout_height="@dimen/list_app_icon_size" android:scaleType="centerInside" android:layout_marginEnd="@dimen/list_item_inner_padding" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:paddingTop="@dimen/list_item_top_padding" android:paddingBottom="@dimen/list_item_bottom_padding" android:focusable="false" android:clickable="false" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <TextView android:ellipsize="end" android:id="@android:id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" style="@style/list_title_text_style" />
+            <TextView android:id="@android:id/summary" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/list_summary_text_style" />
+        </LinearLayout>
+    </LinearLayout>
+    <View android:id="@id/home_divider" android:layout_width="0.0px" android:layout_height="fill_parent" />
+    <LinearLayout android:id="@id/button_layout" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="fill_parent" android:contentDescription="@string/home_app_uninstall_button" android:paddingStart="@dimen/list_item_start_padding" android:paddingEnd="@dimen/list_item_end_padding">
+        <ImageView android:layout_gravity="center" android:id="@id/home_app_uninstall" android:background="@drawable/dashboard_favorite_view_bg" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/list_item_delete_icon" />
+    </LinearLayout>
+</LinearLayout>

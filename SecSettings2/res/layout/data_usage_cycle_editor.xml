@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="240.0dip" android:layout_height="wrap_content" android:paddingStart="@dimen/data_usage_cycle_padding_start" android:paddingEnd="@dimen/data_usage_cycle_padding_end"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="?android:textAppearanceMedium" android:textColor="@color/alert_dialog_text_color" android:layout_gravity="center_vertical" android:id="@id/text_cycle_day" android:scrollbars="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/data_usage_cycle_editor_subtitle" android:layout_weight="0.8" android:paddingEnd="2.0dip" android:layout_marginStart="16.0dip" />
+    <com.samsung.android.widget.SemNumberPicker android:layout_gravity="center_vertical" android:id="@id/cycle_day" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="0.2" android:layout_marginStart="16.0dip" android:layout_marginEnd="16.0dip" />
+</LinearLayout>

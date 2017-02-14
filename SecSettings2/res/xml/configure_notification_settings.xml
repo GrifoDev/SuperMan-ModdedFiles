@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/configure_notification_settings" android:key="configure_notification_settings"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <SwitchPreference android:title="@string/notification_pulse_title" android:key="notification_pulse" />
+    <com.android.settings.notification.NotificationLockscreenPreference android:title="@string/lock_screen_notifications_title" android:key="lock_screen_notifications" android:summary="%s" />
+</PreferenceScreen>

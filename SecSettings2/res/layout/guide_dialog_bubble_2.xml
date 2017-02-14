@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:background="@drawable/help_popup_picker_bg_w_01" android:paddingLeft="@dimen/guide_port_closed_bubble_padding_left" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/tutorial_popup_top_tail_margin">
+        <TextView android:textColor="@android:color/black" android:gravity="center_vertical" android:id="@id/guide_bubble_summary" android:paddingBottom="@dimen/guide_port_closed_bubble_padding_bottom" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/guide_port_closed_bubble_margin_top" android:layout_marginRight="@dimen/guide_port_closed_bubble_margin_right" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" style="@style/GuideBubbleText" />
+        <ImageButton android:id="@id/guide_tip_title_button" android:background="@null" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/guide_closed_bubble_close_img_margin_top" android:layout_marginRight="@dimen/guide_closed_bubble_close_img_margin_right" android:src="@drawable/help_popup_close_btn" android:tint="#ff00a5c4" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:contentDescription="@string/guide_close_popup_icon" />
+    </RelativeLayout>
+    <ImageView android:id="@id/help_tip_bt_tail" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/guide_right_image_height" android:src="@drawable/help_popup_picker_t_c" android:layout_alignParentRight="true" />
+</RelativeLayout>

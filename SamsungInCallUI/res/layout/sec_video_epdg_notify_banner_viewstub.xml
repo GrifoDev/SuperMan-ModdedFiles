@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:gravity="bottom" android:id="@id/epdgNotifyInfoBanner" android:background="@color/sec_video_epdg_notify_info_banner_bg_color" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/sec_video_epdg_notify_info_banner_bottom_margin" android:minHeight="@dimen/sec_video_epdg_notify_info_banner_min_height" android:layout_alignParentBottom="true">
+        <TextView android:textSize="@dimen/sec_video_epdg_notify_info_banner_text_size" android:textColor="@color/incall_call_banner_text_color" android:gravity="center" android:id="@id/epdgNotifyInfoText" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/sec_video_epdg_notify_info_banner_text_margin" android:layout_marginBottom="@dimen/sec_video_epdg_notify_info_banner_text_margin" />
+    </RelativeLayout>
+</RelativeLayout>

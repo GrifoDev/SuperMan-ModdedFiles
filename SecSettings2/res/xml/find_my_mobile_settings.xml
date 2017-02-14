@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/find_my_mobile" settings:parent="@xml/lock_and_security_settings"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+  xmlns:touchwiz="http://schemas.android.com/apk/res/touchwiz">
+    <com.samsung.android.settings.UnclickablePreference android:title="@string/find_my_mobile_description" android:key="find_my_mobile_description" style="@style/description_text" />
+    <Preference android:key="samsung_account" />
+    <SwitchPreference android:title="@string/remote_controls_mbody" android:key="remote_controls" android:summary="@string/remote_controls_summary" />
+    <SwitchPreference android:title="@string/google_location_service" android:key="google_location_service" android:summary="@string/google_location_service_summary" />
+    <SwitchPreference android:title="@string/send_final_location_info" android:key="send_final_location_info" />
+    <PreferenceScreen android:title="@string/change_sim_alert" android:key="sim_change_alert" android:summary="@string/switch_off_text" />
+    <SwitchPreference android:title="@string/lock_my_mobile" android:key="reactivation_lock" android:summary="@string/lock_my_mobile_summary" />
+    <com.samsung.android.settings.fmm.MultipleLineTitlePreference android:title="@string/find_my_mobile_message_zero" android:key="go_to_samsungdive" />
+</PreferenceScreen>

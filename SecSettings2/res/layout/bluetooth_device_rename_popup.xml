@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="@dimen/alert_dialog_padding_left_right" android:layout_marginTop="@dimen/bluetooth_rename_dialog_bottom_padding" android:layout_marginRight="@dimen/alert_dialog_padding_left_right" android:layout_marginBottom="@dimen/bluetooth_rename_dialog_bottom_padding" android:paddingStart="@dimen/alert_dialog_edittext_margin_start_remove"
+      xmlns:android="http://schemas.android.com/apk/res/android">
+        <EditText android:gravity="center_vertical" android:id="@id/rename_edit_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:lines="1" android:singleLine="true" android:inputType="textCapSentences" android:privateImeOptions="disableEmoticonInput=true" />
+        <TextView android:id="@id/bluetooth_rename_error_text" style="@style/bluetooth_rename_dialog_error_text_style" />
+    </LinearLayout>
+</ScrollView>

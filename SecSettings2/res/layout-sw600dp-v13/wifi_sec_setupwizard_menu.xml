@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/wifi_secsetupwizard_layout" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:background="@drawable/setupwizard_header_bg01" android:layout_width="fill_parent" android:layout_height="252.0dip">
+        <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="24.0dip" android:layout_weight="1.0">
+            <ImageView android:id="@id/wifi_device" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/setupwizard_wifi" android:scaleType="fitXY" />
+            <RelativeLayout android:id="@id/wifi_effect_container" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <FrameLayout android:layout_width="50.0dip" android:layout_height="40.0dip" android:layout_marginRight="24.0dip" android:layout_marginBottom="68.0dip" android:layout_alignParentBottom="true" android:layout_alignParentEnd="true">
+                    <ImageView android:id="@id/wifi_effect_image_1" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/wifi_01" />
+                    <ImageView android:id="@id/wifi_effect_image_2" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/wifi_02" />
+                    <ImageView android:id="@id/wifi_effect_image_3" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/wifi_03" />
+                    <ImageView android:id="@id/wifi_effect_image_4" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/wifi_04" />
+                </FrameLayout>
+            </RelativeLayout>
+        </FrameLayout>
+        <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0" />
+        <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/main_container" android:background="@color/ssw_wifi_setting_title_color" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1.0" android:paddingStart="56.0dip" android:paddingEnd="56.0dip">
+        <LinearLayout android:orientation="horizontal" android:id="@id/toolbar1" android:background="@color/ssw_wifi_setting_title_color" android:layout_width="fill_parent" android:layout_height="wrap_content" android:elevation="3.0dip">
+            <TextView android:id="@id/title_area" android:paddingTop="@dimen/wifisetupwizard_title_padding_top" android:paddingBottom="@dimen/wifisetupwizard_title_padding_bottom" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="@string/wifi_settings_title" android:layout_marginStart="@dimen/ssw_wifi_screen_start_margin" style="@style/ssw_title_text" />
+            <LinearLayout android:id="@id/blank_area" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="0.8" />
+            <LinearLayout android:gravity="end|center" android:id="@id/menu_button" android:background="@drawable/ripple_bottom_bar_button_wifi" android:paddingLeft="@dimen/ssw_wifi_more_button_padding_size" android:paddingRight="@dimen/ssw_wifi_more_button_padding_size" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginTop="@dimen/wifisetupwizard_title_padding_top" android:layout_marginBottom="@dimen/wifisetupwizard_title_padding_bottom" android:minWidth="1.0dip" android:layout_marginEnd="@dimen/ssw_more_buttons_right_margin_size">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/more_settings_title" android:contentDescription="@string/more" android:textAllCaps="true" style="@style/ssw_more_text" />
+            </LinearLayout>
+            <LinearLayout android:gravity="center" android:layout_gravity="end|center" android:orientation="horizontal" android:id="@id/wifi_advanced" android:background="@drawable/ripple_bottom_bar_button_wifi" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingStart="@dimen/wifi_setup_advanced_show_btn_shape_padding_left_right" android:paddingEnd="@dimen/ssw_advanced_icon_right_margin_size">
+                <TextView android:textSize="@dimen/wifi_setup_advanced_btn_text_size" android:textColor="@color/wifi_setupwizard_advanced_btn_text_color" android:focusable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/wifi_setup_advanced_show_btn_shape_padding_top_bottom" android:layout_marginBottom="@dimen/wifi_setup_advanced_show_btn_shape_padding_top_bottom" android:text="@string/wifi_menu_advanced" android:textAllCaps="true" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:id="@id/menu_button" android:background="#fff0f0f0" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <com.android.settings.widget.SwitchBar android:theme="?switchBarTheme" android:id="@id/switch_bar" android:background="@drawable/tw_sub_action_bar_bg_mtrl" android:layout_width="fill_parent" android:layout_height="?android:actionBarSize" android:elevation="@dimen/sub_app_bar_shadow_elevation" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/wifi_secsetup_activity_wifisettings" android:layout_width="fill_parent" android:layout_height="0.0px" android:layout_weight="1.0">
+            <FrameLayout android:id="@id/wifi_secsetup_activity_fragment_layout" android:background="#fffafafa" android:layout_width="fill_parent" android:layout_height="fill_parent"
+              xmlns:android="http://schemas.android.com/apk/res/android" />
+        </LinearLayout>
+    </LinearLayout>
+    <RelativeLayout android:gravity="end|center" android:layout_gravity="bottom" android:orientation="horizontal" android:id="@id/bottom_buttons" android:background="@color/ssw_bottom_view_color" android:layout_width="fill_parent" android:layout_height="@dimen/ssw_bottom_buttons_area_height">
+        <LinearLayout android:gravity="center" android:layout_gravity="center_vertical" android:orientation="horizontal" android:id="@id/previous_btn_area" android:background="@drawable/ripple_bottom_bar_button_wifi" android:focusable="true" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="fill_parent" android:paddingStart="@dimen/ssw_bottom_buttons_padding_start_margin" android:paddingEnd="@dimen/ssw_bottom_buttons_padding_end_margin" android:layout_marginStart="@dimen/ssw_wifi_button_end_margin">
+            <ImageView android:id="@id/previous_btn_arrow" android:layout_width="@dimen/ssw_bottom_button_image_size" android:layout_height="@dimen/ssw_bottom_button_image_size" android:layout_marginTop="@dimen/ssw_bottom_button_image_top_margin" android:src="@drawable/setupwizard_prev_arrow_auto_mirrored" android:layout_marginStart="@dimen/ssw_bottom_button_text_right_margin" />
+            <TextView android:id="@id/previous_btn_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/prev_button_label" android:layout_marginStart="@dimen/ssw_bottom_button_text_right_margin" android:layout_marginEnd="@dimen/ssw_bottom_button_text_right_margin" style="@style/ssw_bottom_button_text" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:layout_gravity="center_vertical" android:orientation="horizontal" android:id="@id/next_btn_area" android:background="@drawable/ripple_bottom_bar_button_wifi" android:focusable="true" android:layout_width="wrap_content" android:layout_height="fill_parent" android:paddingStart="@dimen/ssw_bottom_buttons_padding_start_margin" android:layout_marginEnd="@dimen/ssw_bottom_buttons_right_margin" android:layout_alignParentEnd="true">
+            <TextView android:id="@id/next_btn_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/next_button_label" android:layout_marginStart="@dimen/ssw_bottom_button_text_right_margin" android:layout_marginEnd="@dimen/ssw_bottom_button_text_right_margin" style="@style/ssw_bottom_button_text" />
+            <ImageView android:id="@id/next_btn_arrow" android:layout_width="@dimen/ssw_bottom_button_image_size" android:layout_height="@dimen/ssw_bottom_button_image_size" android:layout_marginTop="@dimen/ssw_bottom_button_image_top_margin" android:src="@drawable/setupwizard_next_arrow_auto_mirrored" />
+            <ImageView android:id="@id/next_btn_arrow_open" android:visibility="gone" android:layout_width="@dimen/ssw_bottom_button_image_size" android:layout_height="@dimen/ssw_bottom_button_image_size" android:layout_marginTop="@dimen/ssw_bottom_button_image_top_margin" android:src="@drawable/setupwizard_bottom_arrow_open" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

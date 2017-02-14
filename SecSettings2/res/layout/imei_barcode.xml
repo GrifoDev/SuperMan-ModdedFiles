@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/imei_linearlayout" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageView android:id="@id/imei_barcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="11.0dip" android:adjustViewBounds="true" android:layout_centerHorizontal="true" />
+        <TextView android:textSize="18.0sp" android:gravity="center_horizontal" android:id="@id/imei_textview" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="11.0dip" android:layout_marginBottom="11.0dip" android:layout_below="@id/imei_barcode" android:layout_centerHorizontal="true" android:textIsSelectable="false" />
+    </LinearLayout>
+</ScrollView>

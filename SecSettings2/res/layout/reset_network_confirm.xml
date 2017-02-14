@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/body_text_top_padding" android:text="@string/reset_network_final_desc" android:layout_marginStart="@dimen/body_text_side_padding" android:layout_marginEnd="@dimen/body_text_side_padding" style="@style/body_text_style" />
+    <com.samsung.android.settings.widget.RoundButtonView android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/execute_reset_network" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/reset_button_top_margin" android:layout_marginBottom="@dimen/reset_button_top_margin" android:minHeight="@dimen/reset_button_min_height" android:text="@string/settings_reset_title" android:paddingStart="@dimen/reset_button_side_padding" android:paddingEnd="@dimen/reset_button_side_padding" />
+</LinearLayout>

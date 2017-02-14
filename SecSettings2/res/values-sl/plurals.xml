@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lock_timeout_hours">
+        <item quantity="other">%d ur</item>
+        <item quantity="one">1 ura</item>
+    </plurals>
+    <plurals name="lock_timeout_minutes">
+        <item quantity="other">%d minut</item>
+        <item quantity="one">1 minuta</item>
+    </plurals>
+    <plurals name="lock_timeout_seconds">
+        <item quantity="other">%d sekund</item>
+        <item quantity="one">1 sekunda</item>
+    </plurals>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Še %d korakov vam manjka, da boste razvijalec.</item>
+        <item quantity="one">Še 1 korak vam manjka, da postanete razvijalec.</item>
+    </plurals>
+    <plurals name="dlg_remove_locales_title">
+        <item quantity="other">Odstranite izbrane jezike</item>
+        <item quantity="one">Odstranite izbrani jezik</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_letters">
+        <item quantity="other">Geslo mora vsebovati vsaj %d črk.</item>
+        <item quantity="one">Geslo mora vsebovati vsaj eno črko.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item quantity="other">Geslo mora vsebovati vsaj %d malih črk.</item>
+        <item quantity="one">Geslo mora vsebovati vsaj eno malo črko.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item quantity="other">Geslo mora vsebovati vsaj %d velikih črk.</item>
+        <item quantity="one">Geslo mora vsebovati vsaj eno veliko črko.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item quantity="other">Geslo mora vsebovati vsaj %d številk.</item>
+        <item quantity="one">Geslo mora vsebovati vsaj eno številko.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item quantity="other">Geslo mora vsebovati vsaj %d simbolov.</item>
+        <item quantity="one">Geslo mora vsebovati vsaj 1 simbol.</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item quantity="other">Geslo mora vsebovati vsaj %d številk ali simbolov.</item>
+        <item quantity="one">Geslo mora vsebovati vsaj 1 številko ali simbol.</item>
+    </plurals>
+    <plurals name="uri_permissions_text">
+        <item quantity="other">Dostop do nekaj (%d) map/datotek</item>
+        <item quantity="one">Dostop do 1 mape/datoteke</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_info_message_device_owner">
+        <item quantity="other">"Skrbnik %s je v vašo napravo namestil potrdila CA, kar mu lahko omogoča nadzor omrežne dejavnosti vaše naprave, vključno z uporabo e-pošte, aplikacij in varnih spletnih mest.
+
+Za več informacij o teh potrdilih se obrnite na IT-skrbnika."</item>
+        <item quantity="one">"Skrbnik %s je v vašo napravo namestil potrdilo CA, kar mu lahko omogoča nadzor omrežne dejavnosti vaše naprave, vključno z uporabo e-pošte, aplikacij in varnih spletnih mest.
+
+Za več informacij o tem potrdilu se obrnite na IT-skrbnika."</item>
+    </plurals>
+    <plurals name="manage_notification_access_summary_nonzero">
+        <item quantity="other">Število aplikacij, ki lahko berejo obvestila: %d.</item>
+        <item quantity="one">Toliko aplikacij ima dovoljenje za branje obvestil: %d.</item>
+    </plurals>
+    <plurals name="runtime_permissions_additional_count">
+        <item quantity="other">Še toliko dovoljenj: %d</item>
+        <item quantity="one">Še %d dovoljenje</item>
+    </plurals>
+    <plurals name="memory_usage_apps_summary">
+        <item quantity="other">V zadnjih urah (%2$s) je pomnilnik RAM uporabljalo toliko procesov: %1$d</item>
+        <item quantity="one">V zadnjih urah (%2$s) je pomnilnik RAM uporabljal %1$d proces</item>
+    </plurals>
+    <plurals name="data_saver_unrestricted_summary">
+        <item quantity="other">Nekaj (%d) aplikacijam je dovoljena uporaba prenosa podatkov prek mobilnega omrežja brez omejitev, ko je omogočena funkcija Varčevanje s podatki</item>
+        <item quantity="one">1 aplikacija ima dovoljenje za uporabo prenosa podatkov prek mobilnega omrežja brez omejitev, ko je omogočena funkcija Varčevanje s podatki</item>
+    </plurals>
+</resources>

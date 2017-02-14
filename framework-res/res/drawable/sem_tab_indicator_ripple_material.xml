@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple android:color="@color/tw_tab_selected_text_color"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@id/mask">
+        <color android:color="@color/white" />
+    </item>
+    <item android:drawable="@drawable/sem_tab_indicator_material" />
+</ripple>

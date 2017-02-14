@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:gravity="start" android:id="@id/securefolder_locktype_guide_text_desc" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/fingerprint_chooselock_vertical_margin" android:layout_marginBottom="@dimen/fingerprint_chooselock_vertical_margin" android:text="@string/text_security_title_b2c" android:layout_alignParentTop="true" android:lineSpacingExtra="@dimen/fingerprint_chooselock_linespace" android:paddingStart="?android:listPreferredItemPaddingStart" android:paddingEnd="?android:listPreferredItemPaddingEnd" style="@style/description_text" />
+    <include android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/securefolder_locktype_guide_text_desc" layout="@layout/divider_line_layout" />
+</LinearLayout>

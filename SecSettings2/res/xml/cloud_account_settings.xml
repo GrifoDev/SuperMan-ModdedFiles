@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/cloud_and_accounts_title"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+  xmlns:touchwiz="http://schemas.android.com/apk/res/touchwiz">
+    <PreferenceScreen android:title="@string/jansky_settings" android:key="jansky_settings">
+        <intent android:action="com.samsung.app.jansky.JANSKY_SETTINGS" />
+    </PreferenceScreen>
+    <PreferenceCategory android:key="cloud_category" />
+    <PreferenceScreen android:title="@string/cloud_title" android:key="cloud_preference" android:summary="@string/cloud_setting_summary">
+        <intent android:targetPackage="com.samsung.android.scloud" android:action="android.intent.action.MAIN" android:targetClass="com.samsung.android.scloud.app.ui.splash.SplashActivity" />
+    </PreferenceScreen>
+    <PreferenceCategory android:key="account_category" />
+    <PreferenceScreen android:title="@string/account_settings_title" android:key="account_preference" android:fragment="com.android.settings.accounts.AccountSettings" />
+    <PreferenceCategory android:key="user_category" />
+    <PreferenceScreen android:title="@string/user_settings_title" android:key="user_preference" android:fragment="com.android.settings.users.UserSettings" />
+    <PreferenceCategory android:key="privacy_category" />
+    <PreferenceScreen android:title="@string/samsung_Sbackup" android:key="privacy_preference" android:fragment="com.samsung.android.settings.PrivacySettings">
+        <extra android:name="menu" android:value="backup" />
+    </PreferenceScreen>
+    <PreferenceCategory android:key="smartswitch_category" />
+    <PreferenceScreen android:title="@string/smart_switch_list_name" android:key="smartswitch_preference" android:summary="@string/running_smart_switch_summary" />
+</PreferenceScreen>

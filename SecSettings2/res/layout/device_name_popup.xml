@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:id="@id/device_name_scrollview" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:gravity="center_vertical" android:id="@id/device_name_summary" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/alert_dialog_padding_top" android:text="@string/device_name_popup_msg" android:layout_marginStart="@dimen/alert_dialog_padding_left_right" android:layout_marginEnd="@dimen/alert_dialog_padding_left_right" style="@style/dialog_body_text_style" />
+        <EditText android:gravity="center_vertical" android:id="@id/device_name_edit" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/device_name_input_field_top_margin_with_error_text" android:lines="1" android:singleLine="true" android:inputType="textCapSentences" android:privateImeOptions="disableEmoticonInput=true" android:layout_marginStart="@dimen/owner_info_edit_text_marginLeft" android:layout_marginEnd="@dimen/alert_dialog_padding_left_right" />
+        <TextView android:textSize="@dimen/edit_dialog_hint_text_size" android:textColor="@color/red" android:id="@id/error_textview" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/wifi_ssid_max_byte_error" android:layout_marginStart="@dimen/alert_dialog_padding_left_right" android:layout_marginEnd="@dimen/alert_dialog_padding_left_right" />
+        <View android:layout_width="fill_parent" android:layout_height="@dimen/alert_dialog_padding_bottom" />
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <bitmap android:src="@drawable/tw_list_icon_circle" android:tint="@color/list_icon_create_circle_color" android:alpha="@dimen/list_icon_circle_alpha" android:tintMode="multiply" />
+    </item>
+    <item>
+        <bitmap android:src="@drawable/tw_list_icon_create" android:tint="@color/list_icon_create_color" />
+    </item>
+</layer-list>

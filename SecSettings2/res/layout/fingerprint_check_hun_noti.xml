@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:internal="http://schemas.android.com/apk/prv/res/android">
+    <FrameLayout android:layout_width="@android:dimen/notification_large_icon_width" android:layout_height="@android:dimen/notification_large_icon_height">
+        <ImageView android:id="@id/icon" android:layout_width="40.0dip" android:layout_height="40.0dip" android:layout_marginTop="12.0dip" android:layout_marginBottom="12.0dip" android:src="@drawable/fingerprint_huntip_icon" android:scaleType="centerInside" android:layout_marginStart="12.0dip" android:layout_marginEnd="12.0dip" />
+    </FrameLayout>
+    <LinearLayout android:layout_gravity="top" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="12.0dip" android:minHeight="@android:dimen/notification_large_icon_height" android:layout_marginStart="@android:dimen/notification_large_icon_width">
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginEnd="12.0dip">
+            <TextView android:textAppearance="@android:style/TextAppearance.Material.Notification.Title" android:ellipsize="marquee" android:id="@id/title" android:fadingEdge="horizontal" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/fingerprint_mainmenu_huntip_title" android:singleLine="true" android:layout_weight="1.0" />
+        </LinearLayout>
+        <LinearLayout android:gravity="top" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="4.0dip" android:layout_marginEnd="12.0dip">
+            <TextView android:textAppearance="@android:style/TextAppearance.Material.Notification" android:id="@id/big_text" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/fingerprint_mainmenu_huntip_message" android:singleLine="false" android:layout_weight="1.0" />
+        </LinearLayout>
+        <RelativeLayout android:orientation="horizontal" android:id="@id/actions" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="4.0dip" android:layout_marginEnd="12.0dip">
+            <Button android:textSize="14.0dip" android:textStyle="bold" android:textColor="#ff00849d" android:ellipsize="end" android:gravity="start|center" android:id="@id/btn_action_fingerpirint_hun_close" android:layout_width="wrap_content" android:layout_height="38.0dip" android:text="@string/wifi_ap_close" android:singleLine="true" android:includeFontPadding="false" android:drawablePadding="4.0dip" android:fontFamily="sec-roboto-light" android:paddingStart="12.0dip" android:paddingEnd="12.0dip" android:layout_alignParentEnd="true" style="@android:style/Widget.Material.Light.Button.Borderless.Small" />
+        </RelativeLayout>
+    </LinearLayout>
+</FrameLayout>

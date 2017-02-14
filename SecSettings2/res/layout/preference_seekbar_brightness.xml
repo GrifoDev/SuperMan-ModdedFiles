@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingTop="@dimen/seekbar_preference_item_top_padding" android:paddingBottom="@dimen/seekbar_preference_item_bottom_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:contentDescription="@string/brightness_title" style="@style/list_item_container_style"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:ellipsize="marquee" android:id="@android:id/title" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/brightness_seekbar_label_bottom_padding" android:singleLine="true" style="@style/list_title_text_style" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="@dimen/brightness_seekbar_height">
+        <com.samsung.android.settings.widget.BrightnessIconView android:layout_gravity="center_vertical" android:id="@android:id/icon" android:layout_width="@dimen/brightness_icon_size" android:layout_height="@dimen/brightness_icon_size" android:tint="@color/volume_icon_color" android:tintMode="src_in" />
+        <SeekBar android:layout_gravity="center_vertical" android:id="@id/brightness_seekbar" android:layout_width="0.0dip" android:layout_height="@dimen/brightness_icon_size" android:layout_weight="1.0" />
+        <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="horizontal" android:id="@id/auto_layout" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <CheckBox android:id="@id/automatic_mode" android:layout_width="@dimen/brightness_checkbox_size" android:layout_height="@dimen/brightness_checkbox_size" />
+            <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="@dimen/auto_brightness_checkbox_text_height">
+                <TextView android:textSize="@dimen/auto_brightness_checkbox_text_size" android:textColor="@color/auto_brightness_checkbox_text_color" android:gravity="center" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/brightness_auto" android:includeFontPadding="false" style="@style/list_title_text_style" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <TextView android:textSize="11.0dip" android:layout_gravity="center" android:id="@id/hbm_mode_text" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="-18.0dip" android:text="@string/hbm_mode_on" style="@style/list_summary_text_style" />
+    <TextView android:id="@id/brightnesslevel_and_overheatwarning" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/brightness_overheat_description" style="@style/list_summary_text_style" />
+</LinearLayout>

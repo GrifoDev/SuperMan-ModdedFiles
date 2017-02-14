@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/accessory" android:key="parent"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+  xmlns:touchwiz="http://schemas.android.com/apk/res/touchwiz">
+    <PreferenceCategory android:title="@string/cover" android:key="cover" />
+    <SwitchPreference android:persistent="false" android:title="@string/automatic_unlock" android:key="automatic_unlock" android:summary="@string/automatic_unlock_summary" settings:dbMatchingName="automatic_unlock" settings:dbMatchingTable="system" />
+    <CheckBoxPreference android:title="@string/cover_note" android:key="cover_note" android:summary="@string/cover_note_summary" settings:dbMatchingName="cover_note" settings:dbMatchingTable="system" />
+    <ListPreference android:entries="@array/cover_note_weather_unit_entries" android:title="@string/cover_note_weather_unit" android:key="cover_note_weather_unit" android:widgetLayout="@layout/round_more_icon" android:entryValues="@array/cover_note_weather_unit_values" settings:dbMatchingName="cover_note_weather_unit" settings:dbMatchingTable="system" />
+    <PreferenceScreen android:title="@string/info_and_app_shortcut_title" android:key="cover_info_and_app_shortcut" android:summary="@string/lock_screen_sview_show_information_summary" android:fragment="com.samsung.android.settings.lockscreen.ShowInfomationMenu" />
+    <PreferenceScreen android:title="@string/dualclock_settings_title" android:key="lock_screen_dualclock" android:fragment="com.samsung.android.settings.dualclock.DualClockSetting" />
+    <PreferenceScreen android:title="@string/lockscreen_notifications" android:key="cover_show_notifications" android:fragment="com.samsung.android.settings.lockscreen.LockscreenNotificationApplist" />
+    <PreferenceScreen android:title="@string/sview_wallpaper" android:key="sview_wallpaper" />
+    <PreferenceScreen android:title="@string/sview_led_cover_caller_id" android:key="led_cover_caller_id" android:summary="@string/sview_led_cover_caller_id_description" android:fragment="com.samsung.android.settings.accessories.LedCoverCallerIDSettings" />
+    <PreferenceScreen android:title="@string/sview_led_cover_notifications_icon" android:key="led_cover_notifications_icon" android:summary="@string/sview_led_cover_notifications_icon_summary" />
+    <PreferenceCategory android:title="@string/fast_wireless_charger" android:key="fast_charing_category" />
+    <SwitchPreference android:persistent="false" android:title="@string/fast_wireless_charging" android:key="fast_wireless_charging" android:summary="@string/fast_wireless_charging_summary" />
+    <PreferenceCategory android:title="@string/smart_accessory" android:key="smart_accessory" />
+    <PreferenceScreen android:title="@string/smart_accessory_settings" android:key="smart_accessory_settings" />
+    <PreferenceScreen android:title="@string/about_galaxy_mate" android:key="smart_accessory_about_galaxy_mate" />
+    <PreferenceScreen android:title="@string/contact_us_title" android:key="smart_accessory_contact_us" />
+</PreferenceScreen>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_gravity="center_horizontal" android:orientation="horizontal" android:id="@id/wifi_ap_help_orient_layout_second_landscape" android:paddingTop="16.0dip" android:focusable="false" android:clickable="false" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center_horizontal" android:id="@id/mobileap_help_image" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="wrap_content" android:scaleType="fitStart" android:layout_weight="6.0" android:layout_marginStart="16.0dip" />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="4.0" android:layout_marginStart="16.0dip" android:layout_marginEnd="16.0dip">
+        <TextView android:textSize="16.0sp" android:textColor="@color/body_text_color" android:ellipsize="marquee" android:id="@id/help_instruction" android:paddingBottom="16.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/wifi_ap_instruction" android:lineSpacingExtra="4.0sp" android:fontFamily="sec-roboto-light" />
+        <TextView android:textSize="16.0sp" android:textColor="@color/body_text_color" android:ellipsize="marquee" android:id="@id/help_instruction_2" android:paddingBottom="16.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/wifi_ap_instruction_configure" android:lineSpacingExtra="4.0sp" android:fontFamily="sec-roboto-light" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,52 @@
+!!brut.androlib.meta.MetaInfo
+apkFileName: SecSettings2.apk
+compressionType: false
+doNotCompress:
+- arsc
+- zip
+- qmg
+- pio
+- qio
+- res/drawable-ldrtl-xxxhdpi-v4/msg_bubble_incoming.9.qmg
+- webp
+- res/drawable-xxhdpi-v4/abc_menu_hardkey_panel_mtrl_mult.9.qmg
+- res/drawable-xxhdpi-v4/abc_popup_background_mtrl_mult.9.qmg
+- res/drawable-xxhdpi-v4/data_sweep_left_activated.9.qmg
+- res/drawable-xxhdpi-v4/data_sweep_left_default.9.qmg
+- res/drawable-xxhdpi-v4/data_sweep_limit_activated.9.qmg
+- res/drawable-xxhdpi-v4/data_sweep_right_activated.9.qmg
+- res/drawable-xxhdpi-v4/data_sweep_right_default.9.qmg
+- res/drawable-xxhdpi-v4/data_sweep_warning_activated.9.qmg
+- res/drawable-xxhdpi-v4/messages_bubble_receivedmessage_01.9.qmg
+- res/drawable-xxhdpi-v4/messages_bubble_sentmessage_01.9.qmg
+- res/drawable-xxhdpi-v4/tw_no_item_popup_bg_holo_dark.9.qmg
+- res/drawable-xxxhdpi-v4/abc_btn_switch_to_on_mtrl_00001.9.qmg
+- res/drawable-xxxhdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.qmg
+- res/drawable-xxxhdpi-v4/abc_switch_track_mtrl_alpha.9.qmg
+- res/drawable-xxxhdpi-v4/help_popup_picker_bg_w_01.9.qmg
+- res/drawable-xxxhdpi-v4/msg_bubble_outgoing.9.qmg
+- res/drawable-xxxhdpi-v4/step_bubble_02.9.qmg
+- res/drawable-xxxhdpi-v4/step_bubble_sample.9.qmg
+- res/drawable/messages_bubble_receivedmessage_01.9.qmg
+- res/drawable/messages_bubble_sentmessage_01.9.qmg
+- res/drawable/stat_notify_performancebooster.png.qio
+- res/drawable/tw_no_item_popup_bg_holo_dark.9.qmg
+isFrameworkApk: false
+packageInfo:
+  forcedPackageId: '127'
+  renameManifestPackage: null
+sdkInfo:
+  minSdkVersion: '24'
+  targetSdkVersion: '24'
+sharedLibrary: false
+unknownFiles:
+  SEC-INF/buildConfirm.crt: '8'
+  SEC-INF/buildinfo.xml: '8'
+usesFramework:
+  ids:
+  - 1
+  tag: null
+version: 2.2.2
+versionInfo:
+  versionCode: '24'
+  versionName: '7.0'

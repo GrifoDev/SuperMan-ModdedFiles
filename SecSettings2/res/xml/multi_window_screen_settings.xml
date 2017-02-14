@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/multi_window_screen_title" settings:parent="@xml/useful_feature"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <SwitchPreference android:title="@string/multi_window_setting_title" android:key="pop_up_gesture" />
+    <SwitchPreference android:title="@string/multi_window_split_screen_title" android:key="split_screen" />
+</PreferenceScreen>
