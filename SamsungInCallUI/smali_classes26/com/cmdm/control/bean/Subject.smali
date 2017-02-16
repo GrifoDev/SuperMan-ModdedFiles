@@ -57,6 +57,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 22
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -67,6 +69,8 @@
 .method public getIsNeedLogin()Ljava/lang/Boolean;
     .locals 2
 
+    .prologue
+    .line 127
     iget-object v0, p0, Lcom/cmdm/control/bean/Subject;->isNeedLogin:Ljava/lang/String;
 
     if-eqz v0, :cond_0
@@ -81,6 +85,7 @@
 
     if-nez v0, :cond_0
 
+    .line 128
     iget-object v0, p0, Lcom/cmdm/control/bean/Subject;->isNeedLogin:Ljava/lang/String;
 
     const-string v1, "1"
@@ -91,12 +96,14 @@
 
     if-eqz v0, :cond_0
 
+    .line 129
     const/4 v0, 0x1
 
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
 
+    .line 131
     :goto_0
     return-object v0
 
@@ -113,6 +120,8 @@
 .method public getSubjecDescription()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 100
     iget-object v0, p0, Lcom/cmdm/control/bean/Subject;->subjecDescription:Ljava/lang/String;
 
     return-object v0
@@ -121,6 +130,8 @@
 .method public getSubjecId()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 70
     iget-object v0, p0, Lcom/cmdm/control/bean/Subject;->subjecId:Ljava/lang/String;
 
     return-object v0
@@ -129,6 +140,8 @@
 .method public getSubjecImage()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 115
     iget-object v0, p0, Lcom/cmdm/control/bean/Subject;->subjecImage:Ljava/lang/String;
 
     return-object v0
@@ -137,6 +150,8 @@
 .method public getSubjecName()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 85
     iget-object v0, p0, Lcom/cmdm/control/bean/Subject;->subjecName:Ljava/lang/String;
 
     return-object v0
@@ -144,32 +159,48 @@
 
 .method public setSubjecDescription(Ljava/lang/String;)V
     .locals 0
+    .param p1, "subjecDescription"    # Ljava/lang/String;
 
+    .prologue
+    .line 108
     iput-object p1, p0, Lcom/cmdm/control/bean/Subject;->subjecDescription:Ljava/lang/String;
 
+    .line 109
     return-void
 .end method
 
 .method public setSubjecId(Ljava/lang/String;)V
     .locals 0
+    .param p1, "subjecId"    # Ljava/lang/String;
 
+    .prologue
+    .line 78
     iput-object p1, p0, Lcom/cmdm/control/bean/Subject;->subjecId:Ljava/lang/String;
 
+    .line 79
     return-void
 .end method
 
 .method public setSubjecImage(Ljava/lang/String;)V
     .locals 0
+    .param p1, "subjecImage"    # Ljava/lang/String;
 
+    .prologue
+    .line 123
     iput-object p1, p0, Lcom/cmdm/control/bean/Subject;->subjecImage:Ljava/lang/String;
 
+    .line 124
     return-void
 .end method
 
 .method public setSubjecName(Ljava/lang/String;)V
     .locals 0
+    .param p1, "subjecName"    # Ljava/lang/String;
 
+    .prologue
+    .line 93
     iput-object p1, p0, Lcom/cmdm/control/bean/Subject;->subjecName:Ljava/lang/String;
 
+    .line 94
     return-void
 .end method

@@ -30,23 +30,31 @@
 # direct methods
 .method private constructor <init>(Lcom/google/common/util/concurrent/CycleDetectingLockFactory;Lcom/google/common/util/concurrent/CycleDetectingLockFactory$LockGraphNode;Z)V
     .locals 1
+    .param p2, "lockGraphNode"    # Lcom/google/common/util/concurrent/CycleDetectingLockFactory$LockGraphNode;
+    .param p3, "fair"    # Z
 
+    .prologue
+    .line 878
     iput-object p1, p0, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$CycleDetectingReentrantReadWriteLock;->this$0:Lcom/google/common/util/concurrent/CycleDetectingLockFactory;
 
+    .line 879
     invoke-direct {p0, p3}, Ljava/util/concurrent/locks/ReentrantReadWriteLock;-><init>(Z)V
 
+    .line 880
     new-instance v0, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$CycleDetectingReentrantReadLock;
 
     invoke-direct {v0, p1, p0}, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$CycleDetectingReentrantReadLock;-><init>(Lcom/google/common/util/concurrent/CycleDetectingLockFactory;Lcom/google/common/util/concurrent/CycleDetectingLockFactory$CycleDetectingReentrantReadWriteLock;)V
 
     iput-object v0, p0, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$CycleDetectingReentrantReadWriteLock;->readLock:Lcom/google/common/util/concurrent/CycleDetectingLockFactory$CycleDetectingReentrantReadLock;
 
+    .line 881
     new-instance v0, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$CycleDetectingReentrantWriteLock;
 
     invoke-direct {v0, p1, p0}, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$CycleDetectingReentrantWriteLock;-><init>(Lcom/google/common/util/concurrent/CycleDetectingLockFactory;Lcom/google/common/util/concurrent/CycleDetectingLockFactory$CycleDetectingReentrantReadWriteLock;)V
 
     iput-object v0, p0, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$CycleDetectingReentrantReadWriteLock;->writeLock:Lcom/google/common/util/concurrent/CycleDetectingLockFactory$CycleDetectingReentrantWriteLock;
 
+    .line 882
     invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -55,12 +63,19 @@
 
     iput-object v0, p0, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$CycleDetectingReentrantReadWriteLock;->lockGraphNode:Lcom/google/common/util/concurrent/CycleDetectingLockFactory$LockGraphNode;
 
+    .line 883
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/util/concurrent/CycleDetectingLockFactory;Lcom/google/common/util/concurrent/CycleDetectingLockFactory$LockGraphNode;ZLcom/google/common/util/concurrent/CycleDetectingLockFactory$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/google/common/util/concurrent/CycleDetectingLockFactory;
+    .param p2, "x1"    # Lcom/google/common/util/concurrent/CycleDetectingLockFactory$LockGraphNode;
+    .param p3, "x2"    # Z
+    .param p4, "x3"    # Lcom/google/common/util/concurrent/CycleDetectingLockFactory$1;
 
+    .prologue
+    .line 865
     invoke-direct {p0, p1, p2, p3}, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$CycleDetectingReentrantReadWriteLock;-><init>(Lcom/google/common/util/concurrent/CycleDetectingLockFactory;Lcom/google/common/util/concurrent/CycleDetectingLockFactory$LockGraphNode;Z)V
 
     return-void
@@ -71,6 +86,8 @@
 .method public getLockGraphNode()Lcom/google/common/util/concurrent/CycleDetectingLockFactory$LockGraphNode;
     .locals 1
 
+    .prologue
+    .line 901
     iget-object v0, p0, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$CycleDetectingReentrantReadWriteLock;->lockGraphNode:Lcom/google/common/util/concurrent/CycleDetectingLockFactory$LockGraphNode;
 
     return-object v0
@@ -79,6 +96,8 @@
 .method public isAcquiredByCurrentThread()Z
     .locals 1
 
+    .prologue
+    .line 906
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$CycleDetectingReentrantReadWriteLock;->isWriteLockedByCurrentThread()Z
 
     move-result v0
@@ -106,6 +125,8 @@
 .method public bridge synthetic readLock()Ljava/util/concurrent/locks/Lock;
     .locals 1
 
+    .prologue
+    .line 865
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$CycleDetectingReentrantReadWriteLock;->readLock()Ljava/util/concurrent/locks/ReentrantReadWriteLock$ReadLock;
 
     move-result-object v0
@@ -116,6 +137,8 @@
 .method public readLock()Ljava/util/concurrent/locks/ReentrantReadWriteLock$ReadLock;
     .locals 1
 
+    .prologue
+    .line 889
     iget-object v0, p0, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$CycleDetectingReentrantReadWriteLock;->readLock:Lcom/google/common/util/concurrent/CycleDetectingLockFactory$CycleDetectingReentrantReadLock;
 
     return-object v0
@@ -124,6 +147,8 @@
 .method public bridge synthetic writeLock()Ljava/util/concurrent/locks/Lock;
     .locals 1
 
+    .prologue
+    .line 865
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$CycleDetectingReentrantReadWriteLock;->writeLock()Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;
 
     move-result-object v0
@@ -134,6 +159,8 @@
 .method public writeLock()Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;
     .locals 1
 
+    .prologue
+    .line 894
     iget-object v0, p0, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$CycleDetectingReentrantReadWriteLock;->writeLock:Lcom/google/common/util/concurrent/CycleDetectingLockFactory$CycleDetectingReentrantWriteLock;
 
     return-object v0

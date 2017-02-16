@@ -31,6 +31,8 @@
 .method constructor <init>(Lcom/google/common/collect/Multiset;Lcom/google/common/collect/Multiset;)V
     .locals 0
 
+    .prologue
+    .line 474
     iput-object p1, p0, Lcom/google/common/collect/Multisets$2;->val$multiset1:Lcom/google/common/collect/Multiset;
 
     iput-object p2, p0, Lcom/google/common/collect/Multisets$2;->val$multiset2:Lcom/google/common/collect/Multiset;
@@ -44,13 +46,18 @@
 # virtual methods
 .method public count(Ljava/lang/Object;)I
     .locals 2
+    .param p1, "element"    # Ljava/lang/Object;
 
+    .prologue
+    .line 477
     iget-object v1, p0, Lcom/google/common/collect/Multisets$2;->val$multiset1:Lcom/google/common/collect/Multiset;
 
     invoke-interface {v1, p1}, Lcom/google/common/collect/Multiset;->count(Ljava/lang/Object;)I
 
     move-result v0
 
+    .line 478
+    .local v0, "count1":I
     if-nez v0, :cond_0
 
     const/4 v1, 0x0
@@ -82,6 +89,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 483
     iget-object v0, p0, Lcom/google/common/collect/Multisets$2;->val$multiset1:Lcom/google/common/collect/Multiset;
 
     invoke-interface {v0}, Lcom/google/common/collect/Multiset;->elementSet()Ljava/util/Set;
@@ -104,6 +113,8 @@
 .method distinctElements()I
     .locals 1
 
+    .prologue
+    .line 508
     invoke-virtual {p0}, Lcom/google/common/collect/Multisets$2;->elementSet()Ljava/util/Set;
 
     move-result-object v0
@@ -127,6 +138,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 488
     iget-object v1, p0, Lcom/google/common/collect/Multisets$2;->val$multiset1:Lcom/google/common/collect/Multiset;
 
     invoke-interface {v1}, Lcom/google/common/collect/Multiset;->entrySet()Ljava/util/Set;
@@ -137,6 +150,8 @@
 
     move-result-object v0
 
+    .line 490
+    .local v0, "iterator1":Ljava/util/Iterator;, "Ljava/util/Iterator<Lcom/google/common/collect/Multiset$Entry<TE;>;>;"
     new-instance v1, Lcom/google/common/collect/Multisets$2$1;
 
     invoke-direct {v1, p0, v0}, Lcom/google/common/collect/Multisets$2$1;-><init>(Lcom/google/common/collect/Multisets$2;Ljava/util/Iterator;)V

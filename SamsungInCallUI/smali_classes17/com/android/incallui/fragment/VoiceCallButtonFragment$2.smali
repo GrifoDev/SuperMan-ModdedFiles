@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/VoiceCallButtonFragment;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/fragment/VoiceCallButtonFragment;
 
+    .prologue
+    .line 271
     iput-object p1, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment$2;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +40,8 @@
 .method public onGlobalLayout()V
     .locals 3
 
+    .prologue
+    .line 275
     iget-object v1, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment$2;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonFragment;
 
     # getter for: Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mEndCallButtonBottom:Landroid/view/View;
@@ -48,12 +53,15 @@
 
     move-result-object v0
 
+    .line 276
+    .local v0, "observer":Landroid/view/ViewTreeObserver;
     invoke-virtual {v0}, Landroid/view/ViewTreeObserver;->isAlive()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
+    .line 277
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v1
@@ -66,6 +74,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment$2;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonFragment;
 
+    .line 278
     # getter for: Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mEndCallButtonBottomHeight:I
     invoke-static {v1}, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->access$200(Lcom/android/incallui/fragment/VoiceCallButtonFragment;)I
 
@@ -84,10 +93,12 @@
 
     if-ne v1, v2, :cond_1
 
+    .line 283
     :cond_0
     :goto_0
     return-void
 
+    .line 281
     :cond_1
     const-string v1, "VoiceCallButtonFragment"
 
@@ -95,6 +106,7 @@
 
     invoke-static {v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 282
     iget-object v1, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment$2;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonFragment;
 
     # invokes: Lcom/android/incallui/fragment/VoiceCallButtonFragment;->arrangeIncomingCallScreen()V

@@ -33,8 +33,10 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 218
     new-instance v0, Lcom/google/common/util/concurrent/AbstractFuture$Listener;
 
     invoke-direct {v0, v1, v1}, Lcom/google/common/util/concurrent/AbstractFuture$Listener;-><init>(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
@@ -46,12 +48,19 @@
 
 .method constructor <init>(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
     .locals 0
+    .param p1, "task"    # Ljava/lang/Runnable;
+    .param p2, "executor"    # Ljava/util/concurrent/Executor;
 
+    .prologue
+    .line 225
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 226
     iput-object p1, p0, Lcom/google/common/util/concurrent/AbstractFuture$Listener;->task:Ljava/lang/Runnable;
 
+    .line 227
     iput-object p2, p0, Lcom/google/common/util/concurrent/AbstractFuture$Listener;->executor:Ljava/util/concurrent/Executor;
 
+    .line 228
     return-void
 .end method

@@ -22,6 +22,8 @@
 .method private constructor <init>(Lcom/android/incallui/sns/SecLinkedInHelper;)V
     .locals 0
 
+    .prologue
+    .line 330
     iput-object p1, p0, Lcom/android/incallui/sns/SecLinkedInHelper$LinkedinHandler;->this$0:Lcom/android/incallui/sns/SecLinkedInHelper;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -31,7 +33,11 @@
 
 .method synthetic constructor <init>(Lcom/android/incallui/sns/SecLinkedInHelper;Lcom/android/incallui/sns/SecLinkedInHelper$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/android/incallui/sns/SecLinkedInHelper;
+    .param p2, "x1"    # Lcom/android/incallui/sns/SecLinkedInHelper$1;
 
+    .prologue
+    .line 330
     invoke-direct {p0, p1}, Lcom/android/incallui/sns/SecLinkedInHelper$LinkedinHandler;-><init>(Lcom/android/incallui/sns/SecLinkedInHelper;)V
 
     return-void
@@ -41,14 +47,19 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 1
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 334
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
+    .line 342
     :goto_0
     return-void
 
+    .line 336
     :pswitch_0
     iget-object v0, p0, Lcom/android/incallui/sns/SecLinkedInHelper$LinkedinHandler;->this$0:Lcom/android/incallui/sns/SecLinkedInHelper;
 
@@ -57,6 +68,7 @@
 
     goto :goto_0
 
+    .line 334
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0

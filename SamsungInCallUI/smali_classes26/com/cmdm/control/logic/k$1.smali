@@ -25,8 +25,11 @@
 .method constructor <init>(Lcom/cmdm/control/logic/k;)V
     .locals 0
 
+    .prologue
+    .line 1
     iput-object p1, p0, Lcom/cmdm/control/logic/k$1;->co:Lcom/cmdm/control/logic/k;
 
+    .line 124
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -37,6 +40,8 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 127
     new-instance v0, Lcom/cmdm/control/logic/a;
 
     iget-object v1, p0, Lcom/cmdm/control/logic/k$1;->co:Lcom/cmdm/control/logic/k;
@@ -47,5 +52,6 @@
 
     invoke-virtual {v0}, Lcom/cmdm/control/logic/a;->x()Lcom/cmdm/control/util/client/ResultUtil;
 
+    .line 128
     return-void
 .end method

@@ -29,19 +29,26 @@
 # direct methods
 .method public constructor <init>(Lcom/android/incallui/VideoPauseController;Lcom/android/incallui/Call;)V
     .locals 1
+    .param p2, "call"    # Lcom/android/incallui/Call;
 
+    .prologue
+    .line 104
     iput-object p1, p0, Lcom/android/incallui/VideoPauseController$CallContext;->this$0:Lcom/android/incallui/VideoPauseController;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 150
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/incallui/VideoPauseController$CallContext;->mState:I
 
+    .line 105
     invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 106
     invoke-virtual {p0, p2}, Lcom/android/incallui/VideoPauseController$CallContext;->update(Lcom/android/incallui/Call;)V
 
+    .line 107
     return-void
 .end method
 
@@ -49,15 +56,21 @@
 # virtual methods
 .method public canUpdate(Lcom/android/incallui/Call;)Z
     .locals 6
+    .param p1, "call"    # Lcom/android/incallui/Call;
 
+    .prologue
     const/4 v2, 0x1
 
     const/4 v3, 0x0
 
+    .line 114
     const/4 v0, 0x0
 
+    .line 115
+    .local v0, "canUpdate":Z
     if-eqz p1, :cond_1
 
+    .line 116
     invoke-virtual {p1}, Lcom/android/incallui/Call;->getVideoCall()Landroid/telecom/InCallService$VideoCall;
 
     move-result-object v4
@@ -66,6 +79,8 @@
 
     move v1, v2
 
+    .line 117
+    .local v1, "isVideoCallReady":Z
     :goto_0
     iget-object v4, p0, Lcom/android/incallui/VideoPauseController$CallContext;->mCall:Lcom/android/incallui/Call;
 
@@ -102,6 +117,8 @@
     :cond_0
     move v0, v2
 
+    .line 119
+    .end local v1    # "isVideoCallReady":Z
     :cond_1
     :goto_1
     return v0
@@ -109,17 +126,22 @@
     :cond_2
     move v1, v3
 
+    .line 116
     goto :goto_0
 
+    .restart local v1    # "isVideoCallReady":Z
     :cond_3
     move v0, v3
 
+    .line 117
     goto :goto_1
 .end method
 
 .method public canVideoPause()Z
     .locals 2
 
+    .prologue
+    .line 110
     iget v0, p0, Lcom/android/incallui/VideoPauseController$CallContext;->mState:I
 
     const/4 v1, 0x3
@@ -152,6 +174,8 @@
 .method public getCall()Lcom/android/incallui/Call;
     .locals 1
 
+    .prologue
+    .line 147
     iget-object v0, p0, Lcom/android/incallui/VideoPauseController$CallContext;->mCall:Lcom/android/incallui/Call;
 
     return-object v0
@@ -160,6 +184,8 @@
 .method public getState()I
     .locals 1
 
+    .prologue
+    .line 130
     iget v0, p0, Lcom/android/incallui/VideoPauseController$CallContext;->mState:I
 
     return v0
@@ -168,6 +194,8 @@
 .method public getVideoState()I
     .locals 1
 
+    .prologue
+    .line 134
     iget v0, p0, Lcom/android/incallui/VideoPauseController$CallContext;->mVideoState:I
 
     return v0
@@ -176,6 +204,8 @@
 .method public isVideoCallReady()Z
     .locals 1
 
+    .prologue
+    .line 143
     iget-object v0, p0, Lcom/android/incallui/VideoPauseController$CallContext;->mCall:Lcom/android/incallui/Call;
 
     invoke-virtual {v0}, Lcom/android/incallui/Call;->getVideoCall()Landroid/telecom/InCallService$VideoCall;
@@ -198,6 +228,8 @@
 .method public toString()Ljava/lang/String;
     .locals 4
 
+    .prologue
+    .line 138
     const-string v0, "CallContext {CallId=%s, CurrentState=%s, SavedState=%s, VideoState=%d, CanVideoPause=%s, isVideoCallReady=%s} "
 
     const/4 v1, 0x6
@@ -208,6 +240,7 @@
 
     iget-object v3, p0, Lcom/android/incallui/VideoPauseController$CallContext;->mCall:Lcom/android/incallui/Call;
 
+    .line 139
     invoke-virtual {v3}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
 
     move-result-object v3
@@ -272,6 +305,7 @@
 
     aput-object v3, v1, v2
 
+    .line 138
     invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
@@ -281,7 +315,10 @@
 
 .method public update(Lcom/android/incallui/Call;)V
     .locals 1
+    .param p1, "call"    # Lcom/android/incallui/Call;
 
+    .prologue
+    .line 123
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -290,12 +327,14 @@
 
     iput-object v0, p0, Lcom/android/incallui/VideoPauseController$CallContext;->mCall:Lcom/android/incallui/Call;
 
+    .line 124
     invoke-virtual {p1}, Lcom/android/incallui/Call;->getState()I
 
     move-result v0
 
     iput v0, p0, Lcom/android/incallui/VideoPauseController$CallContext;->mState:I
 
+    .line 125
     invoke-virtual {p1}, Lcom/android/incallui/Call;->getSecCall()Lcom/android/incallui/SecCall;
 
     move-result-object v0
@@ -306,6 +345,7 @@
 
     iput v0, p0, Lcom/android/incallui/VideoPauseController$CallContext;->mVideoState:I
 
+    .line 126
     iget-object v0, p0, Lcom/android/incallui/VideoPauseController$CallContext;->mCall:Lcom/android/incallui/Call;
 
     invoke-virtual {v0}, Lcom/android/incallui/Call;->getVideoCall()Landroid/telecom/InCallService$VideoCall;
@@ -319,8 +359,10 @@
     :goto_0
     iput-boolean v0, p0, Lcom/android/incallui/VideoPauseController$CallContext;->mIsVideoCallReady:Z
 
+    .line 127
     return-void
 
+    .line 126
     :cond_0
     const/4 v0, 0x0
 

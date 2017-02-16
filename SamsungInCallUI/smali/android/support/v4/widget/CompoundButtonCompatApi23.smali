@@ -7,6 +7,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -14,7 +16,10 @@
 
 .method static getButtonDrawable(Landroid/widget/CompoundButton;)Landroid/graphics/drawable/Drawable;
     .locals 1
+    .param p0, "button"    # Landroid/widget/CompoundButton;
 
+    .prologue
+    .line 28
     invoke-virtual {p0}, Landroid/widget/CompoundButton;->getButtonDrawable()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0

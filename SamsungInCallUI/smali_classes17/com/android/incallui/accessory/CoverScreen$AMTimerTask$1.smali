@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/accessory/CoverScreen$AMTimerTask;)V
     .locals 0
+    .param p1, "this$1"    # Lcom/android/incallui/accessory/CoverScreen$AMTimerTask;
 
+    .prologue
+    .line 2755
     iput-object p1, p0, Lcom/android/incallui/accessory/CoverScreen$AMTimerTask$1;->this$1:Lcom/android/incallui/accessory/CoverScreen$AMTimerTask;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +40,8 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 2758
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverScreen$AMTimerTask$1;->this$1:Lcom/android/incallui/accessory/CoverScreen$AMTimerTask;
 
     iget-object v0, v0, Lcom/android/incallui/accessory/CoverScreen$AMTimerTask;->this$0:Lcom/android/incallui/accessory/CoverScreen;
@@ -67,6 +72,7 @@
 
     invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 2759
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverScreen$AMTimerTask$1;->this$1:Lcom/android/incallui/accessory/CoverScreen$AMTimerTask;
 
     iget v0, v0, Lcom/android/incallui/accessory/CoverScreen$AMTimerTask;->cnt:I
@@ -77,6 +83,7 @@
 
     if-ne v0, v1, :cond_1
 
+    .line 2760
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverScreen$AMTimerTask$1;->this$1:Lcom/android/incallui/accessory/CoverScreen$AMTimerTask;
 
     iget-object v0, v0, Lcom/android/incallui/accessory/CoverScreen$AMTimerTask;->this$0:Lcom/android/incallui/accessory/CoverScreen;
@@ -88,6 +95,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 2761
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverScreen$AMTimerTask$1;->this$1:Lcom/android/incallui/accessory/CoverScreen$AMTimerTask;
 
     iget-object v0, v0, Lcom/android/incallui/accessory/CoverScreen$AMTimerTask;->this$0:Lcom/android/incallui/accessory/CoverScreen;
@@ -108,10 +116,12 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
+    .line 2766
     :cond_0
     :goto_0
     return-void
 
+    .line 2763
     :cond_1
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverScreen$AMTimerTask$1;->this$1:Lcom/android/incallui/accessory/CoverScreen$AMTimerTask;
 
@@ -124,6 +134,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 2764
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverScreen$AMTimerTask$1;->this$1:Lcom/android/incallui/accessory/CoverScreen$AMTimerTask;
 
     iget-object v0, v0, Lcom/android/incallui/accessory/CoverScreen$AMTimerTask;->this$0:Lcom/android/incallui/accessory/CoverScreen;

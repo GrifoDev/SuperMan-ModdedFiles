@@ -21,7 +21,11 @@
 # direct methods
 .method constructor <init>(Lcom/android/contacts/common/list/ContactEntryListFragment;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/contacts/common/list/ContactEntryListFragment;
 
+    .prologue
+    .line 156
+    .local p0, "this":Lcom/android/contacts/common/list/ContactEntryListFragment$1;, "Lcom/android/contacts/common/list/ContactEntryListFragment$1;"
     iput-object p1, p0, Lcom/android/contacts/common/list/ContactEntryListFragment$1;->this$0:Lcom/android/contacts/common/list/ContactEntryListFragment;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -33,13 +37,18 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 159
+    .local p0, "this":Lcom/android/contacts/common/list/ContactEntryListFragment$1;, "Lcom/android/contacts/common/list/ContactEntryListFragment$1;"
     iget v0, p1, Landroid/os/Message;->what:I
 
     const/4 v1, 0x1
 
     if-ne v0, v1, :cond_0
 
+    .line 160
     iget-object v1, p0, Lcom/android/contacts/common/list/ContactEntryListFragment$1;->this$0:Lcom/android/contacts/common/list/ContactEntryListFragment;
 
     iget v2, p1, Landroid/os/Message;->arg1:I
@@ -50,6 +59,7 @@
 
     invoke-virtual {v1, v2, v0}, Lcom/android/contacts/common/list/ContactEntryListFragment;->loadDirectoryPartition(ILcom/android/contacts/common/list/DirectoryPartition;)V
 
+    .line 162
     :cond_0
     return-void
 .end method

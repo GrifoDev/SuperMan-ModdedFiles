@@ -36,7 +36,9 @@
 # virtual methods
 .method public onCameraChange(Lcom/google/android/gms/maps/model/CameraPosition;)V
     .locals 1
+    .param p1, "position"    # Lcom/google/android/gms/maps/model/CameraPosition;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMap$4;->gf:Lcom/google/android/gms/maps/GoogleMap$OnCameraChangeListener;
 
     invoke-interface {v0, p1}, Lcom/google/android/gms/maps/GoogleMap$OnCameraChangeListener;->onCameraChange(Lcom/google/android/gms/maps/model/CameraPosition;)V

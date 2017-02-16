@@ -28,10 +28,13 @@
 .method public constructor <init>(Lcom/android/incallui/service/vt/VideoCallMetrics;)V
     .locals 0
 
+    .prologue
+    .line 318
     iput-object p1, p0, Lcom/android/incallui/service/vt/VideoCallMetrics$Dimension;->this$0:Lcom/android/incallui/service/vt/VideoCallMetrics;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 319
     return-void
 .end method
 
@@ -39,18 +42,24 @@
 # virtual methods
 .method public update(Lcom/android/incallui/service/vt/VideoCallMetrics$Dimension;)V
     .locals 1
+    .param p1, "dimension"    # Lcom/android/incallui/service/vt/VideoCallMetrics$Dimension;
 
+    .prologue
+    .line 322
     iget v0, p1, Lcom/android/incallui/service/vt/VideoCallMetrics$Dimension;->width:I
 
     iput v0, p0, Lcom/android/incallui/service/vt/VideoCallMetrics$Dimension;->width:I
 
+    .line 323
     iget v0, p1, Lcom/android/incallui/service/vt/VideoCallMetrics$Dimension;->height:I
 
     iput v0, p0, Lcom/android/incallui/service/vt/VideoCallMetrics$Dimension;->height:I
 
+    .line 324
     iget v0, p1, Lcom/android/incallui/service/vt/VideoCallMetrics$Dimension;->aspectRatio:F
 
     iput v0, p0, Lcom/android/incallui/service/vt/VideoCallMetrics$Dimension;->aspectRatio:F
 
+    .line 325
     return-void
 .end method

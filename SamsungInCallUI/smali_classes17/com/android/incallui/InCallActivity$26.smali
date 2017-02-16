@@ -26,7 +26,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/InCallActivity;Landroid/view/View;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/InCallActivity;
 
+    .prologue
+    .line 3924
     iput-object p1, p0, Lcom/android/incallui/InCallActivity$26;->this$0:Lcom/android/incallui/InCallActivity;
 
     iput-object p2, p0, Lcom/android/incallui/InCallActivity$26;->val$mDialogCheckbox:Landroid/view/View;
@@ -40,7 +43,10 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 3
+    .param p1, "arg0"    # Landroid/view/View;
 
+    .prologue
+    .line 3926
     iget-object v0, p0, Lcom/android/incallui/InCallActivity$26;->this$0:Lcom/android/incallui/InCallActivity;
 
     invoke-virtual {v0}, Lcom/android/incallui/InCallActivity;->getContentResolver()Landroid/content/ContentResolver;
@@ -64,8 +70,10 @@
     :goto_0
     invoke-static {v1, v2, v0}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
+    .line 3927
     return-void
 
+    .line 3926
     :cond_0
     const/4 v0, 0x0
 

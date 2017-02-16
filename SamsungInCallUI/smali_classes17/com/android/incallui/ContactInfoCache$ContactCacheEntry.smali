@@ -124,20 +124,26 @@
 .method public constructor <init>()V
     .locals 3
 
+    .prologue
     const/4 v2, 0x0
 
+    .line 1004
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 1031
     const/4 v0, 0x1
 
     iput v0, p0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->contactLookupResult:I
 
+    .line 1032
     const-wide/16 v0, 0x0
 
     iput-wide v0, p0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->userType:J
 
+    .line 1062
     iput-boolean v2, p0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->hide_status:Z
 
+    .line 1063
     iput-boolean v2, p0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->isChangedHideStatus:Z
 
     return-void
@@ -148,6 +154,8 @@
 .method public toString()Ljava/lang/String;
     .locals 4
 
+    .prologue
+    .line 1075
     invoke-static {p0}, Lcom/google/common/base/Objects;->toStringHelper(Ljava/lang/Object;)Lcom/google/common/base/Objects$ToStringHelper;
 
     move-result-object v0
@@ -156,6 +164,7 @@
 
     iget-object v2, p0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->namePrimary:Ljava/lang/String;
 
+    .line 1076
     invoke-static {v2}, Lcom/android/incallui/common/MoreStrings;->toSafeString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
@@ -168,6 +177,7 @@
 
     iget-object v2, p0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->nameAlternative:Ljava/lang/String;
 
+    .line 1077
     invoke-static {v2}, Lcom/android/incallui/common/MoreStrings;->toSafeString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
@@ -180,6 +190,7 @@
 
     iget-object v2, p0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->number:Ljava/lang/String;
 
+    .line 1078
     invoke-static {v2}, Lcom/android/incallui/common/MoreStrings;->toSafeString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
@@ -192,6 +203,7 @@
 
     iget-object v2, p0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->originalNumber:Ljava/lang/String;
 
+    .line 1079
     invoke-static {v2}, Lcom/android/incallui/common/MoreStrings;->toSafeString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
@@ -204,6 +216,7 @@
 
     iget-object v2, p0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->location:Ljava/lang/String;
 
+    .line 1080
     invoke-static {v2}, Lcom/android/incallui/common/MoreStrings;->toSafeString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
@@ -216,6 +229,7 @@
 
     iget-object v2, p0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->label:Ljava/lang/String;
 
+    .line 1081
     invoke-virtual {v0, v1, v2}, Lcom/google/common/base/Objects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/common/base/Objects$ToStringHelper;
 
     move-result-object v0
@@ -224,6 +238,7 @@
 
     iget v2, p0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->labelType:I
 
+    .line 1082
     invoke-virtual {v0, v1, v2}, Lcom/google/common/base/Objects$ToStringHelper;->add(Ljava/lang/String;I)Lcom/google/common/base/Objects$ToStringHelper;
 
     move-result-object v0
@@ -232,6 +247,7 @@
 
     iget-object v2, p0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->photo:Landroid/graphics/drawable/Drawable;
 
+    .line 1083
     invoke-virtual {v0, v1, v2}, Lcom/google/common/base/Objects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/common/base/Objects$ToStringHelper;
 
     move-result-object v0
@@ -240,6 +256,7 @@
 
     iget-boolean v2, p0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->isSipCall:Z
 
+    .line 1084
     invoke-virtual {v0, v1, v2}, Lcom/google/common/base/Objects$ToStringHelper;->add(Ljava/lang/String;Z)Lcom/google/common/base/Objects$ToStringHelper;
 
     move-result-object v0
@@ -248,6 +265,7 @@
 
     iget-object v2, p0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->contactUri:Landroid/net/Uri;
 
+    .line 1085
     invoke-virtual {v0, v1, v2}, Lcom/google/common/base/Objects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/common/base/Objects$ToStringHelper;
 
     move-result-object v0
@@ -256,6 +274,7 @@
 
     iget-object v2, p0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->displayPhotoUri:Landroid/net/Uri;
 
+    .line 1086
     invoke-virtual {v0, v1, v2}, Lcom/google/common/base/Objects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/common/base/Objects$ToStringHelper;
 
     move-result-object v0
@@ -264,6 +283,7 @@
 
     iget-object v2, p0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->locationAddress:Landroid/location/Address;
 
+    .line 1087
     invoke-virtual {v0, v1, v2}, Lcom/google/common/base/Objects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/common/base/Objects$ToStringHelper;
 
     move-result-object v0
@@ -272,6 +292,7 @@
 
     iget-object v2, p0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->openingHours:Ljava/util/List;
 
+    .line 1088
     invoke-virtual {v0, v1, v2}, Lcom/google/common/base/Objects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/common/base/Objects$ToStringHelper;
 
     move-result-object v0
@@ -280,6 +301,7 @@
 
     iget v2, p0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->contactLookupResult:I
 
+    .line 1089
     invoke-virtual {v0, v1, v2}, Lcom/google/common/base/Objects$ToStringHelper;->add(Ljava/lang/String;I)Lcom/google/common/base/Objects$ToStringHelper;
 
     move-result-object v0
@@ -288,6 +310,7 @@
 
     iget-wide v2, p0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->userType:J
 
+    .line 1090
     invoke-virtual {v0, v1, v2, v3}, Lcom/google/common/base/Objects$ToStringHelper;->add(Ljava/lang/String;J)Lcom/google/common/base/Objects$ToStringHelper;
 
     move-result-object v0
@@ -296,6 +319,7 @@
 
     iget-object v2, p0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->contactRingtoneUri:Landroid/net/Uri;
 
+    .line 1091
     invoke-virtual {v0, v1, v2}, Lcom/google/common/base/Objects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/common/base/Objects$ToStringHelper;
 
     move-result-object v0
@@ -304,6 +328,7 @@
 
     iget-boolean v2, p0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->contactExists:Z
 
+    .line 1092
     invoke-virtual {v0, v1, v2}, Lcom/google/common/base/Objects$ToStringHelper;->add(Ljava/lang/String;Z)Lcom/google/common/base/Objects$ToStringHelper;
 
     move-result-object v0
@@ -312,6 +337,7 @@
 
     iget-boolean v2, p0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->canViewContactDetails:Z
 
+    .line 1093
     invoke-virtual {v0, v1, v2}, Lcom/google/common/base/Objects$ToStringHelper;->add(Ljava/lang/String;Z)Lcom/google/common/base/Objects$ToStringHelper;
 
     move-result-object v0
@@ -320,6 +346,7 @@
 
     iget-boolean v2, p0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->isPersonalPhotoAvailable:Z
 
+    .line 1094
     invoke-virtual {v0, v1, v2}, Lcom/google/common/base/Objects$ToStringHelper;->add(Ljava/lang/String;Z)Lcom/google/common/base/Objects$ToStringHelper;
 
     move-result-object v0
@@ -328,6 +355,7 @@
 
     iget-boolean v2, p0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->isEmergency:Z
 
+    .line 1095
     invoke-virtual {v0, v1, v2}, Lcom/google/common/base/Objects$ToStringHelper;->add(Ljava/lang/String;Z)Lcom/google/common/base/Objects$ToStringHelper;
 
     move-result-object v0
@@ -336,6 +364,7 @@
 
     iget-boolean v2, p0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->isVoiceMail:Z
 
+    .line 1096
     invoke-virtual {v0, v1, v2}, Lcom/google/common/base/Objects$ToStringHelper;->add(Ljava/lang/String;Z)Lcom/google/common/base/Objects$ToStringHelper;
 
     move-result-object v0
@@ -344,6 +373,7 @@
 
     iget v2, p0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->presentation:I
 
+    .line 1097
     invoke-virtual {v0, v1, v2}, Lcom/google/common/base/Objects$ToStringHelper;->add(Ljava/lang/String;I)Lcom/google/common/base/Objects$ToStringHelper;
 
     move-result-object v0
@@ -352,6 +382,7 @@
 
     iget-object v2, p0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->email:Ljava/lang/String;
 
+    .line 1098
     invoke-virtual {v0, v1, v2}, Lcom/google/common/base/Objects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/common/base/Objects$ToStringHelper;
 
     move-result-object v0
@@ -360,6 +391,7 @@
 
     iget-boolean v2, p0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->isLinkedin:Z
 
+    .line 1099
     invoke-virtual {v0, v1, v2}, Lcom/google/common/base/Objects$ToStringHelper;->add(Ljava/lang/String;Z)Lcom/google/common/base/Objects$ToStringHelper;
 
     move-result-object v0
@@ -368,6 +400,7 @@
 
     iget-boolean v2, p0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->isLinkedinDirectConnection:Z
 
+    .line 1100
     invoke-virtual {v0, v1, v2}, Lcom/google/common/base/Objects$ToStringHelper;->add(Ljava/lang/String;Z)Lcom/google/common/base/Objects$ToStringHelper;
 
     move-result-object v0
@@ -376,6 +409,7 @@
 
     iget-boolean v2, p0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->isLinkedinUpdated:Z
 
+    .line 1101
     invoke-virtual {v0, v1, v2}, Lcom/google/common/base/Objects$ToStringHelper;->add(Ljava/lang/String;Z)Lcom/google/common/base/Objects$ToStringHelper;
 
     move-result-object v0
@@ -384,6 +418,7 @@
 
     iget-object v2, p0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->cdnipNumber:Ljava/lang/String;
 
+    .line 1102
     invoke-static {v2}, Lcom/android/incallui/common/MoreStrings;->toSafeString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
@@ -396,10 +431,12 @@
 
     iget-object v2, p0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->callOrgInfo:Ljava/lang/String;
 
+    .line 1103
     invoke-virtual {v0, v1, v2}, Lcom/google/common/base/Objects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/common/base/Objects$ToStringHelper;
 
     move-result-object v0
 
+    .line 1104
     invoke-virtual {v0}, Lcom/google/common/base/Objects$ToStringHelper;->toString()Ljava/lang/String;
 
     move-result-object v0

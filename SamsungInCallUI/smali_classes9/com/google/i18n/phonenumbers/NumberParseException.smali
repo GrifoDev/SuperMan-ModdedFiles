@@ -20,13 +20,20 @@
 # direct methods
 .method public constructor <init>(Lcom/google/i18n/phonenumbers/NumberParseException$ErrorType;Ljava/lang/String;)V
     .locals 0
+    .param p1, "errorType"    # Lcom/google/i18n/phonenumbers/NumberParseException$ErrorType;
+    .param p2, "message"    # Ljava/lang/String;
 
+    .prologue
+    .line 60
     invoke-direct {p0, p2}, Ljava/lang/Exception;-><init>(Ljava/lang/String;)V
 
+    .line 61
     iput-object p2, p0, Lcom/google/i18n/phonenumbers/NumberParseException;->message:Ljava/lang/String;
 
+    .line 62
     iput-object p1, p0, Lcom/google/i18n/phonenumbers/NumberParseException;->errorType:Lcom/google/i18n/phonenumbers/NumberParseException$ErrorType;
 
+    .line 63
     return-void
 .end method
 
@@ -35,6 +42,8 @@
 .method public getErrorType()Lcom/google/i18n/phonenumbers/NumberParseException$ErrorType;
     .locals 1
 
+    .prologue
+    .line 69
     iget-object v0, p0, Lcom/google/i18n/phonenumbers/NumberParseException;->errorType:Lcom/google/i18n/phonenumbers/NumberParseException$ErrorType;
 
     return-object v0
@@ -43,6 +52,8 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 74
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

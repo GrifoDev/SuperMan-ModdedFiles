@@ -33,6 +33,8 @@
 .method constructor <init>(Ljava/lang/Iterable;)V
     .locals 0
 
+    .prologue
+    .line 297
     iput-object p1, p0, Lcom/google/common/base/Optional$1;->val$optionals:Ljava/lang/Iterable;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -52,6 +54,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 300
     new-instance v0, Lcom/google/common/base/Optional$1$1;
 
     invoke-direct {v0, p0}, Lcom/google/common/base/Optional$1$1;-><init>(Lcom/google/common/base/Optional$1;)V

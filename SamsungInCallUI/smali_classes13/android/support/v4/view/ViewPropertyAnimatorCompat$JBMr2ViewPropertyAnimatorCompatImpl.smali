@@ -18,6 +18,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 620
     invoke-direct {p0}, Landroid/support/v4/view/ViewPropertyAnimatorCompat$JBViewPropertyAnimatorCompatImpl;-><init>()V
 
     return-void
@@ -27,7 +29,11 @@
 # virtual methods
 .method public getInterpolator(Landroid/support/v4/view/ViewPropertyAnimatorCompat;Landroid/view/View;)Landroid/view/animation/Interpolator;
     .locals 1
+    .param p1, "vpa"    # Landroid/support/v4/view/ViewPropertyAnimatorCompat;
+    .param p2, "view"    # Landroid/view/View;
 
+    .prologue
+    .line 624
     invoke-static {p2}, Landroid/support/v4/view/ViewPropertyAnimatorCompatJellybeanMr2;->getInterpolator(Landroid/view/View;)Landroid/view/animation/Interpolator;
 
     move-result-object v0

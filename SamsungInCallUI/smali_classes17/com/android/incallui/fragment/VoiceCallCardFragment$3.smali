@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/VoiceCallCardFragment;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/fragment/VoiceCallCardFragment;
 
+    .prologue
+    .line 519
     iput-object p1, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment$3;->this$0:Lcom/android/incallui/fragment/VoiceCallCardFragment;
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
@@ -33,7 +36,10 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 522
     iget-object v0, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment$3;->this$0:Lcom/android/incallui/fragment/VoiceCallCardFragment;
 
     iget-object v0, v0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mBizIncoming:Landroid/widget/ImageView;
@@ -42,5 +48,6 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
 
+    .line 523
     return-void
 .end method

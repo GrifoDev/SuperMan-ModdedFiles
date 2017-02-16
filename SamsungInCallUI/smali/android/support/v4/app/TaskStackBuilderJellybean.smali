@@ -7,6 +7,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -14,7 +16,14 @@
 
 .method public static getActivitiesPendingIntent(Landroid/content/Context;I[Landroid/content/Intent;ILandroid/os/Bundle;)Landroid/app/PendingIntent;
     .locals 1
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "requestCode"    # I
+    .param p2, "intents"    # [Landroid/content/Intent;
+    .param p3, "flags"    # I
+    .param p4, "options"    # Landroid/os/Bundle;
 
+    .prologue
+    .line 28
     invoke-static {p0, p1, p2, p3, p4}, Landroid/app/PendingIntent;->getActivities(Landroid/content/Context;I[Landroid/content/Intent;ILandroid/os/Bundle;)Landroid/app/PendingIntent;
 
     move-result-object v0

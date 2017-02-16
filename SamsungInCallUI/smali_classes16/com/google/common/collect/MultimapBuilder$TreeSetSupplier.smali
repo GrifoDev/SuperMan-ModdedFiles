@@ -54,8 +54,13 @@
         }
     .end annotation
 
+    .prologue
+    .line 252
+    .local p0, "this":Lcom/google/common/collect/MultimapBuilder$TreeSetSupplier;, "Lcom/google/common/collect/MultimapBuilder$TreeSetSupplier<TV;>;"
+    .local p1, "comparator":Ljava/util/Comparator;, "Ljava/util/Comparator<-TV;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 253
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -64,6 +69,7 @@
 
     iput-object v0, p0, Lcom/google/common/collect/MultimapBuilder$TreeSetSupplier;->comparator:Ljava/util/Comparator;
 
+    .line 254
     return-void
 .end method
 
@@ -72,6 +78,9 @@
 .method public bridge synthetic get()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 249
+    .local p0, "this":Lcom/google/common/collect/MultimapBuilder$TreeSetSupplier;, "Lcom/google/common/collect/MultimapBuilder$TreeSetSupplier<TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/MultimapBuilder$TreeSetSupplier;->get()Ljava/util/SortedSet;
 
     move-result-object v0
@@ -89,6 +98,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 258
+    .local p0, "this":Lcom/google/common/collect/MultimapBuilder$TreeSetSupplier;, "Lcom/google/common/collect/MultimapBuilder$TreeSetSupplier<TV;>;"
     new-instance v0, Ljava/util/TreeSet;
 
     iget-object v1, p0, Lcom/google/common/collect/MultimapBuilder$TreeSetSupplier;->comparator:Ljava/util/Comparator;

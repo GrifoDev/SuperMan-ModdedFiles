@@ -7,6 +7,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -17,18 +19,24 @@
 .method public consumeStableInsets()Landroid/support/v4/view/WindowInsetsCompat;
     .locals 0
 
+    .prologue
+    .line 256
     return-object p0
 .end method
 
 .method public consumeSystemWindowInsets()Landroid/support/v4/view/WindowInsetsCompat;
     .locals 0
 
+    .prologue
+    .line 144
     return-object p0
 .end method
 
 .method public getStableInsetBottom()I
     .locals 1
 
+    .prologue
+    .line 232
     const/4 v0, 0x0
 
     return v0
@@ -37,6 +45,8 @@
 .method public getStableInsetLeft()I
     .locals 1
 
+    .prologue
+    .line 201
     const/4 v0, 0x0
 
     return v0
@@ -45,6 +55,8 @@
 .method public getStableInsetRight()I
     .locals 1
 
+    .prologue
+    .line 216
     const/4 v0, 0x0
 
     return v0
@@ -53,6 +65,8 @@
 .method public getStableInsetTop()I
     .locals 1
 
+    .prologue
+    .line 185
     const/4 v0, 0x0
 
     return v0
@@ -61,6 +75,8 @@
 .method public getSystemWindowInsetBottom()I
     .locals 1
 
+    .prologue
+    .line 82
     const/4 v0, 0x0
 
     return v0
@@ -69,6 +85,8 @@
 .method public getSystemWindowInsetLeft()I
     .locals 1
 
+    .prologue
+    .line 43
     const/4 v0, 0x0
 
     return v0
@@ -77,6 +95,8 @@
 .method public getSystemWindowInsetRight()I
     .locals 1
 
+    .prologue
+    .line 69
     const/4 v0, 0x0
 
     return v0
@@ -85,6 +105,8 @@
 .method public getSystemWindowInsetTop()I
     .locals 1
 
+    .prologue
+    .line 56
     const/4 v0, 0x0
 
     return v0
@@ -93,6 +115,8 @@
 .method public hasInsets()Z
     .locals 1
 
+    .prologue
+    .line 104
     const/4 v0, 0x0
 
     return v0
@@ -101,6 +125,8 @@
 .method public hasStableInsets()Z
     .locals 1
 
+    .prologue
+    .line 247
     const/4 v0, 0x0
 
     return v0
@@ -109,6 +135,8 @@
 .method public hasSystemWindowInsets()Z
     .locals 1
 
+    .prologue
+    .line 95
     const/4 v0, 0x0
 
     return v0
@@ -117,6 +145,8 @@
 .method public isConsumed()Z
     .locals 1
 
+    .prologue
+    .line 121
     const/4 v0, 0x0
 
     return v0
@@ -125,6 +155,8 @@
 .method public isRound()Z
     .locals 1
 
+    .prologue
+    .line 135
     const/4 v0, 0x0
 
     return v0
@@ -132,12 +164,21 @@
 
 .method public replaceSystemWindowInsets(IIII)Landroid/support/v4/view/WindowInsetsCompat;
     .locals 0
+    .param p1, "left"    # I
+    .param p2, "top"    # I
+    .param p3, "right"    # I
+    .param p4, "bottom"    # I
 
+    .prologue
+    .line 158
     return-object p0
 .end method
 
 .method public replaceSystemWindowInsets(Landroid/graphics/Rect;)Landroid/support/v4/view/WindowInsetsCompat;
     .locals 0
+    .param p1, "systemWindowInsets"    # Landroid/graphics/Rect;
 
+    .prologue
+    .line 170
     return-object p0
 .end method

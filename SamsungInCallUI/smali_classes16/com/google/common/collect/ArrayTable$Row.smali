@@ -30,9 +30,14 @@
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ArrayTable;I)V
     .locals 2
+    .param p2, "rowIndex"    # I
 
+    .prologue
+    .line 680
+    .local p0, "this":Lcom/google/common/collect/ArrayTable$Row;, "Lcom/google/common/collect/ArrayTable<TR;TC;TV;>.Row;"
     iput-object p1, p0, Lcom/google/common/collect/ArrayTable$Row;->this$0:Lcom/google/common/collect/ArrayTable;
 
+    .line 681
     # getter for: Lcom/google/common/collect/ArrayTable;->columnKeyToIndex:Lcom/google/common/collect/ImmutableMap;
     invoke-static {p1}, Lcom/google/common/collect/ArrayTable;->access$500(Lcom/google/common/collect/ArrayTable;)Lcom/google/common/collect/ImmutableMap;
 
@@ -42,8 +47,10 @@
 
     invoke-direct {p0, v0, v1}, Lcom/google/common/collect/ArrayTable$ArrayMap;-><init>(Lcom/google/common/collect/ImmutableMap;Lcom/google/common/collect/ArrayTable$1;)V
 
+    .line 682
     iput p2, p0, Lcom/google/common/collect/ArrayTable$Row;->rowIndex:I
 
+    .line 683
     return-void
 .end method
 
@@ -52,6 +59,9 @@
 .method getKeyRole()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 687
+    .local p0, "this":Lcom/google/common/collect/ArrayTable$Row;, "Lcom/google/common/collect/ArrayTable<TR;TC;TV;>.Row;"
     const-string v0, "Column"
 
     return-object v0
@@ -59,12 +69,16 @@
 
 .method getValue(I)Ljava/lang/Object;
     .locals 2
+    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)TV;"
         }
     .end annotation
 
+    .prologue
+    .line 692
+    .local p0, "this":Lcom/google/common/collect/ArrayTable$Row;, "Lcom/google/common/collect/ArrayTable<TR;TC;TV;>.Row;"
     iget-object v0, p0, Lcom/google/common/collect/ArrayTable$Row;->this$0:Lcom/google/common/collect/ArrayTable;
 
     iget v1, p0, Lcom/google/common/collect/ArrayTable$Row;->rowIndex:I
@@ -78,12 +92,17 @@
 
 .method setValue(ILjava/lang/Object;)Ljava/lang/Object;
     .locals 2
+    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ITV;)TV;"
         }
     .end annotation
 
+    .prologue
+    .line 697
+    .local p0, "this":Lcom/google/common/collect/ArrayTable$Row;, "Lcom/google/common/collect/ArrayTable<TR;TC;TV;>.Row;"
+    .local p2, "newValue":Ljava/lang/Object;, "TV;"
     iget-object v0, p0, Lcom/google/common/collect/ArrayTable$Row;->this$0:Lcom/google/common/collect/ArrayTable;
 
     iget v1, p0, Lcom/google/common/collect/ArrayTable$Row;->rowIndex:I

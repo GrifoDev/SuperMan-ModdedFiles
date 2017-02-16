@@ -219,7 +219,9 @@
 
 .method public removeLocationUpdates(Landroid/app/PendingIntent;)V
     .locals 2
+    .param p1, "callbackIntent"    # Landroid/app/PendingIntent;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/internal/bg;->fG:Lcom/google/android/gms/internal/bk;
 
     invoke-interface {v0}, Lcom/google/android/gms/internal/bk;->B()V
@@ -251,7 +253,9 @@
 
 .method public removeLocationUpdates(Lcom/google/android/gms/location/LocationListener;)V
     .locals 3
+    .param p1, "listener"    # Lcom/google/android/gms/location/LocationListener;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/internal/bg;->fG:Lcom/google/android/gms/internal/bk;
 
     invoke-interface {v0}, Lcom/google/android/gms/internal/bk;->B()V
@@ -341,7 +345,10 @@
 
 .method public requestLocationUpdates(Lcom/google/android/gms/location/LocationRequest;Landroid/app/PendingIntent;)V
     .locals 2
+    .param p1, "request"    # Lcom/google/android/gms/location/LocationRequest;
+    .param p2, "callbackIntent"    # Landroid/app/PendingIntent;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/internal/bg;->fG:Lcom/google/android/gms/internal/bk;
 
     invoke-interface {v0}, Lcom/google/android/gms/internal/bk;->B()V
@@ -373,7 +380,11 @@
 
 .method public requestLocationUpdates(Lcom/google/android/gms/location/LocationRequest;Lcom/google/android/gms/location/LocationListener;Landroid/os/Looper;)V
     .locals 3
+    .param p1, "request"    # Lcom/google/android/gms/location/LocationRequest;
+    .param p2, "listener"    # Lcom/google/android/gms/location/LocationListener;
+    .param p3, "looper"    # Landroid/os/Looper;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/internal/bg;->fG:Lcom/google/android/gms/internal/bk;
 
     invoke-interface {v0}, Lcom/google/android/gms/internal/bk;->B()V
@@ -462,7 +473,9 @@
 
 .method public setMockLocation(Landroid/location/Location;)V
     .locals 2
+    .param p1, "mockLocation"    # Landroid/location/Location;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/internal/bg;->fG:Lcom/google/android/gms/internal/bk;
 
     invoke-interface {v0}, Lcom/google/android/gms/internal/bk;->B()V
@@ -494,7 +507,9 @@
 
 .method public setMockMode(Z)V
     .locals 2
+    .param p1, "isMockMode"    # Z
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/internal/bg;->fG:Lcom/google/android/gms/internal/bk;
 
     invoke-interface {v0}, Lcom/google/android/gms/internal/bk;->B()V

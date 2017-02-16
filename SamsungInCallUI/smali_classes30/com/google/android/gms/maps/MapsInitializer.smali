@@ -13,12 +13,14 @@
 
 .method public static initialize(Landroid/content/Context;)V
     .locals 2
+    .param p0, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/google/android/gms/common/GooglePlayServicesNotAvailableException;
         }
     .end annotation
 
+    .prologue
     invoke-static {p0}, Lcom/google/android/gms/internal/s;->d(Ljava/lang/Object;)Ljava/lang/Object;
 
     invoke-static {p0}, Lcom/google/android/gms/maps/internal/p;->i(Landroid/content/Context;)Lcom/google/android/gms/maps/internal/c;

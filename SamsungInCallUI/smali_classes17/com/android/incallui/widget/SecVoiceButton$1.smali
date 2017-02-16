@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/widget/SecVoiceButton;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/widget/SecVoiceButton;
 
+    .prologue
+    .line 193
     iput-object p1, p0, Lcom/android/incallui/widget/SecVoiceButton$1;->this$0:Lcom/android/incallui/widget/SecVoiceButton;
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
@@ -33,13 +36,17 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 196
     iget-object v0, p0, Lcom/android/incallui/widget/SecVoiceButton$1;->this$0:Lcom/android/incallui/widget/SecVoiceButton;
 
     const/high16 v1, 0x3f800000    # 1.0f
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/widget/SecVoiceButton;->setAlpha(F)V
 
+    .line 197
     iget-object v0, p0, Lcom/android/incallui/widget/SecVoiceButton$1;->this$0:Lcom/android/incallui/widget/SecVoiceButton;
 
     const/4 v1, 0x0
@@ -47,5 +54,6 @@
     # setter for: Lcom/android/incallui/widget/SecVoiceButton;->mIsAnimatorRunning:Z
     invoke-static {v0, v1}, Lcom/android/incallui/widget/SecVoiceButton;->access$002(Lcom/android/incallui/widget/SecVoiceButton;Z)Z
 
+    .line 198
     return-void
 .end method

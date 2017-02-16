@@ -34,6 +34,9 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 61
+    .local p0, "this":Lcom/google/common/collect/ImmutableMapEntrySet;, "Lcom/google/common/collect/ImmutableMapEntrySet<TK;TV;>;"
     invoke-direct {p0}, Lcom/google/common/collect/ImmutableSet;-><init>()V
 
     return-void
@@ -43,21 +46,27 @@
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
     .locals 5
-    .param p1    # Ljava/lang/Object;
+    .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
+    .prologue
+    .local p0, "this":Lcom/google/common/collect/ImmutableMapEntrySet;, "Lcom/google/common/collect/ImmutableMapEntrySet<TK;TV;>;"
     const/4 v2, 0x0
 
+    .line 72
     instance-of v3, p1, Ljava/util/Map$Entry;
 
     if-eqz v3, :cond_0
 
     move-object v0, p1
 
+    .line 73
     check-cast v0, Ljava/util/Map$Entry;
 
+    .line 74
+    .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableMapEntrySet;->map()Lcom/google/common/collect/ImmutableMap;
 
     move-result-object v3
@@ -70,6 +79,8 @@
 
     move-result-object v1
 
+    .line 75
+    .local v1, "value":Ljava/lang/Object;, "TV;"
     if-eqz v1, :cond_0
 
     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
@@ -84,6 +95,9 @@
 
     const/4 v2, 0x1
 
+    .line 77
+    .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
+    .end local v1    # "value":Ljava/lang/Object;, "TV;"
     :cond_0
     return v2
 .end method
@@ -91,6 +105,9 @@
 .method public hashCode()I
     .locals 1
 
+    .prologue
+    .line 93
+    .local p0, "this":Lcom/google/common/collect/ImmutableMapEntrySet;, "Lcom/google/common/collect/ImmutableMapEntrySet<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableMapEntrySet;->map()Lcom/google/common/collect/ImmutableMap;
 
     move-result-object v0
@@ -108,6 +125,9 @@
         value = "not used in GWT"
     .end annotation
 
+    .prologue
+    .line 88
+    .local p0, "this":Lcom/google/common/collect/ImmutableMapEntrySet;, "Lcom/google/common/collect/ImmutableMapEntrySet<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableMapEntrySet;->map()Lcom/google/common/collect/ImmutableMap;
 
     move-result-object v0
@@ -122,6 +142,9 @@
 .method isPartialView()Z
     .locals 1
 
+    .prologue
+    .line 82
+    .local p0, "this":Lcom/google/common/collect/ImmutableMapEntrySet;, "Lcom/google/common/collect/ImmutableMapEntrySet<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableMapEntrySet;->map()Lcom/google/common/collect/ImmutableMap;
 
     move-result-object v0
@@ -146,6 +169,9 @@
 .method public size()I
     .locals 1
 
+    .prologue
+    .line 67
+    .local p0, "this":Lcom/google/common/collect/ImmutableMapEntrySet;, "Lcom/google/common/collect/ImmutableMapEntrySet<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableMapEntrySet;->map()Lcom/google/common/collect/ImmutableMap;
 
     move-result-object v0
@@ -163,6 +189,9 @@
         value = "serialization"
     .end annotation
 
+    .prologue
+    .line 99
+    .local p0, "this":Lcom/google/common/collect/ImmutableMapEntrySet;, "Lcom/google/common/collect/ImmutableMapEntrySet<TK;TV;>;"
     new-instance v0, Lcom/google/common/collect/ImmutableMapEntrySet$EntrySetSerializedForm;
 
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableMapEntrySet;->map()Lcom/google/common/collect/ImmutableMap;

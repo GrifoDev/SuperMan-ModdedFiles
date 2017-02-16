@@ -22,6 +22,8 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
+    .line 61
     invoke-static {}, Ljava/math/RoundingMode;->values()[Ljava/math/RoundingMode;
 
     move-result-object v0

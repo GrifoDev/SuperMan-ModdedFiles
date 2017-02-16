@@ -1920,12 +1920,15 @@
 
 .method public onAchievementUpdated(ILjava/lang/String;)V
     .locals 5
+    .param p1, "statusCode"    # I
+    .param p2, "achievementId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -1973,12 +1976,15 @@
 
 .method public onLeftRoom(ILjava/lang/String;)V
     .locals 5
+    .param p1, "statusCode"    # I
+    .param p2, "roomId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -2026,12 +2032,14 @@
 
 .method public onP2PConnected(Ljava/lang/String;)V
     .locals 5
+    .param p1, "participantId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -2077,12 +2085,14 @@
 
 .method public onP2PDisconnected(Ljava/lang/String;)V
     .locals 5
+    .param p1, "participantId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -2128,12 +2138,14 @@
 
 .method public onRealTimeMessageReceived(Lcom/google/android/gms/games/multiplayer/realtime/RealTimeMessage;)V
     .locals 5
+    .param p1, "message"    # Lcom/google/android/gms/games/multiplayer/realtime/RealTimeMessage;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1

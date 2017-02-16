@@ -26,6 +26,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 9
     const/4 v0, -0x1
 
     sput v0, Lcom/yulore/sdk/ivr/listener/RequestIVRCallBackImp;->DIFFENT:I
@@ -36,6 +38,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 6
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -46,17 +50,24 @@
 .method public onFailure()V
     .locals 0
 
+    .prologue
+    .line 43
     return-void
 .end method
 
 .method public onMismatching(I)V
     .locals 0
+    .param p1, "result"    # I
 
+    .prologue
+    .line 52
     return-void
 .end method
 
 .method public onSuccess()V
     .locals 0
 
+    .prologue
+    .line 35
     return-void
 .end method

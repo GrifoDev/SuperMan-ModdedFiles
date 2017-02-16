@@ -32,7 +32,10 @@
 
 .method public constructor <init>(DD)V
     .locals 7
+    .param p1, "latitude"    # D
+    .param p3, "longitude"    # D
 
+    .prologue
     const/4 v1, 0x1
 
     move-object v0, p0
@@ -48,7 +51,11 @@
 
 .method constructor <init>(IDD)V
     .locals 6
+    .param p1, "versionCode"    # I
+    .param p2, "latitude"    # D
+    .param p4, "longitude"    # D
 
+    .prologue
     const-wide v4, 0x4076800000000000L    # 360.0
 
     const-wide v2, 0x4066800000000000L    # 180.0
@@ -114,17 +121,21 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 6
+    .param p1, "o"    # Ljava/lang/Object;
 
+    .prologue
     const/4 v0, 0x1
 
     const/4 v1, 0x0
 
     if-ne p0, p1, :cond_1
 
+    .end local p1    # "o":Ljava/lang/Object;
     :cond_0
     :goto_0
     return v0
 
+    .restart local p1    # "o":Ljava/lang/Object;
     :cond_1
     instance-of v2, p1, Lcom/google/android/gms/maps/model/LatLng;
 
@@ -137,6 +148,7 @@
     :cond_2
     check-cast p1, Lcom/google/android/gms/maps/model/LatLng;
 
+    .end local p1    # "o":Ljava/lang/Object;
     iget-wide v2, p0, Lcom/google/android/gms/maps/model/LatLng;->latitude:D
 
     invoke-static {v2, v3}, Ljava/lang/Double;->doubleToLongBits(D)J
@@ -267,7 +279,10 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
+    .prologue
     invoke-static {}, Lcom/google/android/gms/maps/internal/q;->bn()Z
 
     move-result v0

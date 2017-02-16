@@ -10,6 +10,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -19,7 +21,10 @@
 # virtual methods
 .method public canConvert(Ljava/lang/Class;)Z
     .locals 1
+    .param p1, "type"    # Ljava/lang/Class;
 
+    .prologue
+    .line 30
     if-eqz p1, :cond_0
 
     const-class v0, Lcom/thoughtworks/xstream/mapper/Mapper$Null;
@@ -44,21 +49,32 @@
 
 .method public marshal(Ljava/lang/Object;Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;Lcom/thoughtworks/xstream/converters/MarshallingContext;)V
     .locals 2
+    .param p1, "source"    # Ljava/lang/Object;
+    .param p2, "writer"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
+    .param p3, "context"    # Lcom/thoughtworks/xstream/converters/MarshallingContext;
 
+    .prologue
+    .line 34
     const-string v0, "null"
 
     const-class v1, Lcom/thoughtworks/xstream/mapper/Mapper$Null;
 
     invoke-static {p2, v0, v1}, Lcom/thoughtworks/xstream/io/ExtendedHierarchicalStreamWriterHelper;->startNode(Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;Ljava/lang/String;Ljava/lang/Class;)V
 
+    .line 35
     invoke-interface {p2}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->endNode()V
 
+    .line 36
     return-void
 .end method
 
 .method public unmarshal(Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/converters/UnmarshallingContext;)Ljava/lang/Object;
     .locals 1
+    .param p1, "reader"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
+    .param p2, "context"    # Lcom/thoughtworks/xstream/converters/UnmarshallingContext;
 
+    .prologue
+    .line 39
     const/4 v0, 0x0
 
     return-object v0

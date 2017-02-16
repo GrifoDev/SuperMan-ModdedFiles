@@ -29,6 +29,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 207
     invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
 
     return-void
@@ -36,7 +38,10 @@
 
 .method synthetic constructor <init>(Lcom/android/incallui/secrcs/RcsShareUI$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/android/incallui/secrcs/RcsShareUI$1;
 
+    .prologue
+    .line 207
     invoke-direct {p0}, Lcom/android/incallui/secrcs/RcsShareUI$RcsSwitchQuerryTask;-><init>()V
 
     return-void
@@ -46,17 +51,22 @@
 # virtual methods
 .method protected varargs doInBackground([Ljava/lang/String;)Ljava/lang/Boolean;
     .locals 12
+    .param p1, "params"    # [Ljava/lang/String;
 
+    .prologue
     const/4 v9, 0x0
 
     const/4 v10, 0x1
 
     const/4 v11, 0x0
 
+    .line 211
     invoke-static {v11}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v8
 
+    .line 213
+    .local v8, "result":Ljava/lang/Boolean;
     :try_start_0
     # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->mContext:Landroid/content/Context;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$000()Landroid/content/Context;
@@ -65,6 +75,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 214
     # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->mContext:Landroid/content/Context;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$000()Landroid/content/Context;
 
@@ -99,6 +110,7 @@
     # setter for: Lcom/android/incallui/secrcs/RcsShareUI;->c:Landroid/database/Cursor;
     invoke-static {v0}, Lcom/android/incallui/secrcs/RcsShareUI;->access$1302(Landroid/database/Cursor;)Landroid/database/Cursor;
 
+    .line 219
     :cond_0
     # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$300()Ljava/lang/String;
@@ -130,6 +142,7 @@
 
     invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 220
     # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->c:Landroid/database/Cursor;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$1300()Landroid/database/Cursor;
 
@@ -137,6 +150,7 @@
 
     if-nez v0, :cond_1
 
+    .line 221
     # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$300()Ljava/lang/String;
 
@@ -148,15 +162,18 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
+    .line 222
     const/4 v0, 0x0
 
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
 
+    .line 238
     :goto_0
     return-object v0
 
+    .line 224
     :cond_1
     # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->c:Landroid/database/Cursor;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$1300()Landroid/database/Cursor;
@@ -169,6 +186,7 @@
 
     if-gtz v0, :cond_2
 
+    .line 225
     # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$300()Ljava/lang/String;
 
@@ -180,6 +198,7 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
+    .line 226
     # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->c:Landroid/database/Cursor;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$1300()Landroid/database/Cursor;
 
@@ -187,6 +206,7 @@
 
     invoke-interface {v0}, Landroid/database/Cursor;->close()V
 
+    .line 227
     const/4 v0, 0x0
 
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -195,6 +215,7 @@
 
     goto :goto_0
 
+    .line 229
     :cond_2
     # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->c:Landroid/database/Cursor;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$1300()Landroid/database/Cursor;
@@ -203,6 +224,7 @@
 
     invoke-interface {v0}, Landroid/database/Cursor;->moveToFirst()Z
 
+    .line 230
     # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->c:Landroid/database/Cursor;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$1300()Landroid/database/Cursor;
 
@@ -223,12 +245,15 @@
 
     move-result v7
 
+    .line 231
+    .local v7, "nEnabled":I
     const/4 v0, -0x1
 
     if-ne v7, v0, :cond_4
 
     move-object v8, v9
 
+    .line 232
     :goto_1
     # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->c:Landroid/database/Cursor;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$1300()Landroid/database/Cursor;
@@ -237,6 +262,7 @@
 
     if-eqz v0, :cond_3
 
+    .line 233
     # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->c:Landroid/database/Cursor;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$1300()Landroid/database/Cursor;
 
@@ -244,12 +270,16 @@
 
     invoke-interface {v0}, Landroid/database/Cursor;->close()V
 
+    .end local v7    # "nEnabled":I
     :cond_3
     :goto_2
     move-object v0, v8
 
+    .line 238
     goto :goto_0
 
+    .line 231
+    .restart local v7    # "nEnabled":I
     :cond_4
     if-ne v7, v10, :cond_5
 
@@ -269,9 +299,13 @@
 
     goto :goto_3
 
+    .line 235
+    .end local v7    # "nEnabled":I
     :catch_0
     move-exception v6
 
+    .line 236
+    .local v6, "e":Ljava/lang/Exception;
     # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$300()Ljava/lang/String;
 
@@ -287,6 +321,8 @@
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 207
     check-cast p1, [Ljava/lang/String;
 
     invoke-virtual {p0, p1}, Lcom/android/incallui/secrcs/RcsShareUI$RcsSwitchQuerryTask;->doInBackground([Ljava/lang/String;)Ljava/lang/Boolean;
@@ -298,7 +334,10 @@
 
 .method protected onPostExecute(Ljava/lang/Boolean;)V
     .locals 3
+    .param p1, "result"    # Ljava/lang/Boolean;
 
+    .prologue
+    .line 244
     # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$300()Ljava/lang/String;
 
@@ -326,18 +365,22 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
+    .line 245
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v0
 
     sput-boolean v0, Lcom/android/incallui/secrcs/RcsShareUI;->isRcsSwtich:Z
 
+    .line 246
     return-void
 .end method
 
 .method protected bridge synthetic onPostExecute(Ljava/lang/Object;)V
     .locals 0
 
+    .prologue
+    .line 207
     check-cast p1, Ljava/lang/Boolean;
 
     invoke-virtual {p0, p1}, Lcom/android/incallui/secrcs/RcsShareUI$RcsSwitchQuerryTask;->onPostExecute(Ljava/lang/Boolean;)V

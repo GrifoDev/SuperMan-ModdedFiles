@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/MultiPartyCallCardFragment;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/fragment/MultiPartyCallCardFragment;
 
+    .prologue
+    .line 111
     iput-object p1, p0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment$1;->this$0:Lcom/android/incallui/fragment/MultiPartyCallCardFragment;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,29 +36,40 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 6
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const/4 v5, 0x1
 
+    .line 114
     const-string v2, "MultiPartyCallCardFragment"
 
     const-string v3, "onReceive called multi"
 
     invoke-static {v2, v3, v5}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
+    .line 115
     const/4 v1, 0x0
 
+    .line 116
+    .local v1, "value":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
     move-result-object v0
 
+    .line 117
+    .local v0, "extras":Landroid/os/Bundle;
     if-eqz v0, :cond_0
 
+    .line 118
     const-string v2, "MENU_STRING"
 
     invoke-virtual {v0, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
+    .line 119
     const-string v2, "MultiPartyCallCardFragment"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -78,6 +92,7 @@
 
     invoke-static {v2, v3, v5}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
+    .line 120
     const-string v2, "support_call_transfer_blind_ect"
 
     invoke-static {v2}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
@@ -86,10 +101,12 @@
 
     if-nez v2, :cond_0
 
+    .line 121
     iget-object v2, p0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment$1;->this$0:Lcom/android/incallui/fragment/MultiPartyCallCardFragment;
 
     invoke-virtual {v2, v1}, Lcom/android/incallui/fragment/MultiPartyCallCardFragment;->setMenuText(Ljava/lang/String;)V
 
+    .line 124
     :cond_0
     return-void
 .end method

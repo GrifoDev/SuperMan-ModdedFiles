@@ -23,7 +23,11 @@
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/AppCompatSpinner;Landroid/view/View;Landroid/support/v7/widget/AppCompatSpinner$DropdownPopup;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/v7/widget/AppCompatSpinner;
+    .param p2, "src"    # Landroid/view/View;
 
+    .prologue
+    .line 254
     iput-object p1, p0, Landroid/support/v7/widget/AppCompatSpinner$1;->this$0:Landroid/support/v7/widget/AppCompatSpinner;
 
     iput-object p3, p0, Landroid/support/v7/widget/AppCompatSpinner$1;->val$popup:Landroid/support/v7/widget/AppCompatSpinner$DropdownPopup;
@@ -38,6 +42,8 @@
 .method public getPopup()Landroid/support/v7/view/menu/ShowableListMenu;
     .locals 1
 
+    .prologue
+    .line 257
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatSpinner$1;->val$popup:Landroid/support/v7/widget/AppCompatSpinner$DropdownPopup;
 
     return-object v0
@@ -46,6 +52,8 @@
 .method public onForwardingStarted()Z
     .locals 1
 
+    .prologue
+    .line 262
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatSpinner$1;->this$0:Landroid/support/v7/widget/AppCompatSpinner;
 
     # getter for: Landroid/support/v7/widget/AppCompatSpinner;->mPopup:Landroid/support/v7/widget/AppCompatSpinner$DropdownPopup;
@@ -59,6 +67,7 @@
 
     if-nez v0, :cond_0
 
+    .line 263
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatSpinner$1;->this$0:Landroid/support/v7/widget/AppCompatSpinner;
 
     # getter for: Landroid/support/v7/widget/AppCompatSpinner;->mPopup:Landroid/support/v7/widget/AppCompatSpinner$DropdownPopup;
@@ -68,6 +77,7 @@
 
     invoke-virtual {v0}, Landroid/support/v7/widget/AppCompatSpinner$DropdownPopup;->show()V
 
+    .line 265
     :cond_0
     const/4 v0, 0x1
 

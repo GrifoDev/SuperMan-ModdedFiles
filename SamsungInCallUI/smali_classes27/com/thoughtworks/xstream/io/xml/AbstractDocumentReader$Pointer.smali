@@ -22,6 +22,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 53
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -29,7 +31,10 @@
 
 .method synthetic constructor <init>(Lcom/thoughtworks/xstream/io/xml/AbstractDocumentReader$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/thoughtworks/xstream/io/xml/AbstractDocumentReader$1;
 
+    .prologue
+    .line 53
     invoke-direct {p0}, Lcom/thoughtworks/xstream/io/xml/AbstractDocumentReader$Pointer;-><init>()V
 
     return-void

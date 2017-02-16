@@ -33,6 +33,8 @@
 .method constructor <init>(Ljava/util/Iterator;)V
     .locals 0
 
+    .prologue
+    .line 1143
     iput-object p1, p0, Lcom/google/common/collect/Iterators$14;->val$iterator:Ljava/util/Iterator;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -45,6 +47,8 @@
 .method public hasMoreElements()Z
     .locals 1
 
+    .prologue
+    .line 1146
     iget-object v0, p0, Lcom/google/common/collect/Iterators$14;->val$iterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -62,6 +66,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 1151
     iget-object v0, p0, Lcom/google/common/collect/Iterators$14;->val$iterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;

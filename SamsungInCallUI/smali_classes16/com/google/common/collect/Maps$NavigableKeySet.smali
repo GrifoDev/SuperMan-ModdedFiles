@@ -46,8 +46,13 @@
         }
     .end annotation
 
+    .prologue
+    .line 3713
+    .local p0, "this":Lcom/google/common/collect/Maps$NavigableKeySet;, "Lcom/google/common/collect/Maps$NavigableKeySet<TK;TV;>;"
+    .local p1, "map":Ljava/util/NavigableMap;, "Ljava/util/NavigableMap<TK;TV;>;"
     invoke-direct {p0, p1}, Lcom/google/common/collect/Maps$SortedKeySet;-><init>(Ljava/util/SortedMap;)V
 
+    .line 3714
     return-void
 .end method
 
@@ -61,6 +66,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 3733
+    .local p0, "this":Lcom/google/common/collect/Maps$NavigableKeySet;, "Lcom/google/common/collect/Maps$NavigableKeySet<TK;TV;>;"
+    .local p1, "e":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$NavigableKeySet;->map()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -82,6 +91,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 3758
+    .local p0, "this":Lcom/google/common/collect/Maps$NavigableKeySet;, "Lcom/google/common/collect/Maps$NavigableKeySet<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$NavigableKeySet;->descendingSet()Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -103,6 +115,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 3753
+    .local p0, "this":Lcom/google/common/collect/Maps$NavigableKeySet;, "Lcom/google/common/collect/Maps$NavigableKeySet<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$NavigableKeySet;->map()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -122,6 +137,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 3728
+    .local p0, "this":Lcom/google/common/collect/Maps$NavigableKeySet;, "Lcom/google/common/collect/Maps$NavigableKeySet<TK;TV;>;"
+    .local p1, "e":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$NavigableKeySet;->map()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -135,6 +154,7 @@
 
 .method public headSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
     .locals 1
+    .param p2, "inclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;Z)",
@@ -143,6 +163,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 3769
+    .local p0, "this":Lcom/google/common/collect/Maps$NavigableKeySet;, "Lcom/google/common/collect/Maps$NavigableKeySet<TK;TV;>;"
+    .local p1, "toElement":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$NavigableKeySet;->map()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -168,6 +192,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 3784
+    .local p0, "this":Lcom/google/common/collect/Maps$NavigableKeySet;, "Lcom/google/common/collect/Maps$NavigableKeySet<TK;TV;>;"
+    .local p1, "toElement":Ljava/lang/Object;, "TK;"
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, v0}, Lcom/google/common/collect/Maps$NavigableKeySet;->headSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
@@ -185,6 +213,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 3738
+    .local p0, "this":Lcom/google/common/collect/Maps$NavigableKeySet;, "Lcom/google/common/collect/Maps$NavigableKeySet<TK;TV;>;"
+    .local p1, "e":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$NavigableKeySet;->map()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -204,6 +236,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 3723
+    .local p0, "this":Lcom/google/common/collect/Maps$NavigableKeySet;, "Lcom/google/common/collect/Maps$NavigableKeySet<TK;TV;>;"
+    .local p1, "e":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$NavigableKeySet;->map()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -218,6 +254,9 @@
 .method bridge synthetic map()Ljava/util/Map;
     .locals 1
 
+    .prologue
+    .line 3710
+    .local p0, "this":Lcom/google/common/collect/Maps$NavigableKeySet;, "Lcom/google/common/collect/Maps$NavigableKeySet<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$NavigableKeySet;->map()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -235,6 +274,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 3718
+    .local p0, "this":Lcom/google/common/collect/Maps$NavigableKeySet;, "Lcom/google/common/collect/Maps$NavigableKeySet<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$NavigableKeySet;->map:Ljava/util/Map;
 
     check-cast v0, Ljava/util/NavigableMap;
@@ -245,6 +287,9 @@
 .method bridge synthetic map()Ljava/util/SortedMap;
     .locals 1
 
+    .prologue
+    .line 3710
+    .local p0, "this":Lcom/google/common/collect/Maps$NavigableKeySet;, "Lcom/google/common/collect/Maps$NavigableKeySet<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$NavigableKeySet;->map()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -260,6 +305,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 3743
+    .local p0, "this":Lcom/google/common/collect/Maps$NavigableKeySet;, "Lcom/google/common/collect/Maps$NavigableKeySet<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$NavigableKeySet;->map()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -283,6 +331,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 3748
+    .local p0, "this":Lcom/google/common/collect/Maps$NavigableKeySet;, "Lcom/google/common/collect/Maps$NavigableKeySet<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$NavigableKeySet;->map()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -300,6 +351,8 @@
 
 .method public subSet(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableSet;
     .locals 1
+    .param p2, "fromInclusive"    # Z
+    .param p4, "toInclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;ZTK;Z)",
@@ -308,6 +361,11 @@
         }
     .end annotation
 
+    .prologue
+    .line 3764
+    .local p0, "this":Lcom/google/common/collect/Maps$NavigableKeySet;, "Lcom/google/common/collect/Maps$NavigableKeySet<TK;TV;>;"
+    .local p1, "fromElement":Ljava/lang/Object;, "TK;"
+    .local p3, "toElement":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$NavigableKeySet;->map()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -333,6 +391,11 @@
         }
     .end annotation
 
+    .prologue
+    .line 3779
+    .local p0, "this":Lcom/google/common/collect/Maps$NavigableKeySet;, "Lcom/google/common/collect/Maps$NavigableKeySet<TK;TV;>;"
+    .local p1, "fromElement":Ljava/lang/Object;, "TK;"
+    .local p2, "toElement":Ljava/lang/Object;, "TK;"
     const/4 v0, 0x1
 
     const/4 v1, 0x0
@@ -346,6 +409,7 @@
 
 .method public tailSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
     .locals 1
+    .param p2, "inclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;Z)",
@@ -354,6 +418,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 3774
+    .local p0, "this":Lcom/google/common/collect/Maps$NavigableKeySet;, "Lcom/google/common/collect/Maps$NavigableKeySet<TK;TV;>;"
+    .local p1, "fromElement":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$NavigableKeySet;->map()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -379,6 +447,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 3789
+    .local p0, "this":Lcom/google/common/collect/Maps$NavigableKeySet;, "Lcom/google/common/collect/Maps$NavigableKeySet<TK;TV;>;"
+    .local p1, "fromElement":Ljava/lang/Object;, "TK;"
     const/4 v0, 0x1
 
     invoke-virtual {p0, p1, v0}, Lcom/google/common/collect/Maps$NavigableKeySet;->tailSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;

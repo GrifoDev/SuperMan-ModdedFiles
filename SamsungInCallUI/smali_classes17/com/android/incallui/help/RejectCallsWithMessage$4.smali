@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/help/RejectCallsWithMessage;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/help/RejectCallsWithMessage;
 
+    .prologue
+    .line 224
     iput-object p1, p0, Lcom/android/incallui/help/RejectCallsWithMessage$4;->this$0:Lcom/android/incallui/help/RejectCallsWithMessage;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,12 +40,15 @@
 .method public onDrawerClosed()V
     .locals 2
 
+    .prologue
+    .line 226
     const-string v0, "RejectCallsWithMessage"
 
     const-string v1, "onDrawerClosed"
 
     invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 227
     iget-object v0, p0, Lcom/android/incallui/help/RejectCallsWithMessage$4;->this$0:Lcom/android/incallui/help/RejectCallsWithMessage;
 
     # getter for: Lcom/android/incallui/help/RejectCallsWithMessage;->mRejectCallWithMsgOpenIcon:Landroid/widget/ImageView;
@@ -52,6 +58,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 228
     iget-object v0, p0, Lcom/android/incallui/help/RejectCallsWithMessage$4;->this$0:Lcom/android/incallui/help/RejectCallsWithMessage;
 
     # getter for: Lcom/android/incallui/help/RejectCallsWithMessage;->mRejectCallWithMsgOpenIcon:Landroid/widget/ImageView;
@@ -63,6 +70,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
+    .line 230
     :cond_0
     return-void
 .end method

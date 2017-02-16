@@ -136,6 +136,9 @@
         }
     .end annotation
 
+    .prologue
+    .local p0, "this":Lcom/google/android/gms/internal/w;, "Lcom/google/android/gms/internal/w<TK;TV;>;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
     const/4 v0, 0x0
 
     return-object v0
@@ -143,12 +146,18 @@
 
 .method protected entryRemoved(ZLjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 0
+    .param p1, "evicted"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ZTK;TV;TV;)V"
         }
     .end annotation
 
+    .prologue
+    .local p0, "this":Lcom/google/android/gms/internal/w;, "Lcom/google/android/gms/internal/w<TK;TV;>;"
+    .local p2, "key":Ljava/lang/Object;, "TK;"
+    .local p3, "oldValue":Ljava/lang/Object;, "TV;"
+    .local p4, "newValue":Ljava/lang/Object;, "TV;"
     return-void
 .end method
 
@@ -170,6 +179,9 @@
         }
     .end annotation
 
+    .prologue
+    .local p0, "this":Lcom/google/android/gms/internal/w;, "Lcom/google/android/gms/internal/w<TK;TV;>;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
     if-nez p1, :cond_0
 
     new-instance v0, Ljava/lang/NullPointerException;
@@ -310,6 +322,10 @@
         }
     .end annotation
 
+    .prologue
+    .local p0, "this":Lcom/google/android/gms/internal/w;, "Lcom/google/android/gms/internal/w<TK;TV;>;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
+    .local p2, "value":Ljava/lang/Object;, "TV;"
     if-eqz p1, :cond_0
 
     if-nez p2, :cond_1
@@ -420,6 +436,10 @@
         }
     .end annotation
 
+    .prologue
+    .local p0, "this":Lcom/google/android/gms/internal/w;, "Lcom/google/android/gms/internal/w<TK;TV;>;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
+    .local p2, "value":Ljava/lang/Object;, "TV;"
     const/4 v0, 0x1
 
     return v0
@@ -512,7 +532,10 @@
 
 .method public trimToSize(I)V
     .locals 4
+    .param p1, "maxSize"    # I
 
+    .prologue
+    .local p0, "this":Lcom/google/android/gms/internal/w;, "Lcom/google/android/gms/internal/w<TK;TV;>;"
     :goto_0
     monitor-enter p0
 

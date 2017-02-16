@@ -91,7 +91,11 @@
 
 .method public constructor <init>(ILjava/lang/String;Ljava/lang/String;)V
     .locals 1
+    .param p1, "statusCode"    # I
+    .param p2, "leaderboardId"    # Ljava/lang/String;
+    .param p3, "playerId"    # Ljava/lang/String;
 
+    .prologue
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
@@ -103,6 +107,9 @@
 
 .method public constructor <init>(ILjava/lang/String;Ljava/lang/String;Ljava/util/HashMap;)V
     .locals 0
+    .param p1, "statusCode"    # I
+    .param p2, "leaderboardId"    # Ljava/lang/String;
+    .param p3, "playerId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -116,6 +123,8 @@
         }
     .end annotation
 
+    .prologue
+    .local p4, "results":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/Integer;Lcom/google/android/gms/games/leaderboard/SubmitScoreResult$Result;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput p1, p0, Lcom/google/android/gms/games/leaderboard/SubmitScoreResult;->p:I
@@ -131,7 +140,9 @@
 
 .method public constructor <init>(Lcom/google/android/gms/common/data/d;)V
     .locals 8
+    .param p1, "dataHolder"    # Lcom/google/android/gms/common/data/d;
 
+    .prologue
     const/4 v1, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -273,7 +284,9 @@
 
 .method public getScoreResult(I)Lcom/google/android/gms/games/leaderboard/SubmitScoreResult$Result;
     .locals 2
+    .param p1, "timeSpan"    # I
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/leaderboard/SubmitScoreResult;->eD:Ljava/util/HashMap;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;

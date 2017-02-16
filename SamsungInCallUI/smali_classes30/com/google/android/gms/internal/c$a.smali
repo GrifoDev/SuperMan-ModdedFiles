@@ -44,7 +44,10 @@
 # virtual methods
 .method public onStateDeleted(II)V
     .locals 4
+    .param p1, "statusCode"    # I
+    .param p2, "stateKey"    # I
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/internal/c$a;->o:Lcom/google/android/gms/internal/c;
 
     new-instance v1, Lcom/google/android/gms/internal/c$b;

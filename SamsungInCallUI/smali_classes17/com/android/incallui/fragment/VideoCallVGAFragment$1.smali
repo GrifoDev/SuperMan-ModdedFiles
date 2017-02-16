@@ -21,7 +21,11 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/VideoCallVGAFragment;Landroid/view/View;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/fragment/VideoCallVGAFragment;
+    .param p2, "v"    # Landroid/view/View;
 
+    .prologue
+    .line 495
     iput-object p1, p0, Lcom/android/incallui/fragment/VideoCallVGAFragment$1;->this$0:Lcom/android/incallui/fragment/VideoCallVGAFragment;
 
     invoke-direct {p0, p1, p2}, Lcom/android/incallui/fragment/VideoCallVGAFragment$SmallSurfaceDragShadowBuilder;-><init>(Lcom/android/incallui/fragment/VideoCallVGAFragment;Landroid/view/View;)V
@@ -33,7 +37,10 @@
 # virtual methods
 .method public getDragShadowDrawable(Landroid/view/View;)Landroid/graphics/drawable/Drawable;
     .locals 1
+    .param p1, "v"    # Landroid/view/View;
 
+    .prologue
+    .line 498
     iget-object v0, p0, Lcom/android/incallui/fragment/VideoCallVGAFragment$1;->this$0:Lcom/android/incallui/fragment/VideoCallVGAFragment;
 
     invoke-virtual {v0, p1}, Lcom/android/incallui/fragment/VideoCallVGAFragment;->getShadowDrawable(Landroid/view/View;)Landroid/graphics/drawable/Drawable;

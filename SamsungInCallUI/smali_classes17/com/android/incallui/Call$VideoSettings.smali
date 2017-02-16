@@ -38,12 +38,16 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
     const/4 v0, -0x1
 
+    .line 161
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 169
     iput v0, p0, Lcom/android/incallui/Call$VideoSettings;->mCameraDirection:I
 
+    .line 175
     iput v0, p0, Lcom/android/incallui/Call$VideoSettings;->mCameraId:I
 
     return-void
@@ -54,6 +58,8 @@
 .method public getCameraDir()I
     .locals 1
 
+    .prologue
+    .line 201
     iget v0, p0, Lcom/android/incallui/Call$VideoSettings;->mCameraDirection:I
 
     return v0
@@ -62,6 +68,8 @@
 .method public getCameraId()I
     .locals 1
 
+    .prologue
+    .line 223
     iget v0, p0, Lcom/android/incallui/Call$VideoSettings;->mCameraId:I
 
     return v0
@@ -70,24 +78,30 @@
 .method public getToggledCameraDir()I
     .locals 2
 
+    .prologue
     const/4 v0, 0x1
 
+    .line 205
     iget v1, p0, Lcom/android/incallui/Call$VideoSettings;->mCameraDirection:I
 
     if-nez v1, :cond_0
 
+    .line 210
     :goto_0
     return v0
 
+    .line 207
     :cond_0
     iget v1, p0, Lcom/android/incallui/Call$VideoSettings;->mCameraDirection:I
 
     if-ne v1, v0, :cond_1
 
+    .line 208
     const/4 v0, 0x0
 
     goto :goto_0
 
+    .line 210
     :cond_1
     const/4 v0, -0x1
 
@@ -97,23 +111,29 @@
 .method public getToggledCameraId()I
     .locals 2
 
+    .prologue
     const/4 v0, 0x1
 
+    .line 227
     iget v1, p0, Lcom/android/incallui/Call$VideoSettings;->mCameraId:I
 
     if-ne v1, v0, :cond_1
 
+    .line 228
     const/4 v0, 0x0
 
+    .line 232
     :cond_0
     :goto_0
     return v0
 
+    .line 229
     :cond_1
     iget v1, p0, Lcom/android/incallui/Call$VideoSettings;->mCameraId:I
 
     if-eqz v1, :cond_0
 
+    .line 232
     const/4 v0, -0x1
 
     goto :goto_0
@@ -121,19 +141,25 @@
 
 .method public setCameraDir(I)V
     .locals 1
+    .param p1, "cameraDirection"    # I
 
+    .prologue
+    .line 185
     if-eqz p1, :cond_0
 
     const/4 v0, 0x1
 
     if-ne p1, v0, :cond_1
 
+    .line 187
     :cond_0
     iput p1, p0, Lcom/android/incallui/Call$VideoSettings;->mCameraDirection:I
 
+    .line 191
     :goto_0
     return-void
 
+    .line 189
     :cond_1
     const/4 v0, -0x1
 
@@ -144,19 +170,25 @@
 
 .method public setCameraId(I)V
     .locals 1
+    .param p1, "cameraId"    # I
 
+    .prologue
+    .line 214
     const/4 v0, 0x1
 
     if-eq p1, v0, :cond_0
 
     if-nez p1, :cond_1
 
+    .line 216
     :cond_0
     iput p1, p0, Lcom/android/incallui/Call$VideoSettings;->mCameraId:I
 
+    .line 220
     :goto_0
     return-void
 
+    .line 218
     :cond_1
     const/4 v0, -0x1
 
@@ -168,6 +200,8 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 237
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -198,6 +232,7 @@
 
     move-result-object v0
 
+    .line 238
     invoke-virtual {p0}, Lcom/android/incallui/Call$VideoSettings;->getCameraId()I
 
     move-result v1

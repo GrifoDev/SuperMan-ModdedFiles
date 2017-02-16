@@ -84,7 +84,10 @@
 
 .method public static createPerson(Ljava/lang/String;Ljava/lang/String;)Lcom/google/android/gms/plus/model/people/Person;
     .locals 6
+    .param p0, "id"    # Ljava/lang/String;
+    .param p1, "displayName"    # Ljava/lang/String;
 
+    .prologue
     const/4 v3, 0x0
 
     invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -134,7 +137,9 @@
 
 .method public static getDeepLinkId(Landroid/content/Intent;)Ljava/lang/String;
     .locals 2
+    .param p0, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const/4 v0, 0x0
 
     if-eqz p0, :cond_0
@@ -161,7 +166,9 @@
 
 .method protected static isDeepLinkIdValid(Ljava/lang/String;)Z
     .locals 3
+    .param p0, "deepLinkId"    # Ljava/lang/String;
 
+    .prologue
     const/4 v0, 0x0
 
     invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z

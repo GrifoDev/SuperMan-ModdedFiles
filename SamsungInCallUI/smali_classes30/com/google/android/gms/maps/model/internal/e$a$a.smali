@@ -730,12 +730,14 @@
 
 .method public setFillColor(I)V
     .locals 5
+    .param p1, "color"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -781,12 +783,14 @@
 
 .method public setGeodesic(Z)V
     .locals 5
+    .param p1, "geodesic"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     const/4 v0, 0x0
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
@@ -839,12 +843,14 @@
 
 .method public setHoles(Ljava/util/List;)V
     .locals 5
+    .param p1, "holes"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -906,6 +912,8 @@
         }
     .end annotation
 
+    .prologue
+    .local p1, "points":Ljava/util/List;, "Ljava/util/List<Lcom/google/android/gms/maps/model/LatLng;>;"
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -951,12 +959,14 @@
 
 .method public setStrokeColor(I)V
     .locals 5
+    .param p1, "color"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -1002,12 +1012,14 @@
 
 .method public setStrokeWidth(F)V
     .locals 5
+    .param p1, "width"    # F
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -1053,12 +1065,14 @@
 
 .method public setVisible(Z)V
     .locals 5
+    .param p1, "visible"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     const/4 v0, 0x0
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
@@ -1111,12 +1125,14 @@
 
 .method public setZIndex(F)V
     .locals 5
+    .param p1, "zIndex"    # F
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1

@@ -30,6 +30,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -49,6 +51,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 32
     iget-object v0, p0, Lcom/cmdm/control/bean/GainIntegralLogList;->gainIntegralLogList:Ljava/util/ArrayList;
 
     return-object v0
@@ -66,7 +70,11 @@
         }
     .end annotation
 
+    .prologue
+    .line 37
+    .local p1, "gainIntegralLogList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/cmdm/control/bean/GainIntegralLog;>;"
     iput-object p1, p0, Lcom/cmdm/control/bean/GainIntegralLogList;->gainIntegralLogList:Ljava/util/ArrayList;
 
+    .line 38
     return-void
 .end method

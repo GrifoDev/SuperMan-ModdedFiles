@@ -44,7 +44,13 @@
 
 .method constructor <init>(ILcom/google/android/gms/maps/model/LatLng;FFF)V
     .locals 5
+    .param p1, "versionCode"    # I
+    .param p2, "target"    # Lcom/google/android/gms/maps/model/LatLng;
+    .param p3, "zoom"    # F
+    .param p4, "tilt"    # F
+    .param p5, "bearing"    # F
 
+    .prologue
     const/4 v2, 0x0
 
     const/high16 v4, 0x43b40000    # 360.0f
@@ -94,6 +100,7 @@
 
     add-float p5, v0, v4
 
+    .end local p5    # "bearing":F
     :cond_0
     rem-float v0, p5, v4
 
@@ -101,6 +108,7 @@
 
     return-void
 
+    .restart local p5    # "bearing":F
     :cond_1
     const/4 v0, 0x0
 
@@ -109,7 +117,12 @@
 
 .method public constructor <init>(Lcom/google/android/gms/maps/model/LatLng;FFF)V
     .locals 6
+    .param p1, "target"    # Lcom/google/android/gms/maps/model/LatLng;
+    .param p2, "zoom"    # F
+    .param p3, "tilt"    # F
+    .param p4, "bearing"    # F
 
+    .prologue
     const/4 v1, 0x1
 
     move-object v0, p0
@@ -139,7 +152,9 @@
 
 .method public static builder(Lcom/google/android/gms/maps/model/CameraPosition;)Lcom/google/android/gms/maps/model/CameraPosition$Builder;
     .locals 1
+    .param p0, "camera"    # Lcom/google/android/gms/maps/model/CameraPosition;
 
+    .prologue
     new-instance v0, Lcom/google/android/gms/maps/model/CameraPosition$Builder;
 
     invoke-direct {v0, p0}, Lcom/google/android/gms/maps/model/CameraPosition$Builder;-><init>(Lcom/google/android/gms/maps/model/CameraPosition;)V
@@ -149,7 +164,10 @@
 
 .method public static createFromAttributes(Landroid/content/Context;Landroid/util/AttributeSet;)Lcom/google/android/gms/maps/model/CameraPosition;
     .locals 11
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "attrs"    # Landroid/util/AttributeSet;
 
+    .prologue
     const/4 v10, 0x4
 
     const/4 v6, 0x3
@@ -276,7 +294,10 @@
 
 .method public static final fromLatLngZoom(Lcom/google/android/gms/maps/model/LatLng;F)Lcom/google/android/gms/maps/model/CameraPosition;
     .locals 2
+    .param p0, "target"    # Lcom/google/android/gms/maps/model/LatLng;
+    .param p1, "zoom"    # F
 
+    .prologue
     const/4 v1, 0x0
 
     new-instance v0, Lcom/google/android/gms/maps/model/CameraPosition;
@@ -298,17 +319,21 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
+    .param p1, "o"    # Ljava/lang/Object;
 
+    .prologue
     const/4 v0, 0x1
 
     const/4 v1, 0x0
 
     if-ne p0, p1, :cond_1
 
+    .end local p1    # "o":Ljava/lang/Object;
     :cond_0
     :goto_0
     return v0
 
+    .restart local p1    # "o":Ljava/lang/Object;
     :cond_1
     instance-of v2, p1, Lcom/google/android/gms/maps/model/CameraPosition;
 
@@ -321,6 +346,7 @@
     :cond_2
     check-cast p1, Lcom/google/android/gms/maps/model/CameraPosition;
 
+    .end local p1    # "o":Ljava/lang/Object;
     iget-object v2, p0, Lcom/google/android/gms/maps/model/CameraPosition;->target:Lcom/google/android/gms/maps/model/LatLng;
 
     iget-object v3, p1, Lcom/google/android/gms/maps/model/CameraPosition;->target:Lcom/google/android/gms/maps/model/LatLng;
@@ -497,7 +523,10 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
+    .prologue
     invoke-static {}, Lcom/google/android/gms/maps/internal/q;->bn()Z
 
     move-result v0

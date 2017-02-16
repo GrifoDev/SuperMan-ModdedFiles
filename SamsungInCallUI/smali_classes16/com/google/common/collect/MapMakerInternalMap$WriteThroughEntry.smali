@@ -50,14 +50,22 @@
         }
     .end annotation
 
+    .prologue
+    .line 3740
+    .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$WriteThroughEntry;, "Lcom/google/common/collect/MapMakerInternalMap<TK;TV;>.WriteThroughEntry;"
+    .local p2, "key":Ljava/lang/Object;, "TK;"
+    .local p3, "value":Ljava/lang/Object;, "TV;"
     iput-object p1, p0, Lcom/google/common/collect/MapMakerInternalMap$WriteThroughEntry;->this$0:Lcom/google/common/collect/MapMakerInternalMap;
 
     invoke-direct {p0}, Lcom/google/common/collect/AbstractMapEntry;-><init>()V
 
+    .line 3741
     iput-object p2, p0, Lcom/google/common/collect/MapMakerInternalMap$WriteThroughEntry;->key:Ljava/lang/Object;
 
+    .line 3742
     iput-object p3, p0, Lcom/google/common/collect/MapMakerInternalMap$WriteThroughEntry;->value:Ljava/lang/Object;
 
+    .line 3743
     return-void
 .end method
 
@@ -65,21 +73,27 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
-    .param p1    # Ljava/lang/Object;
+    .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
+    .prologue
+    .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$WriteThroughEntry;, "Lcom/google/common/collect/MapMakerInternalMap<TK;TV;>.WriteThroughEntry;"
     const/4 v1, 0x0
 
+    .line 3758
     instance-of v2, p1, Ljava/util/Map$Entry;
 
     if-eqz v2, :cond_0
 
     move-object v0, p1
 
+    .line 3759
     check-cast v0, Ljava/util/Map$Entry;
 
+    .line 3760
+    .local v0, "that":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
     iget-object v2, p0, Lcom/google/common/collect/MapMakerInternalMap$WriteThroughEntry;->key:Ljava/lang/Object;
 
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -106,6 +120,8 @@
 
     const/4 v1, 0x1
 
+    .line 3762
+    .end local v0    # "that":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
     :cond_0
     return v1
 .end method
@@ -118,6 +134,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 3747
+    .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$WriteThroughEntry;, "Lcom/google/common/collect/MapMakerInternalMap<TK;TV;>.WriteThroughEntry;"
     iget-object v0, p0, Lcom/google/common/collect/MapMakerInternalMap$WriteThroughEntry;->key:Ljava/lang/Object;
 
     return-object v0
@@ -131,6 +150,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 3752
+    .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$WriteThroughEntry;, "Lcom/google/common/collect/MapMakerInternalMap<TK;TV;>.WriteThroughEntry;"
     iget-object v0, p0, Lcom/google/common/collect/MapMakerInternalMap$WriteThroughEntry;->value:Ljava/lang/Object;
 
     return-object v0
@@ -139,6 +161,9 @@
 .method public hashCode()I
     .locals 2
 
+    .prologue
+    .line 3768
+    .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$WriteThroughEntry;, "Lcom/google/common/collect/MapMakerInternalMap<TK;TV;>.WriteThroughEntry;"
     iget-object v0, p0, Lcom/google/common/collect/MapMakerInternalMap$WriteThroughEntry;->key:Ljava/lang/Object;
 
     invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
@@ -164,6 +189,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 3773
+    .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$WriteThroughEntry;, "Lcom/google/common/collect/MapMakerInternalMap<TK;TV;>.WriteThroughEntry;"
+    .local p1, "newValue":Ljava/lang/Object;, "TV;"
     iget-object v1, p0, Lcom/google/common/collect/MapMakerInternalMap$WriteThroughEntry;->this$0:Lcom/google/common/collect/MapMakerInternalMap;
 
     iget-object v2, p0, Lcom/google/common/collect/MapMakerInternalMap$WriteThroughEntry;->key:Ljava/lang/Object;
@@ -172,7 +201,10 @@
 
     move-result-object v0
 
+    .line 3774
+    .local v0, "oldValue":Ljava/lang/Object;, "TV;"
     iput-object p1, p0, Lcom/google/common/collect/MapMakerInternalMap$WriteThroughEntry;->value:Ljava/lang/Object;
 
+    .line 3775
     return-object v0
 .end method

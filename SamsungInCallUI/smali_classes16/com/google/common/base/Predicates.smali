@@ -37,6 +37,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 360
     const/16 v0, 0x2c
 
     invoke-static {v0}, Lcom/google/common/base/Joiner;->on(C)Lcom/google/common/base/Joiner;
@@ -51,6 +53,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 51
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -59,6 +63,8 @@
 .method static synthetic access$800()Lcom/google/common/base/Joiner;
     .locals 1
 
+    .prologue
+    .line 50
     sget-object v0, Lcom/google/common/base/Predicates;->COMMA_JOINER:Lcom/google/common/base/Joiner;
 
     return-object v0
@@ -80,6 +86,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 69
     sget-object v0, Lcom/google/common/base/Predicates$ObjectPredicate;->ALWAYS_FALSE:Lcom/google/common/base/Predicates$ObjectPredicate;
 
     invoke-virtual {v0}, Lcom/google/common/base/Predicates$ObjectPredicate;->withNarrowedType()Lcom/google/common/base/Predicate;
@@ -105,6 +113,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 61
     sget-object v0, Lcom/google/common/base/Predicates$ObjectPredicate;->ALWAYS_TRUE:Lcom/google/common/base/Predicates$ObjectPredicate;
 
     invoke-virtual {v0}, Lcom/google/common/base/Predicates$ObjectPredicate;->withNarrowedType()Lcom/google/common/base/Predicate;
@@ -130,6 +140,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 131
+    .local p0, "first":Lcom/google/common/base/Predicate;, "Lcom/google/common/base/Predicate<-TT;>;"
+    .local p1, "second":Lcom/google/common/base/Predicate;, "Lcom/google/common/base/Predicate<-TT;>;"
     new-instance v2, Lcom/google/common/base/Predicates$AndPredicate;
 
     invoke-static {p0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -171,6 +185,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 108
+    .local p0, "components":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+Lcom/google/common/base/Predicate<-TT;>;>;"
     new-instance v0, Lcom/google/common/base/Predicates$AndPredicate;
 
     invoke-static {p0}, Lcom/google/common/base/Predicates;->defensiveCopy(Ljava/lang/Iterable;)Ljava/util/List;
@@ -198,6 +215,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 121
+    .local p0, "components":[Lcom/google/common/base/Predicate;, "[Lcom/google/common/base/Predicate<-TT;>;"
     new-instance v0, Lcom/google/common/base/Predicates$AndPredicate;
 
     invoke-static {p0}, Lcom/google/common/base/Predicates;->defensiveCopy([Ljava/lang/Object;)Ljava/util/List;
@@ -229,6 +249,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 698
+    .local p0, "first":Lcom/google/common/base/Predicate;, "Lcom/google/common/base/Predicate<-TT;>;"
+    .local p1, "second":Lcom/google/common/base/Predicate;, "Lcom/google/common/base/Predicate<-TT;>;"
     const/4 v0, 0x2
 
     new-array v0, v0, [Lcom/google/common/base/Predicate;
@@ -269,6 +293,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 208
+    .local p0, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     new-instance v0, Lcom/google/common/base/Predicates$AssignableFromPredicate;
 
     const/4 v1, 0x0
@@ -296,6 +323,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 236
+    .local p0, "predicate":Lcom/google/common/base/Predicate;, "Lcom/google/common/base/Predicate<TB;>;"
+    .local p1, "function":Lcom/google/common/base/Function;, "Lcom/google/common/base/Function<TA;+TB;>;"
     new-instance v0, Lcom/google/common/base/Predicates$CompositionPredicate;
 
     const/4 v1, 0x0
@@ -307,6 +338,7 @@
 
 .method public static contains(Ljava/util/regex/Pattern;)Lcom/google/common/base/Predicate;
     .locals 1
+    .param p0, "pattern"    # Ljava/util/regex/Pattern;
     .annotation build Lcom/google/common/annotations/GwtIncompatible;
         value = "java.util.regex.Pattern"
     .end annotation
@@ -323,6 +355,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 263
     new-instance v0, Lcom/google/common/base/Predicates$ContainsPatternPredicate;
 
     invoke-direct {v0, p0}, Lcom/google/common/base/Predicates$ContainsPatternPredicate;-><init>(Ljava/util/regex/Pattern;)V
@@ -332,6 +366,7 @@
 
 .method public static containsPattern(Ljava/lang/String;)Lcom/google/common/base/Predicate;
     .locals 1
+    .param p0, "pattern"    # Ljava/lang/String;
     .annotation build Lcom/google/common/annotations/GwtIncompatible;
         value = "java.util.regex.Pattern"
     .end annotation
@@ -348,6 +383,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 250
     new-instance v0, Lcom/google/common/base/Predicates$ContainsPatternFromStringPredicate;
 
     invoke-direct {v0, p0}, Lcom/google/common/base/Predicates$ContainsPatternFromStringPredicate;-><init>(Ljava/lang/String;)V
@@ -369,14 +406,20 @@
         }
     .end annotation
 
+    .prologue
+    .line 706
+    .local p0, "iterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<TT;>;"
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
+    .line 707
+    .local v2, "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<TT;>;"
     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
+    .local v1, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -388,6 +431,8 @@
 
     move-result-object v0
 
+    .line 708
+    .local v0, "element":Ljava/lang/Object;, "TT;"
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
@@ -396,6 +441,8 @@
 
     goto :goto_0
 
+    .line 710
+    .end local v0    # "element":Ljava/lang/Object;, "TT;"
     :cond_0
     return-object v2
 .end method
@@ -412,6 +459,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 702
+    .local p0, "array":[Ljava/lang/Object;, "[TT;"
     invoke-static {p0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v0
@@ -439,6 +489,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 175
+    .local p0, "target":Ljava/lang/Object;, "TT;"
     if-nez p0, :cond_0
 
     invoke-static {}, Lcom/google/common/base/Predicates;->isNull()Lcom/google/common/base/Predicate;
@@ -472,6 +525,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 225
+    .local p0, "target":Ljava/util/Collection;, "Ljava/util/Collection<+TT;>;"
     new-instance v0, Lcom/google/common/base/Predicates$InPredicate;
 
     const/4 v1, 0x0
@@ -499,6 +555,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 195
+    .local p0, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     new-instance v0, Lcom/google/common/base/Predicates$InstanceOfPredicate;
 
     const/4 v1, 0x0
@@ -524,6 +583,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 78
     sget-object v0, Lcom/google/common/base/Predicates$ObjectPredicate;->IS_NULL:Lcom/google/common/base/Predicates$ObjectPredicate;
 
     invoke-virtual {v0}, Lcom/google/common/base/Predicates$ObjectPredicate;->withNarrowedType()Lcom/google/common/base/Predicate;
@@ -547,6 +608,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 95
+    .local p0, "predicate":Lcom/google/common/base/Predicate;, "Lcom/google/common/base/Predicate<TT;>;"
     new-instance v0, Lcom/google/common/base/Predicates$NotPredicate;
 
     invoke-direct {v0, p0}, Lcom/google/common/base/Predicates$NotPredicate;-><init>(Lcom/google/common/base/Predicate;)V
@@ -570,6 +634,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 87
     sget-object v0, Lcom/google/common/base/Predicates$ObjectPredicate;->NOT_NULL:Lcom/google/common/base/Predicates$ObjectPredicate;
 
     invoke-virtual {v0}, Lcom/google/common/base/Predicates$ObjectPredicate;->withNarrowedType()Lcom/google/common/base/Predicate;
@@ -595,6 +661,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 167
+    .local p0, "first":Lcom/google/common/base/Predicate;, "Lcom/google/common/base/Predicate<-TT;>;"
+    .local p1, "second":Lcom/google/common/base/Predicate;, "Lcom/google/common/base/Predicate<-TT;>;"
     new-instance v2, Lcom/google/common/base/Predicates$OrPredicate;
 
     invoke-static {p0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -636,6 +706,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 144
+    .local p0, "components":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+Lcom/google/common/base/Predicate<-TT;>;>;"
     new-instance v0, Lcom/google/common/base/Predicates$OrPredicate;
 
     invoke-static {p0}, Lcom/google/common/base/Predicates;->defensiveCopy(Ljava/lang/Iterable;)Ljava/util/List;
@@ -663,6 +736,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 157
+    .local p0, "components":[Lcom/google/common/base/Predicate;, "[Lcom/google/common/base/Predicate<-TT;>;"
     new-instance v0, Lcom/google/common/base/Predicates$OrPredicate;
 
     invoke-static {p0}, Lcom/google/common/base/Predicates;->defensiveCopy([Ljava/lang/Object;)Ljava/util/List;

@@ -33,6 +33,8 @@
 .method constructor <init>(Lcom/google/common/base/Function;)V
     .locals 0
 
+    .prologue
+    .line 1865
     iput-object p1, p0, Lcom/google/common/collect/Maps$7;->val$function:Lcom/google/common/base/Function;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,6 +52,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 1868
+    .local p1, "key":Ljava/lang/Object;, "TK;"
+    .local p2, "value":Ljava/lang/Object;, "TV1;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$7;->val$function:Lcom/google/common/base/Function;
 
     invoke-interface {v0, p2}, Lcom/google/common/base/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;

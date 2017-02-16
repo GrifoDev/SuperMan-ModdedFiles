@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/SearchView;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/v7/widget/SearchView;
 
+    .prologue
+    .line 1759
     iput-object p1, p0, Landroid/support/v7/widget/SearchView$12;->this$0:Landroid/support/v7/widget/SearchView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,23 +39,39 @@
 # virtual methods
 .method public afterTextChanged(Landroid/text/Editable;)V
     .locals 0
+    .param p1, "s"    # Landroid/text/Editable;
 
+    .prologue
+    .line 1769
     return-void
 .end method
 
 .method public beforeTextChanged(Ljava/lang/CharSequence;III)V
     .locals 0
+    .param p1, "s"    # Ljava/lang/CharSequence;
+    .param p2, "start"    # I
+    .param p3, "before"    # I
+    .param p4, "after"    # I
 
+    .prologue
+    .line 1761
     return-void
 .end method
 
 .method public onTextChanged(Ljava/lang/CharSequence;III)V
     .locals 1
+    .param p1, "s"    # Ljava/lang/CharSequence;
+    .param p2, "start"    # I
+    .param p3, "before"    # I
+    .param p4, "after"    # I
 
+    .prologue
+    .line 1765
     iget-object v0, p0, Landroid/support/v7/widget/SearchView$12;->this$0:Landroid/support/v7/widget/SearchView;
 
     # invokes: Landroid/support/v7/widget/SearchView;->onTextChanged(Ljava/lang/CharSequence;)V
     invoke-static {v0, p1}, Landroid/support/v7/widget/SearchView;->access$2000(Landroid/support/v7/widget/SearchView;Ljava/lang/CharSequence;)V
 
+    .line 1766
     return-void
 .end method

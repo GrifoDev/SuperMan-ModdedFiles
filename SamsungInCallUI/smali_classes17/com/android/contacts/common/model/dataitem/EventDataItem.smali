@@ -6,9 +6,13 @@
 # direct methods
 .method constructor <init>(Landroid/content/ContentValues;)V
     .locals 0
+    .param p1, "values"    # Landroid/content/ContentValues;
 
+    .prologue
+    .line 32
     invoke-direct {p0, p1}, Lcom/android/contacts/common/model/dataitem/DataItem;-><init>(Landroid/content/ContentValues;)V
 
+    .line 33
     return-void
 .end method
 
@@ -17,6 +21,8 @@
 .method public getLabel()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 40
     invoke-virtual {p0}, Lcom/android/contacts/common/model/dataitem/EventDataItem;->getContentValues()Landroid/content/ContentValues;
 
     move-result-object v0
@@ -33,6 +39,8 @@
 .method public getStartDate()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 36
     invoke-virtual {p0}, Lcom/android/contacts/common/model/dataitem/EventDataItem;->getContentValues()Landroid/content/ContentValues;
 
     move-result-object v0
@@ -48,11 +56,15 @@
 
 .method public shouldCollapseWith(Lcom/android/contacts/common/model/dataitem/DataItem;Landroid/content/Context;)Z
     .locals 5
+    .param p1, "t"    # Lcom/android/contacts/common/model/dataitem/DataItem;
+    .param p2, "context"    # Landroid/content/Context;
 
+    .prologue
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
+    .line 45
     instance-of v3, p1, Lcom/android/contacts/common/model/dataitem/EventDataItem;
 
     if-eqz v3, :cond_0
@@ -67,6 +79,7 @@
 
     if-nez v3, :cond_1
 
+    .line 61
     :cond_0
     :goto_0
     return v2
@@ -74,8 +87,11 @@
     :cond_1
     move-object v0, p1
 
+    .line 48
     check-cast v0, Lcom/android/contacts/common/model/dataitem/EventDataItem;
 
+    .line 50
+    .local v0, "that":Lcom/android/contacts/common/model/dataitem/EventDataItem;
     invoke-virtual {p0}, Lcom/android/contacts/common/model/dataitem/EventDataItem;->getStartDate()Ljava/lang/String;
 
     move-result-object v3
@@ -90,6 +106,7 @@
 
     if-eqz v3, :cond_0
 
+    .line 52
     iget-object v3, p0, Lcom/android/contacts/common/model/dataitem/EventDataItem;->mKind:Lcom/android/contacts/common/model/dataitem/DataKind;
 
     invoke-virtual {p0, v3}, Lcom/android/contacts/common/model/dataitem/EventDataItem;->hasKindTypeColumn(Lcom/android/contacts/common/model/dataitem/DataKind;)Z
@@ -108,6 +125,7 @@
 
     if-nez v3, :cond_4
 
+    .line 53
     :cond_2
     iget-object v3, p0, Lcom/android/contacts/common/model/dataitem/EventDataItem;->mKind:Lcom/android/contacts/common/model/dataitem/DataKind;
 
@@ -135,6 +153,7 @@
 
     goto :goto_1
 
+    .line 54
     :cond_4
     iget-object v3, p0, Lcom/android/contacts/common/model/dataitem/EventDataItem;->mKind:Lcom/android/contacts/common/model/dataitem/DataKind;
 
@@ -152,6 +171,7 @@
 
     if-ne v3, v4, :cond_0
 
+    .line 56
     iget-object v3, p0, Lcom/android/contacts/common/model/dataitem/EventDataItem;->mKind:Lcom/android/contacts/common/model/dataitem/DataKind;
 
     invoke-virtual {p0, v3}, Lcom/android/contacts/common/model/dataitem/EventDataItem;->getKindTypeColumn(Lcom/android/contacts/common/model/dataitem/DataKind;)I
@@ -160,6 +180,7 @@
 
     if-nez v3, :cond_5
 
+    .line 57
     invoke-virtual {p0}, Lcom/android/contacts/common/model/dataitem/EventDataItem;->getLabel()Ljava/lang/String;
 
     move-result-object v3
@@ -177,12 +198,15 @@
     :cond_5
     move v2, v1
 
+    .line 61
     goto :goto_0
 .end method
 
 .method public bridge synthetic shouldCollapseWith(Ljava/lang/Object;Landroid/content/Context;)Z
     .locals 1
 
+    .prologue
+    .line 29
     check-cast p1, Lcom/android/contacts/common/model/dataitem/DataItem;
 
     invoke-virtual {p0, p1, p2}, Lcom/android/contacts/common/model/dataitem/EventDataItem;->shouldCollapseWith(Lcom/android/contacts/common/model/dataitem/DataItem;Landroid/content/Context;)Z

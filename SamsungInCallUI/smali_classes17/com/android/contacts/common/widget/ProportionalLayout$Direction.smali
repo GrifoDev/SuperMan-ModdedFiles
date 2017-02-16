@@ -39,10 +39,12 @@
 .method static constructor <clinit>()V
     .locals 5
 
+    .prologue
     const/4 v4, 0x1
 
     const/4 v3, 0x0
 
+    .line 39
     new-instance v0, Lcom/android/contacts/common/widget/ProportionalLayout$Direction;
 
     const-string v1, "widthToHeight"
@@ -53,6 +55,7 @@
 
     sput-object v0, Lcom/android/contacts/common/widget/ProportionalLayout$Direction;->widthToHeight:Lcom/android/contacts/common/widget/ProportionalLayout$Direction;
 
+    .line 40
     new-instance v0, Lcom/android/contacts/common/widget/ProportionalLayout$Direction;
 
     const-string v1, "heightToWidth"
@@ -63,6 +66,7 @@
 
     sput-object v0, Lcom/android/contacts/common/widget/ProportionalLayout$Direction;->heightToWidth:Lcom/android/contacts/common/widget/ProportionalLayout$Direction;
 
+    .line 38
     const/4 v0, 0x2
 
     new-array v0, v0, [Lcom/android/contacts/common/widget/ProportionalLayout$Direction;
@@ -82,6 +86,7 @@
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
     .locals 0
+    .param p3, "xmlName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -90,16 +95,23 @@
         }
     .end annotation
 
+    .prologue
+    .line 44
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
+    .line 45
     iput-object p3, p0, Lcom/android/contacts/common/widget/ProportionalLayout$Direction;->XmlName:Ljava/lang/String;
 
+    .line 46
     return-void
 .end method
 
 .method public static parse(Ljava/lang/String;)Lcom/android/contacts/common/widget/ProportionalLayout$Direction;
     .locals 3
+    .param p0, "value"    # Ljava/lang/String;
 
+    .prologue
+    .line 53
     sget-object v0, Lcom/android/contacts/common/widget/ProportionalLayout$Direction;->widthToHeight:Lcom/android/contacts/common/widget/ProportionalLayout$Direction;
 
     iget-object v0, v0, Lcom/android/contacts/common/widget/ProportionalLayout$Direction;->XmlName:Ljava/lang/String;
@@ -110,11 +122,14 @@
 
     if-eqz v0, :cond_0
 
+    .line 54
     sget-object v0, Lcom/android/contacts/common/widget/ProportionalLayout$Direction;->widthToHeight:Lcom/android/contacts/common/widget/ProportionalLayout$Direction;
 
+    .line 56
     :goto_0
     return-object v0
 
+    .line 55
     :cond_0
     sget-object v0, Lcom/android/contacts/common/widget/ProportionalLayout$Direction;->heightToWidth:Lcom/android/contacts/common/widget/ProportionalLayout$Direction;
 
@@ -126,10 +141,12 @@
 
     if-eqz v0, :cond_1
 
+    .line 56
     sget-object v0, Lcom/android/contacts/common/widget/ProportionalLayout$Direction;->heightToWidth:Lcom/android/contacts/common/widget/ProportionalLayout$Direction;
 
     goto :goto_0
 
+    .line 58
     :cond_1
     new-instance v0, Ljava/lang/IllegalStateException;
 
@@ -176,7 +193,10 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/android/contacts/common/widget/ProportionalLayout$Direction;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 38
     const-class v0, Lcom/android/contacts/common/widget/ProportionalLayout$Direction;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -191,6 +211,8 @@
 .method public static values()[Lcom/android/contacts/common/widget/ProportionalLayout$Direction;
     .locals 1
 
+    .prologue
+    .line 38
     sget-object v0, Lcom/android/contacts/common/widget/ProportionalLayout$Direction;->$VALUES:[Lcom/android/contacts/common/widget/ProportionalLayout$Direction;
 
     invoke-virtual {v0}, [Lcom/android/contacts/common/widget/ProportionalLayout$Direction;->clone()Ljava/lang/Object;

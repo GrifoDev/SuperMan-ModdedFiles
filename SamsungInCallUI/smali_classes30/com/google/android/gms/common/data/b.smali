@@ -105,7 +105,9 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 3
+    .param p1, "obj"    # Ljava/lang/Object;
 
+    .prologue
     const/4 v0, 0x0
 
     instance-of v1, p1, Lcom/google/android/gms/common/data/b;
@@ -114,6 +116,7 @@
 
     check-cast p1, Lcom/google/android/gms/common/data/b;
 
+    .end local p1    # "obj":Ljava/lang/Object;
     iget v1, p1, Lcom/google/android/gms/common/data/b;->V:I
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -164,7 +167,9 @@
 
 .method protected getBoolean(Ljava/lang/String;)Z
     .locals 3
+    .param p1, "column"    # Ljava/lang/String;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/common/data/b;->S:Lcom/google/android/gms/common/data/d;
 
     iget v1, p0, Lcom/google/android/gms/common/data/b;->V:I
@@ -180,7 +185,9 @@
 
 .method protected getByteArray(Ljava/lang/String;)[B
     .locals 3
+    .param p1, "column"    # Ljava/lang/String;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/common/data/b;->S:Lcom/google/android/gms/common/data/d;
 
     iget v1, p0, Lcom/google/android/gms/common/data/b;->V:I
@@ -196,7 +203,9 @@
 
 .method protected getInteger(Ljava/lang/String;)I
     .locals 3
+    .param p1, "column"    # Ljava/lang/String;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/common/data/b;->S:Lcom/google/android/gms/common/data/d;
 
     iget v1, p0, Lcom/google/android/gms/common/data/b;->V:I
@@ -212,7 +221,9 @@
 
 .method protected getLong(Ljava/lang/String;)J
     .locals 3
+    .param p1, "column"    # Ljava/lang/String;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/common/data/b;->S:Lcom/google/android/gms/common/data/d;
 
     iget v1, p0, Lcom/google/android/gms/common/data/b;->V:I
@@ -228,7 +239,9 @@
 
 .method protected getString(Ljava/lang/String;)Ljava/lang/String;
     .locals 3
+    .param p1, "column"    # Ljava/lang/String;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/common/data/b;->S:Lcom/google/android/gms/common/data/d;
 
     iget v1, p0, Lcom/google/android/gms/common/data/b;->V:I

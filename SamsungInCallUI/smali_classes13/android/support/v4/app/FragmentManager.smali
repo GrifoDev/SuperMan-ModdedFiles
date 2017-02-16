@@ -20,16 +20,23 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 73
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 130
     return-void
 .end method
 
 .method public static enableDebugLogging(Z)V
     .locals 0
+    .param p0, "enabled"    # Z
 
+    .prologue
+    .line 373
     sput-boolean p0, Landroid/support/v4/app/FragmentManagerImpl;->DEBUG:Z
 
+    .line 374
     return-void
 .end method
 
@@ -86,6 +93,8 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    .prologue
+    .line 158
     invoke-virtual {p0}, Landroid/support/v4/app/FragmentManager;->beginTransaction()Landroid/support/v4/app/FragmentTransaction;
 
     move-result-object v0

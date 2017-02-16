@@ -41,6 +41,7 @@
 .method static constructor <clinit>()V
     .locals 7
 
+    .prologue
     const/4 v6, 0x4
 
     const/4 v5, 0x3
@@ -51,6 +52,7 @@
 
     const/4 v2, 0x0
 
+    .line 432
     new-instance v0, Lcom/google/i18n/phonenumbers/PhoneNumberUtil$MatchType;
 
     const-string v1, "NOT_A_NUMBER"
@@ -59,6 +61,7 @@
 
     sput-object v0, Lcom/google/i18n/phonenumbers/PhoneNumberUtil$MatchType;->NOT_A_NUMBER:Lcom/google/i18n/phonenumbers/PhoneNumberUtil$MatchType;
 
+    .line 433
     new-instance v0, Lcom/google/i18n/phonenumbers/PhoneNumberUtil$MatchType;
 
     const-string v1, "NO_MATCH"
@@ -67,6 +70,7 @@
 
     sput-object v0, Lcom/google/i18n/phonenumbers/PhoneNumberUtil$MatchType;->NO_MATCH:Lcom/google/i18n/phonenumbers/PhoneNumberUtil$MatchType;
 
+    .line 434
     new-instance v0, Lcom/google/i18n/phonenumbers/PhoneNumberUtil$MatchType;
 
     const-string v1, "SHORT_NSN_MATCH"
@@ -75,6 +79,7 @@
 
     sput-object v0, Lcom/google/i18n/phonenumbers/PhoneNumberUtil$MatchType;->SHORT_NSN_MATCH:Lcom/google/i18n/phonenumbers/PhoneNumberUtil$MatchType;
 
+    .line 435
     new-instance v0, Lcom/google/i18n/phonenumbers/PhoneNumberUtil$MatchType;
 
     const-string v1, "NSN_MATCH"
@@ -83,6 +88,7 @@
 
     sput-object v0, Lcom/google/i18n/phonenumbers/PhoneNumberUtil$MatchType;->NSN_MATCH:Lcom/google/i18n/phonenumbers/PhoneNumberUtil$MatchType;
 
+    .line 436
     new-instance v0, Lcom/google/i18n/phonenumbers/PhoneNumberUtil$MatchType;
 
     const-string v1, "EXACT_MATCH"
@@ -91,6 +97,7 @@
 
     sput-object v0, Lcom/google/i18n/phonenumbers/PhoneNumberUtil$MatchType;->EXACT_MATCH:Lcom/google/i18n/phonenumbers/PhoneNumberUtil$MatchType;
 
+    .line 431
     const/4 v0, 0x5
 
     new-array v0, v0, [Lcom/google/i18n/phonenumbers/PhoneNumberUtil$MatchType;
@@ -128,6 +135,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 431
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -135,7 +144,10 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/i18n/phonenumbers/PhoneNumberUtil$MatchType;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 431
     const-class v0, Lcom/google/i18n/phonenumbers/PhoneNumberUtil$MatchType;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -150,6 +162,8 @@
 .method public static values()[Lcom/google/i18n/phonenumbers/PhoneNumberUtil$MatchType;
     .locals 1
 
+    .prologue
+    .line 431
     sget-object v0, Lcom/google/i18n/phonenumbers/PhoneNumberUtil$MatchType;->$VALUES:[Lcom/google/i18n/phonenumbers/PhoneNumberUtil$MatchType;
 
     invoke-virtual {v0}, [Lcom/google/i18n/phonenumbers/PhoneNumberUtil$MatchType;->clone()Ljava/lang/Object;

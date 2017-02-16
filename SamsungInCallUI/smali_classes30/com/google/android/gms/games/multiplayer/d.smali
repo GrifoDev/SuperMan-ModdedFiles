@@ -60,7 +60,9 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
+    .param p1, "obj"    # Ljava/lang/Object;
 
+    .prologue
     invoke-static {p0, p1}, Lcom/google/android/gms/games/multiplayer/ParticipantEntity;->a(Lcom/google/android/gms/games/multiplayer/Participant;Ljava/lang/Object;)Z
 
     move-result v0
@@ -120,7 +122,9 @@
 
 .method public getDisplayName(Landroid/database/CharArrayBuffer;)V
     .locals 1
+    .param p1, "dataOut"    # Landroid/database/CharArrayBuffer;
 
+    .prologue
     const-string v0, "external_player_id"
 
     invoke-virtual {p0, v0}, Lcom/google/android/gms/games/multiplayer/d;->e(Ljava/lang/String;)Z
@@ -290,7 +294,10 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
+    .prologue
     invoke-virtual {p0}, Lcom/google/android/gms/games/multiplayer/d;->freeze()Lcom/google/android/gms/games/multiplayer/Participant;
 
     move-result-object v0

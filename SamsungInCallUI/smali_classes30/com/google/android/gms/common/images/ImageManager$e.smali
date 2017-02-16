@@ -35,7 +35,9 @@
 # virtual methods
 .method public onConfigurationChanged(Landroid/content/res/Configuration;)V
     .locals 0
+    .param p1, "newConfig"    # Landroid/content/res/Configuration;
 
+    .prologue
     return-void
 .end method
 
@@ -51,7 +53,9 @@
 
 .method public onTrimMemory(I)V
     .locals 2
+    .param p1, "level"    # I
 
+    .prologue
     const/16 v0, 0x3c
 
     if-lt p1, v0, :cond_1

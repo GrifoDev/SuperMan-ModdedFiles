@@ -26,6 +26,8 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
+    .line 2012
     invoke-static {}, Lcom/google/i18n/phonenumbers/PhoneNumberUtil$PhoneNumberType;->values()[Lcom/google/i18n/phonenumbers/PhoneNumberUtil$PhoneNumberType;
 
     move-result-object v0
@@ -211,6 +213,7 @@
     :try_end_a
     .catch Ljava/lang/NoSuchFieldError; {:try_start_a .. :try_end_a} :catch_8
 
+    .line 1719
     :goto_a
     invoke-static {}, Lcom/google/i18n/phonenumbers/PhoneNumberUtil$PhoneNumberFormat;->values()[Lcom/google/i18n/phonenumbers/PhoneNumberUtil$PhoneNumberFormat;
 
@@ -285,6 +288,7 @@
     :try_end_e
     .catch Ljava/lang/NoSuchFieldError; {:try_start_e .. :try_end_e} :catch_4
 
+    .line 1452
     :goto_e
     invoke-static {}, Lcom/google/i18n/phonenumbers/Phonenumber$PhoneNumber$CountryCodeSource;->values()[Lcom/google/i18n/phonenumbers/Phonenumber$PhoneNumber$CountryCodeSource;
 
@@ -382,6 +386,7 @@
 
     goto :goto_f
 
+    .line 1719
     :catch_4
     move-exception v0
 
@@ -402,6 +407,7 @@
 
     goto :goto_b
 
+    .line 2012
     :catch_8
     move-exception v0
 

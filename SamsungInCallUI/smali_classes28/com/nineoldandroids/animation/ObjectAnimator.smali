@@ -31,12 +31,15 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
+    .line 41
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     sput-object v0, Lcom/nineoldandroids/animation/ObjectAnimator;->PROXY_PROPERTIES:Ljava/util/Map;
 
+    .line 44
     sget-object v0, Lcom/nineoldandroids/animation/ObjectAnimator;->PROXY_PROPERTIES:Ljava/util/Map;
 
     const-string v1, "alpha"
@@ -45,6 +48,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 45
     sget-object v0, Lcom/nineoldandroids/animation/ObjectAnimator;->PROXY_PROPERTIES:Ljava/util/Map;
 
     const-string v1, "pivotX"
@@ -53,6 +57,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 46
     sget-object v0, Lcom/nineoldandroids/animation/ObjectAnimator;->PROXY_PROPERTIES:Ljava/util/Map;
 
     const-string v1, "pivotY"
@@ -61,6 +66,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 47
     sget-object v0, Lcom/nineoldandroids/animation/ObjectAnimator;->PROXY_PROPERTIES:Ljava/util/Map;
 
     const-string v1, "translationX"
@@ -69,6 +75,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 48
     sget-object v0, Lcom/nineoldandroids/animation/ObjectAnimator;->PROXY_PROPERTIES:Ljava/util/Map;
 
     const-string v1, "translationY"
@@ -77,6 +84,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 49
     sget-object v0, Lcom/nineoldandroids/animation/ObjectAnimator;->PROXY_PROPERTIES:Ljava/util/Map;
 
     const-string v1, "rotation"
@@ -85,6 +93,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 50
     sget-object v0, Lcom/nineoldandroids/animation/ObjectAnimator;->PROXY_PROPERTIES:Ljava/util/Map;
 
     const-string v1, "rotationX"
@@ -93,6 +102,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 51
     sget-object v0, Lcom/nineoldandroids/animation/ObjectAnimator;->PROXY_PROPERTIES:Ljava/util/Map;
 
     const-string v1, "rotationY"
@@ -101,6 +111,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 52
     sget-object v0, Lcom/nineoldandroids/animation/ObjectAnimator;->PROXY_PROPERTIES:Ljava/util/Map;
 
     const-string v1, "scaleX"
@@ -109,6 +120,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 53
     sget-object v0, Lcom/nineoldandroids/animation/ObjectAnimator;->PROXY_PROPERTIES:Ljava/util/Map;
 
     const-string v1, "scaleY"
@@ -117,6 +129,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 54
     sget-object v0, Lcom/nineoldandroids/animation/ObjectAnimator;->PROXY_PROPERTIES:Ljava/util/Map;
 
     const-string v1, "scrollX"
@@ -125,6 +138,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 55
     sget-object v0, Lcom/nineoldandroids/animation/ObjectAnimator;->PROXY_PROPERTIES:Ljava/util/Map;
 
     const-string v1, "scrollY"
@@ -133,6 +147,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 56
     sget-object v0, Lcom/nineoldandroids/animation/ObjectAnimator;->PROXY_PROPERTIES:Ljava/util/Map;
 
     const-string v1, "x"
@@ -141,6 +156,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 57
     sget-object v0, Lcom/nineoldandroids/animation/ObjectAnimator;->PROXY_PROPERTIES:Ljava/util/Map;
 
     const-string v1, "y"
@@ -149,14 +165,18 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 58
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 150
     invoke-direct {p0}, Lcom/nineoldandroids/animation/ValueAnimator;-><init>()V
 
+    .line 151
     return-void
 .end method
 
@@ -172,29 +192,44 @@
         }
     .end annotation
 
+    .prologue
+    .line 173
+    .local p1, "target":Ljava/lang/Object;, "TT;"
+    .local p2, "property":Lcom/nineoldandroids/util/Property;, "Lcom/nineoldandroids/util/Property<TT;*>;"
     invoke-direct {p0}, Lcom/nineoldandroids/animation/ValueAnimator;-><init>()V
 
+    .line 174
     iput-object p1, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mTarget:Ljava/lang/Object;
 
+    .line 175
     invoke-virtual {p0, p2}, Lcom/nineoldandroids/animation/ObjectAnimator;->setProperty(Lcom/nineoldandroids/util/Property;)V
 
+    .line 176
     return-void
 .end method
 
 .method private constructor <init>(Ljava/lang/Object;Ljava/lang/String;)V
     .locals 0
+    .param p1, "target"    # Ljava/lang/Object;
+    .param p2, "propertyName"    # Ljava/lang/String;
 
+    .prologue
+    .line 162
     invoke-direct {p0}, Lcom/nineoldandroids/animation/ValueAnimator;-><init>()V
 
+    .line 163
     iput-object p1, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mTarget:Ljava/lang/Object;
 
+    .line 164
     invoke-virtual {p0, p2}, Lcom/nineoldandroids/animation/ObjectAnimator;->setPropertyName(Ljava/lang/String;)V
 
+    .line 165
     return-void
 .end method
 
 .method public static varargs ofFloat(Ljava/lang/Object;Lcom/nineoldandroids/util/Property;[F)Lcom/nineoldandroids/animation/ObjectAnimator;
     .locals 1
+    .param p2, "values"    # [F
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -208,29 +243,45 @@
         }
     .end annotation
 
+    .prologue
+    .line 250
+    .local p0, "target":Ljava/lang/Object;, "TT;"
+    .local p1, "property":Lcom/nineoldandroids/util/Property;, "Lcom/nineoldandroids/util/Property<TT;Ljava/lang/Float;>;"
     new-instance v0, Lcom/nineoldandroids/animation/ObjectAnimator;
 
     invoke-direct {v0, p0, p1}, Lcom/nineoldandroids/animation/ObjectAnimator;-><init>(Ljava/lang/Object;Lcom/nineoldandroids/util/Property;)V
 
+    .line 251
+    .local v0, "anim":Lcom/nineoldandroids/animation/ObjectAnimator;
     invoke-virtual {v0, p2}, Lcom/nineoldandroids/animation/ObjectAnimator;->setFloatValues([F)V
 
+    .line 252
     return-object v0
 .end method
 
 .method public static varargs ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/nineoldandroids/animation/ObjectAnimator;
     .locals 1
+    .param p0, "target"    # Ljava/lang/Object;
+    .param p1, "propertyName"    # Ljava/lang/String;
+    .param p2, "values"    # [F
 
+    .prologue
+    .line 231
     new-instance v0, Lcom/nineoldandroids/animation/ObjectAnimator;
 
     invoke-direct {v0, p0, p1}, Lcom/nineoldandroids/animation/ObjectAnimator;-><init>(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 232
+    .local v0, "anim":Lcom/nineoldandroids/animation/ObjectAnimator;
     invoke-virtual {v0, p2}, Lcom/nineoldandroids/animation/ObjectAnimator;->setFloatValues([F)V
 
+    .line 233
     return-object v0
 .end method
 
 .method public static varargs ofInt(Ljava/lang/Object;Lcom/nineoldandroids/util/Property;[I)Lcom/nineoldandroids/animation/ObjectAnimator;
     .locals 1
+    .param p2, "values"    # [I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -244,29 +295,45 @@
         }
     .end annotation
 
+    .prologue
+    .line 211
+    .local p0, "target":Ljava/lang/Object;, "TT;"
+    .local p1, "property":Lcom/nineoldandroids/util/Property;, "Lcom/nineoldandroids/util/Property<TT;Ljava/lang/Integer;>;"
     new-instance v0, Lcom/nineoldandroids/animation/ObjectAnimator;
 
     invoke-direct {v0, p0, p1}, Lcom/nineoldandroids/animation/ObjectAnimator;-><init>(Ljava/lang/Object;Lcom/nineoldandroids/util/Property;)V
 
+    .line 212
+    .local v0, "anim":Lcom/nineoldandroids/animation/ObjectAnimator;
     invoke-virtual {v0, p2}, Lcom/nineoldandroids/animation/ObjectAnimator;->setIntValues([I)V
 
+    .line 213
     return-object v0
 .end method
 
 .method public static varargs ofInt(Ljava/lang/Object;Ljava/lang/String;[I)Lcom/nineoldandroids/animation/ObjectAnimator;
     .locals 1
+    .param p0, "target"    # Ljava/lang/Object;
+    .param p1, "propertyName"    # Ljava/lang/String;
+    .param p2, "values"    # [I
 
+    .prologue
+    .line 193
     new-instance v0, Lcom/nineoldandroids/animation/ObjectAnimator;
 
     invoke-direct {v0, p0, p1}, Lcom/nineoldandroids/animation/ObjectAnimator;-><init>(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 194
+    .local v0, "anim":Lcom/nineoldandroids/animation/ObjectAnimator;
     invoke-virtual {v0, p2}, Lcom/nineoldandroids/animation/ObjectAnimator;->setIntValues([I)V
 
+    .line 195
     return-object v0
 .end method
 
 .method public static varargs ofObject(Ljava/lang/Object;Lcom/nineoldandroids/util/Property;Lcom/nineoldandroids/animation/TypeEvaluator;[Ljava/lang/Object;)Lcom/nineoldandroids/animation/ObjectAnimator;
     .locals 1
+    .param p3, "values"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -282,42 +349,69 @@
         }
     .end annotation
 
+    .prologue
+    .line 297
+    .local p0, "target":Ljava/lang/Object;, "TT;"
+    .local p1, "property":Lcom/nineoldandroids/util/Property;, "Lcom/nineoldandroids/util/Property<TT;TV;>;"
+    .local p2, "evaluator":Lcom/nineoldandroids/animation/TypeEvaluator;, "Lcom/nineoldandroids/animation/TypeEvaluator<TV;>;"
     new-instance v0, Lcom/nineoldandroids/animation/ObjectAnimator;
 
     invoke-direct {v0, p0, p1}, Lcom/nineoldandroids/animation/ObjectAnimator;-><init>(Ljava/lang/Object;Lcom/nineoldandroids/util/Property;)V
 
+    .line 298
+    .local v0, "anim":Lcom/nineoldandroids/animation/ObjectAnimator;
     invoke-virtual {v0, p3}, Lcom/nineoldandroids/animation/ObjectAnimator;->setObjectValues([Ljava/lang/Object;)V
 
+    .line 299
     invoke-virtual {v0, p2}, Lcom/nineoldandroids/animation/ObjectAnimator;->setEvaluator(Lcom/nineoldandroids/animation/TypeEvaluator;)V
 
+    .line 300
     return-object v0
 .end method
 
 .method public static varargs ofObject(Ljava/lang/Object;Ljava/lang/String;Lcom/nineoldandroids/animation/TypeEvaluator;[Ljava/lang/Object;)Lcom/nineoldandroids/animation/ObjectAnimator;
     .locals 1
+    .param p0, "target"    # Ljava/lang/Object;
+    .param p1, "propertyName"    # Ljava/lang/String;
+    .param p2, "evaluator"    # Lcom/nineoldandroids/animation/TypeEvaluator;
+    .param p3, "values"    # [Ljava/lang/Object;
 
+    .prologue
+    .line 274
     new-instance v0, Lcom/nineoldandroids/animation/ObjectAnimator;
 
     invoke-direct {v0, p0, p1}, Lcom/nineoldandroids/animation/ObjectAnimator;-><init>(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 275
+    .local v0, "anim":Lcom/nineoldandroids/animation/ObjectAnimator;
     invoke-virtual {v0, p3}, Lcom/nineoldandroids/animation/ObjectAnimator;->setObjectValues([Ljava/lang/Object;)V
 
+    .line 276
     invoke-virtual {v0, p2}, Lcom/nineoldandroids/animation/ObjectAnimator;->setEvaluator(Lcom/nineoldandroids/animation/TypeEvaluator;)V
 
+    .line 277
     return-object v0
 .end method
 
 .method public static varargs ofPropertyValuesHolder(Ljava/lang/Object;[Lcom/nineoldandroids/animation/PropertyValuesHolder;)Lcom/nineoldandroids/animation/ObjectAnimator;
     .locals 1
+    .param p0, "target"    # Ljava/lang/Object;
+    .param p1, "values"    # [Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
+    .prologue
+    .line 322
     new-instance v0, Lcom/nineoldandroids/animation/ObjectAnimator;
 
     invoke-direct {v0}, Lcom/nineoldandroids/animation/ObjectAnimator;-><init>()V
 
+    .line 323
+    .local v0, "anim":Lcom/nineoldandroids/animation/ObjectAnimator;
     iput-object p0, v0, Lcom/nineoldandroids/animation/ObjectAnimator;->mTarget:Ljava/lang/Object;
 
+    .line 324
     invoke-virtual {v0, p1}, Lcom/nineoldandroids/animation/ObjectAnimator;->setValues([Lcom/nineoldandroids/animation/PropertyValuesHolder;)V
 
+    .line 325
     return-object v0
 .end method
 
@@ -325,20 +419,29 @@
 # virtual methods
 .method animateValue(F)V
     .locals 4
+    .param p1, "fraction"    # F
 
+    .prologue
+    .line 491
     invoke-super {p0, p1}, Lcom/nineoldandroids/animation/ValueAnimator;->animateValue(F)V
 
+    .line 492
     iget-object v2, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mValues:[Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
     array-length v1, v2
 
+    .line 493
+    .local v1, "numValues":I
     const/4 v0, 0x0
 
+    .local v0, "i":I
     :goto_0
     if-lt v0, v1, :cond_0
 
+    .line 496
     return-void
 
+    .line 494
     :cond_0
     iget-object v2, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mValues:[Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
@@ -348,6 +451,7 @@
 
     invoke-virtual {v2, v3}, Lcom/nineoldandroids/animation/PropertyValuesHolder;->setAnimatedValue(Ljava/lang/Object;)V
 
+    .line 493
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
@@ -356,18 +460,24 @@
 .method public clone()Lcom/nineoldandroids/animation/ObjectAnimator;
     .locals 1
 
+    .prologue
+    .line 500
     invoke-super {p0}, Lcom/nineoldandroids/animation/ValueAnimator;->clone()Lcom/nineoldandroids/animation/ValueAnimator;
 
     move-result-object v0
 
     check-cast v0, Lcom/nineoldandroids/animation/ObjectAnimator;
 
+    .line 501
+    .local v0, "anim":Lcom/nineoldandroids/animation/ObjectAnimator;
     return-object v0
 .end method
 
 .method public bridge synthetic clone()Lcom/nineoldandroids/animation/ValueAnimator;
     .locals 1
 
+    .prologue
+    .line 1
     invoke-virtual {p0}, Lcom/nineoldandroids/animation/ObjectAnimator;->clone()Lcom/nineoldandroids/animation/ObjectAnimator;
 
     move-result-object v0
@@ -378,6 +488,8 @@
 .method public getPropertyName()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 142
     iget-object v0, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mPropertyName:Ljava/lang/String;
 
     return-object v0
@@ -386,6 +498,8 @@
 .method public getTarget()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 438
     iget-object v0, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mTarget:Ljava/lang/Object;
 
     return-object v0
@@ -394,10 +508,13 @@
 .method initAnimation()V
     .locals 4
 
+    .prologue
+    .line 402
     iget-boolean v2, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mInitialized:Z
 
     if-nez v2, :cond_1
 
+    .line 405
     iget-object v2, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mProperty:Lcom/nineoldandroids/util/Property;
 
     if-nez v2, :cond_0
@@ -422,6 +539,7 @@
 
     if-eqz v2, :cond_0
 
+    .line 406
     sget-object v2, Lcom/nineoldandroids/animation/ObjectAnimator;->PROXY_PROPERTIES:Ljava/util/Map;
 
     iget-object v3, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mPropertyName:Ljava/lang/String;
@@ -434,21 +552,32 @@
 
     invoke-virtual {p0, v2}, Lcom/nineoldandroids/animation/ObjectAnimator;->setProperty(Lcom/nineoldandroids/util/Property;)V
 
+    .line 408
     :cond_0
     iget-object v2, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mValues:[Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
     array-length v1, v2
 
+    .line 409
+    .local v1, "numValues":I
     const/4 v0, 0x0
 
+    .local v0, "i":I
     :goto_0
     if-lt v0, v1, :cond_2
 
+    .line 412
     invoke-super {p0}, Lcom/nineoldandroids/animation/ValueAnimator;->initAnimation()V
 
+    .line 414
+    .end local v0    # "i":I
+    .end local v1    # "numValues":I
     :cond_1
     return-void
 
+    .line 410
+    .restart local v0    # "i":I
+    .restart local v1    # "numValues":I
     :cond_2
     iget-object v2, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mValues:[Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
@@ -458,6 +587,7 @@
 
     invoke-virtual {v2, v3}, Lcom/nineoldandroids/animation/PropertyValuesHolder;->setupSetterAndGetter(Ljava/lang/Object;)V
 
+    .line 409
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
@@ -465,15 +595,21 @@
 
 .method public setDuration(J)Lcom/nineoldandroids/animation/ObjectAnimator;
     .locals 1
+    .param p1, "duration"    # J
 
+    .prologue
+    .line 427
     invoke-super {p0, p1, p2}, Lcom/nineoldandroids/animation/ValueAnimator;->setDuration(J)Lcom/nineoldandroids/animation/ValueAnimator;
 
+    .line 428
     return-object p0
 .end method
 
 .method public bridge synthetic setDuration(J)Lcom/nineoldandroids/animation/ValueAnimator;
     .locals 1
 
+    .prologue
+    .line 1
     invoke-virtual {p0, p1, p2}, Lcom/nineoldandroids/animation/ObjectAnimator;->setDuration(J)Lcom/nineoldandroids/animation/ObjectAnimator;
 
     move-result-object v0
@@ -483,11 +619,14 @@
 
 .method public varargs setFloatValues([F)V
     .locals 3
+    .param p1, "values"    # [F
 
+    .prologue
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
+    .line 345
     iget-object v0, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mValues:[Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
     if-eqz v0, :cond_0
@@ -498,11 +637,13 @@
 
     if-nez v0, :cond_2
 
+    .line 348
     :cond_0
     iget-object v0, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mProperty:Lcom/nineoldandroids/util/Property;
 
     if-eqz v0, :cond_1
 
+    .line 349
     new-array v0, v1, [Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
     iget-object v1, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mProperty:Lcom/nineoldandroids/util/Property;
@@ -515,9 +656,11 @@
 
     invoke-virtual {p0, v0}, Lcom/nineoldandroids/animation/ObjectAnimator;->setValues([Lcom/nineoldandroids/animation/PropertyValuesHolder;)V
 
+    .line 356
     :goto_0
     return-void
 
+    .line 351
     :cond_1
     new-array v0, v1, [Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
@@ -533,6 +676,7 @@
 
     goto :goto_0
 
+    .line 354
     :cond_2
     invoke-super {p0, p1}, Lcom/nineoldandroids/animation/ValueAnimator;->setFloatValues([F)V
 
@@ -541,11 +685,14 @@
 
 .method public varargs setIntValues([I)V
     .locals 3
+    .param p1, "values"    # [I
 
+    .prologue
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
+    .line 330
     iget-object v0, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mValues:[Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
     if-eqz v0, :cond_0
@@ -556,11 +703,13 @@
 
     if-nez v0, :cond_2
 
+    .line 333
     :cond_0
     iget-object v0, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mProperty:Lcom/nineoldandroids/util/Property;
 
     if-eqz v0, :cond_1
 
+    .line 334
     new-array v0, v1, [Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
     iget-object v1, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mProperty:Lcom/nineoldandroids/util/Property;
@@ -573,9 +722,11 @@
 
     invoke-virtual {p0, v0}, Lcom/nineoldandroids/animation/ObjectAnimator;->setValues([Lcom/nineoldandroids/animation/PropertyValuesHolder;)V
 
+    .line 341
     :goto_0
     return-void
 
+    .line 336
     :cond_1
     new-array v0, v1, [Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
@@ -591,6 +742,7 @@
 
     goto :goto_0
 
+    .line 339
     :cond_2
     invoke-super {p0, p1}, Lcom/nineoldandroids/animation/ValueAnimator;->setIntValues([I)V
 
@@ -599,13 +751,16 @@
 
 .method public varargs setObjectValues([Ljava/lang/Object;)V
     .locals 4
+    .param p1, "values"    # [Ljava/lang/Object;
 
+    .prologue
     const/4 v3, 0x0
 
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
+    .line 360
     iget-object v0, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mValues:[Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
     if-eqz v0, :cond_0
@@ -616,11 +771,13 @@
 
     if-nez v0, :cond_2
 
+    .line 363
     :cond_0
     iget-object v0, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mProperty:Lcom/nineoldandroids/util/Property;
 
     if-eqz v0, :cond_1
 
+    .line 364
     new-array v0, v1, [Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
     iget-object v1, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mProperty:Lcom/nineoldandroids/util/Property;
@@ -633,9 +790,11 @@
 
     invoke-virtual {p0, v0}, Lcom/nineoldandroids/animation/ObjectAnimator;->setValues([Lcom/nineoldandroids/animation/PropertyValuesHolder;)V
 
+    .line 371
     :goto_0
     return-void
 
+    .line 366
     :cond_1
     new-array v0, v1, [Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
@@ -651,6 +810,7 @@
 
     goto :goto_0
 
+    .line 369
     :cond_2
     invoke-super {p0, p1}, Lcom/nineoldandroids/animation/ValueAnimator;->setObjectValues([Ljava/lang/Object;)V
 
@@ -659,98 +819,137 @@
 
 .method public setProperty(Lcom/nineoldandroids/util/Property;)V
     .locals 5
+    .param p1, "property"    # Lcom/nineoldandroids/util/Property;
 
+    .prologue
     const/4 v4, 0x0
 
+    .line 118
     iget-object v2, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mValues:[Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
     if-eqz v2, :cond_0
 
+    .line 119
     iget-object v2, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mValues:[Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
     aget-object v1, v2, v4
 
+    .line 120
+    .local v1, "valuesHolder":Lcom/nineoldandroids/animation/PropertyValuesHolder;
     invoke-virtual {v1}, Lcom/nineoldandroids/animation/PropertyValuesHolder;->getPropertyName()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 121
+    .local v0, "oldName":Ljava/lang/String;
     invoke-virtual {v1, p1}, Lcom/nineoldandroids/animation/PropertyValuesHolder;->setProperty(Lcom/nineoldandroids/util/Property;)V
 
+    .line 122
     iget-object v2, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mValuesMap:Ljava/util/HashMap;
 
     invoke-virtual {v2, v0}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 123
     iget-object v2, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mValuesMap:Ljava/util/HashMap;
 
     iget-object v3, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mPropertyName:Ljava/lang/String;
 
     invoke-virtual {v2, v3, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 125
+    .end local v0    # "oldName":Ljava/lang/String;
+    .end local v1    # "valuesHolder":Lcom/nineoldandroids/animation/PropertyValuesHolder;
     :cond_0
     iget-object v2, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mProperty:Lcom/nineoldandroids/util/Property;
 
     if-eqz v2, :cond_1
 
+    .line 126
     invoke-virtual {p1}, Lcom/nineoldandroids/util/Property;->getName()Ljava/lang/String;
 
     move-result-object v2
 
     iput-object v2, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mPropertyName:Ljava/lang/String;
 
+    .line 128
     :cond_1
     iput-object p1, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mProperty:Lcom/nineoldandroids/util/Property;
 
+    .line 130
     iput-boolean v4, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mInitialized:Z
 
+    .line 131
     return-void
 .end method
 
 .method public setPropertyName(Ljava/lang/String;)V
     .locals 4
+    .param p1, "propertyName"    # Ljava/lang/String;
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 96
     iget-object v2, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mValues:[Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
     if-eqz v2, :cond_0
 
+    .line 97
     iget-object v2, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mValues:[Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
     aget-object v1, v2, v3
 
+    .line 98
+    .local v1, "valuesHolder":Lcom/nineoldandroids/animation/PropertyValuesHolder;
     invoke-virtual {v1}, Lcom/nineoldandroids/animation/PropertyValuesHolder;->getPropertyName()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 99
+    .local v0, "oldName":Ljava/lang/String;
     invoke-virtual {v1, p1}, Lcom/nineoldandroids/animation/PropertyValuesHolder;->setPropertyName(Ljava/lang/String;)V
 
+    .line 100
     iget-object v2, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mValuesMap:Ljava/util/HashMap;
 
     invoke-virtual {v2, v0}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 101
     iget-object v2, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mValuesMap:Ljava/util/HashMap;
 
     invoke-virtual {v2, p1, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 103
+    .end local v0    # "oldName":Ljava/lang/String;
+    .end local v1    # "valuesHolder":Lcom/nineoldandroids/animation/PropertyValuesHolder;
     :cond_0
     iput-object p1, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mPropertyName:Ljava/lang/String;
 
+    .line 105
     iput-boolean v3, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mInitialized:Z
 
+    .line 106
     return-void
 .end method
 
 .method public setTarget(Ljava/lang/Object;)V
     .locals 3
+    .param p1, "target"    # Ljava/lang/Object;
 
+    .prologue
+    .line 448
     iget-object v1, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mTarget:Ljava/lang/Object;
 
     if-eq v1, p1, :cond_0
 
+    .line 449
     iget-object v0, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mTarget:Ljava/lang/Object;
 
+    .line 450
+    .local v0, "oldTarget":Ljava/lang/Object;
     iput-object p1, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mTarget:Ljava/lang/Object;
 
+    .line 451
     if-eqz v0, :cond_1
 
     if-eqz p1, :cond_1
@@ -765,10 +964,14 @@
 
     if-ne v1, v2, :cond_1
 
+    .line 457
+    .end local v0    # "oldTarget":Ljava/lang/Object;
     :cond_0
     :goto_0
     return-void
 
+    .line 455
+    .restart local v0    # "oldTarget":Ljava/lang/Object;
     :cond_1
     const/4 v1, 0x0
 
@@ -780,19 +983,27 @@
 .method public setupEndValues()V
     .locals 4
 
+    .prologue
+    .line 470
     invoke-virtual {p0}, Lcom/nineoldandroids/animation/ObjectAnimator;->initAnimation()V
 
+    .line 471
     iget-object v2, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mValues:[Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
     array-length v1, v2
 
+    .line 472
+    .local v1, "numValues":I
     const/4 v0, 0x0
 
+    .local v0, "i":I
     :goto_0
     if-lt v0, v1, :cond_0
 
+    .line 475
     return-void
 
+    .line 473
     :cond_0
     iget-object v2, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mValues:[Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
@@ -802,6 +1013,7 @@
 
     invoke-virtual {v2, v3}, Lcom/nineoldandroids/animation/PropertyValuesHolder;->setupEndValue(Ljava/lang/Object;)V
 
+    .line 472
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
@@ -810,19 +1022,27 @@
 .method public setupStartValues()V
     .locals 4
 
+    .prologue
+    .line 461
     invoke-virtual {p0}, Lcom/nineoldandroids/animation/ObjectAnimator;->initAnimation()V
 
+    .line 462
     iget-object v2, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mValues:[Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
     array-length v1, v2
 
+    .line 463
+    .local v1, "numValues":I
     const/4 v0, 0x0
 
+    .local v0, "i":I
     :goto_0
     if-lt v0, v1, :cond_0
 
+    .line 466
     return-void
 
+    .line 464
     :cond_0
     iget-object v2, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mValues:[Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
@@ -832,6 +1052,7 @@
 
     invoke-virtual {v2, v3}, Lcom/nineoldandroids/animation/PropertyValuesHolder;->setupStartValue(Ljava/lang/Object;)V
 
+    .line 463
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
@@ -840,14 +1061,19 @@
 .method public start()V
     .locals 0
 
+    .prologue
+    .line 385
     invoke-super {p0}, Lcom/nineoldandroids/animation/ValueAnimator;->start()V
 
+    .line 386
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
     .locals 4
 
+    .prologue
+    .line 506
     new-instance v2, Ljava/lang/StringBuilder;
 
     const-string v3, "ObjectAnimator@"
@@ -872,22 +1098,28 @@
 
     move-result-object v2
 
+    .line 507
     iget-object v3, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mTarget:Ljava/lang/Object;
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
+    .line 506
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
 
+    .line 508
+    .local v1, "returnVal":Ljava/lang/String;
     iget-object v2, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mValues:[Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
     if-eqz v2, :cond_0
 
+    .line 509
     const/4 v0, 0x0
 
+    .local v0, "i":I
     :goto_0
     iget-object v2, p0, Lcom/nineoldandroids/animation/ObjectAnimator;->mValues:[Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
@@ -895,9 +1127,13 @@
 
     if-lt v0, v2, :cond_1
 
+    .line 513
+    .end local v0    # "i":I
     :cond_0
     return-object v1
 
+    .line 510
+    .restart local v0    # "i":I
     :cond_1
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -929,6 +1165,7 @@
 
     move-result-object v1
 
+    .line 509
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0

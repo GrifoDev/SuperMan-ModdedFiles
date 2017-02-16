@@ -25,6 +25,8 @@
 .method private constructor <init>(Lcom/android/incallui/service/ui/JanskyPopupUI;)V
     .locals 0
 
+    .prologue
+    .line 81
     iput-object p1, p0, Lcom/android/incallui/service/ui/JanskyPopupUI$JanskyCallback;->this$0:Lcom/android/incallui/service/ui/JanskyPopupUI;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,7 +36,11 @@
 
 .method synthetic constructor <init>(Lcom/android/incallui/service/ui/JanskyPopupUI;Lcom/android/incallui/service/ui/JanskyPopupUI$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/android/incallui/service/ui/JanskyPopupUI;
+    .param p2, "x1"    # Lcom/android/incallui/service/ui/JanskyPopupUI$1;
 
+    .prologue
+    .line 81
     invoke-direct {p0, p1}, Lcom/android/incallui/service/ui/JanskyPopupUI$JanskyCallback;-><init>(Lcom/android/incallui/service/ui/JanskyPopupUI;)V
 
     return-void
@@ -45,9 +51,12 @@
 .method public onQueryCompleteMultiLine()V
     .locals 1
 
+    .prologue
+    .line 85
     iget-object v0, p0, Lcom/android/incallui/service/ui/JanskyPopupUI$JanskyCallback;->this$0:Lcom/android/incallui/service/ui/JanskyPopupUI;
 
     invoke-virtual {v0}, Lcom/android/incallui/service/ui/JanskyPopupUI;->updateJanskyIcon()V
 
+    .line 86
     return-void
 .end method

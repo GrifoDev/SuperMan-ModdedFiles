@@ -25,8 +25,11 @@
 .method constructor <init>(Lcom/samsung/android/sdk/look/SlookPointerIcon;)V
     .locals 0
 
+    .prologue
+    .line 1
     iput-object p1, p0, Lcom/samsung/android/sdk/look/SlookPointerIcon$1;->this$0:Lcom/samsung/android/sdk/look/SlookPointerIcon;
 
+    .line 70
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -36,18 +39,24 @@
 # virtual methods
 .method public onHover(Landroid/view/View;Landroid/view/MotionEvent;)Z
     .locals 4
+    .param p1, "v"    # Landroid/view/View;
+    .param p2, "event"    # Landroid/view/MotionEvent;
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 74
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v1
 
     packed-switch v1, :pswitch_data_0
 
+    .line 92
     :goto_0
     return v3
 
+    .line 77
     :pswitch_0
     const/4 v1, 0x0
 
@@ -65,13 +74,18 @@
 
     goto :goto_0
 
+    .line 78
     :catch_0
     move-exception v0
 
+    .line 79
+    .local v0, "e":Landroid/os/RemoteException;
     invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
 
     goto :goto_0
 
+    .line 85
+    .end local v0    # "e":Landroid/os/RemoteException;
     :pswitch_1
     const/4 v1, 0x1
 
@@ -84,13 +98,17 @@
 
     goto :goto_0
 
+    .line 86
     :catch_1
     move-exception v0
 
+    .line 87
+    .restart local v0    # "e":Landroid/os/RemoteException;
     invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
 
     goto :goto_0
 
+    .line 74
     :pswitch_data_0
     .packed-switch 0x9
         :pswitch_0

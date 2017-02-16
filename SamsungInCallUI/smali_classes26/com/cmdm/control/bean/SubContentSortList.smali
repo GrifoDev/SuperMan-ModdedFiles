@@ -37,6 +37,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -56,6 +58,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 41
     iget-object v0, p0, Lcom/cmdm/control/bean/SubContentSortList;->contentSortList:Ljava/util/ArrayList;
 
     return-object v0
@@ -73,7 +77,11 @@
         }
     .end annotation
 
+    .prologue
+    .line 49
+    .local p1, "contentSortList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/cmdm/control/bean/SubContentSort;>;"
     iput-object p1, p0, Lcom/cmdm/control/bean/SubContentSortList;->contentSortList:Ljava/util/ArrayList;
 
+    .line 50
     return-void
 .end method

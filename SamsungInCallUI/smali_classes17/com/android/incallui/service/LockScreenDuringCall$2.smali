@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/service/LockScreenDuringCall;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/service/LockScreenDuringCall;
 
+    .prologue
+    .line 201
     iput-object p1, p0, Lcom/android/incallui/service/LockScreenDuringCall$2;->this$0:Lcom/android/incallui/service/LockScreenDuringCall;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +39,10 @@
 # virtual methods
 .method public onDoubleTap(Landroid/view/MotionEvent;)Z
     .locals 2
+    .param p1, "e"    # Landroid/view/MotionEvent;
 
+    .prologue
+    .line 214
     iget-object v0, p0, Lcom/android/incallui/service/LockScreenDuringCall$2;->this$0:Lcom/android/incallui/service/LockScreenDuringCall;
 
     const-string v1, "onDoubleTap event - stopSelf"
@@ -44,6 +50,7 @@
     # invokes: Lcom/android/incallui/service/LockScreenDuringCall;->sendNextLockEventAndStopNow(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lcom/android/incallui/service/LockScreenDuringCall;->access$000(Lcom/android/incallui/service/LockScreenDuringCall;Ljava/lang/String;)V
 
+    .line 215
     const/4 v0, 0x0
 
     return v0
@@ -51,7 +58,10 @@
 
 .method public onDoubleTapEvent(Landroid/view/MotionEvent;)Z
     .locals 1
+    .param p1, "e"    # Landroid/view/MotionEvent;
 
+    .prologue
+    .line 209
     const/4 v0, 0x0
 
     return v0
@@ -59,7 +69,10 @@
 
 .method public onSingleTapConfirmed(Landroid/view/MotionEvent;)Z
     .locals 1
+    .param p1, "e"    # Landroid/view/MotionEvent;
 
+    .prologue
+    .line 204
     const/4 v0, 0x0
 
     return v0

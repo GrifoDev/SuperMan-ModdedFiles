@@ -40,16 +40,24 @@
 # direct methods
 .method public constructor <init>([BI)V
     .locals 1
+    .param p1, "bytes"    # [B
+    .param p2, "originalSmallerExtent"    # I
 
+    .prologue
+    .line 635
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 636
     iput-object p1, p0, Lcom/android/contacts/common/ContactPhotoManagerImpl$BitmapHolder;->bytes:[B
 
+    .line 637
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/contacts/common/ContactPhotoManagerImpl$BitmapHolder;->fresh:Z
 
+    .line 638
     iput p2, p0, Lcom/android/contacts/common/ContactPhotoManagerImpl$BitmapHolder;->originalSmallerExtent:I
 
+    .line 639
     return-void
 .end method

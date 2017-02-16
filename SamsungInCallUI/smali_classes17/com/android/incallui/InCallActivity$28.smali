@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/InCallActivity;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/InCallActivity;
 
+    .prologue
+    .line 3933
     iput-object p1, p0, Lcom/android/incallui/InCallActivity$28;->this$0:Lcom/android/incallui/InCallActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,10 +39,15 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 1
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .param p2, "id"    # I
 
+    .prologue
+    .line 3935
     iget-object v0, p0, Lcom/android/incallui/InCallActivity$28;->this$0:Lcom/android/incallui/InCallActivity;
 
     invoke-virtual {v0}, Lcom/android/incallui/InCallActivity;->dismissDataChargeAlertDialog()V
 
+    .line 3936
     return-void
 .end method

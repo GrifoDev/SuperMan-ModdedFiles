@@ -7,6 +7,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 20
     invoke-direct {p0}, Lcom/thoughtworks/xstream/converters/basic/AbstractSingleValueConverter;-><init>()V
 
     return-void
@@ -16,7 +18,10 @@
 # virtual methods
 .method public canConvert(Ljava/lang/Class;)Z
     .locals 1
+    .param p1, "type"    # Ljava/lang/Class;
 
+    .prologue
+    .line 23
     sget-object v0, Ljava/lang/Byte;->TYPE:Ljava/lang/Class;
 
     invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
@@ -47,7 +52,10 @@
 
 .method public fromString(Ljava/lang/String;)Ljava/lang/Object;
     .locals 4
+    .param p1, "str"    # Ljava/lang/String;
 
+    .prologue
+    .line 27
     invoke-static {p1}, Ljava/lang/Integer;->decode(Ljava/lang/String;)Ljava/lang/Integer;
 
     move-result-object v1
@@ -56,6 +64,8 @@
 
     move-result v0
 
+    .line 28
+    .local v0, "value":I
     const/16 v1, -0x80
 
     if-lt v0, v1, :cond_0
@@ -64,6 +74,7 @@
 
     if-le v0, v1, :cond_1
 
+    .line 29
     :cond_0
     new-instance v1, Ljava/lang/NumberFormatException;
 
@@ -95,6 +106,7 @@
 
     throw v1
 
+    .line 31
     :cond_1
     new-instance v1, Ljava/lang/Byte;
 

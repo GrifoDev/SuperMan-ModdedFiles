@@ -44,8 +44,14 @@
         }
     .end annotation
 
+    .prologue
+    .line 801
+    .local p0, "this":Lcom/google/common/collect/MapConstraints$ConstrainedSetMultimap;, "Lcom/google/common/collect/MapConstraints$ConstrainedSetMultimap<TK;TV;>;"
+    .local p1, "delegate":Lcom/google/common/collect/SetMultimap;, "Lcom/google/common/collect/SetMultimap<TK;TV;>;"
+    .local p2, "constraint":Lcom/google/common/collect/MapConstraint;, "Lcom/google/common/collect/MapConstraint<-TK;-TV;>;"
     invoke-direct {p0, p1, p2}, Lcom/google/common/collect/MapConstraints$ConstrainedMultimap;-><init>(Lcom/google/common/collect/Multimap;Lcom/google/common/collect/MapConstraint;)V
 
+    .line 802
     return-void
 .end method
 
@@ -54,6 +60,9 @@
 .method public bridge synthetic entries()Ljava/util/Collection;
     .locals 1
 
+    .prologue
+    .line 797
+    .local p0, "this":Lcom/google/common/collect/MapConstraints$ConstrainedSetMultimap;, "Lcom/google/common/collect/MapConstraints$ConstrainedSetMultimap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/MapConstraints$ConstrainedSetMultimap;->entries()Ljava/util/Set;
 
     move-result-object v0
@@ -73,6 +82,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 811
+    .local p0, "this":Lcom/google/common/collect/MapConstraints$ConstrainedSetMultimap;, "Lcom/google/common/collect/MapConstraints$ConstrainedSetMultimap<TK;TV;>;"
     invoke-super {p0}, Lcom/google/common/collect/MapConstraints$ConstrainedMultimap;->entries()Ljava/util/Collection;
 
     move-result-object v0
@@ -84,7 +96,11 @@
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/util/Collection;
     .locals 1
+    .param p1, "x0"    # Ljava/lang/Object;
 
+    .prologue
+    .line 797
+    .local p0, "this":Lcom/google/common/collect/MapConstraints$ConstrainedSetMultimap;, "Lcom/google/common/collect/MapConstraints$ConstrainedSetMultimap<TK;TV;>;"
     invoke-virtual {p0, p1}, Lcom/google/common/collect/MapConstraints$ConstrainedSetMultimap;->get(Ljava/lang/Object;)Ljava/util/Set;
 
     move-result-object v0
@@ -102,6 +118,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 806
+    .local p0, "this":Lcom/google/common/collect/MapConstraints$ConstrainedSetMultimap;, "Lcom/google/common/collect/MapConstraints$ConstrainedSetMultimap<TK;TV;>;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-super {p0, p1}, Lcom/google/common/collect/MapConstraints$ConstrainedMultimap;->get(Ljava/lang/Object;)Ljava/util/Collection;
 
     move-result-object v0
@@ -113,7 +133,11 @@
 
 .method public bridge synthetic removeAll(Ljava/lang/Object;)Ljava/util/Collection;
     .locals 1
+    .param p1, "x0"    # Ljava/lang/Object;
 
+    .prologue
+    .line 797
+    .local p0, "this":Lcom/google/common/collect/MapConstraints$ConstrainedSetMultimap;, "Lcom/google/common/collect/MapConstraints$ConstrainedSetMultimap<TK;TV;>;"
     invoke-virtual {p0, p1}, Lcom/google/common/collect/MapConstraints$ConstrainedSetMultimap;->removeAll(Ljava/lang/Object;)Ljava/util/Set;
 
     move-result-object v0
@@ -123,6 +147,7 @@
 
 .method public removeAll(Ljava/lang/Object;)Ljava/util/Set;
     .locals 1
+    .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -133,6 +158,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 816
+    .local p0, "this":Lcom/google/common/collect/MapConstraints$ConstrainedSetMultimap;, "Lcom/google/common/collect/MapConstraints$ConstrainedSetMultimap<TK;TV;>;"
     invoke-super {p0, p1}, Lcom/google/common/collect/MapConstraints$ConstrainedMultimap;->removeAll(Ljava/lang/Object;)Ljava/util/Collection;
 
     move-result-object v0
@@ -144,7 +172,12 @@
 
 .method public bridge synthetic replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/Collection;
     .locals 1
+    .param p1, "x0"    # Ljava/lang/Object;
+    .param p2, "x1"    # Ljava/lang/Iterable;
 
+    .prologue
+    .line 797
+    .local p0, "this":Lcom/google/common/collect/MapConstraints$ConstrainedSetMultimap;, "Lcom/google/common/collect/MapConstraints$ConstrainedSetMultimap<TK;TV;>;"
     invoke-virtual {p0, p1, p2}, Lcom/google/common/collect/MapConstraints$ConstrainedSetMultimap;->replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/Set;
 
     move-result-object v0
@@ -164,6 +197,11 @@
         }
     .end annotation
 
+    .prologue
+    .line 821
+    .local p0, "this":Lcom/google/common/collect/MapConstraints$ConstrainedSetMultimap;, "Lcom/google/common/collect/MapConstraints$ConstrainedSetMultimap<TK;TV;>;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
+    .local p2, "values":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TV;>;"
     invoke-super {p0, p1, p2}, Lcom/google/common/collect/MapConstraints$ConstrainedMultimap;->replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/Collection;
 
     move-result-object v0

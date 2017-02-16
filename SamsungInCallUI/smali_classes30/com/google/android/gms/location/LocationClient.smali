@@ -27,7 +27,11 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;)V
     .locals 2
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "connectionCallbacks"    # Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;
+    .param p3, "connectionFailedListener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;
 
+    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     new-instance v0, Lcom/google/android/gms/internal/bh;
@@ -43,7 +47,9 @@
 
 .method public static getErrorCode(Landroid/content/Intent;)I
     .locals 2
+    .param p0, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const-string v0, "gms_error_code"
 
     const/4 v1, -0x1
@@ -57,7 +63,9 @@
 
 .method public static getGeofenceTransition(Landroid/content/Intent;)I
     .locals 3
+    .param p0, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const/4 v0, -0x1
 
     const-string v1, "com.google.android.location.intent.extra.transition"
@@ -89,6 +97,7 @@
 
 .method public static getTriggeringGeofences(Landroid/content/Intent;)Ljava/util/List;
     .locals 3
+    .param p0, "intent"    # Landroid/content/Intent;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -101,6 +110,7 @@
         }
     .end annotation
 
+    .prologue
     const-string v0, "com.google.android.location.intent.extra.geofence_list"
 
     invoke-virtual {p0, v0}, Landroid/content/Intent;->getSerializableExtra(Ljava/lang/String;)Ljava/io/Serializable;
@@ -158,7 +168,9 @@
 
 .method public static hasError(Landroid/content/Intent;)Z
     .locals 1
+    .param p0, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const-string v0, "gms_error_code"
 
     invoke-virtual {p0, v0}, Landroid/content/Intent;->hasExtra(Ljava/lang/String;)Z
@@ -172,6 +184,8 @@
 # virtual methods
 .method public addGeofences(Ljava/util/List;Landroid/app/PendingIntent;Lcom/google/android/gms/location/LocationClient$OnAddGeofencesResultListener;)V
     .locals 5
+    .param p2, "pendingIntent"    # Landroid/app/PendingIntent;
+    .param p3, "listener"    # Lcom/google/android/gms/location/LocationClient$OnAddGeofencesResultListener;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -185,6 +199,8 @@
         }
     .end annotation
 
+    .prologue
+    .local p1, "geofences":Ljava/util/List;, "Ljava/util/List<Lcom/google/android/gms/location/Geofence;>;"
     const/4 v0, 0x0
 
     if-eqz p1, :cond_1
@@ -291,7 +307,9 @@
 
 .method public isConnectionCallbacksRegistered(Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;)Z
     .locals 1
+    .param p1, "listener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/location/LocationClient;->fo:Lcom/google/android/gms/internal/bh;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/bh;->isConnectionCallbacksRegistered(Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;)Z
@@ -303,7 +321,9 @@
 
 .method public isConnectionFailedListenerRegistered(Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;)Z
     .locals 1
+    .param p1, "listener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/location/LocationClient;->fo:Lcom/google/android/gms/internal/bh;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/bh;->isConnectionFailedListenerRegistered(Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;)Z
@@ -315,7 +335,9 @@
 
 .method public registerConnectionCallbacks(Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;)V
     .locals 1
+    .param p1, "listener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/location/LocationClient;->fo:Lcom/google/android/gms/internal/bh;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/bh;->registerConnectionCallbacks(Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;)V
@@ -325,7 +347,9 @@
 
 .method public registerConnectionFailedListener(Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;)V
     .locals 1
+    .param p1, "listener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/location/LocationClient;->fo:Lcom/google/android/gms/internal/bh;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/bh;->registerConnectionFailedListener(Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;)V
@@ -335,7 +359,10 @@
 
 .method public removeGeofences(Landroid/app/PendingIntent;Lcom/google/android/gms/location/LocationClient$OnRemoveGeofencesResultListener;)V
     .locals 1
+    .param p1, "pendingIntent"    # Landroid/app/PendingIntent;
+    .param p2, "listener"    # Lcom/google/android/gms/location/LocationClient$OnRemoveGeofencesResultListener;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/location/LocationClient;->fo:Lcom/google/android/gms/internal/bh;
 
     invoke-virtual {v0, p1, p2}, Lcom/google/android/gms/internal/bh;->removeGeofences(Landroid/app/PendingIntent;Lcom/google/android/gms/location/LocationClient$OnRemoveGeofencesResultListener;)V
@@ -345,6 +372,7 @@
 
 .method public removeGeofences(Ljava/util/List;Lcom/google/android/gms/location/LocationClient$OnRemoveGeofencesResultListener;)V
     .locals 1
+    .param p2, "listener"    # Lcom/google/android/gms/location/LocationClient$OnRemoveGeofencesResultListener;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -357,6 +385,8 @@
         }
     .end annotation
 
+    .prologue
+    .local p1, "geofenceRequestIds":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     iget-object v0, p0, Lcom/google/android/gms/location/LocationClient;->fo:Lcom/google/android/gms/internal/bh;
 
     invoke-virtual {v0, p1, p2}, Lcom/google/android/gms/internal/bh;->removeGeofences(Ljava/util/List;Lcom/google/android/gms/location/LocationClient$OnRemoveGeofencesResultListener;)V
@@ -366,7 +396,9 @@
 
 .method public removeLocationUpdates(Landroid/app/PendingIntent;)V
     .locals 1
+    .param p1, "callbackIntent"    # Landroid/app/PendingIntent;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/location/LocationClient;->fo:Lcom/google/android/gms/internal/bh;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/bh;->removeLocationUpdates(Landroid/app/PendingIntent;)V
@@ -376,7 +408,9 @@
 
 .method public removeLocationUpdates(Lcom/google/android/gms/location/LocationListener;)V
     .locals 1
+    .param p1, "listener"    # Lcom/google/android/gms/location/LocationListener;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/location/LocationClient;->fo:Lcom/google/android/gms/internal/bh;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/bh;->removeLocationUpdates(Lcom/google/android/gms/location/LocationListener;)V
@@ -386,7 +420,10 @@
 
 .method public requestLocationUpdates(Lcom/google/android/gms/location/LocationRequest;Landroid/app/PendingIntent;)V
     .locals 1
+    .param p1, "request"    # Lcom/google/android/gms/location/LocationRequest;
+    .param p2, "callbackIntent"    # Landroid/app/PendingIntent;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/location/LocationClient;->fo:Lcom/google/android/gms/internal/bh;
 
     invoke-virtual {v0, p1, p2}, Lcom/google/android/gms/internal/bh;->requestLocationUpdates(Lcom/google/android/gms/location/LocationRequest;Landroid/app/PendingIntent;)V
@@ -396,7 +433,10 @@
 
 .method public requestLocationUpdates(Lcom/google/android/gms/location/LocationRequest;Lcom/google/android/gms/location/LocationListener;)V
     .locals 1
+    .param p1, "request"    # Lcom/google/android/gms/location/LocationRequest;
+    .param p2, "listener"    # Lcom/google/android/gms/location/LocationListener;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/location/LocationClient;->fo:Lcom/google/android/gms/internal/bh;
 
     invoke-virtual {v0, p1, p2}, Lcom/google/android/gms/internal/bh;->requestLocationUpdates(Lcom/google/android/gms/location/LocationRequest;Lcom/google/android/gms/location/LocationListener;)V
@@ -406,7 +446,11 @@
 
 .method public requestLocationUpdates(Lcom/google/android/gms/location/LocationRequest;Lcom/google/android/gms/location/LocationListener;Landroid/os/Looper;)V
     .locals 1
+    .param p1, "request"    # Lcom/google/android/gms/location/LocationRequest;
+    .param p2, "listener"    # Lcom/google/android/gms/location/LocationListener;
+    .param p3, "looper"    # Landroid/os/Looper;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/location/LocationClient;->fo:Lcom/google/android/gms/internal/bh;
 
     invoke-virtual {v0, p1, p2, p3}, Lcom/google/android/gms/internal/bh;->requestLocationUpdates(Lcom/google/android/gms/location/LocationRequest;Lcom/google/android/gms/location/LocationListener;Landroid/os/Looper;)V
@@ -416,7 +460,9 @@
 
 .method public setMockLocation(Landroid/location/Location;)V
     .locals 1
+    .param p1, "mockLocation"    # Landroid/location/Location;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/location/LocationClient;->fo:Lcom/google/android/gms/internal/bh;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/bh;->setMockLocation(Landroid/location/Location;)V
@@ -426,7 +472,9 @@
 
 .method public setMockMode(Z)V
     .locals 1
+    .param p1, "isMockMode"    # Z
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/location/LocationClient;->fo:Lcom/google/android/gms/internal/bh;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/bh;->setMockMode(Z)V
@@ -436,7 +484,9 @@
 
 .method public unregisterConnectionCallbacks(Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;)V
     .locals 1
+    .param p1, "listener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/location/LocationClient;->fo:Lcom/google/android/gms/internal/bh;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/bh;->unregisterConnectionCallbacks(Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;)V
@@ -446,7 +496,9 @@
 
 .method public unregisterConnectionFailedListener(Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;)V
     .locals 1
+    .param p1, "listener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/location/LocationClient;->fo:Lcom/google/android/gms/internal/bh;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/bh;->unregisterConnectionFailedListener(Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;)V

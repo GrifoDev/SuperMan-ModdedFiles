@@ -37,6 +37,8 @@
 .method constructor <init>(Lcom/google/common/base/Splitter;Ljava/lang/CharSequence;)V
     .locals 0
 
+    .prologue
+    .line 409
     iput-object p1, p0, Lcom/google/common/base/Splitter$5;->this$0:Lcom/google/common/base/Splitter;
 
     iput-object p2, p0, Lcom/google/common/base/Splitter$5;->val$sequence:Ljava/lang/CharSequence;
@@ -60,6 +62,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 412
     iget-object v0, p0, Lcom/google/common/base/Splitter$5;->this$0:Lcom/google/common/base/Splitter;
 
     iget-object v1, p0, Lcom/google/common/base/Splitter$5;->val$sequence:Ljava/lang/CharSequence;
@@ -75,6 +79,8 @@
 .method public toString()Ljava/lang/String;
     .locals 3
 
+    .prologue
+    .line 417
     const-string v0, ", "
 
     invoke-static {v0}, Lcom/google/common/base/Joiner;->on(Ljava/lang/String;)Lcom/google/common/base/Joiner;

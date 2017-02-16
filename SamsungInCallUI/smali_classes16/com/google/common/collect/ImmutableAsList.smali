@@ -30,13 +30,18 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 35
+    .local p0, "this":Lcom/google/common/collect/ImmutableAsList;, "Lcom/google/common/collect/ImmutableAsList<TE;>;"
     invoke-direct {p0}, Lcom/google/common/collect/ImmutableList;-><init>()V
 
+    .line 63
     return-void
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
     .locals 2
+    .param p1, "stream"    # Ljava/io/ObjectInputStream;
     .annotation build Lcom/google/common/annotations/GwtIncompatible;
         value = "serialization"
     .end annotation
@@ -47,6 +52,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 80
+    .local p0, "this":Lcom/google/common/collect/ImmutableAsList;, "Lcom/google/common/collect/ImmutableAsList<TE;>;"
     new-instance v0, Ljava/io/InvalidObjectException;
 
     const-string v1, "Use SerializedForm"
@@ -60,7 +68,11 @@
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
+    .param p1, "target"    # Ljava/lang/Object;
 
+    .prologue
+    .line 42
+    .local p0, "this":Lcom/google/common/collect/ImmutableAsList;, "Lcom/google/common/collect/ImmutableAsList<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableAsList;->delegateCollection()Lcom/google/common/collect/ImmutableCollection;
 
     move-result-object v0
@@ -85,6 +97,9 @@
 .method public isEmpty()Z
     .locals 1
 
+    .prologue
+    .line 52
+    .local p0, "this":Lcom/google/common/collect/ImmutableAsList;, "Lcom/google/common/collect/ImmutableAsList<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableAsList;->delegateCollection()Lcom/google/common/collect/ImmutableCollection;
 
     move-result-object v0
@@ -99,6 +114,9 @@
 .method isPartialView()Z
     .locals 1
 
+    .prologue
+    .line 57
+    .local p0, "this":Lcom/google/common/collect/ImmutableAsList;, "Lcom/google/common/collect/ImmutableAsList<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableAsList;->delegateCollection()Lcom/google/common/collect/ImmutableCollection;
 
     move-result-object v0
@@ -113,6 +131,9 @@
 .method public size()I
     .locals 1
 
+    .prologue
+    .line 47
+    .local p0, "this":Lcom/google/common/collect/ImmutableAsList;, "Lcom/google/common/collect/ImmutableAsList<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableAsList;->delegateCollection()Lcom/google/common/collect/ImmutableCollection;
 
     move-result-object v0
@@ -130,6 +151,9 @@
         value = "serialization"
     .end annotation
 
+    .prologue
+    .line 86
+    .local p0, "this":Lcom/google/common/collect/ImmutableAsList;, "Lcom/google/common/collect/ImmutableAsList<TE;>;"
     new-instance v0, Lcom/google/common/collect/ImmutableAsList$SerializedForm;
 
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableAsList;->delegateCollection()Lcom/google/common/collect/ImmutableCollection;

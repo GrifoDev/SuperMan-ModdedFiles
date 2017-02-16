@@ -39,6 +39,8 @@
 .method constructor <init>(Landroid/content/Intent;Landroid/net/Uri;Landroid/content/Intent;Landroid/content/Context;)V
     .locals 0
 
+    .prologue
+    .line 213
     iput-object p1, p0, Lcom/whitepages/nameid/NameIDHelper$2;->val$intent:Landroid/content/Intent;
 
     iput-object p2, p0, Lcom/whitepages/nameid/NameIDHelper$2;->val$lookupUri:Landroid/net/Uri;
@@ -56,9 +58,12 @@
 # virtual methods
 .method protected varargs doInBackground([Ljava/lang/String;)Landroid/content/Intent;
     .locals 5
+    .param p1, "params"    # [Ljava/lang/String;
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 218
     :try_start_0
     # getter for: Lcom/whitepages/nameid/NameIDHelper;->s_service:Lcom/whitepages/nameid/ILookupService;
     invoke-static {}, Lcom/whitepages/nameid/NameIDHelper;->access$000()Lcom/whitepages/nameid/ILookupService;
@@ -84,9 +89,11 @@
 
     move-result-object v1
 
+    .line 223
     :goto_1
     return-object v1
 
+    .line 218
     :cond_0
     iget-object v2, p0, Lcom/whitepages/nameid/NameIDHelper$2;->val$lookupUri:Landroid/net/Uri;
 
@@ -98,9 +105,12 @@
 
     goto :goto_0
 
+    .line 220
     :catch_0
     move-exception v0
 
+    .line 221
+    .local v0, "ex":Landroid/os/RemoteException;
     const-string v2, "NameIDHelper"
 
     const-string v3, "Error calling addToContactsIntentForPhone"
@@ -113,6 +123,8 @@
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 213
     check-cast p1, [Ljava/lang/String;
 
     invoke-virtual {p0, p1}, Lcom/whitepages/nameid/NameIDHelper$2;->doInBackground([Ljava/lang/String;)Landroid/content/Intent;
@@ -124,19 +136,26 @@
 
 .method protected onPostExecute(Landroid/content/Intent;)V
     .locals 4
+    .param p1, "result"    # Landroid/content/Intent;
 
+    .prologue
+    .line 228
     invoke-super {p0, p1}, Landroid/os/AsyncTask;->onPostExecute(Ljava/lang/Object;)V
 
+    .line 229
     if-nez p1, :cond_0
 
+    .line 230
     iget-object p1, p0, Lcom/whitepages/nameid/NameIDHelper$2;->val$originalIntent:Landroid/content/Intent;
 
+    .line 231
     const-string v1, "NameIDHelper"
 
     const-string v2, "name id data not found; using original intent"
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 236
     :goto_0
     :try_start_0
     iget-object v1, p0, Lcom/whitepages/nameid/NameIDHelper$2;->val$ctx:Landroid/content/Context;
@@ -145,9 +164,11 @@
     :try_end_0
     .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 240
     :goto_1
     return-void
 
+    .line 233
     :cond_0
     const-string v1, "NameIDHelper"
 
@@ -177,9 +198,12 @@
 
     goto :goto_0
 
+    .line 237
     :catch_0
     move-exception v0
 
+    .line 238
+    .local v0, "e":Landroid/content/ActivityNotFoundException;
     const-string v1, "NameIDHelper"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -208,6 +232,8 @@
 .method protected bridge synthetic onPostExecute(Ljava/lang/Object;)V
     .locals 0
 
+    .prologue
+    .line 213
     check-cast p1, Landroid/content/Intent;
 
     invoke-virtual {p0, p1}, Lcom/whitepages/nameid/NameIDHelper$2;->onPostExecute(Landroid/content/Intent;)V

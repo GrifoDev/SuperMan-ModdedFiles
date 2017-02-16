@@ -57,10 +57,16 @@
         }
     .end annotation
 
+    .prologue
+    .line 1557
+    .local p0, "this":Lcom/google/common/collect/Multimaps$Keys;, "Lcom/google/common/collect/Multimaps$Keys<TK;TV;>;"
+    .local p1, "multimap":Lcom/google/common/collect/Multimap;, "Lcom/google/common/collect/Multimap<TK;TV;>;"
     invoke-direct {p0}, Lcom/google/common/collect/AbstractMultiset;-><init>()V
 
+    .line 1558
     iput-object p1, p0, Lcom/google/common/collect/Multimaps$Keys;->multimap:Lcom/google/common/collect/Multimap;
 
+    .line 1559
     return-void
 .end method
 
@@ -69,20 +75,27 @@
 .method public clear()V
     .locals 1
 
+    .prologue
+    .line 1682
+    .local p0, "this":Lcom/google/common/collect/Multimaps$Keys;, "Lcom/google/common/collect/Multimaps$Keys<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/Multimaps$Keys;->multimap:Lcom/google/common/collect/Multimap;
 
     invoke-interface {v0}, Lcom/google/common/collect/Multimap;->clear()V
 
+    .line 1683
     return-void
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
-    .param p1    # Ljava/lang/Object;
+    .param p1, "element"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
+    .prologue
+    .line 1640
+    .local p0, "this":Lcom/google/common/collect/Multimaps$Keys;, "Lcom/google/common/collect/Multimaps$Keys<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/Multimaps$Keys;->multimap:Lcom/google/common/collect/Multimap;
 
     invoke-interface {v0, p1}, Lcom/google/common/collect/Multimap;->containsKey(Ljava/lang/Object;)Z
@@ -94,11 +107,14 @@
 
 .method public count(Ljava/lang/Object;)I
     .locals 2
-    .param p1    # Ljava/lang/Object;
+    .param p1, "element"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
+    .prologue
+    .line 1650
+    .local p0, "this":Lcom/google/common/collect/Multimaps$Keys;, "Lcom/google/common/collect/Multimaps$Keys<TK;TV;>;"
     iget-object v1, p0, Lcom/google/common/collect/Multimaps$Keys;->multimap:Lcom/google/common/collect/Multimap;
 
     invoke-interface {v1}, Lcom/google/common/collect/Multimap;->asMap()Ljava/util/Map;
@@ -111,6 +127,8 @@
 
     check-cast v0, Ljava/util/Collection;
 
+    .line 1651
+    .local v0, "values":Ljava/util/Collection;, "Ljava/util/Collection<TV;>;"
     if-nez v0, :cond_0
 
     const/4 v1, 0x0
@@ -138,6 +156,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1589
+    .local p0, "this":Lcom/google/common/collect/Multimaps$Keys;, "Lcom/google/common/collect/Multimaps$Keys<TK;TV;>;"
     new-instance v0, Lcom/google/common/collect/Multimaps$Keys$KeysEntrySet;
 
     invoke-direct {v0, p0}, Lcom/google/common/collect/Multimaps$Keys$KeysEntrySet;-><init>(Lcom/google/common/collect/Multimaps$Keys;)V
@@ -148,6 +169,9 @@
 .method distinctElements()I
     .locals 1
 
+    .prologue
+    .line 1584
+    .local p0, "this":Lcom/google/common/collect/Multimaps$Keys;, "Lcom/google/common/collect/Multimaps$Keys<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/Multimaps$Keys;->multimap:Lcom/google/common/collect/Multimap;
 
     invoke-interface {v0}, Lcom/google/common/collect/Multimap;->asMap()Ljava/util/Map;
@@ -171,6 +195,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1687
+    .local p0, "this":Lcom/google/common/collect/Multimaps$Keys;, "Lcom/google/common/collect/Multimaps$Keys<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/Multimaps$Keys;->multimap:Lcom/google/common/collect/Multimap;
 
     invoke-interface {v0}, Lcom/google/common/collect/Multimap;->keySet()Ljava/util/Set;
@@ -192,6 +219,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1563
+    .local p0, "this":Lcom/google/common/collect/Multimaps$Keys;, "Lcom/google/common/collect/Multimaps$Keys<TK;TV;>;"
     new-instance v0, Lcom/google/common/collect/Multimaps$Keys$1;
 
     iget-object v1, p0, Lcom/google/common/collect/Multimaps$Keys;->multimap:Lcom/google/common/collect/Multimap;
@@ -223,6 +253,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1645
+    .local p0, "this":Lcom/google/common/collect/Multimaps$Keys;, "Lcom/google/common/collect/Multimaps$Keys<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/Multimaps$Keys;->multimap:Lcom/google/common/collect/Multimap;
 
     invoke-interface {v0}, Lcom/google/common/collect/Multimap;->entries()Ljava/util/Collection;
@@ -242,25 +275,33 @@
 
 .method public remove(Ljava/lang/Object;I)I
     .locals 5
-    .param p1    # Ljava/lang/Object;
+    .param p1, "element"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
+    .param p2, "occurrences"    # I
 
+    .prologue
+    .line 1656
+    .local p0, "this":Lcom/google/common/collect/Multimaps$Keys;, "Lcom/google/common/collect/Multimaps$Keys<TK;TV;>;"
     const-string v4, "occurrences"
 
     invoke-static {p2, v4}, Lcom/google/common/collect/CollectPreconditions;->checkNonnegative(ILjava/lang/String;)I
 
+    .line 1657
     if-nez p2, :cond_1
 
+    .line 1658
     invoke-virtual {p0, p1}, Lcom/google/common/collect/Multimaps$Keys;->count(Ljava/lang/Object;)I
 
     move-result v2
 
+    .line 1677
     :cond_0
     :goto_0
     return v2
 
+    .line 1661
     :cond_1
     iget-object v4, p0, Lcom/google/common/collect/Multimaps$Keys;->multimap:Lcom/google/common/collect/Multimap;
 
@@ -274,37 +315,51 @@
 
     check-cast v3, Ljava/util/Collection;
 
+    .line 1663
+    .local v3, "values":Ljava/util/Collection;, "Ljava/util/Collection<TV;>;"
     if-nez v3, :cond_2
 
+    .line 1664
     const/4 v2, 0x0
 
     goto :goto_0
 
+    .line 1667
     :cond_2
     invoke-interface {v3}, Ljava/util/Collection;->size()I
 
     move-result v2
 
+    .line 1668
+    .local v2, "oldCount":I
     if-lt p2, v2, :cond_3
 
+    .line 1669
     invoke-interface {v3}, Ljava/util/Collection;->clear()V
 
     goto :goto_0
 
+    .line 1671
     :cond_3
     invoke-interface {v3}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
+    .line 1672
+    .local v1, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<TV;>;"
     const/4 v0, 0x0
 
+    .local v0, "i":I
     :goto_1
     if-ge v0, p2, :cond_0
 
+    .line 1673
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
+    .line 1674
     invoke-interface {v1}, Ljava/util/Iterator;->remove()V
 
+    .line 1672
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1

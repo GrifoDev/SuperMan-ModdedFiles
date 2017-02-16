@@ -26,6 +26,8 @@
 .method constructor <init>(Landroid/view/ViewGroup$MarginLayoutParams;ILandroid/view/View;)V
     .locals 0
 
+    .prologue
+    .line 892
     iput-object p1, p0, Lcom/android/incallui/util/SecAnimationUtils$Change$9;->val$targetLp:Landroid/view/ViewGroup$MarginLayoutParams;
 
     iput p2, p0, Lcom/android/incallui/util/SecAnimationUtils$Change$9;->val$newTopMargin:I
@@ -41,24 +43,32 @@
 # virtual methods
 .method public onAnimationCancel(Landroid/animation/Animator;)V
     .locals 0
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 895
     return-void
 .end method
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 899
     iget-object v0, p0, Lcom/android/incallui/util/SecAnimationUtils$Change$9;->val$targetLp:Landroid/view/ViewGroup$MarginLayoutParams;
 
     iget v1, p0, Lcom/android/incallui/util/SecAnimationUtils$Change$9;->val$newTopMargin:I
 
     iput v1, v0, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
 
+    .line 900
     iget-object v0, p0, Lcom/android/incallui/util/SecAnimationUtils$Change$9;->val$targetView:Landroid/view/View;
 
     iget-object v1, p0, Lcom/android/incallui/util/SecAnimationUtils$Change$9;->val$targetLp:Landroid/view/ViewGroup$MarginLayoutParams;
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
+    .line 901
     return-void
 .end method

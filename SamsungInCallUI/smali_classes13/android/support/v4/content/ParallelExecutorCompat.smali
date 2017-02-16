@@ -7,6 +7,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -15,16 +17,20 @@
 .method public static getParallelExecutor()Ljava/util/concurrent/Executor;
     .locals 2
 
+    .prologue
+    .line 29
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0xb
 
     if-lt v0, v1, :cond_0
 
+    .line 31
     invoke-static {}, Landroid/support/v4/content/ExecutorCompatHoneycomb;->getParallelExecutor()Ljava/util/concurrent/Executor;
 
     move-result-object v0
 
+    .line 33
     :goto_0
     return-object v0
 

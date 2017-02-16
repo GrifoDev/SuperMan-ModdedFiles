@@ -58,21 +58,31 @@
         }
     .end annotation
 
+    .prologue
+    .local p0, "this":Lcom/google/common/collect/LinkedListMultimap$KeyList;, "Lcom/google/common/collect/LinkedListMultimap$KeyList<TK;TV;>;"
+    .local p1, "firstNode":Lcom/google/common/collect/LinkedListMultimap$Node;, "Lcom/google/common/collect/LinkedListMultimap$Node<TK;TV;>;"
     const/4 v0, 0x0
 
+    .line 148
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 149
     iput-object p1, p0, Lcom/google/common/collect/LinkedListMultimap$KeyList;->head:Lcom/google/common/collect/LinkedListMultimap$Node;
 
+    .line 150
     iput-object p1, p0, Lcom/google/common/collect/LinkedListMultimap$KeyList;->tail:Lcom/google/common/collect/LinkedListMultimap$Node;
 
+    .line 151
     iput-object v0, p1, Lcom/google/common/collect/LinkedListMultimap$Node;->previousSibling:Lcom/google/common/collect/LinkedListMultimap$Node;
 
+    .line 152
     iput-object v0, p1, Lcom/google/common/collect/LinkedListMultimap$Node;->nextSibling:Lcom/google/common/collect/LinkedListMultimap$Node;
 
+    .line 153
     const/4 v0, 0x1
 
     iput v0, p0, Lcom/google/common/collect/LinkedListMultimap$KeyList;->count:I
 
+    .line 154
     return-void
 .end method

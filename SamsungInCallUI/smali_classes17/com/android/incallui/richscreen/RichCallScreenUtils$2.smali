@@ -28,7 +28,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/richscreen/RichCallScreenUtils;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/richscreen/RichCallScreenUtils;
 
+    .prologue
+    .line 94
     iput-object p1, p0, Lcom/android/incallui/richscreen/RichCallScreenUtils$2;->this$0:Lcom/android/incallui/richscreen/RichCallScreenUtils;
 
     iput-object p2, p0, Lcom/android/incallui/richscreen/RichCallScreenUtils$2;->val$number:Ljava/lang/String;
@@ -45,10 +48,13 @@
 .method public run()V
     .locals 5
 
+    .prologue
+    .line 97
     sget-object v2, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->mRichScrnPersonBiz:Lcom/cmdm/rcs/biz/RichScrnPersonBiz;
 
     if-eqz v2, :cond_0
 
+    .line 98
     sget-object v2, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->mRichScrnPersonBiz:Lcom/cmdm/rcs/biz/RichScrnPersonBiz;
 
     iget-object v3, p0, Lcom/android/incallui/richscreen/RichCallScreenUtils$2;->val$number:Ljava/lang/String;
@@ -61,18 +67,23 @@
 
     sput-object v2, Lcom/android/incallui/richscreen/RichCallScreenUtils;->downloadResult:Lcom/cmdm/control/util/client/ResultEntity;
 
+    .line 99
     sget-object v2, Lcom/android/incallui/richscreen/RichCallScreenUtils;->downloadResult:Lcom/cmdm/control/util/client/ResultEntity;
 
     invoke-virtual {v2}, Lcom/cmdm/control/util/client/ResultEntity;->isSuccessed()Z
 
     move-result v0
 
+    .line 100
+    .local v0, "bDownloadSuccess":Z
     sget-object v2, Lcom/android/incallui/richscreen/RichCallScreenUtils;->downloadResult:Lcom/cmdm/control/util/client/ResultEntity;
 
     invoke-virtual {v2}, Lcom/cmdm/control/util/client/ResultEntity;->getResMsg()Ljava/lang/String;
 
     move-result-object v1
 
+    .line 101
+    .local v1, "mDownloadResultString":Ljava/lang/String;
     const-string v2, "RichCallScreenUtils"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -105,6 +116,9 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 103
+    .end local v0    # "bDownloadSuccess":Z
+    .end local v1    # "mDownloadResultString":Ljava/lang/String;
     :cond_0
     return-void
 .end method

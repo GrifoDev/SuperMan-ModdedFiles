@@ -11,10 +11,13 @@
 .method public constructor <init>()V
     .locals 6
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 28
     invoke-direct {p0}, Lcom/thoughtworks/xstream/converters/basic/AbstractSingleValueConverter;-><init>()V
 
+    .line 30
     new-instance v0, Lcom/thoughtworks/xstream/core/util/ThreadSafeSimpleDateFormat;
 
     const-string v1, "yyyy-MM-dd HH:mm:ss"
@@ -40,7 +43,10 @@
 # virtual methods
 .method public canConvert(Ljava/lang/Class;)Z
     .locals 1
+    .param p1, "type"    # Ljava/lang/Class;
 
+    .prologue
+    .line 34
     const-class v0, Ljava/sql/Timestamp;
 
     invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
@@ -52,13 +58,18 @@
 
 .method public fromString(Ljava/lang/String;)Ljava/lang/Object;
     .locals 6
+    .param p1, "str"    # Ljava/lang/String;
 
+    .prologue
+    .line 53
     const/16 v4, 0x2e
 
     invoke-virtual {p1, v4}, Ljava/lang/String;->lastIndexOf(I)I
 
     move-result v2
 
+    .line 54
+    .local v2, "idx":I
     if-ltz v2, :cond_0
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
@@ -81,6 +92,7 @@
 
     if-le v4, v5, :cond_1
 
+    .line 55
     :cond_0
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
@@ -90,6 +102,7 @@
 
     throw v4
 
+    .line 59
     :cond_1
     :try_start_0
     new-instance v3, Ljava/sql/Timestamp;
@@ -112,6 +125,8 @@
 
     invoke-direct {v3, v4, v5}, Ljava/sql/Timestamp;-><init>(J)V
 
+    .line 60
+    .local v3, "timestamp":Ljava/sql/Timestamp;
     new-instance v0, Ljava/lang/StringBuffer;
 
     add-int/lit8 v4, v2, 0x1
@@ -122,6 +137,8 @@
 
     invoke-direct {v0, v4}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
+    .line 61
+    .local v0, "buffer":Ljava/lang/StringBuffer;
     :goto_0
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->length()I
 
@@ -131,6 +148,7 @@
 
     if-eq v4, v5, :cond_2
 
+    .line 62
     const/16 v4, 0x30
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
@@ -139,9 +157,14 @@
 
     goto :goto_0
 
+    .line 66
+    .end local v0    # "buffer":Ljava/lang/StringBuffer;
+    .end local v3    # "timestamp":Ljava/sql/Timestamp;
     :catch_0
     move-exception v1
 
+    .line 67
+    .local v1, "e":Ljava/text/ParseException;
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
     const-string v5, "Timestamp format must be yyyy-mm-dd hh:mm:ss[.fffffffff]"
@@ -150,6 +173,10 @@
 
     throw v4
 
+    .line 64
+    .end local v1    # "e":Ljava/text/ParseException;
+    .restart local v0    # "buffer":Ljava/lang/StringBuffer;
+    .restart local v3    # "timestamp":Ljava/sql/Timestamp;
     :cond_2
     :try_start_1
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
@@ -164,18 +191,24 @@
     :try_end_1
     .catch Ljava/text/ParseException; {:try_start_1 .. :try_end_1} :catch_0
 
+    .line 65
     return-object v3
 .end method
 
 .method public toString(Ljava/lang/Object;)Ljava/lang/String;
     .locals 7
+    .param p1, "obj"    # Ljava/lang/Object;
 
+    .prologue
     const/16 v6, 0x30
 
+    .line 38
     move-object v3, p1
 
     check-cast v3, Ljava/sql/Timestamp;
 
+    .line 39
+    .local v3, "timestamp":Ljava/sql/Timestamp;
     new-instance v4, Ljava/lang/StringBuffer;
 
     iget-object v5, p0, Lcom/thoughtworks/xstream/converters/extended/SqlTimestampConverter;->format:Lcom/thoughtworks/xstream/core/util/ThreadSafeSimpleDateFormat;
@@ -192,14 +225,18 @@
 
     move-result-object v0
 
+    .line 40
+    .local v0, "buffer":Ljava/lang/StringBuffer;
     invoke-virtual {v3}, Ljava/sql/Timestamp;->getNanos()I
 
     move-result v4
 
     if-nez v4, :cond_0
 
+    .line 41
     invoke-virtual {v0, v6}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
+    .line 49
     :goto_0
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
@@ -207,6 +244,7 @@
 
     return-object v4
 
+    .line 43
     :cond_0
     invoke-virtual {v3}, Ljava/sql/Timestamp;->getNanos()I
 
@@ -220,8 +258,12 @@
 
     move-result-object v2
 
+    .line 44
+    .local v2, "nanos":Ljava/lang/String;
     const/16 v1, 0xa
 
+    .line 45
+    .local v1, "last":I
     :goto_1
     const/4 v4, 0x2
 
@@ -235,10 +277,12 @@
 
     if-ne v4, v6, :cond_1
 
+    .line 46
     add-int/lit8 v1, v1, -0x1
 
     goto :goto_1
 
+    .line 47
     :cond_1
     const/4 v4, 0x1
 

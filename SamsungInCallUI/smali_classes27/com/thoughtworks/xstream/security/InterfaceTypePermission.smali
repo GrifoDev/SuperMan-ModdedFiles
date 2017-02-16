@@ -14,6 +14,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 19
     new-instance v0, Lcom/thoughtworks/xstream/security/InterfaceTypePermission;
 
     invoke-direct {v0}, Lcom/thoughtworks/xstream/security/InterfaceTypePermission;-><init>()V
@@ -26,6 +28,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 15
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -35,7 +39,10 @@
 # virtual methods
 .method public allows(Ljava/lang/Class;)Z
     .locals 1
+    .param p1, "type"    # Ljava/lang/Class;
 
+    .prologue
+    .line 22
     if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Ljava/lang/Class;->isInterface()Z
@@ -57,7 +64,10 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 2
+    .param p1, "obj"    # Ljava/lang/Object;
 
+    .prologue
+    .line 30
     if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -82,6 +92,8 @@
 .method public hashCode()I
     .locals 1
 
+    .prologue
+    .line 26
     const/16 v0, 0x1f
 
     return v0

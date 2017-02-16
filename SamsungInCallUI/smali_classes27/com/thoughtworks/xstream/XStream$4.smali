@@ -27,6 +27,8 @@
 .method constructor <init>(Lcom/thoughtworks/xstream/XStream;Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;)V
     .locals 0
 
+    .prologue
+    .line 1845
     iput-object p1, p0, Lcom/thoughtworks/xstream/XStream$4;->this$0:Lcom/thoughtworks/xstream/XStream;
 
     iput-object p2, p0, Lcom/thoughtworks/xstream/XStream$4;->val$reader:Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
@@ -41,10 +43,13 @@
 .method public close()V
     .locals 1
 
+    .prologue
+    .line 1870
     iget-object v0, p0, Lcom/thoughtworks/xstream/XStream$4;->val$reader:Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
 
     invoke-interface {v0}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->close()V
 
+    .line 1871
     return-void
 .end method
 
@@ -56,6 +61,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 1861
     new-instance v0, Ljava/io/NotActiveException;
 
     const-string v1, "not in call to readObject"
@@ -73,6 +80,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 1857
     new-instance v0, Ljava/io/NotActiveException;
 
     const-string v1, "not in call to readObject"
@@ -90,6 +99,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 1847
     iget-object v1, p0, Lcom/thoughtworks/xstream/XStream$4;->val$reader:Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
 
     invoke-interface {v1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->hasMoreChildren()Z
@@ -98,17 +109,20 @@
 
     if-nez v1, :cond_0
 
+    .line 1848
     new-instance v1, Ljava/io/EOFException;
 
     invoke-direct {v1}, Ljava/io/EOFException;-><init>()V
 
     throw v1
 
+    .line 1850
     :cond_0
     iget-object v1, p0, Lcom/thoughtworks/xstream/XStream$4;->val$reader:Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
 
     invoke-interface {v1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->moveDown()V
 
+    .line 1851
     iget-object v1, p0, Lcom/thoughtworks/xstream/XStream$4;->this$0:Lcom/thoughtworks/xstream/XStream;
 
     iget-object v2, p0, Lcom/thoughtworks/xstream/XStream$4;->val$reader:Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
@@ -117,21 +131,28 @@
 
     move-result-object v0
 
+    .line 1852
+    .local v0, "result":Ljava/lang/Object;
     iget-object v1, p0, Lcom/thoughtworks/xstream/XStream$4;->val$reader:Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
 
     invoke-interface {v1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->moveUp()V
 
+    .line 1853
     return-object v0
 .end method
 
 .method public registerValidation(Ljava/io/ObjectInputValidation;I)V
     .locals 2
+    .param p1, "validation"    # Ljava/io/ObjectInputValidation;
+    .param p2, "priority"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/NotActiveException;
         }
     .end annotation
 
+    .prologue
+    .line 1866
     new-instance v0, Ljava/io/NotActiveException;
 
     const-string v1, "stream inactive"

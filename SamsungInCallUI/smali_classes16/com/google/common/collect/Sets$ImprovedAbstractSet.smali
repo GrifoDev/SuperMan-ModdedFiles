@@ -28,6 +28,9 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 72
+    .local p0, "this":Lcom/google/common/collect/Sets$ImprovedAbstractSet;, "Lcom/google/common/collect/Sets$ImprovedAbstractSet<TE;>;"
     invoke-direct {p0}, Ljava/util/AbstractSet;-><init>()V
 
     return-void
@@ -45,6 +48,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 75
+    .local p0, "this":Lcom/google/common/collect/Sets$ImprovedAbstractSet;, "Lcom/google/common/collect/Sets$ImprovedAbstractSet<TE;>;"
+    .local p1, "c":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     invoke-static {p0, p1}, Lcom/google/common/collect/Sets;->removeAllImpl(Ljava/util/Set;Ljava/util/Collection;)Z
 
     move-result v0
@@ -62,6 +69,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 80
+    .local p0, "this":Lcom/google/common/collect/Sets$ImprovedAbstractSet;, "Lcom/google/common/collect/Sets$ImprovedAbstractSet<TE;>;"
+    .local p1, "c":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0

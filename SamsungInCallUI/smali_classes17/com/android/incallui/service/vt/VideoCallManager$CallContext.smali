@@ -37,19 +37,26 @@
 # direct methods
 .method public constructor <init>(Lcom/android/incallui/service/vt/VideoCallManager;Lcom/android/incallui/Call;)V
     .locals 1
+    .param p2, "call"    # Lcom/android/incallui/Call;
 
+    .prologue
+    .line 596
     iput-object p1, p0, Lcom/android/incallui/service/vt/VideoCallManager$CallContext;->this$0:Lcom/android/incallui/service/vt/VideoCallManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 659
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/incallui/service/vt/VideoCallManager$CallContext;->mState:I
 
+    .line 597
     invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 598
     invoke-virtual {p0, p2}, Lcom/android/incallui/service/vt/VideoCallManager$CallContext;->update(Lcom/android/incallui/Call;)V
 
+    .line 599
     return-void
 .end method
 
@@ -58,6 +65,8 @@
 .method public getCall()Lcom/android/incallui/Call;
     .locals 1
 
+    .prologue
+    .line 656
     iget-object v0, p0, Lcom/android/incallui/service/vt/VideoCallManager$CallContext;->mCall:Lcom/android/incallui/Call;
 
     return-object v0
@@ -66,6 +75,8 @@
 .method public getDomain()I
     .locals 1
 
+    .prologue
+    .line 629
     iget v0, p0, Lcom/android/incallui/service/vt/VideoCallManager$CallContext;->mDomain:I
 
     return v0
@@ -74,6 +85,8 @@
 .method public getSessionId()I
     .locals 1
 
+    .prologue
+    .line 625
     iget v0, p0, Lcom/android/incallui/service/vt/VideoCallManager$CallContext;->mSessionId:I
 
     return v0
@@ -82,6 +95,8 @@
 .method public getState()I
     .locals 1
 
+    .prologue
+    .line 613
     iget v0, p0, Lcom/android/incallui/service/vt/VideoCallManager$CallContext;->mState:I
 
     return v0
@@ -90,6 +105,8 @@
 .method public getVideoState()I
     .locals 1
 
+    .prologue
+    .line 617
     iget v0, p0, Lcom/android/incallui/service/vt/VideoCallManager$CallContext;->mVideoState:I
 
     return v0
@@ -98,6 +115,8 @@
 .method public hasVideoSession()Z
     .locals 1
 
+    .prologue
+    .line 642
     iget-boolean v0, p0, Lcom/android/incallui/service/vt/VideoCallManager$CallContext;->mVideoSession:Z
 
     return v0
@@ -106,6 +125,8 @@
 .method public isSupportCameraRotation()Z
     .locals 1
 
+    .prologue
+    .line 633
     iget-boolean v0, p0, Lcom/android/incallui/service/vt/VideoCallManager$CallContext;->mIsSupportCameraRotation:Z
 
     return v0
@@ -114,6 +135,8 @@
 .method public isVideo()Z
     .locals 1
 
+    .prologue
+    .line 621
     iget v0, p0, Lcom/android/incallui/service/vt/VideoCallManager$CallContext;->mVideoState:I
 
     invoke-static {v0}, Landroid/telecom/VideoProfile;->isVideo(I)Z
@@ -125,11 +148,15 @@
 
 .method public isVideoCallChanged(Lcom/android/incallui/Call;)Z
     .locals 3
+    .param p1, "call"    # Lcom/android/incallui/Call;
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 646
     if-nez p1, :cond_1
 
+    .line 647
     :cond_0
     :goto_0
     return v0
@@ -154,11 +181,15 @@
 
 .method public isVideoSessionChanged(Lcom/android/incallui/Call;)Z
     .locals 3
+    .param p1, "call"    # Lcom/android/incallui/Call;
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 637
     if-nez p1, :cond_1
 
+    .line 638
     :cond_0
     :goto_0
     return v0
@@ -180,6 +211,8 @@
 .method public toString()Ljava/lang/String;
     .locals 4
 
+    .prologue
+    .line 651
     const-string v0, "CallContext {CallId=%s, State=%s, CurrentState=%s, VideoState=%d, SessionId=%d, VideoSession=%s}"
 
     const/4 v1, 0x6
@@ -190,6 +223,7 @@
 
     iget-object v3, p0, Lcom/android/incallui/service/vt/VideoCallManager$CallContext;->mCall:Lcom/android/incallui/Call;
 
+    .line 652
     invoke-virtual {v3}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
 
     move-result-object v3
@@ -250,6 +284,7 @@
 
     aput-object v3, v1, v2
 
+    .line 651
     invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
@@ -259,7 +294,10 @@
 
 .method public update(Lcom/android/incallui/Call;)V
     .locals 1
+    .param p1, "call"    # Lcom/android/incallui/Call;
 
+    .prologue
+    .line 602
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -268,12 +306,14 @@
 
     iput-object v0, p0, Lcom/android/incallui/service/vt/VideoCallManager$CallContext;->mCall:Lcom/android/incallui/Call;
 
+    .line 603
     invoke-virtual {p1}, Lcom/android/incallui/Call;->getState()I
 
     move-result v0
 
     iput v0, p0, Lcom/android/incallui/service/vt/VideoCallManager$CallContext;->mState:I
 
+    .line 604
     invoke-virtual {p1}, Lcom/android/incallui/Call;->getSecCall()Lcom/android/incallui/SecCall;
 
     move-result-object v0
@@ -284,6 +324,7 @@
 
     iput v0, p0, Lcom/android/incallui/service/vt/VideoCallManager$CallContext;->mVideoState:I
 
+    .line 605
     invoke-virtual {p1}, Lcom/android/incallui/Call;->getSecCall()Lcom/android/incallui/SecCall;
 
     move-result-object v0
@@ -294,29 +335,34 @@
 
     iput v0, p0, Lcom/android/incallui/service/vt/VideoCallManager$CallContext;->mSessionId:I
 
+    .line 606
     invoke-virtual {p1}, Lcom/android/incallui/Call;->getDomain()I
 
     move-result v0
 
     iput v0, p0, Lcom/android/incallui/service/vt/VideoCallManager$CallContext;->mDomain:I
 
+    .line 607
     invoke-static {p1}, Lcom/android/incallui/service/vt/VideoCallControl;->canUseScreenTypeSensor(Lcom/android/incallui/Call;)Z
 
     move-result v0
 
     iput-boolean v0, p0, Lcom/android/incallui/service/vt/VideoCallManager$CallContext;->mIsSupportCameraRotation:Z
 
+    .line 608
     invoke-virtual {p1}, Lcom/android/incallui/Call;->hasVideoState()Z
 
     move-result v0
 
     iput-boolean v0, p0, Lcom/android/incallui/service/vt/VideoCallManager$CallContext;->mVideoSession:Z
 
+    .line 609
     invoke-virtual {p1}, Lcom/android/incallui/Call;->getVideoCall()Landroid/telecom/InCallService$VideoCall;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/incallui/service/vt/VideoCallManager$CallContext;->mVideoCall:Landroid/telecom/InCallService$VideoCall;
 
+    .line 610
     return-void
 .end method

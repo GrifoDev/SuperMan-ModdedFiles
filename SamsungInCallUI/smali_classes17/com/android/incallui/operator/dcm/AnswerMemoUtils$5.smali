@@ -21,6 +21,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 349
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -31,13 +33,17 @@
 .method public run()V
     .locals 1
 
+    .prologue
+    .line 352
     const-string v0, "setAutoAnsweringMode after 130ms"
 
     invoke-static {v0}, Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->log(Ljava/lang/String;)V
 
+    .line 353
     const/4 v0, 0x0
 
     invoke-static {v0}, Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->setAutoAnsweringMode(Z)V
 
+    .line 354
     return-void
 .end method

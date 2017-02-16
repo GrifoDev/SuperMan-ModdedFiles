@@ -86,7 +86,21 @@
 
 .method constructor <init>(ILcom/google/android/gms/maps/model/LatLng;Ljava/lang/String;Ljava/lang/String;Landroid/os/IBinder;FFZZZFFF)V
     .locals 2
+    .param p1, "versionCode"    # I
+    .param p2, "position"    # Lcom/google/android/gms/maps/model/LatLng;
+    .param p3, "title"    # Ljava/lang/String;
+    .param p4, "snippet"    # Ljava/lang/String;
+    .param p5, "wrappedIcon"    # Landroid/os/IBinder;
+    .param p6, "anchorU"    # F
+    .param p7, "anchorV"    # F
+    .param p8, "draggable"    # Z
+    .param p9, "visible"    # Z
+    .param p10, "flat"    # Z
+    .param p11, "rotation"    # F
+    .param p12, "infoWindowAnchorU"    # F
+    .param p13, "infoWindowAnchorV"    # F
 
+    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     const/high16 v0, 0x3f000000    # 0.5f
@@ -166,7 +180,10 @@
 # virtual methods
 .method public anchor(FF)Lcom/google/android/gms/maps/model/MarkerOptions;
     .locals 0
+    .param p1, "u"    # F
+    .param p2, "v"    # F
 
+    .prologue
     iput p1, p0, Lcom/google/android/gms/maps/model/MarkerOptions;->hk:F
 
     iput p2, p0, Lcom/google/android/gms/maps/model/MarkerOptions;->hl:F
@@ -210,7 +227,9 @@
 
 .method public draggable(Z)Lcom/google/android/gms/maps/model/MarkerOptions;
     .locals 0
+    .param p1, "draggable"    # Z
 
+    .prologue
     iput-boolean p1, p0, Lcom/google/android/gms/maps/model/MarkerOptions;->hv:Z
 
     return-object p0
@@ -218,7 +237,9 @@
 
 .method public flat(Z)Lcom/google/android/gms/maps/model/MarkerOptions;
     .locals 0
+    .param p1, "flat"    # Z
 
+    .prologue
     iput-boolean p1, p0, Lcom/google/android/gms/maps/model/MarkerOptions;->hw:Z
 
     return-object p0
@@ -306,7 +327,9 @@
 
 .method public icon(Lcom/google/android/gms/maps/model/BitmapDescriptor;)Lcom/google/android/gms/maps/model/MarkerOptions;
     .locals 0
+    .param p1, "icon"    # Lcom/google/android/gms/maps/model/BitmapDescriptor;
 
+    .prologue
     iput-object p1, p0, Lcom/google/android/gms/maps/model/MarkerOptions;->hu:Lcom/google/android/gms/maps/model/BitmapDescriptor;
 
     return-object p0
@@ -314,7 +337,10 @@
 
 .method public infoWindowAnchor(FF)Lcom/google/android/gms/maps/model/MarkerOptions;
     .locals 0
+    .param p1, "u"    # F
+    .param p2, "v"    # F
 
+    .prologue
     iput p1, p0, Lcom/google/android/gms/maps/model/MarkerOptions;->hy:F
 
     iput p2, p0, Lcom/google/android/gms/maps/model/MarkerOptions;->hz:F
@@ -348,7 +374,9 @@
 
 .method public position(Lcom/google/android/gms/maps/model/LatLng;)Lcom/google/android/gms/maps/model/MarkerOptions;
     .locals 0
+    .param p1, "position"    # Lcom/google/android/gms/maps/model/LatLng;
 
+    .prologue
     iput-object p1, p0, Lcom/google/android/gms/maps/model/MarkerOptions;->hr:Lcom/google/android/gms/maps/model/LatLng;
 
     return-object p0
@@ -356,7 +384,9 @@
 
 .method public rotation(F)Lcom/google/android/gms/maps/model/MarkerOptions;
     .locals 0
+    .param p1, "rotation"    # F
 
+    .prologue
     iput p1, p0, Lcom/google/android/gms/maps/model/MarkerOptions;->hx:F
 
     return-object p0
@@ -364,7 +394,9 @@
 
 .method public snippet(Ljava/lang/String;)Lcom/google/android/gms/maps/model/MarkerOptions;
     .locals 0
+    .param p1, "snippet"    # Ljava/lang/String;
 
+    .prologue
     iput-object p1, p0, Lcom/google/android/gms/maps/model/MarkerOptions;->ht:Ljava/lang/String;
 
     return-object p0
@@ -372,7 +404,9 @@
 
 .method public title(Ljava/lang/String;)Lcom/google/android/gms/maps/model/MarkerOptions;
     .locals 0
+    .param p1, "title"    # Ljava/lang/String;
 
+    .prologue
     iput-object p1, p0, Lcom/google/android/gms/maps/model/MarkerOptions;->hs:Ljava/lang/String;
 
     return-object p0
@@ -380,7 +414,9 @@
 
 .method public visible(Z)Lcom/google/android/gms/maps/model/MarkerOptions;
     .locals 0
+    .param p1, "visible"    # Z
 
+    .prologue
     iput-boolean p1, p0, Lcom/google/android/gms/maps/model/MarkerOptions;->hc:Z
 
     return-object p0
@@ -388,7 +424,10 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
+    .prologue
     invoke-static {}, Lcom/google/android/gms/maps/internal/q;->bn()Z
 
     move-result v0

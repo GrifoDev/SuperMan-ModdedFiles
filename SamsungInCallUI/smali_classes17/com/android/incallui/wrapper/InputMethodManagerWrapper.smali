@@ -19,14 +19,17 @@
 .method static constructor <clinit>()V
     .locals 6
 
+    .prologue
     const/4 v5, 0x1
 
     const/4 v4, 0x0
 
+    .line 32
     const/4 v0, 0x0
 
     sput-object v0, Lcom/android/incallui/wrapper/InputMethodManagerWrapper;->baseClass:Ljava/lang/Class;
 
+    .line 35
     const-string v0, "android.view.inputmethod.InputMethodManager"
 
     invoke-static {v0}, Lcom/android/incallui/wrapper/ReflectUtil;->classForName(Ljava/lang/String;)Ljava/lang/Class;
@@ -35,6 +38,7 @@
 
     sput-object v0, Lcom/android/incallui/wrapper/InputMethodManagerWrapper;->baseClass:Ljava/lang/Class;
 
+    .line 37
     sget-object v0, Lcom/android/incallui/wrapper/InputMethodManagerWrapper;->baseClass:Ljava/lang/Class;
 
     const-string v1, "focusIn"
@@ -51,6 +55,7 @@
 
     sput-object v0, Lcom/android/incallui/wrapper/InputMethodManagerWrapper;->sMethodFocusIn:Ljava/lang/reflect/Method;
 
+    .line 38
     sget-object v0, Lcom/android/incallui/wrapper/InputMethodManagerWrapper;->baseClass:Ljava/lang/Class;
 
     const-string v1, "focusOut"
@@ -67,12 +72,15 @@
 
     sput-object v0, Lcom/android/incallui/wrapper/InputMethodManagerWrapper;->sMethodFocusOut:Ljava/lang/reflect/Method;
 
+    .line 39
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -80,13 +88,18 @@
 
 .method public static focusIn(Landroid/view/inputmethod/InputMethodManager;Landroid/view/View;)V
     .locals 4
+    .param p0, "instance"    # Landroid/view/inputmethod/InputMethodManager;
+    .param p1, "view"    # Landroid/view/View;
 
+    .prologue
+    .line 42
     sget-object v1, Lcom/android/incallui/wrapper/InputMethodManagerWrapper;->sMethodFocusIn:Ljava/lang/reflect/Method;
 
     if-eqz v1, :cond_0
 
     if-nez p1, :cond_1
 
+    .line 43
     :cond_0
     const-string v1, "InputMethodManagerWrapper"
 
@@ -94,9 +107,11 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 52
     :goto_0
     return-void
 
+    .line 48
     :cond_1
     :try_start_0
     sget-object v1, Lcom/android/incallui/wrapper/InputMethodManagerWrapper;->sMethodFocusIn:Ljava/lang/reflect/Method;
@@ -116,9 +131,12 @@
 
     goto :goto_0
 
+    .line 49
     :catch_0
     move-exception v0
 
+    .line 50
+    .local v0, "e":Ljava/lang/ReflectiveOperationException;
     :goto_1
     const-string v1, "InputMethodManagerWrapper"
 
@@ -148,6 +166,8 @@
 
     goto :goto_0
 
+    .line 49
+    .end local v0    # "e":Ljava/lang/ReflectiveOperationException;
     :catch_1
     move-exception v0
 
@@ -156,13 +176,18 @@
 
 .method public static focusOut(Landroid/view/inputmethod/InputMethodManager;Landroid/view/View;)V
     .locals 4
+    .param p0, "instance"    # Landroid/view/inputmethod/InputMethodManager;
+    .param p1, "view"    # Landroid/view/View;
 
+    .prologue
+    .line 55
     sget-object v1, Lcom/android/incallui/wrapper/InputMethodManagerWrapper;->sMethodFocusOut:Ljava/lang/reflect/Method;
 
     if-eqz v1, :cond_0
 
     if-nez p1, :cond_1
 
+    .line 56
     :cond_0
     const-string v1, "InputMethodManagerWrapper"
 
@@ -170,9 +195,11 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 65
     :goto_0
     return-void
 
+    .line 61
     :cond_1
     :try_start_0
     sget-object v1, Lcom/android/incallui/wrapper/InputMethodManagerWrapper;->sMethodFocusOut:Ljava/lang/reflect/Method;
@@ -192,9 +219,12 @@
 
     goto :goto_0
 
+    .line 62
     :catch_0
     move-exception v0
 
+    .line 63
+    .local v0, "e":Ljava/lang/ReflectiveOperationException;
     :goto_1
     const-string v1, "InputMethodManagerWrapper"
 
@@ -224,6 +254,8 @@
 
     goto :goto_0
 
+    .line 62
+    .end local v0    # "e":Ljava/lang/ReflectiveOperationException;
     :catch_1
     move-exception v0
 

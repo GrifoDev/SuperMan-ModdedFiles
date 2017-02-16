@@ -33,6 +33,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 255
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -51,6 +53,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 258
+    .local p1, "input":Ljava/lang/reflect/Constructor;, "Ljava/lang/reflect/Constructor<*>;"
     invoke-virtual {p1}, Ljava/lang/reflect/Constructor;->getParameterTypes()[Ljava/lang/Class;
 
     move-result-object v0
@@ -74,9 +79,13 @@
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
+    .param p1, "x0"    # Ljava/lang/Object;
 
+    .prologue
+    .line 255
     check-cast p1, Ljava/lang/reflect/Constructor;
 
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/google/common/util/concurrent/FuturesGetChecked$1;->apply(Ljava/lang/reflect/Constructor;)Ljava/lang/Boolean;
 
     move-result-object v0

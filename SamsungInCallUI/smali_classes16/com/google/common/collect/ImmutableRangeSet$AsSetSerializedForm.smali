@@ -64,12 +64,20 @@
         }
     .end annotation
 
+    .prologue
+    .line 536
+    .local p0, "this":Lcom/google/common/collect/ImmutableRangeSet$AsSetSerializedForm;, "Lcom/google/common/collect/ImmutableRangeSet$AsSetSerializedForm<TC;>;"
+    .local p1, "ranges":Lcom/google/common/collect/ImmutableList;, "Lcom/google/common/collect/ImmutableList<Lcom/google/common/collect/Range<TC;>;>;"
+    .local p2, "domain":Lcom/google/common/collect/DiscreteDomain;, "Lcom/google/common/collect/DiscreteDomain<TC;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 537
     iput-object p1, p0, Lcom/google/common/collect/ImmutableRangeSet$AsSetSerializedForm;->ranges:Lcom/google/common/collect/ImmutableList;
 
+    .line 538
     iput-object p2, p0, Lcom/google/common/collect/ImmutableRangeSet$AsSetSerializedForm;->domain:Lcom/google/common/collect/DiscreteDomain;
 
+    .line 539
     return-void
 .end method
 
@@ -78,6 +86,9 @@
 .method readResolve()Ljava/lang/Object;
     .locals 2
 
+    .prologue
+    .line 542
+    .local p0, "this":Lcom/google/common/collect/ImmutableRangeSet$AsSetSerializedForm;, "Lcom/google/common/collect/ImmutableRangeSet$AsSetSerializedForm<TC;>;"
     new-instance v0, Lcom/google/common/collect/ImmutableRangeSet;
 
     iget-object v1, p0, Lcom/google/common/collect/ImmutableRangeSet$AsSetSerializedForm;->ranges:Lcom/google/common/collect/ImmutableList;

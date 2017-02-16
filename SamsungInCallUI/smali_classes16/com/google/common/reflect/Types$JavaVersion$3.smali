@@ -18,6 +18,8 @@
 .method constructor <init>(Ljava/lang/String;I)V
     .locals 1
 
+    .prologue
+    .line 560
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, p2, v0}, Lcom/google/common/reflect/Types$JavaVersion;-><init>(Ljava/lang/String;ILcom/google/common/reflect/Types$1;)V
@@ -29,7 +31,10 @@
 # virtual methods
 .method newArrayType(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
     .locals 1
+    .param p1, "componentType"    # Ljava/lang/reflect/Type;
 
+    .prologue
+    .line 562
     sget-object v0, Lcom/google/common/reflect/Types$JavaVersion$3;->JAVA7:Lcom/google/common/reflect/Types$JavaVersion;
 
     invoke-virtual {v0, p1}, Lcom/google/common/reflect/Types$JavaVersion;->newArrayType(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
@@ -41,7 +46,10 @@
 
 .method typeName(Ljava/lang/reflect/Type;)Ljava/lang/String;
     .locals 5
+    .param p1, "type"    # Ljava/lang/reflect/Type;
 
+    .prologue
+    .line 569
     :try_start_0
     const-class v2, Ljava/lang/reflect/Type;
 
@@ -55,6 +63,8 @@
 
     move-result-object v1
 
+    .line 570
+    .local v1, "getTypeName":Ljava/lang/reflect/Method;
     const/4 v2, 0x0
 
     new-array v2, v2, [Ljava/lang/Object;
@@ -71,9 +81,13 @@
 
     return-object v2
 
+    .line 571
+    .end local v1    # "getTypeName":Ljava/lang/reflect/Method;
     :catch_0
     move-exception v0
 
+    .line 572
+    .local v0, "e":Ljava/lang/NoSuchMethodException;
     new-instance v2, Ljava/lang/AssertionError;
 
     const-string v3, "Type.getTypeName should be available in Java 8"
@@ -82,18 +96,26 @@
 
     throw v2
 
+    .line 573
+    .end local v0    # "e":Ljava/lang/NoSuchMethodException;
     :catch_1
     move-exception v0
 
+    .line 574
+    .local v0, "e":Ljava/lang/reflect/InvocationTargetException;
     new-instance v2, Ljava/lang/RuntimeException;
 
     invoke-direct {v2, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
     throw v2
 
+    .line 575
+    .end local v0    # "e":Ljava/lang/reflect/InvocationTargetException;
     :catch_2
     move-exception v0
 
+    .line 576
+    .local v0, "e":Ljava/lang/IllegalAccessException;
     new-instance v2, Ljava/lang/RuntimeException;
 
     invoke-direct {v2, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
@@ -103,7 +125,10 @@
 
 .method usedInGenericType(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
     .locals 1
+    .param p1, "type"    # Ljava/lang/reflect/Type;
 
+    .prologue
+    .line 565
     sget-object v0, Lcom/google/common/reflect/Types$JavaVersion$3;->JAVA7:Lcom/google/common/reflect/Types$JavaVersion;
 
     invoke-virtual {v0, p1}, Lcom/google/common/reflect/Types$JavaVersion;->usedInGenericType(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;

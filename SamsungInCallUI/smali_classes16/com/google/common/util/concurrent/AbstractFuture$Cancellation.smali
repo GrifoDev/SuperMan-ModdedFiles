@@ -26,16 +26,22 @@
 # direct methods
 .method constructor <init>(ZLjava/lang/Throwable;)V
     .locals 0
-    .param p2    # Ljava/lang/Throwable;
+    .param p1, "wasInterrupted"    # Z
+    .param p2, "cause"    # Ljava/lang/Throwable;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
+    .prologue
+    .line 254
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 255
     iput-boolean p1, p0, Lcom/google/common/util/concurrent/AbstractFuture$Cancellation;->wasInterrupted:Z
 
+    .line 256
     iput-object p2, p0, Lcom/google/common/util/concurrent/AbstractFuture$Cancellation;->cause:Ljava/lang/Throwable;
 
+    .line 257
     return-void
 .end method

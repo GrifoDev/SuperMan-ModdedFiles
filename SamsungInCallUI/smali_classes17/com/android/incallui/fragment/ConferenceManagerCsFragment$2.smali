@@ -26,7 +26,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/ConferenceManagerCsFragment;I)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
+    .prologue
+    .line 356
     iput-object p1, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$2;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
     iput p2, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$2;->val$rowId:I
@@ -40,7 +43,10 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 3
+    .param p1, "v"    # Landroid/view/View;
 
+    .prologue
+    .line 359
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -65,6 +71,7 @@
 
     invoke-static {p0, v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;Z)V
 
+    .line 360
     iget-object v0, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$2;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
     invoke-virtual {v0}, Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->getPresenter()Lcom/android/incallui/Presenter;
@@ -77,6 +84,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/ConferenceManagerPresenter;->endConferenceConnection(I)V
 
+    .line 361
     iget-object v0, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$2;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
     invoke-virtual {v0}, Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->getActivity()Landroid/app/Activity;
@@ -93,6 +101,7 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/incallui/util/InCallUIAppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 363
     const/4 v0, 0x0
 
     invoke-static {v0}, Lcom/android/incallui/util/SALogging;->getScreenId(I)Ljava/lang/String;
@@ -107,5 +116,6 @@
 
     invoke-static {v0, v1}, Lcom/android/incallui/util/SALogging;->sendSAEventLog(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 364
     return-void
 .end method

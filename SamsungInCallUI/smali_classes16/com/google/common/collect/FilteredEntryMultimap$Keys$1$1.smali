@@ -39,6 +39,9 @@
 .method constructor <init>(Lcom/google/common/collect/FilteredEntryMultimap$Keys$1;Lcom/google/common/base/Predicate;)V
     .locals 0
 
+    .prologue
+    .line 398
+    .local p0, "this":Lcom/google/common/collect/FilteredEntryMultimap$Keys$1$1;, "Lcom/google/common/collect/FilteredEntryMultimap$Keys$1.1;"
     iput-object p1, p0, Lcom/google/common/collect/FilteredEntryMultimap$Keys$1$1;->this$2:Lcom/google/common/collect/FilteredEntryMultimap$Keys$1;
 
     iput-object p2, p0, Lcom/google/common/collect/FilteredEntryMultimap$Keys$1$1;->val$predicate:Lcom/google/common/base/Predicate;
@@ -52,9 +55,14 @@
 # virtual methods
 .method public bridge synthetic apply(Ljava/lang/Object;)Z
     .locals 1
+    .param p1, "x0"    # Ljava/lang/Object;
 
+    .prologue
+    .line 398
+    .local p0, "this":Lcom/google/common/collect/FilteredEntryMultimap$Keys$1$1;, "Lcom/google/common/collect/FilteredEntryMultimap$Keys$1.1;"
     check-cast p1, Ljava/util/Map$Entry;
 
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/google/common/collect/FilteredEntryMultimap$Keys$1$1;->apply(Ljava/util/Map$Entry;)Z
 
     move-result v0
@@ -74,6 +82,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 401
+    .local p0, "this":Lcom/google/common/collect/FilteredEntryMultimap$Keys$1$1;, "Lcom/google/common/collect/FilteredEntryMultimap$Keys$1.1;"
+    .local p1, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;Ljava/util/Collection<TV;>;>;"
     iget-object v1, p0, Lcom/google/common/collect/FilteredEntryMultimap$Keys$1$1;->val$predicate:Lcom/google/common/base/Predicate;
 
     invoke-interface {p1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;

@@ -23,13 +23,21 @@
 # direct methods
 .method public constructor <init>(Lcom/android/incallui/service/SecCallPopupContainer;JJI)V
     .locals 0
+    .param p2, "time"    # J
+    .param p4, "interval"    # J
+    .param p6, "audioMode"    # I
 
+    .prologue
+    .line 1236
     iput-object p1, p0, Lcom/android/incallui/service/SecCallPopupContainer$KnoxCustomAutoAnswerTimer;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
+    .line 1237
     invoke-direct {p0, p2, p3, p4, p5}, Landroid/os/CountDownTimer;-><init>(JJ)V
 
+    .line 1238
     iput p6, p0, Lcom/android/incallui/service/SecCallPopupContainer$KnoxCustomAutoAnswerTimer;->mAudioMode:I
 
+    .line 1239
     return-void
 .end method
 
@@ -38,6 +46,8 @@
 .method public onFinish()V
     .locals 2
 
+    .prologue
+    .line 1243
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v0
@@ -48,6 +58,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 1244
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer$KnoxCustomAutoAnswerTimer;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
     const-string v1, "KnoxCustomAutoAnswerTimer onAnswer"
@@ -55,6 +66,7 @@
     # invokes: Lcom/android/incallui/service/SecCallPopupContainer;->log(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lcom/android/incallui/service/SecCallPopupContainer;->access$200(Lcom/android/incallui/service/SecCallPopupContainer;Ljava/lang/String;)V
 
+    .line 1245
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer$KnoxCustomAutoAnswerTimer;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
     # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mSecCallPopupService:Lcom/android/incallui/service/SecCallPopupService;
@@ -64,6 +76,7 @@
 
     invoke-virtual {v0}, Lcom/android/incallui/service/SecCallPopupService;->onAnswerWithWaitingCheck()V
 
+    .line 1246
     invoke-static {}, Lcom/android/incallui/TelecomAdapter;->getInstance()Lcom/android/incallui/TelecomAdapter;
 
     move-result-object v0
@@ -72,13 +85,17 @@
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/TelecomAdapter;->setAudioRoute(I)V
 
+    .line 1248
     :cond_0
     return-void
 .end method
 
 .method public onTick(J)V
     .locals 3
+    .param p1, "time"    # J
 
+    .prologue
+    .line 1252
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer$KnoxCustomAutoAnswerTimer;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -102,5 +119,6 @@
     # invokes: Lcom/android/incallui/service/SecCallPopupContainer;->log(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lcom/android/incallui/service/SecCallPopupContainer;->access$200(Lcom/android/incallui/service/SecCallPopupContainer;Ljava/lang/String;)V
 
+    .line 1253
     return-void
 .end method

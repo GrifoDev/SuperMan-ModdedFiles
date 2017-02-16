@@ -29,6 +29,9 @@
 .method constructor <init>(Lcom/google/common/collect/AbstractTable;)V
     .locals 0
 
+    .prologue
+    .line 185
+    .local p0, "this":Lcom/google/common/collect/AbstractTable$Values;, "Lcom/google/common/collect/AbstractTable<TR;TC;TV;>.Values;"
     iput-object p1, p0, Lcom/google/common/collect/AbstractTable$Values;->this$0:Lcom/google/common/collect/AbstractTable;
 
     invoke-direct {p0}, Ljava/util/AbstractCollection;-><init>()V
@@ -41,16 +44,24 @@
 .method public clear()V
     .locals 1
 
+    .prologue
+    .line 198
+    .local p0, "this":Lcom/google/common/collect/AbstractTable$Values;, "Lcom/google/common/collect/AbstractTable<TR;TC;TV;>.Values;"
     iget-object v0, p0, Lcom/google/common/collect/AbstractTable$Values;->this$0:Lcom/google/common/collect/AbstractTable;
 
     invoke-virtual {v0}, Lcom/google/common/collect/AbstractTable;->clear()V
 
+    .line 199
     return-void
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
+    .param p1, "o"    # Ljava/lang/Object;
 
+    .prologue
+    .line 193
+    .local p0, "this":Lcom/google/common/collect/AbstractTable$Values;, "Lcom/google/common/collect/AbstractTable<TR;TC;TV;>.Values;"
     iget-object v0, p0, Lcom/google/common/collect/AbstractTable$Values;->this$0:Lcom/google/common/collect/AbstractTable;
 
     invoke-virtual {v0, p1}, Lcom/google/common/collect/AbstractTable;->containsValue(Ljava/lang/Object;)Z
@@ -70,6 +81,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 188
+    .local p0, "this":Lcom/google/common/collect/AbstractTable$Values;, "Lcom/google/common/collect/AbstractTable<TR;TC;TV;>.Values;"
     iget-object v0, p0, Lcom/google/common/collect/AbstractTable$Values;->this$0:Lcom/google/common/collect/AbstractTable;
 
     invoke-virtual {v0}, Lcom/google/common/collect/AbstractTable;->valuesIterator()Ljava/util/Iterator;
@@ -82,6 +96,9 @@
 .method public size()I
     .locals 1
 
+    .prologue
+    .line 203
+    .local p0, "this":Lcom/google/common/collect/AbstractTable$Values;, "Lcom/google/common/collect/AbstractTable<TR;TC;TV;>.Values;"
     iget-object v0, p0, Lcom/google/common/collect/AbstractTable$Values;->this$0:Lcom/google/common/collect/AbstractTable;
 
     invoke-virtual {v0}, Lcom/google/common/collect/AbstractTable;->size()I

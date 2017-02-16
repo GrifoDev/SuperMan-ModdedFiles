@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/help/RejectCallsWithMessage;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/help/RejectCallsWithMessage;
 
+    .prologue
+    .line 291
     iput-object p1, p0, Lcom/android/incallui/help/RejectCallsWithMessage$7;->this$0:Lcom/android/incallui/help/RejectCallsWithMessage;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -33,7 +36,10 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 294
     const-string v0, "RejectCallsWithMessage"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -58,13 +64,16 @@
 
     invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 295
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
+    .line 302
     :goto_0
     return-void
 
+    .line 297
     :pswitch_0
     iget-object v0, p0, Lcom/android/incallui/help/RejectCallsWithMessage$7;->this$0:Lcom/android/incallui/help/RejectCallsWithMessage;
 
@@ -72,6 +81,7 @@
 
     goto :goto_0
 
+    .line 295
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

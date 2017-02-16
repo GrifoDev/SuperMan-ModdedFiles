@@ -21,6 +21,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 190
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -30,8 +32,12 @@
 # virtual methods
 .method public onDismiss(Landroid/content/DialogInterface;)V
     .locals 0
+    .param p1, "dialogInterface"    # Landroid/content/DialogInterface;
 
+    .prologue
+    .line 193
     invoke-static {}, Lcom/android/incallui/util/EpdgErrorUtils;->resumeVideo()V
 
+    .line 194
     return-void
 .end method

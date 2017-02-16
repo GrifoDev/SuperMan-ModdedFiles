@@ -36,7 +36,9 @@
 # virtual methods
 .method public onMapLongClick(Lcom/google/android/gms/maps/model/LatLng;)V
     .locals 1
+    .param p1, "point"    # Lcom/google/android/gms/maps/model/LatLng;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMap$6;->gh:Lcom/google/android/gms/maps/GoogleMap$OnMapLongClickListener;
 
     invoke-interface {v0, p1}, Lcom/google/android/gms/maps/GoogleMap$OnMapLongClickListener;->onMapLongClick(Lcom/google/android/gms/maps/model/LatLng;)V

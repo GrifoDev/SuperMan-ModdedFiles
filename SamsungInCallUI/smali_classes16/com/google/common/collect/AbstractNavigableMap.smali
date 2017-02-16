@@ -33,8 +33,12 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 35
+    .local p0, "this":Lcom/google/common/collect/AbstractNavigableMap;, "Lcom/google/common/collect/AbstractNavigableMap<TK;TV;>;"
     invoke-direct {p0}, Lcom/google/common/collect/Maps$IteratorBasedAbstractMap;-><init>()V
 
+    .line 167
     return-void
 .end method
 
@@ -53,6 +57,10 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
+    .prologue
+    .line 101
+    .local p0, "this":Lcom/google/common/collect/AbstractNavigableMap;, "Lcom/google/common/collect/AbstractNavigableMap<TK;TV;>;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
     const/4 v0, 0x1
 
     invoke-virtual {p0, p1, v0}, Lcom/google/common/collect/AbstractNavigableMap;->tailMap(Ljava/lang/Object;Z)Ljava/util/NavigableMap;
@@ -74,6 +82,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 122
+    .local p0, "this":Lcom/google/common/collect/AbstractNavigableMap;, "Lcom/google/common/collect/AbstractNavigableMap<TK;TV;>;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0, p1}, Lcom/google/common/collect/AbstractNavigableMap;->ceilingEntry(Ljava/lang/Object;)Ljava/util/Map$Entry;
 
     move-result-object v0
@@ -107,6 +119,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 159
+    .local p0, "this":Lcom/google/common/collect/AbstractNavigableMap;, "Lcom/google/common/collect/AbstractNavigableMap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractNavigableMap;->descendingMap()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -128,6 +143,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 164
+    .local p0, "this":Lcom/google/common/collect/AbstractNavigableMap;, "Lcom/google/common/collect/AbstractNavigableMap<TK;TV;>;"
     new-instance v0, Lcom/google/common/collect/AbstractNavigableMap$DescendingMap;
 
     const/4 v1, 0x0
@@ -150,6 +168,9 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
+    .prologue
+    .line 45
+    .local p0, "this":Lcom/google/common/collect/AbstractNavigableMap;, "Lcom/google/common/collect/AbstractNavigableMap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractNavigableMap;->entryIterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -173,18 +194,25 @@
         }
     .end annotation
 
+    .prologue
+    .line 68
+    .local p0, "this":Lcom/google/common/collect/AbstractNavigableMap;, "Lcom/google/common/collect/AbstractNavigableMap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractNavigableMap;->firstEntry()Ljava/util/Map$Entry;
 
     move-result-object v0
 
+    .line 69
+    .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
     if-nez v0, :cond_0
 
+    .line 70
     new-instance v1, Ljava/util/NoSuchElementException;
 
     invoke-direct {v1}, Ljava/util/NoSuchElementException;-><init>()V
 
     throw v1
 
+    .line 72
     :cond_0
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
@@ -206,6 +234,10 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
+    .prologue
+    .line 95
+    .local p0, "this":Lcom/google/common/collect/AbstractNavigableMap;, "Lcom/google/common/collect/AbstractNavigableMap<TK;TV;>;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
     const/4 v0, 0x1
 
     invoke-virtual {p0, p1, v0}, Lcom/google/common/collect/AbstractNavigableMap;->headMap(Ljava/lang/Object;Z)Ljava/util/NavigableMap;
@@ -227,6 +259,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 117
+    .local p0, "this":Lcom/google/common/collect/AbstractNavigableMap;, "Lcom/google/common/collect/AbstractNavigableMap<TK;TV;>;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0, p1}, Lcom/google/common/collect/AbstractNavigableMap;->floorEntry(Ljava/lang/Object;)Ljava/util/Map$Entry;
 
     move-result-object v0
@@ -265,6 +301,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 139
+    .local p0, "this":Lcom/google/common/collect/AbstractNavigableMap;, "Lcom/google/common/collect/AbstractNavigableMap<TK;TV;>;"
+    .local p1, "toKey":Ljava/lang/Object;, "TK;"
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, v0}, Lcom/google/common/collect/AbstractNavigableMap;->headMap(Ljava/lang/Object;Z)Ljava/util/NavigableMap;
@@ -287,6 +327,10 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
+    .prologue
+    .line 107
+    .local p0, "this":Lcom/google/common/collect/AbstractNavigableMap;, "Lcom/google/common/collect/AbstractNavigableMap<TK;TV;>;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, v0}, Lcom/google/common/collect/AbstractNavigableMap;->tailMap(Ljava/lang/Object;Z)Ljava/util/NavigableMap;
@@ -308,6 +352,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 127
+    .local p0, "this":Lcom/google/common/collect/AbstractNavigableMap;, "Lcom/google/common/collect/AbstractNavigableMap<TK;TV;>;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0, p1}, Lcom/google/common/collect/AbstractNavigableMap;->higherEntry(Ljava/lang/Object;)Ljava/util/Map$Entry;
 
     move-result-object v0
@@ -329,6 +377,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 154
+    .local p0, "this":Lcom/google/common/collect/AbstractNavigableMap;, "Lcom/google/common/collect/AbstractNavigableMap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractNavigableMap;->navigableKeySet()Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -349,6 +400,9 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
+    .prologue
+    .line 51
+    .local p0, "this":Lcom/google/common/collect/AbstractNavigableMap;, "Lcom/google/common/collect/AbstractNavigableMap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractNavigableMap;->descendingEntryIterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -372,18 +426,25 @@
         }
     .end annotation
 
+    .prologue
+    .line 78
+    .local p0, "this":Lcom/google/common/collect/AbstractNavigableMap;, "Lcom/google/common/collect/AbstractNavigableMap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractNavigableMap;->lastEntry()Ljava/util/Map$Entry;
 
     move-result-object v0
 
+    .line 79
+    .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
     if-nez v0, :cond_0
 
+    .line 80
     new-instance v1, Ljava/util/NoSuchElementException;
 
     invoke-direct {v1}, Ljava/util/NoSuchElementException;-><init>()V
 
     throw v1
 
+    .line 82
     :cond_0
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
@@ -405,6 +466,10 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
+    .prologue
+    .line 89
+    .local p0, "this":Lcom/google/common/collect/AbstractNavigableMap;, "Lcom/google/common/collect/AbstractNavigableMap<TK;TV;>;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, v0}, Lcom/google/common/collect/AbstractNavigableMap;->headMap(Ljava/lang/Object;Z)Ljava/util/NavigableMap;
@@ -426,6 +491,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 112
+    .local p0, "this":Lcom/google/common/collect/AbstractNavigableMap;, "Lcom/google/common/collect/AbstractNavigableMap<TK;TV;>;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0, p1}, Lcom/google/common/collect/AbstractNavigableMap;->lowerEntry(Ljava/lang/Object;)Ljava/util/Map$Entry;
 
     move-result-object v0
@@ -447,6 +516,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 149
+    .local p0, "this":Lcom/google/common/collect/AbstractNavigableMap;, "Lcom/google/common/collect/AbstractNavigableMap<TK;TV;>;"
     new-instance v0, Lcom/google/common/collect/Maps$NavigableKeySet;
 
     invoke-direct {v0, p0}, Lcom/google/common/collect/Maps$NavigableKeySet;-><init>(Ljava/util/NavigableMap;)V
@@ -467,6 +539,9 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
+    .prologue
+    .line 57
+    .local p0, "this":Lcom/google/common/collect/AbstractNavigableMap;, "Lcom/google/common/collect/AbstractNavigableMap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractNavigableMap;->entryIterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -493,6 +568,9 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
+    .prologue
+    .line 63
+    .local p0, "this":Lcom/google/common/collect/AbstractNavigableMap;, "Lcom/google/common/collect/AbstractNavigableMap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractNavigableMap;->descendingEntryIterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -516,6 +594,11 @@
         }
     .end annotation
 
+    .prologue
+    .line 134
+    .local p0, "this":Lcom/google/common/collect/AbstractNavigableMap;, "Lcom/google/common/collect/AbstractNavigableMap<TK;TV;>;"
+    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
+    .local p2, "toKey":Ljava/lang/Object;, "TK;"
     const/4 v0, 0x1
 
     const/4 v1, 0x0
@@ -537,6 +620,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 144
+    .local p0, "this":Lcom/google/common/collect/AbstractNavigableMap;, "Lcom/google/common/collect/AbstractNavigableMap<TK;TV;>;"
+    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
     const/4 v0, 0x1
 
     invoke-virtual {p0, p1, v0}, Lcom/google/common/collect/AbstractNavigableMap;->tailMap(Ljava/lang/Object;Z)Ljava/util/NavigableMap;

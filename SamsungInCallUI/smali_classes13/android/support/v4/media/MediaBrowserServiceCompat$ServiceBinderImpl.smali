@@ -22,6 +22,8 @@
 .method private constructor <init>(Landroid/support/v4/media/MediaBrowserServiceCompat;)V
     .locals 0
 
+    .prologue
+    .line 539
     iput-object p1, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceBinderImpl;->this$0:Landroid/support/v4/media/MediaBrowserServiceCompat;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -31,7 +33,11 @@
 
 .method synthetic constructor <init>(Landroid/support/v4/media/MediaBrowserServiceCompat;Landroid/support/v4/media/MediaBrowserServiceCompat$1;)V
     .locals 0
+    .param p1, "x0"    # Landroid/support/v4/media/MediaBrowserServiceCompat;
+    .param p2, "x1"    # Landroid/support/v4/media/MediaBrowserServiceCompat$1;
 
+    .prologue
+    .line 539
     invoke-direct {p0, p1}, Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceBinderImpl;-><init>(Landroid/support/v4/media/MediaBrowserServiceCompat;)V
 
     return-void
@@ -41,7 +47,13 @@
 # virtual methods
 .method public addSubscription(Ljava/lang/String;Landroid/os/IBinder;Landroid/os/Bundle;Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceCallbacks;)V
     .locals 7
+    .param p1, "id"    # Ljava/lang/String;
+    .param p2, "token"    # Landroid/os/IBinder;
+    .param p3, "options"    # Landroid/os/Bundle;
+    .param p4, "callbacks"    # Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceCallbacks;
 
+    .prologue
+    .line 608
     iget-object v0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceBinderImpl;->this$0:Landroid/support/v4/media/MediaBrowserServiceCompat;
 
     # getter for: Landroid/support/v4/media/MediaBrowserServiceCompat;->mHandler:Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceHandler;
@@ -65,12 +77,19 @@
 
     invoke-virtual {v6, v0}, Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceHandler;->postOrRun(Ljava/lang/Runnable;)V
 
+    .line 624
     return-void
 .end method
 
 .method public connect(Ljava/lang/String;ILandroid/os/Bundle;Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceCallbacks;)V
     .locals 7
+    .param p1, "pkg"    # Ljava/lang/String;
+    .param p2, "uid"    # I
+    .param p3, "rootHints"    # Landroid/os/Bundle;
+    .param p4, "callbacks"    # Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceCallbacks;
 
+    .prologue
+    .line 543
     iget-object v0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceBinderImpl;->this$0:Landroid/support/v4/media/MediaBrowserServiceCompat;
 
     # invokes: Landroid/support/v4/media/MediaBrowserServiceCompat;->isValidPackage(Ljava/lang/String;I)Z
@@ -80,6 +99,7 @@
 
     if-nez v0, :cond_0
 
+    .line 544
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -114,6 +134,7 @@
 
     throw v0
 
+    .line 548
     :cond_0
     iget-object v0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceBinderImpl;->this$0:Landroid/support/v4/media/MediaBrowserServiceCompat;
 
@@ -138,12 +159,16 @@
 
     invoke-virtual {v6, v0}, Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceHandler;->postOrRun(Ljava/lang/Runnable;)V
 
+    .line 589
     return-void
 .end method
 
 .method public disconnect(Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceCallbacks;)V
     .locals 2
+    .param p1, "callbacks"    # Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceCallbacks;
 
+    .prologue
+    .line 592
     iget-object v0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceBinderImpl;->this$0:Landroid/support/v4/media/MediaBrowserServiceCompat;
 
     # getter for: Landroid/support/v4/media/MediaBrowserServiceCompat;->mHandler:Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceHandler;
@@ -157,12 +182,18 @@
 
     invoke-virtual {v0, v1}, Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceHandler;->postOrRun(Ljava/lang/Runnable;)V
 
+    .line 604
     return-void
 .end method
 
 .method public getMediaItem(Ljava/lang/String;Landroid/support/v4/os/ResultReceiver;Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceCallbacks;)V
     .locals 2
+    .param p1, "mediaId"    # Ljava/lang/String;
+    .param p2, "receiver"    # Landroid/support/v4/os/ResultReceiver;
+    .param p3, "callbacks"    # Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceCallbacks;
 
+    .prologue
+    .line 650
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
@@ -171,10 +202,12 @@
 
     if-nez p2, :cond_1
 
+    .line 667
     :cond_0
     :goto_0
     return-void
 
+    .line 654
     :cond_1
     iget-object v0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceBinderImpl;->this$0:Landroid/support/v4/media/MediaBrowserServiceCompat;
 
@@ -194,7 +227,11 @@
 
 .method public registerCallbacks(Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceCallbacks;Landroid/os/Bundle;)V
     .locals 2
+    .param p1, "callbacks"    # Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceCallbacks;
+    .param p2, "rootHints"    # Landroid/os/Bundle;
 
+    .prologue
+    .line 671
     iget-object v0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceBinderImpl;->this$0:Landroid/support/v4/media/MediaBrowserServiceCompat;
 
     # getter for: Landroid/support/v4/media/MediaBrowserServiceCompat;->mHandler:Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceHandler;
@@ -208,12 +245,18 @@
 
     invoke-virtual {v0, v1}, Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceHandler;->postOrRun(Ljava/lang/Runnable;)V
 
+    .line 684
     return-void
 .end method
 
 .method public removeSubscription(Ljava/lang/String;Landroid/os/IBinder;Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceCallbacks;)V
     .locals 2
+    .param p1, "id"    # Ljava/lang/String;
+    .param p2, "token"    # Landroid/os/IBinder;
+    .param p3, "callbacks"    # Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceCallbacks;
 
+    .prologue
+    .line 628
     iget-object v0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceBinderImpl;->this$0:Landroid/support/v4/media/MediaBrowserServiceCompat;
 
     # getter for: Landroid/support/v4/media/MediaBrowserServiceCompat;->mHandler:Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceHandler;
@@ -227,12 +270,16 @@
 
     invoke-virtual {v0, v1}, Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceHandler;->postOrRun(Ljava/lang/Runnable;)V
 
+    .line 646
     return-void
 .end method
 
 .method public unregisterCallbacks(Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceCallbacks;)V
     .locals 2
+    .param p1, "callbacks"    # Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceCallbacks;
 
+    .prologue
+    .line 688
     iget-object v0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceBinderImpl;->this$0:Landroid/support/v4/media/MediaBrowserServiceCompat;
 
     # getter for: Landroid/support/v4/media/MediaBrowserServiceCompat;->mHandler:Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceHandler;
@@ -246,5 +293,6 @@
 
     invoke-virtual {v0, v1}, Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceHandler;->postOrRun(Ljava/lang/Runnable;)V
 
+    .line 695
     return-void
 .end method

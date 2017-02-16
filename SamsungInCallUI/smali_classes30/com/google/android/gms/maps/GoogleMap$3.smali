@@ -36,12 +36,14 @@
 # virtual methods
 .method public onSnapshotReady(Landroid/graphics/Bitmap;)V
     .locals 1
+    .param p1, "snapshot"    # Landroid/graphics/Bitmap;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMap$3;->ge:Lcom/google/android/gms/maps/GoogleMap$SnapshotReadyCallback;
 
     invoke-interface {v0, p1}, Lcom/google/android/gms/maps/GoogleMap$SnapshotReadyCallback;->onSnapshotReady(Landroid/graphics/Bitmap;)V

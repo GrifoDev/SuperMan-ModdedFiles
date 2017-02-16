@@ -32,9 +32,14 @@
 .method public constructor <init>(Lcom/google/common/collect/ForwardingNavigableSet;)V
     .locals 0
 
+    .prologue
+    .line 165
+    .local p0, "this":Lcom/google/common/collect/ForwardingNavigableSet$StandardDescendingSet;, "Lcom/google/common/collect/ForwardingNavigableSet<TE;>.StandardDescendingSet;"
     iput-object p1, p0, Lcom/google/common/collect/ForwardingNavigableSet$StandardDescendingSet;->this$0:Lcom/google/common/collect/ForwardingNavigableSet;
 
+    .line 166
     invoke-direct {p0, p1}, Lcom/google/common/collect/Sets$DescendingSet;-><init>(Ljava/util/NavigableSet;)V
 
+    .line 167
     return-void
 .end method

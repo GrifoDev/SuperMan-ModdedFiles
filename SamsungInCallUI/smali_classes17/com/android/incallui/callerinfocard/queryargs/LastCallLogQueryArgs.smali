@@ -17,16 +17,20 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 59
     new-instance v0, Lcom/android/incallui/callerinfocard/queryargs/LastCallLogQueryArgs$1;
 
     invoke-direct {v0}, Lcom/android/incallui/callerinfocard/queryargs/LastCallLogQueryArgs$1;-><init>()V
 
     sput-object v0, Lcom/android/incallui/callerinfocard/queryargs/LastCallLogQueryArgs;->mHandler:Landroid/os/Handler;
 
+    .line 74
     sput-object v1, Lcom/android/incallui/callerinfocard/queryargs/LastCallLogQueryArgs;->mObserverUri:Landroid/net/Uri;
 
+    .line 75
     sput-object v1, Lcom/android/incallui/callerinfocard/queryargs/LastCallLogQueryArgs;->mContentObserver:Landroid/database/ContentObserver;
 
     return-void
@@ -34,7 +38,10 @@
 
 .method public constructor <init>(ILjava/lang/Object;)V
     .locals 7
+    .param p1, "token"    # I
+    .param p2, "cookie"    # Ljava/lang/Object;
 
+    .prologue
     const/4 v6, 0x4
 
     const/4 v5, 0x3
@@ -45,12 +52,15 @@
 
     const/4 v2, 0x0
 
+    .line 37
     invoke-direct {p0, p1, p2}, Lcom/android/incallui/callerinfocard/queryargs/CallerInfoCardQueryArgs;-><init>(ILjava/lang/Object;)V
 
+    .line 38
     sget-object v0, Lcom/android/incallui/callerinfocard/CallerInfoCardConstants$Logs;->CONTENT_URI:Landroid/net/Uri;
 
     iput-object v0, p0, Lcom/android/incallui/callerinfocard/queryargs/LastCallLogQueryArgs;->mUri:Landroid/net/Uri;
 
+    .line 40
     const-string v0, "ctc_vip_mode"
 
     invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
@@ -59,15 +69,21 @@
 
     if-eqz v0, :cond_0
 
+    .line 41
     invoke-virtual {p0, p2}, Lcom/android/incallui/callerinfocard/queryargs/LastCallLogQueryArgs;->lastCallLogQueryArgsForVIPMode(Ljava/lang/Object;)V
 
+    .line 56
+    .end local p2    # "cookie":Ljava/lang/Object;
     :goto_0
     const-string v0, "date DESC LIMIT 1"
 
     iput-object v0, p0, Lcom/android/incallui/callerinfocard/queryargs/LastCallLogQueryArgs;->mOrderBy:Ljava/lang/String;
 
+    .line 57
     return-void
 
+    .line 43
+    .restart local p2    # "cookie":Ljava/lang/Object;
     :cond_0
     const/4 v0, 0x5
 
@@ -95,16 +111,19 @@
 
     iput-object v0, p0, Lcom/android/incallui/callerinfocard/queryargs/LastCallLogQueryArgs;->mProjection:[Ljava/lang/String;
 
+    .line 48
     const-string v0, "number=? AND (logtype=? OR logtype=? OR logtype=? OR logtype=?) AND date>=?"
 
     iput-object v0, p0, Lcom/android/incallui/callerinfocard/queryargs/LastCallLogQueryArgs;->mSelection:Ljava/lang/String;
 
+    .line 49
     const/4 v0, 0x6
 
     new-array v1, v0, [Ljava/lang/String;
 
     check-cast p2, Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CookieWrapper;
 
+    .end local p2    # "cookie":Ljava/lang/Object;
     iget-object v0, p2, Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CookieWrapper;->cookie:Ljava/lang/Object;
 
     check-cast v0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
@@ -119,6 +138,7 @@
 
     const/16 v0, 0x64
 
+    .line 50
     invoke-static {v0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v0
@@ -127,6 +147,7 @@
 
     const/16 v0, 0x1f4
 
+    .line 51
     invoke-static {v0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v0
@@ -135,6 +156,7 @@
 
     const/16 v0, 0x320
 
+    .line 52
     invoke-static {v0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v0
@@ -143,6 +165,7 @@
 
     const/16 v0, 0x3e8
 
+    .line 53
     invoke-static {v0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v0
@@ -153,6 +176,7 @@
 
     const-wide/16 v2, 0x23
 
+    .line 54
     invoke-virtual {p0, v2, v3}, Lcom/android/incallui/callerinfocard/queryargs/LastCallLogQueryArgs;->getPeriod(J)Ljava/lang/String;
 
     move-result-object v2
@@ -167,6 +191,8 @@
 .method static synthetic access$000()Landroid/os/Handler;
     .locals 1
 
+    .prologue
+    .line 32
     sget-object v0, Lcom/android/incallui/callerinfocard/queryargs/LastCallLogQueryArgs;->mHandler:Landroid/os/Handler;
 
     return-object v0
@@ -174,9 +200,12 @@
 
 .method public static registerContentObserver(Landroid/content/Context;)V
     .locals 4
+    .param p0, "context"    # Landroid/content/Context;
 
+    .prologue
     const/4 v3, 0x1
 
+    .line 78
     const-string v0, "content://logs/allcalls"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -185,6 +214,7 @@
 
     sput-object v0, Lcom/android/incallui/callerinfocard/queryargs/LastCallLogQueryArgs;->mObserverUri:Landroid/net/Uri;
 
+    .line 79
     new-instance v0, Lcom/android/incallui/callerinfocard/queryargs/LastCallLogQueryArgs$2;
 
     new-instance v1, Landroid/os/Handler;
@@ -195,12 +225,14 @@
 
     sput-object v0, Lcom/android/incallui/callerinfocard/queryargs/LastCallLogQueryArgs;->mContentObserver:Landroid/database/ContentObserver;
 
+    .line 89
     const-string v0, "LastCallLogQueryArgs"
 
     const-string v1, "registerContentObserver"
 
     invoke-static {v0, v1, v3}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
+    .line 90
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -211,16 +243,21 @@
 
     invoke-virtual {v0, v1, v3, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
+    .line 91
     return-void
 .end method
 
 .method public static unregisterContentObserver(Landroid/content/Context;)V
     .locals 3
+    .param p0, "context"    # Landroid/content/Context;
 
+    .prologue
+    .line 94
     sget-object v0, Lcom/android/incallui/callerinfocard/queryargs/LastCallLogQueryArgs;->mContentObserver:Landroid/database/ContentObserver;
 
     if-eqz v0, :cond_0
 
+    .line 95
     const-string v0, "LastCallLogQueryArgs"
 
     const-string v1, "unregisterContentObserver"
@@ -229,6 +266,7 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
+    .line 96
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -237,10 +275,12 @@
 
     invoke-virtual {v0, v1}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
 
+    .line 97
     const/4 v0, 0x0
 
     sput-object v0, Lcom/android/incallui/callerinfocard/queryargs/LastCallLogQueryArgs;->mContentObserver:Landroid/database/ContentObserver;
 
+    .line 99
     :cond_0
     return-void
 .end method
@@ -249,7 +289,9 @@
 # virtual methods
 .method public lastCallLogQueryArgsForVIPMode(Ljava/lang/Object;)V
     .locals 8
+    .param p1, "cookie"    # Ljava/lang/Object;
 
+    .prologue
     const/4 v7, 0x4
 
     const/4 v6, 0x3
@@ -260,6 +302,7 @@
 
     const/4 v3, 0x0
 
+    .line 102
     const/4 v0, 0x6
 
     new-array v0, v0, [Ljava/lang/String;
@@ -292,16 +335,19 @@
 
     iput-object v0, p0, Lcom/android/incallui/callerinfocard/queryargs/LastCallLogQueryArgs;->mProjection:[Ljava/lang/String;
 
+    .line 108
     const-string v0, "number=? AND (logtype=? OR logtype=? OR logtype=? OR logtype=?) AND date>=? AND reject_flag=?"
 
     iput-object v0, p0, Lcom/android/incallui/callerinfocard/queryargs/LastCallLogQueryArgs;->mSelection:Ljava/lang/String;
 
+    .line 110
     const/4 v0, 0x7
 
     new-array v1, v0, [Ljava/lang/String;
 
     check-cast p1, Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CookieWrapper;
 
+    .end local p1    # "cookie":Ljava/lang/Object;
     iget-object v0, p1, Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CookieWrapper;->cookie:Ljava/lang/Object;
 
     check-cast v0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
@@ -316,6 +362,7 @@
 
     const/16 v0, 0x64
 
+    .line 111
     invoke-static {v0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v0
@@ -324,6 +371,7 @@
 
     const/16 v0, 0x1f4
 
+    .line 112
     invoke-static {v0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v0
@@ -332,6 +380,7 @@
 
     const/16 v0, 0x320
 
+    .line 113
     invoke-static {v0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v0
@@ -340,6 +389,7 @@
 
     const/16 v0, 0x3e8
 
+    .line 114
     invoke-static {v0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v0
@@ -350,6 +400,7 @@
 
     const-wide/16 v2, 0x23
 
+    .line 115
     invoke-virtual {p0, v2, v3}, Lcom/android/incallui/callerinfocard/queryargs/LastCallLogQueryArgs;->getPeriod(J)Ljava/lang/String;
 
     move-result-object v2
@@ -364,5 +415,6 @@
 
     iput-object v1, p0, Lcom/android/incallui/callerinfocard/queryargs/LastCallLogQueryArgs;->mSelectionArgs:[Ljava/lang/String;
 
+    .line 117
     return-void
 .end method

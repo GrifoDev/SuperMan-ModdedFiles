@@ -30,7 +30,10 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceBinderImpl;Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceCallbacks;Ljava/lang/String;Landroid/support/v4/os/ResultReceiver;)V
     .locals 0
+    .param p1, "this$1"    # Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceBinderImpl;
 
+    .prologue
+    .line 654
     iput-object p1, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceBinderImpl$5;->this$1:Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceBinderImpl;
 
     iput-object p2, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceBinderImpl$5;->val$callbacks:Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceCallbacks;
@@ -49,12 +52,16 @@
 .method public run()V
     .locals 5
 
+    .prologue
+    .line 657
     iget-object v2, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceBinderImpl$5;->val$callbacks:Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceCallbacks;
 
     invoke-interface {v2}, Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceCallbacks;->asBinder()Landroid/os/IBinder;
 
     move-result-object v0
 
+    .line 659
+    .local v0, "b":Landroid/os/IBinder;
     iget-object v2, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceBinderImpl$5;->this$1:Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceBinderImpl;
 
     iget-object v2, v2, Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceBinderImpl;->this$0:Landroid/support/v4/media/MediaBrowserServiceCompat;
@@ -70,8 +77,11 @@
 
     check-cast v1, Landroid/support/v4/media/MediaBrowserServiceCompat$ConnectionRecord;
 
+    .line 660
+    .local v1, "connection":Landroid/support/v4/media/MediaBrowserServiceCompat$ConnectionRecord;
     if-nez v1, :cond_0
 
+    .line 661
     const-string v2, "MBServiceCompat"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -96,9 +106,11 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 665
     :goto_0
     return-void
 
+    .line 664
     :cond_0
     iget-object v2, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceBinderImpl$5;->this$1:Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceBinderImpl;
 

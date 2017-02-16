@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/InCallActivity;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/InCallActivity;
 
+    .prologue
+    .line 2868
     iput-object p1, p0, Lcom/android/incallui/InCallActivity$15;->this$0:Lcom/android/incallui/InCallActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,11 +39,16 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 1
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .param p2, "which"    # I
 
+    .prologue
+    .line 2871
     iget-object v0, p0, Lcom/android/incallui/InCallActivity$15;->this$0:Lcom/android/incallui/InCallActivity;
 
     # invokes: Lcom/android/incallui/InCallActivity;->onDialogDismissed()V
     invoke-static {v0}, Lcom/android/incallui/InCallActivity;->access$1400(Lcom/android/incallui/InCallActivity;)V
 
+    .line 2872
     return-void
 .end method

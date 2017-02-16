@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/view/CallCardVolteView;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/fragment/view/CallCardVolteView;
 
+    .prologue
+    .line 368
     iput-object p1, p0, Lcom/android/incallui/fragment/view/CallCardVolteView$2;->this$0:Lcom/android/incallui/fragment/view/CallCardVolteView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +39,10 @@
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
     .locals 2
+    .param p1, "animator"    # Landroid/animation/ValueAnimator;
 
+    .prologue
+    .line 371
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardVolteView$2;->this$0:Lcom/android/incallui/fragment/view/CallCardVolteView;
 
     # getter for: Lcom/android/incallui/fragment/view/CallCardVolteView;->mHdWifiIcon:Landroid/widget/ImageView;
@@ -65,6 +71,7 @@
 
     invoke-virtual {v1, v0}, Landroid/widget/ImageView;->setColorFilter(I)V
 
+    .line 372
     :cond_0
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardVolteView$2;->this$0:Lcom/android/incallui/fragment/view/CallCardVolteView;
 
@@ -94,6 +101,7 @@
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setTextColor(I)V
 
+    .line 373
     :cond_1
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardVolteView$2;->this$0:Lcom/android/incallui/fragment/view/CallCardVolteView;
 
@@ -123,6 +131,7 @@
 
     invoke-virtual {v1, v0}, Landroid/widget/ImageView;->setColorFilter(I)V
 
+    .line 374
     :cond_2
     return-void
 .end method

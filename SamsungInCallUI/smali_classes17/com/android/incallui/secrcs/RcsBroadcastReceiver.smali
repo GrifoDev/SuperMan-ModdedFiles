@@ -144,6 +144,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 133
     const-class v0, Lcom/android/incallui/secrcs/RcsBroadcastReceiver;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
@@ -157,9 +159,13 @@
 
 .method public constructor <init>(Lcom/android/incallui/secrcs/RcsBroadcastReceiver$RcsActionHandler;)V
     .locals 1
+    .param p1, "handler"    # Lcom/android/incallui/secrcs/RcsBroadcastReceiver$RcsActionHandler;
 
+    .prologue
+    .line 157
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
+    .line 158
     const-string v0, "ims_rcs"
 
     invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
@@ -168,12 +174,15 @@
 
     if-eqz v0, :cond_0
 
+    .line 159
     iput-object p1, p0, Lcom/android/incallui/secrcs/RcsBroadcastReceiver;->mHandler:Lcom/android/incallui/secrcs/RcsBroadcastReceiver$RcsActionHandler;
 
+    .line 160
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/incallui/secrcs/RcsBroadcastReceiver;->mRegistered:Z
 
+    .line 162
     :cond_0
     return-void
 .end method
@@ -181,6 +190,8 @@
 .method public static createIntentFilter()Landroid/content/IntentFilter;
     .locals 4
 
+    .prologue
+    .line 320
     sget-object v1, Lcom/android/incallui/secrcs/RcsBroadcastReceiver;->LOG_TAG:Ljava/lang/String;
 
     const-string v2, "createIntentFilter()"
@@ -189,194 +200,243 @@
 
     invoke-static {v1, v2, v3}, Lcom/android/incallui/Log;->v(Ljava/lang/String;Ljava/lang/String;Z)V
 
+    .line 321
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
+    .line 322
+    .local v0, "filter":Landroid/content/IntentFilter;
     const-string v1, "com.samsung.rcs.intent.action.END_CALL"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 323
     const-string v1, "com.samsung.rcs.intent.action.MUTE_ON"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 324
     const-string v1, "com.samsung.rcs.intent.action.MUTE_OFF"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 325
     const-string v1, "com.samsung.rcs.intent.action.SPEAKER_ON"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 326
     const-string v1, "com.samsung.rcs.intent.action.SPEAKER_OFF"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 327
     const-string v1, "com.samsung.rcs.intent.action.ACTION_LAUNCH_MINI_MODE_CALL_VIEW"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 328
     const-string v1, "com.samsung.rcs.intent.action.ACTION_HIDE_MINI_MODE_CALL_VIEW"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 330
     const-string v1, "com.samsung.rcs.intent.action.CONTACTS"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 331
     const-string v1, "com.samsung.rcs.intent.action.ADD_CALL"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 332
     const-string v1, "com.samsung.rcs.intent.action.NOTES"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 333
     const-string v1, "com.samsung.rcs.intent.action.SIM_SERVICES"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 334
     const-string v1, "com.samsung.rcs.intent.action.NOISE_REDUCTION"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 335
     const-string v1, "com.samsung.rcs.intent.action.BLUETOOTH_HANDSET"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 336
     const-string v1, "com.samsung.rcs.intent.action.INIT_SPEAKER_ON"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 337
     const-string v1, "com.samsung.rcs.intent.action.ACTION_RCS_SPEAKER_OFF"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 338
     const-string v1, "com.samsung.rcs.intent.action.ACTION_RCS_CALL_HOLD"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 339
     const-string v1, "com.samsung.rcs.intent.action.UPDATE_PROXIMITY"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 340
     const-string v1, "com.samsung.rcs.framework.mediatransfer.contentshare.notification.SHARE_INCOMING"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 341
     const-string v1, "com.samsung.rcs.framework.instantmessaging.notification.MESSAGE_RECEIVED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 342
     const-string v1, "com.samsung.rcs.contentsharing.action.CSH_INFO"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 344
     const-string v1, "com.samsung.rcs.intent.action.RESUME_SHARING_SERVICE_DIALOG"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 345
     const-string v1, "com.samsung.rcs.intent.action.STOP_SHARING_SERVICE_DIALOG"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 346
     const-string v1, "com.samsung.rcs.intent.action.REBOOT_SHARING_SERVICE_DIALOG"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 349
     const-string v1, "com.samsung.rcs.framework.instantmessaging"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addCategory(Ljava/lang/String;)V
 
+    .line 350
     const-string v1, "com.samsung.rcs.framework.instantmessaging.notifiation"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addCategory(Ljava/lang/String;)V
 
+    .line 352
     const-string v1, "com.samsung.rcs.framework.filetransfer"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addCategory(Ljava/lang/String;)V
 
+    .line 353
     const-string v1, "com.samsung.rcs.framework.filetransfer.notifiation"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addCategory(Ljava/lang/String;)V
 
+    .line 355
     const-string v1, "com.samsung.rcs.framework.mediatransfer.contentshare.notification.SHARE_INCOMING"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 356
     const-string v1, "com.samsung.rcs.framework.mediatransfer.contentshare.notification.SHARE_TRANSFERING"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 357
     const-string v1, "com.samsung.rcs.framework.mediatransfer.contentshare.notification.SHARE_CANCELED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 358
     const-string v1, "com.samsung.rcs.framework.mediatransfer.contentshare.notification.SHARE_COMPLETED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 359
     const-string v1, "com.samsung.rcs.framework.mediatransfer.contentshare.notification.SHARE_CONNECTED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 360
     const-string v1, "com.samsung.rcs.framework.mediatransfer.contentshare.notification.SHARE_INTERRUPTED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 361
     const-string v1, "com.samsung.rcs.framework.mediatransfer.contentshare.notification.SHARE_TERMINATED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 362
     const-string v1, "com.samsung.rcs.framework.mediatransfer.contentshare.notification"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addCategory(Ljava/lang/String;)V
 
+    .line 365
     const-string v1, "com.sec.rcs.mediatransfer.ish.notification.SHARE_INCOMING"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 366
     const-string v1, "com.sec.rcs.mediatransfer.vsh.notification.SHARE_INCOMING"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 367
     const-string v1, "com.sec.rcs.mediatransfer.ish.notification.SHARE_CANCELED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 368
     const-string v1, "com.sec.rcs.mediatransfer.vsh.notification.SHARE_CANCELED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 369
     const-string v1, "com.sec.rcs.mediatransfer.ish.notification.SHARE_COMPLETED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 370
     const-string v1, "com.sec.rcs.mediatransfer.ish.notification.SHARE_CONNECTED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 371
     const-string v1, "com.sec.rcs.mediatransfer.vsh.notification.SHARE_CONNECTED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 372
     const-string v1, "com.sec.rcs.mediatransfer.ish.notification.SHARE_INTERRUPTED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 373
     const-string v1, "com.sec.rcs.mediatransfer.ish.notification.SHARE_TERMINATED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 374
     const-string v1, "com.sec.rcs.mediatransfer.ish.category.NOTIFICATION"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addCategory(Ljava/lang/String;)V
 
+    .line 375
     const-string v1, "com.sec.rcs.mediatransfer.vsh.category.NOTIFICATION"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addCategory(Ljava/lang/String;)V
 
+    .line 377
     return-object v0
 .end method
 
@@ -384,7 +444,11 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 22
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 187
     sget-object v16, Lcom/android/incallui/secrcs/RcsBroadcastReceiver;->LOG_TAG:Ljava/lang/String;
 
     new-instance v17, Ljava/lang/StringBuilder;
@@ -413,6 +477,7 @@
 
     invoke-static/range {v16 .. v18}, Lcom/android/incallui/Log;->v(Ljava/lang/String;Ljava/lang/String;Z)V
 
+    .line 188
     const-string v16, "notification"
 
     move-object/from16 v0, p1
@@ -425,18 +490,28 @@
 
     check-cast v10, Landroid/app/NotificationManager;
 
+    .line 189
+    .local v10, "notificationManager":Landroid/app/NotificationManager;
     invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v4
 
+    .line 191
+    .local v4, "action":Ljava/lang/String;
     const-wide/16 v14, -0x1
 
+    .line 192
+    .local v14, "sessionId":J
     const/4 v12, -0x1
 
+    .line 193
+    .local v12, "reason":I
     invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
     move-result-object v6
 
+    .line 194
+    .local v6, "bundle":Landroid/os/Bundle;
     const-string v16, "com.sec.rcs.mediatransfer.ish.notification.SHARE_INCOMING"
 
     move-object/from16 v0, v16
@@ -457,6 +532,7 @@
 
     if-eqz v16, :cond_7
 
+    .line 195
     :cond_0
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
@@ -468,6 +544,7 @@
 
     if-nez v16, :cond_7
 
+    .line 196
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
 
     move-result-object v16
@@ -482,10 +559,14 @@
 
     if-nez v16, :cond_7
 
+    .line 197
     const-string v13, ""
 
+    .line 199
+    .local v13, "text":Ljava/lang/String;
     if-nez v6, :cond_1
 
+    .line 200
     new-instance v16, Ljava/lang/NullPointerException;
 
     const-string v17, "Intent.getExtras() returned with null."
@@ -494,6 +575,7 @@
 
     throw v16
 
+    .line 202
     :cond_1
     const-string v16, "com.sec.rcs.mediatransfer.ish.notification.SHARE_INCOMING"
 
@@ -505,6 +587,7 @@
 
     if-eqz v16, :cond_4
 
+    .line 203
     const-string v16, "com.sec.rcs.mediatransfer.csh.extra.BYTES_TOTAL"
 
     move-object/from16 v0, v16
@@ -513,6 +596,8 @@
 
     move-result v7
 
+    .line 204
+    .local v7, "bytes":I
     const v16, 0x7f09021a
 
     const/16 v17, 0x1
@@ -549,6 +634,8 @@
 
     move-result-object v13
 
+    .line 208
+    .end local v7    # "bytes":I
     :goto_0
     const-string v16, "ims_crane"
 
@@ -558,6 +645,7 @@
 
     if-eqz v16, :cond_5
 
+    .line 209
     new-instance v9, Landroid/content/Intent;
 
     const-string v16, "com.samsung.incallui.ACTION_SHOW_CALL_SCREEN"
@@ -576,13 +664,19 @@
 
     invoke-direct {v9, v0, v1, v2, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;Landroid/content/Context;Ljava/lang/Class;)V
 
+    .line 210
+    .local v9, "notificationIntent":Landroid/content/Intent;
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v9}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
+    .line 237
+    .end local v9    # "notificationIntent":Landroid/content/Intent;
+    .end local v13    # "text":Ljava/lang/String;
     :goto_1
     if-eqz v6, :cond_2
 
+    .line 238
     const-string v16, "com.sec.rcs.mediatransfer.csh.extra.REASON"
 
     move-object/from16 v0, v16
@@ -591,6 +685,7 @@
 
     move-result v12
 
+    .line 239
     const-string v16, "com.sec.rcs.mediatransfer.csh.extra.SHARE_ID"
 
     move-object/from16 v0, v16
@@ -599,6 +694,7 @@
 
     move-result-wide v14
 
+    .line 241
     :cond_2
     const-string v16, "com.samsung.rcs.framework.mediatransfer.contentshare.notification.SHARE_INCOMING"
 
@@ -610,6 +706,7 @@
 
     if-eqz v16, :cond_8
 
+    .line 242
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/incallui/secrcs/RcsBroadcastReceiver;->mHandler:Lcom/android/incallui/secrcs/RcsBroadcastReceiver$RcsActionHandler;
@@ -626,10 +723,13 @@
 
     invoke-interface {v0, v1, v2}, Lcom/android/incallui/secrcs/RcsBroadcastReceiver$RcsActionHandler;->handleInvitation(ZLandroid/content/Intent;)V
 
+    .line 317
     :cond_3
     :goto_2
     return-void
 
+    .line 206
+    .restart local v13    # "text":Ljava/lang/String;
     :cond_4
     const v16, 0x7f09021e
 
@@ -643,6 +743,7 @@
 
     goto :goto_0
 
+    .line 212
     :cond_5
     new-instance v9, Landroid/content/Intent;
 
@@ -662,6 +763,8 @@
 
     invoke-direct {v9, v0, v1, v2, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;Landroid/content/Context;Ljava/lang/Class;)V
 
+    .line 213
+    .restart local v9    # "notificationIntent":Landroid/content/Intent;
     const/16 v16, 0x0
 
     const/16 v17, 0x0
@@ -676,14 +779,20 @@
 
     move-result-object v11
 
+    .line 215
+    .local v11, "pendingIntent":Landroid/app/PendingIntent;
     new-instance v5, Landroid/app/Notification$Builder;
 
     move-object/from16 v0, p1
 
     invoke-direct {v5, v0}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
+    .line 216
+    .local v5, "builder":Landroid/app/Notification$Builder;
     const/4 v8, 0x0
 
+    .line 217
+    .local v8, "notification":Landroid/app/Notification;
     const-string v16, "ims_callplus"
 
     invoke-static/range {v16 .. v16}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
@@ -692,12 +801,14 @@
 
     if-eqz v16, :cond_6
 
+    .line 218
     invoke-virtual {v5, v11}, Landroid/app/Notification$Builder;->setContentIntent(Landroid/app/PendingIntent;)Landroid/app/Notification$Builder;
 
     move-result-object v16
 
     const v17, 0x7f0202a8
 
+    .line 219
     invoke-virtual/range {v16 .. v17}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
     move-result-object v16
@@ -722,6 +833,7 @@
 
     const/16 v17, 0x1
 
+    .line 220
     invoke-virtual/range {v16 .. v17}, Landroid/app/Notification$Builder;->setAutoCancel(Z)Landroid/app/Notification$Builder;
 
     move-result-object v16
@@ -734,6 +846,7 @@
 
     const/16 v17, 0x0
 
+    .line 221
     invoke-virtual/range {v16 .. v17}, Landroid/app/Notification$Builder;->setContentText(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
 
     move-result-object v16
@@ -742,6 +855,7 @@
 
     move-result-object v8
 
+    .line 228
     :goto_3
     sget-object v16, Lcom/android/incallui/secrcs/RcsBroadcastReceiver;->LOG_TAG:Ljava/lang/String;
 
@@ -755,6 +869,7 @@
 
     goto/16 :goto_1
 
+    .line 223
     :cond_6
     invoke-virtual {v5, v11}, Landroid/app/Notification$Builder;->setContentIntent(Landroid/app/PendingIntent;)Landroid/app/Notification$Builder;
 
@@ -762,6 +877,7 @@
 
     const v17, 0x7f0202a6
 
+    .line 224
     invoke-virtual/range {v16 .. v17}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
     move-result-object v16
@@ -786,6 +902,7 @@
 
     const/16 v17, 0x1
 
+    .line 225
     invoke-virtual/range {v16 .. v17}, Landroid/app/Notification$Builder;->setAutoCancel(Z)Landroid/app/Notification$Builder;
 
     move-result-object v16
@@ -798,6 +915,7 @@
 
     const/16 v17, 0x0
 
+    .line 226
     invoke-virtual/range {v16 .. v17}, Landroid/app/Notification$Builder;->setContentText(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
 
     move-result-object v16
@@ -808,6 +926,12 @@
 
     goto :goto_3
 
+    .line 233
+    .end local v5    # "builder":Landroid/app/Notification$Builder;
+    .end local v8    # "notification":Landroid/app/Notification;
+    .end local v9    # "notificationIntent":Landroid/content/Intent;
+    .end local v11    # "pendingIntent":Landroid/app/PendingIntent;
+    .end local v13    # "text":Ljava/lang/String;
     :cond_7
     sget-object v16, Lcom/android/incallui/secrcs/RcsBroadcastReceiver;->LOG_TAG:Ljava/lang/String;
 
@@ -821,6 +945,7 @@
 
     goto/16 :goto_1
 
+    .line 243
     :cond_8
     const-string v16, "com.samsung.rcs.framework.mediatransfer.contentshare.notification.SHARE_INCOMING"
 
@@ -832,6 +957,7 @@
 
     if-eqz v16, :cond_9
 
+    .line 244
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/incallui/secrcs/RcsBroadcastReceiver;->mHandler:Lcom/android/incallui/secrcs/RcsBroadcastReceiver$RcsActionHandler;
@@ -850,6 +976,7 @@
 
     goto/16 :goto_2
 
+    .line 245
     :cond_9
     const-string v16, "com.samsung.rcs.framework.mediatransfer.contentshare.notification.SHARE_INCOMING"
 
@@ -861,6 +988,7 @@
 
     if-eqz v16, :cond_a
 
+    .line 246
     sget-object v16, Lcom/android/incallui/secrcs/RcsBroadcastReceiver;->LOG_TAG:Ljava/lang/String;
 
     new-instance v17, Ljava/lang/StringBuilder;
@@ -889,6 +1017,7 @@
 
     goto/16 :goto_2
 
+    .line 247
     :cond_a
     const-string v16, "com.samsung.rcs.framework.mediatransfer.contentshare.notification.SHARE_PROGRESS"
 
@@ -900,6 +1029,7 @@
 
     if-eqz v16, :cond_b
 
+    .line 248
     sget-object v16, Lcom/android/incallui/secrcs/RcsBroadcastReceiver;->LOG_TAG:Ljava/lang/String;
 
     new-instance v17, Ljava/lang/StringBuilder;
@@ -928,6 +1058,7 @@
 
     goto/16 :goto_2
 
+    .line 249
     :cond_b
     const-string v16, "com.samsung.rcs.framework.mediatransfer.contentshare.notification.SHARE_INTERRUPTED"
 
@@ -939,6 +1070,7 @@
 
     if-eqz v16, :cond_c
 
+    .line 250
     sget-object v16, Lcom/android/incallui/secrcs/RcsBroadcastReceiver;->LOG_TAG:Ljava/lang/String;
 
     new-instance v17, Ljava/lang/StringBuilder;
@@ -965,6 +1097,7 @@
 
     invoke-static/range {v16 .. v18}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
+    .line 251
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/incallui/secrcs/RcsBroadcastReceiver;->mHandler:Lcom/android/incallui/secrcs/RcsBroadcastReceiver$RcsActionHandler;
@@ -977,6 +1110,7 @@
 
     goto/16 :goto_2
 
+    .line 252
     :cond_c
     const-string v16, "com.samsung.rcs.framework.mediatransfer.contentshare.notification.SHARE_COMPLETED"
 
@@ -988,6 +1122,7 @@
 
     if-eqz v16, :cond_d
 
+    .line 253
     sget-object v16, Lcom/android/incallui/secrcs/RcsBroadcastReceiver;->LOG_TAG:Ljava/lang/String;
 
     new-instance v17, Ljava/lang/StringBuilder;
@@ -1016,6 +1151,7 @@
 
     goto/16 :goto_2
 
+    .line 254
     :cond_d
     const-string v16, "com.samsung.rcs.framework.mediatransfer.contentshare.notification.SHARE_CANCELED"
 
@@ -1027,6 +1163,7 @@
 
     if-eqz v16, :cond_e
 
+    .line 255
     sget-object v16, Lcom/android/incallui/secrcs/RcsBroadcastReceiver;->LOG_TAG:Ljava/lang/String;
 
     new-instance v17, Ljava/lang/StringBuilder;
@@ -1053,6 +1190,7 @@
 
     invoke-static/range {v16 .. v18}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
+    .line 256
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/incallui/secrcs/RcsBroadcastReceiver;->mHandler:Lcom/android/incallui/secrcs/RcsBroadcastReceiver$RcsActionHandler;
@@ -1065,6 +1203,7 @@
 
     goto/16 :goto_2
 
+    .line 257
     :cond_e
     const-string v16, "com.samsung.rcs.framework.mediatransfer.contentshare.notification.SHARE_CONNECTED"
 
@@ -1076,6 +1215,7 @@
 
     if-eqz v16, :cond_f
 
+    .line 258
     sget-object v16, Lcom/android/incallui/secrcs/RcsBroadcastReceiver;->LOG_TAG:Ljava/lang/String;
 
     new-instance v17, Ljava/lang/StringBuilder;
@@ -1104,6 +1244,7 @@
 
     goto/16 :goto_2
 
+    .line 259
     :cond_f
     const-string v16, "com.samsung.rcs.framework.mediatransfer.contentshare.notification.SHARE_TERMINATED"
 
@@ -1115,6 +1256,7 @@
 
     if-eqz v16, :cond_10
 
+    .line 260
     sget-object v16, Lcom/android/incallui/secrcs/RcsBroadcastReceiver;->LOG_TAG:Ljava/lang/String;
 
     new-instance v17, Ljava/lang/StringBuilder;
@@ -1141,6 +1283,7 @@
 
     invoke-static/range {v16 .. v18}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
+    .line 261
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/incallui/secrcs/RcsBroadcastReceiver;->mHandler:Lcom/android/incallui/secrcs/RcsBroadcastReceiver$RcsActionHandler;
@@ -1153,6 +1296,7 @@
 
     goto/16 :goto_2
 
+    .line 264
     :cond_10
     const-string v16, "com.sec.rcs.mediatransfer.ish.notification.SHARE_INCOMING"
 
@@ -1174,6 +1318,7 @@
 
     if-eqz v16, :cond_12
 
+    .line 265
     :cond_11
     sget-object v16, Lcom/android/incallui/secrcs/RcsBroadcastReceiver;->LOG_TAG:Ljava/lang/String;
 
@@ -1201,6 +1346,7 @@
 
     invoke-static/range {v16 .. v18}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
+    .line 266
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/incallui/secrcs/RcsBroadcastReceiver;->mHandler:Lcom/android/incallui/secrcs/RcsBroadcastReceiver$RcsActionHandler;
@@ -1219,6 +1365,7 @@
 
     goto/16 :goto_2
 
+    .line 267
     :cond_12
     const-string v16, "com.sec.rcs.mediatransfer.ish.notification.SHARE_PROGRESS"
 
@@ -1230,6 +1377,7 @@
 
     if-eqz v16, :cond_13
 
+    .line 268
     sget-object v16, Lcom/android/incallui/secrcs/RcsBroadcastReceiver;->LOG_TAG:Ljava/lang/String;
 
     new-instance v17, Ljava/lang/StringBuilder;
@@ -1258,6 +1406,7 @@
 
     goto/16 :goto_2
 
+    .line 269
     :cond_13
     const-string v16, "com.sec.rcs.mediatransfer.ish.notification.SHARE_INTERRUPTED"
 
@@ -1269,6 +1418,7 @@
 
     if-eqz v16, :cond_14
 
+    .line 270
     sget-object v16, Lcom/android/incallui/secrcs/RcsBroadcastReceiver;->LOG_TAG:Ljava/lang/String;
 
     new-instance v17, Ljava/lang/StringBuilder;
@@ -1295,6 +1445,7 @@
 
     invoke-static/range {v16 .. v18}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
+    .line 271
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/incallui/secrcs/RcsBroadcastReceiver;->mHandler:Lcom/android/incallui/secrcs/RcsBroadcastReceiver$RcsActionHandler;
@@ -1307,6 +1458,7 @@
 
     goto/16 :goto_2
 
+    .line 272
     :cond_14
     const-string v16, "com.sec.rcs.mediatransfer.ish.notification.SHARE_COMPLETED"
 
@@ -1318,6 +1470,7 @@
 
     if-eqz v16, :cond_15
 
+    .line 273
     sget-object v16, Lcom/android/incallui/secrcs/RcsBroadcastReceiver;->LOG_TAG:Ljava/lang/String;
 
     new-instance v17, Ljava/lang/StringBuilder;
@@ -1346,6 +1499,7 @@
 
     goto/16 :goto_2
 
+    .line 274
     :cond_15
     const-string v16, "com.sec.rcs.mediatransfer.ish.notification.SHARE_CANCELED"
 
@@ -1367,6 +1521,7 @@
 
     if-eqz v16, :cond_17
 
+    .line 275
     :cond_16
     sget-object v16, Lcom/android/incallui/secrcs/RcsBroadcastReceiver;->LOG_TAG:Ljava/lang/String;
 
@@ -1406,6 +1561,7 @@
 
     invoke-static/range {v16 .. v18}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
+    .line 276
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/incallui/secrcs/RcsBroadcastReceiver;->mHandler:Lcom/android/incallui/secrcs/RcsBroadcastReceiver$RcsActionHandler;
@@ -1418,6 +1574,7 @@
 
     goto/16 :goto_2
 
+    .line 277
     :cond_17
     const-string v16, "com.sec.rcs.mediatransfer.ish.notification.SHARE_CONNECTED"
 
@@ -1439,6 +1596,7 @@
 
     if-eqz v16, :cond_19
 
+    .line 278
     :cond_18
     sget-object v16, Lcom/android/incallui/secrcs/RcsBroadcastReceiver;->LOG_TAG:Ljava/lang/String;
 
@@ -1468,6 +1626,7 @@
 
     goto/16 :goto_2
 
+    .line 279
     :cond_19
     const-string v16, "com.sec.rcs.mediatransfer.ish.notification.SHARE_TERMINATED"
 
@@ -1479,6 +1638,7 @@
 
     if-eqz v16, :cond_1a
 
+    .line 280
     sget-object v16, Lcom/android/incallui/secrcs/RcsBroadcastReceiver;->LOG_TAG:Ljava/lang/String;
 
     new-instance v17, Ljava/lang/StringBuilder;
@@ -1505,6 +1665,7 @@
 
     invoke-static/range {v16 .. v18}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
+    .line 281
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/incallui/secrcs/RcsBroadcastReceiver;->mHandler:Lcom/android/incallui/secrcs/RcsBroadcastReceiver$RcsActionHandler;
@@ -1517,6 +1678,7 @@
 
     goto/16 :goto_2
 
+    .line 282
     :cond_1a
     const-string v16, "com.samsung.rcs.intent.action.CONTACTS"
 
@@ -1530,6 +1692,7 @@
 
     const-string v16, "com.samsung.rcs.intent.action.ADD_CALL"
 
+    .line 283
     move-object/from16 v0, v16
 
     invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1540,6 +1703,7 @@
 
     const-string v16, "com.samsung.rcs.intent.action.MANAGE_CONFERENCE_CALL"
 
+    .line 284
     move-object/from16 v0, v16
 
     invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1550,6 +1714,7 @@
 
     const-string v16, "com.samsung.rcs.intent.action.NOTES"
 
+    .line 285
     move-object/from16 v0, v16
 
     invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1560,6 +1725,7 @@
 
     const-string v16, "com.samsung.rcs.intent.action.SIM_SERVICES"
 
+    .line 286
     move-object/from16 v0, v16
 
     invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1570,6 +1736,7 @@
 
     const-string v16, "com.samsung.rcs.intent.action.INIT_SPEAKER_ON"
 
+    .line 287
     move-object/from16 v0, v16
 
     invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1580,6 +1747,7 @@
 
     const-string v16, "com.samsung.rcs.intent.action.UPDATE_PROXIMITY"
 
+    .line 288
     move-object/from16 v0, v16
 
     invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1590,6 +1758,7 @@
 
     const-string v16, "com.samsung.rcs.intent.action.SPEAKER_ON"
 
+    .line 289
     move-object/from16 v0, v16
 
     invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1600,6 +1769,7 @@
 
     const-string v16, "com.samsung.rcs.intent.action.SPEAKER_OFF"
 
+    .line 290
     move-object/from16 v0, v16
 
     invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1610,6 +1780,7 @@
 
     const-string v16, "com.samsung.rcs.intent.action.ACTION_LAUNCH_MINI_MODE_CALL_VIEW"
 
+    .line 291
     move-object/from16 v0, v16
 
     invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1620,6 +1791,7 @@
 
     const-string v16, "com.samsung.rcs.intent.action.ACTION_HIDE_MINI_MODE_CALL_VIEW"
 
+    .line 292
     move-object/from16 v0, v16
 
     invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1630,6 +1802,7 @@
 
     const-string v16, "com.samsung.rcs.intent.action.MUTE_ON"
 
+    .line 293
     move-object/from16 v0, v16
 
     invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1640,6 +1813,7 @@
 
     const-string v16, "com.samsung.rcs.intent.action.MUTE_OFF"
 
+    .line 294
     move-object/from16 v0, v16
 
     invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1650,6 +1824,7 @@
 
     const-string v16, "com.samsung.rcs.intent.action.NOISE_REDUCTION"
 
+    .line 295
     move-object/from16 v0, v16
 
     invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1660,6 +1835,7 @@
 
     const-string v16, "com.samsung.rcs.intent.action.BLUETOOTH_HANDSET"
 
+    .line 296
     move-object/from16 v0, v16
 
     invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1670,6 +1846,7 @@
 
     const-string v16, "com.samsung.rcs.intent.action.ACTION_RCS_SPEAKER_OFF"
 
+    .line 297
     move-object/from16 v0, v16
 
     invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1680,6 +1857,7 @@
 
     const-string v16, "com.samsung.rcs.intent.action.ACTION_RCS_CALL_HOLD"
 
+    .line 298
     move-object/from16 v0, v16
 
     invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1690,6 +1868,7 @@
 
     const-string v16, "com.samsung.rcs.intent.action.END_CALL"
 
+    .line 299
     move-object/from16 v0, v16
 
     invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1698,6 +1877,7 @@
 
     if-eqz v16, :cond_1c
 
+    .line 301
     :cond_1b
     move-object/from16 v0, p0
 
@@ -1711,6 +1891,7 @@
 
     goto/16 :goto_2
 
+    .line 302
     :cond_1c
     const-string v16, "com.samsung.rcs.framework.instantmessaging.notification.MESSAGE_RECEIVED"
 
@@ -1724,6 +1905,7 @@
 
     const-string v16, "com.samsung.rcs.framework.filetransfer.notification.TRANSFER_INCOMING"
 
+    .line 303
     move-object/from16 v0, v16
 
     invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1732,6 +1914,7 @@
 
     if-eqz v16, :cond_1e
 
+    .line 304
     :cond_1d
     move-object/from16 v0, p0
 
@@ -1747,6 +1930,7 @@
 
     goto/16 :goto_2
 
+    .line 305
     :cond_1e
     const-string v16, "com.samsung.rcs.contentsharing.action.CSH_INFO"
 
@@ -1758,6 +1942,7 @@
 
     if-eqz v16, :cond_1f
 
+    .line 306
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/incallui/secrcs/RcsBroadcastReceiver;->mHandler:Lcom/android/incallui/secrcs/RcsBroadcastReceiver$RcsActionHandler;
@@ -1772,6 +1957,7 @@
 
     goto/16 :goto_2
 
+    .line 307
     :cond_1f
     const-string v16, "com.samsung.rcs.intent.action.RESUME_SHARING_SERVICE_DIALOG"
 
@@ -1783,6 +1969,7 @@
 
     if-eqz v16, :cond_20
 
+    .line 308
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/incallui/secrcs/RcsBroadcastReceiver;->mHandler:Lcom/android/incallui/secrcs/RcsBroadcastReceiver$RcsActionHandler;
@@ -1795,6 +1982,7 @@
 
     goto/16 :goto_2
 
+    .line 309
     :cond_20
     const-string v16, "com.samsung.rcs.intent.action.STOP_SHARING_SERVICE_DIALOG"
 
@@ -1806,6 +1994,7 @@
 
     if-eqz v16, :cond_21
 
+    .line 310
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/incallui/secrcs/RcsBroadcastReceiver;->mHandler:Lcom/android/incallui/secrcs/RcsBroadcastReceiver$RcsActionHandler;
@@ -1818,6 +2007,7 @@
 
     goto/16 :goto_2
 
+    .line 311
     :cond_21
     const-string v16, "com.samsung.rcs.intent.action.REBOOT_SHARING_SERVICE_DIALOG"
 
@@ -1829,6 +2019,7 @@
 
     if-eqz v16, :cond_3
 
+    .line 312
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/incallui/secrcs/RcsBroadcastReceiver;->mHandler:Lcom/android/incallui/secrcs/RcsBroadcastReceiver$RcsActionHandler;
@@ -1844,48 +2035,63 @@
 
 .method public register(Landroid/content/Context;)V
     .locals 1
+    .param p1, "context"    # Landroid/content/Context;
 
+    .prologue
+    .line 165
     iget-boolean v0, p0, Lcom/android/incallui/secrcs/RcsBroadcastReceiver;->mRegistered:Z
 
     if-nez v0, :cond_0
 
+    .line 166
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/incallui/secrcs/RcsBroadcastReceiver;->mRegistered:Z
 
+    .line 167
     invoke-static {}, Lcom/android/incallui/secrcs/RcsBroadcastReceiver;->createIntentFilter()Landroid/content/IntentFilter;
 
     move-result-object v0
 
     invoke-virtual {p1, p0, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
+    .line 169
     :cond_0
     return-void
 .end method
 
 .method public unregister(Landroid/content/Context;)V
     .locals 4
+    .param p1, "context"    # Landroid/content/Context;
 
+    .prologue
+    .line 172
     iget-boolean v1, p0, Lcom/android/incallui/secrcs/RcsBroadcastReceiver;->mRegistered:Z
 
     if-eqz v1, :cond_0
 
+    .line 173
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Lcom/android/incallui/secrcs/RcsBroadcastReceiver;->mRegistered:Z
 
+    .line 175
     :try_start_0
     invoke-virtual {p1, p0}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
     :try_end_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 180
     :cond_0
     :goto_0
     return-void
 
+    .line 176
     :catch_0
     move-exception v0
 
+    .line 177
+    .local v0, "e":Ljava/lang/IllegalArgumentException;
     sget-object v1, Lcom/android/incallui/secrcs/RcsBroadcastReceiver;->LOG_TAG:Ljava/lang/String;
 
     new-instance v2, Ljava/lang/StringBuilder;

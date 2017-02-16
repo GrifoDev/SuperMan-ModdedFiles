@@ -58,12 +58,18 @@
         }
     .end annotation
 
+    .prologue
+    .line 89
+    .local p0, "this":Lcom/google/common/collect/TreeRangeSet$AsRanges;, "Lcom/google/common/collect/TreeRangeSet<TC;>.AsRanges;"
+    .local p2, "delegate":Ljava/util/Collection;, "Ljava/util/Collection<Lcom/google/common/collect/Range<TC;>;>;"
     iput-object p1, p0, Lcom/google/common/collect/TreeRangeSet$AsRanges;->this$0:Lcom/google/common/collect/TreeRangeSet;
 
     invoke-direct {p0}, Lcom/google/common/collect/ForwardingCollection;-><init>()V
 
+    .line 90
     iput-object p2, p0, Lcom/google/common/collect/TreeRangeSet$AsRanges;->delegate:Ljava/util/Collection;
 
+    .line 91
     return-void
 .end method
 
@@ -72,6 +78,9 @@
 .method protected bridge synthetic delegate()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 85
+    .local p0, "this":Lcom/google/common/collect/TreeRangeSet$AsRanges;, "Lcom/google/common/collect/TreeRangeSet<TC;>.AsRanges;"
     invoke-virtual {p0}, Lcom/google/common/collect/TreeRangeSet$AsRanges;->delegate()Ljava/util/Collection;
 
     move-result-object v0
@@ -91,6 +100,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 95
+    .local p0, "this":Lcom/google/common/collect/TreeRangeSet$AsRanges;, "Lcom/google/common/collect/TreeRangeSet<TC;>.AsRanges;"
     iget-object v0, p0, Lcom/google/common/collect/TreeRangeSet$AsRanges;->delegate:Ljava/util/Collection;
 
     return-object v0
@@ -98,11 +110,14 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
-    .param p1    # Ljava/lang/Object;
+    .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
+    .prologue
+    .line 105
+    .local p0, "this":Lcom/google/common/collect/TreeRangeSet$AsRanges;, "Lcom/google/common/collect/TreeRangeSet<TC;>.AsRanges;"
     invoke-static {p0, p1}, Lcom/google/common/collect/Sets;->equalsImpl(Ljava/util/Set;Ljava/lang/Object;)Z
 
     move-result v0
@@ -113,6 +128,9 @@
 .method public hashCode()I
     .locals 1
 
+    .prologue
+    .line 100
+    .local p0, "this":Lcom/google/common/collect/TreeRangeSet$AsRanges;, "Lcom/google/common/collect/TreeRangeSet<TC;>.AsRanges;"
     invoke-static {p0}, Lcom/google/common/collect/Sets;->hashCodeImpl(Ljava/util/Set;)I
 
     move-result v0

@@ -38,6 +38,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 339
     new-instance v0, Lcom/google/common/primitives/Shorts$ShortConverter;
 
     invoke-direct {v0}, Lcom/google/common/primitives/Shorts$ShortConverter;-><init>()V
@@ -50,6 +52,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 337
     invoke-direct {p0}, Lcom/google/common/base/Converter;-><init>()V
 
     return-void
@@ -58,6 +62,8 @@
 .method private readResolve()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 357
     sget-object v0, Lcom/google/common/primitives/Shorts$ShortConverter;->INSTANCE:Lcom/google/common/primitives/Shorts$ShortConverter;
 
     return-object v0
@@ -67,9 +73,13 @@
 # virtual methods
 .method protected bridge synthetic doBackward(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
+    .param p1, "x0"    # Ljava/lang/Object;
 
+    .prologue
+    .line 337
     check-cast p1, Ljava/lang/Short;
 
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/google/common/primitives/Shorts$ShortConverter;->doBackward(Ljava/lang/Short;)Ljava/lang/String;
 
     move-result-object v0
@@ -79,7 +89,10 @@
 
 .method protected doBackward(Ljava/lang/Short;)Ljava/lang/String;
     .locals 1
+    .param p1, "value"    # Ljava/lang/Short;
 
+    .prologue
+    .line 348
     invoke-virtual {p1}, Ljava/lang/Short;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -89,9 +102,13 @@
 
 .method protected bridge synthetic doForward(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
+    .param p1, "x0"    # Ljava/lang/Object;
 
+    .prologue
+    .line 337
     check-cast p1, Ljava/lang/String;
 
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/google/common/primitives/Shorts$ShortConverter;->doForward(Ljava/lang/String;)Ljava/lang/Short;
 
     move-result-object v0
@@ -101,7 +118,10 @@
 
 .method protected doForward(Ljava/lang/String;)Ljava/lang/Short;
     .locals 1
+    .param p1, "value"    # Ljava/lang/String;
 
+    .prologue
+    .line 343
     invoke-static {p1}, Ljava/lang/Short;->decode(Ljava/lang/String;)Ljava/lang/Short;
 
     move-result-object v0
@@ -112,6 +132,8 @@
 .method public toString()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 353
     const-string v0, "Shorts.stringConverter()"
 
     return-object v0

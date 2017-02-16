@@ -62,6 +62,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 16
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -72,6 +74,8 @@
 .method public getDate()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 76
     iget-object v0, p0, Lcom/cmdm/control/bean/HarassMobile;->date:Ljava/lang/String;
 
     return-object v0
@@ -80,6 +84,8 @@
 .method public getGuishudi()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 68
     iget-object v0, p0, Lcom/cmdm/control/bean/HarassMobile;->aa:Ljava/lang/String;
 
     return-object v0
@@ -87,16 +93,24 @@
 
 .method public setDate(Ljava/lang/String;)V
     .locals 0
+    .param p1, "date"    # Ljava/lang/String;
 
+    .prologue
+    .line 80
     iput-object p1, p0, Lcom/cmdm/control/bean/HarassMobile;->date:Ljava/lang/String;
 
+    .line 81
     return-void
 .end method
 
 .method public setGuishudi(Ljava/lang/String;)V
     .locals 0
+    .param p1, "guishudi"    # Ljava/lang/String;
 
+    .prologue
+    .line 72
     iput-object p1, p0, Lcom/cmdm/control/bean/HarassMobile;->aa:Ljava/lang/String;
 
+    .line 73
     return-void
 .end method

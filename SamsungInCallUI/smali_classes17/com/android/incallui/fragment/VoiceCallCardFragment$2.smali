@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/VoiceCallCardFragment;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/fragment/VoiceCallCardFragment;
 
+    .prologue
+    .line 345
     iput-object p1, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment$2;->this$0:Lcom/android/incallui/fragment/VoiceCallCardFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +39,10 @@
 # virtual methods
 .method public onChronometerTick(Landroid/widget/Chronometer;)V
     .locals 8
+    .param p1, "chronometer"    # Landroid/widget/Chronometer;
 
+    .prologue
+    .line 347
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v4
@@ -47,6 +53,8 @@
 
     sub-long v0, v4, v6
 
+    .line 348
+    .local v0, "duration":J
     iget-object v3, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment$2;->this$0:Lcom/android/incallui/fragment/VoiceCallCardFragment;
 
     iget-object v4, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment$2;->this$0:Lcom/android/incallui/fragment/VoiceCallCardFragment;
@@ -55,6 +63,7 @@
 
     invoke-virtual {v3, v0, v1, v4}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->setTTS(JLandroid/view/View;)V
 
+    .line 349
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
     move-result-object v3
@@ -63,7 +72,10 @@
 
     move-result-object v2
 
+    .line 350
+    .local v2, "recorderMgr":Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;
     invoke-static {v0, v1}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;->makeBeepSound(J)V
 
+    .line 351
     return-void
 .end method

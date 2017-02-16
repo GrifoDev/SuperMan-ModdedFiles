@@ -31,6 +31,9 @@
 .method constructor <init>(Lcom/google/common/collect/ImmutableSortedMap$1EntrySet;)V
     .locals 0
 
+    .prologue
+    .line 558
+    .local p0, "this":Lcom/google/common/collect/ImmutableSortedMap$1EntrySet$1;, "Lcom/google/common/collect/ImmutableSortedMap$1EntrySet.1;"
     iput-object p1, p0, Lcom/google/common/collect/ImmutableSortedMap$1EntrySet$1;->this$1:Lcom/google/common/collect/ImmutableSortedMap$1EntrySet;
 
     invoke-direct {p0}, Lcom/google/common/collect/ImmutableAsList;-><init>()V
@@ -52,6 +55,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 566
+    .local p0, "this":Lcom/google/common/collect/ImmutableSortedMap$1EntrySet$1;, "Lcom/google/common/collect/ImmutableSortedMap$1EntrySet.1;"
     iget-object v0, p0, Lcom/google/common/collect/ImmutableSortedMap$1EntrySet$1;->this$1:Lcom/google/common/collect/ImmutableSortedMap$1EntrySet;
 
     return-object v0
@@ -59,7 +65,11 @@
 
 .method public bridge synthetic get(I)Ljava/lang/Object;
     .locals 1
+    .param p1, "x0"    # I
 
+    .prologue
+    .line 558
+    .local p0, "this":Lcom/google/common/collect/ImmutableSortedMap$1EntrySet$1;, "Lcom/google/common/collect/ImmutableSortedMap$1EntrySet.1;"
     invoke-virtual {p0, p1}, Lcom/google/common/collect/ImmutableSortedMap$1EntrySet$1;->get(I)Ljava/util/Map$Entry;
 
     move-result-object v0
@@ -69,6 +79,7 @@
 
 .method public get(I)Ljava/util/Map$Entry;
     .locals 2
+    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -77,6 +88,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 561
+    .local p0, "this":Lcom/google/common/collect/ImmutableSortedMap$1EntrySet$1;, "Lcom/google/common/collect/ImmutableSortedMap$1EntrySet.1;"
     iget-object v0, p0, Lcom/google/common/collect/ImmutableSortedMap$1EntrySet$1;->this$1:Lcom/google/common/collect/ImmutableSortedMap$1EntrySet;
 
     iget-object v0, v0, Lcom/google/common/collect/ImmutableSortedMap$1EntrySet;->this$0:Lcom/google/common/collect/ImmutableSortedMap;

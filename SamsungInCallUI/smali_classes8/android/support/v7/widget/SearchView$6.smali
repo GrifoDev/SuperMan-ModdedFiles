@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/SearchView;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/v7/widget/SearchView;
 
+    .prologue
+    .line 416
     iput-object p1, p0, Landroid/support/v7/widget/SearchView$6;->this$0:Landroid/support/v7/widget/SearchView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,10 +40,13 @@
 .method public onGlobalLayout()V
     .locals 1
 
+    .prologue
+    .line 419
     iget-object v0, p0, Landroid/support/v7/widget/SearchView$6;->this$0:Landroid/support/v7/widget/SearchView;
 
     # invokes: Landroid/support/v7/widget/SearchView;->adjustDropDownSizeAndPosition()V
     invoke-static {v0}, Landroid/support/v7/widget/SearchView;->access$300(Landroid/support/v7/widget/SearchView;)V
 
+    .line 420
     return-void
 .end method

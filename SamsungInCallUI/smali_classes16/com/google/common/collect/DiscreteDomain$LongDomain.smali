@@ -37,6 +37,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 109
     new-instance v0, Lcom/google/common/collect/DiscreteDomain$LongDomain;
 
     invoke-direct {v0}, Lcom/google/common/collect/DiscreteDomain$LongDomain;-><init>()V
@@ -49,6 +51,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 108
     invoke-direct {p0}, Lcom/google/common/collect/DiscreteDomain;-><init>()V
 
     return-void
@@ -57,6 +61,8 @@
 .method static synthetic access$100()Lcom/google/common/collect/DiscreteDomain$LongDomain;
     .locals 1
 
+    .prologue
+    .line 108
     sget-object v0, Lcom/google/common/collect/DiscreteDomain$LongDomain;->INSTANCE:Lcom/google/common/collect/DiscreteDomain$LongDomain;
 
     return-object v0
@@ -65,6 +71,8 @@
 .method private readResolve()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 146
     sget-object v0, Lcom/google/common/collect/DiscreteDomain$LongDomain;->INSTANCE:Lcom/google/common/collect/DiscreteDomain$LongDomain;
 
     return-object v0
@@ -74,11 +82,17 @@
 # virtual methods
 .method public bridge synthetic distance(Ljava/lang/Comparable;Ljava/lang/Comparable;)J
     .locals 2
+    .param p1, "x0"    # Ljava/lang/Comparable;
+    .param p2, "x1"    # Ljava/lang/Comparable;
 
+    .prologue
+    .line 108
     check-cast p1, Ljava/lang/Long;
 
+    .end local p1    # "x0":Ljava/lang/Comparable;
     check-cast p2, Ljava/lang/Long;
 
+    .end local p2    # "x1":Ljava/lang/Comparable;
     invoke-virtual {p0, p1, p2}, Lcom/google/common/collect/DiscreteDomain$LongDomain;->distance(Ljava/lang/Long;Ljava/lang/Long;)J
 
     move-result-wide v0
@@ -88,9 +102,13 @@
 
 .method public distance(Ljava/lang/Long;Ljava/lang/Long;)J
     .locals 8
+    .param p1, "start"    # Ljava/lang/Long;
+    .param p2, "end"    # Ljava/lang/Long;
 
+    .prologue
     const-wide/16 v6, 0x0
 
+    .line 125
     invoke-virtual {p2}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v2
@@ -101,6 +119,8 @@
 
     sub-long v0, v2, v4
 
+    .line 126
+    .local v0, "result":J
     invoke-virtual {p2}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v2
@@ -117,12 +137,17 @@
 
     if-gez v2, :cond_1
 
+    .line 127
     const-wide v0, 0x7fffffffffffffffL
 
+    .line 132
+    .end local v0    # "result":J
     :cond_0
     :goto_0
     return-wide v0
 
+    .line 129
+    .restart local v0    # "result":J
     :cond_1
     invoke-virtual {p2}, Ljava/lang/Long;->longValue()J
 
@@ -140,6 +165,7 @@
 
     if-lez v2, :cond_0
 
+    .line 130
     const-wide/high16 v0, -0x8000000000000000L
 
     goto :goto_0
@@ -148,6 +174,8 @@
 .method public bridge synthetic maxValue()Ljava/lang/Comparable;
     .locals 1
 
+    .prologue
+    .line 108
     invoke-virtual {p0}, Lcom/google/common/collect/DiscreteDomain$LongDomain;->maxValue()Ljava/lang/Long;
 
     move-result-object v0
@@ -158,6 +186,8 @@
 .method public maxValue()Ljava/lang/Long;
     .locals 2
 
+    .prologue
+    .line 142
     const-wide v0, 0x7fffffffffffffffL
 
     invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
@@ -170,6 +200,8 @@
 .method public bridge synthetic minValue()Ljava/lang/Comparable;
     .locals 1
 
+    .prologue
+    .line 108
     invoke-virtual {p0}, Lcom/google/common/collect/DiscreteDomain$LongDomain;->minValue()Ljava/lang/Long;
 
     move-result-object v0
@@ -180,6 +212,8 @@
 .method public minValue()Ljava/lang/Long;
     .locals 2
 
+    .prologue
+    .line 137
     const-wide/high16 v0, -0x8000000000000000L
 
     invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
@@ -191,9 +225,13 @@
 
 .method public bridge synthetic next(Ljava/lang/Comparable;)Ljava/lang/Comparable;
     .locals 1
+    .param p1, "x0"    # Ljava/lang/Comparable;
 
+    .prologue
+    .line 108
     check-cast p1, Ljava/lang/Long;
 
+    .end local p1    # "x0":Ljava/lang/Comparable;
     invoke-virtual {p0, p1}, Lcom/google/common/collect/DiscreteDomain$LongDomain;->next(Ljava/lang/Long;)Ljava/lang/Long;
 
     move-result-object v0
@@ -203,11 +241,16 @@
 
 .method public next(Ljava/lang/Long;)Ljava/lang/Long;
     .locals 4
+    .param p1, "value"    # Ljava/lang/Long;
 
+    .prologue
+    .line 113
     invoke-virtual {p1}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v0
 
+    .line 114
+    .local v0, "l":J
     const-wide v2, 0x7fffffffffffffffL
 
     cmp-long v2, v0, v2
@@ -233,9 +276,13 @@
 
 .method public bridge synthetic previous(Ljava/lang/Comparable;)Ljava/lang/Comparable;
     .locals 1
+    .param p1, "x0"    # Ljava/lang/Comparable;
 
+    .prologue
+    .line 108
     check-cast p1, Ljava/lang/Long;
 
+    .end local p1    # "x0":Ljava/lang/Comparable;
     invoke-virtual {p0, p1}, Lcom/google/common/collect/DiscreteDomain$LongDomain;->previous(Ljava/lang/Long;)Ljava/lang/Long;
 
     move-result-object v0
@@ -245,11 +292,16 @@
 
 .method public previous(Ljava/lang/Long;)Ljava/lang/Long;
     .locals 4
+    .param p1, "value"    # Ljava/lang/Long;
 
+    .prologue
+    .line 119
     invoke-virtual {p1}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v0
 
+    .line 120
+    .local v0, "l":J
     const-wide/high16 v2, -0x8000000000000000L
 
     cmp-long v2, v0, v2
@@ -276,6 +328,8 @@
 .method public toString()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 151
     const-string v0, "DiscreteDomain.longs()"
 
     return-object v0

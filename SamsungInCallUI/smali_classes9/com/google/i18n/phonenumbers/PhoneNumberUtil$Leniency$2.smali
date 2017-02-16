@@ -18,6 +18,8 @@
 .method constructor <init>(Ljava/lang/String;I)V
     .locals 1
 
+    .prologue
+    .line 470
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, p2, v0}, Lcom/google/i18n/phonenumbers/PhoneNumberUtil$Leniency;-><init>(Ljava/lang/String;ILcom/google/i18n/phonenumbers/PhoneNumberUtil$1;)V
@@ -29,22 +31,30 @@
 # virtual methods
 .method verify(Lcom/google/i18n/phonenumbers/Phonenumber$PhoneNumber;Ljava/lang/String;Lcom/google/i18n/phonenumbers/PhoneNumberUtil;)Z
     .locals 1
+    .param p1, "number"    # Lcom/google/i18n/phonenumbers/Phonenumber$PhoneNumber;
+    .param p2, "candidate"    # Ljava/lang/String;
+    .param p3, "util"    # Lcom/google/i18n/phonenumbers/PhoneNumberUtil;
 
+    .prologue
+    .line 473
     invoke-virtual {p3, p1}, Lcom/google/i18n/phonenumbers/PhoneNumberUtil;->isValidNumber(Lcom/google/i18n/phonenumbers/Phonenumber$PhoneNumber;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
+    .line 474
     invoke-static {p1, p2, p3}, Lcom/google/i18n/phonenumbers/PhoneNumberMatcher;->containsOnlyValidXChars(Lcom/google/i18n/phonenumbers/Phonenumber$PhoneNumber;Ljava/lang/String;Lcom/google/i18n/phonenumbers/PhoneNumberUtil;)Z
 
     move-result v0
 
     if-nez v0, :cond_1
 
+    .line 475
     :cond_0
     const/4 v0, 0x0
 
+    .line 477
     :goto_0
     return v0
 

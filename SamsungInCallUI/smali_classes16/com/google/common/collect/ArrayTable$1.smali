@@ -30,7 +30,11 @@
 # direct methods
 .method constructor <init>(Lcom/google/common/collect/ArrayTable;I)V
     .locals 0
+    .param p2, "x0"    # I
 
+    .prologue
+    .line 542
+    .local p0, "this":Lcom/google/common/collect/ArrayTable$1;, "Lcom/google/common/collect/ArrayTable.1;"
     iput-object p1, p0, Lcom/google/common/collect/ArrayTable$1;->this$0:Lcom/google/common/collect/ArrayTable;
 
     invoke-direct {p0, p2}, Lcom/google/common/collect/AbstractIndexedListIterator;-><init>(I)V
@@ -42,6 +46,7 @@
 # virtual methods
 .method protected get(I)Lcom/google/common/collect/Table$Cell;
     .locals 1
+    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -50,6 +55,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 545
+    .local p0, "this":Lcom/google/common/collect/ArrayTable$1;, "Lcom/google/common/collect/ArrayTable.1;"
     new-instance v0, Lcom/google/common/collect/ArrayTable$1$1;
 
     invoke-direct {v0, p0, p1}, Lcom/google/common/collect/ArrayTable$1$1;-><init>(Lcom/google/common/collect/ArrayTable$1;I)V
@@ -59,7 +67,11 @@
 
 .method protected bridge synthetic get(I)Ljava/lang/Object;
     .locals 1
+    .param p1, "x0"    # I
 
+    .prologue
+    .line 542
+    .local p0, "this":Lcom/google/common/collect/ArrayTable$1;, "Lcom/google/common/collect/ArrayTable.1;"
     invoke-virtual {p0, p1}, Lcom/google/common/collect/ArrayTable$1;->get(I)Lcom/google/common/collect/Table$Cell;
 
     move-result-object v0

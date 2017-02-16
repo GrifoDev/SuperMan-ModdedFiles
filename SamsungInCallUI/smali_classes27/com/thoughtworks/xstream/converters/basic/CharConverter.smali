@@ -11,6 +11,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -20,7 +22,10 @@
 # virtual methods
 .method public canConvert(Ljava/lang/Class;)Z
     .locals 1
+    .param p1, "type"    # Ljava/lang/Class;
 
+    .prologue
+    .line 31
     sget-object v0, Ljava/lang/Character;->TYPE:Ljava/lang/Class;
 
     invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
@@ -51,19 +56,24 @@
 
 .method public fromString(Ljava/lang/String;)Ljava/lang/Object;
     .locals 2
+    .param p1, "str"    # Ljava/lang/String;
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 48
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v0
 
     if-nez v0, :cond_0
 
+    .line 49
     new-instance v0, Ljava/lang/Character;
 
     invoke-direct {v0, v1}, Ljava/lang/Character;-><init>(C)V
 
+    .line 51
     :goto_0
     return-object v0
 
@@ -81,19 +91,28 @@
 
 .method public marshal(Ljava/lang/Object;Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;Lcom/thoughtworks/xstream/converters/MarshallingContext;)V
     .locals 1
+    .param p1, "source"    # Ljava/lang/Object;
+    .param p2, "writer"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
+    .param p3, "context"    # Lcom/thoughtworks/xstream/converters/MarshallingContext;
 
+    .prologue
+    .line 35
     invoke-virtual {p0, p1}, Lcom/thoughtworks/xstream/converters/basic/CharConverter;->toString(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
     invoke-interface {p2, v0}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->setValue(Ljava/lang/String;)V
 
+    .line 36
     return-void
 .end method
 
 .method public toString(Ljava/lang/Object;)Ljava/lang/String;
     .locals 2
+    .param p1, "obj"    # Ljava/lang/Object;
 
+    .prologue
+    .line 56
     move-object v1, p1
 
     check-cast v1, Ljava/lang/Character;
@@ -102,6 +121,8 @@
 
     move-result v0
 
+    .line 57
+    .local v0, "ch":C
     if-nez v0, :cond_0
 
     const-string v1, ""
@@ -119,13 +140,19 @@
 
 .method public unmarshal(Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/converters/UnmarshallingContext;)Ljava/lang/Object;
     .locals 3
+    .param p1, "reader"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
+    .param p2, "context"    # Lcom/thoughtworks/xstream/converters/UnmarshallingContext;
 
+    .prologue
+    .line 39
     const-string v1, "null"
 
     invoke-interface {p1, v1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
+    .line 40
+    .local v0, "nullAttribute":Ljava/lang/String;
     if-eqz v0, :cond_0
 
     const-string v1, "true"
@@ -136,12 +163,14 @@
 
     if-eqz v1, :cond_0
 
+    .line 41
     new-instance v1, Ljava/lang/Character;
 
     const/4 v2, 0x0
 
     invoke-direct {v1, v2}, Ljava/lang/Character;-><init>(C)V
 
+    .line 43
     :goto_0
     return-object v1
 

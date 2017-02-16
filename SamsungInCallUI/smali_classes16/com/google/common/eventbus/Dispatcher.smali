@@ -18,14 +18,19 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 196
     return-void
 .end method
 
 .method static immediate()Lcom/google/common/eventbus/Dispatcher;
     .locals 1
 
+    .prologue
+    .line 69
     # getter for: Lcom/google/common/eventbus/Dispatcher$ImmediateDispatcher;->INSTANCE:Lcom/google/common/eventbus/Dispatcher$ImmediateDispatcher;
     invoke-static {}, Lcom/google/common/eventbus/Dispatcher$ImmediateDispatcher;->access$200()Lcom/google/common/eventbus/Dispatcher$ImmediateDispatcher;
 
@@ -37,6 +42,8 @@
 .method static legacyAsync()Lcom/google/common/eventbus/Dispatcher;
     .locals 2
 
+    .prologue
+    .line 60
     new-instance v0, Lcom/google/common/eventbus/Dispatcher$LegacyAsyncDispatcher;
 
     const/4 v1, 0x0
@@ -49,6 +56,8 @@
 .method static perThreadDispatchQueue()Lcom/google/common/eventbus/Dispatcher;
     .locals 2
 
+    .prologue
+    .line 50
     new-instance v0, Lcom/google/common/eventbus/Dispatcher$PerThreadQueuedDispatcher;
 
     const/4 v1, 0x0

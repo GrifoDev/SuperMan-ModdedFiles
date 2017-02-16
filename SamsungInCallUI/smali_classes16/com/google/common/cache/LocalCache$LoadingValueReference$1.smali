@@ -33,6 +33,9 @@
 .method constructor <init>(Lcom/google/common/cache/LocalCache$LoadingValueReference;)V
     .locals 0
 
+    .prologue
+    .line 3551
+    .local p0, "this":Lcom/google/common/cache/LocalCache$LoadingValueReference$1;, "Lcom/google/common/cache/LocalCache$LoadingValueReference.1;"
     iput-object p1, p0, Lcom/google/common/cache/LocalCache$LoadingValueReference$1;->this$0:Lcom/google/common/cache/LocalCache$LoadingValueReference;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,9 +53,14 @@
         }
     .end annotation
 
+    .prologue
+    .line 3554
+    .local p0, "this":Lcom/google/common/cache/LocalCache$LoadingValueReference$1;, "Lcom/google/common/cache/LocalCache$LoadingValueReference.1;"
+    .local p1, "newValue":Ljava/lang/Object;, "TV;"
     iget-object v0, p0, Lcom/google/common/cache/LocalCache$LoadingValueReference$1;->this$0:Lcom/google/common/cache/LocalCache$LoadingValueReference;
 
     invoke-virtual {v0, p1}, Lcom/google/common/cache/LocalCache$LoadingValueReference;->set(Ljava/lang/Object;)Z
 
+    .line 3555
     return-object p1
 .end method

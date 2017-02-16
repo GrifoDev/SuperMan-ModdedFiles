@@ -46,8 +46,13 @@
         }
     .end annotation
 
+    .prologue
+    .line 631
+    .local p0, "this":Lcom/google/common/collect/Multimaps$UnmodifiableSetMultimap;, "Lcom/google/common/collect/Multimaps$UnmodifiableSetMultimap<TK;TV;>;"
+    .local p1, "delegate":Lcom/google/common/collect/SetMultimap;, "Lcom/google/common/collect/SetMultimap<TK;TV;>;"
     invoke-direct {p0, p1}, Lcom/google/common/collect/Multimaps$UnmodifiableMultimap;-><init>(Lcom/google/common/collect/Multimap;)V
 
+    .line 632
     return-void
 .end method
 
@@ -56,6 +61,9 @@
 .method public bridge synthetic delegate()Lcom/google/common/collect/Multimap;
     .locals 1
 
+    .prologue
+    .line 628
+    .local p0, "this":Lcom/google/common/collect/Multimaps$UnmodifiableSetMultimap;, "Lcom/google/common/collect/Multimaps$UnmodifiableSetMultimap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Multimaps$UnmodifiableSetMultimap;->delegate()Lcom/google/common/collect/SetMultimap;
 
     move-result-object v0
@@ -73,6 +81,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 636
+    .local p0, "this":Lcom/google/common/collect/Multimaps$UnmodifiableSetMultimap;, "Lcom/google/common/collect/Multimaps$UnmodifiableSetMultimap<TK;TV;>;"
     invoke-super {p0}, Lcom/google/common/collect/Multimaps$UnmodifiableMultimap;->delegate()Lcom/google/common/collect/Multimap;
 
     move-result-object v0
@@ -85,6 +96,9 @@
 .method public bridge synthetic delegate()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 628
+    .local p0, "this":Lcom/google/common/collect/Multimaps$UnmodifiableSetMultimap;, "Lcom/google/common/collect/Multimaps$UnmodifiableSetMultimap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Multimaps$UnmodifiableSetMultimap;->delegate()Lcom/google/common/collect/SetMultimap;
 
     move-result-object v0
@@ -95,6 +109,9 @@
 .method public bridge synthetic entries()Ljava/util/Collection;
     .locals 1
 
+    .prologue
+    .line 628
+    .local p0, "this":Lcom/google/common/collect/Multimaps$UnmodifiableSetMultimap;, "Lcom/google/common/collect/Multimaps$UnmodifiableSetMultimap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Multimaps$UnmodifiableSetMultimap;->entries()Ljava/util/Set;
 
     move-result-object v0
@@ -114,6 +131,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 650
+    .local p0, "this":Lcom/google/common/collect/Multimaps$UnmodifiableSetMultimap;, "Lcom/google/common/collect/Multimaps$UnmodifiableSetMultimap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Multimaps$UnmodifiableSetMultimap;->delegate()Lcom/google/common/collect/SetMultimap;
 
     move-result-object v0
@@ -131,7 +151,11 @@
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/util/Collection;
     .locals 1
+    .param p1, "x0"    # Ljava/lang/Object;
 
+    .prologue
+    .line 628
+    .local p0, "this":Lcom/google/common/collect/Multimaps$UnmodifiableSetMultimap;, "Lcom/google/common/collect/Multimaps$UnmodifiableSetMultimap<TK;TV;>;"
     invoke-virtual {p0, p1}, Lcom/google/common/collect/Multimaps$UnmodifiableSetMultimap;->get(Ljava/lang/Object;)Ljava/util/Set;
 
     move-result-object v0
@@ -149,6 +173,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 645
+    .local p0, "this":Lcom/google/common/collect/Multimaps$UnmodifiableSetMultimap;, "Lcom/google/common/collect/Multimaps$UnmodifiableSetMultimap<TK;TV;>;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lcom/google/common/collect/Multimaps$UnmodifiableSetMultimap;->delegate()Lcom/google/common/collect/SetMultimap;
 
     move-result-object v0
@@ -166,7 +194,11 @@
 
 .method public bridge synthetic removeAll(Ljava/lang/Object;)Ljava/util/Collection;
     .locals 1
+    .param p1, "x0"    # Ljava/lang/Object;
 
+    .prologue
+    .line 628
+    .local p0, "this":Lcom/google/common/collect/Multimaps$UnmodifiableSetMultimap;, "Lcom/google/common/collect/Multimaps$UnmodifiableSetMultimap<TK;TV;>;"
     invoke-virtual {p0, p1}, Lcom/google/common/collect/Multimaps$UnmodifiableSetMultimap;->removeAll(Ljava/lang/Object;)Ljava/util/Set;
 
     move-result-object v0
@@ -176,6 +208,7 @@
 
 .method public removeAll(Ljava/lang/Object;)Ljava/util/Set;
     .locals 1
+    .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -186,6 +219,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 655
+    .local p0, "this":Lcom/google/common/collect/Multimaps$UnmodifiableSetMultimap;, "Lcom/google/common/collect/Multimaps$UnmodifiableSetMultimap<TK;TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -195,7 +231,12 @@
 
 .method public bridge synthetic replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/Collection;
     .locals 1
+    .param p1, "x0"    # Ljava/lang/Object;
+    .param p2, "x1"    # Ljava/lang/Iterable;
 
+    .prologue
+    .line 628
+    .local p0, "this":Lcom/google/common/collect/Multimaps$UnmodifiableSetMultimap;, "Lcom/google/common/collect/Multimaps$UnmodifiableSetMultimap<TK;TV;>;"
     invoke-virtual {p0, p1, p2}, Lcom/google/common/collect/Multimaps$UnmodifiableSetMultimap;->replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/Set;
 
     move-result-object v0
@@ -215,6 +256,11 @@
         }
     .end annotation
 
+    .prologue
+    .line 660
+    .local p0, "this":Lcom/google/common/collect/Multimaps$UnmodifiableSetMultimap;, "Lcom/google/common/collect/Multimaps$UnmodifiableSetMultimap<TK;TV;>;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
+    .local p2, "values":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V

@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/SelectPhoneSimAccountActivity;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/SelectPhoneSimAccountActivity;
 
+    .prologue
+    .line 36
     iput-object p1, p0, Lcom/android/incallui/SelectPhoneSimAccountActivity$1;->this$0:Lcom/android/incallui/SelectPhoneSimAccountActivity;
 
     invoke-direct {p0}, Landroid/telephony/PhoneStateListener;-><init>()V
@@ -33,14 +36,21 @@
 # virtual methods
 .method public onCallStateChanged(ILjava/lang/String;)V
     .locals 1
+    .param p1, "state"    # I
+    .param p2, "incomingNumber"    # Ljava/lang/String;
 
+    .prologue
+    .line 39
     packed-switch p1, :pswitch_data_0
 
+    .line 47
     :goto_0
     invoke-super {p0, p1, p2}, Landroid/telephony/PhoneStateListener;->onCallStateChanged(ILjava/lang/String;)V
 
+    .line 48
     return-void
 
+    .line 42
     :pswitch_0
     iget-object v0, p0, Lcom/android/incallui/SelectPhoneSimAccountActivity$1;->this$0:Lcom/android/incallui/SelectPhoneSimAccountActivity;
 
@@ -49,6 +59,7 @@
 
     goto :goto_0
 
+    .line 39
     nop
 
     :pswitch_data_0

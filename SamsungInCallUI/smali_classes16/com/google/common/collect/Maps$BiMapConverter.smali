@@ -56,8 +56,13 @@
         }
     .end annotation
 
+    .prologue
+    .line 1381
+    .local p0, "this":Lcom/google/common/collect/Maps$BiMapConverter;, "Lcom/google/common/collect/Maps$BiMapConverter<TA;TB;>;"
+    .local p1, "bimap":Lcom/google/common/collect/BiMap;, "Lcom/google/common/collect/BiMap<TA;TB;>;"
     invoke-direct {p0}, Lcom/google/common/base/Converter;-><init>()V
 
+    .line 1382
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -66,6 +71,7 @@
 
     iput-object v0, p0, Lcom/google/common/collect/Maps$BiMapConverter;->bimap:Lcom/google/common/collect/BiMap;
 
+    .line 1383
     return-void
 .end method
 
@@ -83,14 +89,20 @@
         }
     .end annotation
 
+    .prologue
+    .local p0, "bimap":Lcom/google/common/collect/BiMap;, "Lcom/google/common/collect/BiMap<TX;TY;>;"
+    .local p1, "input":Ljava/lang/Object;, "TX;"
     const/4 v2, 0x1
 
     const/4 v3, 0x0
 
+    .line 1396
     invoke-interface {p0, p1}, Lcom/google/common/collect/BiMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
+    .line 1397
+    .local v0, "output":Ljava/lang/Object;, "TY;"
     if-eqz v0, :cond_0
 
     move v1, v2
@@ -104,11 +116,13 @@
 
     invoke-static {v1, v4, v2}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;[Ljava/lang/Object;)V
 
+    .line 1398
     return-object v0
 
     :cond_0
     move v1, v3
 
+    .line 1397
     goto :goto_0
 .end method
 
@@ -122,6 +136,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 1392
+    .local p0, "this":Lcom/google/common/collect/Maps$BiMapConverter;, "Lcom/google/common/collect/Maps$BiMapConverter<TA;TB;>;"
+    .local p1, "b":Ljava/lang/Object;, "TB;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$BiMapConverter;->bimap:Lcom/google/common/collect/BiMap;
 
     invoke-interface {v0}, Lcom/google/common/collect/BiMap;->inverse()Lcom/google/common/collect/BiMap;
@@ -143,6 +161,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 1387
+    .local p0, "this":Lcom/google/common/collect/Maps$BiMapConverter;, "Lcom/google/common/collect/Maps$BiMapConverter<TA;TB;>;"
+    .local p1, "a":Ljava/lang/Object;, "TA;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$BiMapConverter;->bimap:Lcom/google/common/collect/BiMap;
 
     invoke-static {v0, p1}, Lcom/google/common/collect/Maps$BiMapConverter;->convert(Lcom/google/common/collect/BiMap;Ljava/lang/Object;)Ljava/lang/Object;
@@ -154,19 +176,25 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 3
-    .param p1    # Ljava/lang/Object;
+    .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
+    .prologue
+    .line 1403
+    .local p0, "this":Lcom/google/common/collect/Maps$BiMapConverter;, "Lcom/google/common/collect/Maps$BiMapConverter<TA;TB;>;"
     instance-of v1, p1, Lcom/google/common/collect/Maps$BiMapConverter;
 
     if-eqz v1, :cond_0
 
     move-object v0, p1
 
+    .line 1404
     check-cast v0, Lcom/google/common/collect/Maps$BiMapConverter;
 
+    .line 1405
+    .local v0, "that":Lcom/google/common/collect/Maps$BiMapConverter;, "Lcom/google/common/collect/Maps$BiMapConverter<**>;"
     iget-object v1, p0, Lcom/google/common/collect/Maps$BiMapConverter;->bimap:Lcom/google/common/collect/BiMap;
 
     iget-object v2, v0, Lcom/google/common/collect/Maps$BiMapConverter;->bimap:Lcom/google/common/collect/BiMap;
@@ -175,6 +203,8 @@
 
     move-result v1
 
+    .line 1407
+    .end local v0    # "that":Lcom/google/common/collect/Maps$BiMapConverter;, "Lcom/google/common/collect/Maps$BiMapConverter<**>;"
     :goto_0
     return v1
 
@@ -187,6 +217,9 @@
 .method public hashCode()I
     .locals 1
 
+    .prologue
+    .line 1412
+    .local p0, "this":Lcom/google/common/collect/Maps$BiMapConverter;, "Lcom/google/common/collect/Maps$BiMapConverter<TA;TB;>;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$BiMapConverter;->bimap:Lcom/google/common/collect/BiMap;
 
     invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
@@ -199,6 +232,9 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 1418
+    .local p0, "this":Lcom/google/common/collect/Maps$BiMapConverter;, "Lcom/google/common/collect/Maps$BiMapConverter<TA;TB;>;"
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

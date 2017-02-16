@@ -96,8 +96,12 @@
 .method static constructor <clinit>()V
     .locals 6
 
+    .prologue
+    .line 163
     const/4 v1, 0x0
 
+    .line 166
+    .local v1, "field":Ljava/lang/reflect/Field;
     :try_start_0
     const-class v3, Landroid/bluetooth/BluetoothClass$Device;
 
@@ -110,9 +114,11 @@
 
     move-result-object v1
 
+    .line 171
     :goto_0
     if-eqz v1, :cond_0
 
+    .line 172
     const/4 v3, 0x0
 
     const/4 v4, -0x1
@@ -131,6 +137,8 @@
 
     move-result v2
 
+    .line 173
+    .local v2, "fieldValue":I
     const-string v3, "BluetoothClassWrapper"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -153,17 +161,24 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 174
     sput v2, Lcom/android/incallui/wrapper/BluetoothClassWrapper$Device;->COMPUTER_TABLET:I
 
+    .line 287
+    .end local v2    # "fieldValue":I
     :goto_1
     return-void
 
+    .line 167
     :catch_0
     move-exception v0
 
+    .line 168
+    .local v0, "e":Ljava/lang/Exception;
     :goto_2
     const/4 v1, 0x0
 
+    .line 169
     const-string v3, "BluetoothClassWrapper"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -192,6 +207,8 @@
 
     goto :goto_0
 
+    .line 176
+    .end local v0    # "e":Ljava/lang/Exception;
     :cond_0
     const/16 v3, 0x11c
 
@@ -199,6 +216,7 @@
 
     goto :goto_1
 
+    .line 167
     :catch_1
     move-exception v0
 
@@ -208,6 +226,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 108
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

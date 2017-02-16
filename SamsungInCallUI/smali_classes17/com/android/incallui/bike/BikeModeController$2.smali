@@ -21,7 +21,11 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/bike/BikeModeController;Landroid/os/Handler;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/bike/BikeModeController;
+    .param p2, "x0"    # Landroid/os/Handler;
 
+    .prologue
+    .line 79
     iput-object p1, p0, Lcom/android/incallui/bike/BikeModeController$2;->this$0:Lcom/android/incallui/bike/BikeModeController;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -33,11 +37,15 @@
 # virtual methods
 .method public onChange(Z)V
     .locals 1
+    .param p1, "selfChange"    # Z
 
+    .prologue
+    .line 82
     iget-object v0, p0, Lcom/android/incallui/bike/BikeModeController$2;->this$0:Lcom/android/incallui/bike/BikeModeController;
 
     # invokes: Lcom/android/incallui/bike/BikeModeController;->onBikeCallChange(Z)V
     invoke-static {v0, p1}, Lcom/android/incallui/bike/BikeModeController;->access$100(Lcom/android/incallui/bike/BikeModeController;Z)V
 
+    .line 83
     return-void
 .end method

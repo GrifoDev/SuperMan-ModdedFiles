@@ -7,6 +7,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 24
     invoke-direct {p0}, Lcom/thoughtworks/xstream/converters/basic/AbstractSingleValueConverter;-><init>()V
 
     return-void
@@ -16,7 +18,10 @@
 # virtual methods
 .method public canConvert(Ljava/lang/Class;)Z
     .locals 1
+    .param p1, "type"    # Ljava/lang/Class;
 
+    .prologue
+    .line 27
     const-class v0, Ljava/net/URL;
 
     invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
@@ -28,7 +33,10 @@
 
 .method public fromString(Ljava/lang/String;)Ljava/lang/Object;
     .locals 2
+    .param p1, "str"    # Ljava/lang/String;
 
+    .prologue
+    .line 32
     :try_start_0
     new-instance v1, Ljava/net/URL;
 
@@ -38,9 +46,12 @@
 
     return-object v1
 
+    .line 33
     :catch_0
     move-exception v0
 
+    .line 34
+    .local v0, "e":Ljava/net/MalformedURLException;
     new-instance v1, Lcom/thoughtworks/xstream/converters/ConversionException;
 
     invoke-direct {v1, v0}, Lcom/thoughtworks/xstream/converters/ConversionException;-><init>(Ljava/lang/Throwable;)V

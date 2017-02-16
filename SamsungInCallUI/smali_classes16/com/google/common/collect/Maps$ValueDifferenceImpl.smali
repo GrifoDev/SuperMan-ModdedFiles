@@ -63,12 +63,20 @@
         }
     .end annotation
 
+    .prologue
+    .line 551
+    .local p0, "this":Lcom/google/common/collect/Maps$ValueDifferenceImpl;, "Lcom/google/common/collect/Maps$ValueDifferenceImpl<TV;>;"
+    .local p1, "left":Ljava/lang/Object;, "TV;"
+    .local p2, "right":Ljava/lang/Object;, "TV;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 552
     iput-object p1, p0, Lcom/google/common/collect/Maps$ValueDifferenceImpl;->left:Ljava/lang/Object;
 
+    .line 553
     iput-object p2, p0, Lcom/google/common/collect/Maps$ValueDifferenceImpl;->right:Ljava/lang/Object;
 
+    .line 554
     return-void
 .end method
 
@@ -92,6 +100,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 548
+    .local p0, "left":Ljava/lang/Object;, "TV;"
+    .local p1, "right":Ljava/lang/Object;, "TV;"
     new-instance v0, Lcom/google/common/collect/Maps$ValueDifferenceImpl;
 
     invoke-direct {v0, p0, p1}, Lcom/google/common/collect/Maps$ValueDifferenceImpl;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
@@ -103,21 +115,27 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
-    .param p1    # Ljava/lang/Object;
+    .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
+    .prologue
+    .local p0, "this":Lcom/google/common/collect/Maps$ValueDifferenceImpl;, "Lcom/google/common/collect/Maps$ValueDifferenceImpl<TV;>;"
     const/4 v1, 0x0
 
+    .line 568
     instance-of v2, p1, Lcom/google/common/collect/MapDifference$ValueDifference;
 
     if-eqz v2, :cond_0
 
     move-object v0, p1
 
+    .line 569
     check-cast v0, Lcom/google/common/collect/MapDifference$ValueDifference;
 
+    .line 570
+    .local v0, "that":Lcom/google/common/collect/MapDifference$ValueDifference;, "Lcom/google/common/collect/MapDifference$ValueDifference<*>;"
     iget-object v2, p0, Lcom/google/common/collect/Maps$ValueDifferenceImpl;->left:Ljava/lang/Object;
 
     invoke-interface {v0}, Lcom/google/common/collect/MapDifference$ValueDifference;->leftValue()Ljava/lang/Object;
@@ -144,6 +162,8 @@
 
     const/4 v1, 0x1
 
+    .line 573
+    .end local v0    # "that":Lcom/google/common/collect/MapDifference$ValueDifference;, "Lcom/google/common/collect/MapDifference$ValueDifference<*>;"
     :cond_0
     return v1
 .end method
@@ -151,6 +171,9 @@
 .method public hashCode()I
     .locals 3
 
+    .prologue
+    .line 578
+    .local p0, "this":Lcom/google/common/collect/Maps$ValueDifferenceImpl;, "Lcom/google/common/collect/Maps$ValueDifferenceImpl<TV;>;"
     const/4 v0, 0x2
 
     new-array v0, v0, [Ljava/lang/Object;
@@ -182,6 +205,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 558
+    .local p0, "this":Lcom/google/common/collect/Maps$ValueDifferenceImpl;, "Lcom/google/common/collect/Maps$ValueDifferenceImpl<TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$ValueDifferenceImpl;->left:Ljava/lang/Object;
 
     return-object v0
@@ -195,6 +221,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 563
+    .local p0, "this":Lcom/google/common/collect/Maps$ValueDifferenceImpl;, "Lcom/google/common/collect/Maps$ValueDifferenceImpl<TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$ValueDifferenceImpl;->right:Ljava/lang/Object;
 
     return-object v0
@@ -203,6 +232,9 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 583
+    .local p0, "this":Lcom/google/common/collect/Maps$ValueDifferenceImpl;, "Lcom/google/common/collect/Maps$ValueDifferenceImpl<TV;>;"
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

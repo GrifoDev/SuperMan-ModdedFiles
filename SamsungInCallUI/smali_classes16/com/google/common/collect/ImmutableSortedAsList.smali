@@ -37,8 +37,14 @@
         }
     .end annotation
 
+    .prologue
+    .line 35
+    .local p0, "this":Lcom/google/common/collect/ImmutableSortedAsList;, "Lcom/google/common/collect/ImmutableSortedAsList<TE;>;"
+    .local p1, "backingSet":Lcom/google/common/collect/ImmutableSortedSet;, "Lcom/google/common/collect/ImmutableSortedSet<TE;>;"
+    .local p2, "backingList":Lcom/google/common/collect/ImmutableList;, "Lcom/google/common/collect/ImmutableList<TE;>;"
     invoke-direct {p0, p1, p2}, Lcom/google/common/collect/RegularImmutableAsList;-><init>(Lcom/google/common/collect/ImmutableCollection;Lcom/google/common/collect/ImmutableList;)V
 
+    .line 36
     return-void
 .end method
 
@@ -54,6 +60,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 45
+    .local p0, "this":Lcom/google/common/collect/ImmutableSortedAsList;, "Lcom/google/common/collect/ImmutableSortedAsList<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableSortedAsList;->delegateCollection()Lcom/google/common/collect/ImmutableSortedSet;
 
     move-result-object v0
@@ -67,7 +76,11 @@
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
+    .param p1, "target"    # Ljava/lang/Object;
 
+    .prologue
+    .line 73
+    .local p0, "this":Lcom/google/common/collect/ImmutableSortedAsList;, "Lcom/google/common/collect/ImmutableSortedAsList<TE;>;"
     invoke-virtual {p0, p1}, Lcom/google/common/collect/ImmutableSortedAsList;->indexOf(Ljava/lang/Object;)I
 
     move-result v0
@@ -88,6 +101,9 @@
 .method bridge synthetic delegateCollection()Lcom/google/common/collect/ImmutableCollection;
     .locals 1
 
+    .prologue
+    .line 30
+    .local p0, "this":Lcom/google/common/collect/ImmutableSortedAsList;, "Lcom/google/common/collect/ImmutableSortedAsList<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableSortedAsList;->delegateCollection()Lcom/google/common/collect/ImmutableSortedSet;
 
     move-result-object v0
@@ -105,6 +121,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 40
+    .local p0, "this":Lcom/google/common/collect/ImmutableSortedAsList;, "Lcom/google/common/collect/ImmutableSortedAsList<TE;>;"
     invoke-super {p0}, Lcom/google/common/collect/RegularImmutableAsList;->delegateCollection()Lcom/google/common/collect/ImmutableCollection;
 
     move-result-object v0
@@ -116,7 +135,7 @@
 
 .method public indexOf(Ljava/lang/Object;)I
     .locals 2
-    .param p1    # Ljava/lang/Object;
+    .param p1, "target"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -124,6 +143,9 @@
         value = "ImmutableSortedSet.indexOf"
     .end annotation
 
+    .prologue
+    .line 54
+    .local p0, "this":Lcom/google/common/collect/ImmutableSortedAsList;, "Lcom/google/common/collect/ImmutableSortedAsList<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableSortedAsList;->delegateCollection()Lcom/google/common/collect/ImmutableSortedSet;
 
     move-result-object v1
@@ -132,6 +154,8 @@
 
     move-result v0
 
+    .line 61
+    .local v0, "index":I
     if-ltz v0, :cond_0
 
     invoke-virtual {p0, v0}, Lcom/google/common/collect/ImmutableSortedAsList;->get(I)Ljava/lang/Object;
@@ -144,9 +168,11 @@
 
     if-eqz v1, :cond_0
 
+    .end local v0    # "index":I
     :goto_0
     return v0
 
+    .restart local v0    # "index":I
     :cond_0
     const/4 v0, -0x1
 
@@ -155,7 +181,7 @@
 
 .method public lastIndexOf(Ljava/lang/Object;)I
     .locals 1
-    .param p1    # Ljava/lang/Object;
+    .param p1, "target"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -163,6 +189,9 @@
         value = "ImmutableSortedSet.indexOf"
     .end annotation
 
+    .prologue
+    .line 67
+    .local p0, "this":Lcom/google/common/collect/ImmutableSortedAsList;, "Lcom/google/common/collect/ImmutableSortedAsList<TE;>;"
     invoke-virtual {p0, p1}, Lcom/google/common/collect/ImmutableSortedAsList;->indexOf(Ljava/lang/Object;)I
 
     move-result v0
@@ -172,6 +201,8 @@
 
 .method subListUnchecked(II)Lcom/google/common/collect/ImmutableList;
     .locals 3
+    .param p1, "fromIndex"    # I
+    .param p2, "toIndex"    # I
     .annotation build Lcom/google/common/annotations/GwtIncompatible;
         value = "super.subListUnchecked does not exist; inherited subList is valid if slow"
     .end annotation
@@ -184,10 +215,15 @@
         }
     .end annotation
 
+    .prologue
+    .line 84
+    .local p0, "this":Lcom/google/common/collect/ImmutableSortedAsList;, "Lcom/google/common/collect/ImmutableSortedAsList<TE;>;"
     invoke-super {p0, p1, p2}, Lcom/google/common/collect/RegularImmutableAsList;->subListUnchecked(II)Lcom/google/common/collect/ImmutableList;
 
     move-result-object v0
 
+    .line 85
+    .local v0, "parentSubList":Lcom/google/common/collect/ImmutableList;, "Lcom/google/common/collect/ImmutableList<TE;>;"
     new-instance v1, Lcom/google/common/collect/RegularImmutableSortedSet;
 
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableSortedAsList;->comparator()Ljava/util/Comparator;

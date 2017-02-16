@@ -15,10 +15,12 @@
 .method static constructor <clinit>()V
     .locals 6
 
+    .prologue
     const/4 v5, 0x1
 
     const/4 v4, 0x0
 
+    .line 32
     const-class v0, Landroid/os/PowerManager;
 
     const-string v1, "wakeUp"
@@ -35,6 +37,7 @@
 
     sput-object v0, Lcom/android/incallui/wrapper/PowerManagerWrapper;->sMethodWakeUp:Ljava/lang/reflect/Method;
 
+    .line 33
     const-class v0, Landroid/os/PowerManager;
 
     const-string v1, "userActivity"
@@ -57,12 +60,15 @@
 
     sput-object v0, Lcom/android/incallui/wrapper/PowerManagerWrapper;->sMethodUserActivity:Ljava/lang/reflect/Method;
 
+    .line 34
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -70,7 +76,12 @@
 
 .method public static userActivity(Landroid/os/PowerManager;JZ)V
     .locals 5
+    .param p0, "instance"    # Landroid/os/PowerManager;
+    .param p1, "when"    # J
+    .param p3, "noChangeLights"    # Z
 
+    .prologue
+    .line 46
     :try_start_0
     sget-object v1, Lcom/android/incallui/wrapper/PowerManagerWrapper;->sMethodUserActivity:Ljava/lang/reflect/Method;
 
@@ -98,12 +109,16 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 50
     :goto_0
     return-void
 
+    .line 47
     :catch_0
     move-exception v0
 
+    .line 48
+    .local v0, "e":Ljava/lang/Exception;
     const-string v1, "PowerManagerWrapper"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -131,7 +146,11 @@
 
 .method public static wakeUp(Landroid/os/PowerManager;J)V
     .locals 5
+    .param p0, "instance"    # Landroid/os/PowerManager;
+    .param p1, "when"    # J
 
+    .prologue
+    .line 38
     :try_start_0
     sget-object v1, Lcom/android/incallui/wrapper/PowerManagerWrapper;->sMethodWakeUp:Ljava/lang/reflect/Method;
 
@@ -151,12 +170,16 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 42
     :goto_0
     return-void
 
+    .line 39
     :catch_0
     move-exception v0
 
+    .line 40
+    .local v0, "e":Ljava/lang/Exception;
     const-string v1, "PowerManagerWrapper"
 
     new-instance v2, Ljava/lang/StringBuilder;

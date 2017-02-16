@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/callerinfocard/CallerInfoCardView;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/callerinfocard/CallerInfoCardView;
 
+    .prologue
+    .line 275
     iput-object p1, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$2;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +40,8 @@
 .method public onGlobalLayout()V
     .locals 5
 
+    .prologue
+    .line 278
     iget-object v1, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$2;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
 
     # getter for: Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mTopContent:Landroid/widget/TextView;
@@ -48,22 +53,28 @@
 
     move-result-object v0
 
+    .line 279
+    .local v0, "observer":Landroid/view/ViewTreeObserver;
     invoke-virtual {v0}, Landroid/view/ViewTreeObserver;->isAlive()Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
+    .line 285
     :goto_0
     return-void
 
+    .line 282
     :cond_0
     invoke-virtual {v0, p0}, Landroid/view/ViewTreeObserver;->removeOnGlobalLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
 
+    .line 283
     const-string v1, "onGlobalLayout..."
 
     invoke-static {p0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 284
     iget-object v1, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$2;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
 
     iget-object v2, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$2;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardView;

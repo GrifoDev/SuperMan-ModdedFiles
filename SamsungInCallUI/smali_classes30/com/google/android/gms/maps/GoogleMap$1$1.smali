@@ -39,7 +39,9 @@
 # virtual methods
 .method public onLocationChanged(Landroid/location/Location;)V
     .locals 2
+    .param p1, "location"    # Landroid/location/Location;
 
+    .prologue
     :try_start_0
     iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMap$1$1;->gb:Lcom/google/android/gms/maps/internal/g;
 

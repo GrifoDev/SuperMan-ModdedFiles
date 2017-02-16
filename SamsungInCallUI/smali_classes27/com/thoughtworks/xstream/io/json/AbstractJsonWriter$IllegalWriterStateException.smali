@@ -17,7 +17,12 @@
 # direct methods
 .method public constructor <init>(IILjava/lang/String;)V
     .locals 3
+    .param p1, "from"    # I
+    .param p2, "to"    # I
+    .param p3, "element"    # Ljava/lang/String;
 
+    .prologue
+    .line 157
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -65,8 +70,10 @@
 
     invoke-direct {p0, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
+    .line 159
     return-void
 
+    .line 157
     :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -91,9 +98,13 @@
 
 .method private static getState(I)Ljava/lang/String;
     .locals 3
+    .param p0, "state"    # I
 
+    .prologue
+    .line 161
     sparse-switch p0, :sswitch_data_0
 
+    .line 172
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -124,57 +135,69 @@
 
     throw v0
 
+    .line 162
     :sswitch_0
     const-string v0, "ROOT"
 
+    .line 171
     :goto_0
     return-object v0
 
+    .line 163
     :sswitch_1
     const-string v0, "END_OBJECT"
 
     goto :goto_0
 
+    .line 164
     :sswitch_2
     const-string v0, "START_OBJECT"
 
     goto :goto_0
 
+    .line 165
     :sswitch_3
     const-string v0, "START_ATTRIBUTES"
 
     goto :goto_0
 
+    .line 166
     :sswitch_4
     const-string v0, "NEXT_ATTRIBUTE"
 
     goto :goto_0
 
+    .line 167
     :sswitch_5
     const-string v0, "END_ATTRIBUTES"
 
     goto :goto_0
 
+    .line 168
     :sswitch_6
     const-string v0, "START_ELEMENTS"
 
     goto :goto_0
 
+    .line 169
     :sswitch_7
     const-string v0, "NEXT_ELEMENT"
 
     goto :goto_0
 
+    .line 170
     :sswitch_8
     const-string v0, "END_ELEMENTS"
 
     goto :goto_0
 
+    .line 171
     :sswitch_9
     const-string v0, "SET_VALUE"
 
     goto :goto_0
 
+    .line 161
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_0

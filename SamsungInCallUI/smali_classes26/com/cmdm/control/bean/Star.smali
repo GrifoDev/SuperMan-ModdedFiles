@@ -94,6 +94,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 17
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -104,6 +106,8 @@
 .method public hasVote()Z
     .locals 2
 
+    .prologue
+    .line 79
     iget-object v0, p0, Lcom/cmdm/control/bean/Star;->isVote:Ljava/lang/String;
 
     invoke-static {v0}, Lcom/cmdm/control/util/StringUtil;->isEmpty(Ljava/lang/String;)Z
@@ -122,8 +126,10 @@
 
     if-eqz v0, :cond_0
 
+    .line 80
     const/4 v0, 0x1
 
+    .line 82
     :goto_0
     return v0
 

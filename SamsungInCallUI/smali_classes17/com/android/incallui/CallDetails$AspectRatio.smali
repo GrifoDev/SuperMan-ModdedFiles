@@ -32,6 +32,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 138
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -39,52 +41,66 @@
 
 .method public static toString(I)Ljava/lang/String;
     .locals 1
+    .param p0, "ratio"    # I
 
+    .prologue
+    .line 147
     const/4 v0, 0x1
 
     if-ne p0, v0, :cond_0
 
+    .line 148
     const-string v0, "CIF"
 
+    .line 158
     :goto_0
     return-object v0
 
+    .line 149
     :cond_0
     const/4 v0, 0x2
 
     if-ne p0, v0, :cond_1
 
+    .line 150
     const-string v0, "VGA"
 
     goto :goto_0
 
+    .line 151
     :cond_1
     const/4 v0, 0x3
 
     if-ne p0, v0, :cond_2
 
+    .line 152
     const-string v0, "VGA_LAND"
 
     goto :goto_0
 
+    .line 153
     :cond_2
     const/4 v0, 0x4
 
     if-ne p0, v0, :cond_3
 
+    .line 154
     const-string v0, "HD"
 
     goto :goto_0
 
+    .line 155
     :cond_3
     const/4 v0, 0x5
 
     if-ne p0, v0, :cond_4
 
+    .line 156
     const-string v0, "HD_LAND"
 
     goto :goto_0
 
+    .line 158
     :cond_4
     const-string v0, "NONE"
 

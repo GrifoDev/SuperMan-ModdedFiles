@@ -9,7 +9,9 @@
 # direct methods
 .method constructor <init>(Lcom/google/android/gms/maps/internal/IUiSettingsDelegate;)V
     .locals 0
+    .param p1, "delegate"    # Lcom/google/android/gms/maps/internal/IUiSettingsDelegate;
 
+    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/google/android/gms/maps/UiSettings;->gM:Lcom/google/android/gms/maps/internal/IUiSettingsDelegate;
@@ -189,7 +191,9 @@
 
 .method public setAllGesturesEnabled(Z)V
     .locals 2
+    .param p1, "enabled"    # Z
 
+    .prologue
     :try_start_0
     iget-object v0, p0, Lcom/google/android/gms/maps/UiSettings;->gM:Lcom/google/android/gms/maps/internal/IUiSettingsDelegate;
 
@@ -211,7 +215,9 @@
 
 .method public setCompassEnabled(Z)V
     .locals 2
+    .param p1, "enabled"    # Z
 
+    .prologue
     :try_start_0
     iget-object v0, p0, Lcom/google/android/gms/maps/UiSettings;->gM:Lcom/google/android/gms/maps/internal/IUiSettingsDelegate;
 
@@ -233,7 +239,9 @@
 
 .method public setMyLocationButtonEnabled(Z)V
     .locals 2
+    .param p1, "enabled"    # Z
 
+    .prologue
     :try_start_0
     iget-object v0, p0, Lcom/google/android/gms/maps/UiSettings;->gM:Lcom/google/android/gms/maps/internal/IUiSettingsDelegate;
 
@@ -255,7 +263,9 @@
 
 .method public setRotateGesturesEnabled(Z)V
     .locals 2
+    .param p1, "enabled"    # Z
 
+    .prologue
     :try_start_0
     iget-object v0, p0, Lcom/google/android/gms/maps/UiSettings;->gM:Lcom/google/android/gms/maps/internal/IUiSettingsDelegate;
 
@@ -277,7 +287,9 @@
 
 .method public setScrollGesturesEnabled(Z)V
     .locals 2
+    .param p1, "enabled"    # Z
 
+    .prologue
     :try_start_0
     iget-object v0, p0, Lcom/google/android/gms/maps/UiSettings;->gM:Lcom/google/android/gms/maps/internal/IUiSettingsDelegate;
 
@@ -299,7 +311,9 @@
 
 .method public setTiltGesturesEnabled(Z)V
     .locals 2
+    .param p1, "enabled"    # Z
 
+    .prologue
     :try_start_0
     iget-object v0, p0, Lcom/google/android/gms/maps/UiSettings;->gM:Lcom/google/android/gms/maps/internal/IUiSettingsDelegate;
 
@@ -321,7 +335,9 @@
 
 .method public setZoomControlsEnabled(Z)V
     .locals 2
+    .param p1, "enabled"    # Z
 
+    .prologue
     :try_start_0
     iget-object v0, p0, Lcom/google/android/gms/maps/UiSettings;->gM:Lcom/google/android/gms/maps/internal/IUiSettingsDelegate;
 
@@ -343,7 +359,9 @@
 
 .method public setZoomGesturesEnabled(Z)V
     .locals 2
+    .param p1, "enabled"    # Z
 
+    .prologue
     :try_start_0
     iget-object v0, p0, Lcom/google/android/gms/maps/UiSettings;->gM:Lcom/google/android/gms/maps/internal/IUiSettingsDelegate;
 

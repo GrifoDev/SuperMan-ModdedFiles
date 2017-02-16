@@ -33,13 +33,17 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 17
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 20
     new-instance v0, Lcom/cmdm/control/bean/BillLists;
 
     invoke-direct {v0}, Lcom/cmdm/control/bean/BillLists;-><init>()V
 
     iput-object v0, p0, Lcom/cmdm/control/bean/NewBillList;->yearMonthBill:Lcom/cmdm/control/bean/BillLists;
 
+    .line 17
     return-void
 .end method

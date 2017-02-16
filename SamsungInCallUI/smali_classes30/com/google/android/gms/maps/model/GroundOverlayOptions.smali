@@ -76,7 +76,20 @@
 
 .method constructor <init>(ILandroid/os/IBinder;Lcom/google/android/gms/maps/model/LatLng;FFLcom/google/android/gms/maps/model/LatLngBounds;FFZFFF)V
     .locals 2
+    .param p1, "versionCode"    # I
+    .param p2, "wrappedImage"    # Landroid/os/IBinder;
+    .param p3, "location"    # Lcom/google/android/gms/maps/model/LatLng;
+    .param p4, "width"    # F
+    .param p5, "height"    # F
+    .param p6, "bounds"    # Lcom/google/android/gms/maps/model/LatLngBounds;
+    .param p7, "bearing"    # F
+    .param p8, "zIndex"    # F
+    .param p9, "visible"    # Z
+    .param p10, "transparency"    # F
+    .param p11, "anchorU"    # F
+    .param p12, "anchorV"    # F
 
+    .prologue
     const/high16 v1, 0x3f000000    # 0.5f
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -144,7 +157,10 @@
 # virtual methods
 .method public anchor(FF)Lcom/google/android/gms/maps/model/GroundOverlayOptions;
     .locals 0
+    .param p1, "u"    # F
+    .param p2, "v"    # F
 
+    .prologue
     iput p1, p0, Lcom/google/android/gms/maps/model/GroundOverlayOptions;->hk:F
 
     iput p2, p0, Lcom/google/android/gms/maps/model/GroundOverlayOptions;->hl:F
@@ -154,7 +170,9 @@
 
 .method public bearing(F)Lcom/google/android/gms/maps/model/GroundOverlayOptions;
     .locals 2
+    .param p1, "bearing"    # F
 
+    .prologue
     const/high16 v1, 0x43b40000    # 360.0f
 
     rem-float v0, p1, v1
@@ -282,7 +300,9 @@
 
 .method public image(Lcom/google/android/gms/maps/model/BitmapDescriptor;)Lcom/google/android/gms/maps/model/GroundOverlayOptions;
     .locals 0
+    .param p1, "image"    # Lcom/google/android/gms/maps/model/BitmapDescriptor;
 
+    .prologue
     iput-object p1, p0, Lcom/google/android/gms/maps/model/GroundOverlayOptions;->he:Lcom/google/android/gms/maps/model/BitmapDescriptor;
 
     return-object p0
@@ -298,7 +318,10 @@
 
 .method public position(Lcom/google/android/gms/maps/model/LatLng;F)Lcom/google/android/gms/maps/model/GroundOverlayOptions;
     .locals 4
+    .param p1, "location"    # Lcom/google/android/gms/maps/model/LatLng;
+    .param p2, "width"    # F
 
+    .prologue
     const/4 v1, 0x1
 
     const/4 v2, 0x0
@@ -360,7 +383,11 @@
 
 .method public position(Lcom/google/android/gms/maps/model/LatLng;FF)Lcom/google/android/gms/maps/model/GroundOverlayOptions;
     .locals 5
+    .param p1, "location"    # Lcom/google/android/gms/maps/model/LatLng;
+    .param p2, "width"    # F
+    .param p3, "height"    # F
 
+    .prologue
     const/4 v4, 0x0
 
     const/4 v1, 0x1
@@ -436,7 +463,9 @@
 
 .method public positionFromBounds(Lcom/google/android/gms/maps/model/LatLngBounds;)Lcom/google/android/gms/maps/model/GroundOverlayOptions;
     .locals 3
+    .param p1, "bounds"    # Lcom/google/android/gms/maps/model/LatLngBounds;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/maps/model/GroundOverlayOptions;->hf:Lcom/google/android/gms/maps/model/LatLng;
 
     if-nez v0, :cond_0
@@ -478,7 +507,9 @@
 
 .method public transparency(F)Lcom/google/android/gms/maps/model/GroundOverlayOptions;
     .locals 2
+    .param p1, "transparency"    # F
 
+    .prologue
     const/4 v0, 0x0
 
     cmpl-float v0, p1, v0
@@ -510,7 +541,9 @@
 
 .method public visible(Z)Lcom/google/android/gms/maps/model/GroundOverlayOptions;
     .locals 0
+    .param p1, "visible"    # Z
 
+    .prologue
     iput-boolean p1, p0, Lcom/google/android/gms/maps/model/GroundOverlayOptions;->hc:Z
 
     return-object p0
@@ -518,7 +551,10 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
+    .prologue
     invoke-static {}, Lcom/google/android/gms/maps/internal/q;->bn()Z
 
     move-result v0
@@ -538,7 +574,9 @@
 
 .method public zIndex(F)Lcom/google/android/gms/maps/model/GroundOverlayOptions;
     .locals 0
+    .param p1, "zIndex"    # F
 
+    .prologue
     iput p1, p0, Lcom/google/android/gms/maps/model/GroundOverlayOptions;->hb:F
 
     return-object p0

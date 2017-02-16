@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/animation/DonutAnimatorCompatProvider$DonutFloatValueAnimator;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/v4/animation/DonutAnimatorCompatProvider$DonutFloatValueAnimator;
 
+    .prologue
+    .line 54
     iput-object p1, p0, Landroid/support/v4/animation/DonutAnimatorCompatProvider$DonutFloatValueAnimator$1;->this$0:Landroid/support/v4/animation/DonutAnimatorCompatProvider$DonutFloatValueAnimator;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,8 +40,10 @@
 .method public run()V
     .locals 9
 
+    .prologue
     const/high16 v8, 0x3f800000    # 1.0f
 
+    .line 57
     iget-object v3, p0, Landroid/support/v4/animation/DonutAnimatorCompatProvider$DonutFloatValueAnimator$1;->this$0:Landroid/support/v4/animation/DonutAnimatorCompatProvider$DonutFloatValueAnimator;
 
     # invokes: Landroid/support/v4/animation/DonutAnimatorCompatProvider$DonutFloatValueAnimator;->getTime()J
@@ -55,6 +60,8 @@
 
     sub-long v0, v4, v6
 
+    .line 58
+    .local v0, "dt":J
     long-to-float v3, v0
 
     mul-float/2addr v3, v8
@@ -70,6 +77,8 @@
 
     div-float v2, v3, v4
 
+    .line 59
+    .local v2, "fraction":F
     cmpl-float v3, v2, v8
 
     if-gtz v3, :cond_0
@@ -84,20 +93,24 @@
 
     if-nez v3, :cond_1
 
+    .line 60
     :cond_0
     const/high16 v2, 0x3f800000    # 1.0f
 
+    .line 62
     :cond_1
     iget-object v3, p0, Landroid/support/v4/animation/DonutAnimatorCompatProvider$DonutFloatValueAnimator$1;->this$0:Landroid/support/v4/animation/DonutAnimatorCompatProvider$DonutFloatValueAnimator;
 
     # setter for: Landroid/support/v4/animation/DonutAnimatorCompatProvider$DonutFloatValueAnimator;->mFraction:F
     invoke-static {v3, v2}, Landroid/support/v4/animation/DonutAnimatorCompatProvider$DonutFloatValueAnimator;->access$302(Landroid/support/v4/animation/DonutAnimatorCompatProvider$DonutFloatValueAnimator;F)F
 
+    .line 63
     iget-object v3, p0, Landroid/support/v4/animation/DonutAnimatorCompatProvider$DonutFloatValueAnimator$1;->this$0:Landroid/support/v4/animation/DonutAnimatorCompatProvider$DonutFloatValueAnimator;
 
     # invokes: Landroid/support/v4/animation/DonutAnimatorCompatProvider$DonutFloatValueAnimator;->notifyUpdateListeners()V
     invoke-static {v3}, Landroid/support/v4/animation/DonutAnimatorCompatProvider$DonutFloatValueAnimator;->access$400(Landroid/support/v4/animation/DonutAnimatorCompatProvider$DonutFloatValueAnimator;)V
 
+    .line 64
     iget-object v3, p0, Landroid/support/v4/animation/DonutAnimatorCompatProvider$DonutFloatValueAnimator$1;->this$0:Landroid/support/v4/animation/DonutAnimatorCompatProvider$DonutFloatValueAnimator;
 
     # getter for: Landroid/support/v4/animation/DonutAnimatorCompatProvider$DonutFloatValueAnimator;->mFraction:F
@@ -109,14 +122,17 @@
 
     if-ltz v3, :cond_2
 
+    .line 65
     iget-object v3, p0, Landroid/support/v4/animation/DonutAnimatorCompatProvider$DonutFloatValueAnimator$1;->this$0:Landroid/support/v4/animation/DonutAnimatorCompatProvider$DonutFloatValueAnimator;
 
     # invokes: Landroid/support/v4/animation/DonutAnimatorCompatProvider$DonutFloatValueAnimator;->dispatchEnd()V
     invoke-static {v3}, Landroid/support/v4/animation/DonutAnimatorCompatProvider$DonutFloatValueAnimator;->access$500(Landroid/support/v4/animation/DonutAnimatorCompatProvider$DonutFloatValueAnimator;)V
 
+    .line 69
     :goto_0
     return-void
 
+    .line 67
     :cond_2
     iget-object v3, p0, Landroid/support/v4/animation/DonutAnimatorCompatProvider$DonutFloatValueAnimator$1;->this$0:Landroid/support/v4/animation/DonutAnimatorCompatProvider$DonutFloatValueAnimator;
 

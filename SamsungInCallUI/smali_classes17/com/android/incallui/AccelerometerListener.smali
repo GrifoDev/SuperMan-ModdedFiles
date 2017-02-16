@@ -52,21 +52,27 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 2
+    .param p1, "context"    # Landroid/content/Context;
 
+    .prologue
+    .line 68
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 138
     new-instance v0, Lcom/android/incallui/AccelerometerListener$1;
 
     invoke-direct {v0, p0}, Lcom/android/incallui/AccelerometerListener$1;-><init>(Lcom/android/incallui/AccelerometerListener;)V
 
     iput-object v0, p0, Lcom/android/incallui/AccelerometerListener;->mSensorListener:Landroid/hardware/SensorEventListener;
 
+    .line 148
     new-instance v0, Lcom/android/incallui/AccelerometerListener$2;
 
     invoke-direct {v0, p0}, Lcom/android/incallui/AccelerometerListener$2;-><init>(Lcom/android/incallui/AccelerometerListener;)V
 
     iput-object v0, p0, Lcom/android/incallui/AccelerometerListener;->mHandler:Landroid/os/Handler;
 
+    .line 69
     const-string v0, "sensor"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -77,6 +83,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/AccelerometerListener;->mSensorManager:Landroid/hardware/SensorManager;
 
+    .line 70
     iget-object v0, p0, Lcom/android/incallui/AccelerometerListener;->mSensorManager:Landroid/hardware/SensorManager;
 
     const/4 v1, 0x1
@@ -87,12 +94,19 @@
 
     iput-object v0, p0, Lcom/android/incallui/AccelerometerListener;->mSensor:Landroid/hardware/Sensor;
 
+    .line 71
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/android/incallui/AccelerometerListener;DDD)V
     .locals 1
+    .param p0, "x0"    # Lcom/android/incallui/AccelerometerListener;
+    .param p1, "x1"    # D
+    .param p3, "x2"    # D
+    .param p5, "x3"    # D
 
+    .prologue
+    .line 33
     invoke-direct/range {p0 .. p6}, Lcom/android/incallui/AccelerometerListener;->onSensorEvent(DDD)V
 
     return-void
@@ -100,7 +114,10 @@
 
 .method static synthetic access$100(Lcom/android/incallui/AccelerometerListener;)I
     .locals 1
+    .param p0, "x0"    # Lcom/android/incallui/AccelerometerListener;
 
+    .prologue
+    .line 33
     iget v0, p0, Lcom/android/incallui/AccelerometerListener;->mOrientation:I
 
     return v0
@@ -108,7 +125,11 @@
 
 .method static synthetic access$102(Lcom/android/incallui/AccelerometerListener;I)I
     .locals 0
+    .param p0, "x0"    # Lcom/android/incallui/AccelerometerListener;
+    .param p1, "x1"    # I
 
+    .prologue
+    .line 33
     iput p1, p0, Lcom/android/incallui/AccelerometerListener;->mOrientation:I
 
     return p1
@@ -116,7 +137,10 @@
 
 .method static synthetic access$200(Lcom/android/incallui/AccelerometerListener;)I
     .locals 1
+    .param p0, "x0"    # Lcom/android/incallui/AccelerometerListener;
 
+    .prologue
+    .line 33
     iget v0, p0, Lcom/android/incallui/AccelerometerListener;->mPendingOrientation:I
 
     return v0
@@ -124,7 +148,10 @@
 
 .method static synthetic access$300(Lcom/android/incallui/AccelerometerListener;)Lcom/android/incallui/AccelerometerListener$OrientationListener;
     .locals 1
+    .param p0, "x0"    # Lcom/android/incallui/AccelerometerListener;
 
+    .prologue
+    .line 33
     iget-object v0, p0, Lcom/android/incallui/AccelerometerListener;->mListener:Lcom/android/incallui/AccelerometerListener$OrientationListener;
 
     return-object v0
@@ -132,7 +159,12 @@
 
 .method private onSensorEvent(DDD)V
     .locals 13
+    .param p1, "x"    # D
+    .param p3, "y"    # D
+    .param p5, "z"    # D
 
+    .prologue
+    .line 125
     const-wide/16 v8, 0x0
 
     cmpl-double v5, p1, v8
@@ -151,10 +183,12 @@
 
     if-nez v5, :cond_1
 
+    .line 136
     :cond_0
     :goto_0
     return-void
 
+    .line 128
     :cond_1
     mul-double v8, p1, p1
 
@@ -166,12 +200,16 @@
 
     move-result-wide v6
 
+    .line 130
+    .local v6, "xy":D
     move-wide/from16 v0, p5
 
     invoke-static {v6, v7, v0, v1}, Ljava/lang/Math;->atan2(DD)D
 
     move-result-wide v2
 
+    .line 132
+    .local v2, "angle":D
     const-wide v8, 0x4066800000000000L    # 180.0
 
     mul-double/2addr v8, v2
@@ -180,6 +218,7 @@
 
     div-double v2, v8, v10
 
+    .line 133
     const-wide/high16 v8, 0x4049000000000000L    # 50.0
 
     cmpl-double v5, v2, v8
@@ -188,11 +227,15 @@
 
     const/4 v4, 0x1
 
+    .line 135
+    .local v4, "orientation":I
     :goto_1
     invoke-direct {p0, v4}, Lcom/android/incallui/AccelerometerListener;->setOrientation(I)V
 
     goto :goto_0
 
+    .line 133
+    .end local v4    # "orientation":I
     :cond_2
     const/4 v4, 0x2
 
@@ -201,19 +244,26 @@
 
 .method private setOrientation(I)V
     .locals 6
+    .param p1, "orientation"    # I
 
+    .prologue
+    .line 93
     monitor-enter p0
 
+    .line 94
     :try_start_0
     iget v2, p0, Lcom/android/incallui/AccelerometerListener;->mPendingOrientation:I
 
     if-ne v2, p1, :cond_0
 
+    .line 96
     monitor-exit p0
 
+    .line 118
     :goto_0
     return-void
 
+    .line 102
     :cond_0
     iget-object v2, p0, Lcom/android/incallui/AccelerometerListener;->mHandler:Landroid/os/Handler;
 
@@ -221,12 +271,15 @@
 
     invoke-virtual {v2, v3}, Landroid/os/Handler;->removeMessages(I)V
 
+    .line 104
     iget v2, p0, Lcom/android/incallui/AccelerometerListener;->mOrientation:I
 
     if-eq v2, p1, :cond_2
 
+    .line 107
     iput p1, p0, Lcom/android/incallui/AccelerometerListener;->mPendingOrientation:I
 
+    .line 108
     iget-object v2, p0, Lcom/android/incallui/AccelerometerListener;->mHandler:Landroid/os/Handler;
 
     const/16 v3, 0x4d2
@@ -235,12 +288,16 @@
 
     move-result-object v1
 
+    .line 110
+    .local v1, "m":Landroid/os/Message;
     const/4 v2, 0x1
 
     if-ne p1, v2, :cond_1
 
     const/16 v0, 0x64
 
+    .line 112
+    .local v0, "delay":I
     :goto_1
     iget-object v2, p0, Lcom/android/incallui/AccelerometerListener;->mHandler:Landroid/os/Handler;
 
@@ -248,6 +305,9 @@
 
     invoke-virtual {v2, v1, v4, v5}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
+    .line 117
+    .end local v0    # "delay":I
+    .end local v1    # "m":Landroid/os/Message;
     :goto_2
     monitor-exit p0
 
@@ -262,11 +322,15 @@
 
     throw v2
 
+    .line 110
+    .restart local v1    # "m":Landroid/os/Message;
     :cond_1
     const/16 v0, 0x1f4
 
     goto :goto_1
 
+    .line 115
+    .end local v1    # "m":Landroid/os/Message;
     :cond_2
     const/4 v2, 0x0
 
@@ -282,7 +346,10 @@
 # virtual methods
 .method public enable(Z)V
     .locals 4
+    .param p1, "enable"    # Z
 
+    .prologue
+    .line 78
     const-string v0, "AccelerometerListener"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -311,19 +378,24 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 79
     monitor-enter p0
 
+    .line 80
     if-eqz p1, :cond_0
 
+    .line 81
     const/4 v0, 0x0
 
     :try_start_0
     iput v0, p0, Lcom/android/incallui/AccelerometerListener;->mOrientation:I
 
+    .line 82
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/incallui/AccelerometerListener;->mPendingOrientation:I
 
+    .line 83
     iget-object v0, p0, Lcom/android/incallui/AccelerometerListener;->mSensorManager:Landroid/hardware/SensorManager;
 
     iget-object v1, p0, Lcom/android/incallui/AccelerometerListener;->mSensorListener:Landroid/hardware/SensorEventListener;
@@ -334,11 +406,14 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/hardware/SensorManager;->registerListener(Landroid/hardware/SensorEventListener;Landroid/hardware/Sensor;I)Z
 
+    .line 89
     :goto_0
     monitor-exit p0
 
+    .line 90
     return-void
 
+    .line 86
     :cond_0
     iget-object v0, p0, Lcom/android/incallui/AccelerometerListener;->mSensorManager:Landroid/hardware/SensorManager;
 
@@ -346,6 +421,7 @@
 
     invoke-virtual {v0, v1}, Landroid/hardware/SensorManager;->unregisterListener(Landroid/hardware/SensorEventListener;)V
 
+    .line 87
     iget-object v0, p0, Lcom/android/incallui/AccelerometerListener;->mHandler:Landroid/os/Handler;
 
     const/16 v1, 0x4d2
@@ -354,6 +430,7 @@
 
     goto :goto_0
 
+    .line 89
     :catchall_0
     move-exception v0
 
@@ -366,8 +443,12 @@
 
 .method public setListener(Lcom/android/incallui/AccelerometerListener$OrientationListener;)V
     .locals 0
+    .param p1, "listener"    # Lcom/android/incallui/AccelerometerListener$OrientationListener;
 
+    .prologue
+    .line 74
     iput-object p1, p0, Lcom/android/incallui/AccelerometerListener;->mListener:Lcom/android/incallui/AccelerometerListener$OrientationListener;
 
+    .line 75
     return-void
 .end method

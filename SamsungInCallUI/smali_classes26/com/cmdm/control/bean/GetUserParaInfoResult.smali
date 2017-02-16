@@ -45,6 +45,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 14
     invoke-direct {p0}, Lcom/cmdm/control/bean/BaseBean;-><init>()V
 
     return-void
@@ -55,6 +57,8 @@
 .method public loadFzProvince()Z
     .locals 2
 
+    .prologue
+    .line 97
     iget-object v0, p0, Lcom/cmdm/control/bean/GetUserParaInfoResult;->isFzProvince:Ljava/lang/String;
 
     if-eqz v0, :cond_0
@@ -69,6 +73,7 @@
 
     if-nez v0, :cond_0
 
+    .line 98
     iget-object v0, p0, Lcom/cmdm/control/bean/GetUserParaInfoResult;->isFzProvince:Ljava/lang/String;
 
     const-string v1, "1"
@@ -79,8 +84,10 @@
 
     if-eqz v0, :cond_0
 
+    .line 99
     const/4 v0, 0x1
 
+    .line 101
     :goto_0
     return v0
 
@@ -93,6 +100,8 @@
 .method public loadOpenText()Z
     .locals 2
 
+    .prologue
+    .line 68
     iget-object v0, p0, Lcom/cmdm/control/bean/GetUserParaInfoResult;->isOpenTxt:Ljava/lang/String;
 
     if-eqz v0, :cond_0
@@ -117,8 +126,10 @@
 
     if-eqz v0, :cond_0
 
+    .line 69
     const/4 v0, 0x1
 
+    .line 71
     :goto_0
     return v0
 
@@ -131,6 +142,8 @@
 .method public loadPicCorpUser()Z
     .locals 2
 
+    .prologue
+    .line 53
     iget-object v0, p0, Lcom/cmdm/control/bean/GetUserParaInfoResult;->isPicCorpUser:Ljava/lang/String;
 
     if-eqz v0, :cond_0
@@ -145,6 +158,7 @@
 
     if-nez v0, :cond_0
 
+    .line 54
     iget-object v0, p0, Lcom/cmdm/control/bean/GetUserParaInfoResult;->isPicCorpUser:Ljava/lang/String;
 
     const-string v1, "1"
@@ -155,8 +169,10 @@
 
     if-eqz v0, :cond_0
 
+    .line 55
     const/4 v0, 0x1
 
+    .line 57
     :goto_0
     return v0
 
@@ -169,6 +185,8 @@
 .method public loadTextMode()Z
     .locals 2
 
+    .prologue
+    .line 112
     iget-object v0, p0, Lcom/cmdm/control/bean/GetUserParaInfoResult;->txtMode:Ljava/lang/String;
 
     if-eqz v0, :cond_0
@@ -193,8 +211,10 @@
 
     if-eqz v0, :cond_0
 
+    .line 113
     const/4 v0, 0x1
 
+    .line 115
     :goto_0
     return v0
 
@@ -207,6 +227,8 @@
 .method public loadTxtProvince()Z
     .locals 2
 
+    .prologue
+    .line 82
     iget-object v0, p0, Lcom/cmdm/control/bean/GetUserParaInfoResult;->isTxtProvince:Ljava/lang/String;
 
     if-eqz v0, :cond_0
@@ -221,6 +243,7 @@
 
     if-nez v0, :cond_0
 
+    .line 83
     iget-object v0, p0, Lcom/cmdm/control/bean/GetUserParaInfoResult;->isTxtProvince:Ljava/lang/String;
 
     const-string v1, "1"
@@ -231,8 +254,10 @@
 
     if-eqz v0, :cond_0
 
+    .line 84
     const/4 v0, 0x1
 
+    .line 86
     :goto_0
     return v0
 

@@ -29,6 +29,9 @@
 .method private constructor <init>(Lcom/google/common/collect/RegularImmutableMultiset;)V
     .locals 0
 
+    .prologue
+    .line 145
+    .local p0, "this":Lcom/google/common/collect/RegularImmutableMultiset$ElementSet;, "Lcom/google/common/collect/RegularImmutableMultiset<TE;>.ElementSet;"
     iput-object p1, p0, Lcom/google/common/collect/RegularImmutableMultiset$ElementSet;->this$0:Lcom/google/common/collect/RegularImmutableMultiset;
 
     invoke-direct {p0}, Lcom/google/common/collect/ImmutableSet$Indexed;-><init>()V
@@ -38,7 +41,12 @@
 
 .method synthetic constructor <init>(Lcom/google/common/collect/RegularImmutableMultiset;Lcom/google/common/collect/RegularImmutableMultiset$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/google/common/collect/RegularImmutableMultiset;
+    .param p2, "x1"    # Lcom/google/common/collect/RegularImmutableMultiset$1;
 
+    .prologue
+    .line 145
+    .local p0, "this":Lcom/google/common/collect/RegularImmutableMultiset$ElementSet;, "Lcom/google/common/collect/RegularImmutableMultiset<TE;>.ElementSet;"
     invoke-direct {p0, p1}, Lcom/google/common/collect/RegularImmutableMultiset$ElementSet;-><init>(Lcom/google/common/collect/RegularImmutableMultiset;)V
 
     return-void
@@ -48,11 +56,14 @@
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
-    .param p1    # Ljava/lang/Object;
+    .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
+    .prologue
+    .line 154
+    .local p0, "this":Lcom/google/common/collect/RegularImmutableMultiset$ElementSet;, "Lcom/google/common/collect/RegularImmutableMultiset<TE;>.ElementSet;"
     iget-object v0, p0, Lcom/google/common/collect/RegularImmutableMultiset$ElementSet;->this$0:Lcom/google/common/collect/RegularImmutableMultiset;
 
     invoke-virtual {v0, p1}, Lcom/google/common/collect/RegularImmutableMultiset;->contains(Ljava/lang/Object;)Z
@@ -64,12 +75,16 @@
 
 .method get(I)Ljava/lang/Object;
     .locals 1
+    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)TE;"
         }
     .end annotation
 
+    .prologue
+    .line 149
+    .local p0, "this":Lcom/google/common/collect/RegularImmutableMultiset$ElementSet;, "Lcom/google/common/collect/RegularImmutableMultiset<TE;>.ElementSet;"
     iget-object v0, p0, Lcom/google/common/collect/RegularImmutableMultiset$ElementSet;->this$0:Lcom/google/common/collect/RegularImmutableMultiset;
 
     # getter for: Lcom/google/common/collect/RegularImmutableMultiset;->entries:[Lcom/google/common/collect/Multisets$ImmutableEntry;
@@ -89,6 +104,9 @@
 .method isPartialView()Z
     .locals 1
 
+    .prologue
+    .line 159
+    .local p0, "this":Lcom/google/common/collect/RegularImmutableMultiset$ElementSet;, "Lcom/google/common/collect/RegularImmutableMultiset<TE;>.ElementSet;"
     const/4 v0, 0x1
 
     return v0
@@ -97,6 +115,9 @@
 .method public size()I
     .locals 1
 
+    .prologue
+    .line 164
+    .local p0, "this":Lcom/google/common/collect/RegularImmutableMultiset$ElementSet;, "Lcom/google/common/collect/RegularImmutableMultiset<TE;>.ElementSet;"
     iget-object v0, p0, Lcom/google/common/collect/RegularImmutableMultiset$ElementSet;->this$0:Lcom/google/common/collect/RegularImmutableMultiset;
 
     # getter for: Lcom/google/common/collect/RegularImmutableMultiset;->entries:[Lcom/google/common/collect/Multisets$ImmutableEntry;

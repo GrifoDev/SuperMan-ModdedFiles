@@ -54,6 +54,7 @@
 .method static constructor <clinit>()V
     .locals 9
 
+    .prologue
     const/4 v8, 0x4
 
     const/4 v7, 0x3
@@ -64,6 +65,7 @@
 
     const/4 v4, 0x0
 
+    .line 99
     const/16 v1, 0x9
 
     new-array v1, v1, [Ljava/lang/String;
@@ -114,22 +116,27 @@
 
     sput-object v1, Lcom/android/contacts/common/list/PhoneNumberListAdapter$PhoneQuery;->PROJECTION_PRIMARY_INTERNAL:[Ljava/lang/String;
 
+    .line 114
     sget-object v1, Lcom/android/contacts/common/list/PhoneNumberListAdapter$PhoneQuery;->PROJECTION_PRIMARY_INTERNAL:[Ljava/lang/String;
 
     invoke-static {v1}, Lcom/google/common/collect/Lists;->newArrayList([Ljava/lang/Object;)Ljava/util/ArrayList;
 
     move-result-object v0
 
+    .line 115
+    .local v0, "projectionList":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     invoke-static {}, Lcom/android/contacts/common/compat/CompatUtils;->isMarshmallowCompatible()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
+    .line 116
     const-string v1, "carrier_presence"
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
+    .line 118
     :cond_0
     invoke-interface {v0}, Ljava/util/List;->size()I
 
@@ -145,6 +152,7 @@
 
     sput-object v1, Lcom/android/contacts/common/list/PhoneNumberListAdapter$PhoneQuery;->PROJECTION_PRIMARY:[Ljava/lang/String;
 
+    .line 121
     const/16 v1, 0x9
 
     new-array v1, v1, [Ljava/lang/String;
@@ -195,22 +203,26 @@
 
     sput-object v1, Lcom/android/contacts/common/list/PhoneNumberListAdapter$PhoneQuery;->PROJECTION_ALTERNATIVE_INTERNAL:[Ljava/lang/String;
 
+    .line 136
     sget-object v1, Lcom/android/contacts/common/list/PhoneNumberListAdapter$PhoneQuery;->PROJECTION_ALTERNATIVE_INTERNAL:[Ljava/lang/String;
 
     invoke-static {v1}, Lcom/google/common/collect/Lists;->newArrayList([Ljava/lang/Object;)Ljava/util/ArrayList;
 
     move-result-object v0
 
+    .line 137
     invoke-static {}, Lcom/android/contacts/common/compat/CompatUtils;->isMarshmallowCompatible()Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
+    .line 138
     const-string v1, "carrier_presence"
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
+    .line 140
     :cond_1
     invoke-interface {v0}, Ljava/util/List;->size()I
 
@@ -226,12 +238,15 @@
 
     sput-object v1, Lcom/android/contacts/common/list/PhoneNumberListAdapter$PhoneQuery;->PROJECTION_ALTERNATIVE:[Ljava/lang/String;
 
+    .line 141
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 79
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

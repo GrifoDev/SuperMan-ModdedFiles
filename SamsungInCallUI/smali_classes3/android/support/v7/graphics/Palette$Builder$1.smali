@@ -35,6 +35,8 @@
 .method constructor <init>(Landroid/support/v7/graphics/Palette$Builder;Landroid/support/v7/graphics/Palette$PaletteAsyncListener;)V
     .locals 0
 
+    .prologue
+    .line 831
     iput-object p1, p0, Landroid/support/v7/graphics/Palette$Builder$1;->this$0:Landroid/support/v7/graphics/Palette$Builder;
 
     iput-object p2, p0, Landroid/support/v7/graphics/Palette$Builder$1;->val$listener:Landroid/support/v7/graphics/Palette$PaletteAsyncListener;
@@ -48,7 +50,10 @@
 # virtual methods
 .method protected varargs doInBackground([Landroid/graphics/Bitmap;)Landroid/support/v7/graphics/Palette;
     .locals 3
+    .param p1, "params"    # [Landroid/graphics/Bitmap;
 
+    .prologue
+    .line 835
     :try_start_0
     iget-object v1, p0, Landroid/support/v7/graphics/Palette$Builder$1;->this$0:Landroid/support/v7/graphics/Palette$Builder;
 
@@ -58,18 +63,23 @@
 
     move-result-object v1
 
+    .line 838
     :goto_0
     return-object v1
 
+    .line 836
     :catch_0
     move-exception v0
 
+    .line 837
+    .local v0, "e":Ljava/lang/Exception;
     const-string v1, "Palette"
 
     const-string v2, "Exception thrown during async generate"
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
+    .line 838
     const/4 v1, 0x0
 
     goto :goto_0
@@ -78,6 +88,8 @@
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 831
     check-cast p1, [Landroid/graphics/Bitmap;
 
     invoke-virtual {p0, p1}, Landroid/support/v7/graphics/Palette$Builder$1;->doInBackground([Landroid/graphics/Bitmap;)Landroid/support/v7/graphics/Palette;
@@ -89,17 +101,23 @@
 
 .method protected onPostExecute(Landroid/support/v7/graphics/Palette;)V
     .locals 1
+    .param p1, "colorExtractor"    # Landroid/support/v7/graphics/Palette;
 
+    .prologue
+    .line 844
     iget-object v0, p0, Landroid/support/v7/graphics/Palette$Builder$1;->val$listener:Landroid/support/v7/graphics/Palette$PaletteAsyncListener;
 
     invoke-interface {v0, p1}, Landroid/support/v7/graphics/Palette$PaletteAsyncListener;->onGenerated(Landroid/support/v7/graphics/Palette;)V
 
+    .line 845
     return-void
 .end method
 
 .method protected bridge synthetic onPostExecute(Ljava/lang/Object;)V
     .locals 0
 
+    .prologue
+    .line 831
     check-cast p1, Landroid/support/v7/graphics/Palette;
 
     invoke-virtual {p0, p1}, Landroid/support/v7/graphics/Palette$Builder$1;->onPostExecute(Landroid/support/v7/graphics/Palette;)V

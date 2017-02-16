@@ -13,36 +13,47 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 37
     sget-object v0, Landroid/provider/ContactsContract$Contacts;->CONTENT_URI:Landroid/net/Uri;
 
     const-string v1, "filter_enterprise"
 
+    .line 38
     invoke-static {v0, v1}, Landroid/net/Uri;->withAppendedPath(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v0
 
     sput-object v0, Lcom/android/contacts/common/compat/ContactsCompat;->ENTERPRISE_CONTENT_FILTER_URI:Landroid/net/Uri;
 
+    .line 37
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 33
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 34
     return-void
 .end method
 
 .method public static getContentUri()Landroid/net/Uri;
     .locals 1
 
+    .prologue
+    .line 44
     sget-boolean v0, Lcom/android/contacts/common/ContactsUtils;->FLAG_N_FEATURE:Z
 
     if-eqz v0, :cond_0
 
+    .line 45
     sget-object v0, Lcom/android/contacts/common/compat/ContactsCompat;->ENTERPRISE_CONTENT_FILTER_URI:Landroid/net/Uri;
 
+    .line 47
     :goto_0
     return-object v0
 
@@ -54,17 +65,22 @@
 
 .method public static isEnterpriseContactId(J)Z
     .locals 2
+    .param p0, "contactId"    # J
 
+    .prologue
+    .line 54
     invoke-static {}, Lcom/android/contacts/common/compat/CompatUtils;->isLollipopCompatible()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
+    .line 55
     invoke-static {p0, p1}, Landroid/provider/ContactsContract$Contacts;->isEnterpriseContactId(J)Z
 
     move-result v0
 
+    .line 58
     :goto_0
     return v0
 

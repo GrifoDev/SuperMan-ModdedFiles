@@ -50,10 +50,16 @@
         }
     .end annotation
 
+    .prologue
+    .line 45
+    .local p0, "this":Landroid/support/v4/os/ParcelableCompat$CompatCreator;, "Landroid/support/v4/os/ParcelableCompat$CompatCreator<TT;>;"
+    .local p1, "callbacks":Landroid/support/v4/os/ParcelableCompatCreatorCallbacks;, "Landroid/support/v4/os/ParcelableCompatCreatorCallbacks<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 46
     iput-object p1, p0, Landroid/support/v4/os/ParcelableCompat$CompatCreator;->mCallbacks:Landroid/support/v4/os/ParcelableCompatCreatorCallbacks;
 
+    .line 47
     return-void
 .end method
 
@@ -61,6 +67,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 2
+    .param p1, "source"    # Landroid/os/Parcel;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -69,6 +76,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 51
+    .local p0, "this":Landroid/support/v4/os/ParcelableCompat$CompatCreator;, "Landroid/support/v4/os/ParcelableCompat$CompatCreator<TT;>;"
     iget-object v0, p0, Landroid/support/v4/os/ParcelableCompat$CompatCreator;->mCallbacks:Landroid/support/v4/os/ParcelableCompatCreatorCallbacks;
 
     const/4 v1, 0x0
@@ -82,12 +92,16 @@
 
 .method public newArray(I)[Ljava/lang/Object;
     .locals 1
+    .param p1, "size"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)[TT;"
         }
     .end annotation
 
+    .prologue
+    .line 56
+    .local p0, "this":Landroid/support/v4/os/ParcelableCompat$CompatCreator;, "Landroid/support/v4/os/ParcelableCompat$CompatCreator<TT;>;"
     iget-object v0, p0, Landroid/support/v4/os/ParcelableCompat$CompatCreator;->mCallbacks:Landroid/support/v4/os/ParcelableCompatCreatorCallbacks;
 
     invoke-interface {v0, p1}, Landroid/support/v4/os/ParcelableCompatCreatorCallbacks;->newArray(I)[Ljava/lang/Object;

@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/InCallPresenter;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/InCallPresenter;
 
+    .prologue
+    .line 540
     iput-object p1, p0, Lcom/android/incallui/InCallPresenter$6;->this$0:Lcom/android/incallui/InCallPresenter;
 
     invoke-direct {p0}, Landroid/telephony/PhoneStateListener;-><init>()V
@@ -33,11 +36,16 @@
 # virtual methods
 .method public onCallStateChanged(ILjava/lang/String;)V
     .locals 1
+    .param p1, "state"    # I
+    .param p2, "incomingNumber"    # Ljava/lang/String;
 
+    .prologue
+    .line 542
     const/4 v0, 0x1
 
     if-ne p1, v0, :cond_0
 
+    .line 551
     :cond_0
     return-void
 .end method

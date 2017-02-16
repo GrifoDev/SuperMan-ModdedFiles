@@ -32,6 +32,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 582
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -52,12 +54,15 @@
         }
     .end annotation
 
+    .prologue
+    .line 612
+    .local p1, "newValue":Lcom/google/common/collect/MapMakerInternalMap$ValueReference;, "Lcom/google/common/collect/MapMakerInternalMap$ValueReference<Ljava/lang/Object;Ljava/lang/Object;>;"
     return-void
 .end method
 
 .method public copyFor(Ljava/lang/ref/ReferenceQueue;Ljava/lang/Object;Lcom/google/common/collect/MapMakerInternalMap$ReferenceEntry;)Lcom/google/common/collect/MapMakerInternalMap$ValueReference;
     .locals 0
-    .param p2    # Ljava/lang/Object;
+    .param p2, "value"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -82,12 +87,18 @@
         }
     .end annotation
 
+    .prologue
+    .line 598
+    .local p1, "queue":Ljava/lang/ref/ReferenceQueue;, "Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;"
+    .local p3, "entry":Lcom/google/common/collect/MapMakerInternalMap$ReferenceEntry;, "Lcom/google/common/collect/MapMakerInternalMap$ReferenceEntry<Ljava/lang/Object;Ljava/lang/Object;>;"
     return-object p0
 .end method
 
 .method public get()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 585
     const/4 v0, 0x0
 
     return-object v0
@@ -106,6 +117,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 590
     const/4 v0, 0x0
 
     return-object v0
@@ -114,6 +127,8 @@
 .method public isComputingReference()Z
     .locals 1
 
+    .prologue
+    .line 603
     const/4 v0, 0x0
 
     return v0
@@ -122,6 +137,8 @@
 .method public waitForValue()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 608
     const/4 v0, 0x0
 
     return-object v0

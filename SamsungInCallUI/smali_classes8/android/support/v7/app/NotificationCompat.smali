@@ -19,14 +19,21 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 31
     invoke-direct {p0}, Landroid/support/v4/app/NotificationCompat;-><init>()V
 
+    .line 169
     return-void
 .end method
 
 .method static synthetic access$300(Landroid/support/v4/app/NotificationBuilderWithBuilderAccessor;Landroid/support/v4/app/NotificationCompat$Builder;)V
     .locals 0
+    .param p0, "x0"    # Landroid/support/v4/app/NotificationBuilderWithBuilderAccessor;
+    .param p1, "x1"    # Landroid/support/v4/app/NotificationCompat$Builder;
 
+    .prologue
+    .line 31
     invoke-static {p0, p1}, Landroid/support/v7/app/NotificationCompat;->addMediaStyleToBuilderIcs(Landroid/support/v4/app/NotificationBuilderWithBuilderAccessor;Landroid/support/v4/app/NotificationCompat$Builder;)V
 
     return-void
@@ -34,7 +41,11 @@
 
 .method static synthetic access$400(Landroid/app/Notification;Landroid/support/v4/app/NotificationCompat$Builder;)V
     .locals 0
+    .param p0, "x0"    # Landroid/app/Notification;
+    .param p1, "x1"    # Landroid/support/v4/app/NotificationCompat$Builder;
 
+    .prologue
+    .line 31
     invoke-static {p0, p1}, Landroid/support/v7/app/NotificationCompat;->addBigMediaStyleToBuilderJellybean(Landroid/app/Notification;Landroid/support/v4/app/NotificationCompat$Builder;)V
 
     return-void
@@ -42,7 +53,11 @@
 
 .method static synthetic access$500(Landroid/support/v4/app/NotificationBuilderWithBuilderAccessor;Landroid/support/v4/app/NotificationCompat$Style;)V
     .locals 0
+    .param p0, "x0"    # Landroid/support/v4/app/NotificationBuilderWithBuilderAccessor;
+    .param p1, "x1"    # Landroid/support/v4/app/NotificationCompat$Style;
 
+    .prologue
+    .line 31
     invoke-static {p0, p1}, Landroid/support/v7/app/NotificationCompat;->addMediaStyleToBuilderLollipop(Landroid/support/v4/app/NotificationBuilderWithBuilderAccessor;Landroid/support/v4/app/NotificationCompat$Style;)V
 
     return-void
@@ -50,7 +65,11 @@
 
 .method private static addBigMediaStyleToBuilderJellybean(Landroid/app/Notification;Landroid/support/v4/app/NotificationCompat$Builder;)V
     .locals 17
+    .param p0, "n"    # Landroid/app/Notification;
+    .param p1, "b"    # Landroid/support/v4/app/NotificationCompat$Builder;
 
+    .prologue
+    .line 58
     move-object/from16 v0, p1
 
     iget-object v3, v0, Landroid/support/v4/app/NotificationCompat$Builder;->mStyle:Landroid/support/v4/app/NotificationCompat$Style;
@@ -59,12 +78,15 @@
 
     if-eqz v3, :cond_0
 
+    .line 59
     move-object/from16 v0, p1
 
     iget-object v2, v0, Landroid/support/v4/app/NotificationCompat$Builder;->mStyle:Landroid/support/v4/app/NotificationCompat$Style;
 
     check-cast v2, Landroid/support/v7/app/NotificationCompat$MediaStyle;
 
+    .line 60
+    .local v2, "mediaStyle":Landroid/support/v7/app/NotificationCompat$MediaStyle;
     move-object/from16 v0, p1
 
     iget-object v4, v0, Landroid/support/v4/app/NotificationCompat$Builder;->mContext:Landroid/content/Context;
@@ -117,13 +139,19 @@
 
     invoke-static/range {v3 .. v16}, Landroid/support/v7/app/NotificationCompatImplBase;->overrideBigContentView(Landroid/app/Notification;Landroid/content/Context;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;ILandroid/graphics/Bitmap;Ljava/lang/CharSequence;ZJLjava/util/List;ZLandroid/app/PendingIntent;)V
 
+    .line 66
+    .end local v2    # "mediaStyle":Landroid/support/v7/app/NotificationCompat$MediaStyle;
     :cond_0
     return-void
 .end method
 
 .method private static addMediaStyleToBuilderIcs(Landroid/support/v4/app/NotificationBuilderWithBuilderAccessor;Landroid/support/v4/app/NotificationCompat$Builder;)V
     .locals 18
+    .param p0, "builder"    # Landroid/support/v4/app/NotificationBuilderWithBuilderAccessor;
+    .param p1, "b"    # Landroid/support/v4/app/NotificationCompat$Builder;
 
+    .prologue
+    .line 45
     move-object/from16 v0, p1
 
     iget-object v3, v0, Landroid/support/v4/app/NotificationCompat$Builder;->mStyle:Landroid/support/v4/app/NotificationCompat$Style;
@@ -132,12 +160,15 @@
 
     if-eqz v3, :cond_0
 
+    .line 46
     move-object/from16 v0, p1
 
     iget-object v2, v0, Landroid/support/v4/app/NotificationCompat$Builder;->mStyle:Landroid/support/v4/app/NotificationCompat$Style;
 
     check-cast v2, Landroid/support/v7/app/NotificationCompat$MediaStyle;
 
+    .line 47
+    .local v2, "mediaStyle":Landroid/support/v7/app/NotificationCompat$MediaStyle;
     move-object/from16 v0, p1
 
     iget-object v4, v0, Landroid/support/v4/app/NotificationCompat$Builder;->mContext:Landroid/content/Context;
@@ -194,21 +225,30 @@
 
     invoke-static/range {v3 .. v17}, Landroid/support/v7/app/NotificationCompatImplBase;->overrideContentView(Landroid/support/v4/app/NotificationBuilderWithBuilderAccessor;Landroid/content/Context;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;ILandroid/graphics/Bitmap;Ljava/lang/CharSequence;ZJLjava/util/List;[IZLandroid/app/PendingIntent;)V
 
+    .line 54
+    .end local v2    # "mediaStyle":Landroid/support/v7/app/NotificationCompat$MediaStyle;
     :cond_0
     return-void
 .end method
 
 .method private static addMediaStyleToBuilderLollipop(Landroid/support/v4/app/NotificationBuilderWithBuilderAccessor;Landroid/support/v4/app/NotificationCompat$Style;)V
     .locals 3
+    .param p0, "builder"    # Landroid/support/v4/app/NotificationBuilderWithBuilderAccessor;
+    .param p1, "style"    # Landroid/support/v4/app/NotificationCompat$Style;
 
+    .prologue
+    .line 35
     instance-of v1, p1, Landroid/support/v7/app/NotificationCompat$MediaStyle;
 
     if-eqz v1, :cond_0
 
     move-object v0, p1
 
+    .line 36
     check-cast v0, Landroid/support/v7/app/NotificationCompat$MediaStyle;
 
+    .line 37
+    .local v0, "mediaStyle":Landroid/support/v7/app/NotificationCompat$MediaStyle;
     iget-object v2, v0, Landroid/support/v7/app/NotificationCompat$MediaStyle;->mActionsToShowInCompact:[I
 
     iget-object v1, v0, Landroid/support/v7/app/NotificationCompat$MediaStyle;->mToken:Landroid/support/v4/media/session/MediaSessionCompat$Token;
@@ -217,16 +257,22 @@
 
     iget-object v1, v0, Landroid/support/v7/app/NotificationCompat$MediaStyle;->mToken:Landroid/support/v4/media/session/MediaSessionCompat$Token;
 
+    .line 39
     invoke-virtual {v1}, Landroid/support/v4/media/session/MediaSessionCompat$Token;->getToken()Ljava/lang/Object;
 
     move-result-object v1
 
+    .line 37
     :goto_0
     invoke-static {p0, v2, v1}, Landroid/support/v7/app/NotificationCompatImpl21;->addMediaStyle(Landroid/support/v4/app/NotificationBuilderWithBuilderAccessor;[ILjava/lang/Object;)V
 
+    .line 41
+    .end local v0    # "mediaStyle":Landroid/support/v7/app/NotificationCompat$MediaStyle;
     :cond_0
     return-void
 
+    .line 39
+    .restart local v0    # "mediaStyle":Landroid/support/v7/app/NotificationCompat$MediaStyle;
     :cond_1
     const/4 v1, 0x0
 

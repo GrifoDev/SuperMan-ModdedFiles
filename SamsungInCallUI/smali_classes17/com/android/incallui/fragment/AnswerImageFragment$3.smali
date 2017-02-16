@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/AnswerImageFragment;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/fragment/AnswerImageFragment;
 
+    .prologue
+    .line 154
     iput-object p1, p0, Lcom/android/incallui/fragment/AnswerImageFragment$3;->this$0:Lcom/android/incallui/fragment/AnswerImageFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +40,8 @@
 .method public onAnimateClose()V
     .locals 3
 
+    .prologue
+    .line 161
     const-string v0, "AnswerImageFragment"
 
     const-string v1, "onAnimateClose"
@@ -45,17 +50,21 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
+    .line 162
     iget-object v0, p0, Lcom/android/incallui/fragment/AnswerImageFragment$3;->this$0:Lcom/android/incallui/fragment/AnswerImageFragment;
 
     # invokes: Lcom/android/incallui/fragment/AnswerImageFragment;->animateHideForMaskPanel()V
     invoke-static {v0}, Lcom/android/incallui/fragment/AnswerImageFragment;->access$100(Lcom/android/incallui/fragment/AnswerImageFragment;)V
 
+    .line 163
     return-void
 .end method
 
 .method public onAnimateOpen()V
     .locals 3
 
+    .prologue
+    .line 156
     const-string v0, "AnswerImageFragment"
 
     const-string v1, "onAnimateOpen"
@@ -64,10 +73,12 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
+    .line 157
     iget-object v0, p0, Lcom/android/incallui/fragment/AnswerImageFragment$3;->this$0:Lcom/android/incallui/fragment/AnswerImageFragment;
 
     # invokes: Lcom/android/incallui/fragment/AnswerImageFragment;->animateShowForMaskPanel()V
     invoke-static {v0}, Lcom/android/incallui/fragment/AnswerImageFragment;->access$200(Lcom/android/incallui/fragment/AnswerImageFragment;)V
 
+    .line 158
     return-void
 .end method

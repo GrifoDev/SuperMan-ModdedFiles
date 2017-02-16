@@ -53,10 +53,14 @@
 .method constructor <init>(Lcom/google/common/collect/LinkedHashMultimap$ValueSet;)V
     .locals 1
 
+    .prologue
+    .line 362
+    .local p0, "this":Lcom/google/common/collect/LinkedHashMultimap$ValueSet$1;, "Lcom/google/common/collect/LinkedHashMultimap$ValueSet.1;"
     iput-object p1, p0, Lcom/google/common/collect/LinkedHashMultimap$ValueSet$1;->this$1:Lcom/google/common/collect/LinkedHashMultimap$ValueSet;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 363
     iget-object v0, p0, Lcom/google/common/collect/LinkedHashMultimap$ValueSet$1;->this$1:Lcom/google/common/collect/LinkedHashMultimap$ValueSet;
 
     # getter for: Lcom/google/common/collect/LinkedHashMultimap$ValueSet;->firstEntry:Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink;
@@ -66,6 +70,7 @@
 
     iput-object v0, p0, Lcom/google/common/collect/LinkedHashMultimap$ValueSet$1;->nextEntry:Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink;
 
+    .line 365
     iget-object v0, p0, Lcom/google/common/collect/LinkedHashMultimap$ValueSet$1;->this$1:Lcom/google/common/collect/LinkedHashMultimap$ValueSet;
 
     # getter for: Lcom/google/common/collect/LinkedHashMultimap$ValueSet;->modCount:I
@@ -81,6 +86,9 @@
 .method private checkForComodification()V
     .locals 2
 
+    .prologue
+    .line 368
+    .local p0, "this":Lcom/google/common/collect/LinkedHashMultimap$ValueSet$1;, "Lcom/google/common/collect/LinkedHashMultimap$ValueSet.1;"
     iget-object v0, p0, Lcom/google/common/collect/LinkedHashMultimap$ValueSet$1;->this$1:Lcom/google/common/collect/LinkedHashMultimap$ValueSet;
 
     # getter for: Lcom/google/common/collect/LinkedHashMultimap$ValueSet;->modCount:I
@@ -92,12 +100,14 @@
 
     if-eq v0, v1, :cond_0
 
+    .line 369
     new-instance v0, Ljava/util/ConcurrentModificationException;
 
     invoke-direct {v0}, Ljava/util/ConcurrentModificationException;-><init>()V
 
     throw v0
 
+    .line 371
     :cond_0
     return-void
 .end method
@@ -107,8 +117,12 @@
 .method public hasNext()Z
     .locals 2
 
+    .prologue
+    .line 375
+    .local p0, "this":Lcom/google/common/collect/LinkedHashMultimap$ValueSet$1;, "Lcom/google/common/collect/LinkedHashMultimap$ValueSet.1;"
     invoke-direct {p0}, Lcom/google/common/collect/LinkedHashMultimap$ValueSet$1;->checkForComodification()V
 
+    .line 376
     iget-object v0, p0, Lcom/google/common/collect/LinkedHashMultimap$ValueSet$1;->nextEntry:Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink;
 
     iget-object v1, p0, Lcom/google/common/collect/LinkedHashMultimap$ValueSet$1;->this$1:Lcom/google/common/collect/LinkedHashMultimap$ValueSet;
@@ -134,43 +148,58 @@
         }
     .end annotation
 
+    .prologue
+    .line 381
+    .local p0, "this":Lcom/google/common/collect/LinkedHashMultimap$ValueSet$1;, "Lcom/google/common/collect/LinkedHashMultimap$ValueSet.1;"
     invoke-virtual {p0}, Lcom/google/common/collect/LinkedHashMultimap$ValueSet$1;->hasNext()Z
 
     move-result v2
 
     if-nez v2, :cond_0
 
+    .line 382
     new-instance v2, Ljava/util/NoSuchElementException;
 
     invoke-direct {v2}, Ljava/util/NoSuchElementException;-><init>()V
 
     throw v2
 
+    .line 384
     :cond_0
     iget-object v0, p0, Lcom/google/common/collect/LinkedHashMultimap$ValueSet$1;->nextEntry:Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink;
 
     check-cast v0, Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;
 
+    .line 385
+    .local v0, "entry":Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;, "Lcom/google/common/collect/LinkedHashMultimap$ValueEntry<TK;TV;>;"
     invoke-virtual {v0}, Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;->getValue()Ljava/lang/Object;
 
     move-result-object v1
 
+    .line 386
+    .local v1, "result":Ljava/lang/Object;, "TV;"
     iput-object v0, p0, Lcom/google/common/collect/LinkedHashMultimap$ValueSet$1;->toRemove:Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;
 
+    .line 387
     invoke-virtual {v0}, Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;->getSuccessorInValueSet()Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink;
 
     move-result-object v2
 
     iput-object v2, p0, Lcom/google/common/collect/LinkedHashMultimap$ValueSet$1;->nextEntry:Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink;
 
+    .line 388
     return-object v1
 .end method
 
 .method public remove()V
     .locals 2
 
+    .prologue
+    .line 393
+    .local p0, "this":Lcom/google/common/collect/LinkedHashMultimap$ValueSet$1;, "Lcom/google/common/collect/LinkedHashMultimap$ValueSet.1;"
     invoke-direct {p0}, Lcom/google/common/collect/LinkedHashMultimap$ValueSet$1;->checkForComodification()V
 
+    .line 394
     iget-object v0, p0, Lcom/google/common/collect/LinkedHashMultimap$ValueSet$1;->toRemove:Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;
 
     if-eqz v0, :cond_0
@@ -180,6 +209,7 @@
     :goto_0
     invoke-static {v0}, Lcom/google/common/collect/CollectPreconditions;->checkRemove(Z)V
 
+    .line 395
     iget-object v0, p0, Lcom/google/common/collect/LinkedHashMultimap$ValueSet$1;->this$1:Lcom/google/common/collect/LinkedHashMultimap$ValueSet;
 
     iget-object v1, p0, Lcom/google/common/collect/LinkedHashMultimap$ValueSet$1;->toRemove:Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;
@@ -190,6 +220,7 @@
 
     invoke-virtual {v0, v1}, Lcom/google/common/collect/LinkedHashMultimap$ValueSet;->remove(Ljava/lang/Object;)Z
 
+    .line 396
     iget-object v0, p0, Lcom/google/common/collect/LinkedHashMultimap$ValueSet$1;->this$1:Lcom/google/common/collect/LinkedHashMultimap$ValueSet;
 
     # getter for: Lcom/google/common/collect/LinkedHashMultimap$ValueSet;->modCount:I
@@ -199,12 +230,15 @@
 
     iput v0, p0, Lcom/google/common/collect/LinkedHashMultimap$ValueSet$1;->expectedModCount:I
 
+    .line 397
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/google/common/collect/LinkedHashMultimap$ValueSet$1;->toRemove:Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;
 
+    .line 398
     return-void
 
+    .line 394
     :cond_0
     const/4 v0, 0x0
 

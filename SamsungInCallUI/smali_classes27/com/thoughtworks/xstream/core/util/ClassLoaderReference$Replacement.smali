@@ -18,6 +18,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 67
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -26,6 +28,8 @@
 .method private readResolve()Ljava/lang/Object;
     .locals 2
 
+    .prologue
+    .line 70
     new-instance v0, Lcom/thoughtworks/xstream/core/util/ClassLoaderReference;
 
     new-instance v1, Lcom/thoughtworks/xstream/core/util/CompositeClassLoader;

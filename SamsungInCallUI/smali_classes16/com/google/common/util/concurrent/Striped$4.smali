@@ -35,6 +35,8 @@
 .method constructor <init>(I)V
     .locals 0
 
+    .prologue
+    .line 252
     iput p1, p0, Lcom/google/common/util/concurrent/Striped$4;->val$permits:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,6 +49,8 @@
 .method public bridge synthetic get()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 252
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/Striped$4;->get()Ljava/util/concurrent/Semaphore;
 
     move-result-object v0
@@ -57,6 +61,8 @@
 .method public get()Ljava/util/concurrent/Semaphore;
     .locals 3
 
+    .prologue
+    .line 254
     new-instance v0, Ljava/util/concurrent/Semaphore;
 
     iget v1, p0, Lcom/google/common/util/concurrent/Striped$4;->val$permits:I

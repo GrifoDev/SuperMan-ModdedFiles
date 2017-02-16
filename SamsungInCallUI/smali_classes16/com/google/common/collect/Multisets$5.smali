@@ -27,6 +27,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 1109
     invoke-direct {p0}, Lcom/google/common/collect/Ordering;-><init>()V
 
     return-void
@@ -46,6 +48,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 1112
+    .local p1, "entry1":Lcom/google/common/collect/Multiset$Entry;, "Lcom/google/common/collect/Multiset$Entry<*>;"
+    .local p2, "entry2":Lcom/google/common/collect/Multiset$Entry;, "Lcom/google/common/collect/Multiset$Entry<*>;"
     invoke-interface {p2}, Lcom/google/common/collect/Multiset$Entry;->getCount()I
 
     move-result v0
@@ -63,11 +69,17 @@
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
+    .param p1, "x0"    # Ljava/lang/Object;
+    .param p2, "x1"    # Ljava/lang/Object;
 
+    .prologue
+    .line 1109
     check-cast p1, Lcom/google/common/collect/Multiset$Entry;
 
+    .end local p1    # "x0":Ljava/lang/Object;
     check-cast p2, Lcom/google/common/collect/Multiset$Entry;
 
+    .end local p2    # "x1":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Lcom/google/common/collect/Multisets$5;->compare(Lcom/google/common/collect/Multiset$Entry;Lcom/google/common/collect/Multiset$Entry;)I
 
     move-result v0

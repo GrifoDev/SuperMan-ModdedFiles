@@ -1020,7 +1020,10 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 0
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
+    .prologue
     invoke-static {p0, p1, p2}, Lcom/google/android/gms/common/data/e;->a(Lcom/google/android/gms/common/data/d;Landroid/os/Parcel;I)V
 
     return-void

@@ -42,6 +42,7 @@
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/CycleDetectingLockFactory$Policy;Ljava/util/Map;)V
     .locals 1
+    .param p1, "policy"    # Lcom/google/common/util/concurrent/CycleDetectingLockFactory$Policy;
     .annotation build Lcom/google/common/annotations/VisibleForTesting;
     .end annotation
 
@@ -56,12 +57,18 @@
         }
     .end annotation
 
+    .prologue
+    .line 429
+    .local p0, "this":Lcom/google/common/util/concurrent/CycleDetectingLockFactory$WithExplicitOrdering;, "Lcom/google/common/util/concurrent/CycleDetectingLockFactory$WithExplicitOrdering<TE;>;"
+    .local p2, "lockGraphNodes":Ljava/util/Map;, "Ljava/util/Map<TE;Lcom/google/common/util/concurrent/CycleDetectingLockFactory$LockGraphNode;>;"
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Lcom/google/common/util/concurrent/CycleDetectingLockFactory;-><init>(Lcom/google/common/util/concurrent/CycleDetectingLockFactory$Policy;Lcom/google/common/util/concurrent/CycleDetectingLockFactory$1;)V
 
+    .line 430
     iput-object p2, p0, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$WithExplicitOrdering;->lockGraphNodes:Ljava/util/Map;
 
+    .line 431
     return-void
 .end method
 
@@ -76,6 +83,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 437
+    .local p0, "this":Lcom/google/common/util/concurrent/CycleDetectingLockFactory$WithExplicitOrdering;, "Lcom/google/common/util/concurrent/CycleDetectingLockFactory$WithExplicitOrdering<TE;>;"
+    .local p1, "rank":Ljava/lang/Enum;, "TE;"
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, v0}, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$WithExplicitOrdering;->newReentrantLock(Ljava/lang/Enum;Z)Ljava/util/concurrent/locks/ReentrantLock;
@@ -87,6 +98,7 @@
 
 .method public newReentrantLock(Ljava/lang/Enum;Z)Ljava/util/concurrent/locks/ReentrantLock;
     .locals 3
+    .param p2, "fair"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;Z)",
@@ -94,6 +106,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 450
+    .local p0, "this":Lcom/google/common/util/concurrent/CycleDetectingLockFactory$WithExplicitOrdering;, "Lcom/google/common/util/concurrent/CycleDetectingLockFactory$WithExplicitOrdering<TE;>;"
+    .local p1, "rank":Ljava/lang/Enum;, "TE;"
     iget-object v0, p0, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$WithExplicitOrdering;->policy:Lcom/google/common/util/concurrent/CycleDetectingLockFactory$Policy;
 
     sget-object v1, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$Policies;->DISABLED:Lcom/google/common/util/concurrent/CycleDetectingLockFactory$Policies;
@@ -136,6 +152,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 458
+    .local p0, "this":Lcom/google/common/util/concurrent/CycleDetectingLockFactory$WithExplicitOrdering;, "Lcom/google/common/util/concurrent/CycleDetectingLockFactory$WithExplicitOrdering<TE;>;"
+    .local p1, "rank":Ljava/lang/Enum;, "TE;"
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, v0}, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$WithExplicitOrdering;->newReentrantReadWriteLock(Ljava/lang/Enum;Z)Ljava/util/concurrent/locks/ReentrantReadWriteLock;
@@ -147,6 +167,7 @@
 
 .method public newReentrantReadWriteLock(Ljava/lang/Enum;Z)Ljava/util/concurrent/locks/ReentrantReadWriteLock;
     .locals 3
+    .param p2, "fair"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;Z)",
@@ -154,6 +175,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 472
+    .local p0, "this":Lcom/google/common/util/concurrent/CycleDetectingLockFactory$WithExplicitOrdering;, "Lcom/google/common/util/concurrent/CycleDetectingLockFactory$WithExplicitOrdering<TE;>;"
+    .local p1, "rank":Ljava/lang/Enum;, "TE;"
     iget-object v0, p0, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$WithExplicitOrdering;->policy:Lcom/google/common/util/concurrent/CycleDetectingLockFactory$Policy;
 
     sget-object v1, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$Policies;->DISABLED:Lcom/google/common/util/concurrent/CycleDetectingLockFactory$Policies;

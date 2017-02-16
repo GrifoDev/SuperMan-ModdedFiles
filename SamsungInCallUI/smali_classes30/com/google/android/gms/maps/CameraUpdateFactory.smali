@@ -55,7 +55,9 @@
 
 .method public static newCameraPosition(Lcom/google/android/gms/maps/model/CameraPosition;)Lcom/google/android/gms/maps/CameraUpdate;
     .locals 2
+    .param p0, "cameraPosition"    # Lcom/google/android/gms/maps/model/CameraPosition;
 
+    .prologue
     :try_start_0
     new-instance v0, Lcom/google/android/gms/maps/CameraUpdate;
 
@@ -85,7 +87,9 @@
 
 .method public static newLatLng(Lcom/google/android/gms/maps/model/LatLng;)Lcom/google/android/gms/maps/CameraUpdate;
     .locals 2
+    .param p0, "latLng"    # Lcom/google/android/gms/maps/model/LatLng;
 
+    .prologue
     :try_start_0
     new-instance v0, Lcom/google/android/gms/maps/CameraUpdate;
 
@@ -115,7 +119,10 @@
 
 .method public static newLatLngBounds(Lcom/google/android/gms/maps/model/LatLngBounds;I)Lcom/google/android/gms/maps/CameraUpdate;
     .locals 2
+    .param p0, "bounds"    # Lcom/google/android/gms/maps/model/LatLngBounds;
+    .param p1, "padding"    # I
 
+    .prologue
     :try_start_0
     new-instance v0, Lcom/google/android/gms/maps/CameraUpdate;
 
@@ -145,7 +152,12 @@
 
 .method public static newLatLngBounds(Lcom/google/android/gms/maps/model/LatLngBounds;III)Lcom/google/android/gms/maps/CameraUpdate;
     .locals 2
+    .param p0, "bounds"    # Lcom/google/android/gms/maps/model/LatLngBounds;
+    .param p1, "width"    # I
+    .param p2, "height"    # I
+    .param p3, "padding"    # I
 
+    .prologue
     :try_start_0
     new-instance v0, Lcom/google/android/gms/maps/CameraUpdate;
 
@@ -175,7 +187,10 @@
 
 .method public static newLatLngZoom(Lcom/google/android/gms/maps/model/LatLng;F)Lcom/google/android/gms/maps/CameraUpdate;
     .locals 2
+    .param p0, "latLng"    # Lcom/google/android/gms/maps/model/LatLng;
+    .param p1, "zoom"    # F
 
+    .prologue
     :try_start_0
     new-instance v0, Lcom/google/android/gms/maps/CameraUpdate;
 
@@ -205,7 +220,10 @@
 
 .method public static scrollBy(FF)Lcom/google/android/gms/maps/CameraUpdate;
     .locals 2
+    .param p0, "xPixel"    # F
+    .param p1, "yPixel"    # F
 
+    .prologue
     :try_start_0
     new-instance v0, Lcom/google/android/gms/maps/CameraUpdate;
 
@@ -235,7 +253,9 @@
 
 .method public static zoomBy(F)Lcom/google/android/gms/maps/CameraUpdate;
     .locals 2
+    .param p0, "amount"    # F
 
+    .prologue
     :try_start_0
     new-instance v0, Lcom/google/android/gms/maps/CameraUpdate;
 
@@ -265,7 +285,10 @@
 
 .method public static zoomBy(FLandroid/graphics/Point;)Lcom/google/android/gms/maps/CameraUpdate;
     .locals 4
+    .param p0, "amount"    # F
+    .param p1, "focus"    # Landroid/graphics/Point;
 
+    .prologue
     :try_start_0
     new-instance v0, Lcom/google/android/gms/maps/CameraUpdate;
 
@@ -359,7 +382,9 @@
 
 .method public static zoomTo(F)Lcom/google/android/gms/maps/CameraUpdate;
     .locals 2
+    .param p0, "zoom"    # F
 
+    .prologue
     :try_start_0
     new-instance v0, Lcom/google/android/gms/maps/CameraUpdate;
 

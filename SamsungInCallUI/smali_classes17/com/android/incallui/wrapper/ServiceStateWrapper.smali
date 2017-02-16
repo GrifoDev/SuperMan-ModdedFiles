@@ -19,12 +19,16 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
+    .line 16
     const-string v1, "android.telephony.ServiceState"
 
     invoke-static {v1}, Lcom/android/incallui/wrapper/ReflectUtil;->classForName(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v0
 
+    .line 17
+    .local v0, "baseClass":Ljava/lang/Class;
     const-string v1, "canCellularVoiceService"
 
     const/4 v2, 0x0
@@ -37,14 +41,18 @@
 
     sput-object v1, Lcom/android/incallui/wrapper/ServiceStateWrapper;->sMethodcanCellularVoiceService:Ljava/lang/reflect/Method;
 
+    .line 18
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 9
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 20
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/incallui/wrapper/ServiceStateWrapper;->mInstance:Ljava/lang/Object;
@@ -54,9 +62,12 @@
 
 .method public static canCellularVoiceService(Landroid/telephony/ServiceState;)Z
     .locals 5
+    .param p0, "instance"    # Landroid/telephony/ServiceState;
 
+    .prologue
     const/4 v2, 0x0
 
+    .line 23
     sget-object v1, Lcom/android/incallui/wrapper/ServiceStateWrapper;->sMethodcanCellularVoiceService:Ljava/lang/reflect/Method;
 
     if-eqz v1, :cond_0
@@ -66,9 +77,11 @@
     :cond_0
     move v1, v2
 
+    .line 29
     :goto_0
     return v1
 
+    .line 26
     :cond_1
     :try_start_0
     sget-object v1, Lcom/android/incallui/wrapper/ServiceStateWrapper;->sMethodcanCellularVoiceService:Ljava/lang/reflect/Method;
@@ -92,9 +105,12 @@
 
     goto :goto_0
 
+    .line 27
     :catch_0
     move-exception v0
 
+    .line 28
+    .local v0, "e":Ljava/lang/ReflectiveOperationException;
     :goto_1
     const-string v1, "ServiceStateWrapper"
 
@@ -124,8 +140,11 @@
 
     move v1, v2
 
+    .line 29
     goto :goto_0
 
+    .line 27
+    .end local v0    # "e":Ljava/lang/ReflectiveOperationException;
     :catch_1
     move-exception v0
 

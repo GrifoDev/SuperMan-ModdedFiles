@@ -23,7 +23,10 @@
 # direct methods
 .method constructor <init>(Lcom/google/common/base/Joiner;Lcom/google/common/base/Joiner;Ljava/lang/String;)V
     .locals 1
+    .param p2, "x0"    # Lcom/google/common/base/Joiner;
 
+    .prologue
+    .line 225
     iput-object p1, p0, Lcom/google/common/base/Joiner$1;->this$0:Lcom/google/common/base/Joiner;
 
     iput-object p3, p0, Lcom/google/common/base/Joiner$1;->val$nullText:Ljava/lang/String;
@@ -40,6 +43,8 @@
 .method public skipNulls()Lcom/google/common/base/Joiner;
     .locals 2
 
+    .prologue
+    .line 238
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "already specified useForNull"
@@ -51,11 +56,13 @@
 
 .method toString(Ljava/lang/Object;)Ljava/lang/CharSequence;
     .locals 1
-    .param p1    # Ljava/lang/Object;
+    .param p1, "part"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
+    .prologue
+    .line 228
     if-nez p1, :cond_0
 
     iget-object v0, p0, Lcom/google/common/base/Joiner$1;->val$nullText:Ljava/lang/String;
@@ -75,7 +82,10 @@
 
 .method public useForNull(Ljava/lang/String;)Lcom/google/common/base/Joiner;
     .locals 2
+    .param p1, "nullText"    # Ljava/lang/String;
 
+    .prologue
+    .line 233
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "already specified useForNull"

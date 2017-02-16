@@ -21,14 +21,18 @@
 .method static constructor <clinit>()V
     .locals 4
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 23
     const-string v1, "com.google.android.mms.pdu.EncodedStringValue"
 
     invoke-static {v1}, Lcom/android/incallui/wrapper/ReflectUtil;->classForName(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v0
 
+    .line 25
+    .local v0, "baseClass":Ljava/lang/Class;
     const-string v1, "getString"
 
     new-array v2, v3, [Ljava/lang/Class;
@@ -39,6 +43,7 @@
 
     sput-object v1, Lcom/android/incallui/wrapper/EncodedStringValueWrapper;->sMethodGetString:Ljava/lang/reflect/Method;
 
+    .line 26
     const/4 v1, 0x2
 
     new-array v1, v1, [Ljava/lang/Class;
@@ -59,20 +64,29 @@
 
     sput-object v1, Lcom/android/incallui/wrapper/EncodedStringValueWrapper;->sConstructor:Ljava/lang/reflect/Constructor;
 
+    .line 27
     return-void
 .end method
 
 .method public constructor <init>(I[B)V
     .locals 6
+    .param p1, "charset"    # I
+    .param p2, "data"    # [B
 
+    .prologue
+    .line 29
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 20
     const/4 v2, 0x0
 
     iput-object v2, p0, Lcom/android/incallui/wrapper/EncodedStringValueWrapper;->mInstance:Ljava/lang/Object;
 
+    .line 30
     const/4 v1, 0x0
 
+    .line 33
+    .local v1, "object":Ljava/lang/Object;
     :try_start_0
     sget-object v2, Lcom/android/incallui/wrapper/EncodedStringValueWrapper;->sConstructor:Ljava/lang/reflect/Constructor;
 
@@ -101,14 +115,21 @@
 
     move-result-object v1
 
+    .line 39
+    .end local v1    # "object":Ljava/lang/Object;
     :goto_0
     iput-object v1, p0, Lcom/android/incallui/wrapper/EncodedStringValueWrapper;->mInstance:Ljava/lang/Object;
 
+    .line 40
     return-void
 
+    .line 34
+    .restart local v1    # "object":Ljava/lang/Object;
     :catch_0
     move-exception v0
 
+    .line 36
+    .local v0, "e":Ljava/lang/Exception;
     :goto_1
     const-string v2, "EncodedStringValue"
 
@@ -138,6 +159,8 @@
 
     goto :goto_0
 
+    .line 34
+    .end local v0    # "e":Ljava/lang/Exception;
     :catch_1
     move-exception v0
 
@@ -159,17 +182,21 @@
 .method public getString()Ljava/lang/String;
     .locals 5
 
+    .prologue
     const/4 v2, 0x0
 
+    .line 43
     sget-object v1, Lcom/android/incallui/wrapper/EncodedStringValueWrapper;->sMethodGetString:Ljava/lang/reflect/Method;
 
     if-nez v1, :cond_0
 
     move-object v1, v2
 
+    .line 50
     :goto_0
     return-object v1
 
+    .line 47
     :cond_0
     :try_start_0
     sget-object v1, Lcom/android/incallui/wrapper/EncodedStringValueWrapper;->sMethodGetString:Ljava/lang/reflect/Method;
@@ -191,9 +218,12 @@
 
     goto :goto_0
 
+    .line 48
     :catch_0
     move-exception v0
 
+    .line 49
+    .local v0, "e":Ljava/lang/ReflectiveOperationException;
     :goto_1
     const-string v1, "EncodedStringValue"
 
@@ -223,8 +253,11 @@
 
     move-object v1, v2
 
+    .line 50
     goto :goto_0
 
+    .line 48
+    .end local v0    # "e":Ljava/lang/ReflectiveOperationException;
     :catch_1
     move-exception v0
 

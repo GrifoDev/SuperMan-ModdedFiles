@@ -29,6 +29,10 @@
 .method constructor <init>(Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;Ljava/util/NavigableMap;)V
     .locals 0
 
+    .prologue
+    .line 3020
+    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryNavigableMap$1;, "Lcom/google/common/collect/Maps$FilteredEntryNavigableMap.1;"
+    .local p2, "x0":Ljava/util/NavigableMap;, "Ljava/util/NavigableMap<TK;TV;>;"
     iput-object p1, p0, Lcom/google/common/collect/Maps$FilteredEntryNavigableMap$1;->this$0:Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;
 
     invoke-direct {p0, p2}, Lcom/google/common/collect/Maps$NavigableKeySet;-><init>(Ljava/util/NavigableMap;)V
@@ -48,6 +52,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 3023
+    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryNavigableMap$1;, "Lcom/google/common/collect/Maps$FilteredEntryNavigableMap.1;"
+    .local p1, "c":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$FilteredEntryNavigableMap$1;->this$0:Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;
 
     # getter for: Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;->unfiltered:Ljava/util/NavigableMap;
@@ -99,6 +107,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 3030
+    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryNavigableMap$1;, "Lcom/google/common/collect/Maps$FilteredEntryNavigableMap.1;"
+    .local p1, "c":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$FilteredEntryNavigableMap$1;->this$0:Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;
 
     # getter for: Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;->unfiltered:Ljava/util/NavigableMap;

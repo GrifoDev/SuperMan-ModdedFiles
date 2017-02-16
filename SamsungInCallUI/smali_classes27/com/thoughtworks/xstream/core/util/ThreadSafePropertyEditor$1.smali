@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/thoughtworks/xstream/core/util/ThreadSafePropertyEditor;)V
     .locals 0
 
+    .prologue
+    .line 45
     iput-object p1, p0, Lcom/thoughtworks/xstream/core/util/ThreadSafePropertyEditor$1;->this$0:Lcom/thoughtworks/xstream/core/util/ThreadSafePropertyEditor;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +39,8 @@
 .method public newInstance()Ljava/lang/Object;
     .locals 4
 
+    .prologue
+    .line 48
     :try_start_0
     iget-object v1, p0, Lcom/thoughtworks/xstream/core/util/ThreadSafePropertyEditor$1;->this$0:Lcom/thoughtworks/xstream/core/util/ThreadSafePropertyEditor;
 
@@ -54,9 +58,12 @@
 
     return-object v1
 
+    .line 49
     :catch_0
     move-exception v0
 
+    .line 50
+    .local v0, "e":Ljava/lang/InstantiationException;
     new-instance v1, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -92,9 +99,13 @@
 
     throw v1
 
+    .line 52
+    .end local v0    # "e":Ljava/lang/InstantiationException;
     :catch_1
     move-exception v0
 
+    .line 53
+    .local v0, "e":Ljava/lang/IllegalAccessException;
     new-instance v1, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;
 
     new-instance v2, Ljava/lang/StringBuilder;

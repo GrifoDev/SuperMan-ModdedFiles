@@ -108,6 +108,14 @@
 
 .method constructor <init>(ILjava/util/List;Ljava/util/List;FIIFZZ)V
     .locals 2
+    .param p1, "versionCode"    # I
+    .param p3, "holes"    # Ljava/util/List;
+    .param p4, "strokeWidth"    # F
+    .param p5, "strokeColor"    # I
+    .param p6, "fillColor"    # I
+    .param p7, "zIndex"    # F
+    .param p8, "visible"    # Z
+    .param p9, "geodesic"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -120,6 +128,8 @@
         }
     .end annotation
 
+    .prologue
+    .local p2, "points":Ljava/util/List;, "Ljava/util/List<Lcom/google/android/gms/maps/model/LatLng;>;"
     const/4 v1, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -169,7 +179,9 @@
 # virtual methods
 .method public add(Lcom/google/android/gms/maps/model/LatLng;)Lcom/google/android/gms/maps/model/PolygonOptions;
     .locals 1
+    .param p1, "point"    # Lcom/google/android/gms/maps/model/LatLng;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->hB:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -179,7 +191,9 @@
 
 .method public varargs add([Lcom/google/android/gms/maps/model/LatLng;)Lcom/google/android/gms/maps/model/PolygonOptions;
     .locals 2
+    .param p1, "points"    # [Lcom/google/android/gms/maps/model/LatLng;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->hB:Ljava/util/List;
 
     invoke-static {p1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
@@ -204,6 +218,8 @@
         }
     .end annotation
 
+    .prologue
+    .local p1, "points":Ljava/lang/Iterable;, "Ljava/lang/Iterable<Lcom/google/android/gms/maps/model/LatLng;>;"
     invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
@@ -244,6 +260,8 @@
         }
     .end annotation
 
+    .prologue
+    .local p1, "points":Ljava/lang/Iterable;, "Ljava/lang/Iterable<Lcom/google/android/gms/maps/model/LatLng;>;"
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
@@ -295,7 +313,9 @@
 
 .method public fillColor(I)Lcom/google/android/gms/maps/model/PolygonOptions;
     .locals 0
+    .param p1, "color"    # I
 
+    .prologue
     iput p1, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->ha:I
 
     return-object p0
@@ -303,7 +323,9 @@
 
 .method public geodesic(Z)Lcom/google/android/gms/maps/model/PolygonOptions;
     .locals 0
+    .param p1, "geodesic"    # Z
 
+    .prologue
     iput-boolean p1, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->hD:Z
 
     return-object p0
@@ -403,7 +425,9 @@
 
 .method public strokeColor(I)Lcom/google/android/gms/maps/model/PolygonOptions;
     .locals 0
+    .param p1, "color"    # I
 
+    .prologue
     iput p1, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->gZ:I
 
     return-object p0
@@ -411,7 +435,9 @@
 
 .method public strokeWidth(F)Lcom/google/android/gms/maps/model/PolygonOptions;
     .locals 0
+    .param p1, "width"    # F
 
+    .prologue
     iput p1, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->gY:F
 
     return-object p0
@@ -419,7 +445,9 @@
 
 .method public visible(Z)Lcom/google/android/gms/maps/model/PolygonOptions;
     .locals 0
+    .param p1, "visible"    # Z
 
+    .prologue
     iput-boolean p1, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->hc:Z
 
     return-object p0
@@ -427,7 +455,10 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
+    .prologue
     invoke-static {}, Lcom/google/android/gms/maps/internal/q;->bn()Z
 
     move-result v0
@@ -447,7 +478,9 @@
 
 .method public zIndex(F)Lcom/google/android/gms/maps/model/PolygonOptions;
     .locals 0
+    .param p1, "zIndex"    # F
 
+    .prologue
     iput p1, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->hb:F
 
     return-object p0

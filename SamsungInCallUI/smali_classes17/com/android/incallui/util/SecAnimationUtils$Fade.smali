@@ -24,6 +24,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 74
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -31,7 +33,11 @@
 
 .method public static hide(Landroid/view/View;I)V
     .locals 4
+    .param p0, "view"    # Landroid/view/View;
+    .param p1, "visibility"    # I
 
+    .prologue
+    .line 126
     invoke-virtual {p0}, Landroid/view/View;->getVisibility()I
 
     move-result v0
@@ -46,6 +52,7 @@
 
     if-ne p1, v0, :cond_1
 
+    .line 131
     :cond_0
     const v0, 0x7f10000e
 
@@ -53,12 +60,14 @@
 
     invoke-virtual {p0, v0, v1}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
+    .line 133
     invoke-virtual {p0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/view/ViewPropertyAnimator;->cancel()V
 
+    .line 134
     invoke-virtual {p0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
 
     move-result-object v0
@@ -67,6 +76,7 @@
 
     invoke-virtual {v0, v2, v3}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
 
+    .line 135
     invoke-virtual {p0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
 
     move-result-object v0
@@ -83,13 +93,17 @@
 
     invoke-virtual {v0, v1}, Landroid/view/ViewPropertyAnimator;->setListener(Landroid/animation/Animator$AnimatorListener;)Landroid/view/ViewPropertyAnimator;
 
+    .line 148
     :cond_1
     return-void
 .end method
 
 .method public static isFadingOut(Landroid/view/View;)Z
     .locals 2
+    .param p0, "view"    # Landroid/view/View;
 
+    .prologue
+    .line 164
     const v0, 0x7f10000e
 
     invoke-virtual {p0, v0}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
@@ -113,7 +127,10 @@
 
 .method public static show(Landroid/view/View;)V
     .locals 4
+    .param p0, "view"    # Landroid/view/View;
 
+    .prologue
+    .line 92
     invoke-virtual {p0}, Landroid/view/View;->getVisibility()I
 
     move-result v0
@@ -126,6 +143,7 @@
 
     if-eqz v0, :cond_1
 
+    .line 93
     :cond_0
     invoke-virtual {p0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
 
@@ -133,20 +151,24 @@
 
     invoke-virtual {v0}, Landroid/view/ViewPropertyAnimator;->cancel()V
 
+    .line 96
     const v0, 0x7f10000e
 
     const/4 v1, 0x0
 
     invoke-virtual {p0, v0, v1}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
+    .line 98
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Landroid/view/View;->setAlpha(F)V
 
+    .line 99
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Landroid/view/View;->setVisibility(I)V
 
+    .line 100
     invoke-virtual {p0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
 
     move-result-object v0
@@ -155,6 +177,7 @@
 
     invoke-virtual {v0, v2, v3}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
 
+    .line 101
     invoke-virtual {p0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
 
     move-result-object v0
@@ -163,6 +186,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/ViewPropertyAnimator;->alpha(F)Landroid/view/ViewPropertyAnimator;
 
+    .line 107
     :cond_1
     return-void
 .end method

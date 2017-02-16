@@ -31,6 +31,8 @@
 .method constructor <init>(Lcom/google/common/cache/CacheLoader;Ljava/util/concurrent/Executor;)V
     .locals 0
 
+    .prologue
+    .line 182
     iput-object p1, p0, Lcom/google/common/cache/CacheLoader$1;->val$loader:Lcom/google/common/cache/CacheLoader;
 
     iput-object p2, p0, Lcom/google/common/cache/CacheLoader$1;->val$executor:Ljava/util/concurrent/Executor;
@@ -56,6 +58,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 185
+    .local p1, "key":Ljava/lang/Object;, "TK;"
     iget-object v0, p0, Lcom/google/common/cache/CacheLoader$1;->val$loader:Lcom/google/common/cache/CacheLoader;
 
     invoke-virtual {v0, p1}, Lcom/google/common/cache/CacheLoader;->load(Ljava/lang/Object;)Ljava/lang/Object;
@@ -83,6 +88,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 202
+    .local p1, "keys":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TK;>;"
     iget-object v0, p0, Lcom/google/common/cache/CacheLoader$1;->val$loader:Lcom/google/common/cache/CacheLoader;
 
     invoke-virtual {v0, p1}, Lcom/google/common/cache/CacheLoader;->loadAll(Ljava/lang/Iterable;)Ljava/util/Map;
@@ -108,6 +116,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 190
+    .local p1, "key":Ljava/lang/Object;, "TK;"
+    .local p2, "oldValue":Ljava/lang/Object;, "TV;"
     new-instance v1, Lcom/google/common/cache/CacheLoader$1$1;
 
     invoke-direct {v1, p0, p1, p2}, Lcom/google/common/cache/CacheLoader$1$1;-><init>(Lcom/google/common/cache/CacheLoader$1;Ljava/lang/Object;Ljava/lang/Object;)V
@@ -116,9 +128,12 @@
 
     move-result-object v0
 
+    .line 196
+    .local v0, "task":Lcom/google/common/util/concurrent/ListenableFutureTask;, "Lcom/google/common/util/concurrent/ListenableFutureTask<TV;>;"
     iget-object v1, p0, Lcom/google/common/cache/CacheLoader$1;->val$executor:Ljava/util/concurrent/Executor;
 
     invoke-interface {v1, v0}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
+    .line 197
     return-object v0
 .end method

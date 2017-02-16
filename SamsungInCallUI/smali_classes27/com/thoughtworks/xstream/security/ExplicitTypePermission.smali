@@ -13,7 +13,10 @@
 # direct methods
 .method public constructor <init>([Ljava/lang/Class;)V
     .locals 1
+    .param p1, "types"    # [Ljava/lang/Class;
 
+    .prologue
+    .line 29
     new-instance v0, Lcom/thoughtworks/xstream/security/ExplicitTypePermission$1;
 
     invoke-direct {v0, p1}, Lcom/thoughtworks/xstream/security/ExplicitTypePermission$1;-><init>([Ljava/lang/Class;)V
@@ -24,14 +27,19 @@
 
     invoke-direct {p0, v0}, Lcom/thoughtworks/xstream/security/ExplicitTypePermission;-><init>([Ljava/lang/String;)V
 
+    .line 39
     return-void
 .end method
 
 .method public constructor <init>([Ljava/lang/String;)V
     .locals 2
+    .param p1, "names"    # [Ljava/lang/String;
 
+    .prologue
+    .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 45
     if-nez p1, :cond_0
 
     sget-object v0, Ljava/util/Collections;->EMPTY_SET:Ljava/util/Set;
@@ -39,8 +47,10 @@
     :goto_0
     iput-object v0, p0, Lcom/thoughtworks/xstream/security/ExplicitTypePermission;->names:Ljava/util/Set;
 
+    .line 46
     return-void
 
+    .line 45
     :cond_0
     new-instance v0, Ljava/util/HashSet;
 
@@ -57,11 +67,16 @@
 # virtual methods
 .method public allows(Ljava/lang/Class;)Z
     .locals 2
+    .param p1, "type"    # Ljava/lang/Class;
 
+    .prologue
+    .line 49
     if-nez p1, :cond_0
 
+    .line 50
     const/4 v0, 0x0
 
+    .line 51
     :goto_0
     return v0
 

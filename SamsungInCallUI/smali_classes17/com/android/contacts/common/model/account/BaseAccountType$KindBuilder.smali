@@ -18,6 +18,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 776
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -25,7 +27,10 @@
 
 .method synthetic constructor <init>(Lcom/android/contacts/common/model/account/BaseAccountType$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/android/contacts/common/model/account/BaseAccountType$1;
 
+    .prologue
+    .line 776
     invoke-direct {p0}, Lcom/android/contacts/common/model/account/BaseAccountType$KindBuilder;-><init>()V
 
     return-void
@@ -33,12 +38,17 @@
 
 .method private parseTypeTag(Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Lcom/android/contacts/common/model/dataitem/DataKind;)Lcom/android/contacts/common/model/account/AccountType$EditType;
     .locals 5
+    .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .param p3, "kind"    # Lcom/android/contacts/common/model/dataitem/DataKind;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/contacts/common/model/account/AccountType$DefinitionException;
         }
     .end annotation
 
+    .prologue
+    .line 869
     const-string v2, "type"
 
     # invokes: Lcom/android/contacts/common/model/account/BaseAccountType;->getAttr(Landroid/util/AttributeSet;Ljava/lang/String;)Ljava/lang/String;
@@ -46,12 +56,17 @@
 
     move-result-object v1
 
+    .line 871
+    .local v1, "typeName":Ljava/lang/String;
     invoke-virtual {p0, p2, v1}, Lcom/android/contacts/common/model/account/BaseAccountType$KindBuilder;->buildEditTypeForTypeTag(Landroid/util/AttributeSet;Ljava/lang/String;)Lcom/android/contacts/common/model/account/AccountType$EditType;
 
     move-result-object v0
 
+    .line 872
+    .local v0, "et":Lcom/android/contacts/common/model/account/AccountType$EditType;
     if-nez v0, :cond_0
 
+    .line 873
     new-instance v2, Lcom/android/contacts/common/model/account/AccountType$DefinitionException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -94,6 +109,7 @@
 
     throw v2
 
+    .line 876
     :cond_0
     const-string v2, "maxOccurs"
 
@@ -106,11 +122,17 @@
 
     iput v2, v0, Lcom/android/contacts/common/model/account/AccountType$EditType;->specificMax:I
 
+    .line 878
     return-object v0
 .end method
 
 .method private parseTypes(Landroid/content/Context;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Lcom/android/contacts/common/model/dataitem/DataKind;Z)V
     .locals 7
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
+    .param p3, "attrs"    # Landroid/util/AttributeSet;
+    .param p4, "kind"    # Lcom/android/contacts/common/model/dataitem/DataKind;
+    .param p5, "canHaveTypes"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/contacts/common/model/account/AccountType$DefinitionException;,
@@ -119,16 +141,21 @@
         }
     .end annotation
 
+    .prologue
+    .line 838
     invoke-interface {p2}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
 
     move-result v1
 
+    .line 840
+    .local v1, "outerDepth":I
     :cond_0
     :goto_0
     invoke-interface {p2}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
     move-result v3
 
+    .local v3, "type":I
     const/4 v4, 0x1
 
     if-eq v3, v4, :cond_4
@@ -137,17 +164,21 @@
 
     if-ne v3, v4, :cond_1
 
+    .line 841
     invoke-interface {p2}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
 
     move-result v4
 
     if-le v4, v1, :cond_4
 
+    .line 842
     :cond_1
     invoke-interface {p2}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
 
     move-result v0
 
+    .line 843
+    .local v0, "depth":I
     const/4 v4, 0x2
 
     if-ne v3, v4, :cond_0
@@ -156,10 +187,13 @@
 
     if-ne v0, v4, :cond_0
 
+    .line 847
     invoke-interface {p2}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
     move-result-object v2
 
+    .line 848
+    .local v2, "tag":Ljava/lang/String;
     const-string v4, "Type"
 
     invoke-virtual {v4, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -168,8 +202,10 @@
 
     if-eqz v4, :cond_3
 
+    .line 849
     if-eqz p5, :cond_2
 
+    .line 850
     iget-object v4, p4, Lcom/android/contacts/common/model/dataitem/DataKind;->typeList:Ljava/util/List;
 
     invoke-direct {p0, p2, p3, p4}, Lcom/android/contacts/common/model/account/BaseAccountType$KindBuilder;->parseTypeTag(Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Lcom/android/contacts/common/model/dataitem/DataKind;)Lcom/android/contacts/common/model/account/AccountType$EditType;
@@ -180,6 +216,7 @@
 
     goto :goto_0
 
+    .line 852
     :cond_2
     new-instance v4, Lcom/android/contacts/common/model/account/AccountType$DefinitionException;
 
@@ -213,6 +250,7 @@
 
     throw v4
 
+    .line 856
     :cond_3
     new-instance v4, Lcom/android/contacts/common/model/account/AccountType$DefinitionException;
 
@@ -238,6 +276,9 @@
 
     throw v4
 
+    .line 859
+    .end local v0    # "depth":I
+    .end local v2    # "tag":Ljava/lang/String;
     :cond_4
     return-void
 .end method
@@ -246,7 +287,11 @@
 # virtual methods
 .method protected buildEditTypeForTypeTag(Landroid/util/AttributeSet;Ljava/lang/String;)Lcom/android/contacts/common/model/account/AccountType$EditType;
     .locals 1
+    .param p1, "attrs"    # Landroid/util/AttributeSet;
+    .param p2, "type"    # Ljava/lang/String;
 
+    .prologue
+    .line 887
     const/4 v0, 0x0
 
     return-object v0
@@ -257,6 +302,16 @@
 
 .method protected final newDataKind(Landroid/content/Context;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;ZLjava/lang/String;Ljava/lang/String;IILcom/android/contacts/common/model/account/AccountType$StringInflater;Lcom/android/contacts/common/model/account/AccountType$StringInflater;)Lcom/android/contacts/common/model/dataitem/DataKind;
     .locals 7
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
+    .param p3, "attrs"    # Landroid/util/AttributeSet;
+    .param p4, "isPseudo"    # Z
+    .param p5, "mimeType"    # Ljava/lang/String;
+    .param p6, "typeColumn"    # Ljava/lang/String;
+    .param p7, "titleRes"    # I
+    .param p8, "weight"    # I
+    .param p9, "actionHeader"    # Lcom/android/contacts/common/model/account/AccountType$StringInflater;
+    .param p10, "actionBody"    # Lcom/android/contacts/common/model/account/AccountType$StringInflater;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/contacts/common/model/account/AccountType$DefinitionException;,
@@ -265,6 +320,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 795
     const-string v1, "BaseAccountType"
 
     const/4 v2, 0x3
@@ -275,6 +332,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 796
     const-string v1, "BaseAccountType"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -297,6 +355,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 799
     :cond_0
     new-instance v5, Lcom/android/contacts/common/model/dataitem/DataKind;
 
@@ -304,24 +363,31 @@
 
     invoke-direct {v5, p5, p7, p8, v1}, Lcom/android/contacts/common/model/dataitem/DataKind;-><init>(Ljava/lang/String;IIZ)V
 
+    .line 800
+    .local v5, "kind":Lcom/android/contacts/common/model/dataitem/DataKind;
     iput-object p6, v5, Lcom/android/contacts/common/model/dataitem/DataKind;->typeColumn:Ljava/lang/String;
 
+    .line 801
     move-object/from16 v0, p9
 
     iput-object v0, v5, Lcom/android/contacts/common/model/dataitem/DataKind;->actionHeader:Lcom/android/contacts/common/model/account/AccountType$StringInflater;
 
+    .line 802
     move-object/from16 v0, p10
 
     iput-object v0, v5, Lcom/android/contacts/common/model/dataitem/DataKind;->actionBody:Lcom/android/contacts/common/model/account/AccountType$StringInflater;
 
+    .line 803
     invoke-static {}, Lcom/google/common/collect/Lists;->newArrayList()Ljava/util/ArrayList;
 
     move-result-object v1
 
     iput-object v1, v5, Lcom/android/contacts/common/model/dataitem/DataKind;->fieldList:Ljava/util/List;
 
+    .line 807
     if-nez p4, :cond_2
 
+    .line 808
     const-string v1, "maxOccurs"
 
     const/4 v2, -0x1
@@ -333,16 +399,19 @@
 
     iput v1, v5, Lcom/android/contacts/common/model/dataitem/DataKind;->typeOverallMax:I
 
+    .line 813
     iget-object v1, v5, Lcom/android/contacts/common/model/dataitem/DataKind;->typeColumn:Ljava/lang/String;
 
     if-eqz v1, :cond_1
 
+    .line 815
     invoke-static {}, Lcom/google/common/collect/Lists;->newArrayList()Ljava/util/ArrayList;
 
     move-result-object v1
 
     iput-object v1, v5, Lcom/android/contacts/common/model/dataitem/DataKind;->typeList:Ljava/util/List;
 
+    .line 816
     const/4 v6, 0x1
 
     move-object v1, p0
@@ -355,6 +424,7 @@
 
     invoke-direct/range {v1 .. v6}, Lcom/android/contacts/common/model/account/BaseAccountType$KindBuilder;->parseTypes(Landroid/content/Context;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Lcom/android/contacts/common/model/dataitem/DataKind;Z)V
 
+    .line 817
     iget-object v1, v5, Lcom/android/contacts/common/model/dataitem/DataKind;->typeList:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->size()I
@@ -363,6 +433,7 @@
 
     if-nez v1, :cond_2
 
+    .line 818
     new-instance v1, Lcom/android/contacts/common/model/account/AccountType$DefinitionException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -395,6 +466,7 @@
 
     throw v1
 
+    .line 823
     :cond_1
     const/4 v6, 0x0
 
@@ -408,6 +480,7 @@
 
     invoke-direct/range {v1 .. v6}, Lcom/android/contacts/common/model/account/BaseAccountType$KindBuilder;->parseTypes(Landroid/content/Context;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Lcom/android/contacts/common/model/dataitem/DataKind;Z)V
 
+    .line 827
     :cond_2
     return-object v5
 .end method
@@ -438,18 +511,22 @@
 
 .method protected final throwIfList(Lcom/android/contacts/common/model/dataitem/DataKind;)V
     .locals 3
+    .param p1, "kind"    # Lcom/android/contacts/common/model/dataitem/DataKind;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/contacts/common/model/account/AccountType$DefinitionException;
         }
     .end annotation
 
+    .prologue
+    .line 891
     iget v0, p1, Lcom/android/contacts/common/model/dataitem/DataKind;->typeOverallMax:I
 
     const/4 v1, 0x1
 
     if-eq v0, v1, :cond_0
 
+    .line 892
     new-instance v0, Lcom/android/contacts/common/model/account/AccountType$DefinitionException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -482,6 +559,7 @@
 
     throw v0
 
+    .line 895
     :cond_0
     return-void
 .end method

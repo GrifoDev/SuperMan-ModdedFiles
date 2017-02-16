@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/InCallActivity;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/InCallActivity;
 
+    .prologue
+    .line 1080
     iput-object p1, p0, Lcom/android/incallui/InCallActivity$11;->this$0:Lcom/android/incallui/InCallActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +40,8 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 1083
     iget-object v0, p0, Lcom/android/incallui/InCallActivity$11;->this$0:Lcom/android/incallui/InCallActivity;
 
     new-instance v1, Landroid/content/Intent;
@@ -47,5 +52,6 @@
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/InCallActivity;->sendBroadcast(Landroid/content/Intent;)V
 
+    .line 1084
     return-void
 .end method

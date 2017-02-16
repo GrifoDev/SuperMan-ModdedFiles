@@ -12,7 +12,11 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
     .locals 2
+    .param p1, "className"    # Ljava/lang/String;
+    .param p2, "fieldName"    # Ljava/lang/String;
 
+    .prologue
+    .line 32
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -49,10 +53,13 @@
 
     invoke-direct {p0, v0}, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;-><init>(Ljava/lang/String;)V
 
+    .line 33
     iput-object p1, p0, Lcom/thoughtworks/xstream/converters/reflection/MissingFieldException;->className:Ljava/lang/String;
 
+    .line 34
     iput-object p2, p0, Lcom/thoughtworks/xstream/converters/reflection/MissingFieldException;->fieldName:Ljava/lang/String;
 
+    .line 35
     return-void
 .end method
 
@@ -61,6 +68,8 @@
 .method protected getClassName()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 52
     iget-object v0, p0, Lcom/thoughtworks/xstream/converters/reflection/MissingFieldException;->className:Ljava/lang/String;
 
     return-object v0
@@ -69,6 +78,8 @@
 .method public getFieldName()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 43
     iget-object v0, p0, Lcom/thoughtworks/xstream/converters/reflection/MissingFieldException;->fieldName:Ljava/lang/String;
 
     return-object v0

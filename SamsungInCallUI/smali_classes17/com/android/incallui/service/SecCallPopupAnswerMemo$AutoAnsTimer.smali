@@ -21,11 +21,17 @@
 # direct methods
 .method public constructor <init>(Lcom/android/incallui/service/SecCallPopupAnswerMemo;JJ)V
     .locals 0
+    .param p2, "millisInFuture"    # J
+    .param p4, "countDownInterval"    # J
 
+    .prologue
+    .line 209
     iput-object p1, p0, Lcom/android/incallui/service/SecCallPopupAnswerMemo$AutoAnsTimer;->this$0:Lcom/android/incallui/service/SecCallPopupAnswerMemo;
 
+    .line 210
     invoke-direct {p0, p2, p3, p4, p5}, Landroid/os/CountDownTimer;-><init>(JJ)V
 
+    .line 211
     return-void
 .end method
 
@@ -34,10 +40,13 @@
 .method public onFinish()V
     .locals 2
 
+    .prologue
+    .line 215
     const-string v0, "AutoAnsTimer onFinish "
 
     invoke-static {p0, v0}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 216
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupAnswerMemo$AutoAnsTimer;->this$0:Lcom/android/incallui/service/SecCallPopupAnswerMemo;
 
     # getter for: Lcom/android/incallui/service/SecCallPopupAnswerMemo;->mSecCallPopupService:Lcom/android/incallui/service/SecCallPopupService;
@@ -47,6 +56,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 217
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupAnswerMemo$AutoAnsTimer;->this$0:Lcom/android/incallui/service/SecCallPopupAnswerMemo;
 
     # getter for: Lcom/android/incallui/service/SecCallPopupAnswerMemo;->mSecCallPopupService:Lcom/android/incallui/service/SecCallPopupService;
@@ -56,6 +66,7 @@
 
     invoke-virtual {v0}, Lcom/android/incallui/service/SecCallPopupService;->answeringMode()V
 
+    .line 218
     :cond_0
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupAnswerMemo$AutoAnsTimer;->this$0:Lcom/android/incallui/service/SecCallPopupAnswerMemo;
 
@@ -64,12 +75,16 @@
     # setter for: Lcom/android/incallui/service/SecCallPopupAnswerMemo;->elapsedAMTime:I
     invoke-static {v0, v1}, Lcom/android/incallui/service/SecCallPopupAnswerMemo;->access$102(Lcom/android/incallui/service/SecCallPopupAnswerMemo;I)I
 
+    .line 219
     return-void
 .end method
 
 .method public onTick(J)V
     .locals 2
+    .param p1, "millisUntilFinished"    # J
 
+    .prologue
+    .line 223
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -97,10 +112,12 @@
 
     invoke-static {p0, v0}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 224
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupAnswerMemo$AutoAnsTimer;->this$0:Lcom/android/incallui/service/SecCallPopupAnswerMemo;
 
     # operator++ for: Lcom/android/incallui/service/SecCallPopupAnswerMemo;->elapsedAMTime:I
     invoke-static {v0}, Lcom/android/incallui/service/SecCallPopupAnswerMemo;->access$108(Lcom/android/incallui/service/SecCallPopupAnswerMemo;)I
 
+    .line 225
     return-void
 .end method

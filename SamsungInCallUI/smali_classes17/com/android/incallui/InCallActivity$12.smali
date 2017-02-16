@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/InCallActivity;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/InCallActivity;
 
+    .prologue
+    .line 1397
     iput-object p1, p0, Lcom/android/incallui/InCallActivity$12;->this$0:Lcom/android/incallui/InCallActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,10 +40,13 @@
 .method public run()V
     .locals 4
 
+    .prologue
+    .line 1401
     const-string v1, "run() ivrUpdate"
 
     invoke-static {p0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 1402
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -65,6 +71,7 @@
 
     invoke-static {p0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 1404
     const-wide/16 v2, 0x7d0
 
     :try_start_0
@@ -72,16 +79,21 @@
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 1408
     :goto_0
     invoke-static {}, Lcom/android/incallui/util/VisualCallCenter;->getInstance()Lcom/android/incallui/util/VisualCallCenter;
 
     invoke-static {}, Lcom/android/incallui/util/VisualCallCenter;->VCC_checkUpdate()V
 
+    .line 1409
     return-void
 
+    .line 1405
     :catch_0
     move-exception v0
 
+    .line 1406
+    .local v0, "e":Ljava/lang/InterruptedException;
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V

@@ -981,7 +981,9 @@
 
 .method public clearNotifications(I)V
     .locals 2
+    .param p1, "notificationTypes"    # I
 
+    .prologue
     :try_start_0
     invoke-virtual {p0}, Lcom/google/android/gms/internal/au;->C()Landroid/os/IInterface;
 
@@ -1020,7 +1022,9 @@
 
 .method public createRoom(Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig;)V
     .locals 10
+    .param p1, "config"    # Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig;
 
+    .prologue
     :try_start_0
     new-instance v2, Lcom/google/android/gms/internal/au$aj;
 
@@ -1522,7 +1526,9 @@
 
 .method public getLeaderboardIntent(Ljava/lang/String;)Landroid/content/Intent;
     .locals 2
+    .param p1, "leaderboardId"    # Ljava/lang/String;
 
+    .prologue
     invoke-virtual {p0}, Lcom/google/android/gms/internal/au;->B()V
 
     new-instance v0, Landroid/content/Intent;
@@ -1548,7 +1554,10 @@
 
 .method public getRealTimeSocketForParticipant(Ljava/lang/String;Ljava/lang/String;)Lcom/google/android/gms/games/RealTimeSocket;
     .locals 2
+    .param p1, "roomId"    # Ljava/lang/String;
+    .param p2, "participantId"    # Ljava/lang/String;
 
+    .prologue
     if-eqz p2, :cond_0
 
     invoke-static {p2}, Lcom/google/android/gms/games/multiplayer/ParticipantUtils;->z(Ljava/lang/String;)Z
@@ -1594,7 +1603,10 @@
 
 .method public getRealTimeWaitingRoomIntent(Lcom/google/android/gms/games/multiplayer/realtime/Room;I)Landroid/content/Intent;
     .locals 3
+    .param p1, "room"    # Lcom/google/android/gms/games/multiplayer/realtime/Room;
+    .param p2, "minParticipantsToStart"    # I
 
+    .prologue
     invoke-virtual {p0}, Lcom/google/android/gms/internal/au;->B()V
 
     new-instance v1, Landroid/content/Intent;
@@ -1644,7 +1656,10 @@
 
 .method public getSelectPlayersIntent(II)Landroid/content/Intent;
     .locals 2
+    .param p1, "minPlayers"    # I
+    .param p2, "maxPlayers"    # I
 
+    .prologue
     invoke-virtual {p0}, Lcom/google/android/gms/internal/au;->B()V
 
     new-instance v0, Landroid/content/Intent;
@@ -1756,7 +1771,9 @@
 
 .method public joinRoom(Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig;)V
     .locals 8
+    .param p1, "config"    # Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig;
 
+    .prologue
     :try_start_0
     new-instance v2, Lcom/google/android/gms/internal/au$aj;
 
@@ -1813,7 +1830,10 @@
 
 .method public leaveRoom(Lcom/google/android/gms/games/multiplayer/realtime/RoomUpdateListener;Ljava/lang/String;)V
     .locals 2
+    .param p1, "listener"    # Lcom/google/android/gms/games/multiplayer/realtime/RoomUpdateListener;
+    .param p2, "roomId"    # Ljava/lang/String;
 
+    .prologue
     :try_start_0
     invoke-virtual {p0}, Lcom/google/android/gms/internal/au;->C()Landroid/os/IInterface;
 
@@ -1848,7 +1868,10 @@
 
 .method public loadAchievements(Lcom/google/android/gms/games/achievement/OnAchievementsLoadedListener;Z)V
     .locals 2
+    .param p1, "listener"    # Lcom/google/android/gms/games/achievement/OnAchievementsLoadedListener;
+    .param p2, "forceReload"    # Z
 
+    .prologue
     :try_start_0
     invoke-virtual {p0}, Lcom/google/android/gms/internal/au;->C()Landroid/os/IInterface;
 
@@ -1881,7 +1904,9 @@
 
 .method public loadGame(Lcom/google/android/gms/games/OnGamesLoadedListener;)V
     .locals 2
+    .param p1, "listener"    # Lcom/google/android/gms/games/OnGamesLoadedListener;
 
+    .prologue
     :try_start_0
     invoke-virtual {p0}, Lcom/google/android/gms/internal/au;->C()Landroid/os/IInterface;
 
@@ -1914,7 +1939,9 @@
 
 .method public loadInvitations(Lcom/google/android/gms/games/multiplayer/OnInvitationsLoadedListener;)V
     .locals 2
+    .param p1, "listener"    # Lcom/google/android/gms/games/multiplayer/OnInvitationsLoadedListener;
 
+    .prologue
     :try_start_0
     invoke-virtual {p0}, Lcom/google/android/gms/internal/au;->C()Landroid/os/IInterface;
 
@@ -1947,7 +1974,11 @@
 
 .method public loadLeaderboardMetadata(Lcom/google/android/gms/games/leaderboard/OnLeaderboardMetadataLoadedListener;Ljava/lang/String;Z)V
     .locals 2
+    .param p1, "listener"    # Lcom/google/android/gms/games/leaderboard/OnLeaderboardMetadataLoadedListener;
+    .param p2, "leaderboardId"    # Ljava/lang/String;
+    .param p3, "forceReload"    # Z
 
+    .prologue
     :try_start_0
     invoke-virtual {p0}, Lcom/google/android/gms/internal/au;->C()Landroid/os/IInterface;
 
@@ -1980,7 +2011,10 @@
 
 .method public loadLeaderboardMetadata(Lcom/google/android/gms/games/leaderboard/OnLeaderboardMetadataLoadedListener;Z)V
     .locals 2
+    .param p1, "listener"    # Lcom/google/android/gms/games/leaderboard/OnLeaderboardMetadataLoadedListener;
+    .param p2, "forceReload"    # Z
 
+    .prologue
     :try_start_0
     invoke-virtual {p0}, Lcom/google/android/gms/internal/au;->C()Landroid/os/IInterface;
 
@@ -2013,7 +2047,12 @@
 
 .method public loadMoreScores(Lcom/google/android/gms/games/leaderboard/OnLeaderboardScoresLoadedListener;Lcom/google/android/gms/games/leaderboard/LeaderboardScoreBuffer;II)V
     .locals 3
+    .param p1, "listener"    # Lcom/google/android/gms/games/leaderboard/OnLeaderboardScoresLoadedListener;
+    .param p2, "buffer"    # Lcom/google/android/gms/games/leaderboard/LeaderboardScoreBuffer;
+    .param p3, "maxResults"    # I
+    .param p4, "pageDirection"    # I
 
+    .prologue
     :try_start_0
     invoke-virtual {p0}, Lcom/google/android/gms/internal/au;->C()Landroid/os/IInterface;
 
@@ -2054,7 +2093,10 @@
 
 .method public loadPlayer(Lcom/google/android/gms/games/OnPlayersLoadedListener;Ljava/lang/String;)V
     .locals 2
+    .param p1, "listener"    # Lcom/google/android/gms/games/OnPlayersLoadedListener;
+    .param p2, "playerId"    # Ljava/lang/String;
 
+    .prologue
     :try_start_0
     invoke-virtual {p0}, Lcom/google/android/gms/internal/au;->C()Landroid/os/IInterface;
 
@@ -2087,7 +2129,14 @@
 
 .method public loadPlayerCenteredScores(Lcom/google/android/gms/games/leaderboard/OnLeaderboardScoresLoadedListener;Ljava/lang/String;IIIZ)V
     .locals 7
+    .param p1, "listener"    # Lcom/google/android/gms/games/leaderboard/OnLeaderboardScoresLoadedListener;
+    .param p2, "leaderboardId"    # Ljava/lang/String;
+    .param p3, "span"    # I
+    .param p4, "leaderboardCollection"    # I
+    .param p5, "maxResults"    # I
+    .param p6, "forceReload"    # Z
 
+    .prologue
     :try_start_0
     invoke-virtual {p0}, Lcom/google/android/gms/internal/au;->C()Landroid/os/IInterface;
 
@@ -2130,7 +2179,14 @@
 
 .method public loadTopScores(Lcom/google/android/gms/games/leaderboard/OnLeaderboardScoresLoadedListener;Ljava/lang/String;IIIZ)V
     .locals 7
+    .param p1, "listener"    # Lcom/google/android/gms/games/leaderboard/OnLeaderboardScoresLoadedListener;
+    .param p2, "leaderboardId"    # Ljava/lang/String;
+    .param p3, "span"    # I
+    .param p4, "leaderboardCollection"    # I
+    .param p5, "maxResults"    # I
+    .param p6, "forceReload"    # Z
 
+    .prologue
     :try_start_0
     invoke-virtual {p0}, Lcom/google/android/gms/internal/au;->C()Landroid/os/IInterface;
 
@@ -2183,7 +2239,9 @@
 
 .method public registerInvitationListener(Lcom/google/android/gms/games/multiplayer/OnInvitationReceivedListener;)V
     .locals 4
+    .param p1, "listener"    # Lcom/google/android/gms/games/multiplayer/OnInvitationReceivedListener;
 
+    .prologue
     :try_start_0
     new-instance v1, Lcom/google/android/gms/internal/au$l;
 
@@ -2218,7 +2276,12 @@
 
 .method public sendReliableRealTimeMessage(Lcom/google/android/gms/games/multiplayer/realtime/RealTimeReliableMessageSentListener;[BLjava/lang/String;Ljava/lang/String;)I
     .locals 2
+    .param p1, "listener"    # Lcom/google/android/gms/games/multiplayer/realtime/RealTimeReliableMessageSentListener;
+    .param p2, "messageData"    # [B
+    .param p3, "roomId"    # Ljava/lang/String;
+    .param p4, "recipientParticipantId"    # Ljava/lang/String;
 
+    .prologue
     :try_start_0
     invoke-virtual {p0}, Lcom/google/android/gms/internal/au;->C()Landroid/os/IInterface;
 
@@ -2255,7 +2318,10 @@
 
 .method public sendUnreliableRealTimeMessageToAll([BLjava/lang/String;)I
     .locals 2
+    .param p1, "messageData"    # [B
+    .param p2, "roomId"    # Ljava/lang/String;
 
+    .prologue
     :try_start_0
     invoke-virtual {p0}, Lcom/google/android/gms/internal/au;->C()Landroid/os/IInterface;
 
@@ -2290,7 +2356,9 @@
 
 .method public setGravityForPopups(I)V
     .locals 1
+    .param p1, "gravity"    # I
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/internal/au;->dD:Lcom/google/android/gms/internal/ba;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/ba;->setGravity(I)V
@@ -2300,7 +2368,9 @@
 
 .method public setUseNewPlayerNotificationsFirstParty(Z)V
     .locals 2
+    .param p1, "newPlayerStyle"    # Z
 
+    .prologue
     :try_start_0
     invoke-virtual {p0}, Lcom/google/android/gms/internal/au;->C()Landroid/os/IInterface;
 
@@ -2329,7 +2399,9 @@
 
 .method public setViewForPopups(Landroid/view/View;)V
     .locals 1
+    .param p1, "gamesContentView"    # Landroid/view/View;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/internal/au;->dD:Lcom/google/android/gms/internal/ba;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/ba;->a(Landroid/view/View;)V
@@ -2339,7 +2411,9 @@
 
 .method public signOut(Lcom/google/android/gms/games/OnSignOutCompleteListener;)V
     .locals 2
+    .param p1, "listener"    # Lcom/google/android/gms/games/OnSignOutCompleteListener;
 
+    .prologue
     if-nez p1, :cond_0
 
     const/4 v0, 0x0

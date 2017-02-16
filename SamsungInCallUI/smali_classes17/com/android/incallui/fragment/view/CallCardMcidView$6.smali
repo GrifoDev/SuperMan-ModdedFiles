@@ -22,6 +22,8 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
+    .line 455
     invoke-static {}, Lcom/android/incallui/util/PhotoringUtil$PhotoringMTState;->values()[Lcom/android/incallui/util/PhotoringUtil$PhotoringMTState;
 
     move-result-object v0

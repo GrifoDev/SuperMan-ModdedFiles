@@ -35,6 +35,9 @@
 .method constructor <init>(Lcom/google/common/reflect/TypeToken$InterfaceSet;)V
     .locals 0
 
+    .prologue
+    .line 740
+    .local p0, "this":Lcom/google/common/reflect/TypeToken$InterfaceSet$1;, "Lcom/google/common/reflect/TypeToken$InterfaceSet.1;"
     iput-object p1, p0, Lcom/google/common/reflect/TypeToken$InterfaceSet$1;->this$1:Lcom/google/common/reflect/TypeToken$InterfaceSet;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -54,6 +57,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 742
+    .local p0, "this":Lcom/google/common/reflect/TypeToken$InterfaceSet$1;, "Lcom/google/common/reflect/TypeToken$InterfaceSet.1;"
+    .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-virtual {p1}, Ljava/lang/Class;->isInterface()Z
 
     move-result v0
@@ -63,9 +70,14 @@
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Z
     .locals 1
+    .param p1, "x0"    # Ljava/lang/Object;
 
+    .prologue
+    .line 740
+    .local p0, "this":Lcom/google/common/reflect/TypeToken$InterfaceSet$1;, "Lcom/google/common/reflect/TypeToken$InterfaceSet.1;"
     check-cast p1, Ljava/lang/Class;
 
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/google/common/reflect/TypeToken$InterfaceSet$1;->apply(Ljava/lang/Class;)Z
 
     move-result v0

@@ -24,7 +24,10 @@
 # direct methods
 .method public constructor <init>(Lcom/android/incallui/BaseRejectMsgContent;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/BaseRejectMsgContent;
 
+    .prologue
+    .line 89
     iput-object p1, p0, Lcom/android/incallui/BaseRejectMsgContent$RespondViaSmsItemClickListener;->this$0:Lcom/android/incallui/BaseRejectMsgContent;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,6 +39,9 @@
 # virtual methods
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
     .locals 5
+    .param p2, "view"    # Landroid/view/View;
+    .param p3, "position"    # I
+    .param p4, "id"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -46,8 +52,11 @@
         }
     .end annotation
 
+    .prologue
+    .local p1, "parent":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<*>;"
     const/4 v4, 0x0
 
+    .line 93
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -74,6 +83,7 @@
 
     invoke-static {p0, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 96
     const v2, 0x7f1001b0
 
     invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -82,18 +92,23 @@
 
     check-cast v1, Landroid/widget/TextView;
 
+    .line 97
+    .local v1, "tv":Landroid/widget/TextView;
     if-nez v1, :cond_1
 
+    .line 98
     iget-object v2, p0, Lcom/android/incallui/BaseRejectMsgContent$RespondViaSmsItemClickListener;->this$0:Lcom/android/incallui/BaseRejectMsgContent;
 
     iget-object v2, v2, Lcom/android/incallui/BaseRejectMsgContent;->mOnItemClickListener:Lcom/android/incallui/BaseRejectMsgContent$OnItemClickListener;
 
     invoke-interface {v2, v4}, Lcom/android/incallui/BaseRejectMsgContent$OnItemClickListener;->rejectCallWithMessage(Ljava/lang/String;)V
 
+    .line 119
     :cond_0
     :goto_0
     return-void
 
+    .line 101
     :cond_1
     invoke-virtual {v1}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
@@ -103,6 +118,8 @@
 
     move-result-object v0
 
+    .line 102
+    .local v0, "message":Ljava/lang/String;
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -129,6 +146,7 @@
 
     invoke-static {p0, v2}, Lcom/android/incallui/Log;->v(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 104
     const/4 v2, -0x1
 
     invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
@@ -141,12 +159,14 @@
     :goto_1
     packed-switch v2, :pswitch_data_0
 
+    .line 116
     iget-object v2, p0, Lcom/android/incallui/BaseRejectMsgContent$RespondViaSmsItemClickListener;->this$0:Lcom/android/incallui/BaseRejectMsgContent;
 
     iget-object v2, v2, Lcom/android/incallui/BaseRejectMsgContent;->mOnItemClickListener:Lcom/android/incallui/BaseRejectMsgContent$OnItemClickListener;
 
     if-eqz v2, :cond_0
 
+    .line 117
     iget-object v2, p0, Lcom/android/incallui/BaseRejectMsgContent$RespondViaSmsItemClickListener;->this$0:Lcom/android/incallui/BaseRejectMsgContent;
 
     iget-object v2, v2, Lcom/android/incallui/BaseRejectMsgContent;->mOnItemClickListener:Lcom/android/incallui/BaseRejectMsgContent$OnItemClickListener;
@@ -155,6 +175,7 @@
 
     goto :goto_0
 
+    .line 104
     :sswitch_0
     const-string v3, "Block number"
 
@@ -181,6 +202,7 @@
 
     goto :goto_1
 
+    .line 106
     :pswitch_0
     iget-object v2, p0, Lcom/android/incallui/BaseRejectMsgContent$RespondViaSmsItemClickListener;->this$0:Lcom/android/incallui/BaseRejectMsgContent;
 
@@ -190,6 +212,7 @@
 
     invoke-static {v2}, Lcom/android/incallui/util/PackageHelpers;->spamBlockClicked(Landroid/content/Context;)V
 
+    .line 107
     iget-object v2, p0, Lcom/android/incallui/BaseRejectMsgContent$RespondViaSmsItemClickListener;->this$0:Lcom/android/incallui/BaseRejectMsgContent;
 
     iget-object v2, v2, Lcom/android/incallui/BaseRejectMsgContent;->mOnItemClickListener:Lcom/android/incallui/BaseRejectMsgContent$OnItemClickListener;
@@ -198,6 +221,7 @@
 
     goto :goto_0
 
+    .line 110
     :pswitch_1
     iget-object v2, p0, Lcom/android/incallui/BaseRejectMsgContent$RespondViaSmsItemClickListener;->this$0:Lcom/android/incallui/BaseRejectMsgContent;
 
@@ -207,6 +231,7 @@
 
     invoke-static {v2}, Lcom/android/incallui/util/PackageHelpers;->spamReportClicked(Landroid/content/Context;)V
 
+    .line 111
     iget-object v2, p0, Lcom/android/incallui/BaseRejectMsgContent$RespondViaSmsItemClickListener;->this$0:Lcom/android/incallui/BaseRejectMsgContent;
 
     iget-object v2, v2, Lcom/android/incallui/BaseRejectMsgContent;->mOnItemClickListener:Lcom/android/incallui/BaseRejectMsgContent$OnItemClickListener;
@@ -215,6 +240,7 @@
 
     goto :goto_0
 
+    .line 104
     nop
 
     :sswitch_data_0

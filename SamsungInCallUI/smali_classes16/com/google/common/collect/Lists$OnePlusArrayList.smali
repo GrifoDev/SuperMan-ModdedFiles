@@ -65,10 +65,17 @@
         }
     .end annotation
 
+    .prologue
+    .line 321
+    .local p0, "this":Lcom/google/common/collect/Lists$OnePlusArrayList;, "Lcom/google/common/collect/Lists$OnePlusArrayList<TE;>;"
+    .local p1, "first":Ljava/lang/Object;, "TE;"
+    .local p2, "rest":[Ljava/lang/Object;, "[TE;"
     invoke-direct {p0}, Ljava/util/AbstractList;-><init>()V
 
+    .line 322
     iput-object p1, p0, Lcom/google/common/collect/Lists$OnePlusArrayList;->first:Ljava/lang/Object;
 
+    .line 323
     invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -77,6 +84,7 @@
 
     iput-object v0, p0, Lcom/google/common/collect/Lists$OnePlusArrayList;->rest:[Ljava/lang/Object;
 
+    .line 324
     return-void
 .end method
 
@@ -84,18 +92,23 @@
 # virtual methods
 .method public get(I)Ljava/lang/Object;
     .locals 2
+    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)TE;"
         }
     .end annotation
 
+    .prologue
+    .line 334
+    .local p0, "this":Lcom/google/common/collect/Lists$OnePlusArrayList;, "Lcom/google/common/collect/Lists$OnePlusArrayList<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Lists$OnePlusArrayList;->size()I
 
     move-result v0
 
     invoke-static {p1, v0}, Lcom/google/common/base/Preconditions;->checkElementIndex(II)I
 
+    .line 335
     if-nez p1, :cond_0
 
     iget-object v0, p0, Lcom/google/common/collect/Lists$OnePlusArrayList;->first:Ljava/lang/Object;
@@ -116,6 +129,9 @@
 .method public size()I
     .locals 1
 
+    .prologue
+    .line 328
+    .local p0, "this":Lcom/google/common/collect/Lists$OnePlusArrayList;, "Lcom/google/common/collect/Lists$OnePlusArrayList<TE;>;"
     iget-object v0, p0, Lcom/google/common/collect/Lists$OnePlusArrayList;->rest:[Ljava/lang/Object;
 
     array-length v0, v0

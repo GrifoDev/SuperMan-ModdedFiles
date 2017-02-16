@@ -22,6 +22,8 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
+    .line 684
     invoke-static {}, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle$HandleState;->values()[Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle$HandleState;
 
     move-result-object v0

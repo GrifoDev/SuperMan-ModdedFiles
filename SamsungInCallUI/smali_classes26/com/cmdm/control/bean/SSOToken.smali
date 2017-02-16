@@ -37,6 +37,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 13
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -47,14 +49,20 @@
 .method public isExpired()Z
     .locals 6
 
+    .prologue
+    .line 35
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
 
+    .line 36
+    .local v0, "curTime":J
     iget-wide v4, p0, Lcom/cmdm/control/bean/SSOToken;->createTime:J
 
     sub-long v2, v0, v4
 
+    .line 37
+    .local v2, "deltaTime":J
     iget v4, p0, Lcom/cmdm/control/bean/SSOToken;->effectiveTime:I
 
     const v5, 0xea60
@@ -81,6 +89,8 @@
 .method public isSuccess()Z
     .locals 2
 
+    .prologue
+    .line 41
     iget-object v0, p0, Lcom/cmdm/control/bean/SSOToken;->resultCode:Ljava/lang/String;
 
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -97,6 +107,7 @@
 
     if-nez v0, :cond_0
 
+    .line 42
     iget-object v0, p0, Lcom/cmdm/control/bean/SSOToken;->resultCode:Ljava/lang/String;
 
     const-string v1, "00000000"
@@ -115,5 +126,6 @@
     :cond_0
     const/4 v0, 0x0
 
+    .line 41
     goto :goto_0
 .end method

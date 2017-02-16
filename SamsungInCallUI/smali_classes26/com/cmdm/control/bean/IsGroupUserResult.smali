@@ -27,6 +27,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 14
     invoke-direct {p0}, Lcom/cmdm/control/bean/BaseBean;-><init>()V
 
     return-void
@@ -37,6 +39,8 @@
 .method public getDescription()Ljava/lang/String;
     .locals 3
 
+    .prologue
+    .line 32
     iget-object v0, p0, Lcom/cmdm/control/bean/IsGroupUserResult;->description:Ljava/lang/String;
 
     if-eqz v0, :cond_0
@@ -51,6 +55,7 @@
 
     if-nez v0, :cond_0
 
+    .line 33
     iget-object v0, p0, Lcom/cmdm/control/bean/IsGroupUserResult;->description:Ljava/lang/String;
 
     const-string v1, "<br>"
@@ -61,6 +66,7 @@
 
     move-result-object v0
 
+    .line 35
     :goto_0
     return-object v0
 
@@ -73,6 +79,8 @@
 .method public getFlag()Z
     .locals 2
 
+    .prologue
+    .line 43
     iget-object v0, p0, Lcom/cmdm/control/bean/IsGroupUserResult;->flag:Ljava/lang/String;
 
     if-eqz v0, :cond_1
@@ -87,6 +95,7 @@
 
     if-nez v0, :cond_1
 
+    .line 44
     iget-object v0, p0, Lcom/cmdm/control/bean/IsGroupUserResult;->flag:Ljava/lang/String;
 
     const-string v1, "1"
@@ -117,9 +126,11 @@
 
     if-eqz v0, :cond_1
 
+    .line 45
     :cond_0
     const/4 v0, 0x1
 
+    .line 47
     :goto_0
     return v0
 

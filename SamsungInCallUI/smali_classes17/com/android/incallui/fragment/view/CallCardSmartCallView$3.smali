@@ -23,7 +23,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/view/CallCardSmartCallView;Landroid/view/View;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/fragment/view/CallCardSmartCallView;
 
+    .prologue
+    .line 699
     iput-object p1, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView$3;->this$0:Lcom/android/incallui/fragment/view/CallCardSmartCallView;
 
     iput-object p2, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView$3;->val$view:Landroid/view/View;
@@ -37,12 +40,16 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 702
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView$3;->val$view:Landroid/view/View;
 
     const/high16 v1, 0x3f800000    # 1.0f
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setAlpha(F)V
 
+    .line 703
     return-void
 .end method

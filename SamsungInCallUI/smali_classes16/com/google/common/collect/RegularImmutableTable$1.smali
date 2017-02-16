@@ -37,6 +37,8 @@
 .method constructor <init>(Ljava/util/Comparator;Ljava/util/Comparator;)V
     .locals 0
 
+    .prologue
+    .line 115
     iput-object p1, p0, Lcom/google/common/collect/RegularImmutableTable$1;->val$rowComparator:Ljava/util/Comparator;
 
     iput-object p2, p0, Lcom/google/common/collect/RegularImmutableTable$1;->val$columnComparator:Ljava/util/Comparator;
@@ -60,20 +62,29 @@
         }
     .end annotation
 
+    .prologue
+    .local p1, "cell1":Lcom/google/common/collect/Table$Cell;, "Lcom/google/common/collect/Table$Cell<TR;TC;TV;>;"
+    .local p2, "cell2":Lcom/google/common/collect/Table$Cell;, "Lcom/google/common/collect/Table$Cell<TR;TC;TV;>;"
     const/4 v1, 0x0
 
+    .line 118
     iget-object v2, p0, Lcom/google/common/collect/RegularImmutableTable$1;->val$rowComparator:Ljava/util/Comparator;
 
     if-nez v2, :cond_0
 
     move v0, v1
 
+    .line 122
+    .local v0, "rowCompare":I
     :goto_0
     if-eqz v0, :cond_1
 
+    .line 125
+    .end local v0    # "rowCompare":I
     :goto_1
     return v0
 
+    .line 118
     :cond_0
     iget-object v2, p0, Lcom/google/common/collect/RegularImmutableTable$1;->val$rowComparator:Ljava/util/Comparator;
 
@@ -91,6 +102,8 @@
 
     goto :goto_0
 
+    .line 125
+    .restart local v0    # "rowCompare":I
     :cond_1
     iget-object v2, p0, Lcom/google/common/collect/RegularImmutableTable$1;->val$columnComparator:Ljava/util/Comparator;
 
@@ -121,11 +134,17 @@
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
+    .param p1, "x0"    # Ljava/lang/Object;
+    .param p2, "x1"    # Ljava/lang/Object;
 
+    .prologue
+    .line 115
     check-cast p1, Lcom/google/common/collect/Table$Cell;
 
+    .end local p1    # "x0":Ljava/lang/Object;
     check-cast p2, Lcom/google/common/collect/Table$Cell;
 
+    .end local p2    # "x1":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Lcom/google/common/collect/RegularImmutableTable$1;->compare(Lcom/google/common/collect/Table$Cell;Lcom/google/common/collect/Table$Cell;)I
 
     move-result v0

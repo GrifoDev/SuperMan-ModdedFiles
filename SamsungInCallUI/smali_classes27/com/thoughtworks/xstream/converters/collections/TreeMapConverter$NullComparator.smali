@@ -21,6 +21,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 41
     invoke-direct {p0}, Lcom/thoughtworks/xstream/mapper/Mapper$Null;-><init>()V
 
     return-void
@@ -28,7 +30,10 @@
 
 .method synthetic constructor <init>(Lcom/thoughtworks/xstream/converters/collections/TreeMapConverter$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/thoughtworks/xstream/converters/collections/TreeMapConverter$1;
 
+    .prologue
+    .line 41
     invoke-direct {p0}, Lcom/thoughtworks/xstream/converters/collections/TreeMapConverter$NullComparator;-><init>()V
 
     return-void
@@ -38,15 +43,23 @@
 # virtual methods
 .method public compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 3
+    .param p1, "o1"    # Ljava/lang/Object;
+    .param p2, "o2"    # Ljava/lang/Object;
 
+    .prologue
+    .line 43
     move-object v0, p1
 
     check-cast v0, Ljava/lang/Comparable;
 
+    .local v0, "c1":Ljava/lang/Comparable;
     move-object v1, p2
 
+    .line 44
     check-cast v1, Ljava/lang/Comparable;
 
+    .line 45
+    .local v1, "c2":Ljava/lang/Comparable;
     invoke-interface {v0, p2}, Ljava/lang/Comparable;->compareTo(Ljava/lang/Object;)I
 
     move-result v2

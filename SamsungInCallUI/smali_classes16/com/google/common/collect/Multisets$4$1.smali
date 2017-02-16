@@ -33,6 +33,8 @@
 .method constructor <init>(Lcom/google/common/collect/Multisets$4;Ljava/util/Iterator;)V
     .locals 0
 
+    .prologue
+    .line 625
     iput-object p1, p0, Lcom/google/common/collect/Multisets$4$1;->this$0:Lcom/google/common/collect/Multisets$4;
 
     iput-object p2, p0, Lcom/google/common/collect/Multisets$4$1;->val$iterator1:Ljava/util/Iterator;
@@ -54,6 +56,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 628
     :cond_0
     iget-object v3, p0, Lcom/google/common/collect/Multisets$4$1;->val$iterator1:Ljava/util/Iterator;
 
@@ -63,6 +67,7 @@
 
     if-eqz v3, :cond_1
 
+    .line 629
     iget-object v3, p0, Lcom/google/common/collect/Multisets$4$1;->val$iterator1:Ljava/util/Iterator;
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -71,10 +76,14 @@
 
     check-cast v2, Lcom/google/common/collect/Multiset$Entry;
 
+    .line 630
+    .local v2, "entry1":Lcom/google/common/collect/Multiset$Entry;, "Lcom/google/common/collect/Multiset$Entry<TE;>;"
     invoke-interface {v2}, Lcom/google/common/collect/Multiset$Entry;->getElement()Ljava/lang/Object;
 
     move-result-object v1
 
+    .line 631
+    .local v1, "element":Ljava/lang/Object;, "TE;"
     invoke-interface {v2}, Lcom/google/common/collect/Multiset$Entry;->getCount()I
 
     move-result v3
@@ -89,12 +98,19 @@
 
     sub-int v0, v3, v4
 
+    .line 632
+    .local v0, "count":I
     if-lez v0, :cond_0
 
+    .line 633
     invoke-static {v1, v0}, Lcom/google/common/collect/Multisets;->immutableEntry(Ljava/lang/Object;I)Lcom/google/common/collect/Multiset$Entry;
 
     move-result-object v3
 
+    .line 636
+    .end local v0    # "count":I
+    .end local v1    # "element":Ljava/lang/Object;, "TE;"
+    .end local v2    # "entry1":Lcom/google/common/collect/Multiset$Entry;, "Lcom/google/common/collect/Multiset$Entry<TE;>;"
     :goto_0
     return-object v3
 
@@ -111,6 +127,8 @@
 .method protected bridge synthetic computeNext()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 625
     invoke-virtual {p0}, Lcom/google/common/collect/Multisets$4$1;->computeNext()Lcom/google/common/collect/Multiset$Entry;
 
     move-result-object v0

@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/InCallActivity;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/InCallActivity;
 
+    .prologue
+    .line 539
     iput-object p1, p0, Lcom/android/incallui/InCallActivity$10;->this$0:Lcom/android/incallui/InCallActivity;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -33,17 +36,22 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
     const/4 v1, 0x1
 
+    .line 542
     iget v0, p1, Landroid/os/Message;->what:I
 
     sparse-switch v0, :sswitch_data_0
 
+    .line 588
     :cond_0
     :goto_0
     return-void
 
+    .line 544
     :sswitch_0
     iget-object v0, p0, Lcom/android/incallui/InCallActivity$10;->this$0:Lcom/android/incallui/InCallActivity;
 
@@ -61,6 +69,7 @@
 
     goto :goto_0
 
+    .line 547
     :sswitch_1
     iget-object v0, p0, Lcom/android/incallui/InCallActivity$10;->this$0:Lcom/android/incallui/InCallActivity;
 
@@ -68,11 +77,13 @@
 
     goto :goto_0
 
+    .line 550
     :sswitch_2
     const-string v0, "TURN_ON_SCREEN_FOR_NEW_INCOMING"
 
     invoke-static {p0, v0, v1}, Lcom/android/incallui/Log;->i(Ljava/lang/Object;Ljava/lang/String;Z)V
 
+    .line 551
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v0
@@ -83,6 +94,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 552
     iget-object v0, p0, Lcom/android/incallui/InCallActivity$10;->this$0:Lcom/android/incallui/InCallActivity;
 
     invoke-virtual {v0}, Lcom/android/incallui/InCallActivity;->getApplicationContext()Landroid/content/Context;
@@ -93,6 +105,7 @@
 
     goto :goto_0
 
+    .line 556
     :sswitch_3
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
@@ -102,6 +115,7 @@
 
     goto :goto_0
 
+    .line 559
     :sswitch_4
     const-string v0, "feature_multisim"
 
@@ -113,16 +127,19 @@
 
     const-string v0, "feature_hktw"
 
+    .line 560
     invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
+    .line 561
     const-string v0, "Update notification once again to display correct icon in multisim models"
 
     invoke-static {p0, v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;Z)V
 
+    .line 562
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
     move-result-object v0
@@ -131,17 +148,20 @@
 
     goto :goto_0
 
+    .line 566
     :sswitch_5
     const-string v0, "RECORD_INFO_STATE_CHANGED"
 
     invoke-static {p0, v0}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 567
     invoke-static {}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;->getInstance()Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
+    .line 568
     invoke-static {}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;->getInstance()Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;
 
     move-result-object v0
@@ -150,6 +170,7 @@
 
     goto :goto_0
 
+    .line 572
     :sswitch_6
     invoke-static {}, Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->isGuidancePlaying()Z
 
@@ -157,10 +178,12 @@
 
     if-eqz v0, :cond_0
 
+    .line 573
     invoke-static {}, Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->playGuidance()V
 
     goto :goto_0
 
+    .line 577
     :sswitch_7
     iget-object v0, p0, Lcom/android/incallui/InCallActivity$10;->this$0:Lcom/android/incallui/InCallActivity;
 
@@ -171,10 +194,12 @@
 
     if-eqz v0, :cond_0
 
+    .line 578
     const-string v0, "perf - INITIALIZE_INCALL"
 
     invoke-static {p0, v0, v1}, Lcom/android/incallui/Log;->i(Ljava/lang/Object;Ljava/lang/String;Z)V
 
+    .line 579
     iget-object v0, p0, Lcom/android/incallui/InCallActivity$10;->this$0:Lcom/android/incallui/InCallActivity;
 
     # invokes: Lcom/android/incallui/InCallActivity;->initializeInCall()V
@@ -182,6 +207,7 @@
 
     goto/16 :goto_0
 
+    .line 583
     :sswitch_8
     iget-object v0, p0, Lcom/android/incallui/InCallActivity$10;->this$0:Lcom/android/incallui/InCallActivity;
 
@@ -190,6 +216,7 @@
 
     goto/16 :goto_0
 
+    .line 542
     nop
 
     :sswitch_data_0

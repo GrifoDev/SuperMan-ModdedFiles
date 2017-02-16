@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/service/ims/IMSManagerWrapper;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/service/ims/IMSManagerWrapper;
 
+    .prologue
+    .line 27
     iput-object p1, p0, Lcom/android/incallui/service/ims/IMSManagerWrapper$1;->this$0:Lcom/android/incallui/service/ims/IMSManagerWrapper;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,24 +40,30 @@
 .method public onConnected()V
     .locals 3
 
+    .prologue
     const/4 v2, 0x1
 
+    .line 36
     const-string v0, "IMSManagerWrapper"
 
     const-string v1, "onConnected mImsManager"
 
     invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
+    .line 37
     iget-object v0, p0, Lcom/android/incallui/service/ims/IMSManagerWrapper$1;->this$0:Lcom/android/incallui/service/ims/IMSManagerWrapper;
 
     iput-boolean v2, v0, Lcom/android/incallui/service/ims/IMSManagerWrapper;->mIsConnected:Z
 
+    .line 38
     return-void
 .end method
 
 .method public onDisconnected()V
     .locals 3
 
+    .prologue
+    .line 30
     const-string v0, "IMSManagerWrapper"
 
     const-string v1, "onDisconnected mImsManager"
@@ -63,11 +72,13 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
+    .line 31
     iget-object v0, p0, Lcom/android/incallui/service/ims/IMSManagerWrapper$1;->this$0:Lcom/android/incallui/service/ims/IMSManagerWrapper;
 
     const/4 v1, 0x0
 
     iput-boolean v1, v0, Lcom/android/incallui/service/ims/IMSManagerWrapper;->mIsConnected:Z
 
+    .line 32
     return-void
 .end method

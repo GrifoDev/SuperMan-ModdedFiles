@@ -24,11 +24,16 @@
 # direct methods
 .method public constructor <init>(Ljava/util/Iterator;)V
     .locals 0
+    .param p1, "iterator"    # Ljava/util/Iterator;
 
+    .prologue
+    .line 77
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 78
     iput-object p1, p0, Lcom/thoughtworks/xstream/core/util/PrioritizedList$PrioritizedItemIterator;->iterator:Ljava/util/Iterator;
 
+    .line 79
     return-void
 .end method
 
@@ -37,6 +42,8 @@
 .method public hasNext()Z
     .locals 1
 
+    .prologue
+    .line 87
     iget-object v0, p0, Lcom/thoughtworks/xstream/core/util/PrioritizedList$PrioritizedItemIterator;->iterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -49,6 +56,8 @@
 .method public next()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 91
     iget-object v0, p0, Lcom/thoughtworks/xstream/core/util/PrioritizedList$PrioritizedItemIterator;->iterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -65,6 +74,8 @@
 .method public remove()V
     .locals 1
 
+    .prologue
+    .line 83
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V

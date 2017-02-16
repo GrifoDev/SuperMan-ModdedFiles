@@ -27,6 +27,8 @@
 .method constructor <init>(Landroid/view/View;Ljava/lang/Runnable;)V
     .locals 0
 
+    .prologue
+    .line 29
     iput-object p1, p0, Lcom/android/contacts/common/util/SchedulingUtils$1;->val$view:Landroid/view/View;
 
     iput-object p2, p0, Lcom/android/contacts/common/util/SchedulingUtils$1;->val$runnable:Ljava/lang/Runnable;
@@ -41,6 +43,8 @@
 .method public onGlobalLayout()V
     .locals 1
 
+    .prologue
+    .line 33
     iget-object v0, p0, Lcom/android/contacts/common/util/SchedulingUtils$1;->val$view:Landroid/view/View;
 
     invoke-virtual {v0}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
@@ -49,9 +53,11 @@
 
     invoke-virtual {v0, p0}, Landroid/view/ViewTreeObserver;->removeOnGlobalLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
 
+    .line 34
     iget-object v0, p0, Lcom/android/contacts/common/util/SchedulingUtils$1;->val$runnable:Ljava/lang/Runnable;
 
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
+    .line 35
     return-void
 .end method

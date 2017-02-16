@@ -55,6 +55,7 @@
 .method static constructor <clinit>()V
     .locals 9
 
+    .prologue
     const/4 v8, 0x5
 
     const/4 v7, 0x4
@@ -65,6 +66,7 @@
 
     const/4 v4, 0x1
 
+    .line 17
     new-instance v0, Lcom/yulore/sdk/ivr/ItemNodeType;
 
     const-string v1, "LEAF_NODE"
@@ -97,6 +99,7 @@
 
     sput-object v0, Lcom/yulore/sdk/ivr/ItemNodeType;->REPEAT_NODE:Lcom/yulore/sdk/ivr/ItemNodeType;
 
+    .line 18
     new-instance v0, Lcom/yulore/sdk/ivr/ItemNodeType;
 
     const-string v1, "RETURN_UP_NODE"
@@ -129,6 +132,7 @@
 
     sput-object v0, Lcom/yulore/sdk/ivr/ItemNodeType;->UNKOWN_NODE:Lcom/yulore/sdk/ivr/ItemNodeType;
 
+    .line 16
     const/4 v0, 0x6
 
     new-array v0, v0, [Lcom/yulore/sdk/ivr/ItemNodeType;
@@ -161,6 +165,7 @@
 
     sput-object v0, Lcom/yulore/sdk/ivr/ItemNodeType;->$VALUES:[Lcom/yulore/sdk/ivr/ItemNodeType;
 
+    .line 59
     new-instance v0, Lcom/yulore/sdk/ivr/ItemNodeType$1;
 
     invoke-direct {v0}, Lcom/yulore/sdk/ivr/ItemNodeType$1;-><init>()V
@@ -172,6 +177,7 @@
 
 .method private constructor <init>(Ljava/lang/String;ILandroid/os/Parcel;)V
     .locals 1
+    .param p3, "src"    # Landroid/os/Parcel;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -180,25 +186,32 @@
         }
     .end annotation
 
+    .prologue
+    .line 23
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
+    .line 24
     invoke-virtual {p3}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/yulore/sdk/ivr/ItemNodeType;->nodeType:Ljava/lang/String;
 
+    .line 25
     invoke-virtual {p3}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/yulore/sdk/ivr/ItemNodeType;->value:I
 
+    .line 26
     return-void
 .end method
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;I)V
     .locals 0
+    .param p3, "nodeType"    # Ljava/lang/String;
+    .param p4, "value"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -207,18 +220,26 @@
         }
     .end annotation
 
+    .prologue
+    .line 28
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
+    .line 29
     iput-object p3, p0, Lcom/yulore/sdk/ivr/ItemNodeType;->nodeType:Ljava/lang/String;
 
+    .line 30
     iput p4, p0, Lcom/yulore/sdk/ivr/ItemNodeType;->value:I
 
+    .line 31
     return-void
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/yulore/sdk/ivr/ItemNodeType;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 16
     const-class v0, Lcom/yulore/sdk/ivr/ItemNodeType;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -233,6 +254,8 @@
 .method public static values()[Lcom/yulore/sdk/ivr/ItemNodeType;
     .locals 1
 
+    .prologue
+    .line 16
     sget-object v0, Lcom/yulore/sdk/ivr/ItemNodeType;->$VALUES:[Lcom/yulore/sdk/ivr/ItemNodeType;
 
     invoke-virtual {v0}, [Lcom/yulore/sdk/ivr/ItemNodeType;->clone()Ljava/lang/Object;
@@ -249,6 +272,8 @@
 .method public describeContents()I
     .locals 1
 
+    .prologue
+    .line 49
     const/4 v0, 0x0
 
     return v0
@@ -257,6 +282,8 @@
 .method public getNodeType()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 34
     iget-object v0, p0, Lcom/yulore/sdk/ivr/ItemNodeType;->nodeType:Ljava/lang/String;
 
     return-object v0
@@ -265,6 +292,8 @@
 .method public getValue()I
     .locals 1
 
+    .prologue
+    .line 41
     iget v0, p0, Lcom/yulore/sdk/ivr/ItemNodeType;->value:I
 
     return v0
@@ -272,36 +301,51 @@
 
 .method public setNodeType(Ljava/lang/String;)V
     .locals 0
+    .param p1, "nodeType"    # Ljava/lang/String;
 
+    .prologue
+    .line 37
     iput-object p1, p0, Lcom/yulore/sdk/ivr/ItemNodeType;->nodeType:Ljava/lang/String;
 
+    .line 38
     return-void
 .end method
 
 .method public setValue(I)V
     .locals 0
+    .param p1, "value"    # I
 
+    .prologue
+    .line 44
     iput p1, p0, Lcom/yulore/sdk/ivr/ItemNodeType;->value:I
 
+    .line 45
     return-void
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
+    .prologue
+    .line 54
     invoke-virtual {p0}, Lcom/yulore/sdk/ivr/ItemNodeType;->ordinal()I
 
     move-result v0
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 55
     iget-object v0, p0, Lcom/yulore/sdk/ivr/ItemNodeType;->nodeType:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
+    .line 56
     iget v0, p0, Lcom/yulore/sdk/ivr/ItemNodeType;->value:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 57
     return-void
 .end method

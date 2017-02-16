@@ -18,6 +18,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 61
     invoke-direct {p0}, Lcom/google/common/base/Ticker;-><init>()V
 
     return-void
@@ -28,6 +30,8 @@
 .method public read()J
     .locals 2
 
+    .prologue
+    .line 64
     invoke-static {}, Lcom/google/common/base/Platform;->systemNanoTime()J
 
     move-result-wide v0

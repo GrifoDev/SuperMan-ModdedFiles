@@ -17,6 +17,7 @@
 .method static constructor <clinit>()V
     .locals 13
 
+    .prologue
     const/4 v12, 0x4
 
     const/4 v11, 0x3
@@ -27,30 +28,35 @@
 
     const/4 v8, 0x0
 
+    .line 23
     new-instance v5, Ljava/util/HashMap;
 
     invoke-direct {v5}, Ljava/util/HashMap;-><init>()V
 
     sput-object v5, Lcom/thoughtworks/xstream/core/util/Primitives;->BOX:Ljava/util/Map;
 
+    .line 24
     new-instance v5, Ljava/util/HashMap;
 
     invoke-direct {v5}, Ljava/util/HashMap;-><init>()V
 
     sput-object v5, Lcom/thoughtworks/xstream/core/util/Primitives;->UNBOX:Ljava/util/Map;
 
+    .line 25
     new-instance v5, Ljava/util/HashMap;
 
     invoke-direct {v5}, Ljava/util/HashMap;-><init>()V
 
     sput-object v5, Lcom/thoughtworks/xstream/core/util/Primitives;->NAMED_PRIMITIVE:Ljava/util/Map;
 
+    .line 26
     new-instance v5, Ljava/util/HashMap;
 
     invoke-direct {v5}, Ljava/util/HashMap;-><init>()V
 
     sput-object v5, Lcom/thoughtworks/xstream/core/util/Primitives;->REPRESENTING_CHAR:Ljava/util/Map;
 
+    .line 29
     const/16 v5, 0x9
 
     new-array v1, v5, [[Ljava/lang/Class;
@@ -171,6 +177,8 @@
 
     aput-object v6, v1, v5
 
+    .line 40
+    .local v1, "boxing":[[Ljava/lang/Class;
     const/16 v5, 0x9
 
     new-array v4, v5, [Ljava/lang/Character;
@@ -251,29 +259,39 @@
 
     aput-object v6, v4, v5
 
+    .line 51
+    .local v4, "representingChars":[Ljava/lang/Character;
     const/4 v2, 0x0
 
+    .local v2, "i":I
     :goto_0
     array-length v5, v1
 
     if-ge v2, v5, :cond_0
 
+    .line 52
     aget-object v5, v1, v2
 
     aget-object v3, v5, v8
 
+    .line 53
+    .local v3, "primitiveType":Ljava/lang/Class;
     aget-object v5, v1, v2
 
     aget-object v0, v5, v9
 
+    .line 54
+    .local v0, "boxedType":Ljava/lang/Class;
     sget-object v5, Lcom/thoughtworks/xstream/core/util/Primitives;->BOX:Ljava/util/Map;
 
     invoke-interface {v5, v3, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 55
     sget-object v5, Lcom/thoughtworks/xstream/core/util/Primitives;->UNBOX:Ljava/util/Map;
 
     invoke-interface {v5, v0, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 56
     sget-object v5, Lcom/thoughtworks/xstream/core/util/Primitives;->NAMED_PRIMITIVE:Ljava/util/Map;
 
     invoke-virtual {v3}, Ljava/lang/Class;->getName()Ljava/lang/String;
@@ -282,16 +300,21 @@
 
     invoke-interface {v5, v6, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 57
     sget-object v5, Lcom/thoughtworks/xstream/core/util/Primitives;->REPRESENTING_CHAR:Ljava/util/Map;
 
     aget-object v6, v4, v2
 
     invoke-interface {v5, v3, v6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 51
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
+    .line 59
+    .end local v0    # "boxedType":Ljava/lang/Class;
+    .end local v3    # "primitiveType":Ljava/lang/Class;
     :cond_0
     return-void
 .end method
@@ -299,6 +322,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 22
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -306,7 +331,10 @@
 
 .method public static box(Ljava/lang/Class;)Ljava/lang/Class;
     .locals 1
+    .param p0, "type"    # Ljava/lang/Class;
 
+    .prologue
+    .line 68
     sget-object v0, Lcom/thoughtworks/xstream/core/util/Primitives;->BOX:Ljava/util/Map;
 
     invoke-interface {v0, p0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -320,7 +348,10 @@
 
 .method public static isBoxed(Ljava/lang/Class;)Z
     .locals 1
+    .param p0, "type"    # Ljava/lang/Class;
 
+    .prologue
+    .line 89
     sget-object v0, Lcom/thoughtworks/xstream/core/util/Primitives;->UNBOX:Ljava/util/Map;
 
     invoke-interface {v0, p0}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
@@ -332,7 +363,10 @@
 
 .method public static primitiveType(Ljava/lang/String;)Ljava/lang/Class;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 100
     sget-object v0, Lcom/thoughtworks/xstream/core/util/Primitives;->NAMED_PRIMITIVE:Ljava/util/Map;
 
     invoke-interface {v0, p0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -346,7 +380,10 @@
 
 .method public static representingChar(Ljava/lang/Class;)C
     .locals 2
+    .param p0, "type"    # Ljava/lang/Class;
 
+    .prologue
+    .line 111
     sget-object v1, Lcom/thoughtworks/xstream/core/util/Primitives;->REPRESENTING_CHAR:Ljava/util/Map;
 
     invoke-interface {v1, p0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -355,6 +392,8 @@
 
     check-cast v0, Ljava/lang/Character;
 
+    .line 112
+    .local v0, "ch":Ljava/lang/Character;
     if-nez v0, :cond_0
 
     const/4 v1, 0x0
@@ -372,7 +411,10 @@
 
 .method public static unbox(Ljava/lang/Class;)Ljava/lang/Class;
     .locals 1
+    .param p0, "type"    # Ljava/lang/Class;
 
+    .prologue
+    .line 78
     sget-object v0, Lcom/thoughtworks/xstream/core/util/Primitives;->UNBOX:Ljava/util/Map;
 
     invoke-interface {v0, p0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;

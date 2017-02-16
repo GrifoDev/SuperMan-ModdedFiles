@@ -59,7 +59,9 @@
 
 .method public onCreate(Landroid/os/Bundle;)V
     .locals 4
+    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
+    .prologue
     if-nez p1, :cond_0
 
     :try_start_0
@@ -67,8 +69,12 @@
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
+    .end local p1    # "savedInstanceState":Landroid/os/Bundle;
+    .local v0, "savedInstanceState":Landroid/os/Bundle;
     move-object p1, v0
 
+    .end local v0    # "savedInstanceState":Landroid/os/Bundle;
+    .restart local p1    # "savedInstanceState":Landroid/os/Bundle;
     :cond_0
     iget-object v1, p0, Lcom/google/android/gms/maps/MapFragment$a;->gA:Landroid/app/Fragment;
 
@@ -117,7 +123,11 @@
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 3
+    .param p1, "inflater"    # Landroid/view/LayoutInflater;
+    .param p2, "container"    # Landroid/view/ViewGroup;
+    .param p3, "savedInstanceState"    # Landroid/os/Bundle;
 
+    .prologue
     :try_start_0
     iget-object v0, p0, Lcom/google/android/gms/maps/MapFragment$a;->gB:Lcom/google/android/gms/maps/internal/IMapFragmentDelegate;
 
@@ -199,7 +209,11 @@
 
 .method public onInflate(Landroid/app/Activity;Landroid/os/Bundle;Landroid/os/Bundle;)V
     .locals 3
+    .param p1, "activity"    # Landroid/app/Activity;
+    .param p2, "attrs"    # Landroid/os/Bundle;
+    .param p3, "savedInstanceState"    # Landroid/os/Bundle;
 
+    .prologue
     const-string v0, "MapOptions"
 
     invoke-virtual {p2, v0}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -299,7 +313,9 @@
 
 .method public onSaveInstanceState(Landroid/os/Bundle;)V
     .locals 2
+    .param p1, "outState"    # Landroid/os/Bundle;
 
+    .prologue
     :try_start_0
     iget-object v0, p0, Lcom/google/android/gms/maps/MapFragment$a;->gB:Lcom/google/android/gms/maps/internal/IMapFragmentDelegate;
 

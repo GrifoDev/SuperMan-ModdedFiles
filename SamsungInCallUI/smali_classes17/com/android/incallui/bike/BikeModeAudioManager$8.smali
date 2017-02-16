@@ -26,7 +26,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/bike/BikeModeAudioManager;Landroid/media/AudioManager;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/bike/BikeModeAudioManager;
 
+    .prologue
+    .line 340
     iput-object p1, p0, Lcom/android/incallui/bike/BikeModeAudioManager$8;->this$0:Lcom/android/incallui/bike/BikeModeAudioManager;
 
     iput-object p2, p0, Lcom/android/incallui/bike/BikeModeAudioManager$8;->val$am:Landroid/media/AudioManager;
@@ -40,19 +43,27 @@
 # virtual methods
 .method public onError(Landroid/media/MediaPlayer;II)Z
     .locals 3
+    .param p1, "mp"    # Landroid/media/MediaPlayer;
+    .param p2, "what"    # I
+    .param p3, "extra"    # I
 
+    .prologue
     const/4 v2, 0x0
 
+    .line 342
     const-string v0, "BikeModeAudioManager"
 
     const-string v1, "playRingtone : Playing Error"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 343
     invoke-virtual {p1}, Landroid/media/MediaPlayer;->stop()V
 
+    .line 344
     invoke-virtual {p1}, Landroid/media/MediaPlayer;->release()V
 
+    .line 345
     iget-object v0, p0, Lcom/android/incallui/bike/BikeModeAudioManager$8;->this$0:Lcom/android/incallui/bike/BikeModeAudioManager;
 
     const/4 v1, 0x0
@@ -60,6 +71,7 @@
     # setter for: Lcom/android/incallui/bike/BikeModeAudioManager;->mMediaPlayer:Landroid/media/MediaPlayer;
     invoke-static {v0, v1}, Lcom/android/incallui/bike/BikeModeAudioManager;->access$002(Lcom/android/incallui/bike/BikeModeAudioManager;Landroid/media/MediaPlayer;)Landroid/media/MediaPlayer;
 
+    .line 346
     iget-object v0, p0, Lcom/android/incallui/bike/BikeModeAudioManager$8;->val$am:Landroid/media/AudioManager;
 
     iget-object v1, p0, Lcom/android/incallui/bike/BikeModeAudioManager$8;->this$0:Lcom/android/incallui/bike/BikeModeAudioManager;
@@ -71,6 +83,7 @@
 
     invoke-virtual {v0, v2, v1, v2}, Landroid/media/AudioManager;->setStreamVolume(III)V
 
+    .line 347
     const/4 v0, 0x1
 
     return v0

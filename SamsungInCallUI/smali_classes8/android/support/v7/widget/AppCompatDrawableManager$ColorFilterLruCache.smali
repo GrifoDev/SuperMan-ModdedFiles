@@ -27,19 +27,30 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 0
+    .param p1, "maxSize"    # I
 
+    .prologue
+    .line 609
     invoke-direct {p0, p1}, Landroid/support/v4/util/LruCache;-><init>(I)V
 
+    .line 610
     return-void
 .end method
 
 .method private static generateCacheKey(ILandroid/graphics/PorterDuff$Mode;)I
     .locals 3
+    .param p0, "color"    # I
+    .param p1, "mode"    # Landroid/graphics/PorterDuff$Mode;
 
+    .prologue
+    .line 621
     const/4 v0, 0x1
 
+    .line 622
+    .local v0, "hashCode":I
     add-int/lit8 v0, p0, 0x1f
 
+    .line 623
     mul-int/lit8 v1, v0, 0x1f
 
     invoke-virtual {p1}, Landroid/graphics/PorterDuff$Mode;->hashCode()I
@@ -48,6 +59,7 @@
 
     add-int v0, v1, v2
 
+    .line 624
     return v0
 .end method
 
@@ -55,7 +67,11 @@
 # virtual methods
 .method get(ILandroid/graphics/PorterDuff$Mode;)Landroid/graphics/PorterDuffColorFilter;
     .locals 1
+    .param p1, "color"    # I
+    .param p2, "mode"    # Landroid/graphics/PorterDuff$Mode;
 
+    .prologue
+    .line 613
     invoke-static {p1, p2}, Landroid/support/v7/widget/AppCompatDrawableManager$ColorFilterLruCache;->generateCacheKey(ILandroid/graphics/PorterDuff$Mode;)I
 
     move-result v0
@@ -75,7 +91,12 @@
 
 .method put(ILandroid/graphics/PorterDuff$Mode;Landroid/graphics/PorterDuffColorFilter;)Landroid/graphics/PorterDuffColorFilter;
     .locals 1
+    .param p1, "color"    # I
+    .param p2, "mode"    # Landroid/graphics/PorterDuff$Mode;
+    .param p3, "filter"    # Landroid/graphics/PorterDuffColorFilter;
 
+    .prologue
+    .line 617
     invoke-static {p1, p2}, Landroid/support/v7/widget/AppCompatDrawableManager$ColorFilterLruCache;->generateCacheKey(ILandroid/graphics/PorterDuff$Mode;)I
 
     move-result v0

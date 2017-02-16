@@ -22,6 +22,8 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
+    .line 169
     invoke-static {}, Lcom/android/contacts/common/list/ContactTileAdapter$DisplayType;->values()[Lcom/android/contacts/common/list/ContactTileAdapter$DisplayType;
 
     move-result-object v0

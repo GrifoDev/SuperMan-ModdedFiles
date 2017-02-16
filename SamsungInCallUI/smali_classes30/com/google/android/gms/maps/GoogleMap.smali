@@ -42,7 +42,9 @@
 # direct methods
 .method protected constructor <init>(Lcom/google/android/gms/maps/internal/IGoogleMapDelegate;)V
     .locals 1
+    .param p1, "map"    # Lcom/google/android/gms/maps/internal/IGoogleMapDelegate;
 
+    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     invoke-static {p1}, Lcom/google/android/gms/internal/s;->d(Ljava/lang/Object;)Ljava/lang/Object;
@@ -68,7 +70,9 @@
 
 .method public final addCircle(Lcom/google/android/gms/maps/model/CircleOptions;)Lcom/google/android/gms/maps/model/Circle;
     .locals 2
+    .param p1, "options"    # Lcom/google/android/gms/maps/model/CircleOptions;
 
+    .prologue
     :try_start_0
     new-instance v0, Lcom/google/android/gms/maps/model/Circle;
 
@@ -96,7 +100,9 @@
 
 .method public final addGroundOverlay(Lcom/google/android/gms/maps/model/GroundOverlayOptions;)Lcom/google/android/gms/maps/model/GroundOverlay;
     .locals 2
+    .param p1, "options"    # Lcom/google/android/gms/maps/model/GroundOverlayOptions;
 
+    .prologue
     :try_start_0
     iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMap;->fX:Lcom/google/android/gms/maps/internal/IGoogleMapDelegate;
 
@@ -132,7 +138,9 @@
 
 .method public final addMarker(Lcom/google/android/gms/maps/model/MarkerOptions;)Lcom/google/android/gms/maps/model/Marker;
     .locals 2
+    .param p1, "options"    # Lcom/google/android/gms/maps/model/MarkerOptions;
 
+    .prologue
     :try_start_0
     iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMap;->fX:Lcom/google/android/gms/maps/internal/IGoogleMapDelegate;
 
@@ -168,7 +176,9 @@
 
 .method public final addPolygon(Lcom/google/android/gms/maps/model/PolygonOptions;)Lcom/google/android/gms/maps/model/Polygon;
     .locals 2
+    .param p1, "options"    # Lcom/google/android/gms/maps/model/PolygonOptions;
 
+    .prologue
     :try_start_0
     new-instance v0, Lcom/google/android/gms/maps/model/Polygon;
 
@@ -196,7 +206,9 @@
 
 .method public final addPolyline(Lcom/google/android/gms/maps/model/PolylineOptions;)Lcom/google/android/gms/maps/model/Polyline;
     .locals 2
+    .param p1, "options"    # Lcom/google/android/gms/maps/model/PolylineOptions;
 
+    .prologue
     :try_start_0
     new-instance v0, Lcom/google/android/gms/maps/model/Polyline;
 
@@ -224,7 +236,9 @@
 
 .method public final addTileOverlay(Lcom/google/android/gms/maps/model/TileOverlayOptions;)Lcom/google/android/gms/maps/model/TileOverlay;
     .locals 2
+    .param p1, "options"    # Lcom/google/android/gms/maps/model/TileOverlayOptions;
 
+    .prologue
     :try_start_0
     iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMap;->fX:Lcom/google/android/gms/maps/internal/IGoogleMapDelegate;
 
@@ -260,7 +274,9 @@
 
 .method public final animateCamera(Lcom/google/android/gms/maps/CameraUpdate;)V
     .locals 2
+    .param p1, "update"    # Lcom/google/android/gms/maps/CameraUpdate;
 
+    .prologue
     :try_start_0
     iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMap;->fX:Lcom/google/android/gms/maps/internal/IGoogleMapDelegate;
 
@@ -286,7 +302,11 @@
 
 .method public final animateCamera(Lcom/google/android/gms/maps/CameraUpdate;ILcom/google/android/gms/maps/GoogleMap$CancelableCallback;)V
     .locals 3
+    .param p1, "update"    # Lcom/google/android/gms/maps/CameraUpdate;
+    .param p2, "durationMs"    # I
+    .param p3, "callback"    # Lcom/google/android/gms/maps/GoogleMap$CancelableCallback;
 
+    .prologue
     :try_start_0
     iget-object v1, p0, Lcom/google/android/gms/maps/GoogleMap;->fX:Lcom/google/android/gms/maps/internal/IGoogleMapDelegate;
 
@@ -324,7 +344,10 @@
 
 .method public final animateCamera(Lcom/google/android/gms/maps/CameraUpdate;Lcom/google/android/gms/maps/GoogleMap$CancelableCallback;)V
     .locals 3
+    .param p1, "update"    # Lcom/google/android/gms/maps/CameraUpdate;
+    .param p2, "callback"    # Lcom/google/android/gms/maps/GoogleMap$CancelableCallback;
 
+    .prologue
     :try_start_0
     iget-object v1, p0, Lcom/google/android/gms/maps/GoogleMap;->fX:Lcom/google/android/gms/maps/internal/IGoogleMapDelegate;
 
@@ -643,7 +666,9 @@
 
 .method public final moveCamera(Lcom/google/android/gms/maps/CameraUpdate;)V
     .locals 2
+    .param p1, "update"    # Lcom/google/android/gms/maps/CameraUpdate;
 
+    .prologue
     :try_start_0
     iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMap;->fX:Lcom/google/android/gms/maps/internal/IGoogleMapDelegate;
 
@@ -669,7 +694,9 @@
 
 .method public final setIndoorEnabled(Z)Z
     .locals 2
+    .param p1, "enabled"    # Z
 
+    .prologue
     :try_start_0
     iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMap;->fX:Lcom/google/android/gms/maps/internal/IGoogleMapDelegate;
 
@@ -693,7 +720,9 @@
 
 .method public final setInfoWindowAdapter(Lcom/google/android/gms/maps/GoogleMap$InfoWindowAdapter;)V
     .locals 2
+    .param p1, "adapter"    # Lcom/google/android/gms/maps/GoogleMap$InfoWindowAdapter;
 
+    .prologue
     if-nez p1, :cond_0
 
     :try_start_0
@@ -731,7 +760,9 @@
 
 .method public final setLocationSource(Lcom/google/android/gms/maps/LocationSource;)V
     .locals 2
+    .param p1, "source"    # Lcom/google/android/gms/maps/LocationSource;
 
+    .prologue
     if-nez p1, :cond_0
 
     :try_start_0
@@ -769,7 +800,9 @@
 
 .method public final setMapType(I)V
     .locals 2
+    .param p1, "type"    # I
 
+    .prologue
     :try_start_0
     iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMap;->fX:Lcom/google/android/gms/maps/internal/IGoogleMapDelegate;
 
@@ -791,7 +824,9 @@
 
 .method public final setMyLocationEnabled(Z)V
     .locals 2
+    .param p1, "enabled"    # Z
 
+    .prologue
     :try_start_0
     iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMap;->fX:Lcom/google/android/gms/maps/internal/IGoogleMapDelegate;
 
@@ -813,7 +848,9 @@
 
 .method public final setOnCameraChangeListener(Lcom/google/android/gms/maps/GoogleMap$OnCameraChangeListener;)V
     .locals 2
+    .param p1, "listener"    # Lcom/google/android/gms/maps/GoogleMap$OnCameraChangeListener;
 
+    .prologue
     if-nez p1, :cond_0
 
     :try_start_0
@@ -851,7 +888,9 @@
 
 .method public final setOnInfoWindowClickListener(Lcom/google/android/gms/maps/GoogleMap$OnInfoWindowClickListener;)V
     .locals 2
+    .param p1, "listener"    # Lcom/google/android/gms/maps/GoogleMap$OnInfoWindowClickListener;
 
+    .prologue
     if-nez p1, :cond_0
 
     :try_start_0
@@ -889,7 +928,9 @@
 
 .method public final setOnMapClickListener(Lcom/google/android/gms/maps/GoogleMap$OnMapClickListener;)V
     .locals 2
+    .param p1, "listener"    # Lcom/google/android/gms/maps/GoogleMap$OnMapClickListener;
 
+    .prologue
     if-nez p1, :cond_0
 
     :try_start_0
@@ -927,7 +968,9 @@
 
 .method public final setOnMapLongClickListener(Lcom/google/android/gms/maps/GoogleMap$OnMapLongClickListener;)V
     .locals 2
+    .param p1, "listener"    # Lcom/google/android/gms/maps/GoogleMap$OnMapLongClickListener;
 
+    .prologue
     if-nez p1, :cond_0
 
     :try_start_0
@@ -965,7 +1008,9 @@
 
 .method public final setOnMarkerClickListener(Lcom/google/android/gms/maps/GoogleMap$OnMarkerClickListener;)V
     .locals 2
+    .param p1, "listener"    # Lcom/google/android/gms/maps/GoogleMap$OnMarkerClickListener;
 
+    .prologue
     if-nez p1, :cond_0
 
     :try_start_0
@@ -1003,7 +1048,9 @@
 
 .method public final setOnMarkerDragListener(Lcom/google/android/gms/maps/GoogleMap$OnMarkerDragListener;)V
     .locals 2
+    .param p1, "listener"    # Lcom/google/android/gms/maps/GoogleMap$OnMarkerDragListener;
 
+    .prologue
     if-nez p1, :cond_0
 
     :try_start_0
@@ -1041,7 +1088,9 @@
 
 .method public final setOnMyLocationButtonClickListener(Lcom/google/android/gms/maps/GoogleMap$OnMyLocationButtonClickListener;)V
     .locals 2
+    .param p1, "listener"    # Lcom/google/android/gms/maps/GoogleMap$OnMyLocationButtonClickListener;
 
+    .prologue
     if-nez p1, :cond_0
 
     :try_start_0
@@ -1079,9 +1128,11 @@
 
 .method public final setOnMyLocationChangeListener(Lcom/google/android/gms/maps/GoogleMap$OnMyLocationChangeListener;)V
     .locals 2
+    .param p1, "listener"    # Lcom/google/android/gms/maps/GoogleMap$OnMyLocationChangeListener;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    .prologue
     if-nez p1, :cond_0
 
     :try_start_0
@@ -1119,7 +1170,12 @@
 
 .method public final setPadding(IIII)V
     .locals 2
+    .param p1, "left"    # I
+    .param p2, "top"    # I
+    .param p3, "right"    # I
+    .param p4, "bottom"    # I
 
+    .prologue
     :try_start_0
     iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMap;->fX:Lcom/google/android/gms/maps/internal/IGoogleMapDelegate;
 
@@ -1141,7 +1197,9 @@
 
 .method public final setTrafficEnabled(Z)V
     .locals 2
+    .param p1, "enabled"    # Z
 
+    .prologue
     :try_start_0
     iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMap;->fX:Lcom/google/android/gms/maps/internal/IGoogleMapDelegate;
 
@@ -1163,7 +1221,9 @@
 
 .method public final snapshot(Lcom/google/android/gms/maps/GoogleMap$SnapshotReadyCallback;)V
     .locals 1
+    .param p1, "callback"    # Lcom/google/android/gms/maps/GoogleMap$SnapshotReadyCallback;
 
+    .prologue
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, v0}, Lcom/google/android/gms/maps/GoogleMap;->snapshot(Lcom/google/android/gms/maps/GoogleMap$SnapshotReadyCallback;Landroid/graphics/Bitmap;)V
@@ -1173,7 +1233,10 @@
 
 .method public final snapshot(Lcom/google/android/gms/maps/GoogleMap$SnapshotReadyCallback;Landroid/graphics/Bitmap;)V
     .locals 3
+    .param p1, "callback"    # Lcom/google/android/gms/maps/GoogleMap$SnapshotReadyCallback;
+    .param p2, "bitmap"    # Landroid/graphics/Bitmap;
 
+    .prologue
     if-eqz p2, :cond_0
 
     invoke-static {p2}, Lcom/google/android/gms/dynamic/c;->f(Ljava/lang/Object;)Lcom/google/android/gms/dynamic/b;

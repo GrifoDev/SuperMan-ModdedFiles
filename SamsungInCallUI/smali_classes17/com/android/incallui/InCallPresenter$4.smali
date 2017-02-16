@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/InCallPresenter;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/InCallPresenter;
 
+    .prologue
+    .line 347
     iput-object p1, p0, Lcom/android/incallui/InCallPresenter$4;->this$0:Lcom/android/incallui/InCallPresenter;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -33,7 +36,10 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 350
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -58,15 +64,18 @@
 
     invoke-static {p0, v0, v1}, Lcom/android/incallui/Log;->i(Ljava/lang/Object;Ljava/lang/String;Z)V
 
+    .line 351
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
+    .line 372
     :cond_0
     :goto_0
     :pswitch_0
     return-void
 
+    .line 353
     :pswitch_1
     iget-object v0, p0, Lcom/android/incallui/InCallPresenter$4;->this$0:Lcom/android/incallui/InCallPresenter;
 
@@ -78,6 +87,7 @@
 
     goto :goto_0
 
+    .line 356
     :pswitch_2
     iget-object v0, p0, Lcom/android/incallui/InCallPresenter$4;->this$0:Lcom/android/incallui/InCallPresenter;
 
@@ -88,6 +98,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 357
     iget-object v0, p0, Lcom/android/incallui/InCallPresenter$4;->this$0:Lcom/android/incallui/InCallPresenter;
 
     # getter for: Lcom/android/incallui/InCallPresenter;->mInCallActivity:Lcom/android/incallui/InCallActivity;
@@ -101,6 +112,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 358
     iget-object v0, p0, Lcom/android/incallui/InCallPresenter$4;->this$0:Lcom/android/incallui/InCallPresenter;
 
     # getter for: Lcom/android/incallui/InCallPresenter;->mInCallActivity:Lcom/android/incallui/InCallActivity;
@@ -114,6 +126,7 @@
 
     invoke-interface {v0}, Lcom/android/incallui/CallButtonUi;->updateExtraVolumeButton()V
 
+    .line 359
     iget-object v0, p0, Lcom/android/incallui/InCallPresenter$4;->this$0:Lcom/android/incallui/InCallPresenter;
 
     # getter for: Lcom/android/incallui/InCallPresenter;->mInCallActivity:Lcom/android/incallui/InCallActivity;
@@ -129,6 +142,7 @@
 
     goto :goto_0
 
+    .line 364
     :pswitch_3
     iget-object v0, p0, Lcom/android/incallui/InCallPresenter$4;->this$0:Lcom/android/incallui/InCallPresenter;
 
@@ -148,12 +162,14 @@
 
     if-eqz v0, :cond_0
 
+    .line 365
     invoke-static {}, Lcom/android/incallui/InCallApp;->getInstance()Lcom/android/incallui/InCallApp;
 
     move-result-object v0
 
     invoke-virtual {v0}, Lcom/android/incallui/InCallApp;->unlock()V
 
+    .line 366
     iget-object v0, p0, Lcom/android/incallui/InCallPresenter$4;->this$0:Lcom/android/incallui/InCallPresenter;
 
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
@@ -164,6 +180,7 @@
 
     goto :goto_0
 
+    .line 351
     nop
 
     :pswitch_data_0

@@ -308,7 +308,10 @@
 
 .method public onCreate(Landroid/os/Bundle;)V
     .locals 1
+    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
+    .prologue
+    .local p0, "this":Lcom/google/android/gms/dynamic/a;, "Lcom/google/android/gms/dynamic/a<TT;>;"
     new-instance v0, Lcom/google/android/gms/dynamic/a$3;
 
     invoke-direct {v0, p0, p1}, Lcom/google/android/gms/dynamic/a$3;-><init>(Lcom/google/android/gms/dynamic/a;Landroid/os/Bundle;)V
@@ -320,7 +323,12 @@
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 6
+    .param p1, "inflater"    # Landroid/view/LayoutInflater;
+    .param p2, "container"    # Landroid/view/ViewGroup;
+    .param p3, "savedInstanceState"    # Landroid/os/Bundle;
 
+    .prologue
+    .local p0, "this":Lcom/google/android/gms/dynamic/a;, "Lcom/google/android/gms/dynamic/a<TT;>;"
     new-instance v2, Landroid/widget/FrameLayout;
 
     invoke-virtual {p1}, Landroid/view/LayoutInflater;->getContext()Landroid/content/Context;
@@ -399,7 +407,12 @@
 
 .method public onInflate(Landroid/app/Activity;Landroid/os/Bundle;Landroid/os/Bundle;)V
     .locals 1
+    .param p1, "activity"    # Landroid/app/Activity;
+    .param p2, "attrs"    # Landroid/os/Bundle;
+    .param p3, "savedInstanceState"    # Landroid/os/Bundle;
 
+    .prologue
+    .local p0, "this":Lcom/google/android/gms/dynamic/a;, "Lcom/google/android/gms/dynamic/a<TT;>;"
     new-instance v0, Lcom/google/android/gms/dynamic/a$2;
 
     invoke-direct {v0, p0, p1, p2, p3}, Lcom/google/android/gms/dynamic/a$2;-><init>(Lcom/google/android/gms/dynamic/a;Landroid/app/Activity;Landroid/os/Bundle;Landroid/os/Bundle;)V
@@ -462,7 +475,10 @@
 
 .method public onSaveInstanceState(Landroid/os/Bundle;)V
     .locals 1
+    .param p1, "outState"    # Landroid/os/Bundle;
 
+    .prologue
+    .local p0, "this":Lcom/google/android/gms/dynamic/a;, "Lcom/google/android/gms/dynamic/a<TT;>;"
     iget-object v0, p0, Lcom/google/android/gms/dynamic/a;->cP:Lcom/google/android/gms/dynamic/LifecycleDelegate;
 
     if-eqz v0, :cond_1

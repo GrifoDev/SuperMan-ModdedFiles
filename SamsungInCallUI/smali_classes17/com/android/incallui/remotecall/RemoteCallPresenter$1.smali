@@ -21,7 +21,11 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/remotecall/RemoteCallPresenter;Landroid/os/Looper;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/remotecall/RemoteCallPresenter;
+    .param p2, "x0"    # Landroid/os/Looper;
 
+    .prologue
+    .line 227
     iput-object p1, p0, Lcom/android/incallui/remotecall/RemoteCallPresenter$1;->this$0:Lcom/android/incallui/remotecall/RemoteCallPresenter;
 
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
@@ -33,7 +37,10 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 42
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 230
     const-string v2, "RemoteCallPresenter"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -68,26 +75,37 @@
 
     invoke-static {v2, v3, v4}, Lcom/android/incallui/remotecall/utils/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
+    .line 231
     const-string v41, "01012341234"
 
+    .line 232
+    .local v41, "number1":Ljava/lang/String;
     const-string v18, "01099999999"
 
+    .line 235
+    .local v18, "number2":Ljava/lang/String;
     new-instance v38, Ljava/util/ArrayList;
 
     invoke-direct/range {v38 .. v38}, Ljava/util/ArrayList;-><init>()V
 
+    .line 242
+    .local v38, "dialogList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/sec/ims/Dialog;>;"
     move-object/from16 v0, p1
 
     iget v2, v0, Landroid/os/Message;->what:I
 
     packed-switch v2, :pswitch_data_0
 
+    .line 312
+    .end local v18    # "number2":Ljava/lang/String;
     :goto_0
     :pswitch_0
     new-instance v40, Ljava/util/ArrayList;
 
     invoke-direct/range {v40 .. v40}, Ljava/util/ArrayList;-><init>()V
 
+    .line 313
+    .local v40, "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/incallui/remotecall/data/IRemoteCallAdapter;>;"
     invoke-virtual/range {v38 .. v38}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
@@ -105,6 +123,8 @@
 
     check-cast v39, Lcom/sec/ims/Dialog;
 
+    .line 314
+    .local v39, "info":Lcom/sec/ims/Dialog;
     new-instance v3, Lcom/android/incallui/remotecall/data/MultiEndDataIms6Wrapper;
 
     move-object/from16 v0, v39
@@ -117,13 +137,21 @@
 
     goto :goto_1
 
+    .line 248
+    .end local v39    # "info":Lcom/sec/ims/Dialog;
+    .end local v40    # "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/incallui/remotecall/data/IRemoteCallAdapter;>;"
+    .restart local v18    # "number2":Ljava/lang/String;
     :pswitch_1
     move-object/from16 v0, p1
 
     iget v13, v0, Landroid/os/Message;->what:I
 
+    .line 249
+    .local v13, "state":I
     const/16 v16, 0x0
 
+    .line 250
+    .local v16, "callstate":I
     const/4 v2, 0x2
 
     if-eq v13, v2, :cond_0
@@ -135,6 +163,7 @@
     :cond_0
     const/16 v16, 0x0
 
+    .line 253
     :goto_2
     const-string v2, "RemoteCallPresenter"
 
@@ -172,6 +201,7 @@
 
     invoke-static {v2, v3, v4}, Lcom/android/incallui/remotecall/utils/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
+    .line 254
     new-instance v2, Lcom/sec/ims/Dialog;
 
     move-object/from16 v0, p0
@@ -202,6 +232,7 @@
 
     iget-object v8, v0, Lcom/android/incallui/remotecall/RemoteCallPresenter$1;->this$0:Lcom/android/incallui/remotecall/RemoteCallPresenter;
 
+    .line 255
     # getter for: Lcom/android/incallui/remotecall/RemoteCallPresenter;->selfTestNumber:Ljava/lang/String;
     invoke-static {v8}, Lcom/android/incallui/remotecall/RemoteCallPresenter;->access$000(Lcom/android/incallui/remotecall/RemoteCallPresenter;)Ljava/lang/String;
 
@@ -257,17 +288,24 @@
 
     invoke-direct/range {v2 .. v20}, Lcom/sec/ims/Dialog;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IIIIIIZZ)V
 
+    .line 254
+    .end local v18    # "number2":Ljava/lang/String;
     move-object/from16 v0, v38
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto/16 :goto_0
 
+    .line 251
+    .restart local v18    # "number2":Ljava/lang/String;
     :cond_1
     const/16 v16, 0x1
 
     goto :goto_2
 
+    .line 259
+    .end local v13    # "state":I
+    .end local v16    # "callstate":I
     :pswitch_2
     new-instance v17, Lcom/sec/ims/Dialog;
 
@@ -280,6 +318,7 @@
 
     move-result-object v18
 
+    .end local v18    # "number2":Ljava/lang/String;
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/incallui/remotecall/RemoteCallPresenter$1;->this$0:Lcom/android/incallui/remotecall/RemoteCallPresenter;
@@ -299,6 +338,7 @@
 
     iget-object v2, v0, Lcom/android/incallui/remotecall/RemoteCallPresenter$1;->this$0:Lcom/android/incallui/remotecall/RemoteCallPresenter;
 
+    .line 260
     # getter for: Lcom/android/incallui/remotecall/RemoteCallPresenter;->selfTestNumber:Ljava/lang/String;
     invoke-static {v2}, Lcom/android/incallui/remotecall/RemoteCallPresenter;->access$000(Lcom/android/incallui/remotecall/RemoteCallPresenter;)Ljava/lang/String;
 
@@ -358,6 +398,7 @@
 
     invoke-direct/range {v17 .. v35}, Lcom/sec/ims/Dialog;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IIIIIIZZ)V
 
+    .line 259
     move-object/from16 v0, v38
 
     move-object/from16 v1, v17
@@ -366,6 +407,8 @@
 
     goto/16 :goto_0
 
+    .line 265
+    .restart local v18    # "number2":Ljava/lang/String;
     :pswitch_3
     new-instance v17, Lcom/sec/ims/Dialog;
 
@@ -378,6 +421,7 @@
 
     move-result-object v18
 
+    .end local v18    # "number2":Ljava/lang/String;
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/incallui/remotecall/RemoteCallPresenter$1;->this$0:Lcom/android/incallui/remotecall/RemoteCallPresenter;
@@ -397,6 +441,7 @@
 
     iget-object v2, v0, Lcom/android/incallui/remotecall/RemoteCallPresenter$1;->this$0:Lcom/android/incallui/remotecall/RemoteCallPresenter;
 
+    .line 266
     # getter for: Lcom/android/incallui/remotecall/RemoteCallPresenter;->selfTestNumber:Ljava/lang/String;
     invoke-static {v2}, Lcom/android/incallui/remotecall/RemoteCallPresenter;->access$000(Lcom/android/incallui/remotecall/RemoteCallPresenter;)Ljava/lang/String;
 
@@ -456,6 +501,7 @@
 
     invoke-direct/range {v17 .. v35}, Lcom/sec/ims/Dialog;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IIIIIIZZ)V
 
+    .line 265
     move-object/from16 v0, v38
 
     move-object/from16 v1, v17
@@ -464,6 +510,8 @@
 
     goto/16 :goto_0
 
+    .line 271
+    .restart local v18    # "number2":Ljava/lang/String;
     :pswitch_4
     new-instance v17, Lcom/sec/ims/Dialog;
 
@@ -476,6 +524,7 @@
 
     move-result-object v18
 
+    .end local v18    # "number2":Ljava/lang/String;
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/incallui/remotecall/RemoteCallPresenter$1;->this$0:Lcom/android/incallui/remotecall/RemoteCallPresenter;
@@ -495,6 +544,7 @@
 
     iget-object v2, v0, Lcom/android/incallui/remotecall/RemoteCallPresenter$1;->this$0:Lcom/android/incallui/remotecall/RemoteCallPresenter;
 
+    .line 272
     # getter for: Lcom/android/incallui/remotecall/RemoteCallPresenter;->selfTestNumber:Ljava/lang/String;
     invoke-static {v2}, Lcom/android/incallui/remotecall/RemoteCallPresenter;->access$000(Lcom/android/incallui/remotecall/RemoteCallPresenter;)Ljava/lang/String;
 
@@ -554,6 +604,7 @@
 
     invoke-direct/range {v17 .. v35}, Lcom/sec/ims/Dialog;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IIIIIIZZ)V
 
+    .line 271
     move-object/from16 v0, v38
 
     move-object/from16 v1, v17
@@ -562,6 +613,8 @@
 
     goto/16 :goto_0
 
+    .line 277
+    .restart local v18    # "number2":Ljava/lang/String;
     :pswitch_5
     new-instance v17, Lcom/sec/ims/Dialog;
 
@@ -574,6 +627,7 @@
 
     move-result-object v18
 
+    .end local v18    # "number2":Ljava/lang/String;
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/incallui/remotecall/RemoteCallPresenter$1;->this$0:Lcom/android/incallui/remotecall/RemoteCallPresenter;
@@ -593,6 +647,7 @@
 
     iget-object v2, v0, Lcom/android/incallui/remotecall/RemoteCallPresenter$1;->this$0:Lcom/android/incallui/remotecall/RemoteCallPresenter;
 
+    .line 278
     # getter for: Lcom/android/incallui/remotecall/RemoteCallPresenter;->selfTestNumber:Ljava/lang/String;
     invoke-static {v2}, Lcom/android/incallui/remotecall/RemoteCallPresenter;->access$000(Lcom/android/incallui/remotecall/RemoteCallPresenter;)Ljava/lang/String;
 
@@ -652,6 +707,7 @@
 
     invoke-direct/range {v17 .. v35}, Lcom/sec/ims/Dialog;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IIIIIIZZ)V
 
+    .line 277
     move-object/from16 v0, v38
 
     move-object/from16 v1, v17
@@ -660,6 +716,8 @@
 
     goto/16 :goto_0
 
+    .line 283
+    .restart local v18    # "number2":Ljava/lang/String;
     :pswitch_6
     new-instance v17, Lcom/sec/ims/Dialog;
 
@@ -672,6 +730,7 @@
 
     move-result-object v18
 
+    .end local v18    # "number2":Ljava/lang/String;
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/incallui/remotecall/RemoteCallPresenter$1;->this$0:Lcom/android/incallui/remotecall/RemoteCallPresenter;
@@ -691,6 +750,7 @@
 
     iget-object v2, v0, Lcom/android/incallui/remotecall/RemoteCallPresenter$1;->this$0:Lcom/android/incallui/remotecall/RemoteCallPresenter;
 
+    .line 284
     # getter for: Lcom/android/incallui/remotecall/RemoteCallPresenter;->selfTestNumber:Ljava/lang/String;
     invoke-static {v2}, Lcom/android/incallui/remotecall/RemoteCallPresenter;->access$000(Lcom/android/incallui/remotecall/RemoteCallPresenter;)Ljava/lang/String;
 
@@ -750,12 +810,14 @@
 
     invoke-direct/range {v17 .. v35}, Lcom/sec/ims/Dialog;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IIIIIIZZ)V
 
+    .line 283
     move-object/from16 v0, v38
 
     move-object/from16 v1, v17
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 286
     new-instance v17, Lcom/sec/ims/Dialog;
 
     const-string v20, "callID"
@@ -804,6 +866,8 @@
 
     goto/16 :goto_0
 
+    .line 292
+    .restart local v18    # "number2":Ljava/lang/String;
     :pswitch_7
     new-instance v17, Lcom/sec/ims/Dialog;
 
@@ -845,6 +909,7 @@
 
     invoke-direct/range {v17 .. v35}, Lcom/sec/ims/Dialog;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IIIIIIZZ)V
 
+    .end local v18    # "number2":Ljava/lang/String;
     move-object/from16 v0, v38
 
     move-object/from16 v1, v17
@@ -853,6 +918,8 @@
 
     goto/16 :goto_0
 
+    .line 298
+    .restart local v18    # "number2":Ljava/lang/String;
     :pswitch_8
     new-instance v17, Lcom/sec/ims/Dialog;
 
@@ -898,6 +965,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 302
     new-instance v19, Lcom/sec/ims/Dialog;
 
     const-string v22, "callID"
@@ -946,6 +1014,7 @@
 
     goto/16 :goto_0
 
+    .line 308
     :pswitch_9
     move-object/from16 v0, p0
 
@@ -957,6 +1026,9 @@
 
     goto/16 :goto_0
 
+    .line 316
+    .end local v18    # "number2":Ljava/lang/String;
+    .restart local v40    # "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/incallui/remotecall/data/IRemoteCallAdapter;>;"
     :cond_2
     move-object/from16 v0, p0
 
@@ -966,8 +1038,10 @@
 
     invoke-virtual {v2, v0}, Lcom/android/incallui/remotecall/RemoteCallPresenter;->onNotifyRemoteCallStateChanged(Ljava/util/ArrayList;)V
 
+    .line 317
     return-void
 
+    .line 242
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_1

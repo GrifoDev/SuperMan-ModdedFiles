@@ -22,6 +22,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 41
     const-string v0, "com.android.internal.R$attr"
 
     const-string v1, "buttonStyle"
@@ -33,12 +35,15 @@
 
     sput v0, Lcom/android/incallui/wrapper/InternalRWrapper$attr;->buttonStyle:I
 
+    .line 42
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 36
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

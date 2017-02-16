@@ -18,6 +18,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 83
     invoke-direct {p0}, Landroid/support/v4/widget/PopupWindowCompat$BasePopupWindowImpl;-><init>()V
 
     return-void
@@ -27,7 +29,10 @@
 # virtual methods
 .method public getWindowLayoutType(Landroid/widget/PopupWindow;)I
     .locals 1
+    .param p1, "popupWindow"    # Landroid/widget/PopupWindow;
 
+    .prologue
+    .line 91
     invoke-static {p1}, Landroid/support/v4/widget/PopupWindowCompatGingerbread;->getWindowLayoutType(Landroid/widget/PopupWindow;)I
 
     move-result v0
@@ -37,8 +42,13 @@
 
 .method public setWindowLayoutType(Landroid/widget/PopupWindow;I)V
     .locals 0
+    .param p1, "popupWindow"    # Landroid/widget/PopupWindow;
+    .param p2, "layoutType"    # I
 
+    .prologue
+    .line 86
     invoke-static {p1, p2}, Landroid/support/v4/widget/PopupWindowCompatGingerbread;->setWindowLayoutType(Landroid/widget/PopupWindow;I)V
 
+    .line 87
     return-void
 .end method

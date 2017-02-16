@@ -31,8 +31,12 @@
 .method private constructor <init>(Lcom/google/common/collect/ArrayTable;)V
     .locals 2
 
+    .prologue
+    .line 632
+    .local p0, "this":Lcom/google/common/collect/ArrayTable$ColumnMap;, "Lcom/google/common/collect/ArrayTable<TR;TC;TV;>.ColumnMap;"
     iput-object p1, p0, Lcom/google/common/collect/ArrayTable$ColumnMap;->this$0:Lcom/google/common/collect/ArrayTable;
 
+    .line 633
     # getter for: Lcom/google/common/collect/ArrayTable;->columnKeyToIndex:Lcom/google/common/collect/ImmutableMap;
     invoke-static {p1}, Lcom/google/common/collect/ArrayTable;->access$500(Lcom/google/common/collect/ArrayTable;)Lcom/google/common/collect/ImmutableMap;
 
@@ -42,12 +46,18 @@
 
     invoke-direct {p0, v0, v1}, Lcom/google/common/collect/ArrayTable$ArrayMap;-><init>(Lcom/google/common/collect/ImmutableMap;Lcom/google/common/collect/ArrayTable$1;)V
 
+    .line 634
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/collect/ArrayTable;Lcom/google/common/collect/ArrayTable$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/google/common/collect/ArrayTable;
+    .param p2, "x1"    # Lcom/google/common/collect/ArrayTable$1;
 
+    .prologue
+    .line 631
+    .local p0, "this":Lcom/google/common/collect/ArrayTable$ColumnMap;, "Lcom/google/common/collect/ArrayTable<TR;TC;TV;>.ColumnMap;"
     invoke-direct {p0, p1}, Lcom/google/common/collect/ArrayTable$ColumnMap;-><init>(Lcom/google/common/collect/ArrayTable;)V
 
     return-void
@@ -58,6 +68,9 @@
 .method getKeyRole()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 638
+    .local p0, "this":Lcom/google/common/collect/ArrayTable$ColumnMap;, "Lcom/google/common/collect/ArrayTable<TR;TC;TV;>.ColumnMap;"
     const-string v0, "Column"
 
     return-object v0
@@ -65,7 +78,11 @@
 
 .method bridge synthetic getValue(I)Ljava/lang/Object;
     .locals 1
+    .param p1, "x0"    # I
 
+    .prologue
+    .line 630
+    .local p0, "this":Lcom/google/common/collect/ArrayTable$ColumnMap;, "Lcom/google/common/collect/ArrayTable<TR;TC;TV;>.ColumnMap;"
     invoke-virtual {p0, p1}, Lcom/google/common/collect/ArrayTable$ColumnMap;->getValue(I)Ljava/util/Map;
 
     move-result-object v0
@@ -75,6 +92,7 @@
 
 .method getValue(I)Ljava/util/Map;
     .locals 2
+    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -83,6 +101,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 643
+    .local p0, "this":Lcom/google/common/collect/ArrayTable$ColumnMap;, "Lcom/google/common/collect/ArrayTable<TR;TC;TV;>.ColumnMap;"
     new-instance v0, Lcom/google/common/collect/ArrayTable$Column;
 
     iget-object v1, p0, Lcom/google/common/collect/ArrayTable$ColumnMap;->this$0:Lcom/google/common/collect/ArrayTable;
@@ -94,9 +115,15 @@
 
 .method public bridge synthetic put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
+    .param p1, "x0"    # Ljava/lang/Object;
+    .param p2, "x1"    # Ljava/lang/Object;
 
+    .prologue
+    .line 630
+    .local p0, "this":Lcom/google/common/collect/ArrayTable$ColumnMap;, "Lcom/google/common/collect/ArrayTable<TR;TC;TV;>.ColumnMap;"
     check-cast p2, Ljava/util/Map;
 
+    .end local p2    # "x1":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Lcom/google/common/collect/ArrayTable$ColumnMap;->put(Ljava/lang/Object;Ljava/util/Map;)Ljava/util/Map;
 
     move-result-object v0
@@ -116,6 +143,11 @@
         }
     .end annotation
 
+    .prologue
+    .line 653
+    .local p0, "this":Lcom/google/common/collect/ArrayTable$ColumnMap;, "Lcom/google/common/collect/ArrayTable<TR;TC;TV;>.ColumnMap;"
+    .local p1, "key":Ljava/lang/Object;, "TC;"
+    .local p2, "value":Ljava/util/Map;, "Ljava/util/Map<TR;TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -125,9 +157,15 @@
 
 .method bridge synthetic setValue(ILjava/lang/Object;)Ljava/lang/Object;
     .locals 1
+    .param p1, "x0"    # I
+    .param p2, "x1"    # Ljava/lang/Object;
 
+    .prologue
+    .line 630
+    .local p0, "this":Lcom/google/common/collect/ArrayTable$ColumnMap;, "Lcom/google/common/collect/ArrayTable<TR;TC;TV;>.ColumnMap;"
     check-cast p2, Ljava/util/Map;
 
+    .end local p2    # "x1":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Lcom/google/common/collect/ArrayTable$ColumnMap;->setValue(ILjava/util/Map;)Ljava/util/Map;
 
     move-result-object v0
@@ -137,6 +175,7 @@
 
 .method setValue(ILjava/util/Map;)Ljava/util/Map;
     .locals 1
+    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -147,6 +186,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 648
+    .local p0, "this":Lcom/google/common/collect/ArrayTable$ColumnMap;, "Lcom/google/common/collect/ArrayTable<TR;TC;TV;>.ColumnMap;"
+    .local p2, "newValue":Ljava/util/Map;, "Ljava/util/Map<TR;TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V

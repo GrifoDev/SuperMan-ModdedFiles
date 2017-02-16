@@ -21,6 +21,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 179
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -30,7 +32,11 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 2
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .param p2, "which"    # I
 
+    .prologue
+    .line 181
     invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
 
     move-result-object v1
@@ -39,12 +45,16 @@
 
     move-result-object v0
 
+    .line 182
+    .local v0, "presenter":Lcom/android/incallui/CallButtonPresenter;
     if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Lcom/android/incallui/CallButtonPresenter;->endCallClicked()V
 
+    .line 183
     :cond_0
     invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
 
+    .line 184
     return-void
 .end method

@@ -39,9 +39,14 @@
 # direct methods
 .method constructor <init>(I)V
     .locals 1
+    .param p1, "expectedValuesPerKey"    # I
 
+    .prologue
+    .line 197
+    .local p0, "this":Lcom/google/common/collect/MultimapBuilder$ArrayListSupplier;, "Lcom/google/common/collect/MultimapBuilder$ArrayListSupplier<TV;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 198
     const-string v0, "expectedValuesPerKey"
 
     invoke-static {p1, v0}, Lcom/google/common/collect/CollectPreconditions;->checkNonnegative(ILjava/lang/String;)I
@@ -50,6 +55,7 @@
 
     iput v0, p0, Lcom/google/common/collect/MultimapBuilder$ArrayListSupplier;->expectedValuesPerKey:I
 
+    .line 199
     return-void
 .end method
 
@@ -58,6 +64,9 @@
 .method public bridge synthetic get()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 194
+    .local p0, "this":Lcom/google/common/collect/MultimapBuilder$ArrayListSupplier;, "Lcom/google/common/collect/MultimapBuilder$ArrayListSupplier<TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/MultimapBuilder$ArrayListSupplier;->get()Ljava/util/List;
 
     move-result-object v0
@@ -75,6 +84,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 203
+    .local p0, "this":Lcom/google/common/collect/MultimapBuilder$ArrayListSupplier;, "Lcom/google/common/collect/MultimapBuilder$ArrayListSupplier<TV;>;"
     new-instance v0, Ljava/util/ArrayList;
 
     iget v1, p0, Lcom/google/common/collect/MultimapBuilder$ArrayListSupplier;->expectedValuesPerKey:I

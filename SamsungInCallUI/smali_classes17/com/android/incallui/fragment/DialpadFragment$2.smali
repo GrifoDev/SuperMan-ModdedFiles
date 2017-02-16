@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/DialpadFragment;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/fragment/DialpadFragment;
 
+    .prologue
+    .line 552
     iput-object p1, p0, Lcom/android/incallui/fragment/DialpadFragment$2;->this$0:Lcom/android/incallui/fragment/DialpadFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +40,8 @@
 .method public run()V
     .locals 1
 
+    .prologue
+    .line 555
     iget-object v0, p0, Lcom/android/incallui/fragment/DialpadFragment$2;->this$0:Lcom/android/incallui/fragment/DialpadFragment;
 
     invoke-virtual {v0}, Lcom/android/incallui/fragment/DialpadFragment;->getPresenter()Lcom/android/incallui/Presenter;
@@ -47,5 +52,6 @@
 
     invoke-virtual {v0}, Lcom/android/incallui/DialpadPresenter;->stopDtmf()V
 
+    .line 556
     return-void
 .end method

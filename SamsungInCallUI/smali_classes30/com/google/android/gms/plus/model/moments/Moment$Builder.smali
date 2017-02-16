@@ -77,7 +77,9 @@
 
 .method public setId(Ljava/lang/String;)Lcom/google/android/gms/plus/model/moments/Moment$Builder;
     .locals 2
+    .param p1, "id"    # Ljava/lang/String;
 
+    .prologue
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/Moment$Builder;->jh:Ljava/lang/String;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/Moment$Builder;->iD:Ljava/util/Set;
@@ -95,9 +97,12 @@
 
 .method public setResult(Lcom/google/android/gms/plus/model/moments/ItemScope;)Lcom/google/android/gms/plus/model/moments/Moment$Builder;
     .locals 2
+    .param p1, "result"    # Lcom/google/android/gms/plus/model/moments/ItemScope;
 
+    .prologue
     check-cast p1, Lcom/google/android/gms/internal/bx;
 
+    .end local p1    # "result":Lcom/google/android/gms/plus/model/moments/ItemScope;
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/Moment$Builder;->jB:Lcom/google/android/gms/internal/bx;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/Moment$Builder;->iD:Ljava/util/Set;
@@ -115,7 +120,9 @@
 
 .method public setStartDate(Ljava/lang/String;)Lcom/google/android/gms/plus/model/moments/Moment$Builder;
     .locals 2
+    .param p1, "startDate"    # Ljava/lang/String;
 
+    .prologue
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/Moment$Builder;->js:Ljava/lang/String;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/Moment$Builder;->iD:Ljava/util/Set;
@@ -133,9 +140,12 @@
 
 .method public setTarget(Lcom/google/android/gms/plus/model/moments/ItemScope;)Lcom/google/android/gms/plus/model/moments/Moment$Builder;
     .locals 2
+    .param p1, "target"    # Lcom/google/android/gms/plus/model/moments/ItemScope;
 
+    .prologue
     check-cast p1, Lcom/google/android/gms/internal/bx;
 
+    .end local p1    # "target":Lcom/google/android/gms/plus/model/moments/ItemScope;
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/Moment$Builder;->jC:Lcom/google/android/gms/internal/bx;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/Moment$Builder;->iD:Ljava/util/Set;
@@ -153,7 +163,9 @@
 
 .method public setType(Ljava/lang/String;)Lcom/google/android/gms/plus/model/moments/Moment$Builder;
     .locals 2
+    .param p1, "type"    # Ljava/lang/String;
 
+    .prologue
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/Moment$Builder;->jy:Ljava/lang/String;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/Moment$Builder;->iD:Ljava/util/Set;

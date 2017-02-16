@@ -28,6 +28,8 @@
 .method private constructor <init>(Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment$SelectAccountListAdapter;)V
     .locals 0
 
+    .prologue
+    .line 270
     iput-object p1, p0, Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment$SelectAccountListAdapter$ViewHolder;->this$1:Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment$SelectAccountListAdapter;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,7 +39,11 @@
 
 .method synthetic constructor <init>(Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment$SelectAccountListAdapter;Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment$SelectAccountListAdapter;
+    .param p2, "x1"    # Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment$1;
 
+    .prologue
+    .line 270
     invoke-direct {p0, p1}, Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment$SelectAccountListAdapter$ViewHolder;-><init>(Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment$SelectAccountListAdapter;)V
 
     return-void

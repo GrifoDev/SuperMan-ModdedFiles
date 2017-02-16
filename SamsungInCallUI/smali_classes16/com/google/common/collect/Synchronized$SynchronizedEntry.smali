@@ -41,7 +41,7 @@
 # direct methods
 .method constructor <init>(Ljava/util/Map$Entry;Ljava/lang/Object;)V
     .locals 0
-    .param p2    # Ljava/lang/Object;
+    .param p2, "mutex"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -55,8 +55,13 @@
         }
     .end annotation
 
+    .prologue
+    .line 1598
+    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedEntry;, "Lcom/google/common/collect/Synchronized$SynchronizedEntry<TK;TV;>;"
+    .local p1, "delegate":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
     invoke-direct {p0, p1, p2}, Lcom/google/common/collect/Synchronized$SynchronizedObject;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
+    .line 1599
     return-void
 .end method
 
@@ -65,6 +70,9 @@
 .method bridge synthetic delegate()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 1594
+    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedEntry;, "Lcom/google/common/collect/Synchronized$SynchronizedEntry<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedEntry;->delegate()Ljava/util/Map$Entry;
 
     move-result-object v0
@@ -82,6 +90,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1604
+    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedEntry;, "Lcom/google/common/collect/Synchronized$SynchronizedEntry<TK;TV;>;"
     invoke-super {p0}, Lcom/google/common/collect/Synchronized$SynchronizedObject;->delegate()Ljava/lang/Object;
 
     move-result-object v0
@@ -93,11 +104,16 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 2
+    .param p1, "obj"    # Ljava/lang/Object;
 
+    .prologue
+    .line 1609
+    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedEntry;, "Lcom/google/common/collect/Synchronized$SynchronizedEntry<TK;TV;>;"
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedEntry;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
 
+    .line 1610
     :try_start_0
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedEntry;->delegate()Ljava/util/Map$Entry;
 
@@ -111,6 +127,7 @@
 
     return v0
 
+    .line 1611
     :catchall_0
     move-exception v0
 
@@ -129,10 +146,14 @@
         }
     .end annotation
 
+    .prologue
+    .line 1623
+    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedEntry;, "Lcom/google/common/collect/Synchronized$SynchronizedEntry<TK;TV;>;"
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedEntry;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
 
+    .line 1624
     :try_start_0
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedEntry;->delegate()Ljava/util/Map$Entry;
 
@@ -146,6 +167,7 @@
 
     return-object v0
 
+    .line 1625
     :catchall_0
     move-exception v0
 
@@ -164,10 +186,14 @@
         }
     .end annotation
 
+    .prologue
+    .line 1630
+    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedEntry;, "Lcom/google/common/collect/Synchronized$SynchronizedEntry<TK;TV;>;"
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedEntry;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
 
+    .line 1631
     :try_start_0
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedEntry;->delegate()Ljava/util/Map$Entry;
 
@@ -181,6 +207,7 @@
 
     return-object v0
 
+    .line 1632
     :catchall_0
     move-exception v0
 
@@ -194,10 +221,14 @@
 .method public hashCode()I
     .locals 2
 
+    .prologue
+    .line 1616
+    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedEntry;, "Lcom/google/common/collect/Synchronized$SynchronizedEntry<TK;TV;>;"
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedEntry;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
 
+    .line 1617
     :try_start_0
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedEntry;->delegate()Ljava/util/Map$Entry;
 
@@ -211,6 +242,7 @@
 
     return v0
 
+    .line 1618
     :catchall_0
     move-exception v0
 
@@ -229,10 +261,15 @@
         }
     .end annotation
 
+    .prologue
+    .line 1637
+    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedEntry;, "Lcom/google/common/collect/Synchronized$SynchronizedEntry<TK;TV;>;"
+    .local p1, "value":Ljava/lang/Object;, "TV;"
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedEntry;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
 
+    .line 1638
     :try_start_0
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedEntry;->delegate()Ljava/util/Map$Entry;
 
@@ -246,6 +283,7 @@
 
     return-object v0
 
+    .line 1639
     :catchall_0
     move-exception v0
 

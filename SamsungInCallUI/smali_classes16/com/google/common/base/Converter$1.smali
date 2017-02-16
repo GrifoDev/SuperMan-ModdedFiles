@@ -35,6 +35,9 @@
 .method constructor <init>(Lcom/google/common/base/Converter;Ljava/lang/Iterable;)V
     .locals 0
 
+    .prologue
+    .line 201
+    .local p0, "this":Lcom/google/common/base/Converter$1;, "Lcom/google/common/base/Converter.1;"
     iput-object p1, p0, Lcom/google/common/base/Converter$1;->this$0:Lcom/google/common/base/Converter;
 
     iput-object p2, p0, Lcom/google/common/base/Converter$1;->val$fromIterable:Ljava/lang/Iterable;
@@ -56,6 +59,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 204
+    .local p0, "this":Lcom/google/common/base/Converter$1;, "Lcom/google/common/base/Converter.1;"
     new-instance v0, Lcom/google/common/base/Converter$1$1;
 
     invoke-direct {v0, p0}, Lcom/google/common/base/Converter$1$1;-><init>(Lcom/google/common/base/Converter$1;)V

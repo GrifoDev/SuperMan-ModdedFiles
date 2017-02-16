@@ -15,6 +15,8 @@
 .method static constructor <clinit>()V
     .locals 5
 
+    .prologue
+    .line 22
     const-class v0, Landroid/graphics/Typeface;
 
     const-string v1, "SetAppTypeFace"
@@ -41,12 +43,15 @@
 
     sput-object v0, Lcom/android/incallui/wrapper/TypefaceWrapper;->sMethodSetAppTypeFace:Ljava/lang/reflect/Method;
 
+    .line 24
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 13
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -54,14 +59,20 @@
 
 .method public static setAppTypeface(Landroid/content/Context;Ljava/lang/String;)V
     .locals 5
+    .param p0, "ctx"    # Landroid/content/Context;
+    .param p1, "appName"    # Ljava/lang/String;
 
+    .prologue
+    .line 27
     sget-object v1, Lcom/android/incallui/wrapper/TypefaceWrapper;->sMethodSetAppTypeFace:Ljava/lang/reflect/Method;
 
     if-nez v1, :cond_0
 
+    .line 36
     :goto_0
     return-void
 
+    .line 31
     :cond_0
     :try_start_0
     sget-object v1, Lcom/android/incallui/wrapper/TypefaceWrapper;->sMethodSetAppTypeFace:Ljava/lang/reflect/Method;
@@ -87,9 +98,12 @@
 
     goto :goto_0
 
+    .line 32
     :catch_0
     move-exception v0
 
+    .line 33
+    .local v0, "e":Ljava/lang/ReflectiveOperationException;
     :goto_1
     const-string v1, "TypefaceWrapper"
 
@@ -119,6 +133,8 @@
 
     goto :goto_0
 
+    .line 32
+    .end local v0    # "e":Ljava/lang/ReflectiveOperationException;
     :catch_1
     move-exception v0
 

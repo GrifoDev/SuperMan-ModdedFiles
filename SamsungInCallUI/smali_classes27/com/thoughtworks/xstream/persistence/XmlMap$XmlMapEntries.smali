@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/thoughtworks/xstream/persistence/XmlMap;)V
     .locals 0
 
+    .prologue
+    .line 55
     iput-object p1, p0, Lcom/thoughtworks/xstream/persistence/XmlMap$XmlMapEntries;->this$0:Lcom/thoughtworks/xstream/persistence/XmlMap;
 
     invoke-direct {p0}, Ljava/util/AbstractSet;-><init>()V
@@ -34,6 +36,8 @@
 .method public isEmpty()Z
     .locals 1
 
+    .prologue
+    .line 62
     iget-object v0, p0, Lcom/thoughtworks/xstream/persistence/XmlMap$XmlMapEntries;->this$0:Lcom/thoughtworks/xstream/persistence/XmlMap;
 
     invoke-virtual {v0}, Lcom/thoughtworks/xstream/persistence/XmlMap;->isEmpty()Z
@@ -46,6 +50,8 @@
 .method public iterator()Ljava/util/Iterator;
     .locals 1
 
+    .prologue
+    .line 66
     iget-object v0, p0, Lcom/thoughtworks/xstream/persistence/XmlMap$XmlMapEntries;->this$0:Lcom/thoughtworks/xstream/persistence/XmlMap;
 
     # getter for: Lcom/thoughtworks/xstream/persistence/XmlMap;->persistenceStrategy:Lcom/thoughtworks/xstream/persistence/PersistenceStrategy;
@@ -63,6 +69,8 @@
 .method public size()I
     .locals 1
 
+    .prologue
+    .line 58
     iget-object v0, p0, Lcom/thoughtworks/xstream/persistence/XmlMap$XmlMapEntries;->this$0:Lcom/thoughtworks/xstream/persistence/XmlMap;
 
     invoke-virtual {v0}, Lcom/thoughtworks/xstream/persistence/XmlMap;->size()I

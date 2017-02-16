@@ -24,11 +24,16 @@
 # direct methods
 .method constructor <init>(Landroid/app/Activity;)V
     .locals 0
+    .param p1, "activity"    # Landroid/app/Activity;
 
+    .prologue
+    .line 661
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 662
     iput-object p1, p0, Landroid/support/v7/app/ActionBarDrawerToggle$DummyDelegate;->mActivity:Landroid/app/Activity;
 
+    .line 663
     return-void
 .end method
 
@@ -37,6 +42,8 @@
 .method public getActionBarThemedContext()Landroid/content/Context;
     .locals 1
 
+    .prologue
+    .line 682
     iget-object v0, p0, Landroid/support/v7/app/ActionBarDrawerToggle$DummyDelegate;->mActivity:Landroid/app/Activity;
 
     return-object v0
@@ -45,6 +52,8 @@
 .method public getThemeUpIndicator()Landroid/graphics/drawable/Drawable;
     .locals 1
 
+    .prologue
+    .line 677
     const/4 v0, 0x0
 
     return-object v0
@@ -53,6 +62,8 @@
 .method public isNavigationVisible()Z
     .locals 1
 
+    .prologue
+    .line 687
     const/4 v0, 0x1
 
     return v0
@@ -60,20 +71,25 @@
 
 .method public setActionBarDescription(I)V
     .locals 0
-    .param p1    # I
+    .param p1, "contentDescRes"    # I
         .annotation build Landroid/support/annotation/StringRes;
         .end annotation
     .end param
 
+    .prologue
+    .line 673
     return-void
 .end method
 
 .method public setActionBarUpIndicator(Landroid/graphics/drawable/Drawable;I)V
     .locals 0
-    .param p2    # I
+    .param p1, "upDrawable"    # Landroid/graphics/drawable/Drawable;
+    .param p2, "contentDescRes"    # I
         .annotation build Landroid/support/annotation/StringRes;
         .end annotation
     .end param
 
+    .prologue
+    .line 668
     return-void
 .end method

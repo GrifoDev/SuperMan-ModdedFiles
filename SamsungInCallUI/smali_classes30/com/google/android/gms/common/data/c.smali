@@ -111,7 +111,10 @@
 
 .method public synthetic get(I)Ljava/lang/Object;
     .locals 1
+    .param p1, "x0"    # I
 
+    .prologue
+    .local p0, "this":Lcom/google/android/gms/common/data/c;, "Lcom/google/android/gms/common/data/c<TT;>;"
     invoke-virtual {p0, p1}, Lcom/google/android/gms/common/data/c;->d(I)Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable;
 
     move-result-object v0

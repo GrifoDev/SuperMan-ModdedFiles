@@ -30,7 +30,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/TransferManager$TransferDialog;Lcom/android/incallui/TransferManager;Lcom/android/incallui/Call;Lcom/android/incallui/Call;)V
     .locals 0
+    .param p1, "this$1"    # Lcom/android/incallui/TransferManager$TransferDialog;
 
+    .prologue
+    .line 214
     iput-object p1, p0, Lcom/android/incallui/TransferManager$TransferDialog$3;->this$1:Lcom/android/incallui/TransferManager$TransferDialog;
 
     iput-object p2, p0, Lcom/android/incallui/TransferManager$TransferDialog$3;->val$this$0:Lcom/android/incallui/TransferManager;
@@ -48,15 +51,21 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 4
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .param p2, "which"    # I
 
+    .prologue
+    .line 217
     iget-object v1, p0, Lcom/android/incallui/TransferManager$TransferDialog$3;->val$fgCall:Lcom/android/incallui/Call;
 
     if-eqz v1, :cond_0
 
+    .line 218
     iget-object v1, p0, Lcom/android/incallui/TransferManager$TransferDialog$3;->val$bgCall:Lcom/android/incallui/Call;
 
     if-nez v1, :cond_2
 
+    .line 219
     iget-object v1, p0, Lcom/android/incallui/TransferManager$TransferDialog$3;->this$1:Lcom/android/incallui/TransferManager$TransferDialog;
 
     iget-object v1, v1, Lcom/android/incallui/TransferManager$TransferDialog;->this$0:Lcom/android/incallui/TransferManager;
@@ -91,6 +100,7 @@
 
     if-nez v1, :cond_1
 
+    .line 220
     iget-object v1, p0, Lcom/android/incallui/TransferManager$TransferDialog$3;->this$1:Lcom/android/incallui/TransferManager$TransferDialog;
 
     iget-object v1, v1, Lcom/android/incallui/TransferManager$TransferDialog;->this$0:Lcom/android/incallui/TransferManager;
@@ -112,6 +122,8 @@
 
     move-result-object v0
 
+    .line 222
+    .local v0, "number":Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/TelecomAdapter;->getInstance()Lcom/android/incallui/TelecomAdapter;
 
     move-result-object v1
@@ -124,6 +136,8 @@
 
     invoke-virtual {v1, v2, v0}, Lcom/android/incallui/TelecomAdapter;->explicitCallTransfer(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 230
+    .end local v0    # "number":Ljava/lang/String;
     :cond_0
     :goto_0
     iget-object v1, p0, Lcom/android/incallui/TransferManager$TransferDialog$3;->this$1:Lcom/android/incallui/TransferManager$TransferDialog;
@@ -132,8 +146,10 @@
 
     invoke-virtual {v1}, Lcom/android/incallui/TransferManager;->finish()V
 
+    .line 231
     return-void
 
+    .line 224
     :cond_1
     iget-object v1, p0, Lcom/android/incallui/TransferManager$TransferDialog$3;->this$1:Lcom/android/incallui/TransferManager$TransferDialog;
 
@@ -154,6 +170,7 @@
 
     goto :goto_0
 
+    .line 227
     :cond_2
     invoke-static {}, Lcom/android/incallui/TelecomAdapter;->getInstance()Lcom/android/incallui/TelecomAdapter;
 

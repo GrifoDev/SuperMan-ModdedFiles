@@ -29,8 +29,11 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 99
     invoke-direct {p0}, Ljava/lang/ThreadLocal;-><init>()V
 
+    .line 1
     return-void
 .end method
 
@@ -39,6 +42,8 @@
 .method protected bridge synthetic initialValue()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 1
     invoke-virtual {p0}, Lcom/nineoldandroids/animation/ValueAnimator$1;->initialValue()Ljava/util/ArrayList;
 
     move-result-object v0
@@ -58,6 +63,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 102
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V

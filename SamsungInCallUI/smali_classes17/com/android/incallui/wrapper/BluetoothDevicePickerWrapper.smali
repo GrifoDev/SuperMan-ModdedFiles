@@ -17,8 +17,12 @@
 .method static constructor <clinit>()V
     .locals 5
 
+    .prologue
+    .line 35
     const/4 v0, 0x0
 
+    .line 36
+    .local v0, "field":Ljava/lang/reflect/Field;
     const-string v2, "android.bluetooth.BluetoothDevicePicker"
 
     const-string v3, "FILTER_TYPE_AUDIO_AG"
@@ -29,8 +33,10 @@
 
     move-result-object v0
 
+    .line 38
     if-eqz v0, :cond_0
 
+    .line 39
     const/4 v2, 0x0
 
     const/4 v3, -0x1
@@ -49,6 +55,8 @@
 
     move-result v1
 
+    .line 40
+    .local v1, "fieldValue":I
     const-string v2, "BluetoothDevicePickerWrapper"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -71,11 +79,15 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 41
     sput v1, Lcom/android/incallui/wrapper/BluetoothDevicePickerWrapper;->FILTER_TYPE_AUDIO_AG:I
 
+    .line 45
+    .end local v1    # "fieldValue":I
     :goto_0
     return-void
 
+    .line 43
     :cond_0
     const/4 v2, 0x5
 
@@ -87,6 +99,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

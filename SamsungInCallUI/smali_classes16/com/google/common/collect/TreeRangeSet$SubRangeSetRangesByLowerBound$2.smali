@@ -37,6 +37,9 @@
 .method constructor <init>(Lcom/google/common/collect/TreeRangeSet$SubRangeSetRangesByLowerBound;Ljava/util/Iterator;)V
     .locals 0
 
+    .prologue
+    .line 804
+    .local p0, "this":Lcom/google/common/collect/TreeRangeSet$SubRangeSetRangesByLowerBound$2;, "Lcom/google/common/collect/TreeRangeSet$SubRangeSetRangesByLowerBound.2;"
     iput-object p1, p0, Lcom/google/common/collect/TreeRangeSet$SubRangeSetRangesByLowerBound$2;->this$0:Lcom/google/common/collect/TreeRangeSet$SubRangeSetRangesByLowerBound;
 
     iput-object p2, p0, Lcom/google/common/collect/TreeRangeSet$SubRangeSetRangesByLowerBound$2;->val$completeRangeItr:Ljava/util/Iterator;
@@ -51,6 +54,9 @@
 .method protected bridge synthetic computeNext()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 804
+    .local p0, "this":Lcom/google/common/collect/TreeRangeSet$SubRangeSetRangesByLowerBound$2;, "Lcom/google/common/collect/TreeRangeSet$SubRangeSetRangesByLowerBound.2;"
     invoke-virtual {p0}, Lcom/google/common/collect/TreeRangeSet$SubRangeSetRangesByLowerBound$2;->computeNext()Ljava/util/Map$Entry;
 
     move-result-object v0
@@ -72,6 +78,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 807
+    .local p0, "this":Lcom/google/common/collect/TreeRangeSet$SubRangeSetRangesByLowerBound$2;, "Lcom/google/common/collect/TreeRangeSet$SubRangeSetRangesByLowerBound.2;"
     iget-object v1, p0, Lcom/google/common/collect/TreeRangeSet$SubRangeSetRangesByLowerBound$2;->val$completeRangeItr:Ljava/util/Iterator;
 
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
@@ -80,15 +89,18 @@
 
     if-nez v1, :cond_0
 
+    .line 808
     invoke-virtual {p0}, Lcom/google/common/collect/TreeRangeSet$SubRangeSetRangesByLowerBound$2;->endOfData()Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Ljava/util/Map$Entry;
 
+    .line 818
     :goto_0
     return-object v1
 
+    .line 810
     :cond_0
     iget-object v1, p0, Lcom/google/common/collect/TreeRangeSet$SubRangeSetRangesByLowerBound$2;->val$completeRangeItr:Ljava/util/Iterator;
 
@@ -98,6 +110,8 @@
 
     check-cast v0, Lcom/google/common/collect/Range;
 
+    .line 811
+    .local v0, "nextRange":Lcom/google/common/collect/Range;, "Lcom/google/common/collect/Range<TC;>;"
     iget-object v1, p0, Lcom/google/common/collect/TreeRangeSet$SubRangeSetRangesByLowerBound$2;->this$0:Lcom/google/common/collect/TreeRangeSet$SubRangeSetRangesByLowerBound;
 
     # getter for: Lcom/google/common/collect/TreeRangeSet$SubRangeSetRangesByLowerBound;->restriction:Lcom/google/common/collect/Range;
@@ -115,6 +129,7 @@
 
     if-ltz v1, :cond_1
 
+    .line 812
     invoke-virtual {p0}, Lcom/google/common/collect/TreeRangeSet$SubRangeSetRangesByLowerBound$2;->endOfData()Ljava/lang/Object;
 
     move-result-object v1
@@ -123,6 +138,7 @@
 
     goto :goto_0
 
+    .line 814
     :cond_1
     iget-object v1, p0, Lcom/google/common/collect/TreeRangeSet$SubRangeSetRangesByLowerBound$2;->this$0:Lcom/google/common/collect/TreeRangeSet$SubRangeSetRangesByLowerBound;
 
@@ -135,6 +151,7 @@
 
     move-result-object v0
 
+    .line 815
     iget-object v1, p0, Lcom/google/common/collect/TreeRangeSet$SubRangeSetRangesByLowerBound$2;->this$0:Lcom/google/common/collect/TreeRangeSet$SubRangeSetRangesByLowerBound;
 
     # getter for: Lcom/google/common/collect/TreeRangeSet$SubRangeSetRangesByLowerBound;->lowerBoundWindow:Lcom/google/common/collect/Range;
@@ -150,6 +167,7 @@
 
     if-eqz v1, :cond_2
 
+    .line 816
     iget-object v1, v0, Lcom/google/common/collect/Range;->lowerBound:Lcom/google/common/collect/Cut;
 
     invoke-static {v1, v0}, Lcom/google/common/collect/Maps;->immutableEntry(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map$Entry;
@@ -158,6 +176,7 @@
 
     goto :goto_0
 
+    .line 818
     :cond_2
     invoke-virtual {p0}, Lcom/google/common/collect/TreeRangeSet$SubRangeSetRangesByLowerBound$2;->endOfData()Ljava/lang/Object;
 

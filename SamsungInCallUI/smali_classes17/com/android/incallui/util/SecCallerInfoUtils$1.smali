@@ -29,6 +29,8 @@
 .method constructor <init>(Lcom/android/incallui/Call;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;Lcom/android/incallui/util/SecCallerInfoUtils$NumberChangedListener;)V
     .locals 0
 
+    .prologue
+    .line 120
     iput-object p1, p0, Lcom/android/incallui/util/SecCallerInfoUtils$1;->val$call:Lcom/android/incallui/Call;
 
     iput-object p2, p0, Lcom/android/incallui/util/SecCallerInfoUtils$1;->val$originPrimaryContactInfo:Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
@@ -45,6 +47,8 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 123
     iget-object v0, p0, Lcom/android/incallui/util/SecCallerInfoUtils$1;->val$call:Lcom/android/incallui/Call;
 
     iget-object v1, p0, Lcom/android/incallui/util/SecCallerInfoUtils$1;->val$originPrimaryContactInfo:Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
@@ -54,5 +58,6 @@
     # invokes: Lcom/android/incallui/util/SecCallerInfoUtils;->makeQueryAfterRemovePreviousInfo(Lcom/android/incallui/Call;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;Lcom/android/incallui/util/SecCallerInfoUtils$NumberChangedListener;)V
     invoke-static {v0, v1, v2}, Lcom/android/incallui/util/SecCallerInfoUtils;->access$000(Lcom/android/incallui/Call;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;Lcom/android/incallui/util/SecCallerInfoUtils$NumberChangedListener;)V
 
+    .line 124
     return-void
 .end method

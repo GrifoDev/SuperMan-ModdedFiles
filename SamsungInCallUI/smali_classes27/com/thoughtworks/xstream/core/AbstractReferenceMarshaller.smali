@@ -28,27 +28,36 @@
 # direct methods
 .method public constructor <init>(Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;Lcom/thoughtworks/xstream/converters/ConverterLookup;Lcom/thoughtworks/xstream/mapper/Mapper;)V
     .locals 2
+    .param p1, "writer"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
+    .param p2, "converterLookup"    # Lcom/thoughtworks/xstream/converters/ConverterLookup;
+    .param p3, "mapper"    # Lcom/thoughtworks/xstream/mapper/Mapper;
 
+    .prologue
+    .line 44
     invoke-direct {p0, p1, p2, p3}, Lcom/thoughtworks/xstream/core/TreeMarshaller;-><init>(Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;Lcom/thoughtworks/xstream/converters/ConverterLookup;Lcom/thoughtworks/xstream/mapper/Mapper;)V
 
+    .line 36
     new-instance v0, Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary;
 
     invoke-direct {v0}, Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary;-><init>()V
 
     iput-object v0, p0, Lcom/thoughtworks/xstream/core/AbstractReferenceMarshaller;->references:Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary;
 
+    .line 37
     new-instance v0, Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary;
 
     invoke-direct {v0}, Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary;-><init>()V
 
     iput-object v0, p0, Lcom/thoughtworks/xstream/core/AbstractReferenceMarshaller;->implicitElements:Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary;
 
+    .line 38
     new-instance v0, Lcom/thoughtworks/xstream/io/path/PathTracker;
 
     invoke-direct {v0}, Lcom/thoughtworks/xstream/io/path/PathTracker;-><init>()V
 
     iput-object v0, p0, Lcom/thoughtworks/xstream/core/AbstractReferenceMarshaller;->pathTracker:Lcom/thoughtworks/xstream/io/path/PathTracker;
 
+    .line 45
     new-instance v0, Lcom/thoughtworks/xstream/io/path/PathTrackingWriter;
 
     iget-object v1, p0, Lcom/thoughtworks/xstream/core/AbstractReferenceMarshaller;->pathTracker:Lcom/thoughtworks/xstream/io/path/PathTracker;
@@ -57,12 +66,16 @@
 
     iput-object v0, p0, Lcom/thoughtworks/xstream/core/AbstractReferenceMarshaller;->writer:Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
 
+    .line 46
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/thoughtworks/xstream/core/AbstractReferenceMarshaller;)Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary;
     .locals 1
+    .param p0, "x0"    # Lcom/thoughtworks/xstream/core/AbstractReferenceMarshaller;
 
+    .prologue
+    .line 34
     iget-object v0, p0, Lcom/thoughtworks/xstream/core/AbstractReferenceMarshaller;->references:Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary;
 
     return-object v0
@@ -70,7 +83,10 @@
 
 .method static synthetic access$100(Lcom/thoughtworks/xstream/core/AbstractReferenceMarshaller;)Lcom/thoughtworks/xstream/io/path/PathTracker;
     .locals 1
+    .param p0, "x0"    # Lcom/thoughtworks/xstream/core/AbstractReferenceMarshaller;
 
+    .prologue
+    .line 34
     iget-object v0, p0, Lcom/thoughtworks/xstream/core/AbstractReferenceMarshaller;->pathTracker:Lcom/thoughtworks/xstream/io/path/PathTracker;
 
     return-object v0
@@ -78,7 +94,10 @@
 
 .method static synthetic access$200(Lcom/thoughtworks/xstream/core/AbstractReferenceMarshaller;)Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary;
     .locals 1
+    .param p0, "x0"    # Lcom/thoughtworks/xstream/core/AbstractReferenceMarshaller;
 
+    .prologue
+    .line 34
     iget-object v0, p0, Lcom/thoughtworks/xstream/core/AbstractReferenceMarshaller;->implicitElements:Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary;
 
     return-object v0
@@ -88,7 +107,11 @@
 # virtual methods
 .method public convert(Ljava/lang/Object;Lcom/thoughtworks/xstream/converters/Converter;)V
     .locals 6
+    .param p1, "item"    # Ljava/lang/Object;
+    .param p2, "converter"    # Lcom/thoughtworks/xstream/converters/Converter;
 
+    .prologue
+    .line 49
     invoke-virtual {p0}, Lcom/thoughtworks/xstream/core/AbstractReferenceMarshaller;->getMapper()Lcom/thoughtworks/xstream/mapper/Mapper;
 
     move-result-object v4
@@ -103,14 +126,17 @@
 
     if-eqz v4, :cond_1
 
+    .line 51
     iget-object v4, p0, Lcom/thoughtworks/xstream/core/AbstractReferenceMarshaller;->writer:Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
 
     invoke-interface {p2, p1, v4, p0}, Lcom/thoughtworks/xstream/converters/Converter;->marshal(Ljava/lang/Object;Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;Lcom/thoughtworks/xstream/converters/MarshallingContext;)V
 
+    .line 116
     :cond_0
     :goto_0
     return-void
 
+    .line 53
     :cond_1
     iget-object v4, p0, Lcom/thoughtworks/xstream/core/AbstractReferenceMarshaller;->pathTracker:Lcom/thoughtworks/xstream/io/path/PathTracker;
 
@@ -118,6 +144,8 @@
 
     move-result-object v1
 
+    .line 54
+    .local v1, "currentPath":Lcom/thoughtworks/xstream/io/path/Path;
     iget-object v4, p0, Lcom/thoughtworks/xstream/core/AbstractReferenceMarshaller;->references:Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary;
 
     invoke-virtual {v4, p1}, Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary;->lookupId(Ljava/lang/Object;)Ljava/lang/Object;
@@ -126,6 +154,8 @@
 
     check-cast v2, Lcom/thoughtworks/xstream/core/AbstractReferenceMarshaller$Id;
 
+    .line 55
+    .local v2, "existingReference":Lcom/thoughtworks/xstream/core/AbstractReferenceMarshaller$Id;
     if-eqz v2, :cond_2
 
     invoke-virtual {v2}, Lcom/thoughtworks/xstream/core/AbstractReferenceMarshaller$Id;->getPath()Lcom/thoughtworks/xstream/io/path/Path;
@@ -134,6 +164,7 @@
 
     if-eq v4, v1, :cond_2
 
+    .line 56
     invoke-virtual {p0}, Lcom/thoughtworks/xstream/core/AbstractReferenceMarshaller;->getMapper()Lcom/thoughtworks/xstream/mapper/Mapper;
 
     move-result-object v4
@@ -144,8 +175,11 @@
 
     move-result-object v0
 
+    .line 57
+    .local v0, "attributeName":Ljava/lang/String;
     if-eqz v0, :cond_0
 
+    .line 58
     iget-object v4, p0, Lcom/thoughtworks/xstream/core/AbstractReferenceMarshaller;->writer:Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
 
     invoke-virtual {v2}, Lcom/thoughtworks/xstream/core/AbstractReferenceMarshaller$Id;->getItem()Ljava/lang/Object;
@@ -160,6 +194,8 @@
 
     goto :goto_0
 
+    .line 61
+    .end local v0    # "attributeName":Ljava/lang/String;
     :cond_2
     if-nez v2, :cond_5
 
@@ -167,6 +203,8 @@
 
     move-result-object v3
 
+    .line 64
+    .local v3, "newReferenceKey":Ljava/lang/Object;
     :goto_1
     iget-object v4, p0, Lcom/thoughtworks/xstream/core/AbstractReferenceMarshaller;->lastPath:Lcom/thoughtworks/xstream/io/path/Path;
 
@@ -180,11 +218,14 @@
 
     if-nez v4, :cond_4
 
+    .line 65
     :cond_3
     invoke-virtual {p0, v3}, Lcom/thoughtworks/xstream/core/AbstractReferenceMarshaller;->fireValidReference(Ljava/lang/Object;)V
 
+    .line 66
     iput-object v1, p0, Lcom/thoughtworks/xstream/core/AbstractReferenceMarshaller;->lastPath:Lcom/thoughtworks/xstream/io/path/Path;
 
+    .line 67
     iget-object v4, p0, Lcom/thoughtworks/xstream/core/AbstractReferenceMarshaller;->references:Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary;
 
     new-instance v5, Lcom/thoughtworks/xstream/core/AbstractReferenceMarshaller$Id;
@@ -193,6 +234,7 @@
 
     invoke-virtual {v4, p1, v5}, Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary;->associateId(Ljava/lang/Object;Ljava/lang/Object;)V
 
+    .line 69
     :cond_4
     iget-object v4, p0, Lcom/thoughtworks/xstream/core/AbstractReferenceMarshaller;->writer:Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
 
@@ -204,6 +246,8 @@
 
     goto :goto_0
 
+    .line 61
+    .end local v3    # "newReferenceKey":Ljava/lang/Object;
     :cond_5
     invoke-virtual {v2}, Lcom/thoughtworks/xstream/core/AbstractReferenceMarshaller$Id;->getItem()Ljava/lang/Object;
 

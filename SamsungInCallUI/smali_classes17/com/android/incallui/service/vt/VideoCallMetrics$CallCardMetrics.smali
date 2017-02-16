@@ -37,11 +37,15 @@
 # direct methods
 .method public constructor <init>(Lcom/android/incallui/service/vt/VideoCallMetrics;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/service/vt/VideoCallMetrics;
 
+    .prologue
+    .line 604
     iput-object p1, p0, Lcom/android/incallui/service/vt/VideoCallMetrics$CallCardMetrics;->this$0:Lcom/android/incallui/service/vt/VideoCallMetrics;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 605
     return-void
 .end method
 
@@ -50,6 +54,8 @@
 .method public dump()V
     .locals 2
 
+    .prologue
+    .line 608
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -78,6 +84,7 @@
 
     invoke-static {v0}, Lcom/android/incallui/service/vt/VideoCallLog;->debug(Ljava/lang/String;)V
 
+    .line 609
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -106,6 +113,7 @@
 
     invoke-static {v0}, Lcom/android/incallui/service/vt/VideoCallLog;->debug(Ljava/lang/String;)V
 
+    .line 610
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -134,6 +142,7 @@
 
     invoke-static {v0}, Lcom/android/incallui/service/vt/VideoCallLog;->debug(Ljava/lang/String;)V
 
+    .line 611
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -162,5 +171,6 @@
 
     invoke-static {v0}, Lcom/android/incallui/service/vt/VideoCallLog;->debug(Ljava/lang/String;)V
 
+    .line 612
     return-void
 .end method

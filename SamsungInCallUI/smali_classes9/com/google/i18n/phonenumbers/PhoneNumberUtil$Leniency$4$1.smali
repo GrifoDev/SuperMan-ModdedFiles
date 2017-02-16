@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/google/i18n/phonenumbers/PhoneNumberUtil$Leniency$4;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/google/i18n/phonenumbers/PhoneNumberUtil$Leniency$4;
 
+    .prologue
+    .line 534
     iput-object p1, p0, Lcom/google/i18n/phonenumbers/PhoneNumberUtil$Leniency$4$1;->this$0:Lcom/google/i18n/phonenumbers/PhoneNumberUtil$Leniency$4;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +39,13 @@
 # virtual methods
 .method public checkGroups(Lcom/google/i18n/phonenumbers/PhoneNumberUtil;Lcom/google/i18n/phonenumbers/Phonenumber$PhoneNumber;Ljava/lang/StringBuilder;[Ljava/lang/String;)Z
     .locals 1
+    .param p1, "util"    # Lcom/google/i18n/phonenumbers/PhoneNumberUtil;
+    .param p2, "number"    # Lcom/google/i18n/phonenumbers/Phonenumber$PhoneNumber;
+    .param p3, "normalizedCandidate"    # Ljava/lang/StringBuilder;
+    .param p4, "expectedNumberGroups"    # [Ljava/lang/String;
 
+    .prologue
+    .line 539
     invoke-static {p1, p2, p3, p4}, Lcom/google/i18n/phonenumbers/PhoneNumberMatcher;->allNumberGroupsAreExactlyPresent(Lcom/google/i18n/phonenumbers/PhoneNumberUtil;Lcom/google/i18n/phonenumbers/Phonenumber$PhoneNumber;Ljava/lang/StringBuilder;[Ljava/lang/String;)Z
 
     move-result v0

@@ -7,6 +7,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -31,6 +33,8 @@
 
 .method public parse(Ljava/io/InputStream;Lcom/android/vcard/VCardInterpreter;)V
     .locals 0
+    .param p1, "is"    # Ljava/io/InputStream;
+    .param p2, "interpreter"    # Lcom/android/vcard/VCardInterpreter;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -41,10 +45,14 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    .prologue
+    .line 83
     invoke-virtual {p0, p2}, Lcom/android/vcard/VCardParser;->addInterpreter(Lcom/android/vcard/VCardInterpreter;)V
 
+    .line 84
     invoke-virtual {p0, p1}, Lcom/android/vcard/VCardParser;->parse(Ljava/io/InputStream;)V
 
+    .line 85
     return-void
 .end method
 

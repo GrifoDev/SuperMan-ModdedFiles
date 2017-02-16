@@ -53,12 +53,18 @@
         }
     .end annotation
 
+    .prologue
+    .line 226
+    .local p0, "this":Lcom/google/common/collect/TreeRangeMap$AsMapOfRanges;, "Lcom/google/common/collect/TreeRangeMap<TK;TV;>.AsMapOfRanges;"
+    .local p2, "entryIterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<Lcom/google/common/collect/TreeRangeMap$RangeMapEntry<TK;TV;>;>;"
     iput-object p1, p0, Lcom/google/common/collect/TreeRangeMap$AsMapOfRanges;->this$0:Lcom/google/common/collect/TreeRangeMap;
 
     invoke-direct {p0}, Lcom/google/common/collect/Maps$IteratorBasedAbstractMap;-><init>()V
 
+    .line 227
     iput-object p2, p0, Lcom/google/common/collect/TreeRangeMap$AsMapOfRanges;->entryIterable:Ljava/lang/Iterable;
 
+    .line 228
     return-void
 .end method
 
@@ -66,11 +72,14 @@
 # virtual methods
 .method public containsKey(Ljava/lang/Object;)Z
     .locals 1
-    .param p1    # Ljava/lang/Object;
+    .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
+    .prologue
+    .line 232
+    .local p0, "this":Lcom/google/common/collect/TreeRangeMap$AsMapOfRanges;, "Lcom/google/common/collect/TreeRangeMap<TK;TV;>.AsMapOfRanges;"
     invoke-virtual {p0, p1}, Lcom/google/common/collect/TreeRangeMap$AsMapOfRanges;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -102,6 +111,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 254
+    .local p0, "this":Lcom/google/common/collect/TreeRangeMap$AsMapOfRanges;, "Lcom/google/common/collect/TreeRangeMap<TK;TV;>.AsMapOfRanges;"
     iget-object v0, p0, Lcom/google/common/collect/TreeRangeMap$AsMapOfRanges;->entryIterable:Ljava/lang/Iterable;
 
     invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
@@ -113,7 +125,7 @@
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 4
-    .param p1    # Ljava/lang/Object;
+    .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -125,14 +137,20 @@
         }
     .end annotation
 
+    .prologue
+    .line 237
+    .local p0, "this":Lcom/google/common/collect/TreeRangeMap$AsMapOfRanges;, "Lcom/google/common/collect/TreeRangeMap<TK;TV;>.AsMapOfRanges;"
     instance-of v2, p1, Lcom/google/common/collect/Range;
 
     if-eqz v2, :cond_0
 
     move-object v0, p1
 
+    .line 238
     check-cast v0, Lcom/google/common/collect/Range;
 
+    .line 239
+    .local v0, "range":Lcom/google/common/collect/Range;, "Lcom/google/common/collect/Range<*>;"
     iget-object v2, p0, Lcom/google/common/collect/TreeRangeMap$AsMapOfRanges;->this$0:Lcom/google/common/collect/TreeRangeMap;
 
     # getter for: Lcom/google/common/collect/TreeRangeMap;->entriesByLowerBound:Ljava/util/NavigableMap;
@@ -148,6 +166,8 @@
 
     check-cast v1, Lcom/google/common/collect/TreeRangeMap$RangeMapEntry;
 
+    .line 240
+    .local v1, "rangeMapEntry":Lcom/google/common/collect/TreeRangeMap$RangeMapEntry;, "Lcom/google/common/collect/TreeRangeMap$RangeMapEntry<TK;TV;>;"
     if-eqz v1, :cond_0
 
     invoke-virtual {v1}, Lcom/google/common/collect/TreeRangeMap$RangeMapEntry;->getKey()Lcom/google/common/collect/Range;
@@ -160,10 +180,14 @@
 
     if-eqz v2, :cond_0
 
+    .line 241
     invoke-virtual {v1}, Lcom/google/common/collect/TreeRangeMap$RangeMapEntry;->getValue()Ljava/lang/Object;
 
     move-result-object v2
 
+    .line 244
+    .end local v0    # "range":Lcom/google/common/collect/Range;, "Lcom/google/common/collect/Range<*>;"
+    .end local v1    # "rangeMapEntry":Lcom/google/common/collect/TreeRangeMap$RangeMapEntry;, "Lcom/google/common/collect/TreeRangeMap$RangeMapEntry<TK;TV;>;"
     :goto_0
     return-object v2
 
@@ -176,6 +200,9 @@
 .method public size()I
     .locals 1
 
+    .prologue
+    .line 249
+    .local p0, "this":Lcom/google/common/collect/TreeRangeMap$AsMapOfRanges;, "Lcom/google/common/collect/TreeRangeMap<TK;TV;>.AsMapOfRanges;"
     iget-object v0, p0, Lcom/google/common/collect/TreeRangeMap$AsMapOfRanges;->this$0:Lcom/google/common/collect/TreeRangeMap;
 
     # getter for: Lcom/google/common/collect/TreeRangeMap;->entriesByLowerBound:Ljava/util/NavigableMap;

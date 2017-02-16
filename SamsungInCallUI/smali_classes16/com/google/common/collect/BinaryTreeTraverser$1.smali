@@ -31,6 +31,9 @@
 .method constructor <init>(Lcom/google/common/collect/BinaryTreeTraverser;Ljava/lang/Object;)V
     .locals 0
 
+    .prologue
+    .line 60
+    .local p0, "this":Lcom/google/common/collect/BinaryTreeTraverser$1;, "Lcom/google/common/collect/BinaryTreeTraverser.1;"
     iput-object p1, p0, Lcom/google/common/collect/BinaryTreeTraverser$1;->this$0:Lcom/google/common/collect/BinaryTreeTraverser;
 
     iput-object p2, p0, Lcom/google/common/collect/BinaryTreeTraverser$1;->val$root:Ljava/lang/Object;
@@ -52,6 +55,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 63
+    .local p0, "this":Lcom/google/common/collect/BinaryTreeTraverser$1;, "Lcom/google/common/collect/BinaryTreeTraverser.1;"
     new-instance v0, Lcom/google/common/collect/BinaryTreeTraverser$1$1;
 
     invoke-direct {v0, p0}, Lcom/google/common/collect/BinaryTreeTraverser$1$1;-><init>(Lcom/google/common/collect/BinaryTreeTraverser$1;)V

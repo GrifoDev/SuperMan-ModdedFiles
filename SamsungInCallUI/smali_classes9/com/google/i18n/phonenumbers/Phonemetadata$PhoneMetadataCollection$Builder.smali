@@ -18,6 +18,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 1134
     invoke-direct {p0}, Lcom/google/i18n/phonenumbers/Phonemetadata$PhoneMetadataCollection;-><init>()V
 
     return-void
@@ -28,5 +30,7 @@
 .method public build()Lcom/google/i18n/phonenumbers/Phonemetadata$PhoneMetadataCollection;
     .locals 0
 
+    .prologue
+    .line 1136
     return-object p0
 .end method

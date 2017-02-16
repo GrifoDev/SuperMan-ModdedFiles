@@ -33,11 +33,17 @@
 # direct methods
 .method constructor <init>(Ljava/lang/reflect/Method;)V
     .locals 0
+    .param p1, "method"    # Ljava/lang/reflect/Method;
 
+    .prologue
+    .line 191
+    .local p0, "this":Lcom/google/common/reflect/Invokable$MethodInvokable;, "Lcom/google/common/reflect/Invokable$MethodInvokable<TT;>;"
     invoke-direct {p0, p1}, Lcom/google/common/reflect/Invokable;-><init>(Ljava/lang/reflect/AccessibleObject;)V
 
+    .line 192
     iput-object p1, p0, Lcom/google/common/reflect/Invokable$MethodInvokable;->method:Ljava/lang/reflect/Method;
 
+    .line 193
     return-void
 .end method
 
@@ -46,6 +52,9 @@
 .method getGenericExceptionTypes()[Ljava/lang/reflect/Type;
     .locals 1
 
+    .prologue
+    .line 209
+    .local p0, "this":Lcom/google/common/reflect/Invokable$MethodInvokable;, "Lcom/google/common/reflect/Invokable$MethodInvokable<TT;>;"
     iget-object v0, p0, Lcom/google/common/reflect/Invokable$MethodInvokable;->method:Ljava/lang/reflect/Method;
 
     invoke-virtual {v0}, Ljava/lang/reflect/Method;->getGenericExceptionTypes()[Ljava/lang/reflect/Type;
@@ -58,6 +67,9 @@
 .method getGenericParameterTypes()[Ljava/lang/reflect/Type;
     .locals 1
 
+    .prologue
+    .line 205
+    .local p0, "this":Lcom/google/common/reflect/Invokable$MethodInvokable;, "Lcom/google/common/reflect/Invokable$MethodInvokable<TT;>;"
     iget-object v0, p0, Lcom/google/common/reflect/Invokable$MethodInvokable;->method:Ljava/lang/reflect/Method;
 
     invoke-virtual {v0}, Ljava/lang/reflect/Method;->getGenericParameterTypes()[Ljava/lang/reflect/Type;
@@ -70,6 +82,9 @@
 .method getGenericReturnType()Ljava/lang/reflect/Type;
     .locals 1
 
+    .prologue
+    .line 201
+    .local p0, "this":Lcom/google/common/reflect/Invokable$MethodInvokable;, "Lcom/google/common/reflect/Invokable$MethodInvokable<TT;>;"
     iget-object v0, p0, Lcom/google/common/reflect/Invokable$MethodInvokable;->method:Ljava/lang/reflect/Method;
 
     invoke-virtual {v0}, Ljava/lang/reflect/Method;->getGenericReturnType()Ljava/lang/reflect/Type;
@@ -82,6 +97,9 @@
 .method final getParameterAnnotations()[[Ljava/lang/annotation/Annotation;
     .locals 1
 
+    .prologue
+    .line 213
+    .local p0, "this":Lcom/google/common/reflect/Invokable$MethodInvokable;, "Lcom/google/common/reflect/Invokable$MethodInvokable<TT;>;"
     iget-object v0, p0, Lcom/google/common/reflect/Invokable$MethodInvokable;->method:Ljava/lang/reflect/Method;
 
     invoke-virtual {v0}, Ljava/lang/reflect/Method;->getParameterAnnotations()[[Ljava/lang/annotation/Annotation;
@@ -101,6 +119,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 217
+    .local p0, "this":Lcom/google/common/reflect/Invokable$MethodInvokable;, "Lcom/google/common/reflect/Invokable$MethodInvokable<TT;>;"
     iget-object v0, p0, Lcom/google/common/reflect/Invokable$MethodInvokable;->method:Ljava/lang/reflect/Method;
 
     invoke-virtual {v0}, Ljava/lang/reflect/Method;->getTypeParameters()[Ljava/lang/reflect/TypeVariable;
@@ -112,10 +133,11 @@
 
 .method final invokeInternal(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1    # Ljava/lang/Object;
+    .param p1, "receiver"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
+    .param p2, "args"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/reflect/InvocationTargetException;,
@@ -123,6 +145,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 197
+    .local p0, "this":Lcom/google/common/reflect/Invokable$MethodInvokable;, "Lcom/google/common/reflect/Invokable$MethodInvokable<TT;>;"
     iget-object v0, p0, Lcom/google/common/reflect/Invokable$MethodInvokable;->method:Ljava/lang/reflect/Method;
 
     invoke-virtual {v0, p1, p2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
@@ -135,6 +160,9 @@
 .method public final isOverridable()Z
     .locals 1
 
+    .prologue
+    .line 221
+    .local p0, "this":Lcom/google/common/reflect/Invokable$MethodInvokable;, "Lcom/google/common/reflect/Invokable$MethodInvokable<TT;>;"
     invoke-virtual {p0}, Lcom/google/common/reflect/Invokable$MethodInvokable;->isFinal()Z
 
     move-result v0
@@ -181,6 +209,9 @@
 .method public final isVarArgs()Z
     .locals 1
 
+    .prologue
+    .line 226
+    .local p0, "this":Lcom/google/common/reflect/Invokable$MethodInvokable;, "Lcom/google/common/reflect/Invokable$MethodInvokable<TT;>;"
     iget-object v0, p0, Lcom/google/common/reflect/Invokable$MethodInvokable;->method:Ljava/lang/reflect/Method;
 
     invoke-virtual {v0}, Ljava/lang/reflect/Method;->isVarArgs()Z

@@ -46,7 +46,9 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
+    .param p1, "context"    # Landroid/content/Context;
 
+    .prologue
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Lcom/google/android/gms/plus/PlusOneButton;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -56,7 +58,10 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
+    .prologue
     invoke-direct {p0, p1, p2}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
     invoke-static {p1, p2}, Lcom/google/android/gms/plus/PlusOneButton;->getSize(Landroid/content/Context;Landroid/util/AttributeSet;)I
@@ -146,7 +151,10 @@
 
 .method protected static getAnnotation(Landroid/content/Context;Landroid/util/AttributeSet;)I
     .locals 7
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "attrs"    # Landroid/util/AttributeSet;
 
+    .prologue
     const/4 v4, 0x1
 
     const/4 v5, 0x0
@@ -195,7 +203,10 @@
 
 .method protected static getSize(Landroid/content/Context;Landroid/util/AttributeSet;)I
     .locals 7
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "attrs"    # Landroid/util/AttributeSet;
 
+    .prologue
     const/4 v4, 0x1
 
     const/4 v5, 0x0
@@ -261,7 +272,10 @@
 # virtual methods
 .method public initialize(Ljava/lang/String;I)V
     .locals 2
+    .param p1, "url"    # Ljava/lang/String;
+    .param p2, "activityRequestCode"    # I
 
+    .prologue
     invoke-virtual {p0}, Lcom/google/android/gms/plus/PlusOneButton;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -287,7 +301,10 @@
 
 .method public initialize(Ljava/lang/String;Lcom/google/android/gms/plus/PlusOneButton$OnPlusOneClickListener;)V
     .locals 1
+    .param p1, "url"    # Ljava/lang/String;
+    .param p2, "plusOneClickListener"    # Lcom/google/android/gms/plus/PlusOneButton$OnPlusOneClickListener;
 
+    .prologue
     iput-object p1, p0, Lcom/google/android/gms/plus/PlusOneButton;->ie:Ljava/lang/String;
 
     const/4 v0, 0x0
@@ -307,7 +324,13 @@
 
 .method protected onLayout(ZIIII)V
     .locals 4
+    .param p1, "changed"    # Z
+    .param p2, "left"    # I
+    .param p3, "top"    # I
+    .param p4, "right"    # I
+    .param p5, "bottom"    # I
 
+    .prologue
     const/4 v3, 0x0
 
     iget-object v0, p0, Lcom/google/android/gms/plus/PlusOneButton;->ic:Landroid/view/View;
@@ -323,7 +346,10 @@
 
 .method protected onMeasure(II)V
     .locals 2
+    .param p1, "widthMeasureSpec"    # I
+    .param p2, "heightMeasureSpec"    # I
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/plus/PlusOneButton;->ic:Landroid/view/View;
 
     invoke-virtual {p0, v0, p1, p2}, Lcom/google/android/gms/plus/PlusOneButton;->measureChild(Landroid/view/View;II)V
@@ -343,7 +369,9 @@
 
 .method public setAnnotation(I)V
     .locals 1
+    .param p1, "annotation"    # I
 
+    .prologue
     iput p1, p0, Lcom/google/android/gms/plus/PlusOneButton;->id:I
 
     invoke-virtual {p0}, Lcom/google/android/gms/plus/PlusOneButton;->getContext()Landroid/content/Context;
@@ -357,7 +385,9 @@
 
 .method public setOnPlusOneClickListener(Lcom/google/android/gms/plus/PlusOneButton$OnPlusOneClickListener;)V
     .locals 2
+    .param p1, "listener"    # Lcom/google/android/gms/plus/PlusOneButton$OnPlusOneClickListener;
 
+    .prologue
     iput-object p1, p0, Lcom/google/android/gms/plus/PlusOneButton;->ig:Lcom/google/android/gms/plus/PlusOneButton$OnPlusOneClickListener;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/PlusOneButton;->ic:Landroid/view/View;
@@ -373,7 +403,9 @@
 
 .method public setSize(I)V
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
     iput p1, p0, Lcom/google/android/gms/plus/PlusOneButton;->O:I
 
     invoke-virtual {p0}, Lcom/google/android/gms/plus/PlusOneButton;->getContext()Landroid/content/Context;

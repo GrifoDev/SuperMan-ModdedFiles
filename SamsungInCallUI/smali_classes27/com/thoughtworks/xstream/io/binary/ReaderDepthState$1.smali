@@ -27,6 +27,8 @@
 .method constructor <init>(Lcom/thoughtworks/xstream/io/binary/ReaderDepthState;Ljava/util/Iterator;)V
     .locals 0
 
+    .prologue
+    .line 132
     iput-object p1, p0, Lcom/thoughtworks/xstream/io/binary/ReaderDepthState$1;->this$0:Lcom/thoughtworks/xstream/io/binary/ReaderDepthState;
 
     iput-object p2, p0, Lcom/thoughtworks/xstream/io/binary/ReaderDepthState$1;->val$attributeIterator:Ljava/util/Iterator;
@@ -41,6 +43,8 @@
 .method public hasNext()Z
     .locals 1
 
+    .prologue
+    .line 134
     iget-object v0, p0, Lcom/thoughtworks/xstream/io/binary/ReaderDepthState$1;->val$attributeIterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -53,6 +57,8 @@
 .method public next()Ljava/lang/Object;
     .locals 2
 
+    .prologue
+    .line 138
     iget-object v1, p0, Lcom/thoughtworks/xstream/io/binary/ReaderDepthState$1;->val$attributeIterator:Ljava/util/Iterator;
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -61,6 +67,8 @@
 
     check-cast v0, Lcom/thoughtworks/xstream/io/binary/ReaderDepthState$Attribute;
 
+    .line 139
+    .local v0, "attribute":Lcom/thoughtworks/xstream/io/binary/ReaderDepthState$Attribute;
     iget-object v1, v0, Lcom/thoughtworks/xstream/io/binary/ReaderDepthState$Attribute;->name:Ljava/lang/String;
 
     return-object v1
@@ -69,6 +77,8 @@
 .method public remove()V
     .locals 1
 
+    .prologue
+    .line 143
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V

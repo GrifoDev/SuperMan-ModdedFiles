@@ -46,6 +46,7 @@
 .method static constructor <clinit>()V
     .locals 8
 
+    .prologue
     const/4 v7, 0x4
 
     const/4 v6, 0x3
@@ -56,6 +57,7 @@
 
     const/4 v3, 0x0
 
+    .line 189
     new-instance v0, Lcom/google/common/util/concurrent/Service$State$1;
 
     const-string v1, "NEW"
@@ -64,6 +66,7 @@
 
     sput-object v0, Lcom/google/common/util/concurrent/Service$State;->NEW:Lcom/google/common/util/concurrent/Service$State;
 
+    .line 198
     new-instance v0, Lcom/google/common/util/concurrent/Service$State$2;
 
     const-string v1, "STARTING"
@@ -72,6 +75,7 @@
 
     sput-object v0, Lcom/google/common/util/concurrent/Service$State;->STARTING:Lcom/google/common/util/concurrent/Service$State;
 
+    .line 207
     new-instance v0, Lcom/google/common/util/concurrent/Service$State$3;
 
     const-string v1, "RUNNING"
@@ -80,6 +84,7 @@
 
     sput-object v0, Lcom/google/common/util/concurrent/Service$State;->RUNNING:Lcom/google/common/util/concurrent/Service$State;
 
+    .line 216
     new-instance v0, Lcom/google/common/util/concurrent/Service$State$4;
 
     const-string v1, "STOPPING"
@@ -88,6 +93,7 @@
 
     sput-object v0, Lcom/google/common/util/concurrent/Service$State;->STOPPING:Lcom/google/common/util/concurrent/Service$State;
 
+    .line 226
     new-instance v0, Lcom/google/common/util/concurrent/Service$State$5;
 
     const-string v1, "TERMINATED"
@@ -96,6 +102,7 @@
 
     sput-object v0, Lcom/google/common/util/concurrent/Service$State;->TERMINATED:Lcom/google/common/util/concurrent/Service$State;
 
+    .line 236
     new-instance v0, Lcom/google/common/util/concurrent/Service$State$6;
 
     const-string v1, "FAILED"
@@ -106,6 +113,7 @@
 
     sput-object v0, Lcom/google/common/util/concurrent/Service$State;->FAILED:Lcom/google/common/util/concurrent/Service$State;
 
+    .line 183
     const/4 v0, 0x6
 
     new-array v0, v0, [Lcom/google/common/util/concurrent/Service$State;
@@ -149,6 +157,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 184
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -156,7 +166,12 @@
 
 .method synthetic constructor <init>(Ljava/lang/String;ILcom/google/common/util/concurrent/Service$1;)V
     .locals 0
+    .param p1, "x0"    # Ljava/lang/String;
+    .param p2, "x1"    # I
+    .param p3, "x2"    # Lcom/google/common/util/concurrent/Service$1;
 
+    .prologue
+    .line 184
     invoke-direct {p0, p1, p2}, Lcom/google/common/util/concurrent/Service$State;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -164,7 +179,10 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/common/util/concurrent/Service$State;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 183
     const-class v0, Lcom/google/common/util/concurrent/Service$State;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -179,6 +197,8 @@
 .method public static values()[Lcom/google/common/util/concurrent/Service$State;
     .locals 1
 
+    .prologue
+    .line 183
     sget-object v0, Lcom/google/common/util/concurrent/Service$State;->$VALUES:[Lcom/google/common/util/concurrent/Service$State;
 
     invoke-virtual {v0}, [Lcom/google/common/util/concurrent/Service$State;->clone()Ljava/lang/Object;

@@ -34,8 +34,12 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 54
+    .local p0, "this":Lcom/google/common/collect/TreeTraverser;, "Lcom/google/common/collect/TreeTraverser<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 189
     return-void
 .end method
 
@@ -51,8 +55,13 @@
         }
     .end annotation
 
+    .prologue
+    .line 180
+    .local p0, "this":Lcom/google/common/collect/TreeTraverser;, "Lcom/google/common/collect/TreeTraverser<TT;>;"
+    .local p1, "root":Ljava/lang/Object;, "TT;"
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 181
     new-instance v0, Lcom/google/common/collect/TreeTraverser$3;
 
     invoke-direct {v0, p0, p1}, Lcom/google/common/collect/TreeTraverser$3;-><init>(Lcom/google/common/collect/TreeTraverser;Ljava/lang/Object;)V
@@ -80,6 +89,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 131
+    .local p0, "this":Lcom/google/common/collect/TreeTraverser;, "Lcom/google/common/collect/TreeTraverser<TT;>;"
+    .local p1, "root":Ljava/lang/Object;, "TT;"
     new-instance v0, Lcom/google/common/collect/TreeTraverser$PostOrderIterator;
 
     invoke-direct {v0, p0, p1}, Lcom/google/common/collect/TreeTraverser$PostOrderIterator;-><init>(Lcom/google/common/collect/TreeTraverser;Ljava/lang/Object;)V
@@ -97,8 +110,13 @@
         }
     .end annotation
 
+    .prologue
+    .line 120
+    .local p0, "this":Lcom/google/common/collect/TreeTraverser;, "Lcom/google/common/collect/TreeTraverser<TT;>;"
+    .local p1, "root":Ljava/lang/Object;, "TT;"
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 121
     new-instance v0, Lcom/google/common/collect/TreeTraverser$2;
 
     invoke-direct {v0, p0, p1}, Lcom/google/common/collect/TreeTraverser$2;-><init>(Lcom/google/common/collect/TreeTraverser;Ljava/lang/Object;)V
@@ -116,6 +134,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 81
+    .local p0, "this":Lcom/google/common/collect/TreeTraverser;, "Lcom/google/common/collect/TreeTraverser<TT;>;"
+    .local p1, "root":Ljava/lang/Object;, "TT;"
     new-instance v0, Lcom/google/common/collect/TreeTraverser$PreOrderIterator;
 
     invoke-direct {v0, p0, p1}, Lcom/google/common/collect/TreeTraverser$PreOrderIterator;-><init>(Lcom/google/common/collect/TreeTraverser;Ljava/lang/Object;)V
@@ -133,8 +155,13 @@
         }
     .end annotation
 
+    .prologue
+    .line 70
+    .local p0, "this":Lcom/google/common/collect/TreeTraverser;, "Lcom/google/common/collect/TreeTraverser<TT;>;"
+    .local p1, "root":Ljava/lang/Object;, "TT;"
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 71
     new-instance v0, Lcom/google/common/collect/TreeTraverser$1;
 
     invoke-direct {v0, p0, p1}, Lcom/google/common/collect/TreeTraverser$1;-><init>(Lcom/google/common/collect/TreeTraverser;Ljava/lang/Object;)V

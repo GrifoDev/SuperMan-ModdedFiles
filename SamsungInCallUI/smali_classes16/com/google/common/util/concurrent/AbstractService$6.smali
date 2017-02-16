@@ -22,6 +22,8 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
+    .line 220
     invoke-static {}, Lcom/google/common/util/concurrent/Service$State;->values()[Lcom/google/common/util/concurrent/Service$State;
 
     move-result-object v0

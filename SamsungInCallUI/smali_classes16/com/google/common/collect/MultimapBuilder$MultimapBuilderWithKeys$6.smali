@@ -31,6 +31,9 @@
 .method constructor <init>(Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys;Ljava/lang/Class;)V
     .locals 0
 
+    .prologue
+    .line 409
+    .local p0, "this":Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys$6;, "Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys.6;"
     iput-object p1, p0, Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys$6;->this$0:Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys;
 
     iput-object p2, p0, Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys$6;->val$valueClass:Ljava/lang/Class;
@@ -45,6 +48,9 @@
 .method public bridge synthetic build()Lcom/google/common/collect/Multimap;
     .locals 1
 
+    .prologue
+    .line 409
+    .local p0, "this":Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys$6;, "Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys.6;"
     invoke-virtual {p0}, Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys$6;->build()Lcom/google/common/collect/SetMultimap;
 
     move-result-object v0
@@ -62,12 +68,17 @@
         }
     .end annotation
 
+    .prologue
+    .line 415
+    .local p0, "this":Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys$6;, "Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys.6;"
     new-instance v0, Lcom/google/common/collect/MultimapBuilder$EnumSetSupplier;
 
     iget-object v1, p0, Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys$6;->val$valueClass:Ljava/lang/Class;
 
     invoke-direct {v0, v1}, Lcom/google/common/collect/MultimapBuilder$EnumSetSupplier;-><init>(Ljava/lang/Class;)V
 
+    .line 416
+    .local v0, "factory":Lcom/google/common/base/Supplier;, "Lcom/google/common/base/Supplier<Ljava/util/Set<TV;>;>;"
     iget-object v1, p0, Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys$6;->this$0:Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys;
 
     invoke-virtual {v1}, Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys;->createMap()Ljava/util/Map;

@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/VoiceCallCardFragment$7;)V
     .locals 0
+    .param p1, "this$1"    # Lcom/android/incallui/fragment/VoiceCallCardFragment$7;
 
+    .prologue
+    .line 1848
     iput-object p1, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment$7$1;->this$1:Lcom/android/incallui/fragment/VoiceCallCardFragment$7;
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
@@ -33,13 +36,17 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 1851
     const-string v0, "VoiceCallCardFragment"
 
     const-string v1, "animateForNewOutgoingCall: onAnimationEnd"
 
     invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 1852
     iget-object v0, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment$7$1;->this$1:Lcom/android/incallui/fragment/VoiceCallCardFragment$7;
 
     iget-object v0, v0, Lcom/android/incallui/fragment/VoiceCallCardFragment$7;->this$0:Lcom/android/incallui/fragment/VoiceCallCardFragment;
@@ -48,5 +55,6 @@
 
     iput-boolean v1, v0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mIsOutgoingAnimationRunning:Z
 
+    .line 1853
     return-void
 .end method

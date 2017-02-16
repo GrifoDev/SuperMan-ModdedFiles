@@ -22,6 +22,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 179
     new-instance v0, Lcom/yulore/android/common/pool/ThreadManager;
 
     const/4 v1, 0x0
@@ -36,6 +38,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 178
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

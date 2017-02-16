@@ -32,7 +32,10 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 3
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .param p2, "which"    # I
 
+    .prologue
     :try_start_0
     iget-object v0, p0, Lcom/google/android/gms/internal/i;->mIntent:Landroid/content/Intent;
 

@@ -30,7 +30,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/secrcs/RcsShareUI;Ljava/lang/String;Ljava/lang/String;Lcom/android/incallui/secrcs/RcsInvitation;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/secrcs/RcsShareUI;
 
+    .prologue
+    .line 1793
     iput-object p1, p0, Lcom/android/incallui/secrcs/RcsShareUI$6;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
 
     iput-object p2, p0, Lcom/android/incallui/secrcs/RcsShareUI$6;->val$name:Ljava/lang/String;
@@ -48,7 +51,10 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 6
+    .param p1, "v"    # Landroid/view/View;
 
+    .prologue
+    .line 1797
     # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$300()Ljava/lang/String;
 
@@ -88,14 +94,20 @@
 
     invoke-static {v3, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 1798
     iget-object v3, p0, Lcom/android/incallui/secrcs/RcsShareUI$6;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
 
     invoke-virtual {v3}, Lcom/android/incallui/secrcs/RcsShareUI;->dismissIncomingDialog()V
 
+    .line 1799
     const/4 v2, 0x0
 
+    .line 1800
+    .local v2, "intent":Landroid/content/Intent;
     const/4 v1, 0x0
 
+    .line 1801
+    .local v1, "i":Landroid/content/Intent;
     iget-object v3, p0, Lcom/android/incallui/secrcs/RcsShareUI$6;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
 
     iget-object v4, p0, Lcom/android/incallui/secrcs/RcsShareUI$6;->val$invitation:Lcom/android/incallui/secrcs/RcsInvitation;
@@ -118,16 +130,21 @@
 
     if-ne v3, v4, :cond_2
 
+    .line 1802
     new-instance v1, Landroid/content/Intent;
 
+    .end local v1    # "i":Landroid/content/Intent;
     const-string v3, "com.sec.rcs.mediatransfer.ish.action.SHARE_CANCEL"
 
     invoke-direct {v1, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
+    .line 1803
+    .restart local v1    # "i":Landroid/content/Intent;
     const-string v3, "com.sec.rcs.mediatransfer.ish.category.ACTION"
 
     invoke-virtual {v1, v3}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 1804
     iget-object v3, p0, Lcom/android/incallui/secrcs/RcsShareUI$6;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
 
     iget-object v4, p0, Lcom/android/incallui/secrcs/RcsShareUI$6;->val$invitation:Lcom/android/incallui/secrcs/RcsInvitation;
@@ -140,16 +157,19 @@
 
     move-result-object v2
 
+    .line 1810
     :cond_0
     :goto_0
     if-eqz v2, :cond_1
 
+    .line 1811
     const-string v3, "com.sec.rcs.mediatransfer.csh.extra.SHARE_ID"
 
     iget-object v4, p0, Lcom/android/incallui/secrcs/RcsShareUI$6;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
 
     iget-object v5, p0, Lcom/android/incallui/secrcs/RcsShareUI$6;->val$invitation:Lcom/android/incallui/secrcs/RcsInvitation;
 
+    .line 1812
     invoke-virtual {v5}, Lcom/android/incallui/secrcs/RcsInvitation;->getContext()Landroid/content/Context;
 
     move-result-object v5
@@ -160,8 +180,10 @@
 
     iget-wide v4, v4, Lcom/android/incallui/secrcs/RcsShareUI$SessionState;->id:J
 
+    .line 1811
     invoke-virtual {v2, v3, v4, v5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;J)Landroid/content/Intent;
 
+    .line 1815
     :try_start_0
     invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
 
@@ -171,6 +193,7 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 1820
     :cond_1
     :goto_1
     # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
@@ -182,8 +205,10 @@
 
     invoke-static {v3, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 1821
     return-void
 
+    .line 1805
     :cond_2
     iget-object v3, p0, Lcom/android/incallui/secrcs/RcsShareUI$6;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
 
@@ -207,16 +232,21 @@
 
     if-ne v3, v4, :cond_0
 
+    .line 1806
     new-instance v1, Landroid/content/Intent;
 
+    .end local v1    # "i":Landroid/content/Intent;
     const-string v3, "com.sec.rcs.mediatransfer.vsh.action.SHARE_CANCEL"
 
     invoke-direct {v1, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
+    .line 1807
+    .restart local v1    # "i":Landroid/content/Intent;
     const-string v3, "com.sec.rcs.mediatransfer.vsh.category.ACTION"
 
     invoke-virtual {v1, v3}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 1808
     iget-object v3, p0, Lcom/android/incallui/secrcs/RcsShareUI$6;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
 
     iget-object v4, p0, Lcom/android/incallui/secrcs/RcsShareUI$6;->val$invitation:Lcom/android/incallui/secrcs/RcsInvitation;
@@ -231,9 +261,12 @@
 
     goto :goto_0
 
+    .line 1816
     :catch_0
     move-exception v0
 
+    .line 1817
+    .local v0, "e":Ljava/lang/Exception;
     # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$300()Ljava/lang/String;
 

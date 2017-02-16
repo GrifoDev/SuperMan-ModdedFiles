@@ -55,10 +55,16 @@
         }
     .end annotation
 
+    .prologue
+    .line 262
+    .local p0, "this":Lcom/google/common/collect/RegularImmutableBiMap$InverseSerializedForm;, "Lcom/google/common/collect/RegularImmutableBiMap$InverseSerializedForm<TK;TV;>;"
+    .local p1, "forward":Lcom/google/common/collect/ImmutableBiMap;, "Lcom/google/common/collect/ImmutableBiMap<TK;TV;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 263
     iput-object p1, p0, Lcom/google/common/collect/RegularImmutableBiMap$InverseSerializedForm;->forward:Lcom/google/common/collect/ImmutableBiMap;
 
+    .line 264
     return-void
 .end method
 
@@ -67,6 +73,9 @@
 .method readResolve()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 267
+    .local p0, "this":Lcom/google/common/collect/RegularImmutableBiMap$InverseSerializedForm;, "Lcom/google/common/collect/RegularImmutableBiMap$InverseSerializedForm<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/RegularImmutableBiMap$InverseSerializedForm;->forward:Lcom/google/common/collect/ImmutableBiMap;
 
     invoke-virtual {v0}, Lcom/google/common/collect/ImmutableBiMap;->inverse()Lcom/google/common/collect/ImmutableBiMap;

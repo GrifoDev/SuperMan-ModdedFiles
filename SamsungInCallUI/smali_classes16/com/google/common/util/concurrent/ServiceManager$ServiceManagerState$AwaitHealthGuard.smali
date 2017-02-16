@@ -22,12 +22,16 @@
 .method constructor <init>(Lcom/google/common/util/concurrent/ServiceManager$ServiceManagerState;)V
     .locals 1
 
+    .prologue
+    .line 438
     iput-object p1, p0, Lcom/google/common/util/concurrent/ServiceManager$ServiceManagerState$AwaitHealthGuard;->this$0:Lcom/google/common/util/concurrent/ServiceManager$ServiceManagerState;
 
+    .line 439
     iget-object v0, p1, Lcom/google/common/util/concurrent/ServiceManager$ServiceManagerState;->monitor:Lcom/google/common/util/concurrent/Monitor;
 
     invoke-direct {p0, v0}, Lcom/google/common/util/concurrent/Monitor$Guard;-><init>(Lcom/google/common/util/concurrent/Monitor;)V
 
+    .line 440
     return-void
 .end method
 
@@ -36,6 +40,8 @@
 .method public isSatisfied()Z
     .locals 2
 
+    .prologue
+    .line 444
     iget-object v0, p0, Lcom/google/common/util/concurrent/ServiceManager$ServiceManagerState$AwaitHealthGuard;->this$0:Lcom/google/common/util/concurrent/ServiceManager$ServiceManagerState;
 
     iget-object v0, v0, Lcom/google/common/util/concurrent/ServiceManager$ServiceManagerState;->states:Lcom/google/common/collect/Multiset;

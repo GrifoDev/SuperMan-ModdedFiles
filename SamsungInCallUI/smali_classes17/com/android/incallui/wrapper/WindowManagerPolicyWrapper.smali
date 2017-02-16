@@ -15,14 +15,18 @@
 .method static constructor <clinit>()V
     .locals 4
 
+    .prologue
+    .line 25
     const/4 v1, 0x2
 
     sput v1, Lcom/android/incallui/wrapper/WindowManagerPolicyWrapper;->OFF_BECAUSE_OF_USER:I
 
+    .line 26
     const/4 v1, 0x4
 
     sput v1, Lcom/android/incallui/wrapper/WindowManagerPolicyWrapper;->OFF_BECAUSE_OF_PROX_SENSOR:I
 
+    .line 30
     :try_start_0
     const-class v1, Lcom/android/incallui/wrapper/WindowManagerPolicyWrapper;
 
@@ -46,6 +50,7 @@
 
     sput v1, Lcom/android/incallui/wrapper/WindowManagerPolicyWrapper;->OFF_BECAUSE_OF_USER:I
 
+    .line 31
     const-class v1, Lcom/android/incallui/wrapper/WindowManagerPolicyWrapper;
 
     const-string v2, "OFF_BECAUSE_OF_PROX_SENSOR"
@@ -70,12 +75,18 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 35
+    .local v0, "e":Ljava/lang/Exception;
     :goto_0
     return-void
 
+    .line 32
+    .end local v0    # "e":Ljava/lang/Exception;
     :catch_0
     move-exception v0
 
+    .line 33
+    .restart local v0    # "e":Ljava/lang/Exception;
     const-string v1, "WindowManagerPolicyWrapper"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -104,6 +115,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 21
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

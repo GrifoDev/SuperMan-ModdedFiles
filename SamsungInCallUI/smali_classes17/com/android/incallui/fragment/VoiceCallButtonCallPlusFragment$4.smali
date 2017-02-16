@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
 
+    .prologue
+    .line 842
     iput-object p1, p0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +39,10 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 17
+    .param p1, "view"    # Landroid/view/View;
 
+    .prologue
+    .line 845
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
     move-result-object v12
@@ -45,10 +51,14 @@
 
     move-result-object v4
 
+    .line 846
+    .local v4, "incallState":Lcom/android/incallui/InCallPresenter$InCallState;
     invoke-virtual/range {p1 .. p1}, Landroid/view/View;->getId()I
 
     move-result v3
 
+    .line 847
+    .local v3, "id":I
     new-instance v12, Ljava/lang/StringBuilder;
 
     invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
@@ -89,6 +99,7 @@
 
     invoke-static {v0, v12}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 848
     move-object/from16 v0, p0
 
     iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
@@ -106,6 +117,7 @@
 
     if-eqz v12, :cond_0
 
+    .line 849
     move-object/from16 v0, p0
 
     iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
@@ -119,6 +131,7 @@
 
     invoke-virtual {v12, v13}, Landroid/os/Handler;->removeMessages(I)V
 
+    .line 851
     :cond_0
     move-object/from16 v0, p0
 
@@ -137,6 +150,7 @@
 
     if-eqz v12, :cond_1
 
+    .line 852
     move-object/from16 v0, p0
 
     iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
@@ -150,19 +164,23 @@
 
     invoke-virtual {v12, v13}, Landroid/os/Handler;->removeMessages(I)V
 
+    .line 854
     :cond_1
     sparse-switch v3, :sswitch_data_0
 
+    .line 1060
     const-string v12, "onClick: unexpected"
 
     move-object/from16 v0, p0
 
     invoke-static {v0, v12}, Lcom/android/incallui/Log;->wtf(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 1063
     :cond_2
     :goto_0
     return-void
 
+    .line 856
     :sswitch_0
     move-object/from16 v0, p0
 
@@ -186,6 +204,8 @@
 
     check-cast v5, Landroid/view/LayoutInflater;
 
+    .line 857
+    .local v5, "inflater":Landroid/view/LayoutInflater;
     const v12, 0x7f040168
 
     const/4 v13, 0x0
@@ -194,6 +214,8 @@
 
     move-result-object v8
 
+    .line 858
+    .local v8, "popupView":Landroid/view/View;
     const v12, 0x7f100410
 
     invoke-virtual {v8, v12}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -202,6 +224,8 @@
 
     check-cast v6, Landroid/widget/ImageView;
 
+    .line 859
+    .local v6, "mCallPlusimage":Landroid/widget/ImageView;
     new-instance v12, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$4$1;
 
     move-object/from16 v0, p0
@@ -210,6 +234,7 @@
 
     invoke-virtual {v8, v12}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
+    .line 871
     move-object/from16 v0, p0
 
     iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
@@ -265,6 +290,7 @@
 
     if-ne v12, v13, :cond_7
 
+    .line 872
     :cond_4
     move-object/from16 v0, p0
 
@@ -274,6 +300,7 @@
 
     invoke-virtual {v6, v12}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
 
+    .line 875
     :goto_1
     move-object/from16 v0, p0
 
@@ -283,6 +310,7 @@
 
     if-nez v12, :cond_5
 
+    .line 876
     move-object/from16 v0, p0
 
     iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
@@ -297,6 +325,7 @@
 
     iput-object v13, v12, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->popupWindow:Landroid/widget/PopupWindow;
 
+    .line 877
     :cond_5
     move-object/from16 v0, p0
 
@@ -310,6 +339,7 @@
 
     if-nez v12, :cond_2
 
+    .line 878
     move-object/from16 v0, p0
 
     iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
@@ -328,6 +358,7 @@
 
     invoke-virtual {v12, v13, v14, v15}, Landroid/widget/PopupWindow;->showAsDropDown(Landroid/view/View;II)V
 
+    .line 879
     move-object/from16 v0, p0
 
     iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
@@ -339,6 +370,7 @@
 
     if-eqz v12, :cond_6
 
+    .line 880
     move-object/from16 v0, p0
 
     iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
@@ -352,6 +384,7 @@
 
     invoke-virtual {v12, v13}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$InCallViewPager;->setScrollable(Z)V
 
+    .line 881
     :cond_6
     move-object/from16 v0, p0
 
@@ -364,6 +397,7 @@
 
     if-eqz v12, :cond_2
 
+    .line 882
     move-object/from16 v0, p0
 
     iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
@@ -379,6 +413,7 @@
 
     goto/16 :goto_0
 
+    .line 874
     :cond_7
     move-object/from16 v0, p0
 
@@ -397,6 +432,10 @@
 
     goto :goto_1
 
+    .line 887
+    .end local v5    # "inflater":Landroid/view/LayoutInflater;
+    .end local v6    # "mCallPlusimage":Landroid/widget/ImageView;
+    .end local v8    # "popupView":Landroid/view/View;
     :sswitch_1
     new-instance v12, Ljava/lang/StringBuilder;
 
@@ -448,6 +487,7 @@
 
     invoke-static {v0, v12}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 888
     sget-object v12, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
 
     const-string v13, "geo:%f,%f?q=%f,%f"
@@ -520,6 +560,8 @@
 
     move-result-object v11
 
+    .line 889
+    .local v11, "uri":Ljava/lang/String;
     new-instance v7, Landroid/content/Intent;
 
     const-string v12, "android.intent.action.VIEW"
@@ -530,10 +572,13 @@
 
     invoke-direct {v7, v12, v13}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
+    .line 890
+    .local v7, "mapIntent":Landroid/content/Intent;
     const-string v12, "com.google.android.apps.maps"
 
     invoke-virtual {v7, v12}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 891
     move-object/from16 v0, p0
 
     iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
@@ -552,6 +597,7 @@
 
     if-eqz v12, :cond_2
 
+    .line 892
     move-object/from16 v0, p0
 
     iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
@@ -560,6 +606,9 @@
 
     goto/16 :goto_0
 
+    .line 927
+    .end local v7    # "mapIntent":Landroid/content/Intent;
+    .end local v11    # "uri":Ljava/lang/String;
     :sswitch_2
     move-object/from16 v0, p0
 
@@ -570,6 +619,7 @@
 
     goto/16 :goto_0
 
+    .line 930
     :sswitch_3
     move-object/from16 v0, p0
 
@@ -587,6 +637,7 @@
 
     invoke-static {v12, v13, v14, v15}, Lcom/android/incallui/util/AppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 934
     move-object/from16 v0, p0
 
     iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
@@ -601,6 +652,7 @@
 
     goto/16 :goto_0
 
+    .line 937
     :sswitch_4
     move-object/from16 v0, p0
 
@@ -616,6 +668,7 @@
 
     invoke-static {v12, v13, v14}, Lcom/android/incallui/util/AppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 940
     move-object/from16 v0, p0
 
     iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
@@ -625,6 +678,7 @@
 
     goto/16 :goto_0
 
+    .line 943
     :sswitch_5
     move-object/from16 v0, p0
 
@@ -635,6 +689,7 @@
 
     goto/16 :goto_0
 
+    .line 946
     :sswitch_6
     move-object/from16 v0, p0
 
@@ -652,6 +707,7 @@
 
     invoke-static {v12, v13, v14, v15}, Lcom/android/incallui/util/AppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 950
     move-object/from16 v0, p0
 
     iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
@@ -660,6 +716,7 @@
 
     goto/16 :goto_0
 
+    .line 953
     :sswitch_7
     move-object/from16 v0, p0
 
@@ -677,6 +734,7 @@
 
     invoke-static {v12, v13, v14, v15}, Lcom/android/incallui/util/AppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 957
     move-object/from16 v0, p0
 
     iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
@@ -685,6 +743,7 @@
 
     goto/16 :goto_0
 
+    .line 960
     :sswitch_8
     move-object/from16 v0, p0
 
@@ -702,6 +761,7 @@
 
     invoke-static {v12, v13, v14, v15}, Lcom/android/incallui/util/AppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 964
     move-object/from16 v0, p0
 
     iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
@@ -716,6 +776,7 @@
 
     goto/16 :goto_0
 
+    .line 967
     :sswitch_9
     move-object/from16 v0, p0
 
@@ -733,6 +794,7 @@
 
     invoke-static {v12, v13, v14, v15}, Lcom/android/incallui/util/AppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 971
     move-object/from16 v0, p0
 
     iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
@@ -765,6 +827,7 @@
 
     goto :goto_2
 
+    .line 974
     :sswitch_a
     move-object/from16 v0, p0
 
@@ -782,6 +845,7 @@
 
     invoke-static {v12, v13, v14, v15}, Lcom/android/incallui/util/AppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 978
     move-object/from16 v0, p0
 
     iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
@@ -814,6 +878,7 @@
 
     goto :goto_3
 
+    .line 981
     :sswitch_b
     move-object/from16 v0, p0
 
@@ -829,6 +894,7 @@
 
     goto/16 :goto_0
 
+    .line 984
     :sswitch_c
     move-object/from16 v0, p0
 
@@ -846,6 +912,7 @@
 
     invoke-static {v12, v13, v14, v15}, Lcom/android/incallui/util/AppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 988
     move-object/from16 v0, p0
 
     iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
@@ -855,6 +922,7 @@
 
     goto/16 :goto_0
 
+    .line 991
     :sswitch_d
     move-object/from16 v0, p0
 
@@ -872,10 +940,12 @@
 
     invoke-static {v12, v13, v14, v15}, Lcom/android/incallui/util/AppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 995
     invoke-static {}, Lcom/android/incallui/util/PackageHelpers;->launchMessage()V
 
     goto/16 :goto_0
 
+    .line 998
     :sswitch_e
     move-object/from16 v0, p0
 
@@ -893,10 +963,12 @@
 
     invoke-static {v12, v13, v14, v15}, Lcom/android/incallui/util/AppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 1002
     invoke-static {}, Lcom/android/incallui/util/PackageHelpers;->launchInternet()V
 
     goto/16 :goto_0
 
+    .line 1005
     :sswitch_f
     move-object/from16 v0, p0
 
@@ -914,10 +986,12 @@
 
     invoke-static {v12, v13, v14, v15}, Lcom/android/incallui/util/AppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 1009
     invoke-static {}, Lcom/android/incallui/util/PackageHelpers;->launchContacts()V
 
     goto/16 :goto_0
 
+    .line 1012
     :sswitch_10
     move-object/from16 v0, p0
 
@@ -935,10 +1009,12 @@
 
     invoke-static {v12, v13, v14, v15}, Lcom/android/incallui/util/AppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 1016
     invoke-static {}, Lcom/android/incallui/util/PackageHelpers;->launchPlanner()V
 
     goto/16 :goto_0
 
+    .line 1019
     :sswitch_11
     move-object/from16 v0, p0
 
@@ -956,10 +1032,12 @@
 
     invoke-static {v12, v13, v14, v15}, Lcom/android/incallui/util/AppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 1023
     invoke-static {}, Lcom/android/incallui/util/PackageHelpers;->launchMemo()V
 
     goto/16 :goto_0
 
+    .line 1026
     :sswitch_12
     const-string v12, "ims_crane"
 
@@ -969,12 +1047,14 @@
 
     if-eqz v12, :cond_a
 
+    .line 1027
     const-string v12, "Launch share screen"
 
     move-object/from16 v0, p0
 
     invoke-static {v0, v12}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 1029
     invoke-static {}, Lcom/android/incallui/InCallApp;->getInstance()Lcom/android/incallui/InCallApp;
 
     move-result-object v12
@@ -983,6 +1063,8 @@
 
     move-result-object v2
 
+    .line 1030
+    .local v2, "context":Landroid/content/Context;
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v12
@@ -995,18 +1077,23 @@
 
     move-result-object v1
 
+    .line 1032
+    .local v1, "call":Lcom/android/incallui/Call;
     new-instance v10, Landroid/content/Intent;
 
     const-string v12, "android.intent.action.VIEW"
 
     invoke-direct {v10, v12}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
+    .line 1033
+    .local v10, "smsIntent":Landroid/content/Intent;
     invoke-static {v2}, Landroid/provider/Telephony$Sms;->getDefaultSmsPackage(Landroid/content/Context;)Ljava/lang/String;
 
     move-result-object v12
 
     invoke-virtual {v10, v12}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 1034
     const-string v12, "sms"
 
     move-object/from16 v0, p0
@@ -1025,22 +1112,27 @@
 
     invoke-virtual {v10, v12}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
 
+    .line 1035
     move-object/from16 v0, p0
 
     iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
 
     invoke-virtual {v12, v10}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->startActivity(Landroid/content/Intent;)V
 
+    .line 1037
     new-instance v9, Landroid/content/Intent;
 
     invoke-direct {v9}, Landroid/content/Intent;-><init>()V
 
+    .line 1038
+    .local v9, "serviceIntent":Landroid/content/Intent;
     const-string v12, "com.samsung.crane"
 
     const-string v13, "com.samsung.crane.contentshare.ShareOverlayService"
 
     invoke-virtual {v9, v12, v13}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 1039
     move-object/from16 v0, p0
 
     iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
@@ -1053,6 +1145,11 @@
 
     goto/16 :goto_0
 
+    .line 1041
+    .end local v1    # "call":Lcom/android/incallui/Call;
+    .end local v2    # "context":Landroid/content/Context;
+    .end local v9    # "serviceIntent":Landroid/content/Intent;
+    .end local v10    # "smsIntent":Landroid/content/Intent;
     :cond_a
     move-object/from16 v0, p0
 
@@ -1086,6 +1183,7 @@
 
     goto/16 :goto_0
 
+    .line 1049
     :sswitch_13
     move-object/from16 v0, p0
 
@@ -1098,6 +1196,7 @@
 
     if-eqz v12, :cond_2
 
+    .line 1050
     move-object/from16 v0, p0
 
     iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
@@ -1113,6 +1212,7 @@
 
     goto/16 :goto_0
 
+    .line 1055
     :sswitch_14
     move-object/from16 v0, p0
 
@@ -1125,6 +1225,7 @@
 
     if-eqz v12, :cond_2
 
+    .line 1056
     move-object/from16 v0, p0
 
     iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
@@ -1140,6 +1241,7 @@
 
     goto/16 :goto_0
 
+    .line 854
     nop
 
     :sswitch_data_0

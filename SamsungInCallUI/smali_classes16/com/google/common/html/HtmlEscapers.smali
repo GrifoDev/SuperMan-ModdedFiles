@@ -19,6 +19,8 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
+    .line 68
     invoke-static {}, Lcom/google/common/escape/Escapers;->builder()Lcom/google/common/escape/Escapers$Builder;
 
     move-result-object v0
@@ -75,6 +77,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 78
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -83,6 +87,8 @@
 .method public static htmlEscaper()Lcom/google/common/escape/Escaper;
     .locals 1
 
+    .prologue
+    .line 62
     sget-object v0, Lcom/google/common/html/HtmlEscapers;->HTML_ESCAPER:Lcom/google/common/escape/Escaper;
 
     return-object v0

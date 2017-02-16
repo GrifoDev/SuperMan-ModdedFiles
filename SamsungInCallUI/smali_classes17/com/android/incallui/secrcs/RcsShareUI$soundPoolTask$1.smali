@@ -26,7 +26,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/secrcs/RcsShareUI$soundPoolTask;I)V
     .locals 0
+    .param p1, "this$1"    # Lcom/android/incallui/secrcs/RcsShareUI$soundPoolTask;
 
+    .prologue
+    .line 265
     iput-object p1, p0, Lcom/android/incallui/secrcs/RcsShareUI$soundPoolTask$1;->this$1:Lcom/android/incallui/secrcs/RcsShareUI$soundPoolTask;
 
     iput p2, p0, Lcom/android/incallui/secrcs/RcsShareUI$soundPoolTask$1;->val$soundID:I
@@ -40,13 +43,19 @@
 # virtual methods
 .method public onLoadComplete(Landroid/media/SoundPool;II)V
     .locals 7
+    .param p1, "soundPool"    # Landroid/media/SoundPool;
+    .param p2, "sampleId"    # I
+    .param p3, "status"    # I
 
+    .prologue
     const/4 v4, 0x1
 
     const v2, 0x3f4ccccd    # 0.8f
 
+    .line 268
     if-nez p3, :cond_0
 
+    .line 269
     iget v1, p0, Lcom/android/incallui/secrcs/RcsShareUI$soundPoolTask$1;->val$soundID:I
 
     const/4 v5, 0x0
@@ -59,6 +68,7 @@
 
     invoke-virtual/range {v0 .. v6}, Landroid/media/SoundPool;->play(IFFIIF)I
 
+    .line 270
     # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$300()Ljava/lang/String;
 
@@ -68,6 +78,7 @@
 
     invoke-static {v0, v1, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
+    .line 272
     :cond_0
     return-void
 .end method

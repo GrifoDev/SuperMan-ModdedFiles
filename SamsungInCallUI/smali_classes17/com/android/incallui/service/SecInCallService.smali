@@ -37,8 +37,11 @@
 .method public constructor <init>()V
     .locals 2
 
+    .prologue
+    .line 143
     invoke-direct {p0}, Landroid/app/Service;-><init>()V
 
+    .line 45
     new-instance v0, Lcom/android/incallui/service/SecInCallService$1;
 
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
@@ -49,12 +52,16 @@
 
     iput-object v0, p0, Lcom/android/incallui/service/SecInCallService;->mHandler:Landroid/os/Handler;
 
+    .line 144
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/android/incallui/service/SecInCallService;)Landroid/os/Handler;
     .locals 1
+    .param p0, "x0"    # Lcom/android/incallui/service/SecInCallService;
 
+    .prologue
+    .line 34
     iget-object v0, p0, Lcom/android/incallui/service/SecInCallService;->mHandler:Landroid/os/Handler;
 
     return-object v0
@@ -64,7 +71,10 @@
 # virtual methods
 .method public onBind(Landroid/content/Intent;)Landroid/os/IBinder;
     .locals 2
+    .param p1, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 148
     new-instance v0, Lcom/android/incallui/service/SecInCallService$SecInCallServiceBinder;
 
     const/4 v1, 0x0
@@ -76,13 +86,17 @@
 
 .method public onUnbind(Landroid/content/Intent;)Z
     .locals 1
+    .param p1, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 153
     invoke-static {}, Lcom/android/incallui/TelecomAdapter;->getInstance()Lcom/android/incallui/TelecomAdapter;
 
     move-result-object v0
 
     invoke-virtual {v0}, Lcom/android/incallui/TelecomAdapter;->clearSecInCallAdapter()V
 
+    .line 154
     invoke-super {p0, p1}, Landroid/app/Service;->onUnbind(Landroid/content/Intent;)Z
 
     move-result v0

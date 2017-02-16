@@ -31,6 +31,9 @@
 .method constructor <init>(Lcom/google/common/collect/StandardTable$Row$1;Ljava/util/Map$Entry;)V
     .locals 0
 
+    .prologue
+    .line 360
+    .local p0, "this":Lcom/google/common/collect/StandardTable$Row$1$1;, "Lcom/google/common/collect/StandardTable$Row$1.1;"
     iput-object p1, p0, Lcom/google/common/collect/StandardTable$Row$1$1;->this$2:Lcom/google/common/collect/StandardTable$Row$1;
 
     iput-object p2, p0, Lcom/google/common/collect/StandardTable$Row$1$1;->val$entry:Ljava/util/Map$Entry;
@@ -45,6 +48,9 @@
 .method protected bridge synthetic delegate()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 360
+    .local p0, "this":Lcom/google/common/collect/StandardTable$Row$1$1;, "Lcom/google/common/collect/StandardTable$Row$1.1;"
     invoke-virtual {p0}, Lcom/google/common/collect/StandardTable$Row$1$1;->delegate()Ljava/util/Map$Entry;
 
     move-result-object v0
@@ -62,6 +68,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 363
+    .local p0, "this":Lcom/google/common/collect/StandardTable$Row$1$1;, "Lcom/google/common/collect/StandardTable$Row$1.1;"
     iget-object v0, p0, Lcom/google/common/collect/StandardTable$Row$1$1;->val$entry:Ljava/util/Map$Entry;
 
     return-object v0
@@ -69,7 +78,11 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
+    .param p1, "object"    # Ljava/lang/Object;
 
+    .prologue
+    .line 374
+    .local p0, "this":Lcom/google/common/collect/StandardTable$Row$1$1;, "Lcom/google/common/collect/StandardTable$Row$1.1;"
     invoke-virtual {p0, p1}, Lcom/google/common/collect/StandardTable$Row$1$1;->standardEquals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -85,6 +98,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 368
+    .local p0, "this":Lcom/google/common/collect/StandardTable$Row$1$1;, "Lcom/google/common/collect/StandardTable$Row$1.1;"
+    .local p1, "value":Ljava/lang/Object;, "TV;"
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0

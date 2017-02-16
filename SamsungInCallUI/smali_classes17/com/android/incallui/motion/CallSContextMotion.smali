@@ -31,22 +31,27 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 51
     new-instance v0, Lcom/android/incallui/motion/CallSContextMotion$1;
 
     invoke-direct {v0}, Lcom/android/incallui/motion/CallSContextMotion$1;-><init>()V
 
     sput-object v0, Lcom/android/incallui/motion/CallSContextMotion;->sSContextListener:Lcom/samsung/android/hardware/context/SemContextListener;
 
+    .line 116
     invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
 
     sput-object v0, Lcom/android/incallui/motion/CallSContextMotion;->sIsPutDownListening:Ljava/lang/Boolean;
 
+    .line 118
     sput-boolean v1, Lcom/android/incallui/motion/CallSContextMotion;->sIsFlatMotionListening:Z
 
+    .line 147
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
@@ -59,14 +64,20 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 36
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 40
     return-void
 .end method
 
 .method static synthetic access$000(Z)V
     .locals 0
+    .param p0, "x0"    # Z
 
+    .prologue
+    .line 36
     invoke-static {p0}, Lcom/android/incallui/motion/CallSContextMotion;->doActionPutUpDown(Z)V
 
     return-void
@@ -75,6 +86,8 @@
 .method static synthetic access$100()Lcom/android/incallui/motion/CallSContextMotion$FlatListener;
     .locals 1
 
+    .prologue
+    .line 36
     sget-object v0, Lcom/android/incallui/motion/CallSContextMotion;->sFlatListener:Lcom/android/incallui/motion/CallSContextMotion$FlatListener;
 
     return-object v0
@@ -82,11 +95,14 @@
 
 .method private static doActionPutUpDown(Z)V
     .locals 8
+    .param p0, "isPutDown"    # Z
 
+    .prologue
     const/4 v2, 0x0
 
     const/4 v4, 0x1
 
+    .line 123
     invoke-static {}, Lcom/android/incallui/InCallApp;->getInstance()Lcom/android/incallui/InCallApp;
 
     move-result-object v5
@@ -95,10 +111,14 @@
 
     move-result-object v1
 
+    .line 124
+    .local v1, "context":Landroid/content/Context;
     invoke-static {}, Lcom/android/incallui/util/SystemServiceUtils;->isScreenOn()Z
 
     move-result v3
 
+    .line 125
+    .local v3, "screenOn":Z
     const-string v5, "CallSContextMotion"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -131,10 +151,12 @@
 
     invoke-static {v5, v6, v4}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
+    .line 127
     if-eqz p0, :cond_3
 
     if-nez v3, :cond_3
 
+    .line 128
     invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v5
@@ -149,27 +171,37 @@
 
     move v2, v4
 
+    .line 130
+    .local v2, "isSmartScreenOn":Z
     :cond_0
     if-nez v2, :cond_2
 
+    .line 131
     const-string v5, "smart screen off"
 
     invoke-static {v5, v4}, Lcom/android/incallui/motion/CallSContextMotion;->log(Ljava/lang/String;Z)V
 
+    .line 144
+    .end local v2    # "isSmartScreenOn":Z
     :cond_1
     :goto_0
     return-void
 
+    .line 134
+    .restart local v2    # "isSmartScreenOn":Z
     :cond_2
     invoke-static {v1}, Lcom/android/incallui/util/SystemServiceUtils;->forceWakeUpScreen(Landroid/content/Context;)V
 
     goto :goto_0
 
+    .line 135
+    .end local v2    # "isSmartScreenOn":Z
     :cond_3
     if-nez p0, :cond_1
 
     if-eqz v3, :cond_1
 
+    .line 136
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v4
@@ -180,6 +212,8 @@
 
     move-result-object v0
 
+    .line 137
+    .local v0, "call":Lcom/android/incallui/Call;
     if-eqz v0, :cond_1
 
     invoke-virtual {v0}, Lcom/android/incallui/Call;->getState()I
@@ -190,6 +224,7 @@
 
     if-eq v4, v5, :cond_1
 
+    .line 138
     invoke-static {}, Lcom/android/incallui/util/SystemServiceUtils;->makeGoToSleepWithNoLockSound()V
 
     goto :goto_0
@@ -197,23 +232,33 @@
 
 .method private static log(Ljava/lang/String;Z)V
     .locals 1
+    .param p0, "msg"    # Ljava/lang/String;
+    .param p1, "always"    # Z
 
+    .prologue
+    .line 243
     const-string v0, "CallSContextMotion"
 
     invoke-static {v0, p0, p1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
+    .line 244
     return-void
 .end method
 
 .method public static startFlatMotionListening(Landroid/content/Context;Lcom/android/incallui/motion/CallSContextMotion$FlatListener;)V
     .locals 6
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "listener"    # Lcom/android/incallui/motion/CallSContextMotion$FlatListener;
 
+    .prologue
     const/4 v0, 0x1
 
+    .line 197
     sget-object v3, Lcom/android/incallui/motion/CallSContextMotion;->lock:Ljava/lang/Object;
 
     monitor-enter v3
 
+    .line 198
     :try_start_0
     const-string v2, "CallSContextMotion"
 
@@ -239,12 +284,15 @@
 
     invoke-static {v2, v4, v5}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
+    .line 199
     sget-boolean v2, Lcom/android/incallui/motion/CallSContextMotion;->sIsFlatMotionListening:Z
 
     if-nez v2, :cond_3
 
+    .line 200
     if-nez p0, :cond_0
 
+    .line 201
     invoke-static {}, Lcom/android/incallui/InCallApp;->getInstance()Lcom/android/incallui/InCallApp;
 
     move-result-object v2
@@ -253,11 +301,13 @@
 
     move-result-object p0
 
+    .line 203
     :cond_0
     sget-object v2, Lcom/android/incallui/motion/CallSContextMotion;->sSContextManager:Lcom/samsung/android/hardware/context/SemContextManager;
 
     if-nez v2, :cond_1
 
+    .line 204
     const-string v2, "scontext"
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -268,11 +318,14 @@
 
     sput-object v2, Lcom/android/incallui/motion/CallSContextMotion;->sSContextManager:Lcom/samsung/android/hardware/context/SemContextManager;
 
+    .line 206
     :cond_1
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v1
 
+    .line 207
+    .local v1, "pm":Landroid/content/pm/PackageManager;
     if-eqz v1, :cond_4
 
     const-string v2, "com.sec.feature.sensorhub"
@@ -291,6 +344,8 @@
 
     if-eqz v2, :cond_4
 
+    .line 208
+    .local v0, "isAvailableSensorHub":Z
     :cond_2
     :goto_0
     sget-object v2, Lcom/android/incallui/motion/CallSContextMotion;->sSContextManager:Lcom/samsung/android/hardware/context/SemContextManager;
@@ -309,8 +364,10 @@
 
     if-eqz v2, :cond_5
 
+    .line 209
     sput-object p1, Lcom/android/incallui/motion/CallSContextMotion;->sFlatListener:Lcom/android/incallui/motion/CallSContextMotion$FlatListener;
 
+    .line 210
     sget-object v2, Lcom/android/incallui/motion/CallSContextMotion;->sSContextManager:Lcom/samsung/android/hardware/context/SemContextManager;
 
     sget-object v4, Lcom/android/incallui/motion/CallSContextMotion;->sSContextListener:Lcom/samsung/android/hardware/context/SemContextListener;
@@ -319,21 +376,30 @@
 
     invoke-virtual {v2, v4, v5}, Lcom/samsung/android/hardware/context/SemContextManager;->registerListener(Lcom/samsung/android/hardware/context/SemContextListener;I)Z
 
+    .line 211
     const/4 v2, 0x1
 
     sput-boolean v2, Lcom/android/incallui/motion/CallSContextMotion;->sIsFlatMotionListening:Z
 
+    .line 216
+    .end local v0    # "isAvailableSensorHub":Z
+    .end local v1    # "pm":Landroid/content/pm/PackageManager;
     :cond_3
     :goto_1
     monitor-exit v3
 
+    .line 217
     return-void
 
+    .line 207
+    .restart local v1    # "pm":Landroid/content/pm/PackageManager;
     :cond_4
     const/4 v0, 0x0
 
     goto :goto_0
 
+    .line 213
+    .restart local v0    # "isAvailableSensorHub":Z
     :cond_5
     const-string v2, "CallSContextMotion"
 
@@ -345,6 +411,9 @@
 
     goto :goto_1
 
+    .line 216
+    .end local v0    # "isAvailableSensorHub":Z
+    .end local v1    # "pm":Landroid/content/pm/PackageManager;
     :catchall_0
     move-exception v2
 
@@ -357,11 +426,15 @@
 
 .method public static startPutDownListening(Landroid/content/Context;)V
     .locals 4
+    .param p0, "context"    # Landroid/content/Context;
 
+    .prologue
+    .line 150
     sget-object v1, Lcom/android/incallui/motion/CallSContextMotion;->lock:Ljava/lang/Object;
 
     monitor-enter v1
 
+    .line 151
     :try_start_0
     const-string v0, "CallSContextMotion"
 
@@ -371,6 +444,7 @@
 
     invoke-static {v0, v2, v3}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
+    .line 152
     sget-object v0, Lcom/android/incallui/motion/CallSContextMotion;->sIsPutDownListening:Ljava/lang/Boolean;
 
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
@@ -379,6 +453,7 @@
 
     if-nez v0, :cond_3
 
+    .line 153
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v0
@@ -389,6 +464,7 @@
 
     if-nez v0, :cond_0
 
+    .line 154
     const-string v0, "CallSContextMotion"
 
     const-string v2, "startPutDownListening: has not call"
@@ -397,11 +473,14 @@
 
     invoke-static {v0, v2, v3}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
+    .line 155
     monitor-exit v1
 
+    .line 172
     :goto_0
     return-void
 
+    .line 157
     :cond_0
     invoke-static {}, Lcom/android/incallui/accessory/AccessoryEventHandler;->getInstance()Lcom/android/incallui/accessory/AccessoryEventHandler;
 
@@ -413,6 +492,7 @@
 
     if-nez v0, :cond_1
 
+    .line 158
     const-string v0, "CallSContextMotion"
 
     const-string v2, "startPutDownListening: cover is opened"
@@ -421,10 +501,12 @@
 
     invoke-static {v0, v2, v3}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
+    .line 159
     monitor-exit v1
 
     goto :goto_0
 
+    .line 171
     :catchall_0
     move-exception v0
 
@@ -434,12 +516,14 @@
 
     throw v0
 
+    .line 161
     :cond_1
     :try_start_1
     sget-object v0, Lcom/android/incallui/motion/CallSContextMotion;->sSContextManager:Lcom/samsung/android/hardware/context/SemContextManager;
 
     if-nez v0, :cond_2
 
+    .line 162
     const-string v0, "scontext"
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -450,11 +534,13 @@
 
     sput-object v0, Lcom/android/incallui/motion/CallSContextMotion;->sSContextManager:Lcom/samsung/android/hardware/context/SemContextManager;
 
+    .line 164
     :cond_2
     sget-object v0, Lcom/android/incallui/motion/CallSContextMotion;->sSContextManager:Lcom/samsung/android/hardware/context/SemContextManager;
 
     if-eqz v0, :cond_4
 
+    .line 165
     sget-object v0, Lcom/android/incallui/motion/CallSContextMotion;->sSContextManager:Lcom/samsung/android/hardware/context/SemContextManager;
 
     sget-object v2, Lcom/android/incallui/motion/CallSContextMotion;->sSContextListener:Lcom/samsung/android/hardware/context/SemContextListener;
@@ -463,6 +549,7 @@
 
     invoke-virtual {v0, v2, v3}, Lcom/samsung/android/hardware/context/SemContextManager;->registerListener(Lcom/samsung/android/hardware/context/SemContextListener;I)Z
 
+    .line 166
     const/4 v0, 0x1
 
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -471,12 +558,14 @@
 
     sput-object v0, Lcom/android/incallui/motion/CallSContextMotion;->sIsPutDownListening:Ljava/lang/Boolean;
 
+    .line 171
     :cond_3
     :goto_1
     monitor-exit v1
 
     goto :goto_0
 
+    .line 168
     :cond_4
     const-string v0, "CallSContextMotion"
 
@@ -493,15 +582,19 @@
 
 .method public static stopFlatMotionListening(Landroid/content/Context;)V
     .locals 7
+    .param p0, "context"    # Landroid/content/Context;
 
+    .prologue
     const/4 v3, 0x0
 
     const/4 v0, 0x1
 
+    .line 220
     sget-object v4, Lcom/android/incallui/motion/CallSContextMotion;->lock:Ljava/lang/Object;
 
     monitor-enter v4
 
+    .line 221
     :try_start_0
     const-string v2, "CallSContextMotion"
 
@@ -511,12 +604,15 @@
 
     invoke-static {v2, v5, v6}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
+    .line 222
     sget-boolean v2, Lcom/android/incallui/motion/CallSContextMotion;->sIsFlatMotionListening:Z
 
     if-ne v2, v0, :cond_4
 
+    .line 223
     if-nez p0, :cond_0
 
+    .line 224
     invoke-static {}, Lcom/android/incallui/InCallApp;->getInstance()Lcom/android/incallui/InCallApp;
 
     move-result-object v2
@@ -525,11 +621,13 @@
 
     move-result-object p0
 
+    .line 226
     :cond_0
     sget-object v2, Lcom/android/incallui/motion/CallSContextMotion;->sSContextManager:Lcom/samsung/android/hardware/context/SemContextManager;
 
     if-nez v2, :cond_1
 
+    .line 227
     const-string v2, "scontext"
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -540,11 +638,14 @@
 
     sput-object v2, Lcom/android/incallui/motion/CallSContextMotion;->sSContextManager:Lcom/samsung/android/hardware/context/SemContextManager;
 
+    .line 229
     :cond_1
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v1
 
+    .line 230
+    .local v1, "pm":Landroid/content/pm/PackageManager;
     if-eqz v1, :cond_2
 
     const-string v2, "com.sec.feature.sensorhub"
@@ -564,6 +665,8 @@
 
     if-eqz v2, :cond_5
 
+    .line 231
+    .local v0, "isAvailableSensorHub":Z
     :cond_3
     :goto_0
     sget-object v2, Lcom/android/incallui/motion/CallSContextMotion;->sSContextManager:Lcom/samsung/android/hardware/context/SemContextManager;
@@ -582,6 +685,7 @@
 
     if-eqz v2, :cond_6
 
+    .line 232
     sget-object v2, Lcom/android/incallui/motion/CallSContextMotion;->sSContextManager:Lcom/samsung/android/hardware/context/SemContextManager;
 
     sget-object v3, Lcom/android/incallui/motion/CallSContextMotion;->sSContextListener:Lcom/samsung/android/hardware/context/SemContextListener;
@@ -590,25 +694,35 @@
 
     invoke-virtual {v2, v3, v5}, Lcom/samsung/android/hardware/context/SemContextManager;->unregisterListener(Lcom/samsung/android/hardware/context/SemContextListener;I)V
 
+    .line 233
     const/4 v2, 0x0
 
     sput-boolean v2, Lcom/android/incallui/motion/CallSContextMotion;->sIsFlatMotionListening:Z
 
+    .line 234
     const/4 v2, 0x0
 
     sput-object v2, Lcom/android/incallui/motion/CallSContextMotion;->sFlatListener:Lcom/android/incallui/motion/CallSContextMotion$FlatListener;
 
+    .line 239
+    .end local v0    # "isAvailableSensorHub":Z
+    .end local v1    # "pm":Landroid/content/pm/PackageManager;
     :cond_4
     :goto_1
     monitor-exit v4
 
+    .line 240
     return-void
 
+    .restart local v1    # "pm":Landroid/content/pm/PackageManager;
     :cond_5
     move v0, v3
 
+    .line 230
     goto :goto_0
 
+    .line 236
+    .restart local v0    # "isAvailableSensorHub":Z
     :cond_6
     const-string v2, "CallSContextMotion"
 
@@ -620,6 +734,9 @@
 
     goto :goto_1
 
+    .line 239
+    .end local v0    # "isAvailableSensorHub":Z
+    .end local v1    # "pm":Landroid/content/pm/PackageManager;
     :catchall_0
     move-exception v2
 
@@ -632,23 +749,32 @@
 
 .method public static stopPutDownListening(Landroid/content/Context;)V
     .locals 1
+    .param p0, "context"    # Landroid/content/Context;
 
+    .prologue
+    .line 175
     const/4 v0, 0x0
 
     invoke-static {p0, v0}, Lcom/android/incallui/motion/CallSContextMotion;->stopPutDownListening(Landroid/content/Context;Z)V
 
+    .line 176
     return-void
 .end method
 
 .method public static stopPutDownListening(Landroid/content/Context;Z)V
     .locals 5
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "forceToUnregi"    # Z
 
+    .prologue
     const/4 v4, 0x1
 
+    .line 179
     sget-object v1, Lcom/android/incallui/motion/CallSContextMotion;->lock:Ljava/lang/Object;
 
     monitor-enter v1
 
+    .line 180
     :try_start_0
     const-string v0, "CallSContextMotion"
 
@@ -658,6 +784,7 @@
 
     invoke-static {v0, v2, v3}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
+    .line 181
     sget-object v0, Lcom/android/incallui/motion/CallSContextMotion;->sIsPutDownListening:Ljava/lang/Boolean;
 
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
@@ -668,11 +795,13 @@
 
     if-eqz p1, :cond_2
 
+    .line 182
     :cond_0
     sget-object v0, Lcom/android/incallui/motion/CallSContextMotion;->sSContextManager:Lcom/samsung/android/hardware/context/SemContextManager;
 
     if-nez v0, :cond_1
 
+    .line 183
     const-string v0, "scontext"
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -683,11 +812,13 @@
 
     sput-object v0, Lcom/android/incallui/motion/CallSContextMotion;->sSContextManager:Lcom/samsung/android/hardware/context/SemContextManager;
 
+    .line 185
     :cond_1
     sget-object v0, Lcom/android/incallui/motion/CallSContextMotion;->sSContextManager:Lcom/samsung/android/hardware/context/SemContextManager;
 
     if-eqz v0, :cond_3
 
+    .line 186
     sget-object v0, Lcom/android/incallui/motion/CallSContextMotion;->sSContextManager:Lcom/samsung/android/hardware/context/SemContextManager;
 
     sget-object v2, Lcom/android/incallui/motion/CallSContextMotion;->sSContextListener:Lcom/samsung/android/hardware/context/SemContextListener;
@@ -696,6 +827,7 @@
 
     invoke-virtual {v0, v2, v3}, Lcom/samsung/android/hardware/context/SemContextManager;->unregisterListener(Lcom/samsung/android/hardware/context/SemContextListener;I)V
 
+    .line 188
     const/4 v0, 0x0
 
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -704,12 +836,15 @@
 
     sput-object v0, Lcom/android/incallui/motion/CallSContextMotion;->sIsPutDownListening:Ljava/lang/Boolean;
 
+    .line 193
     :cond_2
     :goto_0
     monitor-exit v1
 
+    .line 194
     return-void
 
+    .line 190
     :cond_3
     const-string v0, "CallSContextMotion"
 
@@ -721,6 +856,7 @@
 
     goto :goto_0
 
+    .line 193
     :catchall_0
     move-exception v0
 

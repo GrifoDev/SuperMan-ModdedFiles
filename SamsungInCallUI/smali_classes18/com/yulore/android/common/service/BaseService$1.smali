@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/yulore/android/common/service/BaseService;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/yulore/android/common/service/BaseService;
 
+    .prologue
+    .line 15
     iput-object p1, p0, Lcom/yulore/android/common/service/BaseService$1;->this$0:Lcom/yulore/android/common/service/BaseService;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -33,10 +36,14 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 1
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 17
     iget-object v0, p0, Lcom/yulore/android/common/service/BaseService$1;->this$0:Lcom/yulore/android/common/service/BaseService;
 
     invoke-virtual {v0, p1}, Lcom/yulore/android/common/service/BaseService;->onMessageMainThread(Landroid/os/Message;)V
 
+    .line 18
     return-void
 .end method

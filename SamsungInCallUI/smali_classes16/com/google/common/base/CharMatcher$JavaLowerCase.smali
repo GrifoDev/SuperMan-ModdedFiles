@@ -22,6 +22,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 1437
     new-instance v0, Lcom/google/common/base/CharMatcher$JavaLowerCase;
 
     invoke-direct {v0}, Lcom/google/common/base/CharMatcher$JavaLowerCase;-><init>()V
@@ -34,6 +36,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 1435
     invoke-direct {p0}, Lcom/google/common/base/CharMatcher;-><init>()V
 
     return-void
@@ -43,9 +47,13 @@
 # virtual methods
 .method public bridge synthetic apply(Ljava/lang/Object;)Z
     .locals 1
+    .param p1, "x0"    # Ljava/lang/Object;
 
+    .prologue
+    .line 1435
     check-cast p1, Ljava/lang/Character;
 
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-super {p0, p1}, Lcom/google/common/base/CharMatcher;->apply(Ljava/lang/Character;)Z
 
     move-result v0
@@ -55,7 +63,10 @@
 
 .method public matches(C)Z
     .locals 1
+    .param p1, "c"    # C
 
+    .prologue
+    .line 1441
     invoke-static {p1}, Ljava/lang/Character;->isLowerCase(C)Z
 
     move-result v0
@@ -66,6 +77,8 @@
 .method public toString()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 1446
     const-string v0, "CharMatcher.javaLowerCase()"
 
     return-object v0

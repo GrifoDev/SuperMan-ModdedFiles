@@ -27,6 +27,8 @@
         }
     .end annotation
 
+    .prologue
+    .local p0, "buffer":Lcom/google/android/gms/common/data/DataBuffer;, "Lcom/google/android/gms/common/data/DataBuffer<TE;>;"
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-virtual {p0}, Lcom/google/android/gms/common/data/DataBuffer;->getCount()I

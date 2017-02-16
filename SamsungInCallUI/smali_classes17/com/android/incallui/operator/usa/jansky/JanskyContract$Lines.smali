@@ -28,6 +28,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 182
     sget-object v0, Lcom/android/incallui/operator/usa/jansky/JanskyContract;->AUTHORITY_URI:Landroid/net/Uri;
 
     const-string v1, "lines"
@@ -44,14 +46,20 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 175
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 176
     return-void
 .end method
 
 .method public static final buildDevicesUri(J)Landroid/net/Uri;
     .locals 2
+    .param p0, "lineId"    # J
 
+    .prologue
+    .line 204
     sget-object v0, Lcom/android/incallui/operator/usa/jansky/JanskyContract$Lines;->CONTENT_URI:Landroid/net/Uri;
 
     invoke-static {v0, p0, p1}, Landroid/content/ContentUris;->withAppendedId(Landroid/net/Uri;J)Landroid/net/Uri;
@@ -69,7 +77,10 @@
 
 .method public static final buildLineUri(J)Landroid/net/Uri;
     .locals 2
+    .param p0, "lineId"    # J
 
+    .prologue
+    .line 195
     sget-object v0, Lcom/android/incallui/operator/usa/jansky/JanskyContract$Lines;->CONTENT_URI:Landroid/net/Uri;
 
     invoke-static {v0, p0, p1}, Landroid/content/ContentUris;->withAppendedId(Landroid/net/Uri;J)Landroid/net/Uri;

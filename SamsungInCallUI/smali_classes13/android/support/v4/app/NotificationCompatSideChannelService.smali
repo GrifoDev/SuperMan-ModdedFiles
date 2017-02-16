@@ -15,14 +15,22 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 44
     invoke-direct {p0}, Landroid/app/Service;-><init>()V
 
+    .line 73
     return-void
 .end method
 
 .method static synthetic access$100(Landroid/support/v4/app/NotificationCompatSideChannelService;ILjava/lang/String;)V
     .locals 0
+    .param p0, "x0"    # Landroid/support/v4/app/NotificationCompatSideChannelService;
+    .param p1, "x1"    # I
+    .param p2, "x2"    # Ljava/lang/String;
 
+    .prologue
+    .line 44
     invoke-direct {p0, p1, p2}, Landroid/support/v4/app/NotificationCompatSideChannelService;->checkPermission(ILjava/lang/String;)V
 
     return-void
@@ -30,7 +38,11 @@
 
 .method private checkPermission(ILjava/lang/String;)V
     .locals 5
+    .param p1, "callingUid"    # I
+    .param p2, "packageName"    # Ljava/lang/String;
 
+    .prologue
+    .line 110
     invoke-virtual {p0}, Landroid/support/v4/app/NotificationCompatSideChannelService;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v1
@@ -48,19 +60,25 @@
 
     aget-object v0, v2, v1
 
+    .line 111
+    .local v0, "validPackage":Ljava/lang/String;
     invoke-virtual {v0, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
     if-eqz v4, :cond_0
 
+    .line 112
     return-void
 
+    .line 110
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
+    .line 115
+    .end local v0    # "validPackage":Ljava/lang/String;
     :cond_1
     new-instance v1, Ljava/lang/SecurityException;
 
@@ -110,9 +128,12 @@
 
 .method public onBind(Landroid/content/Intent;)Landroid/os/IBinder;
     .locals 3
+    .param p1, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 47
     invoke-virtual {p1}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v1
@@ -125,16 +146,19 @@
 
     if-eqz v1, :cond_0
 
+    .line 50
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0x13
 
     if-le v1, v2, :cond_1
 
+    .line 55
     :cond_0
     :goto_0
     return-object v0
 
+    .line 53
     :cond_1
     new-instance v1, Landroid/support/v4/app/NotificationCompatSideChannelService$NotificationSideChannelStub;
 

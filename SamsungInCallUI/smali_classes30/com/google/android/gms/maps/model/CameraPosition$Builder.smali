@@ -34,7 +34,9 @@
 
 .method public constructor <init>(Lcom/google/android/gms/maps/model/CameraPosition;)V
     .locals 1
+    .param p1, "previous"    # Lcom/google/android/gms/maps/model/CameraPosition;
 
+    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iget-object v0, p1, Lcom/google/android/gms/maps/model/CameraPosition;->target:Lcom/google/android/gms/maps/model/LatLng;
@@ -60,7 +62,9 @@
 # virtual methods
 .method public bearing(F)Lcom/google/android/gms/maps/model/CameraPosition$Builder;
     .locals 0
+    .param p1, "bearing"    # F
 
+    .prologue
     iput p1, p0, Lcom/google/android/gms/maps/model/CameraPosition$Builder;->gU:F
 
     return-object p0
@@ -86,7 +90,9 @@
 
 .method public target(Lcom/google/android/gms/maps/model/LatLng;)Lcom/google/android/gms/maps/model/CameraPosition$Builder;
     .locals 0
+    .param p1, "location"    # Lcom/google/android/gms/maps/model/LatLng;
 
+    .prologue
     iput-object p1, p0, Lcom/google/android/gms/maps/model/CameraPosition$Builder;->gR:Lcom/google/android/gms/maps/model/LatLng;
 
     return-object p0
@@ -94,7 +100,9 @@
 
 .method public tilt(F)Lcom/google/android/gms/maps/model/CameraPosition$Builder;
     .locals 0
+    .param p1, "tilt"    # F
 
+    .prologue
     iput p1, p0, Lcom/google/android/gms/maps/model/CameraPosition$Builder;->gT:F
 
     return-object p0
@@ -102,7 +110,9 @@
 
 .method public zoom(F)Lcom/google/android/gms/maps/model/CameraPosition$Builder;
     .locals 0
+    .param p1, "zoom"    # F
 
+    .prologue
     iput p1, p0, Lcom/google/android/gms/maps/model/CameraPosition$Builder;->gS:F
 
     return-object p0

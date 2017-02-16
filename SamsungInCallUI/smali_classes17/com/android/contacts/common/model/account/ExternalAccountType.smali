@@ -88,6 +88,8 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
+    .line 63
     const/4 v0, 0x2
 
     new-array v0, v0, [Ljava/lang/String;
@@ -111,58 +113,86 @@
 
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Z)V
     .locals 1
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "resPackageName"    # Ljava/lang/String;
+    .param p3, "isExtension"    # Z
 
+    .prologue
+    .line 107
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, p2, p3, v0}, Lcom/android/contacts/common/model/account/ExternalAccountType;-><init>(Landroid/content/Context;Ljava/lang/String;ZLandroid/content/res/XmlResourceParser;)V
 
+    .line 108
     return-void
 .end method
 
 .method constructor <init>(Landroid/content/Context;Ljava/lang/String;ZLandroid/content/res/XmlResourceParser;)V
     .locals 7
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "packageName"    # Ljava/lang/String;
+    .param p3, "isExtension"    # Z
+    .param p4, "injectedMetadata"    # Landroid/content/res/XmlResourceParser;
 
+    .prologue
+    .line 117
     invoke-direct {p0}, Lcom/android/contacts/common/model/account/BaseAccountType;-><init>()V
 
+    .line 118
     iput-boolean p3, p0, Lcom/android/contacts/common/model/account/ExternalAccountType;->mIsExtension:Z
 
+    .line 119
     iput-object p2, p0, Lcom/android/contacts/common/model/account/ExternalAccountType;->resourcePackageName:Ljava/lang/String;
 
+    .line 120
     iput-object p2, p0, Lcom/android/contacts/common/model/account/ExternalAccountType;->syncAdapterPackageName:Ljava/lang/String;
 
+    .line 123
     if-nez p4, :cond_3
 
+    .line 124
     invoke-static {p1, p2}, Lcom/android/contacts/common/model/account/ExternalAccountType;->loadContactsXml(Landroid/content/Context;Ljava/lang/String;)Landroid/content/res/XmlResourceParser;
 
     move-result-object v3
 
+    .line 128
+    .local v3, "parser":Landroid/content/res/XmlResourceParser;
     :goto_0
     const/4 v2, 0x1
 
+    .line 130
+    .local v2, "needLineNumberInErrorLog":Z
     if-eqz v3, :cond_0
 
+    .line 131
     :try_start_0
     invoke-virtual {p0, p1, v3}, Lcom/android/contacts/common/model/account/ExternalAccountType;->inflate(Landroid/content/Context;Lorg/xmlpull/v1/XmlPullParser;)V
 
+    .line 135
     :cond_0
     const/4 v2, 0x0
 
+    .line 136
     iget-boolean v4, p0, Lcom/android/contacts/common/model/account/ExternalAccountType;->mHasEditSchema:Z
 
     if-eqz v4, :cond_4
 
+    .line 137
     const-string v4, "vnd.android.cursor.item/name"
 
     invoke-direct {p0, v4}, Lcom/android/contacts/common/model/account/ExternalAccountType;->checkKindExists(Ljava/lang/String;)V
 
+    .line 138
     const-string v4, "#displayName"
 
     invoke-direct {p0, v4}, Lcom/android/contacts/common/model/account/ExternalAccountType;->checkKindExists(Ljava/lang/String;)V
 
+    .line 139
     const-string v4, "#phoneticName"
 
     invoke-direct {p0, v4}, Lcom/android/contacts/common/model/account/ExternalAccountType;->checkKindExists(Ljava/lang/String;)V
 
+    .line 140
     const-string v4, "vnd.android.cursor.item/photo"
 
     invoke-direct {p0, v4}, Lcom/android/contacts/common/model/account/ExternalAccountType;->checkKindExists(Ljava/lang/String;)V
@@ -170,11 +200,14 @@
     .catch Lcom/android/contacts/common/model/account/AccountType$DefinitionException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 161
     :goto_1
     if-eqz v3, :cond_1
 
+    .line 162
     invoke-interface {v3}, Landroid/content/res/XmlResourceParser;->close()V
 
+    .line 166
     :cond_1
     new-instance v4, Ljava/util/ArrayList;
 
@@ -182,6 +215,7 @@
 
     iput-object v4, p0, Lcom/android/contacts/common/model/account/ExternalAccountType;->mExtensionPackageNames:Ljava/util/List;
 
+    .line 167
     iget-object v4, p0, Lcom/android/contacts/common/model/account/ExternalAccountType;->mInviteActionLabelAttribute:Ljava/lang/String;
 
     iget-object v5, p0, Lcom/android/contacts/common/model/account/ExternalAccountType;->syncAdapterPackageName:Ljava/lang/String;
@@ -194,6 +228,7 @@
 
     iput v4, p0, Lcom/android/contacts/common/model/account/ExternalAccountType;->mInviteActionLabelResId:I
 
+    .line 169
     iget-object v4, p0, Lcom/android/contacts/common/model/account/ExternalAccountType;->mViewGroupLabelAttribute:Ljava/lang/String;
 
     iget-object v5, p0, Lcom/android/contacts/common/model/account/ExternalAccountType;->syncAdapterPackageName:Ljava/lang/String;
@@ -206,6 +241,7 @@
 
     iput v4, p0, Lcom/android/contacts/common/model/account/ExternalAccountType;->mViewGroupLabelResId:I
 
+    .line 171
     iget-object v4, p0, Lcom/android/contacts/common/model/account/ExternalAccountType;->mAccountTypeLabelAttribute:Ljava/lang/String;
 
     iget-object v5, p0, Lcom/android/contacts/common/model/account/ExternalAccountType;->syncAdapterPackageName:Ljava/lang/String;
@@ -218,6 +254,7 @@
 
     iput v4, p0, Lcom/android/contacts/common/model/account/ExternalAccountType;->titleRes:I
 
+    .line 173
     iget-object v4, p0, Lcom/android/contacts/common/model/account/ExternalAccountType;->mAccountTypeIconAttribute:Ljava/lang/String;
 
     iget-object v5, p0, Lcom/android/contacts/common/model/account/ExternalAccountType;->syncAdapterPackageName:Ljava/lang/String;
@@ -230,27 +267,38 @@
 
     iput v4, p0, Lcom/android/contacts/common/model/account/ExternalAccountType;->iconRes:I
 
+    .line 177
     const/4 v4, 0x1
 
     iput-boolean v4, p0, Lcom/android/contacts/common/model/account/ExternalAccountType;->mIsInitialized:Z
 
+    .line 178
     :cond_2
     :goto_2
     return-void
 
+    .line 126
+    .end local v2    # "needLineNumberInErrorLog":Z
+    .end local v3    # "parser":Landroid/content/res/XmlResourceParser;
     :cond_3
     move-object v3, p4
 
+    .restart local v3    # "parser":Landroid/content/res/XmlResourceParser;
     goto :goto_0
 
+    .line 143
+    .restart local v2    # "needLineNumberInErrorLog":Z
     :cond_4
     :try_start_1
     invoke-virtual {p0, p1}, Lcom/android/contacts/common/model/account/ExternalAccountType;->addDataKindStructuredName(Landroid/content/Context;)Lcom/android/contacts/common/model/dataitem/DataKind;
 
+    .line 144
     invoke-virtual {p0, p1}, Lcom/android/contacts/common/model/account/ExternalAccountType;->addDataKindDisplayName(Landroid/content/Context;)Lcom/android/contacts/common/model/dataitem/DataKind;
 
+    .line 145
     invoke-virtual {p0, p1}, Lcom/android/contacts/common/model/account/ExternalAccountType;->addDataKindPhoneticName(Landroid/content/Context;)Lcom/android/contacts/common/model/dataitem/DataKind;
 
+    .line 146
     invoke-virtual {p0, p1}, Lcom/android/contacts/common/model/account/ExternalAccountType;->addDataKindPhoto(Landroid/content/Context;)Lcom/android/contacts/common/model/dataitem/DataKind;
     :try_end_1
     .catch Lcom/android/contacts/common/model/account/AccountType$DefinitionException; {:try_start_1 .. :try_end_1} :catch_0
@@ -258,39 +306,50 @@
 
     goto :goto_1
 
+    .line 148
     :catch_0
     move-exception v0
 
+    .line 149
+    .local v0, "e":Lcom/android/contacts/common/model/account/AccountType$DefinitionException;
     :try_start_2
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
+    .line 150
+    .local v1, "error":Ljava/lang/StringBuilder;
     const-string v4, "Problem reading XML"
 
     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 151
     if-eqz v2, :cond_5
 
     if-eqz v3, :cond_5
 
+    .line 152
     const-string v4, " in line "
 
     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 153
     invoke-interface {v3}, Landroid/content/res/XmlResourceParser;->getLineNumber()I
 
     move-result v4
 
     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    .line 155
     :cond_5
     const-string v4, " for external package "
 
     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 156
     invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 158
     const-string v4, "ExternalAccountType"
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -301,17 +360,23 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
+    .line 161
     if-eqz v3, :cond_2
 
+    .line 162
     invoke-interface {v3}, Landroid/content/res/XmlResourceParser;->close()V
 
     goto :goto_2
 
+    .line 161
+    .end local v0    # "e":Lcom/android/contacts/common/model/account/AccountType$DefinitionException;
+    .end local v1    # "error":Ljava/lang/StringBuilder;
     :catchall_0
     move-exception v4
 
     if-eqz v3, :cond_6
 
+    .line 162
     invoke-interface {v3}, Landroid/content/res/XmlResourceParser;->close()V
 
     :cond_6
@@ -320,18 +385,22 @@
 
 .method private checkKindExists(Ljava/lang/String;)V
     .locals 3
+    .param p1, "mimeType"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/contacts/common/model/account/AccountType$DefinitionException;
         }
     .end annotation
 
+    .prologue
+    .line 230
     invoke-virtual {p0, p1}, Lcom/android/contacts/common/model/account/ExternalAccountType;->getKindForMimetype(Ljava/lang/String;)Lcom/android/contacts/common/model/dataitem/DataKind;
 
     move-result-object v0
 
     if-nez v0, :cond_0
 
+    .line 231
     new-instance v0, Lcom/android/contacts/common/model/account/AccountType$DefinitionException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -356,13 +425,18 @@
 
     throw v0
 
+    .line 233
     :cond_0
     return-void
 .end method
 
 .method public static hasContactsXml(Landroid/content/Context;Ljava/lang/String;)Z
     .locals 1
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "resPackageName"    # Ljava/lang/String;
 
+    .prologue
+    .line 226
     invoke-static {p0, p1}, Lcom/android/contacts/common/model/account/ExternalAccountType;->loadContactsXml(Landroid/content/Context;Ljava/lang/String;)Landroid/content/res/XmlResourceParser;
 
     move-result-object v0
@@ -382,15 +456,21 @@
 
 .method public static loadContactsXml(Landroid/content/Context;Ljava/lang/String;)Landroid/content/res/XmlResourceParser;
     .locals 13
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "resPackageName"    # Ljava/lang/String;
 
+    .prologue
     const/4 v12, 0x3
 
     const/4 v8, 0x0
 
+    .line 192
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v4
 
+    .line 193
+    .local v4, "pm":Landroid/content/pm/PackageManager;
     new-instance v7, Landroid/content/Intent;
 
     const-string v9, "android.content.SyncAdapter"
@@ -401,14 +481,19 @@
 
     move-result-object v0
 
+    .line 194
+    .local v0, "intent":Landroid/content/Intent;
     const/16 v7, 0x84
 
     invoke-virtual {v4, v0, v7}, Landroid/content/pm/PackageManager;->queryIntentServices(Landroid/content/Intent;I)Ljava/util/List;
 
     move-result-object v1
 
+    .line 197
+    .local v1, "intentServices":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
     if-eqz v1, :cond_3
 
+    .line 198
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v9
@@ -426,10 +511,15 @@
 
     check-cast v5, Landroid/content/pm/ResolveInfo;
 
+    .line 199
+    .local v5, "resolveInfo":Landroid/content/pm/ResolveInfo;
     iget-object v6, v5, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
 
+    .line 200
+    .local v6, "serviceInfo":Landroid/content/pm/ServiceInfo;
     if-eqz v6, :cond_0
 
+    .line 203
     sget-object v10, Lcom/android/contacts/common/model/account/ExternalAccountType;->METADATA_CONTACTS_NAMES:[Ljava/lang/String;
 
     array-length v11, v10
@@ -441,12 +531,17 @@
 
     aget-object v2, v10, v7
 
+    .line 204
+    .local v2, "metadataName":Ljava/lang/String;
     invoke-virtual {v6, v4, v2}, Landroid/content/pm/ServiceInfo;->loadXmlMetaData(Landroid/content/pm/PackageManager;Ljava/lang/String;)Landroid/content/res/XmlResourceParser;
 
     move-result-object v3
 
+    .line 206
+    .local v3, "parser":Landroid/content/res/XmlResourceParser;
     if-eqz v3, :cond_2
 
+    .line 207
     const-string v7, "ExternalAccountType"
 
     invoke-static {v7, v12}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
@@ -455,6 +550,7 @@
 
     if-eqz v7, :cond_1
 
+    .line 208
     const-string v7, "ExternalAccountType"
 
     const-string v9, "Metadata loaded from: %s, %s, %s"
@@ -481,15 +577,30 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 219
+    .end local v2    # "metadataName":Ljava/lang/String;
+    .end local v3    # "parser":Landroid/content/res/XmlResourceParser;
+    .end local v5    # "resolveInfo":Landroid/content/pm/ResolveInfo;
+    .end local v6    # "serviceInfo":Landroid/content/pm/ServiceInfo;
     :cond_1
     :goto_1
     return-object v3
 
+    .line 203
+    .restart local v2    # "metadataName":Ljava/lang/String;
+    .restart local v3    # "parser":Landroid/content/res/XmlResourceParser;
+    .restart local v5    # "resolveInfo":Landroid/content/pm/ResolveInfo;
+    .restart local v6    # "serviceInfo":Landroid/content/pm/ServiceInfo;
     :cond_2
     add-int/lit8 v7, v7, 0x1
 
     goto :goto_0
 
+    .line 219
+    .end local v2    # "metadataName":Ljava/lang/String;
+    .end local v3    # "parser":Landroid/content/res/XmlResourceParser;
+    .end local v5    # "resolveInfo":Landroid/content/pm/ResolveInfo;
+    .end local v6    # "serviceInfo":Landroid/content/pm/ServiceInfo;
     :cond_3
     const/4 v3, 0x0
 
@@ -498,11 +609,17 @@
 
 .method static resolveExternalResId(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
     .locals 8
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "resourceName"    # Ljava/lang/String;
+    .param p2, "packageName"    # Ljava/lang/String;
+    .param p3, "xmlAttributeName"    # Ljava/lang/String;
     .annotation build Lcom/google/common/annotations/VisibleForTesting;
     .end annotation
 
+    .prologue
     const/4 v4, -0x1
 
+    .line 420
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v5
@@ -511,10 +628,12 @@
 
     move v3, v4
 
+    .line 440
     :cond_0
     :goto_0
     return v3
 
+    .line 423
     :cond_1
     const/4 v5, 0x0
 
@@ -526,6 +645,7 @@
 
     if-eq v5, v6, :cond_2
 
+    .line 424
     const-string v5, "ExternalAccountType"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -550,8 +670,10 @@
 
     move v3, v4
 
+    .line 425
     goto :goto_0
 
+    .line 427
     :cond_2
     const/4 v5, 0x1
 
@@ -559,6 +681,8 @@
 
     move-result-object v1
 
+    .line 430
+    .local v1, "name":Ljava/lang/String;
     :try_start_0
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
@@ -570,14 +694,19 @@
 
     move-result-object v2
 
+    .line 435
+    .local v2, "res":Landroid/content/res/Resources;
     const/4 v5, 0x0
 
     invoke-virtual {v2, v1, v5, p2}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v3
 
+    .line 436
+    .local v3, "resId":I
     if-nez v3, :cond_0
 
+    .line 437
     const-string v5, "ExternalAccountType"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -612,11 +741,17 @@
 
     move v3, v4
 
+    .line 438
     goto :goto_0
 
+    .line 431
+    .end local v2    # "res":Landroid/content/res/Resources;
+    .end local v3    # "resId":I
     :catch_0
     move-exception v0
 
+    .line 432
+    .local v0, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     const-string v5, "ExternalAccountType"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -641,6 +776,7 @@
 
     move v3, v4
 
+    .line 433
     goto :goto_0
 .end method
 
@@ -649,6 +785,8 @@
 .method public areContactsWritable()Z
     .locals 1
 
+    .prologue
+    .line 247
     iget-boolean v0, p0, Lcom/android/contacts/common/model/account/ExternalAccountType;->mHasEditSchema:Z
 
     return v0
@@ -657,6 +795,8 @@
 .method public getCreateContactActivityClassName()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 264
     iget-object v0, p0, Lcom/android/contacts/common/model/account/ExternalAccountType;->mCreateContactActivityClassName:Ljava/lang/String;
 
     return-object v0
@@ -665,6 +805,8 @@
 .method public getEditContactActivityClassName()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 259
     iget-object v0, p0, Lcom/android/contacts/common/model/account/ExternalAccountType;->mEditContactActivityClassName:Ljava/lang/String;
 
     return-object v0
@@ -682,6 +824,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 294
     iget-object v0, p0, Lcom/android/contacts/common/model/account/ExternalAccountType;->mExtensionPackageNames:Ljava/util/List;
 
     return-object v0
@@ -690,6 +834,8 @@
 .method protected getInviteContactActionResId()I
     .locals 1
 
+    .prologue
+    .line 274
     iget v0, p0, Lcom/android/contacts/common/model/account/ExternalAccountType;->mInviteActionLabelResId:I
 
     return v0
@@ -698,6 +844,8 @@
 .method public getInviteContactActivityClassName()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 269
     iget-object v0, p0, Lcom/android/contacts/common/model/account/ExternalAccountType;->mInviteContactActivity:Ljava/lang/String;
 
     return-object v0
@@ -706,6 +854,8 @@
 .method public getViewContactNotifyServiceClassName()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 279
     iget-object v0, p0, Lcom/android/contacts/common/model/account/ExternalAccountType;->mViewContactNotifyService:Ljava/lang/String;
 
     return-object v0
@@ -714,6 +864,8 @@
 .method public getViewGroupActivity()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 284
     iget-object v0, p0, Lcom/android/contacts/common/model/account/ExternalAccountType;->mViewGroupActivity:Ljava/lang/String;
 
     return-object v0
@@ -722,6 +874,8 @@
 .method protected getViewGroupLabelResId()I
     .locals 1
 
+    .prologue
+    .line 289
     iget v0, p0, Lcom/android/contacts/common/model/account/ExternalAccountType;->mViewGroupLabelResId:I
 
     return v0
@@ -730,6 +884,8 @@
 .method public hasContactsMetadata()Z
     .locals 1
 
+    .prologue
+    .line 254
     iget-boolean v0, p0, Lcom/android/contacts/common/model/account/ExternalAccountType;->mHasContactsMetadata:Z
 
     return v0
@@ -737,22 +893,29 @@
 
 .method protected inflate(Landroid/content/Context;Lorg/xmlpull/v1/XmlPullParser;)V
     .locals 20
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/contacts/common/model/account/AccountType$DefinitionException;
         }
     .end annotation
 
+    .prologue
+    .line 302
     invoke-static/range {p2 .. p2}, Landroid/util/Xml;->asAttributeSet(Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;
 
     move-result-object v6
 
+    .line 306
+    .local v6, "attrs":Landroid/util/AttributeSet;
     :cond_0
     :try_start_0
     invoke-interface/range {p2 .. p2}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
     move-result v15
 
+    .local v15, "type":I
     const/16 v17, 0x2
 
     move/from16 v0, v17
@@ -765,6 +928,7 @@
 
     if-ne v15, v0, :cond_0
 
+    .line 311
     :cond_1
     const/16 v17, 0x2
 
@@ -772,6 +936,7 @@
 
     if-eq v15, v0, :cond_2
 
+    .line 312
     new-instance v17, Ljava/lang/IllegalStateException;
 
     const-string v18, "No start tag found"
@@ -783,9 +948,13 @@
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
 
+    .line 399
+    .end local v15    # "type":I
     :catch_0
     move-exception v8
 
+    .line 400
+    .local v8, "e":Lorg/xmlpull/v1/XmlPullParserException;
     new-instance v17, Lcom/android/contacts/common/model/account/AccountType$DefinitionException;
 
     const-string v18, "Problem reading XML"
@@ -798,12 +967,17 @@
 
     throw v17
 
+    .line 315
+    .end local v8    # "e":Lorg/xmlpull/v1/XmlPullParserException;
+    .restart local v15    # "type":I
     :cond_2
     :try_start_1
     invoke-interface/range {p2 .. p2}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
     move-result-object v11
 
+    .line 316
+    .local v11, "rootTag":Ljava/lang/String;
     const-string v17, "ContactsAccountType"
 
     move-object/from16 v0, v17
@@ -816,6 +990,7 @@
 
     const-string v17, "ContactsSource"
 
+    .line 317
     move-object/from16 v0, v17
 
     invoke-virtual {v0, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -824,6 +999,7 @@
 
     if-nez v17, :cond_3
 
+    .line 318
     new-instance v17, Ljava/lang/IllegalStateException;
 
     new-instance v18, Ljava/lang/StringBuilder;
@@ -853,9 +1029,14 @@
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
 
+    .line 401
+    .end local v11    # "rootTag":Ljava/lang/String;
+    .end local v15    # "type":I
     :catch_1
     move-exception v8
 
+    .line 402
+    .local v8, "e":Ljava/io/IOException;
     new-instance v17, Lcom/android/contacts/common/model/account/AccountType$DefinitionException;
 
     const-string v18, "Problem reading XML"
@@ -868,6 +1049,10 @@
 
     throw v17
 
+    .line 322
+    .end local v8    # "e":Ljava/io/IOException;
+    .restart local v11    # "rootTag":Ljava/lang/String;
+    .restart local v15    # "type":I
     :cond_3
     const/16 v17, 0x1
 
@@ -878,27 +1063,36 @@
 
     iput-boolean v0, v1, Lcom/android/contacts/common/model/account/ExternalAccountType;->mHasContactsMetadata:Z
 
+    .line 324
     invoke-interface/range {p2 .. p2}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeCount()I
 
     move-result v5
 
+    .line 325
+    .local v5, "attributeCount":I
     const/4 v9, 0x0
 
+    .local v9, "i":I
     :goto_0
     if-ge v9, v5, :cond_11
 
+    .line 326
     move-object/from16 v0, p2
 
     invoke-interface {v0, v9}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeName(I)Ljava/lang/String;
 
     move-result-object v4
 
+    .line 327
+    .local v4, "attr":Ljava/lang/String;
     move-object/from16 v0, p2
 
     invoke-interface {v0, v9}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(I)Ljava/lang/String;
 
     move-result-object v16
 
+    .line 328
+    .local v16, "value":Ljava/lang/String;
     const-string v17, "ExternalAccountType"
 
     const/16 v18, 0x3
@@ -909,6 +1103,7 @@
 
     if-eqz v17, :cond_4
 
+    .line 329
     const-string v17, "ExternalAccountType"
 
     new-instance v18, Ljava/lang/StringBuilder;
@@ -941,6 +1136,7 @@
 
     invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 331
     :cond_4
     const-string v17, "editContactActivity"
 
@@ -952,17 +1148,20 @@
 
     if-eqz v17, :cond_5
 
+    .line 332
     move-object/from16 v0, v16
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/contacts/common/model/account/ExternalAccountType;->mEditContactActivityClassName:Ljava/lang/String;
 
+    .line 325
     :goto_1
     add-int/lit8 v9, v9, 0x1
 
     goto :goto_0
 
+    .line 333
     :cond_5
     const-string v17, "createContactActivity"
 
@@ -974,6 +1173,7 @@
 
     if-eqz v17, :cond_6
 
+    .line 334
     move-object/from16 v0, v16
 
     move-object/from16 v1, p0
@@ -982,6 +1182,7 @@
 
     goto :goto_1
 
+    .line 335
     :cond_6
     const-string v17, "inviteContactActivity"
 
@@ -993,6 +1194,7 @@
 
     if-eqz v17, :cond_7
 
+    .line 336
     move-object/from16 v0, v16
 
     move-object/from16 v1, p0
@@ -1001,6 +1203,7 @@
 
     goto :goto_1
 
+    .line 337
     :cond_7
     const-string v17, "inviteContactActionLabel"
 
@@ -1012,6 +1215,7 @@
 
     if-eqz v17, :cond_8
 
+    .line 338
     move-object/from16 v0, v16
 
     move-object/from16 v1, p0
@@ -1020,6 +1224,7 @@
 
     goto :goto_1
 
+    .line 339
     :cond_8
     const-string v17, "viewContactNotifyService"
 
@@ -1031,6 +1236,7 @@
 
     if-eqz v17, :cond_9
 
+    .line 340
     move-object/from16 v0, v16
 
     move-object/from16 v1, p0
@@ -1039,6 +1245,7 @@
 
     goto :goto_1
 
+    .line 341
     :cond_9
     const-string v17, "viewGroupActivity"
 
@@ -1050,6 +1257,7 @@
 
     if-eqz v17, :cond_a
 
+    .line 342
     move-object/from16 v0, v16
 
     move-object/from16 v1, p0
@@ -1058,6 +1266,7 @@
 
     goto :goto_1
 
+    .line 343
     :cond_a
     const-string v17, "viewGroupActionLabel"
 
@@ -1069,6 +1278,7 @@
 
     if-eqz v17, :cond_b
 
+    .line 344
     move-object/from16 v0, v16
 
     move-object/from16 v1, p0
@@ -1077,6 +1287,7 @@
 
     goto :goto_1
 
+    .line 345
     :cond_b
     const-string v17, "dataSet"
 
@@ -1088,6 +1299,7 @@
 
     if-eqz v17, :cond_c
 
+    .line 346
     move-object/from16 v0, v16
 
     move-object/from16 v1, p0
@@ -1096,6 +1308,7 @@
 
     goto :goto_1
 
+    .line 347
     :cond_c
     const-string v17, "extensionPackageNames"
 
@@ -1107,6 +1320,7 @@
 
     if-eqz v17, :cond_d
 
+    .line 348
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/contacts/common/model/account/ExternalAccountType;->mExtensionPackageNames:Ljava/util/List;
@@ -1121,6 +1335,7 @@
 
     goto/16 :goto_1
 
+    .line 349
     :cond_d
     const-string v17, "accountType"
 
@@ -1132,6 +1347,7 @@
 
     if-eqz v17, :cond_e
 
+    .line 350
     move-object/from16 v0, v16
 
     move-object/from16 v1, p0
@@ -1140,6 +1356,7 @@
 
     goto/16 :goto_1
 
+    .line 351
     :cond_e
     const-string v17, "accountTypeLabel"
 
@@ -1151,6 +1368,7 @@
 
     if-eqz v17, :cond_f
 
+    .line 352
     move-object/from16 v0, v16
 
     move-object/from16 v1, p0
@@ -1159,6 +1377,7 @@
 
     goto/16 :goto_1
 
+    .line 353
     :cond_f
     const-string v17, "accountTypeIcon"
 
@@ -1170,6 +1389,7 @@
 
     if-eqz v17, :cond_10
 
+    .line 354
     move-object/from16 v0, v16
 
     move-object/from16 v1, p0
@@ -1178,6 +1398,7 @@
 
     goto/16 :goto_1
 
+    .line 356
     :cond_10
     const-string v17, "ExternalAccountType"
 
@@ -1205,11 +1426,16 @@
 
     goto/16 :goto_1
 
+    .line 361
+    .end local v4    # "attr":Ljava/lang/String;
+    .end local v16    # "value":Ljava/lang/String;
     :cond_11
     invoke-interface/range {p2 .. p2}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
 
     move-result v12
 
+    .line 362
+    .local v12, "startDepth":I
     :cond_12
     :goto_2
     invoke-interface/range {p2 .. p2}, Lorg/xmlpull/v1/XmlPullParser;->next()I
@@ -1222,6 +1448,7 @@
 
     if-ne v15, v0, :cond_13
 
+    .line 363
     invoke-interface/range {p2 .. p2}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
 
     move-result v17
@@ -1237,6 +1464,7 @@
 
     if-eq v15, v0, :cond_17
 
+    .line 366
     const/16 v17, 0x2
 
     move/from16 v0, v17
@@ -1255,10 +1483,13 @@
 
     if-ne v0, v1, :cond_12
 
+    .line 370
     invoke-interface/range {p2 .. p2}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
     move-result-object v14
 
+    .line 371
+    .local v14, "tag":Ljava/lang/String;
     const-string v17, "EditSchema"
 
     move-object/from16 v0, v17
@@ -1269,6 +1500,7 @@
 
     if-eqz v17, :cond_14
 
+    .line 372
     const/16 v17, 0x1
 
     move/from16 v0, v17
@@ -1277,6 +1509,7 @@
 
     iput-boolean v0, v1, Lcom/android/contacts/common/model/account/ExternalAccountType;->mHasEditSchema:Z
 
+    .line 373
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
@@ -1287,6 +1520,7 @@
 
     goto :goto_2
 
+    .line 374
     :cond_14
     const-string v17, "ContactsDataKind"
 
@@ -1298,6 +1532,7 @@
 
     if-eqz v17, :cond_12
 
+    .line 375
     sget-object v17, Lcom/android/incallui/R$styleable;->ContactsDataKind:[I
 
     move-object/from16 v0, p1
@@ -1308,12 +1543,17 @@
 
     move-result-object v3
 
+    .line 377
+    .local v3, "a":Landroid/content/res/TypedArray;
     new-instance v10, Lcom/android/contacts/common/model/dataitem/DataKind;
 
     invoke-direct {v10}, Lcom/android/contacts/common/model/dataitem/DataKind;-><init>()V
 
+    .line 379
+    .local v10, "kind":Lcom/android/contacts/common/model/dataitem/DataKind;
     const/16 v17, 0x1
 
+    .line 380
     move/from16 v0, v17
 
     invoke-virtual {v3, v0}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
@@ -1324,6 +1564,7 @@
 
     iput-object v0, v10, Lcom/android/contacts/common/model/dataitem/DataKind;->mimeType:Ljava/lang/String;
 
+    .line 381
     const/16 v17, 0x2
 
     move/from16 v0, v17
@@ -1332,8 +1573,11 @@
 
     move-result-object v13
 
+    .line 383
+    .local v13, "summaryColumn":Ljava/lang/String;
     if-eqz v13, :cond_15
 
+    .line 385
     new-instance v17, Lcom/android/contacts/common/model/account/BaseAccountType$SimpleInflater;
 
     move-object/from16 v0, v17
@@ -1344,6 +1588,7 @@
 
     iput-object v0, v10, Lcom/android/contacts/common/model/dataitem/DataKind;->actionHeader:Lcom/android/contacts/common/model/account/AccountType$StringInflater;
 
+    .line 387
     :cond_15
     const/16 v17, 0x3
 
@@ -1353,8 +1598,11 @@
 
     move-result-object v7
 
+    .line 389
+    .local v7, "detailColumn":Ljava/lang/String;
     if-eqz v7, :cond_16
 
+    .line 391
     new-instance v17, Lcom/android/contacts/common/model/account/BaseAccountType$SimpleInflater;
 
     move-object/from16 v0, v17
@@ -1365,9 +1613,11 @@
 
     iput-object v0, v10, Lcom/android/contacts/common/model/dataitem/DataKind;->actionBody:Lcom/android/contacts/common/model/account/AccountType$StringInflater;
 
+    .line 394
     :cond_16
     invoke-virtual {v3}, Landroid/content/res/TypedArray;->recycle()V
 
+    .line 396
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v10}, Lcom/android/contacts/common/model/account/ExternalAccountType;->addKind(Lcom/android/contacts/common/model/dataitem/DataKind;)Lcom/android/contacts/common/model/dataitem/DataKind;
@@ -1377,6 +1627,12 @@
 
     goto/16 :goto_2
 
+    .line 404
+    .end local v3    # "a":Landroid/content/res/TypedArray;
+    .end local v7    # "detailColumn":Ljava/lang/String;
+    .end local v10    # "kind":Lcom/android/contacts/common/model/dataitem/DataKind;
+    .end local v13    # "summaryColumn":Ljava/lang/String;
+    .end local v14    # "tag":Ljava/lang/String;
     :cond_17
     return-void
 .end method
@@ -1384,6 +1640,8 @@
 .method public isEmbedded()Z
     .locals 1
 
+    .prologue
+    .line 237
     const/4 v0, 0x0
 
     return v0
@@ -1392,6 +1650,8 @@
 .method public isExtension()Z
     .locals 1
 
+    .prologue
+    .line 242
     iget-boolean v0, p0, Lcom/android/contacts/common/model/account/ExternalAccountType;->mIsExtension:Z
 
     return v0

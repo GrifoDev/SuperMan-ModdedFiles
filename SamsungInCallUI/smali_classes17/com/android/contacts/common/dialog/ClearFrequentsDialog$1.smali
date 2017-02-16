@@ -28,7 +28,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/contacts/common/dialog/ClearFrequentsDialog;Landroid/content/Context;Landroid/content/ContentResolver;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/contacts/common/dialog/ClearFrequentsDialog;
 
+    .prologue
+    .line 49
     iput-object p1, p0, Lcom/android/contacts/common/dialog/ClearFrequentsDialog$1;->this$0:Lcom/android/contacts/common/dialog/ClearFrequentsDialog;
 
     iput-object p2, p0, Lcom/android/contacts/common/dialog/ClearFrequentsDialog$1;->val$context:Landroid/content/Context;
@@ -44,7 +47,11 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 8
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .param p2, "which"    # I
 
+    .prologue
+    .line 52
     iget-object v2, p0, Lcom/android/contacts/common/dialog/ClearFrequentsDialog$1;->val$context:Landroid/content/Context;
 
     invoke-static {v2}, Lcom/android/contacts/common/util/PermissionsUtil;->hasContactsPermissions(Landroid/content/Context;)Z
@@ -53,12 +60,15 @@
 
     if-nez v2, :cond_0
 
+    .line 72
     :goto_0
     return-void
 
+    .line 55
     :cond_0
     iget-object v2, p0, Lcom/android/contacts/common/dialog/ClearFrequentsDialog$1;->this$0:Lcom/android/contacts/common/dialog/ClearFrequentsDialog;
 
+    .line 56
     invoke-virtual {v2}, Lcom/android/contacts/common/dialog/ClearFrequentsDialog;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v2
@@ -75,14 +85,19 @@
 
     const-wide/16 v6, 0x1f4
 
+    .line 55
     invoke-static {v2, v3, v4, v6, v7}, Lcom/android/contacts/common/dialog/IndeterminateProgressDialog;->show(Landroid/app/FragmentManager;Ljava/lang/CharSequence;Ljava/lang/CharSequence;J)Lcom/android/contacts/common/dialog/IndeterminateProgressDialog;
 
     move-result-object v0
 
+    .line 58
+    .local v0, "progressDialog":Lcom/android/contacts/common/dialog/IndeterminateProgressDialog;
     new-instance v1, Lcom/android/contacts/common/dialog/ClearFrequentsDialog$1$1;
 
     invoke-direct {v1, p0, v0}, Lcom/android/contacts/common/dialog/ClearFrequentsDialog$1$1;-><init>(Lcom/android/contacts/common/dialog/ClearFrequentsDialog$1;Lcom/android/contacts/common/dialog/IndeterminateProgressDialog;)V
 
+    .line 71
+    .local v1, "task":Landroid/os/AsyncTask;, "Landroid/os/AsyncTask<Ljava/lang/Void;Ljava/lang/Void;Ljava/lang/Void;>;"
     sget-object v2, Landroid/os/AsyncTask;->THREAD_POOL_EXECUTOR:Ljava/util/concurrent/Executor;
 
     const/4 v3, 0x0

@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/MultiPartyCallCardFragment;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/fragment/MultiPartyCallCardFragment;
 
+    .prologue
+    .line 1827
     iput-object p1, p0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment$2;->this$0:Lcom/android/incallui/fragment/MultiPartyCallCardFragment;
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
@@ -33,17 +36,21 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 6
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
     const/high16 v5, 0x3f800000    # 1.0f
 
     const/4 v4, 0x1
 
+    .line 1835
     const-string v1, "MultiPartyCallCardFragment"
 
     const-string v2, "swap animation end..."
 
     invoke-static {v1, v2, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
+    .line 1836
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v1
@@ -56,6 +63,8 @@
 
     move-result-object v0
 
+    .line 1838
+    .local v0, "call":Lcom/android/incallui/Call;
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v1
@@ -66,12 +75,14 @@
 
     if-nez v1, :cond_3
 
+    .line 1839
     const-string v1, "MultiPartyCallCardFragment"
 
     const-string v2, "syh there is no hold call"
 
     invoke-static {v1, v2, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
+    .line 1850
     :cond_0
     :goto_0
     iget-object v1, p0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment$2;->this$0:Lcom/android/incallui/fragment/MultiPartyCallCardFragment;
@@ -80,12 +91,14 @@
 
     if-eqz v1, :cond_1
 
+    .line 1851
     iget-object v1, p0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment$2;->this$0:Lcom/android/incallui/fragment/MultiPartyCallCardFragment;
 
     iget-object v1, v1, Lcom/android/incallui/fragment/MultiPartyCallCardFragment;->mPrimaryCallInfoContainer:Landroid/view/View;
 
     invoke-virtual {v1, v5}, Landroid/view/View;->setAlpha(F)V
 
+    .line 1853
     :cond_1
     iget-object v1, p0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment$2;->this$0:Lcom/android/incallui/fragment/MultiPartyCallCardFragment;
 
@@ -93,12 +106,14 @@
 
     if-eqz v1, :cond_2
 
+    .line 1854
     iget-object v1, p0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment$2;->this$0:Lcom/android/incallui/fragment/MultiPartyCallCardFragment;
 
     iget-object v1, v1, Lcom/android/incallui/fragment/MultiPartyCallCardFragment;->mSecondaryCallInfoContainer:Landroid/view/View;
 
     invoke-virtual {v1, v5}, Landroid/view/View;->setAlpha(F)V
 
+    .line 1856
     :cond_2
     iget-object v1, p0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment$2;->this$0:Lcom/android/incallui/fragment/MultiPartyCallCardFragment;
 
@@ -110,8 +125,10 @@
 
     invoke-virtual {v1, v2, v4, v5}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
+    .line 1857
     return-void
 
+    .line 1841
     :cond_3
     if-eqz v0, :cond_4
 
@@ -141,6 +158,7 @@
 
     if-eqz v1, :cond_4
 
+    .line 1842
     invoke-static {}, Lcom/android/incallui/TelecomAdapter;->getInstance()Lcom/android/incallui/TelecomAdapter;
 
     move-result-object v1
@@ -153,6 +171,7 @@
 
     goto :goto_0
 
+    .line 1844
     :cond_4
     iget-object v1, p0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment$2;->this$0:Lcom/android/incallui/fragment/MultiPartyCallCardFragment;
 
@@ -163,6 +182,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 1845
     const-string v1, "MultiPartyCallCardFragment"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -211,7 +231,10 @@
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
     .locals 3
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 1830
     const-string v0, "MultiPartyCallCardFragment"
 
     const-string v1, "swap animation start..."
@@ -220,5 +243,6 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
+    .line 1831
     return-void
 .end method

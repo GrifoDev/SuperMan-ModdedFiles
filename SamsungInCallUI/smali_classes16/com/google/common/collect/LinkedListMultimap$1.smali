@@ -31,6 +31,9 @@
 .method constructor <init>(Lcom/google/common/collect/LinkedListMultimap;Ljava/lang/Object;)V
     .locals 0
 
+    .prologue
+    .line 685
+    .local p0, "this":Lcom/google/common/collect/LinkedListMultimap$1;, "Lcom/google/common/collect/LinkedListMultimap.1;"
     iput-object p1, p0, Lcom/google/common/collect/LinkedListMultimap$1;->this$0:Lcom/google/common/collect/LinkedListMultimap;
 
     iput-object p2, p0, Lcom/google/common/collect/LinkedListMultimap$1;->val$key:Ljava/lang/Object;
@@ -44,6 +47,7 @@
 # virtual methods
 .method public listIterator(I)Ljava/util/ListIterator;
     .locals 3
+    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -52,6 +56,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 694
+    .local p0, "this":Lcom/google/common/collect/LinkedListMultimap$1;, "Lcom/google/common/collect/LinkedListMultimap.1;"
     new-instance v0, Lcom/google/common/collect/LinkedListMultimap$ValueForKeyIterator;
 
     iget-object v1, p0, Lcom/google/common/collect/LinkedListMultimap$1;->this$0:Lcom/google/common/collect/LinkedListMultimap;
@@ -66,6 +73,9 @@
 .method public size()I
     .locals 3
 
+    .prologue
+    .line 688
+    .local p0, "this":Lcom/google/common/collect/LinkedListMultimap$1;, "Lcom/google/common/collect/LinkedListMultimap.1;"
     iget-object v1, p0, Lcom/google/common/collect/LinkedListMultimap$1;->this$0:Lcom/google/common/collect/LinkedListMultimap;
 
     # getter for: Lcom/google/common/collect/LinkedListMultimap;->keyToKeyList:Ljava/util/Map;
@@ -81,6 +91,8 @@
 
     check-cast v0, Lcom/google/common/collect/LinkedListMultimap$KeyList;
 
+    .line 689
+    .local v0, "keyList":Lcom/google/common/collect/LinkedListMultimap$KeyList;, "Lcom/google/common/collect/LinkedListMultimap$KeyList<TK;TV;>;"
     if-nez v0, :cond_0
 
     const/4 v1, 0x0

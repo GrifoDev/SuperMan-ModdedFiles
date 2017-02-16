@@ -31,6 +31,8 @@
 .method constructor <init>(Landroid/widget/ListView;Landroid/view/View;II)V
     .locals 0
 
+    .prologue
+    .line 64
     iput-object p1, p0, Lcom/android/contacts/common/util/ContactListViewUtils$1;->val$listView:Landroid/widget/ListView;
 
     iput-object p2, p0, Lcom/android/contacts/common/util/ContactListViewUtils$1;->val$rootLayout:Landroid/view/View;
@@ -49,10 +51,13 @@
 .method public run()V
     .locals 4
 
+    .prologue
+    .line 70
     iget-object v0, p0, Lcom/android/contacts/common/util/ContactListViewUtils$1;->val$listView:Landroid/widget/ListView;
 
     iget-object v1, p0, Lcom/android/contacts/common/util/ContactListViewUtils$1;->val$rootLayout:Landroid/view/View;
 
+    .line 71
     invoke-virtual {v1}, Landroid/view/View;->getWidth()I
 
     move-result v1
@@ -61,8 +66,10 @@
 
     iget v3, p0, Lcom/android/contacts/common/util/ContactListViewUtils$1;->val$listViewWeight:I
 
+    .line 70
     # invokes: Lcom/android/contacts/common/util/ContactListViewUtils;->addPaddingToView(Landroid/widget/ListView;III)V
     invoke-static {v0, v1, v2, v3}, Lcom/android/contacts/common/util/ContactListViewUtils;->access$000(Landroid/widget/ListView;III)V
 
+    .line 72
     return-void
 .end method

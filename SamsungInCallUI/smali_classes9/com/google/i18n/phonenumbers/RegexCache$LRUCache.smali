@@ -41,11 +41,17 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 4
+    .param p1, "size"    # I
 
+    .prologue
+    .line 55
+    .local p0, "this":Lcom/google/i18n/phonenumbers/RegexCache$LRUCache;, "Lcom/google/i18n/phonenumbers/RegexCache$LRUCache<TK;TV;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 56
     iput p1, p0, Lcom/google/i18n/phonenumbers/RegexCache$LRUCache;->size:I
 
+    .line 58
     new-instance v0, Lcom/google/i18n/phonenumbers/RegexCache$LRUCache$1;
 
     mul-int/lit8 v1, p1, 0x4
@@ -62,12 +68,16 @@
 
     iput-object v0, p0, Lcom/google/i18n/phonenumbers/RegexCache$LRUCache;->map:Ljava/util/LinkedHashMap;
 
+    .line 64
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/google/i18n/phonenumbers/RegexCache$LRUCache;)I
     .locals 1
+    .param p0, "x0"    # Lcom/google/i18n/phonenumbers/RegexCache$LRUCache;
 
+    .prologue
+    .line 49
     iget v0, p0, Lcom/google/i18n/phonenumbers/RegexCache$LRUCache;->size:I
 
     return v0
@@ -83,6 +93,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 75
+    .local p0, "this":Lcom/google/i18n/phonenumbers/RegexCache$LRUCache;, "Lcom/google/i18n/phonenumbers/RegexCache$LRUCache<TK;TV;>;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
     monitor-enter p0
 
     :try_start_0
@@ -114,6 +128,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 67
+    .local p0, "this":Lcom/google/i18n/phonenumbers/RegexCache$LRUCache;, "Lcom/google/i18n/phonenumbers/RegexCache$LRUCache<TK;TV;>;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
     monitor-enter p0
 
     :try_start_0
@@ -145,6 +163,11 @@
         }
     .end annotation
 
+    .prologue
+    .line 71
+    .local p0, "this":Lcom/google/i18n/phonenumbers/RegexCache$LRUCache;, "Lcom/google/i18n/phonenumbers/RegexCache$LRUCache<TK;TV;>;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
+    .local p2, "value":Ljava/lang/Object;, "TV;"
     monitor-enter p0
 
     :try_start_0
@@ -154,10 +177,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 72
     monitor-exit p0
 
     return-void
 
+    .line 71
     :catchall_0
     move-exception v0
 

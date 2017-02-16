@@ -27,6 +27,8 @@
 .method protected constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 447
     invoke-direct {p0}, Ljava/util/ArrayList;-><init>()V
 
     return-void
@@ -46,10 +48,14 @@
         }
     .end annotation
 
+    .prologue
+    .line 450
     invoke-static {}, Lcom/google/common/collect/Lists;->newArrayList()Ljava/util/ArrayList;
 
     move-result-object v1
 
+    .line 451
+    .local v1, "diff":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/content/ContentProviderOperation;>;"
     invoke-virtual {p0}, Lcom/android/contacts/common/list/CustomContactListFilterActivity$AccountSet;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
@@ -67,10 +73,14 @@
 
     check-cast v0, Lcom/android/contacts/common/list/CustomContactListFilterActivity$AccountDisplay;
 
+    .line 452
+    .local v0, "account":Lcom/android/contacts/common/list/CustomContactListFilterActivity$AccountDisplay;
     invoke-virtual {v0, v1}, Lcom/android/contacts/common/list/CustomContactListFilterActivity$AccountDisplay;->buildDiff(Ljava/util/ArrayList;)V
 
     goto :goto_0
 
+    .line 454
+    .end local v0    # "account":Lcom/android/contacts/common/list/CustomContactListFilterActivity$AccountDisplay;
     :cond_0
     return-object v1
 .end method

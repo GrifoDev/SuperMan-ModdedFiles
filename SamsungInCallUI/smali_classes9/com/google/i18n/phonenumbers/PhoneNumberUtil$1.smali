@@ -42,7 +42,10 @@
 # direct methods
 .method constructor <init>(Lcom/google/i18n/phonenumbers/PhoneNumberUtil;Ljava/lang/CharSequence;Ljava/lang/String;Lcom/google/i18n/phonenumbers/PhoneNumberUtil$Leniency;J)V
     .locals 1
+    .param p1, "this$0"    # Lcom/google/i18n/phonenumbers/PhoneNumberUtil;
 
+    .prologue
+    .line 2897
     iput-object p1, p0, Lcom/google/i18n/phonenumbers/PhoneNumberUtil$1;->this$0:Lcom/google/i18n/phonenumbers/PhoneNumberUtil;
 
     iput-object p2, p0, Lcom/google/i18n/phonenumbers/PhoneNumberUtil$1;->val$text:Ljava/lang/CharSequence;
@@ -72,6 +75,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 2900
     new-instance v1, Lcom/google/i18n/phonenumbers/PhoneNumberMatcher;
 
     iget-object v2, p0, Lcom/google/i18n/phonenumbers/PhoneNumberUtil$1;->this$0:Lcom/google/i18n/phonenumbers/PhoneNumberUtil;

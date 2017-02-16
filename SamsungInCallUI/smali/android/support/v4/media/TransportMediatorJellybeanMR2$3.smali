@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/media/TransportMediatorJellybeanMR2;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/v4/media/TransportMediatorJellybeanMR2;
 
+    .prologue
+    .line 58
     iput-object p1, p0, Landroid/support/v4/media/TransportMediatorJellybeanMR2$3;->this$0:Landroid/support/v4/media/TransportMediatorJellybeanMR2;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,7 +36,11 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 3
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 62
     :try_start_0
     const-string v2, "android.intent.extra.KEY_EVENT"
 
@@ -43,6 +50,8 @@
 
     check-cast v1, Landroid/view/KeyEvent;
 
+    .line 63
+    .local v1, "event":Landroid/view/KeyEvent;
     iget-object v2, p0, Landroid/support/v4/media/TransportMediatorJellybeanMR2$3;->this$0:Landroid/support/v4/media/TransportMediatorJellybeanMR2;
 
     iget-object v2, v2, Landroid/support/v4/media/TransportMediatorJellybeanMR2;->mTransportCallback:Landroid/support/v4/media/TransportMediatorCallback;
@@ -51,12 +60,17 @@
     :try_end_0
     .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 67
+    .end local v1    # "event":Landroid/view/KeyEvent;
     :goto_0
     return-void
 
+    .line 64
     :catch_0
     move-exception v0
 
+    .line 65
+    .local v0, "e":Ljava/lang/ClassCastException;
     const-string v2, "TransportController"
 
     invoke-static {v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/Throwable;)I

@@ -21,6 +21,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 79
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -30,9 +32,14 @@
 # virtual methods
 .method public compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 2
+    .param p1, "o1"    # Ljava/lang/Object;
+    .param p2, "o2"    # Ljava/lang/Object;
 
+    .prologue
+    .line 81
     check-cast p2, Ljava/lang/reflect/Constructor;
 
+    .end local p2    # "o2":Ljava/lang/Object;
     invoke-virtual {p2}, Ljava/lang/reflect/Constructor;->getParameterTypes()[Ljava/lang/Class;
 
     move-result-object v0
@@ -41,6 +48,7 @@
 
     check-cast p1, Ljava/lang/reflect/Constructor;
 
+    .end local p1    # "o1":Ljava/lang/Object;
     invoke-virtual {p1}, Ljava/lang/reflect/Constructor;->getParameterTypes()[Ljava/lang/Class;
 
     move-result-object v1

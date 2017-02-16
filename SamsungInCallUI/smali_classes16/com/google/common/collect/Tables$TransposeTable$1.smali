@@ -33,6 +33,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 242
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -52,6 +54,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 245
+    .local p1, "cell":Lcom/google/common/collect/Table$Cell;, "Lcom/google/common/collect/Table$Cell<***>;"
     invoke-interface {p1}, Lcom/google/common/collect/Table$Cell;->getColumnKey()Ljava/lang/Object;
 
     move-result-object v0
@@ -73,9 +78,13 @@
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
+    .param p1, "x0"    # Ljava/lang/Object;
 
+    .prologue
+    .line 242
     check-cast p1, Lcom/google/common/collect/Table$Cell;
 
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/google/common/collect/Tables$TransposeTable$1;->apply(Lcom/google/common/collect/Table$Cell;)Lcom/google/common/collect/Table$Cell;
 
     move-result-object v0

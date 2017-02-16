@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/thoughtworks/xstream/core/DefaultConverterLookup;)V
     .locals 0
 
+    .prologue
+    .line 496
     iput-object p1, p0, Lcom/thoughtworks/xstream/XStream$1;->val$defaultConverterLookup:Lcom/thoughtworks/xstream/core/DefaultConverterLookup;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +38,10 @@
 # virtual methods
 .method public lookupConverterForType(Ljava/lang/Class;)Lcom/thoughtworks/xstream/converters/Converter;
     .locals 1
+    .param p1, "type"    # Ljava/lang/Class;
 
+    .prologue
+    .line 498
     iget-object v0, p0, Lcom/thoughtworks/xstream/XStream$1;->val$defaultConverterLookup:Lcom/thoughtworks/xstream/core/DefaultConverterLookup;
 
     invoke-virtual {v0, p1}, Lcom/thoughtworks/xstream/core/DefaultConverterLookup;->lookupConverterForType(Ljava/lang/Class;)Lcom/thoughtworks/xstream/converters/Converter;

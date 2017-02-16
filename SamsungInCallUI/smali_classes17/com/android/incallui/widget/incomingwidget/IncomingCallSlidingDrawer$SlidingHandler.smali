@@ -22,6 +22,8 @@
 .method private constructor <init>(Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;)V
     .locals 0
 
+    .prologue
+    .line 1209
     iput-object p1, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer$SlidingHandler;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -31,7 +33,11 @@
 
 .method synthetic constructor <init>(Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;
+    .param p2, "x1"    # Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer$1;
 
+    .prologue
+    .line 1209
     invoke-direct {p0, p1}, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer$SlidingHandler;-><init>(Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;)V
 
     return-void
@@ -41,14 +47,19 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 1
+    .param p1, "m"    # Landroid/os/Message;
 
+    .prologue
+    .line 1212
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
+    .line 1217
     :goto_0
     return-void
 
+    .line 1214
     :pswitch_0
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer$SlidingHandler;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;
 
@@ -57,6 +68,7 @@
 
     goto :goto_0
 
+    .line 1212
     :pswitch_data_0
     .packed-switch 0x3e8
         :pswitch_0

@@ -25,6 +25,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 182
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -34,11 +36,18 @@
 # virtual methods
 .method final addDelayedShutdownHook(Ljava/util/concurrent/ExecutorService;JLjava/util/concurrent/TimeUnit;)V
     .locals 8
+    .param p1, "service"    # Ljava/util/concurrent/ExecutorService;
+    .param p2, "terminationTimeout"    # J
+    .param p4, "timeUnit"    # Ljava/util/concurrent/TimeUnit;
 
+    .prologue
+    .line 202
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 203
     invoke-static {p4}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 204
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -75,26 +84,34 @@
 
     invoke-virtual {p0, v0}, Lcom/google/common/util/concurrent/MoreExecutors$Application;->addShutdownHook(Ljava/lang/Thread;)V
 
+    .line 220
     return-void
 .end method
 
 .method addShutdownHook(Ljava/lang/Thread;)V
     .locals 1
+    .param p1, "hook"    # Ljava/lang/Thread;
     .annotation build Lcom/google/common/annotations/VisibleForTesting;
     .end annotation
 
+    .prologue
+    .line 232
     invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
 
     move-result-object v0
 
     invoke-virtual {v0, p1}, Ljava/lang/Runtime;->addShutdownHook(Ljava/lang/Thread;)V
 
+    .line 233
     return-void
 .end method
 
 .method final getExitingExecutorService(Ljava/util/concurrent/ThreadPoolExecutor;)Ljava/util/concurrent/ExecutorService;
     .locals 3
+    .param p1, "executor"    # Ljava/util/concurrent/ThreadPoolExecutor;
 
+    .prologue
+    .line 223
     const-wide/16 v0, 0x78
 
     sget-object v2, Ljava/util/concurrent/TimeUnit;->SECONDS:Ljava/util/concurrent/TimeUnit;
@@ -108,22 +125,34 @@
 
 .method final getExitingExecutorService(Ljava/util/concurrent/ThreadPoolExecutor;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ExecutorService;
     .locals 2
+    .param p1, "executor"    # Ljava/util/concurrent/ThreadPoolExecutor;
+    .param p2, "terminationTimeout"    # J
+    .param p4, "timeUnit"    # Ljava/util/concurrent/TimeUnit;
 
+    .prologue
+    .line 186
     # invokes: Lcom/google/common/util/concurrent/MoreExecutors;->useDaemonThreadFactory(Ljava/util/concurrent/ThreadPoolExecutor;)V
     invoke-static {p1}, Lcom/google/common/util/concurrent/MoreExecutors;->access$000(Ljava/util/concurrent/ThreadPoolExecutor;)V
 
+    .line 187
     invoke-static {p1}, Ljava/util/concurrent/Executors;->unconfigurableExecutorService(Ljava/util/concurrent/ExecutorService;)Ljava/util/concurrent/ExecutorService;
 
     move-result-object v0
 
+    .line 188
+    .local v0, "service":Ljava/util/concurrent/ExecutorService;
     invoke-virtual {p0, v0, p2, p3, p4}, Lcom/google/common/util/concurrent/MoreExecutors$Application;->addDelayedShutdownHook(Ljava/util/concurrent/ExecutorService;JLjava/util/concurrent/TimeUnit;)V
 
+    .line 189
     return-object v0
 .end method
 
 .method final getExitingScheduledExecutorService(Ljava/util/concurrent/ScheduledThreadPoolExecutor;)Ljava/util/concurrent/ScheduledExecutorService;
     .locals 3
+    .param p1, "executor"    # Ljava/util/concurrent/ScheduledThreadPoolExecutor;
 
+    .prologue
+    .line 228
     const-wide/16 v0, 0x78
 
     sget-object v2, Ljava/util/concurrent/TimeUnit;->SECONDS:Ljava/util/concurrent/TimeUnit;
@@ -137,15 +166,24 @@
 
 .method final getExitingScheduledExecutorService(Ljava/util/concurrent/ScheduledThreadPoolExecutor;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledExecutorService;
     .locals 2
+    .param p1, "executor"    # Ljava/util/concurrent/ScheduledThreadPoolExecutor;
+    .param p2, "terminationTimeout"    # J
+    .param p4, "timeUnit"    # Ljava/util/concurrent/TimeUnit;
 
+    .prologue
+    .line 194
     # invokes: Lcom/google/common/util/concurrent/MoreExecutors;->useDaemonThreadFactory(Ljava/util/concurrent/ThreadPoolExecutor;)V
     invoke-static {p1}, Lcom/google/common/util/concurrent/MoreExecutors;->access$000(Ljava/util/concurrent/ThreadPoolExecutor;)V
 
+    .line 195
     invoke-static {p1}, Ljava/util/concurrent/Executors;->unconfigurableScheduledExecutorService(Ljava/util/concurrent/ScheduledExecutorService;)Ljava/util/concurrent/ScheduledExecutorService;
 
     move-result-object v0
 
+    .line 196
+    .local v0, "service":Ljava/util/concurrent/ScheduledExecutorService;
     invoke-virtual {p0, v0, p2, p3, p4}, Lcom/google/common/util/concurrent/MoreExecutors$Application;->addDelayedShutdownHook(Ljava/util/concurrent/ExecutorService;JLjava/util/concurrent/TimeUnit;)V
 
+    .line 197
     return-object v0
 .end method

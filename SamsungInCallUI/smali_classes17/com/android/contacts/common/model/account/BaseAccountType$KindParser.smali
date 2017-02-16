@@ -36,6 +36,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 731
     new-instance v0, Lcom/android/contacts/common/model/account/BaseAccountType$KindParser;
 
     invoke-direct {v0}, Lcom/android/contacts/common/model/account/BaseAccountType$KindParser;-><init>()V
@@ -48,106 +50,127 @@
 .method private constructor <init>()V
     .locals 2
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 735
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 733
     invoke-static {}, Lcom/google/common/collect/Maps;->newHashMap()Ljava/util/HashMap;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/contacts/common/model/account/BaseAccountType$KindParser;->mBuilders:Ljava/util/Map;
 
+    .line 736
     new-instance v0, Lcom/android/contacts/common/model/account/BaseAccountType$NameKindBuilder;
 
     invoke-direct {v0, v1}, Lcom/android/contacts/common/model/account/BaseAccountType$NameKindBuilder;-><init>(Lcom/android/contacts/common/model/account/BaseAccountType$1;)V
 
     invoke-direct {p0, v0}, Lcom/android/contacts/common/model/account/BaseAccountType$KindParser;->addBuilder(Lcom/android/contacts/common/model/account/BaseAccountType$KindBuilder;)V
 
+    .line 737
     new-instance v0, Lcom/android/contacts/common/model/account/BaseAccountType$NicknameKindBuilder;
 
     invoke-direct {v0, v1}, Lcom/android/contacts/common/model/account/BaseAccountType$NicknameKindBuilder;-><init>(Lcom/android/contacts/common/model/account/BaseAccountType$1;)V
 
     invoke-direct {p0, v0}, Lcom/android/contacts/common/model/account/BaseAccountType$KindParser;->addBuilder(Lcom/android/contacts/common/model/account/BaseAccountType$KindBuilder;)V
 
+    .line 738
     new-instance v0, Lcom/android/contacts/common/model/account/BaseAccountType$PhoneKindBuilder;
 
     invoke-direct {v0, v1}, Lcom/android/contacts/common/model/account/BaseAccountType$PhoneKindBuilder;-><init>(Lcom/android/contacts/common/model/account/BaseAccountType$1;)V
 
     invoke-direct {p0, v0}, Lcom/android/contacts/common/model/account/BaseAccountType$KindParser;->addBuilder(Lcom/android/contacts/common/model/account/BaseAccountType$KindBuilder;)V
 
+    .line 739
     new-instance v0, Lcom/android/contacts/common/model/account/BaseAccountType$EmailKindBuilder;
 
     invoke-direct {v0, v1}, Lcom/android/contacts/common/model/account/BaseAccountType$EmailKindBuilder;-><init>(Lcom/android/contacts/common/model/account/BaseAccountType$1;)V
 
     invoke-direct {p0, v0}, Lcom/android/contacts/common/model/account/BaseAccountType$KindParser;->addBuilder(Lcom/android/contacts/common/model/account/BaseAccountType$KindBuilder;)V
 
+    .line 740
     new-instance v0, Lcom/android/contacts/common/model/account/BaseAccountType$StructuredPostalKindBuilder;
 
     invoke-direct {v0, v1}, Lcom/android/contacts/common/model/account/BaseAccountType$StructuredPostalKindBuilder;-><init>(Lcom/android/contacts/common/model/account/BaseAccountType$1;)V
 
     invoke-direct {p0, v0}, Lcom/android/contacts/common/model/account/BaseAccountType$KindParser;->addBuilder(Lcom/android/contacts/common/model/account/BaseAccountType$KindBuilder;)V
 
+    .line 741
     new-instance v0, Lcom/android/contacts/common/model/account/BaseAccountType$ImKindBuilder;
 
     invoke-direct {v0, v1}, Lcom/android/contacts/common/model/account/BaseAccountType$ImKindBuilder;-><init>(Lcom/android/contacts/common/model/account/BaseAccountType$1;)V
 
     invoke-direct {p0, v0}, Lcom/android/contacts/common/model/account/BaseAccountType$KindParser;->addBuilder(Lcom/android/contacts/common/model/account/BaseAccountType$KindBuilder;)V
 
+    .line 742
     new-instance v0, Lcom/android/contacts/common/model/account/BaseAccountType$OrganizationKindBuilder;
 
     invoke-direct {v0, v1}, Lcom/android/contacts/common/model/account/BaseAccountType$OrganizationKindBuilder;-><init>(Lcom/android/contacts/common/model/account/BaseAccountType$1;)V
 
     invoke-direct {p0, v0}, Lcom/android/contacts/common/model/account/BaseAccountType$KindParser;->addBuilder(Lcom/android/contacts/common/model/account/BaseAccountType$KindBuilder;)V
 
+    .line 743
     new-instance v0, Lcom/android/contacts/common/model/account/BaseAccountType$PhotoKindBuilder;
 
     invoke-direct {v0, v1}, Lcom/android/contacts/common/model/account/BaseAccountType$PhotoKindBuilder;-><init>(Lcom/android/contacts/common/model/account/BaseAccountType$1;)V
 
     invoke-direct {p0, v0}, Lcom/android/contacts/common/model/account/BaseAccountType$KindParser;->addBuilder(Lcom/android/contacts/common/model/account/BaseAccountType$KindBuilder;)V
 
+    .line 744
     new-instance v0, Lcom/android/contacts/common/model/account/BaseAccountType$NoteKindBuilder;
 
     invoke-direct {v0, v1}, Lcom/android/contacts/common/model/account/BaseAccountType$NoteKindBuilder;-><init>(Lcom/android/contacts/common/model/account/BaseAccountType$1;)V
 
     invoke-direct {p0, v0}, Lcom/android/contacts/common/model/account/BaseAccountType$KindParser;->addBuilder(Lcom/android/contacts/common/model/account/BaseAccountType$KindBuilder;)V
 
+    .line 745
     new-instance v0, Lcom/android/contacts/common/model/account/BaseAccountType$WebsiteKindBuilder;
 
     invoke-direct {v0, v1}, Lcom/android/contacts/common/model/account/BaseAccountType$WebsiteKindBuilder;-><init>(Lcom/android/contacts/common/model/account/BaseAccountType$1;)V
 
     invoke-direct {p0, v0}, Lcom/android/contacts/common/model/account/BaseAccountType$KindParser;->addBuilder(Lcom/android/contacts/common/model/account/BaseAccountType$KindBuilder;)V
 
+    .line 746
     new-instance v0, Lcom/android/contacts/common/model/account/BaseAccountType$SipAddressKindBuilder;
 
     invoke-direct {v0, v1}, Lcom/android/contacts/common/model/account/BaseAccountType$SipAddressKindBuilder;-><init>(Lcom/android/contacts/common/model/account/BaseAccountType$1;)V
 
     invoke-direct {p0, v0}, Lcom/android/contacts/common/model/account/BaseAccountType$KindParser;->addBuilder(Lcom/android/contacts/common/model/account/BaseAccountType$KindBuilder;)V
 
+    .line 747
     new-instance v0, Lcom/android/contacts/common/model/account/BaseAccountType$GroupMembershipKindBuilder;
 
     invoke-direct {v0, v1}, Lcom/android/contacts/common/model/account/BaseAccountType$GroupMembershipKindBuilder;-><init>(Lcom/android/contacts/common/model/account/BaseAccountType$1;)V
 
     invoke-direct {p0, v0}, Lcom/android/contacts/common/model/account/BaseAccountType$KindParser;->addBuilder(Lcom/android/contacts/common/model/account/BaseAccountType$KindBuilder;)V
 
+    .line 748
     new-instance v0, Lcom/android/contacts/common/model/account/BaseAccountType$EventKindBuilder;
 
     invoke-direct {v0, v1}, Lcom/android/contacts/common/model/account/BaseAccountType$EventKindBuilder;-><init>(Lcom/android/contacts/common/model/account/BaseAccountType$1;)V
 
     invoke-direct {p0, v0}, Lcom/android/contacts/common/model/account/BaseAccountType$KindParser;->addBuilder(Lcom/android/contacts/common/model/account/BaseAccountType$KindBuilder;)V
 
+    .line 749
     new-instance v0, Lcom/android/contacts/common/model/account/BaseAccountType$RelationshipKindBuilder;
 
     invoke-direct {v0, v1}, Lcom/android/contacts/common/model/account/BaseAccountType$RelationshipKindBuilder;-><init>(Lcom/android/contacts/common/model/account/BaseAccountType$1;)V
 
     invoke-direct {p0, v0}, Lcom/android/contacts/common/model/account/BaseAccountType$KindParser;->addBuilder(Lcom/android/contacts/common/model/account/BaseAccountType$KindBuilder;)V
 
+    .line 750
     return-void
 .end method
 
 .method private addBuilder(Lcom/android/contacts/common/model/account/BaseAccountType$KindBuilder;)V
     .locals 2
+    .param p1, "builder"    # Lcom/android/contacts/common/model/account/BaseAccountType$KindBuilder;
 
+    .prologue
+    .line 753
     iget-object v0, p0, Lcom/android/contacts/common/model/account/BaseAccountType$KindParser;->mBuilders:Ljava/util/Map;
 
     invoke-virtual {p1}, Lcom/android/contacts/common/model/account/BaseAccountType$KindBuilder;->getTagName()Ljava/lang/String;
@@ -156,6 +179,7 @@
 
     invoke-interface {v0, v1, p1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 754
     return-void
 .end method
 
@@ -163,6 +187,9 @@
 # virtual methods
 .method public parseDataKindTag(Landroid/content/Context;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;)Ljava/util/List;
     .locals 5
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
+    .param p3, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -185,6 +212,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 766
     const-string v2, "kind"
 
     # invokes: Lcom/android/contacts/common/model/account/BaseAccountType;->getAttr(Landroid/util/AttributeSet;Ljava/lang/String;)Ljava/lang/String;
@@ -192,6 +221,8 @@
 
     move-result-object v1
 
+    .line 767
+    .local v1, "kind":Ljava/lang/String;
     iget-object v2, p0, Lcom/android/contacts/common/model/account/BaseAccountType$KindParser;->mBuilders:Ljava/util/Map;
 
     invoke-interface {v2, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -200,14 +231,18 @@
 
     check-cast v0, Lcom/android/contacts/common/model/account/BaseAccountType$KindBuilder;
 
+    .line 768
+    .local v0, "builder":Lcom/android/contacts/common/model/account/BaseAccountType$KindBuilder;
     if-eqz v0, :cond_0
 
+    .line 769
     invoke-virtual {v0, p1, p2, p3}, Lcom/android/contacts/common/model/account/BaseAccountType$KindBuilder;->parseDataKind(Landroid/content/Context;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;)Ljava/util/List;
 
     move-result-object v2
 
     return-object v2
 
+    .line 771
     :cond_0
     new-instance v2, Lcom/android/contacts/common/model/account/AccountType$DefinitionException;
 

@@ -69,10 +69,16 @@
         }
     .end annotation
 
+    .prologue
+    .line 121
+    .local p0, "this":Lcom/google/common/base/Suppliers$MemoizingSupplier;, "Lcom/google/common/base/Suppliers$MemoizingSupplier<TT;>;"
+    .local p1, "delegate":Lcom/google/common/base/Supplier;, "Lcom/google/common/base/Supplier<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 122
     iput-object p1, p0, Lcom/google/common/base/Suppliers$MemoizingSupplier;->delegate:Lcom/google/common/base/Supplier;
 
+    .line 123
     return-void
 .end method
 
@@ -86,44 +92,59 @@
         }
     .end annotation
 
+    .prologue
+    .line 128
+    .local p0, "this":Lcom/google/common/base/Suppliers$MemoizingSupplier;, "Lcom/google/common/base/Suppliers$MemoizingSupplier<TT;>;"
     iget-boolean v1, p0, Lcom/google/common/base/Suppliers$MemoizingSupplier;->initialized:Z
 
     if-nez v1, :cond_1
 
+    .line 129
     monitor-enter p0
 
+    .line 130
     :try_start_0
     iget-boolean v1, p0, Lcom/google/common/base/Suppliers$MemoizingSupplier;->initialized:Z
 
     if-nez v1, :cond_0
 
+    .line 131
     iget-object v1, p0, Lcom/google/common/base/Suppliers$MemoizingSupplier;->delegate:Lcom/google/common/base/Supplier;
 
     invoke-interface {v1}, Lcom/google/common/base/Supplier;->get()Ljava/lang/Object;
 
     move-result-object v0
 
+    .line 132
+    .local v0, "t":Ljava/lang/Object;, "TT;"
     iput-object v0, p0, Lcom/google/common/base/Suppliers$MemoizingSupplier;->value:Ljava/lang/Object;
 
+    .line 133
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Lcom/google/common/base/Suppliers$MemoizingSupplier;->initialized:Z
 
+    .line 134
     monitor-exit p0
 
+    .line 138
+    .end local v0    # "t":Ljava/lang/Object;, "TT;"
     :goto_0
     return-object v0
 
+    .line 136
     :cond_0
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 138
     :cond_1
     iget-object v0, p0, Lcom/google/common/base/Suppliers$MemoizingSupplier;->value:Ljava/lang/Object;
 
     goto :goto_0
 
+    .line 136
     :catchall_0
     move-exception v1
 
@@ -138,6 +159,9 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 143
+    .local p0, "this":Lcom/google/common/base/Suppliers$MemoizingSupplier;, "Lcom/google/common/base/Suppliers$MemoizingSupplier<TT;>;"
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

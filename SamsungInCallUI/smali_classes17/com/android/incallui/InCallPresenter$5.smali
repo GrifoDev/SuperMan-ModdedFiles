@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/InCallPresenter;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/InCallPresenter;
 
+    .prologue
+    .line 496
     iput-object p1, p0, Lcom/android/incallui/InCallPresenter$5;->this$0:Lcom/android/incallui/InCallPresenter;
 
     invoke-direct {p0}, Landroid/telecom/Call$Callback;-><init>()V
@@ -33,6 +36,7 @@
 # virtual methods
 .method public onConferenceableCallsChanged(Landroid/telecom/Call;Ljava/util/List;)V
     .locals 3
+    .param p1, "telecomCall"    # Landroid/telecom/Call;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -44,6 +48,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 529
+    .local p2, "conferenceableCalls":Ljava/util/List;, "Ljava/util/List<Landroid/telecom/Call;>;"
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -64,6 +71,7 @@
 
     invoke-static {p0, v1}, Lcom/android/incallui/Log;->i(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 530
     iget-object v1, p0, Lcom/android/incallui/InCallPresenter$5;->this$0:Lcom/android/incallui/InCallPresenter;
 
     # getter for: Lcom/android/incallui/InCallPresenter;->mCallList:Lcom/android/incallui/CallList;
@@ -75,8 +83,11 @@
 
     move-result-object v0
 
+    .line 531
+    .local v0, "call":Lcom/android/incallui/Call;
     if-nez v0, :cond_0
 
+    .line 532
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -97,9 +108,11 @@
 
     invoke-static {p0, v1}, Lcom/android/incallui/Log;->w(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 537
     :goto_0
     return-void
 
+    .line 535
     :cond_0
     iget-object v1, p0, Lcom/android/incallui/InCallPresenter$5;->this$0:Lcom/android/incallui/InCallPresenter;
 
@@ -110,6 +123,7 @@
 
     invoke-virtual {v1, p1}, Lcom/android/incallui/util/CallUpdateUtil;->update(Ljava/lang/Object;)V
 
+    .line 536
     invoke-static {v0}, Lcom/android/incallui/util/InCallUtils;->checkAndMakeMergeAfterAnswer(Lcom/android/incallui/Call;)V
 
     goto :goto_0
@@ -117,7 +131,11 @@
 
 .method public onDetailsChanged(Landroid/telecom/Call;Landroid/telecom/Call$Details;)V
     .locals 3
+    .param p1, "telecomCall"    # Landroid/telecom/Call;
+    .param p2, "details"    # Landroid/telecom/Call$Details;
 
+    .prologue
+    .line 512
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -148,6 +166,7 @@
 
     invoke-static {p0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 513
     iget-object v1, p0, Lcom/android/incallui/InCallPresenter$5;->this$0:Lcom/android/incallui/InCallPresenter;
 
     # getter for: Lcom/android/incallui/InCallPresenter;->mCallList:Lcom/android/incallui/CallList;
@@ -159,8 +178,11 @@
 
     move-result-object v0
 
+    .line 514
+    .local v0, "call":Lcom/android/incallui/Call;
     if-nez v0, :cond_1
 
+    .line 515
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -181,10 +203,12 @@
 
     invoke-static {p0, v1}, Lcom/android/incallui/Log;->w(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 524
     :cond_0
     :goto_0
     return-void
 
+    .line 521
     :cond_1
     invoke-static {p1}, Lcom/android/incallui/util/InCallUtils;->canUpdateDetailsChanged(Landroid/telecom/Call;)Z
 
@@ -192,6 +216,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 522
     iget-object v1, p0, Lcom/android/incallui/InCallPresenter$5;->this$0:Lcom/android/incallui/InCallPresenter;
 
     # getter for: Lcom/android/incallui/InCallPresenter;->mUpdateUtil:Lcom/android/incallui/util/CallUpdateUtil;
@@ -206,7 +231,11 @@
 
 .method public onPostDialWait(Landroid/telecom/Call;Ljava/lang/String;)V
     .locals 3
+    .param p1, "telecomCall"    # Landroid/telecom/Call;
+    .param p2, "remainingPostDialSequence"    # Ljava/lang/String;
 
+    .prologue
+    .line 500
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -237,6 +266,7 @@
 
     invoke-static {p0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 501
     iget-object v1, p0, Lcom/android/incallui/InCallPresenter$5;->this$0:Lcom/android/incallui/InCallPresenter;
 
     # getter for: Lcom/android/incallui/InCallPresenter;->mCallList:Lcom/android/incallui/CallList;
@@ -248,8 +278,11 @@
 
     move-result-object v0
 
+    .line 502
+    .local v0, "call":Lcom/android/incallui/Call;
     if-nez v0, :cond_0
 
+    .line 503
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -270,9 +303,11 @@
 
     invoke-static {p0, v1}, Lcom/android/incallui/Log;->w(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 507
     :goto_0
     return-void
 
+    .line 506
     :cond_0
     iget-object v1, p0, Lcom/android/incallui/InCallPresenter$5;->this$0:Lcom/android/incallui/InCallPresenter;
 

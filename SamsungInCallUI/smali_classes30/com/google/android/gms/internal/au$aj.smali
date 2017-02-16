@@ -222,7 +222,10 @@
 
 .method public onLeftRoom(ILjava/lang/String;)V
     .locals 4
+    .param p1, "statusCode"    # I
+    .param p2, "externalRoomId"    # Ljava/lang/String;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/internal/au$aj;->dJ:Lcom/google/android/gms/internal/au;
 
     new-instance v1, Lcom/google/android/gms/internal/au$u;
@@ -240,7 +243,9 @@
 
 .method public onP2PConnected(Ljava/lang/String;)V
     .locals 4
+    .param p1, "participantId"    # Ljava/lang/String;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/internal/au$aj;->dJ:Lcom/google/android/gms/internal/au;
 
     new-instance v1, Lcom/google/android/gms/internal/au$w;
@@ -258,7 +263,9 @@
 
 .method public onP2PDisconnected(Ljava/lang/String;)V
     .locals 4
+    .param p1, "participantId"    # Ljava/lang/String;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/internal/au$aj;->dJ:Lcom/google/android/gms/internal/au;
 
     new-instance v1, Lcom/google/android/gms/internal/au$x;
@@ -276,7 +283,9 @@
 
 .method public onRealTimeMessageReceived(Lcom/google/android/gms/games/multiplayer/realtime/RealTimeMessage;)V
     .locals 4
+    .param p1, "message"    # Lcom/google/android/gms/games/multiplayer/realtime/RealTimeMessage;
 
+    .prologue
     const-string v0, "GamesClient"
 
     const-string v1, "RoomBinderCallbacks: onRealTimeMessageReceived"

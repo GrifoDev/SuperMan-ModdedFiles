@@ -37,6 +37,9 @@
 .method constructor <init>(Lcom/google/common/collect/TreeRangeSet$RangesByUpperBound;Lcom/google/common/collect/PeekingIterator;)V
     .locals 0
 
+    .prologue
+    .line 389
+    .local p0, "this":Lcom/google/common/collect/TreeRangeSet$RangesByUpperBound$2;, "Lcom/google/common/collect/TreeRangeSet$RangesByUpperBound.2;"
     iput-object p1, p0, Lcom/google/common/collect/TreeRangeSet$RangesByUpperBound$2;->this$0:Lcom/google/common/collect/TreeRangeSet$RangesByUpperBound;
 
     iput-object p2, p0, Lcom/google/common/collect/TreeRangeSet$RangesByUpperBound$2;->val$backingItr:Lcom/google/common/collect/PeekingIterator;
@@ -51,6 +54,9 @@
 .method protected bridge synthetic computeNext()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 389
+    .local p0, "this":Lcom/google/common/collect/TreeRangeSet$RangesByUpperBound$2;, "Lcom/google/common/collect/TreeRangeSet$RangesByUpperBound.2;"
     invoke-virtual {p0}, Lcom/google/common/collect/TreeRangeSet$RangesByUpperBound$2;->computeNext()Ljava/util/Map$Entry;
 
     move-result-object v0
@@ -72,6 +78,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 392
+    .local p0, "this":Lcom/google/common/collect/TreeRangeSet$RangesByUpperBound$2;, "Lcom/google/common/collect/TreeRangeSet$RangesByUpperBound.2;"
     iget-object v1, p0, Lcom/google/common/collect/TreeRangeSet$RangesByUpperBound$2;->val$backingItr:Lcom/google/common/collect/PeekingIterator;
 
     invoke-interface {v1}, Lcom/google/common/collect/PeekingIterator;->hasNext()Z
@@ -80,15 +89,18 @@
 
     if-nez v1, :cond_0
 
+    .line 393
     invoke-virtual {p0}, Lcom/google/common/collect/TreeRangeSet$RangesByUpperBound$2;->endOfData()Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Ljava/util/Map$Entry;
 
+    .line 396
     :goto_0
     return-object v1
 
+    .line 395
     :cond_0
     iget-object v1, p0, Lcom/google/common/collect/TreeRangeSet$RangesByUpperBound$2;->val$backingItr:Lcom/google/common/collect/PeekingIterator;
 
@@ -98,6 +110,8 @@
 
     check-cast v0, Lcom/google/common/collect/Range;
 
+    .line 396
+    .local v0, "range":Lcom/google/common/collect/Range;, "Lcom/google/common/collect/Range<TC;>;"
     iget-object v1, p0, Lcom/google/common/collect/TreeRangeSet$RangesByUpperBound$2;->this$0:Lcom/google/common/collect/TreeRangeSet$RangesByUpperBound;
 
     # getter for: Lcom/google/common/collect/TreeRangeSet$RangesByUpperBound;->upperBoundWindow:Lcom/google/common/collect/Range;

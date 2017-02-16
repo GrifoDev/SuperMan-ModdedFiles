@@ -30,6 +30,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 5
     const-class v0, Lcom/cmdm/control/util/file/FileWrapper;
 
     invoke-virtual {v0}, Ljava/lang/Class;->desiredAssertionStatus()Z
@@ -53,11 +55,16 @@
 
 .method public constructor <init>(Ljava/io/File;)V
     .locals 0
+    .param p1, "file"    # Ljava/io/File;
 
+    .prologue
+    .line 9
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 10
     iput-object p1, p0, Lcom/cmdm/control/util/file/FileWrapper;->eu:Ljava/io/File;
 
+    .line 11
     return-void
 .end method
 
@@ -65,7 +72,10 @@
 # virtual methods
 .method public compareTo(Ljava/lang/Object;)I
     .locals 6
+    .param p1, "obj"    # Ljava/lang/Object;
 
+    .prologue
+    .line 14
     sget-boolean v1, Lcom/cmdm/control/util/file/FileWrapper;->et:Z
 
     if-nez v1, :cond_0
@@ -83,12 +93,16 @@
     :cond_0
     move-object v0, p1
 
+    .line 16
     check-cast v0, Lcom/cmdm/control/util/file/FileWrapper;
 
+    .line 17
+    .local v0, "castObj":Lcom/cmdm/control/util/file/FileWrapper;
     iget-object v1, p0, Lcom/cmdm/control/util/file/FileWrapper;->eu:Ljava/io/File;
 
     invoke-virtual {v1}, Ljava/io/File;->lastModified()J
 
+    .line 18
     iget-object v1, p0, Lcom/cmdm/control/util/file/FileWrapper;->eu:Ljava/io/File;
 
     invoke-virtual {v1}, Ljava/io/File;->lastModified()J
@@ -107,11 +121,14 @@
 
     if-lez v1, :cond_1
 
+    .line 19
     const/4 v1, 0x1
 
+    .line 23
     :goto_0
     return v1
 
+    .line 20
     :cond_1
     iget-object v1, p0, Lcom/cmdm/control/util/file/FileWrapper;->eu:Ljava/io/File;
 
@@ -131,10 +148,12 @@
 
     if-gez v1, :cond_2
 
+    .line 21
     const/4 v1, -0x1
 
     goto :goto_0
 
+    .line 23
     :cond_2
     const/4 v1, 0x0
 
@@ -144,6 +163,8 @@
 .method public getFile()Ljava/io/File;
     .locals 1
 
+    .prologue
+    .line 28
     iget-object v0, p0, Lcom/cmdm/control/util/file/FileWrapper;->eu:Ljava/io/File;
 
     return-object v0

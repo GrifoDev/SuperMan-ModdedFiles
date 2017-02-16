@@ -18,8 +18,11 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 35
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 36
     new-instance v0, Lcom/google/i18n/phonenumbers/prefixmapper/PhonePrefixMap;
 
     invoke-direct {v0}, Lcom/google/i18n/phonenumbers/prefixmapper/PhonePrefixMap;-><init>()V
@@ -31,6 +34,7 @@
 
 .method private lookupTimeZonesForNumber(J)Ljava/util/List;
     .locals 3
+    .param p1, "key"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J)",
@@ -41,18 +45,24 @@
         }
     .end annotation
 
+    .prologue
+    .line 76
     iget-object v1, p0, Lcom/google/i18n/phonenumbers/prefixmapper/PrefixTimeZonesMap;->phonePrefixMap:Lcom/google/i18n/phonenumbers/prefixmapper/PhonePrefixMap;
 
     invoke-virtual {v1, p1, p2}, Lcom/google/i18n/phonenumbers/prefixmapper/PhonePrefixMap;->lookup(J)Ljava/lang/String;
 
     move-result-object v0
 
+    .line 77
+    .local v0, "timezonesString":Ljava/lang/String;
     if-nez v0, :cond_0
 
+    .line 78
     new-instance v1, Ljava/util/LinkedList;
 
     invoke-direct {v1}, Ljava/util/LinkedList;-><init>()V
 
+    .line 80
     :goto_0
     return-object v1
 
@@ -66,6 +76,7 @@
 
 .method private tokenizeRawOutputString(Ljava/lang/String;)Ljava/util/List;
     .locals 3
+    .param p1, "timezonesString"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -78,16 +89,22 @@
         }
     .end annotation
 
+    .prologue
+    .line 110
     new-instance v1, Ljava/util/StringTokenizer;
 
     const-string v2, "&"
 
     invoke-direct {v1, p1, v2}, Ljava/util/StringTokenizer;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 112
+    .local v1, "tokenizer":Ljava/util/StringTokenizer;
     new-instance v0, Ljava/util/LinkedList;
 
     invoke-direct {v0}, Ljava/util/LinkedList;-><init>()V
 
+    .line 113
+    .local v0, "timezonesList":Ljava/util/LinkedList;, "Ljava/util/LinkedList<Ljava/lang/String;>;"
     :goto_0
     invoke-virtual {v1}, Ljava/util/StringTokenizer;->hasMoreTokens()Z
 
@@ -95,6 +112,7 @@
 
     if-eqz v2, :cond_0
 
+    .line 114
     invoke-virtual {v1}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v2
@@ -103,6 +121,7 @@
 
     goto :goto_0
 
+    .line 116
     :cond_0
     return-object v0
 .end method
@@ -111,6 +130,7 @@
 # virtual methods
 .method public lookupCountryLevelTimeZonesForNumber(Lcom/google/i18n/phonenumbers/Phonenumber$PhoneNumber;)Ljava/util/List;
     .locals 2
+    .param p1, "number"    # Lcom/google/i18n/phonenumbers/Phonenumber$PhoneNumber;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -123,6 +143,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 103
     invoke-virtual {p1}, Lcom/google/i18n/phonenumbers/Phonenumber$PhoneNumber;->getCountryCode()I
 
     move-result v0
@@ -138,6 +160,7 @@
 
 .method public lookupTimeZonesForNumber(Lcom/google/i18n/phonenumbers/Phonenumber$PhoneNumber;)Ljava/util/List;
     .locals 4
+    .param p1, "number"    # Lcom/google/i18n/phonenumbers/Phonenumber$PhoneNumber;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -150,6 +173,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 91
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -162,6 +187,7 @@
 
     move-result-object v2
 
+    .line 92
     invoke-static {}, Lcom/google/i18n/phonenumbers/PhoneNumberUtil;->getInstance()Lcom/google/i18n/phonenumbers/PhoneNumberUtil;
 
     move-result-object v3
@@ -178,10 +204,13 @@
 
     move-result-object v2
 
+    .line 91
     invoke-static {v2}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v0
 
+    .line 93
+    .local v0, "phonePrefix":J
     invoke-direct {p0, v0, v1}, Lcom/google/i18n/phonenumbers/prefixmapper/PrefixTimeZonesMap;->lookupTimeZonesForNumber(J)Ljava/util/List;
 
     move-result-object v2
@@ -191,16 +220,20 @@
 
 .method public readExternal(Ljava/io/ObjectInput;)V
     .locals 1
+    .param p1, "objectInput"    # Ljava/io/ObjectInput;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 59
     iget-object v0, p0, Lcom/google/i18n/phonenumbers/prefixmapper/PrefixTimeZonesMap;->phonePrefixMap:Lcom/google/i18n/phonenumbers/prefixmapper/PhonePrefixMap;
 
     invoke-virtual {v0, p1}, Lcom/google/i18n/phonenumbers/prefixmapper/PhonePrefixMap;->readExternal(Ljava/io/ObjectInput;)V
 
+    .line 60
     return-void
 .end method
 
@@ -217,16 +250,22 @@
         }
     .end annotation
 
+    .prologue
+    .line 48
+    .local p1, "sortedPrefixTimeZoneMap":Ljava/util/SortedMap;, "Ljava/util/SortedMap<Ljava/lang/Integer;Ljava/lang/String;>;"
     iget-object v0, p0, Lcom/google/i18n/phonenumbers/prefixmapper/PrefixTimeZonesMap;->phonePrefixMap:Lcom/google/i18n/phonenumbers/prefixmapper/PhonePrefixMap;
 
     invoke-virtual {v0, p1}, Lcom/google/i18n/phonenumbers/prefixmapper/PhonePrefixMap;->readPhonePrefixMap(Ljava/util/SortedMap;)V
 
+    .line 49
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 124
     iget-object v0, p0, Lcom/google/i18n/phonenumbers/prefixmapper/PrefixTimeZonesMap;->phonePrefixMap:Lcom/google/i18n/phonenumbers/prefixmapper/PhonePrefixMap;
 
     invoke-virtual {v0}, Lcom/google/i18n/phonenumbers/prefixmapper/PhonePrefixMap;->toString()Ljava/lang/String;
@@ -238,15 +277,19 @@
 
 .method public writeExternal(Ljava/io/ObjectOutput;)V
     .locals 1
+    .param p1, "objectOutput"    # Ljava/io/ObjectOutput;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 55
     iget-object v0, p0, Lcom/google/i18n/phonenumbers/prefixmapper/PrefixTimeZonesMap;->phonePrefixMap:Lcom/google/i18n/phonenumbers/prefixmapper/PhonePrefixMap;
 
     invoke-virtual {v0, p1}, Lcom/google/i18n/phonenumbers/prefixmapper/PhonePrefixMap;->writeExternal(Ljava/io/ObjectOutput;)V
 
+    .line 56
     return-void
 .end method

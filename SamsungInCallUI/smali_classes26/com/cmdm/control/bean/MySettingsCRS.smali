@@ -80,6 +80,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 17
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -90,6 +92,8 @@
 .method public getBuddiesBrief()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 211
     iget-object v0, p0, Lcom/cmdm/control/bean/MySettingsCRS;->buddiesBrief:Ljava/lang/String;
 
     return-object v0
@@ -98,6 +102,8 @@
 .method public getBuddiesCount()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 196
     iget-object v0, p0, Lcom/cmdm/control/bean/MySettingsCRS;->buddiesCount:Ljava/lang/String;
 
     return-object v0
@@ -106,6 +112,8 @@
 .method public getContentId()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 86
     iget-object v0, p0, Lcom/cmdm/control/bean/MySettingsCRS;->contentId:Ljava/lang/String;
 
     return-object v0
@@ -114,6 +122,8 @@
 .method public getCrsProfile()Lcom/cmdm/control/bean/CRSProfile;
     .locals 1
 
+    .prologue
+    .line 226
     iget-object v0, p0, Lcom/cmdm/control/bean/MySettingsCRS;->crsProfile:Lcom/cmdm/control/bean/CRSProfile;
 
     return-object v0
@@ -122,6 +132,8 @@
 .method public getGreeting()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 136
     iget-object v0, p0, Lcom/cmdm/control/bean/MySettingsCRS;->greeting:Ljava/lang/String;
 
     return-object v0
@@ -130,6 +142,8 @@
 .method public getMode()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 101
     iget-object v0, p0, Lcom/cmdm/control/bean/MySettingsCRS;->mode:Ljava/lang/String;
 
     return-object v0
@@ -138,12 +152,16 @@
 .method public getSettedDate()Ljava/lang/String;
     .locals 6
 
+    .prologue
     const/4 v5, 0x6
 
     const/4 v4, 0x4
 
+    .line 116
     const-string v0, ""
 
+    .line 117
+    .local v0, "set":Ljava/lang/String;
     iget-object v1, p0, Lcom/cmdm/control/bean/MySettingsCRS;->settedDate:Ljava/lang/String;
 
     if-eqz v1, :cond_0
@@ -158,6 +176,7 @@
 
     if-nez v1, :cond_0
 
+    .line 118
     new-instance v1, Ljava/lang/StringBuilder;
 
     iget-object v2, p0, Lcom/cmdm/control/bean/MySettingsCRS;->settedDate:Ljava/lang/String;
@@ -190,6 +209,7 @@
 
     move-result-object v1
 
+    .line 119
     const-string v2, "."
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -208,10 +228,12 @@
 
     move-result-object v1
 
+    .line 118
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 121
     :cond_0
     return-object v0
 .end method
@@ -219,6 +241,8 @@
 .method public getStr()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 241
     iget-object v0, p0, Lcom/cmdm/control/bean/MySettingsCRS;->str:Ljava/lang/String;
 
     return-object v0
@@ -227,6 +251,8 @@
 .method public getTemplateId()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 166
     iget-object v0, p0, Lcom/cmdm/control/bean/MySettingsCRS;->templateId:Ljava/lang/String;
 
     return-object v0
@@ -235,6 +261,8 @@
 .method public getTemplateUrl()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 181
     iget-object v0, p0, Lcom/cmdm/control/bean/MySettingsCRS;->templateUrl:Ljava/lang/String;
 
     return-object v0
@@ -243,6 +271,8 @@
 .method public getTiming()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 151
     iget-object v0, p0, Lcom/cmdm/control/bean/MySettingsCRS;->timing:Ljava/lang/String;
 
     return-object v0
@@ -250,88 +280,132 @@
 
 .method public setBuddiesBrief(Ljava/lang/String;)V
     .locals 0
+    .param p1, "buddiesBrief"    # Ljava/lang/String;
 
+    .prologue
+    .line 219
     iput-object p1, p0, Lcom/cmdm/control/bean/MySettingsCRS;->buddiesBrief:Ljava/lang/String;
 
+    .line 220
     return-void
 .end method
 
 .method public setBuddiesCount(Ljava/lang/String;)V
     .locals 0
+    .param p1, "buddiesCount"    # Ljava/lang/String;
 
+    .prologue
+    .line 204
     iput-object p1, p0, Lcom/cmdm/control/bean/MySettingsCRS;->buddiesCount:Ljava/lang/String;
 
+    .line 205
     return-void
 .end method
 
 .method public setContentId(Ljava/lang/String;)V
     .locals 0
+    .param p1, "contentId"    # Ljava/lang/String;
 
+    .prologue
+    .line 94
     iput-object p1, p0, Lcom/cmdm/control/bean/MySettingsCRS;->contentId:Ljava/lang/String;
 
+    .line 95
     return-void
 .end method
 
 .method public setCrsProfile(Lcom/cmdm/control/bean/CRSProfile;)V
     .locals 0
+    .param p1, "crsProfile"    # Lcom/cmdm/control/bean/CRSProfile;
 
+    .prologue
+    .line 234
     iput-object p1, p0, Lcom/cmdm/control/bean/MySettingsCRS;->crsProfile:Lcom/cmdm/control/bean/CRSProfile;
 
+    .line 235
     return-void
 .end method
 
 .method public setGreeting(Ljava/lang/String;)V
     .locals 0
+    .param p1, "greeting"    # Ljava/lang/String;
 
+    .prologue
+    .line 144
     iput-object p1, p0, Lcom/cmdm/control/bean/MySettingsCRS;->greeting:Ljava/lang/String;
 
+    .line 145
     return-void
 .end method
 
 .method public setMode(Ljava/lang/String;)V
     .locals 0
+    .param p1, "mode"    # Ljava/lang/String;
 
+    .prologue
+    .line 109
     iput-object p1, p0, Lcom/cmdm/control/bean/MySettingsCRS;->mode:Ljava/lang/String;
 
+    .line 110
     return-void
 .end method
 
 .method public setSettedDate(Ljava/lang/String;)V
     .locals 0
+    .param p1, "settedDate"    # Ljava/lang/String;
 
+    .prologue
+    .line 129
     iput-object p1, p0, Lcom/cmdm/control/bean/MySettingsCRS;->settedDate:Ljava/lang/String;
 
+    .line 130
     return-void
 .end method
 
 .method public setStr(Ljava/lang/String;)V
     .locals 0
+    .param p1, "str"    # Ljava/lang/String;
 
+    .prologue
+    .line 249
     iput-object p1, p0, Lcom/cmdm/control/bean/MySettingsCRS;->str:Ljava/lang/String;
 
+    .line 250
     return-void
 .end method
 
 .method public setTemplateId(Ljava/lang/String;)V
     .locals 0
+    .param p1, "templateId"    # Ljava/lang/String;
 
+    .prologue
+    .line 174
     iput-object p1, p0, Lcom/cmdm/control/bean/MySettingsCRS;->templateId:Ljava/lang/String;
 
+    .line 175
     return-void
 .end method
 
 .method public setTemplateUrl(Ljava/lang/String;)V
     .locals 0
+    .param p1, "templateUrl"    # Ljava/lang/String;
 
+    .prologue
+    .line 189
     iput-object p1, p0, Lcom/cmdm/control/bean/MySettingsCRS;->templateUrl:Ljava/lang/String;
 
+    .line 190
     return-void
 .end method
 
 .method public setTiming(Ljava/lang/String;)V
     .locals 0
+    .param p1, "timing"    # Ljava/lang/String;
 
+    .prologue
+    .line 159
     iput-object p1, p0, Lcom/cmdm/control/bean/MySettingsCRS;->timing:Ljava/lang/String;
 
+    .line 160
     return-void
 .end method

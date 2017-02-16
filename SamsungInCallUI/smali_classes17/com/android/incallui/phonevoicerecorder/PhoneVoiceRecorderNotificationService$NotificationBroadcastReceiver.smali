@@ -21,7 +21,10 @@
 # direct methods
 .method public constructor <init>(Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService;
 
+    .prologue
+    .line 122
     iput-object p1, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService$NotificationBroadcastReceiver;->this$0:Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,11 +36,17 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 3
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 125
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 127
+    .local v0, "action":Ljava/lang/String;
     const/4 v1, -0x1
 
     invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
@@ -50,9 +59,11 @@
     :goto_0
     packed-switch v1, :pswitch_data_1
 
+    .line 133
     :goto_1
     return-void
 
+    .line 127
     :pswitch_0
     const-string v2, "android.intent.action.SCREEN_OFF"
 
@@ -66,17 +77,20 @@
 
     goto :goto_0
 
+    .line 129
     :pswitch_1
     const-string v1, "recieve intent screen off"
 
     invoke-static {p0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 130
     iget-object v1, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService$NotificationBroadcastReceiver;->this$0:Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService;
 
     invoke-virtual {v1}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService;->animateForHide()V
 
     goto :goto_1
 
+    .line 127
     nop
 
     :pswitch_data_0

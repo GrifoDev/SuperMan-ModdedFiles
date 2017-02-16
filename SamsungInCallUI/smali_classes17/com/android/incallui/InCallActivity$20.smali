@@ -26,7 +26,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/InCallActivity;Z)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/InCallActivity;
 
+    .prologue
+    .line 3570
     iput-object p1, p0, Lcom/android/incallui/InCallActivity$20;->this$0:Lcom/android/incallui/InCallActivity;
 
     iput-boolean p2, p0, Lcom/android/incallui/InCallActivity$20;->val$isIncoming:Z
@@ -40,7 +43,12 @@
 # virtual methods
 .method public onKey(Landroid/content/DialogInterface;ILandroid/view/KeyEvent;)Z
     .locals 1
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .param p2, "keyCode"    # I
+    .param p3, "event"    # Landroid/view/KeyEvent;
 
+    .prologue
+    .line 3572
     iget-boolean v0, p0, Lcom/android/incallui/InCallActivity$20;->val$isIncoming:Z
 
     if-eqz v0, :cond_1
@@ -53,9 +61,11 @@
 
     if-ne p2, v0, :cond_1
 
+    .line 3573
     :cond_0
     const/4 v0, 0x1
 
+    .line 3575
     :goto_0
     return v0
 

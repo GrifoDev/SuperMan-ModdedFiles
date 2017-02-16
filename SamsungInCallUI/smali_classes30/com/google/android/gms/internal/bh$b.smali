@@ -58,12 +58,15 @@
 # virtual methods
 .method public onAddGeofencesResult(I[Ljava/lang/String;)V
     .locals 5
+    .param p1, "statusCode"    # I
+    .param p2, "geofenceRequestIds"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     const/4 v4, 0x0
 
     iget-object v0, p0, Lcom/google/android/gms/internal/bh$b;->fS:Lcom/google/android/gms/internal/bh;
@@ -105,7 +108,10 @@
 
 .method public onRemoveGeofencesByPendingIntentResult(ILandroid/app/PendingIntent;)V
     .locals 8
+    .param p1, "statusCode"    # I
+    .param p2, "pendingIntent"    # Landroid/app/PendingIntent;
 
+    .prologue
     const/4 v7, 0x0
 
     iget-object v0, p0, Lcom/google/android/gms/internal/bh$b;->fS:Lcom/google/android/gms/internal/bh;
@@ -153,7 +159,10 @@
 
 .method public onRemoveGeofencesByRequestIdsResult(I[Ljava/lang/String;)V
     .locals 8
+    .param p1, "statusCode"    # I
+    .param p2, "geofenceRequestIds"    # [Ljava/lang/String;
 
+    .prologue
     const/4 v7, 0x0
 
     iget-object v0, p0, Lcom/google/android/gms/internal/bh$b;->fS:Lcom/google/android/gms/internal/bh;

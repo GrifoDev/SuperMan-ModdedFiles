@@ -18,6 +18,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 40
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -28,11 +30,15 @@
 .method public onAnimationCancel()V
     .locals 0
 
+    .prologue
+    .line 46
     return-void
 .end method
 
 .method public onAnimationEnd()V
     .locals 0
 
+    .prologue
+    .line 43
     return-void
 .end method

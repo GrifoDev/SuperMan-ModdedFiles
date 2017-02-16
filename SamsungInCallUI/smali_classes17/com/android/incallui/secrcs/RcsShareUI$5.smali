@@ -26,7 +26,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/secrcs/RcsShareUI;Lcom/android/incallui/Call;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/secrcs/RcsShareUI;
 
+    .prologue
+    .line 1784
     iput-object p1, p0, Lcom/android/incallui/secrcs/RcsShareUI$5;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
 
     iput-object p2, p0, Lcom/android/incallui/secrcs/RcsShareUI$5;->val$call:Lcom/android/incallui/Call;
@@ -40,7 +43,10 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 3
+    .param p1, "v"    # Landroid/view/View;
 
+    .prologue
+    .line 1788
     # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$300()Ljava/lang/String;
 
@@ -73,10 +79,12 @@
 
     invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 1789
     iget-object v0, p0, Lcom/android/incallui/secrcs/RcsShareUI$5;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
 
     invoke-virtual {v0}, Lcom/android/incallui/secrcs/RcsShareUI;->dismissIncomingDialog()V
 
+    .line 1790
     iget-object v0, p0, Lcom/android/incallui/secrcs/RcsShareUI$5;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
 
     invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
@@ -87,5 +95,6 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/incallui/secrcs/RcsShareUI;->acceptInvitation(Landroid/content/Context;Lcom/android/incallui/Call;)V
 
+    .line 1791
     return-void
 .end method

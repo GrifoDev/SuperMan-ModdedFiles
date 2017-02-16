@@ -55,6 +55,8 @@
 .method static constructor <clinit>()V
     .locals 4
 
+    .prologue
+    .line 131
     const-class v1, Lcom/google/common/base/FinalizableReferenceQueue;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
@@ -67,6 +69,7 @@
 
     sput-object v1, Lcom/google/common/base/FinalizableReferenceQueue;->logger:Ljava/util/logging/Logger;
 
+    .line 139
     const/4 v1, 0x3
 
     new-array v1, v1, [Lcom/google/common/base/FinalizableReferenceQueue$FinalizerLoader;
@@ -99,26 +102,33 @@
 
     move-result-object v0
 
+    .line 141
+    .local v0, "finalizer":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-static {v0}, Lcom/google/common/base/FinalizableReferenceQueue;->getStartFinalizer(Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v1
 
     sput-object v1, Lcom/google/common/base/FinalizableReferenceQueue;->startFinalizer:Ljava/lang/reflect/Method;
 
+    .line 142
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 8
 
+    .prologue
+    .line 159
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 161
     new-instance v3, Ljava/lang/ref/ReferenceQueue;
 
     invoke-direct {v3}, Ljava/lang/ref/ReferenceQueue;-><init>()V
 
     iput-object v3, p0, Lcom/google/common/base/FinalizableReferenceQueue;->queue:Ljava/lang/ref/ReferenceQueue;
 
+    .line 162
     new-instance v3, Ljava/lang/ref/PhantomReference;
 
     iget-object v4, p0, Lcom/google/common/base/FinalizableReferenceQueue;->queue:Ljava/lang/ref/ReferenceQueue;
@@ -127,8 +137,11 @@
 
     iput-object v3, p0, Lcom/google/common/base/FinalizableReferenceQueue;->frqRef:Ljava/lang/ref/PhantomReference;
 
+    .line 163
     const/4 v2, 0x0
 
+    .line 165
+    .local v2, "threadStarted":Z
     :try_start_0
     sget-object v3, Lcom/google/common/base/FinalizableReferenceQueue;->startFinalizer:Ljava/lang/reflect/Method;
 
@@ -161,25 +174,35 @@
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_1
 
+    .line 166
     const/4 v2, 0x1
 
+    .line 177
     :goto_0
     iput-boolean v2, p0, Lcom/google/common/base/FinalizableReferenceQueue;->threadStarted:Z
 
+    .line 178
     return-void
 
+    .line 167
     :catch_0
     move-exception v0
 
+    .line 168
+    .local v0, "impossible":Ljava/lang/IllegalAccessException;
     new-instance v3, Ljava/lang/AssertionError;
 
     invoke-direct {v3, v0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
 
     throw v3
 
+    .line 169
+    .end local v0    # "impossible":Ljava/lang/IllegalAccessException;
     :catch_1
     move-exception v1
 
+    .line 170
+    .local v1, "t":Ljava/lang/Throwable;
     sget-object v3, Lcom/google/common/base/FinalizableReferenceQueue;->logger:Ljava/util/logging/Logger;
 
     sget-object v4, Ljava/util/logging/Level;->INFO:Ljava/util/logging/Level;
@@ -194,6 +217,8 @@
 .method static synthetic access$000()Ljava/util/logging/Logger;
     .locals 1
 
+    .prologue
+    .line 94
     sget-object v0, Lcom/google/common/base/FinalizableReferenceQueue;->logger:Ljava/util/logging/Logger;
 
     return-object v0
@@ -210,6 +235,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 356
+    .local p0, "finalizer":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     :try_start_0
     const-string v1, "startFinalizer"
 
@@ -243,9 +271,12 @@
 
     return-object v1
 
+    .line 358
     :catch_0
     move-exception v0
 
+    .line 359
+    .local v0, "e":Ljava/lang/NoSuchMethodException;
     new-instance v1, Ljava/lang/AssertionError;
 
     invoke-direct {v1, v0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
@@ -255,6 +286,7 @@
 
 .method private static varargs loadFinalizer([Lcom/google/common/base/FinalizableReferenceQueue$FinalizerLoader;)Ljava/lang/Class;
     .locals 6
+    .param p0, "loaders"    # [Lcom/google/common/base/FinalizableReferenceQueue$FinalizerLoader;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -265,30 +297,44 @@
         }
     .end annotation
 
+    .prologue
+    .line 217
     move-object v0, p0
 
+    .local v0, "arr$":[Lcom/google/common/base/FinalizableReferenceQueue$FinalizerLoader;
     array-length v3, v0
 
+    .local v3, "len$":I
     const/4 v2, 0x0
 
+    .local v2, "i$":I
     :goto_0
     if-ge v2, v3, :cond_1
 
     aget-object v4, v0, v2
 
+    .line 218
+    .local v4, "loader":Lcom/google/common/base/FinalizableReferenceQueue$FinalizerLoader;
     invoke-interface {v4}, Lcom/google/common/base/FinalizableReferenceQueue$FinalizerLoader;->loadFinalizer()Ljava/lang/Class;
 
     move-result-object v1
 
+    .line 219
+    .local v1, "finalizer":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     if-eqz v1, :cond_0
 
+    .line 220
     return-object v1
 
+    .line 217
     :cond_0
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
+    .line 224
+    .end local v1    # "finalizer":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
+    .end local v4    # "loader":Lcom/google/common/base/FinalizableReferenceQueue$FinalizerLoader;
     :cond_1
     new-instance v5, Ljava/lang/AssertionError;
 
@@ -302,13 +348,17 @@
 .method cleanUp()V
     .locals 5
 
+    .prologue
+    .line 192
     iget-boolean v2, p0, Lcom/google/common/base/FinalizableReferenceQueue;->threadStarted:Z
 
     if-eqz v2, :cond_1
 
+    .line 209
     :cond_0
     return-void
 
+    .line 197
     :cond_1
     :goto_0
     iget-object v2, p0, Lcom/google/common/base/FinalizableReferenceQueue;->queue:Ljava/lang/ref/ReferenceQueue;
@@ -317,22 +367,29 @@
 
     move-result-object v0
 
+    .local v0, "reference":Ljava/lang/ref/Reference;, "Ljava/lang/ref/Reference<*>;"
     if-eqz v0, :cond_0
 
+    .line 202
     invoke-virtual {v0}, Ljava/lang/ref/Reference;->clear()V
 
+    .line 204
     :try_start_0
     check-cast v0, Lcom/google/common/base/FinalizableReference;
 
+    .end local v0    # "reference":Ljava/lang/ref/Reference;, "Ljava/lang/ref/Reference<*>;"
     invoke-interface {v0}, Lcom/google/common/base/FinalizableReference;->finalizeReferent()V
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
+    .line 205
     :catch_0
     move-exception v1
 
+    .line 206
+    .local v1, "t":Ljava/lang/Throwable;
     sget-object v2, Lcom/google/common/base/FinalizableReferenceQueue;->logger:Ljava/util/logging/Logger;
 
     sget-object v3, Ljava/util/logging/Level;->SEVERE:Ljava/util/logging/Level;
@@ -347,11 +404,15 @@
 .method public close()V
     .locals 1
 
+    .prologue
+    .line 182
     iget-object v0, p0, Lcom/google/common/base/FinalizableReferenceQueue;->frqRef:Ljava/lang/ref/PhantomReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/PhantomReference;->enqueue()Z
 
+    .line 183
     invoke-virtual {p0}, Lcom/google/common/base/FinalizableReferenceQueue;->cleanUp()V
 
+    .line 184
     return-void
 .end method

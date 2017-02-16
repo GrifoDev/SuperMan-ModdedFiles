@@ -37,6 +37,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 10
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -56,6 +58,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 21
     iget-object v0, p0, Lcom/cmdm/control/bean/SubTagList;->tagList:Ljava/util/ArrayList;
 
     return-object v0
@@ -73,7 +77,11 @@
         }
     .end annotation
 
+    .prologue
+    .line 25
+    .local p1, "tagList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/cmdm/control/bean/ContentTag;>;"
     iput-object p1, p0, Lcom/cmdm/control/bean/SubTagList;->tagList:Ljava/util/ArrayList;
 
+    .line 26
     return-void
 .end method

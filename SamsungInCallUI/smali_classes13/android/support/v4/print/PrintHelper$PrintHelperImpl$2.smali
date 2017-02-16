@@ -26,7 +26,11 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/print/PrintHelper$PrintHelperImpl;Landroid/support/v4/print/PrintHelper$OnPrintFinishCallback;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/v4/print/PrintHelper$PrintHelperImpl;
 
+    .prologue
+    .line 215
+    .local p0, "this":Landroid/support/v4/print/PrintHelper$PrintHelperImpl$2;, "Landroid/support/v4/print/PrintHelper$PrintHelperImpl$2;"
     iput-object p1, p0, Landroid/support/v4/print/PrintHelper$PrintHelperImpl$2;->this$0:Landroid/support/v4/print/PrintHelper$PrintHelperImpl;
 
     iput-object p2, p0, Landroid/support/v4/print/PrintHelper$PrintHelperImpl$2;->val$callback:Landroid/support/v4/print/PrintHelper$OnPrintFinishCallback;
@@ -41,9 +45,13 @@
 .method public onFinish()V
     .locals 1
 
+    .prologue
+    .line 218
+    .local p0, "this":Landroid/support/v4/print/PrintHelper$PrintHelperImpl$2;, "Landroid/support/v4/print/PrintHelper$PrintHelperImpl$2;"
     iget-object v0, p0, Landroid/support/v4/print/PrintHelper$PrintHelperImpl$2;->val$callback:Landroid/support/v4/print/PrintHelper$OnPrintFinishCallback;
 
     invoke-interface {v0}, Landroid/support/v4/print/PrintHelper$OnPrintFinishCallback;->onFinish()V
 
+    .line 219
     return-void
 .end method

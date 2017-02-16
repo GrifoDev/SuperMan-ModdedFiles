@@ -21,6 +21,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -30,7 +32,10 @@
 # virtual methods
 .method public getScaledPagingTouchSlop(Landroid/view/ViewConfiguration;)I
     .locals 1
+    .param p1, "config"    # Landroid/view/ViewConfiguration;
 
+    .prologue
+    .line 40
     invoke-virtual {p1}, Landroid/view/ViewConfiguration;->getScaledTouchSlop()I
 
     move-result v0
@@ -40,7 +45,10 @@
 
 .method public hasPermanentMenuKey(Landroid/view/ViewConfiguration;)Z
     .locals 1
+    .param p1, "config"    # Landroid/view/ViewConfiguration;
 
+    .prologue
+    .line 46
     const/4 v0, 0x1
 
     return v0

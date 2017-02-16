@@ -23,12 +23,19 @@
 # direct methods
 .method public constructor <init>(IF)V
     .locals 0
+    .param p1, "color"    # I
+    .param p2, "percentage"    # F
 
+    .prologue
+    .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 26
     iput p1, p0, Lcom/sec/android/gradient_color_extractor/GradientColorExtractor$DominantColorResult;->color:I
 
+    .line 27
     iput p2, p0, Lcom/sec/android/gradient_color_extractor/GradientColorExtractor$DominantColorResult;->percentage:F
 
+    .line 28
     return-void
 .end method

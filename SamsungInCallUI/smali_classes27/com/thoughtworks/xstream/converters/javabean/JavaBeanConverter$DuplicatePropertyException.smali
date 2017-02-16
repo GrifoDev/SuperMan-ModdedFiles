@@ -17,7 +17,10 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 2
+    .param p1, "msg"    # Ljava/lang/String;
 
+    .prologue
+    .line 182
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -38,9 +41,11 @@
 
     invoke-direct {p0, v0}, Lcom/thoughtworks/xstream/converters/ConversionException;-><init>(Ljava/lang/String;)V
 
+    .line 183
     const-string v0, "property"
 
     invoke-virtual {p0, v0, p1}, Lcom/thoughtworks/xstream/converters/javabean/JavaBeanConverter$DuplicatePropertyException;->add(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 184
     return-void
 .end method

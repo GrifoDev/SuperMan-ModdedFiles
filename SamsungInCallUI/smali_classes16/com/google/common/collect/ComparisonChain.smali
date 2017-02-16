@@ -29,12 +29,15 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 77
     new-instance v0, Lcom/google/common/collect/ComparisonChain$1;
 
     invoke-direct {v0}, Lcom/google/common/collect/ComparisonChain$1;-><init>()V
 
     sput-object v0, Lcom/google/common/collect/ComparisonChain;->ACTIVE:Lcom/google/common/collect/ComparisonChain;
 
+    .line 131
     new-instance v0, Lcom/google/common/collect/ComparisonChain$InactiveComparisonChain;
 
     const/4 v1, -0x1
@@ -43,6 +46,7 @@
 
     sput-object v0, Lcom/google/common/collect/ComparisonChain;->LESS:Lcom/google/common/collect/ComparisonChain;
 
+    .line 133
     new-instance v0, Lcom/google/common/collect/ComparisonChain$InactiveComparisonChain;
 
     const/4 v1, 0x1
@@ -57,6 +61,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 67
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -64,7 +70,10 @@
 
 .method synthetic constructor <init>(Lcom/google/common/collect/ComparisonChain$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/google/common/collect/ComparisonChain$1;
 
+    .prologue
+    .line 66
     invoke-direct {p0}, Lcom/google/common/collect/ComparisonChain;-><init>()V
 
     return-void
@@ -73,6 +82,8 @@
 .method static synthetic access$100()Lcom/google/common/collect/ComparisonChain;
     .locals 1
 
+    .prologue
+    .line 66
     sget-object v0, Lcom/google/common/collect/ComparisonChain;->LESS:Lcom/google/common/collect/ComparisonChain;
 
     return-object v0
@@ -81,6 +92,8 @@
 .method static synthetic access$200()Lcom/google/common/collect/ComparisonChain;
     .locals 1
 
+    .prologue
+    .line 66
     sget-object v0, Lcom/google/common/collect/ComparisonChain;->GREATER:Lcom/google/common/collect/ComparisonChain;
 
     return-object v0
@@ -89,6 +102,8 @@
 .method static synthetic access$300()Lcom/google/common/collect/ComparisonChain;
     .locals 1
 
+    .prologue
+    .line 66
     sget-object v0, Lcom/google/common/collect/ComparisonChain;->ACTIVE:Lcom/google/common/collect/ComparisonChain;
 
     return-object v0
@@ -97,6 +112,8 @@
 .method public static start()Lcom/google/common/collect/ComparisonChain;
     .locals 1
 
+    .prologue
+    .line 74
     sget-object v0, Lcom/google/common/collect/ComparisonChain;->ACTIVE:Lcom/google/common/collect/ComparisonChain;
 
     return-object v0
@@ -118,9 +135,13 @@
 
 .method public final compare(Ljava/lang/Boolean;Ljava/lang/Boolean;)Lcom/google/common/collect/ComparisonChain;
     .locals 2
+    .param p1, "left"    # Ljava/lang/Boolean;
+    .param p2, "right"    # Ljava/lang/Boolean;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    .prologue
+    .line 241
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v0

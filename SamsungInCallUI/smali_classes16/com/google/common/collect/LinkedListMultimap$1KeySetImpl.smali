@@ -29,6 +29,9 @@
 .method constructor <init>(Lcom/google/common/collect/LinkedListMultimap;)V
     .locals 0
 
+    .prologue
+    .line 702
+    .local p0, "this":Lcom/google/common/collect/LinkedListMultimap$1KeySetImpl;, "Lcom/google/common/collect/LinkedListMultimap.1KeySetImpl;"
     iput-object p1, p0, Lcom/google/common/collect/LinkedListMultimap$1KeySetImpl;->this$0:Lcom/google/common/collect/LinkedListMultimap;
 
     invoke-direct {p0}, Lcom/google/common/collect/Sets$ImprovedAbstractSet;-><init>()V
@@ -40,7 +43,11 @@
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
+    .param p1, "key"    # Ljava/lang/Object;
 
+    .prologue
+    .line 715
+    .local p0, "this":Lcom/google/common/collect/LinkedListMultimap$1KeySetImpl;, "Lcom/google/common/collect/LinkedListMultimap.1KeySetImpl;"
     iget-object v0, p0, Lcom/google/common/collect/LinkedListMultimap$1KeySetImpl;->this$0:Lcom/google/common/collect/LinkedListMultimap;
 
     invoke-virtual {v0, p1}, Lcom/google/common/collect/LinkedListMultimap;->containsKey(Ljava/lang/Object;)Z
@@ -60,6 +67,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 710
+    .local p0, "this":Lcom/google/common/collect/LinkedListMultimap$1KeySetImpl;, "Lcom/google/common/collect/LinkedListMultimap.1KeySetImpl;"
     new-instance v0, Lcom/google/common/collect/LinkedListMultimap$DistinctKeyIterator;
 
     iget-object v1, p0, Lcom/google/common/collect/LinkedListMultimap$1KeySetImpl;->this$0:Lcom/google/common/collect/LinkedListMultimap;
@@ -73,7 +83,11 @@
 
 .method public remove(Ljava/lang/Object;)Z
     .locals 1
+    .param p1, "o"    # Ljava/lang/Object;
 
+    .prologue
+    .line 720
+    .local p0, "this":Lcom/google/common/collect/LinkedListMultimap$1KeySetImpl;, "Lcom/google/common/collect/LinkedListMultimap.1KeySetImpl;"
     iget-object v0, p0, Lcom/google/common/collect/LinkedListMultimap$1KeySetImpl;->this$0:Lcom/google/common/collect/LinkedListMultimap;
 
     invoke-virtual {v0, p1}, Lcom/google/common/collect/LinkedListMultimap;->removeAll(Ljava/lang/Object;)Ljava/util/List;
@@ -100,6 +114,9 @@
 .method public size()I
     .locals 1
 
+    .prologue
+    .line 705
+    .local p0, "this":Lcom/google/common/collect/LinkedListMultimap$1KeySetImpl;, "Lcom/google/common/collect/LinkedListMultimap.1KeySetImpl;"
     iget-object v0, p0, Lcom/google/common/collect/LinkedListMultimap$1KeySetImpl;->this$0:Lcom/google/common/collect/LinkedListMultimap;
 
     # getter for: Lcom/google/common/collect/LinkedListMultimap;->keyToKeyList:Ljava/util/Map;

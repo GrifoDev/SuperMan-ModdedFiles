@@ -21,6 +21,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 702
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -28,7 +30,10 @@
 
 .method synthetic constructor <init>(Landroid/support/v7/widget/AppCompatDrawableManager$1;)V
     .locals 0
+    .param p1, "x0"    # Landroid/support/v7/widget/AppCompatDrawableManager$1;
 
+    .prologue
+    .line 702
     invoke-direct {p0}, Landroid/support/v7/widget/AppCompatDrawableManager$VdcInflateDelegate;-><init>()V
 
     return-void
@@ -38,23 +43,26 @@
 # virtual methods
 .method public createFromXmlInner(Landroid/content/Context;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
     .locals 3
-    .param p1    # Landroid/content/Context;
+    .param p1, "context"    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p2    # Lorg/xmlpull/v1/XmlPullParser;
+    .param p2, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p3    # Landroid/util/AttributeSet;
+    .param p3, "attrs"    # Landroid/util/AttributeSet;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p4    # Landroid/content/res/Resources$Theme;
+    .param p4, "theme"    # Landroid/content/res/Resources$Theme;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
 
+    .prologue
+    .line 707
+    .line 708
     :try_start_0
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -66,18 +74,23 @@
 
     move-result-object v1
 
+    .line 711
     :goto_0
     return-object v1
 
+    .line 709
     :catch_0
     move-exception v0
 
+    .line 710
+    .local v0, "e":Ljava/lang/Exception;
     const-string v1, "VdcInflateDelegate"
 
     const-string v2, "Exception while inflating <vector>"
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
+    .line 711
     const/4 v1, 0x0
 
     goto :goto_0

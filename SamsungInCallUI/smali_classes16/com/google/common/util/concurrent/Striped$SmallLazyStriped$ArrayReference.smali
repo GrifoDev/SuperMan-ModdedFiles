@@ -33,6 +33,7 @@
 # direct methods
 .method constructor <init>(Ljava/lang/Object;ILjava/lang/ref/ReferenceQueue;)V
     .locals 0
+    .param p2, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(T",
@@ -45,9 +46,16 @@
         }
     .end annotation
 
+    .prologue
+    .line 399
+    .local p0, "this":Lcom/google/common/util/concurrent/Striped$SmallLazyStriped$ArrayReference;, "Lcom/google/common/util/concurrent/Striped$SmallLazyStriped$ArrayReference<TL;>;"
+    .local p1, "referent":Ljava/lang/Object;, "TL;"
+    .local p3, "queue":Ljava/lang/ref/ReferenceQueue;, "Ljava/lang/ref/ReferenceQueue<TL;>;"
     invoke-direct {p0, p1, p3}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V
 
+    .line 400
     iput p2, p0, Lcom/google/common/util/concurrent/Striped$SmallLazyStriped$ArrayReference;->index:I
 
+    .line 401
     return-void
 .end method

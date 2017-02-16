@@ -21,20 +21,26 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 48
     new-instance v0, Ljava/util/WeakHashMap;
 
     const/4 v1, 0x0
 
     invoke-direct {v0, v1}, Ljava/util/WeakHashMap;-><init>(I)V
 
+    .line 47
     sput-object v0, Lcom/nineoldandroids/view/ViewPropertyAnimator;->ANIMATORS:Ljava/util/WeakHashMap;
 
+    .line 48
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 46
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -42,7 +48,10 @@
 
 .method public static animate(Landroid/view/View;)Lcom/nineoldandroids/view/ViewPropertyAnimator;
     .locals 3
+    .param p0, "view"    # Landroid/view/View;
 
+    .prologue
+    .line 58
     sget-object v2, Lcom/nineoldandroids/view/ViewPropertyAnimator;->ANIMATORS:Ljava/util/WeakHashMap;
 
     invoke-virtual {v2, p0}, Ljava/util/WeakHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -51,8 +60,11 @@
 
     check-cast v0, Lcom/nineoldandroids/view/ViewPropertyAnimator;
 
+    .line 59
+    .local v0, "animator":Lcom/nineoldandroids/view/ViewPropertyAnimator;
     if-nez v0, :cond_0
 
+    .line 60
     sget-object v2, Landroid/os/Build$VERSION;->SDK:Ljava/lang/String;
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
@@ -63,38 +75,55 @@
 
     move-result v1
 
+    .line 61
+    .local v1, "version":I
     const/16 v2, 0xe
 
     if-lt v1, v2, :cond_1
 
+    .line 62
     new-instance v0, Lcom/nineoldandroids/view/ViewPropertyAnimatorICS;
 
+    .end local v0    # "animator":Lcom/nineoldandroids/view/ViewPropertyAnimator;
     invoke-direct {v0, p0}, Lcom/nineoldandroids/view/ViewPropertyAnimatorICS;-><init>(Landroid/view/View;)V
 
+    .line 68
+    .restart local v0    # "animator":Lcom/nineoldandroids/view/ViewPropertyAnimator;
     :goto_0
     sget-object v2, Lcom/nineoldandroids/view/ViewPropertyAnimator;->ANIMATORS:Ljava/util/WeakHashMap;
 
     invoke-virtual {v2, p0, v0}, Ljava/util/WeakHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 70
+    .end local v1    # "version":I
     :cond_0
     return-object v0
 
+    .line 63
+    .restart local v1    # "version":I
     :cond_1
     const/16 v2, 0xb
 
     if-lt v1, v2, :cond_2
 
+    .line 64
     new-instance v0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;
 
+    .end local v0    # "animator":Lcom/nineoldandroids/view/ViewPropertyAnimator;
     invoke-direct {v0, p0}, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;-><init>(Landroid/view/View;)V
 
+    .line 65
+    .restart local v0    # "animator":Lcom/nineoldandroids/view/ViewPropertyAnimator;
     goto :goto_0
 
+    .line 66
     :cond_2
     new-instance v0, Lcom/nineoldandroids/view/ViewPropertyAnimatorPreHC;
 
+    .end local v0    # "animator":Lcom/nineoldandroids/view/ViewPropertyAnimator;
     invoke-direct {v0, p0}, Lcom/nineoldandroids/view/ViewPropertyAnimatorPreHC;-><init>(Landroid/view/View;)V
 
+    .restart local v0    # "animator":Lcom/nineoldandroids/view/ViewPropertyAnimator;
     goto :goto_0
 .end method
 

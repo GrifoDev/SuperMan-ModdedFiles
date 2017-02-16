@@ -28,7 +28,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/contacts/common/preference/AboutPreferenceFragment;Landroid/preference/Preference;Landroid/preference/Preference;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/contacts/common/preference/AboutPreferenceFragment;
 
+    .prologue
+    .line 67
     iput-object p1, p0, Lcom/android/contacts/common/preference/AboutPreferenceFragment$1;->this$0:Lcom/android/contacts/common/preference/AboutPreferenceFragment;
 
     iput-object p2, p0, Lcom/android/contacts/common/preference/AboutPreferenceFragment$1;->val$privacyPolicyPreference:Landroid/preference/Preference;
@@ -44,12 +47,16 @@
 # virtual methods
 .method public onPreferenceClick(Landroid/preference/Preference;)Z
     .locals 4
+    .param p1, "preference"    # Landroid/preference/Preference;
 
+    .prologue
+    .line 71
     :try_start_0
     iget-object v1, p0, Lcom/android/contacts/common/preference/AboutPreferenceFragment$1;->val$privacyPolicyPreference:Landroid/preference/Preference;
 
     if-ne p1, v1, :cond_1
 
+    .line 72
     iget-object v1, p0, Lcom/android/contacts/common/preference/AboutPreferenceFragment$1;->this$0:Lcom/android/contacts/common/preference/AboutPreferenceFragment;
 
     const-string v2, "http://www.google.com/policies/privacy"
@@ -57,17 +64,20 @@
     # invokes: Lcom/android/contacts/common/preference/AboutPreferenceFragment;->startActivityForUrl(Ljava/lang/String;)V
     invoke-static {v1, v2}, Lcom/android/contacts/common/preference/AboutPreferenceFragment;->access$000(Lcom/android/contacts/common/preference/AboutPreferenceFragment;Ljava/lang/String;)V
 
+    .line 80
     :cond_0
     :goto_0
     const/4 v1, 0x1
 
     return v1
 
+    .line 73
     :cond_1
     iget-object v1, p0, Lcom/android/contacts/common/preference/AboutPreferenceFragment$1;->val$termsOfServicePreference:Landroid/preference/Preference;
 
     if-ne p1, v1, :cond_0
 
+    .line 74
     iget-object v1, p0, Lcom/android/contacts/common/preference/AboutPreferenceFragment$1;->this$0:Lcom/android/contacts/common/preference/AboutPreferenceFragment;
 
     const-string v2, "http://www.google.com/policies/terms"
@@ -79,9 +89,12 @@
 
     goto :goto_0
 
+    .line 76
     :catch_0
     move-exception v0
 
+    .line 77
+    .local v0, "ex":Landroid/content/ActivityNotFoundException;
     iget-object v1, p0, Lcom/android/contacts/common/preference/AboutPreferenceFragment$1;->this$0:Lcom/android/contacts/common/preference/AboutPreferenceFragment;
 
     invoke-virtual {v1}, Lcom/android/contacts/common/preference/AboutPreferenceFragment;->getContext()Landroid/content/Context;
@@ -102,6 +115,7 @@
 
     move-result-object v1
 
+    .line 78
     invoke-virtual {v1}, Landroid/widget/Toast;->show()V
 
     goto :goto_0

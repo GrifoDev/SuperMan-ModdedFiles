@@ -41,6 +41,9 @@
 .method constructor <init>(Lcom/google/common/collect/ImmutableMultiset;Ljava/util/Iterator;)V
     .locals 0
 
+    .prologue
+    .line 206
+    .local p0, "this":Lcom/google/common/collect/ImmutableMultiset$1;, "Lcom/google/common/collect/ImmutableMultiset.1;"
     iput-object p1, p0, Lcom/google/common/collect/ImmutableMultiset$1;->this$0:Lcom/google/common/collect/ImmutableMultiset;
 
     iput-object p2, p0, Lcom/google/common/collect/ImmutableMultiset$1;->val$entryIterator:Ljava/util/Iterator;
@@ -55,6 +58,9 @@
 .method public hasNext()Z
     .locals 1
 
+    .prologue
+    .line 212
+    .local p0, "this":Lcom/google/common/collect/ImmutableMultiset$1;, "Lcom/google/common/collect/ImmutableMultiset.1;"
     iget v0, p0, Lcom/google/common/collect/ImmutableMultiset$1;->remaining:I
 
     if-gtz v0, :cond_0
@@ -87,10 +93,14 @@
         }
     .end annotation
 
+    .prologue
+    .line 217
+    .local p0, "this":Lcom/google/common/collect/ImmutableMultiset$1;, "Lcom/google/common/collect/ImmutableMultiset.1;"
     iget v1, p0, Lcom/google/common/collect/ImmutableMultiset$1;->remaining:I
 
     if-gtz v1, :cond_0
 
+    .line 218
     iget-object v1, p0, Lcom/google/common/collect/ImmutableMultiset$1;->val$entryIterator:Ljava/util/Iterator;
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -99,18 +109,23 @@
 
     check-cast v0, Lcom/google/common/collect/Multiset$Entry;
 
+    .line 219
+    .local v0, "entry":Lcom/google/common/collect/Multiset$Entry;, "Lcom/google/common/collect/Multiset$Entry<TE;>;"
     invoke-interface {v0}, Lcom/google/common/collect/Multiset$Entry;->getElement()Ljava/lang/Object;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/google/common/collect/ImmutableMultiset$1;->element:Ljava/lang/Object;
 
+    .line 220
     invoke-interface {v0}, Lcom/google/common/collect/Multiset$Entry;->getCount()I
 
     move-result v1
 
     iput v1, p0, Lcom/google/common/collect/ImmutableMultiset$1;->remaining:I
 
+    .line 222
+    .end local v0    # "entry":Lcom/google/common/collect/Multiset$Entry;, "Lcom/google/common/collect/Multiset$Entry<TE;>;"
     :cond_0
     iget v1, p0, Lcom/google/common/collect/ImmutableMultiset$1;->remaining:I
 
@@ -118,6 +133,7 @@
 
     iput v1, p0, Lcom/google/common/collect/ImmutableMultiset$1;->remaining:I
 
+    .line 223
     iget-object v1, p0, Lcom/google/common/collect/ImmutableMultiset$1;->element:Ljava/lang/Object;
 
     return-object v1

@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/service/SecCallPopupWaitingCall;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/service/SecCallPopupWaitingCall;
 
+    .prologue
+    .line 318
     iput-object p1, p0, Lcom/android/incallui/service/SecCallPopupWaitingCall$7;->this$0:Lcom/android/incallui/service/SecCallPopupWaitingCall;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +39,10 @@
 # virtual methods
 .method public onDismiss(Landroid/content/DialogInterface;)V
     .locals 3
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
 
+    .prologue
+    .line 321
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v0
@@ -51,6 +57,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 322
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
     move-result-object v0
@@ -61,6 +68,7 @@
 
     if-nez v0, :cond_0
 
+    .line 323
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
     move-result-object v0
@@ -73,6 +81,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupWaitingCall$7;->this$0:Lcom/android/incallui/service/SecCallPopupWaitingCall;
 
+    .line 324
     # getter for: Lcom/android/incallui/service/SecCallPopupWaitingCall;->mSecCallPopupService:Lcom/android/incallui/service/SecCallPopupService;
     invoke-static {v0}, Lcom/android/incallui/service/SecCallPopupWaitingCall;->access$100(Lcom/android/incallui/service/SecCallPopupWaitingCall;)Lcom/android/incallui/service/SecCallPopupService;
 
@@ -82,6 +91,7 @@
 
     if-nez v0, :cond_0
 
+    .line 325
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupWaitingCall$7;->this$0:Lcom/android/incallui/service/SecCallPopupWaitingCall;
 
     # getter for: Lcom/android/incallui/service/SecCallPopupWaitingCall;->mSecCallPopupService:Lcom/android/incallui/service/SecCallPopupService;
@@ -91,6 +101,7 @@
 
     invoke-virtual {v0}, Lcom/android/incallui/service/SecCallPopupService;->animateForShow()V
 
+    .line 327
     :cond_0
     return-void
 .end method

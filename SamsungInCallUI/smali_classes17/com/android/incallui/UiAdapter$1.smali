@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/UiAdapter;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/UiAdapter;
 
+    .prologue
+    .line 50
     iput-object p1, p0, Lcom/android/incallui/UiAdapter$1;->this$0:Lcom/android/incallui/UiAdapter;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -33,9 +36,12 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 5
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
     const/4 v4, 0x0
 
+    .line 53
     const-string v1, "UiAdapter"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -60,19 +66,23 @@
 
     invoke-static {v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 54
     iget v1, p1, Landroid/os/Message;->what:I
 
     packed-switch v1, :pswitch_data_0
 
+    .line 69
     :cond_0
     :goto_0
     return-void
 
+    .line 56
     :pswitch_0
     iget-object v1, p0, Lcom/android/incallui/UiAdapter$1;->this$0:Lcom/android/incallui/UiAdapter;
 
     invoke-virtual {v1, v4, v4}, Lcom/android/incallui/UiAdapter;->showVoiceCallModifyStateMessage(ZI)V
 
+    .line 57
     const-string v1, "enable_conference_info_banner"
 
     invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
@@ -81,6 +91,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 58
     iget-object v1, p0, Lcom/android/incallui/UiAdapter$1;->this$0:Lcom/android/incallui/UiAdapter;
 
     const-string v2, "NONE"
@@ -89,6 +100,7 @@
 
     goto :goto_0
 
+    .line 62
     :pswitch_1
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
@@ -98,8 +110,11 @@
 
     check-cast v0, [Ljava/lang/String;
 
+    .line 64
+    .local v0, "str":[Ljava/lang/String;
     if-eqz v0, :cond_0
 
+    .line 65
     iget-object v1, p0, Lcom/android/incallui/UiAdapter$1;->this$0:Lcom/android/incallui/UiAdapter;
 
     aget-object v2, v0, v4
@@ -120,6 +135,7 @@
 
     goto :goto_0
 
+    .line 54
     :pswitch_data_0
     .packed-switch 0x67
         :pswitch_0

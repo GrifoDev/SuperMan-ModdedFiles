@@ -19,7 +19,9 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
+    .param p1, "context"    # Landroid/content/Context;
 
+    .prologue
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Lcom/google/android/gms/plus/PlusOneButtonWithPopup;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -29,7 +31,10 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 2
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
+    .prologue
     invoke-direct {p0, p1, p2}, Landroid/view/ViewGroup;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
     invoke-static {p1, p2}, Lcom/google/android/gms/plus/PlusOneButton;->getSize(Landroid/content/Context;Landroid/util/AttributeSet;)I
@@ -246,7 +251,10 @@
 
 .method public initialize(Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
+    .param p1, "url"    # Ljava/lang/String;
+    .param p2, "accountName"    # Ljava/lang/String;
 
+    .prologue
     const-string v0, "Url must not be null"
 
     invoke-static {p1, v0}, Lcom/google/android/gms/internal/s;->b(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -262,7 +270,13 @@
 
 .method protected onLayout(ZIIII)V
     .locals 6
+    .param p1, "changed"    # Z
+    .param p2, "left"    # I
+    .param p3, "top"    # I
+    .param p4, "right"    # I
+    .param p5, "bottom"    # I
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/plus/PlusOneButtonWithPopup;->ic:Landroid/view/View;
 
     invoke-virtual {p0}, Lcom/google/android/gms/plus/PlusOneButtonWithPopup;->getPaddingLeft()I
@@ -296,7 +310,10 @@
 
 .method protected onMeasure(II)V
     .locals 5
+    .param p1, "widthMeasureSpec"    # I
+    .param p2, "heightMeasureSpec"    # I
 
+    .prologue
     invoke-virtual {p0}, Lcom/google/android/gms/plus/PlusOneButtonWithPopup;->getPaddingLeft()I
 
     move-result v0
@@ -378,7 +395,9 @@
 
 .method public setAnnotation(I)V
     .locals 0
+    .param p1, "annotation"    # I
 
+    .prologue
     iput p1, p0, Lcom/google/android/gms/plus/PlusOneButtonWithPopup;->id:I
 
     invoke-direct {p0}, Lcom/google/android/gms/plus/PlusOneButtonWithPopup;->bv()V
@@ -388,7 +407,9 @@
 
 .method public setOnClickListener(Landroid/view/View$OnClickListener;)V
     .locals 1
+    .param p1, "onClickListener"    # Landroid/view/View$OnClickListener;
 
+    .prologue
     iput-object p1, p0, Lcom/google/android/gms/plus/PlusOneButtonWithPopup;->ij:Landroid/view/View$OnClickListener;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/PlusOneButtonWithPopup;->ic:Landroid/view/View;
@@ -400,7 +421,9 @@
 
 .method public setSize(I)V
     .locals 0
+    .param p1, "size"    # I
 
+    .prologue
     iput p1, p0, Lcom/google/android/gms/plus/PlusOneButtonWithPopup;->O:I
 
     invoke-direct {p0}, Lcom/google/android/gms/plus/PlusOneButtonWithPopup;->bv()V

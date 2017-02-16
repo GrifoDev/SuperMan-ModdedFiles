@@ -25,6 +25,8 @@
 .method private constructor <init>(Landroid/support/v7/app/ToolbarActionBar;)V
     .locals 0
 
+    .prologue
+    .line 625
     iput-object p1, p0, Landroid/support/v7/app/ToolbarActionBar$PanelMenuPresenterCallback;->this$0:Landroid/support/v7/app/ToolbarActionBar;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,7 +36,11 @@
 
 .method synthetic constructor <init>(Landroid/support/v7/app/ToolbarActionBar;Landroid/support/v7/app/ToolbarActionBar$1;)V
     .locals 0
+    .param p1, "x0"    # Landroid/support/v7/app/ToolbarActionBar;
+    .param p2, "x1"    # Landroid/support/v7/app/ToolbarActionBar$1;
 
+    .prologue
+    .line 625
     invoke-direct {p0, p1}, Landroid/support/v7/app/ToolbarActionBar$PanelMenuPresenterCallback;-><init>(Landroid/support/v7/app/ToolbarActionBar;)V
 
     return-void
@@ -44,7 +50,11 @@
 # virtual methods
 .method public onCloseMenu(Landroid/support/v7/view/menu/MenuBuilder;Z)V
     .locals 2
+    .param p1, "menu"    # Landroid/support/v7/view/menu/MenuBuilder;
+    .param p2, "allMenusAreClosing"    # Z
 
+    .prologue
+    .line 628
     iget-object v0, p0, Landroid/support/v7/app/ToolbarActionBar$PanelMenuPresenterCallback;->this$0:Landroid/support/v7/app/ToolbarActionBar;
 
     # getter for: Landroid/support/v7/app/ToolbarActionBar;->mWindowCallback:Landroid/view/Window$Callback;
@@ -54,6 +64,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 629
     iget-object v0, p0, Landroid/support/v7/app/ToolbarActionBar$PanelMenuPresenterCallback;->this$0:Landroid/support/v7/app/ToolbarActionBar;
 
     # getter for: Landroid/support/v7/app/ToolbarActionBar;->mWindowCallback:Landroid/view/Window$Callback;
@@ -65,13 +76,17 @@
 
     invoke-interface {v0, v1, p1}, Landroid/view/Window$Callback;->onPanelClosed(ILandroid/view/Menu;)V
 
+    .line 631
     :cond_0
     return-void
 .end method
 
 .method public onOpenSubMenu(Landroid/support/v7/view/menu/MenuBuilder;)Z
     .locals 2
+    .param p1, "subMenu"    # Landroid/support/v7/view/menu/MenuBuilder;
 
+    .prologue
+    .line 635
     if-nez p1, :cond_0
 
     iget-object v0, p0, Landroid/support/v7/app/ToolbarActionBar$PanelMenuPresenterCallback;->this$0:Landroid/support/v7/app/ToolbarActionBar;
@@ -83,6 +98,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 636
     iget-object v0, p0, Landroid/support/v7/app/ToolbarActionBar$PanelMenuPresenterCallback;->this$0:Landroid/support/v7/app/ToolbarActionBar;
 
     # getter for: Landroid/support/v7/app/ToolbarActionBar;->mWindowCallback:Landroid/view/Window$Callback;
@@ -94,6 +110,7 @@
 
     invoke-interface {v0, v1, p1}, Landroid/view/Window$Callback;->onMenuOpened(ILandroid/view/Menu;)Z
 
+    .line 638
     :cond_0
     const/4 v0, 0x1
 

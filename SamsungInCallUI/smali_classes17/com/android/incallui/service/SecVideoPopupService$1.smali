@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/service/SecVideoPopupService;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/service/SecVideoPopupService;
 
+    .prologue
+    .line 103
     iput-object p1, p0, Lcom/android/incallui/service/SecVideoPopupService$1;->this$0:Lcom/android/incallui/service/SecVideoPopupService;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -33,7 +36,10 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 4
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 105
     iget-object v1, p0, Lcom/android/incallui/service/SecVideoPopupService$1;->this$0:Lcom/android/incallui/service/SecVideoPopupService;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -61,14 +67,17 @@
     # invokes: Lcom/android/incallui/service/SecVideoPopupService;->log(Ljava/lang/String;Z)V
     invoke-static {v1, v2, v3}, Lcom/android/incallui/service/SecVideoPopupService;->access$000(Lcom/android/incallui/service/SecVideoPopupService;Ljava/lang/String;Z)V
 
+    .line 106
     iget v1, p1, Landroid/os/Message;->what:I
 
     packed-switch v1, :pswitch_data_0
 
+    .line 129
     :cond_0
     :goto_0
     return-void
 
+    .line 108
     :pswitch_0
     iget-object v1, p0, Lcom/android/incallui/service/SecVideoPopupService$1;->this$0:Lcom/android/incallui/service/SecVideoPopupService;
 
@@ -79,6 +88,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 109
     iget-object v1, p0, Lcom/android/incallui/service/SecVideoPopupService$1;->this$0:Lcom/android/incallui/service/SecVideoPopupService;
 
     # getter for: Lcom/android/incallui/service/SecVideoPopupService;->mState:Lcom/android/incallui/InCallPresenter$InCallState;
@@ -90,6 +100,7 @@
 
     if-ne v1, v2, :cond_1
 
+    .line 110
     const-string v1, "SecVideoPopupService"
 
     const-string v2, "state == InCallState.NO_CALLS "
@@ -98,6 +109,7 @@
 
     goto :goto_0
 
+    .line 113
     :cond_1
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
@@ -107,8 +119,11 @@
 
     move-result-object v0
 
+    .line 114
+    .local v0, "call":Lcom/android/incallui/Call;
     if-eqz v0, :cond_0
 
+    .line 115
     invoke-virtual {v0}, Lcom/android/incallui/Call;->getState()I
 
     move-result v1
@@ -117,6 +132,7 @@
 
     if-ne v1, v2, :cond_2
 
+    .line 116
     iget-object v1, p0, Lcom/android/incallui/service/SecVideoPopupService$1;->this$0:Lcom/android/incallui/service/SecVideoPopupService;
 
     # getter for: Lcom/android/incallui/service/SecVideoPopupService;->mStatusBarManager:Landroid/app/SemStatusBarManager;
@@ -142,6 +158,7 @@
 
     goto :goto_0
 
+    .line 118
     :cond_2
     iget-object v1, p0, Lcom/android/incallui/service/SecVideoPopupService$1;->this$0:Lcom/android/incallui/service/SecVideoPopupService;
 
@@ -168,6 +185,8 @@
 
     goto :goto_0
 
+    .line 124
+    .end local v0    # "call":Lcom/android/incallui/Call;
     :pswitch_1
     iget-object v1, p0, Lcom/android/incallui/service/SecVideoPopupService$1;->this$0:Lcom/android/incallui/service/SecVideoPopupService;
 
@@ -175,6 +194,7 @@
 
     goto :goto_0
 
+    .line 106
     nop
 
     :pswitch_data_0

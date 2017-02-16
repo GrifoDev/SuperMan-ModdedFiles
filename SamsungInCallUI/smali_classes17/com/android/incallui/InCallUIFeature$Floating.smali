@@ -42,6 +42,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 586
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -49,7 +51,10 @@
 
 .method public static getEnableStatus(Ljava/lang/String;)Z
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 606
     invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
 
     move-result-object v0
@@ -63,7 +68,10 @@
 
 .method public static getInteger(Ljava/lang/String;)I
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 610
     invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
 
     move-result-object v0
@@ -77,7 +85,10 @@
 
 .method public static getString(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 614
     invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
 
     move-result-object v0

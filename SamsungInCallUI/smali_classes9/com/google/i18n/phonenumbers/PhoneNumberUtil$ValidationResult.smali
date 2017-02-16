@@ -39,6 +39,7 @@
 .method static constructor <clinit>()V
     .locals 6
 
+    .prologue
     const/4 v5, 0x3
 
     const/4 v4, 0x2
@@ -47,6 +48,7 @@
 
     const/4 v2, 0x0
 
+    .line 443
     new-instance v0, Lcom/google/i18n/phonenumbers/PhoneNumberUtil$ValidationResult;
 
     const-string v1, "IS_POSSIBLE"
@@ -55,6 +57,7 @@
 
     sput-object v0, Lcom/google/i18n/phonenumbers/PhoneNumberUtil$ValidationResult;->IS_POSSIBLE:Lcom/google/i18n/phonenumbers/PhoneNumberUtil$ValidationResult;
 
+    .line 444
     new-instance v0, Lcom/google/i18n/phonenumbers/PhoneNumberUtil$ValidationResult;
 
     const-string v1, "INVALID_COUNTRY_CODE"
@@ -63,6 +66,7 @@
 
     sput-object v0, Lcom/google/i18n/phonenumbers/PhoneNumberUtil$ValidationResult;->INVALID_COUNTRY_CODE:Lcom/google/i18n/phonenumbers/PhoneNumberUtil$ValidationResult;
 
+    .line 445
     new-instance v0, Lcom/google/i18n/phonenumbers/PhoneNumberUtil$ValidationResult;
 
     const-string v1, "TOO_SHORT"
@@ -71,6 +75,7 @@
 
     sput-object v0, Lcom/google/i18n/phonenumbers/PhoneNumberUtil$ValidationResult;->TOO_SHORT:Lcom/google/i18n/phonenumbers/PhoneNumberUtil$ValidationResult;
 
+    .line 446
     new-instance v0, Lcom/google/i18n/phonenumbers/PhoneNumberUtil$ValidationResult;
 
     const-string v1, "TOO_LONG"
@@ -79,6 +84,7 @@
 
     sput-object v0, Lcom/google/i18n/phonenumbers/PhoneNumberUtil$ValidationResult;->TOO_LONG:Lcom/google/i18n/phonenumbers/PhoneNumberUtil$ValidationResult;
 
+    .line 442
     const/4 v0, 0x4
 
     new-array v0, v0, [Lcom/google/i18n/phonenumbers/PhoneNumberUtil$ValidationResult;
@@ -112,6 +118,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 442
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -119,7 +127,10 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/i18n/phonenumbers/PhoneNumberUtil$ValidationResult;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 442
     const-class v0, Lcom/google/i18n/phonenumbers/PhoneNumberUtil$ValidationResult;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -134,6 +145,8 @@
 .method public static values()[Lcom/google/i18n/phonenumbers/PhoneNumberUtil$ValidationResult;
     .locals 1
 
+    .prologue
+    .line 442
     sget-object v0, Lcom/google/i18n/phonenumbers/PhoneNumberUtil$ValidationResult;->$VALUES:[Lcom/google/i18n/phonenumbers/PhoneNumberUtil$ValidationResult;
 
     invoke-virtual {v0}, [Lcom/google/i18n/phonenumbers/PhoneNumberUtil$ValidationResult;->clone()Ljava/lang/Object;

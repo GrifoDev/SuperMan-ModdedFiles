@@ -40,6 +40,8 @@
 .method constructor <init>(Lcom/google/common/util/concurrent/ServiceManager$ServiceManagerState;)V
     .locals 0
 
+    .prologue
+    .line 613
     iput-object p1, p0, Lcom/google/common/util/concurrent/ServiceManager$ServiceManagerState$1;->this$0:Lcom/google/common/util/concurrent/ServiceManager$ServiceManagerState;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -63,6 +65,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 615
+    .local p1, "input":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Lcom/google/common/util/concurrent/Service;Ljava/lang/Long;>;"
     invoke-interface {p1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v0
@@ -74,9 +79,13 @@
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
+    .param p1, "x0"    # Ljava/lang/Object;
 
+    .prologue
+    .line 613
     check-cast p1, Ljava/util/Map$Entry;
 
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/google/common/util/concurrent/ServiceManager$ServiceManagerState$1;->apply(Ljava/util/Map$Entry;)Ljava/lang/Long;
 
     move-result-object v0

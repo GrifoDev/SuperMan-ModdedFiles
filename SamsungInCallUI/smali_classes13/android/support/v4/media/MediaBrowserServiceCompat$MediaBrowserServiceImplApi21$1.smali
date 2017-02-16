@@ -28,7 +28,10 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi21;Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 0
+    .param p1, "this$1"    # Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi21;
 
+    .prologue
+    .line 229
     iput-object p1, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi21$1;->this$1:Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi21;
 
     iput-object p2, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi21$1;->val$parentId:Ljava/lang/String;
@@ -45,6 +48,8 @@
 .method public run()V
     .locals 9
 
+    .prologue
+    .line 232
     iget-object v4, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi21$1;->this$1:Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi21;
 
     iget-object v4, v4, Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi21;->this$0:Landroid/support/v4/media/MediaBrowserServiceCompat;
@@ -75,6 +80,8 @@
 
     check-cast v0, Landroid/os/IBinder;
 
+    .line 233
+    .local v0, "binder":Landroid/os/IBinder;
     iget-object v4, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi21$1;->this$1:Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi21;
 
     iget-object v4, v4, Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi21;->this$0:Landroid/support/v4/media/MediaBrowserServiceCompat;
@@ -90,18 +97,24 @@
 
     check-cast v3, Landroid/support/v4/media/MediaBrowserServiceCompat$ConnectionRecord;
 
+    .line 234
+    .local v3, "connection":Landroid/support/v4/media/MediaBrowserServiceCompat$ConnectionRecord;
     iget-object v4, v3, Landroid/support/v4/media/MediaBrowserServiceCompat$ConnectionRecord;->subscriptions:Ljava/util/HashMap;
 
     iget-object v6, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi21$1;->val$parentId:Ljava/lang/String;
 
+    .line 235
     invoke-virtual {v4, v6}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Ljava/util/List;
 
+    .line 236
+    .local v2, "callbackList":Ljava/util/List;, "Ljava/util/List<Landroid/support/v4/util/Pair<Landroid/os/IBinder;Landroid/os/Bundle;>;>;"
     if-eqz v2, :cond_0
 
+    .line 237
     invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v6
@@ -120,6 +133,8 @@
 
     check-cast v1, Landroid/support/v4/util/Pair;
 
+    .line 238
+    .local v1, "callback":Landroid/support/v4/util/Pair;, "Landroid/support/v4/util/Pair<Landroid/os/IBinder;Landroid/os/Bundle;>;"
     iget-object v7, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi21$1;->val$options:Landroid/os/Bundle;
 
     iget-object v4, v1, Landroid/support/v4/util/Pair;->second:Ljava/lang/Object;
@@ -132,6 +147,7 @@
 
     if-eqz v4, :cond_1
 
+    .line 240
     iget-object v4, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi21$1;->this$1:Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi21;
 
     iget-object v7, v4, Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi21;->this$0:Landroid/support/v4/media/MediaBrowserServiceCompat;
@@ -147,6 +163,11 @@
 
     goto :goto_0
 
+    .line 245
+    .end local v0    # "binder":Landroid/os/IBinder;
+    .end local v1    # "callback":Landroid/support/v4/util/Pair;, "Landroid/support/v4/util/Pair<Landroid/os/IBinder;Landroid/os/Bundle;>;"
+    .end local v2    # "callbackList":Ljava/util/List;, "Ljava/util/List<Landroid/support/v4/util/Pair<Landroid/os/IBinder;Landroid/os/Bundle;>;>;"
+    .end local v3    # "connection":Landroid/support/v4/media/MediaBrowserServiceCompat$ConnectionRecord;
     :cond_2
     return-void
 .end method

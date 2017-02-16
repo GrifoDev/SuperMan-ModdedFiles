@@ -63,12 +63,15 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
+    .line 35
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     sput-object v0, Lcom/android/dialer/logging/ScreenEvent;->sScreenNameMap:Ljava/util/Map;
 
+    .line 118
     sget-object v0, Lcom/android/dialer/logging/ScreenEvent;->sScreenNameMap:Ljava/util/Map;
 
     const/16 v1, 0xa
@@ -79,12 +82,15 @@
 
     const-class v2, Lcom/android/contacts/common/interactions/ImportExportDialogFragment;
 
+    .line 119
     invoke-virtual {v2}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
 
     move-result-object v2
 
+    .line 118
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 120
     sget-object v0, Lcom/android/dialer/logging/ScreenEvent;->sScreenNameMap:Ljava/util/Map;
 
     const/16 v1, 0xb
@@ -95,12 +101,15 @@
 
     const-class v2, Lcom/android/contacts/common/dialog/ClearFrequentsDialog;
 
+    .line 121
     invoke-virtual {v2}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
 
     move-result-object v2
 
+    .line 120
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 122
     sget-object v0, Lcom/android/dialer/logging/ScreenEvent;->sScreenNameMap:Ljava/util/Map;
 
     const/16 v1, 0xc
@@ -113,6 +122,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 123
     sget-object v0, Lcom/android/dialer/logging/ScreenEvent;->sScreenNameMap:Ljava/util/Map;
 
     const/16 v1, 0xd
@@ -129,6 +139,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 124
     sget-object v0, Lcom/android/dialer/logging/ScreenEvent;->sScreenNameMap:Ljava/util/Map;
 
     const/16 v1, 0xe
@@ -145,6 +156,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 125
     sget-object v0, Lcom/android/dialer/logging/ScreenEvent;->sScreenNameMap:Ljava/util/Map;
 
     const/16 v1, 0xf
@@ -155,18 +167,23 @@
 
     const-class v2, Lcom/android/incallui/fragment/ConferenceManagerFragment;
 
+    .line 126
     invoke-virtual {v2}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
 
     move-result-object v2
 
+    .line 125
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 134
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 33
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -174,7 +191,10 @@
 
 .method public static getScreenName(I)Ljava/lang/String;
     .locals 2
+    .param p0, "screenType"    # I
 
+    .prologue
+    .line 145
     sget-object v0, Lcom/android/dialer/logging/ScreenEvent;->sScreenNameMap:Ljava/util/Map;
 
     invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -192,16 +212,23 @@
 
 .method public static getScreenNameWithTag(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 2
+    .param p0, "screenName"    # Ljava/lang/String;
+    .param p1, "tag"    # Ljava/lang/String;
 
+    .prologue
+    .line 157
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
+    .line 160
+    .end local p0    # "screenName":Ljava/lang/String;
     :goto_0
     return-object p0
 
+    .restart local p0    # "screenName":Ljava/lang/String;
     :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 

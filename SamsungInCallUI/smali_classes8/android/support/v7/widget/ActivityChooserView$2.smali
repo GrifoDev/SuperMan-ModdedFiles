@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/ActivityChooserView;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/v7/widget/ActivityChooserView;
 
+    .prologue
+    .line 139
     iput-object p1, p0, Landroid/support/v7/widget/ActivityChooserView$2;->this$0:Landroid/support/v7/widget/ActivityChooserView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +40,8 @@
 .method public onGlobalLayout()V
     .locals 2
 
+    .prologue
+    .line 142
     iget-object v0, p0, Landroid/support/v7/widget/ActivityChooserView$2;->this$0:Landroid/support/v7/widget/ActivityChooserView;
 
     invoke-virtual {v0}, Landroid/support/v7/widget/ActivityChooserView;->isShowingPopup()Z
@@ -45,6 +50,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 143
     iget-object v0, p0, Landroid/support/v7/widget/ActivityChooserView$2;->this$0:Landroid/support/v7/widget/ActivityChooserView;
 
     invoke-virtual {v0}, Landroid/support/v7/widget/ActivityChooserView;->isShown()Z
@@ -53,6 +59,7 @@
 
     if-nez v0, :cond_1
 
+    .line 144
     iget-object v0, p0, Landroid/support/v7/widget/ActivityChooserView$2;->this$0:Landroid/support/v7/widget/ActivityChooserView;
 
     # invokes: Landroid/support/v7/widget/ActivityChooserView;->getListPopupWindow()Landroid/support/v7/widget/ListPopupWindow;
@@ -62,10 +69,12 @@
 
     invoke-virtual {v0}, Landroid/support/v7/widget/ListPopupWindow;->dismiss()V
 
+    .line 152
     :cond_0
     :goto_0
     return-void
 
+    .line 146
     :cond_1
     iget-object v0, p0, Landroid/support/v7/widget/ActivityChooserView$2;->this$0:Landroid/support/v7/widget/ActivityChooserView;
 
@@ -76,12 +85,14 @@
 
     invoke-virtual {v0}, Landroid/support/v7/widget/ListPopupWindow;->show()V
 
+    .line 147
     iget-object v0, p0, Landroid/support/v7/widget/ActivityChooserView$2;->this$0:Landroid/support/v7/widget/ActivityChooserView;
 
     iget-object v0, v0, Landroid/support/v7/widget/ActivityChooserView;->mProvider:Landroid/support/v4/view/ActionProvider;
 
     if-eqz v0, :cond_0
 
+    .line 148
     iget-object v0, p0, Landroid/support/v7/widget/ActivityChooserView$2;->this$0:Landroid/support/v7/widget/ActivityChooserView;
 
     iget-object v0, v0, Landroid/support/v7/widget/ActivityChooserView;->mProvider:Landroid/support/v4/view/ActionProvider;

@@ -33,8 +33,10 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 39
     const-string v0, "content://com.samsung.android.memo/memo"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -43,14 +45,17 @@
 
     sput-object v0, Lcom/android/incallui/callerinfocard/queryargs/MemoQueryArgs;->CONTENT_URI:Landroid/net/Uri;
 
+    .line 71
     new-instance v0, Lcom/android/incallui/callerinfocard/queryargs/MemoQueryArgs$1;
 
     invoke-direct {v0}, Lcom/android/incallui/callerinfocard/queryargs/MemoQueryArgs$1;-><init>()V
 
     sput-object v0, Lcom/android/incallui/callerinfocard/queryargs/MemoQueryArgs;->mHandler:Landroid/os/Handler;
 
+    .line 84
     sput-object v1, Lcom/android/incallui/callerinfocard/queryargs/MemoQueryArgs;->mObserverUri:Landroid/net/Uri;
 
+    .line 85
     sput-object v1, Lcom/android/incallui/callerinfocard/queryargs/MemoQueryArgs;->mContentObserver:Landroid/database/ContentObserver;
 
     return-void
@@ -58,25 +63,32 @@
 
 .method public constructor <init>(ILjava/lang/Object;)V
     .locals 6
+    .param p1, "token"    # I
+    .param p2, "cookie"    # Ljava/lang/Object;
 
+    .prologue
     const/4 v5, 0x2
 
     const/4 v4, 0x1
 
     const/4 v3, 0x0
 
+    .line 50
     invoke-direct {p0, p1, p2}, Lcom/android/incallui/callerinfocard/queryargs/CallerInfoCardQueryArgs;-><init>(ILjava/lang/Object;)V
 
+    .line 52
     invoke-static {}, Lcom/android/incallui/util/PackageHelpers;->supportActionMemo()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
+    .line 53
     sget-object v0, Lcom/android/incallui/callerinfocard/CallerInfoCardConstants$Logs;->CONTENT_URI:Landroid/net/Uri;
 
     iput-object v0, p0, Lcom/android/incallui/callerinfocard/queryargs/MemoQueryArgs;->mUri:Landroid/net/Uri;
 
+    .line 54
     new-array v0, v4, [Ljava/lang/String;
 
     const-string v1, "sec_custom1"
@@ -85,14 +97,17 @@
 
     iput-object v0, p0, Lcom/android/incallui/callerinfocard/queryargs/MemoQueryArgs;->mProjection:[Ljava/lang/String;
 
+    .line 55
     const-string v0, "number=? AND sec_custom1 IS NOT NULL"
 
     iput-object v0, p0, Lcom/android/incallui/callerinfocard/queryargs/MemoQueryArgs;->mSelection:Ljava/lang/String;
 
+    .line 56
     new-array v1, v4, [Ljava/lang/String;
 
     check-cast p2, Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CookieWrapper;
 
+    .end local p2    # "cookie":Ljava/lang/Object;
     iget-object v0, p2, Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CookieWrapper;->cookie:Ljava/lang/Object;
 
     check-cast v0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
@@ -107,18 +122,23 @@
 
     iput-object v1, p0, Lcom/android/incallui/callerinfocard/queryargs/MemoQueryArgs;->mSelectionArgs:[Ljava/lang/String;
 
+    .line 57
     const-string v0, "sec_custom1 DESC LIMIT 1"
 
     iput-object v0, p0, Lcom/android/incallui/callerinfocard/queryargs/MemoQueryArgs;->mOrderBy:Ljava/lang/String;
 
+    .line 69
     :goto_0
     return-void
 
+    .line 59
+    .restart local p2    # "cookie":Ljava/lang/Object;
     :cond_0
     sget-object v0, Lcom/android/incallui/callerinfocard/queryargs/MemoQueryArgs;->CONTENT_URI:Landroid/net/Uri;
 
     iput-object v0, p0, Lcom/android/incallui/callerinfocard/queryargs/MemoQueryArgs;->mUri:Landroid/net/Uri;
 
+    .line 60
     const/4 v0, 0x4
 
     new-array v0, v0, [Ljava/lang/String;
@@ -143,14 +163,17 @@
 
     iput-object v0, p0, Lcom/android/incallui/callerinfocard/queryargs/MemoQueryArgs;->mProjection:[Ljava/lang/String;
 
+    .line 64
     const-string v0, "_phoneNum=? AND lastModifiedAt>=?"
 
     iput-object v0, p0, Lcom/android/incallui/callerinfocard/queryargs/MemoQueryArgs;->mSelection:Ljava/lang/String;
 
+    .line 65
     new-array v1, v5, [Ljava/lang/String;
 
     check-cast p2, Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CookieWrapper;
 
+    .end local p2    # "cookie":Ljava/lang/Object;
     iget-object v0, p2, Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CookieWrapper;->cookie:Ljava/lang/Object;
 
     check-cast v0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
@@ -165,6 +188,7 @@
 
     const-wide/16 v2, 0x23
 
+    .line 66
     invoke-virtual {p0, v2, v3}, Lcom/android/incallui/callerinfocard/queryargs/MemoQueryArgs;->getPeriod(J)Ljava/lang/String;
 
     move-result-object v0
@@ -173,6 +197,7 @@
 
     iput-object v1, p0, Lcom/android/incallui/callerinfocard/queryargs/MemoQueryArgs;->mSelectionArgs:[Ljava/lang/String;
 
+    .line 67
     const-string v0, "lastModifiedAt DESC LIMIT 1"
 
     iput-object v0, p0, Lcom/android/incallui/callerinfocard/queryargs/MemoQueryArgs;->mOrderBy:Ljava/lang/String;
@@ -183,6 +208,8 @@
 .method static synthetic access$000()Landroid/os/Handler;
     .locals 1
 
+    .prologue
+    .line 34
     sget-object v0, Lcom/android/incallui/callerinfocard/queryargs/MemoQueryArgs;->mHandler:Landroid/os/Handler;
 
     return-object v0
@@ -190,23 +217,29 @@
 
 .method public static registerContentObserver(Landroid/content/Context;)V
     .locals 4
+    .param p0, "context"    # Landroid/content/Context;
 
+    .prologue
     const/4 v3, 0x1
 
+    .line 88
     invoke-static {}, Lcom/android/incallui/util/PackageHelpers;->supportActionMemo()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
+    .line 104
     :goto_0
     return-void
 
+    .line 91
     :cond_0
     sget-object v0, Lcom/android/incallui/callerinfocard/queryargs/MemoQueryArgs;->CONTENT_URI:Landroid/net/Uri;
 
     sput-object v0, Lcom/android/incallui/callerinfocard/queryargs/MemoQueryArgs;->mObserverUri:Landroid/net/Uri;
 
+    .line 92
     new-instance v0, Lcom/android/incallui/callerinfocard/queryargs/MemoQueryArgs$2;
 
     new-instance v1, Landroid/os/Handler;
@@ -217,12 +250,14 @@
 
     sput-object v0, Lcom/android/incallui/callerinfocard/queryargs/MemoQueryArgs;->mContentObserver:Landroid/database/ContentObserver;
 
+    .line 102
     const-string v0, "MemoQueryArgs"
 
     const-string v1, "registerContentObserver"
 
     invoke-static {v0, v1, v3}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
+    .line 103
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -238,11 +273,15 @@
 
 .method public static unregisterContentObserver(Landroid/content/Context;)V
     .locals 3
+    .param p0, "context"    # Landroid/content/Context;
 
+    .prologue
+    .line 107
     sget-object v0, Lcom/android/incallui/callerinfocard/queryargs/MemoQueryArgs;->mContentObserver:Landroid/database/ContentObserver;
 
     if-eqz v0, :cond_0
 
+    .line 108
     const-string v0, "MemoQueryArgs"
 
     const-string v1, "unregisterContentObserver"
@@ -251,6 +290,7 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
+    .line 109
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -259,10 +299,12 @@
 
     invoke-virtual {v0, v1}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
 
+    .line 110
     const/4 v0, 0x0
 
     sput-object v0, Lcom/android/incallui/callerinfocard/queryargs/MemoQueryArgs;->mContentObserver:Landroid/database/ContentObserver;
 
+    .line 112
     :cond_0
     return-void
 .end method

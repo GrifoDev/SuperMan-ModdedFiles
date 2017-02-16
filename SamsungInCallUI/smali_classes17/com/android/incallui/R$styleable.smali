@@ -962,6 +962,7 @@
 .method static constructor <clinit>()V
     .locals 7
 
+    .prologue
     const/4 v6, 0x6
 
     const/4 v5, 0x2
@@ -972,6 +973,7 @@
 
     const/4 v2, 0x0
 
+    .line 9261
     const/16 v0, 0x1d
 
     new-array v0, v0, [I
@@ -980,6 +982,7 @@
 
     sput-object v0, Lcom/android/incallui/R$styleable;->ActionBar:[I
 
+    .line 9667
     new-array v0, v3, [I
 
     const v1, 0x10100b3
@@ -988,6 +991,7 @@
 
     sput-object v0, Lcom/android/incallui/R$styleable;->ActionBarLayout:[I
 
+    .line 9686
     new-array v0, v3, [I
 
     const v1, 0x101013f
@@ -996,34 +1000,40 @@
 
     sput-object v0, Lcom/android/incallui/R$styleable;->ActionMenuItemView:[I
 
+    .line 9697
     new-array v0, v2, [I
 
     sput-object v0, Lcom/android/incallui/R$styleable;->ActionMenuView:[I
 
+    .line 9720
     new-array v0, v6, [I
 
     fill-array-data v0, :array_1
 
     sput-object v0, Lcom/android/incallui/R$styleable;->ActionMode:[I
 
+    .line 9804
     new-array v0, v5, [I
 
     fill-array-data v0, :array_2
 
     sput-object v0, Lcom/android/incallui/R$styleable;->ActivityChooserView:[I
 
+    .line 9851
     new-array v0, v6, [I
 
     fill-array-data v0, :array_3
 
     sput-object v0, Lcom/android/incallui/R$styleable;->AlertDialog:[I
 
+    .line 9923
     new-array v0, v5, [I
 
     fill-array-data v0, :array_4
 
     sput-object v0, Lcom/android/incallui/R$styleable;->AppCompatImageView:[I
 
+    .line 9958
     const/4 v0, 0x4
 
     new-array v0, v0, [I
@@ -1032,12 +1042,14 @@
 
     sput-object v0, Lcom/android/incallui/R$styleable;->AppCompatSeekBar:[I
 
+    .line 10025
     new-array v0, v5, [I
 
     fill-array-data v0, :array_6
 
     sput-object v0, Lcom/android/incallui/R$styleable;->AppCompatTextView:[I
 
+    .line 10283
     const/16 v0, 0x73
 
     new-array v0, v0, [I
@@ -1046,6 +1058,7 @@
 
     sput-object v0, Lcom/android/incallui/R$styleable;->AppCompatTheme:[I
 
+    .line 11655
     new-array v0, v3, [I
 
     const v1, 0x7f01009c
@@ -1054,6 +1067,7 @@
 
     sput-object v0, Lcom/android/incallui/R$styleable;->ButtonBarLayout:[I
 
+    .line 11706
     const/16 v0, 0xd
 
     new-array v0, v0, [I
@@ -1062,24 +1076,28 @@
 
     sput-object v0, Lcom/android/incallui/R$styleable;->CardView:[I
 
+    .line 11909
     new-array v0, v4, [I
 
     fill-array-data v0, :array_9
 
     sput-object v0, Lcom/android/incallui/R$styleable;->ColorStateListItem:[I
 
+    .line 11952
     new-array v0, v4, [I
 
     fill-array-data v0, :array_a
 
     sput-object v0, Lcom/android/incallui/R$styleable;->CompoundButton:[I
 
+    .line 12010
     new-array v0, v4, [I
 
     fill-array-data v0, :array_b
 
     sput-object v0, Lcom/android/incallui/R$styleable;->ContactBrowser:[I
 
+    .line 12119
     const/16 v0, 0x1c
 
     new-array v0, v0, [I
@@ -1088,12 +1106,14 @@
 
     sput-object v0, Lcom/android/incallui/R$styleable;->ContactListItemView:[I
 
+    .line 12576
     new-array v0, v6, [I
 
     fill-array-data v0, :array_d
 
     sput-object v0, Lcom/android/incallui/R$styleable;->ContactsDataKind:[I
 
+    .line 12626
     new-array v0, v3, [I
 
     const v1, 0x7f0100ca
@@ -1102,6 +1122,7 @@
 
     sput-object v0, Lcom/android/incallui/R$styleable;->Dialpad:[I
 
+    .line 12654
     new-array v0, v3, [I
 
     const v1, 0x7f0100cb
@@ -1110,6 +1131,7 @@
 
     sput-object v0, Lcom/android/incallui/R$styleable;->DialpadKeyButton:[I
 
+    .line 12695
     const/16 v0, 0x8
 
     new-array v0, v0, [I
@@ -1118,6 +1140,7 @@
 
     sput-object v0, Lcom/android/incallui/R$styleable;->DrawerArrowToggle:[I
 
+    .line 12834
     new-array v0, v3, [I
 
     const v1, 0x7f0100d4
@@ -1126,6 +1149,7 @@
 
     sput-object v0, Lcom/android/incallui/R$styleable;->Favorites:[I
 
+    .line 12891
     const/16 v0, 0xf
 
     new-array v0, v0, [I
@@ -1134,6 +1158,7 @@
 
     sput-object v0, Lcom/android/incallui/R$styleable;->GlowPadView:[I
 
+    .line 13129
     const/16 v0, 0x13
 
     new-array v0, v0, [I
@@ -1142,6 +1167,7 @@
 
     sput-object v0, Lcom/android/incallui/R$styleable;->HelpHubTextView:[I
 
+    .line 13423
     const/16 v0, 0x9
 
     new-array v0, v0, [I
@@ -1150,6 +1176,7 @@
 
     sput-object v0, Lcom/android/incallui/R$styleable;->LinearLayoutCompat:[I
 
+    .line 13533
     const/4 v0, 0x4
 
     new-array v0, v0, [I
@@ -1158,12 +1185,14 @@
 
     sput-object v0, Lcom/android/incallui/R$styleable;->LinearLayoutCompat_Layout:[I
 
+    .line 13572
     new-array v0, v5, [I
 
     fill-array-data v0, :array_13
 
     sput-object v0, Lcom/android/incallui/R$styleable;->ListPopupWindow:[I
 
+    .line 13615
     const/16 v0, 0xa
 
     new-array v0, v0, [I
@@ -1172,12 +1201,14 @@
 
     sput-object v0, Lcom/android/incallui/R$styleable;->MaterialRippleLayout:[I
 
+    .line 13784
     new-array v0, v6, [I
 
     fill-array-data v0, :array_15
 
     sput-object v0, Lcom/android/incallui/R$styleable;->MenuGroup:[I
 
+    .line 13866
     const/16 v0, 0x11
 
     new-array v0, v0, [I
@@ -1186,6 +1217,7 @@
 
     sput-object v0, Lcom/android/incallui/R$styleable;->MenuItem:[I
 
+    .line 14035
     const/16 v0, 0x9
 
     new-array v0, v0, [I
@@ -1194,12 +1226,14 @@
 
     sput-object v0, Lcom/android/incallui/R$styleable;->MenuView:[I
 
+    .line 14120
     new-array v0, v4, [I
 
     fill-array-data v0, :array_18
 
     sput-object v0, Lcom/android/incallui/R$styleable;->PopupWindow:[I
 
+    .line 14159
     new-array v0, v3, [I
 
     const v1, 0x7f01010a
@@ -1208,12 +1242,14 @@
 
     sput-object v0, Lcom/android/incallui/R$styleable;->PopupWindowBackgroundState:[I
 
+    .line 14188
     new-array v0, v5, [I
 
     fill-array-data v0, :array_19
 
     sput-object v0, Lcom/android/incallui/R$styleable;->ProportionalLayout:[I
 
+    .line 14229
     new-array v0, v3, [I
 
     const v1, 0x7f01010d
@@ -1222,6 +1258,7 @@
 
     sput-object v0, Lcom/android/incallui/R$styleable;->ResizingText:[I
 
+    .line 14290
     const/16 v0, 0x11
 
     new-array v0, v0, [I
@@ -1230,6 +1267,7 @@
 
     sput-object v0, Lcom/android/incallui/R$styleable;->SearchView:[I
 
+    .line 14481
     const/4 v0, 0x5
 
     new-array v0, v0, [I
@@ -1238,6 +1276,7 @@
 
     sput-object v0, Lcom/android/incallui/R$styleable;->Spinner:[I
 
+    .line 14555
     const/16 v0, 0xe
 
     new-array v0, v0, [I
@@ -1246,6 +1285,7 @@
 
     sput-object v0, Lcom/android/incallui/R$styleable;->SwitchCompat:[I
 
+    .line 14773
     const/16 v0, 0x9
 
     new-array v0, v0, [I
@@ -1254,6 +1294,7 @@
 
     sput-object v0, Lcom/android/incallui/R$styleable;->TextAppearance:[I
 
+    .line 14847
     new-array v0, v3, [I
 
     const v1, 0x1010038
@@ -1262,12 +1303,14 @@
 
     sput-object v0, Lcom/android/incallui/R$styleable;->Theme:[I
 
+    .line 14876
     new-array v0, v6, [I
 
     fill-array-data v0, :array_1e
 
     sput-object v0, Lcom/android/incallui/R$styleable;->Theme_Dialpad:[I
 
+    .line 15036
     const/16 v0, 0x1d
 
     new-array v0, v0, [I
@@ -1276,6 +1319,7 @@
 
     sput-object v0, Lcom/android/incallui/R$styleable;->Toolbar:[I
 
+    .line 15461
     const/4 v0, 0x5
 
     new-array v0, v0, [I
@@ -1284,12 +1328,14 @@
 
     sput-object v0, Lcom/android/incallui/R$styleable;->View:[I
 
+    .line 15533
     new-array v0, v4, [I
 
     fill-array-data v0, :array_21
 
     sput-object v0, Lcom/android/incallui/R$styleable;->ViewBackgroundHelper:[I
 
+    .line 15591
     new-array v0, v4, [I
 
     fill-array-data v0, :array_22
@@ -1298,6 +1344,7 @@
 
     return-void
 
+    .line 9261
     :array_0
     .array-data 4
         0x7f010001
@@ -1331,6 +1378,7 @@
         0x7f01005a
     .end array-data
 
+    .line 9720
     :array_1
     .array-data 4
         0x7f010001
@@ -1341,12 +1389,14 @@
         0x7f01001e
     .end array-data
 
+    .line 9804
     :array_2
     .array-data 4
         0x7f01001f
         0x7f010020
     .end array-data
 
+    .line 9851
     :array_3
     .array-data 4
         0x10100f2
@@ -1357,12 +1407,14 @@
         0x7f010025
     .end array-data
 
+    .line 9923
     :array_4
     .array-data 4
         0x1010119
         0x7f010026
     .end array-data
 
+    .line 9958
     :array_5
     .array-data 4
         0x1010142
@@ -1371,12 +1423,14 @@
         0x7f010029
     .end array-data
 
+    .line 10025
     :array_6
     .array-data 4
         0x1010034
         0x7f01002a
     .end array-data
 
+    .line 10283
     :array_7
     .array-data 4
         0x1010057
@@ -1496,6 +1550,7 @@
         0x7f01009b
     .end array-data
 
+    .line 11706
     :array_8
     .array-data 4
         0x101013f
@@ -1513,6 +1568,7 @@
         0x7f0100a7
     .end array-data
 
+    .line 11909
     :array_9
     .array-data 4
         0x10101a5
@@ -1520,6 +1576,7 @@
         0x7f0100a8
     .end array-data
 
+    .line 11952
     :array_a
     .array-data 4
         0x1010107
@@ -1527,6 +1584,7 @@
         0x7f0100aa
     .end array-data
 
+    .line 12010
     :array_b
     .array-data 4
         0x7f0100ab
@@ -1534,6 +1592,7 @@
         0x7f0100ad
     .end array-data
 
+    .line 12119
     :array_c
     .array-data 4
         0x7f0100ae
@@ -1566,6 +1625,7 @@
         0x7f0100c9
     .end array-data
 
+    .line 12576
     :array_d
     .array-data 4
         0x1010002
@@ -1576,6 +1636,7 @@
         0x10102cc
     .end array-data
 
+    .line 12695
     :array_e
     .array-data 4
         0x7f0100cc
@@ -1588,6 +1649,7 @@
         0x7f0100d3
     .end array-data
 
+    .line 12891
     :array_f
     .array-data 4
         0x10100af
@@ -1607,6 +1669,7 @@
         0x7f0100e2
     .end array-data
 
+    .line 13129
     :array_10
     .array-data 4
         0x7f0100e3
@@ -1630,6 +1693,7 @@
         0x7f0100f5
     .end array-data
 
+    .line 13423
     :array_11
     .array-data 4
         0x10100af
@@ -1643,6 +1707,7 @@
         0x7f0100f8
     .end array-data
 
+    .line 13533
     :array_12
     .array-data 4
         0x10100b3
@@ -1651,12 +1716,14 @@
         0x1010181
     .end array-data
 
+    .line 13572
     :array_13
     .array-data 4
         0x10102ac
         0x10102ad
     .end array-data
 
+    .line 13615
     :array_14
     .array-data 4
         0x7f0100f9
@@ -1671,6 +1738,7 @@
         0x7f010102
     .end array-data
 
+    .line 13784
     :array_15
     .array-data 4
         0x101000e
@@ -1681,6 +1749,7 @@
         0x10101e0
     .end array-data
 
+    .line 13866
     :array_16
     .array-data 4
         0x1010002
@@ -1702,6 +1771,7 @@
         0x7f010106
     .end array-data
 
+    .line 14035
     :array_17
     .array-data 4
         0x10100ae
@@ -1715,6 +1785,7 @@
         0x7f010108
     .end array-data
 
+    .line 14120
     :array_18
     .array-data 4
         0x1010176
@@ -1722,12 +1793,14 @@
         0x7f010109
     .end array-data
 
+    .line 14188
     :array_19
     .array-data 4
         0x7f01010b
         0x7f01010c
     .end array-data
 
+    .line 14290
     :array_1a
     .array-data 4
         0x10100da
@@ -1749,6 +1822,7 @@
         0x7f01011a
     .end array-data
 
+    .line 14481
     :array_1b
     .array-data 4
         0x10100b2
@@ -1758,6 +1832,7 @@
         0x7f01001d
     .end array-data
 
+    .line 14555
     :array_1c
     .array-data 4
         0x1010124
@@ -1776,6 +1851,7 @@
         0x7f010125
     .end array-data
 
+    .line 14773
     :array_1d
     .array-data 4
         0x1010095
@@ -1789,6 +1865,7 @@
         0x7f01002a
     .end array-data
 
+    .line 14876
     :array_1e
     .array-data 4
         0x7f010126
@@ -1799,6 +1876,7 @@
         0x7f01012b
     .end array-data
 
+    .line 15036
     :array_1f
     .array-data 4
         0x10100af
@@ -1832,6 +1910,7 @@
         0x7f01013c
     .end array-data
 
+    .line 15461
     :array_20
     .array-data 4
         0x1010000
@@ -1841,6 +1920,7 @@
         0x7f01013f
     .end array-data
 
+    .line 15533
     :array_21
     .array-data 4
         0x10100d4
@@ -1848,6 +1928,7 @@
         0x7f010141
     .end array-data
 
+    .line 15591
     :array_22
     .array-data 4
         0x10100d0
@@ -1859,6 +1940,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 9194
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

@@ -35,12 +35,14 @@
 # virtual methods
 .method public addCircle(Lcom/google/android/gms/maps/model/CircleOptions;)Lcom/google/android/gms/maps/model/internal/b;
     .locals 5
+    .param p1, "options"    # Lcom/google/android/gms/maps/model/CircleOptions;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -113,12 +115,14 @@
 
 .method public addGroundOverlay(Lcom/google/android/gms/maps/model/GroundOverlayOptions;)Lcom/google/android/gms/maps/model/internal/c;
     .locals 5
+    .param p1, "options"    # Lcom/google/android/gms/maps/model/GroundOverlayOptions;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -191,12 +195,14 @@
 
 .method public addMarker(Lcom/google/android/gms/maps/model/MarkerOptions;)Lcom/google/android/gms/maps/model/internal/d;
     .locals 5
+    .param p1, "options"    # Lcom/google/android/gms/maps/model/MarkerOptions;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -269,12 +275,14 @@
 
 .method public addPolygon(Lcom/google/android/gms/maps/model/PolygonOptions;)Lcom/google/android/gms/maps/model/internal/e;
     .locals 5
+    .param p1, "options"    # Lcom/google/android/gms/maps/model/PolygonOptions;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -347,12 +355,14 @@
 
 .method public addPolyline(Lcom/google/android/gms/maps/model/PolylineOptions;)Lcom/google/android/gms/maps/model/internal/IPolylineDelegate;
     .locals 5
+    .param p1, "options"    # Lcom/google/android/gms/maps/model/PolylineOptions;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -425,12 +435,14 @@
 
 .method public addTileOverlay(Lcom/google/android/gms/maps/model/TileOverlayOptions;)Lcom/google/android/gms/maps/model/internal/f;
     .locals 5
+    .param p1, "options"    # Lcom/google/android/gms/maps/model/TileOverlayOptions;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -503,12 +515,14 @@
 
 .method public animateCamera(Lcom/google/android/gms/dynamic/b;)V
     .locals 5
+    .param p1, "update"    # Lcom/google/android/gms/dynamic/b;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -566,12 +580,15 @@
 
 .method public animateCameraWithCallback(Lcom/google/android/gms/dynamic/b;Lcom/google/android/gms/maps/internal/b;)V
     .locals 5
+    .param p1, "update"    # Lcom/google/android/gms/dynamic/b;
+    .param p2, "callback"    # Lcom/google/android/gms/maps/internal/b;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     const/4 v0, 0x0
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
@@ -640,12 +657,16 @@
 
 .method public animateCameraWithDurationAndCallback(Lcom/google/android/gms/dynamic/b;ILcom/google/android/gms/maps/internal/b;)V
     .locals 5
+    .param p1, "update"    # Lcom/google/android/gms/dynamic/b;
+    .param p2, "durationMs"    # I
+    .param p3, "callback"    # Lcom/google/android/gms/maps/internal/b;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     const/4 v0, 0x0
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
@@ -1419,12 +1440,14 @@
 
 .method public moveCamera(Lcom/google/android/gms/dynamic/b;)V
     .locals 5
+    .param p1, "update"    # Lcom/google/android/gms/dynamic/b;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -1482,12 +1505,14 @@
 
 .method public setIndoorEnabled(Z)Z
     .locals 7
+    .param p1, "enabled"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     const/4 v0, 0x1
 
     const/4 v1, 0x0
@@ -1559,12 +1584,14 @@
 
 .method public setInfoWindowAdapter(Lcom/google/android/gms/maps/internal/d;)V
     .locals 5
+    .param p1, "adapter"    # Lcom/google/android/gms/maps/internal/d;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -1622,12 +1649,14 @@
 
 .method public setLocationSource(Lcom/google/android/gms/maps/internal/ILocationSourceDelegate;)V
     .locals 5
+    .param p1, "source"    # Lcom/google/android/gms/maps/internal/ILocationSourceDelegate;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -1685,12 +1714,14 @@
 
 .method public setMapType(I)V
     .locals 5
+    .param p1, "type"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -1736,12 +1767,14 @@
 
 .method public setMyLocationEnabled(Z)V
     .locals 5
+    .param p1, "enabled"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     const/4 v0, 0x0
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
@@ -1794,12 +1827,14 @@
 
 .method public setOnCameraChangeListener(Lcom/google/android/gms/maps/internal/e;)V
     .locals 5
+    .param p1, "listener"    # Lcom/google/android/gms/maps/internal/e;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -1857,12 +1892,14 @@
 
 .method public setOnInfoWindowClickListener(Lcom/google/android/gms/maps/internal/f;)V
     .locals 5
+    .param p1, "listener"    # Lcom/google/android/gms/maps/internal/f;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -1920,12 +1957,14 @@
 
 .method public setOnMapClickListener(Lcom/google/android/gms/maps/internal/h;)V
     .locals 5
+    .param p1, "listener"    # Lcom/google/android/gms/maps/internal/h;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -1983,12 +2022,14 @@
 
 .method public setOnMapLongClickListener(Lcom/google/android/gms/maps/internal/i;)V
     .locals 5
+    .param p1, "listener"    # Lcom/google/android/gms/maps/internal/i;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -2046,12 +2087,14 @@
 
 .method public setOnMarkerClickListener(Lcom/google/android/gms/maps/internal/j;)V
     .locals 5
+    .param p1, "listener"    # Lcom/google/android/gms/maps/internal/j;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -2109,12 +2152,14 @@
 
 .method public setOnMarkerDragListener(Lcom/google/android/gms/maps/internal/k;)V
     .locals 5
+    .param p1, "listener"    # Lcom/google/android/gms/maps/internal/k;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -2172,12 +2217,14 @@
 
 .method public setOnMyLocationButtonClickListener(Lcom/google/android/gms/maps/internal/l;)V
     .locals 5
+    .param p1, "listener"    # Lcom/google/android/gms/maps/internal/l;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -2235,12 +2282,14 @@
 
 .method public setOnMyLocationChangeListener(Lcom/google/android/gms/maps/internal/m;)V
     .locals 5
+    .param p1, "listener"    # Lcom/google/android/gms/maps/internal/m;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -2298,12 +2347,17 @@
 
 .method public setPadding(IIII)V
     .locals 5
+    .param p1, "left"    # I
+    .param p2, "top"    # I
+    .param p3, "right"    # I
+    .param p4, "bottom"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -2355,12 +2409,14 @@
 
 .method public setTrafficEnabled(Z)V
     .locals 5
+    .param p1, "enabled"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     const/4 v0, 0x0
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
@@ -2413,12 +2469,15 @@
 
 .method public snapshot(Lcom/google/android/gms/maps/internal/n;Lcom/google/android/gms/dynamic/b;)V
     .locals 5
+    .param p1, "callback"    # Lcom/google/android/gms/maps/internal/n;
+    .param p2, "bitmap"    # Lcom/google/android/gms/dynamic/b;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     const/4 v0, 0x0
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;

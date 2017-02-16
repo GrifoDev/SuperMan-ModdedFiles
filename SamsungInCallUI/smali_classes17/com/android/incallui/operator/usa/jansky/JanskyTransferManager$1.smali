@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;
 
+    .prologue
+    .line 107
     iput-object p1, p0, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$1;->this$0:Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,10 +39,14 @@
 # virtual methods
 .method public onCancel(Landroid/content/DialogInterface;)V
     .locals 1
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
 
+    .prologue
+    .line 110
     iget-object v0, p0, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$1;->this$0:Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;
 
     invoke-virtual {v0}, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->finish()V
 
+    .line 111
     return-void
 .end method

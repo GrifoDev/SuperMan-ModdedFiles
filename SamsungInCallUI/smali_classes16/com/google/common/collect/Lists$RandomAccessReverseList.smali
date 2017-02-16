@@ -39,7 +39,12 @@
         }
     .end annotation
 
+    .prologue
+    .line 976
+    .local p0, "this":Lcom/google/common/collect/Lists$RandomAccessReverseList;, "Lcom/google/common/collect/Lists$RandomAccessReverseList<TT;>;"
+    .local p1, "forwardList":Ljava/util/List;, "Ljava/util/List<TT;>;"
     invoke-direct {p0, p1}, Lcom/google/common/collect/Lists$ReverseList;-><init>(Ljava/util/List;)V
 
+    .line 977
     return-void
 .end method

@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/richscreen/GetTokenService;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/richscreen/GetTokenService;
 
+    .prologue
+    .line 77
     iput-object p1, p0, Lcom/android/incallui/richscreen/GetTokenService$1;->this$0:Lcom/android/incallui/richscreen/GetTokenService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +39,10 @@
 # virtual methods
 .method public onGetTokenComplete(Lorg/json/JSONObject;)V
     .locals 2
+    .param p1, "json"    # Lorg/json/JSONObject;
 
+    .prologue
+    .line 80
     iget-object v0, p0, Lcom/android/incallui/richscreen/GetTokenService$1;->this$0:Lcom/android/incallui/richscreen/GetTokenService;
 
     const-string v1, "onGetTokenComplete"
@@ -44,14 +50,17 @@
     # invokes: Lcom/android/incallui/richscreen/GetTokenService;->log(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lcom/android/incallui/richscreen/GetTokenService;->access$000(Lcom/android/incallui/richscreen/GetTokenService;Ljava/lang/String;)V
 
+    .line 81
     const/4 v0, 0x0
 
     sput-boolean v0, Lcom/android/incallui/richscreen/GetTokenService;->bDuringGetToken:Z
 
+    .line 82
     iget-object v0, p0, Lcom/android/incallui/richscreen/GetTokenService$1;->this$0:Lcom/android/incallui/richscreen/GetTokenService;
 
     # invokes: Lcom/android/incallui/richscreen/GetTokenService;->parseResponseFromSSO(Lorg/json/JSONObject;)V
     invoke-static {v0, p1}, Lcom/android/incallui/richscreen/GetTokenService;->access$100(Lcom/android/incallui/richscreen/GetTokenService;Lorg/json/JSONObject;)V
 
+    .line 83
     return-void
 .end method

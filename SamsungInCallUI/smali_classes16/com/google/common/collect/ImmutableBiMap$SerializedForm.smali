@@ -29,8 +29,12 @@
         }
     .end annotation
 
+    .prologue
+    .line 333
+    .local p1, "bimap":Lcom/google/common/collect/ImmutableBiMap;, "Lcom/google/common/collect/ImmutableBiMap<**>;"
     invoke-direct {p0, p1}, Lcom/google/common/collect/ImmutableMap$SerializedForm;-><init>(Lcom/google/common/collect/ImmutableMap;)V
 
+    .line 334
     return-void
 .end method
 
@@ -39,10 +43,14 @@
 .method readResolve()Ljava/lang/Object;
     .locals 2
 
+    .prologue
+    .line 338
     new-instance v0, Lcom/google/common/collect/ImmutableBiMap$Builder;
 
     invoke-direct {v0}, Lcom/google/common/collect/ImmutableBiMap$Builder;-><init>()V
 
+    .line 339
+    .local v0, "builder":Lcom/google/common/collect/ImmutableBiMap$Builder;, "Lcom/google/common/collect/ImmutableBiMap$Builder<Ljava/lang/Object;Ljava/lang/Object;>;"
     invoke-virtual {p0, v0}, Lcom/google/common/collect/ImmutableBiMap$SerializedForm;->createMap(Lcom/google/common/collect/ImmutableMap$Builder;)Ljava/lang/Object;
 
     move-result-object v1

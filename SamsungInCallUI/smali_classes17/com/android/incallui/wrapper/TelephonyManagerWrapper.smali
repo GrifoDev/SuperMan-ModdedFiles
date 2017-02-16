@@ -19,10 +19,13 @@
 .method static constructor <clinit>()V
     .locals 7
 
+    .prologue
+    .line 35
     const/16 v2, 0x12
 
     sput v2, Lcom/android/incallui/wrapper/TelephonyManagerWrapper;->NETWORK_TYPE_IWLAN:I
 
+    .line 39
     :try_start_0
     const-class v2, Landroid/telephony/TelephonyManager;
 
@@ -32,6 +35,8 @@
 
     move-result-object v1
 
+    .line 40
+    .local v1, "field":Ljava/lang/reflect/Field;
     const/4 v2, 0x0
 
     invoke-virtual {v1, v2}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -48,6 +53,7 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 44
     :goto_0
     const-class v2, Landroid/telephony/TelephonyManager;
 
@@ -69,11 +75,15 @@
 
     sput-object v2, Lcom/android/incallui/wrapper/TelephonyManagerWrapper;->sGetSubIdForPhoneAccount:Ljava/lang/reflect/Method;
 
+    .line 46
     return-void
 
+    .line 41
     :catch_0
     move-exception v0
 
+    .line 42
+    .local v0, "e":Ljava/lang/Exception;
     const-string v2, "TelephonyManagerWrapper"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -101,17 +111,25 @@
 
 .method private constructor <init>(Ljava/lang/Object;)V
     .locals 0
+    .param p1, "instance"    # Ljava/lang/Object;
 
+    .prologue
+    .line 52
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 53
     iput-object p1, p0, Lcom/android/incallui/wrapper/TelephonyManagerWrapper;->mInstance:Ljava/lang/Object;
 
+    .line 54
     return-void
 .end method
 
 .method public static getSystemService(Landroid/content/Context;)Lcom/android/incallui/wrapper/TelephonyManagerWrapper;
     .locals 2
+    .param p0, "context"    # Landroid/content/Context;
 
+    .prologue
+    .line 49
     new-instance v0, Lcom/android/incallui/wrapper/TelephonyManagerWrapper;
 
     const-string v1, "phone"
@@ -129,9 +147,12 @@
 # virtual methods
 .method public getSubIdForPhoneAccount(Landroid/telecom/PhoneAccount;)I
     .locals 6
+    .param p1, "account"    # Landroid/telecom/PhoneAccount;
 
+    .prologue
     const/4 v2, -0x1
 
+    .line 57
     sget-object v1, Lcom/android/incallui/wrapper/TelephonyManagerWrapper;->sGetSubIdForPhoneAccount:Ljava/lang/reflect/Method;
 
     if-eqz v1, :cond_0
@@ -143,9 +164,11 @@
     :cond_0
     move v1, v2
 
+    .line 64
     :goto_0
     return v1
 
+    .line 61
     :cond_1
     :try_start_0
     sget-object v1, Lcom/android/incallui/wrapper/TelephonyManagerWrapper;->sGetSubIdForPhoneAccount:Ljava/lang/reflect/Method;
@@ -175,9 +198,12 @@
 
     goto :goto_0
 
+    .line 62
     :catch_0
     move-exception v0
 
+    .line 63
+    .local v0, "e":Ljava/lang/ReflectiveOperationException;
     :goto_1
     const-string v1, "TelephonyManagerWrapper"
 
@@ -203,8 +229,11 @@
 
     move v1, v2
 
+    .line 64
     goto :goto_0
 
+    .line 62
+    .end local v0    # "e":Ljava/lang/ReflectiveOperationException;
     :catch_1
     move-exception v0
 

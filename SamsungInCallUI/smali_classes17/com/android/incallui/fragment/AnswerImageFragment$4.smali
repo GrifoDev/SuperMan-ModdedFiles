@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/AnswerImageFragment;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/fragment/AnswerImageFragment;
 
+    .prologue
+    .line 281
     iput-object p1, p0, Lcom/android/incallui/fragment/AnswerImageFragment$4;->this$0:Lcom/android/incallui/fragment/AnswerImageFragment;
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
@@ -33,7 +36,10 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 284
     iget-object v0, p0, Lcom/android/incallui/fragment/AnswerImageFragment$4;->this$0:Lcom/android/incallui/fragment/AnswerImageFragment;
 
     # getter for: Lcom/android/incallui/fragment/AnswerImageFragment;->mMaskPanelForSlidingDrawer:Landroid/view/View;
@@ -43,6 +49,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 285
     iget-object v0, p0, Lcom/android/incallui/fragment/AnswerImageFragment$4;->this$0:Lcom/android/incallui/fragment/AnswerImageFragment;
 
     # getter for: Lcom/android/incallui/fragment/AnswerImageFragment;->mMaskPanelForSlidingDrawer:Landroid/view/View;
@@ -54,6 +61,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setAlpha(F)V
 
+    .line 287
     :cond_0
     return-void
 .end method

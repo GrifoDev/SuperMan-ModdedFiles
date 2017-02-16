@@ -33,12 +33,15 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
+    .line 520
     const/4 v0, 0x0
 
     new-array v0, v0, [Ljava/lang/StackTraceElement;
 
     sput-object v0, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$ExampleStackTrace;->EMPTY_STACK_TRACE:[Ljava/lang/StackTraceElement;
 
+    .line 523
     const-class v0, Lcom/google/common/util/concurrent/CycleDetectingLockFactory;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
@@ -68,7 +71,11 @@
 
 .method constructor <init>(Lcom/google/common/util/concurrent/CycleDetectingLockFactory$LockGraphNode;Lcom/google/common/util/concurrent/CycleDetectingLockFactory$LockGraphNode;)V
     .locals 5
+    .param p1, "node1"    # Lcom/google/common/util/concurrent/CycleDetectingLockFactory$LockGraphNode;
+    .param p2, "node2"    # Lcom/google/common/util/concurrent/CycleDetectingLockFactory$LockGraphNode;
 
+    .prologue
+    .line 529
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -101,17 +108,23 @@
 
     invoke-direct {p0, v3}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
+    .line 530
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$ExampleStackTrace;->getStackTrace()[Ljava/lang/StackTraceElement;
 
     move-result-object v2
 
+    .line 531
+    .local v2, "origStackTrace":[Ljava/lang/StackTraceElement;
     const/4 v0, 0x0
 
+    .local v0, "i":I
     array-length v1, v2
 
+    .local v1, "n":I
     :goto_0
     if-ge v0, v1, :cond_0
 
+    .line 532
     const-class v3, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$WithExplicitOrdering;
 
     invoke-virtual {v3}, Ljava/lang/Class;->getName()Ljava/lang/String;
@@ -130,14 +143,17 @@
 
     if-eqz v3, :cond_1
 
+    .line 535
     sget-object v3, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$ExampleStackTrace;->EMPTY_STACK_TRACE:[Ljava/lang/StackTraceElement;
 
     invoke-virtual {p0, v3}, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$ExampleStackTrace;->setStackTrace([Ljava/lang/StackTraceElement;)V
 
+    .line 543
     :cond_0
     :goto_1
     return-void
 
+    .line 538
     :cond_1
     sget-object v3, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$ExampleStackTrace;->EXCLUDED_CLASS_NAMES:Ljava/util/Set;
 
@@ -153,6 +169,7 @@
 
     if-nez v3, :cond_2
 
+    .line 539
     invoke-static {v2, v0, v1}, Ljava/util/Arrays;->copyOfRange([Ljava/lang/Object;II)[Ljava/lang/Object;
 
     move-result-object v3
@@ -163,6 +180,7 @@
 
     goto :goto_1
 
+    .line 531
     :cond_2
     add-int/lit8 v0, v0, 0x1
 

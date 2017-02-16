@@ -69,8 +69,14 @@
         }
     .end annotation
 
+    .prologue
+    .line 615
+    .local p0, "this":Lcom/google/common/collect/Lists$TransformingRandomAccessList;, "Lcom/google/common/collect/Lists$TransformingRandomAccessList<TF;TT;>;"
+    .local p1, "fromList":Ljava/util/List;, "Ljava/util/List<TF;>;"
+    .local p2, "function":Lcom/google/common/base/Function;, "Lcom/google/common/base/Function<-TF;+TT;>;"
     invoke-direct {p0}, Ljava/util/AbstractList;-><init>()V
 
+    .line 616
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -79,6 +85,7 @@
 
     iput-object v0, p0, Lcom/google/common/collect/Lists$TransformingRandomAccessList;->fromList:Ljava/util/List;
 
+    .line 617
     invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -87,6 +94,7 @@
 
     iput-object v0, p0, Lcom/google/common/collect/Lists$TransformingRandomAccessList;->function:Lcom/google/common/base/Function;
 
+    .line 618
     return-void
 .end method
 
@@ -95,21 +103,29 @@
 .method public clear()V
     .locals 1
 
+    .prologue
+    .line 622
+    .local p0, "this":Lcom/google/common/collect/Lists$TransformingRandomAccessList;, "Lcom/google/common/collect/Lists$TransformingRandomAccessList<TF;TT;>;"
     iget-object v0, p0, Lcom/google/common/collect/Lists$TransformingRandomAccessList;->fromList:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->clear()V
 
+    .line 623
     return-void
 .end method
 
 .method public get(I)Ljava/lang/Object;
     .locals 2
+    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)TT;"
         }
     .end annotation
 
+    .prologue
+    .line 627
+    .local p0, "this":Lcom/google/common/collect/Lists$TransformingRandomAccessList;, "Lcom/google/common/collect/Lists$TransformingRandomAccessList<TF;TT;>;"
     iget-object v0, p0, Lcom/google/common/collect/Lists$TransformingRandomAccessList;->function:Lcom/google/common/base/Function;
 
     iget-object v1, p0, Lcom/google/common/collect/Lists$TransformingRandomAccessList;->fromList:Ljava/util/List;
@@ -128,6 +144,9 @@
 .method public isEmpty()Z
     .locals 1
 
+    .prologue
+    .line 647
+    .local p0, "this":Lcom/google/common/collect/Lists$TransformingRandomAccessList;, "Lcom/google/common/collect/Lists$TransformingRandomAccessList<TF;TT;>;"
     iget-object v0, p0, Lcom/google/common/collect/Lists$TransformingRandomAccessList;->fromList:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
@@ -147,6 +166,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 632
+    .local p0, "this":Lcom/google/common/collect/Lists$TransformingRandomAccessList;, "Lcom/google/common/collect/Lists$TransformingRandomAccessList<TF;TT;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Lists$TransformingRandomAccessList;->listIterator()Ljava/util/ListIterator;
 
     move-result-object v0
@@ -156,6 +178,7 @@
 
 .method public listIterator(I)Ljava/util/ListIterator;
     .locals 2
+    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -164,6 +187,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 637
+    .local p0, "this":Lcom/google/common/collect/Lists$TransformingRandomAccessList;, "Lcom/google/common/collect/Lists$TransformingRandomAccessList<TF;TT;>;"
     new-instance v0, Lcom/google/common/collect/Lists$TransformingRandomAccessList$1;
 
     iget-object v1, p0, Lcom/google/common/collect/Lists$TransformingRandomAccessList;->fromList:Ljava/util/List;
@@ -179,12 +205,16 @@
 
 .method public remove(I)Ljava/lang/Object;
     .locals 2
+    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)TT;"
         }
     .end annotation
 
+    .prologue
+    .line 652
+    .local p0, "this":Lcom/google/common/collect/Lists$TransformingRandomAccessList;, "Lcom/google/common/collect/Lists$TransformingRandomAccessList<TF;TT;>;"
     iget-object v0, p0, Lcom/google/common/collect/Lists$TransformingRandomAccessList;->function:Lcom/google/common/base/Function;
 
     iget-object v1, p0, Lcom/google/common/collect/Lists$TransformingRandomAccessList;->fromList:Ljava/util/List;
@@ -203,6 +233,9 @@
 .method public size()I
     .locals 1
 
+    .prologue
+    .line 657
+    .local p0, "this":Lcom/google/common/collect/Lists$TransformingRandomAccessList;, "Lcom/google/common/collect/Lists$TransformingRandomAccessList<TF;TT;>;"
     iget-object v0, p0, Lcom/google/common/collect/Lists$TransformingRandomAccessList;->fromList:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->size()I

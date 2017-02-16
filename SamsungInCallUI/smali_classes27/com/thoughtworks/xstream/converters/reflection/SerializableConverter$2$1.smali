@@ -27,6 +27,8 @@
 .method constructor <init>(Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter$2;Ljava/io/ObjectInputValidation;)V
     .locals 0
 
+    .prologue
+    .line 423
     iput-object p1, p0, Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter$2$1;->this$1:Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter$2;
 
     iput-object p2, p0, Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter$2$1;->val$validation:Ljava/io/ObjectInputValidation;
@@ -41,6 +43,8 @@
 .method public run()V
     .locals 4
 
+    .prologue
+    .line 426
     :try_start_0
     iget-object v1, p0, Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter$2$1;->val$validation:Ljava/io/ObjectInputValidation;
 
@@ -48,11 +52,15 @@
     :try_end_0
     .catch Ljava/io/InvalidObjectException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 430
     return-void
 
+    .line 427
     :catch_0
     move-exception v0
 
+    .line 428
+    .local v0, "e":Ljava/io/InvalidObjectException;
     new-instance v1, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;
 
     new-instance v2, Ljava/lang/StringBuilder;

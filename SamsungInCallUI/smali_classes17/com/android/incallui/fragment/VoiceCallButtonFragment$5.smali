@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/VoiceCallButtonFragment;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/fragment/VoiceCallButtonFragment;
 
+    .prologue
+    .line 821
     iput-object p1, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment$5;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,11 +39,16 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 3
+    .param p1, "v"    # Landroid/view/View;
 
+    .prologue
+    .line 824
     move-object v0, p1
 
     check-cast v0, Landroid/widget/Button;
 
+    .line 825
+    .local v0, "button":Landroid/widget/Button;
     iget-object v1, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment$5;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonFragment;
 
     invoke-virtual {v1}, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->getPresenter()Lcom/android/incallui/Presenter;
@@ -60,8 +68,10 @@
     :goto_0
     invoke-virtual {v1, v2}, Lcom/android/incallui/CallButtonPresenter;->promotedClicked(Z)V
 
+    .line 826
     return-void
 
+    .line 825
     :cond_0
     const/4 v2, 0x0
 

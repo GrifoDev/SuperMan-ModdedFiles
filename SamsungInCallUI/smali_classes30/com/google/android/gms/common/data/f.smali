@@ -319,12 +319,15 @@
 
 .method public final get(I)Ljava/lang/Object;
     .locals 2
+    .param p1, "position"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)TT;"
         }
     .end annotation
 
+    .prologue
+    .local p0, "this":Lcom/google/android/gms/common/data/f;, "Lcom/google/android/gms/common/data/f<TT;>;"
     invoke-direct {p0}, Lcom/google/android/gms/common/data/f;->m()V
 
     invoke-direct {p0, p1}, Lcom/google/android/gms/common/data/f;->h(I)I

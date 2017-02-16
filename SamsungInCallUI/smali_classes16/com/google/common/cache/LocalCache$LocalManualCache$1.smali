@@ -33,6 +33,9 @@
 .method constructor <init>(Lcom/google/common/cache/LocalCache$LocalManualCache;Ljava/util/concurrent/Callable;)V
     .locals 0
 
+    .prologue
+    .line 4790
+    .local p0, "this":Lcom/google/common/cache/LocalCache$LocalManualCache$1;, "Lcom/google/common/cache/LocalCache$LocalManualCache.1;"
     iput-object p1, p0, Lcom/google/common/cache/LocalCache$LocalManualCache$1;->this$0:Lcom/google/common/cache/LocalCache$LocalManualCache;
 
     iput-object p2, p0, Lcom/google/common/cache/LocalCache$LocalManualCache$1;->val$valueLoader:Ljava/util/concurrent/Callable;
@@ -46,6 +49,7 @@
 # virtual methods
 .method public load(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
+    .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -60,6 +64,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 4793
+    .local p0, "this":Lcom/google/common/cache/LocalCache$LocalManualCache$1;, "Lcom/google/common/cache/LocalCache$LocalManualCache.1;"
     iget-object v0, p0, Lcom/google/common/cache/LocalCache$LocalManualCache$1;->val$valueLoader:Ljava/util/concurrent/Callable;
 
     invoke-interface {v0}, Ljava/util/concurrent/Callable;->call()Ljava/lang/Object;

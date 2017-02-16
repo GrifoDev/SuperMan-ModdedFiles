@@ -32,7 +32,9 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
+    .param p1, "obj"    # Ljava/lang/Object;
 
+    .prologue
     invoke-static {p0, p1}, Lcom/google/android/gms/games/multiplayer/realtime/RoomEntity;->a(Lcom/google/android/gms/games/multiplayer/realtime/Room;Ljava/lang/Object;)Z
 
     move-result v0
@@ -152,7 +154,9 @@
 
 .method public getDescription(Landroid/database/CharArrayBuffer;)V
     .locals 1
+    .param p1, "dataOut"    # Landroid/database/CharArrayBuffer;
 
+    .prologue
     const-string v0, "description"
 
     invoke-virtual {p0, v0, p1}, Lcom/google/android/gms/games/multiplayer/realtime/c;->a(Ljava/lang/String;Landroid/database/CharArrayBuffer;)V
@@ -162,7 +166,9 @@
 
 .method public getParticipantId(Ljava/lang/String;)Ljava/lang/String;
     .locals 6
+    .param p1, "playerId"    # Ljava/lang/String;
 
+    .prologue
     const/4 v1, 0x0
 
     invoke-virtual {p0}, Lcom/google/android/gms/games/multiplayer/realtime/c;->getParticipants()Ljava/util/ArrayList;
@@ -277,7 +283,9 @@
 
 .method public getParticipantStatus(Ljava/lang/String;)I
     .locals 5
+    .param p1, "participantId"    # Ljava/lang/String;
 
+    .prologue
     invoke-virtual {p0}, Lcom/google/android/gms/games/multiplayer/realtime/c;->getParticipants()Ljava/util/ArrayList;
 
     move-result-object v2
@@ -465,7 +473,10 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
+    .prologue
     invoke-virtual {p0}, Lcom/google/android/gms/games/multiplayer/realtime/c;->freeze()Lcom/google/android/gms/games/multiplayer/realtime/Room;
 
     move-result-object v0

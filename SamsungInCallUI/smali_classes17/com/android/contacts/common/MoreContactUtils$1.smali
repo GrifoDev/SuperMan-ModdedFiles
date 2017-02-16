@@ -22,6 +22,8 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
+    .line 95
     invoke-static {}, Lcom/google/i18n/phonenumbers/PhoneNumberUtil$MatchType;->values()[Lcom/google/i18n/phonenumbers/PhoneNumberUtil$MatchType;
 
     move-result-object v0

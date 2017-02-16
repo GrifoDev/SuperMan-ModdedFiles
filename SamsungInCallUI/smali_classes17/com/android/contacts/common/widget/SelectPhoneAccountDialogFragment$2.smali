@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment;
 
+    .prologue
+    .line 185
     iput-object p1, p0, Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment$2;->this$0:Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,11 +39,16 @@
 # virtual methods
 .method public onCheckedChanged(Landroid/widget/CompoundButton;Z)V
     .locals 1
+    .param p1, "check"    # Landroid/widget/CompoundButton;
+    .param p2, "isChecked"    # Z
 
+    .prologue
+    .line 188
     iget-object v0, p0, Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment$2;->this$0:Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment;
 
     # setter for: Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment;->mIsDefaultChecked:Z
     invoke-static {v0, p2}, Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment;->access$202(Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment;Z)Z
 
+    .line 189
     return-void
 .end method

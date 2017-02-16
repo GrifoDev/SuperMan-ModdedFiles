@@ -21,7 +21,11 @@
 # direct methods
 .method constructor <init>(Lcom/google/common/base/Splitter$1;Lcom/google/common/base/Splitter;Ljava/lang/CharSequence;)V
     .locals 0
+    .param p2, "x0"    # Lcom/google/common/base/Splitter;
+    .param p3, "x1"    # Ljava/lang/CharSequence;
 
+    .prologue
+    .line 151
     iput-object p1, p0, Lcom/google/common/base/Splitter$1$1;->this$0:Lcom/google/common/base/Splitter$1;
 
     invoke-direct {p0, p2, p3}, Lcom/google/common/base/Splitter$SplittingIterator;-><init>(Lcom/google/common/base/Splitter;Ljava/lang/CharSequence;)V
@@ -33,7 +37,10 @@
 # virtual methods
 .method separatorEnd(I)I
     .locals 1
+    .param p1, "separatorPosition"    # I
 
+    .prologue
+    .line 159
     add-int/lit8 v0, p1, 0x1
 
     return v0
@@ -41,7 +48,10 @@
 
 .method separatorStart(I)I
     .locals 2
+    .param p1, "start"    # I
 
+    .prologue
+    .line 154
     iget-object v0, p0, Lcom/google/common/base/Splitter$1$1;->this$0:Lcom/google/common/base/Splitter$1;
 
     iget-object v0, v0, Lcom/google/common/base/Splitter$1;->val$separatorMatcher:Lcom/google/common/base/CharMatcher;

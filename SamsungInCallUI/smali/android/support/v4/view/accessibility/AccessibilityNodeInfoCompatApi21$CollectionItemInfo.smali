@@ -18,6 +18,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 82
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -25,9 +27,13 @@
 
 .method public static isSelected(Ljava/lang/Object;)Z
     .locals 1
+    .param p0, "info"    # Ljava/lang/Object;
 
+    .prologue
+    .line 84
     check-cast p0, Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;
 
+    .end local p0    # "info":Ljava/lang/Object;
     invoke-virtual {p0}, Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;->isSelected()Z
 
     move-result v0

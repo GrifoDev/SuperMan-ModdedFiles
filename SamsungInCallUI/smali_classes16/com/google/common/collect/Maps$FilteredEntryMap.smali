@@ -61,8 +61,14 @@
         }
     .end annotation
 
+    .prologue
+    .line 2791
+    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryMap;, "Lcom/google/common/collect/Maps$FilteredEntryMap<TK;TV;>;"
+    .local p1, "unfiltered":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
+    .local p2, "entryPredicate":Lcom/google/common/base/Predicate;, "Lcom/google/common/base/Predicate<-Ljava/util/Map$Entry<TK;TV;>;>;"
     invoke-direct {p0, p1, p2}, Lcom/google/common/collect/Maps$AbstractFilteredMap;-><init>(Ljava/util/Map;Lcom/google/common/base/Predicate;)V
 
+    .line 2792
     invoke-interface {p1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
     move-result-object v0
@@ -75,6 +81,7 @@
 
     iput-object v0, p0, Lcom/google/common/collect/Maps$FilteredEntryMap;->filteredEntrySet:Ljava/util/Set;
 
+    .line 2793
     return-void
 .end method
 
@@ -92,6 +99,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 2797
+    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryMap;, "Lcom/google/common/collect/Maps$FilteredEntryMap<TK;TV;>;"
     new-instance v0, Lcom/google/common/collect/Maps$FilteredEntryMap$EntrySet;
 
     const/4 v1, 0x0
@@ -111,6 +121,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 2831
+    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryMap;, "Lcom/google/common/collect/Maps$FilteredEntryMap<TK;TV;>;"
     new-instance v0, Lcom/google/common/collect/Maps$FilteredEntryMap$KeySet;
 
     invoke-direct {v0, p0}, Lcom/google/common/collect/Maps$FilteredEntryMap$KeySet;-><init>(Lcom/google/common/collect/Maps$FilteredEntryMap;)V

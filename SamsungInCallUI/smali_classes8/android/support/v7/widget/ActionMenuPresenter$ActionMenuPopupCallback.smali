@@ -22,6 +22,8 @@
 .method private constructor <init>(Landroid/support/v7/widget/ActionMenuPresenter;)V
     .locals 0
 
+    .prologue
+    .line 807
     iput-object p1, p0, Landroid/support/v7/widget/ActionMenuPresenter$ActionMenuPopupCallback;->this$0:Landroid/support/v7/widget/ActionMenuPresenter;
 
     invoke-direct {p0}, Landroid/support/v7/view/menu/ActionMenuItemView$PopupCallback;-><init>()V
@@ -31,7 +33,11 @@
 
 .method synthetic constructor <init>(Landroid/support/v7/widget/ActionMenuPresenter;Landroid/support/v7/widget/ActionMenuPresenter$1;)V
     .locals 0
+    .param p1, "x0"    # Landroid/support/v7/widget/ActionMenuPresenter;
+    .param p2, "x1"    # Landroid/support/v7/widget/ActionMenuPresenter$1;
 
+    .prologue
+    .line 807
     invoke-direct {p0, p1}, Landroid/support/v7/widget/ActionMenuPresenter$ActionMenuPopupCallback;-><init>(Landroid/support/v7/widget/ActionMenuPresenter;)V
 
     return-void
@@ -42,6 +48,8 @@
 .method public getPopup()Landroid/support/v7/view/menu/ShowableListMenu;
     .locals 1
 
+    .prologue
+    .line 810
     iget-object v0, p0, Landroid/support/v7/widget/ActionMenuPresenter$ActionMenuPopupCallback;->this$0:Landroid/support/v7/widget/ActionMenuPresenter;
 
     # getter for: Landroid/support/v7/widget/ActionMenuPresenter;->mActionButtonPopup:Landroid/support/v7/widget/ActionMenuPresenter$ActionButtonSubmenu;

@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/InCallActivity;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/InCallActivity;
 
+    .prologue
+    .line 436
     iput-object p1, p0, Lcom/android/incallui/InCallActivity$5;->this$0:Lcom/android/incallui/InCallActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,16 +40,21 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 439
     const/16 v1, 0x20
 
     invoke-static {v1}, Landroid/view/accessibility/AccessibilityEvent;->obtain(I)Landroid/view/accessibility/AccessibilityEvent;
 
     move-result-object v0
 
+    .line 440
+    .local v0, "e":Landroid/view/accessibility/AccessibilityEvent;
     const-string v1, "mAccessibilityTask"
 
     invoke-static {p0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 441
     iget-object v1, p0, Lcom/android/incallui/InCallActivity$5;->this$0:Lcom/android/incallui/InCallActivity;
 
     invoke-virtual {v1}, Lcom/android/incallui/InCallActivity;->getWindow()Landroid/view/Window;
@@ -59,5 +67,6 @@
 
     invoke-virtual {v1, v0}, Landroid/view/View;->sendAccessibilityEventUnchecked(Landroid/view/accessibility/AccessibilityEvent;)V
 
+    .line 442
     return-void
 .end method

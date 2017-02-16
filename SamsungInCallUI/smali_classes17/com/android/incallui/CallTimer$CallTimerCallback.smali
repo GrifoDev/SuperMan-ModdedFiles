@@ -25,6 +25,8 @@
 .method private constructor <init>(Lcom/android/incallui/CallTimer;)V
     .locals 0
 
+    .prologue
+    .line 89
     iput-object p1, p0, Lcom/android/incallui/CallTimer$CallTimerCallback;->this$0:Lcom/android/incallui/CallTimer;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,7 +36,11 @@
 
 .method synthetic constructor <init>(Lcom/android/incallui/CallTimer;Lcom/android/incallui/CallTimer$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/android/incallui/CallTimer;
+    .param p2, "x1"    # Lcom/android/incallui/CallTimer$1;
 
+    .prologue
+    .line 89
     invoke-direct {p0, p1}, Lcom/android/incallui/CallTimer$CallTimerCallback;-><init>(Lcom/android/incallui/CallTimer;)V
 
     return-void
@@ -45,10 +51,13 @@
 .method public run()V
     .locals 1
 
+    .prologue
+    .line 93
     iget-object v0, p0, Lcom/android/incallui/CallTimer$CallTimerCallback;->this$0:Lcom/android/incallui/CallTimer;
 
     # invokes: Lcom/android/incallui/CallTimer;->periodicUpdateTimer()V
     invoke-static {v0}, Lcom/android/incallui/CallTimer;->access$100(Lcom/android/incallui/CallTimer;)V
 
+    .line 94
     return-void
 .end method

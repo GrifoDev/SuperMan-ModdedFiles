@@ -23,11 +23,16 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/manager/BaseFragmentManager;)V
     .locals 1
+    .param p1, "this$0"    # Lcom/android/incallui/fragment/manager/BaseFragmentManager;
 
+    .prologue
+    .line 137
+    .local p0, "this":Lcom/android/incallui/fragment/manager/BaseFragmentManager$1;, "Lcom/android/incallui/fragment/manager/BaseFragmentManager$1;"
     iput-object p1, p0, Lcom/android/incallui/fragment/manager/BaseFragmentManager$1;->this$0:Lcom/android/incallui/fragment/manager/BaseFragmentManager;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
 
+    .line 138
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/incallui/fragment/manager/BaseFragmentManager$1;->nowMode:Ljava/lang/Enum;
@@ -39,22 +44,29 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 6
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .local p0, "this":Lcom/android/incallui/fragment/manager/BaseFragmentManager$1;, "Lcom/android/incallui/fragment/manager/BaseFragmentManager$1;"
     const/16 v4, 0x385
 
+    .line 141
     iget v1, p1, Landroid/os/Message;->what:I
 
     packed-switch v1, :pswitch_data_0
 
+    .line 163
     iget-object v1, p0, Lcom/android/incallui/fragment/manager/BaseFragmentManager$1;->this$0:Lcom/android/incallui/fragment/manager/BaseFragmentManager;
 
     iget-object v1, v1, Lcom/android/incallui/fragment/manager/BaseFragmentManager;->mTestHandler:Landroid/os/Handler;
 
     invoke-virtual {v1, v4}, Landroid/os/Handler;->removeMessages(I)V
 
+    .line 166
     :goto_0
     return-void
 
+    .line 143
     :pswitch_0
     iget-object v1, p0, Lcom/android/incallui/fragment/manager/BaseFragmentManager$1;->this$0:Lcom/android/incallui/fragment/manager/BaseFragmentManager;
 
@@ -64,10 +76,13 @@
 
     move-result-object v0
 
+    .line 144
+    .local v0, "iter":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/lang/Enum;>;"
     iget-object v1, p0, Lcom/android/incallui/fragment/manager/BaseFragmentManager$1;->nowMode:Ljava/lang/Enum;
 
     if-nez v1, :cond_1
 
+    .line 145
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
@@ -76,6 +91,7 @@
 
     iput-object v1, p0, Lcom/android/incallui/fragment/manager/BaseFragmentManager$1;->nowMode:Ljava/lang/Enum;
 
+    .line 158
     :cond_0
     :goto_1
     iget-object v1, p0, Lcom/android/incallui/fragment/manager/BaseFragmentManager$1;->this$0:Lcom/android/incallui/fragment/manager/BaseFragmentManager;
@@ -86,6 +102,7 @@
 
     invoke-virtual {v1, v2, v3}, Lcom/android/incallui/fragment/manager/BaseFragmentManager;->setFragment(Ljava/lang/Enum;Z)V
 
+    .line 159
     iget-object v1, p0, Lcom/android/incallui/fragment/manager/BaseFragmentManager$1;->this$0:Lcom/android/incallui/fragment/manager/BaseFragmentManager;
 
     iget-object v1, v1, Lcom/android/incallui/fragment/manager/BaseFragmentManager;->mTestHandler:Landroid/os/Handler;
@@ -104,6 +121,7 @@
 
     goto :goto_0
 
+    .line 147
     :cond_1
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -111,6 +129,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 148
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
@@ -119,12 +138,14 @@
 
     if-ne v1, v2, :cond_1
 
+    .line 149
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
     if-eqz v1, :cond_2
 
+    .line 150
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
@@ -135,6 +156,7 @@
 
     goto :goto_1
 
+    .line 152
     :cond_2
     iget-object v1, p0, Lcom/android/incallui/fragment/manager/BaseFragmentManager$1;->this$0:Lcom/android/incallui/fragment/manager/BaseFragmentManager;
 
@@ -154,6 +176,7 @@
 
     goto :goto_1
 
+    .line 141
     nop
 
     :pswitch_data_0

@@ -18,6 +18,8 @@
 .method constructor <init>(Ljava/lang/String;I)V
     .locals 1
 
+    .prologue
+    .line 743
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, p2, v0}, Lcom/google/common/collect/MapMaker$RemovalCause;-><init>(Ljava/lang/String;ILcom/google/common/collect/MapMaker$1;)V
@@ -30,6 +32,8 @@
 .method wasEvicted()Z
     .locals 1
 
+    .prologue
+    .line 746
     const/4 v0, 0x1
 
     return v0

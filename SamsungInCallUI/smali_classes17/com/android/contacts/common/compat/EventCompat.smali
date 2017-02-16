@@ -7,24 +7,34 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 33
     return-void
 .end method
 
 .method public static getTypeLabel(Landroid/content/res/Resources;ILjava/lang/CharSequence;)Ljava/lang/CharSequence;
     .locals 1
+    .param p0, "res"    # Landroid/content/res/Resources;
+    .param p1, "type"    # I
+    .param p2, "label"    # Ljava/lang/CharSequence;
 
+    .prologue
+    .line 40
     invoke-static {}, Lcom/android/contacts/common/compat/CompatUtils;->isLollipopCompatible()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
+    .line 41
     invoke-static {p0, p1, p2}, Landroid/provider/ContactsContract$CommonDataKinds$Event;->getTypeLabel(Landroid/content/res/Resources;ILjava/lang/CharSequence;)Ljava/lang/CharSequence;
 
     move-result-object v0
 
+    .line 43
     :goto_0
     return-object v0
 
@@ -38,7 +48,12 @@
 
 .method private static getTypeLabelInternal(Landroid/content/res/Resources;ILjava/lang/CharSequence;)Ljava/lang/CharSequence;
     .locals 1
+    .param p0, "res"    # Landroid/content/res/Resources;
+    .param p1, "type"    # I
+    .param p2, "label"    # Ljava/lang/CharSequence;
 
+    .prologue
+    .line 52
     if-nez p1, :cond_0
 
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -47,9 +62,12 @@
 
     if-nez v0, :cond_0
 
+    .line 55
+    .end local p2    # "label":Ljava/lang/CharSequence;
     :goto_0
     return-object p2
 
+    .restart local p2    # "label":Ljava/lang/CharSequence;
     :cond_0
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 

@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/EndCallButtonFragment;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/fragment/EndCallButtonFragment;
 
+    .prologue
+    .line 161
     iput-object p1, p0, Lcom/android/incallui/fragment/EndCallButtonFragment$1;->this$0:Lcom/android/incallui/fragment/EndCallButtonFragment;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -33,13 +36,17 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
     const/16 v1, 0x64
 
+    .line 164
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
+    .line 173
     const-string v0, "EndCallButtonFragment"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -62,9 +69,11 @@
 
     invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 176
     :goto_0
     return-void
 
+    .line 166
     :pswitch_0
     iget-object v0, p0, Lcom/android/incallui/fragment/EndCallButtonFragment$1;->this$0:Lcom/android/incallui/fragment/EndCallButtonFragment;
 
@@ -79,6 +88,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 167
     iget-object v0, p0, Lcom/android/incallui/fragment/EndCallButtonFragment$1;->this$0:Lcom/android/incallui/fragment/EndCallButtonFragment;
 
     # getter for: Lcom/android/incallui/fragment/EndCallButtonFragment;->mHandler:Landroid/os/Handler;
@@ -88,6 +98,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
 
+    .line 169
     :cond_0
     iget-object v0, p0, Lcom/android/incallui/fragment/EndCallButtonFragment$1;->this$0:Lcom/android/incallui/fragment/EndCallButtonFragment;
 
@@ -95,6 +106,7 @@
 
     goto :goto_0
 
+    .line 164
     nop
 
     :pswitch_data_0

@@ -31,6 +31,8 @@
 .method constructor <init>(Lcom/google/common/util/concurrent/MoreExecutors$Application;Ljava/util/concurrent/ExecutorService;JLjava/util/concurrent/TimeUnit;)V
     .locals 1
 
+    .prologue
+    .line 204
     iput-object p1, p0, Lcom/google/common/util/concurrent/MoreExecutors$Application$1;->this$0:Lcom/google/common/util/concurrent/MoreExecutors$Application;
 
     iput-object p2, p0, Lcom/google/common/util/concurrent/MoreExecutors$Application$1;->val$service:Ljava/util/concurrent/ExecutorService;
@@ -49,11 +51,14 @@
 .method public run()V
     .locals 4
 
+    .prologue
+    .line 213
     :try_start_0
     iget-object v0, p0, Lcom/google/common/util/concurrent/MoreExecutors$Application$1;->val$service:Ljava/util/concurrent/ExecutorService;
 
     invoke-interface {v0}, Ljava/util/concurrent/ExecutorService;->shutdown()V
 
+    .line 214
     iget-object v0, p0, Lcom/google/common/util/concurrent/MoreExecutors$Application$1;->val$service:Ljava/util/concurrent/ExecutorService;
 
     iget-wide v2, p0, Lcom/google/common/util/concurrent/MoreExecutors$Application$1;->val$terminationTimeout:J
@@ -64,9 +69,11 @@
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 218
     :goto_0
     return-void
 
+    .line 215
     :catch_0
     move-exception v0
 

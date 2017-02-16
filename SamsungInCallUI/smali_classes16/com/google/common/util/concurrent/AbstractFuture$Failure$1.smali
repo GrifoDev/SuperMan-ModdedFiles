@@ -17,7 +17,10 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
     .locals 0
+    .param p1, "x0"    # Ljava/lang/String;
 
+    .prologue
+    .line 237
     invoke-direct {p0, p1}, Ljava/lang/Throwable;-><init>(Ljava/lang/String;)V
 
     return-void
@@ -28,6 +31,8 @@
 .method public declared-synchronized fillInStackTrace()Ljava/lang/Throwable;
     .locals 0
 
+    .prologue
+    .line 239
     monitor-enter p0
 
     monitor-exit p0

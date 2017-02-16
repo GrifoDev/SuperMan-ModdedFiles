@@ -11,6 +11,8 @@
 .method static constructor <clinit>()V
     .locals 5
 
+    .prologue
+    .line 32
     :try_start_0
     const-string v2, "android.content.pm.ParceledListSlice"
 
@@ -18,6 +20,8 @@
 
     move-result-object v1
 
+    .line 33
+    .local v1, "theClass":Ljava/lang/Class;
     const/4 v2, 0x1
 
     new-array v2, v2, [Ljava/lang/Class;
@@ -37,17 +41,23 @@
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_1
 
+    .line 37
     :goto_0
     return-void
 
+    .line 34
     :catch_0
     move-exception v0
 
+    .line 35
+    .local v0, "e":Ljava/lang/ReflectiveOperationException;
     :goto_1
     invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
+    .line 34
+    .end local v0    # "e":Ljava/lang/ReflectiveOperationException;
     :catch_1
     move-exception v0
 
@@ -57,6 +67,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -75,8 +87,13 @@
         }
     .end annotation
 
+    .prologue
+    .line 40
+    .local p0, "itemList":Ljava/util/List;, "Ljava/util/List<Landroid/media/browse/MediaBrowser$MediaItem;>;"
     const/4 v1, 0x0
 
+    .line 42
+    .local v1, "result":Ljava/lang/Object;
     :try_start_0
     sget-object v2, Landroid/support/v4/media/ParceledListSliceAdapterApi21;->sConstructor:Ljava/lang/reflect/Constructor;
 
@@ -96,17 +113,25 @@
 
     move-result-object v1
 
+    .line 46
+    .end local v1    # "result":Ljava/lang/Object;
     :goto_0
     return-object v1
 
+    .line 43
+    .restart local v1    # "result":Ljava/lang/Object;
     :catch_0
     move-exception v0
 
+    .line 44
+    .local v0, "e":Ljava/lang/ReflectiveOperationException;
     :goto_1
     invoke-virtual {v0}, Ljava/lang/ReflectiveOperationException;->printStackTrace()V
 
     goto :goto_0
 
+    .line 43
+    .end local v0    # "e":Ljava/lang/ReflectiveOperationException;
     :catch_1
     move-exception v0
 

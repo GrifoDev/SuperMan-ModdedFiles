@@ -44,8 +44,13 @@
         }
     .end annotation
 
+    .prologue
+    .line 97
+    .local p0, "this":Lcom/google/common/collect/SortedMultisets$NavigableElementSet;, "Lcom/google/common/collect/SortedMultisets$NavigableElementSet<TE;>;"
+    .local p1, "multiset":Lcom/google/common/collect/SortedMultiset;, "Lcom/google/common/collect/SortedMultiset<TE;>;"
     invoke-direct {p0, p1}, Lcom/google/common/collect/SortedMultisets$ElementSet;-><init>(Lcom/google/common/collect/SortedMultiset;)V
 
+    .line 98
     return-void
 .end method
 
@@ -59,6 +64,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 112
+    .local p0, "this":Lcom/google/common/collect/SortedMultisets$NavigableElementSet;, "Lcom/google/common/collect/SortedMultisets$NavigableElementSet<TE;>;"
+    .local p1, "e":Ljava/lang/Object;, "TE;"
     invoke-virtual {p0}, Lcom/google/common/collect/SortedMultisets$NavigableElementSet;->multiset()Lcom/google/common/collect/SortedMultiset;
 
     move-result-object v0
@@ -91,6 +100,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 127
+    .local p0, "this":Lcom/google/common/collect/SortedMultisets$NavigableElementSet;, "Lcom/google/common/collect/SortedMultisets$NavigableElementSet<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/SortedMultisets$NavigableElementSet;->descendingSet()Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -112,6 +124,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 122
+    .local p0, "this":Lcom/google/common/collect/SortedMultisets$NavigableElementSet;, "Lcom/google/common/collect/SortedMultisets$NavigableElementSet<TE;>;"
     new-instance v0, Lcom/google/common/collect/SortedMultisets$NavigableElementSet;
 
     invoke-virtual {p0}, Lcom/google/common/collect/SortedMultisets$NavigableElementSet;->multiset()Lcom/google/common/collect/SortedMultiset;
@@ -135,6 +150,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 107
+    .local p0, "this":Lcom/google/common/collect/SortedMultisets$NavigableElementSet;, "Lcom/google/common/collect/SortedMultisets$NavigableElementSet<TE;>;"
+    .local p1, "e":Ljava/lang/Object;, "TE;"
     invoke-virtual {p0}, Lcom/google/common/collect/SortedMultisets$NavigableElementSet;->multiset()Lcom/google/common/collect/SortedMultiset;
 
     move-result-object v0
@@ -159,6 +178,7 @@
 
 .method public headSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
     .locals 3
+    .param p2, "inclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;Z)",
@@ -167,6 +187,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 151
+    .local p0, "this":Lcom/google/common/collect/SortedMultisets$NavigableElementSet;, "Lcom/google/common/collect/SortedMultisets$NavigableElementSet<TE;>;"
+    .local p1, "toElement":Ljava/lang/Object;, "TE;"
     new-instance v0, Lcom/google/common/collect/SortedMultisets$NavigableElementSet;
 
     invoke-virtual {p0}, Lcom/google/common/collect/SortedMultisets$NavigableElementSet;->multiset()Lcom/google/common/collect/SortedMultiset;
@@ -194,6 +218,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 117
+    .local p0, "this":Lcom/google/common/collect/SortedMultisets$NavigableElementSet;, "Lcom/google/common/collect/SortedMultisets$NavigableElementSet<TE;>;"
+    .local p1, "e":Ljava/lang/Object;, "TE;"
     invoke-virtual {p0}, Lcom/google/common/collect/SortedMultisets$NavigableElementSet;->multiset()Lcom/google/common/collect/SortedMultiset;
 
     move-result-object v0
@@ -224,6 +252,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 102
+    .local p0, "this":Lcom/google/common/collect/SortedMultisets$NavigableElementSet;, "Lcom/google/common/collect/SortedMultisets$NavigableElementSet<TE;>;"
+    .local p1, "e":Ljava/lang/Object;, "TE;"
     invoke-virtual {p0}, Lcom/google/common/collect/SortedMultisets$NavigableElementSet;->multiset()Lcom/google/common/collect/SortedMultiset;
 
     move-result-object v0
@@ -254,6 +286,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 132
+    .local p0, "this":Lcom/google/common/collect/SortedMultisets$NavigableElementSet;, "Lcom/google/common/collect/SortedMultisets$NavigableElementSet<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/SortedMultisets$NavigableElementSet;->multiset()Lcom/google/common/collect/SortedMultiset;
 
     move-result-object v0
@@ -278,6 +313,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 137
+    .local p0, "this":Lcom/google/common/collect/SortedMultisets$NavigableElementSet;, "Lcom/google/common/collect/SortedMultisets$NavigableElementSet<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/SortedMultisets$NavigableElementSet;->multiset()Lcom/google/common/collect/SortedMultiset;
 
     move-result-object v0
@@ -296,6 +334,8 @@
 
 .method public subSet(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableSet;
     .locals 4
+    .param p2, "fromInclusive"    # Z
+    .param p4, "toInclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;ZTE;Z)",
@@ -304,6 +344,11 @@
         }
     .end annotation
 
+    .prologue
+    .line 143
+    .local p0, "this":Lcom/google/common/collect/SortedMultisets$NavigableElementSet;, "Lcom/google/common/collect/SortedMultisets$NavigableElementSet<TE;>;"
+    .local p1, "fromElement":Ljava/lang/Object;, "TE;"
+    .local p3, "toElement":Ljava/lang/Object;, "TE;"
     new-instance v0, Lcom/google/common/collect/SortedMultisets$NavigableElementSet;
 
     invoke-virtual {p0}, Lcom/google/common/collect/SortedMultisets$NavigableElementSet;->multiset()Lcom/google/common/collect/SortedMultiset;
@@ -329,6 +374,7 @@
 
 .method public tailSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
     .locals 3
+    .param p2, "inclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;Z)",
@@ -337,6 +383,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 157
+    .local p0, "this":Lcom/google/common/collect/SortedMultisets$NavigableElementSet;, "Lcom/google/common/collect/SortedMultisets$NavigableElementSet<TE;>;"
+    .local p1, "fromElement":Ljava/lang/Object;, "TE;"
     new-instance v0, Lcom/google/common/collect/SortedMultisets$NavigableElementSet;
 
     invoke-virtual {p0}, Lcom/google/common/collect/SortedMultisets$NavigableElementSet;->multiset()Lcom/google/common/collect/SortedMultiset;

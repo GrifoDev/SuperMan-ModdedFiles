@@ -50,10 +50,19 @@
         }
     .end annotation
 
+    .prologue
+    .line 105
+    .local p0, "this":Lcom/google/common/collect/ImmutableMapEntry$NonTerminalImmutableBiMapEntry;, "Lcom/google/common/collect/ImmutableMapEntry$NonTerminalImmutableBiMapEntry<TK;TV;>;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
+    .local p2, "value":Ljava/lang/Object;, "TV;"
+    .local p3, "nextInKeyBucket":Lcom/google/common/collect/ImmutableMapEntry;, "Lcom/google/common/collect/ImmutableMapEntry<TK;TV;>;"
+    .local p4, "nextInValueBucket":Lcom/google/common/collect/ImmutableMapEntry;, "Lcom/google/common/collect/ImmutableMapEntry<TK;TV;>;"
     invoke-direct {p0, p1, p2, p3}, Lcom/google/common/collect/ImmutableMapEntry$NonTerminalImmutableMapEntry;-><init>(Ljava/lang/Object;Ljava/lang/Object;Lcom/google/common/collect/ImmutableMapEntry;)V
 
+    .line 106
     iput-object p4, p0, Lcom/google/common/collect/ImmutableMapEntry$NonTerminalImmutableBiMapEntry;->nextInValueBucket:Lcom/google/common/collect/ImmutableMapEntry;
 
+    .line 107
     return-void
 .end method
 
@@ -72,6 +81,9 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
+    .prologue
+    .line 112
+    .local p0, "this":Lcom/google/common/collect/ImmutableMapEntry$NonTerminalImmutableBiMapEntry;, "Lcom/google/common/collect/ImmutableMapEntry$NonTerminalImmutableBiMapEntry<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/ImmutableMapEntry$NonTerminalImmutableBiMapEntry;->nextInValueBucket:Lcom/google/common/collect/ImmutableMapEntry;
 
     return-object v0

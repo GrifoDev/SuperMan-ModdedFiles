@@ -25,8 +25,11 @@
 .method constructor <init>(Lcom/samsung/android/sdk/look/airbutton/SlookAirButton;)V
     .locals 0
 
+    .prologue
+    .line 1
     iput-object p1, p0, Lcom/samsung/android/sdk/look/airbutton/SlookAirButton$1;->this$0:Lcom/samsung/android/sdk/look/airbutton/SlookAirButton;
 
+    .line 160
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -36,7 +39,12 @@
 # virtual methods
 .method public onItemSelected(Landroid/view/View;ILjava/lang/Object;)V
     .locals 1
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "itemIndex"    # I
+    .param p3, "data"    # Ljava/lang/Object;
 
+    .prologue
+    .line 162
     iget-object v0, p0, Lcom/samsung/android/sdk/look/airbutton/SlookAirButton$1;->this$0:Lcom/samsung/android/sdk/look/airbutton/SlookAirButton;
 
     # getter for: Lcom/samsung/android/sdk/look/airbutton/SlookAirButton;->mItemSelectListener:Lcom/samsung/android/sdk/look/airbutton/SlookAirButton$ItemSelectListener;
@@ -46,5 +54,6 @@
 
     invoke-interface {v0, p1, p2, p3}, Lcom/samsung/android/sdk/look/airbutton/SlookAirButton$ItemSelectListener;->onItemSelected(Landroid/view/View;ILjava/lang/Object;)V
 
+    .line 163
     return-void
 .end method

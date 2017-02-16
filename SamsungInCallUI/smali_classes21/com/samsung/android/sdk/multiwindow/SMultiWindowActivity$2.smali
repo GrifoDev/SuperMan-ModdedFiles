@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/samsung/android/sdk/multiwindow/SMultiWindowActivity;)V
     .locals 0
 
+    .prologue
+    .line 511
     iput-object p1, p0, Lcom/samsung/android/sdk/multiwindow/SMultiWindowActivity$2;->this$0:Lcom/samsung/android/sdk/multiwindow/SMultiWindowActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +39,8 @@
 .method public onWindowExit()Z
     .locals 1
 
+    .prologue
+    .line 513
     iget-object v0, p0, Lcom/samsung/android/sdk/multiwindow/SMultiWindowActivity$2;->this$0:Lcom/samsung/android/sdk/multiwindow/SMultiWindowActivity;
 
     # getter for: Lcom/samsung/android/sdk/multiwindow/SMultiWindowActivity;->mExitListener:Lcom/samsung/android/sdk/multiwindow/SMultiWindowActivity$ExitListener;

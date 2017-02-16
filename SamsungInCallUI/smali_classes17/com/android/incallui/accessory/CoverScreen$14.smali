@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/accessory/CoverScreen;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/accessory/CoverScreen;
 
+    .prologue
+    .line 2164
     iput-object p1, p0, Lcom/android/incallui/accessory/CoverScreen$14;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
@@ -33,7 +36,10 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 2167
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverScreen$14;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
     # getter for: Lcom/android/incallui/accessory/CoverScreen;->mMaskPanelForSlidingDrawer:Landroid/view/View;
@@ -43,6 +49,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 2168
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverScreen$14;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
     # getter for: Lcom/android/incallui/accessory/CoverScreen;->mMaskPanelForSlidingDrawer:Landroid/view/View;
@@ -54,6 +61,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setAlpha(F)V
 
+    .line 2170
     :cond_0
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverScreen$14;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
@@ -64,6 +72,7 @@
 
     if-eqz v0, :cond_1
 
+    .line 2171
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverScreen$14;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
     # getter for: Lcom/android/incallui/accessory/CoverScreen;->mIncomingCallImageWidget:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageWidget;
@@ -80,6 +89,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageWidget;->setRejectMsgHandleView(Landroid/view/View;)V
 
+    .line 2173
     :cond_1
     return-void
 .end method

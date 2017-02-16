@@ -27,6 +27,8 @@
 .method constructor <init>(Lcom/google/common/eventbus/Subscriber;Ljava/lang/Object;)V
     .locals 0
 
+    .prologue
+    .line 76
     iput-object p1, p0, Lcom/google/common/eventbus/Subscriber$1;->this$0:Lcom/google/common/eventbus/Subscriber;
 
     iput-object p2, p0, Lcom/google/common/eventbus/Subscriber$1;->val$event:Ljava/lang/Object;
@@ -41,6 +43,8 @@
 .method public run()V
     .locals 5
 
+    .prologue
+    .line 80
     :try_start_0
     iget-object v1, p0, Lcom/google/common/eventbus/Subscriber$1;->this$0:Lcom/google/common/eventbus/Subscriber;
 
@@ -50,12 +54,16 @@
     :try_end_0
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 84
     :goto_0
     return-void
 
+    .line 81
     :catch_0
     move-exception v0
 
+    .line 82
+    .local v0, "e":Ljava/lang/reflect/InvocationTargetException;
     iget-object v1, p0, Lcom/google/common/eventbus/Subscriber$1;->this$0:Lcom/google/common/eventbus/Subscriber;
 
     # getter for: Lcom/google/common/eventbus/Subscriber;->bus:Lcom/google/common/eventbus/EventBus;

@@ -31,7 +31,9 @@
 # direct methods
 .method constructor <init>(Lcom/google/android/gms/internal/bt;)V
     .locals 0
+    .param p1, "plusClientImpl"    # Lcom/google/android/gms/internal/bt;
 
+    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/google/android/gms/plus/PlusClient;->hU:Lcom/google/android/gms/internal/bt;
@@ -129,7 +131,9 @@
 
 .method public isConnectionCallbacksRegistered(Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;)Z
     .locals 1
+    .param p1, "listener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/plus/PlusClient;->hU:Lcom/google/android/gms/internal/bt;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/bt;->isConnectionCallbacksRegistered(Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;)Z
@@ -141,7 +145,9 @@
 
 .method public isConnectionFailedListenerRegistered(Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;)Z
     .locals 1
+    .param p1, "listener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/plus/PlusClient;->hU:Lcom/google/android/gms/internal/bt;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/bt;->isConnectionFailedListenerRegistered(Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;)Z
@@ -153,7 +159,9 @@
 
 .method public loadMoments(Lcom/google/android/gms/plus/PlusClient$OnMomentsLoadedListener;)V
     .locals 1
+    .param p1, "listener"    # Lcom/google/android/gms/plus/PlusClient$OnMomentsLoadedListener;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/plus/PlusClient;->hU:Lcom/google/android/gms/internal/bt;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/bt;->loadMoments(Lcom/google/android/gms/plus/PlusClient$OnMomentsLoadedListener;)V
@@ -163,7 +171,14 @@
 
 .method public loadMoments(Lcom/google/android/gms/plus/PlusClient$OnMomentsLoadedListener;ILjava/lang/String;Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;)V
     .locals 7
+    .param p1, "listener"    # Lcom/google/android/gms/plus/PlusClient$OnMomentsLoadedListener;
+    .param p2, "maxResults"    # I
+    .param p3, "pageToken"    # Ljava/lang/String;
+    .param p4, "targetUrl"    # Landroid/net/Uri;
+    .param p5, "type"    # Ljava/lang/String;
+    .param p6, "userId"    # Ljava/lang/String;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/plus/PlusClient;->hU:Lcom/google/android/gms/internal/bt;
 
     move-object v1, p1
@@ -185,6 +200,7 @@
 
 .method public loadPeople(Lcom/google/android/gms/plus/PlusClient$OnPeopleLoadedListener;Ljava/util/Collection;)V
     .locals 1
+    .param p1, "listener"    # Lcom/google/android/gms/plus/PlusClient$OnPeopleLoadedListener;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -196,6 +212,8 @@
         }
     .end annotation
 
+    .prologue
+    .local p2, "personIds":Ljava/util/Collection;, "Ljava/util/Collection<Ljava/lang/String;>;"
     iget-object v0, p0, Lcom/google/android/gms/plus/PlusClient;->hU:Lcom/google/android/gms/internal/bt;
 
     invoke-virtual {v0, p1, p2}, Lcom/google/android/gms/internal/bt;->a(Lcom/google/android/gms/plus/PlusClient$OnPeopleLoadedListener;Ljava/util/Collection;)V
@@ -205,7 +223,10 @@
 
 .method public varargs loadPeople(Lcom/google/android/gms/plus/PlusClient$OnPeopleLoadedListener;[Ljava/lang/String;)V
     .locals 1
+    .param p1, "listener"    # Lcom/google/android/gms/plus/PlusClient$OnPeopleLoadedListener;
+    .param p2, "personIds"    # [Ljava/lang/String;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/plus/PlusClient;->hU:Lcom/google/android/gms/internal/bt;
 
     invoke-virtual {v0, p1, p2}, Lcom/google/android/gms/internal/bt;->a(Lcom/google/android/gms/plus/PlusClient$OnPeopleLoadedListener;[Ljava/lang/String;)V
@@ -215,7 +236,11 @@
 
 .method public loadVisiblePeople(Lcom/google/android/gms/plus/PlusClient$OnPeopleLoadedListener;ILjava/lang/String;)V
     .locals 1
+    .param p1, "listener"    # Lcom/google/android/gms/plus/PlusClient$OnPeopleLoadedListener;
+    .param p2, "orderBy"    # I
+    .param p3, "pageToken"    # Ljava/lang/String;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/plus/PlusClient;->hU:Lcom/google/android/gms/internal/bt;
 
     invoke-virtual {v0, p1, p2, p3}, Lcom/google/android/gms/internal/bt;->loadVisiblePeople(Lcom/google/android/gms/plus/PlusClient$OnPeopleLoadedListener;ILjava/lang/String;)V
@@ -225,7 +250,10 @@
 
 .method public loadVisiblePeople(Lcom/google/android/gms/plus/PlusClient$OnPeopleLoadedListener;Ljava/lang/String;)V
     .locals 1
+    .param p1, "listener"    # Lcom/google/android/gms/plus/PlusClient$OnPeopleLoadedListener;
+    .param p2, "pageToken"    # Ljava/lang/String;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/plus/PlusClient;->hU:Lcom/google/android/gms/internal/bt;
 
     invoke-virtual {v0, p1, p2}, Lcom/google/android/gms/internal/bt;->loadVisiblePeople(Lcom/google/android/gms/plus/PlusClient$OnPeopleLoadedListener;Ljava/lang/String;)V
@@ -235,7 +263,9 @@
 
 .method public registerConnectionCallbacks(Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;)V
     .locals 1
+    .param p1, "listener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/plus/PlusClient;->hU:Lcom/google/android/gms/internal/bt;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/bt;->registerConnectionCallbacks(Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;)V
@@ -245,7 +275,9 @@
 
 .method public registerConnectionFailedListener(Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;)V
     .locals 1
+    .param p1, "listener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/plus/PlusClient;->hU:Lcom/google/android/gms/internal/bt;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/bt;->registerConnectionFailedListener(Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;)V
@@ -255,7 +287,9 @@
 
 .method public removeMoment(Ljava/lang/String;)V
     .locals 1
+    .param p1, "momentId"    # Ljava/lang/String;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/plus/PlusClient;->hU:Lcom/google/android/gms/internal/bt;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/bt;->removeMoment(Ljava/lang/String;)V
@@ -265,7 +299,9 @@
 
 .method public revokeAccessAndDisconnect(Lcom/google/android/gms/plus/PlusClient$OnAccessRevokedListener;)V
     .locals 1
+    .param p1, "listener"    # Lcom/google/android/gms/plus/PlusClient$OnAccessRevokedListener;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/plus/PlusClient;->hU:Lcom/google/android/gms/internal/bt;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/bt;->revokeAccessAndDisconnect(Lcom/google/android/gms/plus/PlusClient$OnAccessRevokedListener;)V
@@ -275,7 +311,9 @@
 
 .method public unregisterConnectionCallbacks(Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;)V
     .locals 1
+    .param p1, "listener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/plus/PlusClient;->hU:Lcom/google/android/gms/internal/bt;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/bt;->unregisterConnectionCallbacks(Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;)V
@@ -285,7 +323,9 @@
 
 .method public unregisterConnectionFailedListener(Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;)V
     .locals 1
+    .param p1, "listener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/plus/PlusClient;->hU:Lcom/google/android/gms/internal/bt;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/bt;->unregisterConnectionFailedListener(Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;)V
@@ -295,7 +335,9 @@
 
 .method public writeMoment(Lcom/google/android/gms/plus/model/moments/Moment;)V
     .locals 1
+    .param p1, "moment"    # Lcom/google/android/gms/plus/model/moments/Moment;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/plus/PlusClient;->hU:Lcom/google/android/gms/internal/bt;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/bt;->writeMoment(Lcom/google/android/gms/plus/model/moments/Moment;)V

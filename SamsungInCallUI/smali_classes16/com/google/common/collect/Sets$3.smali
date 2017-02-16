@@ -33,6 +33,8 @@
 .method constructor <init>(Ljava/util/Set;Lcom/google/common/base/Predicate;Ljava/util/Set;)V
     .locals 1
 
+    .prologue
+    .line 694
     iput-object p1, p0, Lcom/google/common/collect/Sets$3;->val$set1:Ljava/util/Set;
 
     iput-object p2, p0, Lcom/google/common/collect/Sets$3;->val$notInSet2:Lcom/google/common/base/Predicate;
@@ -50,7 +52,10 @@
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
+    .param p1, "element"    # Ljava/lang/Object;
 
+    .prologue
+    .line 712
     iget-object v0, p0, Lcom/google/common/collect/Sets$3;->val$set1:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
@@ -81,6 +86,8 @@
 .method public isEmpty()Z
     .locals 2
 
+    .prologue
+    .line 707
     iget-object v0, p0, Lcom/google/common/collect/Sets$3;->val$set2:Ljava/util/Set;
 
     iget-object v1, p0, Lcom/google/common/collect/Sets$3;->val$set1:Ljava/util/Set;
@@ -102,6 +109,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 697
     iget-object v0, p0, Lcom/google/common/collect/Sets$3;->val$set1:Ljava/util/Set;
 
     invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
@@ -120,6 +129,8 @@
 .method public size()I
     .locals 1
 
+    .prologue
+    .line 702
     invoke-virtual {p0}, Lcom/google/common/collect/Sets$3;->iterator()Ljava/util/Iterator;
 
     move-result-object v0

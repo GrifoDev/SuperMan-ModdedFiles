@@ -22,6 +22,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 197
     new-instance v0, Lcom/google/common/eventbus/Dispatcher$ImmediateDispatcher;
 
     invoke-direct {v0}, Lcom/google/common/eventbus/Dispatcher$ImmediateDispatcher;-><init>()V
@@ -34,6 +36,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 196
     invoke-direct {p0}, Lcom/google/common/eventbus/Dispatcher;-><init>()V
 
     return-void
@@ -42,6 +46,8 @@
 .method static synthetic access$200()Lcom/google/common/eventbus/Dispatcher$ImmediateDispatcher;
     .locals 1
 
+    .prologue
+    .line 196
     sget-object v0, Lcom/google/common/eventbus/Dispatcher$ImmediateDispatcher;->INSTANCE:Lcom/google/common/eventbus/Dispatcher$ImmediateDispatcher;
 
     return-object v0
@@ -51,6 +57,7 @@
 # virtual methods
 .method dispatch(Ljava/lang/Object;Ljava/util/Iterator;)V
     .locals 1
+    .param p1, "event"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -62,8 +69,12 @@
         }
     .end annotation
 
+    .prologue
+    .line 201
+    .local p2, "subscribers":Ljava/util/Iterator;, "Ljava/util/Iterator<Lcom/google/common/eventbus/Subscriber;>;"
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 202
     :goto_0
     invoke-interface {p2}, Ljava/util/Iterator;->hasNext()Z
 
@@ -71,6 +82,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 203
     invoke-interface {p2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
@@ -81,6 +93,7 @@
 
     goto :goto_0
 
+    .line 205
     :cond_0
     return-void
 .end method

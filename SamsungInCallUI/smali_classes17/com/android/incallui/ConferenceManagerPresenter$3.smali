@@ -34,7 +34,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/ConferenceManagerPresenter;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/ConferenceManagerPresenter;
 
+    .prologue
+    .line 364
     iput-object p1, p0, Lcom/android/incallui/ConferenceManagerPresenter$3;->this$0:Lcom/android/incallui/ConferenceManagerPresenter;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,7 +49,11 @@
 # virtual methods
 .method public compare(Lcom/android/incallui/Call;Lcom/android/incallui/Call;)I
     .locals 5
+    .param p1, "p1"    # Lcom/android/incallui/Call;
+    .param p2, "p2"    # Lcom/android/incallui/Call;
 
+    .prologue
+    .line 366
     invoke-virtual {p1}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
 
     move-result-object v2
@@ -67,6 +74,8 @@
 
     move-result v0
 
+    .line 367
+    .local v0, "first":I
     invoke-virtual {p2}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
 
     move-result-object v2
@@ -87,6 +96,8 @@
 
     move-result v1
 
+    .line 368
+    .local v1, "second":I
     if-ge v0, v1, :cond_0
 
     const/4 v2, -0x1
@@ -110,6 +121,8 @@
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
 
+    .prologue
+    .line 364
     check-cast p1, Lcom/android/incallui/Call;
 
     check-cast p2, Lcom/android/incallui/Call;

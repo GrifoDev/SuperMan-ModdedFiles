@@ -61,8 +61,14 @@
         }
     .end annotation
 
+    .prologue
+    .line 1937
+    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesMap;, "Lcom/google/common/collect/Maps$TransformedEntriesMap<TK;TV1;TV2;>;"
+    .local p1, "fromMap":Ljava/util/Map;, "Ljava/util/Map<TK;TV1;>;"
+    .local p2, "transformer":Lcom/google/common/collect/Maps$EntryTransformer;, "Lcom/google/common/collect/Maps$EntryTransformer<-TK;-TV1;TV2;>;"
     invoke-direct {p0}, Lcom/google/common/collect/Maps$IteratorBasedAbstractMap;-><init>()V
 
+    .line 1938
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -71,6 +77,7 @@
 
     iput-object v0, p0, Lcom/google/common/collect/Maps$TransformedEntriesMap;->fromMap:Ljava/util/Map;
 
+    .line 1939
     invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -79,6 +86,7 @@
 
     iput-object v0, p0, Lcom/google/common/collect/Maps$TransformedEntriesMap;->transformer:Lcom/google/common/collect/Maps$EntryTransformer;
 
+    .line 1940
     return-void
 .end method
 
@@ -87,16 +95,24 @@
 .method public clear()V
     .locals 1
 
+    .prologue
+    .line 1973
+    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesMap;, "Lcom/google/common/collect/Maps$TransformedEntriesMap<TK;TV1;TV2;>;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$TransformedEntriesMap;->fromMap:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->clear()V
 
+    .line 1974
     return-void
 .end method
 
 .method public containsKey(Ljava/lang/Object;)Z
     .locals 1
+    .param p1, "key"    # Ljava/lang/Object;
 
+    .prologue
+    .line 1949
+    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesMap;, "Lcom/google/common/collect/Maps$TransformedEntriesMap<TK;TV1;TV2;>;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$TransformedEntriesMap;->fromMap:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
@@ -118,6 +134,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1983
+    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesMap;, "Lcom/google/common/collect/Maps$TransformedEntriesMap<TK;TV1;TV2;>;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$TransformedEntriesMap;->fromMap:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->entrySet()Ljava/util/Set;
@@ -143,6 +162,7 @@
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 2
+    .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -151,12 +171,17 @@
         }
     .end annotation
 
+    .prologue
+    .line 1956
+    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesMap;, "Lcom/google/common/collect/Maps$TransformedEntriesMap<TK;TV1;TV2;>;"
     iget-object v1, p0, Lcom/google/common/collect/Maps$TransformedEntriesMap;->fromMap:Ljava/util/Map;
 
     invoke-interface {v1, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
+    .line 1957
+    .local v0, "value":Ljava/lang/Object;, "TV1;"
     if-nez v0, :cond_0
 
     iget-object v1, p0, Lcom/google/common/collect/Maps$TransformedEntriesMap;->fromMap:Ljava/util/Map;
@@ -193,6 +218,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1978
+    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesMap;, "Lcom/google/common/collect/Maps$TransformedEntriesMap<TK;TV1;TV2;>;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$TransformedEntriesMap;->fromMap:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->keySet()Ljava/util/Set;
@@ -204,6 +232,7 @@
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 2
+    .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -212,6 +241,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1966
+    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesMap;, "Lcom/google/common/collect/Maps$TransformedEntriesMap<TK;TV1;TV2;>;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$TransformedEntriesMap;->fromMap:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
@@ -244,6 +276,9 @@
 .method public size()I
     .locals 1
 
+    .prologue
+    .line 1944
+    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesMap;, "Lcom/google/common/collect/Maps$TransformedEntriesMap<TK;TV1;TV2;>;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$TransformedEntriesMap;->fromMap:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->size()I
@@ -263,6 +298,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1989
+    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesMap;, "Lcom/google/common/collect/Maps$TransformedEntriesMap<TK;TV1;TV2;>;"
     new-instance v0, Lcom/google/common/collect/Maps$Values;
 
     invoke-direct {v0, p0}, Lcom/google/common/collect/Maps$Values;-><init>(Ljava/util/Map;)V

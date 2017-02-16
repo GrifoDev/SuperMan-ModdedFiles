@@ -33,6 +33,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -43,6 +45,8 @@
 .method public getChargeHistoryList()Lcom/cmdm/control/bean/ChargeHistoryList;
     .locals 1
 
+    .prologue
+    .line 48
     iget-object v0, p0, Lcom/cmdm/control/bean/ChargeHistoryResult;->chargeHistoryList:Lcom/cmdm/control/bean/ChargeHistoryList;
 
     return-object v0
@@ -51,6 +55,8 @@
 .method public getPageNum()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 59
     iget-object v0, p0, Lcom/cmdm/control/bean/ChargeHistoryResult;->pageNum:Ljava/lang/String;
 
     return-object v0
@@ -59,6 +65,8 @@
 .method public getPageSize()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 67
     iget-object v0, p0, Lcom/cmdm/control/bean/ChargeHistoryResult;->pageSize:Ljava/lang/String;
 
     return-object v0
@@ -66,24 +74,36 @@
 
 .method public setChargeHistoryList(Lcom/cmdm/control/bean/ChargeHistoryList;)V
     .locals 0
+    .param p1, "chargeHistoryList"    # Lcom/cmdm/control/bean/ChargeHistoryList;
 
+    .prologue
+    .line 55
     iput-object p1, p0, Lcom/cmdm/control/bean/ChargeHistoryResult;->chargeHistoryList:Lcom/cmdm/control/bean/ChargeHistoryList;
 
+    .line 56
     return-void
 .end method
 
 .method public setPageNum(Ljava/lang/String;)V
     .locals 0
+    .param p1, "pageNum"    # Ljava/lang/String;
 
+    .prologue
+    .line 63
     iput-object p1, p0, Lcom/cmdm/control/bean/ChargeHistoryResult;->pageNum:Ljava/lang/String;
 
+    .line 64
     return-void
 .end method
 
 .method public setPageSize(Ljava/lang/String;)V
     .locals 0
+    .param p1, "pageSize"    # Ljava/lang/String;
 
+    .prologue
+    .line 71
     iput-object p1, p0, Lcom/cmdm/control/bean/ChargeHistoryResult;->pageSize:Ljava/lang/String;
 
+    .line 72
     return-void
 .end method

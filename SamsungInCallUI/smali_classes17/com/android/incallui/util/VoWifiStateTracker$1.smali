@@ -21,7 +21,11 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/util/VoWifiStateTracker;Landroid/os/Handler;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/util/VoWifiStateTracker;
+    .param p2, "x0"    # Landroid/os/Handler;
 
+    .prologue
+    .line 69
     iput-object p1, p0, Lcom/android/incallui/util/VoWifiStateTracker$1;->this$0:Lcom/android/incallui/util/VoWifiStateTracker;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -33,9 +37,14 @@
 # virtual methods
 .method public onChange(ZLandroid/net/Uri;)V
     .locals 3
+    .param p1, "selfChange"    # Z
+    .param p2, "uri"    # Landroid/net/Uri;
 
+    .prologue
+    .line 72
     invoke-super {p0, p1, p2}, Landroid/database/ContentObserver;->onChange(ZLandroid/net/Uri;)V
 
+    .line 73
     iget-object v0, p0, Lcom/android/incallui/util/VoWifiStateTracker$1;->this$0:Lcom/android/incallui/util/VoWifiStateTracker;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -59,6 +68,7 @@
     # invokes: Lcom/android/incallui/util/VoWifiStateTracker;->log(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lcom/android/incallui/util/VoWifiStateTracker;->access$000(Lcom/android/incallui/util/VoWifiStateTracker;Ljava/lang/String;)V
 
+    .line 75
     iget-object v0, p0, Lcom/android/incallui/util/VoWifiStateTracker$1;->this$0:Lcom/android/incallui/util/VoWifiStateTracker;
 
     # getter for: Lcom/android/incallui/util/VoWifiStateTracker;->mWfcListener:Lcom/android/incallui/util/VoWifiStateTracker$VoWifiStateListener;
@@ -74,5 +84,6 @@
 
     invoke-interface {v0, v1}, Lcom/android/incallui/util/VoWifiStateTracker$VoWifiStateListener;->onVoWifiStateChanged(Z)V
 
+    .line 76
     return-void
 .end method

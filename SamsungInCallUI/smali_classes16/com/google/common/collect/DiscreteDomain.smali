@@ -32,6 +32,9 @@
 .method protected constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 205
+    .local p0, "this":Lcom/google/common/collect/DiscreteDomain;, "Lcom/google/common/collect/DiscreteDomain<TC;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -49,6 +52,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 163
     # getter for: Lcom/google/common/collect/DiscreteDomain$BigIntegerDomain;->INSTANCE:Lcom/google/common/collect/DiscreteDomain$BigIntegerDomain;
     invoke-static {}, Lcom/google/common/collect/DiscreteDomain$BigIntegerDomain;->access$200()Lcom/google/common/collect/DiscreteDomain$BigIntegerDomain;
 
@@ -69,6 +74,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 54
     # getter for: Lcom/google/common/collect/DiscreteDomain$IntegerDomain;->INSTANCE:Lcom/google/common/collect/DiscreteDomain$IntegerDomain;
     invoke-static {}, Lcom/google/common/collect/DiscreteDomain$IntegerDomain;->access$000()Lcom/google/common/collect/DiscreteDomain$IntegerDomain;
 
@@ -89,6 +96,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 105
     # getter for: Lcom/google/common/collect/DiscreteDomain$LongDomain;->INSTANCE:Lcom/google/common/collect/DiscreteDomain$LongDomain;
     invoke-static {}, Lcom/google/common/collect/DiscreteDomain$LongDomain;->access$100()Lcom/google/common/collect/DiscreteDomain$LongDomain;
 
@@ -115,6 +124,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 273
+    .local p0, "this":Lcom/google/common/collect/DiscreteDomain;, "Lcom/google/common/collect/DiscreteDomain<TC;>;"
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -130,6 +142,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 258
+    .local p0, "this":Lcom/google/common/collect/DiscreteDomain;, "Lcom/google/common/collect/DiscreteDomain<TC;>;"
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V

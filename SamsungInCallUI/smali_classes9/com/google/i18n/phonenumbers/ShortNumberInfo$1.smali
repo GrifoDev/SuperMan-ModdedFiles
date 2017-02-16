@@ -22,6 +22,8 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
+    .line 296
     invoke-static {}, Lcom/google/i18n/phonenumbers/ShortNumberInfo$ShortNumberCost;->values()[Lcom/google/i18n/phonenumbers/ShortNumberInfo$ShortNumberCost;
 
     move-result-object v0

@@ -18,6 +18,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 106
     invoke-direct {p0}, Landroid/support/v4/widget/PopupWindowCompat$KitKatPopupWindowImpl;-><init>()V
 
     return-void
@@ -27,7 +29,10 @@
 # virtual methods
 .method public getOverlapAnchor(Landroid/widget/PopupWindow;)Z
     .locals 1
+    .param p1, "popupWindow"    # Landroid/widget/PopupWindow;
 
+    .prologue
+    .line 114
     invoke-static {p1}, Landroid/support/v4/widget/PopupWindowCompatApi21;->getOverlapAnchor(Landroid/widget/PopupWindow;)Z
 
     move-result v0
@@ -37,8 +42,13 @@
 
 .method public setOverlapAnchor(Landroid/widget/PopupWindow;Z)V
     .locals 0
+    .param p1, "popupWindow"    # Landroid/widget/PopupWindow;
+    .param p2, "overlapAnchor"    # Z
 
+    .prologue
+    .line 109
     invoke-static {p1, p2}, Landroid/support/v4/widget/PopupWindowCompatApi21;->setOverlapAnchor(Landroid/widget/PopupWindow;Z)V
 
+    .line 110
     return-void
 .end method

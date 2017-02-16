@@ -49,10 +49,16 @@
         }
     .end annotation
 
+    .prologue
+    .line 1460
+    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.NavigableAsMap;"
+    .local p2, "submap":Ljava/util/NavigableMap;, "Ljava/util/NavigableMap<TK;Ljava/util/Collection<TV;>;>;"
     iput-object p1, p0, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;->this$0:Lcom/google/common/collect/AbstractMapBasedMultimap;
 
+    .line 1461
     invoke-direct {p0, p1, p2}, Lcom/google/common/collect/AbstractMapBasedMultimap$SortedAsMap;-><init>(Lcom/google/common/collect/AbstractMapBasedMultimap;Ljava/util/SortedMap;)V
 
+    .line 1462
     return-void
 .end method
 
@@ -70,6 +76,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 1493
+    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.NavigableAsMap;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;->sortedMap()Ljava/util/NavigableMap;
 
     move-result-object v1
@@ -78,6 +88,8 @@
 
     move-result-object v0
 
+    .line 1494
+    .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;Ljava/util/Collection<TV;>;>;"
     if-nez v0, :cond_0
 
     const/4 v1, 0x0
@@ -101,6 +113,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 1499
+    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.NavigableAsMap;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;->sortedMap()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -122,6 +138,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1558
+    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.NavigableAsMap;"
     new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableKeySet;
 
     iget-object v1, p0, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;->this$0:Lcom/google/common/collect/AbstractMapBasedMultimap;
@@ -138,6 +157,9 @@
 .method bridge synthetic createKeySet()Ljava/util/Set;
     .locals 1
 
+    .prologue
+    .line 1457
+    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.NavigableAsMap;"
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;->createKeySet()Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -148,6 +170,9 @@
 .method bridge synthetic createKeySet()Ljava/util/SortedSet;
     .locals 1
 
+    .prologue
+    .line 1457
+    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.NavigableAsMap;"
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;->createKeySet()Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -165,6 +190,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1568
+    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.NavigableAsMap;"
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;->descendingMap()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -188,6 +216,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1548
+    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.NavigableAsMap;"
     new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;
 
     iget-object v1, p0, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;->this$0:Lcom/google/common/collect/AbstractMapBasedMultimap;
@@ -217,6 +248,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1515
+    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.NavigableAsMap;"
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;->sortedMap()Ljava/util/NavigableMap;
 
     move-result-object v1
@@ -225,6 +259,8 @@
 
     move-result-object v0
 
+    .line 1516
+    .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;Ljava/util/Collection<TV;>;>;"
     if-nez v0, :cond_0
 
     const/4 v1, 0x0
@@ -252,6 +288,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 1482
+    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.NavigableAsMap;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;->sortedMap()Ljava/util/NavigableMap;
 
     move-result-object v1
@@ -260,6 +300,8 @@
 
     move-result-object v0
 
+    .line 1483
+    .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;Ljava/util/Collection<TV;>;>;"
     if-nez v0, :cond_0
 
     const/4 v1, 0x0
@@ -283,6 +325,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 1488
+    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.NavigableAsMap;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;->sortedMap()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -306,6 +352,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 1584
+    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.NavigableAsMap;"
+    .local p1, "toKey":Ljava/lang/Object;, "TK;"
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, v0}, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;->headMap(Ljava/lang/Object;Z)Ljava/util/NavigableMap;
@@ -317,6 +367,7 @@
 
 .method public headMap(Ljava/lang/Object;Z)Ljava/util/NavigableMap;
     .locals 3
+    .param p2, "inclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;Z)",
@@ -327,6 +378,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 1589
+    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.NavigableAsMap;"
+    .local p1, "toKey":Ljava/lang/Object;, "TK;"
     new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;
 
     iget-object v1, p0, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;->this$0:Lcom/google/common/collect/AbstractMapBasedMultimap;
@@ -346,7 +401,11 @@
 
 .method public bridge synthetic headMap(Ljava/lang/Object;)Ljava/util/SortedMap;
     .locals 1
+    .param p1, "x0"    # Ljava/lang/Object;
 
+    .prologue
+    .line 1457
+    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.NavigableAsMap;"
     invoke-virtual {p0, p1}, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;->headMap(Ljava/lang/Object;)Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -366,6 +425,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 1504
+    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.NavigableAsMap;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;->sortedMap()Ljava/util/NavigableMap;
 
     move-result-object v1
@@ -374,6 +437,8 @@
 
     move-result-object v0
 
+    .line 1505
+    .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;Ljava/util/Collection<TV;>;>;"
     if-nez v0, :cond_0
 
     const/4 v1, 0x0
@@ -397,6 +462,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 1510
+    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.NavigableAsMap;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;->sortedMap()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -418,6 +487,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1553
+    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.NavigableAsMap;"
     invoke-super {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$SortedAsMap;->keySet()Ljava/util/SortedSet;
 
     move-result-object v0
@@ -430,6 +502,9 @@
 .method public bridge synthetic keySet()Ljava/util/Set;
     .locals 1
 
+    .prologue
+    .line 1457
+    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.NavigableAsMap;"
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;->keySet()Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -440,6 +515,9 @@
 .method public bridge synthetic keySet()Ljava/util/SortedSet;
     .locals 1
 
+    .prologue
+    .line 1457
+    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.NavigableAsMap;"
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;->keySet()Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -459,6 +537,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1521
+    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.NavigableAsMap;"
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;->sortedMap()Ljava/util/NavigableMap;
 
     move-result-object v1
@@ -467,6 +548,8 @@
 
     move-result-object v0
 
+    .line 1522
+    .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;Ljava/util/Collection<TV;>;>;"
     if-nez v0, :cond_0
 
     const/4 v1, 0x0
@@ -494,6 +577,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 1471
+    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.NavigableAsMap;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;->sortedMap()Ljava/util/NavigableMap;
 
     move-result-object v1
@@ -502,6 +589,8 @@
 
     move-result-object v0
 
+    .line 1472
+    .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;Ljava/util/Collection<TV;>;>;"
     if-nez v0, :cond_0
 
     const/4 v1, 0x0
@@ -525,6 +614,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 1477
+    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.NavigableAsMap;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;->sortedMap()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -546,6 +639,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1563
+    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.NavigableAsMap;"
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;->keySet()Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -571,17 +667,24 @@
         }
     .end annotation
 
+    .prologue
+    .line 1536
+    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.NavigableAsMap;"
+    .local p1, "entryIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/Map$Entry<TK;Ljava/util/Collection<TV;>;>;>;"
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
     if-nez v2, :cond_0
 
+    .line 1537
     const/4 v2, 0x0
 
+    .line 1543
     :goto_0
     return-object v2
 
+    .line 1539
     :cond_0
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -589,12 +692,16 @@
 
     check-cast v0, Ljava/util/Map$Entry;
 
+    .line 1540
+    .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;Ljava/util/Collection<TV;>;>;"
     iget-object v2, p0, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;->this$0:Lcom/google/common/collect/AbstractMapBasedMultimap;
 
     invoke-virtual {v2}, Lcom/google/common/collect/AbstractMapBasedMultimap;->createCollection()Ljava/util/Collection;
 
     move-result-object v1
 
+    .line 1541
+    .local v1, "output":Ljava/util/Collection;, "Ljava/util/Collection<TV;>;"
     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v2
@@ -603,8 +710,10 @@
 
     invoke-interface {v1, v2}, Ljava/util/Collection;->addAll(Ljava/util/Collection;)Z
 
+    .line 1542
     invoke-interface {p1}, Ljava/util/Iterator;->remove()V
 
+    .line 1543
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v2
@@ -634,6 +743,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1527
+    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.NavigableAsMap;"
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;->entrySet()Ljava/util/Set;
 
     move-result-object v0
@@ -661,6 +773,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1532
+    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.NavigableAsMap;"
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;->descendingMap()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -692,6 +807,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1466
+    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.NavigableAsMap;"
     invoke-super {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$SortedAsMap;->sortedMap()Ljava/util/SortedMap;
 
     move-result-object v0
@@ -704,6 +822,9 @@
 .method bridge synthetic sortedMap()Ljava/util/SortedMap;
     .locals 1
 
+    .prologue
+    .line 1457
+    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.NavigableAsMap;"
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;->sortedMap()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -723,6 +844,11 @@
         }
     .end annotation
 
+    .prologue
+    .line 1573
+    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.NavigableAsMap;"
+    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
+    .local p2, "toKey":Ljava/lang/Object;, "TK;"
     const/4 v0, 0x1
 
     const/4 v1, 0x0
@@ -736,6 +862,8 @@
 
 .method public subMap(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableMap;
     .locals 3
+    .param p2, "fromInclusive"    # Z
+    .param p4, "toInclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;ZTK;Z)",
@@ -746,6 +874,11 @@
         }
     .end annotation
 
+    .prologue
+    .line 1579
+    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.NavigableAsMap;"
+    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
+    .local p3, "toKey":Ljava/lang/Object;, "TK;"
     new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;
 
     iget-object v1, p0, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;->this$0:Lcom/google/common/collect/AbstractMapBasedMultimap;
@@ -765,7 +898,12 @@
 
 .method public bridge synthetic subMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;
     .locals 1
+    .param p1, "x0"    # Ljava/lang/Object;
+    .param p2, "x1"    # Ljava/lang/Object;
 
+    .prologue
+    .line 1457
+    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.NavigableAsMap;"
     invoke-virtual {p0, p1, p2}, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;->subMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -785,6 +923,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 1594
+    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.NavigableAsMap;"
+    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
     const/4 v0, 0x1
 
     invoke-virtual {p0, p1, v0}, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;->tailMap(Ljava/lang/Object;Z)Ljava/util/NavigableMap;
@@ -796,6 +938,7 @@
 
 .method public tailMap(Ljava/lang/Object;Z)Ljava/util/NavigableMap;
     .locals 3
+    .param p2, "inclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;Z)",
@@ -806,6 +949,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 1599
+    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.NavigableAsMap;"
+    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
     new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;
 
     iget-object v1, p0, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;->this$0:Lcom/google/common/collect/AbstractMapBasedMultimap;
@@ -825,7 +972,11 @@
 
 .method public bridge synthetic tailMap(Ljava/lang/Object;)Ljava/util/SortedMap;
     .locals 1
+    .param p1, "x0"    # Ljava/lang/Object;
 
+    .prologue
+    .line 1457
+    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.NavigableAsMap;"
     invoke-virtual {p0, p1}, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;->tailMap(Ljava/lang/Object;)Ljava/util/NavigableMap;
 
     move-result-object v0

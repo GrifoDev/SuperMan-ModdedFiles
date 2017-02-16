@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/service/HeadUpNotificationService;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/service/HeadUpNotificationService;
 
+    .prologue
+    .line 92
     iput-object p1, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +39,11 @@
 # virtual methods
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
     .locals 9
+    .param p1, "v"    # Landroid/view/View;
+    .param p2, "event"    # Landroid/view/MotionEvent;
 
+    .prologue
+    .line 95
     const-string v6, "HeadUpNotificationService"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -59,6 +66,7 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 97
     iget-object v6, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
     # getter for: Lcom/android/incallui/service/HeadUpNotificationService;->mGestureDetector:Landroid/view/GestureDetector;
@@ -68,6 +76,7 @@
 
     if-eqz v6, :cond_0
 
+    .line 98
     iget-object v6, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
     # getter for: Lcom/android/incallui/service/HeadUpNotificationService;->mGestureDetector:Landroid/view/GestureDetector;
@@ -77,6 +86,7 @@
 
     invoke-virtual {v6, p2}, Landroid/view/GestureDetector;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
+    .line 101
     :cond_0
     iget-object v6, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
@@ -90,6 +100,7 @@
 
     if-eqz v6, :cond_2
 
+    .line 102
     :cond_1
     const-string v6, "HeadUpNotificationService"
 
@@ -97,11 +108,14 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 103
     const/4 v6, 0x1
 
+    .line 165
     :goto_0
     return v6
 
+    .line 106
     :cond_2
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
 
@@ -109,11 +123,13 @@
 
     packed-switch v6, :pswitch_data_0
 
+    .line 165
     :goto_1
     const/4 v6, 0x1
 
     goto :goto_0
 
+    .line 108
     :pswitch_0
     iget-object v6, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
@@ -121,12 +137,14 @@
 
     if-eqz v6, :cond_3
 
+    .line 109
     iget-object v6, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
     invoke-virtual {v6}, Lcom/android/incallui/service/HeadUpNotificationService;->launchFullScreen()V
 
     goto :goto_1
 
+    .line 115
     :cond_3
     :pswitch_1
     iget-object v6, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
@@ -135,6 +153,7 @@
 
     goto :goto_1
 
+    .line 119
     :pswitch_2
     iget-object v6, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
@@ -145,6 +164,7 @@
     # setter for: Lcom/android/incallui/service/HeadUpNotificationService;->mStartPointX:F
     invoke-static {v6, v7}, Lcom/android/incallui/service/HeadUpNotificationService;->access$102(Lcom/android/incallui/service/HeadUpNotificationService;F)F
 
+    .line 120
     iget-object v6, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getRawY()F
@@ -154,6 +174,7 @@
     # setter for: Lcom/android/incallui/service/HeadUpNotificationService;->mStartPointY:F
     invoke-static {v6, v7}, Lcom/android/incallui/service/HeadUpNotificationService;->access$202(Lcom/android/incallui/service/HeadUpNotificationService;F)F
 
+    .line 121
     iget-object v6, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
     iget-object v7, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
@@ -168,6 +189,7 @@
     # setter for: Lcom/android/incallui/service/HeadUpNotificationService;->mViewPointX:I
     invoke-static {v6, v7}, Lcom/android/incallui/service/HeadUpNotificationService;->access$302(Lcom/android/incallui/service/HeadUpNotificationService;I)I
 
+    .line 122
     iget-object v6, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
     const/4 v7, 0x1
@@ -176,6 +198,7 @@
 
     goto :goto_1
 
+    .line 126
     :pswitch_3
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getRawX()F
 
@@ -192,6 +215,8 @@
 
     float-to-int v2, v6
 
+    .line 127
+    .local v2, "deltaX":I
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getRawY()F
 
     move-result v6
@@ -207,6 +232,8 @@
 
     float-to-int v3, v6
 
+    .line 128
+    .local v3, "deltaY":I
     iget-object v6, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
     # getter for: Lcom/android/incallui/service/HeadUpNotificationService;->mWindowAttributes:Landroid/view/WindowManager$LayoutParams;
@@ -225,6 +252,7 @@
 
     iput v7, v6, Landroid/view/WindowManager$LayoutParams;->x:I
 
+    .line 129
     iget-object v6, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
     # getter for: Lcom/android/incallui/service/HeadUpNotificationService;->mWindowManager:Landroid/view/WindowManager;
@@ -243,6 +271,7 @@
 
     if-eqz v6, :cond_9
 
+    .line 130
     iget-object v6, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
     invoke-virtual {v6}, Lcom/android/incallui/service/HeadUpNotificationService;->getMaxX()I
@@ -251,6 +280,8 @@
 
     int-to-float v4, v6
 
+    .line 131
+    .local v4, "maxX":F
     iget-object v6, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
     # getter for: Lcom/android/incallui/service/HeadUpNotificationService;->mWindowAttributes:Landroid/view/WindowManager$LayoutParams;
@@ -266,8 +297,12 @@
 
     move-result v0
 
+    .line 132
+    .local v0, "absX":F
     const/high16 v1, 0x3f800000    # 1.0f
 
+    .line 133
+    .local v1, "alpha":F
     int-to-float v6, v3
 
     cmpl-float v6, v0, v6
@@ -284,8 +319,11 @@
 
     if-gez v6, :cond_a
 
+    .line 134
     div-float v5, v0, v4
 
+    .line 135
+    .local v5, "ratio":F
     iget-object v6, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
     iget-boolean v6, v6, Lcom/android/incallui/service/HeadUpNotificationService;->mCanSlideOut:Z
@@ -298,6 +336,7 @@
 
     if-lez v6, :cond_5
 
+    .line 136
     iget-object v7, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
     iget-object v6, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
@@ -324,11 +363,14 @@
 
     goto :goto_2
 
+    .line 139
     :cond_5
     const/high16 v6, 0x3f800000    # 1.0f
 
     sub-float v1, v6, v5
 
+    .line 145
+    .end local v5    # "ratio":F
     :cond_6
     :goto_3
     iget-object v6, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
@@ -340,6 +382,7 @@
 
     invoke-virtual {v6, v1}, Lcom/android/incallui/service/HeadUpNotificationView;->setAlpha(F)V
 
+    .line 146
     invoke-static {v3}, Ljava/lang/Math;->abs(I)I
 
     move-result v6
@@ -350,6 +393,7 @@
 
     if-le v6, v7, :cond_7
 
+    .line 147
     invoke-static {v2}, Ljava/lang/Math;->abs(I)I
 
     move-result v6
@@ -362,6 +406,7 @@
 
     if-le v3, v6, :cond_7
 
+    .line 149
     iget-object v6, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
     # getter for: Lcom/android/incallui/service/HeadUpNotificationService;->mStatusBarManager:Landroid/app/SemStatusBarManager;
@@ -371,6 +416,7 @@
 
     if-eqz v6, :cond_7
 
+    .line 150
     iget-object v6, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
     # getter for: Lcom/android/incallui/service/HeadUpNotificationService;->mStatusBarManager:Landroid/app/SemStatusBarManager;
@@ -380,22 +426,26 @@
 
     invoke-virtual {v6}, Landroid/app/SemStatusBarManager;->expandNotificationsPanel()V
 
+    .line 151
     iget-object v6, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
     iget-boolean v6, v6, Lcom/android/incallui/service/HeadUpNotificationService;->mCanSlideOut:Z
 
     if-eqz v6, :cond_7
 
+    .line 152
     iget-object v6, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
     const/4 v7, 0x0
 
     iput-boolean v7, v6, Lcom/android/incallui/service/HeadUpNotificationService;->mIsPopupShowing:Z
 
+    .line 153
     iget-object v6, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
     invoke-virtual {v6}, Lcom/android/incallui/service/HeadUpNotificationService;->stopSelf()V
 
+    .line 157
     :cond_7
     invoke-static {v2}, Ljava/lang/Math;->abs(I)I
 
@@ -405,6 +455,7 @@
 
     if-gt v6, v7, :cond_8
 
+    .line 158
     invoke-static {v3}, Ljava/lang/Math;->abs(I)I
 
     move-result v6
@@ -413,6 +464,7 @@
 
     if-le v6, v7, :cond_9
 
+    .line 159
     :cond_8
     iget-object v6, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
@@ -420,6 +472,10 @@
 
     iput-boolean v7, v6, Lcom/android/incallui/service/HeadUpNotificationService;->mDoLaunchFullScreen:Z
 
+    .line 162
+    .end local v0    # "absX":F
+    .end local v1    # "alpha":F
+    .end local v4    # "maxX":F
     :cond_9
     iget-object v6, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
@@ -427,6 +483,10 @@
 
     goto/16 :goto_1
 
+    .line 140
+    .restart local v0    # "absX":F
+    .restart local v1    # "alpha":F
+    .restart local v4    # "maxX":F
     :cond_a
     iget-object v6, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
@@ -442,16 +502,20 @@
 
     if-lez v3, :cond_6
 
+    .line 141
     int-to-float v6, v3
 
     const/high16 v7, 0x43800000    # 256.0f
 
     div-float v5, v6, v7
 
+    .line 142
+    .restart local v5    # "ratio":F
     const/high16 v6, 0x3f800000    # 1.0f
 
     sub-float v1, v6, v5
 
+    .line 143
     const/4 v6, 0x0
 
     cmpg-float v6, v1, v6
@@ -462,6 +526,7 @@
 
     goto :goto_3
 
+    .line 106
     nop
 
     :pswitch_data_0

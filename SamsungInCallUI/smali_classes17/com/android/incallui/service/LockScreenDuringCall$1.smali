@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/service/LockScreenDuringCall;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/service/LockScreenDuringCall;
 
+    .prologue
+    .line 171
     iput-object p1, p0, Lcom/android/incallui/service/LockScreenDuringCall$1;->this$0:Lcom/android/incallui/service/LockScreenDuringCall;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +39,10 @@
 # virtual methods
 .method public onDown(Landroid/view/MotionEvent;)Z
     .locals 1
+    .param p1, "e"    # Landroid/view/MotionEvent;
 
+    .prologue
+    .line 197
     const/4 v0, 0x0
 
     return v0
@@ -44,7 +50,13 @@
 
 .method public onFling(Landroid/view/MotionEvent;Landroid/view/MotionEvent;FF)Z
     .locals 1
+    .param p1, "e1"    # Landroid/view/MotionEvent;
+    .param p2, "e2"    # Landroid/view/MotionEvent;
+    .param p3, "velocityX"    # F
+    .param p4, "velocityY"    # F
 
+    .prologue
+    .line 192
     const/4 v0, 0x0
 
     return v0
@@ -52,13 +64,22 @@
 
 .method public onLongPress(Landroid/view/MotionEvent;)V
     .locals 0
+    .param p1, "e"    # Landroid/view/MotionEvent;
 
+    .prologue
+    .line 188
     return-void
 .end method
 
 .method public onScroll(Landroid/view/MotionEvent;Landroid/view/MotionEvent;FF)Z
     .locals 1
+    .param p1, "e1"    # Landroid/view/MotionEvent;
+    .param p2, "e2"    # Landroid/view/MotionEvent;
+    .param p3, "distanceX"    # F
+    .param p4, "distanceY"    # F
 
+    .prologue
+    .line 183
     const/4 v0, 0x0
 
     return v0
@@ -66,13 +87,19 @@
 
 .method public onShowPress(Landroid/view/MotionEvent;)V
     .locals 0
+    .param p1, "e"    # Landroid/view/MotionEvent;
 
+    .prologue
+    .line 179
     return-void
 .end method
 
 .method public onSingleTapUp(Landroid/view/MotionEvent;)Z
     .locals 1
+    .param p1, "e"    # Landroid/view/MotionEvent;
 
+    .prologue
+    .line 174
     const/4 v0, 0x0
 
     return v0

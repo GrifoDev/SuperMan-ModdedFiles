@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
+    .prologue
+    .line 953
     iput-object p1, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle$3;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +40,8 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 955
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle$3;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
     # getter for: Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->mParent:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageWidget;
@@ -48,5 +53,6 @@
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageWidget;->setGrabbedState(I)V
 
+    .line 956
     return-void
 .end method

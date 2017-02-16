@@ -22,8 +22,11 @@
 .method constructor <init>(Lcom/android/incallui/service/MCIDService;)V
     .locals 1
 
+    .prologue
+    .line 46
     iput-object p1, p0, Lcom/android/incallui/service/MCIDService$MainHandler;->this$0:Lcom/android/incallui/service/MCIDService;
 
+    .line 47
     invoke-virtual {p1}, Lcom/android/incallui/service/MCIDService;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v0
@@ -34,6 +37,7 @@
 
     invoke-direct {p0, v0}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
+    .line 48
     return-void
 .end method
 
@@ -41,11 +45,15 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 1
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 51
     iget-object v0, p0, Lcom/android/incallui/service/MCIDService$MainHandler;->this$0:Lcom/android/incallui/service/MCIDService;
 
     # invokes: Lcom/android/incallui/service/MCIDService;->executeMessage(Landroid/os/Message;)V
     invoke-static {v0, p1}, Lcom/android/incallui/service/MCIDService;->access$100(Lcom/android/incallui/service/MCIDService;Landroid/os/Message;)V
 
+    .line 52
     return-void
 .end method

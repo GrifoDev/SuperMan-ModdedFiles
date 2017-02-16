@@ -36,29 +36,40 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
+    .param p1, "context"    # Landroid/content/Context;
 
+    .prologue
+    .line 520
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 518
     invoke-static {}, Ljava/text/Collator;->getInstance()Ljava/text/Collator;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/contacts/common/model/account/AccountType$DisplayLabelComparator;->mCollator:Ljava/text/Collator;
 
+    .line 521
     iput-object p1, p0, Lcom/android/contacts/common/model/account/AccountType$DisplayLabelComparator;->mContext:Landroid/content/Context;
 
+    .line 522
     return-void
 .end method
 
 .method private getDisplayLabel(Lcom/android/contacts/common/model/account/AccountType;)Ljava/lang/String;
     .locals 2
+    .param p1, "type"    # Lcom/android/contacts/common/model/account/AccountType;
 
+    .prologue
+    .line 525
     iget-object v1, p0, Lcom/android/contacts/common/model/account/AccountType$DisplayLabelComparator;->mContext:Landroid/content/Context;
 
     invoke-virtual {p1, v1}, Lcom/android/contacts/common/model/account/AccountType;->getDisplayLabel(Landroid/content/Context;)Ljava/lang/CharSequence;
 
     move-result-object v0
 
+    .line 526
+    .local v0, "label":Ljava/lang/CharSequence;
     if-nez v0, :cond_0
 
     const-string v1, ""
@@ -78,7 +89,11 @@
 # virtual methods
 .method public compare(Lcom/android/contacts/common/model/account/AccountType;Lcom/android/contacts/common/model/account/AccountType;)I
     .locals 3
+    .param p1, "lhs"    # Lcom/android/contacts/common/model/account/AccountType;
+    .param p2, "rhs"    # Lcom/android/contacts/common/model/account/AccountType;
 
+    .prologue
+    .line 531
     iget-object v0, p0, Lcom/android/contacts/common/model/account/AccountType$DisplayLabelComparator;->mCollator:Ljava/text/Collator;
 
     invoke-direct {p0, p1}, Lcom/android/contacts/common/model/account/AccountType$DisplayLabelComparator;->getDisplayLabel(Lcom/android/contacts/common/model/account/AccountType;)Ljava/lang/String;
@@ -99,6 +114,8 @@
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
 
+    .prologue
+    .line 514
     check-cast p1, Lcom/android/contacts/common/model/account/AccountType;
 
     check-cast p2, Lcom/android/contacts/common/model/account/AccountType;

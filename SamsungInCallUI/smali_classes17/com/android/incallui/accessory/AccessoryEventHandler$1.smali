@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/accessory/AccessoryEventHandler;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/accessory/AccessoryEventHandler;
 
+    .prologue
+    .line 90
     iput-object p1, p0, Lcom/android/incallui/accessory/AccessoryEventHandler$1;->this$0:Lcom/android/incallui/accessory/AccessoryEventHandler;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,15 +36,21 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 7
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const/4 v3, 0x1
 
     const/4 v4, 0x0
 
+    .line 93
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 94
+    .local v0, "action":Ljava/lang/String;
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -62,6 +71,7 @@
 
     invoke-static {p0, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 95
     const-string v5, "com.sec.android.sidesync.common.CALLFORWARD_STATE"
 
     invoke-virtual {v5, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
@@ -70,18 +80,24 @@
 
     if-eqz v5, :cond_1
 
+    .line 96
     invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
     move-result-object v1
 
+    .line 97
+    .local v1, "bundle":Landroid/os/Bundle;
     if-eqz v1, :cond_0
 
+    .line 98
     const-string v3, "STATE"
 
     invoke-virtual {v1, v3}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
+    .line 99
+    .local v2, "state":Ljava/lang/String;
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -102,6 +118,7 @@
 
     invoke-static {p0, v3}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 100
     const-string v3, "STARTED"
 
     invoke-virtual {v3, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
@@ -110,6 +127,7 @@
 
     invoke-static {v3}, Lcom/android/incallui/util/AudioUtils;->setCallForwardingState(Z)V
 
+    .line 101
     iget-object v3, p0, Lcom/android/incallui/accessory/AccessoryEventHandler$1;->this$0:Lcom/android/incallui/accessory/AccessoryEventHandler;
 
     const-string v4, "STARTED"
@@ -121,10 +139,14 @@
     # invokes: Lcom/android/incallui/accessory/AccessoryEventHandler;->notifyListenersOfCallForwardStateChanged(Z)V
     invoke-static {v3, v4}, Lcom/android/incallui/accessory/AccessoryEventHandler;->access$000(Lcom/android/incallui/accessory/AccessoryEventHandler;Z)V
 
+    .line 112
+    .end local v1    # "bundle":Landroid/os/Bundle;
+    .end local v2    # "state":Ljava/lang/String;
     :cond_0
     :goto_0
     return-void
 
+    .line 103
     :cond_1
     const-string v5, "android.intent.action.WIFI_DISPLAY"
 
@@ -134,6 +156,7 @@
 
     if-eqz v5, :cond_2
 
+    .line 104
     iget-object v3, p0, Lcom/android/incallui/accessory/AccessoryEventHandler$1;->this$0:Lcom/android/incallui/accessory/AccessoryEventHandler;
 
     const-string v5, "state"
@@ -145,6 +168,7 @@
     # setter for: Lcom/android/incallui/accessory/AccessoryEventHandler;->mWIFIDisplayState:I
     invoke-static {v3, v4}, Lcom/android/incallui/accessory/AccessoryEventHandler;->access$102(Lcom/android/incallui/accessory/AccessoryEventHandler;I)I
 
+    .line 105
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -174,6 +198,7 @@
 
     goto :goto_0
 
+    .line 106
     :cond_2
     const-string v5, "com.samsung.intent.action.HMT_DOCK_STICKY_EVENT"
 
@@ -183,12 +208,15 @@
 
     if-eqz v5, :cond_0
 
+    .line 107
     const-string v5, "com.samsung.intent.extra.HMT_DOCK_STATE"
 
     invoke-virtual {p2, v5, v4}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v2
 
+    .line 108
+    .local v2, "state":I
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -209,6 +237,7 @@
 
     invoke-static {p0, v5, v3}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;Z)V
 
+    .line 109
     iget-object v5, p0, Lcom/android/incallui/accessory/AccessoryEventHandler$1;->this$0:Lcom/android/incallui/accessory/AccessoryEventHandler;
 
     if-ne v2, v3, :cond_3
@@ -217,6 +246,7 @@
     # setter for: Lcom/android/incallui/accessory/AccessoryEventHandler;->mIsHmtDocked:Z
     invoke-static {v5, v3}, Lcom/android/incallui/accessory/AccessoryEventHandler;->access$202(Lcom/android/incallui/accessory/AccessoryEventHandler;Z)Z
 
+    .line 110
     iget-object v3, p0, Lcom/android/incallui/accessory/AccessoryEventHandler$1;->this$0:Lcom/android/incallui/accessory/AccessoryEventHandler;
 
     iget-object v4, p0, Lcom/android/incallui/accessory/AccessoryEventHandler$1;->this$0:Lcom/android/incallui/accessory/AccessoryEventHandler;
@@ -234,5 +264,6 @@
     :cond_3
     move v3, v4
 
+    .line 109
     goto :goto_1
 .end method

@@ -22,6 +22,8 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
+    .line 1568
     invoke-static {}, Lcom/android/incallui/secrcs/RcsTransferConstants$SessionType;->values()[Lcom/android/incallui/secrcs/RcsTransferConstants$SessionType;
 
     move-result-object v0

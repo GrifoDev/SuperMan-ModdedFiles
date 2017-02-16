@@ -18,6 +18,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 98
     invoke-direct {p0}, Landroid/support/v4/app/NotificationCompat$BuilderExtender;-><init>()V
 
     return-void
@@ -25,7 +27,10 @@
 
 .method synthetic constructor <init>(Landroid/support/v7/app/NotificationCompat$1;)V
     .locals 0
+    .param p1, "x0"    # Landroid/support/v7/app/NotificationCompat$1;
 
+    .prologue
+    .line 98
     invoke-direct {p0}, Landroid/support/v7/app/NotificationCompat$IceCreamSandwichExtender;-><init>()V
 
     return-void
@@ -35,10 +40,15 @@
 # virtual methods
 .method public build(Landroid/support/v4/app/NotificationCompat$Builder;Landroid/support/v4/app/NotificationBuilderWithBuilderAccessor;)Landroid/app/Notification;
     .locals 1
+    .param p1, "b"    # Landroid/support/v4/app/NotificationCompat$Builder;
+    .param p2, "builder"    # Landroid/support/v4/app/NotificationBuilderWithBuilderAccessor;
 
+    .prologue
+    .line 103
     # invokes: Landroid/support/v7/app/NotificationCompat;->addMediaStyleToBuilderIcs(Landroid/support/v4/app/NotificationBuilderWithBuilderAccessor;Landroid/support/v4/app/NotificationCompat$Builder;)V
     invoke-static {p2, p1}, Landroid/support/v7/app/NotificationCompat;->access$300(Landroid/support/v4/app/NotificationBuilderWithBuilderAccessor;Landroid/support/v4/app/NotificationCompat$Builder;)V
 
+    .line 104
     invoke-interface {p2}, Landroid/support/v4/app/NotificationBuilderWithBuilderAccessor;->build()Landroid/app/Notification;
 
     move-result-object v0

@@ -7,6 +7,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -14,7 +16,13 @@
 
 .method public static create(Landroid/content/Context;Landroid/net/Uri;Landroid/database/Cursor;Ljava/lang/Object;)Lcom/android/incallui/callerinfocard/item/CallerInfoCardItem;
     .locals 1
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "contactRef"    # Landroid/net/Uri;
+    .param p2, "cursor"    # Landroid/database/Cursor;
+    .param p3, "cookie"    # Ljava/lang/Object;
 
+    .prologue
+    .line 30
     move-object v0, p3
 
     check-cast v0, Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CookieWrapper;
@@ -23,11 +31,13 @@
 
     sparse-switch v0, :sswitch_data_0
 
+    .line 48
     const/4 v0, 0x0
 
     :goto_0
     return-object v0
 
+    .line 32
     :sswitch_0
     new-instance v0, Lcom/android/incallui/callerinfocard/item/ProfileItem;
 
@@ -35,6 +45,7 @@
 
     goto :goto_0
 
+    .line 34
     :sswitch_1
     new-instance v0, Lcom/android/incallui/callerinfocard/item/BirthdayItem;
 
@@ -42,6 +53,7 @@
 
     goto :goto_0
 
+    .line 36
     :sswitch_2
     new-instance v0, Lcom/android/incallui/callerinfocard/item/AnniversaryItem;
 
@@ -49,6 +61,7 @@
 
     goto :goto_0
 
+    .line 38
     :sswitch_3
     new-instance v0, Lcom/android/incallui/callerinfocard/item/LastCallLogItem;
 
@@ -56,6 +69,7 @@
 
     goto :goto_0
 
+    .line 40
     :sswitch_4
     new-instance v0, Lcom/android/incallui/callerinfocard/item/MemoItem;
 
@@ -63,6 +77,7 @@
 
     goto :goto_0
 
+    .line 42
     :sswitch_5
     new-instance v0, Lcom/android/incallui/callerinfocard/item/MessageItem;
 
@@ -70,6 +85,7 @@
 
     goto :goto_0
 
+    .line 44
     :sswitch_6
     new-instance v0, Lcom/android/incallui/callerinfocard/item/EmailItem;
 
@@ -77,6 +93,7 @@
 
     goto :goto_0
 
+    .line 46
     :sswitch_7
     new-instance v0, Lcom/android/incallui/callerinfocard/item/SocialNetworkServiceGooglePlusItem;
 
@@ -84,6 +101,7 @@
 
     goto :goto_0
 
+    .line 30
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_0

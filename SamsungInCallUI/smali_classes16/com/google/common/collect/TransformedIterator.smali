@@ -46,8 +46,13 @@
         }
     .end annotation
 
+    .prologue
+    .line 35
+    .local p0, "this":Lcom/google/common/collect/TransformedIterator;, "Lcom/google/common/collect/TransformedIterator<TF;TT;>;"
+    .local p1, "backingIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<+TF;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 36
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -56,6 +61,7 @@
 
     iput-object v0, p0, Lcom/google/common/collect/TransformedIterator;->backingIterator:Ljava/util/Iterator;
 
+    .line 37
     return-void
 .end method
 
@@ -64,6 +70,9 @@
 .method public final hasNext()Z
     .locals 1
 
+    .prologue
+    .line 43
+    .local p0, "this":Lcom/google/common/collect/TransformedIterator;, "Lcom/google/common/collect/TransformedIterator<TF;TT;>;"
     iget-object v0, p0, Lcom/google/common/collect/TransformedIterator;->backingIterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -81,6 +90,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 48
+    .local p0, "this":Lcom/google/common/collect/TransformedIterator;, "Lcom/google/common/collect/TransformedIterator<TF;TT;>;"
     iget-object v0, p0, Lcom/google/common/collect/TransformedIterator;->backingIterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -97,10 +109,14 @@
 .method public final remove()V
     .locals 1
 
+    .prologue
+    .line 53
+    .local p0, "this":Lcom/google/common/collect/TransformedIterator;, "Lcom/google/common/collect/TransformedIterator<TF;TT;>;"
     iget-object v0, p0, Lcom/google/common/collect/TransformedIterator;->backingIterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
+    .line 54
     return-void
 .end method
 

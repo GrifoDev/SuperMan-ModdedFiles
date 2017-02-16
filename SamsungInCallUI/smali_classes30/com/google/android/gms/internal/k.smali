@@ -945,7 +945,10 @@
 
 .method public isConnectionCallbacksRegistered(Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;)Z
     .locals 2
+    .param p1, "listener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;
 
+    .prologue
+    .local p0, "this":Lcom/google/android/gms/internal/k;, "Lcom/google/android/gms/internal/k<TT;>;"
     invoke-static {p1}, Lcom/google/android/gms/internal/s;->d(Ljava/lang/Object;)Ljava/lang/Object;
 
     iget-object v1, p0, Lcom/google/android/gms/internal/k;->bt:Ljava/util/ArrayList;
@@ -975,7 +978,10 @@
 
 .method public isConnectionFailedListenerRegistered(Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;)Z
     .locals 2
+    .param p1, "listener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;
 
+    .prologue
+    .local p0, "this":Lcom/google/android/gms/internal/k;, "Lcom/google/android/gms/internal/k<TT;>;"
     invoke-static {p1}, Lcom/google/android/gms/internal/s;->d(Ljava/lang/Object;)Ljava/lang/Object;
 
     iget-object v1, p0, Lcom/google/android/gms/internal/k;->bw:Ljava/util/ArrayList;
@@ -1005,7 +1011,10 @@
 
 .method public registerConnectionCallbacks(Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;)V
     .locals 4
+    .param p1, "listener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;
 
+    .prologue
+    .local p0, "this":Lcom/google/android/gms/internal/k;, "Lcom/google/android/gms/internal/k<TT;>;"
     invoke-static {p1}, Lcom/google/android/gms/internal/s;->d(Ljava/lang/Object;)Ljava/lang/Object;
 
     iget-object v1, p0, Lcom/google/android/gms/internal/k;->bt:Ljava/util/ArrayList;
@@ -1108,7 +1117,10 @@
 
 .method public registerConnectionFailedListener(Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;)V
     .locals 4
+    .param p1, "listener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;
 
+    .prologue
+    .local p0, "this":Lcom/google/android/gms/internal/k;, "Lcom/google/android/gms/internal/k<TT;>;"
     invoke-static {p1}, Lcom/google/android/gms/internal/s;->d(Ljava/lang/Object;)Ljava/lang/Object;
 
     iget-object v1, p0, Lcom/google/android/gms/internal/k;->bw:Ljava/util/ArrayList;
@@ -1189,7 +1201,10 @@
 
 .method public unregisterConnectionCallbacks(Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;)V
     .locals 4
+    .param p1, "listener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;
 
+    .prologue
+    .local p0, "this":Lcom/google/android/gms/internal/k;, "Lcom/google/android/gms/internal/k<TT;>;"
     invoke-static {p1}, Lcom/google/android/gms/internal/s;->d(Ljava/lang/Object;)Ljava/lang/Object;
 
     iget-object v1, p0, Lcom/google/android/gms/internal/k;->bt:Ljava/util/ArrayList;
@@ -1287,7 +1302,10 @@
 
 .method public unregisterConnectionFailedListener(Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;)V
     .locals 4
+    .param p1, "listener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;
 
+    .prologue
+    .local p0, "this":Lcom/google/android/gms/internal/k;, "Lcom/google/android/gms/internal/k<TT;>;"
     invoke-static {p1}, Lcom/google/android/gms/internal/s;->d(Ljava/lang/Object;)Ljava/lang/Object;
 
     iget-object v1, p0, Lcom/google/android/gms/internal/k;->bw:Ljava/util/ArrayList;

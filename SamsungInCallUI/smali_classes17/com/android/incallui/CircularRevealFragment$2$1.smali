@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/CircularRevealFragment$2;)V
     .locals 0
+    .param p1, "this$1"    # Lcom/android/incallui/CircularRevealFragment$2;
 
+    .prologue
+    .line 134
     iput-object p1, p0, Lcom/android/incallui/CircularRevealFragment$2$1;->this$1:Lcom/android/incallui/CircularRevealFragment$2;
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
@@ -33,7 +36,10 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 137
     iget-object v0, p0, Lcom/android/incallui/CircularRevealFragment$2$1;->this$1:Lcom/android/incallui/CircularRevealFragment$2;
 
     iget-object v0, v0, Lcom/android/incallui/CircularRevealFragment$2;->val$view:Landroid/view/View;
@@ -42,6 +48,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setClipToOutline(Z)V
 
+    .line 138
     iget-object v0, p0, Lcom/android/incallui/CircularRevealFragment$2$1;->this$1:Lcom/android/incallui/CircularRevealFragment$2;
 
     iget-object v0, v0, Lcom/android/incallui/CircularRevealFragment$2;->this$0:Lcom/android/incallui/CircularRevealFragment;
@@ -53,6 +60,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 139
     iget-object v0, p0, Lcom/android/incallui/CircularRevealFragment$2$1;->this$1:Lcom/android/incallui/CircularRevealFragment$2;
 
     iget-object v0, v0, Lcom/android/incallui/CircularRevealFragment$2;->this$0:Lcom/android/incallui/CircularRevealFragment;
@@ -72,6 +80,7 @@
 
     invoke-interface {v0, v1}, Lcom/android/incallui/CircularRevealFragment$OnCircularRevealCompleteListener;->onCircularRevealComplete(Landroid/app/FragmentManager;)V
 
+    .line 141
     :cond_0
     return-void
 .end method

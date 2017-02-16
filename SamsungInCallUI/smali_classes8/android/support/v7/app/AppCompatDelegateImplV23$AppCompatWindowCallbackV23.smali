@@ -21,11 +21,17 @@
 # direct methods
 .method constructor <init>(Landroid/support/v7/app/AppCompatDelegateImplV23;Landroid/view/Window$Callback;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/v7/app/AppCompatDelegateImplV23;
+    .param p2, "callback"    # Landroid/view/Window$Callback;
 
+    .prologue
+    .line 54
     iput-object p1, p0, Landroid/support/v7/app/AppCompatDelegateImplV23$AppCompatWindowCallbackV23;->this$0:Landroid/support/v7/app/AppCompatDelegateImplV23;
 
+    .line 55
     invoke-direct {p0, p1, p2}, Landroid/support/v7/app/AppCompatDelegateImplV14$AppCompatWindowCallbackV14;-><init>(Landroid/support/v7/app/AppCompatDelegateImplV14;Landroid/view/Window$Callback;)V
 
+    .line 56
     return-void
 .end method
 
@@ -33,7 +39,10 @@
 # virtual methods
 .method public onWindowStartingActionMode(Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode;
     .locals 1
+    .param p1, "callback"    # Landroid/view/ActionMode$Callback;
 
+    .prologue
+    .line 74
     const/4 v0, 0x0
 
     return-object v0
@@ -41,7 +50,11 @@
 
 .method public onWindowStartingActionMode(Landroid/view/ActionMode$Callback;I)Landroid/view/ActionMode;
     .locals 1
+    .param p1, "callback"    # Landroid/view/ActionMode$Callback;
+    .param p2, "type"    # I
 
+    .prologue
+    .line 60
     iget-object v0, p0, Landroid/support/v7/app/AppCompatDelegateImplV23$AppCompatWindowCallbackV23;->this$0:Landroid/support/v7/app/AppCompatDelegateImplV23;
 
     invoke-virtual {v0}, Landroid/support/v7/app/AppCompatDelegateImplV23;->isHandleNativeActionModesEnabled()Z
@@ -50,8 +63,10 @@
 
     if-eqz v0, :cond_0
 
+    .line 61
     packed-switch p2, :pswitch_data_0
 
+    .line 68
     :cond_0
     invoke-super {p0, p1, p2}, Landroid/support/v7/app/AppCompatDelegateImplV14$AppCompatWindowCallbackV14;->onWindowStartingActionMode(Landroid/view/ActionMode$Callback;I)Landroid/view/ActionMode;
 
@@ -60,6 +75,7 @@
     :goto_0
     return-object v0
 
+    .line 64
     :pswitch_0
     invoke-virtual {p0, p1}, Landroid/support/v7/app/AppCompatDelegateImplV23$AppCompatWindowCallbackV23;->startAsSupportActionMode(Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode;
 
@@ -67,6 +83,7 @@
 
     goto :goto_0
 
+    .line 61
     nop
 
     :pswitch_data_0

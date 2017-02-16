@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/service/MCIDService;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/service/MCIDService;
 
+    .prologue
+    .line 38
     iput-object p1, p0, Lcom/android/incallui/service/MCIDService$1;->this$0:Lcom/android/incallui/service/MCIDService;
 
     invoke-direct {p0}, Lcom/android/phone/IMCIDService$Stub;-><init>()V
@@ -33,7 +36,12 @@
 # virtual methods
 .method public updatePhotoringState(IILjava/lang/String;)V
     .locals 3
+    .param p1, "state"    # I
+    .param p2, "block"    # I
+    .param p3, "filepath"    # Ljava/lang/String;
 
+    .prologue
+    .line 40
     iget-object v0, p0, Lcom/android/incallui/service/MCIDService$1;->this$0:Lcom/android/incallui/service/MCIDService;
 
     # getter for: Lcom/android/incallui/service/MCIDService;->mHandler:Landroid/os/Handler;
@@ -56,5 +64,6 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
+    .line 41
     return-void
 .end method

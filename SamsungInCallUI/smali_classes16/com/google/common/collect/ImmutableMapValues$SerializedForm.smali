@@ -57,10 +57,16 @@
         }
     .end annotation
 
+    .prologue
+    .line 100
+    .local p0, "this":Lcom/google/common/collect/ImmutableMapValues$SerializedForm;, "Lcom/google/common/collect/ImmutableMapValues$SerializedForm<TV;>;"
+    .local p1, "map":Lcom/google/common/collect/ImmutableMap;, "Lcom/google/common/collect/ImmutableMap<*TV;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 101
     iput-object p1, p0, Lcom/google/common/collect/ImmutableMapValues$SerializedForm;->map:Lcom/google/common/collect/ImmutableMap;
 
+    .line 102
     return-void
 .end method
 
@@ -69,6 +75,9 @@
 .method readResolve()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 105
+    .local p0, "this":Lcom/google/common/collect/ImmutableMapValues$SerializedForm;, "Lcom/google/common/collect/ImmutableMapValues$SerializedForm<TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/ImmutableMapValues$SerializedForm;->map:Lcom/google/common/collect/ImmutableMap;
 
     invoke-virtual {v0}, Lcom/google/common/collect/ImmutableMap;->values()Lcom/google/common/collect/ImmutableCollection;

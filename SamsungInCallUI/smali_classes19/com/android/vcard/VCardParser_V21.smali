@@ -57,6 +57,7 @@
 .method static constructor <clinit>()V
     .locals 9
 
+    .prologue
     const/4 v8, 0x4
 
     const/4 v7, 0x3
@@ -67,6 +68,7 @@
 
     const/4 v4, 0x0
 
+    .line 47
     new-instance v0, Ljava/util/HashSet;
 
     const/16 v1, 0x16
@@ -207,6 +209,7 @@
 
     sput-object v0, Lcom/android/vcard/VCardParser_V21;->sKnownPropertyNameSet:Ljava/util/Set;
 
+    .line 56
     new-instance v0, Ljava/util/HashSet;
 
     const/16 v1, 0x32
@@ -515,6 +518,7 @@
 
     sput-object v0, Lcom/android/vcard/VCardParser_V21;->sKnownTypeSet:Ljava/util/Set;
 
+    .line 70
     new-instance v0, Ljava/util/HashSet;
 
     new-array v1, v8, [Ljava/lang/String;
@@ -547,6 +551,7 @@
 
     sput-object v0, Lcom/android/vcard/VCardParser_V21;->sKnownValueSet:Ljava/util/Set;
 
+    .line 83
     new-instance v0, Ljava/util/HashSet;
 
     const/4 v1, 0x6
@@ -601,42 +606,57 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 94
     invoke-direct {p0}, Lcom/android/vcard/VCardParser;-><init>()V
 
+    .line 95
     new-instance v0, Lcom/android/vcard/VCardParserImpl_V21;
 
     invoke-direct {v0}, Lcom/android/vcard/VCardParserImpl_V21;-><init>()V
 
     iput-object v0, p0, Lcom/android/vcard/VCardParser_V21;->mVCardParserImpl:Lcom/android/vcard/VCardParserImpl_V21;
 
+    .line 96
     return-void
 .end method
 
 .method public constructor <init>(I)V
     .locals 1
+    .param p1, "vcardType"    # I
 
+    .prologue
+    .line 98
     invoke-direct {p0}, Lcom/android/vcard/VCardParser;-><init>()V
 
+    .line 99
     new-instance v0, Lcom/android/vcard/VCardParserImpl_V21;
 
     invoke-direct {v0, p1}, Lcom/android/vcard/VCardParserImpl_V21;-><init>(I)V
 
     iput-object v0, p0, Lcom/android/vcard/VCardParser_V21;->mVCardParserImpl:Lcom/android/vcard/VCardParserImpl_V21;
 
+    .line 100
     return-void
 .end method
 
 .method public constructor <init>(ILjava/lang/String;)V
     .locals 1
+    .param p1, "vcardType"    # I
+    .param p2, "charset"    # Ljava/lang/String;
 
+    .prologue
+    .line 103
     invoke-direct {p0}, Lcom/android/vcard/VCardParser;-><init>()V
 
+    .line 104
     new-instance v0, Lcom/android/vcard/VCardParserImpl_V21;
 
     invoke-direct {v0, p1, p2}, Lcom/android/vcard/VCardParserImpl_V21;-><init>(ILjava/lang/String;)V
 
     iput-object v0, p0, Lcom/android/vcard/VCardParser_V21;->mVCardParserImpl:Lcom/android/vcard/VCardParserImpl_V21;
 
+    .line 105
     return-void
 .end method
 
@@ -644,26 +664,34 @@
 # virtual methods
 .method public addInterpreter(Lcom/android/vcard/VCardInterpreter;)V
     .locals 1
+    .param p1, "interpreter"    # Lcom/android/vcard/VCardInterpreter;
 
+    .prologue
+    .line 109
     iget-object v0, p0, Lcom/android/vcard/VCardParser_V21;->mVCardParserImpl:Lcom/android/vcard/VCardParserImpl_V21;
 
     invoke-virtual {v0, p1}, Lcom/android/vcard/VCardParserImpl_V21;->addInterpreter(Lcom/android/vcard/VCardInterpreter;)V
 
+    .line 110
     return-void
 .end method
 
 .method public cancel()V
     .locals 1
 
+    .prologue
+    .line 124
     iget-object v0, p0, Lcom/android/vcard/VCardParser_V21;->mVCardParserImpl:Lcom/android/vcard/VCardParserImpl_V21;
 
     invoke-virtual {v0}, Lcom/android/vcard/VCardParserImpl_V21;->cancel()V
 
+    .line 125
     return-void
 .end method
 
 .method public parse(Ljava/io/InputStream;)V
     .locals 1
+    .param p1, "is"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -671,15 +699,19 @@
         }
     .end annotation
 
+    .prologue
+    .line 114
     iget-object v0, p0, Lcom/android/vcard/VCardParser_V21;->mVCardParserImpl:Lcom/android/vcard/VCardParserImpl_V21;
 
     invoke-virtual {v0, p1}, Lcom/android/vcard/VCardParserImpl_V21;->parse(Ljava/io/InputStream;)V
 
+    .line 115
     return-void
 .end method
 
 .method public parseOne(Ljava/io/InputStream;)V
     .locals 1
+    .param p1, "is"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -687,9 +719,12 @@
         }
     .end annotation
 
+    .prologue
+    .line 119
     iget-object v0, p0, Lcom/android/vcard/VCardParser_V21;->mVCardParserImpl:Lcom/android/vcard/VCardParserImpl_V21;
 
     invoke-virtual {v0, p1}, Lcom/android/vcard/VCardParserImpl_V21;->parseOne(Ljava/io/InputStream;)V
 
+    .line 120
     return-void
 .end method

@@ -25,8 +25,11 @@
 .method constructor <init>(Lcom/cmdm/control/download/a;)V
     .locals 0
 
+    .prologue
+    .line 1
     iput-object p1, p0, Lcom/cmdm/control/download/a$1;->br:Lcom/cmdm/control/download/a;
 
+    .line 90
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -36,11 +39,16 @@
 # virtual methods
 .method public a(Landroid/os/Message;)Z
     .locals 5
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 94
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Lcom/cmdm/control/download/a$d;
 
+    .line 95
+    .local v0, "pm":Lcom/cmdm/control/download/a$d;
     iget-object v1, p0, Lcom/cmdm/control/download/a$1;->br:Lcom/cmdm/control/download/a;
 
     iget-object v2, v0, Lcom/cmdm/control/download/a$d;->by:Ljava/lang/Boolean;
@@ -55,6 +63,7 @@
 
     invoke-virtual {v1, v2, v3, v4}, Lcom/cmdm/control/download/a;->a(ZLjava/lang/String;Landroid/graphics/Bitmap;)V
 
+    .line 96
     const/4 v1, 0x0
 
     return v1

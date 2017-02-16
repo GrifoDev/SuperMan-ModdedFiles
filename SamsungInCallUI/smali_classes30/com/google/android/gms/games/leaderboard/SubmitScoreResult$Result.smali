@@ -24,7 +24,11 @@
 # direct methods
 .method public constructor <init>(JLjava/lang/String;Z)V
     .locals 1
+    .param p1, "rawScore"    # J
+    .param p3, "formattedScore"    # Ljava/lang/String;
+    .param p4, "newBest"    # Z
 
+    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-wide p1, p0, Lcom/google/android/gms/games/leaderboard/SubmitScoreResult$Result;->rawScore:J

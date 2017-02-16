@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 159
     invoke-direct {p0}, Lcom/google/common/cache/CacheLoader;-><init>()V
 
     return-void
@@ -58,6 +60,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 162
+    .local p1, "concreteClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     # invokes: Lcom/google/common/eventbus/SubscriberRegistry;->getAnnotatedMethodsNotCached(Ljava/lang/Class;)Lcom/google/common/collect/ImmutableList;
     invoke-static {p1}, Lcom/google/common/eventbus/SubscriberRegistry;->access$000(Ljava/lang/Class;)Lcom/google/common/collect/ImmutableList;
 
@@ -68,14 +73,18 @@
 
 .method public bridge synthetic load(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
+    .param p1, "x0"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
+    .prologue
+    .line 159
     check-cast p1, Ljava/lang/Class;
 
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/google/common/eventbus/SubscriberRegistry$1;->load(Ljava/lang/Class;)Lcom/google/common/collect/ImmutableList;
 
     move-result-object v0

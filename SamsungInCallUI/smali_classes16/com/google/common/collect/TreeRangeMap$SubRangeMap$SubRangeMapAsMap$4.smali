@@ -31,6 +31,10 @@
 .method constructor <init>(Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap;Ljava/util/Map;)V
     .locals 0
 
+    .prologue
+    .line 628
+    .local p0, "this":Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap$4;, "Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap.4;"
+    .local p2, "x0":Ljava/util/Map;, "Ljava/util/Map<Lcom/google/common/collect/Range<TK;>;TV;>;"
     iput-object p1, p0, Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap$4;->this$2:Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap;
 
     invoke-direct {p0, p2}, Lcom/google/common/collect/Maps$Values;-><init>(Ljava/util/Map;)V
@@ -50,6 +54,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 631
+    .local p0, "this":Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap$4;, "Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap.4;"
+    .local p1, "c":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     iget-object v0, p0, Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap$4;->this$2:Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap;
 
     invoke-static {p1}, Lcom/google/common/base/Predicates;->in(Ljava/util/Collection;)Lcom/google/common/base/Predicate;
@@ -82,6 +90,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 636
+    .local p0, "this":Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap$4;, "Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap.4;"
+    .local p1, "c":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     iget-object v0, p0, Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap$4;->this$2:Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap;
 
     invoke-static {p1}, Lcom/google/common/base/Predicates;->in(Ljava/util/Collection;)Lcom/google/common/base/Predicate;

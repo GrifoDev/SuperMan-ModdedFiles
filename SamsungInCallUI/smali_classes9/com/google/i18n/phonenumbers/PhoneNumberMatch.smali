@@ -14,11 +14,18 @@
 # direct methods
 .method constructor <init>(ILjava/lang/String;Lcom/google/i18n/phonenumbers/Phonenumber$PhoneNumber;)V
     .locals 2
+    .param p1, "start"    # I
+    .param p2, "rawString"    # Ljava/lang/String;
+    .param p3, "number"    # Lcom/google/i18n/phonenumbers/Phonenumber$PhoneNumber;
 
+    .prologue
+    .line 69
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 70
     if-gez p1, :cond_0
 
+    .line 71
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Start index must be >= 0."
@@ -27,11 +34,13 @@
 
     throw v0
 
+    .line 73
     :cond_0
     if-eqz p2, :cond_1
 
     if-nez p3, :cond_2
 
+    .line 74
     :cond_1
     new-instance v0, Ljava/lang/NullPointerException;
 
@@ -39,13 +48,17 @@
 
     throw v0
 
+    .line 76
     :cond_2
     iput p1, p0, Lcom/google/i18n/phonenumbers/PhoneNumberMatch;->start:I
 
+    .line 77
     iput-object p2, p0, Lcom/google/i18n/phonenumbers/PhoneNumberMatch;->rawString:Ljava/lang/String;
 
+    .line 78
     iput-object p3, p0, Lcom/google/i18n/phonenumbers/PhoneNumberMatch;->number:Lcom/google/i18n/phonenumbers/Phonenumber$PhoneNumber;
 
+    .line 79
     return-void
 .end method
 
@@ -54,6 +67,8 @@
 .method public end()I
     .locals 2
 
+    .prologue
+    .line 93
     iget v0, p0, Lcom/google/i18n/phonenumbers/PhoneNumberMatch;->start:I
 
     iget-object v1, p0, Lcom/google/i18n/phonenumbers/PhoneNumberMatch;->rawString:Ljava/lang/String;
@@ -69,17 +84,22 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
+    .param p1, "obj"    # Ljava/lang/Object;
 
+    .prologue
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
+    .line 108
     if-ne p0, p1, :cond_1
 
+    .line 115
     :cond_0
     :goto_0
     return v1
 
+    .line 111
     :cond_1
     instance-of v3, p1, Lcom/google/i18n/phonenumbers/PhoneNumberMatch;
 
@@ -87,13 +107,17 @@
 
     move v1, v2
 
+    .line 112
     goto :goto_0
 
     :cond_2
     move-object v0, p1
 
+    .line 114
     check-cast v0, Lcom/google/i18n/phonenumbers/PhoneNumberMatch;
 
+    .line 115
+    .local v0, "other":Lcom/google/i18n/phonenumbers/PhoneNumberMatch;
     iget-object v3, p0, Lcom/google/i18n/phonenumbers/PhoneNumberMatch;->rawString:Ljava/lang/String;
 
     iget-object v4, v0, Lcom/google/i18n/phonenumbers/PhoneNumberMatch;->rawString:Ljava/lang/String;
@@ -114,6 +138,7 @@
 
     iget-object v4, v0, Lcom/google/i18n/phonenumbers/PhoneNumberMatch;->number:Lcom/google/i18n/phonenumbers/Phonenumber$PhoneNumber;
 
+    .line 116
     invoke-virtual {v3, v4}, Lcom/google/i18n/phonenumbers/Phonenumber$PhoneNumber;->equals(Ljava/lang/Object;)Z
 
     move-result v3
@@ -129,6 +154,8 @@
 .method public hashCode()I
     .locals 3
 
+    .prologue
+    .line 103
     const/4 v0, 0x3
 
     new-array v0, v0, [Ljava/lang/Object;
@@ -165,6 +192,8 @@
 .method public number()Lcom/google/i18n/phonenumbers/Phonenumber$PhoneNumber;
     .locals 1
 
+    .prologue
+    .line 83
     iget-object v0, p0, Lcom/google/i18n/phonenumbers/PhoneNumberMatch;->number:Lcom/google/i18n/phonenumbers/Phonenumber$PhoneNumber;
 
     return-object v0
@@ -173,6 +202,8 @@
 .method public rawString()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 98
     iget-object v0, p0, Lcom/google/i18n/phonenumbers/PhoneNumberMatch;->rawString:Ljava/lang/String;
 
     return-object v0
@@ -181,6 +212,8 @@
 .method public start()I
     .locals 1
 
+    .prologue
+    .line 88
     iget v0, p0, Lcom/google/i18n/phonenumbers/PhoneNumberMatch;->start:I
 
     return v0
@@ -189,6 +222,8 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 121
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

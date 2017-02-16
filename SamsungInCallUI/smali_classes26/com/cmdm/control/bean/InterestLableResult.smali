@@ -21,13 +21,17 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 14
     invoke-direct {p0}, Lcom/cmdm/control/bean/BaseBean;-><init>()V
 
+    .line 17
     new-instance v0, Lcom/cmdm/control/bean/LableList;
 
     invoke-direct {v0}, Lcom/cmdm/control/bean/LableList;-><init>()V
 
     iput-object v0, p0, Lcom/cmdm/control/bean/InterestLableResult;->lableList:Lcom/cmdm/control/bean/LableList;
 
+    .line 14
     return-void
 .end method

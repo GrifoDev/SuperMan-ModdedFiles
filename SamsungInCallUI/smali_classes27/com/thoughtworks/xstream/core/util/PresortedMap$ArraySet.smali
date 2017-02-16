@@ -21,6 +21,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 22
     invoke-direct {p0}, Ljava/util/ArrayList;-><init>()V
 
     return-void
@@ -28,7 +30,10 @@
 
 .method synthetic constructor <init>(Lcom/thoughtworks/xstream/core/util/PresortedMap$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/thoughtworks/xstream/core/util/PresortedMap$1;
 
+    .prologue
+    .line 22
     invoke-direct {p0}, Lcom/thoughtworks/xstream/core/util/PresortedMap$ArraySet;-><init>()V
 
     return-void

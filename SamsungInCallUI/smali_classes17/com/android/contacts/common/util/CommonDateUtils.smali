@@ -19,6 +19,8 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
+    .line 28
     new-instance v0, Ljava/text/SimpleDateFormat;
 
     const-string v1, "--MM-dd"
@@ -29,6 +31,7 @@
 
     sput-object v0, Lcom/android/contacts/common/util/CommonDateUtils;->NO_YEAR_DATE_FORMAT:Ljava/text/SimpleDateFormat;
 
+    .line 30
     new-instance v0, Ljava/text/SimpleDateFormat;
 
     const-string v1, "yyyy-MM-dd"
@@ -39,6 +42,7 @@
 
     sput-object v0, Lcom/android/contacts/common/util/CommonDateUtils;->FULL_DATE_FORMAT:Ljava/text/SimpleDateFormat;
 
+    .line 32
     new-instance v0, Ljava/text/SimpleDateFormat;
 
     const-string v1, "yyyy-MM-dd\'T\'HH:mm:ss.SSS\'Z\'"
@@ -49,6 +53,7 @@
 
     sput-object v0, Lcom/android/contacts/common/util/CommonDateUtils;->DATE_AND_TIME_FORMAT:Ljava/text/SimpleDateFormat;
 
+    .line 34
     new-instance v0, Ljava/text/SimpleDateFormat;
 
     const-string v1, "--MM-dd\'T\'HH:mm:ss.SSS\'Z\'"
@@ -65,6 +70,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

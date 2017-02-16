@@ -21,6 +21,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 261
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -31,6 +33,8 @@
 .method public run()V
     .locals 6
 
+    .prologue
+    .line 263
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v2
@@ -39,8 +43,11 @@
 
     add-long v0, v2, v4
 
+    .line 264
+    .local v0, "tsLastRetry":J
     # invokes: Lcom/whitepages/nameid/NameIDHelper;->tryReconnectUntil(J)V
     invoke-static {v0, v1}, Lcom/whitepages/nameid/NameIDHelper;->access$400(J)V
 
+    .line 265
     return-void
 .end method

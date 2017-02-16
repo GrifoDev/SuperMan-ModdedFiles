@@ -36,6 +36,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 514
+    .local p0, "this":Lcom/google/common/collect/StandardTable$Column$EntrySetIterator$1EntryImpl;, "Lcom/google/common/collect/StandardTable$Column$EntrySetIterator.1EntryImpl;"
     iput-object p1, p0, Lcom/google/common/collect/StandardTable$Column$EntrySetIterator$1EntryImpl;->this$2:Lcom/google/common/collect/StandardTable$Column$EntrySetIterator;
 
     iput-object p2, p0, Lcom/google/common/collect/StandardTable$Column$EntrySetIterator$1EntryImpl;->val$entry:Ljava/util/Map$Entry;
@@ -55,6 +58,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 517
+    .local p0, "this":Lcom/google/common/collect/StandardTable$Column$EntrySetIterator$1EntryImpl;, "Lcom/google/common/collect/StandardTable$Column$EntrySetIterator.1EntryImpl;"
     iget-object v0, p0, Lcom/google/common/collect/StandardTable$Column$EntrySetIterator$1EntryImpl;->val$entry:Ljava/util/Map$Entry;
 
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -72,6 +78,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 522
+    .local p0, "this":Lcom/google/common/collect/StandardTable$Column$EntrySetIterator$1EntryImpl;, "Lcom/google/common/collect/StandardTable$Column$EntrySetIterator.1EntryImpl;"
     iget-object v0, p0, Lcom/google/common/collect/StandardTable$Column$EntrySetIterator$1EntryImpl;->val$entry:Ljava/util/Map$Entry;
 
     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
@@ -101,6 +110,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 527
+    .local p0, "this":Lcom/google/common/collect/StandardTable$Column$EntrySetIterator$1EntryImpl;, "Lcom/google/common/collect/StandardTable$Column$EntrySetIterator.1EntryImpl;"
+    .local p1, "value":Ljava/lang/Object;, "TV;"
     iget-object v0, p0, Lcom/google/common/collect/StandardTable$Column$EntrySetIterator$1EntryImpl;->val$entry:Ljava/util/Map$Entry;
 
     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;

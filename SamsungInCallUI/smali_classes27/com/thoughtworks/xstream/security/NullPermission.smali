@@ -14,6 +14,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 21
     new-instance v0, Lcom/thoughtworks/xstream/security/NullPermission;
 
     invoke-direct {v0}, Lcom/thoughtworks/xstream/security/NullPermission;-><init>()V
@@ -26,6 +28,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 17
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -35,7 +39,10 @@
 # virtual methods
 .method public allows(Ljava/lang/Class;)Z
     .locals 1
+    .param p1, "type"    # Ljava/lang/Class;
 
+    .prologue
+    .line 24
     if-eqz p1, :cond_0
 
     const-class v0, Lcom/thoughtworks/xstream/mapper/Mapper$Null;

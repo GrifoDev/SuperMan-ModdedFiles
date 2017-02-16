@@ -35,7 +35,7 @@
 # direct methods
 .method constructor <init>(Ljava/util/List;Ljava/lang/Object;)V
     .locals 0
-    .param p2    # Ljava/lang/Object;
+    .param p2, "mutex"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -49,7 +49,12 @@
         }
     .end annotation
 
+    .prologue
+    .line 409
+    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedRandomAccessList;, "Lcom/google/common/collect/Synchronized$SynchronizedRandomAccessList<TE;>;"
+    .local p1, "list":Ljava/util/List;, "Ljava/util/List<TE;>;"
     invoke-direct {p0, p1, p2}, Lcom/google/common/collect/Synchronized$SynchronizedList;-><init>(Ljava/util/List;Ljava/lang/Object;)V
 
+    .line 410
     return-void
 .end method

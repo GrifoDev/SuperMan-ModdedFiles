@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/ListPopupWindow;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/v7/widget/ListPopupWindow;
 
+    .prologue
+    .line 1128
     iput-object p1, p0, Landroid/support/v7/widget/ListPopupWindow$2;->this$0:Landroid/support/v7/widget/ListPopupWindow;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,12 +40,16 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 1131
     iget-object v1, p0, Landroid/support/v7/widget/ListPopupWindow$2;->this$0:Landroid/support/v7/widget/ListPopupWindow;
 
     invoke-virtual {v1}, Landroid/support/v7/widget/ListPopupWindow;->getAnchorView()Landroid/view/View;
 
     move-result-object v0
 
+    .line 1132
+    .local v0, "view":Landroid/view/View;
     if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Landroid/view/View;->getWindowToken()Landroid/os/IBinder;
@@ -51,10 +58,12 @@
 
     if-eqz v1, :cond_0
 
+    .line 1133
     iget-object v1, p0, Landroid/support/v7/widget/ListPopupWindow$2;->this$0:Landroid/support/v7/widget/ListPopupWindow;
 
     invoke-virtual {v1}, Landroid/support/v7/widget/ListPopupWindow;->show()V
 
+    .line 1135
     :cond_0
     return-void
 .end method

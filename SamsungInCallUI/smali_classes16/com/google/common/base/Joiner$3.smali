@@ -35,6 +35,8 @@
 .method constructor <init>([Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 0
 
+    .prologue
+    .line 454
     iput-object p1, p0, Lcom/google/common/base/Joiner$3;->val$rest:[Ljava/lang/Object;
 
     iput-object p2, p0, Lcom/google/common/base/Joiner$3;->val$first:Ljava/lang/Object;
@@ -50,9 +52,13 @@
 # virtual methods
 .method public get(I)Ljava/lang/Object;
     .locals 2
+    .param p1, "index"    # I
 
+    .prologue
+    .line 462
     packed-switch p1, :pswitch_data_0
 
+    .line 468
     iget-object v0, p0, Lcom/google/common/base/Joiner$3;->val$rest:[Ljava/lang/Object;
 
     add-int/lit8 v1, p1, -0x2
@@ -62,16 +68,19 @@
     :goto_0
     return-object v0
 
+    .line 464
     :pswitch_0
     iget-object v0, p0, Lcom/google/common/base/Joiner$3;->val$first:Ljava/lang/Object;
 
     goto :goto_0
 
+    .line 466
     :pswitch_1
     iget-object v0, p0, Lcom/google/common/base/Joiner$3;->val$second:Ljava/lang/Object;
 
     goto :goto_0
 
+    .line 462
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -82,6 +91,8 @@
 .method public size()I
     .locals 1
 
+    .prologue
+    .line 457
     iget-object v0, p0, Lcom/google/common/base/Joiner$3;->val$rest:[Ljava/lang/Object;
 
     array-length v0, v0

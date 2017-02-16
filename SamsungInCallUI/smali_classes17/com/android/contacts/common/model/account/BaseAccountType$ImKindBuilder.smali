@@ -18,6 +18,8 @@
 .method private constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 1229
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Lcom/android/contacts/common/model/account/BaseAccountType$KindBuilder;-><init>(Lcom/android/contacts/common/model/account/BaseAccountType$1;)V
@@ -27,7 +29,10 @@
 
 .method synthetic constructor <init>(Lcom/android/contacts/common/model/account/BaseAccountType$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/android/contacts/common/model/account/BaseAccountType$1;
 
+    .prologue
+    .line 1229
     invoke-direct {p0}, Lcom/android/contacts/common/model/account/BaseAccountType$ImKindBuilder;-><init>()V
 
     return-void
@@ -37,9 +42,13 @@
 # virtual methods
 .method protected buildEditTypeForTypeTag(Landroid/util/AttributeSet;Ljava/lang/String;)Lcom/android/contacts/common/model/account/AccountType$EditType;
     .locals 2
+    .param p1, "attrs"    # Landroid/util/AttributeSet;
+    .param p2, "type"    # Ljava/lang/String;
 
+    .prologue
     const/4 v1, 0x1
 
+    .line 1259
     const-string v0, "aim"
 
     invoke-virtual {v0, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -54,9 +63,11 @@
 
     move-result-object v0
 
+    .line 1271
     :goto_0
     return-object v0
 
+    .line 1260
     :cond_0
     const-string v0, "msn"
 
@@ -72,6 +83,7 @@
 
     goto :goto_0
 
+    .line 1261
     :cond_1
     const-string v0, "yahoo"
 
@@ -89,6 +101,7 @@
 
     goto :goto_0
 
+    .line 1262
     :cond_2
     const-string v0, "skype"
 
@@ -106,6 +119,7 @@
 
     goto :goto_0
 
+    .line 1263
     :cond_3
     const-string v0, "qq"
 
@@ -123,6 +137,7 @@
 
     goto :goto_0
 
+    .line 1264
     :cond_4
     const-string v0, "google_talk"
 
@@ -140,6 +155,7 @@
 
     goto :goto_0
 
+    .line 1265
     :cond_5
     const-string v0, "icq"
 
@@ -157,6 +173,7 @@
 
     goto :goto_0
 
+    .line 1266
     :cond_6
     const-string v0, "jabber"
 
@@ -174,6 +191,7 @@
 
     goto :goto_0
 
+    .line 1267
     :cond_7
     const-string v0, "custom"
 
@@ -183,6 +201,7 @@
 
     if-eqz v0, :cond_8
 
+    .line 1268
     const/4 v0, -0x1
 
     invoke-static {v0}, Lcom/android/contacts/common/model/account/BaseAccountType;->buildImType(I)Lcom/android/contacts/common/model/account/AccountType$EditType;
@@ -195,12 +214,14 @@
 
     const-string v1, "data6"
 
+    .line 1269
     invoke-virtual {v0, v1}, Lcom/android/contacts/common/model/account/AccountType$EditType;->setCustomColumn(Ljava/lang/String;)Lcom/android/contacts/common/model/account/AccountType$EditType;
 
     move-result-object v0
 
     goto :goto_0
 
+    .line 1271
     :cond_8
     const/4 v0, 0x0
 
@@ -210,6 +231,8 @@
 .method public getTagName()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 1233
     const-string v0, "im"
 
     return-object v0
@@ -217,6 +240,9 @@
 
 .method public parseDataKind(Landroid/content/Context;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;)Ljava/util/List;
     .locals 12
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
+    .param p3, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -239,10 +265,12 @@
         }
     .end annotation
 
+    .prologue
     const v7, 0x7f090122
 
     const/4 v4, 0x0
 
+    .line 1245
     const-string v5, "vnd.android.cursor.item/im"
 
     const-string v6, "data5"
@@ -271,6 +299,8 @@
 
     move-result-object v11
 
+    .line 1249
+    .local v11, "kind":Lcom/android/contacts/common/model/dataitem/DataKind;
     iget-object v0, v11, Lcom/android/contacts/common/model/dataitem/DataKind;->fieldList:Ljava/util/List;
 
     new-instance v1, Lcom/android/contacts/common/model/account/AccountType$EditField;
@@ -283,12 +313,14 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
+    .line 1251
     new-instance v0, Landroid/content/ContentValues;
 
     invoke-direct {v0}, Landroid/content/ContentValues;-><init>()V
 
     iput-object v0, v11, Lcom/android/contacts/common/model/dataitem/DataKind;->defaultValues:Landroid/content/ContentValues;
 
+    .line 1252
     iget-object v0, v11, Lcom/android/contacts/common/model/dataitem/DataKind;->defaultValues:Landroid/content/ContentValues;
 
     const-string v1, "data2"
@@ -301,6 +333,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
+    .line 1254
     const/4 v0, 0x1
 
     new-array v0, v0, [Lcom/android/contacts/common/model/dataitem/DataKind;

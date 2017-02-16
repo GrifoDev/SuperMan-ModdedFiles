@@ -49,6 +49,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 53
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -59,6 +61,8 @@
 .method public toString()Ljava/lang/String;
     .locals 4
 
+    .prologue
+    .line 68
     invoke-static {p0}, Lcom/google/common/base/Objects;->toStringHelper(Ljava/lang/Object;)Lcom/google/common/base/Objects$ToStringHelper;
 
     move-result-object v0
@@ -67,6 +71,7 @@
 
     iget v2, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CookieWrapper;->event:I
 
+    .line 69
     invoke-virtual {v0, v1, v2}, Lcom/google/common/base/Objects$ToStringHelper;->add(Ljava/lang/String;I)Lcom/google/common/base/Objects$ToStringHelper;
 
     move-result-object v0
@@ -75,6 +80,7 @@
 
     iget v2, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CookieWrapper;->appType:I
 
+    .line 70
     invoke-virtual {v0, v1, v2}, Lcom/google/common/base/Objects$ToStringHelper;->add(Ljava/lang/String;I)Lcom/google/common/base/Objects$ToStringHelper;
 
     move-result-object v0
@@ -83,6 +89,7 @@
 
     iget-wide v2, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CookieWrapper;->id:J
 
+    .line 71
     invoke-virtual {v0, v1, v2, v3}, Lcom/google/common/base/Objects$ToStringHelper;->add(Ljava/lang/String;J)Lcom/google/common/base/Objects$ToStringHelper;
 
     move-result-object v0
@@ -91,10 +98,12 @@
 
     iget-boolean v2, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CookieWrapper;->updated:Z
 
+    .line 72
     invoke-virtual {v0, v1, v2}, Lcom/google/common/base/Objects$ToStringHelper;->add(Ljava/lang/String;Z)Lcom/google/common/base/Objects$ToStringHelper;
 
     move-result-object v0
 
+    .line 73
     invoke-virtual {v0}, Lcom/google/common/base/Objects$ToStringHelper;->toString()Ljava/lang/String;
 
     move-result-object v0

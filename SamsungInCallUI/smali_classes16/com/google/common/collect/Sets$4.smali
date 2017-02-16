@@ -31,6 +31,8 @@
 .method constructor <init>(Ljava/util/Set;Ljava/util/Set;)V
     .locals 1
 
+    .prologue
+    .line 734
     iput-object p1, p0, Lcom/google/common/collect/Sets$4;->val$set1:Ljava/util/Set;
 
     iput-object p2, p0, Lcom/google/common/collect/Sets$4;->val$set2:Ljava/util/Set;
@@ -46,7 +48,10 @@
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
     .locals 2
+    .param p1, "element"    # Ljava/lang/Object;
 
+    .prologue
+    .line 771
     iget-object v0, p0, Lcom/google/common/collect/Sets$4;->val$set1:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
@@ -67,6 +72,8 @@
 .method public isEmpty()Z
     .locals 2
 
+    .prologue
+    .line 766
     iget-object v0, p0, Lcom/google/common/collect/Sets$4;->val$set1:Ljava/util/Set;
 
     iget-object v1, p0, Lcom/google/common/collect/Sets$4;->val$set2:Ljava/util/Set;
@@ -88,18 +95,24 @@
         }
     .end annotation
 
+    .prologue
+    .line 737
     iget-object v2, p0, Lcom/google/common/collect/Sets$4;->val$set1:Ljava/util/Set;
 
     invoke-interface {v2}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
+    .line 738
+    .local v0, "itr1":Ljava/util/Iterator;, "Ljava/util/Iterator<+TE;>;"
     iget-object v2, p0, Lcom/google/common/collect/Sets$4;->val$set2:Ljava/util/Set;
 
     invoke-interface {v2}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
+    .line 739
+    .local v1, "itr2":Ljava/util/Iterator;, "Ljava/util/Iterator<+TE;>;"
     new-instance v2, Lcom/google/common/collect/Sets$4$1;
 
     invoke-direct {v2, p0, v0, v1}, Lcom/google/common/collect/Sets$4$1;-><init>(Lcom/google/common/collect/Sets$4;Ljava/util/Iterator;Ljava/util/Iterator;)V
@@ -110,6 +123,8 @@
 .method public size()I
     .locals 1
 
+    .prologue
+    .line 761
     invoke-virtual {p0}, Lcom/google/common/collect/Sets$4;->iterator()Ljava/util/Iterator;
 
     move-result-object v0

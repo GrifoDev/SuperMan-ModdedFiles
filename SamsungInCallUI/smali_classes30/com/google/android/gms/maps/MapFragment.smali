@@ -44,7 +44,9 @@
 
 .method public static newInstance(Lcom/google/android/gms/maps/GoogleMapOptions;)Lcom/google/android/gms/maps/MapFragment;
     .locals 3
+    .param p0, "options"    # Lcom/google/android/gms/maps/GoogleMapOptions;
 
+    .prologue
     new-instance v0, Lcom/google/android/gms/maps/MapFragment;
 
     invoke-direct {v0}, Lcom/google/android/gms/maps/MapFragment;-><init>()V
@@ -169,7 +171,9 @@
 
 .method public onActivityCreated(Landroid/os/Bundle;)V
     .locals 1
+    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
+    .prologue
     if-eqz p1, :cond_0
 
     const-class v0, Lcom/google/android/gms/maps/MapFragment;
@@ -188,7 +192,9 @@
 
 .method public onAttach(Landroid/app/Activity;)V
     .locals 1
+    .param p1, "activity"    # Landroid/app/Activity;
 
+    .prologue
     invoke-super {p0, p1}, Landroid/app/Fragment;->onAttach(Landroid/app/Activity;)V
 
     iget-object v0, p0, Lcom/google/android/gms/maps/MapFragment;->gy:Lcom/google/android/gms/maps/MapFragment$b;
@@ -200,7 +206,9 @@
 
 .method public onCreate(Landroid/os/Bundle;)V
     .locals 1
+    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
+    .prologue
     invoke-super {p0, p1}, Landroid/app/Fragment;->onCreate(Landroid/os/Bundle;)V
 
     iget-object v0, p0, Lcom/google/android/gms/maps/MapFragment;->gy:Lcom/google/android/gms/maps/MapFragment$b;
@@ -212,7 +220,11 @@
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 1
+    .param p1, "inflater"    # Landroid/view/LayoutInflater;
+    .param p2, "container"    # Landroid/view/ViewGroup;
+    .param p3, "savedInstanceState"    # Landroid/os/Bundle;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/maps/MapFragment;->gy:Lcom/google/android/gms/maps/MapFragment$b;
 
     invoke-virtual {v0, p1, p2, p3}, Lcom/google/android/gms/maps/MapFragment$b;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
@@ -248,7 +260,11 @@
 
 .method public onInflate(Landroid/app/Activity;Landroid/util/AttributeSet;Landroid/os/Bundle;)V
     .locals 3
+    .param p1, "activity"    # Landroid/app/Activity;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .param p3, "savedInstanceState"    # Landroid/os/Bundle;
 
+    .prologue
     invoke-super {p0, p1, p2, p3}, Landroid/app/Fragment;->onInflate(Landroid/app/Activity;Landroid/util/AttributeSet;Landroid/os/Bundle;)V
 
     iget-object v0, p0, Lcom/google/android/gms/maps/MapFragment;->gy:Lcom/google/android/gms/maps/MapFragment$b;
@@ -312,7 +328,9 @@
 
 .method public onSaveInstanceState(Landroid/os/Bundle;)V
     .locals 1
+    .param p1, "outState"    # Landroid/os/Bundle;
 
+    .prologue
     if-eqz p1, :cond_0
 
     const-class v0, Lcom/google/android/gms/maps/MapFragment;
@@ -335,7 +353,9 @@
 
 .method public setArguments(Landroid/os/Bundle;)V
     .locals 0
+    .param p1, "args"    # Landroid/os/Bundle;
 
+    .prologue
     invoke-super {p0, p1}, Landroid/app/Fragment;->setArguments(Landroid/os/Bundle;)V
 
     return-void

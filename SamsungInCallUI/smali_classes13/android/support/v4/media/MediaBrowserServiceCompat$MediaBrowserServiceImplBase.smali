@@ -26,7 +26,10 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/media/MediaBrowserServiceCompat;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/v4/media/MediaBrowserServiceCompat;
 
+    .prologue
+    .line 135
     iput-object p1, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplBase;->this$0:Landroid/support/v4/media/MediaBrowserServiceCompat;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,6 +42,8 @@
 .method public getBrowserRootHints()Landroid/os/Bundle;
     .locals 2
 
+    .prologue
+    .line 194
     iget-object v0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplBase;->this$0:Landroid/support/v4/media/MediaBrowserServiceCompat;
 
     # getter for: Landroid/support/v4/media/MediaBrowserServiceCompat;->mCurConnection:Landroid/support/v4/media/MediaBrowserServiceCompat$ConnectionRecord;
@@ -48,6 +53,7 @@
 
     if-nez v0, :cond_0
 
+    .line 195
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "This should be called inside of onLoadChildren or onLoadItem methods"
@@ -56,6 +62,7 @@
 
     throw v0
 
+    .line 198
     :cond_0
     iget-object v0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplBase;->this$0:Landroid/support/v4/media/MediaBrowserServiceCompat;
 
@@ -92,11 +99,14 @@
 
 .method public notifyChildrenChanged(Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 2
-    .param p1    # Ljava/lang/String;
+    .param p1, "parentId"    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
+    .param p2, "options"    # Landroid/os/Bundle;
 
+    .prologue
+    .line 172
     iget-object v0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplBase;->this$0:Landroid/support/v4/media/MediaBrowserServiceCompat;
 
     # getter for: Landroid/support/v4/media/MediaBrowserServiceCompat;->mHandler:Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceHandler;
@@ -110,12 +120,16 @@
 
     invoke-virtual {v0, v1}, Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceHandler;->post(Ljava/lang/Runnable;)Z
 
+    .line 190
     return-void
 .end method
 
 .method public onBind(Landroid/content/Intent;)Landroid/os/IBinder;
     .locals 2
+    .param p1, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 145
     const-string v0, "android.media.browse.MediaBrowserService"
 
     invoke-virtual {p1}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -128,12 +142,14 @@
 
     if-eqz v0, :cond_0
 
+    .line 146
     iget-object v0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplBase;->mMessenger:Landroid/os/Messenger;
 
     invoke-virtual {v0}, Landroid/os/Messenger;->getBinder()Landroid/os/IBinder;
 
     move-result-object v0
 
+    .line 148
     :goto_0
     return-object v0
 
@@ -146,6 +162,8 @@
 .method public onCreate()V
     .locals 2
 
+    .prologue
+    .line 140
     new-instance v0, Landroid/os/Messenger;
 
     iget-object v1, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplBase;->this$0:Landroid/support/v4/media/MediaBrowserServiceCompat;
@@ -159,12 +177,16 @@
 
     iput-object v0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplBase;->mMessenger:Landroid/os/Messenger;
 
+    .line 141
     return-void
 .end method
 
 .method public setSessionToken(Landroid/support/v4/media/session/MediaSessionCompat$Token;)V
     .locals 2
+    .param p1, "token"    # Landroid/support/v4/media/session/MediaSessionCompat$Token;
 
+    .prologue
+    .line 153
     iget-object v0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplBase;->this$0:Landroid/support/v4/media/MediaBrowserServiceCompat;
 
     # getter for: Landroid/support/v4/media/MediaBrowserServiceCompat;->mHandler:Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceHandler;
@@ -178,5 +200,6 @@
 
     invoke-virtual {v0, v1}, Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceHandler;->post(Ljava/lang/Runnable;)Z
 
+    .line 168
     return-void
 .end method

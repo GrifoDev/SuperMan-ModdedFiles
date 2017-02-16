@@ -51,10 +51,16 @@
         }
     .end annotation
 
+    .prologue
+    .line 680
+    .local p0, "this":Lcom/google/common/collect/HashBiMap$InverseSerializedForm;, "Lcom/google/common/collect/HashBiMap$InverseSerializedForm<TK;TV;>;"
+    .local p1, "bimap":Lcom/google/common/collect/HashBiMap;, "Lcom/google/common/collect/HashBiMap<TK;TV;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 681
     iput-object p1, p0, Lcom/google/common/collect/HashBiMap$InverseSerializedForm;->bimap:Lcom/google/common/collect/HashBiMap;
 
+    .line 682
     return-void
 .end method
 
@@ -63,6 +69,9 @@
 .method readResolve()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 685
+    .local p0, "this":Lcom/google/common/collect/HashBiMap$InverseSerializedForm;, "Lcom/google/common/collect/HashBiMap$InverseSerializedForm<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/HashBiMap$InverseSerializedForm;->bimap:Lcom/google/common/collect/HashBiMap;
 
     invoke-virtual {v0}, Lcom/google/common/collect/HashBiMap;->inverse()Lcom/google/common/collect/BiMap;

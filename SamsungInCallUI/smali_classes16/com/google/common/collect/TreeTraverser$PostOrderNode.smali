@@ -53,14 +53,21 @@
         }
     .end annotation
 
+    .prologue
+    .line 138
+    .local p0, "this":Lcom/google/common/collect/TreeTraverser$PostOrderNode;, "Lcom/google/common/collect/TreeTraverser$PostOrderNode<TT;>;"
+    .local p1, "root":Ljava/lang/Object;, "TT;"
+    .local p2, "childIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 139
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/google/common/collect/TreeTraverser$PostOrderNode;->root:Ljava/lang/Object;
 
+    .line 140
     invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -69,5 +76,6 @@
 
     iput-object v0, p0, Lcom/google/common/collect/TreeTraverser$PostOrderNode;->childIterator:Ljava/util/Iterator;
 
+    .line 141
     return-void
 .end method

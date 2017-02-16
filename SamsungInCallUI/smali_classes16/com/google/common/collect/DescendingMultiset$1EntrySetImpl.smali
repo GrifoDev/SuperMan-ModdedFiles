@@ -29,6 +29,9 @@
 .method constructor <init>(Lcom/google/common/collect/DescendingMultiset;)V
     .locals 0
 
+    .prologue
+    .line 119
+    .local p0, "this":Lcom/google/common/collect/DescendingMultiset$1EntrySetImpl;, "Lcom/google/common/collect/DescendingMultiset.1EntrySetImpl;"
     iput-object p1, p0, Lcom/google/common/collect/DescendingMultiset$1EntrySetImpl;->this$0:Lcom/google/common/collect/DescendingMultiset;
 
     invoke-direct {p0}, Lcom/google/common/collect/Multisets$EntrySet;-><init>()V
@@ -50,6 +53,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 127
+    .local p0, "this":Lcom/google/common/collect/DescendingMultiset$1EntrySetImpl;, "Lcom/google/common/collect/DescendingMultiset.1EntrySetImpl;"
     iget-object v0, p0, Lcom/google/common/collect/DescendingMultiset$1EntrySetImpl;->this$0:Lcom/google/common/collect/DescendingMultiset;
 
     invoke-virtual {v0}, Lcom/google/common/collect/DescendingMultiset;->entryIterator()Ljava/util/Iterator;
@@ -69,6 +75,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 122
+    .local p0, "this":Lcom/google/common/collect/DescendingMultiset$1EntrySetImpl;, "Lcom/google/common/collect/DescendingMultiset.1EntrySetImpl;"
     iget-object v0, p0, Lcom/google/common/collect/DescendingMultiset$1EntrySetImpl;->this$0:Lcom/google/common/collect/DescendingMultiset;
 
     return-object v0
@@ -77,6 +86,9 @@
 .method public size()I
     .locals 1
 
+    .prologue
+    .line 132
+    .local p0, "this":Lcom/google/common/collect/DescendingMultiset$1EntrySetImpl;, "Lcom/google/common/collect/DescendingMultiset.1EntrySetImpl;"
     iget-object v0, p0, Lcom/google/common/collect/DescendingMultiset$1EntrySetImpl;->this$0:Lcom/google/common/collect/DescendingMultiset;
 
     invoke-virtual {v0}, Lcom/google/common/collect/DescendingMultiset;->forwardMultiset()Lcom/google/common/collect/SortedMultiset;

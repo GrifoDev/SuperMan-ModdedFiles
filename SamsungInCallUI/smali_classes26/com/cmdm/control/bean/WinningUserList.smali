@@ -30,6 +30,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 17
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -49,6 +51,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 26
     iget-object v0, p0, Lcom/cmdm/control/bean/WinningUserList;->winningUserList:Ljava/util/List;
 
     return-object v0
@@ -66,7 +70,11 @@
         }
     .end annotation
 
+    .prologue
+    .line 34
+    .local p1, "winningUserList":Ljava/util/List;, "Ljava/util/List<Lcom/cmdm/control/bean/WinningUser;>;"
     iput-object p1, p0, Lcom/cmdm/control/bean/WinningUserList;->winningUserList:Ljava/util/List;
 
+    .line 35
     return-void
 .end method

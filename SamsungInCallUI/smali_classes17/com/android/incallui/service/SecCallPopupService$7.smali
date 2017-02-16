@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/service/SecCallPopupService;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/service/SecCallPopupService;
 
+    .prologue
+    .line 1212
     iput-object p1, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -33,11 +36,14 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 6
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
     const/4 v5, 0x4
 
     const/4 v4, 0x1
 
+    .line 1214
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -63,15 +69,18 @@
     # invokes: Lcom/android/incallui/service/SecCallPopupService;->log(Ljava/lang/String;Z)V
     invoke-static {v1, v2, v4}, Lcom/android/incallui/service/SecCallPopupService;->access$300(Lcom/android/incallui/service/SecCallPopupService;Ljava/lang/String;Z)V
 
+    .line 1215
     iget v1, p1, Landroid/os/Message;->what:I
 
     sparse-switch v1, :sswitch_data_0
 
+    .line 1259
     :cond_0
     :goto_0
     :sswitch_0
     return-void
 
+    .line 1217
     :sswitch_1
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
@@ -79,6 +88,7 @@
 
     goto :goto_0
 
+    .line 1220
     :sswitch_2
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
@@ -86,6 +96,7 @@
 
     goto :goto_0
 
+    .line 1223
     :sswitch_3
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
@@ -93,6 +104,7 @@
 
     goto :goto_0
 
+    .line 1231
     :sswitch_4
     invoke-static {}, Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->isGuidancePlaying()Z
 
@@ -100,10 +112,12 @@
 
     if-eqz v1, :cond_0
 
+    .line 1232
     invoke-static {}, Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->playGuidance()V
 
     goto :goto_0
 
+    .line 1236
     :sswitch_5
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
@@ -114,6 +128,7 @@
 
     if-eqz v1, :cond_1
 
+    .line 1237
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
     # getter for: Lcom/android/incallui/service/SecCallPopupService;->mSecCallPopupContainer:Lcom/android/incallui/service/SecCallPopupContainer;
@@ -127,6 +142,7 @@
 
     invoke-virtual {v1}, Lcom/android/incallui/service/ui/SmartCallPopupUI;->updateSmartCallInfo()V
 
+    .line 1238
     :cond_1
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
@@ -137,6 +153,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 1239
     const-string v1, "support_smart_call"
 
     invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
@@ -147,6 +164,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
+    .line 1240
     # getter for: Lcom/android/incallui/service/SecCallPopupService;->mPrimaryCall:Lcom/android/incallui/Call;
     invoke-static {v1}, Lcom/android/incallui/service/SecCallPopupService;->access$100(Lcom/android/incallui/service/SecCallPopupService;)Lcom/android/incallui/Call;
 
@@ -160,6 +178,7 @@
 
     if-lt v1, v2, :cond_0
 
+    .line 1241
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
     # getter for: Lcom/android/incallui/service/SecCallPopupService;->mPrimaryCall:Lcom/android/incallui/Call;
@@ -188,6 +207,7 @@
 
     if-ne v1, v2, :cond_0
 
+    .line 1242
     :cond_2
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
@@ -198,6 +218,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 1243
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
     # getter for: Lcom/android/incallui/service/SecCallPopupService;->mSecCallPopupContainer:Lcom/android/incallui/service/SecCallPopupContainer;
@@ -214,6 +235,7 @@
 
     invoke-virtual {v1, v2}, Lcom/android/incallui/service/SecCallPopupContainer;->updateSmartCallRejectMsg(Lcom/android/incallui/Call;)V
 
+    .line 1244
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
     # getter for: Lcom/android/incallui/service/SecCallPopupService;->mSecCallPopupContainer:Lcom/android/incallui/service/SecCallPopupContainer;
@@ -232,6 +254,7 @@
 
     goto/16 :goto_0
 
+    .line 1251
     :sswitch_6
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
@@ -243,6 +266,8 @@
 
     move-result-object v0
 
+    .line 1252
+    .local v0, "call":Lcom/android/incallui/Call;
     if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Lcom/android/incallui/Call;->getState()I
@@ -251,12 +276,14 @@
 
     if-ne v1, v5, :cond_0
 
+    .line 1253
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
     invoke-virtual {v1}, Lcom/android/incallui/service/SecCallPopupService;->animateForShow()V
 
     goto/16 :goto_0
 
+    .line 1215
     nop
 
     :sswitch_data_0

@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/service/HeadUpNotificationService;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/service/HeadUpNotificationService;
 
+    .prologue
+    .line 467
     iput-object p1, p0, Lcom/android/incallui/service/HeadUpNotificationService$6;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
@@ -33,16 +36,21 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 470
     iget-object v0, p0, Lcom/android/incallui/service/HeadUpNotificationService$6;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
     iput-boolean v1, v0, Lcom/android/incallui/service/HeadUpNotificationService;->mIsHideAnimationRunning:Z
 
+    .line 471
     iget-object v0, p0, Lcom/android/incallui/service/HeadUpNotificationService$6;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
     iput-boolean v1, v0, Lcom/android/incallui/service/HeadUpNotificationService;->mIsPopupShowing:Z
 
+    .line 472
     return-void
 .end method

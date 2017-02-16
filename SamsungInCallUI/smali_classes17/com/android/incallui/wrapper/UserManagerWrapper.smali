@@ -15,10 +15,13 @@
 .method static constructor <clinit>()V
     .locals 5
 
+    .prologue
+    .line 21
     const/4 v0, 0x0
 
     sput-object v0, Lcom/android/incallui/wrapper/UserManagerWrapper;->mInstance:Landroid/os/UserManager;
 
+    .line 24
     const-class v0, Landroid/os/UserManager;
 
     const-string v1, "getUsers"
@@ -39,22 +42,31 @@
 
     sput-object v0, Lcom/android/incallui/wrapper/UserManagerWrapper;->sMethodGetUsers:Ljava/lang/reflect/Method;
 
+    .line 25
     return-void
 .end method
 
 .method private constructor <init>(Landroid/os/UserManager;)V
     .locals 0
+    .param p1, "instance"    # Landroid/os/UserManager;
 
+    .prologue
+    .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 32
     sput-object p1, Lcom/android/incallui/wrapper/UserManagerWrapper;->mInstance:Landroid/os/UserManager;
 
+    .line 33
     return-void
 .end method
 
 .method public static getSystemService(Landroid/content/Context;)Lcom/android/incallui/wrapper/UserManagerWrapper;
     .locals 2
+    .param p0, "context"    # Landroid/content/Context;
 
+    .prologue
+    .line 28
     new-instance v1, Lcom/android/incallui/wrapper/UserManagerWrapper;
 
     const-string v0, "user"
@@ -74,6 +86,7 @@
 # virtual methods
 .method public getUsers(Z)Ljava/util/List;
     .locals 11
+    .param p1, "value"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(Z)",
@@ -84,6 +97,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 36
     sget-object v6, Lcom/android/incallui/wrapper/UserManagerWrapper;->sMethodGetUsers:Ljava/lang/reflect/Method;
 
     if-eqz v6, :cond_0
@@ -92,15 +107,20 @@
 
     if-nez v6, :cond_2
 
+    .line 37
     :cond_0
     const/4 v5, 0x0
 
+    .line 54
     :cond_1
     return-object v5
 
+    .line 39
     :cond_2
     const/4 v4, 0x0
 
+    .line 42
+    .local v4, "users":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Object;>;"
     :try_start_0
     sget-object v6, Lcom/android/incallui/wrapper/UserManagerWrapper;->sMethodGetUsers:Ljava/lang/reflect/Method;
 
@@ -131,11 +151,14 @@
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 47
     :goto_0
     new-instance v5, Ljava/util/ArrayList;
 
     invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
 
+    .line 48
+    .local v5, "wrapperUsers":Ljava/util/List;, "Ljava/util/List<Lcom/android/incallui/wrapper/UserInfoWrapper;>;"
     if-eqz v4, :cond_1
 
     invoke-interface {v4}, Ljava/util/List;->isEmpty()Z
@@ -144,6 +167,7 @@
 
     if-nez v6, :cond_1
 
+    .line 49
     invoke-interface {v4}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v6
@@ -159,17 +183,27 @@
 
     move-result-object v3
 
+    .line 50
+    .local v3, "user":Ljava/lang/Object;
     new-instance v2, Lcom/android/incallui/wrapper/UserInfoWrapper;
 
     invoke-direct {v2, v3}, Lcom/android/incallui/wrapper/UserInfoWrapper;-><init>(Ljava/lang/Object;)V
 
+    .line 51
+    .local v2, "list":Lcom/android/incallui/wrapper/UserInfoWrapper;
     invoke-interface {v5, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_1
 
+    .line 43
+    .end local v2    # "list":Lcom/android/incallui/wrapper/UserInfoWrapper;
+    .end local v3    # "user":Ljava/lang/Object;
+    .end local v5    # "wrapperUsers":Ljava/util/List;, "Ljava/util/List<Lcom/android/incallui/wrapper/UserInfoWrapper;>;"
     :catch_0
     move-exception v1
 
+    .line 44
+    .local v1, "e":Ljava/lang/ReflectiveOperationException;
     :goto_2
     const-string v6, "UserManagerWrapper"
 
@@ -199,6 +233,8 @@
 
     goto :goto_0
 
+    .line 43
+    .end local v1    # "e":Ljava/lang/ReflectiveOperationException;
     :catch_1
     move-exception v1
 

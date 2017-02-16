@@ -57,8 +57,14 @@
         }
     .end annotation
 
+    .prologue
+    .line 3157
+    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryBiMap;, "Lcom/google/common/collect/Maps$FilteredEntryBiMap<TK;TV;>;"
+    .local p1, "delegate":Lcom/google/common/collect/BiMap;, "Lcom/google/common/collect/BiMap<TK;TV;>;"
+    .local p2, "predicate":Lcom/google/common/base/Predicate;, "Lcom/google/common/base/Predicate<-Ljava/util/Map$Entry<TK;TV;>;>;"
     invoke-direct {p0, p1, p2}, Lcom/google/common/collect/Maps$FilteredEntryMap;-><init>(Ljava/util/Map;Lcom/google/common/base/Predicate;)V
 
+    .line 3158
     new-instance v0, Lcom/google/common/collect/Maps$FilteredEntryBiMap;
 
     invoke-interface {p1}, Lcom/google/common/collect/BiMap;->inverse()Lcom/google/common/collect/BiMap;
@@ -73,6 +79,7 @@
 
     iput-object v0, p0, Lcom/google/common/collect/Maps$FilteredEntryBiMap;->inverse:Lcom/google/common/collect/BiMap;
 
+    .line 3160
     return-void
 .end method
 
@@ -92,10 +99,18 @@
         }
     .end annotation
 
+    .prologue
+    .line 3164
+    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryBiMap;, "Lcom/google/common/collect/Maps$FilteredEntryBiMap<TK;TV;>;"
+    .local p1, "delegate":Lcom/google/common/collect/BiMap;, "Lcom/google/common/collect/BiMap<TK;TV;>;"
+    .local p2, "predicate":Lcom/google/common/base/Predicate;, "Lcom/google/common/base/Predicate<-Ljava/util/Map$Entry<TK;TV;>;>;"
+    .local p3, "inverse":Lcom/google/common/collect/BiMap;, "Lcom/google/common/collect/BiMap<TV;TK;>;"
     invoke-direct {p0, p1, p2}, Lcom/google/common/collect/Maps$FilteredEntryMap;-><init>(Ljava/util/Map;Lcom/google/common/base/Predicate;)V
 
+    .line 3165
     iput-object p3, p0, Lcom/google/common/collect/Maps$FilteredEntryBiMap;->inverse:Lcom/google/common/collect/BiMap;
 
+    .line 3166
     return-void
 .end method
 
@@ -119,6 +134,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 3148
+    .local p0, "forwardPredicate":Lcom/google/common/base/Predicate;, "Lcom/google/common/base/Predicate<-Ljava/util/Map$Entry<TK;TV;>;>;"
     new-instance v0, Lcom/google/common/collect/Maps$FilteredEntryBiMap$1;
 
     invoke-direct {v0, p0}, Lcom/google/common/collect/Maps$FilteredEntryBiMap$1;-><init>(Lcom/google/common/base/Predicate;)V
@@ -144,12 +162,18 @@
         }
     .end annotation
 
+    .prologue
+    .line 3174
+    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryBiMap;, "Lcom/google/common/collect/Maps$FilteredEntryBiMap<TK;TV;>;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
+    .local p2, "value":Ljava/lang/Object;, "TV;"
     invoke-virtual {p0, p1, p2}, Lcom/google/common/collect/Maps$FilteredEntryBiMap;->apply(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
 
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
+    .line 3175
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$FilteredEntryBiMap;->unfiltered()Lcom/google/common/collect/BiMap;
 
     move-result-object v0
@@ -171,6 +195,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 3180
+    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryBiMap;, "Lcom/google/common/collect/Maps$FilteredEntryBiMap<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$FilteredEntryBiMap;->inverse:Lcom/google/common/collect/BiMap;
 
     return-object v0
@@ -186,6 +213,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 3169
+    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryBiMap;, "Lcom/google/common/collect/Maps$FilteredEntryBiMap<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$FilteredEntryBiMap;->unfiltered:Ljava/util/Map;
 
     check-cast v0, Lcom/google/common/collect/BiMap;
@@ -196,6 +226,9 @@
 .method public bridge synthetic values()Ljava/util/Collection;
     .locals 1
 
+    .prologue
+    .line 3142
+    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryBiMap;, "Lcom/google/common/collect/Maps$FilteredEntryBiMap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$FilteredEntryBiMap;->values()Ljava/util/Set;
 
     move-result-object v0
@@ -213,6 +246,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 3185
+    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryBiMap;, "Lcom/google/common/collect/Maps$FilteredEntryBiMap<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$FilteredEntryBiMap;->inverse:Lcom/google/common/collect/BiMap;
 
     invoke-interface {v0}, Lcom/google/common/collect/BiMap;->keySet()Ljava/util/Set;

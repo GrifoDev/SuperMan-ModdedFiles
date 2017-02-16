@@ -45,6 +45,7 @@
 .method static constructor <clinit>()V
     .locals 8
 
+    .prologue
     const/4 v7, 0x4
 
     const/4 v6, 0x3
@@ -55,38 +56,47 @@
 
     const/4 v3, 0x0
 
+    .line 63
     new-instance v0, Lcom/samsung/android/support/reminder/ReminderAgent$OptionStyle;
 
     const-string v1, "OPTION_STYLE_FULL"
 
+    .line 75
     invoke-direct {v0, v1, v3, v3}, Lcom/samsung/android/support/reminder/ReminderAgent$OptionStyle;-><init>(Ljava/lang/String;II)V
 
     sput-object v0, Lcom/samsung/android/support/reminder/ReminderAgent$OptionStyle;->OPTION_STYLE_FULL:Lcom/samsung/android/support/reminder/ReminderAgent$OptionStyle;
 
+    .line 78
     new-instance v0, Lcom/samsung/android/support/reminder/ReminderAgent$OptionStyle;
 
     const-string v1, "OPTION_STYLE_TIME"
 
+    .line 89
     invoke-direct {v0, v1, v4, v4}, Lcom/samsung/android/support/reminder/ReminderAgent$OptionStyle;-><init>(Ljava/lang/String;II)V
 
     sput-object v0, Lcom/samsung/android/support/reminder/ReminderAgent$OptionStyle;->OPTION_STYLE_TIME:Lcom/samsung/android/support/reminder/ReminderAgent$OptionStyle;
 
+    .line 92
     new-instance v0, Lcom/samsung/android/support/reminder/ReminderAgent$OptionStyle;
 
     const-string v1, "OPTION_STYLE_PRESET_TIME"
 
+    .line 102
     invoke-direct {v0, v1, v5, v5}, Lcom/samsung/android/support/reminder/ReminderAgent$OptionStyle;-><init>(Ljava/lang/String;II)V
 
     sput-object v0, Lcom/samsung/android/support/reminder/ReminderAgent$OptionStyle;->OPTION_STYLE_PRESET_TIME:Lcom/samsung/android/support/reminder/ReminderAgent$OptionStyle;
 
+    .line 105
     new-instance v0, Lcom/samsung/android/support/reminder/ReminderAgent$OptionStyle;
 
     const-string v1, "OPTION_STYLE_SPECIFIC_TIME"
 
+    .line 115
     invoke-direct {v0, v1, v6, v6}, Lcom/samsung/android/support/reminder/ReminderAgent$OptionStyle;-><init>(Ljava/lang/String;II)V
 
     sput-object v0, Lcom/samsung/android/support/reminder/ReminderAgent$OptionStyle;->OPTION_STYLE_SPECIFIC_TIME:Lcom/samsung/android/support/reminder/ReminderAgent$OptionStyle;
 
+    .line 117
     new-instance v0, Lcom/samsung/android/support/reminder/ReminderAgent$OptionStyle;
 
     const-string v1, "OPTION_STYLE_CUSTOM"
@@ -97,6 +107,7 @@
 
     sput-object v0, Lcom/samsung/android/support/reminder/ReminderAgent$OptionStyle;->OPTION_STYLE_CUSTOM:Lcom/samsung/android/support/reminder/ReminderAgent$OptionStyle;
 
+    .line 61
     const/4 v0, 0x5
 
     new-array v0, v0, [Lcom/samsung/android/support/reminder/ReminderAgent$OptionStyle;
@@ -128,21 +139,29 @@
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 1
+    .param p3, "value"    # I
 
+    .prologue
+    .line 121
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
+    .line 119
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/samsung/android/support/reminder/ReminderAgent$OptionStyle;->value:I
 
+    .line 122
     iput p3, p0, Lcom/samsung/android/support/reminder/ReminderAgent$OptionStyle;->value:I
 
+    .line 123
     return-void
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/samsung/android/support/reminder/ReminderAgent$OptionStyle;
     .locals 1
 
+    .prologue
+    .line 1
     const-class v0, Lcom/samsung/android/support/reminder/ReminderAgent$OptionStyle;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -157,8 +176,10 @@
 .method public static values()[Lcom/samsung/android/support/reminder/ReminderAgent$OptionStyle;
     .locals 4
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 1
     sget-object v0, Lcom/samsung/android/support/reminder/ReminderAgent$OptionStyle;->ENUM$VALUES:[Lcom/samsung/android/support/reminder/ReminderAgent$OptionStyle;
 
     array-length v1, v0
@@ -175,6 +196,8 @@
 .method public getValue()I
     .locals 1
 
+    .prologue
+    .line 126
     iget v0, p0, Lcom/samsung/android/support/reminder/ReminderAgent$OptionStyle;->value:I
 
     return v0

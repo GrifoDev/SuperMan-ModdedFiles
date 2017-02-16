@@ -29,6 +29,9 @@
 .method constructor <init>(Lcom/google/common/util/concurrent/AggregateFuture$RunningState;ILcom/google/common/util/concurrent/ListenableFuture;)V
     .locals 0
 
+    .prologue
+    .line 140
+    .local p0, "this":Lcom/google/common/util/concurrent/AggregateFuture$RunningState$1;, "Lcom/google/common/util/concurrent/AggregateFuture$RunningState.1;"
     iput-object p1, p0, Lcom/google/common/util/concurrent/AggregateFuture$RunningState$1;->this$1:Lcom/google/common/util/concurrent/AggregateFuture$RunningState;
 
     iput p2, p0, Lcom/google/common/util/concurrent/AggregateFuture$RunningState$1;->val$index:I
@@ -45,6 +48,9 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 144
+    .local p0, "this":Lcom/google/common/util/concurrent/AggregateFuture$RunningState$1;, "Lcom/google/common/util/concurrent/AggregateFuture$RunningState.1;"
     :try_start_0
     iget-object v0, p0, Lcom/google/common/util/concurrent/AggregateFuture$RunningState$1;->this$1:Lcom/google/common/util/concurrent/AggregateFuture$RunningState;
 
@@ -57,13 +63,16 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 146
     iget-object v0, p0, Lcom/google/common/util/concurrent/AggregateFuture$RunningState$1;->this$1:Lcom/google/common/util/concurrent/AggregateFuture$RunningState;
 
     # invokes: Lcom/google/common/util/concurrent/AggregateFuture$RunningState;->decrementCountAndMaybeComplete()V
     invoke-static {v0}, Lcom/google/common/util/concurrent/AggregateFuture$RunningState;->access$300(Lcom/google/common/util/concurrent/AggregateFuture$RunningState;)V
 
+    .line 148
     return-void
 
+    .line 146
     :catchall_0
     move-exception v0
 

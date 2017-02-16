@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/VoiceCallButtonFragment;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/fragment/VoiceCallButtonFragment;
 
+    .prologue
+    .line 374
     iput-object p1, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,15 +39,20 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 7
+    .param p1, "view"    # Landroid/view/View;
 
+    .prologue
     const/4 v3, 0x1
 
     const/4 v4, 0x0
 
+    .line 377
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v1
 
+    .line 378
+    .local v1, "id":I
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v2
@@ -55,6 +63,8 @@
 
     move-result-object v0
 
+    .line 379
+    .local v0, "call":Lcom/android/incallui/Call;
     const-string v2, "VoiceCallButtonFragment"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -93,20 +103,25 @@
 
     invoke-static {v2, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 380
     sparse-switch v1, :sswitch_data_0
 
+    .line 489
     const-string v2, "VoiceCallButtonFragment"
 
     const-string v3, "onClick: unexpected"
 
     invoke-static {v2, v3}, Lcom/android/incallui/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 492
     :goto_0
     return-void
 
+    .line 382
     :sswitch_0
     invoke-static {v0}, Lcom/android/incallui/util/VoiceCallAppLogging;->fullScreen_camera(Lcom/android/incallui/Call;)V
 
+    .line 383
     iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonFragment;
 
     # invokes: Lcom/android/incallui/fragment/VoiceCallButtonFragment;->checkThenModify(I)V
@@ -114,9 +129,11 @@
 
     goto :goto_0
 
+    .line 386
     :sswitch_1
     invoke-static {v0}, Lcom/android/incallui/util/VoiceCallAppLogging;->fullScreen_addCall(Lcom/android/incallui/Call;)V
 
+    .line 387
     iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonFragment;
 
     invoke-virtual {v2}, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->getPresenter()Lcom/android/incallui/Presenter;
@@ -129,6 +146,7 @@
 
     goto :goto_0
 
+    .line 390
     :sswitch_2
     iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonFragment;
 
@@ -144,10 +162,12 @@
 
     invoke-static {v2, v3, v4, v5}, Lcom/android/incallui/util/AppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 394
     invoke-static {}, Lcom/android/incallui/util/PackageHelpers;->launchContacts()V
 
     goto :goto_0
 
+    .line 397
     :sswitch_3
     iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonFragment;
 
@@ -155,9 +175,11 @@
 
     goto :goto_0
 
+    .line 400
     :sswitch_4
     invoke-static {v0}, Lcom/android/incallui/util/VoiceCallAppLogging;->fullScreen_oneWay(Lcom/android/incallui/Call;)V
 
+    .line 401
     iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonFragment;
 
     # invokes: Lcom/android/incallui/fragment/VoiceCallButtonFragment;->checkThenModify(I)V
@@ -165,18 +187,22 @@
 
     goto :goto_0
 
+    .line 404
     :sswitch_5
     invoke-static {v0}, Lcom/android/incallui/util/VoiceCallAppLogging;->fullScreen_extraVolume(Lcom/android/incallui/Call;)V
 
+    .line 405
     iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonFragment;
 
     invoke-virtual {v2}, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->extraVolumeClicked()V
 
     goto :goto_0
 
+    .line 408
     :sswitch_6
     invoke-static {v0}, Lcom/android/incallui/util/VoiceCallAppLogging;->fullScreen_upgradeVT(Lcom/android/incallui/Call;)V
 
+    .line 409
     iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonFragment;
 
     # invokes: Lcom/android/incallui/fragment/VoiceCallButtonFragment;->switchToVideoCallClicked(Lcom/android/incallui/Call;)V
@@ -184,15 +210,18 @@
 
     goto :goto_0
 
+    .line 412
     :sswitch_7
     invoke-static {v0}, Lcom/android/incallui/util/VoiceCallAppLogging;->fullScreen_bluetooth(Lcom/android/incallui/Call;)V
 
+    .line 413
     iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonFragment;
 
     invoke-virtual {v2}, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->bluetoothClicked()V
 
     goto :goto_0
 
+    .line 416
     :sswitch_8
     iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonFragment;
 
@@ -212,6 +241,7 @@
 
     invoke-virtual {v2, v3}, Lcom/android/incallui/CallButtonPresenter;->holdClicked(Z)V
 
+    .line 417
     iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonFragment;
 
     # invokes: Lcom/android/incallui/fragment/VoiceCallButtonFragment;->updateHoldButton()V
@@ -219,9 +249,11 @@
 
     goto :goto_0
 
+    .line 420
     :sswitch_9
     invoke-static {v0}, Lcom/android/incallui/util/VoiceCallAppLogging;->fullScreen_speaker(Lcom/android/incallui/Call;)V
 
+    .line 421
     iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonFragment;
 
     invoke-virtual {v2}, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->getPresenter()Lcom/android/incallui/Presenter;
@@ -234,9 +266,11 @@
 
     goto :goto_0
 
+    .line 424
     :sswitch_a
     invoke-static {v0}, Lcom/android/incallui/util/VoiceCallAppLogging;->fullScreen_dialpad(Lcom/android/incallui/Call;)V
 
+    .line 425
     iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonFragment;
 
     invoke-virtual {v2}, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->getPresenter()Lcom/android/incallui/Presenter;
@@ -263,9 +297,11 @@
 
     goto :goto_1
 
+    .line 428
     :sswitch_b
     invoke-static {v0}, Lcom/android/incallui/util/VoiceCallAppLogging;->fullScreen_mute(Lcom/android/incallui/Call;)V
 
+    .line 429
     iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonFragment;
 
     invoke-virtual {v2}, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->getPresenter()Lcom/android/incallui/Presenter;
@@ -294,9 +330,11 @@
 
     goto :goto_2
 
+    .line 432
     :sswitch_c
     invoke-static {v0}, Lcom/android/incallui/util/VoiceCallAppLogging;->fullScreen_endCall(Lcom/android/incallui/Call;)V
 
+    .line 433
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v2
@@ -307,6 +345,7 @@
 
     if-nez v2, :cond_3
 
+    .line 434
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v2
@@ -317,6 +356,7 @@
 
     if-nez v2, :cond_3
 
+    .line 435
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v2
@@ -327,6 +367,7 @@
 
     if-eqz v2, :cond_2
 
+    .line 436
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v2
@@ -337,6 +378,7 @@
 
     if-nez v2, :cond_3
 
+    .line 437
     :cond_2
     invoke-virtual {v0}, Lcom/android/incallui/Call;->getNumber()Ljava/lang/String;
 
@@ -348,6 +390,7 @@
 
     if-eqz v2, :cond_4
 
+    .line 438
     :cond_3
     iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonFragment;
 
@@ -361,6 +404,7 @@
 
     goto/16 :goto_0
 
+    .line 440
     :cond_4
     iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonFragment;
 
@@ -369,6 +413,7 @@
 
     goto/16 :goto_0
 
+    .line 444
     :sswitch_d
     iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonFragment;
 
@@ -384,6 +429,7 @@
 
     invoke-static {v2, v3, v4, v5}, Lcom/android/incallui/util/AppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 448
     iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonFragment;
 
     # invokes: Lcom/android/incallui/fragment/VoiceCallButtonFragment;->emailClicked()V
@@ -391,11 +437,13 @@
 
     goto/16 :goto_0
 
+    .line 451
     :sswitch_e
     invoke-static {}, Lcom/android/incallui/util/PackageHelpers;->launchGallery()V
 
     goto/16 :goto_0
 
+    .line 454
     :sswitch_f
     iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonFragment;
 
@@ -411,10 +459,12 @@
 
     invoke-static {v2, v3, v4, v5}, Lcom/android/incallui/util/AppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 458
     invoke-static {}, Lcom/android/incallui/util/PackageHelpers;->launchMessage()V
 
     goto/16 :goto_0
 
+    .line 461
     :sswitch_10
     iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonFragment;
 
@@ -430,10 +480,12 @@
 
     invoke-static {v2, v3, v4, v5}, Lcom/android/incallui/util/AppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 465
     invoke-static {}, Lcom/android/incallui/util/PackageHelpers;->launchInternet()V
 
     goto/16 :goto_0
 
+    .line 468
     :sswitch_11
     iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonFragment;
 
@@ -449,10 +501,12 @@
 
     invoke-static {v2, v3, v4, v5}, Lcom/android/incallui/util/AppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 472
     invoke-static {}, Lcom/android/incallui/util/PackageHelpers;->launchContacts()V
 
     goto/16 :goto_0
 
+    .line 475
     :sswitch_12
     iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonFragment;
 
@@ -468,10 +522,12 @@
 
     invoke-static {v2, v3, v4, v5}, Lcom/android/incallui/util/AppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 479
     invoke-static {}, Lcom/android/incallui/util/PackageHelpers;->launchPlanner()V
 
     goto/16 :goto_0
 
+    .line 482
     :sswitch_13
     iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonFragment;
 
@@ -487,10 +543,12 @@
 
     invoke-static {v2, v3, v4, v5}, Lcom/android/incallui/util/AppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 486
     invoke-static {}, Lcom/android/incallui/util/PackageHelpers;->launchMemo()V
 
     goto/16 :goto_0
 
+    .line 380
     nop
 
     :sswitch_data_0

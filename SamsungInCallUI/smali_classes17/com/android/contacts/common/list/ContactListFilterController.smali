@@ -19,6 +19,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 34
     const/4 v0, 0x0
 
     sput-object v0, Lcom/android/contacts/common/list/ContactListFilterController;->sFilterController:Lcom/android/contacts/common/list/ContactListFilterControllerImpl;
@@ -29,24 +31,32 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 36
     return-void
 .end method
 
 .method public static getInstance(Landroid/content/Context;)Lcom/android/contacts/common/list/ContactListFilterController;
     .locals 1
+    .param p0, "context"    # Landroid/content/Context;
 
+    .prologue
+    .line 43
     sget-object v0, Lcom/android/contacts/common/list/ContactListFilterController;->sFilterController:Lcom/android/contacts/common/list/ContactListFilterControllerImpl;
 
     if-nez v0, :cond_0
 
+    .line 44
     new-instance v0, Lcom/android/contacts/common/list/ContactListFilterControllerImpl;
 
     invoke-direct {v0, p0}, Lcom/android/contacts/common/list/ContactListFilterControllerImpl;-><init>(Landroid/content/Context;)V
 
     sput-object v0, Lcom/android/contacts/common/list/ContactListFilterController;->sFilterController:Lcom/android/contacts/common/list/ContactListFilterControllerImpl;
 
+    .line 46
     :cond_0
     sget-object v0, Lcom/android/contacts/common/list/ContactListFilterController;->sFilterController:Lcom/android/contacts/common/list/ContactListFilterControllerImpl;
 

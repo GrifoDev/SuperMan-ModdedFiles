@@ -23,7 +23,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/visualcallcenter/MaterialRippleLayout;Ljava/lang/Runnable;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/visualcallcenter/MaterialRippleLayout;
 
+    .prologue
+    .line 260
     iput-object p1, p0, Lcom/android/incallui/visualcallcenter/MaterialRippleLayout$1;->this$0:Lcom/android/incallui/visualcallcenter/MaterialRippleLayout;
 
     iput-object p2, p0, Lcom/android/incallui/visualcallcenter/MaterialRippleLayout$1;->val$animationEndRunnable:Ljava/lang/Runnable;
@@ -37,7 +40,10 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 263
     iget-object v0, p0, Lcom/android/incallui/visualcallcenter/MaterialRippleLayout$1;->this$0:Lcom/android/incallui/visualcallcenter/MaterialRippleLayout;
 
     # getter for: Lcom/android/incallui/visualcallcenter/MaterialRippleLayout;->ripplePersistent:Z
@@ -47,12 +53,14 @@
 
     if-nez v0, :cond_0
 
+    .line 264
     iget-object v0, p0, Lcom/android/incallui/visualcallcenter/MaterialRippleLayout$1;->this$0:Lcom/android/incallui/visualcallcenter/MaterialRippleLayout;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/visualcallcenter/MaterialRippleLayout;->setRadius(F)V
 
+    .line 265
     iget-object v0, p0, Lcom/android/incallui/visualcallcenter/MaterialRippleLayout$1;->this$0:Lcom/android/incallui/visualcallcenter/MaterialRippleLayout;
 
     iget-object v1, p0, Lcom/android/incallui/visualcallcenter/MaterialRippleLayout$1;->this$0:Lcom/android/incallui/visualcallcenter/MaterialRippleLayout;
@@ -68,6 +76,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/visualcallcenter/MaterialRippleLayout;->setRippleAlpha(Ljava/lang/Integer;)V
 
+    .line 267
     :cond_0
     iget-object v0, p0, Lcom/android/incallui/visualcallcenter/MaterialRippleLayout$1;->val$animationEndRunnable:Ljava/lang/Runnable;
 
@@ -82,10 +91,12 @@
 
     if-eqz v0, :cond_1
 
+    .line 268
     iget-object v0, p0, Lcom/android/incallui/visualcallcenter/MaterialRippleLayout$1;->val$animationEndRunnable:Ljava/lang/Runnable;
 
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
+    .line 270
     :cond_1
     return-void
 .end method

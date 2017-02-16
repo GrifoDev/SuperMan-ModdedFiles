@@ -53,10 +53,16 @@
         }
     .end annotation
 
+    .prologue
+    .line 35
+    .local p0, "this":Lcom/google/common/collect/ExplicitOrdering;, "Lcom/google/common/collect/ExplicitOrdering<TT;>;"
+    .local p1, "rankMap":Lcom/google/common/collect/ImmutableMap;, "Lcom/google/common/collect/ImmutableMap<TT;Ljava/lang/Integer;>;"
     invoke-direct {p0}, Lcom/google/common/collect/Ordering;-><init>()V
 
+    .line 36
     iput-object p1, p0, Lcom/google/common/collect/ExplicitOrdering;->rankMap:Lcom/google/common/collect/ImmutableMap;
 
+    .line 37
     return-void
 .end method
 
@@ -70,12 +76,17 @@
         }
     .end annotation
 
+    .prologue
+    .line 32
+    .local p0, "this":Lcom/google/common/collect/ExplicitOrdering;, "Lcom/google/common/collect/ExplicitOrdering<TT;>;"
+    .local p1, "valuesInOrder":Ljava/util/List;, "Ljava/util/List<TT;>;"
     invoke-static {p1}, Lcom/google/common/collect/Maps;->indexMap(Ljava/util/Collection;)Lcom/google/common/collect/ImmutableMap;
 
     move-result-object v0
 
     invoke-direct {p0, v0}, Lcom/google/common/collect/ExplicitOrdering;-><init>(Lcom/google/common/collect/ImmutableMap;)V
 
+    .line 33
     return-void
 .end method
 
@@ -87,6 +98,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 45
+    .local p0, "this":Lcom/google/common/collect/ExplicitOrdering;, "Lcom/google/common/collect/ExplicitOrdering<TT;>;"
+    .local p1, "value":Ljava/lang/Object;, "TT;"
     iget-object v1, p0, Lcom/google/common/collect/ExplicitOrdering;->rankMap:Lcom/google/common/collect/ImmutableMap;
 
     invoke-virtual {v1, p1}, Lcom/google/common/collect/ImmutableMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -95,14 +110,18 @@
 
     check-cast v0, Ljava/lang/Integer;
 
+    .line 46
+    .local v0, "rank":Ljava/lang/Integer;
     if-nez v0, :cond_0
 
+    .line 47
     new-instance v1, Lcom/google/common/collect/Ordering$IncomparableValueException;
 
     invoke-direct {v1, p1}, Lcom/google/common/collect/Ordering$IncomparableValueException;-><init>(Ljava/lang/Object;)V
 
     throw v1
 
+    .line 49
     :cond_0
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
@@ -121,6 +140,11 @@
         }
     .end annotation
 
+    .prologue
+    .line 41
+    .local p0, "this":Lcom/google/common/collect/ExplicitOrdering;, "Lcom/google/common/collect/ExplicitOrdering<TT;>;"
+    .local p1, "left":Ljava/lang/Object;, "TT;"
+    .local p2, "right":Ljava/lang/Object;, "TT;"
     invoke-direct {p0, p1}, Lcom/google/common/collect/ExplicitOrdering;->rank(Ljava/lang/Object;)I
 
     move-result v0
@@ -136,19 +160,25 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 3
-    .param p1    # Ljava/lang/Object;
+    .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
+    .prologue
+    .line 54
+    .local p0, "this":Lcom/google/common/collect/ExplicitOrdering;, "Lcom/google/common/collect/ExplicitOrdering<TT;>;"
     instance-of v1, p1, Lcom/google/common/collect/ExplicitOrdering;
 
     if-eqz v1, :cond_0
 
     move-object v0, p1
 
+    .line 55
     check-cast v0, Lcom/google/common/collect/ExplicitOrdering;
 
+    .line 56
+    .local v0, "that":Lcom/google/common/collect/ExplicitOrdering;, "Lcom/google/common/collect/ExplicitOrdering<*>;"
     iget-object v1, p0, Lcom/google/common/collect/ExplicitOrdering;->rankMap:Lcom/google/common/collect/ImmutableMap;
 
     iget-object v2, v0, Lcom/google/common/collect/ExplicitOrdering;->rankMap:Lcom/google/common/collect/ImmutableMap;
@@ -157,6 +187,8 @@
 
     move-result v1
 
+    .line 58
+    .end local v0    # "that":Lcom/google/common/collect/ExplicitOrdering;, "Lcom/google/common/collect/ExplicitOrdering<*>;"
     :goto_0
     return v1
 
@@ -169,6 +201,9 @@
 .method public hashCode()I
     .locals 1
 
+    .prologue
+    .line 63
+    .local p0, "this":Lcom/google/common/collect/ExplicitOrdering;, "Lcom/google/common/collect/ExplicitOrdering<TT;>;"
     iget-object v0, p0, Lcom/google/common/collect/ExplicitOrdering;->rankMap:Lcom/google/common/collect/ImmutableMap;
 
     invoke-virtual {v0}, Lcom/google/common/collect/ImmutableMap;->hashCode()I
@@ -181,6 +216,9 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 68
+    .local p0, "this":Lcom/google/common/collect/ExplicitOrdering;, "Lcom/google/common/collect/ExplicitOrdering<TT;>;"
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

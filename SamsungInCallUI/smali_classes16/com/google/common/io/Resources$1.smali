@@ -46,8 +46,11 @@
 .method constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 151
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 152
     invoke-static {}, Lcom/google/common/collect/Lists;->newArrayList()Ljava/util/ArrayList;
 
     move-result-object v0
@@ -62,6 +65,8 @@
 .method public bridge synthetic getResult()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 151
     invoke-virtual {p0}, Lcom/google/common/io/Resources$1;->getResult()Ljava/util/List;
 
     move-result-object v0
@@ -81,6 +86,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 162
     iget-object v0, p0, Lcom/google/common/io/Resources$1;->result:Ljava/util/List;
 
     return-object v0
@@ -88,11 +95,15 @@
 
 .method public processLine(Ljava/lang/String;)Z
     .locals 1
+    .param p1, "line"    # Ljava/lang/String;
 
+    .prologue
+    .line 156
     iget-object v0, p0, Lcom/google/common/io/Resources$1;->result:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
+    .line 157
     const/4 v0, 0x1
 
     return v0

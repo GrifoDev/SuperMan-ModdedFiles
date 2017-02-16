@@ -27,6 +27,9 @@
 .method protected constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 53
+    .local p0, "this":Lcom/google/common/collect/ForwardingSet;, "Lcom/google/common/collect/ForwardingSet<TE;>;"
     invoke-direct {p0}, Lcom/google/common/collect/ForwardingCollection;-><init>()V
 
     return-void
@@ -37,6 +40,9 @@
 .method protected bridge synthetic delegate()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 48
+    .local p0, "this":Lcom/google/common/collect/ForwardingSet;, "Lcom/google/common/collect/ForwardingSet<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingSet;->delegate()Ljava/util/Set;
 
     move-result-object v0
@@ -47,6 +53,9 @@
 .method protected bridge synthetic delegate()Ljava/util/Collection;
     .locals 1
 
+    .prologue
+    .line 48
+    .local p0, "this":Lcom/google/common/collect/ForwardingSet;, "Lcom/google/common/collect/ForwardingSet<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingSet;->delegate()Ljava/util/Set;
 
     move-result-object v0
@@ -66,11 +75,14 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
-    .param p1    # Ljava/lang/Object;
+    .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
+    .prologue
+    .line 60
+    .local p0, "this":Lcom/google/common/collect/ForwardingSet;, "Lcom/google/common/collect/ForwardingSet<TE;>;"
     if-eq p1, p0, :cond_0
 
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingSet;->delegate()Ljava/util/Set;
@@ -98,6 +110,9 @@
 .method public hashCode()I
     .locals 1
 
+    .prologue
+    .line 65
+    .local p0, "this":Lcom/google/common/collect/ForwardingSet;, "Lcom/google/common/collect/ForwardingSet<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingSet;->delegate()Ljava/util/Set;
 
     move-result-object v0
@@ -111,11 +126,14 @@
 
 .method protected standardEquals(Ljava/lang/Object;)Z
     .locals 1
-    .param p1    # Ljava/lang/Object;
+    .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
+    .prologue
+    .line 89
+    .local p0, "this":Lcom/google/common/collect/ForwardingSet;, "Lcom/google/common/collect/ForwardingSet<TE;>;"
     invoke-static {p0, p1}, Lcom/google/common/collect/Sets;->equalsImpl(Ljava/util/Set;Ljava/lang/Object;)Z
 
     move-result v0
@@ -126,6 +144,9 @@
 .method protected standardHashCode()I
     .locals 1
 
+    .prologue
+    .line 100
+    .local p0, "this":Lcom/google/common/collect/ForwardingSet;, "Lcom/google/common/collect/ForwardingSet<TE;>;"
     invoke-static {p0}, Lcom/google/common/collect/Sets;->hashCodeImpl(Ljava/util/Set;)I
 
     move-result v0
@@ -143,6 +164,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 78
+    .local p0, "this":Lcom/google/common/collect/ForwardingSet;, "Lcom/google/common/collect/ForwardingSet<TE;>;"
+    .local p1, "collection":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0

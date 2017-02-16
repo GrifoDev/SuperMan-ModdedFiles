@@ -23,8 +23,10 @@
 .method static constructor <clinit>()V
     .locals 4
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 24
     new-instance v0, Lcom/thoughtworks/xstream/converters/basic/BooleanConverter;
 
     const-string v1, "true"
@@ -35,6 +37,7 @@
 
     sput-object v0, Lcom/thoughtworks/xstream/converters/basic/BooleanConverter;->TRUE_FALSE:Lcom/thoughtworks/xstream/converters/basic/BooleanConverter;
 
+    .line 26
     new-instance v0, Lcom/thoughtworks/xstream/converters/basic/BooleanConverter;
 
     const-string v1, "yes"
@@ -45,6 +48,7 @@
 
     sput-object v0, Lcom/thoughtworks/xstream/converters/basic/BooleanConverter;->YES_NO:Lcom/thoughtworks/xstream/converters/basic/BooleanConverter;
 
+    .line 28
     new-instance v0, Lcom/thoughtworks/xstream/converters/basic/BooleanConverter;
 
     const-string v1, "1"
@@ -63,6 +67,8 @@
 .method public constructor <init>()V
     .locals 3
 
+    .prologue
+    .line 41
     const-string v0, "true"
 
     const-string v1, "false"
@@ -71,20 +77,30 @@
 
     invoke-direct {p0, v0, v1, v2}, Lcom/thoughtworks/xstream/converters/basic/BooleanConverter;-><init>(Ljava/lang/String;Ljava/lang/String;Z)V
 
+    .line 42
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Z)V
     .locals 0
+    .param p1, "positive"    # Ljava/lang/String;
+    .param p2, "negative"    # Ljava/lang/String;
+    .param p3, "caseSensitive"    # Z
 
+    .prologue
+    .line 34
     invoke-direct {p0}, Lcom/thoughtworks/xstream/converters/basic/AbstractSingleValueConverter;-><init>()V
 
+    .line 35
     iput-object p1, p0, Lcom/thoughtworks/xstream/converters/basic/BooleanConverter;->positive:Ljava/lang/String;
 
+    .line 36
     iput-object p2, p0, Lcom/thoughtworks/xstream/converters/basic/BooleanConverter;->negative:Ljava/lang/String;
 
+    .line 37
     iput-boolean p3, p0, Lcom/thoughtworks/xstream/converters/basic/BooleanConverter;->caseSensitive:Z
 
+    .line 38
     return-void
 .end method
 
@@ -92,7 +108,10 @@
 # virtual methods
 .method public canConvert(Ljava/lang/Class;)Z
     .locals 1
+    .param p1, "type"    # Ljava/lang/Class;
 
+    .prologue
+    .line 49
     sget-object v0, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
 
     invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
@@ -123,11 +142,15 @@
 
 .method public fromString(Ljava/lang/String;)Ljava/lang/Object;
     .locals 1
+    .param p1, "str"    # Ljava/lang/String;
 
+    .prologue
+    .line 53
     iget-boolean v0, p0, Lcom/thoughtworks/xstream/converters/basic/BooleanConverter;->caseSensitive:Z
 
     if-eqz v0, :cond_1
 
+    .line 54
     iget-object v0, p0, Lcom/thoughtworks/xstream/converters/basic/BooleanConverter;->positive:Ljava/lang/String;
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -138,14 +161,17 @@
 
     sget-object v0, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
+    .line 56
     :goto_0
     return-object v0
 
+    .line 54
     :cond_0
     sget-object v0, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
     goto :goto_0
 
+    .line 56
     :cond_1
     iget-object v0, p0, Lcom/thoughtworks/xstream/converters/basic/BooleanConverter;->positive:Ljava/lang/String;
 
@@ -167,7 +193,11 @@
 
 .method public shouldConvert(Ljava/lang/Class;Ljava/lang/Object;)Z
     .locals 1
+    .param p1, "type"    # Ljava/lang/Class;
+    .param p2, "value"    # Ljava/lang/Object;
 
+    .prologue
+    .line 45
     const/4 v0, 0x1
 
     return v0
@@ -175,11 +205,16 @@
 
 .method public toString(Ljava/lang/Object;)Ljava/lang/String;
     .locals 2
+    .param p1, "obj"    # Ljava/lang/Object;
 
+    .prologue
+    .line 61
     move-object v0, p1
 
     check-cast v0, Ljava/lang/Boolean;
 
+    .line 62
+    .local v0, "value":Ljava/lang/Boolean;
     if-nez p1, :cond_0
 
     const/4 v1, 0x0

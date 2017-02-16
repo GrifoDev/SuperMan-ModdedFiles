@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/CallCardFragment;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/fragment/CallCardFragment;
 
+    .prologue
+    .line 1344
     iput-object p1, p0, Lcom/android/incallui/fragment/CallCardFragment$4;->this$0:Lcom/android/incallui/fragment/CallCardFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +39,10 @@
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
     .locals 2
+    .param p1, "animator"    # Landroid/animation/ValueAnimator;
 
+    .prologue
+    .line 1347
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment$4;->this$0:Lcom/android/incallui/fragment/CallCardFragment;
 
     iget-object v0, v0, Lcom/android/incallui/fragment/CallCardFragment;->mPhoneNumber:Landroid/widget/TextView;
@@ -59,6 +65,7 @@
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setTextColor(I)V
 
+    .line 1348
     :cond_0
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment$4;->this$0:Lcom/android/incallui/fragment/CallCardFragment;
 
@@ -82,6 +89,7 @@
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setTextColor(I)V
 
+    .line 1349
     :cond_1
     return-void
 .end method

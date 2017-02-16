@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 2067
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,7 +42,11 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Landroid/support/v7/app/AppCompatDelegateImplV7$PanelFeatureState$SavedState;
     .locals 1
+    .param p1, "in"    # Landroid/os/Parcel;
+    .param p2, "loader"    # Ljava/lang/ClassLoader;
 
+    .prologue
+    .line 2070
     # invokes: Landroid/support/v7/app/AppCompatDelegateImplV7$PanelFeatureState$SavedState;->readFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Landroid/support/v7/app/AppCompatDelegateImplV7$PanelFeatureState$SavedState;
     invoke-static {p1, p2}, Landroid/support/v7/app/AppCompatDelegateImplV7$PanelFeatureState$SavedState;->access$1300(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Landroid/support/v7/app/AppCompatDelegateImplV7$PanelFeatureState$SavedState;
 
@@ -52,6 +58,8 @@
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 2067
     invoke-virtual {p0, p1, p2}, Landroid/support/v7/app/AppCompatDelegateImplV7$PanelFeatureState$SavedState$1;->createFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Landroid/support/v7/app/AppCompatDelegateImplV7$PanelFeatureState$SavedState;
 
     move-result-object v0
@@ -61,7 +69,10 @@
 
 .method public newArray(I)[Landroid/support/v7/app/AppCompatDelegateImplV7$PanelFeatureState$SavedState;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 2075
     new-array v0, p1, [Landroid/support/v7/app/AppCompatDelegateImplV7$PanelFeatureState$SavedState;
 
     return-object v0
@@ -70,6 +81,8 @@
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 2067
     invoke-virtual {p0, p1}, Landroid/support/v7/app/AppCompatDelegateImplV7$PanelFeatureState$SavedState$1;->newArray(I)[Landroid/support/v7/app/AppCompatDelegateImplV7$PanelFeatureState$SavedState;
 
     move-result-object v0

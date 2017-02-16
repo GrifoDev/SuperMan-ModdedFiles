@@ -48,20 +48,27 @@
         }
     .end annotation
 
+    .prologue
+    .line 193
+    .local p0, "this":Lcom/google/common/collect/TreeTraverser$BreadthFirstIterator;, "Lcom/google/common/collect/TreeTraverser<TT;>.BreadthFirstIterator;"
+    .local p2, "root":Ljava/lang/Object;, "TT;"
     iput-object p1, p0, Lcom/google/common/collect/TreeTraverser$BreadthFirstIterator;->this$0:Lcom/google/common/collect/TreeTraverser;
 
     invoke-direct {p0}, Lcom/google/common/collect/UnmodifiableIterator;-><init>()V
 
+    .line 194
     new-instance v0, Ljava/util/ArrayDeque;
 
     invoke-direct {v0}, Ljava/util/ArrayDeque;-><init>()V
 
     iput-object v0, p0, Lcom/google/common/collect/TreeTraverser$BreadthFirstIterator;->queue:Ljava/util/Queue;
 
+    .line 195
     iget-object v0, p0, Lcom/google/common/collect/TreeTraverser$BreadthFirstIterator;->queue:Ljava/util/Queue;
 
     invoke-interface {v0, p2}, Ljava/util/Queue;->add(Ljava/lang/Object;)Z
 
+    .line 196
     return-void
 .end method
 
@@ -70,6 +77,9 @@
 .method public hasNext()Z
     .locals 1
 
+    .prologue
+    .line 200
+    .local p0, "this":Lcom/google/common/collect/TreeTraverser$BreadthFirstIterator;, "Lcom/google/common/collect/TreeTraverser<TT;>.BreadthFirstIterator;"
     iget-object v0, p0, Lcom/google/common/collect/TreeTraverser$BreadthFirstIterator;->queue:Ljava/util/Queue;
 
     invoke-interface {v0}, Ljava/util/Queue;->isEmpty()Z
@@ -97,12 +107,17 @@
         }
     .end annotation
 
+    .prologue
+    .line 210
+    .local p0, "this":Lcom/google/common/collect/TreeTraverser$BreadthFirstIterator;, "Lcom/google/common/collect/TreeTraverser<TT;>.BreadthFirstIterator;"
     iget-object v1, p0, Lcom/google/common/collect/TreeTraverser$BreadthFirstIterator;->queue:Ljava/util/Queue;
 
     invoke-interface {v1}, Ljava/util/Queue;->remove()Ljava/lang/Object;
 
     move-result-object v0
 
+    .line 211
+    .local v0, "result":Ljava/lang/Object;, "TT;"
     iget-object v1, p0, Lcom/google/common/collect/TreeTraverser$BreadthFirstIterator;->queue:Ljava/util/Queue;
 
     iget-object v2, p0, Lcom/google/common/collect/TreeTraverser$BreadthFirstIterator;->this$0:Lcom/google/common/collect/TreeTraverser;
@@ -113,6 +128,7 @@
 
     invoke-static {v1, v2}, Lcom/google/common/collect/Iterables;->addAll(Ljava/util/Collection;Ljava/lang/Iterable;)Z
 
+    .line 212
     return-object v0
 .end method
 
@@ -124,6 +140,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 205
+    .local p0, "this":Lcom/google/common/collect/TreeTraverser$BreadthFirstIterator;, "Lcom/google/common/collect/TreeTraverser<TT;>.BreadthFirstIterator;"
     iget-object v0, p0, Lcom/google/common/collect/TreeTraverser$BreadthFirstIterator;->queue:Ljava/util/Queue;
 
     invoke-interface {v0}, Ljava/util/Queue;->element()Ljava/lang/Object;

@@ -38,8 +38,11 @@
 .method constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 65
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 66
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V

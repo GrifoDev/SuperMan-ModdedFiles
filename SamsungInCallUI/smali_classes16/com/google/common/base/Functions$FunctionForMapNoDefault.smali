@@ -58,8 +58,13 @@
         }
     .end annotation
 
+    .prologue
+    .line 118
+    .local p0, "this":Lcom/google/common/base/Functions$FunctionForMapNoDefault;, "Lcom/google/common/base/Functions$FunctionForMapNoDefault<TK;TV;>;"
+    .local p1, "map":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 119
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -68,6 +73,7 @@
 
     iput-object v0, p0, Lcom/google/common/base/Functions$FunctionForMapNoDefault;->map:Ljava/util/Map;
 
+    .line 120
     return-void
 .end method
 
@@ -85,16 +91,22 @@
         }
     .end annotation
 
+    .prologue
+    .local p0, "this":Lcom/google/common/base/Functions$FunctionForMapNoDefault;, "Lcom/google/common/base/Functions$FunctionForMapNoDefault<TK;TV;>;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
     const/4 v3, 0x1
 
     const/4 v2, 0x0
 
+    .line 124
     iget-object v1, p0, Lcom/google/common/base/Functions$FunctionForMapNoDefault;->map:Ljava/util/Map;
 
     invoke-interface {v1, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
+    .line 125
+    .local v0, "result":Ljava/lang/Object;, "TV;"
     if-nez v0, :cond_0
 
     iget-object v1, p0, Lcom/google/common/base/Functions$FunctionForMapNoDefault;->map:Ljava/util/Map;
@@ -117,29 +129,37 @@
 
     invoke-static {v1, v4, v3}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;[Ljava/lang/Object;)V
 
+    .line 126
     return-object v0
 
     :cond_1
     move v1, v2
 
+    .line 125
     goto :goto_0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 3
-    .param p1    # Ljava/lang/Object;
+    .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
+    .prologue
+    .line 131
+    .local p0, "this":Lcom/google/common/base/Functions$FunctionForMapNoDefault;, "Lcom/google/common/base/Functions$FunctionForMapNoDefault<TK;TV;>;"
     instance-of v1, p1, Lcom/google/common/base/Functions$FunctionForMapNoDefault;
 
     if-eqz v1, :cond_0
 
     move-object v0, p1
 
+    .line 132
     check-cast v0, Lcom/google/common/base/Functions$FunctionForMapNoDefault;
 
+    .line 133
+    .local v0, "that":Lcom/google/common/base/Functions$FunctionForMapNoDefault;, "Lcom/google/common/base/Functions$FunctionForMapNoDefault<**>;"
     iget-object v1, p0, Lcom/google/common/base/Functions$FunctionForMapNoDefault;->map:Ljava/util/Map;
 
     iget-object v2, v0, Lcom/google/common/base/Functions$FunctionForMapNoDefault;->map:Ljava/util/Map;
@@ -148,6 +168,8 @@
 
     move-result v1
 
+    .line 135
+    .end local v0    # "that":Lcom/google/common/base/Functions$FunctionForMapNoDefault;, "Lcom/google/common/base/Functions$FunctionForMapNoDefault<**>;"
     :goto_0
     return v1
 
@@ -160,6 +182,9 @@
 .method public hashCode()I
     .locals 1
 
+    .prologue
+    .line 140
+    .local p0, "this":Lcom/google/common/base/Functions$FunctionForMapNoDefault;, "Lcom/google/common/base/Functions$FunctionForMapNoDefault<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/base/Functions$FunctionForMapNoDefault;->map:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->hashCode()I
@@ -172,6 +197,9 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 145
+    .local p0, "this":Lcom/google/common/base/Functions$FunctionForMapNoDefault;, "Lcom/google/common/base/Functions$FunctionForMapNoDefault<TK;TV;>;"
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

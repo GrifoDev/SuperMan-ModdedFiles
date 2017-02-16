@@ -36,6 +36,8 @@
 .method private constructor <init>(Lcom/android/contacts/common/model/AccountTypeManagerImpl;)V
     .locals 0
 
+    .prologue
+    .line 761
     iput-object p1, p0, Lcom/android/contacts/common/model/AccountTypeManagerImpl$FindInvitablesTask;->this$0:Lcom/android/contacts/common/model/AccountTypeManagerImpl;
 
     invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
@@ -45,7 +47,11 @@
 
 .method synthetic constructor <init>(Lcom/android/contacts/common/model/AccountTypeManagerImpl;Lcom/android/contacts/common/model/AccountTypeManagerImpl$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/android/contacts/common/model/AccountTypeManagerImpl;
+    .param p2, "x1"    # Lcom/android/contacts/common/model/AccountTypeManagerImpl$1;
 
+    .prologue
+    .line 761
     invoke-direct {p0, p1}, Lcom/android/contacts/common/model/AccountTypeManagerImpl$FindInvitablesTask;-><init>(Lcom/android/contacts/common/model/AccountTypeManagerImpl;)V
 
     return-void
@@ -56,6 +62,8 @@
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 761
     check-cast p1, [Ljava/lang/Void;
 
     invoke-virtual {p0, p1}, Lcom/android/contacts/common/model/AccountTypeManagerImpl$FindInvitablesTask;->doInBackground([Ljava/lang/Void;)Ljava/util/Map;
@@ -67,6 +75,7 @@
 
 .method protected varargs doInBackground([Ljava/lang/Void;)Ljava/util/Map;
     .locals 2
+    .param p1, "params"    # [Ljava/lang/Void;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -80,6 +89,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 766
     iget-object v0, p0, Lcom/android/contacts/common/model/AccountTypeManagerImpl$FindInvitablesTask;->this$0:Lcom/android/contacts/common/model/AccountTypeManagerImpl;
 
     iget-object v1, p0, Lcom/android/contacts/common/model/AccountTypeManagerImpl$FindInvitablesTask;->this$0:Lcom/android/contacts/common/model/AccountTypeManagerImpl;
@@ -100,6 +111,8 @@
 .method protected bridge synthetic onPostExecute(Ljava/lang/Object;)V
     .locals 0
 
+    .prologue
+    .line 761
     check-cast p1, Ljava/util/Map;
 
     invoke-virtual {p0, p1}, Lcom/android/contacts/common/model/AccountTypeManagerImpl$FindInvitablesTask;->onPostExecute(Ljava/util/Map;)V
@@ -120,6 +133,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 771
+    .local p1, "accountTypes":Ljava/util/Map;, "Ljava/util/Map<Lcom/android/contacts/common/model/account/AccountTypeWithDataSet;Lcom/android/contacts/common/model/account/AccountType;>;"
     iget-object v0, p0, Lcom/android/contacts/common/model/AccountTypeManagerImpl$FindInvitablesTask;->this$0:Lcom/android/contacts/common/model/AccountTypeManagerImpl;
 
     # getter for: Lcom/android/contacts/common/model/AccountTypeManagerImpl;->mInvitableAccountTypeCache:Lcom/android/contacts/common/model/AccountTypeManagerImpl$InvitableAccountTypeCache;
@@ -129,6 +145,7 @@
 
     invoke-virtual {v0, p1}, Lcom/android/contacts/common/model/AccountTypeManagerImpl$InvitableAccountTypeCache;->setCachedValue(Ljava/util/Map;)V
 
+    .line 772
     iget-object v0, p0, Lcom/android/contacts/common/model/AccountTypeManagerImpl$FindInvitablesTask;->this$0:Lcom/android/contacts/common/model/AccountTypeManagerImpl;
 
     # getter for: Lcom/android/contacts/common/model/AccountTypeManagerImpl;->mInvitablesTaskIsRunning:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -140,5 +157,6 @@
 
     invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
+    .line 773
     return-void
 .end method

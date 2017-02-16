@@ -29,6 +29,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -36,13 +38,17 @@
 
 .method static getMaxLines(Landroid/widget/TextView;)I
     .locals 2
+    .param p0, "textView"    # Landroid/widget/TextView;
 
+    .prologue
     const/4 v1, 0x1
 
+    .line 40
     sget-boolean v0, Landroid/support/v4/widget/TextViewCompatDonut;->sMaxModeFieldFetched:Z
 
     if-nez v0, :cond_0
 
+    .line 41
     const-string v0, "mMaxMode"
 
     invoke-static {v0}, Landroid/support/v4/widget/TextViewCompatDonut;->retrieveField(Ljava/lang/String;)Ljava/lang/reflect/Field;
@@ -51,8 +57,10 @@
 
     sput-object v0, Landroid/support/v4/widget/TextViewCompatDonut;->sMaxModeField:Ljava/lang/reflect/Field;
 
+    .line 42
     sput-boolean v1, Landroid/support/v4/widget/TextViewCompatDonut;->sMaxModeFieldFetched:Z
 
+    .line 44
     :cond_0
     sget-object v0, Landroid/support/v4/widget/TextViewCompatDonut;->sMaxModeField:Ljava/lang/reflect/Field;
 
@@ -66,10 +74,12 @@
 
     if-ne v0, v1, :cond_2
 
+    .line 46
     sget-boolean v0, Landroid/support/v4/widget/TextViewCompatDonut;->sMaximumFieldFetched:Z
 
     if-nez v0, :cond_1
 
+    .line 47
     const-string v0, "mMaximum"
 
     invoke-static {v0}, Landroid/support/v4/widget/TextViewCompatDonut;->retrieveField(Ljava/lang/String;)Ljava/lang/reflect/Field;
@@ -78,19 +88,23 @@
 
     sput-object v0, Landroid/support/v4/widget/TextViewCompatDonut;->sMaximumField:Ljava/lang/reflect/Field;
 
+    .line 48
     sput-boolean v1, Landroid/support/v4/widget/TextViewCompatDonut;->sMaximumFieldFetched:Z
 
+    .line 50
     :cond_1
     sget-object v0, Landroid/support/v4/widget/TextViewCompatDonut;->sMaximumField:Ljava/lang/reflect/Field;
 
     if-eqz v0, :cond_2
 
+    .line 51
     sget-object v0, Landroid/support/v4/widget/TextViewCompatDonut;->sMaximumField:Ljava/lang/reflect/Field;
 
     invoke-static {v0, p0}, Landroid/support/v4/widget/TextViewCompatDonut;->retrieveIntFromField(Ljava/lang/reflect/Field;Landroid/widget/TextView;)I
 
     move-result v0
 
+    .line 54
     :goto_0
     return v0
 
@@ -102,13 +116,17 @@
 
 .method static getMinLines(Landroid/widget/TextView;)I
     .locals 2
+    .param p0, "textView"    # Landroid/widget/TextView;
 
+    .prologue
     const/4 v1, 0x1
 
+    .line 58
     sget-boolean v0, Landroid/support/v4/widget/TextViewCompatDonut;->sMinModeFieldFetched:Z
 
     if-nez v0, :cond_0
 
+    .line 59
     const-string v0, "mMinMode"
 
     invoke-static {v0}, Landroid/support/v4/widget/TextViewCompatDonut;->retrieveField(Ljava/lang/String;)Ljava/lang/reflect/Field;
@@ -117,8 +135,10 @@
 
     sput-object v0, Landroid/support/v4/widget/TextViewCompatDonut;->sMinModeField:Ljava/lang/reflect/Field;
 
+    .line 60
     sput-boolean v1, Landroid/support/v4/widget/TextViewCompatDonut;->sMinModeFieldFetched:Z
 
+    .line 62
     :cond_0
     sget-object v0, Landroid/support/v4/widget/TextViewCompatDonut;->sMinModeField:Ljava/lang/reflect/Field;
 
@@ -132,10 +152,12 @@
 
     if-ne v0, v1, :cond_2
 
+    .line 64
     sget-boolean v0, Landroid/support/v4/widget/TextViewCompatDonut;->sMinimumFieldFetched:Z
 
     if-nez v0, :cond_1
 
+    .line 65
     const-string v0, "mMinimum"
 
     invoke-static {v0}, Landroid/support/v4/widget/TextViewCompatDonut;->retrieveField(Ljava/lang/String;)Ljava/lang/reflect/Field;
@@ -144,19 +166,23 @@
 
     sput-object v0, Landroid/support/v4/widget/TextViewCompatDonut;->sMinimumField:Ljava/lang/reflect/Field;
 
+    .line 66
     sput-boolean v1, Landroid/support/v4/widget/TextViewCompatDonut;->sMinimumFieldFetched:Z
 
+    .line 68
     :cond_1
     sget-object v0, Landroid/support/v4/widget/TextViewCompatDonut;->sMinimumField:Ljava/lang/reflect/Field;
 
     if-eqz v0, :cond_2
 
+    .line 69
     sget-object v0, Landroid/support/v4/widget/TextViewCompatDonut;->sMinimumField:Ljava/lang/reflect/Field;
 
     invoke-static {v0, p0}, Landroid/support/v4/widget/TextViewCompatDonut;->retrieveIntFromField(Ljava/lang/reflect/Field;Landroid/widget/TextView;)I
 
     move-result v0
 
+    .line 72
     :goto_0
     return v0
 
@@ -168,9 +194,14 @@
 
 .method private static retrieveField(Ljava/lang/String;)Ljava/lang/reflect/Field;
     .locals 5
+    .param p0, "fieldName"    # Ljava/lang/String;
 
+    .prologue
+    .line 76
     const/4 v1, 0x0
 
+    .line 78
+    .local v1, "field":Ljava/lang/reflect/Field;
     :try_start_0
     const-class v2, Landroid/widget/TextView;
 
@@ -178,18 +209,23 @@
 
     move-result-object v1
 
+    .line 79
     const/4 v2, 0x1
 
     invoke-virtual {v1, v2}, Ljava/lang/reflect/Field;->setAccessible(Z)V
     :try_end_0
     .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 83
     :goto_0
     return-object v1
 
+    .line 80
     :catch_0
     move-exception v0
 
+    .line 81
+    .local v0, "e":Ljava/lang/NoSuchFieldException;
     const-string v2, "TextViewCompatDonut"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -223,7 +259,11 @@
 
 .method private static retrieveIntFromField(Ljava/lang/reflect/Field;Landroid/widget/TextView;)I
     .locals 4
+    .param p0, "field"    # Ljava/lang/reflect/Field;
+    .param p1, "textView"    # Landroid/widget/TextView;
 
+    .prologue
+    .line 88
     :try_start_0
     invoke-virtual {p0, p1}, Ljava/lang/reflect/Field;->getInt(Ljava/lang/Object;)I
     :try_end_0
@@ -231,12 +271,16 @@
 
     move-result v1
 
+    .line 92
     :goto_0
     return v1
 
+    .line 89
     :catch_0
     move-exception v0
 
+    .line 90
+    .local v0, "e":Ljava/lang/IllegalAccessException;
     const-string v1, "TextViewCompatDonut"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -269,6 +313,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 92
     const/4 v1, -0x1
 
     goto :goto_0
@@ -276,12 +321,17 @@
 
 .method static setTextAppearance(Landroid/widget/TextView;I)V
     .locals 1
+    .param p0, "textView"    # Landroid/widget/TextView;
+    .param p1, "resId"    # I
 
+    .prologue
+    .line 96
     invoke-virtual {p0}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
     invoke-virtual {p0, v0, p1}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
 
+    .line 97
     return-void
 .end method

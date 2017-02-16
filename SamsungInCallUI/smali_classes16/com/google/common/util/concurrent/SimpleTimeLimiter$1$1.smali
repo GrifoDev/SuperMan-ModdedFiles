@@ -39,6 +39,8 @@
 .method constructor <init>(Lcom/google/common/util/concurrent/SimpleTimeLimiter$1;Ljava/lang/reflect/Method;[Ljava/lang/Object;)V
     .locals 0
 
+    .prologue
+    .line 100
     iput-object p1, p0, Lcom/google/common/util/concurrent/SimpleTimeLimiter$1$1;->this$1:Lcom/google/common/util/concurrent/SimpleTimeLimiter$1;
 
     iput-object p2, p0, Lcom/google/common/util/concurrent/SimpleTimeLimiter$1$1;->val$method:Ljava/lang/reflect/Method;
@@ -60,6 +62,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 104
     :try_start_0
     iget-object v1, p0, Lcom/google/common/util/concurrent/SimpleTimeLimiter$1$1;->val$method:Ljava/lang/reflect/Method;
 
@@ -77,14 +81,18 @@
 
     return-object v1
 
+    .line 105
     :catch_0
     move-exception v0
 
+    .line 106
+    .local v0, "e":Ljava/lang/reflect/InvocationTargetException;
     const/4 v1, 0x0
 
     # invokes: Lcom/google/common/util/concurrent/SimpleTimeLimiter;->throwCause(Ljava/lang/Exception;Z)Ljava/lang/Exception;
     invoke-static {v0, v1}, Lcom/google/common/util/concurrent/SimpleTimeLimiter;->access$000(Ljava/lang/Exception;Z)Ljava/lang/Exception;
 
+    .line 107
     new-instance v1, Ljava/lang/AssertionError;
 
     const-string v2, "can\'t get here"

@@ -23,7 +23,11 @@
 # direct methods
 .method constructor <init>(Lcom/android/contacts/common/list/ProfileAndContactsLoader;[Landroid/database/Cursor;Landroid/database/Cursor;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/contacts/common/list/ProfileAndContactsLoader;
+    .param p2, "x0"    # [Landroid/database/Cursor;
 
+    .prologue
+    .line 105
     iput-object p1, p0, Lcom/android/contacts/common/list/ProfileAndContactsLoader$1;->this$0:Lcom/android/contacts/common/list/ProfileAndContactsLoader;
 
     iput-object p3, p0, Lcom/android/contacts/common/list/ProfileAndContactsLoader$1;->val$contactsCursor:Landroid/database/Cursor;
@@ -38,6 +42,8 @@
 .method public getExtras()Landroid/os/Bundle;
     .locals 1
 
+    .prologue
+    .line 109
     iget-object v0, p0, Lcom/android/contacts/common/list/ProfileAndContactsLoader$1;->val$contactsCursor:Landroid/database/Cursor;
 
     if-nez v0, :cond_0

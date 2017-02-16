@@ -29,6 +29,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 497
     invoke-direct {p0}, Ljava/lang/ThreadLocal;-><init>()V
 
     return-void
@@ -39,6 +41,8 @@
 .method protected bridge synthetic initialValue()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 497
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$1;->initialValue()Ljava/util/ArrayList;
 
     move-result-object v0
@@ -58,6 +62,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 500
     const/4 v0, 0x3
 
     invoke-static {v0}, Lcom/google/common/collect/Lists;->newArrayListWithCapacity(I)Ljava/util/ArrayList;

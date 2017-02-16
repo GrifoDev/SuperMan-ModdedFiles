@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/service/SecCallPopupService;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/service/SecCallPopupService;
 
+    .prologue
+    .line 160
     iput-object p1, p0, Lcom/android/incallui/service/SecCallPopupService$1;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,11 +36,17 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 6
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 163
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 164
+    .local v0, "action":Ljava/lang/String;
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -58,6 +67,7 @@
 
     invoke-static {p0, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 165
     const-string v4, "com.samsung.android.action.START_DOCK_OR_HOME"
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -66,14 +76,17 @@
 
     if-eqz v4, :cond_1
 
+    .line 166
     iget-object v4, p0, Lcom/android/incallui/service/SecCallPopupService$1;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
     invoke-virtual {v4}, Lcom/android/incallui/service/SecCallPopupService;->animateForHide()V
 
+    .line 185
     :cond_0
     :goto_0
     return-void
 
+    .line 169
     :cond_1
     const-string v4, "android.intent.action.SCREEN_OFF"
 
@@ -83,6 +96,7 @@
 
     if-eqz v4, :cond_2
 
+    .line 170
     iget-object v4, p0, Lcom/android/incallui/service/SecCallPopupService$1;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
     # invokes: Lcom/android/incallui/service/SecCallPopupService;->handleEventScreenOff(Landroid/content/Intent;)V
@@ -90,6 +104,7 @@
 
     goto :goto_0
 
+    .line 171
     :cond_2
     const-string v4, "com.sec.rcs.mediatransfer.vsh.notification.SHARE_INCOMING"
 
@@ -107,15 +122,19 @@
 
     if-eqz v4, :cond_4
 
+    .line 172
     :cond_3
     new-instance v1, Landroid/content/Intent;
 
     invoke-direct {v1}, Landroid/content/Intent;-><init>()V
 
+    .line 173
+    .local v1, "i":Landroid/content/Intent;
     const-string v4, "com.samsung.android.incalllui.secservice.action.ACTION_RCS_POP_UP"
 
     invoke-virtual {v1, v4}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 174
     invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
     move-result-object v4
@@ -130,6 +149,8 @@
 
     move-result-object v2
 
+    .line 175
+    .local v2, "sessionId":Ljava/lang/Long;
     invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
     move-result-object v4
@@ -140,18 +161,23 @@
 
     move-result v3
 
+    .line 176
+    .local v3, "sessionType":I
     const-string v4, "sessionId"
 
     invoke-virtual {v1, v4, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/io/Serializable;)Landroid/content/Intent;
 
+    .line 177
     const-string v4, "sessionType"
 
     invoke-virtual {v1, v4, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
+    .line 178
     const/high16 v4, 0x10000000
 
     invoke-virtual {v1, v4}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
+    .line 179
     iget-object v4, p0, Lcom/android/incallui/service/SecCallPopupService$1;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
     invoke-virtual {v4}, Lcom/android/incallui/service/SecCallPopupService;->getContext()Landroid/content/Context;
@@ -162,6 +188,10 @@
 
     goto :goto_0
 
+    .line 180
+    .end local v1    # "i":Landroid/content/Intent;
+    .end local v2    # "sessionId":Ljava/lang/Long;
+    .end local v3    # "sessionType":I
     :cond_4
     const-string v4, "com.sec.rcs.mediatransfer.csh.action.SHARE_ACCEPT"
 
@@ -171,12 +201,14 @@
 
     if-eqz v4, :cond_5
 
+    .line 181
     iget-object v4, p0, Lcom/android/incallui/service/SecCallPopupService$1;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
     invoke-virtual {v4}, Lcom/android/incallui/service/SecCallPopupService;->animateForHide()V
 
     goto :goto_0
 
+    .line 182
     :cond_5
     const-string v4, "com.skt.tgroupon.action.REQUEST_CALL_SCREEN"
 
@@ -186,6 +218,7 @@
 
     if-eqz v4, :cond_0
 
+    .line 183
     iget-object v4, p0, Lcom/android/incallui/service/SecCallPopupService$1;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
     invoke-virtual {v4}, Lcom/android/incallui/service/SecCallPopupService;->stopSelf()V

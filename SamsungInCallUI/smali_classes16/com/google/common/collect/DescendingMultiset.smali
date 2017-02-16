@@ -59,6 +59,9 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 34
+    .local p0, "this":Lcom/google/common/collect/DescendingMultiset;, "Lcom/google/common/collect/DescendingMultiset<TE;>;"
     invoke-direct {p0}, Lcom/google/common/collect/ForwardingMultiset;-><init>()V
 
     return-void
@@ -76,10 +79,16 @@
         }
     .end annotation
 
+    .prologue
+    .line 41
+    .local p0, "this":Lcom/google/common/collect/DescendingMultiset;, "Lcom/google/common/collect/DescendingMultiset<TE;>;"
     iget-object v0, p0, Lcom/google/common/collect/DescendingMultiset;->comparator:Ljava/util/Comparator;
 
+    .line 42
+    .local v0, "result":Ljava/util/Comparator;, "Ljava/util/Comparator<-TE;>;"
     if-nez v0, :cond_0
 
+    .line 43
     invoke-virtual {p0}, Lcom/google/common/collect/DescendingMultiset;->forwardMultiset()Lcom/google/common/collect/SortedMultiset;
 
     move-result-object v1
@@ -96,8 +105,10 @@
 
     move-result-object v0
 
+    .end local v0    # "result":Ljava/util/Comparator;, "Ljava/util/Comparator<-TE;>;"
     iput-object v0, p0, Lcom/google/common/collect/DescendingMultiset;->comparator:Ljava/util/Comparator;
 
+    .line 45
     :cond_0
     return-object v0
 .end method
@@ -114,6 +125,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 135
+    .local p0, "this":Lcom/google/common/collect/DescendingMultiset;, "Lcom/google/common/collect/DescendingMultiset<TE;>;"
     new-instance v0, Lcom/google/common/collect/DescendingMultiset$1EntrySetImpl;
 
     invoke-direct {v0, p0}, Lcom/google/common/collect/DescendingMultiset$1EntrySetImpl;-><init>(Lcom/google/common/collect/DescendingMultiset;)V
@@ -131,6 +145,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 89
+    .local p0, "this":Lcom/google/common/collect/DescendingMultiset;, "Lcom/google/common/collect/DescendingMultiset<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/DescendingMultiset;->forwardMultiset()Lcom/google/common/collect/SortedMultiset;
 
     move-result-object v0
@@ -141,6 +158,9 @@
 .method protected bridge synthetic delegate()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 33
+    .local p0, "this":Lcom/google/common/collect/DescendingMultiset;, "Lcom/google/common/collect/DescendingMultiset<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/DescendingMultiset;->delegate()Lcom/google/common/collect/Multiset;
 
     move-result-object v0
@@ -151,6 +171,9 @@
 .method protected bridge synthetic delegate()Ljava/util/Collection;
     .locals 1
 
+    .prologue
+    .line 33
+    .local p0, "this":Lcom/google/common/collect/DescendingMultiset;, "Lcom/google/common/collect/DescendingMultiset<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/DescendingMultiset;->delegate()Lcom/google/common/collect/Multiset;
 
     move-result-object v0
@@ -168,6 +191,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 94
+    .local p0, "this":Lcom/google/common/collect/DescendingMultiset;, "Lcom/google/common/collect/DescendingMultiset<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/DescendingMultiset;->forwardMultiset()Lcom/google/common/collect/SortedMultiset;
 
     move-result-object v0
@@ -185,16 +211,24 @@
         }
     .end annotation
 
+    .prologue
+    .line 52
+    .local p0, "this":Lcom/google/common/collect/DescendingMultiset;, "Lcom/google/common/collect/DescendingMultiset<TE;>;"
     iget-object v0, p0, Lcom/google/common/collect/DescendingMultiset;->elementSet:Ljava/util/NavigableSet;
 
+    .line 53
+    .local v0, "result":Ljava/util/NavigableSet;, "Ljava/util/NavigableSet<TE;>;"
     if-nez v0, :cond_0
 
+    .line 54
     new-instance v0, Lcom/google/common/collect/SortedMultisets$NavigableElementSet;
 
+    .end local v0    # "result":Ljava/util/NavigableSet;, "Ljava/util/NavigableSet<TE;>;"
     invoke-direct {v0, p0}, Lcom/google/common/collect/SortedMultisets$NavigableElementSet;-><init>(Lcom/google/common/collect/SortedMultiset;)V
 
     iput-object v0, p0, Lcom/google/common/collect/DescendingMultiset;->elementSet:Ljava/util/NavigableSet;
 
+    .line 56
     :cond_0
     return-object v0
 .end method
@@ -202,6 +236,9 @@
 .method public bridge synthetic elementSet()Ljava/util/Set;
     .locals 1
 
+    .prologue
+    .line 33
+    .local p0, "this":Lcom/google/common/collect/DescendingMultiset;, "Lcom/google/common/collect/DescendingMultiset<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/DescendingMultiset;->elementSet()Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -212,6 +249,9 @@
 .method public bridge synthetic elementSet()Ljava/util/SortedSet;
     .locals 1
 
+    .prologue
+    .line 33
+    .local p0, "this":Lcom/google/common/collect/DescendingMultiset;, "Lcom/google/common/collect/DescendingMultiset<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/DescendingMultiset;->elementSet()Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -243,14 +283,20 @@
         }
     .end annotation
 
+    .prologue
+    .line 113
+    .local p0, "this":Lcom/google/common/collect/DescendingMultiset;, "Lcom/google/common/collect/DescendingMultiset<TE;>;"
     iget-object v0, p0, Lcom/google/common/collect/DescendingMultiset;->entrySet:Ljava/util/Set;
 
+    .line 114
+    .local v0, "result":Ljava/util/Set;, "Ljava/util/Set<Lcom/google/common/collect/Multiset$Entry<TE;>;>;"
     if-nez v0, :cond_0
 
     invoke-virtual {p0}, Lcom/google/common/collect/DescendingMultiset;->createEntrySet()Ljava/util/Set;
 
     move-result-object v0
 
+    .end local v0    # "result":Ljava/util/Set;, "Ljava/util/Set<Lcom/google/common/collect/Multiset$Entry<TE;>;>;"
     iput-object v0, p0, Lcom/google/common/collect/DescendingMultiset;->entrySet:Ljava/util/Set;
 
     :cond_0
@@ -267,6 +313,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 99
+    .local p0, "this":Lcom/google/common/collect/DescendingMultiset;, "Lcom/google/common/collect/DescendingMultiset<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/DescendingMultiset;->forwardMultiset()Lcom/google/common/collect/SortedMultiset;
 
     move-result-object v0
@@ -290,6 +339,7 @@
 
 .method public headMultiset(Ljava/lang/Object;Lcom/google/common/collect/BoundType;)Lcom/google/common/collect/SortedMultiset;
     .locals 1
+    .param p2, "boundType"    # Lcom/google/common/collect/BoundType;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;",
@@ -300,6 +350,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 71
+    .local p0, "this":Lcom/google/common/collect/DescendingMultiset;, "Lcom/google/common/collect/DescendingMultiset<TE;>;"
+    .local p1, "toElement":Ljava/lang/Object;, "TE;"
     invoke-virtual {p0}, Lcom/google/common/collect/DescendingMultiset;->forwardMultiset()Lcom/google/common/collect/SortedMultiset;
 
     move-result-object v0
@@ -325,6 +379,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 140
+    .local p0, "this":Lcom/google/common/collect/DescendingMultiset;, "Lcom/google/common/collect/DescendingMultiset<TE;>;"
     invoke-static {p0}, Lcom/google/common/collect/Multisets;->iteratorImpl(Lcom/google/common/collect/Multiset;)Ljava/util/Iterator;
 
     move-result-object v0
@@ -342,6 +399,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 104
+    .local p0, "this":Lcom/google/common/collect/DescendingMultiset;, "Lcom/google/common/collect/DescendingMultiset<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/DescendingMultiset;->forwardMultiset()Lcom/google/common/collect/SortedMultiset;
 
     move-result-object v0
@@ -363,6 +423,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 61
+    .local p0, "this":Lcom/google/common/collect/DescendingMultiset;, "Lcom/google/common/collect/DescendingMultiset<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/DescendingMultiset;->forwardMultiset()Lcom/google/common/collect/SortedMultiset;
 
     move-result-object v0
@@ -384,6 +447,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 66
+    .local p0, "this":Lcom/google/common/collect/DescendingMultiset;, "Lcom/google/common/collect/DescendingMultiset<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/DescendingMultiset;->forwardMultiset()Lcom/google/common/collect/SortedMultiset;
 
     move-result-object v0
@@ -397,6 +463,8 @@
 
 .method public subMultiset(Ljava/lang/Object;Lcom/google/common/collect/BoundType;Ljava/lang/Object;Lcom/google/common/collect/BoundType;)Lcom/google/common/collect/SortedMultiset;
     .locals 1
+    .param p2, "fromBoundType"    # Lcom/google/common/collect/BoundType;
+    .param p4, "toBoundType"    # Lcom/google/common/collect/BoundType;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;",
@@ -409,6 +477,11 @@
         }
     .end annotation
 
+    .prologue
+    .line 77
+    .local p0, "this":Lcom/google/common/collect/DescendingMultiset;, "Lcom/google/common/collect/DescendingMultiset<TE;>;"
+    .local p1, "fromElement":Ljava/lang/Object;, "TE;"
+    .local p3, "toElement":Ljava/lang/Object;, "TE;"
     invoke-virtual {p0}, Lcom/google/common/collect/DescendingMultiset;->forwardMultiset()Lcom/google/common/collect/SortedMultiset;
 
     move-result-object v0
@@ -426,6 +499,7 @@
 
 .method public tailMultiset(Ljava/lang/Object;Lcom/google/common/collect/BoundType;)Lcom/google/common/collect/SortedMultiset;
     .locals 1
+    .param p2, "boundType"    # Lcom/google/common/collect/BoundType;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;",
@@ -436,6 +510,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 84
+    .local p0, "this":Lcom/google/common/collect/DescendingMultiset;, "Lcom/google/common/collect/DescendingMultiset<TE;>;"
+    .local p1, "fromElement":Ljava/lang/Object;, "TE;"
     invoke-virtual {p0}, Lcom/google/common/collect/DescendingMultiset;->forwardMultiset()Lcom/google/common/collect/SortedMultiset;
 
     move-result-object v0
@@ -454,6 +532,9 @@
 .method public toArray()[Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 145
+    .local p0, "this":Lcom/google/common/collect/DescendingMultiset;, "Lcom/google/common/collect/DescendingMultiset<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/DescendingMultiset;->standardToArray()[Ljava/lang/Object;
 
     move-result-object v0
@@ -471,6 +552,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 150
+    .local p0, "this":Lcom/google/common/collect/DescendingMultiset;, "Lcom/google/common/collect/DescendingMultiset<TE;>;"
+    .local p1, "array":[Ljava/lang/Object;, "[TT;"
     invoke-virtual {p0, p1}, Lcom/google/common/collect/DescendingMultiset;->standardToArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
     move-result-object v0
@@ -481,6 +566,9 @@
 .method public toString()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 155
+    .local p0, "this":Lcom/google/common/collect/DescendingMultiset;, "Lcom/google/common/collect/DescendingMultiset<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/DescendingMultiset;->entrySet()Ljava/util/Set;
 
     move-result-object v0

@@ -18,6 +18,8 @@
 .method private constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 90
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Landroid/support/v4/content/res/ConfigurationHelper$HoneycombMr2Impl;-><init>(Landroid/support/v4/content/res/ConfigurationHelper$1;)V
@@ -27,7 +29,10 @@
 
 .method synthetic constructor <init>(Landroid/support/v4/content/res/ConfigurationHelper$1;)V
     .locals 0
+    .param p1, "x0"    # Landroid/support/v4/content/res/ConfigurationHelper$1;
 
+    .prologue
+    .line 90
     invoke-direct {p0}, Landroid/support/v4/content/res/ConfigurationHelper$JellybeanMr1Impl;-><init>()V
 
     return-void
@@ -37,11 +42,13 @@
 # virtual methods
 .method public getDensityDpi(Landroid/content/res/Resources;)I
     .locals 1
-    .param p1    # Landroid/content/res/Resources;
+    .param p1, "resources"    # Landroid/content/res/Resources;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
 
+    .prologue
+    .line 93
     invoke-static {p1}, Landroid/support/v4/content/res/ConfigurationHelperJellybeanMr1;->getDensityDpi(Landroid/content/res/Resources;)I
 
     move-result v0

@@ -13,6 +13,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 31
     const-string v0, "gsm.sim.state"
 
     sput-object v0, Lcom/android/incallui/wrapper/TelephonyPropertiesWrapper;->PROPERTY_SIM_STATE:Ljava/lang/String;
@@ -23,6 +25,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 17
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

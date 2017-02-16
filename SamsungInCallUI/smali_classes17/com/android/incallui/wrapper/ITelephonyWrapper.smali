@@ -23,20 +23,26 @@
 .method static constructor <clinit>()V
     .locals 6
 
+    .prologue
     const/4 v5, 0x0
 
+    .line 37
     const-string v2, "com.android.internal.telephony.ITelephony"
 
     invoke-static {v2}, Lcom/android/incallui/wrapper/ReflectUtil;->classForName(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v0
 
+    .line 38
+    .local v0, "baseClass":Ljava/lang/Class;
     const-string v2, "com.android.internal.telephony.ITelephony$Stub"
 
     invoke-static {v2}, Lcom/android/incallui/wrapper/ReflectUtil;->classForName(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v1
 
+    .line 40
+    .local v1, "stubClass":Ljava/lang/Class;
     const-string v2, "asInterface"
 
     const/4 v3, 0x1
@@ -53,6 +59,7 @@
 
     sput-object v2, Lcom/android/incallui/wrapper/ITelephonyWrapper;->sMethodAsInterface:Ljava/lang/reflect/Method;
 
+    .line 41
     const-string v2, "IsDomesticRoaming"
 
     new-array v3, v5, [Ljava/lang/Class;
@@ -63,6 +70,7 @@
 
     sput-object v2, Lcom/android/incallui/wrapper/ITelephonyWrapper;->sMethodIsDomesticRoaming:Ljava/lang/reflect/Method;
 
+    .line 42
     const-string v2, "IsInternationalRoaming"
 
     new-array v3, v5, [Ljava/lang/Class;
@@ -73,31 +81,42 @@
 
     sput-object v2, Lcom/android/incallui/wrapper/ITelephonyWrapper;->sMethodIsInternationalRoaming:Ljava/lang/reflect/Method;
 
+    .line 43
     return-void
 .end method
 
 .method private constructor <init>(Ljava/lang/Object;)V
     .locals 0
+    .param p1, "instance"    # Ljava/lang/Object;
 
+    .prologue
+    .line 45
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 46
     iput-object p1, p0, Lcom/android/incallui/wrapper/ITelephonyWrapper;->mInstance:Ljava/lang/Object;
 
+    .line 47
     return-void
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Lcom/android/incallui/wrapper/ITelephonyWrapper;
     .locals 7
+    .param p0, "service"    # Landroid/os/IBinder;
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 50
     sget-object v2, Lcom/android/incallui/wrapper/ITelephonyWrapper;->sMethodAsInterface:Ljava/lang/reflect/Method;
 
     if-nez v2, :cond_0
 
+    .line 57
     :goto_0
     return-object v1
 
+    .line 54
     :cond_0
     :try_start_0
     new-instance v2, Lcom/android/incallui/wrapper/ITelephonyWrapper;
@@ -128,9 +147,12 @@
 
     goto :goto_0
 
+    .line 55
     :catch_0
     move-exception v0
 
+    .line 56
+    .local v0, "e":Ljava/lang/Exception;
     :goto_1
     const-string v2, "ITelephonyWrapper"
 
@@ -160,6 +182,8 @@
 
     goto :goto_0
 
+    .line 55
+    .end local v0    # "e":Ljava/lang/Exception;
     :catch_1
     move-exception v0
 
@@ -176,17 +200,21 @@
 .method public IsDomesticRoaming()Z
     .locals 5
 
+    .prologue
     const/4 v2, 0x0
 
+    .line 62
     sget-object v1, Lcom/android/incallui/wrapper/ITelephonyWrapper;->sMethodIsDomesticRoaming:Ljava/lang/reflect/Method;
 
     if-nez v1, :cond_0
 
     move v1, v2
 
+    .line 69
     :goto_0
     return v1
 
+    .line 66
     :cond_0
     :try_start_0
     sget-object v1, Lcom/android/incallui/wrapper/ITelephonyWrapper;->sMethodIsDomesticRoaming:Ljava/lang/reflect/Method;
@@ -212,9 +240,12 @@
 
     goto :goto_0
 
+    .line 67
     :catch_0
     move-exception v0
 
+    .line 68
+    .local v0, "e":Ljava/lang/ReflectiveOperationException;
     :goto_1
     const-string v1, "ITelephonyWrapper"
 
@@ -244,8 +275,11 @@
 
     move v1, v2
 
+    .line 69
     goto :goto_0
 
+    .line 67
+    .end local v0    # "e":Ljava/lang/ReflectiveOperationException;
     :catch_1
     move-exception v0
 
@@ -255,17 +289,21 @@
 .method public IsInternationalRoaming()Z
     .locals 5
 
+    .prologue
     const/4 v2, 0x0
 
+    .line 74
     sget-object v1, Lcom/android/incallui/wrapper/ITelephonyWrapper;->sMethodIsInternationalRoaming:Ljava/lang/reflect/Method;
 
     if-nez v1, :cond_0
 
     move v1, v2
 
+    .line 81
     :goto_0
     return v1
 
+    .line 78
     :cond_0
     :try_start_0
     sget-object v1, Lcom/android/incallui/wrapper/ITelephonyWrapper;->sMethodIsInternationalRoaming:Ljava/lang/reflect/Method;
@@ -291,9 +329,12 @@
 
     goto :goto_0
 
+    .line 79
     :catch_0
     move-exception v0
 
+    .line 80
+    .local v0, "e":Ljava/lang/ReflectiveOperationException;
     :goto_1
     const-string v1, "ITelephonyWrapper"
 
@@ -323,8 +364,11 @@
 
     move v1, v2
 
+    .line 81
     goto :goto_0
 
+    .line 79
+    .end local v0    # "e":Ljava/lang/ReflectiveOperationException;
     :catch_1
     move-exception v0
 

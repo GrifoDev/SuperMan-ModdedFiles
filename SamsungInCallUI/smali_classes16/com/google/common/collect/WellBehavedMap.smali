@@ -60,10 +60,16 @@
         }
     .end annotation
 
+    .prologue
+    .line 42
+    .local p0, "this":Lcom/google/common/collect/WellBehavedMap;, "Lcom/google/common/collect/WellBehavedMap<TK;TV;>;"
+    .local p1, "delegate":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
     invoke-direct {p0}, Lcom/google/common/collect/ForwardingMap;-><init>()V
 
+    .line 43
     iput-object p1, p0, Lcom/google/common/collect/WellBehavedMap;->delegate:Ljava/util/Map;
 
+    .line 44
     return-void
 .end method
 
@@ -83,6 +89,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 53
+    .local p0, "delegate":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
     new-instance v0, Lcom/google/common/collect/WellBehavedMap;
 
     invoke-direct {v0, p0}, Lcom/google/common/collect/WellBehavedMap;-><init>(Ljava/util/Map;)V
@@ -95,6 +104,9 @@
 .method protected bridge synthetic delegate()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 37
+    .local p0, "this":Lcom/google/common/collect/WellBehavedMap;, "Lcom/google/common/collect/WellBehavedMap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/WellBehavedMap;->delegate()Ljava/util/Map;
 
     move-result-object v0
@@ -112,6 +124,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 58
+    .local p0, "this":Lcom/google/common/collect/WellBehavedMap;, "Lcom/google/common/collect/WellBehavedMap<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/WellBehavedMap;->delegate:Ljava/util/Map;
 
     return-object v0
@@ -129,16 +144,25 @@
         }
     .end annotation
 
+    .prologue
+    .line 63
+    .local p0, "this":Lcom/google/common/collect/WellBehavedMap;, "Lcom/google/common/collect/WellBehavedMap<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/WellBehavedMap;->entrySet:Ljava/util/Set;
 
+    .line 64
+    .local v0, "es":Ljava/util/Set;, "Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;"
     if-eqz v0, :cond_0
 
+    .line 67
+    .end local v0    # "es":Ljava/util/Set;, "Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;"
     :goto_0
     return-object v0
 
+    .restart local v0    # "es":Ljava/util/Set;, "Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;"
     :cond_0
     new-instance v0, Lcom/google/common/collect/WellBehavedMap$EntrySet;
 
+    .end local v0    # "es":Ljava/util/Set;, "Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;"
     const/4 v1, 0x0
 
     invoke-direct {v0, p0, v1}, Lcom/google/common/collect/WellBehavedMap$EntrySet;-><init>(Lcom/google/common/collect/WellBehavedMap;Lcom/google/common/collect/WellBehavedMap$1;)V

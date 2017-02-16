@@ -27,6 +27,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 925
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -34,7 +36,10 @@
 
 .method private isBlack([F)Z
     .locals 2
+    .param p1, "hslColor"    # [F
 
+    .prologue
+    .line 938
     const/4 v0, 0x2
 
     aget v0, p1, v0
@@ -58,11 +63,14 @@
 
 .method private isNearRedILine([F)Z
     .locals 4
+    .param p1, "hslColor"    # [F
 
+    .prologue
     const/4 v0, 0x1
 
     const/4 v1, 0x0
 
+    .line 952
     aget v2, p1, v1
 
     const/high16 v3, 0x41200000    # 10.0f
@@ -98,7 +106,10 @@
 
 .method private isWhite([F)Z
     .locals 2
+    .param p1, "hslColor"    # [F
 
+    .prologue
+    .line 945
     const/4 v0, 0x2
 
     aget v0, p1, v0
@@ -124,7 +135,11 @@
 # virtual methods
 .method public isAllowed(I[F)Z
     .locals 1
+    .param p1, "rgb"    # I
+    .param p2, "hsl"    # [F
 
+    .prologue
+    .line 931
     invoke-direct {p0, p2}, Landroid/support/v7/graphics/Palette$1;->isWhite([F)Z
 
     move-result v0

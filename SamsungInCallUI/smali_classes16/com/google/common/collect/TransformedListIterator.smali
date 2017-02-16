@@ -36,8 +36,13 @@
         }
     .end annotation
 
+    .prologue
+    .line 35
+    .local p0, "this":Lcom/google/common/collect/TransformedListIterator;, "Lcom/google/common/collect/TransformedListIterator<TF;TT;>;"
+    .local p1, "backingIterator":Ljava/util/ListIterator;, "Ljava/util/ListIterator<+TF;>;"
     invoke-direct {p0, p1}, Lcom/google/common/collect/TransformedIterator;-><init>(Ljava/util/Iterator;)V
 
+    .line 36
     return-void
 .end method
 
@@ -51,6 +56,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 39
+    .local p0, "this":Lcom/google/common/collect/TransformedListIterator;, "Lcom/google/common/collect/TransformedListIterator<TF;TT;>;"
     iget-object v0, p0, Lcom/google/common/collect/TransformedListIterator;->backingIterator:Ljava/util/Iterator;
 
     invoke-static {v0}, Lcom/google/common/collect/Iterators;->cast(Ljava/util/Iterator;)Ljava/util/ListIterator;
@@ -70,6 +78,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 69
+    .local p0, "this":Lcom/google/common/collect/TransformedListIterator;, "Lcom/google/common/collect/TransformedListIterator<TF;TT;>;"
+    .local p1, "element":Ljava/lang/Object;, "TT;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -80,6 +92,9 @@
 .method public final hasPrevious()Z
     .locals 1
 
+    .prologue
+    .line 44
+    .local p0, "this":Lcom/google/common/collect/TransformedListIterator;, "Lcom/google/common/collect/TransformedListIterator<TF;TT;>;"
     invoke-direct {p0}, Lcom/google/common/collect/TransformedListIterator;->backingIterator()Ljava/util/ListIterator;
 
     move-result-object v0
@@ -94,6 +109,9 @@
 .method public final nextIndex()I
     .locals 1
 
+    .prologue
+    .line 54
+    .local p0, "this":Lcom/google/common/collect/TransformedListIterator;, "Lcom/google/common/collect/TransformedListIterator<TF;TT;>;"
     invoke-direct {p0}, Lcom/google/common/collect/TransformedListIterator;->backingIterator()Ljava/util/ListIterator;
 
     move-result-object v0
@@ -113,6 +131,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 49
+    .local p0, "this":Lcom/google/common/collect/TransformedListIterator;, "Lcom/google/common/collect/TransformedListIterator<TF;TT;>;"
     invoke-direct {p0}, Lcom/google/common/collect/TransformedListIterator;->backingIterator()Ljava/util/ListIterator;
 
     move-result-object v0
@@ -131,6 +152,9 @@
 .method public final previousIndex()I
     .locals 1
 
+    .prologue
+    .line 59
+    .local p0, "this":Lcom/google/common/collect/TransformedListIterator;, "Lcom/google/common/collect/TransformedListIterator<TF;TT;>;"
     invoke-direct {p0}, Lcom/google/common/collect/TransformedListIterator;->backingIterator()Ljava/util/ListIterator;
 
     move-result-object v0
@@ -150,6 +174,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 64
+    .local p0, "this":Lcom/google/common/collect/TransformedListIterator;, "Lcom/google/common/collect/TransformedListIterator<TF;TT;>;"
+    .local p1, "element":Ljava/lang/Object;, "TT;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V

@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/MultiPartyCallCardFragment;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/fragment/MultiPartyCallCardFragment;
 
+    .prologue
+    .line 2028
     iput-object p1, p0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment$4;->this$0:Lcom/android/incallui/fragment/MultiPartyCallCardFragment;
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
@@ -33,7 +36,10 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 3
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 2031
     const-string v0, "MultiPartyCallCardFragment"
 
     const-string v1, "manage animation end..."
@@ -42,24 +48,28 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
+    .line 2032
     iget-object v0, p0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment$4;->this$0:Lcom/android/incallui/fragment/MultiPartyCallCardFragment;
 
     iget-object v0, v0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment;->mManageButton:Landroid/widget/Button;
 
     if-eqz v0, :cond_0
 
+    .line 2033
     iget-object v0, p0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment$4;->this$0:Lcom/android/incallui/fragment/MultiPartyCallCardFragment;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/fragment/MultiPartyCallCardFragment;->updateManageAndHideConferenceCallButton(Z)V
 
+    .line 2034
     iget-object v0, p0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment$4;->this$0:Lcom/android/incallui/fragment/MultiPartyCallCardFragment;
 
     iget-object v0, v0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment;->mPrimaryPanel:Landroid/view/View;
 
     if-eqz v0, :cond_0
 
+    .line 2035
     iget-object v0, p0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment$4;->this$0:Lcom/android/incallui/fragment/MultiPartyCallCardFragment;
 
     iget-object v0, v0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment;->mPrimaryPanel:Landroid/view/View;
@@ -68,6 +78,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setAlpha(F)V
 
+    .line 2038
     :cond_0
     return-void
 .end method

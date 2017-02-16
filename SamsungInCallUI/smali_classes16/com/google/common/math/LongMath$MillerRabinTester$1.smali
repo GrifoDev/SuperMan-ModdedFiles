@@ -18,6 +18,8 @@
 .method constructor <init>(Ljava/lang/String;I)V
     .locals 1
 
+    .prologue
+    .line 786
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, p2, v0}, Lcom/google/common/math/LongMath$MillerRabinTester;-><init>(Ljava/lang/String;ILcom/google/common/math/LongMath$1;)V
@@ -29,7 +31,12 @@
 # virtual methods
 .method mulMod(JJJ)J
     .locals 3
+    .param p1, "a"    # J
+    .param p3, "b"    # J
+    .param p5, "m"    # J
 
+    .prologue
+    .line 795
     mul-long v0, p1, p3
 
     rem-long/2addr v0, p5
@@ -39,7 +46,11 @@
 
 .method squareMod(JJ)J
     .locals 3
+    .param p1, "a"    # J
+    .param p3, "m"    # J
 
+    .prologue
+    .line 800
     mul-long v0, p1, p1
 
     rem-long/2addr v0, p3

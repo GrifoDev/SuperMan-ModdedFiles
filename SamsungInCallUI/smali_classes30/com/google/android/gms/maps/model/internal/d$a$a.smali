@@ -850,12 +850,15 @@
 
 .method public setAnchor(FF)V
     .locals 5
+    .param p1, "anchorU"    # F
+    .param p2, "anchorV"    # F
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -903,12 +906,14 @@
 
 .method public setDraggable(Z)V
     .locals 5
+    .param p1, "draggable"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     const/4 v0, 0x0
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
@@ -961,12 +966,14 @@
 
 .method public setFlat(Z)V
     .locals 5
+    .param p1, "flat"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     const/4 v0, 0x0
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
@@ -1019,12 +1026,15 @@
 
 .method public setInfoWindowAnchor(FF)V
     .locals 5
+    .param p1, "anchorU"    # F
+    .param p2, "anchorV"    # F
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -1072,12 +1082,14 @@
 
 .method public setPosition(Lcom/google/android/gms/maps/model/LatLng;)V
     .locals 5
+    .param p1, "latlng"    # Lcom/google/android/gms/maps/model/LatLng;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -1142,12 +1154,14 @@
 
 .method public setRotation(F)V
     .locals 5
+    .param p1, "rotation"    # F
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -1193,12 +1207,14 @@
 
 .method public setSnippet(Ljava/lang/String;)V
     .locals 5
+    .param p1, "snippet"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -1244,12 +1260,14 @@
 
 .method public setTitle(Ljava/lang/String;)V
     .locals 5
+    .param p1, "title"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -1295,12 +1313,14 @@
 
 .method public setVisible(Z)V
     .locals 5
+    .param p1, "visible"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     const/4 v0, 0x0
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;

@@ -18,6 +18,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 73
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -28,6 +30,8 @@
 .method public getDefaultLocale()Ljava/util/Locale;
     .locals 1
 
+    .prologue
+    .line 76
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
     move-result-object v0

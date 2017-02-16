@@ -37,10 +37,14 @@
 .method constructor <init>(Lcom/google/common/collect/StandardTable;)V
     .locals 0
 
+    .prologue
+    .line 744
+    .local p0, "this":Lcom/google/common/collect/StandardTable$RowMap;, "Lcom/google/common/collect/StandardTable<TR;TC;TV;>.RowMap;"
     iput-object p1, p0, Lcom/google/common/collect/StandardTable$RowMap;->this$0:Lcom/google/common/collect/StandardTable;
 
     invoke-direct {p0}, Lcom/google/common/collect/Maps$ViewCachingAbstractMap;-><init>()V
 
+    .line 767
     return-void
 .end method
 
@@ -48,7 +52,11 @@
 # virtual methods
 .method public containsKey(Ljava/lang/Object;)Z
     .locals 1
+    .param p1, "key"    # Ljava/lang/Object;
 
+    .prologue
+    .line 747
+    .local p0, "this":Lcom/google/common/collect/StandardTable$RowMap;, "Lcom/google/common/collect/StandardTable<TR;TC;TV;>.RowMap;"
     iget-object v0, p0, Lcom/google/common/collect/StandardTable$RowMap;->this$0:Lcom/google/common/collect/StandardTable;
 
     invoke-virtual {v0, p1}, Lcom/google/common/collect/StandardTable;->containsRow(Ljava/lang/Object;)Z
@@ -72,6 +80,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 764
+    .local p0, "this":Lcom/google/common/collect/StandardTable$RowMap;, "Lcom/google/common/collect/StandardTable<TR;TC;TV;>.RowMap;"
     new-instance v0, Lcom/google/common/collect/StandardTable$RowMap$EntrySet;
 
     invoke-direct {v0, p0}, Lcom/google/common/collect/StandardTable$RowMap$EntrySet;-><init>(Lcom/google/common/collect/StandardTable$RowMap;)V
@@ -81,7 +92,11 @@
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
+    .param p1, "x0"    # Ljava/lang/Object;
 
+    .prologue
+    .line 743
+    .local p0, "this":Lcom/google/common/collect/StandardTable$RowMap;, "Lcom/google/common/collect/StandardTable<TR;TC;TV;>.RowMap;"
     invoke-virtual {p0, p1}, Lcom/google/common/collect/StandardTable$RowMap;->get(Ljava/lang/Object;)Ljava/util/Map;
 
     move-result-object v0
@@ -91,6 +106,7 @@
 
 .method public get(Ljava/lang/Object;)Ljava/util/Map;
     .locals 1
+    .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -101,6 +117,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 754
+    .local p0, "this":Lcom/google/common/collect/StandardTable$RowMap;, "Lcom/google/common/collect/StandardTable<TR;TC;TV;>.RowMap;"
     iget-object v0, p0, Lcom/google/common/collect/StandardTable$RowMap;->this$0:Lcom/google/common/collect/StandardTable;
 
     invoke-virtual {v0, p1}, Lcom/google/common/collect/StandardTable;->containsRow(Ljava/lang/Object;)Z
@@ -126,7 +145,11 @@
 
 .method public bridge synthetic remove(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
+    .param p1, "x0"    # Ljava/lang/Object;
 
+    .prologue
+    .line 743
+    .local p0, "this":Lcom/google/common/collect/StandardTable$RowMap;, "Lcom/google/common/collect/StandardTable<TR;TC;TV;>.RowMap;"
     invoke-virtual {p0, p1}, Lcom/google/common/collect/StandardTable$RowMap;->remove(Ljava/lang/Object;)Ljava/util/Map;
 
     move-result-object v0
@@ -136,6 +159,7 @@
 
 .method public remove(Ljava/lang/Object;)Ljava/util/Map;
     .locals 1
+    .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -146,6 +170,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 759
+    .local p0, "this":Lcom/google/common/collect/StandardTable$RowMap;, "Lcom/google/common/collect/StandardTable<TR;TC;TV;>.RowMap;"
     if-nez p1, :cond_0
 
     const/4 v0, 0x0

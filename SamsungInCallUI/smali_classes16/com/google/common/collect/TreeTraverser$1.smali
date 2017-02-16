@@ -31,6 +31,9 @@
 .method constructor <init>(Lcom/google/common/collect/TreeTraverser;Ljava/lang/Object;)V
     .locals 0
 
+    .prologue
+    .line 71
+    .local p0, "this":Lcom/google/common/collect/TreeTraverser$1;, "Lcom/google/common/collect/TreeTraverser.1;"
     iput-object p1, p0, Lcom/google/common/collect/TreeTraverser$1;->this$0:Lcom/google/common/collect/TreeTraverser;
 
     iput-object p2, p0, Lcom/google/common/collect/TreeTraverser$1;->val$root:Ljava/lang/Object;
@@ -52,6 +55,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 74
+    .local p0, "this":Lcom/google/common/collect/TreeTraverser$1;, "Lcom/google/common/collect/TreeTraverser.1;"
     iget-object v0, p0, Lcom/google/common/collect/TreeTraverser$1;->this$0:Lcom/google/common/collect/TreeTraverser;
 
     iget-object v1, p0, Lcom/google/common/collect/TreeTraverser$1;->val$root:Ljava/lang/Object;
@@ -66,6 +72,9 @@
 .method public bridge synthetic iterator()Ljava/util/Iterator;
     .locals 1
 
+    .prologue
+    .line 71
+    .local p0, "this":Lcom/google/common/collect/TreeTraverser$1;, "Lcom/google/common/collect/TreeTraverser.1;"
     invoke-virtual {p0}, Lcom/google/common/collect/TreeTraverser$1;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
 
     move-result-object v0

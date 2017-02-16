@@ -31,7 +31,11 @@
 # direct methods
 .method constructor <init>(Lcom/android/contacts/common/ContactPhotoManagerImpl;I)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/contacts/common/ContactPhotoManagerImpl;
+    .param p2, "x0"    # I
 
+    .prologue
+    .line 738
     iput-object p1, p0, Lcom/android/contacts/common/ContactPhotoManagerImpl$2;->this$0:Lcom/android/contacts/common/ContactPhotoManagerImpl;
 
     invoke-direct {p0, p2}, Landroid/util/LruCache;-><init>(I)V
@@ -43,13 +47,21 @@
 # virtual methods
 .method protected entryRemoved(ZLjava/lang/Object;Lcom/android/contacts/common/ContactPhotoManagerImpl$BitmapHolder;Lcom/android/contacts/common/ContactPhotoManagerImpl$BitmapHolder;)V
     .locals 0
+    .param p1, "evicted"    # Z
+    .param p2, "key"    # Ljava/lang/Object;
+    .param p3, "oldValue"    # Lcom/android/contacts/common/ContactPhotoManagerImpl$BitmapHolder;
+    .param p4, "newValue"    # Lcom/android/contacts/common/ContactPhotoManagerImpl$BitmapHolder;
 
+    .prologue
+    .line 748
     return-void
 .end method
 
 .method protected bridge synthetic entryRemoved(ZLjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 0
 
+    .prologue
+    .line 738
     check-cast p3, Lcom/android/contacts/common/ContactPhotoManagerImpl$BitmapHolder;
 
     check-cast p4, Lcom/android/contacts/common/ContactPhotoManagerImpl$BitmapHolder;
@@ -61,7 +73,11 @@
 
 .method protected sizeOf(Ljava/lang/Object;Lcom/android/contacts/common/ContactPhotoManagerImpl$BitmapHolder;)I
     .locals 1
+    .param p1, "key"    # Ljava/lang/Object;
+    .param p2, "value"    # Lcom/android/contacts/common/ContactPhotoManagerImpl$BitmapHolder;
 
+    .prologue
+    .line 741
     iget-object v0, p2, Lcom/android/contacts/common/ContactPhotoManagerImpl$BitmapHolder;->bytes:[B
 
     if-eqz v0, :cond_0
@@ -82,6 +98,8 @@
 .method protected bridge synthetic sizeOf(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
 
+    .prologue
+    .line 738
     check-cast p2, Lcom/android/contacts/common/ContactPhotoManagerImpl$BitmapHolder;
 
     invoke-virtual {p0, p1, p2}, Lcom/android/contacts/common/ContactPhotoManagerImpl$2;->sizeOf(Ljava/lang/Object;Lcom/android/contacts/common/ContactPhotoManagerImpl$BitmapHolder;)I

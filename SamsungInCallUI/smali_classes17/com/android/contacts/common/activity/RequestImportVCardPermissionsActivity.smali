@@ -11,6 +11,8 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
+    .line 27
     const/4 v0, 0x2
 
     new-array v0, v0, [Ljava/lang/String;
@@ -35,6 +37,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 25
     invoke-direct {p0}, Lcom/android/contacts/common/activity/RequestPermissionsActivity;-><init>()V
 
     return-void
@@ -42,7 +46,10 @@
 
 .method public static startPermissionActivity(Landroid/app/Activity;)Z
     .locals 2
+    .param p0, "activity"    # Landroid/app/Activity;
 
+    .prologue
+    .line 51
     sget-object v0, Lcom/android/contacts/common/activity/RequestImportVCardPermissionsActivity;->REQUIRED_PERMISSIONS:[Ljava/lang/String;
 
     const-class v1, Lcom/android/contacts/common/activity/RequestImportVCardPermissionsActivity;
@@ -59,6 +66,8 @@
 .method protected getDesiredPermissions()[Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 41
     sget-object v0, Lcom/android/contacts/common/activity/RequestImportVCardPermissionsActivity;->REQUIRED_PERMISSIONS:[Ljava/lang/String;
 
     return-object v0
@@ -67,6 +76,8 @@
 .method protected getRequiredPermissions()[Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 34
     sget-object v0, Lcom/android/contacts/common/activity/RequestImportVCardPermissionsActivity;->REQUIRED_PERMISSIONS:[Ljava/lang/String;
 
     return-object v0

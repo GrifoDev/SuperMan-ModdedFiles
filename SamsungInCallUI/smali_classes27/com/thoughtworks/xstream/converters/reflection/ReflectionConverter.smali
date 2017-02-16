@@ -15,6 +15,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 20
     const-string v0, "java.beans.EventHandler"
 
     invoke-static {v0}, Lcom/thoughtworks/xstream/core/JVM;->loadClassForName(Ljava/lang/String;)Ljava/lang/Class;
@@ -28,19 +30,31 @@
 
 .method public constructor <init>(Lcom/thoughtworks/xstream/mapper/Mapper;Lcom/thoughtworks/xstream/converters/reflection/ReflectionProvider;)V
     .locals 0
+    .param p1, "mapper"    # Lcom/thoughtworks/xstream/mapper/Mapper;
+    .param p2, "reflectionProvider"    # Lcom/thoughtworks/xstream/converters/reflection/ReflectionProvider;
 
+    .prologue
+    .line 24
     invoke-direct {p0, p1, p2}, Lcom/thoughtworks/xstream/converters/reflection/AbstractReflectionConverter;-><init>(Lcom/thoughtworks/xstream/mapper/Mapper;Lcom/thoughtworks/xstream/converters/reflection/ReflectionProvider;)V
 
+    .line 25
     return-void
 .end method
 
 .method public constructor <init>(Lcom/thoughtworks/xstream/mapper/Mapper;Lcom/thoughtworks/xstream/converters/reflection/ReflectionProvider;Ljava/lang/Class;)V
     .locals 0
+    .param p1, "mapper"    # Lcom/thoughtworks/xstream/mapper/Mapper;
+    .param p2, "reflectionProvider"    # Lcom/thoughtworks/xstream/converters/reflection/ReflectionProvider;
+    .param p3, "type"    # Ljava/lang/Class;
 
+    .prologue
+    .line 36
     invoke-direct {p0, p1, p2}, Lcom/thoughtworks/xstream/converters/reflection/ReflectionConverter;-><init>(Lcom/thoughtworks/xstream/mapper/Mapper;Lcom/thoughtworks/xstream/converters/reflection/ReflectionProvider;)V
 
+    .line 37
     iput-object p3, p0, Lcom/thoughtworks/xstream/converters/reflection/ReflectionConverter;->type:Ljava/lang/Class;
 
+    .line 38
     return-void
 .end method
 
@@ -48,7 +62,10 @@
 # virtual methods
 .method public canConvert(Ljava/lang/Class;)Z
     .locals 1
+    .param p1, "type"    # Ljava/lang/Class;
 
+    .prologue
+    .line 41
     iget-object v0, p0, Lcom/thoughtworks/xstream/converters/reflection/ReflectionConverter;->type:Ljava/lang/Class;
 
     if-eqz v0, :cond_0

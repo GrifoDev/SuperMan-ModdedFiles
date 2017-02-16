@@ -28,6 +28,9 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 527
+    .local p0, "this":Lcom/google/common/collect/Sets$SetView;, "Lcom/google/common/collect/Sets$SetView<TE;>;"
     invoke-direct {p0}, Ljava/util/AbstractSet;-><init>()V
 
     return-void
@@ -35,7 +38,11 @@
 
 .method synthetic constructor <init>(Lcom/google/common/collect/Sets$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/google/common/collect/Sets$1;
 
+    .prologue
+    .line 526
+    .local p0, "this":Lcom/google/common/collect/Sets$SetView;, "Lcom/google/common/collect/Sets$SetView<TE;>;"
     invoke-direct {p0}, Lcom/google/common/collect/Sets$SetView;-><init>()V
 
     return-void
@@ -53,8 +60,13 @@
         }
     .end annotation
 
+    .prologue
+    .line 552
+    .local p0, "this":Lcom/google/common/collect/Sets$SetView;, "Lcom/google/common/collect/Sets$SetView<TE;>;"
+    .local p1, "set":Ljava/util/Set;, "TS;"
     invoke-interface {p1, p0}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
 
+    .line 553
     return-object p1
 .end method
 
@@ -68,6 +80,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 539
+    .local p0, "this":Lcom/google/common/collect/Sets$SetView;, "Lcom/google/common/collect/Sets$SetView<TE;>;"
     invoke-static {p0}, Lcom/google/common/collect/ImmutableSet;->copyOf(Ljava/util/Collection;)Lcom/google/common/collect/ImmutableSet;
 
     move-result-object v0

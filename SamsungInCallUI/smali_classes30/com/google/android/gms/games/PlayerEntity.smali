@@ -55,7 +55,14 @@
 
 .method constructor <init>(ILjava/lang/String;Ljava/lang/String;Landroid/net/Uri;Landroid/net/Uri;J)V
     .locals 0
+    .param p1, "versionCode"    # I
+    .param p2, "playerId"    # Ljava/lang/String;
+    .param p3, "displayName"    # Ljava/lang/String;
+    .param p4, "iconImageUri"    # Landroid/net/Uri;
+    .param p5, "hiResImageUri"    # Landroid/net/Uri;
+    .param p6, "retrievedTimestamp"    # J
 
+    .prologue
     invoke-direct {p0}, Lcom/google/android/gms/internal/av;-><init>()V
 
     iput p1, p0, Lcom/google/android/gms/games/PlayerEntity;->ab:I
@@ -75,7 +82,9 @@
 
 .method public constructor <init>(Lcom/google/android/gms/games/Player;)V
     .locals 6
+    .param p1, "player"    # Lcom/google/android/gms/games/Player;
 
+    .prologue
     const/4 v0, 0x1
 
     invoke-direct {p0}, Lcom/google/android/gms/internal/av;-><init>()V
@@ -413,7 +422,9 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
+    .param p1, "obj"    # Ljava/lang/Object;
 
+    .prologue
     invoke-static {p0, p1}, Lcom/google/android/gms/games/PlayerEntity;->a(Lcom/google/android/gms/games/Player;Ljava/lang/Object;)Z
 
     move-result v0
@@ -447,7 +458,9 @@
 
 .method public getDisplayName(Landroid/database/CharArrayBuffer;)V
     .locals 1
+    .param p1, "dataOut"    # Landroid/database/CharArrayBuffer;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/PlayerEntity;->cl:Ljava/lang/String;
 
     invoke-static {v0, p1}, Lcom/google/android/gms/internal/ao;->b(Ljava/lang/String;Landroid/database/CharArrayBuffer;)V
@@ -565,7 +578,10 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
+    .prologue
     const/4 v1, 0x0
 
     invoke-virtual {p0}, Lcom/google/android/gms/games/PlayerEntity;->w()Z

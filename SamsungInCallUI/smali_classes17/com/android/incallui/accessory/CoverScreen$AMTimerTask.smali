@@ -24,10 +24,13 @@
 .method private constructor <init>(Lcom/android/incallui/accessory/CoverScreen;)V
     .locals 1
 
+    .prologue
+    .line 2744
     iput-object p1, p0, Lcom/android/incallui/accessory/CoverScreen$AMTimerTask;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
     invoke-direct {p0}, Ljava/util/TimerTask;-><init>()V
 
+    .line 2746
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/incallui/accessory/CoverScreen$AMTimerTask;->cnt:I
@@ -37,7 +40,11 @@
 
 .method synthetic constructor <init>(Lcom/android/incallui/accessory/CoverScreen;Lcom/android/incallui/accessory/CoverScreen$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/android/incallui/accessory/CoverScreen;
+    .param p2, "x1"    # Lcom/android/incallui/accessory/CoverScreen$1;
 
+    .prologue
+    .line 2744
     invoke-direct {p0, p1}, Lcom/android/incallui/accessory/CoverScreen$AMTimerTask;-><init>(Lcom/android/incallui/accessory/CoverScreen;)V
 
     return-void
@@ -48,16 +55,21 @@
 .method public AMTimerTask()V
     .locals 1
 
+    .prologue
+    .line 2749
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/incallui/accessory/CoverScreen$AMTimerTask;->cnt:I
 
+    .line 2750
     return-void
 .end method
 
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 2754
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
     move-result-object v1
@@ -66,17 +78,21 @@
 
     move-result-object v0
 
+    .line 2755
+    .local v0, "activity":Lcom/android/incallui/InCallActivity;
     new-instance v1, Lcom/android/incallui/accessory/CoverScreen$AMTimerTask$1;
 
     invoke-direct {v1, p0}, Lcom/android/incallui/accessory/CoverScreen$AMTimerTask$1;-><init>(Lcom/android/incallui/accessory/CoverScreen$AMTimerTask;)V
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/InCallActivity;->runOnUiThread(Ljava/lang/Runnable;)V
 
+    .line 2769
     iget v1, p0, Lcom/android/incallui/accessory/CoverScreen$AMTimerTask;->cnt:I
 
     add-int/lit8 v1, v1, 0x1
 
     iput v1, p0, Lcom/android/incallui/accessory/CoverScreen$AMTimerTask;->cnt:I
 
+    .line 2770
     return-void
 .end method

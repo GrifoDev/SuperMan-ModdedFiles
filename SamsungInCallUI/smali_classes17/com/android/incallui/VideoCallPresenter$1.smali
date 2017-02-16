@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/VideoCallPresenter;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/VideoCallPresenter;
 
+    .prologue
+    .line 116
     iput-object p1, p0, Lcom/android/incallui/VideoCallPresenter$1;->this$0:Lcom/android/incallui/VideoCallPresenter;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -33,7 +36,10 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 119
     const-string v0, "VideoCallPresenter - "
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -58,15 +64,18 @@
 
     invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 120
     iget v0, p1, Landroid/os/Message;->what:I
 
     sparse-switch v0, :sswitch_data_0
 
+    .line 142
     :cond_0
     :goto_0
     :sswitch_0
     return-void
 
+    .line 122
     :sswitch_1
     iget-object v0, p0, Lcom/android/incallui/VideoCallPresenter$1;->this$0:Lcom/android/incallui/VideoCallPresenter;
 
@@ -75,6 +84,7 @@
 
     goto :goto_0
 
+    .line 129
     :sswitch_2
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallNotifier;->getInstance()Lcom/android/incallui/service/vt/VideoCallNotifier;
 
@@ -84,6 +94,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/service/vt/VideoCallNotifier;->notifyVideoCallUiEvent(I)V
 
+    .line 130
     iget-object v0, p0, Lcom/android/incallui/VideoCallPresenter$1;->this$0:Lcom/android/incallui/VideoCallPresenter;
 
     # getter for: Lcom/android/incallui/VideoCallPresenter;->mPrimaryCall:Lcom/android/incallui/Call;
@@ -108,6 +119,7 @@
 
     if-ne v0, v1, :cond_0
 
+    .line 131
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallManager;->getInstance()Lcom/android/incallui/service/vt/VideoCallManager;
 
     move-result-object v0
@@ -118,15 +130,18 @@
 
     if-eqz v0, :cond_1
 
+    .line 132
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallControl;->sendLiveVideo()V
 
     goto :goto_0
 
+    .line 134
     :cond_1
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallControl;->sendStillImage()V
 
     goto :goto_0
 
+    .line 120
     :sswitch_data_0
     .sparse-switch
         0x64 -> :sswitch_1

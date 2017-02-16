@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/google/common/util/concurrent/AbstractExecutionThreadService$1;)V
     .locals 0
 
+    .prologue
+    .line 50
     iput-object p1, p0, Lcom/google/common/util/concurrent/AbstractExecutionThreadService$1$2;->this$1:Lcom/google/common/util/concurrent/AbstractExecutionThreadService$1;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +39,8 @@
 .method public run()V
     .locals 5
 
+    .prologue
+    .line 54
     :try_start_0
     iget-object v2, p0, Lcom/google/common/util/concurrent/AbstractExecutionThreadService$1$2;->this$1:Lcom/google/common/util/concurrent/AbstractExecutionThreadService$1;
 
@@ -44,10 +48,12 @@
 
     invoke-virtual {v2}, Lcom/google/common/util/concurrent/AbstractExecutionThreadService;->startUp()V
 
+    .line 55
     iget-object v2, p0, Lcom/google/common/util/concurrent/AbstractExecutionThreadService$1$2;->this$1:Lcom/google/common/util/concurrent/AbstractExecutionThreadService$1;
 
     invoke-virtual {v2}, Lcom/google/common/util/concurrent/AbstractExecutionThreadService$1;->notifyStarted()V
 
+    .line 58
     iget-object v2, p0, Lcom/google/common/util/concurrent/AbstractExecutionThreadService$1$2;->this$1:Lcom/google/common/util/concurrent/AbstractExecutionThreadService$1;
 
     invoke-virtual {v2}, Lcom/google/common/util/concurrent/AbstractExecutionThreadService$1;->isRunning()Z
@@ -58,6 +64,7 @@
 
     if-eqz v2, :cond_0
 
+    .line 60
     :try_start_1
     iget-object v2, p0, Lcom/google/common/util/concurrent/AbstractExecutionThreadService$1$2;->this$1:Lcom/google/common/util/concurrent/AbstractExecutionThreadService$1;
 
@@ -67,6 +74,7 @@
     :try_end_1
     .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_0
 
+    .line 76
     :cond_0
     :try_start_2
     iget-object v2, p0, Lcom/google/common/util/concurrent/AbstractExecutionThreadService$1$2;->this$1:Lcom/google/common/util/concurrent/AbstractExecutionThreadService$1;
@@ -75,18 +83,23 @@
 
     invoke-virtual {v2}, Lcom/google/common/util/concurrent/AbstractExecutionThreadService;->shutDown()V
 
+    .line 77
     iget-object v2, p0, Lcom/google/common/util/concurrent/AbstractExecutionThreadService$1$2;->this$1:Lcom/google/common/util/concurrent/AbstractExecutionThreadService$1;
 
     invoke-virtual {v2}, Lcom/google/common/util/concurrent/AbstractExecutionThreadService$1;->notifyStopped()V
     :try_end_2
     .catch Ljava/lang/Throwable; {:try_start_2 .. :try_end_2} :catch_1
 
+    .line 81
     :goto_0
     return-void
 
+    .line 61
     :catch_0
     move-exception v1
 
+    .line 63
+    .local v1, "t":Ljava/lang/Throwable;
     :try_start_3
     iget-object v2, p0, Lcom/google/common/util/concurrent/AbstractExecutionThreadService$1$2;->this$1:Lcom/google/common/util/concurrent/AbstractExecutionThreadService$1;
 
@@ -97,6 +110,7 @@
     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_2
     .catch Ljava/lang/Throwable; {:try_start_3 .. :try_end_3} :catch_1
 
+    .line 71
     :goto_1
     :try_start_4
     iget-object v2, p0, Lcom/google/common/util/concurrent/AbstractExecutionThreadService$1$2;->this$1:Lcom/google/common/util/concurrent/AbstractExecutionThreadService$1;
@@ -107,18 +121,25 @@
 
     goto :goto_0
 
+    .line 78
+    .end local v1    # "t":Ljava/lang/Throwable;
     :catch_1
     move-exception v1
 
+    .line 79
+    .restart local v1    # "t":Ljava/lang/Throwable;
     iget-object v2, p0, Lcom/google/common/util/concurrent/AbstractExecutionThreadService$1$2;->this$1:Lcom/google/common/util/concurrent/AbstractExecutionThreadService$1;
 
     invoke-virtual {v2, v1}, Lcom/google/common/util/concurrent/AbstractExecutionThreadService$1;->notifyFailed(Ljava/lang/Throwable;)V
 
     goto :goto_0
 
+    .line 64
     :catch_2
     move-exception v0
 
+    .line 67
+    .local v0, "ignored":Ljava/lang/Exception;
     :try_start_5
     # getter for: Lcom/google/common/util/concurrent/AbstractExecutionThreadService;->logger:Ljava/util/logging/Logger;
     invoke-static {}, Lcom/google/common/util/concurrent/AbstractExecutionThreadService;->access$000()Ljava/util/logging/Logger;

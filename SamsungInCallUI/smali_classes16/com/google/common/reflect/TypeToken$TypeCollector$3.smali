@@ -29,6 +29,10 @@
 .method constructor <init>(Lcom/google/common/reflect/TypeToken$TypeCollector;Lcom/google/common/reflect/TypeToken$TypeCollector;)V
     .locals 0
 
+    .prologue
+    .line 1178
+    .local p0, "this":Lcom/google/common/reflect/TypeToken$TypeCollector$3;, "Lcom/google/common/reflect/TypeToken$TypeCollector.3;"
+    .local p2, "x0":Lcom/google/common/reflect/TypeToken$TypeCollector;, "Lcom/google/common/reflect/TypeToken$TypeCollector<TK;>;"
     iput-object p1, p0, Lcom/google/common/reflect/TypeToken$TypeCollector$3;->this$0:Lcom/google/common/reflect/TypeToken$TypeCollector;
 
     invoke-direct {p0, p2}, Lcom/google/common/reflect/TypeToken$TypeCollector$ForwardingTypeCollector;-><init>(Lcom/google/common/reflect/TypeToken$TypeCollector;)V
@@ -50,14 +54,21 @@
         }
     .end annotation
 
+    .prologue
+    .line 1183
+    .local p0, "this":Lcom/google/common/reflect/TypeToken$TypeCollector$3;, "Lcom/google/common/reflect/TypeToken$TypeCollector.3;"
+    .local p1, "types":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TK;>;"
     invoke-static {}, Lcom/google/common/collect/ImmutableList;->builder()Lcom/google/common/collect/ImmutableList$Builder;
 
     move-result-object v0
 
+    .line 1184
+    .local v0, "builder":Lcom/google/common/collect/ImmutableList$Builder;, "Lcom/google/common/collect/ImmutableList$Builder<TK;>;"
     invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
+    .local v1, "i$":Ljava/util/Iterator;
     :cond_0
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
@@ -70,6 +81,8 @@
 
     move-result-object v2
 
+    .line 1185
+    .local v2, "type":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0, v2}, Lcom/google/common/reflect/TypeToken$TypeCollector$3;->getRawType(Ljava/lang/Object;)Ljava/lang/Class;
 
     move-result-object v3
@@ -80,10 +93,13 @@
 
     if-nez v3, :cond_0
 
+    .line 1186
     invoke-virtual {v0, v2}, Lcom/google/common/collect/ImmutableList$Builder;->add(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList$Builder;
 
     goto :goto_0
 
+    .line 1189
+    .end local v2    # "type":Ljava/lang/Object;, "TK;"
     :cond_1
     invoke-virtual {v0}, Lcom/google/common/collect/ImmutableList$Builder;->build()Lcom/google/common/collect/ImmutableList;
 
@@ -106,6 +122,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 1180
+    .local p0, "this":Lcom/google/common/reflect/TypeToken$TypeCollector$3;, "Lcom/google/common/reflect/TypeToken$TypeCollector.3;"
+    .local p1, "type":Ljava/lang/Object;, "TK;"
     invoke-static {}, Lcom/google/common/collect/ImmutableSet;->of()Lcom/google/common/collect/ImmutableSet;
 
     move-result-object v0

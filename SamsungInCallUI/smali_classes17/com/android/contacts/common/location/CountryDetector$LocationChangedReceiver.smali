@@ -18,6 +18,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 202
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
@@ -27,7 +29,11 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 3
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 206
     const-string v1, "location"
 
     invoke-virtual {p2, v1}, Landroid/content/Intent;->hasExtra(Ljava/lang/String;)Z
@@ -36,9 +42,11 @@
 
     if-nez v1, :cond_0
 
+    .line 214
     :goto_0
     return-void
 
+    .line 210
     :cond_0
     invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
@@ -52,6 +60,8 @@
 
     check-cast v0, Landroid/location/Location;
 
+    .line 213
+    .local v0, "location":Landroid/location/Location;
     invoke-static {p1, v0}, Lcom/android/contacts/common/location/UpdateCountryService;->updateCountry(Landroid/content/Context;Landroid/location/Location;)V
 
     goto :goto_0

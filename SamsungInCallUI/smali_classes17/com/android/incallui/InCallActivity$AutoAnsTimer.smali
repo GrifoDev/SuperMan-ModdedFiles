@@ -21,11 +21,17 @@
 # direct methods
 .method public constructor <init>(Lcom/android/incallui/InCallActivity;JJ)V
     .locals 0
+    .param p2, "millisInFuture"    # J
+    .param p4, "countDownInterval"    # J
 
+    .prologue
+    .line 3846
     iput-object p1, p0, Lcom/android/incallui/InCallActivity$AutoAnsTimer;->this$0:Lcom/android/incallui/InCallActivity;
 
+    .line 3847
     invoke-direct {p0, p2, p3, p4, p5}, Landroid/os/CountDownTimer;-><init>(JJ)V
 
+    .line 3848
     return-void
 .end method
 
@@ -34,19 +40,26 @@
 .method public onFinish()V
     .locals 1
 
+    .prologue
+    .line 3852
     const-string v0, "AutoAnsTimer onFinish "
 
     invoke-static {p0, v0}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 3853
     iget-object v0, p0, Lcom/android/incallui/InCallActivity$AutoAnsTimer;->this$0:Lcom/android/incallui/InCallActivity;
 
     invoke-virtual {v0}, Lcom/android/incallui/InCallActivity;->answeringMode()V
 
+    .line 3854
     return-void
 .end method
 
 .method public onTick(J)V
     .locals 0
+    .param p1, "millisUntilFinished"    # J
 
+    .prologue
+    .line 3859
     return-void
 .end method

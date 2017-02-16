@@ -58,8 +58,13 @@
         }
     .end annotation
 
+    .prologue
+    .line 267
+    .local p0, "this":Lcom/google/common/base/Functions$PredicateFunction;, "Lcom/google/common/base/Functions$PredicateFunction<TT;>;"
+    .local p1, "predicate":Lcom/google/common/base/Predicate;, "Lcom/google/common/base/Predicate<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 268
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -68,12 +73,18 @@
 
     iput-object v0, p0, Lcom/google/common/base/Functions$PredicateFunction;->predicate:Lcom/google/common/base/Predicate;
 
+    .line 269
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/base/Predicate;Lcom/google/common/base/Functions$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/google/common/base/Predicate;
+    .param p2, "x1"    # Lcom/google/common/base/Functions$1;
 
+    .prologue
+    .line 264
+    .local p0, "this":Lcom/google/common/base/Functions$PredicateFunction;, "Lcom/google/common/base/Functions$PredicateFunction<TT;>;"
     invoke-direct {p0, p1}, Lcom/google/common/base/Functions$PredicateFunction;-><init>(Lcom/google/common/base/Predicate;)V
 
     return-void
@@ -94,6 +105,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 273
+    .local p0, "this":Lcom/google/common/base/Functions$PredicateFunction;, "Lcom/google/common/base/Functions$PredicateFunction<TT;>;"
+    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lcom/google/common/base/Functions$PredicateFunction;->predicate:Lcom/google/common/base/Predicate;
 
     invoke-interface {v0, p1}, Lcom/google/common/base/Predicate;->apply(Ljava/lang/Object;)Z
@@ -109,7 +124,11 @@
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
+    .param p1, "x0"    # Ljava/lang/Object;
 
+    .prologue
+    .line 264
+    .local p0, "this":Lcom/google/common/base/Functions$PredicateFunction;, "Lcom/google/common/base/Functions$PredicateFunction<TT;>;"
     invoke-virtual {p0, p1}, Lcom/google/common/base/Functions$PredicateFunction;->apply(Ljava/lang/Object;)Ljava/lang/Boolean;
 
     move-result-object v0
@@ -119,19 +138,25 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 3
-    .param p1    # Ljava/lang/Object;
+    .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
+    .prologue
+    .line 278
+    .local p0, "this":Lcom/google/common/base/Functions$PredicateFunction;, "Lcom/google/common/base/Functions$PredicateFunction<TT;>;"
     instance-of v1, p1, Lcom/google/common/base/Functions$PredicateFunction;
 
     if-eqz v1, :cond_0
 
     move-object v0, p1
 
+    .line 279
     check-cast v0, Lcom/google/common/base/Functions$PredicateFunction;
 
+    .line 280
+    .local v0, "that":Lcom/google/common/base/Functions$PredicateFunction;, "Lcom/google/common/base/Functions$PredicateFunction<*>;"
     iget-object v1, p0, Lcom/google/common/base/Functions$PredicateFunction;->predicate:Lcom/google/common/base/Predicate;
 
     iget-object v2, v0, Lcom/google/common/base/Functions$PredicateFunction;->predicate:Lcom/google/common/base/Predicate;
@@ -140,6 +165,8 @@
 
     move-result v1
 
+    .line 282
+    .end local v0    # "that":Lcom/google/common/base/Functions$PredicateFunction;, "Lcom/google/common/base/Functions$PredicateFunction<*>;"
     :goto_0
     return v1
 
@@ -152,6 +179,9 @@
 .method public hashCode()I
     .locals 1
 
+    .prologue
+    .line 287
+    .local p0, "this":Lcom/google/common/base/Functions$PredicateFunction;, "Lcom/google/common/base/Functions$PredicateFunction<TT;>;"
     iget-object v0, p0, Lcom/google/common/base/Functions$PredicateFunction;->predicate:Lcom/google/common/base/Predicate;
 
     invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
@@ -164,6 +194,9 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 292
+    .local p0, "this":Lcom/google/common/base/Functions$PredicateFunction;, "Lcom/google/common/base/Functions$PredicateFunction<TT;>;"
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

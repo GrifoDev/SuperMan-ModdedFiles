@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/google/common/io/FileBackedOutputStream;)V
     .locals 0
 
+    .prologue
+    .line 97
     iput-object p1, p0, Lcom/google/common/io/FileBackedOutputStream$1;->this$0:Lcom/google/common/io/FileBackedOutputStream;
 
     invoke-direct {p0}, Lcom/google/common/io/ByteSource;-><init>()V
@@ -34,6 +36,8 @@
 .method protected finalize()V
     .locals 2
 
+    .prologue
+    .line 105
     :try_start_0
     iget-object v1, p0, Lcom/google/common/io/FileBackedOutputStream$1;->this$0:Lcom/google/common/io/FileBackedOutputStream;
 
@@ -41,12 +45,16 @@
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 109
     :goto_0
     return-void
 
+    .line 106
     :catch_0
     move-exception v0
 
+    .line 107
+    .local v0, "t":Ljava/lang/Throwable;
     sget-object v1, Ljava/lang/System;->err:Ljava/io/PrintStream;
 
     invoke-virtual {v0, v1}, Ljava/lang/Throwable;->printStackTrace(Ljava/io/PrintStream;)V
@@ -62,6 +70,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 100
     iget-object v0, p0, Lcom/google/common/io/FileBackedOutputStream$1;->this$0:Lcom/google/common/io/FileBackedOutputStream;
 
     # invokes: Lcom/google/common/io/FileBackedOutputStream;->openInputStream()Ljava/io/InputStream;

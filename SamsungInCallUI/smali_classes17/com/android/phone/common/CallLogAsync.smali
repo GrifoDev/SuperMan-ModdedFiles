@@ -21,14 +21,20 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 45
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 86
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/android/phone/common/CallLogAsync;)V
     .locals 0
+    .param p0, "x0"    # Lcom/android/phone/common/CallLogAsync;
 
+    .prologue
+    .line 45
     invoke-direct {p0}, Lcom/android/phone/common/CallLogAsync;->assertUiThread()V
 
     return-void
@@ -37,6 +43,8 @@
 .method private assertUiThread()V
     .locals 2
 
+    .prologue
+    .line 120
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
 
     move-result-object v0
@@ -51,6 +59,7 @@
 
     if-nez v0, :cond_0
 
+    .line 121
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string v1, "Not on the UI thread!"
@@ -59,6 +68,7 @@
 
     throw v0
 
+    .line 123
     :cond_0
     return-void
 .end method
@@ -67,9 +77,13 @@
 # virtual methods
 .method public getLastOutgoingCall(Lcom/android/phone/common/CallLogAsync$GetLastOutgoingCallArgs;)Landroid/os/AsyncTask;
     .locals 3
+    .param p1, "args"    # Lcom/android/phone/common/CallLogAsync$GetLastOutgoingCallArgs;
 
+    .prologue
+    .line 79
     invoke-direct {p0}, Lcom/android/phone/common/CallLogAsync;->assertUiThread()V
 
+    .line 80
     new-instance v0, Lcom/android/phone/common/CallLogAsync$GetLastOutgoingCallTask;
 
     iget-object v1, p1, Lcom/android/phone/common/CallLogAsync$GetLastOutgoingCallArgs;->callback:Lcom/android/phone/common/CallLogAsync$OnLastOutgoingCallComplete;

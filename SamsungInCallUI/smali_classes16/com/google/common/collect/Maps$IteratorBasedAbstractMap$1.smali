@@ -29,6 +29,9 @@
 .method constructor <init>(Lcom/google/common/collect/Maps$IteratorBasedAbstractMap;)V
     .locals 0
 
+    .prologue
+    .line 3462
+    .local p0, "this":Lcom/google/common/collect/Maps$IteratorBasedAbstractMap$1;, "Lcom/google/common/collect/Maps$IteratorBasedAbstractMap.1;"
     iput-object p1, p0, Lcom/google/common/collect/Maps$IteratorBasedAbstractMap$1;->this$0:Lcom/google/common/collect/Maps$IteratorBasedAbstractMap;
 
     invoke-direct {p0}, Lcom/google/common/collect/Maps$EntrySet;-><init>()V
@@ -50,6 +53,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 3470
+    .local p0, "this":Lcom/google/common/collect/Maps$IteratorBasedAbstractMap$1;, "Lcom/google/common/collect/Maps$IteratorBasedAbstractMap.1;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$IteratorBasedAbstractMap$1;->this$0:Lcom/google/common/collect/Maps$IteratorBasedAbstractMap;
 
     invoke-virtual {v0}, Lcom/google/common/collect/Maps$IteratorBasedAbstractMap;->entryIterator()Ljava/util/Iterator;
@@ -69,6 +75,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 3465
+    .local p0, "this":Lcom/google/common/collect/Maps$IteratorBasedAbstractMap$1;, "Lcom/google/common/collect/Maps$IteratorBasedAbstractMap.1;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$IteratorBasedAbstractMap$1;->this$0:Lcom/google/common/collect/Maps$IteratorBasedAbstractMap;
 
     return-object v0

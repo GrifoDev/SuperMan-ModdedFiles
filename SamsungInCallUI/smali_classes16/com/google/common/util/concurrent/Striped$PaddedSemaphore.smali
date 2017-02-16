@@ -25,10 +25,14 @@
 # direct methods
 .method constructor <init>(I)V
     .locals 1
+    .param p1, "permits"    # I
 
+    .prologue
+    .line 485
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Ljava/util/concurrent/Semaphore;-><init>(IZ)V
 
+    .line 486
     return-void
 .end method

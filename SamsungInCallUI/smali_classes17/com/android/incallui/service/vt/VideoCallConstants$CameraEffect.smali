@@ -36,77 +36,98 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 43
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 44
     return-void
 .end method
 
 .method public static toString(I)Ljava/lang/String;
     .locals 1
+    .param p0, "type"    # I
 
+    .prologue
+    .line 47
     const/16 v0, 0x10
 
     if-ne p0, v0, :cond_0
 
+    .line 48
     const-string v0, "blur"
 
+    .line 62
     :goto_0
     return-object v0
 
+    .line 49
     :cond_0
     const/4 v0, 0x1
 
     if-ne p0, v0, :cond_1
 
+    .line 50
     const-string v0, "mono"
 
     goto :goto_0
 
+    .line 51
     :cond_1
     const/4 v0, 0x2
 
     if-ne p0, v0, :cond_2
 
+    .line 52
     const-string v0, "negative"
 
     goto :goto_0
 
+    .line 53
     :cond_2
     const/4 v0, 0x4
 
     if-ne p0, v0, :cond_3
 
+    .line 54
     const-string v0, "sepia"
 
     goto :goto_0
 
+    .line 55
     :cond_3
     const/4 v0, 0x3
 
     if-ne p0, v0, :cond_4
 
+    .line 56
     const-string v0, "solarise"
 
     goto :goto_0
 
+    .line 57
     :cond_4
     const/4 v0, 0x5
 
     if-ne p0, v0, :cond_5
 
+    .line 58
     const-string v0, "posterize"
 
     goto :goto_0
 
+    .line 59
     :cond_5
     const/16 v0, 0x8
 
     if-ne p0, v0, :cond_6
 
+    .line 60
     const-string v0, "aqua"
 
     goto :goto_0
 
+    .line 62
     :cond_6
     const-string v0, "none"
 

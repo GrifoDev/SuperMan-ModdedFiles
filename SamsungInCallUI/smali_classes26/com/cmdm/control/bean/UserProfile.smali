@@ -87,14 +87,18 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 19
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 79
     new-instance v0, Lcom/cmdm/control/bean/LableList;
 
     invoke-direct {v0}, Lcom/cmdm/control/bean/LableList;-><init>()V
 
     iput-object v0, p0, Lcom/cmdm/control/bean/UserProfile;->lableList:Lcom/cmdm/control/bean/LableList;
 
+    .line 19
     return-void
 .end method
 
@@ -103,6 +107,8 @@
 .method public getAvatarHiFi()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 159
     iget-object v0, p0, Lcom/cmdm/control/bean/UserProfile;->avatarHiFi:Ljava/lang/String;
 
     return-object v0
@@ -111,6 +117,8 @@
 .method public getAvatarID()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 254
     iget-object v0, p0, Lcom/cmdm/control/bean/UserProfile;->avatarID:Ljava/lang/String;
 
     return-object v0
@@ -119,6 +127,8 @@
 .method public getAvatarThumb()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 144
     iget-object v0, p0, Lcom/cmdm/control/bean/UserProfile;->avatarThumb:Ljava/lang/String;
 
     return-object v0
@@ -127,6 +137,8 @@
 .method public getBirthday()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 239
     iget-object v0, p0, Lcom/cmdm/control/bean/UserProfile;->birthday:Ljava/lang/String;
 
     return-object v0
@@ -135,6 +147,8 @@
 .method public getEmail()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 189
     iget-object v0, p0, Lcom/cmdm/control/bean/UserProfile;->email:Ljava/lang/String;
 
     return-object v0
@@ -143,6 +157,8 @@
 .method public getGender()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 224
     iget-object v0, p0, Lcom/cmdm/control/bean/UserProfile;->gender:Ljava/lang/String;
 
     return-object v0
@@ -151,6 +167,8 @@
 .method public getNickname()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 124
     iget-object v0, p0, Lcom/cmdm/control/bean/UserProfile;->nickname:Ljava/lang/String;
 
     if-eqz v0, :cond_0
@@ -165,16 +183,19 @@
 
     if-nez v0, :cond_0
 
+    .line 126
     iget-object v0, p0, Lcom/cmdm/control/bean/UserProfile;->nickname:Ljava/lang/String;
 
     invoke-static {v0}, Lcom/cmdm/control/util/encry/Base64Code;->decodedBase64(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
+    .line 125
     invoke-static {v0}, Lcom/cmdm/control/util/client/Setting;->getDefaultSpecialString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
+    .line 128
     :goto_0
     return-object v0
 
@@ -187,6 +208,8 @@
 .method public getOrderedDate()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 174
     iget-object v0, p0, Lcom/cmdm/control/bean/UserProfile;->orderedDate:Ljava/lang/String;
 
     return-object v0
@@ -195,6 +218,8 @@
 .method public getWhatsup()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 204
     iget-object v0, p0, Lcom/cmdm/control/bean/UserProfile;->whatsup:Ljava/lang/String;
 
     if-eqz v0, :cond_0
@@ -209,16 +234,19 @@
 
     if-nez v0, :cond_0
 
+    .line 206
     iget-object v0, p0, Lcom/cmdm/control/bean/UserProfile;->whatsup:Ljava/lang/String;
 
     invoke-static {v0}, Lcom/cmdm/control/util/encry/Base64Code;->decodedBase64(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
+    .line 205
     invoke-static {v0}, Lcom/cmdm/control/util/client/Setting;->getDefaultSpecialString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
+    .line 208
     :goto_0
     return-object v0
 
@@ -231,6 +259,8 @@
 .method public hasAvatarAuditFlag()Z
     .locals 2
 
+    .prologue
+    .line 94
     iget-object v0, p0, Lcom/cmdm/control/bean/UserProfile;->avatarAuditFlag:Ljava/lang/String;
 
     invoke-static {v0}, Lcom/cmdm/control/util/StringUtil;->isNotEmpty(Ljava/lang/String;)Z
@@ -239,6 +269,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 95
     iget-object v0, p0, Lcom/cmdm/control/bean/UserProfile;->avatarAuditFlag:Ljava/lang/String;
 
     const-string v1, "0"
@@ -249,8 +280,10 @@
 
     if-eqz v0, :cond_0
 
+    .line 96
     const/4 v0, 0x0
 
+    .line 98
     :goto_0
     return v0
 
@@ -263,6 +296,8 @@
 .method public hasNameAuditFlag()Z
     .locals 2
 
+    .prologue
+    .line 114
     iget-object v0, p0, Lcom/cmdm/control/bean/UserProfile;->nameAuditFlag:Ljava/lang/String;
 
     invoke-static {v0}, Lcom/cmdm/control/util/StringUtil;->isNotEmpty(Ljava/lang/String;)Z
@@ -281,8 +316,10 @@
 
     if-eqz v0, :cond_0
 
+    .line 115
     const/4 v0, 0x0
 
+    .line 117
     :goto_0
     return v0
 
@@ -294,72 +331,108 @@
 
 .method public setAvatarHiFi(Ljava/lang/String;)V
     .locals 0
+    .param p1, "avatarHiFi"    # Ljava/lang/String;
 
+    .prologue
+    .line 167
     iput-object p1, p0, Lcom/cmdm/control/bean/UserProfile;->avatarHiFi:Ljava/lang/String;
 
+    .line 168
     return-void
 .end method
 
 .method public setAvatarID(Ljava/lang/String;)V
     .locals 0
+    .param p1, "avatarID"    # Ljava/lang/String;
 
+    .prologue
+    .line 262
     iput-object p1, p0, Lcom/cmdm/control/bean/UserProfile;->avatarID:Ljava/lang/String;
 
+    .line 263
     return-void
 .end method
 
 .method public setAvatarThumb(Ljava/lang/String;)V
     .locals 0
+    .param p1, "avatarThumb"    # Ljava/lang/String;
 
+    .prologue
+    .line 152
     iput-object p1, p0, Lcom/cmdm/control/bean/UserProfile;->avatarThumb:Ljava/lang/String;
 
+    .line 153
     return-void
 .end method
 
 .method public setBirthday(Ljava/lang/String;)V
     .locals 0
+    .param p1, "birthday"    # Ljava/lang/String;
 
+    .prologue
+    .line 247
     iput-object p1, p0, Lcom/cmdm/control/bean/UserProfile;->birthday:Ljava/lang/String;
 
+    .line 248
     return-void
 .end method
 
 .method public setEmail(Ljava/lang/String;)V
     .locals 0
+    .param p1, "email"    # Ljava/lang/String;
 
+    .prologue
+    .line 197
     iput-object p1, p0, Lcom/cmdm/control/bean/UserProfile;->email:Ljava/lang/String;
 
+    .line 198
     return-void
 .end method
 
 .method public setGender(Ljava/lang/String;)V
     .locals 0
+    .param p1, "gender"    # Ljava/lang/String;
 
+    .prologue
+    .line 232
     iput-object p1, p0, Lcom/cmdm/control/bean/UserProfile;->gender:Ljava/lang/String;
 
+    .line 233
     return-void
 .end method
 
 .method public setNickname(Ljava/lang/String;)V
     .locals 0
+    .param p1, "nickname"    # Ljava/lang/String;
 
+    .prologue
+    .line 137
     iput-object p1, p0, Lcom/cmdm/control/bean/UserProfile;->nickname:Ljava/lang/String;
 
+    .line 138
     return-void
 .end method
 
 .method public setOrderedDate(Ljava/lang/String;)V
     .locals 0
+    .param p1, "orderedDate"    # Ljava/lang/String;
 
+    .prologue
+    .line 182
     iput-object p1, p0, Lcom/cmdm/control/bean/UserProfile;->orderedDate:Ljava/lang/String;
 
+    .line 183
     return-void
 .end method
 
 .method public setWhatsup(Ljava/lang/String;)V
     .locals 0
+    .param p1, "whatsup"    # Ljava/lang/String;
 
+    .prologue
+    .line 217
     iput-object p1, p0, Lcom/cmdm/control/bean/UserProfile;->whatsup:Ljava/lang/String;
 
+    .line 218
     return-void
 .end method

@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/ProximitySensor;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/ProximitySensor;
 
+    .prologue
+    .line 388
     iput-object p1, p0, Lcom/android/incallui/ProximitySensor$1;->this$0:Lcom/android/incallui/ProximitySensor;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,21 +39,30 @@
 # virtual methods
 .method public onAccuracyChanged(Landroid/hardware/Sensor;I)V
     .locals 0
+    .param p1, "sensor"    # Landroid/hardware/Sensor;
+    .param p2, "accuracy"    # I
 
+    .prologue
+    .line 413
     return-void
 .end method
 
 .method public onSensorChanged(Landroid/hardware/SensorEvent;)V
     .locals 8
+    .param p1, "event"    # Landroid/hardware/SensorEvent;
 
+    .prologue
     const/4 v1, 0x0
 
     const/4 v2, 0x1
 
+    .line 392
     iget-object v3, p1, Landroid/hardware/SensorEvent;->values:[F
 
     aget v0, v3, v1
 
+    .line 395
+    .local v0, "distance":F
     float-to-double v4, v0
 
     const-wide/16 v6, 0x0
@@ -72,6 +84,7 @@
 
     move-result-object v3
 
+    .line 396
     invoke-virtual {v3}, Landroid/hardware/Sensor;->getMaximumRange()F
 
     move-result v3
@@ -85,6 +98,7 @@
     :cond_0
     sput-boolean v1, Lcom/android/incallui/ProximitySensor;->mIsProximityCloseDistance:Z
 
+    .line 398
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -107,6 +121,7 @@
 
     invoke-static {p0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;Z)V
 
+    .line 400
     iget-object v1, p0, Lcom/android/incallui/ProximitySensor$1;->this$0:Lcom/android/incallui/ProximitySensor;
 
     # getter for: Lcom/android/incallui/ProximitySensor;->mWasScreenOff:Z
@@ -120,11 +135,13 @@
 
     if-eqz v1, :cond_1
 
+    .line 401
     iget-object v1, p0, Lcom/android/incallui/ProximitySensor$1;->this$0:Lcom/android/incallui/ProximitySensor;
 
     # setter for: Lcom/android/incallui/ProximitySensor;->mWasScreenOff:Z
     invoke-static {v1, v2}, Lcom/android/incallui/ProximitySensor;->access$102(Lcom/android/incallui/ProximitySensor;Z)Z
 
+    .line 402
     new-instance v1, Landroid/os/Handler;
 
     invoke-direct {v1}, Landroid/os/Handler;-><init>()V
@@ -135,6 +152,7 @@
 
     invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
+    .line 409
     :cond_1
     return-void
 .end method

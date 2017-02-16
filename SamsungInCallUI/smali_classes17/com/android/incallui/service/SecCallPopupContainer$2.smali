@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/service/SecCallPopupContainer;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/service/SecCallPopupContainer;
 
+    .prologue
+    .line 1110
     iput-object p1, p0, Lcom/android/incallui/service/SecCallPopupContainer$2;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
@@ -33,13 +36,17 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 1113
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer$2;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
     iget-object v0, v0, Lcom/android/incallui/service/SecCallPopupContainer;->mRejectMsgContent:Lcom/android/incallui/RejectMsgContentPopup;
 
     if-eqz v0, :cond_0
 
+    .line 1114
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer$2;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
     iget-object v1, v0, Lcom/android/incallui/service/SecCallPopupContainer;->mRejectMsgContent:Lcom/android/incallui/RejectMsgContentPopup;
@@ -58,6 +65,7 @@
     :goto_0
     invoke-virtual {v1, v0}, Lcom/android/incallui/RejectMsgContentPopup;->setVisibility(I)V
 
+    .line 1115
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer$2;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
     iget-object v0, v0, Lcom/android/incallui/service/SecCallPopupContainer;->mRejectMsgContent:Lcom/android/incallui/RejectMsgContentPopup;
@@ -66,6 +74,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/RejectMsgContentPopup;->setTranslationY(F)V
 
+    .line 1116
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer$2;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
     iget-object v0, v0, Lcom/android/incallui/service/SecCallPopupContainer;->mRejectMsgContent:Lcom/android/incallui/RejectMsgContentPopup;
@@ -74,9 +83,11 @@
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/RejectMsgContentPopup;->setAlpha(F)V
 
+    .line 1118
     :cond_0
     return-void
 
+    .line 1114
     :cond_1
     const/16 v0, 0x8
 

@@ -58,8 +58,13 @@
         }
     .end annotation
 
+    .prologue
+    .line 475
+    .local p0, "this":Lcom/google/common/collect/Tables$UnmodifiableTable;, "Lcom/google/common/collect/Tables$UnmodifiableTable<TR;TC;TV;>;"
+    .local p1, "delegate":Lcom/google/common/collect/Table;, "Lcom/google/common/collect/Table<+TR;+TC;+TV;>;"
     invoke-direct {p0}, Lcom/google/common/collect/ForwardingTable;-><init>()V
 
+    .line 476
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -68,6 +73,7 @@
 
     iput-object v0, p0, Lcom/google/common/collect/Tables$UnmodifiableTable;->delegate:Lcom/google/common/collect/Table;
 
+    .line 477
     return-void
 .end method
 
@@ -85,6 +91,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 487
+    .local p0, "this":Lcom/google/common/collect/Tables$UnmodifiableTable;, "Lcom/google/common/collect/Tables$UnmodifiableTable<TR;TC;TV;>;"
     invoke-super {p0}, Lcom/google/common/collect/ForwardingTable;->cellSet()Ljava/util/Set;
 
     move-result-object v0
@@ -99,6 +108,9 @@
 .method public clear()V
     .locals 1
 
+    .prologue
+    .line 492
+    .local p0, "this":Lcom/google/common/collect/Tables$UnmodifiableTable;, "Lcom/google/common/collect/Tables$UnmodifiableTable<TR;TC;TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -120,6 +132,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 497
+    .local p0, "this":Lcom/google/common/collect/Tables$UnmodifiableTable;, "Lcom/google/common/collect/Tables$UnmodifiableTable<TR;TC;TV;>;"
+    .local p1, "columnKey":Ljava/lang/Object;, "TC;"
     invoke-super {p0, p1}, Lcom/google/common/collect/ForwardingTable;->column(Ljava/lang/Object;)Ljava/util/Map;
 
     move-result-object v0
@@ -141,6 +157,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 502
+    .local p0, "this":Lcom/google/common/collect/Tables$UnmodifiableTable;, "Lcom/google/common/collect/Tables$UnmodifiableTable<TR;TC;TV;>;"
     invoke-super {p0}, Lcom/google/common/collect/ForwardingTable;->columnKeySet()Ljava/util/Set;
 
     move-result-object v0
@@ -164,11 +183,16 @@
         }
     .end annotation
 
+    .prologue
+    .line 507
+    .local p0, "this":Lcom/google/common/collect/Tables$UnmodifiableTable;, "Lcom/google/common/collect/Tables$UnmodifiableTable<TR;TC;TV;>;"
     # invokes: Lcom/google/common/collect/Tables;->unmodifiableWrapper()Lcom/google/common/base/Function;
     invoke-static {}, Lcom/google/common/collect/Tables;->access$000()Lcom/google/common/base/Function;
 
     move-result-object v0
 
+    .line 508
+    .local v0, "wrapper":Lcom/google/common/base/Function;, "Lcom/google/common/base/Function<Ljava/util/Map<TR;TV;>;Ljava/util/Map<TR;TV;>;>;"
     invoke-super {p0}, Lcom/google/common/collect/ForwardingTable;->columnMap()Ljava/util/Map;
 
     move-result-object v1
@@ -194,6 +218,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 482
+    .local p0, "this":Lcom/google/common/collect/Tables$UnmodifiableTable;, "Lcom/google/common/collect/Tables$UnmodifiableTable<TR;TC;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/Tables$UnmodifiableTable;->delegate:Lcom/google/common/collect/Table;
 
     return-object v0
@@ -202,6 +229,9 @@
 .method protected bridge synthetic delegate()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 471
+    .local p0, "this":Lcom/google/common/collect/Tables$UnmodifiableTable;, "Lcom/google/common/collect/Tables$UnmodifiableTable<TR;TC;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Tables$UnmodifiableTable;->delegate()Lcom/google/common/collect/Table;
 
     move-result-object v0
@@ -229,6 +259,12 @@
         }
     .end annotation
 
+    .prologue
+    .line 513
+    .local p0, "this":Lcom/google/common/collect/Tables$UnmodifiableTable;, "Lcom/google/common/collect/Tables$UnmodifiableTable<TR;TC;TV;>;"
+    .local p1, "rowKey":Ljava/lang/Object;, "TR;"
+    .local p2, "columnKey":Ljava/lang/Object;, "TC;"
+    .local p3, "value":Ljava/lang/Object;, "TV;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -246,6 +282,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 518
+    .local p0, "this":Lcom/google/common/collect/Tables$UnmodifiableTable;, "Lcom/google/common/collect/Tables$UnmodifiableTable<TR;TC;TV;>;"
+    .local p1, "table":Lcom/google/common/collect/Table;, "Lcom/google/common/collect/Table<+TR;+TC;+TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -255,11 +295,11 @@
 
 .method public remove(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1    # Ljava/lang/Object;
+    .param p1, "rowKey"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p2    # Ljava/lang/Object;
+    .param p2, "columnKey"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -272,6 +312,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 523
+    .local p0, "this":Lcom/google/common/collect/Tables$UnmodifiableTable;, "Lcom/google/common/collect/Tables$UnmodifiableTable<TR;TC;TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -293,6 +336,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 528
+    .local p0, "this":Lcom/google/common/collect/Tables$UnmodifiableTable;, "Lcom/google/common/collect/Tables$UnmodifiableTable<TR;TC;TV;>;"
+    .local p1, "rowKey":Ljava/lang/Object;, "TR;"
     invoke-super {p0, p1}, Lcom/google/common/collect/ForwardingTable;->row(Ljava/lang/Object;)Ljava/util/Map;
 
     move-result-object v0
@@ -314,6 +361,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 533
+    .local p0, "this":Lcom/google/common/collect/Tables$UnmodifiableTable;, "Lcom/google/common/collect/Tables$UnmodifiableTable<TR;TC;TV;>;"
     invoke-super {p0}, Lcom/google/common/collect/ForwardingTable;->rowKeySet()Ljava/util/Set;
 
     move-result-object v0
@@ -337,11 +387,16 @@
         }
     .end annotation
 
+    .prologue
+    .line 538
+    .local p0, "this":Lcom/google/common/collect/Tables$UnmodifiableTable;, "Lcom/google/common/collect/Tables$UnmodifiableTable<TR;TC;TV;>;"
     # invokes: Lcom/google/common/collect/Tables;->unmodifiableWrapper()Lcom/google/common/base/Function;
     invoke-static {}, Lcom/google/common/collect/Tables;->access$000()Lcom/google/common/base/Function;
 
     move-result-object v0
 
+    .line 539
+    .local v0, "wrapper":Lcom/google/common/base/Function;, "Lcom/google/common/base/Function<Ljava/util/Map<TC;TV;>;Ljava/util/Map<TC;TV;>;>;"
     invoke-super {p0}, Lcom/google/common/collect/ForwardingTable;->rowMap()Ljava/util/Map;
 
     move-result-object v1
@@ -367,6 +422,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 544
+    .local p0, "this":Lcom/google/common/collect/Tables$UnmodifiableTable;, "Lcom/google/common/collect/Tables$UnmodifiableTable<TR;TC;TV;>;"
     invoke-super {p0}, Lcom/google/common/collect/ForwardingTable;->values()Ljava/util/Collection;
 
     move-result-object v0

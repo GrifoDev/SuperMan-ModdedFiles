@@ -22,6 +22,9 @@
 .method constructor <init>(Lcom/google/common/reflect/TypeToken;)V
     .locals 0
 
+    .prologue
+    .line 846
+    .local p0, "this":Lcom/google/common/reflect/TypeToken$4;, "Lcom/google/common/reflect/TypeToken.4;"
     iput-object p1, p0, Lcom/google/common/reflect/TypeToken$4;->this$0:Lcom/google/common/reflect/TypeToken;
 
     invoke-direct {p0}, Lcom/google/common/reflect/TypeVisitor;-><init>()V
@@ -33,7 +36,11 @@
 # virtual methods
 .method visitGenericArrayType(Ljava/lang/reflect/GenericArrayType;)V
     .locals 3
+    .param p1, "type"    # Ljava/lang/reflect/GenericArrayType;
 
+    .prologue
+    .line 860
+    .local p0, "this":Lcom/google/common/reflect/TypeToken$4;, "Lcom/google/common/reflect/TypeToken.4;"
     const/4 v0, 0x1
 
     new-array v0, v0, [Ljava/lang/reflect/Type;
@@ -48,18 +55,24 @@
 
     invoke-virtual {p0, v0}, Lcom/google/common/reflect/TypeToken$4;->visit([Ljava/lang/reflect/Type;)V
 
+    .line 861
     return-void
 .end method
 
 .method visitParameterizedType(Ljava/lang/reflect/ParameterizedType;)V
     .locals 3
+    .param p1, "type"    # Ljava/lang/reflect/ParameterizedType;
 
+    .prologue
+    .line 856
+    .local p0, "this":Lcom/google/common/reflect/TypeToken$4;, "Lcom/google/common/reflect/TypeToken.4;"
     invoke-interface {p1}, Ljava/lang/reflect/ParameterizedType;->getActualTypeArguments()[Ljava/lang/reflect/Type;
 
     move-result-object v0
 
     invoke-virtual {p0, v0}, Lcom/google/common/reflect/TypeToken$4;->visit([Ljava/lang/reflect/Type;)V
 
+    .line 857
     const/4 v0, 0x1
 
     new-array v0, v0, [Ljava/lang/reflect/Type;
@@ -74,6 +87,7 @@
 
     invoke-virtual {p0, v0}, Lcom/google/common/reflect/TypeToken$4;->visit([Ljava/lang/reflect/Type;)V
 
+    .line 858
     return-void
 .end method
 
@@ -87,6 +101,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 848
+    .local p0, "this":Lcom/google/common/reflect/TypeToken$4;, "Lcom/google/common/reflect/TypeToken.4;"
+    .local p1, "type":Ljava/lang/reflect/TypeVariable;, "Ljava/lang/reflect/TypeVariable<*>;"
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -121,18 +139,24 @@
 
 .method visitWildcardType(Ljava/lang/reflect/WildcardType;)V
     .locals 1
+    .param p1, "type"    # Ljava/lang/reflect/WildcardType;
 
+    .prologue
+    .line 852
+    .local p0, "this":Lcom/google/common/reflect/TypeToken$4;, "Lcom/google/common/reflect/TypeToken.4;"
     invoke-interface {p1}, Ljava/lang/reflect/WildcardType;->getLowerBounds()[Ljava/lang/reflect/Type;
 
     move-result-object v0
 
     invoke-virtual {p0, v0}, Lcom/google/common/reflect/TypeToken$4;->visit([Ljava/lang/reflect/Type;)V
 
+    .line 853
     invoke-interface {p1}, Ljava/lang/reflect/WildcardType;->getUpperBounds()[Ljava/lang/reflect/Type;
 
     move-result-object v0
 
     invoke-virtual {p0, v0}, Lcom/google/common/reflect/TypeToken$4;->visit([Ljava/lang/reflect/Type;)V
 
+    .line 854
     return-void
 .end method

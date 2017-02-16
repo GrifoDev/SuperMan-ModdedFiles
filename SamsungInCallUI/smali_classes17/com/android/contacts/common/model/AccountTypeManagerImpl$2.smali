@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/contacts/common/model/AccountTypeManagerImpl;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/contacts/common/model/AccountTypeManagerImpl;
 
+    .prologue
+    .line 238
     iput-object p1, p0, Lcom/android/contacts/common/model/AccountTypeManagerImpl$2;->this$0:Lcom/android/contacts/common/model/AccountTypeManagerImpl;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,7 +36,11 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 3
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 242
     iget-object v1, p0, Lcom/android/contacts/common/model/AccountTypeManagerImpl$2;->this$0:Lcom/android/contacts/common/model/AccountTypeManagerImpl;
 
     # getter for: Lcom/android/contacts/common/model/AccountTypeManagerImpl;->mListenerHandler:Landroid/os/Handler;
@@ -47,6 +54,8 @@
 
     move-result-object v0
 
+    .line 243
+    .local v0, "msg":Landroid/os/Message;
     iget-object v1, p0, Lcom/android/contacts/common/model/AccountTypeManagerImpl$2;->this$0:Lcom/android/contacts/common/model/AccountTypeManagerImpl;
 
     # getter for: Lcom/android/contacts/common/model/AccountTypeManagerImpl;->mListenerHandler:Landroid/os/Handler;
@@ -56,5 +65,6 @@
 
     invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
+    .line 244
     return-void
 .end method

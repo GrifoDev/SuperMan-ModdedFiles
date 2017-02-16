@@ -39,8 +39,13 @@
         }
     .end annotation
 
+    .prologue
+    .line 1574
+    .local p0, "this":Lcom/google/common/util/concurrent/Futures$NonCancellationPropagatingFuture;, "Lcom/google/common/util/concurrent/Futures$NonCancellationPropagatingFuture<TV;>;"
+    .local p1, "delegate":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<TV;>;"
     invoke-direct {p0}, Lcom/google/common/util/concurrent/AbstractFuture$TrustedFuture;-><init>()V
 
+    .line 1575
     new-instance v0, Lcom/google/common/util/concurrent/Futures$NonCancellationPropagatingFuture$1;
 
     invoke-direct {v0, p0, p1}, Lcom/google/common/util/concurrent/Futures$NonCancellationPropagatingFuture$1;-><init>(Lcom/google/common/util/concurrent/Futures$NonCancellationPropagatingFuture;Lcom/google/common/util/concurrent/ListenableFuture;)V
@@ -51,5 +56,6 @@
 
     invoke-interface {p1, v0, v1}, Lcom/google/common/util/concurrent/ListenableFuture;->addListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
 
+    .line 1582
     return-void
 .end method

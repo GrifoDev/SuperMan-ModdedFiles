@@ -28,8 +28,11 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 41
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 43
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/contacts/common/list/IndexerListAdapter$Placement;->position:I
@@ -39,7 +42,10 @@
 
 .method static synthetic access$000(Lcom/android/contacts/common/list/IndexerListAdapter$Placement;)I
     .locals 1
+    .param p0, "x0"    # Lcom/android/contacts/common/list/IndexerListAdapter$Placement;
 
+    .prologue
+    .line 41
     iget v0, p0, Lcom/android/contacts/common/list/IndexerListAdapter$Placement;->position:I
 
     return v0
@@ -47,7 +53,11 @@
 
 .method static synthetic access$002(Lcom/android/contacts/common/list/IndexerListAdapter$Placement;I)I
     .locals 0
+    .param p0, "x0"    # Lcom/android/contacts/common/list/IndexerListAdapter$Placement;
+    .param p1, "x1"    # I
 
+    .prologue
+    .line 41
     iput p1, p0, Lcom/android/contacts/common/list/IndexerListAdapter$Placement;->position:I
 
     return p1
@@ -58,9 +68,12 @@
 .method public invalidate()V
     .locals 1
 
+    .prologue
+    .line 49
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/contacts/common/list/IndexerListAdapter$Placement;->position:I
 
+    .line 50
     return-void
 .end method

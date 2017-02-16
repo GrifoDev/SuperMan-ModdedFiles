@@ -13,6 +13,8 @@
 .method static constructor <clinit>()V
     .locals 5
 
+    .prologue
+    .line 20
     const-class v0, Landroid/content/ContentProvider;
 
     const-string v1, "maybeAddUserId"
@@ -39,12 +41,15 @@
 
     sput-object v0, Lcom/android/incallui/wrapper/ContentProviderWrapper;->sMethodMaybeAddUserId:Ljava/lang/reflect/Method;
 
+    .line 22
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 13
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -52,18 +57,24 @@
 
 .method public static maybeAddUserId(Landroid/net/Uri;I)Landroid/net/Uri;
     .locals 7
+    .param p0, "uri"    # Landroid/net/Uri;
+    .param p1, "userId"    # I
 
+    .prologue
     const/4 v2, 0x0
 
+    .line 25
     sget-object v1, Lcom/android/incallui/wrapper/ContentProviderWrapper;->sMethodMaybeAddUserId:Ljava/lang/reflect/Method;
 
     if-nez v1, :cond_0
 
     move-object v1, v2
 
+    .line 32
     :goto_0
     return-object v1
 
+    .line 29
     :cond_0
     :try_start_0
     sget-object v1, Lcom/android/incallui/wrapper/ContentProviderWrapper;->sMethodMaybeAddUserId:Ljava/lang/reflect/Method;
@@ -97,9 +108,12 @@
 
     goto :goto_0
 
+    .line 30
     :catch_0
     move-exception v0
 
+    .line 31
+    .local v0, "e":Ljava/lang/ReflectiveOperationException;
     :goto_1
     const-string v1, "ContentProviderWrapper"
 
@@ -129,8 +143,11 @@
 
     move-object v1, v2
 
+    .line 32
     goto :goto_0
 
+    .line 30
+    .end local v0    # "e":Ljava/lang/ReflectiveOperationException;
     :catch_1
     move-exception v0
 

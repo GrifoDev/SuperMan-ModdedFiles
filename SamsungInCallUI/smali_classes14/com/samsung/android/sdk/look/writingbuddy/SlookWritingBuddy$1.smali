@@ -25,8 +25,11 @@
 .method constructor <init>(Lcom/samsung/android/sdk/look/writingbuddy/SlookWritingBuddy;)V
     .locals 0
 
+    .prologue
+    .line 1
     iput-object p1, p0, Lcom/samsung/android/sdk/look/writingbuddy/SlookWritingBuddy$1;->this$0:Lcom/samsung/android/sdk/look/writingbuddy/SlookWritingBuddy;
 
+    .line 167
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -36,7 +39,10 @@
 # virtual methods
 .method public onTextReceived(Ljava/lang/CharSequence;)V
     .locals 1
+    .param p1, "text"    # Ljava/lang/CharSequence;
 
+    .prologue
+    .line 170
     iget-object v0, p0, Lcom/samsung/android/sdk/look/writingbuddy/SlookWritingBuddy$1;->this$0:Lcom/samsung/android/sdk/look/writingbuddy/SlookWritingBuddy;
 
     # getter for: Lcom/samsung/android/sdk/look/writingbuddy/SlookWritingBuddy;->mTextWritingListener:Lcom/samsung/android/sdk/look/writingbuddy/SlookWritingBuddy$TextWritingListener;
@@ -46,5 +52,6 @@
 
     invoke-interface {v0, p1}, Lcom/samsung/android/sdk/look/writingbuddy/SlookWritingBuddy$TextWritingListener;->onTextReceived(Ljava/lang/CharSequence;)V
 
+    .line 171
     return-void
 .end method

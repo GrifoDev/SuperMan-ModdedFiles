@@ -7,6 +7,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -14,11 +16,13 @@
 
 .method static getDensityDpi(Landroid/content/res/Resources;)I
     .locals 1
-    .param p0    # Landroid/content/res/Resources;
+    .param p0, "resources"    # Landroid/content/res/Resources;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
 
+    .prologue
+    .line 25
     invoke-virtual {p0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
 
     move-result-object v0

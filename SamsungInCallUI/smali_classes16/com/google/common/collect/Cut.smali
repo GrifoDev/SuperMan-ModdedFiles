@@ -63,10 +63,16 @@
         }
     .end annotation
 
+    .prologue
+    .line 40
+    .local p0, "this":Lcom/google/common/collect/Cut;, "Lcom/google/common/collect/Cut<TC;>;"
+    .local p1, "endpoint":Ljava/lang/Comparable;, "TC;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 41
     iput-object p1, p0, Lcom/google/common/collect/Cut;->endpoint:Ljava/lang/Comparable;
 
+    .line 42
     return-void
 .end method
 
@@ -82,6 +88,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 208
     # getter for: Lcom/google/common/collect/Cut$AboveAll;->INSTANCE:Lcom/google/common/collect/Cut$AboveAll;
     invoke-static {}, Lcom/google/common/collect/Cut$AboveAll;->access$100()Lcom/google/common/collect/Cut$AboveAll;
 
@@ -102,6 +110,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 371
+    .local p0, "endpoint":Ljava/lang/Comparable;, "TC;"
     new-instance v0, Lcom/google/common/collect/Cut$AboveValue;
 
     invoke-direct {v0, p0}, Lcom/google/common/collect/Cut$AboveValue;-><init>(Ljava/lang/Comparable;)V
@@ -121,6 +132,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 112
     # getter for: Lcom/google/common/collect/Cut$BelowAll;->INSTANCE:Lcom/google/common/collect/Cut$BelowAll;
     invoke-static {}, Lcom/google/common/collect/Cut$BelowAll;->access$000()Lcom/google/common/collect/Cut$BelowAll;
 
@@ -141,6 +154,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 288
+    .local p0, "endpoint":Ljava/lang/Comparable;, "TC;"
     new-instance v0, Lcom/google/common/collect/Cut$BelowValue;
 
     invoke-direct {v0, p0}, Lcom/google/common/collect/Cut$BelowValue;-><init>(Ljava/lang/Comparable;)V
@@ -162,6 +178,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 67
+    .local p0, "this":Lcom/google/common/collect/Cut;, "Lcom/google/common/collect/Cut<TC;>;"
+    .local p1, "domain":Lcom/google/common/collect/DiscreteDomain;, "Lcom/google/common/collect/DiscreteDomain<TC;>;"
     return-object p0
 .end method
 
@@ -175,18 +195,25 @@
         }
     .end annotation
 
+    .prologue
+    .line 73
+    .local p0, "this":Lcom/google/common/collect/Cut;, "Lcom/google/common/collect/Cut<TC;>;"
+    .local p1, "that":Lcom/google/common/collect/Cut;, "Lcom/google/common/collect/Cut<TC;>;"
     invoke-static {}, Lcom/google/common/collect/Cut;->belowAll()Lcom/google/common/collect/Cut;
 
     move-result-object v1
 
     if-ne p1, v1, :cond_1
 
+    .line 74
     const/4 v0, 0x1
 
+    .line 84
     :cond_0
     :goto_0
     return v0
 
+    .line 76
     :cond_1
     invoke-static {}, Lcom/google/common/collect/Cut;->aboveAll()Lcom/google/common/collect/Cut;
 
@@ -194,10 +221,12 @@
 
     if-ne p1, v1, :cond_2
 
+    .line 77
     const/4 v0, -0x1
 
     goto :goto_0
 
+    .line 79
     :cond_2
     iget-object v1, p0, Lcom/google/common/collect/Cut;->endpoint:Ljava/lang/Comparable;
 
@@ -207,8 +236,11 @@
 
     move-result v0
 
+    .line 80
+    .local v0, "result":I
     if-nez v0, :cond_0
 
+    .line 84
     instance-of v1, p0, Lcom/google/common/collect/Cut$AboveValue;
 
     instance-of v2, p1, Lcom/google/common/collect/Cut$AboveValue;
@@ -222,9 +254,14 @@
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
     .locals 1
+    .param p1, "x0"    # Ljava/lang/Object;
 
+    .prologue
+    .line 36
+    .local p0, "this":Lcom/google/common/collect/Cut;, "Lcom/google/common/collect/Cut<TC;>;"
     check-cast p1, Lcom/google/common/collect/Cut;
 
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/google/common/collect/Cut;->compareTo(Lcom/google/common/collect/Cut;)I
 
     move-result v0
@@ -246,6 +283,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 88
+    .local p0, "this":Lcom/google/common/collect/Cut;, "Lcom/google/common/collect/Cut<TC;>;"
     iget-object v0, p0, Lcom/google/common/collect/Cut;->endpoint:Ljava/lang/Comparable;
 
     return-object v0
@@ -253,17 +293,24 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
+    .param p1, "obj"    # Ljava/lang/Object;
 
+    .prologue
+    .local p0, "this":Lcom/google/common/collect/Cut;, "Lcom/google/common/collect/Cut<TC;>;"
     const/4 v2, 0x0
 
+    .line 94
     instance-of v3, p1, Lcom/google/common/collect/Cut;
 
     if-eqz v3, :cond_0
 
     move-object v1, p1
 
+    .line 96
     check-cast v1, Lcom/google/common/collect/Cut;
 
+    .line 98
+    .local v1, "that":Lcom/google/common/collect/Cut;, "Lcom/google/common/collect/Cut<TC;>;"
     :try_start_0
     invoke-virtual {p0, v1}, Lcom/google/common/collect/Cut;->compareTo(Lcom/google/common/collect/Cut;)I
     :try_end_0
@@ -271,14 +318,21 @@
 
     move-result v0
 
+    .line 99
+    .local v0, "compareResult":I
     if-nez v0, :cond_0
 
     const/4 v2, 0x1
 
+    .line 103
+    .end local v0    # "compareResult":I
+    .end local v1    # "that":Lcom/google/common/collect/Cut;, "Lcom/google/common/collect/Cut<TC;>;"
     :cond_0
     :goto_0
     return v2
 
+    .line 100
+    .restart local v1    # "that":Lcom/google/common/collect/Cut;, "Lcom/google/common/collect/Cut<TC;>;"
     :catch_0
     move-exception v3
 

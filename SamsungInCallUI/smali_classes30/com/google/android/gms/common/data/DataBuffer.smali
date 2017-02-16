@@ -25,7 +25,10 @@
 # direct methods
 .method protected constructor <init>(Lcom/google/android/gms/common/data/d;)V
     .locals 0
+    .param p1, "dataHolder"    # Lcom/google/android/gms/common/data/d;
 
+    .prologue
+    .local p0, "this":Lcom/google/android/gms/common/data/DataBuffer;, "Lcom/google/android/gms/common/data/DataBuffer<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/google/android/gms/common/data/DataBuffer;->S:Lcom/google/android/gms/common/data/d;

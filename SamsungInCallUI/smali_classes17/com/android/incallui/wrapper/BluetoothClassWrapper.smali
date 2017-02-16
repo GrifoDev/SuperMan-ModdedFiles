@@ -33,6 +33,7 @@
 .method static constructor <clinit>()V
     .locals 11
 
+    .prologue
     const/4 v10, 0x1
 
     const/4 v9, 0x0
@@ -41,8 +42,10 @@
 
     const/4 v7, 0x0
 
+    .line 39
     sput-object v7, Lcom/android/incallui/wrapper/BluetoothClassWrapper;->baseClass:Ljava/lang/Class;
 
+    .line 42
     const-string v3, "android.bluetooth.BluetoothClass"
 
     invoke-static {v3}, Lcom/android/incallui/wrapper/ReflectUtil;->classForName(Ljava/lang/String;)Ljava/lang/Class;
@@ -51,6 +54,7 @@
 
     sput-object v3, Lcom/android/incallui/wrapper/BluetoothClassWrapper;->baseClass:Ljava/lang/Class;
 
+    .line 44
     sget-object v3, Lcom/android/incallui/wrapper/BluetoothClassWrapper;->baseClass:Ljava/lang/Class;
 
     const-string v4, "doesClassMatch"
@@ -67,8 +71,11 @@
 
     sput-object v3, Lcom/android/incallui/wrapper/BluetoothClassWrapper;->sMethodDoesClassMatch:Ljava/lang/reflect/Method;
 
+    .line 46
     const/4 v1, 0x0
 
+    .line 49
+    .local v1, "field":Ljava/lang/reflect/Field;
     :try_start_0
     const-class v3, Landroid/bluetooth/BluetoothClass$Device;
 
@@ -81,9 +88,11 @@
 
     move-result-object v1
 
+    .line 54
     :goto_0
     if-eqz v1, :cond_0
 
+    .line 55
     invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v3
@@ -98,6 +107,8 @@
 
     move-result v2
 
+    .line 56
+    .local v2, "fieldValue":I
     const-string v3, "BluetoothClassWrapper"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -120,8 +131,11 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 57
     sput v2, Lcom/android/incallui/wrapper/BluetoothClassWrapper;->PROFILE_HEADSET:I
 
+    .line 64
+    .end local v2    # "fieldValue":I
     :goto_1
     :try_start_1
     const-class v3, Landroid/bluetooth/BluetoothClass$Device;
@@ -135,9 +149,11 @@
 
     move-result-object v1
 
+    .line 69
     :goto_2
     if-eqz v1, :cond_1
 
+    .line 70
     invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v3
@@ -152,6 +168,8 @@
 
     move-result v2
 
+    .line 71
+    .restart local v2    # "fieldValue":I
     const-string v3, "BluetoothClassWrapper"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -174,17 +192,24 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 72
     sput v2, Lcom/android/incallui/wrapper/BluetoothClassWrapper;->PROFILE_A2DP:I
 
+    .line 76
+    .end local v2    # "fieldValue":I
     :goto_3
     return-void
 
+    .line 50
     :catch_0
     move-exception v0
 
+    .line 51
+    .local v0, "e":Ljava/lang/Exception;
     :goto_4
     const/4 v1, 0x0
 
+    .line 52
     const-string v3, "BluetoothClassWrapper"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -213,17 +238,23 @@
 
     goto :goto_0
 
+    .line 59
+    .end local v0    # "e":Ljava/lang/Exception;
     :cond_0
     sput v9, Lcom/android/incallui/wrapper/BluetoothClassWrapper;->PROFILE_HEADSET:I
 
     goto :goto_1
 
+    .line 65
     :catch_1
     move-exception v0
 
+    .line 66
+    .restart local v0    # "e":Ljava/lang/Exception;
     :goto_5
     const/4 v1, 0x0
 
+    .line 67
     const-string v3, "BluetoothClassWrapper"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -252,16 +283,20 @@
 
     goto :goto_2
 
+    .line 74
+    .end local v0    # "e":Ljava/lang/Exception;
     :cond_1
     sput v10, Lcom/android/incallui/wrapper/BluetoothClassWrapper;->PROFILE_A2DP:I
 
     goto :goto_3
 
+    .line 65
     :catch_2
     move-exception v0
 
     goto :goto_5
 
+    .line 50
     :catch_3
     move-exception v0
 
@@ -271,29 +306,40 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 108
     return-void
 .end method
 
 .method public static doesClassMatch(Landroid/bluetooth/BluetoothClass;I)Z
     .locals 6
+    .param p0, "instance"    # Landroid/bluetooth/BluetoothClass;
+    .param p1, "profile"    # I
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 95
     sget-object v2, Lcom/android/incallui/wrapper/BluetoothClassWrapper;->sMethodDoesClassMatch:Ljava/lang/reflect/Method;
 
     if-eqz v2, :cond_0
 
     if-nez p0, :cond_1
 
+    .line 105
     :cond_0
     :goto_0
     return v1
 
+    .line 98
     :cond_1
     const/4 v1, 0x0
 
+    .line 100
+    .local v1, "returnVal":Z
     :try_start_0
     sget-object v2, Lcom/android/incallui/wrapper/BluetoothClassWrapper;->sMethodDoesClassMatch:Ljava/lang/reflect/Method;
 
@@ -319,6 +365,7 @@
 
     move-result v1
 
+    .line 101
     const-string v2, "BluetoothClassWrapper"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -346,9 +393,12 @@
 
     goto :goto_0
 
+    .line 102
     :catch_0
     move-exception v0
 
+    .line 103
+    .local v0, "e":Ljava/lang/ReflectiveOperationException;
     :goto_1
     const-string v2, "BluetoothClassWrapper"
 
@@ -378,6 +428,8 @@
 
     goto :goto_0
 
+    .line 102
+    .end local v0    # "e":Ljava/lang/ReflectiveOperationException;
     :catch_1
     move-exception v0
 

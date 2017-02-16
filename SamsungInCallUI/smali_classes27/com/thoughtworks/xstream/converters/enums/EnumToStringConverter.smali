@@ -58,6 +58,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 36
+    .local p0, "this":Lcom/thoughtworks/xstream/converters/enums/EnumToStringConverter;, "Lcom/thoughtworks/xstream/converters/enums/EnumToStringConverter<TT;>;"
+    .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     invoke-static {p1}, Lcom/thoughtworks/xstream/converters/enums/EnumToStringConverter;->extractStringMap(Ljava/lang/Class;)Ljava/util/Map;
 
     move-result-object v0
@@ -66,6 +70,7 @@
 
     invoke-direct {p0, p1, v0, v1}, Lcom/thoughtworks/xstream/converters/enums/EnumToStringConverter;-><init>(Ljava/lang/Class;Ljava/util/Map;Ljava/util/EnumMap;)V
 
+    .line 37
     return-void
 .end method
 
@@ -83,12 +88,18 @@
         }
     .end annotation
 
+    .prologue
+    .line 40
+    .local p0, "this":Lcom/thoughtworks/xstream/converters/enums/EnumToStringConverter;, "Lcom/thoughtworks/xstream/converters/enums/EnumToStringConverter<TT;>;"
+    .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
+    .local p2, "strings":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;TT;>;"
     invoke-static {p1, p2}, Lcom/thoughtworks/xstream/converters/enums/EnumToStringConverter;->buildValueMap(Ljava/lang/Class;Ljava/util/Map;)Ljava/util/EnumMap;
 
     move-result-object v0
 
     invoke-direct {p0, p1, p2, v0}, Lcom/thoughtworks/xstream/converters/enums/EnumToStringConverter;-><init>(Ljava/lang/Class;Ljava/util/Map;Ljava/util/EnumMap;)V
 
+    .line 41
     return-void
 .end method
 
@@ -110,14 +121,24 @@
         }
     .end annotation
 
+    .prologue
+    .line 44
+    .local p0, "this":Lcom/thoughtworks/xstream/converters/enums/EnumToStringConverter;, "Lcom/thoughtworks/xstream/converters/enums/EnumToStringConverter<TT;>;"
+    .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
+    .local p2, "strings":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;TT;>;"
+    .local p3, "values":Ljava/util/EnumMap;, "Ljava/util/EnumMap<TT;Ljava/lang/String;>;"
     invoke-direct {p0}, Lcom/thoughtworks/xstream/converters/basic/AbstractSingleValueConverter;-><init>()V
 
+    .line 45
     iput-object p1, p0, Lcom/thoughtworks/xstream/converters/enums/EnumToStringConverter;->enumType:Ljava/lang/Class;
 
+    .line 46
     iput-object p2, p0, Lcom/thoughtworks/xstream/converters/enums/EnumToStringConverter;->strings:Ljava/util/Map;
 
+    .line 47
     iput-object p3, p0, Lcom/thoughtworks/xstream/converters/enums/EnumToStringConverter;->values:Ljava/util/EnumMap;
 
+    .line 48
     return-void
 .end method
 
@@ -141,10 +162,16 @@
         }
     .end annotation
 
+    .prologue
+    .line 72
+    .local p0, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
+    .local p1, "strings":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;TT;>;"
     new-instance v2, Ljava/util/EnumMap;
 
     invoke-direct {v2, p0}, Ljava/util/EnumMap;-><init>(Ljava/lang/Class;)V
 
+    .line 73
+    .local v2, "values":Ljava/util/EnumMap;, "Ljava/util/EnumMap<TT;Ljava/lang/String;>;"
     invoke-interface {p1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
     move-result-object v3
@@ -153,6 +180,7 @@
 
     move-result-object v1
 
+    .local v1, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -166,6 +194,8 @@
 
     check-cast v0, Ljava/util/Map$Entry;
 
+    .line 74
+    .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;TT;>;"
     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v3
@@ -180,6 +210,8 @@
 
     goto :goto_0
 
+    .line 76
+    .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;TT;>;"
     :cond_0
     return-object v2
 .end method
@@ -196,6 +228,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 65
+    .local p0, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     const-class v0, Ljava/lang/Enum;
 
     invoke-virtual {v0, p0}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
@@ -208,6 +243,7 @@
 
     if-eq p0, v0, :cond_0
 
+    .line 66
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Converter can only handle enum types"
@@ -216,6 +252,7 @@
 
     throw v0
 
+    .line 68
     :cond_0
     return-void
 .end method
@@ -236,12 +273,18 @@
         }
     .end annotation
 
+    .prologue
+    .line 51
+    .local p0, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     invoke-static {p0}, Lcom/thoughtworks/xstream/converters/enums/EnumToStringConverter;->checkType(Ljava/lang/Class;)V
 
+    .line 52
     invoke-static {p0}, Ljava/util/EnumSet;->allOf(Ljava/lang/Class;)Ljava/util/EnumSet;
 
     move-result-object v3
 
+    .line 53
+    .local v3, "values":Ljava/util/EnumSet;, "Ljava/util/EnumSet<TT;>;"
     new-instance v1, Ljava/util/HashMap;
 
     invoke-virtual {v3}, Ljava/util/EnumSet;->size()I
@@ -250,10 +293,13 @@
 
     invoke-direct {v1, v4}, Ljava/util/HashMap;-><init>(I)V
 
+    .line 54
+    .local v1, "strings":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;TT;>;"
     invoke-virtual {v3}, Ljava/util/EnumSet;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
+    .local v0, "i$":Ljava/util/Iterator;
     :cond_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -267,6 +313,8 @@
 
     check-cast v2, Ljava/lang/Enum;
 
+    .line 55
+    .local v2, "value":Ljava/lang/Enum;, "TT;"
     invoke-virtual {v2}, Ljava/lang/Enum;->toString()Ljava/lang/String;
 
     move-result-object v4
@@ -277,6 +325,7 @@
 
     if-eqz v4, :cond_0
 
+    .line 56
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -311,6 +360,8 @@
 
     throw v4
 
+    .line 61
+    .end local v2    # "value":Ljava/lang/Enum;, "TT;"
     :cond_1
     return-object v1
 .end method
@@ -319,7 +370,11 @@
 # virtual methods
 .method public canConvert(Ljava/lang/Class;)Z
     .locals 1
+    .param p1, "type"    # Ljava/lang/Class;
 
+    .prologue
+    .line 81
+    .local p0, "this":Lcom/thoughtworks/xstream/converters/enums/EnumToStringConverter;, "Lcom/thoughtworks/xstream/converters/enums/EnumToStringConverter<TT;>;"
     iget-object v0, p0, Lcom/thoughtworks/xstream/converters/enums/EnumToStringConverter;->enumType:Ljava/lang/Class;
 
     invoke-virtual {v0, p1}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
@@ -331,14 +386,21 @@
 
 .method public fromString(Ljava/lang/String;)Ljava/lang/Object;
     .locals 4
+    .param p1, "str"    # Ljava/lang/String;
 
+    .prologue
+    .line 92
+    .local p0, "this":Lcom/thoughtworks/xstream/converters/enums/EnumToStringConverter;, "Lcom/thoughtworks/xstream/converters/enums/EnumToStringConverter<TT;>;"
     if-nez p1, :cond_1
 
+    .line 93
     const/4 v0, 0x0
 
+    .line 103
     :cond_0
     return-object v0
 
+    .line 95
     :cond_1
     iget-object v1, p0, Lcom/thoughtworks/xstream/converters/enums/EnumToStringConverter;->strings:Ljava/util/Map;
 
@@ -348,8 +410,11 @@
 
     check-cast v0, Ljava/lang/Enum;
 
+    .line 96
+    .local v0, "result":Ljava/lang/Enum;, "TT;"
     if-nez v0, :cond_0
 
+    .line 97
     new-instance v1, Lcom/thoughtworks/xstream/converters/ConversionException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -399,7 +464,11 @@
 
 .method public toString(Ljava/lang/Object;)Ljava/lang/String;
     .locals 2
+    .param p1, "obj"    # Ljava/lang/Object;
 
+    .prologue
+    .line 86
+    .local p0, "this":Lcom/thoughtworks/xstream/converters/enums/EnumToStringConverter;, "Lcom/thoughtworks/xstream/converters/enums/EnumToStringConverter<TT;>;"
     const-class v1, Ljava/lang/Enum;
 
     invoke-virtual {v1, p1}, Ljava/lang/Class;->cast(Ljava/lang/Object;)Ljava/lang/Object;
@@ -408,6 +477,8 @@
 
     check-cast v0, Ljava/lang/Enum;
 
+    .line 87
+    .local v0, "value":Ljava/lang/Enum;
     iget-object v1, p0, Lcom/thoughtworks/xstream/converters/enums/EnumToStringConverter;->values:Ljava/util/EnumMap;
 
     if-nez v1, :cond_0

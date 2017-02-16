@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/accessory/CoverScreen;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/accessory/CoverScreen;
 
+    .prologue
+    .line 2302
     iput-object p1, p0, Lcom/android/incallui/accessory/CoverScreen$16;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +40,8 @@
 .method public onScaleAnimationEnd()V
     .locals 3
 
+    .prologue
+    .line 2305
     const-string v0, "CoverScreen"
 
     const-string v1, "animateForDummyBackground: onAnimationEnd"
@@ -45,6 +50,7 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
+    .line 2306
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverScreen$16;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
     # getter for: Lcom/android/incallui/accessory/CoverScreen;->mGradientAnimationViewDummy:Lcom/android/incallui/widget/GradientAnimationView;
@@ -54,6 +60,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 2307
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverScreen$16;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
     # getter for: Lcom/android/incallui/accessory/CoverScreen;->mGradientAnimationViewDummy:Lcom/android/incallui/widget/GradientAnimationView;
@@ -65,6 +72,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/widget/GradientAnimationView;->setVisibility(I)V
 
+    .line 2309
     :cond_0
     return-void
 .end method

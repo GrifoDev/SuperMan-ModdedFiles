@@ -22,6 +22,8 @@
 .method constructor <init>(Ljava/util/concurrent/atomic/AtomicReference;)V
     .locals 0
 
+    .prologue
+    .line 192
     iput-object p1, p0, Lcom/google/common/reflect/Types$2;->val$result:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-direct {p0}, Lcom/google/common/reflect/TypeVisitor;-><init>()V
@@ -41,6 +43,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 203
+    .local p1, "t":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     iget-object v0, p0, Lcom/google/common/reflect/Types$2;->val$result:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-virtual {p1}, Ljava/lang/Class;->getComponentType()Ljava/lang/Class;
@@ -49,12 +54,16 @@
 
     invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicReference;->set(Ljava/lang/Object;)V
 
+    .line 204
     return-void
 .end method
 
 .method visitGenericArrayType(Ljava/lang/reflect/GenericArrayType;)V
     .locals 2
+    .param p1, "t"    # Ljava/lang/reflect/GenericArrayType;
 
+    .prologue
+    .line 200
     iget-object v0, p0, Lcom/google/common/reflect/Types$2;->val$result:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-interface {p1}, Ljava/lang/reflect/GenericArrayType;->getGenericComponentType()Ljava/lang/reflect/Type;
@@ -63,6 +72,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicReference;->set(Ljava/lang/Object;)V
 
+    .line 201
     return-void
 .end method
 
@@ -76,6 +86,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 194
+    .local p1, "t":Ljava/lang/reflect/TypeVariable;, "Ljava/lang/reflect/TypeVariable<*>;"
     iget-object v0, p0, Lcom/google/common/reflect/Types$2;->val$result:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-interface {p1}, Ljava/lang/reflect/TypeVariable;->getBounds()[Ljava/lang/reflect/Type;
@@ -89,12 +102,16 @@
 
     invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicReference;->set(Ljava/lang/Object;)V
 
+    .line 195
     return-void
 .end method
 
 .method visitWildcardType(Ljava/lang/reflect/WildcardType;)V
     .locals 2
+    .param p1, "t"    # Ljava/lang/reflect/WildcardType;
 
+    .prologue
+    .line 197
     iget-object v0, p0, Lcom/google/common/reflect/Types$2;->val$result:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-interface {p1}, Ljava/lang/reflect/WildcardType;->getUpperBounds()[Ljava/lang/reflect/Type;
@@ -108,5 +125,6 @@
 
     invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicReference;->set(Ljava/lang/Object;)V
 
+    .line 198
     return-void
 .end method

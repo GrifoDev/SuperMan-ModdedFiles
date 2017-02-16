@@ -10,15 +10,20 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
+    .param p1, "context"    # Landroid/content/Context;
 
+    .prologue
+    .line 21
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 22
     new-instance v0, Lcom/cmdm/control/logic/n;
 
     invoke-direct {v0, p1}, Lcom/cmdm/control/logic/n;-><init>(Landroid/content/Context;)V
 
     iput-object v0, p0, Lcom/cmdm/control/biz/p;->av:Lcom/cmdm/control/logic/n;
 
+    .line 23
     return-void
 .end method
 
@@ -26,6 +31,7 @@
 # virtual methods
 .method public ac(Ljava/lang/String;)Lcom/cmdm/control/util/client/ResultUtil;
     .locals 1
+    .param p1, "activityCode"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -38,6 +44,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 34
     iget-object v0, p0, Lcom/cmdm/control/biz/p;->av:Lcom/cmdm/control/logic/n;
 
     invoke-virtual {v0, p1}, Lcom/cmdm/control/logic/n;->ac(Ljava/lang/String;)Lcom/cmdm/control/util/client/ResultUtil;

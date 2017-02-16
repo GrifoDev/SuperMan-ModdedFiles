@@ -29,6 +29,9 @@
 .method constructor <init>(Lcom/google/common/collect/AbstractMultimap;)V
     .locals 0
 
+    .prologue
+    .line 185
+    .local p0, "this":Lcom/google/common/collect/AbstractMultimap$Values;, "Lcom/google/common/collect/AbstractMultimap<TK;TV;>.Values;"
     iput-object p1, p0, Lcom/google/common/collect/AbstractMultimap$Values;->this$0:Lcom/google/common/collect/AbstractMultimap;
 
     invoke-direct {p0}, Ljava/util/AbstractCollection;-><init>()V
@@ -41,20 +44,27 @@
 .method public clear()V
     .locals 1
 
+    .prologue
+    .line 203
+    .local p0, "this":Lcom/google/common/collect/AbstractMultimap$Values;, "Lcom/google/common/collect/AbstractMultimap<TK;TV;>.Values;"
     iget-object v0, p0, Lcom/google/common/collect/AbstractMultimap$Values;->this$0:Lcom/google/common/collect/AbstractMultimap;
 
     invoke-virtual {v0}, Lcom/google/common/collect/AbstractMultimap;->clear()V
 
+    .line 204
     return-void
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
-    .param p1    # Ljava/lang/Object;
+    .param p1, "o"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
+    .prologue
+    .line 198
+    .local p0, "this":Lcom/google/common/collect/AbstractMultimap$Values;, "Lcom/google/common/collect/AbstractMultimap<TK;TV;>.Values;"
     iget-object v0, p0, Lcom/google/common/collect/AbstractMultimap$Values;->this$0:Lcom/google/common/collect/AbstractMultimap;
 
     invoke-virtual {v0, p1}, Lcom/google/common/collect/AbstractMultimap;->containsValue(Ljava/lang/Object;)Z
@@ -74,6 +84,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 188
+    .local p0, "this":Lcom/google/common/collect/AbstractMultimap$Values;, "Lcom/google/common/collect/AbstractMultimap<TK;TV;>.Values;"
     iget-object v0, p0, Lcom/google/common/collect/AbstractMultimap$Values;->this$0:Lcom/google/common/collect/AbstractMultimap;
 
     invoke-virtual {v0}, Lcom/google/common/collect/AbstractMultimap;->valueIterator()Ljava/util/Iterator;
@@ -86,6 +99,9 @@
 .method public size()I
     .locals 1
 
+    .prologue
+    .line 193
+    .local p0, "this":Lcom/google/common/collect/AbstractMultimap$Values;, "Lcom/google/common/collect/AbstractMultimap<TK;TV;>.Values;"
     iget-object v0, p0, Lcom/google/common/collect/AbstractMultimap$Values;->this$0:Lcom/google/common/collect/AbstractMultimap;
 
     invoke-virtual {v0}, Lcom/google/common/collect/AbstractMultimap;->size()I

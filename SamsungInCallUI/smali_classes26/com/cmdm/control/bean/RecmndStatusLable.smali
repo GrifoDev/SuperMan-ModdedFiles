@@ -35,12 +35,16 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 14
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 34
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/cmdm/control/bean/RecmndStatusLable;->isSelected:Z
 
+    .line 14
     return-void
 .end method
 
@@ -49,6 +53,8 @@
 .method public isSelected()Z
     .locals 1
 
+    .prologue
+    .line 40
     iget-boolean v0, p0, Lcom/cmdm/control/bean/RecmndStatusLable;->isSelected:Z
 
     return v0
@@ -56,8 +62,12 @@
 
 .method public setSelected(Z)V
     .locals 0
+    .param p1, "isSelected"    # Z
 
+    .prologue
+    .line 48
     iput-boolean p1, p0, Lcom/cmdm/control/bean/RecmndStatusLable;->isSelected:Z
 
+    .line 49
     return-void
 .end method

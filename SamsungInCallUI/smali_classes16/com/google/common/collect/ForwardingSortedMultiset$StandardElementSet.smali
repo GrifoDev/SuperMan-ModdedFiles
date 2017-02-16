@@ -29,9 +29,14 @@
 .method public constructor <init>(Lcom/google/common/collect/ForwardingSortedMultiset;)V
     .locals 0
 
+    .prologue
+    .line 70
+    .local p0, "this":Lcom/google/common/collect/ForwardingSortedMultiset$StandardElementSet;, "Lcom/google/common/collect/ForwardingSortedMultiset<TE;>.StandardElementSet;"
     iput-object p1, p0, Lcom/google/common/collect/ForwardingSortedMultiset$StandardElementSet;->this$0:Lcom/google/common/collect/ForwardingSortedMultiset;
 
+    .line 71
     invoke-direct {p0, p1}, Lcom/google/common/collect/SortedMultisets$NavigableElementSet;-><init>(Lcom/google/common/collect/SortedMultiset;)V
 
+    .line 72
     return-void
 .end method

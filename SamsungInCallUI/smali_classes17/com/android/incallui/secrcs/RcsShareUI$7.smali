@@ -17,7 +17,10 @@
 # direct methods
 .method constructor <init>(Landroid/os/Handler;)V
     .locals 0
+    .param p1, "x0"    # Landroid/os/Handler;
 
+    .prologue
+    .line 1932
     invoke-direct {p0, p1}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
     return-void
@@ -27,7 +30,11 @@
 # virtual methods
 .method public onChange(ZLandroid/net/Uri;)V
     .locals 3
+    .param p1, "selfChange"    # Z
+    .param p2, "uri"    # Landroid/net/Uri;
 
+    .prologue
+    .line 1935
     # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$300()Ljava/lang/String;
 
@@ -53,6 +60,7 @@
 
     invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 1936
     # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$300()Ljava/lang/String;
 
@@ -78,5 +86,6 @@
 
     invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 1937
     return-void
 .end method

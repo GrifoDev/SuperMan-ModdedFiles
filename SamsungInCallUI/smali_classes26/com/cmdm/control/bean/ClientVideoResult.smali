@@ -33,14 +33,18 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 22
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 28
     new-instance v0, Lcom/cmdm/control/bean/VideoList;
 
     invoke-direct {v0}, Lcom/cmdm/control/bean/VideoList;-><init>()V
 
     iput-object v0, p0, Lcom/cmdm/control/bean/ClientVideoResult;->videoList:Lcom/cmdm/control/bean/VideoList;
 
+    .line 22
     return-void
 .end method
 
@@ -49,6 +53,8 @@
 .method public getOffset()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 61
     iget-object v0, p0, Lcom/cmdm/control/bean/ClientVideoResult;->offset:Ljava/lang/String;
 
     return-object v0
@@ -57,6 +63,8 @@
 .method public getRange()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 76
     iget-object v0, p0, Lcom/cmdm/control/bean/ClientVideoResult;->range:Ljava/lang/String;
 
     return-object v0
@@ -65,6 +73,8 @@
 .method public getVideoList()Lcom/cmdm/control/bean/VideoList;
     .locals 1
 
+    .prologue
+    .line 46
     iget-object v0, p0, Lcom/cmdm/control/bean/ClientVideoResult;->videoList:Lcom/cmdm/control/bean/VideoList;
 
     return-object v0
@@ -72,24 +82,36 @@
 
 .method public setOffset(Ljava/lang/String;)V
     .locals 0
+    .param p1, "offset"    # Ljava/lang/String;
 
+    .prologue
+    .line 69
     iput-object p1, p0, Lcom/cmdm/control/bean/ClientVideoResult;->offset:Ljava/lang/String;
 
+    .line 70
     return-void
 .end method
 
 .method public setRange(Ljava/lang/String;)V
     .locals 0
+    .param p1, "range"    # Ljava/lang/String;
 
+    .prologue
+    .line 84
     iput-object p1, p0, Lcom/cmdm/control/bean/ClientVideoResult;->range:Ljava/lang/String;
 
+    .line 85
     return-void
 .end method
 
 .method public setVideoList(Lcom/cmdm/control/bean/VideoList;)V
     .locals 0
+    .param p1, "videoList"    # Lcom/cmdm/control/bean/VideoList;
 
+    .prologue
+    .line 54
     iput-object p1, p0, Lcom/cmdm/control/bean/ClientVideoResult;->videoList:Lcom/cmdm/control/bean/VideoList;
 
+    .line 55
     return-void
 .end method

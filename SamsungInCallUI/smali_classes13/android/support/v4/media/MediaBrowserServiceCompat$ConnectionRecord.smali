@@ -47,10 +47,13 @@
 .method private constructor <init>(Landroid/support/v4/media/MediaBrowserServiceCompat;)V
     .locals 1
 
+    .prologue
+    .line 465
     iput-object p1, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$ConnectionRecord;->this$0:Landroid/support/v4/media/MediaBrowserServiceCompat;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 470
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
@@ -62,7 +65,11 @@
 
 .method synthetic constructor <init>(Landroid/support/v4/media/MediaBrowserServiceCompat;Landroid/support/v4/media/MediaBrowserServiceCompat$1;)V
     .locals 0
+    .param p1, "x0"    # Landroid/support/v4/media/MediaBrowserServiceCompat;
+    .param p2, "x1"    # Landroid/support/v4/media/MediaBrowserServiceCompat$1;
 
+    .prologue
+    .line 465
     invoke-direct {p0, p1}, Landroid/support/v4/media/MediaBrowserServiceCompat$ConnectionRecord;-><init>(Landroid/support/v4/media/MediaBrowserServiceCompat;)V
 
     return-void

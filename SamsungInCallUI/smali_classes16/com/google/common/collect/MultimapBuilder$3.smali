@@ -29,6 +29,8 @@
 .method constructor <init>(Ljava/util/Comparator;)V
     .locals 0
 
+    .prologue
+    .line 169
     iput-object p1, p0, Lcom/google/common/collect/MultimapBuilder$3;->val$comparator:Ljava/util/Comparator;
 
     invoke-direct {p0}, Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys;-><init>()V
@@ -52,6 +54,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 172
     new-instance v0, Ljava/util/TreeMap;
 
     iget-object v1, p0, Lcom/google/common/collect/MultimapBuilder$3;->val$comparator:Ljava/util/Comparator;

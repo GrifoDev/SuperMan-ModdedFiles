@@ -372,7 +372,9 @@
 
 .method public loadMoments(Lcom/google/android/gms/plus/PlusClient$OnMomentsLoadedListener;)V
     .locals 7
+    .param p1, "listener"    # Lcom/google/android/gms/plus/PlusClient$OnMomentsLoadedListener;
 
+    .prologue
     const/4 v3, 0x0
 
     const/16 v2, 0x14
@@ -394,7 +396,14 @@
 
 .method public loadMoments(Lcom/google/android/gms/plus/PlusClient$OnMomentsLoadedListener;ILjava/lang/String;Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;)V
     .locals 8
+    .param p1, "listener"    # Lcom/google/android/gms/plus/PlusClient$OnMomentsLoadedListener;
+    .param p2, "maxResults"    # I
+    .param p3, "pageToken"    # Ljava/lang/String;
+    .param p4, "targetUrl"    # Landroid/net/Uri;
+    .param p5, "type"    # Ljava/lang/String;
+    .param p6, "userId"    # Ljava/lang/String;
 
+    .prologue
     const/4 v7, 0x0
 
     invoke-virtual {p0}, Lcom/google/android/gms/internal/bt;->B()V
@@ -451,7 +460,11 @@
 
 .method public loadVisiblePeople(Lcom/google/android/gms/plus/PlusClient$OnPeopleLoadedListener;ILjava/lang/String;)V
     .locals 6
+    .param p1, "listener"    # Lcom/google/android/gms/plus/PlusClient$OnPeopleLoadedListener;
+    .param p2, "orderBy"    # I
+    .param p3, "pageToken"    # Ljava/lang/String;
 
+    .prologue
     invoke-virtual {p0}, Lcom/google/android/gms/internal/bt;->B()V
 
     new-instance v1, Lcom/google/android/gms/internal/bt$c;
@@ -498,7 +511,10 @@
 
 .method public loadVisiblePeople(Lcom/google/android/gms/plus/PlusClient$OnPeopleLoadedListener;Ljava/lang/String;)V
     .locals 1
+    .param p1, "listener"    # Lcom/google/android/gms/plus/PlusClient$OnPeopleLoadedListener;
+    .param p2, "pageToken"    # Ljava/lang/String;
 
+    .prologue
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, v0, p2}, Lcom/google/android/gms/internal/bt;->loadVisiblePeople(Lcom/google/android/gms/plus/PlusClient$OnPeopleLoadedListener;ILjava/lang/String;)V
@@ -508,7 +524,9 @@
 
 .method public removeMoment(Ljava/lang/String;)V
     .locals 2
+    .param p1, "momentId"    # Ljava/lang/String;
 
+    .prologue
     invoke-virtual {p0}, Lcom/google/android/gms/internal/bt;->B()V
 
     :try_start_0
@@ -536,7 +554,9 @@
 
 .method public revokeAccessAndDisconnect(Lcom/google/android/gms/plus/PlusClient$OnAccessRevokedListener;)V
     .locals 3
+    .param p1, "listener"    # Lcom/google/android/gms/plus/PlusClient$OnAccessRevokedListener;
 
+    .prologue
     invoke-virtual {p0}, Lcom/google/android/gms/internal/bt;->B()V
 
     invoke-virtual {p0}, Lcom/google/android/gms/internal/bt;->clearDefaultAccount()V
@@ -573,12 +593,15 @@
 
 .method public writeMoment(Lcom/google/android/gms/plus/model/moments/Moment;)V
     .locals 2
+    .param p1, "moment"    # Lcom/google/android/gms/plus/model/moments/Moment;
 
+    .prologue
     invoke-virtual {p0}, Lcom/google/android/gms/internal/bt;->B()V
 
     :try_start_0
     check-cast p1, Lcom/google/android/gms/internal/bz;
 
+    .end local p1    # "moment":Lcom/google/android/gms/plus/model/moments/Moment;
     invoke-static {p1}, Lcom/google/android/gms/internal/ak;->a(Lcom/google/android/gms/internal/ae;)Lcom/google/android/gms/internal/ak;
 
     move-result-object v1

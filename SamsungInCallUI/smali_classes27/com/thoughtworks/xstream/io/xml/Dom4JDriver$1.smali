@@ -23,7 +23,10 @@
 # direct methods
 .method constructor <init>(Lcom/thoughtworks/xstream/io/xml/Dom4JDriver;Ljava/io/Writer;[Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;)V
     .locals 0
+    .param p2, "x0"    # Ljava/io/Writer;
 
+    .prologue
+    .line 138
     iput-object p1, p0, Lcom/thoughtworks/xstream/io/xml/Dom4JDriver$1;->this$0:Lcom/thoughtworks/xstream/io/xml/Dom4JDriver;
 
     iput-object p3, p0, Lcom/thoughtworks/xstream/io/xml/Dom4JDriver$1;->val$writer:[Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
@@ -38,6 +41,8 @@
 .method public close()V
     .locals 2
 
+    .prologue
+    .line 140
     iget-object v0, p0, Lcom/thoughtworks/xstream/io/xml/Dom4JDriver$1;->val$writer:[Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
 
     const/4 v1, 0x0
@@ -46,5 +51,6 @@
 
     invoke-interface {v0}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->close()V
 
+    .line 141
     return-void
 .end method

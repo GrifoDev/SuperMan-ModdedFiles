@@ -21,6 +21,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 66
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -30,7 +32,10 @@
 # virtual methods
 .method public isActiveNetworkMetered(Landroid/net/ConnectivityManager;)Z
     .locals 1
+    .param p1, "cm"    # Landroid/net/ConnectivityManager;
 
+    .prologue
+    .line 70
     invoke-static {p1}, Landroid/support/v4/net/ConnectivityManagerCompatHoneycombMR2;->isActiveNetworkMetered(Landroid/net/ConnectivityManager;)Z
 
     move-result v0

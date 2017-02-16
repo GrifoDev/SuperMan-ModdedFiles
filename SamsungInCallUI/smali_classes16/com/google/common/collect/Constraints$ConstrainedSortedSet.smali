@@ -57,8 +57,14 @@
         }
     .end annotation
 
+    .prologue
+    .line 149
+    .local p0, "this":Lcom/google/common/collect/Constraints$ConstrainedSortedSet;, "Lcom/google/common/collect/Constraints$ConstrainedSortedSet<TE;>;"
+    .local p1, "delegate":Ljava/util/SortedSet;, "Ljava/util/SortedSet<TE;>;"
+    .local p2, "constraint":Lcom/google/common/collect/Constraint;, "Lcom/google/common/collect/Constraint<-TE;>;"
     invoke-direct {p0}, Lcom/google/common/collect/ForwardingSortedSet;-><init>()V
 
+    .line 150
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -67,6 +73,7 @@
 
     iput-object v0, p0, Lcom/google/common/collect/Constraints$ConstrainedSortedSet;->delegate:Ljava/util/SortedSet;
 
+    .line 151
     invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -75,6 +82,7 @@
 
     iput-object v0, p0, Lcom/google/common/collect/Constraints$ConstrainedSortedSet;->constraint:Lcom/google/common/collect/Constraint;
 
+    .line 152
     return-void
 .end method
 
@@ -88,10 +96,15 @@
         }
     .end annotation
 
+    .prologue
+    .line 176
+    .local p0, "this":Lcom/google/common/collect/Constraints$ConstrainedSortedSet;, "Lcom/google/common/collect/Constraints$ConstrainedSortedSet<TE;>;"
+    .local p1, "element":Ljava/lang/Object;, "TE;"
     iget-object v0, p0, Lcom/google/common/collect/Constraints$ConstrainedSortedSet;->constraint:Lcom/google/common/collect/Constraint;
 
     invoke-interface {v0, p1}, Lcom/google/common/collect/Constraint;->checkElement(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 177
     iget-object v0, p0, Lcom/google/common/collect/Constraints$ConstrainedSortedSet;->delegate:Ljava/util/SortedSet;
 
     invoke-interface {v0, p1}, Ljava/util/SortedSet;->add(Ljava/lang/Object;)Z
@@ -111,6 +124,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 182
+    .local p0, "this":Lcom/google/common/collect/Constraints$ConstrainedSortedSet;, "Lcom/google/common/collect/Constraints$ConstrainedSortedSet<TE;>;"
+    .local p1, "elements":Ljava/util/Collection;, "Ljava/util/Collection<+TE;>;"
     iget-object v0, p0, Lcom/google/common/collect/Constraints$ConstrainedSortedSet;->delegate:Ljava/util/SortedSet;
 
     iget-object v1, p0, Lcom/google/common/collect/Constraints$ConstrainedSortedSet;->constraint:Lcom/google/common/collect/Constraint;
@@ -130,6 +147,9 @@
 .method protected bridge synthetic delegate()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 145
+    .local p0, "this":Lcom/google/common/collect/Constraints$ConstrainedSortedSet;, "Lcom/google/common/collect/Constraints$ConstrainedSortedSet<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Constraints$ConstrainedSortedSet;->delegate()Ljava/util/SortedSet;
 
     move-result-object v0
@@ -140,6 +160,9 @@
 .method protected bridge synthetic delegate()Ljava/util/Collection;
     .locals 1
 
+    .prologue
+    .line 145
+    .local p0, "this":Lcom/google/common/collect/Constraints$ConstrainedSortedSet;, "Lcom/google/common/collect/Constraints$ConstrainedSortedSet<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Constraints$ConstrainedSortedSet;->delegate()Ljava/util/SortedSet;
 
     move-result-object v0
@@ -150,6 +173,9 @@
 .method protected bridge synthetic delegate()Ljava/util/Set;
     .locals 1
 
+    .prologue
+    .line 145
+    .local p0, "this":Lcom/google/common/collect/Constraints$ConstrainedSortedSet;, "Lcom/google/common/collect/Constraints$ConstrainedSortedSet<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Constraints$ConstrainedSortedSet;->delegate()Ljava/util/SortedSet;
 
     move-result-object v0
@@ -167,6 +193,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 156
+    .local p0, "this":Lcom/google/common/collect/Constraints$ConstrainedSortedSet;, "Lcom/google/common/collect/Constraints$ConstrainedSortedSet<TE;>;"
     iget-object v0, p0, Lcom/google/common/collect/Constraints$ConstrainedSortedSet;->delegate:Ljava/util/SortedSet;
 
     return-object v0
@@ -182,6 +211,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 161
+    .local p0, "this":Lcom/google/common/collect/Constraints$ConstrainedSortedSet;, "Lcom/google/common/collect/Constraints$ConstrainedSortedSet<TE;>;"
+    .local p1, "toElement":Ljava/lang/Object;, "TE;"
     iget-object v0, p0, Lcom/google/common/collect/Constraints$ConstrainedSortedSet;->delegate:Ljava/util/SortedSet;
 
     invoke-interface {v0, p1}, Ljava/util/SortedSet;->headSet(Ljava/lang/Object;)Ljava/util/SortedSet;
@@ -207,6 +240,11 @@
         }
     .end annotation
 
+    .prologue
+    .line 166
+    .local p0, "this":Lcom/google/common/collect/Constraints$ConstrainedSortedSet;, "Lcom/google/common/collect/Constraints$ConstrainedSortedSet<TE;>;"
+    .local p1, "fromElement":Ljava/lang/Object;, "TE;"
+    .local p2, "toElement":Ljava/lang/Object;, "TE;"
     iget-object v0, p0, Lcom/google/common/collect/Constraints$ConstrainedSortedSet;->delegate:Ljava/util/SortedSet;
 
     invoke-interface {v0, p1, p2}, Ljava/util/SortedSet;->subSet(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedSet;
@@ -232,6 +270,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 171
+    .local p0, "this":Lcom/google/common/collect/Constraints$ConstrainedSortedSet;, "Lcom/google/common/collect/Constraints$ConstrainedSortedSet<TE;>;"
+    .local p1, "fromElement":Ljava/lang/Object;, "TE;"
     iget-object v0, p0, Lcom/google/common/collect/Constraints$ConstrainedSortedSet;->delegate:Ljava/util/SortedSet;
 
     invoke-interface {v0, p1}, Ljava/util/SortedSet;->tailSet(Ljava/lang/Object;)Ljava/util/SortedSet;

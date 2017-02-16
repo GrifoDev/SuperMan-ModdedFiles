@@ -30,7 +30,10 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/net/TrafficStatsCompat$BaseTrafficStatsCompatImpl;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/v4/net/TrafficStatsCompat$BaseTrafficStatsCompatImpl;
 
+    .prologue
+    .line 48
     iput-object p1, p0, Landroid/support/v4/net/TrafficStatsCompat$BaseTrafficStatsCompatImpl$1;->this$0:Landroid/support/v4/net/TrafficStatsCompat$BaseTrafficStatsCompatImpl;
 
     invoke-direct {p0}, Ljava/lang/ThreadLocal;-><init>()V
@@ -43,6 +46,8 @@
 .method protected initialValue()Landroid/support/v4/net/TrafficStatsCompat$BaseTrafficStatsCompatImpl$SocketTags;
     .locals 2
 
+    .prologue
+    .line 51
     new-instance v0, Landroid/support/v4/net/TrafficStatsCompat$BaseTrafficStatsCompatImpl$SocketTags;
 
     const/4 v1, 0x0
@@ -55,6 +60,8 @@
 .method protected bridge synthetic initialValue()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 48
     invoke-virtual {p0}, Landroid/support/v4/net/TrafficStatsCompat$BaseTrafficStatsCompatImpl$1;->initialValue()Landroid/support/v4/net/TrafficStatsCompat$BaseTrafficStatsCompatImpl$SocketTags;
 
     move-result-object v0

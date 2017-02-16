@@ -21,9 +21,14 @@
 # direct methods
 .method public constructor <init>(II)V
     .locals 0
+    .param p1, "rawValue"    # I
+    .param p2, "labelRes"    # I
 
+    .prologue
+    .line 418
     invoke-direct {p0, p1, p2}, Lcom/android/contacts/common/model/account/AccountType$EditType;-><init>(II)V
 
+    .line 419
     return-void
 .end method
 
@@ -32,6 +37,8 @@
 .method public isYearOptional()Z
     .locals 1
 
+    .prologue
+    .line 422
     iget-boolean v0, p0, Lcom/android/contacts/common/model/account/AccountType$EventEditType;->mYearOptional:Z
 
     return v0
@@ -39,15 +46,21 @@
 
 .method public setYearOptional(Z)Lcom/android/contacts/common/model/account/AccountType$EventEditType;
     .locals 0
+    .param p1, "yearOptional"    # Z
 
+    .prologue
+    .line 426
     iput-boolean p1, p0, Lcom/android/contacts/common/model/account/AccountType$EventEditType;->mYearOptional:Z
 
+    .line 427
     return-object p0
 .end method
 
 .method public toString()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 432
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

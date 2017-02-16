@@ -21,6 +21,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 149
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -30,8 +32,12 @@
 # virtual methods
 .method public onCancel(Landroid/content/DialogInterface;)V
     .locals 0
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
 
+    .prologue
+    .line 151
     invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
 
+    .line 152
     return-void
 .end method

@@ -22,6 +22,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 22
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -31,11 +33,18 @@
 # virtual methods
 .method public evaluate(FLjava/lang/Integer;Ljava/lang/Integer;)Ljava/lang/Integer;
     .locals 3
+    .param p1, "fraction"    # F
+    .param p2, "startValue"    # Ljava/lang/Integer;
+    .param p3, "endValue"    # Ljava/lang/Integer;
 
+    .prologue
+    .line 39
     invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
 
+    .line 40
+    .local v0, "startInt":I
     int-to-float v1, v0
 
     invoke-virtual {p3}, Ljava/lang/Integer;->intValue()I
@@ -62,6 +71,8 @@
 .method public bridge synthetic evaluate(FLjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 1
     check-cast p2, Ljava/lang/Integer;
 
     check-cast p3, Ljava/lang/Integer;

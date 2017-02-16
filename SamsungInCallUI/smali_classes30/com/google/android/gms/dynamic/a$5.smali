@@ -43,7 +43,10 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 4
+    .param p1, "v"    # Landroid/view/View;
 
+    .prologue
+    .local p0, "this":Lcom/google/android/gms/dynamic/a$5;, "Lcom/google/android/gms/dynamic/a.5;"
     iget-object v0, p0, Lcom/google/android/gms/dynamic/a$5;->da:Landroid/content/Context;
 
     iget-object v1, p0, Lcom/google/android/gms/dynamic/a$5;->da:Landroid/content/Context;

@@ -21,7 +21,11 @@
 # direct methods
 .method constructor <init>(Lcom/android/contacts/common/model/AccountTypeManagerImpl;Landroid/os/Looper;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/contacts/common/model/AccountTypeManagerImpl;
+    .param p2, "x0"    # Landroid/os/Looper;
 
+    .prologue
+    .line 293
     iput-object p1, p0, Lcom/android/contacts/common/model/AccountTypeManagerImpl$4;->this$0:Lcom/android/contacts/common/model/AccountTypeManagerImpl;
 
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
@@ -33,14 +37,19 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 296
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
+    .line 304
     :goto_0
     return-void
 
+    .line 298
     :pswitch_0
     iget-object v0, p0, Lcom/android/contacts/common/model/AccountTypeManagerImpl$4;->this$0:Lcom/android/contacts/common/model/AccountTypeManagerImpl;
 
@@ -48,6 +57,7 @@
 
     goto :goto_0
 
+    .line 301
     :pswitch_1
     iget-object v1, p0, Lcom/android/contacts/common/model/AccountTypeManagerImpl$4;->this$0:Lcom/android/contacts/common/model/AccountTypeManagerImpl;
 
@@ -59,6 +69,7 @@
 
     goto :goto_0
 
+    .line 296
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0

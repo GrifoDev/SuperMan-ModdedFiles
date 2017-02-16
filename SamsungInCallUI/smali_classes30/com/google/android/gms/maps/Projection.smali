@@ -9,7 +9,9 @@
 # direct methods
 .method constructor <init>(Lcom/google/android/gms/maps/internal/IProjectionDelegate;)V
     .locals 0
+    .param p1, "delegate"    # Lcom/google/android/gms/maps/internal/IProjectionDelegate;
 
+    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/google/android/gms/maps/Projection;->gJ:Lcom/google/android/gms/maps/internal/IProjectionDelegate;
@@ -21,7 +23,9 @@
 # virtual methods
 .method public fromScreenLocation(Landroid/graphics/Point;)Lcom/google/android/gms/maps/model/LatLng;
     .locals 2
+    .param p1, "point"    # Landroid/graphics/Point;
 
+    .prologue
     :try_start_0
     iget-object v0, p0, Lcom/google/android/gms/maps/Projection;->gJ:Lcom/google/android/gms/maps/internal/IProjectionDelegate;
 
@@ -73,7 +77,9 @@
 
 .method public toScreenLocation(Lcom/google/android/gms/maps/model/LatLng;)Landroid/graphics/Point;
     .locals 2
+    .param p1, "location"    # Lcom/google/android/gms/maps/model/LatLng;
 
+    .prologue
     :try_start_0
     iget-object v0, p0, Lcom/google/android/gms/maps/Projection;->gJ:Lcom/google/android/gms/maps/internal/IProjectionDelegate;
 

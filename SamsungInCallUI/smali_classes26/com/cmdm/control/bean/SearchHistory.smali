@@ -13,6 +13,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 11
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -23,6 +25,8 @@
 .method public toString()Ljava/lang/String;
     .locals 4
 
+    .prologue
+    .line 17
     new-instance v0, Ljava/lang/StringBuilder;
 
     const-string v1, "SearchHistory [keyword="

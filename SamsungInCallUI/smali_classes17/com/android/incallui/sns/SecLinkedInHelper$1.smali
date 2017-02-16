@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/sns/SecLinkedInHelper;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/sns/SecLinkedInHelper;
 
+    .prologue
+    .line 96
     iput-object p1, p0, Lcom/android/incallui/sns/SecLinkedInHelper$1;->this$0:Lcom/android/incallui/sns/SecLinkedInHelper;
 
     invoke-direct {p0}, Lcom/sec/android/app/snsimagecache/ISnsImageCacheCallback$Stub;-><init>()V
@@ -33,14 +36,21 @@
 # virtual methods
 .method public onImageGetResponse(IZLandroid/net/Uri;ILjava/lang/String;)V
     .locals 7
+    .param p1, "reqId"    # I
+    .param p2, "bSuccess"    # Z
+    .param p3, "uri"    # Landroid/net/Uri;
+    .param p4, "resultCode"    # I
+    .param p5, "description"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     const/4 v6, 0x1
 
+    .line 101
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -61,6 +71,7 @@
 
     invoke-static {p0, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 102
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -81,6 +92,7 @@
 
     invoke-static {p0, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 103
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -101,6 +113,7 @@
 
     invoke-static {p0, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 104
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -121,16 +134,20 @@
 
     invoke-static {p0, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 106
     if-nez p2, :cond_1
 
+    .line 107
     const-string v4, "failed to get image from Linkedin"
 
     invoke-static {p0, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 152
     :cond_0
     :goto_0
     return-void
 
+    .line 111
     :cond_1
     iget-object v4, p0, Lcom/android/incallui/sns/SecLinkedInHelper$1;->this$0:Lcom/android/incallui/sns/SecLinkedInHelper;
 
@@ -141,8 +158,10 @@
 
     if-eqz v4, :cond_0
 
+    .line 114
     if-eqz p3, :cond_0
 
+    .line 117
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -167,6 +186,7 @@
 
     invoke-static {p0, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 119
     iget-object v4, p0, Lcom/android/incallui/sns/SecLinkedInHelper$1;->this$0:Lcom/android/incallui/sns/SecLinkedInHelper;
 
     # getter for: Lcom/android/incallui/sns/SecLinkedInHelper;->mCookie:Lcom/android/incallui/sns/SecLinkedInHelper$LinkedinCookieWrapper;
@@ -187,6 +207,7 @@
 
     if-eq v4, p1, :cond_3
 
+    .line 120
     :cond_2
     const-string v4, "reqId is not matched"
 
@@ -194,11 +215,16 @@
 
     goto :goto_0
 
+    .line 124
     :cond_3
     const/4 v3, 0x0
 
+    .line 125
+    .local v3, "linkedinPhoto":Landroid/graphics/drawable/Drawable;
     const/4 v2, 0x0
 
+    .line 127
+    .local v2, "inputStream":Ljava/io/InputStream;
     :try_start_0
     iget-object v4, p0, Lcom/android/incallui/sns/SecLinkedInHelper$1;->this$0:Lcom/android/incallui/sns/SecLinkedInHelper;
 
@@ -215,6 +241,7 @@
 
     move-result-object v2
 
+    .line 128
     invoke-virtual {p3}, Landroid/net/Uri;->toString()Ljava/lang/String;
 
     move-result-object v4
@@ -226,17 +253,21 @@
 
     move-result-object v3
 
+    .line 132
     if-eqz v2, :cond_4
 
+    .line 134
     :try_start_1
     invoke-virtual {v2}, Ljava/io/InputStream;->close()V
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
+    .line 141
     :cond_4
     :goto_1
     if-eqz v3, :cond_0
 
+    .line 144
     iget-object v4, p0, Lcom/android/incallui/sns/SecLinkedInHelper$1;->this$0:Lcom/android/incallui/sns/SecLinkedInHelper;
 
     # getter for: Lcom/android/incallui/sns/SecLinkedInHelper;->mCookie:Lcom/android/incallui/sns/SecLinkedInHelper$LinkedinCookieWrapper;
@@ -248,6 +279,7 @@
 
     iput-object v3, v4, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->photo:Landroid/graphics/drawable/Drawable;
 
+    .line 145
     iget-object v4, p0, Lcom/android/incallui/sns/SecLinkedInHelper$1;->this$0:Lcom/android/incallui/sns/SecLinkedInHelper;
 
     # getter for: Lcom/android/incallui/sns/SecLinkedInHelper;->mCookie:Lcom/android/incallui/sns/SecLinkedInHelper$LinkedinCookieWrapper;
@@ -259,6 +291,7 @@
 
     iput-boolean v6, v4, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->isLinkedin:Z
 
+    .line 146
     iget-object v4, p0, Lcom/android/incallui/sns/SecLinkedInHelper$1;->this$0:Lcom/android/incallui/sns/SecLinkedInHelper;
 
     # getter for: Lcom/android/incallui/sns/SecLinkedInHelper;->mCookie:Lcom/android/incallui/sns/SecLinkedInHelper$LinkedinCookieWrapper;
@@ -270,10 +303,12 @@
 
     iput-boolean v6, v4, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->isPersonalPhotoAvailable:Z
 
+    .line 147
     const-string v4, "set Linkedin photo"
 
     invoke-static {p0, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 148
     invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
 
     move-result-object v4
@@ -282,8 +317,11 @@
 
     move-result-object v0
 
+    .line 149
+    .local v0, "cardPresenter":Lcom/android/incallui/CallCardPresenter;
     if-eqz v0, :cond_0
 
+    .line 150
     iget-object v4, p0, Lcom/android/incallui/sns/SecLinkedInHelper$1;->this$0:Lcom/android/incallui/sns/SecLinkedInHelper;
 
     # getter for: Lcom/android/incallui/sns/SecLinkedInHelper;->mCookie:Lcom/android/incallui/sns/SecLinkedInHelper$LinkedinCookieWrapper;
@@ -295,18 +333,26 @@
 
     goto/16 :goto_0
 
+    .line 135
+    .end local v0    # "cardPresenter":Lcom/android/incallui/CallCardPresenter;
     :catch_0
     move-exception v1
 
+    .line 136
+    .local v1, "e":Ljava/io/IOException;
     const-string v4, "Unable to close input stream."
 
     invoke-static {p0, v4, v1}, Lcom/android/incallui/Log;->e(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Exception;)V
 
     goto :goto_1
 
+    .line 129
+    .end local v1    # "e":Ljava/io/IOException;
     :catch_1
     move-exception v1
 
+    .line 130
+    .restart local v1    # "e":Ljava/io/IOException;
     :try_start_2
     const-string v4, "failed to create drawable from URI"
 
@@ -314,8 +360,10 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
+    .line 132
     if-eqz v2, :cond_4
 
+    .line 134
     :try_start_3
     invoke-virtual {v2}, Ljava/io/InputStream;->close()V
     :try_end_3
@@ -323,32 +371,41 @@
 
     goto :goto_1
 
+    .line 135
     :catch_2
     move-exception v1
 
+    .line 136
     const-string v4, "Unable to close input stream."
 
     invoke-static {p0, v4, v1}, Lcom/android/incallui/Log;->e(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Exception;)V
 
     goto :goto_1
 
+    .line 132
+    .end local v1    # "e":Ljava/io/IOException;
     :catchall_0
     move-exception v4
 
     if-eqz v2, :cond_5
 
+    .line 134
     :try_start_4
     invoke-virtual {v2}, Ljava/io/InputStream;->close()V
     :try_end_4
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_3
 
+    .line 137
     :cond_5
     :goto_2
     throw v4
 
+    .line 135
     :catch_3
     move-exception v1
 
+    .line 136
+    .restart local v1    # "e":Ljava/io/IOException;
     const-string v5, "Unable to close input stream."
 
     invoke-static {p0, v5, v1}, Lcom/android/incallui/Log;->e(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Exception;)V

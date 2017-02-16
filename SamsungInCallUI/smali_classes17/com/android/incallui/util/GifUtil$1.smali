@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/util/GifUtil;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/util/GifUtil;
 
+    .prologue
+    .line 99
     iput-object p1, p0, Lcom/android/incallui/util/GifUtil$1;->this$0:Lcom/android/incallui/util/GifUtil;
 
     invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
@@ -34,6 +37,8 @@
 .method public run()V
     .locals 4
 
+    .prologue
+    .line 102
     :goto_0
     iget-object v1, p0, Lcom/android/incallui/util/GifUtil$1;->this$0:Lcom/android/incallui/util/GifUtil;
 
@@ -44,6 +49,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 103
     iget-object v1, p0, Lcom/android/incallui/util/GifUtil$1;->this$0:Lcom/android/incallui/util/GifUtil;
 
     # getter for: Lcom/android/incallui/util/GifUtil;->handler:Landroid/os/Handler;
@@ -57,6 +63,7 @@
 
     invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
+    .line 109
     const-wide/16 v2, 0x32
 
     :try_start_0
@@ -66,9 +73,12 @@
 
     goto :goto_0
 
+    .line 110
     :catch_0
     move-exception v0
 
+    .line 111
+    .local v0, "e":Ljava/lang/InterruptedException;
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
     move-result-object v1
@@ -77,6 +87,8 @@
 
     goto :goto_0
 
+    .line 114
+    .end local v0    # "e":Ljava/lang/InterruptedException;
     :cond_0
     return-void
 .end method

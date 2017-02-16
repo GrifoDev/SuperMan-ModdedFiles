@@ -17,17 +17,23 @@
 # direct methods
 .method public constructor <init>(Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;)V
     .locals 1
+    .param p1, "reader"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
 
+    .prologue
+    .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 28
     iput-object p1, p0, Lcom/thoughtworks/xstream/io/AttributeNameIterator;->reader:Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
 
+    .line 29
     invoke-interface {p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->getAttributeCount()I
 
     move-result v0
 
     iput v0, p0, Lcom/thoughtworks/xstream/io/AttributeNameIterator;->count:I
 
+    .line 30
     return-void
 .end method
 
@@ -36,6 +42,8 @@
 .method public hasNext()Z
     .locals 2
 
+    .prologue
+    .line 33
     iget v0, p0, Lcom/thoughtworks/xstream/io/AttributeNameIterator;->current:I
 
     iget v1, p0, Lcom/thoughtworks/xstream/io/AttributeNameIterator;->count:I
@@ -56,6 +64,8 @@
 .method public next()Ljava/lang/Object;
     .locals 3
 
+    .prologue
+    .line 37
     iget-object v0, p0, Lcom/thoughtworks/xstream/io/AttributeNameIterator;->reader:Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
 
     iget v1, p0, Lcom/thoughtworks/xstream/io/AttributeNameIterator;->current:I
@@ -74,6 +84,8 @@
 .method public remove()V
     .locals 1
 
+    .prologue
+    .line 41
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V

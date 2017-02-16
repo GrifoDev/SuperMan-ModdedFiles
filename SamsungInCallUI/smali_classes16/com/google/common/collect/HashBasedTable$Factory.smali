@@ -45,11 +45,17 @@
 # direct methods
 .method constructor <init>(I)V
     .locals 0
+    .param p1, "expectedSize"    # I
 
+    .prologue
+    .line 60
+    .local p0, "this":Lcom/google/common/collect/HashBasedTable$Factory;, "Lcom/google/common/collect/HashBasedTable$Factory<TC;TV;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 61
     iput p1, p0, Lcom/google/common/collect/HashBasedTable$Factory;->expectedSize:I
 
+    .line 62
     return-void
 .end method
 
@@ -58,6 +64,9 @@
 .method public bridge synthetic get()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 57
+    .local p0, "this":Lcom/google/common/collect/HashBasedTable$Factory;, "Lcom/google/common/collect/HashBasedTable$Factory<TC;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/HashBasedTable$Factory;->get()Ljava/util/Map;
 
     move-result-object v0
@@ -75,6 +84,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 66
+    .local p0, "this":Lcom/google/common/collect/HashBasedTable$Factory;, "Lcom/google/common/collect/HashBasedTable$Factory<TC;TV;>;"
     iget v0, p0, Lcom/google/common/collect/HashBasedTable$Factory;->expectedSize:I
 
     invoke-static {v0}, Lcom/google/common/collect/Maps;->newHashMapWithExpectedSize(I)Ljava/util/HashMap;

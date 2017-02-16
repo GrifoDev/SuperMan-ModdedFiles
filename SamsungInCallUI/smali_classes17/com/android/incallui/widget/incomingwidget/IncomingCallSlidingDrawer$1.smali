@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;
 
+    .prologue
+    .line 177
     iput-object p1, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer$1;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;
 
     invoke-direct {p0}, Landroid/view/GestureDetector$SimpleOnGestureListener;-><init>()V
@@ -33,19 +36,27 @@
 # virtual methods
 .method public onFling(Landroid/view/MotionEvent;Landroid/view/MotionEvent;FF)Z
     .locals 7
+    .param p1, "e1"    # Landroid/view/MotionEvent;
+    .param p2, "e2"    # Landroid/view/MotionEvent;
+    .param p3, "velocityX"    # F
+    .param p4, "velocityY"    # F
 
+    .prologue
     const/4 v2, 0x1
 
     const/4 v4, 0x0
 
+    .line 180
     if-eqz p1, :cond_0
 
     if-nez p2, :cond_1
 
+    .line 197
     :cond_0
     :goto_0
     return v4
 
+    .line 181
     :cond_1
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
@@ -65,6 +76,8 @@
 
     move-result v0
 
+    .line 182
+    .local v0, "distanceX":I
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
     move-result v3
@@ -83,6 +96,8 @@
 
     move-result v1
 
+    .line 183
+    .local v1, "distanceY":I
     const-string v3, "tablet_device"
 
     invoke-static {v3}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
@@ -97,6 +112,7 @@
     # setter for: Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->MIN_FLING_THRESHOLD:I
     invoke-static {v3}, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->access$102(I)I
 
+    .line 184
     # getter for: Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->MIN_FLING_THRESHOLD:I
     invoke-static {}, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->access$100()I
 
@@ -115,6 +131,7 @@
 
     if-gt v0, v1, :cond_0
 
+    .line 187
     invoke-static {p4}, Ljava/lang/Math;->abs(F)F
 
     move-result v3
@@ -134,17 +151,21 @@
 
     if-lez v3, :cond_0
 
+    .line 188
     iget-object v3, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer$1;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;
 
     # setter for: Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->mIsFlingProcessing:Z
     invoke-static {v3, v2}, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->access$402(Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;Z)Z
 
+    .line 189
     const/4 v3, 0x0
 
     cmpg-float v3, p4, v3
 
     if-gez v3, :cond_3
 
+    .line 190
+    .local v2, "flingUp":Z
     :goto_2
     const-string v5, "IncomingCallSlidingDrawer"
 
@@ -173,8 +194,10 @@
 
     invoke-static {v5, v3}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 191
     if-eqz v2, :cond_5
 
+    .line 192
     iget-object v3, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer$1;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;
 
     # invokes: Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->animateOpenByFling()V
@@ -182,6 +205,8 @@
 
     goto :goto_0
 
+    .line 183
+    .end local v2    # "flingUp":Z
     :cond_2
     # getter for: Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->MIN_FLING_THRESHOLD:I
     invoke-static {}, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->access$100()I
@@ -193,13 +218,17 @@
     :cond_3
     move v2, v4
 
+    .line 189
     goto :goto_2
 
+    .line 190
+    .restart local v2    # "flingUp":Z
     :cond_4
     const-string v3, "CLOSE"
 
     goto :goto_3
 
+    .line 194
     :cond_5
     iget-object v3, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer$1;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;
 

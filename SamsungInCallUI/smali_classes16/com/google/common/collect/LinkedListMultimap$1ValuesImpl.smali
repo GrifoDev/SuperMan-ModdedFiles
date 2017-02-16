@@ -29,6 +29,9 @@
 .method constructor <init>(Lcom/google/common/collect/LinkedListMultimap;)V
     .locals 0
 
+    .prologue
+    .line 743
+    .local p0, "this":Lcom/google/common/collect/LinkedListMultimap$1ValuesImpl;, "Lcom/google/common/collect/LinkedListMultimap.1ValuesImpl;"
     iput-object p1, p0, Lcom/google/common/collect/LinkedListMultimap$1ValuesImpl;->this$0:Lcom/google/common/collect/LinkedListMultimap;
 
     invoke-direct {p0}, Ljava/util/AbstractSequentialList;-><init>()V
@@ -40,6 +43,7 @@
 # virtual methods
 .method public listIterator(I)Ljava/util/ListIterator;
     .locals 2
+    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -48,12 +52,17 @@
         }
     .end annotation
 
+    .prologue
+    .line 751
+    .local p0, "this":Lcom/google/common/collect/LinkedListMultimap$1ValuesImpl;, "Lcom/google/common/collect/LinkedListMultimap.1ValuesImpl;"
     new-instance v0, Lcom/google/common/collect/LinkedListMultimap$NodeIterator;
 
     iget-object v1, p0, Lcom/google/common/collect/LinkedListMultimap$1ValuesImpl;->this$0:Lcom/google/common/collect/LinkedListMultimap;
 
     invoke-direct {v0, v1, p1}, Lcom/google/common/collect/LinkedListMultimap$NodeIterator;-><init>(Lcom/google/common/collect/LinkedListMultimap;I)V
 
+    .line 752
+    .local v0, "nodeItr":Lcom/google/common/collect/LinkedListMultimap$NodeIterator;, "Lcom/google/common/collect/LinkedListMultimap<TK;TV;>.NodeIterator;"
     new-instance v1, Lcom/google/common/collect/LinkedListMultimap$1ValuesImpl$1;
 
     invoke-direct {v1, p0, v0, v0}, Lcom/google/common/collect/LinkedListMultimap$1ValuesImpl$1;-><init>(Lcom/google/common/collect/LinkedListMultimap$1ValuesImpl;Ljava/util/ListIterator;Lcom/google/common/collect/LinkedListMultimap$NodeIterator;)V
@@ -64,6 +73,9 @@
 .method public size()I
     .locals 1
 
+    .prologue
+    .line 746
+    .local p0, "this":Lcom/google/common/collect/LinkedListMultimap$1ValuesImpl;, "Lcom/google/common/collect/LinkedListMultimap.1ValuesImpl;"
     iget-object v0, p0, Lcom/google/common/collect/LinkedListMultimap$1ValuesImpl;->this$0:Lcom/google/common/collect/LinkedListMultimap;
 
     # getter for: Lcom/google/common/collect/LinkedListMultimap;->size:I

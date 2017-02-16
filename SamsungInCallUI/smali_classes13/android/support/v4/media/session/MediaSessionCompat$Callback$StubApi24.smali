@@ -25,6 +25,8 @@
 .method private constructor <init>(Landroid/support/v4/media/session/MediaSessionCompat$Callback;)V
     .locals 1
 
+    .prologue
+    .line 845
     iput-object p1, p0, Landroid/support/v4/media/session/MediaSessionCompat$Callback$StubApi24;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$Callback;
 
     const/4 v0, 0x0
@@ -36,7 +38,11 @@
 
 .method synthetic constructor <init>(Landroid/support/v4/media/session/MediaSessionCompat$Callback;Landroid/support/v4/media/session/MediaSessionCompat$1;)V
     .locals 0
+    .param p1, "x0"    # Landroid/support/v4/media/session/MediaSessionCompat$Callback;
+    .param p2, "x1"    # Landroid/support/v4/media/session/MediaSessionCompat$1;
 
+    .prologue
+    .line 845
     invoke-direct {p0, p1}, Landroid/support/v4/media/session/MediaSessionCompat$Callback$StubApi24;-><init>(Landroid/support/v4/media/session/MediaSessionCompat$Callback;)V
 
     return-void
@@ -47,39 +53,57 @@
 .method public onPrepare()V
     .locals 1
 
+    .prologue
+    .line 849
     iget-object v0, p0, Landroid/support/v4/media/session/MediaSessionCompat$Callback$StubApi24;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$Callback;
 
     invoke-virtual {v0}, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->onPrepare()V
 
+    .line 850
     return-void
 .end method
 
 .method public onPrepareFromMediaId(Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 1
+    .param p1, "mediaId"    # Ljava/lang/String;
+    .param p2, "extras"    # Landroid/os/Bundle;
 
+    .prologue
+    .line 854
     iget-object v0, p0, Landroid/support/v4/media/session/MediaSessionCompat$Callback$StubApi24;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$Callback;
 
     invoke-virtual {v0, p1, p2}, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->onPrepareFromMediaId(Ljava/lang/String;Landroid/os/Bundle;)V
 
+    .line 855
     return-void
 .end method
 
 .method public onPrepareFromSearch(Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 1
+    .param p1, "query"    # Ljava/lang/String;
+    .param p2, "extras"    # Landroid/os/Bundle;
 
+    .prologue
+    .line 859
     iget-object v0, p0, Landroid/support/v4/media/session/MediaSessionCompat$Callback$StubApi24;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$Callback;
 
     invoke-virtual {v0, p1, p2}, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->onPrepareFromSearch(Ljava/lang/String;Landroid/os/Bundle;)V
 
+    .line 860
     return-void
 .end method
 
 .method public onPrepareFromUri(Landroid/net/Uri;Landroid/os/Bundle;)V
     .locals 1
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "extras"    # Landroid/os/Bundle;
 
+    .prologue
+    .line 864
     iget-object v0, p0, Landroid/support/v4/media/session/MediaSessionCompat$Callback$StubApi24;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$Callback;
 
     invoke-virtual {v0, p1, p2}, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->onPrepareFromUri(Landroid/net/Uri;Landroid/os/Bundle;)V
 
+    .line 865
     return-void
 .end method

@@ -57,13 +57,17 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 14
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 54
     new-instance v0, Lcom/cmdm/control/bean/SubCouponList;
 
     invoke-direct {v0}, Lcom/cmdm/control/bean/SubCouponList;-><init>()V
 
     iput-object v0, p0, Lcom/cmdm/control/bean/Coupon;->subCouponList:Lcom/cmdm/control/bean/SubCouponList;
 
+    .line 14
     return-void
 .end method

@@ -46,12 +46,18 @@
         }
     .end annotation
 
+    .prologue
+    .line 78
+    .local p0, "this":Lcom/google/common/collect/FilteredEntryMultimap$ValuePredicate;, "Lcom/google/common/collect/FilteredEntryMultimap<TK;TV;>.ValuePredicate;"
+    .local p2, "key":Ljava/lang/Object;, "TK;"
     iput-object p1, p0, Lcom/google/common/collect/FilteredEntryMultimap$ValuePredicate;->this$0:Lcom/google/common/collect/FilteredEntryMultimap;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 79
     iput-object p2, p0, Lcom/google/common/collect/FilteredEntryMultimap$ValuePredicate;->key:Ljava/lang/Object;
 
+    .line 80
     return-void
 .end method
 
@@ -69,6 +75,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 84
+    .local p0, "this":Lcom/google/common/collect/FilteredEntryMultimap$ValuePredicate;, "Lcom/google/common/collect/FilteredEntryMultimap<TK;TV;>.ValuePredicate;"
+    .local p1, "value":Ljava/lang/Object;, "TV;"
     iget-object v0, p0, Lcom/google/common/collect/FilteredEntryMultimap$ValuePredicate;->this$0:Lcom/google/common/collect/FilteredEntryMultimap;
 
     iget-object v1, p0, Lcom/google/common/collect/FilteredEntryMultimap$ValuePredicate;->key:Ljava/lang/Object;

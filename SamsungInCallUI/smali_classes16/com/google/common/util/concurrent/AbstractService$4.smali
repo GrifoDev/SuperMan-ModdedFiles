@@ -30,7 +30,10 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;Lcom/google/common/util/concurrent/Service$State;)V
     .locals 0
+    .param p1, "x0"    # Ljava/lang/String;
 
+    .prologue
+    .line 91
     iput-object p2, p0, Lcom/google/common/util/concurrent/AbstractService$4;->val$from:Lcom/google/common/util/concurrent/Service$State;
 
     invoke-direct {p0, p1}, Lcom/google/common/util/concurrent/ListenerCallQueue$Callback;-><init>(Ljava/lang/String;)V
@@ -42,19 +45,27 @@
 # virtual methods
 .method call(Lcom/google/common/util/concurrent/Service$Listener;)V
     .locals 1
+    .param p1, "listener"    # Lcom/google/common/util/concurrent/Service$Listener;
 
+    .prologue
+    .line 93
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractService$4;->val$from:Lcom/google/common/util/concurrent/Service$State;
 
     invoke-virtual {p1, v0}, Lcom/google/common/util/concurrent/Service$Listener;->stopping(Lcom/google/common/util/concurrent/Service$State;)V
 
+    .line 94
     return-void
 .end method
 
 .method bridge synthetic call(Ljava/lang/Object;)V
     .locals 0
+    .param p1, "x0"    # Ljava/lang/Object;
 
+    .prologue
+    .line 91
     check-cast p1, Lcom/google/common/util/concurrent/Service$Listener;
 
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/google/common/util/concurrent/AbstractService$4;->call(Lcom/google/common/util/concurrent/Service$Listener;)V
 
     return-void

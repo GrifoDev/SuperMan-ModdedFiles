@@ -33,6 +33,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 212
     new-instance v0, Lcom/google/common/collect/Cut$AboveAll;
 
     invoke-direct {v0}, Lcom/google/common/collect/Cut$AboveAll;-><init>()V
@@ -45,16 +47,21 @@
 .method private constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 215
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Lcom/google/common/collect/Cut;-><init>(Ljava/lang/Comparable;)V
 
+    .line 216
     return-void
 .end method
 
 .method static synthetic access$100()Lcom/google/common/collect/Cut$AboveAll;
     .locals 1
 
+    .prologue
+    .line 211
     sget-object v0, Lcom/google/common/collect/Cut$AboveAll;->INSTANCE:Lcom/google/common/collect/Cut$AboveAll;
 
     return-object v0
@@ -63,6 +70,8 @@
 .method private readResolve()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 281
     sget-object v0, Lcom/google/common/collect/Cut$AboveAll;->INSTANCE:Lcom/google/common/collect/Cut$AboveAll;
 
     return-object v0
@@ -82,6 +91,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 272
+    .local p1, "o":Lcom/google/common/collect/Cut;, "Lcom/google/common/collect/Cut<Ljava/lang/Comparable<*>;>;"
     if-ne p1, p0, :cond_0
 
     const/4 v0, 0x0
@@ -97,9 +109,13 @@
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
     .locals 1
+    .param p1, "x0"    # Ljava/lang/Object;
 
+    .prologue
+    .line 211
     check-cast p1, Lcom/google/common/collect/Cut;
 
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/google/common/collect/Cut$AboveAll;->compareTo(Lcom/google/common/collect/Cut;)I
 
     move-result v0
@@ -109,7 +125,10 @@
 
 .method describeAsLowerBound(Ljava/lang/StringBuilder;)V
     .locals 1
+    .param p1, "sb"    # Ljava/lang/StringBuilder;
 
+    .prologue
+    .line 252
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
@@ -119,11 +138,15 @@
 
 .method describeAsUpperBound(Ljava/lang/StringBuilder;)V
     .locals 1
+    .param p1, "sb"    # Ljava/lang/StringBuilder;
 
+    .prologue
+    .line 257
     const-string v0, "+\u221e)"
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 258
     return-void
 .end method
 
@@ -137,6 +160,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 220
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "range unbounded on this side"
@@ -160,6 +185,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 267
+    .local p1, "domain":Lcom/google/common/collect/DiscreteDomain;, "Lcom/google/common/collect/DiscreteDomain<Ljava/lang/Comparable<*>;>;"
     invoke-virtual {p1}, Lcom/google/common/collect/DiscreteDomain;->maxValue()Ljava/lang/Comparable;
 
     move-result-object v0
@@ -177,6 +205,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 225
+    .local p1, "value":Ljava/lang/Comparable;, "Ljava/lang/Comparable<*>;"
     const/4 v0, 0x0
 
     return v0
@@ -196,6 +227,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 262
+    .local p1, "domain":Lcom/google/common/collect/DiscreteDomain;, "Lcom/google/common/collect/DiscreteDomain<Ljava/lang/Comparable<*>;>;"
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
@@ -206,6 +240,8 @@
 .method public toString()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 277
     const-string v0, "+\u221e"
 
     return-object v0
@@ -214,6 +250,8 @@
 .method typeAsLowerBound()Lcom/google/common/collect/BoundType;
     .locals 2
 
+    .prologue
+    .line 230
     new-instance v0, Ljava/lang/AssertionError;
 
     const-string v1, "this statement should be unreachable"
@@ -226,6 +264,8 @@
 .method typeAsUpperBound()Lcom/google/common/collect/BoundType;
     .locals 1
 
+    .prologue
+    .line 235
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V
@@ -235,6 +275,7 @@
 
 .method withLowerBoundType(Lcom/google/common/collect/BoundType;Lcom/google/common/collect/DiscreteDomain;)Lcom/google/common/collect/Cut;
     .locals 2
+    .param p1, "boundType"    # Lcom/google/common/collect/BoundType;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -250,6 +291,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 241
+    .local p2, "domain":Lcom/google/common/collect/DiscreteDomain;, "Lcom/google/common/collect/DiscreteDomain<Ljava/lang/Comparable<*>;>;"
     new-instance v0, Ljava/lang/AssertionError;
 
     const-string v1, "this statement should be unreachable"
@@ -261,6 +305,7 @@
 
 .method withUpperBoundType(Lcom/google/common/collect/BoundType;Lcom/google/common/collect/DiscreteDomain;)Lcom/google/common/collect/Cut;
     .locals 1
+    .param p1, "boundType"    # Lcom/google/common/collect/BoundType;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -276,6 +321,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 247
+    .local p2, "domain":Lcom/google/common/collect/DiscreteDomain;, "Lcom/google/common/collect/DiscreteDomain<Ljava/lang/Comparable<*>;>;"
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V

@@ -21,7 +21,11 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/service/SecCallPopupService;Landroid/os/Handler;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/service/SecCallPopupService;
+    .param p2, "x0"    # Landroid/os/Handler;
 
+    .prologue
+    .line 219
     iput-object p1, p0, Lcom/android/incallui/service/SecCallPopupService$2;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -33,13 +37,18 @@
 # virtual methods
 .method public onChange(Z)V
     .locals 3
+    .param p1, "selfChange"    # Z
 
+    .prologue
+    .line 221
     invoke-super {p0, p1}, Landroid/database/ContentObserver;->onChange(Z)V
 
+    .line 222
     const-string v0, "NTT DOCOMO : onChange "
 
     invoke-static {p0, v0}, Lcom/android/incallui/Log;->i(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 223
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupService$2;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
     iget-object v0, v0, Lcom/android/incallui/service/SecCallPopupService;->mContactInfo:Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
@@ -48,6 +57,7 @@
 
     iput-boolean v1, v0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->hide_status:Z
 
+    .line 224
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupService$2;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
     # getter for: Lcom/android/incallui/service/SecCallPopupService;->mSecCallPopupContainer:Lcom/android/incallui/service/SecCallPopupContainer;
@@ -68,5 +78,6 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/incallui/service/SecCallPopupContainer;->updatePrimaryDisplayInfo(Lcom/android/incallui/Call;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;)V
 
+    .line 225
     return-void
 .end method

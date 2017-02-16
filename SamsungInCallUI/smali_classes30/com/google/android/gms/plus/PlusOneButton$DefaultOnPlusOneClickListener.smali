@@ -26,7 +26,9 @@
 # direct methods
 .method public constructor <init>(Lcom/google/android/gms/plus/PlusOneButton;Lcom/google/android/gms/plus/PlusOneButton$OnPlusOneClickListener;)V
     .locals 0
+    .param p2, "proxy"    # Lcom/google/android/gms/plus/PlusOneButton$OnPlusOneClickListener;
 
+    .prologue
     iput-object p1, p0, Lcom/google/android/gms/plus/PlusOneButton$DefaultOnPlusOneClickListener;->ii:Lcom/google/android/gms/plus/PlusOneButton;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,7 +42,9 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 2
+    .param p1, "view"    # Landroid/view/View;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/plus/PlusOneButton$DefaultOnPlusOneClickListener;->ii:Lcom/google/android/gms/plus/PlusOneButton;
 
     invoke-static {v0}, Lcom/google/android/gms/plus/PlusOneButton;->a(Lcom/google/android/gms/plus/PlusOneButton;)Landroid/view/View;
@@ -72,7 +76,9 @@
 
 .method public onPlusOneClick(Landroid/content/Intent;)V
     .locals 2
+    .param p1, "intent"    # Landroid/content/Intent;
 
+    .prologue
     iget-object v0, p0, Lcom/google/android/gms/plus/PlusOneButton$DefaultOnPlusOneClickListener;->ii:Lcom/google/android/gms/plus/PlusOneButton;
 
     invoke-virtual {v0}, Lcom/google/android/gms/plus/PlusOneButton;->getContext()Landroid/content/Context;

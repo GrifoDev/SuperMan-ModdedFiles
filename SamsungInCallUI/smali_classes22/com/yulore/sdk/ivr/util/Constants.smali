@@ -95,30 +95,38 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 9
     const-string v0, ""
 
     sput-object v0, Lcom/yulore/sdk/ivr/util/Constants;->API_KEY:Ljava/lang/String;
 
+    .line 10
     const-string v0, ""
 
     sput-object v0, Lcom/yulore/sdk/ivr/util/Constants;->API_SECRET:Ljava/lang/String;
 
+    .line 11
     const-string v0, ""
 
     sput-object v0, Lcom/yulore/sdk/ivr/util/Constants;->HOST_APP_NAME:Ljava/lang/String;
 
+    .line 12
     const-string v0, ""
 
     sput-object v0, Lcom/yulore/sdk/ivr/util/Constants;->IMEI_ID:Ljava/lang/String;
 
+    .line 13
     const-string v0, "1.6.4"
 
     sput-object v0, Lcom/yulore/sdk/ivr/util/Constants;->VERSION:Ljava/lang/String;
 
+    .line 14
     const-string v0, ""
 
     sput-object v0, Lcom/yulore/sdk/ivr/util/Constants;->TEL_VERSION:Ljava/lang/String;
 
+    .line 39
     const/4 v0, -0x1
 
     sput v0, Lcom/yulore/sdk/ivr/util/Constants;->MATCHER:I
@@ -129,6 +137,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 6
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

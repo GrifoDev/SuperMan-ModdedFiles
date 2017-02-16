@@ -27,6 +27,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 42
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -50,10 +52,16 @@
         }
     .end annotation
 
+    .prologue
+    .line 52
+    .local p0, "function":Lcom/google/common/base/Function;, "Lcom/google/common/base/Function<-TF;TT;>;"
+    .local p1, "supplier":Lcom/google/common/base/Supplier;, "Lcom/google/common/base/Supplier<TF;>;"
     invoke-static {p0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 53
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 54
     new-instance v0, Lcom/google/common/base/Suppliers$SupplierComposition;
 
     invoke-direct {v0, p0, p1}, Lcom/google/common/base/Suppliers$SupplierComposition;-><init>(Lcom/google/common/base/Function;Lcom/google/common/base/Supplier;)V
@@ -75,13 +83,18 @@
         }
     .end annotation
 
+    .prologue
+    .line 108
+    .local p0, "delegate":Lcom/google/common/base/Supplier;, "Lcom/google/common/base/Supplier<TT;>;"
     instance-of v0, p0, Lcom/google/common/base/Suppliers$MemoizingSupplier;
 
     if-eqz v0, :cond_0
 
+    .end local p0    # "delegate":Lcom/google/common/base/Supplier;, "Lcom/google/common/base/Supplier<TT;>;"
     :goto_0
     return-object p0
 
+    .restart local p0    # "delegate":Lcom/google/common/base/Supplier;, "Lcom/google/common/base/Supplier<TT;>;"
     :cond_0
     new-instance v1, Lcom/google/common/base/Suppliers$MemoizingSupplier;
 
@@ -100,6 +113,8 @@
 
 .method public static memoizeWithExpiration(Lcom/google/common/base/Supplier;JLjava/util/concurrent/TimeUnit;)Lcom/google/common/base/Supplier;
     .locals 1
+    .param p1, "duration"    # J
+    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -114,6 +129,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 169
+    .local p0, "delegate":Lcom/google/common/base/Supplier;, "Lcom/google/common/base/Supplier<TT;>;"
     new-instance v0, Lcom/google/common/base/Suppliers$ExpiringMemoizingSupplier;
 
     invoke-direct {v0, p0, p1, p2, p3}, Lcom/google/common/base/Suppliers$ExpiringMemoizingSupplier;-><init>(Lcom/google/common/base/Supplier;JLjava/util/concurrent/TimeUnit;)V
@@ -137,6 +155,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 226
+    .local p0, "instance":Ljava/lang/Object;, "TT;"
     new-instance v0, Lcom/google/common/base/Suppliers$SupplierOfInstance;
 
     invoke-direct {v0, p0}, Lcom/google/common/base/Suppliers$SupplierOfInstance;-><init>(Ljava/lang/Object;)V
@@ -161,8 +182,12 @@
         }
     .end annotation
 
+    .prologue
+    .line 302
     sget-object v0, Lcom/google/common/base/Suppliers$SupplierFunctionImpl;->INSTANCE:Lcom/google/common/base/Suppliers$SupplierFunctionImpl;
 
+    .line 303
+    .local v0, "sf":Lcom/google/common/base/Suppliers$SupplierFunction;, "Lcom/google/common/base/Suppliers$SupplierFunction<TT;>;"
     return-object v0
 .end method
 
@@ -180,6 +205,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 268
+    .local p0, "delegate":Lcom/google/common/base/Supplier;, "Lcom/google/common/base/Supplier<TT;>;"
     new-instance v1, Lcom/google/common/base/Suppliers$ThreadSafeSupplier;
 
     invoke-static {p0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;

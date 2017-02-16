@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 51
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,7 +42,10 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Lcom/yulore/sdk/ivr/model/INode;
     .locals 1
+    .param p1, "source"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 61
     new-instance v0, Lcom/yulore/sdk/ivr/model/INode;
 
     invoke-direct {v0, p1}, Lcom/yulore/sdk/ivr/model/INode;-><init>(Landroid/os/Parcel;)V
@@ -51,6 +56,8 @@
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 51
     invoke-virtual {p0, p1}, Lcom/yulore/sdk/ivr/model/INode$1;->createFromParcel(Landroid/os/Parcel;)Lcom/yulore/sdk/ivr/model/INode;
 
     move-result-object v0
@@ -60,7 +67,10 @@
 
 .method public newArray(I)[Lcom/yulore/sdk/ivr/model/INode;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 56
     new-array v0, p1, [Lcom/yulore/sdk/ivr/model/INode;
 
     return-object v0
@@ -69,6 +79,8 @@
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 51
     invoke-virtual {p0, p1}, Lcom/yulore/sdk/ivr/model/INode$1;->newArray(I)[Lcom/yulore/sdk/ivr/model/INode;
 
     move-result-object v0

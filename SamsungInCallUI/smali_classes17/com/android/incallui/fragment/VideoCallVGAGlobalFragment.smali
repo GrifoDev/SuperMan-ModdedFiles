@@ -7,6 +7,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 26
     invoke-direct {p0}, Lcom/android/incallui/fragment/VideoCallVGAFragment;-><init>()V
 
     return-void
@@ -16,17 +18,24 @@
 # virtual methods
 .method public initializeVideoView(Landroid/view/View;)V
     .locals 1
+    .param p1, "view"    # Landroid/view/View;
 
+    .prologue
+    .line 30
     invoke-super {p0, p1}, Lcom/android/incallui/fragment/VideoCallVGAFragment;->initializeVideoView(Landroid/view/View;)V
 
+    .line 31
     if-eqz p1, :cond_0
 
+    .line 33
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/incallui/fragment/VideoCallVGAGlobalFragment;->mIsUsingPersonalPhoto:Z
 
+    .line 34
     invoke-virtual {p0}, Lcom/android/incallui/fragment/VideoCallVGAGlobalFragment;->setMyProfileImage()V
 
+    .line 36
     :cond_0
     return-void
 .end method
@@ -34,6 +43,8 @@
 .method protected needToShowFarEndPhoto()Z
     .locals 1
 
+    .prologue
+    .line 57
     iget v0, p0, Lcom/android/incallui/fragment/VideoCallVGAGlobalFragment;->mVideoState:I
 
     invoke-static {v0}, Lcom/android/incallui/service/vt/SecVideoState;->hasModifyReceive(I)Z
@@ -44,6 +55,7 @@
 
     iget v0, p0, Lcom/android/incallui/fragment/VideoCallVGAGlobalFragment;->mVideoState:I
 
+    .line 58
     invoke-static {v0}, Lcom/android/incallui/service/vt/SecVideoState;->hasModifyRequest(I)Z
 
     move-result v0
@@ -77,6 +89,7 @@
     :cond_0
     iget v0, p0, Lcom/android/incallui/fragment/VideoCallVGAGlobalFragment;->mVideoState:I
 
+    .line 59
     invoke-static {v0}, Lcom/android/incallui/service/vt/SecVideoState;->hasHolding(I)Z
 
     move-result v0
@@ -114,12 +127,17 @@
 .method protected needToShowNearEndPhoto()Z
     .locals 3
 
+    .prologue
+    .line 46
     const/4 v0, 0x0
 
+    .line 47
+    .local v0, "needToShowNearEndPhoto":Z
     iget-object v1, p0, Lcom/android/incallui/fragment/VideoCallVGAGlobalFragment;->mPrimaryCall:Lcom/android/incallui/Call;
 
     if-eqz v1, :cond_1
 
+    .line 48
     iget-object v1, p0, Lcom/android/incallui/fragment/VideoCallVGAGlobalFragment;->mPrimaryCall:Lcom/android/incallui/Call;
 
     invoke-virtual {v1}, Lcom/android/incallui/Call;->getState()I
@@ -132,6 +150,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/fragment/VideoCallVGAGlobalFragment;->mPrimaryCall:Lcom/android/incallui/Call;
 
+    .line 49
     invoke-virtual {v1}, Lcom/android/incallui/Call;->isTheOtherPartyOnHold()Z
 
     move-result v1
@@ -140,6 +159,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/fragment/VideoCallVGAGlobalFragment;->mPrimaryCall:Lcom/android/incallui/Call;
 
+    .line 50
     invoke-static {v1}, Lcom/android/incallui/util/CallTypeUtils;->isVideoOneWayRx(Lcom/android/incallui/Call;)Z
 
     move-result v1
@@ -149,10 +169,12 @@
     :cond_0
     const/4 v0, 0x1
 
+    .line 52
     :cond_1
     :goto_0
     return v0
 
+    .line 50
     :cond_2
     const/4 v0, 0x0
 
@@ -162,6 +184,8 @@
 .method public onVideoStateChanged()V
     .locals 2
 
+    .prologue
+    .line 40
     invoke-static {}, Lcom/android/incallui/VideoBanner;->getInstance()Lcom/android/incallui/VideoBanner;
 
     move-result-object v0
@@ -172,7 +196,9 @@
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/VideoBanner;->setVideoCallBanner(I)V
 
+    .line 41
     invoke-super {p0}, Lcom/android/incallui/fragment/VideoCallVGAFragment;->onVideoStateChanged()V
 
+    .line 42
     return-void
 .end method

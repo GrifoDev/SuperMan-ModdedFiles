@@ -34,6 +34,8 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
+    .line 280
     const/4 v0, 0x6
 
     new-array v0, v0, [Ljava/lang/String;
@@ -82,6 +84,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 278
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

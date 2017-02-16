@@ -21,6 +21,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 50
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -30,7 +32,10 @@
 # virtual methods
 .method public loadMetadata(Ljava/lang/String;)Ljava/io/InputStream;
     .locals 1
+    .param p1, "metadataFileName"    # Ljava/lang/String;
 
+    .prologue
+    .line 53
     const-class v0, Lcom/google/i18n/phonenumbers/MetadataManager;
 
     invoke-virtual {v0, p1}, Ljava/lang/Class;->getResourceAsStream(Ljava/lang/String;)Ljava/io/InputStream;

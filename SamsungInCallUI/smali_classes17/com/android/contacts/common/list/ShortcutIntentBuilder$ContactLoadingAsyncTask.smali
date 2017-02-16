@@ -21,11 +21,16 @@
 # direct methods
 .method public constructor <init>(Lcom/android/contacts/common/list/ShortcutIntentBuilder;Landroid/net/Uri;)V
     .locals 0
+    .param p2, "uri"    # Landroid/net/Uri;
 
+    .prologue
+    .line 192
     iput-object p1, p0, Lcom/android/contacts/common/list/ShortcutIntentBuilder$ContactLoadingAsyncTask;->this$0:Lcom/android/contacts/common/list/ShortcutIntentBuilder;
 
+    .line 193
     invoke-direct {p0, p1, p2}, Lcom/android/contacts/common/list/ShortcutIntentBuilder$LoadingAsyncTask;-><init>(Lcom/android/contacts/common/list/ShortcutIntentBuilder;Landroid/net/Uri;)V
 
+    .line 194
     return-void
 .end method
 
@@ -34,8 +39,10 @@
 .method protected loadData()V
     .locals 7
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 198
     iget-object v1, p0, Lcom/android/contacts/common/list/ShortcutIntentBuilder$ContactLoadingAsyncTask;->this$0:Lcom/android/contacts/common/list/ShortcutIntentBuilder;
 
     # getter for: Lcom/android/contacts/common/list/ShortcutIntentBuilder;->mContext:Landroid/content/Context;
@@ -47,6 +54,8 @@
 
     move-result-object v0
 
+    .line 199
+    .local v0, "resolver":Landroid/content/ContentResolver;
     iget-object v1, p0, Lcom/android/contacts/common/list/ShortcutIntentBuilder$ContactLoadingAsyncTask;->mUri:Landroid/net/Uri;
 
     # getter for: Lcom/android/contacts/common/list/ShortcutIntentBuilder;->CONTACT_COLUMNS:[Ljava/lang/String;
@@ -62,8 +71,11 @@
 
     move-result-object v6
 
+    .line 200
+    .local v6, "cursor":Landroid/database/Cursor;
     if-eqz v6, :cond_1
 
+    .line 202
     :try_start_0
     invoke-interface {v6}, Landroid/database/Cursor;->moveToFirst()Z
 
@@ -71,6 +83,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 203
     const/4 v1, 0x0
 
     invoke-interface {v6, v1}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
@@ -79,6 +92,7 @@
 
     iput-object v1, p0, Lcom/android/contacts/common/list/ShortcutIntentBuilder$ContactLoadingAsyncTask;->mDisplayName:Ljava/lang/String;
 
+    .line 204
     const/4 v1, 0x1
 
     invoke-interface {v6, v1}, Landroid/database/Cursor;->getLong(I)J
@@ -87,6 +101,7 @@
 
     iput-wide v2, p0, Lcom/android/contacts/common/list/ShortcutIntentBuilder$ContactLoadingAsyncTask;->mPhotoId:J
 
+    .line 205
     const/4 v1, 0x2
 
     invoke-interface {v6, v1}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
@@ -97,12 +112,15 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 208
     :cond_0
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
+    .line 211
     :cond_1
     return-void
 
+    .line 208
     :catchall_0
     move-exception v1
 
@@ -114,6 +132,8 @@
 .method protected bridge synthetic onPostExecute(Ljava/lang/Object;)V
     .locals 0
 
+    .prologue
+    .line 190
     check-cast p1, Ljava/lang/Void;
 
     invoke-virtual {p0, p1}, Lcom/android/contacts/common/list/ShortcutIntentBuilder$ContactLoadingAsyncTask;->onPostExecute(Ljava/lang/Void;)V
@@ -123,7 +143,10 @@
 
 .method protected onPostExecute(Ljava/lang/Void;)V
     .locals 6
+    .param p1, "result"    # Ljava/lang/Void;
 
+    .prologue
+    .line 215
     iget-object v0, p0, Lcom/android/contacts/common/list/ShortcutIntentBuilder$ContactLoadingAsyncTask;->this$0:Lcom/android/contacts/common/list/ShortcutIntentBuilder;
 
     iget-object v1, p0, Lcom/android/contacts/common/list/ShortcutIntentBuilder$ContactLoadingAsyncTask;->mUri:Landroid/net/Uri;
@@ -139,5 +162,6 @@
     # invokes: Lcom/android/contacts/common/list/ShortcutIntentBuilder;->createContactShortcutIntent(Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V
     invoke-static/range {v0 .. v5}, Lcom/android/contacts/common/list/ShortcutIntentBuilder;->access$300(Lcom/android/contacts/common/list/ShortcutIntentBuilder;Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V
 
+    .line 216
     return-void
 .end method

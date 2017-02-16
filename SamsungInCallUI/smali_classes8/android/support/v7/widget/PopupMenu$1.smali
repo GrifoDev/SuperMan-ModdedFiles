@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/PopupMenu;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/v7/widget/PopupMenu;
 
+    .prologue
+    .line 104
     iput-object p1, p0, Landroid/support/v7/widget/PopupMenu$1;->this$0:Landroid/support/v7/widget/PopupMenu;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +39,11 @@
 # virtual methods
 .method public onMenuItemSelected(Landroid/support/v7/view/menu/MenuBuilder;Landroid/view/MenuItem;)Z
     .locals 1
+    .param p1, "menu"    # Landroid/support/v7/view/menu/MenuBuilder;
+    .param p2, "item"    # Landroid/view/MenuItem;
 
+    .prologue
+    .line 107
     iget-object v0, p0, Landroid/support/v7/widget/PopupMenu$1;->this$0:Landroid/support/v7/widget/PopupMenu;
 
     # getter for: Landroid/support/v7/widget/PopupMenu;->mMenuItemClickListener:Landroid/support/v7/widget/PopupMenu$OnMenuItemClickListener;
@@ -46,6 +53,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 108
     iget-object v0, p0, Landroid/support/v7/widget/PopupMenu$1;->this$0:Landroid/support/v7/widget/PopupMenu;
 
     # getter for: Landroid/support/v7/widget/PopupMenu;->mMenuItemClickListener:Landroid/support/v7/widget/PopupMenu$OnMenuItemClickListener;
@@ -57,6 +65,7 @@
 
     move-result v0
 
+    .line 110
     :goto_0
     return v0
 
@@ -68,6 +77,9 @@
 
 .method public onMenuModeChange(Landroid/support/v7/view/menu/MenuBuilder;)V
     .locals 0
+    .param p1, "menu"    # Landroid/support/v7/view/menu/MenuBuilder;
 
+    .prologue
+    .line 115
     return-void
 .end method

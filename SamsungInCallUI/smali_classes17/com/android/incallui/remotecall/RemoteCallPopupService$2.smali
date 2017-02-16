@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/remotecall/RemoteCallPopupService;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/remotecall/RemoteCallPopupService;
 
+    .prologue
+    .line 116
     iput-object p1, p0, Lcom/android/incallui/remotecall/RemoteCallPopupService$2;->this$0:Lcom/android/incallui/remotecall/RemoteCallPopupService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,13 +39,17 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 2
+    .param p1, "v"    # Landroid/view/View;
 
+    .prologue
+    .line 119
     const-string v0, "RemoteCallPopupService"
 
     const-string v1, "onClick pulling button"
 
     invoke-static {v0, v1}, Lcom/android/incallui/remotecall/utils/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 120
     invoke-static {}, Lcom/android/incallui/remotecall/RemoteCallPresenter;->getInstance()Lcom/android/incallui/remotecall/RemoteCallPresenter;
 
     move-result-object v0
@@ -53,10 +60,12 @@
 
     if-eqz v0, :cond_0
 
+    .line 121
     iget-object v0, p0, Lcom/android/incallui/remotecall/RemoteCallPopupService$2;->this$0:Lcom/android/incallui/remotecall/RemoteCallPopupService;
 
     invoke-virtual {v0}, Lcom/android/incallui/remotecall/RemoteCallPopupService;->stopSelf()V
 
+    .line 123
     :cond_0
     return-void
 .end method

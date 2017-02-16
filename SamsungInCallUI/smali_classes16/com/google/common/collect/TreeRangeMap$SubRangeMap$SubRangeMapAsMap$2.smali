@@ -31,6 +31,9 @@
 .method constructor <init>(Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap;)V
     .locals 0
 
+    .prologue
+    .line 571
+    .local p0, "this":Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap$2;, "Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap.2;"
     iput-object p1, p0, Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap$2;->this$2:Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap;
 
     invoke-direct {p0}, Lcom/google/common/collect/Maps$EntrySet;-><init>()V
@@ -43,6 +46,9 @@
 .method public isEmpty()Z
     .locals 1
 
+    .prologue
+    .line 594
+    .local p0, "this":Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap$2;, "Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap.2;"
     invoke-virtual {p0}, Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap$2;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -78,6 +84,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 579
+    .local p0, "this":Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap$2;, "Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap.2;"
     iget-object v0, p0, Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap$2;->this$2:Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap;
 
     invoke-virtual {v0}, Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap;->entryIterator()Ljava/util/Iterator;
@@ -99,6 +108,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 574
+    .local p0, "this":Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap$2;, "Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap.2;"
     iget-object v0, p0, Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap$2;->this$2:Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap;
 
     return-object v0
@@ -114,6 +126,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 584
+    .local p0, "this":Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap$2;, "Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap.2;"
+    .local p1, "c":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     iget-object v0, p0, Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap$2;->this$2:Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap;
 
     invoke-static {p1}, Lcom/google/common/base/Predicates;->in(Ljava/util/Collection;)Lcom/google/common/base/Predicate;
@@ -135,6 +151,9 @@
 .method public size()I
     .locals 1
 
+    .prologue
+    .line 589
+    .local p0, "this":Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap$2;, "Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap.2;"
     invoke-virtual {p0}, Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap$2;->iterator()Ljava/util/Iterator;
 
     move-result-object v0

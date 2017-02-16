@@ -25,6 +25,9 @@
 .method constructor <init>(Lcom/google/common/util/concurrent/JdkFutureAdapters$ListenableFutureAdapter;)V
     .locals 0
 
+    .prologue
+    .line 161
+    .local p0, "this":Lcom/google/common/util/concurrent/JdkFutureAdapters$ListenableFutureAdapter$1;, "Lcom/google/common/util/concurrent/JdkFutureAdapters$ListenableFutureAdapter.1;"
     iput-object p1, p0, Lcom/google/common/util/concurrent/JdkFutureAdapters$ListenableFutureAdapter$1;->this$0:Lcom/google/common/util/concurrent/JdkFutureAdapters$ListenableFutureAdapter;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +40,9 @@
 .method public run()V
     .locals 1
 
+    .prologue
+    .line 171
+    .local p0, "this":Lcom/google/common/util/concurrent/JdkFutureAdapters$ListenableFutureAdapter$1;, "Lcom/google/common/util/concurrent/JdkFutureAdapters$ListenableFutureAdapter.1;"
     :try_start_0
     iget-object v0, p0, Lcom/google/common/util/concurrent/JdkFutureAdapters$ListenableFutureAdapter$1;->this$0:Lcom/google/common/util/concurrent/JdkFutureAdapters$ListenableFutureAdapter;
 
@@ -49,6 +55,7 @@
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 176
     :goto_0
     iget-object v0, p0, Lcom/google/common/util/concurrent/JdkFutureAdapters$ListenableFutureAdapter$1;->this$0:Lcom/google/common/util/concurrent/JdkFutureAdapters$ListenableFutureAdapter;
 
@@ -59,8 +66,10 @@
 
     invoke-virtual {v0}, Lcom/google/common/util/concurrent/ExecutionList;->execute()V
 
+    .line 177
     return-void
 
+    .line 172
     :catch_0
     move-exception v0
 

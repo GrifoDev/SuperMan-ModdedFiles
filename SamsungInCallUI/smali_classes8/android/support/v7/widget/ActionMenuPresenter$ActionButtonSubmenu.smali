@@ -21,9 +21,15 @@
 # direct methods
 .method public constructor <init>(Landroid/support/v7/widget/ActionMenuPresenter;Landroid/content/Context;Landroid/support/v7/view/menu/SubMenuBuilder;Landroid/view/View;)V
     .locals 7
+    .param p2, "context"    # Landroid/content/Context;
+    .param p3, "subMenu"    # Landroid/support/v7/view/menu/SubMenuBuilder;
+    .param p4, "anchorView"    # Landroid/view/View;
 
+    .prologue
+    .line 745
     iput-object p1, p0, Landroid/support/v7/widget/ActionMenuPresenter$ActionButtonSubmenu;->this$0:Landroid/support/v7/widget/ActionMenuPresenter;
 
+    .line 746
     const/4 v4, 0x0
 
     sget v5, Landroid/support/v7/appcompat/R$attr;->actionOverflowMenuStyle:I
@@ -38,18 +44,22 @@
 
     invoke-direct/range {v0 .. v5}, Landroid/support/v7/view/menu/MenuPopupHelper;-><init>(Landroid/content/Context;Landroid/support/v7/view/menu/MenuBuilder;Landroid/view/View;ZI)V
 
+    .line 748
     invoke-virtual {p3}, Landroid/support/v7/view/menu/SubMenuBuilder;->getItem()Landroid/view/MenuItem;
 
     move-result-object v6
 
     check-cast v6, Landroid/support/v7/view/menu/MenuItemImpl;
 
+    .line 749
+    .local v6, "item":Landroid/support/v7/view/menu/MenuItemImpl;
     invoke-virtual {v6}, Landroid/support/v7/view/menu/MenuItemImpl;->isActionButton()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
+    .line 751
     # getter for: Landroid/support/v7/widget/ActionMenuPresenter;->mOverflowButton:Landroid/support/v7/widget/ActionMenuPresenter$OverflowMenuButton;
     invoke-static {p1}, Landroid/support/v7/widget/ActionMenuPresenter;->access$600(Landroid/support/v7/widget/ActionMenuPresenter;)Landroid/support/v7/widget/ActionMenuPresenter$OverflowMenuButton;
 
@@ -67,13 +77,16 @@
     :goto_0
     invoke-virtual {p0, v0}, Landroid/support/v7/widget/ActionMenuPresenter$ActionButtonSubmenu;->setAnchorView(Landroid/view/View;)V
 
+    .line 754
     :cond_0
     iget-object v0, p1, Landroid/support/v7/widget/ActionMenuPresenter;->mPopupPresenterCallback:Landroid/support/v7/widget/ActionMenuPresenter$PopupPresenterCallback;
 
     invoke-virtual {p0, v0}, Landroid/support/v7/widget/ActionMenuPresenter$ActionButtonSubmenu;->setPresenterCallback(Landroid/support/v7/view/menu/MenuPresenter$Callback;)V
 
+    .line 755
     return-void
 
+    .line 751
     :cond_1
     # getter for: Landroid/support/v7/widget/ActionMenuPresenter;->mOverflowButton:Landroid/support/v7/widget/ActionMenuPresenter$OverflowMenuButton;
     invoke-static {p1}, Landroid/support/v7/widget/ActionMenuPresenter;->access$600(Landroid/support/v7/widget/ActionMenuPresenter;)Landroid/support/v7/widget/ActionMenuPresenter$OverflowMenuButton;
@@ -88,6 +101,8 @@
 .method protected onDismiss()V
     .locals 2
 
+    .prologue
+    .line 759
     iget-object v0, p0, Landroid/support/v7/widget/ActionMenuPresenter$ActionButtonSubmenu;->this$0:Landroid/support/v7/widget/ActionMenuPresenter;
 
     const/4 v1, 0x0
@@ -95,13 +110,16 @@
     # setter for: Landroid/support/v7/widget/ActionMenuPresenter;->mActionButtonPopup:Landroid/support/v7/widget/ActionMenuPresenter$ActionButtonSubmenu;
     invoke-static {v0, v1}, Landroid/support/v7/widget/ActionMenuPresenter;->access$802(Landroid/support/v7/widget/ActionMenuPresenter;Landroid/support/v7/widget/ActionMenuPresenter$ActionButtonSubmenu;)Landroid/support/v7/widget/ActionMenuPresenter$ActionButtonSubmenu;
 
+    .line 760
     iget-object v0, p0, Landroid/support/v7/widget/ActionMenuPresenter$ActionButtonSubmenu;->this$0:Landroid/support/v7/widget/ActionMenuPresenter;
 
     const/4 v1, 0x0
 
     iput v1, v0, Landroid/support/v7/widget/ActionMenuPresenter;->mOpenSubMenuId:I
 
+    .line 762
     invoke-super {p0}, Landroid/support/v7/view/menu/MenuPopupHelper;->onDismiss()V
 
+    .line 763
     return-void
 .end method

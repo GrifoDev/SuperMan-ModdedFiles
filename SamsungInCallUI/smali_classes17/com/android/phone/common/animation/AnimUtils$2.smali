@@ -24,6 +24,8 @@
 .method constructor <init>(Landroid/view/View;Lcom/android/phone/common/animation/AnimUtils$AnimationCallback;)V
     .locals 0
 
+    .prologue
+    .line 98
     iput-object p1, p0, Lcom/android/phone/common/animation/AnimUtils$2;->val$fadeIn:Landroid/view/View;
 
     iput-object p2, p0, Lcom/android/phone/common/animation/AnimUtils$2;->val$callback:Lcom/android/phone/common/animation/AnimUtils$AnimationCallback;
@@ -37,48 +39,63 @@
 # virtual methods
 .method public onAnimationCancel(Landroid/animation/Animator;)V
     .locals 2
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 106
     iget-object v0, p0, Lcom/android/phone/common/animation/AnimUtils$2;->val$fadeIn:Landroid/view/View;
 
     const/high16 v1, 0x3f800000    # 1.0f
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setAlpha(F)V
 
+    .line 107
     iget-object v0, p0, Lcom/android/phone/common/animation/AnimUtils$2;->val$callback:Lcom/android/phone/common/animation/AnimUtils$AnimationCallback;
 
     if-eqz v0, :cond_0
 
+    .line 108
     iget-object v0, p0, Lcom/android/phone/common/animation/AnimUtils$2;->val$callback:Lcom/android/phone/common/animation/AnimUtils$AnimationCallback;
 
     invoke-virtual {v0}, Lcom/android/phone/common/animation/AnimUtils$AnimationCallback;->onAnimationCancel()V
 
+    .line 110
     :cond_0
     return-void
 .end method
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 1
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 114
     iget-object v0, p0, Lcom/android/phone/common/animation/AnimUtils$2;->val$callback:Lcom/android/phone/common/animation/AnimUtils$AnimationCallback;
 
     if-eqz v0, :cond_0
 
+    .line 115
     iget-object v0, p0, Lcom/android/phone/common/animation/AnimUtils$2;->val$callback:Lcom/android/phone/common/animation/AnimUtils$AnimationCallback;
 
     invoke-virtual {v0}, Lcom/android/phone/common/animation/AnimUtils$AnimationCallback;->onAnimationEnd()V
 
+    .line 117
     :cond_0
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
     .locals 2
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 101
     iget-object v0, p0, Lcom/android/phone/common/animation/AnimUtils$2;->val$fadeIn:Landroid/view/View;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
+    .line 102
     return-void
 .end method

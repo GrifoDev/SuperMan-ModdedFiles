@@ -46,8 +46,14 @@
         }
     .end annotation
 
+    .prologue
+    .line 2002
+    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesSortedMap;, "Lcom/google/common/collect/Maps$TransformedEntriesSortedMap<TK;TV1;TV2;>;"
+    .local p1, "fromMap":Ljava/util/SortedMap;, "Ljava/util/SortedMap<TK;TV1;>;"
+    .local p2, "transformer":Lcom/google/common/collect/Maps$EntryTransformer;, "Lcom/google/common/collect/Maps$EntryTransformer<-TK;-TV1;TV2;>;"
     invoke-direct {p0, p1, p2}, Lcom/google/common/collect/Maps$TransformedEntriesMap;-><init>(Ljava/util/Map;Lcom/google/common/collect/Maps$EntryTransformer;)V
 
+    .line 2003
     return-void
 .end method
 
@@ -63,6 +69,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 2007
+    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesSortedMap;, "Lcom/google/common/collect/Maps$TransformedEntriesSortedMap<TK;TV1;TV2;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$TransformedEntriesSortedMap;->fromMap()Ljava/util/SortedMap;
 
     move-result-object v0
@@ -82,6 +91,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 2012
+    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesSortedMap;, "Lcom/google/common/collect/Maps$TransformedEntriesSortedMap<TK;TV1;TV2;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$TransformedEntriesSortedMap;->fromMap()Ljava/util/SortedMap;
 
     move-result-object v0
@@ -103,6 +115,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1997
+    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesSortedMap;, "Lcom/google/common/collect/Maps$TransformedEntriesSortedMap<TK;TV1;TV2;>;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$TransformedEntriesSortedMap;->fromMap:Ljava/util/Map;
 
     check-cast v0, Ljava/util/SortedMap;
@@ -120,6 +135,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 2017
+    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesSortedMap;, "Lcom/google/common/collect/Maps$TransformedEntriesSortedMap<TK;TV1;TV2;>;"
+    .local p1, "toKey":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$TransformedEntriesSortedMap;->fromMap()Ljava/util/SortedMap;
 
     move-result-object v0
@@ -145,6 +164,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 2022
+    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesSortedMap;, "Lcom/google/common/collect/Maps$TransformedEntriesSortedMap<TK;TV1;TV2;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$TransformedEntriesSortedMap;->fromMap()Ljava/util/SortedMap;
 
     move-result-object v0
@@ -166,6 +188,11 @@
         }
     .end annotation
 
+    .prologue
+    .line 2027
+    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesSortedMap;, "Lcom/google/common/collect/Maps$TransformedEntriesSortedMap<TK;TV1;TV2;>;"
+    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
+    .local p2, "toKey":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$TransformedEntriesSortedMap;->fromMap()Ljava/util/SortedMap;
 
     move-result-object v0
@@ -193,6 +220,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 2032
+    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesSortedMap;, "Lcom/google/common/collect/Maps$TransformedEntriesSortedMap<TK;TV1;TV2;>;"
+    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$TransformedEntriesSortedMap;->fromMap()Ljava/util/SortedMap;
 
     move-result-object v0

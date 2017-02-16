@@ -59,10 +59,16 @@
         }
     .end annotation
 
+    .prologue
+    .line 311
+    .local p0, "this":Lcom/google/common/base/Functions$ConstantFunction;, "Lcom/google/common/base/Functions$ConstantFunction<TE;>;"
+    .local p1, "value":Ljava/lang/Object;, "TE;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 312
     iput-object p1, p0, Lcom/google/common/base/Functions$ConstantFunction;->value:Ljava/lang/Object;
 
+    .line 313
     return-void
 .end method
 
@@ -70,7 +76,7 @@
 # virtual methods
 .method public apply(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1    # Ljava/lang/Object;
+    .param p1, "from"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -82,6 +88,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 317
+    .local p0, "this":Lcom/google/common/base/Functions$ConstantFunction;, "Lcom/google/common/base/Functions$ConstantFunction<TE;>;"
     iget-object v0, p0, Lcom/google/common/base/Functions$ConstantFunction;->value:Ljava/lang/Object;
 
     return-object v0
@@ -89,19 +98,25 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 3
-    .param p1    # Ljava/lang/Object;
+    .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
+    .prologue
+    .line 322
+    .local p0, "this":Lcom/google/common/base/Functions$ConstantFunction;, "Lcom/google/common/base/Functions$ConstantFunction<TE;>;"
     instance-of v1, p1, Lcom/google/common/base/Functions$ConstantFunction;
 
     if-eqz v1, :cond_0
 
     move-object v0, p1
 
+    .line 323
     check-cast v0, Lcom/google/common/base/Functions$ConstantFunction;
 
+    .line 324
+    .local v0, "that":Lcom/google/common/base/Functions$ConstantFunction;, "Lcom/google/common/base/Functions$ConstantFunction<*>;"
     iget-object v1, p0, Lcom/google/common/base/Functions$ConstantFunction;->value:Ljava/lang/Object;
 
     iget-object v2, v0, Lcom/google/common/base/Functions$ConstantFunction;->value:Ljava/lang/Object;
@@ -110,6 +125,8 @@
 
     move-result v1
 
+    .line 326
+    .end local v0    # "that":Lcom/google/common/base/Functions$ConstantFunction;, "Lcom/google/common/base/Functions$ConstantFunction<*>;"
     :goto_0
     return v1
 
@@ -122,6 +139,9 @@
 .method public hashCode()I
     .locals 1
 
+    .prologue
+    .line 331
+    .local p0, "this":Lcom/google/common/base/Functions$ConstantFunction;, "Lcom/google/common/base/Functions$ConstantFunction<TE;>;"
     iget-object v0, p0, Lcom/google/common/base/Functions$ConstantFunction;->value:Ljava/lang/Object;
 
     if-nez v0, :cond_0
@@ -144,6 +164,9 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 336
+    .local p0, "this":Lcom/google/common/base/Functions$ConstantFunction;, "Lcom/google/common/base/Functions$ConstantFunction<TE;>;"
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

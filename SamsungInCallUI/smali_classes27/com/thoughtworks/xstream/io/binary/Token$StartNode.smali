@@ -18,22 +18,30 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 240
     const/4 v0, 0x3
 
     invoke-direct {p0, v0}, Lcom/thoughtworks/xstream/io/binary/Token;-><init>(B)V
 
+    .line 241
     return-void
 .end method
 
 .method public constructor <init>(J)V
     .locals 1
+    .param p1, "id"    # J
 
+    .prologue
+    .line 235
     const/4 v0, 0x3
 
     invoke-direct {p0, v0}, Lcom/thoughtworks/xstream/io/binary/Token;-><init>(B)V
 
+    .line 236
     iput-wide p1, p0, Lcom/thoughtworks/xstream/io/binary/Token$StartNode;->id:J
 
+    .line 237
     return-void
 .end method
 
@@ -41,32 +49,42 @@
 # virtual methods
 .method public readFrom(Ljava/io/DataInput;B)V
     .locals 2
+    .param p1, "in"    # Ljava/io/DataInput;
+    .param p2, "idType"    # B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 248
     invoke-virtual {p0, p1, p2}, Lcom/thoughtworks/xstream/io/binary/Token$StartNode;->readId(Ljava/io/DataInput;B)J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/thoughtworks/xstream/io/binary/Token$StartNode;->id:J
 
+    .line 249
     return-void
 .end method
 
 .method public writeTo(Ljava/io/DataOutput;B)V
     .locals 2
+    .param p1, "out"    # Ljava/io/DataOutput;
+    .param p2, "idType"    # B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 244
     iget-wide v0, p0, Lcom/thoughtworks/xstream/io/binary/Token$StartNode;->id:J
 
     invoke-virtual {p0, p1, v0, v1, p2}, Lcom/thoughtworks/xstream/io/binary/Token$StartNode;->writeId(Ljava/io/DataOutput;JB)V
 
+    .line 245
     return-void
 .end method

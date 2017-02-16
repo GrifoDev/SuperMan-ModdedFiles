@@ -27,6 +27,9 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 137
+    .local p0, "this":Lcom/google/common/reflect/Types$ClassOwnership$1LocalClass;, "Lcom/google/common/reflect/Types$ClassOwnership$1LocalClass<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

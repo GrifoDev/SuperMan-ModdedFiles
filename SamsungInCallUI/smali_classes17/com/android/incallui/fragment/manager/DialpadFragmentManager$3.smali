@@ -26,7 +26,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/manager/DialpadFragmentManager;Lcom/android/incallui/InCallMenu;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/fragment/manager/DialpadFragmentManager;
 
+    .prologue
+    .line 400
     iput-object p1, p0, Lcom/android/incallui/fragment/manager/DialpadFragmentManager$3;->this$0:Lcom/android/incallui/fragment/manager/DialpadFragmentManager;
 
     iput-object p2, p0, Lcom/android/incallui/fragment/manager/DialpadFragmentManager$3;->val$menu:Lcom/android/incallui/InCallMenu;
@@ -41,6 +44,8 @@
 .method public run()V
     .locals 4
 
+    .prologue
+    .line 403
     iget-object v0, p0, Lcom/android/incallui/fragment/manager/DialpadFragmentManager$3;->val$menu:Lcom/android/incallui/InCallMenu;
 
     invoke-virtual {v0}, Lcom/android/incallui/InCallMenu;->isMenuOpen()Z
@@ -49,27 +54,32 @@
 
     if-nez v0, :cond_0
 
+    .line 404
     iget-object v0, p0, Lcom/android/incallui/fragment/manager/DialpadFragmentManager$3;->this$0:Lcom/android/incallui/fragment/manager/DialpadFragmentManager;
 
     const-string v1, "DialpadFragmentManager - Menu is closed"
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/fragment/manager/DialpadFragmentManager;->log(Ljava/lang/String;)V
 
+    .line 405
     invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
 
     move-result-object v0
 
     invoke-virtual {v0}, Lcom/android/incallui/UiAdapter;->showInCallMenu()V
 
+    .line 406
     iget-object v0, p0, Lcom/android/incallui/fragment/manager/DialpadFragmentManager$3;->this$0:Lcom/android/incallui/fragment/manager/DialpadFragmentManager;
 
     const-string v1, "DialpadFragmentManager - Now Menu is opened"
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/fragment/manager/DialpadFragmentManager;->log(Ljava/lang/String;)V
 
+    .line 410
     :goto_0
     return-void
 
+    .line 408
     :cond_0
     iget-object v0, p0, Lcom/android/incallui/fragment/manager/DialpadFragmentManager$3;->this$0:Lcom/android/incallui/fragment/manager/DialpadFragmentManager;
 

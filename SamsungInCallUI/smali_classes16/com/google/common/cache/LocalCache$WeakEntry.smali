@@ -56,6 +56,7 @@
 # direct methods
 .method constructor <init>(Ljava/lang/ref/ReferenceQueue;Ljava/lang/Object;ILcom/google/common/cache/LocalCache$ReferenceEntry;)V
     .locals 1
+    .param p3, "hash"    # I
     .param p4    # Lcom/google/common/cache/LocalCache$ReferenceEntry;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
@@ -70,18 +71,28 @@
         }
     .end annotation
 
+    .prologue
+    .line 1292
+    .local p0, "this":Lcom/google/common/cache/LocalCache$WeakEntry;, "Lcom/google/common/cache/LocalCache$WeakEntry<TK;TV;>;"
+    .local p1, "queue":Ljava/lang/ref/ReferenceQueue;, "Ljava/lang/ref/ReferenceQueue<TK;>;"
+    .local p2, "key":Ljava/lang/Object;, "TK;"
+    .local p4, "next":Lcom/google/common/cache/LocalCache$ReferenceEntry;, "Lcom/google/common/cache/LocalCache$ReferenceEntry<TK;TV;>;"
     invoke-direct {p0, p2, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V
 
+    .line 1375
     invoke-static {}, Lcom/google/common/cache/LocalCache;->unset()Lcom/google/common/cache/LocalCache$ValueReference;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/google/common/cache/LocalCache$WeakEntry;->valueReference:Lcom/google/common/cache/LocalCache$ValueReference;
 
+    .line 1293
     iput p3, p0, Lcom/google/common/cache/LocalCache$WeakEntry;->hash:I
 
+    .line 1294
     iput-object p4, p0, Lcom/google/common/cache/LocalCache$WeakEntry;->next:Lcom/google/common/cache/LocalCache$ReferenceEntry;
 
+    .line 1295
     return-void
 .end method
 
@@ -90,6 +101,9 @@
 .method public getAccessTime()J
     .locals 1
 
+    .prologue
+    .line 1311
+    .local p0, "this":Lcom/google/common/cache/LocalCache$WeakEntry;, "Lcom/google/common/cache/LocalCache$WeakEntry<TK;TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -100,6 +114,9 @@
 .method public getHash()I
     .locals 1
 
+    .prologue
+    .line 1389
+    .local p0, "this":Lcom/google/common/cache/LocalCache$WeakEntry;, "Lcom/google/common/cache/LocalCache$WeakEntry<TK;TV;>;"
     iget v0, p0, Lcom/google/common/cache/LocalCache$WeakEntry;->hash:I
 
     return v0
@@ -113,6 +130,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1299
+    .local p0, "this":Lcom/google/common/cache/LocalCache$WeakEntry;, "Lcom/google/common/cache/LocalCache$WeakEntry<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/cache/LocalCache$WeakEntry;->get()Ljava/lang/Object;
 
     move-result-object v0
@@ -130,6 +150,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1394
+    .local p0, "this":Lcom/google/common/cache/LocalCache$WeakEntry;, "Lcom/google/common/cache/LocalCache$WeakEntry<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/cache/LocalCache$WeakEntry;->next:Lcom/google/common/cache/LocalCache$ReferenceEntry;
 
     return-object v0
@@ -145,6 +168,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1321
+    .local p0, "this":Lcom/google/common/cache/LocalCache$WeakEntry;, "Lcom/google/common/cache/LocalCache$WeakEntry<TK;TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -162,6 +188,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1353
+    .local p0, "this":Lcom/google/common/cache/LocalCache$WeakEntry;, "Lcom/google/common/cache/LocalCache$WeakEntry<TK;TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -179,6 +208,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1331
+    .local p0, "this":Lcom/google/common/cache/LocalCache$WeakEntry;, "Lcom/google/common/cache/LocalCache$WeakEntry<TK;TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -196,6 +228,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1363
+    .local p0, "this":Lcom/google/common/cache/LocalCache$WeakEntry;, "Lcom/google/common/cache/LocalCache$WeakEntry<TK;TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -213,6 +248,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1379
+    .local p0, "this":Lcom/google/common/cache/LocalCache$WeakEntry;, "Lcom/google/common/cache/LocalCache$WeakEntry<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/cache/LocalCache$WeakEntry;->valueReference:Lcom/google/common/cache/LocalCache$ValueReference;
 
     return-object v0
@@ -221,6 +259,9 @@
 .method public getWriteTime()J
     .locals 1
 
+    .prologue
+    .line 1343
+    .local p0, "this":Lcom/google/common/cache/LocalCache$WeakEntry;, "Lcom/google/common/cache/LocalCache$WeakEntry<TK;TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -230,7 +271,11 @@
 
 .method public setAccessTime(J)V
     .locals 1
+    .param p1, "time"    # J
 
+    .prologue
+    .line 1316
+    .local p0, "this":Lcom/google/common/cache/LocalCache$WeakEntry;, "Lcom/google/common/cache/LocalCache$WeakEntry<TK;TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -248,6 +293,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 1326
+    .local p0, "this":Lcom/google/common/cache/LocalCache$WeakEntry;, "Lcom/google/common/cache/LocalCache$WeakEntry<TK;TV;>;"
+    .local p1, "next":Lcom/google/common/cache/LocalCache$ReferenceEntry;, "Lcom/google/common/cache/LocalCache$ReferenceEntry<TK;TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -265,6 +314,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 1358
+    .local p0, "this":Lcom/google/common/cache/LocalCache$WeakEntry;, "Lcom/google/common/cache/LocalCache$WeakEntry<TK;TV;>;"
+    .local p1, "next":Lcom/google/common/cache/LocalCache$ReferenceEntry;, "Lcom/google/common/cache/LocalCache$ReferenceEntry<TK;TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -282,6 +335,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 1336
+    .local p0, "this":Lcom/google/common/cache/LocalCache$WeakEntry;, "Lcom/google/common/cache/LocalCache$WeakEntry<TK;TV;>;"
+    .local p1, "previous":Lcom/google/common/cache/LocalCache$ReferenceEntry;, "Lcom/google/common/cache/LocalCache$ReferenceEntry<TK;TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -299,6 +356,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 1368
+    .local p0, "this":Lcom/google/common/cache/LocalCache$WeakEntry;, "Lcom/google/common/cache/LocalCache$WeakEntry<TK;TV;>;"
+    .local p1, "previous":Lcom/google/common/cache/LocalCache$ReferenceEntry;, "Lcom/google/common/cache/LocalCache$ReferenceEntry<TK;TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -316,14 +377,23 @@
         }
     .end annotation
 
+    .prologue
+    .line 1384
+    .local p0, "this":Lcom/google/common/cache/LocalCache$WeakEntry;, "Lcom/google/common/cache/LocalCache$WeakEntry<TK;TV;>;"
+    .local p1, "valueReference":Lcom/google/common/cache/LocalCache$ValueReference;, "Lcom/google/common/cache/LocalCache$ValueReference<TK;TV;>;"
     iput-object p1, p0, Lcom/google/common/cache/LocalCache$WeakEntry;->valueReference:Lcom/google/common/cache/LocalCache$ValueReference;
 
+    .line 1385
     return-void
 .end method
 
 .method public setWriteTime(J)V
     .locals 1
+    .param p1, "time"    # J
 
+    .prologue
+    .line 1348
+    .local p0, "this":Lcom/google/common/cache/LocalCache$WeakEntry;, "Lcom/google/common/cache/LocalCache$WeakEntry<TK;TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V

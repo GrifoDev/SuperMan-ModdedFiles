@@ -29,6 +29,9 @@
 .method private constructor <init>(Lcom/google/common/collect/AbstractMultimap;)V
     .locals 0
 
+    .prologue
+    .line 121
+    .local p0, "this":Lcom/google/common/collect/AbstractMultimap$Entries;, "Lcom/google/common/collect/AbstractMultimap<TK;TV;>.Entries;"
     iput-object p1, p0, Lcom/google/common/collect/AbstractMultimap$Entries;->this$0:Lcom/google/common/collect/AbstractMultimap;
 
     invoke-direct {p0}, Lcom/google/common/collect/Multimaps$Entries;-><init>()V
@@ -38,7 +41,12 @@
 
 .method synthetic constructor <init>(Lcom/google/common/collect/AbstractMultimap;Lcom/google/common/collect/AbstractMultimap$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/google/common/collect/AbstractMultimap;
+    .param p2, "x1"    # Lcom/google/common/collect/AbstractMultimap$1;
 
+    .prologue
+    .line 121
+    .local p0, "this":Lcom/google/common/collect/AbstractMultimap$Entries;, "Lcom/google/common/collect/AbstractMultimap<TK;TV;>.Entries;"
     invoke-direct {p0, p1}, Lcom/google/common/collect/AbstractMultimap$Entries;-><init>(Lcom/google/common/collect/AbstractMultimap;)V
 
     return-void
@@ -58,6 +66,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 129
+    .local p0, "this":Lcom/google/common/collect/AbstractMultimap$Entries;, "Lcom/google/common/collect/AbstractMultimap<TK;TV;>.Entries;"
     iget-object v0, p0, Lcom/google/common/collect/AbstractMultimap$Entries;->this$0:Lcom/google/common/collect/AbstractMultimap;
 
     invoke-virtual {v0}, Lcom/google/common/collect/AbstractMultimap;->entryIterator()Ljava/util/Iterator;
@@ -77,6 +88,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 124
+    .local p0, "this":Lcom/google/common/collect/AbstractMultimap$Entries;, "Lcom/google/common/collect/AbstractMultimap<TK;TV;>.Entries;"
     iget-object v0, p0, Lcom/google/common/collect/AbstractMultimap$Entries;->this$0:Lcom/google/common/collect/AbstractMultimap;
 
     return-object v0

@@ -45,6 +45,7 @@
 .method static constructor <clinit>()V
     .locals 8
 
+    .prologue
     const/4 v7, 0x4
 
     const/4 v6, 0x3
@@ -55,6 +56,7 @@
 
     const/4 v3, 0x0
 
+    .line 93
     new-instance v0, Lcom/android/incallui/fragment/manager/CallButtonFragmentManager$FragmentMode;
 
     const-string v1, "VOICE"
@@ -115,6 +117,7 @@
 
     sput-object v0, Lcom/android/incallui/fragment/manager/CallButtonFragmentManager$FragmentMode;->EMPTY:Lcom/android/incallui/fragment/manager/CallButtonFragmentManager$FragmentMode;
 
+    .line 92
     const/4 v0, 0x7
 
     new-array v0, v0, [Lcom/android/incallui/fragment/manager/CallButtonFragmentManager$FragmentMode;
@@ -164,6 +167,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 92
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -171,7 +176,10 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/android/incallui/fragment/manager/CallButtonFragmentManager$FragmentMode;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 92
     const-class v0, Lcom/android/incallui/fragment/manager/CallButtonFragmentManager$FragmentMode;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -186,6 +194,8 @@
 .method public static values()[Lcom/android/incallui/fragment/manager/CallButtonFragmentManager$FragmentMode;
     .locals 1
 
+    .prologue
+    .line 92
     sget-object v0, Lcom/android/incallui/fragment/manager/CallButtonFragmentManager$FragmentMode;->$VALUES:[Lcom/android/incallui/fragment/manager/CallButtonFragmentManager$FragmentMode;
 
     invoke-virtual {v0}, [Lcom/android/incallui/fragment/manager/CallButtonFragmentManager$FragmentMode;->clone()Ljava/lang/Object;

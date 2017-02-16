@@ -18,6 +18,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 77
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
@@ -27,9 +29,13 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 5
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const/4 v4, 0x0
 
+    .line 80
     const-string v0, "SocialNetworkServiceGooglePlusQueryArgs"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -58,6 +64,7 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
+    .line 81
     # getter for: Lcom/android/incallui/callerinfocard/queryargs/SocialNetworkServiceGooglePlusQueryArgs;->mHandler:Landroid/os/Handler;
     invoke-static {}, Lcom/android/incallui/callerinfocard/queryargs/SocialNetworkServiceGooglePlusQueryArgs;->access$000()Landroid/os/Handler;
 
@@ -69,6 +76,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 82
     # getter for: Lcom/android/incallui/callerinfocard/queryargs/SocialNetworkServiceGooglePlusQueryArgs;->mHandler:Landroid/os/Handler;
     invoke-static {}, Lcom/android/incallui/callerinfocard/queryargs/SocialNetworkServiceGooglePlusQueryArgs;->access$000()Landroid/os/Handler;
 
@@ -76,6 +84,7 @@
 
     invoke-virtual {v0, v4}, Landroid/os/Handler;->removeMessages(I)V
 
+    .line 83
     :cond_0
     # getter for: Lcom/android/incallui/callerinfocard/queryargs/SocialNetworkServiceGooglePlusQueryArgs;->mHandler:Landroid/os/Handler;
     invoke-static {}, Lcom/android/incallui/callerinfocard/queryargs/SocialNetworkServiceGooglePlusQueryArgs;->access$000()Landroid/os/Handler;
@@ -86,5 +95,6 @@
 
     invoke-virtual {v0, v4, v2, v3}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
+    .line 84
     return-void
 .end method

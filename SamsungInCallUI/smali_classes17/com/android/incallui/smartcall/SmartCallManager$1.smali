@@ -27,7 +27,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/smartcall/SmartCallManager;Ljava/lang/String;Ljava/lang/String;Lcom/android/incallui/smartcall/SmartCallerInfoListener;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/smartcall/SmartCallManager;
 
+    .prologue
+    .line 50
     iput-object p1, p0, Lcom/android/incallui/smartcall/SmartCallManager$1;->this$0:Lcom/android/incallui/smartcall/SmartCallManager;
 
     iput-object p2, p0, Lcom/android/incallui/smartcall/SmartCallManager$1;->val$callId:Ljava/lang/String;
@@ -46,8 +49,11 @@
 .method public run()V
     .locals 13
 
+    .prologue
+    .line 53
     invoke-super {p0}, Ljava/lang/Thread;->run()V
 
+    .line 55
     :try_start_0
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
@@ -59,14 +65,23 @@
 
     move-result-object v6
 
+    .line 56
+    .local v6, "call":Lcom/android/incallui/Call;
     const-string v10, "false"
 
+    .line 57
+    .local v10, "isOutging":Ljava/lang/String;
     const-string v9, "false"
 
+    .line 58
+    .local v9, "isMissed":Ljava/lang/String;
     const/4 v11, 0x0
 
+    .line 59
+    .local v11, "mDisconnectCause":I
     if-eqz v6, :cond_1
 
+    .line 60
     invoke-virtual {v6}, Lcom/android/incallui/Call;->getState()I
 
     move-result v0
@@ -79,6 +94,7 @@
 
     const-string v10, "true"
 
+    .line 61
     :goto_0
     invoke-virtual {v6}, Lcom/android/incallui/Call;->getDisconnectCause()Landroid/telecom/DisconnectCause;
 
@@ -86,6 +102,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 62
     invoke-virtual {v6}, Lcom/android/incallui/Call;->getDisconnectCause()Landroid/telecom/DisconnectCause;
 
     move-result-object v0
@@ -94,6 +111,7 @@
 
     move-result v11
 
+    .line 64
     :cond_0
     const/4 v0, 0x5
 
@@ -101,6 +119,7 @@
 
     const-string v9, "true"
 
+    .line 66
     :cond_1
     :goto_1
     iget-object v0, p0, Lcom/android/incallui/smartcall/SmartCallManager$1;->this$0:Lcom/android/incallui/smartcall/SmartCallManager;
@@ -149,20 +168,34 @@
 
     move-result-object v7
 
+    .line 68
+    .local v7, "cursor":Landroid/database/Cursor;
     iget-object v0, p0, Lcom/android/incallui/smartcall/SmartCallManager$1;->val$listener:Lcom/android/incallui/smartcall/SmartCallerInfoListener;
 
     iget-object v1, p0, Lcom/android/incallui/smartcall/SmartCallManager$1;->val$callId:Ljava/lang/String;
 
     invoke-interface {v0, v7, v1}, Lcom/android/incallui/smartcall/SmartCallerInfoListener;->onResult(Landroid/database/Cursor;Ljava/lang/String;)V
 
+    .line 72
+    .end local v6    # "call":Lcom/android/incallui/Call;
+    .end local v7    # "cursor":Landroid/database/Cursor;
+    .end local v9    # "isMissed":Ljava/lang/String;
+    .end local v10    # "isOutging":Ljava/lang/String;
+    .end local v11    # "mDisconnectCause":I
     :goto_2
     return-void
 
+    .line 60
+    .restart local v6    # "call":Lcom/android/incallui/Call;
+    .restart local v9    # "isMissed":Ljava/lang/String;
+    .restart local v10    # "isOutging":Ljava/lang/String;
+    .restart local v11    # "mDisconnectCause":I
     :cond_2
     const-string v10, "false"
 
     goto :goto_0
 
+    .line 64
     :cond_3
     const-string v9, "false"
     :try_end_0
@@ -170,9 +203,16 @@
 
     goto :goto_1
 
+    .line 69
+    .end local v6    # "call":Lcom/android/incallui/Call;
+    .end local v9    # "isMissed":Ljava/lang/String;
+    .end local v10    # "isOutging":Ljava/lang/String;
+    .end local v11    # "mDisconnectCause":I
     :catch_0
     move-exception v8
 
+    .line 70
+    .local v8, "e":Ljava/lang/IllegalArgumentException;
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0

@@ -33,6 +33,8 @@
 .method constructor <init>(Landroid/view/View;IIII)V
     .locals 0
 
+    .prologue
+    .line 369
     iput-object p1, p0, Lcom/android/incallui/util/GraphicResourceUtils$1;->val$view:Landroid/view/View;
 
     iput p2, p0, Lcom/android/incallui/util/GraphicResourceUtils$1;->val$startPadding:I
@@ -53,6 +55,8 @@
 .method public onGlobalLayout()V
     .locals 6
 
+    .prologue
+    .line 374
     iget-object v4, p0, Lcom/android/incallui/util/GraphicResourceUtils$1;->val$view:Landroid/view/View;
 
     invoke-virtual {v4}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
@@ -61,6 +65,7 @@
 
     invoke-virtual {v4, p0}, Landroid/view/ViewTreeObserver;->removeOnGlobalLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
 
+    .line 376
     iget-object v4, p0, Lcom/android/incallui/util/GraphicResourceUtils$1;->val$view:Landroid/view/View;
 
     invoke-virtual {v4}, Landroid/view/View;->getMeasuredWidth()I
@@ -75,33 +80,46 @@
 
     sub-int v3, v4, v5
 
+    .line 377
+    .local v3, "width":I
     iget-object v4, p0, Lcom/android/incallui/util/GraphicResourceUtils$1;->val$view:Landroid/view/View;
 
     invoke-virtual {v4}, Landroid/view/View;->getMeasuredHeight()I
 
     move-result v0
 
+    .line 378
+    .local v0, "height":I
     iget v2, p0, Lcom/android/incallui/util/GraphicResourceUtils$1;->val$maxRippleWidth:I
 
+    .line 379
+    .local v2, "rippleWidth":I
     iget v1, p0, Lcom/android/incallui/util/GraphicResourceUtils$1;->val$maxRippleHeight:I
 
+    .line 381
+    .local v1, "rippleHeight":I
     if-lez v3, :cond_0
 
     if-gtz v0, :cond_1
 
+    .line 390
     :cond_0
     :goto_0
     return-void
 
+    .line 384
     :cond_1
     iget v4, p0, Lcom/android/incallui/util/GraphicResourceUtils$1;->val$maxRippleWidth:I
 
     if-le v4, v3, :cond_2
 
+    .line 385
     move v2, v3
 
+    .line 386
     move v1, v3
 
+    .line 389
     :cond_2
     iget-object v4, p0, Lcom/android/incallui/util/GraphicResourceUtils$1;->val$view:Landroid/view/View;
 

@@ -18,6 +18,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 233
     invoke-direct {p0}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
     return-void

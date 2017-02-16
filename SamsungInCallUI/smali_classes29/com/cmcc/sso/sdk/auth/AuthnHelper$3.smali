@@ -22,8 +22,11 @@
 .method constructor <init>(Lcom/cmcc/sso/sdk/auth/AuthnHelper;)V
     .locals 0
 
+    .prologue
+    .line 1
     iput-object p1, p0, Lcom/cmcc/sso/sdk/auth/AuthnHelper$3;->this$0:Lcom/cmcc/sso/sdk/auth/AuthnHelper;
 
+    .line 968
     invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
 
     return-void
@@ -34,10 +37,14 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 972
     invoke-static {}, Lcom/cmcc/sso/sdk/util/HttpUtil;->getLatestAPKUri()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 973
+    .local v0, "uri":Ljava/lang/String;
     iget-object v1, p0, Lcom/cmcc/sso/sdk/auth/AuthnHelper$3;->this$0:Lcom/cmcc/sso/sdk/auth/AuthnHelper;
 
     const v2, 0x18e72
@@ -49,5 +56,6 @@
     # invokes: Lcom/cmcc/sso/sdk/auth/AuthnHelper;->callbackToApp(Lorg/json/JSONObject;)V
     invoke-static {v1, v2}, Lcom/cmcc/sso/sdk/auth/AuthnHelper;->access$2(Lcom/cmcc/sso/sdk/auth/AuthnHelper;Lorg/json/JSONObject;)V
 
+    .line 974
     return-void
 .end method

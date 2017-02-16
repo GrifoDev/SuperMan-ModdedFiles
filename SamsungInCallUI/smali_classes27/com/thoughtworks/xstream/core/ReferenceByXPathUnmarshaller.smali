@@ -12,15 +12,23 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/converters/ConverterLookup;Lcom/thoughtworks/xstream/mapper/Mapper;)V
     .locals 2
+    .param p1, "root"    # Ljava/lang/Object;
+    .param p2, "reader"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
+    .param p3, "converterLookup"    # Lcom/thoughtworks/xstream/converters/ConverterLookup;
+    .param p4, "mapper"    # Lcom/thoughtworks/xstream/mapper/Mapper;
 
+    .prologue
+    .line 29
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/thoughtworks/xstream/core/AbstractReferenceUnmarshaller;-><init>(Ljava/lang/Object;Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/converters/ConverterLookup;Lcom/thoughtworks/xstream/mapper/Mapper;)V
 
+    .line 24
     new-instance v0, Lcom/thoughtworks/xstream/io/path/PathTracker;
 
     invoke-direct {v0}, Lcom/thoughtworks/xstream/io/path/PathTracker;-><init>()V
 
     iput-object v0, p0, Lcom/thoughtworks/xstream/core/ReferenceByXPathUnmarshaller;->pathTracker:Lcom/thoughtworks/xstream/io/path/PathTracker;
 
+    .line 30
     new-instance v0, Lcom/thoughtworks/xstream/io/path/PathTrackingReader;
 
     iget-object v1, p0, Lcom/thoughtworks/xstream/core/ReferenceByXPathUnmarshaller;->pathTracker:Lcom/thoughtworks/xstream/io/path/PathTracker;
@@ -29,6 +37,7 @@
 
     iput-object v0, p0, Lcom/thoughtworks/xstream/core/ReferenceByXPathUnmarshaller;->reader:Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
 
+    .line 31
     invoke-interface {p2}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->underlyingReader()Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
 
     move-result-object v0
@@ -37,6 +46,7 @@
 
     iput-boolean v0, p0, Lcom/thoughtworks/xstream/core/ReferenceByXPathUnmarshaller;->isNameEncoding:Z
 
+    .line 32
     return-void
 .end method
 
@@ -45,6 +55,8 @@
 .method protected getCurrentReferenceKey()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 41
     iget-object v0, p0, Lcom/thoughtworks/xstream/core/ReferenceByXPathUnmarshaller;->pathTracker:Lcom/thoughtworks/xstream/io/path/PathTracker;
 
     invoke-virtual {v0}, Lcom/thoughtworks/xstream/io/path/PathTracker;->getPath()Lcom/thoughtworks/xstream/io/path/Path;
@@ -56,7 +68,10 @@
 
 .method protected getReferenceKey(Ljava/lang/String;)Ljava/lang/Object;
     .locals 3
+    .param p1, "reference"    # Ljava/lang/String;
 
+    .prologue
+    .line 35
     new-instance v0, Lcom/thoughtworks/xstream/io/path/Path;
 
     iget-boolean v1, p0, Lcom/thoughtworks/xstream/core/ReferenceByXPathUnmarshaller;->isNameEncoding:Z
@@ -78,6 +93,8 @@
     :goto_0
     invoke-direct {v0, v1}, Lcom/thoughtworks/xstream/io/path/Path;-><init>(Ljava/lang/String;)V
 
+    .line 37
+    .local v0, "path":Lcom/thoughtworks/xstream/io/path/Path;
     const/4 v1, 0x0
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->charAt(I)C
@@ -98,11 +115,13 @@
 
     move-result-object v0
 
+    .end local v0    # "path":Lcom/thoughtworks/xstream/io/path/Path;
     :cond_0
     return-object v0
 
     :cond_1
     move-object v1, p1
 
+    .line 35
     goto :goto_0
 .end method

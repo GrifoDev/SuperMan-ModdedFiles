@@ -38,8 +38,14 @@
         }
     .end annotation
 
+    .prologue
+    .line 35
+    .local p0, "this":Lcom/google/common/collect/FilteredKeyListMultimap;, "Lcom/google/common/collect/FilteredKeyListMultimap<TK;TV;>;"
+    .local p1, "unfiltered":Lcom/google/common/collect/ListMultimap;, "Lcom/google/common/collect/ListMultimap<TK;TV;>;"
+    .local p2, "keyPredicate":Lcom/google/common/base/Predicate;, "Lcom/google/common/base/Predicate<-TK;>;"
     invoke-direct {p0, p1, p2}, Lcom/google/common/collect/FilteredKeyMultimap;-><init>(Lcom/google/common/collect/Multimap;Lcom/google/common/base/Predicate;)V
 
+    .line 36
     return-void
 .end method
 
@@ -47,7 +53,11 @@
 # virtual methods
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/util/Collection;
     .locals 1
+    .param p1, "x0"    # Ljava/lang/Object;
 
+    .prologue
+    .line 31
+    .local p0, "this":Lcom/google/common/collect/FilteredKeyListMultimap;, "Lcom/google/common/collect/FilteredKeyListMultimap<TK;TV;>;"
     invoke-virtual {p0, p1}, Lcom/google/common/collect/FilteredKeyListMultimap;->get(Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v0
@@ -65,6 +75,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 45
+    .local p0, "this":Lcom/google/common/collect/FilteredKeyListMultimap;, "Lcom/google/common/collect/FilteredKeyListMultimap<TK;TV;>;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-super {p0, p1}, Lcom/google/common/collect/FilteredKeyMultimap;->get(Ljava/lang/Object;)Ljava/util/Collection;
 
     move-result-object v0
@@ -76,7 +90,11 @@
 
 .method public bridge synthetic removeAll(Ljava/lang/Object;)Ljava/util/Collection;
     .locals 1
+    .param p1, "x0"    # Ljava/lang/Object;
 
+    .prologue
+    .line 31
+    .local p0, "this":Lcom/google/common/collect/FilteredKeyListMultimap;, "Lcom/google/common/collect/FilteredKeyListMultimap<TK;TV;>;"
     invoke-virtual {p0, p1}, Lcom/google/common/collect/FilteredKeyListMultimap;->removeAll(Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v0
@@ -86,7 +104,7 @@
 
 .method public removeAll(Ljava/lang/Object;)Ljava/util/List;
     .locals 1
-    .param p1    # Ljava/lang/Object;
+    .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -100,6 +118,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 50
+    .local p0, "this":Lcom/google/common/collect/FilteredKeyListMultimap;, "Lcom/google/common/collect/FilteredKeyListMultimap<TK;TV;>;"
     invoke-super {p0, p1}, Lcom/google/common/collect/FilteredKeyMultimap;->removeAll(Ljava/lang/Object;)Ljava/util/Collection;
 
     move-result-object v0
@@ -111,7 +132,12 @@
 
 .method public bridge synthetic replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/Collection;
     .locals 1
+    .param p1, "x0"    # Ljava/lang/Object;
+    .param p2, "x1"    # Ljava/lang/Iterable;
 
+    .prologue
+    .line 31
+    .local p0, "this":Lcom/google/common/collect/FilteredKeyListMultimap;, "Lcom/google/common/collect/FilteredKeyListMultimap<TK;TV;>;"
     invoke-virtual {p0, p1, p2}, Lcom/google/common/collect/FilteredKeyListMultimap;->replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/List;
 
     move-result-object v0
@@ -131,6 +157,11 @@
         }
     .end annotation
 
+    .prologue
+    .line 55
+    .local p0, "this":Lcom/google/common/collect/FilteredKeyListMultimap;, "Lcom/google/common/collect/FilteredKeyListMultimap<TK;TV;>;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
+    .local p2, "values":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TV;>;"
     invoke-super {p0, p1, p2}, Lcom/google/common/collect/FilteredKeyMultimap;->replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/Collection;
 
     move-result-object v0
@@ -150,6 +181,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 40
+    .local p0, "this":Lcom/google/common/collect/FilteredKeyListMultimap;, "Lcom/google/common/collect/FilteredKeyListMultimap<TK;TV;>;"
     invoke-super {p0}, Lcom/google/common/collect/FilteredKeyMultimap;->unfiltered()Lcom/google/common/collect/Multimap;
 
     move-result-object v0
@@ -162,6 +196,9 @@
 .method public bridge synthetic unfiltered()Lcom/google/common/collect/Multimap;
     .locals 1
 
+    .prologue
+    .line 31
+    .local p0, "this":Lcom/google/common/collect/FilteredKeyListMultimap;, "Lcom/google/common/collect/FilteredKeyListMultimap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/FilteredKeyListMultimap;->unfiltered()Lcom/google/common/collect/ListMultimap;
 
     move-result-object v0

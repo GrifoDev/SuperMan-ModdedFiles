@@ -24,6 +24,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 149
     new-instance v0, Lcom/google/common/hash/Murmur3_128HashFunction;
 
     const/4 v1, 0x0
@@ -32,6 +34,7 @@
 
     sput-object v0, Lcom/google/common/hash/Hashing$Murmur3_128Holder;->MURMUR3_128:Lcom/google/common/hash/HashFunction;
 
+    .line 152
     # getter for: Lcom/google/common/hash/Hashing;->GOOD_FAST_HASH_SEED:I
     invoke-static {}, Lcom/google/common/hash/Hashing;->access$100()I
 
@@ -49,6 +52,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 148
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

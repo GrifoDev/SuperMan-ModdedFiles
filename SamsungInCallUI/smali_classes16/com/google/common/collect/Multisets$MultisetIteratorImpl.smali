@@ -80,12 +80,20 @@
         }
     .end annotation
 
+    .prologue
+    .line 1053
+    .local p0, "this":Lcom/google/common/collect/Multisets$MultisetIteratorImpl;, "Lcom/google/common/collect/Multisets$MultisetIteratorImpl<TE;>;"
+    .local p1, "multiset":Lcom/google/common/collect/Multiset;, "Lcom/google/common/collect/Multiset<TE;>;"
+    .local p2, "entryIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Lcom/google/common/collect/Multiset$Entry<TE;>;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 1054
     iput-object p1, p0, Lcom/google/common/collect/Multisets$MultisetIteratorImpl;->multiset:Lcom/google/common/collect/Multiset;
 
+    .line 1055
     iput-object p2, p0, Lcom/google/common/collect/Multisets$MultisetIteratorImpl;->entryIterator:Ljava/util/Iterator;
 
+    .line 1056
     return-void
 .end method
 
@@ -94,6 +102,9 @@
 .method public hasNext()Z
     .locals 1
 
+    .prologue
+    .line 1060
+    .local p0, "this":Lcom/google/common/collect/Multisets$MultisetIteratorImpl;, "Lcom/google/common/collect/Multisets$MultisetIteratorImpl<TE;>;"
     iget v0, p0, Lcom/google/common/collect/Multisets$MultisetIteratorImpl;->laterCount:I
 
     if-gtz v0, :cond_0
@@ -126,23 +137,29 @@
         }
     .end annotation
 
+    .prologue
+    .line 1065
+    .local p0, "this":Lcom/google/common/collect/Multisets$MultisetIteratorImpl;, "Lcom/google/common/collect/Multisets$MultisetIteratorImpl<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Multisets$MultisetIteratorImpl;->hasNext()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
+    .line 1066
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
 
     throw v0
 
+    .line 1068
     :cond_0
     iget v0, p0, Lcom/google/common/collect/Multisets$MultisetIteratorImpl;->laterCount:I
 
     if-nez v0, :cond_1
 
+    .line 1069
     iget-object v0, p0, Lcom/google/common/collect/Multisets$MultisetIteratorImpl;->entryIterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -153,6 +170,7 @@
 
     iput-object v0, p0, Lcom/google/common/collect/Multisets$MultisetIteratorImpl;->currentEntry:Lcom/google/common/collect/Multiset$Entry;
 
+    .line 1070
     iget-object v0, p0, Lcom/google/common/collect/Multisets$MultisetIteratorImpl;->currentEntry:Lcom/google/common/collect/Multiset$Entry;
 
     invoke-interface {v0}, Lcom/google/common/collect/Multiset$Entry;->getCount()I
@@ -163,6 +181,7 @@
 
     iput v0, p0, Lcom/google/common/collect/Multisets$MultisetIteratorImpl;->totalCount:I
 
+    .line 1072
     :cond_1
     iget v0, p0, Lcom/google/common/collect/Multisets$MultisetIteratorImpl;->laterCount:I
 
@@ -170,10 +189,12 @@
 
     iput v0, p0, Lcom/google/common/collect/Multisets$MultisetIteratorImpl;->laterCount:I
 
+    .line 1073
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/google/common/collect/Multisets$MultisetIteratorImpl;->canRemove:Z
 
+    .line 1074
     iget-object v0, p0, Lcom/google/common/collect/Multisets$MultisetIteratorImpl;->currentEntry:Lcom/google/common/collect/Multiset$Entry;
 
     invoke-interface {v0}, Lcom/google/common/collect/Multiset$Entry;->getElement()Ljava/lang/Object;
@@ -186,20 +207,26 @@
 .method public remove()V
     .locals 2
 
+    .prologue
+    .line 1079
+    .local p0, "this":Lcom/google/common/collect/Multisets$MultisetIteratorImpl;, "Lcom/google/common/collect/Multisets$MultisetIteratorImpl<TE;>;"
     iget-boolean v0, p0, Lcom/google/common/collect/Multisets$MultisetIteratorImpl;->canRemove:Z
 
     invoke-static {v0}, Lcom/google/common/collect/CollectPreconditions;->checkRemove(Z)V
 
+    .line 1080
     iget v0, p0, Lcom/google/common/collect/Multisets$MultisetIteratorImpl;->totalCount:I
 
     const/4 v1, 0x1
 
     if-ne v0, v1, :cond_0
 
+    .line 1081
     iget-object v0, p0, Lcom/google/common/collect/Multisets$MultisetIteratorImpl;->entryIterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
+    .line 1085
     :goto_0
     iget v0, p0, Lcom/google/common/collect/Multisets$MultisetIteratorImpl;->totalCount:I
 
@@ -207,12 +234,15 @@
 
     iput v0, p0, Lcom/google/common/collect/Multisets$MultisetIteratorImpl;->totalCount:I
 
+    .line 1086
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/google/common/collect/Multisets$MultisetIteratorImpl;->canRemove:Z
 
+    .line 1087
     return-void
 
+    .line 1083
     :cond_0
     iget-object v0, p0, Lcom/google/common/collect/Multisets$MultisetIteratorImpl;->multiset:Lcom/google/common/collect/Multiset;
 

@@ -32,7 +32,12 @@
 # direct methods
 .method constructor <init>(Landroid/content/Context;ILjava/util/List;Landroid/view/LayoutInflater;Lcom/android/contacts/common/model/AccountTypeManager;)V
     .locals 0
+    .param p1, "x0"    # Landroid/content/Context;
+    .param p2, "x1"    # I
 
+    .prologue
+    .line 117
+    .local p3, "x2":Ljava/util/List;, "Ljava/util/List<Lcom/android/contacts/common/model/account/AccountWithDataSet;>;"
     iput-object p4, p0, Lcom/android/contacts/common/util/AccountSelectionUtil$1;->val$dialogInflater:Landroid/view/LayoutInflater;
 
     iput-object p5, p0, Lcom/android/contacts/common/util/AccountSelectionUtil$1;->val$accountTypes:Lcom/android/contacts/common/model/AccountTypeManager;
@@ -46,9 +51,15 @@
 # virtual methods
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 9
+    .param p1, "position"    # I
+    .param p2, "convertView"    # Landroid/view/View;
+    .param p3, "parent"    # Landroid/view/ViewGroup;
 
+    .prologue
+    .line 120
     if-nez p2, :cond_0
 
+    .line 121
     iget-object v6, p0, Lcom/android/contacts/common/util/AccountSelectionUtil$1;->val$dialogInflater:Landroid/view/LayoutInflater;
 
     const v7, 0x7f04001f
@@ -59,6 +70,7 @@
 
     move-result-object p2
 
+    .line 126
     :cond_0
     const v6, 0x1020014
 
@@ -68,6 +80,8 @@
 
     check-cast v4, Landroid/widget/TextView;
 
+    .line 127
+    .local v4, "text1":Landroid/widget/TextView;
     const v6, 0x1020015
 
     invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -76,6 +90,8 @@
 
     check-cast v5, Landroid/widget/TextView;
 
+    .line 128
+    .local v5, "text2":Landroid/widget/TextView;
     const v6, 0x1020006
 
     invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -84,12 +100,16 @@
 
     check-cast v3, Landroid/widget/ImageView;
 
+    .line 130
+    .local v3, "icon":Landroid/widget/ImageView;
     invoke-virtual {p0, p1}, Lcom/android/contacts/common/util/AccountSelectionUtil$1;->getItem(I)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lcom/android/contacts/common/model/account/AccountWithDataSet;
 
+    .line 131
+    .local v0, "account":Lcom/android/contacts/common/model/account/AccountWithDataSet;
     iget-object v6, p0, Lcom/android/contacts/common/util/AccountSelectionUtil$1;->val$accountTypes:Lcom/android/contacts/common/model/AccountTypeManager;
 
     iget-object v7, v0, Lcom/android/contacts/common/model/account/AccountWithDataSet;->type:Ljava/lang/String;
@@ -100,20 +120,26 @@
 
     move-result-object v1
 
+    .line 133
+    .local v1, "accountType":Lcom/android/contacts/common/model/account/AccountType;
     invoke-virtual {p0}, Lcom/android/contacts/common/util/AccountSelectionUtil$1;->getContext()Landroid/content/Context;
 
     move-result-object v2
 
+    .line 135
+    .local v2, "context":Landroid/content/Context;
     invoke-virtual {v1, v2}, Lcom/android/contacts/common/model/account/AccountType;->getDisplayLabel(Landroid/content/Context;)Ljava/lang/CharSequence;
 
     move-result-object v6
 
     invoke-virtual {v4, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
+    .line 136
     iget-object v6, v0, Lcom/android/contacts/common/model/account/AccountWithDataSet;->name:Ljava/lang/String;
 
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
+    .line 137
     invoke-virtual {p0}, Lcom/android/contacts/common/util/AccountSelectionUtil$1;->getContext()Landroid/content/Context;
 
     move-result-object v6
@@ -124,5 +150,6 @@
 
     invoke-virtual {v3, v6}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
+    .line 139
     return-object p2
 .end method

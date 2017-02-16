@@ -31,6 +31,9 @@
 .method constructor <init>(Lcom/google/common/collect/WellBehavedMap$EntrySet$1;Ljava/lang/Object;)V
     .locals 0
 
+    .prologue
+    .line 82
+    .local p0, "this":Lcom/google/common/collect/WellBehavedMap$EntrySet$1$1;, "Lcom/google/common/collect/WellBehavedMap$EntrySet$1.1;"
     iput-object p1, p0, Lcom/google/common/collect/WellBehavedMap$EntrySet$1$1;->this$2:Lcom/google/common/collect/WellBehavedMap$EntrySet$1;
 
     iput-object p2, p0, Lcom/google/common/collect/WellBehavedMap$EntrySet$1$1;->val$key:Ljava/lang/Object;
@@ -50,6 +53,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 85
+    .local p0, "this":Lcom/google/common/collect/WellBehavedMap$EntrySet$1$1;, "Lcom/google/common/collect/WellBehavedMap$EntrySet$1.1;"
     iget-object v0, p0, Lcom/google/common/collect/WellBehavedMap$EntrySet$1$1;->val$key:Ljava/lang/Object;
 
     return-object v0
@@ -63,6 +69,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 90
+    .local p0, "this":Lcom/google/common/collect/WellBehavedMap$EntrySet$1$1;, "Lcom/google/common/collect/WellBehavedMap$EntrySet$1.1;"
     iget-object v0, p0, Lcom/google/common/collect/WellBehavedMap$EntrySet$1$1;->this$2:Lcom/google/common/collect/WellBehavedMap$EntrySet$1;
 
     iget-object v0, v0, Lcom/google/common/collect/WellBehavedMap$EntrySet$1;->this$1:Lcom/google/common/collect/WellBehavedMap$EntrySet;
@@ -86,6 +95,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 95
+    .local p0, "this":Lcom/google/common/collect/WellBehavedMap$EntrySet$1$1;, "Lcom/google/common/collect/WellBehavedMap$EntrySet$1.1;"
+    .local p1, "value":Ljava/lang/Object;, "TV;"
     iget-object v0, p0, Lcom/google/common/collect/WellBehavedMap$EntrySet$1$1;->this$2:Lcom/google/common/collect/WellBehavedMap$EntrySet$1;
 
     iget-object v0, v0, Lcom/google/common/collect/WellBehavedMap$EntrySet$1;->this$1:Lcom/google/common/collect/WellBehavedMap$EntrySet;

@@ -61,6 +61,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 38
     new-instance v0, Lcom/google/common/collect/ImmutableClassToInstanceMap;
 
     invoke-static {}, Lcom/google/common/collect/ImmutableMap;->of()Lcom/google/common/collect/ImmutableMap;
@@ -86,16 +88,27 @@
         }
     .end annotation
 
+    .prologue
+    .line 161
+    .local p0, "this":Lcom/google/common/collect/ImmutableClassToInstanceMap;, "Lcom/google/common/collect/ImmutableClassToInstanceMap<TB;>;"
+    .local p1, "delegate":Lcom/google/common/collect/ImmutableMap;, "Lcom/google/common/collect/ImmutableMap<Ljava/lang/Class<+TB;>;TB;>;"
     invoke-direct {p0}, Lcom/google/common/collect/ForwardingMap;-><init>()V
 
+    .line 162
     iput-object p1, p0, Lcom/google/common/collect/ImmutableClassToInstanceMap;->delegate:Lcom/google/common/collect/ImmutableMap;
 
+    .line 163
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/collect/ImmutableMap;Lcom/google/common/collect/ImmutableClassToInstanceMap$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/google/common/collect/ImmutableMap;
+    .param p2, "x1"    # Lcom/google/common/collect/ImmutableClassToInstanceMap$1;
 
+    .prologue
+    .line 35
+    .local p0, "this":Lcom/google/common/collect/ImmutableClassToInstanceMap;, "Lcom/google/common/collect/ImmutableClassToInstanceMap<TB;>;"
     invoke-direct {p0, p1}, Lcom/google/common/collect/ImmutableClassToInstanceMap;-><init>(Lcom/google/common/collect/ImmutableMap;)V
 
     return-void
@@ -113,6 +126,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 66
     new-instance v0, Lcom/google/common/collect/ImmutableClassToInstanceMap$Builder;
 
     invoke-direct {v0}, Lcom/google/common/collect/ImmutableClassToInstanceMap$Builder;-><init>()V
@@ -136,14 +151,19 @@
         }
     .end annotation
 
+    .prologue
+    .line 150
+    .local p0, "map":Ljava/util/Map;, "Ljava/util/Map<+Ljava/lang/Class<+TS;>;+TS;>;"
     instance-of v1, p0, Lcom/google/common/collect/ImmutableClassToInstanceMap;
 
     if-eqz v1, :cond_0
 
     move-object v0, p0
 
+    .line 153
     check-cast v0, Lcom/google/common/collect/ImmutableClassToInstanceMap;
 
+    .line 156
     :goto_0
     return-object v0
 
@@ -175,6 +195,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 48
     sget-object v0, Lcom/google/common/collect/ImmutableClassToInstanceMap;->EMPTY:Lcom/google/common/collect/ImmutableClassToInstanceMap;
 
     return-object v0
@@ -194,10 +216,16 @@
         }
     .end annotation
 
+    .prologue
+    .line 57
+    .local p0, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
+    .local p1, "value":Ljava/lang/Object;, "TT;"
     invoke-static {p0, p1}, Lcom/google/common/collect/ImmutableMap;->of(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableMap;
 
     move-result-object v0
 
+    .line 58
+    .local v0, "map":Lcom/google/common/collect/ImmutableMap;, "Lcom/google/common/collect/ImmutableMap<Ljava/lang/Class<+TB;>;TB;>;"
     new-instance v1, Lcom/google/common/collect/ImmutableClassToInstanceMap;
 
     invoke-direct {v1, v0}, Lcom/google/common/collect/ImmutableClassToInstanceMap;-><init>(Lcom/google/common/collect/ImmutableMap;)V
@@ -210,6 +238,9 @@
 .method protected bridge synthetic delegate()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 35
+    .local p0, "this":Lcom/google/common/collect/ImmutableClassToInstanceMap;, "Lcom/google/common/collect/ImmutableClassToInstanceMap<TB;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableClassToInstanceMap;->delegate()Ljava/util/Map;
 
     move-result-object v0
@@ -229,6 +260,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 167
+    .local p0, "this":Lcom/google/common/collect/ImmutableClassToInstanceMap;, "Lcom/google/common/collect/ImmutableClassToInstanceMap<TB;>;"
     iget-object v0, p0, Lcom/google/common/collect/ImmutableClassToInstanceMap;->delegate:Lcom/google/common/collect/ImmutableMap;
 
     return-object v0
@@ -247,6 +281,10 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
+    .prologue
+    .line 174
+    .local p0, "this":Lcom/google/common/collect/ImmutableClassToInstanceMap;, "Lcom/google/common/collect/ImmutableClassToInstanceMap<TB;>;"
+    .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     iget-object v0, p0, Lcom/google/common/collect/ImmutableClassToInstanceMap;->delegate:Lcom/google/common/collect/ImmutableMap;
 
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -273,6 +311,11 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    .prologue
+    .line 186
+    .local p0, "this":Lcom/google/common/collect/ImmutableClassToInstanceMap;, "Lcom/google/common/collect/ImmutableClassToInstanceMap<TB;>;"
+    .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
+    .local p2, "value":Ljava/lang/Object;, "TT;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -283,6 +326,9 @@
 .method readResolve()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 190
+    .local p0, "this":Lcom/google/common/collect/ImmutableClassToInstanceMap;, "Lcom/google/common/collect/ImmutableClassToInstanceMap<TB;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableClassToInstanceMap;->isEmpty()Z
 
     move-result v0
@@ -293,6 +339,7 @@
 
     move-result-object p0
 
+    .end local p0    # "this":Lcom/google/common/collect/ImmutableClassToInstanceMap;, "Lcom/google/common/collect/ImmutableClassToInstanceMap<TB;>;"
     :cond_0
     return-object p0
 .end method

@@ -26,7 +26,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/contacts/common/list/ViewPagerTabs;I)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/contacts/common/list/ViewPagerTabs;
 
+    .prologue
+    .line 229
     iput-object p1, p0, Lcom/android/contacts/common/list/ViewPagerTabs$2;->this$0:Lcom/android/contacts/common/list/ViewPagerTabs;
 
     iput p2, p0, Lcom/android/contacts/common/list/ViewPagerTabs$2;->val$position:I
@@ -40,7 +43,10 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 3
+    .param p1, "v"    # Landroid/view/View;
 
+    .prologue
+    .line 232
     iget-object v0, p0, Lcom/android/contacts/common/list/ViewPagerTabs$2;->this$0:Lcom/android/contacts/common/list/ViewPagerTabs;
 
     iget-object v0, v0, Lcom/android/contacts/common/list/ViewPagerTabs;->mPager:Landroid/support/v4/view/ViewPager;
@@ -56,5 +62,6 @@
 
     invoke-virtual {v0, v1}, Landroid/support/v4/view/ViewPager;->setCurrentItem(I)V
 
+    .line 233
     return-void
 .end method

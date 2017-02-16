@@ -48,6 +48,7 @@
 # direct methods
 .method public constructor <init>(ZLandroid/support/v4/widget/FocusStrategy$BoundsAdapter;)V
     .locals 1
+    .param p1, "isLayoutRtl"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(Z",
@@ -56,24 +57,33 @@
         }
     .end annotation
 
+    .prologue
+    .line 101
+    .local p0, "this":Landroid/support/v4/widget/FocusStrategy$SequentialComparator;, "Landroid/support/v4/widget/FocusStrategy$SequentialComparator<TT;>;"
+    .local p2, "adapter":Landroid/support/v4/widget/FocusStrategy$BoundsAdapter;, "Landroid/support/v4/widget/FocusStrategy$BoundsAdapter<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 95
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v0, p0, Landroid/support/v4/widget/FocusStrategy$SequentialComparator;->mTemp1:Landroid/graphics/Rect;
 
+    .line 96
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v0, p0, Landroid/support/v4/widget/FocusStrategy$SequentialComparator;->mTemp2:Landroid/graphics/Rect;
 
+    .line 102
     iput-boolean p1, p0, Landroid/support/v4/widget/FocusStrategy$SequentialComparator;->mIsLayoutRtl:Z
 
+    .line 103
     iput-object p2, p0, Landroid/support/v4/widget/FocusStrategy$SequentialComparator;->mAdapter:Landroid/support/v4/widget/FocusStrategy$BoundsAdapter;
 
+    .line 104
     return-void
 .end method
 
@@ -87,32 +97,45 @@
         }
     .end annotation
 
+    .prologue
+    .local p0, "this":Landroid/support/v4/widget/FocusStrategy$SequentialComparator;, "Landroid/support/v4/widget/FocusStrategy$SequentialComparator<TT;>;"
+    .local p1, "first":Ljava/lang/Object;, "TT;"
+    .local p2, "second":Ljava/lang/Object;, "TT;"
     const/4 v2, 0x1
 
     const/4 v3, -0x1
 
+    .line 107
     iget-object v0, p0, Landroid/support/v4/widget/FocusStrategy$SequentialComparator;->mTemp1:Landroid/graphics/Rect;
 
+    .line 108
+    .local v0, "firstRect":Landroid/graphics/Rect;
     iget-object v1, p0, Landroid/support/v4/widget/FocusStrategy$SequentialComparator;->mTemp2:Landroid/graphics/Rect;
 
+    .line 110
+    .local v1, "secondRect":Landroid/graphics/Rect;
     iget-object v4, p0, Landroid/support/v4/widget/FocusStrategy$SequentialComparator;->mAdapter:Landroid/support/v4/widget/FocusStrategy$BoundsAdapter;
 
     invoke-interface {v4, p1, v0}, Landroid/support/v4/widget/FocusStrategy$BoundsAdapter;->obtainBounds(Ljava/lang/Object;Landroid/graphics/Rect;)V
 
+    .line 111
     iget-object v4, p0, Landroid/support/v4/widget/FocusStrategy$SequentialComparator;->mAdapter:Landroid/support/v4/widget/FocusStrategy$BoundsAdapter;
 
     invoke-interface {v4, p2, v1}, Landroid/support/v4/widget/FocusStrategy$BoundsAdapter;->obtainBounds(Ljava/lang/Object;Landroid/graphics/Rect;)V
 
+    .line 113
     iget v4, v0, Landroid/graphics/Rect;->top:I
 
     iget v5, v1, Landroid/graphics/Rect;->top:I
 
     if-ge v4, v5, :cond_1
 
+    .line 134
     :cond_0
     :goto_0
     return v3
 
+    .line 115
     :cond_1
     iget v4, v0, Landroid/graphics/Rect;->top:I
 
@@ -122,8 +145,10 @@
 
     move v3, v2
 
+    .line 116
     goto :goto_0
 
+    .line 117
     :cond_2
     iget v4, v0, Landroid/graphics/Rect;->left:I
 
@@ -131,6 +156,7 @@
 
     if-ge v4, v5, :cond_4
 
+    .line 118
     iget-boolean v4, p0, Landroid/support/v4/widget/FocusStrategy$SequentialComparator;->mIsLayoutRtl:Z
 
     if-eqz v4, :cond_3
@@ -145,6 +171,7 @@
 
     goto :goto_1
 
+    .line 119
     :cond_4
     iget v4, v0, Landroid/graphics/Rect;->left:I
 
@@ -152,6 +179,7 @@
 
     if-le v4, v5, :cond_5
 
+    .line 120
     iget-boolean v4, p0, Landroid/support/v4/widget/FocusStrategy$SequentialComparator;->mIsLayoutRtl:Z
 
     if-nez v4, :cond_0
@@ -160,6 +188,7 @@
 
     goto :goto_0
 
+    .line 121
     :cond_5
     iget v4, v0, Landroid/graphics/Rect;->bottom:I
 
@@ -167,6 +196,7 @@
 
     if-lt v4, v5, :cond_0
 
+    .line 123
     iget v4, v0, Landroid/graphics/Rect;->bottom:I
 
     iget v5, v1, Landroid/graphics/Rect;->bottom:I
@@ -175,8 +205,10 @@
 
     move v3, v2
 
+    .line 124
     goto :goto_0
 
+    .line 125
     :cond_6
     iget v4, v0, Landroid/graphics/Rect;->right:I
 
@@ -184,6 +216,7 @@
 
     if-ge v4, v5, :cond_8
 
+    .line 126
     iget-boolean v4, p0, Landroid/support/v4/widget/FocusStrategy$SequentialComparator;->mIsLayoutRtl:Z
 
     if-eqz v4, :cond_7
@@ -198,6 +231,7 @@
 
     goto :goto_2
 
+    .line 127
     :cond_8
     iget v4, v0, Landroid/graphics/Rect;->right:I
 
@@ -205,6 +239,7 @@
 
     if-le v4, v5, :cond_9
 
+    .line 128
     iget-boolean v4, p0, Landroid/support/v4/widget/FocusStrategy$SequentialComparator;->mIsLayoutRtl:Z
 
     if-nez v4, :cond_0
@@ -213,6 +248,7 @@
 
     goto :goto_0
 
+    .line 134
     :cond_9
     const/4 v3, 0x0
 

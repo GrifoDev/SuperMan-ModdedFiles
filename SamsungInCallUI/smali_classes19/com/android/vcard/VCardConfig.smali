@@ -158,6 +158,7 @@
 .method static constructor <clinit>()V
     .locals 7
 
+    .prologue
     const v6, 0x18000008
 
     const/4 v5, 0x0
@@ -168,22 +169,27 @@
 
     const/high16 v2, -0x40000000    # -2.0f
 
+    .line 339
     const-string v0, "v21_generic"
 
     sput-object v0, Lcom/android/vcard/VCardConfig;->VCARD_TYPE_V21_GENERIC_STR:Ljava/lang/String;
 
+    .line 374
     const-string v0, "v21_corea"
 
     sput-object v0, Lcom/android/vcard/VCardConfig;->VCARD_TYPE_V21_COREA_STR:Ljava/lang/String;
 
+    .line 457
     sput v2, Lcom/android/vcard/VCardConfig;->VCARD_TYPE_DEFAULT:I
 
+    .line 463
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     sput-object v0, Lcom/android/vcard/VCardConfig;->sVCardTypeMap:Ljava/util/Map;
 
+    .line 464
     sget-object v0, Lcom/android/vcard/VCardConfig;->sVCardTypeMap:Ljava/util/Map;
 
     sget-object v1, Lcom/android/vcard/VCardConfig;->VCARD_TYPE_V21_GENERIC_STR:Ljava/lang/String;
@@ -194,6 +200,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 465
     sget-object v0, Lcom/android/vcard/VCardConfig;->sVCardTypeMap:Ljava/util/Map;
 
     const-string v1, "v30_generic"
@@ -206,6 +213,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 466
     sget-object v0, Lcom/android/vcard/VCardConfig;->sVCardTypeMap:Ljava/util/Map;
 
     sget-object v1, Lcom/android/vcard/VCardConfig;->VCARD_TYPE_V21_COREA_STR:Ljava/lang/String;
@@ -218,6 +226,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 467
     sget-object v0, Lcom/android/vcard/VCardConfig;->sVCardTypeMap:Ljava/util/Map;
 
     const-string v1, "v21_europe"
@@ -230,6 +239,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 468
     sget-object v0, Lcom/android/vcard/VCardConfig;->sVCardTypeMap:Ljava/util/Map;
 
     const-string v1, "v30_europe"
@@ -242,6 +252,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 469
     sget-object v0, Lcom/android/vcard/VCardConfig;->sVCardTypeMap:Ljava/util/Map;
 
     const-string v1, "v21_japanese_utf8"
@@ -252,6 +263,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 470
     sget-object v0, Lcom/android/vcard/VCardConfig;->sVCardTypeMap:Ljava/util/Map;
 
     const-string v1, "v30_japanese_utf8"
@@ -262,6 +274,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 471
     sget-object v0, Lcom/android/vcard/VCardConfig;->sVCardTypeMap:Ljava/util/Map;
 
     const-string v1, "v21_japanese_mobile"
@@ -272,6 +285,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 472
     sget-object v0, Lcom/android/vcard/VCardConfig;->sVCardTypeMap:Ljava/util/Map;
 
     const-string v1, "docomo"
@@ -284,12 +298,14 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 474
     new-instance v0, Ljava/util/HashSet;
 
     invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
 
     sput-object v0, Lcom/android/vcard/VCardConfig;->sJapaneseMobileTypeSet:Ljava/util/Set;
 
+    .line 475
     sget-object v0, Lcom/android/vcard/VCardConfig;->sJapaneseMobileTypeSet:Ljava/util/Set;
 
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -298,6 +314,7 @@
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
+    .line 476
     sget-object v0, Lcom/android/vcard/VCardConfig;->sJapaneseMobileTypeSet:Ljava/util/Set;
 
     invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -306,6 +323,7 @@
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
+    .line 477
     sget-object v0, Lcom/android/vcard/VCardConfig;->sJapaneseMobileTypeSet:Ljava/util/Set;
 
     invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -314,6 +332,7 @@
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
+    .line 478
     sget-object v0, Lcom/android/vcard/VCardConfig;->sJapaneseMobileTypeSet:Ljava/util/Set;
 
     const v1, 0x38000008
@@ -324,8 +343,10 @@
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
+    .line 561
     sput-boolean v5, Lcom/android/vcard/VCardConfig;->isValidCscFeature:Z
 
+    .line 562
     sput-boolean v5, Lcom/android/vcard/VCardConfig;->isJapaneseSpacialized:Z
 
     return-void
@@ -334,14 +355,20 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 572
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 573
     return-void
 .end method
 
 .method public static appendTypeParamName(I)Z
     .locals 1
+    .param p0, "vcardType"    # I
 
+    .prologue
+    .line 531
     invoke-static {p0}, Lcom/android/vcard/VCardConfig;->isVersion30(I)Z
 
     move-result v0
@@ -368,7 +395,10 @@
 
 .method public static getNameOrderType(I)I
     .locals 1
+    .param p0, "vcardType"    # I
 
+    .prologue
+    .line 510
     and-int/lit8 v0, p0, 0xc
 
     return v0
@@ -376,11 +406,16 @@
 
 .method public static getVCardTypeFromString(Ljava/lang/String;)I
     .locals 4
+    .param p0, "vcardTypeString"    # Ljava/lang/String;
 
+    .prologue
+    .line 482
     invoke-virtual {p0}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 483
+    .local v0, "loweredKey":Ljava/lang/String;
     sget-object v1, Lcom/android/vcard/VCardConfig;->sVCardTypeMap:Ljava/util/Map;
 
     invoke-interface {v1, v0}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
@@ -389,6 +424,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 484
     sget-object v1, Lcom/android/vcard/VCardConfig;->sVCardTypeMap:Ljava/util/Map;
 
     invoke-interface {v1, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -401,9 +437,11 @@
 
     move-result v1
 
+    .line 489
     :goto_0
     return v1
 
+    .line 485
     :cond_0
     const-string v1, "default"
 
@@ -413,10 +451,12 @@
 
     if-eqz v1, :cond_1
 
+    .line 486
     sget v1, Lcom/android/vcard/VCardConfig;->VCARD_TYPE_DEFAULT:I
 
     goto :goto_0
 
+    .line 488
     :cond_1
     const-string v1, "vCard"
 
@@ -446,6 +486,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 489
     sget v1, Lcom/android/vcard/VCardConfig;->VCARD_TYPE_DEFAULT:I
 
     goto :goto_0
@@ -453,7 +494,10 @@
 
 .method public static isDoCoMo(I)Z
     .locals 1
+    .param p0, "vcardType"    # I
 
+    .prologue
+    .line 558
     const/high16 v0, 0x20000000
 
     and-int/2addr v0, p0
@@ -474,10 +518,13 @@
 .method public static isJapanSpacialized()Z
     .locals 3
 
+    .prologue
+    .line 565
     sget-boolean v0, Lcom/android/vcard/VCardConfig;->isValidCscFeature:Z
 
     if-nez v0, :cond_0
 
+    .line 566
     const-string v0, "JPN"
 
     invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
@@ -496,10 +543,12 @@
 
     sput-boolean v0, Lcom/android/vcard/VCardConfig;->isJapaneseSpacialized:Z
 
+    .line 567
     const/4 v0, 0x1
 
     sput-boolean v0, Lcom/android/vcard/VCardConfig;->isValidCscFeature:Z
 
+    .line 569
     :cond_0
     sget-boolean v0, Lcom/android/vcard/VCardConfig;->isJapaneseSpacialized:Z
 
@@ -508,7 +557,10 @@
 
 .method public static isJapaneseDevice(I)Z
     .locals 2
+    .param p0, "vcardType"    # I
 
+    .prologue
+    .line 542
     sget-object v0, Lcom/android/vcard/VCardConfig;->sJapaneseMobileTypeSet:Ljava/util/Set;
 
     invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -524,7 +576,10 @@
 
 .method public static isVersion21(I)Z
     .locals 1
+    .param p0, "vcardType"    # I
 
+    .prologue
+    .line 494
     and-int/lit8 v0, p0, 0x3
 
     if-nez v0, :cond_0
@@ -542,9 +597,12 @@
 
 .method public static isVersion30(I)Z
     .locals 2
+    .param p0, "vcardType"    # I
 
+    .prologue
     const/4 v0, 0x1
 
+    .line 498
     and-int/lit8 v1, p0, 0x3
 
     if-ne v1, v0, :cond_0
@@ -560,7 +618,10 @@
 
 .method public static isVersion40(I)Z
     .locals 2
+    .param p0, "vcardType"    # I
 
+    .prologue
+    .line 502
     and-int/lit8 v0, p0, 0x3
 
     const/4 v1, 0x2
@@ -580,7 +641,10 @@
 
 .method public static needsToConvertPhoneticString(I)Z
     .locals 1
+    .param p0, "vcardType"    # I
 
+    .prologue
+    .line 550
     const/high16 v0, 0x8000000
 
     and-int/2addr v0, p0
@@ -600,7 +664,10 @@
 
 .method public static onlyOneNoteFieldIsAvailable(I)Z
     .locals 1
+    .param p0, "vcardType"    # I
 
+    .prologue
+    .line 554
     const v0, 0x38000008
 
     if-ne p0, v0, :cond_0
@@ -618,7 +685,10 @@
 
 .method static refrainPhoneNumberFormatting(I)Z
     .locals 1
+    .param p0, "vcardType"    # I
 
+    .prologue
+    .line 546
     const/high16 v0, 0x2000000
 
     and-int/2addr v0, p0
@@ -638,7 +708,10 @@
 
 .method public static shouldRefrainQPToNameProperties(I)Z
     .locals 1
+    .param p0, "vcardType"    # I
 
+    .prologue
+    .line 526
     invoke-static {p0}, Lcom/android/vcard/VCardConfig;->shouldUseQuotedPrintable(I)Z
 
     move-result v0
@@ -665,7 +738,10 @@
 
 .method public static shouldUseQuotedPrintable(I)Z
     .locals 1
+    .param p0, "vcardType"    # I
 
+    .prologue
+    .line 506
     invoke-static {p0}, Lcom/android/vcard/VCardConfig;->isVersion30(I)Z
 
     move-result v0
@@ -686,6 +762,8 @@
 .method public static showPerformanceLog()Z
     .locals 1
 
+    .prologue
+    .line 522
     const/4 v0, 0x0
 
     return v0
@@ -693,7 +771,10 @@
 
 .method public static usesAndroidSpecificProperty(I)Z
     .locals 1
+    .param p0, "vcardType"    # I
 
+    .prologue
+    .line 514
     const/high16 v0, -0x80000000
 
     and-int/2addr v0, p0
@@ -713,7 +794,10 @@
 
 .method public static usesDefactProperty(I)Z
     .locals 1
+    .param p0, "vcardType"    # I
 
+    .prologue
+    .line 518
     const/high16 v0, 0x40000000    # 2.0f
 
     and-int/2addr v0, p0

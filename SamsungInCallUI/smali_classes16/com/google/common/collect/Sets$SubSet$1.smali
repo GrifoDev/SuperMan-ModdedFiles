@@ -40,10 +40,14 @@
 .method constructor <init>(Lcom/google/common/collect/Sets$SubSet;)V
     .locals 1
 
+    .prologue
+    .line 1291
+    .local p0, "this":Lcom/google/common/collect/Sets$SubSet$1;, "Lcom/google/common/collect/Sets$SubSet.1;"
     iput-object p1, p0, Lcom/google/common/collect/Sets$SubSet$1;->this$0:Lcom/google/common/collect/Sets$SubSet;
 
     invoke-direct {p0}, Lcom/google/common/collect/UnmodifiableIterator;-><init>()V
 
+    .line 1292
     iget-object v0, p0, Lcom/google/common/collect/Sets$SubSet$1;->this$0:Lcom/google/common/collect/Sets$SubSet;
 
     # getter for: Lcom/google/common/collect/Sets$SubSet;->inputSet:Lcom/google/common/collect/ImmutableMap;
@@ -61,6 +65,7 @@
 
     iput-object v0, p0, Lcom/google/common/collect/Sets$SubSet$1;->elements:Lcom/google/common/collect/ImmutableList;
 
+    .line 1293
     iget-object v0, p0, Lcom/google/common/collect/Sets$SubSet$1;->this$0:Lcom/google/common/collect/Sets$SubSet;
 
     # getter for: Lcom/google/common/collect/Sets$SubSet;->mask:I
@@ -78,6 +83,9 @@
 .method public hasNext()Z
     .locals 1
 
+    .prologue
+    .line 1297
+    .local p0, "this":Lcom/google/common/collect/Sets$SubSet$1;, "Lcom/google/common/collect/Sets$SubSet.1;"
     iget v0, p0, Lcom/google/common/collect/Sets$SubSet$1;->remainingSetBits:I
 
     if-eqz v0, :cond_0
@@ -101,22 +109,29 @@
         }
     .end annotation
 
+    .prologue
+    .line 1302
+    .local p0, "this":Lcom/google/common/collect/Sets$SubSet$1;, "Lcom/google/common/collect/Sets$SubSet.1;"
     iget v1, p0, Lcom/google/common/collect/Sets$SubSet$1;->remainingSetBits:I
 
     invoke-static {v1}, Ljava/lang/Integer;->numberOfTrailingZeros(I)I
 
     move-result v0
 
+    .line 1303
+    .local v0, "index":I
     const/16 v1, 0x20
 
     if-ne v0, v1, :cond_0
 
+    .line 1304
     new-instance v1, Ljava/util/NoSuchElementException;
 
     invoke-direct {v1}, Ljava/util/NoSuchElementException;-><init>()V
 
     throw v1
 
+    .line 1306
     :cond_0
     iget v1, p0, Lcom/google/common/collect/Sets$SubSet$1;->remainingSetBits:I
 
@@ -130,6 +145,7 @@
 
     iput v1, p0, Lcom/google/common/collect/Sets$SubSet$1;->remainingSetBits:I
 
+    .line 1307
     iget-object v1, p0, Lcom/google/common/collect/Sets$SubSet$1;->elements:Lcom/google/common/collect/ImmutableList;
 
     invoke-virtual {v1, v0}, Lcom/google/common/collect/ImmutableList;->get(I)Ljava/lang/Object;

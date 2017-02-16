@@ -25,8 +25,11 @@
 .method constructor <init>(Lcom/samsung/android/sdk/look/writingbuddy/SlookWritingBuddy;)V
     .locals 0
 
+    .prologue
+    .line 1
     iput-object p1, p0, Lcom/samsung/android/sdk/look/writingbuddy/SlookWritingBuddy$2;->this$0:Lcom/samsung/android/sdk/look/writingbuddy/SlookWritingBuddy;
 
+    .line 196
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -36,7 +39,10 @@
 # virtual methods
 .method public onImageReceived(Landroid/graphics/Bitmap;)V
     .locals 1
+    .param p1, "image"    # Landroid/graphics/Bitmap;
 
+    .prologue
+    .line 199
     iget-object v0, p0, Lcom/samsung/android/sdk/look/writingbuddy/SlookWritingBuddy$2;->this$0:Lcom/samsung/android/sdk/look/writingbuddy/SlookWritingBuddy;
 
     # getter for: Lcom/samsung/android/sdk/look/writingbuddy/SlookWritingBuddy;->mImageWritingListener:Lcom/samsung/android/sdk/look/writingbuddy/SlookWritingBuddy$ImageWritingListener;
@@ -46,5 +52,6 @@
 
     invoke-interface {v0, p1}, Lcom/samsung/android/sdk/look/writingbuddy/SlookWritingBuddy$ImageWritingListener;->onImageReceived(Landroid/graphics/Bitmap;)V
 
+    .line 200
     return-void
 .end method

@@ -18,6 +18,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 599
     invoke-direct {p0}, Lcom/android/contacts/common/model/account/BaseAccountType$CommonInflater;-><init>()V
 
     return-void
@@ -27,7 +29,10 @@
 # virtual methods
 .method protected getTypeLabelResource(Ljava/lang/Integer;)I
     .locals 1
+    .param p1, "type"    # Ljava/lang/Integer;
 
+    .prologue
+    .line 603
     if-nez p1, :cond_0
 
     const/4 v0, 0x0

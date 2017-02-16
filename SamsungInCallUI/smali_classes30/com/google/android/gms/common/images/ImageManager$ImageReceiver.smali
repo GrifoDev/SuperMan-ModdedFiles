@@ -35,7 +35,9 @@
 # direct methods
 .method constructor <init>(Lcom/google/android/gms/common/images/ImageManager;Landroid/net/Uri;)V
     .locals 2
+    .param p2, "uri"    # Landroid/net/Uri;
 
+    .prologue
     iput-object p1, p0, Lcom/google/android/gms/common/images/ImageManager$ImageReceiver;->aA:Lcom/google/android/gms/common/images/ImageManager;
 
     new-instance v0, Landroid/os/Handler;
@@ -135,7 +137,10 @@
 
 .method public onReceiveResult(ILandroid/os/Bundle;)V
     .locals 5
+    .param p1, "resultCode"    # I
+    .param p2, "resultData"    # Landroid/os/Bundle;
 
+    .prologue
     const-string v0, "com.google.android.gms.extra.fileDescriptor"
 
     invoke-virtual {p2, v0}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;

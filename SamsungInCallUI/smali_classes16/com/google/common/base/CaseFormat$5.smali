@@ -17,7 +17,11 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;ILcom/google/common/base/CharMatcher;Ljava/lang/String;)V
     .locals 6
+    .param p3, "x0"    # Lcom/google/common/base/CharMatcher;
+    .param p4, "x1"    # Ljava/lang/String;
 
+    .prologue
+    .line 104
     const/4 v5, 0x0
 
     move-object v0, p0
@@ -39,11 +43,16 @@
 # virtual methods
 .method convert(Lcom/google/common/base/CaseFormat;Ljava/lang/String;)Ljava/lang/String;
     .locals 2
+    .param p1, "format"    # Lcom/google/common/base/CaseFormat;
+    .param p2, "s"    # Ljava/lang/String;
 
+    .prologue
+    .line 112
     sget-object v0, Lcom/google/common/base/CaseFormat$5;->LOWER_HYPHEN:Lcom/google/common/base/CaseFormat;
 
     if-ne p1, v0, :cond_0
 
+    .line 113
     const/16 v0, 0x5f
 
     const/16 v1, 0x2d
@@ -56,20 +65,24 @@
 
     move-result-object v0
 
+    .line 118
     :goto_0
     return-object v0
 
+    .line 115
     :cond_0
     sget-object v0, Lcom/google/common/base/CaseFormat$5;->LOWER_UNDERSCORE:Lcom/google/common/base/CaseFormat;
 
     if-ne p1, v0, :cond_1
 
+    .line 116
     invoke-static {p2}, Lcom/google/common/base/Ascii;->toLowerCase(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     goto :goto_0
 
+    .line 118
     :cond_1
     invoke-super {p0, p1, p2}, Lcom/google/common/base/CaseFormat;->convert(Lcom/google/common/base/CaseFormat;Ljava/lang/String;)Ljava/lang/String;
 
@@ -80,7 +93,10 @@
 
 .method normalizeWord(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
+    .param p1, "word"    # Ljava/lang/String;
 
+    .prologue
+    .line 107
     invoke-static {p1}, Lcom/google/common/base/Ascii;->toUpperCase(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0

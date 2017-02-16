@@ -35,6 +35,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 1500
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -58,19 +60,26 @@
         }
     .end annotation
 
+    .prologue
+    .line 1502
+    .local p1, "input":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<Ljava/lang/Object;>;"
     return-object p1
 .end method
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Lcom/google/common/util/concurrent/ListenableFuture;
     .locals 1
+    .param p1, "x0"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
+    .prologue
+    .line 1500
     check-cast p1, Lcom/google/common/util/concurrent/ListenableFuture;
 
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/google/common/util/concurrent/Futures$4;->apply(Lcom/google/common/util/concurrent/ListenableFuture;)Lcom/google/common/util/concurrent/ListenableFuture;
 
     move-result-object v0

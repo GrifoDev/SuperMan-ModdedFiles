@@ -27,6 +27,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 131
     invoke-direct {p0}, Ljava/lang/ClassValue;-><init>()V
 
     return-void
@@ -45,6 +47,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 134
+    .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     const-class v0, Ljava/lang/Exception;
 
     invoke-virtual {p1, v0}, Ljava/lang/Class;->asSubclass(Ljava/lang/Class;)Ljava/lang/Class;
@@ -53,6 +58,7 @@
 
     invoke-static {v0}, Lcom/google/common/util/concurrent/FuturesGetChecked;->checkExceptionClassValidity(Ljava/lang/Class;)V
 
+    .line 135
     const/4 v0, 0x1
 
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -64,7 +70,10 @@
 
 .method protected bridge synthetic computeValue(Ljava/lang/Class;)Ljava/lang/Object;
     .locals 1
+    .param p1, "x0"    # Ljava/lang/Class;
 
+    .prologue
+    .line 131
     invoke-virtual {p0, p1}, Lcom/google/common/util/concurrent/FuturesGetChecked$GetCheckedTypeValidatorHolder$ClassValueValidator$1;->computeValue(Ljava/lang/Class;)Ljava/lang/Boolean;
 
     move-result-object v0

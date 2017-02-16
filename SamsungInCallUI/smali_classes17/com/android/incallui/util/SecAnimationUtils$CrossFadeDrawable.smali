@@ -23,9 +23,13 @@
 # direct methods
 .method public constructor <init>([Landroid/graphics/drawable/Drawable;)V
     .locals 2
+    .param p1, "layers"    # [Landroid/graphics/drawable/Drawable;
 
+    .prologue
+    .line 178
     invoke-direct {p0, p1}, Landroid/graphics/drawable/LayerDrawable;-><init>([Landroid/graphics/drawable/Drawable;)V
 
+    .line 179
     const-string v0, "crossFadeAlpha"
 
     const/4 v1, 0x2
@@ -40,8 +44,10 @@
 
     iput-object v0, p0, Lcom/android/incallui/util/SecAnimationUtils$CrossFadeDrawable;->mAnimator:Landroid/animation/ObjectAnimator;
 
+    .line 180
     return-void
 
+    .line 179
     :array_0
     .array-data 4
         0xff
@@ -53,48 +59,63 @@
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
     .locals 4
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
 
+    .prologue
     const/16 v3, 0xff
 
+    .line 201
     const/4 v2, 0x0
 
     invoke-virtual {p0, v2}, Lcom/android/incallui/util/SecAnimationUtils$CrossFadeDrawable;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
+    .line 202
+    .local v0, "first":Landroid/graphics/drawable/Drawable;
     const/4 v2, 0x1
 
     invoke-virtual {p0, v2}, Lcom/android/incallui/util/SecAnimationUtils$CrossFadeDrawable;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
+    .line 204
+    .local v1, "second":Landroid/graphics/drawable/Drawable;
     iget v2, p0, Lcom/android/incallui/util/SecAnimationUtils$CrossFadeDrawable;->mCrossFadeAlpha:I
 
     if-lez v2, :cond_0
 
+    .line 205
     iget v2, p0, Lcom/android/incallui/util/SecAnimationUtils$CrossFadeDrawable;->mCrossFadeAlpha:I
 
     invoke-virtual {v0, v2}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
 
+    .line 206
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
+    .line 207
     invoke-virtual {v0, v3}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
 
+    .line 210
     :cond_0
     iget v2, p0, Lcom/android/incallui/util/SecAnimationUtils$CrossFadeDrawable;->mCrossFadeAlpha:I
 
     if-ge v2, v3, :cond_1
 
+    .line 211
     iget v2, p0, Lcom/android/incallui/util/SecAnimationUtils$CrossFadeDrawable;->mCrossFadeAlpha:I
 
     rsub-int v2, v2, 0xff
 
     invoke-virtual {v1, v2}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
 
+    .line 212
     invoke-virtual {v1, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
+    .line 213
     invoke-virtual {v1, v3}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
 
+    .line 215
     :cond_1
     return-void
 .end method
@@ -102,6 +123,8 @@
 .method public getAnimator()Landroid/animation/ObjectAnimator;
     .locals 1
 
+    .prologue
+    .line 196
     iget-object v0, p0, Lcom/android/incallui/util/SecAnimationUtils$CrossFadeDrawable;->mAnimator:Landroid/animation/ObjectAnimator;
 
     return-object v0
@@ -109,10 +132,15 @@
 
 .method public setCrossFadeAlpha(I)V
     .locals 0
+    .param p1, "alpha"    # I
 
+    .prologue
+    .line 191
     iput p1, p0, Lcom/android/incallui/util/SecAnimationUtils$CrossFadeDrawable;->mCrossFadeAlpha:I
 
+    .line 192
     invoke-virtual {p0}, Lcom/android/incallui/util/SecAnimationUtils$CrossFadeDrawable;->invalidateSelf()V
 
+    .line 193
     return-void
 .end method

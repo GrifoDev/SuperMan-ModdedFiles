@@ -80,7 +80,16 @@
 
 .method constructor <init>(ILcom/google/android/gms/maps/model/LatLng;DFIIFZ)V
     .locals 3
+    .param p1, "versionCode"    # I
+    .param p2, "center"    # Lcom/google/android/gms/maps/model/LatLng;
+    .param p3, "radius"    # D
+    .param p5, "strokeWidth"    # F
+    .param p6, "strokeColor"    # I
+    .param p7, "fillColor"    # I
+    .param p8, "zIndex"    # F
+    .param p9, "visible"    # Z
 
+    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     const/4 v0, 0x0
@@ -134,7 +143,9 @@
 # virtual methods
 .method public center(Lcom/google/android/gms/maps/model/LatLng;)Lcom/google/android/gms/maps/model/CircleOptions;
     .locals 0
+    .param p1, "center"    # Lcom/google/android/gms/maps/model/LatLng;
 
+    .prologue
     iput-object p1, p0, Lcom/google/android/gms/maps/model/CircleOptions;->gW:Lcom/google/android/gms/maps/model/LatLng;
 
     return-object p0
@@ -150,7 +161,9 @@
 
 .method public fillColor(I)Lcom/google/android/gms/maps/model/CircleOptions;
     .locals 0
+    .param p1, "color"    # I
 
+    .prologue
     iput p1, p0, Lcom/google/android/gms/maps/model/CircleOptions;->ha:I
 
     return-object p0
@@ -222,7 +235,9 @@
 
 .method public radius(D)Lcom/google/android/gms/maps/model/CircleOptions;
     .locals 1
+    .param p1, "radius"    # D
 
+    .prologue
     iput-wide p1, p0, Lcom/google/android/gms/maps/model/CircleOptions;->gX:D
 
     return-object p0
@@ -230,7 +245,9 @@
 
 .method public strokeColor(I)Lcom/google/android/gms/maps/model/CircleOptions;
     .locals 0
+    .param p1, "color"    # I
 
+    .prologue
     iput p1, p0, Lcom/google/android/gms/maps/model/CircleOptions;->gZ:I
 
     return-object p0
@@ -238,7 +255,9 @@
 
 .method public strokeWidth(F)Lcom/google/android/gms/maps/model/CircleOptions;
     .locals 0
+    .param p1, "width"    # F
 
+    .prologue
     iput p1, p0, Lcom/google/android/gms/maps/model/CircleOptions;->gY:F
 
     return-object p0
@@ -246,7 +265,9 @@
 
 .method public visible(Z)Lcom/google/android/gms/maps/model/CircleOptions;
     .locals 0
+    .param p1, "visible"    # Z
 
+    .prologue
     iput-boolean p1, p0, Lcom/google/android/gms/maps/model/CircleOptions;->hc:Z
 
     return-object p0
@@ -254,7 +275,10 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
+    .prologue
     invoke-static {}, Lcom/google/android/gms/maps/internal/q;->bn()Z
 
     move-result v0
@@ -274,7 +298,9 @@
 
 .method public zIndex(F)Lcom/google/android/gms/maps/model/CircleOptions;
     .locals 0
+    .param p1, "zIndex"    # F
 
+    .prologue
     iput p1, p0, Lcom/google/android/gms/maps/model/CircleOptions;->hb:F
 
     return-object p0

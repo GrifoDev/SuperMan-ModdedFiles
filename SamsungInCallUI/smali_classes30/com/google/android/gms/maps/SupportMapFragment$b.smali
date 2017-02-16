@@ -60,7 +60,9 @@
 
 .method private setActivity(Landroid/app/Activity;)V
     .locals 0
+    .param p1, "activity"    # Landroid/app/Activity;
 
+    .prologue
     iput-object p1, p0, Lcom/google/android/gms/maps/SupportMapFragment$b;->bm:Landroid/app/Activity;
 
     invoke-virtual {p0}, Lcom/google/android/gms/maps/SupportMapFragment$b;->bi()V

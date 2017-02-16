@@ -45,6 +45,7 @@
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
+    .param p3, "cause"    # Lcom/google/common/collect/MapMaker$RemovalCause;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;",
@@ -53,10 +54,17 @@
         }
     .end annotation
 
+    .prologue
+    .line 669
+    .local p0, "this":Lcom/google/common/collect/MapMaker$RemovalNotification;, "Lcom/google/common/collect/MapMaker$RemovalNotification<TK;TV;>;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
+    .local p2, "value":Ljava/lang/Object;, "TV;"
     invoke-direct {p0, p1, p2}, Lcom/google/common/collect/ImmutableEntry;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
+    .line 670
     iput-object p3, p0, Lcom/google/common/collect/MapMaker$RemovalNotification;->cause:Lcom/google/common/collect/MapMaker$RemovalCause;
 
+    .line 671
     return-void
 .end method
 
@@ -65,6 +73,9 @@
 .method public getCause()Lcom/google/common/collect/MapMaker$RemovalCause;
     .locals 1
 
+    .prologue
+    .line 677
+    .local p0, "this":Lcom/google/common/collect/MapMaker$RemovalNotification;, "Lcom/google/common/collect/MapMaker$RemovalNotification<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/MapMaker$RemovalNotification;->cause:Lcom/google/common/collect/MapMaker$RemovalCause;
 
     return-object v0
@@ -73,6 +84,9 @@
 .method public wasEvicted()Z
     .locals 1
 
+    .prologue
+    .line 685
+    .local p0, "this":Lcom/google/common/collect/MapMaker$RemovalNotification;, "Lcom/google/common/collect/MapMaker$RemovalNotification<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/MapMaker$RemovalNotification;->cause:Lcom/google/common/collect/MapMaker$RemovalCause;
 
     invoke-virtual {v0}, Lcom/google/common/collect/MapMaker$RemovalCause;->wasEvicted()Z

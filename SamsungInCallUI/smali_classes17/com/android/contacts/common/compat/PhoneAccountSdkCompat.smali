@@ -15,6 +15,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 22
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -22,7 +24,10 @@
 
 .method public static getExtras(Landroid/telecom/PhoneAccount;)Landroid/os/Bundle;
     .locals 1
+    .param p0, "account"    # Landroid/telecom/PhoneAccount;
 
+    .prologue
+    .line 30
     invoke-virtual {p0}, Landroid/telecom/PhoneAccount;->getExtras()Landroid/os/Bundle;
 
     move-result-object v0

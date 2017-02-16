@@ -52,8 +52,14 @@
         }
     .end annotation
 
+    .prologue
+    .line 2893
+    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntrySortedMap;, "Lcom/google/common/collect/Maps$FilteredEntrySortedMap<TK;TV;>;"
+    .local p1, "unfiltered":Ljava/util/SortedMap;, "Ljava/util/SortedMap<TK;TV;>;"
+    .local p2, "entryPredicate":Lcom/google/common/base/Predicate;, "Lcom/google/common/base/Predicate<-Ljava/util/Map$Entry<TK;TV;>;>;"
     invoke-direct {p0, p1, p2}, Lcom/google/common/collect/Maps$FilteredEntryMap;-><init>(Ljava/util/Map;Lcom/google/common/base/Predicate;)V
 
+    .line 2894
     return-void
 .end method
 
@@ -69,6 +75,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 2945
+    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntrySortedMap;, "Lcom/google/common/collect/Maps$FilteredEntrySortedMap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$FilteredEntrySortedMap;->sortedMap()Ljava/util/SortedMap;
 
     move-result-object v0
@@ -83,6 +92,9 @@
 .method bridge synthetic createKeySet()Ljava/util/Set;
     .locals 1
 
+    .prologue
+    .line 2888
+    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntrySortedMap;, "Lcom/google/common/collect/Maps$FilteredEntrySortedMap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$FilteredEntrySortedMap;->createKeySet()Ljava/util/SortedSet;
 
     move-result-object v0
@@ -100,6 +112,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 2907
+    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntrySortedMap;, "Lcom/google/common/collect/Maps$FilteredEntrySortedMap<TK;TV;>;"
     new-instance v0, Lcom/google/common/collect/Maps$FilteredEntrySortedMap$SortedKeySet;
 
     invoke-direct {v0, p0}, Lcom/google/common/collect/Maps$FilteredEntrySortedMap$SortedKeySet;-><init>(Lcom/google/common/collect/Maps$FilteredEntrySortedMap;)V
@@ -115,6 +130,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 2951
+    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntrySortedMap;, "Lcom/google/common/collect/Maps$FilteredEntrySortedMap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$FilteredEntrySortedMap;->keySet()Ljava/util/SortedSet;
 
     move-result-object v0
@@ -140,6 +158,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 2969
+    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntrySortedMap;, "Lcom/google/common/collect/Maps$FilteredEntrySortedMap<TK;TV;>;"
+    .local p1, "toKey":Ljava/lang/Object;, "TK;"
     new-instance v0, Lcom/google/common/collect/Maps$FilteredEntrySortedMap;
 
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$FilteredEntrySortedMap;->sortedMap()Ljava/util/SortedMap;
@@ -160,6 +182,9 @@
 .method public bridge synthetic keySet()Ljava/util/Set;
     .locals 1
 
+    .prologue
+    .line 2888
+    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntrySortedMap;, "Lcom/google/common/collect/Maps$FilteredEntrySortedMap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$FilteredEntrySortedMap;->keySet()Ljava/util/SortedSet;
 
     move-result-object v0
@@ -177,6 +202,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 2902
+    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntrySortedMap;, "Lcom/google/common/collect/Maps$FilteredEntrySortedMap<TK;TV;>;"
     invoke-super {p0}, Lcom/google/common/collect/Maps$FilteredEntryMap;->keySet()Ljava/util/Set;
 
     move-result-object v0
@@ -194,15 +222,22 @@
         }
     .end annotation
 
+    .prologue
+    .line 2956
+    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntrySortedMap;, "Lcom/google/common/collect/Maps$FilteredEntrySortedMap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$FilteredEntrySortedMap;->sortedMap()Ljava/util/SortedMap;
 
     move-result-object v0
 
+    .line 2959
+    .local v0, "headMap":Ljava/util/SortedMap;, "Ljava/util/SortedMap<TK;TV;>;"
     :goto_0
     invoke-interface {v0}, Ljava/util/SortedMap;->lastKey()Ljava/lang/Object;
 
     move-result-object v1
 
+    .line 2960
+    .local v1, "key":Ljava/lang/Object;, "TK;"
     iget-object v2, p0, Lcom/google/common/collect/Maps$FilteredEntrySortedMap;->unfiltered:Ljava/util/Map;
 
     invoke-interface {v2, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -215,8 +250,10 @@
 
     if-eqz v2, :cond_0
 
+    .line 2961
     return-object v1
 
+    .line 2963
     :cond_0
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$FilteredEntrySortedMap;->sortedMap()Ljava/util/SortedMap;
 
@@ -226,6 +263,7 @@
 
     move-result-object v0
 
+    .line 2964
     goto :goto_0
 .end method
 
@@ -239,6 +277,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 2897
+    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntrySortedMap;, "Lcom/google/common/collect/Maps$FilteredEntrySortedMap<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$FilteredEntrySortedMap;->unfiltered:Ljava/util/Map;
 
     check-cast v0, Ljava/util/SortedMap;
@@ -256,6 +297,11 @@
         }
     .end annotation
 
+    .prologue
+    .line 2974
+    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntrySortedMap;, "Lcom/google/common/collect/Maps$FilteredEntrySortedMap<TK;TV;>;"
+    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
+    .local p2, "toKey":Ljava/lang/Object;, "TK;"
     new-instance v0, Lcom/google/common/collect/Maps$FilteredEntrySortedMap;
 
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$FilteredEntrySortedMap;->sortedMap()Ljava/util/SortedMap;
@@ -283,6 +329,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 2979
+    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntrySortedMap;, "Lcom/google/common/collect/Maps$FilteredEntrySortedMap<TK;TV;>;"
+    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
     new-instance v0, Lcom/google/common/collect/Maps$FilteredEntrySortedMap;
 
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$FilteredEntrySortedMap;->sortedMap()Ljava/util/SortedMap;

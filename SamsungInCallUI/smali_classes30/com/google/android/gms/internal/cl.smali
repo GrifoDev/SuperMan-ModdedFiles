@@ -242,7 +242,9 @@
 
 .method public synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
+    .param p1, "x0"    # Landroid/os/Parcel;
 
+    .prologue
     invoke-virtual {p0, p1}, Lcom/google/android/gms/internal/cl;->G(Landroid/os/Parcel;)Lcom/google/android/gms/internal/cc$g;
 
     move-result-object v0
@@ -252,7 +254,9 @@
 
 .method public synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
+    .param p1, "x0"    # I
 
+    .prologue
     invoke-virtual {p0, p1}, Lcom/google/android/gms/internal/cl;->ag(I)[Lcom/google/android/gms/internal/cc$g;
 
     move-result-object v0

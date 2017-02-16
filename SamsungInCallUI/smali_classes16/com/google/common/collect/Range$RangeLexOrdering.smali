@@ -35,6 +35,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 678
     invoke-direct {p0}, Lcom/google/common/collect/Ordering;-><init>()V
 
     return-void
@@ -42,7 +44,10 @@
 
 .method synthetic constructor <init>(Lcom/google/common/collect/Range$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/google/common/collect/Range$1;
 
+    .prologue
+    .line 678
     invoke-direct {p0}, Lcom/google/common/collect/Range$RangeLexOrdering;-><init>()V
 
     return-void
@@ -62,6 +67,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 682
+    .local p1, "left":Lcom/google/common/collect/Range;, "Lcom/google/common/collect/Range<*>;"
+    .local p2, "right":Lcom/google/common/collect/Range;, "Lcom/google/common/collect/Range<*>;"
     invoke-static {}, Lcom/google/common/collect/ComparisonChain;->start()Lcom/google/common/collect/ComparisonChain;
 
     move-result-object v0
@@ -91,11 +100,17 @@
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
+    .param p1, "x0"    # Ljava/lang/Object;
+    .param p2, "x1"    # Ljava/lang/Object;
 
+    .prologue
+    .line 678
     check-cast p1, Lcom/google/common/collect/Range;
 
+    .end local p1    # "x0":Ljava/lang/Object;
     check-cast p2, Lcom/google/common/collect/Range;
 
+    .end local p2    # "x1":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Lcom/google/common/collect/Range$RangeLexOrdering;->compare(Lcom/google/common/collect/Range;Lcom/google/common/collect/Range;)I
 
     move-result v0

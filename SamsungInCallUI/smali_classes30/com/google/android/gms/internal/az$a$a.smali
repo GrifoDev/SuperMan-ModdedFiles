@@ -3651,12 +3651,14 @@
 
 .method public clearNotifications(I)V
     .locals 5
+    .param p1, "notificationTypes"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -5296,12 +5298,14 @@
 
 .method public setUseNewPlayerNotificationsFirstParty(Z)V
     .locals 5
+    .param p1, "newPlayerStyle"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     const/4 v0, 0x0
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;

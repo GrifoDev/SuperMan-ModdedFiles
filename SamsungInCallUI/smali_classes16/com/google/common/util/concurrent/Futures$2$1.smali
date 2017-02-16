@@ -27,6 +27,8 @@
 .method constructor <init>(Lcom/google/common/util/concurrent/Futures$2;Ljava/lang/Runnable;)V
     .locals 0
 
+    .prologue
+    .line 1174
     iput-object p1, p0, Lcom/google/common/util/concurrent/Futures$2$1;->this$0:Lcom/google/common/util/concurrent/Futures$2;
 
     iput-object p2, p0, Lcom/google/common/util/concurrent/Futures$2$1;->val$command:Ljava/lang/Runnable;
@@ -41,15 +43,19 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 1176
     iget-object v0, p0, Lcom/google/common/util/concurrent/Futures$2$1;->this$0:Lcom/google/common/util/concurrent/Futures$2;
 
     const/4 v1, 0x0
 
     iput-boolean v1, v0, Lcom/google/common/util/concurrent/Futures$2;->thrownFromDelegate:Z
 
+    .line 1177
     iget-object v0, p0, Lcom/google/common/util/concurrent/Futures$2$1;->val$command:Ljava/lang/Runnable;
 
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
+    .line 1178
     return-void
 .end method

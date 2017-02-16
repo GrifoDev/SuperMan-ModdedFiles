@@ -160,12 +160,14 @@
 
 .method public onCreate(Landroid/os/Bundle;)V
     .locals 5
+    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -230,12 +232,16 @@
 
 .method public onCreateView(Lcom/google/android/gms/dynamic/b;Lcom/google/android/gms/dynamic/b;Landroid/os/Bundle;)Lcom/google/android/gms/dynamic/b;
     .locals 5
+    .param p1, "inflaterWrapper"    # Lcom/google/android/gms/dynamic/b;
+    .param p2, "containerWrapper"    # Lcom/google/android/gms/dynamic/b;
+    .param p3, "savedInstanceState"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     const/4 v0, 0x0
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
@@ -431,12 +437,16 @@
 
 .method public onInflate(Lcom/google/android/gms/dynamic/b;Lcom/google/android/gms/maps/GoogleMapOptions;Landroid/os/Bundle;)V
     .locals 5
+    .param p1, "activityWrapper"    # Lcom/google/android/gms/dynamic/b;
+    .param p2, "options"    # Lcom/google/android/gms/maps/GoogleMapOptions;
+    .param p3, "savedInstanceState"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -683,12 +693,14 @@
 
 .method public onSaveInstanceState(Landroid/os/Bundle;)V
     .locals 5
+    .param p1, "outState"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1

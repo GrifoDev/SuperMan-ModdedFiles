@@ -37,6 +37,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -56,6 +58,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 40
     iget-object v0, p0, Lcom/cmdm/control/bean/CorpLinkList;->corpLinkList:Ljava/util/List;
 
     return-object v0
@@ -73,7 +77,11 @@
         }
     .end annotation
 
+    .prologue
+    .line 46
+    .local p1, "corpLinkList":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     iput-object p1, p0, Lcom/cmdm/control/bean/CorpLinkList;->corpLinkList:Ljava/util/List;
 
+    .line 47
     return-void
 .end method

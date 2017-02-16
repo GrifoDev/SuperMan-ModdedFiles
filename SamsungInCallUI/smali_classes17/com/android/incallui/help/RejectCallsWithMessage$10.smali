@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/help/RejectCallsWithMessage;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/help/RejectCallsWithMessage;
 
+    .prologue
+    .line 389
     iput-object p1, p0, Lcom/android/incallui/help/RejectCallsWithMessage$10;->this$0:Lcom/android/incallui/help/RejectCallsWithMessage;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +39,10 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/view/animation/Animation;)V
     .locals 2
+    .param p1, "animation"    # Landroid/view/animation/Animation;
 
+    .prologue
+    .line 400
     iget-object v0, p0, Lcom/android/incallui/help/RejectCallsWithMessage$10;->this$0:Lcom/android/incallui/help/RejectCallsWithMessage;
 
     # getter for: Lcom/android/incallui/help/RejectCallsWithMessage;->mSendMsgTipBubble:Landroid/widget/FrameLayout;
@@ -48,6 +54,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/help/RejectCallsWithMessage$10;->this$0:Lcom/android/incallui/help/RejectCallsWithMessage;
 
+    .line 401
     # getter for: Lcom/android/incallui/help/RejectCallsWithMessage;->mSendMsgTipBubble:Landroid/widget/FrameLayout;
     invoke-static {v0}, Lcom/android/incallui/help/RejectCallsWithMessage;->access$600(Lcom/android/incallui/help/RejectCallsWithMessage;)Landroid/widget/FrameLayout;
 
@@ -59,6 +66,7 @@
 
     if-nez v0, :cond_1
 
+    .line 402
     iget-object v0, p0, Lcom/android/incallui/help/RejectCallsWithMessage$10;->this$0:Lcom/android/incallui/help/RejectCallsWithMessage;
 
     # getter for: Lcom/android/incallui/help/RejectCallsWithMessage;->mSendMsgTipBubble:Landroid/widget/FrameLayout;
@@ -75,10 +83,12 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->startAnimation(Landroid/view/animation/Animation;)V
 
+    .line 408
     :cond_0
     :goto_0
     return-void
 
+    .line 403
     :cond_1
     iget-object v0, p0, Lcom/android/incallui/help/RejectCallsWithMessage$10;->this$0:Lcom/android/incallui/help/RejectCallsWithMessage;
 
@@ -91,6 +101,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/help/RejectCallsWithMessage$10;->this$0:Lcom/android/incallui/help/RejectCallsWithMessage;
 
+    .line 404
     # getter for: Lcom/android/incallui/help/RejectCallsWithMessage;->mDragUpImageLayout:Landroid/widget/FrameLayout;
     invoke-static {v0}, Lcom/android/incallui/help/RejectCallsWithMessage;->access$1200(Lcom/android/incallui/help/RejectCallsWithMessage;)Landroid/widget/FrameLayout;
 
@@ -102,12 +113,14 @@
 
     if-nez v0, :cond_0
 
+    .line 405
     const-string v0, "RejectCallsWithMessage"
 
     const-string v1, "mDragUpImageLayout3"
 
     invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 406
     iget-object v0, p0, Lcom/android/incallui/help/RejectCallsWithMessage$10;->this$0:Lcom/android/incallui/help/RejectCallsWithMessage;
 
     # getter for: Lcom/android/incallui/help/RejectCallsWithMessage;->mDragUpImageLayout:Landroid/widget/FrameLayout;
@@ -129,12 +142,18 @@
 
 .method public onAnimationRepeat(Landroid/view/animation/Animation;)V
     .locals 0
+    .param p1, "animation"    # Landroid/view/animation/Animation;
 
+    .prologue
+    .line 396
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/view/animation/Animation;)V
     .locals 0
+    .param p1, "animation"    # Landroid/view/animation/Animation;
 
+    .prologue
+    .line 392
     return-void
 .end method

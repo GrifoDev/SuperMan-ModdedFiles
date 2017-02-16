@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/ConferenceManagerCsFragment;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
+    .prologue
+    .line 779
     iput-object p1, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$10;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,11 +39,15 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/view/animation/Animation;)V
     .locals 4
+    .param p1, "animation"    # Landroid/view/animation/Animation;
 
+    .prologue
+    .line 792
     const-string v1, "mAnimationBlinkTextListener onAnimationEnd"
 
     invoke-static {p0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 793
     iget-object v2, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$10;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
     iget-object v1, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$10;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
@@ -67,6 +74,7 @@
     # setter for: Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->conferenceRowCallStateLabel:Landroid/widget/TextView;
     invoke-static {v2, v1}, Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->access$502(Lcom/android/incallui/fragment/ConferenceManagerCsFragment;Landroid/widget/TextView;)Landroid/widget/TextView;
 
+    .line 794
     iget-object v1, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$10;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
     # getter for: Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->conferenceRowCallStateLabel:Landroid/widget/TextView;
@@ -78,10 +86,13 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 
+    .line 796
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
+    .line 797
+    .local v0, "handler":Landroid/os/Handler;
     new-instance v1, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$10$1;
 
     invoke-direct {v1, p0}, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$10$1;-><init>(Lcom/android/incallui/fragment/ConferenceManagerCsFragment$10;)V
@@ -90,22 +101,30 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
+    .line 804
     return-void
 .end method
 
 .method public onAnimationRepeat(Landroid/view/animation/Animation;)V
     .locals 0
+    .param p1, "animation"    # Landroid/view/animation/Animation;
 
+    .prologue
+    .line 788
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/view/animation/Animation;)V
     .locals 3
+    .param p1, "animation"    # Landroid/view/animation/Animation;
 
+    .prologue
+    .line 782
     const-string v0, "mAnimationBlinkTextListener onAnimationStart"
 
     invoke-static {p0, v0}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 783
     iget-object v0, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$10;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
     iget-object v1, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$10;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
@@ -119,5 +138,6 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->setConferenceListAlpha(IF)V
 
+    .line 784
     return-void
 .end method

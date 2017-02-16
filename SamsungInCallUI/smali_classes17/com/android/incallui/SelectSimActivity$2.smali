@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/SelectSimActivity;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/SelectSimActivity;
 
+    .prologue
+    .line 86
     iput-object p1, p0, Lcom/android/incallui/SelectSimActivity$2;->this$0:Lcom/android/incallui/SelectSimActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,9 +39,13 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 4
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .param p2, "which"    # I
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 89
     invoke-static {p2}, Lcom/android/incallui/util/InCallUtilsMultiSIM;->isBoltSIM(I)Z
 
     move-result v1
@@ -57,6 +64,7 @@
 
     if-nez v1, :cond_0
 
+    .line 90
     iget-object v1, p0, Lcom/android/incallui/SelectSimActivity$2;->this$0:Lcom/android/incallui/SelectSimActivity;
 
     invoke-virtual {v1}, Lcom/android/incallui/SelectSimActivity;->getApplicationContext()Landroid/content/Context;
@@ -71,15 +79,18 @@
 
     invoke-virtual {v1}, Landroid/widget/Toast;->show()V
 
+    .line 96
     :goto_0
     return-void
 
+    .line 92
     :cond_0
     const/4 v1, 0x1
 
     # setter for: Lcom/android/incallui/SelectSimActivity;->mIsSelected:Z
     invoke-static {v1}, Lcom/android/incallui/SelectSimActivity;->access$102(Z)Z
 
+    .line 93
     iget-object v1, p0, Lcom/android/incallui/SelectSimActivity$2;->this$0:Lcom/android/incallui/SelectSimActivity;
 
     # getter for: Lcom/android/incallui/SelectSimActivity;->mAccountHandles:Ljava/util/List;
@@ -93,6 +104,8 @@
 
     check-cast v0, Landroid/telecom/PhoneAccountHandle;
 
+    .line 94
+    .local v0, "selectedAccountHandle":Landroid/telecom/PhoneAccountHandle;
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
     move-result-object v1

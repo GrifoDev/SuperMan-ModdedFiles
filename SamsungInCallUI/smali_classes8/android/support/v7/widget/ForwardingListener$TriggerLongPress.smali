@@ -25,6 +25,8 @@
 .method private constructor <init>(Landroid/support/v7/widget/ForwardingListener;)V
     .locals 0
 
+    .prologue
+    .line 300
     iput-object p1, p0, Landroid/support/v7/widget/ForwardingListener$TriggerLongPress;->this$0:Landroid/support/v7/widget/ForwardingListener;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,7 +36,11 @@
 
 .method synthetic constructor <init>(Landroid/support/v7/widget/ForwardingListener;Landroid/support/v7/widget/ForwardingListener$1;)V
     .locals 0
+    .param p1, "x0"    # Landroid/support/v7/widget/ForwardingListener;
+    .param p2, "x1"    # Landroid/support/v7/widget/ForwardingListener$1;
 
+    .prologue
+    .line 300
     invoke-direct {p0, p1}, Landroid/support/v7/widget/ForwardingListener$TriggerLongPress;-><init>(Landroid/support/v7/widget/ForwardingListener;)V
 
     return-void
@@ -45,10 +51,13 @@
 .method public run()V
     .locals 1
 
+    .prologue
+    .line 303
     iget-object v0, p0, Landroid/support/v7/widget/ForwardingListener$TriggerLongPress;->this$0:Landroid/support/v7/widget/ForwardingListener;
 
     # invokes: Landroid/support/v7/widget/ForwardingListener;->onLongPress()V
     invoke-static {v0}, Landroid/support/v7/widget/ForwardingListener;->access$300(Landroid/support/v7/widget/ForwardingListener;)V
 
+    .line 304
     return-void
 .end method

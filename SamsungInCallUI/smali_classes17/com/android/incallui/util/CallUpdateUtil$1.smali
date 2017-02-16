@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/util/CallUpdateUtil;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/util/CallUpdateUtil;
 
+    .prologue
+    .line 49
     iput-object p1, p0, Lcom/android/incallui/util/CallUpdateUtil$1;->this$0:Lcom/android/incallui/util/CallUpdateUtil;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -33,15 +36,20 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 1
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 52
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
+    .line 62
     :goto_0
     :pswitch_0
     return-void
 
+    .line 57
     :pswitch_1
     iget-object v0, p0, Lcom/android/incallui/util/CallUpdateUtil$1;->this$0:Lcom/android/incallui/util/CallUpdateUtil;
 
@@ -50,6 +58,7 @@
 
     goto :goto_0
 
+    .line 52
     :pswitch_data_0
     .packed-switch 0x64
         :pswitch_0

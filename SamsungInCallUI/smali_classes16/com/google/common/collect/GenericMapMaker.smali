@@ -51,6 +51,9 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 64
+    .local p0, "this":Lcom/google/common/collect/GenericMapMaker;, "Lcom/google/common/collect/GenericMapMaker<TK0;TV0;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -110,6 +113,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 130
+    .local p0, "this":Lcom/google/common/collect/GenericMapMaker;, "Lcom/google/common/collect/GenericMapMaker<TK0;TV0;>;"
     iget-object v0, p0, Lcom/google/common/collect/GenericMapMaker;->removalListener:Lcom/google/common/collect/MapMaker$RemovalListener;
 
     sget-object v1, Lcom/google/common/collect/GenericMapMaker$NullListener;->INSTANCE:Lcom/google/common/collect/GenericMapMaker$NullListener;

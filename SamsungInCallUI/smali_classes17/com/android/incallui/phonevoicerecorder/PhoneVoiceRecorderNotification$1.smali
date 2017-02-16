@@ -26,7 +26,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotification;Landroid/app/Notification$Action;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotification;
 
+    .prologue
+    .line 147
     iput-object p1, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotification$1;->this$0:Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotification;
 
     iput-object p2, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotification$1;->val$action:Landroid/app/Notification$Action;
@@ -40,7 +43,10 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 2
+    .param p1, "v"    # Landroid/view/View;
 
+    .prologue
+    .line 151
     :try_start_0
     iget-object v1, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotification$1;->val$action:Landroid/app/Notification$Action;
 
@@ -50,6 +56,7 @@
     :try_end_0
     .catch Landroid/app/PendingIntent$CanceledException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 155
     :goto_0
     iget-object v1, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotification$1;->this$0:Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotification;
 
@@ -60,6 +67,7 @@
 
     invoke-virtual {v1}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService;->animateForHide()V
 
+    .line 156
     iget-object v1, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotification$1;->this$0:Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotification;
 
     # getter for: Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotification;->mPhoneVoiceRecorderNotificationService:Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService;
@@ -69,11 +77,15 @@
 
     invoke-virtual {v1}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService;->cancelQuickPanelNotification()V
 
+    .line 157
     return-void
 
+    .line 152
     :catch_0
     move-exception v0
 
+    .line 153
+    .local v0, "e":Landroid/app/PendingIntent$CanceledException;
     invoke-virtual {v0}, Landroid/app/PendingIntent$CanceledException;->printStackTrace()V
 
     goto :goto_0

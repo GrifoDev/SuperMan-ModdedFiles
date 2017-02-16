@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/phone/common/dialpad/DialpadView;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/phone/common/dialpad/DialpadView;
 
+    .prologue
+    .line 286
     iput-object p1, p0, Lcom/android/phone/common/dialpad/DialpadView$1;->this$0:Lcom/android/phone/common/dialpad/DialpadView;
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V

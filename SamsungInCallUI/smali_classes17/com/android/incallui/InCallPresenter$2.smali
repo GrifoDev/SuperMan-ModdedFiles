@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/InCallPresenter;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/InCallPresenter;
 
+    .prologue
+    .line 320
     iput-object p1, p0, Lcom/android/incallui/InCallPresenter$2;->this$0:Lcom/android/incallui/InCallPresenter;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,7 +36,11 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 3
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 323
     const-string v1, "mlstatus"
 
     const/4 v2, 0x0
@@ -42,6 +49,8 @@
 
     move-result v0
 
+    .line 324
+    .local v0, "mlstatus":I
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -62,6 +71,7 @@
 
     invoke-static {p0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 325
     if-nez v0, :cond_0
 
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
@@ -70,6 +80,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 326
     iget-object v1, p0, Lcom/android/incallui/InCallPresenter$2;->this$0:Lcom/android/incallui/InCallPresenter;
 
     iget-object v2, p0, Lcom/android/incallui/InCallPresenter$2;->this$0:Lcom/android/incallui/InCallPresenter;
@@ -81,6 +92,7 @@
 
     invoke-virtual {v1, v2}, Lcom/android/incallui/InCallPresenter;->onCallListChange(Lcom/android/incallui/CallList;)V
 
+    .line 328
     :cond_0
     return-void
 .end method

@@ -96,6 +96,8 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
+    .line 118
     const/16 v0, 0x9
 
     new-array v0, v0, [Ljava/lang/String;
@@ -156,10 +158,12 @@
 
     sput-object v0, Lcom/android/incallui/secrcs/RcsTransferConstants;->INCALL_SERVICE_PROJECTION:[Ljava/lang/String;
 
+    .line 123
     const-string v0, "content://"
 
     const-string v1, "com.samsung.rcs.serviceprovider"
 
+    .line 124
     invoke-virtual {v0, v1}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -170,16 +174,19 @@
 
     const-string v1, "incall"
 
+    .line 123
     invoke-static {v0, v1}, Landroid/net/Uri;->withAppendedPath(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v0
 
     sput-object v0, Lcom/android/incallui/secrcs/RcsTransferConstants;->INCALL_SERVICE_PRVIDER_URI:Landroid/net/Uri;
 
+    .line 126
     const-string v0, "content://"
 
     const-string v1, "com.samsung.rcs.serviceprovider"
 
+    .line 127
     invoke-virtual {v0, v1}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -190,12 +197,14 @@
 
     const-string v1, "sip"
 
+    .line 126
     invoke-static {v0, v1}, Landroid/net/Uri;->withAppendedPath(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v0
 
     sput-object v0, Lcom/android/incallui/secrcs/RcsTransferConstants;->SIP_URI:Landroid/net/Uri;
 
+    .line 129
     const-string v0, "content://com.samsung.rcs.serviceprovider/own"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;

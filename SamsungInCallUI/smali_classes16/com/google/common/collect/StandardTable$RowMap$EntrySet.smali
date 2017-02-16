@@ -33,6 +33,9 @@
 .method constructor <init>(Lcom/google/common/collect/StandardTable$RowMap;)V
     .locals 2
 
+    .prologue
+    .line 768
+    .local p0, "this":Lcom/google/common/collect/StandardTable$RowMap$EntrySet;, "Lcom/google/common/collect/StandardTable<TR;TC;TV;>.RowMap.EntrySet;"
     iput-object p1, p0, Lcom/google/common/collect/StandardTable$RowMap$EntrySet;->this$1:Lcom/google/common/collect/StandardTable$RowMap;
 
     iget-object v0, p1, Lcom/google/common/collect/StandardTable$RowMap;->this$0:Lcom/google/common/collect/StandardTable;
@@ -48,17 +51,24 @@
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
     .locals 3
+    .param p1, "obj"    # Ljava/lang/Object;
 
+    .prologue
+    .local p0, "this":Lcom/google/common/collect/StandardTable$RowMap$EntrySet;, "Lcom/google/common/collect/StandardTable<TR;TC;TV;>.RowMap.EntrySet;"
     const/4 v1, 0x0
 
+    .line 788
     instance-of v2, p1, Ljava/util/Map$Entry;
 
     if-eqz v2, :cond_0
 
     move-object v0, p1
 
+    .line 789
     check-cast v0, Ljava/util/Map$Entry;
 
+    .line 790
+    .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v2
@@ -91,6 +101,8 @@
 
     const/4 v1, 0x1
 
+    .line 794
+    .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
     :cond_0
     return v1
 .end method
@@ -109,6 +121,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 771
+    .local p0, "this":Lcom/google/common/collect/StandardTable$RowMap$EntrySet;, "Lcom/google/common/collect/StandardTable<TR;TC;TV;>.RowMap.EntrySet;"
     iget-object v0, p0, Lcom/google/common/collect/StandardTable$RowMap$EntrySet;->this$1:Lcom/google/common/collect/StandardTable$RowMap;
 
     iget-object v0, v0, Lcom/google/common/collect/StandardTable$RowMap;->this$0:Lcom/google/common/collect/StandardTable;
@@ -132,17 +147,24 @@
 
 .method public remove(Ljava/lang/Object;)Z
     .locals 3
+    .param p1, "obj"    # Ljava/lang/Object;
 
+    .prologue
+    .local p0, "this":Lcom/google/common/collect/StandardTable$RowMap$EntrySet;, "Lcom/google/common/collect/StandardTable<TR;TC;TV;>.RowMap.EntrySet;"
     const/4 v1, 0x0
 
+    .line 799
     instance-of v2, p1, Ljava/util/Map$Entry;
 
     if-eqz v2, :cond_0
 
     move-object v0, p1
 
+    .line 800
     check-cast v0, Ljava/util/Map$Entry;
 
+    .line 801
+    .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v2
@@ -175,6 +197,8 @@
 
     const/4 v1, 0x1
 
+    .line 805
+    .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
     :cond_0
     return v1
 .end method
@@ -182,6 +206,9 @@
 .method public size()I
     .locals 1
 
+    .prologue
+    .line 783
+    .local p0, "this":Lcom/google/common/collect/StandardTable$RowMap$EntrySet;, "Lcom/google/common/collect/StandardTable<TR;TC;TV;>.RowMap.EntrySet;"
     iget-object v0, p0, Lcom/google/common/collect/StandardTable$RowMap$EntrySet;->this$1:Lcom/google/common/collect/StandardTable$RowMap;
 
     iget-object v0, v0, Lcom/google/common/collect/StandardTable$RowMap;->this$0:Lcom/google/common/collect/StandardTable;

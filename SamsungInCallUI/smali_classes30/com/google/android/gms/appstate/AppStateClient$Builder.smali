@@ -50,7 +50,11 @@
 
 .method public constructor <init>(Landroid/content/Context;Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;)V
     .locals 1
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "connectedListener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;
+    .param p3, "connectionFailedListener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;
 
+    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/google/android/gms/appstate/AppStateClient$Builder;->mContext:Landroid/content/Context;
@@ -96,7 +100,9 @@
 
 .method public setAccountName(Ljava/lang/String;)Lcom/google/android/gms/appstate/AppStateClient$Builder;
     .locals 1
+    .param p1, "accountName"    # Ljava/lang/String;
 
+    .prologue
     invoke-static {p1}, Lcom/google/android/gms/internal/s;->d(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -110,7 +116,9 @@
 
 .method public varargs setScopes([Ljava/lang/String;)Lcom/google/android/gms/appstate/AppStateClient$Builder;
     .locals 0
+    .param p1, "scopes"    # [Ljava/lang/String;
 
+    .prologue
     iput-object p1, p0, Lcom/google/android/gms/appstate/AppStateClient$Builder;->f:[Ljava/lang/String;
 
     return-object p0

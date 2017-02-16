@@ -33,6 +33,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 1014
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -42,9 +44,13 @@
 # virtual methods
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
+    .param p1, "x0"    # Ljava/lang/Object;
 
+    .prologue
+    .line 1014
     check-cast p1, Ljava/lang/Iterable;
 
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/google/common/collect/Iterables$15;->apply(Ljava/lang/Iterable;)Ljava/util/Iterator;
 
     move-result-object v0
@@ -64,6 +70,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1017
+    .local p1, "iterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TT;>;"
     invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v0

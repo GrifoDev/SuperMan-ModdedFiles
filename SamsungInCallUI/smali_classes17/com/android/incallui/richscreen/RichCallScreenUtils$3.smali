@@ -28,7 +28,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/richscreen/RichCallScreenUtils;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/richscreen/RichCallScreenUtils;
 
+    .prologue
+    .line 109
     iput-object p1, p0, Lcom/android/incallui/richscreen/RichCallScreenUtils$3;->this$0:Lcom/android/incallui/richscreen/RichCallScreenUtils;
 
     iput-object p2, p0, Lcom/android/incallui/richscreen/RichCallScreenUtils$3;->val$sourceType:Ljava/lang/String;
@@ -45,10 +48,13 @@
 .method public run()V
     .locals 4
 
+    .prologue
+    .line 112
     sget-object v1, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->mRichScrnPersonBiz:Lcom/cmdm/rcs/biz/RichScrnPersonBiz;
 
     if-eqz v1, :cond_0
 
+    .line 113
     sget-object v1, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->mRichScrnPersonBiz:Lcom/cmdm/rcs/biz/RichScrnPersonBiz;
 
     iget-object v2, p0, Lcom/android/incallui/richscreen/RichCallScreenUtils$3;->val$sourceType:Ljava/lang/String;
@@ -61,10 +67,12 @@
 
     sput-object v1, Lcom/android/incallui/richscreen/RichCallScreenUtils;->collectResult:Lcom/cmdm/control/util/client/ResultEntity;
 
+    .line 114
     sget-object v1, Lcom/android/incallui/richscreen/RichCallScreenUtils;->collectResult:Lcom/cmdm/control/util/client/ResultEntity;
 
     if-eqz v1, :cond_0
 
+    .line 115
     sget-object v1, Lcom/android/incallui/richscreen/RichCallScreenUtils;->collectResult:Lcom/cmdm/control/util/client/ResultEntity;
 
     invoke-virtual {v1}, Lcom/cmdm/control/util/client/ResultEntity;->isSuccessed()Z
@@ -73,14 +81,18 @@
 
     sput-boolean v1, Lcom/android/incallui/richscreen/RichCallScreenUtils;->bCollectSuccess:Z
 
+    .line 116
     new-instance v0, Landroid/os/Message;
 
     invoke-direct {v0}, Landroid/os/Message;-><init>()V
 
+    .line 117
+    .local v0, "msg1":Landroid/os/Message;
     sget-boolean v1, Lcom/android/incallui/richscreen/RichCallScreenUtils;->bCollectSuccess:Z
 
     if-eqz v1, :cond_1
 
+    .line 118
     const v1, 0x7f09023b
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -89,17 +101,20 @@
 
     iput-object v1, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
+    .line 122
     :goto_0
     const/4 v1, 0x0
 
     iput v1, v0, Landroid/os/Message;->what:I
 
+    .line 123
     iget-object v1, p0, Lcom/android/incallui/richscreen/RichCallScreenUtils$3;->this$0:Lcom/android/incallui/richscreen/RichCallScreenUtils;
 
     iget-object v1, v1, Lcom/android/incallui/richscreen/RichCallScreenUtils;->myhandler:Landroid/os/Handler;
 
     invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
+    .line 124
     const-string v1, "RichCallScreenUtils"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -144,9 +159,13 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 127
+    .end local v0    # "msg1":Landroid/os/Message;
     :cond_0
     return-void
 
+    .line 120
+    .restart local v0    # "msg1":Landroid/os/Message;
     :cond_1
     const v1, 0x7f09023a
 

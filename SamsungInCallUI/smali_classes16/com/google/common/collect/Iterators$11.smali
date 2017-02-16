@@ -30,7 +30,11 @@
 # direct methods
 .method constructor <init>(II[Ljava/lang/Object;I)V
     .locals 0
+    .param p1, "x0"    # I
+    .param p2, "x1"    # I
 
+    .prologue
+    .line 1077
     iput-object p3, p0, Lcom/google/common/collect/Iterators$11;->val$array:[Ljava/lang/Object;
 
     iput p4, p0, Lcom/google/common/collect/Iterators$11;->val$offset:I
@@ -44,12 +48,15 @@
 # virtual methods
 .method protected get(I)Ljava/lang/Object;
     .locals 2
+    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)TT;"
         }
     .end annotation
 
+    .prologue
+    .line 1080
     iget-object v0, p0, Lcom/google/common/collect/Iterators$11;->val$array:[Ljava/lang/Object;
 
     iget v1, p0, Lcom/google/common/collect/Iterators$11;->val$offset:I

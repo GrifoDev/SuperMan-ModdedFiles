@@ -33,6 +33,9 @@
 .method constructor <init>(Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys;I)V
     .locals 0
 
+    .prologue
+    .line 368
+    .local p0, "this":Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys$4;, "Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys.4;"
     iput-object p1, p0, Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys$4;->this$0:Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys;
 
     iput p2, p0, Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys$4;->val$expectedValuesPerKey:I
@@ -47,6 +50,9 @@
 .method public bridge synthetic build()Lcom/google/common/collect/Multimap;
     .locals 1
 
+    .prologue
+    .line 368
+    .local p0, "this":Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys$4;, "Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys.4;"
     invoke-virtual {p0}, Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys$4;->build()Lcom/google/common/collect/SetMultimap;
 
     move-result-object v0
@@ -66,6 +72,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 371
+    .local p0, "this":Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys$4;, "Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys.4;"
     iget-object v0, p0, Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys$4;->this$0:Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys;
 
     invoke-virtual {v0}, Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys;->createMap()Ljava/util/Map;

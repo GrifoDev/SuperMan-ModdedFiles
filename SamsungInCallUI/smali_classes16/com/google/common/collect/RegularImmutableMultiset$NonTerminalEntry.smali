@@ -38,6 +38,7 @@
 # direct methods
 .method constructor <init>(Ljava/lang/Object;ILcom/google/common/collect/Multisets$ImmutableEntry;)V
     .locals 0
+    .param p2, "count"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;I",
@@ -46,10 +47,17 @@
         }
     .end annotation
 
+    .prologue
+    .line 100
+    .local p0, "this":Lcom/google/common/collect/RegularImmutableMultiset$NonTerminalEntry;, "Lcom/google/common/collect/RegularImmutableMultiset$NonTerminalEntry<TE;>;"
+    .local p1, "element":Ljava/lang/Object;, "TE;"
+    .local p3, "nextInBucket":Lcom/google/common/collect/Multisets$ImmutableEntry;, "Lcom/google/common/collect/Multisets$ImmutableEntry<TE;>;"
     invoke-direct {p0, p1, p2}, Lcom/google/common/collect/Multisets$ImmutableEntry;-><init>(Ljava/lang/Object;I)V
 
+    .line 101
     iput-object p3, p0, Lcom/google/common/collect/RegularImmutableMultiset$NonTerminalEntry;->nextInBucket:Lcom/google/common/collect/Multisets$ImmutableEntry;
 
+    .line 102
     return-void
 .end method
 
@@ -65,6 +73,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 106
+    .local p0, "this":Lcom/google/common/collect/RegularImmutableMultiset$NonTerminalEntry;, "Lcom/google/common/collect/RegularImmutableMultiset$NonTerminalEntry<TE;>;"
     iget-object v0, p0, Lcom/google/common/collect/RegularImmutableMultiset$NonTerminalEntry;->nextInBucket:Lcom/google/common/collect/Multisets$ImmutableEntry;
 
     return-object v0

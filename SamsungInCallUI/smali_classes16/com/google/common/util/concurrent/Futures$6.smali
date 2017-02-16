@@ -27,6 +27,8 @@
 .method constructor <init>(Lcom/google/common/util/concurrent/ListenableFuture;Lcom/google/common/util/concurrent/FutureCallback;)V
     .locals 0
 
+    .prologue
+    .line 1755
     iput-object p1, p0, Lcom/google/common/util/concurrent/Futures$6;->val$future:Lcom/google/common/util/concurrent/ListenableFuture;
 
     iput-object p2, p0, Lcom/google/common/util/concurrent/Futures$6;->val$callback:Lcom/google/common/util/concurrent/FutureCallback;
@@ -41,6 +43,8 @@
 .method public run()V
     .locals 4
 
+    .prologue
+    .line 1762
     :try_start_0
     iget-object v2, p0, Lcom/google/common/util/concurrent/Futures$6;->val$future:Lcom/google/common/util/concurrent/ListenableFuture;
 
@@ -52,16 +56,23 @@
 
     move-result-object v1
 
+    .line 1773
+    .local v1, "value":Ljava/lang/Object;, "TV;"
     iget-object v2, p0, Lcom/google/common/util/concurrent/Futures$6;->val$callback:Lcom/google/common/util/concurrent/FutureCallback;
 
     invoke-interface {v2, v1}, Lcom/google/common/util/concurrent/FutureCallback;->onSuccess(Ljava/lang/Object;)V
 
+    .line 1774
+    .end local v1    # "value":Ljava/lang/Object;, "TV;"
     :goto_0
     return-void
 
+    .line 1763
     :catch_0
     move-exception v0
 
+    .line 1764
+    .local v0, "e":Ljava/util/concurrent/ExecutionException;
     iget-object v2, p0, Lcom/google/common/util/concurrent/Futures$6;->val$callback:Lcom/google/common/util/concurrent/FutureCallback;
 
     invoke-virtual {v0}, Ljava/util/concurrent/ExecutionException;->getCause()Ljava/lang/Throwable;
@@ -72,18 +83,26 @@
 
     goto :goto_0
 
+    .line 1766
+    .end local v0    # "e":Ljava/util/concurrent/ExecutionException;
     :catch_1
     move-exception v0
 
+    .line 1767
+    .local v0, "e":Ljava/lang/RuntimeException;
     iget-object v2, p0, Lcom/google/common/util/concurrent/Futures$6;->val$callback:Lcom/google/common/util/concurrent/FutureCallback;
 
     invoke-interface {v2, v0}, Lcom/google/common/util/concurrent/FutureCallback;->onFailure(Ljava/lang/Throwable;)V
 
     goto :goto_0
 
+    .line 1769
+    .end local v0    # "e":Ljava/lang/RuntimeException;
     :catch_2
     move-exception v0
 
+    .line 1770
+    .local v0, "e":Ljava/lang/Error;
     iget-object v2, p0, Lcom/google/common/util/concurrent/Futures$6;->val$callback:Lcom/google/common/util/concurrent/FutureCallback;
 
     invoke-interface {v2, v0}, Lcom/google/common/util/concurrent/FutureCallback;->onFailure(Ljava/lang/Throwable;)V

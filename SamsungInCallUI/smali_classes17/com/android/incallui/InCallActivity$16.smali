@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/InCallActivity;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/InCallActivity;
 
+    .prologue
+    .line 3055
     iput-object p1, p0, Lcom/android/incallui/InCallActivity$16;->this$0:Lcom/android/incallui/InCallActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,9 +40,12 @@
 .method public run()V
     .locals 1
 
+    .prologue
+    .line 3058
     iget-object v0, p0, Lcom/android/incallui/InCallActivity$16;->this$0:Lcom/android/incallui/InCallActivity;
 
     invoke-virtual {v0}, Lcom/android/incallui/InCallActivity;->showInCallMenu()V
 
+    .line 3059
     return-void
 .end method

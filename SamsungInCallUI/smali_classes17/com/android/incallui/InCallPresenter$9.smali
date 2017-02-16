@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/InCallPresenter;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/InCallPresenter;
 
+    .prologue
+    .line 4495
     iput-object p1, p0, Lcom/android/incallui/InCallPresenter$9;->this$0:Lcom/android/incallui/InCallPresenter;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,11 +39,16 @@
 # virtual methods
 .method public onContactInfoComplete(Ljava/lang/String;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;)V
     .locals 3
+    .param p1, "callId"    # Ljava/lang/String;
+    .param p2, "entry"    # Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
 
+    .prologue
+    .line 4498
     const-string v1, "onContactInfoComplete"
 
     invoke-static {p0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 4499
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v1
@@ -49,8 +57,11 @@
 
     move-result-object v0
 
+    .line 4500
+    .local v0, "call":Lcom/android/incallui/Call;
     if-eqz v0, :cond_0
 
+    .line 4501
     invoke-virtual {v0}, Lcom/android/incallui/Call;->getLogState()Lcom/android/incallui/Call$LogState;
 
     move-result-object v1
@@ -59,26 +70,37 @@
 
     iput v2, v1, Lcom/android/incallui/Call$LogState;->contactLookupResult:I
 
+    .line 4503
     :cond_0
     return-void
 .end method
 
 .method public onContactInteractionsInfoComplete(Ljava/lang/String;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;)V
     .locals 1
+    .param p1, "callId"    # Ljava/lang/String;
+    .param p2, "entry"    # Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
 
+    .prologue
+    .line 4512
     const-string v0, "onContactInteractionsInfoComplete"
 
     invoke-static {p0, v0}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 4513
     return-void
 .end method
 
 .method public onImageLoadComplete(Ljava/lang/String;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;)V
     .locals 1
+    .param p1, "callId"    # Ljava/lang/String;
+    .param p2, "entry"    # Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
 
+    .prologue
+    .line 4507
     const-string v0, "onImageLoadComplete"
 
     invoke-static {p0, v0}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 4508
     return-void
 .end method

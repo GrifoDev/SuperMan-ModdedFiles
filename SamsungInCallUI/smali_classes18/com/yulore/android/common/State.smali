@@ -42,6 +42,7 @@
 .method static constructor <clinit>()V
     .locals 10
 
+    .prologue
     const/4 v9, 0x5
 
     const/4 v8, 0x4
@@ -52,6 +53,7 @@
 
     const/4 v5, 0x1
 
+    .line 11
     new-instance v0, Lcom/yulore/android/common/State;
 
     const-string v1, "CREATE"
@@ -84,6 +86,7 @@
 
     sput-object v0, Lcom/yulore/android/common/State;->RESUME:Lcom/yulore/android/common/State;
 
+    .line 12
     new-instance v0, Lcom/yulore/android/common/State;
 
     const-string v1, "PAUSE"
@@ -130,6 +133,7 @@
 
     sput-object v0, Lcom/yulore/android/common/State;->DESTROY:Lcom/yulore/android/common/State;
 
+    .line 10
     const/4 v0, 0x7
 
     new-array v0, v0, [Lcom/yulore/android/common/State;
@@ -173,6 +177,8 @@
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;I)V
     .locals 0
+    .param p3, "name"    # Ljava/lang/String;
+    .param p4, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -181,18 +187,26 @@
         }
     .end annotation
 
+    .prologue
+    .line 18
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
+    .line 19
     iput-object p3, p0, Lcom/yulore/android/common/State;->name:Ljava/lang/String;
 
+    .line 20
     iput p4, p0, Lcom/yulore/android/common/State;->index:I
 
+    .line 21
     return-void
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/yulore/android/common/State;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 10
     const-class v0, Lcom/yulore/android/common/State;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -207,6 +221,8 @@
 .method public static values()[Lcom/yulore/android/common/State;
     .locals 1
 
+    .prologue
+    .line 10
     sget-object v0, Lcom/yulore/android/common/State;->$VALUES:[Lcom/yulore/android/common/State;
 
     invoke-virtual {v0}, [Lcom/yulore/android/common/State;->clone()Ljava/lang/Object;
@@ -223,6 +239,8 @@
 .method public getIndex()I
     .locals 1
 
+    .prologue
+    .line 33
     iget v0, p0, Lcom/yulore/android/common/State;->index:I
 
     return v0
@@ -231,6 +249,8 @@
 .method public getName()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 25
     iget-object v0, p0, Lcom/yulore/android/common/State;->name:Ljava/lang/String;
 
     return-object v0
@@ -238,16 +258,24 @@
 
 .method public setIndex(I)V
     .locals 0
+    .param p1, "index"    # I
 
+    .prologue
+    .line 37
     iput p1, p0, Lcom/yulore/android/common/State;->index:I
 
+    .line 38
     return-void
 .end method
 
 .method public setName(Ljava/lang/String;)V
     .locals 0
+    .param p1, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 29
     iput-object p1, p0, Lcom/yulore/android/common/State;->name:Ljava/lang/String;
 
+    .line 30
     return-void
 .end method

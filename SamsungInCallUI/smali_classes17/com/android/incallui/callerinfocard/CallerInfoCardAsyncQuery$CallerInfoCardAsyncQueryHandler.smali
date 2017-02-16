@@ -33,21 +33,31 @@
 # direct methods
 .method private constructor <init>(Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery;Landroid/content/Context;)V
     .locals 1
+    .param p2, "context"    # Landroid/content/Context;
 
+    .prologue
+    .line 114
     iput-object p1, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CallerInfoCardAsyncQueryHandler;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery;
 
+    .line 115
     invoke-virtual {p2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
     invoke-direct {p0, v0}, Landroid/content/AsyncQueryHandler;-><init>(Landroid/content/ContentResolver;)V
 
+    .line 116
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery;Landroid/content/Context;Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery;
+    .param p2, "x1"    # Landroid/content/Context;
+    .param p3, "x2"    # Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$1;
 
+    .prologue
+    .line 84
     invoke-direct {p0, p1, p2}, Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CallerInfoCardAsyncQueryHandler;-><init>(Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery;Landroid/content/Context;)V
 
     return-void
@@ -55,7 +65,11 @@
 
 .method static synthetic access$302(Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CallerInfoCardAsyncQueryHandler;Landroid/content/Context;)Landroid/content/Context;
     .locals 0
+    .param p0, "x0"    # Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CallerInfoCardAsyncQueryHandler;
+    .param p1, "x1"    # Landroid/content/Context;
 
+    .prologue
+    .line 84
     iput-object p1, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CallerInfoCardAsyncQueryHandler;->mQueryContext:Landroid/content/Context;
 
     return-object p1
@@ -63,7 +77,11 @@
 
 .method static synthetic access$402(Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CallerInfoCardAsyncQueryHandler;Landroid/net/Uri;)Landroid/net/Uri;
     .locals 0
+    .param p0, "x0"    # Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CallerInfoCardAsyncQueryHandler;
+    .param p1, "x1"    # Landroid/net/Uri;
 
+    .prologue
+    .line 84
     iput-object p1, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CallerInfoCardAsyncQueryHandler;->mQueryUri:Landroid/net/Uri;
 
     return-object p1
@@ -71,7 +89,11 @@
 
 .method static synthetic access$502(Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CallerInfoCardAsyncQueryHandler;Lcom/android/incallui/callerinfocard/item/CallerInfoCardItem;)Lcom/android/incallui/callerinfocard/item/CallerInfoCardItem;
     .locals 0
+    .param p0, "x0"    # Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CallerInfoCardAsyncQueryHandler;
+    .param p1, "x1"    # Lcom/android/incallui/callerinfocard/item/CallerInfoCardItem;
 
+    .prologue
+    .line 84
     iput-object p1, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CallerInfoCardAsyncQueryHandler;->mCallerInfoCardItem:Lcom/android/incallui/callerinfocard/item/CallerInfoCardItem;
 
     return-object p1
@@ -81,7 +103,10 @@
 # virtual methods
 .method protected createHandler(Landroid/os/Looper;)Landroid/os/Handler;
     .locals 1
+    .param p1, "looper"    # Landroid/os/Looper;
 
+    .prologue
+    .line 120
     new-instance v0, Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CallerInfoCardAsyncQueryHandler$CallerInfoWorkerHandler;
 
     invoke-direct {v0, p0, p1}, Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CallerInfoCardAsyncQueryHandler$CallerInfoWorkerHandler;-><init>(Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CallerInfoCardAsyncQueryHandler;Landroid/os/Looper;)V
@@ -91,9 +116,14 @@
 
 .method protected onQueryComplete(ILjava/lang/Object;Landroid/database/Cursor;)V
     .locals 4
+    .param p1, "token"    # I
+    .param p2, "cookie"    # Ljava/lang/Object;
+    .param p3, "cursor"    # Landroid/database/Cursor;
 
+    .prologue
     const/4 v3, 0x1
 
+    .line 125
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -116,22 +146,29 @@
 
     move-object v0, p2
 
+    .line 127
     check-cast v0, Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CookieWrapper;
 
+    .line 129
+    .local v0, "cw":Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CookieWrapper;
     if-nez v0, :cond_0
 
+    .line 130
     const-string v1, "Cookie is null, ignoring onQueryComplete() request."
 
     invoke-static {p0, v1, v3}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;Z)V
 
+    .line 159
     :goto_0
     return-void
 
+    .line 134
     :cond_0
     iget-object v1, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CallerInfoCardAsyncQueryHandler;->mCallerInfoCardItem:Lcom/android/incallui/callerinfocard/item/CallerInfoCardItem;
 
     if-nez v1, :cond_3
 
+    .line 135
     iget-object v1, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CallerInfoCardAsyncQueryHandler;->mQueryContext:Landroid/content/Context;
 
     if-eqz v1, :cond_1
@@ -140,6 +177,7 @@
 
     if-nez v1, :cond_2
 
+    .line 136
     :cond_1
     new-instance v1, Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$QueryPoolException;
 
@@ -149,6 +187,7 @@
 
     throw v1
 
+    .line 140
     :cond_2
     iget-object v1, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CallerInfoCardAsyncQueryHandler;->mQueryContext:Landroid/content/Context;
 
@@ -160,6 +199,7 @@
 
     iput-object v1, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CallerInfoCardAsyncQueryHandler;->mCallerInfoCardItem:Lcom/android/incallui/callerinfocard/item/CallerInfoCardItem;
 
+    .line 141
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -182,6 +222,7 @@
 
     invoke-static {p0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 142
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -202,15 +243,18 @@
 
     invoke-static {p0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 145
     :cond_3
     iget-object v1, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CallerInfoCardAsyncQueryHandler;->mCallerInfoCardItem:Lcom/android/incallui/callerinfocard/item/CallerInfoCardItem;
 
     if-eqz v1, :cond_4
 
+    .line 146
     iget-object v1, v0, Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CookieWrapper;->listener:Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$OnQueryCompleteListener;
 
     if-eqz v1, :cond_4
 
+    .line 149
     iget-object v1, v0, Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CookieWrapper;->listener:Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$OnQueryCompleteListener;
 
     iget-object v2, v0, Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CookieWrapper;->cookie:Ljava/lang/Object;
@@ -219,6 +263,7 @@
 
     invoke-interface {v1, p1, v2, v3}, Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$OnQueryCompleteListener;->onQueryComplete(ILjava/lang/Object;Lcom/android/incallui/callerinfocard/item/CallerInfoCardItem;)V
 
+    .line 153
     :cond_4
     if-eqz p3, :cond_5
 
@@ -228,6 +273,7 @@
 
     if-nez v1, :cond_5
 
+    .line 154
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -248,8 +294,10 @@
 
     invoke-static {p0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 155
     invoke-interface {p3}, Landroid/database/Cursor;->close()V
 
+    .line 158
     :cond_5
     iget-object v1, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CallerInfoCardAsyncQueryHandler;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery;
 

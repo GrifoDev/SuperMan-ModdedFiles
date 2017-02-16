@@ -37,11 +37,15 @@
 # direct methods
 .method public constructor <init>(Lcom/android/incallui/service/vt/VideoCallMetrics;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/service/vt/VideoCallMetrics;
 
+    .prologue
+    .line 625
     iput-object p1, p0, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->this$0:Lcom/android/incallui/service/vt/VideoCallMetrics;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 626
     return-void
 .end method
 
@@ -50,6 +54,8 @@
 .method public dump()V
     .locals 2
 
+    .prologue
+    .line 629
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -78,6 +84,7 @@
 
     invoke-static {v0}, Lcom/android/incallui/service/vt/VideoCallLog;->debug(Ljava/lang/String;)V
 
+    .line 630
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -106,6 +113,7 @@
 
     invoke-static {v0}, Lcom/android/incallui/service/vt/VideoCallLog;->debug(Ljava/lang/String;)V
 
+    .line 631
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -134,6 +142,7 @@
 
     invoke-static {v0}, Lcom/android/incallui/service/vt/VideoCallLog;->debug(Ljava/lang/String;)V
 
+    .line 632
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -162,6 +171,7 @@
 
     invoke-static {v0}, Lcom/android/incallui/service/vt/VideoCallLog;->debug(Ljava/lang/String;)V
 
+    .line 633
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -190,6 +200,7 @@
 
     invoke-static {v0}, Lcom/android/incallui/service/vt/VideoCallLog;->debug(Ljava/lang/String;)V
 
+    .line 634
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -218,5 +229,6 @@
 
     invoke-static {v0}, Lcom/android/incallui/service/vt/VideoCallLog;->debug(Ljava/lang/String;)V
 
+    .line 635
     return-void
 .end method

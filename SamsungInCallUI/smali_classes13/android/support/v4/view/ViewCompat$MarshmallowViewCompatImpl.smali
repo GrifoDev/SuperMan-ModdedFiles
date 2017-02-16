@@ -18,6 +18,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 1728
     invoke-direct {p0}, Landroid/support/v4/view/ViewCompat$LollipopViewCompatImpl;-><init>()V
 
     return-void
@@ -27,7 +29,10 @@
 # virtual methods
 .method public getScrollIndicators(Landroid/view/View;)I
     .locals 1
+    .param p1, "view"    # Landroid/view/View;
 
+    .prologue
+    .line 1741
     invoke-static {p1}, Landroid/support/v4/view/ViewCompatMarshmallow;->getScrollIndicators(Landroid/view/View;)I
 
     move-result v0
@@ -37,32 +42,53 @@
 
 .method public offsetLeftAndRight(Landroid/view/View;I)V
     .locals 0
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "offset"    # I
 
+    .prologue
+    .line 1747
     invoke-static {p1, p2}, Landroid/support/v4/view/ViewCompatMarshmallow;->offsetLeftAndRight(Landroid/view/View;I)V
 
+    .line 1748
     return-void
 .end method
 
 .method public offsetTopAndBottom(Landroid/view/View;I)V
     .locals 0
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "offset"    # I
 
+    .prologue
+    .line 1752
     invoke-static {p1, p2}, Landroid/support/v4/view/ViewCompatMarshmallow;->offsetTopAndBottom(Landroid/view/View;I)V
 
+    .line 1753
     return-void
 .end method
 
 .method public setScrollIndicators(Landroid/view/View;I)V
     .locals 0
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "indicators"    # I
 
+    .prologue
+    .line 1731
     invoke-static {p1, p2}, Landroid/support/v4/view/ViewCompatMarshmallow;->setScrollIndicators(Landroid/view/View;I)V
 
+    .line 1732
     return-void
 .end method
 
 .method public setScrollIndicators(Landroid/view/View;II)V
     .locals 0
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "indicators"    # I
+    .param p3, "mask"    # I
 
+    .prologue
+    .line 1736
     invoke-static {p1, p2, p3}, Landroid/support/v4/view/ViewCompatMarshmallow;->setScrollIndicators(Landroid/view/View;II)V
 
+    .line 1737
     return-void
 .end method

@@ -33,21 +33,31 @@
 # direct methods
 .method private constructor <init>(Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery;Landroid/content/Context;)V
     .locals 1
+    .param p2, "context"    # Landroid/content/Context;
 
+    .prologue
+    .line 155
     iput-object p1, p0, Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;->this$0:Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery;
 
+    .line 156
     invoke-virtual {p2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
     invoke-direct {p0, v0}, Landroid/content/AsyncQueryHandler;-><init>(Landroid/content/ContentResolver;)V
 
+    .line 157
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery;Landroid/content/Context;Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery;
+    .param p2, "x1"    # Landroid/content/Context;
+    .param p3, "x2"    # Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$1;
 
+    .prologue
+    .line 61
     invoke-direct {p0, p1, p2}, Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;-><init>(Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery;Landroid/content/Context;)V
 
     return-void
@@ -55,7 +65,11 @@
 
 .method static synthetic access$402(Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;Landroid/content/Context;)Landroid/content/Context;
     .locals 0
+    .param p0, "x0"    # Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;
+    .param p1, "x1"    # Landroid/content/Context;
 
+    .prologue
+    .line 61
     iput-object p1, p0, Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;->mQueryContext:Landroid/content/Context;
 
     return-object p1
@@ -63,7 +77,11 @@
 
 .method static synthetic access$502(Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;Landroid/net/Uri;)Landroid/net/Uri;
     .locals 0
+    .param p0, "x0"    # Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;
+    .param p1, "x1"    # Landroid/net/Uri;
 
+    .prologue
+    .line 61
     iput-object p1, p0, Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;->mQueryUri:Landroid/net/Uri;
 
     return-object p1
@@ -71,7 +89,11 @@
 
 .method static synthetic access$602(Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;Lcom/android/incallui/remotecall/contact/RemoteCallerInfo;)Lcom/android/incallui/remotecall/contact/RemoteCallerInfo;
     .locals 0
+    .param p0, "x0"    # Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;
+    .param p1, "x1"    # Lcom/android/incallui/remotecall/contact/RemoteCallerInfo;
 
+    .prologue
+    .line 61
     iput-object p1, p0, Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;->mCallerInfo:Lcom/android/incallui/remotecall/contact/RemoteCallerInfo;
 
     return-object p1
@@ -81,7 +103,10 @@
 # virtual methods
 .method protected createHandler(Landroid/os/Looper;)Landroid/os/Handler;
     .locals 1
+    .param p1, "looper"    # Landroid/os/Looper;
 
+    .prologue
+    .line 161
     new-instance v0, Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$CallerInfoAsyncQueryHandler$CallerInfoWorkerHandler;
 
     invoke-direct {v0, p0, p1}, Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$CallerInfoAsyncQueryHandler$CallerInfoWorkerHandler;-><init>(Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;Landroid/os/Looper;)V
@@ -91,9 +116,14 @@
 
 .method protected onQueryComplete(ILjava/lang/Object;Landroid/database/Cursor;)V
     .locals 11
+    .param p1, "token"    # I
+    .param p2, "cookie"    # Ljava/lang/Object;
+    .param p3, "cursor"    # Landroid/database/Cursor;
 
+    .prologue
     const/4 v5, 0x3
 
+    .line 177
     :try_start_0
     const-string v1, "RemoteCallerInfoAsyncQuery"
 
@@ -117,14 +147,18 @@
 
     invoke-static {v1, v2}, Lcom/android/incallui/remotecall/utils/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 180
     move-object v0, p2
 
     check-cast v0, Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$CookieWrapper;
 
     move-object v10, v0
 
+    .line 181
+    .local v10, "cw":Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$CookieWrapper;
     if-nez v10, :cond_1
 
+    .line 186
     const-string v1, "RemoteCallerInfoAsyncQuery"
 
     const-string v2, "Cookie is null, ignoring onQueryComplete() request."
@@ -133,6 +167,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 231
     if-eqz p3, :cond_0
 
     invoke-interface {p3}, Landroid/database/Cursor;->isClosed()Z
@@ -141,18 +176,22 @@
 
     if-nez v1, :cond_0
 
+    .line 232
     invoke-interface {p3}, Landroid/database/Cursor;->close()V
 
+    .line 235
     :cond_0
     :goto_0
     return-void
 
+    .line 190
     :cond_1
     :try_start_1
     iget v1, v10, Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$CookieWrapper;->event:I
 
     if-ne v1, v5, :cond_2
 
+    .line 191
     iget-object v1, p0, Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;->this$0:Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery;
 
     # invokes: Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery;->release()V
@@ -160,6 +199,7 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    .line 231
     if-eqz p3, :cond_0
 
     invoke-interface {p3}, Landroid/database/Cursor;->isClosed()Z
@@ -168,16 +208,19 @@
 
     if-nez v1, :cond_0
 
+    .line 232
     invoke-interface {p3}, Landroid/database/Cursor;->close()V
 
     goto :goto_0
 
+    .line 196
     :cond_2
     :try_start_2
     iget-object v1, p0, Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;->mCallerInfo:Lcom/android/incallui/remotecall/contact/RemoteCallerInfo;
 
     if-nez v1, :cond_7
 
+    .line 197
     iget-object v1, p0, Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;->mQueryContext:Landroid/content/Context;
 
     if-eqz v1, :cond_3
@@ -186,6 +229,7 @@
 
     if-nez v1, :cond_5
 
+    .line 198
     :cond_3
     new-instance v1, Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$QueryPoolException;
 
@@ -197,6 +241,8 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
+    .line 231
+    .end local v10    # "cw":Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$CookieWrapper;
     :catchall_0
     move-exception v1
 
@@ -208,21 +254,27 @@
 
     if-nez v2, :cond_4
 
+    .line 232
     invoke-interface {p3}, Landroid/database/Cursor;->close()V
 
     :cond_4
     throw v1
 
+    .line 202
+    .restart local v10    # "cw":Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$CookieWrapper;
     :cond_5
     :try_start_3
     iget-object v9, v10, Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$CookieWrapper;->cookie:Ljava/lang/Object;
 
+    .line 203
+    .local v9, "call":Ljava/lang/Object;
     if-eqz v9, :cond_9
 
     instance-of v1, v9, Lcom/android/incallui/remotecall/remotecall/RemoteCall;
 
     if-eqz v1, :cond_9
 
+    .line 204
     iget-object v1, p0, Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;->mQueryContext:Landroid/content/Context;
 
     iget-object v2, p0, Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;->mQueryUri:Landroid/net/Uri;
@@ -231,6 +283,7 @@
 
     check-cast v9, Lcom/android/incallui/remotecall/remotecall/RemoteCall;
 
+    .end local v9    # "call":Ljava/lang/Object;
     invoke-static {v4, v9}, Lcom/android/incallui/remotecall/contact/RemoteCallerInfoUtils;->buildCallerInfo(Landroid/content/Context;Lcom/android/incallui/remotecall/remotecall/RemoteCall;)Lcom/android/incallui/remotecall/contact/RemoteCallerInfo;
 
     move-result-object v4
@@ -241,6 +294,7 @@
 
     iput-object v1, p0, Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;->mCallerInfo:Lcom/android/incallui/remotecall/contact/RemoteCallerInfo;
 
+    .line 208
     :goto_1
     const-string v1, "RemoteCallerInfoAsyncQuery"
 
@@ -266,6 +320,7 @@
 
     invoke-static {v1, v2}, Lcom/android/incallui/remotecall/utils/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 211
     iget-object v1, v10, Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$CookieWrapper;->number:Ljava/lang/String;
 
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -274,12 +329,14 @@
 
     if-nez v1, :cond_6
 
+    .line 212
     iget-object v1, p0, Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;->mCallerInfo:Lcom/android/incallui/remotecall/contact/RemoteCallerInfo;
 
     iget-object v2, v10, Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$CookieWrapper;->number:Ljava/lang/String;
 
     iput-object v2, v1, Lcom/android/incallui/remotecall/contact/RemoteCallerInfo;->number:Ljava/lang/String;
 
+    .line 215
     :cond_6
     const-string v1, "RemoteCallerInfoAsyncQuery"
 
@@ -303,16 +360,20 @@
 
     invoke-static {v1, v2}, Lcom/android/incallui/remotecall/utils/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 218
     new-instance v3, Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$CookieWrapper;
 
     const/4 v1, 0x0
 
     invoke-direct {v3, v1}, Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$CookieWrapper;-><init>(Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$1;)V
 
+    .line 219
+    .local v3, "endMarker":Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$CookieWrapper;
     const/4 v1, 0x3
 
     iput v1, v3, Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$CookieWrapper;->event:I
 
+    .line 220
     const/4 v4, 0x0
 
     const/4 v5, 0x0
@@ -329,11 +390,14 @@
 
     invoke-virtual/range {v1 .. v8}, Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;->startQuery(ILjava/lang/Object;Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 224
+    .end local v3    # "endMarker":Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$CookieWrapper;
     :cond_7
     iget-object v1, v10, Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$CookieWrapper;->listener:Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$OnQueryCompleteListener;
 
     if-eqz v1, :cond_8
 
+    .line 225
     const-string v1, "RemoteCallerInfoAsyncQuery"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -382,6 +446,7 @@
 
     invoke-static {v1, v2}, Lcom/android/incallui/remotecall/utils/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 227
     iget-object v1, v10, Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$CookieWrapper;->listener:Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$OnQueryCompleteListener;
 
     iget-object v2, v10, Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$CookieWrapper;->cookie:Ljava/lang/Object;
@@ -392,6 +457,7 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
+    .line 231
     :cond_8
     if-eqz p3, :cond_0
 
@@ -401,10 +467,13 @@
 
     if-nez v1, :cond_0
 
+    .line 232
     invoke-interface {p3}, Landroid/database/Cursor;->close()V
 
     goto/16 :goto_0
 
+    .line 206
+    .restart local v9    # "call":Ljava/lang/Object;
     :cond_9
     :try_start_4
     iget-object v1, p0, Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;->mQueryContext:Landroid/content/Context;
@@ -424,7 +493,16 @@
 
 .method public startQuery(ILjava/lang/Object;Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)V
     .locals 3
+    .param p1, "token"    # I
+    .param p2, "cookie"    # Ljava/lang/Object;
+    .param p3, "uri"    # Landroid/net/Uri;
+    .param p4, "projection"    # [Ljava/lang/String;
+    .param p5, "selection"    # Ljava/lang/String;
+    .param p6, "selectionArgs"    # [Ljava/lang/String;
+    .param p7, "orderBy"    # Ljava/lang/String;
 
+    .prologue
+    .line 67
     const-string v0, "RemoteCallerInfoAsyncQuery"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -447,6 +525,7 @@
 
     move-result-object v1
 
+    .line 68
     invoke-static {p4}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v2
@@ -483,6 +562,7 @@
 
     move-result-object v1
 
+    .line 70
     invoke-static {p6}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v2
@@ -501,9 +581,12 @@
 
     move-result-object v1
 
+    .line 67
     invoke-static {v0, v1}, Lcom/android/incallui/remotecall/utils/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 71
     invoke-super/range {p0 .. p7}, Landroid/content/AsyncQueryHandler;->startQuery(ILjava/lang/Object;Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 72
     return-void
 .end method

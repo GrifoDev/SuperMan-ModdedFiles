@@ -9,7 +9,9 @@
 # direct methods
 .method public constructor <init>(Lcom/google/android/gms/maps/model/internal/IPolylineDelegate;)V
     .locals 1
+    .param p1, "delegate"    # Lcom/google/android/gms/maps/model/internal/IPolylineDelegate;
 
+    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     invoke-static {p1}, Lcom/google/android/gms/internal/s;->d(Ljava/lang/Object;)Ljava/lang/Object;
@@ -27,22 +29,27 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 2
+    .param p1, "other"    # Ljava/lang/Object;
 
+    .prologue
     instance-of v0, p1, Lcom/google/android/gms/maps/model/Polyline;
 
     if-nez v0, :cond_0
 
     const/4 v0, 0x0
 
+    .end local p1    # "other":Ljava/lang/Object;
     :goto_0
     return v0
 
+    .restart local p1    # "other":Ljava/lang/Object;
     :cond_0
     :try_start_0
     iget-object v0, p0, Lcom/google/android/gms/maps/model/Polyline;->hE:Lcom/google/android/gms/maps/model/internal/IPolylineDelegate;
 
     check-cast p1, Lcom/google/android/gms/maps/model/Polyline;
 
+    .end local p1    # "other":Ljava/lang/Object;
     iget-object v1, p1, Lcom/google/android/gms/maps/model/Polyline;->hE:Lcom/google/android/gms/maps/model/internal/IPolylineDelegate;
 
     invoke-interface {v0, v1}, Lcom/google/android/gms/maps/model/internal/IPolylineDelegate;->equalsRemote(Lcom/google/android/gms/maps/model/internal/IPolylineDelegate;)Z
@@ -288,7 +295,9 @@
 
 .method public setColor(I)V
     .locals 2
+    .param p1, "color"    # I
 
+    .prologue
     :try_start_0
     iget-object v0, p0, Lcom/google/android/gms/maps/model/Polyline;->hE:Lcom/google/android/gms/maps/model/internal/IPolylineDelegate;
 
@@ -310,7 +319,9 @@
 
 .method public setGeodesic(Z)V
     .locals 2
+    .param p1, "geodesic"    # Z
 
+    .prologue
     :try_start_0
     iget-object v0, p0, Lcom/google/android/gms/maps/model/Polyline;->hE:Lcom/google/android/gms/maps/model/internal/IPolylineDelegate;
 
@@ -342,6 +353,8 @@
         }
     .end annotation
 
+    .prologue
+    .local p1, "points":Ljava/util/List;, "Ljava/util/List<Lcom/google/android/gms/maps/model/LatLng;>;"
     :try_start_0
     iget-object v0, p0, Lcom/google/android/gms/maps/model/Polyline;->hE:Lcom/google/android/gms/maps/model/internal/IPolylineDelegate;
 
@@ -363,7 +376,9 @@
 
 .method public setVisible(Z)V
     .locals 2
+    .param p1, "visible"    # Z
 
+    .prologue
     :try_start_0
     iget-object v0, p0, Lcom/google/android/gms/maps/model/Polyline;->hE:Lcom/google/android/gms/maps/model/internal/IPolylineDelegate;
 
@@ -385,7 +400,9 @@
 
 .method public setWidth(F)V
     .locals 2
+    .param p1, "width"    # F
 
+    .prologue
     :try_start_0
     iget-object v0, p0, Lcom/google/android/gms/maps/model/Polyline;->hE:Lcom/google/android/gms/maps/model/internal/IPolylineDelegate;
 
@@ -407,7 +424,9 @@
 
 .method public setZIndex(F)V
     .locals 2
+    .param p1, "zIndex"    # F
 
+    .prologue
     :try_start_0
     iget-object v0, p0, Lcom/google/android/gms/maps/model/Polyline;->hE:Lcom/google/android/gms/maps/model/internal/IPolylineDelegate;
 

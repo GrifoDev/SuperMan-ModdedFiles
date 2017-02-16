@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/AnswerFragment;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/fragment/AnswerFragment;
 
+    .prologue
+    .line 206
     iput-object p1, p0, Lcom/android/incallui/fragment/AnswerFragment$3;->this$0:Lcom/android/incallui/fragment/AnswerFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,10 +39,14 @@
 # virtual methods
 .method public onCancel(Landroid/content/DialogInterface;)V
     .locals 1
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
 
+    .prologue
+    .line 208
     iget-object v0, p0, Lcom/android/incallui/fragment/AnswerFragment$3;->this$0:Lcom/android/incallui/fragment/AnswerFragment;
 
     invoke-virtual {v0}, Lcom/android/incallui/fragment/AnswerFragment;->dismissWaitingCallPopup()V
 
+    .line 209
     return-void
 .end method

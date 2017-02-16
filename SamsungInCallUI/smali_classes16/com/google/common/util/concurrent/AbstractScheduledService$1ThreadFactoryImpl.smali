@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/google/common/util/concurrent/AbstractScheduledService;)V
     .locals 0
 
+    .prologue
+    .line 310
     iput-object p1, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$1ThreadFactoryImpl;->this$0:Lcom/google/common/util/concurrent/AbstractScheduledService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +38,10 @@
 # virtual methods
 .method public newThread(Ljava/lang/Runnable;)Ljava/lang/Thread;
     .locals 1
+    .param p1, "runnable"    # Ljava/lang/Runnable;
 
+    .prologue
+    .line 312
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$1ThreadFactoryImpl;->this$0:Lcom/google/common/util/concurrent/AbstractScheduledService;
 
     invoke-virtual {v0}, Lcom/google/common/util/concurrent/AbstractScheduledService;->serviceName()Ljava/lang/String;

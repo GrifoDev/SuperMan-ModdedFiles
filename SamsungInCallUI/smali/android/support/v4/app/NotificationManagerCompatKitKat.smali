@@ -13,6 +13,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -20,11 +22,14 @@
 
 .method public static areNotificationsEnabled(Landroid/content/Context;)Z
     .locals 15
+    .param p0, "context"    # Landroid/content/Context;
 
+    .prologue
     const/4 v11, 0x0
 
     const/4 v10, 0x1
 
+    .line 31
     const-string v9, "appops"
 
     invoke-virtual {p0, v9}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -33,10 +38,14 @@
 
     check-cast v1, Landroid/app/AppOpsManager;
 
+    .line 32
+    .local v1, "appOps":Landroid/app/AppOpsManager;
     invoke-virtual {p0}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
 
     move-result-object v0
 
+    .line 33
+    .local v0, "appInfo":Landroid/content/pm/ApplicationInfo;
     invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v9
@@ -45,8 +54,12 @@
 
     move-result-object v6
 
+    .line 34
+    .local v6, "pkg":Ljava/lang/String;
     iget v7, v0, Landroid/content/pm/ApplicationInfo;->uid:I
 
+    .line 36
+    .local v7, "uid":I
     :try_start_0
     const-class v9, Landroid/app/AppOpsManager;
 
@@ -58,6 +71,8 @@
 
     move-result-object v2
 
+    .line 37
+    .local v2, "appOpsClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     const-string v9, "checkOpNoThrow"
 
     const/4 v12, 0x3
@@ -86,12 +101,16 @@
 
     move-result-object v3
 
+    .line 39
+    .local v3, "checkOpNoThrowMethod":Ljava/lang/reflect/Method;
     const-string v9, "OP_POST_NOTIFICATION"
 
     invoke-virtual {v2, v9}, Ljava/lang/Class;->getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;
 
     move-result-object v5
 
+    .line 40
+    .local v5, "opPostNotificationValue":Ljava/lang/reflect/Field;
     const-class v9, Ljava/lang/Integer;
 
     invoke-virtual {v5, v9}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -104,6 +123,8 @@
 
     move-result v8
 
+    .line 41
+    .local v8, "value":I
     const/4 v9, 0x3
 
     new-array v9, v9, [Ljava/lang/Object;
@@ -149,22 +170,41 @@
 
     move v9, v10
 
+    .line 45
+    .end local v2    # "appOpsClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
+    .end local v3    # "checkOpNoThrowMethod":Ljava/lang/reflect/Method;
+    .end local v5    # "opPostNotificationValue":Ljava/lang/reflect/Field;
+    .end local v8    # "value":I
     :goto_0
     return v9
 
+    .restart local v2    # "appOpsClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
+    .restart local v3    # "checkOpNoThrowMethod":Ljava/lang/reflect/Method;
+    .restart local v5    # "opPostNotificationValue":Ljava/lang/reflect/Field;
+    .restart local v8    # "value":I
     :cond_0
     move v9, v11
 
+    .line 41
     goto :goto_0
 
+    .line 43
+    .end local v2    # "appOpsClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
+    .end local v3    # "checkOpNoThrowMethod":Ljava/lang/reflect/Method;
+    .end local v5    # "opPostNotificationValue":Ljava/lang/reflect/Field;
+    .end local v8    # "value":I
     :catch_0
     move-exception v4
 
+    .local v4, "e":Ljava/lang/Exception;
     :goto_1
     move v9, v10
 
+    .line 45
     goto :goto_0
 
+    .line 43
+    .end local v4    # "e":Ljava/lang/Exception;
     :catch_1
     move-exception v4
 

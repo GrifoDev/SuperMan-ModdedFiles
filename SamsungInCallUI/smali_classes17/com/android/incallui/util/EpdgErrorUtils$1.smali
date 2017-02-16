@@ -21,6 +21,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 146
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -30,19 +32,26 @@
 # virtual methods
 .method public onKey(Landroid/content/DialogInterface;ILandroid/view/KeyEvent;)Z
     .locals 3
+    .param p1, "dialogInterface"    # Landroid/content/DialogInterface;
+    .param p2, "i"    # I
+    .param p3, "keyEvent"    # Landroid/view/KeyEvent;
 
+    .prologue
     const/4 v0, 0x1
 
+    .line 150
     const/4 v1, 0x4
 
     if-ne p2, v1, :cond_0
 
+    .line 151
     const-string v1, "SECVT-EpdgErrorUtils"
 
     const-string v2, "showOnWeakWifiDialog() press back press"
 
     invoke-static {v1, v2, v0}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
+    .line 154
     :goto_0
     return v0
 

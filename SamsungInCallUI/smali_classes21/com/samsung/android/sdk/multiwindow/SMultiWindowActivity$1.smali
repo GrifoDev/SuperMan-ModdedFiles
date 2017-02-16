@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/samsung/android/sdk/multiwindow/SMultiWindowActivity;)V
     .locals 0
 
+    .prologue
+    .line 478
     iput-object p1, p0, Lcom/samsung/android/sdk/multiwindow/SMultiWindowActivity$1;->this$0:Lcom/samsung/android/sdk/multiwindow/SMultiWindowActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +38,10 @@
 # virtual methods
 .method public onModeChanged(Z)V
     .locals 1
+    .param p1, "isMultiWindow"    # Z
 
+    .prologue
+    .line 480
     iget-object v0, p0, Lcom/samsung/android/sdk/multiwindow/SMultiWindowActivity$1;->this$0:Lcom/samsung/android/sdk/multiwindow/SMultiWindowActivity;
 
     # getter for: Lcom/samsung/android/sdk/multiwindow/SMultiWindowActivity;->mStateChangeListener:Lcom/samsung/android/sdk/multiwindow/SMultiWindowActivity$StateChangeListener;
@@ -46,12 +51,16 @@
 
     invoke-interface {v0, p1}, Lcom/samsung/android/sdk/multiwindow/SMultiWindowActivity$StateChangeListener;->onModeChanged(Z)V
 
+    .line 481
     return-void
 .end method
 
 .method public onSizeChanged(Landroid/graphics/Rect;)V
     .locals 1
+    .param p1, "rectInfo"    # Landroid/graphics/Rect;
 
+    .prologue
+    .line 488
     iget-object v0, p0, Lcom/samsung/android/sdk/multiwindow/SMultiWindowActivity$1;->this$0:Lcom/samsung/android/sdk/multiwindow/SMultiWindowActivity;
 
     # getter for: Lcom/samsung/android/sdk/multiwindow/SMultiWindowActivity;->mStateChangeListener:Lcom/samsung/android/sdk/multiwindow/SMultiWindowActivity$StateChangeListener;
@@ -61,12 +70,16 @@
 
     invoke-interface {v0, p1}, Lcom/samsung/android/sdk/multiwindow/SMultiWindowActivity$StateChangeListener;->onSizeChanged(Landroid/graphics/Rect;)V
 
+    .line 489
     return-void
 .end method
 
 .method public onZoneChanged(I)V
     .locals 1
+    .param p1, "zoneInfo"    # I
 
+    .prologue
+    .line 484
     iget-object v0, p0, Lcom/samsung/android/sdk/multiwindow/SMultiWindowActivity$1;->this$0:Lcom/samsung/android/sdk/multiwindow/SMultiWindowActivity;
 
     # getter for: Lcom/samsung/android/sdk/multiwindow/SMultiWindowActivity;->mStateChangeListener:Lcom/samsung/android/sdk/multiwindow/SMultiWindowActivity$StateChangeListener;
@@ -76,5 +89,6 @@
 
     invoke-interface {v0, p1}, Lcom/samsung/android/sdk/multiwindow/SMultiWindowActivity$StateChangeListener;->onZoneChanged(I)V
 
+    .line 485
     return-void
 .end method

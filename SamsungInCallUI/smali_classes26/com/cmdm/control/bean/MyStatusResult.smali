@@ -33,13 +33,17 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 14
     invoke-direct {p0}, Lcom/cmdm/control/bean/BaseBean;-><init>()V
 
+    .line 31
     new-instance v0, Lcom/cmdm/control/bean/MoodLableList;
 
     invoke-direct {v0}, Lcom/cmdm/control/bean/MoodLableList;-><init>()V
 
     iput-object v0, p0, Lcom/cmdm/control/bean/MyStatusResult;->statusLableList:Lcom/cmdm/control/bean/MoodLableList;
 
+    .line 14
     return-void
 .end method

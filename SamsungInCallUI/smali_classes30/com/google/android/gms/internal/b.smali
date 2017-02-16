@@ -39,6 +39,9 @@
 
 .method public onStateDeleted(II)V
     .locals 0
+    .param p1, "statusCode"    # I
+    .param p2, "stateKey"    # I
 
+    .prologue
     return-void
 .end method

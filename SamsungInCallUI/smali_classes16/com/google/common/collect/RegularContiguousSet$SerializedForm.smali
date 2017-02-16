@@ -64,18 +64,32 @@
         }
     .end annotation
 
+    .prologue
+    .line 202
+    .local p0, "this":Lcom/google/common/collect/RegularContiguousSet$SerializedForm;, "Lcom/google/common/collect/RegularContiguousSet$SerializedForm<TC;>;"
+    .local p1, "range":Lcom/google/common/collect/Range;, "Lcom/google/common/collect/Range<TC;>;"
+    .local p2, "domain":Lcom/google/common/collect/DiscreteDomain;, "Lcom/google/common/collect/DiscreteDomain<TC;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 203
     iput-object p1, p0, Lcom/google/common/collect/RegularContiguousSet$SerializedForm;->range:Lcom/google/common/collect/Range;
 
+    .line 204
     iput-object p2, p0, Lcom/google/common/collect/RegularContiguousSet$SerializedForm;->domain:Lcom/google/common/collect/DiscreteDomain;
 
+    .line 205
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/collect/Range;Lcom/google/common/collect/DiscreteDomain;Lcom/google/common/collect/RegularContiguousSet$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/google/common/collect/Range;
+    .param p2, "x1"    # Lcom/google/common/collect/DiscreteDomain;
+    .param p3, "x2"    # Lcom/google/common/collect/RegularContiguousSet$1;
 
+    .prologue
+    .line 198
+    .local p0, "this":Lcom/google/common/collect/RegularContiguousSet$SerializedForm;, "Lcom/google/common/collect/RegularContiguousSet$SerializedForm<TC;>;"
     invoke-direct {p0, p1, p2}, Lcom/google/common/collect/RegularContiguousSet$SerializedForm;-><init>(Lcom/google/common/collect/Range;Lcom/google/common/collect/DiscreteDomain;)V
 
     return-void
@@ -84,6 +98,9 @@
 .method private readResolve()Ljava/lang/Object;
     .locals 3
 
+    .prologue
+    .line 208
+    .local p0, "this":Lcom/google/common/collect/RegularContiguousSet$SerializedForm;, "Lcom/google/common/collect/RegularContiguousSet$SerializedForm<TC;>;"
     new-instance v0, Lcom/google/common/collect/RegularContiguousSet;
 
     iget-object v1, p0, Lcom/google/common/collect/RegularContiguousSet$SerializedForm;->range:Lcom/google/common/collect/Range;

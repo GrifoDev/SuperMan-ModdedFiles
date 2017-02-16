@@ -18,6 +18,8 @@
 .method constructor <init>(Ljava/lang/String;I)V
     .locals 1
 
+    .prologue
+    .line 219
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, p2, v0}, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$Policies;-><init>(Ljava/lang/String;ILcom/google/common/util/concurrent/CycleDetectingLockFactory$1;)V
@@ -29,7 +31,10 @@
 # virtual methods
 .method public handlePotentialDeadlock(Lcom/google/common/util/concurrent/CycleDetectingLockFactory$PotentialDeadlockException;)V
     .locals 3
+    .param p1, "e"    # Lcom/google/common/util/concurrent/CycleDetectingLockFactory$PotentialDeadlockException;
 
+    .prologue
+    .line 222
     # getter for: Lcom/google/common/util/concurrent/CycleDetectingLockFactory;->logger:Ljava/util/logging/Logger;
     invoke-static {}, Lcom/google/common/util/concurrent/CycleDetectingLockFactory;->access$100()Ljava/util/logging/Logger;
 
@@ -41,5 +46,6 @@
 
     invoke-virtual {v0, v1, v2, p1}, Ljava/util/logging/Logger;->log(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/Throwable;)V
 
+    .line 223
     return-void
 .end method

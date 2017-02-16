@@ -128,7 +128,9 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
+    .param p1, "obj"    # Ljava/lang/Object;
 
+    .prologue
     invoke-static {p0, p1}, Lcom/google/android/gms/games/multiplayer/InvitationEntity;->a(Lcom/google/android/gms/games/multiplayer/Invitation;Ljava/lang/Object;)Z
 
     move-result v0
@@ -247,7 +249,10 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
+    .prologue
     invoke-virtual {p0}, Lcom/google/android/gms/games/multiplayer/b;->freeze()Lcom/google/android/gms/games/multiplayer/Invitation;
 
     move-result-object v0

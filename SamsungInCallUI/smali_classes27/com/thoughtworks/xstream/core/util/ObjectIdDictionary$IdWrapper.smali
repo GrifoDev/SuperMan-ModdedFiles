@@ -26,17 +26,23 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;)V
     .locals 1
+    .param p1, "obj"    # Ljava/lang/Object;
 
+    .prologue
+    .line 45
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 46
     invoke-static {p1}, Ljava/lang/System;->identityHashCode(Ljava/lang/Object;)I
 
     move-result v0
 
     iput v0, p0, Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary$IdWrapper;->hashCode:I
 
+    .line 47
     iput-object p1, p0, Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary$IdWrapper;->obj:Ljava/lang/Object;
 
+    .line 48
     return-void
 .end method
 
@@ -44,11 +50,15 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 2
+    .param p1, "other"    # Ljava/lang/Object;
 
+    .prologue
+    .line 55
     iget-object v0, p0, Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary$IdWrapper;->obj:Ljava/lang/Object;
 
     check-cast p1, Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary$Wrapper;
 
+    .end local p1    # "other":Ljava/lang/Object;
     invoke-interface {p1}, Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary$Wrapper;->get()Ljava/lang/Object;
 
     move-result-object v1
@@ -69,6 +79,8 @@
 .method public get()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 63
     iget-object v0, p0, Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary$IdWrapper;->obj:Ljava/lang/Object;
 
     return-object v0
@@ -77,6 +89,8 @@
 .method public hashCode()I
     .locals 1
 
+    .prologue
+    .line 51
     iget v0, p0, Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary$IdWrapper;->hashCode:I
 
     return v0
@@ -85,6 +99,8 @@
 .method public toString()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 59
     iget-object v0, p0, Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary$IdWrapper;->obj:Ljava/lang/Object;
 
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;

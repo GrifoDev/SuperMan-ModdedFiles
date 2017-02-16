@@ -29,6 +29,8 @@
 .method constructor <init>(Landroid/view/View;Ljava/lang/Runnable;Z)V
     .locals 0
 
+    .prologue
+    .line 43
     iput-object p1, p0, Lcom/android/contacts/common/util/SchedulingUtils$2;->val$view:Landroid/view/View;
 
     iput-object p2, p0, Lcom/android/contacts/common/util/SchedulingUtils$2;->val$runnable:Ljava/lang/Runnable;
@@ -45,6 +47,8 @@
 .method public onPreDraw()Z
     .locals 1
 
+    .prologue
+    .line 46
     iget-object v0, p0, Lcom/android/contacts/common/util/SchedulingUtils$2;->val$view:Landroid/view/View;
 
     invoke-virtual {v0}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
@@ -53,10 +57,12 @@
 
     invoke-virtual {v0, p0}, Landroid/view/ViewTreeObserver;->removeOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
 
+    .line 47
     iget-object v0, p0, Lcom/android/contacts/common/util/SchedulingUtils$2;->val$runnable:Ljava/lang/Runnable;
 
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
+    .line 48
     iget-boolean v0, p0, Lcom/android/contacts/common/util/SchedulingUtils$2;->val$drawNextFrame:Z
 
     return v0

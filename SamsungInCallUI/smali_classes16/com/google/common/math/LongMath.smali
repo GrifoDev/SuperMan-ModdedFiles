@@ -66,6 +66,7 @@
 .method static constructor <clinit>()V
     .locals 8
 
+    .prologue
     const/4 v7, 0x6
 
     const/4 v6, 0x5
@@ -76,6 +77,7 @@
 
     const/4 v3, 0x2
 
+    .line 170
     const/16 v0, 0x40
 
     new-array v0, v0, [B
@@ -84,6 +86,7 @@
 
     sput-object v0, Lcom/google/common/math/LongMath;->maxLog10ForLeadingZeros:[B
 
+    .line 177
     const/16 v0, 0x13
 
     new-array v0, v0, [J
@@ -92,6 +95,7 @@
 
     sput-object v0, Lcom/google/common/math/LongMath;->powersOf10:[J
 
+    .line 202
     const/16 v0, 0x13
 
     new-array v0, v0, [J
@@ -100,6 +104,7 @@
 
     sput-object v0, Lcom/google/common/math/LongMath;->halfPowersOf10:[J
 
+    .line 619
     const/16 v0, 0x15
 
     new-array v0, v0, [J
@@ -108,6 +113,7 @@
 
     sput-object v0, Lcom/google/common/math/LongMath;->factorials:[J
 
+    .line 728
     const/16 v0, 0x22
 
     new-array v0, v0, [I
@@ -116,6 +122,7 @@
 
     sput-object v0, Lcom/google/common/math/LongMath;->biggestBinomials:[I
 
+    .line 737
     const/16 v0, 0x1f
 
     new-array v0, v0, [I
@@ -124,6 +131,7 @@
 
     sput-object v0, Lcom/google/common/math/LongMath;->biggestSimpleBinomials:[I
 
+    .line 768
     const/4 v0, 0x7
 
     new-array v0, v0, [[J
@@ -182,6 +190,7 @@
 
     return-void
 
+    .line 170
     nop
 
     :array_0
@@ -252,6 +261,7 @@
         0x0t
     .end array-data
 
+    .line 177
     :array_1
     .array-data 8
         0x1
@@ -275,6 +285,7 @@
         0xde0b6b3a7640000L
     .end array-data
 
+    .line 202
     :array_2
     .array-data 8
         0x3
@@ -298,6 +309,7 @@
         0x2be2aac7077d5bc3L    # 2.731041190138108E-97
     .end array-data
 
+    .line 619
     :array_3
     .array-data 8
         0x1
@@ -323,6 +335,7 @@
         0x21c3677c82b40000L
     .end array-data
 
+    .line 728
     :array_4
     .array-data 4
         0x7fffffff
@@ -361,6 +374,7 @@
         0x42
     .end array-data
 
+    .line 737
     :array_5
     .array-data 4
         0x7fffffff
@@ -396,6 +410,7 @@
         0x3d
     .end array-data
 
+    .line 768
     :array_6
     .array-data 8
         0x473f6
@@ -463,6 +478,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 944
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -470,19 +487,25 @@
 
 .method public static binomial(II)J
     .locals 18
+    .param p0, "n"    # I
+    .param p1, "k"    # I
 
+    .prologue
+    .line 650
     const-string v12, "n"
 
     move/from16 v0, p0
 
     invoke-static {v12, v0}, Lcom/google/common/math/MathPreconditions;->checkNonNegative(Ljava/lang/String;I)I
 
+    .line 651
     const-string v12, "k"
 
     move/from16 v0, p1
 
     invoke-static {v12, v0}, Lcom/google/common/math/MathPreconditions;->checkNonNegative(Ljava/lang/String;I)I
 
+    .line 652
     move/from16 v0, p1
 
     move/from16 v1, p0
@@ -516,17 +539,21 @@
 
     invoke-static {v12, v13, v14}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;[Ljava/lang/Object;)V
 
+    .line 653
     shr-int/lit8 v12, p0, 0x1
 
     move/from16 v0, p1
 
     if-le v0, v12, :cond_0
 
+    .line 654
     sub-int p1, p0, p1
 
+    .line 656
     :cond_0
     packed-switch p1, :pswitch_data_0
 
+    .line 662
     sget-object v12, Lcom/google/common/math/LongMath;->factorials:[J
 
     array-length v12, v12
@@ -535,6 +562,7 @@
 
     if-ge v0, v12, :cond_3
 
+    .line 663
     sget-object v12, Lcom/google/common/math/LongMath;->factorials:[J
 
     aget-wide v12, v12, p0
@@ -553,20 +581,24 @@
 
     div-long v2, v12, v14
 
+    .line 704
     :cond_1
     :goto_1
     return-wide v2
 
+    .line 652
     :cond_2
     const/4 v12, 0x0
 
     goto :goto_0
 
+    .line 658
     :pswitch_0
     const-wide/16 v2, 0x1
 
     goto :goto_1
 
+    .line 660
     :pswitch_1
     move/from16 v0, p0
 
@@ -574,6 +606,7 @@
 
     goto :goto_1
 
+    .line 664
     :cond_3
     sget-object v12, Lcom/google/common/math/LongMath;->biggestBinomials:[I
 
@@ -591,11 +624,13 @@
 
     if-le v0, v12, :cond_5
 
+    .line 665
     :cond_4
     const-wide v2, 0x7fffffffffffffffL
 
     goto :goto_1
 
+    .line 666
     :cond_5
     sget-object v12, Lcom/google/common/math/LongMath;->biggestSimpleBinomials:[I
 
@@ -613,37 +648,51 @@
 
     if-gt v0, v12, :cond_6
 
+    .line 668
     add-int/lit8 v9, p0, -0x1
 
+    .end local p0    # "n":I
+    .local v9, "n":I
     move/from16 v0, p0
 
     int-to-long v2, v0
 
+    .line 669
+    .local v2, "result":J
     const/4 v8, 0x2
 
+    .local v8, "i":I
     move/from16 p0, v9
 
+    .end local v9    # "n":I
+    .restart local p0    # "n":I
     :goto_2
     move/from16 v0, p1
 
     if-gt v8, v0, :cond_1
 
+    .line 670
     move/from16 v0, p0
 
     int-to-long v12, v0
 
     mul-long/2addr v2, v12
 
+    .line 671
     int-to-long v12, v8
 
     div-long/2addr v2, v12
 
+    .line 669
     add-int/lit8 p0, p0, -0x1
 
     add-int/lit8 v8, v8, 0x1
 
     goto :goto_2
 
+    .line 675
+    .end local v2    # "result":J
+    .end local v8    # "i":I
     :cond_6
     move/from16 v0, p0
 
@@ -655,45 +704,65 @@
 
     move-result v10
 
+    .line 677
+    .local v10, "nBits":I
     const-wide/16 v2, 0x1
 
+    .line 678
+    .restart local v2    # "result":J
     add-int/lit8 v9, p0, -0x1
 
+    .end local p0    # "n":I
+    .restart local v9    # "n":I
     move/from16 v0, p0
 
     int-to-long v4, v0
 
+    .line 679
+    .local v4, "numerator":J
     const-wide/16 v6, 0x1
 
+    .line 681
+    .local v6, "denominator":J
     move v11, v10
 
+    .line 689
+    .local v11, "numeratorBits":I
     const/4 v8, 0x2
 
+    .restart local v8    # "i":I
     move/from16 p0, v9
 
+    .end local v9    # "n":I
+    .restart local p0    # "n":I
     :goto_3
     move/from16 v0, p1
 
     if-gt v8, v0, :cond_8
 
+    .line 690
     add-int v12, v11, v10
 
     const/16 v13, 0x3f
 
     if-ge v12, v13, :cond_7
 
+    .line 692
     move/from16 v0, p0
 
     int-to-long v12, v0
 
     mul-long/2addr v4, v12
 
+    .line 693
     int-to-long v12, v8
 
     mul-long/2addr v6, v12
 
+    .line 694
     add-int/2addr v11, v10
 
+    .line 689
     :goto_4
     add-int/lit8 v8, v8, 0x1
 
@@ -701,21 +770,26 @@
 
     goto :goto_3
 
+    .line 698
     :cond_7
     invoke-static/range {v2 .. v7}, Lcom/google/common/math/LongMath;->multiplyFraction(JJJ)J
 
     move-result-wide v2
 
+    .line 699
     move/from16 v0, p0
 
     int-to-long v4, v0
 
+    .line 700
     int-to-long v6, v8
 
+    .line 701
     move v11, v10
 
     goto :goto_4
 
+    .line 704
     :cond_8
     invoke-static/range {v2 .. v7}, Lcom/google/common/math/LongMath;->multiplyFraction(JJJ)J
 
@@ -723,6 +797,7 @@
 
     goto :goto_1
 
+    .line 656
     nop
 
     :pswitch_data_0
@@ -734,18 +809,24 @@
 
 .method public static checkedAdd(JJ)J
     .locals 10
+    .param p0, "a"    # J
+    .param p2, "b"    # J
     .annotation build Lcom/google/common/annotations/GwtIncompatible;
         value = "TODO"
     .end annotation
 
+    .prologue
     const-wide/16 v8, 0x0
 
     const/4 v2, 0x1
 
     const/4 v3, 0x0
 
+    .line 510
     add-long v0, p0, p2
 
+    .line 511
+    .local v0, "result":J
     xor-long v4, p0, p2
 
     cmp-long v4, v4, v8
@@ -766,11 +847,13 @@
 
     invoke-static {v2}, Lcom/google/common/math/MathPreconditions;->checkNoOverflow(Z)V
 
+    .line 512
     return-wide v0
 
     :cond_0
     move v4, v3
 
+    .line 511
     goto :goto_0
 
     :cond_1
@@ -781,10 +864,13 @@
 
 .method public static checkedMultiply(JJ)J
     .locals 12
+    .param p0, "a"    # J
+    .param p2, "b"    # J
     .annotation build Lcom/google/common/annotations/GwtIncompatible;
         value = "TODO"
     .end annotation
 
+    .prologue
     const-wide/16 v10, 0x0
 
     const-wide/16 v8, -0x1
@@ -793,6 +879,7 @@
 
     const/4 v5, 0x0
 
+    .line 535
     invoke-static {p0, p1}, Ljava/lang/Long;->numberOfLeadingZeros(J)I
 
     move-result v1
@@ -819,15 +906,20 @@
 
     add-int v0, v1, v6
 
+    .line 547
+    .local v0, "leadingZeros":I
     const/16 v1, 0x41
 
     if-le v0, v1, :cond_0
 
+    .line 548
     mul-long v2, p0, p2
 
+    .line 554
     :goto_0
     return-wide v2
 
+    .line 550
     :cond_0
     const/16 v1, 0x40
 
@@ -838,6 +930,7 @@
     :goto_1
     invoke-static {v1}, Lcom/google/common/math/MathPreconditions;->checkNoOverflow(Z)V
 
+    .line 551
     cmp-long v1, p0, v10
 
     if-ltz v1, :cond_4
@@ -858,8 +951,11 @@
 
     invoke-static {v1}, Lcom/google/common/math/MathPreconditions;->checkNoOverflow(Z)V
 
+    .line 552
     mul-long v2, p0, p2
 
+    .line 553
+    .local v2, "result":J
     cmp-long v1, p0, v10
 
     if-eqz v1, :cond_1
@@ -878,14 +974,17 @@
 
     goto :goto_0
 
+    .end local v2    # "result":J
     :cond_3
     move v1, v5
 
+    .line 550
     goto :goto_1
 
     :cond_4
     move v6, v5
 
+    .line 551
     goto :goto_2
 
     :cond_5
@@ -896,10 +995,13 @@
 
 .method public static checkedPow(JI)J
     .locals 12
+    .param p0, "b"    # J
+    .param p2, "k"    # I
     .annotation build Lcom/google/common/annotations/GwtIncompatible;
         value = "TODO"
     .end annotation
 
+    .prologue
     const-wide/16 v4, -0x1
 
     const-wide/16 v2, 0x1
@@ -908,10 +1010,12 @@
 
     const/4 v7, 0x0
 
+    .line 565
     const-string v8, "exponent"
 
     invoke-static {v8, p2}, Lcom/google/common/math/MathPreconditions;->checkNonNegative(Ljava/lang/String;I)I
 
+    .line 566
     const-wide/16 v8, -0x2
 
     cmp-long v8, p0, v8
@@ -934,10 +1038,12 @@
 
     if-eqz v8, :cond_7
 
+    .line 567
     long-to-int v8, p0
 
     packed-switch v8, :pswitch_data_0
 
+    .line 581
     new-instance v2, Ljava/lang/AssertionError;
 
     invoke-direct {v2}, Ljava/lang/AssertionError;-><init>()V
@@ -947,6 +1053,7 @@
     :cond_0
     move v9, v7
 
+    .line 566
     goto :goto_0
 
     :cond_1
@@ -954,19 +1061,23 @@
 
     goto :goto_1
 
+    .line 569
     :pswitch_0
     if-nez p2, :cond_3
 
+    .line 590
     :cond_2
     :goto_2
     :pswitch_1
     return-wide v2
 
+    .line 569
     :cond_3
     const-wide/16 v2, 0x0
 
     goto :goto_2
 
+    .line 573
     :pswitch_2
     and-int/lit8 v6, p2, 0x1
 
@@ -976,6 +1087,7 @@
 
     goto :goto_2
 
+    .line 575
     :pswitch_3
     const/16 v4, 0x3f
 
@@ -986,6 +1098,7 @@
     :goto_3
     invoke-static {v4}, Lcom/google/common/math/MathPreconditions;->checkNoOverflow(Z)V
 
+    .line 576
     shl-long/2addr v2, p2
 
     goto :goto_2
@@ -993,8 +1106,10 @@
     :cond_4
     move v4, v7
 
+    .line 575
     goto :goto_3
 
+    .line 578
     :pswitch_4
     const/16 v8, 0x40
 
@@ -1003,6 +1118,7 @@
     :goto_4
     invoke-static {v6}, Lcom/google/common/math/MathPreconditions;->checkNoOverflow(Z)V
 
+    .line 579
     and-int/lit8 v6, p2, 0x1
 
     if-nez v6, :cond_6
@@ -1014,33 +1130,43 @@
     :cond_5
     move v6, v7
 
+    .line 578
     goto :goto_4
 
+    .line 579
     :cond_6
     shl-long v2, v4, p2
 
     goto :goto_2
 
+    .line 584
     :cond_7
     const-wide/16 v0, 0x1
 
+    .line 586
+    .local v0, "accum":J
     :cond_8
     :goto_5
     packed-switch p2, :pswitch_data_1
 
+    .line 592
     and-int/lit8 v2, p2, 0x1
 
     if-eqz v2, :cond_9
 
+    .line 593
     invoke-static {v0, v1, p0, p1}, Lcom/google/common/math/LongMath;->checkedMultiply(JJ)J
 
     move-result-wide v0
 
+    .line 595
     :cond_9
     shr-int/lit8 p2, p2, 0x1
 
+    .line 596
     if-lez p2, :cond_8
 
+    .line 597
     const-wide v2, -0xb504f333L
 
     cmp-long v2, v2, p0
@@ -1058,6 +1184,7 @@
     :goto_6
     invoke-static {v2}, Lcom/google/common/math/MathPreconditions;->checkNoOverflow(Z)V
 
+    .line 598
     mul-long/2addr p0, p0
 
     goto :goto_5
@@ -1065,8 +1192,10 @@
     :pswitch_5
     move-wide v2, v0
 
+    .line 588
     goto :goto_2
 
+    .line 590
     :pswitch_6
     invoke-static {v0, v1, p0, p1}, Lcom/google/common/math/LongMath;->checkedMultiply(JJ)J
 
@@ -1077,8 +1206,10 @@
     :cond_a
     move v2, v7
 
+    .line 597
     goto :goto_6
 
+    .line 567
     :pswitch_data_0
     .packed-switch -0x2
         :pswitch_4
@@ -1088,6 +1219,7 @@
         :pswitch_3
     .end packed-switch
 
+    .line 586
     :pswitch_data_1
     .packed-switch 0x0
         :pswitch_5
@@ -1097,18 +1229,24 @@
 
 .method public static checkedSubtract(JJ)J
     .locals 10
+    .param p0, "a"    # J
+    .param p2, "b"    # J
     .annotation build Lcom/google/common/annotations/GwtIncompatible;
         value = "TODO"
     .end annotation
 
+    .prologue
     const-wide/16 v8, 0x0
 
     const/4 v2, 0x1
 
     const/4 v3, 0x0
 
+    .line 522
     sub-long v0, p0, p2
 
+    .line 523
+    .local v0, "result":J
     xor-long v4, p0, p2
 
     cmp-long v4, v4, v8
@@ -1129,11 +1267,13 @@
 
     invoke-static {v2}, Lcom/google/common/math/MathPreconditions;->checkNoOverflow(Z)V
 
+    .line 524
     return-wide v0
 
     :cond_0
     move v4, v3
 
+    .line 523
     goto :goto_0
 
     :cond_1
@@ -1144,28 +1284,42 @@
 
 .method public static divide(JJLjava/math/RoundingMode;)J
     .locals 20
+    .param p0, "p"    # J
+    .param p2, "q"    # J
+    .param p4, "mode"    # Ljava/math/RoundingMode;
     .annotation build Lcom/google/common/annotations/GwtIncompatible;
         value = "TODO"
     .end annotation
 
+    .prologue
+    .line 349
     invoke-static/range {p4 .. p4}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 350
     div-long v6, p0, p2
 
+    .line 351
+    .local v6, "div":J
     mul-long v12, p2, v6
 
     sub-long v10, p0, v12
 
+    .line 353
+    .local v10, "rem":J
     const-wide/16 v12, 0x0
 
     cmp-long v12, v10, v12
 
     if-nez v12, :cond_1
 
+    .line 398
+    .end local v6    # "div":J
     :cond_0
     :goto_0
     return-wide v6
 
+    .line 364
+    .restart local v6    # "div":J
     :cond_1
     xor-long v12, p0, p2
 
@@ -1177,6 +1331,8 @@
 
     or-int/lit8 v9, v12, 0x1
 
+    .line 366
+    .local v9, "signum":I
     sget-object v12, Lcom/google/common/math/LongMath$1;->$SwitchMap$java$math$RoundingMode:[I
 
     invoke-virtual/range {p4 .. p4}, Ljava/math/RoundingMode;->ordinal()I
@@ -1187,12 +1343,14 @@
 
     packed-switch v12, :pswitch_data_0
 
+    .line 396
     new-instance v12, Ljava/lang/AssertionError;
 
     invoke-direct {v12}, Ljava/lang/AssertionError;-><init>()V
 
     throw v12
 
+    .line 368
     :pswitch_0
     const-wide/16 v12, 0x0
 
@@ -1205,9 +1363,12 @@
     :goto_1
     invoke-static {v12}, Lcom/google/common/math/MathPreconditions;->checkRoundingUnnecessary(Z)V
 
+    .line 371
     :pswitch_1
     const/4 v8, 0x0
 
+    .line 398
+    .local v8, "increment":Z
     :goto_2
     if-eqz v8, :cond_0
 
@@ -1217,47 +1378,66 @@
 
     goto :goto_0
 
+    .line 368
+    .end local v8    # "increment":Z
     :cond_2
     const/4 v12, 0x0
 
     goto :goto_1
 
+    .line 374
     :pswitch_2
     const/4 v8, 0x1
 
+    .line 375
+    .restart local v8    # "increment":Z
     goto :goto_2
 
+    .line 377
+    .end local v8    # "increment":Z
     :pswitch_3
     if-lez v9, :cond_3
 
     const/4 v8, 0x1
 
+    .line 378
+    .restart local v8    # "increment":Z
     :goto_3
     goto :goto_2
 
+    .line 377
+    .end local v8    # "increment":Z
     :cond_3
     const/4 v8, 0x0
 
     goto :goto_3
 
+    .line 380
     :pswitch_4
     if-gez v9, :cond_4
 
     const/4 v8, 0x1
 
+    .line 381
+    .restart local v8    # "increment":Z
     :goto_4
     goto :goto_2
 
+    .line 380
+    .end local v8    # "increment":Z
     :cond_4
     const/4 v8, 0x0
 
     goto :goto_4
 
+    .line 385
     :pswitch_5
     invoke-static {v10, v11}, Ljava/lang/Math;->abs(J)J
 
     move-result-wide v2
 
+    .line 386
+    .local v2, "absRem":J
     invoke-static/range {p2 .. p3}, Ljava/lang/Math;->abs(J)J
 
     move-result-wide v12
@@ -1266,12 +1446,15 @@
 
     sub-long v4, v2, v12
 
+    .line 389
+    .local v4, "cmpRemToHalfDivisor":J
     const-wide/16 v12, 0x0
 
     cmp-long v12, v4, v12
 
     if-nez v12, :cond_8
 
+    .line 390
     sget-object v12, Ljava/math/RoundingMode;->HALF_UP:Ljava/math/RoundingMode;
 
     move-object/from16 v0, p4
@@ -1309,8 +1492,10 @@
 
     or-int v8, v12, v13
 
+    .restart local v8    # "increment":Z
     goto :goto_2
 
+    .end local v8    # "increment":Z
     :cond_5
     const/4 v12, 0x0
 
@@ -1328,6 +1513,7 @@
 
     goto :goto_7
 
+    .line 392
     :cond_8
     const-wide/16 v12, 0x0
 
@@ -1337,14 +1523,19 @@
 
     const/4 v8, 0x1
 
+    .line 394
+    .restart local v8    # "increment":Z
     :goto_8
     goto :goto_2
 
+    .line 392
+    .end local v8    # "increment":Z
     :cond_9
     const/4 v8, 0x0
 
     goto :goto_8
 
+    .line 366
     nop
 
     :pswitch_data_0
@@ -1362,14 +1553,18 @@
 
 .method public static factorial(I)J
     .locals 2
+    .param p0, "n"    # I
     .annotation build Lcom/google/common/annotations/GwtIncompatible;
         value = "TODO"
     .end annotation
 
+    .prologue
+    .line 615
     const-string v0, "n"
 
     invoke-static {v0, p0}, Lcom/google/common/math/MathPreconditions;->checkNonNegative(Ljava/lang/String;I)I
 
+    .line 616
     sget-object v0, Lcom/google/common/math/LongMath;->factorials:[J
 
     array-length v0, v0
@@ -1391,7 +1586,10 @@
 
 .method static fitsInInt(J)Z
     .locals 2
+    .param p0, "x"    # J
 
+    .prologue
+    .line 745
     long-to-int v0, p0
 
     int-to-long v0, v0
@@ -1413,71 +1611,99 @@
 
 .method public static gcd(JJ)J
     .locals 10
+    .param p0, "a"    # J
+    .param p2, "b"    # J
 
+    .prologue
     const-wide/16 v8, 0x0
 
+    .line 464
     const-string v6, "a"
 
     invoke-static {v6, p0, p1}, Lcom/google/common/math/MathPreconditions;->checkNonNegative(Ljava/lang/String;J)J
 
+    .line 465
     const-string v6, "b"
 
     invoke-static {v6, p2, p3}, Lcom/google/common/math/MathPreconditions;->checkNonNegative(Ljava/lang/String;J)J
 
+    .line 466
     cmp-long v6, p0, v8
 
     if-nez v6, :cond_1
 
     move-wide p0, p2
 
+    .line 500
+    .end local p0    # "a":J
     :cond_0
     :goto_0
     return-wide p0
 
+    .line 470
+    .restart local p0    # "a":J
     :cond_1
     cmp-long v6, p2, v8
 
     if-eqz v6, :cond_0
 
+    .line 477
     invoke-static {p0, p1}, Ljava/lang/Long;->numberOfTrailingZeros(J)I
 
     move-result v0
 
+    .line 478
+    .local v0, "aTwos":I
     shr-long/2addr p0, v0
 
+    .line 479
     invoke-static {p2, p3}, Ljava/lang/Long;->numberOfTrailingZeros(J)I
 
     move-result v1
 
+    .line 480
+    .local v1, "bTwos":I
     shr-long/2addr p2, v1
 
+    .line 481
     :goto_1
     cmp-long v6, p0, p2
 
     if-eqz v6, :cond_2
 
+    .line 489
     sub-long v2, p0, p2
 
+    .line 491
+    .local v2, "delta":J
     const/16 v6, 0x3f
 
     shr-long v6, v2, v6
 
     and-long v4, v2, v6
 
+    .line 494
+    .local v4, "minDeltaOrZero":J
     sub-long v6, v2, v4
 
     sub-long p0, v6, v4
 
+    .line 497
     add-long/2addr p2, v4
 
+    .line 498
     invoke-static {p0, p1}, Ljava/lang/Long;->numberOfTrailingZeros(J)I
 
     move-result v6
 
     shr-long/2addr p0, v6
 
+    .line 499
     goto :goto_1
 
+    .line 500
+    .end local v2    # "delta":J
+    .end local v4    # "minDeltaOrZero":J
     :cond_2
     invoke-static {v0, v1}, Ljava/lang/Math;->min(II)I
 
@@ -1490,13 +1716,16 @@
 
 .method public static isPowerOfTwo(J)Z
     .locals 8
+    .param p0, "x"    # J
 
+    .prologue
     const-wide/16 v6, 0x0
 
     const/4 v0, 0x1
 
     const/4 v1, 0x0
 
+    .line 63
     cmp-long v2, p0, v6
 
     if-lez v2, :cond_0
@@ -1532,11 +1761,15 @@
 
 .method static lessThanBranchFree(JJ)I
     .locals 4
+    .param p0, "x"    # J
+    .param p2, "y"    # J
     .annotation build Lcom/google/common/annotations/VisibleForTesting;
     .end annotation
 
+    .prologue
     const-wide/16 v2, -0x1
 
+    .line 74
     sub-long v0, p0, p2
 
     xor-long/2addr v0, v2
@@ -1554,22 +1787,31 @@
 
 .method public static log10(JLjava/math/RoundingMode;)I
     .locals 6
+    .param p0, "x"    # J
+    .param p2, "mode"    # Ljava/math/RoundingMode;
     .annotation build Lcom/google/common/annotations/GwtIncompatible;
         value = "TODO"
     .end annotation
 
+    .prologue
+    .line 129
     const-string v3, "x"
 
     invoke-static {v3, p0, p1}, Lcom/google/common/math/MathPreconditions;->checkPositive(Ljava/lang/String;J)J
 
+    .line 130
     invoke-static {p0, p1}, Lcom/google/common/math/LongMath;->log10Floor(J)I
 
     move-result v2
 
+    .line 131
+    .local v2, "logFloor":I
     sget-object v3, Lcom/google/common/math/LongMath;->powersOf10:[J
 
     aget-wide v0, v3, v2
 
+    .line 132
+    .local v0, "floorPow":J
     sget-object v3, Lcom/google/common/math/LongMath$1;->$SwitchMap$java$math$RoundingMode:[I
 
     invoke-virtual {p2}, Ljava/math/RoundingMode;->ordinal()I
@@ -1580,12 +1822,14 @@
 
     packed-switch v3, :pswitch_data_0
 
+    .line 148
     new-instance v3, Ljava/lang/AssertionError;
 
     invoke-direct {v3}, Ljava/lang/AssertionError;-><init>()V
 
     throw v3
 
+    .line 134
     :pswitch_0
     cmp-long v3, p0, v0
 
@@ -1596,15 +1840,20 @@
     :goto_0
     invoke-static {v3}, Lcom/google/common/math/MathPreconditions;->checkRoundingUnnecessary(Z)V
 
+    .line 146
+    .end local v2    # "logFloor":I
     :goto_1
     :pswitch_1
     return v2
 
+    .line 134
+    .restart local v2    # "logFloor":I
     :cond_0
     const/4 v3, 0x0
 
     goto :goto_0
 
+    .line 141
     :pswitch_2
     invoke-static {v0, v1, p0, p1}, Lcom/google/common/math/LongMath;->lessThanBranchFree(JJ)I
 
@@ -1614,6 +1863,7 @@
 
     goto :goto_1
 
+    .line 146
     :pswitch_3
     sget-object v3, Lcom/google/common/math/LongMath;->halfPowersOf10:[J
 
@@ -1627,6 +1877,7 @@
 
     goto :goto_1
 
+    .line 132
     nop
 
     :pswitch_data_0
@@ -1644,10 +1895,13 @@
 
 .method static log10Floor(J)I
     .locals 4
+    .param p0, "x"    # J
     .annotation build Lcom/google/common/annotations/GwtIncompatible;
         value = "TODO"
     .end annotation
 
+    .prologue
+    .line 161
     sget-object v1, Lcom/google/common/math/LongMath;->maxLog10ForLeadingZeros:[B
 
     invoke-static {p0, p1}, Ljava/lang/Long;->numberOfLeadingZeros(J)I
@@ -1656,6 +1910,8 @@
 
     aget-byte v0, v1, v2
 
+    .line 166
+    .local v0, "y":I
     sget-object v1, Lcom/google/common/math/LongMath;->powersOf10:[J
 
     aget-wide v2, v1, v0
@@ -1671,11 +1927,16 @@
 
 .method public static log2(JLjava/math/RoundingMode;)I
     .locals 6
+    .param p0, "x"    # J
+    .param p2, "mode"    # Ljava/math/RoundingMode;
 
+    .prologue
+    .line 87
     const-string v4, "x"
 
     invoke-static {v4, p0, p1}, Lcom/google/common/math/MathPreconditions;->checkPositive(Ljava/lang/String;J)J
 
+    .line 88
     sget-object v4, Lcom/google/common/math/LongMath$1;->$SwitchMap$java$math$RoundingMode:[I
 
     invoke-virtual {p2}, Ljava/math/RoundingMode;->ordinal()I
@@ -1686,6 +1947,7 @@
 
     packed-switch v4, :pswitch_data_0
 
+    .line 111
     new-instance v4, Ljava/lang/AssertionError;
 
     const-string v5, "impossible"
@@ -1694,6 +1956,7 @@
 
     throw v4
 
+    .line 90
     :pswitch_0
     invoke-static {p0, p1}, Lcom/google/common/math/LongMath;->isPowerOfTwo(J)Z
 
@@ -1701,6 +1964,7 @@
 
     invoke-static {v4}, Lcom/google/common/math/MathPreconditions;->checkRoundingUnnecessary(Z)V
 
+    .line 94
     :pswitch_1
     invoke-static {p0, p1}, Ljava/lang/Long;->numberOfLeadingZeros(J)I
 
@@ -1708,9 +1972,11 @@
 
     rsub-int/lit8 v4, v4, 0x3f
 
+    .line 108
     :goto_0
     return v4
 
+    .line 98
     :pswitch_2
     const-wide/16 v4, 0x1
 
@@ -1724,17 +1990,24 @@
 
     goto :goto_0
 
+    .line 104
     :pswitch_3
     invoke-static {p0, p1}, Ljava/lang/Long;->numberOfLeadingZeros(J)I
 
     move-result v2
 
+    .line 105
+    .local v2, "leadingZeros":I
     const-wide v4, -0x4afb0ccc06219b7cL    # -2.734104117489491E-53
 
     ushr-long v0, v4, v2
 
+    .line 107
+    .local v0, "cmp":J
     rsub-int/lit8 v3, v2, 0x3f
 
+    .line 108
+    .local v3, "logFloor":I
     invoke-static {v0, v1, p0, p1}, Lcom/google/common/math/LongMath;->lessThanBranchFree(JJ)I
 
     move-result v4
@@ -1743,6 +2016,7 @@
 
     goto :goto_0
 
+    .line 88
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -1758,7 +2032,11 @@
 
 .method public static mean(JJ)J
     .locals 6
+    .param p0, "x"    # J
+    .param p2, "y"    # J
 
+    .prologue
+    .line 758
     and-long v0, p0, p2
 
     xor-long v2, p0, p2
@@ -1774,10 +2052,14 @@
 
 .method public static mod(JI)I
     .locals 2
+    .param p0, "x"    # J
+    .param p2, "m"    # I
     .annotation build Lcom/google/common/annotations/GwtIncompatible;
         value = "TODO"
     .end annotation
 
+    .prologue
+    .line 422
     int-to-long v0, p2
 
     invoke-static {p0, p1, v0, v1}, Lcom/google/common/math/LongMath;->mod(JJ)J
@@ -1791,16 +2073,21 @@
 
 .method public static mod(JJ)J
     .locals 6
+    .param p0, "x"    # J
+    .param p2, "m"    # J
     .annotation build Lcom/google/common/annotations/GwtIncompatible;
         value = "TODO"
     .end annotation
 
+    .prologue
     const-wide/16 v4, 0x0
 
+    .line 445
     cmp-long v2, p2, v4
 
     if-gtz v2, :cond_0
 
+    .line 446
     new-instance v2, Ljava/lang/ArithmeticException;
 
     const-string v3, "Modulus must be positive"
@@ -1809,16 +2096,21 @@
 
     throw v2
 
+    .line 448
     :cond_0
     rem-long v0, p0, p2
 
+    .line 449
+    .local v0, "result":J
     cmp-long v2, v0, v4
 
     if-ltz v2, :cond_1
 
+    .end local v0    # "result":J
     :goto_0
     return-wide v0
 
+    .restart local v0    # "result":J
     :cond_1
     add-long/2addr v0, p2
 
@@ -1827,27 +2119,39 @@
 
 .method static multiplyFraction(JJJ)J
     .locals 4
+    .param p0, "x"    # J
+    .param p2, "numerator"    # J
+    .param p4, "denominator"    # J
 
+    .prologue
+    .line 713
     const-wide/16 v2, 0x1
 
     cmp-long v2, p0, v2
 
     if-nez v2, :cond_0
 
+    .line 714
     div-long v2, p2, p4
 
+    .line 721
     :goto_0
     return-wide v2
 
+    .line 716
     :cond_0
     invoke-static {p0, p1, p4, p5}, Lcom/google/common/math/LongMath;->gcd(JJ)J
 
     move-result-wide v0
 
+    .line 717
+    .local v0, "commonDivisor":J
     div-long/2addr p0, v0
 
+    .line 718
     div-long/2addr p4, v0
 
+    .line 721
     div-long v2, p2, p4
 
     mul-long/2addr v2, p0
@@ -1857,20 +2161,25 @@
 
 .method public static pow(JI)J
     .locals 10
+    .param p0, "b"    # J
+    .param p2, "k"    # I
     .annotation build Lcom/google/common/annotations/GwtIncompatible;
         value = "TODO"
     .end annotation
 
+    .prologue
     const/16 v8, 0x40
 
     const-wide/16 v4, 0x0
 
     const-wide/16 v2, 0x1
 
+    .line 233
     const-string v6, "exponent"
 
     invoke-static {v6, p2}, Lcom/google/common/math/MathPreconditions;->checkNonNegative(Ljava/lang/String;I)I
 
+    .line 234
     const-wide/16 v6, -0x2
 
     cmp-long v6, v6, p0
@@ -1883,19 +2192,23 @@
 
     if-gtz v6, :cond_5
 
+    .line 235
     long-to-int v6, p0
 
     packed-switch v6, :pswitch_data_0
 
+    .line 251
     new-instance v2, Ljava/lang/AssertionError;
 
     invoke-direct {v2}, Ljava/lang/AssertionError;-><init>()V
 
     throw v2
 
+    .line 237
     :pswitch_0
     if-nez p2, :cond_1
 
+    .line 259
     :cond_0
     :goto_0
     :pswitch_1
@@ -1904,8 +2217,10 @@
     :cond_1
     move-wide v2, v4
 
+    .line 237
     goto :goto_0
 
+    .line 241
     :pswitch_2
     and-int/lit8 v4, p2, 0x1
 
@@ -1915,6 +2230,7 @@
 
     goto :goto_0
 
+    .line 243
     :pswitch_3
     if-ge p2, v8, :cond_2
 
@@ -1925,9 +2241,11 @@
 
     goto :goto_0
 
+    .line 245
     :pswitch_4
     if-ge p2, v8, :cond_4
 
+    .line 246
     and-int/lit8 v4, p2, 0x1
 
     if-nez v4, :cond_3
@@ -1946,14 +2264,19 @@
     :cond_4
     move-wide v2, v4
 
+    .line 248
     goto :goto_0
 
+    .line 254
     :cond_5
     const-wide/16 v0, 0x1
 
+    .line 255
+    .local v0, "accum":J
     :goto_1
     packed-switch p2, :pswitch_data_1
 
+    .line 261
     and-int/lit8 v4, p2, 0x1
 
     if-nez v4, :cond_6
@@ -1963,8 +2286,10 @@
     :goto_2
     mul-long/2addr v0, v4
 
+    .line 262
     mul-long/2addr p0, p0
 
+    .line 254
     shr-int/lit8 p2, p2, 0x1
 
     goto :goto_1
@@ -1972,8 +2297,10 @@
     :pswitch_5
     move-wide v2, v0
 
+    .line 257
     goto :goto_0
 
+    .line 259
     :pswitch_6
     mul-long v2, v0, p0
 
@@ -1982,8 +2309,10 @@
     :cond_6
     move-wide v4, p0
 
+    .line 261
     goto :goto_2
 
+    .line 235
     :pswitch_data_0
     .packed-switch -0x2
         :pswitch_4
@@ -1993,6 +2322,7 @@
         :pswitch_3
     .end packed-switch
 
+    .line 255
     :pswitch_data_1
     .packed-switch 0x0
         :pswitch_5
@@ -2002,20 +2332,26 @@
 
 .method public static sqrt(JLjava/math/RoundingMode;)J
     .locals 10
+    .param p0, "x"    # J
+    .param p2, "mode"    # Ljava/math/RoundingMode;
     .annotation build Lcom/google/common/annotations/GwtIncompatible;
         value = "TODO"
     .end annotation
 
+    .prologue
+    .line 277
     const-string v8, "x"
 
     invoke-static {v8, p0, p1}, Lcom/google/common/math/MathPreconditions;->checkNonNegative(Ljava/lang/String;J)J
 
+    .line 278
     invoke-static {p0, p1}, Lcom/google/common/math/LongMath;->fitsInInt(J)Z
 
     move-result v8
 
     if-eqz v8, :cond_1
 
+    .line 279
     long-to-int v8, p0
 
     invoke-static {v8, p2}, Lcom/google/common/math/IntMath;->sqrt(ILjava/math/RoundingMode;)I
@@ -2024,10 +2360,12 @@
 
     int-to-long v0, v8
 
+    .line 333
     :cond_0
     :goto_0
     return-wide v0
 
+    .line 296
     :cond_1
     long-to-double v8, p0
 
@@ -2037,8 +2375,12 @@
 
     double-to-long v0, v8
 
+    .line 298
+    .local v0, "guess":J
     mul-long v2, v0, v0
 
+    .line 301
+    .local v2, "guessSquared":J
     sget-object v8, Lcom/google/common/math/LongMath$1;->$SwitchMap$java$math$RoundingMode:[I
 
     invoke-virtual {p2}, Ljava/math/RoundingMode;->ordinal()I
@@ -2049,12 +2391,14 @@
 
     packed-switch v8, :pswitch_data_0
 
+    .line 335
     new-instance v8, Ljava/lang/AssertionError;
 
     invoke-direct {v8}, Ljava/lang/AssertionError;-><init>()V
 
     throw v8
 
+    .line 303
     :pswitch_0
     cmp-long v8, v2, p0
 
@@ -2072,28 +2416,33 @@
 
     goto :goto_1
 
+    .line 307
     :pswitch_1
     cmp-long v8, p0, v2
 
     if-gez v8, :cond_0
 
+    .line 308
     const-wide/16 v8, 0x1
 
     sub-long/2addr v0, v8
 
     goto :goto_0
 
+    .line 313
     :pswitch_2
     cmp-long v8, p0, v2
 
     if-lez v8, :cond_0
 
+    .line 314
     const-wide/16 v8, 0x1
 
     add-long/2addr v0, v8
 
     goto :goto_0
 
+    .line 320
     :pswitch_3
     cmp-long v8, p0, v2
 
@@ -2106,10 +2455,14 @@
 
     sub-long v6, v0, v8
 
+    .line 321
+    .local v6, "sqrtFloor":J
     mul-long v8, v6, v6
 
     add-long v4, v8, v6
 
+    .line 333
+    .local v4, "halfSquare":J
     invoke-static {v4, v5, p0, p1}, Lcom/google/common/math/LongMath;->lessThanBranchFree(JJ)I
 
     move-result v8
@@ -2120,11 +2473,15 @@
 
     goto :goto_0
 
+    .line 320
+    .end local v4    # "halfSquare":J
+    .end local v6    # "sqrtFloor":J
     :cond_3
     const/4 v8, 0x0
 
     goto :goto_2
 
+    .line 301
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

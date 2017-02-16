@@ -33,6 +33,9 @@
 .method constructor <init>(Lcom/google/common/collect/ImmutableMap$MapViewOfValuesAsSingletonSets$1;Ljava/util/Map$Entry;)V
     .locals 0
 
+    .prologue
+    .line 589
+    .local p0, "this":Lcom/google/common/collect/ImmutableMap$MapViewOfValuesAsSingletonSets$1$1;, "Lcom/google/common/collect/ImmutableMap$MapViewOfValuesAsSingletonSets$1.1;"
     iput-object p1, p0, Lcom/google/common/collect/ImmutableMap$MapViewOfValuesAsSingletonSets$1$1;->this$2:Lcom/google/common/collect/ImmutableMap$MapViewOfValuesAsSingletonSets$1;
 
     iput-object p2, p0, Lcom/google/common/collect/ImmutableMap$MapViewOfValuesAsSingletonSets$1$1;->val$backingEntry:Ljava/util/Map$Entry;
@@ -52,6 +55,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 592
+    .local p0, "this":Lcom/google/common/collect/ImmutableMap$MapViewOfValuesAsSingletonSets$1$1;, "Lcom/google/common/collect/ImmutableMap$MapViewOfValuesAsSingletonSets$1.1;"
     iget-object v0, p0, Lcom/google/common/collect/ImmutableMap$MapViewOfValuesAsSingletonSets$1$1;->val$backingEntry:Ljava/util/Map$Entry;
 
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -71,6 +77,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 597
+    .local p0, "this":Lcom/google/common/collect/ImmutableMap$MapViewOfValuesAsSingletonSets$1$1;, "Lcom/google/common/collect/ImmutableMap$MapViewOfValuesAsSingletonSets$1.1;"
     iget-object v0, p0, Lcom/google/common/collect/ImmutableMap$MapViewOfValuesAsSingletonSets$1$1;->val$backingEntry:Ljava/util/Map$Entry;
 
     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
@@ -87,6 +96,9 @@
 .method public bridge synthetic getValue()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 589
+    .local p0, "this":Lcom/google/common/collect/ImmutableMap$MapViewOfValuesAsSingletonSets$1$1;, "Lcom/google/common/collect/ImmutableMap$MapViewOfValuesAsSingletonSets$1.1;"
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableMap$MapViewOfValuesAsSingletonSets$1$1;->getValue()Lcom/google/common/collect/ImmutableSet;
 
     move-result-object v0

@@ -96,61 +96,77 @@
 # direct methods
 .method constructor <init>(Landroid/view/View;)V
     .locals 4
+    .param p1, "view"    # Landroid/view/View;
 
+    .prologue
     const/4 v3, 0x0
 
     const/4 v2, 0x0
 
+    .line 206
     invoke-direct {p0}, Lcom/nineoldandroids/view/ViewPropertyAnimator;-><init>()V
 
+    .line 47
     iput-boolean v2, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mDurationSet:Z
 
+    .line 54
     const-wide/16 v0, 0x0
 
     iput-wide v0, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mStartDelay:J
 
+    .line 60
     iput-boolean v2, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mStartDelaySet:Z
 
+    .line 73
     iput-boolean v2, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mInterpolatorSet:Z
 
+    .line 78
     iput-object v3, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mListener:Lcom/nineoldandroids/animation/Animator$AnimatorListener;
 
+    .line 85
     new-instance v0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC$AnimatorEventListener;
 
     invoke-direct {v0, p0, v3}, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC$AnimatorEventListener;-><init>(Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;Lcom/nineoldandroids/view/ViewPropertyAnimatorHC$AnimatorEventListener;)V
 
     iput-object v0, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mAnimatorEventListener:Lcom/nineoldandroids/view/ViewPropertyAnimatorHC$AnimatorEventListener;
 
+    .line 95
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mPendingAnimations:Ljava/util/ArrayList;
 
+    .line 124
     new-instance v0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC$1;
 
     invoke-direct {v0, p0}, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC$1;-><init>(Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;)V
 
     iput-object v0, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mAnimationStarter:Ljava/lang/Runnable;
 
+    .line 181
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mAnimatorMap:Ljava/util/HashMap;
 
+    .line 207
     new-instance v0, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
     iput-object v0, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mView:Ljava/lang/ref/WeakReference;
 
+    .line 208
     return-void
 .end method
 
 .method static synthetic access$0(Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;)V
     .locals 0
 
+    .prologue
+    .line 428
     invoke-direct {p0}, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->startAnimation()V
 
     return-void
@@ -159,6 +175,8 @@
 .method static synthetic access$1(Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;)Lcom/nineoldandroids/animation/Animator$AnimatorListener;
     .locals 1
 
+    .prologue
+    .line 78
     iget-object v0, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mListener:Lcom/nineoldandroids/animation/Animator$AnimatorListener;
 
     return-object v0
@@ -167,6 +185,8 @@
 .method static synthetic access$2(Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;)Ljava/util/HashMap;
     .locals 1
 
+    .prologue
+    .line 180
     iget-object v0, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mAnimatorMap:Ljava/util/HashMap;
 
     return-object v0
@@ -175,6 +195,8 @@
 .method static synthetic access$3(Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;Lcom/nineoldandroids/animation/Animator$AnimatorListener;)V
     .locals 0
 
+    .prologue
+    .line 78
     iput-object p1, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mListener:Lcom/nineoldandroids/animation/Animator$AnimatorListener;
 
     return-void
@@ -183,6 +205,8 @@
 .method static synthetic access$4(Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;)Ljava/lang/ref/WeakReference;
     .locals 1
 
+    .prologue
+    .line 34
     iget-object v0, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mView:Ljava/lang/ref/WeakReference;
 
     return-object v0
@@ -191,6 +215,8 @@
 .method static synthetic access$5(Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;IF)V
     .locals 0
 
+    .prologue
+    .line 534
     invoke-direct {p0, p1, p2}, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->setValue(IF)V
 
     return-void
@@ -198,33 +224,54 @@
 
 .method private animateProperty(IF)V
     .locals 2
+    .param p1, "constantName"    # I
+    .param p2, "toValue"    # F
 
+    .prologue
+    .line 467
     invoke-direct {p0, p1}, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->getValue(I)F
 
     move-result v1
 
+    .line 468
+    .local v1, "fromValue":F
     sub-float v0, p2, v1
 
+    .line 469
+    .local v0, "deltaValue":F
     invoke-direct {p0, p1, v1, v0}, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->animatePropertyBy(IFF)V
 
+    .line 470
     return-void
 .end method
 
 .method private animatePropertyBy(IF)V
     .locals 1
+    .param p1, "constantName"    # I
+    .param p2, "byValue"    # F
 
+    .prologue
+    .line 481
     invoke-direct {p0, p1}, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->getValue(I)F
 
     move-result v0
 
+    .line 482
+    .local v0, "fromValue":F
     invoke-direct {p0, p1, v0, p2}, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->animatePropertyBy(IFF)V
 
+    .line 483
     return-void
 .end method
 
 .method private animatePropertyBy(IFF)V
     .locals 8
+    .param p1, "constantName"    # I
+    .param p2, "startValue"    # F
+    .param p3, "byValue"    # F
 
+    .prologue
+    .line 495
     iget-object v6, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mAnimatorMap:Ljava/util/HashMap;
 
     invoke-virtual {v6}, Ljava/util/HashMap;->size()I
@@ -233,14 +280,19 @@
 
     if-lez v6, :cond_1
 
+    .line 496
     const/4 v1, 0x0
 
+    .line 497
+    .local v1, "animatorToCancel":Lcom/nineoldandroids/animation/Animator;
     iget-object v6, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mAnimatorMap:Ljava/util/HashMap;
 
     invoke-virtual {v6}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
 
     move-result-object v0
 
+    .line 498
+    .local v0, "animatorSet":Ljava/util/Set;, "Ljava/util/Set<Lcom/nineoldandroids/animation/Animator;>;"
     invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v6
@@ -252,20 +304,28 @@
 
     if-nez v7, :cond_3
 
+    .line 512
     :goto_0
     if-eqz v1, :cond_1
 
+    .line 513
     invoke-virtual {v1}, Lcom/nineoldandroids/animation/Animator;->cancel()V
 
+    .line 517
+    .end local v0    # "animatorSet":Ljava/util/Set;, "Ljava/util/Set<Lcom/nineoldandroids/animation/Animator;>;"
+    .end local v1    # "animatorToCancel":Lcom/nineoldandroids/animation/Animator;
     :cond_1
     new-instance v3, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC$NameValuesHolder;
 
     invoke-direct {v3, p1, p2, p3}, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC$NameValuesHolder;-><init>(IFF)V
 
+    .line 518
+    .local v3, "nameValuePair":Lcom/nineoldandroids/view/ViewPropertyAnimatorHC$NameValuesHolder;
     iget-object v6, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mPendingAnimations:Ljava/util/ArrayList;
 
     invoke-virtual {v6, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 519
     iget-object v6, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mView:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v6}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -274,19 +334,29 @@
 
     check-cast v5, Landroid/view/View;
 
+    .line 520
+    .local v5, "v":Landroid/view/View;
     if-eqz v5, :cond_2
 
+    .line 521
     iget-object v6, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mAnimationStarter:Ljava/lang/Runnable;
 
     invoke-virtual {v5, v6}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
 
+    .line 522
     iget-object v6, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mAnimationStarter:Ljava/lang/Runnable;
 
     invoke-virtual {v5, v6}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
 
+    .line 524
     :cond_2
     return-void
 
+    .line 498
+    .end local v3    # "nameValuePair":Lcom/nineoldandroids/view/ViewPropertyAnimatorHC$NameValuesHolder;
+    .end local v5    # "v":Landroid/view/View;
+    .restart local v0    # "animatorSet":Ljava/util/Set;, "Ljava/util/Set<Lcom/nineoldandroids/animation/Animator;>;"
+    .restart local v1    # "animatorToCancel":Lcom/nineoldandroids/animation/Animator;
     :cond_3
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -294,6 +364,8 @@
 
     check-cast v4, Lcom/nineoldandroids/animation/Animator;
 
+    .line 499
+    .local v4, "runningAnim":Lcom/nineoldandroids/animation/Animator;
     iget-object v7, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mAnimatorMap:Ljava/util/HashMap;
 
     invoke-virtual {v7, v4}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -302,24 +374,32 @@
 
     check-cast v2, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC$PropertyBundle;
 
+    .line 500
+    .local v2, "bundle":Lcom/nineoldandroids/view/ViewPropertyAnimatorHC$PropertyBundle;
     invoke-virtual {v2, p1}, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC$PropertyBundle;->cancel(I)Z
 
     move-result v7
 
     if-eqz v7, :cond_0
 
+    .line 505
     iget v7, v2, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC$PropertyBundle;->mPropertyMask:I
 
     if-nez v7, :cond_0
 
+    .line 507
     move-object v1, v4
 
+    .line 508
     goto :goto_0
 .end method
 
 .method private getValue(I)F
     .locals 2
+    .param p1, "propertyConstant"    # I
 
+    .prologue
+    .line 591
     iget-object v1, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mView:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -328,16 +408,21 @@
 
     check-cast v0, Landroid/view/View;
 
+    .line 592
+    .local v0, "v":Landroid/view/View;
     if-eqz v0, :cond_0
 
+    .line 593
     sparse-switch p1, :sswitch_data_0
 
+    .line 626
     :cond_0
     const/4 v1, 0x0
 
     :goto_0
     return v1
 
+    .line 596
     :sswitch_0
     invoke-virtual {v0}, Landroid/view/View;->getTranslationX()F
 
@@ -345,6 +430,7 @@
 
     goto :goto_0
 
+    .line 599
     :sswitch_1
     invoke-virtual {v0}, Landroid/view/View;->getTranslationY()F
 
@@ -352,6 +438,7 @@
 
     goto :goto_0
 
+    .line 602
     :sswitch_2
     invoke-virtual {v0}, Landroid/view/View;->getRotation()F
 
@@ -359,6 +446,7 @@
 
     goto :goto_0
 
+    .line 605
     :sswitch_3
     invoke-virtual {v0}, Landroid/view/View;->getRotationX()F
 
@@ -366,6 +454,7 @@
 
     goto :goto_0
 
+    .line 608
     :sswitch_4
     invoke-virtual {v0}, Landroid/view/View;->getRotationY()F
 
@@ -373,6 +462,7 @@
 
     goto :goto_0
 
+    .line 611
     :sswitch_5
     invoke-virtual {v0}, Landroid/view/View;->getScaleX()F
 
@@ -380,6 +470,7 @@
 
     goto :goto_0
 
+    .line 614
     :sswitch_6
     invoke-virtual {v0}, Landroid/view/View;->getScaleY()F
 
@@ -387,6 +478,7 @@
 
     goto :goto_0
 
+    .line 617
     :sswitch_7
     invoke-virtual {v0}, Landroid/view/View;->getX()F
 
@@ -394,6 +486,7 @@
 
     goto :goto_0
 
+    .line 620
     :sswitch_8
     invoke-virtual {v0}, Landroid/view/View;->getY()F
 
@@ -401,6 +494,7 @@
 
     goto :goto_0
 
+    .line 623
     :sswitch_9
     invoke-virtual {v0}, Landroid/view/View;->getAlpha()F
 
@@ -408,6 +502,7 @@
 
     goto :goto_0
 
+    .line 593
     nop
 
     :sswitch_data_0
@@ -427,7 +522,11 @@
 
 .method private setValue(IF)V
     .locals 2
+    .param p1, "propertyConstant"    # I
+    .param p2, "value"    # F
 
+    .prologue
+    .line 536
     iget-object v1, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mView:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -436,64 +535,79 @@
 
     check-cast v0, Landroid/view/View;
 
+    .line 537
+    .local v0, "v":Landroid/view/View;
     if-eqz v0, :cond_0
 
+    .line 538
     sparse-switch p1, :sswitch_data_0
 
+    .line 581
     :cond_0
     :goto_0
     return-void
 
+    .line 541
     :sswitch_0
     invoke-virtual {v0, p2}, Landroid/view/View;->setTranslationX(F)V
 
     goto :goto_0
 
+    .line 545
     :sswitch_1
     invoke-virtual {v0, p2}, Landroid/view/View;->setTranslationY(F)V
 
     goto :goto_0
 
+    .line 549
     :sswitch_2
     invoke-virtual {v0, p2}, Landroid/view/View;->setRotation(F)V
 
     goto :goto_0
 
+    .line 553
     :sswitch_3
     invoke-virtual {v0, p2}, Landroid/view/View;->setRotationX(F)V
 
     goto :goto_0
 
+    .line 557
     :sswitch_4
     invoke-virtual {v0, p2}, Landroid/view/View;->setRotationY(F)V
 
     goto :goto_0
 
+    .line 561
     :sswitch_5
     invoke-virtual {v0, p2}, Landroid/view/View;->setScaleX(F)V
 
     goto :goto_0
 
+    .line 565
     :sswitch_6
     invoke-virtual {v0, p2}, Landroid/view/View;->setScaleY(F)V
 
     goto :goto_0
 
+    .line 569
     :sswitch_7
     invoke-virtual {v0, p2}, Landroid/view/View;->setX(F)V
 
     goto :goto_0
 
+    .line 573
     :sswitch_8
     invoke-virtual {v0, p2}, Landroid/view/View;->setY(F)V
 
     goto :goto_0
 
+    .line 577
     :sswitch_9
     invoke-virtual {v0, p2}, Landroid/view/View;->setAlpha(F)V
 
     goto :goto_0
 
+    .line 538
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_0
@@ -512,6 +626,8 @@
 .method private startAnimation()V
     .locals 9
 
+    .prologue
+    .line 429
     const/4 v6, 0x1
 
     new-array v6, v6, [F
@@ -526,6 +642,8 @@
 
     move-result-object v0
 
+    .line 431
+    .local v0, "animator":Lcom/nineoldandroids/animation/ValueAnimator;
     iget-object v6, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mPendingAnimations:Ljava/util/ArrayList;
 
     invoke-virtual {v6}, Ljava/util/ArrayList;->clone()Ljava/lang/Object;
@@ -534,21 +652,30 @@
 
     check-cast v2, Ljava/util/ArrayList;
 
+    .line 432
+    .local v2, "nameValueList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/nineoldandroids/view/ViewPropertyAnimatorHC$NameValuesHolder;>;"
     iget-object v6, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mPendingAnimations:Ljava/util/ArrayList;
 
     invoke-virtual {v6}, Ljava/util/ArrayList;->clear()V
 
+    .line 433
     const/4 v5, 0x0
 
+    .line 434
+    .local v5, "propertyMask":I
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
     move-result v4
 
+    .line 435
+    .local v4, "propertyCount":I
     const/4 v1, 0x0
 
+    .local v1, "i":I
     :goto_0
     if-lt v1, v4, :cond_3
 
+    .line 439
     iget-object v6, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mAnimatorMap:Ljava/util/HashMap;
 
     new-instance v7, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC$PropertyBundle;
@@ -557,45 +684,56 @@
 
     invoke-virtual {v6, v0, v7}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 440
     iget-object v6, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mAnimatorEventListener:Lcom/nineoldandroids/view/ViewPropertyAnimatorHC$AnimatorEventListener;
 
     invoke-virtual {v0, v6}, Lcom/nineoldandroids/animation/ValueAnimator;->addUpdateListener(Lcom/nineoldandroids/animation/ValueAnimator$AnimatorUpdateListener;)V
 
+    .line 441
     iget-object v6, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mAnimatorEventListener:Lcom/nineoldandroids/view/ViewPropertyAnimatorHC$AnimatorEventListener;
 
     invoke-virtual {v0, v6}, Lcom/nineoldandroids/animation/ValueAnimator;->addListener(Lcom/nineoldandroids/animation/Animator$AnimatorListener;)V
 
+    .line 442
     iget-boolean v6, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mStartDelaySet:Z
 
     if-eqz v6, :cond_0
 
+    .line 443
     iget-wide v6, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mStartDelay:J
 
     invoke-virtual {v0, v6, v7}, Lcom/nineoldandroids/animation/ValueAnimator;->setStartDelay(J)V
 
+    .line 445
     :cond_0
     iget-boolean v6, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mDurationSet:Z
 
     if-eqz v6, :cond_1
 
+    .line 446
     iget-wide v6, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mDuration:J
 
     invoke-virtual {v0, v6, v7}, Lcom/nineoldandroids/animation/ValueAnimator;->setDuration(J)Lcom/nineoldandroids/animation/ValueAnimator;
 
+    .line 448
     :cond_1
     iget-boolean v6, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mInterpolatorSet:Z
 
     if-eqz v6, :cond_2
 
+    .line 449
     iget-object v6, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mInterpolator:Landroid/view/animation/Interpolator;
 
     invoke-virtual {v0, v6}, Lcom/nineoldandroids/animation/ValueAnimator;->setInterpolator(Landroid/view/animation/Interpolator;)V
 
+    .line 451
     :cond_2
     invoke-virtual {v0}, Lcom/nineoldandroids/animation/ValueAnimator;->start()V
 
+    .line 452
     return-void
 
+    .line 436
     :cond_3
     invoke-virtual {v2, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
@@ -603,10 +741,13 @@
 
     check-cast v3, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC$NameValuesHolder;
 
+    .line 437
+    .local v3, "nameValuesHolder":Lcom/nineoldandroids/view/ViewPropertyAnimatorHC$NameValuesHolder;
     iget v6, v3, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC$NameValuesHolder;->mNameConstant:I
 
     or-int/2addr v5, v6
 
+    .line 435
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
@@ -616,27 +757,37 @@
 # virtual methods
 .method public alpha(F)Lcom/nineoldandroids/view/ViewPropertyAnimator;
     .locals 1
+    .param p1, "value"    # F
 
+    .prologue
+    .line 413
     const/16 v0, 0x200
 
     invoke-direct {p0, v0, p1}, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->animateProperty(IF)V
 
+    .line 414
     return-object p0
 .end method
 
 .method public alphaBy(F)Lcom/nineoldandroids/view/ViewPropertyAnimator;
     .locals 1
+    .param p1, "value"    # F
 
+    .prologue
+    .line 419
     const/16 v0, 0x200
 
     invoke-direct {p0, v0, p1}, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->animatePropertyBy(IF)V
 
+    .line 420
     return-object p0
 .end method
 
 .method public cancel()V
     .locals 6
 
+    .prologue
+    .line 288
     iget-object v4, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mAnimatorMap:Ljava/util/HashMap;
 
     invoke-virtual {v4}, Ljava/util/HashMap;->size()I
@@ -645,6 +796,7 @@
 
     if-lez v4, :cond_0
 
+    .line 290
     iget-object v4, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mAnimatorMap:Ljava/util/HashMap;
 
     invoke-virtual {v4}, Ljava/util/HashMap;->clone()Ljava/lang/Object;
@@ -653,10 +805,14 @@
 
     check-cast v1, Ljava/util/HashMap;
 
+    .line 291
+    .local v1, "mAnimatorMapCopy":Ljava/util/HashMap;, "Ljava/util/HashMap<Lcom/nineoldandroids/animation/Animator;Lcom/nineoldandroids/view/ViewPropertyAnimatorHC$PropertyBundle;>;"
     invoke-virtual {v1}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
 
     move-result-object v0
 
+    .line 292
+    .local v0, "animatorSet":Ljava/util/Set;, "Ljava/util/Set<Lcom/nineoldandroids/animation/Animator;>;"
     invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
@@ -668,11 +824,15 @@
 
     if-nez v5, :cond_2
 
+    .line 296
+    .end local v0    # "animatorSet":Ljava/util/Set;, "Ljava/util/Set<Lcom/nineoldandroids/animation/Animator;>;"
+    .end local v1    # "mAnimatorMapCopy":Ljava/util/HashMap;, "Ljava/util/HashMap<Lcom/nineoldandroids/animation/Animator;Lcom/nineoldandroids/view/ViewPropertyAnimatorHC$PropertyBundle;>;"
     :cond_0
     iget-object v4, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mPendingAnimations:Ljava/util/ArrayList;
 
     invoke-virtual {v4}, Ljava/util/ArrayList;->clear()V
 
+    .line 297
     iget-object v4, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mView:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v4}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -681,15 +841,23 @@
 
     check-cast v3, Landroid/view/View;
 
+    .line 298
+    .local v3, "v":Landroid/view/View;
     if-eqz v3, :cond_1
 
+    .line 299
     iget-object v4, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mAnimationStarter:Ljava/lang/Runnable;
 
     invoke-virtual {v3, v4}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
 
+    .line 301
     :cond_1
     return-void
 
+    .line 292
+    .end local v3    # "v":Landroid/view/View;
+    .restart local v0    # "animatorSet":Ljava/util/Set;, "Ljava/util/Set<Lcom/nineoldandroids/animation/Animator;>;"
+    .restart local v1    # "mAnimatorMapCopy":Ljava/util/HashMap;, "Ljava/util/HashMap<Lcom/nineoldandroids/animation/Animator;Lcom/nineoldandroids/view/ViewPropertyAnimatorHC$PropertyBundle;>;"
     :cond_2
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -697,6 +865,8 @@
 
     check-cast v2, Lcom/nineoldandroids/animation/Animator;
 
+    .line 293
+    .local v2, "runningAnim":Lcom/nineoldandroids/animation/Animator;
     invoke-virtual {v2}, Lcom/nineoldandroids/animation/Animator;->cancel()V
 
     goto :goto_0
@@ -705,12 +875,16 @@
 .method public getDuration()J
     .locals 2
 
+    .prologue
+    .line 237
     iget-boolean v0, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mDurationSet:Z
 
     if-eqz v0, :cond_0
 
+    .line 238
     iget-wide v0, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mDuration:J
 
+    .line 242
     :goto_0
     return-wide v0
 
@@ -729,12 +903,16 @@
 .method public getStartDelay()J
     .locals 2
 
+    .prologue
+    .line 248
     iget-boolean v0, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mStartDelaySet:Z
 
     if-eqz v0, :cond_0
 
+    .line 249
     iget-wide v0, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mStartDelay:J
 
+    .line 253
     :goto_0
     return-wide v0
 
@@ -746,113 +924,157 @@
 
 .method public rotation(F)Lcom/nineoldandroids/view/ViewPropertyAnimator;
     .locals 1
+    .param p1, "value"    # F
 
+    .prologue
+    .line 329
     const/16 v0, 0x10
 
     invoke-direct {p0, v0, p1}, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->animateProperty(IF)V
 
+    .line 330
     return-object p0
 .end method
 
 .method public rotationBy(F)Lcom/nineoldandroids/view/ViewPropertyAnimator;
     .locals 1
+    .param p1, "value"    # F
 
+    .prologue
+    .line 335
     const/16 v0, 0x10
 
     invoke-direct {p0, v0, p1}, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->animatePropertyBy(IF)V
 
+    .line 336
     return-object p0
 .end method
 
 .method public rotationX(F)Lcom/nineoldandroids/view/ViewPropertyAnimator;
     .locals 1
+    .param p1, "value"    # F
 
+    .prologue
+    .line 341
     const/16 v0, 0x20
 
     invoke-direct {p0, v0, p1}, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->animateProperty(IF)V
 
+    .line 342
     return-object p0
 .end method
 
 .method public rotationXBy(F)Lcom/nineoldandroids/view/ViewPropertyAnimator;
     .locals 1
+    .param p1, "value"    # F
 
+    .prologue
+    .line 347
     const/16 v0, 0x20
 
     invoke-direct {p0, v0, p1}, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->animatePropertyBy(IF)V
 
+    .line 348
     return-object p0
 .end method
 
 .method public rotationY(F)Lcom/nineoldandroids/view/ViewPropertyAnimator;
     .locals 1
+    .param p1, "value"    # F
 
+    .prologue
+    .line 353
     const/16 v0, 0x40
 
     invoke-direct {p0, v0, p1}, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->animateProperty(IF)V
 
+    .line 354
     return-object p0
 .end method
 
 .method public rotationYBy(F)Lcom/nineoldandroids/view/ViewPropertyAnimator;
     .locals 1
+    .param p1, "value"    # F
 
+    .prologue
+    .line 359
     const/16 v0, 0x40
 
     invoke-direct {p0, v0, p1}, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->animatePropertyBy(IF)V
 
+    .line 360
     return-object p0
 .end method
 
 .method public scaleX(F)Lcom/nineoldandroids/view/ViewPropertyAnimator;
     .locals 1
+    .param p1, "value"    # F
 
+    .prologue
+    .line 389
     const/4 v0, 0x4
 
     invoke-direct {p0, v0, p1}, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->animateProperty(IF)V
 
+    .line 390
     return-object p0
 .end method
 
 .method public scaleXBy(F)Lcom/nineoldandroids/view/ViewPropertyAnimator;
     .locals 1
+    .param p1, "value"    # F
 
+    .prologue
+    .line 395
     const/4 v0, 0x4
 
     invoke-direct {p0, v0, p1}, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->animatePropertyBy(IF)V
 
+    .line 396
     return-object p0
 .end method
 
 .method public scaleY(F)Lcom/nineoldandroids/view/ViewPropertyAnimator;
     .locals 1
+    .param p1, "value"    # F
 
+    .prologue
+    .line 401
     const/16 v0, 0x8
 
     invoke-direct {p0, v0, p1}, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->animateProperty(IF)V
 
+    .line 402
     return-object p0
 .end method
 
 .method public scaleYBy(F)Lcom/nineoldandroids/view/ViewPropertyAnimator;
     .locals 1
+    .param p1, "value"    # F
 
+    .prologue
+    .line 407
     const/16 v0, 0x8
 
     invoke-direct {p0, v0, p1}, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->animatePropertyBy(IF)V
 
+    .line 408
     return-object p0
 .end method
 
 .method public setDuration(J)Lcom/nineoldandroids/view/ViewPropertyAnimator;
     .locals 3
+    .param p1, "duration"    # J
 
+    .prologue
+    .line 219
     const-wide/16 v0, 0x0
 
     cmp-long v0, p1, v0
 
     if-gez v0, :cond_0
 
+    .line 220
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -861,6 +1083,7 @@
 
     invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
+    .line 221
     invoke-virtual {v1, p1, p2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -869,49 +1092,66 @@
 
     move-result-object v1
 
+    .line 220
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
+    .line 223
     :cond_0
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mDurationSet:Z
 
+    .line 224
     iput-wide p1, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mDuration:J
 
+    .line 225
     return-object p0
 .end method
 
 .method public setInterpolator(Landroid/view/animation/Interpolator;)Lcom/nineoldandroids/view/ViewPropertyAnimator;
     .locals 1
+    .param p1, "interpolator"    # Landroid/view/animation/Interpolator;
 
+    .prologue
+    .line 270
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mInterpolatorSet:Z
 
+    .line 271
     iput-object p1, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mInterpolator:Landroid/view/animation/Interpolator;
 
+    .line 272
     return-object p0
 .end method
 
 .method public setListener(Lcom/nineoldandroids/animation/Animator$AnimatorListener;)Lcom/nineoldandroids/view/ViewPropertyAnimator;
     .locals 0
+    .param p1, "listener"    # Lcom/nineoldandroids/animation/Animator$AnimatorListener;
 
+    .prologue
+    .line 277
     iput-object p1, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mListener:Lcom/nineoldandroids/animation/Animator$AnimatorListener;
 
+    .line 278
     return-object p0
 .end method
 
 .method public setStartDelay(J)Lcom/nineoldandroids/view/ViewPropertyAnimator;
     .locals 3
+    .param p1, "startDelay"    # J
 
+    .prologue
+    .line 259
     const-wide/16 v0, 0x0
 
     cmp-long v0, p1, v0
 
     if-gez v0, :cond_0
 
+    .line 260
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -920,6 +1160,7 @@
 
     invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
+    .line 261
     invoke-virtual {v1, p1, p2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -928,104 +1169,143 @@
 
     move-result-object v1
 
+    .line 260
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
+    .line 263
     :cond_0
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mStartDelaySet:Z
 
+    .line 264
     iput-wide p1, p0, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->mStartDelay:J
 
+    .line 265
     return-object p0
 .end method
 
 .method public start()V
     .locals 0
 
+    .prologue
+    .line 283
     invoke-direct {p0}, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->startAnimation()V
 
+    .line 284
     return-void
 .end method
 
 .method public translationX(F)Lcom/nineoldandroids/view/ViewPropertyAnimator;
     .locals 1
+    .param p1, "value"    # F
 
+    .prologue
+    .line 365
     const/4 v0, 0x1
 
     invoke-direct {p0, v0, p1}, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->animateProperty(IF)V
 
+    .line 366
     return-object p0
 .end method
 
 .method public translationXBy(F)Lcom/nineoldandroids/view/ViewPropertyAnimator;
     .locals 1
+    .param p1, "value"    # F
 
+    .prologue
+    .line 371
     const/4 v0, 0x1
 
     invoke-direct {p0, v0, p1}, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->animatePropertyBy(IF)V
 
+    .line 372
     return-object p0
 .end method
 
 .method public translationY(F)Lcom/nineoldandroids/view/ViewPropertyAnimator;
     .locals 1
+    .param p1, "value"    # F
 
+    .prologue
+    .line 377
     const/4 v0, 0x2
 
     invoke-direct {p0, v0, p1}, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->animateProperty(IF)V
 
+    .line 378
     return-object p0
 .end method
 
 .method public translationYBy(F)Lcom/nineoldandroids/view/ViewPropertyAnimator;
     .locals 1
+    .param p1, "value"    # F
 
+    .prologue
+    .line 383
     const/4 v0, 0x2
 
     invoke-direct {p0, v0, p1}, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->animatePropertyBy(IF)V
 
+    .line 384
     return-object p0
 .end method
 
 .method public x(F)Lcom/nineoldandroids/view/ViewPropertyAnimator;
     .locals 1
+    .param p1, "value"    # F
 
+    .prologue
+    .line 305
     const/16 v0, 0x80
 
     invoke-direct {p0, v0, p1}, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->animateProperty(IF)V
 
+    .line 306
     return-object p0
 .end method
 
 .method public xBy(F)Lcom/nineoldandroids/view/ViewPropertyAnimator;
     .locals 1
+    .param p1, "value"    # F
 
+    .prologue
+    .line 311
     const/16 v0, 0x80
 
     invoke-direct {p0, v0, p1}, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->animatePropertyBy(IF)V
 
+    .line 312
     return-object p0
 .end method
 
 .method public y(F)Lcom/nineoldandroids/view/ViewPropertyAnimator;
     .locals 1
+    .param p1, "value"    # F
 
+    .prologue
+    .line 317
     const/16 v0, 0x100
 
     invoke-direct {p0, v0, p1}, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->animateProperty(IF)V
 
+    .line 318
     return-object p0
 .end method
 
 .method public yBy(F)Lcom/nineoldandroids/view/ViewPropertyAnimator;
     .locals 1
+    .param p1, "value"    # F
 
+    .prologue
+    .line 323
     const/16 v0, 0x100
 
     invoke-direct {p0, v0, p1}, Lcom/nineoldandroids/view/ViewPropertyAnimatorHC;->animatePropertyBy(IF)V
 
+    .line 324
     return-object p0
 .end method

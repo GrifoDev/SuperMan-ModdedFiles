@@ -45,10 +45,15 @@
         }
     .end annotation
 
+    .prologue
+    .local p0, "this":Lcom/google/common/collect/TreeRangeSet$SubRangeSet;, "Lcom/google/common/collect/TreeRangeSet<TC;>.SubRangeSet;"
+    .local p2, "restriction":Lcom/google/common/collect/Range;, "Lcom/google/common/collect/Range<TC;>;"
     const/4 v3, 0x0
 
+    .line 838
     iput-object p1, p0, Lcom/google/common/collect/TreeRangeSet$SubRangeSet;->this$0:Lcom/google/common/collect/TreeRangeSet;
 
+    .line 839
     new-instance v0, Lcom/google/common/collect/TreeRangeSet$SubRangeSetRangesByLowerBound;
 
     invoke-static {}, Lcom/google/common/collect/Range;->all()Lcom/google/common/collect/Range;
@@ -61,8 +66,10 @@
 
     invoke-direct {p0, v0, v3}, Lcom/google/common/collect/TreeRangeSet;-><init>(Ljava/util/NavigableMap;Lcom/google/common/collect/TreeRangeSet$1;)V
 
+    .line 841
     iput-object p2, p0, Lcom/google/common/collect/TreeRangeSet$SubRangeSet;->restriction:Lcom/google/common/collect/Range;
 
+    .line 842
     return-void
 .end method
 
@@ -78,6 +85,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 865
+    .local p0, "this":Lcom/google/common/collect/TreeRangeSet$SubRangeSet;, "Lcom/google/common/collect/TreeRangeSet<TC;>.SubRangeSet;"
+    .local p1, "rangeToAdd":Lcom/google/common/collect/Range;, "Lcom/google/common/collect/Range<TC;>;"
     iget-object v0, p0, Lcom/google/common/collect/TreeRangeSet$SubRangeSet;->restriction:Lcom/google/common/collect/Range;
 
     invoke-virtual {v0, p1}, Lcom/google/common/collect/Range;->encloses(Lcom/google/common/collect/Range;)Z
@@ -102,20 +113,26 @@
 
     invoke-static {v0, v1, v2}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;[Ljava/lang/Object;)V
 
+    .line 870
     invoke-super {p0, p1}, Lcom/google/common/collect/TreeRangeSet;->add(Lcom/google/common/collect/Range;)V
 
+    .line 871
     return-void
 .end method
 
 .method public clear()V
     .locals 2
 
+    .prologue
+    .line 887
+    .local p0, "this":Lcom/google/common/collect/TreeRangeSet$SubRangeSet;, "Lcom/google/common/collect/TreeRangeSet<TC;>.SubRangeSet;"
     iget-object v0, p0, Lcom/google/common/collect/TreeRangeSet$SubRangeSet;->this$0:Lcom/google/common/collect/TreeRangeSet;
 
     iget-object v1, p0, Lcom/google/common/collect/TreeRangeSet$SubRangeSet;->restriction:Lcom/google/common/collect/Range;
 
     invoke-virtual {v0, v1}, Lcom/google/common/collect/TreeRangeSet;->remove(Lcom/google/common/collect/Range;)V
 
+    .line 888
     return-void
 .end method
 
@@ -127,6 +144,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 882
+    .local p0, "this":Lcom/google/common/collect/TreeRangeSet$SubRangeSet;, "Lcom/google/common/collect/TreeRangeSet<TC;>.SubRangeSet;"
+    .local p1, "value":Ljava/lang/Comparable;, "TC;"
     iget-object v0, p0, Lcom/google/common/collect/TreeRangeSet$SubRangeSet;->restriction:Lcom/google/common/collect/Range;
 
     invoke-virtual {v0, p1}, Lcom/google/common/collect/Range;->contains(Ljava/lang/Comparable;)Z
@@ -164,8 +185,12 @@
         }
     .end annotation
 
+    .prologue
+    .local p0, "this":Lcom/google/common/collect/TreeRangeSet$SubRangeSet;, "Lcom/google/common/collect/TreeRangeSet<TC;>.SubRangeSet;"
+    .local p1, "range":Lcom/google/common/collect/Range;, "Lcom/google/common/collect/Range<TC;>;"
     const/4 v1, 0x0
 
+    .line 846
     iget-object v2, p0, Lcom/google/common/collect/TreeRangeSet$SubRangeSet;->restriction:Lcom/google/common/collect/Range;
 
     invoke-virtual {v2}, Lcom/google/common/collect/Range;->isEmpty()Z
@@ -182,6 +207,7 @@
 
     if-eqz v2, :cond_0
 
+    .line 847
     iget-object v2, p0, Lcom/google/common/collect/TreeRangeSet$SubRangeSet;->this$0:Lcom/google/common/collect/TreeRangeSet;
 
     # invokes: Lcom/google/common/collect/TreeRangeSet;->rangeEnclosing(Lcom/google/common/collect/Range;)Lcom/google/common/collect/Range;
@@ -189,6 +215,8 @@
 
     move-result-object v0
 
+    .line 848
+    .local v0, "enclosing":Lcom/google/common/collect/Range;, "Lcom/google/common/collect/Range<TC;>;"
     if-eqz v0, :cond_0
 
     iget-object v2, p0, Lcom/google/common/collect/TreeRangeSet$SubRangeSet;->restriction:Lcom/google/common/collect/Range;
@@ -205,6 +233,8 @@
 
     const/4 v1, 0x1
 
+    .line 850
+    .end local v0    # "enclosing":Lcom/google/common/collect/Range;, "Lcom/google/common/collect/Range<TC;>;"
     :cond_0
     return v1
 .end method
@@ -222,8 +252,12 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
+    .prologue
+    .local p0, "this":Lcom/google/common/collect/TreeRangeSet$SubRangeSet;, "Lcom/google/common/collect/TreeRangeSet<TC;>.SubRangeSet;"
+    .local p1, "value":Ljava/lang/Comparable;, "TC;"
     const/4 v1, 0x0
 
+    .line 856
     iget-object v2, p0, Lcom/google/common/collect/TreeRangeSet$SubRangeSet;->restriction:Lcom/google/common/collect/Range;
 
     invoke-virtual {v2, p1}, Lcom/google/common/collect/Range;->contains(Ljava/lang/Comparable;)Z
@@ -232,10 +266,12 @@
 
     if-nez v2, :cond_1
 
+    .line 860
     :cond_0
     :goto_0
     return-object v1
 
+    .line 859
     :cond_1
     iget-object v2, p0, Lcom/google/common/collect/TreeRangeSet$SubRangeSet;->this$0:Lcom/google/common/collect/TreeRangeSet;
 
@@ -243,6 +279,8 @@
 
     move-result-object v0
 
+    .line 860
+    .local v0, "result":Lcom/google/common/collect/Range;, "Lcom/google/common/collect/Range<TC;>;"
     if-eqz v0, :cond_0
 
     iget-object v1, p0, Lcom/google/common/collect/TreeRangeSet$SubRangeSet;->restriction:Lcom/google/common/collect/Range;
@@ -264,6 +302,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 875
+    .local p0, "this":Lcom/google/common/collect/TreeRangeSet$SubRangeSet;, "Lcom/google/common/collect/TreeRangeSet<TC;>.SubRangeSet;"
+    .local p1, "rangeToRemove":Lcom/google/common/collect/Range;, "Lcom/google/common/collect/Range<TC;>;"
     iget-object v0, p0, Lcom/google/common/collect/TreeRangeSet$SubRangeSet;->restriction:Lcom/google/common/collect/Range;
 
     invoke-virtual {p1, v0}, Lcom/google/common/collect/Range;->isConnected(Lcom/google/common/collect/Range;)Z
@@ -272,6 +314,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 876
     iget-object v0, p0, Lcom/google/common/collect/TreeRangeSet$SubRangeSet;->this$0:Lcom/google/common/collect/TreeRangeSet;
 
     iget-object v1, p0, Lcom/google/common/collect/TreeRangeSet$SubRangeSet;->restriction:Lcom/google/common/collect/Range;
@@ -282,6 +325,7 @@
 
     invoke-virtual {v0, v1}, Lcom/google/common/collect/TreeRangeSet;->remove(Lcom/google/common/collect/Range;)V
 
+    .line 878
     :cond_0
     return-void
 .end method
@@ -298,6 +342,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 892
+    .local p0, "this":Lcom/google/common/collect/TreeRangeSet$SubRangeSet;, "Lcom/google/common/collect/TreeRangeSet<TC;>.SubRangeSet;"
+    .local p1, "view":Lcom/google/common/collect/Range;, "Lcom/google/common/collect/Range<TC;>;"
     iget-object v0, p0, Lcom/google/common/collect/TreeRangeSet$SubRangeSet;->restriction:Lcom/google/common/collect/Range;
 
     invoke-virtual {p1, v0}, Lcom/google/common/collect/Range;->encloses(Lcom/google/common/collect/Range;)Z
@@ -306,9 +354,13 @@
 
     if-eqz v0, :cond_0
 
+    .line 897
+    .end local p0    # "this":Lcom/google/common/collect/TreeRangeSet$SubRangeSet;, "Lcom/google/common/collect/TreeRangeSet<TC;>.SubRangeSet;"
     :goto_0
     return-object p0
 
+    .line 894
+    .restart local p0    # "this":Lcom/google/common/collect/TreeRangeSet$SubRangeSet;, "Lcom/google/common/collect/TreeRangeSet<TC;>.SubRangeSet;"
     :cond_0
     iget-object v0, p0, Lcom/google/common/collect/TreeRangeSet$SubRangeSet;->restriction:Lcom/google/common/collect/Range;
 
@@ -318,6 +370,7 @@
 
     if-eqz v0, :cond_1
 
+    .line 895
     new-instance v0, Lcom/google/common/collect/TreeRangeSet$SubRangeSet;
 
     iget-object v1, p0, Lcom/google/common/collect/TreeRangeSet$SubRangeSet;->restriction:Lcom/google/common/collect/Range;
@@ -332,6 +385,7 @@
 
     goto :goto_0
 
+    .line 897
     :cond_1
     invoke-static {}, Lcom/google/common/collect/ImmutableRangeSet;->of()Lcom/google/common/collect/ImmutableRangeSet;
 

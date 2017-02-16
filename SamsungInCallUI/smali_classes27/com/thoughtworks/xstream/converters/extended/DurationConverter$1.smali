@@ -18,6 +18,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 36
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -28,6 +30,8 @@
 .method getFactory()Ljavax/xml/datatype/DatatypeFactory;
     .locals 2
 
+    .prologue
+    .line 39
     :try_start_0
     invoke-static {}, Ljavax/xml/datatype/DatatypeFactory;->newInstance()Ljavax/xml/datatype/DatatypeFactory;
     :try_end_0
@@ -35,12 +39,16 @@
 
     move-result-object v1
 
+    .line 41
     :goto_0
     return-object v1
 
+    .line 40
     :catch_0
     move-exception v0
 
+    .line 41
+    .local v0, "e":Ljavax/xml/datatype/DatatypeConfigurationException;
     const/4 v1, 0x0
 
     goto :goto_0

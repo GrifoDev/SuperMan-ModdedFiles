@@ -41,6 +41,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 61
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -48,7 +50,11 @@
 
 .method static synthetic access$100(Ljava/util/SortedSet;Ljava/lang/Object;)Ljava/util/SortedSet;
     .locals 1
+    .param p0, "x0"    # Ljava/util/SortedSet;
+    .param p1, "x1"    # Ljava/lang/Object;
 
+    .prologue
+    .line 60
     invoke-static {p0, p1}, Lcom/google/common/collect/Synchronized;->sortedSet(Ljava/util/SortedSet;Ljava/lang/Object;)Ljava/util/SortedSet;
 
     move-result-object v0
@@ -58,7 +64,11 @@
 
 .method static synthetic access$200(Ljava/util/List;Ljava/lang/Object;)Ljava/util/List;
     .locals 1
+    .param p0, "x0"    # Ljava/util/List;
+    .param p1, "x1"    # Ljava/lang/Object;
 
+    .prologue
+    .line 60
     invoke-static {p0, p1}, Lcom/google/common/collect/Synchronized;->list(Ljava/util/List;Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v0
@@ -68,7 +78,11 @@
 
 .method static synthetic access$300(Ljava/util/Set;Ljava/lang/Object;)Ljava/util/Set;
     .locals 1
+    .param p0, "x0"    # Ljava/util/Set;
+    .param p1, "x1"    # Ljava/lang/Object;
 
+    .prologue
+    .line 60
     invoke-static {p0, p1}, Lcom/google/common/collect/Synchronized;->typePreservingSet(Ljava/util/Set;Ljava/lang/Object;)Ljava/util/Set;
 
     move-result-object v0
@@ -78,7 +92,11 @@
 
 .method static synthetic access$400(Ljava/util/Collection;Ljava/lang/Object;)Ljava/util/Collection;
     .locals 1
+    .param p0, "x0"    # Ljava/util/Collection;
+    .param p1, "x1"    # Ljava/lang/Object;
 
+    .prologue
+    .line 60
     invoke-static {p0, p1}, Lcom/google/common/collect/Synchronized;->typePreservingCollection(Ljava/util/Collection;Ljava/lang/Object;)Ljava/util/Collection;
 
     move-result-object v0
@@ -88,7 +106,11 @@
 
 .method static synthetic access$500(Ljava/util/Collection;Ljava/lang/Object;)Ljava/util/Collection;
     .locals 1
+    .param p0, "x0"    # Ljava/util/Collection;
+    .param p1, "x1"    # Ljava/lang/Object;
 
+    .prologue
+    .line 60
     invoke-static {p0, p1}, Lcom/google/common/collect/Synchronized;->collection(Ljava/util/Collection;Ljava/lang/Object;)Ljava/util/Collection;
 
     move-result-object v0
@@ -98,7 +120,11 @@
 
 .method static synthetic access$700(Ljava/util/Map$Entry;Ljava/lang/Object;)Ljava/util/Map$Entry;
     .locals 1
+    .param p0, "x0"    # Ljava/util/Map$Entry;
+    .param p1, "x1"    # Ljava/lang/Object;
 
+    .prologue
+    .line 60
     invoke-static {p0, p1}, Lcom/google/common/collect/Synchronized;->nullableSynchronizedEntry(Ljava/util/Map$Entry;Ljava/lang/Object;)Ljava/util/Map$Entry;
 
     move-result-object v0
@@ -108,7 +134,7 @@
 
 .method static biMap(Lcom/google/common/collect/BiMap;Ljava/lang/Object;)Lcom/google/common/collect/BiMap;
     .locals 2
-    .param p1    # Ljava/lang/Object;
+    .param p1, "mutex"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -128,8 +154,11 @@
         }
     .end annotation
 
+    .prologue
+    .local p0, "bimap":Lcom/google/common/collect/BiMap;, "Lcom/google/common/collect/BiMap<TK;TV;>;"
     const/4 v1, 0x0
 
+    .line 1153
     instance-of v0, p0, Lcom/google/common/collect/Synchronized$SynchronizedBiMap;
 
     if-nez v0, :cond_0
@@ -138,10 +167,13 @@
 
     if-eqz v0, :cond_1
 
+    .line 1156
+    .end local p0    # "bimap":Lcom/google/common/collect/BiMap;, "Lcom/google/common/collect/BiMap<TK;TV;>;"
     :cond_0
     :goto_0
     return-object p0
 
+    .restart local p0    # "bimap":Lcom/google/common/collect/BiMap;, "Lcom/google/common/collect/BiMap<TK;TV;>;"
     :cond_1
     new-instance v0, Lcom/google/common/collect/Synchronized$SynchronizedBiMap;
 
@@ -154,7 +186,7 @@
 
 .method private static collection(Ljava/util/Collection;Ljava/lang/Object;)Ljava/util/Collection;
     .locals 2
-    .param p1    # Ljava/lang/Object;
+    .param p1, "mutex"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -172,6 +204,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 102
+    .local p0, "collection":Ljava/util/Collection;, "Ljava/util/Collection<TE;>;"
     new-instance v0, Lcom/google/common/collect/Synchronized$SynchronizedCollection;
 
     const/4 v1, 0x0
@@ -183,7 +218,7 @@
 
 .method static deque(Ljava/util/Deque;Ljava/lang/Object;)Ljava/util/Deque;
     .locals 1
-    .param p1    # Ljava/lang/Object;
+    .param p1, "mutex"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -205,6 +240,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1700
+    .local p0, "deque":Ljava/util/Deque;, "Ljava/util/Deque<TE;>;"
     new-instance v0, Lcom/google/common/collect/Synchronized$SynchronizedDeque;
 
     invoke-direct {v0, p0, p1}, Lcom/google/common/collect/Synchronized$SynchronizedDeque;-><init>(Ljava/util/Deque;Ljava/lang/Object;)V
@@ -214,7 +252,7 @@
 
 .method private static list(Ljava/util/List;Ljava/lang/Object;)Ljava/util/List;
     .locals 1
-    .param p1    # Ljava/lang/Object;
+    .param p1, "mutex"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -232,6 +270,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 305
+    .local p0, "list":Ljava/util/List;, "Ljava/util/List<TE;>;"
     instance-of v0, p0, Ljava/util/RandomAccess;
 
     if-eqz v0, :cond_0
@@ -253,7 +294,7 @@
 
 .method static listMultimap(Lcom/google/common/collect/ListMultimap;Ljava/lang/Object;)Lcom/google/common/collect/ListMultimap;
     .locals 1
-    .param p1    # Ljava/lang/Object;
+    .param p1, "mutex"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -273,6 +314,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 699
+    .local p0, "multimap":Lcom/google/common/collect/ListMultimap;, "Lcom/google/common/collect/ListMultimap<TK;TV;>;"
     instance-of v0, p0, Lcom/google/common/collect/Synchronized$SynchronizedListMultimap;
 
     if-nez v0, :cond_0
@@ -281,10 +325,13 @@
 
     if-eqz v0, :cond_1
 
+    .line 702
+    .end local p0    # "multimap":Lcom/google/common/collect/ListMultimap;, "Lcom/google/common/collect/ListMultimap<TK;TV;>;"
     :cond_0
     :goto_0
     return-object p0
 
+    .restart local p0    # "multimap":Lcom/google/common/collect/ListMultimap;, "Lcom/google/common/collect/ListMultimap<TK;TV;>;"
     :cond_1
     new-instance v0, Lcom/google/common/collect/Synchronized$SynchronizedListMultimap;
 
@@ -297,7 +344,7 @@
 
 .method static map(Ljava/util/Map;Ljava/lang/Object;)Ljava/util/Map;
     .locals 1
-    .param p1    # Ljava/lang/Object;
+    .param p1, "mutex"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -320,6 +367,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 960
+    .local p0, "map":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
     new-instance v0, Lcom/google/common/collect/Synchronized$SynchronizedMap;
 
     invoke-direct {v0, p0, p1}, Lcom/google/common/collect/Synchronized$SynchronizedMap;-><init>(Ljava/util/Map;Ljava/lang/Object;)V
@@ -329,7 +379,7 @@
 
 .method static multimap(Lcom/google/common/collect/Multimap;Ljava/lang/Object;)Lcom/google/common/collect/Multimap;
     .locals 1
-    .param p1    # Ljava/lang/Object;
+    .param p1, "mutex"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -349,6 +399,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 512
+    .local p0, "multimap":Lcom/google/common/collect/Multimap;, "Lcom/google/common/collect/Multimap<TK;TV;>;"
     instance-of v0, p0, Lcom/google/common/collect/Synchronized$SynchronizedMultimap;
 
     if-nez v0, :cond_0
@@ -357,10 +410,13 @@
 
     if-eqz v0, :cond_1
 
+    .line 515
+    .end local p0    # "multimap":Lcom/google/common/collect/Multimap;, "Lcom/google/common/collect/Multimap<TK;TV;>;"
     :cond_0
     :goto_0
     return-object p0
 
+    .restart local p0    # "multimap":Lcom/google/common/collect/Multimap;, "Lcom/google/common/collect/Multimap<TK;TV;>;"
     :cond_1
     new-instance v0, Lcom/google/common/collect/Synchronized$SynchronizedMultimap;
 
@@ -373,7 +429,7 @@
 
 .method static multiset(Lcom/google/common/collect/Multiset;Ljava/lang/Object;)Lcom/google/common/collect/Multiset;
     .locals 1
-    .param p1    # Ljava/lang/Object;
+    .param p1, "mutex"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -391,6 +447,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 416
+    .local p0, "multiset":Lcom/google/common/collect/Multiset;, "Lcom/google/common/collect/Multiset<TE;>;"
     instance-of v0, p0, Lcom/google/common/collect/Synchronized$SynchronizedMultiset;
 
     if-nez v0, :cond_0
@@ -399,10 +458,13 @@
 
     if-eqz v0, :cond_1
 
+    .line 419
+    .end local p0    # "multiset":Lcom/google/common/collect/Multiset;, "Lcom/google/common/collect/Multiset<TE;>;"
     :cond_0
     :goto_0
     return-object p0
 
+    .restart local p0    # "multiset":Lcom/google/common/collect/Multiset;, "Lcom/google/common/collect/Multiset<TE;>;"
     :cond_1
     new-instance v0, Lcom/google/common/collect/Synchronized$SynchronizedMultiset;
 
@@ -433,6 +495,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1397
+    .local p0, "navigableMap":Ljava/util/NavigableMap;, "Ljava/util/NavigableMap<TK;TV;>;"
     const/4 v0, 0x0
 
     invoke-static {p0, v0}, Lcom/google/common/collect/Synchronized;->navigableMap(Ljava/util/NavigableMap;Ljava/lang/Object;)Ljava/util/NavigableMap;
@@ -444,7 +509,7 @@
 
 .method static navigableMap(Ljava/util/NavigableMap;Ljava/lang/Object;)Ljava/util/NavigableMap;
     .locals 1
-    .param p1    # Ljava/lang/Object;
+    .param p1, "mutex"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -468,6 +533,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1403
+    .local p0, "navigableMap":Ljava/util/NavigableMap;, "Ljava/util/NavigableMap<TK;TV;>;"
     new-instance v0, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;
 
     invoke-direct {v0, p0, p1}, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;-><init>(Ljava/util/NavigableMap;Ljava/lang/Object;)V
@@ -493,6 +561,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1392
+    .local p0, "navigableSet":Ljava/util/NavigableSet;, "Ljava/util/NavigableSet<TE;>;"
     const/4 v0, 0x0
 
     invoke-static {p0, v0}, Lcom/google/common/collect/Synchronized;->navigableSet(Ljava/util/NavigableSet;Ljava/lang/Object;)Ljava/util/NavigableSet;
@@ -504,7 +575,7 @@
 
 .method static navigableSet(Ljava/util/NavigableSet;Ljava/lang/Object;)Ljava/util/NavigableSet;
     .locals 1
-    .param p1    # Ljava/lang/Object;
+    .param p1, "mutex"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -526,6 +597,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1387
+    .local p0, "navigableSet":Ljava/util/NavigableSet;, "Ljava/util/NavigableSet<TE;>;"
     new-instance v0, Lcom/google/common/collect/Synchronized$SynchronizedNavigableSet;
 
     invoke-direct {v0, p0, p1}, Lcom/google/common/collect/Synchronized$SynchronizedNavigableSet;-><init>(Ljava/util/NavigableSet;Ljava/lang/Object;)V
@@ -539,7 +613,7 @@
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p1    # Ljava/lang/Object;
+    .param p1, "mutex"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -563,10 +637,15 @@
         }
     .end annotation
 
+    .prologue
+    .line 1588
+    .local p0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
     if-nez p0, :cond_0
 
+    .line 1589
     const/4 v0, 0x0
 
+    .line 1591
     :goto_0
     return-object v0
 
@@ -580,7 +659,7 @@
 
 .method static queue(Ljava/util/Queue;Ljava/lang/Object;)Ljava/util/Queue;
     .locals 1
-    .param p1    # Ljava/lang/Object;
+    .param p1, "mutex"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -598,13 +677,18 @@
         }
     .end annotation
 
+    .prologue
+    .line 1646
+    .local p0, "queue":Ljava/util/Queue;, "Ljava/util/Queue<TE;>;"
     instance-of v0, p0, Lcom/google/common/collect/Synchronized$SynchronizedQueue;
 
     if-eqz v0, :cond_0
 
+    .end local p0    # "queue":Ljava/util/Queue;, "Ljava/util/Queue<TE;>;"
     :goto_0
     return-object p0
 
+    .restart local p0    # "queue":Ljava/util/Queue;, "Ljava/util/Queue<TE;>;"
     :cond_0
     new-instance v0, Lcom/google/common/collect/Synchronized$SynchronizedQueue;
 
@@ -617,7 +701,7 @@
 
 .method static set(Ljava/util/Set;Ljava/lang/Object;)Ljava/util/Set;
     .locals 1
-    .param p1    # Ljava/lang/Object;
+    .param p1, "mutex"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -638,6 +722,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 211
+    .local p0, "set":Ljava/util/Set;, "Ljava/util/Set<TE;>;"
     new-instance v0, Lcom/google/common/collect/Synchronized$SynchronizedSet;
 
     invoke-direct {v0, p0, p1}, Lcom/google/common/collect/Synchronized$SynchronizedSet;-><init>(Ljava/util/Set;Ljava/lang/Object;)V
@@ -647,7 +734,7 @@
 
 .method static setMultimap(Lcom/google/common/collect/SetMultimap;Ljava/lang/Object;)Lcom/google/common/collect/SetMultimap;
     .locals 1
-    .param p1    # Ljava/lang/Object;
+    .param p1, "mutex"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -667,6 +754,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 741
+    .local p0, "multimap":Lcom/google/common/collect/SetMultimap;, "Lcom/google/common/collect/SetMultimap<TK;TV;>;"
     instance-of v0, p0, Lcom/google/common/collect/Synchronized$SynchronizedSetMultimap;
 
     if-nez v0, :cond_0
@@ -675,10 +765,13 @@
 
     if-eqz v0, :cond_1
 
+    .line 744
+    .end local p0    # "multimap":Lcom/google/common/collect/SetMultimap;, "Lcom/google/common/collect/SetMultimap<TK;TV;>;"
     :cond_0
     :goto_0
     return-object p0
 
+    .restart local p0    # "multimap":Lcom/google/common/collect/SetMultimap;, "Lcom/google/common/collect/SetMultimap<TK;TV;>;"
     :cond_1
     new-instance v0, Lcom/google/common/collect/Synchronized$SynchronizedSetMultimap;
 
@@ -691,7 +784,7 @@
 
 .method static sortedMap(Ljava/util/SortedMap;Ljava/lang/Object;)Ljava/util/SortedMap;
     .locals 1
-    .param p1    # Ljava/lang/Object;
+    .param p1, "mutex"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -711,6 +804,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1092
+    .local p0, "sortedMap":Ljava/util/SortedMap;, "Ljava/util/SortedMap<TK;TV;>;"
     new-instance v0, Lcom/google/common/collect/Synchronized$SynchronizedSortedMap;
 
     invoke-direct {v0, p0, p1}, Lcom/google/common/collect/Synchronized$SynchronizedSortedMap;-><init>(Ljava/util/SortedMap;Ljava/lang/Object;)V
@@ -720,7 +816,7 @@
 
 .method private static sortedSet(Ljava/util/SortedSet;Ljava/lang/Object;)Ljava/util/SortedSet;
     .locals 1
-    .param p1    # Ljava/lang/Object;
+    .param p1, "mutex"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -738,6 +834,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 246
+    .local p0, "set":Ljava/util/SortedSet;, "Ljava/util/SortedSet<TE;>;"
     new-instance v0, Lcom/google/common/collect/Synchronized$SynchronizedSortedSet;
 
     invoke-direct {v0, p0, p1}, Lcom/google/common/collect/Synchronized$SynchronizedSortedSet;-><init>(Ljava/util/SortedSet;Ljava/lang/Object;)V
@@ -747,7 +846,7 @@
 
 .method static sortedSetMultimap(Lcom/google/common/collect/SortedSetMultimap;Ljava/lang/Object;)Lcom/google/common/collect/SortedSetMultimap;
     .locals 1
-    .param p1    # Ljava/lang/Object;
+    .param p1, "mutex"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -767,13 +866,19 @@
         }
     .end annotation
 
+    .prologue
+    .line 796
+    .local p0, "multimap":Lcom/google/common/collect/SortedSetMultimap;, "Lcom/google/common/collect/SortedSetMultimap<TK;TV;>;"
     instance-of v0, p0, Lcom/google/common/collect/Synchronized$SynchronizedSortedSetMultimap;
 
     if-eqz v0, :cond_0
 
+    .line 799
+    .end local p0    # "multimap":Lcom/google/common/collect/SortedSetMultimap;, "Lcom/google/common/collect/SortedSetMultimap<TK;TV;>;"
     :goto_0
     return-object p0
 
+    .restart local p0    # "multimap":Lcom/google/common/collect/SortedSetMultimap;, "Lcom/google/common/collect/SortedSetMultimap<TK;TV;>;"
     :cond_0
     new-instance v0, Lcom/google/common/collect/Synchronized$SynchronizedSortedSetMultimap;
 
@@ -786,7 +891,7 @@
 
 .method private static typePreservingCollection(Ljava/util/Collection;Ljava/lang/Object;)Ljava/util/Collection;
     .locals 1
-    .param p1    # Ljava/lang/Object;
+    .param p1, "mutex"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -804,45 +909,61 @@
         }
     .end annotation
 
+    .prologue
+    .line 846
+    .local p0, "collection":Ljava/util/Collection;, "Ljava/util/Collection<TE;>;"
     instance-of v0, p0, Ljava/util/SortedSet;
 
     if-eqz v0, :cond_0
 
+    .line 847
     check-cast p0, Ljava/util/SortedSet;
 
+    .end local p0    # "collection":Ljava/util/Collection;, "Ljava/util/Collection<TE;>;"
     invoke-static {p0, p1}, Lcom/google/common/collect/Synchronized;->sortedSet(Ljava/util/SortedSet;Ljava/lang/Object;)Ljava/util/SortedSet;
 
     move-result-object v0
 
+    .line 855
     :goto_0
     return-object v0
 
+    .line 849
+    .restart local p0    # "collection":Ljava/util/Collection;, "Ljava/util/Collection<TE;>;"
     :cond_0
     instance-of v0, p0, Ljava/util/Set;
 
     if-eqz v0, :cond_1
 
+    .line 850
     check-cast p0, Ljava/util/Set;
 
+    .end local p0    # "collection":Ljava/util/Collection;, "Ljava/util/Collection<TE;>;"
     invoke-static {p0, p1}, Lcom/google/common/collect/Synchronized;->set(Ljava/util/Set;Ljava/lang/Object;)Ljava/util/Set;
 
     move-result-object v0
 
     goto :goto_0
 
+    .line 852
+    .restart local p0    # "collection":Ljava/util/Collection;, "Ljava/util/Collection<TE;>;"
     :cond_1
     instance-of v0, p0, Ljava/util/List;
 
     if-eqz v0, :cond_2
 
+    .line 853
     check-cast p0, Ljava/util/List;
 
+    .end local p0    # "collection":Ljava/util/Collection;, "Ljava/util/Collection<TE;>;"
     invoke-static {p0, p1}, Lcom/google/common/collect/Synchronized;->list(Ljava/util/List;Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v0
 
     goto :goto_0
 
+    .line 855
+    .restart local p0    # "collection":Ljava/util/Collection;, "Ljava/util/Collection<TE;>;"
     :cond_2
     invoke-static {p0, p1}, Lcom/google/common/collect/Synchronized;->collection(Ljava/util/Collection;Ljava/lang/Object;)Ljava/util/Collection;
 
@@ -853,7 +974,7 @@
 
 .method private static typePreservingSet(Ljava/util/Set;Ljava/lang/Object;)Ljava/util/Set;
     .locals 1
-    .param p1    # Ljava/lang/Object;
+    .param p1, "mutex"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -871,19 +992,26 @@
         }
     .end annotation
 
+    .prologue
+    .line 859
+    .local p0, "set":Ljava/util/Set;, "Ljava/util/Set<TE;>;"
     instance-of v0, p0, Ljava/util/SortedSet;
 
     if-eqz v0, :cond_0
 
+    .line 860
     check-cast p0, Ljava/util/SortedSet;
 
+    .end local p0    # "set":Ljava/util/Set;, "Ljava/util/Set<TE;>;"
     invoke-static {p0, p1}, Lcom/google/common/collect/Synchronized;->sortedSet(Ljava/util/SortedSet;Ljava/lang/Object;)Ljava/util/SortedSet;
 
     move-result-object v0
 
+    .line 862
     :goto_0
     return-object v0
 
+    .restart local p0    # "set":Ljava/util/Set;, "Ljava/util/Set<TE;>;"
     :cond_0
     invoke-static {p0, p1}, Lcom/google/common/collect/Synchronized;->set(Ljava/util/Set;Ljava/lang/Object;)Ljava/util/Set;
 

@@ -30,7 +30,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/contacts/common/list/CustomContactListFilterActivity;Lcom/android/contacts/common/list/CustomContactListFilterActivity$GroupDelta;ILcom/android/contacts/common/list/CustomContactListFilterActivity$AccountDisplay;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/contacts/common/list/CustomContactListFilterActivity;
 
+    .prologue
+    .line 821
     iput-object p1, p0, Lcom/android/contacts/common/list/CustomContactListFilterActivity$4;->this$0:Lcom/android/contacts/common/list/CustomContactListFilterActivity;
 
     iput-object p2, p0, Lcom/android/contacts/common/list/CustomContactListFilterActivity$4;->val$child:Lcom/android/contacts/common/list/CustomContactListFilterActivity$GroupDelta;
@@ -48,9 +51,12 @@
 # virtual methods
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
     .locals 3
+    .param p1, "item"    # Landroid/view/MenuItem;
 
+    .prologue
     const/4 v2, 0x1
 
+    .line 824
     iget-object v0, p0, Lcom/android/contacts/common/list/CustomContactListFilterActivity$4;->val$child:Lcom/android/contacts/common/list/CustomContactListFilterActivity$GroupDelta;
 
     # getter for: Lcom/android/contacts/common/list/CustomContactListFilterActivity$GroupDelta;->mUngrouped:Z
@@ -66,10 +72,12 @@
 
     if-ne v0, v1, :cond_0
 
+    .line 825
     iget-object v0, p0, Lcom/android/contacts/common/list/CustomContactListFilterActivity$4;->val$account:Lcom/android/contacts/common/list/CustomContactListFilterActivity$AccountDisplay;
 
     invoke-virtual {v0, v2}, Lcom/android/contacts/common/list/CustomContactListFilterActivity$AccountDisplay;->setShouldSync(Z)V
 
+    .line 829
     :goto_0
     iget-object v0, p0, Lcom/android/contacts/common/list/CustomContactListFilterActivity$4;->this$0:Lcom/android/contacts/common/list/CustomContactListFilterActivity;
 
@@ -80,8 +88,10 @@
 
     invoke-virtual {v0}, Lcom/android/contacts/common/list/CustomContactListFilterActivity$DisplayAdapter;->notifyDataSetChanged()V
 
+    .line 830
     return v2
 
+    .line 827
     :cond_0
     iget-object v0, p0, Lcom/android/contacts/common/list/CustomContactListFilterActivity$4;->val$account:Lcom/android/contacts/common/list/CustomContactListFilterActivity$AccountDisplay;
 

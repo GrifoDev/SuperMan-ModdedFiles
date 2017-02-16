@@ -26,7 +26,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/ringtone/InCallTonePlayer;Lcom/android/incallui/ringtone/InCallTonePlayer$ToneGeneratorInfo;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/ringtone/InCallTonePlayer;
 
+    .prologue
+    .line 81
     iput-object p1, p0, Lcom/android/incallui/ringtone/InCallTonePlayer$1;->this$0:Lcom/android/incallui/ringtone/InCallTonePlayer;
 
     iput-object p2, p0, Lcom/android/incallui/ringtone/InCallTonePlayer$1;->val$info:Lcom/android/incallui/ringtone/InCallTonePlayer$ToneGeneratorInfo;
@@ -41,6 +44,8 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 84
     iget-object v0, p0, Lcom/android/incallui/ringtone/InCallTonePlayer$1;->this$0:Lcom/android/incallui/ringtone/InCallTonePlayer;
 
     iget-object v1, p0, Lcom/android/incallui/ringtone/InCallTonePlayer$1;->val$info:Lcom/android/incallui/ringtone/InCallTonePlayer$ToneGeneratorInfo;
@@ -48,5 +53,6 @@
     # invokes: Lcom/android/incallui/ringtone/InCallTonePlayer;->playOnBackgroundThread(Lcom/android/incallui/ringtone/InCallTonePlayer$ToneGeneratorInfo;)V
     invoke-static {v0, v1}, Lcom/android/incallui/ringtone/InCallTonePlayer;->access$000(Lcom/android/incallui/ringtone/InCallTonePlayer;Lcom/android/incallui/ringtone/InCallTonePlayer$ToneGeneratorInfo;)V
 
+    .line 85
     return-void
 .end method

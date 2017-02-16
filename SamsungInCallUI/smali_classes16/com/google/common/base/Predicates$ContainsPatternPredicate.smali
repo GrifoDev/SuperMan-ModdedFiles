@@ -44,9 +44,13 @@
 # direct methods
 .method constructor <init>(Ljava/util/regex/Pattern;)V
     .locals 1
+    .param p1, "pattern"    # Ljava/util/regex/Pattern;
 
+    .prologue
+    .line 637
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 638
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -55,6 +59,7 @@
 
     iput-object v0, p0, Lcom/google/common/base/Predicates$ContainsPatternPredicate;->pattern:Ljava/util/regex/Pattern;
 
+    .line 639
     return-void
 .end method
 
@@ -62,7 +67,10 @@
 # virtual methods
 .method public apply(Ljava/lang/CharSequence;)Z
     .locals 1
+    .param p1, "t"    # Ljava/lang/CharSequence;
 
+    .prologue
+    .line 643
     iget-object v0, p0, Lcom/google/common/base/Predicates$ContainsPatternPredicate;->pattern:Ljava/util/regex/Pattern;
 
     invoke-virtual {v0, p1}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
@@ -78,9 +86,13 @@
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Z
     .locals 1
+    .param p1, "x0"    # Ljava/lang/Object;
 
+    .prologue
+    .line 633
     check-cast p1, Ljava/lang/CharSequence;
 
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/google/common/base/Predicates$ContainsPatternPredicate;->apply(Ljava/lang/CharSequence;)Z
 
     move-result v0
@@ -90,21 +102,26 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
-    .param p1    # Ljava/lang/Object;
+    .param p1, "obj"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 656
     instance-of v2, p1, Lcom/google/common/base/Predicates$ContainsPatternPredicate;
 
     if-eqz v2, :cond_0
 
     move-object v0, p1
 
+    .line 657
     check-cast v0, Lcom/google/common/base/Predicates$ContainsPatternPredicate;
 
+    .line 661
+    .local v0, "that":Lcom/google/common/base/Predicates$ContainsPatternPredicate;
     iget-object v2, p0, Lcom/google/common/base/Predicates$ContainsPatternPredicate;->pattern:Ljava/util/regex/Pattern;
 
     invoke-virtual {v2}, Ljava/util/regex/Pattern;->pattern()Ljava/lang/String;
@@ -151,6 +168,8 @@
 
     const/4 v1, 0x1
 
+    .line 664
+    .end local v0    # "that":Lcom/google/common/base/Predicates$ContainsPatternPredicate;
     :cond_0
     return v1
 .end method
@@ -158,6 +177,8 @@
 .method public hashCode()I
     .locals 3
 
+    .prologue
+    .line 651
     const/4 v0, 0x2
 
     new-array v0, v0, [Ljava/lang/Object;
@@ -196,6 +217,8 @@
 .method public toString()Ljava/lang/String;
     .locals 4
 
+    .prologue
+    .line 669
     iget-object v1, p0, Lcom/google/common/base/Predicates$ContainsPatternPredicate;->pattern:Ljava/util/regex/Pattern;
 
     invoke-static {v1}, Lcom/google/common/base/Objects;->toStringHelper(Ljava/lang/Object;)Lcom/google/common/base/Objects$ToStringHelper;
@@ -230,6 +253,8 @@
 
     move-result-object v0
 
+    .line 673
+    .local v0, "patternString":Ljava/lang/String;
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V

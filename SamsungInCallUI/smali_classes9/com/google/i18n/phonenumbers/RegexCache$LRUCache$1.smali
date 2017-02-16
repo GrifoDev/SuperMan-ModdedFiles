@@ -28,7 +28,14 @@
 # direct methods
 .method constructor <init>(Lcom/google/i18n/phonenumbers/RegexCache$LRUCache;IFZ)V
     .locals 0
+    .param p1, "this$0"    # Lcom/google/i18n/phonenumbers/RegexCache$LRUCache;
+    .param p2, "x0"    # I
+    .param p3, "x1"    # F
+    .param p4, "x2"    # Z
 
+    .prologue
+    .line 58
+    .local p0, "this":Lcom/google/i18n/phonenumbers/RegexCache$LRUCache$1;, "Lcom/google/i18n/phonenumbers/RegexCache$LRUCache$1;"
     iput-object p1, p0, Lcom/google/i18n/phonenumbers/RegexCache$LRUCache$1;->this$0:Lcom/google/i18n/phonenumbers/RegexCache$LRUCache;
 
     invoke-direct {p0, p2, p3, p4}, Ljava/util/LinkedHashMap;-><init>(IFZ)V
@@ -48,6 +55,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 61
+    .local p0, "this":Lcom/google/i18n/phonenumbers/RegexCache$LRUCache$1;, "Lcom/google/i18n/phonenumbers/RegexCache$LRUCache$1;"
+    .local p1, "eldest":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/i18n/phonenumbers/RegexCache$LRUCache$1;->size()I
 
     move-result v0

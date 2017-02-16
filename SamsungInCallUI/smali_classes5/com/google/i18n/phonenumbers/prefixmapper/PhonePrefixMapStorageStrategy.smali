@@ -22,12 +22,16 @@
 .method constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 33
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/google/i18n/phonenumbers/prefixmapper/PhonePrefixMapStorageStrategy;->numOfEntries:I
 
+    .line 34
     new-instance v0, Ljava/util/TreeSet;
 
     invoke-direct {v0}, Ljava/util/TreeSet;-><init>()V
@@ -45,6 +49,8 @@
 .method public getNumOfEntries()I
     .locals 1
 
+    .prologue
+    .line 85
     iget v0, p0, Lcom/google/i18n/phonenumbers/prefixmapper/PhonePrefixMapStorageStrategy;->numOfEntries:I
 
     return v0
@@ -62,6 +68,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 92
     iget-object v0, p0, Lcom/google/i18n/phonenumbers/prefixmapper/PhonePrefixMapStorageStrategy;->possibleLengths:Ljava/util/TreeSet;
 
     return-object v0
@@ -94,19 +102,27 @@
 .method public toString()Ljava/lang/String;
     .locals 5
 
+    .prologue
+    .line 97
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
+    .line 98
+    .local v2, "output":Ljava/lang/StringBuilder;
     invoke-virtual {p0}, Lcom/google/i18n/phonenumbers/prefixmapper/PhonePrefixMapStorageStrategy;->getNumOfEntries()I
 
     move-result v1
 
+    .line 100
+    .local v1, "numOfEntries":I
     const/4 v0, 0x0
 
+    .local v0, "i":I
     :goto_0
     if-ge v0, v1, :cond_0
 
+    .line 101
     invoke-virtual {p0, v0}, Lcom/google/i18n/phonenumbers/prefixmapper/PhonePrefixMapStorageStrategy;->getPrefix(I)I
 
     move-result v3
@@ -117,10 +133,12 @@
 
     const-string v4, "|"
 
+    .line 102
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
+    .line 103
     invoke-virtual {p0, v0}, Lcom/google/i18n/phonenumbers/prefixmapper/PhonePrefixMapStorageStrategy;->getDescription(I)Ljava/lang/String;
 
     move-result-object v4
@@ -131,12 +149,15 @@
 
     const-string v4, "\n"
 
+    .line 104
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 100
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
+    .line 106
     :cond_0
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

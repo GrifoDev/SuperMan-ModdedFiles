@@ -45,7 +45,11 @@
 # virtual methods
 .method public getTile(III)Lcom/google/android/gms/maps/model/Tile;
     .locals 1
+    .param p1, "x"    # I
+    .param p2, "y"    # I
+    .param p3, "zoom"    # I
 
+    .prologue
     :try_start_0
     iget-object v0, p0, Lcom/google/android/gms/maps/model/TileOverlayOptions$1;->hI:Lcom/google/android/gms/maps/model/internal/g;
 

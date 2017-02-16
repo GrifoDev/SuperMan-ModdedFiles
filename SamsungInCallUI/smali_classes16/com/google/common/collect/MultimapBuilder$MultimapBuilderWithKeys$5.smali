@@ -31,6 +31,9 @@
 .method constructor <init>(Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys;Ljava/util/Comparator;)V
     .locals 0
 
+    .prologue
+    .line 394
+    .local p0, "this":Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys$5;, "Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys.5;"
     iput-object p1, p0, Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys$5;->this$0:Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys;
 
     iput-object p2, p0, Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys$5;->val$comparator:Ljava/util/Comparator;
@@ -45,6 +48,9 @@
 .method public bridge synthetic build()Lcom/google/common/collect/Multimap;
     .locals 1
 
+    .prologue
+    .line 394
+    .local p0, "this":Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys$5;, "Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys.5;"
     invoke-virtual {p0}, Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys$5;->build()Lcom/google/common/collect/SortedSetMultimap;
 
     move-result-object v0
@@ -55,6 +61,9 @@
 .method public bridge synthetic build()Lcom/google/common/collect/SetMultimap;
     .locals 1
 
+    .prologue
+    .line 394
+    .local p0, "this":Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys$5;, "Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys.5;"
     invoke-virtual {p0}, Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys$5;->build()Lcom/google/common/collect/SortedSetMultimap;
 
     move-result-object v0
@@ -72,6 +81,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 397
+    .local p0, "this":Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys$5;, "Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys.5;"
     iget-object v0, p0, Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys$5;->this$0:Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys;
 
     invoke-virtual {v0}, Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys;->createMap()Ljava/util/Map;

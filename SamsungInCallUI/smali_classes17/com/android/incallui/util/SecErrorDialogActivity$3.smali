@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/util/SecErrorDialogActivity;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/util/SecErrorDialogActivity;
 
+    .prologue
+    .line 95
     iput-object p1, p0, Lcom/android/incallui/util/SecErrorDialogActivity$3;->this$0:Lcom/android/incallui/util/SecErrorDialogActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,13 +39,19 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 4
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .param p2, "which"    # I
 
+    .prologue
+    .line 98
     new-instance v1, Landroid/content/Intent;
 
     const-string v2, "android.settings.WIFI_SETTINGS"
 
     invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
+    .line 100
+    .local v1, "intent":Landroid/content/Intent;
     :try_start_0
     iget-object v2, p0, Lcom/android/incallui/util/SecErrorDialogActivity$3;->this$0:Lcom/android/incallui/util/SecErrorDialogActivity;
 
@@ -50,16 +59,21 @@
     :try_end_0
     .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 104
     :goto_0
     iget-object v2, p0, Lcom/android/incallui/util/SecErrorDialogActivity$3;->this$0:Lcom/android/incallui/util/SecErrorDialogActivity;
 
     invoke-virtual {v2}, Lcom/android/incallui/util/SecErrorDialogActivity;->finish()V
 
+    .line 105
     return-void
 
+    .line 101
     :catch_0
     move-exception v0
 
+    .line 102
+    .local v0, "e":Landroid/content/ActivityNotFoundException;
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V

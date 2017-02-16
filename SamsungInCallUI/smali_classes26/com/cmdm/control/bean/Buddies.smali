@@ -40,6 +40,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 20
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -59,6 +61,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 43
     iget-object v0, p0, Lcom/cmdm/control/bean/Buddies;->buddyList:Ljava/util/ArrayList;
 
     return-object v0
@@ -67,6 +71,8 @@
 .method public getOffset()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 58
     iget-object v0, p0, Lcom/cmdm/control/bean/Buddies;->offset:Ljava/lang/String;
 
     return-object v0
@@ -75,6 +81,8 @@
 .method public getRange()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 73
     iget-object v0, p0, Lcom/cmdm/control/bean/Buddies;->range:Ljava/lang/String;
 
     return-object v0
@@ -92,23 +100,35 @@
         }
     .end annotation
 
+    .prologue
+    .line 51
+    .local p1, "buddyList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/cmdm/control/bean/Buddy;>;"
     iput-object p1, p0, Lcom/cmdm/control/bean/Buddies;->buddyList:Ljava/util/ArrayList;
 
+    .line 52
     return-void
 .end method
 
 .method public setOffset(Ljava/lang/String;)V
     .locals 0
+    .param p1, "offset"    # Ljava/lang/String;
 
+    .prologue
+    .line 66
     iput-object p1, p0, Lcom/cmdm/control/bean/Buddies;->offset:Ljava/lang/String;
 
+    .line 67
     return-void
 .end method
 
 .method public setRange(Ljava/lang/String;)V
     .locals 0
+    .param p1, "range"    # Ljava/lang/String;
 
+    .prologue
+    .line 81
     iput-object p1, p0, Lcom/cmdm/control/bean/Buddies;->range:Ljava/lang/String;
 
+    .line 82
     return-void
 .end method

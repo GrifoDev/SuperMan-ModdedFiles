@@ -26,7 +26,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;)V
     .locals 0
+    .param p1, "this$1"    # Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;
 
+    .prologue
+    .line 340
     iput-object p1, p0, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog$5;->this$1:Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;
 
     iput-object p2, p0, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog$5;->val$this$0:Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;
@@ -40,12 +43,17 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 1
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .param p2, "which"    # I
 
+    .prologue
+    .line 343
     iget-object v0, p0, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog$5;->this$1:Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;
 
     iget-object v0, v0, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;->this$0:Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;
 
     invoke-virtual {v0}, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->finish()V
 
+    .line 344
     return-void
 .end method

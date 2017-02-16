@@ -62,10 +62,14 @@
 .method private constructor <init>(Lcom/google/common/collect/LinkedListMultimap;)V
     .locals 1
 
+    .prologue
+    .line 421
+    .local p0, "this":Lcom/google/common/collect/LinkedListMultimap$DistinctKeyIterator;, "Lcom/google/common/collect/LinkedListMultimap<TK;TV;>.DistinctKeyIterator;"
     iput-object p1, p0, Lcom/google/common/collect/LinkedListMultimap$DistinctKeyIterator;->this$0:Lcom/google/common/collect/LinkedListMultimap;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 422
     iget-object v0, p0, Lcom/google/common/collect/LinkedListMultimap$DistinctKeyIterator;->this$0:Lcom/google/common/collect/LinkedListMultimap;
 
     invoke-virtual {v0}, Lcom/google/common/collect/LinkedListMultimap;->keySet()Ljava/util/Set;
@@ -82,6 +86,7 @@
 
     iput-object v0, p0, Lcom/google/common/collect/LinkedListMultimap$DistinctKeyIterator;->seenKeys:Ljava/util/Set;
 
+    .line 423
     iget-object v0, p0, Lcom/google/common/collect/LinkedListMultimap$DistinctKeyIterator;->this$0:Lcom/google/common/collect/LinkedListMultimap;
 
     # getter for: Lcom/google/common/collect/LinkedListMultimap;->head:Lcom/google/common/collect/LinkedListMultimap$Node;
@@ -91,6 +96,7 @@
 
     iput-object v0, p0, Lcom/google/common/collect/LinkedListMultimap$DistinctKeyIterator;->next:Lcom/google/common/collect/LinkedListMultimap$Node;
 
+    .line 425
     iget-object v0, p0, Lcom/google/common/collect/LinkedListMultimap$DistinctKeyIterator;->this$0:Lcom/google/common/collect/LinkedListMultimap;
 
     # getter for: Lcom/google/common/collect/LinkedListMultimap;->modCount:I
@@ -105,7 +111,12 @@
 
 .method synthetic constructor <init>(Lcom/google/common/collect/LinkedListMultimap;Lcom/google/common/collect/LinkedListMultimap$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/google/common/collect/LinkedListMultimap;
+    .param p2, "x1"    # Lcom/google/common/collect/LinkedListMultimap$1;
 
+    .prologue
+    .line 421
+    .local p0, "this":Lcom/google/common/collect/LinkedListMultimap$DistinctKeyIterator;, "Lcom/google/common/collect/LinkedListMultimap<TK;TV;>.DistinctKeyIterator;"
     invoke-direct {p0, p1}, Lcom/google/common/collect/LinkedListMultimap$DistinctKeyIterator;-><init>(Lcom/google/common/collect/LinkedListMultimap;)V
 
     return-void
@@ -114,6 +125,9 @@
 .method private checkForConcurrentModification()V
     .locals 2
 
+    .prologue
+    .line 428
+    .local p0, "this":Lcom/google/common/collect/LinkedListMultimap$DistinctKeyIterator;, "Lcom/google/common/collect/LinkedListMultimap<TK;TV;>.DistinctKeyIterator;"
     iget-object v0, p0, Lcom/google/common/collect/LinkedListMultimap$DistinctKeyIterator;->this$0:Lcom/google/common/collect/LinkedListMultimap;
 
     # getter for: Lcom/google/common/collect/LinkedListMultimap;->modCount:I
@@ -125,12 +139,14 @@
 
     if-eq v0, v1, :cond_0
 
+    .line 429
     new-instance v0, Ljava/util/ConcurrentModificationException;
 
     invoke-direct {v0}, Ljava/util/ConcurrentModificationException;-><init>()V
 
     throw v0
 
+    .line 431
     :cond_0
     return-void
 .end method
@@ -140,8 +156,12 @@
 .method public hasNext()Z
     .locals 1
 
+    .prologue
+    .line 435
+    .local p0, "this":Lcom/google/common/collect/LinkedListMultimap$DistinctKeyIterator;, "Lcom/google/common/collect/LinkedListMultimap<TK;TV;>.DistinctKeyIterator;"
     invoke-direct {p0}, Lcom/google/common/collect/LinkedListMultimap$DistinctKeyIterator;->checkForConcurrentModification()V
 
+    .line 436
     iget-object v0, p0, Lcom/google/common/collect/LinkedListMultimap$DistinctKeyIterator;->next:Lcom/google/common/collect/LinkedListMultimap$Node;
 
     if-eqz v0, :cond_0
@@ -165,17 +185,23 @@
         }
     .end annotation
 
+    .prologue
+    .line 441
+    .local p0, "this":Lcom/google/common/collect/LinkedListMultimap$DistinctKeyIterator;, "Lcom/google/common/collect/LinkedListMultimap<TK;TV;>.DistinctKeyIterator;"
     invoke-direct {p0}, Lcom/google/common/collect/LinkedListMultimap$DistinctKeyIterator;->checkForConcurrentModification()V
 
+    .line 442
     iget-object v0, p0, Lcom/google/common/collect/LinkedListMultimap$DistinctKeyIterator;->next:Lcom/google/common/collect/LinkedListMultimap$Node;
 
     # invokes: Lcom/google/common/collect/LinkedListMultimap;->checkElement(Ljava/lang/Object;)V
     invoke-static {v0}, Lcom/google/common/collect/LinkedListMultimap;->access$300(Ljava/lang/Object;)V
 
+    .line 443
     iget-object v0, p0, Lcom/google/common/collect/LinkedListMultimap$DistinctKeyIterator;->next:Lcom/google/common/collect/LinkedListMultimap$Node;
 
     iput-object v0, p0, Lcom/google/common/collect/LinkedListMultimap$DistinctKeyIterator;->current:Lcom/google/common/collect/LinkedListMultimap$Node;
 
+    .line 444
     iget-object v0, p0, Lcom/google/common/collect/LinkedListMultimap$DistinctKeyIterator;->seenKeys:Ljava/util/Set;
 
     iget-object v1, p0, Lcom/google/common/collect/LinkedListMultimap$DistinctKeyIterator;->current:Lcom/google/common/collect/LinkedListMultimap$Node;
@@ -184,6 +210,7 @@
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
+    .line 446
     :cond_0
     iget-object v0, p0, Lcom/google/common/collect/LinkedListMultimap$DistinctKeyIterator;->next:Lcom/google/common/collect/LinkedListMultimap$Node;
 
@@ -191,6 +218,7 @@
 
     iput-object v0, p0, Lcom/google/common/collect/LinkedListMultimap$DistinctKeyIterator;->next:Lcom/google/common/collect/LinkedListMultimap$Node;
 
+    .line 447
     iget-object v0, p0, Lcom/google/common/collect/LinkedListMultimap$DistinctKeyIterator;->next:Lcom/google/common/collect/LinkedListMultimap$Node;
 
     if-eqz v0, :cond_1
@@ -207,6 +235,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 448
     :cond_1
     iget-object v0, p0, Lcom/google/common/collect/LinkedListMultimap$DistinctKeyIterator;->current:Lcom/google/common/collect/LinkedListMultimap$Node;
 
@@ -218,8 +247,12 @@
 .method public remove()V
     .locals 2
 
+    .prologue
+    .line 453
+    .local p0, "this":Lcom/google/common/collect/LinkedListMultimap$DistinctKeyIterator;, "Lcom/google/common/collect/LinkedListMultimap<TK;TV;>.DistinctKeyIterator;"
     invoke-direct {p0}, Lcom/google/common/collect/LinkedListMultimap$DistinctKeyIterator;->checkForConcurrentModification()V
 
+    .line 454
     iget-object v0, p0, Lcom/google/common/collect/LinkedListMultimap$DistinctKeyIterator;->current:Lcom/google/common/collect/LinkedListMultimap$Node;
 
     if-eqz v0, :cond_0
@@ -229,6 +262,7 @@
     :goto_0
     invoke-static {v0}, Lcom/google/common/collect/CollectPreconditions;->checkRemove(Z)V
 
+    .line 455
     iget-object v0, p0, Lcom/google/common/collect/LinkedListMultimap$DistinctKeyIterator;->this$0:Lcom/google/common/collect/LinkedListMultimap;
 
     iget-object v1, p0, Lcom/google/common/collect/LinkedListMultimap$DistinctKeyIterator;->current:Lcom/google/common/collect/LinkedListMultimap$Node;
@@ -238,10 +272,12 @@
     # invokes: Lcom/google/common/collect/LinkedListMultimap;->removeAllNodes(Ljava/lang/Object;)V
     invoke-static {v0, v1}, Lcom/google/common/collect/LinkedListMultimap;->access$500(Lcom/google/common/collect/LinkedListMultimap;Ljava/lang/Object;)V
 
+    .line 456
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/google/common/collect/LinkedListMultimap$DistinctKeyIterator;->current:Lcom/google/common/collect/LinkedListMultimap$Node;
 
+    .line 457
     iget-object v0, p0, Lcom/google/common/collect/LinkedListMultimap$DistinctKeyIterator;->this$0:Lcom/google/common/collect/LinkedListMultimap;
 
     # getter for: Lcom/google/common/collect/LinkedListMultimap;->modCount:I
@@ -251,8 +287,10 @@
 
     iput v0, p0, Lcom/google/common/collect/LinkedListMultimap$DistinctKeyIterator;->expectedModCount:I
 
+    .line 458
     return-void
 
+    .line 454
     :cond_0
     const/4 v0, 0x0
 

@@ -21,11 +21,16 @@
 # direct methods
 .method public constructor <init>(Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat$CryptoObject;)V
     .locals 0
+    .param p1, "crypto"    # Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat$CryptoObject;
 
+    .prologue
+    .line 153
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 154
     iput-object p1, p0, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat$AuthenticationResult;->mCryptoObject:Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat$CryptoObject;
 
+    .line 155
     return-void
 .end method
 
@@ -34,6 +39,8 @@
 .method public getCryptoObject()Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat$CryptoObject;
     .locals 1
 
+    .prologue
+    .line 162
     iget-object v0, p0, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat$AuthenticationResult;->mCryptoObject:Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat$CryptoObject;
 
     return-object v0

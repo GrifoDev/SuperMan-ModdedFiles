@@ -34,11 +34,16 @@
 # direct methods
 .method constructor <init>(Landroid/support/v7/view/menu/MenuItemWrapperICS;Landroid/view/MenuItem$OnActionExpandListener;)V
     .locals 0
+    .param p2, "object"    # Landroid/view/MenuItem$OnActionExpandListener;
 
+    .prologue
+    .line 328
     iput-object p1, p0, Landroid/support/v7/view/menu/MenuItemWrapperICS$OnActionExpandListenerWrapper;->this$0:Landroid/support/v7/view/menu/MenuItemWrapperICS;
 
+    .line 329
     invoke-direct {p0, p2}, Landroid/support/v7/view/menu/BaseWrapper;-><init>(Ljava/lang/Object;)V
 
+    .line 330
     return-void
 .end method
 
@@ -46,7 +51,10 @@
 # virtual methods
 .method public onMenuItemActionCollapse(Landroid/view/MenuItem;)Z
     .locals 2
+    .param p1, "item"    # Landroid/view/MenuItem;
 
+    .prologue
+    .line 339
     iget-object v0, p0, Landroid/support/v7/view/menu/MenuItemWrapperICS$OnActionExpandListenerWrapper;->mWrappedObject:Ljava/lang/Object;
 
     check-cast v0, Landroid/view/MenuItem$OnActionExpandListener;
@@ -66,7 +74,10 @@
 
 .method public onMenuItemActionExpand(Landroid/view/MenuItem;)Z
     .locals 2
+    .param p1, "item"    # Landroid/view/MenuItem;
 
+    .prologue
+    .line 334
     iget-object v0, p0, Landroid/support/v7/view/menu/MenuItemWrapperICS$OnActionExpandListenerWrapper;->mWrappedObject:Ljava/lang/Object;
 
     check-cast v0, Landroid/view/MenuItem$OnActionExpandListener;

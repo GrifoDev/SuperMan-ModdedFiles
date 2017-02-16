@@ -35,6 +35,8 @@
 .method constructor <init>(Lcom/google/common/util/concurrent/FutureFallback;)V
     .locals 0
 
+    .prologue
+    .line 742
     iput-object p1, p0, Lcom/google/common/util/concurrent/Futures$1;->val$fallback:Lcom/google/common/util/concurrent/FutureFallback;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,14 +48,18 @@
 # virtual methods
 .method public bridge synthetic apply(Ljava/lang/Object;)Lcom/google/common/util/concurrent/ListenableFuture;
     .locals 1
+    .param p1, "x0"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
+    .prologue
+    .line 742
     check-cast p1, Ljava/lang/Throwable;
 
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/google/common/util/concurrent/Futures$1;->apply(Ljava/lang/Throwable;)Lcom/google/common/util/concurrent/ListenableFuture;
 
     move-result-object v0
@@ -63,6 +69,7 @@
 
 .method public apply(Ljava/lang/Throwable;)Lcom/google/common/util/concurrent/ListenableFuture;
     .locals 2
+    .param p1, "t"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -79,6 +86,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 745
     iget-object v0, p0, Lcom/google/common/util/concurrent/Futures$1;->val$fallback:Lcom/google/common/util/concurrent/FutureFallback;
 
     invoke-interface {v0, p1}, Lcom/google/common/util/concurrent/FutureFallback;->create(Ljava/lang/Throwable;)Lcom/google/common/util/concurrent/ListenableFuture;

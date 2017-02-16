@@ -46,8 +46,13 @@
         }
     .end annotation
 
+    .prologue
+    .line 602
+    .local p0, "this":Lcom/google/common/collect/Multimaps$UnmodifiableListMultimap;, "Lcom/google/common/collect/Multimaps$UnmodifiableListMultimap<TK;TV;>;"
+    .local p1, "delegate":Lcom/google/common/collect/ListMultimap;, "Lcom/google/common/collect/ListMultimap<TK;TV;>;"
     invoke-direct {p0, p1}, Lcom/google/common/collect/Multimaps$UnmodifiableMultimap;-><init>(Lcom/google/common/collect/Multimap;)V
 
+    .line 603
     return-void
 .end method
 
@@ -63,6 +68,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 607
+    .local p0, "this":Lcom/google/common/collect/Multimaps$UnmodifiableListMultimap;, "Lcom/google/common/collect/Multimaps$UnmodifiableListMultimap<TK;TV;>;"
     invoke-super {p0}, Lcom/google/common/collect/Multimaps$UnmodifiableMultimap;->delegate()Lcom/google/common/collect/Multimap;
 
     move-result-object v0
@@ -75,6 +83,9 @@
 .method public bridge synthetic delegate()Lcom/google/common/collect/Multimap;
     .locals 1
 
+    .prologue
+    .line 599
+    .local p0, "this":Lcom/google/common/collect/Multimaps$UnmodifiableListMultimap;, "Lcom/google/common/collect/Multimaps$UnmodifiableListMultimap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Multimaps$UnmodifiableListMultimap;->delegate()Lcom/google/common/collect/ListMultimap;
 
     move-result-object v0
@@ -85,6 +96,9 @@
 .method public bridge synthetic delegate()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 599
+    .local p0, "this":Lcom/google/common/collect/Multimaps$UnmodifiableListMultimap;, "Lcom/google/common/collect/Multimaps$UnmodifiableListMultimap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Multimaps$UnmodifiableListMultimap;->delegate()Lcom/google/common/collect/ListMultimap;
 
     move-result-object v0
@@ -94,7 +108,11 @@
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/util/Collection;
     .locals 1
+    .param p1, "x0"    # Ljava/lang/Object;
 
+    .prologue
+    .line 599
+    .local p0, "this":Lcom/google/common/collect/Multimaps$UnmodifiableListMultimap;, "Lcom/google/common/collect/Multimaps$UnmodifiableListMultimap<TK;TV;>;"
     invoke-virtual {p0, p1}, Lcom/google/common/collect/Multimaps$UnmodifiableListMultimap;->get(Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v0
@@ -112,6 +130,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 612
+    .local p0, "this":Lcom/google/common/collect/Multimaps$UnmodifiableListMultimap;, "Lcom/google/common/collect/Multimaps$UnmodifiableListMultimap<TK;TV;>;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lcom/google/common/collect/Multimaps$UnmodifiableListMultimap;->delegate()Lcom/google/common/collect/ListMultimap;
 
     move-result-object v0
@@ -129,7 +151,11 @@
 
 .method public bridge synthetic removeAll(Ljava/lang/Object;)Ljava/util/Collection;
     .locals 1
+    .param p1, "x0"    # Ljava/lang/Object;
 
+    .prologue
+    .line 599
+    .local p0, "this":Lcom/google/common/collect/Multimaps$UnmodifiableListMultimap;, "Lcom/google/common/collect/Multimaps$UnmodifiableListMultimap<TK;TV;>;"
     invoke-virtual {p0, p1}, Lcom/google/common/collect/Multimaps$UnmodifiableListMultimap;->removeAll(Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v0
@@ -139,6 +165,7 @@
 
 .method public removeAll(Ljava/lang/Object;)Ljava/util/List;
     .locals 1
+    .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -149,6 +176,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 617
+    .local p0, "this":Lcom/google/common/collect/Multimaps$UnmodifiableListMultimap;, "Lcom/google/common/collect/Multimaps$UnmodifiableListMultimap<TK;TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -158,7 +188,12 @@
 
 .method public bridge synthetic replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/Collection;
     .locals 1
+    .param p1, "x0"    # Ljava/lang/Object;
+    .param p2, "x1"    # Ljava/lang/Iterable;
 
+    .prologue
+    .line 599
+    .local p0, "this":Lcom/google/common/collect/Multimaps$UnmodifiableListMultimap;, "Lcom/google/common/collect/Multimaps$UnmodifiableListMultimap<TK;TV;>;"
     invoke-virtual {p0, p1, p2}, Lcom/google/common/collect/Multimaps$UnmodifiableListMultimap;->replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/List;
 
     move-result-object v0
@@ -178,6 +213,11 @@
         }
     .end annotation
 
+    .prologue
+    .line 622
+    .local p0, "this":Lcom/google/common/collect/Multimaps$UnmodifiableListMultimap;, "Lcom/google/common/collect/Multimaps$UnmodifiableListMultimap<TK;TV;>;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
+    .local p2, "values":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V

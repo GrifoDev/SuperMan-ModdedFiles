@@ -22,6 +22,8 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
+    .line 202
     invoke-static {}, Lcom/yulore/sdk/ivr/ItemNodeType;->values()[Lcom/yulore/sdk/ivr/ItemNodeType;
 
     move-result-object v0

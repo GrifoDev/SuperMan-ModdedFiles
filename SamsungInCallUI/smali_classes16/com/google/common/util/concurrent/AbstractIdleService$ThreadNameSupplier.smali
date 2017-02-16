@@ -35,6 +35,8 @@
 .method private constructor <init>(Lcom/google/common/util/concurrent/AbstractIdleService;)V
     .locals 0
 
+    .prologue
+    .line 44
     iput-object p1, p0, Lcom/google/common/util/concurrent/AbstractIdleService$ThreadNameSupplier;->this$0:Lcom/google/common/util/concurrent/AbstractIdleService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,7 +46,11 @@
 
 .method synthetic constructor <init>(Lcom/google/common/util/concurrent/AbstractIdleService;Lcom/google/common/util/concurrent/AbstractIdleService$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/google/common/util/concurrent/AbstractIdleService;
+    .param p2, "x1"    # Lcom/google/common/util/concurrent/AbstractIdleService$1;
 
+    .prologue
+    .line 44
     invoke-direct {p0, p1}, Lcom/google/common/util/concurrent/AbstractIdleService$ThreadNameSupplier;-><init>(Lcom/google/common/util/concurrent/AbstractIdleService;)V
 
     return-void
@@ -55,6 +61,8 @@
 .method public bridge synthetic get()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 43
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/AbstractIdleService$ThreadNameSupplier;->get()Ljava/lang/String;
 
     move-result-object v0
@@ -65,6 +73,8 @@
 .method public get()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 46
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

@@ -31,29 +31,38 @@
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/Service$State;)V
     .locals 2
+    .param p1, "internalState"    # Lcom/google/common/util/concurrent/Service$State;
 
+    .prologue
+    .line 541
     const/4 v0, 0x0
 
     const/4 v1, 0x0
 
     invoke-direct {p0, p1, v0, v1}, Lcom/google/common/util/concurrent/AbstractService$StateSnapshot;-><init>(Lcom/google/common/util/concurrent/Service$State;ZLjava/lang/Throwable;)V
 
+    .line 542
     return-void
 .end method
 
 .method constructor <init>(Lcom/google/common/util/concurrent/Service$State;ZLjava/lang/Throwable;)V
     .locals 5
-    .param p3    # Ljava/lang/Throwable;
+    .param p1, "internalState"    # Lcom/google/common/util/concurrent/Service$State;
+    .param p2, "shutdownWhenStartupFinishes"    # Z
+    .param p3, "failure"    # Ljava/lang/Throwable;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
+    .prologue
     const/4 v2, 0x1
 
     const/4 v1, 0x0
 
+    .line 545
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 546
     if-eqz p2, :cond_0
 
     sget-object v0, Lcom/google/common/util/concurrent/Service$State;->STARTING:Lcom/google/common/util/concurrent/Service$State;
@@ -72,6 +81,7 @@
 
     invoke-static {v0, v3, v4}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;[Ljava/lang/Object;)V
 
+    .line 549
     if-eqz p3, :cond_2
 
     move v0, v2
@@ -103,22 +113,28 @@
 
     invoke-static {v0, v3, v4}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;[Ljava/lang/Object;)V
 
+    .line 552
     iput-object p1, p0, Lcom/google/common/util/concurrent/AbstractService$StateSnapshot;->state:Lcom/google/common/util/concurrent/Service$State;
 
+    .line 553
     iput-boolean p2, p0, Lcom/google/common/util/concurrent/AbstractService$StateSnapshot;->shutdownWhenStartupFinishes:Z
 
+    .line 554
     iput-object p3, p0, Lcom/google/common/util/concurrent/AbstractService$StateSnapshot;->failure:Ljava/lang/Throwable;
 
+    .line 555
     return-void
 
     :cond_1
     move v0, v1
 
+    .line 546
     goto :goto_0
 
     :cond_2
     move v0, v1
 
+    .line 549
     goto :goto_1
 
     :cond_3
@@ -137,6 +153,8 @@
 .method externalState()Lcom/google/common/util/concurrent/Service$State;
     .locals 2
 
+    .prologue
+    .line 559
     iget-boolean v0, p0, Lcom/google/common/util/concurrent/AbstractService$StateSnapshot;->shutdownWhenStartupFinishes:Z
 
     if-eqz v0, :cond_0
@@ -147,8 +165,10 @@
 
     if-ne v0, v1, :cond_0
 
+    .line 560
     sget-object v0, Lcom/google/common/util/concurrent/Service$State;->STOPPING:Lcom/google/common/util/concurrent/Service$State;
 
+    .line 562
     :goto_0
     return-object v0
 
@@ -161,10 +181,12 @@
 .method failureCause()Ljava/lang/Throwable;
     .locals 5
 
+    .prologue
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
+    .line 568
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractService$StateSnapshot;->state:Lcom/google/common/util/concurrent/Service$State;
 
     sget-object v3, Lcom/google/common/util/concurrent/Service$State;->FAILED:Lcom/google/common/util/concurrent/Service$State;
@@ -184,6 +206,7 @@
 
     invoke-static {v0, v3, v1}, Lcom/google/common/base/Preconditions;->checkState(ZLjava/lang/String;[Ljava/lang/Object;)V
 
+    .line 570
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractService$StateSnapshot;->failure:Ljava/lang/Throwable;
 
     return-object v0
@@ -191,5 +214,6 @@
     :cond_0
     move v0, v2
 
+    .line 568
     goto :goto_0
 .end method

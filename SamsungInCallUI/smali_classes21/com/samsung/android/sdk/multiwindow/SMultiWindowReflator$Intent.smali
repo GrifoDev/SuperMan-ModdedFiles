@@ -30,6 +30,8 @@
 .method static constructor <clinit>()V
     .locals 7
 
+    .prologue
+    .line 85
     const/4 v4, 0x4
 
     new-array v4, v4, [Ljava/lang/String;
@@ -60,15 +62,20 @@
 
     sput-object v4, Lcom/samsung/android/sdk/multiwindow/SMultiWindowReflator$Intent;->FIELD_NAMES:[Ljava/lang/String;
 
+    .line 93
     sget-object v4, Lcom/samsung/android/sdk/multiwindow/SMultiWindowReflator$Intent;->FIELD_NAMES:[Ljava/lang/String;
 
     array-length v0, v4
 
+    .line 94
+    .local v0, "N":I
     const/4 v2, 0x0
 
+    .local v2, "i":I
     :goto_0
     if-ge v2, v0, :cond_0
 
+    .line 96
     :try_start_0
     const-class v4, Landroid/content/Intent;
 
@@ -80,6 +87,8 @@
 
     move-result-object v3
 
+    .line 97
+    .local v3, "src":Ljava/lang/reflect/Field;
     const-class v4, Lcom/samsung/android/sdk/multiwindow/SMultiWindowReflator$Intent;
 
     sget-object v5, Lcom/samsung/android/sdk/multiwindow/SMultiWindowReflator$Intent;->FIELD_NAMES:[Ljava/lang/String;
@@ -90,6 +99,8 @@
 
     move-result-object v1
 
+    .line 98
+    .local v1, "dst":Ljava/lang/reflect/Field;
     invoke-virtual {v3, v3}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v4
@@ -100,24 +111,31 @@
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 94
+    .end local v1    # "dst":Ljava/lang/reflect/Field;
+    .end local v3    # "src":Ljava/lang/reflect/Field;
     :goto_1
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
+    .line 104
     :cond_0
     return-void
 
+    .line 101
     :catch_0
     move-exception v4
 
     goto :goto_1
 
+    .line 100
     :catch_1
     move-exception v4
 
     goto :goto_1
 
+    .line 99
     :catch_2
     move-exception v4
 
@@ -127,6 +145,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 79
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

@@ -29,6 +29,9 @@
 .method constructor <init>(Lcom/google/common/cache/LocalCache;)V
     .locals 0
 
+    .prologue
+    .line 4384
+    .local p0, "this":Lcom/google/common/cache/LocalCache$ValueIterator;, "Lcom/google/common/cache/LocalCache<TK;TV;>.ValueIterator;"
     iput-object p1, p0, Lcom/google/common/cache/LocalCache$ValueIterator;->this$0:Lcom/google/common/cache/LocalCache;
 
     invoke-direct {p0, p1}, Lcom/google/common/cache/LocalCache$HashIterator;-><init>(Lcom/google/common/cache/LocalCache;)V
@@ -46,6 +49,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 4388
+    .local p0, "this":Lcom/google/common/cache/LocalCache$ValueIterator;, "Lcom/google/common/cache/LocalCache<TK;TV;>.ValueIterator;"
     invoke-virtual {p0}, Lcom/google/common/cache/LocalCache$ValueIterator;->nextEntry()Lcom/google/common/cache/LocalCache$WriteThroughEntry;
 
     move-result-object v0

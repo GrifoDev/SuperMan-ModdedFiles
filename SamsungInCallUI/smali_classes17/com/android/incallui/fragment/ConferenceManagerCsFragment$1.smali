@@ -26,7 +26,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/ConferenceManagerCsFragment;I)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
+    .prologue
+    .line 127
     iput-object p1, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$1;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
     iput p2, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$1;->val$id:I
@@ -41,6 +44,8 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 130
     iget-object v0, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$1;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
     iget v1, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$1;->val$id:I
@@ -48,5 +53,6 @@
     # invokes: Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->updateConferenceCallTime(I)V
     invoke-static {v0, v1}, Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->access$000(Lcom/android/incallui/fragment/ConferenceManagerCsFragment;I)V
 
+    .line 131
     return-void
 .end method

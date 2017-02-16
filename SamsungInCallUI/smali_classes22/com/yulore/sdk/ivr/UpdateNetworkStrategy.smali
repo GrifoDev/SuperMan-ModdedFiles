@@ -36,6 +36,7 @@
 .method static constructor <clinit>()V
     .locals 8
 
+    .prologue
     const/4 v7, 0x0
 
     const/4 v6, 0x3
@@ -44,6 +45,7 @@
 
     const/4 v4, 0x1
 
+    .line 4
     new-instance v0, Lcom/yulore/sdk/ivr/UpdateNetworkStrategy;
 
     const-string v1, "MOBILE_NETWORK"
@@ -86,6 +88,7 @@
 
     sput-object v0, Lcom/yulore/sdk/ivr/UpdateNetworkStrategy;->NEVER_UPDATE:Lcom/yulore/sdk/ivr/UpdateNetworkStrategy;
 
+    .line 3
     const/4 v0, 0x4
 
     new-array v0, v0, [Lcom/yulore/sdk/ivr/UpdateNetworkStrategy;
@@ -113,6 +116,8 @@
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;I)V
     .locals 0
+    .param p3, "networkType"    # Ljava/lang/String;
+    .param p4, "value"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -121,18 +126,26 @@
         }
     .end annotation
 
+    .prologue
+    .line 9
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
+    .line 10
     iput-object p3, p0, Lcom/yulore/sdk/ivr/UpdateNetworkStrategy;->networkType:Ljava/lang/String;
 
+    .line 11
     iput p4, p0, Lcom/yulore/sdk/ivr/UpdateNetworkStrategy;->value:I
 
+    .line 12
     return-void
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/yulore/sdk/ivr/UpdateNetworkStrategy;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 3
     const-class v0, Lcom/yulore/sdk/ivr/UpdateNetworkStrategy;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -147,6 +160,8 @@
 .method public static values()[Lcom/yulore/sdk/ivr/UpdateNetworkStrategy;
     .locals 1
 
+    .prologue
+    .line 3
     sget-object v0, Lcom/yulore/sdk/ivr/UpdateNetworkStrategy;->$VALUES:[Lcom/yulore/sdk/ivr/UpdateNetworkStrategy;
 
     invoke-virtual {v0}, [Lcom/yulore/sdk/ivr/UpdateNetworkStrategy;->clone()Ljava/lang/Object;
@@ -163,6 +178,8 @@
 .method public getNetworkType()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 15
     iget-object v0, p0, Lcom/yulore/sdk/ivr/UpdateNetworkStrategy;->networkType:Ljava/lang/String;
 
     return-object v0
@@ -171,6 +188,8 @@
 .method public getValue()I
     .locals 1
 
+    .prologue
+    .line 23
     iget v0, p0, Lcom/yulore/sdk/ivr/UpdateNetworkStrategy;->value:I
 
     return v0
@@ -178,16 +197,24 @@
 
 .method public setNetworkType(Ljava/lang/String;)V
     .locals 0
+    .param p1, "networkType"    # Ljava/lang/String;
 
+    .prologue
+    .line 19
     iput-object p1, p0, Lcom/yulore/sdk/ivr/UpdateNetworkStrategy;->networkType:Ljava/lang/String;
 
+    .line 20
     return-void
 .end method
 
 .method public setValue(I)V
     .locals 0
+    .param p1, "value"    # I
 
+    .prologue
+    .line 27
     iput p1, p0, Lcom/yulore/sdk/ivr/UpdateNetworkStrategy;->value:I
 
+    .line 28
     return-void
 .end method

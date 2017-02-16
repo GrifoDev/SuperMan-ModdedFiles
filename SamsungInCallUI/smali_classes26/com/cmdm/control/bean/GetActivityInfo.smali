@@ -100,6 +100,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 16
     invoke-direct {p0}, Lcom/cmdm/control/bean/BaseBean;-><init>()V
 
     return-void
@@ -110,6 +112,8 @@
 .method public getExplainText()Ljava/lang/String;
     .locals 3
 
+    .prologue
+    .line 69
     iget-object v1, p0, Lcom/cmdm/control/bean/GetActivityInfo;->explain:Ljava/lang/String;
 
     if-eqz v1, :cond_0
@@ -124,6 +128,7 @@
 
     if-nez v1, :cond_0
 
+    .line 70
     new-instance v1, Ljava/lang/StringBuilder;
 
     iget-object v2, p0, Lcom/cmdm/control/bean/GetActivityInfo;->explain:Ljava/lang/String;
@@ -142,6 +147,8 @@
 
     move-result-object v0
 
+    .line 71
+    .local v0, "str":Ljava/lang/String;
     const-string v1, "<br>"
 
     const-string v2, "\n"
@@ -150,6 +157,8 @@
 
     move-result-object v1
 
+    .line 73
+    .end local v0    # "str":Ljava/lang/String;
     :goto_0
     return-object v1
 
@@ -162,6 +171,8 @@
 .method public hasSignIn()Z
     .locals 2
 
+    .prologue
+    .line 36
     iget-object v0, p0, Lcom/cmdm/control/bean/GetActivityInfo;->isSignIn:Ljava/lang/String;
 
     if-eqz v0, :cond_0
@@ -186,8 +197,10 @@
 
     if-eqz v0, :cond_0
 
+    .line 37
     const/4 v0, 0x1
 
+    .line 39
     :goto_0
     return v0
 

@@ -26,6 +26,8 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
+    .line 236
     new-instance v0, Lcom/google/common/util/concurrent/AbstractFuture$Failure;
 
     new-instance v1, Lcom/google/common/util/concurrent/AbstractFuture$Failure$1;
@@ -43,9 +45,13 @@
 
 .method constructor <init>(Ljava/lang/Throwable;)V
     .locals 1
+    .param p1, "exception"    # Ljava/lang/Throwable;
 
+    .prologue
+    .line 244
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 245
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -54,5 +60,6 @@
 
     iput-object v0, p0, Lcom/google/common/util/concurrent/AbstractFuture$Failure;->exception:Ljava/lang/Throwable;
 
+    .line 246
     return-void
 .end method

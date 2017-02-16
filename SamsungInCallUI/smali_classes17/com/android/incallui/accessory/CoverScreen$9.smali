@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/accessory/CoverScreen;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/accessory/CoverScreen;
 
+    .prologue
+    .line 887
     iput-object p1, p0, Lcom/android/incallui/accessory/CoverScreen$9;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
@@ -33,7 +36,10 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 890
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverScreen$9;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
     # getter for: Lcom/android/incallui/accessory/CoverScreen;->mSmartCallPhoto:Landroid/widget/ImageView;
@@ -45,5 +51,6 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setAlpha(F)V
 
+    .line 891
     return-void
 .end method

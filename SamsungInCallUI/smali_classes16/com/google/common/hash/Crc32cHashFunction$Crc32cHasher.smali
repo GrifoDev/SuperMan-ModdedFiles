@@ -26,6 +26,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 42
     const/16 v0, 0x100
 
     new-array v0, v0, [I
@@ -300,8 +302,11 @@
 .method constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 39
     invoke-direct {p0}, Lcom/google/common/hash/AbstractByteHasher;-><init>()V
 
+    .line 109
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/google/common/hash/Crc32cHashFunction$Crc32cHasher;->crc:I
@@ -314,6 +319,8 @@
 .method public hash()Lcom/google/common/hash/HashCode;
     .locals 1
 
+    .prologue
+    .line 120
     iget v0, p0, Lcom/google/common/hash/Crc32cHashFunction$Crc32cHasher;->crc:I
 
     invoke-static {v0}, Lcom/google/common/hash/HashCode;->fromInt(I)Lcom/google/common/hash/HashCode;
@@ -325,13 +332,17 @@
 
 .method public update(B)V
     .locals 3
+    .param p1, "b"    # B
 
+    .prologue
+    .line 113
     iget v0, p0, Lcom/google/common/hash/Crc32cHashFunction$Crc32cHasher;->crc:I
 
     xor-int/lit8 v0, v0, -0x1
 
     iput v0, p0, Lcom/google/common/hash/Crc32cHashFunction$Crc32cHasher;->crc:I
 
+    .line 115
     iget v0, p0, Lcom/google/common/hash/Crc32cHashFunction$Crc32cHasher;->crc:I
 
     ushr-int/lit8 v0, v0, 0x8
@@ -352,5 +363,6 @@
 
     iput v0, p0, Lcom/google/common/hash/Crc32cHashFunction$Crc32cHasher;->crc:I
 
+    .line 116
     return-void
 .end method

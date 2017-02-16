@@ -41,10 +41,16 @@
         }
     .end annotation
 
+    .prologue
+    .line 35
+    .local p0, "this":Lcom/google/common/base/Present;, "Lcom/google/common/base/Present<TT;>;"
+    .local p1, "reference":Ljava/lang/Object;, "TT;"
     invoke-direct {p0}, Lcom/google/common/base/Optional;-><init>()V
 
+    .line 36
     iput-object p1, p0, Lcom/google/common/base/Present;->reference:Ljava/lang/Object;
 
+    .line 37
     return-void
 .end method
 
@@ -60,6 +66,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 74
+    .local p0, "this":Lcom/google/common/base/Present;, "Lcom/google/common/base/Present<TT;>;"
     iget-object v0, p0, Lcom/google/common/base/Present;->reference:Ljava/lang/Object;
 
     invoke-static {v0}, Ljava/util/Collections;->singleton(Ljava/lang/Object;)Ljava/util/Set;
@@ -71,19 +80,25 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 3
-    .param p1    # Ljava/lang/Object;
+    .param p1, "object"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
+    .prologue
+    .line 87
+    .local p0, "this":Lcom/google/common/base/Present;, "Lcom/google/common/base/Present<TT;>;"
     instance-of v1, p1, Lcom/google/common/base/Present;
 
     if-eqz v1, :cond_0
 
     move-object v0, p1
 
+    .line 88
     check-cast v0, Lcom/google/common/base/Present;
 
+    .line 89
+    .local v0, "other":Lcom/google/common/base/Present;, "Lcom/google/common/base/Present<*>;"
     iget-object v1, p0, Lcom/google/common/base/Present;->reference:Ljava/lang/Object;
 
     iget-object v2, v0, Lcom/google/common/base/Present;->reference:Ljava/lang/Object;
@@ -92,6 +107,8 @@
 
     move-result v1
 
+    .line 91
+    .end local v0    # "other":Lcom/google/common/base/Present;, "Lcom/google/common/base/Present<*>;"
     :goto_0
     return v1
 
@@ -109,6 +126,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 46
+    .local p0, "this":Lcom/google/common/base/Present;, "Lcom/google/common/base/Present<TT;>;"
     iget-object v0, p0, Lcom/google/common/base/Present;->reference:Ljava/lang/Object;
 
     return-object v0
@@ -117,6 +137,9 @@
 .method public hashCode()I
     .locals 2
 
+    .prologue
+    .line 96
+    .local p0, "this":Lcom/google/common/base/Present;, "Lcom/google/common/base/Present<TT;>;"
     const v0, 0x598df91c
 
     iget-object v1, p0, Lcom/google/common/base/Present;->reference:Ljava/lang/Object;
@@ -133,6 +156,9 @@
 .method public isPresent()Z
     .locals 1
 
+    .prologue
+    .line 41
+    .local p0, "this":Lcom/google/common/base/Present;, "Lcom/google/common/base/Present<TT;>;"
     const/4 v0, 0x1
 
     return v0
@@ -150,8 +176,13 @@
         }
     .end annotation
 
+    .prologue
+    .line 57
+    .local p0, "this":Lcom/google/common/base/Present;, "Lcom/google/common/base/Present<TT;>;"
+    .local p1, "secondChoice":Lcom/google/common/base/Optional;, "Lcom/google/common/base/Optional<+TT;>;"
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 58
     return-object p0
 .end method
 
@@ -165,8 +196,13 @@
         }
     .end annotation
 
+    .prologue
+    .line 63
+    .local p0, "this":Lcom/google/common/base/Present;, "Lcom/google/common/base/Present<TT;>;"
+    .local p1, "supplier":Lcom/google/common/base/Supplier;, "Lcom/google/common/base/Supplier<+TT;>;"
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 64
     iget-object v0, p0, Lcom/google/common/base/Present;->reference:Ljava/lang/Object;
 
     return-object v0
@@ -180,10 +216,15 @@
         }
     .end annotation
 
+    .prologue
+    .line 51
+    .local p0, "this":Lcom/google/common/base/Present;, "Lcom/google/common/base/Present<TT;>;"
+    .local p1, "defaultValue":Ljava/lang/Object;, "TT;"
     const-string v0, "use Optional.orNull() instead of Optional.or(null)"
 
     invoke-static {p1, v0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 52
     iget-object v0, p0, Lcom/google/common/base/Present;->reference:Ljava/lang/Object;
 
     return-object v0
@@ -197,6 +238,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 69
+    .local p0, "this":Lcom/google/common/base/Present;, "Lcom/google/common/base/Present<TT;>;"
     iget-object v0, p0, Lcom/google/common/base/Present;->reference:Ljava/lang/Object;
 
     return-object v0
@@ -205,6 +249,9 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 101
+    .local p0, "this":Lcom/google/common/base/Present;, "Lcom/google/common/base/Present<TT;>;"
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -248,6 +295,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 79
+    .local p0, "this":Lcom/google/common/base/Present;, "Lcom/google/common/base/Present<TT;>;"
+    .local p1, "function":Lcom/google/common/base/Function;, "Lcom/google/common/base/Function<-TT;TV;>;"
     new-instance v0, Lcom/google/common/base/Present;
 
     iget-object v1, p0, Lcom/google/common/base/Present;->reference:Ljava/lang/Object;

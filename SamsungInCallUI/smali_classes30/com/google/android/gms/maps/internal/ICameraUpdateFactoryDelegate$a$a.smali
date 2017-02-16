@@ -43,12 +43,14 @@
 
 .method public newCameraPosition(Lcom/google/android/gms/maps/model/CameraPosition;)Lcom/google/android/gms/dynamic/b;
     .locals 5
+    .param p1, "cameraPosition"    # Lcom/google/android/gms/maps/model/CameraPosition;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -121,12 +123,14 @@
 
 .method public newLatLng(Lcom/google/android/gms/maps/model/LatLng;)Lcom/google/android/gms/dynamic/b;
     .locals 5
+    .param p1, "latLng"    # Lcom/google/android/gms/maps/model/LatLng;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -199,12 +203,15 @@
 
 .method public newLatLngBounds(Lcom/google/android/gms/maps/model/LatLngBounds;I)Lcom/google/android/gms/dynamic/b;
     .locals 5
+    .param p1, "bounds"    # Lcom/google/android/gms/maps/model/LatLngBounds;
+    .param p2, "padding"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -279,12 +286,17 @@
 
 .method public newLatLngBoundsWithSize(Lcom/google/android/gms/maps/model/LatLngBounds;III)Lcom/google/android/gms/dynamic/b;
     .locals 5
+    .param p1, "bounds"    # Lcom/google/android/gms/maps/model/LatLngBounds;
+    .param p2, "width"    # I
+    .param p3, "height"    # I
+    .param p4, "padding"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -363,12 +375,15 @@
 
 .method public newLatLngZoom(Lcom/google/android/gms/maps/model/LatLng;F)Lcom/google/android/gms/dynamic/b;
     .locals 5
+    .param p1, "latLng"    # Lcom/google/android/gms/maps/model/LatLng;
+    .param p2, "zoom"    # F
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -443,12 +458,15 @@
 
 .method public scrollBy(FF)Lcom/google/android/gms/dynamic/b;
     .locals 5
+    .param p1, "xPixel"    # F
+    .param p2, "yPixel"    # F
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -504,12 +522,14 @@
 
 .method public zoomBy(F)Lcom/google/android/gms/dynamic/b;
     .locals 5
+    .param p1, "amount"    # F
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -563,12 +583,16 @@
 
 .method public zoomByWithFocus(FII)Lcom/google/android/gms/dynamic/b;
     .locals 5
+    .param p1, "amount"    # F
+    .param p2, "screenFocusX"    # I
+    .param p3, "screenFocusY"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -740,12 +764,14 @@
 
 .method public zoomTo(F)Lcom/google/android/gms/dynamic/b;
     .locals 5
+    .param p1, "zoom"    # F
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1

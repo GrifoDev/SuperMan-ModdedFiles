@@ -10,6 +10,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -25,23 +27,42 @@
 
 .method public marshal(Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;Ljava/lang/Object;Lcom/thoughtworks/xstream/converters/ConverterLookup;Lcom/thoughtworks/xstream/mapper/Mapper;Lcom/thoughtworks/xstream/converters/DataHolder;)V
     .locals 1
+    .param p1, "writer"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
+    .param p2, "obj"    # Ljava/lang/Object;
+    .param p3, "converterLookup"    # Lcom/thoughtworks/xstream/converters/ConverterLookup;
+    .param p4, "mapper"    # Lcom/thoughtworks/xstream/mapper/Mapper;
+    .param p5, "dataHolder"    # Lcom/thoughtworks/xstream/converters/DataHolder;
 
+    .prologue
+    .line 36
     invoke-virtual {p0, p1, p3, p4}, Lcom/thoughtworks/xstream/core/AbstractTreeMarshallingStrategy;->createMarshallingContext(Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;Lcom/thoughtworks/xstream/converters/ConverterLookup;Lcom/thoughtworks/xstream/mapper/Mapper;)Lcom/thoughtworks/xstream/core/TreeMarshaller;
 
     move-result-object v0
 
+    .line 37
+    .local v0, "context":Lcom/thoughtworks/xstream/core/TreeMarshaller;
     invoke-virtual {v0, p2, p5}, Lcom/thoughtworks/xstream/core/TreeMarshaller;->start(Ljava/lang/Object;Lcom/thoughtworks/xstream/converters/DataHolder;)V
 
+    .line 38
     return-void
 .end method
 
 .method public unmarshal(Ljava/lang/Object;Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/converters/DataHolder;Lcom/thoughtworks/xstream/converters/ConverterLookup;Lcom/thoughtworks/xstream/mapper/Mapper;)Ljava/lang/Object;
     .locals 2
+    .param p1, "root"    # Ljava/lang/Object;
+    .param p2, "reader"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
+    .param p3, "dataHolder"    # Lcom/thoughtworks/xstream/converters/DataHolder;
+    .param p4, "converterLookup"    # Lcom/thoughtworks/xstream/converters/ConverterLookup;
+    .param p5, "mapper"    # Lcom/thoughtworks/xstream/mapper/Mapper;
 
+    .prologue
+    .line 31
     invoke-virtual {p0, p1, p2, p4, p5}, Lcom/thoughtworks/xstream/core/AbstractTreeMarshallingStrategy;->createUnmarshallingContext(Ljava/lang/Object;Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/converters/ConverterLookup;Lcom/thoughtworks/xstream/mapper/Mapper;)Lcom/thoughtworks/xstream/core/TreeUnmarshaller;
 
     move-result-object v0
 
+    .line 32
+    .local v0, "context":Lcom/thoughtworks/xstream/core/TreeUnmarshaller;
     invoke-virtual {v0, p3}, Lcom/thoughtworks/xstream/core/TreeUnmarshaller;->start(Lcom/thoughtworks/xstream/converters/DataHolder;)Ljava/lang/Object;
 
     move-result-object v1

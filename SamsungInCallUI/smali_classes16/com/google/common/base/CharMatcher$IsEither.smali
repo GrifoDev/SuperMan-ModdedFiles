@@ -23,13 +23,20 @@
 # direct methods
 .method constructor <init>(CC)V
     .locals 0
+    .param p1, "match1"    # C
+    .param p2, "match2"    # C
 
+    .prologue
+    .line 1711
     invoke-direct {p0}, Lcom/google/common/base/CharMatcher$FastMatcher;-><init>()V
 
+    .line 1712
     iput-char p1, p0, Lcom/google/common/base/CharMatcher$IsEither;->match1:C
 
+    .line 1713
     iput-char p2, p0, Lcom/google/common/base/CharMatcher$IsEither;->match2:C
 
+    .line 1714
     return-void
 .end method
 
@@ -37,7 +44,10 @@
 # virtual methods
 .method public matches(C)Z
     .locals 1
+    .param p1, "c"    # C
 
+    .prologue
+    .line 1718
     iget-char v0, p0, Lcom/google/common/base/CharMatcher$IsEither;->match1:C
 
     if-eq p1, v0, :cond_0
@@ -60,24 +70,31 @@
 
 .method setBits(Ljava/util/BitSet;)V
     .locals 1
+    .param p1, "table"    # Ljava/util/BitSet;
     .annotation build Lcom/google/common/annotations/GwtIncompatible;
         value = "java.util.BitSet"
     .end annotation
 
+    .prologue
+    .line 1724
     iget-char v0, p0, Lcom/google/common/base/CharMatcher$IsEither;->match1:C
 
     invoke-virtual {p1, v0}, Ljava/util/BitSet;->set(I)V
 
+    .line 1725
     iget-char v0, p0, Lcom/google/common/base/CharMatcher$IsEither;->match2:C
 
     invoke-virtual {p1, v0}, Ljava/util/BitSet;->set(I)V
 
+    .line 1726
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 1730
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

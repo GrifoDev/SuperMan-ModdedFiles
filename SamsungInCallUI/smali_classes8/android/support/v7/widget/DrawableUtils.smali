@@ -24,18 +24,22 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 41
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
     sput-object v0, Landroid/support/v7/widget/DrawableUtils;->INSETS_NONE:Landroid/graphics/Rect;
 
+    .line 48
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x12
 
     if-lt v0, v1, :cond_0
 
+    .line 50
     :try_start_0
     const-string v0, "android.graphics.Insets"
 
@@ -47,10 +51,12 @@
     :try_end_0
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 55
     :cond_0
     :goto_0
     return-void
 
+    .line 51
     :catch_0
     move-exception v0
 
@@ -60,6 +66,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 57
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -67,15 +75,17 @@
 
 .method public static canSafelyMutateDrawable(Landroid/graphics/drawable/Drawable;)Z
     .locals 8
-    .param p0    # Landroid/graphics/drawable/Drawable;
+    .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
 
+    .prologue
     const/16 v6, 0xf
 
     const/4 v3, 0x0
 
+    .line 124
     sget v4, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v5, 0x8
@@ -86,10 +96,14 @@
 
     if-eqz v4, :cond_1
 
+    .line 161
+    .end local p0    # "drawable":Landroid/graphics/drawable/Drawable;
     :cond_0
     :goto_0
     return v3
 
+    .line 127
+    .restart local p0    # "drawable":Landroid/graphics/drawable/Drawable;
     :cond_1
     sget v4, Landroid/os/Build$VERSION;->SDK_INT:I
 
@@ -99,6 +113,7 @@
 
     if-nez v4, :cond_0
 
+    .line 129
     :cond_2
     sget v4, Landroid/os/Build$VERSION;->SDK_INT:I
 
@@ -108,6 +123,7 @@
 
     if-nez v4, :cond_0
 
+    .line 133
     :cond_3
     sget v4, Landroid/os/Build$VERSION;->SDK_INT:I
 
@@ -119,23 +135,30 @@
 
     if-nez v4, :cond_0
 
+    .line 137
     :cond_4
     instance-of v4, p0, Landroid/graphics/drawable/DrawableContainer;
 
     if-eqz v4, :cond_5
 
+    .line 139
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
 
     move-result-object v2
 
+    .line 140
+    .local v2, "state":Landroid/graphics/drawable/Drawable$ConstantState;
     instance-of v4, v2, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;
 
     if-eqz v4, :cond_8
 
     move-object v1, v2
 
+    .line 141
     check-cast v1, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;
 
+    .line 143
+    .local v1, "containerState":Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;
     invoke-virtual {v1}, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;->getChildren()[Landroid/graphics/drawable/Drawable;
 
     move-result-object v5
@@ -149,57 +172,78 @@
 
     aget-object v0, v5, v4
 
+    .line 144
+    .local v0, "child":Landroid/graphics/drawable/Drawable;
     invoke-static {v0}, Landroid/support/v7/widget/DrawableUtils;->canSafelyMutateDrawable(Landroid/graphics/drawable/Drawable;)Z
 
     move-result v7
 
     if-eqz v7, :cond_0
 
+    .line 143
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_1
 
+    .line 149
+    .end local v0    # "child":Landroid/graphics/drawable/Drawable;
+    .end local v1    # "containerState":Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;
+    .end local v2    # "state":Landroid/graphics/drawable/Drawable$ConstantState;
     :cond_5
     instance-of v3, p0, Landroid/support/v4/graphics/drawable/DrawableWrapper;
 
     if-eqz v3, :cond_6
 
+    .line 150
     check-cast p0, Landroid/support/v4/graphics/drawable/DrawableWrapper;
 
+    .line 152
+    .end local p0    # "drawable":Landroid/graphics/drawable/Drawable;
     invoke-interface {p0}, Landroid/support/v4/graphics/drawable/DrawableWrapper;->getWrappedDrawable()Landroid/graphics/drawable/Drawable;
 
     move-result-object v3
 
+    .line 150
     invoke-static {v3}, Landroid/support/v7/widget/DrawableUtils;->canSafelyMutateDrawable(Landroid/graphics/drawable/Drawable;)Z
 
     move-result v3
 
     goto :goto_0
 
+    .line 153
+    .restart local p0    # "drawable":Landroid/graphics/drawable/Drawable;
     :cond_6
     instance-of v3, p0, Landroid/support/v7/graphics/drawable/DrawableWrapper;
 
     if-eqz v3, :cond_7
 
+    .line 154
     check-cast p0, Landroid/support/v7/graphics/drawable/DrawableWrapper;
 
+    .line 156
+    .end local p0    # "drawable":Landroid/graphics/drawable/Drawable;
     invoke-virtual {p0}, Landroid/support/v7/graphics/drawable/DrawableWrapper;->getWrappedDrawable()Landroid/graphics/drawable/Drawable;
 
     move-result-object v3
 
+    .line 154
     invoke-static {v3}, Landroid/support/v7/widget/DrawableUtils;->canSafelyMutateDrawable(Landroid/graphics/drawable/Drawable;)Z
 
     move-result v3
 
     goto :goto_0
 
+    .line 157
+    .restart local p0    # "drawable":Landroid/graphics/drawable/Drawable;
     :cond_7
     instance-of v3, p0, Landroid/graphics/drawable/ScaleDrawable;
 
     if-eqz v3, :cond_8
 
+    .line 158
     check-cast p0, Landroid/graphics/drawable/ScaleDrawable;
 
+    .end local p0    # "drawable":Landroid/graphics/drawable/Drawable;
     invoke-virtual {p0}, Landroid/graphics/drawable/ScaleDrawable;->getDrawable()Landroid/graphics/drawable/Drawable;
 
     move-result-object v3
@@ -210,6 +254,8 @@
 
     goto :goto_0
 
+    .line 161
+    .restart local p0    # "drawable":Landroid/graphics/drawable/Drawable;
     :cond_8
     const/4 v3, 0x1
 
@@ -218,11 +264,13 @@
 
 .method static fixDrawable(Landroid/graphics/drawable/Drawable;)V
     .locals 2
-    .param p0    # Landroid/graphics/drawable/Drawable;
+    .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
 
+    .prologue
+    .line 113
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x15
@@ -231,6 +279,7 @@
 
     const-string v0, "android.graphics.drawable.VectorDrawable"
 
+    .line 114
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v1
@@ -245,35 +294,46 @@
 
     if-eqz v0, :cond_0
 
+    .line 115
     invoke-static {p0}, Landroid/support/v7/widget/DrawableUtils;->fixVectorDrawableTinting(Landroid/graphics/drawable/Drawable;)V
 
+    .line 117
     :cond_0
     return-void
 .end method
 
 .method private static fixVectorDrawableTinting(Landroid/graphics/drawable/Drawable;)V
     .locals 2
+    .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
 
+    .prologue
+    .line 169
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getState()[I
 
     move-result-object v0
 
+    .line 170
+    .local v0, "originalState":[I
     if-eqz v0, :cond_0
 
     array-length v1, v0
 
     if-nez v1, :cond_1
 
+    .line 172
     :cond_0
     sget-object v1, Landroid/support/v7/widget/ThemeUtils;->CHECKED_STATE_SET:[I
 
     invoke-virtual {p0, v1}, Landroid/graphics/drawable/Drawable;->setState([I)Z
 
+    .line 178
     :goto_0
     invoke-virtual {p0, v0}, Landroid/graphics/drawable/Drawable;->setState([I)Z
 
+    .line 179
     return-void
 
+    .line 175
     :cond_1
     sget-object v1, Landroid/support/v7/widget/ThemeUtils;->EMPTY_STATE_SET:[I
 
@@ -284,18 +344,23 @@
 
 .method public static getOpticalBounds(Landroid/graphics/drawable/Drawable;)Landroid/graphics/Rect;
     .locals 12
+    .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
 
+    .prologue
     const/4 v6, 0x0
 
+    .line 64
     sget-object v5, Landroid/support/v7/widget/DrawableUtils;->sInsetsClazz:Ljava/lang/Class;
 
     if-eqz v5, :cond_1
 
+    .line 68
     :try_start_0
     invoke-static {p0}, Landroid/support/v4/graphics/drawable/DrawableCompat;->unwrap(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
 
     move-result-object p0
 
+    .line 70
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v5
@@ -306,10 +371,13 @@
 
     new-array v8, v8, [Ljava/lang/Class;
 
+    .line 71
     invoke-virtual {v5, v7, v8}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v2
 
+    .line 72
+    .local v2, "getOpticalInsetsMethod":Ljava/lang/reflect/Method;
     const/4 v5, 0x0
 
     new-array v5, v5, [Ljava/lang/Object;
@@ -318,12 +386,17 @@
 
     move-result-object v3
 
+    .line 74
+    .local v3, "insets":Ljava/lang/Object;
     if-eqz v3, :cond_1
 
+    .line 76
     new-instance v4, Landroid/graphics/Rect;
 
     invoke-direct {v4}, Landroid/graphics/Rect;-><init>()V
 
+    .line 78
+    .local v4, "result":Landroid/graphics/Rect;
     sget-object v5, Landroid/support/v7/widget/DrawableUtils;->sInsetsClazz:Ljava/lang/Class;
 
     invoke-virtual {v5}, Ljava/lang/Class;->getFields()[Ljava/lang/reflect/Field;
@@ -339,6 +412,8 @@
 
     aget-object v1, v8, v7
 
+    .line 79
+    .local v1, "field":Ljava/lang/reflect/Field;
     invoke-virtual {v1}, Ljava/lang/reflect/Field;->getName()Ljava/lang/String;
 
     move-result-object v10
@@ -355,6 +430,7 @@
     :goto_1
     packed-switch v5, :pswitch_data_0
 
+    .line 78
     :goto_2
     add-int/lit8 v5, v7, 0x1
 
@@ -362,6 +438,7 @@
 
     goto :goto_0
 
+    .line 79
     :sswitch_0
     const-string v11, "left"
 
@@ -414,6 +491,7 @@
 
     goto :goto_1
 
+    .line 81
     :pswitch_0
     invoke-virtual {v1, v3}, Ljava/lang/reflect/Field;->getInt(Ljava/lang/Object;)I
 
@@ -425,21 +503,35 @@
 
     goto :goto_2
 
+    .line 96
+    .end local v1    # "field":Ljava/lang/reflect/Field;
+    .end local v2    # "getOpticalInsetsMethod":Ljava/lang/reflect/Method;
+    .end local v3    # "insets":Ljava/lang/Object;
+    .end local v4    # "result":Landroid/graphics/Rect;
     :catch_0
     move-exception v0
 
+    .line 98
+    .local v0, "e":Ljava/lang/Exception;
     const-string v5, "DrawableUtils"
 
     const-string v6, "Couldn\'t obtain the optical insets. Ignoring."
 
     invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 104
+    .end local v0    # "e":Ljava/lang/Exception;
     :cond_1
     sget-object v4, Landroid/support/v7/widget/DrawableUtils;->INSETS_NONE:Landroid/graphics/Rect;
 
     :cond_2
     return-object v4
 
+    .line 84
+    .restart local v1    # "field":Ljava/lang/reflect/Field;
+    .restart local v2    # "getOpticalInsetsMethod":Ljava/lang/reflect/Method;
+    .restart local v3    # "insets":Ljava/lang/Object;
+    .restart local v4    # "result":Landroid/graphics/Rect;
     :pswitch_1
     :try_start_1
     invoke-virtual {v1, v3}, Ljava/lang/reflect/Field;->getInt(Ljava/lang/Object;)I
@@ -450,6 +542,7 @@
 
     goto :goto_2
 
+    .line 87
     :pswitch_2
     invoke-virtual {v1, v3}, Ljava/lang/reflect/Field;->getInt(Ljava/lang/Object;)I
 
@@ -459,6 +552,7 @@
 
     goto :goto_2
 
+    .line 90
     :pswitch_3
     invoke-virtual {v1, v3}, Ljava/lang/reflect/Field;->getInt(Ljava/lang/Object;)I
 
@@ -470,6 +564,7 @@
 
     goto :goto_2
 
+    .line 79
     :sswitch_data_0
     .sparse-switch
         -0x527265d5 -> :sswitch_3
@@ -489,39 +584,52 @@
 
 .method static parseTintMode(ILandroid/graphics/PorterDuff$Mode;)Landroid/graphics/PorterDuff$Mode;
     .locals 2
+    .param p0, "value"    # I
+    .param p1, "defaultMode"    # Landroid/graphics/PorterDuff$Mode;
 
+    .prologue
+    .line 182
     packed-switch p0, :pswitch_data_0
 
+    .line 191
+    .end local p1    # "defaultMode":Landroid/graphics/PorterDuff$Mode;
     :cond_0
     :goto_0
     :pswitch_0
     return-object p1
 
+    .line 183
+    .restart local p1    # "defaultMode":Landroid/graphics/PorterDuff$Mode;
     :pswitch_1
     sget-object p1, Landroid/graphics/PorterDuff$Mode;->SRC_OVER:Landroid/graphics/PorterDuff$Mode;
 
     goto :goto_0
 
+    .line 184
     :pswitch_2
     sget-object p1, Landroid/graphics/PorterDuff$Mode;->SRC_IN:Landroid/graphics/PorterDuff$Mode;
 
     goto :goto_0
 
+    .line 185
     :pswitch_3
     sget-object p1, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
 
     goto :goto_0
 
+    .line 186
     :pswitch_4
     sget-object p1, Landroid/graphics/PorterDuff$Mode;->MULTIPLY:Landroid/graphics/PorterDuff$Mode;
 
     goto :goto_0
 
+    .line 187
     :pswitch_5
     sget-object p1, Landroid/graphics/PorterDuff$Mode;->SCREEN:Landroid/graphics/PorterDuff$Mode;
 
     goto :goto_0
 
+    .line 188
     :pswitch_6
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
@@ -531,12 +639,14 @@
 
     const-string v0, "ADD"
 
+    .line 189
     invoke-static {v0}, Landroid/graphics/PorterDuff$Mode;->valueOf(Ljava/lang/String;)Landroid/graphics/PorterDuff$Mode;
 
     move-result-object p1
 
     goto :goto_0
 
+    .line 182
     :pswitch_data_0
     .packed-switch 0x3
         :pswitch_1

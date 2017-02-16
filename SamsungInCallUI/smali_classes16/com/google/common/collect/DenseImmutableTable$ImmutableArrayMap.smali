@@ -33,17 +33,26 @@
 # direct methods
 .method constructor <init>(I)V
     .locals 0
+    .param p1, "size"    # I
 
+    .prologue
+    .line 84
+    .local p0, "this":Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap;, "Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap<TK;TV;>;"
     invoke-direct {p0}, Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap;-><init>()V
 
+    .line 85
     iput p1, p0, Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap;->size:I
 
+    .line 86
     return-void
 .end method
 
 .method private isFull()Z
     .locals 2
 
+    .prologue
+    .line 92
+    .local p0, "this":Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap;, "Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap<TK;TV;>;"
     iget v0, p0, Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap;->size:I
 
     invoke-virtual {p0}, Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap;->keyToIndex()Lcom/google/common/collect/ImmutableMap;
@@ -79,6 +88,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 104
+    .local p0, "this":Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap;, "Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap<TK;TV;>;"
     invoke-direct {p0}, Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap;->isFull()Z
 
     move-result v0
@@ -116,6 +128,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 120
+    .local p0, "this":Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap;, "Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap<TK;TV;>;"
     new-instance v0, Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap$1;
 
     invoke-direct {v0, p0}, Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap$1;-><init>(Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap;)V
@@ -125,7 +140,7 @@
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 2
-    .param p1    # Ljava/lang/Object;
+    .param p1, "key"    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -137,6 +152,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 114
+    .local p0, "this":Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap;, "Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap;->keyToIndex()Lcom/google/common/collect/ImmutableMap;
 
     move-result-object v1
@@ -147,6 +165,8 @@
 
     check-cast v0, Ljava/lang/Integer;
 
+    .line 115
+    .local v0, "keyIndex":Ljava/lang/Integer;
     if-nez v0, :cond_0
 
     const/4 v1, 0x0
@@ -168,12 +188,16 @@
 
 .method getKey(I)Ljava/lang/Object;
     .locals 1
+    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)TK;"
         }
     .end annotation
 
+    .prologue
+    .line 96
+    .local p0, "this":Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap;, "Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap;->keyToIndex()Lcom/google/common/collect/ImmutableMap;
 
     move-result-object v0
@@ -219,6 +243,9 @@
 .method public size()I
     .locals 1
 
+    .prologue
+    .line 109
+    .local p0, "this":Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap;, "Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap<TK;TV;>;"
     iget v0, p0, Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap;->size:I
 
     return v0

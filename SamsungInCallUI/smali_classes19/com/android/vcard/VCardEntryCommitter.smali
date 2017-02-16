@@ -44,6 +44,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 41
     const-string v0, "vCard"
 
     sput-object v0, Lcom/android/vcard/VCardEntryCommitter;->LOG_TAG:Ljava/lang/String;
@@ -53,17 +55,23 @@
 
 .method public constructor <init>(Landroid/content/ContentResolver;)V
     .locals 1
+    .param p1, "resolver"    # Landroid/content/ContentResolver;
 
+    .prologue
+    .line 49
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 47
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/android/vcard/VCardEntryCommitter;->mCreatedUris:Ljava/util/ArrayList;
 
+    .line 50
     iput-object p1, p0, Lcom/android/vcard/VCardEntryCommitter;->mContentResolver:Landroid/content/ContentResolver;
 
+    .line 51
     return-void
 .end method
 
@@ -80,6 +88,8 @@
         }
     .end annotation
 
+    .prologue
+    .local p1, "operationList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/content/ContentProviderOperation;>;"
     const/4 v5, 0x2
 
     const/4 v8, 0x1
@@ -88,6 +98,7 @@
 
     const/4 v7, 0x0
 
+    .line 88
     :try_start_0
     iget-object v3, p0, Lcom/android/vcard/VCardEntryCommitter;->mContentResolver:Landroid/content/ContentResolver;
 
@@ -97,6 +108,8 @@
 
     move-result-object v1
 
+    .line 94
+    .local v1, "results":[Landroid/content/ContentProviderResult;
     if-eqz v1, :cond_0
 
     array-length v3, v1
@@ -109,10 +122,14 @@
 
     if-nez v3, :cond_1
 
+    .line 101
+    .end local v1    # "results":[Landroid/content/ContentProviderResult;
     :cond_0
     :goto_0
     return-object v2
 
+    .line 94
+    .restart local v1    # "results":[Landroid/content/ContentProviderResult;
     :cond_1
     const/4 v3, 0x0
 
@@ -125,9 +142,13 @@
 
     goto :goto_0
 
+    .line 96
+    .end local v1    # "results":[Landroid/content/ContentProviderResult;
     :catch_0
     move-exception v0
 
+    .line 97
+    .local v0, "e":Landroid/os/RemoteException;
     sget-object v3, Lcom/android/vcard/VCardEntryCommitter;->LOG_TAG:Ljava/lang/String;
 
     const-string v4, "%s: %s"
@@ -154,9 +175,13 @@
 
     goto :goto_0
 
+    .line 99
+    .end local v0    # "e":Landroid/os/RemoteException;
     :catch_1
     move-exception v0
 
+    .line 100
+    .local v0, "e":Landroid/content/OperationApplicationException;
     sget-object v3, Lcom/android/vcard/VCardEntryCommitter;->LOG_TAG:Ljava/lang/String;
 
     const-string v4, "%s: %s"
@@ -198,6 +223,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 110
     iget-object v0, p0, Lcom/android/vcard/VCardEntryCommitter;->mCreatedUris:Ljava/util/ArrayList;
 
     return-object v0
@@ -206,10 +233,13 @@
 .method public onEnd()V
     .locals 6
 
+    .prologue
+    .line 59
     iget-object v0, p0, Lcom/android/vcard/VCardEntryCommitter;->mOperationList:Ljava/util/ArrayList;
 
     if-eqz v0, :cond_0
 
+    .line 60
     iget-object v0, p0, Lcom/android/vcard/VCardEntryCommitter;->mCreatedUris:Ljava/util/ArrayList;
 
     iget-object v1, p0, Lcom/android/vcard/VCardEntryCommitter;->mOperationList:Ljava/util/ArrayList;
@@ -220,6 +250,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 63
     :cond_0
     invoke-static {}, Lcom/android/vcard/VCardConfig;->showPerformanceLog()Z
 
@@ -227,6 +258,7 @@
 
     if-eqz v0, :cond_1
 
+    .line 64
     sget-object v0, Lcom/android/vcard/VCardEntryCommitter;->LOG_TAG:Ljava/lang/String;
 
     const-string v1, "time to commit entries: %d ms"
@@ -251,17 +283,23 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 66
     :cond_1
     return-void
 .end method
 
 .method public onEntryCreated(Lcom/android/vcard/VCardEntry;)V
     .locals 6
+    .param p1, "vcardEntry"    # Lcom/android/vcard/VCardEntry;
 
+    .prologue
+    .line 70
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
 
+    .line 71
+    .local v0, "start":J
     iget-object v2, p0, Lcom/android/vcard/VCardEntryCommitter;->mContentResolver:Landroid/content/ContentResolver;
 
     iget-object v3, p0, Lcom/android/vcard/VCardEntryCommitter;->mOperationList:Ljava/util/ArrayList;
@@ -272,12 +310,14 @@
 
     iput-object v2, p0, Lcom/android/vcard/VCardEntryCommitter;->mOperationList:Ljava/util/ArrayList;
 
+    .line 72
     iget v2, p0, Lcom/android/vcard/VCardEntryCommitter;->mCounter:I
 
     add-int/lit8 v2, v2, 0x1
 
     iput v2, p0, Lcom/android/vcard/VCardEntryCommitter;->mCounter:I
 
+    .line 78
     iget-object v2, p0, Lcom/android/vcard/VCardEntryCommitter;->mOperationList:Ljava/util/ArrayList;
 
     if-eqz v2, :cond_0
@@ -292,6 +332,7 @@
 
     if-lt v2, v3, :cond_0
 
+    .line 79
     iget-object v2, p0, Lcom/android/vcard/VCardEntryCommitter;->mCreatedUris:Ljava/util/ArrayList;
 
     iget-object v3, p0, Lcom/android/vcard/VCardEntryCommitter;->mOperationList:Ljava/util/ArrayList;
@@ -302,14 +343,17 @@
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 80
     const/4 v2, 0x0
 
     iput v2, p0, Lcom/android/vcard/VCardEntryCommitter;->mCounter:I
 
+    .line 81
     const/4 v2, 0x0
 
     iput-object v2, p0, Lcom/android/vcard/VCardEntryCommitter;->mOperationList:Ljava/util/ArrayList;
 
+    .line 83
     :cond_0
     iget-wide v2, p0, Lcom/android/vcard/VCardEntryCommitter;->mTimeToCommit:J
 
@@ -323,11 +367,14 @@
 
     iput-wide v2, p0, Lcom/android/vcard/VCardEntryCommitter;->mTimeToCommit:J
 
+    .line 84
     return-void
 .end method
 
 .method public onStart()V
     .locals 0
 
+    .prologue
+    .line 55
     return-void
 .end method

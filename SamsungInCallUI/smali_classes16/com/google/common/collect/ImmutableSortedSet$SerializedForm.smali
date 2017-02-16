@@ -47,6 +47,7 @@
 # direct methods
 .method public constructor <init>(Ljava/util/Comparator;[Ljava/lang/Object;)V
     .locals 0
+    .param p2, "elements"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -57,12 +58,19 @@
         }
     .end annotation
 
+    .prologue
+    .line 766
+    .local p0, "this":Lcom/google/common/collect/ImmutableSortedSet$SerializedForm;, "Lcom/google/common/collect/ImmutableSortedSet$SerializedForm<TE;>;"
+    .local p1, "comparator":Ljava/util/Comparator;, "Ljava/util/Comparator<-TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 767
     iput-object p1, p0, Lcom/google/common/collect/ImmutableSortedSet$SerializedForm;->comparator:Ljava/util/Comparator;
 
+    .line 768
     iput-object p2, p0, Lcom/google/common/collect/ImmutableSortedSet$SerializedForm;->elements:[Ljava/lang/Object;
 
+    .line 769
     return-void
 .end method
 
@@ -71,6 +79,9 @@
 .method readResolve()Ljava/lang/Object;
     .locals 2
 
+    .prologue
+    .line 773
+    .local p0, "this":Lcom/google/common/collect/ImmutableSortedSet$SerializedForm;, "Lcom/google/common/collect/ImmutableSortedSet$SerializedForm<TE;>;"
     new-instance v1, Lcom/google/common/collect/ImmutableSortedSet$Builder;
 
     iget-object v0, p0, Lcom/google/common/collect/ImmutableSortedSet$SerializedForm;->comparator:Ljava/util/Comparator;

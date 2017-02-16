@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/AnswerFragment;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/fragment/AnswerFragment;
 
+    .prologue
+    .line 257
     iput-object p1, p0, Lcom/android/incallui/fragment/AnswerFragment$5;->this$0:Lcom/android/incallui/fragment/AnswerFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,20 +39,26 @@
 # virtual methods
 .method public onCancel(Landroid/content/DialogInterface;)V
     .locals 2
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
 
+    .prologue
+    .line 259
     iget-object v0, p0, Lcom/android/incallui/fragment/AnswerFragment$5;->this$0:Lcom/android/incallui/fragment/AnswerFragment;
 
     invoke-virtual {v0}, Lcom/android/incallui/fragment/AnswerFragment;->dismissWaitingCallPopup()V
 
+    .line 260
     const-string v0, "calling enableButtonAnswerAsShowOrHide"
 
     const/4 v1, 0x1
 
     invoke-static {p0, v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;Z)V
 
+    .line 261
     iget-object v0, p0, Lcom/android/incallui/fragment/AnswerFragment$5;->this$0:Lcom/android/incallui/fragment/AnswerFragment;
 
     invoke-virtual {v0}, Lcom/android/incallui/fragment/AnswerFragment;->enableButtonAnswerAsShowOrHide()V
 
+    .line 262
     return-void
 .end method

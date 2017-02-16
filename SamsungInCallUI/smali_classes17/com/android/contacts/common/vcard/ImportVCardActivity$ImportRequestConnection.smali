@@ -27,6 +27,8 @@
 .method private constructor <init>(Lcom/android/contacts/common/vcard/ImportVCardActivity;)V
     .locals 0
 
+    .prologue
+    .line 152
     iput-object p1, p0, Lcom/android/contacts/common/vcard/ImportVCardActivity$ImportRequestConnection;->this$0:Lcom/android/contacts/common/vcard/ImportVCardActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +38,11 @@
 
 .method synthetic constructor <init>(Lcom/android/contacts/common/vcard/ImportVCardActivity;Lcom/android/contacts/common/vcard/ImportVCardActivity$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/android/contacts/common/vcard/ImportVCardActivity;
+    .param p2, "x1"    # Lcom/android/contacts/common/vcard/ImportVCardActivity$1;
 
+    .prologue
+    .line 152
     invoke-direct {p0, p1}, Lcom/android/contacts/common/vcard/ImportVCardActivity$ImportRequestConnection;-><init>(Lcom/android/contacts/common/vcard/ImportVCardActivity;)V
 
     return-void
@@ -46,15 +52,21 @@
 # virtual methods
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
     .locals 5
+    .param p1, "name"    # Landroid/content/ComponentName;
+    .param p2, "binder"    # Landroid/os/IBinder;
 
+    .prologue
+    .line 163
     check-cast p2, Lcom/android/contacts/common/vcard/VCardService$MyBinder;
 
+    .end local p2    # "binder":Landroid/os/IBinder;
     invoke-virtual {p2}, Lcom/android/contacts/common/vcard/VCardService$MyBinder;->getService()Lcom/android/contacts/common/vcard/VCardService;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/contacts/common/vcard/ImportVCardActivity$ImportRequestConnection;->mService:Lcom/android/contacts/common/vcard/VCardService;
 
+    .line 164
     const-string v0, "VCardImport"
 
     const-string v1, "Connected to VCardService. Kick a vCard cache thread (uri: %s)"
@@ -67,6 +79,7 @@
 
     iget-object v4, p0, Lcom/android/contacts/common/vcard/ImportVCardActivity$ImportRequestConnection;->this$0:Lcom/android/contacts/common/vcard/ImportVCardActivity;
 
+    .line 166
     # getter for: Lcom/android/contacts/common/vcard/ImportVCardActivity;->mVCardCacheThread:Lcom/android/contacts/common/vcard/ImportVCardActivity$VCardCacheThread;
     invoke-static {v4}, Lcom/android/contacts/common/vcard/ImportVCardActivity;->access$200(Lcom/android/contacts/common/vcard/ImportVCardActivity;)Lcom/android/contacts/common/vcard/ImportVCardActivity$VCardCacheThread;
 
@@ -82,12 +95,15 @@
 
     aput-object v4, v2, v3
 
+    .line 165
     invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
 
+    .line 164
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 167
     iget-object v0, p0, Lcom/android/contacts/common/vcard/ImportVCardActivity$ImportRequestConnection;->this$0:Lcom/android/contacts/common/vcard/ImportVCardActivity;
 
     # getter for: Lcom/android/contacts/common/vcard/ImportVCardActivity;->mVCardCacheThread:Lcom/android/contacts/common/vcard/ImportVCardActivity$VCardCacheThread;
@@ -97,18 +113,23 @@
 
     invoke-virtual {v0}, Lcom/android/contacts/common/vcard/ImportVCardActivity$VCardCacheThread;->start()V
 
+    .line 168
     return-void
 .end method
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
     .locals 2
+    .param p1, "name"    # Landroid/content/ComponentName;
 
+    .prologue
+    .line 172
     const-string v0, "VCardImport"
 
     const-string v1, "Disconnected from VCardService"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 173
     return-void
 .end method
 
@@ -124,12 +145,16 @@
         }
     .end annotation
 
+    .prologue
+    .line 157
+    .local p1, "requests":Ljava/util/List;, "Ljava/util/List<Lcom/android/contacts/common/vcard/ImportRequest;>;"
     const-string v0, "VCardImport"
 
     const-string v1, "Send an import request"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 158
     iget-object v0, p0, Lcom/android/contacts/common/vcard/ImportVCardActivity$ImportRequestConnection;->mService:Lcom/android/contacts/common/vcard/VCardService;
 
     iget-object v1, p0, Lcom/android/contacts/common/vcard/ImportVCardActivity$ImportRequestConnection;->this$0:Lcom/android/contacts/common/vcard/ImportVCardActivity;
@@ -138,5 +163,6 @@
 
     invoke-virtual {v0, p1, v1}, Lcom/android/contacts/common/vcard/VCardService;->handleImportRequest(Ljava/util/List;Lcom/android/contacts/common/vcard/VCardImportExportListener;)V
 
+    .line 159
     return-void
 .end method

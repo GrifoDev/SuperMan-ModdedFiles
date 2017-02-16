@@ -26,13 +26,17 @@
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/ToolbarWidgetWrapper;)V
     .locals 7
+    .param p1, "this$0"    # Landroid/support/v7/widget/ToolbarWidgetWrapper;
 
+    .prologue
     const/4 v2, 0x0
 
+    .line 179
     iput-object p1, p0, Landroid/support/v7/widget/ToolbarWidgetWrapper$1;->this$0:Landroid/support/v7/widget/ToolbarWidgetWrapper;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 180
     new-instance v0, Landroid/support/v7/view/menu/ActionMenuItem;
 
     iget-object v1, p0, Landroid/support/v7/widget/ToolbarWidgetWrapper$1;->this$0:Landroid/support/v7/widget/ToolbarWidgetWrapper;
@@ -50,6 +54,7 @@
 
     iget-object v4, p0, Landroid/support/v7/widget/ToolbarWidgetWrapper$1;->this$0:Landroid/support/v7/widget/ToolbarWidgetWrapper;
 
+    .line 181
     # getter for: Landroid/support/v7/widget/ToolbarWidgetWrapper;->mTitle:Ljava/lang/CharSequence;
     invoke-static {v4}, Landroid/support/v7/widget/ToolbarWidgetWrapper;->access$100(Landroid/support/v7/widget/ToolbarWidgetWrapper;)Ljava/lang/CharSequence;
 
@@ -63,6 +68,7 @@
 
     iput-object v0, p0, Landroid/support/v7/widget/ToolbarWidgetWrapper$1;->mNavItem:Landroid/support/v7/view/menu/ActionMenuItem;
 
+    .line 180
     return-void
 .end method
 
@@ -70,7 +76,10 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 3
+    .param p1, "v"    # Landroid/view/View;
 
+    .prologue
+    .line 184
     iget-object v0, p0, Landroid/support/v7/widget/ToolbarWidgetWrapper$1;->this$0:Landroid/support/v7/widget/ToolbarWidgetWrapper;
 
     # getter for: Landroid/support/v7/widget/ToolbarWidgetWrapper;->mWindowCallback:Landroid/view/Window$Callback;
@@ -89,6 +98,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 185
     iget-object v0, p0, Landroid/support/v7/widget/ToolbarWidgetWrapper$1;->this$0:Landroid/support/v7/widget/ToolbarWidgetWrapper;
 
     # getter for: Landroid/support/v7/widget/ToolbarWidgetWrapper;->mWindowCallback:Landroid/view/Window$Callback;
@@ -102,6 +112,7 @@
 
     invoke-interface {v0, v1, v2}, Landroid/view/Window$Callback;->onMenuItemSelected(ILandroid/view/MenuItem;)Z
 
+    .line 187
     :cond_0
     return-void
 .end method

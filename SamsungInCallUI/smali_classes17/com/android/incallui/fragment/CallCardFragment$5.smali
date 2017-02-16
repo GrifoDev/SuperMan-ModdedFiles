@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/CallCardFragment;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/fragment/CallCardFragment;
 
+    .prologue
+    .line 1447
     iput-object p1, p0, Lcom/android/incallui/fragment/CallCardFragment$5;->this$0:Lcom/android/incallui/fragment/CallCardFragment;
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
@@ -33,12 +36,16 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 1450
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment$5;->this$0:Lcom/android/incallui/fragment/CallCardFragment;
 
     # --operator for: Lcom/android/incallui/fragment/CallCardFragment;->mEndCallRepeatCount:I
     invoke-static {v0}, Lcom/android/incallui/fragment/CallCardFragment;->access$106(Lcom/android/incallui/fragment/CallCardFragment;)I
 
+    .line 1451
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment$5;->this$0:Lcom/android/incallui/fragment/CallCardFragment;
 
     # getter for: Lcom/android/incallui/fragment/CallCardFragment;->mEndCallRepeatCount:I
@@ -48,14 +55,17 @@
 
     if-lez v0, :cond_0
 
+    .line 1452
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment$5;->this$0:Lcom/android/incallui/fragment/CallCardFragment;
 
     # invokes: Lcom/android/incallui/fragment/CallCardFragment;->animateForBlinkCallTime()V
     invoke-static {v0}, Lcom/android/incallui/fragment/CallCardFragment;->access$200(Lcom/android/incallui/fragment/CallCardFragment;)V
 
+    .line 1458
     :goto_0
     return-void
 
+    .line 1453
     :cond_0
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment$5;->this$0:Lcom/android/incallui/fragment/CallCardFragment;
 
@@ -66,6 +76,7 @@
 
     if-nez v0, :cond_1
 
+    .line 1454
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment$5;->this$0:Lcom/android/incallui/fragment/CallCardFragment;
 
     # invokes: Lcom/android/incallui/fragment/CallCardFragment;->stopCallEndTimeBlink()V
@@ -73,6 +84,7 @@
 
     goto :goto_0
 
+    .line 1456
     :cond_1
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment$5;->this$0:Lcom/android/incallui/fragment/CallCardFragment;
 

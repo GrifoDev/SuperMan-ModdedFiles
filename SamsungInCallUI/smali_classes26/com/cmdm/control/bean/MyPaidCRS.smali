@@ -39,6 +39,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 16
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -49,6 +51,8 @@
 .method public getContentId()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 46
     iget-object v0, p0, Lcom/cmdm/control/bean/MyPaidCRS;->contentId:Ljava/lang/String;
 
     return-object v0
@@ -57,6 +61,8 @@
 .method public getCost()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 79
     iget-object v0, p0, Lcom/cmdm/control/bean/MyPaidCRS;->cost:Ljava/lang/String;
 
     return-object v0
@@ -65,6 +71,8 @@
 .method public getCrsProfile()Lcom/cmdm/control/bean/CRSProfile;
     .locals 1
 
+    .prologue
+    .line 93
     iget-object v0, p0, Lcom/cmdm/control/bean/MyPaidCRS;->crsProfile:Lcom/cmdm/control/bean/CRSProfile;
 
     return-object v0
@@ -73,12 +81,16 @@
 .method public getPaidDate()Ljava/lang/String;
     .locals 6
 
+    .prologue
     const/4 v5, 0x6
 
     const/4 v4, 0x4
 
+    .line 60
     const-string v0, ""
 
+    .line 61
+    .local v0, "set":Ljava/lang/String;
     iget-object v1, p0, Lcom/cmdm/control/bean/MyPaidCRS;->paidDate:Ljava/lang/String;
 
     if-eqz v1, :cond_0
@@ -93,6 +105,7 @@
 
     if-nez v1, :cond_0
 
+    .line 62
     new-instance v1, Ljava/lang/StringBuilder;
 
     iget-object v2, p0, Lcom/cmdm/control/bean/MyPaidCRS;->paidDate:Ljava/lang/String;
@@ -125,6 +138,7 @@
 
     move-result-object v1
 
+    .line 63
     const-string v2, "."
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -143,42 +157,60 @@
 
     move-result-object v1
 
+    .line 62
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 65
     :cond_0
     return-object v0
 .end method
 
 .method public setContentId(Ljava/lang/String;)V
     .locals 0
+    .param p1, "contentId"    # Ljava/lang/String;
 
+    .prologue
+    .line 53
     iput-object p1, p0, Lcom/cmdm/control/bean/MyPaidCRS;->contentId:Ljava/lang/String;
 
+    .line 54
     return-void
 .end method
 
 .method public setCost(Ljava/lang/String;)V
     .locals 0
+    .param p1, "cost"    # Ljava/lang/String;
 
+    .prologue
+    .line 86
     iput-object p1, p0, Lcom/cmdm/control/bean/MyPaidCRS;->cost:Ljava/lang/String;
 
+    .line 87
     return-void
 .end method
 
 .method public setCrsProfile(Lcom/cmdm/control/bean/CRSProfile;)V
     .locals 0
+    .param p1, "crsProfile"    # Lcom/cmdm/control/bean/CRSProfile;
 
+    .prologue
+    .line 100
     iput-object p1, p0, Lcom/cmdm/control/bean/MyPaidCRS;->crsProfile:Lcom/cmdm/control/bean/CRSProfile;
 
+    .line 101
     return-void
 .end method
 
 .method public setPaidDate(Ljava/lang/String;)V
     .locals 0
+    .param p1, "paidDate"    # Ljava/lang/String;
 
+    .prologue
+    .line 72
     iput-object p1, p0, Lcom/cmdm/control/bean/MyPaidCRS;->paidDate:Ljava/lang/String;
 
+    .line 73
     return-void
 .end method

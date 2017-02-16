@@ -28,7 +28,10 @@
 # direct methods
 .method constructor <init>(Landroid/support/v7/app/AlertController;Landroid/view/View;Landroid/view/View;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/v7/app/AlertController;
 
+    .prologue
+    .line 575
     iput-object p1, p0, Landroid/support/v7/app/AlertController$5;->this$0:Landroid/support/v7/app/AlertController;
 
     iput-object p2, p0, Landroid/support/v7/app/AlertController$5;->val$top:Landroid/view/View;
@@ -45,6 +48,8 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 578
     iget-object v0, p0, Landroid/support/v7/app/AlertController$5;->this$0:Landroid/support/v7/app/AlertController;
 
     # getter for: Landroid/support/v7/app/AlertController;->mListView:Landroid/widget/ListView;
@@ -59,5 +64,6 @@
     # invokes: Landroid/support/v7/app/AlertController;->manageScrollIndicators(Landroid/view/View;Landroid/view/View;Landroid/view/View;)V
     invoke-static {v0, v1, v2}, Landroid/support/v7/app/AlertController;->access$800(Landroid/view/View;Landroid/view/View;Landroid/view/View;)V
 
+    .line 579
     return-void
 .end method

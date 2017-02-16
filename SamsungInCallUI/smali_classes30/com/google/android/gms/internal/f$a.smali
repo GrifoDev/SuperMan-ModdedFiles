@@ -66,7 +66,9 @@
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
     .locals 0
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
 
+    .prologue
     return-void
 .end method
 
@@ -88,12 +90,16 @@
 
 .method public setAlpha(I)V
     .locals 0
+    .param p1, "alpha"    # I
 
+    .prologue
     return-void
 .end method
 
 .method public setColorFilter(Landroid/graphics/ColorFilter;)V
     .locals 0
+    .param p1, "cf"    # Landroid/graphics/ColorFilter;
 
+    .prologue
     return-void
 .end method

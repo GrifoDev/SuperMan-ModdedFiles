@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/contacts/common/dialog/CallSubjectDialog;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/contacts/common/dialog/CallSubjectDialog;
 
+    .prologue
+    .line 149
     iput-object p1, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog$3;->this$0:Lcom/android/contacts/common/dialog/CallSubjectDialog;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +39,10 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 3
+    .param p1, "v"    # Landroid/view/View;
 
+    .prologue
+    .line 152
     iget-object v0, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog$3;->this$0:Lcom/android/contacts/common/dialog/CallSubjectDialog;
 
     iget-object v1, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog$3;->this$0:Lcom/android/contacts/common/dialog/CallSubjectDialog;
@@ -50,6 +56,7 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/contacts/common/dialog/CallSubjectDialog;->hideSoftKeyboard(Landroid/content/Context;Landroid/view/View;)V
 
+    .line 153
     iget-object v1, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog$3;->this$0:Lcom/android/contacts/common/dialog/CallSubjectDialog;
 
     iget-object v0, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog$3;->this$0:Lcom/android/contacts/common/dialog/CallSubjectDialog;
@@ -73,8 +80,10 @@
     # invokes: Lcom/android/contacts/common/dialog/CallSubjectDialog;->showCallHistory(Z)V
     invoke-static {v1, v0}, Lcom/android/contacts/common/dialog/CallSubjectDialog;->access$300(Lcom/android/contacts/common/dialog/CallSubjectDialog;Z)V
 
+    .line 154
     return-void
 
+    .line 153
     :cond_0
     const/4 v0, 0x0
 

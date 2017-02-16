@@ -34,6 +34,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 116
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -60,6 +62,7 @@
 
     sput-object v0, Lcom/google/common/util/concurrent/FuturesGetChecked$GetCheckedTypeValidatorHolder;->CLASS_VALUE_VALIDATOR_NAME:Ljava/lang/String;
 
+    .line 119
     invoke-static {}, Lcom/google/common/util/concurrent/FuturesGetChecked$GetCheckedTypeValidatorHolder;->getBestValidator()Lcom/google/common/util/concurrent/FuturesGetChecked$GetCheckedTypeValidator;
 
     move-result-object v0
@@ -72,14 +75,19 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 115
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 145
     return-void
 .end method
 
 .method static getBestValidator()Lcom/google/common/util/concurrent/FuturesGetChecked$GetCheckedTypeValidator;
     .locals 4
 
+    .prologue
+    .line 192
     :try_start_0
     sget-object v2, Lcom/google/common/util/concurrent/FuturesGetChecked$GetCheckedTypeValidatorHolder;->CLASS_VALUE_VALIDATOR_NAME:Ljava/lang/String;
 
@@ -87,6 +95,8 @@
 
     move-result-object v1
 
+    .line 193
+    .local v1, "theClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-virtual {v1}, Ljava/lang/Class;->getEnumConstants()[Ljava/lang/Object;
 
     move-result-object v2
@@ -99,12 +109,16 @@
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 195
     :goto_0
     return-object v2
 
+    .line 194
     :catch_0
     move-exception v0
 
+    .line 195
+    .local v0, "t":Ljava/lang/Throwable;
     invoke-static {}, Lcom/google/common/util/concurrent/FuturesGetChecked;->weakSetValidator()Lcom/google/common/util/concurrent/FuturesGetChecked$GetCheckedTypeValidator;
 
     move-result-object v2

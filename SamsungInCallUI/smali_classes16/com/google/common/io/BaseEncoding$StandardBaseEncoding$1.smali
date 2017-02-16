@@ -30,18 +30,23 @@
 .method constructor <init>(Lcom/google/common/io/BaseEncoding$StandardBaseEncoding;Ljava/io/Writer;)V
     .locals 1
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 567
     iput-object p1, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->this$0:Lcom/google/common/io/BaseEncoding$StandardBaseEncoding;
 
     iput-object p2, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->val$out:Ljava/io/Writer;
 
     invoke-direct {p0}, Ljava/io/OutputStream;-><init>()V
 
+    .line 568
     iput v0, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->bitBuffer:I
 
+    .line 569
     iput v0, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->bitBufferLength:I
 
+    .line 570
     iput v0, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->writtenChars:I
 
     return-void
@@ -57,10 +62,13 @@
         }
     .end annotation
 
+    .prologue
+    .line 593
     iget v1, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->bitBufferLength:I
 
     if-lez v1, :cond_0
 
+    .line 594
     iget v1, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->bitBuffer:I
 
     iget-object v2, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->this$0:Lcom/google/common/io/BaseEncoding$StandardBaseEncoding;
@@ -83,6 +91,8 @@
 
     and-int v0, v1, v2
 
+    .line 596
+    .local v0, "charIndex":I
     iget-object v1, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->val$out:Ljava/io/Writer;
 
     iget-object v2, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->this$0:Lcom/google/common/io/BaseEncoding$StandardBaseEncoding;
@@ -95,18 +105,21 @@
 
     invoke-virtual {v1, v2}, Ljava/io/Writer;->write(I)V
 
+    .line 597
     iget v1, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->writtenChars:I
 
     add-int/lit8 v1, v1, 0x1
 
     iput v1, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->writtenChars:I
 
+    .line 598
     iget-object v1, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->this$0:Lcom/google/common/io/BaseEncoding$StandardBaseEncoding;
 
     iget-object v1, v1, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding;->paddingChar:Ljava/lang/Character;
 
     if-eqz v1, :cond_0
 
+    .line 599
     :goto_0
     iget v1, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->writtenChars:I
 
@@ -120,6 +133,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 600
     iget-object v1, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->val$out:Ljava/io/Writer;
 
     iget-object v2, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->this$0:Lcom/google/common/io/BaseEncoding$StandardBaseEncoding;
@@ -132,6 +146,7 @@
 
     invoke-virtual {v1, v2}, Ljava/io/Writer;->write(I)V
 
+    .line 601
     iget v1, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->writtenChars:I
 
     add-int/lit8 v1, v1, 0x1
@@ -140,11 +155,14 @@
 
     goto :goto_0
 
+    .line 605
+    .end local v0    # "charIndex":I
     :cond_0
     iget-object v1, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->val$out:Ljava/io/Writer;
 
     invoke-virtual {v1}, Ljava/io/Writer;->close()V
 
+    .line 606
     return-void
 .end method
 
@@ -156,27 +174,34 @@
         }
     .end annotation
 
+    .prologue
+    .line 588
     iget-object v0, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->val$out:Ljava/io/Writer;
 
     invoke-virtual {v0}, Ljava/io/Writer;->flush()V
 
+    .line 589
     return-void
 .end method
 
 .method public write(I)V
     .locals 4
+    .param p1, "b"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 574
     iget v1, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->bitBuffer:I
 
     shl-int/lit8 v1, v1, 0x8
 
     iput v1, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->bitBuffer:I
 
+    .line 575
     iget v1, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->bitBuffer:I
 
     and-int/lit16 v2, p1, 0xff
@@ -185,12 +210,14 @@
 
     iput v1, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->bitBuffer:I
 
+    .line 576
     iget v1, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->bitBufferLength:I
 
     add-int/lit8 v1, v1, 0x8
 
     iput v1, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->bitBufferLength:I
 
+    .line 577
     :goto_0
     iget v1, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->bitBufferLength:I
 
@@ -202,6 +229,7 @@
 
     if-lt v1, v2, :cond_0
 
+    .line 578
     iget v1, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->bitBuffer:I
 
     iget v2, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->bitBufferLength:I
@@ -224,6 +252,8 @@
 
     and-int v0, v1, v2
 
+    .line 580
+    .local v0, "charIndex":I
     iget-object v1, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->val$out:Ljava/io/Writer;
 
     iget-object v2, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->this$0:Lcom/google/common/io/BaseEncoding$StandardBaseEncoding;
@@ -236,12 +266,14 @@
 
     invoke-virtual {v1, v2}, Ljava/io/Writer;->write(I)V
 
+    .line 581
     iget v1, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->writtenChars:I
 
     add-int/lit8 v1, v1, 0x1
 
     iput v1, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->writtenChars:I
 
+    .line 582
     iget v1, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->bitBufferLength:I
 
     iget-object v2, p0, Lcom/google/common/io/BaseEncoding$StandardBaseEncoding$1;->this$0:Lcom/google/common/io/BaseEncoding$StandardBaseEncoding;
@@ -256,6 +288,8 @@
 
     goto :goto_0
 
+    .line 584
+    .end local v0    # "charIndex":I
     :cond_0
     return-void
 .end method

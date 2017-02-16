@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/ConferenceManagerCsFragment;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
+    .prologue
+    .line 676
     iput-object p1, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$9;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
@@ -33,11 +36,15 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 4
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 679
     const-string v2, "split animation end..."
 
     invoke-static {p0, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 680
     iget-object v2, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$9;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
     invoke-virtual {v2}, Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->getView()Landroid/view/View;
@@ -46,6 +53,7 @@
 
     if-eqz v2, :cond_0
 
+    .line 681
     iget-object v2, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$9;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
     invoke-virtual {v2}, Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->getView()Landroid/view/View;
@@ -56,6 +64,7 @@
 
     invoke-virtual {v2, v3}, Landroid/view/View;->setVisibility(I)V
 
+    .line 683
     :cond_0
     iget-object v2, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$9;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
@@ -74,6 +83,7 @@
 
     invoke-virtual {v2, v3}, Lcom/android/incallui/ConferenceManagerPresenter;->separateConferenceConnection(I)V
 
+    .line 684
     iget-object v2, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$9;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
     invoke-virtual {v2}, Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->getActivity()Landroid/app/Activity;
@@ -82,6 +92,7 @@
 
     if-eqz v2, :cond_2
 
+    .line 685
     iget-object v2, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$9;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
     invoke-virtual {v2}, Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->getActivity()Landroid/app/Activity;
@@ -90,18 +101,22 @@
 
     check-cast v0, Lcom/android/incallui/InCallActivity;
 
+    .line 686
+    .local v0, "activity":Lcom/android/incallui/InCallActivity;
     invoke-virtual {v0}, Lcom/android/incallui/InCallActivity;->getCallCardFragment()Lcom/android/incallui/CallCardUi;
 
     move-result-object v2
 
     if-eqz v2, :cond_1
 
+    .line 687
     invoke-virtual {v0}, Lcom/android/incallui/InCallActivity;->getCallCardFragment()Lcom/android/incallui/CallCardUi;
 
     move-result-object v2
 
     invoke-interface {v2}, Lcom/android/incallui/CallCardUi;->setViewStatePostSplit()V
 
+    .line 689
     :cond_1
     const-string v2, "support_folder_hardkey"
 
@@ -111,12 +126,14 @@
 
     if-eqz v2, :cond_2
 
+    .line 690
     invoke-virtual {v0}, Lcom/android/incallui/InCallActivity;->getCallButtonFragment()Lcom/android/incallui/CallButtonUi;
 
     move-result-object v2
 
     if-eqz v2, :cond_2
 
+    .line 691
     invoke-virtual {v0}, Lcom/android/incallui/InCallActivity;->getCallButtonFragment()Lcom/android/incallui/CallButtonUi;
 
     move-result-object v2
@@ -125,9 +142,12 @@
 
     invoke-interface {v2, v3}, Lcom/android/incallui/CallButtonUi;->setFocusInCallButton(Z)V
 
+    .line 694
+    .end local v0    # "activity":Lcom/android/incallui/InCallActivity;
     :cond_2
     const/4 v1, 0x0
 
+    .local v1, "i":I
     :goto_0
     iget-object v2, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$9;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
@@ -143,6 +163,7 @@
 
     if-ge v1, v2, :cond_4
 
+    .line 695
     iget-object v2, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$9;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
     iget-object v2, v2, Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->mConferenceCallList:[Landroid/view/ViewGroup;
@@ -151,6 +172,7 @@
 
     if-eqz v2, :cond_3
 
+    .line 696
     iget-object v2, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$9;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
     iget-object v2, v2, Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->mConferenceCallList:[Landroid/view/ViewGroup;
@@ -161,11 +183,13 @@
 
     invoke-virtual {v2, v3}, Landroid/view/ViewGroup;->setAlpha(F)V
 
+    .line 694
     :cond_3
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
+    .line 699
     :cond_4
     return-void
 .end method

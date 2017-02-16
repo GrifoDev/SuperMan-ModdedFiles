@@ -51,6 +51,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 83
     new-instance v0, Ljava/util/WeakHashMap;
 
     invoke-direct {v0}, Ljava/util/WeakHashMap;-><init>()V
@@ -63,6 +65,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 48
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -91,10 +95,14 @@
         }
     .end annotation
 
+    .prologue
+    .line 102
+    .local p0, "enumClass":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     sget-object v2, Lcom/google/common/base/Enums;->enumConstantCache:Ljava/util/Map;
 
     monitor-enter v2
 
+    .line 103
     :try_start_0
     sget-object v1, Lcom/google/common/base/Enums;->enumConstantCache:Ljava/util/Map;
 
@@ -104,17 +112,23 @@
 
     check-cast v0, Ljava/util/Map;
 
+    .line 104
+    .local v0, "constants":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/ref/WeakReference<+Ljava/lang/Enum<*>;>;>;"
     if-nez v0, :cond_0
 
+    .line 105
     invoke-static {p0}, Lcom/google/common/base/Enums;->populateCache(Ljava/lang/Class;)Ljava/util/Map;
 
     move-result-object v0
 
+    .line 107
     :cond_0
     monitor-exit v2
 
     return-object v0
 
+    .line 108
+    .end local v0    # "constants":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/ref/WeakReference<+Ljava/lang/Enum<*>;>;>;"
     :catchall_0
     move-exception v1
 
@@ -140,10 +154,15 @@
         }
     .end annotation
 
+    .prologue
+    .line 59
+    .local p0, "enumValue":Ljava/lang/Enum;, "Ljava/lang/Enum<*>;"
     invoke-virtual {p0}, Ljava/lang/Enum;->getDeclaringClass()Ljava/lang/Class;
 
     move-result-object v0
 
+    .line 61
+    .local v0, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     :try_start_0
     invoke-virtual {p0}, Ljava/lang/Enum;->name()Ljava/lang/String;
 
@@ -157,9 +176,12 @@
 
     return-object v2
 
+    .line 62
     :catch_0
     move-exception v1
 
+    .line 63
+    .local v1, "impossible":Ljava/lang/NoSuchFieldException;
     new-instance v2, Ljava/lang/AssertionError;
 
     invoke-direct {v2, v1}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
@@ -169,6 +191,7 @@
 
 .method public static getIfPresent(Ljava/lang/Class;Ljava/lang/String;)Lcom/google/common/base/Optional;
     .locals 1
+    .param p1, "value"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -183,10 +206,15 @@
         }
     .end annotation
 
+    .prologue
+    .line 76
+    .local p0, "enumClass":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     invoke-static {p0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 77
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 78
     invoke-static {p0, p1}, Lcom/google/common/base/Platform;->getEnumIfPresent(Ljava/lang/Class;Ljava/lang/String;)Lcom/google/common/base/Optional;
 
     move-result-object v0
@@ -217,10 +245,15 @@
         }
     .end annotation
 
+    .prologue
+    .line 90
+    .local p0, "enumClass":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     new-instance v2, Ljava/util/HashMap;
 
     invoke-direct {v2}, Ljava/util/HashMap;-><init>()V
 
+    .line 92
+    .local v2, "result":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/ref/WeakReference<+Ljava/lang/Enum<*>;>;>;"
     invoke-static {p0}, Ljava/util/EnumSet;->allOf(Ljava/lang/Class;)Ljava/util/EnumSet;
 
     move-result-object v3
@@ -229,6 +262,7 @@
 
     move-result-object v1
 
+    .local v1, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -242,6 +276,8 @@
 
     check-cast v0, Ljava/lang/Enum;
 
+    .line 93
+    .local v0, "enumInstance":Ljava/lang/Enum;, "TT;"
     invoke-virtual {v0}, Ljava/lang/Enum;->name()Ljava/lang/String;
 
     move-result-object v3
@@ -254,11 +290,14 @@
 
     goto :goto_0
 
+    .line 95
+    .end local v0    # "enumInstance":Ljava/lang/Enum;, "TT;"
     :cond_0
     sget-object v3, Lcom/google/common/base/Enums;->enumConstantCache:Ljava/util/Map;
 
     invoke-interface {v3, p0, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 96
     return-object v2
 .end method
 
@@ -278,6 +317,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 120
+    .local p0, "enumClass":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     new-instance v0, Lcom/google/common/base/Enums$StringConverter;
 
     invoke-direct {v0, p0}, Lcom/google/common/base/Enums$StringConverter;-><init>(Ljava/lang/Class;)V

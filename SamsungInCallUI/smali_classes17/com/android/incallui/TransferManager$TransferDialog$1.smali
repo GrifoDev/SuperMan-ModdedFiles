@@ -26,7 +26,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/TransferManager$TransferDialog;Lcom/android/incallui/TransferManager;)V
     .locals 0
+    .param p1, "this$1"    # Lcom/android/incallui/TransferManager$TransferDialog;
 
+    .prologue
+    .line 167
     iput-object p1, p0, Lcom/android/incallui/TransferManager$TransferDialog$1;->this$1:Lcom/android/incallui/TransferManager$TransferDialog;
 
     iput-object p2, p0, Lcom/android/incallui/TransferManager$TransferDialog$1;->val$this$0:Lcom/android/incallui/TransferManager;
@@ -40,7 +43,11 @@
 # virtual methods
 .method public onFocusChange(Landroid/view/View;Z)V
     .locals 3
+    .param p1, "v"    # Landroid/view/View;
+    .param p2, "hasFocus"    # Z
 
+    .prologue
+    .line 171
     iget-object v0, p0, Lcom/android/incallui/TransferManager$TransferDialog$1;->this$1:Lcom/android/incallui/TransferManager$TransferDialog;
 
     iget-object v0, v0, Lcom/android/incallui/TransferManager$TransferDialog;->this$0:Lcom/android/incallui/TransferManager;
@@ -52,8 +59,10 @@
 
     if-eqz v0, :cond_0
 
+    .line 172
     if-eqz p2, :cond_1
 
+    .line 173
     iget-object v0, p0, Lcom/android/incallui/TransferManager$TransferDialog$1;->this$1:Lcom/android/incallui/TransferManager$TransferDialog;
 
     iget-object v0, v0, Lcom/android/incallui/TransferManager$TransferDialog;->this$0:Lcom/android/incallui/TransferManager;
@@ -76,10 +85,12 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/view/inputmethod/InputMethodManager;->showSoftInput(Landroid/view/View;I)Z
 
+    .line 178
     :cond_0
     :goto_0
     return-void
 
+    .line 175
     :cond_1
     iget-object v0, p0, Lcom/android/incallui/TransferManager$TransferDialog$1;->this$1:Lcom/android/incallui/TransferManager$TransferDialog;
 

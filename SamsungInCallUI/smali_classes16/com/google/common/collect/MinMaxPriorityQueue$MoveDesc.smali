@@ -50,11 +50,19 @@
         }
     .end annotation
 
+    .prologue
+    .line 455
+    .local p0, "this":Lcom/google/common/collect/MinMaxPriorityQueue$MoveDesc;, "Lcom/google/common/collect/MinMaxPriorityQueue$MoveDesc<TE;>;"
+    .local p1, "toTrickle":Ljava/lang/Object;, "TE;"
+    .local p2, "replaced":Ljava/lang/Object;, "TE;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 456
     iput-object p1, p0, Lcom/google/common/collect/MinMaxPriorityQueue$MoveDesc;->toTrickle:Ljava/lang/Object;
 
+    .line 457
     iput-object p2, p0, Lcom/google/common/collect/MinMaxPriorityQueue$MoveDesc;->replaced:Ljava/lang/Object;
 
+    .line 458
     return-void
 .end method
