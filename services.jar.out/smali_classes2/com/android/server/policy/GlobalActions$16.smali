@@ -301,26 +301,38 @@
 .end method
 
 .method public showConditional()Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/policy/GlobalActions$16;->mIsFirstEmergency:Z
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/server/policy/GlobalActions$16;->showConditionalInternal()Z
-
-    move-result v0
-
-    iput-boolean v0, p0, Lcom/android/server/policy/GlobalActions$16;->mShowConditionalEmergency:Z
+    .locals 4
 
     const/4 v0, 0x0
 
-    iput-boolean v0, p0, Lcom/android/server/policy/GlobalActions$16;->mIsFirstEmergency:Z
+    const/4 v1, 0x1
+
+    iget-object v2, p0, Lcom/android/server/policy/GlobalActions$16;->this$0:Lcom/android/server/policy/GlobalActions;
+
+    # getter for: Lcom/android/server/policy/GlobalActions;->mContext:Landroid/content/Context;
+    invoke-static {v2}, Lcom/android/server/policy/GlobalActions;->access$500(Lcom/android/server/policy/GlobalActions;)Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const-string v3, "power_emergency"
+
+    invoke-static {v2, v3, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v2
+
+    if-ne v2, v0, :cond_0
+
+    :goto_0
+    return v0
 
     :cond_0
-    iget-boolean v0, p0, Lcom/android/server/policy/GlobalActions$16;->mShowConditionalEmergency:Z
+    move v0, v1
 
-    return v0
+    goto :goto_0
 .end method
 
 .method public showConditionalInternal()Z

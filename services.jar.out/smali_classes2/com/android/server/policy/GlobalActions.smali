@@ -71,11 +71,15 @@
 
 .field private static final GLOBAL_ACTION_KEY_RESTART:Ljava/lang/String; = "restart"
 
+.field private static final GLOBAL_ACTION_KEY_SCREENREC:Ljava/lang/String; = "screenrec"
+
 .field private static final GLOBAL_ACTION_KEY_SETTINGS:Ljava/lang/String; = "settings"
 
 .field private static final GLOBAL_ACTION_KEY_SILENT:Ljava/lang/String; = "silent"
 
 .field private static final GLOBAL_ACTION_KEY_SUBSCREEN:Ljava/lang/String; = "subscreen"
+
+.field private static final GLOBAL_ACTION_KEY_TORCH:Ljava/lang/String; = "flashlight"
 
 .field private static final GLOBAL_ACTION_KEY_USERS:Ljava/lang/String; = "users"
 
@@ -322,6 +326,8 @@
 
 .field mEmergencyStringId:I
 
+.field private mFlashlight:Lcom/android/server/policy/GlobalActions$SinglePressAction;
+
 .field private mForceRestartlayout:Landroid/widget/LinearLayout;
 
 .field private mGlobalActionsFrameLayout:Lcom/android/server/policy/globalactions/GlobalActionsFrameLayout;
@@ -333,6 +339,8 @@
 .field private mHasTelephony:Z
 
 .field private mHorizontalScrollView:Landroid/widget/HorizontalScrollView;
+
+.field private mHotReboot:Lcom/android/server/policy/GlobalActions$SinglePressAction;
 
 .field private mIsDisableConfirm:Z
 
@@ -421,6 +429,8 @@
 
 .field private mProKioskToggle:Lcom/android/server/policy/GlobalActions$ToggleAction;
 
+.field private mRebootRecovery:Lcom/android/server/policy/GlobalActions$SinglePressAction;
+
 .field private mRestart:Lcom/android/server/policy/GlobalActions$SinglePressAction;
 
 .field mRestartIconResId:I
@@ -428,6 +438,10 @@
 .field private mRingerModeReceiver:Landroid/content/BroadcastReceiver;
 
 .field private mSContextManager:Landroid/hardware/scontext/SContextManager;
+
+.field mScreenRec:Lcom/android/server/policy/GlobalActions$SinglePressAction;
+
+.field private mScreenshot:Lcom/android/server/policy/GlobalActions$SinglePressAction;
 
 .field private mScrollview:Landroid/widget/ScrollView;
 
@@ -2191,6 +2205,22 @@
     move v1, v3
 
     goto :goto_1
+.end method
+
+.method static synthetic access$500(Lcom/android/server/policy/GlobalActions;)Landroid/content/Context;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/policy/GlobalActions;->mContext:Landroid/content/Context;
+
+    return-object v0
+.end method
+
+.method static synthetic access$5001(Lcom/android/server/policy/GlobalActions;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/server/policy/GlobalActions;->toggleScreenRecord()V
+
+    return-void
 .end method
 
 .method private actionClicked(Lcom/android/server/policy/GlobalActions$Action;Landroid/view/View;Z)V
@@ -4456,6 +4486,236 @@
 
     iput-object v5, v0, Lcom/android/server/policy/GlobalActions;->mRestart:Lcom/android/server/policy/GlobalActions$SinglePressAction;
 
+    new-instance v4, Lcom/android/server/policy/GlobalActions$47;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/policy/GlobalActions;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "tw_ic_lock_rebootrecovery"
+
+    const-string/jumbo v2, "drawable"
+
+    const-string v3, "android"
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/policy/GlobalActions;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "tw_ic_do_rebootrecovery"
+
+    const-string/jumbo v2, "string"
+
+    const-string v3, "android"
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v6
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v4, v0, v5, v6}, Lcom/android/server/policy/GlobalActions$47;-><init>(Lcom/android/server/policy/GlobalActions;II)V
+
+    move-object/from16 v0, p0
+
+    iput-object v4, v0, Lcom/android/server/policy/GlobalActions;->mRebootRecovery:Lcom/android/server/policy/GlobalActions$SinglePressAction;
+
+    new-instance v4, Lcom/android/server/policy/GlobalActions$Screenshot;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/policy/GlobalActions;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "tw_ic_lock_screenshot"
+
+    const-string/jumbo v2, "drawable"
+
+    const-string v3, "android"
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/policy/GlobalActions;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "global_action_screenshot"
+
+    const-string/jumbo v2, "string"
+
+    const-string v3, "android"
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v6
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v4, v0, v5, v6}, Lcom/android/server/policy/GlobalActions$Screenshot;-><init>(Lcom/android/server/policy/GlobalActions;II)V
+
+    move-object/from16 v0, p0
+
+    iput-object v4, v0, Lcom/android/server/policy/GlobalActions;->mScreenshot:Lcom/android/server/policy/GlobalActions$SinglePressAction;
+
+    new-instance v4, Lcom/android/server/policy/GlobalActions$98;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/policy/GlobalActions;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "tw_ic_lock_screenrec"
+
+    const-string/jumbo v2, "drawable"
+
+    const-string v3, "android"
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/policy/GlobalActions;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "screenrec"
+
+    const-string/jumbo v2, "string"
+
+    const-string v3, "android"
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v6
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v4, v0, v5, v6}, Lcom/android/server/policy/GlobalActions$98;-><init>(Lcom/android/server/policy/GlobalActions;II)V
+
+    move-object/from16 v0, p0
+
+    iput-object v4, v0, Lcom/android/server/policy/GlobalActions;->mScreenRec:Lcom/android/server/policy/GlobalActions$SinglePressAction;
+
+    new-instance v4, Lcom/android/server/policy/GlobalActions$QuickReboot;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/policy/GlobalActions;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "tw_ic_fast_reboot"
+
+    const-string/jumbo v2, "drawable"
+
+    const-string v3, "android"
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/policy/GlobalActions;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "global_action_fast_reboot"
+
+    const-string/jumbo v2, "string"
+
+    const-string v3, "android"
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v6
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v4, v0, v5, v6}, Lcom/android/server/policy/GlobalActions$QuickReboot;-><init>(Lcom/android/server/policy/GlobalActions;II)V
+
+    move-object/from16 v0, p0
+
+    iput-object v4, v0, Lcom/android/server/policy/GlobalActions;->mHotReboot:Lcom/android/server/policy/GlobalActions$SinglePressAction;
+
+    new-instance v4, Lcom/android/server/policy/GlobalActions$Flashlight;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/policy/GlobalActions;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "tw_ic_lock_flashlight"
+
+    const-string/jumbo v2, "drawable"
+
+    const-string v3, "android"
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/policy/GlobalActions;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "global_action_flashlight"
+
+    const-string/jumbo v2, "string"
+
+    const-string v3, "android"
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v6
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v4, v0, v5, v6}, Lcom/android/server/policy/GlobalActions$Flashlight;-><init>(Lcom/android/server/policy/GlobalActions;II)V
+
+    move-object/from16 v0, p0
+
+    iput-object v4, v0, Lcom/android/server/policy/GlobalActions;->mFlashlight:Lcom/android/server/policy/GlobalActions$SinglePressAction;
+
     invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
 
     move-result-object v4
@@ -4635,6 +4895,86 @@
 
     const/16 v6, 0x100
 
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/policy/GlobalActions;->mRebootRecovery:Lcom/android/server/policy/GlobalActions$SinglePressAction;
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/policy/GlobalActions;->mItems:Ljava/util/ArrayList;
+
+    const/4 v7, 0x1
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v6, v4, v5, v7}, Lcom/android/server/policy/GlobalActions;->addDialogItemsIfEnabled(ILcom/android/server/policy/GlobalActions$Action;Ljava/util/ArrayList;Z)Z
+
+    const/16 v6, 0x200
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/policy/GlobalActions;->mScreenshot:Lcom/android/server/policy/GlobalActions$SinglePressAction;
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/policy/GlobalActions;->mItems:Ljava/util/ArrayList;
+
+    const/4 v7, 0x1
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v6, v4, v5, v7}, Lcom/android/server/policy/GlobalActions;->addDialogItemsIfEnabled(ILcom/android/server/policy/GlobalActions$Action;Ljava/util/ArrayList;Z)Z
+
+    const/16 v6, 0x300
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/policy/GlobalActions;->mScreenRec:Lcom/android/server/policy/GlobalActions$SinglePressAction;
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/policy/GlobalActions;->mItems:Ljava/util/ArrayList;
+
+    const/4 v7, 0x1
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v6, v4, v5, v7}, Lcom/android/server/policy/GlobalActions;->addDialogItemsIfEnabled(ILcom/android/server/policy/GlobalActions$Action;Ljava/util/ArrayList;Z)Z
+
+    const/16 v6, 0x400
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/policy/GlobalActions;->mHotReboot:Lcom/android/server/policy/GlobalActions$SinglePressAction;
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/policy/GlobalActions;->mItems:Ljava/util/ArrayList;
+
+    const/4 v7, 0x1
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v6, v4, v5, v7}, Lcom/android/server/policy/GlobalActions;->addDialogItemsIfEnabled(ILcom/android/server/policy/GlobalActions$Action;Ljava/util/ArrayList;Z)Z
+
+    const/16 v6, 0x500
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/policy/GlobalActions;->mFlashlight:Lcom/android/server/policy/GlobalActions$SinglePressAction;
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/policy/GlobalActions;->mItems:Ljava/util/ArrayList;
+
+    const/4 v7, 0x1
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v6, v4, v5, v7}, Lcom/android/server/policy/GlobalActions;->addDialogItemsIfEnabled(ILcom/android/server/policy/GlobalActions$Action;Ljava/util/ArrayList;Z)Z
+
+    const/16 v6, 0x600
+
     const/4 v7, 0x1
 
     move-object/from16 v0, p0
@@ -4675,7 +5015,7 @@
     const/4 v12, 0x0
 
     :cond_2
-    if-eqz v12, :cond_1c
+    if-eqz v12, :cond_21
 
     move-object/from16 v0, p0
 
@@ -4704,7 +5044,7 @@
 
     move/from16 v0, v23
 
-    if-ge v0, v4, :cond_1b
+    if-ge v0, v4, :cond_20
 
     aget-object v11, v20, v23
 
@@ -4995,13 +5335,118 @@
     goto/16 :goto_7
 
     :cond_15
-    const-string/jumbo v4, "silent"
+    const-string/jumbo v4, "rebootrecovery"
 
     invoke-virtual {v4, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
     if-eqz v4, :cond_16
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/policy/GlobalActions;->mItems:Ljava/util/ArrayList;
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/policy/GlobalActions;->mRebootRecovery:Lcom/android/server/policy/GlobalActions$SinglePressAction;
+
+    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_7
+
+    :cond_16
+    const-string/jumbo v4, "screenshot"
+
+    invoke-virtual {v4, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_17
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/policy/GlobalActions;->mItems:Ljava/util/ArrayList;
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/policy/GlobalActions;->mScreenshot:Lcom/android/server/policy/GlobalActions$SinglePressAction;
+
+    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_7
+
+    :cond_17
+    const-string/jumbo v4, "screenrec"
+
+    invoke-virtual {v4, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_18
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/policy/GlobalActions;->mItems:Ljava/util/ArrayList;
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/policy/GlobalActions;->mScreenRec:Lcom/android/server/policy/GlobalActions$SinglePressAction;
+
+    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_7
+
+    :cond_18
+    const-string/jumbo v4, "quickreboot"
+
+    invoke-virtual {v4, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_19
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/policy/GlobalActions;->mItems:Ljava/util/ArrayList;
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/policy/GlobalActions;->mHotReboot:Lcom/android/server/policy/GlobalActions$SinglePressAction;
+
+    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_7
+
+    :cond_19
+    const-string/jumbo v4, "flashlight"
+
+    invoke-virtual {v4, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1a
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/policy/GlobalActions;->mItems:Ljava/util/ArrayList;
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/policy/GlobalActions;->mFlashlight:Lcom/android/server/policy/GlobalActions$SinglePressAction;
+
+    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_7
+
+    :cond_1a
+    const-string/jumbo v4, "silent"
+
+    invoke-virtual {v4, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1b
 
     move-object/from16 v0, p0
 
@@ -5021,14 +5466,14 @@
 
     goto/16 :goto_7
 
-    :cond_16
+    :cond_1b
     const-string/jumbo v4, "users"
 
     invoke-virtual {v4, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_17
+    if-eqz v4, :cond_1c
 
     const-string/jumbo v4, "fw.power_user_switcher"
 
@@ -5050,14 +5495,14 @@
 
     goto/16 :goto_7
 
-    :cond_17
+    :cond_1c
     const-string/jumbo v4, "settings"
 
     invoke-virtual {v4, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_18
+    if-eqz v4, :cond_1d
 
     move-object/from16 v0, p0
 
@@ -5071,14 +5516,14 @@
 
     goto/16 :goto_7
 
-    :cond_18
+    :cond_1d
     const-string/jumbo v4, "voiceassist"
 
     invoke-virtual {v4, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_19
+    if-eqz v4, :cond_1e
 
     move-object/from16 v0, p0
 
@@ -5092,14 +5537,14 @@
 
     goto/16 :goto_7
 
-    :cond_19
+    :cond_1e
     const-string/jumbo v4, "assist"
 
     invoke-virtual {v4, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_1a
+    if-eqz v4, :cond_1f
 
     move-object/from16 v0, p0
 
@@ -5113,7 +5558,7 @@
 
     goto/16 :goto_7
 
-    :cond_1a
+    :cond_1f
     const-string/jumbo v4, "GlobalActions"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -5138,7 +5583,7 @@
 
     goto/16 :goto_7
 
-    :cond_1b
+    :cond_20
     new-instance v4, Lcom/android/server/policy/GlobalActions$SilentModeAction;
 
     move-object/from16 v0, p0
@@ -5173,7 +5618,7 @@
 
     sput-object v4, Lcom/android/server/policy/GlobalActions;->mSilentModeView:Landroid/view/View;
 
-    :cond_1c
+    :cond_21
     invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
 
     move-result-object v4
@@ -5190,7 +5635,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1d
+    if-eqz v4, :cond_22
 
     invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
 
@@ -5208,7 +5653,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1d
+    if-eqz v4, :cond_22
 
     move-object/from16 v0, p0
 
@@ -5220,12 +5665,12 @@
 
     invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_1d
+    :cond_22
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/policy/GlobalActions;->mKnoxCustomSystemManager:Lcom/samsung/android/knox/custom/SystemManager;
 
-    if-eqz v4, :cond_1e
+    if-eqz v4, :cond_23
 
     move-object/from16 v0, p0
 
@@ -5235,7 +5680,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1e
+    if-eqz v4, :cond_23
 
     invoke-direct/range {p0 .. p0}, Lcom/android/server/policy/GlobalActions;->clearCustomDialogItems()Z
 
@@ -5247,7 +5692,7 @@
 
     move-result-object v22
 
-    if-eqz v22, :cond_1e
+    if-eqz v22, :cond_23
 
     invoke-interface/range {v22 .. v22}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
@@ -5258,7 +5703,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1e
+    if-eqz v4, :cond_23
 
     invoke-interface/range {v25 .. v25}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -5292,7 +5737,7 @@
 
     goto :goto_8
 
-    :cond_1e
+    :cond_23
     new-instance v4, Lcom/android/server/policy/GlobalActions$MyAdapter;
 
     const/4 v5, 0x0
@@ -5317,13 +5762,13 @@
 
     sget-boolean v4, Lcom/android/server/policy/GlobalActions;->mIsCoverOpen:Z
 
-    if-nez v4, :cond_1f
+    if-nez v4, :cond_24
 
     sget-boolean v4, Lcom/android/server/policy/GlobalActions;->mIsClearCover:Z
 
-    if-eqz v4, :cond_28
+    if-eqz v4, :cond_2d
 
-    :cond_1f
+    :cond_24
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/policy/GlobalActions;->mAdapter:Lcom/android/server/policy/GlobalActions$MyAdapter;
@@ -5369,7 +5814,7 @@
 
     sget-boolean v4, Lcom/android/server/policy/GlobalActions;->mNewFeatureForM:Z
 
-    if-eqz v4, :cond_2e
+    if-eqz v4, :cond_33
 
     const/16 v30, 0x0
 
@@ -5385,17 +5830,17 @@
 
     sget-boolean v4, Lcom/android/server/policy/GlobalActions;->mIsCoverOpen:Z
 
-    if-nez v4, :cond_20
+    if-nez v4, :cond_25
 
     sget-boolean v4, Lcom/android/server/policy/GlobalActions;->mIsCoverOpen:Z
 
-    if-nez v4, :cond_29
+    if-nez v4, :cond_2e
 
     sget-boolean v4, Lcom/android/server/policy/GlobalActions;->mIsClearCover:Z
 
-    if-eqz v4, :cond_29
+    if-eqz v4, :cond_2e
 
-    :cond_20
+    :cond_25
     new-instance v4, Lcom/android/server/policy/globalactions/GlobalActionsFrameLayout;
 
     move-object/from16 v0, p0
@@ -5643,13 +6088,13 @@
 
     sget-boolean v4, Lcom/android/server/policy/GlobalActions;->mIsBugReportEnable:Z
 
-    if-nez v4, :cond_21
+    if-nez v4, :cond_26
 
     sget-boolean v4, Lcom/android/server/policy/GlobalActions;->mIsCancelEnable:Z
 
-    if-eqz v4, :cond_2a
+    if-eqz v4, :cond_2f
 
-    :cond_21
+    :cond_26
     invoke-virtual/range {p0 .. p0}, Lcom/android/server/policy/GlobalActions;->adjustBottomView()V
 
     :goto_b
@@ -5659,17 +6104,17 @@
 
     sget-boolean v4, Lcom/android/server/policy/GlobalActions;->mIsCoverOpen:Z
 
-    if-nez v4, :cond_22
+    if-nez v4, :cond_27
 
     sget-boolean v4, Lcom/android/server/policy/GlobalActions;->mIsCoverOpen:Z
 
-    if-nez v4, :cond_2c
+    if-nez v4, :cond_31
 
     sget-boolean v4, Lcom/android/server/policy/GlobalActions;->mIsClearCover:Z
 
-    if-eqz v4, :cond_2c
+    if-eqz v4, :cond_31
 
-    :cond_22
+    :cond_27
     invoke-direct/range {p0 .. p0}, Lcom/android/server/policy/GlobalActions;->createLandscapeGlobalActionsDialog()V
 
     move-object/from16 v0, p0
@@ -5688,7 +6133,7 @@
 
     const/4 v5, 0x1
 
-    if-eq v4, v5, :cond_23
+    if-eq v4, v5, :cond_28
 
     move-object/from16 v0, p0
 
@@ -5698,7 +6143,7 @@
 
     invoke-virtual {v4, v5}, Landroid/widget/ScrollView;->setVisibility(I)V
 
-    :cond_23
+    :cond_28
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/policy/GlobalActions;->mContext:Landroid/content/Context;
@@ -5715,7 +6160,7 @@
 
     const/4 v5, 0x2
 
-    if-eq v4, v5, :cond_24
+    if-eq v4, v5, :cond_29
 
     move-object/from16 v0, p0
 
@@ -5725,7 +6170,7 @@
 
     invoke-virtual {v4, v5}, Landroid/widget/HorizontalScrollView;->setVisibility(I)V
 
-    :cond_24
+    :cond_29
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/policy/GlobalActions;->mGlobalActionsFrameLayout:Lcom/android/server/policy/globalactions/GlobalActionsFrameLayout;
@@ -5760,7 +6205,7 @@
 
     iget-boolean v4, v0, Lcom/android/server/policy/GlobalActions;->mIsSupportedBlur:Z
 
-    if-eqz v4, :cond_2b
+    if-eqz v4, :cond_30
 
     invoke-virtual {v14}, Landroid/widget/LinearLayout;->getBackground()Landroid/graphics/drawable/Drawable;
 
@@ -5810,16 +6255,16 @@
 
     sget-boolean v4, Lcom/android/server/policy/GlobalActions;->mIsCoverOpen:Z
 
-    if-nez v4, :cond_25
+    if-nez v4, :cond_2a
 
     sget-boolean v4, Lcom/android/server/policy/GlobalActions;->mIsClearCover:Z
 
-    if-eqz v4, :cond_27
+    if-eqz v4, :cond_2c
 
-    :cond_25
+    :cond_2a
     sget-boolean v4, Lcom/android/server/policy/GlobalActions;->mNewFeatureForM:Z
 
-    if-nez v4, :cond_26
+    if-nez v4, :cond_2b
 
     invoke-virtual/range {v21 .. v21}, Lcom/android/server/policy/GlobalActions$GlobalActionsDialog;->getListView()Landroid/widget/ListView;
 
@@ -5909,7 +6354,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/policy/GlobalActions$GlobalActionsDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
-    :cond_26
+    :cond_2b
     const-string/jumbo v4, "content://com.sec.knox.provider2/KnoxCustomManagerService1"
 
     const-string/jumbo v5, "getSealedPowerDialogOptionMode"
@@ -5922,7 +6367,7 @@
 
     const/4 v5, 0x3
 
-    if-ne v4, v5, :cond_27
+    if-ne v4, v5, :cond_2c
 
     new-instance v4, Lcom/android/server/policy/GlobalActions$28;
 
@@ -5934,10 +6379,10 @@
 
     invoke-virtual {v0, v4}, Lcom/android/server/policy/GlobalActions$GlobalActionsDialog;->setOnKeyListener(Landroid/content/DialogInterface$OnKeyListener;)V
 
-    :cond_27
+    :cond_2c
     return-object v21
 
-    :cond_28
+    :cond_2d
     new-instance v4, Landroid/widget/LinearLayout;
 
     move-object/from16 v0, p0
@@ -5978,7 +6423,7 @@
 
     goto/16 :goto_9
 
-    :cond_29
+    :cond_2e
     new-instance v4, Lcom/android/server/policy/globalactions/GlobalActionsFrameLayoutSViewCover;
 
     move-object/from16 v0, p0
@@ -6125,7 +6570,7 @@
 
     goto/16 :goto_a
 
-    :cond_2a
+    :cond_2f
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/policy/GlobalActions;->mBottomlayout:Landroid/widget/LinearLayout;
@@ -6136,7 +6581,7 @@
 
     goto/16 :goto_b
 
-    :cond_2b
+    :cond_30
     invoke-virtual {v14}, Landroid/widget/LinearLayout;->getBackground()Landroid/graphics/drawable/Drawable;
 
     move-result-object v4
@@ -6169,7 +6614,7 @@
 
     goto/16 :goto_c
 
-    :cond_2c
+    :cond_31
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/policy/GlobalActions;->mGlobalActionsFrameLayoutSViewCover:Lcom/android/server/policy/globalactions/GlobalActionsFrameLayoutSViewCover;
@@ -6204,7 +6649,7 @@
 
     iget-boolean v4, v0, Lcom/android/server/policy/GlobalActions;->mIsSupportedBlur:Z
 
-    if-eqz v4, :cond_2d
+    if-eqz v4, :cond_32
 
     invoke-virtual {v14}, Landroid/widget/LinearLayout;->getBackground()Landroid/graphics/drawable/Drawable;
 
@@ -6247,7 +6692,7 @@
 
     goto/16 :goto_d
 
-    :cond_2d
+    :cond_32
     invoke-virtual {v14}, Landroid/widget/LinearLayout;->getBackground()Landroid/graphics/drawable/Drawable;
 
     move-result-object v4
@@ -6280,16 +6725,16 @@
 
     goto :goto_e
 
-    :cond_2e
+    :cond_33
     sget-boolean v4, Lcom/android/server/policy/GlobalActions;->mIsCoverOpen:Z
 
-    if-nez v4, :cond_2f
+    if-nez v4, :cond_34
 
     sget-boolean v4, Lcom/android/server/policy/GlobalActions;->mIsClearCover:Z
 
-    if-eqz v4, :cond_30
+    if-eqz v4, :cond_35
 
-    :cond_2f
+    :cond_34
     const v4, 0x1040133
 
     move-object/from16 v0, v21
@@ -6298,7 +6743,7 @@
 
     goto/16 :goto_d
 
-    :cond_30
+    :cond_35
     const-string/jumbo v4, "GlobalActions"
 
     const-string/jumbo v5, "mIsCoverOpen  is false"
@@ -6349,7 +6794,7 @@
 
     iget-object v4, v0, Lcom/android/server/policy/GlobalActions;->mCoverState:Lcom/samsung/android/cover/CoverState;
 
-    if-eqz v4, :cond_31
+    if-eqz v4, :cond_36
 
     move-object/from16 v0, p0
 
@@ -6361,7 +6806,7 @@
 
     const/4 v5, 0x6
 
-    if-ne v4, v5, :cond_31
+    if-ne v4, v5, :cond_36
 
     const v4, 0x1090071
 
@@ -6388,7 +6833,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_37
+    if-eqz v4, :cond_3c
 
     new-instance v33, Landroid/view/ViewGroup$LayoutParams;
 
@@ -6410,7 +6855,7 @@
 
     goto/16 :goto_d
 
-    :cond_31
+    :cond_36
     const v4, 0x1090072
 
     const/4 v5, 0x0
@@ -6423,7 +6868,7 @@
 
     sget-boolean v4, Lcom/android/server/policy/GlobalActions;->mNewFeatureForM:Z
 
-    if-nez v4, :cond_33
+    if-nez v4, :cond_38
 
     const-string/jumbo v4, "americano"
 
@@ -6433,7 +6878,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_32
+    if-nez v4, :cond_37
 
     const-string/jumbo v4, "mocha"
 
@@ -6443,9 +6888,9 @@
 
     move-result v4
 
-    if-eqz v4, :cond_35
+    if-eqz v4, :cond_3a
 
-    :cond_32
+    :cond_37
     const v4, 0x10203a8
 
     move-object/from16 v0, v32
@@ -6479,7 +6924,7 @@
 
     invoke-virtual {v0, v4}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    :cond_33
+    :cond_38
     const v4, 0x102037e
 
     move-object/from16 v0, v32
@@ -6520,7 +6965,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_34
+    if-nez v4, :cond_39
 
     sget-object v4, Lcom/android/server/policy/GlobalActions;->mCoverViewListView:Landroid/widget/ListView;
 
@@ -6528,7 +6973,7 @@
 
     invoke-virtual {v4, v5}, Landroid/widget/ListView;->setEnabled(Z)V
 
-    :cond_34
+    :cond_39
     sget-object v4, Lcom/android/server/policy/GlobalActions;->mCoverViewListView:Landroid/widget/ListView;
 
     new-instance v5, Lcom/android/server/policy/GlobalActions$26;
@@ -6557,7 +7002,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_36
+    if-eqz v4, :cond_3b
 
     move-object/from16 v0, p0
 
@@ -6579,7 +7024,7 @@
 
     goto/16 :goto_f
 
-    :cond_35
+    :cond_3a
     const v4, 0x102006f
 
     move-object/from16 v0, v32
@@ -6590,7 +7035,7 @@
 
     goto/16 :goto_10
 
-    :cond_36
+    :cond_3b
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/policy/GlobalActions;->mContext:Landroid/content/Context;
@@ -6611,7 +7056,7 @@
 
     goto/16 :goto_f
 
-    :cond_37
+    :cond_3c
     move-object/from16 v0, v21
 
     move-object/from16 v1, v32
@@ -12918,6 +13363,26 @@
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {v2, v3, v0}, Landroid/app/KeyguardManager;->setBendedPendingIntent(Landroid/app/PendingIntent;Landroid/content/Intent;)V
+
+    return-void
+.end method
+
+.method private toggleScreenRecord()V
+    .locals 4
+
+    new-instance v0, Landroid/content/Intent;
+
+    invoke-direct {v0}, Landroid/content/Intent;-><init>()V
+
+    const-string/jumbo v1, "com.sec.app.screenrecorder"
+
+    const-string/jumbo v2, "com.sec.app.screenrecorder.activity.LauncherActivity"
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    iget-object v2, p0, Lcom/android/server/policy/GlobalActions;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
     return-void
 .end method

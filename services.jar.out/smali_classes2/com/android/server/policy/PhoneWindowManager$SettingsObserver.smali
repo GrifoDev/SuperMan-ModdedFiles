@@ -15,6 +15,12 @@
 
 
 # instance fields
+.field private mGrxDobleClickSkipTracks:Landroid/net/Uri;
+
+.field private mGrxSkipTracks:Landroid/net/Uri;
+
+.field private mGrxTimeOutSkipTracks:Landroid/net/Uri;
+
 .field final synthetic this$0:Lcom/android/server/policy/PhoneWindowManager;
 
 
@@ -45,6 +51,36 @@
     invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
+
+    const-string v1, "skip_tracks"
+
+    invoke-static {v1}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1, v3, p0, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
+
+    iput-object v1, p0, Lcom/android/server/policy/PhoneWindowManager$SettingsObserver;->mGrxSkipTracks:Landroid/net/Uri;
+
+    const-string v1, "double_click_skip_tracks"
+
+    invoke-static {v1}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1, v3, p0, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
+
+    iput-object v1, p0, Lcom/android/server/policy/PhoneWindowManager$SettingsObserver;->mGrxDobleClickSkipTracks:Landroid/net/Uri;
+
+    const-string v1, "timeout_skip_tracks"
+
+    invoke-static {v1}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1, v3, p0, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
+
+    iput-object v1, p0, Lcom/android/server/policy/PhoneWindowManager$SettingsObserver;->mGrxTimeOutSkipTracks:Landroid/net/Uri;
 
     const-string/jumbo v1, "end_button_behavior"
 
@@ -129,6 +165,8 @@
     iget-object v1, p0, Lcom/android/server/policy/PhoneWindowManager$SettingsObserver;->this$0:Lcom/android/server/policy/PhoneWindowManager;
 
     invoke-virtual {v1}, Lcom/android/server/policy/PhoneWindowManager;->updateSettings()V
+
+    invoke-virtual {v1}, Lcom/android/server/policy/PhoneWindowManager;->grx_actualiza_opciones_skip_tracks()V
 
     return-void
 .end method

@@ -15800,6 +15800,22 @@
 
     move-result v1
 
+    iget-object v5, p0, Lcom/android/server/power/PowerManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    const v4, 0x1
+
+    const-string/jumbo v6, "usb_plugged"
+
+    invoke-static {v5, v6, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v4
+
+    if-eqz v4, :cond_4
+
     if-eqz v1, :cond_4
 
     if-eqz v12, :cond_4
@@ -15929,7 +15945,7 @@
 
     invoke-static {v1, v4}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_1
+    goto/16 :goto_1
 
     :cond_b
     const/4 v1, 0x4

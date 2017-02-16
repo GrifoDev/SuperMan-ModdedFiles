@@ -2871,7 +2871,7 @@
 
     iget-boolean v3, p0, Lcom/android/server/display/AutomaticBrightnessController;->mIsSupportedSensorHubAutoBrightness:Z
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_1
 
     iget v3, p0, Lcom/android/server/display/AutomaticBrightnessController;->mAmbientCandela:F
 
@@ -2886,7 +2886,7 @@
 
     iget-boolean v3, p0, Lcom/android/server/display/AutomaticBrightnessController;->mIsSupportedSensorHubAutoBrightness:Z
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_2
 
     iget v3, p0, Lcom/android/server/display/AutomaticBrightnessController;->mAmbientCandela:F
 
@@ -2899,77 +2899,19 @@
 
     iget v0, p0, Lcom/android/server/display/AutomaticBrightnessController;->mScreenAutoBrightnessAdjustment:F
 
-    sget-boolean v3, Lcom/android/server/power/PowerManagerUtil;->USE_PERSONAL_AUTO_BRIGHTNESS:Z
-
-    if-eqz v3, :cond_1
-
-    const/4 v0, 0x0
-
-    :cond_1
-    sget-boolean v3, Lcom/android/server/power/PowerManagerUtil;->SEC_FEATURE_FORCE_ADJUST_MANUAL_BRIGHTNESS_IN_LOW_LUX:Z
-
-    if-eqz v3, :cond_3
-
-    iget-boolean v3, p0, Lcom/android/server/display/AutomaticBrightnessController;->mIsBrightnessModeAuto:Z
-
-    if-nez v3, :cond_6
-
-    iget v3, p0, Lcom/android/server/display/AutomaticBrightnessController;->mAmbientLux:F
-
-    const/high16 v4, 0x42c80000    # 100.0f
-
-    cmpg-float v3, v3, v4
-
-    if-gtz v3, :cond_6
-
-    iget-boolean v3, p0, Lcom/android/server/display/AutomaticBrightnessController;->mUseManualAutoBrightness:Z
-
-    if-nez v3, :cond_2
-
-    const-string/jumbo v3, "AutomaticBrightnessController"
-
-    const-string/jumbo v4, "[DAB] use ManualAutoBrightness is changed from false -> true"
-
-    invoke-static {v3, v4}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_2
-    const/4 v3, 0x1
-
-    iput-boolean v3, p0, Lcom/android/server/display/AutomaticBrightnessController;->mUseManualAutoBrightness:Z
-
-    iget v0, p0, Lcom/android/server/display/AutomaticBrightnessController;->mManualAdjustment:F
-
-    :cond_3
-    :goto_2
     invoke-direct {p0, p1, v2, v1, v0}, Lcom/android/server/display/AutomaticBrightnessController;->updateFinalAutoBrightness(ZFFF)V
 
     return-void
 
-    :cond_4
+    :cond_1
     move v3, v2
 
     goto :goto_0
 
-    :cond_5
+    :cond_2
     move v3, v2
 
     goto :goto_1
-
-    :cond_6
-    iget-boolean v3, p0, Lcom/android/server/display/AutomaticBrightnessController;->mUseManualAutoBrightness:Z
-
-    if-eqz v3, :cond_7
-
-    const-string/jumbo v3, "AutomaticBrightnessController"
-
-    const-string/jumbo v4, "[DAB] use ManualAutoBrightness is changed from true -> false"
-
-    invoke-static {v3, v4}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_7
-    iput-boolean v5, p0, Lcom/android/server/display/AutomaticBrightnessController;->mUseManualAutoBrightness:Z
-
-    goto :goto_2
 .end method
 
 .method private updateFinalAutoBrightness(ZFFF)V
