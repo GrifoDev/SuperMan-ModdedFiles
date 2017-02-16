@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="emailAddressTypes">
+        <item>Dōm</item>
+        <item>Robota</item>
+        <item>Inksze</item>
+        <item>Niystand.</item>
+    </string-array>
+    <string-array name="imProtocols">
+        <item>AIM</item>
+        <item>Windows Live</item>
+        <item>Yahoo</item>
+        <item>Skype</item>
+        <item>QQ</item>
+        <item>Google Talk</item>
+        <item>ICQ</item>
+        <item>Bełkot</item>
+    </string-array>
+    <string-array name="organizationTypes">
+        <item>Robota</item>
+        <item>Inksze</item>
+        <item>Niystand.</item>
+    </string-array>
+    <string-array name="phoneTypes">
+        <item>Dōm</item>
+        <item>Mobilniŏkowy</item>
+        <item>Robota</item>
+        <item>Fax z roboty</item>
+        <item>Dōmowy fax</item>
+        <item>Pager</item>
+        <item>Inksze</item>
+        <item>Niystand.</item>
+    </string-array>
+    <string-array name="postalAddressTypes">
+        <item>Dōm</item>
+        <item>Robota</item>
+        <item>Inksze</item>
+        <item>Niystand.</item>
+    </string-array>
+    <string-array name="imAddressTypes">
+        <item>Dōm</item>
+        <item>Robota</item>
+        <item>Inksze</item>
+        <item>Niystand.</item>
+    </string-array>
+</resources>

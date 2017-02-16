@@ -1,0 +1,12 @@
+<DvfsHintList>
+    <Hint name="MTP_TRANSFER" timeout="-1">
+        <Control type="cpu_min" value="70%" />
+        <Control type="bus_min" value="max" />
+    </Hint>
+    <Hint name="EMAIL_TRANSFER" timeout="4000">
+        <Control type="cpu_min" value="max" />
+    </Hint>
+    <Hint name="GAME_KAKAO" timeout="100">
+        <Control type="fps_max" value="45" />
+    </Hint>
+</DvfsHintList>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="pinpuk_attempts">
+        <item quantity="other">SIM kilitlenmeden önce %d deneme hakkınız kaldı.</item>
+        <item quantity="one">SIM kilitlenmeden önce %d deneme hakkınız kaldı.</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_warning">
+        <item quantity="other">Olası ağ izleme</item>
+        <item quantity="one">Sertifika yetkilisi yüklendi</item>
+    </plurals>
+    <plurals name="bugreport_countdown">
+        <item quantity="other">%d saniye içinde hata raporu ekran görüntüsü alınıyor.</item>
+        <item quantity="one">Hata raporu ekran görüntüsü %d saniye içinde alınacak.</item>
+    </plurals>
+    <plurals name="last_num_days">
+        <item quantity="other">Son %d gün</item>
+        <item quantity="one">Son %d gün</item>
+    </plurals>
+    <plurals name="duration_seconds">
+        <item quantity="other">%d saniye</item>
+        <item quantity="one">1 saniye</item>
+    </plurals>
+    <plurals name="duration_minutes">
+        <item quantity="other">%d dakika</item>
+        <item quantity="one">1 dakika</item>
+    </plurals>
+    <plurals name="duration_hours">
+        <item quantity="other">%d saat</item>
+        <item quantity="one">1 saat</item>
+    </plurals>
+    <plurals name="duration_minutes_shortest">
+        <item quantity="other">%d dk</item>
+        <item quantity="one">%d dk</item>
+    </plurals>
+    <plurals name="duration_hours_shortest">
+        <item quantity="other">%d sa</item>
+        <item quantity="one">%d sa</item>
+    </plurals>
+    <plurals name="duration_days_shortest">
+        <item quantity="other">%d g</item>
+        <item quantity="one">%d g</item>
+    </plurals>
+    <plurals name="duration_years_shortest">
+        <item quantity="other">%d y</item>
+        <item quantity="one">%d y</item>
+    </plurals>
+    <plurals name="duration_minutes_shortest_future">
+        <item quantity="other">%d dk içinde</item>
+        <item quantity="one">%d dk içinde</item>
+    </plurals>
+    <plurals name="duration_hours_shortest_future">
+        <item quantity="other">%d sa içinde</item>
+        <item quantity="one">%d sa içinde</item>
+    </plurals>
+    <plurals name="duration_days_shortest_future">
+        <item quantity="other">%d g içinde</item>
+        <item quantity="one">%d g içinde</item>
+    </plurals>
+    <plurals name="duration_years_shortest_future">
+        <item quantity="other">%d y içinde</item>
+        <item quantity="one">%d y içinde</item>
+    </plurals>
+    <plurals name="wifi_available">
+        <item quantity="other">Wi-Fi ağları mevcut</item>
+        <item quantity="one">Wi-Fi ağı mevcut</item>
+    </plurals>
+    <plurals name="wifi_available_detailed">
+        <item quantity="other">Kullanılabilir Wi-Fi ağlarını aç</item>
+        <item quantity="one">Kullanılabilir Wi-Fi ağlarını aç</item>
+    </plurals>
+    <plurals name="matches_found">
+        <item quantity="other">%1$d / %2$d</item>
+        <item quantity="one">1 eşleşme var.</item>
+    </plurals>
+    <plurals name="restr_pin_countdown">
+        <item quantity="other">%d saniye içinde tekrar deneyin</item>
+        <item quantity="one">1 saniye icinde tekrar deneyin.</item>
+    </plurals>
+    <plurals name="zen_mode_duration_minutes_summary">
+        <item quantity="other">%1$d dakika için (şu saate kadar: %2$s)</item>
+        <item quantity="one">Bir dakika için (şu saate kadar: %2$s)</item>
+    </plurals>
+    <plurals name="zen_mode_duration_minutes_summary_short">
+        <item quantity="other">%1$d dakika için (şu saate kadar: %2$s)</item>
+        <item quantity="one">1 dakika için (şu saate kadar: %2$s)</item>
+    </plurals>
+    <plurals name="zen_mode_duration_hours_summary">
+        <item quantity="other">%1$d saat için (şu saate kadar: %2$s)</item>
+        <item quantity="one">Bir saat için (şu saate kadar: %2$s)</item>
+    </plurals>
+    <plurals name="zen_mode_duration_hours_summary_short">
+        <item quantity="other">%1$d saat için (şu saate kadar: %2$s)</item>
+        <item quantity="one">1 saat için (şu saate kadar: %2$s)</item>
+    </plurals>
+    <plurals name="zen_mode_duration_minutes">
+        <item quantity="other">%d dakika süreyle</item>
+        <item quantity="one">Bir dakika süreyle</item>
+    </plurals>
+    <plurals name="zen_mode_duration_minutes_short">
+        <item quantity="other">%d dakika için</item>
+        <item quantity="one">1 dakika için</item>
+    </plurals>
+    <plurals name="zen_mode_duration_hours">
+        <item quantity="other">%d saat için</item>
+        <item quantity="one">Bir saat için</item>
+    </plurals>
+    <plurals name="zen_mode_duration_hours_short">
+        <item quantity="other">%d saat için</item>
+        <item quantity="one">1 saat için</item>
+    </plurals>
+    <plurals name="selected_count">
+        <item quantity="other">%1$d öğe seçildi</item>
+        <item quantity="one">%1$d öğe seçildi</item>
+    </plurals>
+    <plurals name="tw_clipboard_files">
+        <item quantity="other">%d dosya</item>
+        <item quantity="one">1 dosya</item>
+    </plurals>
+</resources>

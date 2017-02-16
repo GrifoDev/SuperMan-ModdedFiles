@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE DvfsHintList [
+<!ELEMENT DvfsHintList (Hint?,TspHint+)>
+<!ELEMENT Hint EMPTY>
+<!ELEMENT TspHint EMPTY>
+<!ATTLIST TspHint
+          scenario_name CDATA #REQUIRED
+          level CDATA #REQUIRED
+          head CDATA #IMPLIED
+          tail CDATA #IMPLIED>
+]>
+
+<DvfsHintList>
+    <Resolution resoltype="Default">
+        <TspHint scenario_name="Default"            level="2" head="130 1171200 0 1" tail="500 480000 0 0" />
+        <TspHint scenario_name="SipDefault"         level="1" head="130 1171200 0 0" tail="0 0 0 0" />
+        <TspHint scenario_name="SipMms"             level="1" head="130 1056000 0 0" tail="0 0 0 0" />
+        <TspHint scenario_name="Hovering"           level="0" head="0 0 0 0"  tail="0 0 0 0" />
+    
+        <Hint name="AMS_RESUME" timeout="-1">
+            <Control type="cpu_min" value="1536000"/>
+            <Control type="bus_min" value="1555"/>
+        </Hint>
+    
+        <Hint name="AMS_RESUME_TAIL" timeout="300">
+            <Control type="cpu_min" value="1536000"/>
+            <Control type="bus_min" value="1555"/>
+        </Hint>
+
+        <Hint name="GALLERY_TOUCH" timeout="500">
+            <Control type="cpu_min" value="1536000"/>
+        </Hint>
+    
+        <Hint name="GALLERY_TOUCH_TAIL" timeout="500">
+            <Control type="cpu_min" value="1536000"/>
+        </Hint>
+
+        <Hint name="GALLERY_SCROLL" timeout="-1">
+            <Control type="cpu_min" value="806400"/>
+        </Hint>
+
+        <Hint name="LAUNCHER_TOUCH" timeout="1000">
+            <Control type="cpu_min" value="1536000"/>
+        </Hint>
+    
+        <Hint name="LISTVIEW_SCROLL" timeout="10000">
+            <Control type="cpu_min" value="864000"/>
+        </Hint>
+
+        <Hint name="APP_LAUNCH" timeout="1000">
+            <Control type="bus_min" value="1804"/>
+        </Hint>
+    
+        <Hint name="DEVICE_WAKEUP" timeout="1000">
+            <Control type="cpu_min" value="1536000"/>
+        </Hint>
+    
+        <Hint name="CONTACT_SCROLL" timeout="-1">
+            <Control type="cpu_min" value="-1"/>
+        </Hint> 
+    
+        <Hint name="BADGE_UPDATE" timeout="2000">
+            <Control type="cpu_min" value="60%"/>
+        </Hint>
+    
+        <Hint name="SMOOTH_SCROLL" timeout="10000">
+            <Control type="cpu_min" value="1171200"/>
+        </Hint>
+    
+        <Hint name="GESTURE_DETECTED" timeout="500">
+            <Control type="cpu_min" value="825600"/>
+        </Hint>
+    </Resolution>
+    
+    <Resolution resoltype="WQHD">
+    </Resolution>
+    
+    <Resolution resoltype="FHD">
+        <TspHint scenario_name="Default"            level="2" head="130 1056000 0 0" tail="500 355200 0 0" />
+        <TspHint scenario_name="SipDefault"         level="1" head="130 1056000 0 0" tail="0 0 0 0" />
+        <TspHint scenario_name="SipMms"             level="1" head="130 480000 0 0" tail="0 0 0 0" />
+        <TspHint scenario_name="Hovering"           level="0" head="0 0 0 0"  tail="0 0 0 0" />
+       
+        <Hint name="AMS_RESUME" timeout="-1">
+            <Control type="cpu_min" value="1536000"/>
+            <Control type="bus_min" value="1555"/>
+        </Hint>
+    
+        <Hint name="AMS_RESUME_TAIL" timeout="300">
+            <Control type="cpu_min" value="1536000"/>
+            <Control type="bus_min" value="1555"/>
+        </Hint>
+
+        <Hint name="GALLERY_TOUCH" timeout="500">
+            <Control type="cpu_min" value="1536000"/>
+        </Hint>
+    
+        <Hint name="GALLERY_TOUCH_TAIL" timeout="500">
+            <Control type="cpu_min" value="1536000"/>
+        </Hint>
+
+        <Hint name="GALLERY_SCROLL" timeout="-1">
+            <Control type="cpu_min" value="806400"/>
+        </Hint>
+
+        <Hint name="LAUNCHER_TOUCH" timeout="1000">
+            <Control type="cpu_min" value="1536000"/>
+        </Hint>
+    
+        <Hint name="LISTVIEW_SCROLL" timeout="10000">
+            <Control type="cpu_min" value="864000"/>
+        </Hint>
+
+        <Hint name="APP_LAUNCH" timeout="1000">
+            <Control type="bus_min" value="1804"/>
+        </Hint>
+    
+        <Hint name="DEVICE_WAKEUP" timeout="1000">
+            <Control type="cpu_min" value="1536000"/>
+        </Hint>
+    
+        <Hint name="CONTACT_SCROLL" timeout="-1">
+            <Control type="cpu_min" value="-1"/>
+        </Hint> 
+    
+        <Hint name="BADGE_UPDATE" timeout="2000">
+            <Control type="cpu_min" value="60%"/>
+        </Hint>
+    
+        <Hint name="SMOOTH_SCROLL" timeout="10000">
+            <Control type="cpu_min" value="1171200"/>
+        </Hint>
+    
+        <Hint name="GESTURE_DETECTED" timeout="500">
+            <Control type="cpu_min" value="825600"/>
+        </Hint>
+    </Resolution>
+    
+    <Resolution resoltype="HD">
+        <TspHint scenario_name="Default"            level="2" head="130 441600 0 0" tail="500 355200 0 0" />
+        <TspHint scenario_name="SipDefault"         level="1" head="130 441600 0 0" tail="0 0 0 0" />
+        <TspHint scenario_name="SipMms"             level="1" head="130 355200 0 0" tail="0 0 0 0" />
+        <TspHint scenario_name="Hovering"           level="0" head="0 0 0 0"  tail="0 0 0 0" />
+       
+        <Hint name="AMS_RESUME" timeout="-1">
+            <Control type="cpu_min" value="1324800"/>
+            <Control type="bus_min" value="768"/>
+        </Hint>
+    
+        <Hint name="AMS_RESUME_TAIL" timeout="300">
+            <Control type="cpu_min" value="1324800"/>
+            <Control type="bus_min" value="768"/>
+        </Hint>
+
+        <Hint name="GALLERY_TOUCH" timeout="500">
+            <Control type="cpu_min" value="1056000"/>
+        </Hint>
+    
+        <Hint name="GALLERY_TOUCH_TAIL" timeout="500">
+            <Control type="cpu_min" value="1056000"/>
+        </Hint>
+    
+        <Hint name="LAUNCHER_TOUCH" timeout="1000">
+            <Control type="cpu_min" value="1056000"/>
+        </Hint>
+    
+        <Hint name="LISTVIEW_SCROLL" timeout="10000">
+            <Control type="cpu_min" value="787200"/>
+        </Hint>
+
+        <Hint name="DEVICE_WAKEUP" timeout="1000">
+            <Control type="cpu_min" value="1171200"/>
+        </Hint>
+
+        <Hint name="SMOOTH_SCROLL" timeout="10000">
+            <Control type="cpu_min" value="864000"/>
+        </Hint>
+    
+        <Hint name="GESTURE_DETECTED" timeout="500">
+            <Control type="cpu_min" value="825600"/>
+        </Hint>
+    </Resolution>
+</DvfsHintList>
+
+
+
+
+
+
+
+
+
+
+

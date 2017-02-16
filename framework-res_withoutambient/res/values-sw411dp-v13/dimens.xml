@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="resolver_max_width">491.0dip</dimen>
+    <dimen name="s_view_cover_window_width">349.0dip</dimen>
+    <dimen name="s_view_cover_window_height">353.0dip</dimen>
+</resources>

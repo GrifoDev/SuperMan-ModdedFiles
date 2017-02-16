@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="emailAddressTypes">
+        <item>Əs ekr</item>
+        <item>İş</item>
+        <item>Başqa</item>
+        <item>Adi</item>
+    </string-array>
+    <string-array name="imProtocols">
+        <item>AIM</item>
+        <item>Windows Live</item>
+        <item>Yahoo</item>
+        <item>Skype</item>
+        <item>QQ</item>
+        <item>Google Talk</item>
+        <item>ICQ</item>
+        <item>Jabber</item>
+    </string-array>
+    <string-array name="organizationTypes">
+        <item>İş</item>
+        <item>Başqa</item>
+        <item>Adi</item>
+    </string-array>
+    <string-array name="phoneTypes">
+        <item>Əs ekr</item>
+        <item>Mobil</item>
+        <item>İş</item>
+        <item>İş faksı</item>
+        <item>Ev Faksı</item>
+        <item>Peycer</item>
+        <item>Başqa</item>
+        <item>Adi</item>
+    </string-array>
+    <string-array name="postalAddressTypes">
+        <item>Əs ekr</item>
+        <item>İş</item>
+        <item>Başqa</item>
+        <item>Adi</item>
+    </string-array>
+    <string-array name="wfcOperatorErrorAlertMessages">
+        <item>Wi-Fi üzərindən zəng etmək və mesaj göndərmək üçün ilk öncə operatordan bu xidməti ayarlamağı tələb edin. Sonra Ayarlardan Wi-Fi çağrısını aktivləşdirin.</item>
+    </string-array>
+    <string-array name="wfcOperatorErrorNotificationMessages">
+        <item>Operatorla qeydiyyatdan keçin</item>
+    </string-array>
+    <string-array name="wfcSpnFormats">
+        <item>%s</item>
+        <item>%s Wi-Fi Zəngi</item>
+    </string-array>
+    <array name="fingerprint_acquired_vendor" />
+    <array name="fingerprint_error_vendor" />
+    <string-array name="imAddressTypes">
+        <item>Əs ekr</item>
+        <item>İş</item>
+        <item>Başqa</item>
+        <item>Adi</item>
+    </string-array>
+</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="false" android:drawable="@drawable/tw_btn_default_mtrl" android:alpha="@dimen/tw_disabled_alpha_material_light" />
+    <item android:drawable="@drawable/tw_btn_ripple_material" />
+</selector>

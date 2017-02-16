@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="pinpuk_attempts">
+        <item quantity="other">Sisa %d percobaan sebelum SIM terkunci.</item>
+        <item quantity="one">Sisa %d percobaan sebelum SIM terkunci.</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_warning">
+        <item quantity="other">Jaringan yang mungkin dipantau</item>
+        <item quantity="one">Otoritas sertifikat berhasil dipasang</item>
+    </plurals>
+    <plurals name="bugreport_countdown">
+        <item quantity="other">Mengambil tangkapan layar untuk laporan bug dalam %d detik.</item>
+        <item quantity="one">Mengambil tangkapan layar untuk laporan bug dalam %d detik.</item>
+    </plurals>
+    <plurals name="last_num_days">
+        <item quantity="other">%d hari terakhir</item>
+        <item quantity="one">%d hari terakhir</item>
+    </plurals>
+    <plurals name="duration_seconds">
+        <item quantity="other">%d detik</item>
+        <item quantity="one">1 detik</item>
+    </plurals>
+    <plurals name="duration_minutes">
+        <item quantity="other">%d menit</item>
+        <item quantity="one">1 menit</item>
+    </plurals>
+    <plurals name="duration_hours">
+        <item quantity="other">%d jam</item>
+        <item quantity="one">1 jam</item>
+    </plurals>
+    <plurals name="duration_minutes_shortest">
+        <item quantity="other">%dm</item>
+        <item quantity="one">%dm</item>
+    </plurals>
+    <plurals name="duration_hours_shortest">
+        <item quantity="other">%dj</item>
+        <item quantity="one">%dj</item>
+    </plurals>
+    <plurals name="duration_days_shortest">
+        <item quantity="other">%dh</item>
+        <item quantity="one">%dh</item>
+    </plurals>
+    <plurals name="duration_years_shortest">
+        <item quantity="other">%dt</item>
+        <item quantity="one">%dt</item>
+    </plurals>
+    <plurals name="duration_minutes_shortest_future">
+        <item quantity="other">dalam %dm</item>
+        <item quantity="one">dalam %dm</item>
+    </plurals>
+    <plurals name="duration_hours_shortest_future">
+        <item quantity="other">dalam %dj</item>
+        <item quantity="one">dalam %dj</item>
+    </plurals>
+    <plurals name="duration_days_shortest_future">
+        <item quantity="other">dalam %dh</item>
+        <item quantity="one">dalam %dh</item>
+    </plurals>
+    <plurals name="duration_years_shortest_future">
+        <item quantity="other">dalam %dt</item>
+        <item quantity="one">dalam %dt</item>
+    </plurals>
+    <plurals name="wifi_available">
+        <item quantity="other">Jaringan Wi-Fi tersedia</item>
+        <item quantity="one">Jaringan Wi-Fi tersedia</item>
+    </plurals>
+    <plurals name="wifi_available_detailed">
+        <item quantity="other">Buka jaringan Wi-Fi yang tersedia</item>
+        <item quantity="one">Buka jaringan Wi-Fi yang tersedia</item>
+    </plurals>
+    <plurals name="matches_found">
+        <item quantity="other">%1$d dari %2$d</item>
+        <item quantity="one">1 cocok.</item>
+    </plurals>
+    <plurals name="restr_pin_countdown">
+        <item quantity="other">Coba %d detik lagi</item>
+        <item quantity="one">Coba lagi dalam 1 detik.</item>
+    </plurals>
+    <plurals name="zen_mode_duration_minutes_summary">
+        <item quantity="other">Selama %1$d menit (hingga %2$s)</item>
+        <item quantity="one">Selama satu menit (hingga %2$s)</item>
+    </plurals>
+    <plurals name="zen_mode_duration_minutes_summary_short">
+        <item quantity="other">Selama %1$d menit (hingga %2$s)</item>
+        <item quantity="one">Selama 1 menit (hingga %2$s)</item>
+    </plurals>
+    <plurals name="zen_mode_duration_hours_summary">
+        <item quantity="other">Selama %1$d jam (hingga %2$s)</item>
+        <item quantity="one">Selama satu jam (hingga %2$s)</item>
+    </plurals>
+    <plurals name="zen_mode_duration_hours_summary_short">
+        <item quantity="other">Selama %1$d jam (hingga %2$s)</item>
+        <item quantity="one">Selama 1 jam (hingga %2$s)</item>
+    </plurals>
+    <plurals name="zen_mode_duration_minutes">
+        <item quantity="other">Selama %d menit</item>
+        <item quantity="one">Selama satu menit</item>
+    </plurals>
+    <plurals name="zen_mode_duration_minutes_short">
+        <item quantity="other">Selama %d menit</item>
+        <item quantity="one">Selama 1 menit</item>
+    </plurals>
+    <plurals name="zen_mode_duration_hours">
+        <item quantity="other">Selama %d jam</item>
+        <item quantity="one">Selama satu jam</item>
+    </plurals>
+    <plurals name="zen_mode_duration_hours_short">
+        <item quantity="other">Selama %d jam</item>
+        <item quantity="one">Selama 1 jam</item>
+    </plurals>
+    <plurals name="selected_count">
+        <item quantity="other">%1$d dipilih</item>
+        <item quantity="one">%1$d dipilih</item>
+    </plurals>
+    <plurals name="tw_clipboard_files">
+        <item quantity="other">%d file</item>
+        <item quantity="one">1 file</item>
+    </plurals>
+</resources>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE DvfsHintList [
+<!ELEMENT DvfsHintList (Hint?,TspHint+)>
+<!ELEMENT Hint EMPTY>
+<!ELEMENT TspHint EMPTY>
+<!ATTLIST TspHint
+          scenario_name CDATA #REQUIRED
+          level CDATA #REQUIRED
+          head CDATA #IMPLIED
+          tail CDATA #IMPLIED>
+]>
+
+<DvfsHintList>
+    <Resolution resoltype="Default">   
+        <Hint name="AMS_RESUME" timeout="-1">
+            <Control type="cpu_min" value="1800000"/>
+        </Hint>
+        
+        <Hint name="AMS_RESUME_TAIL" timeout="300">
+            <Control type="cpu_min" value="1800000"/>
+        </Hint>
+    
+        <Hint name="LAUNCHER_TOUCH" timeout="100">
+            <Control type="cpu_min" value="1900000"/>
+            <Control type="gpu_min" value="420"/>
+        </Hint>
+
+        <Hint name="DEVICE_WAKEUP" timeout="1000">
+            <Control type="cpu_min" value="1200000"/>
+        </Hint>
+    </Resolution>
+    
+    <Resolution resoltype="WQHD">
+    </Resolution>
+    
+    <Resolution resoltype="FHD">
+    </Resolution>
+    
+    <Resolution resoltype="HD">
+    </Resolution>
+</DvfsHintList>

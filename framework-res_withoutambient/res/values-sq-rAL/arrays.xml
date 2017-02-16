@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="emailAddressTypes">
+        <item>Shtëpi</item>
+        <item>Punë</item>
+        <item>Tjetër</item>
+        <item>Personalizo</item>
+    </string-array>
+    <string-array name="imProtocols">
+        <item>AIM</item>
+        <item>Windows Live</item>
+        <item>Rezultatet e Yahoo</item>
+        <item>Skype</item>
+        <item>QQ</item>
+        <item>Google Talk</item>
+        <item>ICQ</item>
+        <item>Jabber</item>
+    </string-array>
+    <string-array name="organizationTypes">
+        <item>Punë</item>
+        <item>Tjetër</item>
+        <item>Personalizo</item>
+    </string-array>
+    <string-array name="phoneTypes">
+        <item>Shtëpi</item>
+        <item>Celulari</item>
+        <item>Punë</item>
+        <item>Faksi në zyrë</item>
+        <item>Faksi në shtëpi</item>
+        <item>Biperi</item>
+        <item>Tjetër</item>
+        <item>Personalizo</item>
+    </string-array>
+    <string-array name="postalAddressTypes">
+        <item>Shtëpi</item>
+        <item>Punë</item>
+        <item>Tjetër</item>
+        <item>Personalizo</item>
+    </string-array>
+    <string-array name="wfcOperatorErrorAlertMessages">
+        <item>Për të bërë telefonata dhe për të dërguar mesazhe me Wi-Fi, në fillim kërkoji operatorit celular ta konfigurojë këtë shërbim. Më pas aktivizo përsëri telefonatat me Wi-Fi, nga Cilësimet.</item>
+    </string-array>
+    <string-array name="wfcOperatorErrorNotificationMessages">
+        <item>Regjistrohu me operatorin tënd celular</item>
+    </string-array>
+    <string-array name="wfcSpnFormats">
+        <item>%s</item>
+        <item>Telefonatat me Wi-Fi nga %s</item>
+    </string-array>
+    <array name="fingerprint_acquired_vendor" />
+    <array name="fingerprint_error_vendor" />
+    <string-array name="imAddressTypes">
+        <item>Shtëpi</item>
+        <item>Punë</item>
+        <item>Tjetër</item>
+        <item>Personalizo</item>
+    </string-array>
+</resources>

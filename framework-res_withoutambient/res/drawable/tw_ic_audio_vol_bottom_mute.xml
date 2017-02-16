@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bitmap android:src="@drawable/tw_ic_audio_ring_notif_mute_mtrl" android:tint="@color/tw_bottom_media_icon_color" android:autoMirrored="false"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

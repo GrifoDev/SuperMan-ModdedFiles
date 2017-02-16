@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="sem_resolver_divider_height">1.0px</dimen>
+    <dimen name="liveicon_font_size_day">12.0dip</dimen>
+    <dimen name="liveicon_font_size_date">40.0dip</dimen>
+    <dimen name="liveicon_height_margin1">10.0dip</dimen>
+    <dimen name="liveicon_height_day">13.0dip</dimen>
+    <dimen name="liveicon_height_margin2">2.0dip</dimen>
+    <dimen name="liveicon_height_date">32.0dip</dimen>
+</resources>

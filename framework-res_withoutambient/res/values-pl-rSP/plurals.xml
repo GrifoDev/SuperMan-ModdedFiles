@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="ssl_ca_cert_warning">
+        <item quantity="other">Możebne mōnitorowaniy necu</item>
+        <item quantity="one">Certificate authority installed</item>
+    </plurals>
+    <plurals name="last_num_days">
+        <item quantity="other">Ôstatnie %d dni</item>
+        <item quantity="one">Last %d day</item>
+    </plurals>
+    <plurals name="duration_seconds">
+        <item quantity="other">%d sek.</item>
+        <item quantity="one">1 sekunda</item>
+    </plurals>
+    <plurals name="duration_minutes">
+        <item quantity="other">%d min</item>
+        <item quantity="one">1 min</item>
+    </plurals>
+    <plurals name="duration_hours">
+        <item quantity="other">%d godz.</item>
+        <item quantity="one">1 godz.</item>
+    </plurals>
+    <plurals name="wifi_available">
+        <item quantity="other">Nece Wi-Fi dostympne</item>
+        <item quantity="one">Nec Wi-Fi dostympny</item>
+    </plurals>
+    <plurals name="wifi_available_detailed">
+        <item quantity="other">Pokŏż dostympne nece Wi-Fi</item>
+        <item quantity="one">Pokŏż dostympne nece Wi-Fi</item>
+    </plurals>
+    <plurals name="matches_found">
+        <item quantity="other">%1$d ze %2$d</item>
+        <item quantity="one">1 pasujōnce</item>
+    </plurals>
+    <plurals name="restr_pin_countdown">
+        <item quantity="other">Try again in %d seconds</item>
+        <item quantity="one">Sprōbuj zajś za 1 s.</item>
+    </plurals>
+    <plurals name="tw_clipboard_files">
+        <item quantity="other">Plikōw: %d</item>
+        <item quantity="one">Plikōw: 1</item>
+    </plurals>
+</resources>

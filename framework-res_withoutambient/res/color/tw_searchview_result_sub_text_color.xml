@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/tw_searchview_result_title_text_color_material" android:alpha="@dimen/tw_searchview_result_sub_text_alpha" />
+</selector>

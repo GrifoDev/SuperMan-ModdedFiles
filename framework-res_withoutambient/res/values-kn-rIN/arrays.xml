@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="emailAddressTypes">
+        <item>ಹೋಮ್</item>
+        <item>ಕೆಲಸ</item>
+        <item>ಇತರೆ</item>
+        <item>ಕಸ್ಟಮ್</item>
+    </string-array>
+    <string-array name="imProtocols">
+        <item>AIM</item>
+        <item>ವಿಂಡೋಸ್ ಲೈವ್</item>
+        <item>ಯಾಹೂ</item>
+        <item>ಸ್ಕೈಪ್</item>
+        <item>QQ</item>
+        <item>ಗೂಗಲ್ ಟಾಕ್</item>
+        <item>ICQ</item>
+        <item>ಜಾಬರ್</item>
+    </string-array>
+    <string-array name="organizationTypes">
+        <item>ಕೆಲಸ</item>
+        <item>ಇತರೆ</item>
+        <item>ಕಸ್ಟಮ್</item>
+    </string-array>
+    <string-array name="phoneTypes">
+        <item>ಹೋಮ್</item>
+        <item>ಮೊಬೈಲ್</item>
+        <item>ಕೆಲಸ</item>
+        <item>ವರ್ಕ್‌ ಫ್ಯಾಕ್ಸ್</item>
+        <item>ಹೋಮ್ ಫ್ಯಾಕ್ಸ್</item>
+        <item>ಪೇಜರ್</item>
+        <item>ಇತರೆ</item>
+        <item>ಕಸ್ಟಮ್</item>
+    </string-array>
+    <string-array name="postalAddressTypes">
+        <item>ಹೋಮ್</item>
+        <item>ಕೆಲಸ</item>
+        <item>ಇತರೆ</item>
+        <item>ಕಸ್ಟಮ್</item>
+    </string-array>
+    <string-array name="wfcOperatorErrorAlertMessages">
+        <item>Wi-Fi ಬಳಸಿಕೊಂಡು ಕರೆ ಮಾಡಲು ಮತ್ತು ಸಂದೇಶಗಳನ್ನು ಕಳುಹಿಸಲು, ಮೊದಲು ಈ ಸಾಧನವನ್ನು ಹೊಂದಿಸಲು ನಿಮ್ಮ ವಾಹಕವನ್ನು ಕೇಳಿ. ತದನಂತರ ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ ಮತ್ತೆ Wi-Fi ಆನ್‌ ಮಾಡಿ.</item>
+    </string-array>
+    <string-array name="wfcOperatorErrorNotificationMessages">
+        <item>ನಿಮ್ಮ ವಾಹಕದಲ್ಲಿ ನೋಂದಾಯಿಸಿಕೊಳ್ಳಿ</item>
+    </string-array>
+    <string-array name="wfcSpnFormats">
+        <item>%s</item>
+        <item>%s Wi-Fi ಕರೆ ಮಾಡುವಿಕೆ</item>
+    </string-array>
+    <array name="fingerprint_acquired_vendor" />
+    <array name="fingerprint_error_vendor" />
+    <string-array name="imAddressTypes">
+        <item>ಹೋಮ್</item>
+        <item>ಕೆಲಸ</item>
+        <item>ಇತರೆ</item>
+        <item>ಕಸ್ಟಮ್</item>
+    </string-array>
+</resources>

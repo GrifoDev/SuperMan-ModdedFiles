@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="top" android:id="@id/global_actions_item_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="@dimen/tw_global_actions_item_height_new"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minWidth="@dimen/preference_icon_minWidth">
+        <FrameLayout android:id="@id/global_actions_item_image_layout" android:focusable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dip" android:layout_marginBottom="0.0dip" android:foreground="@drawable/global_actions_icon_bg">
+            <ImageView android:layout_gravity="center" android:id="@id/icon" android:layout_width="@dimen/tw_global_actions_item_width" android:layout_height="@dimen/tw_global_actions_item_height" android:minWidth="56.0dip" />
+            <ImageView android:layout_gravity="center" android:id="@id/icon_confirm" android:visibility="gone" android:layout_width="@dimen/tw_global_actions_item_width" android:layout_height="@dimen/tw_global_actions_item_height" android:minWidth="56.0dip" />
+        </FrameLayout>
+        <TextView android:ellipsize="marquee" android:layout_gravity="center" android:id="@id/message" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:shadowColor="#c0000000" android:shadowDy="2.0" android:shadowRadius="5.0" android:importantForAccessibility="no" style="?android:attr/twGlobalActionsMessageStyle" />
+        <TextView android:ellipsize="marquee" android:gravity="center" android:id="@id/status" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:singleLine="true" android:shadowColor="#c0000000" android:shadowDy="2.0" android:shadowRadius="5.0" android:layout_below="@id/message" android:importantForAccessibility="no" android:layout_alignStart="@id/message" style="?android:attr/twGlobalActionsStatusStyle" />
+    </LinearLayout>
+</LinearLayout>

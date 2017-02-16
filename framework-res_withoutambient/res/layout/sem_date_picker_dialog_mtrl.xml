@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:layout_gravity="center_horizontal" android:paddingTop="@dimen/sem_datepicker_dialog_layout_padding_top_mtrl" android:paddingBottom="@dimen/sem_datepicker_dialog_layout_padding_bottom_mtrl" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minWidth="@dimen/sem_datepicker_dialog_layout_min_width" android:minHeight="@dimen/sem_datepicker_dialog_layout_min_height"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.samsung.android.widget.SemDatePicker android:gravity="center_horizontal" android:layout_gravity="center_horizontal" android:id="@id/sem_datePicker" android:layout_width="fill_parent" android:layout_height="wrap_content" android:spinnersShown="true" android:calendarViewShown="false" />
+</LinearLayout>

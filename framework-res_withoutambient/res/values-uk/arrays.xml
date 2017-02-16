@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="emailAddressTypes">
+        <item>Домаш.</item>
+        <item>Робота</item>
+        <item>Інша</item>
+        <item>Свій список</item>
+    </string-array>
+    <string-array name="imProtocols">
+        <item>AIM</item>
+        <item>Windows Live</item>
+        <item>Yahoo</item>
+        <item>Skype</item>
+        <item>QQ</item>
+        <item>Google Talk</item>
+        <item>ICQ</item>
+        <item>Jabber</item>
+    </string-array>
+    <string-array name="organizationTypes">
+        <item>Робота</item>
+        <item>Інша</item>
+        <item>Свій список</item>
+    </string-array>
+    <string-array name="phoneTypes">
+        <item>Домаш.</item>
+        <item>Мобільний</item>
+        <item>Робота</item>
+        <item>Робочий факс</item>
+        <item>Домашній факс</item>
+        <item>Пейджер</item>
+        <item>Інша</item>
+        <item>Свій список</item>
+    </string-array>
+    <string-array name="postalAddressTypes">
+        <item>Домаш.</item>
+        <item>Робота</item>
+        <item>Інша</item>
+        <item>Свій список</item>
+    </string-array>
+    <string-array name="wfcOperatorErrorAlertMessages">
+        <item>Щоб телефонувати або надсилати повідомлення через Wi-Fi, спочатку попросіть свого оператора налаштувати цю послугу. Після цього ввімкніть дзвінки через Wi-Fi у налаштуваннях.</item>
+    </string-array>
+    <string-array name="wfcOperatorErrorNotificationMessages">
+        <item>Зареєструйтеся в оператора</item>
+    </string-array>
+    <string-array name="wfcSpnFormats">
+        <item>%s</item>
+        <item>Дзвінок через Wi-Fi від оператора %s</item>
+    </string-array>
+    <array name="fingerprint_acquired_vendor" />
+    <array name="fingerprint_error_vendor" />
+    <string-array name="imAddressTypes">
+        <item>Домаш.</item>
+        <item>Робота</item>
+        <item>Інша</item>
+        <item>Свій список</item>
+    </string-array>
+</resources>

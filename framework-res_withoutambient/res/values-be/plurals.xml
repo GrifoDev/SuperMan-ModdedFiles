@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="ssl_ca_cert_warning">
+        <item quantity="other">Магчымае назіранне за сеткай</item>
+        <item quantity="one">Certificate authority installed</item>
+    </plurals>
+    <plurals name="last_num_days">
+        <item quantity="other">Апошнія %d дзён</item>
+        <item quantity="one">Last %d day</item>
+    </plurals>
+    <plurals name="duration_seconds">
+        <item quantity="other">%d секунд(ы)</item>
+        <item quantity="one">1 секунда</item>
+    </plurals>
+    <plurals name="duration_minutes">
+        <item quantity="other">%d хв.</item>
+        <item quantity="one">1 хвіліна</item>
+    </plurals>
+    <plurals name="duration_hours">
+        <item quantity="other">%d гадз.</item>
+        <item quantity="one">1 гадзіна</item>
+    </plurals>
+    <plurals name="wifi_available">
+        <item quantity="other">Даступны сеткі Wi-Fi</item>
+        <item quantity="one">Даступна сетка Wi-Fi</item>
+    </plurals>
+    <plurals name="wifi_available_detailed">
+        <item quantity="other">Адкрыць даступныя сеткі Wi-Fi</item>
+        <item quantity="one">Адкрыць даступныя сеткі Wi-Fi</item>
+    </plurals>
+    <plurals name="matches_found">
+        <item quantity="other">%1$d з %2$d</item>
+        <item quantity="one">1 супадзенне.</item>
+    </plurals>
+    <plurals name="restr_pin_countdown">
+        <item quantity="other">Try again in %d seconds</item>
+        <item quantity="one">Паспрабуйце яшчэ раз праз 1 секунду.</item>
+    </plurals>
+    <plurals name="tw_clipboard_files">
+        <item quantity="other">Файлаў: %d</item>
+        <item quantity="one">1 файл</item>
+    </plurals>
+</resources>

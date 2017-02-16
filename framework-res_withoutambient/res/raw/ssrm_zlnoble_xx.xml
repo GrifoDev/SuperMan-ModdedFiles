@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE siop_document [
+<!ELEMENT siop_document (levels , default_scenario , extra_scenario?)>
+<!ELEMENT levels (level)+>
+<!ELEMENT level EMPTY>
+<!ATTLIST level
+          id CDATA #REQUIRED
+          temp CDATA #REQUIRED>
+<!ELEMENT default_scenario (limiter)+>
+<!ELEMENT limiter (sts_item* , table_item*)>
+<!ATTLIST limiter
+          name CDATA #REQUIRED
+          type (STS|number|bool) #REQUIRED>
+<!ELEMENT sts_item EMPTY>
+<!ATTLIST sts_item
+          pre CDATA #IMPLIED
+          perc CDATA #IMPLIED
+          trigger CDATA #REQUIRED
+          release CDATA #REQUIRED
+          min CDATA #IMPLIED
+          max CDATA #IMPLIED
+          duration CDATA #IMPLIED>
+<!ELEMENT table_item EMPTY>
+<!ATTLIST table_item
+          temp CDATA #REQUIRED
+          value CDATA #REQUIRED
+          low_temp CDATA #IMPLIED>
+<!ELEMENT extra_scenario (scenario)+>
+<!ELEMENT scenario (trigger_statuses? , trigger_packages? , limiter*)>
+<!ATTLIST scenario name CDATA #REQUIRED>
+<!ATTLIST scenario priority CDATA #IMPLIED>
+<!ELEMENT trigger_statuses (status)+>
+<!ELEMENT status EMPTY>
+<!ATTLIST status name CDATA #REQUIRED>
+<!ELEMENT trigger_packages (package)+>
+<!ELEMENT package EMPTY>
+<!ATTLIST package name CDATA #REQUIRED>
+] >
+
+<siop_document>
+
+    <levels>
+        <level id="0" temp="470" />
+        <level id="1" temp="490" />
+        <level id="2" temp="510" />
+        <level id="3" temp="530" />
+        <level id="4" temp="550" />
+        <level id="5" temp="570" />
+        <level id="6" temp="600" />
+        <level id="7" temp="650" />
+        <level id="8" temp="700" />
+    </levels>
+
+    <default_scenario>
+        <limiter name="CPUFreqMax" type="STS">
+            <sts_item trigger="460" release="430" min="1200000" />
+        </limiter>
+        <limiter name="GPUFreqMax" type="STS">
+            <sts_item trigger="460" release="430" min="266" />
+        </limiter>
+        <limiter name="TempShift" type="number">
+            <table_item temp="470" value="0" />
+        </limiter>
+        <limiter name="PST" type="number">
+            <table_item temp="470" value="1" />
+        </limiter>
+        <limiter name="Charging" type="number">
+            <table_item temp="510" value="70" />
+            <table_item temp="530" value="50" />
+            <table_item temp="550" value="30" />
+            <table_item temp="570" value="0" />
+        </limiter>
+        <limiter name="ChargingEvent" type="number">
+            <table_item temp="470" value="0" />
+        </limiter>
+        <limiter name="LCDBrightness" type="number">
+            <table_item temp="490" value="-1" />
+            <table_item temp="530" value="224" />
+        </limiter>
+        <limiter name="DynamicFpsLevel" type="number">
+            <table_item temp="470" value="99" />
+        </limiter>
+        <limiter name="IPAControlTemp" type="number">
+            <table_item temp="470" value="65" />
+        </limiter>
+        <limiter name="IPAHotPlugOut" type="number">
+            <table_item temp="470" value="10" />
+        </limiter>
+        <limiter name="HmtLevel" type="number">
+            <table_item temp="470" value="0" />
+        </limiter>
+        <limiter name="Flash" type="bool">
+            <table_item temp="570" value="0" />
+        </limiter>
+        <limiter name="Recording" type="bool">
+            <table_item temp="650" value="0" />
+        </limiter>
+        <limiter name="SmartBonding" type="bool">
+            <table_item temp="530" value="0" />
+        </limiter>
+        <limiter name="CameraDisable" type="bool">
+            <table_item temp="700" value="0" />
+        </limiter>
+        <limiter name="CameraRecordingLowFps" type="bool">
+            <table_item temp="490" value="1" />
+        </limiter>
+        <limiter name="DexToOatAffinity" type="number">
+            <table_item temp="470" value="-1" />
+            <table_item temp="490" value="1234" />
+        </limiter>
+    </default_scenario>
+
+    <extra_scenario>
+
+        <scenario name="PreloadedApps">
+            <limiter name="CPUFreqMax" type="number">
+                <table_item temp="460" value="-1" />
+                <table_item temp="480" value="1800000" />
+                <table_item temp="500" value="1600000" />
+                <table_item temp="520" value="1400000" />
+                <table_item temp="540" value="1200000" />
+                <table_item temp="560" value="900000" />
+                <table_item temp="580" value="700000" />
+            </limiter>
+            <limiter name="GPUFreqMax" type="number">
+                <table_item temp="460" value="-1" />
+                <table_item temp="480" value="420" />
+                <table_item temp="500" value="350" />
+                <table_item temp="520" value="350" />
+                <table_item temp="540" value="266" />
+            </limiter>
+        </scenario>
+
+        <scenario name="HeavyUserScenario" priority="1">
+            <limiter name="CPUFreqMax" type="number">
+                <table_item temp="530" value="-1" />
+                <table_item temp="600" value="1500000" />
+                <table_item temp="650" value="1200000" />
+            </limiter>
+            <limiter name="GPUFreqMax" type="number">
+                <table_item temp="520" value="-1" />
+                <table_item temp="600" value="544" />
+                <table_item temp="650" value="420" />
+            </limiter>
+            <limiter name="TempShift" type="number">
+                <table_item temp="600" value="0" />
+                <table_item temp="650" value="40" />
+            </limiter>
+            <limiter name="LCDBrightness" type="number">
+                <table_item temp="470" value="-1" />
+                <table_item temp="570" value="224" />
+                <table_item temp="600" value="224" />
+                <table_item temp="650" value="165" />
+            </limiter>
+            <limiter name="IPAControlTemp" type="number">
+                <table_item temp="470" value="120" />
+            </limiter>
+        </scenario>
+
+        <scenario name="BrowserScenario">
+            <limiter name="CPUFreqMax" type="STS">
+                <sts_item pre="490" perc="70" trigger="510" release="460" min="1000000" />
+            </limiter>
+        </scenario>
+
+        <scenario name="ShoppingMall">
+            <trigger_packages>
+                <package name="com.taobao.taobao" />
+                <package name="com.tmall.wireless" />
+                <package name="com.suning.mobile.ebuy" />
+                <package name="com.tencent.mobileqq" />
+                <package name="com.UCMobile" />
+                <package name="com.tencent.mtt" />
+            </trigger_packages>
+
+            <limiter name="CPUFreqMax" type="STS">
+                <sts_item pre="450" perc="70" trigger="470" release="430" min="1000000" />
+            </limiter>
+            <limiter name="GPUFreqMax" type="STS">
+                <sts_item pre="450" perc="70" trigger="470" release="430" min="266" />
+            </limiter>
+        </scenario>
+
+        <scenario name="GameThermalCpuControl-4">
+            <limiter name="CPUFreqMax" type="STS">
+                <sts_item pre="400" perc="60" trigger="420" release="370" min="800000" />
+            </limiter>
+        </scenario>
+
+        <scenario name="GameThermalCpuControl-3">
+            <limiter name="CPUFreqMax" type="STS">
+                <sts_item pre="400" perc="60" trigger="420" release="370" min="900000" />
+            </limiter>
+        </scenario>
+
+        <scenario name="GameThermalCpuControl-2">
+            <limiter name="CPUFreqMax" type="STS">
+                <sts_item pre="400" perc="60" trigger="420" release="370" min="1000000" />
+            </limiter>
+        </scenario>
+
+        <scenario name="GameThermalCpuControl-1">
+            <limiter name="CPUFreqMax" type="STS">
+                <sts_item pre="400" perc="60" trigger="420" release="370" min="1100000" />
+            </limiter>
+        </scenario>
+
+        <scenario name="GameThermalCpuControl0">
+            <limiter name="CPUFreqMax" type="STS">
+                <sts_item pre="400" perc="60" trigger="420" release="370" min="1200000" />
+            </limiter>
+        </scenario>
+
+        <scenario name="GameThermalCpuControl1">
+            <limiter name="CPUFreqMax" type="STS">
+                <sts_item pre="400" perc="60" trigger="420" release="370" min="1300000" />
+            </limiter>
+        </scenario>
+
+        <scenario name="GameThermalCpuControl2">
+            <limiter name="CPUFreqMax" type="STS">
+                <sts_item pre="400" perc="60" trigger="420" release="370" min="1400000" />
+            </limiter>
+        </scenario>
+
+        <scenario name="GameThermalCpuControl3">
+            <limiter name="CPUFreqMax" type="STS">
+                <sts_item pre="400" perc="60" trigger="420" release="370" min="1500000" />
+            </limiter>
+        </scenario>
+
+        <scenario name="GameThermalCpuControl4">
+            <limiter name="CPUFreqMax" type="STS">
+                <sts_item pre="400" perc="60" trigger="420" release="370" min="1600000" />
+            </limiter>
+        </scenario>
+
+        <scenario name="GameThermalCpuControl5">
+            <limiter name="CPUFreqMax" type="STS">
+                <sts_item pre="400" perc="60" trigger="420" release="370" min="1704000" />
+            </limiter>
+        </scenario>
+
+        <scenario name="GameThermalGpuControl-1">
+            <limiter name="GPUFreqMax" type="STS">
+                <sts_item pre="400" perc="60" trigger="420" release="370" min="266" />
+            </limiter>
+        </scenario>
+
+        <scenario name="GameThermalGpuControl0">
+            <limiter name="GPUFreqMax" type="STS">
+                <sts_item pre="400" perc="60" trigger="420" release="370" min="266" />
+            </limiter>
+        </scenario>
+
+        <scenario name="GameThermalGpuControl1">
+            <limiter name="GPUFreqMax" type="STS">
+                <sts_item pre="400" perc="60" trigger="420" release="370" min="350" />
+            </limiter>
+        </scenario>
+
+        <scenario name="GameThermalGpuControl2">
+            <limiter name="GPUFreqMax" type="STS">
+                <sts_item pre="400" perc="60" trigger="420" release="370" min="420" />
+            </limiter>
+        </scenario>
+
+        <scenario name="ScreenOff" priority="1">
+            <limiter name="Charging" type="number">
+                <table_item temp="470" value="100" />
+            </limiter>
+        </scenario>
+
+        <scenario name="ScreenOffInCall" priority="1">
+            <limiter name="Charging" type="number">
+                <table_item temp="470" value="70" />
+            </limiter>
+        </scenario>
+
+        <scenario name="ScreenOnAppStarted">
+            <limiter name="Charging" type="number">
+                <table_item temp="470" value="30" />
+            </limiter>
+        </scenario>
+
+        <scenario name="WirelessChgEvent">
+            <limiter name="ChargingEvent" type="number">
+                <table_item temp="470" value="2" />
+            </limiter>
+        </scenario>
+
+        <scenario name="WirelessChgInCallEvent">
+            <limiter name="ChargingEvent" type="number">
+                <table_item temp="470" value="1" />
+            </limiter>
+        </scenario>
+
+        <scenario name="CameraRecording">
+            <trigger_statuses>
+                <status name="Camera_recording" />
+                <status name="Camera_recordingDual" />
+            </trigger_statuses>
+
+            <limiter name="CPUFreqMax" type="number">
+                <table_item temp="440" value="1600000" />
+                <table_item temp="500" value="1500000" />
+                <table_item temp="520" value="1300000" />
+                <table_item temp="540" value="1000000" />
+                <table_item temp="560" value="800000" />
+            </limiter>
+            <limiter name="IPAControlTemp" type="number">
+                <table_item temp="470" value="120" />
+            </limiter>
+        </scenario>
+
+        <scenario name="Camera">
+            <trigger_packages>
+                <package name="com.sec.android.app.camera" />
+            </trigger_packages>
+
+            <limiter name="CPUFreqMax" type="number">
+                <table_item temp="440" value="1600000" />
+                <table_item temp="500" value="1500000" />
+                <table_item temp="520" value="1300000" />
+                <table_item temp="540" value="1100000" />
+            </limiter>
+            <limiter name="IPAControlTemp" type="number">
+                <table_item temp="470" value="120" />
+            </limiter>
+        </scenario>
+
+        <scenario name="CameraShooting">
+            <trigger_statuses>
+                <status name="Camera_panoramaShot" />
+                <status name="Camera_dramaShot" />
+                <status name="Camera_burstShot" />
+            </trigger_statuses>
+
+            <limiter name="CPUFreqMax" type="number">
+                <table_item temp="440" value="-1" />
+                <table_item temp="480" value="1704000" />
+                <table_item temp="500" value="1000000" />
+                <table_item temp="560" value="800000" />
+            </limiter>
+            <limiter name="GPUFreqMax" type="number">
+                <table_item temp="440" value="-1" />
+                <table_item temp="500" value="420" />
+                <table_item temp="540" value="350" />
+                <table_item temp="560" value="266" />
+            </limiter>
+        </scenario>
+
+        <scenario name="RetailMode">
+            <trigger_packages>
+                <package name="com.customermobile.vzw.showcase" />
+                <package name="kr.co.rightbrain.RetailMode.Galaxy_Zero" />
+            </trigger_packages>
+
+            <limiter name="CPUFreqMax" type="number">
+                <table_item temp="350" value="-1" />
+                <table_item temp="370" value="900000" />
+            </limiter>
+            <limiter name="GPUFreqMax" type="number">
+                <table_item temp="350" value="-1" />
+                <table_item temp="370" value="266" />
+            </limiter>
+        </scenario>
+
+        <scenario name="MirroringBoost" priority="1">
+            <trigger_statuses>
+                <status name="ScreenMirroringBooster" />
+            </trigger_statuses>
+
+            <limiter name="CPUFreqMax" type="number">
+                <table_item temp="370" value="-1" />
+                <table_item temp="390" value="1200000" />
+                <table_item temp="430" value="1200000" />
+                <table_item temp="470" value="1000000" />
+            </limiter>
+            <limiter name="Charging" type="number">
+                <table_item temp="470" value="3" />
+            </limiter>
+        </scenario>
+
+        <scenario name="Navigation">
+            <trigger_packages>
+                <package name="com.google.android.apps.maps" />
+                <package name="com.skt.skaf.l001mtm091" />
+                <package name="kt.navi" />
+                <package name="com.mnsoft.lgunavi" />
+                <package name="com.locnall.KimGiSa" />
+                <package name="kr.mappers.AtlanSmart" />
+                <package name="com.mnsoft.mappyobn" />
+                <package name="com.thinkware.inaviair" />
+                <package name="com.thinkware.sundo.inavi3d" />
+                <package name="net.daum.android.map" />
+                <package name="com.nhn.android.nmap" />
+                <package name="com.autonavi.minimap" />
+                <package name="com.baidu.BaiduMap" />
+                <package name="com.sogou.map.android.maps" />
+                <package name="com.tencent.map" />
+            </trigger_packages>
+
+            <limiter name="CPUFreqMax" type="number">
+                <table_item temp="460" value="1300000" />
+                <table_item temp="480" value="1000000" />
+                <table_item temp="500" value="750000" />
+            </limiter>
+            <limiter name="GPUFreqMax" type="number">
+                <table_item temp="460" value="350" />
+                <table_item temp="480" value="266" />
+            </limiter>
+            <limiter name="Charging" type="number">
+                <table_item temp="460" value="50" />
+                <table_item temp="480" value="30" />
+                <table_item temp="500" value="0" />
+            </limiter>
+            <limiter name="DynamicFpsLevel" type="number">
+                <table_item temp="400" value="99" />
+                <table_item temp="520" value="33" />
+            </limiter>
+        </scenario>
+
+        <scenario name="HeadMountedTheater">
+            <limiter name="CPUFreqMax" type="number">
+                <table_item temp="450" value="-1" />
+                <table_item temp="675" value="600000" />
+                <table_item temp="680" value="500000" />
+            </limiter>
+            <limiter name="GPUFreqMax" type="number">
+                <table_item temp="450" value="-1" />
+                <table_item temp="675" value="266" />
+            </limiter>
+            <limiter name="IPAControlTemp" type="number">
+                <table_item temp="480" value="77" />
+            </limiter>
+            <limiter name="HmtLevel" type="number">
+                <table_item temp="450" value="0" />
+                <table_item temp="675" value="1" />
+                <table_item temp="680" value="2" />
+            </limiter>
+        </scenario>
+
+        <scenario name="HeadMountedTheater_2">
+            <limiter name="CPUFreqMax" type="number">
+                <table_item temp="450" value="-1" />
+                <table_item temp="665" value="600000" />
+                <table_item temp="680" value="500000" />
+            </limiter>
+            <limiter name="GPUFreqMax" type="number">
+                <table_item temp="450" value="-1" />
+                <table_item temp="665" value="266" />
+            </limiter>
+            <limiter name="IPAControlTemp" type="number">
+                <table_item temp="480" value="77" />
+            </limiter>
+            <limiter name="HmtLevel" type="number">
+                <table_item temp="450" value="0" />
+                <table_item temp="665" value="1" />
+                <table_item temp="680" value="2" />
+            </limiter>
+        </scenario>
+
+        <scenario name="NDrive">
+            <limiter name="CPUFreqMax" type="number">
+                <table_item temp="360" value="-1" />
+                <table_item temp="400" value="700000" />
+            </limiter>
+            <limiter name="IPAControlTemp" type="number">
+                <table_item temp="470" value="42" />
+            </limiter>
+            <limiter name="IPAHotPlugOut" type="number">
+                <table_item temp="470" value="2" />
+            </limiter>
+        </scenario>
+
+        <scenario name="SmartSwitch">
+            <limiter name="CPUFreqMax" type="number">
+                <table_item temp="360" value="-1" />
+                <table_item temp="400" value="600000" />
+            </limiter>
+            <limiter name="IPAControlTemp" type="number">
+                <table_item temp="470" value="42" />
+            </limiter>
+            <limiter name="IPAHotPlugOut" type="number">
+                <table_item temp="470" value="2" />
+            </limiter>
+        </scenario>
+
+        <scenario name="SmartSwitchTransfer" priority="1">
+            <limiter name="CPUFreqMax" type="number">
+                <table_item temp="330" value="-1" />
+                <table_item temp="370" value="600000" />
+            </limiter>
+        </scenario>
+
+        <scenario name="SmartSwitchOtg" priority="1">
+            <limiter name="CPUFreqMax" type="number">
+                <table_item temp="380" value="-1" />
+                <table_item temp="480" value="1700000" />
+                <table_item temp="500" value="1500000" />
+                <table_item temp="520" value="1200000" />
+                <table_item temp="540" value="900000" />
+            </limiter>
+        </scenario>
+
+        <scenario name="SmartSwitchOtgTransfer" priority="1">
+            <limiter name="CPUFreqMax" type="number">
+                <table_item temp="380" value="-1" />
+            </limiter>
+        </scenario>
+
+        <scenario name="TPBoost">
+            <trigger_packages>
+                <package name="com.FTATS" />
+                <package name="com.ftat" />
+            </trigger_packages>
+
+            <limiter name="CPUFreqMax" type="number">
+                <table_item temp="470" value="-1" />
+            </limiter>
+        </scenario>
+
+        <scenario name="LowTemp" priority="2">
+            <limiter name="PST" type="number">
+                <table_item temp="470" value="2" />
+            </limiter>
+            <limiter name="CPUFreqMax" type="number">
+                <table_item temp="0" value="750000" />
+                <table_item temp="10" value="-1" />
+            </limiter>
+            <limiter name="GPUFreqMax" type="number">
+                <table_item temp="0" value="266" />
+                <table_item temp="10" value="-1" />
+            </limiter>
+            <limiter name="LCDBrightness" type="number">
+                <table_item temp="0" value="200" />
+                <table_item temp="10" value="-1" />
+            </limiter>
+            <limiter name="Charging" type="number">
+                <table_item temp="0" value="100" />
+                <table_item temp="10" value="70" />
+            </limiter>
+        </scenario>
+
+        <scenario name="AppStart" priority="1">
+            <limiter name="CPUFreqMax" type="number">
+                <table_item temp="550" value="-1" />
+                <table_item temp="600" value="900000" />
+                <table_item temp="620" value="700000" />
+            </limiter>
+            <limiter name="GPUFreqMax" type="number">
+                <table_item temp="550" value="-1" />
+                <table_item temp="600" value="266" />
+            </limiter>
+            <limiter name="IPAControlTemp" type="number">
+                <table_item temp="470" value="120" />
+            </limiter>
+        </scenario>
+
+        <scenario name="AppStore">
+            <limiter name="DexToOatAffinity" type="number">
+                <table_item temp="470" value="-1" />
+            </limiter>
+        </scenario>
+
+        <scenario name="BoxOpenScenario" priority="1">
+            <limiter name="DexToOatAffinity" type="number">
+                <table_item temp="470" value="1234" />
+            </limiter>
+        </scenario>
+
+        <scenario name="Hangouts">
+            <trigger_packages>
+                <package name="com.google.android.talk" />
+                <package name="com.tencent.mm" />
+                <package name="com.tencent.mobileqq" />
+            </trigger_packages>
+
+            <limiter name="GPUFreqMax" type="number">
+                <table_item temp="460" value="266" />
+            </limiter>
+        </scenario>
+
+    </extra_scenario>
+
+</siop_document>

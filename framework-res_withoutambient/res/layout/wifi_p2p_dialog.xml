@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:id="@id/info" style="@style/wifi_section" />
+    <LinearLayout android:id="@id/enter_pin_section" android:visibility="gone" style="@style/wifi_section">
+        <LinearLayout android:gravity="start" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:layout_marginBottom="10.0dip" android:paddingStart="24.0dip" android:paddingEnd="24.0dip">
+            <TextView android:text="@string/wifi_p2p_enter_pin_message" style="@style/wifi_item_label" />
+            <EditText android:id="@id/wifi_p2p_wps_pin" android:singleLine="true" android:maxLength="8" android:inputType="numberPassword" android:layout_marginStart="-6.0dip" style="@style/wifi_item_content" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

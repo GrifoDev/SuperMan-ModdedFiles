@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="emailAddressTypes">
+        <item>หน้าหลัก</item>
+        <item>ที่​ทำ​งาน</item>
+        <item>อื่นๆ</item>
+        <item>กำหนด​เอง</item>
+    </string-array>
+    <string-array name="imProtocols">
+        <item>AIM</item>
+        <item>Windows ​Live</item>
+        <item>Yahoo</item>
+        <item>Skype</item>
+        <item>QQ</item>
+        <item>Google ​Talk</item>
+        <item>ICQ</item>
+        <item>Jabber</item>
+    </string-array>
+    <string-array name="organizationTypes">
+        <item>ที่​ทำ​งาน</item>
+        <item>อื่นๆ</item>
+        <item>กำหนด​เอง</item>
+    </string-array>
+    <string-array name="phoneTypes">
+        <item>หน้าหลัก</item>
+        <item>มือ​ถือ</item>
+        <item>ที่​ทำ​งาน</item>
+        <item>แฟกซ์ (​ธุรกิจ)</item>
+        <item>แฟกซ์ที่บ้าน</item>
+        <item>วิทยุ​ติดตาม​ตัว</item>
+        <item>อื่นๆ</item>
+        <item>กำหนด​เอง</item>
+    </string-array>
+    <string-array name="postalAddressTypes">
+        <item>หน้าหลัก</item>
+        <item>ที่​ทำ​งาน</item>
+        <item>อื่นๆ</item>
+        <item>กำหนด​เอง</item>
+    </string-array>
+    <string-array name="wfcOperatorErrorAlertMessages">
+        <item>หากต้องการโทรออกและส่งข้อความผ่าน Wi-Fi โปรดสอบถามผู้ให้บริการของคุณก่อนเพื่อตั้งค่าบริการนี้ แล้วเปิดการโทรผ่าน Wi-Fi อีกครั้งจากการตั้งค่า</item>
+    </string-array>
+    <string-array name="wfcOperatorErrorNotificationMessages">
+        <item>ลงทะเบียนกับผู้ให้บริการ</item>
+    </string-array>
+    <string-array name="wfcSpnFormats">
+        <item>%s</item>
+        <item>กำลังเรียก Wi-Fi ของ %s</item>
+    </string-array>
+    <array name="fingerprint_acquired_vendor" />
+    <array name="fingerprint_error_vendor" />
+    <string-array name="imAddressTypes">
+        <item>หน้าหลัก</item>
+        <item>ที่​ทำ​งาน</item>
+        <item>อื่นๆ</item>
+        <item>กำหนด​เอง</item>
+    </string-array>
+</resources>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="ssl_ca_cert_warning">
+        <item quantity="other">Monatóireacht fhéideartha ar an líonra</item>
+        <item quantity="one">Certificate authority installed</item>
+    </plurals>
+    <plurals name="last_num_days">
+        <item quantity="other">Le %d lá anuas</item>
+        <item quantity="one">Last %d day</item>
+    </plurals>
+    <plurals name="duration_seconds">
+        <item quantity="other">%d soicind</item>
+        <item quantity="one">1 soicind</item>
+    </plurals>
+    <plurals name="duration_minutes">
+        <item quantity="other">%d nóiméad</item>
+        <item quantity="one">1 nóiméad</item>
+    </plurals>
+    <plurals name="duration_hours">
+        <item quantity="other">%d uair an chloig</item>
+        <item quantity="one">1 uair an chloig</item>
+    </plurals>
+    <plurals name="wifi_available">
+        <item quantity="other">Líonraí Wi-Fi ar fáil</item>
+        <item quantity="one">Líonra Wi-Fi ar fáil</item>
+    </plurals>
+    <plurals name="wifi_available_detailed">
+        <item quantity="other">Oscail líonraí Wi-Fi atá ar fáil</item>
+        <item quantity="one">Oscail líonraí Wi-Fi atá ar fáil</item>
+    </plurals>
+    <plurals name="matches_found">
+        <item quantity="other">%1$d as %2$d</item>
+        <item quantity="one">1 mheaitseáil.</item>
+    </plurals>
+    <plurals name="restr_pin_countdown">
+        <item quantity="other">Try again in %d seconds</item>
+        <item quantity="one">Triail arís i gceann 1 soicind</item>
+    </plurals>
+    <plurals name="tw_clipboard_files">
+        <item quantity="other">%d comhad</item>
+        <item quantity="one">1 chomhad</item>
+    </plurals>
+</resources>

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView android:id="@id/title" android:background="@drawable/tw_section_divider_background_light" android:paddingTop="0.0dip" android:paddingBottom="0.0dip" android:layout_height="@dimen/tw_list_empty_subheader_minheight" android:importantForAccessibility="no" android:parentIsListSeparatorStyle="false" style="?android:attr/listSeparatorTextViewStyle"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

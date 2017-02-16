@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pointer-icon android:bitmap="@drawable/tw_pointer_spot_hovering_spen" android:hotSpotX="@dimen/tw_pointer_spot_hovering_spen_hotspot" android:hotSpotY="@dimen/tw_pointer_spot_hovering_spen_hotspot"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="resolver_max_width">480.0dip</dimen>
+    <dimen name="sem_tab_text_size">17.0dip</dimen>
+    <dimen name="sem_toast_text_size">15.0sp</dimen>
+    <dimen name="tw_pointer_pen_select_hovering_spen_pointer_dark_hotspot">15.0dip</dimen>
+    <dimen name="tw_pointer_scroll_hovering_spen_pointer_dark_hotspot">16.0dip</dimen>
+    <dimen name="tw_pointer_spot_hovering_spen_hotspot">7.5dip</dimen>
+    <dimen name="tw_pointer_spot_hovering_spen_cursor_dark_hotspot">16.0dip</dimen>
+    <dimen name="tw_pointer_spot_hovering_spen_hide_hotspot">0.5dip</dimen>
+    <dimen name="tw_pointer_spot_hovering_spen_more_hotspot">7.5dip</dimen>
+    <dimen name="tw_pointer_spot_hovering_spen_move_dark_hotspot">16.0dip</dimen>
+    <dimen name="tw_pointer_spot_hovering_spen_resize_dark_hotspot">16.0dip</dimen>
+    <dimen name="tw_pointer_spot_hovering_spen_split_dark_hotspot">16.0dip</dimen>
+</resources>

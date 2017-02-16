@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="ssl_ca_cert_warning">
+        <item quantity="other">সম্ভাৱ্য নেটৱৰ্ক মনিটৰিং</item>
+        <item quantity="one">Certificate authority installed</item>
+    </plurals>
+    <plurals name="last_num_days">
+        <item quantity="other">যোৱা %d দিন</item>
+        <item quantity="one">Last %d day</item>
+    </plurals>
+    <plurals name="duration_seconds">
+        <item quantity="other">%d চেকেণ্ড</item>
+        <item quantity="one">1 ছেকেণ্ড</item>
+    </plurals>
+    <plurals name="duration_minutes">
+        <item quantity="other">%d মিনিট</item>
+        <item quantity="one">1 মিনিট</item>
+    </plurals>
+    <plurals name="duration_hours">
+        <item quantity="other">%d ঘণ্টা</item>
+        <item quantity="one">1 ঘণ্টা</item>
+    </plurals>
+    <plurals name="wifi_available">
+        <item quantity="other">Wi-Fi নেটৱৰ্কসমূহ উপলব্ধ</item>
+        <item quantity="one">Wi-Fi নেটৱৰ্ক উপলব্ধ</item>
+    </plurals>
+    <plurals name="wifi_available_detailed">
+        <item quantity="other">উপলভ্য Wi-Fi নেটৱৰ্কসমূহ খোলক</item>
+        <item quantity="one">উপলভ্য Wi-Fi নেটৱৰ্কসমূহ খোলক</item>
+    </plurals>
+    <plurals name="matches_found">
+        <item quantity="other">%1$d ৰ %2$d</item>
+        <item quantity="one">1-টা মিল৷</item>
+    </plurals>
+    <plurals name="restr_pin_countdown">
+        <item quantity="other">Try again in %d seconds</item>
+        <item quantity="one">1 ছেকেণ্ডত পুনৰ চেষ্টা কৰক৷</item>
+    </plurals>
+    <plurals name="tw_clipboard_files">
+        <item quantity="other">%d ফাইলবোৰ</item>
+        <item quantity="one">1 টা ফাইল</item>
+    </plurals>
+</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:background="?activatedBackgroundIndicator" android:layout_width="fill_parent" android:layout_height="fill_parent" android:minHeight="@dimen/sem_resolver_pagemode_bottompanel_item_height" android:paddingStart="8.0dip" android:paddingEnd="8.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center_vertical" android:id="@id/icon" android:layout_width="@dimen/sem_resolver_pagemode_bottompanel_item_icon_size" android:layout_height="@dimen/sem_resolver_pagemode_bottompanel_item_icon_size" android:scaleType="fitCenter" android:layout_marginEnd="8.0dip" />
+    <TextView android:textAppearance="?textAppearanceSmall" android:textSize="@dimen/sem_resolver_pagemode_bottompanel_item_text_size" android:textColor="@color/sem_more_action_item_text_color" android:ellipsize="end" android:gravity="start|center" android:layout_gravity="center_vertical" android:id="@id/text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="3" android:minLines="3" android:fontFamily="sec-roboto-light" />
+</LinearLayout>

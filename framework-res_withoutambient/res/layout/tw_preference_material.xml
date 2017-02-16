@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:background="?activatedBackgroundIndicator" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?listPreferredItemHeightSmall" android:paddingStart="?listPreferredItemPaddingStart" android:paddingEnd="?listPreferredItemPaddingEnd"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="start|center" android:orientation="horizontal" android:id="@id/icon_frame" android:layout_width="wrap_content" android:layout_height="fill_parent">
+        <com.android.internal.widget.PreferenceImageView android:id="@id/icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="@dimen/tw_preference_item_icon_size" android:maxHeight="@dimen/tw_preference_item_icon_size" android:paddingEnd="16.0dip" />
+    </LinearLayout>
+    <RelativeLayout android:paddingTop="@dimen/tw_preference_item_padding_top" android:paddingBottom="@dimen/tw_preference_item_padding_bottom" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <TextView android:textAppearance="?textAppearanceListItem" android:ellipsize="marquee" android:id="@id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:paddingEnd="12.0dip" />
+        <TextView android:textAppearance="?textAppearanceListItemSecondary" android:id="@id/summary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="10" android:layout_below="@id/title" android:paddingEnd="12.0dip" android:layout_alignStart="@id/title" />
+    </RelativeLayout>
+    <LinearLayout android:gravity="end|center" android:orientation="vertical" android:id="@id/widget_frame" android:layout_width="wrap_content" android:layout_height="fill_parent" android:minWidth="32.0dip" />
+</LinearLayout>

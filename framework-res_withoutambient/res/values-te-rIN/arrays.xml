@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="emailAddressTypes">
+        <item>హోమ్</item>
+        <item>కార్యాలయం</item>
+        <item>ఇతర</item>
+        <item>అనుకూలం</item>
+    </string-array>
+    <string-array name="imProtocols">
+        <item>AIM</item>
+        <item>విండోస్ లైవ్</item>
+        <item>యాహూ</item>
+        <item>స్కైప్</item>
+        <item>QQ</item>
+        <item>గూగుల్ టాక్</item>
+        <item>ICQ</item>
+        <item>జాబర్</item>
+    </string-array>
+    <string-array name="organizationTypes">
+        <item>కార్యాలయం</item>
+        <item>ఇతర</item>
+        <item>అనుకూలం</item>
+    </string-array>
+    <string-array name="phoneTypes">
+        <item>హోమ్</item>
+        <item>మొబైల్</item>
+        <item>కార్యాలయం</item>
+        <item>కార్యాలయ ఫ్యాక్స్</item>
+        <item>హోమ్ ఫ్యాక్స్</item>
+        <item>పేజర్</item>
+        <item>ఇతర</item>
+        <item>అనుకూలం</item>
+    </string-array>
+    <string-array name="postalAddressTypes">
+        <item>హోమ్</item>
+        <item>కార్యాలయం</item>
+        <item>ఇతర</item>
+        <item>అనుకూలం</item>
+    </string-array>
+    <string-array name="wfcOperatorErrorAlertMessages">
+        <item>Wi-Fiలో కాల్‌లు చేయడం మరియు సందేశాలు పంపడం కోసం ముందుగా ఈ సేవను సెటప్ చేయడానికి మీ క్యారియర్‌ను అడగండి. ఆపై సెట్టింగ్‌ల నుండి మళ్లీ Wi-Fi కాలింగ్‌ను ఆన్ చేయండి.</item>
+    </string-array>
+    <string-array name="wfcOperatorErrorNotificationMessages">
+        <item>మీ క్యారియర్‌తో నమోదు చేయండి</item>
+    </string-array>
+    <string-array name="wfcSpnFormats">
+        <item>%s</item>
+        <item>%s Wi-Fi కాలింగ్</item>
+    </string-array>
+    <array name="fingerprint_acquired_vendor" />
+    <array name="fingerprint_error_vendor" />
+    <string-array name="imAddressTypes">
+        <item>హోమ్</item>
+        <item>కార్యాలయం</item>
+        <item>ఇతర</item>
+        <item>అనుకూలం</item>
+    </string-array>
+</resources>

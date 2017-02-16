@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="rectangle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="@dimen/control_corner_material" />
+    <solid android:color="@color/tw_dialog_button_show_background_color_material_light" />
+    <stroke android:width="1.0px" android:color="#4d000000" />
+</shape>

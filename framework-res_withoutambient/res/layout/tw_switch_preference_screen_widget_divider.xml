@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:background="@color/tw_preference_switch_divider_color_light" android:layout_width="@dimen/tw_list_divider_height" android:layout_height="29.0dip" />
+    <Switch android:id="@id/switch_widget" android:focusable="false" android:layout_width="wrap_content" android:layout_height="fill_parent" android:paddingStart="14.0dip" android:paddingEnd="?listPreferredItemPaddingEnd" />
+</LinearLayout>

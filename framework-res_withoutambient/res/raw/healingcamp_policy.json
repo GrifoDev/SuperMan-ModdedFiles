@@ -1,0 +1,105 @@
+{
+     "camp": {
+          "trigger": {
+               "DumpOn": true
+          }
+     },
+     "Watchdog": {
+          "trigger": {
+               "WatchdogEnable": true,
+               "DURATION_CHECK_IFPMIC_VALUE": 10,
+               "DURATION_CHECK_ROUTINE": 30,
+               "MINIMUM_USAGE_TIME": 10,
+               "IFPMIC_CURRENT_STANDARD": 500
+          }
+     },
+     "Gatherers": {
+          "trigger": {
+               "GatherersEnable": true
+          }
+     },
+     "Controllers": {
+          "type": "CPUUSAGE",
+          "trigger": {
+               "KILLING_TIME": 1200000,
+               "CPUabnormal_period": 20000,
+               "CPUabnormal_quota": 10000,
+               "CPUcached_period": 20000,
+               "CPUcached_quota": 10000
+          }
+     },
+     "wakelock": {
+          "type": "WAKELOCK",
+          "trigger": {
+               "featureEnable": true,
+               "CPU_USAGE_THRESHOLD_MIN": 1,
+               "CPU_USAGE_THRESHOLD_MAX": 10,
+               "INTERVAL_TIME": 300000,
+	           "WAKELOCK_MIN_TIME": 600000
+          },
+          "analyzer": {},
+          "action": "Release_WakeLock"
+     },
+     "cpuUsage": {
+          "type": "GathererCpuUsage",
+          "trigger": {
+               "featureEnable_ex": true,
+               "featureEnable_cch": true,
+               "cpuUsageThreshold": 5,
+               "cpuUsageTrackerDelay": 300000,
+               "CCHCpuUsagePeriod": 30000,
+               "CCHNetUsagePeriod": 10000,
+               "CCHCpuUsageThreshold": 5000,
+               "CCHNetUsageThreshold": 10000,
+               "CpuUsageSampleCnt": 12
+          },
+          "analyzer": {},
+          "action": "Notify"
+     },
+     "gps": {
+          "type": "Gps",
+          "trigger": {
+               "featureEnable": true
+          },
+          "gatherer": {
+               "interval": 15
+          },
+          "analyzer": {
+               "powerNumber": 60
+          },
+          "action": "Notify"
+     },
+     "top": {
+          "type": "Top",
+          "trigger": {
+               "featureEnable": true
+          },
+          "gatherer": {
+               "interval": 10,
+               "thresholdMargin": 0.8,
+               "abusiveCntForProcess": 6
+          },
+          "analyzer": {
+               "abusiveCntForThread": 6,
+               "maxBinderProcCnt": 5
+          },
+          "action": "Notify"
+     },
+     "ble": {
+          "type": "Ble",
+          "trigger": {
+               "featureEnable": true
+          },
+          "analyzer": {
+               "scanCount": 30
+          },
+          "action": "Notify"
+     },
+     "batterystats": {
+          "type": "batterystats",
+          "trigger": {
+               "featureEnable": true
+          },          
+          "action": "Notify"
+     }
+}

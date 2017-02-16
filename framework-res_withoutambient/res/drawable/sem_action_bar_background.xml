@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/sem_app_bar_bg_color" />
+        </shape>
+    </item>
+    <item android:gravity="bottom" android:height="@dimen/sem_action_bar_divider_height" android:drawable="@drawable/sem_action_bar_divider" />
+</layer-list>

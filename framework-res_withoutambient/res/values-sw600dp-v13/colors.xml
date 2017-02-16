@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="lockscreen_clock_background">#ffffffff</color>
+    <color name="lockscreen_clock_foreground">#ffffffff</color>
+    <color name="lockscreen_clock_am_pm">#ffffffff</color>
+    <color name="lockscreen_owner_info">#ff9a9a9a</color>
+    <color name="sem_tab_unselected_color">#b2ffffff</color>
+    <color name="tw_preference_fragment_bread_crumb_press_material">#5200a5c4</color>
+    <color name="tw_preference_contents_bg_mtrl">#fff5f5f5</color>
+    <color name="tw_list_select_material">#6699dbe7</color>
+</resources>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="pinpuk_attempts">
+        <item quantity="other">%d saiakera geratzen zaizkizu SIM txartela blokeatu aurretik.</item>
+        <item quantity="one">%d saiakera geratzen zaizu SIM txartela blokeatu aurretik.</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_warning">
+        <item quantity="other">Balizko sare segimendua</item>
+        <item quantity="one">Ziurtagiri-emaile bat dago instalatuta</item>
+    </plurals>
+    <plurals name="bugreport_countdown">
+        <item quantity="other">Akatsen txostenaren argazkia aterako da %d segundo barru.</item>
+        <item quantity="one">Akatsen txostenaren argazkia aterako da %d segundo barru.</item>
+    </plurals>
+    <plurals name="last_num_days">
+        <item quantity="other">Azken %d egunak</item>
+        <item quantity="one">Azken %d egunean</item>
+    </plurals>
+    <plurals name="duration_seconds">
+        <item quantity="other">%d segundo</item>
+        <item quantity="one">Segundo 1</item>
+    </plurals>
+    <plurals name="duration_minutes">
+        <item quantity="other">%d minutu</item>
+        <item quantity="one">minutu 1</item>
+    </plurals>
+    <plurals name="duration_hours">
+        <item quantity="other">%d ordu</item>
+        <item quantity="one">Ordu 1</item>
+    </plurals>
+    <plurals name="duration_minutes_shortest">
+        <item quantity="other">%d min</item>
+        <item quantity="one">%d min</item>
+    </plurals>
+    <plurals name="duration_hours_shortest">
+        <item quantity="other">%d h</item>
+        <item quantity="one">%d h</item>
+    </plurals>
+    <plurals name="duration_days_shortest">
+        <item quantity="other">%d egun</item>
+        <item quantity="one">%d egun</item>
+    </plurals>
+    <plurals name="duration_years_shortest">
+        <item quantity="other">%d urte</item>
+        <item quantity="one">%d urte</item>
+    </plurals>
+    <plurals name="duration_minutes_shortest_future">
+        <item quantity="other">%d min barru</item>
+        <item quantity="one">%d min barru</item>
+    </plurals>
+    <plurals name="duration_hours_shortest_future">
+        <item quantity="other">%dh barru</item>
+        <item quantity="one">%dh barru</item>
+    </plurals>
+    <plurals name="duration_days_shortest_future">
+        <item quantity="other">%d egun barru</item>
+        <item quantity="one">%d egun barru</item>
+    </plurals>
+    <plurals name="duration_years_shortest_future">
+        <item quantity="other">%d urte barru</item>
+        <item quantity="one">%d urte barru</item>
+    </plurals>
+    <plurals name="wifi_available">
+        <item quantity="other">Wi-Fi sareak erabilgarri</item>
+        <item quantity="one">Wi-Fi sarea erabilgarri</item>
+    </plurals>
+    <plurals name="wifi_available_detailed">
+        <item quantity="other">Ireki Wi-Fi sare erabilgarriak</item>
+        <item quantity="one">Ireki Wi-Fi sare erabilgarriak</item>
+    </plurals>
+    <plurals name="matches_found">
+        <item quantity="other">%1$d %2$d-etik</item>
+        <item quantity="one">Bat etortze 1</item>
+    </plurals>
+    <plurals name="restr_pin_countdown">
+        <item quantity="other">Saiatu berriro %d segundo igarotakoan</item>
+        <item quantity="one">Saiatu berriz segundo 1 barru</item>
+    </plurals>
+    <plurals name="zen_mode_duration_minutes_summary">
+        <item quantity="other">%1$d minutuz (%2$s arte)</item>
+        <item quantity="one">Minutu batez (%2$s arte)</item>
+    </plurals>
+    <plurals name="zen_mode_duration_minutes_summary_short">
+        <item quantity="other">%1$d minutuz (%2$s arte)</item>
+        <item quantity="one">Minutu batez (%2$s arte)</item>
+    </plurals>
+    <plurals name="zen_mode_duration_hours_summary">
+        <item quantity="other">%1$d orduz (%2$s arte)</item>
+        <item quantity="one">Ordubetez (%2$s arte)</item>
+    </plurals>
+    <plurals name="zen_mode_duration_hours_summary_short">
+        <item quantity="other">%1$d orduz (%2$s arte)</item>
+        <item quantity="one">Ordubetez (%2$s arte)</item>
+    </plurals>
+    <plurals name="zen_mode_duration_minutes">
+        <item quantity="other">%d minutuz</item>
+        <item quantity="one">Minutu batez</item>
+    </plurals>
+    <plurals name="zen_mode_duration_minutes_short">
+        <item quantity="other">%d minutuz</item>
+        <item quantity="one">Minutu batez</item>
+    </plurals>
+    <plurals name="zen_mode_duration_hours">
+        <item quantity="other">%d orduz</item>
+        <item quantity="one">Ordubetez</item>
+    </plurals>
+    <plurals name="zen_mode_duration_hours_short">
+        <item quantity="other">%d orduz</item>
+        <item quantity="one">Ordubetez</item>
+    </plurals>
+    <plurals name="selected_count">
+        <item quantity="other">%1$d hautatuta</item>
+        <item quantity="one">%1$d hautatuta</item>
+    </plurals>
+    <plurals name="tw_clipboard_files">
+        <item quantity="other">%d fitxategi</item>
+        <item quantity="one">Fitxategi 1</item>
+    </plurals>
+</resources>

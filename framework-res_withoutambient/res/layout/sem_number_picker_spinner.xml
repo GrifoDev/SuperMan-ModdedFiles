@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <view android:textSize="@dimen/sem_timepicker_spinner_default_text_size" android:textColor="?colorPrimaryDark" android:gravity="center" android:id="@id/numberpicker_input" android:background="@null" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="@dimen/sem_numberpicker_spinner_default_edittext_height" android:singleLine="true" android:selectAllOnFocus="true" class="com.samsung.android.widget.SemNumberPicker$CustomEditText" />
+</merge>

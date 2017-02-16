@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/sem_resolver_bg_color" android:paddingBottom="@dimen/sem_resolver_buttonbar_padding_bottom" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/sem_resolver_buttonbar_padding_start" android:paddingEnd="@dimen/sem_resolver_buttonbar_padding_end" android:elevation="@dimen/sem_resolver_elevation" android:layout_alwaysShow="true" android:layout_ignoreOffset="true" style="?android:attr/buttonBarStyle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:background="#ffcecece" android:layout_width="fill_parent" android:layout_height="@dimen/sem_resolver_divider_height" />
+    <LinearLayout android:gravity="end" android:orientation="horizontal" android:paddingTop="@dimen/sem_resolver_buttonbar_padding_top" android:layout_width="fill_parent" android:layout_height="wrap_content" android:measureWithLargestChild="true" android:layoutDirection="locale">
+        <Button android:enabled="false" android:layout_gravity="start|center" android:id="@id/button_once" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/activity_resolver_use_once" android:maxLines="2" android:onClick="onButtonClick" style="?android:attr/buttonBarPositiveButtonStyle" />
+        <Button android:enabled="false" android:layout_gravity="end|center" android:id="@id/button_always" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/activity_resolver_use_always" android:maxLines="2" android:onClick="onButtonClick" style="?android:attr/buttonBarPositiveButtonStyle" />
+    </LinearLayout>
+</LinearLayout>

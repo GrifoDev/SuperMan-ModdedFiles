@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<bufferCount><!--        Use following format to enable DBQ for any App        name : Name of the App , count : Buffer Count , activity : flag to enable for App's activity, surfaceView : flag to enable for App's surfaceView.
+        <Control name="com.android.mms" count="2" activity="true" surfaceView="false"/>-->
+</bufferCount>

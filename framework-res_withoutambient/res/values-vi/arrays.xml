@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="emailAddressTypes">
+        <item>Nhà</item>
+        <item>Cơ quan</item>
+        <item>Khác</item>
+        <item>Tùy chọn</item>
+    </string-array>
+    <string-array name="imProtocols">
+        <item>AIM</item>
+        <item>Windows Live</item>
+        <item>Yahoo</item>
+        <item>Skype</item>
+        <item>QQ</item>
+        <item>Google Talk</item>
+        <item>ICQ</item>
+        <item>Jabber</item>
+    </string-array>
+    <string-array name="organizationTypes">
+        <item>Cơ quan</item>
+        <item>Khác</item>
+        <item>Tùy chọn</item>
+    </string-array>
+    <string-array name="phoneTypes">
+        <item>Nhà</item>
+        <item>Di động</item>
+        <item>Cơ quan</item>
+        <item>Fax cơ quan</item>
+        <item>Fax tại nhà</item>
+        <item>Máy nhắn tin</item>
+        <item>Khác</item>
+        <item>Tùy chọn</item>
+    </string-array>
+    <string-array name="postalAddressTypes">
+        <item>Nhà</item>
+        <item>Cơ quan</item>
+        <item>Khác</item>
+        <item>Tùy chọn</item>
+    </string-array>
+    <string-array name="wfcOperatorErrorAlertMessages">
+        <item>Để gọi điện và gửi tin nhắn qua Wi-Fi, trước tiên hãy yêu cầu nhà cung cấp dịch vụ của bạn thiết lập dịch vụ này. Sau đó, bật lại gọi qua Wi-Fi từ Cài đặt.</item>
+    </string-array>
+    <string-array name="wfcOperatorErrorNotificationMessages">
+        <item>Đăng ký với nhà cung cấp dịch vụ của bạn</item>
+    </string-array>
+    <string-array name="wfcSpnFormats">
+        <item>%s</item>
+        <item>Gọi điện qua Wi-Fi %s</item>
+    </string-array>
+    <array name="fingerprint_acquired_vendor" />
+    <array name="fingerprint_error_vendor" />
+    <string-array name="imAddressTypes">
+        <item>Nhà</item>
+        <item>Cơ quan</item>
+        <item>Khác</item>
+        <item>Tùy chọn</item>
+    </string-array>
+</resources>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="ssl_ca_cert_warning">
+        <item quantity="other">Tor gözegçiligi mümkin</item>
+        <item quantity="one">Certificate authority installed</item>
+    </plurals>
+    <plurals name="last_num_days">
+        <item quantity="other">Soňky %d gün</item>
+        <item quantity="one">Last %d day</item>
+    </plurals>
+    <plurals name="duration_seconds">
+        <item quantity="other">%d sekunt</item>
+        <item quantity="one">1 sekunt</item>
+    </plurals>
+    <plurals name="duration_minutes">
+        <item quantity="other">%d minut</item>
+        <item quantity="one">1 minut</item>
+    </plurals>
+    <plurals name="duration_hours">
+        <item quantity="other">%d sagat</item>
+        <item quantity="one">1 sagat</item>
+    </plurals>
+    <plurals name="wifi_available">
+        <item quantity="other">Wi-Fi torlary elýeterli</item>
+        <item quantity="one">Wi-Fi tory elýeterli</item>
+    </plurals>
+    <plurals name="wifi_available_detailed">
+        <item quantity="other">Elýeter bolan Wi-Fi ulgamlaryny aç</item>
+        <item quantity="one">Elýeter bolan Wi-Fi ulgamlaryny aç</item>
+    </plurals>
+    <plurals name="matches_found">
+        <item quantity="other">%1$d-dan %2$d</item>
+        <item quantity="one">1 meňzeşlik</item>
+    </plurals>
+    <plurals name="restr_pin_countdown">
+        <item quantity="other">Try again in %d seconds</item>
+        <item quantity="one">Ýene 1 sekuntdan synanyş.</item>
+    </plurals>
+    <plurals name="tw_clipboard_files">
+        <item quantity="other">%d faýllar</item>
+        <item quantity="one">1 faýl</item>
+    </plurals>
+</resources>

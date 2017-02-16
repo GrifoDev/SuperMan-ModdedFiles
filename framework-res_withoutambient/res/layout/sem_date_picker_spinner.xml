@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_gravity="center_horizontal" android:orientation="horizontal" android:id="@id/sem_datepicker_spinner_layout" android:background="@drawable/sem_timepicker_background" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="5.0" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/sem_datepicker_pickers" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="90.0">
+        <com.samsung.android.widget.SemNumberPicker android:id="@id/sem_datepicker_spinner_day" android:focusable="true" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="25.0" />
+        <View android:id="@id/sem_datepicker_primary_empty" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="7.5" />
+        <com.samsung.android.widget.SemNumberPicker android:id="@id/sem_datepicker_spinner_month" android:focusable="true" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="25.0" />
+        <View android:id="@id/sem_datepicker_secondary_empty" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="7.5" />
+        <com.samsung.android.widget.SemNumberPicker android:gravity="center_vertical" android:layout_gravity="center" android:id="@id/sem_datepicker_spinner_year" android:focusable="true" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="25.0" />
+    </LinearLayout>
+    <View android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="5.0" />
+</LinearLayout>

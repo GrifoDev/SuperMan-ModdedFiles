@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="rectangle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="@dimen/sem_colorpicker_current_color_view_bakcground_radius" />
+    <stroke android:width="@dimen/sem_colorpicker_current_color_view_bakcground_stroke_size" android:color="@color/sem_colorpicker_current_new_layout_background_stroke_color" />
+    <solid android:color="@color/sem_colorpicker_current_new_layout_background_color" />
+</shape>

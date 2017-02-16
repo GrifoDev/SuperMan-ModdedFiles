@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="emailAddressTypes">
+        <item>ହୋମ୍</item>
+        <item>କାର୍ଯ୍ୟ</item>
+        <item>ଅନ୍ୟ</item>
+        <item>କଷ୍ଟମ୍</item>
+    </string-array>
+    <string-array name="imProtocols">
+        <item>AIM</item>
+        <item>ୱିଣ୍ଡୋସ୍ ଲାଇଭ୍</item>
+        <item>ୟାହୁ</item>
+        <item>ସ୍କାଇପ୍</item>
+        <item>QQ</item>
+        <item>ଗୁଗୁଲ୍ ଟକ୍</item>
+        <item>ICQ</item>
+        <item>ଜାବର୍</item>
+    </string-array>
+    <string-array name="organizationTypes">
+        <item>କାର୍ଯ୍ୟ</item>
+        <item>ଅନ୍ୟ</item>
+        <item>କଷ୍ଟମ୍</item>
+    </string-array>
+    <string-array name="phoneTypes">
+        <item>ହୋମ୍</item>
+        <item>ମୋବାଇଲ୍</item>
+        <item>କାର୍ଯ୍ୟ</item>
+        <item>କାର୍ଯ୍ୟ ଫ୍ୟାକ୍ସ</item>
+        <item>ଘର ଫ୍ୟାକ୍ସ</item>
+        <item>ପେଜର୍</item>
+        <item>ଅନ୍ୟ</item>
+        <item>କଷ୍ଟମ୍</item>
+    </string-array>
+    <string-array name="postalAddressTypes">
+        <item>ହୋମ୍</item>
+        <item>କାର୍ଯ୍ୟ</item>
+        <item>ଅନ୍ୟ</item>
+        <item>କଷ୍ଟମ୍</item>
+    </string-array>
+    <string-array name="imAddressTypes">
+        <item>ହୋମ୍</item>
+        <item>କାର୍ଯ୍ୟ</item>
+        <item>ଅନ୍ୟ</item>
+        <item>କଷ୍ଟମ୍</item>
+    </string-array>
+</resources>

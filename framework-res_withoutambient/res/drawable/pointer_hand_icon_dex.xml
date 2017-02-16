@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pointer-icon android:bitmap="@drawable/pointer_hand_dex" android:hotSpotX="@dimen/pointer_dex_hotspot" android:hotSpotY="@dimen/pointer_dex_hotspot"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dialog_fixed_width_major">320.0dip</dimen>
+    <dimen name="dialog_fixed_width_minor">320.0dip</dimen>
+    <dimen name="knox_app_icon_width">48.0dip</dimen>
+    <dimen name="knox_app_icon_height">48.0dip</dimen>
+</resources>

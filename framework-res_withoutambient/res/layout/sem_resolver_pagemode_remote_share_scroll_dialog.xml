@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.internal.widget.ResolverDrawerLayout android:id="@id/contentPanel" android:layout_width="fill_parent" android:layout_height="fill_parent" android:maxWidth="@dimen/resolver_max_width" android:maxCollapsedHeight="800.0dip" android:maxCollapsedHeightSmall="800.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/visibleArea" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <include android:id="@id/titlePanel_default" android:layout_alwaysShow="true" layout="@layout/sem_resolver_title_panel_default" />
+        <include android:id="@id/titlePanel_afw" android:layout_alwaysShow="true" layout="@layout/sem_resolver_title_panel_afw" />
+        <LinearLayout android:gravity="start|center" android:orientation="vertical" android:id="@id/topPanel" android:background="@color/sem_resolver_bg_color" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layoutDirection="locale" android:elevation="@dimen/sem_resolver_elevation" android:layout_alwaysShow="true" android:layout_ignoreOffset="true">
+            <SemHorizontalListView android:scrollbarStyle="outsideOverlay" android:layout_gravity="left" android:id="@id/sem_resolver_remote_share_recent_history_grid" android:background="@color/sem_resolver_bg_color" android:clipToPadding="false" android:layout_width="wrap_content" android:layout_height="@dimen/sem_resolver_pagemode_toppanel_height" android:columnWidth="@dimen/sem_remote_share_column_width" android:numColumns="10" android:divider="#00000000" />
+            <View android:background="#1a000000" android:layout_width="fill_parent" android:layout_height="@dimen/sem_resolver_divider_height" />
+        </LinearLayout>
+        <com.android.internal.widget.ViewPager android:id="@id/resolver_page" android:background="@color/sem_resolver_bg_color" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/sem_resolver_pagemode_page_height" android:elevation="@dimen/sem_resolver_elevation" android:layout_alwaysShow="true" android:layout_ignoreOffset="true" />
+        <ListView android:scrollbarStyle="outsideOverlay" android:id="@id/resolver_list" android:background="@color/white" android:visibility="gone" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:listSelector="@color/transparent" android:divider="@null" android:nestedScrollingEnabled="true" android:elevation="@dimen/sem_resolver_elevation" android:scrollIndicators="top" />
+        <include android:id="@id/sem_resolver_page_navi" android:layout_below="@id/resolver_page" layout="@layout/sem_resolver_page_navi" />
+        <include android:id="@id/sem_resolver_page_bottom_spacing" android:layout_below="@id/resolver_page" layout="@layout/sem_resolver_page_bottom_spacing" />
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/bottomPanel" android:background="#fff0f0f0" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layoutDirection="locale" android:elevation="@dimen/sem_resolver_elevation" android:layout_alwaysShow="true" android:layout_ignoreOffset="true">
+            <View android:background="#1a000000" android:layout_width="fill_parent" android:layout_height="@dimen/sem_resolver_divider_height" />
+            <GridView android:gravity="center" android:layout_gravity="center" android:id="@id/more_actions_list_no_profile" android:visibility="gone" android:scrollbars="none" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:horizontalSpacing="@dimen/sem_resolver_pagemode_bottompanel_spacing" android:stretchMode="columnWidth" android:numColumns="@integer/sem_resolver_pagemode_bottompanel_column_num" />
+        </LinearLayout>
+    </LinearLayout>
+</com.android.internal.widget.ResolverDrawerLayout>

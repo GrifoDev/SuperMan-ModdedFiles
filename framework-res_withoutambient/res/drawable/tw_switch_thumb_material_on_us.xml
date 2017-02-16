@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bitmap android:gravity="center" android:src="@drawable/tw_btn_switch_delta_mtrl" android:tint="@color/tw_switch_on_mtrl" android:tintMode="multiply"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

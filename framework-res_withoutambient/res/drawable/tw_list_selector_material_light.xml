@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_hovered="true" android:state_finger_hovered="true">
+        <nine-patch android:src="@drawable/tw_list_hover_holo_light" />
+    </item>
+    <item>
+        <ripple android:color="@color/tw_list_ripple_material_light">
+            <item android:id="@id/mask">
+                <color android:color="@color/white" />
+            </item>
+        </ripple>
+    </item>
+</selector>

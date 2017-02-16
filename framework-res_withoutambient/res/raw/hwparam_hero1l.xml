@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hwparm_document [
+<!ELEMENT hwparm_document (hwparm_info, hqm_setting)+>
+<!ELEMENT hwparm_info (sysfs_node* , dev_sysfs_node*, enc_sysfs_node*)>
+<!ATTLIST hqm_setting
+          enable CDATA #REQUIRED
+	  usingDVServer CDATA #REQUIRED
+	  usingCFServer CDATA #REQUIRED
+ResultLogging CDATA #REQUIRED>
+<!ATTLIST hqm_setting
+          compID CDATA #REQUIRED
+	  compVer CDATA #REQUIRED
+	  compManufacture CDATA #REQUIRED
+	  hitType CDATA #REQUIRED
+          feature CDATA #REQUIRED>
+<!ELEMENT sysfs_node EMPTY>
+<!ATTLIST sysfs_node
+	  type CDATA #REQUIRED
+          key CDATA #REQUIRED
+          value CDATA #REQUIRED>
+<!ELEMENT dev_sysfs_node EMPTY>
+<!ATTLIST dev_sysfs_node
+	  type CDATA #REQUIRED
+          key CDATA #REQUIRED
+          value CDATA #REQUIRED>          
+<!ELEMENT enc_sysfs_node EMPTY>
+<!ATTLIST enc_sysfs_node
+          type CDATA #REQUIRED
+          key CDATA #REQUIRED
+          value CDATA #REQUIRED>   
+] >
+
+<hwparm_document>
+
+    <hwparm_setting enable="false" usingDVServer="false" usingCFServer="false" ResultLogging="true" >        
+    </hwparm_setting>
+
+    <!-- Device : PWR -->
+    <hwparm_info compID="PWR" feature="PPWR" hitType="sm" compVer="0.0" compManufacture="LSI" >
+        <sysfs_node type="S" key="SMPL_WNCN" value="/sys/module/sec_core/parameters/smpl_warn_count" />
+    </hwparm_info>
+    
+    <!-- Device : CAMERA -->
+    <hwparm_info compID="CAMERA" feature="CAMI" hitType="sm" compVer="0.0" compManufacture="" >
+        <sysfs_node type="S" key="CAMFWR" value="/sys/class/camera/rear/rear_camfw" />
+        <sysfs_node type="S" key="CAMFWF" value="/sys/class/camera/front/front_camfw" />
+
+    <!-- Device : BSP -->
+    <hwparm_info compID="BSP" feature="SYSC" hitType="sm" compVer="0.0" compManufacture="" >
+        <sysfs_node type="M" key="AP_INFO" value="/sys/class/sec/sec_hw_param/ap_info" />
+        <sysfs_node type="M" key="AP_INFO" value="/data/system/users/service/data/RC.p" />
+    </hwparm_info>
+
+    <hwparm_info compID="BSP" feature="DDRV" hitType="sm" compVer="0.0" compManufacture="" >
+        <sysfs_node type="M" key="DDR_INFO" value="/sys/class/sec/sec_hw_param/ddr_info" />
+    </hwparm_info>
+
+    <!-- Device : TSP -->
+    <hwparm_info compID="TSP" feature="TTSP" hitType="sm" compVer="0.0" compManufacture="" >
+        <sysfs_node type="S" key="TITO" value="/sys/class/sec/tsp/ito_check" />
+        <sysfs_node type="S" key="TMUL" value="/sys/class/sec/tsp/multi_count" />
+        <sysfs_node type="S" key="TWET" value="/sys/class/sec/tsp/wet_mode" />
+        <sysfs_node type="S" key="TCOM" value="/sys/class/sec/tsp/comm_err_count" />
+        <sysfs_node type="S" key="TMOD" value="/sys/class/sec/tsp/module_id" />
+        <dev_sysfs_node type="S" key="TRAW" value="/sys/class/sec/tsp/raw_check" />
+    </hwparm_info>
+
+    <!-- Device : Biometrics FingerPrint Sensor -->
+    <hwparm_info compID="BFS" feature="BFPS" hitType="sm" compVer="0.0" compManufacture="" >
+	    <sysfs_node type="S" key="FPTY" value="/sys/class/fingerprint/fingerprint/type_check" />
+    </hwparm_info>
+
+    <!-- Device : DISPLAY -->
+    <hwparm_info compID="DISPLAY" feature="DPUI" hitType="sm" compVer="0.0" compManufacture="" >
+        <sysfs_node type="M" key="" value="/sys/class/lcd/panel/dpui" />
+        <dev_sysfs_node type="M" key="" value="/sys/class/lcd/panel/dpui_dbg" />
+    </hwparm_info>
+
+</hwparm_document>

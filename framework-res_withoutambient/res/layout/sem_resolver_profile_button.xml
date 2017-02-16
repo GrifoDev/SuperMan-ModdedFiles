@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:paddingTop="4.0dip" android:paddingBottom="4.0dip" android:focusable="true" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="48.0dip" android:layout_marginTop="4.0dip" android:paddingStart="8.0dip" android:paddingEnd="8.0dip" android:layout_marginEnd="4.0dip" style="?attr/borderlessButtonStyle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="start|center" android:id="@id/icon" android:layout_width="24.0dip" android:layout_height="24.0dip" android:layout_marginTop="12.0dip" android:layout_marginBottom="12.0dip" android:scaleType="fitCenter" android:layout_marginStart="4.0dip" android:layout_marginEnd="16.0dip" />
+    <TextView android:textAppearance="?textAppearanceButton" android:textColor="?textColorPrimary" android:ellipsize="marquee" android:layout_gravity="start|center" android:id="@id/text1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:minLines="1" android:layout_marginEnd="16.0dip" />
+</LinearLayout>
