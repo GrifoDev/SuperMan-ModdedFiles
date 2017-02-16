@@ -13,6 +13,7 @@
     value = {
         Lcom/android/launcher2/Workspace$DeferredWidgetRefresh;,
         Lcom/android/launcher2/Workspace$CellOrient;,
+        Lcom/android/launcher2/Workspace$SwipeListener;,
         Lcom/android/launcher2/Workspace$WorkspaceFolderMgr;,
         Lcom/android/launcher2/Workspace$StateChangeRunnable;,
         Lcom/android/launcher2/Workspace$ZoomInInterpolator;,
@@ -108,6 +109,8 @@
 .field private mCurrentOrientation:I
 
 .field private mDelayedResizeRunnable:Ljava/lang/Runnable;
+
+.field private mDetector:Landroid/view/GestureDetector;
 
 .field private mDisplayHeight:I
 
@@ -269,6 +272,8 @@
 .field protected mZeroPageDialog:Landroid/app/AlertDialog;
 
 .field private final mZoomInInterpolator:Lcom/android/launcher2/Workspace$ZoomInInterpolator;
+
+.field swipeAction:[I
 
 
 # direct methods
@@ -863,6 +868,8 @@
     iput v4, p0, Lcom/android/launcher2/Workspace;->mWidgetDropDuration:I
 
     :cond_3
+    invoke-direct {p0, p1}, Lcom/android/launcher2/Workspace;->initGestures(Landroid/content/Context;)V
+
     return-void
 .end method
 
@@ -4341,6 +4348,92 @@
     invoke-virtual {p0, p1, p2, p3}, Lcom/android/launcher2/Workspace;->openFolder(Lcom/android/launcher2/FolderItem;Lcom/android/launcher2/FolderIconView;Z)V
 
     goto :goto_0
+.end method
+
+.method private initGestures(Landroid/content/Context;)V
+    .locals 7
+
+    const/4 v6, 0x2
+
+    const/4 v5, 0x1
+
+    const/4 v4, 0x0
+
+    const/16 v3, 0x3e7
+
+    const/4 v1, 0x3
+
+    new-array v1, v1, [I
+
+    iput-object v1, p0, Lcom/android/launcher2/Workspace;->swipeAction:[I
+
+    invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/launcher2/Workspace;->swipeAction:[I
+
+    const-string v2, "swipe_up"
+
+    invoke-static {v0, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v2
+
+    aput v2, v1, v4
+
+    iget-object v1, p0, Lcom/android/launcher2/Workspace;->swipeAction:[I
+
+    const-string v2, "swipe_down"
+
+    invoke-static {v0, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v2
+
+    aput v2, v1, v5
+
+    iget-object v1, p0, Lcom/android/launcher2/Workspace;->swipeAction:[I
+
+    const-string v2, "doubletap"
+
+    invoke-static {v0, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v2
+
+    aput v2, v1, v6
+
+    iget-object v1, p0, Lcom/android/launcher2/Workspace;->swipeAction:[I
+
+    aget v1, v1, v4
+
+    if-ne v1, v3, :cond_0
+
+    iget-object v1, p0, Lcom/android/launcher2/Workspace;->swipeAction:[I
+
+    aget v1, v1, v5
+
+    if-ne v1, v3, :cond_0
+
+    iget-object v1, p0, Lcom/android/launcher2/Workspace;->swipeAction:[I
+
+    aget v1, v1, v6
+
+    if-eq v1, v3, :cond_1
+
+    :cond_0
+    new-instance v1, Landroid/view/GestureDetector;
+
+    new-instance v2, Lcom/android/launcher2/Workspace$SwipeListener;
+
+    const/4 v3, 0x0
+
+    invoke-direct {v2, p0, v3}, Lcom/android/launcher2/Workspace$SwipeListener;-><init>(Lcom/android/launcher2/Workspace;Lcom/android/launcher2/Workspace$SwipeListener;)V
+
+    invoke-direct {v1, p1, v2}, Landroid/view/GestureDetector;-><init>(Landroid/content/Context;Landroid/view/GestureDetector$OnGestureListener;)V
+
+    iput-object v1, p0, Lcom/android/launcher2/Workspace;->mDetector:Landroid/view/GestureDetector;
+
+    :cond_1
+    return-void
 .end method
 
 .method private initWorkspace()V
@@ -13940,6 +14033,15 @@
 
     :cond_3
     :goto_1
+    iget-object v0, p0, Lcom/android/launcher2/Workspace;->mDetector:Landroid/view/GestureDetector;
+
+    if-eqz v0, :cond_4
+
+    iget-object v0, p0, Lcom/android/launcher2/Workspace;->mDetector:Landroid/view/GestureDetector;
+
+    invoke-virtual {v0, p1}, Landroid/view/GestureDetector;->onTouchEvent(Landroid/view/MotionEvent;)Z
+
+    :cond_4
     :pswitch_0
     invoke-super {p0, p1}, Lcom/android/launcher2/SmoothPagedView;->onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
 
@@ -13993,7 +14095,7 @@
     :pswitch_2
     iget v4, p0, Lcom/android/launcher2/Workspace;->mTouchState:I
 
-    if-nez v4, :cond_4
+    if-nez v4, :cond_5
 
     invoke-virtual {p0}, Lcom/android/launcher2/Workspace;->getChildCount()I
 
@@ -14003,7 +14105,7 @@
 
     move-result v6
 
-    if-le v4, v6, :cond_4
+    if-le v4, v6, :cond_5
 
     invoke-virtual {p0}, Lcom/android/launcher2/Workspace;->getCurrentPage()I
 
@@ -14019,11 +14121,11 @@
 
     move-result v4
 
-    if-nez v4, :cond_4
+    if-nez v4, :cond_5
 
     invoke-direct {p0, p1}, Lcom/android/launcher2/Workspace;->onWallpaperTap(Landroid/view/MotionEvent;)V
 
-    :cond_4
+    :cond_5
     iput-boolean v5, p0, Lcom/android/launcher2/Workspace;->mMultiTouchUsed:Z
 
     goto :goto_1
@@ -14037,7 +14139,7 @@
 
     cmpl-float v4, v4, v6
 
-    if-lez v4, :cond_6
+    if-lez v4, :cond_7
 
     iput-boolean v3, p0, Lcom/android/launcher2/Workspace;->leftMove:Z
 
@@ -14050,22 +14152,22 @@
 
     iget v4, p0, Lcom/android/launcher2/Workspace;->mTouchState:I
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_6
 
     invoke-virtual {p0}, Lcom/android/launcher2/Workspace;->snapToDestination()V
 
-    :cond_5
+    :cond_6
     iput v5, p0, Lcom/android/launcher2/Workspace;->mTouchState:I
 
     iget-boolean v4, p0, Lcom/android/launcher2/Workspace;->isStartDragStarted:Z
 
-    if-nez v4, :cond_7
+    if-nez v4, :cond_8
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getPointerCount()I
 
     move-result v4
 
-    if-ne v4, v7, :cond_7
+    if-ne v4, v7, :cond_8
 
     iget-object v4, p0, Lcom/android/launcher2/Workspace;->mHomeView:Lcom/android/launcher2/HomeView;
 
@@ -14077,7 +14179,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_7
+    if-nez v4, :cond_8
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
@@ -14123,7 +14225,7 @@
 
     const/16 v4, 0x32
 
-    if-le v2, v4, :cond_7
+    if-le v2, v4, :cond_8
 
     iput-boolean v5, p0, Lcom/android/launcher2/Workspace;->mMultiTouchUsed:Z
 
@@ -14139,12 +14241,12 @@
 
     goto/16 :goto_0
 
-    :cond_6
+    :cond_7
     iput-boolean v5, p0, Lcom/android/launcher2/Workspace;->leftMove:Z
 
     goto :goto_2
 
-    :cond_7
+    :cond_8
     iput-boolean v5, p0, Lcom/android/launcher2/Workspace;->isStartDragStarted:Z
 
     goto/16 :goto_1
@@ -14218,8 +14320,6 @@
     invoke-virtual {p0}, Lcom/android/launcher2/Workspace;->cancelCurrentPageLongPress()V
 
     goto/16 :goto_1
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x0

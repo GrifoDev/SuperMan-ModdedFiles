@@ -10804,11 +10804,93 @@
 .end method
 
 .method public setDefaultTransitionEffect(Lcom/android/launcher2/PagedView$TransitionEffect;)V
-    .locals 0
+    .locals 4
 
-    iput-object p1, p0, Lcom/android/launcher2/PagedView;->mDefaultTransitionEffect:Lcom/android/launcher2/PagedView$TransitionEffect;
+    invoke-virtual {p0}, Lcom/android/launcher2/PagedView;->getContext()Landroid/content/Context;
 
-    iput-object p1, p0, Lcom/android/launcher2/PagedView;->mCurrentTransitionEffect:Lcom/android/launcher2/PagedView$TransitionEffect;
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string v2, "tw_page_effect"
+
+    const/4 v3, 0x1
+
+    invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v1
+
+    const v2, 0x1
+
+    if-eq v1, v2, :cond_0
+
+    const v2, 0x2
+
+    if-eq v1, v2, :cond_1
+
+    const v2, 0x3
+
+    if-eq v1, v2, :cond_2
+
+    const v2, 0x4
+
+    if-eq v1, v2, :cond_3
+
+    const v2, 0x5
+
+    if-eq v1, v2, :cond_4
+
+    const v2, 0x6
+
+    if-eq v1, v2, :cond_5
+
+    const v2, 0x7
+
+    if-eq v1, v2, :cond_6
+
+    sget-object v0, Lcom/android/launcher2/PagedView$TransitionEffect;->CARD:Lcom/android/launcher2/PagedView$TransitionEffect;
+
+    goto :goto_0
+
+    :cond_0
+    sget-object v0, Lcom/android/launcher2/PagedView$TransitionEffect;->NONE:Lcom/android/launcher2/PagedView$TransitionEffect;
+
+    goto :goto_0
+
+    :cond_1
+    sget-object v0, Lcom/android/launcher2/PagedView$TransitionEffect;->CASCADE:Lcom/android/launcher2/PagedView$TransitionEffect;
+
+    goto :goto_0
+
+    :cond_2
+    sget-object v0, Lcom/android/launcher2/PagedView$TransitionEffect;->OUTERCUBE:Lcom/android/launcher2/PagedView$TransitionEffect;
+
+    goto :goto_0
+
+    :cond_3
+    sget-object v0, Lcom/android/launcher2/PagedView$TransitionEffect;->INNERCUBE:Lcom/android/launcher2/PagedView$TransitionEffect;
+
+    goto :goto_0
+
+    :cond_4
+    sget-object v0, Lcom/android/launcher2/PagedView$TransitionEffect;->CAROUSAL:Lcom/android/launcher2/PagedView$TransitionEffect;
+
+    goto :goto_0
+
+    :cond_5
+    sget-object v0, Lcom/android/launcher2/PagedView$TransitionEffect;->PLAIN:Lcom/android/launcher2/PagedView$TransitionEffect;
+
+    goto :goto_0
+
+    :cond_6
+    sget-object v0, Lcom/android/launcher2/PagedView$TransitionEffect;->CONVEYOR:Lcom/android/launcher2/PagedView$TransitionEffect;
+
+    :goto_0
+    iput-object v0, p0, Lcom/android/launcher2/PagedView;->mDefaultTransitionEffect:Lcom/android/launcher2/PagedView$TransitionEffect;
+
+    iput-object v0, p0, Lcom/android/launcher2/PagedView;->mCurrentTransitionEffect:Lcom/android/launcher2/PagedView$TransitionEffect;
 
     return-void
 .end method

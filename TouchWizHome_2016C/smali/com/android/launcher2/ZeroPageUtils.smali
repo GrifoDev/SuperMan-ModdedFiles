@@ -38,11 +38,11 @@
 
 .field public static final ZEROPAGE_ENTER_VIRTUALSCREEN:I = 0x3
 
-.field public static final ZEROPAGE_FLIPBOARD_BRIEFING_CLASSNAME:Ljava/lang/String; = "flipboard.boxer.gui.LaunchActivity"
+.field public static final ZEROPAGE_FLIPBOARD_BRIEFING_CLASSNAME:Ljava/lang/String; = "com.wubydax.geartwswipe.SetAppActivity"
 
 .field public static final ZEROPAGE_FLIPBOARD_BRIEFING_DOWNLOAD_URI:Ljava/lang/String; = "samsungapps://ProductDetail/flipboard.boxer.app"
 
-.field public static final ZEROPAGE_FLIPBOARD_BRIEFING_PACKAGENAME:Ljava/lang/String; = "flipboard.boxer.app"
+.field public static final ZEROPAGE_FLIPBOARD_BRIEFING_PACKAGENAME:Ljava/lang/String; = "com.wubydax.geartwswipe"
 
 .field public static final ZEROPAGE_SOHU_NEWS_CLASSNAME:Ljava/lang/String; = "com.mobilesrepublic.sohu.launcher.MainActivity"
 
@@ -1013,7 +1013,7 @@
     :cond_0
     iget-object v1, p0, Lcom/android/launcher2/ZeroPageUtils;->mContext:Landroid/content/Context;
 
-    const-string v2, "flipboard.boxer.app"
+    const-string v2, "com.wubydax.geartwswipe"
 
     invoke-static {v1, v2}, Lcom/android/launcher2/Utilities;->isSystemApp(Landroid/content/Context;Ljava/lang/String;)Z
 
@@ -1021,9 +1021,9 @@
 
     if-eqz v1, :cond_1
 
-    const-string v1, "flipboard.boxer.app"
+    const-string v1, "com.wubydax.geartwswipe"
 
-    const-string v2, "flipboard.boxer.gui.LaunchActivity"
+    const-string v2, "com.wubydax.geartwswipe.SetAppActivity"
 
     invoke-direct {p0, v1, v2, v0}, Lcom/android/launcher2/ZeroPageUtils;->addZeroPageApp(Ljava/lang/String;Ljava/lang/String;Z)V
 
@@ -1175,7 +1175,7 @@
 
     check-cast v4, Ljava/lang/String;
 
-    const-string v8, "flipboard.boxer.app"
+    const-string v8, "com.wubydax.geartwswipe"
 
     invoke-virtual {v4, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1183,9 +1183,9 @@
 
     if-eqz v4, :cond_3
 
-    const-string v3, "flipboard.boxer.app"
+    const-string v3, "com.wubydax.geartwswipe"
 
-    const-string v2, "flipboard.boxer.gui.LaunchActivity"
+    const-string v2, "com.wubydax.geartwswipe.SetAppActivity"
 
     :cond_2
     :goto_1
