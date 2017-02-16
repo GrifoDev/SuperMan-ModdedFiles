@@ -4671,7 +4671,7 @@ Wi-Fi is now on."</string>
     <string name="data_usage_cycle_editor_title">Дата сброса цикла</string>
     <string name="data_usage_cycle_editor_subtitle">В этот день каждого месяца:</string>
     <string name="data_usage_cycle_editor_positive">Задать</string>
-    <string name="data_usage_warning_editor_title">Задать предупреждение об исп. данных</string>
+    <string name="data_usage_warning_editor_title">Задать предупреждение о передаче данных</string>
     <string name="data_usage_limit_editor_title">Задать лимит трафика</string>
     <string name="data_usage_limit_dialog_title">Ограничить передачу данных</string>
     <string name="data_usage_limit_dialog_mobile">"Подключение для передачи данных будет отключено при достижении указанного ограничения.
@@ -4871,7 +4871,7 @@ Wi-Fi is now on."</string>
     <string name="charging_sounds_title">Звук зарядки</string>
     <string name="docking_sounds_title">Звуки для порта</string>
     <string name="touch_sounds_title">Звук при касании</string>
-    <string name="vibrate_on_touch_title">Обратная связь</string>
+    <string name="vibrate_on_touch_title">Вибр. обратная связь</string>
     <string name="dock_audio_media_title">Аудио в динам. подставки</string>
     <string name="dock_audio_media_disabled">Все аудио</string>
     <string name="dock_audio_media_enabled">Только мультимедийное аудио</string>
@@ -5145,7 +5145,7 @@ Wi-Fi is now on."</string>
     <string name="suggestion_remove">Удалить</string>
     <string name="ota_disable_automatic_update">Автообновление системы</string>
     <string name="usage">Использование</string>
-    <string name="cellular_data_usage">Использование данных</string>
+    <string name="cellular_data_usage">Мобильные данные</string>
     <string name="wifi_data_usage">Данные Wi-Fi</string>
     <string name="ethernet_data_usage">Данные Ethernet</string>
     <string name="wifi">Wi-Fi</string>
@@ -5155,8 +5155,8 @@ Wi-Fi is now on."</string>
     <string name="cell_warning_only">Предупреждение об использовании данных при объеме трафика %s</string>
     <string name="cell_warning_and_limit">Предупреждение об использовании данных: %1$s/ограничение на использование данных: %2$s</string>
     <string name="billing_cycle">Периодичность оплаты</string>
-    <string name="billing_cycle_summary">Начало: %s числа каждого месяца</string>
-    <string name="billing_cycle_fragment_summary">Начало: %s числа каждого месяца</string>
+    <string name="billing_cycle_summary">Начало: %s каждого месяца</string>
+    <string name="billing_cycle_fragment_summary">Начало: %s каждого месяца</string>
     <string name="network_restrictions">Ограничения в сетях</string>
     <string name="operator_warning">Использование данных измеряется устройством. Поставщик услуг может рассчитывать использование данных по-другому.</string>
     <string name="data_used_template">Использовано: %s</string>

@@ -62,30 +62,42 @@
     </string-array>
     <string-array name="window_animation_scale_entries">
         <item>Animation désactivée</item>
+        <item>"Échelle d'animation x 0,25"</item>
         <item>"Échelle d'animation x 0,5"</item>
+        <item>"Échelle d'animation x 0,75"</item>
         <item>"Échelle d'animation x 1"</item>
+        <item>"Échelle d'animation x 1,25"</item>
         <item>"Échelle d'animation x 1,5"</item>
+        <item>"Échelle d'animation x 1,75"</item>
         <item>"Échelle d'animation x 2"</item>
         <item>"Échelle d'animation x 5"</item>
         <item>"Échelle d'animation x 10"</item>
     </string-array>
     <string-array name="transition_animation_scale_entries">
         <item>Animation désactivée</item>
+        <item>"Échelle d'animation x 0,25"</item>
         <item>"Échelle d'animation x 0,5"</item>
+        <item>"Échelle d'animation x 0,75"</item>
         <item>"Échelle d'animation x 1"</item>
+        <item>"Échelle d'animation x 1,25"</item>
         <item>"Échelle d'animation x 1,5"</item>
+        <item>"Échelle d'animation x 1,75"</item>
         <item>"Échelle d'animation x 2"</item>
-        <item>"Échelle d'animation x 0,5"</item>
+        <item>"Échelle d'animation x 5"</item>
         <item>"Échelle d'animation x 10"</item>
     </string-array>
     <string-array name="animator_duration_scale_entries">
         <item>Animation désactivée</item>
+        <item>"Échelle d'animation x 0,25"</item>
         <item>"Échelle d'animation x 0,5"</item>
-        <item>"Échelle d'animation x 1"</item>
-        <item>"Échelle d'animation x 1,5"</item>
+        <item>"Échelle d'animation x 0,75"</item>
+        <item>"Échelle d'animation x 1"</item>
+        <item>"Échelle d'animation x 1,25"</item>
+        <item>"Échelle d'animation x 1,5"</item>
+        <item>"Échelle d'animation x 1,75"</item>
         <item>"Échelle d'animation x 2"</item>
         <item>"Échelle d'animation x 5"</item>
-        <item>"Échelle d'animation x 10"</item>
+        <item>"Échelle d'animation x 10"</item>
     </string-array>
     <string-array name="overlay_display_devices_entries">
         <item>Aucun</item>

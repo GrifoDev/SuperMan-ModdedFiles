@@ -62,27 +62,39 @@
     </string-array>
     <string-array name="window_animation_scale_entries">
         <item>Animazione disattivata</item>
+        <item>Scala animazione 0,25x</item>
         <item>Scala animazione 0,5x</item>
+        <item>Scala animazione 0,75x</item>
         <item>Scala animazione 1x</item>
+        <item>Scala animazione 1,25x</item>
         <item>Scala animazione 1,5x</item>
+        <item>Scala animazione 1,75x</item>
         <item>Scala animazione 2x</item>
         <item>Scala animazione 5x</item>
         <item>Scala animazione 10x</item>
     </string-array>
     <string-array name="transition_animation_scale_entries">
         <item>Animazione disattivata</item>
+        <item>Scala animazione 0,25x</item>
         <item>Scala animazione 0,5x</item>
+        <item>Scala animazione 0,75x</item>
         <item>Scala animazione 1x</item>
+        <item>Scala animazione 1,25x</item>
         <item>Scala animazione 1,5x</item>
+        <item>Scala animazione 1,75x</item>
         <item>Scala animazione 2x</item>
         <item>Scala animazione 5x</item>
         <item>Scala animazione 10x</item>
     </string-array>
     <string-array name="animator_duration_scale_entries">
         <item>Animazione disattivata</item>
+        <item>Scala animazione 0,25x</item>
         <item>Scala animazione 0,5x</item>
+        <item>Scala animazione 0,75x</item>
         <item>Scala animazione 1x</item>
+        <item>Scala animazione 1,25x</item>
         <item>Scala animazione 1,5x</item>
+        <item>Scala animazione 1,75x</item>
         <item>Scala animazione 2x</item>
         <item>Scala animazione 5x</item>
         <item>Scala animazione 10x</item>
