@@ -10,6 +10,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 40
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -17,7 +19,11 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 0
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
+    .prologue
+    .line 43
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -25,19 +31,24 @@
 
 .method private inout(F)F
     .locals 5
+    .param p1, "t"    # F
 
+    .prologue
     const/high16 v4, 0x40000000    # 2.0f
 
     const-wide/high16 v2, 0x3ff0000000000000L    # 1.0
 
     const/high16 v1, 0x3f800000    # 1.0f
 
+    .line 52
     mul-float/2addr p1, v4
 
+    .line 53
     cmpg-float v0, p1, v1
 
     if-gez v0, :cond_0
 
+    .line 54
     mul-float v0, p1, p1
 
     sub-float v0, v1, v0
@@ -58,6 +69,7 @@
 
     return v0
 
+    .line 56
     :cond_0
     sub-float/2addr p1, v4
 
@@ -86,7 +98,10 @@
 # virtual methods
 .method public getInterpolation(F)F
     .locals 1
+    .param p1, "t"    # F
 
+    .prologue
+    .line 48
     invoke-direct {p0, p1}, Lcom/samsung/android/graphics/spr/animation/interpolator/CircEaseInOut;->inout(F)F
 
     move-result v0

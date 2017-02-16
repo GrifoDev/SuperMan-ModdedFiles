@@ -15,10 +15,13 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 79
     const/16 v0, 0x36
 
     invoke-direct {p0, v0}, Lcom/samsung/android/graphics/SemImageFilter;-><init>(I)V
 
+    .line 78
     return-void
 .end method
 
@@ -32,6 +35,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 91
     invoke-super {p0}, Lcom/samsung/android/graphics/SemImageFilter;->clone()Lcom/samsung/android/graphics/SemImageFilter;
 
     move-result-object v0
@@ -49,6 +54,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 90
     invoke-virtual {p0}, Lcom/samsung/android/graphics/SemBlurFilter;->clone()Lcom/samsung/android/graphics/SemBlurFilter;
 
     move-result-object v0
@@ -59,6 +66,8 @@
 .method public getOptimization()F
     .locals 1
 
+    .prologue
+    .line 139
     const/4 v0, 0x1
 
     invoke-super {p0, v0}, Lcom/samsung/android/graphics/SemImageFilter;->getValue(I)F
@@ -71,6 +80,8 @@
 .method public getRadius()F
     .locals 1
 
+    .prologue
+    .line 112
     const/4 v0, 0x0
 
     invoke-super {p0, v0}, Lcom/samsung/android/graphics/SemImageFilter;->getValue(I)F
@@ -82,19 +93,26 @@
 
 .method public setOptimization(I)V
     .locals 2
+    .param p1, "type"    # I
 
+    .prologue
+    .line 125
     int-to-float v0, p1
 
     const/4 v1, 0x1
 
     invoke-super {p0, v1, v0}, Lcom/samsung/android/graphics/SemImageFilter;->setValue(IF)V
 
+    .line 124
     return-void
 .end method
 
 .method public setRadius(F)V
     .locals 2
+    .param p1, "radius"    # F
 
+    .prologue
+    .line 101
     const/high16 v0, 0x437a0000    # 250.0f
 
     invoke-static {p1, v0}, Ljava/lang/Math;->min(FF)F
@@ -111,5 +129,6 @@
 
     invoke-super {p0, v1, v0}, Lcom/samsung/android/graphics/SemImageFilter;->setValue(IF)V
 
+    .line 100
     return-void
 .end method

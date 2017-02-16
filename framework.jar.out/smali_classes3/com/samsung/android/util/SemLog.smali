@@ -21,6 +21,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 91
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -28,7 +30,11 @@
 
 .method public static d(Ljava/lang/String;Ljava/lang/String;)I
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
+    .prologue
+    .line 143
     invoke-static {p0, p1}, Landroid/util/secutil/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
@@ -38,7 +44,12 @@
 
 .method public static d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
+    .param p2, "tr"    # Ljava/lang/Throwable;
 
+    .prologue
+    .line 164
     invoke-static {p0, p1, p2}, Landroid/util/secutil/Slog;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     move-result v0
@@ -48,7 +59,11 @@
 
 .method public static e(Ljava/lang/String;Ljava/lang/String;)I
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
+    .prologue
+    .line 312
     invoke-static {p0, p1}, Landroid/util/secutil/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
@@ -58,7 +73,12 @@
 
 .method public static e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
+    .param p2, "tr"    # Ljava/lang/Throwable;
 
+    .prologue
+    .line 333
     invoke-static {p0, p1, p2}, Landroid/util/secutil/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     move-result v0
@@ -68,7 +88,10 @@
 
 .method public static getStackTraceString(Ljava/lang/Throwable;)Ljava/lang/String;
     .locals 1
+    .param p0, "tr"    # Ljava/lang/Throwable;
 
+    .prologue
+    .line 437
     invoke-static {p0}, Landroid/util/secutil/Log;->getStackTraceString(Ljava/lang/Throwable;)Ljava/lang/String;
 
     move-result-object v0
@@ -78,7 +101,11 @@
 
 .method public static i(Ljava/lang/String;Ljava/lang/String;)I
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
+    .prologue
+    .line 185
     invoke-static {p0, p1}, Landroid/util/secutil/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
@@ -88,7 +115,12 @@
 
 .method public static i(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
+    .param p2, "tr"    # Ljava/lang/Throwable;
 
+    .prologue
+    .line 206
     invoke-static {p0, p1, p2}, Landroid/util/secutil/Slog;->i(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     move-result v0
@@ -98,7 +130,11 @@
 
 .method public static isLoggable(Ljava/lang/String;I)Z
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "level"    # I
 
+    .prologue
+    .line 282
     invoke-static {p0, p1}, Landroid/util/secutil/Log;->isLoggable(Ljava/lang/String;I)Z
 
     move-result v0
@@ -108,7 +144,12 @@
 
 .method public static println(ILjava/lang/String;Ljava/lang/String;)I
     .locals 1
+    .param p0, "priority"    # I
+    .param p1, "tag"    # Ljava/lang/String;
+    .param p2, "msg"    # Ljava/lang/String;
 
+    .prologue
+    .line 449
     invoke-static {p0, p1, p2}, Landroid/util/secutil/Slog;->println(ILjava/lang/String;Ljava/lang/String;)I
 
     move-result v0
@@ -118,7 +159,11 @@
 
 .method public static secD(Ljava/lang/String;Ljava/lang/String;)I
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
+    .prologue
+    .line 153
     invoke-static {p0, p1}, Landroid/util/secutil/Slog;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
@@ -128,7 +173,12 @@
 
 .method public static secD(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
+    .param p2, "tr"    # Ljava/lang/Throwable;
 
+    .prologue
+    .line 175
     invoke-static {p0, p1, p2}, Landroid/util/secutil/Slog;->secD(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     move-result v0
@@ -138,7 +188,11 @@
 
 .method public static secE(Ljava/lang/String;Ljava/lang/String;)I
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
+    .prologue
+    .line 322
     invoke-static {p0, p1}, Landroid/util/secutil/Slog;->secE(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
@@ -148,7 +202,12 @@
 
 .method public static secE(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
+    .param p2, "tr"    # Ljava/lang/Throwable;
 
+    .prologue
+    .line 344
     invoke-static {p0, p1, p2}, Landroid/util/secutil/Slog;->secE(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     move-result v0
@@ -158,7 +217,11 @@
 
 .method public static secI(Ljava/lang/String;Ljava/lang/String;)I
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
+    .prologue
+    .line 195
     invoke-static {p0, p1}, Landroid/util/secutil/Slog;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
@@ -168,7 +231,12 @@
 
 .method public static secI(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
+    .param p2, "tr"    # Ljava/lang/Throwable;
 
+    .prologue
+    .line 217
     invoke-static {p0, p1, p2}, Landroid/util/secutil/Slog;->secI(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     move-result v0
@@ -178,7 +246,11 @@
 
 .method public static secV(Ljava/lang/String;Ljava/lang/String;)I
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
+    .prologue
+    .line 111
     invoke-static {p0, p1}, Landroid/util/secutil/Slog;->secV(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
@@ -188,7 +260,12 @@
 
 .method public static secV(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
+    .param p2, "tr"    # Ljava/lang/Throwable;
 
+    .prologue
+    .line 133
     invoke-static {p0, p1, p2}, Landroid/util/secutil/Slog;->secV(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     move-result v0
@@ -198,7 +275,11 @@
 
 .method public static secW(Ljava/lang/String;Ljava/lang/String;)I
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
+    .prologue
+    .line 237
     invoke-static {p0, p1}, Landroid/util/secutil/Slog;->secW(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
@@ -208,7 +289,12 @@
 
 .method public static secW(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
+    .param p2, "tr"    # Ljava/lang/Throwable;
 
+    .prologue
+    .line 259
     invoke-static {p0, p1, p2}, Landroid/util/secutil/Slog;->secW(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     move-result v0
@@ -218,7 +304,11 @@
 
 .method public static secW(Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "tr"    # Ljava/lang/Throwable;
 
+    .prologue
+    .line 302
     invoke-static {p0, p1}, Landroid/util/secutil/Slog;->secW(Ljava/lang/String;Ljava/lang/Throwable;)I
 
     move-result v0
@@ -228,7 +318,11 @@
 
 .method public static secWtf(Ljava/lang/String;Ljava/lang/String;)I
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
+    .prologue
+    .line 370
     invoke-static {p0, p1}, Landroid/util/secutil/Slog;->secWtf(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
@@ -238,7 +332,12 @@
 
 .method public static secWtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
+    .param p2, "tr"    # Ljava/lang/Throwable;
 
+    .prologue
+    .line 429
     invoke-static {p0, p1, p2}, Landroid/util/secutil/Slog;->secWtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     move-result v0
@@ -248,7 +347,11 @@
 
 .method public static secWtf(Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "tr"    # Ljava/lang/Throwable;
 
+    .prologue
+    .line 407
     invoke-static {p0, p1}, Landroid/util/secutil/Slog;->secWtf(Ljava/lang/String;Ljava/lang/Throwable;)I
 
     move-result v0
@@ -258,7 +361,11 @@
 
 .method public static secWtfStack(Ljava/lang/String;Ljava/lang/String;)I
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
+    .prologue
+    .line 387
     invoke-static {p0, p1}, Landroid/util/secutil/Slog;->secWtfStack(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
@@ -268,7 +375,11 @@
 
 .method public static v(Ljava/lang/String;Ljava/lang/String;)I
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
+    .prologue
+    .line 101
     invoke-static {p0, p1}, Landroid/util/secutil/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
@@ -278,7 +389,12 @@
 
 .method public static v(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
+    .param p2, "tr"    # Ljava/lang/Throwable;
 
+    .prologue
+    .line 122
     invoke-static {p0, p1, p2}, Landroid/util/secutil/Slog;->v(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     move-result v0
@@ -288,7 +404,11 @@
 
 .method public static w(Ljava/lang/String;Ljava/lang/String;)I
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
+    .prologue
+    .line 227
     invoke-static {p0, p1}, Landroid/util/secutil/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
@@ -298,7 +418,12 @@
 
 .method public static w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
+    .param p2, "tr"    # Ljava/lang/Throwable;
 
+    .prologue
+    .line 248
     invoke-static {p0, p1, p2}, Landroid/util/secutil/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     move-result v0
@@ -308,7 +433,11 @@
 
 .method public static w(Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "tr"    # Ljava/lang/Throwable;
 
+    .prologue
+    .line 292
     invoke-static {p0, p1}, Landroid/util/secutil/Slog;->w(Ljava/lang/String;Ljava/lang/Throwable;)I
 
     move-result v0
@@ -318,7 +447,11 @@
 
 .method public static wtf(Ljava/lang/String;Ljava/lang/String;)I
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
+    .prologue
+    .line 357
     invoke-static {p0, p1}, Landroid/util/secutil/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
@@ -328,7 +461,12 @@
 
 .method public static wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
+    .param p2, "tr"    # Ljava/lang/Throwable;
 
+    .prologue
+    .line 418
     invoke-static {p0, p1, p2}, Landroid/util/secutil/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     move-result v0
@@ -338,7 +476,11 @@
 
 .method public static wtf(Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "tr"    # Ljava/lang/Throwable;
 
+    .prologue
+    .line 397
     invoke-static {p0, p1}, Landroid/util/secutil/Slog;->wtf(Ljava/lang/String;Ljava/lang/Throwable;)I
 
     move-result v0
@@ -348,7 +490,11 @@
 
 .method public static wtfStack(Ljava/lang/String;Ljava/lang/String;)I
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
+    .prologue
+    .line 379
     invoke-static {p0, p1}, Landroid/util/secutil/Slog;->wtfStack(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0

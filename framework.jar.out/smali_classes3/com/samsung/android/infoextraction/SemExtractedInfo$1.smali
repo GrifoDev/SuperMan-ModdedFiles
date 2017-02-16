@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 220
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,19 +42,28 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Lcom/samsung/android/infoextraction/SemExtractedInfo;
     .locals 1
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 223
     new-instance v0, Lcom/samsung/android/infoextraction/SemExtractedInfo;
 
     invoke-direct {v0}, Lcom/samsung/android/infoextraction/SemExtractedInfo;-><init>()V
 
+    .line 224
+    .local v0, "data":Lcom/samsung/android/infoextraction/SemExtractedInfo;
     invoke-virtual {v0, p1}, Lcom/samsung/android/infoextraction/SemExtractedInfo;->readFromParcel(Landroid/os/Parcel;)V
 
+    .line 226
     return-object v0
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 222
     invoke-virtual {p0, p1}, Lcom/samsung/android/infoextraction/SemExtractedInfo$1;->createFromParcel(Landroid/os/Parcel;)Lcom/samsung/android/infoextraction/SemExtractedInfo;
 
     move-result-object v0
@@ -62,7 +73,10 @@
 
 .method public newArray(I)[Lcom/samsung/android/infoextraction/SemExtractedInfo;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 230
     new-array v0, p1, [Lcom/samsung/android/infoextraction/SemExtractedInfo;
 
     return-object v0
@@ -70,7 +84,10 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 229
     invoke-virtual {p0, p1}, Lcom/samsung/android/infoextraction/SemExtractedInfo$1;->newArray(I)[Lcom/samsung/android/infoextraction/SemExtractedInfo;
 
     move-result-object v0

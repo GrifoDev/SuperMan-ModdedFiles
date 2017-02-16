@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Landroid/widget/ListView;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/widget/ListView;
 
+    .prologue
+    .line 3971
     iput-object p1, p0, Landroid/widget/ListView$2;->this$0:Landroid/widget/ListView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +40,8 @@
 .method public run()V
     .locals 1
 
+    .prologue
+    .line 3973
     iget-object v0, p0, Landroid/widget/ListView$2;->this$0:Landroid/widget/ListView;
 
     invoke-static {v0}, Landroid/widget/ListView;->-get0(Landroid/widget/ListView;)Lcom/samsung/android/animation/SemDragAndDropListAnimator;
@@ -45,5 +50,6 @@
 
     invoke-virtual {v0}, Lcom/samsung/android/animation/SemAbsDragAndDropAnimator;->speakDescriptionForAccessibility()V
 
+    .line 3972
     return-void
 .end method

@@ -28,7 +28,12 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/bio/face/SemBioFaceManager$4;Landroid/os/PowerManager$WakeLock;Lcom/samsung/android/bio/face/SemBioFaceManager$LockoutResetCallback;)V
     .locals 0
+    .param p1, "this$1"    # Lcom/samsung/android/bio/face/SemBioFaceManager$4;
+    .param p2, "val$wakeLock"    # Landroid/os/PowerManager$WakeLock;
+    .param p3, "val$callback"    # Lcom/samsung/android/bio/face/SemBioFaceManager$LockoutResetCallback;
 
+    .prologue
+    .line 1567
     iput-object p1, p0, Lcom/samsung/android/bio/face/SemBioFaceManager$4$1;->this$1:Lcom/samsung/android/bio/face/SemBioFaceManager$4;
 
     iput-object p2, p0, Lcom/samsung/android/bio/face/SemBioFaceManager$4$1;->val$wakeLock:Landroid/os/PowerManager$WakeLock;
@@ -45,6 +50,8 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 1571
     :try_start_0
     iget-object v0, p0, Lcom/samsung/android/bio/face/SemBioFaceManager$4$1;->val$callback:Lcom/samsung/android/bio/face/SemBioFaceManager$LockoutResetCallback;
 
@@ -52,18 +59,23 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 1573
     iget-object v0, p0, Lcom/samsung/android/bio/face/SemBioFaceManager$4$1;->val$wakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
 
+    .line 1569
     return-void
 
+    .line 1572
     :catchall_0
     move-exception v0
 
+    .line 1573
     iget-object v1, p0, Lcom/samsung/android/bio/face/SemBioFaceManager$4$1;->val$wakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v1}, Landroid/os/PowerManager$WakeLock;->release()V
 
+    .line 1572
     throw v0
 .end method

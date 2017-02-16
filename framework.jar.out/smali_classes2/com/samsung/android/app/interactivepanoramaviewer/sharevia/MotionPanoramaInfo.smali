@@ -76,28 +76,35 @@
 .method private constructor <init>()V
     .locals 4
 
+    .prologue
     const/4 v3, 0x0
 
     const/4 v2, -0x1
 
+    .line 52
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     const-string/jumbo v0, "InteractivePano_InteractiveShotInfo"
 
+    .line 17
     iput-object v0, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->TAG:Ljava/lang/String;
 
     const-string/jumbo v0, "Motion_Panorama_Info"
 
+    .line 18
     iput-object v0, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->KEY_INFO:Ljava/lang/String;
 
     const-string/jumbo v0, "Motion_Panorama_MP4_000"
 
+    .line 19
     iput-object v0, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->KEY_VIDEO:Ljava/lang/String;
 
     const-string/jumbo v0, "/.interactivePano.mp4"
 
+    .line 21
     iput-object v0, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->tempPath:Ljava/lang/String;
 
+    .line 22
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;
@@ -126,58 +133,81 @@
 
     iput-object v0, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mVideoPath:Ljava/lang/String;
 
+    .line 25
     iput-boolean v3, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->bInit:Z
 
+    .line 26
     iput-boolean v3, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->isSEFDataFlagNull:Z
 
+    .line 30
     iput v2, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mWidth:I
 
+    .line 31
     iput v2, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mHeight:I
 
+    .line 32
     iput v2, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mTotalFrames:I
 
+    .line 33
     iput v2, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mFirstFrame:I
 
+    .line 34
     iput v2, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mLastFrame:I
 
+    .line 35
     iput v2, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mAlgoType:I
 
+    .line 36
     iput v2, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mAlgoVersion:I
 
+    .line 37
     iput v2, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mOrientation:I
 
+    .line 38
     iput v2, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mCaptureDirection:I
 
+    .line 39
     iput v2, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mCameraType:I
 
+    .line 40
     iput v2, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mCropX:I
 
+    .line 41
     iput v2, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mCropY:I
 
+    .line 42
     iput v2, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mCropWidth:I
 
+    .line 43
     iput v2, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mCropHeight:I
 
+    .line 44
     iput v2, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mMatrixWidth:I
 
+    .line 45
     iput v2, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mMatrixHeight:I
 
+    .line 46
     iput v2, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mVideoStart:I
 
+    .line 47
     iput v2, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mVideoLength:I
 
+    .line 55
     return-void
 .end method
 
 .method public static declared-synchronized freeInstance()V
     .locals 2
 
+    .prologue
     const-class v0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;
 
     monitor-enter v0
 
     const/4 v1, 0x0
 
+    .line 68
     :try_start_0
     sput-object v1, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mInstance:Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;
     :try_end_0
@@ -185,6 +215,7 @@
 
     monitor-exit v0
 
+    .line 69
     return-void
 
     :catchall_0
@@ -198,12 +229,14 @@
 .method private getInfo(Ljava/lang/String;)Z
     .locals 11
 
+    .prologue
     const/4 v10, 0x1
 
     const/4 v2, 0x0
 
     const/4 v3, 0x0
 
+    .line 131
     :try_start_0
     iget-object v0, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->sefFile:Ljava/io/File;
 
@@ -213,10 +246,12 @@
 
     move-result-object v4
 
+    .line 132
     if-eqz v4, :cond_1
 
     const/4 v0, 0x0
 
+    .line 138
     invoke-direct {p0, v4, v0}, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->getInt([BI)I
 
     move-result v0
@@ -225,6 +260,7 @@
 
     const/4 v0, 0x1
 
+    .line 139
     invoke-direct {p0, v4, v0}, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->getInt([BI)I
 
     move-result v0
@@ -233,6 +269,7 @@
 
     const/4 v0, 0x2
 
+    .line 140
     invoke-direct {p0, v4, v0}, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->getInt([BI)I
 
     move-result v0
@@ -241,6 +278,7 @@
 
     const/4 v0, 0x3
 
+    .line 141
     invoke-direct {p0, v4, v0}, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->getInt([BI)I
 
     move-result v0
@@ -249,12 +287,14 @@
 
     const/4 v0, 0x4
 
+    .line 142
     invoke-direct {p0, v4, v0}, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->getInt([BI)I
 
     move-result v0
 
     iput v0, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mLastFrame:I
 
+    .line 144
     iget v0, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mTotalFrames:I
 
     if-nez v0, :cond_2
@@ -264,8 +304,10 @@
 
     const-string/jumbo v1, "Total Frames is less than or equal to Zero "
 
+    .line 146
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 147
     return v3
 
     :cond_1
@@ -273,10 +315,13 @@
 
     const-string/jumbo v1, "SEF:getSEFData KEY_INFO returns null"
 
+    .line 134
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 135
     return v3
 
+    .line 144
     :cond_2
     iget v0, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mLastFrame:I
 
@@ -290,6 +335,7 @@
 
     const/4 v0, 0x5
 
+    .line 150
     invoke-direct {p0, v4, v0}, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->getInt([BI)I
 
     move-result v0
@@ -298,6 +344,7 @@
 
     const/4 v0, 0x6
 
+    .line 151
     invoke-direct {p0, v4, v0}, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->getInt([BI)I
 
     move-result v0
@@ -306,6 +353,7 @@
 
     const/4 v0, 0x7
 
+    .line 152
     invoke-direct {p0, v4, v0}, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->getInt([BI)I
 
     move-result v0
@@ -314,6 +362,7 @@
 
     const/16 v0, 0x8
 
+    .line 153
     invoke-direct {p0, v4, v0}, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->getInt([BI)I
 
     move-result v0
@@ -322,6 +371,7 @@
 
     const/16 v0, 0x9
 
+    .line 157
     invoke-direct {p0, v4, v0}, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->getInt([BI)I
 
     move-result v0
@@ -330,6 +380,7 @@
 
     const/16 v0, 0xa
 
+    .line 158
     invoke-direct {p0, v4, v0}, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->getInt([BI)I
 
     move-result v0
@@ -338,6 +389,7 @@
 
     const/16 v0, 0xb
 
+    .line 159
     invoke-direct {p0, v4, v0}, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->getInt([BI)I
 
     move-result v0
@@ -346,6 +398,7 @@
 
     const/16 v0, 0xc
 
+    .line 160
     invoke-direct {p0, v4, v0}, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->getInt([BI)I
 
     move-result v0
@@ -354,6 +407,7 @@
 
     const/16 v0, 0xd
 
+    .line 161
     invoke-direct {p0, v4, v0}, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->getInt([BI)I
 
     move-result v0
@@ -362,6 +416,7 @@
 
     const/16 v0, 0xe
 
+    .line 162
     invoke-direct {p0, v4, v0}, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->getInt([BI)I
 
     move-result v0
@@ -370,12 +425,14 @@
 
     const/16 v0, 0xf
 
+    .line 163
     invoke-direct {p0, v4, v0}, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->getInt([BI)I
 
     move-result v0
 
     iput v0, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mMatrixHeight:I
 
+    .line 165
     iget v0, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mTotalFrames:I
 
     sget-object v1, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
@@ -404,6 +461,7 @@
 
     move v0, v3
 
+    .line 166
     :goto_0
     iget-object v1, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mSRCMatrix:[[F
 
@@ -413,6 +471,7 @@
 
     move v1, v3
 
+    .line 167
     :goto_1
     iget-object v5, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mSRCMatrix:[[F
 
@@ -422,6 +481,7 @@
 
     if-ge v1, v5, :cond_3
 
+    .line 168
     iget-object v5, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mSRCMatrix:[[F
 
     aget-object v5, v5, v0
@@ -438,8 +498,10 @@
 
     move-result v5
 
+    .line 169
     int-to-double v6, v5
 
+    .line 170
     iget-object v5, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mSRCMatrix:[[F
 
     aget-object v5, v5, v0
@@ -452,15 +514,18 @@
 
     aput v6, v5, v1
 
+    .line 167
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
+    .line 166
     :cond_3
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
+    .line 174
     :cond_4
     iget-object v0, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->sefFile:Ljava/io/File;
 
@@ -470,17 +535,21 @@
 
     move-result-object v0
 
+    .line 175
     if-eqz v0, :cond_5
 
+    .line 182
     invoke-static {p1}, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->getParentDirPath(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
+    .line 183
     if-nez v1, :cond_6
 
     :goto_2
     const-string/jumbo v1, "InteractivePano_InteractiveShotInfo"
 
+    .line 187
     new-instance v4, Ljava/lang/StringBuilder;
 
     const-string/jumbo v5, "input video file path=  "
@@ -503,6 +572,7 @@
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_2
 
+    .line 191
     :try_start_1
     new-instance v1, Ljava/io/FileOutputStream;
 
@@ -512,20 +582,26 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    .line 192
     :try_start_2
     invoke-virtual {v1, v0}, Ljava/io/FileOutputStream;->write([B)V
 
+    .line 193
     invoke-virtual {v1}, Ljava/io/OutputStream;->flush()V
 
+    .line 194
     invoke-virtual {v1}, Ljava/io/FileOutputStream;->close()V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
+    .line 196
     if-nez v1, :cond_8
 
+    .line 202
     :goto_3
     return v10
 
+    .line 177
     :cond_5
     const/4 v0, 0x1
 
@@ -536,10 +612,13 @@
 
     const-string/jumbo v1, "SEF Data Null"
 
+    .line 178
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 179
     return v3
 
+    .line 184
     :cond_6
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -567,21 +646,27 @@
 
     goto :goto_2
 
+    .line 202
     :catch_0
     move-exception v0
 
+    .line 206
     invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
+    .line 207
     return v3
 
+    .line 195
     :catchall_0
     move-exception v0
 
     move-object v1, v2
 
+    .line 196
     :goto_4
     if-nez v1, :cond_7
 
+    .line 201
     :goto_5
     :try_start_4
     throw v0
@@ -590,13 +675,17 @@
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_1
     .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_2
 
+    .line 207
     :catch_1
     move-exception v0
 
+    .line 211
     invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
+    .line 212
     return v3
 
+    .line 198
     :cond_7
     :try_start_5
     invoke-virtual {v1}, Ljava/io/FileOutputStream;->close()V
@@ -607,13 +696,17 @@
 
     goto :goto_5
 
+    .line 212
     :catch_2
     move-exception v0
 
+    .line 216
     invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
+    .line 217
     return v3
 
+    .line 198
     :cond_8
     :try_start_6
     invoke-virtual {v1}, Ljava/io/FileOutputStream;->close()V
@@ -624,6 +717,7 @@
 
     goto :goto_3
 
+    .line 195
     :catchall_1
     move-exception v0
 
@@ -633,15 +727,18 @@
 .method public static declared-synchronized getInstance()Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;
     .locals 2
 
+    .prologue
     const-class v1, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;
 
     monitor-enter v1
 
+    .line 60
     :try_start_0
     sget-object v0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mInstance:Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;
 
     if-eqz v0, :cond_0
 
+    .line 63
     :goto_0
     sget-object v0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mInstance:Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;
     :try_end_0
@@ -651,6 +748,7 @@
 
     return-object v0
 
+    .line 61
     :cond_0
     :try_start_1
     new-instance v0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;
@@ -679,8 +777,11 @@
         }
     .end annotation
 
+    .prologue
+    .line 224
     mul-int/lit8 v0, p2, 0x4
 
+    .line 225
     aget-byte v1, p1, v0
 
     and-int/lit16 v1, v1, 0xff
@@ -715,14 +816,17 @@
 
     or-int/2addr v0, v1
 
+    .line 227
     return v0
 .end method
 
 .method public static getParentDirPath(Ljava/lang/String;)Ljava/lang/String;
     .locals 3
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 118
     :try_start_0
     sget-char v1, Ljava/io/File;->separatorChar:C
 
@@ -747,10 +851,12 @@
     :catch_0
     move-exception v0
 
+    .line 122
     invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     const/4 v0, 0x0
 
+    .line 123
     return-object v0
 .end method
 
@@ -759,6 +865,8 @@
 .method public getResize()Z
     .locals 1
 
+    .prologue
+    .line 112
     const/4 v0, 0x0
 
     return v0
@@ -767,12 +875,15 @@
 .method public getResizedValue(II)V
     .locals 6
 
+    .prologue
     const/4 v5, 0x7
 
     const/4 v4, 0x6
 
+    .line 234
     if-eq p1, p2, :cond_0
 
+    .line 236
     int-to-float v0, p1
 
     int-to-float v1, p2
@@ -781,6 +892,7 @@
 
     const/4 v0, 0x0
 
+    .line 237
     :goto_0
     iget-object v2, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mSRCMatrix:[[F
 
@@ -788,12 +900,14 @@
 
     if-ge v0, v2, :cond_1
 
+    .line 239
     iget-object v2, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mSRCMatrix:[[F
 
     aget-object v2, v2, v0
 
     aget v2, v2, v4
 
+    .line 240
     iget-object v3, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mSRCMatrix:[[F
 
     aget-object v3, v3, v0
@@ -802,12 +916,14 @@
 
     aput v2, v3, v4
 
+    .line 241
     iget-object v2, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mSRCMatrix:[[F
 
     aget-object v2, v2, v0
 
     aget v2, v2, v5
 
+    .line 242
     iget-object v3, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mSRCMatrix:[[F
 
     aget-object v3, v3, v0
@@ -816,22 +932,27 @@
 
     aput v2, v3, v5
 
+    .line 237
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
+    .line 235
     :cond_0
     return-void
 
     :cond_1
     const/16 v0, 0x500
 
+    .line 245
     iput v0, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mWidth:I
 
     const/16 v0, 0x2d0
 
+    .line 246
     iput v0, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mHeight:I
 
+    .line 248
     iget v0, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mCropX:I
 
     int-to-float v0, v0
@@ -842,6 +963,7 @@
 
     iput v0, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mCropX:I
 
+    .line 249
     iget v0, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mCropY:I
 
     int-to-float v0, v0
@@ -852,6 +974,7 @@
 
     iput v0, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mCropY:I
 
+    .line 250
     iget v0, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mCropWidth:I
 
     int-to-float v0, v0
@@ -862,6 +985,7 @@
 
     iput v0, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mCropWidth:I
 
+    .line 251
     iget v0, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mCropHeight:I
 
     int-to-float v0, v0
@@ -872,12 +996,14 @@
 
     iput v0, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mCropHeight:I
 
+    .line 252
     return-void
 .end method
 
 .method public declared-synchronized init(Ljava/lang/String;Ljava/lang/String;)Z
     .locals 5
 
+    .prologue
     const/4 v4, 0x1
 
     const/4 v3, 0x0
@@ -889,10 +1015,12 @@
 
     const-string/jumbo v1, "motion pano sharevia version 1.0.2"
 
+    .line 73
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     const-string/jumbo v0, "InteractivePano_InteractiveShotInfo"
 
+    .line 74
     new-instance v1, Ljava/lang/StringBuilder;
 
     const-string/jumbo v2, "bInit "
@@ -911,6 +1039,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 75
     iget-boolean v0, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->bInit:Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -920,12 +1049,15 @@
     :goto_0
     monitor-exit p0
 
+    .line 107
     return v4
 
+    .line 77
     :cond_0
     :try_start_1
     iput-object p1, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mFilePath:Ljava/lang/String;
 
+    .line 79
     new-instance v0, Ljava/io/File;
 
     iget-object v1, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mFilePath:Ljava/lang/String;
@@ -934,6 +1066,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->sefFile:Ljava/io/File;
 
+    .line 81
     iget-object v0, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->sefFile:Ljava/io/File;
 
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
@@ -942,16 +1075,19 @@
 
     if-eqz v0, :cond_1
 
+    .line 92
     invoke-direct {p0, p2}, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->getInfo(Ljava/lang/String;)Z
 
     move-result v0
 
     if-eqz v0, :cond_2
 
+    .line 97
     iget-boolean v0, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->isSEFDataFlagNull:Z
 
     if-eqz v0, :cond_3
 
+    .line 103
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->bInit:Z
@@ -960,6 +1096,7 @@
 
     monitor-exit p0
 
+    .line 104
     return v3
 
     :cond_1
@@ -968,12 +1105,14 @@
 
     const-string/jumbo v1, "SEF File not exist"
 
+    .line 83
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     monitor-exit p0
 
+    .line 84
     return v3
 
     :cond_2
@@ -982,14 +1121,17 @@
 
     const-string/jumbo v1, "SEF File INFO is incorrect"
 
+    .line 93
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     monitor-exit p0
 
+    .line 94
     return v3
 
+    .line 99
     :cond_3
     const/4 v0, 0x1
 
@@ -1011,8 +1153,10 @@
 .method public printInfo()V
     .locals 4
 
+    .prologue
     const-string/jumbo v0, "InteractivePano_InteractiveShotInfo"
 
+    .line 256
     new-instance v1, Ljava/lang/StringBuilder;
 
     const-string/jumbo v2, "IP:: values: "
@@ -1033,6 +1177,7 @@
 
     const-string/jumbo v0, "InteractivePano_InteractiveShotInfo"
 
+    .line 257
     new-instance v1, Ljava/lang/StringBuilder;
 
     const-string/jumbo v2, "IP:: values: "
@@ -1053,6 +1198,7 @@
 
     const-string/jumbo v0, "InteractivePano_InteractiveShotInfo"
 
+    .line 258
     new-instance v1, Ljava/lang/StringBuilder;
 
     const-string/jumbo v2, "IP:: values: "
@@ -1073,6 +1219,7 @@
 
     const-string/jumbo v0, "InteractivePano_InteractiveShotInfo"
 
+    .line 259
     new-instance v1, Ljava/lang/StringBuilder;
 
     const-string/jumbo v2, "IP:: values: "
@@ -1093,6 +1240,7 @@
 
     const-string/jumbo v0, "InteractivePano_InteractiveShotInfo"
 
+    .line 261
     new-instance v1, Ljava/lang/StringBuilder;
 
     const-string/jumbo v2, "IP:: values: "
@@ -1113,6 +1261,7 @@
 
     const-string/jumbo v0, "InteractivePano_InteractiveShotInfo"
 
+    .line 262
     new-instance v1, Ljava/lang/StringBuilder;
 
     const-string/jumbo v2, "IP:: values: "
@@ -1133,6 +1282,7 @@
 
     const-string/jumbo v0, "InteractivePano_InteractiveShotInfo"
 
+    .line 263
     new-instance v1, Ljava/lang/StringBuilder;
 
     const-string/jumbo v2, "IP:: values: "
@@ -1153,6 +1303,7 @@
 
     const-string/jumbo v0, "InteractivePano_InteractiveShotInfo"
 
+    .line 264
     new-instance v1, Ljava/lang/StringBuilder;
 
     const-string/jumbo v2, "IP:: values: "
@@ -1173,6 +1324,7 @@
 
     const-string/jumbo v0, "InteractivePano_InteractiveShotInfo"
 
+    .line 266
     new-instance v1, Ljava/lang/StringBuilder;
 
     const-string/jumbo v2, "IP:: values: "
@@ -1193,6 +1345,7 @@
 
     const-string/jumbo v0, "InteractivePano_InteractiveShotInfo"
 
+    .line 267
     new-instance v1, Ljava/lang/StringBuilder;
 
     const-string/jumbo v2, "IP:: values: "
@@ -1213,6 +1366,7 @@
 
     const-string/jumbo v0, "InteractivePano_InteractiveShotInfo"
 
+    .line 268
     new-instance v1, Ljava/lang/StringBuilder;
 
     const-string/jumbo v2, "IP:: values: "
@@ -1233,6 +1387,7 @@
 
     const-string/jumbo v0, "InteractivePano_InteractiveShotInfo"
 
+    .line 269
     new-instance v1, Ljava/lang/StringBuilder;
 
     const-string/jumbo v2, "IP:: values: "
@@ -1253,6 +1408,7 @@
 
     const-string/jumbo v0, "InteractivePano_InteractiveShotInfo"
 
+    .line 271
     new-instance v1, Ljava/lang/StringBuilder;
 
     const-string/jumbo v2, "IP:: values: "
@@ -1273,6 +1429,7 @@
 
     const-string/jumbo v0, "InteractivePano_InteractiveShotInfo"
 
+    .line 272
     new-instance v1, Ljava/lang/StringBuilder;
 
     const-string/jumbo v2, "IP:: values: "
@@ -1293,6 +1450,7 @@
 
     const-string/jumbo v0, "InteractivePano_InteractiveShotInfo"
 
+    .line 273
     new-instance v1, Ljava/lang/StringBuilder;
 
     const-string/jumbo v2, "IP:: values: "
@@ -1313,6 +1471,7 @@
 
     const-string/jumbo v0, "InteractivePano_InteractiveShotInfo"
 
+    .line 274
     new-instance v1, Ljava/lang/StringBuilder;
 
     const-string/jumbo v2, "IP:: values: "
@@ -1333,14 +1492,17 @@
 
     const/4 v0, 0x0
 
+    .line 276
     :goto_0
     iget-object v1, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mSRCMatrix:[[F
 
     if-nez v1, :cond_1
 
+    .line 280
     :cond_0
     return-void
 
+    .line 276
     :cond_1
     iget-object v1, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mSRCMatrix:[[F
 
@@ -1350,6 +1512,7 @@
 
     const-string/jumbo v1, "InteractivePano_InteractiveShotInfo"
 
+    .line 278
     new-instance v2, Ljava/lang/StringBuilder;
 
     const-string/jumbo v3, "IP:: values: "
@@ -1374,6 +1537,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 276
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
@@ -1382,12 +1546,15 @@
 .method public transformRotation()I
     .locals 2
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 285
     iget v1, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;->mOrientation:I
 
     sparse-switch v1, :sswitch_data_0
 
+    .line 300
     :goto_0
     :sswitch_0
     return v0
@@ -1395,18 +1562,22 @@
     :sswitch_1
     const/4 v0, 0x1
 
+    .line 291
     goto :goto_0
 
     :sswitch_2
     const/4 v0, 0x2
 
+    .line 294
     goto :goto_0
 
     :sswitch_3
     const/4 v0, 0x3
 
+    .line 297
     goto :goto_0
 
+    .line 285
     nop
 
     :sswitch_data_0

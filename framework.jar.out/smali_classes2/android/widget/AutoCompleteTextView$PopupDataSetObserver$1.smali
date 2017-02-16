@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Landroid/widget/AutoCompleteTextView$PopupDataSetObserver;)V
     .locals 0
+    .param p1, "this$1"    # Landroid/widget/AutoCompleteTextView$PopupDataSetObserver;
 
+    .prologue
+    .line 1429
     iput-object p1, p0, Landroid/widget/AutoCompleteTextView$PopupDataSetObserver$1;->this$1:Landroid/widget/AutoCompleteTextView$PopupDataSetObserver;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +40,8 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 1432
     iget-object v2, p0, Landroid/widget/AutoCompleteTextView$PopupDataSetObserver$1;->this$1:Landroid/widget/AutoCompleteTextView$PopupDataSetObserver;
 
     invoke-static {v2}, Landroid/widget/AutoCompleteTextView$PopupDataSetObserver;->-get0(Landroid/widget/AutoCompleteTextView$PopupDataSetObserver;)Ljava/lang/ref/WeakReference;
@@ -49,19 +54,27 @@
 
     check-cast v1, Landroid/widget/AutoCompleteTextView;
 
+    .line 1433
+    .local v1, "textView":Landroid/widget/AutoCompleteTextView;
     if-nez v1, :cond_0
 
+    .line 1434
     return-void
 
+    .line 1436
     :cond_0
     invoke-static {v1}, Landroid/widget/AutoCompleteTextView;->-get0(Landroid/widget/AutoCompleteTextView;)Landroid/widget/ListAdapter;
 
     move-result-object v0
 
+    .line 1437
+    .local v0, "adapter":Landroid/widget/ListAdapter;
     if-nez v0, :cond_1
 
+    .line 1438
     return-void
 
+    .line 1440
     :cond_1
     invoke-interface {v0}, Landroid/widget/ListAdapter;->getCount()I
 
@@ -69,5 +82,6 @@
 
     invoke-static {v1, v2}, Landroid/widget/AutoCompleteTextView;->-wrap2(Landroid/widget/AutoCompleteTextView;I)V
 
+    .line 1431
     return-void
 .end method

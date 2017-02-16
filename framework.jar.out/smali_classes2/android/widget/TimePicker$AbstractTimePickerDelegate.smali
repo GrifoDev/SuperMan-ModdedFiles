@@ -36,13 +36,20 @@
 # direct methods
 .method public constructor <init>(Landroid/widget/TimePicker;Landroid/content/Context;)V
     .locals 1
+    .param p1, "delegator"    # Landroid/widget/TimePicker;
+    .param p2, "context"    # Landroid/content/Context;
 
+    .prologue
+    .line 302
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 303
     iput-object p1, p0, Landroid/widget/TimePicker$AbstractTimePickerDelegate;->mDelegator:Landroid/widget/TimePicker;
 
+    .line 304
     iput-object p2, p0, Landroid/widget/TimePicker$AbstractTimePickerDelegate;->mContext:Landroid/content/Context;
 
+    .line 305
     invoke-virtual {p2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -55,5 +62,6 @@
 
     iput-object v0, p0, Landroid/widget/TimePicker$AbstractTimePickerDelegate;->mLocale:Ljava/util/Locale;
 
+    .line 302
     return-void
 .end method

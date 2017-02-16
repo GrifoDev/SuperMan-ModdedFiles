@@ -51,6 +51,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 39
     invoke-direct {p0}, Landroid/app/Service;-><init>()V
 
     return-void
@@ -60,21 +62,29 @@
 # virtual methods
 .method protected attachBaseContext(Landroid/content/Context;)V
     .locals 1
+    .param p1, "base"    # Landroid/content/Context;
 
+    .prologue
+    .line 57
     invoke-super {p0, p1}, Landroid/app/Service;->attachBaseContext(Landroid/content/Context;)V
 
+    .line 59
     new-instance v0, Landroid/printservice/recommendation/RecommendationService$MyHandler;
 
     invoke-direct {v0, p0}, Landroid/printservice/recommendation/RecommendationService$MyHandler;-><init>(Landroid/printservice/recommendation/RecommendationService;)V
 
     iput-object v0, p0, Landroid/printservice/recommendation/RecommendationService;->mHandler:Landroid/os/Handler;
 
+    .line 56
     return-void
 .end method
 
 .method public final onBind(Landroid/content/Intent;)Landroid/os/IBinder;
     .locals 1
+    .param p1, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 73
     new-instance v0, Landroid/printservice/recommendation/RecommendationService$1;
 
     invoke-direct {v0, p0}, Landroid/printservice/recommendation/RecommendationService$1;-><init>(Landroid/printservice/recommendation/RecommendationService;)V
@@ -100,6 +110,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 68
+    .local p1, "recommendations":Ljava/util/List;, "Ljava/util/List<Landroid/printservice/recommendation/RecommendationInfo;>;"
     iget-object v0, p0, Landroid/printservice/recommendation/RecommendationService;->mHandler:Landroid/os/Handler;
 
     const/4 v1, 0x3
@@ -110,5 +123,6 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
+    .line 67
     return-void
 .end method

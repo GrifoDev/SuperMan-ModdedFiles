@@ -14,8 +14,10 @@
 .method static constructor <clinit>()V
     .locals 4
 
+    .prologue
     const/4 v3, 0x3
 
+    .line 9
     const/4 v0, 0x2
 
     new-array v0, v0, [[F
@@ -38,8 +40,10 @@
 
     sput-object v0, Lcom/samsung/android/graphics/spr/animation/interpolator/SineInOut33;->segments:[[F
 
+    .line 7
     return-void
 
+    .line 9
     nop
 
     :array_0
@@ -60,6 +64,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 11
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -67,7 +73,11 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 0
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
+    .prologue
+    .line 14
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -77,17 +87,24 @@
 # virtual methods
 .method public getInterpolation(F)F
     .locals 12
+    .param p1, "input"    # F
 
+    .prologue
     const/4 v11, 0x0
 
     const/high16 v10, 0x3f800000    # 1.0f
 
+    .line 20
     div-float v0, p1, v10
 
+    .line 21
+    .local v0, "_loc_5":F
     sget-object v6, Lcom/samsung/android/graphics/spr/animation/interpolator/SineInOut33;->segments:[[F
 
     array-length v1, v6
 
+    .line 22
+    .local v1, "_loc_6":I
     int-to-float v6, v1
 
     mul-float/2addr v6, v0
@@ -100,6 +117,8 @@
 
     double-to-int v4, v6
 
+    .line 23
+    .local v4, "_loc_9":I
     sget-object v6, Lcom/samsung/android/graphics/spr/animation/interpolator/SineInOut33;->segments:[[F
 
     array-length v6, v6
@@ -112,6 +131,7 @@
 
     add-int/lit8 v4, v6, -0x1
 
+    .line 25
     :cond_0
     int-to-float v6, v4
 
@@ -127,10 +147,14 @@
 
     mul-float v2, v6, v7
 
+    .line 26
+    .local v2, "_loc_7":F
     sget-object v6, Lcom/samsung/android/graphics/spr/animation/interpolator/SineInOut33;->segments:[[F
 
     aget-object v3, v6, v4
 
+    .line 27
+    .local v3, "_loc_8":[F
     aget v6, v3, v11
 
     sub-float v7, v10, v2
@@ -171,5 +195,7 @@
 
     add-float v5, v7, v6
 
+    .line 29
+    .local v5, "ret":F
     return v5
 .end method

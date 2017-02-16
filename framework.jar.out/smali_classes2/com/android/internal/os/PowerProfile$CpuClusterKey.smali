@@ -49,21 +49,34 @@
 
 .method private constructor <init>(Ljava/lang/String;Ljava/lang/String;I)V
     .locals 0
+    .param p1, "timeKey"    # Ljava/lang/String;
+    .param p2, "powerKey"    # Ljava/lang/String;
+    .param p3, "numCpus"    # I
 
+    .prologue
+    .line 345
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 346
     iput-object p1, p0, Lcom/android/internal/os/PowerProfile$CpuClusterKey;->timeKey:Ljava/lang/String;
 
+    .line 347
     iput-object p2, p0, Lcom/android/internal/os/PowerProfile$CpuClusterKey;->powerKey:Ljava/lang/String;
 
+    .line 348
     iput p3, p0, Lcom/android/internal/os/PowerProfile$CpuClusterKey;->numCpus:I
 
+    .line 345
     return-void
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;Ljava/lang/String;ILcom/android/internal/os/PowerProfile$CpuClusterKey;)V
     .locals 0
+    .param p1, "timeKey"    # Ljava/lang/String;
+    .param p2, "powerKey"    # Ljava/lang/String;
+    .param p3, "numCpus"    # I
 
+    .prologue
     invoke-direct {p0, p1, p2, p3}, Lcom/android/internal/os/PowerProfile$CpuClusterKey;-><init>(Ljava/lang/String;Ljava/lang/String;I)V
 
     return-void

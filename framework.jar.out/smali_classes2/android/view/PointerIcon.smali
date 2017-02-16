@@ -361,94 +361,122 @@
 .method static constructor <clinit>()V
     .locals 4
 
+    .prologue
     const/4 v3, 0x0
 
     const/4 v2, -0x1
 
     const/4 v1, 0x0
 
+    .line 234
     new-instance v0, Landroid/view/PointerIcon;
 
     invoke-direct {v0, v1}, Landroid/view/PointerIcon;-><init>(I)V
 
     sput-object v0, Landroid/view/PointerIcon;->gNullIcon:Landroid/view/PointerIcon;
 
+    .line 235
     new-instance v0, Landroid/util/SparseArray;
 
     invoke-direct {v0}, Landroid/util/SparseArray;-><init>()V
 
     sput-object v0, Landroid/view/PointerIcon;->gSystemIcons:Landroid/util/SparseArray;
 
+    .line 237
     sput-boolean v1, Landroid/view/PointerIcon;->sUseLargeIcons:Z
 
+    .line 581
     sput-boolean v1, Landroid/view/PointerIcon;->mThemeApplied:Z
 
+    .line 584
     sput v1, Landroid/view/PointerIcon;->mCurrentDensity:I
 
+    .line 587
     sput-boolean v1, Landroid/view/PointerIcon;->mResolutionChangedForSpenIcon:Z
 
+    .line 590
     sput-boolean v1, Landroid/view/PointerIcon;->mResolutionChangedForMouseIcon:Z
 
+    .line 780
     new-instance v0, Landroid/view/PointerIcon$1;
 
     invoke-direct {v0}, Landroid/view/PointerIcon$1;-><init>()V
 
     sput-object v0, Landroid/view/PointerIcon;->CREATOR:Landroid/os/Parcelable$Creator;
 
+    .line 1217
     sput v2, Landroid/view/PointerIcon;->mMouseIconType:I
 
+    .line 1221
     sput-object v3, Landroid/view/PointerIcon;->mMouseCustomHotSpotPoint:Landroid/graphics/Point;
 
+    .line 1223
     sput v2, Landroid/view/PointerIcon;->mMouseCustomIconCurrentId:I
 
+    .line 1227
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     sput-object v0, Landroid/view/PointerIcon;->mLockforMouse:Ljava/lang/Object;
 
+    .line 1470
     sput v2, Landroid/view/PointerIcon;->mIconType:I
 
+    .line 1472
     sput v2, Landroid/view/PointerIcon;->mCustomIconId:I
 
+    .line 1474
     sput-object v3, Landroid/view/PointerIcon;->mCustomHotSpotPoint:Landroid/graphics/Point;
 
+    .line 1476
     sput v1, Landroid/view/PointerIcon;->mCustomIconCurrentId:I
 
+    .line 1480
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     sput-object v0, Landroid/view/PointerIcon;->sStaticInitWindow:Ljava/lang/Object;
 
+    .line 1482
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     sput-object v0, Landroid/view/PointerIcon;->sStaticInitInput:Ljava/lang/Object;
 
+    .line 1490
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     sput-object v0, Landroid/view/PointerIcon;->mLock:Ljava/lang/Object;
 
+    .line 63
     return-void
 .end method
 
 .method private constructor <init>(I)V
     .locals 0
+    .param p1, "type"    # I
 
+    .prologue
+    .line 599
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 600
     iput p1, p0, Landroid/view/PointerIcon;->mType:I
 
+    .line 599
     return-void
 .end method
 
 .method synthetic constructor <init>(ILandroid/view/PointerIcon;)V
     .locals 0
+    .param p1, "type"    # I
 
+    .prologue
     invoke-direct {p0, p1}, Landroid/view/PointerIcon;-><init>(I)V
 
     return-void
@@ -456,9 +484,15 @@
 
 .method public static create(Landroid/graphics/Bitmap;FF)Landroid/view/PointerIcon;
     .locals 3
+    .param p0, "bitmap"    # Landroid/graphics/Bitmap;
+    .param p1, "hotSpotX"    # F
+    .param p2, "hotSpotY"    # F
 
+    .prologue
+    .line 709
     if-nez p0, :cond_0
 
+    .line 710
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v2, "bitmap must not be null"
@@ -467,27 +501,37 @@
 
     throw v1
 
+    .line 712
     :cond_0
     invoke-static {p0, p1, p2}, Landroid/view/PointerIcon;->validateHotSpot(Landroid/graphics/Bitmap;FF)V
 
+    .line 714
     new-instance v0, Landroid/view/PointerIcon;
 
     const/4 v1, -0x1
 
     invoke-direct {v0, v1}, Landroid/view/PointerIcon;-><init>(I)V
 
+    .line 715
+    .local v0, "icon":Landroid/view/PointerIcon;
     iput-object p0, v0, Landroid/view/PointerIcon;->mBitmap:Landroid/graphics/Bitmap;
 
+    .line 716
     iput p1, v0, Landroid/view/PointerIcon;->mHotSpotX:F
 
+    .line 717
     iput p2, v0, Landroid/view/PointerIcon;->mHotSpotY:F
 
+    .line 718
     return-object v0
 .end method
 
 .method public static getDefaultIcon(Landroid/content/Context;)Landroid/view/PointerIcon;
     .locals 1
+    .param p0, "context"    # Landroid/content/Context;
 
+    .prologue
+    .line 623
     const/16 v0, 0x3e8
 
     invoke-static {p0, v0}, Landroid/view/PointerIcon;->getSystemIcon(Landroid/content/Context;I)Landroid/view/PointerIcon;
@@ -500,17 +544,22 @@
 .method static getInputManager()Landroid/hardware/input/IInputManager;
     .locals 2
 
+    .prologue
+    .line 1854
     sget-object v1, Landroid/view/PointerIcon;->sStaticInitInput:Ljava/lang/Object;
 
     monitor-enter v1
 
+    .line 1855
     :try_start_0
     sget-object v0, Landroid/view/PointerIcon;->sInputManager:Landroid/hardware/input/IInputManager;
 
     if-nez v0, :cond_0
 
+    .line 1857
     const-string/jumbo v0, "input"
 
+    .line 1856
     invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
@@ -521,6 +570,7 @@
 
     sput-object v0, Landroid/view/PointerIcon;->sInputManager:Landroid/hardware/input/IInputManager;
 
+    .line 1859
     :cond_0
     sget-object v0, Landroid/view/PointerIcon;->sInputManager:Landroid/hardware/input/IInputManager;
     :try_end_0
@@ -530,6 +580,7 @@
 
     return-object v0
 
+    .line 1854
     :catchall_0
     move-exception v0
 
@@ -541,6 +592,8 @@
 .method public static getNullIcon()Landroid/view/PointerIcon;
     .locals 1
 
+    .prologue
+    .line 611
     sget-object v0, Landroid/view/PointerIcon;->gNullIcon:Landroid/view/PointerIcon;
 
     return-object v0
@@ -548,7 +601,10 @@
 
 .method public static getSystemIcon(Landroid/content/Context;I)Landroid/view/PointerIcon;
     .locals 11
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "type"    # I
 
+    .prologue
     const/16 v10, 0x3e8
 
     const/4 v9, -0x1
@@ -557,8 +613,10 @@
 
     const/4 v7, 0x0
 
+    .line 636
     if-nez p0, :cond_0
 
+    .line 637
     new-instance v5, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v6, "context must not be null"
@@ -567,13 +625,16 @@
 
     throw v5
 
+    .line 640
     :cond_0
     if-nez p1, :cond_1
 
+    .line 641
     sget-object v5, Landroid/view/PointerIcon;->gNullIcon:Landroid/view/PointerIcon;
 
     return-object v5
 
+    .line 644
     :cond_1
     sget-object v5, Landroid/view/PointerIcon;->gSystemIcons:Landroid/util/SparseArray;
 
@@ -583,43 +644,60 @@
 
     check-cast v2, Landroid/view/PointerIcon;
 
+    .line 645
+    .local v2, "icon":Landroid/view/PointerIcon;
     if-eqz v2, :cond_2
 
+    .line 646
     return-object v2
 
+    .line 649
     :cond_2
     invoke-static {p1}, Landroid/view/PointerIcon;->getSystemIconTypeIndex(I)I
 
     move-result v4
 
+    .line 650
+    .local v4, "typeIndex":I
     if-nez v4, :cond_3
 
+    .line 651
     invoke-static {v10}, Landroid/view/PointerIcon;->getSystemIconTypeIndex(I)I
 
     move-result v4
 
+    .line 656
     :cond_3
     const/16 v5, 0x2710
 
     if-lt p1, v5, :cond_4
 
+    .line 658
     sget-object v5, Lcom/android/internal/R$styleable;->DeviceDefault_Pointer:[I
 
+    .line 659
     const v6, 0x11600c9
 
+    .line 657
     invoke-virtual {p0, v8, v5, v6, v7}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
+    .line 660
+    .local v0, "a":Landroid/content/res/TypedArray;
     invoke-virtual {v0, v4, v9}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v3
 
+    .line 661
+    .local v3, "resourceId":I
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
+    .line 671
     :goto_0
     if-ne v3, v9, :cond_7
 
+    .line 672
     const-string/jumbo v5, "PointerIcon"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -642,6 +720,7 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 673
     if-ne p1, v10, :cond_6
 
     sget-object v5, Landroid/view/PointerIcon;->gNullIcon:Landroid/view/PointerIcon;
@@ -649,6 +728,9 @@
     :goto_1
     return-object v5
 
+    .line 663
+    .end local v0    # "a":Landroid/content/res/TypedArray;
+    .end local v3    # "resourceId":I
     :cond_4
     sget-boolean v5, Landroid/view/PointerIcon;->sUseLargeIcons:Z
 
@@ -656,26 +738,42 @@
 
     const v1, 0x103034e
 
+    .line 666
+    .local v1, "defStyle":I
     :goto_2
     sget-object v5, Lcom/android/internal/R$styleable;->Pointer:[I
 
+    .line 665
     invoke-virtual {p0, v8, v5, v7, v1}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
+    .line 667
+    .restart local v0    # "a":Landroid/content/res/TypedArray;
     invoke-virtual {v0, v4, v9}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v3
 
+    .line 668
+    .restart local v3    # "resourceId":I
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     goto :goto_0
 
+    .line 664
+    .end local v0    # "a":Landroid/content/res/TypedArray;
+    .end local v1    # "defStyle":I
+    .end local v3    # "resourceId":I
     :cond_5
     const v1, 0x103034d
 
+    .restart local v1    # "defStyle":I
     goto :goto_2
 
+    .line 673
+    .end local v1    # "defStyle":I
+    .restart local v0    # "a":Landroid/content/res/TypedArray;
+    .restart local v3    # "resourceId":I
     :cond_6
     invoke-static {p0, v10}, Landroid/view/PointerIcon;->getSystemIcon(Landroid/content/Context;I)Landroid/view/PointerIcon;
 
@@ -683,11 +781,15 @@
 
     goto :goto_1
 
+    .line 676
     :cond_7
     new-instance v2, Landroid/view/PointerIcon;
 
+    .end local v2    # "icon":Landroid/view/PointerIcon;
     invoke-direct {v2, p1}, Landroid/view/PointerIcon;-><init>(I)V
 
+    .line 677
+    .restart local v2    # "icon":Landroid/view/PointerIcon;
     const/high16 v5, -0x1000000
 
     and-int/2addr v5, v3
@@ -696,15 +798,19 @@
 
     if-ne v5, v6, :cond_8
 
+    .line 678
     iput v3, v2, Landroid/view/PointerIcon;->mSystemIconResourceId:I
 
+    .line 682
     :goto_3
     sget-object v5, Landroid/view/PointerIcon;->gSystemIcons:Landroid/util/SparseArray;
 
     invoke-virtual {v5, p1, v2}, Landroid/util/SparseArray;->append(ILjava/lang/Object;)V
 
+    .line 683
     return-object v2
 
+    .line 680
     :cond_8
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -717,7 +823,9 @@
 
 .method private static getSystemIconTypeIndex(I)I
     .locals 5
+    .param p0, "type"    # I
 
+    .prologue
     const/4 v4, 0x4
 
     const/4 v3, 0x3
@@ -728,430 +836,521 @@
 
     const/4 v0, 0x0
 
+    .line 927
     sparse-switch p0, :sswitch_data_0
 
+    .line 1105
     return v0
 
+    .line 929
     :sswitch_0
     return v0
 
+    .line 931
     :sswitch_1
     return v1
 
+    .line 933
     :sswitch_2
     return v2
 
+    .line 935
     :sswitch_3
     return v3
 
+    .line 937
     :sswitch_4
     const/4 v0, 0x5
 
     return v0
 
+    .line 939
     :sswitch_5
     return v4
 
+    .line 941
     :sswitch_6
     const/4 v0, 0x6
 
     return v0
 
+    .line 943
     :sswitch_7
     const/4 v0, 0x7
 
     return v0
 
+    .line 945
     :sswitch_8
     const/16 v0, 0x8
 
     return v0
 
+    .line 947
     :sswitch_9
     const/16 v0, 0x9
 
     return v0
 
+    .line 949
     :sswitch_a
     const/16 v0, 0xa
 
     return v0
 
+    .line 951
     :sswitch_b
     const/16 v0, 0xb
 
     return v0
 
+    .line 953
     :sswitch_c
     const/16 v0, 0xc
 
     return v0
 
+    .line 955
     :sswitch_d
     const/16 v0, 0xd
 
     return v0
 
+    .line 957
     :sswitch_e
     const/16 v0, 0xf
 
     return v0
 
+    .line 959
     :sswitch_f
     const/16 v0, 0xe
 
     return v0
 
+    .line 961
     :sswitch_10
     const/16 v0, 0x10
 
     return v0
 
+    .line 963
     :sswitch_11
     const/16 v0, 0x11
 
     return v0
 
+    .line 965
     :sswitch_12
     const/16 v0, 0x12
 
     return v0
 
+    .line 967
     :sswitch_13
     const/16 v0, 0x13
 
     return v0
 
+    .line 969
     :sswitch_14
     const/16 v0, 0x14
 
     return v0
 
+    .line 971
     :sswitch_15
     const/16 v0, 0x15
 
     return v0
 
+    .line 973
     :sswitch_16
     const/16 v0, 0x16
 
     return v0
 
+    .line 975
     :sswitch_17
     const/16 v0, 0x17
 
     return v0
 
+    .line 977
     :sswitch_18
     const/16 v0, 0x13
 
     return v0
 
+    .line 979
     :sswitch_19
     const/16 v0, 0x14
 
     return v0
 
+    .line 981
     :sswitch_1a
     const/16 v0, 0x15
 
     return v0
 
+    .line 983
     :sswitch_1b
     const/16 v0, 0x16
 
     return v0
 
+    .line 985
     :sswitch_1c
     const/16 v0, 0x17
 
     return v0
 
+    .line 987
     :sswitch_1d
     const/16 v0, 0x18
 
     return v0
 
+    .line 989
     :sswitch_1e
     const/16 v0, 0x19
 
     return v0
 
+    .line 991
     :sswitch_1f
     const/16 v0, 0x1a
 
     return v0
 
+    .line 993
     :sswitch_20
     const/16 v0, 0x1b
 
     return v0
 
+    .line 995
     :sswitch_21
     const/16 v0, 0x1c
 
     return v0
 
+    .line 997
     :sswitch_22
     const/16 v0, 0x1d
 
     return v0
 
+    .line 999
     :sswitch_23
     const/16 v0, 0x1e
 
     return v0
 
+    .line 1001
     :sswitch_24
     const/16 v0, 0x1f
 
     return v0
 
+    .line 1003
     :sswitch_25
     const/16 v0, 0x20
 
     return v0
 
+    .line 1005
     :sswitch_26
     const/16 v0, 0x21
 
     return v0
 
+    .line 1007
     :sswitch_27
     const/16 v0, 0x22
 
     return v0
 
+    .line 1009
     :sswitch_28
     const/16 v0, 0x23
 
     return v0
 
+    .line 1011
     :sswitch_29
     const/16 v0, 0x24
 
     return v0
 
+    .line 1013
     :sswitch_2a
     const/16 v0, 0x25
 
     return v0
 
+    .line 1015
     :sswitch_2b
     const/16 v0, 0x26
 
     return v0
 
+    .line 1017
     :sswitch_2c
     const/16 v0, 0x28
 
     return v0
 
+    .line 1019
     :sswitch_2d
     const/16 v0, 0x29
 
     return v0
 
+    .line 1021
     :sswitch_2e
     const/16 v0, 0x2a
 
     return v0
 
+    .line 1023
     :sswitch_2f
     const/16 v0, 0x2b
 
     return v0
 
+    .line 1025
     :sswitch_30
     const/16 v0, 0x2c
 
     return v0
 
+    .line 1027
     :sswitch_31
     const/16 v0, 0x9
 
     return v0
 
+    .line 1029
     :sswitch_32
     const/16 v0, 0xb
 
     return v0
 
+    .line 1031
     :sswitch_33
     const/16 v0, 0xc
 
     return v0
 
+    .line 1033
     :sswitch_34
     const/16 v0, 0xd
 
     return v0
 
+    .line 1035
     :sswitch_35
     const/16 v0, 0xe
 
     return v0
 
+    .line 1037
     :sswitch_36
     const/16 v0, 0xf
 
     return v0
 
+    .line 1039
     :sswitch_37
     const/16 v0, 0x10
 
     return v0
 
+    .line 1041
     :sswitch_38
     const/16 v0, 0x11
 
     return v0
 
+    .line 1043
     :sswitch_39
     const/16 v0, 0x12
 
     return v0
 
+    .line 1045
     :sswitch_3a
     const/16 v0, 0xa
 
     return v0
 
+    .line 1047
     :sswitch_3b
     return v0
 
+    .line 1049
     :sswitch_3c
     return v1
 
+    .line 1051
     :sswitch_3d
     return v2
 
+    .line 1053
     :sswitch_3e
     return v3
 
+    .line 1055
     :sswitch_3f
     return v4
 
+    .line 1057
     :sswitch_40
     const/4 v0, 0x5
 
     return v0
 
+    .line 1059
     :sswitch_41
     const/4 v0, 0x6
 
     return v0
 
+    .line 1061
     :sswitch_42
     const/4 v0, 0x7
 
     return v0
 
+    .line 1063
     :sswitch_43
     const/16 v0, 0x8
 
     return v0
 
+    .line 1065
     :sswitch_44
     const/16 v0, 0x27
 
     return v0
 
+    .line 1067
     :sswitch_45
     const/16 v0, 0x2d
 
     return v0
 
+    .line 1069
     :sswitch_46
     const/16 v0, 0x2e
 
     return v0
 
+    .line 1071
     :sswitch_47
     const/16 v0, 0x2f
 
     return v0
 
+    .line 1073
     :sswitch_48
     const/16 v0, 0x30
 
     return v0
 
+    .line 1075
     :sswitch_49
     const/16 v0, 0x31
 
     return v0
 
+    .line 1077
     :sswitch_4a
     const/16 v0, 0x32
 
     return v0
 
+    .line 1079
     :sswitch_4b
     const/16 v0, 0x33
 
     return v0
 
+    .line 1081
     :sswitch_4c
     const/16 v0, 0x34
 
     return v0
 
+    .line 1083
     :sswitch_4d
     const/16 v0, 0x35
 
     return v0
 
+    .line 1085
     :sswitch_4e
     const/16 v0, 0x36
 
     return v0
 
+    .line 1087
     :sswitch_4f
     const/16 v0, 0x37
 
     return v0
 
+    .line 1089
     :sswitch_50
     const/16 v0, 0x38
 
     return v0
 
+    .line 1091
     :sswitch_51
     const/16 v0, 0x39
 
     return v0
 
+    .line 1093
     :sswitch_52
     const/16 v0, 0x3a
 
     return v0
 
+    .line 1095
     :sswitch_53
     const/16 v0, 0x3b
 
     return v0
 
+    .line 1097
     :sswitch_54
     const/16 v0, 0x3c
 
     return v0
 
+    .line 1099
     :sswitch_55
     const/16 v0, 0x3d
 
     return v0
 
+    .line 1101
     :sswitch_56
     const/16 v0, 0x3e
 
     return v0
 
+    .line 1103
     :sswitch_57
     const/16 v0, 0x3f
 
     return v0
 
+    .line 927
     nop
 
     :sswitch_data_0
@@ -1249,11 +1448,16 @@
 
 .method public static load(Landroid/content/res/Resources;I)Landroid/view/PointerIcon;
     .locals 3
+    .param p0, "resources"    # Landroid/content/res/Resources;
+    .param p1, "resourceId"    # I
 
+    .prologue
     const/4 v2, 0x0
 
+    .line 741
     if-nez p0, :cond_0
 
+    .line 742
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v2, "resources must not be null"
@@ -1262,6 +1466,7 @@
 
     throw v1
 
+    .line 745
     :cond_0
     new-instance v0, Landroid/view/PointerIcon;
 
@@ -1269,31 +1474,45 @@
 
     invoke-direct {v0, v1}, Landroid/view/PointerIcon;-><init>(I)V
 
+    .line 746
+    .local v0, "icon":Landroid/view/PointerIcon;
     invoke-direct {v0, v2, p0, p1}, Landroid/view/PointerIcon;->loadResource(Landroid/content/Context;Landroid/content/res/Resources;I)V
 
+    .line 747
     return-object v0
 .end method
 
 .method private loadResource(Landroid/content/Context;Landroid/content/res/Resources;I)V
     .locals 17
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "resources"    # Landroid/content/res/Resources;
+    .param p3, "resourceId"    # I
 
+    .prologue
+    .line 847
     invoke-virtual/range {p2 .. p3}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
 
     move-result-object v12
 
+    .line 852
+    .local v12, "parser":Landroid/content/res/XmlResourceParser;
     :try_start_0
     const-string/jumbo v14, "pointer-icon"
 
     invoke-static {v12, v14}, Lcom/android/internal/util/XmlUtils;->beginDocument(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)V
 
+    .line 855
     sget-object v14, Lcom/android/internal/R$styleable;->PointerIcon:[I
 
+    .line 854
     move-object/from16 v0, p2
 
     invoke-virtual {v0, v12, v14}, Landroid/content/res/Resources;->obtainAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
 
     move-result-object v1
 
+    .line 856
+    .local v1, "a":Landroid/content/res/TypedArray;
     const/4 v14, 0x0
 
     const/4 v15, 0x0
@@ -1302,6 +1521,8 @@
 
     move-result v3
 
+    .line 857
+    .local v3, "bitmapRes":I
     const/4 v14, 0x0
 
     const/4 v15, 0x1
@@ -1310,6 +1531,8 @@
 
     move-result v9
 
+    .line 858
+    .local v9, "hotSpotX":F
     const/4 v14, 0x0
 
     const/4 v15, 0x2
@@ -1318,15 +1541,20 @@
 
     move-result v10
 
+    .line 859
+    .local v10, "hotSpotY":F
     invoke-virtual {v1}, Landroid/content/res/TypedArray;->recycle()V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 863
     invoke-interface {v12}, Landroid/content/res/XmlResourceParser;->close()V
 
+    .line 866
     if-nez v3, :cond_0
 
+    .line 867
     new-instance v14, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v15, "<pointer-icon> is missing bitmap attribute."
@@ -1335,9 +1563,16 @@
 
     throw v14
 
+    .line 860
+    .end local v1    # "a":Landroid/content/res/TypedArray;
+    .end local v3    # "bitmapRes":I
+    .end local v9    # "hotSpotX":F
+    .end local v10    # "hotSpotY":F
     :catch_0
     move-exception v6
 
+    .line 861
+    .local v6, "ex":Ljava/lang/Exception;
     :try_start_1
     new-instance v14, Ljava/lang/IllegalArgumentException;
 
@@ -1349,16 +1584,26 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    .line 862
+    .end local v6    # "ex":Ljava/lang/Exception;
     :catchall_0
     move-exception v14
 
+    .line 863
     invoke-interface {v12}, Landroid/content/res/XmlResourceParser;->close()V
 
+    .line 862
     throw v14
 
+    .line 871
+    .restart local v1    # "a":Landroid/content/res/TypedArray;
+    .restart local v3    # "bitmapRes":I
+    .restart local v9    # "hotSpotX":F
+    .restart local v10    # "hotSpotY":F
     :cond_0
     if-nez p1, :cond_2
 
+    .line 872
     const/4 v14, 0x0
 
     move-object/from16 v0, p2
@@ -1367,6 +1612,8 @@
 
     move-result-object v4
 
+    .line 876
+    .local v4, "drawable":Landroid/graphics/drawable/Drawable;
     :goto_0
     instance-of v14, v4, Landroid/graphics/drawable/AnimationDrawable;
 
@@ -1374,41 +1621,56 @@
 
     move-object v2, v4
 
+    .line 878
     check-cast v2, Landroid/graphics/drawable/AnimationDrawable;
 
+    .line 879
+    .local v2, "animationDrawable":Landroid/graphics/drawable/AnimationDrawable;
     invoke-virtual {v2}, Landroid/graphics/drawable/AnimationDrawable;->getNumberOfFrames()I
 
     move-result v7
 
+    .line 880
+    .local v7, "frames":I
     const/4 v14, 0x0
 
     invoke-virtual {v2, v14}, Landroid/graphics/drawable/AnimationDrawable;->getFrame(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v4
 
+    .line 881
     const/4 v14, 0x1
 
     if-ne v7, v14, :cond_3
 
+    .line 882
     const-string/jumbo v14, "PointerIcon"
 
     const-string/jumbo v15, "Animation icon with single frame -- simply treating the first frame as a normal bitmap icon."
 
     invoke-static {v14, v15}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 906
+    .end local v2    # "animationDrawable":Landroid/graphics/drawable/AnimationDrawable;
+    .end local v7    # "frames":I
     :cond_1
     instance-of v14, v4, Landroid/graphics/drawable/BitmapDrawable;
 
     if-nez v14, :cond_7
 
+    .line 907
     new-instance v14, Ljava/lang/IllegalArgumentException;
 
+    .line 908
     const-string/jumbo v15, "<pointer-icon> bitmap attribute must refer to a bitmap drawable."
 
+    .line 907
     invoke-direct {v14, v15}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v14
 
+    .line 874
+    .end local v4    # "drawable":Landroid/graphics/drawable/Drawable;
     :cond_2
     move-object/from16 v0, p1
 
@@ -1416,8 +1678,12 @@
 
     move-result-object v4
 
+    .restart local v4    # "drawable":Landroid/graphics/drawable/Drawable;
     goto :goto_0
 
+    .line 886
+    .restart local v2    # "animationDrawable":Landroid/graphics/drawable/AnimationDrawable;
+    .restart local v7    # "frames":I
     :cond_3
     const/4 v14, 0x0
 
@@ -1429,6 +1695,7 @@
 
     iput v14, v0, Landroid/view/PointerIcon;->mDurationPerFrame:I
 
+    .line 887
     add-int/lit8 v14, v7, -0x1
 
     new-array v14, v14, [Landroid/graphics/Bitmap;
@@ -1437,27 +1704,37 @@
 
     iput-object v14, v0, Landroid/view/PointerIcon;->mBitmapFrames:[Landroid/graphics/Bitmap;
 
+    .line 888
     invoke-virtual {v4}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
     move-result v13
 
+    .line 889
+    .local v13, "width":I
     invoke-virtual {v4}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
 
     move-result v8
 
+    .line 890
+    .local v8, "height":I
     const/4 v11, 0x1
 
+    .local v11, "i":I
     :goto_1
     if-ge v11, v7, :cond_1
 
+    .line 891
     invoke-virtual {v2, v11}, Landroid/graphics/drawable/AnimationDrawable;->getFrame(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v5
 
+    .line 892
+    .local v5, "drawableFrame":Landroid/graphics/drawable/Drawable;
     instance-of v14, v5, Landroid/graphics/drawable/BitmapDrawable;
 
     if-nez v14, :cond_4
 
+    .line 893
     new-instance v14, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v15, "Frame of an animated pointer icon must refer to a bitmap drawable."
@@ -1466,6 +1743,7 @@
 
     throw v14
 
+    .line 896
     :cond_4
     invoke-virtual {v5}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
@@ -1473,12 +1751,14 @@
 
     if-ne v14, v13, :cond_5
 
+    .line 897
     invoke-virtual {v5}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
 
     move-result v14
 
     if-eq v14, v8, :cond_6
 
+    .line 898
     :cond_5
     new-instance v14, Ljava/lang/IllegalArgumentException;
 
@@ -1502,14 +1782,18 @@
 
     move-result-object v15
 
+    .line 899
     const-string/jumbo v16, "is different. All frames should have the exact same size and "
 
+    .line 898
     invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v15
 
+    .line 900
     const-string/jumbo v16, "share the same hotspot."
 
+    .line 898
     invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v15
@@ -1522,6 +1806,7 @@
 
     throw v14
 
+    .line 902
     :cond_6
     move-object/from16 v0, p0
 
@@ -1531,19 +1816,28 @@
 
     check-cast v5, Landroid/graphics/drawable/BitmapDrawable;
 
+    .end local v5    # "drawableFrame":Landroid/graphics/drawable/Drawable;
     invoke-virtual {v5}, Landroid/graphics/drawable/BitmapDrawable;->getBitmap()Landroid/graphics/Bitmap;
 
     move-result-object v16
 
     aput-object v16, v14, v15
 
+    .line 890
     add-int/lit8 v11, v11, 0x1
 
     goto :goto_1
 
+    .line 912
+    .end local v2    # "animationDrawable":Landroid/graphics/drawable/AnimationDrawable;
+    .end local v7    # "frames":I
+    .end local v8    # "height":I
+    .end local v11    # "i":I
+    .end local v13    # "width":I
     :cond_7
     check-cast v4, Landroid/graphics/drawable/BitmapDrawable;
 
+    .end local v4    # "drawable":Landroid/graphics/drawable/Drawable;
     invoke-virtual {v4}, Landroid/graphics/drawable/BitmapDrawable;->getBitmap()Landroid/graphics/Bitmap;
 
     move-result-object v14
@@ -1552,45 +1846,55 @@
 
     iput-object v14, v0, Landroid/view/PointerIcon;->mBitmap:Landroid/graphics/Bitmap;
 
+    .line 913
     move-object/from16 v0, p0
 
     iput v9, v0, Landroid/view/PointerIcon;->mHotSpotX:F
 
+    .line 914
     move-object/from16 v0, p0
 
     iput v10, v0, Landroid/view/PointerIcon;->mHotSpotY:F
 
+    .line 846
     return-void
 .end method
 
 .method public static registerHoveringSpenCustomIcon(Landroid/graphics/drawable/Drawable;)I
     .locals 8
+    .param p0, "d"    # Landroid/graphics/drawable/Drawable;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     const/4 v7, 0x0
 
+    .line 1502
     const-string/jumbo v4, "PointerIcon"
 
     const-string/jumbo v5, "registerHoveringSpenCustomIcon"
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1506
     if-nez p0, :cond_0
 
+    .line 1507
     const-string/jumbo v4, "PointerIcon"
 
     const-string/jumbo v5, "registerHoveringSpenCustomIcon Drawable is null"
 
     invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1508
     const/4 v4, -0x1
 
     return v4
 
+    .line 1511
     :cond_0
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
@@ -1600,16 +1904,22 @@
 
     move-result v5
 
+    .line 1512
     sget-object v6, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
+    .line 1511
     invoke-static {v4, v5, v6}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
 
     move-result-object v0
 
+    .line 1513
+    .local v0, "bitmap":Landroid/graphics/Bitmap;
     new-instance v1, Landroid/graphics/Canvas;
 
     invoke-direct {v1, v0}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
 
+    .line 1515
+    .local v1, "canvas":Landroid/graphics/Canvas;
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
     move-result v4
@@ -1620,8 +1930,10 @@
 
     invoke-virtual {p0, v7, v7, v4, v5}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
+    .line 1516
     invoke-virtual {p0, v1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
+    .line 1518
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v4
@@ -1638,6 +1950,7 @@
 
     if-le v4, v5, :cond_1
 
+    .line 1522
     const-string/jumbo v4, "PointerIcon"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -1658,16 +1971,20 @@
 
     move-result-object v5
 
+    .line 1523
     const-string/jumbo v6, "height:"
 
+    .line 1522
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
+    .line 1523
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v6
 
+    .line 1522
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v5
@@ -1678,6 +1995,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1524
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v4
@@ -1688,6 +2006,8 @@
 
     div-float v3, v5, v4
 
+    .line 1525
+    .local v3, "scale":F
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v4
@@ -1698,6 +2018,7 @@
 
     float-to-int v4, v4
 
+    .line 1526
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v5
@@ -1708,14 +2029,21 @@
 
     float-to-int v5, v5
 
+    .line 1525
     invoke-static {v0, v4, v5, v7}, Landroid/graphics/Bitmap;->createScaledBitmap(Landroid/graphics/Bitmap;IIZ)Landroid/graphics/Bitmap;
 
     move-result-object v2
 
+    .line 1527
+    .local v2, "resizeBitmap":Landroid/graphics/Bitmap;
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->recycle()V
 
+    .line 1528
     move-object v0, v2
 
+    .line 1530
+    .end local v2    # "resizeBitmap":Landroid/graphics/Bitmap;
+    .end local v3    # "scale":F
     :cond_1
     invoke-static {}, Landroid/view/PointerIcon;->getInputManager()Landroid/hardware/input/IInputManager;
 
@@ -1730,32 +2058,39 @@
 
 .method public static registerMouseCustomIcon(Landroid/graphics/drawable/Drawable;)I
     .locals 8
+    .param p0, "d"    # Landroid/graphics/drawable/Drawable;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     const/4 v7, 0x0
 
+    .line 1236
     const-string/jumbo v4, "PointerIcon"
 
     const-string/jumbo v5, "registerMouseCustomIcon"
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1238
     if-nez p0, :cond_0
 
+    .line 1239
     const-string/jumbo v4, "PointerIcon"
 
     const-string/jumbo v5, "registerMouseCustomIcon Drawable is null"
 
     invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1240
     const/4 v4, -0x1
 
     return v4
 
+    .line 1243
     :cond_0
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
@@ -1765,16 +2100,22 @@
 
     move-result v5
 
+    .line 1244
     sget-object v6, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
+    .line 1243
     invoke-static {v4, v5, v6}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
 
     move-result-object v0
 
+    .line 1245
+    .local v0, "bitmap":Landroid/graphics/Bitmap;
     new-instance v1, Landroid/graphics/Canvas;
 
     invoke-direct {v1, v0}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
 
+    .line 1247
+    .local v1, "canvas":Landroid/graphics/Canvas;
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
     move-result v4
@@ -1785,8 +2126,10 @@
 
     invoke-virtual {p0, v7, v7, v4, v5}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
+    .line 1248
     invoke-virtual {p0, v1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
+    .line 1250
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v4
@@ -1803,6 +2146,7 @@
 
     if-le v4, v5, :cond_1
 
+    .line 1254
     const-string/jumbo v4, "PointerIcon"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -1823,16 +2167,20 @@
 
     move-result-object v5
 
+    .line 1255
     const-string/jumbo v6, "height: "
 
+    .line 1254
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
+    .line 1255
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v6
 
+    .line 1254
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v5
@@ -1843,6 +2191,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1256
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v4
@@ -1853,6 +2202,8 @@
 
     div-float v3, v5, v4
 
+    .line 1257
+    .local v3, "scale":F
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v4
@@ -1863,6 +2214,7 @@
 
     float-to-int v4, v4
 
+    .line 1258
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v5
@@ -1873,14 +2225,21 @@
 
     float-to-int v5, v5
 
+    .line 1257
     invoke-static {v0, v4, v5, v7}, Landroid/graphics/Bitmap;->createScaledBitmap(Landroid/graphics/Bitmap;IIZ)Landroid/graphics/Bitmap;
 
     move-result-object v2
 
+    .line 1259
+    .local v2, "resizeBitmap":Landroid/graphics/Bitmap;
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->recycle()V
 
+    .line 1260
     move-object v0, v2
 
+    .line 1262
+    .end local v2    # "resizeBitmap":Landroid/graphics/Bitmap;
+    .end local v3    # "scale":F
     :cond_1
     invoke-static {}, Landroid/view/PointerIcon;->getInputManager()Landroid/hardware/input/IInputManager;
 
@@ -1895,12 +2254,15 @@
 
 .method public static removeHoveringSpenCustomIcon(I)V
     .locals 3
+    .param p0, "customIconId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 1540
     const-string/jumbo v0, "PointerIcon"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1923,23 +2285,28 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1541
     invoke-static {}, Landroid/view/PointerIcon;->getInputManager()Landroid/hardware/input/IInputManager;
 
     move-result-object v0
 
     invoke-interface {v0, p0}, Landroid/hardware/input/IInputManager;->removeHoveringSpenCustomIcon(I)V
 
+    .line 1539
     return-void
 .end method
 
 .method public static removeMouseCustomIcon(I)V
     .locals 3
+    .param p0, "customIconId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 1272
     const-string/jumbo v0, "PointerIcon"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1962,23 +2329,29 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1273
     invoke-static {}, Landroid/view/PointerIcon;->getInputManager()Landroid/hardware/input/IInputManager;
 
     move-result-object v0
 
     invoke-interface {v0, p0}, Landroid/hardware/input/IInputManager;->removeMouseCustomIcon(I)V
 
+    .line 1271
     return-void
 .end method
 
 .method public static setCustomDefaultIcon(ILandroid/graphics/drawable/Drawable;)V
     .locals 3
+    .param p0, "deviceType"    # I
+    .param p1, "customIcon"    # Landroid/graphics/drawable/Drawable;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 1119
     const-string/jumbo v0, "PointerIcon"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -2007,39 +2380,48 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1121
     if-nez p1, :cond_0
 
+    .line 1122
     const-string/jumbo v0, "PointerIcon"
 
     const-string/jumbo v1, "setCustomDefaultIcon(), invalid customIcon."
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1123
     return-void
 
+    .line 1126
     :cond_0
     const/4 v0, 0x2
 
     if-ne p0, v0, :cond_1
 
+    .line 1127
     const/16 v0, 0x4e36
 
     invoke-static {v0, p1}, Landroid/view/PointerIcon;->setHoveringSpenIcon(ILandroid/graphics/drawable/Drawable;)I
 
+    .line 1118
     :goto_0
     return-void
 
+    .line 1128
     :cond_1
     const/4 v0, 0x3
 
     if-ne p0, v0, :cond_2
 
+    .line 1129
     const/16 v0, 0x2774
 
     invoke-static {v0, p1}, Landroid/view/PointerIcon;->setMouseIcon(ILandroid/graphics/drawable/Drawable;)I
 
     goto :goto_0
 
+    .line 1131
     :cond_2
     const-string/jumbo v0, "PointerIcon"
 
@@ -2058,60 +2440,79 @@
         }
     .end annotation
 
+    .prologue
+    .line 1141
     const-string/jumbo v0, "PointerIcon"
 
     const-string/jumbo v1, "setDisableCustomDefaultIcon()"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1142
     const/16 v0, 0x4e37
 
     const/4 v1, 0x0
 
     invoke-static {v0, v1}, Landroid/view/PointerIcon;->setHoveringSpenIcon(ILandroid/graphics/drawable/Drawable;)I
 
+    .line 1140
     return-void
 .end method
 
 .method public static setHoveringSpenCustomIcon(ILandroid/graphics/Bitmap;)I
     .locals 4
+    .param p0, "IconId"    # I
+    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
 
+    .prologue
+    .line 1822
     sget-object v2, Landroid/view/PointerIcon;->mLock:Ljava/lang/Object;
 
     monitor-enter v2
 
+    .line 1823
     move v0, p0
 
+    .line 1826
+    .local v0, "iReaIconId":I
     if-gez p0, :cond_0
 
+    .line 1827
     :try_start_0
     sget v0, Landroid/view/PointerIcon;->mCustomIconId:I
 
+    .line 1829
     :cond_0
     const/4 v1, 0x1
 
     if-ge v0, v1, :cond_1
 
+    .line 1830
     const/4 v0, 0x1
 
+    .line 1833
     :cond_1
     sget-object v1, Landroid/view/PointerIcon;->mHoverBitmap:[Landroid/graphics/Bitmap;
 
     if-nez v1, :cond_3
 
+    .line 1834
     const/4 v1, 0x5
 
     new-array v1, v1, [Landroid/graphics/Bitmap;
 
     sput-object v1, Landroid/view/PointerIcon;->mHoverBitmap:[Landroid/graphics/Bitmap;
 
+    .line 1839
     :goto_0
     const/16 v1, 0xff
 
     if-ne p0, v1, :cond_2
 
+    .line 1840
     const/4 v0, 0x0
 
+    .line 1848
     :cond_2
     sget-object v1, Landroid/view/PointerIcon;->mHoverBitmap:[Landroid/graphics/Bitmap;
 
@@ -2121,8 +2522,10 @@
 
     monitor-exit v2
 
+    .line 1849
     return v0
 
+    .line 1836
     :cond_3
     :try_start_1
     const-string/jumbo v1, "PointerIcon"
@@ -2135,6 +2538,7 @@
 
     goto :goto_0
 
+    .line 1822
     :catchall_0
     move-exception v1
 
@@ -2145,33 +2549,41 @@
 
 .method public static setHoveringSpenCustomIcon(Landroid/graphics/Bitmap;)I
     .locals 3
+    .param p0, "bitmap"    # Landroid/graphics/Bitmap;
 
+    .prologue
     const/4 v2, 0x5
 
+    .line 1792
     sget-object v1, Landroid/view/PointerIcon;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
+    .line 1794
     :try_start_0
     sget v0, Landroid/view/PointerIcon;->mCustomIconCurrentId:I
 
     if-lt v0, v2, :cond_1
 
+    .line 1795
     const/4 v0, 0x1
 
     sput v0, Landroid/view/PointerIcon;->mCustomIconCurrentId:I
 
+    .line 1800
     :goto_0
     sget-object v0, Landroid/view/PointerIcon;->mHoverBitmap:[Landroid/graphics/Bitmap;
 
     if-nez v0, :cond_2
 
+    .line 1801
     const/4 v0, 0x5
 
     new-array v0, v0, [Landroid/graphics/Bitmap;
 
     sput-object v0, Landroid/view/PointerIcon;->mHoverBitmap:[Landroid/graphics/Bitmap;
 
+    .line 1806
     :goto_1
     sget-object v0, Landroid/view/PointerIcon;->mHoverBitmap:[Landroid/graphics/Bitmap;
 
@@ -2181,6 +2593,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 1807
     sget-object v0, Landroid/view/PointerIcon;->mHoverBitmap:[Landroid/graphics/Bitmap;
 
     sget v2, Landroid/view/PointerIcon;->mCustomIconCurrentId:I
@@ -2189,6 +2602,7 @@
 
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->recycle()V
 
+    .line 1809
     :cond_0
     sget-object v0, Landroid/view/PointerIcon;->mHoverBitmap:[Landroid/graphics/Bitmap;
 
@@ -2196,6 +2610,7 @@
 
     aput-object p0, v0, v2
 
+    .line 1810
     sget v0, Landroid/view/PointerIcon;->mCustomIconCurrentId:I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -2204,6 +2619,7 @@
 
     return v0
 
+    .line 1797
     :cond_1
     :try_start_1
     sget v0, Landroid/view/PointerIcon;->mCustomIconCurrentId:I
@@ -2216,6 +2632,7 @@
 
     goto :goto_0
 
+    .line 1792
     :catchall_0
     move-exception v0
 
@@ -2223,6 +2640,7 @@
 
     throw v0
 
+    .line 1803
     :cond_2
     :try_start_2
     const-string/jumbo v0, "PointerIcon"
@@ -2238,12 +2656,16 @@
 
 .method public static setHoveringSpenIcon(ILandroid/graphics/drawable/Drawable;)I
     .locals 1
+    .param p0, "iconType"    # I
+    .param p1, "customIcon"    # Landroid/graphics/drawable/Drawable;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 1608
     const/4 v0, 0x1
 
     return v0
@@ -2251,12 +2673,16 @@
 
 .method public static setHoveringSpenIcon(ILandroid/graphics/drawable/Drawable;I)I
     .locals 12
+    .param p0, "iconType"    # I
+    .param p1, "customIcon"    # Landroid/graphics/drawable/Drawable;
+    .param p2, "flag"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     const/16 v1, 0x4e20
 
     const/16 v6, 0x64
@@ -2265,6 +2691,7 @@
 
     const/4 v5, 0x0
 
+    .line 1619
     const-string/jumbo v0, "PointerIcon"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -2287,10 +2714,12 @@
 
     invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1626
     const/16 v0, 0x4e37
 
     if-ne p0, v0, :cond_0
 
+    .line 1627
     invoke-static {}, Landroid/view/PointerIcon;->getInputManager()Landroid/hardware/input/IInputManager;
 
     move-result-object v0
@@ -2307,25 +2736,32 @@
 
     return v0
 
+    .line 1631
     :cond_0
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
     move-result v0
 
+    .line 1632
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
 
     move-result v2
 
     sget-object v4, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
+    .line 1631
     invoke-static {v0, v2, v4}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
 
     move-result-object v7
 
+    .line 1633
+    .local v7, "bitmap":Landroid/graphics/Bitmap;
     new-instance v10, Landroid/graphics/Canvas;
 
     invoke-direct {v10, v7}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
 
+    .line 1635
+    .local v10, "canvas":Landroid/graphics/Canvas;
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
     move-result v0
@@ -2336,8 +2772,10 @@
 
     invoke-virtual {p1, v5, v5, v0, v2}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
+    .line 1636
     invoke-virtual {p1, v10}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
+    .line 1638
     invoke-virtual {v7}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v0
@@ -2354,6 +2792,7 @@
 
     if-le v0, v2, :cond_1
 
+    .line 1642
     const-string/jumbo v0, "PointerIcon"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -2374,16 +2813,20 @@
 
     move-result-object v2
 
+    .line 1643
     const-string/jumbo v4, "height:"
 
+    .line 1642
     invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
+    .line 1643
     invoke-virtual {v7}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v4
 
+    .line 1642
     invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v2
@@ -2394,14 +2837,20 @@
 
     invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1645
     invoke-static {v7, v6, v6, v5}, Landroid/graphics/Bitmap;->createScaledBitmap(Landroid/graphics/Bitmap;IIZ)Landroid/graphics/Bitmap;
 
     move-result-object v11
 
+    .line 1647
+    .local v11, "resizeBitmap":Landroid/graphics/Bitmap;
     invoke-virtual {v7}, Landroid/graphics/Bitmap;->recycle()V
 
+    .line 1648
     move-object v7, v11
 
+    .line 1651
+    .end local v11    # "resizeBitmap":Landroid/graphics/Bitmap;
     :cond_1
     invoke-static {}, Landroid/view/PointerIcon;->getInputManager()Landroid/hardware/input/IInputManager;
 
@@ -2424,12 +2873,17 @@
 
 .method public static setHoveringSpenIcon(ILandroid/graphics/drawable/Drawable;Landroid/graphics/Point;)I
     .locals 1
+    .param p0, "iconType"    # I
+    .param p1, "customIcon"    # Landroid/graphics/drawable/Drawable;
+    .param p2, "hotSpotPoint"    # Landroid/graphics/Point;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 1664
     const/4 v0, 0x0
 
     invoke-static {p0, p1, p2, v0}, Landroid/view/PointerIcon;->setHoveringSpenIcon(ILandroid/graphics/drawable/Drawable;Landroid/graphics/Point;I)I
@@ -2441,16 +2895,22 @@
 
 .method public static setHoveringSpenIcon(ILandroid/graphics/drawable/Drawable;Landroid/graphics/Point;I)I
     .locals 8
+    .param p0, "iconType"    # I
+    .param p1, "customIcon"    # Landroid/graphics/drawable/Drawable;
+    .param p2, "hotSpotPoint"    # Landroid/graphics/Point;
+    .param p3, "flag"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     const/16 v5, 0x64
 
     const/4 v4, 0x0
 
+    .line 1675
     const-string/jumbo v0, "PointerIcon"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -2473,24 +2933,31 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1681
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
     move-result v0
 
+    .line 1682
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
 
     move-result v1
 
     sget-object v2, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
+    .line 1681
     invoke-static {v0, v1, v2}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
 
     move-result-object v3
 
+    .line 1683
+    .local v3, "bitmap":Landroid/graphics/Bitmap;
     new-instance v6, Landroid/graphics/Canvas;
 
     invoke-direct {v6, v3}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
 
+    .line 1685
+    .local v6, "canvas":Landroid/graphics/Canvas;
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
     move-result v0
@@ -2501,8 +2968,10 @@
 
     invoke-virtual {p1, v4, v4, v0, v1}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
+    .line 1686
     invoke-virtual {p1, v6}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
+    .line 1688
     invoke-virtual {v3}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v0
@@ -2519,6 +2988,7 @@
 
     if-le v0, v1, :cond_0
 
+    .line 1692
     const-string/jumbo v0, "PointerIcon"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -2539,16 +3009,20 @@
 
     move-result-object v1
 
+    .line 1693
     const-string/jumbo v2, "height:"
 
+    .line 1692
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
+    .line 1693
     invoke-virtual {v3}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v2
 
+    .line 1692
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -2559,14 +3033,20 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1695
     invoke-static {v3, v5, v5, v4}, Landroid/graphics/Bitmap;->createScaledBitmap(Landroid/graphics/Bitmap;IIZ)Landroid/graphics/Bitmap;
 
     move-result-object v7
 
+    .line 1697
+    .local v7, "resizeBitmap":Landroid/graphics/Bitmap;
     invoke-virtual {v3}, Landroid/graphics/Bitmap;->recycle()V
 
+    .line 1698
     move-object v3, v7
 
+    .line 1701
+    .end local v7    # "resizeBitmap":Landroid/graphics/Bitmap;
     :cond_0
     invoke-static {}, Landroid/view/PointerIcon;->getInputManager()Landroid/hardware/input/IInputManager;
 
@@ -2589,29 +3069,39 @@
 
 .method public static setHoveringSpenIcon(II)V
     .locals 0
+    .param p0, "iconType"    # I
+    .param p1, "customIconId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 1550
     return-void
 .end method
 
 .method public static setHoveringSpenIcon(III)V
     .locals 6
+    .param p0, "iconType"    # I
+    .param p1, "customIconId"    # I
+    .param p2, "flag"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 1568
     invoke-static {}, Landroid/view/PointerIcon;->getInputManager()Landroid/hardware/input/IInputManager;
 
     move-result-object v0
 
     const/16 v1, 0x4e20
 
+    .line 1569
     const/4 v4, 0x0
 
     move v2, p0
@@ -2620,34 +3110,48 @@
 
     move v5, p2
 
+    .line 1568
     invoke-interface/range {v0 .. v5}, Landroid/hardware/input/IInputManager;->reloadPointerIcon(IIILandroid/graphics/Point;I)V
 
+    .line 1562
     return-void
 .end method
 
 .method public static setHoveringSpenIcon(IILandroid/graphics/Point;)V
     .locals 1
+    .param p0, "iconType"    # I
+    .param p1, "customIconId"    # I
+    .param p2, "hotSpotPoint"    # Landroid/graphics/Point;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 1580
     const/4 v0, 0x0
 
     invoke-static {p0, p1, p2, v0}, Landroid/view/PointerIcon;->setHoveringSpenIcon(IILandroid/graphics/Point;I)V
 
+    .line 1579
     return-void
 .end method
 
 .method public static setHoveringSpenIcon(IILandroid/graphics/Point;I)V
     .locals 6
+    .param p0, "iconType"    # I
+    .param p1, "customIconId"    # I
+    .param p2, "hotSpotPoint"    # Landroid/graphics/Point;
+    .param p3, "flag"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 1596
     invoke-static {}, Landroid/view/PointerIcon;->getInputManager()Landroid/hardware/input/IInputManager;
 
     move-result-object v0
@@ -2664,19 +3168,24 @@
 
     invoke-interface/range {v0 .. v5}, Landroid/hardware/input/IInputManager;->reloadPointerIcon(IIILandroid/graphics/Point;I)V
 
+    .line 1590
     return-void
 .end method
 
 .method public static setIcon(II)V
     .locals 4
+    .param p0, "deviceType"    # I
+    .param p1, "iconType"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     const/4 v3, -0x1
 
+    .line 1155
     const-string/jumbo v0, "PointerIcon"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -2709,24 +3218,30 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1156
     const/4 v0, 0x2
 
     if-ne p0, v0, :cond_0
 
+    .line 1157
     invoke-static {p1, v3}, Landroid/view/PointerIcon;->setHoveringSpenIcon(II)V
 
+    .line 1154
     :goto_0
     return-void
 
+    .line 1159
     :cond_0
     const/4 v0, 0x3
 
     if-ne p0, v0, :cond_1
 
+    .line 1160
     invoke-static {p1, v3}, Landroid/view/PointerIcon;->setMouseIcon(II)V
 
     goto :goto_0
 
+    .line 1163
     :cond_1
     const-string/jumbo v0, "PointerIcon"
 
@@ -2739,12 +3254,16 @@
 
 .method public static setIcon(ILandroid/graphics/drawable/Drawable;)V
     .locals 3
+    .param p0, "deviceType"    # I
+    .param p1, "customIcon"    # Landroid/graphics/drawable/Drawable;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 1176
     const-string/jumbo v0, "PointerIcon"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -2773,28 +3292,34 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1177
     const/4 v0, 0x2
 
     if-ne p0, v0, :cond_0
 
+    .line 1178
     const/16 v0, 0x4e20
 
     invoke-static {v0, p1}, Landroid/view/PointerIcon;->setHoveringSpenIcon(ILandroid/graphics/drawable/Drawable;)I
 
+    .line 1175
     :goto_0
     return-void
 
+    .line 1180
     :cond_0
     const/4 v0, 0x3
 
     if-ne p0, v0, :cond_1
 
+    .line 1181
     const/16 v0, 0x2774
 
     invoke-static {v0, p1}, Landroid/view/PointerIcon;->setMouseIcon(ILandroid/graphics/drawable/Drawable;)I
 
     goto :goto_0
 
+    .line 1184
     :cond_1
     const-string/jumbo v0, "PointerIcon"
 
@@ -2807,12 +3332,17 @@
 
 .method public static setIcon(ILandroid/graphics/drawable/Drawable;Landroid/graphics/Point;)V
     .locals 3
+    .param p0, "deviceType"    # I
+    .param p1, "customIcon"    # Landroid/graphics/drawable/Drawable;
+    .param p2, "hotSpotPoint"    # Landroid/graphics/Point;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 1199
     const-string/jumbo v0, "PointerIcon"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -2845,28 +3375,34 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1200
     const/4 v0, 0x2
 
     if-ne p0, v0, :cond_0
 
+    .line 1201
     const/16 v0, 0x4e20
 
     invoke-static {v0, p1, p2}, Landroid/view/PointerIcon;->setHoveringSpenIcon(ILandroid/graphics/drawable/Drawable;Landroid/graphics/Point;)I
 
+    .line 1198
     :goto_0
     return-void
 
+    .line 1203
     :cond_0
     const/4 v0, 0x3
 
     if-ne p0, v0, :cond_1
 
+    .line 1204
     const/16 v0, 0x2774
 
     invoke-static {v0, p1, p2}, Landroid/view/PointerIcon;->setMouseIcon(ILandroid/graphics/drawable/Drawable;Landroid/graphics/Point;)I
 
     goto :goto_0
 
+    .line 1207
     :cond_1
     const-string/jumbo v0, "PointerIcon"
 
@@ -2879,34 +3415,47 @@
 
 .method public static setMouseCustomIcon(ILandroid/graphics/Bitmap;)I
     .locals 4
+    .param p0, "IconId"    # I
+    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
 
+    .prologue
+    .line 1437
     sget-object v2, Landroid/view/PointerIcon;->mLockforMouse:Ljava/lang/Object;
 
     monitor-enter v2
 
+    .line 1438
     move v0, p0
 
+    .line 1440
+    .local v0, "iReaIconId":I
     if-gez p0, :cond_0
 
+    .line 1441
     :try_start_0
     sget v0, Landroid/view/PointerIcon;->mMouseCustomIconId:I
 
+    .line 1444
     :cond_0
     if-gez v0, :cond_1
 
+    .line 1445
     const/4 v0, 0x0
 
+    .line 1448
     :cond_1
     sget-object v1, Landroid/view/PointerIcon;->mMouseBitmap:[Landroid/graphics/Bitmap;
 
     if-nez v1, :cond_3
 
+    .line 1449
     const/4 v1, 0x5
 
     new-array v1, v1, [Landroid/graphics/Bitmap;
 
     sput-object v1, Landroid/view/PointerIcon;->mMouseBitmap:[Landroid/graphics/Bitmap;
 
+    .line 1454
     :goto_0
     sget-object v1, Landroid/view/PointerIcon;->mMouseBitmap:[Landroid/graphics/Bitmap;
 
@@ -2914,12 +3463,14 @@
 
     if-eqz v1, :cond_2
 
+    .line 1455
     sget-object v1, Landroid/view/PointerIcon;->mMouseBitmap:[Landroid/graphics/Bitmap;
 
     aget-object v1, v1, v0
 
     invoke-virtual {v1}, Landroid/graphics/Bitmap;->recycle()V
 
+    .line 1458
     :cond_2
     sget-object v1, Landroid/view/PointerIcon;->mMouseBitmap:[Landroid/graphics/Bitmap;
 
@@ -2929,8 +3480,10 @@
 
     monitor-exit v2
 
+    .line 1459
     return v0
 
+    .line 1451
     :cond_3
     :try_start_1
     const-string/jumbo v1, "PointerIcon"
@@ -2943,6 +3496,7 @@
 
     goto :goto_0
 
+    .line 1437
     :catchall_0
     move-exception v1
 
@@ -2953,33 +3507,41 @@
 
 .method public static setMouseCustomIcon(Landroid/graphics/Bitmap;)I
     .locals 3
+    .param p0, "bitmap"    # Landroid/graphics/Bitmap;
 
+    .prologue
     const/4 v2, 0x5
 
+    .line 1412
     sget-object v1, Landroid/view/PointerIcon;->mLockforMouse:Ljava/lang/Object;
 
     monitor-enter v1
 
+    .line 1413
     :try_start_0
     sget v0, Landroid/view/PointerIcon;->mMouseCustomIconCurrentId:I
 
     if-lt v0, v2, :cond_1
 
+    .line 1414
     const/4 v0, 0x0
 
     sput v0, Landroid/view/PointerIcon;->mMouseCustomIconCurrentId:I
 
+    .line 1419
     :goto_0
     sget-object v0, Landroid/view/PointerIcon;->mMouseBitmap:[Landroid/graphics/Bitmap;
 
     if-nez v0, :cond_2
 
+    .line 1420
     const/4 v0, 0x5
 
     new-array v0, v0, [Landroid/graphics/Bitmap;
 
     sput-object v0, Landroid/view/PointerIcon;->mMouseBitmap:[Landroid/graphics/Bitmap;
 
+    .line 1425
     :goto_1
     sget-object v0, Landroid/view/PointerIcon;->mMouseBitmap:[Landroid/graphics/Bitmap;
 
@@ -2989,6 +3551,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 1426
     sget-object v0, Landroid/view/PointerIcon;->mMouseBitmap:[Landroid/graphics/Bitmap;
 
     sget v2, Landroid/view/PointerIcon;->mMouseCustomIconCurrentId:I
@@ -2997,6 +3560,7 @@
 
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->recycle()V
 
+    .line 1428
     :cond_0
     sget-object v0, Landroid/view/PointerIcon;->mMouseBitmap:[Landroid/graphics/Bitmap;
 
@@ -3004,6 +3568,7 @@
 
     aput-object p0, v0, v2
 
+    .line 1429
     sget v0, Landroid/view/PointerIcon;->mMouseCustomIconCurrentId:I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -3012,6 +3577,7 @@
 
     return v0
 
+    .line 1416
     :cond_1
     :try_start_1
     sget v0, Landroid/view/PointerIcon;->mMouseCustomIconCurrentId:I
@@ -3024,6 +3590,7 @@
 
     goto :goto_0
 
+    .line 1412
     :catchall_0
     move-exception v0
 
@@ -3031,6 +3598,7 @@
 
     throw v0
 
+    .line 1422
     :cond_2
     :try_start_2
     const-string/jumbo v0, "PointerIcon"
@@ -3046,12 +3614,16 @@
 
 .method public static setMouseIcon(ILandroid/graphics/drawable/Drawable;)I
     .locals 1
+    .param p0, "iconType"    # I
+    .param p1, "customIcon"    # Landroid/graphics/drawable/Drawable;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 1313
     const/4 v0, 0x0
 
     invoke-static {p0, p1, v0}, Landroid/view/PointerIcon;->setMouseIcon(ILandroid/graphics/drawable/Drawable;I)I
@@ -3063,16 +3635,21 @@
 
 .method public static setMouseIcon(ILandroid/graphics/drawable/Drawable;I)I
     .locals 8
+    .param p0, "iconType"    # I
+    .param p1, "customIcon"    # Landroid/graphics/drawable/Drawable;
+    .param p2, "flag"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     const/16 v5, 0x64
 
     const/4 v4, 0x0
 
+    .line 1321
     const-string/jumbo v0, "PointerIcon"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -3095,24 +3672,31 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1323
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
     move-result v0
 
+    .line 1324
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
 
     move-result v1
 
     sget-object v2, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
+    .line 1323
     invoke-static {v0, v1, v2}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
 
     move-result-object v3
 
+    .line 1325
+    .local v3, "bitmap":Landroid/graphics/Bitmap;
     new-instance v6, Landroid/graphics/Canvas;
 
     invoke-direct {v6, v3}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
 
+    .line 1327
+    .local v6, "canvas":Landroid/graphics/Canvas;
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
     move-result v0
@@ -3123,8 +3707,10 @@
 
     invoke-virtual {p1, v4, v4, v0, v1}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
+    .line 1328
     invoke-virtual {p1, v6}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
+    .line 1330
     invoke-virtual {v3}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v0
@@ -3141,6 +3727,7 @@
 
     if-le v0, v1, :cond_0
 
+    .line 1334
     const-string/jumbo v0, "PointerIcon"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -3161,16 +3748,20 @@
 
     move-result-object v1
 
+    .line 1335
     const-string/jumbo v2, "height: "
 
+    .line 1334
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
+    .line 1335
     invoke-virtual {v3}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v2
 
+    .line 1334
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -3181,14 +3772,20 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1337
     invoke-static {v3, v5, v5, v4}, Landroid/graphics/Bitmap;->createScaledBitmap(Landroid/graphics/Bitmap;IIZ)Landroid/graphics/Bitmap;
 
     move-result-object v7
 
+    .line 1339
+    .local v7, "resizeBitmap":Landroid/graphics/Bitmap;
     invoke-virtual {v3}, Landroid/graphics/Bitmap;->recycle()V
 
+    .line 1340
     move-object v3, v7
 
+    .line 1343
+    .end local v7    # "resizeBitmap":Landroid/graphics/Bitmap;
     :cond_0
     invoke-static {}, Landroid/view/PointerIcon;->getInputManager()Landroid/hardware/input/IInputManager;
 
@@ -3196,12 +3793,14 @@
 
     const/16 v1, 0x3e7
 
+    .line 1344
     const/4 v4, 0x0
 
     move v2, p0
 
     move v5, p2
 
+    .line 1343
     invoke-interface/range {v0 .. v5}, Landroid/hardware/input/IInputManager;->reloadMousePointerIconForBitmap(IILandroid/graphics/Bitmap;Landroid/graphics/Point;I)I
 
     move-result v0
@@ -3211,12 +3810,17 @@
 
 .method public static setMouseIcon(ILandroid/graphics/drawable/Drawable;Landroid/graphics/Point;)I
     .locals 1
+    .param p0, "iconType"    # I
+    .param p1, "customIcon"    # Landroid/graphics/drawable/Drawable;
+    .param p2, "hotSpotPoint"    # Landroid/graphics/Point;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 1352
     const/4 v0, 0x0
 
     invoke-static {p0, p1, p2, v0}, Landroid/view/PointerIcon;->setMouseIcon(ILandroid/graphics/drawable/Drawable;Landroid/graphics/Point;I)I
@@ -3228,16 +3832,22 @@
 
 .method public static setMouseIcon(ILandroid/graphics/drawable/Drawable;Landroid/graphics/Point;I)I
     .locals 8
+    .param p0, "iconType"    # I
+    .param p1, "customIcon"    # Landroid/graphics/drawable/Drawable;
+    .param p2, "hotSpotPoint"    # Landroid/graphics/Point;
+    .param p3, "flag"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     const/16 v5, 0x64
 
     const/4 v4, 0x0
 
+    .line 1360
     const-string/jumbo v0, "PointerIcon"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -3260,24 +3870,31 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1362
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
     move-result v0
 
+    .line 1363
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
 
     move-result v1
 
     sget-object v2, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
+    .line 1362
     invoke-static {v0, v1, v2}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
 
     move-result-object v3
 
+    .line 1364
+    .local v3, "bitmap":Landroid/graphics/Bitmap;
     new-instance v6, Landroid/graphics/Canvas;
 
     invoke-direct {v6, v3}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
 
+    .line 1366
+    .local v6, "canvas":Landroid/graphics/Canvas;
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
     move-result v0
@@ -3288,8 +3905,10 @@
 
     invoke-virtual {p1, v4, v4, v0, v1}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
+    .line 1367
     invoke-virtual {p1, v6}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
+    .line 1369
     invoke-virtual {v3}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v0
@@ -3306,6 +3925,7 @@
 
     if-le v0, v1, :cond_0
 
+    .line 1373
     const-string/jumbo v0, "PointerIcon"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -3326,16 +3946,20 @@
 
     move-result-object v1
 
+    .line 1374
     const-string/jumbo v2, "height: "
 
+    .line 1373
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
+    .line 1374
     invoke-virtual {v3}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v2
 
+    .line 1373
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -3346,14 +3970,20 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1376
     invoke-static {v3, v5, v5, v4}, Landroid/graphics/Bitmap;->createScaledBitmap(Landroid/graphics/Bitmap;IIZ)Landroid/graphics/Bitmap;
 
     move-result-object v7
 
+    .line 1378
+    .local v7, "resizeBitmap":Landroid/graphics/Bitmap;
     invoke-virtual {v3}, Landroid/graphics/Bitmap;->recycle()V
 
+    .line 1379
     move-object v3, v7
 
+    .line 1382
+    .end local v7    # "resizeBitmap":Landroid/graphics/Bitmap;
     :cond_0
     invoke-static {}, Landroid/view/PointerIcon;->getInputManager()Landroid/hardware/input/IInputManager;
 
@@ -3376,33 +4006,44 @@
 
 .method public static setMouseIcon(II)V
     .locals 1
+    .param p0, "iconType"    # I
+    .param p1, "customIconId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 1280
     const/4 v0, 0x0
 
     invoke-static {p0, p1, v0}, Landroid/view/PointerIcon;->setMouseIcon(III)V
 
+    .line 1279
     return-void
 .end method
 
 .method public static setMouseIcon(III)V
     .locals 6
+    .param p0, "iconType"    # I
+    .param p1, "customIconId"    # I
+    .param p2, "flag"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 1288
     invoke-static {}, Landroid/view/PointerIcon;->getInputManager()Landroid/hardware/input/IInputManager;
 
     move-result-object v0
 
     const/16 v1, 0x3e7
 
+    .line 1289
     const/4 v4, 0x0
 
     move v2, p0
@@ -3411,34 +4052,48 @@
 
     move v5, p2
 
+    .line 1288
     invoke-interface/range {v0 .. v5}, Landroid/hardware/input/IInputManager;->reloadMousePointerIcon(IIILandroid/graphics/Point;I)V
 
+    .line 1287
     return-void
 .end method
 
 .method public static setMouseIcon(IILandroid/graphics/Point;)V
     .locals 1
+    .param p0, "iconType"    # I
+    .param p1, "customIconId"    # I
+    .param p2, "hotSpotPoint"    # Landroid/graphics/Point;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 1297
     const/4 v0, 0x0
 
     invoke-static {p0, p1, p2, v0}, Landroid/view/PointerIcon;->setMouseIcon(IILandroid/graphics/Point;I)V
 
+    .line 1296
     return-void
 .end method
 
 .method public static setMouseIcon(IILandroid/graphics/Point;I)V
     .locals 6
+    .param p0, "iconType"    # I
+    .param p1, "customIconId"    # I
+    .param p2, "hotSpotPoint"    # Landroid/graphics/Point;
+    .param p3, "flag"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 1305
     invoke-static {}, Landroid/view/PointerIcon;->getInputManager()Landroid/hardware/input/IInputManager;
 
     move-result-object v0
@@ -3455,18 +4110,25 @@
 
     invoke-interface/range {v0 .. v5}, Landroid/hardware/input/IInputManager;->reloadMousePointerIcon(IIILandroid/graphics/Point;I)V
 
+    .line 1304
     return-void
 .end method
 
 .method public static setMousePointerIcon(IILandroid/graphics/Point;)Z
     .locals 4
+    .param p0, "iconType"    # I
+    .param p1, "customIconId"    # I
+    .param p2, "hotSpotPoint"    # Landroid/graphics/Point;
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 1390
     sget-boolean v0, Landroid/view/PointerIcon;->mResolutionChangedForMouseIcon:Z
 
     if-nez v0, :cond_0
 
+    .line 1391
     sget v0, Landroid/view/PointerIcon;->mMouseIconType:I
 
     const/16 v1, 0x2774
@@ -3477,6 +4139,7 @@
 
     if-ne v0, p0, :cond_1
 
+    .line 1392
     const-string/jumbo v0, "PointerIcon"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -3501,31 +4164,39 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1393
     return v3
 
+    .line 1396
     :cond_0
     sput-boolean v3, Landroid/view/PointerIcon;->mResolutionChangedForMouseIcon:Z
 
+    .line 1399
     :cond_1
     sget-object v1, Landroid/view/PointerIcon;->mLockforMouse:Ljava/lang/Object;
 
     monitor-enter v1
 
+    .line 1400
     :try_start_0
     sput p0, Landroid/view/PointerIcon;->mMouseIconType:I
 
+    .line 1401
     sput p1, Landroid/view/PointerIcon;->mMouseCustomIconId:I
 
+    .line 1402
     sput-object p2, Landroid/view/PointerIcon;->mMouseCustomHotSpotPoint:Landroid/graphics/Point;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit v1
 
+    .line 1405
     const/4 v0, 0x1
 
     return v0
 
+    .line 1399
     :catchall_0
     move-exception v0
 
@@ -3536,17 +4207,23 @@
 
 .method public static setPointerIcon(IILandroid/graphics/Point;)Z
     .locals 11
+    .param p0, "iconType"    # I
+    .param p1, "customIconId"    # I
+    .param p2, "hotSpotPoint"    # Landroid/graphics/Point;
 
+    .prologue
     const/16 v8, 0x4e34
 
     const/4 v10, 0x1
 
     const/4 v9, 0x0
 
+    .line 1710
     sget-object v6, Landroid/view/PointerIcon;->mLock:Ljava/lang/Object;
 
     monitor-enter v6
 
+    .line 1713
     if-ne p0, v8, :cond_0
 
     :try_start_0
@@ -3560,22 +4237,28 @@
 
     monitor-exit v6
 
+    .line 1714
     return v9
 
+    .line 1715
     :cond_0
     if-ne p0, v8, :cond_1
 
+    .line 1716
     const/16 p0, 0x4e21
 
+    .line 1718
     :cond_1
     const/16 v5, 0x4e36
 
     if-eq p0, v5, :cond_2
 
+    .line 1719
     const/16 v5, 0x4e37
 
     if-ne p0, v5, :cond_3
 
+    .line 1720
     :cond_2
     :try_start_1
     const-string/jumbo v5, "PointerIcon"
@@ -3616,8 +4299,10 @@
 
     monitor-exit v6
 
+    .line 1722
     return v10
 
+    .line 1723
     :cond_3
     :try_start_2
     sget v5, Landroid/view/PointerIcon;->mIconType:I
@@ -3630,71 +4315,89 @@
 
     if-ne v5, p0, :cond_4
 
+    .line 1724
     sget-boolean v5, Landroid/view/PointerIcon;->mThemeApplied:Z
 
     if-eqz v5, :cond_a
 
+    .line 1727
     :cond_4
     sget-boolean v5, Landroid/view/PointerIcon;->mThemeApplied:Z
 
     if-eqz v5, :cond_b
 
+    .line 1728
     const/4 v5, 0x0
 
     sput-boolean v5, Landroid/view/PointerIcon;->mThemeApplied:Z
 
+    .line 1733
     :cond_5
     :goto_0
     const/4 v0, 0x0
 
+    .line 1735
+    .local v0, "bNeedPlaySound":Z
     sput p0, Landroid/view/PointerIcon;->mIconType:I
 
+    .line 1736
     sput p1, Landroid/view/PointerIcon;->mCustomIconId:I
 
+    .line 1737
     sput-object p2, Landroid/view/PointerIcon;->mCustomHotSpotPoint:Landroid/graphics/Point;
 
+    .line 1739
     const/16 v5, 0x4e2a
 
     if-ne p0, v5, :cond_9
 
+    .line 1740
     sget-object v5, Landroid/view/PointerIcon;->mContext:Landroid/content/Context;
 
     if-eqz v5, :cond_6
 
+    .line 1741
     sget-object v5, Landroid/view/PointerIcon;->mContext:Landroid/content/Context;
 
     invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v5
 
+    .line 1742
     const-string/jumbo v7, "spen_feedback_sound"
 
     const/4 v8, 0x0
 
+    .line 1741
     invoke-static {v5, v7, v8}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v5
 
     if-eqz v5, :cond_6
 
+    .line 1743
     sget-object v5, Landroid/view/PointerIcon;->mContext:Landroid/content/Context;
 
     invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v5
 
+    .line 1744
     const-string/jumbo v7, "spen_feedback_sound_air_view"
 
     const/4 v8, 0x0
 
+    .line 1743
     invoke-static {v5, v7, v8}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v5
 
     if-eqz v5, :cond_6
 
+    .line 1745
     const/4 v0, 0x1
 
+    .line 1749
     :cond_6
     sget-object v5, Landroid/view/PointerIcon;->mContext:Landroid/content/Context;
 
@@ -3706,18 +4409,22 @@
 
     move-result-object v5
 
+    .line 1750
     const-string/jumbo v7, "pen_hovering_sound"
 
     const/4 v8, 0x0
 
+    .line 1749
     invoke-static {v5, v7, v8}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v5
 
     if-eqz v5, :cond_7
 
+    .line 1751
     const/4 v0, 0x1
 
+    .line 1755
     :cond_7
     sget-object v5, Landroid/view/PointerIcon;->mContext:Landroid/content/Context;
 
@@ -3745,14 +4452,17 @@
 
     if-eqz v5, :cond_c
 
+    .line 1762
     :cond_8
     :goto_1
     if-eqz v0, :cond_9
 
+    .line 1763
     sget-object v5, Landroid/view/PointerIcon;->mHoverEffect:Landroid/view/PointerIcon$HoverEffect;
 
     if-nez v5, :cond_d
 
+    .line 1764
     new-instance v5, Landroid/view/PointerIcon$HoverEffect;
 
     const/4 v7, 0x0
@@ -3761,6 +4471,7 @@
 
     sput-object v5, Landroid/view/PointerIcon;->mHoverEffect:Landroid/view/PointerIcon$HoverEffect;
 
+    .line 1769
     :goto_2
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
     :try_end_2
@@ -3768,6 +4479,8 @@
 
     move-result-wide v2
 
+    .line 1771
+    .local v2, "token":J
     :try_start_3
     sget-object v5, Landroid/view/PointerIcon;->mHoverEffect:Landroid/view/PointerIcon$HoverEffect;
 
@@ -3776,23 +4489,29 @@
     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
+    .line 1775
     :try_start_4
     invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
+    .end local v2    # "token":J
     :cond_9
     :goto_3
     monitor-exit v6
 
+    .line 1780
     return v10
 
+    .line 1724
+    .end local v0    # "bNeedPlaySound":Z
     :cond_a
     :try_start_5
     sget-boolean v5, Landroid/view/PointerIcon;->mResolutionChangedForSpenIcon:Z
 
     if-nez v5, :cond_4
 
+    .line 1725
     const-string/jumbo v5, "PointerIcon"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -3821,14 +4540,17 @@
 
     monitor-exit v6
 
+    .line 1726
     return v9
 
+    .line 1729
     :cond_b
     :try_start_6
     sget-boolean v5, Landroid/view/PointerIcon;->mResolutionChangedForSpenIcon:Z
 
     if-eqz v5, :cond_5
 
+    .line 1730
     const/4 v5, 0x0
 
     sput-boolean v5, Landroid/view/PointerIcon;->mResolutionChangedForSpenIcon:Z
@@ -3837,6 +4559,7 @@
 
     goto/16 :goto_0
 
+    .line 1710
     :catchall_0
     move-exception v5
 
@@ -3844,6 +4567,8 @@
 
     throw v5
 
+    .line 1756
+    .restart local v0    # "bNeedPlaySound":Z
     :cond_c
     :try_start_7
     sget-object v5, Landroid/view/PointerIcon;->mContext:Landroid/content/Context;
@@ -3858,14 +4583,19 @@
 
     move-result v4
 
+    .line 1757
+    .local v4, "uspLevel":I
     const/4 v5, 0x3
 
     if-le v4, v5, :cond_8
 
+    .line 1758
     const/4 v0, 0x0
 
     goto :goto_1
 
+    .line 1766
+    .end local v4    # "uspLevel":I
     :cond_d
     const-string/jumbo v5, "PointerIcon"
 
@@ -3877,9 +4607,13 @@
 
     goto :goto_2
 
+    .line 1772
+    .restart local v2    # "token":J
     :catch_0
     move-exception v1
 
+    .line 1773
+    .local v1, "e":Ljava/lang/Exception;
     :try_start_8
     const-string/jumbo v5, "PointerIcon"
 
@@ -3889,16 +4623,21 @@
     :try_end_8
     .catchall {:try_start_8 .. :try_end_8} :catchall_1
 
+    .line 1775
     :try_start_9
     invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     goto :goto_3
 
+    .line 1774
+    .end local v1    # "e":Ljava/lang/Exception;
     :catchall_1
     move-exception v5
 
+    .line 1775
     invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
+    .line 1774
     throw v5
     :try_end_9
     .catchall {:try_start_9 .. :try_end_9} :catchall_0
@@ -3906,21 +4645,31 @@
 
 .method public static setUseLargeIcons(Z)V
     .locals 1
+    .param p0, "use"    # Z
 
+    .prologue
+    .line 692
     sput-boolean p0, Landroid/view/PointerIcon;->sUseLargeIcons:Z
 
+    .line 693
     sget-object v0, Landroid/view/PointerIcon;->gSystemIcons:Landroid/util/SparseArray;
 
     invoke-virtual {v0}, Landroid/util/SparseArray;->clear()V
 
+    .line 691
     return-void
 .end method
 
 .method private static validateHotSpot(Landroid/graphics/Bitmap;FF)V
     .locals 2
+    .param p0, "bitmap"    # Landroid/graphics/Bitmap;
+    .param p1, "hotSpotX"    # F
+    .param p2, "hotSpotY"    # F
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 918
     cmpg-float v0, p1, v1
 
     if-ltz v0, :cond_0
@@ -3935,6 +4684,7 @@
 
     if-ltz v0, :cond_1
 
+    .line 919
     :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -3944,6 +4694,7 @@
 
     throw v0
 
+    .line 921
     :cond_1
     cmpg-float v0, p2, v1
 
@@ -3959,6 +4710,7 @@
 
     if-ltz v0, :cond_3
 
+    .line 922
     :cond_2
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -3968,6 +4720,7 @@
 
     throw v0
 
+    .line 917
     :cond_3
     return-void
 .end method
@@ -3977,6 +4730,8 @@
 .method public describeContents()I
     .locals 1
 
+    .prologue
+    .line 806
     const/4 v0, 0x0
 
     return v0
@@ -3984,15 +4739,20 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
+    .param p1, "other"    # Ljava/lang/Object;
 
+    .prologue
     const/4 v4, 0x1
 
     const/4 v3, 0x0
 
+    .line 824
     if-ne p0, p1, :cond_0
 
+    .line 825
     return v4
 
+    .line 828
     :cond_0
     if-eqz p1, :cond_2
 
@@ -4002,31 +4762,41 @@
 
     move-object v0, p1
 
+    .line 832
     check-cast v0, Landroid/view/PointerIcon;
 
+    .line 833
+    .local v0, "otherIcon":Landroid/view/PointerIcon;
     iget v1, p0, Landroid/view/PointerIcon;->mType:I
 
     iget v2, v0, Landroid/view/PointerIcon;->mType:I
 
     if-ne v1, v2, :cond_1
 
+    .line 834
     iget v1, p0, Landroid/view/PointerIcon;->mSystemIconResourceId:I
 
     iget v2, v0, Landroid/view/PointerIcon;->mSystemIconResourceId:I
 
     if-eq v1, v2, :cond_3
 
+    .line 835
     :cond_1
     return v3
 
+    .line 829
+    .end local v0    # "otherIcon":Landroid/view/PointerIcon;
     :cond_2
     return v3
 
+    .line 838
+    .restart local v0    # "otherIcon":Landroid/view/PointerIcon;
     :cond_3
     iget v1, p0, Landroid/view/PointerIcon;->mSystemIconResourceId:I
 
     if-nez v1, :cond_6
 
+    .line 839
     iget-object v1, p0, Landroid/view/PointerIcon;->mBitmap:Landroid/graphics/Bitmap;
 
     iget-object v2, v0, Landroid/view/PointerIcon;->mBitmap:Landroid/graphics/Bitmap;
@@ -4041,9 +4811,11 @@
 
     if-eqz v1, :cond_5
 
+    .line 840
     :cond_4
     return v3
 
+    .line 839
     :cond_5
     iget v1, p0, Landroid/view/PointerIcon;->mHotSpotY:F
 
@@ -4053,6 +4825,7 @@
 
     if-nez v1, :cond_4
 
+    .line 843
     :cond_6
     return v4
 .end method
@@ -4060,6 +4833,8 @@
 .method public getType()I
     .locals 1
 
+    .prologue
+    .line 777
     iget v0, p0, Landroid/view/PointerIcon;->mType:I
 
     return v0
@@ -4067,9 +4842,13 @@
 
 .method public load(Landroid/content/Context;)Landroid/view/PointerIcon;
     .locals 3
+    .param p1, "context"    # Landroid/content/Context;
 
+    .prologue
+    .line 761
     if-nez p1, :cond_0
 
+    .line 762
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v2, "context must not be null"
@@ -4078,6 +4857,7 @@
 
     throw v1
 
+    .line 765
     :cond_0
     iget v1, p0, Landroid/view/PointerIcon;->mSystemIconResourceId:I
 
@@ -4087,9 +4867,11 @@
 
     if-eqz v1, :cond_2
 
+    .line 766
     :cond_1
     return-object p0
 
+    .line 769
     :cond_2
     new-instance v0, Landroid/view/PointerIcon;
 
@@ -4097,10 +4879,13 @@
 
     invoke-direct {v0, v1}, Landroid/view/PointerIcon;-><init>(I)V
 
+    .line 770
+    .local v0, "result":Landroid/view/PointerIcon;
     iget v1, p0, Landroid/view/PointerIcon;->mSystemIconResourceId:I
 
     iput v1, v0, Landroid/view/PointerIcon;->mSystemIconResourceId:I
 
+    .line 771
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -4109,40 +4894,52 @@
 
     invoke-direct {v0, p1, v1, v2}, Landroid/view/PointerIcon;->loadResource(Landroid/content/Context;Landroid/content/res/Resources;I)V
 
+    .line 772
     return-object v0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
+    .prologue
+    .line 810
     iget v0, p0, Landroid/view/PointerIcon;->mType:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 812
     iget v0, p0, Landroid/view/PointerIcon;->mType:I
 
     if-eqz v0, :cond_0
 
+    .line 813
     iget v0, p0, Landroid/view/PointerIcon;->mSystemIconResourceId:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 814
     iget v0, p0, Landroid/view/PointerIcon;->mSystemIconResourceId:I
 
     if-nez v0, :cond_0
 
+    .line 815
     iget-object v0, p0, Landroid/view/PointerIcon;->mBitmap:Landroid/graphics/Bitmap;
 
     invoke-virtual {v0, p1, p2}, Landroid/graphics/Bitmap;->writeToParcel(Landroid/os/Parcel;I)V
 
+    .line 816
     iget v0, p0, Landroid/view/PointerIcon;->mHotSpotX:F
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeFloat(F)V
 
+    .line 817
     iget v0, p0, Landroid/view/PointerIcon;->mHotSpotY:F
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeFloat(F)V
 
+    .line 809
     :cond_0
     return-void
 .end method

@@ -21,11 +21,16 @@
 # direct methods
 .method public constructor <init>(Landroid/content/pm/IPackageDeleteObserver;)V
     .locals 0
+    .param p1, "legacy"    # Landroid/content/pm/IPackageDeleteObserver;
 
+    .prologue
+    .line 7122
     invoke-direct {p0}, Landroid/app/PackageDeleteObserver;-><init>()V
 
+    .line 7123
     iput-object p1, p0, Landroid/content/pm/PackageManager$LegacyPackageDeleteObserver;->mLegacy:Landroid/content/pm/IPackageDeleteObserver;
 
+    .line 7122
     return-void
 .end method
 
@@ -33,13 +38,19 @@
 # virtual methods
 .method public onPackageDeleted(Ljava/lang/String;ILjava/lang/String;)V
     .locals 2
+    .param p1, "basePackageName"    # Ljava/lang/String;
+    .param p2, "returnCode"    # I
+    .param p3, "msg"    # Ljava/lang/String;
 
+    .prologue
+    .line 7128
     iget-object v1, p0, Landroid/content/pm/PackageManager$LegacyPackageDeleteObserver;->mLegacy:Landroid/content/pm/IPackageDeleteObserver;
 
     if-nez v1, :cond_0
 
     return-void
 
+    .line 7130
     :cond_0
     :try_start_0
     iget-object v1, p0, Landroid/content/pm/PackageManager$LegacyPackageDeleteObserver;->mLegacy:Landroid/content/pm/IPackageDeleteObserver;
@@ -48,11 +59,14 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 7127
     :goto_0
     return-void
 
+    .line 7131
     :catch_0
     move-exception v0
 
+    .local v0, "ignored":Landroid/os/RemoteException;
     goto :goto_0
 .end method

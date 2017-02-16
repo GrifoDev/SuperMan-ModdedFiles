@@ -514,36 +514,45 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 34
     const/4 v0, 0x1
 
     new-array v0, v0, [Z
 
     sput-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle;->booleanVal:[Z
 
+    .line 718
     new-instance v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$1;
 
     invoke-direct {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$1;-><init>()V
 
     sput-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle;->CREATOR:Landroid/os/Parcelable$Creator;
 
+    .line 28
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 4
 
+    .prologue
+    .line 549
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 550
     const/4 v0, -0x1
 
     invoke-direct {p0, v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle;->setType(I)V
 
+    .line 551
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->BOOLEAN_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     sget-object v1, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->setValue(Ljava/lang/Object;)V
 
+    .line 552
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->INTEGER_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     const/4 v1, 0x0
@@ -554,6 +563,7 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->setValue(Ljava/lang/Object;)V
 
+    .line 553
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->LONG_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     const-wide/16 v2, 0x0
@@ -564,6 +574,7 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->setValue(Ljava/lang/Object;)V
 
+    .line 554
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->FLOAT_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     const/4 v1, 0x0
@@ -574,6 +585,7 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->setValue(Ljava/lang/Object;)V
 
+    .line 555
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->DOUBLE_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     const-wide/16 v2, 0x0
@@ -584,28 +596,38 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->setValue(Ljava/lang/Object;)V
 
+    .line 556
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->STRING_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     const-string/jumbo v1, ""
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->setValue(Ljava/lang/Object;)V
 
+    .line 549
     return-void
 .end method
 
 .method protected constructor <init>(Landroid/os/Parcel;)V
     .locals 0
+    .param p1, "input"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 565
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 566
     invoke-direct {p0, p1}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle;->readFromParcel(Landroid/os/Parcel;)V
 
+    .line 565
     return-void
 .end method
 
 .method private readFromParcel(Landroid/os/Parcel;)V
     .locals 4
+    .param p1, "src"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 674
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->BOOLEAN_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getValue()Ljava/lang/Object;
@@ -616,6 +638,7 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->readBooleanArray([Z)V
 
+    .line 675
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->INTEGER_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
@@ -628,6 +651,7 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->setValue(Ljava/lang/Object;)V
 
+    .line 676
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->LONG_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
@@ -640,6 +664,7 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->setValue(Ljava/lang/Object;)V
 
+    .line 677
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->FLOAT_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readFloat()F
@@ -652,6 +677,7 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->setValue(Ljava/lang/Object;)V
 
+    .line 678
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->DOUBLE_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readDouble()D
@@ -664,6 +690,7 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->setValue(Ljava/lang/Object;)V
 
+    .line 679
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->STRING_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
@@ -672,6 +699,7 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->setValue(Ljava/lang/Object;)V
 
+    .line 681
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->CHAR_ARRAY_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->createCharArray()[C
@@ -680,6 +708,7 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->setValue(Ljava/lang/Object;)V
 
+    .line 682
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->INTEGER_ARRAY_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->createIntArray()[I
@@ -688,6 +717,7 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->setValue(Ljava/lang/Object;)V
 
+    .line 683
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->LONG_ARRAY_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->createLongArray()[J
@@ -696,6 +726,7 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->setValue(Ljava/lang/Object;)V
 
+    .line 684
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->FLOAT_ARRAY_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->createFloatArray()[F
@@ -704,6 +735,7 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->setValue(Ljava/lang/Object;)V
 
+    .line 685
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->DOUBLE_ARRAY_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->createDoubleArray()[D
@@ -712,6 +744,7 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->setValue(Ljava/lang/Object;)V
 
+    .line 686
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->STRING_ARRAY_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->createStringArray()[Ljava/lang/String;
@@ -720,6 +753,7 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->setValue(Ljava/lang/Object;)V
 
+    .line 688
     sget-object v1, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->INTEGER_ARRAY_LIST_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readSerializable()Ljava/io/Serializable;
@@ -730,6 +764,7 @@
 
     invoke-virtual {v1, v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->setValue(Ljava/lang/Object;)V
 
+    .line 690
     sget-object v1, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->LONG_ARRAY_LIST_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readSerializable()Ljava/io/Serializable;
@@ -740,6 +775,7 @@
 
     invoke-virtual {v1, v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->setValue(Ljava/lang/Object;)V
 
+    .line 692
     sget-object v1, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->FLOAT_ARRAY_LIST_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readSerializable()Ljava/io/Serializable;
@@ -750,6 +786,7 @@
 
     invoke-virtual {v1, v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->setValue(Ljava/lang/Object;)V
 
+    .line 694
     sget-object v1, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->DOUBLE_ARRAY_LIST_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readSerializable()Ljava/io/Serializable;
@@ -760,6 +797,7 @@
 
     invoke-virtual {v1, v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->setValue(Ljava/lang/Object;)V
 
+    .line 696
     sget-object v1, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->STRING_ARRAY_LIST_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readSerializable()Ljava/io/Serializable;
@@ -770,6 +808,7 @@
 
     invoke-virtual {v1, v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->setValue(Ljava/lang/Object;)V
 
+    .line 699
     sget-object v1, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->INTEGER_HASH_SET_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readSerializable()Ljava/io/Serializable;
@@ -780,6 +819,7 @@
 
     invoke-virtual {v1, v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->setValue(Ljava/lang/Object;)V
 
+    .line 701
     sget-object v1, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->LONG_HASH_SET_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readSerializable()Ljava/io/Serializable;
@@ -790,6 +830,7 @@
 
     invoke-virtual {v1, v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->setValue(Ljava/lang/Object;)V
 
+    .line 703
     sget-object v1, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->FLOAT_HASH_SET_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readSerializable()Ljava/io/Serializable;
@@ -800,6 +841,7 @@
 
     invoke-virtual {v1, v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->setValue(Ljava/lang/Object;)V
 
+    .line 705
     sget-object v1, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->DOUBLE_HASH_SET_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readSerializable()Ljava/io/Serializable;
@@ -810,6 +852,7 @@
 
     invoke-virtual {v1, v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->setValue(Ljava/lang/Object;)V
 
+    .line 707
     sget-object v1, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->STRING_HASH_SET_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readSerializable()Ljava/io/Serializable;
@@ -820,20 +863,26 @@
 
     invoke-virtual {v1, v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->setValue(Ljava/lang/Object;)V
 
+    .line 714
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     invoke-direct {p0, v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle;->setType(I)V
 
+    .line 673
     return-void
 .end method
 
 .method private setType(I)V
     .locals 0
+    .param p1, "type"    # I
 
+    .prologue
+    .line 940
     iput p1, p0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle;->mType:I
 
+    .line 939
     return-void
 .end method
 
@@ -842,6 +891,8 @@
 .method public describeContents()I
     .locals 1
 
+    .prologue
+    .line 611
     const/4 v0, 0x0
 
     return v0
@@ -850,6 +901,8 @@
 .method public getBooleanTypeCode()I
     .locals 1
 
+    .prologue
+    .line 737
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->BOOLEAN_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getCode()I
@@ -862,6 +915,8 @@
 .method public getCharArrayTypeCode()I
     .locals 1
 
+    .prologue
+    .line 791
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->CHAR_ARRAY_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getCode()I
@@ -874,6 +929,8 @@
 .method public getDoubleArrayListTypeCode()I
     .locals 1
 
+    .prologue
+    .line 872
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->DOUBLE_ARRAY_LIST_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getCode()I
@@ -886,6 +943,8 @@
 .method public getDoubleArrayTypeCode()I
     .locals 1
 
+    .prologue
+    .line 827
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->DOUBLE_ARRAY_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getCode()I
@@ -898,6 +957,8 @@
 .method public getDoubleHashSetTypeCode()I
     .locals 1
 
+    .prologue
+    .line 917
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->DOUBLE_HASH_SET_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getCode()I
@@ -910,6 +971,8 @@
 .method public getDoubleTypeCode()I
     .locals 1
 
+    .prologue
+    .line 773
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->DOUBLE_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getCode()I
@@ -922,6 +985,8 @@
 .method public getFloatArrayListTypeCode()I
     .locals 1
 
+    .prologue
+    .line 863
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->FLOAT_ARRAY_LIST_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getCode()I
@@ -934,6 +999,8 @@
 .method public getFloatArrayTypeCode()I
     .locals 1
 
+    .prologue
+    .line 818
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->FLOAT_ARRAY_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getCode()I
@@ -946,6 +1013,8 @@
 .method public getFloatHashSetTypeCode()I
     .locals 1
 
+    .prologue
+    .line 908
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->FLOAT_HASH_SET_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getCode()I
@@ -958,6 +1027,8 @@
 .method public getFloatTypeCode()I
     .locals 1
 
+    .prologue
+    .line 764
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->FLOAT_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getCode()I
@@ -970,6 +1041,8 @@
 .method public getIntegerArrayListTypeCode()I
     .locals 1
 
+    .prologue
+    .line 845
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->INTEGER_ARRAY_LIST_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getCode()I
@@ -982,6 +1055,8 @@
 .method public getIntegerArrayTypeCode()I
     .locals 1
 
+    .prologue
+    .line 800
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->INTEGER_ARRAY_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getCode()I
@@ -994,6 +1069,8 @@
 .method public getIntegerHashSetTypeCode()I
     .locals 1
 
+    .prologue
+    .line 890
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->INTEGER_HASH_SET_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getCode()I
@@ -1006,6 +1083,8 @@
 .method public getIntegerTypeCode()I
     .locals 1
 
+    .prologue
+    .line 746
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->INTEGER_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getCode()I
@@ -1018,6 +1097,8 @@
 .method public getLongArrayListTypeCode()I
     .locals 1
 
+    .prologue
+    .line 854
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->LONG_ARRAY_LIST_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getCode()I
@@ -1030,6 +1111,8 @@
 .method public getLongArrayTypeCode()I
     .locals 1
 
+    .prologue
+    .line 809
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->LONG_ARRAY_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getCode()I
@@ -1042,6 +1125,8 @@
 .method public getLongHashSetTypeCode()I
     .locals 1
 
+    .prologue
+    .line 899
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->LONG_HASH_SET_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getCode()I
@@ -1054,6 +1139,8 @@
 .method public getLongTypeCode()I
     .locals 1
 
+    .prologue
+    .line 755
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->LONG_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getCode()I
@@ -1066,6 +1153,8 @@
 .method public getStringArrayListTypeCode()I
     .locals 1
 
+    .prologue
+    .line 881
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->STRING_ARRAY_LIST_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getCode()I
@@ -1078,6 +1167,8 @@
 .method public getStringArrayTypeCode()I
     .locals 1
 
+    .prologue
+    .line 836
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->STRING_ARRAY_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getCode()I
@@ -1090,6 +1181,8 @@
 .method public getStringHashSetTypeCode()I
     .locals 1
 
+    .prologue
+    .line 926
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->STRING_HASH_SET_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getCode()I
@@ -1102,6 +1195,8 @@
 .method public getStringTypeCode()I
     .locals 1
 
+    .prologue
+    .line 782
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->STRING_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getCode()I
@@ -1114,6 +1209,8 @@
 .method public getType()I
     .locals 1
 
+    .prologue
+    .line 949
     iget v0, p0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle;->mType:I
 
     return v0
@@ -1129,8 +1226,12 @@
         }
     .end annotation
 
+    .prologue
+    .line 576
     const/4 v1, 0x0
 
+    .line 577
+    .local v1, "value":Ljava/lang/Object;, "TE;"
     invoke-static {}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->values()[Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     move-result-object v3
@@ -1144,6 +1245,8 @@
 
     aget-object v0, v3, v2
 
+    .line 578
+    .local v0, "i":Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
     invoke-virtual {p0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle;->getType()I
 
     move-result v5
@@ -1154,13 +1257,20 @@
 
     if-ne v5, v6, :cond_1
 
+    .line 579
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getValue()Ljava/lang/Object;
 
     move-result-object v1
 
+    .line 583
+    .end local v0    # "i":Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
+    .end local v1    # "value":Ljava/lang/Object;, "TE;"
     :cond_0
     return-object v1
 
+    .line 577
+    .restart local v0    # "i":Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
+    .restart local v1    # "value":Ljava/lang/Object;, "TE;"
     :cond_1
     add-int/lit8 v2, v2, 0x1
 
@@ -1169,6 +1279,7 @@
 
 .method public setValue(ILjava/lang/Object;)V
     .locals 5
+    .param p1, "type"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1177,6 +1288,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 595
+    .local p2, "value":Ljava/lang/Object;, "TT;"
     invoke-static {}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->values()[Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     move-result-object v2
@@ -1190,19 +1304,27 @@
 
     aget-object v0, v2, v1
 
+    .line 596
+    .local v0, "i":Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getCode()I
 
     move-result v4
 
     if-ne p1, v4, :cond_1
 
+    .line 597
     invoke-direct {p0, p1}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle;->setType(I)V
 
+    .line 598
     invoke-virtual {v0, p2}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->setValue(Ljava/lang/Object;)V
 
+    .line 594
+    .end local v0    # "i":Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
     :cond_0
     return-void
 
+    .line 595
+    .restart local v0    # "i":Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
     :cond_1
     add-int/lit8 v1, v1, 0x1
 
@@ -1211,7 +1333,11 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
+    .prologue
+    .line 622
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->BOOLEAN_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getValue()Ljava/lang/Object;
@@ -1222,6 +1348,7 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeBooleanArray([Z)V
 
+    .line 623
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->INTEGER_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getValue()Ljava/lang/Object;
@@ -1236,6 +1363,7 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 624
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->LONG_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getValue()Ljava/lang/Object;
@@ -1250,6 +1378,7 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
+    .line 625
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->FLOAT_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getValue()Ljava/lang/Object;
@@ -1264,6 +1393,7 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeFloat(F)V
 
+    .line 626
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->DOUBLE_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getValue()Ljava/lang/Object;
@@ -1278,6 +1408,7 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeDouble(D)V
 
+    .line 627
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->STRING_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getValue()Ljava/lang/Object;
@@ -1288,6 +1419,7 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
+    .line 629
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->CHAR_ARRAY_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getValue()Ljava/lang/Object;
@@ -1298,6 +1430,7 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeCharArray([C)V
 
+    .line 630
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->INTEGER_ARRAY_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getValue()Ljava/lang/Object;
@@ -1308,6 +1441,7 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeIntArray([I)V
 
+    .line 631
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->LONG_ARRAY_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getValue()Ljava/lang/Object;
@@ -1318,6 +1452,7 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeLongArray([J)V
 
+    .line 632
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->FLOAT_ARRAY_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getValue()Ljava/lang/Object;
@@ -1328,6 +1463,7 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeFloatArray([F)V
 
+    .line 633
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->DOUBLE_ARRAY_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getValue()Ljava/lang/Object;
@@ -1338,6 +1474,7 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeDoubleArray([D)V
 
+    .line 635
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->STRING_ARRAY_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getValue()Ljava/lang/Object;
@@ -1348,6 +1485,7 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeStringArray([Ljava/lang/String;)V
 
+    .line 638
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->INTEGER_ARRAY_LIST_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getValue()Ljava/lang/Object;
@@ -1358,6 +1496,7 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeSerializable(Ljava/io/Serializable;)V
 
+    .line 640
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->LONG_ARRAY_LIST_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getValue()Ljava/lang/Object;
@@ -1368,6 +1507,7 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeSerializable(Ljava/io/Serializable;)V
 
+    .line 642
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->FLOAT_ARRAY_LIST_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getValue()Ljava/lang/Object;
@@ -1378,6 +1518,7 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeSerializable(Ljava/io/Serializable;)V
 
+    .line 644
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->DOUBLE_ARRAY_LIST_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getValue()Ljava/lang/Object;
@@ -1388,6 +1529,7 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeSerializable(Ljava/io/Serializable;)V
 
+    .line 646
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->STRING_ARRAY_LIST_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getValue()Ljava/lang/Object;
@@ -1398,6 +1540,7 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeSerializable(Ljava/io/Serializable;)V
 
+    .line 649
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->INTEGER_HASH_SET_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getValue()Ljava/lang/Object;
@@ -1408,6 +1551,7 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeSerializable(Ljava/io/Serializable;)V
 
+    .line 651
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->LONG_HASH_SET_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getValue()Ljava/lang/Object;
@@ -1418,6 +1562,7 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeSerializable(Ljava/io/Serializable;)V
 
+    .line 653
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->FLOAT_HASH_SET_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getValue()Ljava/lang/Object;
@@ -1428,6 +1573,7 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeSerializable(Ljava/io/Serializable;)V
 
+    .line 655
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->DOUBLE_HASH_SET_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getValue()Ljava/lang/Object;
@@ -1438,6 +1584,7 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeSerializable(Ljava/io/Serializable;)V
 
+    .line 657
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->STRING_HASH_SET_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->getValue()Ljava/lang/Object;
@@ -1448,11 +1595,13 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeSerializable(Ljava/io/Serializable;)V
 
+    .line 663
     invoke-virtual {p0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle;->getType()I
 
     move-result v0
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 621
     return-void
 .end method

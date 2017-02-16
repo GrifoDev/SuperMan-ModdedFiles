@@ -28,8 +28,11 @@
 .method constructor <init>()V
     .locals 2
 
+    .prologue
+    .line 1419
     invoke-direct {p0}, Ljava/util/HashMap;-><init>()V
 
+    .line 1421
     const-string/jumbo v0, "strokeWidth"
 
     const/4 v1, 0x0
@@ -40,6 +43,7 @@
 
     invoke-virtual {p0, v0, v1}, Landroid/graphics/drawable/VectorDrawable$VFullPath$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 1422
     const-string/jumbo v0, "strokeColor"
 
     const/4 v1, 0x1
@@ -50,6 +54,7 @@
 
     invoke-virtual {p0, v0, v1}, Landroid/graphics/drawable/VectorDrawable$VFullPath$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 1423
     const-string/jumbo v0, "strokeAlpha"
 
     const/4 v1, 0x2
@@ -60,6 +65,7 @@
 
     invoke-virtual {p0, v0, v1}, Landroid/graphics/drawable/VectorDrawable$VFullPath$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 1424
     const-string/jumbo v0, "fillColor"
 
     const/4 v1, 0x3
@@ -70,6 +76,7 @@
 
     invoke-virtual {p0, v0, v1}, Landroid/graphics/drawable/VectorDrawable$VFullPath$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 1425
     const-string/jumbo v0, "fillAlpha"
 
     const/4 v1, 0x4
@@ -80,6 +87,7 @@
 
     invoke-virtual {p0, v0, v1}, Landroid/graphics/drawable/VectorDrawable$VFullPath$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 1426
     const-string/jumbo v0, "trimPathStart"
 
     const/4 v1, 0x5
@@ -90,6 +98,7 @@
 
     invoke-virtual {p0, v0, v1}, Landroid/graphics/drawable/VectorDrawable$VFullPath$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 1427
     const-string/jumbo v0, "trimPathEnd"
 
     const/4 v1, 0x6
@@ -100,6 +109,7 @@
 
     invoke-virtual {p0, v0, v1}, Landroid/graphics/drawable/VectorDrawable$VFullPath$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 1428
     const-string/jumbo v0, "trimPathOffset"
 
     const/4 v1, 0x7
@@ -110,5 +120,6 @@
 
     invoke-virtual {p0, v0, v1}, Landroid/graphics/drawable/VectorDrawable$VFullPath$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 1419
     return-void
 .end method

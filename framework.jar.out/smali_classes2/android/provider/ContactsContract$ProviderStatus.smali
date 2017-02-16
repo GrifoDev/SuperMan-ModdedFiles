@@ -32,6 +32,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 8135
     sget-object v0, Landroid/provider/ContactsContract;->AUTHORITY_URI:Landroid/net/Uri;
 
     const-string/jumbo v1, "provider_status"
@@ -40,14 +42,18 @@
 
     move-result-object v0
 
+    .line 8134
     sput-object v0, Landroid/provider/ContactsContract$ProviderStatus;->CONTENT_URI:Landroid/net/Uri;
 
+    .line 8122
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 8127
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

@@ -23,7 +23,11 @@
 # direct methods
 .method constructor <init>(Landroid/media/MediaExtractor;Ljava/util/Map;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/media/MediaExtractor;
 
+    .prologue
+    .line 273
+    .local p2, "val$initDataMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/util/UUID;Landroid/media/DrmInitData$SchemeInitData;>;"
     iput-object p1, p0, Landroid/media/MediaExtractor$1;->this$0:Landroid/media/MediaExtractor;
 
     iput-object p2, p0, Landroid/media/MediaExtractor$1;->val$initDataMap:Ljava/util/Map;
@@ -37,7 +41,10 @@
 # virtual methods
 .method public get(Ljava/util/UUID;)Landroid/media/DrmInitData$SchemeInitData;
     .locals 1
+    .param p1, "schemeUuid"    # Ljava/util/UUID;
 
+    .prologue
+    .line 275
     iget-object v0, p0, Landroid/media/MediaExtractor$1;->val$initDataMap:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;

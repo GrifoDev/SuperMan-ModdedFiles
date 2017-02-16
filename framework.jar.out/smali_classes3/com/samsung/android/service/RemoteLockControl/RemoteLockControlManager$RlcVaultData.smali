@@ -36,19 +36,32 @@
 # direct methods
 .method constructor <init>(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
+    .param p1, "failureCount"    # I
+    .param p2, "noticeMessage"    # Ljava/lang/String;
+    .param p3, "phoneNumber"    # Ljava/lang/String;
+    .param p4, "requesterName"    # Ljava/lang/String;
+    .param p5, "clientData"    # Ljava/lang/String;
 
+    .prologue
+    .line 1229
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 1231
     iput p1, p0, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager$RlcVaultData;->mFailureCount:I
 
+    .line 1232
     iput-object p2, p0, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager$RlcVaultData;->mNoticeMessage:Ljava/lang/String;
 
+    .line 1233
     iput-object p5, p0, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager$RlcVaultData;->mClientData:Ljava/lang/String;
 
+    .line 1234
     iput-object p4, p0, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager$RlcVaultData;->mRequesterName:Ljava/lang/String;
 
+    .line 1235
     iput-object p3, p0, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager$RlcVaultData;->mPhoneNumber:Ljava/lang/String;
 
+    .line 1229
     return-void
 .end method
 
@@ -57,6 +70,8 @@
 .method public getClientData()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 1280
     iget-object v0, p0, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager$RlcVaultData;->mClientData:Ljava/lang/String;
 
     return-object v0
@@ -65,6 +80,8 @@
 .method public getFailureCount()I
     .locals 1
 
+    .prologue
+    .line 1240
     iget v0, p0, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager$RlcVaultData;->mFailureCount:I
 
     return v0
@@ -73,6 +90,8 @@
 .method public getNoticeMessage()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 1250
     iget-object v0, p0, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager$RlcVaultData;->mNoticeMessage:Ljava/lang/String;
 
     return-object v0
@@ -81,6 +100,8 @@
 .method public getPhoneNumber()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 1260
     iget-object v0, p0, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager$RlcVaultData;->mPhoneNumber:Ljava/lang/String;
 
     return-object v0
@@ -89,6 +110,8 @@
 .method public getRequesterName()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 1270
     iget-object v0, p0, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager$RlcVaultData;->mRequesterName:Ljava/lang/String;
 
     return-object v0
@@ -96,40 +119,60 @@
 
 .method public setClientData(Ljava/lang/String;)V
     .locals 0
+    .param p1, "clientData"    # Ljava/lang/String;
 
+    .prologue
+    .line 1285
     iput-object p1, p0, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager$RlcVaultData;->mClientData:Ljava/lang/String;
 
+    .line 1283
     return-void
 .end method
 
 .method public setFailureCount(I)V
     .locals 0
+    .param p1, "failureCount"    # I
 
+    .prologue
+    .line 1245
     iput p1, p0, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager$RlcVaultData;->mFailureCount:I
 
+    .line 1243
     return-void
 .end method
 
 .method public setNoticeMessage(Ljava/lang/String;)V
     .locals 0
+    .param p1, "noticeMessage"    # Ljava/lang/String;
 
+    .prologue
+    .line 1255
     iput-object p1, p0, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager$RlcVaultData;->mNoticeMessage:Ljava/lang/String;
 
+    .line 1253
     return-void
 .end method
 
 .method public setPhoneNumber(Ljava/lang/String;)V
     .locals 0
+    .param p1, "phoneNumber"    # Ljava/lang/String;
 
+    .prologue
+    .line 1265
     iput-object p1, p0, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager$RlcVaultData;->mPhoneNumber:Ljava/lang/String;
 
+    .line 1263
     return-void
 .end method
 
 .method public setRequesterName(Ljava/lang/String;)V
     .locals 0
+    .param p1, "requesterName"    # Ljava/lang/String;
 
+    .prologue
+    .line 1275
     iput-object p1, p0, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager$RlcVaultData;->mRequesterName:Ljava/lang/String;
 
+    .line 1273
     return-void
 .end method

@@ -21,44 +21,59 @@
 .method static constructor <clinit>()V
     .locals 5
 
+    .prologue
+    .line 54
     const v0, 0x106005c
 
+    .line 55
     const v1, 0x106005d
 
+    .line 56
     const v2, 0x106005e
 
+    .line 53
     filled-new-array {v0, v1, v2}, [I
 
     move-result-object v0
 
     sput-object v0, Lcom/android/internal/util/UserIcons;->USER_ICON_COLORS:[I
 
+    .line 68
     const v0, 0x10800f4
 
+    .line 69
     const v1, 0x10800f5
 
+    .line 70
     const v2, 0x10800f6
 
+    .line 71
     const v3, 0x10800f7
 
+    .line 72
     const v4, 0x10800f8
 
+    .line 67
     filled-new-array {v0, v1, v2, v3, v4}, [I
 
     move-result-object v0
 
     sput-object v0, Lcom/android/internal/util/UserIcons;->USER_DRAWABLES:[I
 
+    .line 77
     const/4 v0, 0x0
 
     sput-object v0, Lcom/android/internal/util/UserIcons;->mFotaVersion:Ljava/lang/String;
 
+    .line 49
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 49
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -66,69 +81,92 @@
 
 .method public static convertToBitmap(Landroid/graphics/drawable/Drawable;)Landroid/graphics/Bitmap;
     .locals 6
+    .param p0, "icon"    # Landroid/graphics/drawable/Drawable;
 
+    .prologue
     const/4 v4, 0x0
 
     const/4 v5, 0x0
 
+    .line 84
     if-nez p0, :cond_0
 
+    .line 85
     return-object v4
 
+    .line 87
     :cond_0
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
     move-result v3
 
+    .line 88
+    .local v3, "width":I
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
 
     move-result v2
 
+    .line 89
+    .local v2, "height":I
     sget-object v4, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
     invoke-static {v3, v2, v4}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
 
     move-result-object v0
 
+    .line 90
+    .local v0, "bitmap":Landroid/graphics/Bitmap;
     new-instance v1, Landroid/graphics/Canvas;
 
     invoke-direct {v1, v0}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
 
+    .line 91
+    .local v1, "canvas":Landroid/graphics/Canvas;
     invoke-virtual {p0, v5, v5, v3, v2}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
+    .line 92
     invoke-virtual {p0, v1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
+    .line 93
     return-object v0
 .end method
 
 .method public static getDefaultUserIcon(IZ)Landroid/graphics/drawable/Drawable;
     .locals 8
+    .param p0, "userId"    # I
+    .param p1, "light"    # Z
 
+    .prologue
     const/16 v7, -0x2710
 
     const/4 v6, 0x0
 
     const/4 v5, 0x0
 
+    .line 136
     sget-object v2, Lcom/android/internal/util/UserIcons;->mFotaVersion:Ljava/lang/String;
 
     if-nez v2, :cond_0
 
+    .line 137
     invoke-static {}, Lcom/android/internal/util/UserIcons;->readFotaLocked()Ljava/lang/String;
 
     move-result-object v2
 
     sput-object v2, Lcom/android/internal/util/UserIcons;->mFotaVersion:Ljava/lang/String;
 
+    .line 139
     :cond_0
     sget-object v2, Lcom/android/internal/util/UserIcons;->mFotaVersion:Ljava/lang/String;
 
     if-nez v2, :cond_1
 
+    .line 140
     const-string/jumbo v2, "LL"
 
     sput-object v2, Lcom/android/internal/util/UserIcons;->mFotaVersion:Ljava/lang/String;
 
+    .line 143
     :cond_1
     const-string/jumbo v2, "UserIcon"
 
@@ -164,6 +202,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 144
     sget-object v2, Lcom/android/internal/util/UserIcons;->mFotaVersion:Ljava/lang/String;
 
     const-string/jumbo v3, "KK"
@@ -174,8 +213,10 @@
 
     if-eqz v2, :cond_3
 
+    .line 145
     if-eq p0, v7, :cond_2
 
+    .line 147
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v2
@@ -194,6 +235,8 @@
 
     move-result-object v1
 
+    .line 148
+    .local v1, "icon":Landroid/graphics/drawable/Drawable;
     invoke-virtual {v1}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
     move-result v2
@@ -204,8 +247,11 @@
 
     invoke-virtual {v1, v5, v5, v2, v3}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
+    .line 149
     return-object v1
 
+    .line 152
+    .end local v1    # "icon":Landroid/graphics/drawable/Drawable;
     :cond_2
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
@@ -217,6 +263,8 @@
 
     move-result-object v1
 
+    .line 153
+    .restart local v1    # "icon":Landroid/graphics/drawable/Drawable;
     invoke-virtual {v1}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
     move-result v2
@@ -227,16 +275,22 @@
 
     invoke-virtual {v1, v5, v5, v2, v3}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
+    .line 154
     return-object v1
 
+    .line 160
+    .end local v1    # "icon":Landroid/graphics/drawable/Drawable;
     :cond_3
     if-eqz p1, :cond_4
 
     const v0, 0x1060065
 
+    .line 161
+    .local v0, "colorResId":I
     :goto_0
     if-eq p0, v7, :cond_5
 
+    .line 163
     sget-object v2, Lcom/android/internal/util/UserIcons;->USER_ICON_COLORS:[I
 
     sget-object v3, Lcom/android/internal/util/UserIcons;->USER_ICON_COLORS:[I
@@ -247,6 +301,7 @@
 
     aget v0, v2, v3
 
+    .line 173
     :goto_1
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
@@ -258,6 +313,8 @@
 
     move-result-object v1
 
+    .line 174
+    .restart local v1    # "icon":Landroid/graphics/drawable/Drawable;
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v2
@@ -270,6 +327,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/graphics/drawable/Drawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
 
+    .line 176
     invoke-virtual {v1}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
     move-result v2
@@ -280,13 +338,19 @@
 
     invoke-virtual {v1, v5, v5, v2, v3}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
+    .line 177
     return-object v1
 
+    .line 160
+    .end local v0    # "colorResId":I
+    .end local v1    # "icon":Landroid/graphics/drawable/Drawable;
     :cond_4
     const v0, 0x1060064
 
+    .restart local v0    # "colorResId":I
     goto :goto_0
 
+    .line 167
     :cond_5
     const v0, 0x106005f
 
@@ -295,9 +359,14 @@
 
 .method public static getDefaultUserIconForBMode(IZZ)Landroid/graphics/drawable/Drawable;
     .locals 6
+    .param p0, "userId"    # I
+    .param p1, "light"    # Z
+    .param p2, "isPrimary"    # Z
 
+    .prologue
     const/4 v5, 0x0
 
+    .line 105
     const-string/jumbo v2, "UserIcon"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -330,15 +399,19 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 106
     if-eqz p1, :cond_0
 
     const v0, 0x1060065
 
+    .line 107
+    .local v0, "colorResId":I
     :goto_0
     const/16 v2, -0x2710
 
     if-eq p0, v2, :cond_1
 
+    .line 109
     sget-object v2, Lcom/android/internal/util/UserIcons;->USER_ICON_COLORS:[I
 
     sget-object v3, Lcom/android/internal/util/UserIcons;->USER_ICON_COLORS:[I
@@ -349,11 +422,15 @@
 
     aget v0, v2, v3
 
+    .line 114
     :goto_1
     const/4 v1, 0x0
 
+    .line 115
+    .local v1, "icon":Landroid/graphics/drawable/Drawable;
     if-eqz p2, :cond_2
 
+    .line 116
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v2
@@ -364,6 +441,8 @@
 
     move-result-object v1
 
+    .line 121
+    .local v1, "icon":Landroid/graphics/drawable/Drawable;
     :goto_2
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
@@ -377,6 +456,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/graphics/drawable/Drawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
 
+    .line 122
     invoke-virtual {v1}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
     move-result v2
@@ -387,18 +467,26 @@
 
     invoke-virtual {v1, v5, v5, v2, v3}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
+    .line 123
     return-object v1
 
+    .line 106
+    .end local v0    # "colorResId":I
+    .end local v1    # "icon":Landroid/graphics/drawable/Drawable;
     :cond_0
     const v0, 0x1060064
 
+    .restart local v0    # "colorResId":I
     goto :goto_0
 
+    .line 112
     :cond_1
     const v0, 0x106005f
 
     goto :goto_1
 
+    .line 119
+    .local v1, "icon":Landroid/graphics/drawable/Drawable;
     :cond_2
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
@@ -410,14 +498,17 @@
 
     move-result-object v1
 
+    .local v1, "icon":Landroid/graphics/drawable/Drawable;
     goto :goto_2
 .end method
 
 .method private static readFotaLocked()Ljava/lang/String;
     .locals 12
 
+    .prologue
     const/4 v11, 0x2
 
+    .line 185
     new-instance v5, Ljava/io/File;
 
     const-string/jumbo v9, "/data/system/users"
@@ -426,65 +517,90 @@
 
     invoke-direct {v5, v9, v10}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 186
+    .local v5, "mIsFotaFile":Ljava/io/File;
     const/4 v1, 0x0
 
+    .line 187
+    .local v1, "fis":Ljava/io/FileInputStream;
     new-instance v2, Landroid/util/XmlMoreAtomicFile;
 
     invoke-direct {v2, v5}, Landroid/util/XmlMoreAtomicFile;-><init>(Ljava/io/File;)V
 
+    .line 188
+    .local v2, "fotaFile":Landroid/util/XmlMoreAtomicFile;
     const/4 v4, 0x0
 
+    .line 190
+    .local v4, "mFotaVersion":Ljava/lang/String;
     :try_start_0
     invoke-virtual {v2}, Landroid/util/XmlMoreAtomicFile;->openRead()Ljava/io/FileInputStream;
 
     move-result-object v1
 
+    .line 191
+    .local v1, "fis":Ljava/io/FileInputStream;
     invoke-static {}, Landroid/util/Xml;->newPullParser()Lorg/xmlpull/v1/XmlPullParser;
 
     move-result-object v6
 
+    .line 192
+    .local v6, "parser":Lorg/xmlpull/v1/XmlPullParser;
     const/4 v9, 0x0
 
     invoke-interface {v6, v1, v9}, Lorg/xmlpull/v1/XmlPullParser;->setInput(Ljava/io/InputStream;Ljava/lang/String;)V
 
+    .line 194
     :cond_0
     invoke-interface {v6}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
     move-result v8
 
+    .local v8, "type":I
     if-eq v8, v11, :cond_1
 
+    .line 195
     const/4 v9, 0x1
 
     if-ne v8, v9, :cond_0
 
+    .line 199
     :cond_1
     if-eq v8, v11, :cond_3
 
+    .line 200
     invoke-virtual {v2}, Landroid/util/XmlMoreAtomicFile;->processDamagedFile()V
 
+    .line 201
     const-string/jumbo v9, "LL"
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_4
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_0} :catch_2
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 214
     if-eqz v1, :cond_2
 
+    .line 216
     :try_start_1
     invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
+    .line 220
     :cond_2
     :goto_0
     return-object v4
 
+    .line 217
     :catch_0
     move-exception v0
 
+    .local v0, "e":Ljava/io/IOException;
     goto :goto_0
 
+    .line 204
+    .end local v0    # "e":Ljava/io/IOException;
     :cond_3
     :try_start_2
     invoke-interface {v6}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
@@ -499,6 +615,7 @@
 
     if-eqz v9, :cond_4
 
+    .line 205
     const-string/jumbo v9, "version"
 
     const/4 v10, 0x0
@@ -511,91 +628,130 @@
 
     move-result-object v4
 
+    .line 214
+    .end local v4    # "mFotaVersion":Ljava/lang/String;
     :cond_4
     if-eqz v1, :cond_5
 
+    .line 216
     :try_start_3
     invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
     :try_end_3
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_1
 
+    .line 220
     :cond_5
     :goto_1
     return-object v4
 
+    .line 217
     :catch_1
     move-exception v0
 
+    .restart local v0    # "e":Ljava/io/IOException;
     goto :goto_1
 
+    .line 210
+    .end local v0    # "e":Ljava/io/IOException;
+    .end local v1    # "fis":Ljava/io/FileInputStream;
+    .end local v6    # "parser":Lorg/xmlpull/v1/XmlPullParser;
+    .end local v8    # "type":I
+    .restart local v4    # "mFotaVersion":Ljava/lang/String;
     :catch_2
     move-exception v7
 
+    .line 211
+    .local v7, "pe":Lorg/xmlpull/v1/XmlPullParserException;
     :try_start_4
     invoke-virtual {v2}, Landroid/util/XmlMoreAtomicFile;->processDamagedFile()V
 
+    .line 212
     invoke-virtual {v7}, Lorg/xmlpull/v1/XmlPullParserException;->printStackTrace()V
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
+    .line 214
     if-eqz v1, :cond_6
 
+    .line 216
     :try_start_5
     invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
     :try_end_5
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_3
 
+    .line 220
     :cond_6
     :goto_2
     return-object v4
 
+    .line 217
     :catch_3
     move-exception v0
 
+    .restart local v0    # "e":Ljava/io/IOException;
     goto :goto_2
 
+    .line 207
+    .end local v0    # "e":Ljava/io/IOException;
+    .end local v7    # "pe":Lorg/xmlpull/v1/XmlPullParserException;
     :catch_4
     move-exception v3
 
+    .line 208
+    .local v3, "ioe":Ljava/io/IOException;
     :try_start_6
     invoke-virtual {v2}, Landroid/util/XmlMoreAtomicFile;->processDamagedFile()V
 
+    .line 209
     invoke-virtual {v3}, Ljava/io/IOException;->printStackTrace()V
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
+    .line 214
     if-eqz v1, :cond_7
 
+    .line 216
     :try_start_7
     invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
     :try_end_7
     .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_5
 
+    .line 220
     :cond_7
     :goto_3
     return-object v4
 
+    .line 217
     :catch_5
     move-exception v0
 
+    .restart local v0    # "e":Ljava/io/IOException;
     goto :goto_3
 
+    .line 213
+    .end local v0    # "e":Ljava/io/IOException;
+    .end local v3    # "ioe":Ljava/io/IOException;
     :catchall_0
     move-exception v9
 
+    .line 214
     if-eqz v1, :cond_8
 
+    .line 216
     :try_start_8
     invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
     :try_end_8
     .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_6
 
+    .line 220
     :cond_8
     :goto_4
     return-object v4
 
+    .line 217
     :catch_6
     move-exception v0
 
+    .restart local v0    # "e":Ljava/io/IOException;
     goto :goto_4
 .end method

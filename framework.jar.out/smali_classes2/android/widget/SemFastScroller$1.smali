@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Landroid/widget/SemFastScroller;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/widget/SemFastScroller;
 
+    .prologue
+    .line 254
     iput-object p1, p0, Landroid/widget/SemFastScroller$1;->this$0:Landroid/widget/SemFastScroller;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,11 +40,14 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 257
     iget-object v0, p0, Landroid/widget/SemFastScroller$1;->this$0:Landroid/widget/SemFastScroller;
 
     const/4 v1, 0x0
 
     invoke-static {v0, v1}, Landroid/widget/SemFastScroller;->-wrap0(Landroid/widget/SemFastScroller;I)V
 
+    .line 256
     return-void
 .end method

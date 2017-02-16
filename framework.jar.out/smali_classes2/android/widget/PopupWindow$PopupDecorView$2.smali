@@ -26,7 +26,11 @@
 # direct methods
 .method constructor <init>(Landroid/widget/PopupWindow$PopupDecorView;Landroid/transition/Transition;)V
     .locals 0
+    .param p1, "this$1"    # Landroid/widget/PopupWindow$PopupDecorView;
+    .param p2, "val$enterTransition"    # Landroid/transition/Transition;
 
+    .prologue
+    .line 2439
     iput-object p1, p0, Landroid/widget/PopupWindow$PopupDecorView$2;->this$1:Landroid/widget/PopupWindow$PopupDecorView;
 
     iput-object p2, p0, Landroid/widget/PopupWindow$PopupDecorView$2;->val$enterTransition:Landroid/transition/Transition;
@@ -41,16 +45,22 @@
 .method public onGlobalLayout()V
     .locals 4
 
+    .prologue
+    .line 2442
     iget-object v2, p0, Landroid/widget/PopupWindow$PopupDecorView$2;->this$1:Landroid/widget/PopupWindow$PopupDecorView;
 
     invoke-virtual {v2}, Landroid/widget/PopupWindow$PopupDecorView;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
 
     move-result-object v1
 
+    .line 2443
+    .local v1, "observer":Landroid/view/ViewTreeObserver;
     if-eqz v1, :cond_0
 
+    .line 2444
     invoke-virtual {v1, p0}, Landroid/view/ViewTreeObserver;->removeOnGlobalLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
 
+    .line 2447
     :cond_0
     iget-object v2, p0, Landroid/widget/PopupWindow$PopupDecorView$2;->this$1:Landroid/widget/PopupWindow$PopupDecorView;
 
@@ -60,6 +70,8 @@
 
     move-result-object v0
 
+    .line 2448
+    .local v0, "epicenter":Landroid/graphics/Rect;
     iget-object v2, p0, Landroid/widget/PopupWindow$PopupDecorView$2;->val$enterTransition:Landroid/transition/Transition;
 
     new-instance v3, Landroid/widget/PopupWindow$PopupDecorView$2$1;
@@ -68,11 +80,13 @@
 
     invoke-virtual {v2, v3}, Landroid/transition/Transition;->setEpicenterCallback(Landroid/transition/Transition$EpicenterCallback;)V
 
+    .line 2454
     iget-object v2, p0, Landroid/widget/PopupWindow$PopupDecorView$2;->this$1:Landroid/widget/PopupWindow$PopupDecorView;
 
     iget-object v3, p0, Landroid/widget/PopupWindow$PopupDecorView$2;->val$enterTransition:Landroid/transition/Transition;
 
     invoke-static {v2, v3}, Landroid/widget/PopupWindow$PopupDecorView;->-wrap0(Landroid/widget/PopupWindow$PopupDecorView;Landroid/transition/Transition;)V
 
+    .line 2441
     return-void
 .end method

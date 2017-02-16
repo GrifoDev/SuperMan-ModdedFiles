@@ -21,6 +21,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 116
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -30,7 +32,10 @@
 # virtual methods
 .method public onScale(Landroid/view/ScaleGestureDetector;)Z
     .locals 1
+    .param p1, "detector"    # Landroid/view/ScaleGestureDetector;
 
+    .prologue
+    .line 119
     const/4 v0, 0x0
 
     return v0
@@ -38,7 +43,10 @@
 
 .method public onScaleBegin(Landroid/view/ScaleGestureDetector;)Z
     .locals 1
+    .param p1, "detector"    # Landroid/view/ScaleGestureDetector;
 
+    .prologue
+    .line 123
     const/4 v0, 0x1
 
     return v0
@@ -46,6 +54,9 @@
 
 .method public onScaleEnd(Landroid/view/ScaleGestureDetector;)V
     .locals 0
+    .param p1, "detector"    # Landroid/view/ScaleGestureDetector;
 
+    .prologue
+    .line 126
     return-void
 .end method

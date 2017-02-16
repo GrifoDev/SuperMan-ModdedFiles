@@ -26,7 +26,11 @@
 # direct methods
 .method constructor <init>(Landroid/widget/TextView;Ljava/lang/CharSequence;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/widget/TextView;
+    .param p2, "val$error"    # Ljava/lang/CharSequence;
 
+    .prologue
+    .line 4799
     iput-object p1, p0, Landroid/widget/TextView$1;->this$0:Landroid/widget/TextView;
 
     iput-object p2, p0, Landroid/widget/TextView$1;->val$error:Ljava/lang/CharSequence;
@@ -41,6 +45,8 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 4801
     iget-object v0, p0, Landroid/widget/TextView$1;->this$0:Landroid/widget/TextView;
 
     invoke-static {v0}, Landroid/widget/TextView;->-get3(Landroid/widget/TextView;)Landroid/widget/Editor;
@@ -59,9 +65,11 @@
 
     if-eqz v0, :cond_0
 
+    .line 4800
     :goto_0
     return-void
 
+    .line 4802
     :cond_0
     iget-object v0, p0, Landroid/widget/TextView$1;->this$0:Landroid/widget/TextView;
 

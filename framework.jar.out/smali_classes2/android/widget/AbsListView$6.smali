@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Landroid/widget/AbsListView;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/widget/AbsListView;
 
+    .prologue
+    .line 11251
     iput-object p1, p0, Landroid/widget/AbsListView$6;->this$0:Landroid/widget/AbsListView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +40,8 @@
 .method public run()V
     .locals 6
 
+    .prologue
+    .line 11254
     iget-object v1, p0, Landroid/widget/AbsListView$6;->this$0:Landroid/widget/AbsListView;
 
     invoke-static {v1}, Landroid/widget/AbsListView;->-get31(Landroid/widget/AbsListView;)I
@@ -59,6 +64,7 @@
 
     if-ge v1, v2, :cond_0
 
+    .line 11255
     iget-object v1, p0, Landroid/widget/AbsListView$6;->this$0:Landroid/widget/AbsListView;
 
     iget-object v2, p0, Landroid/widget/AbsListView$6;->this$0:Landroid/widget/AbsListView;
@@ -69,9 +75,11 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/AbsListView;->smoothScrollToPosition(I)V
 
+    .line 11253
     :goto_0
     return-void
 
+    .line 11257
     :cond_0
     iget-object v1, p0, Landroid/widget/AbsListView$6;->this$0:Landroid/widget/AbsListView;
 
@@ -99,6 +107,7 @@
 
     move-result-object v2
 
+    .line 11258
     iget-object v3, p0, Landroid/widget/AbsListView$6;->this$0:Landroid/widget/AbsListView;
 
     invoke-static {v3}, Landroid/widget/AbsListView;->-get32(Landroid/widget/AbsListView;)I
@@ -111,6 +120,7 @@
 
     div-float/2addr v3, v4
 
+    .line 11257
     invoke-virtual {v2, v3}, Landroid/view/animation/DecelerateInterpolator;->getInterpolation(F)F
 
     move-result v2
@@ -119,6 +129,8 @@
 
     float-to-int v0, v1
 
+    .line 11259
+    .local v0, "movingDistance":I
     iget-object v1, p0, Landroid/widget/AbsListView$6;->this$0:Landroid/widget/AbsListView;
 
     invoke-static {v1}, Landroid/widget/AbsListView;->-get32(Landroid/widget/AbsListView;)I
@@ -129,6 +141,7 @@
 
     invoke-static {v1, v2}, Landroid/widget/AbsListView;->-set9(Landroid/widget/AbsListView;I)I
 
+    .line 11260
     iget-object v1, p0, Landroid/widget/AbsListView$6;->this$0:Landroid/widget/AbsListView;
 
     invoke-static {v1}, Landroid/widget/AbsListView;->-get27(Landroid/widget/AbsListView;)I
@@ -139,10 +152,12 @@
 
     if-ne v1, v2, :cond_1
 
+    .line 11261
     iget-object v1, p0, Landroid/widget/AbsListView$6;->this$0:Landroid/widget/AbsListView;
 
     invoke-static {v1, v0}, Landroid/widget/AbsListView;->-set8(Landroid/widget/AbsListView;I)I
 
+    .line 11262
     iget-object v1, p0, Landroid/widget/AbsListView$6;->this$0:Landroid/widget/AbsListView;
 
     iget-object v2, p0, Landroid/widget/AbsListView$6;->this$0:Landroid/widget/AbsListView;
@@ -153,6 +168,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/AdapterView;->setSelection(I)V
 
+    .line 11267
     :goto_1
     iget-object v1, p0, Landroid/widget/AbsListView$6;->this$0:Landroid/widget/AbsListView;
 
@@ -168,6 +184,7 @@
 
     goto :goto_0
 
+    .line 11264
     :cond_1
     iget-object v1, p0, Landroid/widget/AbsListView$6;->this$0:Landroid/widget/AbsListView;
 
@@ -181,6 +198,7 @@
 
     invoke-static {v1, v2}, Landroid/widget/AbsListView;->-set8(Landroid/widget/AbsListView;I)I
 
+    .line 11265
     iget-object v1, p0, Landroid/widget/AbsListView$6;->this$0:Landroid/widget/AbsListView;
 
     iget-object v2, p0, Landroid/widget/AbsListView$6;->this$0:Landroid/widget/AbsListView;

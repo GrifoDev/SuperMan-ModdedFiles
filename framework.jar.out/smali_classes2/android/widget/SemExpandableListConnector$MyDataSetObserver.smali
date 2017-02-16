@@ -21,7 +21,10 @@
 # direct methods
 .method protected constructor <init>(Landroid/widget/SemExpandableListConnector;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/widget/SemExpandableListConnector;
 
+    .prologue
+    .line 911
     iput-object p1, p0, Landroid/widget/SemExpandableListConnector$MyDataSetObserver;->this$0:Landroid/widget/SemExpandableListConnector;
 
     invoke-direct {p0}, Landroid/database/DataSetObserver;-><init>()V
@@ -34,31 +37,39 @@
 .method public onChanged()V
     .locals 2
 
+    .prologue
     const/4 v1, 0x1
 
+    .line 914
     iget-object v0, p0, Landroid/widget/SemExpandableListConnector$MyDataSetObserver;->this$0:Landroid/widget/SemExpandableListConnector;
 
     invoke-static {v0, v1, v1}, Landroid/widget/SemExpandableListConnector;->-wrap0(Landroid/widget/SemExpandableListConnector;ZZ)V
 
+    .line 916
     iget-object v0, p0, Landroid/widget/SemExpandableListConnector$MyDataSetObserver;->this$0:Landroid/widget/SemExpandableListConnector;
 
     invoke-virtual {v0}, Landroid/widget/BaseAdapter;->notifyDataSetChanged()V
 
+    .line 913
     return-void
 .end method
 
 .method public onInvalidated()V
     .locals 2
 
+    .prologue
     const/4 v1, 0x1
 
+    .line 921
     iget-object v0, p0, Landroid/widget/SemExpandableListConnector$MyDataSetObserver;->this$0:Landroid/widget/SemExpandableListConnector;
 
     invoke-static {v0, v1, v1}, Landroid/widget/SemExpandableListConnector;->-wrap0(Landroid/widget/SemExpandableListConnector;ZZ)V
 
+    .line 923
     iget-object v0, p0, Landroid/widget/SemExpandableListConnector$MyDataSetObserver;->this$0:Landroid/widget/SemExpandableListConnector;
 
     invoke-virtual {v0}, Landroid/widget/BaseAdapter;->notifyDataSetInvalidated()V
 
+    .line 920
     return-void
 .end method

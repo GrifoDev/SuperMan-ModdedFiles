@@ -25,7 +25,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/app/ResolverActivity;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/internal/app/ResolverActivity;
 
+    .prologue
+    .line 2936
     iput-object p1, p0, Lcom/android/internal/app/ResolverActivity$PagerItemClickListener;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +40,9 @@
 # virtual methods
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
     .locals 3
+    .param p2, "view"    # Landroid/view/View;
+    .param p3, "position"    # I
+    .param p4, "id"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -47,14 +53,18 @@
         }
     .end annotation
 
+    .prologue
+    .local p1, "parent":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<*>;"
     const/4 v1, 0x1
 
+    .line 2940
     iget-object v0, p0, Lcom/android/internal/app/ResolverActivity$PagerItemClickListener;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     invoke-static {v0, p3}, Lcom/android/internal/app/ResolverActivity;->-wrap4(Lcom/android/internal/app/ResolverActivity;I)I
 
     move-result p3
 
+    .line 2941
     iget-object v2, p0, Lcom/android/internal/app/ResolverActivity$PagerItemClickListener;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     iget-object v0, p0, Lcom/android/internal/app/ResolverActivity$PagerItemClickListener;->this$0:Lcom/android/internal/app/ResolverActivity;
@@ -79,16 +89,21 @@
     :goto_0
     invoke-virtual {v2, p3, v0, v1}, Lcom/android/internal/app/ResolverActivity;->startSelected(IZZ)V
 
+    .line 2939
     return-void
 
     :cond_1
     move v0, v1
 
+    .line 2941
     goto :goto_0
 .end method
 
 .method public onItemLongClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)Z
     .locals 3
+    .param p2, "view"    # Landroid/view/View;
+    .param p3, "position"    # I
+    .param p4, "id"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -99,14 +114,18 @@
         }
     .end annotation
 
+    .prologue
+    .local p1, "parent":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<*>;"
     const/4 v2, 0x1
 
+    .line 2946
     iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$PagerItemClickListener;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     invoke-static {v1, p3}, Lcom/android/internal/app/ResolverActivity;->-wrap4(Lcom/android/internal/app/ResolverActivity;I)I
 
     move-result p3
 
+    .line 2948
     iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$PagerItemClickListener;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     invoke-static {v1}, Lcom/android/internal/app/ResolverActivity;->-get1(Lcom/android/internal/app/ResolverActivity;)Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;
@@ -117,9 +136,12 @@
 
     move-result-object v0
 
+    .line 2949
+    .local v0, "ri":Landroid/content/pm/ResolveInfo;
     iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$PagerItemClickListener;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     invoke-virtual {v1, v0}, Lcom/android/internal/app/ResolverActivity;->showTargetDetails(Landroid/content/pm/ResolveInfo;)V
 
+    .line 2950
     return v2
 .end method

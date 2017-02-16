@@ -30,6 +30,8 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
+    .line 253
     const/4 v0, 0x3
 
     new-array v0, v0, [Ljava/lang/String;
@@ -54,12 +56,15 @@
 
     sput-object v0, Landroid/net/wifi/WifiConfiguration$AuthAlgorithm;->strings:[Ljava/lang/String;
 
+    .line 241
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 242
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

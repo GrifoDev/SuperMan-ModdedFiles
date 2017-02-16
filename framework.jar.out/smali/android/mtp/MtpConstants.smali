@@ -623,6 +623,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 22
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -630,18 +632,24 @@
 
 .method public static isAbstractObject(I)Z
     .locals 1
+    .param p0, "format"    # I
 
+    .prologue
+    .line 289
     sparse-switch p0, :sswitch_data_0
 
+    .line 301
     const/4 v0, 0x0
 
     return v0
 
+    .line 299
     :sswitch_0
     const/4 v0, 0x1
 
     return v0
 
+    .line 289
     nop
 
     :sswitch_data_0

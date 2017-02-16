@@ -28,7 +28,12 @@
 # direct methods
 .method constructor <init>(Landroid/media/browse/MediaBrowser;Landroid/media/browse/MediaBrowser$ItemCallback;Ljava/lang/String;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/media/browse/MediaBrowser;
+    .param p2, "val$cb"    # Landroid/media/browse/MediaBrowser$ItemCallback;
+    .param p3, "val$mediaId"    # Ljava/lang/String;
 
+    .prologue
+    .line 450
     iput-object p1, p0, Landroid/media/browse/MediaBrowser$4;->this$0:Landroid/media/browse/MediaBrowser;
 
     iput-object p2, p0, Landroid/media/browse/MediaBrowser$4;->val$cb:Landroid/media/browse/MediaBrowser$ItemCallback;
@@ -45,11 +50,14 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 453
     iget-object v0, p0, Landroid/media/browse/MediaBrowser$4;->val$cb:Landroid/media/browse/MediaBrowser$ItemCallback;
 
     iget-object v1, p0, Landroid/media/browse/MediaBrowser$4;->val$mediaId:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Landroid/media/browse/MediaBrowser$ItemCallback;->onError(Ljava/lang/String;)V
 
+    .line 452
     return-void
 .end method

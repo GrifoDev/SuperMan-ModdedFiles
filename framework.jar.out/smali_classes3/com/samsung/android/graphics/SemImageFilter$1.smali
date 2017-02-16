@@ -34,7 +34,15 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/graphics/SemImageFilter;Lcom/samsung/android/graphics/SemImageFilter$IAnimationListener;Landroid/animation/TimeInterpolator;IJJ)V
     .locals 1
+    .param p1, "this$0"    # Lcom/samsung/android/graphics/SemImageFilter;
+    .param p2, "val$listener"    # Lcom/samsung/android/graphics/SemImageFilter$IAnimationListener;
+    .param p3, "val$interpolator"    # Landroid/animation/TimeInterpolator;
+    .param p4, "val$id"    # I
+    .param p5, "val$duration"    # J
+    .param p7, "val$delay"    # J
 
+    .prologue
+    .line 351
     iput-object p1, p0, Lcom/samsung/android/graphics/SemImageFilter$1;->this$0:Lcom/samsung/android/graphics/SemImageFilter;
 
     iput-object p2, p0, Lcom/samsung/android/graphics/SemImageFilter$1;->val$listener:Lcom/samsung/android/graphics/SemImageFilter$IAnimationListener;
@@ -57,6 +65,8 @@
 .method public run()V
     .locals 8
 
+    .prologue
+    .line 354
     iget-object v0, p0, Lcom/samsung/android/graphics/SemImageFilter$1;->this$0:Lcom/samsung/android/graphics/SemImageFilter;
 
     iget-wide v0, v0, Lcom/samsung/android/graphics/SemImageFilter;->mNativeImageFilter:J
@@ -77,5 +87,6 @@
 
     invoke-static/range {v0 .. v7}, Lcom/samsung/android/graphics/SemImageFilter;->-wrap0(JLcom/samsung/android/graphics/SemImageFilter$ImageFilterAnimator;IJJ)V
 
+    .line 353
     return-void
 .end method

@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Landroid/app/Fragment;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/app/Fragment;
 
+    .prologue
+    .line 2312
     iput-object p1, p0, Landroid/app/Fragment$1;->this$0:Landroid/app/Fragment;
 
     invoke-direct {p0}, Landroid/app/FragmentContainer;-><init>()V
@@ -33,13 +36,17 @@
 # virtual methods
 .method public onFindViewById(I)Landroid/view/View;
     .locals 2
+    .param p1, "id"    # I
 
+    .prologue
+    .line 2316
     iget-object v0, p0, Landroid/app/Fragment$1;->this$0:Landroid/app/Fragment;
 
     iget-object v0, v0, Landroid/app/Fragment;->mView:Landroid/view/View;
 
     if-nez v0, :cond_0
 
+    .line 2317
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "Fragment does not have a view"
@@ -48,6 +55,7 @@
 
     throw v0
 
+    .line 2319
     :cond_0
     iget-object v0, p0, Landroid/app/Fragment$1;->this$0:Landroid/app/Fragment;
 
@@ -63,6 +71,8 @@
 .method public onHasView()Z
     .locals 1
 
+    .prologue
+    .line 2324
     iget-object v0, p0, Landroid/app/Fragment$1;->this$0:Landroid/app/Fragment;
 
     iget-object v0, v0, Landroid/app/Fragment;->mView:Landroid/view/View;

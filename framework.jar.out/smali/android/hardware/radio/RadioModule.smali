@@ -44,27 +44,39 @@
 # direct methods
 .method constructor <init>(ILandroid/hardware/radio/RadioManager$BandConfig;ZLandroid/hardware/radio/RadioTuner$Callback;Landroid/os/Handler;)V
     .locals 2
+    .param p1, "moduleId"    # I
+    .param p2, "config"    # Landroid/hardware/radio/RadioManager$BandConfig;
+    .param p3, "withAudio"    # Z
+    .param p4, "callback"    # Landroid/hardware/radio/RadioTuner$Callback;
+    .param p5, "handler"    # Landroid/os/Handler;
 
+    .prologue
+    .line 39
     invoke-direct {p0}, Landroid/hardware/radio/RadioTuner;-><init>()V
 
+    .line 35
     const-wide/16 v0, 0x0
 
     iput-wide v0, p0, Landroid/hardware/radio/RadioModule;->mNativeContext:J
 
+    .line 41
     iput p1, p0, Landroid/hardware/radio/RadioModule;->mId:I
 
+    .line 42
     new-instance v0, Landroid/hardware/radio/RadioModule$NativeEventHandlerDelegate;
 
     invoke-direct {v0, p0, p4, p5}, Landroid/hardware/radio/RadioModule$NativeEventHandlerDelegate;-><init>(Landroid/hardware/radio/RadioModule;Landroid/hardware/radio/RadioTuner$Callback;Landroid/os/Handler;)V
 
     iput-object v0, p0, Landroid/hardware/radio/RadioModule;->mEventHandlerDelegate:Landroid/hardware/radio/RadioModule$NativeEventHandlerDelegate;
 
+    .line 43
     new-instance v0, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v0, p0}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
     invoke-direct {p0, v0, p2, p3}, Landroid/hardware/radio/RadioModule;->native_setup(Ljava/lang/Object;Landroid/hardware/radio/RadioManager$BandConfig;Z)V
 
+    .line 40
     return-void
 .end method
 
@@ -76,36 +88,59 @@
 
 .method private static postEventFromNative(Ljava/lang/Object;IIILjava/lang/Object;)V
     .locals 4
+    .param p0, "module_ref"    # Ljava/lang/Object;
+    .param p1, "what"    # I
+    .param p2, "arg1"    # I
+    .param p3, "arg2"    # I
+    .param p4, "obj"    # Ljava/lang/Object;
 
+    .prologue
+    .line 208
     check-cast p0, Ljava/lang/ref/WeakReference;
 
+    .end local p0    # "module_ref":Ljava/lang/Object;
     invoke-virtual {p0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Landroid/hardware/radio/RadioModule;
 
+    .line 209
+    .local v3, "module":Landroid/hardware/radio/RadioModule;
     if-nez v3, :cond_0
 
+    .line 210
     return-void
 
+    .line 213
     :cond_0
     iget-object v0, v3, Landroid/hardware/radio/RadioModule;->mEventHandlerDelegate:Landroid/hardware/radio/RadioModule$NativeEventHandlerDelegate;
 
+    .line 214
+    .local v0, "delegate":Landroid/hardware/radio/RadioModule$NativeEventHandlerDelegate;
     if-eqz v0, :cond_1
 
+    .line 215
     invoke-virtual {v0}, Landroid/hardware/radio/RadioModule$NativeEventHandlerDelegate;->handler()Landroid/os/Handler;
 
     move-result-object v1
 
+    .line 216
+    .local v1, "handler":Landroid/os/Handler;
     if-eqz v1, :cond_1
 
+    .line 217
     invoke-virtual {v1, p1, p2, p3, p4}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v2
 
+    .line 218
+    .local v2, "m":Landroid/os/Message;
     invoke-virtual {v1, v2}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
+    .line 207
+    .end local v1    # "handler":Landroid/os/Handler;
+    .end local v2    # "m":Landroid/os/Message;
     :cond_1
     return-void
 .end method
@@ -121,8 +156,11 @@
 .method protected finalize()V
     .locals 0
 
+    .prologue
+    .line 50
     invoke-direct {p0}, Landroid/hardware/radio/RadioModule;->native_finalize()V
 
+    .line 49
     return-void
 .end method
 
@@ -141,6 +179,8 @@
 .method initCheck()Z
     .locals 4
 
+    .prologue
+    .line 55
     iget-wide v0, p0, Landroid/hardware/radio/RadioModule;->mNativeContext:J
 
     const-wide/16 v2, 0x0

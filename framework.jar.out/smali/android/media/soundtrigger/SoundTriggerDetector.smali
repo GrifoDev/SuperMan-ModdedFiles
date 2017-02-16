@@ -69,31 +69,44 @@
 
 .method constructor <init>(Lcom/android/internal/app/ISoundTriggerService;Ljava/util/UUID;Landroid/media/soundtrigger/SoundTriggerDetector$Callback;Landroid/os/Handler;)V
     .locals 3
+    .param p1, "soundTriggerService"    # Lcom/android/internal/app/ISoundTriggerService;
+    .param p2, "soundModelId"    # Ljava/util/UUID;
+    .param p3, "callback"    # Landroid/media/soundtrigger/SoundTriggerDetector$Callback;
+    .param p4, "handler"    # Landroid/os/Handler;
 
+    .prologue
     const/4 v2, 0x0
 
+    .line 219
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 61
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     iput-object v0, p0, Landroid/media/soundtrigger/SoundTriggerDetector;->mLock:Ljava/lang/Object;
 
+    .line 221
     iput-object p1, p0, Landroid/media/soundtrigger/SoundTriggerDetector;->mSoundTriggerService:Lcom/android/internal/app/ISoundTriggerService;
 
+    .line 222
     iput-object p2, p0, Landroid/media/soundtrigger/SoundTriggerDetector;->mSoundModelId:Ljava/util/UUID;
 
+    .line 223
     iput-object p3, p0, Landroid/media/soundtrigger/SoundTriggerDetector;->mCallback:Landroid/media/soundtrigger/SoundTriggerDetector$Callback;
 
+    .line 224
     if-nez p4, :cond_0
 
+    .line 225
     new-instance v0, Landroid/media/soundtrigger/SoundTriggerDetector$MyHandler;
 
     invoke-direct {v0, p0}, Landroid/media/soundtrigger/SoundTriggerDetector$MyHandler;-><init>(Landroid/media/soundtrigger/SoundTriggerDetector;)V
 
     iput-object v0, p0, Landroid/media/soundtrigger/SoundTriggerDetector;->mHandler:Landroid/os/Handler;
 
+    .line 229
     :goto_0
     new-instance v0, Landroid/media/soundtrigger/SoundTriggerDetector$RecognitionCallback;
 
@@ -101,8 +114,10 @@
 
     iput-object v0, p0, Landroid/media/soundtrigger/SoundTriggerDetector;->mRecognitionCallback:Landroid/media/soundtrigger/SoundTriggerDetector$RecognitionCallback;
 
+    .line 220
     return-void
 
+    .line 227
     :cond_0
     new-instance v0, Landroid/media/soundtrigger/SoundTriggerDetector$MyHandler;
 
@@ -121,27 +136,37 @@
 # virtual methods
 .method public dump(Ljava/lang/String;Ljava/io/PrintWriter;)V
     .locals 1
+    .param p1, "prefix"    # Ljava/lang/String;
+    .param p2, "pw"    # Ljava/io/PrintWriter;
 
+    .prologue
+    .line 273
     iget-object v0, p0, Landroid/media/soundtrigger/SoundTriggerDetector;->mLock:Ljava/lang/Object;
 
     monitor-enter v0
 
     monitor-exit v0
 
+    .line 272
     return-void
 .end method
 
 .method public startRecognition(I)Z
     .locals 10
+    .param p1, "recognitionFlags"    # I
 
+    .prologue
     const/4 v9, 0x0
 
+    .line 242
     and-int/lit8 v3, p1, 0x1
 
     if-eqz v3, :cond_0
 
     const/4 v1, 0x1
 
+    .line 245
+    .local v1, "captureTriggerAudio":Z
     :goto_0
     and-int/lit8 v3, p1, 0x2
 
@@ -149,6 +174,8 @@
 
     const/4 v0, 0x1
 
+    .line 247
+    .local v0, "allowMultipleTriggers":Z
     :goto_1
     :try_start_0
     iget-object v3, p0, Landroid/media/soundtrigger/SoundTriggerDetector;->mSoundTriggerService:Lcom/android/internal/app/ISoundTriggerService;
@@ -159,43 +186,59 @@
 
     invoke-direct {v4, v5}, Landroid/os/ParcelUuid;-><init>(Ljava/util/UUID;)V
 
+    .line 248
     iget-object v5, p0, Landroid/media/soundtrigger/SoundTriggerDetector;->mRecognitionCallback:Landroid/media/soundtrigger/SoundTriggerDetector$RecognitionCallback;
 
     new-instance v6, Landroid/hardware/soundtrigger/SoundTrigger$RecognitionConfig;
 
+    .line 249
     const/4 v7, 0x0
 
     const/4 v8, 0x0
 
+    .line 248
     invoke-direct {v6, v1, v0, v7, v8}, Landroid/hardware/soundtrigger/SoundTrigger$RecognitionConfig;-><init>(ZZ[Landroid/hardware/soundtrigger/SoundTrigger$KeyphraseRecognitionExtra;[B)V
 
+    .line 247
     invoke-interface {v3, v4, v5, v6}, Lcom/android/internal/app/ISoundTriggerService;->startRecognition(Landroid/os/ParcelUuid;Landroid/hardware/soundtrigger/IRecognitionStatusCallback;Landroid/hardware/soundtrigger/SoundTrigger$RecognitionConfig;)I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 253
     const/4 v3, 0x1
 
     return v3
 
+    .line 242
+    .end local v0    # "allowMultipleTriggers":Z
+    .end local v1    # "captureTriggerAudio":Z
     :cond_0
     const/4 v1, 0x0
 
+    .restart local v1    # "captureTriggerAudio":Z
     goto :goto_0
 
+    .line 245
     :cond_1
     const/4 v0, 0x0
 
+    .restart local v0    # "allowMultipleTriggers":Z
     goto :goto_1
 
+    .line 250
     :catch_0
     move-exception v2
 
+    .line 251
+    .local v2, "e":Landroid/os/RemoteException;
     return v9
 .end method
 
 .method public stopRecognition()Z
     .locals 4
 
+    .prologue
+    .line 261
     :try_start_0
     iget-object v1, p0, Landroid/media/soundtrigger/SoundTriggerDetector;->mSoundTriggerService:Lcom/android/internal/app/ISoundTriggerService;
 
@@ -205,19 +248,25 @@
 
     invoke-direct {v2, v3}, Landroid/os/ParcelUuid;-><init>(Ljava/util/UUID;)V
 
+    .line 262
     iget-object v3, p0, Landroid/media/soundtrigger/SoundTriggerDetector;->mRecognitionCallback:Landroid/media/soundtrigger/SoundTriggerDetector$RecognitionCallback;
 
+    .line 261
     invoke-interface {v1, v2, v3}, Lcom/android/internal/app/ISoundTriggerService;->stopRecognition(Landroid/os/ParcelUuid;Landroid/hardware/soundtrigger/IRecognitionStatusCallback;)I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 266
     const/4 v1, 0x1
 
     return v1
 
+    .line 263
     :catch_0
     move-exception v0
 
+    .line 264
+    .local v0, "e":Landroid/os/RemoteException;
     const/4 v1, 0x0
 
     return v1

@@ -33,20 +33,27 @@
 .method private constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 169
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 170
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Landroid/net/MailTo;->mHeaders:Ljava/util/HashMap;
 
+    .line 169
     return-void
 .end method
 
 .method public static isMailTo(Ljava/lang/String;)Z
     .locals 1
+    .param p0, "url"    # Ljava/lang/String;
 
+    .prologue
+    .line 51
     if-eqz p0, :cond_0
 
     const-string/jumbo v0, "mailto:"
@@ -57,10 +64,12 @@
 
     if-eqz v0, :cond_0
 
+    .line 52
     const/4 v0, 0x1
 
     return v0
 
+    .line 54
     :cond_0
     const/4 v0, 0x0
 
@@ -69,20 +78,25 @@
 
 .method public static parse(Ljava/lang/String;)Landroid/net/MailTo;
     .locals 15
+    .param p0, "url"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/net/ParseException;
         }
     .end annotation
 
+    .prologue
+    .line 65
     if-nez p0, :cond_0
 
+    .line 66
     new-instance v9, Ljava/lang/NullPointerException;
 
     invoke-direct {v9}, Ljava/lang/NullPointerException;-><init>()V
 
     throw v9
 
+    .line 68
     :cond_0
     invoke-static {p0}, Landroid/net/MailTo;->isMailTo(Ljava/lang/String;)Z
 
@@ -90,6 +104,7 @@
 
     if-nez v9, :cond_1
 
+    .line 69
     new-instance v9, Landroid/net/ParseException;
 
     const-string/jumbo v10, "Not a mailto scheme"
@@ -98,6 +113,7 @@
 
     throw v9
 
+    .line 72
     :cond_1
     const-string/jumbo v9, "mailto:"
 
@@ -109,26 +125,37 @@
 
     move-result-object v5
 
+    .line 73
+    .local v5, "noScheme":Ljava/lang/String;
     invoke-static {v5}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v2
 
+    .line 74
+    .local v2, "email":Landroid/net/Uri;
     new-instance v3, Landroid/net/MailTo;
 
     invoke-direct {v3}, Landroid/net/MailTo;-><init>()V
 
+    .line 77
+    .local v3, "m":Landroid/net/MailTo;
     invoke-virtual {v2}, Landroid/net/Uri;->getQuery()Ljava/lang/String;
 
     move-result-object v8
 
+    .line 78
+    .local v8, "query":Ljava/lang/String;
     if-eqz v8, :cond_4
 
+    .line 79
     const-string/jumbo v9, "&"
 
     invoke-virtual {v8, v9}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v7
 
+    .line 80
+    .local v7, "queries":[Ljava/lang/String;
     const/4 v9, 0x0
 
     array-length v11, v7
@@ -140,16 +167,21 @@
 
     aget-object v6, v7, v10
 
+    .line 81
+    .local v6, "q":Ljava/lang/String;
     const-string/jumbo v9, "="
 
     invoke-virtual {v6, v9}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v4
 
+    .line 82
+    .local v4, "nameval":[Ljava/lang/String;
     array-length v9, v4
 
     if-nez v9, :cond_2
 
+    .line 80
     :goto_1
     add-int/lit8 v9, v10, 0x1
 
@@ -157,6 +189,7 @@
 
     goto :goto_0
 
+    .line 87
     :cond_2
     iget-object v12, v3, Landroid/net/MailTo;->mHeaders:Ljava/util/HashMap;
 
@@ -174,6 +207,7 @@
 
     move-result-object v13
 
+    .line 88
     array-length v9, v4
 
     const/4 v14, 0x1
@@ -188,29 +222,41 @@
 
     move-result-object v9
 
+    .line 87
     :goto_2
     invoke-virtual {v12, v13, v9}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_1
 
+    .line 88
     :cond_3
     const/4 v9, 0x0
 
     goto :goto_2
 
+    .line 94
+    .end local v4    # "nameval":[Ljava/lang/String;
+    .end local v6    # "q":Ljava/lang/String;
+    .end local v7    # "queries":[Ljava/lang/String;
     :cond_4
     invoke-virtual {v2}, Landroid/net/Uri;->getPath()Ljava/lang/String;
 
     move-result-object v1
 
+    .line 95
+    .local v1, "address":Ljava/lang/String;
     if-eqz v1, :cond_6
 
+    .line 96
     invoke-virtual {v3}, Landroid/net/MailTo;->getTo()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 97
+    .local v0, "addr":Ljava/lang/String;
     if-eqz v0, :cond_5
 
+    .line 98
     new-instance v9, Ljava/lang/StringBuilder;
 
     invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
@@ -233,6 +279,7 @@
 
     move-result-object v1
 
+    .line 100
     :cond_5
     iget-object v9, v3, Landroid/net/MailTo;->mHeaders:Ljava/util/HashMap;
 
@@ -240,6 +287,8 @@
 
     invoke-virtual {v9, v10, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 103
+    .end local v0    # "addr":Ljava/lang/String;
     :cond_6
     return-object v3
 .end method
@@ -249,6 +298,8 @@
 .method public getBody()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 141
     iget-object v0, p0, Landroid/net/MailTo;->mHeaders:Ljava/util/HashMap;
 
     const-string/jumbo v1, "body"
@@ -265,6 +316,8 @@
 .method public getCc()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 123
     iget-object v0, p0, Landroid/net/MailTo;->mHeaders:Ljava/util/HashMap;
 
     const-string/jumbo v1, "cc"
@@ -291,6 +344,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 149
     iget-object v0, p0, Landroid/net/MailTo;->mHeaders:Ljava/util/HashMap;
 
     return-object v0
@@ -299,6 +354,8 @@
 .method public getSubject()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 132
     iget-object v0, p0, Landroid/net/MailTo;->mHeaders:Ljava/util/HashMap;
 
     const-string/jumbo v1, "subject"
@@ -315,6 +372,8 @@
 .method public getTo()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 113
     iget-object v0, p0, Landroid/net/MailTo;->mHeaders:Ljava/util/HashMap;
 
     const-string/jumbo v1, "to"
@@ -331,16 +390,21 @@
 .method public toString()Ljava/lang/String;
     .locals 4
 
+    .prologue
+    .line 154
     new-instance v2, Ljava/lang/StringBuilder;
 
     const-string/jumbo v3, "mailto:"
 
     invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
+    .line 155
+    .local v2, "sb":Ljava/lang/StringBuilder;
     const/16 v3, 0x3f
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
+    .line 156
     iget-object v3, p0, Landroid/net/MailTo;->mHeaders:Ljava/util/HashMap;
 
     invoke-virtual {v3}, Ljava/util/HashMap;->entrySet()Ljava/util/Set;
@@ -351,6 +415,7 @@
 
     move-result-object v1
 
+    .local v1, "header$iterator":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -364,6 +429,8 @@
 
     check-cast v0, Ljava/util/Map$Entry;
 
+    .line 157
+    .local v0, "header":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;"
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v3
@@ -376,10 +443,12 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 158
     const/16 v3, 0x3d
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
+    .line 159
     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v3
@@ -392,12 +461,15 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 160
     const/16 v3, 0x26
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     goto :goto_0
 
+    .line 162
+    .end local v0    # "header":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;"
     :cond_0
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

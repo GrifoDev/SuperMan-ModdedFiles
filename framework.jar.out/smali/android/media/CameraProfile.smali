@@ -26,24 +26,31 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 47
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     sput-object v0, Landroid/media/CameraProfile;->sCache:Ljava/util/HashMap;
 
+    .line 92
     const-string/jumbo v0, "media_jni"
 
     invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
 
+    .line 93
     invoke-static {}, Landroid/media/CameraProfile;->native_init()V
 
+    .line 31
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -51,15 +58,21 @@
 
 .method private static getImageEncodingQualityLevels(I)[I
     .locals 6
+    .param p0, "cameraId"    # I
 
+    .prologue
+    .line 97
     invoke-static {p0}, Landroid/media/CameraProfile;->native_get_num_image_encoding_quality_levels(I)I
 
     move-result v2
 
+    .line 98
+    .local v2, "nLevels":I
     const/4 v3, 0x3
 
     if-eq v2, v3, :cond_0
 
+    .line 99
     new-instance v3, Ljava/lang/RuntimeException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -84,78 +97,104 @@
 
     throw v3
 
+    .line 102
     :cond_0
     new-array v1, v2, [I
 
+    .line 103
+    .local v1, "levels":[I
     const/4 v0, 0x0
 
+    .local v0, "i":I
     :goto_0
     if-ge v0, v2, :cond_1
 
+    .line 104
     invoke-static {p0, v0}, Landroid/media/CameraProfile;->native_get_image_encoding_quality_level(II)I
 
     move-result v3
 
     aput v3, v1, v0
 
+    .line 103
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
+    .line 106
     :cond_1
     invoke-static {v1}, Ljava/util/Arrays;->sort([I)V
 
+    .line 107
     return-object v1
 .end method
 
 .method public static getJpegEncodingQualityParameter(I)I
     .locals 5
+    .param p0, "quality"    # I
 
+    .prologue
     const/4 v4, 0x0
 
+    .line 58
     invoke-static {}, Landroid/hardware/Camera;->getNumberOfCameras()I
 
     move-result v2
 
+    .line 59
+    .local v2, "numberOfCameras":I
     new-instance v0, Landroid/hardware/Camera$CameraInfo;
 
     invoke-direct {v0}, Landroid/hardware/Camera$CameraInfo;-><init>()V
 
+    .line 60
+    .local v0, "cameraInfo":Landroid/hardware/Camera$CameraInfo;
     const/4 v1, 0x0
 
+    .local v1, "i":I
     :goto_0
     if-ge v1, v2, :cond_1
 
+    .line 61
     invoke-static {v1, v0}, Landroid/hardware/Camera;->getCameraInfo(ILandroid/hardware/Camera$CameraInfo;)V
 
+    .line 62
     iget v3, v0, Landroid/hardware/Camera$CameraInfo;->facing:I
 
     if-nez v3, :cond_0
 
+    .line 63
     invoke-static {v1, p0}, Landroid/media/CameraProfile;->getJpegEncodingQualityParameter(II)I
 
     move-result v3
 
     return v3
 
+    .line 60
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
+    .line 66
     :cond_1
     return v4
 .end method
 
 .method public static getJpegEncodingQualityParameter(II)I
     .locals 4
+    .param p0, "cameraId"    # I
+    .param p1, "quality"    # I
 
+    .prologue
+    .line 78
     if-ltz p1, :cond_0
 
     const/4 v1, 0x2
 
     if-le p1, v1, :cond_1
 
+    .line 79
     :cond_0
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
@@ -181,11 +220,13 @@
 
     throw v1
 
+    .line 81
     :cond_1
     sget-object v2, Landroid/media/CameraProfile;->sCache:Ljava/util/HashMap;
 
     monitor-enter v2
 
+    .line 82
     :try_start_0
     sget-object v1, Landroid/media/CameraProfile;->sCache:Ljava/util/HashMap;
 
@@ -199,12 +240,16 @@
 
     check-cast v0, [I
 
+    .line 83
+    .local v0, "levels":[I
     if-nez v0, :cond_2
 
+    .line 84
     invoke-static {p0}, Landroid/media/CameraProfile;->getImageEncodingQualityLevels(I)[I
 
     move-result-object v0
 
+    .line 85
     sget-object v1, Landroid/media/CameraProfile;->sCache:Ljava/util/HashMap;
 
     invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -213,6 +258,7 @@
 
     invoke-virtual {v1, v3, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 87
     :cond_2
     aget v1, v0, p1
     :try_end_0
@@ -222,6 +268,8 @@
 
     return v1
 
+    .line 81
+    .end local v0    # "levels":[I
     :catchall_0
     move-exception v1
 

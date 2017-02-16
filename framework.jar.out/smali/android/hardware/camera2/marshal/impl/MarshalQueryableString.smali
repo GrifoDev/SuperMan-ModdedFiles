@@ -46,6 +46,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 33
     const-class v0, Landroid/hardware/camera2/marshal/impl/MarshalQueryableString;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
@@ -54,6 +56,7 @@
 
     sput-object v0, Landroid/hardware/camera2/marshal/impl/MarshalQueryableString;->TAG:Ljava/lang/String;
 
+    .line 36
     const-string/jumbo v0, "UTF-8"
 
     invoke-static {v0}, Ljava/nio/charset/Charset;->forName(Ljava/lang/String;)Ljava/nio/charset/Charset;
@@ -62,12 +65,15 @@
 
     sput-object v0, Landroid/hardware/camera2/marshal/impl/MarshalQueryableString;->UTF8_CHARSET:Ljava/nio/charset/Charset;
 
+    .line 31
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -77,6 +83,7 @@
 # virtual methods
 .method public createMarshaler(Landroid/hardware/camera2/utils/TypeReference;I)Landroid/hardware/camera2/marshal/Marshaler;
     .locals 1
+    .param p2, "nativeType"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -91,6 +98,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 103
+    .local p1, "managedType":Landroid/hardware/camera2/utils/TypeReference;, "Landroid/hardware/camera2/utils/TypeReference<Ljava/lang/String;>;"
     new-instance v0, Landroid/hardware/camera2/marshal/impl/MarshalQueryableString$MarshalerString;
 
     invoke-direct {v0, p0, p1, p2}, Landroid/hardware/camera2/marshal/impl/MarshalQueryableString$MarshalerString;-><init>(Landroid/hardware/camera2/marshal/impl/MarshalQueryableString;Landroid/hardware/camera2/utils/TypeReference;I)V
@@ -100,6 +110,7 @@
 
 .method public isTypeMappingSupported(Landroid/hardware/camera2/utils/TypeReference;I)Z
     .locals 2
+    .param p2, "nativeType"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -110,8 +121,11 @@
         }
     .end annotation
 
+    .prologue
+    .local p1, "managedType":Landroid/hardware/camera2/utils/TypeReference;, "Landroid/hardware/camera2/utils/TypeReference<Ljava/lang/String;>;"
     const/4 v0, 0x0
 
+    .line 108
     if-nez p2, :cond_0
 
     const-class v0, Ljava/lang/String;

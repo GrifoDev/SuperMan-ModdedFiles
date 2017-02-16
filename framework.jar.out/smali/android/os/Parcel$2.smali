@@ -23,12 +23,17 @@
 # direct methods
 .method constructor <init>(Landroid/os/Parcel;Ljava/io/InputStream;Ljava/lang/ClassLoader;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/os/Parcel;
+    .param p2, "$anonymous0"    # Ljava/io/InputStream;
+    .param p3, "val$loader"    # Ljava/lang/ClassLoader;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 2605
     iput-object p1, p0, Landroid/os/Parcel$2;->this$0:Landroid/os/Parcel;
 
     iput-object p3, p0, Landroid/os/Parcel$2;->val$loader:Ljava/lang/ClassLoader;
@@ -42,6 +47,7 @@
 # virtual methods
 .method protected resolveClass(Ljava/io/ObjectStreamClass;)Ljava/lang/Class;
     .locals 4
+    .param p1, "osClass"    # Ljava/io/ObjectStreamClass;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -59,10 +65,13 @@
         }
     .end annotation
 
+    .prologue
+    .line 2610
     iget-object v1, p0, Landroid/os/Parcel$2;->val$loader:Ljava/lang/ClassLoader;
 
     if-eqz v1, :cond_0
 
+    .line 2611
     invoke-virtual {p1}, Ljava/io/ObjectStreamClass;->getName()Ljava/lang/String;
 
     move-result-object v1
@@ -75,10 +84,15 @@
 
     move-result-object v0
 
+    .line 2612
+    .local v0, "c":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     if-eqz v0, :cond_0
 
+    .line 2613
     return-object v0
 
+    .line 2616
+    .end local v0    # "c":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     :cond_0
     invoke-super {p0, p1}, Ljava/io/ObjectInputStream;->resolveClass(Ljava/io/ObjectStreamClass;)Ljava/lang/Class;
 

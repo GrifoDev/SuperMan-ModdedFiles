@@ -17,6 +17,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 140
     invoke-direct {p0}, Landroid/app/Service;-><init>()V
 
     return-void

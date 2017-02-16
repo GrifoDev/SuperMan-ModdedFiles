@@ -21,6 +21,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 1622
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -29,6 +31,7 @@
 .method synthetic constructor <init>(Lcom/samsung/android/contextaware/aggregator/lpp/LppLocationManager$GpsStatusListener;)V
     .locals 0
 
+    .prologue
     invoke-direct {p0}, Lcom/samsung/android/contextaware/aggregator/lpp/LppLocationManager$GpsStatusListener;-><init>()V
 
     return-void
@@ -38,13 +41,18 @@
 # virtual methods
 .method public onGpsStatusChanged(I)V
     .locals 2
+    .param p1, "event"    # I
 
+    .prologue
+    .line 1627
     packed-switch p1, :pswitch_data_0
 
+    .line 1625
     :goto_0
     :pswitch_0
     return-void
 
+    .line 1631
     :pswitch_1
     const-string/jumbo v0, "LppLocationManager"
 
@@ -54,6 +62,7 @@
 
     goto :goto_0
 
+    .line 1636
     :pswitch_2
     const-string/jumbo v0, "LppLocationManager"
 
@@ -63,6 +72,7 @@
 
     goto :goto_0
 
+    .line 1641
     :pswitch_3
     const-string/jumbo v0, "LppLocationManager"
 
@@ -72,6 +82,7 @@
 
     goto :goto_0
 
+    .line 1627
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_1

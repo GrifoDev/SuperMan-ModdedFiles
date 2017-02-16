@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/bio/face/SemBioFaceManager;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/samsung/android/bio/face/SemBioFaceManager;
 
+    .prologue
+    .line 1857
     iput-object p1, p0, Lcom/samsung/android/bio/face/SemBioFaceManager$1;->this$0:Lcom/samsung/android/bio/face/SemBioFaceManager;
 
     invoke-direct {p0}, Lcom/samsung/android/bio/face/IFaceServiceReceiver$Stub;-><init>()V
@@ -33,7 +36,11 @@
 # virtual methods
 .method public onAcquired(JI)V
     .locals 5
+    .param p1, "deviceId"    # J
+    .param p3, "acquireInfo"    # I
 
+    .prologue
+    .line 1866
     iget-object v0, p0, Lcom/samsung/android/bio/face/SemBioFaceManager$1;->this$0:Lcom/samsung/android/bio/face/SemBioFaceManager;
 
     invoke-static {v0}, Lcom/samsung/android/bio/face/SemBioFaceManager;->-get4(Lcom/samsung/android/bio/face/SemBioFaceManager;)Landroid/os/Handler;
@@ -54,12 +61,16 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
+    .line 1865
     return-void
 .end method
 
 .method public onAuthenticationFailed(J)V
     .locals 2
+    .param p1, "deviceId"    # J
 
+    .prologue
+    .line 1877
     iget-object v0, p0, Lcom/samsung/android/bio/face/SemBioFaceManager$1;->this$0:Lcom/samsung/android/bio/face/SemBioFaceManager;
 
     invoke-static {v0}, Lcom/samsung/android/bio/face/SemBioFaceManager;->-get4(Lcom/samsung/android/bio/face/SemBioFaceManager;)Landroid/os/Handler;
@@ -74,12 +85,18 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
+    .line 1876
     return-void
 .end method
 
 .method public onAuthenticationSucceeded(JLcom/samsung/android/bio/face/Face;[B)V
     .locals 2
+    .param p1, "deviceId"    # J
+    .param p3, "face"    # Lcom/samsung/android/bio/face/Face;
+    .param p4, "fidoResultData"    # [B
 
+    .prologue
+    .line 1871
     iget-object v0, p0, Lcom/samsung/android/bio/face/SemBioFaceManager$1;->this$0:Lcom/samsung/android/bio/face/SemBioFaceManager;
 
     invoke-static {v0}, Lcom/samsung/android/bio/face/SemBioFaceManager;->-get4(Lcom/samsung/android/bio/face/SemBioFaceManager;)Landroid/os/Handler;
@@ -94,6 +111,7 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
+    .line 1872
     iget-object v0, p0, Lcom/samsung/android/bio/face/SemBioFaceManager$1;->this$0:Lcom/samsung/android/bio/face/SemBioFaceManager;
 
     invoke-static {v0}, Lcom/samsung/android/bio/face/SemBioFaceManager;->-get4(Lcom/samsung/android/bio/face/SemBioFaceManager;)Landroid/os/Handler;
@@ -108,12 +126,19 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
+    .line 1870
     return-void
 .end method
 
 .method public onEnrollResult(JIII)V
     .locals 7
+    .param p1, "deviceId"    # J
+    .param p3, "faceId"    # I
+    .param p4, "groupId"    # I
+    .param p5, "remaining"    # I
 
+    .prologue
+    .line 1861
     iget-object v0, p0, Lcom/samsung/android/bio/face/SemBioFaceManager$1;->this$0:Lcom/samsung/android/bio/face/SemBioFaceManager;
 
     invoke-static {v0}, Lcom/samsung/android/bio/face/SemBioFaceManager;->-get4(Lcom/samsung/android/bio/face/SemBioFaceManager;)Landroid/os/Handler;
@@ -142,12 +167,17 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
+    .line 1860
     return-void
 .end method
 
 .method public onError(JI)V
     .locals 5
+    .param p1, "deviceId"    # J
+    .param p3, "error"    # I
 
+    .prologue
+    .line 1882
     iget-object v0, p0, Lcom/samsung/android/bio/face/SemBioFaceManager$1;->this$0:Lcom/samsung/android/bio/face/SemBioFaceManager;
 
     invoke-static {v0}, Lcom/samsung/android/bio/face/SemBioFaceManager;->-get4(Lcom/samsung/android/bio/face/SemBioFaceManager;)Landroid/os/Handler;
@@ -168,12 +198,18 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
+    .line 1881
     return-void
 .end method
 
 .method public onRemoved(JII)V
     .locals 3
+    .param p1, "deviceId"    # J
+    .param p3, "faceId"    # I
+    .param p4, "groupId"    # I
 
+    .prologue
+    .line 1887
     iget-object v0, p0, Lcom/samsung/android/bio/face/SemBioFaceManager$1;->this$0:Lcom/samsung/android/bio/face/SemBioFaceManager;
 
     invoke-static {v0}, Lcom/samsung/android/bio/face/SemBioFaceManager;->-get4(Lcom/samsung/android/bio/face/SemBioFaceManager;)Landroid/os/Handler;
@@ -192,5 +228,6 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
+    .line 1886
     return-void
 .end method

@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;)V
     .locals 0
+    .param p1, "this$1"    # Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
+    .prologue
+    .line 1847
     iput-object p1, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$21;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +39,10 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 2
+    .param p1, "v"    # Landroid/view/View;
 
+    .prologue
+    .line 1852
     iget-object v0, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$21;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
     invoke-static {v0}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->-get3(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;)Z
@@ -45,12 +51,14 @@
 
     if-nez v0, :cond_0
 
+    .line 1853
     iget-object v0, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$21;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
     const/4 v1, 0x1
 
     invoke-static {v0, v1}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->-set0(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;Z)Z
 
+    .line 1854
     iget-object v0, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$21;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
     invoke-static {v0}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->-get0(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;)Landroid/widget/ImageButton;
@@ -65,10 +73,12 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
+    .line 1855
     iget-object v0, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$21;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
     invoke-static {v0}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->-wrap4(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;)V
 
+    .line 1850
     :cond_0
     return-void
 .end method

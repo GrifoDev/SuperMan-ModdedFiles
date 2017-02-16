@@ -28,7 +28,12 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/app/AlertController$AlertParams;Lcom/android/internal/app/AlertController$RecycleListView;Lcom/android/internal/app/AlertController;)V
     .locals 0
+    .param p1, "this$1"    # Lcom/android/internal/app/AlertController$AlertParams;
+    .param p2, "val$listView"    # Lcom/android/internal/app/AlertController$RecycleListView;
+    .param p3, "val$dialog"    # Lcom/android/internal/app/AlertController;
 
+    .prologue
+    .line 1251
     iput-object p1, p0, Lcom/android/internal/app/AlertController$AlertParams$4;->this$1:Lcom/android/internal/app/AlertController$AlertParams;
 
     iput-object p2, p0, Lcom/android/internal/app/AlertController$AlertParams$4;->val$listView:Lcom/android/internal/app/AlertController$RecycleListView;
@@ -44,6 +49,9 @@
 # virtual methods
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
     .locals 3
+    .param p2, "v"    # Landroid/view/View;
+    .param p3, "position"    # I
+    .param p4, "id"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -54,12 +62,16 @@
         }
     .end annotation
 
+    .prologue
+    .line 1254
+    .local p1, "parent":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<*>;"
     iget-object v0, p0, Lcom/android/internal/app/AlertController$AlertParams$4;->this$1:Lcom/android/internal/app/AlertController$AlertParams;
 
     iget-object v0, v0, Lcom/android/internal/app/AlertController$AlertParams;->mCheckedItems:[Z
 
     if-eqz v0, :cond_0
 
+    .line 1255
     iget-object v0, p0, Lcom/android/internal/app/AlertController$AlertParams$4;->this$1:Lcom/android/internal/app/AlertController$AlertParams;
 
     iget-object v0, v0, Lcom/android/internal/app/AlertController$AlertParams;->mCheckedItems:[Z
@@ -72,11 +84,13 @@
 
     aput-boolean v1, v0, p3
 
+    .line 1257
     :cond_0
     iget-object v0, p0, Lcom/android/internal/app/AlertController$AlertParams$4;->this$1:Lcom/android/internal/app/AlertController$AlertParams;
 
     iget-object v0, v0, Lcom/android/internal/app/AlertController$AlertParams;->mOnCheckboxClickListener:Landroid/content/DialogInterface$OnMultiChoiceClickListener;
 
+    .line 1258
     iget-object v1, p0, Lcom/android/internal/app/AlertController$AlertParams$4;->val$dialog:Lcom/android/internal/app/AlertController;
 
     invoke-static {v1}, Lcom/android/internal/app/AlertController;->-get6(Lcom/android/internal/app/AlertController;)Landroid/content/DialogInterface;
@@ -89,7 +103,9 @@
 
     move-result v2
 
+    .line 1257
     invoke-interface {v0, v1, p3, v2}, Landroid/content/DialogInterface$OnMultiChoiceClickListener;->onClick(Landroid/content/DialogInterface;IZ)V
 
+    .line 1253
     return-void
 .end method

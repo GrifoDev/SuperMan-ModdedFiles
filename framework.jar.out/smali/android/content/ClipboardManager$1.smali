@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Landroid/content/ClipboardManager;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/content/ClipboardManager;
 
+    .prologue
+    .line 74
     iput-object p1, p0, Landroid/content/ClipboardManager$1;->this$0:Landroid/content/ClipboardManager;
 
     invoke-direct {p0}, Landroid/content/IOnPrimaryClipChangedListener$Stub;-><init>()V
@@ -34,6 +37,8 @@
 .method public dispatchPrimaryClipChanged()V
     .locals 2
 
+    .prologue
+    .line 77
     iget-object v0, p0, Landroid/content/ClipboardManager$1;->this$0:Landroid/content/ClipboardManager;
 
     invoke-static {v0}, Landroid/content/ClipboardManager;->-get0(Landroid/content/ClipboardManager;)Landroid/os/Handler;
@@ -44,5 +49,6 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
+    .line 76
     return-void
 .end method

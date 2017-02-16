@@ -30,21 +30,27 @@
 .method constructor <init>()V
     .locals 2
 
+    .prologue
     const/16 v1, 0x10
 
+    .line 1965
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 1967
     new-array v0, v1, [I
 
     iput-object v0, p0, Landroid/text/StaticLayout$LineBreaks;->breaks:[I
 
+    .line 1968
     new-array v0, v1, [F
 
     iput-object v0, p0, Landroid/text/StaticLayout$LineBreaks;->widths:[F
 
+    .line 1969
     new-array v0, v1, [I
 
     iput-object v0, p0, Landroid/text/StaticLayout$LineBreaks;->flags:[I
 
+    .line 1965
     return-void
 .end method

@@ -11,6 +11,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 9
     const-class v0, Lcom/samsung/android/speech/MMUIRecognizer;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
@@ -19,12 +21,15 @@
 
     sput-object v0, Lcom/samsung/android/speech/MMUIRecognizer;->TAG:Ljava/lang/String;
 
+    .line 8
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 8
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -33,8 +38,12 @@
 .method public static init()I
     .locals 5
 
+    .prologue
+    .line 21
     const/4 v2, 0x0
 
+    .line 23
+    .local v2, "nResult":I
     :try_start_0
     sget-object v3, Lcom/samsung/android/speech/MMUIRecognizer;->TAG:Ljava/lang/String;
 
@@ -42,10 +51,12 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 24
     const-string/jumbo v3, "sasr-jni"
 
     invoke-static {v3}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
 
+    .line 25
     sget-object v3, Lcom/samsung/android/speech/MMUIRecognizer;->TAG:Ljava/lang/String;
 
     const-string/jumbo v4, "Loading libsasr-jni.so done"
@@ -55,31 +66,41 @@
     .catch Ljava/lang/UnsatisfiedLinkError; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 33
     :goto_0
     return v2
 
+    .line 29
     :catch_0
     move-exception v0
 
+    .line 30
+    .local v0, "e":Ljava/lang/Exception;
     sget-object v3, Lcom/samsung/android/speech/MMUIRecognizer;->TAG:Ljava/lang/String;
 
     const-string/jumbo v4, "WARNING: Could not load libsasr-jni.so"
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 31
     const/4 v2, -0x1
 
     goto :goto_0
 
+    .line 26
+    .end local v0    # "e":Ljava/lang/Exception;
     :catch_1
     move-exception v1
 
+    .line 27
+    .local v1, "e":Ljava/lang/UnsatisfiedLinkError;
     sget-object v3, Lcom/samsung/android/speech/MMUIRecognizer;->TAG:Ljava/lang/String;
 
     const-string/jumbo v4, "WARNING: Could not load libsasr-jni.so"
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 28
     const/4 v2, -0x1
 
     goto :goto_0

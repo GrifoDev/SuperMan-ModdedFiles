@@ -25,7 +25,12 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/widget/LockPatternView;Lcom/android/internal/widget/LockPatternView$CellState;Ljava/lang/Runnable;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/internal/widget/LockPatternView;
+    .param p2, "val$cellState"    # Lcom/android/internal/widget/LockPatternView$CellState;
+    .param p3, "val$finishRunnable"    # Ljava/lang/Runnable;
 
+    .prologue
+    .line 513
     iput-object p1, p0, Lcom/android/internal/widget/LockPatternView$3;->this$0:Lcom/android/internal/widget/LockPatternView;
 
     iput-object p2, p0, Lcom/android/internal/widget/LockPatternView$3;->val$cellState:Lcom/android/internal/widget/LockPatternView$CellState;
@@ -41,21 +46,27 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 516
     iget-object v0, p0, Lcom/android/internal/widget/LockPatternView$3;->val$cellState:Lcom/android/internal/widget/LockPatternView$CellState;
 
     const/4 v1, 0x0
 
     iput-boolean v1, v0, Lcom/android/internal/widget/LockPatternView$CellState;->hwAnimating:Z
 
+    .line 517
     iget-object v0, p0, Lcom/android/internal/widget/LockPatternView$3;->val$finishRunnable:Ljava/lang/Runnable;
 
     if-eqz v0, :cond_0
 
+    .line 518
     iget-object v0, p0, Lcom/android/internal/widget/LockPatternView$3;->val$finishRunnable:Ljava/lang/Runnable;
 
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
+    .line 515
     :cond_0
     return-void
 .end method

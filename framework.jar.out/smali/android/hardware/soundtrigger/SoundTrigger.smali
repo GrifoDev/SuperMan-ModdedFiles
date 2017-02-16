@@ -61,42 +61,51 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 40
     sget v0, Landroid/system/OsConstants;->EPERM:I
 
     neg-int v0, v0
 
     sput v0, Landroid/hardware/soundtrigger/SoundTrigger;->STATUS_PERMISSION_DENIED:I
 
+    .line 41
     sget v0, Landroid/system/OsConstants;->ENODEV:I
 
     neg-int v0, v0
 
     sput v0, Landroid/hardware/soundtrigger/SoundTrigger;->STATUS_NO_INIT:I
 
+    .line 42
     sget v0, Landroid/system/OsConstants;->EINVAL:I
 
     neg-int v0, v0
 
     sput v0, Landroid/hardware/soundtrigger/SoundTrigger;->STATUS_BAD_VALUE:I
 
+    .line 43
     sget v0, Landroid/system/OsConstants;->EPIPE:I
 
     neg-int v0, v0
 
     sput v0, Landroid/hardware/soundtrigger/SoundTrigger;->STATUS_DEAD_OBJECT:I
 
+    .line 44
     sget v0, Landroid/system/OsConstants;->ENOSYS:I
 
     neg-int v0, v0
 
     sput v0, Landroid/hardware/soundtrigger/SoundTrigger;->STATUS_INVALID_OPERATION:I
 
+    .line 36
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 36
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -104,18 +113,27 @@
 
 .method public static attachModule(ILandroid/hardware/soundtrigger/SoundTrigger$StatusListener;Landroid/os/Handler;)Landroid/hardware/soundtrigger/SoundTriggerModule;
     .locals 2
+    .param p0, "moduleId"    # I
+    .param p1, "listener"    # Landroid/hardware/soundtrigger/SoundTrigger$StatusListener;
+    .param p2, "handler"    # Landroid/os/Handler;
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 1263
     if-nez p1, :cond_0
 
+    .line 1264
     return-object v1
 
+    .line 1266
     :cond_0
     new-instance v0, Landroid/hardware/soundtrigger/SoundTriggerModule;
 
     invoke-direct {v0, p0, p1, p2}, Landroid/hardware/soundtrigger/SoundTriggerModule;-><init>(ILandroid/hardware/soundtrigger/SoundTrigger$StatusListener;Landroid/os/Handler;)V
 
+    .line 1267
+    .local v0, "module":Landroid/hardware/soundtrigger/SoundTriggerModule;
     return-object v0
 .end method
 

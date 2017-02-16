@@ -26,7 +26,11 @@
 # direct methods
 .method constructor <init>(Landroid/security/net/config/DirectoryCertificateSource;Ljava/security/cert/X509Certificate;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/security/net/config/DirectoryCertificateSource;
+    .param p2, "val$cert"    # Ljava/security/cert/X509Certificate;
 
+    .prologue
+    .line 101
     iput-object p1, p0, Landroid/security/net/config/DirectoryCertificateSource$2;->this$0:Landroid/security/net/config/DirectoryCertificateSource;
 
     iput-object p2, p0, Landroid/security/net/config/DirectoryCertificateSource$2;->val$cert:Ljava/security/cert/X509Certificate;
@@ -40,7 +44,10 @@
 # virtual methods
 .method public match(Ljava/security/cert/X509Certificate;)Z
     .locals 3
+    .param p1, "ca"    # Ljava/security/cert/X509Certificate;
 
+    .prologue
+    .line 105
     :try_start_0
     iget-object v1, p0, Landroid/security/net/config/DirectoryCertificateSource$2;->val$cert:Ljava/security/cert/X509Certificate;
 
@@ -52,13 +59,17 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 106
     const/4 v1, 0x1
 
     return v1
 
+    .line 107
     :catch_0
     move-exception v0
 
+    .line 108
+    .local v0, "e":Ljava/lang/Exception;
     const/4 v1, 0x0
 
     return v1

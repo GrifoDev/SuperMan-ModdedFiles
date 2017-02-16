@@ -32,7 +32,14 @@
 # direct methods
 .method constructor <init>(Landroid/media/tv/TvInputManager$SessionCallbackRecord;IIII)V
     .locals 0
+    .param p1, "this$1"    # Landroid/media/tv/TvInputManager$SessionCallbackRecord;
+    .param p2, "val$left"    # I
+    .param p3, "val$top"    # I
+    .param p4, "val$right"    # I
+    .param p5, "val$bottom"    # I
 
+    .prologue
+    .line 644
     iput-object p1, p0, Landroid/media/tv/TvInputManager$SessionCallbackRecord$11;->this$1:Landroid/media/tv/TvInputManager$SessionCallbackRecord;
 
     iput p2, p0, Landroid/media/tv/TvInputManager$SessionCallbackRecord$11;->val$left:I
@@ -53,6 +60,8 @@
 .method public run()V
     .locals 6
 
+    .prologue
+    .line 647
     iget-object v0, p0, Landroid/media/tv/TvInputManager$SessionCallbackRecord$11;->this$1:Landroid/media/tv/TvInputManager$SessionCallbackRecord;
 
     invoke-static {v0}, Landroid/media/tv/TvInputManager$SessionCallbackRecord;->-get1(Landroid/media/tv/TvInputManager$SessionCallbackRecord;)Landroid/media/tv/TvInputManager$SessionCallback;
@@ -75,5 +84,6 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/media/tv/TvInputManager$SessionCallback;->onLayoutSurface(Landroid/media/tv/TvInputManager$Session;IIII)V
 
+    .line 646
     return-void
 .end method

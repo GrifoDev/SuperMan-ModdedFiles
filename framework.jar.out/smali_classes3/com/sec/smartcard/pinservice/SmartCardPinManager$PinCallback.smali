@@ -22,8 +22,11 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 374
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 399
     new-instance v0, Lcom/sec/smartcard/pinservice/SmartCardPinManager$PinCallback$1;
 
     invoke-direct {v0, p0}, Lcom/sec/smartcard/pinservice/SmartCardPinManager$PinCallback$1;-><init>(Lcom/sec/smartcard/pinservice/SmartCardPinManager$PinCallback;)V

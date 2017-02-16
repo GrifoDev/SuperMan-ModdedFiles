@@ -151,27 +151,38 @@
 # direct methods
 .method protected constructor <init>(B)V
     .locals 2
+    .param p1, "type"    # B
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 157
     invoke-direct {p0}, Landroid/animation/ValueAnimator;-><init>()V
 
+    .line 122
     const/4 v0, 0x1
 
     iput-byte v0, p0, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->mInterpolatorType:B
 
+    .line 124
     iput v1, p0, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->mInterpolatorCycle:F
 
+    .line 126
     iput v1, p0, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->mInterpolatorOvershot:F
 
+    .line 128
     iput v1, p0, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->mInterpolatorAmplitude:F
 
+    .line 129
     iput v1, p0, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->mInterpolatorPeriod:F
 
+    .line 158
     iput-byte p1, p0, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->mType:B
 
+    .line 159
     iput-object p0, p0, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->mIntrinsic:Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;
 
+    .line 157
     return-void
 .end method
 
@@ -180,6 +191,8 @@
 .method public bridge synthetic clone()Landroid/animation/ValueAnimator;
     .locals 1
 
+    .prologue
+    .line 257
     invoke-virtual {p0}, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->clone()Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;
 
     move-result-object v0
@@ -190,6 +203,8 @@
 .method public clone()Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;
     .locals 1
 
+    .prologue
+    .line 258
     invoke-super {p0}, Landroid/animation/ValueAnimator;->clone()Landroid/animation/ValueAnimator;
 
     move-result-object v0
@@ -201,36 +216,46 @@
 
 .method public fromSPR(Lcom/samsung/android/graphics/spr/document/SprInputStream;)V
     .locals 8
+    .param p1, "in"    # Lcom/samsung/android/graphics/spr/document/SprInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
     const/4 v7, 0x1
 
+    .line 163
     invoke-virtual {p1}, Lcom/samsung/android/graphics/spr/document/SprInputStream;->readByte()B
 
     move-result v4
 
     iput-byte v4, p0, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->mInterpolatorType:B
 
+    .line 165
     invoke-virtual {p1}, Lcom/samsung/android/graphics/spr/document/SprInputStream;->readInt()I
 
     move-result v3
 
+    .line 166
+    .local v3, "size":I
     new-array v0, v3, [B
 
+    .line 167
+    .local v0, "data":[B
     const/4 v4, 0x0
 
     invoke-virtual {p1, v0, v4, v3}, Lcom/samsung/android/graphics/spr/document/SprInputStream;->read([BII)I
 
+    .line 169
     iget-byte v4, p0, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->mInterpolatorType:B
 
     const/4 v5, 0x6
 
     if-ne v4, v5, :cond_0
 
+    .line 170
     invoke-static {v0}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
     move-result-object v4
@@ -241,37 +266,47 @@
 
     iput v4, p0, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->mInterpolatorCycle:F
 
+    .line 171
     iget-byte v4, p0, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->mInterpolatorType:B
 
     iget v5, p0, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->mInterpolatorCycle:F
 
     invoke-virtual {p0, v4, v5}, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->setInterpolatorCycle(BF)V
 
+    .line 185
     :goto_0
     invoke-virtual {p1}, Lcom/samsung/android/graphics/spr/document/SprInputStream;->readInt()I
 
     move-result v1
 
+    .line 187
+    .local v1, "delay":I
     invoke-virtual {p1}, Lcom/samsung/android/graphics/spr/document/SprInputStream;->readInt()I
 
     move-result v2
 
+    .line 189
+    .local v2, "duration":I
     int-to-long v4, v1
 
     invoke-virtual {p0, v4, v5}, Landroid/animation/ValueAnimator;->setStartDelay(J)V
 
+    .line 190
     int-to-long v4, v2
 
     invoke-virtual {p0, v4, v5}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
 
+    .line 191
     invoke-virtual {p1}, Lcom/samsung/android/graphics/spr/document/SprInputStream;->readByte()B
 
     move-result v4
 
     packed-switch v4, :pswitch_data_0
 
+    .line 201
     invoke-virtual {p0, v7}, Landroid/animation/ValueAnimator;->setRepeatMode(I)V
 
+    .line 204
     :goto_1
     invoke-virtual {p1}, Lcom/samsung/android/graphics/spr/document/SprInputStream;->readInt()I
 
@@ -279,8 +314,12 @@
 
     invoke-virtual {p0, v4}, Landroid/animation/ValueAnimator;->setRepeatCount(I)V
 
+    .line 162
     return-void
 
+    .line 172
+    .end local v1    # "delay":I
+    .end local v2    # "duration":I
     :cond_0
     iget-byte v4, p0, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->mInterpolatorType:B
 
@@ -288,12 +327,14 @@
 
     if-lt v4, v5, :cond_1
 
+    .line 173
     iget-byte v4, p0, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->mInterpolatorType:B
 
     const/16 v5, 0xb
 
     if-gt v4, v5, :cond_1
 
+    .line 174
     invoke-static {v0}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
     move-result-object v4
@@ -304,6 +345,7 @@
 
     iput v4, p0, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->mInterpolatorOvershot:F
 
+    .line 175
     iget-byte v4, p0, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->mInterpolatorType:B
 
     iget v5, p0, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->mInterpolatorOvershot:F
@@ -312,6 +354,7 @@
 
     goto :goto_0
 
+    .line 176
     :cond_1
     iget-byte v4, p0, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->mInterpolatorType:B
 
@@ -319,12 +362,14 @@
 
     if-lt v4, v5, :cond_2
 
+    .line 177
     iget-byte v4, p0, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->mInterpolatorType:B
 
     const/16 v5, 0x17
 
     if-gt v4, v5, :cond_2
 
+    .line 178
     invoke-static {v0}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
     move-result-object v4
@@ -335,6 +380,7 @@
 
     iput v4, p0, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->mInterpolatorAmplitude:F
 
+    .line 179
     invoke-static {v0}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
     move-result-object v4
@@ -345,6 +391,7 @@
 
     iput v4, p0, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->mInterpolatorPeriod:F
 
+    .line 180
     iget-byte v4, p0, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->mInterpolatorType:B
 
     iget v5, p0, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->mInterpolatorAmplitude:F
@@ -355,6 +402,7 @@
 
     goto :goto_0
 
+    .line 182
     :cond_2
     iget-byte v4, p0, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->mInterpolatorType:B
 
@@ -362,11 +410,15 @@
 
     goto :goto_0
 
+    .line 193
+    .restart local v1    # "delay":I
+    .restart local v2    # "duration":I
     :pswitch_0
     invoke-virtual {p0, v7}, Landroid/animation/ValueAnimator;->setRepeatMode(I)V
 
     goto :goto_1
 
+    .line 197
     :pswitch_1
     const/4 v4, 0x2
 
@@ -374,6 +426,7 @@
 
     goto :goto_1
 
+    .line 191
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_1
@@ -384,16 +437,20 @@
 .method public getSPRSize()I
     .locals 2
 
+    .prologue
+    .line 250
     iget-byte v0, p0, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->mInterpolatorType:B
 
     const/4 v1, 0x6
 
     if-ne v0, v1, :cond_0
 
+    .line 251
     const/16 v0, 0x16
 
     return v0
 
+    .line 253
     :cond_0
     const/16 v0, 0x12
 
@@ -402,9 +459,13 @@
 
 .method public setInterpolator(B)V
     .locals 3
+    .param p1, "interpolatorType"    # B
 
+    .prologue
+    .line 280
     packed-switch p1, :pswitch_data_0
 
+    .line 425
     :pswitch_0
     new-instance v0, Ljava/lang/RuntimeException;
 
@@ -430,6 +491,7 @@
 
     throw v0
 
+    .line 282
     :pswitch_1
     new-instance v0, Landroid/view/animation/AccelerateDecelerateInterpolator;
 
@@ -437,11 +499,14 @@
 
     invoke-virtual {p0, v0}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
+    .line 428
     :goto_0
     iput-byte p1, p0, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->mInterpolatorType:B
 
+    .line 279
     return-void
 
+    .line 285
     :pswitch_2
     new-instance v0, Landroid/view/animation/AnticipateInterpolator;
 
@@ -451,6 +516,7 @@
 
     goto :goto_0
 
+    .line 288
     :pswitch_3
     new-instance v0, Landroid/view/animation/AccelerateDecelerateInterpolator;
 
@@ -460,6 +526,7 @@
 
     goto :goto_0
 
+    .line 291
     :pswitch_4
     new-instance v0, Landroid/view/animation/BounceInterpolator;
 
@@ -469,6 +536,7 @@
 
     goto :goto_0
 
+    .line 294
     :pswitch_5
     new-instance v0, Landroid/view/animation/DecelerateInterpolator;
 
@@ -478,6 +546,7 @@
 
     goto :goto_0
 
+    .line 297
     :pswitch_6
     new-instance v0, Landroid/view/animation/LinearInterpolator;
 
@@ -487,6 +556,7 @@
 
     goto :goto_0
 
+    .line 300
     :pswitch_7
     new-instance v0, Landroid/view/animation/OvershootInterpolator;
 
@@ -496,6 +566,7 @@
 
     goto :goto_0
 
+    .line 304
     :pswitch_8
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/BackEaseIn;
 
@@ -505,6 +576,7 @@
 
     goto :goto_0
 
+    .line 307
     :pswitch_9
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/BackEaseOut;
 
@@ -514,6 +586,7 @@
 
     goto :goto_0
 
+    .line 310
     :pswitch_a
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/BackEaseInOut;
 
@@ -523,6 +596,7 @@
 
     goto :goto_0
 
+    .line 313
     :pswitch_b
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/BounceEaseIn;
 
@@ -532,6 +606,7 @@
 
     goto :goto_0
 
+    .line 316
     :pswitch_c
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/BounceEaseOut;
 
@@ -541,6 +616,7 @@
 
     goto :goto_0
 
+    .line 319
     :pswitch_d
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/BounceEaseInOut;
 
@@ -550,6 +626,7 @@
 
     goto :goto_0
 
+    .line 322
     :pswitch_e
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/CircEaseIn;
 
@@ -559,6 +636,7 @@
 
     goto :goto_0
 
+    .line 325
     :pswitch_f
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/CircEaseOut;
 
@@ -568,6 +646,7 @@
 
     goto :goto_0
 
+    .line 328
     :pswitch_10
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/CircEaseInOut;
 
@@ -577,6 +656,7 @@
 
     goto/16 :goto_0
 
+    .line 331
     :pswitch_11
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/CubicEaseIn;
 
@@ -586,6 +666,7 @@
 
     goto/16 :goto_0
 
+    .line 334
     :pswitch_12
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/CubicEaseOut;
 
@@ -595,6 +676,7 @@
 
     goto/16 :goto_0
 
+    .line 337
     :pswitch_13
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/CubicEaseInOut;
 
@@ -604,6 +686,7 @@
 
     goto/16 :goto_0
 
+    .line 340
     :pswitch_14
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/ElasticEaseIn;
 
@@ -613,6 +696,7 @@
 
     goto/16 :goto_0
 
+    .line 343
     :pswitch_15
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/ElasticEaseOut;
 
@@ -622,6 +706,7 @@
 
     goto/16 :goto_0
 
+    .line 346
     :pswitch_16
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/ElasticEaseInOut;
 
@@ -631,6 +716,7 @@
 
     goto/16 :goto_0
 
+    .line 349
     :pswitch_17
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/ExpoEaseIn;
 
@@ -640,6 +726,7 @@
 
     goto/16 :goto_0
 
+    .line 352
     :pswitch_18
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/ExpoEaseOut;
 
@@ -649,6 +736,7 @@
 
     goto/16 :goto_0
 
+    .line 355
     :pswitch_19
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/ExpoEaseInOut;
 
@@ -658,6 +746,7 @@
 
     goto/16 :goto_0
 
+    .line 358
     :pswitch_1a
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/QuadEaseIn;
 
@@ -667,6 +756,7 @@
 
     goto/16 :goto_0
 
+    .line 361
     :pswitch_1b
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/QuadEaseOut;
 
@@ -676,6 +766,7 @@
 
     goto/16 :goto_0
 
+    .line 364
     :pswitch_1c
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/QuadEaseInOut;
 
@@ -685,6 +776,7 @@
 
     goto/16 :goto_0
 
+    .line 367
     :pswitch_1d
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/QuartEaseIn;
 
@@ -694,6 +786,7 @@
 
     goto/16 :goto_0
 
+    .line 370
     :pswitch_1e
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/QuartEaseOut;
 
@@ -703,6 +796,7 @@
 
     goto/16 :goto_0
 
+    .line 373
     :pswitch_1f
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/QuartEaseInOut;
 
@@ -712,6 +806,7 @@
 
     goto/16 :goto_0
 
+    .line 376
     :pswitch_20
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/QuintEaseIn;
 
@@ -721,6 +816,7 @@
 
     goto/16 :goto_0
 
+    .line 379
     :pswitch_21
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/QuintEaseOut;
 
@@ -730,6 +826,7 @@
 
     goto/16 :goto_0
 
+    .line 382
     :pswitch_22
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/QuintEaseInOut;
 
@@ -739,6 +836,7 @@
 
     goto/16 :goto_0
 
+    .line 385
     :pswitch_23
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/SineEaseIn;
 
@@ -748,6 +846,7 @@
 
     goto/16 :goto_0
 
+    .line 388
     :pswitch_24
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/SineEaseOut;
 
@@ -757,6 +856,7 @@
 
     goto/16 :goto_0
 
+    .line 391
     :pswitch_25
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/SineEaseInOut;
 
@@ -766,6 +866,7 @@
 
     goto/16 :goto_0
 
+    .line 394
     :pswitch_26
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/QuintOut50;
 
@@ -775,6 +876,7 @@
 
     goto/16 :goto_0
 
+    .line 397
     :pswitch_27
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/QuintOut80;
 
@@ -784,6 +886,7 @@
 
     goto/16 :goto_0
 
+    .line 400
     :pswitch_28
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/SineIn33;
 
@@ -793,6 +896,7 @@
 
     goto/16 :goto_0
 
+    .line 403
     :pswitch_29
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/SineInOut33;
 
@@ -802,6 +906,7 @@
 
     goto/16 :goto_0
 
+    .line 406
     :pswitch_2a
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/SineInOut50;
 
@@ -811,6 +916,7 @@
 
     goto/16 :goto_0
 
+    .line 409
     :pswitch_2b
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/SineInOut60;
 
@@ -820,6 +926,7 @@
 
     goto/16 :goto_0
 
+    .line 412
     :pswitch_2c
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/SineInOut70;
 
@@ -829,6 +936,7 @@
 
     goto/16 :goto_0
 
+    .line 415
     :pswitch_2d
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/SineInOut80;
 
@@ -838,6 +946,7 @@
 
     goto/16 :goto_0
 
+    .line 418
     :pswitch_2e
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/SineInOut90;
 
@@ -847,6 +956,7 @@
 
     goto/16 :goto_0
 
+    .line 421
     :pswitch_2f
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/SineOut33;
 
@@ -856,6 +966,7 @@
 
     goto/16 :goto_0
 
+    .line 280
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_1
@@ -912,9 +1023,14 @@
 
 .method public setInterpolatorBackEase(BF)V
     .locals 3
+    .param p1, "interpolatorType"    # B
+    .param p2, "overshot"    # F
 
+    .prologue
+    .line 445
     packed-switch p1, :pswitch_data_0
 
+    .line 456
     new-instance v0, Ljava/lang/RuntimeException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -939,6 +1055,7 @@
 
     throw v0
 
+    .line 447
     :pswitch_0
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/BackEaseIn;
 
@@ -946,13 +1063,17 @@
 
     invoke-virtual {p0, v0}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
+    .line 459
     :goto_0
     iput-byte p1, p0, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->mInterpolatorType:B
 
+    .line 460
     iput p2, p0, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->mInterpolatorOvershot:F
 
+    .line 444
     return-void
 
+    .line 450
     :pswitch_1
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/BackEaseInOut;
 
@@ -962,6 +1083,7 @@
 
     goto :goto_0
 
+    .line 453
     :pswitch_2
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/BackEaseOut;
 
@@ -971,6 +1093,7 @@
 
     goto :goto_0
 
+    .line 445
     :pswitch_data_0
     .packed-switch 0xa
         :pswitch_0
@@ -981,9 +1104,14 @@
 
 .method public setInterpolatorCycle(BF)V
     .locals 3
+    .param p1, "interpolatorType"    # B
+    .param p2, "interpolatorCycle"    # F
 
+    .prologue
+    .line 432
     packed-switch p1, :pswitch_data_0
 
+    .line 437
     new-instance v0, Ljava/lang/RuntimeException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1008,6 +1136,7 @@
 
     throw v0
 
+    .line 434
     :pswitch_0
     new-instance v0, Landroid/view/animation/CycleInterpolator;
 
@@ -1015,12 +1144,16 @@
 
     invoke-virtual {p0, v0}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
+    .line 440
     iput-byte p1, p0, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->mInterpolatorType:B
 
+    .line 441
     iput p2, p0, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->mInterpolatorCycle:F
 
+    .line 431
     return-void
 
+    .line 432
     :pswitch_data_0
     .packed-switch 0x6
         :pswitch_0
@@ -1029,9 +1162,15 @@
 
 .method public setInterpolatorElastic(BFF)V
     .locals 3
+    .param p1, "interpolatorType"    # B
+    .param p2, "amplitude"    # F
+    .param p3, "period"    # F
 
+    .prologue
+    .line 464
     packed-switch p1, :pswitch_data_0
 
+    .line 475
     new-instance v0, Ljava/lang/RuntimeException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1056,6 +1195,7 @@
 
     throw v0
 
+    .line 466
     :pswitch_0
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/ElasticEaseIn;
 
@@ -1063,15 +1203,20 @@
 
     invoke-virtual {p0, v0}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
+    .line 478
     :goto_0
     iput-byte p1, p0, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->mInterpolatorType:B
 
+    .line 479
     iput p2, p0, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->mInterpolatorAmplitude:F
 
+    .line 480
     iput p3, p0, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->mInterpolatorPeriod:F
 
+    .line 463
     return-void
 
+    .line 469
     :pswitch_1
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/ElasticEaseInOut;
 
@@ -1081,6 +1226,7 @@
 
     goto :goto_0
 
+    .line 472
     :pswitch_2
     new-instance v0, Lcom/samsung/android/graphics/spr/animation/interpolator/ElasticEaseOut;
 
@@ -1090,6 +1236,7 @@
 
     goto :goto_0
 
+    .line 464
     :pswitch_data_0
     .packed-switch 0x16
         :pswitch_0
@@ -1100,36 +1247,47 @@
 
 .method public toSPR(Ljava/io/DataOutputStream;)V
     .locals 5
+    .param p1, "out"    # Ljava/io/DataOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
     const/4 v4, 0x2
 
+    .line 208
     iget-byte v2, p0, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->mInterpolatorType:B
 
     invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeByte(I)V
 
+    .line 210
     new-instance v0, Ljava/io/ByteArrayOutputStream;
 
     invoke-direct {v0}, Ljava/io/ByteArrayOutputStream;-><init>()V
 
+    .line 211
+    .local v0, "bytestream":Ljava/io/ByteArrayOutputStream;
     iget-byte v2, p0, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->mInterpolatorType:B
 
     const/4 v3, 0x6
 
     if-ne v2, v3, :cond_2
 
+    .line 212
     new-instance v1, Ljava/io/DataOutputStream;
 
     invoke-direct {v1, v0}, Ljava/io/DataOutputStream;-><init>(Ljava/io/OutputStream;)V
 
+    .line 213
+    .local v1, "ostream":Ljava/io/DataOutputStream;
     iget v2, p0, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->mInterpolatorCycle:F
 
     invoke-virtual {v1, v2}, Ljava/io/DataOutputStream;->writeFloat(F)V
 
+    .line 225
+    .end local v1    # "ostream":Ljava/io/DataOutputStream;
     :cond_0
     :goto_0
     invoke-virtual {v0}, Ljava/io/ByteArrayOutputStream;->size()I
@@ -1138,18 +1296,21 @@
 
     invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
 
+    .line 226
     invoke-virtual {v0}, Ljava/io/ByteArrayOutputStream;->size()I
 
     move-result v2
 
     if-lez v2, :cond_1
 
+    .line 227
     invoke-virtual {v0}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
     move-result-object v2
 
     invoke-virtual {p1, v2}, Ljava/io/FilterOutputStream;->write([B)V
 
+    .line 230
     :cond_1
     invoke-virtual {p0}, Landroid/animation/ValueAnimator;->getStartDelay()J
 
@@ -1159,6 +1320,7 @@
 
     invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
 
+    .line 231
     invoke-virtual {p0}, Landroid/animation/ValueAnimator;->getDuration()J
 
     move-result-wide v2
@@ -1167,14 +1329,17 @@
 
     invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
 
+    .line 232
     invoke-virtual {p0}, Landroid/animation/ValueAnimator;->getRepeatMode()I
 
     move-result v2
 
     packed-switch v2, :pswitch_data_0
 
+    .line 242
     invoke-virtual {p1, v4}, Ljava/io/DataOutputStream;->writeByte(I)V
 
+    .line 246
     :goto_1
     invoke-virtual {p0}, Landroid/animation/ValueAnimator;->getRepeatCount()I
 
@@ -1182,8 +1347,10 @@
 
     invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
 
+    .line 207
     return-void
 
+    .line 214
     :cond_2
     iget-byte v2, p0, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->mInterpolatorType:B
 
@@ -1191,22 +1358,28 @@
 
     if-lt v2, v3, :cond_3
 
+    .line 215
     iget-byte v2, p0, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->mInterpolatorType:B
 
     const/16 v3, 0xb
 
     if-gt v2, v3, :cond_3
 
+    .line 216
     new-instance v1, Ljava/io/DataOutputStream;
 
     invoke-direct {v1, v0}, Ljava/io/DataOutputStream;-><init>(Ljava/io/OutputStream;)V
 
+    .line 217
+    .restart local v1    # "ostream":Ljava/io/DataOutputStream;
     iget v2, p0, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->mInterpolatorOvershot:F
 
     invoke-virtual {v1, v2}, Ljava/io/DataOutputStream;->writeFloat(F)V
 
     goto :goto_0
 
+    .line 218
+    .end local v1    # "ostream":Ljava/io/DataOutputStream;
     :cond_3
     iget-byte v2, p0, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->mInterpolatorType:B
 
@@ -1214,31 +1387,39 @@
 
     if-lt v2, v3, :cond_0
 
+    .line 219
     iget-byte v2, p0, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->mInterpolatorType:B
 
     const/16 v3, 0x17
 
     if-gt v2, v3, :cond_0
 
+    .line 220
     new-instance v1, Ljava/io/DataOutputStream;
 
     invoke-direct {v1, v0}, Ljava/io/DataOutputStream;-><init>(Ljava/io/OutputStream;)V
 
+    .line 221
+    .restart local v1    # "ostream":Ljava/io/DataOutputStream;
     iget v2, p0, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->mInterpolatorAmplitude:F
 
     invoke-virtual {v1, v2}, Ljava/io/DataOutputStream;->writeFloat(F)V
 
+    .line 222
     iget v2, p0, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->mInterpolatorPeriod:F
 
     invoke-virtual {v1, v2}, Ljava/io/DataOutputStream;->writeFloat(F)V
 
     goto :goto_0
 
+    .line 234
+    .end local v1    # "ostream":Ljava/io/DataOutputStream;
     :pswitch_0
     invoke-virtual {p1, v4}, Ljava/io/DataOutputStream;->writeByte(I)V
 
     goto :goto_1
 
+    .line 238
     :pswitch_1
     const/4 v2, 0x1
 
@@ -1246,6 +1427,7 @@
 
     goto :goto_1
 
+    .line 232
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -1255,9 +1437,13 @@
 
 .method public update(Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase$UpdateParameter;)Z
     .locals 4
+    .param p1, "parameter"    # Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase$UpdateParameter;
 
+    .prologue
+    .line 268
     monitor-enter p0
 
+    .line 269
     :try_start_0
     invoke-virtual {p0}, Landroid/animation/ValueAnimator;->getCurrentPlayTime()J
 
@@ -1273,6 +1459,7 @@
 
     if-eqz v0, :cond_1
 
+    .line 270
     :cond_0
     invoke-virtual {p0, p1}, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase;->updateValues(Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase$UpdateParameter;)Z
     :try_end_0
@@ -1284,6 +1471,7 @@
 
     return v0
 
+    .line 272
     :cond_1
     const/4 v0, 0x0
 
@@ -1291,6 +1479,7 @@
 
     return v0
 
+    .line 268
     :catchall_0
     move-exception v0
 

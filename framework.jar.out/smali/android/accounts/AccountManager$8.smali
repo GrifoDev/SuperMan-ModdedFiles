@@ -34,7 +34,15 @@
 # direct methods
 .method constructor <init>(Landroid/accounts/AccountManager;Landroid/accounts/AccountManager;Landroid/os/Handler;Landroid/accounts/AccountManagerCallback;Landroid/accounts/Account;Landroid/os/UserHandle;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/accounts/AccountManager;
+    .param p2, "this$0_1"    # Landroid/accounts/AccountManager;
+    .param p3, "$anonymous0"    # Landroid/os/Handler;
+    .param p5, "val$account"    # Landroid/accounts/Account;
+    .param p6, "val$userHandle"    # Landroid/os/UserHandle;
 
+    .prologue
+    .line 944
+    .local p4, "$anonymous1":Landroid/accounts/AccountManagerCallback;, "Landroid/accounts/AccountManagerCallback<Ljava/lang/Boolean;>;"
     iput-object p2, p0, Landroid/accounts/AccountManager$8;->this$0:Landroid/accounts/AccountManager;
 
     iput-object p5, p0, Landroid/accounts/AccountManager$8;->val$account:Landroid/accounts/Account;
@@ -50,12 +58,15 @@
 # virtual methods
 .method public bundleToResult(Landroid/os/Bundle;)Ljava/lang/Boolean;
     .locals 2
+    .param p1, "bundle"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/accounts/AuthenticatorException;
         }
     .end annotation
 
+    .prologue
+    .line 951
     const-string/jumbo v0, "booleanResult"
 
     invoke-virtual {p1, v0}, Landroid/os/BaseBundle;->containsKey(Ljava/lang/String;)Z
@@ -64,6 +75,7 @@
 
     if-nez v0, :cond_0
 
+    .line 952
     new-instance v0, Landroid/accounts/AuthenticatorException;
 
     const-string/jumbo v1, "no result in response"
@@ -72,6 +84,7 @@
 
     throw v0
 
+    .line 954
     :cond_0
     const-string/jumbo v0, "booleanResult"
 
@@ -88,12 +101,15 @@
 
 .method public bridge synthetic bundleToResult(Landroid/os/Bundle;)Ljava/lang/Object;
     .locals 1
+    .param p1, "bundle"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/accounts/AuthenticatorException;
         }
     .end annotation
 
+    .prologue
+    .line 950
     invoke-virtual {p0, p1}, Landroid/accounts/AccountManager$8;->bundleToResult(Landroid/os/Bundle;)Ljava/lang/Boolean;
 
     move-result-object v0
@@ -109,6 +125,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 947
     iget-object v0, p0, Landroid/accounts/AccountManager$8;->this$0:Landroid/accounts/AccountManager;
 
     invoke-static {v0}, Landroid/accounts/AccountManager;->-get3(Landroid/accounts/AccountManager;)Landroid/accounts/IAccountManager;
@@ -129,5 +147,6 @@
 
     invoke-interface {v0, v1, v2, v4, v3}, Landroid/accounts/IAccountManager;->removeAccountAsUser(Landroid/accounts/IAccountManagerResponse;Landroid/accounts/Account;ZI)V
 
+    .line 946
     return-void
 .end method

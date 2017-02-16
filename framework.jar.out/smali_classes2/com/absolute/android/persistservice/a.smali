@@ -16,6 +16,8 @@
 .method constructor <init>(Lcom/absolute/android/persistservice/ABTPersistenceService;I)V
     .locals 0
 
+    .prologue
+    .line 1227
     iput-object p1, p0, Lcom/absolute/android/persistservice/a;->b:Lcom/absolute/android/persistservice/ABTPersistenceService;
 
     iput p2, p0, Lcom/absolute/android/persistservice/a;->a:I
@@ -30,17 +32,21 @@
 .method public run()V
     .locals 5
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 1229
     invoke-static {}, Landroid/os/Looper;->prepare()V
 
     const-wide/16 v2, 0x1388
 
+    .line 1231
     :try_start_0
     invoke-static {v2, v3}, Ljava/lang/Thread;->sleep(J)V
 
     const/4 v0, 0x5
 
+    .line 1235
     iget-object v2, p0, Lcom/absolute/android/persistservice/a;->b:Lcom/absolute/android/persistservice/ABTPersistenceService;
 
     invoke-static {v2}, Lcom/absolute/android/persistservice/ABTPersistenceService;->a(Lcom/absolute/android/persistservice/ABTPersistenceService;)Lcom/absolute/android/persistservice/v;
@@ -51,11 +57,13 @@
 
     invoke-virtual {v2, v3}, Lcom/absolute/android/persistservice/v;->c(Ljava/lang/String;)V
 
+    .line 1237
     :goto_0
     iget v2, p0, Lcom/absolute/android/persistservice/a;->a:I
 
     if-le v1, v2, :cond_1
 
+    .line 1258
     :cond_0
     iget-object v0, p0, Lcom/absolute/android/persistservice/a;->b:Lcom/absolute/android/persistservice/ABTPersistenceService;
 
@@ -67,9 +75,11 @@
 
     invoke-virtual {v0, v1}, Lcom/absolute/android/persistservice/v;->c(Ljava/lang/String;)V
 
+    .line 1262
     :goto_1
     return-void
 
+    .line 1237
     :cond_1
     iget-object v2, p0, Lcom/absolute/android/persistservice/a;->b:Lcom/absolute/android/persistservice/ABTPersistenceService;
 
@@ -83,6 +93,7 @@
 
     if-nez v2, :cond_0
 
+    .line 1242
     new-instance v2, Landroid/content/Intent;
 
     const-string/jumbo v3, "com.absolute.action.PS_READY"
@@ -91,20 +102,25 @@
 
     const/16 v3, 0x20
 
+    .line 1243
     invoke-virtual {v2, v3}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
+    .line 1244
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v3
 
     const/4 v4, 0x0
 
+    .line 1245
     invoke-virtual {v3, v4}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 1246
     new-instance v4, Landroid/os/UserHandle;
 
     invoke-direct {v4, v3}, Landroid/os/UserHandle;-><init>(Landroid/os/Parcel;)V
 
+    .line 1249
     iget-object v3, p0, Lcom/absolute/android/persistservice/a;->b:Lcom/absolute/android/persistservice/ABTPersistenceService;
 
     invoke-static {v3}, Lcom/absolute/android/persistservice/ABTPersistenceService;->c(Lcom/absolute/android/persistservice/ABTPersistenceService;)Landroid/content/Context;
@@ -115,8 +131,10 @@
 
     const/16 v2, 0x3c
 
+    .line 1251
     if-ge v1, v2, :cond_2
 
+    .line 1254
     :goto_2
     mul-int/lit16 v2, v0, 0x3e8
 
@@ -126,6 +144,7 @@
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 1255
     add-int/2addr v1, v0
 
     goto :goto_0
@@ -133,8 +152,10 @@
     :cond_2
     const/16 v0, 0x14
 
+    .line 1252
     goto :goto_2
 
+    .line 1261
     :catch_0
     move-exception v0
 

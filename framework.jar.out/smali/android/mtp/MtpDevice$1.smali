@@ -26,7 +26,11 @@
 # direct methods
 .method constructor <init>(Landroid/mtp/MtpDevice;I)V
     .locals 0
+    .param p1, "this$0"    # Landroid/mtp/MtpDevice;
+    .param p2, "val$handle"    # I
 
+    .prologue
+    .line 341
     iput-object p1, p0, Landroid/mtp/MtpDevice$1;->this$0:Landroid/mtp/MtpDevice;
 
     iput p2, p0, Landroid/mtp/MtpDevice$1;->val$handle:I
@@ -41,11 +45,14 @@
 .method public onCancel()V
     .locals 2
 
+    .prologue
+    .line 344
     iget-object v0, p0, Landroid/mtp/MtpDevice$1;->this$0:Landroid/mtp/MtpDevice;
 
     iget v1, p0, Landroid/mtp/MtpDevice$1;->val$handle:I
 
     invoke-static {v0, v1}, Landroid/mtp/MtpDevice;->-wrap0(Landroid/mtp/MtpDevice;I)V
 
+    .line 343
     return-void
 .end method

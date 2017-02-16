@@ -49,56 +49,76 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 80
     new-instance v0, Landroid/media/AudioRoutesInfo$1;
 
     invoke-direct {v0}, Landroid/media/AudioRoutesInfo$1;-><init>()V
 
+    .line 79
     sput-object v0, Landroid/media/AudioRoutesInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
+    .line 27
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 38
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 36
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/media/AudioRoutesInfo;->mainType:I
 
+    .line 38
     return-void
 .end method
 
 .method public constructor <init>(Landroid/media/AudioRoutesInfo;)V
     .locals 1
+    .param p1, "o"    # Landroid/media/AudioRoutesInfo;
 
+    .prologue
+    .line 41
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 36
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/media/AudioRoutesInfo;->mainType:I
 
+    .line 42
     iget-object v0, p1, Landroid/media/AudioRoutesInfo;->bluetoothName:Ljava/lang/CharSequence;
 
     iput-object v0, p0, Landroid/media/AudioRoutesInfo;->bluetoothName:Ljava/lang/CharSequence;
 
+    .line 43
     iget v0, p1, Landroid/media/AudioRoutesInfo;->mainType:I
 
     iput v0, p0, Landroid/media/AudioRoutesInfo;->mainType:I
 
+    .line 41
     return-void
 .end method
 
 .method constructor <init>(Landroid/os/Parcel;)V
     .locals 1
+    .param p1, "src"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 46
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 36
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/media/AudioRoutesInfo;->mainType:I
 
+    .line 47
     sget-object v0, Landroid/text/TextUtils;->CHAR_SEQUENCE_CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v0, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -109,24 +129,30 @@
 
     iput-object v0, p0, Landroid/media/AudioRoutesInfo;->bluetoothName:Ljava/lang/CharSequence;
 
+    .line 48
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/media/AudioRoutesInfo;->mainType:I
 
+    .line 46
     return-void
 .end method
 
 .method private static typeToString(I)Ljava/lang/String;
     .locals 1
+    .param p0, "type"    # I
 
+    .prologue
+    .line 64
     if-nez p0, :cond_0
 
     const-string/jumbo v0, "SPEAKER"
 
     return-object v0
 
+    .line 65
     :cond_0
     and-int/lit8 v0, p0, 0x1
 
@@ -136,6 +162,7 @@
 
     return-object v0
 
+    .line 66
     :cond_1
     and-int/lit8 v0, p0, 0x2
 
@@ -145,6 +172,7 @@
 
     return-object v0
 
+    .line 67
     :cond_2
     and-int/lit8 v0, p0, 0x4
 
@@ -154,6 +182,7 @@
 
     return-object v0
 
+    .line 68
     :cond_3
     and-int/lit8 v0, p0, 0x8
 
@@ -163,6 +192,7 @@
 
     return-object v0
 
+    .line 69
     :cond_4
     and-int/lit8 v0, p0, 0x10
 
@@ -172,6 +202,7 @@
 
     return-object v0
 
+    .line 70
     :cond_5
     invoke-static {p0}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
@@ -185,6 +216,8 @@
 .method public describeContents()I
     .locals 1
 
+    .prologue
+    .line 53
     const/4 v0, 0x0
 
     return v0
@@ -193,6 +226,8 @@
 .method public toString()Ljava/lang/String;
     .locals 3
 
+    .prologue
+    .line 58
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -225,6 +260,7 @@
 
     move-result-object v1
 
+    .line 59
     iget-object v0, p0, Landroid/media/AudioRoutesInfo;->bluetoothName:Ljava/lang/CharSequence;
 
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -235,13 +271,16 @@
 
     const-string/jumbo v0, ""
 
+    .line 58
     :goto_0
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
+    .line 60
     const-string/jumbo v1, " }"
 
+    .line 58
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -252,6 +291,7 @@
 
     return-object v0
 
+    .line 59
     :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -278,14 +318,20 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
+    .prologue
+    .line 75
     iget-object v0, p0, Landroid/media/AudioRoutesInfo;->bluetoothName:Ljava/lang/CharSequence;
 
     invoke-static {v0, p1, p2}, Landroid/text/TextUtils;->writeToParcel(Ljava/lang/CharSequence;Landroid/os/Parcel;I)V
 
+    .line 76
     iget v0, p0, Landroid/media/AudioRoutesInfo;->mainType:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 74
     return-void
 .end method

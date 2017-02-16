@@ -26,7 +26,11 @@
 # direct methods
 .method constructor <init>(Landroid/app/EnterTransitionCoordinator;Landroid/view/View;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/app/EnterTransitionCoordinator;
+    .param p2, "val$decorView"    # Landroid/view/View;
 
+    .prologue
+    .line 219
     iput-object p1, p0, Landroid/app/EnterTransitionCoordinator$3;->this$0:Landroid/app/EnterTransitionCoordinator;
 
     iput-object p2, p0, Landroid/app/EnterTransitionCoordinator$3;->val$decorView:Landroid/view/View;
@@ -41,6 +45,8 @@
 .method public onPreDraw()Z
     .locals 3
 
+    .prologue
+    .line 222
     iget-object v1, p0, Landroid/app/EnterTransitionCoordinator$3;->val$decorView:Landroid/view/View;
 
     invoke-virtual {v1}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
@@ -49,22 +55,27 @@
 
     invoke-virtual {v1, p0}, Landroid/view/ViewTreeObserver;->removeOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
 
+    .line 223
     iget-object v1, p0, Landroid/app/EnterTransitionCoordinator$3;->this$0:Landroid/app/EnterTransitionCoordinator;
 
     iget-object v1, v1, Landroid/app/ActivityTransitionCoordinator;->mResultReceiver:Landroid/os/ResultReceiver;
 
     if-eqz v1, :cond_0
 
+    .line 224
     iget-object v1, p0, Landroid/app/EnterTransitionCoordinator$3;->this$0:Landroid/app/EnterTransitionCoordinator;
 
     invoke-virtual {v1}, Landroid/app/ActivityTransitionCoordinator;->captureSharedElementState()Landroid/os/Bundle;
 
     move-result-object v0
 
+    .line 225
+    .local v0, "state":Landroid/os/Bundle;
     iget-object v1, p0, Landroid/app/EnterTransitionCoordinator$3;->this$0:Landroid/app/EnterTransitionCoordinator;
 
     invoke-virtual {v1}, Landroid/app/ActivityTransitionCoordinator;->moveSharedElementsToOverlay()V
 
+    .line 226
     iget-object v1, p0, Landroid/app/EnterTransitionCoordinator$3;->this$0:Landroid/app/EnterTransitionCoordinator;
 
     iget-object v1, v1, Landroid/app/ActivityTransitionCoordinator;->mResultReceiver:Landroid/os/ResultReceiver;
@@ -73,6 +84,8 @@
 
     invoke-virtual {v1, v2, v0}, Landroid/os/ResultReceiver;->send(ILandroid/os/Bundle;)V
 
+    .line 228
+    .end local v0    # "state":Landroid/os/Bundle;
     :cond_0
     const/4 v1, 0x1
 

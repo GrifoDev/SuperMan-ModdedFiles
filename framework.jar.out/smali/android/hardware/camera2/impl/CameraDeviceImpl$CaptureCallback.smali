@@ -22,6 +22,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 1046
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -31,48 +33,89 @@
 # virtual methods
 .method public onCaptureBufferLost(Landroid/hardware/camera2/CameraDevice;Landroid/hardware/camera2/CaptureRequest;Landroid/view/Surface;J)V
     .locals 0
+    .param p1, "camera"    # Landroid/hardware/camera2/CameraDevice;
+    .param p2, "request"    # Landroid/hardware/camera2/CaptureRequest;
+    .param p3, "target"    # Landroid/view/Surface;
+    .param p4, "frameNumber"    # J
 
+    .prologue
+    .line 1128
     return-void
 .end method
 
 .method public onCaptureCompleted(Landroid/hardware/camera2/CameraDevice;Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/TotalCaptureResult;)V
     .locals 0
+    .param p1, "camera"    # Landroid/hardware/camera2/CameraDevice;
+    .param p2, "request"    # Landroid/hardware/camera2/CaptureRequest;
+    .param p3, "result"    # Landroid/hardware/camera2/TotalCaptureResult;
 
+    .prologue
+    .line 1093
     return-void
 .end method
 
 .method public onCaptureFailed(Landroid/hardware/camera2/CameraDevice;Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/CaptureFailure;)V
     .locals 0
+    .param p1, "camera"    # Landroid/hardware/camera2/CameraDevice;
+    .param p2, "request"    # Landroid/hardware/camera2/CaptureRequest;
+    .param p3, "failure"    # Landroid/hardware/camera2/CaptureFailure;
 
+    .prologue
+    .line 1103
     return-void
 .end method
 
 .method public onCapturePartial(Landroid/hardware/camera2/CameraDevice;Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/CaptureResult;)V
     .locals 0
+    .param p1, "camera"    # Landroid/hardware/camera2/CameraDevice;
+    .param p2, "request"    # Landroid/hardware/camera2/CaptureRequest;
+    .param p3, "result"    # Landroid/hardware/camera2/CaptureResult;
 
+    .prologue
+    .line 1074
     return-void
 .end method
 
 .method public onCaptureProgressed(Landroid/hardware/camera2/CameraDevice;Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/CaptureResult;)V
     .locals 0
+    .param p1, "camera"    # Landroid/hardware/camera2/CameraDevice;
+    .param p2, "request"    # Landroid/hardware/camera2/CaptureRequest;
+    .param p3, "partialResult"    # Landroid/hardware/camera2/CaptureResult;
 
+    .prologue
+    .line 1084
     return-void
 .end method
 
 .method public onCaptureSequenceAborted(Landroid/hardware/camera2/CameraDevice;I)V
     .locals 0
+    .param p1, "camera"    # Landroid/hardware/camera2/CameraDevice;
+    .param p2, "sequenceId"    # I
 
+    .prologue
+    .line 1123
     return-void
 .end method
 
 .method public onCaptureSequenceCompleted(Landroid/hardware/camera2/CameraDevice;IJ)V
     .locals 0
+    .param p1, "camera"    # Landroid/hardware/camera2/CameraDevice;
+    .param p2, "sequenceId"    # I
+    .param p3, "frameNumber"    # J
 
+    .prologue
+    .line 1113
     return-void
 .end method
 
 .method public onCaptureStarted(Landroid/hardware/camera2/CameraDevice;Landroid/hardware/camera2/CaptureRequest;JJ)V
     .locals 0
+    .param p1, "camera"    # Landroid/hardware/camera2/CameraDevice;
+    .param p2, "request"    # Landroid/hardware/camera2/CaptureRequest;
+    .param p3, "timestamp"    # J
+    .param p5, "frameNumber"    # J
 
+    .prologue
+    .line 1063
     return-void
 .end method

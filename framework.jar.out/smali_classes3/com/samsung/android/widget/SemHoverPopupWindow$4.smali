@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/widget/SemHoverPopupWindow;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/samsung/android/widget/SemHoverPopupWindow;
 
+    .prologue
+    .line 1108
     iput-object p1, p0, Lcom/samsung/android/widget/SemHoverPopupWindow$4;->this$0:Lcom/samsung/android/widget/SemHoverPopupWindow;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,9 +40,12 @@
 .method public run()V
     .locals 1
 
+    .prologue
+    .line 1110
     iget-object v0, p0, Lcom/samsung/android/widget/SemHoverPopupWindow$4;->this$0:Lcom/samsung/android/widget/SemHoverPopupWindow;
 
     invoke-static {v0}, Lcom/samsung/android/widget/SemHoverPopupWindow;->-wrap0(Lcom/samsung/android/widget/SemHoverPopupWindow;)V
 
+    .line 1109
     return-void
 .end method

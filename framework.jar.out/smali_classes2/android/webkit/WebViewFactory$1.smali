@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
     .locals 0
+    .param p1, "val$abi"    # Ljava/lang/String;
 
+    .prologue
+    .line 557
     iput-object p1, p0, Landroid/webkit/WebViewFactory$1;->val$abi:Ljava/lang/String;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +40,8 @@
 .method public run()V
     .locals 4
 
+    .prologue
+    .line 561
     :try_start_0
     const-string/jumbo v1, "WebViewFactory"
 
@@ -68,6 +73,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 562
     invoke-static {}, Landroid/webkit/WebViewFactory;->getUpdateService()Landroid/webkit/IWebViewUpdateService;
 
     move-result-object v1
@@ -76,12 +82,16 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 559
     :goto_0
     return-void
 
+    .line 563
     :catch_0
     move-exception v0
 
+    .line 564
+    .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "WebViewFactory"
 
     new-instance v2, Ljava/lang/StringBuilder;

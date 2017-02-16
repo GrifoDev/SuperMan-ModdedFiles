@@ -11,22 +11,28 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 29
     const-string/jumbo v0, "SemUibcInputHandler.java"
 
     const-string/jumbo v1, "try to load libuibc.so"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 30
     const-string/jumbo v0, "uibc"
 
     invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
 
+    .line 24
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -62,13 +68,19 @@
 .method public static isActive()Z
     .locals 5
 
+    .prologue
+    .line 104
     const/4 v1, 0x0
 
+    .line 106
+    .local v1, "isActive":Z
     :try_start_0
     invoke-static {}, Landroid/media/SemUibcInputHandler;->isActiveUIBC()Z
 
     move-result v1
 
+    .line 107
+    .local v1, "isActive":Z
     const-string/jumbo v2, "SemUibcInputHandler.java"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -93,12 +105,16 @@
     :try_end_0
     .catch Ljava/lang/NoSuchMethodError; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 111
     :goto_0
     return v1
 
+    .line 108
     :catch_0
     move-exception v0
 
+    .line 109
+    .local v0, "e":Ljava/lang/NoSuchMethodError;
     const-string/jumbo v2, "SemUibcInputHandler.java"
 
     const-string/jumbo v3, "NoSuchMethod - mWfdSinkManager.isActiveUIBC()"

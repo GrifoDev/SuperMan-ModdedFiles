@@ -53,18 +53,24 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 54
     sput-boolean v0, Landroid/util/GateConfig;->sGateEnabled:Z
 
+    .line 55
     sput-boolean v0, Landroid/util/GateConfig;->sGateLcdtextEnabled:Z
 
+    .line 25
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -73,6 +79,8 @@
 .method public static isGateEnabled()Z
     .locals 3
 
+    .prologue
+    .line 74
     const-string/jumbo v1, "ro.debug_level"
 
     invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
@@ -83,6 +91,8 @@
 
     move-result-object v0
 
+    .line 76
+    .local v0, "debugLevel":Ljava/lang/String;
     const-string/jumbo v1, "user"
 
     sget-object v2, Landroid/os/Build;->TYPE:Ljava/lang/String;
@@ -93,6 +103,7 @@
 
     if-eqz v1, :cond_1
 
+    .line 77
     const-string/jumbo v1, "0x4f4c"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -101,10 +112,12 @@
 
     if-eqz v1, :cond_0
 
+    .line 78
     const/4 v1, 0x0
 
     return v1
 
+    .line 80
     :cond_0
     const-string/jumbo v1, "service.gate.enabled"
 
@@ -120,6 +133,7 @@
 
     return v1
 
+    .line 83
     :cond_1
     const-string/jumbo v1, "service.gate.enabled"
 
@@ -139,6 +153,8 @@
 .method public static isGateLcdtextEnabled()Z
     .locals 3
 
+    .prologue
+    .line 92
     const-string/jumbo v1, "ro.debug_level"
 
     invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
@@ -149,6 +165,8 @@
 
     move-result-object v0
 
+    .line 94
+    .local v0, "debugLevel":Ljava/lang/String;
     const-string/jumbo v1, "user"
 
     sget-object v2, Landroid/os/Build;->TYPE:Ljava/lang/String;
@@ -159,6 +177,7 @@
 
     if-eqz v1, :cond_1
 
+    .line 95
     const-string/jumbo v1, "0x4f4c"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -167,10 +186,12 @@
 
     if-eqz v1, :cond_0
 
+    .line 96
     const/4 v1, 0x0
 
     return v1
 
+    .line 98
     :cond_0
     const-string/jumbo v1, "service.gate.lcdtexton"
 
@@ -186,6 +207,7 @@
 
     return v1
 
+    .line 101
     :cond_1
     const-string/jumbo v1, "service.gate.lcdtexton"
 
@@ -204,9 +226,13 @@
 
 .method public static setGateEnabled(Z)V
     .locals 3
+    .param p0, "gateEnabled"    # Z
 
+    .prologue
+    .line 62
     sput-boolean p0, Landroid/util/GateConfig;->sGateEnabled:Z
 
+    .line 63
     const-string/jumbo v0, "GATE"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -243,14 +269,19 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 61
     return-void
 .end method
 
 .method public static setGateLcdtextEnabled(Z)V
     .locals 3
+    .param p0, "lcdTextEnabled"    # Z
 
+    .prologue
+    .line 67
     sput-boolean p0, Landroid/util/GateConfig;->sGateLcdtextEnabled:Z
 
+    .line 68
     const-string/jumbo v0, "GATE"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -287,5 +318,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 66
     return-void
 .end method

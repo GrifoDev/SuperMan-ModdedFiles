@@ -33,18 +33,24 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 82
     sput-boolean v0, Lcom/samsung/android/feature/SemGateConfig;->sGateEnabled:Z
 
+    .line 83
     sput-boolean v0, Lcom/samsung/android/feature/SemGateConfig;->sGateLcdtextEnabled:Z
 
+    .line 31
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -53,6 +59,8 @@
 .method public static isGateEnabled()Z
     .locals 3
 
+    .prologue
+    .line 116
     const-string/jumbo v1, "ro.debug_level"
 
     invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
@@ -63,6 +71,8 @@
 
     move-result-object v0
 
+    .line 118
+    .local v0, "debugLevel":Ljava/lang/String;
     const-string/jumbo v1, "user"
 
     sget-object v2, Landroid/os/Build;->TYPE:Ljava/lang/String;
@@ -73,6 +83,7 @@
 
     if-eqz v1, :cond_1
 
+    .line 119
     const-string/jumbo v1, "0x4f4c"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -81,10 +92,12 @@
 
     if-eqz v1, :cond_0
 
+    .line 120
     const/4 v1, 0x0
 
     return v1
 
+    .line 122
     :cond_0
     const-string/jumbo v1, "service.gate.enabled"
 
@@ -100,6 +113,7 @@
 
     return v1
 
+    .line 125
     :cond_1
     sget-boolean v1, Lcom/samsung/android/feature/SemGateConfig;->sGateEnabled:Z
 
@@ -129,6 +143,8 @@
 .method public static isGateLcdtextEnabled()Z
     .locals 3
 
+    .prologue
+    .line 139
     const-string/jumbo v1, "ro.debug_level"
 
     invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
@@ -139,6 +155,8 @@
 
     move-result-object v0
 
+    .line 141
+    .local v0, "debugLevel":Ljava/lang/String;
     const-string/jumbo v1, "user"
 
     sget-object v2, Landroid/os/Build;->TYPE:Ljava/lang/String;
@@ -149,6 +167,7 @@
 
     if-eqz v1, :cond_1
 
+    .line 142
     const-string/jumbo v1, "0x4f4c"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -157,10 +176,12 @@
 
     if-eqz v1, :cond_0
 
+    .line 143
     const/4 v1, 0x0
 
     return v1
 
+    .line 145
     :cond_0
     const-string/jumbo v1, "service.gate.lcdtexton"
 
@@ -176,6 +197,7 @@
 
     return v1
 
+    .line 148
     :cond_1
     sget-boolean v1, Lcom/samsung/android/feature/SemGateConfig;->sGateLcdtextEnabled:Z
 
@@ -204,9 +226,13 @@
 
 .method public static setGateEnabled(Z)V
     .locals 3
+    .param p0, "gateEnabled"    # Z
 
+    .prologue
+    .line 95
     sput-boolean p0, Lcom/samsung/android/feature/SemGateConfig;->sGateEnabled:Z
 
+    .line 96
     const-string/jumbo v0, "GATE"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -243,14 +269,19 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 94
     return-void
 .end method
 
 .method public static setGateLcdtextEnabled(Z)V
     .locals 3
+    .param p0, "lcdTextEnabled"    # Z
 
+    .prologue
+    .line 104
     sput-boolean p0, Lcom/samsung/android/feature/SemGateConfig;->sGateLcdtextEnabled:Z
 
+    .line 105
     const-string/jumbo v0, "GATE"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -287,5 +318,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 103
     return-void
 .end method

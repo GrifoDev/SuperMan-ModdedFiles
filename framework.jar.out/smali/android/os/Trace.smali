@@ -79,22 +79,28 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 89
     const-wide/high16 v0, -0x8000000000000000L
 
     sput-wide v0, Landroid/os/Trace;->sEnabledTags:J
 
+    .line 109
     new-instance v0, Landroid/os/Trace$1;
 
     invoke-direct {v0}, Landroid/os/Trace$1;-><init>()V
 
     invoke-static {v0}, Landroid/os/SystemProperties;->addChangeCallback(Ljava/lang/Runnable;)V
 
+    .line 30
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 116
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -102,45 +108,63 @@
 
 .method public static asyncTraceBegin(JLjava/lang/String;I)V
     .locals 2
+    .param p0, "traceTag"    # J
+    .param p2, "methodName"    # Ljava/lang/String;
+    .param p3, "cookie"    # I
 
+    .prologue
+    .line 244
     invoke-static {p0, p1}, Landroid/os/Trace;->isTagEnabled(J)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
+    .line 245
     invoke-static {p0, p1, p2, p3}, Landroid/os/Trace;->nativeAsyncTraceBegin(JLjava/lang/String;I)V
 
+    .line 243
     :cond_0
     return-void
 .end method
 
 .method public static asyncTraceEnd(JLjava/lang/String;I)V
     .locals 2
+    .param p0, "traceTag"    # J
+    .param p2, "methodName"    # Ljava/lang/String;
+    .param p3, "cookie"    # I
 
+    .prologue
+    .line 261
     invoke-static {p0, p1}, Landroid/os/Trace;->isTagEnabled(J)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
+    .line 262
     invoke-static {p0, p1, p2, p3}, Landroid/os/Trace;->nativeAsyncTraceEnd(JLjava/lang/String;I)V
 
+    .line 260
     :cond_0
     return-void
 .end method
 
 .method public static beginSection(Ljava/lang/String;)V
     .locals 4
+    .param p0, "sectionName"    # Ljava/lang/String;
 
+    .prologue
     const-wide/16 v2, 0x1000
 
+    .line 278
     invoke-static {v2, v3}, Landroid/os/Trace;->isTagEnabled(J)Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
+    .line 279
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v0
@@ -149,6 +173,7 @@
 
     if-le v0, v1, :cond_0
 
+    .line 280
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "sectionName is too long"
@@ -157,9 +182,11 @@
 
     throw v0
 
+    .line 282
     :cond_0
     invoke-static {v2, v3, p0}, Landroid/os/Trace;->nativeTraceBegin(JLjava/lang/String;)V
 
+    .line 277
     :cond_1
     return-void
 .end method
@@ -167,47 +194,63 @@
 .method private static cacheEnabledTags()J
     .locals 2
 
+    .prologue
+    .line 134
     invoke-static {}, Landroid/os/Trace;->nativeGetEnabledTags()J
 
     move-result-wide v0
 
+    .line 135
+    .local v0, "tags":J
     sput-wide v0, Landroid/os/Trace;->sEnabledTags:J
 
+    .line 136
     return-wide v0
 .end method
 
 .method public static endSection()V
     .locals 4
 
+    .prologue
     const-wide/16 v2, 0x1000
 
+    .line 294
     invoke-static {v2, v3}, Landroid/os/Trace;->isTagEnabled(J)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
+    .line 295
     invoke-static {v2, v3}, Landroid/os/Trace;->nativeTraceEnd(J)V
 
+    .line 293
     :cond_0
     return-void
 .end method
 
 .method public static isTagEnabled(J)Z
     .locals 6
+    .param p0, "traceTag"    # J
 
+    .prologue
+    .line 148
     sget-wide v0, Landroid/os/Trace;->sEnabledTags:J
 
+    .line 149
+    .local v0, "tags":J
     const-wide/high16 v2, -0x8000000000000000L
 
     cmp-long v2, v0, v2
 
     if-nez v2, :cond_0
 
+    .line 150
     invoke-static {}, Landroid/os/Trace;->cacheEnabledTags()J
 
     move-result-wide v0
 
+    .line 152
     :cond_0
     and-long v2, v0, p0
 
@@ -254,65 +297,93 @@
 
 .method public static setAppTracingAllowed(Z)V
     .locals 0
+    .param p0, "allowed"    # Z
 
+    .prologue
+    .line 177
     invoke-static {p0}, Landroid/os/Trace;->nativeSetAppTracingAllowed(Z)V
 
+    .line 181
     invoke-static {}, Landroid/os/Trace;->cacheEnabledTags()J
 
+    .line 176
     return-void
 .end method
 
 .method public static setTracingEnabled(Z)V
     .locals 0
+    .param p0, "enabled"    # Z
 
+    .prologue
+    .line 193
     invoke-static {p0}, Landroid/os/Trace;->nativeSetTracingEnabled(Z)V
 
+    .line 197
     invoke-static {}, Landroid/os/Trace;->cacheEnabledTags()J
 
+    .line 192
     return-void
 .end method
 
 .method public static traceBegin(JLjava/lang/String;)V
     .locals 2
+    .param p0, "traceTag"    # J
+    .param p2, "methodName"    # Ljava/lang/String;
 
+    .prologue
+    .line 211
     invoke-static {p0, p1}, Landroid/os/Trace;->isTagEnabled(J)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
+    .line 212
     invoke-static {p0, p1, p2}, Landroid/os/Trace;->nativeTraceBegin(JLjava/lang/String;)V
 
+    .line 210
     :cond_0
     return-void
 .end method
 
 .method public static traceCounter(JLjava/lang/String;I)V
     .locals 2
+    .param p0, "traceTag"    # J
+    .param p2, "counterName"    # Ljava/lang/String;
+    .param p3, "counterValue"    # I
 
+    .prologue
+    .line 165
     invoke-static {p0, p1}, Landroid/os/Trace;->isTagEnabled(J)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
+    .line 166
     invoke-static {p0, p1, p2, p3}, Landroid/os/Trace;->nativeTraceCounter(JLjava/lang/String;I)V
 
+    .line 164
     :cond_0
     return-void
 .end method
 
 .method public static traceEnd(J)V
     .locals 2
+    .param p0, "traceTag"    # J
 
+    .prologue
+    .line 225
     invoke-static {p0, p1}, Landroid/os/Trace;->isTagEnabled(J)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
+    .line 226
     invoke-static {p0, p1}, Landroid/os/Trace;->nativeTraceEnd(J)V
 
+    .line 224
     :cond_0
     return-void
 .end method

@@ -16,6 +16,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -34,13 +36,17 @@
         }
     .end annotation
 
+    .prologue
+    .line 28
     iget-wide v0, p0, Landroid/graphics/Rasterizer;->native_instance:J
 
     invoke-static {v0, v1}, Landroid/graphics/Rasterizer;->finalizer(J)V
 
+    .line 29
     const-wide/16 v0, 0x0
 
     iput-wide v0, p0, Landroid/graphics/Rasterizer;->native_instance:J
 
+    .line 27
     return-void
 .end method

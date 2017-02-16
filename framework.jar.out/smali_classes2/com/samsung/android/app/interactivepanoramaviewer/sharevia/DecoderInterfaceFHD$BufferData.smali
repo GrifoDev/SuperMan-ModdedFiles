@@ -30,6 +30,8 @@
 .method public constructor <init>(Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD;)V
     .locals 0
 
+    .prologue
+    .line 495
     iput-object p1, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD$BufferData;->this$0:Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

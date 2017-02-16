@@ -39,10 +39,12 @@
 .method static constructor <clinit>()V
     .locals 4
 
+    .prologue
     const/4 v3, 0x1
 
     const/4 v2, 0x0
 
+    .line 7670
     new-instance v0, Landroid/widget/Editor$SFEffectsAPI$EffectOutput;
 
     const-string/jumbo v1, "SCREEN"
@@ -57,8 +59,10 @@
 
     invoke-direct {v0, v1, v3, v3}, Landroid/widget/Editor$SFEffectsAPI$EffectOutput;-><init>(Ljava/lang/String;II)V
 
+    .line 7671
     sput-object v0, Landroid/widget/Editor$SFEffectsAPI$EffectOutput;->FBO:Landroid/widget/Editor$SFEffectsAPI$EffectOutput;
 
+    .line 7669
     const/4 v0, 0x2
 
     new-array v0, v0, [Landroid/widget/Editor$SFEffectsAPI$EffectOutput;
@@ -78,17 +82,25 @@
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
+    .param p3, "id"    # I
 
+    .prologue
+    .line 7675
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
+    .line 7676
     iput p3, p0, Landroid/widget/Editor$SFEffectsAPI$EffectOutput;->id:I
 
+    .line 7675
     return-void
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroid/widget/Editor$SFEffectsAPI$EffectOutput;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 7669
     const-class v0, Landroid/widget/Editor$SFEffectsAPI$EffectOutput;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -103,6 +115,8 @@
 .method public static values()[Landroid/widget/Editor$SFEffectsAPI$EffectOutput;
     .locals 1
 
+    .prologue
+    .line 7669
     sget-object v0, Landroid/widget/Editor$SFEffectsAPI$EffectOutput;->$VALUES:[Landroid/widget/Editor$SFEffectsAPI$EffectOutput;
 
     return-object v0

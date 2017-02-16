@@ -31,7 +31,19 @@
 # direct methods
 .method constructor <init>(Landroid/accounts/AccountManager;Landroid/accounts/AccountManager;Landroid/app/Activity;Landroid/os/Handler;Landroid/accounts/AccountManagerCallback;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Landroid/app/Activity;Landroid/os/Bundle;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/accounts/AccountManager;
+    .param p2, "this$0_1"    # Landroid/accounts/AccountManager;
+    .param p3, "$anonymous0"    # Landroid/app/Activity;
+    .param p4, "$anonymous1"    # Landroid/os/Handler;
+    .param p6, "val$accountType"    # Ljava/lang/String;
+    .param p7, "val$authTokenType"    # Ljava/lang/String;
+    .param p8, "val$requiredFeatures"    # [Ljava/lang/String;
+    .param p9, "val$activity"    # Landroid/app/Activity;
+    .param p10, "val$optionsIn"    # Landroid/os/Bundle;
 
+    .prologue
+    .line 2726
+    .local p5, "$anonymous2":Landroid/accounts/AccountManagerCallback;, "Landroid/accounts/AccountManagerCallback<Landroid/os/Bundle;>;"
     iput-object p2, p0, Landroid/accounts/AccountManager$20;->this$0:Landroid/accounts/AccountManager;
 
     iput-object p6, p0, Landroid/accounts/AccountManager$20;->val$accountType:Ljava/lang/String;
@@ -59,33 +71,44 @@
         }
     .end annotation
 
+    .prologue
+    .line 2729
     iget-object v0, p0, Landroid/accounts/AccountManager$20;->this$0:Landroid/accounts/AccountManager;
 
     invoke-static {v0}, Landroid/accounts/AccountManager;->-get3(Landroid/accounts/AccountManager;)Landroid/accounts/IAccountManager;
 
     move-result-object v0
 
+    .line 2730
     iget-object v1, p0, Landroid/accounts/AccountManager$AmsTask;->mResponse:Landroid/accounts/IAccountManagerResponse;
 
+    .line 2731
     iget-object v2, p0, Landroid/accounts/AccountManager$20;->val$accountType:Ljava/lang/String;
 
+    .line 2732
     iget-object v3, p0, Landroid/accounts/AccountManager$20;->val$authTokenType:Ljava/lang/String;
 
+    .line 2733
     iget-object v4, p0, Landroid/accounts/AccountManager$20;->val$requiredFeatures:[Ljava/lang/String;
 
+    .line 2734
     iget-object v5, p0, Landroid/accounts/AccountManager$20;->val$activity:Landroid/app/Activity;
 
     if-eqz v5, :cond_0
 
     const/4 v5, 0x1
 
+    .line 2735
     :goto_0
     iget-object v6, p0, Landroid/accounts/AccountManager$20;->val$optionsIn:Landroid/os/Bundle;
 
+    .line 2729
     invoke-interface/range {v0 .. v6}, Landroid/accounts/IAccountManager;->startAddAccountSession(Landroid/accounts/IAccountManagerResponse;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;ZLandroid/os/Bundle;)V
 
+    .line 2728
     return-void
 
+    .line 2734
     :cond_0
     const/4 v5, 0x0
 

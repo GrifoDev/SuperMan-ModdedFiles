@@ -26,7 +26,11 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/fingerprint/FingerprintManager$4;Lcom/samsung/android/fingerprint/FingerprintEvent;)V
     .locals 0
+    .param p1, "this$1"    # Lcom/samsung/android/fingerprint/FingerprintManager$4;
+    .param p2, "val$mEvent"    # Lcom/samsung/android/fingerprint/FingerprintEvent;
 
+    .prologue
+    .line 1398
     iput-object p1, p0, Lcom/samsung/android/fingerprint/FingerprintManager$4$1;->this$1:Lcom/samsung/android/fingerprint/FingerprintManager$4;
 
     iput-object p2, p0, Lcom/samsung/android/fingerprint/FingerprintManager$4$1;->val$mEvent:Lcom/samsung/android/fingerprint/FingerprintEvent;
@@ -41,19 +45,23 @@
 .method public run()V
     .locals 5
 
+    .prologue
     const/4 v2, 0x0
 
+    .line 1401
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintManager$4$1;->val$mEvent:Lcom/samsung/android/fingerprint/FingerprintEvent;
 
     iget v0, v0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventId:I
 
     packed-switch v0, :pswitch_data_0
 
+    .line 1400
     :cond_0
     :goto_0
     :pswitch_0
     return-void
 
+    .line 1407
     :pswitch_1
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintManager$4$1;->val$mEvent:Lcom/samsung/android/fingerprint/FingerprintEvent;
 
@@ -61,6 +69,7 @@
 
     if-nez v0, :cond_1
 
+    .line 1408
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintManager$4$1;->this$1:Lcom/samsung/android/fingerprint/FingerprintManager$4;
 
     iget-object v0, v0, Lcom/samsung/android/fingerprint/FingerprintManager$4;->this$0:Lcom/samsung/android/fingerprint/FingerprintManager;
@@ -85,6 +94,7 @@
 
     goto :goto_0
 
+    .line 1410
     :cond_1
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintManager$4$1;->val$mEvent:Lcom/samsung/android/fingerprint/FingerprintEvent;
 
@@ -94,12 +104,14 @@
 
     if-ne v0, v1, :cond_0
 
+    .line 1411
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintManager$4$1;->val$mEvent:Lcom/samsung/android/fingerprint/FingerprintEvent;
 
     iget v0, v0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventStatus:I
 
     sparse-switch v0, :sswitch_data_0
 
+    .line 1424
     :goto_1
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintManager$4$1;->this$1:Lcom/samsung/android/fingerprint/FingerprintManager$4;
 
@@ -109,6 +121,7 @@
 
     goto :goto_0
 
+    .line 1413
     :sswitch_0
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintManager$4$1;->this$1:Lcom/samsung/android/fingerprint/FingerprintManager$4;
 
@@ -116,6 +129,7 @@
 
     invoke-virtual {v0, v2}, Lcom/samsung/android/fingerprint/FingerprintManager;->setEnrollFinishResult(I)V
 
+    .line 1414
     invoke-static {}, Lcom/samsung/android/fingerprint/FingerprintManager;->-get2()Lcom/samsung/android/fingerprint/FingerprintManager$EnrollFinishListener;
 
     move-result-object v0
@@ -124,6 +138,7 @@
 
     goto :goto_1
 
+    .line 1420
     :sswitch_1
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintManager$4$1;->this$1:Lcom/samsung/android/fingerprint/FingerprintManager$4;
 
@@ -133,6 +148,7 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/fingerprint/FingerprintManager;->setEnrollFinishResult(I)V
 
+    .line 1421
     invoke-static {}, Lcom/samsung/android/fingerprint/FingerprintManager;->-get2()Lcom/samsung/android/fingerprint/FingerprintManager$EnrollFinishListener;
 
     move-result-object v0
@@ -141,6 +157,7 @@
 
     goto :goto_1
 
+    .line 1401
     :pswitch_data_0
     .packed-switch 0xb
         :pswitch_0
@@ -148,6 +165,7 @@
         :pswitch_1
     .end packed-switch
 
+    .line 1411
     :sswitch_data_0
     .sparse-switch
         0x4 -> :sswitch_1

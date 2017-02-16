@@ -137,22 +137,30 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 42
     const-string/jumbo v0, "media_jni"
 
     invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
 
+    .line 43
     invoke-static {}, Landroid/media/MediaMetadataRetriever;->native_init()V
 
+    .line 39
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 56
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 57
     invoke-direct {p0}, Landroid/media/MediaMetadataRetriever;->native_setup()V
 
+    .line 56
     return-void
 .end method
 
@@ -203,26 +211,35 @@
         }
     .end annotation
 
+    .prologue
+    .line 446
     :try_start_0
     invoke-direct {p0}, Landroid/media/MediaMetadataRetriever;->native_finalize()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 448
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
 
+    .line 444
     return-void
 
+    .line 447
     :catchall_0
     move-exception v0
 
+    .line 448
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
 
+    .line 447
     throw v0
 .end method
 
 .method public getEmbeddedPicture()[B
     .locals 1
 
+    .prologue
+    .line 428
     const v0, 0xffff
 
     invoke-direct {p0, v0}, Landroid/media/MediaMetadataRetriever;->getEmbeddedPicture(I)[B
@@ -235,6 +252,8 @@
 .method public getFrameAtTime()Landroid/graphics/Bitmap;
     .locals 3
 
+    .prologue
+    .line 378
     const-wide/16 v0, -0x1
 
     const/4 v2, 0x2
@@ -248,7 +267,10 @@
 
 .method public getFrameAtTime(J)Landroid/graphics/Bitmap;
     .locals 1
+    .param p1, "timeUs"    # J
 
+    .prologue
+    .line 360
     const/4 v0, 0x2
 
     invoke-virtual {p0, p1, p2, v0}, Landroid/media/MediaMetadataRetriever;->getFrameAtTime(JI)Landroid/graphics/Bitmap;
@@ -260,13 +282,19 @@
 
 .method public getFrameAtTime(JI)Landroid/graphics/Bitmap;
     .locals 3
+    .param p1, "timeUs"    # J
+    .param p3, "option"    # I
 
+    .prologue
+    .line 275
     if-ltz p3, :cond_0
 
+    .line 276
     const/4 v0, 0x3
 
     if-le p3, v0, :cond_1
 
+    .line 277
     :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -292,6 +320,7 @@
 
     throw v0
 
+    .line 280
     :cond_1
     invoke-direct {p0, p1, p2, p3}, Landroid/media/MediaMetadataRetriever;->_getFrameAtTime(JI)Landroid/graphics/Bitmap;
 
@@ -305,15 +334,22 @@
 
 .method public semGetFrameAtTime(JII)Landroid/graphics/Bitmap;
     .locals 3
+    .param p1, "timeUs"    # J
+    .param p3, "option"    # I
+    .param p4, "config"    # I
 
+    .prologue
     const/4 v1, 0x1
 
+    .line 324
     if-ltz p3, :cond_0
 
+    .line 325
     const/4 v0, 0x3
 
     if-le p3, v0, :cond_1
 
+    .line 326
     :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -339,11 +375,14 @@
 
     throw v0
 
+    .line 328
     :cond_1
     if-ltz p4, :cond_2
 
+    .line 329
     if-le p4, v1, :cond_3
 
+    .line 330
     :cond_2
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -369,11 +408,14 @@
 
     throw v0
 
+    .line 333
     :cond_3
     if-ne p4, v1, :cond_4
 
+    .line 334
     add-int/lit8 p3, p3, 0x10
 
+    .line 336
     :cond_4
     invoke-direct {p0, p1, p2, p3}, Landroid/media/MediaMetadataRetriever;->_getFrameAtTime(JI)Landroid/graphics/Bitmap;
 
@@ -390,25 +432,32 @@
         }
     .end annotation
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 417
     invoke-direct {p0, v0, v0}, Landroid/media/MediaMetadataRetriever;->detailedThumbnailMode(ZI)V
 
+    .line 416
     return-void
 .end method
 
 .method public semSetDetailedThumbnailMode(I)V
     .locals 1
+    .param p1, "option"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;
         }
     .end annotation
 
+    .prologue
+    .line 407
     const/4 v0, 0x1
 
     invoke-direct {p0, v0, p1}, Landroid/media/MediaMetadataRetriever;->detailedThumbnailMode(ZI)V
 
+    .line 406
     return-void
 .end method
 
@@ -417,6 +466,8 @@
 
 .method public setDataSource(Landroid/content/Context;Landroid/net/Uri;)V
     .locals 12
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "uri"    # Landroid/net/Uri;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;,
@@ -424,25 +475,32 @@
         }
     .end annotation
 
+    .prologue
+    .line 168
     if-nez p2, :cond_0
 
+    .line 169
     const-string/jumbo v0, "MediaMetadataRetriever"
 
     const-string/jumbo v2, "setDataSource - uri is null"
 
     invoke-static {v0, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 170
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
 
     throw v0
 
+    .line 173
     :cond_0
     invoke-virtual {p2}, Landroid/net/Uri;->getScheme()Ljava/lang/String;
 
     move-result-object v11
 
+    .line 174
+    .local v11, "scheme":Ljava/lang/String;
     if-eqz v11, :cond_1
 
     const-string/jumbo v0, "file"
@@ -453,6 +511,7 @@
 
     if-eqz v0, :cond_2
 
+    .line 175
     :cond_1
     invoke-virtual {p2}, Landroid/net/Uri;->getPath()Ljava/lang/String;
 
@@ -460,11 +519,15 @@
 
     invoke-virtual {p0, v0}, Landroid/media/MediaMetadataRetriever;->setDataSource(Ljava/lang/String;)V
 
+    .line 176
     return-void
 
+    .line 179
     :cond_2
     const/4 v8, 0x0
 
+    .line 181
+    .local v8, "fd":Landroid/content/res/AssetFileDescriptor;
     :try_start_0
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
     :try_end_0
@@ -473,6 +536,8 @@
 
     move-result-object v10
 
+    .line 183
+    .local v10, "resolver":Landroid/content/ContentResolver;
     :try_start_1
     const-string/jumbo v0, "r"
 
@@ -484,8 +549,11 @@
 
     move-result-object v8
 
+    .line 188
+    .local v8, "fd":Landroid/content/res/AssetFileDescriptor;
     if-nez v8, :cond_5
 
+    .line 189
     :try_start_2
     const-string/jumbo v0, "MediaMetadataRetriever"
 
@@ -493,6 +561,7 @@
 
     invoke-static {v0, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 190
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
@@ -502,16 +571,23 @@
     .catch Ljava/lang/SecurityException; {:try_start_2 .. :try_end_2} :catch_0
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
+    .line 206
+    .end local v8    # "fd":Landroid/content/res/AssetFileDescriptor;
+    .end local v10    # "resolver":Landroid/content/ContentResolver;
     :catch_0
     move-exception v7
 
+    .line 209
+    .local v7, "ex":Ljava/lang/SecurityException;
     if-eqz v8, :cond_3
 
+    .line 210
     :try_start_3
     invoke-virtual {v8}, Landroid/content/res/AssetFileDescriptor;->close()V
     :try_end_3
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_3
 
+    .line 216
     :cond_3
     :goto_0
     invoke-virtual {p2}, Landroid/net/Uri;->toString()Ljava/lang/String;
@@ -520,11 +596,18 @@
 
     invoke-virtual {p0, v0}, Landroid/media/MediaMetadataRetriever;->setDataSource(Ljava/lang/String;)V
 
+    .line 167
     return-void
 
+    .line 184
+    .end local v7    # "ex":Ljava/lang/SecurityException;
+    .local v8, "fd":Landroid/content/res/AssetFileDescriptor;
+    .restart local v10    # "resolver":Landroid/content/ContentResolver;
     :catch_1
     move-exception v6
 
+    .line 185
+    .local v6, "e":Ljava/io/FileNotFoundException;
     :try_start_4
     const-string/jumbo v0, "MediaMetadataRetriever"
 
@@ -532,6 +615,7 @@
 
     invoke-static {v0, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 186
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
@@ -541,44 +625,59 @@
     .catch Ljava/lang/SecurityException; {:try_start_4 .. :try_end_4} :catch_0
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
+    .line 207
+    .end local v6    # "e":Ljava/io/FileNotFoundException;
+    .end local v8    # "fd":Landroid/content/res/AssetFileDescriptor;
+    .end local v10    # "resolver":Landroid/content/ContentResolver;
     :catchall_0
     move-exception v0
 
+    .line 209
     if-eqz v8, :cond_4
 
+    .line 210
     :try_start_5
     invoke-virtual {v8}, Landroid/content/res/AssetFileDescriptor;->close()V
     :try_end_5
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_4
 
+    .line 207
     :cond_4
     :goto_1
     throw v0
 
+    .line 192
+    .local v8, "fd":Landroid/content/res/AssetFileDescriptor;
+    .restart local v10    # "resolver":Landroid/content/ContentResolver;
     :cond_5
     :try_start_6
     invoke-virtual {v8}, Landroid/content/res/AssetFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
 
     move-result-object v1
 
+    .line 193
+    .local v1, "descriptor":Ljava/io/FileDescriptor;
     invoke-virtual {v1}, Ljava/io/FileDescriptor;->valid()Z
 
     move-result v0
 
     if-nez v0, :cond_6
 
+    .line 194
     const-string/jumbo v0, "MediaMetadataRetriever"
 
     const-string/jumbo v2, "setDataSource -descriptor is not valid"
 
     invoke-static {v0, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 195
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
 
     throw v0
 
+    .line 200
     :cond_6
     invoke-virtual {v8}, Landroid/content/res/AssetFileDescriptor;->getDeclaredLength()J
 
@@ -590,23 +689,28 @@
 
     if-gez v0, :cond_8
 
+    .line 201
     invoke-virtual {p0, v1}, Landroid/media/MediaMetadataRetriever;->setDataSource(Ljava/io/FileDescriptor;)V
     :try_end_6
     .catch Ljava/lang/SecurityException; {:try_start_6 .. :try_end_6} :catch_0
     .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
+    .line 209
     :goto_2
     if-eqz v8, :cond_7
 
+    .line 210
     :try_start_7
     invoke-virtual {v8}, Landroid/content/res/AssetFileDescriptor;->close()V
     :try_end_7
     .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_2
 
+    .line 205
     :cond_7
     :goto_3
     return-void
 
+    .line 203
     :cond_8
     :try_start_8
     invoke-virtual {v8}, Landroid/content/res/AssetFileDescriptor;->getStartOffset()J
@@ -626,9 +730,12 @@
 
     goto :goto_2
 
+    .line 212
     :catch_2
     move-exception v9
 
+    .line 213
+    .local v9, "ioEx":Ljava/io/IOException;
     const-string/jumbo v0, "MediaMetadataRetriever"
 
     const-string/jumbo v2, "setDataSource -descriptor is not valid"
@@ -637,9 +744,17 @@
 
     goto :goto_3
 
+    .line 212
+    .end local v1    # "descriptor":Ljava/io/FileDescriptor;
+    .end local v8    # "fd":Landroid/content/res/AssetFileDescriptor;
+    .end local v9    # "ioEx":Ljava/io/IOException;
+    .end local v10    # "resolver":Landroid/content/ContentResolver;
+    .restart local v7    # "ex":Ljava/lang/SecurityException;
     :catch_3
     move-exception v9
 
+    .line 213
+    .restart local v9    # "ioEx":Ljava/io/IOException;
     const-string/jumbo v0, "MediaMetadataRetriever"
 
     const-string/jumbo v2, "setDataSource -descriptor is not valid"
@@ -648,9 +763,14 @@
 
     goto :goto_0
 
+    .line 212
+    .end local v7    # "ex":Ljava/lang/SecurityException;
+    .end local v9    # "ioEx":Ljava/io/IOException;
     :catch_4
     move-exception v9
 
+    .line 213
+    .restart local v9    # "ioEx":Ljava/io/IOException;
     const-string/jumbo v2, "MediaMetadataRetriever"
 
     const-string/jumbo v3, "setDataSource -descriptor is not valid"
@@ -662,25 +782,32 @@
 
 .method public setDataSource(Landroid/media/MediaDataSource;)V
     .locals 0
+    .param p1, "dataSource"    # Landroid/media/MediaDataSource;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
         }
     .end annotation
 
+    .prologue
+    .line 226
     invoke-direct {p0, p1}, Landroid/media/MediaMetadataRetriever;->_setDataSource(Landroid/media/MediaDataSource;)V
 
+    .line 225
     return-void
 .end method
 
 .method public setDataSource(Ljava/io/FileDescriptor;)V
     .locals 6
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
         }
     .end annotation
 
+    .prologue
+    .line 153
     const-wide/16 v2, 0x0
 
     const-wide v4, 0x7ffffffffffffffL
@@ -691,6 +818,7 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/media/MediaMetadataRetriever;->setDataSource(Ljava/io/FileDescriptor;JJ)V
 
+    .line 151
     return-void
 .end method
 
@@ -704,29 +832,37 @@
 
 .method public setDataSource(Ljava/lang/String;)V
     .locals 11
+    .param p1, "path"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
         }
     .end annotation
 
+    .prologue
+    .line 69
     if-nez p1, :cond_0
 
+    .line 70
     const-string/jumbo v0, "MediaMetadataRetriever"
 
     const-string/jumbo v2, "setDataSource path is null"
 
     invoke-static {v0, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 71
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
 
     throw v0
 
+    .line 74
     :cond_0
     const/4 v9, 0x0
 
+    .line 76
+    .local v9, "is":Ljava/io/FileInputStream;
     :try_start_0
     new-instance v10, Ljava/io/FileInputStream;
 
@@ -735,11 +871,16 @@
     .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 77
+    .local v10, "is":Ljava/io/FileInputStream;
     :try_start_1
     invoke-virtual {v10}, Ljava/io/FileInputStream;->getFD()Ljava/io/FileDescriptor;
 
+    .end local v9    # "is":Ljava/io/FileInputStream;
     move-result-object v1
 
+    .line 78
+    .local v1, "fd":Ljava/io/FileDescriptor;
     const-wide/16 v2, 0x0
 
     const-wide v4, 0x7ffffffffffffffL
@@ -751,20 +892,30 @@
     .catch Ljava/io/FileNotFoundException; {:try_start_1 .. :try_end_1} :catch_3
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_4
 
+    .line 88
     if-eqz v10, :cond_1
 
+    .line 89
     :try_start_2
     invoke-virtual {v10}, Ljava/io/FileInputStream;->close()V
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_2
 
+    .line 68
     :cond_1
     :goto_0
     return-void
 
+    .line 82
+    .end local v1    # "fd":Ljava/io/FileDescriptor;
+    .end local v10    # "is":Ljava/io/FileInputStream;
+    .restart local v9    # "is":Ljava/io/FileInputStream;
     :catch_0
     move-exception v8
 
+    .line 83
+    .end local v9    # "is":Ljava/io/FileInputStream;
+    .local v8, "ioEx":Ljava/io/IOException;
     :goto_1
     const-string/jumbo v0, "MediaMetadataRetriever"
 
@@ -772,15 +923,22 @@
 
     invoke-static {v0, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 84
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
 
     throw v0
 
+    .line 79
+    .end local v8    # "ioEx":Ljava/io/IOException;
+    .restart local v9    # "is":Ljava/io/FileInputStream;
     :catch_1
     move-exception v7
 
+    .line 80
+    .end local v9    # "is":Ljava/io/FileInputStream;
+    .local v7, "fileEx":Ljava/io/FileNotFoundException;
     :goto_2
     const-string/jumbo v0, "MediaMetadataRetriever"
 
@@ -788,34 +946,54 @@
 
     invoke-static {v0, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 81
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
 
     throw v0
 
+    .line 91
+    .end local v7    # "fileEx":Ljava/io/FileNotFoundException;
+    .restart local v1    # "fd":Ljava/io/FileDescriptor;
+    .restart local v10    # "is":Ljava/io/FileInputStream;
     :catch_2
     move-exception v6
 
+    .local v6, "e":Ljava/lang/Exception;
     goto :goto_0
 
+    .line 79
+    .end local v1    # "fd":Ljava/io/FileDescriptor;
+    .end local v6    # "e":Ljava/lang/Exception;
     :catch_3
     move-exception v7
 
+    .restart local v7    # "fileEx":Ljava/io/FileNotFoundException;
     move-object v9, v10
 
+    .end local v10    # "is":Ljava/io/FileInputStream;
+    .local v9, "is":Ljava/io/FileInputStream;
     goto :goto_2
 
+    .line 82
+    .end local v7    # "fileEx":Ljava/io/FileNotFoundException;
+    .end local v9    # "is":Ljava/io/FileInputStream;
+    .restart local v10    # "is":Ljava/io/FileInputStream;
     :catch_4
     move-exception v8
 
+    .restart local v8    # "ioEx":Ljava/io/IOException;
     move-object v9, v10
 
+    .end local v10    # "is":Ljava/io/FileInputStream;
+    .restart local v9    # "is":Ljava/io/FileInputStream;
     goto :goto_1
 .end method
 
 .method public setDataSource(Ljava/lang/String;Ljava/util/Map;)V
     .locals 6
+    .param p1, "uri"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -834,20 +1012,29 @@
         }
     .end annotation
 
+    .prologue
+    .line 105
+    .local p2, "headers":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     const/4 v2, 0x0
 
+    .line 106
+    .local v2, "i":I
     invoke-interface {p2}, Ljava/util/Map;->size()I
 
     move-result v5
 
     new-array v3, v5, [Ljava/lang/String;
 
+    .line 107
+    .local v3, "keys":[Ljava/lang/String;
     invoke-interface {p2}, Ljava/util/Map;->size()I
 
     move-result v5
 
     new-array v4, v5, [Ljava/lang/String;
 
+    .line 108
+    .local v4, "values":[Ljava/lang/String;
     invoke-interface {p2}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
     move-result-object v5
@@ -856,6 +1043,7 @@
 
     move-result-object v1
 
+    .local v1, "entry$iterator":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -869,6 +1057,8 @@
 
     check-cast v0, Ljava/util/Map$Entry;
 
+    .line 109
+    .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;"
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v5
@@ -877,6 +1067,7 @@
 
     aput-object v5, v3, v2
 
+    .line 110
     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v5
@@ -885,16 +1076,21 @@
 
     aput-object v5, v4, v2
 
+    .line 111
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
+    .line 115
+    .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;"
     :cond_0
     invoke-static {p1}, Landroid/media/MediaHTTPService;->createHttpServiceBinderIfNecessary(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v5
 
+    .line 114
     invoke-direct {p0, v5, p1, v3, v4}, Landroid/media/MediaMetadataRetriever;->_setDataSource(Landroid/os/IBinder;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)V
 
+    .line 104
     return-void
 .end method

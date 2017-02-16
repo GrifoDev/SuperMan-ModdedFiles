@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Landroid/widget/SemHorizontalAbsListView;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/widget/SemHorizontalAbsListView;
 
+    .prologue
+    .line 7580
     iput-object p1, p0, Landroid/widget/SemHorizontalAbsListView$6;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,14 +40,17 @@
 .method public run()V
     .locals 3
 
+    .prologue
     const/4 v2, 0x0
 
+    .line 7583
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView$6;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
     iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mCachingStarted:Z
 
     if-eqz v0, :cond_1
 
+    .line 7584
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView$6;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView$6;->this$0:Landroid/widget/SemHorizontalAbsListView;
@@ -53,10 +59,12 @@
 
     iput-boolean v2, v0, Landroid/widget/SemHorizontalAbsListView;->mCachingStarted:Z
 
+    .line 7585
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView$6;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
     invoke-static {v0, v2}, Landroid/widget/SemHorizontalAbsListView;->-wrap10(Landroid/widget/SemHorizontalAbsListView;Z)V
 
+    .line 7586
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView$6;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
     invoke-static {v0}, Landroid/widget/SemHorizontalAbsListView;->-get22(Landroid/widget/SemHorizontalAbsListView;)I
@@ -67,10 +75,12 @@
 
     if-nez v0, :cond_0
 
+    .line 7587
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView$6;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
     invoke-static {v0, v2}, Landroid/widget/SemHorizontalAbsListView;->-wrap9(Landroid/widget/SemHorizontalAbsListView;Z)V
 
+    .line 7589
     :cond_0
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView$6;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
@@ -80,10 +90,12 @@
 
     if-nez v0, :cond_1
 
+    .line 7590
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView$6;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
     invoke-virtual {v0}, Landroid/view/View;->invalidate()V
 
+    .line 7582
     :cond_1
     return-void
 .end method

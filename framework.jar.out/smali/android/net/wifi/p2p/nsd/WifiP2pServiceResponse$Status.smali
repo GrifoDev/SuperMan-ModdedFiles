@@ -28,6 +28,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 106
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -35,33 +37,42 @@
 
 .method public static toString(I)Ljava/lang/String;
     .locals 1
+    .param p0, "status"    # I
 
+    .prologue
+    .line 91
     packed-switch p0, :pswitch_data_0
 
+    .line 101
     const-string/jumbo v0, "UNKNOWN"
 
     return-object v0
 
+    .line 93
     :pswitch_0
     const-string/jumbo v0, "SUCCESS"
 
     return-object v0
 
+    .line 95
     :pswitch_1
     const-string/jumbo v0, "SERVICE_PROTOCOL_NOT_AVAILABLE"
 
     return-object v0
 
+    .line 97
     :pswitch_2
     const-string/jumbo v0, "REQUESTED_INFORMATION_NOT_AVAILABLE"
 
     return-object v0
 
+    .line 99
     :pswitch_3
     const-string/jumbo v0, "BAD_REQUEST"
 
     return-object v0
 
+    .line 91
     nop
 
     :pswitch_data_0

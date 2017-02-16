@@ -18,6 +18,9 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 32
+    .local p0, "this":Landroid/content/res/ConstantState;, "Landroid/content/res/ConstantState<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -38,6 +41,7 @@
 
 .method public newInstance(Landroid/content/res/Resources;)Ljava/lang/Object;
     .locals 1
+    .param p1, "res"    # Landroid/content/res/Resources;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -46,6 +50,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 53
+    .local p0, "this":Landroid/content/res/ConstantState;, "Landroid/content/res/ConstantState<TT;>;"
     invoke-virtual {p0}, Landroid/content/res/ConstantState;->newInstance()Ljava/lang/Object;
 
     move-result-object v0
@@ -55,6 +62,8 @@
 
 .method public newInstance(Landroid/content/res/Resources;Landroid/content/res/Resources$Theme;)Ljava/lang/Object;
     .locals 1
+    .param p1, "res"    # Landroid/content/res/Resources;
+    .param p2, "theme"    # Landroid/content/res/Resources$Theme;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -64,6 +73,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 61
+    .local p0, "this":Landroid/content/res/ConstantState;, "Landroid/content/res/ConstantState<TT;>;"
     invoke-virtual {p0, p1}, Landroid/content/res/ConstantState;->newInstance(Landroid/content/res/Resources;)Ljava/lang/Object;
 
     move-result-object v0

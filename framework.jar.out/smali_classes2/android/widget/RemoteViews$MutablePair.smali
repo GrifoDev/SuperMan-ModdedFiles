@@ -52,12 +52,20 @@
         }
     .end annotation
 
+    .prologue
+    .line 277
+    .local p0, "this":Landroid/widget/RemoteViews$MutablePair;, "Landroid/widget/RemoteViews$MutablePair<TF;TS;>;"
+    .local p1, "first":Ljava/lang/Object;, "TF;"
+    .local p2, "second":Ljava/lang/Object;, "TS;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 278
     iput-object p1, p0, Landroid/widget/RemoteViews$MutablePair;->first:Ljava/lang/Object;
 
+    .line 279
     iput-object p2, p0, Landroid/widget/RemoteViews$MutablePair;->second:Ljava/lang/Object;
 
+    .line 277
     return-void
 .end method
 
@@ -65,20 +73,28 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
+    .param p1, "o"    # Ljava/lang/Object;
 
+    .prologue
+    .local p0, "this":Landroid/widget/RemoteViews$MutablePair;, "Landroid/widget/RemoteViews$MutablePair<TF;TS;>;"
     const/4 v1, 0x0
 
+    .line 284
     instance-of v2, p1, Landroid/widget/RemoteViews$MutablePair;
 
     if-nez v2, :cond_0
 
+    .line 285
     return v1
 
     :cond_0
     move-object v0, p1
 
+    .line 287
     check-cast v0, Landroid/widget/RemoteViews$MutablePair;
 
+    .line 288
+    .local v0, "p":Landroid/widget/RemoteViews$MutablePair;, "Landroid/widget/RemoteViews$MutablePair<**>;"
     iget-object v2, v0, Landroid/widget/RemoteViews$MutablePair;->first:Ljava/lang/Object;
 
     iget-object v3, p0, Landroid/widget/RemoteViews$MutablePair;->first:Ljava/lang/Object;
@@ -104,8 +120,11 @@
 .method public hashCode()I
     .locals 3
 
+    .prologue
+    .local p0, "this":Landroid/widget/RemoteViews$MutablePair;, "Landroid/widget/RemoteViews$MutablePair<TF;TS;>;"
     const/4 v1, 0x0
 
+    .line 293
     iget-object v0, p0, Landroid/widget/RemoteViews$MutablePair;->first:Ljava/lang/Object;
 
     if-nez v0, :cond_0

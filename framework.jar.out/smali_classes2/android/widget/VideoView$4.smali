@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Landroid/widget/VideoView;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/widget/VideoView;
 
+    .prologue
+    .line 499
     iput-object p1, p0, Landroid/widget/VideoView$4;->this$0:Landroid/widget/VideoView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +39,12 @@
 # virtual methods
 .method public onInfo(Landroid/media/MediaPlayer;II)Z
     .locals 1
+    .param p1, "mp"    # Landroid/media/MediaPlayer;
+    .param p2, "arg1"    # I
+    .param p3, "arg2"    # I
 
+    .prologue
+    .line 501
     iget-object v0, p0, Landroid/widget/VideoView$4;->this$0:Landroid/widget/VideoView;
 
     invoke-static {v0}, Landroid/widget/VideoView;->-get6(Landroid/widget/VideoView;)Landroid/media/MediaPlayer$OnInfoListener;
@@ -45,6 +53,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 502
     iget-object v0, p0, Landroid/widget/VideoView$4;->this$0:Landroid/widget/VideoView;
 
     invoke-static {v0}, Landroid/widget/VideoView;->-get6(Landroid/widget/VideoView;)Landroid/media/MediaPlayer$OnInfoListener;
@@ -53,6 +62,7 @@
 
     invoke-interface {v0, p1, p2, p3}, Landroid/media/MediaPlayer$OnInfoListener;->onInfo(Landroid/media/MediaPlayer;II)Z
 
+    .line 504
     :cond_0
     const/4 v0, 0x1
 

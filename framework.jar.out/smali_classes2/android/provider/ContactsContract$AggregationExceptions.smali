@@ -41,6 +41,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 7912
     sget-object v0, Landroid/provider/ContactsContract;->AUTHORITY_URI:Landroid/net/Uri;
 
     const-string/jumbo v1, "aggregation_exceptions"
@@ -49,14 +51,18 @@
 
     move-result-object v0
 
+    .line 7911
     sput-object v0, Landroid/provider/ContactsContract$AggregationExceptions;->CONTENT_URI:Landroid/net/Uri;
 
+    .line 7902
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 7906
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

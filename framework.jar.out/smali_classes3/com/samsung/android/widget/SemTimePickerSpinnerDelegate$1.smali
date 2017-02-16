@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;
 
+    .prologue
+    .line 260
     iput-object p1, p0, Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate$1;->this$0:Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,14 +39,20 @@
 # virtual methods
 .method public onEditTextModeChanged(Lcom/samsung/android/widget/SemNumberPicker;Z)V
     .locals 1
+    .param p1, "picker"    # Lcom/samsung/android/widget/SemNumberPicker;
+    .param p2, "mode"    # Z
 
+    .prologue
+    .line 263
     iget-object v0, p0, Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate$1;->this$0:Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;
 
     invoke-virtual {v0, p2}, Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;->setEditTextMode(Z)V
 
+    .line 264
     iget-object v0, p0, Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate$1;->this$0:Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;
 
     invoke-static {v0, p1, p2}, Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;->-wrap4(Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;Lcom/samsung/android/widget/SemNumberPicker;Z)V
 
+    .line 262
     return-void
 .end method

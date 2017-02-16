@@ -24,7 +24,10 @@
 # direct methods
 .method private constructor <init>(Landroid/hardware/camera2/utils/CloseableLock;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/hardware/camera2/utils/CloseableLock;
 
+    .prologue
+    .line 74
     iput-object p1, p0, Landroid/hardware/camera2/utils/CloseableLock$ScopedLock;->this$0:Landroid/hardware/camera2/utils/CloseableLock;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,7 +37,9 @@
 
 .method synthetic constructor <init>(Landroid/hardware/camera2/utils/CloseableLock;Landroid/hardware/camera2/utils/CloseableLock$ScopedLock;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/hardware/camera2/utils/CloseableLock;
 
+    .prologue
     invoke-direct {p0, p1}, Landroid/hardware/camera2/utils/CloseableLock$ScopedLock;-><init>(Landroid/hardware/camera2/utils/CloseableLock;)V
 
     return-void
@@ -45,9 +50,12 @@
 .method public close()V
     .locals 1
 
+    .prologue
+    .line 79
     iget-object v0, p0, Landroid/hardware/camera2/utils/CloseableLock$ScopedLock;->this$0:Landroid/hardware/camera2/utils/CloseableLock;
 
     invoke-virtual {v0}, Landroid/hardware/camera2/utils/CloseableLock;->releaseLock()V
 
+    .line 78
     return-void
 .end method

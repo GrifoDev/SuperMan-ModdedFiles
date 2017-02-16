@@ -33,6 +33,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 89
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -42,9 +44,13 @@
 # virtual methods
 .method public bridge synthetic test(Ljava/lang/Object;)Z
     .locals 1
+    .param p1, "weakRef"    # Ljava/lang/Object;
 
+    .prologue
+    .line 91
     check-cast p1, Ljava/lang/ref/WeakReference;
 
+    .end local p1    # "weakRef":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Landroid/app/ResourcesManager$1;->test(Ljava/lang/ref/WeakReference;)Z
 
     move-result v0
@@ -64,8 +70,11 @@
         }
     .end annotation
 
+    .prologue
+    .local p1, "weakRef":Ljava/lang/ref/WeakReference;, "Ljava/lang/ref/WeakReference<Landroid/content/res/Resources;>;"
     const/4 v0, 0x1
 
+    .line 92
     if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;

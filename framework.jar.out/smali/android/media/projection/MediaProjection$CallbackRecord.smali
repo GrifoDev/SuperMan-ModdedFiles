@@ -31,13 +31,20 @@
 
 .method public constructor <init>(Landroid/media/projection/MediaProjection$Callback;Landroid/os/Handler;)V
     .locals 0
+    .param p1, "callback"    # Landroid/media/projection/MediaProjection$Callback;
+    .param p2, "handler"    # Landroid/os/Handler;
 
+    .prologue
+    .line 220
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 221
     iput-object p1, p0, Landroid/media/projection/MediaProjection$CallbackRecord;->mCallback:Landroid/media/projection/MediaProjection$Callback;
 
+    .line 222
     iput-object p2, p0, Landroid/media/projection/MediaProjection$CallbackRecord;->mHandler:Landroid/os/Handler;
 
+    .line 220
     return-void
 .end method
 
@@ -46,6 +53,8 @@
 .method public onStop()V
     .locals 2
 
+    .prologue
+    .line 226
     iget-object v0, p0, Landroid/media/projection/MediaProjection$CallbackRecord;->mHandler:Landroid/os/Handler;
 
     new-instance v1, Landroid/media/projection/MediaProjection$CallbackRecord$1;
@@ -54,5 +63,6 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
+    .line 225
     return-void
 .end method

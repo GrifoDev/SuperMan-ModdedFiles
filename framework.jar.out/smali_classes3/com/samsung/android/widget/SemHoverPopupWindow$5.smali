@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/widget/SemHoverPopupWindow;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/samsung/android/widget/SemHoverPopupWindow;
 
+    .prologue
+    .line 1115
     iput-object p1, p0, Lcom/samsung/android/widget/SemHoverPopupWindow$5;->this$0:Lcom/samsung/android/widget/SemHoverPopupWindow;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,10 +40,13 @@
 .method public run()V
     .locals 4
 
+    .prologue
+    .line 1117
     iget-object v0, p0, Lcom/samsung/android/widget/SemHoverPopupWindow$5;->this$0:Lcom/samsung/android/widget/SemHoverPopupWindow;
 
     invoke-static {v0}, Lcom/samsung/android/widget/SemHoverPopupWindow;->-wrap2(Lcom/samsung/android/widget/SemHoverPopupWindow;)V
 
+    .line 1119
     iget-object v0, p0, Lcom/samsung/android/widget/SemHoverPopupWindow$5;->this$0:Lcom/samsung/android/widget/SemHoverPopupWindow;
 
     iget v0, v0, Lcom/samsung/android/widget/SemHoverPopupWindow;->mPopupType:I
@@ -57,6 +63,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 1120
     iget-object v0, p0, Lcom/samsung/android/widget/SemHoverPopupWindow$5;->this$0:Lcom/samsung/android/widget/SemHoverPopupWindow;
 
     iget-object v0, v0, Lcom/samsung/android/widget/SemHoverPopupWindow;->mParentView:Landroid/view/View;
@@ -71,6 +78,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z
 
+    .line 1116
     :cond_0
     return-void
 .end method

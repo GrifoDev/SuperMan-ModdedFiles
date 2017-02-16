@@ -18,6 +18,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -27,14 +29,20 @@
 # virtual methods
 .method public onClickHandler(Landroid/view/View;Landroid/app/PendingIntent;)Z
     .locals 9
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "pendingIntent"    # Landroid/app/PendingIntent;
 
+    .prologue
     const/4 v8, 0x0
 
+    .line 47
     :try_start_0
     invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
+    .line 55
+    .local v0, "context":Landroid/content/Context;
     invoke-virtual {p2}, Landroid/app/PendingIntent;->getIntentSender()Landroid/content/IntentSender;
 
     move-result-object v1
@@ -43,24 +51,31 @@
 
     invoke-direct {v2}, Landroid/content/Intent;-><init>()V
 
+    .line 56
     const/high16 v3, 0x10000000
 
     const/high16 v4, 0x10000000
 
     const/4 v5, 0x0
 
+    .line 55
     invoke-virtual/range {v0 .. v5}, Landroid/content/Context;->startIntentSender(Landroid/content/IntentSender;Landroid/content/Intent;III)V
     :try_end_0
     .catch Landroid/content/IntentSender$SendIntentException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 64
     const/4 v1, 0x1
 
     return v1
 
+    .line 60
+    .end local v0    # "context":Landroid/content/Context;
     :catch_0
     move-exception v7
 
+    .line 61
+    .local v7, "e":Ljava/lang/Exception;
     invoke-static {}, Lcom/samsung/android/cocktailbar/AbsCocktailLoadablePanel;->-get0()Ljava/lang/String;
 
     move-result-object v1
@@ -69,11 +84,16 @@
 
     invoke-static {v1, v2, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
+    .line 62
     return v8
 
+    .line 57
+    .end local v7    # "e":Ljava/lang/Exception;
     :catch_1
     move-exception v6
 
+    .line 58
+    .local v6, "e":Landroid/content/IntentSender$SendIntentException;
     invoke-static {}, Lcom/samsung/android/cocktailbar/AbsCocktailLoadablePanel;->-get0()Ljava/lang/String;
 
     move-result-object v1
@@ -82,5 +102,6 @@
 
     invoke-static {v1, v2, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
+    .line 59
     return v8
 .end method

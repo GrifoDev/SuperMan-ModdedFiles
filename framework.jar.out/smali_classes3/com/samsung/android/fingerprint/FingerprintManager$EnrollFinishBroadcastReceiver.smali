@@ -25,15 +25,23 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/fingerprint/FingerprintManager;Lcom/samsung/android/fingerprint/FingerprintManager$EnrollFinishListener;Ljava/lang/String;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/samsung/android/fingerprint/FingerprintManager;
+    .param p2, "listener"    # Lcom/samsung/android/fingerprint/FingerprintManager$EnrollFinishListener;
+    .param p3, "id"    # Ljava/lang/String;
 
+    .prologue
+    .line 1220
     iput-object p1, p0, Lcom/samsung/android/fingerprint/FingerprintManager$EnrollFinishBroadcastReceiver;->this$0:Lcom/samsung/android/fingerprint/FingerprintManager;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
+    .line 1221
     iput-object p2, p0, Lcom/samsung/android/fingerprint/FingerprintManager$EnrollFinishBroadcastReceiver;->mListener:Lcom/samsung/android/fingerprint/FingerprintManager$EnrollFinishListener;
 
+    .line 1222
     iput-object p3, p0, Lcom/samsung/android/fingerprint/FingerprintManager$EnrollFinishBroadcastReceiver;->mId:Ljava/lang/String;
 
+    .line 1220
     return-void
 .end method
 
@@ -41,15 +49,22 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 6
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 1227
     if-eqz p2, :cond_2
 
+    .line 1228
     const-string/jumbo v3, "previousStage"
 
     invoke-virtual {p2, v3}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
+    .line 1230
+    .local v1, "id":Ljava/lang/String;
     const-string/jumbo v3, "enrollResult"
 
     const/4 v4, 0x1
@@ -58,6 +73,8 @@
 
     move-result v2
 
+    .line 1231
+    .local v2, "resultCode":I
     const-string/jumbo v3, "FPMS_FingerprintManager"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -80,8 +97,10 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1233
     if-eqz v1, :cond_3
 
+    .line 1234
     const-string/jumbo v3, "FPMS_FingerprintManager"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -104,6 +123,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1235
     iget-object v3, p0, Lcom/samsung/android/fingerprint/FingerprintManager$EnrollFinishBroadcastReceiver;->mId:Ljava/lang/String;
 
     invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -112,6 +132,7 @@
 
     if-eqz v3, :cond_2
 
+    .line 1236
     invoke-static {}, Lcom/samsung/android/fingerprint/FingerprintManager;->-get6()Ljava/lang/String;
 
     move-result-object v3
@@ -128,32 +149,44 @@
 
     if-gtz v3, :cond_1
 
+    .line 1237
     :cond_0
     iget-object v3, p0, Lcom/samsung/android/fingerprint/FingerprintManager$EnrollFinishBroadcastReceiver;->this$0:Lcom/samsung/android/fingerprint/FingerprintManager;
 
     invoke-virtual {v3}, Lcom/samsung/android/fingerprint/FingerprintManager;->notifyEnrollEnd()Z
 
+    .line 1239
     :cond_1
     iget-object v3, p0, Lcom/samsung/android/fingerprint/FingerprintManager$EnrollFinishBroadcastReceiver;->this$0:Lcom/samsung/android/fingerprint/FingerprintManager;
 
     invoke-virtual {v3, v2}, Lcom/samsung/android/fingerprint/FingerprintManager;->setEnrollFinishResult(I)V
 
+    .line 1240
     iget-object v3, p0, Lcom/samsung/android/fingerprint/FingerprintManager$EnrollFinishBroadcastReceiver;->mListener:Lcom/samsung/android/fingerprint/FingerprintManager$EnrollFinishListener;
 
     invoke-interface {v3}, Lcom/samsung/android/fingerprint/FingerprintManager$EnrollFinishListener;->onEnrollFinish()V
 
+    .line 1242
     :try_start_0
     invoke-virtual {p1, p0}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
     :try_end_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 1226
+    .end local v1    # "id":Ljava/lang/String;
+    .end local v2    # "resultCode":I
     :cond_2
     :goto_0
     return-void
 
+    .line 1243
+    .restart local v1    # "id":Ljava/lang/String;
+    .restart local v2    # "resultCode":I
     :catch_0
     move-exception v0
 
+    .line 1244
+    .local v0, "e":Ljava/lang/IllegalArgumentException;
     iget-object v3, p0, Lcom/samsung/android/fingerprint/FingerprintManager$EnrollFinishBroadcastReceiver;->this$0:Lcom/samsung/android/fingerprint/FingerprintManager;
 
     const-string/jumbo v4, "onReceive"
@@ -164,6 +197,8 @@
 
     goto :goto_0
 
+    .line 1248
+    .end local v0    # "e":Ljava/lang/IllegalArgumentException;
     :cond_3
     const-string/jumbo v3, "FPMS_FingerprintManager"
 

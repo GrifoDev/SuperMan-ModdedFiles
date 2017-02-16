@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/infoextraction/SemInfoExtractionManager;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/samsung/android/infoextraction/SemInfoExtractionManager;
 
+    .prologue
+    .line 429
     iput-object p1, p0, Lcom/samsung/android/infoextraction/SemInfoExtractionManager$IncomingHandler;->this$0:Lcom/samsung/android/infoextraction/SemInfoExtractionManager;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -33,9 +36,12 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 8
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
     const-wide/16 v6, -0x1
 
+    .line 432
     invoke-static {}, Lcom/samsung/android/infoextraction/SemInfoExtractionManager;->-get0()Ljava/lang/String;
 
     move-result-object v3
@@ -44,6 +50,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 433
     invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;
 
     move-result-object v3
@@ -54,10 +61,14 @@
 
     move-result-wide v0
 
+    .line 434
+    .local v0, "receivedReqTime":J
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
+    .line 435
+    .local v2, "semExtractedInfoList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/samsung/android/infoextraction/SemExtractedInfo;>;"
     invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;
 
     move-result-object v3
@@ -68,12 +79,14 @@
 
     move-result-object v2
 
+    .line 436
     iget-object v3, p0, Lcom/samsung/android/infoextraction/SemInfoExtractionManager$IncomingHandler;->this$0:Lcom/samsung/android/infoextraction/SemInfoExtractionManager;
 
     iget-object v3, v3, Lcom/samsung/android/infoextraction/SemInfoExtractionManager;->mOnExtractionCompletedListener:Lcom/samsung/android/infoextraction/SemInfoExtractionManager$OnExtractionCompletedListener;
 
     if-eqz v3, :cond_0
 
+    .line 437
     invoke-static {}, Lcom/samsung/android/infoextraction/SemInfoExtractionManager;->-get0()Ljava/lang/String;
 
     move-result-object v3
@@ -112,18 +125,22 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 438
     iget-object v3, p0, Lcom/samsung/android/infoextraction/SemInfoExtractionManager$IncomingHandler;->this$0:Lcom/samsung/android/infoextraction/SemInfoExtractionManager;
 
     iget-object v3, v3, Lcom/samsung/android/infoextraction/SemInfoExtractionManager;->mOnExtractionCompletedListener:Lcom/samsung/android/infoextraction/SemInfoExtractionManager$OnExtractionCompletedListener;
 
     invoke-interface {v3, v0, v1, v2}, Lcom/samsung/android/infoextraction/SemInfoExtractionManager$OnExtractionCompletedListener;->onExtractionCompleted(JLjava/util/List;)V
 
+    .line 439
     iget-object v3, p0, Lcom/samsung/android/infoextraction/SemInfoExtractionManager$IncomingHandler;->this$0:Lcom/samsung/android/infoextraction/SemInfoExtractionManager;
 
     invoke-static {v3, v6, v7}, Lcom/samsung/android/infoextraction/SemInfoExtractionManager;->-set1(Lcom/samsung/android/infoextraction/SemInfoExtractionManager;J)J
 
+    .line 440
     return-void
 
+    .line 442
     :cond_0
     invoke-static {}, Lcom/samsung/android/infoextraction/SemInfoExtractionManager;->-get0()Ljava/lang/String;
 
@@ -133,12 +150,14 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 444
     iget-object v3, p0, Lcom/samsung/android/infoextraction/SemInfoExtractionManager$IncomingHandler;->this$0:Lcom/samsung/android/infoextraction/SemInfoExtractionManager;
 
     iget-object v3, v3, Lcom/samsung/android/infoextraction/SemInfoExtractionManager;->mInfoExtractionListener:Lcom/samsung/android/infoextraction/SemInfoExtractionManager$InfoExtractionListener;
 
     if-eqz v3, :cond_1
 
+    .line 445
     invoke-static {}, Lcom/samsung/android/infoextraction/SemInfoExtractionManager;->-get0()Ljava/lang/String;
 
     move-result-object v3
@@ -177,6 +196,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 446
     iget-object v3, p0, Lcom/samsung/android/infoextraction/SemInfoExtractionManager$IncomingHandler;->this$0:Lcom/samsung/android/infoextraction/SemInfoExtractionManager;
 
     iget-object v3, v3, Lcom/samsung/android/infoextraction/SemInfoExtractionManager;->mInfoExtractionListener:Lcom/samsung/android/infoextraction/SemInfoExtractionManager$InfoExtractionListener;
@@ -185,13 +205,16 @@
 
     invoke-interface {v3, v4, v2}, Lcom/samsung/android/infoextraction/SemInfoExtractionManager$InfoExtractionListener;->onCompleted(ILjava/util/List;)V
 
+    .line 450
     :goto_0
     iget-object v3, p0, Lcom/samsung/android/infoextraction/SemInfoExtractionManager$IncomingHandler;->this$0:Lcom/samsung/android/infoextraction/SemInfoExtractionManager;
 
     invoke-static {v3, v6, v7}, Lcom/samsung/android/infoextraction/SemInfoExtractionManager;->-set1(Lcom/samsung/android/infoextraction/SemInfoExtractionManager;J)J
 
+    .line 431
     return-void
 
+    .line 448
     :cond_1
     invoke-static {}, Lcom/samsung/android/infoextraction/SemInfoExtractionManager;->-get0()Ljava/lang/String;
 

@@ -59,6 +59,7 @@
 .method static constructor <clinit>()V
     .locals 9
 
+    .prologue
     const/4 v8, 0x4
 
     const/4 v7, 0x3
@@ -69,6 +70,7 @@
 
     const/4 v4, 0x0
 
+    .line 166
     new-instance v0, Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;
 
     const-string/jumbo v1, "EDS_CONNECTION_STATUS_HDMI"
@@ -77,6 +79,7 @@
 
     sput-object v0, Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;->EDS_CONNECTION_STATUS_HDMI:Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;
 
+    .line 167
     new-instance v0, Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;
 
     const-string/jumbo v1, "EDS_CONNECTION_STATUS_WFD"
@@ -85,6 +88,7 @@
 
     sput-object v0, Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;->EDS_CONNECTION_STATUS_WFD:Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;
 
+    .line 168
     new-instance v0, Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;
 
     const-string/jumbo v1, "EDS_CONNECTION_STATUS_SMARTDOCK"
@@ -93,6 +97,7 @@
 
     sput-object v0, Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;->EDS_CONNECTION_STATUS_SMARTDOCK:Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;
 
+    .line 169
     new-instance v0, Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;
 
     const-string/jumbo v1, "EDS_CONNECTION_STATUS_RVF"
@@ -101,6 +106,7 @@
 
     sput-object v0, Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;->EDS_CONNECTION_STATUS_RVF:Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;
 
+    .line 170
     new-instance v0, Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;
 
     const-string/jumbo v1, "EDS_CONNECTION_STATUS_SIDESYNC"
@@ -109,6 +115,7 @@
 
     sput-object v0, Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;->EDS_CONNECTION_STATUS_SIDESYNC:Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;
 
+    .line 171
     new-instance v0, Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;
 
     const-string/jumbo v1, "EDS_CONNECTION_STATUS_SCREENRECORDING"
@@ -121,6 +128,7 @@
 
     sput-object v0, Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;->EDS_CONNECTION_STATUS_SCREENRECORDING:Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;
 
+    .line 172
     new-instance v0, Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;
 
     const-string/jumbo v1, "EDS_CONNECTION_STATUS_HOMETHEATRE"
@@ -133,6 +141,7 @@
 
     sput-object v0, Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;->EDS_CONNECTION_STATUS_HOMETHEATRE:Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;
 
+    .line 173
     new-instance v0, Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;
 
     const-string/jumbo v1, "EDS_CONNECTION_STATUS_EVF"
@@ -145,6 +154,7 @@
 
     sput-object v0, Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;->EDS_CONNECTION_STATUS_EVF:Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;
 
+    .line 174
     new-instance v0, Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;
 
     const-string/jumbo v1, "EDS_CONNECTION_STATUS_CAMERA_START"
@@ -157,6 +167,7 @@
 
     sput-object v0, Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;->EDS_CONNECTION_STATUS_CAMERA_START:Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;
 
+    .line 175
     new-instance v0, Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;
 
     const-string/jumbo v1, "EDS_STATUS_CAMERA_ROTATION_SUPPORT"
@@ -169,6 +180,7 @@
 
     sput-object v0, Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;->EDS_STATUS_CAMERA_ROTATION_SUPPORT:Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;
 
+    .line 176
     new-instance v0, Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;
 
     const-string/jumbo v1, "EDS_CONNECTION_STATUS_VIDEO"
@@ -181,6 +193,7 @@
 
     sput-object v0, Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;->EDS_CONNECTION_STATUS_VIDEO:Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;
 
+    .line 177
     new-instance v0, Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;
 
     const-string/jumbo v1, "EDS_CONNECTION_STATUS_KDDI_AUSHARELINK"
@@ -193,6 +206,7 @@
 
     sput-object v0, Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;->EDS_CONNECTION_STATUS_KDDI_AUSHARELINK:Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;
 
+    .line 165
     const/16 v0, 0xc
 
     new-array v0, v0, [Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;
@@ -266,19 +280,29 @@
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
+    .param p3, "value"    # I
 
+    .prologue
+    .line 180
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
+    .line 181
     iput p3, p0, Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;->value:I
 
+    .line 180
     return-void
 .end method
 
 .method public static toStatus(I)Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;
     .locals 6
+    .param p0, "value"    # I
 
+    .prologue
+    .line 185
     const/4 v0, 0x0
 
+    .line 186
+    .local v0, "retStatus":Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;
     invoke-static {}, Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;->values()[Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;
 
     move-result-object v3
@@ -292,17 +316,26 @@
 
     aget-object v1, v3, v2
 
+    .line 187
+    .local v1, "tempVal":Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;
     invoke-virtual {v1}, Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;->getValue()I
 
     move-result v5
 
     if-ne v5, p0, :cond_1
 
+    .line 188
     move-object v0, v1
 
+    .line 192
+    .end local v0    # "retStatus":Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;
+    .end local v1    # "tempVal":Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;
     :cond_0
     return-object v0
 
+    .line 186
+    .restart local v0    # "retStatus":Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;
+    .restart local v1    # "tempVal":Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;
     :cond_1
     add-int/lit8 v2, v2, 0x1
 
@@ -311,7 +344,10 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 165
     const-class v0, Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -326,6 +362,8 @@
 .method public static values()[Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;
     .locals 1
 
+    .prologue
+    .line 165
     sget-object v0, Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;->$VALUES:[Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;
 
     return-object v0
@@ -336,6 +374,8 @@
 .method public getValue()I
     .locals 1
 
+    .prologue
+    .line 183
     iget v0, p0, Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;->value:I
 
     return v0

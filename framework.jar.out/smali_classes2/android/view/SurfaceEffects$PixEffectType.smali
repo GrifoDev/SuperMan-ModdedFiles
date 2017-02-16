@@ -43,6 +43,7 @@
 .method static constructor <clinit>()V
     .locals 7
 
+    .prologue
     const/4 v6, 0x3
 
     const/4 v5, 0x2
@@ -51,6 +52,7 @@
 
     const/4 v3, 0x0
 
+    .line 132
     new-instance v0, Landroid/view/SurfaceEffects$PixEffectType;
 
     const-string/jumbo v1, "NONE"
@@ -59,6 +61,7 @@
 
     sput-object v0, Landroid/view/SurfaceEffects$PixEffectType;->NONE:Landroid/view/SurfaceEffects$PixEffectType;
 
+    .line 133
     new-instance v0, Landroid/view/SurfaceEffects$PixEffectType;
 
     const-string/jumbo v1, "BLUR"
@@ -67,6 +70,7 @@
 
     sput-object v0, Landroid/view/SurfaceEffects$PixEffectType;->BLUR:Landroid/view/SurfaceEffects$PixEffectType;
 
+    .line 134
     new-instance v0, Landroid/view/SurfaceEffects$PixEffectType;
 
     const-string/jumbo v1, "SATURATE"
@@ -75,6 +79,7 @@
 
     sput-object v0, Landroid/view/SurfaceEffects$PixEffectType;->SATURATE:Landroid/view/SurfaceEffects$PixEffectType;
 
+    .line 135
     new-instance v0, Landroid/view/SurfaceEffects$PixEffectType;
 
     const-string/jumbo v1, "MAGNIFIER"
@@ -85,6 +90,7 @@
 
     sput-object v0, Landroid/view/SurfaceEffects$PixEffectType;->MAGNIFIER:Landroid/view/SurfaceEffects$PixEffectType;
 
+    .line 131
     const/4 v0, 0x4
 
     new-array v0, v0, [Landroid/view/SurfaceEffects$PixEffectType;
@@ -112,7 +118,10 @@
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
+    .param p3, "id"    # I
 
+    .prologue
+    .line 138
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     iput p3, p0, Landroid/view/SurfaceEffects$PixEffectType;->id:I
@@ -122,7 +131,10 @@
 
 .method public static valueOf(Ljava/lang/String;)Landroid/view/SurfaceEffects$PixEffectType;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 131
     const-class v0, Landroid/view/SurfaceEffects$PixEffectType;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -137,6 +149,8 @@
 .method public static values()[Landroid/view/SurfaceEffects$PixEffectType;
     .locals 1
 
+    .prologue
+    .line 131
     sget-object v0, Landroid/view/SurfaceEffects$PixEffectType;->$VALUES:[Landroid/view/SurfaceEffects$PixEffectType;
 
     return-object v0

@@ -26,17 +26,25 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 0
+    .param p1, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 131
     invoke-direct {p0}, Landroid/app/Service;-><init>()V
 
+    .line 132
     iput-object p1, p0, Landroid/location/SettingInjectorService;->mName:Ljava/lang/String;
 
+    .line 131
     return-void
 .end method
 
 .method private onHandleIntent(Landroid/content/Intent;)V
     .locals 3
+    .param p1, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 156
     :try_start_0
     invoke-virtual {p0}, Landroid/location/SettingInjectorService;->onGetEnabled()Z
     :try_end_0
@@ -44,37 +52,55 @@
 
     move-result v1
 
+    .line 164
+    .local v1, "enabled":Z
     invoke-direct {p0, p1, v1}, Landroid/location/SettingInjectorService;->sendStatus(Landroid/content/Intent;Z)V
 
+    .line 152
     return-void
 
+    .line 157
+    .end local v1    # "enabled":Z
     :catch_0
     move-exception v0
 
+    .line 160
+    .local v0, "e":Ljava/lang/RuntimeException;
     const/4 v2, 0x1
 
     invoke-direct {p0, p1, v2}, Landroid/location/SettingInjectorService;->sendStatus(Landroid/content/Intent;Z)V
 
+    .line 161
     throw v0
 .end method
 
 .method private sendStatus(Landroid/content/Intent;Z)V
     .locals 7
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "enabled"    # Z
 
+    .prologue
+    .line 172
     invoke-static {}, Landroid/os/Message;->obtain()Landroid/os/Message;
 
     move-result-object v2
 
+    .line 173
+    .local v2, "message":Landroid/os/Message;
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
+    .line 174
+    .local v0, "bundle":Landroid/os/Bundle;
     const-string/jumbo v4, "enabled"
 
     invoke-virtual {v0, v4, p2}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 175
     invoke-virtual {v2, v0}, Landroid/os/Message;->setData(Landroid/os/Bundle;)V
 
+    .line 177
     const-string/jumbo v4, "SettingInjectorService"
 
     const/4 v5, 0x3
@@ -85,6 +111,7 @@
 
     if-eqz v4, :cond_0
 
+    .line 178
     const-string/jumbo v4, "SettingInjectorService"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -107,8 +134,10 @@
 
     move-result-object v5
 
+    .line 179
     const-string/jumbo v6, ", enabled="
 
+    .line 178
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
@@ -117,8 +146,10 @@
 
     move-result-object v5
 
+    .line 179
     const-string/jumbo v6, ", sending message: "
 
+    .line 178
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
@@ -133,6 +164,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 182
     :cond_0
     const-string/jumbo v4, "messenger"
 
@@ -142,19 +174,26 @@
 
     check-cast v3, Landroid/os/Messenger;
 
+    .line 185
+    .local v3, "messenger":Landroid/os/Messenger;
     if-eqz v3, :cond_1
 
+    .line 187
     :try_start_0
     invoke-virtual {v3, v2}, Landroid/os/Messenger;->send(Landroid/os/Message;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 171
     :goto_0
     return-void
 
+    .line 188
     :catch_0
     move-exception v1
 
+    .line 189
+    .local v1, "e":Landroid/os/RemoteException;
     const-string/jumbo v4, "SettingInjectorService"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -181,6 +220,8 @@
 
     goto :goto_0
 
+    .line 192
+    .end local v1    # "e":Landroid/os/RemoteException;
     :cond_1
     const-string/jumbo v4, "SettingInjectorService"
 
@@ -195,7 +236,10 @@
 # virtual methods
 .method public final onBind(Landroid/content/Intent;)Landroid/os/IBinder;
     .locals 1
+    .param p1, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 137
     const/4 v0, 0x0
 
     return-object v0
@@ -211,19 +255,31 @@
 
 .method public final onStart(Landroid/content/Intent;I)V
     .locals 0
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "startId"    # I
 
+    .prologue
+    .line 142
     invoke-super {p0, p1, p2}, Landroid/app/Service;->onStart(Landroid/content/Intent;I)V
 
+    .line 141
     return-void
 .end method
 
 .method public final onStartCommand(Landroid/content/Intent;II)I
     .locals 1
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "flags"    # I
+    .param p3, "startId"    # I
 
+    .prologue
+    .line 147
     invoke-direct {p0, p1}, Landroid/location/SettingInjectorService;->onHandleIntent(Landroid/content/Intent;)V
 
+    .line 148
     invoke-virtual {p0, p3}, Landroid/app/Service;->stopSelf(I)V
 
+    .line 149
     const/4 v0, 0x2
 
     return v0

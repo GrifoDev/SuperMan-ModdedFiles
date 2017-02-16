@@ -26,13 +26,20 @@
 # direct methods
 .method public constructor <init>(Landroid/security/KeyStore;Landroid/os/IBinder;)V
     .locals 0
+    .param p1, "keyStore"    # Landroid/security/KeyStore;
+    .param p2, "operationToken"    # Landroid/os/IBinder;
 
+    .prologue
+    .line 326
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 327
     iput-object p1, p0, Landroid/security/keystore/KeyStoreCryptoOperationChunkedStreamer$MainDataStream;->mKeyStore:Landroid/security/KeyStore;
 
+    .line 328
     iput-object p2, p0, Landroid/security/keystore/KeyStoreCryptoOperationChunkedStreamer$MainDataStream;->mOperationToken:Landroid/os/IBinder;
 
+    .line 326
     return-void
 .end method
 
@@ -40,7 +47,11 @@
 # virtual methods
 .method public finish([B[B)Landroid/security/keymaster/OperationResult;
     .locals 3
+    .param p1, "signature"    # [B
+    .param p2, "additionalEntropy"    # [B
 
+    .prologue
+    .line 338
     iget-object v0, p0, Landroid/security/keystore/KeyStoreCryptoOperationChunkedStreamer$MainDataStream;->mKeyStore:Landroid/security/KeyStore;
 
     iget-object v1, p0, Landroid/security/keystore/KeyStoreCryptoOperationChunkedStreamer$MainDataStream;->mOperationToken:Landroid/os/IBinder;
@@ -56,7 +67,10 @@
 
 .method public update([B)Landroid/security/keymaster/OperationResult;
     .locals 3
+    .param p1, "input"    # [B
 
+    .prologue
+    .line 333
     iget-object v0, p0, Landroid/security/keystore/KeyStoreCryptoOperationChunkedStreamer$MainDataStream;->mKeyStore:Landroid/security/KeyStore;
 
     iget-object v1, p0, Landroid/security/keystore/KeyStoreCryptoOperationChunkedStreamer$MainDataStream;->mOperationToken:Landroid/os/IBinder;

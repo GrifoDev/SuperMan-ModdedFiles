@@ -33,18 +33,23 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 39
     new-instance v0, Lcom/samsung/android/hardware/context/SemContextEventContext$1;
 
     invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextEventContext$1;-><init>()V
 
     sput-object v0, Lcom/samsung/android/hardware/context/SemContextEventContext;->CREATOR:Landroid/os/Parcelable$Creator;
 
+    .line 32
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 56
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -52,7 +57,10 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 0
+    .param p1, "src"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 62
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -63,6 +71,8 @@
 .method public describeContents()I
     .locals 1
 
+    .prologue
+    .line 84
     const/4 v0, 0x0
 
     return v0
@@ -70,12 +80,19 @@
 
 .method public setValues(Landroid/os/Bundle;)V
     .locals 0
+    .param p1, "context"    # Landroid/os/Bundle;
 
+    .prologue
+    .line 71
     return-void
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 0
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
+    .prologue
+    .line 96
     return-void
 .end method

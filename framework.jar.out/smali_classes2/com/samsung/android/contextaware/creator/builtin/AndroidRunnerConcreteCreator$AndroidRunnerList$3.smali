@@ -17,7 +17,10 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
     .locals 1
+    .param p3, "$anonymous0"    # Ljava/lang/String;
 
+    .prologue
+    .line 88
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, p2, p3, v0}, Lcom/samsung/android/contextaware/creator/builtin/AndroidRunnerConcreteCreator$AndroidRunnerList;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/samsung/android/contextaware/creator/builtin/AndroidRunnerConcreteCreator$AndroidRunnerList;)V
@@ -30,6 +33,8 @@
 .method public final getObject()Lcom/samsung/android/contextaware/manager/ContextComponent;
     .locals 7
 
+    .prologue
+    .line 91
     invoke-static {}, Lcom/samsung/android/contextaware/creator/builtin/AndroidRunnerConcreteCreator;->-wrap5()Ljava/util/concurrent/ConcurrentHashMap;
 
     move-result-object v0
@@ -44,10 +49,12 @@
 
     if-nez v0, :cond_0
 
+    .line 92
     invoke-static {}, Lcom/samsung/android/contextaware/creator/builtin/AndroidRunnerConcreteCreator;->-wrap5()Ljava/util/concurrent/ConcurrentHashMap;
 
     move-result-object v0
 
+    .line 93
     invoke-virtual {p0}, Ljava/lang/Enum;->name()Ljava/lang/String;
 
     move-result-object v1
@@ -58,6 +65,7 @@
 
     move-result v3
 
+    .line 94
     invoke-static {}, Lcom/samsung/android/contextaware/creator/builtin/AndroidRunnerConcreteCreator;->-wrap0()Landroid/content/Context;
 
     move-result-object v4
@@ -66,14 +74,18 @@
 
     move-result-object v5
 
+    .line 95
     invoke-static {}, Lcom/samsung/android/contextaware/creator/builtin/AndroidRunnerConcreteCreator;->-wrap3()Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/ISensorHubResetObservable;
 
     move-result-object v6
 
+    .line 93
     invoke-direct {v2, v3, v4, v5, v6}, Lcom/samsung/android/contextaware/dataprovider/androidprovider/builtin/SatelliteRunner;-><init>(ILandroid/content/Context;Landroid/os/Looper;Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/ISensorHubResetObservable;)V
 
+    .line 92
     invoke-virtual {v0, v1, v2}, Ljava/util/concurrent/ConcurrentHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 97
     :cond_0
     invoke-static {}, Lcom/samsung/android/contextaware/creator/builtin/AndroidRunnerConcreteCreator;->-wrap5()Ljava/util/concurrent/ConcurrentHashMap;
 
@@ -95,6 +107,8 @@
 .method public final getObjectForSubCollection()Lcom/samsung/android/contextaware/manager/ContextComponent;
     .locals 5
 
+    .prologue
+    .line 102
     new-instance v0, Lcom/samsung/android/contextaware/dataprovider/androidprovider/builtin/SatelliteRunner;
 
     invoke-static {}, Lcom/samsung/android/contextaware/creator/builtin/AndroidRunnerConcreteCreator;->-wrap4()I
@@ -105,12 +119,14 @@
 
     move-result-object v2
 
+    .line 103
     invoke-static {}, Lcom/samsung/android/contextaware/creator/builtin/AndroidRunnerConcreteCreator;->-wrap1()Landroid/os/Looper;
 
     move-result-object v3
 
     const/4 v4, 0x0
 
+    .line 102
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/samsung/android/contextaware/dataprovider/androidprovider/builtin/SatelliteRunner;-><init>(ILandroid/content/Context;Landroid/os/Looper;Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/ISensorHubResetObservable;)V
 
     return-object v0

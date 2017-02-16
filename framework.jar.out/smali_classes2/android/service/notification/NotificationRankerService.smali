@@ -66,6 +66,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 44
     invoke-direct {p0}, Landroid/service/notification/NotificationListenerService;-><init>()V
 
     return-void
@@ -75,7 +77,10 @@
 # virtual methods
 .method public final adjustNotification(Landroid/service/notification/Adjustment;)V
     .locals 3
+    .param p1, "adjustment"    # Landroid/service/notification/Adjustment;
 
+    .prologue
+    .line 196
     invoke-virtual {p0}, Landroid/service/notification/NotificationRankerService;->isBound()Z
 
     move-result v1
@@ -84,6 +89,7 @@
 
     return-void
 
+    .line 198
     :cond_0
     :try_start_0
     invoke-virtual {p0}, Landroid/service/notification/NotificationRankerService;->getNotificationInterface()Landroid/app/INotificationManager;
@@ -96,12 +102,16 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 195
     :goto_0
     return-void
 
+    .line 199
     :catch_0
     move-exception v0
 
+    .line 200
+    .local v0, "ex":Landroid/os/RemoteException;
     const-string/jumbo v1, "NotificationRankers"
 
     const-string/jumbo v2, "Unable to contact notification manager"
@@ -123,6 +133,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 212
+    .local p1, "adjustments":Ljava/util/List;, "Ljava/util/List<Landroid/service/notification/Adjustment;>;"
     invoke-virtual {p0}, Landroid/service/notification/NotificationRankerService;->isBound()Z
 
     move-result v1
@@ -131,6 +144,7 @@
 
     return-void
 
+    .line 214
     :cond_0
     :try_start_0
     invoke-virtual {p0}, Landroid/service/notification/NotificationRankerService;->getNotificationInterface()Landroid/app/INotificationManager;
@@ -143,12 +157,16 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 211
     :goto_0
     return-void
 
+    .line 215
     :catch_0
     move-exception v0
 
+    .line 216
+    .local v0, "ex":Landroid/os/RemoteException;
     const-string/jumbo v1, "NotificationRankers"
 
     const-string/jumbo v2, "Unable to contact notification manager"
@@ -160,9 +178,13 @@
 
 .method protected attachBaseContext(Landroid/content/Context;)V
     .locals 2
+    .param p1, "base"    # Landroid/content/Context;
 
+    .prologue
+    .line 119
     invoke-super {p0, p1}, Landroid/service/notification/NotificationListenerService;->attachBaseContext(Landroid/content/Context;)V
 
+    .line 120
     new-instance v0, Landroid/service/notification/NotificationRankerService$MyHandler;
 
     invoke-virtual {p0}, Landroid/service/notification/NotificationRankerService;->getContext()Landroid/content/Context;
@@ -177,24 +199,30 @@
 
     iput-object v0, p0, Landroid/service/notification/NotificationRankerService;->mHandler:Landroid/os/Handler;
 
+    .line 118
     return-void
 .end method
 
 .method public final onBind(Landroid/content/Intent;)Landroid/os/IBinder;
     .locals 2
+    .param p1, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 125
     iget-object v0, p0, Landroid/service/notification/NotificationRankerService;->mWrapper:Landroid/service/notification/NotificationListenerService$NotificationListenerWrapper;
 
     if-nez v0, :cond_0
 
+    .line 126
     new-instance v0, Landroid/service/notification/NotificationRankerService$NotificationRankingServiceWrapper;
 
     invoke-direct {v0, p0, v1}, Landroid/service/notification/NotificationRankerService$NotificationRankingServiceWrapper;-><init>(Landroid/service/notification/NotificationRankerService;Landroid/service/notification/NotificationRankerService$NotificationRankingServiceWrapper;)V
 
     iput-object v0, p0, Landroid/service/notification/NotificationRankerService;->mWrapper:Landroid/service/notification/NotificationListenerService$NotificationListenerWrapper;
 
+    .line 128
     :cond_0
     iget-object v0, p0, Landroid/service/notification/NotificationRankerService;->mWrapper:Landroid/service/notification/NotificationListenerService$NotificationListenerWrapper;
 
@@ -203,13 +231,22 @@
 
 .method public onNotificationActionClick(Ljava/lang/String;JI)V
     .locals 0
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "time"    # J
+    .param p4, "actionIndex"    # I
 
+    .prologue
+    .line 172
     return-void
 .end method
 
 .method public onNotificationClick(Ljava/lang/String;J)V
     .locals 0
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "time"    # J
 
+    .prologue
+    .line 160
     return-void
 .end method
 
@@ -218,19 +255,34 @@
 
 .method public onNotificationRemoved(Ljava/lang/String;JI)V
     .locals 0
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "time"    # J
+    .param p4, "reason"    # I
 
+    .prologue
+    .line 184
     return-void
 .end method
 
 .method public onNotificationVisibilityChanged(Ljava/lang/String;JZ)V
     .locals 0
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "time"    # J
+    .param p4, "visible"    # Z
 
+    .prologue
+    .line 149
     return-void
 .end method
 
 .method public registerAsSystemService(Landroid/content/Context;Landroid/content/ComponentName;I)V
     .locals 2
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "componentName"    # Landroid/content/ComponentName;
+    .param p3, "currentUser"    # I
 
+    .prologue
+    .line 108
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string/jumbo v1, "the ranker lifecycle is managed by the system."
@@ -243,6 +295,8 @@
 .method public unregisterAsSystemService()V
     .locals 2
 
+    .prologue
+    .line 114
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string/jumbo v1, "the ranker lifecycle is managed by the system."

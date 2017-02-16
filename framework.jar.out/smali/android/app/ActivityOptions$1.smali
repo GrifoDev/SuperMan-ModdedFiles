@@ -25,7 +25,12 @@
 # direct methods
 .method constructor <init>(Landroid/app/ActivityOptions;Landroid/os/Handler;Landroid/app/ActivityOptions$OnAnimationStartedListener;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/app/ActivityOptions;
+    .param p2, "val$handler"    # Landroid/os/Handler;
+    .param p3, "val$listener"    # Landroid/app/ActivityOptions$OnAnimationStartedListener;
 
+    .prologue
+    .line 325
     iput-object p1, p0, Landroid/app/ActivityOptions$1;->this$0:Landroid/app/ActivityOptions;
 
     iput-object p2, p0, Landroid/app/ActivityOptions$1;->val$handler:Landroid/os/Handler;
@@ -41,12 +46,15 @@
 # virtual methods
 .method public sendResult(Landroid/os/Bundle;)V
     .locals 3
+    .param p1, "data"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 328
     iget-object v0, p0, Landroid/app/ActivityOptions$1;->val$handler:Landroid/os/Handler;
 
     new-instance v1, Landroid/app/ActivityOptions$1$1;
@@ -57,5 +65,6 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
+    .line 327
     return-void
 .end method

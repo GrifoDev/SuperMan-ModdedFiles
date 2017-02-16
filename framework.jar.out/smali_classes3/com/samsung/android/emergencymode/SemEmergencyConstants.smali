@@ -179,6 +179,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 288
     const/16 v0, 0x9
 
     new-array v0, v0, [I
@@ -187,6 +189,7 @@
 
     sput-object v0, Lcom/samsung/android/emergencymode/SemEmergencyConstants;->RGBCMYArray:[I
 
+    .line 394
     const-string/jumbo v0, "content://com.samsung.android.emergencymode/whitelist"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -195,6 +198,7 @@
 
     sput-object v0, Lcom/samsung/android/emergencymode/SemEmergencyConstants;->URI_WHITELIST:Landroid/net/Uri;
 
+    .line 402
     const-string/jumbo v0, "content://com.samsung.android.emergencymode/prefsettings"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -203,6 +207,7 @@
 
     sput-object v0, Lcom/samsung/android/emergencymode/SemEmergencyConstants;->URI_PREFSETTINGS:Landroid/net/Uri;
 
+    .line 410
     const-string/jumbo v0, "content://com.samsung.android.emergencymode/disabledpkg"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -211,6 +216,7 @@
 
     sput-object v0, Lcom/samsung/android/emergencymode/SemEmergencyConstants;->URI_DISABLEDPKG:Landroid/net/Uri;
 
+    .line 413
     const-string/jumbo v0, "content://com.samsung.android.emergencymode/alarm"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -219,6 +225,7 @@
 
     sput-object v0, Lcom/samsung/android/emergencymode/SemEmergencyConstants;->URI_ALARM:Landroid/net/Uri;
 
+    .line 420
     const-string/jumbo v0, "content://com.samsung.android.emergencymode/ecclist"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -227,6 +234,7 @@
 
     sput-object v0, Lcom/samsung/android/emergencymode/SemEmergencyConstants;->URI_ECCLIST:Landroid/net/Uri;
 
+    .line 427
     const-string/jumbo v0, "content://com.samsung.android.emergencymode/launcherdefault"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -235,6 +243,7 @@
 
     sput-object v0, Lcom/samsung/android/emergencymode/SemEmergencyConstants;->URI_LAUNCHER_DEFAULT:Landroid/net/Uri;
 
+    .line 434
     const-string/jumbo v0, "content://com.samsung.android.emergencymode/launcheradd"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -243,6 +252,7 @@
 
     sput-object v0, Lcom/samsung/android/emergencymode/SemEmergencyConstants;->URI_LAUNCHER_ADD:Landroid/net/Uri;
 
+    .line 437
     const-string/jumbo v0, "content://com.samsung.android.emergencymode/updatetable"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -251,8 +261,10 @@
 
     sput-object v0, Lcom/samsung/android/emergencymode/SemEmergencyConstants;->URI_UPDATE_TABLE:Landroid/net/Uri;
 
+    .line 26
     return-void
 
+    .line 288
     :array_0
     .array-data 4
         0x4cb3
@@ -270,6 +282,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

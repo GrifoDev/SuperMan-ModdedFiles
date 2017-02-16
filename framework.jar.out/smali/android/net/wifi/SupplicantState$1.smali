@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 255
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,7 +42,10 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/net/wifi/SupplicantState;
     .locals 1
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 257
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
@@ -54,7 +59,10 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 256
     invoke-virtual {p0, p1}, Landroid/net/wifi/SupplicantState$1;->createFromParcel(Landroid/os/Parcel;)Landroid/net/wifi/SupplicantState;
 
     move-result-object v0
@@ -64,7 +72,10 @@
 
 .method public newArray(I)[Landroid/net/wifi/SupplicantState;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 261
     new-array v0, p1, [Landroid/net/wifi/SupplicantState;
 
     return-object v0
@@ -72,7 +83,10 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 260
     invoke-virtual {p0, p1}, Landroid/net/wifi/SupplicantState$1;->newArray(I)[Landroid/net/wifi/SupplicantState;
 
     move-result-object v0

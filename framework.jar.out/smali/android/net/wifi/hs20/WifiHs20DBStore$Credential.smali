@@ -80,6 +80,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 223
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -102,18 +104,22 @@
 
     move-result-object v0
 
+    .line 222
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v0
 
     sput-object v0, Landroid/net/wifi/hs20/WifiHs20DBStore$Credential;->CONTENT_URI:Landroid/net/Uri;
 
+    .line 221
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 221
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

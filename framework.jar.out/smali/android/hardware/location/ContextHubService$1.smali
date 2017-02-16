@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Landroid/hardware/location/ContextHubService;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/hardware/location/ContextHubService;
 
+    .prologue
+    .line 75
     iput-object p1, p0, Landroid/hardware/location/ContextHubService$1;->this$0:Landroid/hardware/location/ContextHubService;
 
     invoke-direct {p0}, Landroid/service/vr/IVrStateCallbacks$Stub;-><init>()V
@@ -33,7 +36,10 @@
 # virtual methods
 .method public onVrStateChanged(Z)V
     .locals 6
+    .param p1, "enabled"    # Z
 
+    .prologue
+    .line 78
     iget-object v2, p0, Landroid/hardware/location/ContextHubService$1;->this$0:Landroid/hardware/location/ContextHubService;
 
     invoke-static {v2}, Landroid/hardware/location/ContextHubService;->-get0(Landroid/hardware/location/ContextHubService;)Ljava/util/concurrent/ConcurrentHashMap;
@@ -48,6 +54,7 @@
 
     move-result-object v1
 
+    .local v1, "app$iterator":Ljava/util/Iterator;
     :cond_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -61,6 +68,8 @@
 
     check-cast v0, Landroid/hardware/location/NanoAppInstanceInfo;
 
+    .line 79
+    .local v0, "app":Landroid/hardware/location/NanoAppInstanceInfo;
     invoke-virtual {v0}, Landroid/hardware/location/NanoAppInstanceInfo;->getAppId()J
 
     move-result-wide v2
@@ -71,10 +80,13 @@
 
     if-nez v2, :cond_0
 
+    .line 80
     iget-object v2, p0, Landroid/hardware/location/ContextHubService$1;->this$0:Landroid/hardware/location/ContextHubService;
 
     invoke-static {v2, v0, p1}, Landroid/hardware/location/ContextHubService;->-wrap0(Landroid/hardware/location/ContextHubService;Landroid/hardware/location/NanoAppInstanceInfo;Z)V
 
+    .line 77
+    .end local v0    # "app":Landroid/hardware/location/NanoAppInstanceInfo;
     :cond_1
     return-void
 .end method

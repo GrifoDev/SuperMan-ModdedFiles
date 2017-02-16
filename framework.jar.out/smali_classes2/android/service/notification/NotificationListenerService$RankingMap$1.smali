@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 1438
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,15 +42,20 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/service/notification/NotificationListenerService$RankingMap;
     .locals 3
+    .param p1, "source"    # Landroid/os/Parcel;
 
+    .prologue
     const/4 v2, 0x0
 
+    .line 1441
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
 
     move-result-object v0
 
     check-cast v0, Landroid/service/notification/NotificationRankingUpdate;
 
+    .line 1442
+    .local v0, "rankingUpdate":Landroid/service/notification/NotificationRankingUpdate;
     new-instance v1, Landroid/service/notification/NotificationListenerService$RankingMap;
 
     invoke-direct {v1, v0, v2}, Landroid/service/notification/NotificationListenerService$RankingMap;-><init>(Landroid/service/notification/NotificationRankingUpdate;Landroid/service/notification/NotificationListenerService$RankingMap;)V
@@ -58,7 +65,10 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
+    .param p1, "source"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 1440
     invoke-virtual {p0, p1}, Landroid/service/notification/NotificationListenerService$RankingMap$1;->createFromParcel(Landroid/os/Parcel;)Landroid/service/notification/NotificationListenerService$RankingMap;
 
     move-result-object v0
@@ -68,7 +78,10 @@
 
 .method public newArray(I)[Landroid/service/notification/NotificationListenerService$RankingMap;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 1447
     new-array v0, p1, [Landroid/service/notification/NotificationListenerService$RankingMap;
 
     return-object v0
@@ -76,7 +89,10 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 1446
     invoke-virtual {p0, p1}, Landroid/service/notification/NotificationListenerService$RankingMap$1;->newArray(I)[Landroid/service/notification/NotificationListenerService$RankingMap;
 
     move-result-object v0

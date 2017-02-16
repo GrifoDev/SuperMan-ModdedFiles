@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/directpeninput/SemDirectPenInput;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/samsung/android/directpeninput/SemDirectPenInput;
 
+    .prologue
+    .line 1471
     iput-object p1, p0, Lcom/samsung/android/directpeninput/SemDirectPenInput$6;->this$0:Lcom/samsung/android/directpeninput/SemDirectPenInput;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +39,10 @@
 # virtual methods
 .method public onHover(Landroid/view/View;Landroid/view/MotionEvent;)Z
     .locals 10
+    .param p1, "v"    # Landroid/view/View;
+    .param p2, "event"    # Landroid/view/MotionEvent;
 
+    .prologue
     const-wide/16 v8, 0x96
 
     const/4 v7, 0x1
@@ -45,6 +51,7 @@
 
     const/4 v5, 0x6
 
+    .line 1475
     iget-object v2, p0, Lcom/samsung/android/directpeninput/SemDirectPenInput$6;->this$0:Lcom/samsung/android/directpeninput/SemDirectPenInput;
 
     invoke-static {v2}, Lcom/samsung/android/directpeninput/SemDirectPenInput;->-wrap0(Lcom/samsung/android/directpeninput/SemDirectPenInput;)Landroid/os/Handler;
@@ -57,6 +64,7 @@
 
     if-eqz v2, :cond_0
 
+    .line 1476
     iget-object v2, p0, Lcom/samsung/android/directpeninput/SemDirectPenInput$6;->this$0:Lcom/samsung/android/directpeninput/SemDirectPenInput;
 
     invoke-static {v2}, Lcom/samsung/android/directpeninput/SemDirectPenInput;->-wrap0(Lcom/samsung/android/directpeninput/SemDirectPenInput;)Landroid/os/Handler;
@@ -65,11 +73,14 @@
 
     invoke-virtual {v2, v5}, Landroid/os/Handler;->removeMessages(I)V
 
+    .line 1479
     :cond_0
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
+    .line 1480
+    .local v0, "action":I
     const/16 v2, 0xa
 
     if-ne v0, v2, :cond_1
@@ -82,10 +93,13 @@
 
     if-nez v2, :cond_1
 
+    .line 1481
     invoke-static {}, Landroid/hardware/input/InputManager;->getInstance()Landroid/hardware/input/InputManager;
 
     move-result-object v1
 
+    .line 1482
+    .local v1, "im":Landroid/hardware/input/InputManager;
     iget-object v2, p0, Lcom/samsung/android/directpeninput/SemDirectPenInput$6;->this$0:Lcom/samsung/android/directpeninput/SemDirectPenInput;
 
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getX()F
@@ -102,6 +116,7 @@
 
     if-nez v2, :cond_3
 
+    .line 1483
     const-string/jumbo v2, "DirectPenInput"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -130,6 +145,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1484
     iget-object v2, p0, Lcom/samsung/android/directpeninput/SemDirectPenInput$6;->this$0:Lcom/samsung/android/directpeninput/SemDirectPenInput;
 
     invoke-static {v2}, Lcom/samsung/android/directpeninput/SemDirectPenInput;->-get2(Lcom/samsung/android/directpeninput/SemDirectPenInput;)Z
@@ -138,10 +154,12 @@
 
     if-eqz v2, :cond_2
 
+    .line 1485
     iget-object v2, p0, Lcom/samsung/android/directpeninput/SemDirectPenInput$6;->this$0:Lcom/samsung/android/directpeninput/SemDirectPenInput;
 
     invoke-static {v2, v6}, Lcom/samsung/android/directpeninput/SemDirectPenInput;->-set0(Lcom/samsung/android/directpeninput/SemDirectPenInput;Z)Z
 
+    .line 1486
     iget-object v2, p0, Lcom/samsung/android/directpeninput/SemDirectPenInput$6;->this$0:Lcom/samsung/android/directpeninput/SemDirectPenInput;
 
     invoke-static {v2}, Lcom/samsung/android/directpeninput/SemDirectPenInput;->-wrap0(Lcom/samsung/android/directpeninput/SemDirectPenInput;)Landroid/os/Handler;
@@ -150,10 +168,14 @@
 
     invoke-virtual {v2, v5}, Landroid/os/Handler;->removeMessages(I)V
 
+    .line 1502
+    .end local v1    # "im":Landroid/hardware/input/InputManager;
     :cond_1
     :goto_0
     return v6
 
+    .line 1488
+    .restart local v1    # "im":Landroid/hardware/input/InputManager;
     :cond_2
     iget-object v2, p0, Lcom/samsung/android/directpeninput/SemDirectPenInput$6;->this$0:Lcom/samsung/android/directpeninput/SemDirectPenInput;
 
@@ -165,6 +187,7 @@
 
     goto :goto_0
 
+    .line 1490
     :cond_3
     if-eqz v1, :cond_4
 
@@ -180,16 +203,19 @@
 
     if-nez v2, :cond_4
 
+    .line 1491
     const-string/jumbo v2, "DirectPenInput"
 
     const-string/jumbo v3, "Close DirectPenInput cue : 2"
 
     invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1492
     iget-object v2, p0, Lcom/samsung/android/directpeninput/SemDirectPenInput$6;->this$0:Lcom/samsung/android/directpeninput/SemDirectPenInput;
 
     invoke-static {v2, v7}, Lcom/samsung/android/directpeninput/SemDirectPenInput;->-wrap3(Lcom/samsung/android/directpeninput/SemDirectPenInput;Z)Z
 
+    .line 1493
     iget-object v2, p0, Lcom/samsung/android/directpeninput/SemDirectPenInput$6;->this$0:Lcom/samsung/android/directpeninput/SemDirectPenInput;
 
     const-string/jumbo v3, "HOVER_CANCELED"
@@ -198,6 +224,7 @@
 
     goto :goto_0
 
+    .line 1494
     :cond_4
     iget-object v2, p0, Lcom/samsung/android/directpeninput/SemDirectPenInput$6;->this$0:Lcom/samsung/android/directpeninput/SemDirectPenInput;
 
@@ -219,18 +246,21 @@
 
     if-eqz v2, :cond_5
 
+    .line 1495
     const-string/jumbo v2, "DirectPenInput"
 
     const-string/jumbo v3, "Close DirectPenInput cue : 3"
 
     invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1496
     iget-object v2, p0, Lcom/samsung/android/directpeninput/SemDirectPenInput$6;->this$0:Lcom/samsung/android/directpeninput/SemDirectPenInput;
 
     invoke-static {v2, v7}, Lcom/samsung/android/directpeninput/SemDirectPenInput;->-wrap3(Lcom/samsung/android/directpeninput/SemDirectPenInput;Z)Z
 
     goto :goto_0
 
+    .line 1498
     :cond_5
     const-string/jumbo v2, "DirectPenInput"
 
@@ -238,6 +268,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1499
     iget-object v2, p0, Lcom/samsung/android/directpeninput/SemDirectPenInput$6;->this$0:Lcom/samsung/android/directpeninput/SemDirectPenInput;
 
     invoke-static {v2}, Lcom/samsung/android/directpeninput/SemDirectPenInput;->-wrap0(Lcom/samsung/android/directpeninput/SemDirectPenInput;)Landroid/os/Handler;

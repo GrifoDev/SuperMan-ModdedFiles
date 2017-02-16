@@ -29,10 +29,15 @@
 
 .method public constructor <init>(I)V
     .locals 0
+    .param p1, "backgroundColor"    # I
 
+    .prologue
+    .line 1314
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 1315
     iput p1, p0, Landroid/text/HtmlToSpannedConverter$Background;->mBackgroundColor:I
 
+    .line 1314
     return-void
 .end method

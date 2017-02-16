@@ -30,7 +30,13 @@
 # direct methods
 .method constructor <init>(Landroid/os/RecoverySystem$2;IJLandroid/os/RecoverySystem$ProgressListener;)V
     .locals 1
+    .param p1, "this$1"    # Landroid/os/RecoverySystem$2;
+    .param p2, "val$progress"    # I
+    .param p3, "val$now"    # J
+    .param p5, "val$listener"    # Landroid/os/RecoverySystem$ProgressListener;
 
+    .prologue
+    .line 380
     iput-object p1, p0, Landroid/os/RecoverySystem$2$1;->this$1:Landroid/os/RecoverySystem$2;
 
     iput p2, p0, Landroid/os/RecoverySystem$2$1;->val$progress:I
@@ -49,6 +55,8 @@
 .method public run()V
     .locals 4
 
+    .prologue
+    .line 383
     iget v0, p0, Landroid/os/RecoverySystem$2$1;->val$progress:I
 
     iget-object v1, p0, Landroid/os/RecoverySystem$2$1;->this$1:Landroid/os/RecoverySystem$2;
@@ -57,6 +65,7 @@
 
     if-le v0, v1, :cond_0
 
+    .line 384
     iget-wide v0, p0, Landroid/os/RecoverySystem$2$1;->val$now:J
 
     iget-object v2, p0, Landroid/os/RecoverySystem$2$1;->this$1:Landroid/os/RecoverySystem$2;
@@ -71,24 +80,28 @@
 
     if-lez v0, :cond_0
 
+    .line 385
     iget-object v0, p0, Landroid/os/RecoverySystem$2$1;->this$1:Landroid/os/RecoverySystem$2;
 
     iget v1, p0, Landroid/os/RecoverySystem$2$1;->val$progress:I
 
     iput v1, v0, Landroid/os/RecoverySystem$2;->lastProgress:I
 
+    .line 386
     iget-object v0, p0, Landroid/os/RecoverySystem$2$1;->this$1:Landroid/os/RecoverySystem$2;
 
     iget-wide v2, p0, Landroid/os/RecoverySystem$2$1;->val$now:J
 
     iput-wide v2, v0, Landroid/os/RecoverySystem$2;->lastPublishTime:J
 
+    .line 387
     iget-object v0, p0, Landroid/os/RecoverySystem$2$1;->val$listener:Landroid/os/RecoverySystem$ProgressListener;
 
     iget v1, p0, Landroid/os/RecoverySystem$2$1;->val$progress:I
 
     invoke-interface {v0, v1}, Landroid/os/RecoverySystem$ProgressListener;->onProgress(I)V
 
+    .line 382
     :cond_0
     return-void
 .end method

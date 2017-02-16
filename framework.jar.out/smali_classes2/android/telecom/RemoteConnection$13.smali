@@ -32,7 +32,14 @@
 # direct methods
 .method constructor <init>(Landroid/telecom/RemoteConnection;Landroid/telecom/RemoteConnection$Callback;Landroid/telecom/RemoteConnection;Landroid/net/Uri;I)V
     .locals 0
+    .param p1, "this$0"    # Landroid/telecom/RemoteConnection;
+    .param p2, "val$callback"    # Landroid/telecom/RemoteConnection$Callback;
+    .param p3, "val$connection"    # Landroid/telecom/RemoteConnection;
+    .param p4, "val$address"    # Landroid/net/Uri;
+    .param p5, "val$presentation"    # I
 
+    .prologue
+    .line 1288
     iput-object p1, p0, Landroid/telecom/RemoteConnection$13;->this$0:Landroid/telecom/RemoteConnection;
 
     iput-object p2, p0, Landroid/telecom/RemoteConnection$13;->val$callback:Landroid/telecom/RemoteConnection$Callback;
@@ -53,6 +60,8 @@
 .method public run()V
     .locals 4
 
+    .prologue
+    .line 1291
     iget-object v0, p0, Landroid/telecom/RemoteConnection$13;->val$callback:Landroid/telecom/RemoteConnection$Callback;
 
     iget-object v1, p0, Landroid/telecom/RemoteConnection$13;->val$connection:Landroid/telecom/RemoteConnection;
@@ -63,5 +72,6 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/telecom/RemoteConnection$Callback;->onAddressChanged(Landroid/telecom/RemoteConnection;Landroid/net/Uri;I)V
 
+    .line 1290
     return-void
 .end method

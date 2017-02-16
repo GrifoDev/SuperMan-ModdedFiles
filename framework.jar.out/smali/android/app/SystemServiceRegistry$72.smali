@@ -27,6 +27,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 900
     invoke-direct {p0}, Landroid/app/SystemServiceRegistry$CachedServiceFetcher;-><init>()V
 
     return-void
@@ -36,17 +38,24 @@
 # virtual methods
 .method public createService(Landroid/app/ContextImpl;)Landroid/hardware/fingerprint/FingerprintManager;
     .locals 4
+    .param p1, "ctx"    # Landroid/app/ContextImpl;
 
+    .prologue
+    .line 903
     const-string/jumbo v2, "fingerprint"
 
     invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
+    .line 904
+    .local v0, "binder":Landroid/os/IBinder;
     invoke-static {v0}, Landroid/hardware/fingerprint/IFingerprintService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/hardware/fingerprint/IFingerprintService;
 
     move-result-object v1
 
+    .line 905
+    .local v1, "service":Landroid/hardware/fingerprint/IFingerprintService;
     new-instance v2, Landroid/hardware/fingerprint/FingerprintManager;
 
     invoke-virtual {p1}, Landroid/app/ContextImpl;->getOuterContext()Landroid/content/Context;
@@ -60,7 +69,10 @@
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .param p1, "ctx"    # Landroid/app/ContextImpl;
 
+    .prologue
+    .line 902
     invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$72;->createService(Landroid/app/ContextImpl;)Landroid/hardware/fingerprint/FingerprintManager;
 
     move-result-object v0

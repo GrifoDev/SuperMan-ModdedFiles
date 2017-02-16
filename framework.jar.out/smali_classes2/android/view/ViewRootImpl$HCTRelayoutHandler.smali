@@ -25,11 +25,16 @@
 # direct methods
 .method public constructor <init>(Landroid/view/ViewRootImpl;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/view/ViewRootImpl;
 
+    .prologue
+    .line 8287
     iput-object p1, p0, Landroid/view/ViewRootImpl$HCTRelayoutHandler;->this$0:Landroid/view/ViewRootImpl;
 
+    .line 8288
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
 
+    .line 8287
     return-void
 .end method
 
@@ -37,14 +42,19 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
+    .param p1, "message"    # Landroid/os/Message;
 
+    .prologue
+    .line 8293
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
+    .line 8292
     :goto_0
     return-void
 
+    .line 8295
     :pswitch_0
     iget-object v0, p0, Landroid/view/ViewRootImpl$HCTRelayoutHandler;->this$0:Landroid/view/ViewRootImpl;
 
@@ -54,6 +64,7 @@
 
     goto :goto_0
 
+    .line 8293
     nop
 
     :pswitch_data_0

@@ -43,18 +43,23 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 363
     new-instance v0, Ljava/lang/ThreadLocal;
 
     invoke-direct {v0}, Ljava/lang/ThreadLocal;-><init>()V
 
     sput-object v0, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->TEMP_ARRAY:Ljava/lang/ThreadLocal;
 
+    .line 353
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 365
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -62,19 +67,27 @@
 
 .method public static LABToColor(DDD)I
     .locals 8
+    .param p0, "l"    # D
+    .param p2, "a"    # D
+    .param p4, "b"    # D
 
+    .prologue
+    .line 629
     invoke-static {}, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->getTempDouble3Array()[D
 
     move-result-object v6
 
+    .local v6, "result":[D
     move-wide v0, p0
 
     move-wide v2, p2
 
     move-wide v4, p4
 
+    .line 630
     invoke-static/range {v0 .. v6}, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->LABToXYZ(DDD[D)V
 
+    .line 631
     const/4 v0, 0x0
 
     aget-wide v0, v6, v0
@@ -96,7 +109,13 @@
 
 .method public static LABToXYZ(DDD[D)V
     .locals 18
+    .param p0, "l"    # D
+    .param p2, "a"    # D
+    .param p4, "b"    # D
+    .param p6, "outXyz"    # [D
 
+    .prologue
+    .line 572
     const-wide/high16 v14, 0x4030000000000000L    # 16.0
 
     add-double v14, v14, p0
@@ -105,24 +124,32 @@
 
     div-double v2, v14, v16
 
+    .line 573
+    .local v2, "fy":D
     const-wide v14, 0x407f400000000000L    # 500.0
 
     div-double v14, p2, v14
 
     add-double v0, v14, v2
 
+    .line 574
+    .local v0, "fx":D
     const-wide/high16 v14, 0x4069000000000000L    # 200.0
 
     div-double v14, p4, v14
 
     sub-double v4, v2, v14
 
+    .line 576
+    .local v4, "fz":D
     const-wide/high16 v14, 0x4008000000000000L    # 3.0
 
     invoke-static {v0, v1, v14, v15}, Ljava/lang/Math;->pow(DD)D
 
     move-result-wide v6
 
+    .line 577
+    .local v6, "tmp":D
     const-wide v14, 0x3f82231832fcac8eL    # 0.008856
 
     cmpl-double v14, v6, v14
@@ -131,6 +158,8 @@
 
     move-wide v8, v6
 
+    .line 578
+    .local v8, "xr":D
     :goto_0
     const-wide v14, 0x401fff9da4c11507L    # 7.9996247999999985
 
@@ -144,6 +173,8 @@
 
     move-result-wide v10
 
+    .line 580
+    .local v10, "yr":D
     :goto_1
     const-wide/high16 v14, 0x4008000000000000L    # 3.0
 
@@ -151,6 +182,7 @@
 
     move-result-wide v6
 
+    .line 581
     const-wide v14, 0x3f82231832fcac8eL    # 0.008856
 
     cmpl-double v14, v6, v14
@@ -159,6 +191,8 @@
 
     move-wide v12, v6
 
+    .line 583
+    .local v12, "zr":D
     :goto_2
     const-wide v14, 0x4057c3020c49ba5eL    # 95.047
 
@@ -168,6 +202,7 @@
 
     aput-wide v14, p6, v16
 
+    .line 584
     const-wide/high16 v14, 0x4059000000000000L    # 100.0
 
     mul-double/2addr v14, v10
@@ -176,6 +211,7 @@
 
     aput-wide v14, p6, v16
 
+    .line 585
     const-wide v14, 0x405b3883126e978dL    # 108.883
 
     mul-double/2addr v14, v12
@@ -184,8 +220,13 @@
 
     aput-wide v14, p6, v16
 
+    .line 571
     return-void
 
+    .line 577
+    .end local v8    # "xr":D
+    .end local v10    # "yr":D
+    .end local v12    # "zr":D
     :cond_0
     const-wide/high16 v14, 0x405d000000000000L    # 116.0
 
@@ -199,15 +240,19 @@
 
     div-double v8, v14, v16
 
+    .restart local v8    # "xr":D
     goto :goto_0
 
+    .line 578
     :cond_1
     const-wide v14, 0x408c3a6666666666L    # 903.3
 
     div-double v10, p0, v14
 
+    .restart local v10    # "yr":D
     goto :goto_1
 
+    .line 581
     :cond_2
     const-wide/high16 v14, 0x405d000000000000L    # 116.0
 
@@ -221,14 +266,22 @@
 
     div-double v12, v14, v16
 
+    .restart local v12    # "zr":D
     goto :goto_2
 .end method
 
 .method public static RGBToLAB(III[D)V
     .locals 7
+    .param p0, "r"    # I
+    .param p1, "g"    # I
+    .param p2, "b"    # I
+    .param p3, "outLab"    # [D
 
+    .prologue
+    .line 458
     invoke-static {p0, p1, p2, p3}, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->RGBToXYZ(III[D)V
 
+    .line 460
     const/4 v0, 0x0
 
     aget-wide v0, p3, v0
@@ -245,18 +298,26 @@
 
     invoke-static/range {v0 .. v6}, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->XYZToLAB(DDD[D)V
 
+    .line 456
     return-void
 .end method
 
 .method public static RGBToXYZ(III[D)V
     .locals 10
+    .param p0, "r"    # I
+    .param p1, "g"    # I
+    .param p2, "b"    # I
+    .param p3, "outXyz"    # [D
 
+    .prologue
+    .line 503
     array-length v6, p3
 
     const/4 v7, 0x3
 
     if-eq v6, v7, :cond_0
 
+    .line 504
     new-instance v6, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v7, "outXyz must have a length of 3."
@@ -265,6 +326,7 @@
 
     throw v6
 
+    .line 507
     :cond_0
     int-to-double v6, p0
 
@@ -272,6 +334,8 @@
 
     div-double v4, v6, v8
 
+    .line 508
+    .local v4, "sr":D
     const-wide v6, 0x3fa4b5dcc63f1412L    # 0.04045
 
     cmpg-double v6, v4, v6
@@ -282,6 +346,7 @@
 
     div-double/2addr v4, v6
 
+    .line 509
     :goto_0
     int-to-double v6, p1
 
@@ -289,6 +354,8 @@
 
     div-double v2, v6, v8
 
+    .line 510
+    .local v2, "sg":D
     const-wide v6, 0x3fa4b5dcc63f1412L    # 0.04045
 
     cmpg-double v6, v2, v6
@@ -299,6 +366,7 @@
 
     div-double/2addr v2, v6
 
+    .line 511
     :goto_1
     int-to-double v6, p2
 
@@ -306,6 +374,8 @@
 
     div-double v0, v6, v8
 
+    .line 512
+    .local v0, "sb":D
     const-wide v6, 0x3fa4b5dcc63f1412L    # 0.04045
 
     cmpg-double v6, v0, v6
@@ -316,6 +386,7 @@
 
     div-double/2addr v0, v6
 
+    .line 514
     :goto_2
     const-wide v6, 0x3fda64c2f837b4a2L    # 0.4124
 
@@ -341,6 +412,7 @@
 
     aput-wide v6, p3, v8
 
+    .line 515
     const-wide v6, 0x3fcb367a0f9096bcL    # 0.2126
 
     mul-double/2addr v6, v4
@@ -365,6 +437,7 @@
 
     aput-wide v6, p3, v8
 
+    .line 516
     const-wide v6, 0x3f93c36113404ea5L    # 0.0193
 
     mul-double/2addr v6, v4
@@ -389,8 +462,12 @@
 
     aput-wide v6, p3, v8
 
+    .line 502
     return-void
 
+    .line 508
+    .end local v0    # "sb":D
+    .end local v2    # "sg":D
     :cond_1
     const-wide v6, 0x3fac28f5c28f5c29L    # 0.055
 
@@ -408,6 +485,8 @@
 
     goto/16 :goto_0
 
+    .line 510
+    .restart local v2    # "sg":D
     :cond_2
     const-wide v6, 0x3fac28f5c28f5c29L    # 0.055
 
@@ -425,6 +504,8 @@
 
     goto/16 :goto_1
 
+    .line 512
+    .restart local v0    # "sb":D
     :cond_3
     const-wide v6, 0x3fac28f5c28f5c29L    # 0.055
 
@@ -445,7 +526,12 @@
 
 .method public static XYZToColor(DDD)I
     .locals 12
+    .param p0, "x"    # D
+    .param p2, "y"    # D
+    .param p4, "z"    # D
 
+    .prologue
+    .line 603
     const-wide v6, 0x4009ecbfb15b573fL    # 3.2406
 
     mul-double/2addr v6, p0
@@ -466,6 +552,8 @@
 
     div-double v4, v6, v8
 
+    .line 604
+    .local v4, "r":D
     const-wide v6, -0x4010fec56d5cfaadL    # -0.9689
 
     mul-double/2addr v6, p0
@@ -486,6 +574,8 @@
 
     div-double v2, v6, v8
 
+    .line 605
+    .local v2, "g":D
     const-wide v6, 0x3fac84b5dcc63f14L    # 0.0557
 
     mul-double/2addr v6, p0
@@ -506,6 +596,8 @@
 
     div-double v0, v6, v8
 
+    .line 607
+    .local v0, "b":D
     const-wide v6, 0x3f69a5c37387b719L    # 0.0031308
 
     cmpl-double v6, v4, v6
@@ -526,6 +618,7 @@
 
     sub-double v4, v6, v8
 
+    .line 608
     :goto_0
     const-wide v6, 0x3f69a5c37387b719L    # 0.0031308
 
@@ -547,6 +640,7 @@
 
     sub-double v2, v6, v8
 
+    .line 609
     :goto_1
     const-wide v6, 0x3f69a5c37387b719L    # 0.0031308
 
@@ -568,6 +662,7 @@
 
     sub-double v0, v6, v8
 
+    .line 612
     :goto_2
     const-wide v6, 0x406fe00000000000L    # 255.0
 
@@ -587,6 +682,7 @@
 
     move-result v6
 
+    .line 613
     const-wide v8, 0x406fe00000000000L    # 255.0
 
     mul-double/2addr v8, v2
@@ -605,6 +701,7 @@
 
     move-result v7
 
+    .line 614
     const-wide v8, 0x406fe00000000000L    # 255.0
 
     mul-double/2addr v8, v0
@@ -623,12 +720,14 @@
 
     move-result v8
 
+    .line 611
     invoke-static {v6, v7, v8}, Landroid/graphics/Color;->rgb(III)I
 
     move-result v6
 
     return v6
 
+    .line 607
     :cond_0
     const-wide v6, 0x4029d70a3d70a3d7L    # 12.92
 
@@ -636,6 +735,7 @@
 
     goto :goto_0
 
+    .line 608
     :cond_1
     const-wide v6, 0x4029d70a3d70a3d7L    # 12.92
 
@@ -643,6 +743,7 @@
 
     goto :goto_1
 
+    .line 609
     :cond_2
     const-wide v6, 0x4029d70a3d70a3d7L    # 12.92
 
@@ -653,13 +754,20 @@
 
 .method public static XYZToLAB(DDD[D)V
     .locals 6
+    .param p0, "x"    # D
+    .param p2, "y"    # D
+    .param p4, "z"    # D
+    .param p6, "outLab"    # [D
 
+    .prologue
+    .line 540
     array-length v0, p6
 
     const/4 v1, 0x3
 
     if-eq v0, v1, :cond_0
 
+    .line 541
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "outLab must have a length of 3."
@@ -668,6 +776,7 @@
 
     throw v0
 
+    .line 543
     :cond_0
     const-wide v0, 0x4057c3020c49ba5eL    # 95.047
 
@@ -677,6 +786,7 @@
 
     move-result-wide p0
 
+    .line 544
     const-wide/high16 v0, 0x4059000000000000L    # 100.0
 
     div-double v0, p2, v0
@@ -685,6 +795,7 @@
 
     move-result-wide p2
 
+    .line 545
     const-wide v0, 0x405b3883126e978dL    # 108.883
 
     div-double v0, p4, v0
@@ -693,6 +804,7 @@
 
     move-result-wide p4
 
+    .line 546
     const-wide/16 v0, 0x0
 
     const-wide/high16 v2, 0x405d000000000000L    # 116.0
@@ -711,6 +823,7 @@
 
     aput-wide v0, p6, v2
 
+    .line 547
     sub-double v0, p0, p2
 
     const-wide v2, 0x407f400000000000L    # 500.0
@@ -721,6 +834,7 @@
 
     aput-wide v0, p6, v2
 
+    .line 548
     sub-double v0, p2, p4
 
     const-wide/high16 v2, 0x4069000000000000L    # 200.0
@@ -731,22 +845,28 @@
 
     aput-wide v0, p6, v2
 
+    .line 539
     return-void
 .end method
 
 .method public static calculateContrast(II)D
     .locals 8
+    .param p0, "foreground"    # I
+    .param p1, "background"    # I
 
+    .prologue
     const/16 v5, 0xff
 
     const-wide v6, 0x3fa999999999999aL    # 0.05
 
+    .line 414
     invoke-static {p1}, Landroid/graphics/Color;->alpha(I)I
 
     move-result v4
 
     if-eq v4, v5, :cond_0
 
+    .line 415
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -759,10 +879,12 @@
 
     move-result-object v5
 
+    .line 416
     invoke-static {p1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
     move-result-object v6
 
+    .line 415
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
@@ -775,6 +897,7 @@
 
     throw v4
 
+    .line 418
     :cond_0
     invoke-static {p0}, Landroid/graphics/Color;->alpha(I)I
 
@@ -782,10 +905,12 @@
 
     if-ge v4, v5, :cond_1
 
+    .line 420
     invoke-static {p0, p1}, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->compositeColors(II)I
 
     move-result p0
 
+    .line 423
     :cond_1
     invoke-static {p0}, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->calculateLuminance(I)D
 
@@ -793,12 +918,16 @@
 
     add-double v0, v4, v6
 
+    .line 424
+    .local v0, "luminance1":D
     invoke-static {p1}, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->calculateLuminance(I)D
 
     move-result-wide v4
 
     add-double v2, v4, v6
 
+    .line 427
+    .local v2, "luminance2":D
     invoke-static {v0, v1, v2, v3}, Ljava/lang/Math;->max(DD)D
 
     move-result-wide v4
@@ -814,13 +943,19 @@
 
 .method public static calculateLuminance(I)D
     .locals 6
+    .param p0, "color"    # I
 
+    .prologue
+    .line 400
     invoke-static {}, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->getTempDouble3Array()[D
 
     move-result-object v0
 
+    .line 401
+    .local v0, "result":[D
     invoke-static {p0, v0}, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->colorToXYZ(I[D)V
 
+    .line 403
     const/4 v1, 0x1
 
     aget-wide v2, v0, v1
@@ -834,7 +969,11 @@
 
 .method public static colorToLAB(I[D)V
     .locals 3
+    .param p0, "color"    # I
+    .param p1, "outLab"    # [D
 
+    .prologue
+    .line 437
     invoke-static {p0}, Landroid/graphics/Color;->red(I)I
 
     move-result v0
@@ -849,12 +988,17 @@
 
     invoke-static {v0, v1, v2, p1}, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->RGBToLAB(III[D)V
 
+    .line 436
     return-void
 .end method
 
 .method public static colorToXYZ(I[D)V
     .locals 3
+    .param p0, "color"    # I
+    .param p1, "outXyz"    # [D
 
+    .prologue
+    .line 480
     invoke-static {p0}, Landroid/graphics/Color;->red(I)I
 
     move-result v0
@@ -869,12 +1013,17 @@
 
     invoke-static {v0, v1, v2, p1}, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->RGBToXYZ(III[D)V
 
+    .line 479
     return-void
 .end method
 
 .method private static compositeAlpha(II)I
     .locals 2
+    .param p0, "foregroundAlpha"    # I
+    .param p1, "backgroundAlpha"    # I
 
+    .prologue
+    .line 386
     rsub-int v0, p1, 0xff
 
     rsub-int v1, p0, 0xff
@@ -890,55 +1039,77 @@
 
 .method public static compositeColors(II)I
     .locals 8
+    .param p0, "foreground"    # I
+    .param p1, "background"    # I
 
+    .prologue
+    .line 371
     invoke-static {p1}, Landroid/graphics/Color;->alpha(I)I
 
     move-result v2
 
+    .line 372
+    .local v2, "bgAlpha":I
     invoke-static {p0}, Landroid/graphics/Color;->alpha(I)I
 
     move-result v3
 
+    .line 373
+    .local v3, "fgAlpha":I
     invoke-static {v3, v2}, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->compositeAlpha(II)I
 
     move-result v0
 
+    .line 375
+    .local v0, "a":I
     invoke-static {p0}, Landroid/graphics/Color;->red(I)I
 
     move-result v6
 
+    .line 376
     invoke-static {p1}, Landroid/graphics/Color;->red(I)I
 
     move-result v7
 
+    .line 375
     invoke-static {v6, v3, v7, v2, v0}, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->compositeComponent(IIIII)I
 
     move-result v5
 
+    .line 377
+    .local v5, "r":I
     invoke-static {p0}, Landroid/graphics/Color;->green(I)I
 
     move-result v6
 
+    .line 378
     invoke-static {p1}, Landroid/graphics/Color;->green(I)I
 
     move-result v7
 
+    .line 377
     invoke-static {v6, v3, v7, v2, v0}, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->compositeComponent(IIIII)I
 
     move-result v4
 
+    .line 379
+    .local v4, "g":I
     invoke-static {p0}, Landroid/graphics/Color;->blue(I)I
 
     move-result v6
 
+    .line 380
     invoke-static {p1}, Landroid/graphics/Color;->blue(I)I
 
     move-result v7
 
+    .line 379
     invoke-static {v6, v3, v7, v2, v0}, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->compositeComponent(IIIII)I
 
     move-result v1
 
+    .line 382
+    .local v1, "b":I
     invoke-static {v0, v5, v4, v1}, Landroid/graphics/Color;->argb(IIII)I
 
     move-result v6
@@ -948,13 +1119,21 @@
 
 .method private static compositeComponent(IIIII)I
     .locals 3
+    .param p0, "fgC"    # I
+    .param p1, "fgA"    # I
+    .param p2, "bgC"    # I
+    .param p3, "bgA"    # I
+    .param p4, "a"    # I
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 390
     if-nez p4, :cond_0
 
     return v0
 
+    .line 391
     :cond_0
     mul-int/lit16 v0, p0, 0xff
 
@@ -977,12 +1156,19 @@
 
 .method private static constrain(III)I
     .locals 0
+    .param p0, "amount"    # I
+    .param p1, "low"    # I
+    .param p2, "high"    # I
 
+    .prologue
+    .line 635
     if-ge p0, p1, :cond_0
 
+    .end local p1    # "low":I
     :goto_0
     return p1
 
+    .restart local p1    # "low":I
     :cond_0
     if-le p0, p2, :cond_1
 
@@ -999,6 +1185,8 @@
 .method private static getTempDouble3Array()[D
     .locals 2
 
+    .prologue
+    .line 645
     sget-object v1, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->TEMP_ARRAY:Ljava/lang/ThreadLocal;
 
     invoke-virtual {v1}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
@@ -1007,38 +1195,49 @@
 
     check-cast v0, [D
 
+    .line 646
+    .local v0, "result":[D
     if-nez v0, :cond_0
 
+    .line 647
     const/4 v1, 0x3
 
     new-array v0, v1, [D
 
+    .line 648
     sget-object v1, Lcom/android/internal/util/NotificationColorUtil$ColorUtilsFromCompat;->TEMP_ARRAY:Ljava/lang/ThreadLocal;
 
     invoke-virtual {v1, v0}, Ljava/lang/ThreadLocal;->set(Ljava/lang/Object;)V
 
+    .line 650
     :cond_0
     return-object v0
 .end method
 
 .method private static pivotXyzComponent(D)D
     .locals 4
+    .param p0, "component"    # D
 
+    .prologue
+    .line 639
     const-wide v0, 0x3f82231832fcac8eL    # 0.008856
 
     cmpl-double v0, p0, v0
 
     if-lez v0, :cond_0
 
+    .line 640
     const-wide v0, 0x3fd5555555555555L    # 0.3333333333333333
 
     invoke-static {p0, p1, v0, v1}, Ljava/lang/Math;->pow(DD)D
 
     move-result-wide v0
 
+    .line 639
     :goto_0
     return-wide v0
 
+    .line 641
     :cond_0
     const-wide v0, 0x408c3a6666666666L    # 903.3
 

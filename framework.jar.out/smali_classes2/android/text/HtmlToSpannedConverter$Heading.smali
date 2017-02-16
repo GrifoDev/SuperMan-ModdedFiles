@@ -29,10 +29,15 @@
 
 .method public constructor <init>(I)V
     .locals 0
+    .param p1, "level"    # I
 
+    .prologue
+    .line 1322
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 1323
     iput p1, p0, Landroid/text/HtmlToSpannedConverter$Heading;->mLevel:I
 
+    .line 1322
     return-void
 .end method

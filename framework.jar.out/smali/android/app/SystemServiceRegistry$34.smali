@@ -27,6 +27,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 575
     invoke-direct {p0}, Landroid/app/SystemServiceRegistry$CachedServiceFetcher;-><init>()V
 
     return-void
@@ -36,25 +38,34 @@
 # virtual methods
 .method public createService(Landroid/app/ContextImpl;)Landroid/os/RecoverySystem;
     .locals 4
+    .param p1, "ctx"    # Landroid/app/ContextImpl;
 
+    .prologue
+    .line 578
     const-string/jumbo v2, "recovery"
 
     invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
+    .line 579
+    .local v0, "b":Landroid/os/IBinder;
     invoke-static {v0}, Landroid/os/IRecoverySystem$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/IRecoverySystem;
 
     move-result-object v1
 
+    .line 580
+    .local v1, "service":Landroid/os/IRecoverySystem;
     if-nez v1, :cond_0
 
+    .line 581
     const-string/jumbo v2, "SystemServiceRegistry"
 
     const-string/jumbo v3, "Failed to get recovery service."
 
     invoke-static {v2, v3}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 583
     :cond_0
     new-instance v2, Landroid/os/RecoverySystem;
 
@@ -65,7 +76,10 @@
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .param p1, "ctx"    # Landroid/app/ContextImpl;
 
+    .prologue
+    .line 577
     invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$34;->createService(Landroid/app/ContextImpl;)Landroid/os/RecoverySystem;
 
     move-result-object v0

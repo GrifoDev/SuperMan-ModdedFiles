@@ -25,16 +25,22 @@
 # direct methods
 .method constructor <init>(Landroid/transition/ChangeBounds;Landroid/transition/ChangeBounds$ViewBounds;)V
     .locals 1
+    .param p1, "this$0"    # Landroid/transition/ChangeBounds;
+    .param p2, "val$viewBounds"    # Landroid/transition/ChangeBounds$ViewBounds;
 
+    .prologue
+    .line 337
     iput-object p1, p0, Landroid/transition/ChangeBounds$7;->this$0:Landroid/transition/ChangeBounds;
 
     iput-object p2, p0, Landroid/transition/ChangeBounds$7;->val$viewBounds:Landroid/transition/ChangeBounds$ViewBounds;
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
 
+    .line 340
     iget-object v0, p0, Landroid/transition/ChangeBounds$7;->val$viewBounds:Landroid/transition/ChangeBounds$ViewBounds;
 
     iput-object v0, p0, Landroid/transition/ChangeBounds$7;->mViewBounds:Landroid/transition/ChangeBounds$ViewBounds;
 
+    .line 337
     return-void
 .end method

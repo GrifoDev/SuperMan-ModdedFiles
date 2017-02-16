@@ -18,44 +18,59 @@
 .method protected constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 39
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 40
     new-instance v0, Lcom/samsung/android/contextaware/manager/ContextBean;
 
     invoke-direct {v0}, Lcom/samsung/android/contextaware/manager/ContextBean;-><init>()V
 
     iput-object v0, p0, Lcom/samsung/android/contextaware/manager/ContextComponent;->mContextBean:Lcom/samsung/android/contextaware/manager/ContextBean;
 
+    .line 41
     new-instance v0, Lcom/samsung/android/contextaware/manager/ContextObserverManager;
 
     invoke-direct {v0}, Lcom/samsung/android/contextaware/manager/ContextObserverManager;-><init>()V
 
     iput-object v0, p0, Lcom/samsung/android/contextaware/manager/ContextComponent;->mContextObserver:Lcom/samsung/android/contextaware/manager/ContextObserverManager;
 
+    .line 39
     return-void
 .end method
 
 .method private clearContextBean()V
     .locals 1
 
+    .prologue
+    .line 355
     iget-object v0, p0, Lcom/samsung/android/contextaware/manager/ContextComponent;->mContextBean:Lcom/samsung/android/contextaware/manager/ContextBean;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextBean;->clearContextBean()V
 
+    .line 354
     return-void
 .end method
 
 .method private notifyObserver(Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 1
+    .param p1, "type"    # Ljava/lang/String;
+    .param p2, "context"    # Landroid/os/Bundle;
 
+    .prologue
+    .line 155
     invoke-virtual {p0}, Lcom/samsung/android/contextaware/manager/ContextComponent;->display()V
 
+    .line 156
     iget-object v0, p0, Lcom/samsung/android/contextaware/manager/ContextComponent;->mContextObserver:Lcom/samsung/android/contextaware/manager/ContextObserverManager;
 
     invoke-virtual {v0, p1, p2}, Lcom/samsung/android/contextaware/manager/ContextObserverManager;->notifyObserver(Ljava/lang/String;Landroid/os/Bundle;)V
 
+    .line 157
     invoke-direct {p0}, Lcom/samsung/android/contextaware/manager/ContextComponent;->clearContextBean()V
 
+    .line 154
     return-void
 .end method
 
@@ -64,6 +79,8 @@
 .method protected checkNotifyCondition()Z
     .locals 1
 
+    .prologue
+    .line 289
     const/4 v0, 0x1
 
     return v0
@@ -72,52 +89,72 @@
 .method public clear()V
     .locals 0
 
+    .prologue
+    .line 62
     invoke-direct {p0}, Lcom/samsung/android/contextaware/manager/ContextComponent;->clearContextBean()V
 
+    .line 61
     return-void
 .end method
 
 .method protected clearAccordingToRequest()V
     .locals 0
 
+    .prologue
+    .line 262
     invoke-virtual {p0}, Lcom/samsung/android/contextaware/manager/ContextComponent;->clear()V
 
+    .line 261
     return-void
 .end method
 
 .method public disable()V
     .locals 0
 
+    .prologue
+    .line 95
     return-void
 .end method
 
 .method protected disableForStop(I)V
     .locals 0
+    .param p1, "operation"    # I
 
+    .prologue
+    .line 176
     return-void
 .end method
 
 .method protected display()V
     .locals 0
 
+    .prologue
+    .line 417
     return-void
 .end method
 
 .method public enable()V
     .locals 0
 
+    .prologue
+    .line 88
     return-void
 .end method
 
 .method protected enableForStart(I)V
     .locals 0
+    .param p1, "operation"    # I
 
+    .prologue
+    .line 166
     return-void
 .end method
 
 .method protected final getContextBean()Lcom/samsung/android/contextaware/manager/ContextBean;
     .locals 1
 
+    .prologue
+    .line 390
     iget-object v0, p0, Lcom/samsung/android/contextaware/manager/ContextComponent;->mContextBean:Lcom/samsung/android/contextaware/manager/ContextBean;
 
     return-object v0
@@ -125,7 +162,10 @@
 
 .method protected getContextInfo(Lcom/samsung/android/contextaware/manager/ContextAwareService$Listener;)V
     .locals 0
+    .param p1, "listener"    # Lcom/samsung/android/contextaware/manager/ContextAwareService$Listener;
 
+    .prologue
+    .line 309
     return-void
 .end method
 
@@ -135,6 +175,8 @@
 .method public getContextType()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 105
     const-string/jumbo v0, ""
 
     return-object v0
@@ -143,6 +185,8 @@
 .method public getContextValueNames()[Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 399
     const/4 v0, 0x1
 
     new-array v0, v0, [Ljava/lang/String;
@@ -153,6 +197,8 @@
 .method protected getInitContextBundle()Landroid/os/Bundle;
     .locals 1
 
+    .prologue
+    .line 280
     const/4 v0, 0x0
 
     return-object v0
@@ -161,14 +207,18 @@
 .method protected final getUsedServiceCount()I
     .locals 2
 
+    .prologue
+    .line 224
     invoke-static {}, Lcom/samsung/android/contextaware/manager/ListenerListManager;->getInstance()Lcom/samsung/android/contextaware/manager/ListenerListManager;
 
     move-result-object v0
 
+    .line 225
     invoke-virtual {p0}, Lcom/samsung/android/contextaware/manager/ContextComponent;->getContextType()Ljava/lang/String;
 
     move-result-object v1
 
+    .line 224
     invoke-virtual {v0, v1}, Lcom/samsung/android/contextaware/manager/ListenerListManager;->getUsedServiceCount(Ljava/lang/String;)I
 
     move-result v0
@@ -179,14 +229,18 @@
 .method protected final getUsedSubCollectionCount()I
     .locals 2
 
+    .prologue
+    .line 234
     invoke-static {}, Lcom/samsung/android/contextaware/manager/ListenerListManager;->getInstance()Lcom/samsung/android/contextaware/manager/ListenerListManager;
 
     move-result-object v0
 
+    .line 235
     invoke-virtual {p0}, Lcom/samsung/android/contextaware/manager/ContextComponent;->getContextType()Ljava/lang/String;
 
     move-result-object v1
 
+    .line 234
     invoke-virtual {v0, v1}, Lcom/samsung/android/contextaware/manager/ListenerListManager;->getUsedSubCollectionCount(Ljava/lang/String;)I
 
     move-result v0
@@ -197,14 +251,18 @@
 .method protected final getUsedTotalCount()I
     .locals 2
 
+    .prologue
+    .line 214
     invoke-static {}, Lcom/samsung/android/contextaware/manager/ListenerListManager;->getInstance()Lcom/samsung/android/contextaware/manager/ListenerListManager;
 
     move-result-object v0
 
+    .line 215
     invoke-virtual {p0}, Lcom/samsung/android/contextaware/manager/ContextComponent;->getContextType()Ljava/lang/String;
 
     move-result-object v1
 
+    .line 214
     invoke-virtual {v0, v1}, Lcom/samsung/android/contextaware/manager/ListenerListManager;->getUsedTotalCount(Ljava/lang/String;)I
 
     move-result v0
@@ -215,14 +273,18 @@
 .method protected initialize()V
     .locals 0
 
+    .prologue
+    .line 47
     return-void
 .end method
 
 .method protected final isRunning()Z
     .locals 2
 
+    .prologue
     const/4 v0, 0x1
 
+    .line 271
     invoke-virtual {p0}, Lcom/samsung/android/contextaware/manager/ContextComponent;->getUsedTotalCount()I
 
     move-result v1
@@ -240,35 +302,48 @@
 
 .method public notifyCmdProcessResultObserver(Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 1
+    .param p1, "type"    # Ljava/lang/String;
+    .param p2, "context"    # Landroid/os/Bundle;
 
+    .prologue
+    .line 411
     iget-object v0, p0, Lcom/samsung/android/contextaware/manager/ContextComponent;->mContextObserver:Lcom/samsung/android/contextaware/manager/ContextObserverManager;
 
     invoke-virtual {v0, p1, p2}, Lcom/samsung/android/contextaware/manager/ContextObserverManager;->notifyCmdProcessResultObserver(Ljava/lang/String;Landroid/os/Bundle;)V
 
+    .line 410
     return-void
 .end method
 
 .method protected notifyFaultDetectionResult()V
     .locals 0
 
+    .prologue
+    .line 197
     return-void
 .end method
 
 .method protected notifyInitContext()V
     .locals 2
 
+    .prologue
+    .line 296
     invoke-virtual {p0}, Lcom/samsung/android/contextaware/manager/ContextComponent;->getInitContextBundle()Landroid/os/Bundle;
 
     move-result-object v0
 
+    .line 297
+    .local v0, "contextBundle":Landroid/os/Bundle;
     if-eqz v0, :cond_0
 
+    .line 298
     invoke-virtual {p0}, Lcom/samsung/android/contextaware/manager/ContextComponent;->getContextType()Ljava/lang/String;
 
     move-result-object v1
 
     invoke-direct {p0, v1, v0}, Lcom/samsung/android/contextaware/manager/ContextComponent;->notifyObserver(Ljava/lang/String;Landroid/os/Bundle;)V
 
+    .line 295
     :cond_0
     return-void
 .end method
@@ -276,12 +351,15 @@
 .method public final notifyObserver()V
     .locals 2
 
+    .prologue
+    .line 140
     invoke-virtual {p0}, Lcom/samsung/android/contextaware/manager/ContextComponent;->checkNotifyCondition()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
+    .line 141
     invoke-virtual {p0}, Lcom/samsung/android/contextaware/manager/ContextComponent;->getContextType()Ljava/lang/String;
 
     move-result-object v0
@@ -296,6 +374,7 @@
 
     invoke-direct {p0, v0, v1}, Lcom/samsung/android/contextaware/manager/ContextComponent;->notifyObserver(Ljava/lang/String;Landroid/os/Bundle;)V
 
+    .line 139
     :cond_0
     return-void
 .end method
@@ -303,53 +382,72 @@
 .method public pause()V
     .locals 0
 
+    .prologue
+    .line 242
     invoke-virtual {p0}, Lcom/samsung/android/contextaware/manager/ContextComponent;->disable()V
 
+    .line 241
     return-void
 .end method
 
 .method protected registerApPowerObserver()V
     .locals 0
 
+    .prologue
+    .line 183
     return-void
 .end method
 
 .method public final registerCmdProcessResultObserver(Lcom/samsung/android/contextaware/manager/fault/ICmdProcessResultObserver;)V
     .locals 1
+    .param p1, "observer"    # Lcom/samsung/android/contextaware/manager/fault/ICmdProcessResultObserver;
 
+    .prologue
+    .line 368
     iget-object v0, p0, Lcom/samsung/android/contextaware/manager/ContextComponent;->mContextObserver:Lcom/samsung/android/contextaware/manager/ContextObserverManager;
 
     invoke-virtual {v0, p1}, Lcom/samsung/android/contextaware/manager/ContextObserverManager;->registerCmdProcessResultObserver(Lcom/samsung/android/contextaware/manager/fault/ICmdProcessResultObserver;)V
 
+    .line 367
     return-void
 .end method
 
 .method public final registerObserver(Lcom/samsung/android/contextaware/manager/IContextObserver;)V
     .locals 1
+    .param p1, "observer"    # Lcom/samsung/android/contextaware/manager/IContextObserver;
 
+    .prologue
+    .line 117
     iget-object v0, p0, Lcom/samsung/android/contextaware/manager/ContextComponent;->mContextObserver:Lcom/samsung/android/contextaware/manager/ContextObserverManager;
 
     invoke-virtual {v0, p1}, Lcom/samsung/android/contextaware/manager/ContextObserverManager;->registerObserver(Lcom/samsung/android/contextaware/manager/IContextObserver;)V
 
+    .line 116
     return-void
 .end method
 
 .method protected reset()V
     .locals 0
 
+    .prologue
+    .line 255
     return-void
 .end method
 
 .method public resume()V
     .locals 0
 
+    .prologue
+    .line 249
     invoke-virtual {p0}, Lcom/samsung/android/contextaware/manager/ContextComponent;->enable()V
 
+    .line 248
     return-void
 .end method
 
 .method protected final setProperty(ILjava/lang/Object;)Z
     .locals 1
+    .param p1, "property"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -358,16 +456,22 @@
         }
     .end annotation
 
+    .prologue
+    .line 323
+    .local p2, "value":Ljava/lang/Object;, "TE;"
     if-nez p2, :cond_0
 
+    .line 324
     const-string/jumbo v0, "value is null"
 
     invoke-static {v0}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger;->error(Ljava/lang/String;)V
 
+    .line 325
     const/4 v0, 0x0
 
     return v0
 
+    .line 328
     :cond_0
     invoke-virtual {p0, p1, p2}, Lcom/samsung/android/contextaware/manager/ContextComponent;->setPropertyValue(ILjava/lang/Object;)Z
 
@@ -378,6 +482,7 @@
 
 .method public setPropertyValue(ILjava/lang/Object;)Z
     .locals 1
+    .param p1, "property"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -386,6 +491,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 341
+    .local p2, "value":Ljava/lang/Object;, "TE;"
     const/4 v0, 0x1
 
     return v0
@@ -400,37 +508,51 @@
 .method protected terminate()V
     .locals 0
 
+    .prologue
+    .line 54
     return-void
 .end method
 
 .method protected unregisterApPowerObserver()V
     .locals 0
 
+    .prologue
+    .line 190
     return-void
 .end method
 
 .method public final unregisterCmdProcessResultObserver(Lcom/samsung/android/contextaware/manager/fault/ICmdProcessResultObserver;)V
     .locals 1
+    .param p1, "observer"    # Lcom/samsung/android/contextaware/manager/fault/ICmdProcessResultObserver;
 
+    .prologue
+    .line 381
     iget-object v0, p0, Lcom/samsung/android/contextaware/manager/ContextComponent;->mContextObserver:Lcom/samsung/android/contextaware/manager/ContextObserverManager;
 
     invoke-virtual {v0, p1}, Lcom/samsung/android/contextaware/manager/ContextObserverManager;->unregisterCmdProcessResultObserver(Lcom/samsung/android/contextaware/manager/fault/ICmdProcessResultObserver;)V
 
+    .line 380
     return-void
 .end method
 
 .method public final unregisterObserver(Lcom/samsung/android/contextaware/manager/IContextObserver;)V
     .locals 1
+    .param p1, "observer"    # Lcom/samsung/android/contextaware/manager/IContextObserver;
 
+    .prologue
+    .line 129
     iget-object v0, p0, Lcom/samsung/android/contextaware/manager/ContextComponent;->mContextObserver:Lcom/samsung/android/contextaware/manager/ContextObserverManager;
 
     invoke-virtual {v0, p1}, Lcom/samsung/android/contextaware/manager/ContextObserverManager;->unregisterObserver(Lcom/samsung/android/contextaware/manager/IContextObserver;)V
 
+    .line 128
     return-void
 .end method
 
 .method public updateApPowerStatusForPreparedCollection()V
     .locals 0
 
+    .prologue
+    .line 347
     return-void
 .end method

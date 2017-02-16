@@ -29,6 +29,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -36,9 +38,12 @@
 
 .method public static isInteractive(I)Z
     .locals 2
+    .param p0, "wakefulness"    # I
 
+    .prologue
     const/4 v0, 0x1
 
+    .line 89
     if-eq p0, v0, :cond_0
 
     const/4 v1, 0x2
@@ -57,35 +62,44 @@
 
 .method public static wakefulnessToString(I)Ljava/lang/String;
     .locals 1
+    .param p0, "wakefulness"    # I
 
+    .prologue
+    .line 70
     packed-switch p0, :pswitch_data_0
 
+    .line 80
     invoke-static {p0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v0
 
     return-object v0
 
+    .line 72
     :pswitch_0
     const-string/jumbo v0, "Asleep"
 
     return-object v0
 
+    .line 74
     :pswitch_1
     const-string/jumbo v0, "Awake"
 
     return-object v0
 
+    .line 76
     :pswitch_2
     const-string/jumbo v0, "Dreaming"
 
     return-object v0
 
+    .line 78
     :pswitch_3
     const-string/jumbo v0, "Dozing"
 
     return-object v0
 
+    .line 70
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0

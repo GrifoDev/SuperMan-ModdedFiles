@@ -28,7 +28,12 @@
 # direct methods
 .method constructor <init>(Landroid/app/ExitTransitionCoordinator;Landroid/os/ResultReceiver;Landroid/os/Bundle;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/app/ExitTransitionCoordinator;
+    .param p2, "val$resultReceiver"    # Landroid/os/ResultReceiver;
+    .param p3, "val$sharedElementBundle"    # Landroid/os/Bundle;
 
+    .prologue
+    .line 440
     iput-object p1, p0, Landroid/app/ExitTransitionCoordinator$11;->this$0:Landroid/app/ExitTransitionCoordinator;
 
     iput-object p2, p0, Landroid/app/ExitTransitionCoordinator$11;->val$resultReceiver:Landroid/os/ResultReceiver;
@@ -45,17 +50,23 @@
 .method public onSharedElementsReady()V
     .locals 3
 
+    .prologue
+    .line 443
     iget-object v0, p0, Landroid/app/ExitTransitionCoordinator$11;->val$resultReceiver:Landroid/os/ResultReceiver;
 
+    .line 444
     iget-object v1, p0, Landroid/app/ExitTransitionCoordinator$11;->val$sharedElementBundle:Landroid/os/Bundle;
 
+    .line 443
     const/16 v2, 0x67
 
     invoke-virtual {v0, v2, v1}, Landroid/os/ResultReceiver;->send(ILandroid/os/Bundle;)V
 
+    .line 445
     iget-object v0, p0, Landroid/app/ExitTransitionCoordinator$11;->this$0:Landroid/app/ExitTransitionCoordinator;
 
     invoke-static {v0}, Landroid/app/ExitTransitionCoordinator;->-wrap4(Landroid/app/ExitTransitionCoordinator;)V
 
+    .line 442
     return-void
 .end method

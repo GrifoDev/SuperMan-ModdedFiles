@@ -39,6 +39,7 @@
 .method static constructor <clinit>()V
     .locals 6
 
+    .prologue
     const/4 v5, 0x6
 
     const/4 v4, 0x1
@@ -47,14 +48,17 @@
 
     const/4 v2, 0x0
 
+    .line 533
     new-instance v0, Landroid/graphics/Bitmap$GLCompressionConfig;
 
     const-string/jumbo v1, "ASTC"
 
     invoke-direct {v0, v1, v3, v5}, Landroid/graphics/Bitmap$GLCompressionConfig;-><init>(Ljava/lang/String;II)V
 
+    .line 534
     sput-object v0, Landroid/graphics/Bitmap$GLCompressionConfig;->ASTC:Landroid/graphics/Bitmap$GLCompressionConfig;
 
+    .line 532
     new-array v0, v4, [Landroid/graphics/Bitmap$GLCompressionConfig;
 
     sget-object v1, Landroid/graphics/Bitmap$GLCompressionConfig;->ASTC:Landroid/graphics/Bitmap$GLCompressionConfig;
@@ -63,10 +67,12 @@
 
     sput-object v0, Landroid/graphics/Bitmap$GLCompressionConfig;->$VALUES:[Landroid/graphics/Bitmap$GLCompressionConfig;
 
+    .line 544
     const/4 v0, 0x7
 
     new-array v0, v0, [Landroid/graphics/Bitmap$GLCompressionConfig;
 
+    .line 545
     aput-object v2, v0, v3
 
     aput-object v2, v0, v4
@@ -91,24 +97,34 @@
 
     aput-object v1, v0, v5
 
+    .line 544
     sput-object v0, Landroid/graphics/Bitmap$GLCompressionConfig;->compressedConfigLookup:[Landroid/graphics/Bitmap$GLCompressionConfig;
 
+    .line 532
     return-void
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
+    .param p3, "ni"    # I
 
+    .prologue
+    .line 539
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
+    .line 540
     iput p3, p0, Landroid/graphics/Bitmap$GLCompressionConfig;->nativeInt:I
 
+    .line 539
     return-void
 .end method
 
 .method static nativeToConfig(I)Landroid/graphics/Bitmap$GLCompressionConfig;
     .locals 1
+    .param p0, "nativeConfig"    # I
 
+    .prologue
+    .line 549
     sget-object v0, Landroid/graphics/Bitmap$GLCompressionConfig;->compressedConfigLookup:[Landroid/graphics/Bitmap$GLCompressionConfig;
 
     aget-object v0, v0, p0
@@ -118,7 +134,10 @@
 
 .method public static valueOf(Ljava/lang/String;)Landroid/graphics/Bitmap$GLCompressionConfig;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 532
     const-class v0, Landroid/graphics/Bitmap$GLCompressionConfig;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -133,6 +152,8 @@
 .method public static values()[Landroid/graphics/Bitmap$GLCompressionConfig;
     .locals 1
 
+    .prologue
+    .line 532
     sget-object v0, Landroid/graphics/Bitmap$GLCompressionConfig;->$VALUES:[Landroid/graphics/Bitmap$GLCompressionConfig;
 
     return-object v0

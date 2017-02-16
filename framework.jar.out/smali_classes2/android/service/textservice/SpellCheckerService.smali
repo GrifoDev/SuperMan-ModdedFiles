@@ -30,6 +30,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 69
     const-class v0, Landroid/service/textservice/SpellCheckerService;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
@@ -38,20 +40,25 @@
 
     sput-object v0, Landroid/service/textservice/SpellCheckerService;->TAG:Ljava/lang/String;
 
+    .line 68
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 68
     invoke-direct {p0}, Landroid/app/Service;-><init>()V
 
+    .line 74
     new-instance v0, Landroid/service/textservice/SpellCheckerService$SpellCheckerServiceBinder;
 
     invoke-direct {v0, p0}, Landroid/service/textservice/SpellCheckerService$SpellCheckerServiceBinder;-><init>(Landroid/service/textservice/SpellCheckerService;)V
 
     iput-object v0, p0, Landroid/service/textservice/SpellCheckerService;->mBinder:Landroid/service/textservice/SpellCheckerService$SpellCheckerServiceBinder;
 
+    .line 68
     return-void
 .end method
 
@@ -62,7 +69,10 @@
 
 .method public final onBind(Landroid/content/Intent;)Landroid/os/IBinder;
     .locals 1
+    .param p1, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 86
     iget-object v0, p0, Landroid/service/textservice/SpellCheckerService;->mBinder:Landroid/service/textservice/SpellCheckerService$SpellCheckerServiceBinder;
 
     return-object v0

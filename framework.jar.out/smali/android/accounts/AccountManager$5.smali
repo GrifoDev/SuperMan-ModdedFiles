@@ -34,7 +34,15 @@
 # direct methods
 .method constructor <init>(Landroid/accounts/AccountManager;Landroid/accounts/AccountManager;Landroid/os/Handler;Landroid/accounts/AccountManagerCallback;Landroid/accounts/Account;Ljava/lang/String;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/accounts/AccountManager;
+    .param p2, "this$0_1"    # Landroid/accounts/AccountManager;
+    .param p3, "$anonymous0"    # Landroid/os/Handler;
+    .param p5, "val$account"    # Landroid/accounts/Account;
+    .param p6, "val$newName"    # Ljava/lang/String;
 
+    .prologue
+    .line 801
+    .local p4, "$anonymous1":Landroid/accounts/AccountManagerCallback;, "Landroid/accounts/AccountManagerCallback<Landroid/accounts/Account;>;"
     iput-object p2, p0, Landroid/accounts/AccountManager$5;->this$0:Landroid/accounts/AccountManager;
 
     iput-object p5, p0, Landroid/accounts/AccountManager$5;->val$account:Landroid/accounts/Account;
@@ -50,24 +58,31 @@
 # virtual methods
 .method public bundleToResult(Landroid/os/Bundle;)Landroid/accounts/Account;
     .locals 3
+    .param p1, "bundle"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/accounts/AuthenticatorException;
         }
     .end annotation
 
+    .prologue
+    .line 808
     const-string/jumbo v2, "authAccount"
 
     invoke-virtual {p1, v2}, Landroid/os/BaseBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
+    .line 809
+    .local v0, "name":Ljava/lang/String;
     const-string/jumbo v2, "accountType"
 
     invoke-virtual {p1, v2}, Landroid/os/BaseBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
+    .line 810
+    .local v1, "type":Ljava/lang/String;
     new-instance v2, Landroid/accounts/Account;
 
     invoke-direct {v2, v0, v1}, Landroid/accounts/Account;-><init>(Ljava/lang/String;Ljava/lang/String;)V
@@ -77,12 +92,15 @@
 
 .method public bridge synthetic bundleToResult(Landroid/os/Bundle;)Ljava/lang/Object;
     .locals 1
+    .param p1, "bundle"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/accounts/AuthenticatorException;
         }
     .end annotation
 
+    .prologue
+    .line 807
     invoke-virtual {p0, p1}, Landroid/accounts/AccountManager$5;->bundleToResult(Landroid/os/Bundle;)Landroid/accounts/Account;
 
     move-result-object v0
@@ -98,6 +116,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 804
     iget-object v0, p0, Landroid/accounts/AccountManager$5;->this$0:Landroid/accounts/AccountManager;
 
     invoke-static {v0}, Landroid/accounts/AccountManager;->-get3(Landroid/accounts/AccountManager;)Landroid/accounts/IAccountManager;
@@ -112,5 +132,6 @@
 
     invoke-interface {v0, v1, v2, v3}, Landroid/accounts/IAccountManager;->renameAccount(Landroid/accounts/IAccountManagerResponse;Landroid/accounts/Account;Ljava/lang/String;)V
 
+    .line 803
     return-void
 .end method

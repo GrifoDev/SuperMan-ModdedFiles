@@ -21,11 +21,18 @@
 # direct methods
 .method public constructor <init>(Landroid/os/Looper;Landroid/view/inputmethod/InputConnection;Landroid/view/inputmethod/InputMethodManager;)V
     .locals 0
+    .param p1, "mainLooper"    # Landroid/os/Looper;
+    .param p2, "conn"    # Landroid/view/inputmethod/InputConnection;
+    .param p3, "inputMethodManager"    # Landroid/view/inputmethod/InputMethodManager;
 
+    .prologue
+    .line 605
     invoke-direct {p0, p1, p2}, Lcom/android/internal/view/IInputConnectionWrapper;-><init>(Landroid/os/Looper;Landroid/view/inputmethod/InputConnection;)V
 
+    .line 606
     iput-object p3, p0, Landroid/view/inputmethod/InputMethodManager$ControlledInputConnectionWrapper;->mParentInputMethodManager:Landroid/view/inputmethod/InputMethodManager;
 
+    .line 604
     return-void
 .end method
 
@@ -34,25 +41,32 @@
 .method deactivate()V
     .locals 1
 
+    .prologue
+    .line 615
     invoke-virtual {p0}, Landroid/view/inputmethod/InputMethodManager$ControlledInputConnectionWrapper;->isFinished()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
+    .line 618
     return-void
 
+    .line 620
     :cond_0
     invoke-virtual {p0}, Landroid/view/inputmethod/InputMethodManager$ControlledInputConnectionWrapper;->closeConnection()V
 
+    .line 614
     return-void
 .end method
 
 .method public isActive()Z
     .locals 2
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 611
     iget-object v1, p0, Landroid/view/inputmethod/InputMethodManager$ControlledInputConnectionWrapper;->mParentInputMethodManager:Landroid/view/inputmethod/InputMethodManager;
 
     iget-boolean v1, v1, Landroid/view/inputmethod/InputMethodManager;->mActive:Z
@@ -77,31 +91,43 @@
 
 .method protected onReportFullscreenMode(ZZ)V
     .locals 2
+    .param p1, "enabled"    # Z
+    .param p2, "calledInBackground"    # Z
 
+    .prologue
+    .line 630
     iget-object v0, p0, Landroid/view/inputmethod/InputMethodManager$ControlledInputConnectionWrapper;->mParentInputMethodManager:Landroid/view/inputmethod/InputMethodManager;
 
+    .line 631
     invoke-virtual {p0}, Landroid/view/inputmethod/InputMethodManager$ControlledInputConnectionWrapper;->getInputMethodId()Ljava/lang/String;
 
     move-result-object v1
 
+    .line 630
     invoke-virtual {v0, p1, p2, v1}, Landroid/view/inputmethod/InputMethodManager;->onReportFullscreenMode(ZZLjava/lang/String;)V
 
+    .line 629
     return-void
 .end method
 
 .method protected onUserAction()V
     .locals 1
 
+    .prologue
+    .line 625
     iget-object v0, p0, Landroid/view/inputmethod/InputMethodManager$ControlledInputConnectionWrapper;->mParentInputMethodManager:Landroid/view/inputmethod/InputMethodManager;
 
     invoke-virtual {v0}, Landroid/view/inputmethod/InputMethodManager;->notifyUserAction()V
 
+    .line 624
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 636
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -112,58 +138,74 @@
 
     move-result-object v0
 
+    .line 637
     invoke-virtual {p0}, Landroid/view/inputmethod/InputMethodManager$ControlledInputConnectionWrapper;->getInputConnection()Landroid/view/inputmethod/InputConnection;
 
     move-result-object v1
 
+    .line 636
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
+    .line 638
     const-string/jumbo v1, " finished="
 
+    .line 636
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
+    .line 638
     invoke-virtual {p0}, Landroid/view/inputmethod/InputMethodManager$ControlledInputConnectionWrapper;->isFinished()Z
 
     move-result v1
 
+    .line 636
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
+    .line 639
     const-string/jumbo v1, " mParentInputMethodManager.mActive="
 
+    .line 636
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
+    .line 639
     iget-object v1, p0, Landroid/view/inputmethod/InputMethodManager$ControlledInputConnectionWrapper;->mParentInputMethodManager:Landroid/view/inputmethod/InputMethodManager;
 
     iget-boolean v1, v1, Landroid/view/inputmethod/InputMethodManager;->mActive:Z
 
+    .line 636
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
+    .line 640
     const-string/jumbo v1, " mInputMethodId="
 
+    .line 636
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
+    .line 640
     invoke-virtual {p0}, Landroid/view/inputmethod/InputMethodManager$ControlledInputConnectionWrapper;->getInputMethodId()Ljava/lang/String;
 
     move-result-object v1
 
+    .line 636
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
+    .line 641
     const-string/jumbo v1, "}"
 
+    .line 636
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0

@@ -30,7 +30,13 @@
 # direct methods
 .method constructor <init>(Landroid/telecom/Call;Landroid/telecom/Call$Callback;Landroid/telecom/Call;Landroid/telecom/InCallService$VideoCall;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/telecom/Call;
+    .param p2, "val$callback"    # Landroid/telecom/Call$Callback;
+    .param p3, "val$call"    # Landroid/telecom/Call;
+    .param p4, "val$videoCall"    # Landroid/telecom/InCallService$VideoCall;
 
+    .prologue
+    .line 1575
     iput-object p1, p0, Landroid/telecom/Call$6;->this$0:Landroid/telecom/Call;
 
     iput-object p2, p0, Landroid/telecom/Call$6;->val$callback:Landroid/telecom/Call$Callback;
@@ -49,6 +55,8 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 1578
     iget-object v0, p0, Landroid/telecom/Call$6;->val$callback:Landroid/telecom/Call$Callback;
 
     iget-object v1, p0, Landroid/telecom/Call$6;->val$call:Landroid/telecom/Call;
@@ -57,5 +65,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/telecom/Call$Callback;->onVideoCallChanged(Landroid/telecom/Call;Landroid/telecom/InCallService$VideoCall;)V
 
+    .line 1577
     return-void
 .end method

@@ -27,6 +27,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 418
     invoke-direct {p0}, Landroid/app/SystemServiceRegistry$CachedServiceFetcher;-><init>()V
 
     return-void
@@ -36,23 +38,32 @@
 # virtual methods
 .method public createService(Landroid/app/ContextImpl;)Landroid/os/DropBoxManager;
     .locals 4
+    .param p1, "ctx"    # Landroid/app/ContextImpl;
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 421
     const-string/jumbo v2, "dropbox"
 
     invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
+    .line 422
+    .local v0, "b":Landroid/os/IBinder;
     invoke-static {v0}, Lcom/android/internal/os/IDropBoxManagerService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/os/IDropBoxManagerService;
 
     move-result-object v1
 
+    .line 423
+    .local v1, "service":Lcom/android/internal/os/IDropBoxManagerService;
     if-nez v1, :cond_0
 
+    .line 428
     return-object v3
 
+    .line 430
     :cond_0
     new-instance v2, Landroid/os/DropBoxManager;
 
@@ -63,7 +74,10 @@
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .param p1, "ctx"    # Landroid/app/ContextImpl;
 
+    .prologue
+    .line 420
     invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$19;->createService(Landroid/app/ContextImpl;)Landroid/os/DropBoxManager;
 
     move-result-object v0

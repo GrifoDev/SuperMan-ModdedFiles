@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Landroid/os/CustomFrequencyManager$CPUDisCStateRequest;)V
     .locals 0
+    .param p1, "this$1"    # Landroid/os/CustomFrequencyManager$CPUDisCStateRequest;
 
+    .prologue
+    .line 638
     iput-object p1, p0, Landroid/os/CustomFrequencyManager$CPUDisCStateRequest$1;->this$1:Landroid/os/CustomFrequencyManager$CPUDisCStateRequest;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,9 +40,12 @@
 .method public run()V
     .locals 1
 
+    .prologue
+    .line 640
     iget-object v0, p0, Landroid/os/CustomFrequencyManager$CPUDisCStateRequest$1;->this$1:Landroid/os/CustomFrequencyManager$CPUDisCStateRequest;
 
     invoke-virtual {v0}, Landroid/os/CustomFrequencyManager$FrequencyRequest;->cancelFrequencyRequest()V
 
+    .line 639
     return-void
 .end method

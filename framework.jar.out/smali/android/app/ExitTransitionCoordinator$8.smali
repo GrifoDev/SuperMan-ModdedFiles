@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Landroid/app/ExitTransitionCoordinator;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/app/ExitTransitionCoordinator;
 
+    .prologue
+    .line 299
     iput-object p1, p0, Landroid/app/ExitTransitionCoordinator$8;->this$0:Landroid/app/ExitTransitionCoordinator;
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
@@ -33,13 +36,17 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 302
     iget-object v0, p0, Landroid/app/ExitTransitionCoordinator$8;->this$0:Landroid/app/ExitTransitionCoordinator;
 
     const/4 v1, 0x0
 
     invoke-static {v0, v1}, Landroid/app/ExitTransitionCoordinator;->-set0(Landroid/app/ExitTransitionCoordinator;Landroid/animation/ObjectAnimator;)Landroid/animation/ObjectAnimator;
 
+    .line 303
     iget-object v0, p0, Landroid/app/ExitTransitionCoordinator$8;->this$0:Landroid/app/ExitTransitionCoordinator;
 
     invoke-static {v0}, Landroid/app/ExitTransitionCoordinator;->-get1(Landroid/app/ExitTransitionCoordinator;)Z
@@ -48,16 +55,19 @@
 
     if-nez v0, :cond_0
 
+    .line 304
     iget-object v0, p0, Landroid/app/ExitTransitionCoordinator$8;->this$0:Landroid/app/ExitTransitionCoordinator;
 
     const/4 v1, 0x1
 
     invoke-static {v0, v1}, Landroid/app/ExitTransitionCoordinator;->-set1(Landroid/app/ExitTransitionCoordinator;Z)Z
 
+    .line 305
     iget-object v0, p0, Landroid/app/ExitTransitionCoordinator$8;->this$0:Landroid/app/ExitTransitionCoordinator;
 
     invoke-virtual {v0}, Landroid/app/ExitTransitionCoordinator;->notifyComplete()V
 
+    .line 301
     :cond_0
     return-void
 .end method

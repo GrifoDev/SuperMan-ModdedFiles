@@ -17,6 +17,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 11
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -24,7 +26,11 @@
 
 .method public static writeSysuiAction(ILjava/lang/String;)V
     .locals 3
+    .param p0, "category"    # I
+    .param p1, "pkg"    # Ljava/lang/String;
 
+    .prologue
+    .line 30
     const/4 v0, 0x2
 
     new-array v0, v0, [Ljava/lang/Object;
@@ -45,12 +51,17 @@
 
     invoke-static {v1, v0}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
+    .line 29
     return-void
 .end method
 
 .method public static writeSysuiCount(Ljava/lang/String;I)V
     .locals 3
+    .param p0, "name"    # Ljava/lang/String;
+    .param p1, "increment"    # I
 
+    .prologue
+    .line 34
     const/4 v0, 0x2
 
     new-array v0, v0, [Ljava/lang/Object;
@@ -71,12 +82,17 @@
 
     invoke-static {v1, v0}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
+    .line 33
     return-void
 .end method
 
 .method public static writeSysuiHistogram(Ljava/lang/String;I)V
     .locals 3
+    .param p0, "name"    # Ljava/lang/String;
+    .param p1, "bucket"    # I
 
+    .prologue
+    .line 38
     const/4 v0, 0x2
 
     new-array v0, v0, [Ljava/lang/Object;
@@ -97,12 +113,17 @@
 
     invoke-static {v1, v0}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
+    .line 37
     return-void
 .end method
 
 .method public static writeSysuiViewVisibility(II)V
     .locals 3
+    .param p0, "category"    # I
+    .param p1, "visible"    # I
 
+    .prologue
+    .line 26
     const/4 v0, 0x2
 
     new-array v0, v0, [Ljava/lang/Object;
@@ -127,5 +148,6 @@
 
     invoke-static {v1, v0}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
+    .line 25
     return-void
 .end method

@@ -34,7 +34,10 @@
 # direct methods
 .method constructor <init>(Landroid/speech/tts/TextToSpeech;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/speech/tts/TextToSpeech;
 
+    .prologue
+    .line 1439
     iput-object p1, p0, Landroid/speech/tts/TextToSpeech$8;->this$0:Landroid/speech/tts/TextToSpeech;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,12 +49,15 @@
 # virtual methods
 .method public bridge synthetic run(Landroid/speech/tts/ITextToSpeechService;)Ljava/lang/Object;
     .locals 1
+    .param p1, "service"    # Landroid/speech/tts/ITextToSpeechService;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 1441
     invoke-virtual {p0, p1}, Landroid/speech/tts/TextToSpeech$8;->run(Landroid/speech/tts/ITextToSpeechService;)Ljava/util/Locale;
 
     move-result-object v0
@@ -61,16 +67,21 @@
 
 .method public run(Landroid/speech/tts/ITextToSpeechService;)Ljava/util/Locale;
     .locals 5
+    .param p1, "service"    # Landroid/speech/tts/ITextToSpeechService;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 1442
     invoke-interface {p1}, Landroid/speech/tts/ITextToSpeechService;->getClientDefaultLanguage()[Ljava/lang/String;
 
     move-result-object v0
 
+    .line 1444
+    .local v0, "defaultLanguage":[Ljava/lang/String;
     new-instance v1, Ljava/util/Locale;
 
     const/4 v2, 0x0

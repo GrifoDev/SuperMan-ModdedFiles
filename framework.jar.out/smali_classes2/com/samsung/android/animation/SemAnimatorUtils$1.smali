@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,7 +42,12 @@
 # virtual methods
 .method public evaluate(FLandroid/graphics/Rect;Landroid/graphics/Rect;)Landroid/graphics/Rect;
     .locals 6
+    .param p1, "fraction"    # F
+    .param p2, "startValue"    # Landroid/graphics/Rect;
+    .param p3, "endValue"    # Landroid/graphics/Rect;
 
+    .prologue
+    .line 25
     new-instance v0, Landroid/graphics/Rect;
 
     iget v1, p2, Landroid/graphics/Rect;->left:I
@@ -51,6 +58,7 @@
 
     move-result v1
 
+    .line 26
     iget v2, p2, Landroid/graphics/Rect;->top:I
 
     iget v3, p3, Landroid/graphics/Rect;->top:I
@@ -59,6 +67,7 @@
 
     move-result v2
 
+    .line 27
     iget v3, p2, Landroid/graphics/Rect;->right:I
 
     iget v4, p3, Landroid/graphics/Rect;->right:I
@@ -67,6 +76,7 @@
 
     move-result v3
 
+    .line 28
     iget v4, p2, Landroid/graphics/Rect;->bottom:I
 
     iget v5, p3, Landroid/graphics/Rect;->bottom:I
@@ -75,18 +85,28 @@
 
     move-result v4
 
+    .line 25
     invoke-direct {v0, v1, v2, v3, v4}, Landroid/graphics/Rect;-><init>(IIII)V
 
+    .line 29
+    .local v0, "out":Landroid/graphics/Rect;
     return-object v0
 .end method
 
 .method public bridge synthetic evaluate(FLjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
+    .param p1, "fraction"    # F
+    .param p2, "startValue"    # Ljava/lang/Object;
+    .param p3, "endValue"    # Ljava/lang/Object;
 
+    .prologue
+    .line 24
     check-cast p2, Landroid/graphics/Rect;
 
+    .end local p2    # "startValue":Ljava/lang/Object;
     check-cast p3, Landroid/graphics/Rect;
 
+    .end local p3    # "endValue":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2, p3}, Lcom/samsung/android/animation/SemAnimatorUtils$1;->evaluate(FLandroid/graphics/Rect;Landroid/graphics/Rect;)Landroid/graphics/Rect;
 
     move-result-object v0
@@ -96,7 +116,12 @@
 
 .method public interpolate(IIF)I
     .locals 2
+    .param p1, "start"    # I
+    .param p2, "end"    # I
+    .param p3, "fraction"    # F
 
+    .prologue
+    .line 33
     int-to-float v0, p1
 
     sub-int v1, p2, p1

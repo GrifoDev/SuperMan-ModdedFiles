@@ -25,6 +25,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 836
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -33,6 +35,7 @@
 .method synthetic constructor <init>(Landroid/widget/TimePickerClockDelegate$NearestTouchDelegate;)V
     .locals 0
 
+    .prologue
     invoke-direct {p0}, Landroid/widget/TimePickerClockDelegate$NearestTouchDelegate;-><init>()V
 
     return-void
@@ -40,24 +43,39 @@
 
 .method private findNearestChild(Landroid/view/ViewGroup;II)Landroid/view/View;
     .locals 10
+    .param p1, "v"    # Landroid/view/ViewGroup;
+    .param p2, "x"    # I
+    .param p3, "y"    # I
 
+    .prologue
+    .line 871
     const/4 v0, 0x0
 
+    .line 872
+    .local v0, "bestChild":Landroid/view/View;
     const v1, 0x7fffffff
 
+    .line 874
+    .local v1, "bestDist":I
     const/4 v7, 0x0
 
+    .local v7, "i":I
     invoke-virtual {p1}, Landroid/view/ViewGroup;->getChildCount()I
 
     move-result v3
 
+    .end local v0    # "bestChild":Landroid/view/View;
+    .local v3, "count":I
     :goto_0
     if-ge v7, v3, :cond_1
 
+    .line 875
     invoke-virtual {p1, v7}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
     move-result-object v2
 
+    .line 876
+    .local v2, "child":Landroid/view/View;
     invoke-virtual {v2}, Landroid/view/View;->getLeft()I
 
     move-result v8
@@ -72,6 +90,8 @@
 
     sub-int v4, p2, v8
 
+    .line 877
+    .local v4, "dX":I
     invoke-virtual {v2}, Landroid/view/View;->getTop()I
 
     move-result v8
@@ -86,23 +106,37 @@
 
     sub-int v5, p3, v8
 
+    .line 878
+    .local v5, "dY":I
     mul-int v8, v4, v4
 
     mul-int v9, v5, v5
 
     add-int v6, v8, v9
 
+    .line 879
+    .local v6, "dist":I
     if-le v1, v6, :cond_0
 
+    .line 880
     move-object v0, v2
 
+    .line 881
+    .local v0, "bestChild":Landroid/view/View;
     move v1, v6
 
+    .line 874
+    .end local v0    # "bestChild":Landroid/view/View;
     :cond_0
     add-int/lit8 v7, v7, 0x1
 
     goto :goto_0
 
+    .line 885
+    .end local v2    # "child":Landroid/view/View;
+    .end local v4    # "dX":I
+    .end local v5    # "dY":I
+    .end local v6    # "dist":I
     :cond_1
     return-object v0
 .end method
@@ -111,27 +145,36 @@
 # virtual methods
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
     .locals 10
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "motionEvent"    # Landroid/view/MotionEvent;
 
+    .prologue
     const/4 v9, 0x0
 
     const/4 v8, 0x0
 
+    .line 841
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result v0
 
+    .line 842
+    .local v0, "actionMasked":I
     if-nez v0, :cond_0
 
+    .line 843
     instance-of v5, p1, Landroid/view/ViewGroup;
 
     if-eqz v5, :cond_1
 
     move-object v5, p1
 
+    .line 844
     nop
 
     nop
 
+    .line 845
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getX()F
 
     move-result v6
@@ -144,25 +187,34 @@
 
     float-to-int v7, v7
 
+    .line 844
     invoke-direct {p0, v5, v6, v7}, Landroid/widget/TimePickerClockDelegate$NearestTouchDelegate;->findNearestChild(Landroid/view/ViewGroup;II)Landroid/view/View;
 
     move-result-object v5
 
     iput-object v5, p0, Landroid/widget/TimePickerClockDelegate$NearestTouchDelegate;->mInitialTouchTarget:Landroid/view/View;
 
+    .line 851
     :cond_0
     :goto_0
     iget-object v1, p0, Landroid/widget/TimePickerClockDelegate$NearestTouchDelegate;->mInitialTouchTarget:Landroid/view/View;
 
+    .line 852
+    .local v1, "child":Landroid/view/View;
     if-nez v1, :cond_2
 
+    .line 853
     return v9
 
+    .line 847
+    .end local v1    # "child":Landroid/view/View;
     :cond_1
     iput-object v8, p0, Landroid/widget/TimePickerClockDelegate$NearestTouchDelegate;->mInitialTouchTarget:Landroid/view/View;
 
     goto :goto_0
 
+    .line 856
+    .restart local v1    # "child":Landroid/view/View;
     :cond_2
     invoke-virtual {p1}, Landroid/view/View;->getScrollX()I
 
@@ -176,6 +228,8 @@
 
     int-to-float v3, v5
 
+    .line 857
+    .local v3, "offsetX":F
     invoke-virtual {p1}, Landroid/view/View;->getScrollY()I
 
     move-result v5
@@ -188,29 +242,38 @@
 
     int-to-float v4, v5
 
+    .line 858
+    .local v4, "offsetY":F
     invoke-virtual {p2, v3, v4}, Landroid/view/MotionEvent;->offsetLocation(FF)V
 
+    .line 859
     invoke-virtual {v1, p2}, Landroid/view/View;->dispatchTouchEvent(Landroid/view/MotionEvent;)Z
 
     move-result v2
 
+    .line 860
+    .local v2, "handled":Z
     neg-float v5, v3
 
     neg-float v6, v4
 
     invoke-virtual {p2, v5, v6}, Landroid/view/MotionEvent;->offsetLocation(FF)V
 
+    .line 862
     const/4 v5, 0x1
 
     if-eq v0, v5, :cond_3
 
+    .line 863
     const/4 v5, 0x3
 
     if-ne v0, v5, :cond_4
 
+    .line 864
     :cond_3
     iput-object v8, p0, Landroid/widget/TimePickerClockDelegate$NearestTouchDelegate;->mInitialTouchTarget:Landroid/view/View;
 
+    .line 867
     :cond_4
     return v2
 .end method

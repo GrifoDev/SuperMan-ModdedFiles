@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 387
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,15 +42,22 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/telecom/VideoProfile$CameraCapabilities;
     .locals 5
+    .param p1, "source"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 396
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
+    .line 397
+    .local v3, "width":I
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
+    .line 398
+    .local v0, "height":I
     invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
 
     move-result v4
@@ -57,26 +66,37 @@
 
     const/4 v2, 0x1
 
+    .line 399
+    .local v2, "supportsZoom":Z
     :goto_0
     invoke-virtual {p1}, Landroid/os/Parcel;->readFloat()F
 
     move-result v1
 
+    .line 401
+    .local v1, "maxZoom":F
     new-instance v4, Landroid/telecom/VideoProfile$CameraCapabilities;
 
     invoke-direct {v4, v3, v0, v2, v1}, Landroid/telecom/VideoProfile$CameraCapabilities;-><init>(IIZF)V
 
     return-object v4
 
+    .line 398
+    .end local v1    # "maxZoom":F
+    .end local v2    # "supportsZoom":Z
     :cond_0
     const/4 v2, 0x0
 
+    .restart local v2    # "supportsZoom":Z
     goto :goto_0
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
+    .param p1, "source"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 395
     invoke-virtual {p0, p1}, Landroid/telecom/VideoProfile$CameraCapabilities$1;->createFromParcel(Landroid/os/Parcel;)Landroid/telecom/VideoProfile$CameraCapabilities;
 
     move-result-object v0
@@ -86,7 +106,10 @@
 
 .method public newArray(I)[Landroid/telecom/VideoProfile$CameraCapabilities;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 406
     new-array v0, p1, [Landroid/telecom/VideoProfile$CameraCapabilities;
 
     return-object v0
@@ -94,7 +117,10 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 405
     invoke-virtual {p0, p1}, Landroid/telecom/VideoProfile$CameraCapabilities$1;->newArray(I)[Landroid/telecom/VideoProfile$CameraCapabilities;
 
     move-result-object v0

@@ -28,15 +28,24 @@
 # direct methods
 .method public constructor <init>(III)V
     .locals 0
+    .param p1, "transportStreamId"    # I
+    .param p2, "serviceId"    # I
+    .param p3, "originalNetworkId"    # I
 
+    .prologue
+    .line 254
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 255
     iput p1, p0, Landroid/hardware/hdmi/HdmiRecordSources$DvbData;->mTransportStreamId:I
 
+    .line 256
     iput p2, p0, Landroid/hardware/hdmi/HdmiRecordSources$DvbData;->mServiceId:I
 
+    .line 257
     iput p3, p0, Landroid/hardware/hdmi/HdmiRecordSources$DvbData;->mOriginalNetworkId:I
 
+    .line 254
     return-void
 .end method
 
@@ -44,7 +53,11 @@
 # virtual methods
 .method public toByteArray([BI)I
     .locals 3
+    .param p1, "data"    # [B
+    .param p2, "index"    # I
 
+    .prologue
+    .line 262
     iget v0, p0, Landroid/hardware/hdmi/HdmiRecordSources$DvbData;->mTransportStreamId:I
 
     iget v1, p0, Landroid/hardware/hdmi/HdmiRecordSources$DvbData;->mServiceId:I

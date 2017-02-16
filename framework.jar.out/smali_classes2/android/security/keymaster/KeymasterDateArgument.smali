@@ -10,9 +10,14 @@
 # direct methods
 .method public constructor <init>(ILandroid/os/Parcel;)V
     .locals 4
+    .param p1, "tag"    # I
+    .param p2, "in"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 40
     invoke-direct {p0, p1}, Landroid/security/keymaster/KeymasterArgument;-><init>(I)V
 
+    .line 41
     new-instance v0, Ljava/util/Date;
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readLong()J
@@ -23,20 +28,27 @@
 
     iput-object v0, p0, Landroid/security/keymaster/KeymasterDateArgument;->date:Ljava/util/Date;
 
+    .line 39
     return-void
 .end method
 
 .method public constructor <init>(ILjava/util/Date;)V
     .locals 3
+    .param p1, "tag"    # I
+    .param p2, "date"    # Ljava/util/Date;
 
+    .prologue
+    .line 29
     invoke-direct {p0, p1}, Landroid/security/keymaster/KeymasterArgument;-><init>(I)V
 
+    .line 30
     invoke-static {p1}, Landroid/security/keymaster/KeymasterDefs;->getTagType(I)I
 
     move-result v0
 
     packed-switch v0, :pswitch_data_0
 
+    .line 34
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -61,11 +73,14 @@
 
     throw v0
 
+    .line 36
     :pswitch_0
     iput-object p2, p0, Landroid/security/keymaster/KeymasterDateArgument;->date:Ljava/util/Date;
 
+    .line 28
     return-void
 
+    .line 30
     nop
 
     :pswitch_data_0
@@ -78,7 +93,10 @@
 # virtual methods
 .method public writeValue(Landroid/os/Parcel;)V
     .locals 2
+    .param p1, "out"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 46
     iget-object v0, p0, Landroid/security/keymaster/KeymasterDateArgument;->date:Ljava/util/Date;
 
     invoke-virtual {v0}, Ljava/util/Date;->getTime()J
@@ -87,5 +105,6 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
+    .line 45
     return-void
 .end method

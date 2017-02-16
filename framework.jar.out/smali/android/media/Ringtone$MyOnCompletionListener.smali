@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Landroid/media/Ringtone;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/media/Ringtone;
 
+    .prologue
+    .line 710
     iput-object p1, p0, Landroid/media/Ringtone$MyOnCompletionListener;->this$0:Landroid/media/Ringtone;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,13 +39,17 @@
 # virtual methods
 .method public onCompletion(Landroid/media/MediaPlayer;)V
     .locals 3
+    .param p1, "mp"    # Landroid/media/MediaPlayer;
 
+    .prologue
+    .line 713
     invoke-static {}, Landroid/media/Ringtone;->-get0()Ljava/util/ArrayList;
 
     move-result-object v1
 
     monitor-enter v1
 
+    .line 714
     :try_start_0
     invoke-static {}, Landroid/media/Ringtone;->-get0()Ljava/util/ArrayList;
 
@@ -56,8 +63,10 @@
 
     monitor-exit v1
 
+    .line 711
     return-void
 
+    .line 713
     :catchall_0
     move-exception v0
 

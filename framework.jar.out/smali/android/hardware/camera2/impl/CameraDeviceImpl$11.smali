@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Landroid/hardware/camera2/impl/CameraDeviceImpl;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/hardware/camera2/impl/CameraDeviceImpl;
 
+    .prologue
+    .line 2016
     iput-object p1, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$11;->this$0:Landroid/hardware/camera2/impl/CameraDeviceImpl;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +40,8 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 2019
     iget-object v0, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$11;->this$0:Landroid/hardware/camera2/impl/CameraDeviceImpl;
 
     invoke-static {v0}, Landroid/hardware/camera2/impl/CameraDeviceImpl;->-wrap1(Landroid/hardware/camera2/impl/CameraDeviceImpl;)Z
@@ -45,6 +50,7 @@
 
     if-nez v0, :cond_0
 
+    .line 2020
     iget-object v0, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$11;->this$0:Landroid/hardware/camera2/impl/CameraDeviceImpl;
 
     invoke-static {v0}, Landroid/hardware/camera2/impl/CameraDeviceImpl;->-get6(Landroid/hardware/camera2/impl/CameraDeviceImpl;)Landroid/hardware/camera2/CameraDevice$StateCallback;
@@ -53,10 +59,13 @@
 
     iget-object v1, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$11;->this$0:Landroid/hardware/camera2/impl/CameraDeviceImpl;
 
+    .line 2021
     const/4 v2, 0x5
 
+    .line 2020
     invoke-virtual {v0, v1, v2}, Landroid/hardware/camera2/CameraDevice$StateCallback;->onError(Landroid/hardware/camera2/CameraDevice;I)V
 
+    .line 2018
     :cond_0
     return-void
 .end method

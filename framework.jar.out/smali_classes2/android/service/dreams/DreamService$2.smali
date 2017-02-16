@@ -28,7 +28,12 @@
 # direct methods
 .method constructor <init>(Landroid/service/dreams/DreamService;Ljava/io/FileDescriptor;[Ljava/lang/String;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/service/dreams/DreamService;
+    .param p2, "val$fd"    # Ljava/io/FileDescriptor;
+    .param p3, "val$args"    # [Ljava/lang/String;
 
+    .prologue
+    .line 1057
     iput-object p1, p0, Landroid/service/dreams/DreamService$2;->this$0:Landroid/service/dreams/DreamService;
 
     iput-object p2, p0, Landroid/service/dreams/DreamService$2;->val$fd:Ljava/io/FileDescriptor;
@@ -44,7 +49,11 @@
 # virtual methods
 .method public dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
     .locals 3
+    .param p1, "pw"    # Ljava/io/PrintWriter;
+    .param p2, "prefix"    # Ljava/lang/String;
 
+    .prologue
+    .line 1060
     iget-object v0, p0, Landroid/service/dreams/DreamService$2;->this$0:Landroid/service/dreams/DreamService;
 
     iget-object v1, p0, Landroid/service/dreams/DreamService$2;->val$fd:Ljava/io/FileDescriptor;
@@ -53,5 +62,6 @@
 
     invoke-virtual {v0, v1, p1, v2}, Landroid/service/dreams/DreamService;->dumpOnHandler(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
 
+    .line 1059
     return-void
 .end method

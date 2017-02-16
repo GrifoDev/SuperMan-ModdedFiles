@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 2958
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,7 +42,10 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/widget/ScrollView$SavedState;
     .locals 1
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 2960
     new-instance v0, Landroid/widget/ScrollView$SavedState;
 
     invoke-direct {v0, p1}, Landroid/widget/ScrollView$SavedState;-><init>(Landroid/os/Parcel;)V
@@ -50,7 +55,10 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 2959
     invoke-virtual {p0, p1}, Landroid/widget/ScrollView$SavedState$1;->createFromParcel(Landroid/os/Parcel;)Landroid/widget/ScrollView$SavedState;
 
     move-result-object v0
@@ -60,7 +68,10 @@
 
 .method public newArray(I)[Landroid/widget/ScrollView$SavedState;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 2964
     new-array v0, p1, [Landroid/widget/ScrollView$SavedState;
 
     return-object v0
@@ -68,7 +79,10 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 2963
     invoke-virtual {p0, p1}, Landroid/widget/ScrollView$SavedState$1;->newArray(I)[Landroid/widget/ScrollView$SavedState;
 
     move-result-object v0

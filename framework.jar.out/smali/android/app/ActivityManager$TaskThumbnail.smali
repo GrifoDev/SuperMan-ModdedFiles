@@ -48,18 +48,23 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 2431
     new-instance v0, Landroid/app/ActivityManager$TaskThumbnail$1;
 
     invoke-direct {v0}, Landroid/app/ActivityManager$TaskThumbnail$1;-><init>()V
 
     sput-object v0, Landroid/app/ActivityManager$TaskThumbnail;->CREATOR:Landroid/os/Parcelable$Creator;
 
+    .line 2373
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 2378
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -67,17 +72,24 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 0
+    .param p1, "source"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 2381
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 2382
     invoke-virtual {p0, p1}, Landroid/app/ActivityManager$TaskThumbnail;->readFromParcel(Landroid/os/Parcel;)V
 
+    .line 2381
     return-void
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/app/ActivityManager$TaskThumbnail;)V
     .locals 0
+    .param p1, "source"    # Landroid/os/Parcel;
 
+    .prologue
     invoke-direct {p0, p1}, Landroid/app/ActivityManager$TaskThumbnail;-><init>(Landroid/os/Parcel;)V
 
     return-void
@@ -88,10 +100,13 @@
 .method public describeContents()I
     .locals 1
 
+    .prologue
+    .line 2386
     iget-object v0, p0, Landroid/app/ActivityManager$TaskThumbnail;->thumbnailFileDescriptor:Landroid/os/ParcelFileDescriptor;
 
     if-eqz v0, :cond_0
 
+    .line 2387
     iget-object v0, p0, Landroid/app/ActivityManager$TaskThumbnail;->thumbnailFileDescriptor:Landroid/os/ParcelFileDescriptor;
 
     invoke-virtual {v0}, Landroid/os/ParcelFileDescriptor;->describeContents()I
@@ -100,6 +115,7 @@
 
     return v0
 
+    .line 2389
     :cond_0
     const/4 v0, 0x0
 
@@ -108,15 +124,19 @@
 
 .method public readFromParcel(Landroid/os/Parcel;)V
     .locals 2
+    .param p1, "source"    # Landroid/os/Parcel;
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 2414
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     if-eqz v0, :cond_0
 
+    .line 2415
     sget-object v0, Landroid/graphics/Bitmap;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v0, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -127,6 +147,7 @@
 
     iput-object v0, p0, Landroid/app/ActivityManager$TaskThumbnail;->mainThumbnail:Landroid/graphics/Bitmap;
 
+    .line 2419
     :goto_0
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -134,6 +155,7 @@
 
     if-eqz v0, :cond_1
 
+    .line 2420
     sget-object v0, Landroid/os/ParcelFileDescriptor;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v0, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -144,6 +166,7 @@
 
     iput-object v0, p0, Landroid/app/ActivityManager$TaskThumbnail;->thumbnailFileDescriptor:Landroid/os/ParcelFileDescriptor;
 
+    .line 2424
     :goto_1
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -151,6 +174,7 @@
 
     if-eqz v0, :cond_2
 
+    .line 2425
     sget-object v0, Landroid/app/ActivityManager$TaskThumbnailInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v0, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -161,19 +185,23 @@
 
     iput-object v0, p0, Landroid/app/ActivityManager$TaskThumbnail;->thumbnailInfo:Landroid/app/ActivityManager$TaskThumbnailInfo;
 
+    .line 2413
     :goto_2
     return-void
 
+    .line 2417
     :cond_0
     iput-object v1, p0, Landroid/app/ActivityManager$TaskThumbnail;->mainThumbnail:Landroid/graphics/Bitmap;
 
     goto :goto_0
 
+    .line 2422
     :cond_1
     iput-object v1, p0, Landroid/app/ActivityManager$TaskThumbnail;->thumbnailFileDescriptor:Landroid/os/ParcelFileDescriptor;
 
     goto :goto_1
 
+    .line 2427
     :cond_2
     iput-object v1, p0, Landroid/app/ActivityManager$TaskThumbnail;->thumbnailInfo:Landroid/app/ActivityManager$TaskThumbnailInfo;
 
@@ -182,56 +210,72 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 3
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
+    .prologue
     const/4 v2, 0x1
 
     const/4 v1, 0x0
 
+    .line 2393
     iget-object v0, p0, Landroid/app/ActivityManager$TaskThumbnail;->mainThumbnail:Landroid/graphics/Bitmap;
 
     if-eqz v0, :cond_0
 
+    .line 2394
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 2395
     iget-object v0, p0, Landroid/app/ActivityManager$TaskThumbnail;->mainThumbnail:Landroid/graphics/Bitmap;
 
     invoke-virtual {v0, p1, p2}, Landroid/graphics/Bitmap;->writeToParcel(Landroid/os/Parcel;I)V
 
+    .line 2399
     :goto_0
     iget-object v0, p0, Landroid/app/ActivityManager$TaskThumbnail;->thumbnailFileDescriptor:Landroid/os/ParcelFileDescriptor;
 
     if-eqz v0, :cond_1
 
+    .line 2400
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 2401
     iget-object v0, p0, Landroid/app/ActivityManager$TaskThumbnail;->thumbnailFileDescriptor:Landroid/os/ParcelFileDescriptor;
 
     invoke-virtual {v0, p1, p2}, Landroid/os/ParcelFileDescriptor;->writeToParcel(Landroid/os/Parcel;I)V
 
+    .line 2405
     :goto_1
     iget-object v0, p0, Landroid/app/ActivityManager$TaskThumbnail;->thumbnailInfo:Landroid/app/ActivityManager$TaskThumbnailInfo;
 
     if-eqz v0, :cond_2
 
+    .line 2406
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 2407
     iget-object v0, p0, Landroid/app/ActivityManager$TaskThumbnail;->thumbnailInfo:Landroid/app/ActivityManager$TaskThumbnailInfo;
 
     invoke-virtual {v0, p1, p2}, Landroid/app/ActivityManager$TaskThumbnailInfo;->writeToParcel(Landroid/os/Parcel;I)V
 
+    .line 2392
     :goto_2
     return-void
 
+    .line 2397
     :cond_0
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     goto :goto_0
 
+    .line 2403
     :cond_1
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     goto :goto_1
 
+    .line 2409
     :cond_2
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 

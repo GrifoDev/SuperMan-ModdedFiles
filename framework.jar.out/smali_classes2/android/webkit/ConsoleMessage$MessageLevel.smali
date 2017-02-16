@@ -41,6 +41,7 @@
 .method static constructor <clinit>()V
     .locals 7
 
+    .prologue
     const/4 v6, 0x4
 
     const/4 v5, 0x3
@@ -51,6 +52,7 @@
 
     const/4 v2, 0x0
 
+    .line 30
     new-instance v0, Landroid/webkit/ConsoleMessage$MessageLevel;
 
     const-string/jumbo v1, "TIP"
@@ -59,6 +61,7 @@
 
     sput-object v0, Landroid/webkit/ConsoleMessage$MessageLevel;->TIP:Landroid/webkit/ConsoleMessage$MessageLevel;
 
+    .line 31
     new-instance v0, Landroid/webkit/ConsoleMessage$MessageLevel;
 
     const-string/jumbo v1, "LOG"
@@ -67,6 +70,7 @@
 
     sput-object v0, Landroid/webkit/ConsoleMessage$MessageLevel;->LOG:Landroid/webkit/ConsoleMessage$MessageLevel;
 
+    .line 32
     new-instance v0, Landroid/webkit/ConsoleMessage$MessageLevel;
 
     const-string/jumbo v1, "WARNING"
@@ -75,6 +79,7 @@
 
     sput-object v0, Landroid/webkit/ConsoleMessage$MessageLevel;->WARNING:Landroid/webkit/ConsoleMessage$MessageLevel;
 
+    .line 33
     new-instance v0, Landroid/webkit/ConsoleMessage$MessageLevel;
 
     const-string/jumbo v1, "ERROR"
@@ -83,6 +88,7 @@
 
     sput-object v0, Landroid/webkit/ConsoleMessage$MessageLevel;->ERROR:Landroid/webkit/ConsoleMessage$MessageLevel;
 
+    .line 34
     new-instance v0, Landroid/webkit/ConsoleMessage$MessageLevel;
 
     const-string/jumbo v1, "DEBUG"
@@ -91,6 +97,7 @@
 
     sput-object v0, Landroid/webkit/ConsoleMessage$MessageLevel;->DEBUG:Landroid/webkit/ConsoleMessage$MessageLevel;
 
+    .line 29
     const/4 v0, 0x5
 
     new-array v0, v0, [Landroid/webkit/ConsoleMessage$MessageLevel;
@@ -123,6 +130,8 @@
 .method private constructor <init>(Ljava/lang/String;I)V
     .locals 0
 
+    .prologue
+    .line 29
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -130,7 +139,10 @@
 
 .method public static valueOf(Ljava/lang/String;)Landroid/webkit/ConsoleMessage$MessageLevel;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 29
     const-class v0, Landroid/webkit/ConsoleMessage$MessageLevel;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -145,6 +157,8 @@
 .method public static values()[Landroid/webkit/ConsoleMessage$MessageLevel;
     .locals 1
 
+    .prologue
+    .line 29
     sget-object v0, Landroid/webkit/ConsoleMessage$MessageLevel;->$VALUES:[Landroid/webkit/ConsoleMessage$MessageLevel;
 
     return-object v0

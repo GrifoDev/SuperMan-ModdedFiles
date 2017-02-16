@@ -25,18 +25,23 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 36
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     sput-object v0, Landroid/os/ServiceManager;->sCache:Ljava/util/HashMap;
 
+    .line 32
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -44,7 +49,11 @@
 
 .method public static addService(Ljava/lang/String;Landroid/os/IBinder;)V
     .locals 3
+    .param p0, "name"    # Ljava/lang/String;
+    .param p1, "service"    # Landroid/os/IBinder;
 
+    .prologue
+    .line 83
     :try_start_0
     invoke-static {}, Landroid/os/ServiceManager;->getIServiceManager()Landroid/os/IServiceManager;
 
@@ -56,12 +65,16 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 81
     :goto_0
     return-void
 
+    .line 84
     :catch_0
     move-exception v0
 
+    .line 85
+    .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "ServiceManager"
 
     const-string/jumbo v2, "error in addService"
@@ -73,7 +86,12 @@
 
 .method public static addService(Ljava/lang/String;Landroid/os/IBinder;Z)V
     .locals 3
+    .param p0, "name"    # Ljava/lang/String;
+    .param p1, "service"    # Landroid/os/IBinder;
+    .param p2, "allowIsolated"    # Z
 
+    .prologue
+    .line 100
     :try_start_0
     invoke-static {}, Landroid/os/ServiceManager;->getIServiceManager()Landroid/os/IServiceManager;
 
@@ -83,12 +101,16 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 98
     :goto_0
     return-void
 
+    .line 101
     :catch_0
     move-exception v0
 
+    .line 102
+    .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "ServiceManager"
 
     const-string/jumbo v2, "error in addService"
@@ -100,9 +122,12 @@
 
 .method public static checkService(Ljava/lang/String;)Landroid/os/IBinder;
     .locals 5
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
     const/4 v4, 0x0
 
+    .line 112
     :try_start_0
     sget-object v2, Landroid/os/ServiceManager;->sCache:Ljava/util/HashMap;
 
@@ -112,10 +137,14 @@
 
     check-cast v1, Landroid/os/IBinder;
 
+    .line 113
+    .local v1, "service":Landroid/os/IBinder;
     if-eqz v1, :cond_0
 
+    .line 114
     return-object v1
 
+    .line 116
     :cond_0
     invoke-static {}, Landroid/os/ServiceManager;->getIServiceManager()Landroid/os/IServiceManager;
 
@@ -129,29 +158,38 @@
 
     return-object v2
 
+    .line 118
+    .end local v1    # "service":Landroid/os/IBinder;
     :catch_0
     move-exception v0
 
+    .line 119
+    .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v2, "ServiceManager"
 
     const-string/jumbo v3, "error in checkService"
 
     invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
+    .line 120
     return-object v4
 .end method
 
 .method private static getIServiceManager()Landroid/os/IServiceManager;
     .locals 1
 
+    .prologue
+    .line 39
     sget-object v0, Landroid/os/ServiceManager;->sServiceManager:Landroid/os/IServiceManager;
 
     if-eqz v0, :cond_0
 
+    .line 40
     sget-object v0, Landroid/os/ServiceManager;->sServiceManager:Landroid/os/IServiceManager;
 
     return-object v0
 
+    .line 44
     :cond_0
     invoke-static {}, Lcom/android/internal/os/BinderInternal;->getContextObject()Landroid/os/IBinder;
 
@@ -163,6 +201,7 @@
 
     sput-object v0, Landroid/os/ServiceManager;->sServiceManager:Landroid/os/IServiceManager;
 
+    .line 45
     sget-object v0, Landroid/os/ServiceManager;->sServiceManager:Landroid/os/IServiceManager;
 
     return-object v0
@@ -170,9 +209,12 @@
 
 .method public static getService(Ljava/lang/String;)Landroid/os/IBinder;
     .locals 5
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
     const/4 v4, 0x0
 
+    .line 58
     :try_start_0
     const-string/jumbo v2, "enterprise_policy_new"
 
@@ -182,8 +224,10 @@
 
     if-eqz v2, :cond_0
 
+    .line 59
     const-string/jumbo p0, "enterprise_policy"
 
+    .line 62
     :cond_0
     sget-object v2, Landroid/os/ServiceManager;->sCache:Ljava/util/HashMap;
 
@@ -193,10 +237,14 @@
 
     check-cast v1, Landroid/os/IBinder;
 
+    .line 63
+    .local v1, "service":Landroid/os/IBinder;
     if-eqz v1, :cond_1
 
+    .line 64
     return-object v1
 
+    .line 66
     :cond_1
     invoke-static {}, Landroid/os/ServiceManager;->getIServiceManager()Landroid/os/IServiceManager;
 
@@ -210,15 +258,20 @@
 
     return-object v2
 
+    .line 68
+    .end local v1    # "service":Landroid/os/IBinder;
     :catch_0
     move-exception v0
 
+    .line 69
+    .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v2, "ServiceManager"
 
     const-string/jumbo v3, "error in getService"
 
     invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
+    .line 71
     return-object v4
 .end method
 
@@ -235,6 +288,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 147
+    .local p0, "cache":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Landroid/os/IBinder;>;"
     sget-object v0, Landroid/os/ServiceManager;->sCache:Ljava/util/HashMap;
 
     invoke-virtual {v0}, Ljava/util/HashMap;->size()I
@@ -243,6 +299,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 148
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "setServiceCache may only be called once"
@@ -251,17 +308,21 @@
 
     throw v0
 
+    .line 150
     :cond_0
     sget-object v0, Landroid/os/ServiceManager;->sCache:Ljava/util/HashMap;
 
     invoke-virtual {v0, p0}, Ljava/util/HashMap;->putAll(Ljava/util/Map;)V
 
+    .line 146
     return-void
 .end method
 
 .method public static listServices()[Ljava/lang/String;
     .locals 3
 
+    .prologue
+    .line 131
     :try_start_0
     invoke-static {}, Landroid/os/ServiceManager;->getIServiceManager()Landroid/os/IServiceManager;
 
@@ -275,15 +336,19 @@
 
     return-object v1
 
+    .line 132
     :catch_0
     move-exception v0
 
+    .line 133
+    .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "ServiceManager"
 
     const-string/jumbo v2, "error in listServices"
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
+    .line 134
     const/4 v1, 0x0
 
     return-object v1

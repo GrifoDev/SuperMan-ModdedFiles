@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 87
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,7 +42,10 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Lcom/samsung/android/hardware/context/SemContextActiveTimeMonitor;
     .locals 1
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 91
     new-instance v0, Lcom/samsung/android/hardware/context/SemContextActiveTimeMonitor;
 
     invoke-direct {v0, p1}, Lcom/samsung/android/hardware/context/SemContextActiveTimeMonitor;-><init>(Landroid/os/Parcel;)V
@@ -50,7 +55,10 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 90
     invoke-virtual {p0, p1}, Lcom/samsung/android/hardware/context/SemContextActiveTimeMonitor$1;->createFromParcel(Landroid/os/Parcel;)Lcom/samsung/android/hardware/context/SemContextActiveTimeMonitor;
 
     move-result-object v0
@@ -60,7 +68,10 @@
 
 .method public newArray(I)[Lcom/samsung/android/hardware/context/SemContextActiveTimeMonitor;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 96
     new-array v0, p1, [Lcom/samsung/android/hardware/context/SemContextActiveTimeMonitor;
 
     return-object v0
@@ -68,7 +79,10 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 95
     invoke-virtual {p0, p1}, Lcom/samsung/android/hardware/context/SemContextActiveTimeMonitor$1;->newArray(I)[Lcom/samsung/android/hardware/context/SemContextActiveTimeMonitor;
 
     move-result-object v0

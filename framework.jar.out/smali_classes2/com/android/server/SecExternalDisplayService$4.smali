@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/SecExternalDisplayService;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/server/SecExternalDisplayService;
 
+    .prologue
+    .line 842
     iput-object p1, p0, Lcom/android/server/SecExternalDisplayService$4;->this$0:Lcom/android/server/SecExternalDisplayService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +39,11 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 2
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .param p2, "whichButton"    # I
 
+    .prologue
+    .line 845
     iget-object v0, p0, Lcom/android/server/SecExternalDisplayService$4;->this$0:Lcom/android/server/SecExternalDisplayService;
 
     invoke-static {v0}, Lcom/android/server/SecExternalDisplayService;->-get3(Lcom/android/server/SecExternalDisplayService;)Landroid/widget/CheckBox;
@@ -49,17 +56,21 @@
 
     if-eqz v0, :cond_0
 
+    .line 846
     const-string/jumbo v0, "persist.sys.SecEDS.Dialog"
 
     const-string/jumbo v1, "true"
 
     invoke-static {v0, v1}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 849
     :goto_0
     invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
 
+    .line 843
     return-void
 
+    .line 848
     :cond_0
     const-string/jumbo v0, "persist.sys.SecEDS.Dialog"
 

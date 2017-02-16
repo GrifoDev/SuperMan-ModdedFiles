@@ -33,7 +33,10 @@
 # direct methods
 .method private constructor <init>(Lcom/samsung/android/cocktailbar/CocktailBarManager;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/samsung/android/cocktailbar/CocktailBarManager;
 
+    .prologue
+    .line 505
     iput-object p1, p0, Lcom/samsung/android/cocktailbar/CocktailBarManager$WakeUp;->this$0:Lcom/samsung/android/cocktailbar/CocktailBarManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

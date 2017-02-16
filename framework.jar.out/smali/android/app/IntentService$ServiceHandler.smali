@@ -21,11 +21,17 @@
 # direct methods
 .method public constructor <init>(Landroid/app/IntentService;Landroid/os/Looper;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/app/IntentService;
+    .param p2, "looper"    # Landroid/os/Looper;
 
+    .prologue
+    .line 61
     iput-object p1, p0, Landroid/app/IntentService$ServiceHandler;->this$0:Landroid/app/IntentService;
 
+    .line 62
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
+    .line 61
     return-void
 .end method
 
@@ -33,7 +39,10 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 67
     iget-object v1, p0, Landroid/app/IntentService$ServiceHandler;->this$0:Landroid/app/IntentService;
 
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -42,11 +51,13 @@
 
     invoke-virtual {v1, v0}, Landroid/app/IntentService;->onHandleIntent(Landroid/content/Intent;)V
 
+    .line 68
     iget-object v0, p0, Landroid/app/IntentService$ServiceHandler;->this$0:Landroid/app/IntentService;
 
     iget v1, p1, Landroid/os/Message;->arg1:I
 
     invoke-virtual {v0, v1}, Landroid/app/IntentService;->stopSelf(I)V
 
+    .line 66
     return-void
 .end method

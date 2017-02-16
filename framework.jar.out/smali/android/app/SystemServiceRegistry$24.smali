@@ -27,6 +27,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 462
     invoke-direct {p0}, Landroid/app/SystemServiceRegistry$StaticServiceFetcher;-><init>()V
 
     return-void
@@ -37,6 +39,8 @@
 .method public createService()Landroid/app/KeyguardManager;
     .locals 1
 
+    .prologue
+    .line 465
     new-instance v0, Landroid/app/KeyguardManager;
 
     invoke-direct {v0}, Landroid/app/KeyguardManager;-><init>()V
@@ -47,6 +51,8 @@
 .method public bridge synthetic createService()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 464
     invoke-virtual {p0}, Landroid/app/SystemServiceRegistry$24;->createService()Landroid/app/KeyguardManager;
 
     move-result-object v0

@@ -26,13 +26,19 @@
 # direct methods
 .method constructor <init>(Landroid/app/BarBeamService;Landroid/os/IBinder;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/app/BarBeamService;
+    .param p2, "token"    # Landroid/os/IBinder;
 
+    .prologue
+    .line 275
     iput-object p1, p0, Landroid/app/BarBeamService$Listener;->this$0:Landroid/app/BarBeamService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 276
     iput-object p2, p0, Landroid/app/BarBeamService$Listener;->mToken:Landroid/os/IBinder;
 
+    .line 275
     return-void
 .end method
 
@@ -41,12 +47,15 @@
 .method public binderDied()V
     .locals 5
 
+    .prologue
+    .line 280
     iget-object v0, p0, Landroid/app/BarBeamService$Listener;->this$0:Landroid/app/BarBeamService;
 
     iget-object v1, v0, Landroid/app/BarBeamService;->mListeners:Ljava/util/ArrayList;
 
     monitor-enter v1
 
+    .line 281
     :try_start_0
     iget-object v0, p0, Landroid/app/BarBeamService$Listener;->this$0:Landroid/app/BarBeamService;
 
@@ -54,6 +63,7 @@
 
     invoke-virtual {v0, p0}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
+    .line 282
     const-string/jumbo v0, "BarBeamService"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -84,18 +94,21 @@
 
     invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 283
     iget-object v0, p0, Landroid/app/BarBeamService$Listener;->mToken:Landroid/os/IBinder;
 
     const/4 v2, 0x0
 
     invoke-interface {v0, p0, v2}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
 
+    .line 284
     iget-object v0, p0, Landroid/app/BarBeamService$Listener;->this$0:Landroid/app/BarBeamService;
 
     iget-object v0, v0, Landroid/app/BarBeamService;->mListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/lang/Object;->notify()V
 
+    .line 285
     iget-object v0, p0, Landroid/app/BarBeamService$Listener;->this$0:Landroid/app/BarBeamService;
 
     iget-object v0, v0, Landroid/app/BarBeamService;->mListeners:Ljava/util/ArrayList;
@@ -106,6 +119,7 @@
 
     if-nez v0, :cond_0
 
+    .line 287
     iget-object v0, p0, Landroid/app/BarBeamService$Listener;->this$0:Landroid/app/BarBeamService;
 
     iget-object v0, v0, Landroid/app/BarBeamService;->mMsgHandler:Landroid/os/Handler;
@@ -121,8 +135,10 @@
     :cond_0
     monitor-exit v1
 
+    .line 279
     return-void
 
+    .line 280
     :catchall_0
     move-exception v0
 
@@ -134,6 +150,8 @@
 .method public onBeamingStarted()V
     .locals 4
 
+    .prologue
+    .line 303
     :try_start_0
     iget-object v2, p0, Landroid/app/BarBeamService$Listener;->mToken:Landroid/os/IBinder;
 
@@ -141,16 +159,23 @@
 
     move-result-object v0
 
+    .line 304
+    .local v0, "cb":Landroid/app/IBarBeamListener;
     invoke-interface {v0}, Landroid/app/IBarBeamListener;->onBeamingStarted()V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 301
+    .end local v0    # "cb":Landroid/app/IBarBeamListener;
     :goto_0
     return-void
 
+    .line 305
     :catch_0
     move-exception v1
 
+    .line 306
+    .local v1, "e":Landroid/os/RemoteException;
     const-string/jumbo v2, "BarBeamService"
 
     const-string/jumbo v3, "Failed onBeamingStarted"
@@ -163,6 +188,8 @@
 .method public onBeamingStoppped()V
     .locals 4
 
+    .prologue
+    .line 294
     :try_start_0
     iget-object v2, p0, Landroid/app/BarBeamService$Listener;->mToken:Landroid/os/IBinder;
 
@@ -170,16 +197,23 @@
 
     move-result-object v0
 
+    .line 295
+    .local v0, "cb":Landroid/app/IBarBeamListener;
     invoke-interface {v0}, Landroid/app/IBarBeamListener;->onBeamingStoppped()V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 292
+    .end local v0    # "cb":Landroid/app/IBarBeamListener;
     :goto_0
     return-void
 
+    .line 296
     :catch_0
     move-exception v1
 
+    .line 297
+    .local v1, "e":Landroid/os/RemoteException;
     const-string/jumbo v2, "BarBeamService"
 
     const-string/jumbo v3, "Failed onBeamingStoppped"

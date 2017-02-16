@@ -41,6 +41,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -48,9 +50,13 @@
 
 .method public static getStartInputReason(I)Ljava/lang/String;
     .locals 2
+    .param p0, "reason"    # I
 
+    .prologue
+    .line 45
     packed-switch p0, :pswitch_data_0
 
+    .line 65
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -71,51 +77,61 @@
 
     return-object v0
 
+    .line 47
     :pswitch_0
     const-string/jumbo v0, "UNSPECIFIED"
 
     return-object v0
 
+    .line 49
     :pswitch_1
     const-string/jumbo v0, "WINDOW_FOCUS_GAIN"
 
     return-object v0
 
+    .line 51
     :pswitch_2
     const-string/jumbo v0, "WINDOW_FOCUS_GAIN_REPORT_ONLY"
 
     return-object v0
 
+    .line 53
     :pswitch_3
     const-string/jumbo v0, "APP_CALLED_RESTART_INPUT_API"
 
     return-object v0
 
+    .line 55
     :pswitch_4
     const-string/jumbo v0, "CHECK_FOCUS"
 
     return-object v0
 
+    .line 57
     :pswitch_5
     const-string/jumbo v0, "BOUND_TO_IMMS"
 
     return-object v0
 
+    .line 59
     :pswitch_6
     const-string/jumbo v0, "UNBOUND_FROM_IMMS"
 
     return-object v0
 
+    .line 61
     :pswitch_7
     const-string/jumbo v0, "ACTIVATED_BY_IMMS"
 
     return-object v0
 
+    .line 63
     :pswitch_8
     const-string/jumbo v0, "DEACTIVATED_BY_IMMS"
 
     return-object v0
 
+    .line 45
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -132,9 +148,13 @@
 
 .method public static getUnbindReason(I)Ljava/lang/String;
     .locals 2
+    .param p0, "reason"    # I
 
+    .prologue
+    .line 84
     packed-switch p0, :pswitch_data_0
 
+    .line 100
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -155,41 +175,49 @@
 
     return-object v0
 
+    .line 86
     :pswitch_0
     const-string/jumbo v0, "UNSPECIFIED"
 
     return-object v0
 
+    .line 88
     :pswitch_1
     const-string/jumbo v0, "SWITCH_CLIENT"
 
     return-object v0
 
+    .line 90
     :pswitch_2
     const-string/jumbo v0, "SWITCH_IME"
 
     return-object v0
 
+    .line 92
     :pswitch_3
     const-string/jumbo v0, "DISCONNECT_IME"
 
     return-object v0
 
+    .line 94
     :pswitch_4
     const-string/jumbo v0, "NO_IME"
 
     return-object v0
 
+    .line 96
     :pswitch_5
     const-string/jumbo v0, "SWITCH_IME_FAILED"
 
     return-object v0
 
+    .line 98
     :pswitch_6
     const-string/jumbo v0, "RESET_IME"
 
     return-object v0
 
+    .line 84
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0

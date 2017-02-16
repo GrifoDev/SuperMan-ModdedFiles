@@ -56,54 +56,76 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 133
     new-instance v0, Landroid/hardware/location/NanoAppFilter$1;
 
     invoke-direct {v0}, Landroid/hardware/location/NanoAppFilter$1;-><init>()V
 
+    .line 132
     sput-object v0, Landroid/hardware/location/NanoAppFilter;->CREATOR:Landroid/os/Parcelable$Creator;
 
+    .line 29
     return-void
 .end method
 
 .method public constructor <init>(JIIJ)V
     .locals 1
+    .param p1, "appId"    # J
+    .param p3, "appVersion"    # I
+    .param p4, "versionMask"    # I
+    .param p5, "vendorMask"    # J
 
+    .prologue
+    .line 108
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 109
     iput-wide p1, p0, Landroid/hardware/location/NanoAppFilter;->mAppId:J
 
+    .line 110
     iput p3, p0, Landroid/hardware/location/NanoAppFilter;->mAppVersion:I
 
+    .line 111
     iput p4, p0, Landroid/hardware/location/NanoAppFilter;->mVersionRestrictionMask:I
 
+    .line 112
     iput-wide p5, p0, Landroid/hardware/location/NanoAppFilter;->mAppIdVendorMask:J
 
+    .line 108
     return-void
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 2
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 81
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 82
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Landroid/hardware/location/NanoAppFilter;->mAppId:J
 
+    .line 83
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/hardware/location/NanoAppFilter;->mAppVersion:I
 
+    .line 84
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/hardware/location/NanoAppFilter;->mVersionRestrictionMask:I
 
+    .line 85
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -112,12 +134,15 @@
 
     iput-wide v0, p0, Landroid/hardware/location/NanoAppFilter;->mAppIdVendorMask:J
 
+    .line 81
     return-void
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/hardware/location/NanoAppFilter;)V
     .locals 0
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
     invoke-direct {p0, p1}, Landroid/hardware/location/NanoAppFilter;-><init>(Landroid/os/Parcel;)V
 
     return-void
@@ -125,7 +150,12 @@
 
 .method private versionsMatch(III)Z
     .locals 1
+    .param p1, "versionRestrictionMask"    # I
+    .param p2, "expected"    # I
+    .param p3, "actual"    # I
 
+    .prologue
+    .line 117
     const/4 v0, 0x1
 
     return v0
@@ -136,6 +166,8 @@
 .method public describeContents()I
     .locals 1
 
+    .prologue
+    .line 89
     const/4 v0, 0x0
 
     return v0
@@ -143,7 +175,10 @@
 
 .method public testMatch(Landroid/hardware/location/NanoAppInstanceInfo;)Z
     .locals 4
+    .param p1, "info"    # Landroid/hardware/location/NanoAppInstanceInfo;
 
+    .prologue
+    .line 127
     iget v0, p0, Landroid/hardware/location/NanoAppFilter;->mContextHubId:I
 
     const/4 v1, -0x1
@@ -158,6 +193,7 @@
 
     if-ne v0, v1, :cond_2
 
+    .line 128
     :cond_0
     iget-wide v0, p0, Landroid/hardware/location/NanoAppFilter;->mAppId:J
 
@@ -177,6 +213,7 @@
 
     if-nez v0, :cond_2
 
+    .line 129
     :cond_1
     iget v0, p0, Landroid/hardware/location/NanoAppFilter;->mVersionRestrictionMask:I
 
@@ -190,6 +227,7 @@
 
     move-result v0
 
+    .line 127
     :goto_0
     return v0
 
@@ -201,22 +239,30 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
+    .prologue
+    .line 94
     iget-wide v0, p0, Landroid/hardware/location/NanoAppFilter;->mAppId:J
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
+    .line 95
     iget v0, p0, Landroid/hardware/location/NanoAppFilter;->mAppVersion:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 96
     iget v0, p0, Landroid/hardware/location/NanoAppFilter;->mVersionRestrictionMask:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 97
     iget-wide v0, p0, Landroid/hardware/location/NanoAppFilter;->mAppIdVendorMask:J
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
+    .line 92
     return-void
 .end method

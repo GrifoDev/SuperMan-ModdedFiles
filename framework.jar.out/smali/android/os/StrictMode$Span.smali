@@ -78,22 +78,31 @@
 .method protected constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 2032
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 2033
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/os/StrictMode$Span;->mContainerState:Landroid/os/StrictMode$ThreadSpanState;
 
+    .line 2032
     return-void
 .end method
 
 .method constructor <init>(Landroid/os/StrictMode$ThreadSpanState;)V
     .locals 0
+    .param p1, "threadState"    # Landroid/os/StrictMode$ThreadSpanState;
 
+    .prologue
+    .line 2027
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 2028
     iput-object p1, p0, Landroid/os/StrictMode$Span;->mContainerState:Landroid/os/StrictMode$ThreadSpanState;
 
+    .line 2027
     return-void
 .end method
 
@@ -102,10 +111,15 @@
 .method public finish()V
     .locals 4
 
+    .prologue
+    .line 2047
     iget-object v0, p0, Landroid/os/StrictMode$Span;->mContainerState:Landroid/os/StrictMode$ThreadSpanState;
 
+    .line 2048
+    .local v0, "state":Landroid/os/StrictMode$ThreadSpanState;
     monitor-enter v0
 
+    .line 2049
     :try_start_0
     iget-object v1, p0, Landroid/os/StrictMode$Span;->mName:Ljava/lang/String;
     :try_end_0
@@ -115,40 +129,48 @@
 
     monitor-exit v0
 
+    .line 2051
     return-void
 
+    .line 2055
     :cond_0
     :try_start_1
     iget-object v1, p0, Landroid/os/StrictMode$Span;->mPrev:Landroid/os/StrictMode$Span;
 
     if-eqz v1, :cond_1
 
+    .line 2056
     iget-object v1, p0, Landroid/os/StrictMode$Span;->mPrev:Landroid/os/StrictMode$Span;
 
     iget-object v2, p0, Landroid/os/StrictMode$Span;->mNext:Landroid/os/StrictMode$Span;
 
     iput-object v2, v1, Landroid/os/StrictMode$Span;->mNext:Landroid/os/StrictMode$Span;
 
+    .line 2058
     :cond_1
     iget-object v1, p0, Landroid/os/StrictMode$Span;->mNext:Landroid/os/StrictMode$Span;
 
     if-eqz v1, :cond_2
 
+    .line 2059
     iget-object v1, p0, Landroid/os/StrictMode$Span;->mNext:Landroid/os/StrictMode$Span;
 
     iget-object v2, p0, Landroid/os/StrictMode$Span;->mPrev:Landroid/os/StrictMode$Span;
 
     iput-object v2, v1, Landroid/os/StrictMode$Span;->mPrev:Landroid/os/StrictMode$Span;
 
+    .line 2061
     :cond_2
     iget-object v1, v0, Landroid/os/StrictMode$ThreadSpanState;->mActiveHead:Landroid/os/StrictMode$Span;
 
     if-ne v1, p0, :cond_3
 
+    .line 2062
     iget-object v1, p0, Landroid/os/StrictMode$Span;->mNext:Landroid/os/StrictMode$Span;
 
     iput-object v1, v0, Landroid/os/StrictMode$ThreadSpanState;->mActiveHead:Landroid/os/StrictMode$Span;
 
+    .line 2065
     :cond_3
     iget v1, v0, Landroid/os/StrictMode$ThreadSpanState;->mActiveSize:I
 
@@ -156,6 +178,7 @@
 
     iput v1, v0, Landroid/os/StrictMode$ThreadSpanState;->mActiveSize:I
 
+    .line 2067
     invoke-static {}, Landroid/os/StrictMode;->-get1()Z
 
     move-result v1
@@ -198,35 +221,43 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2069
     :cond_4
     const-wide/16 v2, -0x1
 
     iput-wide v2, p0, Landroid/os/StrictMode$Span;->mCreateMillis:J
 
+    .line 2070
     const/4 v1, 0x0
 
     iput-object v1, p0, Landroid/os/StrictMode$Span;->mName:Ljava/lang/String;
 
+    .line 2071
     const/4 v1, 0x0
 
     iput-object v1, p0, Landroid/os/StrictMode$Span;->mPrev:Landroid/os/StrictMode$Span;
 
+    .line 2072
     const/4 v1, 0x0
 
     iput-object v1, p0, Landroid/os/StrictMode$Span;->mNext:Landroid/os/StrictMode$Span;
 
+    .line 2076
     iget v1, v0, Landroid/os/StrictMode$ThreadSpanState;->mFreeListSize:I
 
     const/4 v2, 0x5
 
     if-ge v1, v2, :cond_5
 
+    .line 2077
     iget-object v1, v0, Landroid/os/StrictMode$ThreadSpanState;->mFreeListHead:Landroid/os/StrictMode$Span;
 
     iput-object v1, p0, Landroid/os/StrictMode$Span;->mNext:Landroid/os/StrictMode$Span;
 
+    .line 2078
     iput-object p0, v0, Landroid/os/StrictMode$ThreadSpanState;->mFreeListHead:Landroid/os/StrictMode$Span;
 
+    .line 2079
     iget v1, v0, Landroid/os/StrictMode$ThreadSpanState;->mFreeListSize:I
 
     add-int/lit8 v1, v1, 0x1
@@ -238,8 +269,10 @@
     :cond_5
     monitor-exit v0
 
+    .line 2046
     return-void
 
+    .line 2048
     :catchall_0
     move-exception v1
 

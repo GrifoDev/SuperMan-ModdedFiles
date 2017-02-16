@@ -26,7 +26,11 @@
 # direct methods
 .method constructor <init>(Landroid/graphics/drawable/Icon$LoadDrawableTask;Landroid/graphics/drawable/Icon$OnDrawableLoadedListener;)V
     .locals 0
+    .param p1, "this$1"    # Landroid/graphics/drawable/Icon$LoadDrawableTask;
+    .param p2, "val$listener"    # Landroid/graphics/drawable/Icon$OnDrawableLoadedListener;
 
+    .prologue
+    .line 798
     iput-object p1, p0, Landroid/graphics/drawable/Icon$LoadDrawableTask$1;->this$1:Landroid/graphics/drawable/Icon$LoadDrawableTask;
 
     iput-object p2, p0, Landroid/graphics/drawable/Icon$LoadDrawableTask$1;->val$listener:Landroid/graphics/drawable/Icon$OnDrawableLoadedListener;
@@ -41,6 +45,8 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 801
     iget-object v1, p0, Landroid/graphics/drawable/Icon$LoadDrawableTask$1;->val$listener:Landroid/graphics/drawable/Icon$OnDrawableLoadedListener;
 
     iget-object v0, p0, Landroid/graphics/drawable/Icon$LoadDrawableTask$1;->this$1:Landroid/graphics/drawable/Icon$LoadDrawableTask;
@@ -53,5 +59,6 @@
 
     invoke-interface {v1, v0}, Landroid/graphics/drawable/Icon$OnDrawableLoadedListener;->onDrawableLoaded(Landroid/graphics/drawable/Drawable;)V
 
+    .line 800
     return-void
 .end method

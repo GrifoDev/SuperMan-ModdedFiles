@@ -19,14 +19,18 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 16
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 17
     new-instance v0, Lcom/samsung/android/knox/SemRcpCallback$SubSemRcpCallback;
 
     invoke-direct {v0, p0, p0}, Lcom/samsung/android/knox/SemRcpCallback$SubSemRcpCallback;-><init>(Lcom/samsung/android/knox/SemRcpCallback;Lcom/samsung/android/knox/SemRcpCallback;)V
 
     iput-object v0, p0, Lcom/samsung/android/knox/SemRcpCallback;->s:Lcom/samsung/android/knox/SemIRCPCallback;
 
+    .line 16
     return-void
 .end method
 
@@ -35,6 +39,8 @@
 .method public getChild()Lcom/samsung/android/knox/SemIRCPCallback;
     .locals 1
 
+    .prologue
+    .line 67
     iget-object v0, p0, Lcom/samsung/android/knox/SemRcpCallback;->s:Lcom/samsung/android/knox/SemIRCPCallback;
 
     return-object v0

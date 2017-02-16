@@ -285,6 +285,7 @@
 .method static constructor <clinit>()V
     .locals 10
 
+    .prologue
     const/4 v9, 0x2
 
     const/4 v8, -0x1
@@ -295,132 +296,154 @@
 
     const/4 v5, 0x0
 
+    .line 741
     new-instance v0, Landroid/os/PersistableBundle;
 
     invoke-direct {v0}, Landroid/os/PersistableBundle;-><init>()V
 
     sput-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
+    .line 742
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "additional_call_setting_bool"
 
     invoke-virtual {v0, v1, v6}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 743
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "allow_emergency_numbers_in_call_log_bool"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 744
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "allow_local_dtmf_tones_bool"
 
     invoke-virtual {v0, v1, v6}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 745
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "apn_expand_bool"
 
     invoke-virtual {v0, v1, v6}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 746
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "auto_retry_enabled_bool"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 747
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "carrier_settings_enable_bool"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 748
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "carrier_volte_available_bool"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 749
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "carrier_vt_available_bool"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 750
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "carrier_wfc_ims_available_bool"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 751
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "carrier_wfc_supports_wifi_only_bool"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 752
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "carrier_default_wfc_ims_enabled_bool"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 753
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "carrier_default_wfc_ims_roaming_enabled_bool"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 754
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "carrier_default_wfc_ims_mode_int"
 
     invoke-virtual {v0, v1, v9}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
 
+    .line 755
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "carrier_force_disable_etws_cmas_test_bool"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 756
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "carrier_volte_provisioning_required_bool"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 757
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "carrier_volte_tty_supported_bool"
 
     invoke-virtual {v0, v1, v6}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 758
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "carrier_allow_turnoff_ims_bool"
 
     invoke-virtual {v0, v1, v6}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 759
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "carrier_ims_gba_required_bool"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 760
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "carrier_instant_lettering_available_bool"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 761
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "carrier_use_ims_first_for_emergency_bool"
 
     invoke-virtual {v0, v1, v6}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 762
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "carrier_instant_lettering_invalid_chars_string"
@@ -429,6 +452,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 763
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "carrier_instant_lettering_escaped_chars_string"
@@ -437,6 +461,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 764
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "carrier_instant_lettering_encoding_string"
@@ -445,6 +470,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 765
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "carrier_instant_lettering_length_limit_int"
@@ -453,138 +479,161 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
 
+    .line 766
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "disable_cdma_activation_code_bool"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 767
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "dtmf_type_enabled_bool"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 768
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "enable_dialer_key_vibration_bool"
 
     invoke-virtual {v0, v1, v6}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 769
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "has_in_call_noise_suppression_bool"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 770
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "hide_carrier_network_settings_bool"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 771
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "hide_sim_lock_settings_bool"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 772
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "ignore_sim_network_locked_events_bool"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 773
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "operator_selection_expand_bool"
 
     invoke-virtual {v0, v1, v6}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 774
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "prefer_2g_bool"
 
     invoke-virtual {v0, v1, v6}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 775
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "show_apn_setting_cdma_bool"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 776
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "show_cdma_choices_bool"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 777
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "show_onscreen_dial_button_bool"
 
     invoke-virtual {v0, v1, v6}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 778
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "sim_network_unlock_allow_dismiss_bool"
 
     invoke-virtual {v0, v1, v6}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 779
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "support_pause_ims_video_calls_bool"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 780
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "support_swap_after_merge_bool"
 
     invoke-virtual {v0, v1, v6}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 781
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "use_hfa_for_provisioning_bool"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 782
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "use_otasp_for_provisioning_bool"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 783
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "voicemail_notification_persistent_bool"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 784
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "voice_privacy_disable_ui_bool"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 785
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "world_phone_bool"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 786
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "require_entitlement_checks_bool"
 
     invoke-virtual {v0, v1, v6}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 787
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "volte_replacement_rat_int"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
 
+    .line 788
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "default_sim_call_manager_string"
@@ -593,6 +642,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 789
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "vvm_destination_number_string"
@@ -601,12 +651,14 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 790
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "vvm_port_number_int"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
 
+    .line 791
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "vvm_type_string"
@@ -615,18 +667,21 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 792
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "vvm_cellular_data_required_bool"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 793
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "vvm_prefetch_bool"
 
     invoke-virtual {v0, v1, v6}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 794
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "carrier_vvm_package_name_string"
@@ -635,18 +690,21 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 795
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "show_iccid_in_sim_status_bool"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 796
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "ci_action_on_sys_update_bool"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 797
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "ci_action_on_sys_update_intent_string"
@@ -655,6 +713,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 798
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "ci_action_on_sys_update_extra_string"
@@ -663,6 +722,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 799
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "ci_action_on_sys_update_extra_val_string"
@@ -671,46 +731,57 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 800
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "csp_enabled_bool"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 801
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "allow_adding_apns_bool"
 
     invoke-virtual {v0, v1, v6}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 802
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "broadcast_emergency_call_state_changes_bool"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 803
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "always_show_emergency_alert_onoff_bool"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 804
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "carrier_data_call_retry_config_default_string"
 
+    .line 805
     const-string/jumbo v2, "default_randomization=2000,5000,10000,20000,40000,80000:5000,160000:5000,320000:5000,640000:5000,1280000:5000,1800000:5000"
 
+    .line 804
     invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 807
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "carrier_data_call_retry_config_others_string"
 
+    .line 808
     const-string/jumbo v2, "max_retries=3, 5000, 5000, 5000"
 
+    .line 807
     invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 809
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "carrier_data_call_apn_delay_default_long"
@@ -719,6 +790,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/BaseBundle;->putLong(Ljava/lang/String;J)V
 
+    .line 810
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "carrier_data_call_apn_delay_faster_long"
@@ -727,6 +799,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/BaseBundle;->putLong(Ljava/lang/String;J)V
 
+    .line 811
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "carrier_eri_file_name_string"
@@ -735,6 +808,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 812
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "duration_blocking_disabled_after_emergency_int"
@@ -743,10 +817,12 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
 
+    .line 813
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "carrier_metered_apn_types_strings"
 
+    .line 814
     const/4 v2, 0x4
 
     new-array v2, v2, [Ljava/lang/String;
@@ -769,12 +845,15 @@
 
     aput-object v3, v2, v4
 
+    .line 813
     invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putStringArray(Ljava/lang/String;[Ljava/lang/String;)V
 
+    .line 815
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "carrier_metered_roaming_apn_types_strings"
 
+    .line 816
     const/4 v2, 0x4
 
     new-array v2, v2, [Ljava/lang/String;
@@ -797,50 +876,59 @@
 
     aput-object v3, v2, v4
 
+    .line 815
     invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putStringArray(Ljava/lang/String;[Ljava/lang/String;)V
 
+    .line 818
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "gsm_roaming_networks_string_array"
 
     invoke-virtual {v0, v1, v7}, Landroid/os/BaseBundle;->putStringArray(Ljava/lang/String;[Ljava/lang/String;)V
 
+    .line 819
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "gsm_nonroaming_networks_string_array"
 
     invoke-virtual {v0, v1, v7}, Landroid/os/BaseBundle;->putStringArray(Ljava/lang/String;[Ljava/lang/String;)V
 
+    .line 820
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "cdma_roaming_networks_string_array"
 
     invoke-virtual {v0, v1, v7}, Landroid/os/BaseBundle;->putStringArray(Ljava/lang/String;[Ljava/lang/String;)V
 
+    .line 821
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "cdma_nonroaming_networks_string_array"
 
     invoke-virtual {v0, v1, v7}, Landroid/os/BaseBundle;->putStringArray(Ljava/lang/String;[Ljava/lang/String;)V
 
+    .line 822
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "force_home_network_bool"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 823
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "gsm_dtmf_tone_delay_int"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
 
+    .line 824
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "ims_dtmf_tone_delay_int"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
 
+    .line 825
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "cdma_dtmf_tone_delay_int"
@@ -849,72 +937,84 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
 
+    .line 826
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "support_conference_call_bool"
 
     invoke-virtual {v0, v1, v6}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 827
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "editable_enhanced_4g_lte_bool"
 
     invoke-virtual {v0, v1, v6}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 828
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "hide_ims_apn_bool"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 829
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "hide_preferred_network_type_bool"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 830
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "allow_emergency_video_calls_bool"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 831
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "editable_wfc_mode_bool"
 
     invoke-virtual {v0, v1, v6}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 832
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "wfc_operator_error_codes_string_array"
 
     invoke-virtual {v0, v1, v7}, Landroid/os/BaseBundle;->putStringArray(Ljava/lang/String;[Ljava/lang/String;)V
 
+    .line 833
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "wfc_spn_format_idx_int"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
 
+    .line 834
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "wfc_data_spn_format_idx_int"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
 
+    .line 835
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "config_wifi_disable_in_ecbm"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 836
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "carrier_name_override_bool"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 837
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "carrier_name_string"
@@ -923,90 +1023,105 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 840
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "aliasEnabled"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 841
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "allowAttachAudio"
 
     invoke-virtual {v0, v1, v6}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 842
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "enabledTransID"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 843
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "enableGroupMms"
 
     invoke-virtual {v0, v1, v6}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 844
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "enableMMSDeliveryReports"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 845
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "enabledMMS"
 
     invoke-virtual {v0, v1, v6}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 846
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "enableMMSReadReports"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 847
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "enableMultipartSMS"
 
     invoke-virtual {v0, v1, v6}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 848
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "enabledNotifyWapMMSC"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 849
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "sendMultipartSmsAsSeparateMessages"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 850
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "config_cellBroadcastAppLinks"
 
     invoke-virtual {v0, v1, v6}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 851
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "enableSMSDeliveryReports"
 
     invoke-virtual {v0, v1, v6}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 852
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "supportHttpCharsetHeader"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 853
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "supportMmsContentDisposition"
 
     invoke-virtual {v0, v1, v6}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 854
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "aliasMaxChars"
@@ -1015,12 +1130,14 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
 
+    .line 855
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "aliasMinChars"
 
     invoke-virtual {v0, v1, v9}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
 
+    .line 856
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "httpSocketTimeout"
@@ -1029,6 +1146,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
 
+    .line 857
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "maxImageHeight"
@@ -1037,6 +1155,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
 
+    .line 858
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "maxImageWidth"
@@ -1045,6 +1164,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
 
+    .line 859
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "maxMessageSize"
@@ -1053,12 +1173,14 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
 
+    .line 860
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "maxMessageTextSize"
 
     invoke-virtual {v0, v1, v8}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
 
+    .line 861
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "recipientLimit"
@@ -1067,18 +1189,21 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
 
+    .line 862
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "smsToMmsTextLengthThreshold"
 
     invoke-virtual {v0, v1, v8}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
 
+    .line 863
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "smsToMmsTextThreshold"
 
     invoke-virtual {v0, v1, v8}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
 
+    .line 864
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "maxSubjectLength"
@@ -1087,6 +1212,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
 
+    .line 865
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "emailGatewayNumber"
@@ -1095,6 +1221,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 866
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "httpParams"
@@ -1103,6 +1230,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 867
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "naiSuffix"
@@ -1111,6 +1239,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 868
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "uaProfTagName"
@@ -1119,6 +1248,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 869
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "uaProfUrl"
@@ -1127,6 +1257,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 870
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "userAgent"
@@ -1135,36 +1266,43 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 871
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "allow_non_emergency_calls_in_ecm_bool"
 
     invoke-virtual {v0, v1, v6}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 872
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "use_rcs_presence_bool"
 
     invoke-virtual {v0, v1, v5}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
+    .line 873
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "cdma_roaming_mode_int"
 
     invoke-virtual {v0, v1, v8}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
 
+    .line 876
     sget-object v0, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
 
     const-string/jumbo v1, "sim_state_detection_carrier_app_string_array"
 
     invoke-virtual {v0, v1, v7}, Landroid/os/BaseBundle;->putStringArray(Ljava/lang/String;[Ljava/lang/String;)V
 
+    .line 39
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 45
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -1173,6 +1311,8 @@
 .method public static getDefaultConfig()Landroid/os/PersistableBundle;
     .locals 2
 
+    .prologue
+    .line 983
     new-instance v0, Landroid/os/PersistableBundle;
 
     sget-object v1, Landroid/telephony/CarrierConfigManager;->sDefaults:Landroid/os/PersistableBundle;
@@ -1185,12 +1325,15 @@
 .method private getICarrierConfigLoader()Lcom/android/internal/telephony/ICarrierConfigLoader;
     .locals 1
 
+    .prologue
+    .line 990
     const-string/jumbo v0, "carrier_config"
 
     invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
+    .line 989
     invoke-static {v0}, Lcom/android/internal/telephony/ICarrierConfigLoader$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/telephony/ICarrierConfigLoader;
 
     move-result-object v0
@@ -1203,6 +1346,8 @@
 .method public getConfig()Landroid/os/PersistableBundle;
     .locals 1
 
+    .prologue
+    .line 919
     invoke-static {}, Landroid/telephony/SubscriptionManager;->getDefaultSubscriptionId()I
 
     move-result v0
@@ -1216,16 +1361,22 @@
 
 .method public getConfigForSubId(I)Landroid/os/PersistableBundle;
     .locals 6
+    .param p1, "subId"    # I
 
+    .prologue
     const/4 v5, 0x0
 
+    .line 895
     :try_start_0
     invoke-direct {p0}, Landroid/telephony/CarrierConfigManager;->getICarrierConfigLoader()Lcom/android/internal/telephony/ICarrierConfigLoader;
 
     move-result-object v1
 
+    .line 896
+    .local v1, "loader":Lcom/android/internal/telephony/ICarrierConfigLoader;
     if-nez v1, :cond_0
 
+    .line 897
     const-string/jumbo v2, "CarrierConfigManager"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1242,8 +1393,10 @@
 
     move-result-object v3
 
+    .line 898
     const-string/jumbo v4, " ICarrierConfigLoader is null"
 
+    .line 897
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -1254,8 +1407,10 @@
 
     invoke-static {v2, v3}, Landroid/telephony/Rlog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 899
     return-object v5
 
+    .line 901
     :cond_0
     invoke-interface {v1, p1}, Lcom/android/internal/telephony/ICarrierConfigLoader;->getConfigForSubId(I)Landroid/os/PersistableBundle;
     :try_end_0
@@ -1265,9 +1420,13 @@
 
     return-object v2
 
+    .line 902
+    .end local v1    # "loader":Lcom/android/internal/telephony/ICarrierConfigLoader;
     :catch_0
     move-exception v0
 
+    .line 903
+    .local v0, "ex":Landroid/os/RemoteException;
     const-string/jumbo v2, "CarrierConfigManager"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1290,10 +1449,12 @@
 
     move-result-object v3
 
+    .line 904
     invoke-virtual {v0}, Landroid/os/RemoteException;->toString()Ljava/lang/String;
 
     move-result-object v4
 
+    .line 903
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -1304,19 +1465,26 @@
 
     invoke-static {v2, v3}, Landroid/telephony/Rlog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 906
     return-object v5
 .end method
 
 .method public notifyConfigChangedForSubId(I)V
     .locals 5
+    .param p1, "subId"    # I
 
+    .prologue
+    .line 939
     :try_start_0
     invoke-direct {p0}, Landroid/telephony/CarrierConfigManager;->getICarrierConfigLoader()Lcom/android/internal/telephony/ICarrierConfigLoader;
 
     move-result-object v1
 
+    .line 940
+    .local v1, "loader":Lcom/android/internal/telephony/ICarrierConfigLoader;
     if-nez v1, :cond_0
 
+    .line 941
     const-string/jumbo v2, "CarrierConfigManager"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1333,8 +1501,10 @@
 
     move-result-object v3
 
+    .line 942
     const-string/jumbo v4, " ICarrierConfigLoader is null"
 
+    .line 941
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -1345,19 +1515,26 @@
 
     invoke-static {v2, v3}, Landroid/telephony/Rlog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 943
     return-void
 
+    .line 945
     :cond_0
     invoke-interface {v1, p1}, Lcom/android/internal/telephony/ICarrierConfigLoader;->notifyConfigChangedForSubId(I)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 937
+    .end local v1    # "loader":Lcom/android/internal/telephony/ICarrierConfigLoader;
     :goto_0
     return-void
 
+    .line 946
     :catch_0
     move-exception v0
 
+    .line 947
+    .local v0, "ex":Landroid/os/RemoteException;
     const-string/jumbo v2, "CarrierConfigManager"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1399,14 +1576,21 @@
 
 .method public updateConfigForPhoneId(ILjava/lang/String;)V
     .locals 5
+    .param p1, "phoneId"    # I
+    .param p2, "simState"    # Ljava/lang/String;
 
+    .prologue
+    .line 963
     :try_start_0
     invoke-direct {p0}, Landroid/telephony/CarrierConfigManager;->getICarrierConfigLoader()Lcom/android/internal/telephony/ICarrierConfigLoader;
 
     move-result-object v1
 
+    .line 964
+    .local v1, "loader":Lcom/android/internal/telephony/ICarrierConfigLoader;
     if-nez v1, :cond_0
 
+    .line 965
     const-string/jumbo v2, "CarrierConfigManager"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1423,8 +1607,10 @@
 
     move-result-object v3
 
+    .line 966
     const-string/jumbo v4, " ICarrierConfigLoader is null"
 
+    .line 965
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -1435,19 +1621,26 @@
 
     invoke-static {v2, v3}, Landroid/telephony/Rlog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 967
     return-void
 
+    .line 969
     :cond_0
     invoke-interface {v1, p1, p2}, Lcom/android/internal/telephony/ICarrierConfigLoader;->updateConfigForPhoneId(ILjava/lang/String;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 961
+    .end local v1    # "loader":Lcom/android/internal/telephony/ICarrierConfigLoader;
     :goto_0
     return-void
 
+    .line 970
     :catch_0
     move-exception v0
 
+    .line 971
+    .local v0, "ex":Landroid/os/RemoteException;
     const-string/jumbo v2, "CarrierConfigManager"
 
     new-instance v3, Ljava/lang/StringBuilder;

@@ -46,6 +46,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 18
     const-class v0, Lcom/samsung/android/cocktailbar/AbsCocktailLoadablePanel;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
@@ -54,48 +56,69 @@
 
     sput-object v0, Lcom/samsung/android/cocktailbar/AbsCocktailLoadablePanel;->TAG:Ljava/lang/String;
 
+    .line 16
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
+    .param p1, "context"    # Landroid/content/Context;
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 114
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 96
     iput-object v0, p0, Lcom/samsung/android/cocktailbar/AbsCocktailLoadablePanel;->mContext:Landroid/content/Context;
 
+    .line 102
     iput-object v0, p0, Lcom/samsung/android/cocktailbar/AbsCocktailLoadablePanel;->mCocktailContext:Landroid/content/Context;
 
+    .line 104
     iput-object v0, p0, Lcom/samsung/android/cocktailbar/AbsCocktailLoadablePanel;->mListener:Lcom/samsung/android/cocktailbar/AbsCocktailLoadablePanel$CocktailLoadablePanelListener;
 
+    .line 106
     iput-object v0, p0, Lcom/samsung/android/cocktailbar/AbsCocktailLoadablePanel;->mOnCocktailClickHandler:Lcom/samsung/android/cocktailbar/AbsCocktailLoadablePanel$OnCocktailClickHandler;
 
+    .line 115
     iput-object p1, p0, Lcom/samsung/android/cocktailbar/AbsCocktailLoadablePanel;->mContext:Landroid/content/Context;
 
+    .line 114
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/content/Context;)V
     .locals 1
+    .param p1, "appContext"    # Landroid/content/Context;
+    .param p2, "cocktailContext"    # Landroid/content/Context;
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 125
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 96
     iput-object v0, p0, Lcom/samsung/android/cocktailbar/AbsCocktailLoadablePanel;->mContext:Landroid/content/Context;
 
+    .line 102
     iput-object v0, p0, Lcom/samsung/android/cocktailbar/AbsCocktailLoadablePanel;->mCocktailContext:Landroid/content/Context;
 
+    .line 104
     iput-object v0, p0, Lcom/samsung/android/cocktailbar/AbsCocktailLoadablePanel;->mListener:Lcom/samsung/android/cocktailbar/AbsCocktailLoadablePanel$CocktailLoadablePanelListener;
 
+    .line 106
     iput-object v0, p0, Lcom/samsung/android/cocktailbar/AbsCocktailLoadablePanel;->mOnCocktailClickHandler:Lcom/samsung/android/cocktailbar/AbsCocktailLoadablePanel$OnCocktailClickHandler;
 
+    .line 126
     iput-object p1, p0, Lcom/samsung/android/cocktailbar/AbsCocktailLoadablePanel;->mContext:Landroid/content/Context;
 
+    .line 127
     iput-object p2, p0, Lcom/samsung/android/cocktailbar/AbsCocktailLoadablePanel;->mCocktailContext:Landroid/content/Context;
 
+    .line 125
     return-void
 .end method
 
@@ -104,6 +127,8 @@
 .method public getListener()Lcom/samsung/android/cocktailbar/AbsCocktailLoadablePanel$CocktailLoadablePanelListener;
     .locals 1
 
+    .prologue
+    .line 143
     iget-object v0, p0, Lcom/samsung/android/cocktailbar/AbsCocktailLoadablePanel;->mListener:Lcom/samsung/android/cocktailbar/AbsCocktailLoadablePanel$CocktailLoadablePanelListener;
 
     return-object v0
@@ -112,6 +137,8 @@
 .method public getOnCocktailClickHander()Lcom/samsung/android/cocktailbar/AbsCocktailLoadablePanel$OnCocktailClickHandler;
     .locals 1
 
+    .prologue
+    .line 160
     iget-object v0, p0, Lcom/samsung/android/cocktailbar/AbsCocktailLoadablePanel;->mOnCocktailClickHandler:Lcom/samsung/android/cocktailbar/AbsCocktailLoadablePanel$OnCocktailClickHandler;
 
     return-object v0
@@ -122,17 +149,23 @@
 
 .method public onChangedDisplayPolicy(I)V
     .locals 0
+    .param p1, "newDisplayPolicy"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    .prologue
+    .line 219
     return-void
 .end method
 
 .method public onChangedReversedView(Z)V
     .locals 0
+    .param p1, "isReversedViewMode"    # Z
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    .prologue
+    .line 230
     return-void
 .end method
 
@@ -141,36 +174,53 @@
 
 .method public onOrientationChanged(I)V
     .locals 0
+    .param p1, "orientation"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    .prologue
+    .line 207
     return-void
 .end method
 
 .method public onPanelVisibilityChanged(I)V
     .locals 0
+    .param p1, "visibility"    # I
 
+    .prologue
+    .line 186
     return-void
 .end method
 
 .method public setData(Landroid/os/Bundle;)V
     .locals 0
+    .param p1, "bundle"    # Landroid/os/Bundle;
 
+    .prologue
+    .line 196
     return-void
 .end method
 
 .method public setListener(Lcom/samsung/android/cocktailbar/AbsCocktailLoadablePanel$CocktailLoadablePanelListener;)V
     .locals 0
+    .param p1, "listener"    # Lcom/samsung/android/cocktailbar/AbsCocktailLoadablePanel$CocktailLoadablePanelListener;
 
+    .prologue
+    .line 134
     iput-object p1, p0, Lcom/samsung/android/cocktailbar/AbsCocktailLoadablePanel;->mListener:Lcom/samsung/android/cocktailbar/AbsCocktailLoadablePanel$CocktailLoadablePanelListener;
 
+    .line 133
     return-void
 .end method
 
 .method public setOnCocktailClickHandler(Lcom/samsung/android/cocktailbar/AbsCocktailLoadablePanel$OnCocktailClickHandler;)V
     .locals 0
+    .param p1, "onCocktailClickHandler"    # Lcom/samsung/android/cocktailbar/AbsCocktailLoadablePanel$OnCocktailClickHandler;
 
+    .prologue
+    .line 150
     iput-object p1, p0, Lcom/samsung/android/cocktailbar/AbsCocktailLoadablePanel;->mOnCocktailClickHandler:Lcom/samsung/android/cocktailbar/AbsCocktailLoadablePanel$OnCocktailClickHandler;
 
+    .line 149
     return-void
 .end method

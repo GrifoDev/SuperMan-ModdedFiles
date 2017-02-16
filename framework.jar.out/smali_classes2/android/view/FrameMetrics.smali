@@ -37,6 +37,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 210
     const/16 v0, 0x12
 
     new-array v0, v0, [I
@@ -45,8 +47,10 @@
 
     sput-object v0, Landroid/view/FrameMetrics;->DURATIONS:[I
 
+    .line 32
     return-void
 
+    .line 210
     :array_0
     .array-data 4
         0x1
@@ -73,30 +77,39 @@
 .method constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 250
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 251
     const/16 v0, 0xe
 
     new-array v0, v0, [J
 
     iput-object v0, p0, Landroid/view/FrameMetrics;->mTimingData:[J
 
+    .line 250
     return-void
 .end method
 
 .method public constructor <init>(Landroid/view/FrameMetrics;)V
     .locals 4
+    .param p1, "other"    # Landroid/view/FrameMetrics;
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 242
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 243
     const/16 v0, 0xe
 
     new-array v0, v0, [J
 
     iput-object v0, p0, Landroid/view/FrameMetrics;->mTimingData:[J
 
+    .line 244
     iget-object v0, p1, Landroid/view/FrameMetrics;->mTimingData:[J
 
     iget-object v1, p0, Landroid/view/FrameMetrics;->mTimingData:[J
@@ -107,6 +120,7 @@
 
     invoke-static {v0, v3, v1, v3, v2}, Ljava/lang/System;->arraycopy([JI[JII)V
 
+    .line 242
     return-void
 .end method
 
@@ -114,30 +128,38 @@
 # virtual methods
 .method public getMetric(I)J
     .locals 6
+    .param p1, "id"    # I
 
+    .prologue
     const-wide/16 v4, -0x1
 
     const/16 v3, 0x9
 
     const/4 v1, 0x0
 
+    .line 265
     if-ltz p1, :cond_0
 
     if-le p1, v3, :cond_1
 
+    .line 266
     :cond_0
     return-wide v4
 
+    .line 269
     :cond_1
     iget-object v2, p0, Landroid/view/FrameMetrics;->mTimingData:[J
 
     if-nez v2, :cond_2
 
+    .line 270
     return-wide v4
 
+    .line 273
     :cond_2
     if-ne p1, v3, :cond_4
 
+    .line 274
     iget-object v2, p0, Landroid/view/FrameMetrics;->mTimingData:[J
 
     aget-wide v2, v2, v1
@@ -159,9 +181,12 @@
 
     return-wide v2
 
+    .line 277
     :cond_4
     mul-int/lit8 v0, p1, 0x2
 
+    .line 278
+    .local v0, "durationsIdx":I
     iget-object v1, p0, Landroid/view/FrameMetrics;->mTimingData:[J
 
     sget-object v2, Landroid/view/FrameMetrics;->DURATIONS:[I
@@ -172,6 +197,7 @@
 
     aget-wide v2, v1, v2
 
+    .line 279
     iget-object v1, p0, Landroid/view/FrameMetrics;->mTimingData:[J
 
     sget-object v4, Landroid/view/FrameMetrics;->DURATIONS:[I
@@ -180,6 +206,7 @@
 
     aget-wide v4, v1, v4
 
+    .line 278
     sub-long/2addr v2, v4
 
     return-wide v2

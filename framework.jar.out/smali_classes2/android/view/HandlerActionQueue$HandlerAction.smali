@@ -23,13 +23,20 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/Runnable;J)V
     .locals 0
+    .param p1, "action"    # Ljava/lang/Runnable;
+    .param p2, "delay"    # J
 
+    .prologue
+    .line 117
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 118
     iput-object p1, p0, Landroid/view/HandlerActionQueue$HandlerAction;->action:Ljava/lang/Runnable;
 
+    .line 119
     iput-wide p2, p0, Landroid/view/HandlerActionQueue$HandlerAction;->delay:J
 
+    .line 117
     return-void
 .end method
 
@@ -37,7 +44,10 @@
 # virtual methods
 .method public matches(Ljava/lang/Runnable;)Z
     .locals 1
+    .param p1, "otherAction"    # Ljava/lang/Runnable;
 
+    .prologue
+    .line 123
     if-nez p1, :cond_0
 
     iget-object v0, p0, Landroid/view/HandlerActionQueue$HandlerAction;->action:Ljava/lang/Runnable;
@@ -49,6 +59,7 @@
     :goto_0
     return v0
 
+    .line 124
     :cond_0
     iget-object v0, p0, Landroid/view/HandlerActionQueue$HandlerAction;->action:Ljava/lang/Runnable;
 

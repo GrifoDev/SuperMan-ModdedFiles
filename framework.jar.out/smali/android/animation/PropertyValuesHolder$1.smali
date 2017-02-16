@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Landroid/animation/PropertyValuesHolder;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/animation/PropertyValuesHolder;
 
+    .prologue
+    .line 1100
     iput-object p1, p0, Landroid/animation/PropertyValuesHolder$1;->this$0:Landroid/animation/PropertyValuesHolder;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +39,10 @@
 # virtual methods
 .method public getValueAtFraction(F)Ljava/lang/Object;
     .locals 1
+    .param p1, "fraction"    # F
 
+    .prologue
+    .line 1103
     iget-object v0, p0, Landroid/animation/PropertyValuesHolder$1;->this$0:Landroid/animation/PropertyValuesHolder;
 
     iget-object v0, v0, Landroid/animation/PropertyValuesHolder;->mKeyframes:Landroid/animation/Keyframes;

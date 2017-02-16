@@ -21,34 +21,45 @@
 # direct methods
 .method constructor <init>(Landroid/os/DVFSHelper;)V
     .locals 2
+    .param p1, "this$0"    # Landroid/os/DVFSHelper;
 
+    .prologue
     const v1, 0x1174c0
 
+    .line 2552
     iput-object p1, p0, Landroid/os/DVFSHelper$ModelJAVA;->this$0:Landroid/os/DVFSHelper;
 
     invoke-direct {p0, p1}, Landroid/os/DVFSHelper$ModelJBP;-><init>(Landroid/os/DVFSHelper;)V
 
+    .line 2553
     iput v1, p0, Landroid/os/DVFSHelper$Model;->AMS_RESUME_ARM_FREQ:I
 
+    .line 2554
     const/16 v0, 0x3e8
 
     sput v0, Landroid/os/DVFSHelper;->AMS_RESUME_TAIL_BOOST_TIMEOUT:I
 
+    .line 2555
     const v0, 0xca648
 
     iput v0, p0, Landroid/os/DVFSHelper$Model;->LIST_SCROLL_ARM_FREQ:I
 
+    .line 2556
     iput v1, p0, Landroid/os/DVFSHelper$Model;->GALLERY_TOUCH_ARM_FREQ:I
 
+    .line 2557
     const v0, 0x1506d0
 
     iput v0, p0, Landroid/os/DVFSHelper$Model;->LAUNCHER_TOUCH_ARM_FREQ:I
 
+    .line 2558
     const/16 v0, 0x7d0
 
     sput v0, Landroid/os/DVFSHelper;->PWM_ROTATION_BOOST_TIMEOUT:I
 
+    .line 2559
     iput v1, p0, Landroid/os/DVFSHelper$Model;->DEVICE_WAKEUP_ARM_FREQ:I
 
+    .line 2552
     return-void
 .end method

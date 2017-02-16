@@ -13,6 +13,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 9
     const-class v0, Lcom/samsung/android/speech/IWSpeechRecognizerWrapper;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
@@ -21,12 +23,15 @@
 
     sput-object v0, Lcom/samsung/android/speech/IWSpeechRecognizerWrapper;->TAG:Ljava/lang/String;
 
+    .line 8
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 12
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -35,35 +40,41 @@
 .method public static declared-synchronized getInstance()Lcom/samsung/android/speech/MMUIRecognizer;
     .locals 4
 
+    .prologue
     const/4 v3, 0x0
 
     const-class v1, Lcom/samsung/android/speech/IWSpeechRecognizerWrapper;
 
     monitor-enter v1
 
+    .line 16
     :try_start_0
     sget-object v0, Lcom/samsung/android/speech/IWSpeechRecognizerWrapper;->uniqueInstance:Lcom/samsung/android/speech/MMUIRecognizer;
 
     if-nez v0, :cond_1
 
+    .line 17
     sget-object v0, Lcom/samsung/android/speech/IWSpeechRecognizerWrapper;->TAG:Ljava/lang/String;
 
     const-string/jumbo v2, "getInstance() : make new MMUIRecognizer"
 
     invoke-static {v0, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 18
     invoke-static {}, Lcom/samsung/android/speech/MMUIRecognizer;->init()I
 
     move-result v0
 
     if-nez v0, :cond_0
 
+    .line 19
     new-instance v0, Lcom/samsung/android/speech/MMUIRecognizer;
 
     invoke-direct {v0}, Lcom/samsung/android/speech/MMUIRecognizer;-><init>()V
 
     sput-object v0, Lcom/samsung/android/speech/IWSpeechRecognizerWrapper;->uniqueInstance:Lcom/samsung/android/speech/MMUIRecognizer;
 
+    .line 29
     :goto_0
     sget-object v0, Lcom/samsung/android/speech/IWSpeechRecognizerWrapper;->uniqueInstance:Lcom/samsung/android/speech/MMUIRecognizer;
     :try_end_0
@@ -73,6 +84,7 @@
 
     return-object v0
 
+    .line 22
     :cond_0
     :try_start_1
     sget-object v0, Lcom/samsung/android/speech/IWSpeechRecognizerWrapper;->TAG:Ljava/lang/String;
@@ -85,8 +97,10 @@
 
     monitor-exit v1
 
+    .line 23
     return-object v3
 
+    .line 26
     :cond_1
     :try_start_2
     sget-object v0, Lcom/samsung/android/speech/IWSpeechRecognizerWrapper;->TAG:Ljava/lang/String;

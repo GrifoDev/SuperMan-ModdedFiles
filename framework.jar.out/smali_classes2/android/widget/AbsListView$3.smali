@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Landroid/widget/AbsListView;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/widget/AbsListView;
 
+    .prologue
+    .line 10860
     iput-object p1, p0, Landroid/widget/AbsListView$3;->this$0:Landroid/widget/AbsListView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,9 +40,12 @@
 .method public run()V
     .locals 1
 
+    .prologue
+    .line 10862
     iget-object v0, p0, Landroid/widget/AbsListView$3;->this$0:Landroid/widget/AbsListView;
 
     invoke-static {v0}, Landroid/widget/AbsListView;->-wrap15(Landroid/widget/AbsListView;)V
 
+    .line 10861
     return-void
 .end method

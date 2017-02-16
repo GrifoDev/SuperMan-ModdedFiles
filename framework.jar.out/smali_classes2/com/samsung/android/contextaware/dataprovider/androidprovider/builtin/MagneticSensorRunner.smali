@@ -6,7 +6,13 @@
 # direct methods
 .method public constructor <init>(ILandroid/content/Context;Landroid/os/Looper;Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/ISensorHubResetObservable;)V
     .locals 6
+    .param p1, "version"    # I
+    .param p2, "context"    # Landroid/content/Context;
+    .param p3, "looper"    # Landroid/os/Looper;
+    .param p4, "observable"    # Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/ISensorHubResetObservable;
 
+    .prologue
+    .line 49
     const v5, 0xea60
 
     move-object v0, p0
@@ -21,14 +27,23 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/samsung/android/contextaware/dataprovider/androidprovider/builtin/MagneticSensorRunner;-><init>(ILandroid/content/Context;Landroid/os/Looper;Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/ISensorHubResetObservable;I)V
 
+    .line 48
     return-void
 .end method
 
 .method public constructor <init>(ILandroid/content/Context;Landroid/os/Looper;Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/ISensorHubResetObservable;I)V
     .locals 0
+    .param p1, "version"    # I
+    .param p2, "context"    # Landroid/content/Context;
+    .param p3, "looper"    # Landroid/os/Looper;
+    .param p4, "observable"    # Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/ISensorHubResetObservable;
+    .param p5, "rate"    # I
 
+    .prologue
+    .line 69
     invoke-direct/range {p0 .. p5}, Lcom/samsung/android/contextaware/dataprovider/androidprovider/RawSensorProvider;-><init>(ILandroid/content/Context;Landroid/os/Looper;Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/ISensorHubResetObservable;I)V
 
+    .line 68
     return-void
 .end method
 
@@ -37,26 +52,36 @@
 .method public final disable()V
     .locals 0
 
+    .prologue
+    .line 152
     invoke-static {}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger;->trace()V
 
+    .line 153
     invoke-super {p0}, Lcom/samsung/android/contextaware/dataprovider/androidprovider/RawSensorProvider;->disable()V
 
+    .line 151
     return-void
 .end method
 
 .method public final enable()V
     .locals 0
 
+    .prologue
+    .line 139
     invoke-static {}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger;->trace()V
 
+    .line 140
     invoke-super {p0}, Lcom/samsung/android/contextaware/dataprovider/androidprovider/RawSensorProvider;->enable()V
 
+    .line 138
     return-void
 .end method
 
 .method public final getContextType()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 104
     sget-object v0, Lcom/samsung/android/contextaware/ContextList$ContextType;->ANDROID_RUNNER_MAGNETIC_SENSOR:Lcom/samsung/android/contextaware/ContextList$ContextType;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/ContextList$ContextType;->getCode()Ljava/lang/String;
@@ -69,6 +94,8 @@
 .method public final getContextValueNames()[Ljava/lang/String;
     .locals 3
 
+    .prologue
+    .line 93
     const/4 v0, 0x3
 
     new-array v0, v0, [Ljava/lang/String;
@@ -97,6 +124,8 @@
 .method public getFaultDetectionResult()Landroid/os/Bundle;
     .locals 1
 
+    .prologue
+    .line 165
     invoke-virtual {p0}, Lcom/samsung/android/contextaware/manager/ContextProvider;->checkFaultDetectionResult()Z
 
     move-result v0
@@ -107,6 +136,7 @@
 
     invoke-static {v0}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger;->debug(Ljava/lang/String;)V
 
+    .line 166
     invoke-super {p0}, Lcom/samsung/android/contextaware/dataprovider/androidprovider/RawSensorProvider;->getFaultDetectionResult()Landroid/os/Bundle;
 
     move-result-object v0
@@ -117,18 +147,24 @@
 .method protected final getPowerObserver()Lcom/samsung/android/contextaware/manager/IApPowerObserver;
     .locals 0
 
+    .prologue
+    .line 115
     return-object p0
 .end method
 
 .method protected final getPowerResetObserver()Lcom/samsung/android/contextaware/manager/ISensorHubResetObserver;
     .locals 0
 
+    .prologue
+    .line 127
     return-object p0
 .end method
 
 .method protected final getSensorType()I
     .locals 1
 
+    .prologue
+    .line 81
     const/4 v0, 0x2
 
     return v0

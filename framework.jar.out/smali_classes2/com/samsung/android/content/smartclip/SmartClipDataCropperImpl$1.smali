@@ -29,7 +29,13 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/content/smartclip/SmartClipDataCropperImpl;Lcom/samsung/android/content/smartclip/SmartClipDataElementImpl;Landroid/view/View;Ljava/lang/reflect/Method;)V
     .locals 1
+    .param p1, "this$0"    # Lcom/samsung/android/content/smartclip/SmartClipDataCropperImpl;
+    .param p2, "val$resultElement"    # Lcom/samsung/android/content/smartclip/SmartClipDataElementImpl;
+    .param p3, "val$view"    # Landroid/view/View;
+    .param p4, "val$setSmartClipResultHandlerMethod"    # Ljava/lang/reflect/Method;
 
+    .prologue
+    .line 532
     iput-object p1, p0, Lcom/samsung/android/content/smartclip/SmartClipDataCropperImpl$1;->this$0:Lcom/samsung/android/content/smartclip/SmartClipDataCropperImpl;
 
     iput-object p2, p0, Lcom/samsung/android/content/smartclip/SmartClipDataCropperImpl$1;->val$resultElement:Lcom/samsung/android/content/smartclip/SmartClipDataElementImpl;
@@ -40,10 +46,12 @@
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
 
+    .line 533
     iget-object v0, p0, Lcom/samsung/android/content/smartclip/SmartClipDataCropperImpl$1;->val$resultElement:Lcom/samsung/android/content/smartclip/SmartClipDataElementImpl;
 
     iput-object v0, p0, Lcom/samsung/android/content/smartclip/SmartClipDataCropperImpl$1;->mResult:Lcom/samsung/android/content/smartclip/SemSmartClipDataElement;
 
+    .line 532
     return-void
 .end method
 
@@ -51,37 +59,47 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 14
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
     const/4 v12, 0x0
 
     const/4 v13, 0x1
 
+    .line 536
     const-string/jumbo v9, "SmartClipDataCropperImpl"
 
     const-string/jumbo v10, "Meta data arrived from chrome"
 
     invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 537
     invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;
 
     move-result-object v1
 
+    .line 538
+    .local v1, "bundle":Landroid/os/Bundle;
     if-nez v1, :cond_0
 
+    .line 539
     const-string/jumbo v9, "SmartClipDataCropperImpl"
 
     const-string/jumbo v10, "The bundle is null!"
 
     invoke-static {v9, v10}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 540
     iget-object v9, p0, Lcom/samsung/android/content/smartclip/SmartClipDataCropperImpl$1;->this$0:Lcom/samsung/android/content/smartclip/SmartClipDataCropperImpl;
 
     iget-object v10, p0, Lcom/samsung/android/content/smartclip/SmartClipDataCropperImpl$1;->mResult:Lcom/samsung/android/content/smartclip/SemSmartClipDataElement;
 
     invoke-virtual {v9, v10}, Lcom/samsung/android/content/smartclip/SmartClipDataCropperImpl;->setPendingExtractionResult(Lcom/samsung/android/content/smartclip/SemSmartClipDataElement;)Z
 
+    .line 541
     return-void
 
+    .line 544
     :cond_0
     const-string/jumbo v9, "title"
 
@@ -89,24 +107,32 @@
 
     move-result-object v7
 
+    .line 545
+    .local v7, "title":Ljava/lang/String;
     const-string/jumbo v9, "url"
 
     invoke-virtual {v1, v9}, Landroid/os/BaseBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v8
 
+    .line 546
+    .local v8, "url":Ljava/lang/String;
     const-string/jumbo v9, "html"
 
     invoke-virtual {v1, v9}, Landroid/os/BaseBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
+    .line 547
+    .local v3, "html":Ljava/lang/String;
     const-string/jumbo v9, "text"
 
     invoke-virtual {v1, v9}, Landroid/os/BaseBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v6
 
+    .line 548
+    .local v6, "text":Ljava/lang/String;
     const-string/jumbo v9, "rect"
 
     invoke-virtual {v1, v9}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -115,12 +141,15 @@
 
     check-cast v0, Landroid/graphics/Rect;
 
+    .line 550
+    .local v0, "area":Landroid/graphics/Rect;
     invoke-static {}, Lcom/samsung/android/content/smartclip/SmartClipDataCropperImpl;->-get0()Z
 
     move-result v9
 
     if-eqz v9, :cond_1
 
+    .line 551
     const-string/jumbo v9, "SmartClipDataCropperImpl"
 
     const-string/jumbo v10, "Title:%s\nURL:%s\nArea:%s\nText:%s\nHTML:%s"
@@ -151,6 +180,7 @@
 
     invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 553
     :cond_1
     invoke-static {v7}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -158,6 +188,7 @@
 
     if-nez v9, :cond_2
 
+    .line 554
     iget-object v9, p0, Lcom/samsung/android/content/smartclip/SmartClipDataCropperImpl$1;->val$resultElement:Lcom/samsung/android/content/smartclip/SmartClipDataElementImpl;
 
     new-instance v10, Lcom/samsung/android/content/smartclip/SemSmartClipMetaTag;
@@ -168,6 +199,7 @@
 
     invoke-virtual {v9, v10}, Lcom/samsung/android/content/smartclip/SmartClipDataElementImpl;->setTag(Lcom/samsung/android/content/smartclip/SemSmartClipMetaTag;)Z
 
+    .line 556
     :cond_2
     invoke-static {v8}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -175,6 +207,7 @@
 
     if-nez v9, :cond_3
 
+    .line 557
     iget-object v9, p0, Lcom/samsung/android/content/smartclip/SmartClipDataCropperImpl$1;->val$resultElement:Lcom/samsung/android/content/smartclip/SmartClipDataElementImpl;
 
     new-instance v10, Lcom/samsung/android/content/smartclip/SemSmartClipMetaTag;
@@ -185,6 +218,7 @@
 
     invoke-virtual {v9, v10}, Lcom/samsung/android/content/smartclip/SmartClipDataElementImpl;->setTag(Lcom/samsung/android/content/smartclip/SemSmartClipMetaTag;)Z
 
+    .line 559
     :cond_3
     invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -192,6 +226,7 @@
 
     if-nez v9, :cond_4
 
+    .line 560
     iget-object v9, p0, Lcom/samsung/android/content/smartclip/SmartClipDataCropperImpl$1;->val$resultElement:Lcom/samsung/android/content/smartclip/SmartClipDataElementImpl;
 
     new-instance v10, Lcom/samsung/android/content/smartclip/SemSmartClipMetaTag;
@@ -202,6 +237,7 @@
 
     invoke-virtual {v9, v10}, Lcom/samsung/android/content/smartclip/SmartClipDataElementImpl;->setTag(Lcom/samsung/android/content/smartclip/SemSmartClipMetaTag;)Z
 
+    .line 562
     :cond_4
     invoke-static {v6}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -209,6 +245,7 @@
 
     if-nez v9, :cond_5
 
+    .line 563
     iget-object v9, p0, Lcom/samsung/android/content/smartclip/SmartClipDataCropperImpl$1;->val$resultElement:Lcom/samsung/android/content/smartclip/SmartClipDataElementImpl;
 
     new-instance v10, Lcom/samsung/android/content/smartclip/SemSmartClipMetaTag;
@@ -219,9 +256,11 @@
 
     invoke-virtual {v9, v10}, Lcom/samsung/android/content/smartclip/SmartClipDataElementImpl;->setTag(Lcom/samsung/android/content/smartclip/SemSmartClipMetaTag;)Z
 
+    .line 565
     :cond_5
     if-eqz v0, :cond_6
 
+    .line 570
     iget-object v9, p0, Lcom/samsung/android/content/smartclip/SmartClipDataCropperImpl$1;->this$0:Lcom/samsung/android/content/smartclip/SmartClipDataCropperImpl;
 
     iget-object v9, v9, Lcom/samsung/android/content/smartclip/SmartClipDataCropperImpl;->mContext:Landroid/content/Context;
@@ -234,6 +273,8 @@
 
     move-result-object v4
 
+    .line 571
+    .local v4, "metrics":Landroid/util/DisplayMetrics;
     iget v9, v0, Landroid/graphics/Rect;->left:I
 
     int-to-float v9, v9
@@ -246,6 +287,7 @@
 
     iput v9, v0, Landroid/graphics/Rect;->left:I
 
+    .line 572
     iget v9, v0, Landroid/graphics/Rect;->top:I
 
     int-to-float v9, v9
@@ -258,6 +300,7 @@
 
     iput v9, v0, Landroid/graphics/Rect;->top:I
 
+    .line 573
     iget v9, v0, Landroid/graphics/Rect;->right:I
 
     int-to-float v9, v9
@@ -270,6 +313,7 @@
 
     iput v9, v0, Landroid/graphics/Rect;->right:I
 
+    .line 574
     iget v9, v0, Landroid/graphics/Rect;->bottom:I
 
     int-to-float v9, v9
@@ -282,6 +326,7 @@
 
     iput v9, v0, Landroid/graphics/Rect;->bottom:I
 
+    .line 577
     iget-object v9, p0, Lcom/samsung/android/content/smartclip/SmartClipDataCropperImpl$1;->this$0:Lcom/samsung/android/content/smartclip/SmartClipDataCropperImpl;
 
     iget-object v10, p0, Lcom/samsung/android/content/smartclip/SmartClipDataCropperImpl$1;->val$view:Landroid/view/View;
@@ -290,18 +335,25 @@
 
     move-result-object v5
 
+    .line 578
+    .local v5, "screenRectOfView":Landroid/graphics/Rect;
     iget v9, v5, Landroid/graphics/Rect;->left:I
 
     iget v10, v5, Landroid/graphics/Rect;->top:I
 
     invoke-virtual {v0, v9, v10}, Landroid/graphics/Rect;->offset(II)V
 
+    .line 579
     invoke-virtual {v0, v5}, Landroid/graphics/Rect;->intersect(Landroid/graphics/Rect;)Z
 
+    .line 581
     iget-object v9, p0, Lcom/samsung/android/content/smartclip/SmartClipDataCropperImpl$1;->val$resultElement:Lcom/samsung/android/content/smartclip/SmartClipDataElementImpl;
 
     invoke-virtual {v9, v0}, Lcom/samsung/android/content/smartclip/SmartClipDataElementImpl;->setMetaAreaRect(Landroid/graphics/Rect;)V
 
+    .line 585
+    .end local v4    # "metrics":Landroid/util/DisplayMetrics;
+    .end local v5    # "screenRectOfView":Landroid/graphics/Rect;
     :cond_6
     :try_start_0
     iget-object v10, p0, Lcom/samsung/android/content/smartclip/SmartClipDataCropperImpl$1;->val$setSmartClipResultHandlerMethod:Ljava/lang/reflect/Method;
@@ -326,6 +378,7 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 591
     :goto_0
     iget-object v9, p0, Lcom/samsung/android/content/smartclip/SmartClipDataCropperImpl$1;->this$0:Lcom/samsung/android/content/smartclip/SmartClipDataCropperImpl;
 
@@ -333,17 +386,22 @@
 
     invoke-virtual {v9, v10}, Lcom/samsung/android/content/smartclip/SmartClipDataCropperImpl;->setPendingExtractionResult(Lcom/samsung/android/content/smartclip/SemSmartClipDataElement;)Z
 
+    .line 535
     return-void
 
+    .line 586
     :catch_0
     move-exception v2
 
+    .line 587
+    .local v2, "e":Ljava/lang/Exception;
     const-string/jumbo v9, "SmartClipDataCropperImpl"
 
     const-string/jumbo v10, "Could not invoke set smartclip handler API"
 
     invoke-static {v9, v10}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 588
     invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0

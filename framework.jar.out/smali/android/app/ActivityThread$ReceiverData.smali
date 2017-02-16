@@ -25,11 +25,22 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Intent;ILjava/lang/String;Landroid/os/Bundle;ZZLandroid/os/IBinder;I)V
     .locals 10
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "resultCode"    # I
+    .param p3, "resultData"    # Ljava/lang/String;
+    .param p4, "resultExtras"    # Landroid/os/Bundle;
+    .param p5, "ordered"    # Z
+    .param p6, "sticky"    # Z
+    .param p7, "token"    # Landroid/os/IBinder;
+    .param p8, "sendingUser"    # I
 
+    .prologue
+    .line 510
     invoke-virtual {p1}, Landroid/content/Intent;->getBroadcastQueueHint()I
 
     move-result v9
 
+    .line 509
     const/4 v4, 0x0
 
     move-object v0, p0
@@ -50,8 +61,10 @@
 
     invoke-direct/range {v0 .. v9}, Landroid/content/BroadcastReceiver$PendingResult;-><init>(ILjava/lang/String;Landroid/os/Bundle;IZZLandroid/os/IBinder;II)V
 
+    .line 511
     iput-object p1, p0, Landroid/app/ActivityThread$ReceiverData;->intent:Landroid/content/Intent;
 
+    .line 508
     return-void
 .end method
 
@@ -60,6 +73,8 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 518
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -82,60 +97,76 @@
 
     move-result-object v0
 
+    .line 519
     iget-object v1, p0, Landroid/app/ActivityThread$ReceiverData;->info:Landroid/content/pm/ActivityInfo;
 
     iget-object v1, v1, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
 
+    .line 518
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
+    .line 519
     const-string/jumbo v1, " resultCode="
 
+    .line 518
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
+    .line 519
     invoke-virtual {p0}, Landroid/app/ActivityThread$ReceiverData;->getResultCode()I
 
     move-result v1
 
+    .line 518
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
+    .line 520
     const-string/jumbo v1, " resultData="
 
+    .line 518
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
+    .line 520
     invoke-virtual {p0}, Landroid/app/ActivityThread$ReceiverData;->getResultData()Ljava/lang/String;
 
     move-result-object v1
 
+    .line 518
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
+    .line 520
     const-string/jumbo v1, " resultExtras="
 
+    .line 518
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
+    .line 521
     const/4 v1, 0x0
 
     invoke-virtual {p0, v1}, Landroid/app/ActivityThread$ReceiverData;->getResultExtras(Z)Landroid/os/Bundle;
 
     move-result-object v1
 
+    .line 518
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
+    .line 521
     const-string/jumbo v1, "}"
 
+    .line 518
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0

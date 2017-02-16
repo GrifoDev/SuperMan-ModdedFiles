@@ -34,34 +34,48 @@
 .method public constructor <init>()V
     .locals 3
 
+    .prologue
     const/4 v2, 0x0
 
+    .line 6380
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 6381
     const-wide/16 v0, 0x0
 
     iput-wide v0, p0, Lcom/samsung/android/camera/core/SemCamera$CameraSensorData;->exposureTime:J
 
+    .line 6382
     iput-short v2, p0, Lcom/samsung/android/camera/core/SemCamera$CameraSensorData;->exposureValue:S
 
+    .line 6383
     iput-short v2, p0, Lcom/samsung/android/camera/core/SemCamera$CameraSensorData;->iso:S
 
+    .line 6384
     iput-short v2, p0, Lcom/samsung/android/camera/core/SemCamera$CameraSensorData;->lensPositionMin:S
 
+    .line 6385
     iput-short v2, p0, Lcom/samsung/android/camera/core/SemCamera$CameraSensorData;->lensPositionMax:S
 
+    .line 6386
     iput-short v2, p0, Lcom/samsung/android/camera/core/SemCamera$CameraSensorData;->lensPositionCurrent:S
 
+    .line 6387
     iput-short v2, p0, Lcom/samsung/android/camera/core/SemCamera$CameraSensorData;->driverResolution:S
 
+    .line 6380
     return-void
 .end method
 
 .method public constructor <init>([B)V
     .locals 2
+    .param p1, "data"    # [B
 
+    .prologue
+    .line 6394
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 6395
     const/4 v0, 0x0
 
     aget-byte v0, p1, v0
@@ -102,6 +116,7 @@
 
     iput-wide v0, p0, Lcom/samsung/android/camera/core/SemCamera$CameraSensorData;->exposureTime:J
 
+    .line 6396
     const/4 v0, 0x4
 
     aget-byte v0, p1, v0
@@ -122,6 +137,7 @@
 
     iput-short v0, p0, Lcom/samsung/android/camera/core/SemCamera$CameraSensorData;->exposureValue:S
 
+    .line 6397
     const/4 v0, 0x6
 
     aget-byte v0, p1, v0
@@ -142,6 +158,7 @@
 
     iput-short v0, p0, Lcom/samsung/android/camera/core/SemCamera$CameraSensorData;->iso:S
 
+    .line 6398
     const/16 v0, 0x8
 
     aget-byte v0, p1, v0
@@ -162,6 +179,7 @@
 
     iput-short v0, p0, Lcom/samsung/android/camera/core/SemCamera$CameraSensorData;->lensPositionMin:S
 
+    .line 6399
     const/16 v0, 0xa
 
     aget-byte v0, p1, v0
@@ -182,6 +200,7 @@
 
     iput-short v0, p0, Lcom/samsung/android/camera/core/SemCamera$CameraSensorData;->lensPositionMax:S
 
+    .line 6400
     const/16 v0, 0xc
 
     aget-byte v0, p1, v0
@@ -202,6 +221,7 @@
 
     iput-short v0, p0, Lcom/samsung/android/camera/core/SemCamera$CameraSensorData;->lensPositionCurrent:S
 
+    .line 6401
     const/16 v0, 0xe
 
     aget-byte v0, p1, v0
@@ -222,5 +242,6 @@
 
     iput-short v0, p0, Lcom/samsung/android/camera/core/SemCamera$CameraSensorData;->driverResolution:S
 
+    .line 6394
     return-void
 .end method

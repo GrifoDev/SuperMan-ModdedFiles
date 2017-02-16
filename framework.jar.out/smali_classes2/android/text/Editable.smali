@@ -29,12 +29,15 @@
 
 .method public bridge synthetic append(C)Ljava/lang/Appendable;
     .locals 1
+    .param p1, "text"    # C
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 94
     invoke-interface {p0, p1}, Landroid/text/Editable;->append(C)Landroid/text/Editable;
 
     move-result-object v0
@@ -44,12 +47,15 @@
 
 .method public bridge synthetic append(Ljava/lang/CharSequence;)Ljava/lang/Appendable;
     .locals 1
+    .param p1, "text"    # Ljava/lang/CharSequence;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 82
     invoke-interface {p0, p1}, Landroid/text/Editable;->append(Ljava/lang/CharSequence;)Landroid/text/Editable;
 
     move-result-object v0
@@ -59,12 +65,17 @@
 
 .method public bridge synthetic append(Ljava/lang/CharSequence;II)Ljava/lang/Appendable;
     .locals 1
+    .param p1, "text"    # Ljava/lang/CharSequence;
+    .param p2, "start"    # I
+    .param p3, "end"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 88
     invoke-interface {p0, p1, p2, p3}, Landroid/text/Editable;->append(Ljava/lang/CharSequence;II)Landroid/text/Editable;
 
     move-result-object v0

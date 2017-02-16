@@ -30,7 +30,13 @@
 # direct methods
 .method constructor <init>(Landroid/hardware/camera2/CameraManager$CameraManagerGlobal;Landroid/hardware/camera2/CameraManager$TorchCallback;Ljava/lang/String;I)V
     .locals 0
+    .param p1, "this$1"    # Landroid/hardware/camera2/CameraManager$CameraManagerGlobal;
+    .param p2, "val$callback"    # Landroid/hardware/camera2/CameraManager$TorchCallback;
+    .param p3, "val$id"    # Ljava/lang/String;
+    .param p4, "val$status"    # I
 
+    .prologue
+    .line 964
     iput-object p1, p0, Landroid/hardware/camera2/CameraManager$CameraManagerGlobal$3;->this$1:Landroid/hardware/camera2/CameraManager$CameraManagerGlobal;
 
     iput-object p2, p0, Landroid/hardware/camera2/CameraManager$CameraManagerGlobal$3;->val$callback:Landroid/hardware/camera2/CameraManager$TorchCallback;
@@ -49,14 +55,18 @@
 .method public run()V
     .locals 4
 
+    .prologue
+    .line 967
     iget-object v1, p0, Landroid/hardware/camera2/CameraManager$CameraManagerGlobal$3;->val$callback:Landroid/hardware/camera2/CameraManager$TorchCallback;
 
     iget-object v2, p0, Landroid/hardware/camera2/CameraManager$CameraManagerGlobal$3;->val$id:Ljava/lang/String;
 
     iget v0, p0, Landroid/hardware/camera2/CameraManager$CameraManagerGlobal$3;->val$status:I
 
+    .line 968
     const/4 v3, 0x2
 
+    .line 967
     if-ne v0, v3, :cond_0
 
     const/4 v0, 0x1
@@ -64,8 +74,10 @@
     :goto_0
     invoke-virtual {v1, v2, v0}, Landroid/hardware/camera2/CameraManager$TorchCallback;->onTorchModeChanged(Ljava/lang/String;Z)V
 
+    .line 966
     return-void
 
+    .line 967
     :cond_0
     const/4 v0, 0x0
 

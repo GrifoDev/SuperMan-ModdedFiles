@@ -35,6 +35,9 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 33
+    .local p0, "this":Landroid/hardware/camera2/marshal/impl/MarshalQueryableRange;, "Landroid/hardware/camera2/marshal/impl/MarshalQueryableRange<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -44,6 +47,7 @@
 # virtual methods
 .method public createMarshaler(Landroid/hardware/camera2/utils/TypeReference;I)Landroid/hardware/camera2/marshal/Marshaler;
     .locals 1
+    .param p2, "nativeType"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -58,6 +62,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 128
+    .local p0, "this":Landroid/hardware/camera2/marshal/impl/MarshalQueryableRange;, "Landroid/hardware/camera2/marshal/impl/MarshalQueryableRange<TT;>;"
+    .local p1, "managedType":Landroid/hardware/camera2/utils/TypeReference;, "Landroid/hardware/camera2/utils/TypeReference<Landroid/util/Range<TT;>;>;"
     new-instance v0, Landroid/hardware/camera2/marshal/impl/MarshalQueryableRange$MarshalerRange;
 
     invoke-direct {v0, p0, p1, p2}, Landroid/hardware/camera2/marshal/impl/MarshalQueryableRange$MarshalerRange;-><init>(Landroid/hardware/camera2/marshal/impl/MarshalQueryableRange;Landroid/hardware/camera2/utils/TypeReference;I)V
@@ -67,6 +75,7 @@
 
 .method public isTypeMappingSupported(Landroid/hardware/camera2/utils/TypeReference;I)Z
     .locals 2
+    .param p2, "nativeType"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -77,6 +86,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 133
+    .local p0, "this":Landroid/hardware/camera2/marshal/impl/MarshalQueryableRange;, "Landroid/hardware/camera2/marshal/impl/MarshalQueryableRange<TT;>;"
+    .local p1, "managedType":Landroid/hardware/camera2/utils/TypeReference;, "Landroid/hardware/camera2/utils/TypeReference<Landroid/util/Range<TT;>;>;"
     const-class v0, Landroid/util/Range;
 
     invoke-virtual {p1}, Landroid/hardware/camera2/utils/TypeReference;->getRawType()Ljava/lang/Class;

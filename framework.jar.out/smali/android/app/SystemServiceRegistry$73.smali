@@ -27,6 +27,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 909
     invoke-direct {p0}, Landroid/app/SystemServiceRegistry$StaticServiceFetcher;-><init>()V
 
     return-void
@@ -37,16 +39,22 @@
 .method public createService()Landroid/media/tv/TvInputManager;
     .locals 4
 
+    .prologue
+    .line 912
     const-string/jumbo v2, "tv_input"
 
     invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
+    .line 913
+    .local v0, "iBinder":Landroid/os/IBinder;
     invoke-static {v0}, Landroid/media/tv/ITvInputManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/media/tv/ITvInputManager;
 
     move-result-object v1
 
+    .line 914
+    .local v1, "service":Landroid/media/tv/ITvInputManager;
     new-instance v2, Landroid/media/tv/TvInputManager;
 
     invoke-static {}, Landroid/os/UserHandle;->myUserId()I
@@ -61,6 +69,8 @@
 .method public bridge synthetic createService()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 911
     invoke-virtual {p0}, Landroid/app/SystemServiceRegistry$73;->createService()Landroid/media/tv/TvInputManager;
 
     move-result-object v0

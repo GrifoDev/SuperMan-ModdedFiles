@@ -45,6 +45,7 @@
 .method static constructor <clinit>()V
     .locals 8
 
+    .prologue
     const/4 v7, 0x4
 
     const/4 v6, 0x3
@@ -55,48 +56,61 @@
 
     const/4 v3, 0x0
 
+    .line 49
     new-instance v0, Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;
 
     const-string/jumbo v1, "LOCK_STATE"
 
     invoke-direct {v0, v1, v3, v3}, Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;-><init>(Ljava/lang/String;II)V
 
+    .line 56
     sput-object v0, Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;->LOCK_STATE:Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;
 
+    .line 57
     new-instance v0, Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;
 
     const-string/jumbo v1, "PASSWORD"
 
     invoke-direct {v0, v1, v4, v4}, Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;-><init>(Ljava/lang/String;II)V
 
+    .line 64
     sput-object v0, Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;->PASSWORD:Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;
 
+    .line 65
     new-instance v0, Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;
 
     const-string/jumbo v1, "TRUSTED_UI"
 
     invoke-direct {v0, v1, v5, v5}, Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;-><init>(Ljava/lang/String;II)V
 
+    .line 70
     sput-object v0, Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;->TRUSTED_UI:Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;
 
+    .line 71
     new-instance v0, Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;
 
     const-string/jumbo v1, "TRUSTED_PINPAD"
 
     invoke-direct {v0, v1, v6, v6}, Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;-><init>(Ljava/lang/String;II)V
 
+    .line 76
     sput-object v0, Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;->TRUSTED_PINPAD:Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;
 
+    .line 77
     new-instance v0, Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;
 
     const-string/jumbo v1, "AFW"
 
+    .line 82
     const/16 v2, 0xf
 
+    .line 77
     invoke-direct {v0, v1, v7, v2}, Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;-><init>(Ljava/lang/String;II)V
 
+    .line 82
     sput-object v0, Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;->AFW:Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;
 
+    .line 48
     const/4 v0, 0x5
 
     new-array v0, v0, [Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;
@@ -128,17 +142,25 @@
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
+    .param p3, "value"    # I
 
+    .prologue
+    .line 86
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
+    .line 87
     iput p3, p0, Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;->value:I
 
+    .line 86
     return-void
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 48
     const-class v0, Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -153,6 +175,8 @@
 .method public static values()[Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;
     .locals 1
 
+    .prologue
+    .line 48
     sget-object v0, Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;->$VALUES:[Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;
 
     return-object v0
@@ -163,6 +187,8 @@
 .method public getValue()I
     .locals 1
 
+    .prologue
+    .line 92
     iget v0, p0, Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;->value:I
 
     return v0

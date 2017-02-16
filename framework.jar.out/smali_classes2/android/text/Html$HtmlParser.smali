@@ -30,18 +30,23 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 208
     new-instance v0, Lorg/ccil/cowan/tagsoup/HTMLSchema;
 
     invoke-direct {v0}, Lorg/ccil/cowan/tagsoup/HTMLSchema;-><init>()V
 
     sput-object v0, Landroid/text/Html$HtmlParser;->schema:Lorg/ccil/cowan/tagsoup/HTMLSchema;
 
+    .line 207
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 207
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

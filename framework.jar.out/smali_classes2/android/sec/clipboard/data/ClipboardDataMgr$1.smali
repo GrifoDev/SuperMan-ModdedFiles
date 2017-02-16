@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Landroid/sec/clipboard/data/ClipboardDataMgr;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/sec/clipboard/data/ClipboardDataMgr;
 
+    .prologue
+    .line 63
     iput-object p1, p0, Landroid/sec/clipboard/data/ClipboardDataMgr$1;->this$0:Landroid/sec/clipboard/data/ClipboardDataMgr;
 
     invoke-direct {p0}, Landroid/sec/clipboard/data/IClipboardDataList$Stub;-><init>()V
@@ -33,12 +36,15 @@
 # virtual methods
 .method public getClipByID(Ljava/lang/String;)Lcom/samsung/android/content/clipboard/data/SemClipData;
     .locals 1
+    .param p1, "id"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 76
     iget-object v0, p0, Landroid/sec/clipboard/data/ClipboardDataMgr$1;->this$0:Landroid/sec/clipboard/data/ClipboardDataMgr;
 
     invoke-virtual {v0, p1}, Landroid/sec/clipboard/data/ClipboardDataMgr;->getClipByID(Ljava/lang/String;)Lcom/samsung/android/content/clipboard/data/SemClipData;
@@ -50,12 +56,15 @@
 
 .method public getItem(I)Lcom/samsung/android/content/clipboard/data/SemClipData;
     .locals 1
+    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 71
     iget-object v0, p0, Landroid/sec/clipboard/data/ClipboardDataMgr$1;->this$0:Landroid/sec/clipboard/data/ClipboardDataMgr;
 
     invoke-virtual {v0, p1}, Landroid/sec/clipboard/data/ClipboardDataMgr;->getItem(I)Lcom/samsung/android/content/clipboard/data/SemClipData;
@@ -67,12 +76,15 @@
 
 .method public removeData(I)Z
     .locals 1
+    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 81
     iget-object v0, p0, Landroid/sec/clipboard/data/ClipboardDataMgr$1;->this$0:Landroid/sec/clipboard/data/ClipboardDataMgr;
 
     invoke-virtual {v0, p1}, Landroid/sec/clipboard/data/ClipboardDataMgr;->removeData(I)Z
@@ -90,6 +102,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 66
     iget-object v0, p0, Landroid/sec/clipboard/data/ClipboardDataMgr$1;->this$0:Landroid/sec/clipboard/data/ClipboardDataMgr;
 
     invoke-virtual {v0}, Landroid/sec/clipboard/data/ClipboardDataMgr;->size()I
@@ -101,12 +115,16 @@
 
 .method public updateData(ILcom/samsung/android/content/clipboard/data/SemClipData;)Z
     .locals 1
+    .param p1, "index"    # I
+    .param p2, "clipData"    # Lcom/samsung/android/content/clipboard/data/SemClipData;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 86
     iget-object v0, p0, Landroid/sec/clipboard/data/ClipboardDataMgr$1;->this$0:Landroid/sec/clipboard/data/ClipboardDataMgr;
 
     invoke-virtual {v0, p1, p2}, Landroid/sec/clipboard/data/ClipboardDataMgr;->updateData(ILcom/samsung/android/content/clipboard/data/SemClipData;)Z

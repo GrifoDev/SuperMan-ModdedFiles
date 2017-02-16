@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Landroid/widget/ZoomButtonsController;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/widget/ZoomButtonsController;
 
+    .prologue
+    .line 169
     iput-object p1, p0, Landroid/widget/ZoomButtonsController$2;->this$0:Landroid/widget/ZoomButtonsController;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -33,14 +36,19 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 172
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
+    .line 171
     :goto_0
     return-void
 
+    .line 174
     :pswitch_0
     iget-object v0, p0, Landroid/widget/ZoomButtonsController$2;->this$0:Landroid/widget/ZoomButtonsController;
 
@@ -48,6 +56,7 @@
 
     goto :goto_0
 
+    .line 178
     :pswitch_1
     iget-object v0, p0, Landroid/widget/ZoomButtonsController$2;->this$0:Landroid/widget/ZoomButtonsController;
 
@@ -57,6 +66,7 @@
 
     goto :goto_0
 
+    .line 182
     :pswitch_2
     iget-object v0, p0, Landroid/widget/ZoomButtonsController$2;->this$0:Landroid/widget/ZoomButtonsController;
 
@@ -70,14 +80,18 @@
 
     if-nez v0, :cond_0
 
+    .line 184
     const-string/jumbo v0, "ZoomButtonsController"
 
+    .line 185
     const-string/jumbo v1, "Cannot make the zoom controller visible if the owner view is not attached to a window."
 
+    .line 184
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
+    .line 188
     :cond_0
     iget-object v0, p0, Landroid/widget/ZoomButtonsController$2;->this$0:Landroid/widget/ZoomButtonsController;
 
@@ -87,6 +101,7 @@
 
     goto :goto_0
 
+    .line 172
     :pswitch_data_0
     .packed-switch 0x2
         :pswitch_0

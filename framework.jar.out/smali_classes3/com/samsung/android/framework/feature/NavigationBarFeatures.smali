@@ -25,6 +25,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 41
     const-string/jumbo v0, ""
 
     invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
@@ -38,6 +40,7 @@
     :goto_0
     sput-boolean v0, Lcom/samsung/android/framework/feature/NavigationBarFeatures;->SUPPORT_NAVIGATION_BAR:Z
 
+    .line 42
     const-string/jumbo v0, ""
 
     const-string/jumbo v1, "SupportLightNavigationBar"
@@ -48,6 +51,7 @@
 
     sput-boolean v0, Lcom/samsung/android/framework/feature/NavigationBarFeatures;->SUPPORT_LIGHT_NAVIGATION_BAR:Z
 
+    .line 43
     const-string/jumbo v0, ""
 
     const-string/jumbo v1, "SupportCustomBgColor"
@@ -58,6 +62,7 @@
 
     sput-boolean v0, Lcom/samsung/android/framework/feature/NavigationBarFeatures;->SUPPORT_CUSTOM_BG_COLOR:Z
 
+    .line 44
     const-string/jumbo v0, ""
 
     const-string/jumbo v1, "SupportAppSwitcher"
@@ -68,6 +73,7 @@
 
     sput-boolean v0, Lcom/samsung/android/framework/feature/NavigationBarFeatures;->SUPPORT_APP_SWITCHER:Z
 
+    .line 45
     const-string/jumbo v0, ""
 
     const-string/jumbo v1, "SupportForceTouch"
@@ -78,6 +84,7 @@
 
     sput-boolean v0, Lcom/samsung/android/framework/feature/NavigationBarFeatures;->SUPPORT_IMMERSIVE_FORCE_TOUCH:Z
 
+    .line 46
     const-string/jumbo v0, ""
 
     const-string/jumbo v1, "SupportCustomHeight"
@@ -88,6 +95,7 @@
 
     sput-boolean v0, Lcom/samsung/android/framework/feature/NavigationBarFeatures;->SUPPORT_CUSTOM_HEIGHT:Z
 
+    .line 47
     const-string/jumbo v0, ""
 
     const-string/jumbo v1, "SupportNaviBarRemoteView"
@@ -98,8 +106,10 @@
 
     sput-boolean v0, Lcom/samsung/android/framework/feature/NavigationBarFeatures;->SUPPORT_NAVIGATION_BAR_REMOTEVIEW:Z
 
+    .line 26
     return-void
 
+    .line 41
     :cond_0
     const/4 v0, 0x1
 
@@ -109,6 +119,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

@@ -21,7 +21,11 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/content/clipboard/SemClipboardManager;Landroid/os/Looper;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/samsung/android/content/clipboard/SemClipboardManager;
+    .param p2, "$anonymous0"    # Landroid/os/Looper;
 
+    .prologue
+    .line 334
     iput-object p1, p0, Lcom/samsung/android/content/clipboard/SemClipboardManager$2;->this$0:Lcom/samsung/android/content/clipboard/SemClipboardManager;
 
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
@@ -33,10 +37,14 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 1
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 337
     iget-object v0, p0, Lcom/samsung/android/content/clipboard/SemClipboardManager$2;->this$0:Lcom/samsung/android/content/clipboard/SemClipboardManager;
 
     invoke-static {v0, p1}, Lcom/samsung/android/content/clipboard/SemClipboardManager;->-wrap0(Lcom/samsung/android/content/clipboard/SemClipboardManager;Landroid/os/Message;)V
 
+    .line 336
     return-void
 .end method

@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/SecExternalDisplayService;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/server/SecExternalDisplayService;
 
+    .prologue
+    .line 197
     iput-object p1, p0, Lcom/android/server/SecExternalDisplayService$1;->this$0:Lcom/android/server/SecExternalDisplayService;
 
     invoke-direct {p0}, Landroid/os/UEventObserver;-><init>()V
@@ -33,7 +36,10 @@
 # virtual methods
 .method public onUEvent(Landroid/os/UEventObserver$UEvent;)V
     .locals 5
+    .param p1, "event"    # Landroid/os/UEventObserver$UEvent;
 
+    .prologue
+    .line 201
     const-string/jumbo v2, "SWITCH_STATE"
 
     invoke-virtual {p1, v2}, Landroid/os/UEventObserver$UEvent;->get(Ljava/lang/String;)Ljava/lang/String;
@@ -44,12 +50,15 @@
 
     move-result v0
 
+    .line 202
+    .local v0, "EventState":I
     invoke-static {}, Lcom/android/server/SecExternalDisplayService;->-get0()Z
 
     move-result v2
 
     if-eqz v2, :cond_0
 
+    .line 203
     const-string/jumbo v2, "SecExternalDisplayService_Java"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -72,13 +81,17 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 204
     :cond_0
     new-instance v1, Landroid/os/Message;
 
     invoke-direct {v1}, Landroid/os/Message;-><init>()V
 
+    .line 205
+    .local v1, "msg":Landroid/os/Message;
     iput v0, v1, Landroid/os/Message;->arg1:I
 
+    .line 206
     iget-object v2, p0, Lcom/android/server/SecExternalDisplayService$1;->this$0:Lcom/android/server/SecExternalDisplayService;
 
     invoke-static {v2}, Lcom/android/server/SecExternalDisplayService;->-get4(Lcom/android/server/SecExternalDisplayService;)Landroid/os/Handler;
@@ -87,5 +100,6 @@
 
     invoke-virtual {v2, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
+    .line 199
     return-void
 .end method

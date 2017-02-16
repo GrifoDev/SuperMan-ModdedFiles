@@ -23,7 +23,11 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/animation/SemSweepListAnimator;I)V
     .locals 0
+    .param p1, "this$0"    # Lcom/samsung/android/animation/SemSweepListAnimator;
+    .param p2, "val$position"    # I
 
+    .prologue
+    .line 337
     iput-object p1, p0, Lcom/samsung/android/animation/SemSweepListAnimator$2;->this$0:Lcom/samsung/android/animation/SemSweepListAnimator;
 
     iput p2, p0, Lcom/samsung/android/animation/SemSweepListAnimator$2;->val$position:I
@@ -37,7 +41,10 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 6
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 345
     iget-object v3, p0, Lcom/samsung/android/animation/SemSweepListAnimator$2;->this$0:Lcom/samsung/android/animation/SemSweepListAnimator;
 
     invoke-static {v3}, Lcom/samsung/android/animation/SemSweepListAnimator;->-get3(Lcom/samsung/android/animation/SemSweepListAnimator;)Lcom/samsung/android/animation/SemAbsSweepAnimationFilter;
@@ -58,6 +65,7 @@
 
     if-eqz v3, :cond_5
 
+    .line 406
     :cond_0
     invoke-static {}, Lcom/samsung/android/animation/SemSweepListAnimator;->-get0()Z
 
@@ -71,11 +79,13 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 407
     :cond_1
     iget-object v3, p0, Lcom/samsung/android/animation/SemSweepListAnimator$2;->this$0:Lcom/samsung/android/animation/SemSweepListAnimator;
 
     invoke-static {v3}, Lcom/samsung/android/animation/SemSweepListAnimator;->-wrap1(Lcom/samsung/android/animation/SemSweepListAnimator;)V
 
+    .line 408
     iget-object v3, p0, Lcom/samsung/android/animation/SemSweepListAnimator$2;->this$0:Lcom/samsung/android/animation/SemSweepListAnimator;
 
     invoke-static {v3}, Lcom/samsung/android/animation/SemSweepListAnimator;->-get2(Lcom/samsung/android/animation/SemSweepListAnimator;)Lcom/samsung/android/animation/SemSweepListAnimator$OnSweepListener;
@@ -84,6 +94,7 @@
 
     if-eqz v3, :cond_3
 
+    .line 409
     invoke-static {}, Lcom/samsung/android/animation/SemSweepListAnimator;->-get0()Z
 
     move-result v3
@@ -96,6 +107,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 410
     :cond_2
     iget-object v3, p0, Lcom/samsung/android/animation/SemSweepListAnimator$2;->this$0:Lcom/samsung/android/animation/SemSweepListAnimator;
 
@@ -121,6 +133,7 @@
 
     invoke-interface {v3, v4, v5}, Lcom/samsung/android/animation/SemSweepListAnimator$OnSweepListener;->onSweepEnd(IF)V
 
+    .line 414
     :cond_3
     :goto_0
     invoke-static {}, Lcom/samsung/android/animation/SemSweepListAnimator;->-get0()Z
@@ -135,13 +148,16 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 415
     :cond_4
     iget-object v3, p0, Lcom/samsung/android/animation/SemSweepListAnimator$2;->this$0:Lcom/samsung/android/animation/SemSweepListAnimator;
 
     invoke-static {v3}, Lcom/samsung/android/animation/SemSweepListAnimator;->-wrap0(Lcom/samsung/android/animation/SemSweepListAnimator;)V
 
+    .line 344
     return-void
 
+    .line 346
     :cond_5
     iget-object v3, p0, Lcom/samsung/android/animation/SemSweepListAnimator$2;->this$0:Lcom/samsung/android/animation/SemSweepListAnimator;
 
@@ -153,6 +169,7 @@
 
     if-ne v3, v4, :cond_0
 
+    .line 347
     invoke-static {}, Lcom/samsung/android/animation/SemSweepListAnimator;->-get0()Z
 
     move-result v3
@@ -165,6 +182,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 348
     :cond_6
     iget-object v3, p0, Lcom/samsung/android/animation/SemSweepListAnimator$2;->this$0:Lcom/samsung/android/animation/SemSweepListAnimator;
 
@@ -178,6 +196,8 @@
 
     move-result-object v2
 
+    .line 349
+    .local v2, "tempBd":Landroid/graphics/drawable/BitmapDrawable;
     invoke-virtual {v2}, Landroid/graphics/drawable/BitmapDrawable;->getBitmap()Landroid/graphics/Bitmap;
 
     move-result-object v3
@@ -190,6 +210,8 @@
 
     move-result-object v0
 
+    .line 350
+    .local v0, "copiedBitmap":Landroid/graphics/Bitmap;
     iget-object v3, p0, Lcom/samsung/android/animation/SemSweepListAnimator$2;->this$0:Lcom/samsung/android/animation/SemSweepListAnimator;
 
     new-instance v4, Landroid/graphics/drawable/BitmapDrawable;
@@ -208,6 +230,7 @@
 
     invoke-static {v3, v4}, Lcom/samsung/android/animation/SemSweepListAnimator;->-set0(Lcom/samsung/android/animation/SemSweepListAnimator;Landroid/graphics/drawable/BitmapDrawable;)Landroid/graphics/drawable/BitmapDrawable;
 
+    .line 351
     iget-object v3, p0, Lcom/samsung/android/animation/SemSweepListAnimator$2;->this$0:Lcom/samsung/android/animation/SemSweepListAnimator;
 
     invoke-static {v3}, Lcom/samsung/android/animation/SemSweepListAnimator;->-get5(Lcom/samsung/android/animation/SemSweepListAnimator;)Landroid/graphics/drawable/BitmapDrawable;
@@ -220,6 +243,7 @@
 
     invoke-virtual {v3, v4}, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
 
+    .line 354
     iget-object v3, p0, Lcom/samsung/android/animation/SemSweepListAnimator$2;->this$0:Lcom/samsung/android/animation/SemSweepListAnimator;
 
     invoke-static {v3}, Lcom/samsung/android/animation/SemSweepListAnimator;->-get5(Lcom/samsung/android/animation/SemSweepListAnimator;)Landroid/graphics/drawable/BitmapDrawable;
@@ -228,6 +252,7 @@
 
     if-eqz v3, :cond_3
 
+    .line 355
     invoke-static {}, Lcom/samsung/android/animation/SemSweepListAnimator;->-get0()Z
 
     move-result v3
@@ -240,6 +265,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 356
     :cond_7
     invoke-static {}, Lcom/samsung/android/animation/SemSweepListAnimator;->-get0()Z
 
@@ -275,6 +301,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 358
     :cond_8
     const/16 v3, 0xff
 
@@ -288,16 +315,20 @@
 
     move-result-object v1
 
+    .line 359
+    .local v1, "fadeOutAnimator":Landroid/animation/ValueAnimator;
     const-wide/16 v4, 0x12c
 
     invoke-virtual {v1, v4, v5}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
 
+    .line 360
     new-instance v3, Lcom/samsung/android/animation/SemSweepListAnimator$2$1;
 
     invoke-direct {v3, p0}, Lcom/samsung/android/animation/SemSweepListAnimator$2$1;-><init>(Lcom/samsung/android/animation/SemSweepListAnimator$2;)V
 
     invoke-virtual {v1, v3}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
+    .line 371
     new-instance v3, Lcom/samsung/android/animation/SemSweepListAnimator$2$2;
 
     iget v4, p0, Lcom/samsung/android/animation/SemSweepListAnimator$2;->val$position:I
@@ -306,6 +337,7 @@
 
     invoke-virtual {v1, v3}, Landroid/animation/Animator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
+    .line 402
     invoke-static {}, Lcom/samsung/android/animation/SemSweepListAnimator;->-get0()Z
 
     move-result v3
@@ -318,6 +350,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 403
     :cond_9
     invoke-virtual {v1}, Landroid/animation/ValueAnimator;->start()V
 
@@ -326,7 +359,10 @@
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
     .locals 2
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 340
     invoke-static {}, Lcom/samsung/android/animation/SemSweepListAnimator;->-get0()Z
 
     move-result v0
@@ -339,6 +375,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 339
     :cond_0
     return-void
 .end method

@@ -24,6 +24,8 @@
 .method private constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 224
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Landroid/provider/SearchIndexablesContract$BaseColumns;-><init>(Landroid/provider/SearchIndexablesContract$BaseColumns;)V

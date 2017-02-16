@@ -17,7 +17,11 @@
 # direct methods
 .method constructor <init>(Ljava/io/StreamTokenizer;Ljava/lang/String;)V
     .locals 2
+    .param p1, "state"    # Ljava/io/StreamTokenizer;
+    .param p2, "expected"    # Ljava/lang/String;
 
+    .prologue
+    .line 83
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -52,5 +56,6 @@
 
     invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
+    .line 82
     return-void
 .end method

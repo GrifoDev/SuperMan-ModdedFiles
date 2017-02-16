@@ -30,7 +30,10 @@
 # direct methods
 .method constructor <init>(Landroid/database/sqlite/SQLiteDatabase;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/database/sqlite/SQLiteDatabase;
 
+    .prologue
+    .line 85
     iput-object p1, p0, Landroid/database/sqlite/SQLiteDatabase$1;->this$0:Landroid/database/sqlite/SQLiteDatabase;
 
     invoke-direct {p0}, Ljava/lang/ThreadLocal;-><init>()V
@@ -43,6 +46,8 @@
 .method protected initialValue()Landroid/database/sqlite/SQLiteSession;
     .locals 1
 
+    .prologue
+    .line 88
     iget-object v0, p0, Landroid/database/sqlite/SQLiteDatabase$1;->this$0:Landroid/database/sqlite/SQLiteDatabase;
 
     invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabase;->createSession()Landroid/database/sqlite/SQLiteSession;
@@ -55,6 +60,8 @@
 .method protected bridge synthetic initialValue()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 87
     invoke-virtual {p0}, Landroid/database/sqlite/SQLiteDatabase$1;->initialValue()Landroid/database/sqlite/SQLiteSession;
 
     move-result-object v0

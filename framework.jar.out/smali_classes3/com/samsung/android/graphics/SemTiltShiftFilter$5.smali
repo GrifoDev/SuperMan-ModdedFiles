@@ -34,7 +34,14 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/graphics/SemTiltShiftFilter;FFFF)V
     .locals 1
+    .param p1, "this$0"    # Lcom/samsung/android/graphics/SemTiltShiftFilter;
+    .param p2, "val$aEndValueTopY"    # F
+    .param p3, "val$aStartValueTopY"    # F
+    .param p4, "val$aEndValueBottomY"    # F
+    .param p5, "val$aStartValueBottomY"    # F
 
+    .prologue
+    .line 339
     iput-object p1, p0, Lcom/samsung/android/graphics/SemTiltShiftFilter$5;->this$0:Lcom/samsung/android/graphics/SemTiltShiftFilter;
 
     iput p2, p0, Lcom/samsung/android/graphics/SemTiltShiftFilter$5;->val$aEndValueTopY:F
@@ -47,12 +54,14 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 340
     const/4 v0, 0x2
 
     new-array v0, v0, [F
 
     iput-object v0, p0, Lcom/samsung/android/graphics/SemTiltShiftFilter$5;->params:[F
 
+    .line 339
     return-void
 .end method
 
@@ -60,17 +69,22 @@
 # virtual methods
 .method public animate(FLcom/samsung/android/graphics/SemImageFilter$ImageFilterAnimator;)V
     .locals 6
+    .param p1, "aFraction"    # F
+    .param p2, "aImageFilterAnimator"    # Lcom/samsung/android/graphics/SemImageFilter$ImageFilterAnimator;
 
+    .prologue
     const/4 v5, 0x4
 
     const/4 v4, 0x1
 
     const/4 v3, 0x0
 
+    .line 346
     sget-boolean v0, Lcom/samsung/android/graphics/SemTiltShiftFilter;->sLogingEnabled:Z
 
     if-eqz v0, :cond_0
 
+    .line 347
     const-string/jumbo v0, "HWUIIF"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -93,6 +107,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 350
     :cond_0
     iget-object v0, p0, Lcom/samsung/android/graphics/SemTiltShiftFilter$5;->this$0:Lcom/samsung/android/graphics/SemTiltShiftFilter;
 
@@ -110,6 +125,7 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/graphics/SemTiltShiftFilter;->-set6(Lcom/samsung/android/graphics/SemTiltShiftFilter;F)F
 
+    .line 351
     iget-object v0, p0, Lcom/samsung/android/graphics/SemTiltShiftFilter$5;->this$0:Lcom/samsung/android/graphics/SemTiltShiftFilter;
 
     iget v1, p0, Lcom/samsung/android/graphics/SemTiltShiftFilter$5;->val$aEndValueBottomY:F
@@ -126,10 +142,12 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/graphics/SemTiltShiftFilter;->-set0(Lcom/samsung/android/graphics/SemTiltShiftFilter;F)F
 
+    .line 353
     sget-boolean v0, Lcom/samsung/android/graphics/SemTiltShiftFilter;->sLogingEnabled:Z
 
     if-eqz v0, :cond_1
 
+    .line 354
     const-string/jumbo v0, "HWUIIF"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -158,6 +176,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 355
     const-string/jumbo v0, "HWUIIF"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -186,6 +205,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 358
     :cond_1
     iget-object v0, p0, Lcom/samsung/android/graphics/SemTiltShiftFilter$5;->params:[F
 
@@ -197,6 +217,7 @@
 
     aput v1, v0, v3
 
+    .line 359
     iget-object v0, p0, Lcom/samsung/android/graphics/SemTiltShiftFilter$5;->params:[F
 
     iget-object v1, p0, Lcom/samsung/android/graphics/SemTiltShiftFilter$5;->this$0:Lcom/samsung/android/graphics/SemTiltShiftFilter;
@@ -207,6 +228,7 @@
 
     aput v1, v0, v4
 
+    .line 360
     iget-object v0, p0, Lcom/samsung/android/graphics/SemTiltShiftFilter$5;->this$0:Lcom/samsung/android/graphics/SemTiltShiftFilter;
 
     iget-object v0, v0, Lcom/samsung/android/graphics/SemGenericImageFilter;->mParams:[F
@@ -217,6 +239,7 @@
 
     aput v1, v0, v5
 
+    .line 361
     iget-object v0, p0, Lcom/samsung/android/graphics/SemTiltShiftFilter$5;->this$0:Lcom/samsung/android/graphics/SemTiltShiftFilter;
 
     iget-object v0, v0, Lcom/samsung/android/graphics/SemGenericImageFilter;->mParams:[F
@@ -229,11 +252,13 @@
 
     aput v1, v0, v2
 
+    .line 362
     const-string/jumbo v0, "filterParams"
 
     iget-object v1, p0, Lcom/samsung/android/graphics/SemTiltShiftFilter$5;->params:[F
 
     invoke-virtual {p2, v0, v1, v5}, Lcom/samsung/android/graphics/SemImageFilter$ImageFilterAnimator;->setUniformf(Ljava/lang/String;[FI)V
 
+    .line 345
     return-void
 .end method

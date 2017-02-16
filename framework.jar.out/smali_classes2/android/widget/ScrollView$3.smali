@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Landroid/widget/ScrollView;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/widget/ScrollView;
 
+    .prologue
+    .line 3185
     iput-object p1, p0, Landroid/widget/ScrollView$3;->this$0:Landroid/widget/ScrollView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,11 +40,14 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 3188
     iget-object v0, p0, Landroid/widget/ScrollView$3;->this$0:Landroid/widget/ScrollView;
 
     const/4 v1, 0x0
 
     invoke-static {v0, v1}, Landroid/widget/ScrollView;->-wrap5(Landroid/widget/ScrollView;I)V
 
+    .line 3187
     return-void
 .end method

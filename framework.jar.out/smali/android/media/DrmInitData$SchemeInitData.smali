@@ -23,13 +23,20 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;[B)V
     .locals 0
+    .param p1, "mimeType"    # Ljava/lang/String;
+    .param p2, "data"    # [B
 
+    .prologue
+    .line 64
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 65
     iput-object p1, p0, Landroid/media/DrmInitData$SchemeInitData;->mimeType:Ljava/lang/String;
 
+    .line 66
     iput-object p2, p0, Landroid/media/DrmInitData$SchemeInitData;->data:[B
 
+    .line 64
     return-void
 .end method
 
@@ -37,18 +44,24 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
+    .param p1, "obj"    # Ljava/lang/Object;
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 71
     instance-of v2, p1, Landroid/media/DrmInitData$SchemeInitData;
 
     if-nez v2, :cond_0
 
+    .line 72
     return v1
 
+    .line 74
     :cond_0
     if-ne p1, p0, :cond_1
 
+    .line 75
     const/4 v1, 0x1
 
     return v1
@@ -56,10 +69,13 @@
     :cond_1
     move-object v0, p1
 
+    .line 78
     nop
 
     nop
 
+    .line 79
+    .local v0, "other":Landroid/media/DrmInitData$SchemeInitData;
     iget-object v2, p0, Landroid/media/DrmInitData$SchemeInitData;->mimeType:Ljava/lang/String;
 
     iget-object v3, v0, Landroid/media/DrmInitData$SchemeInitData;->mimeType:Ljava/lang/String;
@@ -85,6 +101,8 @@
 .method public hashCode()I
     .locals 2
 
+    .prologue
+    .line 84
     iget-object v0, p0, Landroid/media/DrmInitData$SchemeInitData;->mimeType:Ljava/lang/String;
 
     invoke-virtual {v0}, Ljava/lang/String;->hashCode()I

@@ -62,18 +62,23 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 63
     new-instance v0, Landroid/sec/enterprise/proxy/EnterpriseProxyConstants$1;
 
     invoke-direct {v0}, Landroid/sec/enterprise/proxy/EnterpriseProxyConstants$1;-><init>()V
 
     sput-object v0, Landroid/sec/enterprise/proxy/EnterpriseProxyConstants;->LOCAL_ENTERPRISE_PROXY_WHITELIST:Ljava/util/List;
 
+    .line 31
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

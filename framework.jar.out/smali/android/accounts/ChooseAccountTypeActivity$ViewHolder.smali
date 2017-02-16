@@ -24,6 +24,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 166
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -32,6 +34,7 @@
 .method synthetic constructor <init>(Landroid/accounts/ChooseAccountTypeActivity$ViewHolder;)V
     .locals 0
 
+    .prologue
     invoke-direct {p0}, Landroid/accounts/ChooseAccountTypeActivity$ViewHolder;-><init>()V
 
     return-void

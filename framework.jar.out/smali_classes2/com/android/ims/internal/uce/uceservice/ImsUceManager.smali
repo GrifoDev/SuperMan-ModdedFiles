@@ -81,48 +81,67 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 59
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
+    .line 58
     sput-object v0, Lcom/android/ims/internal/uce/uceservice/ImsUceManager;->sUceManagerInstances:Ljava/util/HashMap;
 
+    .line 36
     return-void
 .end method
 
 .method private constructor <init>(Landroid/content/Context;I)V
     .locals 2
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "phoneId"    # I
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 108
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 49
     iput-object v1, p0, Lcom/android/ims/internal/uce/uceservice/ImsUceManager;->mUceService:Lcom/android/ims/internal/uce/uceservice/IUceService;
 
+    .line 50
     new-instance v0, Lcom/android/ims/internal/uce/uceservice/ImsUceManager$UceServiceDeathRecipient;
 
     invoke-direct {v0, p0, v1}, Lcom/android/ims/internal/uce/uceservice/ImsUceManager$UceServiceDeathRecipient;-><init>(Lcom/android/ims/internal/uce/uceservice/ImsUceManager;Lcom/android/ims/internal/uce/uceservice/ImsUceManager$UceServiceDeathRecipient;)V
 
     iput-object v0, p0, Lcom/android/ims/internal/uce/uceservice/ImsUceManager;->mDeathReceipient:Lcom/android/ims/internal/uce/uceservice/ImsUceManager$UceServiceDeathRecipient;
 
+    .line 110
     iput-object p1, p0, Lcom/android/ims/internal/uce/uceservice/ImsUceManager;->mContext:Landroid/content/Context;
 
+    .line 111
     iput p2, p0, Lcom/android/ims/internal/uce/uceservice/ImsUceManager;->mPhoneId:I
 
+    .line 112
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lcom/android/ims/internal/uce/uceservice/ImsUceManager;->createUceService(Z)V
 
+    .line 108
     return-void
 .end method
 
 .method public static getInstance(Landroid/content/Context;I)Lcom/android/ims/internal/uce/uceservice/ImsUceManager;
     .locals 4
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "phoneId"    # I
 
+    .prologue
+    .line 93
     sget-object v2, Lcom/android/ims/internal/uce/uceservice/ImsUceManager;->sUceManagerInstances:Ljava/util/HashMap;
 
     monitor-enter v2
 
+    .line 94
     :try_start_0
     sget-object v1, Lcom/android/ims/internal/uce/uceservice/ImsUceManager;->sUceManagerInstances:Ljava/util/HashMap;
 
@@ -136,6 +155,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 95
     sget-object v1, Lcom/android/ims/internal/uce/uceservice/ImsUceManager;->sUceManagerInstances:Ljava/util/HashMap;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -154,12 +174,15 @@
 
     return-object v1
 
+    .line 97
     :cond_0
     :try_start_1
     new-instance v0, Lcom/android/ims/internal/uce/uceservice/ImsUceManager;
 
     invoke-direct {v0, p0, p1}, Lcom/android/ims/internal/uce/uceservice/ImsUceManager;-><init>(Landroid/content/Context;I)V
 
+    .line 98
+    .local v0, "uceMgr":Lcom/android/ims/internal/uce/uceservice/ImsUceManager;
     sget-object v1, Lcom/android/ims/internal/uce/uceservice/ImsUceManager;->sUceManagerInstances:Ljava/util/HashMap;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -172,8 +195,11 @@
 
     monitor-exit v2
 
+    .line 99
     return-object v0
 
+    .line 93
+    .end local v0    # "uceMgr":Lcom/android/ims/internal/uce/uceservice/ImsUceManager;
     :catchall_0
     move-exception v1
 
@@ -184,7 +210,10 @@
 
 .method private getUceServiceName(I)Ljava/lang/String;
     .locals 1
+    .param p1, "phoneId"    # I
 
+    .prologue
+    .line 133
     const-string/jumbo v0, "uce"
 
     return-object v0
@@ -194,9 +223,13 @@
 # virtual methods
 .method public createUceService(Z)V
     .locals 5
+    .param p1, "checkService"    # Z
 
+    .prologue
+    .line 145
     if-eqz p1, :cond_0
 
+    .line 146
     iget v3, p0, Lcom/android/ims/internal/uce/uceservice/ImsUceManager;->mPhoneId:I
 
     invoke-direct {p0, v3}, Lcom/android/ims/internal/uce/uceservice/ImsUceManager;->getUceServiceName(I)Ljava/lang/String;
@@ -207,10 +240,15 @@
 
     move-result-object v1
 
+    .line 148
+    .local v1, "binder":Landroid/os/IBinder;
     if-nez v1, :cond_0
 
+    .line 150
     return-void
 
+    .line 153
+    .end local v1    # "binder":Landroid/os/IBinder;
     :cond_0
     iget v3, p0, Lcom/android/ims/internal/uce/uceservice/ImsUceManager;->mPhoneId:I
 
@@ -222,8 +260,11 @@
 
     move-result-object v0
 
+    .line 155
+    .local v0, "b":Landroid/os/IBinder;
     if-eqz v0, :cond_1
 
+    .line 157
     :try_start_0
     iget-object v3, p0, Lcom/android/ims/internal/uce/uceservice/ImsUceManager;->mDeathReceipient:Lcom/android/ims/internal/uce/uceservice/ImsUceManager$UceServiceDeathRecipient;
 
@@ -233,6 +274,7 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 162
     :cond_1
     :goto_0
     invoke-static {v0}, Lcom/android/ims/internal/uce/uceservice/IUceService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/ims/internal/uce/uceservice/IUceService;
@@ -241,17 +283,22 @@
 
     iput-object v3, p0, Lcom/android/ims/internal/uce/uceservice/ImsUceManager;->mUceService:Lcom/android/ims/internal/uce/uceservice/IUceService;
 
+    .line 143
     return-void
 
+    .line 158
     :catch_0
     move-exception v2
 
+    .local v2, "e":Landroid/os/RemoteException;
     goto :goto_0
 .end method
 
 .method public getUceServiceInstance()Lcom/android/ims/internal/uce/uceservice/IUceService;
     .locals 1
 
+    .prologue
+    .line 125
     iget-object v0, p0, Lcom/android/ims/internal/uce/uceservice/ImsUceManager;->mUceService:Lcom/android/ims/internal/uce/uceservice/IUceService;
 
     return-object v0

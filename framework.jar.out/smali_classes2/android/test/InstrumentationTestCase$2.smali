@@ -32,7 +32,14 @@
 # direct methods
 .method constructor <init>(Landroid/test/InstrumentationTestCase;Ljava/lang/reflect/Method;IZ[Ljava/lang/Throwable;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/test/InstrumentationTestCase;
+    .param p2, "val$testMethod"    # Ljava/lang/reflect/Method;
+    .param p3, "val$tolerance"    # I
+    .param p4, "val$repetitive"    # Z
+    .param p5, "val$exceptions"    # [Ljava/lang/Throwable;
 
+    .prologue
+    .line 192
     iput-object p1, p0, Landroid/test/InstrumentationTestCase$2;->this$0:Landroid/test/InstrumentationTestCase;
 
     iput-object p2, p0, Landroid/test/InstrumentationTestCase$2;->val$testMethod:Ljava/lang/reflect/Method;
@@ -53,6 +60,8 @@
 .method public run()V
     .locals 5
 
+    .prologue
+    .line 195
     :try_start_0
     iget-object v1, p0, Landroid/test/InstrumentationTestCase$2;->this$0:Landroid/test/InstrumentationTestCase;
 
@@ -66,12 +75,16 @@
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 193
     :goto_0
     return-void
 
+    .line 196
     :catch_0
     move-exception v0
 
+    .line 197
+    .local v0, "throwable":Ljava/lang/Throwable;
     iget-object v1, p0, Landroid/test/InstrumentationTestCase$2;->val$exceptions:[Ljava/lang/Throwable;
 
     const/4 v2, 0x0

@@ -17,6 +17,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 11
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -24,7 +26,11 @@
 
 .method public static writeBrowserDoubleTapDuration(IJ)V
     .locals 3
+    .param p0, "duration"    # I
+    .param p1, "time"    # J
 
+    .prologue
+    .line 30
     const/4 v0, 0x2
 
     new-array v0, v0, [Ljava/lang/Object;
@@ -49,12 +55,15 @@
 
     invoke-static {v1, v0}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
+    .line 29
     return-void
 .end method
 
 .method public static writeBrowserSnapCenter()V
     .locals 2
 
+    .prologue
+    .line 34
     const/4 v0, 0x0
 
     new-array v0, v0, [Ljava/lang/Object;
@@ -63,12 +72,18 @@
 
     invoke-static {v1, v0}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
+    .line 33
     return-void
 .end method
 
 .method public static writeBrowserZoomLevelChange(IIJ)V
     .locals 4
+    .param p0, "startLevel"    # I
+    .param p1, "endLevel"    # I
+    .param p2, "time"    # J
 
+    .prologue
+    .line 26
     const/4 v0, 0x3
 
     new-array v0, v0, [Ljava/lang/Object;
@@ -101,15 +116,20 @@
 
     invoke-static {v1, v0}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
+    .line 25
     return-void
 .end method
 
 .method public static writeExpDetAttemptToCallObjectGetclass(Ljava/lang/String;)V
     .locals 1
+    .param p0, "appSignature"    # Ljava/lang/String;
 
+    .prologue
+    .line 38
     const v0, 0x11207
 
     invoke-static {v0, p0}, Landroid/util/EventLog;->writeEvent(ILjava/lang/String;)I
 
+    .line 37
     return-void
 .end method

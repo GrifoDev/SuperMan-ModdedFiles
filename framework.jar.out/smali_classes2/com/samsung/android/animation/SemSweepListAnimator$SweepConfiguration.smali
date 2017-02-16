@@ -38,35 +38,52 @@
 .method public constructor <init>()V
     .locals 2
 
+    .prologue
     const/4 v1, 0x1
 
+    .line 618
     const/4 v0, 0x0
 
     invoke-direct {p0, v1, v1, v0}, Lcom/samsung/android/animation/SemSweepListAnimator$SweepConfiguration;-><init>(ZZI)V
 
+    .line 617
     return-void
 .end method
 
 .method public constructor <init>(ZZ)V
     .locals 1
+    .param p1, "allowLeftToRight"    # Z
+    .param p2, "allowRightToLeft"    # Z
 
+    .prologue
+    .line 610
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, p2, v0}, Lcom/samsung/android/animation/SemSweepListAnimator$SweepConfiguration;-><init>(ZZI)V
 
+    .line 609
     return-void
 .end method
 
 .method public constructor <init>(ZZI)V
     .locals 0
+    .param p1, "allowLeftToRight"    # Z
+    .param p2, "allowRightToLeft"    # Z
+    .param p3, "childIdForLocationHint"    # I
 
+    .prologue
+    .line 594
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 597
     iput-boolean p1, p0, Lcom/samsung/android/animation/SemSweepListAnimator$SweepConfiguration;->allowLeftToRight:Z
 
+    .line 598
     iput-boolean p2, p0, Lcom/samsung/android/animation/SemSweepListAnimator$SweepConfiguration;->allowRightToLeft:Z
 
+    .line 599
     iput p3, p0, Lcom/samsung/android/animation/SemSweepListAnimator$SweepConfiguration;->childIdForLocationHint:I
 
+    .line 595
     return-void
 .end method

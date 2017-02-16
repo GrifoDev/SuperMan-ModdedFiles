@@ -42,6 +42,9 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 1330
+    .local p0, "this":Landroid/app/SystemServiceRegistry$StaticServiceFetcher;, "Landroid/app/SystemServiceRegistry$StaticServiceFetcher<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -59,6 +62,7 @@
 
 .method public final getService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .param p1, "unused"    # Landroid/app/ContextImpl;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -67,19 +71,25 @@
         }
     .end annotation
 
+    .prologue
+    .line 1335
+    .local p0, "this":Landroid/app/SystemServiceRegistry$StaticServiceFetcher;, "Landroid/app/SystemServiceRegistry$StaticServiceFetcher<TT;>;"
     monitor-enter p0
 
+    .line 1336
     :try_start_0
     iget-object v0, p0, Landroid/app/SystemServiceRegistry$StaticServiceFetcher;->mCachedInstance:Ljava/lang/Object;
 
     if-nez v0, :cond_0
 
+    .line 1337
     invoke-virtual {p0}, Landroid/app/SystemServiceRegistry$StaticServiceFetcher;->createService()Ljava/lang/Object;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/app/SystemServiceRegistry$StaticServiceFetcher;->mCachedInstance:Ljava/lang/Object;
 
+    .line 1339
     :cond_0
     iget-object v0, p0, Landroid/app/SystemServiceRegistry$StaticServiceFetcher;->mCachedInstance:Ljava/lang/Object;
     :try_end_0
@@ -89,6 +99,7 @@
 
     return-object v0
 
+    .line 1335
     :catchall_0
     move-exception v0
 

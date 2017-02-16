@@ -18,6 +18,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 66
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -27,6 +29,7 @@
 # virtual methods
 .method public getAppsUsingPermissions(ZLjava/util/List;)V
     .locals 0
+    .param p1, "system"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(Z",
@@ -37,6 +40,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 81
+    .local p2, "apps":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/ApplicationInfo;>;"
     return-void
 .end method
 
@@ -52,5 +58,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 72
+    .local p1, "permissions":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/permission/RuntimePermissionPresentationInfo;>;"
     return-void
 .end method

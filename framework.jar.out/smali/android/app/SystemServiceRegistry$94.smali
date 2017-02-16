@@ -27,6 +27,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 1119
     invoke-direct {p0}, Landroid/app/SystemServiceRegistry$StaticServiceFetcher;-><init>()V
 
     return-void
@@ -37,16 +39,22 @@
 .method public createService()Lcom/absolute/android/persistence/ABTPersistenceManager;
     .locals 3
 
+    .prologue
+    .line 1122
     const-string/jumbo v2, "ABTPersistenceService"
 
     invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
+    .line 1123
+    .local v0, "b":Landroid/os/IBinder;
     invoke-static {v0}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->asInterface(Landroid/os/IBinder;)Lcom/absolute/android/persistence/IABTPersistence;
 
     move-result-object v1
 
+    .line 1124
+    .local v1, "service":Lcom/absolute/android/persistence/IABTPersistence;
     new-instance v2, Lcom/absolute/android/persistence/ABTPersistenceManager;
 
     invoke-direct {v2, v1}, Lcom/absolute/android/persistence/ABTPersistenceManager;-><init>(Lcom/absolute/android/persistence/IABTPersistence;)V
@@ -57,6 +65,8 @@
 .method public bridge synthetic createService()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 1121
     invoke-virtual {p0}, Landroid/app/SystemServiceRegistry$94;->createService()Lcom/absolute/android/persistence/ABTPersistenceManager;
 
     move-result-object v0

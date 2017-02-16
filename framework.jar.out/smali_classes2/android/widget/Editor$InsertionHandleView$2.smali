@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Landroid/widget/Editor$InsertionHandleView;)V
     .locals 0
+    .param p1, "this$1"    # Landroid/widget/Editor$InsertionHandleView;
 
+    .prologue
+    .line 5356
     iput-object p1, p0, Landroid/widget/Editor$InsertionHandleView$2;->this$1:Landroid/widget/Editor$InsertionHandleView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,10 +40,14 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 5358
     invoke-static {}, Landroid/os/Message;->obtain()Landroid/os/Message;
 
     move-result-object v0
 
+    .line 5359
+    .local v0, "msg":Landroid/os/Message;
     iget-object v1, p0, Landroid/widget/Editor$InsertionHandleView$2;->this$1:Landroid/widget/Editor$InsertionHandleView;
 
     invoke-virtual {v1}, Landroid/widget/Editor$InsertionHandleView;->getHideAnimator()Landroid/animation/ValueAnimator;
@@ -49,10 +56,12 @@
 
     iput-object v1, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
+    .line 5360
     const/4 v1, 0x4
 
     iput v1, v0, Landroid/os/Message;->what:I
 
+    .line 5361
     iget-object v1, p0, Landroid/widget/Editor$InsertionHandleView$2;->this$1:Landroid/widget/Editor$InsertionHandleView;
 
     iget-object v1, v1, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
@@ -63,5 +72,6 @@
 
     invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessageAtFrontOfQueue(Landroid/os/Message;)Z
 
+    .line 5357
     return-void
 .end method

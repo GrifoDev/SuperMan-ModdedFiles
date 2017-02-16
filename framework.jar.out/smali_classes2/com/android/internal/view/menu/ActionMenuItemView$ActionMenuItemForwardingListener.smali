@@ -21,11 +21,16 @@
 # direct methods
 .method public constructor <init>(Lcom/android/internal/view/menu/ActionMenuItemView;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/internal/view/menu/ActionMenuItemView;
 
+    .prologue
+    .line 641
     iput-object p1, p0, Lcom/android/internal/view/menu/ActionMenuItemView$ActionMenuItemForwardingListener;->this$0:Lcom/android/internal/view/menu/ActionMenuItemView;
 
+    .line 642
     invoke-direct {p0, p1}, Landroid/widget/ForwardingListener;-><init>(Landroid/view/View;)V
 
+    .line 641
     return-void
 .end method
 
@@ -34,8 +39,10 @@
 .method public getPopup()Lcom/android/internal/view/menu/ShowableListMenu;
     .locals 2
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 647
     iget-object v0, p0, Lcom/android/internal/view/menu/ActionMenuItemView$ActionMenuItemForwardingListener;->this$0:Lcom/android/internal/view/menu/ActionMenuItemView;
 
     invoke-static {v0}, Lcom/android/internal/view/menu/ActionMenuItemView;->-get2(Lcom/android/internal/view/menu/ActionMenuItemView;)Lcom/android/internal/view/menu/ActionMenuItemView$PopupCallback;
@@ -44,6 +51,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 648
     iget-object v0, p0, Lcom/android/internal/view/menu/ActionMenuItemView$ActionMenuItemForwardingListener;->this$0:Lcom/android/internal/view/menu/ActionMenuItemView;
 
     invoke-static {v0}, Lcom/android/internal/view/menu/ActionMenuItemView;->-get2(Lcom/android/internal/view/menu/ActionMenuItemView;)Lcom/android/internal/view/menu/ActionMenuItemView$PopupCallback;
@@ -56,6 +64,7 @@
 
     return-object v0
 
+    .line 650
     :cond_0
     return-object v1
 .end method
@@ -63,8 +72,10 @@
 .method protected onForwardingStarted()Z
     .locals 4
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 656
     iget-object v2, p0, Lcom/android/internal/view/menu/ActionMenuItemView$ActionMenuItemForwardingListener;->this$0:Lcom/android/internal/view/menu/ActionMenuItemView;
 
     invoke-static {v2}, Lcom/android/internal/view/menu/ActionMenuItemView;->-get1(Lcom/android/internal/view/menu/ActionMenuItemView;)Lcom/android/internal/view/menu/MenuBuilder$ItemInvoker;
@@ -91,10 +102,13 @@
 
     if-eqz v2, :cond_1
 
+    .line 657
     invoke-virtual {p0}, Lcom/android/internal/view/menu/ActionMenuItemView$ActionMenuItemForwardingListener;->getPopup()Lcom/android/internal/view/menu/ShowableListMenu;
 
     move-result-object v0
 
+    .line 658
+    .local v0, "popup":Lcom/android/internal/view/menu/ShowableListMenu;
     if-eqz v0, :cond_0
 
     invoke-interface {v0}, Lcom/android/internal/view/menu/ShowableListMenu;->isShowing()Z
@@ -104,6 +118,8 @@
     :cond_0
     return v1
 
+    .line 660
+    .end local v0    # "popup":Lcom/android/internal/view/menu/ShowableListMenu;
     :cond_1
     return v1
 .end method

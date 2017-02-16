@@ -32,6 +32,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 394
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,10 +42,13 @@
 .method public static isSupportedResolution(I)Z
     .locals 2
 
+    .prologue
     const/4 v1, 0x1
 
+    .line 403
     if-ge p0, v1, :cond_1
 
+    .line 405
     :cond_0
     const/4 v0, 0x0
 
@@ -52,7 +57,9 @@
     :cond_1
     const/4 v0, 0x6
 
+    .line 403
     if-gt p0, v0, :cond_0
 
+    .line 404
     return v1
 .end method

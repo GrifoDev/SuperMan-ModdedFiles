@@ -66,24 +66,32 @@
 .method public constructor <init>()V
     .locals 3
 
+    .prologue
     const/4 v2, 0x1
 
     const/4 v1, 0x0
 
+    .line 54
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 150
     sget-object v0, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
     iput-object v0, p0, Landroid/graphics/BitmapFactory$Options;->inPreferredConfig:Landroid/graphics/Bitmap$Config;
 
+    .line 386
     iput-boolean v1, p0, Landroid/graphics/BitmapFactory$Options;->semIsPreview:Z
 
+    .line 55
     iput-boolean v1, p0, Landroid/graphics/BitmapFactory$Options;->inDither:Z
 
+    .line 56
     iput-boolean v2, p0, Landroid/graphics/BitmapFactory$Options;->inScaled:Z
 
+    .line 57
     iput-boolean v2, p0, Landroid/graphics/BitmapFactory$Options;->inPremultiplied:Z
 
+    .line 54
     return-void
 .end method
 
@@ -92,9 +100,12 @@
 .method public requestCancelDecode()V
     .locals 1
 
+    .prologue
+    .line 403
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/graphics/BitmapFactory$Options;->mCancel:Z
 
+    .line 402
     return-void
 .end method

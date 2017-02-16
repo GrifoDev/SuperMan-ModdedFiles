@@ -69,14 +69,18 @@
 .method public constructor <init>()V
     .locals 2
 
+    .prologue
+    .line 219
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 220
     const-string/jumbo v0, "SemIntegrityControlCheckCenterServiceManager"
 
     const-string/jumbo v1, "SemIntegrityControlCheckCenterServiceManager"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 221
     const-string/jumbo v0, "iccc"
 
     invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
@@ -89,16 +93,19 @@
 
     iput-object v0, p0, Lcom/samsung/android/knox/tima/iccc/SemIntegrityControlCheckCenterServiceManager;->mIcccService:Lcom/samsung/android/iccc/IIntegrityControlCheckCenter;
 
+    .line 222
     iget-object v0, p0, Lcom/samsung/android/knox/tima/iccc/SemIntegrityControlCheckCenterServiceManager;->mIcccService:Lcom/samsung/android/iccc/IIntegrityControlCheckCenter;
 
     if-nez v0, :cond_0
 
+    .line 223
     const-string/jumbo v0, "SemIntegrityControlCheckCenterServiceManager"
 
     const-string/jumbo v1, "failed to get Iccc Service"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 219
     :cond_0
     return-void
 .end method
@@ -107,27 +114,34 @@
 # virtual methods
 .method public getSecureData(I)I
     .locals 6
+    .param p1, "type"    # I
 
+    .prologue
     const/4 v5, -0x1
 
+    .line 261
     const-string/jumbo v2, "SemIntegrityControlCheckCenterServiceManager"
 
     const-string/jumbo v3, "getSecureData"
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 262
     iget-object v2, p0, Lcom/samsung/android/knox/tima/iccc/SemIntegrityControlCheckCenterServiceManager;->mIcccService:Lcom/samsung/android/iccc/IIntegrityControlCheckCenter;
 
     if-nez v2, :cond_0
 
+    .line 263
     const-string/jumbo v2, "SemIntegrityControlCheckCenterServiceManager"
 
     const-string/jumbo v3, "failed to get Iccc Service"
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 264
     return v5
 
+    .line 268
     :cond_0
     :try_start_0
     iget-object v2, p0, Lcom/samsung/android/knox/tima/iccc/SemIntegrityControlCheckCenterServiceManager;->mIcccService:Lcom/samsung/android/iccc/IIntegrityControlCheckCenter;
@@ -141,9 +155,12 @@
 
     return v2
 
+    .line 272
     :catch_0
     move-exception v1
 
+    .line 273
+    .local v1, "e":Ljava/lang/Exception;
     const-string/jumbo v2, "SemIntegrityControlCheckCenterServiceManager"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -170,11 +187,16 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 274
     return v5
 
+    .line 269
+    .end local v1    # "e":Ljava/lang/Exception;
     :catch_1
     move-exception v0
 
+    .line 270
+    .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v2, "SemIntegrityControlCheckCenterServiceManager"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -201,5 +223,6 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 271
     return v5
 .end method

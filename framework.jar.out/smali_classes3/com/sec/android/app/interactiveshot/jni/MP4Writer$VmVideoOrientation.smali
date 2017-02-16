@@ -43,6 +43,7 @@
 .method static constructor <clinit>()V
     .locals 7
 
+    .prologue
     const/4 v6, 0x3
 
     const/4 v5, 0x2
@@ -51,6 +52,7 @@
 
     const/4 v3, 0x0
 
+    .line 59
     new-instance v0, Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoOrientation;
 
     const-string/jumbo v1, "VM_ORIENTATION_LANDSCAPE"
@@ -59,6 +61,7 @@
 
     sput-object v0, Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoOrientation;->VM_ORIENTATION_LANDSCAPE:Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoOrientation;
 
+    .line 60
     new-instance v0, Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoOrientation;
 
     const-string/jumbo v1, "VM_ORIENTATION_PORTRAIT"
@@ -69,6 +72,7 @@
 
     sput-object v0, Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoOrientation;->VM_ORIENTATION_PORTRAIT:Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoOrientation;
 
+    .line 61
     new-instance v0, Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoOrientation;
 
     const-string/jumbo v1, "VM_ORIENTATION_REVERSE_LANDSCAPE"
@@ -79,6 +83,7 @@
 
     sput-object v0, Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoOrientation;->VM_ORIENTATION_REVERSE_LANDSCAPE:Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoOrientation;
 
+    .line 62
     new-instance v0, Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoOrientation;
 
     const-string/jumbo v1, "VM_ORIENTATION_REVERSE_PORTRAIT"
@@ -91,6 +96,7 @@
 
     const/4 v0, 0x4
 
+    .line 58
     new-array v0, v0, [Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoOrientation;
 
     sget-object v1, Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoOrientation;->VM_ORIENTATION_LANDSCAPE:Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoOrientation;
@@ -117,18 +123,24 @@
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
 
+    .prologue
+    .line 66
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
+    .line 67
     iput p3, p0, Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoOrientation;->mOrientationValue:I
 
+    .line 68
     return-void
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoOrientation;
     .locals 1
 
+    .prologue
     const-class v0, Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoOrientation;
 
+    .line 1
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
     move-result-object v0
@@ -141,8 +153,10 @@
 .method public static values()[Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoOrientation;
     .locals 4
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 1
     sget-object v0, Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoOrientation;->ENUM$VALUES:[Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoOrientation;
 
     array-length v1, v0
@@ -159,6 +173,8 @@
 .method public getValue()I
     .locals 1
 
+    .prologue
+    .line 71
     iget v0, p0, Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoOrientation;->mOrientationValue:I
 
     return v0

@@ -27,6 +27,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 699
     invoke-direct {p0}, Landroid/app/SystemServiceRegistry$CachedServiceFetcher;-><init>()V
 
     return-void
@@ -36,7 +38,10 @@
 # virtual methods
 .method public createService(Landroid/app/ContextImpl;)Landroid/hardware/scontext/SContextManager;
     .locals 2
+    .param p1, "ctx"    # Landroid/app/ContextImpl;
 
+    .prologue
+    .line 702
     new-instance v0, Landroid/hardware/scontext/SContextManager;
 
     iget-object v1, p1, Landroid/app/ContextImpl;->mMainThread:Landroid/app/ActivityThread;
@@ -56,7 +61,10 @@
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .param p1, "ctx"    # Landroid/app/ContextImpl;
 
+    .prologue
+    .line 701
     invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$50;->createService(Landroid/app/ContextImpl;)Landroid/hardware/scontext/SContextManager;
 
     move-result-object v0

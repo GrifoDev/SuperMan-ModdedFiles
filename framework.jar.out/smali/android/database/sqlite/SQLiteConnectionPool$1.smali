@@ -28,7 +28,12 @@
 # direct methods
 .method constructor <init>(Landroid/database/sqlite/SQLiteConnectionPool;Landroid/database/sqlite/SQLiteConnectionPool$ConnectionWaiter;I)V
     .locals 0
+    .param p1, "this$0"    # Landroid/database/sqlite/SQLiteConnectionPool;
+    .param p2, "val$waiter"    # Landroid/database/sqlite/SQLiteConnectionPool$ConnectionWaiter;
+    .param p3, "val$nonce"    # I
 
+    .prologue
+    .line 712
     iput-object p1, p0, Landroid/database/sqlite/SQLiteConnectionPool$1;->this$0:Landroid/database/sqlite/SQLiteConnectionPool;
 
     iput-object p2, p0, Landroid/database/sqlite/SQLiteConnectionPool$1;->val$waiter:Landroid/database/sqlite/SQLiteConnectionPool$ConnectionWaiter;
@@ -45,6 +50,8 @@
 .method public onCancel()V
     .locals 3
 
+    .prologue
+    .line 715
     iget-object v0, p0, Landroid/database/sqlite/SQLiteConnectionPool$1;->this$0:Landroid/database/sqlite/SQLiteConnectionPool;
 
     invoke-static {v0}, Landroid/database/sqlite/SQLiteConnectionPool;->-get0(Landroid/database/sqlite/SQLiteConnectionPool;)Ljava/lang/Object;
@@ -53,6 +60,7 @@
 
     monitor-enter v1
 
+    .line 716
     :try_start_0
     iget-object v0, p0, Landroid/database/sqlite/SQLiteConnectionPool$1;->val$waiter:Landroid/database/sqlite/SQLiteConnectionPool$ConnectionWaiter;
 
@@ -62,6 +70,7 @@
 
     if-ne v0, v2, :cond_0
 
+    .line 717
     iget-object v0, p0, Landroid/database/sqlite/SQLiteConnectionPool$1;->this$0:Landroid/database/sqlite/SQLiteConnectionPool;
 
     iget-object v2, p0, Landroid/database/sqlite/SQLiteConnectionPool$1;->val$waiter:Landroid/database/sqlite/SQLiteConnectionPool$ConnectionWaiter;
@@ -73,8 +82,10 @@
     :cond_0
     monitor-exit v1
 
+    .line 714
     return-void
 
+    .line 715
     :catchall_0
     move-exception v0
 

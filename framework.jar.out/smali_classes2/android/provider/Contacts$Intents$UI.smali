@@ -80,6 +80,8 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    .prologue
+    .line 2088
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

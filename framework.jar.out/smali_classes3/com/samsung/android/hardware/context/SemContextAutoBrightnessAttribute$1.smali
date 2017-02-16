@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 41
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,7 +42,10 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Lcom/samsung/android/hardware/context/SemContextAutoBrightnessAttribute;
     .locals 1
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 45
     new-instance v0, Lcom/samsung/android/hardware/context/SemContextAutoBrightnessAttribute;
 
     invoke-direct {v0, p1}, Lcom/samsung/android/hardware/context/SemContextAutoBrightnessAttribute;-><init>(Landroid/os/Parcel;)V
@@ -50,7 +55,10 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 44
     invoke-virtual {p0, p1}, Lcom/samsung/android/hardware/context/SemContextAutoBrightnessAttribute$1;->createFromParcel(Landroid/os/Parcel;)Lcom/samsung/android/hardware/context/SemContextAutoBrightnessAttribute;
 
     move-result-object v0
@@ -60,7 +68,10 @@
 
 .method public newArray(I)[Lcom/samsung/android/hardware/context/SemContextAutoBrightnessAttribute;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 50
     new-array v0, p1, [Lcom/samsung/android/hardware/context/SemContextAutoBrightnessAttribute;
 
     return-object v0
@@ -68,7 +79,10 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 49
     invoke-virtual {p0, p1}, Lcom/samsung/android/hardware/context/SemContextAutoBrightnessAttribute$1;->newArray(I)[Lcom/samsung/android/hardware/context/SemContextAutoBrightnessAttribute;
 
     move-result-object v0

@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Landroid/widget/ActivityChooserView;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/widget/ActivityChooserView;
 
+    .prologue
+    .line 136
     iput-object p1, p0, Landroid/widget/ActivityChooserView$2;->this$0:Landroid/widget/ActivityChooserView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +40,8 @@
 .method public onGlobalLayout()V
     .locals 2
 
+    .prologue
+    .line 139
     iget-object v0, p0, Landroid/widget/ActivityChooserView$2;->this$0:Landroid/widget/ActivityChooserView;
 
     invoke-virtual {v0}, Landroid/widget/ActivityChooserView;->isShowingPopup()Z
@@ -45,6 +50,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 140
     iget-object v0, p0, Landroid/widget/ActivityChooserView$2;->this$0:Landroid/widget/ActivityChooserView;
 
     invoke-virtual {v0}, Landroid/view/View;->isShown()Z
@@ -53,6 +59,7 @@
 
     if-nez v0, :cond_1
 
+    .line 141
     iget-object v0, p0, Landroid/widget/ActivityChooserView$2;->this$0:Landroid/widget/ActivityChooserView;
 
     invoke-static {v0}, Landroid/widget/ActivityChooserView;->-wrap0(Landroid/widget/ActivityChooserView;)Landroid/widget/ListPopupWindow;
@@ -61,10 +68,12 @@
 
     invoke-virtual {v0}, Landroid/widget/ListPopupWindow;->dismiss()V
 
+    .line 138
     :cond_0
     :goto_0
     return-void
 
+    .line 143
     :cond_1
     iget-object v0, p0, Landroid/widget/ActivityChooserView$2;->this$0:Landroid/widget/ActivityChooserView;
 
@@ -74,12 +83,14 @@
 
     invoke-virtual {v0}, Landroid/widget/ListPopupWindow;->show()V
 
+    .line 144
     iget-object v0, p0, Landroid/widget/ActivityChooserView$2;->this$0:Landroid/widget/ActivityChooserView;
 
     iget-object v0, v0, Landroid/widget/ActivityChooserView;->mProvider:Landroid/view/ActionProvider;
 
     if-eqz v0, :cond_0
 
+    .line 145
     iget-object v0, p0, Landroid/widget/ActivityChooserView$2;->this$0:Landroid/widget/ActivityChooserView;
 
     iget-object v0, v0, Landroid/widget/ActivityChooserView;->mProvider:Landroid/view/ActionProvider;

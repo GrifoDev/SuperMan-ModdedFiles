@@ -24,6 +24,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 3732
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -32,6 +34,7 @@
 .method synthetic constructor <init>(Landroid/widget/SemHorizontalListView$ArrowScrollFocusResult;)V
     .locals 0
 
+    .prologue
     invoke-direct {p0}, Landroid/widget/SemHorizontalListView$ArrowScrollFocusResult;-><init>()V
 
     return-void
@@ -42,6 +45,8 @@
 .method public getAmountToScroll()I
     .locals 1
 
+    .prologue
+    .line 3749
     iget v0, p0, Landroid/widget/SemHorizontalListView$ArrowScrollFocusResult;->mAmountToScroll:I
 
     return v0
@@ -50,6 +55,8 @@
 .method public getSelectedPosition()I
     .locals 1
 
+    .prologue
+    .line 3745
     iget v0, p0, Landroid/widget/SemHorizontalListView$ArrowScrollFocusResult;->mSelectedPosition:I
 
     return v0
@@ -57,10 +64,16 @@
 
 .method populate(II)V
     .locals 0
+    .param p1, "selectedPosition"    # I
+    .param p2, "amountToScroll"    # I
 
+    .prologue
+    .line 3740
     iput p1, p0, Landroid/widget/SemHorizontalListView$ArrowScrollFocusResult;->mSelectedPosition:I
 
+    .line 3741
     iput p2, p0, Landroid/widget/SemHorizontalListView$ArrowScrollFocusResult;->mAmountToScroll:I
 
+    .line 3739
     return-void
 .end method

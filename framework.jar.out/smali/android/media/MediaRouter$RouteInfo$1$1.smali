@@ -28,7 +28,12 @@
 # direct methods
 .method constructor <init>(Landroid/media/MediaRouter$RouteInfo$1;II)V
     .locals 0
+    .param p1, "this$2"    # Landroid/media/MediaRouter$RouteInfo$1;
+    .param p2, "val$direction"    # I
+    .param p3, "val$value"    # I
 
+    .prologue
+    .line 2080
     iput-object p1, p0, Landroid/media/MediaRouter$RouteInfo$1$1;->this$2:Landroid/media/MediaRouter$RouteInfo$1;
 
     iput p2, p0, Landroid/media/MediaRouter$RouteInfo$1$1;->val$direction:I
@@ -45,6 +50,8 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 2083
     iget-object v0, p0, Landroid/media/MediaRouter$RouteInfo$1$1;->this$2:Landroid/media/MediaRouter$RouteInfo$1;
 
     iget-object v0, v0, Landroid/media/MediaRouter$RouteInfo$1;->this$1:Landroid/media/MediaRouter$RouteInfo;
@@ -53,10 +60,12 @@
 
     if-eqz v0, :cond_0
 
+    .line 2084
     iget v0, p0, Landroid/media/MediaRouter$RouteInfo$1$1;->val$direction:I
 
     if-eqz v0, :cond_1
 
+    .line 2085
     iget-object v0, p0, Landroid/media/MediaRouter$RouteInfo$1$1;->this$2:Landroid/media/MediaRouter$RouteInfo$1;
 
     iget-object v0, v0, Landroid/media/MediaRouter$RouteInfo$1;->this$1:Landroid/media/MediaRouter$RouteInfo;
@@ -77,10 +86,12 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/media/MediaRouter$VolumeCallback;->onVolumeUpdateRequest(Landroid/media/MediaRouter$RouteInfo;I)V
 
+    .line 2082
     :cond_0
     :goto_0
     return-void
 
+    .line 2087
     :cond_1
     iget-object v0, p0, Landroid/media/MediaRouter$RouteInfo$1$1;->this$2:Landroid/media/MediaRouter$RouteInfo$1;
 

@@ -6,7 +6,11 @@
 # direct methods
 .method public constructor <init>(II)V
     .locals 2
+    .param p1, "index"    # I
+    .param p2, "size"    # I
 
+    .prologue
+    .line 25
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -37,13 +41,18 @@
 
     invoke-direct {p0, v0}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
 
+    .line 24
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 0
+    .param p1, "message"    # Ljava/lang/String;
 
+    .prologue
+    .line 29
     invoke-direct {p0, p1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
 
+    .line 28
     return-void
 .end method

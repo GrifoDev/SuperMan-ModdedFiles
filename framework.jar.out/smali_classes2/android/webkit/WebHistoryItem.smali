@@ -10,6 +10,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -28,6 +30,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 78
     invoke-virtual {p0}, Landroid/webkit/WebHistoryItem;->clone()Landroid/webkit/WebHistoryItem;
 
     move-result-object v0

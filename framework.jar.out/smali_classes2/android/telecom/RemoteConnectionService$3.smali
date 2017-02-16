@@ -23,7 +23,11 @@
 # direct methods
 .method constructor <init>(Landroid/telecom/RemoteConnectionService;Ljava/lang/String;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/telecom/RemoteConnectionService;
+    .param p2, "val$id"    # Ljava/lang/String;
 
+    .prologue
+    .line 424
     iput-object p1, p0, Landroid/telecom/RemoteConnectionService$3;->this$0:Landroid/telecom/RemoteConnectionService;
 
     iput-object p2, p0, Landroid/telecom/RemoteConnectionService$3;->val$id:Ljava/lang/String;
@@ -37,7 +41,10 @@
 # virtual methods
 .method public onDestroyed(Landroid/telecom/RemoteConnection;)V
     .locals 2
+    .param p1, "connection"    # Landroid/telecom/RemoteConnection;
 
+    .prologue
+    .line 427
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService$3;->this$0:Landroid/telecom/RemoteConnectionService;
 
     invoke-static {v0}, Landroid/telecom/RemoteConnectionService;->-get3(Landroid/telecom/RemoteConnectionService;)Ljava/util/Map;
@@ -48,9 +55,11 @@
 
     invoke-interface {v0, v1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 428
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService$3;->this$0:Landroid/telecom/RemoteConnectionService;
 
     invoke-static {v0}, Landroid/telecom/RemoteConnectionService;->-wrap3(Landroid/telecom/RemoteConnectionService;)V
 
+    .line 426
     return-void
 .end method

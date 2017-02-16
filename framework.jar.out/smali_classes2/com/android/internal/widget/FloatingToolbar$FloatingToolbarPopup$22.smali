@@ -30,7 +30,12 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;Landroid/content/Context;I)V
     .locals 0
+    .param p1, "this$1"    # Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
+    .param p2, "$anonymous0"    # Landroid/content/Context;
+    .param p3, "$anonymous1"    # I
 
+    .prologue
+    .line 1870
     iput-object p1, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$22;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
     invoke-direct {p0, p2, p3}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;I)V
@@ -42,7 +47,10 @@
 # virtual methods
 .method public getItemViewType(I)I
     .locals 2
+    .param p1, "position"    # I
 
+    .prologue
+    .line 1878
     iget-object v0, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$22;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
     invoke-static {v0}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->-get17(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;)Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$OverflowPanelViewHelper;
@@ -64,13 +72,19 @@
 
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 3
+    .param p1, "position"    # I
+    .param p2, "convertView"    # Landroid/view/View;
+    .param p3, "parent"    # Landroid/view/ViewGroup;
 
+    .prologue
+    .line 1883
     iget-object v0, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$22;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
     invoke-static {v0}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->-get17(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;)Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$OverflowPanelViewHelper;
 
     move-result-object v1
 
+    .line 1884
     invoke-virtual {p0, p1}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v0
@@ -87,6 +101,7 @@
 
     move-result v2
 
+    .line 1883
     invoke-virtual {v1, v0, v2, p2}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$OverflowPanelViewHelper;->getView(Landroid/view/MenuItem;ILandroid/view/View;)Landroid/view/View;
 
     move-result-object v0
@@ -97,6 +112,8 @@
 .method public getViewTypeCount()I
     .locals 1
 
+    .prologue
+    .line 1873
     iget-object v0, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$22;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
     invoke-static {v0}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->-get17(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;)Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$OverflowPanelViewHelper;

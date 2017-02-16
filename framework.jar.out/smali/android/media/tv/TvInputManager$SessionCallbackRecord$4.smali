@@ -26,7 +26,11 @@
 # direct methods
 .method constructor <init>(Landroid/media/tv/TvInputManager$SessionCallbackRecord;Ljava/util/List;)V
     .locals 0
+    .param p1, "this$1"    # Landroid/media/tv/TvInputManager$SessionCallbackRecord;
 
+    .prologue
+    .line 580
+    .local p2, "val$tracks":Ljava/util/List;, "Ljava/util/List<Landroid/media/tv/TvTrackInfo;>;"
     iput-object p1, p0, Landroid/media/tv/TvInputManager$SessionCallbackRecord$4;->this$1:Landroid/media/tv/TvInputManager$SessionCallbackRecord;
 
     iput-object p2, p0, Landroid/media/tv/TvInputManager$SessionCallbackRecord$4;->val$tracks:Ljava/util/List;
@@ -41,6 +45,8 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 583
     iget-object v0, p0, Landroid/media/tv/TvInputManager$SessionCallbackRecord$4;->this$1:Landroid/media/tv/TvInputManager$SessionCallbackRecord;
 
     invoke-static {v0}, Landroid/media/tv/TvInputManager$SessionCallbackRecord;->-get1(Landroid/media/tv/TvInputManager$SessionCallbackRecord;)Landroid/media/tv/TvInputManager$SessionCallback;
@@ -57,5 +63,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/media/tv/TvInputManager$SessionCallback;->onTracksChanged(Landroid/media/tv/TvInputManager$Session;Ljava/util/List;)V
 
+    .line 582
     return-void
 .end method

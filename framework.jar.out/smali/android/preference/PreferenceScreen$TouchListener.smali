@@ -24,7 +24,10 @@
 # direct methods
 .method private constructor <init>(Landroid/preference/PreferenceScreen;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/preference/PreferenceScreen;
 
+    .prologue
+    .line 360
     iput-object p1, p0, Landroid/preference/PreferenceScreen$TouchListener;->this$0:Landroid/preference/PreferenceScreen;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,7 +37,9 @@
 
 .method synthetic constructor <init>(Landroid/preference/PreferenceScreen;Landroid/preference/PreferenceScreen$TouchListener;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/preference/PreferenceScreen;
 
+    .prologue
     invoke-direct {p0, p1}, Landroid/preference/PreferenceScreen$TouchListener;-><init>(Landroid/preference/PreferenceScreen;)V
 
     return-void
@@ -44,7 +49,10 @@
 # virtual methods
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
     .locals 12
+    .param p1, "v"    # Landroid/view/View;
+    .param p2, "ev"    # Landroid/view/MotionEvent;
 
+    .prologue
     const/4 v11, 0x0
 
     const/4 v10, -0x1
@@ -53,14 +61,18 @@
 
     const/4 v6, 0x1
 
+    .line 364
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result v0
 
+    .line 365
+    .local v0, "action":I
     iget-object v5, p0, Landroid/preference/PreferenceScreen$TouchListener;->this$0:Landroid/preference/PreferenceScreen;
 
     invoke-static {v5, v6}, Landroid/preference/PreferenceScreen;->-set4(Landroid/preference/PreferenceScreen;Z)Z
 
+    .line 367
     iget-object v5, p0, Landroid/preference/PreferenceScreen$TouchListener;->this$0:Landroid/preference/PreferenceScreen;
 
     invoke-static {v5}, Landroid/preference/PreferenceScreen;->-get2(Landroid/preference/PreferenceScreen;)Landroid/widget/ListView;
@@ -69,20 +81,25 @@
 
     if-nez v5, :cond_0
 
+    .line 368
     return v7
 
+    .line 370
     :cond_0
     packed-switch v0, :pswitch_data_0
 
+    .line 421
     :cond_1
     :goto_0
     return v7
 
+    .line 372
     :pswitch_0
     iget-object v5, p0, Landroid/preference/PreferenceScreen$TouchListener;->this$0:Landroid/preference/PreferenceScreen;
 
     invoke-static {v5, v7}, Landroid/preference/PreferenceScreen;->-set3(Landroid/preference/PreferenceScreen;Z)Z
 
+    .line 373
     iget-object v5, p0, Landroid/preference/PreferenceScreen$TouchListener;->this$0:Landroid/preference/PreferenceScreen;
 
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getX()F
@@ -93,11 +110,13 @@
 
     goto :goto_0
 
+    .line 376
     :pswitch_1
     iget-object v5, p0, Landroid/preference/PreferenceScreen$TouchListener;->this$0:Landroid/preference/PreferenceScreen;
 
     invoke-static {v5, v6}, Landroid/preference/PreferenceScreen;->-set3(Landroid/preference/PreferenceScreen;Z)Z
 
+    .line 377
     iget-object v5, p0, Landroid/preference/PreferenceScreen$TouchListener;->this$0:Landroid/preference/PreferenceScreen;
 
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getX()F
@@ -114,6 +133,7 @@
 
     invoke-static {v5, v8}, Landroid/preference/PreferenceScreen;->-set6(Landroid/preference/PreferenceScreen;F)F
 
+    .line 379
     iget-object v5, p0, Landroid/preference/PreferenceScreen$TouchListener;->this$0:Landroid/preference/PreferenceScreen;
 
     invoke-static {v5}, Landroid/preference/PreferenceScreen;->-get4(Landroid/preference/PreferenceScreen;)F
@@ -136,10 +156,12 @@
 
     if-gez v5, :cond_2
 
+    .line 380
     iget-object v5, p0, Landroid/preference/PreferenceScreen$TouchListener;->this$0:Landroid/preference/PreferenceScreen;
 
     invoke-static {v5, v6}, Landroid/preference/PreferenceScreen;->-set2(Landroid/preference/PreferenceScreen;Z)Z
 
+    .line 381
     iget-object v5, p0, Landroid/preference/PreferenceScreen$TouchListener;->this$0:Landroid/preference/PreferenceScreen;
 
     invoke-static {v5}, Landroid/preference/PreferenceScreen;->-get2(Landroid/preference/PreferenceScreen;)Landroid/widget/ListView;
@@ -152,6 +174,7 @@
 
     if-nez v5, :cond_1
 
+    .line 382
     iget-object v5, p0, Landroid/preference/PreferenceScreen$TouchListener;->this$0:Landroid/preference/PreferenceScreen;
 
     invoke-static {v5}, Landroid/preference/PreferenceScreen;->-get2(Landroid/preference/PreferenceScreen;)Landroid/widget/ListView;
@@ -162,6 +185,7 @@
 
     goto :goto_0
 
+    .line 386
     :cond_2
     iget-object v5, p0, Landroid/preference/PreferenceScreen$TouchListener;->this$0:Landroid/preference/PreferenceScreen;
 
@@ -188,11 +212,13 @@
     :goto_1
     invoke-static {v8, v5}, Landroid/preference/PreferenceScreen;->-set1(Landroid/preference/PreferenceScreen;Z)Z
 
+    .line 388
     :goto_2
     iget-object v5, p0, Landroid/preference/PreferenceScreen$TouchListener;->this$0:Landroid/preference/PreferenceScreen;
 
     invoke-static {v5, v7}, Landroid/preference/PreferenceScreen;->-set2(Landroid/preference/PreferenceScreen;Z)Z
 
+    .line 390
     iget-object v5, p0, Landroid/preference/PreferenceScreen$TouchListener;->this$0:Landroid/preference/PreferenceScreen;
 
     invoke-static {v5}, Landroid/preference/PreferenceScreen;->-get2(Landroid/preference/PreferenceScreen;)Landroid/widget/ListView;
@@ -203,6 +229,8 @@
 
     move-result v2
 
+    .line 391
+    .local v2, "lastVisibleListItem":I
     iget-object v5, p0, Landroid/preference/PreferenceScreen$TouchListener;->this$0:Landroid/preference/PreferenceScreen;
 
     invoke-static {v5}, Landroid/preference/PreferenceScreen;->-get2(Landroid/preference/PreferenceScreen;)Landroid/widget/ListView;
@@ -213,9 +241,11 @@
 
     move-result v1
 
+    .local v1, "i":I
     :goto_3
     if-gt v1, v2, :cond_1
 
+    .line 392
     iget-object v5, p0, Landroid/preference/PreferenceScreen$TouchListener;->this$0:Landroid/preference/PreferenceScreen;
 
     invoke-static {v5}, Landroid/preference/PreferenceScreen;->-get2(Landroid/preference/PreferenceScreen;)Landroid/widget/ListView;
@@ -230,10 +260,13 @@
 
     move-result-object v3
 
+    .line 393
+    .local v3, "tmpSwitchPreference":Ljava/lang/Object;
     instance-of v5, v3, Landroid/preference/SwitchPreference;
 
     if-eqz v5, :cond_3
 
+    .line 394
     iget-object v5, p0, Landroid/preference/PreferenceScreen$TouchListener;->this$0:Landroid/preference/PreferenceScreen;
 
     invoke-static {v5}, Landroid/preference/PreferenceScreen;->-get2(Landroid/preference/PreferenceScreen;)Landroid/widget/ListView;
@@ -244,18 +277,27 @@
 
     move-result-object v4
 
+    .line 396
+    .local v4, "tmpView":Landroid/view/View;
     if-nez v4, :cond_7
 
+    .line 391
+    .end local v4    # "tmpView":Landroid/view/View;
     :cond_3
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_3
 
+    .end local v1    # "i":I
+    .end local v2    # "lastVisibleListItem":I
+    .end local v3    # "tmpSwitchPreference":Ljava/lang/Object;
     :cond_4
     move v5, v7
 
+    .line 386
     goto :goto_1
 
+    .line 387
     :cond_5
     iget-object v8, p0, Landroid/preference/PreferenceScreen$TouchListener;->this$0:Landroid/preference/PreferenceScreen;
 
@@ -281,6 +323,11 @@
 
     goto :goto_4
 
+    .line 399
+    .restart local v1    # "i":I
+    .restart local v2    # "lastVisibleListItem":I
+    .restart local v3    # "tmpSwitchPreference":Ljava/lang/Object;
+    .restart local v4    # "tmpView":Landroid/view/View;
     :cond_7
     invoke-virtual {v4}, Landroid/view/View;->isPressed()Z
 
@@ -288,6 +335,7 @@
 
     if-eqz v5, :cond_3
 
+    .line 400
     iget-object v5, p0, Landroid/preference/PreferenceScreen$TouchListener;->this$0:Landroid/preference/PreferenceScreen;
 
     invoke-static {v5}, Landroid/preference/PreferenceScreen;->-get6(Landroid/preference/PreferenceScreen;)I
@@ -304,10 +352,12 @@
 
     if-eq v5, v1, :cond_8
 
+    .line 401
     iget-object v5, p0, Landroid/preference/PreferenceScreen$TouchListener;->this$0:Landroid/preference/PreferenceScreen;
 
     invoke-static {v5, v6}, Landroid/preference/PreferenceScreen;->-set0(Landroid/preference/PreferenceScreen;Z)Z
 
+    .line 403
     :cond_8
     iget-object v5, p0, Landroid/preference/PreferenceScreen$TouchListener;->this$0:Landroid/preference/PreferenceScreen;
 
@@ -315,11 +365,17 @@
 
     goto/16 :goto_0
 
+    .line 411
+    .end local v1    # "i":I
+    .end local v2    # "lastVisibleListItem":I
+    .end local v3    # "tmpSwitchPreference":Ljava/lang/Object;
+    .end local v4    # "tmpView":Landroid/view/View;
     :pswitch_2
     iget-object v5, p0, Landroid/preference/PreferenceScreen$TouchListener;->this$0:Landroid/preference/PreferenceScreen;
 
     invoke-static {v5, v10}, Landroid/preference/PreferenceScreen;->-set7(Landroid/preference/PreferenceScreen;I)I
 
+    .line 412
     iget-object v5, p0, Landroid/preference/PreferenceScreen$TouchListener;->this$0:Landroid/preference/PreferenceScreen;
 
     invoke-static {v5}, Landroid/preference/PreferenceScreen;->-get0(Landroid/preference/PreferenceScreen;)Z
@@ -328,12 +384,14 @@
 
     if-nez v5, :cond_1
 
+    .line 413
     iget-object v5, p0, Landroid/preference/PreferenceScreen$TouchListener;->this$0:Landroid/preference/PreferenceScreen;
 
     invoke-static {v5, v6}, Landroid/preference/PreferenceScreen;->-set2(Landroid/preference/PreferenceScreen;Z)Z
 
     goto/16 :goto_0
 
+    .line 418
     :pswitch_3
     iget-object v5, p0, Landroid/preference/PreferenceScreen$TouchListener;->this$0:Landroid/preference/PreferenceScreen;
 
@@ -341,6 +399,7 @@
 
     goto/16 :goto_0
 
+    .line 370
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0

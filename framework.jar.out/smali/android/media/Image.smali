@@ -24,12 +24,16 @@
 .method protected constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 58
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 53
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/media/Image;->mIsImageValid:Z
 
+    .line 58
     return-void
 .end method
 
@@ -41,14 +45,18 @@
 .method public getCropRect()Landroid/graphics/Rect;
     .locals 4
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 221
     invoke-virtual {p0}, Landroid/media/Image;->throwISEIfImageIsInvalid()V
 
+    .line 223
     iget-object v0, p0, Landroid/media/Image;->mCropRect:Landroid/graphics/Rect;
 
     if-nez v0, :cond_0
 
+    .line 224
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-virtual {p0}, Landroid/media/Image;->getWidth()I
@@ -63,6 +71,7 @@
 
     return-object v0
 
+    .line 226
     :cond_0
     new-instance v0, Landroid/graphics/Rect;
 
@@ -82,8 +91,11 @@
 .method getNativeContext()J
     .locals 2
 
+    .prologue
+    .line 327
     invoke-virtual {p0}, Landroid/media/Image;->throwISEIfImageIsInvalid()V
 
+    .line 329
     const-wide/16 v0, 0x0
 
     return-wide v0
@@ -92,8 +104,11 @@
 .method getOwner()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 310
     invoke-virtual {p0}, Landroid/media/Image;->throwISEIfImageIsInvalid()V
 
+    .line 312
     const/4 v0, 0x0
 
     return-object v0
@@ -111,8 +126,11 @@
 .method isAttachable()Z
     .locals 1
 
+    .prologue
+    .line 289
     invoke-virtual {p0}, Landroid/media/Image;->throwISEIfImageIsInvalid()V
 
+    .line 291
     const/4 v0, 0x0
 
     return v0
@@ -120,17 +138,25 @@
 
 .method public setCropRect(Landroid/graphics/Rect;)V
     .locals 4
+    .param p1, "cropRect"    # Landroid/graphics/Rect;
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 237
     invoke-virtual {p0}, Landroid/media/Image;->throwISEIfImageIsInvalid()V
 
+    .line 239
     if-eqz p1, :cond_0
 
+    .line 240
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0, p1}, Landroid/graphics/Rect;-><init>(Landroid/graphics/Rect;)V
 
+    .line 241
+    .end local p1    # "cropRect":Landroid/graphics/Rect;
+    .local v0, "cropRect":Landroid/graphics/Rect;
     invoke-virtual {p0}, Landroid/media/Image;->getWidth()I
 
     move-result v1
@@ -145,37 +171,53 @@
 
     if-nez v1, :cond_1
 
+    .line 242
     invoke-virtual {v0}, Landroid/graphics/Rect;->setEmpty()V
 
     move-object p1, v0
 
+    .line 245
+    .end local v0    # "cropRect":Landroid/graphics/Rect;
+    .restart local p1    # "cropRect":Landroid/graphics/Rect;
     :cond_0
     :goto_0
     iput-object p1, p0, Landroid/media/Image;->mCropRect:Landroid/graphics/Rect;
 
+    .line 236
     return-void
 
+    .end local p1    # "cropRect":Landroid/graphics/Rect;
+    .restart local v0    # "cropRect":Landroid/graphics/Rect;
     :cond_1
     move-object p1, v0
 
+    .end local v0    # "cropRect":Landroid/graphics/Rect;
+    .restart local p1    # "cropRect":Landroid/graphics/Rect;
     goto :goto_0
 .end method
 
 .method public setTimestamp(J)V
     .locals 0
+    .param p1, "timestamp"    # J
 
+    .prologue
+    .line 208
     invoke-virtual {p0}, Landroid/media/Image;->throwISEIfImageIsInvalid()V
 
+    .line 209
     return-void
 .end method
 
 .method protected throwISEIfImageIsInvalid()V
     .locals 2
 
+    .prologue
+    .line 67
     iget-boolean v0, p0, Landroid/media/Image;->mIsImageValid:Z
 
     if-nez v0, :cond_0
 
+    .line 68
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "Image is already closed"
@@ -184,6 +226,7 @@
 
     throw v0
 
+    .line 66
     :cond_0
     return-void
 .end method

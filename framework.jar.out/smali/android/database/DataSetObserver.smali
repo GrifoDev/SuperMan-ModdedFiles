@@ -7,6 +7,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -17,11 +19,15 @@
 .method public onChanged()V
     .locals 0
 
+    .prologue
+    .line 29
     return-void
 .end method
 
 .method public onInvalidated()V
     .locals 0
 
+    .prologue
+    .line 38
     return-void
 .end method

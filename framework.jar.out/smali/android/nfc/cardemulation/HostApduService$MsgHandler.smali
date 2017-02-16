@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Landroid/nfc/cardemulation/HostApduService;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/nfc/cardemulation/HostApduService;
 
+    .prologue
+    .line 250
     iput-object p1, p0, Landroid/nfc/cardemulation/HostApduService$MsgHandler;->this$0:Landroid/nfc/cardemulation/HostApduService;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -33,28 +36,38 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 9
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
     const/4 v8, 0x0
 
+    .line 253
     iget v6, p1, Landroid/os/Message;->what:I
 
     packed-switch v6, :pswitch_data_0
 
+    .line 315
     invoke-super {p0, p1}, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
 
+    .line 252
     :cond_0
     :goto_0
     return-void
 
+    .line 255
     :pswitch_0
     invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;
 
     move-result-object v1
 
+    .line 256
+    .local v1, "dataBundle":Landroid/os/Bundle;
     if-nez v1, :cond_1
 
+    .line 257
     return-void
 
+    .line 259
     :cond_1
     iget-object v6, p0, Landroid/nfc/cardemulation/HostApduService$MsgHandler;->this$0:Landroid/nfc/cardemulation/HostApduService;
 
@@ -68,6 +81,7 @@
 
     iput-object v7, v6, Landroid/nfc/cardemulation/HostApduService;->mNfcService:Landroid/os/Messenger;
 
+    .line 261
     :cond_2
     const-string/jumbo v6, "data"
 
@@ -75,30 +89,39 @@
 
     move-result-object v0
 
+    .line 262
+    .local v0, "apdu":[B
     if-eqz v0, :cond_4
 
+    .line 263
     iget-object v6, p0, Landroid/nfc/cardemulation/HostApduService$MsgHandler;->this$0:Landroid/nfc/cardemulation/HostApduService;
 
     invoke-virtual {v6, v0, v8}, Landroid/nfc/cardemulation/HostApduService;->processCommandApdu([BLandroid/os/Bundle;)[B
 
     move-result-object v3
 
+    .line 264
+    .local v3, "responseApdu":[B
     if-eqz v3, :cond_0
 
+    .line 265
     iget-object v6, p0, Landroid/nfc/cardemulation/HostApduService$MsgHandler;->this$0:Landroid/nfc/cardemulation/HostApduService;
 
     iget-object v6, v6, Landroid/nfc/cardemulation/HostApduService;->mNfcService:Landroid/os/Messenger;
 
     if-nez v6, :cond_3
 
+    .line 266
     const-string/jumbo v6, "ApduService"
 
     const-string/jumbo v7, "Response not sent; service was deactivated."
 
     invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 267
     return-void
 
+    .line 269
     :cond_3
     const/4 v6, 0x1
 
@@ -106,22 +129,29 @@
 
     move-result-object v5
 
+    .line 270
+    .local v5, "responseMsg":Landroid/os/Message;
     new-instance v4, Landroid/os/Bundle;
 
     invoke-direct {v4}, Landroid/os/Bundle;-><init>()V
 
+    .line 271
+    .local v4, "responseBundle":Landroid/os/Bundle;
     const-string/jumbo v6, "data"
 
     invoke-virtual {v4, v6, v3}, Landroid/os/Bundle;->putByteArray(Ljava/lang/String;[B)V
 
+    .line 272
     invoke-virtual {v5, v4}, Landroid/os/Message;->setData(Landroid/os/Bundle;)V
 
+    .line 273
     iget-object v6, p0, Landroid/nfc/cardemulation/HostApduService$MsgHandler;->this$0:Landroid/nfc/cardemulation/HostApduService;
 
     iget-object v6, v6, Landroid/nfc/cardemulation/HostApduService;->mMessenger:Landroid/os/Messenger;
 
     iput-object v6, v5, Landroid/os/Message;->replyTo:Landroid/os/Messenger;
 
+    .line 275
     :try_start_0
     iget-object v6, p0, Landroid/nfc/cardemulation/HostApduService$MsgHandler;->this$0:Landroid/nfc/cardemulation/HostApduService;
 
@@ -133,9 +163,12 @@
 
     goto :goto_0
 
+    .line 276
     :catch_0
     move-exception v2
 
+    .line 277
+    .local v2, "e":Landroid/os/RemoteException;
     const-string/jumbo v6, "TAG"
 
     const-string/jumbo v7, "Response not sent; RemoteException calling into NfcService."
@@ -144,6 +177,11 @@
 
     goto :goto_0
 
+    .line 282
+    .end local v2    # "e":Landroid/os/RemoteException;
+    .end local v3    # "responseApdu":[B
+    .end local v4    # "responseBundle":Landroid/os/Bundle;
+    .end local v5    # "responseMsg":Landroid/os/Message;
     :cond_4
     const-string/jumbo v6, "ApduService"
 
@@ -153,6 +191,9 @@
 
     goto :goto_0
 
+    .line 286
+    .end local v0    # "apdu":[B
+    .end local v1    # "dataBundle":Landroid/os/Bundle;
     :pswitch_1
     iget-object v6, p0, Landroid/nfc/cardemulation/HostApduService$MsgHandler;->this$0:Landroid/nfc/cardemulation/HostApduService;
 
@@ -160,14 +201,17 @@
 
     if-nez v6, :cond_5
 
+    .line 287
     const-string/jumbo v6, "ApduService"
 
     const-string/jumbo v7, "Response not sent; service was deactivated."
 
     invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 288
     return-void
 
+    .line 291
     :cond_5
     :try_start_1
     iget-object v6, p0, Landroid/nfc/cardemulation/HostApduService$MsgHandler;->this$0:Landroid/nfc/cardemulation/HostApduService;
@@ -176,6 +220,7 @@
 
     iput-object v6, p1, Landroid/os/Message;->replyTo:Landroid/os/Messenger;
 
+    .line 292
     iget-object v6, p0, Landroid/nfc/cardemulation/HostApduService$MsgHandler;->this$0:Landroid/nfc/cardemulation/HostApduService;
 
     iget-object v6, v6, Landroid/nfc/cardemulation/HostApduService;->mNfcService:Landroid/os/Messenger;
@@ -186,9 +231,12 @@
 
     goto/16 :goto_0
 
+    .line 293
     :catch_1
     move-exception v2
 
+    .line 294
+    .restart local v2    # "e":Landroid/os/RemoteException;
     const-string/jumbo v6, "ApduService"
 
     const-string/jumbo v7, "RemoteException calling into NfcService."
@@ -197,11 +245,14 @@
 
     goto/16 :goto_0
 
+    .line 299
+    .end local v2    # "e":Landroid/os/RemoteException;
     :pswitch_2
     iget-object v6, p0, Landroid/nfc/cardemulation/HostApduService$MsgHandler;->this$0:Landroid/nfc/cardemulation/HostApduService;
 
     iput-object v8, v6, Landroid/nfc/cardemulation/HostApduService;->mNfcService:Landroid/os/Messenger;
 
+    .line 300
     iget-object v6, p0, Landroid/nfc/cardemulation/HostApduService$MsgHandler;->this$0:Landroid/nfc/cardemulation/HostApduService;
 
     iget v7, p1, Landroid/os/Message;->arg1:I
@@ -210,6 +261,7 @@
 
     goto/16 :goto_0
 
+    .line 303
     :pswitch_3
     iget-object v6, p0, Landroid/nfc/cardemulation/HostApduService$MsgHandler;->this$0:Landroid/nfc/cardemulation/HostApduService;
 
@@ -217,14 +269,17 @@
 
     if-nez v6, :cond_6
 
+    .line 304
     const-string/jumbo v6, "ApduService"
 
     const-string/jumbo v7, "notifyUnhandled not sent; service was deactivated."
 
     invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 305
     return-void
 
+    .line 308
     :cond_6
     :try_start_2
     iget-object v6, p0, Landroid/nfc/cardemulation/HostApduService$MsgHandler;->this$0:Landroid/nfc/cardemulation/HostApduService;
@@ -233,6 +288,7 @@
 
     iput-object v6, p1, Landroid/os/Message;->replyTo:Landroid/os/Messenger;
 
+    .line 309
     iget-object v6, p0, Landroid/nfc/cardemulation/HostApduService$MsgHandler;->this$0:Landroid/nfc/cardemulation/HostApduService;
 
     iget-object v6, v6, Landroid/nfc/cardemulation/HostApduService;->mNfcService:Landroid/os/Messenger;
@@ -243,9 +299,12 @@
 
     goto/16 :goto_0
 
+    .line 310
     :catch_2
     move-exception v2
 
+    .line 311
+    .restart local v2    # "e":Landroid/os/RemoteException;
     const-string/jumbo v6, "ApduService"
 
     const-string/jumbo v7, "RemoteException calling into NfcService."
@@ -254,6 +313,7 @@
 
     goto/16 :goto_0
 
+    .line 253
     nop
 
     :pswitch_data_0

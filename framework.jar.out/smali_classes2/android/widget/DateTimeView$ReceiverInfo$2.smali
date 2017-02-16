@@ -21,7 +21,11 @@
 # direct methods
 .method constructor <init>(Landroid/widget/DateTimeView$ReceiverInfo;Landroid/os/Handler;)V
     .locals 0
+    .param p1, "this$1"    # Landroid/widget/DateTimeView$ReceiverInfo;
+    .param p2, "$anonymous0"    # Landroid/os/Handler;
 
+    .prologue
+    .line 427
     iput-object p1, p0, Landroid/widget/DateTimeView$ReceiverInfo$2;->this$1:Landroid/widget/DateTimeView$ReceiverInfo;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -33,10 +37,14 @@
 # virtual methods
 .method public onChange(Z)V
     .locals 1
+    .param p1, "selfChange"    # Z
 
+    .prologue
+    .line 430
     iget-object v0, p0, Landroid/widget/DateTimeView$ReceiverInfo$2;->this$1:Landroid/widget/DateTimeView$ReceiverInfo;
 
     invoke-virtual {v0}, Landroid/widget/DateTimeView$ReceiverInfo;->updateAll()V
 
+    .line 429
     return-void
 .end method

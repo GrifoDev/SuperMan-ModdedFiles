@@ -27,8 +27,10 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
     const/high16 v1, 0x3f800000    # 1.0f
 
+    .line 2046
     const/16 v0, 0x64
 
     invoke-static {v1, v0}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$LogAccelerateInterpolator;->computeLog(FI)F
@@ -39,12 +41,15 @@
 
     sput v0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$LogAccelerateInterpolator;->LOGS_SCALE:F
 
+    .line 2043
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 2043
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -53,6 +58,7 @@
 .method synthetic constructor <init>(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$LogAccelerateInterpolator;)V
     .locals 0
 
+    .prologue
     invoke-direct {p0}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$LogAccelerateInterpolator;-><init>()V
 
     return-void
@@ -60,7 +66,11 @@
 
 .method private static computeLog(FI)F
     .locals 4
+    .param p0, "t"    # F
+    .param p1, "base"    # I
 
+    .prologue
+    .line 2049
     int-to-double v0, p1
 
     neg-float v2, p0
@@ -84,9 +94,12 @@
 # virtual methods
 .method public getInterpolation(F)F
     .locals 3
+    .param p1, "t"    # F
 
+    .prologue
     const/high16 v2, 0x3f800000    # 1.0f
 
+    .line 2054
     sub-float v0, v2, p1
 
     const/16 v1, 0x64

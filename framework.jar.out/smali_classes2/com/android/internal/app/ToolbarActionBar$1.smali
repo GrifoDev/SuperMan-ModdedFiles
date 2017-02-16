@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/app/ToolbarActionBar;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/internal/app/ToolbarActionBar;
 
+    .prologue
+    .line 57
     iput-object p1, p0, Lcom/android/internal/app/ToolbarActionBar$1;->this$0:Lcom/android/internal/app/ToolbarActionBar;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,9 +40,12 @@
 .method public run()V
     .locals 1
 
+    .prologue
+    .line 60
     iget-object v0, p0, Lcom/android/internal/app/ToolbarActionBar$1;->this$0:Lcom/android/internal/app/ToolbarActionBar;
 
     invoke-virtual {v0}, Lcom/android/internal/app/ToolbarActionBar;->populateOptionsMenu()V
 
+    .line 59
     return-void
 .end method

@@ -23,13 +23,20 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
+    .param p1, "mac"    # Ljava/lang/String;
+    .param p2, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 22
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 23
     iput-object p1, p0, Landroid/net/wifi/WifiApWhiteList$WhiteList;->mMac:Ljava/lang/String;
 
+    .line 24
     iput-object p2, p0, Landroid/net/wifi/WifiApWhiteList$WhiteList;->mName:Ljava/lang/String;
 
+    .line 22
     return-void
 .end method
 
@@ -38,6 +45,8 @@
 .method public getMac()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 32
     iget-object v0, p0, Landroid/net/wifi/WifiApWhiteList$WhiteList;->mMac:Ljava/lang/String;
 
     return-object v0
@@ -46,6 +55,8 @@
 .method public getName()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 36
     iget-object v0, p0, Landroid/net/wifi/WifiApWhiteList$WhiteList;->mName:Ljava/lang/String;
 
     return-object v0
@@ -53,8 +64,12 @@
 
 .method public setName(Ljava/lang/String;)V
     .locals 0
+    .param p1, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 28
     iput-object p1, p0, Landroid/net/wifi/WifiApWhiteList$WhiteList;->mName:Ljava/lang/String;
 
+    .line 27
     return-void
 .end method

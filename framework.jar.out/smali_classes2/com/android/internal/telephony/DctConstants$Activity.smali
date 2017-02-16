@@ -41,6 +41,7 @@
 .method static constructor <clinit>()V
     .locals 7
 
+    .prologue
     const/4 v6, 0x4
 
     const/4 v5, 0x3
@@ -51,6 +52,7 @@
 
     const/4 v2, 0x0
 
+    .line 53
     new-instance v0, Lcom/android/internal/telephony/DctConstants$Activity;
 
     const-string/jumbo v1, "NONE"
@@ -59,6 +61,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/DctConstants$Activity;->NONE:Lcom/android/internal/telephony/DctConstants$Activity;
 
+    .line 54
     new-instance v0, Lcom/android/internal/telephony/DctConstants$Activity;
 
     const-string/jumbo v1, "DATAIN"
@@ -67,6 +70,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/DctConstants$Activity;->DATAIN:Lcom/android/internal/telephony/DctConstants$Activity;
 
+    .line 55
     new-instance v0, Lcom/android/internal/telephony/DctConstants$Activity;
 
     const-string/jumbo v1, "DATAOUT"
@@ -75,6 +79,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/DctConstants$Activity;->DATAOUT:Lcom/android/internal/telephony/DctConstants$Activity;
 
+    .line 56
     new-instance v0, Lcom/android/internal/telephony/DctConstants$Activity;
 
     const-string/jumbo v1, "DATAINANDOUT"
@@ -83,6 +88,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/DctConstants$Activity;->DATAINANDOUT:Lcom/android/internal/telephony/DctConstants$Activity;
 
+    .line 57
     new-instance v0, Lcom/android/internal/telephony/DctConstants$Activity;
 
     const-string/jumbo v1, "DORMANT"
@@ -91,6 +97,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/DctConstants$Activity;->DORMANT:Lcom/android/internal/telephony/DctConstants$Activity;
 
+    .line 52
     const/4 v0, 0x5
 
     new-array v0, v0, [Lcom/android/internal/telephony/DctConstants$Activity;
@@ -123,6 +130,8 @@
 .method private constructor <init>(Ljava/lang/String;I)V
     .locals 0
 
+    .prologue
+    .line 52
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -130,7 +139,10 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/android/internal/telephony/DctConstants$Activity;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 52
     const-class v0, Lcom/android/internal/telephony/DctConstants$Activity;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -145,6 +157,8 @@
 .method public static values()[Lcom/android/internal/telephony/DctConstants$Activity;
     .locals 1
 
+    .prologue
+    .line 52
     sget-object v0, Lcom/android/internal/telephony/DctConstants$Activity;->$VALUES:[Lcom/android/internal/telephony/DctConstants$Activity;
 
     return-object v0

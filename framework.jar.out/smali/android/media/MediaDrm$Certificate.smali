@@ -24,6 +24,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 1221
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -34,10 +36,13 @@
 .method public getContent()[B
     .locals 2
 
+    .prologue
+    .line 1242
     iget-object v0, p0, Landroid/media/MediaDrm$Certificate;->mCertificateData:[B
 
     if-nez v0, :cond_0
 
+    .line 1246
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string/jumbo v1, "Cerfificate is not initialized"
@@ -46,6 +51,7 @@
 
     throw v0
 
+    .line 1248
     :cond_0
     iget-object v0, p0, Landroid/media/MediaDrm$Certificate;->mCertificateData:[B
 
@@ -55,10 +61,13 @@
 .method public getWrappedPrivateKey()[B
     .locals 2
 
+    .prologue
+    .line 1228
     iget-object v0, p0, Landroid/media/MediaDrm$Certificate;->mWrappedKey:[B
 
     if-nez v0, :cond_0
 
+    .line 1232
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string/jumbo v1, "Cerfificate is not initialized"
@@ -67,6 +76,7 @@
 
     throw v0
 
+    .line 1234
     :cond_0
     iget-object v0, p0, Landroid/media/MediaDrm$Certificate;->mWrappedKey:[B
 

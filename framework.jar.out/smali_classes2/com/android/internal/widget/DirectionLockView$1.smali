@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/widget/DirectionLockView;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/internal/widget/DirectionLockView;
 
+    .prologue
+    .line 328
     iput-object p1, p0, Lcom/android/internal/widget/DirectionLockView$1;->this$0:Lcom/android/internal/widget/DirectionLockView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,6 +39,9 @@
 # virtual methods
 .method public onInit(I)V
     .locals 0
+    .param p1, "status"    # I
 
+    .prologue
+    .line 330
     return-void
 .end method

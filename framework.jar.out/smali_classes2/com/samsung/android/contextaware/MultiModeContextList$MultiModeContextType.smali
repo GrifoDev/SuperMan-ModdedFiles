@@ -61,54 +61,68 @@
 .method static constructor <clinit>()V
     .locals 6
 
+    .prologue
     const/4 v5, 0x2
 
     const/4 v4, 0x1
 
     const/4 v3, 0x0
 
+    .line 43
     new-instance v0, Lcom/samsung/android/contextaware/MultiModeContextList$MultiModeContextType$1;
 
     const-string/jumbo v1, "SENSORHUB_RUNNER_ACTIVITY_TRACKER"
 
+    .line 48
     sget-object v2, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$DATA_TYPE;->LIBRARY_DATATYPE_ACTIVITY_TRACKER:Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$DATA_TYPE;
 
     invoke-virtual {v2}, Ljava/lang/Enum;->toString()Ljava/lang/String;
 
     move-result-object v2
 
+    .line 43
     invoke-direct {v0, v1, v3, v2}, Lcom/samsung/android/contextaware/MultiModeContextList$MultiModeContextType$1;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
+    .line 47
     sput-object v0, Lcom/samsung/android/contextaware/MultiModeContextList$MultiModeContextType;->SENSORHUB_RUNNER_ACTIVITY_TRACKER:Lcom/samsung/android/contextaware/MultiModeContextList$MultiModeContextType;
 
+    .line 54
     new-instance v0, Lcom/samsung/android/contextaware/MultiModeContextList$MultiModeContextType$2;
 
     const-string/jumbo v1, "SENSORHUB_RUNNER_STEP_LEVEL_MONITOR"
 
+    .line 56
     sget-object v2, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$DATA_TYPE;->LIBRARY_DATATYPE_STEP_LEVEL_MONITOR:Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$DATA_TYPE;
 
     invoke-virtual {v2}, Ljava/lang/Enum;->toString()Ljava/lang/String;
 
     move-result-object v2
 
+    .line 54
     invoke-direct {v0, v1, v4, v2}, Lcom/samsung/android/contextaware/MultiModeContextList$MultiModeContextType$2;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
+    .line 55
     sput-object v0, Lcom/samsung/android/contextaware/MultiModeContextList$MultiModeContextType;->SENSORHUB_RUNNER_STEP_LEVEL_MONITOR:Lcom/samsung/android/contextaware/MultiModeContextList$MultiModeContextType;
 
+    .line 65
     new-instance v0, Lcom/samsung/android/contextaware/MultiModeContextList$MultiModeContextType$3;
 
     const-string/jumbo v1, "SENSORHUB_RUNNER_DEVICE_PHYSICAL_CONTEXT_MONITOR"
 
+    .line 67
     sget-object v2, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$DATA_TYPE;->LIBRARY_DATATYPE_DEVICE_PHYSICAL_CONTEXT_MONITOR:Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$DATA_TYPE;
 
     invoke-virtual {v2}, Ljava/lang/Enum;->toString()Ljava/lang/String;
 
     move-result-object v2
 
+    .line 65
     invoke-direct {v0, v1, v5, v2}, Lcom/samsung/android/contextaware/MultiModeContextList$MultiModeContextType$3;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
+    .line 66
     sput-object v0, Lcom/samsung/android/contextaware/MultiModeContextList$MultiModeContextType;->SENSORHUB_RUNNER_DEVICE_PHYSICAL_CONTEXT_MONITOR:Lcom/samsung/android/contextaware/MultiModeContextList$MultiModeContextType;
 
+    .line 41
     const/4 v0, 0x3
 
     new-array v0, v0, [Lcom/samsung/android/contextaware/MultiModeContextList$MultiModeContextType;
@@ -132,17 +146,24 @@
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
     .locals 0
+    .param p3, "code"    # Ljava/lang/String;
 
+    .prologue
+    .line 84
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
+    .line 85
     iput-object p3, p0, Lcom/samsung/android/contextaware/MultiModeContextList$MultiModeContextType;->code:Ljava/lang/String;
 
+    .line 84
     return-void
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;ILjava/lang/String;Lcom/samsung/android/contextaware/MultiModeContextList$MultiModeContextType;)V
     .locals 0
+    .param p3, "code"    # Ljava/lang/String;
 
+    .prologue
     invoke-direct {p0, p1, p2, p3}, Lcom/samsung/android/contextaware/MultiModeContextList$MultiModeContextType;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
     return-void
@@ -150,7 +171,10 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/samsung/android/contextaware/MultiModeContextList$MultiModeContextType;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 41
     const-class v0, Lcom/samsung/android/contextaware/MultiModeContextList$MultiModeContextType;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -165,6 +189,8 @@
 .method public static values()[Lcom/samsung/android/contextaware/MultiModeContextList$MultiModeContextType;
     .locals 1
 
+    .prologue
+    .line 41
     sget-object v0, Lcom/samsung/android/contextaware/MultiModeContextList$MultiModeContextType;->$VALUES:[Lcom/samsung/android/contextaware/MultiModeContextList$MultiModeContextType;
 
     return-object v0
@@ -175,6 +201,8 @@
 .method public getCode()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 94
     iget-object v0, p0, Lcom/samsung/android/contextaware/MultiModeContextList$MultiModeContextType;->code:Ljava/lang/String;
 
     return-object v0
@@ -183,6 +211,8 @@
 .method public getParserHandler()Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/ISensorHubParser;
     .locals 1
 
+    .prologue
+    .line 104
     const/4 v0, 0x0
 
     return-object v0

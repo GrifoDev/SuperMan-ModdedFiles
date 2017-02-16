@@ -37,23 +37,34 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 1
+    .param p1, "status"    # I
 
+    .prologue
+    .line 1057
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Landroid/os/ParcelFileDescriptor$Status;-><init>(ILjava/lang/String;)V
 
+    .line 1056
     return-void
 .end method
 
 .method public constructor <init>(ILjava/lang/String;)V
     .locals 0
+    .param p1, "status"    # I
+    .param p2, "msg"    # Ljava/lang/String;
 
+    .prologue
+    .line 1060
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 1061
     iput p1, p0, Landroid/os/ParcelFileDescriptor$Status;->status:I
 
+    .line 1062
     iput-object p2, p0, Landroid/os/ParcelFileDescriptor$Status;->msg:Ljava/lang/String;
 
+    .line 1060
     return-void
 .end method
 
@@ -62,10 +73,13 @@
 .method public asIOException()Ljava/io/IOException;
     .locals 3
 
+    .prologue
+    .line 1066
     iget v0, p0, Landroid/os/ParcelFileDescriptor$Status;->status:I
 
     packed-switch v0, :pswitch_data_0
 
+    .line 1078
     :pswitch_0
     new-instance v0, Ljava/io/IOException;
 
@@ -93,6 +107,7 @@
 
     return-object v0
 
+    .line 1068
     :pswitch_1
     new-instance v0, Ljava/io/IOException;
 
@@ -102,11 +117,13 @@
 
     return-object v0
 
+    .line 1070
     :pswitch_2
     const/4 v0, 0x0
 
     return-object v0
 
+    .line 1072
     :pswitch_3
     new-instance v0, Ljava/io/IOException;
 
@@ -134,6 +151,7 @@
 
     return-object v0
 
+    .line 1074
     :pswitch_4
     new-instance v0, Landroid/os/ParcelFileDescriptor$FileDescriptorDetachedException;
 
@@ -141,6 +159,7 @@
 
     return-object v0
 
+    .line 1076
     :pswitch_5
     new-instance v0, Ljava/io/IOException;
 
@@ -150,6 +169,7 @@
 
     return-object v0
 
+    .line 1066
     nop
 
     :pswitch_data_0
@@ -166,6 +186,8 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 1084
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

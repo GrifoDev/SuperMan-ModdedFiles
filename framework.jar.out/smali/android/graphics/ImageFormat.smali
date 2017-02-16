@@ -51,6 +51,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 19
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -58,70 +60,90 @@
 
 .method public static getBitsPerPixel(I)I
     .locals 3
+    .param p0, "format"    # I
 
+    .prologue
     const/16 v2, 0x18
 
     const/16 v1, 0xc
 
     const/16 v0, 0x10
 
+    .line 700
     sparse-switch p0, :sswitch_data_0
 
+    .line 733
     const/4 v0, -0x1
 
     return v0
 
+    .line 702
     :sswitch_0
     return v0
 
+    .line 704
     :sswitch_1
     return v0
 
+    .line 706
     :sswitch_2
     return v0
 
+    .line 708
     :sswitch_3
     return v1
 
+    .line 710
     :sswitch_4
     const/16 v0, 0x8
 
     return v0
 
+    .line 713
     :sswitch_5
     return v0
 
+    .line 715
     :sswitch_6
     return v1
 
+    .line 717
     :sswitch_7
     return v1
 
+    .line 719
     :sswitch_8
     return v0
 
+    .line 721
     :sswitch_9
     return v2
 
+    .line 723
     :sswitch_a
     return v2
 
+    .line 725
     :sswitch_b
     const/16 v0, 0x20
 
     return v0
 
+    .line 727
     :sswitch_c
     return v0
 
+    .line 729
     :sswitch_d
     const/16 v0, 0xa
 
     return v0
 
+    .line 731
     :sswitch_e
     return v1
 
+    .line 700
     :sswitch_data_0
     .sparse-switch
         0x4 -> :sswitch_0
@@ -145,18 +167,24 @@
 
 .method public static isPublicFormat(I)Z
     .locals 1
+    .param p0, "format"    # I
 
+    .prologue
+    .line 749
     sparse-switch p0, :sswitch_data_0
 
+    .line 771
     const/4 v0, 0x0
 
     return v0
 
+    .line 768
     :sswitch_0
     const/4 v0, 0x1
 
     return v0
 
+    .line 749
     nop
 
     :sswitch_data_0

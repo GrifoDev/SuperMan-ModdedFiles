@@ -18,6 +18,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 93
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -28,23 +30,36 @@
 .method public onAppTransitionCancelledLocked()V
     .locals 0
 
+    .prologue
+    .line 103
     return-void
 .end method
 
 .method public onAppTransitionFinishedLocked(Landroid/os/IBinder;)V
     .locals 0
+    .param p1, "token"    # Landroid/os/IBinder;
 
+    .prologue
+    .line 121
     return-void
 .end method
 
 .method public onAppTransitionPendingLocked()V
     .locals 0
 
+    .prologue
+    .line 98
     return-void
 .end method
 
 .method public onAppTransitionStartingLocked(Landroid/os/IBinder;Landroid/os/IBinder;Landroid/view/animation/Animation;Landroid/view/animation/Animation;)V
     .locals 0
+    .param p1, "openToken"    # Landroid/os/IBinder;
+    .param p2, "closeToken"    # Landroid/os/IBinder;
+    .param p3, "openAnimation"    # Landroid/view/animation/Animation;
+    .param p4, "closeAnimation"    # Landroid/view/animation/Animation;
 
+    .prologue
+    .line 114
     return-void
 .end method

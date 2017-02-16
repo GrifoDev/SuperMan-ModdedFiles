@@ -27,6 +27,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 1057
     invoke-direct {p0}, Landroid/app/SystemServiceRegistry$CachedServiceFetcher;-><init>()V
 
     return-void
@@ -36,7 +38,10 @@
 # virtual methods
 .method public createService(Landroid/app/ContextImpl;)Landroid/content/pm/ShortcutManager;
     .locals 1
+    .param p1, "ctx"    # Landroid/app/ContextImpl;
 
+    .prologue
+    .line 1060
     new-instance v0, Landroid/content/pm/ShortcutManager;
 
     invoke-direct {v0, p1}, Landroid/content/pm/ShortcutManager;-><init>(Landroid/content/Context;)V
@@ -46,7 +51,10 @@
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .param p1, "ctx"    # Landroid/app/ContextImpl;
 
+    .prologue
+    .line 1059
     invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$87;->createService(Landroid/app/ContextImpl;)Landroid/content/pm/ShortcutManager;
 
     move-result-object v0

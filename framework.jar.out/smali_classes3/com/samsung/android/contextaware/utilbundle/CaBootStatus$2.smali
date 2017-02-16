@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/contextaware/utilbundle/CaBootStatus;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/samsung/android/contextaware/utilbundle/CaBootStatus;
 
+    .prologue
+    .line 143
     iput-object p1, p0, Lcom/samsung/android/contextaware/utilbundle/CaBootStatus$2;->this$0:Lcom/samsung/android/contextaware/utilbundle/CaBootStatus;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -33,21 +36,27 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 148
     iget v0, p1, Landroid/os/Message;->what:I
 
     const/16 v1, 0x1001
 
     if-ne v0, v1, :cond_1
 
+    .line 149
     const-string/jumbo v0, "context is null"
 
     invoke-static {v0}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger;->info(Ljava/lang/String;)V
 
+    .line 146
     :cond_0
     :goto_0
     return-void
 
+    .line 150
     :cond_1
     iget v0, p1, Landroid/os/Message;->what:I
 
@@ -55,12 +64,14 @@
 
     if-ne v0, v1, :cond_2
 
+    .line 151
     const-string/jumbo v0, "intent is null"
 
     invoke-static {v0}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger;->info(Ljava/lang/String;)V
 
     goto :goto_0
 
+    .line 152
     :cond_2
     iget v0, p1, Landroid/os/Message;->what:I
 
@@ -68,10 +79,12 @@
 
     if-ne v0, v1, :cond_0
 
+    .line 153
     const-string/jumbo v0, "Boot Complete"
 
     invoke-static {v0}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger;->info(Ljava/lang/String;)V
 
+    .line 155
     iget-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/CaBootStatus$2;->this$0:Lcom/samsung/android/contextaware/utilbundle/CaBootStatus;
 
     invoke-static {v0}, Lcom/samsung/android/contextaware/utilbundle/CaBootStatus;->-get0(Lcom/samsung/android/contextaware/utilbundle/CaBootStatus;)Landroid/content/Context;
@@ -80,6 +93,7 @@
 
     if-eqz v0, :cond_3
 
+    .line 156
     iget-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/CaBootStatus$2;->this$0:Lcom/samsung/android/contextaware/utilbundle/CaBootStatus;
 
     invoke-static {v0}, Lcom/samsung/android/contextaware/utilbundle/CaBootStatus;->-get0(Lcom/samsung/android/contextaware/utilbundle/CaBootStatus;)Landroid/content/Context;
@@ -94,6 +108,7 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
+    .line 158
     :cond_3
     iget-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/CaBootStatus$2;->this$0:Lcom/samsung/android/contextaware/utilbundle/CaBootStatus;
 
@@ -101,6 +116,7 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/contextaware/utilbundle/CaBootStatus;->-set0(Lcom/samsung/android/contextaware/utilbundle/CaBootStatus;Z)Z
 
+    .line 159
     iget-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/CaBootStatus$2;->this$0:Lcom/samsung/android/contextaware/utilbundle/CaBootStatus;
 
     invoke-static {v0}, Lcom/samsung/android/contextaware/utilbundle/CaBootStatus;->-wrap0(Lcom/samsung/android/contextaware/utilbundle/CaBootStatus;)V

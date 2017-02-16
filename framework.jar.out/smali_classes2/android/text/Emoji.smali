@@ -21,6 +21,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 28
     const/16 v0, 0x469
 
     new-array v0, v0, [I
@@ -29,6 +31,7 @@
 
     sput-object v0, Landroid/text/Emoji;->EMOJI_LIST:[I
 
+    .line 143
     const/16 v0, 0x59
 
     new-array v0, v0, [I
@@ -37,6 +40,7 @@
 
     sput-object v0, Landroid/text/Emoji;->EMOJI_MODIFIER_BASE:[I
 
+    .line 156
     const/16 v0, 0x8
 
     new-array v0, v0, [I
@@ -45,20 +49,25 @@
 
     sput-object v0, Landroid/text/Emoji;->ZWJ_EMOJI:[I
 
+    .line 160
     const/16 v0, 0x20e3
 
     sput v0, Landroid/text/Emoji;->COMBINING_ENCLOSING_KEYCAP:I
 
+    .line 162
     const/16 v0, 0x200d
 
     sput v0, Landroid/text/Emoji;->ZERO_WIDTH_JOINER:I
 
+    .line 164
     const v0, 0xfe0f
 
     sput v0, Landroid/text/Emoji;->VARIATION_SELECTOR_16:I
 
+    .line 25
     return-void
 
+    .line 28
     nop
 
     :array_0
@@ -1194,6 +1203,7 @@
         0x1f9c0
     .end array-data
 
+    .line 143
     :array_1
     .array-data 4
         0x261d
@@ -1287,6 +1297,7 @@
         0x1f93e
     .end array-data
 
+    .line 156
     :array_2
     .array-data 4
         0x2764
@@ -1303,6 +1314,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -1310,9 +1323,12 @@
 
 .method public static isEmoji(I)Z
     .locals 2
+    .param p0, "codePoint"    # I
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 183
     sget-object v1, Landroid/text/Emoji;->EMOJI_LIST:[I
 
     invoke-static {v1, p0}, Ljava/util/Arrays;->binarySearch([II)I
@@ -1329,9 +1345,12 @@
 
 .method public static isEmojiModifier(I)Z
     .locals 2
+    .param p0, "codepoint"    # I
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 173
     const v1, 0x1f3fb
 
     if-gt v1, p0, :cond_0
@@ -1348,9 +1367,12 @@
 
 .method public static isEmojiModifierBase(I)Z
     .locals 2
+    .param p0, "codePoint"    # I
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 178
     sget-object v1, Landroid/text/Emoji;->EMOJI_MODIFIER_BASE:[I
 
     invoke-static {v1, p0}, Ljava/util/Arrays;->binarySearch([II)I
@@ -1367,9 +1389,12 @@
 
 .method public static isKeycapBase(I)Z
     .locals 2
+    .param p0, "codePoint"    # I
 
+    .prologue
     const/4 v0, 0x1
 
+    .line 188
     const/16 v1, 0x30
 
     if-gt v1, p0, :cond_1
@@ -1398,9 +1423,12 @@
 
 .method public static isRegionalIndicatorSymbol(I)Z
     .locals 2
+    .param p0, "codepoint"    # I
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 168
     const v1, 0x1f1e6
 
     if-gt v1, p0, :cond_0

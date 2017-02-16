@@ -26,7 +26,11 @@
 # direct methods
 .method constructor <init>(Landroid/util/ResolutionOverride;Landroid/view/SurfaceView;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/util/ResolutionOverride;
+    .param p2, "val$surfaceView"    # Landroid/view/SurfaceView;
 
+    .prologue
+    .line 129
     iput-object p1, p0, Landroid/util/ResolutionOverride$1;->this$0:Landroid/util/ResolutionOverride;
 
     iput-object p2, p0, Landroid/util/ResolutionOverride$1;->val$surfaceView:Landroid/view/SurfaceView;
@@ -41,11 +45,14 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 132
     iget-object v0, p0, Landroid/util/ResolutionOverride$1;->val$surfaceView:Landroid/view/SurfaceView;
 
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Landroid/view/SurfaceView;->setVisibility(I)V
 
+    .line 131
     return-void
 .end method

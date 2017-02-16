@@ -34,20 +34,25 @@
 .method private constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 228
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 229
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Landroid/util/secutil/CustomizedTextParser$CscNodeList;->children:Ljava/util/ArrayList;
 
+    .line 228
     return-void
 .end method
 
 .method synthetic constructor <init>(Landroid/util/secutil/CustomizedTextParser$CscNodeList;)V
     .locals 0
 
+    .prologue
     invoke-direct {p0}, Landroid/util/secutil/CustomizedTextParser$CscNodeList;-><init>()V
 
     return-void
@@ -57,17 +62,23 @@
 # virtual methods
 .method appendChild(Lorg/w3c/dom/Node;)V
     .locals 1
+    .param p1, "newChild"    # Lorg/w3c/dom/Node;
 
+    .prologue
+    .line 232
     iget-object v0, p0, Landroid/util/secutil/CustomizedTextParser$CscNodeList;->children:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 231
     return-void
 .end method
 
 .method public getLength()I
     .locals 1
 
+    .prologue
+    .line 237
     iget-object v0, p0, Landroid/util/secutil/CustomizedTextParser$CscNodeList;->children:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
@@ -79,7 +90,10 @@
 
 .method public item(I)Lorg/w3c/dom/Node;
     .locals 1
+    .param p1, "index"    # I
 
+    .prologue
+    .line 242
     iget-object v0, p0, Landroid/util/secutil/CustomizedTextParser$CscNodeList;->children:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;

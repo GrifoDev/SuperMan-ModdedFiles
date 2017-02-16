@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Landroid/service/quicksettings/TileService;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/service/quicksettings/TileService;
 
+    .prologue
+    .line 232
     iput-object p1, p0, Landroid/service/quicksettings/TileService$1;->this$0:Landroid/service/quicksettings/TileService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,13 +39,19 @@
 # virtual methods
 .method public onViewAttachedToWindow(Landroid/view/View;)V
     .locals 0
+    .param p1, "v"    # Landroid/view/View;
 
+    .prologue
+    .line 234
     return-void
 .end method
 
 .method public onViewDetachedFromWindow(Landroid/view/View;)V
     .locals 3
+    .param p1, "v"    # Landroid/view/View;
 
+    .prologue
+    .line 240
     :try_start_0
     iget-object v1, p0, Landroid/service/quicksettings/TileService$1;->this$0:Landroid/service/quicksettings/TileService;
 
@@ -60,11 +69,14 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 238
     :goto_0
     return-void
 
+    .line 241
     :catch_0
     move-exception v0
 
+    .local v0, "e":Landroid/os/RemoteException;
     goto :goto_0
 .end method

@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Landroid/media/PlayerBase;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/media/PlayerBase;
 
+    .prologue
+    .line 69
     iput-object p1, p0, Landroid/media/PlayerBase$1;->this$0:Landroid/media/PlayerBase;
 
     invoke-direct {p0}, Lcom/android/internal/app/IAppOpsCallback$Stub;-><init>()V
@@ -33,7 +36,12 @@
 # virtual methods
 .method public opChanged(IILjava/lang/String;)V
     .locals 2
+    .param p1, "op"    # I
+    .param p2, "uid"    # I
+    .param p3, "packageName"    # Ljava/lang/String;
 
+    .prologue
+    .line 71
     iget-object v0, p0, Landroid/media/PlayerBase$1;->this$0:Landroid/media/PlayerBase;
 
     invoke-static {v0}, Landroid/media/PlayerBase;->-get0(Landroid/media/PlayerBase;)Ljava/lang/Object;
@@ -42,10 +50,12 @@
 
     monitor-enter v1
 
+    .line 72
     const/16 v0, 0x1c
 
     if-ne p1, v0, :cond_0
 
+    .line 73
     :try_start_0
     iget-object v0, p0, Landroid/media/PlayerBase$1;->this$0:Landroid/media/PlayerBase;
 
@@ -56,8 +66,10 @@
     :cond_0
     monitor-exit v1
 
+    .line 70
     return-void
 
+    .line 71
     :catchall_0
     move-exception v0
 

@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 823
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,53 +42,67 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/net/NetworkCapabilities;
     .locals 4
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 826
     new-instance v0, Landroid/net/NetworkCapabilities;
 
     invoke-direct {v0}, Landroid/net/NetworkCapabilities;-><init>()V
 
+    .line 828
+    .local v0, "netCap":Landroid/net/NetworkCapabilities;
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v2
 
     invoke-static {v0, v2, v3}, Landroid/net/NetworkCapabilities;->-set2(Landroid/net/NetworkCapabilities;J)J
 
+    .line 829
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v2
 
     invoke-static {v0, v2, v3}, Landroid/net/NetworkCapabilities;->-set5(Landroid/net/NetworkCapabilities;J)J
 
+    .line 830
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     invoke-static {v0, v1}, Landroid/net/NetworkCapabilities;->-set1(Landroid/net/NetworkCapabilities;I)I
 
+    .line 831
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     invoke-static {v0, v1}, Landroid/net/NetworkCapabilities;->-set0(Landroid/net/NetworkCapabilities;I)I
 
+    .line 832
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
     invoke-static {v0, v1}, Landroid/net/NetworkCapabilities;->-set3(Landroid/net/NetworkCapabilities;Ljava/lang/String;)Ljava/lang/String;
 
+    .line 833
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     invoke-static {v0, v1}, Landroid/net/NetworkCapabilities;->-set4(Landroid/net/NetworkCapabilities;I)I
 
+    .line 834
     return-object v0
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 825
     invoke-virtual {p0, p1}, Landroid/net/NetworkCapabilities$1;->createFromParcel(Landroid/os/Parcel;)Landroid/net/NetworkCapabilities;
 
     move-result-object v0
@@ -96,7 +112,10 @@
 
 .method public newArray(I)[Landroid/net/NetworkCapabilities;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 838
     new-array v0, p1, [Landroid/net/NetworkCapabilities;
 
     return-object v0
@@ -104,7 +123,10 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 837
     invoke-virtual {p0, p1}, Landroid/net/NetworkCapabilities$1;->newArray(I)[Landroid/net/NetworkCapabilities;
 
     move-result-object v0

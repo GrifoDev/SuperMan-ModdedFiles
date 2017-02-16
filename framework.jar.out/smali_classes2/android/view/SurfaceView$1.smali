@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Landroid/view/SurfaceView;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/view/SurfaceView;
 
+    .prologue
+    .line 141
     iput-object p1, p0, Landroid/view/SurfaceView$1;->this$0:Landroid/view/SurfaceView;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -33,16 +36,21 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 144
     iget v1, p1, Landroid/os/Message;->what:I
 
     packed-switch v1, :pswitch_data_0
 
+    .line 143
     :goto_0
     return-void
 
+    .line 146
     :pswitch_0
     iget-object v1, p0, Landroid/view/SurfaceView$1;->this$0:Landroid/view/SurfaceView;
 
@@ -57,6 +65,7 @@
 
     goto :goto_0
 
+    .line 149
     :pswitch_1
     iget-object v0, p0, Landroid/view/SurfaceView$1;->this$0:Landroid/view/SurfaceView;
 
@@ -64,6 +73,7 @@
 
     goto :goto_0
 
+    .line 152
     :pswitch_2
     iget-object v1, p0, Landroid/view/SurfaceView$1;->this$0:Landroid/view/SurfaceView;
 
@@ -71,6 +81,7 @@
 
     goto :goto_0
 
+    .line 144
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

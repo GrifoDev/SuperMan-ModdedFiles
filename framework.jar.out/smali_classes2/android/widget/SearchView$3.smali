@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Landroid/widget/SearchView;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/widget/SearchView;
 
+    .prologue
+    .line 204
     iput-object p1, p0, Landroid/widget/SearchView$3;->this$0:Landroid/widget/SearchView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,8 +40,10 @@
 .method public run()V
     .locals 2
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 206
     iget-object v0, p0, Landroid/widget/SearchView$3;->this$0:Landroid/widget/SearchView;
 
     invoke-static {v0}, Landroid/widget/SearchView;->-get7(Landroid/widget/SearchView;)Landroid/widget/CursorAdapter;
@@ -57,6 +62,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 207
     iget-object v0, p0, Landroid/widget/SearchView$3;->this$0:Landroid/widget/SearchView;
 
     invoke-static {v0}, Landroid/widget/SearchView;->-get7(Landroid/widget/SearchView;)Landroid/widget/CursorAdapter;
@@ -65,6 +71,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/CursorAdapter;->changeCursor(Landroid/database/Cursor;)V
 
+    .line 205
     :cond_0
     return-void
 .end method

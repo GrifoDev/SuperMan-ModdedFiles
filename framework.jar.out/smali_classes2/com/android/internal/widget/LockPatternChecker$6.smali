@@ -40,7 +40,14 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/widget/LockPatternUtils;ILjava/lang/String;ILcom/android/internal/widget/LockPatternChecker$OnCheckCallback;)V
     .locals 0
+    .param p1, "val$utils"    # Lcom/android/internal/widget/LockPatternUtils;
+    .param p2, "val$whichlock"    # I
+    .param p3, "val$password"    # Ljava/lang/String;
+    .param p4, "val$userId"    # I
+    .param p5, "val$callback"    # Lcom/android/internal/widget/LockPatternChecker$OnCheckCallback;
 
+    .prologue
+    .line 256
     iput-object p1, p0, Lcom/android/internal/widget/LockPatternChecker$6;->val$utils:Lcom/android/internal/widget/LockPatternUtils;
 
     iput p2, p0, Lcom/android/internal/widget/LockPatternChecker$6;->val$whichlock:I
@@ -60,7 +67,10 @@
 # virtual methods
 .method protected varargs doInBackground([Ljava/lang/Void;)Ljava/lang/Boolean;
     .locals 4
+    .param p1, "args"    # [Ljava/lang/Void;
 
+    .prologue
+    .line 259
     iget-object v0, p0, Lcom/android/internal/widget/LockPatternChecker$6;->val$utils:Lcom/android/internal/widget/LockPatternUtils;
 
     iget v1, p0, Lcom/android/internal/widget/LockPatternChecker$6;->val$whichlock:I
@@ -82,9 +92,13 @@
 
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
+    .param p1, "args"    # [Ljava/lang/Object;
 
+    .prologue
+    .line 258
     check-cast p1, [Ljava/lang/Void;
 
+    .end local p1    # "args":[Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/android/internal/widget/LockPatternChecker$6;->doInBackground([Ljava/lang/Void;)Ljava/lang/Boolean;
 
     move-result-object v0
@@ -94,7 +108,10 @@
 
 .method protected onPostExecute(Ljava/lang/Boolean;)V
     .locals 3
+    .param p1, "result"    # Ljava/lang/Boolean;
 
+    .prologue
+    .line 264
     iget-object v0, p0, Lcom/android/internal/widget/LockPatternChecker$6;->val$callback:Lcom/android/internal/widget/LockPatternChecker$OnCheckCallback;
 
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
@@ -105,14 +122,19 @@
 
     invoke-interface {v0, v1, v2}, Lcom/android/internal/widget/LockPatternChecker$OnCheckCallback;->onChecked(ZI)V
 
+    .line 263
     return-void
 .end method
 
 .method protected bridge synthetic onPostExecute(Ljava/lang/Object;)V
     .locals 0
+    .param p1, "result"    # Ljava/lang/Object;
 
+    .prologue
+    .line 263
     check-cast p1, Ljava/lang/Boolean;
 
+    .end local p1    # "result":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/android/internal/widget/LockPatternChecker$6;->onPostExecute(Ljava/lang/Boolean;)V
 
     return-void

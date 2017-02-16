@@ -15,14 +15,18 @@
 .method public constructor <init>()V
     .locals 2
 
+    .prologue
+    .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 29
     const-string/jumbo v0, "SemClientCertificateManager"
 
     const-string/jumbo v1, "CCMServiceManager"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 30
     const-string/jumbo v0, "knox_ccm_policy"
 
     invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
@@ -35,16 +39,19 @@
 
     iput-object v0, p0, Lcom/samsung/android/knox/ccm/SemClientCertificateManager;->mCCMService:Lcom/samsung/android/knox/keystore/IClientCertificateManager;
 
+    .line 31
     iget-object v0, p0, Lcom/samsung/android/knox/ccm/SemClientCertificateManager;->mCCMService:Lcom/samsung/android/knox/keystore/IClientCertificateManager;
 
     if-nez v0, :cond_0
 
+    .line 32
     const-string/jumbo v0, "SemClientCertificateManager"
 
     const-string/jumbo v1, "failed to get CCM Service"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 28
     :cond_0
     return-void
 .end method
@@ -54,26 +61,32 @@
 .method public setDefaultClientCertificateManagerProfile()Z
     .locals 6
 
+    .prologue
     const/4 v5, 0x0
 
+    .line 44
     const-string/jumbo v2, "SemClientCertificateManager"
 
     const-string/jumbo v3, "setDefaultClientCertificateManagerProfile"
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 45
     iget-object v2, p0, Lcom/samsung/android/knox/ccm/SemClientCertificateManager;->mCCMService:Lcom/samsung/android/knox/keystore/IClientCertificateManager;
 
     if-nez v2, :cond_0
 
+    .line 46
     const-string/jumbo v2, "SemClientCertificateManager"
 
     const-string/jumbo v3, "failed to get CCM Service"
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 47
     return v5
 
+    .line 51
     :cond_0
     :try_start_0
     iget-object v2, p0, Lcom/samsung/android/knox/ccm/SemClientCertificateManager;->mCCMService:Lcom/samsung/android/knox/keystore/IClientCertificateManager;
@@ -87,9 +100,12 @@
 
     return v2
 
+    .line 55
     :catch_0
     move-exception v1
 
+    .line 56
+    .local v1, "e":Ljava/lang/Exception;
     const-string/jumbo v2, "SemClientCertificateManager"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -116,11 +132,16 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 57
     return v5
 
+    .line 52
+    .end local v1    # "e":Ljava/lang/Exception;
     :catch_1
     move-exception v0
 
+    .line 53
+    .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v2, "SemClientCertificateManager"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -147,5 +168,6 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 54
     return v5
 .end method

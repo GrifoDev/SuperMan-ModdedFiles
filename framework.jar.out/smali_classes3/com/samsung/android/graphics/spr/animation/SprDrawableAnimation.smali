@@ -31,17 +31,25 @@
 # direct methods
 .method public constructor <init>(BLandroid/graphics/drawable/Drawable;Lcom/samsung/android/graphics/spr/document/SprDocument;)V
     .locals 2
+    .param p1, "type"    # B
+    .param p2, "drawable"    # Landroid/graphics/drawable/Drawable;
+    .param p3, "document"    # Lcom/samsung/android/graphics/spr/document/SprDocument;
 
+    .prologue
     const/16 v0, 0x10
 
+    .line 20
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 18
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimation;->mIsRunning:Z
 
+    .line 21
     if-nez p2, :cond_0
 
+    .line 22
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string/jumbo v1, "A drawable is not allocated."
@@ -50,9 +58,11 @@
 
     throw v0
 
+    .line 24
     :cond_0
     if-nez p3, :cond_1
 
+    .line 25
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string/jumbo v1, "A document is not allocated."
@@ -61,13 +71,17 @@
 
     throw v0
 
+    .line 28
     :cond_1
     iput-byte p1, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimation;->mType:B
 
+    .line 29
     iput-object p2, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimation;->mDrawable:Landroid/graphics/drawable/Drawable;
 
+    .line 30
     iput-object p3, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimation;->mDocument:Lcom/samsung/android/graphics/spr/document/SprDocument;
 
+    .line 31
     iget-object v1, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimation;->mDocument:Lcom/samsung/android/graphics/spr/document/SprDocument;
 
     iget v1, v1, Lcom/samsung/android/graphics/spr/document/SprDocument;->mAnimationInterval:I
@@ -77,8 +91,10 @@
     :goto_0
     iput v0, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimation;->mInterval:I
 
+    .line 20
     return-void
 
+    .line 32
     :cond_2
     iget-object v0, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimation;->mDocument:Lcom/samsung/android/graphics/spr/document/SprDocument;
 
@@ -92,6 +108,8 @@
 .method public getAnimationIndex()I
     .locals 1
 
+    .prologue
+    .line 49
     const/4 v0, 0x0
 
     return v0
@@ -100,6 +118,8 @@
 .method public isRunning()Z
     .locals 1
 
+    .prologue
+    .line 56
     iget-boolean v0, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimation;->mIsRunning:Z
 
     return v0
@@ -108,36 +128,47 @@
 .method public start()V
     .locals 1
 
+    .prologue
+    .line 36
     iget-boolean v0, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimation;->mIsRunning:Z
 
     if-eqz v0, :cond_0
 
+    .line 37
     invoke-virtual {p0}, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimation;->stop()V
 
+    .line 40
     :cond_0
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimation;->mIsRunning:Z
 
+    .line 35
     return-void
 .end method
 
 .method public stop()V
     .locals 1
 
+    .prologue
+    .line 44
     iget-object v0, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimation;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0, p0}, Landroid/graphics/drawable/Drawable;->unscheduleSelf(Ljava/lang/Runnable;)V
 
+    .line 45
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimation;->mIsRunning:Z
 
+    .line 43
     return-void
 .end method
 
 .method public update()V
     .locals 0
 
+    .prologue
+    .line 52
     return-void
 .end method

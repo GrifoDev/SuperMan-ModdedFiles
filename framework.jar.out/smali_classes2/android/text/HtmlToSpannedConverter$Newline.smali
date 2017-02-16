@@ -29,10 +29,15 @@
 
 .method public constructor <init>(I)V
     .locals 0
+    .param p1, "numNewlines"    # I
 
+    .prologue
+    .line 1330
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 1331
     iput p1, p0, Landroid/text/HtmlToSpannedConverter$Newline;->mNumNewlines:I
 
+    .line 1330
     return-void
 .end method

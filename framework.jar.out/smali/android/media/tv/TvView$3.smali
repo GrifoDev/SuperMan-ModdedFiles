@@ -21,7 +21,13 @@
 # direct methods
 .method constructor <init>(Landroid/media/tv/TvView;Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 0
+    .param p1, "this$0"    # Landroid/media/tv/TvView;
+    .param p2, "$anonymous0"    # Landroid/content/Context;
+    .param p3, "$anonymous1"    # Landroid/util/AttributeSet;
+    .param p4, "$anonymous2"    # I
 
+    .prologue
+    .line 777
     iput-object p1, p0, Landroid/media/tv/TvView$3;->this$0:Landroid/media/tv/TvView;
 
     invoke-direct {p0, p2, p3, p4}, Landroid/view/SurfaceView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
@@ -33,12 +39,18 @@
 # virtual methods
 .method protected updateWindow(ZZ)V
     .locals 1
+    .param p1, "force"    # Z
+    .param p2, "redrawNeeded"    # Z
 
+    .prologue
+    .line 780
     invoke-super {p0, p1, p2}, Landroid/view/SurfaceView;->updateWindow(ZZ)V
 
+    .line 781
     iget-object v0, p0, Landroid/media/tv/TvView$3;->this$0:Landroid/media/tv/TvView;
 
     invoke-static {v0}, Landroid/media/tv/TvView;->-wrap3(Landroid/media/tv/TvView;)V
 
+    .line 779
     return-void
 .end method

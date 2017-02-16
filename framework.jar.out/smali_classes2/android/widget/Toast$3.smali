@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Landroid/widget/Toast;)V
     .locals 0
+    .param p1, "val$result"    # Landroid/widget/Toast;
 
+    .prologue
+    .line 431
     iput-object p1, p0, Landroid/widget/Toast$3;->val$result:Landroid/widget/Toast;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +39,11 @@
 # virtual methods
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
     .locals 3
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "event"    # Landroid/view/MotionEvent;
 
+    .prologue
+    .line 433
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
@@ -51,6 +58,7 @@
 
     if-ne v0, v1, :cond_2
 
+    .line 434
     :cond_0
     sget-boolean v0, Landroid/widget/Toast;->localLOGV:Z
 
@@ -78,11 +86,13 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 435
     :cond_1
     iget-object v0, p0, Landroid/widget/Toast$3;->val$result:Landroid/widget/Toast;
 
     invoke-virtual {v0}, Landroid/widget/Toast;->cancel()V
 
+    .line 437
     :cond_2
     const/4 v0, 0x1
 

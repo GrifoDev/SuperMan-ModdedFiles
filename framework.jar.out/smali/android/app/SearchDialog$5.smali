@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Landroid/app/SearchDialog;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/app/SearchDialog;
 
+    .prologue
+    .line 176
     iput-object p1, p0, Landroid/app/SearchDialog$5;->this$0:Landroid/app/SearchDialog;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,10 +39,14 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 1
+    .param p1, "v"    # Landroid/view/View;
 
+    .prologue
+    .line 179
     iget-object v0, p0, Landroid/app/SearchDialog$5;->this$0:Landroid/app/SearchDialog;
 
     invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
+    .line 178
     return-void
 .end method

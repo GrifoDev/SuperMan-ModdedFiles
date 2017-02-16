@@ -63,12 +63,16 @@
 .method private constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 71
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 61
     const/16 v0, 0x4000
 
     iput v0, p0, Landroid/mtp/MtpEvent;->mEventCode:I
 
+    .line 71
     return-void
 .end method
 
@@ -77,10 +81,13 @@
 .method public getDevicePropCode()I
     .locals 3
 
+    .prologue
+    .line 153
     iget v0, p0, Landroid/mtp/MtpEvent;->mEventCode:I
 
     packed-switch v0, :pswitch_data_0
 
+    .line 157
     new-instance v0, Landroid/mtp/MtpEvent$IllegalParameterAccess;
 
     const-string/jumbo v1, "devicePropCode"
@@ -91,11 +98,13 @@
 
     throw v0
 
+    .line 155
     :pswitch_0
     iget v0, p0, Landroid/mtp/MtpEvent;->mParameter1:I
 
     return v0
 
+    .line 153
     nop
 
     :pswitch_data_0
@@ -107,6 +116,8 @@
 .method public getEventCode()I
     .locals 1
 
+    .prologue
+    .line 78
     iget v0, p0, Landroid/mtp/MtpEvent;->mEventCode:I
 
     return v0
@@ -115,10 +126,13 @@
 .method public getObjectFormatCode()I
     .locals 3
 
+    .prologue
+    .line 198
     iget v0, p0, Landroid/mtp/MtpEvent;->mEventCode:I
 
     packed-switch v0, :pswitch_data_0
 
+    .line 202
     new-instance v0, Landroid/mtp/MtpEvent$IllegalParameterAccess;
 
     const-string/jumbo v1, "objectFormatCode"
@@ -129,11 +143,13 @@
 
     throw v0
 
+    .line 200
     :pswitch_0
     iget v0, p0, Landroid/mtp/MtpEvent;->mParameter2:I
 
     return v0
 
+    .line 198
     nop
 
     :pswitch_data_0
@@ -145,10 +161,13 @@
 .method public getObjectHandle()I
     .locals 3
 
+    .prologue
+    .line 106
     iget v0, p0, Landroid/mtp/MtpEvent;->mEventCode:I
 
     sparse-switch v0, :sswitch_data_0
 
+    .line 120
     new-instance v0, Landroid/mtp/MtpEvent$IllegalParameterAccess;
 
     const-string/jumbo v1, "objectHandle"
@@ -159,36 +178,43 @@
 
     throw v0
 
+    .line 108
     :sswitch_0
     iget v0, p0, Landroid/mtp/MtpEvent;->mParameter1:I
 
     return v0
 
+    .line 110
     :sswitch_1
     iget v0, p0, Landroid/mtp/MtpEvent;->mParameter1:I
 
     return v0
 
+    .line 112
     :sswitch_2
     iget v0, p0, Landroid/mtp/MtpEvent;->mParameter1:I
 
     return v0
 
+    .line 114
     :sswitch_3
     iget v0, p0, Landroid/mtp/MtpEvent;->mParameter1:I
 
     return v0
 
+    .line 116
     :sswitch_4
     iget v0, p0, Landroid/mtp/MtpEvent;->mParameter1:I
 
     return v0
 
+    .line 118
     :sswitch_5
     iget v0, p0, Landroid/mtp/MtpEvent;->mParameter1:I
 
     return v0
 
+    .line 106
     :sswitch_data_0
     .sparse-switch
         0x4002 -> :sswitch_0
@@ -203,10 +229,13 @@
 .method public getObjectPropCode()I
     .locals 3
 
+    .prologue
+    .line 182
     iget v0, p0, Landroid/mtp/MtpEvent;->mEventCode:I
 
     packed-switch v0, :pswitch_data_0
 
+    .line 188
     new-instance v0, Landroid/mtp/MtpEvent$IllegalParameterAccess;
 
     const-string/jumbo v1, "objectPropCode"
@@ -217,16 +246,19 @@
 
     throw v0
 
+    .line 184
     :pswitch_0
     iget v0, p0, Landroid/mtp/MtpEvent;->mParameter2:I
 
     return v0
 
+    .line 186
     :pswitch_1
     iget v0, p0, Landroid/mtp/MtpEvent;->mParameter1:I
 
     return v0
 
+    .line 182
     :pswitch_data_0
     .packed-switch 0xc801
         :pswitch_0
@@ -237,6 +269,8 @@
 .method public getParameter1()I
     .locals 1
 
+    .prologue
+    .line 83
     iget v0, p0, Landroid/mtp/MtpEvent;->mParameter1:I
 
     return v0
@@ -245,6 +279,8 @@
 .method public getParameter2()I
     .locals 1
 
+    .prologue
+    .line 88
     iget v0, p0, Landroid/mtp/MtpEvent;->mParameter2:I
 
     return v0
@@ -253,6 +289,8 @@
 .method public getParameter3()I
     .locals 1
 
+    .prologue
+    .line 93
     iget v0, p0, Landroid/mtp/MtpEvent;->mParameter3:I
 
     return v0
@@ -261,10 +299,13 @@
 .method public getStorageId()I
     .locals 3
 
+    .prologue
+    .line 133
     iget v0, p0, Landroid/mtp/MtpEvent;->mEventCode:I
 
     packed-switch v0, :pswitch_data_0
 
+    .line 143
     :pswitch_0
     new-instance v0, Landroid/mtp/MtpEvent$IllegalParameterAccess;
 
@@ -276,26 +317,31 @@
 
     throw v0
 
+    .line 135
     :pswitch_1
     iget v0, p0, Landroid/mtp/MtpEvent;->mParameter1:I
 
     return v0
 
+    .line 137
     :pswitch_2
     iget v0, p0, Landroid/mtp/MtpEvent;->mParameter1:I
 
     return v0
 
+    .line 139
     :pswitch_3
     iget v0, p0, Landroid/mtp/MtpEvent;->mParameter1:I
 
     return v0
 
+    .line 141
     :pswitch_4
     iget v0, p0, Landroid/mtp/MtpEvent;->mParameter1:I
 
     return v0
 
+    .line 133
     :pswitch_data_0
     .packed-switch 0x4004
         :pswitch_1
@@ -313,10 +359,13 @@
 .method public getTransactionId()I
     .locals 3
 
+    .prologue
+    .line 167
     iget v0, p0, Landroid/mtp/MtpEvent;->mEventCode:I
 
     packed-switch v0, :pswitch_data_0
 
+    .line 171
     new-instance v0, Landroid/mtp/MtpEvent$IllegalParameterAccess;
 
     const-string/jumbo v1, "transactionID"
@@ -327,11 +376,13 @@
 
     throw v0
 
+    .line 169
     :pswitch_0
     iget v0, p0, Landroid/mtp/MtpEvent;->mParameter1:I
 
     return v0
 
+    .line 167
     nop
 
     :pswitch_data_0

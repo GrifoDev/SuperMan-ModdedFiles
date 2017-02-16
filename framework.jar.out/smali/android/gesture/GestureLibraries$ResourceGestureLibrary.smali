@@ -32,17 +32,24 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;I)V
     .locals 1
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "resourceId"    # I
 
+    .prologue
+    .line 113
     invoke-direct {p0}, Landroid/gesture/GestureLibrary;-><init>()V
 
+    .line 114
     new-instance v0, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
     iput-object v0, p0, Landroid/gesture/GestureLibraries$ResourceGestureLibrary;->mContext:Ljava/lang/ref/WeakReference;
 
+    .line 115
     iput p2, p0, Landroid/gesture/GestureLibraries$ResourceGestureLibrary;->mResourceId:I
 
+    .line 113
     return-void
 .end method
 
@@ -51,6 +58,8 @@
 .method public isReadOnly()Z
     .locals 1
 
+    .prologue
+    .line 120
     const/4 v0, 0x1
 
     return v0
@@ -59,8 +68,12 @@
 .method public load()Z
     .locals 8
 
+    .prologue
+    .line 128
     const/4 v3, 0x0
 
+    .line 129
+    .local v3, "result":Z
     iget-object v4, p0, Landroid/gesture/GestureLibraries$ResourceGestureLibrary;->mContext:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v4}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
@@ -69,8 +82,11 @@
 
     check-cast v0, Landroid/content/Context;
 
+    .line 130
+    .local v0, "context":Landroid/content/Context;
     if-eqz v0, :cond_0
 
+    .line 131
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v4
@@ -81,6 +97,8 @@
 
     move-result-object v2
 
+    .line 133
+    .local v2, "in":Ljava/io/InputStream;
     :try_start_0
     iget-object v4, p0, Landroid/gesture/GestureLibrary;->mStore:Landroid/gesture/GestureStore;
 
@@ -90,15 +108,22 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 134
     const/4 v3, 0x1
 
+    .line 141
+    .end local v2    # "in":Ljava/io/InputStream;
     :cond_0
     :goto_0
     return v3
 
+    .line 135
+    .restart local v2    # "in":Ljava/io/InputStream;
     :catch_0
     move-exception v1
 
+    .line 136
+    .local v1, "e":Ljava/io/IOException;
     const-string/jumbo v4, "Gestures"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -111,6 +136,7 @@
 
     move-result-object v5
 
+    .line 137
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v6
@@ -121,6 +147,7 @@
 
     move-result-object v6
 
+    .line 136
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
@@ -137,6 +164,8 @@
 .method public save()Z
     .locals 1
 
+    .prologue
+    .line 124
     const/4 v0, 0x0
 
     return v0

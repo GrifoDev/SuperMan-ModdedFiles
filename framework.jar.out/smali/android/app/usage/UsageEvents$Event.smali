@@ -48,6 +48,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -58,6 +60,8 @@
 .method public getClassName()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 119
     iget-object v0, p0, Landroid/app/usage/UsageEvents$Event;->mClass:Ljava/lang/String;
 
     return-object v0
@@ -66,6 +70,8 @@
 .method public getConfiguration()Landroid/content/res/Configuration;
     .locals 1
 
+    .prologue
+    .line 146
     iget-object v0, p0, Landroid/app/usage/UsageEvents$Event;->mConfiguration:Landroid/content/res/Configuration;
 
     return-object v0
@@ -74,6 +80,8 @@
 .method public getEventType()I
     .locals 1
 
+    .prologue
+    .line 138
     iget v0, p0, Landroid/app/usage/UsageEvents$Event;->mEventType:I
 
     return v0
@@ -82,6 +90,8 @@
 .method public getPackageName()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 111
     iget-object v0, p0, Landroid/app/usage/UsageEvents$Event;->mPackage:Ljava/lang/String;
 
     return-object v0
@@ -90,6 +100,8 @@
 .method public getTimeStamp()J
     .locals 2
 
+    .prologue
+    .line 128
     iget-wide v0, p0, Landroid/app/usage/UsageEvents$Event;->mTimeStamp:J
 
     return-wide v0

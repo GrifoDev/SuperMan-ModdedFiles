@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Landroid/app/ListFragment;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/app/ListFragment;
 
+    .prologue
+    .line 151
     iput-object p1, p0, Landroid/app/ListFragment$1;->this$0:Landroid/app/ListFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +40,8 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 153
     iget-object v0, p0, Landroid/app/ListFragment$1;->this$0:Landroid/app/ListFragment;
 
     iget-object v0, v0, Landroid/app/ListFragment;->mList:Landroid/widget/ListView;
@@ -47,5 +52,6 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ListView;->focusableViewAvailable(Landroid/view/View;)V
 
+    .line 152
     return-void
 .end method

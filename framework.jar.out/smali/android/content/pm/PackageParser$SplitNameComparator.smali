@@ -31,6 +31,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 719
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -39,6 +41,7 @@
 .method synthetic constructor <init>(Landroid/content/pm/PackageParser$SplitNameComparator;)V
     .locals 0
 
+    .prologue
     invoke-direct {p0}, Landroid/content/pm/PackageParser$SplitNameComparator;-><init>()V
 
     return-void
@@ -48,11 +51,17 @@
 # virtual methods
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
+    .param p1, "lhs"    # Ljava/lang/Object;
+    .param p2, "rhs"    # Ljava/lang/Object;
 
+    .prologue
+    .line 721
     check-cast p1, Ljava/lang/String;
 
+    .end local p1    # "lhs":Ljava/lang/Object;
     check-cast p2, Ljava/lang/String;
 
+    .end local p2    # "rhs":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Landroid/content/pm/PackageParser$SplitNameComparator;->compare(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
@@ -62,20 +71,28 @@
 
 .method public compare(Ljava/lang/String;Ljava/lang/String;)I
     .locals 1
+    .param p1, "lhs"    # Ljava/lang/String;
+    .param p2, "rhs"    # Ljava/lang/String;
 
+    .prologue
+    .line 722
     if-nez p1, :cond_0
 
+    .line 723
     const/4 v0, -0x1
 
     return v0
 
+    .line 724
     :cond_0
     if-nez p2, :cond_1
 
+    .line 725
     const/4 v0, 0x1
 
     return v0
 
+    .line 727
     :cond_1
     invoke-virtual {p1, p2}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
 

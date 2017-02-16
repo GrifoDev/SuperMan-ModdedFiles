@@ -21,7 +21,10 @@
 # direct methods
 .method private constructor <init>(Landroid/service/notification/ConditionProviderService;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/service/notification/ConditionProviderService;
 
+    .prologue
+    .line 171
     iput-object p1, p0, Landroid/service/notification/ConditionProviderService$Provider;->this$0:Landroid/service/notification/ConditionProviderService;
 
     invoke-direct {p0}, Landroid/service/notification/IConditionProvider$Stub;-><init>()V
@@ -31,7 +34,9 @@
 
 .method synthetic constructor <init>(Landroid/service/notification/ConditionProviderService;Landroid/service/notification/ConditionProviderService$Provider;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/service/notification/ConditionProviderService;
 
+    .prologue
     invoke-direct {p0, p1}, Landroid/service/notification/ConditionProviderService$Provider;-><init>(Landroid/service/notification/ConditionProviderService;)V
 
     return-void
@@ -42,6 +47,8 @@
 .method public onConnected()V
     .locals 2
 
+    .prologue
+    .line 174
     iget-object v0, p0, Landroid/service/notification/ConditionProviderService$Provider;->this$0:Landroid/service/notification/ConditionProviderService;
 
     invoke-static {v0}, Landroid/service/notification/ConditionProviderService;->-get1(Landroid/service/notification/ConditionProviderService;)Landroid/service/notification/ConditionProviderService$H;
@@ -56,12 +63,16 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
+    .line 173
     return-void
 .end method
 
 .method public onSubscribe(Landroid/net/Uri;)V
     .locals 2
+    .param p1, "conditionId"    # Landroid/net/Uri;
 
+    .prologue
+    .line 179
     iget-object v0, p0, Landroid/service/notification/ConditionProviderService$Provider;->this$0:Landroid/service/notification/ConditionProviderService;
 
     invoke-static {v0}, Landroid/service/notification/ConditionProviderService;->-get1(Landroid/service/notification/ConditionProviderService;)Landroid/service/notification/ConditionProviderService$H;
@@ -76,12 +87,16 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
+    .line 178
     return-void
 .end method
 
 .method public onUnsubscribe(Landroid/net/Uri;)V
     .locals 2
+    .param p1, "conditionId"    # Landroid/net/Uri;
 
+    .prologue
+    .line 184
     iget-object v0, p0, Landroid/service/notification/ConditionProviderService$Provider;->this$0:Landroid/service/notification/ConditionProviderService;
 
     invoke-static {v0}, Landroid/service/notification/ConditionProviderService;->-get1(Landroid/service/notification/ConditionProviderService;)Landroid/service/notification/ConditionProviderService$H;
@@ -96,5 +111,6 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
+    .line 183
     return-void
 .end method

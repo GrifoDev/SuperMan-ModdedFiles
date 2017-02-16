@@ -26,7 +26,11 @@
 # direct methods
 .method constructor <init>(Landroid/app/ActivityView$SerialExecutor;Ljava/lang/Runnable;)V
     .locals 0
+    .param p1, "this$1"    # Landroid/app/ActivityView$SerialExecutor;
+    .param p2, "val$r"    # Ljava/lang/Runnable;
 
+    .prologue
+    .line 93
     iput-object p1, p0, Landroid/app/ActivityView$SerialExecutor$1;->this$1:Landroid/app/ActivityView$SerialExecutor;
 
     iput-object p2, p0, Landroid/app/ActivityView$SerialExecutor$1;->val$r:Ljava/lang/Runnable;
@@ -41,6 +45,8 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 96
     :try_start_0
     iget-object v0, p0, Landroid/app/ActivityView$SerialExecutor$1;->val$r:Ljava/lang/Runnable;
 
@@ -48,18 +54,23 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 98
     iget-object v0, p0, Landroid/app/ActivityView$SerialExecutor$1;->this$1:Landroid/app/ActivityView$SerialExecutor;
 
     invoke-virtual {v0}, Landroid/app/ActivityView$SerialExecutor;->scheduleNext()V
 
+    .line 94
     return-void
 
+    .line 97
     :catchall_0
     move-exception v0
 
+    .line 98
     iget-object v1, p0, Landroid/app/ActivityView$SerialExecutor$1;->this$1:Landroid/app/ActivityView$SerialExecutor;
 
     invoke-virtual {v1}, Landroid/app/ActivityView$SerialExecutor;->scheduleNext()V
 
+    .line 97
     throw v0
 .end method

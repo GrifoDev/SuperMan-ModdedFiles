@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/contextaware/utilbundle/CaCurrentLocationManager;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/samsung/android/contextaware/utilbundle/CaCurrentLocationManager;
 
+    .prologue
+    .line 223
     iput-object p1, p0, Lcom/samsung/android/contextaware/utilbundle/CaCurrentLocationManager$3;->this$0:Lcom/samsung/android/contextaware/utilbundle/CaCurrentLocationManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +40,8 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 226
     iget-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/CaCurrentLocationManager$3;->this$0:Lcom/samsung/android/contextaware/utilbundle/CaCurrentLocationManager;
 
     invoke-static {v0}, Lcom/samsung/android/contextaware/utilbundle/CaCurrentLocationManager;->-get0(Lcom/samsung/android/contextaware/utilbundle/CaCurrentLocationManager;)Landroid/location/LocationManager;
@@ -51,5 +56,6 @@
 
     invoke-virtual {v0, v1}, Landroid/location/LocationManager;->removeUpdates(Landroid/location/LocationListener;)V
 
+    .line 225
     return-void
 .end method

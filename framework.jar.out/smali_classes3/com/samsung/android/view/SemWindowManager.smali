@@ -25,8 +25,11 @@
 .method private constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 50
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 51
     const-string/jumbo v0, "window"
 
     invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
@@ -39,27 +42,32 @@
 
     iput-object v0, p0, Lcom/samsung/android/view/SemWindowManager;->mWindowManager:Landroid/view/IWindowManager;
 
+    .line 50
     return-void
 .end method
 
 .method public static declared-synchronized getInstance()Lcom/samsung/android/view/SemWindowManager;
     .locals 2
 
+    .prologue
     const-class v1, Lcom/samsung/android/view/SemWindowManager;
 
     monitor-enter v1
 
+    .line 58
     :try_start_0
     sget-object v0, Lcom/samsung/android/view/SemWindowManager;->sInstance:Lcom/samsung/android/view/SemWindowManager;
 
     if-nez v0, :cond_0
 
+    .line 59
     new-instance v0, Lcom/samsung/android/view/SemWindowManager;
 
     invoke-direct {v0}, Lcom/samsung/android/view/SemWindowManager;-><init>()V
 
     sput-object v0, Lcom/samsung/android/view/SemWindowManager;->sInstance:Lcom/samsung/android/view/SemWindowManager;
 
+    .line 61
     :cond_0
     sget-object v0, Lcom/samsung/android/view/SemWindowManager;->sInstance:Lcom/samsung/android/view/SemWindowManager;
     :try_end_0
@@ -82,6 +90,8 @@
 .method public clearForcedDisplaySizeDensity()V
     .locals 3
 
+    .prologue
+    .line 171
     :try_start_0
     iget-object v1, p0, Lcom/samsung/android/view/SemWindowManager;->mWindowManager:Landroid/view/IWindowManager;
 
@@ -91,12 +101,16 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 169
     :goto_0
     return-void
 
+    .line 172
     :catch_0
     move-exception v0
 
+    .line 173
+    .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "SemWindowManager"
 
     const-string/jumbo v2, "Failed to clearForcedDisplaySizeDensity"
@@ -109,6 +123,8 @@
 .method public getUserDensity()I
     .locals 3
 
+    .prologue
+    .line 140
     :try_start_0
     iget-object v1, p0, Lcom/samsung/android/view/SemWindowManager;->mWindowManager:Landroid/view/IWindowManager;
 
@@ -122,15 +138,19 @@
 
     return v1
 
+    .line 141
     :catch_0
     move-exception v0
 
+    .line 142
+    .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "SemWindowManager"
 
     const-string/jumbo v2, "Failed to getDefaultDisplayDensity"
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
+    .line 144
     const/4 v1, -0x1
 
     return v1
@@ -148,6 +168,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 248
     :try_start_0
     iget-object v1, p0, Lcom/samsung/android/view/SemWindowManager;->mWindowManager:Landroid/view/IWindowManager;
 
@@ -159,15 +181,19 @@
 
     return-object v1
 
+    .line 249
     :catch_0
     move-exception v0
 
+    .line 250
+    .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "SemWindowManager"
 
     const-string/jumbo v2, "Failed to getVisibleWindowInfo"
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
+    .line 253
     const/4 v1, 0x0
 
     return-object v1
@@ -175,7 +201,11 @@
 
 .method public isSystemKeyEventRequested(ILandroid/content/ComponentName;)Z
     .locals 3
+    .param p1, "keyCode"    # I
+    .param p2, "componentName"    # Landroid/content/ComponentName;
 
+    .prologue
+    .line 92
     :try_start_0
     iget-object v1, p0, Lcom/samsung/android/view/SemWindowManager;->mWindowManager:Landroid/view/IWindowManager;
 
@@ -187,15 +217,19 @@
 
     return v1
 
+    .line 93
     :catch_0
     move-exception v0
 
+    .line 94
+    .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "SemWindowManager"
 
     const-string/jumbo v2, "Failed to is systemkeyevent"
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
+    .line 96
     const/4 v1, 0x0
 
     return v1
@@ -203,7 +237,11 @@
 
 .method public requestMetaKeyEvent(Landroid/content/ComponentName;Z)V
     .locals 3
+    .param p1, "componentName"    # Landroid/content/ComponentName;
+    .param p2, "request"    # Z
 
+    .prologue
+    .line 107
     :try_start_0
     iget-object v1, p0, Lcom/samsung/android/view/SemWindowManager;->mWindowManager:Landroid/view/IWindowManager;
 
@@ -211,12 +249,16 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 105
     :goto_0
     return-void
 
+    .line 108
     :catch_0
     move-exception v0
 
+    .line 109
+    .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "SemWindowManager"
 
     const-string/jumbo v2, "Failed to request metakeyevent"
@@ -228,7 +270,12 @@
 
 .method public requestSystemKeyEvent(ILandroid/content/ComponentName;Z)Z
     .locals 3
+    .param p1, "keyCode"    # I
+    .param p2, "componentName"    # Landroid/content/ComponentName;
+    .param p3, "request"    # Z
 
+    .prologue
+    .line 75
     :try_start_0
     iget-object v1, p0, Lcom/samsung/android/view/SemWindowManager;->mWindowManager:Landroid/view/IWindowManager;
 
@@ -240,15 +287,19 @@
 
     return v1
 
+    .line 76
     :catch_0
     move-exception v0
 
+    .line 77
+    .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "SemWindowManager"
 
     const-string/jumbo v2, "Failed to request systemkeyevent"
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
+    .line 79
     const/4 v1, 0x0
 
     return v1
@@ -256,7 +307,12 @@
 
 .method public setForcedDisplaySizeDensity(III)V
     .locals 7
+    .param p1, "width"    # I
+    .param p2, "height"    # I
+    .param p3, "density"    # I
 
+    .prologue
+    .line 158
     :try_start_0
     iget-object v0, p0, Lcom/samsung/android/view/SemWindowManager;->mWindowManager:Landroid/view/IWindowManager;
 
@@ -274,12 +330,16 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 156
     :goto_0
     return-void
 
+    .line 159
     :catch_0
     move-exception v6
 
+    .line 160
+    .local v6, "e":Landroid/os/RemoteException;
     const-string/jumbo v0, "SemWindowManager"
 
     const-string/jumbo v1, "Failed to setForcedDisplaySizeDensity"
@@ -291,17 +351,24 @@
 
 .method public setStartingWindowContentView(Landroid/content/ComponentName;I)V
     .locals 3
+    .param p1, "componentName"    # Landroid/content/ComponentName;
+    .param p2, "resId"    # I
 
+    .prologue
+    .line 120
     if-nez p1, :cond_0
 
+    .line 121
     const-string/jumbo v1, "SemWindowManager"
 
     const-string/jumbo v2, "componentName is null in setStartingWindowContentView"
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 122
     return-void
 
+    .line 125
     :cond_0
     :try_start_0
     iget-object v1, p0, Lcom/samsung/android/view/SemWindowManager;->mWindowManager:Landroid/view/IWindowManager;
@@ -314,12 +381,16 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 119
     :goto_0
     return-void
 
+    .line 126
     :catch_0
     move-exception v0
 
+    .line 127
+    .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "SemWindowManager"
 
     const-string/jumbo v2, "Failed to set StartingWindowContentView"

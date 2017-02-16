@@ -26,11 +26,15 @@
 # direct methods
 .method constructor <init>(Landroid/app/backup/BackupAgent;)V
     .locals 2
+    .param p1, "this$0"    # Landroid/app/backup/BackupAgent;
 
+    .prologue
+    .line 142
     iput-object p1, p0, Landroid/app/backup/BackupAgent$SharedPrefsSynchronizer;->this$0:Landroid/app/backup/BackupAgent;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 143
     new-instance v0, Ljava/util/concurrent/CountDownLatch;
 
     const/4 v1, 0x1
@@ -39,6 +43,7 @@
 
     iput-object v0, p0, Landroid/app/backup/BackupAgent$SharedPrefsSynchronizer;->mLatch:Ljava/util/concurrent/CountDownLatch;
 
+    .line 142
     return-void
 .end method
 
@@ -47,11 +52,15 @@
 .method public run()V
     .locals 1
 
+    .prologue
+    .line 147
     invoke-static {}, Landroid/app/QueuedWork;->waitToFinish()V
 
+    .line 148
     iget-object v0, p0, Landroid/app/backup/BackupAgent$SharedPrefsSynchronizer;->mLatch:Ljava/util/concurrent/CountDownLatch;
 
     invoke-virtual {v0}, Ljava/util/concurrent/CountDownLatch;->countDown()V
 
+    .line 146
     return-void
 .end method

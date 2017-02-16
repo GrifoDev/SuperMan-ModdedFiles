@@ -21,7 +21,10 @@
 # direct methods
 .method private constructor <init>(Landroid/widget/Editor$MagnifierView;)V
     .locals 0
+    .param p1, "this$1"    # Landroid/widget/Editor$MagnifierView;
 
+    .prologue
+    .line 7611
     iput-object p1, p0, Landroid/widget/Editor$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/Editor$MagnifierView;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -31,7 +34,9 @@
 
 .method synthetic constructor <init>(Landroid/widget/Editor$MagnifierView;Landroid/widget/Editor$MagnifierView$UpdateMagnifierHandler;)V
     .locals 0
+    .param p1, "this$1"    # Landroid/widget/Editor$MagnifierView;
 
+    .prologue
     invoke-direct {p0, p1}, Landroid/widget/Editor$MagnifierView$UpdateMagnifierHandler;-><init>(Landroid/widget/Editor$MagnifierView;)V
 
     return-void
@@ -41,25 +46,30 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 7
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
     const/high16 v6, 0x3f000000    # 0.5f
 
     const/4 v5, 0x1
 
     const/4 v4, 0x0
 
+    .line 7614
     const-string/jumbo v0, "Editor"
 
     const-string/jumbo v1, "magnifier update"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 7616
     iget-object v0, p0, Landroid/widget/Editor$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/Editor$MagnifierView;
 
     iget-object v0, v0, Landroid/widget/Editor$MagnifierView;->builder:Landroid/widget/Editor$SFEffectsAPI$Effect$Builder;
 
     invoke-virtual {v0}, Landroid/widget/Editor$SFEffectsAPI$Effect$Builder;->clearAnimations()V
 
+    .line 7617
     iget-object v0, p0, Landroid/widget/Editor$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/Editor$MagnifierView;
 
     iget-object v0, v0, Landroid/widget/Editor$MagnifierView;->builder:Landroid/widget/Editor$SFEffectsAPI$Effect$Builder;
@@ -88,6 +98,7 @@
 
     move-result-object v0
 
+    .line 7618
     sget-object v1, Landroid/widget/Editor$SFEffectsAPI$AnimParam;->kAnimRegionPosY:Landroid/widget/Editor$SFEffectsAPI$AnimParam;
 
     iget-object v2, p0, Landroid/widget/Editor$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/Editor$MagnifierView;
@@ -118,10 +129,12 @@
 
     sget-object v3, Landroid/widget/Editor$SFEffectsAPI$InterpMode;->kInterpHold:Landroid/widget/Editor$SFEffectsAPI$InterpMode;
 
+    .line 7617
     invoke-virtual {v0, v1, v4, v2, v3}, Landroid/widget/Editor$SFEffectsAPI$Effect$Builder;->addPixAnimation(Landroid/widget/Editor$SFEffectsAPI$AnimParam;IFLandroid/widget/Editor$SFEffectsAPI$InterpMode;)Landroid/widget/Editor$SFEffectsAPI$Effect$Builder;
 
     move-result-object v0
 
+    .line 7619
     sget-object v1, Landroid/widget/Editor$SFEffectsAPI$AnimParam;->kAnimRegionSizeX:Landroid/widget/Editor$SFEffectsAPI$AnimParam;
 
     iget-object v2, p0, Landroid/widget/Editor$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/Editor$MagnifierView;
@@ -134,10 +147,12 @@
 
     sget-object v3, Landroid/widget/Editor$SFEffectsAPI$InterpMode;->kInterpHold:Landroid/widget/Editor$SFEffectsAPI$InterpMode;
 
+    .line 7617
     invoke-virtual {v0, v1, v4, v2, v3}, Landroid/widget/Editor$SFEffectsAPI$Effect$Builder;->addPixAnimation(Landroid/widget/Editor$SFEffectsAPI$AnimParam;IFLandroid/widget/Editor$SFEffectsAPI$InterpMode;)Landroid/widget/Editor$SFEffectsAPI$Effect$Builder;
 
     move-result-object v0
 
+    .line 7620
     sget-object v1, Landroid/widget/Editor$SFEffectsAPI$AnimParam;->kAnimRegionSizeY:Landroid/widget/Editor$SFEffectsAPI$AnimParam;
 
     iget-object v2, p0, Landroid/widget/Editor$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/Editor$MagnifierView;
@@ -150,10 +165,12 @@
 
     sget-object v3, Landroid/widget/Editor$SFEffectsAPI$InterpMode;->kInterpHold:Landroid/widget/Editor$SFEffectsAPI$InterpMode;
 
+    .line 7617
     invoke-virtual {v0, v1, v4, v2, v3}, Landroid/widget/Editor$SFEffectsAPI$Effect$Builder;->addPixAnimation(Landroid/widget/Editor$SFEffectsAPI$AnimParam;IFLandroid/widget/Editor$SFEffectsAPI$InterpMode;)Landroid/widget/Editor$SFEffectsAPI$Effect$Builder;
 
     move-result-object v0
 
+    .line 7621
     sget-object v1, Landroid/widget/Editor$SFEffectsAPI$AnimParam;->kAnimRegionOffsetX:Landroid/widget/Editor$SFEffectsAPI$AnimParam;
 
     iget-object v2, p0, Landroid/widget/Editor$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/Editor$MagnifierView;
@@ -176,10 +193,12 @@
 
     sget-object v3, Landroid/widget/Editor$SFEffectsAPI$InterpMode;->kInterpHold:Landroid/widget/Editor$SFEffectsAPI$InterpMode;
 
+    .line 7617
     invoke-virtual {v0, v1, v4, v2, v3}, Landroid/widget/Editor$SFEffectsAPI$Effect$Builder;->addPixAnimation(Landroid/widget/Editor$SFEffectsAPI$AnimParam;IFLandroid/widget/Editor$SFEffectsAPI$InterpMode;)Landroid/widget/Editor$SFEffectsAPI$Effect$Builder;
 
     move-result-object v0
 
+    .line 7622
     sget-object v1, Landroid/widget/Editor$SFEffectsAPI$AnimParam;->kAnimRegionOffsetY:Landroid/widget/Editor$SFEffectsAPI$AnimParam;
 
     iget-object v2, p0, Landroid/widget/Editor$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/Editor$MagnifierView;
@@ -214,26 +233,32 @@
 
     sget-object v3, Landroid/widget/Editor$SFEffectsAPI$InterpMode;->kInterpHold:Landroid/widget/Editor$SFEffectsAPI$InterpMode;
 
+    .line 7617
     invoke-virtual {v0, v1, v4, v2, v3}, Landroid/widget/Editor$SFEffectsAPI$Effect$Builder;->addPixAnimation(Landroid/widget/Editor$SFEffectsAPI$AnimParam;IFLandroid/widget/Editor$SFEffectsAPI$InterpMode;)Landroid/widget/Editor$SFEffectsAPI$Effect$Builder;
 
     move-result-object v0
 
+    .line 7623
     sget-object v1, Landroid/widget/Editor$SFEffectsAPI$AnimParam;->kAnimRegionFactorX:Landroid/widget/Editor$SFEffectsAPI$AnimParam;
 
     sget-object v2, Landroid/widget/Editor$SFEffectsAPI$InterpMode;->kInterpHold:Landroid/widget/Editor$SFEffectsAPI$InterpMode;
 
+    .line 7617
     invoke-virtual {v0, v1, v4, v6, v2}, Landroid/widget/Editor$SFEffectsAPI$Effect$Builder;->addPixAnimation(Landroid/widget/Editor$SFEffectsAPI$AnimParam;IFLandroid/widget/Editor$SFEffectsAPI$InterpMode;)Landroid/widget/Editor$SFEffectsAPI$Effect$Builder;
 
     move-result-object v0
 
+    .line 7624
     sget-object v1, Landroid/widget/Editor$SFEffectsAPI$AnimParam;->kAnimRegionFactorY:Landroid/widget/Editor$SFEffectsAPI$AnimParam;
 
     sget-object v2, Landroid/widget/Editor$SFEffectsAPI$InterpMode;->kInterpHold:Landroid/widget/Editor$SFEffectsAPI$InterpMode;
 
+    .line 7617
     invoke-virtual {v0, v1, v4, v6, v2}, Landroid/widget/Editor$SFEffectsAPI$Effect$Builder;->addPixAnimation(Landroid/widget/Editor$SFEffectsAPI$AnimParam;IFLandroid/widget/Editor$SFEffectsAPI$InterpMode;)Landroid/widget/Editor$SFEffectsAPI$Effect$Builder;
 
     move-result-object v0
 
+    .line 7625
     sget-object v1, Landroid/widget/Editor$SFEffectsAPI$AnimParam;->kAnimRegionSizeT:Landroid/widget/Editor$SFEffectsAPI$AnimParam;
 
     iget-object v2, p0, Landroid/widget/Editor$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/Editor$MagnifierView;
@@ -246,8 +271,10 @@
 
     sget-object v3, Landroid/widget/Editor$SFEffectsAPI$InterpMode;->kInterpHold:Landroid/widget/Editor$SFEffectsAPI$InterpMode;
 
+    .line 7617
     invoke-virtual {v0, v1, v4, v2, v3}, Landroid/widget/Editor$SFEffectsAPI$Effect$Builder;->addPixAnimation(Landroid/widget/Editor$SFEffectsAPI$AnimParam;IFLandroid/widget/Editor$SFEffectsAPI$InterpMode;)Landroid/widget/Editor$SFEffectsAPI$Effect$Builder;
 
+    .line 7627
     iget-object v0, p0, Landroid/widget/Editor$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/Editor$MagnifierView;
 
     iget-object v0, v0, Landroid/widget/Editor$MagnifierView;->builder:Landroid/widget/Editor$SFEffectsAPI$Effect$Builder;
@@ -274,9 +301,11 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/widget/Editor$SFEffectsAPI$Effect;->start(Landroid/content/Context;Landroid/os/IBinder;)V
 
+    .line 7628
     iget-object v0, p0, Landroid/widget/Editor$MagnifierView$UpdateMagnifierHandler;->this$1:Landroid/widget/Editor$MagnifierView;
 
     invoke-static {v0, v4}, Landroid/widget/Editor$MagnifierView;->-set0(Landroid/widget/Editor$MagnifierView;Z)Z
 
+    .line 7613
     return-void
 .end method

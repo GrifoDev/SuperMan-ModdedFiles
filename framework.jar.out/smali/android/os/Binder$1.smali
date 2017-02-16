@@ -27,7 +27,14 @@
 # direct methods
 .method constructor <init>(Landroid/os/Binder;Ljava/lang/String;Ljava/io/PrintWriter;Ljava/io/FileDescriptor;[Ljava/lang/String;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/os/Binder;
+    .param p2, "$anonymous0"    # Ljava/lang/String;
+    .param p3, "val$pw"    # Ljava/io/PrintWriter;
+    .param p4, "val$fd"    # Ljava/io/FileDescriptor;
+    .param p5, "val$args"    # [Ljava/lang/String;
 
+    .prologue
+    .line 442
     iput-object p1, p0, Landroid/os/Binder$1;->this$0:Landroid/os/Binder;
 
     iput-object p3, p0, Landroid/os/Binder$1;->val$pw:Ljava/io/PrintWriter;
@@ -46,6 +53,8 @@
 .method public run()V
     .locals 4
 
+    .prologue
+    .line 445
     :try_start_0
     iget-object v0, p0, Landroid/os/Binder$1;->this$0:Landroid/os/Binder;
 
@@ -59,18 +68,23 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 447
     iget-object v0, p0, Landroid/os/Binder$1;->val$pw:Ljava/io/PrintWriter;
 
     invoke-virtual {v0}, Ljava/io/PrintWriter;->flush()V
 
+    .line 443
     return-void
 
+    .line 446
     :catchall_0
     move-exception v0
 
+    .line 447
     iget-object v1, p0, Landroid/os/Binder$1;->val$pw:Ljava/io/PrintWriter;
 
     invoke-virtual {v1}, Ljava/io/PrintWriter;->flush()V
 
+    .line 446
     throw v0
 .end method

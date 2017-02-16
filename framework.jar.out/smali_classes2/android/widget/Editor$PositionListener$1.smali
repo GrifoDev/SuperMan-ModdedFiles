@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Landroid/widget/Editor$PositionListener;)V
     .locals 0
+    .param p1, "this$1"    # Landroid/widget/Editor$PositionListener;
 
+    .prologue
+    .line 3200
     iput-object p1, p0, Landroid/widget/Editor$PositionListener$1;->this$1:Landroid/widget/Editor$PositionListener;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -33,13 +36,18 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 6
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
     const/4 v4, 0x1
 
+    .line 3203
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Landroid/widget/Editor$TextViewPositionListener;
 
+    .line 3204
+    .local v1, "positionListener":Landroid/widget/Editor$TextViewPositionListener;
     iget-object v0, p0, Landroid/widget/Editor$PositionListener$1;->this$1:Landroid/widget/Editor$PositionListener;
 
     iget-object v2, p0, Landroid/widget/Editor$PositionListener$1;->this$1:Landroid/widget/Editor$PositionListener;
@@ -58,5 +66,6 @@
 
     invoke-static/range {v0 .. v5}, Landroid/widget/Editor$PositionListener;->-wrap0(Landroid/widget/Editor$PositionListener;Landroid/widget/Editor$TextViewPositionListener;IIZZ)V
 
+    .line 3201
     return-void
 .end method

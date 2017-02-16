@@ -23,13 +23,19 @@
 # direct methods
 .method constructor <init>(Landroid/app/BarBeamCommandImpl;Landroid/app/BarBeamListener;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/app/BarBeamCommandImpl;
+    .param p2, "listener"    # Landroid/app/BarBeamListener;
 
+    .prologue
+    .line 253
     iput-object p1, p0, Landroid/app/BarBeamCommandImpl$BarBeamListenerDelegate;->this$0:Landroid/app/BarBeamCommandImpl;
 
     invoke-direct {p0}, Landroid/app/IBarBeamListener$Stub;-><init>()V
 
+    .line 254
     iput-object p2, p0, Landroid/app/BarBeamCommandImpl$BarBeamListenerDelegate;->mListener:Landroid/app/BarBeamListener;
 
+    .line 253
     return-void
 .end method
 
@@ -38,6 +44,8 @@
 .method public getBarBeamListener()Landroid/app/BarBeamListener;
     .locals 1
 
+    .prologue
+    .line 261
     iget-object v0, p0, Landroid/app/BarBeamCommandImpl$BarBeamListenerDelegate;->mListener:Landroid/app/BarBeamListener;
 
     return-object v0
@@ -46,6 +54,8 @@
 .method public getListenerInfo()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 268
     iget-object v0, p0, Landroid/app/BarBeamCommandImpl$BarBeamListenerDelegate;->mListener:Landroid/app/BarBeamListener;
 
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -58,19 +68,25 @@
 .method public onBeamingStarted()V
     .locals 1
 
+    .prologue
+    .line 282
     iget-object v0, p0, Landroid/app/BarBeamCommandImpl$BarBeamListenerDelegate;->mListener:Landroid/app/BarBeamListener;
 
     invoke-interface {v0}, Landroid/app/BarBeamListener;->onBeamingStarted()V
 
+    .line 281
     return-void
 .end method
 
 .method public onBeamingStoppped()V
     .locals 1
 
+    .prologue
+    .line 275
     iget-object v0, p0, Landroid/app/BarBeamCommandImpl$BarBeamListenerDelegate;->mListener:Landroid/app/BarBeamListener;
 
     invoke-interface {v0}, Landroid/app/BarBeamListener;->onBeamingStoppped()V
 
+    .line 274
     return-void
 .end method

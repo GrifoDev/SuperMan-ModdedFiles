@@ -39,6 +39,7 @@
 .method static constructor <clinit>()V
     .locals 7
 
+    .prologue
     const/4 v6, 0x3
 
     const/4 v5, 0x2
@@ -47,6 +48,7 @@
 
     const/4 v3, 0x0
 
+    .line 37
     new-instance v0, Landroid/os/SystemService$State;
 
     const-string/jumbo v1, "RUNNING"
@@ -57,6 +59,7 @@
 
     sput-object v0, Landroid/os/SystemService$State;->RUNNING:Landroid/os/SystemService$State;
 
+    .line 38
     new-instance v0, Landroid/os/SystemService$State;
 
     const-string/jumbo v1, "STOPPING"
@@ -67,6 +70,7 @@
 
     sput-object v0, Landroid/os/SystemService$State;->STOPPING:Landroid/os/SystemService$State;
 
+    .line 39
     new-instance v0, Landroid/os/SystemService$State;
 
     const-string/jumbo v1, "STOPPED"
@@ -77,6 +81,7 @@
 
     sput-object v0, Landroid/os/SystemService$State;->STOPPED:Landroid/os/SystemService$State;
 
+    .line 40
     new-instance v0, Landroid/os/SystemService$State;
 
     const-string/jumbo v1, "RESTARTING"
@@ -87,6 +92,7 @@
 
     sput-object v0, Landroid/os/SystemService$State;->RESTARTING:Landroid/os/SystemService$State;
 
+    .line 36
     const/4 v0, 0x4
 
     new-array v0, v0, [Landroid/os/SystemService$State;
@@ -114,21 +120,29 @@
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
     .locals 1
+    .param p3, "state"    # Ljava/lang/String;
 
+    .prologue
+    .line 42
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
+    .line 43
     invoke-static {}, Landroid/os/SystemService;->-get1()Ljava/util/HashMap;
 
     move-result-object v0
 
     invoke-virtual {v0, p3, p0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 42
     return-void
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroid/os/SystemService$State;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 36
     const-class v0, Landroid/os/SystemService$State;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -143,6 +157,8 @@
 .method public static values()[Landroid/os/SystemService$State;
     .locals 1
 
+    .prologue
+    .line 36
     sget-object v0, Landroid/os/SystemService$State;->$VALUES:[Landroid/os/SystemService$State;
 
     return-object v0

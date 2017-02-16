@@ -34,7 +34,10 @@
 # direct methods
 .method constructor <init>(Landroid/speech/tts/TextToSpeech;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/speech/tts/TextToSpeech;
 
+    .prologue
+    .line 1681
     iput-object p1, p0, Landroid/speech/tts/TextToSpeech$14;->this$0:Landroid/speech/tts/TextToSpeech;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,12 +49,15 @@
 # virtual methods
 .method public run(Landroid/speech/tts/ITextToSpeechService;)Landroid/speech/tts/Voice;
     .locals 4
+    .param p1, "service"    # Landroid/speech/tts/ITextToSpeechService;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 1684
     iget-object v1, p0, Landroid/speech/tts/TextToSpeech$14;->this$0:Landroid/speech/tts/TextToSpeech;
 
     invoke-static {v1}, Landroid/speech/tts/TextToSpeech;->-get2(Landroid/speech/tts/TextToSpeech;)Landroid/os/Bundle;
@@ -66,16 +72,20 @@
 
     move-result-object v0
 
+    .line 1685
+    .local v0, "voiceName":Ljava/lang/String;
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
+    .line 1686
     const/4 v1, 0x0
 
     return-object v1
 
+    .line 1688
     :cond_0
     iget-object v1, p0, Landroid/speech/tts/TextToSpeech$14;->this$0:Landroid/speech/tts/TextToSpeech;
 
@@ -88,12 +98,15 @@
 
 .method public bridge synthetic run(Landroid/speech/tts/ITextToSpeechService;)Ljava/lang/Object;
     .locals 1
+    .param p1, "service"    # Landroid/speech/tts/ITextToSpeechService;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 1683
     invoke-virtual {p0, p1}, Landroid/speech/tts/TextToSpeech$14;->run(Landroid/speech/tts/ITextToSpeechService;)Landroid/speech/tts/Voice;
 
     move-result-object v0

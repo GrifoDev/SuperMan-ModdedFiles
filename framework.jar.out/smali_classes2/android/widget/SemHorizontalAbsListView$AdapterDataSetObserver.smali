@@ -30,7 +30,10 @@
 # direct methods
 .method constructor <init>(Landroid/widget/SemHorizontalAbsListView;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/widget/SemHorizontalAbsListView;
 
+    .prologue
+    .line 9150
     iput-object p1, p0, Landroid/widget/SemHorizontalAbsListView$AdapterDataSetObserver;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
     invoke-direct {p0, p1}, Landroid/widget/AdapterView$AdapterDataSetObserver;-><init>(Landroid/widget/AdapterView;)V
@@ -43,8 +46,11 @@
 .method public onChanged()V
     .locals 1
 
+    .prologue
+    .line 9153
     invoke-super {p0}, Landroid/widget/AdapterView$AdapterDataSetObserver;->onChanged()V
 
+    .line 9154
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView$AdapterDataSetObserver;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
     invoke-static {v0}, Landroid/widget/SemHorizontalAbsListView;->-get8(Landroid/widget/SemHorizontalAbsListView;)Lcom/samsung/android/widget/SemHorizontalFastScroller;
@@ -53,6 +59,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 9155
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView$AdapterDataSetObserver;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
     invoke-static {v0}, Landroid/widget/SemHorizontalAbsListView;->-get8(Landroid/widget/SemHorizontalAbsListView;)Lcom/samsung/android/widget/SemHorizontalFastScroller;
@@ -61,6 +68,7 @@
 
     invoke-virtual {v0}, Lcom/samsung/android/widget/SemHorizontalFastScroller;->onSectionsChanged()V
 
+    .line 9152
     :cond_0
     return-void
 .end method
@@ -68,8 +76,11 @@
 .method public onInvalidated()V
     .locals 1
 
+    .prologue
+    .line 9161
     invoke-super {p0}, Landroid/widget/AdapterView$AdapterDataSetObserver;->onInvalidated()V
 
+    .line 9162
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView$AdapterDataSetObserver;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
     invoke-static {v0}, Landroid/widget/SemHorizontalAbsListView;->-get8(Landroid/widget/SemHorizontalAbsListView;)Lcom/samsung/android/widget/SemHorizontalFastScroller;
@@ -78,6 +89,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 9163
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView$AdapterDataSetObserver;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
     invoke-static {v0}, Landroid/widget/SemHorizontalAbsListView;->-get8(Landroid/widget/SemHorizontalAbsListView;)Lcom/samsung/android/widget/SemHorizontalFastScroller;
@@ -86,6 +98,7 @@
 
     invoke-virtual {v0}, Lcom/samsung/android/widget/SemHorizontalFastScroller;->onSectionsChanged()V
 
+    .line 9160
     :cond_0
     return-void
 .end method

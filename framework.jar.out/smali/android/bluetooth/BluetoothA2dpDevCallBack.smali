@@ -13,12 +13,15 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 28
     invoke-static {}, Landroid/os/Debug;->semIsProductDev()Z
 
     move-result v0
 
     sput-boolean v0, Landroid/bluetooth/BluetoothA2dpDevCallBack;->DBG:Z
 
+    .line 29
     const-class v0, Landroid/bluetooth/BluetoothA2dpDevCallBack;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
@@ -27,12 +30,15 @@
 
     sput-object v0, Landroid/bluetooth/BluetoothA2dpDevCallBack;->TAG:Ljava/lang/String;
 
+    .line 27
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -42,7 +48,10 @@
 # virtual methods
 .method public onA2dpDataUpdate(Ljava/lang/String;)V
     .locals 2
+    .param p1, "a2dpInfo"    # Ljava/lang/String;
 
+    .prologue
+    .line 35
     sget-boolean v0, Landroid/bluetooth/BluetoothA2dpDevCallBack;->DBG:Z
 
     if-eqz v0, :cond_0
@@ -53,6 +62,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 34
     :cond_0
     return-void
 .end method

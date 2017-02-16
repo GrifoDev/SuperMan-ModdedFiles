@@ -16,6 +16,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 206
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -24,6 +26,8 @@
 .method public static getInstance()Landroid/webkit/WebStorage;
     .locals 1
 
+    .prologue
+    .line 194
     invoke-static {}, Landroid/webkit/WebViewFactory;->getProvider()Landroid/webkit/WebViewFactoryProvider;
 
     move-result-object v0
@@ -40,12 +44,17 @@
 .method public deleteAllData()V
     .locals 0
 
+    .prologue
+    .line 184
     return-void
 .end method
 
 .method public deleteOrigin(Ljava/lang/String;)V
     .locals 0
+    .param p1, "origin"    # Ljava/lang/String;
 
+    .prologue
+    .line 175
     return-void
 .end method
 
@@ -61,11 +70,15 @@
         }
     .end annotation
 
+    .prologue
+    .line 132
+    .local p1, "callback":Landroid/webkit/ValueCallback;, "Landroid/webkit/ValueCallback<Ljava/util/Map;>;"
     return-void
 .end method
 
 .method public getQuotaForOrigin(Ljava/lang/String;Landroid/webkit/ValueCallback;)V
     .locals 0
+    .param p1, "origin"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -77,11 +90,15 @@
         }
     .end annotation
 
+    .prologue
+    .line 154
+    .local p2, "callback":Landroid/webkit/ValueCallback;, "Landroid/webkit/ValueCallback<Ljava/lang/Long;>;"
     return-void
 .end method
 
 .method public getUsageForOrigin(Ljava/lang/String;Landroid/webkit/ValueCallback;)V
     .locals 0
+    .param p1, "origin"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -93,13 +110,20 @@
         }
     .end annotation
 
+    .prologue
+    .line 143
+    .local p2, "callback":Landroid/webkit/ValueCallback;, "Landroid/webkit/ValueCallback<Ljava/lang/Long;>;"
     return-void
 .end method
 
 .method public setQuotaForOrigin(Ljava/lang/String;J)V
     .locals 0
+    .param p1, "origin"    # Ljava/lang/String;
+    .param p2, "quota"    # J
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    .prologue
+    .line 166
     return-void
 .end method

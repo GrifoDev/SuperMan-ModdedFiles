@@ -24,7 +24,10 @@
 # direct methods
 .method private constructor <init>(Lcom/samsung/android/camera/iris/SemIrisManager;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/samsung/android/camera/iris/SemIrisManager;
 
+    .prologue
+    .line 497
     iput-object p1, p0, Lcom/samsung/android/camera/iris/SemIrisManager$OnEnrollCancelListener;->this$0:Lcom/samsung/android/camera/iris/SemIrisManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,7 +37,9 @@
 
 .method synthetic constructor <init>(Lcom/samsung/android/camera/iris/SemIrisManager;Lcom/samsung/android/camera/iris/SemIrisManager$OnEnrollCancelListener;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/samsung/android/camera/iris/SemIrisManager;
 
+    .prologue
     invoke-direct {p0, p1}, Lcom/samsung/android/camera/iris/SemIrisManager$OnEnrollCancelListener;-><init>(Lcom/samsung/android/camera/iris/SemIrisManager;)V
 
     return-void
@@ -45,9 +50,12 @@
 .method public onCancel()V
     .locals 1
 
+    .prologue
+    .line 501
     iget-object v0, p0, Lcom/samsung/android/camera/iris/SemIrisManager$OnEnrollCancelListener;->this$0:Lcom/samsung/android/camera/iris/SemIrisManager;
 
     invoke-static {v0}, Lcom/samsung/android/camera/iris/SemIrisManager;->-wrap3(Lcom/samsung/android/camera/iris/SemIrisManager;)V
 
+    .line 500
     return-void
 .end method

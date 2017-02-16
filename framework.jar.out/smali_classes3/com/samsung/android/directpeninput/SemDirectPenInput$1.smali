@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/directpeninput/SemDirectPenInput;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/samsung/android/directpeninput/SemDirectPenInput;
 
+    .prologue
+    .line 2366
     iput-object p1, p0, Lcom/samsung/android/directpeninput/SemDirectPenInput$1;->this$0:Lcom/samsung/android/directpeninput/SemDirectPenInput;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,11 +40,14 @@
 .method public onScrollChanged()V
     .locals 2
 
+    .prologue
+    .line 2368
     iget-object v0, p0, Lcom/samsung/android/directpeninput/SemDirectPenInput$1;->this$0:Lcom/samsung/android/directpeninput/SemDirectPenInput;
 
     const/16 v1, 0xb
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/directpeninput/SemDirectPenInput;->notifyPositionChanged(I)V
 
+    .line 2367
     return-void
 .end method

@@ -7,6 +7,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 36
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -14,7 +16,13 @@
 
 .method public static final getInternalLocalString(Landroid/content/Context;Ljava/lang/String;II)Ljava/lang/String;
     .locals 1
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "originalString"    # Ljava/lang/String;
+    .param p2, "originNamesId"    # I
+    .param p3, "localNamesId"    # I
 
+    .prologue
+    .line 88
     invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
     move-result-object v0
@@ -28,7 +36,13 @@
 
 .method public static final getLocalString(Landroid/content/Context;Ljava/lang/String;II)Ljava/lang/String;
     .locals 1
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "originalString"    # Ljava/lang/String;
+    .param p2, "originNamesId"    # I
+    .param p3, "localNamesId"    # I
 
+    .prologue
+    .line 73
     const-string/jumbo v0, "android"
 
     invoke-static {p0, p1, v0, p2, p3}, Landroid/util/NativeTextHelper;->getLocalString(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;II)Ljava/lang/String;
@@ -40,7 +54,14 @@
 
 .method private static final getLocalString(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;II)Ljava/lang/String;
     .locals 6
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "originalString"    # Ljava/lang/String;
+    .param p2, "defPackage"    # Ljava/lang/String;
+    .param p3, "originNamesId"    # I
+    .param p4, "localNamesId"    # I
 
+    .prologue
+    .line 51
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
@@ -49,6 +70,8 @@
 
     move-result-object v2
 
+    .line 52
+    .local v2, "origNames":[Ljava/lang/String;
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
@@ -57,13 +80,17 @@
 
     move-result-object v1
 
+    .line 53
+    .local v1, "localNames":[Ljava/lang/String;
     const/4 v0, 0x0
 
+    .local v0, "i":I
     :goto_0
     array-length v3, v2
 
     if-ge v0, v3, :cond_1
 
+    .line 54
     aget-object v3, v2, v0
 
     invoke-virtual {v3, p1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
@@ -72,14 +99,17 @@
 
     if-eqz v3, :cond_0
 
+    .line 55
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
     aget-object v4, v1, v0
 
+    .line 56
     const-string/jumbo v5, "string"
 
+    .line 55
     invoke-virtual {v3, v4, v5, p2}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v3
@@ -90,11 +120,13 @@
 
     return-object v3
 
+    .line 53
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
+    .line 59
     :cond_1
     return-object p1
 .end method

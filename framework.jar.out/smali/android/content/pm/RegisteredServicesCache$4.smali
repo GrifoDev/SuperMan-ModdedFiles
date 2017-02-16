@@ -32,7 +32,14 @@
 # direct methods
 .method constructor <init>(Landroid/content/pm/RegisteredServicesCache;Landroid/content/pm/RegisteredServicesCacheListener;Ljava/lang/Object;IZ)V
     .locals 0
+    .param p4, "val$userId"    # I
+    .param p5, "val$removed"    # Z
 
+    .prologue
+    .line 284
+    .local p1, "this$0":Landroid/content/pm/RegisteredServicesCache;, "Landroid/content/pm/RegisteredServicesCache<TV;>;"
+    .local p2, "val$listener2":Landroid/content/pm/RegisteredServicesCacheListener;, "Landroid/content/pm/RegisteredServicesCacheListener<TV;>;"
+    .local p3, "val$type":Ljava/lang/Object;, "TV;"
     iput-object p1, p0, Landroid/content/pm/RegisteredServicesCache$4;->this$0:Landroid/content/pm/RegisteredServicesCache;
 
     iput-object p2, p0, Landroid/content/pm/RegisteredServicesCache$4;->val$listener2:Landroid/content/pm/RegisteredServicesCacheListener;
@@ -53,6 +60,8 @@
 .method public run()V
     .locals 4
 
+    .prologue
+    .line 286
     iget-object v0, p0, Landroid/content/pm/RegisteredServicesCache$4;->val$listener2:Landroid/content/pm/RegisteredServicesCacheListener;
 
     iget-object v1, p0, Landroid/content/pm/RegisteredServicesCache$4;->val$type:Ljava/lang/Object;
@@ -63,5 +72,6 @@
 
     invoke-interface {v0, v1, v2, v3}, Landroid/content/pm/RegisteredServicesCacheListener;->onServiceChanged(Ljava/lang/Object;IZ)V
 
+    .line 285
     return-void
 .end method

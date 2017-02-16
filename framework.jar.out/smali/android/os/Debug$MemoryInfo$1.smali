@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 753
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,7 +42,10 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/os/Debug$MemoryInfo;
     .locals 2
+    .param p1, "source"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 755
     new-instance v0, Landroid/os/Debug$MemoryInfo;
 
     const/4 v1, 0x0
@@ -52,7 +57,10 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
+    .param p1, "source"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 754
     invoke-virtual {p0, p1}, Landroid/os/Debug$MemoryInfo$1;->createFromParcel(Landroid/os/Parcel;)Landroid/os/Debug$MemoryInfo;
 
     move-result-object v0
@@ -62,7 +70,10 @@
 
 .method public newArray(I)[Landroid/os/Debug$MemoryInfo;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 758
     new-array v0, p1, [Landroid/os/Debug$MemoryInfo;
 
     return-object v0
@@ -70,7 +81,10 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 757
     invoke-virtual {p0, p1}, Landroid/os/Debug$MemoryInfo$1;->newArray(I)[Landroid/os/Debug$MemoryInfo;
 
     move-result-object v0

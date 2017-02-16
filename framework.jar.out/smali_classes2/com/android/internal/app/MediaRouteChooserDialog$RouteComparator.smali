@@ -35,18 +35,23 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 266
     new-instance v0, Lcom/android/internal/app/MediaRouteChooserDialog$RouteComparator;
 
     invoke-direct {v0}, Lcom/android/internal/app/MediaRouteChooserDialog$RouteComparator;-><init>()V
 
     sput-object v0, Lcom/android/internal/app/MediaRouteChooserDialog$RouteComparator;->sInstance:Lcom/android/internal/app/MediaRouteChooserDialog$RouteComparator;
 
+    .line 265
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 265
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -56,7 +61,11 @@
 # virtual methods
 .method public compare(Landroid/media/MediaRouter$RouteInfo;Landroid/media/MediaRouter$RouteInfo;)I
     .locals 2
+    .param p1, "lhs"    # Landroid/media/MediaRouter$RouteInfo;
+    .param p2, "rhs"    # Landroid/media/MediaRouter$RouteInfo;
 
+    .prologue
+    .line 270
     invoke-virtual {p1}, Landroid/media/MediaRouter$RouteInfo;->getName()Ljava/lang/CharSequence;
 
     move-result-object v0
@@ -82,11 +91,17 @@
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
+    .param p1, "lhs"    # Ljava/lang/Object;
+    .param p2, "rhs"    # Ljava/lang/Object;
 
+    .prologue
+    .line 269
     check-cast p1, Landroid/media/MediaRouter$RouteInfo;
 
+    .end local p1    # "lhs":Ljava/lang/Object;
     check-cast p2, Landroid/media/MediaRouter$RouteInfo;
 
+    .end local p2    # "rhs":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Lcom/android/internal/app/MediaRouteChooserDialog$RouteComparator;->compare(Landroid/media/MediaRouter$RouteInfo;Landroid/media/MediaRouter$RouteInfo;)I
 
     move-result v0

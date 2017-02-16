@@ -27,6 +27,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 41
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -37,6 +39,8 @@
 .method getHandle()I
     .locals 1
 
+    .prologue
+    .line 61
     iget v0, p0, Lcom/samsung/android/sensorhub/SensorHub;->mHandle:I
 
     return v0
@@ -45,6 +49,8 @@
 .method public getMinDelay()I
     .locals 1
 
+    .prologue
+    .line 57
     iget v0, p0, Lcom/samsung/android/sensorhub/SensorHub;->mMinDelay:I
 
     return v0
@@ -53,6 +59,8 @@
 .method public getName()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 45
     iget-object v0, p0, Lcom/samsung/android/sensorhub/SensorHub;->mName:Ljava/lang/String;
 
     return-object v0
@@ -61,6 +69,8 @@
 .method public getType()I
     .locals 1
 
+    .prologue
+    .line 53
     iget v0, p0, Lcom/samsung/android/sensorhub/SensorHub;->mType:I
 
     return v0
@@ -69,6 +79,8 @@
 .method public getVendor()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 49
     iget-object v0, p0, Lcom/samsung/android/sensorhub/SensorHub;->mVendor:Ljava/lang/String;
 
     return-object v0

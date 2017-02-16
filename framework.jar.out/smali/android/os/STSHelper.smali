@@ -31,16 +31,21 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 40
     const/4 v0, 0x0
 
     sput-object v0, Landroid/os/STSHelper;->mInstance:Landroid/os/STSHelper;
 
+    .line 22
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -49,21 +54,25 @@
 .method public static declared-synchronized getInstance()Landroid/os/STSHelper;
     .locals 2
 
+    .prologue
     const-class v1, Landroid/os/STSHelper;
 
     monitor-enter v1
 
+    .line 43
     :try_start_0
     sget-object v0, Landroid/os/STSHelper;->mInstance:Landroid/os/STSHelper;
 
     if-nez v0, :cond_0
 
+    .line 44
     new-instance v0, Landroid/os/STSHelper;
 
     invoke-direct {v0}, Landroid/os/STSHelper;-><init>()V
 
     sput-object v0, Landroid/os/STSHelper;->mInstance:Landroid/os/STSHelper;
 
+    .line 46
     :cond_0
     sget-object v0, Landroid/os/STSHelper;->mInstance:Landroid/os/STSHelper;
     :try_end_0
@@ -85,13 +94,18 @@
 # virtual methods
 .method public declared-synchronized getSTSOption(Ljava/lang/String;)D
     .locals 6
+    .param p1, "packageName"    # Ljava/lang/String;
 
+    .prologue
     const-wide/16 v4, 0x0
 
     monitor-enter p0
 
+    .line 55
     const-wide/high16 v0, 0x3ff0000000000000L    # 1.0
 
+    .line 59
+    .local v0, "dtsFactor":D
     :try_start_0
     invoke-static {}, Landroid/os/DTSHelper;->getInstance()Landroid/os/DTSHelper;
 
@@ -99,6 +113,7 @@
 
     iput-object v2, p0, Landroid/os/STSHelper;->mDTSHelper:Landroid/os/DTSHelper;
 
+    .line 60
     iget-object v2, p0, Landroid/os/STSHelper;->mDTSHelper:Landroid/os/DTSHelper;
 
     invoke-virtual {v2, p1}, Landroid/os/DTSHelper;->isPackageExist(Ljava/lang/String;)Z
@@ -107,6 +122,7 @@
 
     if-eqz v2, :cond_0
 
+    .line 61
     iget-object v2, p0, Landroid/os/STSHelper;->mDTSHelper:Landroid/os/DTSHelper;
 
     invoke-virtual {v2, p1}, Landroid/os/DTSHelper;->getScalingFactor(Ljava/lang/String;)D
@@ -115,6 +131,7 @@
 
     move-result-wide v0
 
+    .line 74
     :cond_0
     cmpl-double v2, v0, v4
 
@@ -128,11 +145,13 @@
 
     monitor-exit p0
 
+    .line 75
     return-wide v0
 
     :cond_1
     monitor-exit p0
 
+    .line 77
     return-wide v4
 
     :catchall_0

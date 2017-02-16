@@ -743,6 +743,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 73
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -750,38 +752,49 @@
 
 .method public static deleteStatusToPublicStatus(I)I
     .locals 2
+    .param p0, "status"    # I
 
+    .prologue
     const/4 v1, 0x1
 
     const/4 v0, 0x2
 
+    .line 7074
     packed-switch p0, :pswitch_data_0
 
+    .line 7081
     :pswitch_0
     return v1
 
+    .line 7075
     :pswitch_1
     const/4 v0, 0x0
 
     return v0
 
+    .line 7076
     :pswitch_2
     return v1
 
+    .line 7077
     :pswitch_3
     return v0
 
+    .line 7078
     :pswitch_4
     return v0
 
+    .line 7079
     :pswitch_5
     return v0
 
+    .line 7080
     :pswitch_6
     const/4 v0, 0x3
 
     return v0
 
+    .line 7074
     :pswitch_data_0
     .packed-switch -0x5
         :pswitch_6
@@ -796,9 +809,13 @@
 
 .method public static deleteStatusToString(I)Ljava/lang/String;
     .locals 1
+    .param p0, "status"    # I
 
+    .prologue
+    .line 7061
     packed-switch p0, :pswitch_data_0
 
+    .line 7068
     :pswitch_0
     invoke-static {p0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
@@ -806,36 +823,43 @@
 
     return-object v0
 
+    .line 7062
     :pswitch_1
     const-string/jumbo v0, "DELETE_SUCCEEDED"
 
     return-object v0
 
+    .line 7063
     :pswitch_2
     const-string/jumbo v0, "DELETE_FAILED_INTERNAL_ERROR"
 
     return-object v0
 
+    .line 7064
     :pswitch_3
     const-string/jumbo v0, "DELETE_FAILED_DEVICE_POLICY_MANAGER"
 
     return-object v0
 
+    .line 7065
     :pswitch_4
     const-string/jumbo v0, "DELETE_FAILED_USER_RESTRICTED"
 
     return-object v0
 
+    .line 7066
     :pswitch_5
     const-string/jumbo v0, "DELETE_FAILED_OWNER_BLOCKED"
 
     return-object v0
 
+    .line 7067
     :pswitch_6
     const-string/jumbo v0, "DELETE_FAILED_ABORTED"
 
     return-object v0
 
+    .line 7061
     :pswitch_data_0
     .packed-switch -0x5
         :pswitch_6
@@ -850,13 +874,20 @@
 
 .method public static deleteStatusToString(ILjava/lang/String;)Ljava/lang/String;
     .locals 3
+    .param p0, "status"    # I
+    .param p1, "msg"    # Ljava/lang/String;
 
+    .prologue
+    .line 7051
     invoke-static {p0}, Landroid/content/pm/PackageManager;->deleteStatusToString(I)Ljava/lang/String;
 
     move-result-object v0
 
+    .line 7052
+    .local v0, "str":Ljava/lang/String;
     if-eqz p1, :cond_0
 
+    .line 7053
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -881,13 +912,16 @@
 
     return-object v1
 
+    .line 7055
     :cond_0
     return-object v0
 .end method
 
 .method public static installStatusToPublicStatus(I)I
     .locals 5
+    .param p0, "status"    # I
 
+    .prologue
     const/4 v4, 0x3
 
     const/4 v3, 0x6
@@ -898,142 +932,187 @@
 
     const/4 v0, 0x4
 
+    .line 7002
     sparse-switch p0, :sswitch_data_0
 
+    .line 7045
     const/4 v0, 0x1
 
     return v0
 
+    .line 7003
     :sswitch_0
     const/4 v0, 0x0
 
     return v0
 
+    .line 7004
     :sswitch_1
     return v1
 
+    .line 7005
     :sswitch_2
     return v0
 
+    .line 7006
     :sswitch_3
     return v0
 
+    .line 7007
     :sswitch_4
     return v3
 
+    .line 7008
     :sswitch_5
     return v1
 
+    .line 7009
     :sswitch_6
     return v1
 
+    .line 7010
     :sswitch_7
     return v1
 
+    .line 7011
     :sswitch_8
     return v1
 
+    .line 7012
     :sswitch_9
     return v2
 
+    .line 7013
     :sswitch_a
     return v1
 
+    .line 7014
     :sswitch_b
     return v0
 
+    .line 7015
     :sswitch_c
     return v2
 
+    .line 7016
     :sswitch_d
     return v1
 
+    .line 7017
     :sswitch_e
     return v2
 
+    .line 7018
     :sswitch_f
     return v0
 
+    .line 7019
     :sswitch_10
     return v2
 
+    .line 7020
     :sswitch_11
     return v2
 
+    .line 7021
     :sswitch_12
     return v3
 
+    .line 7022
     :sswitch_13
     return v3
 
+    .line 7023
     :sswitch_14
     return v3
 
+    .line 7024
     :sswitch_15
     return v4
 
+    .line 7025
     :sswitch_16
     return v4
 
+    .line 7026
     :sswitch_17
     return v0
 
+    .line 7027
     :sswitch_18
     return v0
 
+    .line 7028
     :sswitch_19
     return v0
 
+    .line 7029
     :sswitch_1a
     return v0
 
+    .line 7030
     :sswitch_1b
     return v0
 
+    .line 7031
     :sswitch_1c
     return v0
 
+    .line 7032
     :sswitch_1d
     return v0
 
+    .line 7033
     :sswitch_1e
     return v0
 
+    .line 7034
     :sswitch_1f
     return v0
 
+    .line 7035
     :sswitch_20
     return v0
 
+    .line 7036
     :sswitch_21
     return v0
 
+    .line 7037
     :sswitch_22
     return v0
 
+    .line 7038
     :sswitch_23
     return v0
 
+    .line 7039
     :sswitch_24
     return v0
 
+    .line 7040
     :sswitch_25
     const/4 v0, 0x1
 
     return v0
 
+    .line 7041
     :sswitch_26
     return v2
 
+    .line 7042
     :sswitch_27
     return v1
 
+    .line 7043
     :sswitch_28
     return v2
 
+    .line 7044
     :sswitch_29
     return v4
 
+    .line 7002
     :sswitch_data_0
     .sparse-switch
         -0x73 -> :sswitch_29
@@ -1083,220 +1162,266 @@
 
 .method public static installStatusToString(I)Ljava/lang/String;
     .locals 1
+    .param p0, "status"    # I
 
+    .prologue
+    .line 6954
     sparse-switch p0, :sswitch_data_0
 
+    .line 6996
     invoke-static {p0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v0
 
     return-object v0
 
+    .line 6955
     :sswitch_0
     const-string/jumbo v0, "INSTALL_SUCCEEDED"
 
     return-object v0
 
+    .line 6956
     :sswitch_1
     const-string/jumbo v0, "INSTALL_FAILED_ALREADY_EXISTS"
 
     return-object v0
 
+    .line 6957
     :sswitch_2
     const-string/jumbo v0, "INSTALL_FAILED_INVALID_APK"
 
     return-object v0
 
+    .line 6958
     :sswitch_3
     const-string/jumbo v0, "INSTALL_FAILED_INVALID_URI"
 
     return-object v0
 
+    .line 6959
     :sswitch_4
     const-string/jumbo v0, "INSTALL_FAILED_INSUFFICIENT_STORAGE"
 
     return-object v0
 
+    .line 6960
     :sswitch_5
     const-string/jumbo v0, "INSTALL_FAILED_DUPLICATE_PACKAGE"
 
     return-object v0
 
+    .line 6961
     :sswitch_6
     const-string/jumbo v0, "INSTALL_FAILED_NO_SHARED_USER"
 
     return-object v0
 
+    .line 6962
     :sswitch_7
     const-string/jumbo v0, "INSTALL_FAILED_UPDATE_INCOMPATIBLE"
 
     return-object v0
 
+    .line 6963
     :sswitch_8
     const-string/jumbo v0, "INSTALL_FAILED_SHARED_USER_INCOMPATIBLE"
 
     return-object v0
 
+    .line 6964
     :sswitch_9
     const-string/jumbo v0, "INSTALL_FAILED_MISSING_SHARED_LIBRARY"
 
     return-object v0
 
+    .line 6965
     :sswitch_a
     const-string/jumbo v0, "INSTALL_FAILED_REPLACE_COULDNT_DELETE"
 
     return-object v0
 
+    .line 6966
     :sswitch_b
     const-string/jumbo v0, "INSTALL_FAILED_DEXOPT"
 
     return-object v0
 
+    .line 6967
     :sswitch_c
     const-string/jumbo v0, "INSTALL_FAILED_OLDER_SDK"
 
     return-object v0
 
+    .line 6968
     :sswitch_d
     const-string/jumbo v0, "INSTALL_FAILED_CONFLICTING_PROVIDER"
 
     return-object v0
 
+    .line 6969
     :sswitch_e
     const-string/jumbo v0, "INSTALL_FAILED_NEWER_SDK"
 
     return-object v0
 
+    .line 6970
     :sswitch_f
     const-string/jumbo v0, "INSTALL_FAILED_TEST_ONLY"
 
     return-object v0
 
+    .line 6971
     :sswitch_10
     const-string/jumbo v0, "INSTALL_FAILED_CPU_ABI_INCOMPATIBLE"
 
     return-object v0
 
+    .line 6972
     :sswitch_11
     const-string/jumbo v0, "INSTALL_FAILED_MISSING_FEATURE"
 
     return-object v0
 
+    .line 6973
     :sswitch_12
     const-string/jumbo v0, "INSTALL_FAILED_CONTAINER_ERROR"
 
     return-object v0
 
+    .line 6974
     :sswitch_13
     const-string/jumbo v0, "INSTALL_FAILED_INVALID_INSTALL_LOCATION"
 
     return-object v0
 
+    .line 6975
     :sswitch_14
     const-string/jumbo v0, "INSTALL_FAILED_MEDIA_UNAVAILABLE"
 
     return-object v0
 
+    .line 6976
     :sswitch_15
     const-string/jumbo v0, "INSTALL_FAILED_VERIFICATION_TIMEOUT"
 
     return-object v0
 
+    .line 6977
     :sswitch_16
     const-string/jumbo v0, "INSTALL_FAILED_VERIFICATION_FAILURE"
 
     return-object v0
 
+    .line 6978
     :sswitch_17
     const-string/jumbo v0, "INSTALL_FAILED_PACKAGE_CHANGED"
 
     return-object v0
 
+    .line 6979
     :sswitch_18
     const-string/jumbo v0, "INSTALL_FAILED_UID_CHANGED"
 
     return-object v0
 
+    .line 6980
     :sswitch_19
     const-string/jumbo v0, "INSTALL_FAILED_VERSION_DOWNGRADE"
 
     return-object v0
 
+    .line 6981
     :sswitch_1a
     const-string/jumbo v0, "INSTALL_PARSE_FAILED_NOT_APK"
 
     return-object v0
 
+    .line 6982
     :sswitch_1b
     const-string/jumbo v0, "INSTALL_PARSE_FAILED_BAD_MANIFEST"
 
     return-object v0
 
+    .line 6983
     :sswitch_1c
     const-string/jumbo v0, "INSTALL_PARSE_FAILED_UNEXPECTED_EXCEPTION"
 
     return-object v0
 
+    .line 6984
     :sswitch_1d
     const-string/jumbo v0, "INSTALL_PARSE_FAILED_NO_CERTIFICATES"
 
     return-object v0
 
+    .line 6985
     :sswitch_1e
     const-string/jumbo v0, "INSTALL_PARSE_FAILED_INCONSISTENT_CERTIFICATES"
 
     return-object v0
 
+    .line 6986
     :sswitch_1f
     const-string/jumbo v0, "INSTALL_PARSE_FAILED_CERTIFICATE_ENCODING"
 
     return-object v0
 
+    .line 6987
     :sswitch_20
     const-string/jumbo v0, "INSTALL_PARSE_FAILED_BAD_PACKAGE_NAME"
 
     return-object v0
 
+    .line 6988
     :sswitch_21
     const-string/jumbo v0, "INSTALL_PARSE_FAILED_BAD_SHARED_USER_ID"
 
     return-object v0
 
+    .line 6989
     :sswitch_22
     const-string/jumbo v0, "INSTALL_PARSE_FAILED_MANIFEST_MALFORMED"
 
     return-object v0
 
+    .line 6990
     :sswitch_23
     const-string/jumbo v0, "INSTALL_PARSE_FAILED_MANIFEST_EMPTY"
 
     return-object v0
 
+    .line 6991
     :sswitch_24
     const-string/jumbo v0, "INSTALL_FAILED_INTERNAL_ERROR"
 
     return-object v0
 
+    .line 6992
     :sswitch_25
     const-string/jumbo v0, "INSTALL_FAILED_USER_RESTRICTED"
 
     return-object v0
 
+    .line 6993
     :sswitch_26
     const-string/jumbo v0, "INSTALL_FAILED_DUPLICATE_PERMISSION"
 
     return-object v0
 
+    .line 6994
     :sswitch_27
     const-string/jumbo v0, "INSTALL_FAILED_NO_MATCHING_ABIS"
 
     return-object v0
 
+    .line 6995
     :sswitch_28
     const-string/jumbo v0, "INSTALL_FAILED_ABORTED"
 
     return-object v0
 
+    .line 6954
     :sswitch_data_0
     .sparse-switch
         -0x73 -> :sswitch_28
@@ -1345,13 +1470,20 @@
 
 .method public static installStatusToString(ILjava/lang/String;)Ljava/lang/String;
     .locals 3
+    .param p0, "status"    # I
+    .param p1, "msg"    # Ljava/lang/String;
 
+    .prologue
+    .line 6944
     invoke-static {p0}, Landroid/content/pm/PackageManager;->installStatusToString(I)Ljava/lang/String;
 
     move-result-object v0
 
+    .line 6945
+    .local v0, "str":Ljava/lang/String;
     if-eqz p1, :cond_0
 
+    .line 6946
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -1376,17 +1508,21 @@
 
     return-object v1
 
+    .line 6948
     :cond_0
     return-object v0
 .end method
 
 .method public static isMoveStatusFinished(I)Z
     .locals 3
+    .param p0, "status"    # I
 
+    .prologue
     const/4 v0, 0x1
 
     const/4 v1, 0x0
 
+    .line 6837
     if-ltz p0, :cond_0
 
     const/16 v2, 0x64
@@ -1405,50 +1541,62 @@
 
 .method public static permissionFlagToString(I)Ljava/lang/String;
     .locals 1
+    .param p0, "flag"    # I
 
+    .prologue
+    .line 7087
     sparse-switch p0, :sswitch_data_0
 
+    .line 7095
     invoke-static {p0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v0
 
     return-object v0
 
+    .line 7088
     :sswitch_0
     const-string/jumbo v0, "GRANTED_BY_DEFAULT"
 
     return-object v0
 
+    .line 7089
     :sswitch_1
     const-string/jumbo v0, "POLICY_FIXED"
 
     return-object v0
 
+    .line 7090
     :sswitch_2
     const-string/jumbo v0, "SYSTEM_FIXED"
 
     return-object v0
 
+    .line 7091
     :sswitch_3
     const-string/jumbo v0, "USER_SET"
 
     return-object v0
 
+    .line 7092
     :sswitch_4
     const-string/jumbo v0, "REVOKE_ON_UPGRADE"
 
     return-object v0
 
+    .line 7093
     :sswitch_5
     const-string/jumbo v0, "USER_FIXED"
 
     return-object v0
 
+    .line 7094
     :sswitch_6
     const-string/jumbo v0, "REVIEW_REQUIRED"
 
     return-object v0
 
+    .line 7087
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_3
@@ -1487,7 +1635,14 @@
 
 .method public addPreferredActivityAsUser(Landroid/content/IntentFilter;I[Landroid/content/ComponentName;Landroid/content/ComponentName;I)V
     .locals 2
+    .param p1, "filter"    # Landroid/content/IntentFilter;
+    .param p2, "match"    # I
+    .param p3, "set"    # [Landroid/content/ComponentName;
+    .param p4, "activity"    # Landroid/content/ComponentName;
+    .param p5, "userId"    # I
 
+    .prologue
+    .line 6566
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string/jumbo v1, "Not implemented. Must override in a subclass."
@@ -1533,13 +1688,17 @@
 
 .method public buildRequestPermissionsIntent([Ljava/lang/String;)Landroid/content/Intent;
     .locals 6
+    .param p1, "permissions"    # [Ljava/lang/String;
 
+    .prologue
+    .line 4045
     invoke-static {p1}, Lcom/android/internal/util/ArrayUtils;->isEmpty([Ljava/lang/Object;)Z
 
     move-result v4
 
     if-eqz v4, :cond_0
 
+    .line 4046
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v5, "permission cannot be null or empty"
@@ -1548,6 +1707,7 @@
 
     throw v4
 
+    .line 4048
     :cond_0
     new-instance v2, Landroid/content/Intent;
 
@@ -1555,28 +1715,36 @@
 
     invoke-direct {v2, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
+    .line 4049
+    .local v2, "intent":Landroid/content/Intent;
     const-string/jumbo v4, "android.content.pm.extra.REQUEST_PERMISSIONS_NAMES"
 
     invoke-virtual {v2, v4, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;[Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 4050
     invoke-virtual {p0}, Landroid/content/pm/PackageManager;->getPermissionControllerPackageName()Ljava/lang/String;
 
     move-result-object v4
 
     invoke-virtual {v2, v4}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 4061
     const-string/jumbo v4, "vr"
 
     invoke-static {v4}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v4
 
+    .line 4060
     invoke-static {v4}, Lcom/samsung/android/vr/IGearVrManagerService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/vr/IGearVrManagerService;
 
     move-result-object v3
 
+    .line 4063
+    .local v3, "vr":Lcom/samsung/android/vr/IGearVrManagerService;
     if-eqz v3, :cond_1
 
+    .line 4064
     :try_start_0
     invoke-interface {v3}, Lcom/samsung/android/vr/IGearVrManagerService;->isDock()Z
 
@@ -1584,6 +1752,7 @@
 
     if-eqz v4, :cond_1
 
+    .line 4066
     const-string/jumbo v4, "android"
 
     const-string/jumbo v5, "com.samsung.android.hmt.vrsvc"
@@ -1594,18 +1763,22 @@
 
     if-nez v4, :cond_2
 
+    .line 4068
     const-string/jumbo v4, "buildRequestPermissionsIntent"
 
     invoke-interface {v3, v4}, Lcom/samsung/android/vr/IGearVrManagerService;->enforceCallingSelfPermission(Ljava/lang/String;)V
 
+    .line 4070
     const-string/jumbo v4, "com.samsung.android.hmt.vrsvc"
 
     invoke-virtual {v2, v4}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 4083
     :cond_1
     :goto_0
     return-object v2
 
+    .line 4072
     :cond_2
     const-string/jumbo v4, "PackageManager"
 
@@ -1618,14 +1791,19 @@
 
     goto :goto_0
 
+    .line 4076
     :catch_0
     move-exception v0
 
+    .local v0, "e":Landroid/os/RemoteException;
     goto :goto_0
 
+    .line 4078
+    .end local v0    # "e":Landroid/os/RemoteException;
     :catch_1
     move-exception v1
 
+    .local v1, "e":Ljava/lang/SecurityException;
     goto :goto_0
 .end method
 
@@ -1679,11 +1857,16 @@
 
 .method public freeStorage(JLandroid/content/IntentSender;)V
     .locals 1
+    .param p1, "freeStorageSize"    # J
+    .param p3, "pi"    # Landroid/content/IntentSender;
 
+    .prologue
+    .line 6403
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0, p1, p2, p3}, Landroid/content/pm/PackageManager;->freeStorage(Ljava/lang/String;JLandroid/content/IntentSender;)V
 
+    .line 6402
     return-void
 .end method
 
@@ -1692,11 +1875,16 @@
 
 .method public freeStorageAndNotify(JLandroid/content/pm/IPackageDataObserver;)V
     .locals 1
+    .param p1, "freeStorageSize"    # J
+    .param p3, "observer"    # Landroid/content/pm/IPackageDataObserver;
 
+    .prologue
+    .line 6314
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0, p1, p2, p3}, Landroid/content/pm/PackageManager;->freeStorageAndNotify(Ljava/lang/String;JLandroid/content/pm/IPackageDataObserver;)V
 
+    .line 6313
     return-void
 .end method
 
@@ -1737,12 +1925,16 @@
 
 .method public getActivityIconForIconTray(Landroid/content/ComponentName;I)Landroid/graphics/drawable/Drawable;
     .locals 1
+    .param p1, "activityName"    # Landroid/content/ComponentName;
+    .param p2, "mode"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/pm/PackageManager$NameNotFoundException;
         }
     .end annotation
 
+    .prologue
+    .line 5064
     invoke-virtual {p0, p1, p2}, Landroid/content/pm/PackageManager;->semGetActivityIconForIconTray(Landroid/content/ComponentName;I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
@@ -1752,12 +1944,16 @@
 
 .method public getActivityIconForIconTray(Landroid/content/Intent;I)Landroid/graphics/drawable/Drawable;
     .locals 1
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "mode"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/pm/PackageManager$NameNotFoundException;
         }
     .end annotation
 
+    .prologue
+    .line 5141
     invoke-virtual {p0, p1, p2}, Landroid/content/pm/PackageManager;->semGetActivityIconForIconTray(Landroid/content/Intent;I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
@@ -1845,7 +2041,11 @@
 
 .method public getApplicationIconForIconTray(Landroid/content/pm/ApplicationInfo;I)Landroid/graphics/drawable/Drawable;
     .locals 1
+    .param p1, "info"    # Landroid/content/pm/ApplicationInfo;
+    .param p2, "mode"    # I
 
+    .prologue
+    .line 5295
     invoke-virtual {p0, p1, p2}, Landroid/content/pm/PackageManager;->semGetApplicationIconForIconTray(Landroid/content/pm/ApplicationInfo;I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
@@ -1855,12 +2055,16 @@
 
 .method public getApplicationIconForIconTray(Ljava/lang/String;I)Landroid/graphics/drawable/Drawable;
     .locals 1
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "mode"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/pm/PackageManager$NameNotFoundException;
         }
     .end annotation
 
+    .prologue
+    .line 5392
     invoke-virtual {p0, p1, p2}, Landroid/content/pm/PackageManager;->semGetApplicationIconForIconTray(Ljava/lang/String;I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
@@ -1900,7 +2104,10 @@
 
 .method public getCSCPackageItemIcon(Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
     .locals 1
+    .param p1, "packageItemName"    # Ljava/lang/String;
 
+    .prologue
+    .line 5250
     invoke-virtual {p0, p1}, Landroid/content/pm/PackageManager;->semGetCscPackageItemIcon(Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
@@ -1910,7 +2117,10 @@
 
 .method public getCSCPackageItemText(Ljava/lang/String;)Ljava/lang/CharSequence;
     .locals 1
+    .param p1, "packageItemName"    # Ljava/lang/String;
 
+    .prologue
+    .line 5230
     invoke-virtual {p0, p1}, Landroid/content/pm/PackageManager;->semGetCscPackageItemText(Ljava/lang/String;)Ljava/lang/CharSequence;
 
     move-result-object v0
@@ -1932,7 +2142,11 @@
 
 .method public getDrawableForIconTray(Landroid/graphics/drawable/Drawable;I)Landroid/graphics/drawable/Drawable;
     .locals 1
+    .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
+    .param p2, "mode"    # I
 
+    .prologue
+    .line 5461
     invoke-virtual {p0, p1, p2}, Landroid/content/pm/PackageManager;->semGetDrawableForIconTray(Landroid/graphics/drawable/Drawable;I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
@@ -2058,23 +2272,32 @@
 
 .method public getPackageArchiveInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
     .locals 13
+    .param p1, "archiveFilePath"    # Ljava/lang/String;
+    .param p2, "flags"    # I
 
+    .prologue
     const/high16 v3, 0xc0000
 
     const/4 v12, 0x0
 
+    .line 5875
     new-instance v11, Landroid/content/pm/PackageParser;
 
     invoke-direct {v11}, Landroid/content/pm/PackageParser;-><init>()V
 
+    .line 5876
+    .local v11, "parser":Landroid/content/pm/PackageParser;
     new-instance v0, Ljava/io/File;
 
     invoke-direct {v0, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
+    .line 5878
+    .local v0, "apkFile":Ljava/io/File;
     and-int v2, p2, v3
 
     if-eqz v2, :cond_1
 
+    .line 5887
     :goto_0
     const/4 v2, 0x0
 
@@ -2083,19 +2306,25 @@
 
     move-result-object v1
 
+    .line 5888
+    .local v1, "pkg":Landroid/content/pm/PackageParser$Package;
     and-int/lit8 v2, p2, 0x40
 
     if-eqz v2, :cond_0
 
+    .line 5889
     const/4 v2, 0x0
 
     invoke-static {v1, v2}, Landroid/content/pm/PackageParser;->collectCertificates(Landroid/content/pm/PackageParser$Package;I)V
 
+    .line 5891
     :cond_0
     new-instance v9, Landroid/content/pm/PackageUserState;
 
     invoke-direct {v9}, Landroid/content/pm/PackageUserState;-><init>()V
 
+    .line 5892
+    .local v9, "state":Landroid/content/pm/PackageUserState;
     const-wide/16 v4, 0x0
 
     const-wide/16 v6, 0x0
@@ -2114,14 +2343,20 @@
 
     return-object v2
 
+    .line 5884
+    .end local v1    # "pkg":Landroid/content/pm/PackageParser$Package;
+    .end local v9    # "state":Landroid/content/pm/PackageUserState;
     :cond_1
     or-int/2addr p2, v3
 
     goto :goto_0
 
+    .line 5893
     :catch_0
     move-exception v10
 
+    .line 5894
+    .local v10, "e":Landroid/content/pm/PackageParser$PackageParserException;
     return-object v12
 .end method
 
@@ -2179,13 +2414,18 @@
 
 .method public getPackageSizeInfo(Ljava/lang/String;Landroid/content/pm/IPackageStatsObserver;)V
     .locals 1
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "observer"    # Landroid/content/pm/IPackageStatsObserver;
 
+    .prologue
+    .line 6437
     invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
     move-result v0
 
     invoke-virtual {p0, p1, v0, p2}, Landroid/content/pm/PackageManager;->getPackageSizeInfoAsUser(Ljava/lang/String;ILandroid/content/pm/IPackageStatsObserver;)V
 
+    .line 6436
     return-void
 .end method
 
@@ -2399,7 +2639,10 @@
 
 .method public getSystemFeatureLevel(Ljava/lang/String;)I
     .locals 1
+    .param p1, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 4354
     invoke-virtual {p0, p1}, Landroid/content/pm/PackageManager;->semGetSystemFeatureLevel(Ljava/lang/String;)I
 
     move-result v0
@@ -2494,7 +2737,11 @@
 
 .method public isPermissionRevokedByUserFixed(Ljava/lang/String;Ljava/lang/String;)Z
     .locals 1
+    .param p1, "permission"    # Ljava/lang/String;
+    .param p2, "packageName"    # Ljava/lang/String;
 
+    .prologue
+    .line 5331
     invoke-virtual {p0, p1, p2}, Landroid/content/pm/PackageManager;->semIsPermissionRevokedByUserFixed(Ljava/lang/String;Ljava/lang/String;)Z
 
     move-result v0
@@ -2548,6 +2795,9 @@
 
 .method public queryBroadcastReceivers(Landroid/content/Intent;II)Ljava/util/List;
     .locals 2
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "flags"    # I
+    .param p3, "userId"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2563,12 +2813,15 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    .prologue
+    .line 4688
     const-string/jumbo v0, "PackageManager"
 
     const-string/jumbo v1, "STAHP USING HIDDEN APIS KTHX"
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 4689
     invoke-virtual {p0, p1, p2, p3}, Landroid/content/pm/PackageManager;->queryBroadcastReceiversAsUser(Landroid/content/Intent;II)Ljava/util/List;
 
     move-result-object v0
@@ -2592,6 +2845,9 @@
 
 .method public queryBroadcastReceiversAsUser(Landroid/content/Intent;ILandroid/os/UserHandle;)Ljava/util/List;
     .locals 1
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "flags"    # I
+    .param p3, "userHandle"    # Landroid/os/UserHandle;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2606,6 +2862,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 4674
     invoke-virtual {p3}, Landroid/os/UserHandle;->getIdentifier()I
 
     move-result v0
@@ -2804,9 +3062,16 @@
 
 .method public replacePreferredActivityAsUser(Landroid/content/IntentFilter;I[Landroid/content/ComponentName;Landroid/content/ComponentName;I)V
     .locals 2
+    .param p1, "filter"    # Landroid/content/IntentFilter;
+    .param p2, "match"    # I
+    .param p3, "set"    # [Landroid/content/ComponentName;
+    .param p4, "activity"    # Landroid/content/ComponentName;
+    .param p5, "userId"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    .prologue
+    .line 6600
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string/jumbo v1, "Not implemented. Must override in a subclass."
@@ -2836,15 +3101,22 @@
 
 .method public semFreeStorageAndNotify(JLandroid/content/pm/PackageManager$SemFreeStorageNotifyListener;)V
     .locals 3
+    .param p1, "freeStorageSize"    # J
+    .param p3, "listener"    # Landroid/content/pm/PackageManager$SemFreeStorageNotifyListener;
 
+    .prologue
+    .line 6342
     new-instance v0, Landroid/content/pm/PackageManager$SemPackageDataObserver;
 
     invoke-direct {v0, p0, p3}, Landroid/content/pm/PackageManager$SemPackageDataObserver;-><init>(Landroid/content/pm/PackageManager;Landroid/content/pm/PackageManager$SemFreeStorageNotifyListener;)V
 
+    .line 6343
+    .local v0, "spdo":Landroid/content/pm/PackageManager$SemPackageDataObserver;
     const/4 v1, 0x0
 
     invoke-virtual {p0, v1, p1, p2, v0}, Landroid/content/pm/PackageManager;->freeStorageAndNotify(Ljava/lang/String;JLandroid/content/pm/IPackageDataObserver;)V
 
+    .line 6341
     return-void
 .end method
 
@@ -2886,23 +3158,35 @@
 
 .method public semGetPackageSizeInfo(Ljava/lang/String;Landroid/content/pm/PackageManager$SemPackageStatsListener;)V
     .locals 2
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "listener"    # Landroid/content/pm/PackageManager$SemPackageStatsListener;
 
+    .prologue
+    .line 6448
     new-instance v0, Landroid/content/pm/PackageManager$SemPackageStatsObserver;
 
     invoke-direct {v0, p0, p2}, Landroid/content/pm/PackageManager$SemPackageStatsObserver;-><init>(Landroid/content/pm/PackageManager;Landroid/content/pm/PackageManager$SemPackageStatsListener;)V
 
+    .line 6449
+    .local v0, "spso":Landroid/content/pm/PackageManager$SemPackageStatsObserver;
     invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
     move-result v1
 
     invoke-virtual {p0, p1, v1, v0}, Landroid/content/pm/PackageManager;->getPackageSizeInfoAsUser(Ljava/lang/String;ILandroid/content/pm/IPackageStatsObserver;)V
 
+    .line 6447
     return-void
 .end method
 
 .method public semGetPermissionFlags(Ljava/lang/String;Ljava/lang/String;Landroid/os/UserHandle;)I
     .locals 1
+    .param p1, "permissionName"    # Ljava/lang/String;
+    .param p2, "packageName"    # Ljava/lang/String;
+    .param p3, "user"    # Landroid/os/UserHandle;
 
+    .prologue
+    .line 3982
     invoke-virtual {p0, p1, p2, p3}, Landroid/content/pm/PackageManager;->getPermissionFlags(Ljava/lang/String;Ljava/lang/String;Landroid/os/UserHandle;)I
 
     move-result v0
@@ -2915,21 +3199,36 @@
 
 .method public semGrantRuntimePermission(Ljava/lang/String;Ljava/lang/String;Landroid/os/UserHandle;)V
     .locals 0
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "permissionName"    # Ljava/lang/String;
+    .param p3, "user"    # Landroid/os/UserHandle;
 
+    .prologue
+    .line 3898
     invoke-virtual {p0, p1, p2, p3}, Landroid/content/pm/PackageManager;->grantRuntimePermission(Ljava/lang/String;Ljava/lang/String;Landroid/os/UserHandle;)V
 
+    .line 3897
     return-void
 .end method
 
 .method public semInstallPackage(Landroid/net/Uri;Landroid/content/pm/PackageManager$SemPackageInstallListener;ILjava/lang/String;)V
     .locals 1
+    .param p1, "packageURI"    # Landroid/net/Uri;
+    .param p2, "listener"    # Landroid/content/pm/PackageManager$SemPackageInstallListener;
+    .param p3, "flags"    # I
+    .param p4, "installerPackageName"    # Ljava/lang/String;
 
+    .prologue
+    .line 5943
     new-instance v0, Landroid/content/pm/PackageManager$SemPackageInstallObserver;
 
     invoke-direct {v0, p0, p2}, Landroid/content/pm/PackageManager$SemPackageInstallObserver;-><init>(Landroid/content/pm/PackageManager;Landroid/content/pm/PackageManager$SemPackageInstallListener;)V
 
+    .line 5944
+    .local v0, "spio":Landroid/content/pm/PackageManager$SemPackageInstallObserver;
     invoke-virtual {p0, p1, v0, p3, p4}, Landroid/content/pm/PackageManager;->installPackage(Landroid/net/Uri;Landroid/content/pm/IPackageInstallObserver;ILjava/lang/String;)V
 
+    .line 5942
     return-void
 .end method
 
@@ -2938,6 +3237,9 @@
 
 .method public semQueryIntentActivitiesAsUser(Landroid/content/Intent;II)Ljava/util/List;
     .locals 1
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "flags"    # I
+    .param p3, "userId"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2950,6 +3252,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 4560
     invoke-virtual {p0, p1, p2, p3}, Landroid/content/pm/PackageManager;->queryIntentActivitiesAsUser(Landroid/content/Intent;II)Ljava/util/List;
 
     move-result-object v0
@@ -2959,17 +3263,31 @@
 
 .method public semRevokeRuntimePermission(Ljava/lang/String;Ljava/lang/String;Landroid/os/UserHandle;)V
     .locals 0
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "permissionName"    # Ljava/lang/String;
+    .param p3, "user"    # Landroid/os/UserHandle;
 
+    .prologue
+    .line 3951
     invoke-virtual {p0, p1, p2, p3}, Landroid/content/pm/PackageManager;->revokeRuntimePermission(Ljava/lang/String;Ljava/lang/String;Landroid/os/UserHandle;)V
 
+    .line 3950
     return-void
 .end method
 
 .method public semUpdatePermissionFlags(Ljava/lang/String;Ljava/lang/String;IILandroid/os/UserHandle;)V
     .locals 0
+    .param p1, "permissionName"    # Ljava/lang/String;
+    .param p2, "packageName"    # Ljava/lang/String;
+    .param p3, "flagMask"    # I
+    .param p4, "flagValues"    # I
+    .param p5, "user"    # Landroid/os/UserHandle;
 
+    .prologue
+    .line 4019
     invoke-virtual/range {p0 .. p5}, Landroid/content/pm/PackageManager;->updatePermissionFlags(Ljava/lang/String;Ljava/lang/String;IILandroid/os/UserHandle;)V
 
+    .line 4018
     return-void
 .end method
 

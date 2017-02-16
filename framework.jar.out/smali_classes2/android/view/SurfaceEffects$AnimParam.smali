@@ -63,6 +63,7 @@
 .method static constructor <clinit>()V
     .locals 9
 
+    .prologue
     const/4 v8, 0x2
 
     const/4 v7, 0x1
@@ -73,6 +74,7 @@
 
     const/16 v4, 0xc
 
+    .line 91
     new-instance v0, Landroid/view/SurfaceEffects$AnimParam;
 
     const-string/jumbo v1, "ALPHA"
@@ -81,6 +83,7 @@
 
     sput-object v0, Landroid/view/SurfaceEffects$AnimParam;->ALPHA:Landroid/view/SurfaceEffects$AnimParam;
 
+    .line 92
     new-instance v0, Landroid/view/SurfaceEffects$AnimParam;
 
     const-string/jumbo v1, "BLUR_RADIUS"
@@ -89,6 +92,7 @@
 
     sput-object v0, Landroid/view/SurfaceEffects$AnimParam;->BLUR_RADIUS:Landroid/view/SurfaceEffects$AnimParam;
 
+    .line 93
     new-instance v0, Landroid/view/SurfaceEffects$AnimParam;
 
     const-string/jumbo v1, "BLUR_SATURATION"
@@ -99,6 +103,7 @@
 
     sput-object v0, Landroid/view/SurfaceEffects$AnimParam;->BLUR_SATURATION:Landroid/view/SurfaceEffects$AnimParam;
 
+    .line 94
     new-instance v0, Landroid/view/SurfaceEffects$AnimParam;
 
     const-string/jumbo v1, "BLUR_ALPHA"
@@ -111,6 +116,7 @@
 
     sput-object v0, Landroid/view/SurfaceEffects$AnimParam;->BLUR_ALPHA:Landroid/view/SurfaceEffects$AnimParam;
 
+    .line 95
     new-instance v0, Landroid/view/SurfaceEffects$AnimParam;
 
     const-string/jumbo v1, "SATURATION"
@@ -123,6 +129,7 @@
 
     sput-object v0, Landroid/view/SurfaceEffects$AnimParam;->SATURATION:Landroid/view/SurfaceEffects$AnimParam;
 
+    .line 96
     new-instance v0, Landroid/view/SurfaceEffects$AnimParam;
 
     const-string/jumbo v1, "REGION_SIZE_X"
@@ -135,6 +142,7 @@
 
     sput-object v0, Landroid/view/SurfaceEffects$AnimParam;->REGION_SIZE_X:Landroid/view/SurfaceEffects$AnimParam;
 
+    .line 97
     new-instance v0, Landroid/view/SurfaceEffects$AnimParam;
 
     const-string/jumbo v1, "REGION_SIZE_Y"
@@ -147,6 +155,7 @@
 
     sput-object v0, Landroid/view/SurfaceEffects$AnimParam;->REGION_SIZE_Y:Landroid/view/SurfaceEffects$AnimParam;
 
+    .line 98
     new-instance v0, Landroid/view/SurfaceEffects$AnimParam;
 
     const-string/jumbo v1, "REGION_CORNER_SIZE"
@@ -159,6 +168,7 @@
 
     sput-object v0, Landroid/view/SurfaceEffects$AnimParam;->REGION_CORNER_SIZE:Landroid/view/SurfaceEffects$AnimParam;
 
+    .line 99
     new-instance v0, Landroid/view/SurfaceEffects$AnimParam;
 
     const-string/jumbo v1, "REGION_POS_X"
@@ -171,6 +181,7 @@
 
     sput-object v0, Landroid/view/SurfaceEffects$AnimParam;->REGION_POS_X:Landroid/view/SurfaceEffects$AnimParam;
 
+    .line 100
     new-instance v0, Landroid/view/SurfaceEffects$AnimParam;
 
     const-string/jumbo v1, "REGION_POS_Y"
@@ -183,6 +194,7 @@
 
     sput-object v0, Landroid/view/SurfaceEffects$AnimParam;->REGION_POS_Y:Landroid/view/SurfaceEffects$AnimParam;
 
+    .line 101
     new-instance v0, Landroid/view/SurfaceEffects$AnimParam;
 
     const-string/jumbo v1, "REGION_FACTOR_X"
@@ -195,6 +207,7 @@
 
     sput-object v0, Landroid/view/SurfaceEffects$AnimParam;->REGION_FACTOR_X:Landroid/view/SurfaceEffects$AnimParam;
 
+    .line 102
     new-instance v0, Landroid/view/SurfaceEffects$AnimParam;
 
     const-string/jumbo v1, "REGION_FACTOR_Y"
@@ -207,6 +220,7 @@
 
     sput-object v0, Landroid/view/SurfaceEffects$AnimParam;->REGION_FACTOR_Y:Landroid/view/SurfaceEffects$AnimParam;
 
+    .line 103
     new-instance v0, Landroid/view/SurfaceEffects$AnimParam;
 
     const-string/jumbo v1, "REGION_OFFSET_X"
@@ -217,6 +231,7 @@
 
     sput-object v0, Landroid/view/SurfaceEffects$AnimParam;->REGION_OFFSET_X:Landroid/view/SurfaceEffects$AnimParam;
 
+    .line 104
     new-instance v0, Landroid/view/SurfaceEffects$AnimParam;
 
     const-string/jumbo v1, "REGION_OFFSET_Y"
@@ -227,6 +242,7 @@
 
     sput-object v0, Landroid/view/SurfaceEffects$AnimParam;->REGION_OFFSET_Y:Landroid/view/SurfaceEffects$AnimParam;
 
+    .line 90
     const/16 v0, 0xe
 
     new-array v0, v0, [Landroid/view/SurfaceEffects$AnimParam;
@@ -312,7 +328,10 @@
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
+    .param p3, "id"    # I
 
+    .prologue
+    .line 107
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     iput p3, p0, Landroid/view/SurfaceEffects$AnimParam;->id:I
@@ -322,7 +341,10 @@
 
 .method public static valueOf(Ljava/lang/String;)Landroid/view/SurfaceEffects$AnimParam;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 90
     const-class v0, Landroid/view/SurfaceEffects$AnimParam;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -337,6 +359,8 @@
 .method public static values()[Landroid/view/SurfaceEffects$AnimParam;
     .locals 1
 
+    .prologue
+    .line 90
     sget-object v0, Landroid/view/SurfaceEffects$AnimParam;->$VALUES:[Landroid/view/SurfaceEffects$AnimParam;
 
     return-object v0

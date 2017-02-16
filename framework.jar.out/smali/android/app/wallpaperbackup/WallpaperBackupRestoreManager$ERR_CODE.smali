@@ -43,6 +43,7 @@
 .method static constructor <clinit>()V
     .locals 6
 
+    .prologue
     const/4 v5, 0x3
 
     const/4 v4, 0x2
@@ -51,6 +52,7 @@
 
     const/4 v2, 0x0
 
+    .line 106
     new-instance v0, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$ERR_CODE;
 
     const-string/jumbo v1, "SUCCESS"
@@ -83,6 +85,7 @@
 
     sput-object v0, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$ERR_CODE;->INVALID_DATA:Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$ERR_CODE;
 
+    .line 105
     const/4 v0, 0x4
 
     new-array v0, v0, [Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$ERR_CODE;
@@ -110,21 +113,30 @@
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 1
+    .param p3, "num"    # I
 
+    .prologue
+    .line 109
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
+    .line 107
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$ERR_CODE;->value:I
 
+    .line 110
     iput p3, p0, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$ERR_CODE;->value:I
 
+    .line 109
     return-void
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$ERR_CODE;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 105
     const-class v0, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$ERR_CODE;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -139,6 +151,8 @@
 .method public static values()[Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$ERR_CODE;
     .locals 1
 
+    .prologue
+    .line 105
     sget-object v0, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$ERR_CODE;->$VALUES:[Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$ERR_CODE;
 
     return-object v0
@@ -149,6 +163,8 @@
 .method public getValue()I
     .locals 1
 
+    .prologue
+    .line 114
     iget v0, p0, Landroid/app/wallpaperbackup/WallpaperBackupRestoreManager$ERR_CODE;->value:I
 
     return v0

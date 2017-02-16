@@ -18,6 +18,8 @@
 .method constructor <init>(Ljava/lang/String;I)V
     .locals 1
 
+    .prologue
+    .line 370
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, p2, v0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;-><init>(Ljava/lang/String;ILcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;)V
@@ -37,6 +39,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 380
     invoke-static {}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle;->-get14()Ljava/util/ArrayList;
 
     move-result-object v0
@@ -54,9 +58,14 @@
         }
     .end annotation
 
+    .prologue
+    .line 374
+    .local p1, "value":Ljava/lang/Object;, "TT;"
     check-cast p1, Ljava/util/ArrayList;
 
+    .end local p1    # "value":Ljava/lang/Object;, "TT;"
     invoke-static {p1}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle;->-set13(Ljava/util/ArrayList;)Ljava/util/ArrayList;
 
+    .line 373
     return-void
 .end method

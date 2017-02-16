@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/animation/SemAddDeleteHorizontalListAnimator;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/samsung/android/animation/SemAddDeleteHorizontalListAnimator;
 
+    .prologue
+    .line 156
     iput-object p1, p0, Lcom/samsung/android/animation/SemAddDeleteHorizontalListAnimator$1;->this$0:Lcom/samsung/android/animation/SemAddDeleteHorizontalListAnimator;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,8 +40,10 @@
 .method public onPreDraw()Z
     .locals 2
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 159
     iget-object v0, p0, Lcom/samsung/android/animation/SemAddDeleteHorizontalListAnimator$1;->this$0:Lcom/samsung/android/animation/SemAddDeleteHorizontalListAnimator;
 
     invoke-static {v0}, Lcom/samsung/android/animation/SemAddDeleteHorizontalListAnimator;->-get1(Lcom/samsung/android/animation/SemAddDeleteHorizontalListAnimator;)Landroid/widget/SemHorizontalListView;
@@ -51,22 +56,26 @@
 
     invoke-virtual {v0, p0}, Landroid/view/ViewTreeObserver;->removeOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
 
+    .line 160
     iget-object v0, p0, Lcom/samsung/android/animation/SemAddDeleteHorizontalListAnimator$1;->this$0:Lcom/samsung/android/animation/SemAddDeleteHorizontalListAnimator;
 
     iget-object v0, v0, Lcom/samsung/android/animation/SemAbsAddDeleteAnimator;->mDeleteRunnable:Ljava/lang/Runnable;
 
     if-eqz v0, :cond_0
 
+    .line 161
     iget-object v0, p0, Lcom/samsung/android/animation/SemAddDeleteHorizontalListAnimator$1;->this$0:Lcom/samsung/android/animation/SemAddDeleteHorizontalListAnimator;
 
     iget-object v0, v0, Lcom/samsung/android/animation/SemAbsAddDeleteAnimator;->mDeleteRunnable:Ljava/lang/Runnable;
 
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
+    .line 162
     iget-object v0, p0, Lcom/samsung/android/animation/SemAddDeleteHorizontalListAnimator$1;->this$0:Lcom/samsung/android/animation/SemAddDeleteHorizontalListAnimator;
 
     iput-object v1, v0, Lcom/samsung/android/animation/SemAbsAddDeleteAnimator;->mDeleteRunnable:Ljava/lang/Runnable;
 
+    .line 164
     :cond_0
     const/4 v0, 0x1
 

@@ -6,7 +6,11 @@
 # direct methods
 .method public constructor <init>(Landroid/media/effect/EffectContext;Ljava/lang/String;)V
     .locals 7
+    .param p1, "context"    # Landroid/media/effect/EffectContext;
+    .param p2, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 29
     const-class v3, Landroid/filterpacks/imageproc/NegativeFilter;
 
     const-string/jumbo v4, "image"
@@ -25,5 +29,6 @@
 
     invoke-direct/range {v0 .. v6}, Landroid/media/effect/SingleFilterEffect;-><init>(Landroid/media/effect/EffectContext;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
 
+    .line 28
     return-void
 .end method

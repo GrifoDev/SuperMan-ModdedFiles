@@ -17,14 +17,19 @@
 .method static constructor <clinit>()V
     .locals 0
 
+    .prologue
+    .line 34
     invoke-static {}, Landroid/opengl/EGLExt;->_nativeClassInit()V
 
+    .line 24
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

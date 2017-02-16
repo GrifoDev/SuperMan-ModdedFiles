@@ -18,6 +18,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 536
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -28,5 +30,7 @@
 .method public onLockoutReset()V
     .locals 0
 
+    .prologue
+    .line 542
     return-void
 .end method

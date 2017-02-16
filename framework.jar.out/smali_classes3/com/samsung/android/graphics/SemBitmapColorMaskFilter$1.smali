@@ -42,7 +42,18 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/graphics/SemBitmapColorMaskFilter;FFFFFFFF)V
     .locals 1
+    .param p1, "this$0"    # Lcom/samsung/android/graphics/SemBitmapColorMaskFilter;
+    .param p2, "val$aEndValueRed"    # F
+    .param p3, "val$aStartValueRed"    # F
+    .param p4, "val$aEndValueGreen"    # F
+    .param p5, "val$aStartValueGreen"    # F
+    .param p6, "val$aEndValueBlue"    # F
+    .param p7, "val$aStartValueBlue"    # F
+    .param p8, "val$aEndValueAlpha"    # F
+    .param p9, "val$aStartValueAlpha"    # F
 
+    .prologue
+    .line 370
     iput-object p1, p0, Lcom/samsung/android/graphics/SemBitmapColorMaskFilter$1;->this$0:Lcom/samsung/android/graphics/SemBitmapColorMaskFilter;
 
     iput p2, p0, Lcom/samsung/android/graphics/SemBitmapColorMaskFilter$1;->val$aEndValueRed:F
@@ -63,12 +74,14 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 371
     const/4 v0, 0x4
 
     new-array v0, v0, [F
 
     iput-object v0, p0, Lcom/samsung/android/graphics/SemBitmapColorMaskFilter$1;->params:[F
 
+    .line 370
     return-void
 .end method
 
@@ -76,7 +89,10 @@
 # virtual methods
 .method public animate(FLcom/samsung/android/graphics/SemImageFilter$ImageFilterAnimator;)V
     .locals 11
+    .param p1, "aFraction"    # F
+    .param p2, "aImageFilterAnimator"    # Lcom/samsung/android/graphics/SemImageFilter$ImageFilterAnimator;
 
+    .prologue
     const/4 v10, 0x0
 
     const/4 v9, 0x1
@@ -85,10 +101,12 @@
 
     const/4 v7, 0x0
 
+    .line 377
     sget-boolean v4, Lcom/samsung/android/graphics/SemBitmapColorMaskFilter;->sLogingEnabled:Z
 
     if-eqz v4, :cond_0
 
+    .line 378
     const-string/jumbo v4, "HWUIIF"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -111,6 +129,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 381
     :cond_0
     iget v4, p0, Lcom/samsung/android/graphics/SemBitmapColorMaskFilter$1;->val$aEndValueRed:F
 
@@ -124,6 +143,8 @@
 
     add-float v3, v4, v5
 
+    .line 382
+    .local v3, "redColor":F
     iget v4, p0, Lcom/samsung/android/graphics/SemBitmapColorMaskFilter$1;->val$aEndValueGreen:F
 
     iget v5, p0, Lcom/samsung/android/graphics/SemBitmapColorMaskFilter$1;->val$aStartValueGreen:F
@@ -136,6 +157,8 @@
 
     add-float v2, v4, v5
 
+    .line 383
+    .local v2, "greenColor":F
     iget v4, p0, Lcom/samsung/android/graphics/SemBitmapColorMaskFilter$1;->val$aEndValueBlue:F
 
     iget v5, p0, Lcom/samsung/android/graphics/SemBitmapColorMaskFilter$1;->val$aStartValueBlue:F
@@ -148,6 +171,8 @@
 
     add-float v1, v4, v5
 
+    .line 384
+    .local v1, "blueColor":F
     iget v4, p0, Lcom/samsung/android/graphics/SemBitmapColorMaskFilter$1;->val$aEndValueAlpha:F
 
     iget v5, p0, Lcom/samsung/android/graphics/SemBitmapColorMaskFilter$1;->val$aStartValueAlpha:F
@@ -160,6 +185,8 @@
 
     add-float v0, v4, v5
 
+    .line 385
+    .local v0, "alphaColor":F
     invoke-static {v3, v8}, Ljava/lang/Math;->min(FF)F
 
     move-result v4
@@ -168,6 +195,7 @@
 
     move-result v3
 
+    .line 386
     invoke-static {v2, v8}, Ljava/lang/Math;->min(FF)F
 
     move-result v4
@@ -176,6 +204,7 @@
 
     move-result v2
 
+    .line 387
     invoke-static {v1, v8}, Ljava/lang/Math;->min(FF)F
 
     move-result v4
@@ -184,6 +213,7 @@
 
     move-result v1
 
+    .line 388
     invoke-static {v0, v8}, Ljava/lang/Math;->min(FF)F
 
     move-result v4
@@ -192,10 +222,12 @@
 
     move-result v0
 
+    .line 390
     sget-boolean v4, Lcom/samsung/android/graphics/SemBitmapColorMaskFilter;->sLogingEnabled:Z
 
     if-eqz v4, :cond_1
 
+    .line 391
     const-string/jumbo v4, "HWUIIF"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -218,6 +250,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 392
     const-string/jumbo v4, "HWUIIF"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -240,6 +273,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 393
     const-string/jumbo v4, "HWUIIF"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -262,6 +296,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 394
     const-string/jumbo v4, "HWUIIF"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -284,27 +319,32 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 397
     :cond_1
     iget-object v4, p0, Lcom/samsung/android/graphics/SemBitmapColorMaskFilter$1;->params:[F
 
     aput v3, v4, v10
 
+    .line 398
     iget-object v4, p0, Lcom/samsung/android/graphics/SemBitmapColorMaskFilter$1;->params:[F
 
     aput v2, v4, v9
 
+    .line 399
     iget-object v4, p0, Lcom/samsung/android/graphics/SemBitmapColorMaskFilter$1;->params:[F
 
     const/4 v5, 0x2
 
     aput v1, v4, v5
 
+    .line 400
     iget-object v4, p0, Lcom/samsung/android/graphics/SemBitmapColorMaskFilter$1;->params:[F
 
     const/4 v5, 0x3
 
     aput v0, v4, v5
 
+    .line 401
     iget-object v4, p0, Lcom/samsung/android/graphics/SemBitmapColorMaskFilter$1;->params:[F
 
     iget-object v5, p0, Lcom/samsung/android/graphics/SemBitmapColorMaskFilter$1;->this$0:Lcom/samsung/android/graphics/SemBitmapColorMaskFilter;
@@ -317,11 +357,13 @@
 
     invoke-static {v4, v10, v5, v9, v6}, Ljava/lang/System;->arraycopy([FI[FII)V
 
+    .line 402
     const-string/jumbo v4, "filterParams"
 
     iget-object v5, p0, Lcom/samsung/android/graphics/SemBitmapColorMaskFilter$1;->params:[F
 
     invoke-virtual {p2, v4, v5, v9}, Lcom/samsung/android/graphics/SemImageFilter$ImageFilterAnimator;->setUniformf(Ljava/lang/String;[FI)V
 
+    .line 376
     return-void
 .end method

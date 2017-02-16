@@ -21,11 +21,16 @@
 # direct methods
 .method constructor <init>(Landroid/util/LocalLog;)V
     .locals 0
+    .param p1, "log"    # Landroid/util/LocalLog;
 
+    .prologue
+    .line 66
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 67
     iput-object p1, p0, Landroid/util/LocalLog$ReadOnlyLocalLog;->mLog:Landroid/util/LocalLog;
 
+    .line 66
     return-void
 .end method
 
@@ -33,10 +38,16 @@
 # virtual methods
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 1
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "pw"    # Ljava/io/PrintWriter;
+    .param p3, "args"    # [Ljava/lang/String;
 
+    .prologue
+    .line 70
     iget-object v0, p0, Landroid/util/LocalLog$ReadOnlyLocalLog;->mLog:Landroid/util/LocalLog;
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/util/LocalLog;->dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
 
+    .line 69
     return-void
 .end method

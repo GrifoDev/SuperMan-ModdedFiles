@@ -14,11 +14,16 @@
 # direct methods
 .method public constructor <init>(Landroid/net/wifi/IWifiOffloadManager;)V
     .locals 0
+    .param p1, "service"    # Landroid/net/wifi/IWifiOffloadManager;
 
+    .prologue
+    .line 40
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 41
     iput-object p1, p0, Landroid/net/wifi/WifiOffloadManager;->mService:Landroid/net/wifi/IWifiOffloadManager;
 
+    .line 40
     return-void
 .end method
 
@@ -26,7 +31,10 @@
 # virtual methods
 .method public checkAppForWiFiOffloading(Ljava/lang/String;)V
     .locals 4
+    .param p1, "pkgName"    # Ljava/lang/String;
 
+    .prologue
+    .line 63
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiOffloadManager;->mService:Landroid/net/wifi/IWifiOffloadManager;
 
@@ -34,12 +42,16 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 61
     :goto_0
     return-void
 
+    .line 64
     :catch_0
     move-exception v0
 
+    .line 65
+    .local v0, "e":Ljava/lang/Exception;
     const-string/jumbo v1, "WifiOffloadManager"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -67,7 +79,10 @@
 
 .method public checkAppNeedsMoveToFront(I)V
     .locals 4
+    .param p1, "taskID"    # I
 
+    .prologue
+    .line 54
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiOffloadManager;->mService:Landroid/net/wifi/IWifiOffloadManager;
 
@@ -75,12 +90,16 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 52
     :goto_0
     return-void
 
+    .line 55
     :catch_0
     move-exception v0
 
+    .line 56
+    .local v0, "e":Ljava/lang/Exception;
     const-string/jumbo v1, "WifiOffloadManager"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -109,6 +128,8 @@
 .method public startTimer()V
     .locals 4
 
+    .prologue
+    .line 46
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiOffloadManager;->mService:Landroid/net/wifi/IWifiOffloadManager;
 
@@ -116,12 +137,16 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 44
     :goto_0
     return-void
 
+    .line 47
     :catch_0
     move-exception v0
 
+    .line 48
+    .local v0, "e":Ljava/lang/Exception;
     const-string/jumbo v1, "WifiOffloadManager"
 
     new-instance v2, Ljava/lang/StringBuilder;

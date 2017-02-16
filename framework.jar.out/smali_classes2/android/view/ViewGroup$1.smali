@@ -18,6 +18,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 518
     invoke-direct {p0}, Landroid/view/ActionMode;-><init>()V
 
     return-void
@@ -28,12 +30,16 @@
 .method public finish()V
     .locals 0
 
+    .prologue
+    .line 538
     return-void
 .end method
 
 .method public getCustomView()Landroid/view/View;
     .locals 1
 
+    .prologue
+    .line 557
     const/4 v0, 0x0
 
     return-object v0
@@ -42,6 +48,8 @@
 .method public getMenu()Landroid/view/Menu;
     .locals 1
 
+    .prologue
+    .line 542
     const/4 v0, 0x0
 
     return-object v0
@@ -50,6 +58,8 @@
 .method public getMenuInflater()Landroid/view/MenuInflater;
     .locals 1
 
+    .prologue
+    .line 562
     const/4 v0, 0x0
 
     return-object v0
@@ -58,6 +68,8 @@
 .method public getSubtitle()Ljava/lang/CharSequence;
     .locals 1
 
+    .prologue
+    .line 552
     const/4 v0, 0x0
 
     return-object v0
@@ -66,6 +78,8 @@
 .method public getTitle()Ljava/lang/CharSequence;
     .locals 1
 
+    .prologue
+    .line 547
     const/4 v0, 0x0
 
     return-object v0
@@ -74,35 +88,52 @@
 .method public invalidate()V
     .locals 0
 
+    .prologue
+    .line 535
     return-void
 .end method
 
 .method public setCustomView(Landroid/view/View;)V
     .locals 0
+    .param p1, "view"    # Landroid/view/View;
 
+    .prologue
+    .line 532
     return-void
 .end method
 
 .method public setSubtitle(I)V
     .locals 0
+    .param p1, "resId"    # I
 
+    .prologue
+    .line 529
     return-void
 .end method
 
 .method public setSubtitle(Ljava/lang/CharSequence;)V
     .locals 0
+    .param p1, "subtitle"    # Ljava/lang/CharSequence;
 
+    .prologue
+    .line 526
     return-void
 .end method
 
 .method public setTitle(I)V
     .locals 0
+    .param p1, "resId"    # I
 
+    .prologue
+    .line 523
     return-void
 .end method
 
 .method public setTitle(Ljava/lang/CharSequence;)V
     .locals 0
+    .param p1, "title"    # Ljava/lang/CharSequence;
 
+    .prologue
+    .line 520
     return-void
 .end method

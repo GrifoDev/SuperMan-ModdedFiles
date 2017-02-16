@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 228
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,7 +42,10 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/net/NetworkRequest;
     .locals 5
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 230
     const/4 v4, 0x0
 
     invoke-virtual {p1, v4}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
@@ -49,24 +54,35 @@
 
     check-cast v1, Landroid/net/NetworkCapabilities;
 
+    .line 231
+    .local v1, "nc":Landroid/net/NetworkCapabilities;
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
+    .line 232
+    .local v0, "legacyType":I
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
+    .line 233
+    .local v2, "requestId":I
     new-instance v3, Landroid/net/NetworkRequest;
 
     invoke-direct {v3, v1, v0, v2}, Landroid/net/NetworkRequest;-><init>(Landroid/net/NetworkCapabilities;II)V
 
+    .line 234
+    .local v3, "result":Landroid/net/NetworkRequest;
     return-object v3
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 229
     invoke-virtual {p0, p1}, Landroid/net/NetworkRequest$1;->createFromParcel(Landroid/os/Parcel;)Landroid/net/NetworkRequest;
 
     move-result-object v0
@@ -76,7 +92,10 @@
 
 .method public newArray(I)[Landroid/net/NetworkRequest;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 237
     new-array v0, p1, [Landroid/net/NetworkRequest;
 
     return-object v0
@@ -84,7 +103,10 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 236
     invoke-virtual {p0, p1}, Landroid/net/NetworkRequest$1;->newArray(I)[Landroid/net/NetworkRequest;
 
     move-result-object v0

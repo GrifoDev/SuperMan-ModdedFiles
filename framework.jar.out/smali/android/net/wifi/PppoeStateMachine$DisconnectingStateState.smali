@@ -25,15 +25,20 @@
 # direct methods
 .method constructor <init>(Landroid/net/wifi/PppoeStateMachine;)V
     .locals 1
+    .param p1, "this$0"    # Landroid/net/wifi/PppoeStateMachine;
 
+    .prologue
+    .line 264
     iput-object p1, p0, Landroid/net/wifi/PppoeStateMachine$DisconnectingStateState;->this$0:Landroid/net/wifi/PppoeStateMachine;
 
     invoke-direct {p0}, Lcom/android/internal/util/State;-><init>()V
 
+    .line 265
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/net/wifi/PppoeStateMachine$DisconnectingStateState;->ret:Z
 
+    .line 264
     return-void
 .end method
 
@@ -42,6 +47,8 @@
 .method public enter()V
     .locals 3
 
+    .prologue
+    .line 268
     const-string/jumbo v0, "PppoeStateMachine"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -68,14 +75,20 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 267
     return-void
 .end method
 
 .method public processMessage(Landroid/os/Message;)Z
     .locals 6
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 272
     const/4 v1, 0x1
 
+    .line 273
+    .local v1, "ret":Z
     const-string/jumbo v2, "PppoeStateMachine"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -110,15 +123,19 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 274
     iget v2, p1, Landroid/os/Message;->what:I
 
     packed-switch v2, :pswitch_data_0
 
+    .line 283
     const/4 v1, 0x0
 
+    .line 287
     :goto_0
     return v1
 
+    .line 276
     :pswitch_0
     iget-object v2, p0, Landroid/net/wifi/PppoeStateMachine$DisconnectingStateState;->this$0:Landroid/net/wifi/PppoeStateMachine;
 
@@ -130,6 +147,8 @@
 
     move-result-object v0
 
+    .line 277
+    .local v0, "mGateWay":Ljava/net/InetAddress;
     new-instance v2, Landroid/net/RouteInfo;
 
     const-string/jumbo v3, "ppp3"
@@ -142,6 +161,7 @@
 
     iput-object v2, p0, Landroid/net/wifi/PppoeStateMachine$DisconnectingStateState;->mRouteinfo:Landroid/net/RouteInfo;
 
+    .line 278
     iget-object v2, p0, Landroid/net/wifi/PppoeStateMachine$DisconnectingStateState;->this$0:Landroid/net/wifi/PppoeStateMachine;
 
     const-string/jumbo v3, "ppp3"
@@ -152,6 +172,7 @@
 
     invoke-static {v2, v3, v4, v5}, Landroid/net/wifi/PppoeStateMachine;->-wrap2(Landroid/net/wifi/PppoeStateMachine;Ljava/lang/String;Landroid/net/RouteInfo;I)V
 
+    .line 279
     iget-object v2, p0, Landroid/net/wifi/PppoeStateMachine$DisconnectingStateState;->this$0:Landroid/net/wifi/PppoeStateMachine;
 
     iget-object v3, p0, Landroid/net/wifi/PppoeStateMachine$DisconnectingStateState;->this$0:Landroid/net/wifi/PppoeStateMachine;
@@ -164,6 +185,7 @@
 
     goto :goto_0
 
+    .line 274
     :pswitch_data_0
     .packed-switch 0x70004
         :pswitch_0

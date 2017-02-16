@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Landroid/widget/EditText;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/widget/EditText;
 
+    .prologue
+    .line 236
     iput-object p1, p0, Landroid/widget/EditText$2;->this$0:Landroid/widget/EditText;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -33,9 +36,12 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
     const/4 v2, 0x1
 
+    .line 239
     invoke-static {}, Landroid/widget/EditText;->-get1()Ljava/util/HashSet;
 
     move-result-object v0
@@ -56,10 +62,12 @@
 
     if-eqz v0, :cond_1
 
+    .line 240
     iget v0, p1, Landroid/os/Message;->what:I
 
     if-ne v0, v2, :cond_2
 
+    .line 241
     iget-object v0, p0, Landroid/widget/EditText$2;->this$0:Landroid/widget/EditText;
 
     iget-object v1, p0, Landroid/widget/EditText$2;->this$0:Landroid/widget/EditText;
@@ -70,19 +78,23 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->addTextChangedListener(Landroid/text/TextWatcher;)V
 
+    .line 242
     iget-object v0, p0, Landroid/widget/EditText$2;->this$0:Landroid/widget/EditText;
 
     invoke-static {v0, v2}, Landroid/widget/EditText;->-set0(Landroid/widget/EditText;Z)Z
 
+    .line 247
     :cond_0
     :goto_0
     iget-object v0, p0, Landroid/widget/EditText$2;->this$0:Landroid/widget/EditText;
 
     invoke-static {v0}, Landroid/widget/EditText;->-wrap0(Landroid/widget/EditText;)V
 
+    .line 238
     :cond_1
     return-void
 
+    .line 243
     :cond_2
     iget v0, p1, Landroid/os/Message;->what:I
 
@@ -90,6 +102,7 @@
 
     if-ne v0, v1, :cond_0
 
+    .line 244
     iget-object v0, p0, Landroid/widget/EditText$2;->this$0:Landroid/widget/EditText;
 
     iget-object v1, p0, Landroid/widget/EditText$2;->this$0:Landroid/widget/EditText;
@@ -100,6 +113,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->removeTextChangedListener(Landroid/text/TextWatcher;)V
 
+    .line 245
     iget-object v0, p0, Landroid/widget/EditText$2;->this$0:Landroid/widget/EditText;
 
     const/4 v1, 0x0

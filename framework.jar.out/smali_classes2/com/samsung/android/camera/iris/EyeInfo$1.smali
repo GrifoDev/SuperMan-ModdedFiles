@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 310
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,7 +42,10 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Lcom/samsung/android/camera/iris/EyeInfo;
     .locals 2
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 313
     new-instance v0, Lcom/samsung/android/camera/iris/EyeInfo;
 
     const/4 v1, 0x0
@@ -52,7 +57,10 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 312
     invoke-virtual {p0, p1}, Lcom/samsung/android/camera/iris/EyeInfo$1;->createFromParcel(Landroid/os/Parcel;)Lcom/samsung/android/camera/iris/EyeInfo;
 
     move-result-object v0
@@ -62,7 +70,10 @@
 
 .method public newArray(I)[Lcom/samsung/android/camera/iris/EyeInfo;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 318
     new-array v0, p1, [Lcom/samsung/android/camera/iris/EyeInfo;
 
     return-object v0
@@ -70,7 +81,10 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 317
     invoke-virtual {p0, p1}, Lcom/samsung/android/camera/iris/EyeInfo$1;->newArray(I)[Lcom/samsung/android/camera/iris/EyeInfo;
 
     move-result-object v0

@@ -27,6 +27,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 949
     invoke-direct {p0}, Landroid/app/SystemServiceRegistry$StaticServiceFetcher;-><init>()V
 
     return-void
@@ -37,26 +39,34 @@
 .method public createService()Landroid/service/persistentdata/PersistentDataBlockManager;
     .locals 4
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 952
     const-string/jumbo v2, "persistent_data_block"
 
     invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
+    .line 954
+    .local v0, "b":Landroid/os/IBinder;
     invoke-static {v0}, Landroid/service/persistentdata/IPersistentDataBlockService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/service/persistentdata/IPersistentDataBlockService;
 
     move-result-object v1
 
+    .line 955
+    .local v1, "persistentDataBlockService":Landroid/service/persistentdata/IPersistentDataBlockService;
     if-eqz v1, :cond_0
 
+    .line 956
     new-instance v2, Landroid/service/persistentdata/PersistentDataBlockManager;
 
     invoke-direct {v2, v1}, Landroid/service/persistentdata/PersistentDataBlockManager;-><init>(Landroid/service/persistentdata/IPersistentDataBlockService;)V
 
     return-object v2
 
+    .line 959
     :cond_0
     return-object v3
 .end method
@@ -64,6 +74,8 @@
 .method public bridge synthetic createService()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 951
     invoke-virtual {p0}, Landroid/app/SystemServiceRegistry$78;->createService()Landroid/service/persistentdata/PersistentDataBlockManager;
 
     move-result-object v0

@@ -34,37 +34,48 @@
 # direct methods
 .method constructor <init>(Landroid/media/midi/MidiDevice;Landroid/os/IBinder;Landroid/media/midi/MidiInputPort;)V
     .locals 2
+    .param p1, "this$0"    # Landroid/media/midi/MidiDevice;
+    .param p2, "outputPortToken"    # Landroid/os/IBinder;
+    .param p3, "inputPort"    # Landroid/media/midi/MidiInputPort;
 
+    .prologue
+    .line 61
     iput-object p1, p0, Landroid/media/midi/MidiDevice$MidiConnection;->this$0:Landroid/media/midi/MidiDevice;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 58
     invoke-static {}, Ldalvik/system/CloseGuard;->get()Ldalvik/system/CloseGuard;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/media/midi/MidiDevice$MidiConnection;->mGuard:Ldalvik/system/CloseGuard;
 
+    .line 62
     invoke-virtual {p3}, Landroid/media/midi/MidiInputPort;->getDeviceServer()Landroid/media/midi/IMidiDeviceServer;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/media/midi/MidiDevice$MidiConnection;->mInputPortDeviceServer:Landroid/media/midi/IMidiDeviceServer;
 
+    .line 63
     invoke-virtual {p3}, Landroid/media/midi/MidiInputPort;->getToken()Landroid/os/IBinder;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/media/midi/MidiDevice$MidiConnection;->mInputPortToken:Landroid/os/IBinder;
 
+    .line 64
     iput-object p2, p0, Landroid/media/midi/MidiDevice$MidiConnection;->mOutputPortToken:Landroid/os/IBinder;
 
+    .line 65
     iget-object v0, p0, Landroid/media/midi/MidiDevice$MidiConnection;->mGuard:Ldalvik/system/CloseGuard;
 
     const-string/jumbo v1, "close"
 
     invoke-virtual {v0, v1}, Ldalvik/system/CloseGuard;->open(Ljava/lang/String;)V
 
+    .line 61
     return-void
 .end method
 
@@ -78,10 +89,13 @@
         }
     .end annotation
 
+    .prologue
+    .line 70
     iget-object v2, p0, Landroid/media/midi/MidiDevice$MidiConnection;->mGuard:Ldalvik/system/CloseGuard;
 
     monitor-enter v2
 
+    .line 71
     :try_start_0
     iget-boolean v1, p0, Landroid/media/midi/MidiDevice$MidiConnection;->mIsClosed:Z
     :try_end_0
@@ -93,6 +107,7 @@
 
     return-void
 
+    .line 72
     :cond_0
     :try_start_1
     iget-object v1, p0, Landroid/media/midi/MidiDevice$MidiConnection;->mGuard:Ldalvik/system/CloseGuard;
@@ -101,6 +116,7 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    .line 75
     :try_start_2
     iget-object v1, p0, Landroid/media/midi/MidiDevice$MidiConnection;->mInputPortDeviceServer:Landroid/media/midi/IMidiDeviceServer;
 
@@ -108,6 +124,7 @@
 
     invoke-interface {v1, v3}, Landroid/media/midi/IMidiDeviceServer;->closePort(Landroid/os/IBinder;)V
 
+    .line 77
     iget-object v1, p0, Landroid/media/midi/MidiDevice$MidiConnection;->this$0:Landroid/media/midi/MidiDevice;
 
     invoke-static {v1}, Landroid/media/midi/MidiDevice;->-get0(Landroid/media/midi/MidiDevice;)Landroid/media/midi/IMidiDeviceServer;
@@ -121,6 +138,7 @@
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
+    .line 81
     :goto_0
     const/4 v1, 0x1
 
@@ -131,11 +149,15 @@
 
     monitor-exit v2
 
+    .line 69
     return-void
 
+    .line 78
     :catch_0
     move-exception v0
 
+    .line 79
+    .local v0, "e":Landroid/os/RemoteException;
     :try_start_4
     const-string/jumbo v1, "MidiDevice"
 
@@ -147,6 +169,8 @@
 
     goto :goto_0
 
+    .line 70
+    .end local v0    # "e":Landroid/os/RemoteException;
     :catchall_0
     move-exception v1
 
@@ -163,23 +187,31 @@
         }
     .end annotation
 
+    .prologue
+    .line 88
     :try_start_0
     iget-object v0, p0, Landroid/media/midi/MidiDevice$MidiConnection;->mGuard:Ldalvik/system/CloseGuard;
 
     invoke-virtual {v0}, Ldalvik/system/CloseGuard;->warnIfOpen()V
 
+    .line 89
     invoke-virtual {p0}, Landroid/media/midi/MidiDevice$MidiConnection;->close()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 91
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
 
+    .line 86
     return-void
 
+    .line 90
     :catchall_0
     move-exception v0
 
+    .line 91
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
 
+    .line 90
     throw v0
 .end method

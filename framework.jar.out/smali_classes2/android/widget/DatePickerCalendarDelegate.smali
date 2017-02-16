@@ -102,7 +102,10 @@
 
 .method static synthetic -wrap0(Landroid/widget/DatePickerCalendarDelegate;ZZ)V
     .locals 0
+    .param p1, "fromUser"    # Z
+    .param p2, "callbackToClient"    # Z
 
+    .prologue
     invoke-direct {p0, p1, p2}, Landroid/widget/DatePickerCalendarDelegate;->onDateChanged(ZZ)V
 
     return-void
@@ -110,7 +113,9 @@
 
 .method static synthetic -wrap1(Landroid/widget/DatePickerCalendarDelegate;I)V
     .locals 0
+    .param p1, "viewIndex"    # I
 
+    .prologue
     invoke-direct {p0, p1}, Landroid/widget/DatePickerCalendarDelegate;->setCurrentView(I)V
 
     return-void
@@ -127,46 +132,64 @@
 .method static constructor <clinit>()V
     .locals 4
 
+    .prologue
     const/4 v3, 0x1
 
     const/4 v2, 0x0
 
+    .line 61
     new-array v0, v3, [I
 
+    .line 62
     const v1, 0x1010098
 
     aput v1, v0, v2
 
+    .line 61
     sput-object v0, Landroid/widget/DatePickerCalendarDelegate;->ATTRS_TEXT_COLOR:[I
 
+    .line 63
     new-array v0, v3, [I
 
+    .line 64
     const v1, 0x1010033
 
     aput v1, v0, v2
 
+    .line 63
     sput-object v0, Landroid/widget/DatePickerCalendarDelegate;->ATTRS_DISABLED_ALPHA:[I
 
+    .line 49
     return-void
 .end method
 
 .method public constructor <init>(Landroid/widget/DatePicker;Landroid/content/Context;Landroid/util/AttributeSet;II)V
     .locals 18
+    .param p1, "delegator"    # Landroid/widget/DatePicker;
+    .param p2, "context"    # Landroid/content/Context;
+    .param p3, "attrs"    # Landroid/util/AttributeSet;
+    .param p4, "defStyleAttr"    # I
+    .param p5, "defStyleRes"    # I
 
+    .prologue
+    .line 98
     invoke-direct/range {p0 .. p2}, Landroid/widget/DatePicker$AbstractDatePickerDelegate;-><init>(Landroid/widget/DatePicker;Landroid/content/Context;)V
 
+    .line 87
     const/4 v14, -0x1
 
     move-object/from16 v0, p0
 
     iput v14, v0, Landroid/widget/DatePickerCalendarDelegate;->mCurrentView:I
 
+    .line 94
     const/4 v14, 0x0
 
     move-object/from16 v0, p0
 
     iput v14, v0, Landroid/widget/DatePickerCalendarDelegate;->mFirstDayOfWeek:I
 
+    .line 239
     new-instance v14, Landroid/widget/DatePickerCalendarDelegate$1;
 
     move-object/from16 v0, p0
@@ -177,6 +200,7 @@
 
     iput-object v14, v0, Landroid/widget/DatePickerCalendarDelegate;->mOnDaySelectedListener:Landroid/widget/DayPickerView$OnDaySelectedListener;
 
+    .line 250
     new-instance v14, Landroid/widget/DatePickerCalendarDelegate$2;
 
     move-object/from16 v0, p0
@@ -187,6 +211,7 @@
 
     iput-object v14, v0, Landroid/widget/DatePickerCalendarDelegate;->mOnYearSelectedListener:Landroid/widget/YearPickerView$OnYearSelectedListener;
 
+    .line 279
     new-instance v14, Landroid/widget/DatePickerCalendarDelegate$3;
 
     move-object/from16 v0, p0
@@ -197,10 +222,13 @@
 
     iput-object v14, v0, Landroid/widget/DatePickerCalendarDelegate;->mOnHeaderClickListener:Landroid/view/View$OnClickListener;
 
+    .line 100
     move-object/from16 v0, p0
 
     iget-object v10, v0, Landroid/widget/DatePicker$AbstractDatePickerDelegate;->mCurrentLocale:Ljava/util/Locale;
 
+    .line 101
+    .local v10, "locale":Ljava/util/Locale;
     invoke-static {v10}, Landroid/icu/util/Calendar;->getInstance(Ljava/util/Locale;)Landroid/icu/util/Calendar;
 
     move-result-object v14
@@ -209,6 +237,7 @@
 
     iput-object v14, v0, Landroid/widget/DatePickerCalendarDelegate;->mCurrentDate:Landroid/icu/util/Calendar;
 
+    .line 102
     invoke-static {v10}, Landroid/icu/util/Calendar;->getInstance(Ljava/util/Locale;)Landroid/icu/util/Calendar;
 
     move-result-object v14
@@ -217,6 +246,7 @@
 
     iput-object v14, v0, Landroid/widget/DatePickerCalendarDelegate;->mTempDate:Landroid/icu/util/Calendar;
 
+    .line 103
     invoke-static {v10}, Landroid/icu/util/Calendar;->getInstance(Ljava/util/Locale;)Landroid/icu/util/Calendar;
 
     move-result-object v14
@@ -225,6 +255,7 @@
 
     iput-object v14, v0, Landroid/widget/DatePickerCalendarDelegate;->mMinDate:Landroid/icu/util/Calendar;
 
+    .line 104
     invoke-static {v10}, Landroid/icu/util/Calendar;->getInstance(Ljava/util/Locale;)Landroid/icu/util/Calendar;
 
     move-result-object v14
@@ -233,6 +264,7 @@
 
     iput-object v14, v0, Landroid/widget/DatePickerCalendarDelegate;->mMaxDate:Landroid/icu/util/Calendar;
 
+    .line 106
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/widget/DatePickerCalendarDelegate;->mMinDate:Landroid/icu/util/Calendar;
@@ -245,6 +277,7 @@
 
     invoke-virtual/range {v14 .. v17}, Landroid/icu/util/Calendar;->set(III)V
 
+    .line 107
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/widget/DatePickerCalendarDelegate;->mMaxDate:Landroid/icu/util/Calendar;
@@ -257,6 +290,7 @@
 
     invoke-virtual/range {v14 .. v17}, Landroid/icu/util/Calendar;->set(III)V
 
+    .line 109
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/widget/DatePicker$AbstractDatePickerDelegate;->mDelegator:Landroid/widget/DatePicker;
@@ -265,12 +299,16 @@
 
     move-result-object v12
 
+    .line 110
+    .local v12, "res":Landroid/content/res/Resources;
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/widget/DatePicker$AbstractDatePickerDelegate;->mContext:Landroid/content/Context;
 
+    .line 111
     sget-object v15, Lcom/android/internal/R$styleable;->DatePicker:[I
 
+    .line 110
     move-object/from16 v0, p3
 
     move/from16 v1, p4
@@ -281,26 +319,35 @@
 
     move-result-object v4
 
+    .line 112
+    .local v4, "a":Landroid/content/res/TypedArray;
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/widget/DatePicker$AbstractDatePickerDelegate;->mContext:Landroid/content/Context;
 
+    .line 113
     const-string/jumbo v15, "layout_inflater"
 
+    .line 112
     invoke-virtual {v14, v15}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v7
 
     check-cast v7, Landroid/view/LayoutInflater;
 
+    .line 115
+    .local v7, "inflater":Landroid/view/LayoutInflater;
     const/16 v14, 0x11
 
     const v15, 0x109004b
 
+    .line 114
     invoke-virtual {v4, v14, v15}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v8
 
+    .line 118
+    .local v8, "layoutResourceId":I
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/widget/DatePicker$AbstractDatePickerDelegate;->mDelegator:Landroid/widget/DatePicker;
@@ -317,6 +364,7 @@
 
     iput-object v14, v0, Landroid/widget/DatePickerCalendarDelegate;->mContainer:Landroid/view/ViewGroup;
 
+    .line 119
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/widget/DatePicker$AbstractDatePickerDelegate;->mDelegator:Landroid/widget/DatePicker;
@@ -327,6 +375,7 @@
 
     invoke-virtual {v14, v15}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
+    .line 122
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/widget/DatePickerCalendarDelegate;->mContainer:Landroid/view/ViewGroup;
@@ -339,6 +388,8 @@
 
     check-cast v5, Landroid/view/ViewGroup;
 
+    .line 123
+    .local v5, "header":Landroid/view/ViewGroup;
     const v14, 0x10203b1
 
     invoke-virtual {v5, v14}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -351,6 +402,7 @@
 
     iput-object v14, v0, Landroid/widget/DatePickerCalendarDelegate;->mHeaderYear:Landroid/widget/TextView;
 
+    .line 124
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/widget/DatePickerCalendarDelegate;->mHeaderYear:Landroid/widget/TextView;
@@ -361,6 +413,7 @@
 
     invoke-virtual {v14, v15}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
+    .line 125
     const v14, 0x10203b3
 
     invoke-virtual {v5, v14}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -373,6 +426,7 @@
 
     iput-object v14, v0, Landroid/widget/DatePickerCalendarDelegate;->mHeaderMonthDay:Landroid/widget/TextView;
 
+    .line 126
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/widget/DatePickerCalendarDelegate;->mHeaderMonthDay:Landroid/widget/TextView;
@@ -383,28 +437,39 @@
 
     invoke-virtual {v14, v15}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
+    .line 131
     const/4 v6, 0x0
 
+    .line 135
+    .local v6, "headerTextColor":Landroid/content/res/ColorStateList;
     const/16 v14, 0xa
 
     const/4 v15, 0x0
 
+    .line 134
     invoke-virtual {v4, v14, v15}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v11
 
+    .line 136
+    .local v11, "monthHeaderTextAppearance":I
     if-eqz v11, :cond_0
 
+    .line 137
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/widget/DatePicker$AbstractDatePickerDelegate;->mContext:Landroid/content/Context;
 
+    .line 138
     sget-object v15, Landroid/widget/DatePickerCalendarDelegate;->ATTRS_TEXT_COLOR:[I
 
+    .line 137
     const/16 v16, 0x0
 
+    .line 138
     const/16 v17, 0x0
 
+    .line 137
     move-object/from16 v0, v16
 
     move/from16 v1, v17
@@ -413,44 +478,59 @@
 
     move-result-object v13
 
+    .line 139
+    .local v13, "textAppearance":Landroid/content/res/TypedArray;
     const/4 v14, 0x0
 
     invoke-virtual {v13, v14}, Landroid/content/res/TypedArray;->getColorStateList(I)Landroid/content/res/ColorStateList;
 
     move-result-object v9
 
+    .line 140
+    .local v9, "legacyHeaderTextColor":Landroid/content/res/ColorStateList;
     move-object/from16 v0, p0
 
     invoke-direct {v0, v9}, Landroid/widget/DatePickerCalendarDelegate;->applyLegacyColorFixes(Landroid/content/res/ColorStateList;)Landroid/content/res/ColorStateList;
 
     move-result-object v6
 
+    .line 141
+    .local v6, "headerTextColor":Landroid/content/res/ColorStateList;
     invoke-virtual {v13}, Landroid/content/res/TypedArray;->recycle()V
 
+    .line 144
+    .end local v6    # "headerTextColor":Landroid/content/res/ColorStateList;
+    .end local v9    # "legacyHeaderTextColor":Landroid/content/res/ColorStateList;
+    .end local v13    # "textAppearance":Landroid/content/res/TypedArray;
     :cond_0
     if-nez v6, :cond_1
 
+    .line 145
     const/16 v14, 0x12
 
     invoke-virtual {v4, v14}, Landroid/content/res/TypedArray;->getColorStateList(I)Landroid/content/res/ColorStateList;
 
     move-result-object v6
 
+    .line 148
     :cond_1
     if-eqz v6, :cond_2
 
+    .line 149
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/widget/DatePickerCalendarDelegate;->mHeaderYear:Landroid/widget/TextView;
 
     invoke-virtual {v14, v6}, Landroid/widget/TextView;->setTextColor(Landroid/content/res/ColorStateList;)V
 
+    .line 150
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/widget/DatePickerCalendarDelegate;->mHeaderMonthDay:Landroid/widget/TextView;
 
     invoke-virtual {v14, v6}, Landroid/widget/TextView;->setTextColor(Landroid/content/res/ColorStateList;)V
 
+    .line 154
     :cond_2
     const/4 v14, 0x0
 
@@ -460,6 +540,7 @@
 
     if-eqz v14, :cond_3
 
+    .line 155
     const/4 v14, 0x0
 
     invoke-virtual {v4, v14}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -468,9 +549,11 @@
 
     invoke-virtual {v5, v14}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
+    .line 158
     :cond_3
     invoke-virtual {v4}, Landroid/content/res/TypedArray;->recycle()V
 
+    .line 161
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/widget/DatePickerCalendarDelegate;->mContainer:Landroid/view/ViewGroup;
@@ -487,6 +570,7 @@
 
     iput-object v14, v0, Landroid/widget/DatePickerCalendarDelegate;->mAnimator:Landroid/widget/ViewAnimator;
 
+    .line 164
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/widget/DatePickerCalendarDelegate;->mAnimator:Landroid/widget/ViewAnimator;
@@ -503,6 +587,7 @@
 
     iput-object v14, v0, Landroid/widget/DatePickerCalendarDelegate;->mDayPickerView:Landroid/widget/DayPickerView;
 
+    .line 165
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/widget/DatePickerCalendarDelegate;->mDayPickerView:Landroid/widget/DayPickerView;
@@ -513,6 +598,7 @@
 
     invoke-virtual {v14, v15}, Landroid/widget/DayPickerView;->setFirstDayOfWeek(I)V
 
+    .line 166
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/widget/DatePickerCalendarDelegate;->mDayPickerView:Landroid/widget/DayPickerView;
@@ -529,6 +615,7 @@
 
     invoke-virtual {v14, v0, v1}, Landroid/widget/DayPickerView;->setMinDate(J)V
 
+    .line 167
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/widget/DatePickerCalendarDelegate;->mDayPickerView:Landroid/widget/DayPickerView;
@@ -545,6 +632,7 @@
 
     invoke-virtual {v14, v0, v1}, Landroid/widget/DayPickerView;->setMaxDate(J)V
 
+    .line 168
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/widget/DatePickerCalendarDelegate;->mDayPickerView:Landroid/widget/DayPickerView;
@@ -561,6 +649,7 @@
 
     invoke-virtual {v14, v0, v1}, Landroid/widget/DayPickerView;->setDate(J)V
 
+    .line 169
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/widget/DatePickerCalendarDelegate;->mDayPickerView:Landroid/widget/DayPickerView;
@@ -571,6 +660,7 @@
 
     invoke-virtual {v14, v15}, Landroid/widget/DayPickerView;->setOnDaySelectedListener(Landroid/widget/DayPickerView$OnDaySelectedListener;)V
 
+    .line 172
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/widget/DatePickerCalendarDelegate;->mAnimator:Landroid/widget/ViewAnimator;
@@ -587,6 +677,7 @@
 
     iput-object v14, v0, Landroid/widget/DatePickerCalendarDelegate;->mYearPickerView:Landroid/widget/YearPickerView;
 
+    .line 173
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/widget/DatePickerCalendarDelegate;->mYearPickerView:Landroid/widget/YearPickerView;
@@ -603,6 +694,7 @@
 
     invoke-virtual/range {v14 .. v16}, Landroid/widget/YearPickerView;->setRange(Landroid/icu/util/Calendar;Landroid/icu/util/Calendar;)V
 
+    .line 174
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/widget/DatePickerCalendarDelegate;->mYearPickerView:Landroid/widget/YearPickerView;
@@ -619,6 +711,7 @@
 
     invoke-virtual {v14, v15}, Landroid/widget/YearPickerView;->setYear(I)V
 
+    .line 175
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/widget/DatePickerCalendarDelegate;->mYearPickerView:Landroid/widget/YearPickerView;
@@ -629,6 +722,7 @@
 
     invoke-virtual {v14, v15}, Landroid/widget/YearPickerView;->setOnYearSelectedListener(Landroid/widget/YearPickerView$OnYearSelectedListener;)V
 
+    .line 178
     const v14, 0x10405ad
 
     invoke-virtual {v12, v14}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
@@ -639,6 +733,7 @@
 
     iput-object v14, v0, Landroid/widget/DatePickerCalendarDelegate;->mSelectDay:Ljava/lang/String;
 
+    .line 179
     const v14, 0x10405ae
 
     invoke-virtual {v12, v14}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
@@ -649,6 +744,7 @@
 
     iput-object v14, v0, Landroid/widget/DatePickerCalendarDelegate;->mSelectYear:Ljava/lang/String;
 
+    .line 183
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/widget/DatePicker$AbstractDatePickerDelegate;->mCurrentLocale:Ljava/util/Locale;
@@ -657,18 +753,22 @@
 
     invoke-virtual {v0, v14}, Landroid/widget/DatePickerCalendarDelegate;->onLocaleChanged(Ljava/util/Locale;)V
 
+    .line 185
     const/4 v14, 0x0
 
     move-object/from16 v0, p0
 
     invoke-direct {v0, v14}, Landroid/widget/DatePickerCalendarDelegate;->setCurrentView(I)V
 
+    .line 97
     return-void
 .end method
 
 .method private applyLegacyColorFixes(Landroid/content/res/ColorStateList;)Landroid/content/res/ColorStateList;
     .locals 13
+    .param p1, "color"    # Landroid/content/res/ColorStateList;
 
+    .prologue
     const/4 v12, 0x0
 
     const v11, 0x10102fe
@@ -679,6 +779,7 @@
 
     const/4 v8, 0x0
 
+    .line 199
     if-eqz p1, :cond_0
 
     invoke-virtual {p1, v11}, Landroid/content/res/ColorStateList;->hasState(I)Z
@@ -687,9 +788,11 @@
 
     if-eqz v6, :cond_1
 
+    .line 200
     :cond_0
     return-object p1
 
+    .line 205
     :cond_1
     const v6, 0x10100a1
 
@@ -699,8 +802,10 @@
 
     if-eqz v6, :cond_3
 
+    .line 207
     const/16 v6, 0xa
 
+    .line 206
     invoke-static {v6}, Landroid/util/StateSet;->get(I)[I
 
     move-result-object v6
@@ -709,8 +814,11 @@
 
     move-result v0
 
+    .line 209
+    .local v0, "activatedColor":I
     const/16 v6, 0x8
 
+    .line 208
     invoke-static {v6}, Landroid/util/StateSet;->get(I)[I
 
     move-result-object v6
@@ -719,19 +827,27 @@
 
     move-result v2
 
+    .line 219
+    .local v2, "defaultColor":I
     :goto_0
     if-eqz v0, :cond_2
 
     if-nez v2, :cond_4
 
+    .line 221
     :cond_2
     return-object v12
 
+    .line 211
+    .end local v0    # "activatedColor":I
+    .end local v2    # "defaultColor":I
     :cond_3
     invoke-virtual {p1}, Landroid/content/res/ColorStateList;->getDefaultColor()I
 
     move-result v0
 
+    .line 214
+    .restart local v0    # "activatedColor":I
     iget-object v6, p0, Landroid/widget/DatePicker$AbstractDatePickerDelegate;->mContext:Landroid/content/Context;
 
     sget-object v7, Landroid/widget/DatePickerCalendarDelegate;->ATTRS_DISABLED_ALPHA:[I
@@ -740,18 +856,26 @@
 
     move-result-object v5
 
+    .line 215
+    .local v5, "ta":Landroid/content/res/TypedArray;
     const v6, 0x3e99999a    # 0.3f
 
     invoke-virtual {v5, v8, v6}, Landroid/content/res/TypedArray;->getFloat(IF)F
 
     move-result v3
 
+    .line 216
+    .local v3, "disabledAlpha":F
     invoke-direct {p0, v0, v3}, Landroid/widget/DatePickerCalendarDelegate;->multiplyAlphaComponent(IF)I
 
     move-result v2
 
+    .restart local v2    # "defaultColor":I
     goto :goto_0
 
+    .line 224
+    .end local v3    # "disabledAlpha":F
+    .end local v5    # "ta":Landroid/content/res/TypedArray;
     :cond_4
     new-array v4, v10, [[I
 
@@ -765,12 +889,16 @@
 
     aput-object v6, v4, v9
 
+    .line 225
+    .local v4, "stateSet":[[I
     new-array v1, v10, [I
 
     aput v0, v1, v8
 
     aput v2, v1, v9
 
+    .line 226
+    .local v1, "colors":[I
     new-instance v6, Landroid/content/res/ColorStateList;
 
     invoke-direct {v6, v4, v1}, Landroid/content/res/ColorStateList;-><init>([[I[I)V
@@ -780,9 +908,14 @@
 
 .method public static getDaysInMonth(II)I
     .locals 2
+    .param p0, "month"    # I
+    .param p1, "year"    # I
 
+    .prologue
+    .line 597
     packed-switch p0, :pswitch_data_0
 
+    .line 614
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "Invalid Month"
@@ -791,16 +924,19 @@
 
     throw v0
 
+    .line 605
     :pswitch_0
     const/16 v0, 0x1f
 
     return v0
 
+    .line 610
     :pswitch_1
     const/16 v0, 0x1e
 
     return v0
 
+    .line 612
     :pswitch_2
     rem-int/lit8 v0, p1, 0x4
 
@@ -816,6 +952,7 @@
 
     goto :goto_0
 
+    .line 597
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -835,15 +972,23 @@
 
 .method private multiplyAlphaComponent(IF)I
     .locals 5
+    .param p1, "color"    # I
+    .param p2, "alphaMod"    # F
 
+    .prologue
+    .line 230
     const v3, 0xffffff
 
     and-int v2, p1, v3
 
+    .line 231
+    .local v2, "srcRgb":I
     shr-int/lit8 v3, p1, 0x18
 
     and-int/lit16 v1, v3, 0xff
 
+    .line 232
+    .local v1, "srcAlpha":I
     int-to-float v3, v1
 
     mul-float/2addr v3, p2
@@ -854,6 +999,8 @@
 
     float-to-int v0, v3
 
+    .line 233
+    .local v0, "dstAlpha":I
     shl-int/lit8 v3, v0, 0x18
 
     or-int/2addr v3, v2
@@ -863,13 +1010,18 @@
 
 .method private onCurrentDateChanged(Z)V
     .locals 8
+    .param p1, "announce"    # Z
 
+    .prologue
+    .line 315
     iget-object v6, p0, Landroid/widget/DatePickerCalendarDelegate;->mHeaderYear:Landroid/widget/TextView;
 
     if-nez v6, :cond_0
 
+    .line 318
     return-void
 
+    .line 321
     :cond_0
     iget-object v6, p0, Landroid/widget/DatePickerCalendarDelegate;->mYearFormat:Landroid/icu/text/SimpleDateFormat;
 
@@ -883,10 +1035,13 @@
 
     move-result-object v5
 
+    .line 322
+    .local v5, "year":Ljava/lang/String;
     iget-object v6, p0, Landroid/widget/DatePickerCalendarDelegate;->mHeaderYear:Landroid/widget/TextView;
 
     invoke-virtual {v6, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
+    .line 324
     iget-object v6, p0, Landroid/widget/DatePickerCalendarDelegate;->mMonthDayFormat:Landroid/icu/text/SimpleDateFormat;
 
     iget-object v7, p0, Landroid/widget/DatePickerCalendarDelegate;->mCurrentDate:Landroid/icu/util/Calendar;
@@ -899,20 +1054,28 @@
 
     move-result-object v4
 
+    .line 325
+    .local v4, "monthDay":Ljava/lang/String;
     iget-object v6, p0, Landroid/widget/DatePickerCalendarDelegate;->mHeaderMonthDay:Landroid/widget/TextView;
 
     invoke-virtual {v6, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
+    .line 328
     if-eqz p1, :cond_1
 
+    .line 329
     iget-object v6, p0, Landroid/widget/DatePickerCalendarDelegate;->mCurrentDate:Landroid/icu/util/Calendar;
 
     invoke-virtual {v6}, Landroid/icu/util/Calendar;->getTimeInMillis()J
 
     move-result-wide v2
 
+    .line 330
+    .local v2, "millis":J
     const/16 v0, 0x14
 
+    .line 331
+    .local v0, "flags":I
     iget-object v6, p0, Landroid/widget/DatePicker$AbstractDatePickerDelegate;->mContext:Landroid/content/Context;
 
     const/16 v7, 0x14
@@ -921,17 +1084,27 @@
 
     move-result-object v1
 
+    .line 332
+    .local v1, "fullDateText":Ljava/lang/String;
     iget-object v6, p0, Landroid/widget/DatePickerCalendarDelegate;->mAnimator:Landroid/widget/ViewAnimator;
 
     invoke-virtual {v6, v1}, Landroid/view/View;->announceForAccessibility(Ljava/lang/CharSequence;)V
 
+    .line 314
+    .end local v0    # "flags":I
+    .end local v1    # "fullDateText":Ljava/lang/String;
+    .end local v2    # "millis":J
     :cond_1
     return-void
 .end method
 
 .method private onDateChanged(ZZ)V
     .locals 6
+    .param p1, "fromUser"    # Z
+    .param p2, "callbackToClient"    # Z
 
+    .prologue
+    .line 398
     iget-object v3, p0, Landroid/widget/DatePickerCalendarDelegate;->mCurrentDate:Landroid/icu/util/Calendar;
 
     const/4 v4, 0x1
@@ -940,12 +1113,15 @@
 
     move-result v2
 
+    .line 400
+    .local v2, "year":I
     if-eqz p2, :cond_0
 
     iget-object v3, p0, Landroid/widget/DatePickerCalendarDelegate;->mDateChangedListener:Landroid/widget/DatePicker$OnDateChangedListener;
 
     if-eqz v3, :cond_0
 
+    .line 401
     iget-object v3, p0, Landroid/widget/DatePickerCalendarDelegate;->mCurrentDate:Landroid/icu/util/Calendar;
 
     const/4 v4, 0x2
@@ -954,6 +1130,8 @@
 
     move-result v1
 
+    .line 402
+    .local v1, "monthOfYear":I
     iget-object v3, p0, Landroid/widget/DatePickerCalendarDelegate;->mCurrentDate:Landroid/icu/util/Calendar;
 
     const/4 v4, 0x5
@@ -962,12 +1140,17 @@
 
     move-result v0
 
+    .line 403
+    .local v0, "dayOfMonth":I
     iget-object v3, p0, Landroid/widget/DatePickerCalendarDelegate;->mDateChangedListener:Landroid/widget/DatePicker$OnDateChangedListener;
 
     iget-object v4, p0, Landroid/widget/DatePicker$AbstractDatePickerDelegate;->mDelegator:Landroid/widget/DatePicker;
 
     invoke-interface {v3, v4, v2, v1, v0}, Landroid/widget/DatePicker$OnDateChangedListener;->onDateChanged(Landroid/widget/DatePicker;III)V
 
+    .line 406
+    .end local v0    # "dayOfMonth":I
+    .end local v1    # "monthOfYear":I
     :cond_0
     iget-object v3, p0, Landroid/widget/DatePickerCalendarDelegate;->mDayPickerView:Landroid/widget/DayPickerView;
 
@@ -979,32 +1162,42 @@
 
     invoke-virtual {v3, v4, v5}, Landroid/widget/DayPickerView;->setDate(J)V
 
+    .line 407
     iget-object v3, p0, Landroid/widget/DatePickerCalendarDelegate;->mYearPickerView:Landroid/widget/YearPickerView;
 
     invoke-virtual {v3, v2}, Landroid/widget/YearPickerView;->setYear(I)V
 
+    .line 409
     invoke-direct {p0, p1}, Landroid/widget/DatePickerCalendarDelegate;->onCurrentDateChanged(Z)V
 
+    .line 411
     if-eqz p1, :cond_1
 
+    .line 412
     invoke-direct {p0}, Landroid/widget/DatePickerCalendarDelegate;->tryVibrate()V
 
+    .line 397
     :cond_1
     return-void
 .end method
 
 .method private setCurrentView(I)V
     .locals 6
+    .param p1, "viewIndex"    # I
 
+    .prologue
     const/4 v5, 0x0
 
     const/4 v4, 0x1
 
+    .line 337
     packed-switch p1, :pswitch_data_0
 
+    .line 336
     :goto_0
     return-void
 
+    .line 339
     :pswitch_0
     iget-object v1, p0, Landroid/widget/DatePickerCalendarDelegate;->mDayPickerView:Landroid/widget/DayPickerView;
 
@@ -1016,24 +1209,30 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/widget/DayPickerView;->setDate(J)V
 
+    .line 341
     iget v1, p0, Landroid/widget/DatePickerCalendarDelegate;->mCurrentView:I
 
     if-eq v1, p1, :cond_0
 
+    .line 342
     iget-object v1, p0, Landroid/widget/DatePickerCalendarDelegate;->mHeaderMonthDay:Landroid/widget/TextView;
 
     invoke-virtual {v1, v4}, Landroid/view/View;->setActivated(Z)V
 
+    .line 343
     iget-object v1, p0, Landroid/widget/DatePickerCalendarDelegate;->mHeaderYear:Landroid/widget/TextView;
 
     invoke-virtual {v1, v5}, Landroid/view/View;->setActivated(Z)V
 
+    .line 344
     iget-object v1, p0, Landroid/widget/DatePickerCalendarDelegate;->mAnimator:Landroid/widget/ViewAnimator;
 
     invoke-virtual {v1, v5}, Landroid/widget/ViewAnimator;->setDisplayedChild(I)V
 
+    .line 345
     iput p1, p0, Landroid/widget/DatePickerCalendarDelegate;->mCurrentView:I
 
+    .line 348
     :cond_0
     iget-object v1, p0, Landroid/widget/DatePickerCalendarDelegate;->mAnimator:Landroid/widget/ViewAnimator;
 
@@ -1043,6 +1242,7 @@
 
     goto :goto_0
 
+    .line 351
     :pswitch_1
     iget-object v1, p0, Landroid/widget/DatePickerCalendarDelegate;->mCurrentDate:Landroid/icu/util/Calendar;
 
@@ -1050,10 +1250,13 @@
 
     move-result v0
 
+    .line 352
+    .local v0, "year":I
     iget-object v1, p0, Landroid/widget/DatePickerCalendarDelegate;->mYearPickerView:Landroid/widget/YearPickerView;
 
     invoke-virtual {v1, v0}, Landroid/widget/YearPickerView;->setYear(I)V
 
+    .line 353
     iget-object v1, p0, Landroid/widget/DatePickerCalendarDelegate;->mYearPickerView:Landroid/widget/YearPickerView;
 
     new-instance v2, Landroid/widget/DatePickerCalendarDelegate$4;
@@ -1062,24 +1265,30 @@
 
     invoke-virtual {v1, v2}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
 
+    .line 364
     iget v1, p0, Landroid/widget/DatePickerCalendarDelegate;->mCurrentView:I
 
     if-eq v1, p1, :cond_1
 
+    .line 365
     iget-object v1, p0, Landroid/widget/DatePickerCalendarDelegate;->mHeaderMonthDay:Landroid/widget/TextView;
 
     invoke-virtual {v1, v5}, Landroid/view/View;->setActivated(Z)V
 
+    .line 366
     iget-object v1, p0, Landroid/widget/DatePickerCalendarDelegate;->mHeaderYear:Landroid/widget/TextView;
 
     invoke-virtual {v1, v4}, Landroid/view/View;->setActivated(Z)V
 
+    .line 367
     iget-object v1, p0, Landroid/widget/DatePickerCalendarDelegate;->mAnimator:Landroid/widget/ViewAnimator;
 
     invoke-virtual {v1, v4}, Landroid/widget/ViewAnimator;->setDisplayedChild(I)V
 
+    .line 368
     iput p1, p0, Landroid/widget/DatePickerCalendarDelegate;->mCurrentView:I
 
+    .line 371
     :cond_1
     iget-object v1, p0, Landroid/widget/DatePickerCalendarDelegate;->mAnimator:Landroid/widget/ViewAnimator;
 
@@ -1089,6 +1298,7 @@
 
     goto :goto_0
 
+    .line 337
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -1099,12 +1309,15 @@
 .method private tryVibrate()V
     .locals 2
 
+    .prologue
+    .line 619
     iget-object v0, p0, Landroid/widget/DatePicker$AbstractDatePickerDelegate;->mDelegator:Landroid/widget/DatePicker;
 
     const/4 v1, 0x5
 
     invoke-virtual {v0, v1}, Landroid/view/View;->performHapticFeedback(I)Z
 
+    .line 618
     return-void
 .end method
 
@@ -1112,9 +1325,13 @@
 # virtual methods
 .method public dispatchPopulateAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)Z
     .locals 1
+    .param p1, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
+    .prologue
+    .line 583
     invoke-virtual {p0, p1}, Landroid/widget/DatePickerCalendarDelegate;->onPopulateAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
 
+    .line 584
     const/4 v0, 0x1
 
     return v0
@@ -1123,6 +1340,8 @@
 .method public getAccessibilityClassName()Ljava/lang/CharSequence;
     .locals 1
 
+    .prologue
+    .line 593
     const-class v0, Landroid/widget/DatePicker;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
@@ -1135,6 +1354,8 @@
 .method public getCalendarView()Landroid/widget/CalendarView;
     .locals 2
 
+    .prologue
+    .line 506
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string/jumbo v1, "Not supported by calendar-mode DatePicker"
@@ -1147,6 +1368,8 @@
 .method public getCalendarViewShown()Z
     .locals 1
 
+    .prologue
+    .line 516
     const/4 v0, 0x0
 
     return v0
@@ -1155,6 +1378,8 @@
 .method public getDayOfMonth()I
     .locals 2
 
+    .prologue
+    .line 428
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mCurrentDate:Landroid/icu/util/Calendar;
 
     const/4 v1, 0x5
@@ -1169,14 +1394,18 @@
 .method public getFirstDayOfWeek()I
     .locals 1
 
+    .prologue
+    .line 484
     iget v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mFirstDayOfWeek:I
 
     if-eqz v0, :cond_0
 
+    .line 485
     iget v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mFirstDayOfWeek:I
 
     return v0
 
+    .line 487
     :cond_0
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mCurrentDate:Landroid/icu/util/Calendar;
 
@@ -1190,6 +1419,8 @@
 .method public getMaxDate()Landroid/icu/util/Calendar;
     .locals 1
 
+    .prologue
+    .line 472
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mMaxDate:Landroid/icu/util/Calendar;
 
     return-object v0
@@ -1198,6 +1429,8 @@
 .method public getMinDate()Landroid/icu/util/Calendar;
     .locals 1
 
+    .prologue
+    .line 450
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mMinDate:Landroid/icu/util/Calendar;
 
     return-object v0
@@ -1206,6 +1439,8 @@
 .method public getMonth()I
     .locals 2
 
+    .prologue
+    .line 423
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mCurrentDate:Landroid/icu/util/Calendar;
 
     const/4 v1, 0x2
@@ -1220,6 +1455,8 @@
 .method public getSpinnersShown()Z
     .locals 1
 
+    .prologue
+    .line 526
     const/4 v0, 0x0
 
     return v0
@@ -1228,6 +1465,8 @@
 .method public getYear()I
     .locals 2
 
+    .prologue
+    .line 418
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mCurrentDate:Landroid/icu/util/Calendar;
 
     const/4 v1, 0x1
@@ -1241,37 +1480,50 @@
 
 .method public init(IIILandroid/widget/DatePicker$OnDateChangedListener;)V
     .locals 3
+    .param p1, "year"    # I
+    .param p2, "monthOfYear"    # I
+    .param p3, "dayOfMonth"    # I
+    .param p4, "callBack"    # Landroid/widget/DatePicker$OnDateChangedListener;
 
+    .prologue
     const/4 v2, 0x0
 
+    .line 379
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mCurrentDate:Landroid/icu/util/Calendar;
 
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1, p1}, Landroid/icu/util/Calendar;->set(II)V
 
+    .line 380
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mCurrentDate:Landroid/icu/util/Calendar;
 
     const/4 v1, 0x2
 
     invoke-virtual {v0, v1, p2}, Landroid/icu/util/Calendar;->set(II)V
 
+    .line 381
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mCurrentDate:Landroid/icu/util/Calendar;
 
     const/4 v1, 0x5
 
     invoke-virtual {v0, v1, p3}, Landroid/icu/util/Calendar;->set(II)V
 
+    .line 383
     invoke-direct {p0, v2, v2}, Landroid/widget/DatePickerCalendarDelegate;->onDateChanged(ZZ)V
 
+    .line 385
     iput-object p4, p0, Landroid/widget/DatePickerCalendarDelegate;->mDateChangedListener:Landroid/widget/DatePicker$OnDateChangedListener;
 
+    .line 378
     return-void
 .end method
 
 .method public isEnabled()Z
     .locals 1
 
+    .prologue
+    .line 501
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mContainer:Landroid/view/ViewGroup;
 
     invoke-virtual {v0}, Landroid/view/View;->isEnabled()Z
@@ -1283,23 +1535,34 @@
 
 .method public onConfigurationChanged(Landroid/content/res/Configuration;)V
     .locals 1
+    .param p1, "newConfig"    # Landroid/content/res/Configuration;
 
+    .prologue
+    .line 531
     iget-object v0, p1, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
 
     invoke-virtual {p0, v0}, Landroid/widget/DatePicker$AbstractDatePickerDelegate;->setCurrentLocale(Ljava/util/Locale;)V
 
+    .line 530
     return-void
 .end method
 
 .method protected onLocaleChanged(Ljava/util/Locale;)V
     .locals 4
+    .param p1, "locale"    # Ljava/util/Locale;
 
+    .prologue
+    .line 297
     iget-object v1, p0, Landroid/widget/DatePickerCalendarDelegate;->mHeaderYear:Landroid/widget/TextView;
 
+    .line 298
+    .local v1, "headerYear":Landroid/widget/TextView;
     if-nez v1, :cond_0
 
+    .line 301
     return-void
 
+    .line 305
     :cond_0
     const-string/jumbo v2, "EMMMd"
 
@@ -1307,18 +1570,22 @@
 
     move-result-object v0
 
+    .line 306
+    .local v0, "datePattern":Ljava/lang/String;
     new-instance v2, Landroid/icu/text/SimpleDateFormat;
 
     invoke-direct {v2, v0, p1}, Landroid/icu/text/SimpleDateFormat;-><init>(Ljava/lang/String;Ljava/util/Locale;)V
 
     iput-object v2, p0, Landroid/widget/DatePickerCalendarDelegate;->mMonthDayFormat:Landroid/icu/text/SimpleDateFormat;
 
+    .line 307
     iget-object v2, p0, Landroid/widget/DatePickerCalendarDelegate;->mMonthDayFormat:Landroid/icu/text/SimpleDateFormat;
 
     sget-object v3, Landroid/icu/text/DisplayContext;->CAPITALIZATION_FOR_STANDALONE:Landroid/icu/text/DisplayContext;
 
     invoke-virtual {v2, v3}, Landroid/icu/text/SimpleDateFormat;->setContext(Landroid/icu/text/DisplayContext;)V
 
+    .line 308
     new-instance v2, Landroid/icu/text/SimpleDateFormat;
 
     const-string/jumbo v3, "y"
@@ -1327,16 +1594,21 @@
 
     iput-object v2, p0, Landroid/widget/DatePickerCalendarDelegate;->mYearFormat:Landroid/icu/text/SimpleDateFormat;
 
+    .line 311
     const/4 v2, 0x0
 
     invoke-direct {p0, v2}, Landroid/widget/DatePickerCalendarDelegate;->onCurrentDateChanged(Z)V
 
+    .line 296
     return-void
 .end method
 
 .method public onPopulateAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
     .locals 2
+    .param p1, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
+    .prologue
+    .line 589
     invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityRecord;->getText()Ljava/util/List;
 
     move-result-object v0
@@ -1353,24 +1625,31 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
+    .line 588
     return-void
 .end method
 
 .method public onRestoreInstanceState(Landroid/os/Parcelable;)V
     .locals 9
+    .param p1, "state"    # Landroid/os/Parcelable;
 
+    .prologue
     const/4 v8, 0x0
 
+    .line 556
     instance-of v4, p1, Landroid/widget/DatePicker$AbstractDatePickerDelegate$SavedState;
 
     if-eqz v4, :cond_0
 
     move-object v3, p1
 
+    .line 557
     nop
 
     nop
 
+    .line 560
+    .local v3, "ss":Landroid/widget/DatePicker$AbstractDatePickerDelegate$SavedState;
     iget-object v4, p0, Landroid/widget/DatePickerCalendarDelegate;->mCurrentDate:Landroid/icu/util/Calendar;
 
     invoke-virtual {v3}, Landroid/widget/DatePicker$AbstractDatePickerDelegate$SavedState;->getSelectedYear()I
@@ -1387,6 +1666,7 @@
 
     invoke-virtual {v4, v5, v6, v7}, Landroid/icu/util/Calendar;->set(III)V
 
+    .line 561
     iget-object v4, p0, Landroid/widget/DatePickerCalendarDelegate;->mMinDate:Landroid/icu/util/Calendar;
 
     invoke-virtual {v3}, Landroid/widget/DatePicker$AbstractDatePickerDelegate$SavedState;->getMinDate()J
@@ -1395,6 +1675,7 @@
 
     invoke-virtual {v4, v6, v7}, Landroid/icu/util/Calendar;->setTimeInMillis(J)V
 
+    .line 562
     iget-object v4, p0, Landroid/widget/DatePickerCalendarDelegate;->mMaxDate:Landroid/icu/util/Calendar;
 
     invoke-virtual {v3}, Landroid/widget/DatePicker$AbstractDatePickerDelegate$SavedState;->getMaxDate()J
@@ -1403,41 +1684,61 @@
 
     invoke-virtual {v4, v6, v7}, Landroid/icu/util/Calendar;->setTimeInMillis(J)V
 
+    .line 564
     invoke-direct {p0, v8}, Landroid/widget/DatePickerCalendarDelegate;->onCurrentDateChanged(Z)V
 
+    .line 566
     invoke-virtual {v3}, Landroid/widget/DatePicker$AbstractDatePickerDelegate$SavedState;->getCurrentView()I
 
     move-result v0
 
+    .line 567
+    .local v0, "currentView":I
     invoke-direct {p0, v0}, Landroid/widget/DatePickerCalendarDelegate;->setCurrentView(I)V
 
+    .line 569
     invoke-virtual {v3}, Landroid/widget/DatePicker$AbstractDatePickerDelegate$SavedState;->getListPosition()I
 
     move-result v1
 
+    .line 570
+    .local v1, "listPosition":I
     const/4 v4, -0x1
 
     if-eq v1, v4, :cond_0
 
+    .line 571
     if-nez v0, :cond_1
 
+    .line 572
     iget-object v4, p0, Landroid/widget/DatePickerCalendarDelegate;->mDayPickerView:Landroid/widget/DayPickerView;
 
     invoke-virtual {v4, v1}, Landroid/widget/DayPickerView;->setPosition(I)V
 
+    .line 555
+    .end local v0    # "currentView":I
+    .end local v1    # "listPosition":I
+    .end local v3    # "ss":Landroid/widget/DatePicker$AbstractDatePickerDelegate$SavedState;
     :cond_0
     :goto_0
     return-void
 
+    .line 573
+    .restart local v0    # "currentView":I
+    .restart local v1    # "listPosition":I
+    .restart local v3    # "ss":Landroid/widget/DatePicker$AbstractDatePickerDelegate$SavedState;
     :cond_1
     const/4 v4, 0x1
 
     if-ne v0, v4, :cond_0
 
+    .line 574
     invoke-virtual {v3}, Landroid/widget/DatePicker$AbstractDatePickerDelegate$SavedState;->getListPositionOffset()I
 
     move-result v2
 
+    .line 575
+    .local v2, "listPositionOffset":I
     iget-object v4, p0, Landroid/widget/DatePickerCalendarDelegate;->mYearPickerView:Landroid/widget/YearPickerView;
 
     invoke-virtual {v4, v1, v2}, Landroid/widget/AbsListView;->setSelectionFromTop(II)V
@@ -1447,15 +1748,20 @@
 
 .method public onSaveInstanceState(Landroid/os/Parcelable;)Landroid/os/Parcelable;
     .locals 13
+    .param p1, "superState"    # Landroid/os/Parcelable;
 
+    .prologue
     const/4 v2, 0x1
 
+    .line 536
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mCurrentDate:Landroid/icu/util/Calendar;
 
     invoke-virtual {v0, v2}, Landroid/icu/util/Calendar;->get(I)I
 
     move-result v3
 
+    .line 537
+    .local v3, "year":I
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mCurrentDate:Landroid/icu/util/Calendar;
 
     const/4 v1, 0x2
@@ -1464,6 +1770,8 @@
 
     move-result v4
 
+    .line 538
+    .local v4, "month":I
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mCurrentDate:Landroid/icu/util/Calendar;
 
     const/4 v1, 0x5
@@ -1472,20 +1780,28 @@
 
     move-result v5
 
+    .line 540
+    .local v5, "day":I
     const/4 v11, -0x1
 
+    .line 541
+    .local v11, "listPosition":I
     const/4 v12, -0x1
 
+    .line 543
+    .local v12, "listPositionOffset":I
     iget v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mCurrentView:I
 
     if-nez v0, :cond_1
 
+    .line 544
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mDayPickerView:Landroid/widget/DayPickerView;
 
     invoke-virtual {v0}, Landroid/widget/DayPickerView;->getMostVisiblePosition()I
 
     move-result v11
 
+    .line 550
     :cond_0
     :goto_0
     new-instance v1, Landroid/widget/DatePicker$AbstractDatePickerDelegate$SavedState;
@@ -1496,6 +1812,7 @@
 
     move-result-wide v6
 
+    .line 551
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mMaxDate:Landroid/icu/util/Calendar;
 
     invoke-virtual {v0}, Landroid/icu/util/Calendar;->getTimeInMillis()J
@@ -1506,21 +1823,25 @@
 
     move-object v2, p1
 
+    .line 550
     invoke-direct/range {v1 .. v12}, Landroid/widget/DatePicker$AbstractDatePickerDelegate$SavedState;-><init>(Landroid/os/Parcelable;IIIJJIII)V
 
     return-object v1
 
+    .line 545
     :cond_1
     iget v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mCurrentView:I
 
     if-ne v0, v2, :cond_0
 
+    .line 546
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mYearPickerView:Landroid/widget/YearPickerView;
 
     invoke-virtual {v0}, Landroid/widget/AdapterView;->getFirstVisiblePosition()I
 
     move-result v11
 
+    .line 547
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mYearPickerView:Landroid/widget/YearPickerView;
 
     invoke-virtual {v0}, Landroid/widget/YearPickerView;->getFirstPositionOffset()I
@@ -1532,59 +1853,79 @@
 
 .method public setCalendarViewShown(Z)V
     .locals 0
+    .param p1, "shown"    # Z
 
+    .prologue
+    .line 510
     return-void
 .end method
 
 .method public setEnabled(Z)V
     .locals 1
+    .param p1, "enabled"    # Z
 
+    .prologue
+    .line 492
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mContainer:Landroid/view/ViewGroup;
 
     invoke-virtual {v0, p1}, Landroid/view/View;->setEnabled(Z)V
 
+    .line 493
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mDayPickerView:Landroid/widget/DayPickerView;
 
     invoke-virtual {v0, p1}, Landroid/view/View;->setEnabled(Z)V
 
+    .line 494
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mYearPickerView:Landroid/widget/YearPickerView;
 
     invoke-virtual {v0, p1}, Landroid/view/View;->setEnabled(Z)V
 
+    .line 495
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mHeaderYear:Landroid/widget/TextView;
 
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setEnabled(Z)V
 
+    .line 496
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mHeaderMonthDay:Landroid/widget/TextView;
 
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setEnabled(Z)V
 
+    .line 491
     return-void
 .end method
 
 .method public setFirstDayOfWeek(I)V
     .locals 1
+    .param p1, "firstDayOfWeek"    # I
 
+    .prologue
+    .line 477
     iput p1, p0, Landroid/widget/DatePickerCalendarDelegate;->mFirstDayOfWeek:I
 
+    .line 479
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mDayPickerView:Landroid/widget/DayPickerView;
 
     invoke-virtual {v0, p1}, Landroid/widget/DayPickerView;->setFirstDayOfWeek(I)V
 
+    .line 476
     return-void
 .end method
 
 .method public setMaxDate(J)V
     .locals 5
+    .param p1, "maxDate"    # J
 
+    .prologue
     const/4 v3, 0x6
 
     const/4 v2, 0x1
 
+    .line 455
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mTempDate:Landroid/icu/util/Calendar;
 
     invoke-virtual {v0, p1, p2}, Landroid/icu/util/Calendar;->setTimeInMillis(J)V
 
+    .line 456
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mTempDate:Landroid/icu/util/Calendar;
 
     invoke-virtual {v0, v2}, Landroid/icu/util/Calendar;->get(I)I
@@ -1599,6 +1940,7 @@
 
     if-ne v0, v1, :cond_0
 
+    .line 457
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mTempDate:Landroid/icu/util/Calendar;
 
     invoke-virtual {v0, v3}, Landroid/icu/util/Calendar;->get(I)I
@@ -1613,8 +1955,10 @@
 
     if-ne v0, v1, :cond_0
 
+    .line 459
     return-void
 
+    .line 461
     :cond_0
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mCurrentDate:Landroid/icu/util/Calendar;
 
@@ -1626,23 +1970,28 @@
 
     if-eqz v0, :cond_1
 
+    .line 462
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mCurrentDate:Landroid/icu/util/Calendar;
 
     invoke-virtual {v0, p1, p2}, Landroid/icu/util/Calendar;->setTimeInMillis(J)V
 
+    .line 463
     const/4 v0, 0x0
 
     invoke-direct {p0, v0, v2}, Landroid/widget/DatePickerCalendarDelegate;->onDateChanged(ZZ)V
 
+    .line 465
     :cond_1
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mMaxDate:Landroid/icu/util/Calendar;
 
     invoke-virtual {v0, p1, p2}, Landroid/icu/util/Calendar;->setTimeInMillis(J)V
 
+    .line 466
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mDayPickerView:Landroid/widget/DayPickerView;
 
     invoke-virtual {v0, p1, p2}, Landroid/widget/DayPickerView;->setMaxDate(J)V
 
+    .line 467
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mYearPickerView:Landroid/widget/YearPickerView;
 
     iget-object v1, p0, Landroid/widget/DatePickerCalendarDelegate;->mMinDate:Landroid/icu/util/Calendar;
@@ -1651,20 +2000,25 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/widget/YearPickerView;->setRange(Landroid/icu/util/Calendar;Landroid/icu/util/Calendar;)V
 
+    .line 454
     return-void
 .end method
 
 .method public setMinDate(J)V
     .locals 5
+    .param p1, "minDate"    # J
 
+    .prologue
     const/4 v3, 0x6
 
     const/4 v2, 0x1
 
+    .line 433
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mTempDate:Landroid/icu/util/Calendar;
 
     invoke-virtual {v0, p1, p2}, Landroid/icu/util/Calendar;->setTimeInMillis(J)V
 
+    .line 434
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mTempDate:Landroid/icu/util/Calendar;
 
     invoke-virtual {v0, v2}, Landroid/icu/util/Calendar;->get(I)I
@@ -1679,6 +2033,7 @@
 
     if-ne v0, v1, :cond_0
 
+    .line 435
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mTempDate:Landroid/icu/util/Calendar;
 
     invoke-virtual {v0, v3}, Landroid/icu/util/Calendar;->get(I)I
@@ -1693,8 +2048,10 @@
 
     if-ne v0, v1, :cond_0
 
+    .line 437
     return-void
 
+    .line 439
     :cond_0
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mCurrentDate:Landroid/icu/util/Calendar;
 
@@ -1706,23 +2063,28 @@
 
     if-eqz v0, :cond_1
 
+    .line 440
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mCurrentDate:Landroid/icu/util/Calendar;
 
     invoke-virtual {v0, p1, p2}, Landroid/icu/util/Calendar;->setTimeInMillis(J)V
 
+    .line 441
     const/4 v0, 0x0
 
     invoke-direct {p0, v0, v2}, Landroid/widget/DatePickerCalendarDelegate;->onDateChanged(ZZ)V
 
+    .line 443
     :cond_1
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mMinDate:Landroid/icu/util/Calendar;
 
     invoke-virtual {v0, p1, p2}, Landroid/icu/util/Calendar;->setTimeInMillis(J)V
 
+    .line 444
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mDayPickerView:Landroid/widget/DayPickerView;
 
     invoke-virtual {v0, p1, p2}, Landroid/widget/DayPickerView;->setMinDate(J)V
 
+    .line 445
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mYearPickerView:Landroid/widget/YearPickerView;
 
     iget-object v1, p0, Landroid/widget/DatePickerCalendarDelegate;->mMinDate:Landroid/icu/util/Calendar;
@@ -1731,39 +2093,52 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/widget/YearPickerView;->setRange(Landroid/icu/util/Calendar;Landroid/icu/util/Calendar;)V
 
+    .line 432
     return-void
 .end method
 
 .method public setSpinnersShown(Z)V
     .locals 0
+    .param p1, "shown"    # Z
 
+    .prologue
+    .line 520
     return-void
 .end method
 
 .method public updateDate(III)V
     .locals 3
+    .param p1, "year"    # I
+    .param p2, "month"    # I
+    .param p3, "dayOfMonth"    # I
 
+    .prologue
     const/4 v2, 0x1
 
+    .line 390
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mCurrentDate:Landroid/icu/util/Calendar;
 
     invoke-virtual {v0, v2, p1}, Landroid/icu/util/Calendar;->set(II)V
 
+    .line 391
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mCurrentDate:Landroid/icu/util/Calendar;
 
     const/4 v1, 0x2
 
     invoke-virtual {v0, v1, p2}, Landroid/icu/util/Calendar;->set(II)V
 
+    .line 392
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate;->mCurrentDate:Landroid/icu/util/Calendar;
 
     const/4 v1, 0x5
 
     invoke-virtual {v0, v1, p3}, Landroid/icu/util/Calendar;->set(II)V
 
+    .line 394
     const/4 v0, 0x0
 
     invoke-direct {p0, v0, v2}, Landroid/widget/DatePickerCalendarDelegate;->onDateChanged(ZZ)V
 
+    .line 389
     return-void
 .end method

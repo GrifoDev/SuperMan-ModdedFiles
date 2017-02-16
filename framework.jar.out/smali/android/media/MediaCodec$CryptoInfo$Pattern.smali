@@ -23,11 +23,17 @@
 # direct methods
 .method public constructor <init>(II)V
     .locals 0
+    .param p1, "blocksToEncrypt"    # I
+    .param p2, "blocksToSkip"    # I
 
+    .prologue
+    .line 2361
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 2362
     invoke-virtual {p0, p1, p2}, Landroid/media/MediaCodec$CryptoInfo$Pattern;->set(II)V
 
+    .line 2361
     return-void
 .end method
 
@@ -36,6 +42,8 @@
 .method public getEncryptBlocks()I
     .locals 1
 
+    .prologue
+    .line 2385
     iget v0, p0, Landroid/media/MediaCodec$CryptoInfo$Pattern;->mEncryptBlocks:I
 
     return v0
@@ -44,6 +52,8 @@
 .method public getSkipBlocks()I
     .locals 1
 
+    .prologue
+    .line 2378
     iget v0, p0, Landroid/media/MediaCodec$CryptoInfo$Pattern;->mSkipBlocks:I
 
     return v0
@@ -51,10 +61,16 @@
 
 .method public set(II)V
     .locals 0
+    .param p1, "blocksToEncrypt"    # I
+    .param p2, "blocksToSkip"    # I
 
+    .prologue
+    .line 2370
     iput p1, p0, Landroid/media/MediaCodec$CryptoInfo$Pattern;->mEncryptBlocks:I
 
+    .line 2371
     iput p2, p0, Landroid/media/MediaCodec$CryptoInfo$Pattern;->mSkipBlocks:I
 
+    .line 2369
     return-void
 .end method

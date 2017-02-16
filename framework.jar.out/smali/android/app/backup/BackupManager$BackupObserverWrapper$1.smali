@@ -21,7 +21,11 @@
 # direct methods
 .method constructor <init>(Landroid/app/backup/BackupManager$BackupObserverWrapper;Landroid/os/Looper;)V
     .locals 0
+    .param p1, "this$1"    # Landroid/app/backup/BackupManager$BackupObserverWrapper;
+    .param p2, "$anonymous0"    # Landroid/os/Looper;
 
+    .prologue
+    .line 510
     iput-object p1, p0, Landroid/app/backup/BackupManager$BackupObserverWrapper$1;->this$1:Landroid/app/backup/BackupManager$BackupObserverWrapper;
 
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
@@ -33,11 +37,15 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 4
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 513
     iget v1, p1, Landroid/os/Message;->what:I
 
     packed-switch v1, :pswitch_data_0
 
+    .line 526
     const-string/jumbo v1, "BackupManager"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -60,14 +68,18 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 512
     :goto_0
     return-void
 
+    .line 516
     :pswitch_0
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/util/Pair;
 
+    .line 517
+    .local v0, "obj":Landroid/util/Pair;, "Landroid/util/Pair<Ljava/lang/String;Landroid/app/backup/BackupProgress;>;"
     iget-object v1, p0, Landroid/app/backup/BackupManager$BackupObserverWrapper$1;->this$1:Landroid/app/backup/BackupManager$BackupObserverWrapper;
 
     iget-object v3, v1, Landroid/app/backup/BackupManager$BackupObserverWrapper;->mObserver:Landroid/app/backup/BackupObserver;
@@ -84,6 +96,8 @@
 
     goto :goto_0
 
+    .line 520
+    .end local v0    # "obj":Landroid/util/Pair;, "Landroid/util/Pair<Ljava/lang/String;Landroid/app/backup/BackupProgress;>;"
     :pswitch_1
     iget-object v1, p0, Landroid/app/backup/BackupManager$BackupObserverWrapper$1;->this$1:Landroid/app/backup/BackupManager$BackupObserverWrapper;
 
@@ -99,6 +113,7 @@
 
     goto :goto_0
 
+    .line 523
     :pswitch_2
     iget-object v1, p0, Landroid/app/backup/BackupManager$BackupObserverWrapper$1;->this$1:Landroid/app/backup/BackupManager$BackupObserverWrapper;
 
@@ -110,6 +125,7 @@
 
     goto :goto_0
 
+    .line 513
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

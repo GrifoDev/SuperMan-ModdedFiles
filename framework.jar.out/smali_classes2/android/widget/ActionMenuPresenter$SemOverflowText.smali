@@ -31,35 +31,47 @@
 # direct methods
 .method public constructor <init>(Landroid/widget/ActionMenuPresenter;Landroid/content/Context;)V
     .locals 9
+    .param p1, "this$0"    # Landroid/widget/ActionMenuPresenter;
+    .param p2, "context"    # Landroid/content/Context;
 
+    .prologue
     const/4 v8, 0x0
 
     const/4 v7, 0x1
 
     const/4 v6, 0x0
 
+    .line 1514
     iput-object p1, p0, Landroid/widget/ActionMenuPresenter$SemOverflowText;->this$0:Landroid/widget/ActionMenuPresenter;
 
+    .line 1515
     const v4, 0x10102f6
 
     invoke-direct {p0, p2, v8, v4}, Landroid/widget/TextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
+    .line 1511
     const v4, 0x3f99999a    # 1.2f
 
     iput v4, p0, Landroid/widget/ActionMenuPresenter$SemOverflowText;->mMaxFontScale:F
 
+    .line 1512
     const/high16 v4, 0x3f800000    # 1.0f
 
     iput v4, p0, Landroid/widget/ActionMenuPresenter$SemOverflowText;->mCurrentFontScale:F
 
+    .line 1517
     invoke-virtual {p0, v7}, Landroid/view/View;->setClickable(Z)V
 
+    .line 1518
     invoke-virtual {p0, v7}, Landroid/view/View;->setFocusable(Z)V
 
+    .line 1519
     invoke-virtual {p0, v6}, Landroid/view/View;->setVisibility(I)V
 
+    .line 1520
     invoke-virtual {p0, v7}, Landroid/widget/TextView;->setEnabled(Z)V
 
+    .line 1522
     invoke-virtual {p2}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
 
     move-result-object v4
@@ -70,16 +82,22 @@
 
     move-result-object v0
 
+    .line 1523
+    .local v0, "a":Landroid/content/res/TypedArray;
     const/16 v4, 0xbb
 
     invoke-virtual {v0, v4, v6}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v1
 
+    .line 1524
+    .local v1, "actionMeneTextAppearnceId":I
     invoke-virtual {p0, p2, v1}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
 
+    .line 1525
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
+    .line 1528
     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v4
@@ -90,14 +108,20 @@
 
     move-result-object v2
 
+    .line 1529
+    .local v2, "b":Landroid/content/res/TypedArray;
     invoke-virtual {v2, v6}, Landroid/content/res/TypedArray;->peekValue(I)Landroid/util/TypedValue;
 
     move-result-object v3
 
+    .line 1530
+    .local v3, "value":Landroid/util/TypedValue;
     invoke-virtual {v2}, Landroid/content/res/TypedArray;->recycle()V
 
+    .line 1532
     if-eqz v3, :cond_1
 
+    .line 1533
     iget v4, v3, Landroid/util/TypedValue;->data:I
 
     invoke-static {v4}, Landroid/util/TypedValue;->complexToFloat(I)F
@@ -106,6 +130,7 @@
 
     iput v4, p0, Landroid/widget/ActionMenuPresenter$SemOverflowText;->mDefaultTextSize:F
 
+    .line 1534
     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v4
@@ -122,6 +147,7 @@
 
     iput v4, p0, Landroid/widget/ActionMenuPresenter$SemOverflowText;->mCurrentFontScale:F
 
+    .line 1536
     iget v4, p0, Landroid/widget/ActionMenuPresenter$SemOverflowText;->mCurrentFontScale:F
 
     iget v5, p0, Landroid/widget/ActionMenuPresenter$SemOverflowText;->mMaxFontScale:F
@@ -130,10 +156,12 @@
 
     if-lez v4, :cond_0
 
+    .line 1537
     iget v4, p0, Landroid/widget/ActionMenuPresenter$SemOverflowText;->mMaxFontScale:F
 
     iput v4, p0, Landroid/widget/ActionMenuPresenter$SemOverflowText;->mCurrentFontScale:F
 
+    .line 1539
     :cond_0
     iget v4, p0, Landroid/widget/ActionMenuPresenter$SemOverflowText;->mDefaultTextSize:F
 
@@ -143,6 +171,7 @@
 
     invoke-virtual {p0, v7, v4}, Landroid/widget/TextView;->setTextSize(IF)V
 
+    .line 1543
     :cond_1
     invoke-virtual {p2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -156,12 +185,14 @@
 
     invoke-virtual {p0, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
+    .line 1546
     invoke-virtual {p0}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
 
     move-result-object v4
 
     iput-object v4, p0, Landroid/widget/ActionMenuPresenter$SemOverflowText;->mArchivedBackground:Landroid/graphics/drawable/Drawable;
 
+    .line 1547
     invoke-virtual {p2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v4
@@ -174,14 +205,18 @@
 
     iput-object v4, p0, Landroid/widget/ActionMenuPresenter$SemOverflowText;->mArchivedShowButtonBackground:Landroid/graphics/drawable/Drawable;
 
+    .line 1548
     invoke-direct {p0}, Landroid/widget/ActionMenuPresenter$SemOverflowText;->changeButtonBackground()V
 
+    .line 1514
     return-void
 .end method
 
 .method private changeButtonBackground()V
     .locals 5
 
+    .prologue
+    .line 1612
     iget-object v2, p0, Landroid/widget/ActionMenuPresenter$SemOverflowText;->this$0:Landroid/widget/ActionMenuPresenter;
 
     invoke-static {v2}, Landroid/widget/ActionMenuPresenter;->-get1(Landroid/widget/ActionMenuPresenter;)Z
@@ -192,6 +227,7 @@
 
     return-void
 
+    .line 1614
     :cond_0
     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
@@ -215,32 +251,46 @@
 
     const/4 v1, 0x1
 
+    .line 1616
+    .local v1, "show":Z
     :goto_0
     invoke-virtual {p0}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
+    .line 1617
+    .local v0, "d":Landroid/graphics/drawable/Drawable;
     instance-of v2, v0, Landroid/graphics/drawable/RippleDrawable;
 
     if-eqz v2, :cond_2
 
+    .line 1618
     iput-object v0, p0, Landroid/widget/ActionMenuPresenter$SemOverflowText;->mArchivedBackground:Landroid/graphics/drawable/Drawable;
 
+    .line 1623
     :goto_1
     if-eqz v1, :cond_3
 
+    .line 1624
     iget-object v2, p0, Landroid/widget/ActionMenuPresenter$SemOverflowText;->mArchivedShowButtonBackground:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {p0, v2}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
+    .line 1611
     :goto_2
     return-void
 
+    .line 1614
+    .end local v0    # "d":Landroid/graphics/drawable/Drawable;
+    .end local v1    # "show":Z
     :cond_1
     const/4 v1, 0x0
 
+    .restart local v1    # "show":Z
     goto :goto_0
 
+    .line 1620
+    .restart local v0    # "d":Landroid/graphics/drawable/Drawable;
     :cond_2
     iget-object v2, p0, Landroid/view/View;->mContext:Landroid/content/Context;
 
@@ -254,6 +304,7 @@
 
     goto :goto_1
 
+    .line 1626
     :cond_3
     iget-object v2, p0, Landroid/widget/ActionMenuPresenter$SemOverflowText;->mArchivedBackground:Landroid/graphics/drawable/Drawable;
 
@@ -267,6 +318,8 @@
 .method public jumpDrawablesToCurrentState()V
     .locals 1
 
+    .prologue
+    .line 1596
     iget-object v0, p0, Landroid/widget/ActionMenuPresenter$SemOverflowText;->this$0:Landroid/widget/ActionMenuPresenter;
 
     invoke-static {v0}, Landroid/widget/ActionMenuPresenter;->-get1(Landroid/widget/ActionMenuPresenter;)Z
@@ -275,33 +328,43 @@
 
     if-nez v0, :cond_0
 
+    .line 1597
     invoke-super {p0}, Landroid/widget/TextView;->jumpDrawablesToCurrentState()V
 
+    .line 1595
     :cond_0
     return-void
 .end method
 
 .method protected onConfigurationChanged(Landroid/content/res/Configuration;)V
     .locals 6
+    .param p1, "newConfig"    # Landroid/content/res/Configuration;
 
+    .prologue
     const/4 v5, 0x0
 
+    .line 1554
     invoke-super {p0, p1}, Landroid/widget/TextView;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
+    .line 1557
     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
     sget-object v2, Lcom/android/internal/R$styleable;->View:[I
 
+    .line 1558
     const v3, 0x10102f6
 
     const/4 v4, 0x0
 
+    .line 1557
     invoke-virtual {v1, v5, v2, v3, v4}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
+    .line 1559
+    .local v0, "a":Landroid/content/res/TypedArray;
     const/16 v1, 0x25
 
     const/4 v2, -0x1
@@ -312,6 +375,7 @@
 
     invoke-virtual {p0, v1}, Landroid/view/View;->setMinimumHeight(I)V
 
+    .line 1562
     const/16 v1, 0x2c
 
     invoke-virtual {v0, v1}, Landroid/content/res/TypedArray;->getText(I)Ljava/lang/CharSequence;
@@ -320,8 +384,10 @@
 
     invoke-virtual {p0, v1}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
 
+    .line 1564
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
+    .line 1568
     iget-object v1, p0, Landroid/widget/ActionMenuPresenter$SemOverflowText;->this$0:Landroid/widget/ActionMenuPresenter;
 
     invoke-static {v1}, Landroid/widget/ActionMenuPresenter;->-get1(Landroid/widget/ActionMenuPresenter;)Z
@@ -340,10 +406,12 @@
 
     if-eqz v1, :cond_1
 
+    .line 1569
     iget v1, p1, Landroid/content/res/Configuration;->fontScale:F
 
     iput v1, p0, Landroid/widget/ActionMenuPresenter$SemOverflowText;->mCurrentFontScale:F
 
+    .line 1571
     iget v1, p0, Landroid/widget/ActionMenuPresenter$SemOverflowText;->mCurrentFontScale:F
 
     iget v2, p0, Landroid/widget/ActionMenuPresenter$SemOverflowText;->mMaxFontScale:F
@@ -352,10 +420,12 @@
 
     if-lez v1, :cond_0
 
+    .line 1572
     iget v1, p0, Landroid/widget/ActionMenuPresenter$SemOverflowText;->mMaxFontScale:F
 
     iput v1, p0, Landroid/widget/ActionMenuPresenter$SemOverflowText;->mCurrentFontScale:F
 
+    .line 1574
     :cond_0
     iget v1, p0, Landroid/widget/ActionMenuPresenter$SemOverflowText;->mDefaultTextSize:F
 
@@ -367,6 +437,7 @@
 
     invoke-virtual {p0, v2, v1}, Landroid/widget/TextView;->setTextSize(IF)V
 
+    .line 1578
     :cond_1
     iget-object v1, p0, Landroid/view/View;->mContext:Landroid/content/Context;
 
@@ -382,58 +453,78 @@
 
     invoke-virtual {p0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
+    .line 1580
     invoke-direct {p0}, Landroid/widget/ActionMenuPresenter$SemOverflowText;->changeButtonBackground()V
 
+    .line 1553
     return-void
 .end method
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
     .locals 1
+    .param p1, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 
+    .prologue
+    .line 1603
     invoke-super {p0, p1}, Landroid/widget/TextView;->onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
 
+    .line 1604
     const-string/jumbo v0, "android.widget.Button"
 
     invoke-virtual {p1, v0}, Landroid/view/accessibility/AccessibilityNodeInfo;->setClassName(Ljava/lang/CharSequence;)V
 
+    .line 1605
     const/4 v0, 0x1
 
     invoke-virtual {p1, v0}, Landroid/view/accessibility/AccessibilityNodeInfo;->setCanOpenPopup(Z)V
 
+    .line 1602
     return-void
 .end method
 
 .method protected onMeasure(II)V
     .locals 0
+    .param p1, "widthMeasureSpec"    # I
+    .param p2, "heightMeasureSpec"    # I
 
+    .prologue
+    .line 1632
     invoke-super {p0, p1, p2}, Landroid/widget/TextView;->onMeasure(II)V
 
+    .line 1634
     invoke-direct {p0}, Landroid/widget/ActionMenuPresenter$SemOverflowText;->changeButtonBackground()V
 
+    .line 1631
     return-void
 .end method
 
 .method public performClick()Z
     .locals 2
 
+    .prologue
     const/4 v1, 0x1
 
+    .line 1585
     invoke-super {p0}, Landroid/widget/TextView;->performClick()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
+    .line 1586
     return v1
 
+    .line 1589
     :cond_0
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Landroid/view/View;->playSoundEffect(I)V
 
+    .line 1590
     iget-object v0, p0, Landroid/widget/ActionMenuPresenter$SemOverflowText;->this$0:Landroid/widget/ActionMenuPresenter;
 
     invoke-virtual {v0}, Landroid/widget/ActionMenuPresenter;->showOverflowMenu()Z
 
+    .line 1591
     return v1
 .end method

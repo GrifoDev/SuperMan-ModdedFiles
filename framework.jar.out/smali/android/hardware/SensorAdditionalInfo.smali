@@ -34,18 +34,31 @@
 # direct methods
 .method constructor <init>(Landroid/hardware/Sensor;II[I[F)V
     .locals 0
+    .param p1, "aSensor"    # Landroid/hardware/Sensor;
+    .param p2, "aType"    # I
+    .param p3, "aSerial"    # I
+    .param p4, "aIntValues"    # [I
+    .param p5, "aFloatValues"    # [F
 
+    .prologue
+    .line 134
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 136
     iput-object p1, p0, Landroid/hardware/SensorAdditionalInfo;->sensor:Landroid/hardware/Sensor;
 
+    .line 137
     iput p2, p0, Landroid/hardware/SensorAdditionalInfo;->type:I
 
+    .line 138
     iput p3, p0, Landroid/hardware/SensorAdditionalInfo;->serial:I
 
+    .line 139
     iput-object p4, p0, Landroid/hardware/SensorAdditionalInfo;->intValues:[I
 
+    .line 140
     iput-object p5, p0, Landroid/hardware/SensorAdditionalInfo;->floatValues:[F
 
+    .line 135
     return-void
 .end method

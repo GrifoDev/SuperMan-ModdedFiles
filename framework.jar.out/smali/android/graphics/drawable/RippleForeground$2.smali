@@ -26,7 +26,10 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
     .locals 0
+    .param p1, "$anonymous0"    # Ljava/lang/String;
 
+    .prologue
+    .line 389
     invoke-direct {p0, p1}, Landroid/util/FloatProperty;-><init>(Ljava/lang/String;)V
 
     return-void
@@ -36,7 +39,10 @@
 # virtual methods
 .method public get(Landroid/graphics/drawable/RippleForeground;)Ljava/lang/Float;
     .locals 1
+    .param p1, "object"    # Landroid/graphics/drawable/RippleForeground;
 
+    .prologue
+    .line 398
     invoke-static {p1}, Landroid/graphics/drawable/RippleForeground;->-get1(Landroid/graphics/drawable/RippleForeground;)F
 
     move-result v0
@@ -50,9 +56,13 @@
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
+    .param p1, "object"    # Ljava/lang/Object;
 
+    .prologue
+    .line 397
     check-cast p1, Landroid/graphics/drawable/RippleForeground;
 
+    .end local p1    # "object":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Landroid/graphics/drawable/RippleForeground$2;->get(Landroid/graphics/drawable/RippleForeground;)Ljava/lang/Float;
 
     move-result-object v0
@@ -62,19 +72,30 @@
 
 .method public setValue(Landroid/graphics/drawable/RippleForeground;F)V
     .locals 0
+    .param p1, "object"    # Landroid/graphics/drawable/RippleForeground;
+    .param p2, "value"    # F
 
+    .prologue
+    .line 392
     invoke-static {p1, p2}, Landroid/graphics/drawable/RippleForeground;->-set2(Landroid/graphics/drawable/RippleForeground;F)F
 
+    .line 393
     invoke-virtual {p1}, Landroid/graphics/drawable/RippleForeground;->invalidateSelf()V
 
+    .line 391
     return-void
 .end method
 
 .method public bridge synthetic setValue(Ljava/lang/Object;F)V
     .locals 0
+    .param p1, "object"    # Ljava/lang/Object;
+    .param p2, "value"    # F
 
+    .prologue
+    .line 391
     check-cast p1, Landroid/graphics/drawable/RippleForeground;
 
+    .end local p1    # "object":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Landroid/graphics/drawable/RippleForeground$2;->setValue(Landroid/graphics/drawable/RippleForeground;F)V
 
     return-void

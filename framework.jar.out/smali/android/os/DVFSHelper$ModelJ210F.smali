@@ -21,76 +21,111 @@
 # direct methods
 .method constructor <init>(Landroid/os/DVFSHelper;)V
     .locals 2
+    .param p1, "this$0"    # Landroid/os/DVFSHelper;
 
+    .prologue
     const/4 v1, 0x0
 
     const/4 v0, -0x1
 
+    .line 2763
     iput-object p1, p0, Landroid/os/DVFSHelper$ModelJ210F;->this$0:Landroid/os/DVFSHelper;
 
     invoke-direct {p0, p1}, Landroid/os/DVFSHelper$ModelJBP;-><init>(Landroid/os/DVFSHelper;)V
 
+    .line 2764
     iput v0, p0, Landroid/os/DVFSHelper$Model;->BROWSER_TOUCH_BOOST_TIMEOUT:I
 
+    .line 2765
     iput v0, p0, Landroid/os/DVFSHelper$Model;->BROWSER_TOUCH_ARM_FREQ:I
 
+    .line 2766
     iput v0, p0, Landroid/os/DVFSHelper$Model;->BROWSER_TOUCH_BUS_FREQ:I
 
+    .line 2767
     iput v0, p0, Landroid/os/DVFSHelper$Model;->GALLERY_TOUCH_BOOST_TIMEOUT:I
 
+    .line 2768
     iput v0, p0, Landroid/os/DVFSHelper$Model;->GALLERY_TOUCH_TAIL_BOOST_TIMEOUT:I
 
+    .line 2769
     iput v0, p0, Landroid/os/DVFSHelper$Model;->GALLERY_TOUCH_ARM_FREQ:I
 
+    .line 2770
     iput v0, p0, Landroid/os/DVFSHelper$Model;->GALLERY_TOUCH_BUS_FREQ:I
 
+    .line 2771
     iput v0, p0, Landroid/os/DVFSHelper$Model;->LAUNCHER_TOUCH_BOOST_TIMEOUT:I
 
+    .line 2772
     iput v0, p0, Landroid/os/DVFSHelper$Model;->LAUNCHER_TOUCH_ARM_FREQ:I
 
+    .line 2773
     iput v0, p0, Landroid/os/DVFSHelper$Model;->LAUNCHER_TOUCH_BUS_FREQ:I
 
+    .line 2774
     iput v0, p0, Landroid/os/DVFSHelper$Model;->LAUNCHER_TOUCH_GPU_FREQ:I
 
+    .line 2775
     iput v1, p0, Landroid/os/DVFSHelper$Model;->LAUNCHER_TOUCH_CPU_CORE:I
 
+    .line 2776
     iput v0, p0, Landroid/os/DVFSHelper$Model;->GROUP_PLAY_ARM_FREQ:I
 
+    .line 2777
     iput v0, p0, Landroid/os/DVFSHelper$Model;->LIST_SCROLL_ARM_FREQ:I
 
+    .line 2778
     iput v0, p0, Landroid/os/DVFSHelper$Model;->LIST_SCROLL_GPU_FREQ:I
 
+    .line 2779
     iput v0, p0, Landroid/os/DVFSHelper$Model;->LIST_SCROLL_BUS_FREQ:I
 
+    .line 2780
     sput v1, Landroid/os/DVFSHelper;->LIST_SCROLL_BOOSTER_CORE_NUM:I
 
+    .line 2781
     sput v1, Landroid/os/DVFSHelper;->WAKEUP_BOOSTER_CORE_NUM:I
 
+    .line 2782
     iput v0, p0, Landroid/os/DVFSHelper$Model;->AMS_RESUME_ARM_FREQ:I
 
+    .line 2783
     iput v0, p0, Landroid/os/DVFSHelper$Model;->AMS_RESUME_GPU_FREQ:I
 
+    .line 2784
     iput v0, p0, Landroid/os/DVFSHelper$Model;->AMS_RESUME_BUS_FREQ:I
 
+    .line 2785
     iput v1, p0, Landroid/os/DVFSHelper$Model;->AMS_RESUME_CPU_CORE:I
 
+    .line 2786
     sput v0, Landroid/os/DVFSHelper;->AMS_RESUME_TAIL_BOOST_TIMEOUT:I
 
+    .line 2787
     iput v0, p0, Landroid/os/DVFSHelper$Model;->APP_LAUNCH_ARM_FREQ:I
 
+    .line 2788
     iput v0, p0, Landroid/os/DVFSHelper$Model;->APP_LAUNCH_GPU_FREQ:I
 
+    .line 2789
     iput v0, p0, Landroid/os/DVFSHelper$Model;->APP_LAUNCH_BUS_FREQ:I
 
+    .line 2790
     iput v1, p0, Landroid/os/DVFSHelper$Model;->APP_LAUNCH_CPU_CORE:I
 
+    .line 2791
     iput v0, p0, Landroid/os/DVFSHelper$Model;->BROWSER_FLING_ARM_FREQ:I
 
+    .line 2792
     sput v0, Landroid/os/DVFSHelper;->PWM_ROTATION_BOOST_TIMEOUT:I
 
+    .line 2793
     iput v0, p0, Landroid/os/DVFSHelper$Model;->DEVICE_WAKEUP_ARM_FREQ:I
 
+    .line 2794
     iput v0, p0, Landroid/os/DVFSHelper$Model;->ROTATION_ARM_FREQ:I
 
+    .line 2763
     return-void
 .end method

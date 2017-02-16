@@ -26,7 +26,11 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/contextaware/utilbundle/CaCurrentLocationManager;Ljava/lang/String;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/samsung/android/contextaware/utilbundle/CaCurrentLocationManager;
+    .param p2, "val$provider"    # Ljava/lang/String;
 
+    .prologue
+    .line 199
     iput-object p1, p0, Lcom/samsung/android/contextaware/utilbundle/CaCurrentLocationManager$2;->this$0:Lcom/samsung/android/contextaware/utilbundle/CaCurrentLocationManager;
 
     iput-object p2, p0, Lcom/samsung/android/contextaware/utilbundle/CaCurrentLocationManager$2;->val$provider:Ljava/lang/String;
@@ -41,6 +45,8 @@
 .method public run()V
     .locals 7
 
+    .prologue
+    .line 202
     iget-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/CaCurrentLocationManager$2;->this$0:Lcom/samsung/android/contextaware/utilbundle/CaCurrentLocationManager;
 
     invoke-static {v0}, Lcom/samsung/android/contextaware/utilbundle/CaCurrentLocationManager;->-get0(Lcom/samsung/android/contextaware/utilbundle/CaCurrentLocationManager;)Landroid/location/LocationManager;
@@ -49,6 +55,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/contextaware/utilbundle/CaCurrentLocationManager$2;->val$provider:Ljava/lang/String;
 
+    .line 203
     iget-object v2, p0, Lcom/samsung/android/contextaware/utilbundle/CaCurrentLocationManager$2;->this$0:Lcom/samsung/android/contextaware/utilbundle/CaCurrentLocationManager;
 
     invoke-static {v2}, Lcom/samsung/android/contextaware/utilbundle/CaCurrentLocationManager;->-get1(Lcom/samsung/android/contextaware/utilbundle/CaCurrentLocationManager;)Landroid/location/LocationListener;
@@ -61,11 +68,15 @@
 
     move-result-object v6
 
+    .line 202
     const-wide/16 v2, 0x3e8
 
+    .line 203
     const/4 v4, 0x0
 
+    .line 202
     invoke-virtual/range {v0 .. v6}, Landroid/location/LocationManager;->requestLocationUpdates(Ljava/lang/String;JFLandroid/location/LocationListener;Landroid/os/Looper;)V
 
+    .line 201
     return-void
 .end method

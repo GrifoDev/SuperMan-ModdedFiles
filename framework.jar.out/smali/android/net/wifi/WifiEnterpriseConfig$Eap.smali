@@ -44,6 +44,8 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
+    .line 403
     const/16 v0, 0x14
 
     new-array v0, v0, [Ljava/lang/String;
@@ -170,12 +172,15 @@
 
     sput-object v0, Landroid/net/wifi/WifiEnterpriseConfig$Eap;->strings:[Ljava/lang/String;
 
+    .line 379
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 406
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

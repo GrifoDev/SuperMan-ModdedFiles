@@ -26,7 +26,11 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestDispatcher;Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestInfo;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestDispatcher;
+    .param p2, "val$request"    # Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestInfo;
 
+    .prologue
+    .line 156
     iput-object p1, p0, Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestDispatcher$3;->this$0:Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestDispatcher;
 
     iput-object p2, p0, Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestDispatcher$3;->val$request:Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestInfo;
@@ -41,11 +45,14 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 159
     iget-object v0, p0, Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestDispatcher$3;->this$0:Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestDispatcher;
 
     iget-object v1, p0, Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestDispatcher$3;->val$request:Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestInfo;
 
     invoke-static {v0, v1}, Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestDispatcher;->-wrap3(Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestDispatcher;Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestInfo;)V
 
+    .line 158
     return-void
 .end method

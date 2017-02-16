@@ -51,32 +51,41 @@
 .method private constructor <init>()V
     .locals 2
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 587
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 578
     new-instance v0, Ljava/util/Vector;
 
     invoke-direct {v0}, Ljava/util/Vector;-><init>()V
 
     iput-object v0, p0, Lcom/android/internal/util/StateMachine$LogRecords;->mLogRecVector:Ljava/util/Vector;
 
+    .line 579
     const/16 v0, 0x14
 
     iput v0, p0, Lcom/android/internal/util/StateMachine$LogRecords;->mMaxSize:I
 
+    .line 580
     iput v1, p0, Lcom/android/internal/util/StateMachine$LogRecords;->mOldestIndex:I
 
+    .line 581
     iput v1, p0, Lcom/android/internal/util/StateMachine$LogRecords;->mCount:I
 
+    .line 582
     iput-boolean v1, p0, Lcom/android/internal/util/StateMachine$LogRecords;->mLogOnlyTransitions:Z
 
+    .line 587
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/android/internal/util/StateMachine$LogRecords;)V
     .locals 0
 
+    .prologue
     invoke-direct {p0}, Lcom/android/internal/util/StateMachine$LogRecords;-><init>()V
 
     return-void
@@ -86,9 +95,17 @@
 # virtual methods
 .method declared-synchronized add(Lcom/android/internal/util/StateMachine;Landroid/os/Message;Ljava/lang/String;Lcom/android/internal/util/IState;Lcom/android/internal/util/IState;Lcom/android/internal/util/IState;)V
     .locals 8
+    .param p1, "sm"    # Lcom/android/internal/util/StateMachine;
+    .param p2, "msg"    # Landroid/os/Message;
+    .param p3, "messageInfo"    # Ljava/lang/String;
+    .param p4, "state"    # Lcom/android/internal/util/IState;
+    .param p5, "orgState"    # Lcom/android/internal/util/IState;
+    .param p6, "transToState"    # Lcom/android/internal/util/IState;
 
+    .prologue
     monitor-enter p0
 
+    .line 665
     :try_start_0
     iget v1, p0, Lcom/android/internal/util/StateMachine$LogRecords;->mCount:I
 
@@ -96,6 +113,7 @@
 
     iput v1, p0, Lcom/android/internal/util/StateMachine$LogRecords;->mCount:I
 
+    .line 666
     iget-object v1, p0, Lcom/android/internal/util/StateMachine$LogRecords;->mLogRecVector:Ljava/util/Vector;
 
     invoke-virtual {v1}, Ljava/util/Vector;->size()I
@@ -106,6 +124,7 @@
 
     if-ge v1, v2, :cond_0
 
+    .line 667
     iget-object v7, p0, Lcom/android/internal/util/StateMachine$LogRecords;->mLogRecVector:Ljava/util/Vector;
 
     new-instance v0, Lcom/android/internal/util/StateMachine$LogRec;
@@ -131,8 +150,10 @@
     :goto_0
     monitor-exit p0
 
+    .line 664
     return-void
 
+    .line 669
     :cond_0
     :try_start_1
     iget-object v1, p0, Lcom/android/internal/util/StateMachine$LogRecords;->mLogRecVector:Ljava/util/Vector;
@@ -145,18 +166,22 @@
 
     check-cast v0, Lcom/android/internal/util/StateMachine$LogRec;
 
+    .line 670
+    .local v0, "pmi":Lcom/android/internal/util/StateMachine$LogRec;
     iget v1, p0, Lcom/android/internal/util/StateMachine$LogRecords;->mOldestIndex:I
 
     add-int/lit8 v1, v1, 0x1
 
     iput v1, p0, Lcom/android/internal/util/StateMachine$LogRecords;->mOldestIndex:I
 
+    .line 671
     iget v1, p0, Lcom/android/internal/util/StateMachine$LogRecords;->mOldestIndex:I
 
     iget v2, p0, Lcom/android/internal/util/StateMachine$LogRecords;->mMaxSize:I
 
     if-lt v1, v2, :cond_1
 
+    .line 672
     const/4 v1, 0x0
 
     iput v1, p0, Lcom/android/internal/util/StateMachine$LogRecords;->mOldestIndex:I
@@ -174,12 +199,14 @@
 
     move-object v6, p6
 
+    .line 674
     invoke-virtual/range {v0 .. v6}, Lcom/android/internal/util/StateMachine$LogRec;->update(Lcom/android/internal/util/StateMachine;Landroid/os/Message;Ljava/lang/String;Lcom/android/internal/util/IState;Lcom/android/internal/util/IState;Lcom/android/internal/util/IState;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
 
+    .end local v0    # "pmi":Lcom/android/internal/util/StateMachine$LogRec;
     :catchall_0
     move-exception v1
 
@@ -191,8 +218,10 @@
 .method declared-synchronized cleanup()V
     .locals 1
 
+    .prologue
     monitor-enter p0
 
+    .line 631
     :try_start_0
     iget-object v0, p0, Lcom/android/internal/util/StateMachine$LogRecords;->mLogRecVector:Ljava/util/Vector;
 
@@ -202,6 +231,7 @@
 
     monitor-exit p0
 
+    .line 630
     return-void
 
     :catchall_0
@@ -215,8 +245,10 @@
 .method declared-synchronized count()I
     .locals 1
 
+    .prologue
     monitor-enter p0
 
+    .line 624
     :try_start_0
     iget v0, p0, Lcom/android/internal/util/StateMachine$LogRecords;->mCount:I
     :try_end_0
@@ -236,22 +268,29 @@
 
 .method declared-synchronized get(I)Lcom/android/internal/util/StateMachine$LogRec;
     .locals 2
+    .param p1, "index"    # I
 
+    .prologue
     monitor-enter p0
 
+    .line 640
     :try_start_0
     iget v1, p0, Lcom/android/internal/util/StateMachine$LogRecords;->mOldestIndex:I
 
     add-int v0, v1, p1
 
+    .line 641
+    .local v0, "nextIndex":I
     iget v1, p0, Lcom/android/internal/util/StateMachine$LogRecords;->mMaxSize:I
 
     if-lt v0, v1, :cond_0
 
+    .line 642
     iget v1, p0, Lcom/android/internal/util/StateMachine$LogRecords;->mMaxSize:I
 
     sub-int/2addr v0, v1
 
+    .line 644
     :cond_0
     invoke-virtual {p0}, Lcom/android/internal/util/StateMachine$LogRecords;->size()I
     :try_end_0
@@ -261,12 +300,14 @@
 
     if-lt v0, v1, :cond_1
 
+    .line 645
     const/4 v1, 0x0
 
     monitor-exit p0
 
     return-object v1
 
+    .line 647
     :cond_1
     :try_start_1
     iget-object v1, p0, Lcom/android/internal/util/StateMachine$LogRecords;->mLogRecVector:Ljava/util/Vector;
@@ -283,6 +324,7 @@
 
     return-object v1
 
+    .end local v0    # "nextIndex":I
     :catchall_0
     move-exception v1
 
@@ -294,8 +336,10 @@
 .method declared-synchronized logOnlyTransitions()Z
     .locals 1
 
+    .prologue
     monitor-enter p0
 
+    .line 610
     :try_start_0
     iget-boolean v0, p0, Lcom/android/internal/util/StateMachine$LogRecords;->mLogOnlyTransitions:Z
     :try_end_0
@@ -315,9 +359,12 @@
 
 .method declared-synchronized setLogOnlyTransitions(Z)V
     .locals 1
+    .param p1, "enable"    # Z
 
+    .prologue
     monitor-enter p0
 
+    .line 606
     :try_start_0
     iput-boolean p1, p0, Lcom/android/internal/util/StateMachine$LogRecords;->mLogOnlyTransitions:Z
     :try_end_0
@@ -325,6 +372,7 @@
 
     monitor-exit p0
 
+    .line 605
     return-void
 
     :catchall_0
@@ -337,20 +385,26 @@
 
 .method declared-synchronized setSize(I)V
     .locals 1
+    .param p1, "maxSize"    # I
 
+    .prologue
     monitor-enter p0
 
+    .line 599
     :try_start_0
     iput p1, p0, Lcom/android/internal/util/StateMachine$LogRecords;->mMaxSize:I
 
+    .line 600
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/internal/util/StateMachine$LogRecords;->mOldestIndex:I
 
+    .line 601
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/internal/util/StateMachine$LogRecords;->mCount:I
 
+    .line 602
     iget-object v0, p0, Lcom/android/internal/util/StateMachine$LogRecords;->mLogRecVector:Ljava/util/Vector;
 
     invoke-virtual {v0}, Ljava/util/Vector;->clear()V
@@ -359,6 +413,7 @@
 
     monitor-exit p0
 
+    .line 595
     return-void
 
     :catchall_0
@@ -372,8 +427,10 @@
 .method declared-synchronized size()I
     .locals 1
 
+    .prologue
     monitor-enter p0
 
+    .line 617
     :try_start_0
     iget-object v0, p0, Lcom/android/internal/util/StateMachine$LogRecords;->mLogRecVector:Ljava/util/Vector;
 

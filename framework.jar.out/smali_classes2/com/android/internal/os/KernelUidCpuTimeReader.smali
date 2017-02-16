@@ -33,30 +33,37 @@
 .method public constructor <init>()V
     .locals 2
 
+    .prologue
+    .line 40
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 58
     new-instance v0, Landroid/util/SparseLongArray;
 
     invoke-direct {v0}, Landroid/util/SparseLongArray;-><init>()V
 
     iput-object v0, p0, Lcom/android/internal/os/KernelUidCpuTimeReader;->mLastUserTimeUs:Landroid/util/SparseLongArray;
 
+    .line 59
     new-instance v0, Landroid/util/SparseLongArray;
 
     invoke-direct {v0}, Landroid/util/SparseLongArray;-><init>()V
 
     iput-object v0, p0, Lcom/android/internal/os/KernelUidCpuTimeReader;->mLastSystemTimeUs:Landroid/util/SparseLongArray;
 
+    .line 60
     new-instance v0, Landroid/util/SparseLongArray;
 
     invoke-direct {v0}, Landroid/util/SparseLongArray;-><init>()V
 
     iput-object v0, p0, Lcom/android/internal/os/KernelUidCpuTimeReader;->mLastPowerMaUs:Landroid/util/SparseLongArray;
 
+    .line 61
     const-wide/16 v0, 0x0
 
     iput-wide v0, p0, Lcom/android/internal/os/KernelUidCpuTimeReader;->mLastTimeReadUs:J
 
+    .line 40
     return-void
 .end method
 
@@ -64,7 +71,10 @@
 # virtual methods
 .method public readDelta(Lcom/android/internal/os/KernelUidCpuTimeReader$Callback;)V
     .locals 37
+    .param p1, "callback"    # Lcom/android/internal/os/KernelUidCpuTimeReader$Callback;
 
+    .prologue
+    .line 70
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v30
@@ -73,10 +83,13 @@
 
     mul-long v16, v30, v32
 
+    .line 71
+    .local v16, "nowUs":J
     const/16 v30, 0x0
 
     const/4 v15, 0x0
 
+    .local v15, "reader":Ljava/io/BufferedReader;
     :try_start_0
     new-instance v20, Ljava/io/BufferedReader;
 
@@ -95,6 +108,9 @@
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_5
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
+    .line 72
+    .end local v15    # "reader":Ljava/io/BufferedReader;
+    .local v20, "reader":Ljava/io/BufferedReader;
     :try_start_1
     new-instance v22, Landroid/text/TextUtils$SimpleStringSplitter;
 
@@ -104,21 +120,28 @@
 
     invoke-direct {v0, v4}, Landroid/text/TextUtils$SimpleStringSplitter;-><init>(C)V
 
+    .line 74
+    .local v22, "splitter":Landroid/text/TextUtils$SimpleStringSplitter;
     :goto_0
     invoke-virtual/range {v20 .. v20}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
 
     move-result-object v14
 
+    .local v14, "line":Ljava/lang/String;
     if-eqz v14, :cond_8
 
+    .line 75
     move-object/from16 v0, v22
 
     invoke-virtual {v0, v14}, Landroid/text/TextUtils$SimpleStringSplitter;->setString(Ljava/lang/String;)V
 
+    .line 76
     invoke-virtual/range {v22 .. v22}, Landroid/text/TextUtils$SimpleStringSplitter;->next()Ljava/lang/String;
 
     move-result-object v23
 
+    .line 77
+    .local v23, "uidStr":Ljava/lang/String;
     invoke-virtual/range {v23 .. v23}, Ljava/lang/String;->length()I
 
     move-result v4
@@ -143,6 +166,8 @@
 
     move-result v5
 
+    .line 78
+    .local v5, "uid":I
     invoke-virtual/range {v22 .. v22}, Landroid/text/TextUtils$SimpleStringSplitter;->next()Ljava/lang/String;
 
     move-result-object v4
@@ -155,6 +180,8 @@
 
     move-result-wide v28
 
+    .line 79
+    .local v28, "userTimeUs":J
     invoke-virtual/range {v22 .. v22}, Landroid/text/TextUtils$SimpleStringSplitter;->next()Ljava/lang/String;
 
     move-result-object v4
@@ -167,12 +194,15 @@
 
     move-result-wide v24
 
+    .line 81
+    .local v24, "systemTimeUs":J
     invoke-virtual/range {v22 .. v22}, Landroid/text/TextUtils$SimpleStringSplitter;->hasNext()Z
 
     move-result v4
 
     if-eqz v4, :cond_5
 
+    .line 82
     invoke-virtual/range {v22 .. v22}, Landroid/text/TextUtils$SimpleStringSplitter;->next()Ljava/lang/String;
 
     move-result-object v4
@@ -189,6 +219,8 @@
 
     div-long v18, v32, v34
 
+    .line 88
+    .local v18, "powerMaUs":J
     :goto_1
     if-eqz p1, :cond_3
 
@@ -204,12 +236,19 @@
 
     if-eqz v4, :cond_3
 
+    .line 89
     move-wide/from16 v6, v28
 
+    .line 90
+    .local v6, "userTimeDeltaUs":J
     move-wide/from16 v8, v24
 
+    .line 91
+    .local v8, "systemTimeDeltaUs":J
     move-wide/from16 v10, v18
 
+    .line 92
+    .local v10, "powerDeltaMaUs":J
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/internal/os/KernelUidCpuTimeReader;->mLastUserTimeUs:Landroid/util/SparseLongArray;
@@ -218,8 +257,11 @@
 
     move-result v13
 
+    .line 93
+    .local v13, "index":I
     if-ltz v13, :cond_1
 
+    .line 94
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/internal/os/KernelUidCpuTimeReader;->mLastUserTimeUs:Landroid/util/SparseLongArray;
@@ -230,6 +272,7 @@
 
     sub-long v6, v28, v32
 
+    .line 95
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/internal/os/KernelUidCpuTimeReader;->mLastSystemTimeUs:Landroid/util/SparseLongArray;
@@ -240,6 +283,7 @@
 
     sub-long v8, v24, v32
 
+    .line 96
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/internal/os/KernelUidCpuTimeReader;->mLastPowerMaUs:Landroid/util/SparseLongArray;
@@ -250,6 +294,7 @@
 
     sub-long v10, v10, v32
 
+    .line 98
     move-object/from16 v0, p0
 
     iget-wide v0, v0, Lcom/android/internal/os/KernelUidCpuTimeReader;->mLastTimeReadUs:J
@@ -258,6 +303,8 @@
 
     sub-long v26, v16, v32
 
+    .line 99
+    .local v26, "timeDiffUs":J
     const-wide/16 v32, 0x0
 
     cmp-long v4, v6, v32
@@ -270,6 +317,7 @@
 
     if-gez v4, :cond_6
 
+    .line 100
     :cond_0
     :goto_2
     new-instance v21, Ljava/lang/StringBuilder;
@@ -280,6 +328,8 @@
 
     invoke-direct {v0, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
+    .line 101
+    .local v21, "sb":Ljava/lang/StringBuilder;
     move-object/from16 v0, v21
 
     invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
@@ -292,12 +342,14 @@
 
     invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 102
     const-string/jumbo v4, "Time between reads: "
 
     move-object/from16 v0, v21
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 103
     const-wide/16 v32, 0x3e8
 
     div-long v32, v26, v32
@@ -308,18 +360,21 @@
 
     invoke-static {v0, v1, v2}, Landroid/util/TimeUtils;->formatDuration(JLjava/lang/StringBuilder;)V
 
+    .line 104
     const-string/jumbo v4, "\n"
 
     move-object/from16 v0, v21
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 105
     const-string/jumbo v4, "Previous times: u="
 
     move-object/from16 v0, v21
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 106
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/internal/os/KernelUidCpuTimeReader;->mLastUserTimeUs:Landroid/util/SparseLongArray;
@@ -338,12 +393,14 @@
 
     invoke-static {v0, v1, v2}, Landroid/util/TimeUtils;->formatDuration(JLjava/lang/StringBuilder;)V
 
+    .line 107
     const-string/jumbo v4, " s="
 
     move-object/from16 v0, v21
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 108
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/internal/os/KernelUidCpuTimeReader;->mLastSystemTimeUs:Landroid/util/SparseLongArray;
@@ -362,6 +419,7 @@
 
     invoke-static {v0, v1, v2}, Landroid/util/TimeUtils;->formatDuration(JLjava/lang/StringBuilder;)V
 
+    .line 109
     const-string/jumbo v4, " p="
 
     move-object/from16 v0, v21
@@ -390,18 +448,21 @@
 
     invoke-virtual {v4, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
+    .line 110
     const-string/jumbo v4, "mAms\n"
 
     move-object/from16 v0, v21
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 112
     const-string/jumbo v4, "Current times: u="
 
     move-object/from16 v0, v21
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 113
     const-wide/16 v32, 0x3e8
 
     div-long v32, v28, v32
@@ -412,12 +473,14 @@
 
     invoke-static {v0, v1, v2}, Landroid/util/TimeUtils;->formatDuration(JLjava/lang/StringBuilder;)V
 
+    .line 114
     const-string/jumbo v4, " s="
 
     move-object/from16 v0, v21
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 115
     const-wide/16 v32, 0x3e8
 
     div-long v32, v24, v32
@@ -428,6 +491,7 @@
 
     invoke-static {v0, v1, v2}, Landroid/util/TimeUtils;->formatDuration(JLjava/lang/StringBuilder;)V
 
+    .line 116
     const-string/jumbo v4, " p="
 
     move-object/from16 v0, v21
@@ -444,18 +508,21 @@
 
     invoke-virtual {v4, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
+    .line 117
     const-string/jumbo v4, "mAms\n"
 
     move-object/from16 v0, v21
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 118
     const-string/jumbo v4, "Delta: u="
 
     move-object/from16 v0, v21
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 119
     const-wide/16 v32, 0x3e8
 
     div-long v32, v6, v32
@@ -466,12 +533,14 @@
 
     invoke-static {v0, v1, v2}, Landroid/util/TimeUtils;->formatDuration(JLjava/lang/StringBuilder;)V
 
+    .line 120
     const-string/jumbo v4, " s="
 
     move-object/from16 v0, v21
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 121
     const-wide/16 v32, 0x3e8
 
     div-long v32, v8, v32
@@ -482,6 +551,7 @@
 
     invoke-static {v0, v1, v2}, Landroid/util/TimeUtils;->formatDuration(JLjava/lang/StringBuilder;)V
 
+    .line 122
     const-string/jumbo v4, " p="
 
     move-object/from16 v0, v21
@@ -506,6 +576,7 @@
 
     invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 123
     const-string/jumbo v4, "KernelUidCpuTimeReader"
 
     invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -516,12 +587,18 @@
 
     invoke-static {v4, v0}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 125
     const-wide/16 v6, 0x0
 
+    .line 126
     const-wide/16 v8, 0x0
 
+    .line 127
     const-wide/16 v10, 0x0
 
+    .line 131
+    .end local v21    # "sb":Ljava/lang/StringBuilder;
+    .end local v26    # "timeDiffUs":J
     :cond_1
     const-wide/16 v32, 0x0
 
@@ -539,8 +616,14 @@
     :goto_3
     move-object/from16 v4, p1
 
+    .line 132
     invoke-interface/range {v4 .. v11}, Lcom/android/internal/os/KernelUidCpuTimeReader$Callback;->onUidCpuTime(IJJJ)V
 
+    .line 136
+    .end local v6    # "userTimeDeltaUs":J
+    .end local v8    # "systemTimeDeltaUs":J
+    .end local v10    # "powerDeltaMaUs":J
+    .end local v13    # "index":I
     :cond_3
     move-object/from16 v0, p0
 
@@ -550,6 +633,7 @@
 
     invoke-virtual {v4, v5, v0, v1}, Landroid/util/SparseLongArray;->put(IJ)V
 
+    .line 137
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/internal/os/KernelUidCpuTimeReader;->mLastSystemTimeUs:Landroid/util/SparseLongArray;
@@ -558,6 +642,7 @@
 
     invoke-virtual {v4, v5, v0, v1}, Landroid/util/SparseLongArray;->put(IJ)V
 
+    .line 138
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/internal/os/KernelUidCpuTimeReader;->mLastPowerMaUs:Landroid/util/SparseLongArray;
@@ -571,11 +656,20 @@
 
     goto/16 :goto_0
 
+    .line 142
+    .end local v5    # "uid":I
+    .end local v14    # "line":Ljava/lang/String;
+    .end local v18    # "powerMaUs":J
+    .end local v22    # "splitter":Landroid/text/TextUtils$SimpleStringSplitter;
+    .end local v23    # "uidStr":Ljava/lang/String;
+    .end local v24    # "systemTimeUs":J
+    .end local v28    # "userTimeUs":J
     :catch_0
     move-exception v4
 
     move-object/from16 v15, v20
 
+    .end local v20    # "reader":Ljava/io/BufferedReader;
     :goto_4
     :try_start_2
     throw v4
@@ -609,9 +703,12 @@
     :try_end_4
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_1
 
+    .line 140
     :catch_1
     move-exception v12
 
+    .line 141
+    .local v12, "e":Ljava/io/IOException;
     :goto_7
     const-string/jumbo v4, "KernelUidCpuTimeReader"
 
@@ -641,6 +738,8 @@
 
     invoke-static {v4, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 143
+    .end local v12    # "e":Ljava/io/IOException;
     :goto_8
     move-wide/from16 v0, v16
 
@@ -648,13 +747,29 @@
 
     iput-wide v0, v2, Lcom/android/internal/os/KernelUidCpuTimeReader;->mLastTimeReadUs:J
 
+    .line 69
     return-void
 
+    .line 84
+    .restart local v5    # "uid":I
+    .restart local v14    # "line":Ljava/lang/String;
+    .restart local v20    # "reader":Ljava/io/BufferedReader;
+    .restart local v22    # "splitter":Landroid/text/TextUtils$SimpleStringSplitter;
+    .restart local v23    # "uidStr":Ljava/lang/String;
+    .restart local v24    # "systemTimeUs":J
+    .restart local v28    # "userTimeUs":J
     :cond_5
     const-wide/16 v18, 0x0
 
+    .restart local v18    # "powerMaUs":J
     goto/16 :goto_1
 
+    .line 99
+    .restart local v6    # "userTimeDeltaUs":J
+    .restart local v8    # "systemTimeDeltaUs":J
+    .restart local v10    # "powerDeltaMaUs":J
+    .restart local v13    # "index":I
+    .restart local v26    # "timeDiffUs":J
     :cond_6
     const-wide/16 v32, 0x0
 
@@ -664,6 +779,8 @@
 
     goto/16 :goto_2
 
+    .line 131
+    .end local v26    # "timeDiffUs":J
     :cond_7
     const-wide/16 v32, 0x0
 
@@ -673,6 +790,16 @@
 
     goto :goto_3
 
+    .line 142
+    .end local v5    # "uid":I
+    .end local v6    # "userTimeDeltaUs":J
+    .end local v8    # "systemTimeDeltaUs":J
+    .end local v10    # "powerDeltaMaUs":J
+    .end local v13    # "index":I
+    .end local v18    # "powerMaUs":J
+    .end local v23    # "uidStr":Ljava/lang/String;
+    .end local v24    # "systemTimeUs":J
+    .end local v28    # "userTimeUs":J
     :cond_8
     if-eqz v20, :cond_9
 
@@ -691,13 +818,21 @@
     :try_end_6
     .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_2
 
+    .line 140
     :catch_2
     move-exception v12
 
+    .restart local v12    # "e":Ljava/io/IOException;
     move-object/from16 v15, v20
 
+    .end local v20    # "reader":Ljava/io/BufferedReader;
+    .local v15, "reader":Ljava/io/BufferedReader;
     goto :goto_7
 
+    .line 142
+    .end local v12    # "e":Ljava/io/IOException;
+    .end local v15    # "reader":Ljava/io/BufferedReader;
+    .restart local v20    # "reader":Ljava/io/BufferedReader;
     :catch_3
     move-exception v30
 
@@ -706,8 +841,13 @@
     :cond_a
     move-object/from16 v15, v20
 
+    .end local v20    # "reader":Ljava/io/BufferedReader;
+    .restart local v15    # "reader":Ljava/io/BufferedReader;
     goto :goto_8
 
+    .end local v14    # "line":Ljava/lang/String;
+    .end local v15    # "reader":Ljava/io/BufferedReader;
+    .end local v22    # "splitter":Landroid/text/TextUtils$SimpleStringSplitter;
     :catch_4
     move-exception v31
 
@@ -734,18 +874,24 @@
     :try_end_7
     .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_1
 
+    .local v15, "reader":Ljava/io/BufferedReader;
     :catchall_1
     move-exception v4
 
     goto :goto_5
 
+    .end local v15    # "reader":Ljava/io/BufferedReader;
+    .restart local v20    # "reader":Ljava/io/BufferedReader;
     :catchall_2
     move-exception v4
 
     move-object/from16 v15, v20
 
+    .end local v20    # "reader":Ljava/io/BufferedReader;
+    .local v15, "reader":Ljava/io/BufferedReader;
     goto :goto_5
 
+    .local v15, "reader":Ljava/io/BufferedReader;
     :catch_5
     move-exception v4
 
@@ -754,32 +900,42 @@
 
 .method public removeUid(I)V
     .locals 8
+    .param p1, "uid"    # I
 
+    .prologue
     const/4 v5, 0x0
 
+    .line 151
     iget-object v4, p0, Lcom/android/internal/os/KernelUidCpuTimeReader;->mLastUserTimeUs:Landroid/util/SparseLongArray;
 
     invoke-virtual {v4, p1}, Landroid/util/SparseLongArray;->indexOfKey(I)I
 
     move-result v1
 
+    .line 152
+    .local v1, "index":I
     if-ltz v1, :cond_0
 
+    .line 153
     iget-object v4, p0, Lcom/android/internal/os/KernelUidCpuTimeReader;->mLastUserTimeUs:Landroid/util/SparseLongArray;
 
     invoke-virtual {v4, v1}, Landroid/util/SparseLongArray;->removeAt(I)V
 
+    .line 154
     iget-object v4, p0, Lcom/android/internal/os/KernelUidCpuTimeReader;->mLastSystemTimeUs:Landroid/util/SparseLongArray;
 
     invoke-virtual {v4, v1}, Landroid/util/SparseLongArray;->removeAt(I)V
 
+    .line 155
     iget-object v4, p0, Lcom/android/internal/os/KernelUidCpuTimeReader;->mLastPowerMaUs:Landroid/util/SparseLongArray;
 
     invoke-virtual {v4, v1}, Landroid/util/SparseLongArray;->removeAt(I)V
 
+    .line 158
     :cond_0
     const/4 v2, 0x0
 
+    .local v2, "writer":Ljava/io/FileWriter;
     :try_start_0
     new-instance v3, Ljava/io/FileWriter;
 
@@ -790,6 +946,9 @@
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_2
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
+    .line 159
+    .end local v2    # "writer":Ljava/io/FileWriter;
+    .local v3, "writer":Ljava/io/FileWriter;
     :try_start_1
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -823,11 +982,13 @@
 
     invoke-virtual {v3, v4}, Ljava/io/FileWriter;->write(Ljava/lang/String;)V
 
+    .line 160
     invoke-virtual {v3}, Ljava/io/FileWriter;->flush()V
     :try_end_1
     .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_5
     .catchall {:try_start_1 .. :try_end_1} :catchall_2
 
+    .line 163
     if-eqz v3, :cond_1
 
     :try_start_2
@@ -845,11 +1006,15 @@
     :try_end_3
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
 
+    .line 161
     :catch_0
     move-exception v0
 
+    .local v0, "e":Ljava/io/IOException;
     move-object v2, v3
 
+    .line 162
+    .end local v3    # "writer":Ljava/io/FileWriter;
     :goto_1
     const-string/jumbo v4, "KernelUidCpuTimeReader"
 
@@ -857,9 +1022,13 @@
 
     invoke-static {v4, v5, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
+    .line 150
+    .end local v0    # "e":Ljava/io/IOException;
     :goto_2
     return-void
 
+    .line 163
+    .restart local v3    # "writer":Ljava/io/FileWriter;
     :catch_1
     move-exception v5
 
@@ -868,11 +1037,15 @@
     :cond_2
     move-object v2, v3
 
+    .end local v3    # "writer":Ljava/io/FileWriter;
+    .local v2, "writer":Ljava/io/FileWriter;
     goto :goto_2
 
+    .local v2, "writer":Ljava/io/FileWriter;
     :catch_2
     move-exception v4
 
+    .end local v2    # "writer":Ljava/io/FileWriter;
     :goto_3
     :try_start_4
     throw v4
@@ -904,11 +1077,15 @@
     :try_start_6
     throw v5
 
+    .line 161
     :catch_3
     move-exception v0
 
+    .restart local v0    # "e":Ljava/io/IOException;
     goto :goto_1
 
+    .line 163
+    .end local v0    # "e":Ljava/io/IOException;
     :catch_4
     move-exception v6
 
@@ -930,22 +1107,31 @@
     :try_end_6
     .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_3
 
+    .restart local v2    # "writer":Ljava/io/FileWriter;
     :catchall_1
     move-exception v4
 
     goto :goto_4
 
+    .end local v2    # "writer":Ljava/io/FileWriter;
+    .restart local v3    # "writer":Ljava/io/FileWriter;
     :catchall_2
     move-exception v4
 
     move-object v2, v3
 
+    .end local v3    # "writer":Ljava/io/FileWriter;
+    .local v2, "writer":Ljava/io/FileWriter;
     goto :goto_4
 
+    .end local v2    # "writer":Ljava/io/FileWriter;
+    .restart local v3    # "writer":Ljava/io/FileWriter;
     :catch_5
     move-exception v4
 
     move-object v2, v3
 
+    .end local v3    # "writer":Ljava/io/FileWriter;
+    .restart local v2    # "writer":Ljava/io/FileWriter;
     goto :goto_3
 .end method

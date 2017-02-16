@@ -21,11 +21,17 @@
 # direct methods
 .method public constructor <init>(Landroid/telecom/AuthenticatorService;Landroid/content/Context;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/telecom/AuthenticatorService;
+    .param p2, "context"    # Landroid/content/Context;
 
+    .prologue
+    .line 51
     iput-object p1, p0, Landroid/telecom/AuthenticatorService$Authenticator;->this$0:Landroid/telecom/AuthenticatorService;
 
+    .line 52
     invoke-direct {p0, p2}, Landroid/accounts/AbstractAccountAuthenticator;-><init>(Landroid/content/Context;)V
 
+    .line 51
     return-void
 .end method
 
@@ -33,12 +39,19 @@
 # virtual methods
 .method public addAccount(Landroid/accounts/AccountAuthenticatorResponse;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
     .locals 1
+    .param p1, "accountAuthenticatorResponse"    # Landroid/accounts/AccountAuthenticatorResponse;
+    .param p2, "s"    # Ljava/lang/String;
+    .param p3, "s2"    # Ljava/lang/String;
+    .param p4, "strings"    # [Ljava/lang/String;
+    .param p5, "bundle"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/accounts/NetworkErrorException;
         }
     .end annotation
 
+    .prologue
+    .line 65
     const/4 v0, 0x0
 
     return-object v0
@@ -46,12 +59,17 @@
 
 .method public confirmCredentials(Landroid/accounts/AccountAuthenticatorResponse;Landroid/accounts/Account;Landroid/os/Bundle;)Landroid/os/Bundle;
     .locals 1
+    .param p1, "accountAuthenticatorResponse"    # Landroid/accounts/AccountAuthenticatorResponse;
+    .param p2, "account"    # Landroid/accounts/Account;
+    .param p3, "bundle"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/accounts/NetworkErrorException;
         }
     .end annotation
 
+    .prologue
+    .line 72
     const/4 v0, 0x0
 
     return-object v0
@@ -59,7 +77,11 @@
 
 .method public editProperties(Landroid/accounts/AccountAuthenticatorResponse;Ljava/lang/String;)Landroid/os/Bundle;
     .locals 1
+    .param p1, "accountAuthenticatorResponse"    # Landroid/accounts/AccountAuthenticatorResponse;
+    .param p2, "s"    # Ljava/lang/String;
 
+    .prologue
+    .line 58
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -69,12 +91,18 @@
 
 .method public getAuthToken(Landroid/accounts/AccountAuthenticatorResponse;Landroid/accounts/Account;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
     .locals 1
+    .param p1, "accountAuthenticatorResponse"    # Landroid/accounts/AccountAuthenticatorResponse;
+    .param p2, "account"    # Landroid/accounts/Account;
+    .param p3, "s"    # Ljava/lang/String;
+    .param p4, "bundle"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/accounts/NetworkErrorException;
         }
     .end annotation
 
+    .prologue
+    .line 79
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -84,7 +112,10 @@
 
 .method public getAuthTokenLabel(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
+    .param p1, "s"    # Ljava/lang/String;
 
+    .prologue
+    .line 84
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -94,12 +125,17 @@
 
 .method public hasFeatures(Landroid/accounts/AccountAuthenticatorResponse;Landroid/accounts/Account;[Ljava/lang/String;)Landroid/os/Bundle;
     .locals 1
+    .param p1, "accountAuthenticatorResponse"    # Landroid/accounts/AccountAuthenticatorResponse;
+    .param p2, "account"    # Landroid/accounts/Account;
+    .param p3, "strings"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/accounts/NetworkErrorException;
         }
     .end annotation
 
+    .prologue
+    .line 98
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -109,12 +145,18 @@
 
 .method public updateCredentials(Landroid/accounts/AccountAuthenticatorResponse;Landroid/accounts/Account;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
     .locals 1
+    .param p1, "accountAuthenticatorResponse"    # Landroid/accounts/AccountAuthenticatorResponse;
+    .param p2, "account"    # Landroid/accounts/Account;
+    .param p3, "s"    # Ljava/lang/String;
+    .param p4, "bundle"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/accounts/NetworkErrorException;
         }
     .end annotation
 
+    .prologue
+    .line 91
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V

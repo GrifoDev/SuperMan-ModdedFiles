@@ -23,19 +23,29 @@
 # direct methods
 .method private constructor <init>([ILandroid/animation/Animator;)V
     .locals 0
+    .param p1, "specs"    # [I
+    .param p2, "animator"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 282
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 283
     iput-object p1, p0, Landroid/animation/StateListAnimator$Tuple;->mSpecs:[I
 
+    .line 284
     iput-object p2, p0, Landroid/animation/StateListAnimator$Tuple;->mAnimator:Landroid/animation/Animator;
 
+    .line 282
     return-void
 .end method
 
 .method synthetic constructor <init>([ILandroid/animation/Animator;Landroid/animation/StateListAnimator$Tuple;)V
     .locals 0
+    .param p1, "specs"    # [I
+    .param p2, "animator"    # Landroid/animation/Animator;
 
+    .prologue
     invoke-direct {p0, p1, p2}, Landroid/animation/StateListAnimator$Tuple;-><init>([ILandroid/animation/Animator;)V
 
     return-void
@@ -46,6 +56,8 @@
 .method public getAnimator()Landroid/animation/Animator;
     .locals 1
 
+    .prologue
+    .line 298
     iget-object v0, p0, Landroid/animation/StateListAnimator$Tuple;->mAnimator:Landroid/animation/Animator;
 
     return-object v0
@@ -54,6 +66,8 @@
 .method public getSpecs()[I
     .locals 1
 
+    .prologue
+    .line 291
     iget-object v0, p0, Landroid/animation/StateListAnimator$Tuple;->mSpecs:[I
 
     return-object v0

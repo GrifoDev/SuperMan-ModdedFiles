@@ -21,6 +21,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 289
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -30,7 +32,11 @@
 # virtual methods
 .method public onActionItemClicked(Landroid/view/ActionMode;Landroid/view/MenuItem;)Z
     .locals 1
+    .param p1, "mode"    # Landroid/view/ActionMode;
+    .param p2, "item"    # Landroid/view/MenuItem;
 
+    .prologue
+    .line 302
     const/4 v0, 0x0
 
     return v0
@@ -38,7 +44,11 @@
 
 .method public onCreateActionMode(Landroid/view/ActionMode;Landroid/view/Menu;)Z
     .locals 1
+    .param p1, "mode"    # Landroid/view/ActionMode;
+    .param p2, "menu"    # Landroid/view/Menu;
 
+    .prologue
+    .line 292
     const/4 v0, 0x0
 
     return v0
@@ -46,13 +56,20 @@
 
 .method public onDestroyActionMode(Landroid/view/ActionMode;)V
     .locals 0
+    .param p1, "mode"    # Landroid/view/ActionMode;
 
+    .prologue
+    .line 306
     return-void
 .end method
 
 .method public onPrepareActionMode(Landroid/view/ActionMode;Landroid/view/Menu;)Z
     .locals 1
+    .param p1, "mode"    # Landroid/view/ActionMode;
+    .param p2, "menu"    # Landroid/view/Menu;
 
+    .prologue
+    .line 297
     const/4 v0, 0x0
 
     return v0

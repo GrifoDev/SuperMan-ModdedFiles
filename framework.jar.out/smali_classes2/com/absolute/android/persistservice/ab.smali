@@ -15,22 +15,29 @@
 .method public constructor <init>(Lcom/absolute/android/persistservice/y;Lcom/absolute/android/persistservice/ac;)V
     .locals 2
 
+    .prologue
+    .line 368
     iput-object p1, p0, Lcom/absolute/android/persistservice/ab;->a:Lcom/absolute/android/persistservice/y;
 
+    .line 369
     iget-object v0, p2, Lcom/absolute/android/persistservice/ac;->f:Ljava/lang/String;
 
     const/4 v1, 0x2
 
     invoke-direct {p0, v0, v1}, Landroid/os/FileObserver;-><init>(Ljava/lang/String;I)V
 
+    .line 370
     iput-object p2, p0, Lcom/absolute/android/persistservice/ab;->b:Lcom/absolute/android/persistservice/ac;
 
+    .line 371
     return-void
 .end method
 
 .method static synthetic a(Lcom/absolute/android/persistservice/ab;)Z
     .locals 1
 
+    .prologue
+    .line 356
     iget-boolean v0, p0, Lcom/absolute/android/persistservice/ab;->c:Z
 
     return v0
@@ -39,6 +46,8 @@
 .method static synthetic a(Lcom/absolute/android/persistservice/ab;Z)Z
     .locals 0
 
+    .prologue
+    .line 356
     iput-boolean p1, p0, Lcom/absolute/android/persistservice/ab;->c:Z
 
     return p1
@@ -47,6 +56,8 @@
 .method static synthetic b(Lcom/absolute/android/persistservice/ab;)Lcom/absolute/android/persistservice/ac;
     .locals 1
 
+    .prologue
+    .line 356
     iget-object v0, p0, Lcom/absolute/android/persistservice/ab;->b:Lcom/absolute/android/persistservice/ac;
 
     return-object v0
@@ -57,6 +68,8 @@
 .method public onEvent(ILjava/lang/String;)V
     .locals 3
 
+    .prologue
+    .line 379
     if-eqz p2, :cond_1
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -79,13 +92,16 @@
 
     move-result-object v0
 
+    .line 384
     :goto_0
     packed-switch p1, :pswitch_data_0
 
+    .line 397
     :cond_0
     :goto_1
     return-void
 
+    .line 379
     :cond_1
     iget-object v0, p0, Lcom/absolute/android/persistservice/ab;->b:Lcom/absolute/android/persistservice/ac;
 
@@ -93,11 +109,13 @@
 
     goto :goto_0
 
+    .line 386
     :pswitch_0
     iget-boolean v1, p0, Lcom/absolute/android/persistservice/ab;->c:Z
 
     if-nez v1, :cond_0
 
+    .line 388
     iget-object v1, p0, Lcom/absolute/android/persistservice/ab;->a:Lcom/absolute/android/persistservice/y;
 
     const/4 v2, 0x1
@@ -106,6 +124,7 @@
 
     goto :goto_1
 
+    .line 384
     nop
 
     :pswitch_data_0

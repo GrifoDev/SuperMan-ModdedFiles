@@ -65,24 +65,33 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 14
     invoke-direct {p0}, Landroid/os/Binder;-><init>()V
 
+    .line 16
     const-string/jumbo v0, "android.hardware.camera2.ICameraDeviceUser"
 
     invoke-virtual {p0, p0, v0}, Landroid/hardware/camera2/ICameraDeviceUser$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
+    .line 14
     return-void
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/hardware/camera2/ICameraDeviceUser;
     .locals 2
+    .param p0, "obj"    # Landroid/os/IBinder;
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 24
     if-nez p0, :cond_0
 
+    .line 25
     return-object v1
 
+    .line 27
     :cond_0
     const-string/jumbo v1, "android.hardware.camera2.ICameraDeviceUser"
 
@@ -90,16 +99,22 @@
 
     move-result-object v0
 
+    .line 28
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/hardware/camera2/ICameraDeviceUser;
 
     if-eqz v1, :cond_1
 
+    .line 29
     check-cast v0, Landroid/hardware/camera2/ICameraDeviceUser;
 
+    .end local v0    # "iin":Landroid/os/IInterface;
     return-object v0
 
+    .line 31
+    .restart local v0    # "iin":Landroid/os/IInterface;
     :cond_1
     new-instance v1, Landroid/hardware/camera2/ICameraDeviceUser$Stub$Proxy;
 
@@ -113,25 +128,35 @@
 .method public asBinder()Landroid/os/IBinder;
     .locals 0
 
+    .prologue
+    .line 35
     return-object p0
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 17
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 39
     sparse-switch p1, :sswitch_data_0
 
+    .line 247
     invoke-super/range {p0 .. p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v16
 
     return v16
 
+    .line 43
     :sswitch_0
     const-string/jumbo v16, "android.hardware.camera2.ICameraDeviceUser"
 
@@ -141,10 +166,12 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
+    .line 44
     const/16 v16, 0x1
 
     return v16
 
+    .line 48
     :sswitch_1
     const-string/jumbo v16, "android.hardware.camera2.ICameraDeviceUser"
 
@@ -154,14 +181,18 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    .line 49
     invoke-virtual/range {p0 .. p0}, Landroid/hardware/camera2/ICameraDeviceUser$Stub;->disconnect()V
 
+    .line 50
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
+    .line 51
     const/16 v16, 0x1
 
     return v16
 
+    .line 55
     :sswitch_2
     const-string/jumbo v16, "android.hardware.camera2.ICameraDeviceUser"
 
@@ -171,12 +202,14 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    .line 57
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v16
 
     if-eqz v16, :cond_0
 
+    .line 58
     sget-object v16, Landroid/hardware/camera2/CaptureRequest;->CREATOR:Landroid/os/Parcelable$Creator;
 
     move-object/from16 v0, v16
@@ -189,6 +222,7 @@
 
     check-cast v3, Landroid/hardware/camera2/CaptureRequest;
 
+    .line 64
     :goto_0
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
@@ -198,6 +232,8 @@
 
     const/4 v8, 0x1
 
+    .line 65
+    .local v8, "_arg1":Z
     :goto_1
     move-object/from16 v0, p0
 
@@ -205,10 +241,14 @@
 
     move-result-object v14
 
+    .line 66
+    .local v14, "_result":Landroid/hardware/camera2/utils/SubmitInfo;
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
+    .line 67
     if-eqz v14, :cond_2
 
+    .line 68
     const/16 v16, 0x1
 
     move-object/from16 v0, p3
@@ -217,6 +257,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 69
     const/16 v16, 0x1
 
     move-object/from16 v0, p3
@@ -225,21 +266,31 @@
 
     invoke-virtual {v14, v0, v1}, Landroid/hardware/camera2/utils/SubmitInfo;->writeToParcel(Landroid/os/Parcel;I)V
 
+    .line 74
     :goto_2
     const/16 v16, 0x1
 
     return v16
 
+    .line 61
+    .end local v8    # "_arg1":Z
+    .end local v14    # "_result":Landroid/hardware/camera2/utils/SubmitInfo;
     :cond_0
     const/4 v3, 0x0
 
+    .local v3, "_arg0":Landroid/hardware/camera2/CaptureRequest;
     goto :goto_0
 
+    .line 64
+    .end local v3    # "_arg0":Landroid/hardware/camera2/CaptureRequest;
     :cond_1
     const/4 v8, 0x0
 
     goto :goto_1
 
+    .line 72
+    .restart local v8    # "_arg1":Z
+    .restart local v14    # "_result":Landroid/hardware/camera2/utils/SubmitInfo;
     :cond_2
     const/16 v16, 0x0
 
@@ -251,6 +302,9 @@
 
     goto :goto_2
 
+    .line 78
+    .end local v8    # "_arg1":Z
+    .end local v14    # "_result":Landroid/hardware/camera2/utils/SubmitInfo;
     :sswitch_3
     const-string/jumbo v16, "android.hardware.camera2.ICameraDeviceUser"
 
@@ -260,6 +314,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    .line 80
     sget-object v16, Landroid/hardware/camera2/CaptureRequest;->CREATOR:Landroid/os/Parcelable$Creator;
 
     move-object/from16 v0, p2
@@ -272,6 +327,8 @@
 
     check-cast v6, [Landroid/hardware/camera2/CaptureRequest;
 
+    .line 82
+    .local v6, "_arg0":[Landroid/hardware/camera2/CaptureRequest;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v16
@@ -280,6 +337,8 @@
 
     const/4 v8, 0x1
 
+    .line 83
+    .restart local v8    # "_arg1":Z
     :goto_3
     move-object/from16 v0, p0
 
@@ -287,10 +346,14 @@
 
     move-result-object v14
 
+    .line 84
+    .restart local v14    # "_result":Landroid/hardware/camera2/utils/SubmitInfo;
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
+    .line 85
     if-eqz v14, :cond_4
 
+    .line 86
     const/16 v16, 0x1
 
     move-object/from16 v0, p3
@@ -299,6 +362,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 87
     const/16 v16, 0x1
 
     move-object/from16 v0, p3
@@ -307,16 +371,23 @@
 
     invoke-virtual {v14, v0, v1}, Landroid/hardware/camera2/utils/SubmitInfo;->writeToParcel(Landroid/os/Parcel;I)V
 
+    .line 92
     :goto_4
     const/16 v16, 0x1
 
     return v16
 
+    .line 82
+    .end local v8    # "_arg1":Z
+    .end local v14    # "_result":Landroid/hardware/camera2/utils/SubmitInfo;
     :cond_3
     const/4 v8, 0x0
 
     goto :goto_3
 
+    .line 90
+    .restart local v8    # "_arg1":Z
+    .restart local v14    # "_result":Landroid/hardware/camera2/utils/SubmitInfo;
     :cond_4
     const/16 v16, 0x0
 
@@ -328,6 +399,10 @@
 
     goto :goto_4
 
+    .line 96
+    .end local v6    # "_arg0":[Landroid/hardware/camera2/CaptureRequest;
+    .end local v8    # "_arg1":Z
+    .end local v14    # "_result":Landroid/hardware/camera2/utils/SubmitInfo;
     :sswitch_4
     const-string/jumbo v16, "android.hardware.camera2.ICameraDeviceUser"
 
@@ -337,26 +412,36 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    .line 98
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
+    .line 99
+    .local v2, "_arg0":I
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v2}, Landroid/hardware/camera2/ICameraDeviceUser$Stub;->cancelRequest(I)J
 
     move-result-wide v12
 
+    .line 100
+    .local v12, "_result":J
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
+    .line 101
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v12, v13}, Landroid/os/Parcel;->writeLong(J)V
 
+    .line 102
     const/16 v16, 0x1
 
     return v16
 
+    .line 106
+    .end local v2    # "_arg0":I
+    .end local v12    # "_result":J
     :sswitch_5
     const-string/jumbo v16, "android.hardware.camera2.ICameraDeviceUser"
 
@@ -366,14 +451,18 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    .line 107
     invoke-virtual/range {p0 .. p0}, Landroid/hardware/camera2/ICameraDeviceUser$Stub;->beginConfigure()V
 
+    .line 108
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
+    .line 109
     const/16 v16, 0x1
 
     return v16
 
+    .line 113
     :sswitch_6
     const-string/jumbo v16, "android.hardware.camera2.ICameraDeviceUser"
 
@@ -383,6 +472,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    .line 115
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v16
@@ -391,22 +481,29 @@
 
     const/4 v5, 0x1
 
+    .line 116
+    .local v5, "_arg0":Z
     :goto_5
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v5}, Landroid/hardware/camera2/ICameraDeviceUser$Stub;->endConfigure(Z)V
 
+    .line 117
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
+    .line 118
     const/16 v16, 0x1
 
     return v16
 
+    .line 115
+    .end local v5    # "_arg0":Z
     :cond_5
     const/4 v5, 0x0
 
     goto :goto_5
 
+    .line 122
     :sswitch_7
     const-string/jumbo v16, "android.hardware.camera2.ICameraDeviceUser"
 
@@ -416,20 +513,27 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    .line 124
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
+    .line 125
+    .restart local v2    # "_arg0":I
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v2}, Landroid/hardware/camera2/ICameraDeviceUser$Stub;->deleteStream(I)V
 
+    .line 126
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
+    .line 127
     const/16 v16, 0x1
 
     return v16
 
+    .line 131
+    .end local v2    # "_arg0":I
     :sswitch_8
     const-string/jumbo v16, "android.hardware.camera2.ICameraDeviceUser"
 
@@ -439,12 +543,14 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    .line 133
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v16
 
     if-eqz v16, :cond_6
 
+    .line 134
     sget-object v16, Landroid/hardware/camera2/params/OutputConfiguration;->CREATOR:Landroid/os/Parcelable$Creator;
 
     move-object/from16 v0, v16
@@ -457,6 +563,7 @@
 
     check-cast v4, Landroid/hardware/camera2/params/OutputConfiguration;
 
+    .line 139
     :goto_6
     move-object/from16 v0, p0
 
@@ -464,21 +571,30 @@
 
     move-result v10
 
+    .line 140
+    .local v10, "_result":I
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
+    .line 141
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v10}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 142
     const/16 v16, 0x1
 
     return v16
 
+    .line 137
+    .end local v10    # "_result":I
     :cond_6
     const/4 v4, 0x0
 
+    .local v4, "_arg0":Landroid/hardware/camera2/params/OutputConfiguration;
     goto :goto_6
 
+    .line 146
+    .end local v4    # "_arg0":Landroid/hardware/camera2/params/OutputConfiguration;
     :sswitch_9
     const-string/jumbo v16, "android.hardware.camera2.ICameraDeviceUser"
 
@@ -488,34 +604,50 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    .line 148
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
+    .line 150
+    .restart local v2    # "_arg0":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v7
 
+    .line 152
+    .local v7, "_arg1":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v9
 
+    .line 153
+    .local v9, "_arg2":I
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v2, v7, v9}, Landroid/hardware/camera2/ICameraDeviceUser$Stub;->createInputStream(III)I
 
     move-result v10
 
+    .line 154
+    .restart local v10    # "_result":I
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
+    .line 155
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v10}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 156
     const/16 v16, 0x1
 
     return v16
 
+    .line 160
+    .end local v2    # "_arg0":I
+    .end local v7    # "_arg1":I
+    .end local v9    # "_arg2":I
+    .end local v10    # "_result":I
     :sswitch_a
     const-string/jumbo v16, "android.hardware.camera2.ICameraDeviceUser"
 
@@ -525,14 +657,19 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    .line 161
     invoke-virtual/range {p0 .. p0}, Landroid/hardware/camera2/ICameraDeviceUser$Stub;->getInputSurface()Landroid/view/Surface;
 
     move-result-object v15
 
+    .line 162
+    .local v15, "_result":Landroid/view/Surface;
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
+    .line 163
     if-eqz v15, :cond_7
 
+    .line 164
     const/16 v16, 0x1
 
     move-object/from16 v0, p3
@@ -541,6 +678,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 165
     const/16 v16, 0x1
 
     move-object/from16 v0, p3
@@ -549,11 +687,13 @@
 
     invoke-virtual {v15, v0, v1}, Landroid/view/Surface;->writeToParcel(Landroid/os/Parcel;I)V
 
+    .line 170
     :goto_7
     const/16 v16, 0x1
 
     return v16
 
+    .line 168
     :cond_7
     const/16 v16, 0x0
 
@@ -565,6 +705,8 @@
 
     goto :goto_7
 
+    .line 174
+    .end local v15    # "_result":Landroid/view/Surface;
     :sswitch_b
     const-string/jumbo v16, "android.hardware.camera2.ICameraDeviceUser"
 
@@ -574,20 +716,27 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    .line 176
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
+    .line 177
+    .restart local v2    # "_arg0":I
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v2}, Landroid/hardware/camera2/ICameraDeviceUser$Stub;->createDefaultRequest(I)Landroid/hardware/camera2/impl/CameraMetadataNative;
 
     move-result-object v11
 
+    .line 178
+    .local v11, "_result":Landroid/hardware/camera2/impl/CameraMetadataNative;
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
+    .line 179
     if-eqz v11, :cond_8
 
+    .line 180
     const/16 v16, 0x1
 
     move-object/from16 v0, p3
@@ -596,6 +745,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 181
     const/16 v16, 0x1
 
     move-object/from16 v0, p3
@@ -604,11 +754,13 @@
 
     invoke-virtual {v11, v0, v1}, Landroid/hardware/camera2/impl/CameraMetadataNative;->writeToParcel(Landroid/os/Parcel;I)V
 
+    .line 186
     :goto_8
     const/16 v16, 0x1
 
     return v16
 
+    .line 184
     :cond_8
     const/16 v16, 0x0
 
@@ -620,6 +772,9 @@
 
     goto :goto_8
 
+    .line 190
+    .end local v2    # "_arg0":I
+    .end local v11    # "_result":Landroid/hardware/camera2/impl/CameraMetadataNative;
     :sswitch_c
     const-string/jumbo v16, "android.hardware.camera2.ICameraDeviceUser"
 
@@ -629,14 +784,19 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    .line 191
     invoke-virtual/range {p0 .. p0}, Landroid/hardware/camera2/ICameraDeviceUser$Stub;->getCameraInfo()Landroid/hardware/camera2/impl/CameraMetadataNative;
 
     move-result-object v11
 
+    .line 192
+    .restart local v11    # "_result":Landroid/hardware/camera2/impl/CameraMetadataNative;
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
+    .line 193
     if-eqz v11, :cond_9
 
+    .line 194
     const/16 v16, 0x1
 
     move-object/from16 v0, p3
@@ -645,6 +805,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 195
     const/16 v16, 0x1
 
     move-object/from16 v0, p3
@@ -653,11 +814,13 @@
 
     invoke-virtual {v11, v0, v1}, Landroid/hardware/camera2/impl/CameraMetadataNative;->writeToParcel(Landroid/os/Parcel;I)V
 
+    .line 200
     :goto_9
     const/16 v16, 0x1
 
     return v16
 
+    .line 198
     :cond_9
     const/16 v16, 0x0
 
@@ -669,6 +832,8 @@
 
     goto :goto_9
 
+    .line 204
+    .end local v11    # "_result":Landroid/hardware/camera2/impl/CameraMetadataNative;
     :sswitch_d
     const-string/jumbo v16, "android.hardware.camera2.ICameraDeviceUser"
 
@@ -678,14 +843,18 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    .line 205
     invoke-virtual/range {p0 .. p0}, Landroid/hardware/camera2/ICameraDeviceUser$Stub;->waitUntilIdle()V
 
+    .line 206
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
+    .line 207
     const/16 v16, 0x1
 
     return v16
 
+    .line 211
     :sswitch_e
     const-string/jumbo v16, "android.hardware.camera2.ICameraDeviceUser"
 
@@ -695,20 +864,27 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    .line 212
     invoke-virtual/range {p0 .. p0}, Landroid/hardware/camera2/ICameraDeviceUser$Stub;->flush()J
 
     move-result-wide v12
 
+    .line 213
+    .restart local v12    # "_result":J
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
+    .line 214
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v12, v13}, Landroid/os/Parcel;->writeLong(J)V
 
+    .line 215
     const/16 v16, 0x1
 
     return v16
 
+    .line 219
+    .end local v12    # "_result":J
     :sswitch_f
     const-string/jumbo v16, "android.hardware.camera2.ICameraDeviceUser"
 
@@ -718,20 +894,27 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    .line 221
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
+    .line 222
+    .restart local v2    # "_arg0":I
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v2}, Landroid/hardware/camera2/ICameraDeviceUser$Stub;->prepare(I)V
 
+    .line 223
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
+    .line 224
     const/16 v16, 0x1
 
     return v16
 
+    .line 228
+    .end local v2    # "_arg0":I
     :sswitch_10
     const-string/jumbo v16, "android.hardware.camera2.ICameraDeviceUser"
 
@@ -741,20 +924,27 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    .line 230
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
+    .line 231
+    .restart local v2    # "_arg0":I
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v2}, Landroid/hardware/camera2/ICameraDeviceUser$Stub;->tearDown(I)V
 
+    .line 232
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
+    .line 233
     const/16 v16, 0x1
 
     return v16
 
+    .line 237
+    .end local v2    # "_arg0":I
     :sswitch_11
     const-string/jumbo v16, "android.hardware.camera2.ICameraDeviceUser"
 
@@ -764,24 +954,32 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    .line 239
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
+    .line 241
+    .restart local v2    # "_arg0":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v7
 
+    .line 242
+    .restart local v7    # "_arg1":I
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v2, v7}, Landroid/hardware/camera2/ICameraDeviceUser$Stub;->prepare2(II)V
 
+    .line 243
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
+    .line 244
     const/16 v16, 0x1
 
     return v16
 
+    .line 39
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_1

@@ -36,6 +36,9 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
+    .param p1, "name"    # Ljava/lang/String;
+    .param p3, "lang"    # Ljava/lang/String;
+    .param p4, "variant"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -50,15 +53,23 @@
         }
     .end annotation
 
+    .prologue
+    .line 77
+    .local p2, "fonts":Ljava/util/List;, "Ljava/util/List<Landroid/graphics/FontListParser$Font;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 78
     iput-object p1, p0, Landroid/graphics/FontListParser$Family;->name:Ljava/lang/String;
 
+    .line 79
     iput-object p2, p0, Landroid/graphics/FontListParser$Family;->fonts:Ljava/util/List;
 
+    .line 80
     iput-object p3, p0, Landroid/graphics/FontListParser$Family;->lang:Ljava/lang/String;
 
+    .line 81
     iput-object p4, p0, Landroid/graphics/FontListParser$Family;->variant:Ljava/lang/String;
 
+    .line 77
     return-void
 .end method

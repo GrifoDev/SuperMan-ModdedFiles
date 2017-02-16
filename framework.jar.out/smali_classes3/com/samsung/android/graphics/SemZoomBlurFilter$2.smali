@@ -32,7 +32,12 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/graphics/SemZoomBlurFilter;II)V
     .locals 3
+    .param p1, "this$0"    # Lcom/samsung/android/graphics/SemZoomBlurFilter;
+    .param p2, "val$aEndValue"    # I
+    .param p3, "val$aStartValue"    # I
 
+    .prologue
+    .line 185
     iput-object p1, p0, Lcom/samsung/android/graphics/SemZoomBlurFilter$2;->this$0:Lcom/samsung/android/graphics/SemZoomBlurFilter;
 
     iput p2, p0, Lcom/samsung/android/graphics/SemZoomBlurFilter$2;->val$aEndValue:I
@@ -41,6 +46,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 186
     const/4 v0, 0x1
 
     new-array v0, v0, [F
@@ -53,12 +59,14 @@
 
     iput-object v0, p0, Lcom/samsung/android/graphics/SemZoomBlurFilter$2;->params:[F
 
+    .line 187
     const/16 v0, 0x40
 
     new-array v0, v0, [F
 
     iput-object v0, p0, Lcom/samsung/android/graphics/SemZoomBlurFilter$2;->data:[F
 
+    .line 185
     return-void
 .end method
 
@@ -66,7 +74,10 @@
 # virtual methods
 .method public animate(FLcom/samsung/android/graphics/SemImageFilter$ImageFilterAnimator;)V
     .locals 8
+    .param p1, "aFraction"    # F
+    .param p2, "aImageFilterAnimator"    # Lcom/samsung/android/graphics/SemImageFilter$ImageFilterAnimator;
 
+    .prologue
     const/16 v7, 0x40
 
     const/16 v6, 0xa
@@ -75,10 +86,12 @@
 
     const/4 v4, 0x0
 
+    .line 193
     sget-boolean v1, Lcom/samsung/android/graphics/SemZoomBlurFilter;->sLogingEnabled:Z
 
     if-eqz v1, :cond_0
 
+    .line 194
     const-string/jumbo v1, "HWUIIF"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -101,6 +114,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 197
     :cond_0
     iget-object v1, p0, Lcom/samsung/android/graphics/SemZoomBlurFilter$2;->this$0:Lcom/samsung/android/graphics/SemZoomBlurFilter;
 
@@ -122,6 +136,7 @@
 
     invoke-static {v1, v2}, Lcom/samsung/android/graphics/SemZoomBlurFilter;->-set0(Lcom/samsung/android/graphics/SemZoomBlurFilter;I)I
 
+    .line 198
     iget-object v1, p0, Lcom/samsung/android/graphics/SemZoomBlurFilter$2;->this$0:Lcom/samsung/android/graphics/SemZoomBlurFilter;
 
     invoke-static {v1}, Lcom/samsung/android/graphics/SemZoomBlurFilter;->-get0(Lcom/samsung/android/graphics/SemZoomBlurFilter;)I
@@ -130,10 +145,12 @@
 
     if-ge v1, v6, :cond_1
 
+    .line 199
     iget-object v1, p0, Lcom/samsung/android/graphics/SemZoomBlurFilter$2;->this$0:Lcom/samsung/android/graphics/SemZoomBlurFilter;
 
     invoke-static {v1, v6}, Lcom/samsung/android/graphics/SemZoomBlurFilter;->-set0(Lcom/samsung/android/graphics/SemZoomBlurFilter;I)I
 
+    .line 200
     :cond_1
     iget-object v1, p0, Lcom/samsung/android/graphics/SemZoomBlurFilter$2;->this$0:Lcom/samsung/android/graphics/SemZoomBlurFilter;
 
@@ -143,13 +160,16 @@
 
     if-le v1, v7, :cond_2
 
+    .line 201
     iget-object v1, p0, Lcom/samsung/android/graphics/SemZoomBlurFilter$2;->this$0:Lcom/samsung/android/graphics/SemZoomBlurFilter;
 
     invoke-static {v1, v7}, Lcom/samsung/android/graphics/SemZoomBlurFilter;->-set0(Lcom/samsung/android/graphics/SemZoomBlurFilter;I)I
 
+    .line 203
     :cond_2
     const/4 v0, 0x0
 
+    .local v0, "i":I
     :goto_0
     iget-object v1, p0, Lcom/samsung/android/graphics/SemZoomBlurFilter$2;->this$0:Lcom/samsung/android/graphics/SemZoomBlurFilter;
 
@@ -161,6 +181,7 @@
 
     if-ge v0, v1, :cond_3
 
+    .line 204
     iget-object v1, p0, Lcom/samsung/android/graphics/SemZoomBlurFilter$2;->data:[F
 
     iget-object v2, p0, Lcom/samsung/android/graphics/SemZoomBlurFilter$2;->this$0:Lcom/samsung/android/graphics/SemZoomBlurFilter;
@@ -183,15 +204,18 @@
 
     aput v2, v1, v0
 
+    .line 203
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
+    .line 207
     :cond_3
     sget-boolean v1, Lcom/samsung/android/graphics/SemZoomBlurFilter;->sLogingEnabled:Z
 
     if-eqz v1, :cond_4
 
+    .line 208
     const-string/jumbo v1, "HWUIIF"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -220,6 +244,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 211
     :cond_4
     iget-object v1, p0, Lcom/samsung/android/graphics/SemZoomBlurFilter$2;->params:[F
 
@@ -233,6 +258,7 @@
 
     aput v2, v1, v4
 
+    .line 212
     iget-object v1, p0, Lcom/samsung/android/graphics/SemZoomBlurFilter$2;->this$0:Lcom/samsung/android/graphics/SemZoomBlurFilter;
 
     iget-object v1, v1, Lcom/samsung/android/graphics/SemGenericImageFilter;->mParams:[F
@@ -243,6 +269,7 @@
 
     aput v2, v1, v5
 
+    .line 213
     iget-object v1, p0, Lcom/samsung/android/graphics/SemZoomBlurFilter$2;->data:[F
 
     iget-object v2, p0, Lcom/samsung/android/graphics/SemZoomBlurFilter$2;->this$0:Lcom/samsung/android/graphics/SemZoomBlurFilter;
@@ -255,17 +282,20 @@
 
     invoke-static {v1, v4, v2, v4, v3}, Ljava/lang/System;->arraycopy([FI[FII)V
 
+    .line 214
     const-string/jumbo v1, "filterData01"
 
     iget-object v2, p0, Lcom/samsung/android/graphics/SemZoomBlurFilter$2;->data:[F
 
     invoke-virtual {p2, v1, v2, v4}, Lcom/samsung/android/graphics/SemImageFilter$ImageFilterAnimator;->setUniformf(Ljava/lang/String;[FI)V
 
+    .line 215
     const-string/jumbo v1, "filterParams"
 
     iget-object v2, p0, Lcom/samsung/android/graphics/SemZoomBlurFilter$2;->params:[F
 
     invoke-virtual {p2, v1, v2, v5}, Lcom/samsung/android/graphics/SemImageFilter$ImageFilterAnimator;->setUniformf(Ljava/lang/String;[FI)V
 
+    .line 192
     return-void
 .end method

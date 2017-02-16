@@ -25,7 +25,10 @@
 # direct methods
 .method public constructor <init>(Landroid/content/ContentResolver;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/content/ContentResolver;
 
+    .prologue
+    .line 1213
     iput-object p1, p0, Landroid/content/ContentResolver$OpenResourceIdResult;->this$0:Landroid/content/ContentResolver;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

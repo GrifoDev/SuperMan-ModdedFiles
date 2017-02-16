@@ -23,7 +23,11 @@
 # direct methods
 .method constructor <init>(Landroid/nfc/NfcAdapter;Landroid/nfc/NfcAdapter$AsyncFunctionCompleteListener;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/nfc/NfcAdapter;
+    .param p2, "val$completeListener"    # Landroid/nfc/NfcAdapter$AsyncFunctionCompleteListener;
 
+    .prologue
+    .line 1716
     iput-object p1, p0, Landroid/nfc/NfcAdapter$2;->this$0:Landroid/nfc/NfcAdapter;
 
     iput-object p2, p0, Landroid/nfc/NfcAdapter$2;->val$completeListener:Landroid/nfc/NfcAdapter$AsyncFunctionCompleteListener;
@@ -37,15 +41,20 @@
 # virtual methods
 .method public onFunctionComplete(IZ)V
     .locals 1
+    .param p1, "version"    # I
+    .param p2, "result"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 1719
     iget-object v0, p0, Landroid/nfc/NfcAdapter$2;->val$completeListener:Landroid/nfc/NfcAdapter$AsyncFunctionCompleteListener;
 
     invoke-interface {v0, p1, p2}, Landroid/nfc/NfcAdapter$AsyncFunctionCompleteListener;->onFunctionComplete(IZ)V
 
+    .line 1718
     return-void
 .end method

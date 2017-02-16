@@ -26,7 +26,11 @@
 # direct methods
 .method constructor <init>(Landroid/widget/RemoteViewsAdapter$RemoteViewsAdapterServiceConnection$1;Landroid/widget/RemoteViewsAdapter;)V
     .locals 0
+    .param p1, "this$2"    # Landroid/widget/RemoteViewsAdapter$RemoteViewsAdapterServiceConnection$1;
+    .param p2, "val$adapter"    # Landroid/widget/RemoteViewsAdapter;
 
+    .prologue
+    .line 280
     iput-object p1, p0, Landroid/widget/RemoteViewsAdapter$RemoteViewsAdapterServiceConnection$1$1;->this$2:Landroid/widget/RemoteViewsAdapter$RemoteViewsAdapterServiceConnection$1;
 
     iput-object p2, p0, Landroid/widget/RemoteViewsAdapter$RemoteViewsAdapterServiceConnection$1$1;->val$adapter:Landroid/widget/RemoteViewsAdapter;
@@ -41,6 +45,8 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 283
     iget-object v1, p0, Landroid/widget/RemoteViewsAdapter$RemoteViewsAdapterServiceConnection$1$1;->val$adapter:Landroid/widget/RemoteViewsAdapter;
 
     invoke-static {v1}, Landroid/widget/RemoteViewsAdapter;->-get0(Landroid/widget/RemoteViewsAdapter;)Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;
@@ -49,6 +55,7 @@
 
     monitor-enter v2
 
+    .line 284
     :try_start_0
     iget-object v1, p0, Landroid/widget/RemoteViewsAdapter$RemoteViewsAdapterServiceConnection$1$1;->val$adapter:Landroid/widget/RemoteViewsAdapter;
 
@@ -62,6 +69,7 @@
 
     monitor-exit v2
 
+    .line 288
     iget-object v1, p0, Landroid/widget/RemoteViewsAdapter$RemoteViewsAdapterServiceConnection$1$1;->val$adapter:Landroid/widget/RemoteViewsAdapter;
 
     invoke-static {v1}, Landroid/widget/RemoteViewsAdapter;->-get1(Landroid/widget/RemoteViewsAdapter;)Ljava/lang/ref/WeakReference;
@@ -74,13 +82,19 @@
 
     check-cast v0, Landroid/widget/RemoteViewsAdapter$RemoteAdapterConnectionCallback;
 
+    .line 289
+    .local v0, "callback":Landroid/widget/RemoteViewsAdapter$RemoteAdapterConnectionCallback;
     if-eqz v0, :cond_0
 
+    .line 290
     invoke-interface {v0}, Landroid/widget/RemoteViewsAdapter$RemoteAdapterConnectionCallback;->onRemoteAdapterConnected()Z
 
+    .line 282
     :cond_0
     return-void
 
+    .line 283
+    .end local v0    # "callback":Landroid/widget/RemoteViewsAdapter$RemoteAdapterConnectionCallback;
     :catchall_0
     move-exception v1
 

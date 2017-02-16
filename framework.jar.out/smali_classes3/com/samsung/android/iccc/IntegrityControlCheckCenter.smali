@@ -66,11 +66,16 @@
 # direct methods
 .method public constructor <init>(Lcom/samsung/android/iccc/IIntegrityControlCheckCenter;)V
     .locals 0
+    .param p1, "service"    # Lcom/samsung/android/iccc/IIntegrityControlCheckCenter;
 
+    .prologue
+    .line 168
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 169
     iput-object p1, p0, Lcom/samsung/android/iccc/IntegrityControlCheckCenter;->mService:Lcom/samsung/android/iccc/IIntegrityControlCheckCenter;
 
+    .line 168
     return-void
 .end method
 
@@ -78,14 +83,17 @@
 # virtual methods
 .method public declared-synchronized getSecureData(I)I
     .locals 2
+    .param p1, "type"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     monitor-enter p0
 
+    .line 228
     :try_start_0
     const-string/jumbo v0, "ICCC"
 
@@ -93,10 +101,12 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 229
     iget-object v0, p0, Lcom/samsung/android/iccc/IntegrityControlCheckCenter;->mService:Lcom/samsung/android/iccc/IIntegrityControlCheckCenter;
 
     if-eqz v0, :cond_0
 
+    .line 230
     iget-object v0, p0, Lcom/samsung/android/iccc/IntegrityControlCheckCenter;->mService:Lcom/samsung/android/iccc/IIntegrityControlCheckCenter;
 
     invoke-interface {v0, p1}, Lcom/samsung/android/iccc/IIntegrityControlCheckCenter;->getSecureData(I)I
@@ -109,6 +119,7 @@
 
     return v0
 
+    .line 232
     :cond_0
     const/4 v0, -0x1
 
@@ -132,8 +143,10 @@
         }
     .end annotation
 
+    .prologue
     monitor-enter p0
 
+    .line 246
     :try_start_0
     const-string/jumbo v0, "ICCC"
 
@@ -141,10 +154,12 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 247
     iget-object v0, p0, Lcom/samsung/android/iccc/IntegrityControlCheckCenter;->mService:Lcom/samsung/android/iccc/IIntegrityControlCheckCenter;
 
     if-eqz v0, :cond_0
 
+    .line 248
     iget-object v0, p0, Lcom/samsung/android/iccc/IntegrityControlCheckCenter;->mService:Lcom/samsung/android/iccc/IIntegrityControlCheckCenter;
 
     invoke-interface {v0}, Lcom/samsung/android/iccc/IIntegrityControlCheckCenter;->getTrustedBootData()I
@@ -157,6 +172,7 @@
 
     return v0
 
+    .line 250
     :cond_0
     const/4 v0, -0x1
 
@@ -174,14 +190,18 @@
 
 .method public declared-synchronized setSecureData(II)I
     .locals 2
+    .param p1, "type"    # I
+    .param p2, "value"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     monitor-enter p0
 
+    .line 237
     :try_start_0
     const-string/jumbo v0, "ICCC"
 
@@ -189,10 +209,12 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 238
     iget-object v0, p0, Lcom/samsung/android/iccc/IntegrityControlCheckCenter;->mService:Lcom/samsung/android/iccc/IIntegrityControlCheckCenter;
 
     if-eqz v0, :cond_0
 
+    .line 239
     iget-object v0, p0, Lcom/samsung/android/iccc/IntegrityControlCheckCenter;->mService:Lcom/samsung/android/iccc/IIntegrityControlCheckCenter;
 
     invoke-interface {v0, p1, p2}, Lcom/samsung/android/iccc/IIntegrityControlCheckCenter;->setSecureData(II)I
@@ -205,6 +227,7 @@
 
     return v0
 
+    .line 241
     :cond_0
     const/4 v0, -0x1
 

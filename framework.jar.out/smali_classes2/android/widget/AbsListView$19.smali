@@ -26,7 +26,11 @@
 # direct methods
 .method constructor <init>(Landroid/widget/AbsListView;Z)V
     .locals 0
+    .param p1, "this$0"    # Landroid/widget/AbsListView;
+    .param p2, "val$enabled"    # Z
 
+    .prologue
+    .line 11332
     iput-object p1, p0, Landroid/widget/AbsListView$19;->this$0:Landroid/widget/AbsListView;
 
     iput-boolean p2, p0, Landroid/widget/AbsListView$19;->val$enabled:Z
@@ -41,11 +45,14 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 11335
     iget-object v0, p0, Landroid/widget/AbsListView$19;->this$0:Landroid/widget/AbsListView;
 
     iget-boolean v1, p0, Landroid/widget/AbsListView$19;->val$enabled:Z
 
     invoke-static {v0, v1}, Landroid/widget/AbsListView;->-wrap16(Landroid/widget/AbsListView;Z)V
 
+    .line 11334
     return-void
 .end method

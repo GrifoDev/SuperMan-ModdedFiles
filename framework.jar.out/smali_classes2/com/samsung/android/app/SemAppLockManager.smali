@@ -16,11 +16,16 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 2
+    .param p1, "context"    # Landroid/content/Context;
 
+    .prologue
+    .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 45
     iput-object p1, p0, Lcom/samsung/android/app/SemAppLockManager;->mContext:Landroid/content/Context;
 
+    .line 46
     iget-object v0, p0, Lcom/samsung/android/app/SemAppLockManager;->mContext:Landroid/content/Context;
 
     const-string/jumbo v1, "activity"
@@ -33,16 +38,20 @@
 
     iput-object v0, p0, Lcom/samsung/android/app/SemAppLockManager;->mActivityManager:Landroid/app/ActivityManager;
 
+    .line 44
     return-void
 .end method
 
 .method private getActivityManager()Landroid/app/ActivityManager;
     .locals 2
 
+    .prologue
+    .line 50
     iget-object v0, p0, Lcom/samsung/android/app/SemAppLockManager;->mActivityManager:Landroid/app/ActivityManager;
 
     if-nez v0, :cond_0
 
+    .line 51
     iget-object v0, p0, Lcom/samsung/android/app/SemAppLockManager;->mContext:Landroid/content/Context;
 
     const-string/jumbo v1, "activity"
@@ -55,6 +64,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/app/SemAppLockManager;->mActivityManager:Landroid/app/ActivityManager;
 
+    .line 53
     :cond_0
     iget-object v0, p0, Lcom/samsung/android/app/SemAppLockManager;->mActivityManager:Landroid/app/ActivityManager;
 
@@ -66,14 +76,17 @@
 .method public getCheckAction()Ljava/lang/String;
     .locals 2
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 63
     invoke-direct {p0}, Lcom/samsung/android/app/SemAppLockManager;->getActivityManager()Landroid/app/ActivityManager;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
+    .line 64
     iget-object v0, p0, Lcom/samsung/android/app/SemAppLockManager;->mActivityManager:Landroid/app/ActivityManager;
 
     invoke-virtual {v0}, Landroid/app/ActivityManager;->getAppLockedCheckAction()Ljava/lang/String;
@@ -82,6 +95,7 @@
 
     return-object v0
 
+    .line 66
     :cond_0
     return-object v1
 .end method
@@ -98,14 +112,17 @@
         }
     .end annotation
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 87
     invoke-direct {p0}, Lcom/samsung/android/app/SemAppLockManager;->getActivityManager()Landroid/app/ActivityManager;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
+    .line 88
     iget-object v0, p0, Lcom/samsung/android/app/SemAppLockManager;->mActivityManager:Landroid/app/ActivityManager;
 
     invoke-virtual {v0}, Landroid/app/ActivityManager;->getAppLockedPackageList()Ljava/util/ArrayList;
@@ -114,19 +131,24 @@
 
     return-object v0
 
+    .line 90
     :cond_0
     return-object v1
 .end method
 
 .method public isPackageLocked(Ljava/lang/String;)Z
     .locals 1
+    .param p1, "packageName"    # Ljava/lang/String;
 
+    .prologue
+    .line 75
     invoke-direct {p0}, Lcom/samsung/android/app/SemAppLockManager;->getActivityManager()Landroid/app/ActivityManager;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
+    .line 76
     iget-object v0, p0, Lcom/samsung/android/app/SemAppLockManager;->mActivityManager:Landroid/app/ActivityManager;
 
     invoke-virtual {v0, p1}, Landroid/app/ActivityManager;->isAppLockedPackage(Ljava/lang/String;)Z
@@ -135,6 +157,7 @@
 
     return v0
 
+    .line 78
     :cond_0
     const/4 v0, 0x0
 

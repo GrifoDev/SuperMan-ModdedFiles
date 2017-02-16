@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 230
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,11 +42,14 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/bluetooth/BluetoothHeadsetClientCall;
     .locals 10
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
     const/4 v8, 0x0
 
     const/4 v7, 0x1
 
+    .line 233
     new-instance v0, Landroid/bluetooth/BluetoothHeadsetClientCall;
 
     const/4 v1, 0x0
@@ -55,6 +60,7 @@
 
     check-cast v1, Landroid/bluetooth/BluetoothDevice;
 
+    .line 234
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
@@ -71,6 +77,7 @@
 
     move-result v4
 
+    .line 235
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v5
@@ -90,6 +97,7 @@
 
     if-ne v9, v7, :cond_1
 
+    .line 233
     :goto_1
     invoke-direct/range {v0 .. v7}, Landroid/bluetooth/BluetoothHeadsetClientCall;-><init>(Landroid/bluetooth/BluetoothDevice;ILjava/util/UUID;ILjava/lang/String;ZZ)V
 
@@ -98,6 +106,7 @@
     :cond_0
     move v6, v8
 
+    .line 235
     goto :goto_0
 
     :cond_1
@@ -108,7 +117,10 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 232
     invoke-virtual {p0, p1}, Landroid/bluetooth/BluetoothHeadsetClientCall$1;->createFromParcel(Landroid/os/Parcel;)Landroid/bluetooth/BluetoothHeadsetClientCall;
 
     move-result-object v0
@@ -118,7 +130,10 @@
 
 .method public newArray(I)[Landroid/bluetooth/BluetoothHeadsetClientCall;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 240
     new-array v0, p1, [Landroid/bluetooth/BluetoothHeadsetClientCall;
 
     return-object v0
@@ -126,7 +141,10 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 239
     invoke-virtual {p0, p1}, Landroid/bluetooth/BluetoothHeadsetClientCall$1;->newArray(I)[Landroid/bluetooth/BluetoothHeadsetClientCall;
 
     move-result-object v0

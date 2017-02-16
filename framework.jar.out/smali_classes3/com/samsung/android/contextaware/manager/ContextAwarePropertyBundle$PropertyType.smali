@@ -102,6 +102,7 @@
 .method static constructor <clinit>()V
     .locals 8
 
+    .prologue
     const/4 v7, 0x4
 
     const/4 v6, 0x3
@@ -112,46 +113,57 @@
 
     const/4 v3, 0x0
 
+    .line 108
     new-instance v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType$1;
 
     const-string/jumbo v1, "BOOLEAN_TYPE"
 
     invoke-direct {v0, v1, v3}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType$1;-><init>(Ljava/lang/String;I)V
 
+    .line 109
     sput-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->BOOLEAN_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
+    .line 124
     new-instance v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType$2;
 
     const-string/jumbo v1, "INTEGER_TYPE"
 
     invoke-direct {v0, v1, v4}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType$2;-><init>(Ljava/lang/String;I)V
 
+    .line 125
     sput-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->INTEGER_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
+    .line 146
     new-instance v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType$3;
 
     const-string/jumbo v1, "LONG_TYPE"
 
     invoke-direct {v0, v1, v5}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType$3;-><init>(Ljava/lang/String;I)V
 
+    .line 147
     sput-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->LONG_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
+    .line 168
     new-instance v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType$4;
 
     const-string/jumbo v1, "FLOAT_TYPE"
 
     invoke-direct {v0, v1, v6}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType$4;-><init>(Ljava/lang/String;I)V
 
+    .line 169
     sput-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->FLOAT_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
+    .line 190
     new-instance v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType$5;
 
     const-string/jumbo v1, "DOUBLE_TYPE"
 
     invoke-direct {v0, v1, v7}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType$5;-><init>(Ljava/lang/String;I)V
 
+    .line 191
     sput-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->DOUBLE_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
+    .line 212
     new-instance v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType$6;
 
     const-string/jumbo v1, "STRING_TYPE"
@@ -160,8 +172,10 @@
 
     invoke-direct {v0, v1, v2}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType$6;-><init>(Ljava/lang/String;I)V
 
+    .line 213
     sput-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->STRING_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
+    .line 228
     new-instance v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType$7;
 
     const-string/jumbo v1, "CHAR_ARRAY_TYPE"
@@ -170,8 +184,10 @@
 
     invoke-direct {v0, v1, v2}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType$7;-><init>(Ljava/lang/String;I)V
 
+    .line 229
     sput-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->CHAR_ARRAY_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
+    .line 244
     new-instance v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType$8;
 
     const-string/jumbo v1, "INTEGER_ARRAY_TYPE"
@@ -180,8 +196,10 @@
 
     invoke-direct {v0, v1, v2}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType$8;-><init>(Ljava/lang/String;I)V
 
+    .line 245
     sput-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->INTEGER_ARRAY_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
+    .line 260
     new-instance v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType$9;
 
     const-string/jumbo v1, "LONG_ARRAY_TYPE"
@@ -190,8 +208,10 @@
 
     invoke-direct {v0, v1, v2}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType$9;-><init>(Ljava/lang/String;I)V
 
+    .line 261
     sput-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->LONG_ARRAY_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
+    .line 276
     new-instance v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType$10;
 
     const-string/jumbo v1, "FLOAT_ARRAY_TYPE"
@@ -200,8 +220,10 @@
 
     invoke-direct {v0, v1, v2}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType$10;-><init>(Ljava/lang/String;I)V
 
+    .line 277
     sput-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->FLOAT_ARRAY_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
+    .line 292
     new-instance v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType$11;
 
     const-string/jumbo v1, "DOUBLE_ARRAY_TYPE"
@@ -210,8 +232,10 @@
 
     invoke-direct {v0, v1, v2}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType$11;-><init>(Ljava/lang/String;I)V
 
+    .line 293
     sput-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->DOUBLE_ARRAY_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
+    .line 308
     new-instance v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType$12;
 
     const-string/jumbo v1, "STRING_ARRAY_TYPE"
@@ -220,8 +244,10 @@
 
     invoke-direct {v0, v1, v2}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType$12;-><init>(Ljava/lang/String;I)V
 
+    .line 309
     sput-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->STRING_ARRAY_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
+    .line 324
     new-instance v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType$13;
 
     const-string/jumbo v1, "INTEGER_ARRAY_LIST_TYPE"
@@ -230,8 +256,10 @@
 
     invoke-direct {v0, v1, v2}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType$13;-><init>(Ljava/lang/String;I)V
 
+    .line 325
     sput-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->INTEGER_ARRAY_LIST_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
+    .line 369
     new-instance v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType$14;
 
     const-string/jumbo v1, "LONG_ARRAY_LIST_TYPE"
@@ -240,8 +268,10 @@
 
     invoke-direct {v0, v1, v2}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType$14;-><init>(Ljava/lang/String;I)V
 
+    .line 370
     sput-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->LONG_ARRAY_LIST_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
+    .line 384
     new-instance v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType$15;
 
     const-string/jumbo v1, "FLOAT_ARRAY_LIST_TYPE"
@@ -250,8 +280,10 @@
 
     invoke-direct {v0, v1, v2}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType$15;-><init>(Ljava/lang/String;I)V
 
+    .line 385
     sput-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->FLOAT_ARRAY_LIST_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
+    .line 399
     new-instance v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType$16;
 
     const-string/jumbo v1, "DOUBLE_ARRAY_LIST_TYPE"
@@ -260,8 +292,10 @@
 
     invoke-direct {v0, v1, v2}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType$16;-><init>(Ljava/lang/String;I)V
 
+    .line 400
     sput-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->DOUBLE_ARRAY_LIST_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
+    .line 414
     new-instance v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType$17;
 
     const-string/jumbo v1, "STRING_ARRAY_LIST_TYPE"
@@ -270,8 +304,10 @@
 
     invoke-direct {v0, v1, v2}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType$17;-><init>(Ljava/lang/String;I)V
 
+    .line 415
     sput-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->STRING_ARRAY_LIST_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
+    .line 429
     new-instance v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType$18;
 
     const-string/jumbo v1, "INTEGER_HASH_SET_TYPE"
@@ -280,8 +316,10 @@
 
     invoke-direct {v0, v1, v2}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType$18;-><init>(Ljava/lang/String;I)V
 
+    .line 430
     sput-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->INTEGER_HASH_SET_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
+    .line 444
     new-instance v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType$19;
 
     const-string/jumbo v1, "LONG_HASH_SET_TYPE"
@@ -290,8 +328,10 @@
 
     invoke-direct {v0, v1, v2}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType$19;-><init>(Ljava/lang/String;I)V
 
+    .line 445
     sput-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->LONG_HASH_SET_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
+    .line 459
     new-instance v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType$20;
 
     const-string/jumbo v1, "FLOAT_HASH_SET_TYPE"
@@ -300,8 +340,10 @@
 
     invoke-direct {v0, v1, v2}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType$20;-><init>(Ljava/lang/String;I)V
 
+    .line 460
     sput-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->FLOAT_HASH_SET_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
+    .line 474
     new-instance v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType$21;
 
     const-string/jumbo v1, "DOUBLE_HASH_SET_TYPE"
@@ -310,8 +352,10 @@
 
     invoke-direct {v0, v1, v2}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType$21;-><init>(Ljava/lang/String;I)V
 
+    .line 475
     sput-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->DOUBLE_HASH_SET_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
+    .line 489
     new-instance v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType$22;
 
     const-string/jumbo v1, "STRING_HASH_SET_TYPE"
@@ -320,8 +364,10 @@
 
     invoke-direct {v0, v1, v2}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType$22;-><init>(Ljava/lang/String;I)V
 
+    .line 490
     sput-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->STRING_HASH_SET_TYPE:Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
+    .line 106
     const/16 v0, 0x16
 
     new-array v0, v0, [Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
@@ -456,6 +502,8 @@
 .method private constructor <init>(Ljava/lang/String;I)V
     .locals 0
 
+    .prologue
+    .line 106
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -464,6 +512,7 @@
 .method synthetic constructor <init>(Ljava/lang/String;ILcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;)V
     .locals 0
 
+    .prologue
     invoke-direct {p0, p1, p2}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -471,7 +520,10 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 106
     const-class v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -486,6 +538,8 @@
 .method public static values()[Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
     .locals 1
 
+    .prologue
+    .line 106
     sget-object v0, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->$VALUES:[Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
     return-object v0
@@ -496,6 +550,8 @@
 .method protected getCode()I
     .locals 1
 
+    .prologue
+    .line 523
     invoke-virtual {p0}, Ljava/lang/Enum;->ordinal()I
 
     move-result v0

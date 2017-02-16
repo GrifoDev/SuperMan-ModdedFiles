@@ -29,16 +29,27 @@
 # direct methods
 .method public constructor <init>(I[Landroid/view/textservice/TextInfo;IZ)V
     .locals 0
+    .param p1, "what"    # I
+    .param p2, "textInfos"    # [Landroid/view/textservice/TextInfo;
+    .param p3, "suggestionsLimit"    # I
+    .param p4, "sequentialWords"    # Z
 
+    .prologue
+    .line 273
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 275
     iput p1, p0, Landroid/view/textservice/SpellCheckerSession$SpellCheckerSessionListenerImpl$SpellCheckerParams;->mWhat:I
 
+    .line 276
     iput-object p2, p0, Landroid/view/textservice/SpellCheckerSession$SpellCheckerSessionListenerImpl$SpellCheckerParams;->mTextInfos:[Landroid/view/textservice/TextInfo;
 
+    .line 277
     iput p3, p0, Landroid/view/textservice/SpellCheckerSession$SpellCheckerSessionListenerImpl$SpellCheckerParams;->mSuggestionsLimit:I
 
+    .line 278
     iput-boolean p4, p0, Landroid/view/textservice/SpellCheckerSession$SpellCheckerSessionListenerImpl$SpellCheckerParams;->mSequentialWords:Z
 
+    .line 274
     return-void
 .end method

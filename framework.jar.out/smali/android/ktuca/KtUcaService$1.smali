@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Landroid/ktuca/KtUcaService;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/ktuca/KtUcaService;
 
+    .prologue
+    .line 20
     iput-object p1, p0, Landroid/ktuca/KtUcaService$1;->this$0:Landroid/ktuca/KtUcaService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +40,8 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 26
     iget-object v0, p0, Landroid/ktuca/KtUcaService$1;->this$0:Landroid/ktuca/KtUcaService;
 
     new-instance v1, Landroid/ktuca/KtUcaServiceJni;
@@ -45,6 +50,7 @@
 
     invoke-static {v0, v1}, Landroid/ktuca/KtUcaService;->-set0(Landroid/ktuca/KtUcaService;Landroid/ktuca/KtUcaServiceJni;)Landroid/ktuca/KtUcaServiceJni;
 
+    .line 27
     iget-object v0, p0, Landroid/ktuca/KtUcaService$1;->this$0:Landroid/ktuca/KtUcaService;
 
     invoke-static {v0}, Landroid/ktuca/KtUcaService;->-get0(Landroid/ktuca/KtUcaService;)Landroid/ktuca/KtUcaServiceJni;
@@ -65,5 +71,6 @@
 
     invoke-static {v2, v0, v1}, Landroid/ktuca/KtUcaServiceJni;->KUCA_CHInit(B[B[I)J
 
+    .line 23
     return-void
 .end method

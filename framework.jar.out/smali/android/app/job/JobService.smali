@@ -40,14 +40,18 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 44
     invoke-direct {p0}, Landroid/app/Service;-><init>()V
 
+    .line 78
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     iput-object v0, p0, Landroid/app/job/JobService;->mHandlerLock:Ljava/lang/Object;
 
+    .line 44
     return-void
 .end method
 
@@ -56,15 +60,19 @@
 .method ensureHandler()V
     .locals 3
 
+    .prologue
+    .line 120
     iget-object v1, p0, Landroid/app/job/JobService;->mHandlerLock:Ljava/lang/Object;
 
     monitor-enter v1
 
+    .line 121
     :try_start_0
     iget-object v0, p0, Landroid/app/job/JobService;->mHandler:Landroid/app/job/JobService$JobHandler;
 
     if-nez v0, :cond_0
 
+    .line 122
     new-instance v0, Landroid/app/job/JobService$JobHandler;
 
     invoke-virtual {p0}, Landroid/app/job/JobService;->getMainLooper()Landroid/os/Looper;
@@ -80,8 +88,10 @@
     :cond_0
     monitor-exit v1
 
+    .line 119
     return-void
 
+    .line 120
     :catchall_0
     move-exception v0
 
@@ -92,9 +102,14 @@
 
 .method public final jobFinished(Landroid/app/job/JobParameters;Z)V
     .locals 3
+    .param p1, "params"    # Landroid/app/job/JobParameters;
+    .param p2, "needsReschedule"    # Z
 
+    .prologue
+    .line 272
     invoke-virtual {p0}, Landroid/app/job/JobService;->ensureHandler()V
 
+    .line 273
     iget-object v1, p0, Landroid/app/job/JobService;->mHandler:Landroid/app/job/JobService$JobHandler;
 
     const/4 v2, 0x2
@@ -103,6 +118,8 @@
 
     move-result-object v0
 
+    .line 274
+    .local v0, "m":Landroid/os/Message;
     if-eqz p2, :cond_0
 
     const/4 v1, 0x1
@@ -110,10 +127,13 @@
     :goto_0
     iput v1, v0, Landroid/os/Message;->arg2:I
 
+    .line 275
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
+    .line 271
     return-void
 
+    .line 274
     :cond_0
     const/4 v1, 0x0
 
@@ -122,17 +142,22 @@
 
 .method public final onBind(Landroid/content/Intent;)Landroid/os/IBinder;
     .locals 1
+    .param p1, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 214
     iget-object v0, p0, Landroid/app/job/JobService;->mBinder:Landroid/app/job/IJobService;
 
     if-nez v0, :cond_0
 
+    .line 215
     new-instance v0, Landroid/app/job/JobService$JobInterface;
 
     invoke-direct {v0, p0}, Landroid/app/job/JobService$JobInterface;-><init>(Landroid/app/job/JobService;)V
 
     iput-object v0, p0, Landroid/app/job/JobService;->mBinder:Landroid/app/job/IJobService;
 
+    .line 217
     :cond_0
     iget-object v0, p0, Landroid/app/job/JobService;->mBinder:Landroid/app/job/IJobService;
 

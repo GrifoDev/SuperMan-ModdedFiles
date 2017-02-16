@@ -29,15 +29,22 @@
 # direct methods
 .method public constructor <init>(Landroid/graphics/Bitmap;I)V
     .locals 2
+    .param p1, "b"    # Landroid/graphics/Bitmap;
+    .param p2, "d"    # I
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 17
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 15
     iput v1, p0, Lcom/samsung/android/graphics/spr/cache/SprCacheManager$SprCache;->refCount:I
 
+    .line 18
     iput-object p1, p0, Lcom/samsung/android/graphics/spr/cache/SprCacheManager$SprCache;->bitmap:Landroid/graphics/Bitmap;
 
+    .line 19
     iget-object v0, p0, Lcom/samsung/android/graphics/spr/cache/SprCacheManager$SprCache;->bitmap:Landroid/graphics/Bitmap;
 
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->getWidth()I
@@ -46,6 +53,7 @@
 
     iput v0, p0, Lcom/samsung/android/graphics/spr/cache/SprCacheManager$SprCache;->width:I
 
+    .line 20
     iget-object v0, p0, Lcom/samsung/android/graphics/spr/cache/SprCacheManager$SprCache;->bitmap:Landroid/graphics/Bitmap;
 
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->getHeight()I
@@ -54,10 +62,13 @@
 
     iput v0, p0, Lcom/samsung/android/graphics/spr/cache/SprCacheManager$SprCache;->height:I
 
+    .line 21
     iput p2, p0, Lcom/samsung/android/graphics/spr/cache/SprCacheManager$SprCache;->dpi:I
 
+    .line 23
     iput v1, p0, Lcom/samsung/android/graphics/spr/cache/SprCacheManager$SprCache;->refCount:I
 
+    .line 17
     return-void
 .end method
 
@@ -66,8 +77,10 @@
 .method public declared-synchronized lock()V
     .locals 1
 
+    .prologue
     monitor-enter p0
 
+    .line 27
     :try_start_0
     iget v0, p0, Lcom/samsung/android/graphics/spr/cache/SprCacheManager$SprCache;->refCount:I
 
@@ -79,6 +92,7 @@
 
     monitor-exit p0
 
+    .line 26
     return-void
 
     :catchall_0
@@ -92,8 +106,10 @@
 .method public declared-synchronized unlock()V
     .locals 1
 
+    .prologue
     monitor-enter p0
 
+    .line 31
     :try_start_0
     iget v0, p0, Lcom/samsung/android/graphics/spr/cache/SprCacheManager$SprCache;->refCount:I
 
@@ -105,6 +121,7 @@
 
     monitor-exit p0
 
+    .line 30
     return-void
 
     :catchall_0

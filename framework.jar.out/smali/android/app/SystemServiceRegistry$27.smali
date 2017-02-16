@@ -27,6 +27,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 484
     invoke-direct {p0}, Landroid/app/SystemServiceRegistry$StaticServiceFetcher;-><init>()V
 
     return-void
@@ -37,14 +39,20 @@
 .method public createService()Lcom/samsung/android/location/SemLocationManager;
     .locals 10
 
+    .prologue
+    .line 487
     const-string/jumbo v6, "sec_location"
 
     invoke-static {v6}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v1
 
+    .line 488
+    .local v1, "b":Landroid/os/IBinder;
     const/4 v5, 0x0
 
+    .line 490
+    .local v5, "sLocationManager":Lcom/samsung/android/location/SemLocationManager;
     :try_start_0
     const-string/jumbo v6, "com.samsung.android.location.SLocationLoader"
 
@@ -52,6 +60,8 @@
 
     move-result-object v4
 
+    .line 491
+    .local v4, "sLocationLoader":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     const-string/jumbo v6, "getSLocationManager"
 
     const/4 v7, 0x1
@@ -68,6 +78,8 @@
 
     move-result-object v3
 
+    .line 492
+    .local v3, "getSLocationManager":Ljava/lang/reflect/Method;
     const/4 v6, 0x1
 
     new-array v6, v6, [Ljava/lang/Object;
@@ -90,12 +102,20 @@
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 496
+    .end local v3    # "getSLocationManager":Ljava/lang/reflect/Method;
+    .end local v4    # "sLocationLoader":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
+    .end local v5    # "sLocationManager":Lcom/samsung/android/location/SemLocationManager;
     :goto_0
     return-object v5
 
+    .line 493
+    .restart local v5    # "sLocationManager":Lcom/samsung/android/location/SemLocationManager;
     :catch_0
     move-exception v2
 
+    .line 494
+    .local v2, "e":Ljava/lang/Throwable;
     const-string/jumbo v6, "SystemServiceRegistry"
 
     const-string/jumbo v7, "Getting SLocation has been failed, error or not support"
@@ -108,6 +128,8 @@
 .method public bridge synthetic createService()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 486
     invoke-virtual {p0}, Landroid/app/SystemServiceRegistry$27;->createService()Lcom/samsung/android/location/SemLocationManager;
 
     move-result-object v0

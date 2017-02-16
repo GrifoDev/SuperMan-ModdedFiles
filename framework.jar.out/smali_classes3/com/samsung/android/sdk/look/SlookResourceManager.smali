@@ -25,6 +25,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 21
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -32,9 +34,13 @@
 
 .method public static getDrawableId(I)I
     .locals 3
+    .param p0, "id"    # I
 
+    .prologue
+    .line 93
     packed-switch p0, :pswitch_data_0
 
+    .line 109
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -65,16 +71,19 @@
 
     throw v0
 
+    .line 97
     :pswitch_0
     const v0, 0x10800d7
 
     return v0
 
+    .line 103
     :pswitch_1
     const v0, 0x10800d6
 
     return v0
 
+    .line 93
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -84,11 +93,15 @@
 
 .method public static getInt(I)I
     .locals 3
+    .param p0, "id"    # I
 
+    .prologue
     const/16 v0, 0xf
 
+    .line 129
     packed-switch p0, :pswitch_data_0
 
+    .line 151
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -119,18 +132,23 @@
 
     throw v0
 
+    .line 133
     :pswitch_0
     return v0
 
+    .line 137
     :pswitch_1
     return v0
 
+    .line 141
     :pswitch_2
     return v0
 
+    .line 145
     :pswitch_3
     return v0
 
+    .line 129
     :pswitch_data_0
     .packed-switch 0x2
         :pswitch_0
@@ -142,13 +160,19 @@
 
 .method public static getText(Landroid/content/Context;I)Ljava/lang/CharSequence;
     .locals 2
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "id"    # I
 
+    .prologue
+    .line 169
     packed-switch p1, :pswitch_data_0
 
+    .line 181
     const/4 v0, 0x0
 
     return-object v0
 
+    .line 173
     :pswitch_0
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -162,6 +186,7 @@
 
     return-object v0
 
+    .line 177
     :pswitch_1
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -175,6 +200,7 @@
 
     return-object v0
 
+    .line 169
     nop
 
     :pswitch_data_0

@@ -32,28 +32,37 @@
 .method public constructor <init>()V
     .locals 2
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 39
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 43
     const-string/jumbo v0, "DATA_LOGGING"
 
     iput-object v0, p0, Lcom/samsung/android/contextaware/aggregator/lpp/log/DataLogging;->TAG:Ljava/lang/String;
 
+    .line 47
     iput-object v1, p0, Lcom/samsung/android/contextaware/aggregator/lpp/log/DataLogging;->saveFileLoc:Ljava/lang/String;
 
+    .line 49
     iput-object v1, p0, Lcom/samsung/android/contextaware/aggregator/lpp/log/DataLogging;->saveFilePath:Ljava/lang/String;
 
+    .line 51
     iput-object v1, p0, Lcom/samsung/android/contextaware/aggregator/lpp/log/DataLogging;->fileName:Ljava/lang/String;
 
+    .line 55
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/samsung/android/contextaware/aggregator/lpp/log/DataLogging;->m_LoggingData:Ljava/util/List;
 
+    .line 61
     iput-object v1, p0, Lcom/samsung/android/contextaware/aggregator/lpp/log/DataLogging;->strLogFileName:Ljava/lang/String;
 
+    .line 39
     return-void
 .end method
 
@@ -62,12 +71,15 @@
 .method public LogInit()V
     .locals 3
 
+    .prologue
     const/4 v2, -0x1
 
+    .line 73
     iget-object v0, p0, Lcom/samsung/android/contextaware/aggregator/lpp/log/DataLogging;->m_LoggingData:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->clear()V
 
+    .line 99
     invoke-static {}, Landroid/os/Environment;->getDataDirectory()Ljava/io/File;
 
     move-result-object v0
@@ -78,6 +90,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/contextaware/aggregator/lpp/log/DataLogging;->saveFileLoc:Ljava/lang/String;
 
+    .line 101
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -100,8 +113,10 @@
 
     move-result-object v0
 
+    .line 103
     sget-object v1, Ljava/io/File;->separator:Ljava/lang/String;
 
+    .line 101
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -112,6 +127,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/contextaware/aggregator/lpp/log/DataLogging;->saveFilePath:Ljava/lang/String;
 
+    .line 109
     invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;
 
     move-result-object v0
@@ -124,17 +140,22 @@
 
     invoke-static {v0, v1, v2, v2}, Landroid/os/FileUtils;->setPermissions(Ljava/lang/String;III)I
 
+    .line 69
     return-void
 .end method
 
 .method public createFileToLog()V
     .locals 0
 
+    .prologue
+    .line 187
     return-void
 .end method
 
 .method public flushLogToFile()V
     .locals 0
 
+    .prologue
+    .line 153
     return-void
 .end method

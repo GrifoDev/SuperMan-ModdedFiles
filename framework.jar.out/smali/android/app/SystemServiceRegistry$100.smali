@@ -27,6 +27,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 1221
     invoke-direct {p0}, Landroid/app/SystemServiceRegistry$CachedServiceFetcher;-><init>()V
 
     return-void
@@ -36,17 +38,24 @@
 # virtual methods
 .method public createService(Landroid/app/ContextImpl;)Lcom/samsung/android/vr/GearVrManager;
     .locals 3
+    .param p1, "ctx"    # Landroid/app/ContextImpl;
 
+    .prologue
+    .line 1224
     const-string/jumbo v2, "vr"
 
     invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
+    .line 1225
+    .local v0, "b":Landroid/os/IBinder;
     invoke-static {v0}, Lcom/samsung/android/vr/IGearVrManagerService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/vr/IGearVrManagerService;
 
     move-result-object v1
 
+    .line 1226
+    .local v1, "service":Lcom/samsung/android/vr/IGearVrManagerService;
     new-instance v2, Lcom/samsung/android/vr/GearVrManager;
 
     invoke-direct {v2, p1, v1}, Lcom/samsung/android/vr/GearVrManager;-><init>(Landroid/content/Context;Lcom/samsung/android/vr/IGearVrManagerService;)V
@@ -56,7 +65,10 @@
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .param p1, "ctx"    # Landroid/app/ContextImpl;
 
+    .prologue
+    .line 1223
     invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$100;->createService(Landroid/app/ContextImpl;)Lcom/samsung/android/vr/GearVrManager;
 
     move-result-object v0

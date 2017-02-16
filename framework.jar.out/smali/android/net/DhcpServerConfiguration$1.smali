@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 142
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,65 +42,81 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/net/DhcpServerConfiguration;
     .locals 5
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 144
     new-instance v1, Landroid/net/DhcpServerConfiguration;
 
     invoke-direct {v1}, Landroid/net/DhcpServerConfiguration;-><init>()V
 
+    .line 145
+    .local v1, "config":Landroid/net/DhcpServerConfiguration;
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
 
     iput-object v2, v1, Landroid/net/DhcpServerConfiguration;->localIp:Ljava/lang/String;
 
+    .line 146
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
 
     iput-object v2, v1, Landroid/net/DhcpServerConfiguration;->subnetmask:Ljava/lang/String;
 
+    .line 147
     const/4 v2, 0x1
 
     new-array v0, v2, [Z
 
+    .line 148
+    .local v0, "b":[Z
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->readBooleanArray([Z)V
 
+    .line 149
     const/4 v2, 0x0
 
     aget-boolean v2, v0, v2
 
     iput-boolean v2, v1, Landroid/net/DhcpServerConfiguration;->dhcpEnable:Z
 
+    .line 150
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
 
     iput-object v2, v1, Landroid/net/DhcpServerConfiguration;->ipRangeStart:Ljava/lang/String;
 
+    .line 151
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
 
     iput-object v2, v1, Landroid/net/DhcpServerConfiguration;->ipRangeEnd:Ljava/lang/String;
 
+    .line 152
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     iput v2, v1, Landroid/net/DhcpServerConfiguration;->leaseTime:I
 
+    .line 153
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     iput v2, v1, Landroid/net/DhcpServerConfiguration;->maxClient:I
 
+    .line 155
     const-string/jumbo v2, "DhcpServerConfiguration"
 
     const-string/jumbo v3, "CREATOR"
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 156
     const-string/jumbo v2, "DhcpServerConfiguration"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -123,6 +141,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 157
     const-string/jumbo v2, "DhcpServerConfiguration"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -147,6 +166,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 158
     const-string/jumbo v2, "DhcpServerConfiguration"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -171,6 +191,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 159
     const-string/jumbo v2, "DhcpServerConfiguration"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -195,6 +216,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 160
     const-string/jumbo v2, "DhcpServerConfiguration"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -219,6 +241,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 161
     const-string/jumbo v2, "DhcpServerConfiguration"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -243,6 +266,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 162
     const-string/jumbo v2, "DhcpServerConfiguration"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -267,12 +291,16 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 164
     return-object v1
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 143
     invoke-virtual {p0, p1}, Landroid/net/DhcpServerConfiguration$1;->createFromParcel(Landroid/os/Parcel;)Landroid/net/DhcpServerConfiguration;
 
     move-result-object v0
@@ -282,7 +310,10 @@
 
 .method public newArray(I)[Landroid/net/DhcpServerConfiguration;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 168
     new-array v0, p1, [Landroid/net/DhcpServerConfiguration;
 
     return-object v0
@@ -290,7 +321,10 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 167
     invoke-virtual {p0, p1}, Landroid/net/DhcpServerConfiguration$1;->newArray(I)[Landroid/net/DhcpServerConfiguration;
 
     move-result-object v0

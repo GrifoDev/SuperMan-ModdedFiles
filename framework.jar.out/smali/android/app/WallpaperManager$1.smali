@@ -21,6 +21,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 1935
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -30,11 +32,17 @@
 # virtual methods
 .method public accept(Ljava/io/File;Ljava/lang/String;)Z
     .locals 2
+    .param p1, "dir"    # Ljava/io/File;
+    .param p2, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 1938
     invoke-virtual {p2}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 1939
+    .local v0, "fileName":Ljava/lang/String;
     const-string/jumbo v1, "default_wallpaper.png"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -43,12 +51,14 @@
 
     if-nez v1, :cond_0
 
+    .line 1940
     const-string/jumbo v1, "default_wallpaper.jpg"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
+    .line 1939
     :goto_0
     return v1
 

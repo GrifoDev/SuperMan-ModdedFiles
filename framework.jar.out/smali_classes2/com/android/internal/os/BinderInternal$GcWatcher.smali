@@ -18,6 +18,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 40
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -33,18 +35,23 @@
         }
     .end annotation
 
+    .prologue
+    .line 43
     invoke-static {}, Lcom/android/internal/os/BinderInternal;->handleGc()V
 
+    .line 44
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v2
 
     sput-wide v2, Lcom/android/internal/os/BinderInternal;->sLastGcTime:J
 
+    .line 45
     sget-object v2, Lcom/android/internal/os/BinderInternal;->sGcWatchers:Ljava/util/ArrayList;
 
     monitor-enter v2
 
+    .line 46
     :try_start_0
     sget-object v1, Lcom/android/internal/os/BinderInternal;->sGcWatchers:Ljava/util/ArrayList;
 
@@ -62,8 +69,10 @@
 
     monitor-exit v2
 
+    .line 48
     const/4 v0, 0x0
 
+    .local v0, "i":I
     :goto_0
     sget-object v1, Lcom/android/internal/os/BinderInternal;->sTmpWatchers:[Ljava/lang/Runnable;
 
@@ -71,23 +80,28 @@
 
     if-ge v0, v1, :cond_1
 
+    .line 49
     sget-object v1, Lcom/android/internal/os/BinderInternal;->sTmpWatchers:[Ljava/lang/Runnable;
 
     aget-object v1, v1, v0
 
     if-eqz v1, :cond_0
 
+    .line 50
     sget-object v1, Lcom/android/internal/os/BinderInternal;->sTmpWatchers:[Ljava/lang/Runnable;
 
     aget-object v1, v1, v0
 
     invoke-interface {v1}, Ljava/lang/Runnable;->run()V
 
+    .line 48
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
+    .line 45
+    .end local v0    # "i":I
     :catchall_0
     move-exception v1
 
@@ -95,6 +109,8 @@
 
     throw v1
 
+    .line 53
+    .restart local v0    # "i":I
     :cond_1
     new-instance v1, Ljava/lang/ref/WeakReference;
 
@@ -106,5 +122,6 @@
 
     sput-object v1, Lcom/android/internal/os/BinderInternal;->sGcWatcher:Ljava/lang/ref/WeakReference;
 
+    .line 42
     return-void
 .end method

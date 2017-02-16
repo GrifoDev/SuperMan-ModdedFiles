@@ -31,7 +31,10 @@
 # direct methods
 .method private constructor <init>(Landroid/os/Broadcaster;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/os/Broadcaster;
 
+    .prologue
+    .line 202
     iput-object p1, p0, Landroid/os/Broadcaster$Registration;->this$0:Landroid/os/Broadcaster;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +44,9 @@
 
 .method synthetic constructor <init>(Landroid/os/Broadcaster;Landroid/os/Broadcaster$Registration;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/os/Broadcaster;
 
+    .prologue
     invoke-direct {p0, p1}, Landroid/os/Broadcaster$Registration;-><init>(Landroid/os/Broadcaster;)V
 
     return-void

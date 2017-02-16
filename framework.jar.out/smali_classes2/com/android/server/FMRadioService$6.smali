@@ -33,7 +33,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/FMRadioService;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/server/FMRadioService;
 
+    .prologue
+    .line 488
     iput-object p1, p0, Lcom/android/server/FMRadioService$6;->this$0:Lcom/android/server/FMRadioService;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -45,7 +48,10 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 6
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 496
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -74,14 +80,17 @@
 
     invoke-static {v0}, Lcom/android/server/FMRadioService;->log(Ljava/lang/String;)V
 
+    .line 498
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
+    .line 495
     :goto_0
     :pswitch_0
     return-void
 
+    .line 503
     :pswitch_1
     iget-object v0, p0, Lcom/android/server/FMRadioService$6;->this$0:Lcom/android/server/FMRadioService;
 
@@ -89,12 +98,14 @@
 
     invoke-static {v0, v1}, Lcom/android/server/FMRadioService;->-wrap5(Lcom/android/server/FMRadioService;I)V
 
+    .line 504
     iget-object v0, p0, Lcom/android/server/FMRadioService$6;->this$0:Lcom/android/server/FMRadioService;
 
     iget v1, p1, Landroid/os/Message;->what:I
 
     invoke-static {v0, v1}, Lcom/android/server/FMRadioService;->-wrap4(Lcom/android/server/FMRadioService;I)V
 
+    .line 505
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -125,6 +136,7 @@
 
     goto :goto_0
 
+    .line 498
     nop
 
     :pswitch_data_0

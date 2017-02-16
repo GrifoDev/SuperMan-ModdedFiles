@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Landroid/app/SearchDialog;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/app/SearchDialog;
 
+    .prologue
+    .line 664
     iput-object p1, p0, Landroid/app/SearchDialog$2;->this$0:Landroid/app/SearchDialog;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +40,8 @@
 .method public onClose()Z
     .locals 1
 
+    .prologue
+    .line 667
     iget-object v0, p0, Landroid/app/SearchDialog$2;->this$0:Landroid/app/SearchDialog;
 
     invoke-static {v0}, Landroid/app/SearchDialog;->-wrap0(Landroid/app/SearchDialog;)Z

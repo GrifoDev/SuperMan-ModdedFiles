@@ -35,21 +35,30 @@
 
 .method constructor <init>(Landroid/print/IPrintManager;Landroid/content/Context;I)V
     .locals 1
+    .param p1, "printManager"    # Landroid/print/IPrintManager;
+    .param p2, "context"    # Landroid/content/Context;
+    .param p3, "userId"    # I
 
+    .prologue
+    .line 60
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 141
     new-instance v0, Landroid/print/SemPrinterDiscoverySession$1;
 
     invoke-direct {v0, p0}, Landroid/print/SemPrinterDiscoverySession$1;-><init>(Landroid/print/SemPrinterDiscoverySession;)V
 
+    .line 140
     iput-object v0, p0, Landroid/print/SemPrinterDiscoverySession;->mPrintersChangeListener:Landroid/print/PrinterDiscoverySession$OnPrintersChangeListener;
 
+    .line 61
     new-instance v0, Landroid/print/PrinterDiscoverySession;
 
     invoke-direct {v0, p1, p2, p3}, Landroid/print/PrinterDiscoverySession;-><init>(Landroid/print/IPrintManager;Landroid/content/Context;I)V
 
     iput-object v0, p0, Landroid/print/SemPrinterDiscoverySession;->mPrinterDiscoverySession:Landroid/print/PrinterDiscoverySession;
 
+    .line 60
     return-void
 .end method
 
@@ -58,23 +67,29 @@
 .method public final destroy()V
     .locals 2
 
+    .prologue
+    .line 92
     iget-object v0, p0, Landroid/print/SemPrinterDiscoverySession;->mPrinterDiscoverySession:Landroid/print/PrinterDiscoverySession;
 
     if-nez v0, :cond_0
 
+    .line 93
     const-string/jumbo v0, "SemPrinterDiscoverySession"
 
     const-string/jumbo v1, "Error PrinterDiscoverySession instance is null"
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 94
     return-void
 
+    .line 96
     :cond_0
     iget-object v0, p0, Landroid/print/SemPrinterDiscoverySession;->mPrinterDiscoverySession:Landroid/print/PrinterDiscoverySession;
 
     invoke-virtual {v0}, Landroid/print/PrinterDiscoverySession;->destroy()V
 
+    .line 91
     return-void
 .end method
 
@@ -90,22 +105,27 @@
         }
     .end annotation
 
+    .prologue
+    .line 105
     iget-object v0, p0, Landroid/print/SemPrinterDiscoverySession;->mPrinterDiscoverySession:Landroid/print/PrinterDiscoverySession;
 
     if-nez v0, :cond_0
 
+    .line 106
     const-string/jumbo v0, "SemPrinterDiscoverySession"
 
     const-string/jumbo v1, "Error PrinterDiscoverySession instance is null"
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 107
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
     move-result-object v0
 
     return-object v0
 
+    .line 109
     :cond_0
     iget-object v0, p0, Landroid/print/SemPrinterDiscoverySession;->mPrinterDiscoverySession:Landroid/print/PrinterDiscoverySession;
 
@@ -119,20 +139,25 @@
 .method public final isPrinterDiscoveryStarted()Z
     .locals 2
 
+    .prologue
+    .line 118
     iget-object v0, p0, Landroid/print/SemPrinterDiscoverySession;->mPrinterDiscoverySession:Landroid/print/PrinterDiscoverySession;
 
     if-nez v0, :cond_0
 
+    .line 119
     const-string/jumbo v0, "SemPrinterDiscoverySession"
 
     const-string/jumbo v1, "Error PrinterDiscoverySession instance is null"
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 120
     const/4 v0, 0x0
 
     return v0
 
+    .line 122
     :cond_0
     iget-object v0, p0, Landroid/print/SemPrinterDiscoverySession;->mPrinterDiscoverySession:Landroid/print/PrinterDiscoverySession;
 
@@ -145,28 +170,36 @@
 
 .method public final setOnPrintersChangeListener(Landroid/print/SemPrinterDiscoverySession$OnPrintersChangeListener;)V
     .locals 2
+    .param p1, "listener"    # Landroid/print/SemPrinterDiscoverySession$OnPrintersChangeListener;
 
+    .prologue
+    .line 131
     iget-object v0, p0, Landroid/print/SemPrinterDiscoverySession;->mPrinterDiscoverySession:Landroid/print/PrinterDiscoverySession;
 
     if-nez v0, :cond_0
 
+    .line 132
     const-string/jumbo v0, "SemPrinterDiscoverySession"
 
     const-string/jumbo v1, "Error PrinterDiscoverySession instance is null"
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 133
     return-void
 
+    .line 136
     :cond_0
     iput-object p1, p0, Landroid/print/SemPrinterDiscoverySession;->mListener:Landroid/print/SemPrinterDiscoverySession$OnPrintersChangeListener;
 
+    .line 137
     iget-object v0, p0, Landroid/print/SemPrinterDiscoverySession;->mPrinterDiscoverySession:Landroid/print/PrinterDiscoverySession;
 
     iget-object v1, p0, Landroid/print/SemPrinterDiscoverySession;->mPrintersChangeListener:Landroid/print/PrinterDiscoverySession$OnPrintersChangeListener;
 
     invoke-virtual {v0, v1}, Landroid/print/PrinterDiscoverySession;->setOnPrintersChangeListener(Landroid/print/PrinterDiscoverySession$OnPrintersChangeListener;)V
 
+    .line 130
     return-void
 .end method
 
@@ -182,45 +215,58 @@
         }
     .end annotation
 
+    .prologue
+    .line 70
+    .local p1, "priorityList":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrinterId;>;"
     iget-object v0, p0, Landroid/print/SemPrinterDiscoverySession;->mPrinterDiscoverySession:Landroid/print/PrinterDiscoverySession;
 
     if-nez v0, :cond_0
 
+    .line 71
     const-string/jumbo v0, "SemPrinterDiscoverySession"
 
     const-string/jumbo v1, "Error PrinterDiscoverySession instance is null"
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 72
     return-void
 
+    .line 74
     :cond_0
     iget-object v0, p0, Landroid/print/SemPrinterDiscoverySession;->mPrinterDiscoverySession:Landroid/print/PrinterDiscoverySession;
 
     invoke-virtual {v0, p1}, Landroid/print/PrinterDiscoverySession;->startPrinterDiscovery(Ljava/util/List;)V
 
+    .line 69
     return-void
 .end method
 
 .method public final stopPrinterDiscovery()V
     .locals 2
 
+    .prologue
+    .line 81
     iget-object v0, p0, Landroid/print/SemPrinterDiscoverySession;->mPrinterDiscoverySession:Landroid/print/PrinterDiscoverySession;
 
     if-nez v0, :cond_0
 
+    .line 82
     const-string/jumbo v0, "SemPrinterDiscoverySession"
 
     const-string/jumbo v1, "Error PrinterDiscoverySession instance is null"
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 83
     return-void
 
+    .line 85
     :cond_0
     iget-object v0, p0, Landroid/print/SemPrinterDiscoverySession;->mPrinterDiscoverySession:Landroid/print/PrinterDiscoverySession;
 
     invoke-virtual {v0}, Landroid/print/PrinterDiscoverySession;->stopPrinterDiscovery()V
 
+    .line 80
     return-void
 .end method

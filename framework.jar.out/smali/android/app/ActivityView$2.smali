@@ -34,7 +34,15 @@
 # direct methods
 .method constructor <init>(Landroid/app/ActivityView;Landroid/view/Surface;IIIZ)V
     .locals 0
+    .param p1, "this$0"    # Landroid/app/ActivityView;
+    .param p2, "val$surface"    # Landroid/view/Surface;
+    .param p3, "val$width"    # I
+    .param p4, "val$height"    # I
+    .param p5, "val$densityDpi"    # I
+    .param p6, "val$callback"    # Z
 
+    .prologue
+    .line 294
     iput-object p1, p0, Landroid/app/ActivityView$2;->this$0:Landroid/app/ActivityView;
 
     iput-object p2, p0, Landroid/app/ActivityView$2;->val$surface:Landroid/view/Surface;
@@ -57,6 +65,8 @@
 .method public run()V
     .locals 7
 
+    .prologue
+    .line 297
     :try_start_0
     iget-object v1, p0, Landroid/app/ActivityView$2;->this$0:Landroid/app/ActivityView;
 
@@ -68,6 +78,7 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 298
     :try_start_1
     iget-object v1, p0, Landroid/app/ActivityView$2;->this$0:Landroid/app/ActivityView;
 
@@ -77,6 +88,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 299
     iget-object v1, p0, Landroid/app/ActivityView$2;->this$0:Landroid/app/ActivityView;
 
     invoke-static {v1}, Landroid/app/ActivityView;->-get0(Landroid/app/ActivityView;)Landroid/app/ActivityView$ActivityContainerWrapper;
@@ -101,10 +113,12 @@
     :try_end_2
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
 
+    .line 307
     iget-boolean v1, p0, Landroid/app/ActivityView$2;->val$callback:Z
 
     if-eqz v1, :cond_1
 
+    .line 308
     iget-object v1, p0, Landroid/app/ActivityView$2;->this$0:Landroid/app/ActivityView;
 
     new-instance v2, Landroid/app/ActivityView$2$1;
@@ -115,9 +129,11 @@
 
     invoke-virtual {v1, v2}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
 
+    .line 295
     :cond_1
     return-void
 
+    .line 297
     :catchall_0
     move-exception v1
 
@@ -128,13 +144,18 @@
     :try_end_3
     .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_0
 
+    .line 302
     :catch_0
     move-exception v0
 
+    .line 303
+    .local v0, "e":Landroid/os/RemoteException;
     new-instance v1, Ljava/lang/RuntimeException;
 
+    .line 304
     const-string/jumbo v2, "ActivityView: Unable to set surface of ActivityContainer. "
 
+    .line 303
     invoke-direct {v1, v2, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     throw v1

@@ -10,21 +10,29 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
+    .param p1, "path"    # Ljava/lang/String;
 
+    .prologue
+    .line 38
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 39
     invoke-static {p1}, Landroid/os/StatFs;->doStat(Ljava/lang/String;)Landroid/system/StructStatVfs;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/os/StatFs;->mStat:Landroid/system/StructStatVfs;
 
+    .line 38
     return-void
 .end method
 
 .method private static doStat(Ljava/lang/String;)Landroid/system/StructStatVfs;
     .locals 4
+    .param p0, "path"    # Ljava/lang/String;
 
+    .prologue
+    .line 44
     :try_start_0
     invoke-static {p0}, Landroid/system/Os;->statvfs(Ljava/lang/String;)Landroid/system/StructStatVfs;
     :try_end_0
@@ -34,9 +42,12 @@
 
     return-object v1
 
+    .line 45
     :catch_0
     move-exception v0
 
+    .line 46
+    .local v0, "e":Landroid/system/ErrnoException;
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -69,6 +80,8 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    .prologue
+    .line 123
     iget-object v0, p0, Landroid/os/StatFs;->mStat:Landroid/system/StructStatVfs;
 
     iget-wide v0, v0, Landroid/system/StructStatVfs;->f_bavail:J
@@ -81,6 +94,8 @@
 .method public getAvailableBlocksLong()J
     .locals 2
 
+    .prologue
+    .line 131
     iget-object v0, p0, Landroid/os/StatFs;->mStat:Landroid/system/StructStatVfs;
 
     iget-wide v0, v0, Landroid/system/StructStatVfs;->f_bavail:J
@@ -91,6 +106,8 @@
 .method public getAvailableBytes()J
     .locals 4
 
+    .prologue
+    .line 139
     iget-object v0, p0, Landroid/os/StatFs;->mStat:Landroid/system/StructStatVfs;
 
     iget-wide v0, v0, Landroid/system/StructStatVfs;->f_bavail:J
@@ -109,6 +126,8 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    .prologue
+    .line 80
     iget-object v0, p0, Landroid/os/StatFs;->mStat:Landroid/system/StructStatVfs;
 
     iget-wide v0, v0, Landroid/system/StructStatVfs;->f_blocks:J
@@ -121,6 +140,8 @@
 .method public getBlockCountLong()J
     .locals 2
 
+    .prologue
+    .line 88
     iget-object v0, p0, Landroid/os/StatFs;->mStat:Landroid/system/StructStatVfs;
 
     iget-wide v0, v0, Landroid/system/StructStatVfs;->f_blocks:J
@@ -133,6 +154,8 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    .prologue
+    .line 64
     iget-object v0, p0, Landroid/os/StatFs;->mStat:Landroid/system/StructStatVfs;
 
     iget-wide v0, v0, Landroid/system/StructStatVfs;->f_bsize:J
@@ -145,6 +168,8 @@
 .method public getBlockSizeLong()J
     .locals 2
 
+    .prologue
+    .line 72
     iget-object v0, p0, Landroid/os/StatFs;->mStat:Landroid/system/StructStatVfs;
 
     iget-wide v0, v0, Landroid/system/StructStatVfs;->f_bsize:J
@@ -157,6 +182,8 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    .prologue
+    .line 96
     iget-object v0, p0, Landroid/os/StatFs;->mStat:Landroid/system/StructStatVfs;
 
     iget-wide v0, v0, Landroid/system/StructStatVfs;->f_bfree:J
@@ -169,6 +196,8 @@
 .method public getFreeBlocksLong()J
     .locals 2
 
+    .prologue
+    .line 106
     iget-object v0, p0, Landroid/os/StatFs;->mStat:Landroid/system/StructStatVfs;
 
     iget-wide v0, v0, Landroid/system/StructStatVfs;->f_bfree:J
@@ -179,6 +208,8 @@
 .method public getFreeBytes()J
     .locals 4
 
+    .prologue
+    .line 115
     iget-object v0, p0, Landroid/os/StatFs;->mStat:Landroid/system/StructStatVfs;
 
     iget-wide v0, v0, Landroid/system/StructStatVfs;->f_bfree:J
@@ -195,6 +226,8 @@
 .method public getTotalBytes()J
     .locals 4
 
+    .prologue
+    .line 146
     iget-object v0, p0, Landroid/os/StatFs;->mStat:Landroid/system/StructStatVfs;
 
     iget-wide v0, v0, Landroid/system/StructStatVfs;->f_blocks:J
@@ -210,12 +243,16 @@
 
 .method public restat(Ljava/lang/String;)V
     .locals 1
+    .param p1, "path"    # Ljava/lang/String;
 
+    .prologue
+    .line 56
     invoke-static {p1}, Landroid/os/StatFs;->doStat(Ljava/lang/String;)Landroid/system/StructStatVfs;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/os/StatFs;->mStat:Landroid/system/StructStatVfs;
 
+    .line 55
     return-void
 .end method

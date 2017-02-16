@@ -23,7 +23,11 @@
 # direct methods
 .method constructor <init>(Landroid/hardware/hdmi/HdmiPlaybackClient;Landroid/hardware/hdmi/HdmiPlaybackClient$DisplayStatusCallback;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/hardware/hdmi/HdmiPlaybackClient;
+    .param p2, "val$callback"    # Landroid/hardware/hdmi/HdmiPlaybackClient$DisplayStatusCallback;
 
+    .prologue
+    .line 130
     iput-object p1, p0, Landroid/hardware/hdmi/HdmiPlaybackClient$2;->this$0:Landroid/hardware/hdmi/HdmiPlaybackClient;
 
     iput-object p2, p0, Landroid/hardware/hdmi/HdmiPlaybackClient$2;->val$callback:Landroid/hardware/hdmi/HdmiPlaybackClient$DisplayStatusCallback;
@@ -37,10 +41,14 @@
 # virtual methods
 .method public onComplete(I)V
     .locals 1
+    .param p1, "status"    # I
 
+    .prologue
+    .line 133
     iget-object v0, p0, Landroid/hardware/hdmi/HdmiPlaybackClient$2;->val$callback:Landroid/hardware/hdmi/HdmiPlaybackClient$DisplayStatusCallback;
 
     invoke-interface {v0, p1}, Landroid/hardware/hdmi/HdmiPlaybackClient$DisplayStatusCallback;->onComplete(I)V
 
+    .line 132
     return-void
 .end method

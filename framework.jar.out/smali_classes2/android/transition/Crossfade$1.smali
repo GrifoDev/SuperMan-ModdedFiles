@@ -28,7 +28,12 @@
 # direct methods
 .method constructor <init>(Landroid/transition/Crossfade;Landroid/view/View;Landroid/graphics/drawable/BitmapDrawable;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/transition/Crossfade;
+    .param p2, "val$view"    # Landroid/view/View;
+    .param p3, "val$startDrawable"    # Landroid/graphics/drawable/BitmapDrawable;
 
+    .prologue
+    .line 204
     iput-object p1, p0, Landroid/transition/Crossfade$1;->this$0:Landroid/transition/Crossfade;
 
     iput-object p2, p0, Landroid/transition/Crossfade$1;->val$view:Landroid/view/View;
@@ -44,7 +49,10 @@
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
     .locals 2
+    .param p1, "animation"    # Landroid/animation/ValueAnimator;
 
+    .prologue
+    .line 208
     iget-object v0, p0, Landroid/transition/Crossfade$1;->val$view:Landroid/view/View;
 
     iget-object v1, p0, Landroid/transition/Crossfade$1;->val$startDrawable:Landroid/graphics/drawable/BitmapDrawable;
@@ -55,5 +63,6 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->invalidate(Landroid/graphics/Rect;)V
 
+    .line 206
     return-void
 .end method

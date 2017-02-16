@@ -29,25 +29,44 @@
 # direct methods
 .method private constructor <init>(ZZLandroid/media/AudioFormat;I[B)V
     .locals 0
+    .param p1, "triggerAvailable"    # Z
+    .param p2, "captureAvailable"    # Z
+    .param p3, "audioFormat"    # Landroid/media/AudioFormat;
+    .param p4, "captureSession"    # I
+    .param p5, "data"    # [B
 
+    .prologue
+    .line 217
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 219
     iput-boolean p1, p0, Landroid/service/voice/AlwaysOnHotwordDetector$EventPayload;->mTriggerAvailable:Z
 
+    .line 220
     iput-boolean p2, p0, Landroid/service/voice/AlwaysOnHotwordDetector$EventPayload;->mCaptureAvailable:Z
 
+    .line 221
     iput p4, p0, Landroid/service/voice/AlwaysOnHotwordDetector$EventPayload;->mCaptureSession:I
 
+    .line 222
     iput-object p3, p0, Landroid/service/voice/AlwaysOnHotwordDetector$EventPayload;->mAudioFormat:Landroid/media/AudioFormat;
 
+    .line 223
     iput-object p5, p0, Landroid/service/voice/AlwaysOnHotwordDetector$EventPayload;->mData:[B
 
+    .line 218
     return-void
 .end method
 
 .method synthetic constructor <init>(ZZLandroid/media/AudioFormat;I[BLandroid/service/voice/AlwaysOnHotwordDetector$EventPayload;)V
     .locals 0
+    .param p1, "triggerAvailable"    # Z
+    .param p2, "captureAvailable"    # Z
+    .param p3, "audioFormat"    # Landroid/media/AudioFormat;
+    .param p4, "captureSession"    # I
+    .param p5, "data"    # [B
 
+    .prologue
     invoke-direct/range {p0 .. p5}, Landroid/service/voice/AlwaysOnHotwordDetector$EventPayload;-><init>(ZZLandroid/media/AudioFormat;I[B)V
 
     return-void
@@ -58,6 +77,8 @@
 .method public getCaptureAudioFormat()Landroid/media/AudioFormat;
     .locals 1
 
+    .prologue
+    .line 232
     iget-object v0, p0, Landroid/service/voice/AlwaysOnHotwordDetector$EventPayload;->mAudioFormat:Landroid/media/AudioFormat;
 
     return-object v0
@@ -66,10 +87,13 @@
 .method public getCaptureSession()Ljava/lang/Integer;
     .locals 1
 
+    .prologue
+    .line 272
     iget-boolean v0, p0, Landroid/service/voice/AlwaysOnHotwordDetector$EventPayload;->mCaptureAvailable:Z
 
     if-eqz v0, :cond_0
 
+    .line 273
     iget v0, p0, Landroid/service/voice/AlwaysOnHotwordDetector$EventPayload;->mCaptureSession:I
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -78,6 +102,7 @@
 
     return-object v0
 
+    .line 275
     :cond_0
     const/4 v0, 0x0
 
@@ -87,14 +112,18 @@
 .method public getTriggerAudio()[B
     .locals 1
 
+    .prologue
+    .line 245
     iget-boolean v0, p0, Landroid/service/voice/AlwaysOnHotwordDetector$EventPayload;->mTriggerAvailable:Z
 
     if-eqz v0, :cond_0
 
+    .line 246
     iget-object v0, p0, Landroid/service/voice/AlwaysOnHotwordDetector$EventPayload;->mData:[B
 
     return-object v0
 
+    .line 248
     :cond_0
     const/4 v0, 0x0
 

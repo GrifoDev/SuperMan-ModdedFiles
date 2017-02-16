@@ -27,6 +27,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 330
     invoke-direct {p0}, Landroid/app/SystemServiceRegistry$CachedServiceFetcher;-><init>()V
 
     return-void
@@ -36,7 +38,10 @@
 # virtual methods
 .method public createService(Landroid/app/ContextImpl;)Landroid/media/MediaRouter;
     .locals 1
+    .param p1, "ctx"    # Landroid/app/ContextImpl;
 
+    .prologue
+    .line 333
     new-instance v0, Landroid/media/MediaRouter;
 
     invoke-direct {v0, p1}, Landroid/media/MediaRouter;-><init>(Landroid/content/Context;)V
@@ -46,7 +51,10 @@
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .param p1, "ctx"    # Landroid/app/ContextImpl;
 
+    .prologue
+    .line 332
     invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$8;->createService(Landroid/app/ContextImpl;)Landroid/media/MediaRouter;
 
     move-result-object v0

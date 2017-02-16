@@ -34,6 +34,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 152
     const-string/jumbo v0, "content://com.android.blockednumber"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -42,12 +44,15 @@
 
     sput-object v0, Landroid/provider/BlockedNumberContract;->AUTHORITY_URI:Landroid/net/Uri;
 
+    .line 144
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 145
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -55,23 +60,30 @@
 
 .method public static canCurrentUserBlockNumbers(Landroid/content/Context;)Z
     .locals 6
+    .param p0, "context"    # Landroid/content/Context;
 
+    .prologue
     const/4 v1, 0x0
 
     const/4 v5, 0x0
 
+    .line 281
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
+    .line 282
     sget-object v3, Landroid/provider/BlockedNumberContract;->AUTHORITY_URI:Landroid/net/Uri;
 
     const-string/jumbo v4, "can_current_user_block_numbers"
 
+    .line 281
     invoke-virtual {v2, v3, v4, v5, v5}, Landroid/content/ContentResolver;->call(Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
 
     move-result-object v0
 
+    .line 283
+    .local v0, "res":Landroid/os/Bundle;
     if-eqz v0, :cond_0
 
     const-string/jumbo v2, "can_block"
@@ -86,23 +98,31 @@
 
 .method public static isBlocked(Landroid/content/Context;Ljava/lang/String;)Z
     .locals 6
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "phoneNumber"    # Ljava/lang/String;
 
+    .prologue
     const/4 v5, 0x0
 
     const/4 v1, 0x0
 
+    .line 245
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
+    .line 246
     sget-object v3, Landroid/provider/BlockedNumberContract;->AUTHORITY_URI:Landroid/net/Uri;
 
     const-string/jumbo v4, "is_blocked"
 
+    .line 245
     invoke-virtual {v2, v3, v4, p1, v5}, Landroid/content/ContentResolver;->call(Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
 
     move-result-object v0
 
+    .line 247
+    .local v0, "res":Landroid/os/Bundle;
     if-eqz v0, :cond_0
 
     const-string/jumbo v2, "blocked"
@@ -117,21 +137,29 @@
 
 .method public static unblock(Landroid/content/Context;Ljava/lang/String;)I
     .locals 5
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "phoneNumber"    # Ljava/lang/String;
 
+    .prologue
+    .line 269
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
+    .line 270
     sget-object v2, Landroid/provider/BlockedNumberContract;->AUTHORITY_URI:Landroid/net/Uri;
 
     const-string/jumbo v3, "unblock"
 
     const/4 v4, 0x0
 
+    .line 269
     invoke-virtual {v1, v2, v3, p1, v4}, Landroid/content/ContentResolver;->call(Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
 
     move-result-object v0
 
+    .line 271
+    .local v0, "res":Landroid/os/Bundle;
     const-string/jumbo v1, "num_deleted"
 
     const/4 v2, 0x0

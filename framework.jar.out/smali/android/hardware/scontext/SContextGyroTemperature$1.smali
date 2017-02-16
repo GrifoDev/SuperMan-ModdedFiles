@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 143
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,7 +42,10 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/hardware/scontext/SContextGyroTemperature;
     .locals 1
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 147
     new-instance v0, Landroid/hardware/scontext/SContextGyroTemperature;
 
     invoke-direct {v0, p1}, Landroid/hardware/scontext/SContextGyroTemperature;-><init>(Landroid/os/Parcel;)V
@@ -50,7 +55,10 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 146
     invoke-virtual {p0, p1}, Landroid/hardware/scontext/SContextGyroTemperature$1;->createFromParcel(Landroid/os/Parcel;)Landroid/hardware/scontext/SContextGyroTemperature;
 
     move-result-object v0
@@ -60,7 +68,10 @@
 
 .method public newArray(I)[Landroid/hardware/scontext/SContextGyroTemperature;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 152
     new-array v0, p1, [Landroid/hardware/scontext/SContextGyroTemperature;
 
     return-object v0
@@ -68,7 +79,10 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 151
     invoke-virtual {p0, p1}, Landroid/hardware/scontext/SContextGyroTemperature$1;->newArray(I)[Landroid/hardware/scontext/SContextGyroTemperature;
 
     move-result-object v0

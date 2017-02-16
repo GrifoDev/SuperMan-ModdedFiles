@@ -18,9 +18,12 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 109
     const/4 v0, 0x3
 
     invoke-direct {p0, v0}, Landroid/security/keystore/AndroidKeyStoreKeyPairGeneratorSpi;-><init>(I)V
 
+    .line 108
     return-void
 .end method

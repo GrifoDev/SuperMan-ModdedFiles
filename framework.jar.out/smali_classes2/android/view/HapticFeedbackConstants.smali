@@ -69,6 +69,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -76,7 +78,10 @@
 
 .method public static isValidatedVibeIndex(I)Z
     .locals 1
+    .param p0, "index"    # I
 
+    .prologue
+    .line 96
     const v0, 0xc369
 
     if-lt p0, v0, :cond_0
@@ -85,10 +90,12 @@
 
     if-gt p0, v0, :cond_0
 
+    .line 97
     const/4 v0, 0x1
 
     return v0
 
+    .line 99
     :cond_0
     const/4 v0, 0x0
 

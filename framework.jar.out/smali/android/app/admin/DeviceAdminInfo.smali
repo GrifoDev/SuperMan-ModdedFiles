@@ -140,26 +140,31 @@
 .method static constructor <clinit>()V
     .locals 11
 
+    .prologue
     const v10, 0x1040233
 
+    .line 336
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     sput-object v0, Landroid/app/admin/DeviceAdminInfo;->sPoliciesDisplayOrder:Ljava/util/ArrayList;
 
+    .line 337
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     sput-object v0, Landroid/app/admin/DeviceAdminInfo;->sKnownPolicies:Ljava/util/HashMap;
 
+    .line 338
     new-instance v0, Landroid/util/SparseArray;
 
     invoke-direct {v0}, Landroid/util/SparseArray;-><init>()V
 
     sput-object v0, Landroid/app/admin/DeviceAdminInfo;->sRevKnownPolicies:Landroid/util/SparseArray;
 
+    .line 341
     sget-object v9, Landroid/app/admin/DeviceAdminInfo;->sPoliciesDisplayOrder:Ljava/util/ArrayList;
 
     new-instance v0, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
@@ -168,18 +173,24 @@
 
     const/4 v1, 0x4
 
+    .line 342
     const v3, 0x104023a
 
+    .line 343
     const v4, 0x104023b
 
+    .line 344
     const v5, 0x104023c
 
+    .line 345
     const v6, 0x104023d
 
+    .line 341
     invoke-direct/range {v0 .. v6}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;IIII)V
 
     invoke-virtual {v9, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 347
     sget-object v0, Landroid/app/admin/DeviceAdminInfo;->sPoliciesDisplayOrder:Ljava/util/ArrayList;
 
     new-instance v1, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
@@ -188,14 +199,18 @@
 
     const/4 v3, 0x2
 
+    .line 348
     const v4, 0x1040236
 
+    .line 349
     const v5, 0x1040237
 
+    .line 347
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 350
     sget-object v0, Landroid/app/admin/DeviceAdminInfo;->sPoliciesDisplayOrder:Ljava/util/ArrayList;
 
     new-instance v1, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
@@ -204,14 +219,18 @@
 
     const/4 v3, 0x0
 
+    .line 351
     const v4, 0x1040231
 
+    .line 352
     const v5, 0x1040232
 
+    .line 350
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 353
     sget-object v9, Landroid/app/admin/DeviceAdminInfo;->sPoliciesDisplayOrder:Ljava/util/ArrayList;
 
     new-instance v0, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
@@ -220,18 +239,22 @@
 
     const/4 v1, 0x1
 
+    .line 355
     const v4, 0x1040234
 
+    .line 357
     const v6, 0x1040235
 
     move v3, v10
 
     move v5, v10
 
+    .line 353
     invoke-direct/range {v0 .. v6}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;IIII)V
 
     invoke-virtual {v9, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 359
     sget-object v0, Landroid/app/admin/DeviceAdminInfo;->sPoliciesDisplayOrder:Ljava/util/ArrayList;
 
     new-instance v1, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
@@ -240,14 +263,18 @@
 
     const/4 v3, 0x3
 
+    .line 360
     const v4, 0x1040238
 
+    .line 361
     const v5, 0x1040239
 
+    .line 359
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 362
     sget-object v0, Landroid/app/admin/DeviceAdminInfo;->sPoliciesDisplayOrder:Ljava/util/ArrayList;
 
     new-instance v1, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
@@ -256,14 +283,18 @@
 
     const/4 v3, 0x5
 
+    .line 363
     const v4, 0x104023e
 
+    .line 364
     const v5, 0x104023f
 
+    .line 362
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 365
     sget-object v0, Landroid/app/admin/DeviceAdminInfo;->sPoliciesDisplayOrder:Ljava/util/ArrayList;
 
     new-instance v1, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
@@ -272,14 +303,18 @@
 
     const/4 v3, 0x6
 
+    .line 366
     const v4, 0x1040240
 
+    .line 367
     const v5, 0x1040241
 
+    .line 365
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 368
     sget-object v0, Landroid/app/admin/DeviceAdminInfo;->sPoliciesDisplayOrder:Ljava/util/ArrayList;
 
     new-instance v1, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
@@ -288,14 +323,18 @@
 
     const/4 v3, 0x7
 
+    .line 369
     const v4, 0x1040242
 
+    .line 370
     const v5, 0x1040243
 
+    .line 368
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 371
     sget-object v0, Landroid/app/admin/DeviceAdminInfo;->sPoliciesDisplayOrder:Ljava/util/ArrayList;
 
     new-instance v1, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
@@ -304,30 +343,39 @@
 
     const/16 v3, 0x8
 
+    .line 372
     const v4, 0x1040244
 
+    .line 373
     const v5, 0x1040245
 
+    .line 371
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 374
     sget-object v0, Landroid/app/admin/DeviceAdminInfo;->sPoliciesDisplayOrder:Ljava/util/ArrayList;
 
     new-instance v1, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
 
+    .line 375
     const-string/jumbo v2, "disable-keyguard-features"
 
     const/16 v3, 0x9
 
+    .line 376
     const v4, 0x1040246
 
+    .line 377
     const v5, 0x1040247
 
+    .line 374
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 380
     sget-object v0, Landroid/app/admin/DeviceAdminInfo;->sPoliciesDisplayOrder:Ljava/util/ArrayList;
 
     new-instance v1, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
@@ -336,14 +384,18 @@
 
     const/16 v3, 0x14
 
+    .line 381
     const v4, 0x10406b6
 
+    .line 382
     const v5, 0x10406b7
 
+    .line 380
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 384
     sget-object v0, Landroid/app/admin/DeviceAdminInfo;->sPoliciesDisplayOrder:Ljava/util/ArrayList;
 
     new-instance v1, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
@@ -352,14 +404,18 @@
 
     const/16 v3, 0xa
 
+    .line 385
     const v4, 0x1040694
 
+    .line 386
     const v5, 0x1040695
 
+    .line 384
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 388
     sget-object v0, Landroid/app/admin/DeviceAdminInfo;->sPoliciesDisplayOrder:Ljava/util/ArrayList;
 
     new-instance v1, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
@@ -368,14 +424,18 @@
 
     const/16 v3, 0xe
 
+    .line 389
     const v4, 0x10406a0
 
+    .line 390
     const v5, 0x10406a1
 
+    .line 388
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 392
     sget-object v0, Landroid/app/admin/DeviceAdminInfo;->sPoliciesDisplayOrder:Ljava/util/ArrayList;
 
     new-instance v1, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
@@ -384,14 +444,18 @@
 
     const/16 v3, 0xb
 
+    .line 393
     const v4, 0x104069a
 
+    .line 394
     const v5, 0x104069b
 
+    .line 392
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 396
     sget-object v0, Landroid/app/admin/DeviceAdminInfo;->sPoliciesDisplayOrder:Ljava/util/ArrayList;
 
     new-instance v1, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
@@ -400,14 +464,18 @@
 
     const/16 v3, 0xc
 
+    .line 397
     const v4, 0x104069c
 
+    .line 398
     const v5, 0x104069d
 
+    .line 396
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 400
     sget-object v0, Landroid/app/admin/DeviceAdminInfo;->sPoliciesDisplayOrder:Ljava/util/ArrayList;
 
     new-instance v1, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
@@ -416,14 +484,18 @@
 
     const/16 v3, 0xd
 
+    .line 401
     const v4, 0x104069e
 
+    .line 402
     const v5, 0x104069f
 
+    .line 400
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 404
     sget-object v0, Landroid/app/admin/DeviceAdminInfo;->sPoliciesDisplayOrder:Ljava/util/ArrayList;
 
     new-instance v1, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
@@ -432,14 +504,18 @@
 
     const/16 v3, 0xf
 
+    .line 405
     const v4, 0x10406a4
 
+    .line 406
     const v5, 0x10406a5
 
+    .line 404
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 408
     sget-object v0, Landroid/app/admin/DeviceAdminInfo;->sPoliciesDisplayOrder:Ljava/util/ArrayList;
 
     new-instance v1, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
@@ -448,14 +524,18 @@
 
     const/16 v3, 0x10
 
+    .line 409
     const v4, 0x10406a6
 
+    .line 410
     const v5, 0x10406a7
 
+    .line 408
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 412
     sget-object v0, Landroid/app/admin/DeviceAdminInfo;->sPoliciesDisplayOrder:Ljava/util/ArrayList;
 
     new-instance v1, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
@@ -464,14 +544,18 @@
 
     const/16 v3, 0x11
 
+    .line 413
     const v4, 0x10406a8
 
+    .line 414
     const v5, 0x10406a9
 
+    .line 412
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 416
     sget-object v0, Landroid/app/admin/DeviceAdminInfo;->sPoliciesDisplayOrder:Ljava/util/ArrayList;
 
     new-instance v1, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
@@ -480,14 +564,18 @@
 
     const/16 v3, 0x12
 
+    .line 417
     const v4, 0x10406aa
 
+    .line 418
     const v5, 0x10406ab
 
+    .line 416
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 420
     sget-object v0, Landroid/app/admin/DeviceAdminInfo;->sPoliciesDisplayOrder:Ljava/util/ArrayList;
 
     new-instance v1, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
@@ -496,14 +584,18 @@
 
     const/16 v3, 0x13
 
+    .line 421
     const v4, 0x10406a2
 
+    .line 422
     const v5, 0x10406a3
 
+    .line 420
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 426
     sget-object v0, Landroid/app/admin/DeviceAdminInfo;->sPoliciesDisplayOrder:Ljava/util/ArrayList;
 
     new-instance v1, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
@@ -512,14 +604,18 @@
 
     const/16 v3, 0x16
 
+    .line 427
     const v4, 0x10406ac
 
+    .line 428
     const v5, 0x10406ad
 
+    .line 426
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 429
     sget-object v0, Landroid/app/admin/DeviceAdminInfo;->sPoliciesDisplayOrder:Ljava/util/ArrayList;
 
     new-instance v1, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
@@ -528,14 +624,18 @@
 
     const/16 v3, 0x17
 
+    .line 430
     const v4, 0x10406ae
 
+    .line 431
     const v5, 0x10406af
 
+    .line 429
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 432
     sget-object v0, Landroid/app/admin/DeviceAdminInfo;->sPoliciesDisplayOrder:Ljava/util/ArrayList;
 
     new-instance v1, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
@@ -544,14 +644,18 @@
 
     const/16 v3, 0x19
 
+    .line 433
     const v4, 0x10406b0
 
+    .line 434
     const v5, 0x10406b1
 
+    .line 432
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 435
     sget-object v0, Landroid/app/admin/DeviceAdminInfo;->sPoliciesDisplayOrder:Ljava/util/ArrayList;
 
     new-instance v1, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
@@ -560,16 +664,21 @@
 
     const/16 v3, 0x1a
 
+    .line 436
     const v4, 0x10406b2
 
+    .line 437
     const v5, 0x10406b3
 
+    .line 435
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 439
     const/4 v7, 0x0
 
+    .local v7, "i":I
     :goto_0
     sget-object v0, Landroid/app/admin/DeviceAdminInfo;->sPoliciesDisplayOrder:Ljava/util/ArrayList;
 
@@ -579,6 +688,7 @@
 
     if-ge v7, v0, :cond_0
 
+    .line 440
     sget-object v0, Landroid/app/admin/DeviceAdminInfo;->sPoliciesDisplayOrder:Ljava/util/ArrayList;
 
     invoke-virtual {v0, v7}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -587,12 +697,15 @@
 
     check-cast v8, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
 
+    .line 441
+    .local v8, "pi":Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
     sget-object v0, Landroid/app/admin/DeviceAdminInfo;->sRevKnownPolicies:Landroid/util/SparseArray;
 
     iget v1, v8, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;->ident:I
 
     invoke-virtual {v0, v1, v8}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
+    .line 442
     sget-object v0, Landroid/app/admin/DeviceAdminInfo;->sKnownPolicies:Ljava/util/HashMap;
 
     iget-object v1, v8, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;->tag:Ljava/lang/String;
@@ -605,22 +718,29 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 439
     add-int/lit8 v7, v7, 0x1
 
     goto :goto_0
 
+    .line 757
+    .end local v8    # "pi":Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
     :cond_0
     new-instance v0, Landroid/app/admin/DeviceAdminInfo$1;
 
     invoke-direct {v0}, Landroid/app/admin/DeviceAdminInfo$1;-><init>()V
 
+    .line 756
     sput-object v0, Landroid/app/admin/DeviceAdminInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
+    .line 58
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/app/admin/ProxyDeviceAdminInfo;)V
     .locals 8
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "proxyAdmin"    # Landroid/app/admin/ProxyDeviceAdminInfo;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -628,12 +748,16 @@
         }
     .end annotation
 
+    .prologue
+    .line 563
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 460
     const-wide/16 v4, 0x0
 
     iput-wide v4, p0, Landroid/app/admin/DeviceAdminInfo;->mUsesPolicies:J
 
+    .line 566
     invoke-virtual {p2}, Landroid/app/admin/ProxyDeviceAdminInfo;->getReceiver()Landroid/content/pm/ResolveInfo;
 
     move-result-object v3
@@ -642,12 +766,15 @@
 
     iput-object v3, p0, Landroid/app/admin/DeviceAdminInfo;->mActivityInfo:Landroid/content/pm/ActivityInfo;
 
+    .line 567
     const/4 v3, 0x0
 
     iput-boolean v3, p0, Landroid/app/admin/DeviceAdminInfo;->mVisible:Z
 
+    .line 568
     iput-object p2, p0, Landroid/app/admin/DeviceAdminInfo;->mProxyAdmin:Landroid/app/admin/ProxyDeviceAdminInfo;
 
+    .line 569
     invoke-virtual {p2}, Landroid/app/admin/ProxyDeviceAdminInfo;->getRequestedPermissions()Ljava/util/List;
 
     move-result-object v3
@@ -656,6 +783,7 @@
 
     move-result-object v1
 
+    .local v1, "policyName$iterator":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -669,6 +797,8 @@
 
     check-cast v0, Ljava/lang/String;
 
+    .line 570
+    .local v0, "policyName":Ljava/lang/String;
     sget-object v3, Landroid/app/admin/DeviceAdminInfo;->sKnownPolicies:Ljava/util/HashMap;
 
     invoke-virtual {v3, v0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -677,8 +807,11 @@
 
     check-cast v2, Ljava/lang/Integer;
 
+    .line 571
+    .local v2, "val":Ljava/lang/Integer;
     if-eqz v2, :cond_0
 
+    .line 572
     iget-wide v4, p0, Landroid/app/admin/DeviceAdminInfo;->mUsesPolicies:J
 
     invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
@@ -695,6 +828,7 @@
 
     goto :goto_0
 
+    .line 574
     :cond_0
     const-string/jumbo v3, "DeviceAdminInfo"
 
@@ -734,12 +868,17 @@
 
     goto :goto_0
 
+    .line 564
+    .end local v0    # "policyName":Ljava/lang/String;
+    .end local v2    # "val":Ljava/lang/Integer;
     :cond_1
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/content/pm/ActivityInfo;)V
     .locals 22
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "activityInfo"    # Landroid/content/pm/ActivityInfo;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -747,8 +886,11 @@
         }
     .end annotation
 
+    .prologue
+    .line 483
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
+    .line 460
     const-wide/16 v18, 0x0
 
     move-wide/from16 v0, v18
@@ -757,18 +899,24 @@
 
     iput-wide v0, v2, Landroid/app/admin/DeviceAdminInfo;->mUsesPolicies:J
 
+    .line 485
     move-object/from16 v0, p2
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Landroid/app/admin/DeviceAdminInfo;->mActivityInfo:Landroid/content/pm/ActivityInfo;
 
+    .line 487
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v10
 
+    .line 489
+    .local v10, "pm":Landroid/content/pm/PackageManager;
     const/4 v9, 0x0
 
+    .line 491
+    .local v9, "parser":Landroid/content/res/XmlResourceParser;
     :try_start_0
     move-object/from16 v0, p0
 
@@ -786,8 +934,11 @@
 
     move-result-object v9
 
+    .line 492
+    .local v9, "parser":Landroid/content/res/XmlResourceParser;
     if-nez v9, :cond_1
 
+    .line 493
     new-instance v17, Lorg/xmlpull/v1/XmlPullParserException;
 
     const-string/jumbo v18, "No android.app.device_admin meta-data"
@@ -799,12 +950,17 @@
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 545
+    .end local v9    # "parser":Landroid/content/res/XmlResourceParser;
     :catch_0
     move-exception v5
 
+    .line 546
+    .local v5, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     :try_start_1
     new-instance v17, Lorg/xmlpull/v1/XmlPullParserException;
 
+    .line 547
     new-instance v18, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
@@ -835,22 +991,29 @@
 
     move-result-object v18
 
+    .line 546
     invoke-direct/range {v17 .. v18}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
     throw v17
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    .line 548
+    .end local v5    # "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     :catchall_0
     move-exception v17
 
+    .line 549
     if-eqz v9, :cond_0
 
     invoke-interface {v9}, Landroid/content/res/XmlResourceParser;->close()V
 
+    .line 548
     :cond_0
     throw v17
 
+    .line 497
+    .restart local v9    # "parser":Landroid/content/res/XmlResourceParser;
     :cond_1
     :try_start_2
     move-object/from16 v0, p0
@@ -871,32 +1034,41 @@
 
     move-result-object v12
 
+    .line 499
+    .local v12, "res":Landroid/content/res/Resources;
     invoke-static {v9}, Landroid/util/Xml;->asAttributeSet(Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;
 
     move-result-object v4
 
+    .line 502
+    .local v4, "attrs":Landroid/util/AttributeSet;
     :cond_2
     invoke-interface {v9}, Landroid/content/res/XmlResourceParser;->next()I
 
     move-result v15
 
+    .local v15, "type":I
     const/16 v17, 0x1
 
     move/from16 v0, v17
 
     if-eq v15, v0, :cond_3
 
+    .line 503
     const/16 v17, 0x2
 
     move/from16 v0, v17
 
     if-ne v15, v0, :cond_2
 
+    .line 506
     :cond_3
     invoke-interface {v9}, Landroid/content/res/XmlResourceParser;->getName()Ljava/lang/String;
 
     move-result-object v7
 
+    .line 507
+    .local v7, "nodeName":Ljava/lang/String;
     const-string/jumbo v17, "device-admin"
 
     move-object/from16 v0, v17
@@ -907,27 +1079,35 @@
 
     if-nez v17, :cond_4
 
+    .line 508
     new-instance v17, Lorg/xmlpull/v1/XmlPullParserException;
 
+    .line 509
     const-string/jumbo v18, "Meta-data does not start with device-admin tag"
 
+    .line 508
     invoke-direct/range {v17 .. v18}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
     throw v17
 
+    .line 513
     :cond_4
     sget-object v17, Lcom/android/internal/R$styleable;->DeviceAdmin:[I
 
+    .line 512
     move-object/from16 v0, v17
 
     invoke-virtual {v12, v4, v0}, Landroid/content/res/Resources;->obtainAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
 
     move-result-object v13
 
+    .line 516
+    .local v13, "sa":Landroid/content/res/TypedArray;
     const/16 v17, 0x0
 
     const/16 v18, 0x1
 
+    .line 515
     move/from16 v0, v17
 
     move/from16 v1, v18
@@ -942,12 +1122,16 @@
 
     iput-boolean v0, v1, Landroid/app/admin/DeviceAdminInfo;->mVisible:Z
 
+    .line 518
     invoke-virtual {v13}, Landroid/content/res/TypedArray;->recycle()V
 
+    .line 520
     invoke-interface {v9}, Landroid/content/res/XmlResourceParser;->getDepth()I
 
     move-result v8
 
+    .line 521
+    .local v8, "outerDepth":I
     :cond_5
     invoke-interface {v9}, Landroid/content/res/XmlResourceParser;->next()I
 
@@ -959,6 +1143,7 @@
 
     if-eq v15, v0, :cond_a
 
+    .line 522
     const/16 v17, 0x3
 
     move/from16 v0, v17
@@ -973,6 +1158,7 @@
 
     if-le v0, v8, :cond_a
 
+    .line 523
     :cond_6
     const/16 v17, 0x3
 
@@ -986,10 +1172,13 @@
 
     if-eq v15, v0, :cond_5
 
+    .line 526
     invoke-interface {v9}, Landroid/content/res/XmlResourceParser;->getName()Ljava/lang/String;
 
     move-result-object v14
 
+    .line 527
+    .local v14, "tagName":Ljava/lang/String;
     const-string/jumbo v17, "uses-policies"
 
     move-object/from16 v0, v17
@@ -1000,10 +1189,13 @@
 
     if-eqz v17, :cond_5
 
+    .line 528
     invoke-interface {v9}, Landroid/content/res/XmlResourceParser;->getDepth()I
 
     move-result v6
 
+    .line 529
+    .local v6, "innerDepth":I
     :cond_7
     :goto_0
     invoke-interface {v9}, Landroid/content/res/XmlResourceParser;->next()I
@@ -1016,6 +1208,7 @@
 
     if-eq v15, v0, :cond_5
 
+    .line 530
     const/16 v17, 0x3
 
     move/from16 v0, v17
@@ -1030,6 +1223,7 @@
 
     if-le v0, v6, :cond_5
 
+    .line 531
     :cond_8
     const/16 v17, 0x3
 
@@ -1043,10 +1237,13 @@
 
     if-eq v15, v0, :cond_7
 
+    .line 534
     invoke-interface {v9}, Landroid/content/res/XmlResourceParser;->getName()Ljava/lang/String;
 
     move-result-object v11
 
+    .line 535
+    .local v11, "policyName":Ljava/lang/String;
     sget-object v17, Landroid/app/admin/DeviceAdminInfo;->sKnownPolicies:Ljava/util/HashMap;
 
     move-object/from16 v0, v17
@@ -1057,8 +1254,11 @@
 
     check-cast v16, Ljava/lang/Integer;
 
+    .line 536
+    .local v16, "val":Ljava/lang/Integer;
     if-eqz v16, :cond_9
 
+    .line 537
     move-object/from16 v0, p0
 
     iget-wide v0, v0, Landroid/app/admin/DeviceAdminInfo;->mUsesPolicies:J
@@ -1089,6 +1289,7 @@
 
     goto :goto_0
 
+    .line 539
     :cond_9
     const-string/jumbo v17, "DeviceAdminInfo"
 
@@ -1102,16 +1303,20 @@
 
     move-result-object v18
 
+    .line 540
     invoke-virtual/range {p0 .. p0}, Landroid/app/admin/DeviceAdminInfo;->getComponent()Landroid/content/ComponentName;
 
     move-result-object v19
 
+    .line 539
     invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v18
 
+    .line 540
     const-string/jumbo v19, ": "
 
+    .line 539
     invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v18
@@ -1133,17 +1338,25 @@
 
     goto :goto_0
 
+    .line 549
+    .end local v6    # "innerDepth":I
+    .end local v11    # "policyName":Ljava/lang/String;
+    .end local v14    # "tagName":Ljava/lang/String;
+    .end local v16    # "val":Ljava/lang/Integer;
     :cond_a
     if-eqz v9, :cond_b
 
     invoke-interface {v9}, Landroid/content/res/XmlResourceParser;->close()V
 
+    .line 484
     :cond_b
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/content/pm/ResolveInfo;)V
     .locals 1
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "resolveInfo"    # Landroid/content/pm/ResolveInfo;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -1151,22 +1364,30 @@
         }
     .end annotation
 
+    .prologue
+    .line 472
     iget-object v0, p2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
     invoke-direct {p0, p1, v0}, Landroid/app/admin/DeviceAdminInfo;-><init>(Landroid/content/Context;Landroid/content/pm/ActivityInfo;)V
 
+    .line 471
     return-void
 .end method
 
 .method constructor <init>(Landroid/os/Parcel;)V
     .locals 2
+    .param p1, "source"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 553
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 460
     const-wide/16 v0, 0x0
 
     iput-wide v0, p0, Landroid/app/admin/DeviceAdminInfo;->mUsesPolicies:J
 
+    .line 554
     sget-object v0, Landroid/content/pm/ActivityInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v0, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -1177,12 +1398,14 @@
 
     iput-object v0, p0, Landroid/app/admin/DeviceAdminInfo;->mActivityInfo:Landroid/content/pm/ActivityInfo;
 
+    .line 555
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Landroid/app/admin/DeviceAdminInfo;->mUsesPolicies:J
 
+    .line 553
     return-void
 .end method
 
@@ -1191,6 +1414,8 @@
 .method public describeContents()I
     .locals 1
 
+    .prologue
+    .line 768
     const/4 v0, 0x0
 
     return v0
@@ -1198,7 +1423,11 @@
 
 .method public dump(Landroid/util/Printer;Ljava/lang/String;)V
     .locals 3
+    .param p1, "pw"    # Landroid/util/Printer;
+    .param p2, "prefix"    # Ljava/lang/String;
 
+    .prologue
+    .line 733
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1219,6 +1448,7 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
+    .line 734
     iget-object v0, p0, Landroid/app/admin/DeviceAdminInfo;->mActivityInfo:Landroid/content/pm/ActivityInfo;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1241,12 +1471,15 @@
 
     invoke-virtual {v0, p1, v1}, Landroid/content/pm/ActivityInfo;->dump(Landroid/util/Printer;Ljava/lang/String;)V
 
+    .line 732
     return-void
 .end method
 
 .method public getActivityInfo()Landroid/content/pm/ActivityInfo;
     .locals 1
 
+    .prologue
+    .line 610
     iget-object v0, p0, Landroid/app/admin/DeviceAdminInfo;->mActivityInfo:Landroid/content/pm/ActivityInfo;
 
     return-object v0
@@ -1255,16 +1488,20 @@
 .method public getComponent()Landroid/content/ComponentName;
     .locals 3
 
+    .prologue
+    .line 618
     new-instance v0, Landroid/content/ComponentName;
 
     iget-object v1, p0, Landroid/app/admin/DeviceAdminInfo;->mActivityInfo:Landroid/content/pm/ActivityInfo;
 
     iget-object v1, v1, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
 
+    .line 619
     iget-object v2, p0, Landroid/app/admin/DeviceAdminInfo;->mActivityInfo:Landroid/content/pm/ActivityInfo;
 
     iget-object v2, v2, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
 
+    .line 618
     invoke-direct {v0, v1, v2}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     return-object v0
@@ -1273,6 +1510,8 @@
 .method public getPackageName()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 594
     iget-object v0, p0, Landroid/app/admin/DeviceAdminInfo;->mActivityInfo:Landroid/content/pm/ActivityInfo;
 
     iget-object v0, v0, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
@@ -1283,6 +1522,8 @@
 .method public getPermissions()J
     .locals 2
 
+    .prologue
+    .line 774
     iget-wide v0, p0, Landroid/app/admin/DeviceAdminInfo;->mUsesPolicies:J
 
     return-wide v0
@@ -1291,6 +1532,8 @@
 .method public getReceiverName()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 602
     iget-object v0, p0, Landroid/app/admin/DeviceAdminInfo;->mActivityInfo:Landroid/content/pm/ActivityInfo;
 
     iget-object v0, v0, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
@@ -1300,7 +1543,10 @@
 
 .method public getTagForPolicy(I)Ljava/lang/String;
     .locals 1
+    .param p1, "policyIdent"    # I
 
+    .prologue
+    .line 700
     sget-object v0, Landroid/app/admin/DeviceAdminInfo;->sRevKnownPolicies:Landroid/util/SparseArray;
 
     invoke-virtual {v0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
@@ -1326,12 +1572,17 @@
         }
     .end annotation
 
+    .prologue
+    .line 705
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
+    .line 706
+    .local v2, "res":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/app/admin/DeviceAdminInfo$PolicyInfo;>;"
     const/4 v0, 0x0
 
+    .local v0, "i":I
     :goto_0
     sget-object v3, Landroid/app/admin/DeviceAdminInfo;->sPoliciesDisplayOrder:Ljava/util/ArrayList;
 
@@ -1341,6 +1592,7 @@
 
     if-ge v0, v3, :cond_1
 
+    .line 707
     sget-object v3, Landroid/app/admin/DeviceAdminInfo;->sPoliciesDisplayOrder:Ljava/util/ArrayList;
 
     invoke-virtual {v3, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -1349,6 +1601,8 @@
 
     check-cast v1, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
 
+    .line 708
+    .local v1, "pi":Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
     iget v3, v1, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;->ident:I
 
     invoke-virtual {p0, v3}, Landroid/app/admin/DeviceAdminInfo;->usesPolicy(I)Z
@@ -1357,13 +1611,17 @@
 
     if-eqz v3, :cond_0
 
+    .line 709
     invoke-virtual {v2, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 706
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
+    .line 712
+    .end local v1    # "pi":Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
     :cond_1
     return-object v2
 .end method
@@ -1371,6 +1629,8 @@
 .method public isProxy()Z
     .locals 1
 
+    .prologue
+    .line 585
     iget-object v0, p0, Landroid/app/admin/DeviceAdminInfo;->mProxyAdmin:Landroid/app/admin/ProxyDeviceAdminInfo;
 
     if-eqz v0, :cond_0
@@ -1389,6 +1649,8 @@
 .method public isVisible()Z
     .locals 1
 
+    .prologue
+    .line 674
     iget-boolean v0, p0, Landroid/app/admin/DeviceAdminInfo;->mVisible:Z
 
     return v0
@@ -1396,16 +1658,20 @@
 
 .method public loadDescription(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
     .locals 3
+    .param p1, "pm"    # Landroid/content/pm/PackageManager;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/res/Resources$NotFoundException;
         }
     .end annotation
 
+    .prologue
+    .line 645
     iget-object v0, p0, Landroid/app/admin/DeviceAdminInfo;->mProxyAdmin:Landroid/app/admin/ProxyDeviceAdminInfo;
 
     if-eqz v0, :cond_0
 
+    .line 646
     iget-object v0, p0, Landroid/app/admin/DeviceAdminInfo;->mProxyAdmin:Landroid/app/admin/ProxyDeviceAdminInfo;
 
     invoke-virtual {v0, p1}, Landroid/app/admin/ProxyDeviceAdminInfo;->getDescription(Landroid/content/pm/PackageManager;)Ljava/lang/String;
@@ -1414,6 +1680,7 @@
 
     return-object v0
 
+    .line 647
     :cond_0
     iget-object v0, p0, Landroid/app/admin/DeviceAdminInfo;->mActivityInfo:Landroid/content/pm/ActivityInfo;
 
@@ -1421,10 +1688,12 @@
 
     if-eqz v0, :cond_1
 
+    .line 649
     iget-object v0, p0, Landroid/app/admin/DeviceAdminInfo;->mActivityInfo:Landroid/content/pm/ActivityInfo;
 
     iget-object v0, v0, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
 
+    .line 650
     iget-object v1, p0, Landroid/app/admin/DeviceAdminInfo;->mActivityInfo:Landroid/content/pm/ActivityInfo;
 
     iget v1, v1, Landroid/content/pm/ActivityInfo;->descriptionRes:I
@@ -1433,12 +1702,14 @@
 
     iget-object v2, v2, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
+    .line 649
     invoke-virtual {p1, v0, v1, v2}, Landroid/content/pm/PackageManager;->getText(Ljava/lang/String;ILandroid/content/pm/ApplicationInfo;)Ljava/lang/CharSequence;
 
     move-result-object v0
 
     return-object v0
 
+    .line 652
     :cond_1
     new-instance v0, Landroid/content/res/Resources$NotFoundException;
 
@@ -1449,11 +1720,15 @@
 
 .method public loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
     .locals 1
+    .param p1, "pm"    # Landroid/content/pm/PackageManager;
 
+    .prologue
+    .line 663
     iget-object v0, p0, Landroid/app/admin/DeviceAdminInfo;->mProxyAdmin:Landroid/app/admin/ProxyDeviceAdminInfo;
 
     if-eqz v0, :cond_0
 
+    .line 664
     iget-object v0, p0, Landroid/app/admin/DeviceAdminInfo;->mProxyAdmin:Landroid/app/admin/ProxyDeviceAdminInfo;
 
     invoke-virtual {v0, p1}, Landroid/app/admin/ProxyDeviceAdminInfo;->getIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
@@ -1462,6 +1737,7 @@
 
     return-object v0
 
+    .line 666
     :cond_0
     iget-object v0, p0, Landroid/app/admin/DeviceAdminInfo;->mActivityInfo:Landroid/content/pm/ActivityInfo;
 
@@ -1474,11 +1750,15 @@
 
 .method public loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
     .locals 1
+    .param p1, "pm"    # Landroid/content/pm/PackageManager;
 
+    .prologue
+    .line 630
     iget-object v0, p0, Landroid/app/admin/DeviceAdminInfo;->mProxyAdmin:Landroid/app/admin/ProxyDeviceAdminInfo;
 
     if-eqz v0, :cond_0
 
+    .line 631
     iget-object v0, p0, Landroid/app/admin/DeviceAdminInfo;->mProxyAdmin:Landroid/app/admin/ProxyDeviceAdminInfo;
 
     invoke-virtual {v0, p1}, Landroid/app/admin/ProxyDeviceAdminInfo;->getLabel(Landroid/content/pm/PackageManager;)Ljava/lang/String;
@@ -1487,6 +1767,7 @@
 
     return-object v0
 
+    .line 634
     :cond_0
     iget-object v0, p0, Landroid/app/admin/DeviceAdminInfo;->mActivityInfo:Landroid/content/pm/ActivityInfo;
 
@@ -1499,6 +1780,7 @@
 
 .method public readPoliciesFromXml(Lorg/xmlpull/v1/XmlPullParser;)V
     .locals 4
+    .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -1506,6 +1788,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 725
     iget-wide v0, p0, Landroid/app/admin/DeviceAdminInfo;->mUsesPolicies:J
 
     const-wide/16 v2, 0x0
@@ -1514,6 +1798,7 @@
 
     if-nez v0, :cond_0
 
+    .line 727
     const-string/jumbo v0, "flags"
 
     const/4 v1, 0x0
@@ -1522,27 +1807,35 @@
 
     move-result-object v0
 
+    .line 726
     invoke-static {v0}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v0
 
     iput-wide v0, p0, Landroid/app/admin/DeviceAdminInfo;->mUsesPolicies:J
 
+    .line 723
     :cond_0
     return-void
 .end method
 
 .method public setPermissions(J)V
     .locals 1
+    .param p1, "val"    # J
 
+    .prologue
+    .line 778
     iput-wide p1, p0, Landroid/app/admin/DeviceAdminInfo;->mUsesPolicies:J
 
+    .line 777
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 739
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1576,17 +1869,22 @@
 
 .method public usesPolicy(I)Z
     .locals 6
+    .param p1, "policyIdent"    # I
 
+    .prologue
     const/4 v0, 0x1
 
     const/4 v1, 0x0
 
+    .line 689
     const/16 v2, 0x1b
 
     if-lt p1, v2, :cond_0
 
+    .line 690
     return v1
 
+    .line 691
     :cond_0
     iget-wide v2, p0, Landroid/app/admin/DeviceAdminInfo;->mUsesPolicies:J
 
@@ -1613,6 +1911,7 @@
 
 .method public writePoliciesToXml(Lorg/xmlpull/v1/XmlSerializer;)V
     .locals 4
+    .param p1, "out"    # Lorg/xmlpull/v1/XmlSerializer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;,
@@ -1621,6 +1920,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 718
     const-string/jumbo v0, "flags"
 
     iget-wide v2, p0, Landroid/app/admin/DeviceAdminInfo;->mUsesPolicies:J
@@ -1633,19 +1934,26 @@
 
     invoke-interface {p1, v2, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
+    .line 717
     return-void
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
+    .prologue
+    .line 749
     iget-object v0, p0, Landroid/app/admin/DeviceAdminInfo;->mActivityInfo:Landroid/content/pm/ActivityInfo;
 
     invoke-virtual {v0, p1, p2}, Landroid/content/pm/ActivityInfo;->writeToParcel(Landroid/os/Parcel;I)V
 
+    .line 750
     iget-wide v0, p0, Landroid/app/admin/DeviceAdminInfo;->mUsesPolicies:J
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
+    .line 748
     return-void
 .end method

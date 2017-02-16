@@ -21,7 +21,11 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;Landroid/os/Handler;)V
     .locals 0
+    .param p1, "this$1"    # Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;
+    .param p2, "$anonymous0"    # Landroid/os/Handler;
 
+    .prologue
+    .line 190
     iput-object p1, p0, Lcom/android/internal/view/RotationPolicy$RotationPolicyListener$1;->this$1:Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -33,10 +37,15 @@
 # virtual methods
 .method public onChange(ZLandroid/net/Uri;)V
     .locals 1
+    .param p1, "selfChange"    # Z
+    .param p2, "uri"    # Landroid/net/Uri;
 
+    .prologue
+    .line 193
     iget-object v0, p0, Lcom/android/internal/view/RotationPolicy$RotationPolicyListener$1;->this$1:Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;
 
     invoke-virtual {v0}, Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;->onChange()V
 
+    .line 192
     return-void
 .end method

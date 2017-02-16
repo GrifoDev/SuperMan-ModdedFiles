@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Landroid/media/WFDUibcManager;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/media/WFDUibcManager;
 
+    .prologue
+    .line 111
     iput-object p1, p0, Landroid/media/WFDUibcManager$1;->this$0:Landroid/media/WFDUibcManager;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,13 +36,19 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 6
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const/16 v5, 0x6f
 
+    .line 114
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 115
+    .local v0, "action":Ljava/lang/String;
     invoke-static {}, Landroid/media/WFDUibcManager;->-get0()Z
 
     move-result v2
@@ -68,6 +77,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 117
     :cond_0
     const-string/jumbo v2, "com.samsung.intent.action.SEC_PRESENTATION_START"
 
@@ -77,12 +87,15 @@
 
     if-eqz v2, :cond_4
 
+    .line 118
     const-string/jumbo v2, "displayName"
 
     invoke-virtual {p2, v2, v5}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v1
 
+    .line 119
+    .local v1, "name":I
     iget-object v2, p0, Landroid/media/WFDUibcManager$1;->this$0:Landroid/media/WFDUibcManager;
 
     const-string/jumbo v3, "displayID"
@@ -95,6 +108,7 @@
 
     invoke-static {v2, v3}, Landroid/media/WFDUibcManager;->-set2(Landroid/media/WFDUibcManager;I)I
 
+    .line 120
     invoke-static {}, Landroid/media/WFDUibcManager;->-get0()Z
 
     move-result v2
@@ -139,6 +153,8 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 126
+    .end local v1    # "name":I
     :cond_1
     :goto_0
     const-string/jumbo v2, "com.samsung.android.video.START_PRESENTATION"
@@ -157,6 +173,7 @@
 
     if-eqz v2, :cond_5
 
+    .line 127
     :cond_2
     iget-object v2, p0, Landroid/media/WFDUibcManager$1;->this$0:Landroid/media/WFDUibcManager;
 
@@ -164,6 +181,7 @@
 
     invoke-static {v2, v3}, Landroid/media/WFDUibcManager;->-set0(Landroid/media/WFDUibcManager;Z)Z
 
+    .line 128
     invoke-static {}, Landroid/media/WFDUibcManager;->-get0()Z
 
     move-result v2
@@ -176,10 +194,12 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 113
     :cond_3
     :goto_1
     return-void
 
+    .line 121
     :cond_4
     const-string/jumbo v2, "com.samsung.intent.action.SEC_PRESENTATION_STOP"
 
@@ -189,12 +209,15 @@
 
     if-eqz v2, :cond_1
 
+    .line 122
     const-string/jumbo v2, "displayName"
 
     invoke-virtual {p2, v2, v5}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v1
 
+    .line 123
+    .restart local v1    # "name":I
     invoke-static {}, Landroid/media/WFDUibcManager;->-get0()Z
 
     move-result v2
@@ -241,6 +264,8 @@
 
     goto :goto_0
 
+    .line 129
+    .end local v1    # "name":I
     :cond_5
     const-string/jumbo v2, "com.samsung.android.video.END_PRESENTATION"
 
@@ -258,6 +283,7 @@
 
     if-eqz v2, :cond_3
 
+    .line 130
     :cond_6
     iget-object v2, p0, Landroid/media/WFDUibcManager$1;->this$0:Landroid/media/WFDUibcManager;
 
@@ -265,6 +291,7 @@
 
     invoke-static {v2, v3}, Landroid/media/WFDUibcManager;->-set0(Landroid/media/WFDUibcManager;Z)Z
 
+    .line 131
     invoke-static {}, Landroid/media/WFDUibcManager;->-get0()Z
 
     move-result v2

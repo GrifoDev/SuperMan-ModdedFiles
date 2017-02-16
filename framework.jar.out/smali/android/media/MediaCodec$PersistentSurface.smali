@@ -22,6 +22,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 1923
     invoke-direct {p0}, Landroid/view/Surface;-><init>()V
 
     return-void
@@ -32,9 +34,13 @@
 .method public release()V
     .locals 0
 
+    .prologue
+    .line 1927
     invoke-static {p0}, Landroid/media/MediaCodec;->-wrap0(Landroid/view/Surface;)V
 
+    .line 1928
     invoke-super {p0}, Landroid/view/Surface;->release()V
 
+    .line 1926
     return-void
 .end method

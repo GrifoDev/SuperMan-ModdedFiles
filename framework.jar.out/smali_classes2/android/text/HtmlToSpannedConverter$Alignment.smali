@@ -29,10 +29,15 @@
 
 .method public constructor <init>(Landroid/text/Layout$Alignment;)V
     .locals 0
+    .param p1, "alignment"    # Landroid/text/Layout$Alignment;
 
+    .prologue
+    .line 1338
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 1339
     iput-object p1, p0, Landroid/text/HtmlToSpannedConverter$Alignment;->mAlignment:Landroid/text/Layout$Alignment;
 
+    .line 1338
     return-void
 .end method

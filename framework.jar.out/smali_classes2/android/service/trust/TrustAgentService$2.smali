@@ -30,7 +30,13 @@
 # direct methods
 .method constructor <init>(Landroid/service/trust/TrustAgentService;Ljava/lang/CharSequence;JI)V
     .locals 1
+    .param p1, "this$0"    # Landroid/service/trust/TrustAgentService;
+    .param p2, "val$message"    # Ljava/lang/CharSequence;
+    .param p3, "val$durationMs"    # J
+    .param p5, "val$flags"    # I
 
+    .prologue
+    .line 306
     iput-object p1, p0, Landroid/service/trust/TrustAgentService$2;->this$0:Landroid/service/trust/TrustAgentService;
 
     iput-object p2, p0, Landroid/service/trust/TrustAgentService$2;->val$message:Ljava/lang/CharSequence;
@@ -49,6 +55,8 @@
 .method public run()V
     .locals 5
 
+    .prologue
+    .line 309
     iget-object v0, p0, Landroid/service/trust/TrustAgentService$2;->this$0:Landroid/service/trust/TrustAgentService;
 
     iget-object v1, p0, Landroid/service/trust/TrustAgentService$2;->val$message:Ljava/lang/CharSequence;
@@ -59,5 +67,6 @@
 
     invoke-virtual {v0, v1, v2, v3, v4}, Landroid/service/trust/TrustAgentService;->grantTrust(Ljava/lang/CharSequence;JI)V
 
+    .line 308
     return-void
 .end method

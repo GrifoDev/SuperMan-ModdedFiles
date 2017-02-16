@@ -28,7 +28,10 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;
 
+    .prologue
+    .line 2745
     iput-object p1, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate$SetSelectionCommand;->this$0:Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,6 +44,8 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 2751
     iget-object v0, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate$SetSelectionCommand;->this$0:Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;
 
     invoke-static {v0}, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->-get10(Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;)Landroid/widget/EditText;
@@ -53,5 +58,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/widget/EditText;->setSelection(II)V
 
+    .line 2750
     return-void
 .end method

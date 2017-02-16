@@ -31,6 +31,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 1631
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -38,7 +40,11 @@
 
 .method public static final getContentUri(Ljava/lang/String;J)Landroid/net/Uri;
     .locals 3
+    .param p0, "volumeName"    # Ljava/lang/String;
+    .param p1, "genreId"    # J
 
+    .prologue
+    .line 1635
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -53,8 +59,10 @@
 
     move-result-object v0
 
+    .line 1636
     const-string/jumbo v1, "/audio/genres/"
 
+    .line 1635
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -63,8 +71,10 @@
 
     move-result-object v0
 
+    .line 1636
     const-string/jumbo v1, "/members"
 
+    .line 1635
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0

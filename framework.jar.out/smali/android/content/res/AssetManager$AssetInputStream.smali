@@ -27,25 +27,35 @@
 # direct methods
 .method private constructor <init>(Landroid/content/res/AssetManager;J)V
     .locals 2
+    .param p1, "this$0"    # Landroid/content/res/AssetManager;
+    .param p2, "asset"    # J
 
+    .prologue
+    .line 657
     iput-object p1, p0, Landroid/content/res/AssetManager$AssetInputStream;->this$0:Landroid/content/res/AssetManager;
 
     invoke-direct {p0}, Ljava/io/InputStream;-><init>()V
 
+    .line 659
     iput-wide p2, p0, Landroid/content/res/AssetManager$AssetInputStream;->mAsset:J
 
+    .line 660
     invoke-static {p1, p2, p3}, Landroid/content/res/AssetManager;->-wrap2(Landroid/content/res/AssetManager;J)J
 
     move-result-wide v0
 
     iput-wide v0, p0, Landroid/content/res/AssetManager$AssetInputStream;->mLength:J
 
+    .line 657
     return-void
 .end method
 
 .method synthetic constructor <init>(Landroid/content/res/AssetManager;JLandroid/content/res/AssetManager$AssetInputStream;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/content/res/AssetManager;
+    .param p2, "asset"    # J
 
+    .prologue
     invoke-direct {p0, p1, p2, p3}, Landroid/content/res/AssetManager$AssetInputStream;-><init>(Landroid/content/res/AssetManager;J)V
 
     return-void
@@ -61,6 +71,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 669
     iget-object v2, p0, Landroid/content/res/AssetManager$AssetInputStream;->this$0:Landroid/content/res/AssetManager;
 
     iget-wide v4, p0, Landroid/content/res/AssetManager$AssetInputStream;->mAsset:J
@@ -69,6 +81,8 @@
 
     move-result-wide v0
 
+    .line 670
+    .local v0, "len":J
     const-wide/32 v2, 0x7fffffff
 
     cmp-long v2, v0, v2
@@ -94,12 +108,15 @@
         }
     .end annotation
 
+    .prologue
     const-wide/16 v4, 0x0
 
+    .line 673
     iget-object v1, p0, Landroid/content/res/AssetManager$AssetInputStream;->this$0:Landroid/content/res/AssetManager;
 
     monitor-enter v1
 
+    .line 674
     :try_start_0
     iget-wide v2, p0, Landroid/content/res/AssetManager$AssetInputStream;->mAsset:J
 
@@ -107,16 +124,19 @@
 
     if-eqz v0, :cond_0
 
+    .line 675
     iget-object v0, p0, Landroid/content/res/AssetManager$AssetInputStream;->this$0:Landroid/content/res/AssetManager;
 
     iget-wide v2, p0, Landroid/content/res/AssetManager$AssetInputStream;->mAsset:J
 
     invoke-static {v0, v2, v3}, Landroid/content/res/AssetManager;->-wrap6(Landroid/content/res/AssetManager;J)V
 
+    .line 676
     const-wide/16 v2, 0x0
 
     iput-wide v2, p0, Landroid/content/res/AssetManager$AssetInputStream;->mAsset:J
 
+    .line 677
     iget-object v0, p0, Landroid/content/res/AssetManager$AssetInputStream;->this$0:Landroid/content/res/AssetManager;
 
     invoke-virtual {p0}, Landroid/content/res/AssetManager$AssetInputStream;->hashCode()I
@@ -132,8 +152,10 @@
     :cond_0
     monitor-exit v1
 
+    .line 672
     return-void
 
+    .line 673
     :catchall_0
     move-exception v0
 
@@ -150,14 +172,19 @@
         }
     .end annotation
 
+    .prologue
+    .line 706
     invoke-virtual {p0}, Landroid/content/res/AssetManager$AssetInputStream;->close()V
 
+    .line 704
     return-void
 .end method
 
 .method public final getAssetInt()I
     .locals 1
 
+    .prologue
+    .line 649
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -168,6 +195,8 @@
 .method public final getNativeAsset()J
     .locals 2
 
+    .prologue
+    .line 655
     iget-wide v0, p0, Landroid/content/res/AssetManager$AssetInputStream;->mAsset:J
 
     return-wide v0
@@ -175,7 +204,10 @@
 
 .method public final mark(I)V
     .locals 7
+    .param p1, "readlimit"    # I
 
+    .prologue
+    .line 682
     iget-object v1, p0, Landroid/content/res/AssetManager$AssetInputStream;->this$0:Landroid/content/res/AssetManager;
 
     iget-wide v2, p0, Landroid/content/res/AssetManager$AssetInputStream;->mAsset:J
@@ -190,12 +222,15 @@
 
     iput-wide v0, p0, Landroid/content/res/AssetManager$AssetInputStream;->mMarkPos:J
 
+    .line 681
     return-void
 .end method
 
 .method public final markSupported()Z
     .locals 1
 
+    .prologue
+    .line 666
     const/4 v0, 0x1
 
     return v0
@@ -209,6 +244,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 663
     iget-object v0, p0, Landroid/content/res/AssetManager$AssetInputStream;->this$0:Landroid/content/res/AssetManager;
 
     iget-wide v2, p0, Landroid/content/res/AssetManager$AssetInputStream;->mAsset:J
@@ -222,12 +259,15 @@
 
 .method public final read([B)I
     .locals 7
+    .param p1, "b"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 688
     iget-object v1, p0, Landroid/content/res/AssetManager$AssetInputStream;->this$0:Landroid/content/res/AssetManager;
 
     iget-wide v2, p0, Landroid/content/res/AssetManager$AssetInputStream;->mAsset:J
@@ -247,12 +287,17 @@
 
 .method public final read([BII)I
     .locals 7
+    .param p1, "b"    # [B
+    .param p2, "off"    # I
+    .param p3, "len"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 691
     iget-object v1, p0, Landroid/content/res/AssetManager$AssetInputStream;->this$0:Landroid/content/res/AssetManager;
 
     iget-wide v2, p0, Landroid/content/res/AssetManager$AssetInputStream;->mAsset:J
@@ -278,6 +323,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 685
     iget-object v1, p0, Landroid/content/res/AssetManager$AssetInputStream;->this$0:Landroid/content/res/AssetManager;
 
     iget-wide v2, p0, Landroid/content/res/AssetManager$AssetInputStream;->mAsset:J
@@ -288,21 +335,25 @@
 
     invoke-static/range {v1 .. v6}, Landroid/content/res/AssetManager;->-wrap4(Landroid/content/res/AssetManager;JJI)J
 
+    .line 684
     return-void
 .end method
 
 .method public final skip(J)J
     .locals 11
+    .param p1, "n"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
     const-wide/16 v4, 0x0
 
     const/4 v6, 0x0
 
+    .line 694
     iget-object v1, p0, Landroid/content/res/AssetManager$AssetInputStream;->this$0:Landroid/content/res/AssetManager;
 
     iget-wide v2, p0, Landroid/content/res/AssetManager$AssetInputStream;->mAsset:J
@@ -311,6 +362,8 @@
 
     move-result-wide v8
 
+    .line 695
+    .local v8, "pos":J
     add-long v0, v8, p1
 
     iget-wide v2, p0, Landroid/content/res/AssetManager$AssetInputStream;->mLength:J
@@ -319,15 +372,18 @@
 
     if-lez v0, :cond_0
 
+    .line 696
     iget-wide v0, p0, Landroid/content/res/AssetManager$AssetInputStream;->mLength:J
 
     sub-long p1, v0, v8
 
+    .line 698
     :cond_0
     cmp-long v0, p1, v4
 
     if-lez v0, :cond_1
 
+    .line 699
     iget-object v1, p0, Landroid/content/res/AssetManager$AssetInputStream;->this$0:Landroid/content/res/AssetManager;
 
     iget-wide v2, p0, Landroid/content/res/AssetManager$AssetInputStream;->mAsset:J
@@ -336,6 +392,7 @@
 
     invoke-static/range {v1 .. v6}, Landroid/content/res/AssetManager;->-wrap4(Landroid/content/res/AssetManager;JJI)J
 
+    .line 701
     :cond_1
     return-wide p1
 .end method

@@ -21,21 +21,32 @@
 # direct methods
 .method constructor <init>(Landroid/media/soundtrigger/SoundTriggerDetector;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/media/soundtrigger/SoundTriggerDetector;
 
+    .prologue
+    .line 336
     iput-object p1, p0, Landroid/media/soundtrigger/SoundTriggerDetector$MyHandler;->this$0:Landroid/media/soundtrigger/SoundTriggerDetector;
 
+    .line 337
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
 
+    .line 336
     return-void
 .end method
 
 .method constructor <init>(Landroid/media/soundtrigger/SoundTriggerDetector;Landroid/os/Looper;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/media/soundtrigger/SoundTriggerDetector;
+    .param p2, "looper"    # Landroid/os/Looper;
 
+    .prologue
+    .line 340
     iput-object p1, p0, Landroid/media/soundtrigger/SoundTriggerDetector$MyHandler;->this$0:Landroid/media/soundtrigger/SoundTriggerDetector;
 
+    .line 341
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
+    .line 340
     return-void
 .end method
 
@@ -43,7 +54,10 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 346
     iget-object v0, p0, Landroid/media/soundtrigger/SoundTriggerDetector$MyHandler;->this$0:Landroid/media/soundtrigger/SoundTriggerDetector;
 
     invoke-static {v0}, Landroid/media/soundtrigger/SoundTriggerDetector;->-get0(Landroid/media/soundtrigger/SoundTriggerDetector;)Landroid/media/soundtrigger/SoundTriggerDetector$Callback;
@@ -52,6 +66,7 @@
 
     if-nez v0, :cond_0
 
+    .line 347
     const-string/jumbo v0, "SoundTriggerDetector"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -82,18 +97,23 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 348
     return-void
 
+    .line 350
     :cond_0
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
+    .line 364
     invoke-super {p0, p1}, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
 
+    .line 345
     :goto_0
     return-void
 
+    .line 352
     :pswitch_0
     iget-object v0, p0, Landroid/media/soundtrigger/SoundTriggerDetector$MyHandler;->this$0:Landroid/media/soundtrigger/SoundTriggerDetector;
 
@@ -109,6 +129,7 @@
 
     goto :goto_0
 
+    .line 355
     :pswitch_1
     iget-object v0, p0, Landroid/media/soundtrigger/SoundTriggerDetector$MyHandler;->this$0:Landroid/media/soundtrigger/SoundTriggerDetector;
 
@@ -120,6 +141,7 @@
 
     goto :goto_0
 
+    .line 358
     :pswitch_2
     iget-object v0, p0, Landroid/media/soundtrigger/SoundTriggerDetector$MyHandler;->this$0:Landroid/media/soundtrigger/SoundTriggerDetector;
 
@@ -131,6 +153,7 @@
 
     goto :goto_0
 
+    .line 361
     :pswitch_3
     iget-object v0, p0, Landroid/media/soundtrigger/SoundTriggerDetector$MyHandler;->this$0:Landroid/media/soundtrigger/SoundTriggerDetector;
 
@@ -142,6 +165,7 @@
 
     goto :goto_0
 
+    .line 350
     nop
 
     :pswitch_data_0

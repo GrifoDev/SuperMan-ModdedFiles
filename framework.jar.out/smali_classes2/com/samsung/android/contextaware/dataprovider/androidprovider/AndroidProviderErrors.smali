@@ -34,30 +34,40 @@
 .method static constructor <clinit>()V
     .locals 5
 
+    .prologue
     const/4 v4, 0x1
 
     const/4 v3, 0x0
 
+    .line 27
     new-instance v0, Lcom/samsung/android/contextaware/dataprovider/androidprovider/AndroidProviderErrors;
 
     const-string/jumbo v1, "SUCCESS"
 
+    .line 28
     const-string/jumbo v2, "Success"
 
+    .line 27
     invoke-direct {v0, v1, v3, v2}, Lcom/samsung/android/contextaware/dataprovider/androidprovider/AndroidProviderErrors;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
+    .line 28
     sput-object v0, Lcom/samsung/android/contextaware/dataprovider/androidprovider/AndroidProviderErrors;->SUCCESS:Lcom/samsung/android/contextaware/dataprovider/androidprovider/AndroidProviderErrors;
 
+    .line 30
     new-instance v0, Lcom/samsung/android/contextaware/dataprovider/androidprovider/AndroidProviderErrors;
 
     const-string/jumbo v1, "ERROR_UNKNOWN"
 
+    .line 31
     const-string/jumbo v2, "ERROR : Unknown"
 
+    .line 30
     invoke-direct {v0, v1, v4, v2}, Lcom/samsung/android/contextaware/dataprovider/androidprovider/AndroidProviderErrors;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
+    .line 31
     sput-object v0, Lcom/samsung/android/contextaware/dataprovider/androidprovider/AndroidProviderErrors;->ERROR_UNKNOWN:Lcom/samsung/android/contextaware/dataprovider/androidprovider/AndroidProviderErrors;
 
+    .line 25
     const/4 v0, 0x2
 
     new-array v0, v0, [Lcom/samsung/android/contextaware/dataprovider/androidprovider/AndroidProviderErrors;
@@ -77,19 +87,29 @@
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
     .locals 0
+    .param p3, "message"    # Ljava/lang/String;
 
+    .prologue
+    .line 42
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
+    .line 43
     iput-object p3, p0, Lcom/samsung/android/contextaware/dataprovider/androidprovider/AndroidProviderErrors;->message:Ljava/lang/String;
 
+    .line 42
     return-void
 .end method
 
 .method public static final getMessage(I)Ljava/lang/String;
     .locals 6
+    .param p0, "code"    # I
 
+    .prologue
+    .line 72
     const-string/jumbo v1, ""
 
+    .line 74
+    .local v1, "msg":Ljava/lang/String;
     invoke-static {}, Lcom/samsung/android/contextaware/dataprovider/androidprovider/AndroidProviderErrors;->values()[Lcom/samsung/android/contextaware/dataprovider/androidprovider/AndroidProviderErrors;
 
     move-result-object v3
@@ -103,14 +123,19 @@
 
     aget-object v0, v3, v2
 
+    .line 75
+    .local v0, "i":Lcom/samsung/android/contextaware/dataprovider/androidprovider/AndroidProviderErrors;
     invoke-virtual {v0}, Ljava/lang/Enum;->ordinal()I
 
     move-result v5
 
     if-ne v5, p0, :cond_2
 
+    .line 76
     iget-object v1, v0, Lcom/samsung/android/contextaware/dataprovider/androidprovider/AndroidProviderErrors;->message:Ljava/lang/String;
 
+    .line 81
+    .end local v0    # "i":Lcom/samsung/android/contextaware/dataprovider/androidprovider/AndroidProviderErrors;
     :cond_0
     invoke-virtual {v1}, Ljava/lang/String;->isEmpty()Z
 
@@ -118,13 +143,17 @@
 
     if-eqz v2, :cond_1
 
+    .line 82
     const-string/jumbo v2, "Message code is fault"
 
     invoke-static {v2}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger;->error(Ljava/lang/String;)V
 
+    .line 85
     :cond_1
     return-object v1
 
+    .line 74
+    .restart local v0    # "i":Lcom/samsung/android/contextaware/dataprovider/androidprovider/AndroidProviderErrors;
     :cond_2
     add-int/lit8 v2, v2, 0x1
 
@@ -133,7 +162,10 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/samsung/android/contextaware/dataprovider/androidprovider/AndroidProviderErrors;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 25
     const-class v0, Lcom/samsung/android/contextaware/dataprovider/androidprovider/AndroidProviderErrors;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -148,6 +180,8 @@
 .method public static values()[Lcom/samsung/android/contextaware/dataprovider/androidprovider/AndroidProviderErrors;
     .locals 1
 
+    .prologue
+    .line 25
     sget-object v0, Lcom/samsung/android/contextaware/dataprovider/androidprovider/AndroidProviderErrors;->$VALUES:[Lcom/samsung/android/contextaware/dataprovider/androidprovider/AndroidProviderErrors;
 
     return-object v0
@@ -158,6 +192,8 @@
 .method public final getCode()I
     .locals 1
 
+    .prologue
+    .line 52
     invoke-virtual {p0}, Ljava/lang/Enum;->ordinal()I
 
     move-result v0
@@ -168,6 +204,8 @@
 .method public final getMessage()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 61
     iget-object v0, p0, Lcom/samsung/android/contextaware/dataprovider/androidprovider/AndroidProviderErrors;->message:Ljava/lang/String;
 
     return-object v0
@@ -176,5 +214,7 @@
 .method public notifyFatalError()V
     .locals 0
 
+    .prologue
+    .line 96
     return-void
 .end method

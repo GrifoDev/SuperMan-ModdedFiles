@@ -27,6 +27,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 1234
     invoke-direct {p0}, Landroid/app/SystemServiceRegistry$CachedServiceFetcher;-><init>()V
 
     return-void
@@ -36,17 +38,24 @@
 # virtual methods
 .method public createService(Landroid/app/ContextImpl;)Lcom/samsung/android/codecsolution/SemCodecSolutionManager;
     .locals 3
+    .param p1, "ctx"    # Landroid/app/ContextImpl;
 
+    .prologue
+    .line 1237
     const-string/jumbo v2, "CodecSolution"
 
     invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
+    .line 1238
+    .local v0, "b":Landroid/os/IBinder;
     invoke-static {v0}, Lcom/samsung/android/codecsolution/ICodecSolutionManagerService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/codecsolution/ICodecSolutionManagerService;
 
     move-result-object v1
 
+    .line 1239
+    .local v1, "service":Lcom/samsung/android/codecsolution/ICodecSolutionManagerService;
     new-instance v2, Lcom/samsung/android/codecsolution/SemCodecSolutionManager;
 
     invoke-direct {v2, v1}, Lcom/samsung/android/codecsolution/SemCodecSolutionManager;-><init>(Lcom/samsung/android/codecsolution/ICodecSolutionManagerService;)V
@@ -56,7 +65,10 @@
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .param p1, "ctx"    # Landroid/app/ContextImpl;
 
+    .prologue
+    .line 1236
     invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$101;->createService(Landroid/app/ContextImpl;)Lcom/samsung/android/codecsolution/SemCodecSolutionManager;
 
     move-result-object v0

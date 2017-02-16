@@ -32,7 +32,14 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestDispatcher;Landroid/view/InputEvent;[Landroid/os/Parcelable;ZLcom/samsung/android/content/smartclip/SmartClipRemoteRequestInfo;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestDispatcher;
+    .param p2, "val$event"    # Landroid/view/InputEvent;
+    .param p3, "val$events"    # [Landroid/os/Parcelable;
+    .param p4, "val$waitUntilConsume"    # Z
+    .param p5, "val$request"    # Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestInfo;
 
+    .prologue
+    .line 215
     iput-object p1, p0, Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestDispatcher$5;->this$0:Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestDispatcher;
 
     iput-object p2, p0, Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestDispatcher$5;->val$event:Landroid/view/InputEvent;
@@ -53,10 +60,14 @@
 .method public run()V
     .locals 6
 
+    .prologue
+    .line 218
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
 
+    .line 219
+    .local v0, "startTime":J
     iget-object v2, p0, Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestDispatcher$5;->this$0:Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestDispatcher;
 
     invoke-static {v2}, Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestDispatcher;->-get0(Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestDispatcher;)Z
@@ -65,6 +76,7 @@
 
     if-eqz v2, :cond_0
 
+    .line 220
     const-string/jumbo v2, "SmartClipRemoteRequestDispatcher"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -89,6 +101,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 223
     :cond_0
     iget-object v2, p0, Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestDispatcher$5;->this$0:Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestDispatcher;
 
@@ -98,6 +111,7 @@
 
     invoke-static {v2, v3, v4}, Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestDispatcher;->-wrap4(Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestDispatcher;Landroid/view/InputEvent;Z)V
 
+    .line 224
     iget-object v2, p0, Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestDispatcher$5;->val$event:Landroid/view/InputEvent;
 
     iget-object v3, p0, Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestDispatcher$5;->val$events:[Landroid/os/Parcelable;
@@ -112,10 +126,12 @@
 
     if-ne v2, v3, :cond_2
 
+    .line 225
     iget-boolean v2, p0, Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestDispatcher$5;->val$waitUntilConsume:Z
 
     if-eqz v2, :cond_1
 
+    .line 226
     iget-object v2, p0, Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestDispatcher$5;->this$0:Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestDispatcher;
 
     iget-object v3, p0, Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestDispatcher$5;->val$request:Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestInfo;
@@ -124,6 +140,7 @@
 
     invoke-static {v2, v3, v4}, Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestDispatcher;->-wrap5(Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestDispatcher;Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestInfo;Landroid/os/Parcelable;)V
 
+    .line 228
     :cond_1
     const-string/jumbo v2, "SmartClipRemoteRequestDispatcher"
 
@@ -153,6 +170,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 217
     :cond_2
     return-void
 .end method

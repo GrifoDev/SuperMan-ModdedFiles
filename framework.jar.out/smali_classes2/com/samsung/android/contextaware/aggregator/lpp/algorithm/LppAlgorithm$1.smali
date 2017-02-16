@@ -34,7 +34,10 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/contextaware/aggregator/lpp/algorithm/LppAlgorithm;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/samsung/android/contextaware/aggregator/lpp/algorithm/LppAlgorithm;
 
+    .prologue
+    .line 208
     iput-object p1, p0, Lcom/samsung/android/contextaware/aggregator/lpp/algorithm/LppAlgorithm$1;->this$0:Lcom/samsung/android/contextaware/aggregator/lpp/algorithm/LppAlgorithm;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,7 +49,11 @@
 # virtual methods
 .method public compare(Lcom/samsung/android/contextaware/aggregator/lpp/LppLocation;Lcom/samsung/android/contextaware/aggregator/lpp/LppLocation;)I
     .locals 4
+    .param p1, "LppLoc1"    # Lcom/samsung/android/contextaware/aggregator/lpp/LppLocation;
+    .param p2, "LppLoc2"    # Lcom/samsung/android/contextaware/aggregator/lpp/LppLocation;
 
+    .prologue
+    .line 212
     iget-wide v0, p1, Lcom/samsung/android/contextaware/aggregator/lpp/LppLocation;->Capturedtime:J
 
     iget-wide v2, p2, Lcom/samsung/android/contextaware/aggregator/lpp/LppLocation;->Capturedtime:J
@@ -59,6 +66,7 @@
 
     return v0
 
+    .line 213
     :cond_0
     iget-wide v0, p1, Lcom/samsung/android/contextaware/aggregator/lpp/LppLocation;->Capturedtime:J
 
@@ -81,11 +89,17 @@
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
+    .param p1, "LppLoc1"    # Ljava/lang/Object;
+    .param p2, "LppLoc2"    # Ljava/lang/Object;
 
+    .prologue
+    .line 210
     check-cast p1, Lcom/samsung/android/contextaware/aggregator/lpp/LppLocation;
 
+    .end local p1    # "LppLoc1":Ljava/lang/Object;
     check-cast p2, Lcom/samsung/android/contextaware/aggregator/lpp/LppLocation;
 
+    .end local p2    # "LppLoc2":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Lcom/samsung/android/contextaware/aggregator/lpp/algorithm/LppAlgorithm$1;->compare(Lcom/samsung/android/contextaware/aggregator/lpp/LppLocation;Lcom/samsung/android/contextaware/aggregator/lpp/LppLocation;)I
 
     move-result v0

@@ -32,7 +32,10 @@
 # direct methods
 .method constructor <init>(Landroid/accounts/AccountManager;)V
     .locals 0
+    .param p1, "val$this$0"    # Landroid/accounts/AccountManager;
 
+    .prologue
+    .line 2052
     iput-object p1, p0, Landroid/accounts/AccountManager$BaseFutureTask$1;->val$this$0:Landroid/accounts/AccountManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -56,6 +59,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 2055
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "this should never be called"

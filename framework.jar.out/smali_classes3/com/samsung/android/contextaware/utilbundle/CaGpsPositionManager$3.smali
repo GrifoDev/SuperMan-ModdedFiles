@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/contextaware/utilbundle/CaGpsPositionManager;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/samsung/android/contextaware/utilbundle/CaGpsPositionManager;
 
+    .prologue
+    .line 218
     iput-object p1, p0, Lcom/samsung/android/contextaware/utilbundle/CaGpsPositionManager$3;->this$0:Lcom/samsung/android/contextaware/utilbundle/CaGpsPositionManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +40,8 @@
 .method public run()V
     .locals 7
 
+    .prologue
+    .line 221
     iget-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/CaGpsPositionManager$3;->this$0:Lcom/samsung/android/contextaware/utilbundle/CaGpsPositionManager;
 
     invoke-static {v0}, Lcom/samsung/android/contextaware/utilbundle/CaGpsPositionManager;->-get0(Lcom/samsung/android/contextaware/utilbundle/CaGpsPositionManager;)Landroid/location/LocationManager;
@@ -45,6 +50,7 @@
 
     const-string/jumbo v1, "gps"
 
+    .line 222
     const-wide/16 v2, 0x3e8
 
     const/4 v4, 0x0
@@ -61,7 +67,9 @@
 
     move-result-object v6
 
+    .line 221
     invoke-virtual/range {v0 .. v6}, Landroid/location/LocationManager;->requestLocationUpdates(Ljava/lang/String;JFLandroid/location/LocationListener;Landroid/os/Looper;)V
 
+    .line 220
     return-void
 .end method

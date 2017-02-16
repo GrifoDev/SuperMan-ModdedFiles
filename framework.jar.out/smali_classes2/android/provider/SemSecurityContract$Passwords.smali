@@ -30,22 +30,28 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 67
     sget-object v0, Landroid/provider/SemSecurityContract;->AUTHORITY_URI:Landroid/net/Uri;
 
     const-string/jumbo v1, "password"
 
+    .line 66
     invoke-static {v0, v1}, Landroid/net/Uri;->withAppendedPath(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v0
 
     sput-object v0, Landroid/provider/SemSecurityContract$Passwords;->CONTENT_URI:Landroid/net/Uri;
 
+    .line 54
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 54
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

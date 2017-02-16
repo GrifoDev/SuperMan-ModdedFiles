@@ -33,7 +33,9 @@
 # direct methods
 .method static synthetic -wrap0(J)Ljava/util/zip/ZipEntry;
     .locals 2
+    .param p0, "iterationHandle"    # J
 
+    .prologue
     invoke-static {p0, p1}, Landroid/util/jar/StrictJarFile;->nativeNextEntry(J)Ljava/util/zip/ZipEntry;
 
     move-result-object v0
@@ -43,7 +45,10 @@
 
 .method static synthetic -wrap1(JLjava/lang/String;)J
     .locals 2
+    .param p0, "nativeHandle"    # J
+    .param p2, "prefix"    # Ljava/lang/String;
 
+    .prologue
     invoke-static {p0, p1, p2}, Landroid/util/jar/StrictJarFile;->nativeStartIteration(JLjava/lang/String;)J
 
     move-result-wide v0
@@ -53,6 +58,7 @@
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
+    .param p1, "fileName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -60,15 +66,21 @@
         }
     .end annotation
 
+    .prologue
     const/4 v0, 0x1
 
+    .line 61
     invoke-direct {p0, p1, v0, v0}, Landroid/util/jar/StrictJarFile;-><init>(Ljava/lang/String;ZZ)V
 
+    .line 60
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;ZZ)V
     .locals 10
+    .param p1, "fileName"    # Ljava/lang/String;
+    .param p2, "verify"    # Z
+    .param p3, "signatureSchemeRollbackProtectionsEnforced"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -76,22 +88,27 @@
         }
     .end annotation
 
+    .prologue
     const/4 v6, 0x0
 
+    .line 73
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 56
     invoke-static {}, Ldalvik/system/CloseGuard;->get()Ldalvik/system/CloseGuard;
 
     move-result-object v5
 
     iput-object v5, p0, Landroid/util/jar/StrictJarFile;->guard:Ldalvik/system/CloseGuard;
 
+    .line 77
     invoke-static {p1}, Landroid/util/jar/StrictJarFile;->nativeOpenJarFile(Ljava/lang/String;)J
 
     move-result-wide v8
 
     iput-wide v8, p0, Landroid/util/jar/StrictJarFile;->nativeHandle:J
 
+    .line 78
     new-instance v5, Ljava/io/RandomAccessFile;
 
     const-string/jumbo v7, "r"
@@ -100,13 +117,17 @@
 
     iput-object v5, p0, Landroid/util/jar/StrictJarFile;->raf:Ljava/io/RandomAccessFile;
 
+    .line 84
     if-eqz p2, :cond_3
 
+    .line 85
     :try_start_0
     invoke-direct {p0}, Landroid/util/jar/StrictJarFile;->getMetaEntries()Ljava/util/HashMap;
 
     move-result-object v4
 
+    .line 86
+    .local v4, "metaEntries":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;[B>;"
     new-instance v7, Landroid/util/jar/StrictJarManifest;
 
     const-string/jumbo v5, "META-INF/MANIFEST.MF"
@@ -123,14 +144,19 @@
 
     iput-object v7, p0, Landroid/util/jar/StrictJarFile;->manifest:Landroid/util/jar/StrictJarManifest;
 
+    .line 88
     new-instance v5, Landroid/util/jar/StrictJarVerifier;
 
+    .line 90
     iget-object v7, p0, Landroid/util/jar/StrictJarFile;->manifest:Landroid/util/jar/StrictJarManifest;
 
+    .line 88
     invoke-direct {v5, p1, v7, v4, p3}, Landroid/util/jar/StrictJarVerifier;-><init>(Ljava/lang/String;Landroid/util/jar/StrictJarManifest;Ljava/util/HashMap;Z)V
 
+    .line 87
     iput-object v5, p0, Landroid/util/jar/StrictJarFile;->verifier:Landroid/util/jar/StrictJarVerifier;
 
+    .line 93
     iget-object v5, p0, Landroid/util/jar/StrictJarFile;->manifest:Landroid/util/jar/StrictJarManifest;
 
     invoke-virtual {v5}, Landroid/util/jar/StrictJarManifest;->getEntries()Ljava/util/Map;
@@ -141,10 +167,13 @@
 
     move-result-object v3
 
+    .line 94
+    .local v3, "files":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
+    .local v2, "file$iterator":Ljava/util/Iterator;
     :cond_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
@@ -158,12 +187,15 @@
 
     check-cast v1, Ljava/lang/String;
 
+    .line 95
+    .local v1, "file":Ljava/lang/String;
     invoke-virtual {p0, v1}, Landroid/util/jar/StrictJarFile;->findEntry(Ljava/lang/String;)Ljava/util/zip/ZipEntry;
 
     move-result-object v5
 
     if-nez v5, :cond_0
 
+    .line 96
     new-instance v5, Ljava/lang/SecurityException;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -201,19 +233,33 @@
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 106
+    .end local v1    # "file":Ljava/lang/String;
+    .end local v2    # "file$iterator":Ljava/util/Iterator;
+    .end local v3    # "files":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
+    .end local v4    # "metaEntries":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;[B>;"
     :catch_0
     move-exception v0
 
+    .line 107
+    .local v0, "e":Ljava/lang/Exception;
     iget-wide v6, p0, Landroid/util/jar/StrictJarFile;->nativeHandle:J
 
     invoke-static {v6, v7}, Landroid/util/jar/StrictJarFile;->nativeClose(J)V
 
+    .line 108
     iget-object v5, p0, Landroid/util/jar/StrictJarFile;->raf:Ljava/io/RandomAccessFile;
 
     invoke-static {v5}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
+    .line 109
     throw v0
 
+    .line 100
+    .end local v0    # "e":Ljava/lang/Exception;
+    .restart local v2    # "file$iterator":Ljava/util/Iterator;
+    .restart local v3    # "files":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
+    .restart local v4    # "metaEntries":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;[B>;"
     :cond_1
     :try_start_1
     iget-object v5, p0, Landroid/util/jar/StrictJarFile;->verifier:Landroid/util/jar/StrictJarVerifier;
@@ -236,6 +282,10 @@
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/lang/SecurityException; {:try_start_1 .. :try_end_1} :catch_0
 
+    .line 112
+    .end local v2    # "file$iterator":Ljava/util/Iterator;
+    .end local v3    # "files":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
+    .end local v4    # "metaEntries":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;[B>;"
     :goto_1
     iget-object v5, p0, Landroid/util/jar/StrictJarFile;->guard:Ldalvik/system/CloseGuard;
 
@@ -243,23 +293,34 @@
 
     invoke-virtual {v5, v6}, Ldalvik/system/CloseGuard;->open(Ljava/lang/String;)V
 
+    .line 76
     return-void
 
+    .restart local v2    # "file$iterator":Ljava/util/Iterator;
+    .restart local v3    # "files":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
+    .restart local v4    # "metaEntries":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;[B>;"
     :cond_2
     move v5, v6
 
+    .line 100
     goto :goto_0
 
+    .line 102
+    .end local v2    # "file$iterator":Ljava/util/Iterator;
+    .end local v3    # "files":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
+    .end local v4    # "metaEntries":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;[B>;"
     :cond_3
     const/4 v5, 0x0
 
     :try_start_2
     iput-boolean v5, p0, Landroid/util/jar/StrictJarFile;->isSigned:Z
 
+    .line 103
     const/4 v5, 0x0
 
     iput-object v5, p0, Landroid/util/jar/StrictJarFile;->manifest:Landroid/util/jar/StrictJarManifest;
 
+    .line 104
     const/4 v5, 0x0
 
     iput-object v5, p0, Landroid/util/jar/StrictJarFile;->verifier:Landroid/util/jar/StrictJarVerifier;
@@ -288,10 +349,14 @@
         }
     .end annotation
 
+    .prologue
+    .line 254
     new-instance v2, Ljava/util/HashMap;
 
     invoke-direct {v2}, Ljava/util/HashMap;-><init>()V
 
+    .line 256
+    .local v2, "metaEntries":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;[B>;"
     new-instance v1, Landroid/util/jar/StrictJarFile$EntryIterator;
 
     iget-wide v4, p0, Landroid/util/jar/StrictJarFile;->nativeHandle:J
@@ -300,6 +365,8 @@
 
     invoke-direct {v1, v4, v5, v3}, Landroid/util/jar/StrictJarFile$EntryIterator;-><init>(JLjava/lang/String;)V
 
+    .line 257
+    .local v1, "entryIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/zip/ZipEntry;>;"
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -307,12 +374,15 @@
 
     if-eqz v3, :cond_0
 
+    .line 258
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Ljava/util/zip/ZipEntry;
 
+    .line 259
+    .local v0, "entry":Ljava/util/zip/ZipEntry;
     invoke-virtual {v0}, Ljava/util/zip/ZipEntry;->getName()Ljava/lang/String;
 
     move-result-object v3
@@ -329,19 +399,25 @@
 
     goto :goto_0
 
+    .line 262
+    .end local v0    # "entry":Ljava/util/zip/ZipEntry;
     :cond_0
     return-object v2
 .end method
 
 .method private getZipInputStream(Ljava/util/zip/ZipEntry;)Ljava/io/InputStream;
     .locals 10
+    .param p1, "ze"    # Ljava/util/zip/ZipEntry;
 
+    .prologue
+    .line 204
     invoke-virtual {p1}, Ljava/util/zip/ZipEntry;->getMethod()I
 
     move-result v1
 
     if-nez v1, :cond_0
 
+    .line 205
     new-instance v0, Landroid/util/jar/StrictJarFile$RAFStream;
 
     iget-object v1, p0, Landroid/util/jar/StrictJarFile;->raf:Ljava/io/RandomAccessFile;
@@ -350,6 +426,7 @@
 
     move-result-wide v2
 
+    .line 206
     invoke-virtual {p1}, Ljava/util/zip/ZipEntry;->getDataOffset()J
 
     move-result-wide v4
@@ -360,13 +437,16 @@
 
     add-long/2addr v4, v8
 
+    .line 205
     invoke-direct/range {v0 .. v5}, Landroid/util/jar/StrictJarFile$RAFStream;-><init>(Ljava/io/RandomAccessFile;JJ)V
 
     return-object v0
 
+    .line 208
     :cond_0
     new-instance v0, Landroid/util/jar/StrictJarFile$RAFStream;
 
+    .line 209
     iget-object v1, p0, Landroid/util/jar/StrictJarFile;->raf:Ljava/io/RandomAccessFile;
 
     invoke-virtual {p1}, Ljava/util/zip/ZipEntry;->getDataOffset()J
@@ -383,8 +463,11 @@
 
     add-long/2addr v4, v8
 
+    .line 208
     invoke-direct/range {v0 .. v5}, Landroid/util/jar/StrictJarFile$RAFStream;-><init>(Ljava/io/RandomAccessFile;JJ)V
 
+    .line 211
+    .local v0, "wrapped":Landroid/util/jar/StrictJarFile$RAFStream;
     invoke-virtual {p1}, Ljava/util/zip/ZipEntry;->getSize()J
 
     move-result-wide v2
@@ -403,6 +486,8 @@
 
     move-result v6
 
+    .line 212
+    .local v6, "bufSize":I
     new-instance v1, Landroid/util/jar/StrictJarFile$ZipInflaterInputStream;
 
     new-instance v2, Ljava/util/zip/Inflater;
@@ -446,33 +531,43 @@
         }
     .end annotation
 
+    .prologue
+    .line 194
     iget-boolean v0, p0, Landroid/util/jar/StrictJarFile;->closed:Z
 
     if-nez v0, :cond_0
 
+    .line 195
     iget-object v0, p0, Landroid/util/jar/StrictJarFile;->guard:Ldalvik/system/CloseGuard;
 
     invoke-virtual {v0}, Ldalvik/system/CloseGuard;->close()V
 
+    .line 197
     iget-wide v0, p0, Landroid/util/jar/StrictJarFile;->nativeHandle:J
 
     invoke-static {v0, v1}, Landroid/util/jar/StrictJarFile;->nativeClose(J)V
 
+    .line 198
     iget-object v0, p0, Landroid/util/jar/StrictJarFile;->raf:Ljava/io/RandomAccessFile;
 
     invoke-static {v0}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
+    .line 199
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/util/jar/StrictJarFile;->closed:Z
 
+    .line 193
     :cond_0
     return-void
 .end method
 
 .method public findEntry(Ljava/lang/String;)Ljava/util/zip/ZipEntry;
     .locals 2
+    .param p1, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 124
     iget-wide v0, p0, Landroid/util/jar/StrictJarFile;->nativeHandle:J
 
     invoke-static {v0, v1, p1}, Landroid/util/jar/StrictJarFile;->nativeFindEntry(JLjava/lang/String;)Ljava/util/zip/ZipEntry;
@@ -484,11 +579,15 @@
 
 .method public getCertificateChains(Ljava/util/zip/ZipEntry;)[[Ljava/security/cert/Certificate;
     .locals 2
+    .param p1, "ze"    # Ljava/util/zip/ZipEntry;
 
+    .prologue
+    .line 136
     iget-boolean v0, p0, Landroid/util/jar/StrictJarFile;->isSigned:Z
 
     if-eqz v0, :cond_0
 
+    .line 137
     iget-object v0, p0, Landroid/util/jar/StrictJarFile;->verifier:Landroid/util/jar/StrictJarVerifier;
 
     invoke-virtual {p1}, Ljava/util/zip/ZipEntry;->getName()Ljava/lang/String;
@@ -501,6 +600,7 @@
 
     return-object v0
 
+    .line 140
     :cond_0
     const/4 v0, 0x0
 
@@ -509,15 +609,19 @@
 
 .method public getCertificates(Ljava/util/zip/ZipEntry;)[Ljava/security/cert/Certificate;
     .locals 9
+    .param p1, "ze"    # Ljava/util/zip/ZipEntry;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    .prologue
     const/4 v6, 0x0
 
+    .line 155
     iget-boolean v5, p0, Landroid/util/jar/StrictJarFile;->isSigned:Z
 
     if-eqz v5, :cond_2
 
+    .line 156
     iget-object v5, p0, Landroid/util/jar/StrictJarFile;->verifier:Landroid/util/jar/StrictJarVerifier;
 
     invoke-virtual {p1}, Ljava/util/zip/ZipEntry;->getName()Ljava/lang/String;
@@ -528,8 +632,12 @@
 
     move-result-object v0
 
+    .line 159
+    .local v0, "certChains":[[Ljava/security/cert/Certificate;
     const/4 v3, 0x0
 
+    .line 160
+    .local v3, "count":I
     array-length v7, v0
 
     move v5, v6
@@ -539,19 +647,28 @@
 
     aget-object v2, v0, v5
 
+    .line 161
+    .local v2, "chain":[Ljava/security/cert/Certificate;
     array-length v8, v2
 
     add-int/2addr v3, v8
 
+    .line 160
     add-int/lit8 v5, v5, 0x1
 
     goto :goto_0
 
+    .line 165
+    .end local v2    # "chain":[Ljava/security/cert/Certificate;
     :cond_0
     new-array v1, v3, [Ljava/security/cert/Certificate;
 
+    .line 166
+    .local v1, "certs":[Ljava/security/cert/Certificate;
     const/4 v4, 0x0
 
+    .line 167
+    .local v4, "i":I
     array-length v7, v0
 
     move v5, v6
@@ -561,21 +678,32 @@
 
     aget-object v2, v0, v5
 
+    .line 168
+    .restart local v2    # "chain":[Ljava/security/cert/Certificate;
     array-length v8, v2
 
     invoke-static {v2, v6, v1, v4, v8}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
+    .line 169
     array-length v8, v2
 
     add-int/2addr v4, v8
 
+    .line 167
     add-int/lit8 v5, v5, 0x1
 
     goto :goto_1
 
+    .line 172
+    .end local v2    # "chain":[Ljava/security/cert/Certificate;
     :cond_1
     return-object v1
 
+    .line 175
+    .end local v0    # "certChains":[[Ljava/security/cert/Certificate;
+    .end local v1    # "certs":[Ljava/security/cert/Certificate;
+    .end local v3    # "count":I
+    .end local v4    # "i":I
     :cond_2
     const/4 v5, 0x0
 
@@ -584,15 +712,21 @@
 
 .method public getInputStream(Ljava/util/zip/ZipEntry;)Ljava/io/InputStream;
     .locals 6
+    .param p1, "ze"    # Ljava/util/zip/ZipEntry;
 
+    .prologue
+    .line 179
     invoke-direct {p0, p1}, Landroid/util/jar/StrictJarFile;->getZipInputStream(Ljava/util/zip/ZipEntry;)Ljava/io/InputStream;
 
     move-result-object v1
 
+    .line 181
+    .local v1, "is":Ljava/io/InputStream;
     iget-boolean v2, p0, Landroid/util/jar/StrictJarFile;->isSigned:Z
 
     if-eqz v2, :cond_1
 
+    .line 182
     iget-object v2, p0, Landroid/util/jar/StrictJarFile;->verifier:Landroid/util/jar/StrictJarVerifier;
 
     invoke-virtual {p1}, Ljava/util/zip/ZipEntry;->getName()Ljava/lang/String;
@@ -603,10 +737,14 @@
 
     move-result-object v0
 
+    .line 183
+    .local v0, "entry":Landroid/util/jar/StrictJarVerifier$VerifierEntry;
     if-nez v0, :cond_0
 
+    .line 184
     return-object v1
 
+    .line 187
     :cond_0
     new-instance v2, Landroid/util/jar/StrictJarFile$JarFileInputStream;
 
@@ -618,6 +756,8 @@
 
     return-object v2
 
+    .line 190
+    .end local v0    # "entry":Landroid/util/jar/StrictJarVerifier$VerifierEntry;
     :cond_1
     return-object v1
 .end method
@@ -625,6 +765,8 @@
 .method public getManifest()Landroid/util/jar/StrictJarManifest;
     .locals 1
 
+    .prologue
+    .line 116
     iget-object v0, p0, Landroid/util/jar/StrictJarFile;->manifest:Landroid/util/jar/StrictJarManifest;
 
     return-object v0
@@ -648,6 +790,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 120
     new-instance v0, Landroid/util/jar/StrictJarFile$EntryIterator;
 
     iget-wide v2, p0, Landroid/util/jar/StrictJarFile;->nativeHandle:J

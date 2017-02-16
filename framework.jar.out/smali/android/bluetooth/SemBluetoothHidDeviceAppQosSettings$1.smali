@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 112
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,7 +42,10 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/bluetooth/SemBluetoothHidDeviceAppQosSettings;
     .locals 7
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 117
     new-instance v0, Landroid/bluetooth/SemBluetoothHidDeviceAppQosSettings;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
@@ -55,10 +60,12 @@
 
     move-result v3
 
+    .line 118
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
+    .line 119
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
@@ -67,6 +74,7 @@
 
     move-result v6
 
+    .line 117
     invoke-direct/range {v0 .. v6}, Landroid/bluetooth/SemBluetoothHidDeviceAppQosSettings;-><init>(IIIIII)V
 
     return-object v0
@@ -74,7 +82,10 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 115
     invoke-virtual {p0, p1}, Landroid/bluetooth/SemBluetoothHidDeviceAppQosSettings$1;->createFromParcel(Landroid/os/Parcel;)Landroid/bluetooth/SemBluetoothHidDeviceAppQosSettings;
 
     move-result-object v0
@@ -84,7 +95,10 @@
 
 .method public newArray(I)[Landroid/bluetooth/SemBluetoothHidDeviceAppQosSettings;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 124
     new-array v0, p1, [Landroid/bluetooth/SemBluetoothHidDeviceAppQosSettings;
 
     return-object v0
@@ -92,7 +106,10 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 123
     invoke-virtual {p0, p1}, Landroid/bluetooth/SemBluetoothHidDeviceAppQosSettings$1;->newArray(I)[Landroid/bluetooth/SemBluetoothHidDeviceAppQosSettings;
 
     move-result-object v0

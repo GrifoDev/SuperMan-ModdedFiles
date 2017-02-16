@@ -43,26 +43,33 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 102
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 48
     new-instance v0, Landroid/view/WindowId$FocusObserver$1;
 
     invoke-direct {v0, p0}, Landroid/view/WindowId$FocusObserver$1;-><init>(Landroid/view/WindowId$FocusObserver;)V
 
     iput-object v0, p0, Landroid/view/WindowId$FocusObserver;->mIObserver:Landroid/view/IWindowFocusObserver$Stub;
 
+    .line 78
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
+    .line 77
     iput-object v0, p0, Landroid/view/WindowId$FocusObserver;->mRegistrations:Ljava/util/HashMap;
 
+    .line 103
     new-instance v0, Landroid/view/WindowId$FocusObserver$H;
 
     invoke-direct {v0, p0}, Landroid/view/WindowId$FocusObserver$H;-><init>(Landroid/view/WindowId$FocusObserver;)V
 
     iput-object v0, p0, Landroid/view/WindowId$FocusObserver;->mHandler:Landroid/os/Handler;
 
+    .line 102
     return-void
 .end method
 

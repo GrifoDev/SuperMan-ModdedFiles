@@ -46,6 +46,8 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
+    .line 208
     const/16 v0, 0xb
 
     new-array v0, v0, [Ljava/lang/String;
@@ -74,6 +76,7 @@
 
     aput-object v1, v0, v2
 
+    .line 209
     const-string/jumbo v1, "WPA2_PSK"
 
     const/4 v2, 0x4
@@ -116,14 +119,18 @@
 
     aput-object v1, v0, v2
 
+    .line 208
     sput-object v0, Landroid/net/wifi/WifiConfiguration$KeyMgmt;->strings:[Ljava/lang/String;
 
+    .line 170
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 171
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

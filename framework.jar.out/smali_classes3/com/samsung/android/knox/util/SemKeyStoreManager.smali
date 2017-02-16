@@ -20,25 +20,34 @@
 # direct methods
 .method private constructor <init>(Landroid/os/IBinder;)V
     .locals 1
+    .param p1, "binder"    # Landroid/os/IBinder;
 
+    .prologue
+    .line 46
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 47
     invoke-static {p1}, Lcom/samsung/android/knox/util/ISemKeyStoreService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/knox/util/ISemKeyStoreService;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/samsung/android/knox/util/SemKeyStoreManager;->mRemoteServiceKeystore:Lcom/samsung/android/knox/util/ISemKeyStoreService;
 
+    .line 46
     return-void
 .end method
 
 .method public static getInstance()Lcom/samsung/android/knox/util/SemKeyStoreManager;
     .locals 2
 
+    .prologue
+    .line 97
     new-instance v0, Lcom/samsung/android/knox/util/SemKeyStoreManager;
 
+    .line 98
     const-string/jumbo v1, "emailksproxy"
 
+    .line 97
     invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v1
@@ -58,6 +67,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 90
     iget-object v0, p0, Lcom/samsung/android/knox/util/SemKeyStoreManager;->mRemoteServiceKeystore:Lcom/samsung/android/knox/util/ISemKeyStoreService;
 
     invoke-interface {v0}, Lcom/samsung/android/knox/util/ISemKeyStoreService;->getKeystoreStatus()I
@@ -69,29 +80,38 @@
 
 .method public grantAccess(ILjava/lang/String;)V
     .locals 1
+    .param p1, "uid"    # I
+    .param p2, "alias"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 78
     iget-object v0, p0, Lcom/samsung/android/knox/util/SemKeyStoreManager;->mRemoteServiceKeystore:Lcom/samsung/android/knox/util/ISemKeyStoreService;
 
     invoke-interface {v0, p1, p2}, Lcom/samsung/android/knox/util/ISemKeyStoreService;->grantAccessForAKS(ILjava/lang/String;)V
 
+    .line 77
     return-void
 .end method
 
 .method public hasAlias(Ljava/lang/String;Z)Z
     .locals 2
+    .param p1, "alias"    # Ljava/lang/String;
+    .param p2, "arg1"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 63
     iget-object v1, p0, Lcom/samsung/android/knox/util/SemKeyStoreManager;->mRemoteServiceKeystore:Lcom/samsung/android/knox/util/ISemKeyStoreService;
 
     invoke-interface {v1, p1, p2}, Lcom/samsung/android/knox/util/ISemKeyStoreService;->isAliasExists(Ljava/lang/String;Z)I
@@ -108,12 +128,15 @@
 
 .method public installCaCert(Lcom/samsung/android/knox/util/SemCertAndroidKeyStore;)I
     .locals 1
+    .param p1, "caCert"    # Lcom/samsung/android/knox/util/SemCertAndroidKeyStore;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 70
     iget-object v0, p0, Lcom/samsung/android/knox/util/SemKeyStoreManager;->mRemoteServiceKeystore:Lcom/samsung/android/knox/util/ISemKeyStoreService;
 
     invoke-interface {v0, p1}, Lcom/samsung/android/knox/util/ISemKeyStoreService;->installCACert(Lcom/samsung/android/knox/util/SemCertAndroidKeyStore;)I
@@ -125,12 +148,19 @@
 
 .method public installCertInAndroidKeyStore(Lcom/samsung/android/knox/util/SemCertByte;Ljava/lang/String;[CZI)I
     .locals 6
+    .param p1, "certificate"    # Lcom/samsung/android/knox/util/SemCertByte;
+    .param p2, "aliasName"    # Ljava/lang/String;
+    .param p3, "password"    # [C
+    .param p4, "installWithWIFI"    # Z
+    .param p5, "scepUid"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 56
     iget-object v0, p0, Lcom/samsung/android/knox/util/SemKeyStoreManager;->mRemoteServiceKeystore:Lcom/samsung/android/knox/util/ISemKeyStoreService;
 
     move-object v1, p1

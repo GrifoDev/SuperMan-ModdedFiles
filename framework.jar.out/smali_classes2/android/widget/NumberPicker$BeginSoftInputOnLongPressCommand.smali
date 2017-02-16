@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Landroid/widget/NumberPicker;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/widget/NumberPicker;
 
+    .prologue
+    .line 2288
     iput-object p1, p0, Landroid/widget/NumberPicker$BeginSoftInputOnLongPressCommand;->this$0:Landroid/widget/NumberPicker;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,9 +40,12 @@
 .method public run()V
     .locals 1
 
+    .prologue
+    .line 2292
     iget-object v0, p0, Landroid/widget/NumberPicker$BeginSoftInputOnLongPressCommand;->this$0:Landroid/widget/NumberPicker;
 
     invoke-virtual {v0}, Landroid/widget/NumberPicker;->performLongClick()Z
 
+    .line 2291
     return-void
 .end method

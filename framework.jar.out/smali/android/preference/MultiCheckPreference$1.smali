@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Landroid/preference/MultiCheckPreference;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/preference/MultiCheckPreference;
 
+    .prologue
+    .line 252
     iput-object p1, p0, Landroid/preference/MultiCheckPreference$1;->this$0:Landroid/preference/MultiCheckPreference;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +39,12 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;IZ)V
     .locals 1
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .param p2, "which"    # I
+    .param p3, "isChecked"    # Z
 
+    .prologue
+    .line 255
     iget-object v0, p0, Landroid/preference/MultiCheckPreference$1;->this$0:Landroid/preference/MultiCheckPreference;
 
     invoke-static {v0}, Landroid/preference/MultiCheckPreference;->-get0(Landroid/preference/MultiCheckPreference;)[Z
@@ -45,5 +53,6 @@
 
     aput-boolean p3, v0, p2
 
+    .line 254
     return-void
 .end method

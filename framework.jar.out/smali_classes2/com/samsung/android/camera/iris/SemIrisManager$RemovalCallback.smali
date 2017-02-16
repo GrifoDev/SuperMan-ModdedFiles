@@ -18,6 +18,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 787
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -27,12 +29,20 @@
 # virtual methods
 .method public onRemovalError(Lcom/samsung/android/camera/iris/Iris;ILjava/lang/CharSequence;)V
     .locals 0
+    .param p1, "ir"    # Lcom/samsung/android/camera/iris/Iris;
+    .param p2, "errMsgId"    # I
+    .param p3, "errString"    # Ljava/lang/CharSequence;
 
+    .prologue
+    .line 795
     return-void
 .end method
 
 .method public onRemovalSucceeded(Lcom/samsung/android/camera/iris/Iris;)V
     .locals 0
+    .param p1, "iris"    # Lcom/samsung/android/camera/iris/Iris;
 
+    .prologue
+    .line 803
     return-void
 .end method

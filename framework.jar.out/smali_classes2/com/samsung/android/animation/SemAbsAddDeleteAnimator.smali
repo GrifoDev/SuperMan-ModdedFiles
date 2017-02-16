@@ -53,6 +53,7 @@
 .method static constructor <clinit>()V
     .locals 5
 
+    .prologue
     const/high16 v4, 0x3f800000    # 1.0f
 
     const v3, 0x3f2b851f    # 0.67f
@@ -61,52 +62,63 @@
 
     const/4 v1, 0x0
 
+    .line 22
     const/16 v0, 0x12c
 
     sput v0, Lcom/samsung/android/animation/SemAbsAddDeleteAnimator;->TRANSLATION_DURATION:I
 
+    .line 23
     const v0, 0x3f733333    # 0.95f
 
     sput v0, Lcom/samsung/android/animation/SemAbsAddDeleteAnimator;->START_SCALE_FACTOR:F
 
+    .line 24
     new-instance v0, Landroid/view/animation/PathInterpolator;
 
     invoke-direct {v0, v2, v1, v3, v4}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
 
     sput-object v0, Lcom/samsung/android/animation/SemAbsAddDeleteAnimator;->DELETE_INTERPOLATOR:Landroid/view/animation/Interpolator;
 
+    .line 25
     new-instance v0, Landroid/view/animation/PathInterpolator;
 
     invoke-direct {v0, v2, v1, v3, v4}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
 
     sput-object v0, Lcom/samsung/android/animation/SemAbsAddDeleteAnimator;->INSERT_INTERPOLATOR:Landroid/view/animation/Interpolator;
 
+    .line 21
     return-void
 .end method
 
 .method constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 21
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 27
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v0, p0, Lcom/samsung/android/animation/SemAbsAddDeleteAnimator;->mBitmapUpdateBounds:Landroid/graphics/Rect;
 
+    .line 31
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/samsung/android/animation/SemAbsAddDeleteAnimator;->mGhostViewSnapshots:Ljava/util/ArrayList;
 
+    .line 180
     new-instance v0, Lcom/samsung/android/animation/SemAbsAddDeleteAnimator$1;
 
     invoke-direct {v0, p0}, Lcom/samsung/android/animation/SemAbsAddDeleteAnimator$1;-><init>(Lcom/samsung/android/animation/SemAbsAddDeleteAnimator;)V
 
     iput-object v0, p0, Lcom/samsung/android/animation/SemAbsAddDeleteAnimator;->mBitmapUpdateListener:Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
+    .line 21
     return-void
 .end method
 
@@ -117,7 +129,10 @@
 
 .method public draw(Landroid/graphics/Canvas;)V
     .locals 3
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
 
+    .prologue
+    .line 222
     iget-object v2, p0, Lcom/samsung/android/animation/SemAbsAddDeleteAnimator;->mGhostViewSnapshots:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
@@ -128,6 +143,7 @@
 
     return-void
 
+    .line 224
     :cond_0
     iget-object v2, p0, Lcom/samsung/android/animation/SemAbsAddDeleteAnimator;->mGhostViewSnapshots:Ljava/util/ArrayList;
 
@@ -135,6 +151,7 @@
 
     move-result-object v1
 
+    .local v1, "vInfo$iterator":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -148,41 +165,56 @@
 
     check-cast v0, Lcom/samsung/android/animation/SemAbsAddDeleteAnimator$ViewInfo;
 
+    .line 225
+    .local v0, "vInfo":Lcom/samsung/android/animation/SemAbsAddDeleteAnimator$ViewInfo;
     iget-object v2, v0, Lcom/samsung/android/animation/SemAbsAddDeleteAnimator$ViewInfo;->viewSnapshot:Landroid/graphics/drawable/BitmapDrawable;
 
     invoke-virtual {v2, p1}, Landroid/graphics/drawable/BitmapDrawable;->draw(Landroid/graphics/Canvas;)V
 
     goto :goto_0
 
+    .line 220
+    .end local v0    # "vInfo":Lcom/samsung/android/animation/SemAbsAddDeleteAnimator$ViewInfo;
     :cond_1
     return-void
 .end method
 
 .method getInsertTranslateAlphaScaleAnim(Landroid/view/View;FF)Landroid/animation/ObjectAnimator;
     .locals 5
+    .param p1, "child"    # Landroid/view/View;
+    .param p2, "translationX"    # F
+    .param p3, "translationY"    # F
 
+    .prologue
     const/high16 v4, 0x3f800000    # 1.0f
 
     const/4 v3, 0x0
 
+    .line 198
     invoke-virtual {p1, p2}, Landroid/view/View;->setTranslationX(F)V
 
+    .line 199
     invoke-virtual {p1, p3}, Landroid/view/View;->setTranslationY(F)V
 
+    .line 200
     invoke-virtual {p1, v3}, Landroid/view/View;->setAlpha(F)V
 
+    .line 201
     sget v0, Lcom/samsung/android/animation/SemAbsAddDeleteAnimator;->START_SCALE_FACTOR:F
 
     invoke-virtual {p1, v0}, Landroid/view/View;->setScaleX(F)V
 
+    .line 202
     sget v0, Lcom/samsung/android/animation/SemAbsAddDeleteAnimator;->START_SCALE_FACTOR:F
 
     invoke-virtual {p1, v0}, Landroid/view/View;->setScaleY(F)V
 
+    .line 203
     const/4 v0, 0x5
 
     new-array v0, v0, [Landroid/animation/PropertyValuesHolder;
 
+    .line 204
     sget-object v1, Landroid/view/View;->TRANSLATION_X:Landroid/util/Property;
 
     invoke-virtual {p0, v1, v3}, Lcom/samsung/android/animation/SemAbsAddDeleteAnimator;->getPropertyValuesHolder(Landroid/util/Property;F)Landroid/animation/PropertyValuesHolder;
@@ -193,6 +225,7 @@
 
     aput-object v1, v0, v2
 
+    .line 205
     sget-object v1, Landroid/view/View;->TRANSLATION_Y:Landroid/util/Property;
 
     invoke-virtual {p0, v1, v3}, Lcom/samsung/android/animation/SemAbsAddDeleteAnimator;->getPropertyValuesHolder(Landroid/util/Property;F)Landroid/animation/PropertyValuesHolder;
@@ -203,6 +236,7 @@
 
     aput-object v1, v0, v2
 
+    .line 206
     sget-object v1, Landroid/view/View;->SCALE_X:Landroid/util/Property;
 
     invoke-virtual {p0, v1, v4}, Lcom/samsung/android/animation/SemAbsAddDeleteAnimator;->getPropertyValuesHolder(Landroid/util/Property;F)Landroid/animation/PropertyValuesHolder;
@@ -213,6 +247,7 @@
 
     aput-object v1, v0, v2
 
+    .line 207
     sget-object v1, Landroid/view/View;->SCALE_Y:Landroid/util/Property;
 
     invoke-virtual {p0, v1, v4}, Lcom/samsung/android/animation/SemAbsAddDeleteAnimator;->getPropertyValuesHolder(Landroid/util/Property;F)Landroid/animation/PropertyValuesHolder;
@@ -223,6 +258,7 @@
 
     aput-object v1, v0, v2
 
+    .line 208
     sget-object v1, Landroid/view/View;->ALPHA:Landroid/util/Property;
 
     invoke-virtual {p0, v1, v4}, Lcom/samsung/android/animation/SemAbsAddDeleteAnimator;->getPropertyValuesHolder(Landroid/util/Property;F)Landroid/animation/PropertyValuesHolder;
@@ -233,6 +269,7 @@
 
     aput-object v1, v0, v2
 
+    .line 203
     invoke-static {p1, v0}, Landroid/animation/ObjectAnimator;->ofPropertyValuesHolder(Ljava/lang/Object;[Landroid/animation/PropertyValuesHolder;)Landroid/animation/ObjectAnimator;
 
     move-result-object v0
@@ -242,6 +279,7 @@
 
 .method getNewPosition(ILjava/util/ArrayList;)I
     .locals 4
+    .param p1, "oldPosition"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -252,12 +290,18 @@
         }
     .end annotation
 
+    .prologue
+    .line 113
+    .local p2, "deletedItems":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Integer;>;"
     move v0, p1
 
+    .line 114
+    .local v0, "newPosition":I
     invoke-interface {p2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
+    .local v2, "pos$iterator":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
@@ -275,18 +319,24 @@
 
     move-result v1
 
+    .line 115
+    .local v1, "pos":I
     if-ge v1, p1, :cond_0
 
+    .line 116
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
+    .line 121
+    .end local v1    # "pos":I
     :cond_0
     return v0
 .end method
 
 .method getNewPosition(ILjava/util/ArrayList;Ljava/util/ArrayList;)I
     .locals 5
+    .param p1, "oldPosition"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -301,12 +351,19 @@
         }
     .end annotation
 
+    .prologue
+    .line 127
+    .local p2, "insertedItems":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Integer;>;"
+    .local p3, "deletedItems":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Integer;>;"
     move v1, p1
 
+    .line 128
+    .local v1, "newPosition":I
     invoke-interface {p3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
+    .local v3, "pos$iterator":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
@@ -324,15 +381,22 @@
 
     move-result v2
 
+    .line 129
+    .local v2, "pos":I
     if-ge v2, p1, :cond_0
 
+    .line 130
     add-int/lit8 v1, v1, -0x1
 
     goto :goto_0
 
+    .line 135
+    .end local v2    # "pos":I
     :cond_0
     const/4 v0, 0x0
 
+    .line 136
+    .local v0, "i":I
     invoke-interface {p2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
@@ -354,22 +418,29 @@
 
     move-result v2
 
+    .line 137
+    .restart local v2    # "pos":I
     add-int v4, p1, v0
 
     if-gt v2, v4, :cond_1
 
+    .line 138
     add-int/lit8 v1, v1, 0x1
 
+    .line 139
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
+    .line 144
+    .end local v2    # "pos":I
     :cond_1
     return v1
 .end method
 
 .method getNewPositionForInsert(ILjava/util/ArrayList;)I
     .locals 4
+    .param p1, "oldPosition"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -380,12 +451,18 @@
         }
     .end annotation
 
+    .prologue
+    .line 99
+    .local p2, "insertedItems":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Integer;>;"
     move v0, p1
 
+    .line 100
+    .local v0, "newPosition":I
     invoke-interface {p2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
+    .local v2, "pos$iterator":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
@@ -403,18 +480,24 @@
 
     move-result v1
 
+    .line 101
+    .local v1, "pos":I
     if-gt v1, v0, :cond_0
 
+    .line 102
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
+    .line 107
+    .end local v1    # "pos":I
     :cond_0
     return v0
 .end method
 
 .method getPropertyValuesHolder(Landroid/util/Property;F)Landroid/animation/PropertyValuesHolder;
     .locals 2
+    .param p2, "value"    # F
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -426,6 +509,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 157
+    .local p1, "property":Landroid/util/Property;, "Landroid/util/Property<*Ljava/lang/Float;>;"
     const/4 v0, 0x1
 
     new-array v0, v0, [F
@@ -443,6 +529,7 @@
 
 .method getShiftCount(ILjava/util/ArrayList;)I
     .locals 4
+    .param p1, "currentPos"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -453,12 +540,18 @@
         }
     .end annotation
 
+    .prologue
+    .line 56
+    .local p2, "insertedItemPositions":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Integer;>;"
     const/4 v2, 0x0
 
+    .line 57
+    .local v2, "shiftCount":I
     invoke-interface {p2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
+    .local v1, "pos$iterator":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -476,18 +569,24 @@
 
     move-result v0
 
+    .line 58
+    .local v0, "pos":I
     if-ge v0, p1, :cond_0
 
+    .line 59
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
+    .line 64
+    .end local v0    # "pos":I
     :cond_0
     return v2
 .end method
 
 .method getShiftCount(ILjava/util/ArrayList;Ljava/util/ArrayList;)I
     .locals 4
+    .param p1, "currentPos"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -502,12 +601,19 @@
         }
     .end annotation
 
+    .prologue
+    .line 78
+    .local p2, "insertedItemPositions":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Integer;>;"
+    .local p3, "deletingItemPositions":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Integer;>;"
     const/4 v2, 0x0
 
+    .line 79
+    .local v2, "shiftCount":I
     invoke-interface {p2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
+    .local v1, "pos$iterator":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -525,12 +631,17 @@
 
     move-result v0
 
+    .line 80
+    .local v0, "pos":I
     if-ge v0, p1, :cond_0
 
+    .line 81
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
+    .line 86
+    .end local v0    # "pos":I
     :cond_0
     invoke-interface {p3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
@@ -553,29 +664,42 @@
 
     move-result v0
 
+    .line 87
+    .restart local v0    # "pos":I
     if-ge v0, p1, :cond_1
 
+    .line 88
     add-int/lit8 v2, v2, -0x1
 
     goto :goto_1
 
+    .line 93
+    .end local v0    # "pos":I
     :cond_1
     return v2
 .end method
 
 .method getTranslateAnim(Landroid/view/View;FF)Landroid/animation/ObjectAnimator;
     .locals 4
+    .param p1, "child"    # Landroid/view/View;
+    .param p2, "translationX"    # F
+    .param p3, "translationY"    # F
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 212
     invoke-virtual {p1, p2}, Landroid/view/View;->setTranslationX(F)V
 
+    .line 213
     invoke-virtual {p1, p3}, Landroid/view/View;->setTranslationY(F)V
 
+    .line 214
     const/4 v0, 0x2
 
     new-array v0, v0, [Landroid/animation/PropertyValuesHolder;
 
+    .line 215
     sget-object v1, Landroid/view/View;->TRANSLATION_X:Landroid/util/Property;
 
     invoke-virtual {p0, v1, v3}, Lcom/samsung/android/animation/SemAbsAddDeleteAnimator;->getPropertyValuesHolder(Landroid/util/Property;F)Landroid/animation/PropertyValuesHolder;
@@ -586,6 +710,7 @@
 
     aput-object v1, v0, v2
 
+    .line 216
     sget-object v1, Landroid/view/View;->TRANSLATION_Y:Landroid/util/Property;
 
     invoke-virtual {p0, v1, v3}, Lcom/samsung/android/animation/SemAbsAddDeleteAnimator;->getPropertyValuesHolder(Landroid/util/Property;F)Landroid/animation/PropertyValuesHolder;
@@ -596,6 +721,7 @@
 
     aput-object v1, v0, v2
 
+    .line 214
     invoke-static {p1, v0}, Landroid/animation/ObjectAnimator;->ofPropertyValuesHolder(Ljava/lang/Object;[Landroid/animation/PropertyValuesHolder;)Landroid/animation/ObjectAnimator;
 
     move-result-object v0
@@ -656,8 +782,12 @@
 
 .method public setTransitionDuration(I)V
     .locals 0
+    .param p1, "duration"    # I
 
+    .prologue
+    .line 153
     sput p1, Lcom/samsung/android/animation/SemAbsAddDeleteAnimator;->TRANSLATION_DURATION:I
 
+    .line 152
     return-void
 .end method

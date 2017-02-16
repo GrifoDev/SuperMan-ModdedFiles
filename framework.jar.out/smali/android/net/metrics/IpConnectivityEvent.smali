@@ -13,18 +13,23 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 29
     new-instance v0, Landroid/net/ConnectivityMetricsLogger;
 
     invoke-direct {v0}, Landroid/net/ConnectivityMetricsLogger;-><init>()V
 
     sput-object v0, Landroid/net/metrics/IpConnectivityEvent;->sMetricsLogger:Landroid/net/ConnectivityMetricsLogger;
 
+    .line 26
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -42,8 +47,11 @@
         }
     .end annotation
 
+    .prologue
+    .local p0, "event":Landroid/net/metrics/IpConnectivityEvent;, "TT;"
     const/4 v4, 0x0
 
+    .line 33
     sget-object v1, Landroid/net/metrics/IpConnectivityEvent;->sMetricsLogger:Landroid/net/ConnectivityMetricsLogger;
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -58,5 +66,6 @@
 
     invoke-virtual/range {v1 .. v6}, Landroid/net/ConnectivityMetricsLogger;->logEvent(JIILandroid/os/Parcelable;)V
 
+    .line 31
     return-void
 .end method

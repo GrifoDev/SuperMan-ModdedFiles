@@ -41,36 +41,44 @@
 .method static constructor <clinit>()V
     .locals 5
 
+    .prologue
     const/4 v4, 0x2
 
     const/4 v3, 0x1
 
     const/4 v2, 0x0
 
+    .line 443
     new-instance v0, Landroid/graphics/Paint$Align;
 
     const-string/jumbo v1, "LEFT"
 
     invoke-direct {v0, v1, v2, v2}, Landroid/graphics/Paint$Align;-><init>(Ljava/lang/String;II)V
 
+    .line 446
     sput-object v0, Landroid/graphics/Paint$Align;->LEFT:Landroid/graphics/Paint$Align;
 
+    .line 447
     new-instance v0, Landroid/graphics/Paint$Align;
 
     const-string/jumbo v1, "CENTER"
 
     invoke-direct {v0, v1, v3, v3}, Landroid/graphics/Paint$Align;-><init>(Ljava/lang/String;II)V
 
+    .line 450
     sput-object v0, Landroid/graphics/Paint$Align;->CENTER:Landroid/graphics/Paint$Align;
 
+    .line 451
     new-instance v0, Landroid/graphics/Paint$Align;
 
     const-string/jumbo v1, "RIGHT"
 
     invoke-direct {v0, v1, v4, v4}, Landroid/graphics/Paint$Align;-><init>(Ljava/lang/String;II)V
 
+    .line 454
     sput-object v0, Landroid/graphics/Paint$Align;->RIGHT:Landroid/graphics/Paint$Align;
 
+    .line 442
     const/4 v0, 0x3
 
     new-array v0, v0, [Landroid/graphics/Paint$Align;
@@ -94,17 +102,25 @@
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
+    .param p3, "nativeInt"    # I
 
+    .prologue
+    .line 456
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
+    .line 457
     iput p3, p0, Landroid/graphics/Paint$Align;->nativeInt:I
 
+    .line 456
     return-void
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroid/graphics/Paint$Align;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 442
     const-class v0, Landroid/graphics/Paint$Align;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -119,6 +135,8 @@
 .method public static values()[Landroid/graphics/Paint$Align;
     .locals 1
 
+    .prologue
+    .line 442
     sget-object v0, Landroid/graphics/Paint$Align;->$VALUES:[Landroid/graphics/Paint$Align;
 
     return-object v0

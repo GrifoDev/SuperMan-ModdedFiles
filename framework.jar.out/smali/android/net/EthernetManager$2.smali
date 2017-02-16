@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Landroid/net/EthernetManager;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/net/EthernetManager;
 
+    .prologue
+    .line 58
     iput-object p1, p0, Landroid/net/EthernetManager$2;->this$0:Landroid/net/EthernetManager;
 
     invoke-direct {p0}, Landroid/net/IEthernetServiceListener$Stub;-><init>()V
@@ -33,15 +36,19 @@
 # virtual methods
 .method public onAvailabilityChanged(Z)V
     .locals 5
+    .param p1, "isAvailable"    # Z
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 61
     iget-object v0, p0, Landroid/net/EthernetManager$2;->this$0:Landroid/net/EthernetManager;
 
     invoke-static {v0}, Landroid/net/EthernetManager;->-get0(Landroid/net/EthernetManager;)Landroid/os/Handler;
 
     move-result-object v2
 
+    .line 62
     if-eqz p1, :cond_0
 
     const/4 v0, 0x1
@@ -51,16 +58,19 @@
 
     const/4 v4, 0x0
 
+    .line 61
     invoke-virtual {v2, v3, v0, v1, v4}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
+    .line 60
     return-void
 
     :cond_0
     move v0, v1
 
+    .line 62
     goto :goto_0
 .end method

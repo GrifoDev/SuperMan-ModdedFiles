@@ -25,19 +25,26 @@
 # direct methods
 .method public constructor <init>(Landroid/hardware/input/InputManager;I)V
     .locals 1
+    .param p1, "this$0"    # Landroid/hardware/input/InputManager;
+    .param p2, "deviceId"    # I
 
+    .prologue
+    .line 1490
     iput-object p1, p0, Landroid/hardware/input/InputManager$InputDeviceVibrator;->this$0:Landroid/hardware/input/InputManager;
 
     invoke-direct {p0}, Landroid/os/Vibrator;-><init>()V
 
+    .line 1491
     iput p2, p0, Landroid/hardware/input/InputManager$InputDeviceVibrator;->mDeviceId:I
 
+    .line 1492
     new-instance v0, Landroid/os/Binder;
 
     invoke-direct {v0}, Landroid/os/Binder;-><init>()V
 
     iput-object v0, p0, Landroid/hardware/input/InputManager$InputDeviceVibrator;->mToken:Landroid/os/Binder;
 
+    .line 1490
     return-void
 .end method
 
@@ -46,6 +53,8 @@
 .method public cancel()V
     .locals 4
 
+    .prologue
+    .line 1527
     :try_start_0
     iget-object v1, p0, Landroid/hardware/input/InputManager$InputDeviceVibrator;->this$0:Landroid/hardware/input/InputManager;
 
@@ -61,11 +70,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 1525
     return-void
 
+    .line 1528
     :catch_0
     move-exception v0
 
+    .line 1529
+    .local v0, "ex":Landroid/os/RemoteException;
     invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
 
     move-result-object v1
@@ -76,6 +89,8 @@
 .method public hasVibrator()Z
     .locals 1
 
+    .prologue
+    .line 1497
     const/4 v0, 0x1
 
     return v0
@@ -83,7 +98,13 @@
 
 .method public vibrate(ILjava/lang/String;JLandroid/media/AudioAttributes;)V
     .locals 5
+    .param p1, "uid"    # I
+    .param p2, "opPkg"    # Ljava/lang/String;
+    .param p3, "milliseconds"    # J
+    .param p5, "attributes"    # Landroid/media/AudioAttributes;
 
+    .prologue
+    .line 1505
     const/4 v0, 0x2
 
     new-array v0, v0, [J
@@ -102,22 +123,32 @@
 
     invoke-virtual {p0, v0, v1}, Landroid/os/Vibrator;->vibrate([JI)V
 
+    .line 1504
     return-void
 .end method
 
 .method public vibrate(ILjava/lang/String;[JILandroid/media/AudioAttributes;)V
     .locals 4
+    .param p1, "uid"    # I
+    .param p2, "opPkg"    # Ljava/lang/String;
+    .param p3, "pattern"    # [J
+    .param p4, "repeat"    # I
+    .param p5, "attributes"    # Landroid/media/AudioAttributes;
 
+    .prologue
+    .line 1514
     array-length v1, p3
 
     if-lt p4, v1, :cond_0
 
+    .line 1515
     new-instance v1, Ljava/lang/ArrayIndexOutOfBoundsException;
 
     invoke-direct {v1}, Ljava/lang/ArrayIndexOutOfBoundsException;-><init>()V
 
     throw v1
 
+    .line 1518
     :cond_0
     :try_start_0
     iget-object v1, p0, Landroid/hardware/input/InputManager$InputDeviceVibrator;->this$0:Landroid/hardware/input/InputManager;
@@ -134,11 +165,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 1513
     return-void
 
+    .line 1519
     :catch_0
     move-exception v0
 
+    .line 1520
+    .local v0, "ex":Landroid/os/RemoteException;
     invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
 
     move-result-object v1

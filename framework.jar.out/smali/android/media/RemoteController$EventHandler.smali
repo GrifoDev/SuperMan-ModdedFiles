@@ -21,11 +21,18 @@
 # direct methods
 .method public constructor <init>(Landroid/media/RemoteController;Landroid/media/RemoteController;Landroid/os/Looper;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/media/RemoteController;
+    .param p2, "rc"    # Landroid/media/RemoteController;
+    .param p3, "looper"    # Landroid/os/Looper;
 
+    .prologue
+    .line 526
     iput-object p1, p0, Landroid/media/RemoteController$EventHandler;->this$0:Landroid/media/RemoteController;
 
+    .line 527
     invoke-direct {p0, p3}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
+    .line 526
     return-void
 .end method
 
@@ -33,13 +40,17 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
     const/4 v0, 0x1
 
+    .line 532
     iget v1, p1, Landroid/os/Message;->what:I
 
     packed-switch v1, :pswitch_data_0
 
+    .line 543
     const-string/jumbo v0, "RemoteController"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -64,9 +75,11 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 531
     :goto_0
     return-void
 
+    .line 534
     :pswitch_0
     iget-object v1, p0, Landroid/media/RemoteController$EventHandler;->this$0:Landroid/media/RemoteController;
 
@@ -84,6 +97,7 @@
 
     goto :goto_1
 
+    .line 537
     :pswitch_1
     iget-object v1, p0, Landroid/media/RemoteController$EventHandler;->this$0:Landroid/media/RemoteController;
 
@@ -95,6 +109,7 @@
 
     goto :goto_0
 
+    .line 540
     :pswitch_2
     iget-object v1, p0, Landroid/media/RemoteController$EventHandler;->this$0:Landroid/media/RemoteController;
 
@@ -106,6 +121,7 @@
 
     goto :goto_0
 
+    .line 532
     nop
 
     :pswitch_data_0

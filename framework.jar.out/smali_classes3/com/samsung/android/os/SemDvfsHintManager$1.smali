@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/os/SemDvfsHintManager;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/samsung/android/os/SemDvfsHintManager;
 
+    .prologue
+    .line 68
     iput-object p1, p0, Lcom/samsung/android/os/SemDvfsHintManager$1;->this$0:Lcom/samsung/android/os/SemDvfsHintManager;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,13 +36,18 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 3
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 71
     iget-object v0, p0, Lcom/samsung/android/os/SemDvfsHintManager$1;->this$0:Lcom/samsung/android/os/SemDvfsHintManager;
 
     iget-boolean v0, v0, Lcom/samsung/android/os/SemDvfsManager;->sIsDebugLevelHigh:Z
 
     if-eqz v0, :cond_0
 
+    .line 72
     iget-object v0, p0, Lcom/samsung/android/os/SemDvfsHintManager$1;->this$0:Lcom/samsung/android/os/SemDvfsHintManager;
 
     iget-object v0, v0, Lcom/samsung/android/os/SemDvfsManager;->LOG_TAG:Ljava/lang/String;
@@ -68,6 +76,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 74
     :cond_0
     iget-object v0, p0, Lcom/samsung/android/os/SemDvfsHintManager$1;->this$0:Lcom/samsung/android/os/SemDvfsHintManager;
 
@@ -81,5 +90,6 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/samsung/android/os/SemDvfsHintManager;->update(Landroid/content/Context;Ljava/lang/String;)V
 
+    .line 70
     return-void
 .end method

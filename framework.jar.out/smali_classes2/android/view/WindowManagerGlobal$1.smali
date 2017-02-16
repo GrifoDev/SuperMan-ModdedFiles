@@ -18,6 +18,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 187
     invoke-direct {p0}, Landroid/view/IWindowSessionCallback$Stub;-><init>()V
 
     return-void
@@ -27,8 +29,12 @@
 # virtual methods
 .method public onAnimatorScaleChanged(F)V
     .locals 0
+    .param p1, "scale"    # F
 
+    .prologue
+    .line 190
     invoke-static {p1}, Landroid/animation/ValueAnimator;->setDurationScale(F)V
 
+    .line 189
     return-void
 .end method

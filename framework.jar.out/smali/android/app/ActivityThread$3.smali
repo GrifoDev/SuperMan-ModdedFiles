@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Landroid/app/ActivityThread;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/app/ActivityThread;
 
+    .prologue
+    .line 6474
     iput-object p1, p0, Landroid/app/ActivityThread$3;->this$0:Landroid/app/ActivityThread;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +39,10 @@
 # virtual methods
 .method public onConfigurationChanged(Landroid/content/res/Configuration;)V
     .locals 4
+    .param p1, "newConfig"    # Landroid/content/res/Configuration;
 
+    .prologue
+    .line 6477
     iget-object v0, p0, Landroid/app/ActivityThread$3;->this$0:Landroid/app/ActivityThread;
 
     invoke-static {v0}, Landroid/app/ActivityThread;->-get0(Landroid/app/ActivityThread;)Landroid/app/ResourcesManager;
@@ -45,6 +51,7 @@
 
     monitor-enter v1
 
+    .line 6479
     :try_start_0
     iget-boolean v0, p1, Landroid/content/res/Configuration;->isOverridden:Z
     :try_end_0
@@ -54,8 +61,10 @@
 
     monitor-exit v1
 
+    .line 6481
     return-void
 
+    .line 6488
     :cond_0
     :try_start_1
     iget-object v0, p0, Landroid/app/ActivityThread$3;->this$0:Landroid/app/ActivityThread;
@@ -72,6 +81,7 @@
 
     if-eqz v0, :cond_2
 
+    .line 6489
     iget-object v0, p0, Landroid/app/ActivityThread$3;->this$0:Landroid/app/ActivityThread;
 
     iget-object v2, p0, Landroid/app/ActivityThread$3;->this$0:Landroid/app/ActivityThread;
@@ -82,6 +92,7 @@
 
     move-result-object v2
 
+    .line 6490
     iget-object v3, p0, Landroid/app/ActivityThread$3;->this$0:Landroid/app/ActivityThread;
 
     invoke-static {v3}, Landroid/app/ActivityThread;->-get0(Landroid/app/ActivityThread;)Landroid/app/ResourcesManager;
@@ -96,14 +107,17 @@
 
     move-result-object v3
 
+    .line 6489
     invoke-static {v0, v2, v3}, Landroid/app/ActivityThread;->-wrap40(Landroid/app/ActivityThread;Landroid/content/Context;Landroid/os/LocaleList;)V
 
+    .line 6494
     iget-object v0, p0, Landroid/app/ActivityThread$3;->this$0:Landroid/app/ActivityThread;
 
     iget-object v0, v0, Landroid/app/ActivityThread;->mPendingConfiguration:Landroid/content/res/Configuration;
 
     if-eqz v0, :cond_1
 
+    .line 6495
     iget-object v0, p0, Landroid/app/ActivityThread$3;->this$0:Landroid/app/ActivityThread;
 
     iget-object v0, v0, Landroid/app/ActivityThread;->mPendingConfiguration:Landroid/content/res/Configuration;
@@ -112,13 +126,16 @@
 
     move-result v0
 
+    .line 6494
     if-eqz v0, :cond_2
 
+    .line 6496
     :cond_1
     iget-object v0, p0, Landroid/app/ActivityThread$3;->this$0:Landroid/app/ActivityThread;
 
     iput-object p1, v0, Landroid/app/ActivityThread;->mPendingConfiguration:Landroid/content/res/Configuration;
 
+    .line 6498
     iget-object v0, p0, Landroid/app/ActivityThread$3;->this$0:Landroid/app/ActivityThread;
 
     const/16 v2, 0x76
@@ -130,8 +147,10 @@
     :cond_2
     monitor-exit v1
 
+    .line 6476
     return-void
 
+    .line 6477
     :catchall_0
     move-exception v0
 
@@ -143,11 +162,16 @@
 .method public onLowMemory()V
     .locals 0
 
+    .prologue
+    .line 6504
     return-void
 .end method
 
 .method public onTrimMemory(I)V
     .locals 0
+    .param p1, "level"    # I
 
+    .prologue
+    .line 6507
     return-void
 .end method

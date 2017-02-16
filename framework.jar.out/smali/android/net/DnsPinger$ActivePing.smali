@@ -35,23 +35,30 @@
 # direct methods
 .method private constructor <init>(Landroid/net/DnsPinger;)V
     .locals 2
+    .param p1, "this$0"    # Landroid/net/DnsPinger;
 
+    .prologue
+    .line 141
     iput-object p1, p0, Landroid/net/DnsPinger$ActivePing;->this$0:Landroid/net/DnsPinger;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 148
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Landroid/net/DnsPinger$ActivePing;->start:J
 
+    .line 141
     return-void
 .end method
 
 .method synthetic constructor <init>(Landroid/net/DnsPinger;Landroid/net/DnsPinger$ActivePing;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/net/DnsPinger;
 
+    .prologue
     invoke-direct {p0, p1}, Landroid/net/DnsPinger$ActivePing;-><init>(Landroid/net/DnsPinger;)V
 
     return-void

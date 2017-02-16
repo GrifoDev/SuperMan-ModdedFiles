@@ -141,7 +141,9 @@
 
 .method static synthetic -wrap0(I)I
     .locals 1
+    .param p0, "roaming"    # I
 
+    .prologue
     invoke-static {p0}, Landroid/app/usage/NetworkStats$Bucket;->convertRoaming(I)I
 
     move-result v0
@@ -151,7 +153,9 @@
 
 .method static synthetic -wrap1(I)I
     .locals 1
+    .param p0, "networkStatsSet"    # I
 
+    .prologue
     invoke-static {p0}, Landroid/app/usage/NetworkStats$Bucket;->convertState(I)I
 
     move-result v0
@@ -161,7 +165,9 @@
 
 .method static synthetic -wrap2(I)I
     .locals 1
+    .param p0, "tag"    # I
 
+    .prologue
     invoke-static {p0}, Landroid/app/usage/NetworkStats$Bucket;->convertTag(I)I
 
     move-result v0
@@ -171,7 +177,9 @@
 
 .method static synthetic -wrap3(I)I
     .locals 1
+    .param p0, "uid"    # I
 
+    .prologue
     invoke-static {p0}, Landroid/app/usage/NetworkStats$Bucket;->convertUid(I)I
 
     move-result v0
@@ -182,6 +190,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 244
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -189,28 +199,36 @@
 
 .method private static convertRoaming(I)I
     .locals 1
+    .param p0, "roaming"    # I
 
+    .prologue
+    .line 236
     packed-switch p0, :pswitch_data_0
 
+    .line 241
     const/4 v0, 0x0
 
     return v0
 
+    .line 237
     :pswitch_0
     const/4 v0, -0x1
 
     return v0
 
+    .line 238
     :pswitch_1
     const/4 v0, 0x1
 
     return v0
 
+    .line 239
     :pswitch_2
     const/4 v0, 0x2
 
     return v0
 
+    .line 236
     nop
 
     :pswitch_data_0
@@ -223,28 +241,36 @@
 
 .method private static convertState(I)I
     .locals 1
+    .param p0, "networkStatsSet"    # I
 
+    .prologue
+    .line 212
     packed-switch p0, :pswitch_data_0
 
+    .line 217
     const/4 v0, 0x0
 
     return v0
 
+    .line 213
     :pswitch_0
     const/4 v0, -0x1
 
     return v0
 
+    .line 214
     :pswitch_1
     const/4 v0, 0x1
 
     return v0
 
+    .line 215
     :pswitch_2
     const/4 v0, 0x2
 
     return v0
 
+    .line 212
     nop
 
     :pswitch_data_0
@@ -257,16 +283,22 @@
 
 .method private static convertTag(I)I
     .locals 1
+    .param p0, "tag"    # I
 
+    .prologue
+    .line 229
     packed-switch p0, :pswitch_data_0
 
+    .line 232
     return p0
 
+    .line 230
     :pswitch_0
     const/4 v0, 0x0
 
     return v0
 
+    .line 229
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -275,21 +307,28 @@
 
 .method private static convertUid(I)I
     .locals 1
+    .param p0, "uid"    # I
 
+    .prologue
+    .line 221
     packed-switch p0, :pswitch_data_0
 
+    .line 225
     return p0
 
+    .line 222
     :pswitch_0
     const/4 v0, -0x4
 
     return v0
 
+    .line 223
     :pswitch_1
     const/4 v0, -0x5
 
     return v0
 
+    .line 221
     :pswitch_data_0
     .packed-switch -0x5
         :pswitch_1
@@ -302,6 +341,8 @@
 .method public getEndTimeStamp()J
     .locals 2
 
+    .prologue
+    .line 308
     iget-wide v0, p0, Landroid/app/usage/NetworkStats$Bucket;->mEndTimeStamp:J
 
     return-wide v0
@@ -310,6 +351,8 @@
 .method public getRoaming()I
     .locals 1
 
+    .prologue
+    .line 290
     iget v0, p0, Landroid/app/usage/NetworkStats$Bucket;->mRoaming:I
 
     return v0
@@ -318,6 +361,8 @@
 .method public getRxBytes()J
     .locals 2
 
+    .prologue
+    .line 317
     iget-wide v0, p0, Landroid/app/usage/NetworkStats$Bucket;->mRxBytes:J
 
     return-wide v0
@@ -326,6 +371,8 @@
 .method public getRxPackets()J
     .locals 2
 
+    .prologue
+    .line 335
     iget-wide v0, p0, Landroid/app/usage/NetworkStats$Bucket;->mRxPackets:J
 
     return-wide v0
@@ -334,6 +381,8 @@
 .method public getStartTimeStamp()J
     .locals 2
 
+    .prologue
+    .line 299
     iget-wide v0, p0, Landroid/app/usage/NetworkStats$Bucket;->mBeginTimeStamp:J
 
     return-wide v0
@@ -342,6 +391,8 @@
 .method public getState()I
     .locals 1
 
+    .prologue
+    .line 278
     iget v0, p0, Landroid/app/usage/NetworkStats$Bucket;->mState:I
 
     return v0
@@ -350,6 +401,8 @@
 .method public getTag()I
     .locals 1
 
+    .prologue
+    .line 265
     iget v0, p0, Landroid/app/usage/NetworkStats$Bucket;->mTag:I
 
     return v0
@@ -358,6 +411,8 @@
 .method public getTxBytes()J
     .locals 2
 
+    .prologue
+    .line 326
     iget-wide v0, p0, Landroid/app/usage/NetworkStats$Bucket;->mTxBytes:J
 
     return-wide v0
@@ -366,6 +421,8 @@
 .method public getTxPackets()J
     .locals 2
 
+    .prologue
+    .line 344
     iget-wide v0, p0, Landroid/app/usage/NetworkStats$Bucket;->mTxPackets:J
 
     return-wide v0
@@ -374,6 +431,8 @@
 .method public getUid()I
     .locals 1
 
+    .prologue
+    .line 257
     iget v0, p0, Landroid/app/usage/NetworkStats$Bucket;->mUid:I
 
     return v0

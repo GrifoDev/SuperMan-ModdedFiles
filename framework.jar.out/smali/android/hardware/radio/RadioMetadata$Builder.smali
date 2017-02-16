@@ -22,22 +22,30 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 350
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 351
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
     iput-object v0, p0, Landroid/hardware/radio/RadioMetadata$Builder;->mBundle:Landroid/os/Bundle;
 
+    .line 350
     return-void
 .end method
 
 .method public constructor <init>(Landroid/hardware/radio/RadioMetadata;)V
     .locals 2
+    .param p1, "source"    # Landroid/hardware/radio/RadioMetadata;
 
+    .prologue
+    .line 361
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 362
     new-instance v0, Landroid/os/Bundle;
 
     invoke-static {p1}, Landroid/hardware/radio/RadioMetadata;->-get1(Landroid/hardware/radio/RadioMetadata;)Landroid/os/Bundle;
@@ -48,14 +56,20 @@
 
     iput-object v0, p0, Landroid/hardware/radio/RadioMetadata$Builder;->mBundle:Landroid/os/Bundle;
 
+    .line 361
     return-void
 .end method
 
 .method public constructor <init>(Landroid/hardware/radio/RadioMetadata;I)V
     .locals 5
+    .param p1, "source"    # Landroid/hardware/radio/RadioMetadata;
+    .param p2, "maxBitmapSize"    # I
 
+    .prologue
+    .line 376
     invoke-direct {p0, p1}, Landroid/hardware/radio/RadioMetadata$Builder;-><init>(Landroid/hardware/radio/RadioMetadata;)V
 
+    .line 377
     iget-object v4, p0, Landroid/hardware/radio/RadioMetadata$Builder;->mBundle:Landroid/os/Bundle;
 
     invoke-virtual {v4}, Landroid/os/BaseBundle;->keySet()Ljava/util/Set;
@@ -66,6 +80,7 @@
 
     move-result-object v2
 
+    .local v2, "key$iterator":Ljava/util/Iterator;
     :cond_0
     :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
@@ -80,12 +95,16 @@
 
     check-cast v1, Ljava/lang/String;
 
+    .line 378
+    .local v1, "key":Ljava/lang/String;
     iget-object v4, p0, Landroid/hardware/radio/RadioMetadata$Builder;->mBundle:Landroid/os/Bundle;
 
     invoke-virtual {v4, v1}, Landroid/os/BaseBundle;->get(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v3
 
+    .line 379
+    .local v3, "value":Ljava/lang/Object;
     if-eqz v3, :cond_0
 
     instance-of v4, v3, Landroid/graphics/Bitmap;
@@ -94,10 +113,13 @@
 
     move-object v0, v3
 
+    .line 380
     nop
 
     nop
 
+    .line 381
+    .local v0, "bmp":Landroid/graphics/Bitmap;
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v4
@@ -110,6 +132,7 @@
 
     if-le v4, p2, :cond_0
 
+    .line 382
     :cond_1
     invoke-direct {p0, v0, p2}, Landroid/hardware/radio/RadioMetadata$Builder;->scaleBitmap(Landroid/graphics/Bitmap;I)Landroid/graphics/Bitmap;
 
@@ -119,15 +142,25 @@
 
     goto :goto_0
 
+    .line 375
+    .end local v0    # "bmp":Landroid/graphics/Bitmap;
+    .end local v1    # "key":Ljava/lang/String;
+    .end local v3    # "value":Ljava/lang/Object;
     :cond_2
     return-void
 .end method
 
 .method private scaleBitmap(Landroid/graphics/Bitmap;I)Landroid/graphics/Bitmap;
     .locals 7
+    .param p1, "bmp"    # Landroid/graphics/Bitmap;
+    .param p2, "maxSize"    # I
 
+    .prologue
+    .line 494
     int-to-float v2, p2
 
+    .line 495
+    .local v2, "maxSizeF":F
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v6
@@ -136,6 +169,8 @@
 
     div-float v5, v2, v6
 
+    .line 496
+    .local v5, "widthScale":F
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v6
@@ -144,10 +179,14 @@
 
     div-float v1, v2, v6
 
+    .line 497
+    .local v1, "heightScale":F
     invoke-static {v5, v1}, Ljava/lang/Math;->min(FF)F
 
     move-result v3
 
+    .line 498
+    .local v3, "scale":F
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v6
@@ -158,6 +197,8 @@
 
     float-to-int v0, v6
 
+    .line 499
+    .local v0, "height":I
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v6
@@ -168,6 +209,8 @@
 
     float-to-int v4, v6
 
+    .line 500
+    .local v4, "width":I
     const/4 v6, 0x1
 
     invoke-static {p1, v4, v0, v6}, Landroid/graphics/Bitmap;->createScaledBitmap(Landroid/graphics/Bitmap;IIZ)Landroid/graphics/Bitmap;
@@ -182,6 +225,8 @@
 .method public build()Landroid/hardware/radio/RadioMetadata;
     .locals 3
 
+    .prologue
+    .line 490
     new-instance v0, Landroid/hardware/radio/RadioMetadata;
 
     iget-object v1, p0, Landroid/hardware/radio/RadioMetadata$Builder;->mBundle:Landroid/os/Bundle;
@@ -195,7 +240,11 @@
 
 .method public putBitmap(Ljava/lang/String;Landroid/graphics/Bitmap;)Landroid/hardware/radio/RadioMetadata$Builder;
     .locals 3
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # Landroid/graphics/Bitmap;
 
+    .prologue
+    .line 454
     invoke-static {}, Landroid/hardware/radio/RadioMetadata;->-get0()Landroid/util/ArrayMap;
 
     move-result-object v0
@@ -206,6 +255,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 455
     invoke-static {}, Landroid/hardware/radio/RadioMetadata;->-get0()Landroid/util/ArrayMap;
 
     move-result-object v0
@@ -224,6 +274,7 @@
 
     if-eq v0, v1, :cond_1
 
+    .line 456
     :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -241,8 +292,10 @@
 
     move-result-object v1
 
+    .line 457
     const-string/jumbo v2, " key cannot be used to put a Bitmap"
 
+    .line 456
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -255,17 +308,24 @@
 
     throw v0
 
+    .line 459
     :cond_1
     iget-object v0, p0, Landroid/hardware/radio/RadioMetadata$Builder;->mBundle:Landroid/os/Bundle;
 
     invoke-virtual {v0, p1, p2}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
+    .line 460
     return-object p0
 .end method
 
 .method public putClock(Ljava/lang/String;JI)Landroid/hardware/radio/RadioMetadata$Builder;
     .locals 4
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "utcSecondsSinceEpoch"    # J
+    .param p4, "timezoneOffsetMinutes"    # I
 
+    .prologue
+    .line 475
     invoke-static {}, Landroid/hardware/radio/RadioMetadata;->-get0()Landroid/util/ArrayMap;
 
     move-result-object v0
@@ -276,6 +336,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 476
     invoke-static {}, Landroid/hardware/radio/RadioMetadata;->-get0()Landroid/util/ArrayMap;
 
     move-result-object v0
@@ -294,6 +355,7 @@
 
     if-eq v0, v1, :cond_1
 
+    .line 477
     :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -311,8 +373,10 @@
 
     move-result-object v1
 
+    .line 478
     const-string/jumbo v2, " key cannot be used to put a RadioMetadata.Clock."
 
+    .line 477
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -325,6 +389,7 @@
 
     throw v0
 
+    .line 480
     :cond_1
     iget-object v0, p0, Landroid/hardware/radio/RadioMetadata$Builder;->mBundle:Landroid/os/Bundle;
 
@@ -334,12 +399,17 @@
 
     invoke-virtual {v0, p1, v1}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
+    .line 481
     return-object p0
 .end method
 
 .method public putInt(Ljava/lang/String;I)Landroid/hardware/radio/RadioMetadata$Builder;
     .locals 3
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # I
 
+    .prologue
+    .line 430
     invoke-static {}, Landroid/hardware/radio/RadioMetadata;->-get0()Landroid/util/ArrayMap;
 
     move-result-object v0
@@ -350,6 +420,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 431
     invoke-static {}, Landroid/hardware/radio/RadioMetadata;->-get0()Landroid/util/ArrayMap;
 
     move-result-object v0
@@ -366,6 +437,7 @@
 
     if-eqz v0, :cond_1
 
+    .line 432
     :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -383,8 +455,10 @@
 
     move-result-object v1
 
+    .line 433
     const-string/jumbo v2, " key cannot be used to put a long"
 
+    .line 432
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -397,17 +471,23 @@
 
     throw v0
 
+    .line 435
     :cond_1
     iget-object v0, p0, Landroid/hardware/radio/RadioMetadata$Builder;->mBundle:Landroid/os/Bundle;
 
     invoke-virtual {v0, p1, p2}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
 
+    .line 436
     return-object p0
 .end method
 
 .method public putString(Ljava/lang/String;Ljava/lang/String;)Landroid/hardware/radio/RadioMetadata$Builder;
     .locals 3
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/String;
 
+    .prologue
+    .line 407
     invoke-static {}, Landroid/hardware/radio/RadioMetadata;->-get0()Landroid/util/ArrayMap;
 
     move-result-object v0
@@ -418,6 +498,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 408
     invoke-static {}, Landroid/hardware/radio/RadioMetadata;->-get0()Landroid/util/ArrayMap;
 
     move-result-object v0
@@ -436,6 +517,7 @@
 
     if-eq v0, v1, :cond_1
 
+    .line 409
     :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -453,8 +535,10 @@
 
     move-result-object v1
 
+    .line 410
     const-string/jumbo v2, " key cannot be used to put a String"
 
+    .line 409
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -467,10 +551,12 @@
 
     throw v0
 
+    .line 412
     :cond_1
     iget-object v0, p0, Landroid/hardware/radio/RadioMetadata$Builder;->mBundle:Landroid/os/Bundle;
 
     invoke-virtual {v0, p1, p2}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 413
     return-object p0
 .end method

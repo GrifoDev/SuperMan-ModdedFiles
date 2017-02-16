@@ -26,7 +26,11 @@
 # direct methods
 .method constructor <init>(Landroid/media/midi/MidiManager$DeviceListener;Landroid/media/midi/MidiDeviceStatus;)V
     .locals 0
+    .param p1, "this$1"    # Landroid/media/midi/MidiManager$DeviceListener;
+    .param p2, "val$statusF"    # Landroid/media/midi/MidiDeviceStatus;
 
+    .prologue
+    .line 109
     iput-object p1, p0, Landroid/media/midi/MidiManager$DeviceListener$3;->this$1:Landroid/media/midi/MidiManager$DeviceListener;
 
     iput-object p2, p0, Landroid/media/midi/MidiManager$DeviceListener$3;->val$statusF:Landroid/media/midi/MidiDeviceStatus;
@@ -41,6 +45,8 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 111
     iget-object v0, p0, Landroid/media/midi/MidiManager$DeviceListener$3;->this$1:Landroid/media/midi/MidiManager$DeviceListener;
 
     invoke-static {v0}, Landroid/media/midi/MidiManager$DeviceListener;->-get0(Landroid/media/midi/MidiManager$DeviceListener;)Landroid/media/midi/MidiManager$DeviceCallback;
@@ -51,5 +57,6 @@
 
     invoke-virtual {v0, v1}, Landroid/media/midi/MidiManager$DeviceCallback;->onDeviceStatusChanged(Landroid/media/midi/MidiDeviceStatus;)V
 
+    .line 110
     return-void
 .end method

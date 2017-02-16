@@ -28,7 +28,12 @@
 # direct methods
 .method constructor <init>(Landroid/accounts/AccountManager;Landroid/accounts/OnAccountsUpdateListener;[Landroid/accounts/Account;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/accounts/AccountManager;
+    .param p2, "val$listener"    # Landroid/accounts/OnAccountsUpdateListener;
+    .param p3, "val$accountsCopy"    # [Landroid/accounts/Account;
 
+    .prologue
+    .line 1899
     iput-object p1, p0, Landroid/accounts/AccountManager$19;->this$0:Landroid/accounts/AccountManager;
 
     iput-object p2, p0, Landroid/accounts/AccountManager$19;->val$listener:Landroid/accounts/OnAccountsUpdateListener;
@@ -45,6 +50,8 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 1903
     :try_start_0
     iget-object v1, p0, Landroid/accounts/AccountManager$19;->val$listener:Landroid/accounts/OnAccountsUpdateListener;
 
@@ -54,12 +61,16 @@
     :try_end_0
     .catch Landroid/database/SQLException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 1901
     :goto_0
     return-void
 
+    .line 1904
     :catch_0
     move-exception v0
 
+    .line 1907
+    .local v0, "e":Landroid/database/SQLException;
     const-string/jumbo v1, "AccountManager"
 
     const-string/jumbo v2, "Can\'t update accounts"

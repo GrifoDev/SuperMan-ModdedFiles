@@ -28,7 +28,12 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;FI)V
     .locals 0
+    .param p1, "this$1"    # Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
+    .param p2, "val$startY"    # F
+    .param p3, "val$startHeight"    # I
 
+    .prologue
+    .line 922
     iput-object p1, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$7;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
     iput p2, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$7;->val$startY:F
@@ -44,9 +49,12 @@
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
     .locals 7
+    .param p1, "animation"    # Landroid/animation/ValueAnimator;
 
+    .prologue
     const/4 v6, 0x0
 
+    .line 925
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
 
     move-result-object v3
@@ -57,6 +65,8 @@
 
     move-result v1
 
+    .line 926
+    .local v1, "val":I
     iget-object v3, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$7;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
     invoke-static {v3}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->-get1(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;)Landroid/view/ViewGroup;
@@ -67,8 +77,11 @@
 
     move-result-object v0
 
+    .line 927
+    .local v0, "params":Landroid/view/ViewGroup$LayoutParams;
     iput v1, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
 
+    .line 928
     iget-object v3, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$7;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
     invoke-static {v3}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->-get1(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;)Landroid/view/ViewGroup;
@@ -77,6 +90,7 @@
 
     invoke-virtual {v3, v0}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
+    .line 929
     iget-object v3, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$7;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
     invoke-static {v3}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->-get4(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;)Z
@@ -85,6 +99,7 @@
 
     if-eqz v3, :cond_2
 
+    .line 930
     iget v3, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$7;->val$startY:F
 
     iget-object v4, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$7;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
@@ -105,6 +120,8 @@
 
     sub-float v2, v3, v4
 
+    .line 931
+    .local v2, "y":F
     iget-object v3, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$7;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
     invoke-static {v3}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->-get5(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;)Z
@@ -117,6 +134,7 @@
 
     if-gtz v3, :cond_1
 
+    .line 932
     iget-object v3, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$7;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
     invoke-static {v3}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->-get1(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;)Landroid/view/ViewGroup;
@@ -125,6 +143,8 @@
 
     invoke-virtual {v3, v6}, Landroid/view/View;->setY(F)V
 
+    .line 939
+    .end local v2    # "y":F
     :cond_0
     :goto_0
     iget-object v3, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$7;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
@@ -135,8 +155,11 @@
 
     invoke-virtual {v3}, Landroid/view/View;->requestLayout()V
 
+    .line 924
     return-void
 
+    .line 934
+    .restart local v2    # "y":F
     :cond_1
     iget-object v3, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$7;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
@@ -148,6 +171,8 @@
 
     goto :goto_0
 
+    .line 936
+    .end local v2    # "y":F
     :cond_2
     iget-object v3, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$7;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
@@ -189,6 +214,7 @@
 
     if-gtz v3, :cond_0
 
+    .line 937
     iget-object v3, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$7;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
     invoke-static {v3}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->-get1(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;)Landroid/view/ViewGroup;

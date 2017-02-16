@@ -844,29 +844,38 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 442
     invoke-direct {p0}, Lcom/android/framework/protobuf/nano/MessageNano;-><init>()V
 
+    .line 443
     invoke-virtual {p0}, Lcom/android/internal/logging/MetricsProto$MetricsEvent;->clear()Lcom/android/internal/logging/MetricsProto$MetricsEvent;
 
+    .line 442
     return-void
 .end method
 
 .method public static emptyArray()[Lcom/android/internal/logging/MetricsProto$MetricsEvent;
     .locals 2
 
+    .prologue
+    .line 429
     sget-object v0, Lcom/android/internal/logging/MetricsProto$MetricsEvent;->_emptyArray:[Lcom/android/internal/logging/MetricsProto$MetricsEvent;
 
     if-nez v0, :cond_1
 
+    .line 430
     sget-object v1, Lcom/android/framework/protobuf/nano/InternalNano;->LAZY_INIT_LOCK:Ljava/lang/Object;
 
     monitor-enter v1
 
+    .line 432
     :try_start_0
     sget-object v0, Lcom/android/internal/logging/MetricsProto$MetricsEvent;->_emptyArray:[Lcom/android/internal/logging/MetricsProto$MetricsEvent;
 
     if-nez v0, :cond_0
 
+    .line 433
     const/4 v0, 0x0
 
     new-array v0, v0, [Lcom/android/internal/logging/MetricsProto$MetricsEvent;
@@ -878,11 +887,13 @@
     :cond_0
     monitor-exit v1
 
+    .line 437
     :cond_1
     sget-object v0, Lcom/android/internal/logging/MetricsProto$MetricsEvent;->_emptyArray:[Lcom/android/internal/logging/MetricsProto$MetricsEvent;
 
     return-object v0
 
+    .line 430
     :catchall_0
     move-exception v0
 
@@ -893,12 +904,15 @@
 
 .method public static parseFrom(Lcom/android/framework/protobuf/nano/CodedInputByteBufferNano;)Lcom/android/internal/logging/MetricsProto$MetricsEvent;
     .locals 1
+    .param p0, "input"    # Lcom/android/framework/protobuf/nano/CodedInputByteBufferNano;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 478
     new-instance v0, Lcom/android/internal/logging/MetricsProto$MetricsEvent;
 
     invoke-direct {v0}, Lcom/android/internal/logging/MetricsProto$MetricsEvent;-><init>()V
@@ -912,12 +926,15 @@
 
 .method public static parseFrom([B)Lcom/android/internal/logging/MetricsProto$MetricsEvent;
     .locals 1
+    .param p0, "data"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/framework/protobuf/nano/InvalidProtocolBufferNanoException;
         }
     .end annotation
 
+    .prologue
+    .line 472
     new-instance v0, Lcom/android/internal/logging/MetricsProto$MetricsEvent;
 
     invoke-direct {v0}, Lcom/android/internal/logging/MetricsProto$MetricsEvent;-><init>()V
@@ -936,21 +953,27 @@
 .method public clear()Lcom/android/internal/logging/MetricsProto$MetricsEvent;
     .locals 1
 
+    .prologue
+    .line 447
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/internal/logging/MetricsProto$MetricsEvent;->cachedSize:I
 
+    .line 448
     return-object p0
 .end method
 
 .method public bridge synthetic mergeFrom(Lcom/android/framework/protobuf/nano/CodedInputByteBufferNano;)Lcom/android/framework/protobuf/nano/MessageNano;
     .locals 1
+    .param p1, "input"    # Lcom/android/framework/protobuf/nano/CodedInputByteBufferNano;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 452
     invoke-virtual {p0, p1}, Lcom/android/internal/logging/MetricsProto$MetricsEvent;->mergeFrom(Lcom/android/framework/protobuf/nano/CodedInputByteBufferNano;)Lcom/android/internal/logging/MetricsProto$MetricsEvent;
 
     move-result-object v0
@@ -960,30 +983,39 @@
 
 .method public mergeFrom(Lcom/android/framework/protobuf/nano/CodedInputByteBufferNano;)Lcom/android/internal/logging/MetricsProto$MetricsEvent;
     .locals 2
+    .param p1, "input"    # Lcom/android/framework/protobuf/nano/CodedInputByteBufferNano;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 456
     :cond_0
     invoke-virtual {p1}, Lcom/android/framework/protobuf/nano/CodedInputByteBufferNano;->readTag()I
 
     move-result v0
 
+    .line 457
+    .local v0, "tag":I
     packed-switch v0, :pswitch_data_0
 
+    .line 461
     invoke-static {p1, v0}, Lcom/android/framework/protobuf/nano/WireFormatNano;->parseUnknownField(Lcom/android/framework/protobuf/nano/CodedInputByteBufferNano;I)Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
+    .line 462
     return-object p0
 
+    .line 459
     :pswitch_0
     return-object p0
 
+    .line 457
     nop
 
     :pswitch_data_0

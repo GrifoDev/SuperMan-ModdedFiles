@@ -27,16 +27,27 @@
 # direct methods
 .method public constructor <init>(IILjava/lang/String;Ljava/lang/String;)V
     .locals 0
+    .param p1, "startChar"    # I
+    .param p2, "endChar"    # I
+    .param p3, "url"    # Ljava/lang/String;
+    .param p4, "alt"    # Ljava/lang/String;
 
+    .prologue
+    .line 368
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 369
     iput p1, p0, Landroid/media/TimedText$HyperText;->startChar:I
 
+    .line 370
     iput p2, p0, Landroid/media/TimedText$HyperText;->endChar:I
 
+    .line 371
     iput-object p3, p0, Landroid/media/TimedText$HyperText;->URL:Ljava/lang/String;
 
+    .line 372
     iput-object p4, p0, Landroid/media/TimedText$HyperText;->altString:Ljava/lang/String;
 
+    .line 368
     return-void
 .end method

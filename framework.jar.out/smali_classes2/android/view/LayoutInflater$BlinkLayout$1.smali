@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Landroid/view/LayoutInflater$BlinkLayout;)V
     .locals 0
+    .param p1, "this$1"    # Landroid/view/LayoutInflater$BlinkLayout;
 
+    .prologue
+    .line 1066
     iput-object p1, p0, Landroid/view/LayoutInflater$BlinkLayout$1;->this$1:Landroid/view/LayoutInflater$BlinkLayout;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,17 +39,21 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)Z
     .locals 4
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
     const/4 v1, 0x1
 
     const/4 v0, 0x0
 
+    .line 1069
     iget v2, p1, Landroid/os/Message;->what:I
 
     const/16 v3, 0x42
 
     if-ne v2, v3, :cond_2
 
+    .line 1070
     iget-object v2, p0, Landroid/view/LayoutInflater$BlinkLayout$1;->this$1:Landroid/view/LayoutInflater$BlinkLayout;
 
     invoke-static {v2}, Landroid/view/LayoutInflater$BlinkLayout;->-get0(Landroid/view/LayoutInflater$BlinkLayout;)Z
@@ -55,6 +62,7 @@
 
     if-eqz v2, :cond_0
 
+    .line 1071
     iget-object v2, p0, Landroid/view/LayoutInflater$BlinkLayout$1;->this$1:Landroid/view/LayoutInflater$BlinkLayout;
 
     iget-object v3, p0, Landroid/view/LayoutInflater$BlinkLayout$1;->this$1:Landroid/view/LayoutInflater$BlinkLayout;
@@ -68,22 +76,27 @@
     :goto_0
     invoke-static {v2, v0}, Landroid/view/LayoutInflater$BlinkLayout;->-set0(Landroid/view/LayoutInflater$BlinkLayout;Z)Z
 
+    .line 1072
     iget-object v0, p0, Landroid/view/LayoutInflater$BlinkLayout$1;->this$1:Landroid/view/LayoutInflater$BlinkLayout;
 
     invoke-static {v0}, Landroid/view/LayoutInflater$BlinkLayout;->-wrap0(Landroid/view/LayoutInflater$BlinkLayout;)V
 
+    .line 1074
     :cond_0
     iget-object v0, p0, Landroid/view/LayoutInflater$BlinkLayout$1;->this$1:Landroid/view/LayoutInflater$BlinkLayout;
 
     invoke-virtual {v0}, Landroid/view/View;->invalidate()V
 
+    .line 1075
     return v1
 
     :cond_1
     move v0, v1
 
+    .line 1071
     goto :goto_0
 
+    .line 1077
     :cond_2
     return v0
 .end method

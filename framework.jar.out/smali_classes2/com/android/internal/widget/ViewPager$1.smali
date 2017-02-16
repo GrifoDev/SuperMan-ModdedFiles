@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 124
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,7 +42,11 @@
 # virtual methods
 .method public compare(Lcom/android/internal/widget/ViewPager$ItemInfo;Lcom/android/internal/widget/ViewPager$ItemInfo;)I
     .locals 2
+    .param p1, "lhs"    # Lcom/android/internal/widget/ViewPager$ItemInfo;
+    .param p2, "rhs"    # Lcom/android/internal/widget/ViewPager$ItemInfo;
 
+    .prologue
+    .line 127
     iget v0, p1, Lcom/android/internal/widget/ViewPager$ItemInfo;->position:I
 
     iget v1, p2, Lcom/android/internal/widget/ViewPager$ItemInfo;->position:I
@@ -52,11 +58,17 @@
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
+    .param p1, "lhs"    # Ljava/lang/Object;
+    .param p2, "rhs"    # Ljava/lang/Object;
 
+    .prologue
+    .line 126
     check-cast p1, Lcom/android/internal/widget/ViewPager$ItemInfo;
 
+    .end local p1    # "lhs":Ljava/lang/Object;
     check-cast p2, Lcom/android/internal/widget/ViewPager$ItemInfo;
 
+    .end local p2    # "rhs":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Lcom/android/internal/widget/ViewPager$1;->compare(Lcom/android/internal/widget/ViewPager$ItemInfo;Lcom/android/internal/widget/ViewPager$ItemInfo;)I
 
     move-result v0

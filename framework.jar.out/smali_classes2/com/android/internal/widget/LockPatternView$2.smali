@@ -23,7 +23,11 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/widget/LockPatternView;Ljava/lang/Runnable;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/internal/widget/LockPatternView;
+    .param p2, "val$finishRunnable"    # Ljava/lang/Runnable;
 
+    .prologue
+    .line 480
     iput-object p1, p0, Lcom/android/internal/widget/LockPatternView$2;->this$0:Lcom/android/internal/widget/LockPatternView;
 
     iput-object p2, p0, Lcom/android/internal/widget/LockPatternView$2;->val$finishRunnable:Ljava/lang/Runnable;
@@ -37,15 +41,20 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 1
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 483
     iget-object v0, p0, Lcom/android/internal/widget/LockPatternView$2;->val$finishRunnable:Ljava/lang/Runnable;
 
     if-eqz v0, :cond_0
 
+    .line 484
     iget-object v0, p0, Lcom/android/internal/widget/LockPatternView$2;->val$finishRunnable:Ljava/lang/Runnable;
 
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
+    .line 482
     :cond_0
     return-void
 .end method

@@ -52,35 +52,48 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 146
     new-instance v0, Landroid/nfc/cardemulation/AidGroup$1;
 
     invoke-direct {v0}, Landroid/nfc/cardemulation/AidGroup$1;-><init>()V
 
+    .line 145
     sput-object v0, Landroid/nfc/cardemulation/AidGroup;->CREATOR:Landroid/os/Parcelable$Creator;
 
+    .line 40
     return-void
 .end method
 
 .method constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
+    .param p1, "category"    # Ljava/lang/String;
+    .param p2, "description"    # Ljava/lang/String;
 
+    .prologue
+    .line 82
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 83
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Landroid/nfc/cardemulation/AidGroup;->aids:Ljava/util/List;
 
+    .line 84
     iput-object p1, p0, Landroid/nfc/cardemulation/AidGroup;->category:Ljava/lang/String;
 
+    .line 85
     iput-object p2, p0, Landroid/nfc/cardemulation/AidGroup;->description:Ljava/lang/String;
 
+    .line 82
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/List;Ljava/lang/String;)V
     .locals 5
+    .param p2, "category"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -93,10 +106,14 @@
         }
     .end annotation
 
+    .prologue
+    .local p1, "aids":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     const/4 v4, 0x0
 
+    .line 58
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 59
     if-eqz p1, :cond_0
 
     invoke-interface {p1}, Ljava/util/List;->size()I
@@ -105,6 +122,7 @@
 
     if-nez v2, :cond_1
 
+    .line 60
     :cond_0
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
@@ -114,6 +132,7 @@
 
     throw v2
 
+    .line 62
     :cond_1
     invoke-interface {p1}, Ljava/util/List;->size()I
 
@@ -123,6 +142,7 @@
 
     if-le v2, v3, :cond_2
 
+    .line 63
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v3, "Too many AIDs in AID group."
@@ -131,11 +151,13 @@
 
     throw v2
 
+    .line 65
     :cond_2
     invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
+    .local v1, "aid$iterator":Ljava/util/Iterator;
     :cond_3
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -149,12 +171,15 @@
 
     check-cast v0, Ljava/lang/String;
 
+    .line 66
+    .local v0, "aid":Ljava/lang/String;
     invoke-static {v0}, Landroid/nfc/cardemulation/CardEmulation;->isValidAid(Ljava/lang/String;)Z
 
     move-result v2
 
     if-nez v2, :cond_3
 
+    .line 67
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -185,6 +210,8 @@
 
     throw v2
 
+    .line 70
+    .end local v0    # "aid":Ljava/lang/String;
     :cond_4
     invoke-static {p2}, Landroid/nfc/cardemulation/AidGroup;->isValidCategory(Ljava/lang/String;)Z
 
@@ -192,8 +219,10 @@
 
     if-eqz v2, :cond_5
 
+    .line 71
     iput-object p2, p0, Landroid/nfc/cardemulation/AidGroup;->category:Ljava/lang/String;
 
+    .line 75
     :goto_0
     new-instance v2, Ljava/util/ArrayList;
 
@@ -205,6 +234,7 @@
 
     iput-object v2, p0, Landroid/nfc/cardemulation/AidGroup;->aids:Ljava/util/List;
 
+    .line 76
     invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
@@ -222,6 +252,8 @@
 
     check-cast v0, Ljava/lang/String;
 
+    .line 77
+    .restart local v0    # "aid":Ljava/lang/String;
     iget-object v2, p0, Landroid/nfc/cardemulation/AidGroup;->aids:Ljava/util/List;
 
     invoke-virtual {v0}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
@@ -232,6 +264,8 @@
 
     goto :goto_1
 
+    .line 73
+    .end local v0    # "aid":Ljava/lang/String;
     :cond_5
     const-string/jumbo v2, "other"
 
@@ -239,14 +273,18 @@
 
     goto :goto_0
 
+    .line 79
     :cond_6
     iput-object v4, p0, Landroid/nfc/cardemulation/AidGroup;->description:Ljava/lang/String;
 
+    .line 58
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
+    .param p2, "category"    # Ljava/lang/String;
+    .param p3, "description"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -260,19 +298,27 @@
         }
     .end annotation
 
+    .prologue
+    .line 92
+    .local p1, "aids":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 93
     iput-object p1, p0, Landroid/nfc/cardemulation/AidGroup;->aids:Ljava/util/List;
 
+    .line 94
     iput-object p2, p0, Landroid/nfc/cardemulation/AidGroup;->category:Ljava/lang/String;
 
+    .line 95
     iput-object p3, p0, Landroid/nfc/cardemulation/AidGroup;->description:Ljava/lang/String;
 
+    .line 92
     return-void
 .end method
 
 .method public static createFromXml(Lorg/xmlpull/v1/XmlPullParser;)Landroid/nfc/cardemulation/AidGroup;
     .locals 12
+    .param p0, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -280,26 +326,41 @@
         }
     .end annotation
 
+    .prologue
     const/4 v11, 0x0
 
+    .line 166
     const/4 v2, 0x0
 
+    .line 167
+    .local v2, "category":Ljava/lang/String;
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
+    .line 168
+    .local v1, "aids":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     const/4 v4, 0x0
 
+    .line 169
+    .local v4, "group":Landroid/nfc/cardemulation/AidGroup;
     const/4 v5, 0x0
 
+    .line 171
+    .local v5, "inGroup":Z
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getEventType()I
 
     move-result v3
 
+    .line 172
+    .local v3, "eventType":I
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
 
     move-result v6
 
+    .line 173
+    .end local v2    # "category":Ljava/lang/String;
+    .local v6, "minDepth":I
     :goto_0
     const/4 v8, 0x1
 
@@ -311,14 +372,18 @@
 
     if-lt v8, v6, :cond_6
 
+    .line 174
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
     move-result-object v7
 
+    .line 175
+    .local v7, "tagName":Ljava/lang/String;
     const/4 v8, 0x2
 
     if-ne v3, v8, :cond_5
 
+    .line 176
     const-string/jumbo v8, "aid"
 
     invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -327,22 +392,29 @@
 
     if-eqz v8, :cond_2
 
+    .line 177
     if-eqz v5, :cond_1
 
+    .line 178
     const-string/jumbo v8, "value"
 
     invoke-interface {p0, v11, v8}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
+    .line 179
+    .local v0, "aid":Ljava/lang/String;
     if-eqz v0, :cond_0
 
+    .line 180
     invoke-virtual {v0}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
 
     move-result-object v8
 
     invoke-virtual {v1, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 201
+    .end local v0    # "aid":Ljava/lang/String;
     :cond_0
     :goto_1
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->next()I
@@ -351,6 +423,7 @@
 
     goto :goto_0
 
+    .line 183
     :cond_1
     const-string/jumbo v8, "AidGroup"
 
@@ -360,6 +433,7 @@
 
     goto :goto_1
 
+    .line 185
     :cond_2
     const-string/jumbo v8, "aid-group"
 
@@ -369,27 +443,35 @@
 
     if-eqz v8, :cond_4
 
+    .line 186
     const-string/jumbo v8, "category"
 
     invoke-interface {p0, v11, v8}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
+    .line 187
+    .local v2, "category":Ljava/lang/String;
     if-nez v2, :cond_3
 
+    .line 188
     const-string/jumbo v8, "AidGroup"
 
     const-string/jumbo v9, "<aid-group> tag without valid category"
 
     invoke-static {v8, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 189
     return-object v11
 
+    .line 191
     :cond_3
     const/4 v5, 0x1
 
     goto :goto_1
 
+    .line 193
+    .end local v2    # "category":Ljava/lang/String;
     :cond_4
     const-string/jumbo v8, "AidGroup"
 
@@ -415,11 +497,13 @@
 
     goto :goto_1
 
+    .line 195
     :cond_5
     const/4 v8, 0x3
 
     if-ne v3, v8, :cond_0
 
+    .line 196
     const-string/jumbo v8, "aid-group"
 
     invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -436,17 +520,24 @@
 
     if-lez v8, :cond_0
 
+    .line 197
     new-instance v4, Landroid/nfc/cardemulation/AidGroup;
 
+    .end local v4    # "group":Landroid/nfc/cardemulation/AidGroup;
     invoke-direct {v4, v1, v2}, Landroid/nfc/cardemulation/AidGroup;-><init>(Ljava/util/List;Ljava/lang/String;)V
 
+    .line 203
+    .end local v7    # "tagName":Ljava/lang/String;
     :cond_6
     return-object v4
 .end method
 
 .method static isValidCategory(Ljava/lang/String;)Z
     .locals 1
+    .param p0, "category"    # Ljava/lang/String;
 
+    .prologue
+    .line 218
     const-string/jumbo v0, "payment"
 
     invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -455,12 +546,14 @@
 
     if-nez v0, :cond_0
 
+    .line 219
     const-string/jumbo v0, "other"
 
     invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
+    .line 218
     :goto_0
     return v0
 
@@ -475,6 +568,8 @@
 .method public describeContents()I
     .locals 1
 
+    .prologue
+    .line 133
     const/4 v0, 0x0
 
     return v0
@@ -492,6 +587,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 117
     iget-object v0, p0, Landroid/nfc/cardemulation/AidGroup;->aids:Ljava/util/List;
 
     return-object v0
@@ -500,6 +597,8 @@
 .method public getCategory()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 110
     iget-object v0, p0, Landroid/nfc/cardemulation/AidGroup;->category:Ljava/lang/String;
 
     return-object v0
@@ -508,6 +607,8 @@
 .method public getDescription()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 102
     iget-object v0, p0, Landroid/nfc/cardemulation/AidGroup;->description:Ljava/lang/String;
 
     return-object v0
@@ -516,6 +617,8 @@
 .method public toString()Ljava/lang/String;
     .locals 5
 
+    .prologue
+    .line 122
     new-instance v2, Ljava/lang/StringBuilder;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -534,8 +637,10 @@
 
     move-result-object v3
 
+    .line 123
     const-string/jumbo v4, ", AIDs:"
 
+    .line 122
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -546,12 +651,15 @@
 
     invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
+    .line 124
+    .local v2, "out":Ljava/lang/StringBuilder;
     iget-object v3, p0, Landroid/nfc/cardemulation/AidGroup;->aids:Ljava/util/List;
 
     invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
+    .local v1, "aid$iterator":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -565,14 +673,19 @@
 
     check-cast v0, Ljava/lang/String;
 
+    .line 125
+    .local v0, "aid":Ljava/lang/String;
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 126
     const-string/jumbo v3, ", "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     goto :goto_0
 
+    .line 128
+    .end local v0    # "aid":Ljava/lang/String;
     :cond_0
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -583,30 +696,36 @@
 
 .method public writeAsXml(Lorg/xmlpull/v1/XmlSerializer;)V
     .locals 5
+    .param p1, "out"    # Lorg/xmlpull/v1/XmlSerializer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
     const/4 v4, 0x0
 
+    .line 207
     const-string/jumbo v2, "aid-group"
 
     invoke-interface {p1, v4, v2}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
+    .line 208
     const-string/jumbo v2, "category"
 
     iget-object v3, p0, Landroid/nfc/cardemulation/AidGroup;->category:Ljava/lang/String;
 
     invoke-interface {p1, v4, v2, v3}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
+    .line 209
     iget-object v2, p0, Landroid/nfc/cardemulation/AidGroup;->aids:Ljava/util/List;
 
     invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
+    .local v1, "aid$iterator":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -620,35 +739,47 @@
 
     check-cast v0, Ljava/lang/String;
 
+    .line 210
+    .local v0, "aid":Ljava/lang/String;
     const-string/jumbo v2, "aid"
 
     invoke-interface {p1, v4, v2}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
+    .line 211
     const-string/jumbo v2, "value"
 
     invoke-interface {p1, v4, v2, v0}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
+    .line 212
     const-string/jumbo v2, "aid"
 
     invoke-interface {p1, v4, v2}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     goto :goto_0
 
+    .line 214
+    .end local v0    # "aid":Ljava/lang/String;
     :cond_0
     const-string/jumbo v2, "aid-group"
 
     invoke-interface {p1, v4, v2}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
+    .line 206
     return-void
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
+    .prologue
+    .line 138
     iget-object v0, p0, Landroid/nfc/cardemulation/AidGroup;->category:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
+    .line 139
     iget-object v0, p0, Landroid/nfc/cardemulation/AidGroup;->aids:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->size()I
@@ -657,6 +788,7 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 140
     iget-object v0, p0, Landroid/nfc/cardemulation/AidGroup;->aids:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->size()I
@@ -665,10 +797,12 @@
 
     if-lez v0, :cond_0
 
+    .line 141
     iget-object v0, p0, Landroid/nfc/cardemulation/AidGroup;->aids:Ljava/util/List;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeStringList(Ljava/util/List;)V
 
+    .line 137
     :cond_0
     return-void
 .end method

@@ -28,7 +28,12 @@
 # direct methods
 .method constructor <init>(Landroid/app/SharedPreferencesImpl;Landroid/app/SharedPreferencesImpl$MemoryCommitResult;Ljava/lang/Runnable;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/app/SharedPreferencesImpl;
+    .param p2, "val$mcr"    # Landroid/app/SharedPreferencesImpl$MemoryCommitResult;
+    .param p3, "val$postWriteRunnable"    # Ljava/lang/Runnable;
 
+    .prologue
+    .line 512
     iput-object p1, p0, Landroid/app/SharedPreferencesImpl$2;->this$0:Landroid/app/SharedPreferencesImpl;
 
     iput-object p2, p0, Landroid/app/SharedPreferencesImpl$2;->val$mcr:Landroid/app/SharedPreferencesImpl$MemoryCommitResult;
@@ -45,6 +50,8 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 514
     iget-object v0, p0, Landroid/app/SharedPreferencesImpl$2;->this$0:Landroid/app/SharedPreferencesImpl;
 
     invoke-static {v0}, Landroid/app/SharedPreferencesImpl;->-get3(Landroid/app/SharedPreferencesImpl;)Ljava/lang/Object;
@@ -53,6 +60,7 @@
 
     monitor-enter v1
 
+    .line 515
     :try_start_0
     iget-object v0, p0, Landroid/app/SharedPreferencesImpl$2;->this$0:Landroid/app/SharedPreferencesImpl;
 
@@ -64,10 +72,12 @@
 
     monitor-exit v1
 
+    .line 517
     iget-object v1, p0, Landroid/app/SharedPreferencesImpl$2;->this$0:Landroid/app/SharedPreferencesImpl;
 
     monitor-enter v1
 
+    .line 518
     :try_start_1
     iget-object v0, p0, Landroid/app/SharedPreferencesImpl$2;->this$0:Landroid/app/SharedPreferencesImpl;
 
@@ -83,17 +93,21 @@
 
     monitor-exit v1
 
+    .line 520
     iget-object v0, p0, Landroid/app/SharedPreferencesImpl$2;->val$postWriteRunnable:Ljava/lang/Runnable;
 
     if-eqz v0, :cond_0
 
+    .line 521
     iget-object v0, p0, Landroid/app/SharedPreferencesImpl$2;->val$postWriteRunnable:Ljava/lang/Runnable;
 
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
+    .line 513
     :cond_0
     return-void
 
+    .line 514
     :catchall_0
     move-exception v0
 
@@ -101,6 +115,7 @@
 
     throw v0
 
+    .line 517
     :catchall_1
     move-exception v0
 

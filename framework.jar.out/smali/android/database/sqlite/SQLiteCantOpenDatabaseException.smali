@@ -17,16 +17,19 @@
 .method static constructor <clinit>()V
     .locals 6
 
+    .prologue
     const/4 v5, 0x2
 
     const/4 v4, 0x1
 
     const/4 v3, 0x0
 
+    .line 26
     const/16 v0, 0xc
 
     new-array v0, v0, [[Ljava/lang/String;
 
+    .line 27
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "SQLITE_CANTOPEN"
@@ -39,6 +42,7 @@
 
     aput-object v1, v0, v3
 
+    .line 28
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "SQLITE_CANTOPEN_NOTEMPDIR"
@@ -51,6 +55,7 @@
 
     aput-object v1, v0, v4
 
+    .line 29
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "SQLITE_CANTOPEN_ISDIR"
@@ -63,6 +68,7 @@
 
     aput-object v1, v0, v5
 
+    .line 30
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "SQLITE_CANTOPEN_FULLPATH"
@@ -77,6 +83,7 @@
 
     aput-object v1, v0, v2
 
+    .line 31
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "SQLITE_CANTOPEN_CONVPATH"
@@ -91,6 +98,7 @@
 
     aput-object v1, v0, v2
 
+    .line 32
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "SQLITE_CANTOPEN_ENOENT"
@@ -105,6 +113,7 @@
 
     aput-object v1, v0, v2
 
+    .line 33
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "SQLITE_CANTOPEN_ENOMEM"
@@ -119,6 +128,7 @@
 
     aput-object v1, v0, v2
 
+    .line 34
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "SQLITE_CANTOPEN_EACCES"
@@ -133,6 +143,7 @@
 
     aput-object v1, v0, v2
 
+    .line 35
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "SQLITE_CANTOPEN_EMFILE"
@@ -147,6 +158,7 @@
 
     aput-object v1, v0, v2
 
+    .line 36
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "SQLITE_CANTOPEN_ENOSPC"
@@ -161,6 +173,7 @@
 
     aput-object v1, v0, v2
 
+    .line 37
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "SQLITE_CANTOPEN_EROFS"
@@ -175,6 +188,7 @@
 
     aput-object v1, v0, v2
 
+    .line 38
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "SQLITE_CANTOPEN_WRONG_PWD"
@@ -189,14 +203,18 @@
 
     aput-object v1, v0, v2
 
+    .line 26
     sput-object v0, Landroid/database/sqlite/SQLiteCantOpenDatabaseException;->errString:[[Ljava/lang/String;
 
+    .line 19
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 42
     invoke-direct {p0}, Landroid/database/sqlite/SQLiteException;-><init>()V
 
     const/16 v0, 0xe
@@ -208,7 +226,10 @@
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 3
+    .param p1, "error"    # Ljava/lang/String;
 
+    .prologue
+    .line 45
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -231,22 +252,29 @@
 
     invoke-direct {p0, v1}, Landroid/database/sqlite/SQLiteException;-><init>(Ljava/lang/String;)V
 
+    .line 46
     new-instance v0, Landroid/database/sqlite/SQLiteExceptionLog;
 
     const/16 v1, 0xe
 
     invoke-direct {v0, v1, p1}, Landroid/database/sqlite/SQLiteExceptionLog;-><init>(ILjava/lang/String;)V
 
+    .line 47
+    .local v0, "codeParser":Landroid/database/sqlite/SQLiteExceptionLog;
     iget v1, v0, Landroid/database/sqlite/SQLiteExceptionLog;->errCode:I
 
     iput v1, p0, Landroid/database/sqlite/SQLiteCantOpenDatabaseException;->mErrorCode:I
 
+    .line 44
     return-void
 .end method
 
 .method private static addErrCode(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
+    .param p0, "errMessage"    # Ljava/lang/String;
 
+    .prologue
+    .line 51
     if-eqz p0, :cond_0
 
     const-string/jumbo v0, "(code "
@@ -257,10 +285,12 @@
 
     if-lez v0, :cond_0
 
+    .line 52
     const-string/jumbo v0, ""
 
     return-object v0
 
+    .line 53
     :cond_0
     const-string/jumbo v0, " (code 14)"
 
@@ -272,6 +302,8 @@
 .method public semIsWrongPasswordException()Z
     .locals 2
 
+    .prologue
+    .line 63
     iget v0, p0, Landroid/database/sqlite/SQLiteCantOpenDatabaseException;->mErrorCode:I
 
     const/16 v1, 0xb0e

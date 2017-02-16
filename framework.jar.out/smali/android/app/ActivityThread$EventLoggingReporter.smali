@@ -21,6 +21,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 6541
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -29,6 +31,7 @@
 .method synthetic constructor <init>(Landroid/app/ActivityThread$EventLoggingReporter;)V
     .locals 0
 
+    .prologue
     invoke-direct {p0}, Landroid/app/ActivityThread$EventLoggingReporter;-><init>()V
 
     return-void
@@ -38,8 +41,13 @@
 # virtual methods
 .method public varargs report(I[Ljava/lang/Object;)V
     .locals 0
+    .param p1, "code"    # I
+    .param p2, "list"    # [Ljava/lang/Object;
 
+    .prologue
+    .line 6544
     invoke-static {p1, p2}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
+    .line 6543
     return-void
 .end method

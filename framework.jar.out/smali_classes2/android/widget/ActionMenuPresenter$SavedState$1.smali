@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 993
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,7 +42,10 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/widget/ActionMenuPresenter$SavedState;
     .locals 1
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 995
     new-instance v0, Landroid/widget/ActionMenuPresenter$SavedState;
 
     invoke-direct {v0, p1}, Landroid/widget/ActionMenuPresenter$SavedState;-><init>(Landroid/os/Parcel;)V
@@ -50,7 +55,10 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 994
     invoke-virtual {p0, p1}, Landroid/widget/ActionMenuPresenter$SavedState$1;->createFromParcel(Landroid/os/Parcel;)Landroid/widget/ActionMenuPresenter$SavedState;
 
     move-result-object v0
@@ -60,7 +68,10 @@
 
 .method public newArray(I)[Landroid/widget/ActionMenuPresenter$SavedState;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 999
     new-array v0, p1, [Landroid/widget/ActionMenuPresenter$SavedState;
 
     return-object v0
@@ -68,7 +79,10 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 998
     invoke-virtual {p0, p1}, Landroid/widget/ActionMenuPresenter$SavedState$1;->newArray(I)[Landroid/widget/ActionMenuPresenter$SavedState;
 
     move-result-object v0

@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Landroid/bluetooth/BluetoothPbap;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/bluetooth/BluetoothPbap;
 
+    .prologue
+    .line 113
     iput-object p1, p0, Landroid/bluetooth/BluetoothPbap$1;->this$0:Landroid/bluetooth/BluetoothPbap;
 
     invoke-direct {p0}, Landroid/bluetooth/IBluetoothStateChangeCallback$Stub;-><init>()V
@@ -33,7 +36,10 @@
 # virtual methods
 .method public onBluetoothStateChange(Z)V
     .locals 4
+    .param p1, "up"    # Z
 
+    .prologue
+    .line 115
     const-string/jumbo v1, "BluetoothPbap"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -56,8 +62,10 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 116
     if-nez p1, :cond_1
 
+    .line 118
     iget-object v1, p0, Landroid/bluetooth/BluetoothPbap$1;->this$0:Landroid/bluetooth/BluetoothPbap;
 
     invoke-static {v1}, Landroid/bluetooth/BluetoothPbap;->-get0(Landroid/bluetooth/BluetoothPbap;)Landroid/content/ServiceConnection;
@@ -66,6 +74,7 @@
 
     monitor-enter v2
 
+    .line 120
     :try_start_0
     iget-object v1, p0, Landroid/bluetooth/BluetoothPbap$1;->this$0:Landroid/bluetooth/BluetoothPbap;
 
@@ -73,6 +82,7 @@
 
     invoke-static {v1, v3}, Landroid/bluetooth/BluetoothPbap;->-set0(Landroid/bluetooth/BluetoothPbap;Landroid/bluetooth/IBluetoothPbap;)Landroid/bluetooth/IBluetoothPbap;
 
+    .line 121
     iget-object v1, p0, Landroid/bluetooth/BluetoothPbap$1;->this$0:Landroid/bluetooth/BluetoothPbap;
 
     invoke-static {v1}, Landroid/bluetooth/BluetoothPbap;->-get1(Landroid/bluetooth/BluetoothPbap;)Landroid/content/Context;
@@ -94,11 +104,15 @@
     :goto_0
     monitor-exit v2
 
+    .line 114
     return-void
 
+    .line 122
     :catch_0
     move-exception v0
 
+    .line 123
+    .local v0, "re":Ljava/lang/Exception;
     :try_start_1
     const-string/jumbo v1, "BluetoothPbap"
 
@@ -110,6 +124,8 @@
 
     goto :goto_0
 
+    .line 118
+    .end local v0    # "re":Ljava/lang/Exception;
     :catchall_0
     move-exception v1
 
@@ -117,6 +133,7 @@
 
     throw v1
 
+    .line 127
     :cond_1
     iget-object v1, p0, Landroid/bluetooth/BluetoothPbap$1;->this$0:Landroid/bluetooth/BluetoothPbap;
 
@@ -126,6 +143,7 @@
 
     monitor-enter v2
 
+    .line 129
     :try_start_2
     iget-object v1, p0, Landroid/bluetooth/BluetoothPbap$1;->this$0:Landroid/bluetooth/BluetoothPbap;
 
@@ -135,6 +153,7 @@
 
     if-nez v1, :cond_0
 
+    .line 131
     iget-object v1, p0, Landroid/bluetooth/BluetoothPbap$1;->this$0:Landroid/bluetooth/BluetoothPbap;
 
     invoke-virtual {v1}, Landroid/bluetooth/BluetoothPbap;->doBind()Z
@@ -144,9 +163,12 @@
 
     goto :goto_0
 
+    .line 133
     :catch_1
     move-exception v0
 
+    .line 134
+    .restart local v0    # "re":Ljava/lang/Exception;
     :try_start_3
     const-string/jumbo v1, "BluetoothPbap"
 
@@ -158,6 +180,8 @@
 
     goto :goto_0
 
+    .line 127
+    .end local v0    # "re":Ljava/lang/Exception;
     :catchall_1
     move-exception v1
 

@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/widget/SemDatePicker;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/samsung/android/widget/SemDatePicker;
 
+    .prologue
+    .line 1691
     iput-object p1, p0, Lcom/samsung/android/widget/SemDatePicker$10;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +39,10 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 2
+    .param p1, "v"    # Landroid/view/View;
 
+    .prologue
+    .line 1694
     iget-object v0, p0, Lcom/samsung/android/widget/SemDatePicker$10;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
     iget-object v1, p0, Lcom/samsung/android/widget/SemDatePicker$10;->this$0:Lcom/samsung/android/widget/SemDatePicker;
@@ -51,5 +57,6 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/widget/SemDatePicker;->-wrap6(Lcom/samsung/android/widget/SemDatePicker;I)V
 
+    .line 1693
     return-void
 .end method

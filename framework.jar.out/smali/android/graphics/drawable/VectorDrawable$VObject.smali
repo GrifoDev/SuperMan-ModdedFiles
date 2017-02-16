@@ -22,12 +22,16 @@
 .method constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 1777
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 1778
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/graphics/drawable/VectorDrawable$VObject;->mTreePtr:Lcom/android/internal/util/VirtualRefBasePtr;
 
+    .line 1777
     return-void
 .end method
 
@@ -54,8 +58,10 @@
 .method isTreeValid()Z
     .locals 6
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 1780
     iget-object v1, p0, Landroid/graphics/drawable/VectorDrawable$VObject;->mTreePtr:Lcom/android/internal/util/VirtualRefBasePtr;
 
     if-eqz v1, :cond_0
@@ -83,8 +89,12 @@
 
 .method setTree(Lcom/android/internal/util/VirtualRefBasePtr;)V
     .locals 0
+    .param p1, "ptr"    # Lcom/android/internal/util/VirtualRefBasePtr;
 
+    .prologue
+    .line 1783
     iput-object p1, p0, Landroid/graphics/drawable/VectorDrawable$VObject;->mTreePtr:Lcom/android/internal/util/VirtualRefBasePtr;
 
+    .line 1782
     return-void
 .end method

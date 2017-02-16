@@ -82,17 +82,23 @@
 .method public constructor <init>()V
     .locals 2
 
+    .prologue
     const/4 v1, 0x1
 
+    .line 215
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 225
     const/high16 v0, 0x3f800000    # 1.0f
 
     iput v0, p0, Lcom/android/internal/widget/LockPatternView$CellState;->alpha:F
 
+    .line 226
     iput v1, p0, Lcom/android/internal/widget/LockPatternView$CellState;->lineEndX:F
 
+    .line 227
     iput v1, p0, Lcom/android/internal/widget/LockPatternView$CellState;->lineEndY:F
 
+    .line 215
     return-void
 .end method

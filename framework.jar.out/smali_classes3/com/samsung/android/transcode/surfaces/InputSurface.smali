@@ -23,28 +23,38 @@
 .method public constructor <init>(Landroid/view/Surface;)V
     .locals 2
 
+    .prologue
+    .line 46
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 39
     sget-object v0, Landroid/opengl/EGL14;->EGL_NO_DISPLAY:Landroid/opengl/EGLDisplay;
 
     iput-object v0, p0, Lcom/samsung/android/transcode/surfaces/InputSurface;->mEGLDisplay:Landroid/opengl/EGLDisplay;
 
+    .line 40
     sget-object v0, Landroid/opengl/EGL14;->EGL_NO_CONTEXT:Landroid/opengl/EGLContext;
 
     iput-object v0, p0, Lcom/samsung/android/transcode/surfaces/InputSurface;->mEGLContext:Landroid/opengl/EGLContext;
 
+    .line 41
     sget-object v0, Landroid/opengl/EGL14;->EGL_NO_SURFACE:Landroid/opengl/EGLSurface;
 
     iput-object v0, p0, Lcom/samsung/android/transcode/surfaces/InputSurface;->mEGLSurface:Landroid/opengl/EGLSurface;
 
+    .line 47
     if-eqz p1, :cond_0
 
+    .line 50
     iput-object p1, p0, Lcom/samsung/android/transcode/surfaces/InputSurface;->mSurface:Landroid/view/Surface;
 
+    .line 51
     invoke-direct {p0}, Lcom/samsung/android/transcode/surfaces/InputSurface;->eglSetup()V
 
+    .line 52
     return-void
 
+    .line 48
     :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -58,8 +68,10 @@
 .method private checkEglError(Ljava/lang/String;)V
     .locals 4
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 157
     :goto_0
     invoke-static {}, Landroid/opengl/EGL14;->eglGetError()I
 
@@ -69,13 +81,16 @@
 
     if-ne v1, v2, :cond_0
 
+    .line 161
     if-nez v0, :cond_1
 
+    .line 164
     return-void
 
     :cond_0
     const-string/jumbo v0, "TranscodeLib"
 
+    .line 158
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -100,10 +115,12 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 159
     const/4 v0, 0x1
 
     goto :goto_0
 
+    .line 162
     :cond_1
     new-instance v0, Ljava/lang/RuntimeException;
 
@@ -117,6 +134,7 @@
 .method private eglSetup()V
     .locals 11
 
+    .prologue
     const/16 v10, 0x3038
 
     const/16 v4, 0x8
@@ -127,20 +145,24 @@
 
     const/4 v2, 0x0
 
+    .line 57
     invoke-static {v2}, Landroid/opengl/EGL14;->eglGetDisplay(I)Landroid/opengl/EGLDisplay;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/samsung/android/transcode/surfaces/InputSurface;->mEGLDisplay:Landroid/opengl/EGLDisplay;
 
+    .line 58
     iget-object v0, p0, Lcom/samsung/android/transcode/surfaces/InputSurface;->mEGLDisplay:Landroid/opengl/EGLDisplay;
 
     sget-object v1, Landroid/opengl/EGL14;->EGL_NO_DISPLAY:Landroid/opengl/EGLDisplay;
 
     if-eq v0, v1, :cond_0
 
+    .line 61
     new-array v0, v9, [I
 
+    .line 62
     iget-object v1, p0, Lcom/samsung/android/transcode/surfaces/InputSurface;->mEGLDisplay:Landroid/opengl/EGLDisplay;
 
     invoke-static {v1, v0, v2, v0, v8}, Landroid/opengl/EGL14;->eglInitialize(Landroid/opengl/EGLDisplay;[II[II)Z
@@ -151,6 +173,7 @@
 
     const/16 v0, 0xb
 
+    .line 68
     new-array v1, v0, [I
 
     const/16 v0, 0x3024
@@ -201,10 +224,13 @@
 
     aput v10, v1, v0
 
+    .line 76
     new-array v3, v8, [Landroid/opengl/EGLConfig;
 
+    .line 77
     new-array v6, v8, [I
 
+    .line 78
     iget-object v0, p0, Lcom/samsung/android/transcode/surfaces/InputSurface;->mEGLDisplay:Landroid/opengl/EGLDisplay;
 
     array-length v5, v3
@@ -221,6 +247,7 @@
 
     const/4 v0, 0x3
 
+    .line 83
     new-array v0, v0, [I
 
     const/16 v1, 0x3098
@@ -231,6 +258,7 @@
 
     aput v10, v0, v9
 
+    .line 87
     iget-object v1, p0, Lcom/samsung/android/transcode/surfaces/InputSurface;->mEGLDisplay:Landroid/opengl/EGLDisplay;
 
     aget-object v4, v3, v2
@@ -245,16 +273,20 @@
 
     const-string/jumbo v0, "eglCreateContext"
 
+    .line 89
     invoke-direct {p0, v0}, Lcom/samsung/android/transcode/surfaces/InputSurface;->checkEglError(Ljava/lang/String;)V
 
+    .line 90
     iget-object v0, p0, Lcom/samsung/android/transcode/surfaces/InputSurface;->mEGLContext:Landroid/opengl/EGLContext;
 
     if-eqz v0, :cond_3
 
+    .line 94
     new-array v0, v8, [I
 
     aput v10, v0, v2
 
+    .line 97
     iget-object v1, p0, Lcom/samsung/android/transcode/surfaces/InputSurface;->mEGLDisplay:Landroid/opengl/EGLDisplay;
 
     aget-object v3, v3, v2
@@ -269,14 +301,18 @@
 
     const-string/jumbo v0, "eglCreateWindowSurface"
 
+    .line 99
     invoke-direct {p0, v0}, Lcom/samsung/android/transcode/surfaces/InputSurface;->checkEglError(Ljava/lang/String;)V
 
+    .line 100
     iget-object v0, p0, Lcom/samsung/android/transcode/surfaces/InputSurface;->mEGLSurface:Landroid/opengl/EGLSurface;
 
     if-eqz v0, :cond_4
 
+    .line 103
     return-void
 
+    .line 59
     :cond_0
     new-instance v0, Ljava/lang/RuntimeException;
 
@@ -289,8 +325,10 @@
     :cond_1
     const/4 v0, 0x0
 
+    .line 63
     iput-object v0, p0, Lcom/samsung/android/transcode/surfaces/InputSurface;->mEGLDisplay:Landroid/opengl/EGLDisplay;
 
+    .line 64
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string/jumbo v1, "unable to initialize EGL14"
@@ -299,6 +337,7 @@
 
     throw v0
 
+    .line 80
     :cond_2
     new-instance v0, Ljava/lang/RuntimeException;
 
@@ -308,6 +347,7 @@
 
     throw v0
 
+    .line 91
     :cond_3
     new-instance v0, Ljava/lang/RuntimeException;
 
@@ -317,6 +357,7 @@
 
     throw v0
 
+    .line 101
     :cond_4
     new-instance v0, Ljava/lang/RuntimeException;
 
@@ -332,6 +373,8 @@
 .method public getSurface()Landroid/view/Surface;
     .locals 1
 
+    .prologue
+    .line 143
     iget-object v0, p0, Lcom/samsung/android/transcode/surfaces/InputSurface;->mSurface:Landroid/view/Surface;
 
     return-object v0
@@ -340,6 +383,8 @@
 .method public makeCurrent()V
     .locals 4
 
+    .prologue
+    .line 129
     iget-object v0, p0, Lcom/samsung/android/transcode/surfaces/InputSurface;->mEGLDisplay:Landroid/opengl/EGLDisplay;
 
     iget-object v1, p0, Lcom/samsung/android/transcode/surfaces/InputSurface;->mEGLSurface:Landroid/opengl/EGLSurface;
@@ -354,8 +399,10 @@
 
     if-eqz v0, :cond_0
 
+    .line 132
     return-void
 
+    .line 130
     :cond_0
     new-instance v0, Ljava/lang/RuntimeException;
 
@@ -369,8 +416,10 @@
 .method public release()V
     .locals 5
 
+    .prologue
     const/4 v4, 0x0
 
+    .line 109
     invoke-static {}, Landroid/opengl/EGL14;->eglGetCurrentContext()Landroid/opengl/EGLContext;
 
     move-result-object v0
@@ -383,6 +432,7 @@
 
     if-nez v0, :cond_0
 
+    .line 114
     :goto_0
     iget-object v0, p0, Lcom/samsung/android/transcode/surfaces/InputSurface;->mEGLDisplay:Landroid/opengl/EGLDisplay;
 
@@ -390,27 +440,35 @@
 
     invoke-static {v0, v1}, Landroid/opengl/EGL14;->eglDestroySurface(Landroid/opengl/EGLDisplay;Landroid/opengl/EGLSurface;)Z
 
+    .line 115
     iget-object v0, p0, Lcom/samsung/android/transcode/surfaces/InputSurface;->mEGLDisplay:Landroid/opengl/EGLDisplay;
 
     iget-object v1, p0, Lcom/samsung/android/transcode/surfaces/InputSurface;->mEGLContext:Landroid/opengl/EGLContext;
 
     invoke-static {v0, v1}, Landroid/opengl/EGL14;->eglDestroyContext(Landroid/opengl/EGLDisplay;Landroid/opengl/EGLContext;)Z
 
+    .line 117
     iget-object v0, p0, Lcom/samsung/android/transcode/surfaces/InputSurface;->mSurface:Landroid/view/Surface;
 
     if-nez v0, :cond_1
 
+    .line 120
     :goto_1
     iput-object v4, p0, Lcom/samsung/android/transcode/surfaces/InputSurface;->mEGLDisplay:Landroid/opengl/EGLDisplay;
 
+    .line 121
     iput-object v4, p0, Lcom/samsung/android/transcode/surfaces/InputSurface;->mEGLContext:Landroid/opengl/EGLContext;
 
+    .line 122
     iput-object v4, p0, Lcom/samsung/android/transcode/surfaces/InputSurface;->mEGLSurface:Landroid/opengl/EGLSurface;
 
+    .line 123
     iput-object v4, p0, Lcom/samsung/android/transcode/surfaces/InputSurface;->mSurface:Landroid/view/Surface;
 
+    .line 124
     return-void
 
+    .line 111
     :cond_0
     iget-object v0, p0, Lcom/samsung/android/transcode/surfaces/InputSurface;->mEGLDisplay:Landroid/opengl/EGLDisplay;
 
@@ -424,6 +482,7 @@
 
     goto :goto_0
 
+    .line 118
     :cond_1
     iget-object v0, p0, Lcom/samsung/android/transcode/surfaces/InputSurface;->mSurface:Landroid/view/Surface;
 
@@ -435,18 +494,23 @@
 .method public setPresentationTime(J)V
     .locals 3
 
+    .prologue
+    .line 149
     iget-object v0, p0, Lcom/samsung/android/transcode/surfaces/InputSurface;->mEGLDisplay:Landroid/opengl/EGLDisplay;
 
     iget-object v1, p0, Lcom/samsung/android/transcode/surfaces/InputSurface;->mEGLSurface:Landroid/opengl/EGLSurface;
 
     invoke-static {v0, v1, p1, p2}, Landroid/opengl/EGLExt;->eglPresentationTimeANDROID(Landroid/opengl/EGLDisplay;Landroid/opengl/EGLSurface;J)Z
 
+    .line 150
     return-void
 .end method
 
 .method public swapBuffers()Z
     .locals 2
 
+    .prologue
+    .line 137
     iget-object v0, p0, Lcom/samsung/android/transcode/surfaces/InputSurface;->mEGLDisplay:Landroid/opengl/EGLDisplay;
 
     iget-object v1, p0, Lcom/samsung/android/transcode/surfaces/InputSurface;->mEGLSurface:Landroid/opengl/EGLSurface;

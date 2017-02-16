@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/view/menu/CascadingMenuPopup;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/internal/view/menu/CascadingMenuPopup;
 
+    .prologue
+    .line 90
     iput-object p1, p0, Lcom/android/internal/view/menu/CascadingMenuPopup$1;->this$0:Lcom/android/internal/view/menu/CascadingMenuPopup;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,8 +40,10 @@
 .method public onGlobalLayout()V
     .locals 5
 
+    .prologue
     const/4 v4, 0x0
 
+    .line 96
     iget-object v3, p0, Lcom/android/internal/view/menu/CascadingMenuPopup$1;->this$0:Lcom/android/internal/view/menu/CascadingMenuPopup;
 
     invoke-virtual {v3}, Lcom/android/internal/view/menu/CascadingMenuPopup;->isShowing()Z
@@ -59,6 +64,7 @@
 
     if-lez v3, :cond_0
 
+    .line 97
     iget-object v3, p0, Lcom/android/internal/view/menu/CascadingMenuPopup$1;->this$0:Lcom/android/internal/view/menu/CascadingMenuPopup;
 
     invoke-static {v3}, Lcom/android/internal/view/menu/CascadingMenuPopup;->-get2(Lcom/android/internal/view/menu/CascadingMenuPopup;)Ljava/util/List;
@@ -79,10 +85,12 @@
 
     if-eqz v3, :cond_1
 
+    .line 92
     :cond_0
     :goto_0
     return-void
 
+    .line 98
     :cond_1
     iget-object v3, p0, Lcom/android/internal/view/menu/CascadingMenuPopup$1;->this$0:Lcom/android/internal/view/menu/CascadingMenuPopup;
 
@@ -90,6 +98,8 @@
 
     move-result-object v0
 
+    .line 99
+    .local v0, "anchor":Landroid/view/View;
     if-eqz v0, :cond_2
 
     invoke-virtual {v0}, Landroid/view/View;->isShown()Z
@@ -98,6 +108,7 @@
 
     if-eqz v3, :cond_2
 
+    .line 103
     iget-object v3, p0, Lcom/android/internal/view/menu/CascadingMenuPopup$1;->this$0:Lcom/android/internal/view/menu/CascadingMenuPopup;
 
     invoke-static {v3}, Lcom/android/internal/view/menu/CascadingMenuPopup;->-get2(Lcom/android/internal/view/menu/CascadingMenuPopup;)Ljava/util/List;
@@ -108,6 +119,7 @@
 
     move-result-object v2
 
+    .local v2, "info$iterator":Ljava/util/Iterator;
     :goto_1
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
@@ -121,12 +133,17 @@
 
     check-cast v1, Lcom/android/internal/view/menu/CascadingMenuPopup$CascadingMenuInfo;
 
+    .line 104
+    .local v1, "info":Lcom/android/internal/view/menu/CascadingMenuPopup$CascadingMenuInfo;
     iget-object v3, v1, Lcom/android/internal/view/menu/CascadingMenuPopup$CascadingMenuInfo;->window:Landroid/widget/MenuPopupWindow;
 
     invoke-virtual {v3}, Landroid/widget/ListPopupWindow;->show()V
 
     goto :goto_1
 
+    .line 100
+    .end local v1    # "info":Lcom/android/internal/view/menu/CascadingMenuPopup$CascadingMenuInfo;
+    .end local v2    # "info$iterator":Ljava/util/Iterator;
     :cond_2
     iget-object v3, p0, Lcom/android/internal/view/menu/CascadingMenuPopup$1;->this$0:Lcom/android/internal/view/menu/CascadingMenuPopup;
 

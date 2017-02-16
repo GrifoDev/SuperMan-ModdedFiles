@@ -25,15 +25,24 @@
 # direct methods
 .method public constructor <init>(IILjava/nio/ByteBuffer;)V
     .locals 0
+    .param p1, "width"    # I
+    .param p2, "height"    # I
+    .param p3, "data"    # Ljava/nio/ByteBuffer;
 
+    .prologue
+    .line 117
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 118
     iput p1, p0, Landroid/opengl/ETC1Util$ETC1Texture;->mWidth:I
 
+    .line 119
     iput p2, p0, Landroid/opengl/ETC1Util$ETC1Texture;->mHeight:I
 
+    .line 120
     iput-object p3, p0, Landroid/opengl/ETC1Util$ETC1Texture;->mData:Ljava/nio/ByteBuffer;
 
+    .line 117
     return-void
 .end method
 
@@ -42,6 +51,8 @@
 .method public getData()Ljava/nio/ByteBuffer;
     .locals 1
 
+    .prologue
+    .line 139
     iget-object v0, p0, Landroid/opengl/ETC1Util$ETC1Texture;->mData:Ljava/nio/ByteBuffer;
 
     return-object v0
@@ -50,6 +61,8 @@
 .method public getHeight()I
     .locals 1
 
+    .prologue
+    .line 133
     iget v0, p0, Landroid/opengl/ETC1Util$ETC1Texture;->mHeight:I
 
     return v0
@@ -58,6 +71,8 @@
 .method public getWidth()I
     .locals 1
 
+    .prologue
+    .line 127
     iget v0, p0, Landroid/opengl/ETC1Util$ETC1Texture;->mWidth:I
 
     return v0

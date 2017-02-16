@@ -25,15 +25,24 @@
 # direct methods
 .method public constructor <init>(Landroid/widget/MenuPopupWindow;Lcom/android/internal/view/menu/MenuBuilder;I)V
     .locals 0
+    .param p1, "window"    # Landroid/widget/MenuPopupWindow;
+    .param p2, "menu"    # Lcom/android/internal/view/menu/MenuBuilder;
+    .param p3, "position"    # I
 
+    .prologue
+    .line 784
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 786
     iput-object p1, p0, Lcom/android/internal/view/menu/CascadingMenuPopup$CascadingMenuInfo;->window:Landroid/widget/MenuPopupWindow;
 
+    .line 787
     iput-object p2, p0, Lcom/android/internal/view/menu/CascadingMenuPopup$CascadingMenuInfo;->menu:Lcom/android/internal/view/menu/MenuBuilder;
 
+    .line 788
     iput p3, p0, Lcom/android/internal/view/menu/CascadingMenuPopup$CascadingMenuInfo;->position:I
 
+    .line 785
     return-void
 .end method
 
@@ -42,6 +51,8 @@
 .method public getListView()Landroid/widget/ListView;
     .locals 1
 
+    .prologue
+    .line 792
     iget-object v0, p0, Lcom/android/internal/view/menu/CascadingMenuPopup$CascadingMenuInfo;->window:Landroid/widget/MenuPopupWindow;
 
     invoke-virtual {v0}, Landroid/widget/ListPopupWindow;->getListView()Landroid/widget/ListView;

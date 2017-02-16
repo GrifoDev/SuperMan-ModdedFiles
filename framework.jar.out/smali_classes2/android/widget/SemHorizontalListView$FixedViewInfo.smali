@@ -27,7 +27,10 @@
 # direct methods
 .method public constructor <init>(Landroid/widget/SemHorizontalListView;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/widget/SemHorizontalListView;
 
+    .prologue
+    .line 119
     iput-object p1, p0, Landroid/widget/SemHorizontalListView$FixedViewInfo;->this$0:Landroid/widget/SemHorizontalListView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

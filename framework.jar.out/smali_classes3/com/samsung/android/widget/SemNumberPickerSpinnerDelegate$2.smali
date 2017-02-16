@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;
 
+    .prologue
+    .line 610
     iput-object p1, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate$2;->this$0:Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,9 +39,13 @@
 # virtual methods
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
     .locals 2
+    .param p1, "v"    # Landroid/view/View;
+    .param p2, "event"    # Landroid/view/MotionEvent;
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 613
     instance-of v0, p1, Landroid/widget/EditText;
 
     if-eqz v0, :cond_0
@@ -49,20 +56,26 @@
 
     if-nez v0, :cond_0
 
+    .line 614
     nop
 
     nop
 
+    .end local p1    # "v":Landroid/view/View;
     invoke-virtual {p1}, Landroid/widget/EditText;->selectAll()V
 
+    .line 615
     iget-object v0, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate$2;->this$0:Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;
 
     invoke-static {v0}, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->-wrap8(Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;)V
 
+    .line 616
     const/4 v0, 0x1
 
     return v0
 
+    .line 618
+    .restart local p1    # "v":Landroid/view/View;
     :cond_0
     return v1
 .end method

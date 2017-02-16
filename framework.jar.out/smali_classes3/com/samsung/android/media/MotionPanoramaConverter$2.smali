@@ -26,7 +26,11 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/media/MotionPanoramaConverter;Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/samsung/android/media/MotionPanoramaConverter;
+    .param p2, "val$info"    # Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;
 
+    .prologue
+    .line 137
     iput-object p1, p0, Lcom/samsung/android/media/MotionPanoramaConverter$2;->this$0:Lcom/samsung/android/media/MotionPanoramaConverter;
 
     iput-object p2, p0, Lcom/samsung/android/media/MotionPanoramaConverter$2;->val$info:Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;
@@ -41,11 +45,14 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 140
     iget-object v0, p0, Lcom/samsung/android/media/MotionPanoramaConverter$2;->this$0:Lcom/samsung/android/media/MotionPanoramaConverter;
 
     iget-object v1, p0, Lcom/samsung/android/media/MotionPanoramaConverter$2;->val$info:Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;
 
     invoke-static {v0, v1}, Lcom/samsung/android/media/MotionPanoramaConverter;->-wrap1(Lcom/samsung/android/media/MotionPanoramaConverter;Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/MotionPanoramaInfo;)V
 
+    .line 139
     return-void
 .end method

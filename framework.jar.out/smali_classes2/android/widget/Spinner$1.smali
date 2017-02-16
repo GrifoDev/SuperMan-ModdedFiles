@@ -23,7 +23,12 @@
 # direct methods
 .method constructor <init>(Landroid/widget/Spinner;Landroid/view/View;Landroid/widget/Spinner$DropdownPopup;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/widget/Spinner;
+    .param p2, "$anonymous0"    # Landroid/view/View;
+    .param p3, "val$popup"    # Landroid/widget/Spinner$DropdownPopup;
 
+    .prologue
+    .line 316
     iput-object p1, p0, Landroid/widget/Spinner$1;->this$0:Landroid/widget/Spinner;
 
     iput-object p3, p0, Landroid/widget/Spinner$1;->val$popup:Landroid/widget/Spinner$DropdownPopup;
@@ -38,6 +43,8 @@
 .method public getPopup()Lcom/android/internal/view/menu/ShowableListMenu;
     .locals 1
 
+    .prologue
+    .line 319
     iget-object v0, p0, Landroid/widget/Spinner$1;->val$popup:Landroid/widget/Spinner$DropdownPopup;
 
     return-object v0
@@ -46,6 +53,8 @@
 .method public onForwardingStarted()Z
     .locals 3
 
+    .prologue
+    .line 324
     iget-object v0, p0, Landroid/widget/Spinner$1;->this$0:Landroid/widget/Spinner;
 
     invoke-static {v0}, Landroid/widget/Spinner;->-get2(Landroid/widget/Spinner;)Landroid/widget/Spinner$SpinnerPopup;
@@ -58,6 +67,7 @@
 
     if-nez v0, :cond_0
 
+    .line 325
     iget-object v0, p0, Landroid/widget/Spinner$1;->this$0:Landroid/widget/Spinner;
 
     invoke-static {v0}, Landroid/widget/Spinner;->-get2(Landroid/widget/Spinner;)Landroid/widget/Spinner$SpinnerPopup;
@@ -78,6 +88,7 @@
 
     invoke-interface {v0, v1, v2}, Landroid/widget/Spinner$SpinnerPopup;->show(II)V
 
+    .line 327
     :cond_0
     const/4 v0, 0x1
 

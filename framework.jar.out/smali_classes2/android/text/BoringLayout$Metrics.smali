@@ -30,6 +30,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 430
     invoke-direct {p0}, Landroid/graphics/Paint$FontMetricsInt;-><init>()V
 
     return-void
@@ -38,20 +40,28 @@
 .method private reset()V
     .locals 1
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 438
     iput v0, p0, Landroid/text/BoringLayout$Metrics;->top:I
 
+    .line 439
     iput v0, p0, Landroid/text/BoringLayout$Metrics;->bottom:I
 
+    .line 440
     iput v0, p0, Landroid/text/BoringLayout$Metrics;->ascent:I
 
+    .line 441
     iput v0, p0, Landroid/text/BoringLayout$Metrics;->descent:I
 
+    .line 442
     iput v0, p0, Landroid/text/BoringLayout$Metrics;->width:I
 
+    .line 443
     iput v0, p0, Landroid/text/BoringLayout$Metrics;->leading:I
 
+    .line 437
     return-void
 .end method
 
@@ -60,6 +70,8 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 434
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

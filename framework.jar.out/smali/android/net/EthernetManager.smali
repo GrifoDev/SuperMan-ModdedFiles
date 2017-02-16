@@ -73,31 +73,42 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/net/IEthernetManager;)V
     .locals 1
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "service"    # Landroid/net/IEthernetManager;
 
+    .prologue
+    .line 108
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 45
     new-instance v0, Landroid/net/EthernetManager$1;
 
     invoke-direct {v0, p0}, Landroid/net/EthernetManager$1;-><init>(Landroid/net/EthernetManager;)V
 
     iput-object v0, p0, Landroid/net/EthernetManager;->mHandler:Landroid/os/Handler;
 
+    .line 56
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Landroid/net/EthernetManager;->mListeners:Ljava/util/ArrayList;
 
+    .line 58
     new-instance v0, Landroid/net/EthernetManager$2;
 
     invoke-direct {v0, p0}, Landroid/net/EthernetManager$2;-><init>(Landroid/net/EthernetManager;)V
 
+    .line 57
     iput-object v0, p0, Landroid/net/EthernetManager;->mServiceListener:Landroid/net/IEthernetServiceListener$Stub;
 
+    .line 109
     iput-object p1, p0, Landroid/net/EthernetManager;->mContext:Landroid/content/Context;
 
+    .line 110
     iput-object p2, p0, Landroid/net/EthernetManager;->mService:Landroid/net/IEthernetManager;
 
+    .line 108
     return-void
 .end method
 
@@ -105,7 +116,10 @@
 # virtual methods
 .method public UpdateEthDevInfo(Landroid/net/EthernetDevInfo;)V
     .locals 3
+    .param p1, "info"    # Landroid/net/EthernetDevInfo;
 
+    .prologue
+    .line 238
     :try_start_0
     iget-object v1, p0, Landroid/net/EthernetManager;->mService:Landroid/net/IEthernetManager;
 
@@ -113,12 +127,16 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 236
     :goto_0
     return-void
 
+    .line 239
     :catch_0
     move-exception v0
 
+    .line 240
+    .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "EthernetManager"
 
     const-string/jumbo v2, "Can not update ethernet device info"
@@ -130,9 +148,13 @@
 
 .method public addListener(Landroid/net/EthernetManager$Listener;)V
     .locals 3
+    .param p1, "listener"    # Landroid/net/EthernetManager$Listener;
 
+    .prologue
+    .line 154
     if-nez p1, :cond_0
 
+    .line 155
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v2, "listener must not be null"
@@ -141,11 +163,13 @@
 
     throw v1
 
+    .line 157
     :cond_0
     iget-object v1, p0, Landroid/net/EthernetManager;->mListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v1, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 158
     iget-object v1, p0, Landroid/net/EthernetManager;->mListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
@@ -156,6 +180,7 @@
 
     if-ne v1, v2, :cond_1
 
+    .line 160
     :try_start_0
     iget-object v1, p0, Landroid/net/EthernetManager;->mService:Landroid/net/IEthernetManager;
 
@@ -165,12 +190,16 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 153
     :cond_1
     return-void
 
+    .line 161
     :catch_0
     move-exception v0
 
+    .line 162
+    .local v0, "e":Landroid/os/RemoteException;
     invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
 
     move-result-object v1
@@ -181,6 +210,8 @@
 .method public getConfiguration()Landroid/net/IpConfiguration;
     .locals 2
 
+    .prologue
+    .line 119
     :try_start_0
     iget-object v1, p0, Landroid/net/EthernetManager;->mService:Landroid/net/IEthernetManager;
 
@@ -192,9 +223,12 @@
 
     return-object v1
 
+    .line 120
     :catch_0
     move-exception v0
 
+    .line 121
+    .local v0, "e":Landroid/os/RemoteException;
     invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
 
     move-result-object v1
@@ -205,8 +239,10 @@
 .method public getEthernetServiceMessenger()Landroid/os/Messenger;
     .locals 4
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 253
     :try_start_0
     iget-object v2, p0, Landroid/net/EthernetManager;->mService:Landroid/net/IEthernetManager;
 
@@ -219,20 +255,29 @@
 
     return-object v2
 
+    .line 256
     :catch_0
     move-exception v1
 
+    .line 257
+    .local v1, "e":Ljava/lang/SecurityException;
     return-object v3
 
+    .line 254
+    .end local v1    # "e":Ljava/lang/SecurityException;
     :catch_1
     move-exception v0
 
+    .line 255
+    .local v0, "e":Landroid/os/RemoteException;
     return-object v3
 .end method
 
 .method public getSavedEthConfig()Landroid/net/EthernetDevInfo;
     .locals 3
 
+    .prologue
+    .line 226
     :try_start_0
     iget-object v1, p0, Landroid/net/EthernetManager;->mService:Landroid/net/IEthernetManager;
 
@@ -244,15 +289,19 @@
 
     return-object v1
 
+    .line 227
     :catch_0
     move-exception v0
 
+    .line 228
+    .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "EthernetManager"
 
     const-string/jumbo v2, "Can not get eth config"
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 230
     const/4 v1, 0x0
 
     return-object v1
@@ -261,6 +310,8 @@
 .method public getUserDisabled()Z
     .locals 3
 
+    .prologue
+    .line 203
     :try_start_0
     iget-object v1, p0, Landroid/net/EthernetManager;->mService:Landroid/net/IEthernetManager;
 
@@ -272,15 +323,19 @@
 
     return v1
 
+    .line 204
     :catch_0
     move-exception v0
 
+    .line 205
+    .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "EthernetManager"
 
     const-string/jumbo v2, "Can not set new state"
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 206
     const/4 v1, 0x0
 
     return v1
@@ -289,6 +344,8 @@
 .method public isAvailable()Z
     .locals 2
 
+    .prologue
+    .line 142
     :try_start_0
     iget-object v1, p0, Landroid/net/EthernetManager;->mService:Landroid/net/IEthernetManager;
 
@@ -300,9 +357,12 @@
 
     return v1
 
+    .line 143
     :catch_0
     move-exception v0
 
+    .line 144
+    .local v0, "e":Landroid/os/RemoteException;
     invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
 
     move-result-object v1
@@ -313,6 +373,8 @@
 .method public isEthConnected()Z
     .locals 2
 
+    .prologue
+    .line 215
     :try_start_0
     iget-object v1, p0, Landroid/net/EthernetManager;->mService:Landroid/net/IEthernetManager;
 
@@ -324,9 +386,12 @@
 
     return v1
 
+    .line 216
     :catch_0
     move-exception v0
 
+    .line 217
+    .local v0, "e":Landroid/os/RemoteException;
     const/4 v1, 0x0
 
     return v1
@@ -334,9 +399,13 @@
 
 .method public removeListener(Landroid/net/EthernetManager$Listener;)V
     .locals 3
+    .param p1, "listener"    # Landroid/net/EthernetManager$Listener;
 
+    .prologue
+    .line 173
     if-nez p1, :cond_0
 
+    .line 174
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v2, "listener must not be null"
@@ -345,11 +414,13 @@
 
     throw v1
 
+    .line 176
     :cond_0
     iget-object v1, p0, Landroid/net/EthernetManager;->mListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v1, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
+    .line 177
     iget-object v1, p0, Landroid/net/EthernetManager;->mListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->isEmpty()Z
@@ -358,6 +429,7 @@
 
     if-eqz v1, :cond_1
 
+    .line 179
     :try_start_0
     iget-object v1, p0, Landroid/net/EthernetManager;->mService:Landroid/net/IEthernetManager;
 
@@ -367,12 +439,16 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 172
     :cond_1
     return-void
 
+    .line 180
     :catch_0
     move-exception v0
 
+    .line 181
+    .local v0, "e":Landroid/os/RemoteException;
     invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
 
     move-result-object v1
@@ -382,7 +458,10 @@
 
 .method public setConfiguration(Landroid/net/IpConfiguration;)V
     .locals 2
+    .param p1, "config"    # Landroid/net/IpConfiguration;
 
+    .prologue
+    .line 130
     :try_start_0
     iget-object v1, p0, Landroid/net/EthernetManager;->mService:Landroid/net/IEthernetManager;
 
@@ -390,11 +469,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 128
     return-void
 
+    .line 131
     :catch_0
     move-exception v0
 
+    .line 132
+    .local v0, "e":Landroid/os/RemoteException;
     invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
 
     move-result-object v1
@@ -404,7 +487,10 @@
 
 .method public setUserDisabled(Z)V
     .locals 3
+    .param p1, "newState"    # Z
 
+    .prologue
+    .line 192
     :try_start_0
     iget-object v1, p0, Landroid/net/EthernetManager;->mService:Landroid/net/IEthernetManager;
 
@@ -412,12 +498,16 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 190
     :goto_0
     return-void
 
+    .line 193
     :catch_0
     move-exception v0
 
+    .line 194
+    .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "EthernetManager"
 
     const-string/jumbo v2, "Can not set new state"

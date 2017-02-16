@@ -42,10 +42,12 @@
 .method static constructor <clinit>()V
     .locals 4
 
+    .prologue
     const/16 v3, 0xff
 
     const/4 v2, 0x0
 
+    .line 838
     const/16 v0, 0xf
 
     const/16 v1, 0xf0
@@ -56,6 +58,7 @@
 
     sput-object v0, Landroid/media/Cea708CCParser$CaptionColor;->COLOR_MAP:[I
 
+    .line 839
     const/16 v0, 0xfe
 
     const/16 v1, 0x80
@@ -66,22 +69,34 @@
 
     sput-object v0, Landroid/media/Cea708CCParser$CaptionColor;->OPACITY_MAP:[I
 
+    .line 832
     return-void
 .end method
 
 .method public constructor <init>(IIII)V
     .locals 0
+    .param p1, "opacity"    # I
+    .param p2, "red"    # I
+    .param p3, "green"    # I
+    .param p4, "blue"    # I
 
+    .prologue
+    .line 846
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 847
     iput p1, p0, Landroid/media/Cea708CCParser$CaptionColor;->opacity:I
 
+    .line 848
     iput p2, p0, Landroid/media/Cea708CCParser$CaptionColor;->red:I
 
+    .line 849
     iput p3, p0, Landroid/media/Cea708CCParser$CaptionColor;->green:I
 
+    .line 850
     iput p4, p0, Landroid/media/Cea708CCParser$CaptionColor;->blue:I
 
+    .line 846
     return-void
 .end method
 
@@ -90,6 +105,8 @@
 .method public getArgbValue()I
     .locals 5
 
+    .prologue
+    .line 855
     sget-object v0, Landroid/media/Cea708CCParser$CaptionColor;->OPACITY_MAP:[I
 
     iget v1, p0, Landroid/media/Cea708CCParser$CaptionColor;->opacity:I
@@ -114,6 +131,7 @@
 
     aget v3, v3, v4
 
+    .line 854
     invoke-static {v0, v1, v2, v3}, Landroid/graphics/Color;->argb(IIII)I
 
     move-result v0

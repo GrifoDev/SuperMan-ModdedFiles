@@ -67,11 +67,16 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 0
+    .param p1, "context"    # Landroid/content/Context;
 
+    .prologue
+    .line 1348
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 1349
     iput-object p1, p0, Landroid/hardware/radio/RadioManager;->mContext:Landroid/content/Context;
 
+    .line 1348
     return-void
 .end method
 
@@ -91,13 +96,22 @@
 
 .method public openTuner(ILandroid/hardware/radio/RadioManager$BandConfig;ZLandroid/hardware/radio/RadioTuner$Callback;Landroid/os/Handler;)Landroid/hardware/radio/RadioTuner;
     .locals 6
+    .param p1, "moduleId"    # I
+    .param p2, "config"    # Landroid/hardware/radio/RadioManager$BandConfig;
+    .param p3, "withAudio"    # Z
+    .param p4, "callback"    # Landroid/hardware/radio/RadioTuner$Callback;
+    .param p5, "handler"    # Landroid/os/Handler;
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 1331
     if-nez p4, :cond_0
 
+    .line 1332
     return-object v1
 
+    .line 1334
     :cond_0
     new-instance v0, Landroid/hardware/radio/RadioModule;
 
@@ -113,16 +127,22 @@
 
     invoke-direct/range {v0 .. v5}, Landroid/hardware/radio/RadioModule;-><init>(ILandroid/hardware/radio/RadioManager$BandConfig;ZLandroid/hardware/radio/RadioTuner$Callback;Landroid/os/Handler;)V
 
+    .line 1335
+    .local v0, "module":Landroid/hardware/radio/RadioModule;
     if-eqz v0, :cond_1
 
+    .line 1336
     invoke-virtual {v0}, Landroid/hardware/radio/RadioModule;->initCheck()Z
 
     move-result v1
 
     if-nez v1, :cond_1
 
+    .line 1337
     const/4 v0, 0x0
 
+    .line 1340
+    .end local v0    # "module":Landroid/hardware/radio/RadioModule;
     :cond_1
     return-object v0
 .end method

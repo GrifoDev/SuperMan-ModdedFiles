@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 283
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,17 +42,25 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Lcom/samsung/android/content/clipboard/data/SemClipData;
     .locals 1
+    .param p1, "source"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 291
     invoke-static {p1}, Landroid/sec/clipboard/data/ClipboardDataFactory;->createClipBoardData(Landroid/os/Parcel;)Lcom/samsung/android/content/clipboard/data/SemClipData;
 
     move-result-object v0
 
+    .line 292
+    .local v0, "concreteData":Lcom/samsung/android/content/clipboard/data/SemClipData;
     return-object v0
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
+    .param p1, "source"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 290
     invoke-virtual {p0, p1}, Lcom/samsung/android/content/clipboard/data/SemClipData$1;->createFromParcel(Landroid/os/Parcel;)Lcom/samsung/android/content/clipboard/data/SemClipData;
 
     move-result-object v0
@@ -60,7 +70,10 @@
 
 .method public newArray(I)[Lcom/samsung/android/content/clipboard/data/SemClipData;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 300
     new-array v0, p1, [Lcom/samsung/android/content/clipboard/data/SemClipData;
 
     return-object v0
@@ -68,7 +81,10 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 299
     invoke-virtual {p0, p1}, Lcom/samsung/android/content/clipboard/data/SemClipData$1;->newArray(I)[Lcom/samsung/android/content/clipboard/data/SemClipData;
 
     move-result-object v0

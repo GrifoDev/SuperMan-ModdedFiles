@@ -38,17 +38,24 @@
 # direct methods
 .method public constructor <init>(Landroid/content/pm/PackageInstaller$SessionCallback;Landroid/os/Looper;)V
     .locals 1
+    .param p1, "callback"    # Landroid/content/pm/PackageInstaller$SessionCallback;
+    .param p2, "looper"    # Landroid/os/Looper;
 
+    .prologue
+    .line 505
     invoke-direct {p0}, Landroid/content/pm/IPackageInstallerCallback$Stub;-><init>()V
 
+    .line 506
     iput-object p1, p0, Landroid/content/pm/PackageInstaller$SessionCallbackDelegate;->mCallback:Landroid/content/pm/PackageInstaller$SessionCallback;
 
+    .line 507
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0, p2, p0}, Landroid/os/Handler;-><init>(Landroid/os/Looper;Landroid/os/Handler$Callback;)V
 
     iput-object v0, p0, Landroid/content/pm/PackageInstaller$SessionCallbackDelegate;->mHandler:Landroid/os/Handler;
 
+    .line 505
     return-void
 .end method
 
@@ -56,33 +63,44 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)Z
     .locals 6
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
     const/4 v2, 0x0
 
     const/4 v3, 0x1
 
+    .line 512
     iget v1, p1, Landroid/os/Message;->arg1:I
 
+    .line 513
+    .local v1, "sessionId":I
     iget v4, p1, Landroid/os/Message;->what:I
 
     packed-switch v4, :pswitch_data_0
 
+    .line 531
     return v2
 
+    .line 515
     :pswitch_0
     iget-object v2, p0, Landroid/content/pm/PackageInstaller$SessionCallbackDelegate;->mCallback:Landroid/content/pm/PackageInstaller$SessionCallback;
 
     invoke-virtual {v2, v1}, Landroid/content/pm/PackageInstaller$SessionCallback;->onCreated(I)V
 
+    .line 516
     return v3
 
+    .line 518
     :pswitch_1
     iget-object v2, p0, Landroid/content/pm/PackageInstaller$SessionCallbackDelegate;->mCallback:Landroid/content/pm/PackageInstaller$SessionCallback;
 
     invoke-virtual {v2, v1}, Landroid/content/pm/PackageInstaller$SessionCallback;->onBadgingChanged(I)V
 
+    .line 519
     return v3
 
+    .line 521
     :pswitch_2
     iget v2, p1, Landroid/os/Message;->arg2:I
 
@@ -90,18 +108,26 @@
 
     const/4 v0, 0x1
 
+    .line 522
+    .local v0, "active":Z
     :goto_0
     iget-object v2, p0, Landroid/content/pm/PackageInstaller$SessionCallbackDelegate;->mCallback:Landroid/content/pm/PackageInstaller$SessionCallback;
 
     invoke-virtual {v2, v1, v0}, Landroid/content/pm/PackageInstaller$SessionCallback;->onActiveChanged(IZ)V
 
+    .line 523
     return v3
 
+    .line 521
+    .end local v0    # "active":Z
     :cond_0
     const/4 v0, 0x0
 
+    .restart local v0    # "active":Z
     goto :goto_0
 
+    .line 525
+    .end local v0    # "active":Z
     :pswitch_3
     iget-object v4, p0, Landroid/content/pm/PackageInstaller$SessionCallbackDelegate;->mCallback:Landroid/content/pm/PackageInstaller$SessionCallback;
 
@@ -115,8 +141,10 @@
 
     invoke-virtual {v4, v1, v2}, Landroid/content/pm/PackageInstaller$SessionCallback;->onProgressChanged(IF)V
 
+    .line 526
     return v3
 
+    .line 528
     :pswitch_4
     iget-object v4, p0, Landroid/content/pm/PackageInstaller$SessionCallbackDelegate;->mCallback:Landroid/content/pm/PackageInstaller$SessionCallback;
 
@@ -129,8 +157,10 @@
     :cond_1
     invoke-virtual {v4, v1, v2}, Landroid/content/pm/PackageInstaller$SessionCallback;->onFinished(IZ)V
 
+    .line 529
     return v3
 
+    .line 513
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -143,7 +173,11 @@
 
 .method public onSessionActiveChanged(IZ)V
     .locals 3
+    .param p1, "sessionId"    # I
+    .param p2, "active"    # Z
 
+    .prologue
+    .line 546
     iget-object v1, p0, Landroid/content/pm/PackageInstaller$SessionCallbackDelegate;->mHandler:Landroid/os/Handler;
 
     if-eqz p2, :cond_0
@@ -159,8 +193,10 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
+    .line 545
     return-void
 
+    .line 546
     :cond_0
     const/4 v0, 0x0
 
@@ -169,7 +205,10 @@
 
 .method public onSessionBadgingChanged(I)V
     .locals 3
+    .param p1, "sessionId"    # I
 
+    .prologue
+    .line 541
     iget-object v0, p0, Landroid/content/pm/PackageInstaller$SessionCallbackDelegate;->mHandler:Landroid/os/Handler;
 
     const/4 v1, 0x2
@@ -182,12 +221,16 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
+    .line 540
     return-void
 .end method
 
 .method public onSessionCreated(I)V
     .locals 3
+    .param p1, "sessionId"    # I
 
+    .prologue
+    .line 536
     iget-object v0, p0, Landroid/content/pm/PackageInstaller$SessionCallbackDelegate;->mHandler:Landroid/os/Handler;
 
     const/4 v1, 0x1
@@ -200,12 +243,17 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
+    .line 535
     return-void
 .end method
 
 .method public onSessionFinished(IZ)V
     .locals 3
+    .param p1, "sessionId"    # I
+    .param p2, "success"    # Z
 
+    .prologue
+    .line 558
     iget-object v1, p0, Landroid/content/pm/PackageInstaller$SessionCallbackDelegate;->mHandler:Landroid/os/Handler;
 
     if-eqz p2, :cond_0
@@ -221,8 +269,10 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
+    .line 557
     return-void
 
+    .line 558
     :cond_0
     const/4 v0, 0x0
 
@@ -231,7 +281,11 @@
 
 .method public onSessionProgressChanged(IF)V
     .locals 4
+    .param p1, "sessionId"    # I
+    .param p2, "progress"    # F
 
+    .prologue
+    .line 552
     iget-object v0, p0, Landroid/content/pm/PackageInstaller$SessionCallbackDelegate;->mHandler:Landroid/os/Handler;
 
     invoke-static {p2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
@@ -248,5 +302,6 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
+    .line 551
     return-void
 .end method

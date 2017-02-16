@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 88
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,7 +42,10 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/bluetooth/SemBluetoothHidDeviceAppSdpSettings;
     .locals 6
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 93
     new-instance v0, Landroid/bluetooth/SemBluetoothHidDeviceAppSdpSettings;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
@@ -51,6 +56,7 @@
 
     move-result-object v2
 
+    .line 94
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v3
@@ -63,6 +69,7 @@
 
     move-result-object v5
 
+    .line 93
     invoke-direct/range {v0 .. v5}, Landroid/bluetooth/SemBluetoothHidDeviceAppSdpSettings;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;B[B)V
 
     return-object v0
@@ -70,7 +77,10 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 91
     invoke-virtual {p0, p1}, Landroid/bluetooth/SemBluetoothHidDeviceAppSdpSettings$1;->createFromParcel(Landroid/os/Parcel;)Landroid/bluetooth/SemBluetoothHidDeviceAppSdpSettings;
 
     move-result-object v0
@@ -80,7 +90,10 @@
 
 .method public newArray(I)[Landroid/bluetooth/SemBluetoothHidDeviceAppSdpSettings;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 99
     new-array v0, p1, [Landroid/bluetooth/SemBluetoothHidDeviceAppSdpSettings;
 
     return-object v0
@@ -88,7 +101,10 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 98
     invoke-virtual {p0, p1}, Landroid/bluetooth/SemBluetoothHidDeviceAppSdpSettings$1;->newArray(I)[Landroid/bluetooth/SemBluetoothHidDeviceAppSdpSettings;
 
     move-result-object v0

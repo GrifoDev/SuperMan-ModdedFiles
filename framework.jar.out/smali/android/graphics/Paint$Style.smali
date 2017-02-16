@@ -41,36 +41,44 @@
 .method static constructor <clinit>()V
     .locals 5
 
+    .prologue
     const/4 v4, 0x2
 
     const/4 v3, 0x1
 
     const/4 v2, 0x0
 
+    .line 363
     new-instance v0, Landroid/graphics/Paint$Style;
 
     const-string/jumbo v1, "FILL"
 
     invoke-direct {v0, v1, v2, v2}, Landroid/graphics/Paint$Style;-><init>(Ljava/lang/String;II)V
 
+    .line 367
     sput-object v0, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
 
+    .line 368
     new-instance v0, Landroid/graphics/Paint$Style;
 
     const-string/jumbo v1, "STROKE"
 
     invoke-direct {v0, v1, v3, v3}, Landroid/graphics/Paint$Style;-><init>(Ljava/lang/String;II)V
 
+    .line 372
     sput-object v0, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
 
+    .line 373
     new-instance v0, Landroid/graphics/Paint$Style;
 
     const-string/jumbo v1, "FILL_AND_STROKE"
 
     invoke-direct {v0, v1, v4, v4}, Landroid/graphics/Paint$Style;-><init>(Ljava/lang/String;II)V
 
+    .line 380
     sput-object v0, Landroid/graphics/Paint$Style;->FILL_AND_STROKE:Landroid/graphics/Paint$Style;
 
+    .line 362
     const/4 v0, 0x3
 
     new-array v0, v0, [Landroid/graphics/Paint$Style;
@@ -94,17 +102,25 @@
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
+    .param p3, "nativeInt"    # I
 
+    .prologue
+    .line 382
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
+    .line 383
     iput p3, p0, Landroid/graphics/Paint$Style;->nativeInt:I
 
+    .line 382
     return-void
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroid/graphics/Paint$Style;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 362
     const-class v0, Landroid/graphics/Paint$Style;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -119,6 +135,8 @@
 .method public static values()[Landroid/graphics/Paint$Style;
     .locals 1
 
+    .prologue
+    .line 362
     sget-object v0, Landroid/graphics/Paint$Style;->$VALUES:[Landroid/graphics/Paint$Style;
 
     return-object v0

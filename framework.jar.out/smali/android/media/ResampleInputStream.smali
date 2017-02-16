@@ -27,26 +27,36 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 30
     const-string/jumbo v0, "media_jni"
 
     invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
 
+    .line 27
     return-void
 .end method
 
 .method public constructor <init>(Ljava/io/InputStream;II)V
     .locals 3
+    .param p1, "inputStream"    # Ljava/io/InputStream;
+    .param p2, "rateIn"    # I
+    .param p3, "rateOut"    # I
 
+    .prologue
     const/4 v2, 0x2
 
     const/4 v1, 0x1
 
+    .line 59
     invoke-direct {p0}, Ljava/io/InputStream;-><init>()V
 
+    .line 50
     new-array v0, v1, [B
 
     iput-object v0, p0, Landroid/media/ResampleInputStream;->mOneByte:[B
 
+    .line 61
     mul-int/lit8 v0, p3, 0x2
 
     if-eq p2, v0, :cond_0
@@ -59,13 +69,17 @@
 
     throw v0
 
+    .line 65
     :cond_0
     iput-object p1, p0, Landroid/media/ResampleInputStream;->mInputStream:Ljava/io/InputStream;
 
+    .line 66
     iput v2, p0, Landroid/media/ResampleInputStream;->mRateIn:I
 
+    .line 67
     iput v1, p0, Landroid/media/ResampleInputStream;->mRateOut:I
 
+    .line 59
     return-void
 .end method
 
@@ -82,8 +96,10 @@
         }
     .end annotation
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 130
     :try_start_0
     iget-object v0, p0, Landroid/media/ResampleInputStream;->mInputStream:Ljava/io/InputStream;
 
@@ -95,16 +111,21 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 132
     :cond_0
     iput-object v1, p0, Landroid/media/ResampleInputStream;->mInputStream:Ljava/io/InputStream;
 
+    .line 128
     return-void
 
+    .line 131
     :catchall_0
     move-exception v0
 
+    .line 132
     iput-object v1, p0, Landroid/media/ResampleInputStream;->mInputStream:Ljava/io/InputStream;
 
+    .line 131
     throw v0
 .end method
 
@@ -116,12 +137,16 @@
         }
     .end annotation
 
+    .prologue
+    .line 138
     iget-object v0, p0, Landroid/media/ResampleInputStream;->mInputStream:Ljava/io/InputStream;
 
     if-eqz v0, :cond_0
 
+    .line 139
     invoke-virtual {p0}, Landroid/media/ResampleInputStream;->close()V
 
+    .line 140
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "someone forgot to close ResampleInputStream"
@@ -130,6 +155,7 @@
 
     throw v0
 
+    .line 137
     :cond_0
     return-void
 .end method
@@ -142,16 +168,20 @@
         }
     .end annotation
 
+    .prologue
     const/4 v3, 0x1
 
     const/4 v2, 0x0
 
+    .line 72
     iget-object v1, p0, Landroid/media/ResampleInputStream;->mOneByte:[B
 
     invoke-virtual {p0, v1, v2, v3}, Landroid/media/ResampleInputStream;->read([BII)I
 
     move-result v0
 
+    .line 73
+    .local v0, "rtn":I
     if-ne v0, v3, :cond_0
 
     iget-object v1, p0, Landroid/media/ResampleInputStream;->mOneByte:[B
@@ -171,12 +201,15 @@
 
 .method public read([B)I
     .locals 2
+    .param p1, "b"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 78
     array-length v0, p1
 
     const/4 v1, 0x0
@@ -190,16 +223,21 @@
 
 .method public read([BII)I
     .locals 12
+    .param p1, "b"    # [B
+    .param p2, "offset"    # I
+    .param p3, "length"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
     const/4 v11, -0x1
 
     const/4 v10, 0x0
 
+    .line 83
     iget-object v5, p0, Landroid/media/ResampleInputStream;->mInputStream:Ljava/io/InputStream;
 
     if-nez v5, :cond_0
@@ -212,6 +250,7 @@
 
     throw v5
 
+    .line 86
     :cond_0
     div-int/lit8 v5, p3, 0x2
 
@@ -227,14 +266,18 @@
 
     mul-int/lit8 v4, v5, 0x2
 
+    .line 87
+    .local v4, "nIn":I
     iget-object v5, p0, Landroid/media/ResampleInputStream;->mBuf:[B
 
     if-nez v5, :cond_3
 
+    .line 88
     new-array v5, v4, [B
 
     iput-object v5, p0, Landroid/media/ResampleInputStream;->mBuf:[B
 
+    .line 97
     :cond_1
     :goto_0
     iget v5, p0, Landroid/media/ResampleInputStream;->mBufCount:I
@@ -253,12 +296,16 @@
 
     mul-int/lit8 v1, v5, 0x2
 
+    .line 98
+    .local v1, "len":I
     if-lez v1, :cond_5
 
+    .line 99
     if-ge v1, p3, :cond_4
 
     move p3, v1
 
+    .line 109
     :goto_1
     iget-object v5, p0, Landroid/media/ResampleInputStream;->mBuf:[B
 
@@ -266,6 +313,7 @@
 
     invoke-static {v5, v10, p1, p2, v6}, Landroid/media/ResampleInputStream;->fir21([BI[BII)V
 
+    .line 112
     iget v5, p0, Landroid/media/ResampleInputStream;->mRateIn:I
 
     mul-int/2addr v5, p3
@@ -274,12 +322,15 @@
 
     div-int v3, v5, v6
 
+    .line 113
+    .local v3, "nFwd":I
     iget v5, p0, Landroid/media/ResampleInputStream;->mBufCount:I
 
     sub-int/2addr v5, v3
 
     iput v5, p0, Landroid/media/ResampleInputStream;->mBufCount:I
 
+    .line 114
     iget v5, p0, Landroid/media/ResampleInputStream;->mBufCount:I
 
     if-lez v5, :cond_2
@@ -292,9 +343,13 @@
 
     invoke-static {v5, v3, v6, v10, v7}, Ljava/lang/System;->arraycopy([BI[BII)V
 
+    .line 116
     :cond_2
     return p3
 
+    .line 89
+    .end local v1    # "len":I
+    .end local v3    # "nFwd":I
     :cond_3
     iget-object v5, p0, Landroid/media/ResampleInputStream;->mBuf:[B
 
@@ -302,18 +357,25 @@
 
     if-le v4, v5, :cond_1
 
+    .line 90
     new-array v0, v4, [B
 
+    .line 91
+    .local v0, "bf":[B
     iget-object v5, p0, Landroid/media/ResampleInputStream;->mBuf:[B
 
     iget v6, p0, Landroid/media/ResampleInputStream;->mBufCount:I
 
     invoke-static {v5, v10, v0, v10, v6}, Ljava/lang/System;->arraycopy([BI[BII)V
 
+    .line 92
     iput-object v0, p0, Landroid/media/ResampleInputStream;->mBuf:[B
 
     goto :goto_0
 
+    .line 99
+    .end local v0    # "bf":[B
+    .restart local v1    # "len":I
     :cond_4
     div-int/lit8 v5, p3, 0x2
 
@@ -321,6 +383,7 @@
 
     goto :goto_1
 
+    .line 103
     :cond_5
     iget-object v5, p0, Landroid/media/ResampleInputStream;->mInputStream:Ljava/io/InputStream;
 
@@ -340,10 +403,13 @@
 
     move-result v2
 
+    .line 104
+    .local v2, "n":I
     if-ne v2, v11, :cond_6
 
     return v11
 
+    .line 105
     :cond_6
     iget v5, p0, Landroid/media/ResampleInputStream;->mBufCount:I
 

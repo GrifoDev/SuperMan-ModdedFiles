@@ -21,6 +21,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 15
     const-string/jumbo v0, "(\\<\\w+((\\s+\\w+(\\s*\\=\\s*(?:\".*?\"|\'.*?\'|[^\'\"\\>\\s]+))?)+\\s*|\\s*)\\>.*\\</\\w+\\>)|(\\<\\w+((\\s+\\w+(\\s*\\=\\s*(?:\".*?\"|\'.*?\'|[^\'\"\\>\\s]+))?)+\\s*|\\s*)/\\>)|(&[a-zA-Z][a-zA-Z0-9]+;)"
 
     const/16 v1, 0x20
@@ -31,12 +33,15 @@
 
     sput-object v0, Landroid/sec/clipboard/util/HtmlUtils;->HTML_PATTERN:Ljava/util/regex/Pattern;
 
+    .line 10
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 10
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -44,17 +49,22 @@
 
 .method public static isHtml(Ljava/lang/String;)Z
     .locals 1
+    .param p0, "s"    # Ljava/lang/String;
 
+    .prologue
+    .line 26
     invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
+    .line 27
     const/4 v0, 0x0
 
     return v0
 
+    .line 30
     :cond_0
     sget-object v0, Landroid/sec/clipboard/util/HtmlUtils;->HTML_PATTERN:Ljava/util/regex/Pattern;
 

@@ -23,7 +23,11 @@
 # direct methods
 .method constructor <init>(Landroid/media/MediaExtractor;[B)V
     .locals 0
+    .param p1, "this$0"    # Landroid/media/MediaExtractor;
+    .param p2, "val$data"    # [B
 
+    .prologue
+    .line 289
     iput-object p1, p0, Landroid/media/MediaExtractor$2;->this$0:Landroid/media/MediaExtractor;
 
     iput-object p2, p0, Landroid/media/MediaExtractor$2;->val$data:[B
@@ -37,7 +41,10 @@
 # virtual methods
 .method public get(Ljava/util/UUID;)Landroid/media/DrmInitData$SchemeInitData;
     .locals 3
+    .param p1, "schemeUuid"    # Ljava/util/UUID;
 
+    .prologue
+    .line 291
     new-instance v0, Landroid/media/DrmInitData$SchemeInitData;
 
     const-string/jumbo v1, "webm"

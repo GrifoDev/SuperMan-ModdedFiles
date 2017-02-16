@@ -39,19 +39,33 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/CharSequence;Landroid/text/TextPaint;ILandroid/text/Layout$Alignment;FFLandroid/text/BoringLayout$Metrics;Z)V
     .locals 10
+    .param p1, "source"    # Ljava/lang/CharSequence;
+    .param p2, "paint"    # Landroid/text/TextPaint;
+    .param p3, "outerwidth"    # I
+    .param p4, "align"    # Landroid/text/Layout$Alignment;
+    .param p5, "spacingmult"    # F
+    .param p6, "spacingadd"    # F
+    .param p7, "metrics"    # Landroid/text/BoringLayout$Metrics;
+    .param p8, "includepad"    # Z
 
+    .prologue
+    .line 123
     invoke-direct/range {p0 .. p6}, Landroid/text/Layout;-><init>(Ljava/lang/CharSequence;Landroid/text/TextPaint;ILandroid/text/Layout$Alignment;FF)V
 
+    .line 125
     iput p3, p0, Landroid/text/BoringLayout;->mEllipsizedWidth:I
 
+    .line 126
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/text/BoringLayout;->mEllipsizedStart:I
 
+    .line 127
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/text/BoringLayout;->mEllipsizedCount:I
 
+    .line 130
     const/4 v9, 0x1
 
     move-object v0, p0
@@ -72,16 +86,31 @@
 
     move/from16 v8, p8
 
+    .line 129
     invoke-virtual/range {v0 .. v9}, Landroid/text/BoringLayout;->init(Ljava/lang/CharSequence;Landroid/text/TextPaint;ILandroid/text/Layout$Alignment;FFLandroid/text/BoringLayout$Metrics;ZZ)V
 
+    .line 122
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/CharSequence;Landroid/text/TextPaint;ILandroid/text/Layout$Alignment;FFLandroid/text/BoringLayout$Metrics;ZLandroid/text/TextUtils$TruncateAt;I)V
     .locals 11
+    .param p1, "source"    # Ljava/lang/CharSequence;
+    .param p2, "paint"    # Landroid/text/TextPaint;
+    .param p3, "outerwidth"    # I
+    .param p4, "align"    # Landroid/text/Layout$Alignment;
+    .param p5, "spacingmult"    # F
+    .param p6, "spacingadd"    # F
+    .param p7, "metrics"    # Landroid/text/BoringLayout$Metrics;
+    .param p8, "includepad"    # Z
+    .param p9, "ellipsize"    # Landroid/text/TextUtils$TruncateAt;
+    .param p10, "ellipsizedWidth"    # I
 
+    .prologue
+    .line 144
     invoke-direct/range {p0 .. p6}, Landroid/text/Layout;-><init>(Ljava/lang/CharSequence;Landroid/text/TextPaint;ILandroid/text/Layout$Alignment;FF)V
 
+    .line 148
     if-eqz p9, :cond_0
 
     sget-object v1, Landroid/text/TextUtils$TruncateAt;->MARQUEE:Landroid/text/TextUtils$TruncateAt;
@@ -90,19 +119,25 @@
 
     if-ne v0, v1, :cond_1
 
+    .line 149
     :cond_0
     iput p3, p0, Landroid/text/BoringLayout;->mEllipsizedWidth:I
 
+    .line 150
     const/4 v1, 0x0
 
     iput v1, p0, Landroid/text/BoringLayout;->mEllipsizedStart:I
 
+    .line 151
     const/4 v1, 0x0
 
     iput v1, p0, Landroid/text/BoringLayout;->mEllipsizedCount:I
 
+    .line 152
     const/4 v10, 0x1
 
+    .line 164
+    .local v10, "trust":Z
     :goto_0
     invoke-virtual {p0}, Landroid/text/BoringLayout;->getText()Ljava/lang/CharSequence;
 
@@ -126,13 +161,17 @@
 
     invoke-virtual/range {v1 .. v10}, Landroid/text/BoringLayout;->init(Ljava/lang/CharSequence;Landroid/text/TextPaint;ILandroid/text/Layout$Alignment;FFLandroid/text/BoringLayout$Metrics;ZZ)V
 
+    .line 138
     return-void
 
+    .line 154
+    .end local v10    # "trust":Z
     :cond_1
     move/from16 v0, p10
 
     int-to-float v3, v0
 
+    .line 155
     const/4 v5, 0x1
 
     move-object v1, p1
@@ -143,6 +182,7 @@
 
     move-object v6, p0
 
+    .line 154
     invoke-static/range {v1 .. v6}, Landroid/text/TextUtils;->ellipsize(Ljava/lang/CharSequence;Landroid/text/TextPaint;FLandroid/text/TextUtils$TruncateAt;ZLandroid/text/TextUtils$EllipsizeCallback;)Ljava/lang/CharSequence;
 
     move-result-object v2
@@ -161,18 +201,25 @@
 
     invoke-virtual/range {v1 .. v7}, Landroid/text/BoringLayout;->replaceWith(Ljava/lang/CharSequence;Landroid/text/TextPaint;ILandroid/text/Layout$Alignment;FF)V
 
+    .line 160
     move/from16 v0, p10
 
     iput v0, p0, Landroid/text/BoringLayout;->mEllipsizedWidth:I
 
+    .line 161
     const/4 v10, 0x0
 
+    .restart local v10    # "trust":Z
     goto :goto_0
 .end method
 
 .method public static isBoring(Ljava/lang/CharSequence;Landroid/text/TextPaint;)Landroid/text/BoringLayout$Metrics;
     .locals 2
+    .param p0, "text"    # Ljava/lang/CharSequence;
+    .param p1, "paint"    # Landroid/text/TextPaint;
 
+    .prologue
+    .line 220
     sget-object v0, Landroid/text/TextDirectionHeuristics;->FIRSTSTRONG_LTR:Landroid/text/TextDirectionHeuristic;
 
     const/4 v1, 0x0
@@ -186,7 +233,12 @@
 
 .method public static isBoring(Ljava/lang/CharSequence;Landroid/text/TextPaint;Landroid/text/BoringLayout$Metrics;)Landroid/text/BoringLayout$Metrics;
     .locals 1
+    .param p0, "text"    # Ljava/lang/CharSequence;
+    .param p1, "paint"    # Landroid/text/TextPaint;
+    .param p2, "metrics"    # Landroid/text/BoringLayout$Metrics;
 
+    .prologue
+    .line 239
     sget-object v0, Landroid/text/TextDirectionHeuristics;->FIRSTSTRONG_LTR:Landroid/text/TextDirectionHeuristic;
 
     invoke-static {p0, p1, v0, p2}, Landroid/text/BoringLayout;->isBoring(Ljava/lang/CharSequence;Landroid/text/TextPaint;Landroid/text/TextDirectionHeuristic;Landroid/text/BoringLayout$Metrics;)Landroid/text/BoringLayout$Metrics;
@@ -198,7 +250,12 @@
 
 .method public static isBoring(Ljava/lang/CharSequence;Landroid/text/TextPaint;Landroid/text/TextDirectionHeuristic;)Landroid/text/BoringLayout$Metrics;
     .locals 1
+    .param p0, "text"    # Ljava/lang/CharSequence;
+    .param p1, "paint"    # Landroid/text/TextPaint;
+    .param p2, "textDir"    # Landroid/text/TextDirectionHeuristic;
 
+    .prologue
+    .line 230
     const/4 v0, 0x0
 
     invoke-static {p0, p1, p2, v0}, Landroid/text/BoringLayout;->isBoring(Ljava/lang/CharSequence;Landroid/text/TextPaint;Landroid/text/TextDirectionHeuristic;Landroid/text/BoringLayout$Metrics;)Landroid/text/BoringLayout$Metrics;
@@ -210,28 +267,44 @@
 
 .method public static isBoring(Ljava/lang/CharSequence;Landroid/text/TextPaint;Landroid/text/TextDirectionHeuristic;Landroid/text/BoringLayout$Metrics;)Landroid/text/BoringLayout$Metrics;
     .locals 22
+    .param p0, "text"    # Ljava/lang/CharSequence;
+    .param p1, "paint"    # Landroid/text/TextPaint;
+    .param p2, "textDir"    # Landroid/text/TextDirectionHeuristic;
+    .param p3, "metrics"    # Landroid/text/BoringLayout$Metrics;
 
+    .prologue
+    .line 250
     const/16 v11, 0x1f4
 
+    .line 251
+    .local v11, "MAX_BUF_LEN":I
     const/16 v3, 0x1f4
 
     invoke-static {v3}, Landroid/text/TextUtils;->obtain(I)[C
 
     move-result-object v13
 
+    .line 252
+    .local v13, "buffer":[C
     invoke-interface/range {p0 .. p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v6
 
+    .line 253
+    .local v6, "textLength":I
     const/4 v12, 0x1
 
+    .line 256
+    .local v12, "boring":Z
     const/16 v20, 0x0
 
+    .local v20, "start":I
     :goto_0
     move/from16 v0, v20
 
     if-ge v0, v6, :cond_1
 
+    .line 257
     move/from16 v0, v20
 
     add-int/lit16 v3, v0, 0x1f4
@@ -240,6 +313,8 @@
 
     move-result v15
 
+    .line 261
+    .local v15, "end":I
     const/4 v3, 0x0
 
     move-object/from16 v0, p0
@@ -248,10 +323,14 @@
 
     invoke-static {v0, v1, v15, v13, v3}, Landroid/text/TextUtils;->getChars(Ljava/lang/CharSequence;II[CI)V
 
+    .line 263
     sub-int v18, v15, v20
 
+    .line 264
+    .local v18, "len":I
     const/16 v17, 0x0
 
+    .local v17, "i":I
     :goto_1
     move/from16 v0, v17
 
@@ -259,8 +338,11 @@
 
     if-ge v0, v1, :cond_a
 
+    .line 265
     aget-char v14, v13, v17
 
+    .line 267
+    .local v14, "c":C
     const/16 v3, 0xa
 
     if-eq v14, v3, :cond_0
@@ -269,13 +351,20 @@
 
     if-ne v14, v3, :cond_3
 
+    .line 276
     :cond_0
     const/4 v12, 0x0
 
+    .line 289
+    .end local v14    # "c":C
+    .end local v15    # "end":I
+    .end local v17    # "i":I
+    .end local v18    # "len":I
     :cond_1
     :goto_2
     invoke-static {v13}, Landroid/text/TextUtils;->recycle([C)V
 
+    .line 291
     if-eqz v12, :cond_2
 
     move-object/from16 v0, p0
@@ -286,8 +375,11 @@
 
     move-object/from16 v19, p0
 
+    .line 292
     check-cast v19, Landroid/text/Spanned;
 
+    .line 293
+    .local v19, "sp":Landroid/text/Spanned;
     const-class v3, Landroid/text/style/ParagraphStyle;
 
     const/4 v4, 0x0
@@ -298,25 +390,38 @@
 
     move-result-object v21
 
+    .line 294
+    .local v21, "styles":[Ljava/lang/Object;
     move-object/from16 v0, v21
 
     array-length v3, v0
 
     if-lez v3, :cond_2
 
+    .line 295
     const/4 v12, 0x0
 
+    .line 299
+    .end local v19    # "sp":Landroid/text/Spanned;
+    .end local v21    # "styles":[Ljava/lang/Object;
     :cond_2
     if-eqz v12, :cond_d
 
+    .line 300
     move-object/from16 v16, p3
 
+    .line 301
+    .local v16, "fm":Landroid/text/BoringLayout$Metrics;
     if-nez p3, :cond_c
 
+    .line 302
     new-instance v16, Landroid/text/BoringLayout$Metrics;
 
+    .end local v16    # "fm":Landroid/text/BoringLayout$Metrics;
     invoke-direct/range {v16 .. v16}, Landroid/text/BoringLayout$Metrics;-><init>()V
 
+    .line 307
+    .restart local v16    # "fm":Landroid/text/BoringLayout$Metrics;
     :goto_3
     move-object/from16 v0, p1
 
@@ -324,16 +429,21 @@
 
     invoke-virtual {v0, v1}, Landroid/text/TextPaint;->set(Landroid/text/TextPaint;)V
 
+    .line 310
     invoke-static {}, Landroid/text/TextLine;->obtain()Landroid/text/TextLine;
 
     move-result-object v2
 
+    .line 312
+    .local v2, "line":Landroid/text/TextLine;
     sget-object v8, Landroid/text/Layout;->DIRS_ALL_LEFT_TO_RIGHT:Landroid/text/Layout$Directions;
 
+    .line 311
     const/4 v5, 0x0
 
     const/4 v7, 0x1
 
+    .line 312
     const/4 v9, 0x0
 
     const/4 v10, 0x0
@@ -342,8 +452,10 @@
 
     move-object/from16 v4, p0
 
+    .line 311
     invoke-virtual/range {v2 .. v10}, Landroid/text/TextLine;->set(Landroid/text/TextPaint;Ljava/lang/CharSequence;IIILandroid/text/Layout$Directions;ZLandroid/text/Layout$TabStops;)V
 
+    .line 313
     move-object/from16 v0, v16
 
     invoke-virtual {v2, v0}, Landroid/text/TextLine;->metrics(Landroid/graphics/Paint$FontMetricsInt;)F
@@ -362,10 +474,19 @@
 
     iput v3, v0, Landroid/text/BoringLayout$Metrics;->width:I
 
+    .line 314
     invoke-static {v2}, Landroid/text/TextLine;->recycle(Landroid/text/TextLine;)Landroid/text/TextLine;
 
+    .line 316
     return-object v16
 
+    .line 268
+    .end local v2    # "line":Landroid/text/TextLine;
+    .end local v16    # "fm":Landroid/text/BoringLayout$Metrics;
+    .restart local v14    # "c":C
+    .restart local v15    # "end":I
+    .restart local v17    # "i":I
+    .restart local v18    # "len":I
     :cond_3
     const/16 v3, 0x590
 
@@ -375,11 +496,13 @@
 
     if-le v14, v3, :cond_0
 
+    .line 269
     :cond_4
     const/16 v3, 0x200f
 
     if-eq v14, v3, :cond_0
 
+    .line 270
     const/16 v3, 0x202a
 
     if-lt v14, v3, :cond_5
@@ -388,6 +511,7 @@
 
     if-le v14, v3, :cond_0
 
+    .line 271
     :cond_5
     const/16 v3, 0x2066
 
@@ -397,6 +521,7 @@
 
     if-le v14, v3, :cond_0
 
+    .line 272
     :cond_6
     const v3, 0xd800
 
@@ -406,6 +531,7 @@
 
     if-le v14, v3, :cond_0
 
+    .line 273
     :cond_7
     const v3, 0xfb1d
 
@@ -415,6 +541,7 @@
 
     if-le v14, v3, :cond_0
 
+    .line 274
     :cond_8
     const v3, 0xfe70
 
@@ -424,11 +551,14 @@
 
     if-le v14, v3, :cond_0
 
+    .line 264
     :cond_9
     add-int/lit8 v17, v17, 0x1
 
     goto/16 :goto_1
 
+    .line 283
+    .end local v14    # "c":C
     :cond_a
     if-eqz p2, :cond_b
 
@@ -444,10 +574,13 @@
 
     if-eqz v3, :cond_b
 
+    .line 284
     const/4 v12, 0x0
 
+    .line 285
     goto/16 :goto_2
 
+    .line 256
     :cond_b
     move/from16 v0, v20
 
@@ -457,11 +590,18 @@
 
     goto/16 :goto_0
 
+    .line 304
+    .end local v15    # "end":I
+    .end local v17    # "i":I
+    .end local v18    # "len":I
+    .restart local v16    # "fm":Landroid/text/BoringLayout$Metrics;
     :cond_c
     invoke-static/range {p3 .. p3}, Landroid/text/BoringLayout$Metrics;->-wrap0(Landroid/text/BoringLayout$Metrics;)V
 
     goto/16 :goto_3
 
+    .line 318
+    .end local v16    # "fm":Landroid/text/BoringLayout$Metrics;
     :cond_d
     const/4 v3, 0x0
 
@@ -470,7 +610,17 @@
 
 .method public static make(Ljava/lang/CharSequence;Landroid/text/TextPaint;ILandroid/text/Layout$Alignment;FFLandroid/text/BoringLayout$Metrics;Z)Landroid/text/BoringLayout;
     .locals 9
+    .param p0, "source"    # Ljava/lang/CharSequence;
+    .param p1, "paint"    # Landroid/text/TextPaint;
+    .param p2, "outerwidth"    # I
+    .param p3, "align"    # Landroid/text/Layout$Alignment;
+    .param p4, "spacingmult"    # F
+    .param p5, "spacingadd"    # F
+    .param p6, "metrics"    # Landroid/text/BoringLayout$Metrics;
+    .param p7, "includepad"    # Z
 
+    .prologue
+    .line 43
     new-instance v0, Landroid/text/BoringLayout;
 
     move-object v1, p0
@@ -496,7 +646,19 @@
 
 .method public static make(Ljava/lang/CharSequence;Landroid/text/TextPaint;ILandroid/text/Layout$Alignment;FFLandroid/text/BoringLayout$Metrics;ZLandroid/text/TextUtils$TruncateAt;I)Landroid/text/BoringLayout;
     .locals 11
+    .param p0, "source"    # Ljava/lang/CharSequence;
+    .param p1, "paint"    # Landroid/text/TextPaint;
+    .param p2, "outerwidth"    # I
+    .param p3, "align"    # Landroid/text/Layout$Alignment;
+    .param p4, "spacingmult"    # F
+    .param p5, "spacingadd"    # F
+    .param p6, "metrics"    # Landroid/text/BoringLayout$Metrics;
+    .param p7, "includepad"    # Z
+    .param p8, "ellipsize"    # Landroid/text/TextUtils$TruncateAt;
+    .param p9, "ellipsizedWidth"    # I
 
+    .prologue
+    .line 54
     new-instance v0, Landroid/text/BoringLayout;
 
     move-object v1, p0
@@ -528,13 +690,20 @@
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;Landroid/graphics/Path;Landroid/graphics/Paint;I)V
     .locals 4
+    .param p1, "c"    # Landroid/graphics/Canvas;
+    .param p2, "highlight"    # Landroid/graphics/Path;
+    .param p3, "highlightpaint"    # Landroid/graphics/Paint;
+    .param p4, "cursorOffset"    # I
 
+    .prologue
+    .line 407
     iget-object v0, p0, Landroid/text/BoringLayout;->mDirect:Ljava/lang/String;
 
     if-eqz v0, :cond_0
 
     if-nez p2, :cond_0
 
+    .line 408
     iget-object v0, p0, Landroid/text/BoringLayout;->mDirect:Ljava/lang/String;
 
     const/4 v1, 0x0
@@ -551,9 +720,11 @@
 
     invoke-virtual {p1, v0, v1, v2, v3}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
 
+    .line 406
     :goto_0
     return-void
 
+    .line 410
     :cond_0
     invoke-super {p0, p1, p2, p3, p4}, Landroid/text/Layout;->draw(Landroid/graphics/Canvas;Landroid/graphics/Path;Landroid/graphics/Paint;I)V
 
@@ -562,19 +733,27 @@
 
 .method public ellipsized(II)V
     .locals 1
+    .param p1, "start"    # I
+    .param p2, "end"    # I
 
+    .prologue
+    .line 418
     iput p1, p0, Landroid/text/BoringLayout;->mEllipsizedStart:I
 
+    .line 419
     sub-int v0, p2, p1
 
     iput v0, p0, Landroid/text/BoringLayout;->mEllipsizedCount:I
 
+    .line 417
     return-void
 .end method
 
 .method public getBottomPadding()I
     .locals 1
 
+    .prologue
+    .line 385
     iget v0, p0, Landroid/text/BoringLayout;->mBottomPadding:I
 
     return v0
@@ -582,7 +761,10 @@
 
 .method public getEllipsisCount(I)I
     .locals 1
+    .param p1, "line"    # I
 
+    .prologue
+    .line 390
     iget v0, p0, Landroid/text/BoringLayout;->mEllipsizedCount:I
 
     return v0
@@ -590,7 +772,10 @@
 
 .method public getEllipsisStart(I)I
     .locals 1
+    .param p1, "line"    # I
 
+    .prologue
+    .line 395
     iget v0, p0, Landroid/text/BoringLayout;->mEllipsizedStart:I
 
     return v0
@@ -599,6 +784,8 @@
 .method public getEllipsizedWidth()I
     .locals 1
 
+    .prologue
+    .line 400
     iget v0, p0, Landroid/text/BoringLayout;->mEllipsizedWidth:I
 
     return v0
@@ -607,6 +794,8 @@
 .method public getHeight()I
     .locals 1
 
+    .prologue
+    .line 324
     iget v0, p0, Landroid/text/BoringLayout;->mBottom:I
 
     return v0
@@ -614,7 +803,10 @@
 
 .method public getLineContainsTab(I)Z
     .locals 1
+    .param p1, "line"    # I
 
+    .prologue
+    .line 360
     const/4 v0, 0x0
 
     return v0
@@ -623,6 +815,8 @@
 .method public getLineCount()I
     .locals 1
 
+    .prologue
+    .line 329
     const/4 v0, 0x1
 
     return v0
@@ -630,7 +824,10 @@
 
 .method public getLineDescent(I)I
     .locals 1
+    .param p1, "line"    # I
 
+    .prologue
+    .line 342
     iget v0, p0, Landroid/text/BoringLayout;->mDesc:I
 
     return v0
@@ -638,7 +835,10 @@
 
 .method public final getLineDirections(I)Landroid/text/Layout$Directions;
     .locals 1
+    .param p1, "line"    # I
 
+    .prologue
+    .line 375
     sget-object v0, Landroid/text/Layout;->DIRS_ALL_LEFT_TO_RIGHT:Landroid/text/Layout$Directions;
 
     return-object v0
@@ -646,7 +846,10 @@
 
 .method public getLineMax(I)F
     .locals 1
+    .param p1, "line"    # I
 
+    .prologue
+    .line 365
     iget v0, p0, Landroid/text/BoringLayout;->mMax:F
 
     return v0
@@ -654,13 +857,18 @@
 
 .method public getLineStart(I)I
     .locals 1
+    .param p1, "line"    # I
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 347
     if-nez p1, :cond_0
 
+    .line 348
     return v0
 
+    .line 350
     :cond_0
     invoke-virtual {p0}, Landroid/text/BoringLayout;->getText()Ljava/lang/CharSequence;
 
@@ -675,13 +883,18 @@
 
 .method public getLineTop(I)I
     .locals 1
+    .param p1, "line"    # I
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 334
     if-nez p1, :cond_0
 
+    .line 335
     return v0
 
+    .line 337
     :cond_0
     iget v0, p0, Landroid/text/BoringLayout;->mBottom:I
 
@@ -690,7 +903,10 @@
 
 .method public getLineWidth(I)F
     .locals 1
+    .param p1, "line"    # I
 
+    .prologue
+    .line 370
     if-nez p1, :cond_0
 
     iget v0, p0, Landroid/text/BoringLayout;->mMax:F
@@ -706,7 +922,10 @@
 
 .method public getParagraphDirection(I)I
     .locals 1
+    .param p1, "line"    # I
 
+    .prologue
+    .line 355
     const/4 v0, 0x1
 
     return v0
@@ -715,6 +934,8 @@
 .method public getTopPadding()I
     .locals 1
 
+    .prologue
+    .line 380
     iget v0, p0, Landroid/text/BoringLayout;->mTopPadding:I
 
     return v0
@@ -722,7 +943,18 @@
 
 .method init(Ljava/lang/CharSequence;Landroid/text/TextPaint;ILandroid/text/Layout$Alignment;FFLandroid/text/BoringLayout$Metrics;ZZ)V
     .locals 12
+    .param p1, "source"    # Ljava/lang/CharSequence;
+    .param p2, "paint"    # Landroid/text/TextPaint;
+    .param p3, "outerwidth"    # I
+    .param p4, "align"    # Landroid/text/Layout$Alignment;
+    .param p5, "spacingmult"    # F
+    .param p6, "spacingadd"    # F
+    .param p7, "metrics"    # Landroid/text/BoringLayout$Metrics;
+    .param p8, "includepad"    # Z
+    .param p9, "trustWidth"    # Z
 
+    .prologue
+    .line 176
     instance-of v3, p1, Ljava/lang/String;
 
     if-eqz v3, :cond_1
@@ -733,17 +965,21 @@
 
     if-ne v0, v3, :cond_1
 
+    .line 177
     invoke-interface {p1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object v3
 
     iput-object v3, p0, Landroid/text/BoringLayout;->mDirect:Ljava/lang/String;
 
+    .line 182
     :goto_0
     iput-object p2, p0, Landroid/text/BoringLayout;->mPaint:Landroid/graphics/Paint;
 
+    .line 184
     if-eqz p8, :cond_2
 
+    .line 185
     move-object/from16 v0, p7
 
     iget v3, v0, Landroid/text/BoringLayout$Metrics;->bottom:I
@@ -754,17 +990,22 @@
 
     sub-int v11, v3, v4
 
+    .line 186
+    .local v11, "spacing":I
     move-object/from16 v0, p7
 
     iget v3, v0, Landroid/text/BoringLayout$Metrics;->bottom:I
 
     iput v3, p0, Landroid/text/BoringLayout;->mDesc:I
 
+    .line 192
     :goto_1
     iput v11, p0, Landroid/text/BoringLayout;->mBottom:I
 
+    .line 194
     if-eqz p9, :cond_3
 
+    .line 195
     move-object/from16 v0, p7
 
     iget v3, v0, Landroid/text/BoringLayout$Metrics;->width:I
@@ -773,9 +1014,11 @@
 
     iput v3, p0, Landroid/text/BoringLayout;->mMax:F
 
+    .line 209
     :goto_2
     if-eqz p8, :cond_0
 
+    .line 210
     move-object/from16 v0, p7
 
     iget v3, v0, Landroid/text/BoringLayout$Metrics;->top:I
@@ -788,6 +1031,7 @@
 
     iput v3, p0, Landroid/text/BoringLayout;->mTopPadding:I
 
+    .line 211
     move-object/from16 v0, p7
 
     iget v3, v0, Landroid/text/BoringLayout$Metrics;->bottom:I
@@ -800,9 +1044,12 @@
 
     iput v3, p0, Landroid/text/BoringLayout;->mBottomPadding:I
 
+    .line 173
     :cond_0
     return-void
 
+    .line 179
+    .end local v11    # "spacing":I
     :cond_1
     const/4 v3, 0x0
 
@@ -810,6 +1057,7 @@
 
     goto :goto_0
 
+    .line 188
     :cond_2
     move-object/from16 v0, p7
 
@@ -821,6 +1069,8 @@
 
     sub-int v11, v3, v4
 
+    .line 189
+    .restart local v11    # "spacing":I
     move-object/from16 v0, p7
 
     iget v3, v0, Landroid/text/BoringLayout$Metrics;->descent:I
@@ -829,21 +1079,27 @@
 
     goto :goto_1
 
+    .line 202
     :cond_3
     invoke-static {}, Landroid/text/TextLine;->obtain()Landroid/text/TextLine;
 
     move-result-object v2
 
+    .line 203
+    .local v2, "line":Landroid/text/TextLine;
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
 
     move-result v6
 
+    .line 204
     sget-object v8, Landroid/text/Layout;->DIRS_ALL_LEFT_TO_RIGHT:Landroid/text/Layout$Directions;
 
+    .line 203
     const/4 v5, 0x0
 
     const/4 v7, 0x1
 
+    .line 204
     const/4 v9, 0x0
 
     const/4 v10, 0x0
@@ -852,8 +1108,10 @@
 
     move-object v4, p1
 
+    .line 203
     invoke-virtual/range {v2 .. v10}, Landroid/text/TextLine;->set(Landroid/text/TextPaint;Ljava/lang/CharSequence;IIILandroid/text/Layout$Directions;ZLandroid/text/Layout$TabStops;)V
 
+    .line 205
     const/4 v3, 0x0
 
     invoke-virtual {v2, v3}, Landroid/text/TextLine;->metrics(Landroid/graphics/Paint$FontMetricsInt;)F
@@ -872,6 +1130,7 @@
 
     iput v3, p0, Landroid/text/BoringLayout;->mMax:F
 
+    .line 206
     invoke-static {v2}, Landroid/text/TextLine;->recycle(Landroid/text/TextLine;)Landroid/text/TextLine;
 
     goto :goto_2
@@ -879,19 +1138,33 @@
 
 .method public replaceOrMake(Ljava/lang/CharSequence;Landroid/text/TextPaint;ILandroid/text/Layout$Alignment;FFLandroid/text/BoringLayout$Metrics;Z)Landroid/text/BoringLayout;
     .locals 10
+    .param p1, "source"    # Ljava/lang/CharSequence;
+    .param p2, "paint"    # Landroid/text/TextPaint;
+    .param p3, "outerwidth"    # I
+    .param p4, "align"    # Landroid/text/Layout$Alignment;
+    .param p5, "spacingmult"    # F
+    .param p6, "spacingadd"    # F
+    .param p7, "metrics"    # Landroid/text/BoringLayout$Metrics;
+    .param p8, "includepad"    # Z
 
+    .prologue
+    .line 69
     invoke-virtual/range {p0 .. p6}, Landroid/text/BoringLayout;->replaceWith(Ljava/lang/CharSequence;Landroid/text/TextPaint;ILandroid/text/Layout$Alignment;FF)V
 
+    .line 72
     iput p3, p0, Landroid/text/BoringLayout;->mEllipsizedWidth:I
 
+    .line 73
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/text/BoringLayout;->mEllipsizedStart:I
 
+    .line 74
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/text/BoringLayout;->mEllipsizedCount:I
 
+    .line 77
     const/4 v9, 0x1
 
     move-object v0, p0
@@ -912,14 +1185,28 @@
 
     move/from16 v8, p8
 
+    .line 76
     invoke-virtual/range {v0 .. v9}, Landroid/text/BoringLayout;->init(Ljava/lang/CharSequence;Landroid/text/TextPaint;ILandroid/text/Layout$Alignment;FFLandroid/text/BoringLayout$Metrics;ZZ)V
 
+    .line 78
     return-object p0
 .end method
 
 .method public replaceOrMake(Ljava/lang/CharSequence;Landroid/text/TextPaint;ILandroid/text/Layout$Alignment;FFLandroid/text/BoringLayout$Metrics;ZLandroid/text/TextUtils$TruncateAt;I)Landroid/text/BoringLayout;
     .locals 11
+    .param p1, "source"    # Ljava/lang/CharSequence;
+    .param p2, "paint"    # Landroid/text/TextPaint;
+    .param p3, "outerwidth"    # I
+    .param p4, "align"    # Landroid/text/Layout$Alignment;
+    .param p5, "spacingmult"    # F
+    .param p6, "spacingadd"    # F
+    .param p7, "metrics"    # Landroid/text/BoringLayout$Metrics;
+    .param p8, "includepad"    # Z
+    .param p9, "ellipsize"    # Landroid/text/TextUtils$TruncateAt;
+    .param p10, "ellipsizedWidth"    # I
 
+    .prologue
+    .line 95
     if-eqz p9, :cond_0
 
     sget-object v1, Landroid/text/TextUtils$TruncateAt;->MARQUEE:Landroid/text/TextUtils$TruncateAt;
@@ -928,21 +1215,28 @@
 
     if-ne v0, v1, :cond_1
 
+    .line 96
     :cond_0
     invoke-virtual/range {p0 .. p6}, Landroid/text/BoringLayout;->replaceWith(Ljava/lang/CharSequence;Landroid/text/TextPaint;ILandroid/text/Layout$Alignment;FF)V
 
+    .line 99
     iput p3, p0, Landroid/text/BoringLayout;->mEllipsizedWidth:I
 
+    .line 100
     const/4 v1, 0x0
 
     iput v1, p0, Landroid/text/BoringLayout;->mEllipsizedStart:I
 
+    .line 101
     const/4 v1, 0x0
 
     iput v1, p0, Landroid/text/BoringLayout;->mEllipsizedCount:I
 
+    .line 102
     const/4 v10, 0x1
 
+    .line 113
+    .local v10, "trust":Z
     :goto_0
     invoke-virtual {p0}, Landroid/text/BoringLayout;->getText()Ljava/lang/CharSequence;
 
@@ -966,13 +1260,17 @@
 
     invoke-virtual/range {v1 .. v10}, Landroid/text/BoringLayout;->init(Ljava/lang/CharSequence;Landroid/text/TextPaint;ILandroid/text/Layout$Alignment;FFLandroid/text/BoringLayout$Metrics;ZZ)V
 
+    .line 115
     return-object p0
 
+    .line 104
+    .end local v10    # "trust":Z
     :cond_1
     move/from16 v0, p10
 
     int-to-float v3, v0
 
+    .line 105
     const/4 v5, 0x1
 
     move-object v1, p1
@@ -983,6 +1281,7 @@
 
     move-object v6, p0
 
+    .line 104
     invoke-static/range {v1 .. v6}, Landroid/text/TextUtils;->ellipsize(Ljava/lang/CharSequence;Landroid/text/TextPaint;FLandroid/text/TextUtils$TruncateAt;ZLandroid/text/TextUtils$EllipsizeCallback;)Ljava/lang/CharSequence;
 
     move-result-object v2
@@ -1001,11 +1300,14 @@
 
     invoke-virtual/range {v1 .. v7}, Landroid/text/BoringLayout;->replaceWith(Ljava/lang/CharSequence;Landroid/text/TextPaint;ILandroid/text/Layout$Alignment;FF)V
 
+    .line 109
     move/from16 v0, p10
 
     iput v0, p0, Landroid/text/BoringLayout;->mEllipsizedWidth:I
 
+    .line 110
     const/4 v10, 0x0
 
+    .restart local v10    # "trust":Z
     goto :goto_0
 .end method

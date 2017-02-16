@@ -174,34 +174,44 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 64
     const-string/jumbo v0, "mediacapture_jni"
 
     invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
 
+    .line 65
     invoke-static {}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->native_init()V
 
+    .line 52
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 2
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 78
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 80
     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
 
     move-result-object v0
 
+    .local v0, "looper":Landroid/os/Looper;
     if-eqz v0, :cond_0
 
+    .line 81
     new-instance v1, Lcom/samsung/android/media/mediacapture/SemMediaCapture$EventHandler;
 
     invoke-direct {v1, p0, p0, v0}, Lcom/samsung/android/media/mediacapture/SemMediaCapture$EventHandler;-><init>(Lcom/samsung/android/media/mediacapture/SemMediaCapture;Lcom/samsung/android/media/mediacapture/SemMediaCapture;Landroid/os/Looper;)V
 
     iput-object v1, p0, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->mEventHandler:Lcom/samsung/android/media/mediacapture/SemMediaCapture$EventHandler;
 
+    .line 91
     :goto_0
     new-instance v1, Ljava/lang/ref/WeakReference;
 
@@ -209,8 +219,10 @@
 
     invoke-direct {p0, v1}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->native_setup(Ljava/lang/Object;)V
 
+    .line 78
     return-void
 
+    .line 82
     :cond_0
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
 
@@ -218,6 +230,7 @@
 
     if-eqz v0, :cond_1
 
+    .line 83
     new-instance v1, Lcom/samsung/android/media/mediacapture/SemMediaCapture$EventHandler;
 
     invoke-direct {v1, p0, p0, v0}, Lcom/samsung/android/media/mediacapture/SemMediaCapture$EventHandler;-><init>(Lcom/samsung/android/media/mediacapture/SemMediaCapture;Lcom/samsung/android/media/mediacapture/SemMediaCapture;Landroid/os/Looper;)V
@@ -226,6 +239,7 @@
 
     goto :goto_0
 
+    .line 85
     :cond_1
     iput-object v1, p0, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->mEventHandler:Lcom/samsung/android/media/mediacapture/SemMediaCapture$EventHandler;
 
@@ -321,24 +335,36 @@
 
 .method private static postEventFromNative(Ljava/lang/Object;IILjava/lang/Object;)V
     .locals 4
+    .param p0, "mediacapture_ref"    # Ljava/lang/Object;
+    .param p1, "what"    # I
+    .param p2, "arg1"    # I
+    .param p3, "obj"    # Ljava/lang/Object;
 
+    .prologue
+    .line 459
     check-cast p0, Ljava/lang/ref/WeakReference;
 
+    .end local p0    # "mediacapture_ref":Ljava/lang/Object;
     invoke-virtual {p0}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Lcom/samsung/android/media/mediacapture/SemMediaCapture;
 
+    .line 460
+    .local v1, "mc":Lcom/samsung/android/media/mediacapture/SemMediaCapture;
     if-nez v1, :cond_0
 
+    .line 461
     return-void
 
+    .line 464
     :cond_0
     iget-object v2, v1, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->mEventHandler:Lcom/samsung/android/media/mediacapture/SemMediaCapture$EventHandler;
 
     if-eqz v2, :cond_1
 
+    .line 465
     iget-object v2, v1, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->mEventHandler:Lcom/samsung/android/media/mediacapture/SemMediaCapture$EventHandler;
 
     const/4 v3, 0x0
@@ -347,10 +373,14 @@
 
     move-result-object v0
 
+    .line 466
+    .local v0, "m":Landroid/os/Message;
     iget-object v2, v1, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->mEventHandler:Lcom/samsung/android/media/mediacapture/SemMediaCapture$EventHandler;
 
     invoke-virtual {v2, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
+    .line 457
+    .end local v0    # "m":Landroid/os/Message;
     :cond_1
     return-void
 .end method
@@ -358,10 +388,13 @@
 .method private updateSurfaceScreenOn()V
     .locals 2
 
+    .prologue
+    .line 374
     iget-object v0, p0, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->mSurfaceHolder:Landroid/view/SurfaceHolder;
 
     if-eqz v0, :cond_0
 
+    .line 375
     iget-object v1, p0, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->mSurfaceHolder:Landroid/view/SurfaceHolder;
 
     iget-boolean v0, p0, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->mScreenOnWhilePlaying:Z
@@ -373,9 +406,11 @@
     :goto_0
     invoke-interface {v1, v0}, Landroid/view/SurfaceHolder;->setKeepScreenOn(Z)V
 
+    .line 373
     :cond_0
     return-void
 
+    .line 375
     :cond_1
     const/4 v0, 0x0
 
@@ -387,6 +422,8 @@
 .method protected finalize()V
     .locals 0
 
+    .prologue
+    .line 357
     invoke-direct {p0}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->native_finalize()V
 
     return-void
@@ -400,6 +437,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 331
     invoke-direct {p0}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->_getCurrentPosition()I
 
     move-result v0
@@ -415,8 +454,11 @@
         }
     .end annotation
 
+    .prologue
+    .line 303
     invoke-direct {p0}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->_pause()V
 
+    .line 302
     return-void
 .end method
 
@@ -429,8 +471,11 @@
         }
     .end annotation
 
+    .prologue
+    .line 283
     invoke-direct {p0}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->_prepare()V
 
+    .line 282
     return-void
 .end method
 
@@ -442,18 +487,25 @@
         }
     .end annotation
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 349
     iput-object v0, p0, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->mOnPreparedListener:Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnPreparedListener;
 
+    .line 350
     iput-object v0, p0, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->mOnRecordingCompletionListener:Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnRecordingCompletionListener;
 
+    .line 351
     iput-object v0, p0, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->mOnPlaybackCompletionListener:Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnPlaybackCompletionListener;
 
+    .line 352
     iput-object v0, p0, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->mOnErrorListener:Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnErrorListener;
 
+    .line 353
     invoke-direct {p0}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->_release()V
 
+    .line 348
     return-void
 .end method
 
@@ -465,32 +517,41 @@
         }
     .end annotation
 
+    .prologue
+    .line 340
     invoke-direct {p0}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->_reset()V
 
+    .line 341
     iget-object v0, p0, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->mEventHandler:Lcom/samsung/android/media/mediacapture/SemMediaCapture$EventHandler;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacksAndMessages(Ljava/lang/Object;)V
 
+    .line 339
     return-void
 .end method
 
 .method public seekForPreview(I)V
     .locals 0
+    .param p1, "msec"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;
         }
     .end annotation
 
+    .prologue
+    .line 321
     invoke-direct {p0, p1}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->_seekTo(I)V
 
+    .line 320
     return-void
 .end method
 
 .method public setDataSource(Ljava/io/FileDescriptor;)V
     .locals 6
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -499,6 +560,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 128
     const-wide/16 v2, 0x0
 
     const-wide v4, 0x7ffffffffffffffL
@@ -509,91 +572,131 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->_setDataSource(Ljava/io/FileDescriptor;JJ)V
 
+    .line 126
     return-void
 .end method
 
 .method public setDisplay(Landroid/view/SurfaceHolder;)V
     .locals 1
+    .param p1, "sh"    # Landroid/view/SurfaceHolder;
 
+    .prologue
+    .line 155
     iput-object p1, p0, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->mSurfaceHolder:Landroid/view/SurfaceHolder;
 
+    .line 157
     if-eqz p1, :cond_0
 
+    .line 158
     invoke-interface {p1}, Landroid/view/SurfaceHolder;->getSurface()Landroid/view/Surface;
 
     move-result-object v0
 
+    .line 162
     :goto_0
     invoke-direct {p0, v0}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->_setVideoSurface(Landroid/view/Surface;)V
 
+    .line 163
     invoke-direct {p0}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->updateSurfaceScreenOn()V
 
+    .line 154
     return-void
 
+    .line 160
     :cond_0
     const/4 v0, 0x0
 
+    .local v0, "surface":Landroid/view/Surface;
     goto :goto_0
 .end method
 
 .method public setOnDecodingCompletionListener(Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnDecodingCompletionListener;)V
     .locals 0
+    .param p1, "listener"    # Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnDecodingCompletionListener;
 
+    .prologue
+    .line 591
     iput-object p1, p0, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->mOnDecodingCompletionListener:Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnDecodingCompletionListener;
 
+    .line 589
     return-void
 .end method
 
 .method public setOnErrorListener(Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnErrorListener;)V
     .locals 0
+    .param p1, "listener"    # Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnErrorListener;
 
+    .prologue
+    .line 652
     iput-object p1, p0, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->mOnErrorListener:Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnErrorListener;
 
+    .line 650
     return-void
 .end method
 
 .method public setOnInfoListener(Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnInfoListener;)V
     .locals 0
+    .param p1, "listener"    # Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnInfoListener;
 
+    .prologue
+    .line 686
     iput-object p1, p0, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->mOnInfoListener:Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnInfoListener;
 
+    .line 684
     return-void
 .end method
 
 .method public setOnPlaybackCompletionListener(Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnPlaybackCompletionListener;)V
     .locals 0
+    .param p1, "listener"    # Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnPlaybackCompletionListener;
 
+    .prologue
+    .line 541
     iput-object p1, p0, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->mOnPlaybackCompletionListener:Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnPlaybackCompletionListener;
 
+    .line 539
     return-void
 .end method
 
 .method public setOnPreparedListener(Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnPreparedListener;)V
     .locals 0
+    .param p1, "listener"    # Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnPreparedListener;
 
+    .prologue
+    .line 491
     iput-object p1, p0, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->mOnPreparedListener:Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnPreparedListener;
 
+    .line 489
     return-void
 .end method
 
 .method public setOnRecordingCompletionListener(Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnRecordingCompletionListener;)V
     .locals 0
+    .param p1, "listener"    # Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnRecordingCompletionListener;
 
+    .prologue
+    .line 566
     iput-object p1, p0, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->mOnRecordingCompletionListener:Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnRecordingCompletionListener;
 
+    .line 563
     return-void
 .end method
 
 .method public setOnRenderingStartedListener(Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnRenderingStartedListener;)V
     .locals 0
+    .param p1, "listener"    # Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnRenderingStartedListener;
 
+    .prologue
+    .line 518
     iput-object p1, p0, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->mOnRenderingStartedListener:Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnRenderingStartedListener;
 
+    .line 516
     return-void
 .end method
 
 .method public setOutputFile(Ljava/io/FileDescriptor;)V
     .locals 0
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -602,34 +705,47 @@
         }
     .end annotation
 
+    .prologue
+    .line 140
     invoke-direct {p0, p1}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->_setOutputFile(Ljava/io/FileDescriptor;)V
 
+    .line 138
     return-void
 .end method
 
 .method public setParameter(II)V
     .locals 0
+    .param p1, "key"    # I
+    .param p2, "value"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;
         }
     .end annotation
 
+    .prologue
+    .line 254
     invoke-direct {p0, p1, p2}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->_setParameter(II)V
 
+    .line 253
     return-void
 .end method
 
 .method public setStartEndTime(II)V
     .locals 0
+    .param p1, "startMs"    # I
+    .param p2, "endMs"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;
         }
     .end annotation
 
+    .prologue
+    .line 174
     invoke-direct {p0, p1, p2}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->_setStartEndTime(II)V
 
+    .line 173
     return-void
 .end method
 
@@ -641,8 +757,11 @@
         }
     .end annotation
 
+    .prologue
+    .line 262
     invoke-direct {p0}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->_startCapture()V
 
+    .line 261
     return-void
 .end method
 
@@ -654,8 +773,11 @@
         }
     .end annotation
 
+    .prologue
+    .line 295
     invoke-direct {p0}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->_start()V
 
+    .line 294
     return-void
 .end method
 
@@ -667,8 +789,11 @@
         }
     .end annotation
 
+    .prologue
+    .line 271
     invoke-direct {p0}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->_stopCapture()V
 
+    .line 270
     return-void
 .end method
 
@@ -680,7 +805,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 311
     invoke-direct {p0}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->_stop()V
 
+    .line 310
     return-void
 .end method

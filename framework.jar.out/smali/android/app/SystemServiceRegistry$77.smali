@@ -27,6 +27,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 941
     invoke-direct {p0}, Landroid/app/SystemServiceRegistry$StaticServiceFetcher;-><init>()V
 
     return-void
@@ -37,12 +39,16 @@
 .method public createService()Landroid/app/job/JobScheduler;
     .locals 3
 
+    .prologue
+    .line 944
     const-string/jumbo v1, "jobscheduler"
 
     invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
+    .line 945
+    .local v0, "b":Landroid/os/IBinder;
     new-instance v1, Landroid/app/JobSchedulerImpl;
 
     invoke-static {v0}, Landroid/app/job/IJobScheduler$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/job/IJobScheduler;
@@ -57,6 +63,8 @@
 .method public bridge synthetic createService()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 943
     invoke-virtual {p0}, Landroid/app/SystemServiceRegistry$77;->createService()Landroid/app/job/JobScheduler;
 
     move-result-object v0

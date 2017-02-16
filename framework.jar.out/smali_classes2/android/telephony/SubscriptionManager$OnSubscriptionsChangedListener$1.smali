@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Landroid/telephony/SubscriptionManager$OnSubscriptionsChangedListener;)V
     .locals 0
+    .param p1, "this$1"    # Landroid/telephony/SubscriptionManager$OnSubscriptionsChangedListener;
 
+    .prologue
+    .line 403
     iput-object p1, p0, Landroid/telephony/SubscriptionManager$OnSubscriptionsChangedListener$1;->this$1:Landroid/telephony/SubscriptionManager$OnSubscriptionsChangedListener;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -33,10 +36,14 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 1
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 409
     iget-object v0, p0, Landroid/telephony/SubscriptionManager$OnSubscriptionsChangedListener$1;->this$1:Landroid/telephony/SubscriptionManager$OnSubscriptionsChangedListener;
 
     invoke-virtual {v0}, Landroid/telephony/SubscriptionManager$OnSubscriptionsChangedListener;->onSubscriptionsChanged()V
 
+    .line 405
     return-void
 .end method

@@ -32,6 +32,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 176
     sget-object v0, Landroid/provider/BlockedNumberContract;->AUTHORITY_URI:Landroid/net/Uri;
 
     const-string/jumbo v1, "blocked"
@@ -42,12 +44,15 @@
 
     sput-object v0, Landroid/provider/BlockedNumberContract$BlockedNumbers;->CONTENT_URI:Landroid/net/Uri;
 
+    .line 157
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 158
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

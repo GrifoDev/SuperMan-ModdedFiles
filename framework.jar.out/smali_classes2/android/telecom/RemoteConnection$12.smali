@@ -30,7 +30,13 @@
 # direct methods
 .method constructor <init>(Landroid/telecom/RemoteConnection;Landroid/telecom/RemoteConnection$Callback;Landroid/telecom/RemoteConnection;Landroid/telecom/StatusHints;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/telecom/RemoteConnection;
+    .param p2, "val$callback"    # Landroid/telecom/RemoteConnection$Callback;
+    .param p3, "val$connection"    # Landroid/telecom/RemoteConnection;
+    .param p4, "val$statusHints"    # Landroid/telecom/StatusHints;
 
+    .prologue
+    .line 1272
     iput-object p1, p0, Landroid/telecom/RemoteConnection$12;->this$0:Landroid/telecom/RemoteConnection;
 
     iput-object p2, p0, Landroid/telecom/RemoteConnection$12;->val$callback:Landroid/telecom/RemoteConnection$Callback;
@@ -49,6 +55,8 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 1275
     iget-object v0, p0, Landroid/telecom/RemoteConnection$12;->val$callback:Landroid/telecom/RemoteConnection$Callback;
 
     iget-object v1, p0, Landroid/telecom/RemoteConnection$12;->val$connection:Landroid/telecom/RemoteConnection;
@@ -57,5 +65,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/telecom/RemoteConnection$Callback;->onStatusHintsChanged(Landroid/telecom/RemoteConnection;Landroid/telecom/StatusHints;)V
 
+    .line 1274
     return-void
 .end method

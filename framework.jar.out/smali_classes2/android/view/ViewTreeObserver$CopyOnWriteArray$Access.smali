@@ -64,6 +64,9 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 1182
+    .local p0, "this":Landroid/view/ViewTreeObserver$CopyOnWriteArray$Access;, "Landroid/view/ViewTreeObserver$CopyOnWriteArray<TT;>.Access<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -73,12 +76,16 @@
 # virtual methods
 .method get(I)Ljava/lang/Object;
     .locals 1
+    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)TT;"
         }
     .end annotation
 
+    .prologue
+    .line 1187
+    .local p0, "this":Landroid/view/ViewTreeObserver$CopyOnWriteArray$Access;, "Landroid/view/ViewTreeObserver$CopyOnWriteArray<TT;>.Access<TT;>;"
     iget-object v0, p0, Landroid/view/ViewTreeObserver$CopyOnWriteArray$Access;->mData:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -91,6 +98,9 @@
 .method size()I
     .locals 1
 
+    .prologue
+    .line 1191
+    .local p0, "this":Landroid/view/ViewTreeObserver$CopyOnWriteArray$Access;, "Landroid/view/ViewTreeObserver$CopyOnWriteArray<TT;>.Access<TT;>;"
     iget v0, p0, Landroid/view/ViewTreeObserver$CopyOnWriteArray$Access;->mSize:I
 
     return v0

@@ -26,7 +26,11 @@
 # direct methods
 .method constructor <init>(Landroid/widget/RemoteViewsAdapter;Landroid/widget/RemoteViewsAdapter$RemoteViewsCacheKey;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/widget/RemoteViewsAdapter;
+    .param p2, "val$key"    # Landroid/widget/RemoteViewsAdapter$RemoteViewsCacheKey;
 
+    .prologue
+    .line 923
     iput-object p1, p0, Landroid/widget/RemoteViewsAdapter$1;->this$0:Landroid/widget/RemoteViewsAdapter;
 
     iput-object p2, p0, Landroid/widget/RemoteViewsAdapter$1;->val$key:Landroid/widget/RemoteViewsAdapter$RemoteViewsCacheKey;
@@ -41,12 +45,15 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 926
     invoke-static {}, Landroid/widget/RemoteViewsAdapter;->-get8()Ljava/util/HashMap;
 
     move-result-object v1
 
     monitor-enter v1
 
+    .line 927
     :try_start_0
     invoke-static {}, Landroid/widget/RemoteViewsAdapter;->-get8()Ljava/util/HashMap;
 
@@ -60,6 +67,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 928
     invoke-static {}, Landroid/widget/RemoteViewsAdapter;->-get8()Ljava/util/HashMap;
 
     move-result-object v0
@@ -68,6 +76,7 @@
 
     invoke-virtual {v0, v2}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 930
     :cond_0
     invoke-static {}, Landroid/widget/RemoteViewsAdapter;->-get9()Ljava/util/HashMap;
 
@@ -81,6 +90,7 @@
 
     if-eqz v0, :cond_1
 
+    .line 931
     invoke-static {}, Landroid/widget/RemoteViewsAdapter;->-get9()Ljava/util/HashMap;
 
     move-result-object v0
@@ -94,8 +104,10 @@
     :cond_1
     monitor-exit v1
 
+    .line 925
     return-void
 
+    .line 926
     :catchall_0
     move-exception v0
 

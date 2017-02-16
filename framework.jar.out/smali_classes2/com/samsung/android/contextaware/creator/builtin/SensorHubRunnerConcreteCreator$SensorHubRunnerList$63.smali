@@ -17,7 +17,10 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
     .locals 1
+    .param p3, "$anonymous0"    # Ljava/lang/String;
 
+    .prologue
+    .line 1555
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, p2, p3, v0}, Lcom/samsung/android/contextaware/creator/builtin/SensorHubRunnerConcreteCreator$SensorHubRunnerList;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/samsung/android/contextaware/creator/builtin/SensorHubRunnerConcreteCreator$SensorHubRunnerList;)V
@@ -30,6 +33,8 @@
 .method protected getKey()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 1572
     sget-object v0, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$DATA_TYPE;->LIBRARY_DATATYPE_CH_LOC_TRIGGER:Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$DATA_TYPE;
 
     invoke-virtual {v0}, Ljava/lang/Enum;->toString()Ljava/lang/String;
@@ -42,6 +47,8 @@
 .method public final getObject()Lcom/samsung/android/contextaware/manager/ContextComponent;
     .locals 5
 
+    .prologue
+    .line 1558
     invoke-static {}, Lcom/samsung/android/contextaware/creator/builtin/SensorHubRunnerConcreteCreator;->-wrap5()Ljava/util/concurrent/ConcurrentHashMap;
 
     move-result-object v1
@@ -56,14 +63,19 @@
 
     if-nez v1, :cond_0
 
+    .line 1559
     const/4 v0, 0x0
 
+    .line 1561
+    .local v0, "runner":Lcom/samsung/android/contextaware/manager/ContextComponent;
     new-instance v0, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/ChLocTriggerRunner;
 
+    .end local v0    # "runner":Lcom/samsung/android/contextaware/manager/ContextComponent;
     invoke-static {}, Lcom/samsung/android/contextaware/creator/builtin/SensorHubRunnerConcreteCreator;->-wrap4()I
 
     move-result v1
 
+    .line 1562
     invoke-static {}, Lcom/samsung/android/contextaware/creator/builtin/SensorHubRunnerConcreteCreator;->-wrap0()Landroid/content/Context;
 
     move-result-object v2
@@ -76,8 +88,11 @@
 
     move-result-object v4
 
+    .line 1561
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/builtin/ChLocTriggerRunner;-><init>(ILandroid/content/Context;Landroid/os/Looper;Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/ISensorHubResetObservable;)V
 
+    .line 1564
+    .local v0, "runner":Lcom/samsung/android/contextaware/manager/ContextComponent;
     invoke-static {}, Lcom/samsung/android/contextaware/creator/builtin/SensorHubRunnerConcreteCreator;->-wrap5()Ljava/util/concurrent/ConcurrentHashMap;
 
     move-result-object v1
@@ -88,6 +103,8 @@
 
     invoke-virtual {v1, v2, v0}, Ljava/util/concurrent/ConcurrentHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 1566
+    .end local v0    # "runner":Lcom/samsung/android/contextaware/manager/ContextComponent;
     :cond_0
     invoke-virtual {p0}, Lcom/samsung/android/contextaware/creator/builtin/SensorHubRunnerConcreteCreator$SensorHubRunnerList$63;->getKey()Ljava/lang/String;
 
@@ -99,6 +116,7 @@
 
     invoke-virtual {p0, v1, v2}, Lcom/samsung/android/contextaware/creator/builtin/SensorHubRunnerConcreteCreator$SensorHubRunnerList;->setOptionForLib(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 1567
     invoke-static {}, Lcom/samsung/android/contextaware/creator/builtin/SensorHubRunnerConcreteCreator;->-wrap5()Ljava/util/concurrent/ConcurrentHashMap;
 
     move-result-object v1

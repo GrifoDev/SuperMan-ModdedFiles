@@ -23,13 +23,18 @@
 # direct methods
 .method public constructor <init>([B)V
     .locals 6
+    .param p1, "data"    # [B
 
+    .prologue
+    .line 2428
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 2445
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/samsung/android/camera/core/SemCamera$ObjectTrackingData;->focusedArea:Landroid/graphics/Rect;
 
+    .line 2429
     const/4 v0, 0x0
 
     aget-byte v0, p1, v0
@@ -50,6 +55,7 @@
 
     iput-short v0, p0, Lcom/samsung/android/camera/core/SemCamera$ObjectTrackingData;->focusState:S
 
+    .line 2430
     new-instance v0, Landroid/graphics/Rect;
 
     const/4 v1, 0x2
@@ -70,6 +76,7 @@
 
     int-to-short v1, v1
 
+    .line 2431
     const/4 v2, 0x4
 
     aget-byte v2, p1, v2
@@ -88,6 +95,7 @@
 
     int-to-short v2, v2
 
+    .line 2432
     const/4 v3, 0x6
 
     aget-byte v3, p1, v3
@@ -106,6 +114,7 @@
 
     int-to-short v3, v3
 
+    .line 2433
     const/16 v4, 0x8
 
     aget-byte v4, p1, v4
@@ -124,9 +133,11 @@
 
     int-to-short v4, v4
 
+    .line 2430
     invoke-direct {v0, v1, v2, v3, v4}, Landroid/graphics/Rect;-><init>(IIII)V
 
     iput-object v0, p0, Lcom/samsung/android/camera/core/SemCamera$ObjectTrackingData;->focusedArea:Landroid/graphics/Rect;
 
+    .line 2428
     return-void
 .end method

@@ -39,10 +39,12 @@
 .method static constructor <clinit>()V
     .locals 5
 
+    .prologue
     const/4 v4, 0x0
 
     const/4 v3, 0x1
 
+    .line 41
     new-instance v0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD$DirectionFHD;
 
     const-string/jumbo v1, "POSITIVE"
@@ -63,6 +65,7 @@
 
     const/4 v0, 0x2
 
+    .line 39
     new-array v0, v0, [Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD$DirectionFHD;
 
     sget-object v1, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD$DirectionFHD;->POSITIVE:Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD$DirectionFHD;
@@ -81,18 +84,24 @@
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
 
+    .prologue
+    .line 45
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
+    .line 48
     iput p3, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD$DirectionFHD;->mDirection:I
 
+    .line 49
     return-void
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD$DirectionFHD;
     .locals 1
 
+    .prologue
     const-class v0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD$DirectionFHD;
 
+    .line 1
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
     move-result-object v0
@@ -105,8 +114,10 @@
 .method public static values()[Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD$DirectionFHD;
     .locals 4
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 1
     sget-object v0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD$DirectionFHD;->ENUM$VALUES:[Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD$DirectionFHD;
 
     array-length v1, v0
@@ -123,6 +134,8 @@
 .method public getDirection()I
     .locals 1
 
+    .prologue
+    .line 54
     iget v0, p0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD$DirectionFHD;->mDirection:I
 
     return v0

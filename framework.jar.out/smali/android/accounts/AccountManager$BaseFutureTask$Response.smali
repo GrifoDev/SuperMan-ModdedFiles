@@ -22,6 +22,10 @@
 .method protected constructor <init>(Landroid/accounts/AccountManager$BaseFutureTask;)V
     .locals 0
 
+    .prologue
+    .line 2079
+    .local p0, "this":Landroid/accounts/AccountManager$BaseFutureTask$Response;, "Landroid/accounts/AccountManager$BaseFutureTask<TT;>.Response;"
+    .local p1, "this$1":Landroid/accounts/AccountManager$BaseFutureTask;, "Landroid/accounts/AccountManager$BaseFutureTask<TT;>;"
     iput-object p1, p0, Landroid/accounts/AccountManager$BaseFutureTask$Response;->this$1:Landroid/accounts/AccountManager$BaseFutureTask;
 
     invoke-direct {p0}, Landroid/accounts/IAccountManagerResponse$Stub;-><init>()V
@@ -33,7 +37,12 @@
 # virtual methods
 .method public onError(ILjava/lang/String;)V
     .locals 2
+    .param p1, "code"    # I
+    .param p2, "message"    # Ljava/lang/String;
 
+    .prologue
+    .line 2099
+    .local p0, "this":Landroid/accounts/AccountManager$BaseFutureTask$Response;, "Landroid/accounts/AccountManager$BaseFutureTask<TT;>.Response;"
     const/4 v0, 0x4
 
     if-eq p1, v0, :cond_0
@@ -42,6 +51,7 @@
 
     if-ne p1, v0, :cond_1
 
+    .line 2103
     :cond_0
     iget-object v0, p0, Landroid/accounts/AccountManager$BaseFutureTask$Response;->this$1:Landroid/accounts/AccountManager$BaseFutureTask;
 
@@ -49,13 +59,16 @@
 
     invoke-virtual {v0, v1}, Landroid/accounts/AccountManager$BaseFutureTask;->cancel(Z)Z
 
+    .line 2104
     return-void
 
+    .line 2100
     :cond_1
     const/16 v0, 0x65
 
     if-eq p1, v0, :cond_0
 
+    .line 2106
     iget-object v0, p0, Landroid/accounts/AccountManager$BaseFutureTask$Response;->this$1:Landroid/accounts/AccountManager$BaseFutureTask;
 
     iget-object v1, p0, Landroid/accounts/AccountManager$BaseFutureTask$Response;->this$1:Landroid/accounts/AccountManager$BaseFutureTask;
@@ -68,12 +81,17 @@
 
     invoke-static {v0, v1}, Landroid/accounts/AccountManager$BaseFutureTask;->-wrap0(Landroid/accounts/AccountManager$BaseFutureTask;Ljava/lang/Throwable;)V
 
+    .line 2098
     return-void
 .end method
 
 .method public onResult(Landroid/os/Bundle;)V
     .locals 5
+    .param p1, "bundle"    # Landroid/os/Bundle;
 
+    .prologue
+    .line 2083
+    .local p0, "this":Landroid/accounts/AccountManager$BaseFutureTask$Response;, "Landroid/accounts/AccountManager$BaseFutureTask<TT;>.Response;"
     :try_start_0
     iget-object v3, p0, Landroid/accounts/AccountManager$BaseFutureTask$Response;->this$1:Landroid/accounts/AccountManager$BaseFutureTask;
 
@@ -81,10 +99,14 @@
 
     move-result-object v2
 
+    .line 2084
+    .local v2, "result":Ljava/lang/Object;, "TT;"
     if-nez v2, :cond_0
 
+    .line 2085
     return-void
 
+    .line 2087
     :cond_0
     iget-object v3, p0, Landroid/accounts/AccountManager$BaseFutureTask$Response;->this$1:Landroid/accounts/AccountManager$BaseFutureTask;
 
@@ -93,11 +115,15 @@
     .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Landroid/accounts/AuthenticatorException; {:try_start_0 .. :try_end_0} :catch_1
 
+    .line 2088
     return-void
 
+    .line 2089
+    .end local v2    # "result":Ljava/lang/Object;, "TT;"
     :catch_0
     move-exception v1
 
+    .line 2094
     :goto_0
     const-string/jumbo v3, "no result in response"
 
@@ -105,10 +131,13 @@
 
     invoke-virtual {p0, v4, v3}, Landroid/accounts/AccountManager$BaseFutureTask$Response;->onError(ILjava/lang/String;)V
 
+    .line 2081
     return-void
 
+    .line 2091
     :catch_1
     move-exception v0
 
+    .local v0, "e":Landroid/accounts/AuthenticatorException;
     goto :goto_0
 .end method

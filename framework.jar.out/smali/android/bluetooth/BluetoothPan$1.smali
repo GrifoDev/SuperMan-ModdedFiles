@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Landroid/bluetooth/BluetoothPan;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/bluetooth/BluetoothPan;
 
+    .prologue
+    .line 187
     iput-object p1, p0, Landroid/bluetooth/BluetoothPan$1;->this$0:Landroid/bluetooth/BluetoothPan;
 
     invoke-direct {p0}, Landroid/bluetooth/IBluetoothStateChangeCallback$Stub;-><init>()V
@@ -33,7 +36,10 @@
 # virtual methods
 .method public onBluetoothStateChange(Z)V
     .locals 6
+    .param p1, "on"    # Z
 
+    .prologue
+    .line 192
     const-string/jumbo v3, "BluetoothPan"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -56,8 +62,10 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 193
     if-eqz p1, :cond_1
 
+    .line 195
     :try_start_0
     iget-object v3, p0, Landroid/bluetooth/BluetoothPan$1;->this$0:Landroid/bluetooth/BluetoothPan;
 
@@ -67,6 +75,7 @@
 
     if-nez v3, :cond_0
 
+    .line 197
     iget-object v3, p0, Landroid/bluetooth/BluetoothPan$1;->this$0:Landroid/bluetooth/BluetoothPan;
 
     invoke-virtual {v3}, Landroid/bluetooth/BluetoothPan;->doBind()Z
@@ -74,13 +83,17 @@
     .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 190
     :cond_0
     :goto_0
     return-void
 
+    .line 203
     :catch_0
     move-exception v1
 
+    .line 204
+    .local v1, "e":Ljava/lang/SecurityException;
     const-string/jumbo v3, "BluetoothPan"
 
     const-string/jumbo v4, "onBluetoothStateChange: could not bind to PAN service: "
@@ -89,9 +102,13 @@
 
     goto :goto_0
 
+    .line 200
+    .end local v1    # "e":Ljava/lang/SecurityException;
     :catch_1
     move-exception v0
 
+    .line 201
+    .local v0, "e":Ljava/lang/IllegalStateException;
     const-string/jumbo v3, "BluetoothPan"
 
     const-string/jumbo v4, "onBluetoothStateChange: could not bind to PAN service: "
@@ -100,6 +117,8 @@
 
     goto :goto_0
 
+    .line 208
+    .end local v0    # "e":Ljava/lang/IllegalStateException;
     :cond_1
     iget-object v3, p0, Landroid/bluetooth/BluetoothPan$1;->this$0:Landroid/bluetooth/BluetoothPan;
 
@@ -109,6 +128,7 @@
 
     monitor-enter v4
 
+    .line 210
     :try_start_1
     iget-object v3, p0, Landroid/bluetooth/BluetoothPan$1;->this$0:Landroid/bluetooth/BluetoothPan;
 
@@ -116,6 +136,7 @@
 
     invoke-static {v3, v5}, Landroid/bluetooth/BluetoothPan;->-set0(Landroid/bluetooth/BluetoothPan;Landroid/bluetooth/IBluetoothPan;)Landroid/bluetooth/IBluetoothPan;
 
+    .line 211
     iget-object v3, p0, Landroid/bluetooth/BluetoothPan$1;->this$0:Landroid/bluetooth/BluetoothPan;
 
     invoke-static {v3}, Landroid/bluetooth/BluetoothPan;->-get1(Landroid/bluetooth/BluetoothPan;)Landroid/content/Context;
@@ -138,9 +159,12 @@
 
     goto :goto_0
 
+    .line 212
     :catch_2
     move-exception v2
 
+    .line 213
+    .local v2, "re":Ljava/lang/Exception;
     :try_start_2
     const-string/jumbo v3, "BluetoothPan"
 
@@ -152,6 +176,8 @@
 
     goto :goto_1
 
+    .line 208
+    .end local v2    # "re":Ljava/lang/Exception;
     :catchall_0
     move-exception v3
 

@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Landroid/hardware/camera2/legacy/RequestThreadManager;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/hardware/camera2/legacy/RequestThreadManager;
 
+    .prologue
+    .line 260
     iput-object p1, p0, Landroid/hardware/camera2/legacy/RequestThreadManager$4;->this$0:Landroid/hardware/camera2/legacy/RequestThreadManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +39,10 @@
 # virtual methods
 .method public onFrameAvailable(Landroid/graphics/SurfaceTexture;)V
     .locals 1
+    .param p1, "surfaceTexture"    # Landroid/graphics/SurfaceTexture;
 
+    .prologue
+    .line 266
     iget-object v0, p0, Landroid/hardware/camera2/legacy/RequestThreadManager$4;->this$0:Landroid/hardware/camera2/legacy/RequestThreadManager;
 
     invoke-static {v0}, Landroid/hardware/camera2/legacy/RequestThreadManager;->-get8(Landroid/hardware/camera2/legacy/RequestThreadManager;)Landroid/hardware/camera2/legacy/GLThreadManager;
@@ -45,5 +51,6 @@
 
     invoke-virtual {v0}, Landroid/hardware/camera2/legacy/GLThreadManager;->queueNewFrame()V
 
+    .line 262
     return-void
 .end method

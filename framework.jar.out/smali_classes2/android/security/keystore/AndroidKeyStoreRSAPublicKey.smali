@@ -15,7 +15,12 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;ILjava/security/interfaces/RSAPublicKey;)V
     .locals 6
+    .param p1, "alias"    # Ljava/lang/String;
+    .param p2, "uid"    # I
+    .param p3, "info"    # Ljava/security/interfaces/RSAPublicKey;
 
+    .prologue
+    .line 39
     invoke-interface {p3}, Ljava/security/interfaces/RSAPublicKey;->getEncoded()[B
 
     move-result-object v3
@@ -36,6 +41,7 @@
 
     invoke-direct/range {v0 .. v5}, Landroid/security/keystore/AndroidKeyStoreRSAPublicKey;-><init>(Ljava/lang/String;I[BLjava/math/BigInteger;Ljava/math/BigInteger;)V
 
+    .line 40
     const-string/jumbo v0, "X.509"
 
     invoke-interface {p3}, Ljava/security/interfaces/RSAPublicKey;->getFormat()Ljava/lang/String;
@@ -48,8 +54,10 @@
 
     if-nez v0, :cond_0
 
+    .line 41
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
+    .line 42
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -72,25 +80,37 @@
 
     move-result-object v1
 
+    .line 41
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
+    .line 38
     :cond_0
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;I[BLjava/math/BigInteger;Ljava/math/BigInteger;)V
     .locals 1
+    .param p1, "alias"    # Ljava/lang/String;
+    .param p2, "uid"    # I
+    .param p3, "x509EncodedForm"    # [B
+    .param p4, "modulus"    # Ljava/math/BigInteger;
+    .param p5, "publicExponent"    # Ljava/math/BigInteger;
 
+    .prologue
+    .line 33
     const-string/jumbo v0, "RSA"
 
     invoke-direct {p0, p1, p2, v0, p3}, Landroid/security/keystore/AndroidKeyStorePublicKey;-><init>(Ljava/lang/String;ILjava/lang/String;[B)V
 
+    .line 34
     iput-object p4, p0, Landroid/security/keystore/AndroidKeyStoreRSAPublicKey;->mModulus:Ljava/math/BigInteger;
 
+    .line 35
     iput-object p5, p0, Landroid/security/keystore/AndroidKeyStoreRSAPublicKey;->mPublicExponent:Ljava/math/BigInteger;
 
+    .line 32
     return-void
 .end method
 
@@ -99,6 +119,8 @@
 .method public getModulus()Ljava/math/BigInteger;
     .locals 1
 
+    .prologue
+    .line 48
     iget-object v0, p0, Landroid/security/keystore/AndroidKeyStoreRSAPublicKey;->mModulus:Ljava/math/BigInteger;
 
     return-object v0
@@ -107,6 +129,8 @@
 .method public getPublicExponent()Ljava/math/BigInteger;
     .locals 1
 
+    .prologue
+    .line 53
     iget-object v0, p0, Landroid/security/keystore/AndroidKeyStoreRSAPublicKey;->mPublicExponent:Ljava/math/BigInteger;
 
     return-object v0

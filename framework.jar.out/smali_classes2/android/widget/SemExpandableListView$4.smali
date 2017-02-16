@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Landroid/widget/SemExpandableListView;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/widget/SemExpandableListView;
 
+    .prologue
+    .line 1039
     iput-object p1, p0, Landroid/widget/SemExpandableListView$4;->this$0:Landroid/widget/SemExpandableListView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,9 +40,12 @@
 .method public run()V
     .locals 1
 
+    .prologue
+    .line 1042
     iget-object v0, p0, Landroid/widget/SemExpandableListView$4;->this$0:Landroid/widget/SemExpandableListView;
 
     invoke-virtual {v0}, Landroid/widget/AbsListView;->requestLayout()V
 
+    .line 1041
     return-void
 .end method

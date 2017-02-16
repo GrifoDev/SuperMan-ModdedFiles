@@ -97,18 +97,24 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 158
     invoke-direct {p0}, Landroid/app/Service;-><init>()V
 
+    .line 254
     const/4 v0, -0x1
 
     iput v0, p0, Landroid/printservice/PrintService;->mLastSessionId:I
 
+    .line 158
     return-void
 .end method
 
 .method static throwIfNotCalledOnMainThread()V
     .locals 2
 
+    .prologue
+    .line 358
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
 
     move-result-object v0
@@ -119,6 +125,7 @@
 
     if-nez v0, :cond_0
 
+    .line 359
     new-instance v0, Ljava/lang/IllegalAccessError;
 
     const-string/jumbo v1, "must be called from the main thread"
@@ -127,6 +134,7 @@
 
     throw v0
 
+    .line 357
     :cond_0
     return-void
 .end method
@@ -135,9 +143,13 @@
 # virtual methods
 .method protected final attachBaseContext(Landroid/content/Context;)V
     .locals 2
+    .param p1, "base"    # Landroid/content/Context;
 
+    .prologue
+    .line 260
     invoke-super {p0, p1}, Landroid/app/Service;->attachBaseContext(Landroid/content/Context;)V
 
+    .line 261
     new-instance v0, Landroid/printservice/PrintService$ServiceHandler;
 
     invoke-virtual {p1}, Landroid/content/Context;->getMainLooper()Landroid/os/Looper;
@@ -148,22 +160,30 @@
 
     iput-object v0, p0, Landroid/printservice/PrintService;->mHandler:Landroid/os/Handler;
 
+    .line 259
     return-void
 .end method
 
 .method public final generatePrinterId(Ljava/lang/String;)Landroid/print/PrinterId;
     .locals 4
+    .param p1, "localId"    # Ljava/lang/String;
 
+    .prologue
+    .line 351
     invoke-static {}, Landroid/printservice/PrintService;->throwIfNotCalledOnMainThread()V
 
+    .line 352
     const-string/jumbo v0, "localId cannot be null"
 
     invoke-static {p1, v0}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
+    .end local p1    # "localId":Ljava/lang/String;
     check-cast p1, Ljava/lang/String;
 
+    .line 353
+    .restart local p1    # "localId":Ljava/lang/String;
     new-instance v0, Landroid/print/PrinterId;
 
     new-instance v1, Landroid/content/ComponentName;
@@ -172,6 +192,7 @@
 
     move-result-object v2
 
+    .line 354
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v3
@@ -180,6 +201,7 @@
 
     move-result-object v3
 
+    .line 353
     invoke-direct {v1, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-direct {v0, v1, p1}, Landroid/print/PrinterId;-><init>(Landroid/content/ComponentName;Ljava/lang/String;)V
@@ -199,21 +221,28 @@
         }
     .end annotation
 
+    .prologue
+    .line 321
     invoke-static {}, Landroid/printservice/PrintService;->throwIfNotCalledOnMainThread()V
 
+    .line 322
     iget-object v6, p0, Landroid/printservice/PrintService;->mClient:Landroid/printservice/IPrintServiceClient;
 
     if-nez v6, :cond_0
 
+    .line 323
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
     move-result-object v6
 
     return-object v6
 
+    .line 326
     :cond_0
     const/4 v3, 0x0
 
+    .line 327
+    .local v3, "printJobs":Ljava/util/List;, "Ljava/util/List<Landroid/printservice/PrintJob;>;"
     :try_start_0
     iget-object v6, p0, Landroid/printservice/PrintService;->mClient:Landroid/printservice/IPrintServiceClient;
 
@@ -221,23 +250,33 @@
 
     move-result-object v2
 
+    .line 328
+    .local v2, "printJobInfos":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrintJobInfo;>;"
     if-eqz v2, :cond_2
 
+    .line 329
     invoke-interface {v2}, Ljava/util/List;->size()I
 
     move-result v1
 
+    .line 330
+    .local v1, "printJobInfoCount":I
     new-instance v4, Ljava/util/ArrayList;
 
     invoke-direct {v4, v1}, Ljava/util/ArrayList;-><init>(I)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 331
+    .local v4, "printJobs":Ljava/util/List;, "Ljava/util/List<Landroid/printservice/PrintJob;>;"
     const/4 v0, 0x0
 
+    .end local v3    # "printJobs":Ljava/util/List;, "Ljava/util/List<Landroid/printservice/PrintJob;>;"
+    .local v0, "i":I
     :goto_0
     if-ge v0, v1, :cond_1
 
+    .line 332
     :try_start_1
     new-instance v7, Landroid/printservice/PrintJob;
 
@@ -255,6 +294,7 @@
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
 
+    .line 331
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
@@ -262,14 +302,25 @@
     :cond_1
     move-object v3, v4
 
+    .line 335
+    .end local v0    # "i":I
+    .end local v1    # "printJobInfoCount":I
+    .end local v4    # "printJobs":Ljava/util/List;, "Ljava/util/List<Landroid/printservice/PrintJob;>;"
     :cond_2
     if-eqz v3, :cond_3
 
+    .line 336
     return-object v3
 
+    .line 338
+    .end local v2    # "printJobInfos":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrintJobInfo;>;"
+    .restart local v3    # "printJobs":Ljava/util/List;, "Ljava/util/List<Landroid/printservice/PrintJob;>;"
     :catch_0
     move-exception v5
 
+    .line 339
+    .end local v3    # "printJobs":Ljava/util/List;, "Ljava/util/List<Landroid/printservice/PrintJob;>;"
+    .local v5, "re":Landroid/os/RemoteException;
     :goto_1
     const-string/jumbo v6, "PrintService"
 
@@ -277,6 +328,8 @@
 
     invoke-static {v6, v7, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
+    .line 341
+    .end local v5    # "re":Landroid/os/RemoteException;
     :cond_3
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
@@ -284,17 +337,28 @@
 
     return-object v6
 
+    .line 338
+    .restart local v0    # "i":I
+    .restart local v1    # "printJobInfoCount":I
+    .restart local v2    # "printJobInfos":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrintJobInfo;>;"
+    .restart local v4    # "printJobs":Ljava/util/List;, "Ljava/util/List<Landroid/printservice/PrintJob;>;"
     :catch_1
     move-exception v5
 
+    .restart local v5    # "re":Landroid/os/RemoteException;
     move-object v3, v4
 
+    .end local v4    # "printJobs":Ljava/util/List;, "Ljava/util/List<Landroid/printservice/PrintJob;>;"
+    .local v3, "printJobs":Ljava/util/List;, "Ljava/util/List<Landroid/printservice/PrintJob;>;"
     goto :goto_1
 .end method
 
 .method public final onBind(Landroid/content/Intent;)Landroid/os/IBinder;
     .locals 1
+    .param p1, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 365
     new-instance v0, Landroid/printservice/PrintService$1;
 
     invoke-direct {v0, p0}, Landroid/printservice/PrintService$1;-><init>(Landroid/printservice/PrintService;)V
@@ -305,6 +369,8 @@
 .method protected onConnected()V
     .locals 0
 
+    .prologue
+    .line 267
     return-void
 .end method
 
@@ -314,6 +380,8 @@
 .method protected onDisconnected()V
     .locals 0
 
+    .prologue
+    .line 274
     return-void
 .end method
 

@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/animation/SemAddDeleteListAnimator$4;)V
     .locals 0
+    .param p1, "this$1"    # Lcom/samsung/android/animation/SemAddDeleteListAnimator$4;
 
+    .prologue
+    .line 680
     iput-object p1, p0, Lcom/samsung/android/animation/SemAddDeleteListAnimator$4$1;->this$1:Lcom/samsung/android/animation/SemAddDeleteListAnimator$4;
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
@@ -33,9 +36,12 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
     const/4 v1, 0x1
 
+    .line 694
     iget-object v0, p0, Lcom/samsung/android/animation/SemAddDeleteListAnimator$4$1;->this$1:Lcom/samsung/android/animation/SemAddDeleteListAnimator$4;
 
     iget-object v0, v0, Lcom/samsung/android/animation/SemAddDeleteListAnimator$4;->this$0:Lcom/samsung/android/animation/SemAddDeleteListAnimator;
@@ -44,6 +50,7 @@
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
+    .line 695
     iget-object v0, p0, Lcom/samsung/android/animation/SemAddDeleteListAnimator$4$1;->this$1:Lcom/samsung/android/animation/SemAddDeleteListAnimator$4;
 
     iget-object v0, v0, Lcom/samsung/android/animation/SemAddDeleteListAnimator$4;->this$0:Lcom/samsung/android/animation/SemAddDeleteListAnimator;
@@ -54,6 +61,7 @@
 
     invoke-virtual {v0}, Landroid/view/View;->invalidate()V
 
+    .line 696
     iget-object v0, p0, Lcom/samsung/android/animation/SemAddDeleteListAnimator$4$1;->this$1:Lcom/samsung/android/animation/SemAddDeleteListAnimator$4;
 
     iget-object v0, v0, Lcom/samsung/android/animation/SemAddDeleteListAnimator$4;->this$0:Lcom/samsung/android/animation/SemAddDeleteListAnimator;
@@ -64,6 +72,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setEnabled(Z)V
 
+    .line 697
     iget-object v0, p0, Lcom/samsung/android/animation/SemAddDeleteListAnimator$4$1;->this$1:Lcom/samsung/android/animation/SemAddDeleteListAnimator$4;
 
     iget-object v0, v0, Lcom/samsung/android/animation/SemAddDeleteListAnimator$4;->this$0:Lcom/samsung/android/animation/SemAddDeleteListAnimator;
@@ -74,6 +83,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 698
     iget-object v0, p0, Lcom/samsung/android/animation/SemAddDeleteListAnimator$4$1;->this$1:Lcom/samsung/android/animation/SemAddDeleteListAnimator$4;
 
     iget-object v0, v0, Lcom/samsung/android/animation/SemAddDeleteListAnimator$4;->this$0:Lcom/samsung/android/animation/SemAddDeleteListAnimator;
@@ -84,15 +94,19 @@
 
     invoke-interface {v0, v1}, Lcom/samsung/android/animation/SemAddDeleteListAnimator$OnAddDeleteListener;->onAnimationEnd(Z)V
 
+    .line 693
     :cond_0
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
     .locals 2
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 684
     iget-object v0, p0, Lcom/samsung/android/animation/SemAddDeleteListAnimator$4$1;->this$1:Lcom/samsung/android/animation/SemAddDeleteListAnimator$4;
 
     iget-object v0, v0, Lcom/samsung/android/animation/SemAddDeleteListAnimator$4;->this$0:Lcom/samsung/android/animation/SemAddDeleteListAnimator;
@@ -107,6 +121,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 685
     iget-object v0, p0, Lcom/samsung/android/animation/SemAddDeleteListAnimator$4$1;->this$1:Lcom/samsung/android/animation/SemAddDeleteListAnimator$4;
 
     iget-object v0, v0, Lcom/samsung/android/animation/SemAddDeleteListAnimator$4;->this$0:Lcom/samsung/android/animation/SemAddDeleteListAnimator;
@@ -117,6 +132,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setPressed(Z)V
 
+    .line 687
     :cond_0
     iget-object v0, p0, Lcom/samsung/android/animation/SemAddDeleteListAnimator$4$1;->this$1:Lcom/samsung/android/animation/SemAddDeleteListAnimator$4;
 
@@ -128,6 +144,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setEnabled(Z)V
 
+    .line 688
     iget-object v0, p0, Lcom/samsung/android/animation/SemAddDeleteListAnimator$4$1;->this$1:Lcom/samsung/android/animation/SemAddDeleteListAnimator$4;
 
     iget-object v0, v0, Lcom/samsung/android/animation/SemAddDeleteListAnimator$4;->this$0:Lcom/samsung/android/animation/SemAddDeleteListAnimator;
@@ -138,6 +155,7 @@
 
     if-eqz v0, :cond_1
 
+    .line 689
     iget-object v0, p0, Lcom/samsung/android/animation/SemAddDeleteListAnimator$4$1;->this$1:Lcom/samsung/android/animation/SemAddDeleteListAnimator$4;
 
     iget-object v0, v0, Lcom/samsung/android/animation/SemAddDeleteListAnimator$4;->this$0:Lcom/samsung/android/animation/SemAddDeleteListAnimator;
@@ -150,6 +168,7 @@
 
     invoke-interface {v0, v1}, Lcom/samsung/android/animation/SemAddDeleteListAnimator$OnAddDeleteListener;->onAnimationStart(Z)V
 
+    .line 682
     :cond_1
     return-void
 .end method

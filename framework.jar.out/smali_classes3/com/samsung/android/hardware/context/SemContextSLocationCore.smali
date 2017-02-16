@@ -92,42 +92,57 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 303
     new-instance v0, Lcom/samsung/android/hardware/context/SemContextSLocationCore$1;
 
     invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextSLocationCore$1;-><init>()V
 
     sput-object v0, Lcom/samsung/android/hardware/context/SemContextSLocationCore;->CREATOR:Landroid/os/Parcelable$Creator;
 
+    .line 146
     return-void
 .end method
 
 .method constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 323
     invoke-direct {p0}, Lcom/samsung/android/hardware/context/SemContextEventContext;-><init>()V
 
+    .line 324
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
     iput-object v0, p0, Lcom/samsung/android/hardware/context/SemContextSLocationCore;->mContext:Landroid/os/Bundle;
 
+    .line 323
     return-void
 .end method
 
 .method constructor <init>(Landroid/os/Parcel;)V
     .locals 0
+    .param p1, "src"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 330
     invoke-direct {p0}, Lcom/samsung/android/hardware/context/SemContextEventContext;-><init>()V
 
+    .line 331
     invoke-direct {p0, p1}, Lcom/samsung/android/hardware/context/SemContextSLocationCore;->readFromParcel(Landroid/os/Parcel;)V
 
+    .line 330
     return-void
 .end method
 
 .method private readFromParcel(Landroid/os/Parcel;)V
     .locals 1
+    .param p1, "src"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 528
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -142,6 +157,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/hardware/context/SemContextSLocationCore;->mContext:Landroid/os/Bundle;
 
+    .line 527
     return-void
 .end method
 
@@ -150,6 +166,8 @@
 .method public getAccuracy()I
     .locals 2
 
+    .prologue
+    .line 403
     iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextSLocationCore;->mContext:Landroid/os/Bundle;
 
     const-string/jumbo v1, "Accuracy"
@@ -164,6 +182,8 @@
 .method public getAction()I
     .locals 2
 
+    .prologue
+    .line 349
     iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextSLocationCore;->mContext:Landroid/os/Bundle;
 
     const-string/jumbo v1, "Action"
@@ -178,6 +198,8 @@
 .method public getDataArray()[I
     .locals 2
 
+    .prologue
+    .line 493
     iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextSLocationCore;->mContext:Landroid/os/Bundle;
 
     const-string/jumbo v1, "DataArray"
@@ -192,6 +214,8 @@
 .method public getDataSize()I
     .locals 2
 
+    .prologue
+    .line 457
     iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextSLocationCore;->mContext:Landroid/os/Bundle;
 
     const-string/jumbo v1, "DataCount"
@@ -206,6 +230,8 @@
 .method public getDistance()F
     .locals 2
 
+    .prologue
+    .line 448
     iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextSLocationCore;->mContext:Landroid/os/Bundle;
 
     const-string/jumbo v1, "Distance"
@@ -220,6 +246,8 @@
 .method public getErrorCode()I
     .locals 2
 
+    .prologue
+    .line 439
     iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextSLocationCore;->mContext:Landroid/os/Bundle;
 
     const-string/jumbo v1, "ErrorCode"
@@ -234,6 +262,8 @@
 .method public getFenceID()I
     .locals 2
 
+    .prologue
+    .line 358
     iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextSLocationCore;->mContext:Landroid/os/Bundle;
 
     const-string/jumbo v1, "GeoFenceId"
@@ -248,6 +278,8 @@
 .method public getFuncType()I
     .locals 2
 
+    .prologue
+    .line 430
     iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextSLocationCore;->mContext:Landroid/os/Bundle;
 
     const-string/jumbo v1, "FunctionType"
@@ -262,6 +294,8 @@
 .method public getLatitude()D
     .locals 2
 
+    .prologue
+    .line 385
     iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextSLocationCore;->mContext:Landroid/os/Bundle;
 
     const-string/jumbo v1, "Latitude"
@@ -276,6 +310,8 @@
 .method public getLongitude()D
     .locals 2
 
+    .prologue
+    .line 394
     iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextSLocationCore;->mContext:Landroid/os/Bundle;
 
     const-string/jumbo v1, "Longitude"
@@ -290,6 +326,8 @@
 .method public getMode()I
     .locals 2
 
+    .prologue
+    .line 340
     iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextSLocationCore;->mContext:Landroid/os/Bundle;
 
     const-string/jumbo v1, "Mode"
@@ -304,6 +342,8 @@
 .method public getStatus()I
     .locals 2
 
+    .prologue
+    .line 367
     iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextSLocationCore;->mContext:Landroid/os/Bundle;
 
     const-string/jumbo v1, "GeoFenceStatus"
@@ -318,6 +358,8 @@
 .method public getStatusArray()[I
     .locals 2
 
+    .prologue
+    .line 475
     iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextSLocationCore;->mContext:Landroid/os/Bundle;
 
     const-string/jumbo v1, "EventStatusArray"
@@ -332,6 +374,8 @@
 .method public getSuccessGpsCount()I
     .locals 2
 
+    .prologue
+    .line 421
     iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextSLocationCore;->mContext:Landroid/os/Bundle;
 
     const-string/jumbo v1, "SuccessGpsCount"
@@ -346,6 +390,8 @@
 .method public getTimeStamp()J
     .locals 2
 
+    .prologue
+    .line 376
     iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextSLocationCore;->mContext:Landroid/os/Bundle;
 
     const-string/jumbo v1, "Timestamp"
@@ -360,6 +406,8 @@
 .method public getTimeStampArray()[J
     .locals 2
 
+    .prologue
+    .line 484
     iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextSLocationCore;->mContext:Landroid/os/Bundle;
 
     const-string/jumbo v1, "TimeStampArray"
@@ -374,6 +422,8 @@
 .method public getTotalGpsCount()I
     .locals 2
 
+    .prologue
+    .line 412
     iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextSLocationCore;->mContext:Landroid/os/Bundle;
 
     const-string/jumbo v1, "TotalGpsCount"
@@ -388,6 +438,8 @@
 .method public getTypeArray()[I
     .locals 2
 
+    .prologue
+    .line 466
     iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextSLocationCore;->mContext:Landroid/os/Bundle;
 
     const-string/jumbo v1, "EventTypeArray"
@@ -401,18 +453,27 @@
 
 .method public setValues(Landroid/os/Bundle;)V
     .locals 0
+    .param p1, "context"    # Landroid/os/Bundle;
 
+    .prologue
+    .line 504
     iput-object p1, p0, Lcom/samsung/android/hardware/context/SemContextSLocationCore;->mContext:Landroid/os/Bundle;
 
+    .line 503
     return-void
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
+    .prologue
+    .line 518
     iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextSLocationCore;->mContext:Landroid/os/Bundle;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
 
+    .line 517
     return-void
 .end method

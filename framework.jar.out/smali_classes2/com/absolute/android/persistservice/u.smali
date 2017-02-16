@@ -11,6 +11,8 @@
 .method constructor <init>(Landroid/content/Context;Lcom/absolute/android/persistservice/v;Ljava/lang/String;)V
     .locals 2
 
+    .prologue
+    .line 40
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -33,10 +35,13 @@
 
     const-string/jumbo v0, ""
 
+    .line 26
     iput-object v0, p0, Lcom/absolute/android/persistservice/u;->a:Ljava/lang/String;
 
+    .line 41
     iput-object p3, p0, Lcom/absolute/android/persistservice/u;->a:Ljava/lang/String;
 
+    .line 42
     return-void
 .end method
 
@@ -45,8 +50,10 @@
 .method protected declared-synchronized a()I
     .locals 2
 
+    .prologue
     monitor-enter p0
 
+    .line 51
     :try_start_0
     iget-object v0, p0, Lcom/absolute/android/persistservice/ac;->c:Ljava/util/Hashtable;
 
@@ -79,8 +86,10 @@
 .method protected declared-synchronized a(I)V
     .locals 3
 
+    .prologue
     monitor-enter p0
 
+    .line 60
     :try_start_0
     iget-object v0, p0, Lcom/absolute/android/persistservice/ac;->c:Ljava/util/Hashtable;
 
@@ -92,12 +101,14 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 61
     invoke-virtual {p0}, Lcom/absolute/android/persistservice/ac;->e()Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
+    .line 62
     return-void
 
     :catchall_0
@@ -111,8 +122,10 @@
 .method protected declared-synchronized a(Ljava/lang/String;)V
     .locals 2
 
+    .prologue
     monitor-enter p0
 
+    .line 98
     :try_start_0
     iget-object v0, p0, Lcom/absolute/android/persistservice/ac;->c:Ljava/util/Hashtable;
 
@@ -120,12 +133,14 @@
 
     invoke-virtual {v0, v1, p1}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 99
     invoke-virtual {p0}, Lcom/absolute/android/persistservice/ac;->e()Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
+    .line 100
     return-void
 
     :catchall_0
@@ -139,8 +154,10 @@
 .method protected declared-synchronized b()I
     .locals 2
 
+    .prologue
     monitor-enter p0
 
+    .line 70
     :try_start_0
     iget-object v0, p0, Lcom/absolute/android/persistservice/ac;->c:Ljava/util/Hashtable;
 
@@ -173,8 +190,10 @@
 .method protected declared-synchronized b(I)V
     .locals 3
 
+    .prologue
     monitor-enter p0
 
+    .line 79
     :try_start_0
     iget-object v0, p0, Lcom/absolute/android/persistservice/ac;->c:Ljava/util/Hashtable;
 
@@ -186,12 +205,14 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 80
     invoke-virtual {p0}, Lcom/absolute/android/persistservice/ac;->e()Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
+    .line 81
     return-void
 
     :catchall_0
@@ -205,6 +226,8 @@
 .method protected c()V
     .locals 3
 
+    .prologue
+    .line 108
     iget-object v0, p0, Lcom/absolute/android/persistservice/ac;->e:Lcom/absolute/android/persistservice/v;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -235,12 +258,14 @@
 
     invoke-virtual {v0, v1}, Lcom/absolute/android/persistservice/v;->b(Ljava/lang/String;)V
 
+    .line 110
     iget-object v0, p0, Lcom/absolute/android/persistservice/ac;->e:Lcom/absolute/android/persistservice/v;
 
     const-string/jumbo v1, "Initializing number of rotating log files to: 4"
 
     invoke-virtual {v0, v1}, Lcom/absolute/android/persistservice/v;->c(Ljava/lang/String;)V
 
+    .line 111
     iget-object v0, p0, Lcom/absolute/android/persistservice/ac;->c:Ljava/util/Hashtable;
 
     const-string/jumbo v1, "numLogFiles"
@@ -253,12 +278,14 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 113
     iget-object v0, p0, Lcom/absolute/android/persistservice/ac;->e:Lcom/absolute/android/persistservice/v;
 
     const-string/jumbo v1, "Initializing maximum size of each log file in kB to: 60"
 
     invoke-virtual {v0, v1}, Lcom/absolute/android/persistservice/v;->c(Ljava/lang/String;)V
 
+    .line 114
     iget-object v0, p0, Lcom/absolute/android/persistservice/ac;->c:Ljava/util/Hashtable;
 
     const-string/jumbo v1, "maxLogSizeKB"
@@ -271,6 +298,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 117
     new-instance v0, Ljava/lang/String;
 
     iget-object v1, p0, Lcom/absolute/android/persistservice/u;->a:Ljava/lang/String;
@@ -281,20 +309,24 @@
 
     invoke-direct {v0, v1}, Ljava/lang/String;-><init>(Ljava/lang/String;)V
 
+    .line 118
     iget-object v1, p0, Lcom/absolute/android/persistservice/ac;->c:Ljava/util/Hashtable;
 
     const-string/jumbo v2, "currentLogFile"
 
     invoke-virtual {v1, v2, v0}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 120
     return-void
 .end method
 
 .method protected declared-synchronized d()Ljava/lang/String;
     .locals 2
 
+    .prologue
     monitor-enter p0
 
+    .line 89
     :try_start_0
     iget-object v0, p0, Lcom/absolute/android/persistservice/ac;->c:Ljava/util/Hashtable;
 
@@ -327,10 +359,12 @@
 .method public i(Ljava/lang/String;)Z
     .locals 6
 
+    .prologue
     const/4 v1, 0x1
 
     const/4 v0, 0x0
 
+    .line 127
     new-instance v2, Lcom/absolute/android/persistservice/u;
 
     iget-object v3, p0, Lcom/absolute/android/persistservice/ac;->d:Landroid/content/Context;
@@ -341,9 +375,11 @@
 
     invoke-direct {v2, v3, v4, v5}, Lcom/absolute/android/persistservice/u;-><init>(Landroid/content/Context;Lcom/absolute/android/persistservice/v;Ljava/lang/String;)V
 
+    .line 129
     :try_start_0
     invoke-virtual {v2, p1}, Lcom/absolute/android/persistservice/ac;->k(Ljava/lang/String;)V
 
+    .line 130
     invoke-virtual {p0, v2}, Lcom/absolute/android/persistservice/ac;->equals(Ljava/lang/Object;)Z
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
@@ -363,5 +399,6 @@
     :catch_0
     move-exception v0
 
+    .line 132
     return v1
 .end method

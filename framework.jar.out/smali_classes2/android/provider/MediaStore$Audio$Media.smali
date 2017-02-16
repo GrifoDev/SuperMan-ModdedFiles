@@ -37,28 +37,36 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 1515
     const-string/jumbo v0, "internal"
 
     invoke-static {v0}, Landroid/provider/MediaStore$Audio$Media;->getContentUri(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v0
 
+    .line 1514
     sput-object v0, Landroid/provider/MediaStore$Audio$Media;->INTERNAL_CONTENT_URI:Landroid/net/Uri;
 
+    .line 1522
     const-string/jumbo v0, "external"
 
     invoke-static {v0}, Landroid/provider/MediaStore$Audio$Media;->getContentUri(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v0
 
+    .line 1521
     sput-object v0, Landroid/provider/MediaStore$Audio$Media;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
 
+    .line 1489
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 1489
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -66,7 +74,10 @@
 
 .method public static getContentUri(Ljava/lang/String;)Landroid/net/Uri;
     .locals 2
+    .param p0, "volumeName"    # Ljava/lang/String;
 
+    .prologue
+    .line 1498
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -81,8 +92,10 @@
 
     move-result-object v0
 
+    .line 1499
     const-string/jumbo v1, "/audio/media"
 
+    .line 1498
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -100,7 +113,10 @@
 
 .method public static getContentUriForPath(Ljava/lang/String;)Landroid/net/Uri;
     .locals 3
+    .param p0, "path"    # Ljava/lang/String;
 
+    .prologue
+    .line 1503
     const-string/jumbo v1, "persist.sys.omc_respath"
 
     const-string/jumbo v2, ""
@@ -109,6 +125,8 @@
 
     move-result-object v0
 
+    .line 1505
+    .local v0, "omcPath":Ljava/lang/String;
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -141,6 +159,7 @@
 
     if-nez v1, :cond_0
 
+    .line 1506
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -171,8 +190,10 @@
 
     move-result v1
 
+    .line 1505
     if-nez v1, :cond_0
 
+    .line 1507
     const-string/jumbo v1, ""
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -185,14 +206,18 @@
 
     move-result v1
 
+    .line 1505
     if-eqz v1, :cond_1
 
+    .line 1508
     :cond_0
     sget-object v1, Landroid/provider/MediaStore$Audio$Media;->INTERNAL_CONTENT_URI:Landroid/net/Uri;
 
+    .line 1505
     :goto_0
     return-object v1
 
+    .line 1508
     :cond_1
     sget-object v1, Landroid/provider/MediaStore$Audio$Media;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
 

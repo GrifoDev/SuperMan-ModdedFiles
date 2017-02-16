@@ -11,6 +11,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 33
     invoke-direct {p0}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/SensorHubModeHandler;-><init>()V
 
     return-void
@@ -19,19 +21,24 @@
 .method public static getInstance()Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/handler/builtin/SLMonitorHandler;
     .locals 2
 
+    .prologue
+    .line 45
     sget-object v0, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/handler/builtin/SLMonitorHandler;->instance:Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/handler/builtin/SLMonitorHandler;
 
     if-nez v0, :cond_1
 
+    .line 46
     const-class v1, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/handler/builtin/SLMonitorHandler;
 
     monitor-enter v1
 
+    .line 47
     :try_start_0
     sget-object v0, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/handler/builtin/SLMonitorHandler;->instance:Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/handler/builtin/SLMonitorHandler;
 
     if-nez v0, :cond_0
 
+    .line 48
     new-instance v0, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/handler/builtin/SLMonitorHandler;
 
     invoke-direct {v0}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/handler/builtin/SLMonitorHandler;-><init>()V
@@ -43,11 +50,13 @@
     :cond_0
     monitor-exit v1
 
+    .line 52
     :cond_1
     sget-object v0, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/handler/builtin/SLMonitorHandler;->instance:Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/handler/builtin/SLMonitorHandler;
 
     return-object v0
 
+    .line 46
     :catchall_0
     move-exception v0
 
@@ -61,12 +70,16 @@
 .method protected final disable()V
     .locals 0
 
+    .prologue
+    .line 83
     return-void
 .end method
 
 .method protected final enable()V
     .locals 0
 
+    .prologue
+    .line 76
     return-void
 .end method
 
@@ -82,10 +95,14 @@
         }
     .end annotation
 
+    .prologue
+    .line 64
     new-instance v0, Ljava/util/concurrent/CopyOnWriteArrayList;
 
     invoke-direct {v0}, Ljava/util/concurrent/CopyOnWriteArrayList;-><init>()V
 
+    .line 65
+    .local v0, "list":Ljava/util/concurrent/CopyOnWriteArrayList;, "Ljava/util/concurrent/CopyOnWriteArrayList<Ljava/lang/String;>;"
     sget-object v1, Lcom/samsung/android/contextaware/ContextList$ContextType;->SENSORHUB_RUNNER_SL_MONITOR:Lcom/samsung/android/contextaware/ContextList$ContextType;
 
     invoke-virtual {v1}, Lcom/samsung/android/contextaware/ContextList$ContextType;->getCode()Ljava/lang/String;
@@ -94,6 +111,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/concurrent/CopyOnWriteArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 66
     sget-object v1, Lcom/samsung/android/contextaware/ContextList$ContextType;->SENSORHUB_RUNNER_SL_MONITOR_EXTENDED_INTERRUPT:Lcom/samsung/android/contextaware/ContextList$ContextType;
 
     invoke-virtual {v1}, Lcom/samsung/android/contextaware/ContextList$ContextType;->getCode()Ljava/lang/String;
@@ -102,6 +120,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/concurrent/CopyOnWriteArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 68
     sget-object v1, Lcom/samsung/android/contextaware/ContextList$ContextType;->SENSORHUB_RUNNER_ACTIVE_TIME:Lcom/samsung/android/contextaware/ContextList$ContextType;
 
     invoke-virtual {v1}, Lcom/samsung/android/contextaware/ContextList$ContextType;->getCode()Ljava/lang/String;
@@ -110,5 +129,6 @@
 
     invoke-virtual {v0, v1}, Ljava/util/concurrent/CopyOnWriteArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 70
     return-object v0
 .end method

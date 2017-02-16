@@ -43,6 +43,7 @@
 .method static constructor <clinit>()V
     .locals 6
 
+    .prologue
     const/4 v5, 0x3
 
     const/4 v4, 0x2
@@ -51,38 +52,47 @@
 
     const/4 v2, 0x0
 
+    .line 528
     new-instance v0, Landroid/graphics/Matrix$ScaleToFit;
 
     const-string/jumbo v1, "FILL"
 
     invoke-direct {v0, v1, v2, v2}, Landroid/graphics/Matrix$ScaleToFit;-><init>(Ljava/lang/String;II)V
 
+    .line 532
     sput-object v0, Landroid/graphics/Matrix$ScaleToFit;->FILL:Landroid/graphics/Matrix$ScaleToFit;
 
+    .line 533
     new-instance v0, Landroid/graphics/Matrix$ScaleToFit;
 
     const-string/jumbo v1, "START"
 
     invoke-direct {v0, v1, v3, v3}, Landroid/graphics/Matrix$ScaleToFit;-><init>(Ljava/lang/String;II)V
 
+    .line 539
     sput-object v0, Landroid/graphics/Matrix$ScaleToFit;->START:Landroid/graphics/Matrix$ScaleToFit;
 
+    .line 540
     new-instance v0, Landroid/graphics/Matrix$ScaleToFit;
 
     const-string/jumbo v1, "CENTER"
 
     invoke-direct {v0, v1, v4, v4}, Landroid/graphics/Matrix$ScaleToFit;-><init>(Ljava/lang/String;II)V
 
+    .line 545
     sput-object v0, Landroid/graphics/Matrix$ScaleToFit;->CENTER:Landroid/graphics/Matrix$ScaleToFit;
 
+    .line 546
     new-instance v0, Landroid/graphics/Matrix$ScaleToFit;
 
     const-string/jumbo v1, "END"
 
     invoke-direct {v0, v1, v5, v5}, Landroid/graphics/Matrix$ScaleToFit;-><init>(Ljava/lang/String;II)V
 
+    .line 552
     sput-object v0, Landroid/graphics/Matrix$ScaleToFit;->END:Landroid/graphics/Matrix$ScaleToFit;
 
+    .line 527
     const/4 v0, 0x4
 
     new-array v0, v0, [Landroid/graphics/Matrix$ScaleToFit;
@@ -110,17 +120,25 @@
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
+    .param p3, "nativeInt"    # I
 
+    .prologue
+    .line 555
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
+    .line 556
     iput p3, p0, Landroid/graphics/Matrix$ScaleToFit;->nativeInt:I
 
+    .line 555
     return-void
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroid/graphics/Matrix$ScaleToFit;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 527
     const-class v0, Landroid/graphics/Matrix$ScaleToFit;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -135,6 +153,8 @@
 .method public static values()[Landroid/graphics/Matrix$ScaleToFit;
     .locals 1
 
+    .prologue
+    .line 527
     sget-object v0, Landroid/graphics/Matrix$ScaleToFit;->$VALUES:[Landroid/graphics/Matrix$ScaleToFit;
 
     return-object v0

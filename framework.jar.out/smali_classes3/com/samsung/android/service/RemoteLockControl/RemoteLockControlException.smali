@@ -10,7 +10,11 @@
 # direct methods
 .method public constructor <init>(ILjava/lang/String;)V
     .locals 2
+    .param p1, "rlcErrorCode"    # I
+    .param p2, "message"    # Ljava/lang/String;
 
+    .prologue
+    .line 8
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -41,8 +45,10 @@
 
     invoke-direct {p0, v0}, Ljava/lang/Exception;-><init>(Ljava/lang/String;)V
 
+    .line 10
     iput p1, p0, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlException;->mRlcErrorCode:I
 
+    .line 7
     return-void
 .end method
 
@@ -51,6 +57,8 @@
 .method public getRlcErrorCode()I
     .locals 1
 
+    .prologue
+    .line 15
     iget v0, p0, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlException;->mRlcErrorCode:I
 
     return v0

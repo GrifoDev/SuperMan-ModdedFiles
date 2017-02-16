@@ -24,13 +24,18 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
     const/4 v0, -0x1
 
+    .line 198
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 199
     iput v0, p0, Landroid/preference/VolumePreference$VolumeStore;->volume:I
 
+    .line 200
     iput v0, p0, Landroid/preference/VolumePreference$VolumeStore;->originalVolume:I
 
+    .line 198
     return-void
 .end method

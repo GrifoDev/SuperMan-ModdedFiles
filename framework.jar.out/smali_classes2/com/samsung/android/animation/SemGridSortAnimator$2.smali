@@ -25,7 +25,12 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/animation/SemGridSortAnimator;ZLandroid/view/View;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/samsung/android/animation/SemGridSortAnimator;
+    .param p2, "val$isLastChild"    # Z
+    .param p3, "val$child"    # Landroid/view/View;
 
+    .prologue
+    .line 115
     iput-object p1, p0, Lcom/samsung/android/animation/SemGridSortAnimator$2;->this$0:Lcom/samsung/android/animation/SemGridSortAnimator;
 
     iput-boolean p2, p0, Lcom/samsung/android/animation/SemGridSortAnimator$2;->val$isLastChild:Z
@@ -41,29 +46,36 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 123
     iget-object v0, p0, Lcom/samsung/android/animation/SemGridSortAnimator$2;->val$child:Landroid/view/View;
 
     const/high16 v1, 0x3f800000    # 1.0f
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setAlpha(F)V
 
+    .line 124
     iget-boolean v0, p0, Lcom/samsung/android/animation/SemGridSortAnimator$2;->val$isLastChild:Z
 
     if-eqz v0, :cond_0
 
+    .line 125
     iget-object v0, p0, Lcom/samsung/android/animation/SemGridSortAnimator$2;->this$0:Lcom/samsung/android/animation/SemGridSortAnimator;
 
     iget-object v0, v0, Lcom/samsung/android/animation/SemGridSortAnimator;->mOnSortListener:Lcom/samsung/android/animation/SemGridSortAnimator$OnSortListener;
 
     invoke-interface {v0}, Lcom/samsung/android/animation/SemGridSortAnimator$OnSortListener;->onSort()V
 
+    .line 126
     iget-object v0, p0, Lcom/samsung/android/animation/SemGridSortAnimator$2;->this$0:Lcom/samsung/android/animation/SemGridSortAnimator;
 
     iget-object v0, v0, Lcom/samsung/android/animation/SemGridSortAnimator;->mGridView:Landroid/widget/GridView;
 
     invoke-virtual {v0}, Landroid/view/View;->invalidate()V
 
+    .line 128
     iget-object v0, p0, Lcom/samsung/android/animation/SemGridSortAnimator$2;->this$0:Lcom/samsung/android/animation/SemGridSortAnimator;
 
     iget-object v0, v0, Lcom/samsung/android/animation/SemGridSortAnimator;->mGridView:Landroid/widget/GridView;
@@ -78,13 +90,17 @@
 
     invoke-virtual {v0, v1}, Landroid/view/ViewTreeObserver;->addOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
 
+    .line 120
     :cond_0
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
     .locals 2
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 117
     iget-boolean v0, p0, Lcom/samsung/android/animation/SemGridSortAnimator$2;->val$isLastChild:Z
 
     if-eqz v0, :cond_0
@@ -97,6 +113,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setEnabled(Z)V
 
+    .line 116
     :cond_0
     return-void
 .end method

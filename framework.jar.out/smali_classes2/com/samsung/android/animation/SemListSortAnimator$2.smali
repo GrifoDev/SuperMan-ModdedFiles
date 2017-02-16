@@ -25,7 +25,12 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/animation/SemListSortAnimator;ZLandroid/view/View;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/samsung/android/animation/SemListSortAnimator;
+    .param p2, "val$isLastChild"    # Z
+    .param p3, "val$child"    # Landroid/view/View;
 
+    .prologue
+    .line 114
     iput-object p1, p0, Lcom/samsung/android/animation/SemListSortAnimator$2;->this$0:Lcom/samsung/android/animation/SemListSortAnimator;
 
     iput-boolean p2, p0, Lcom/samsung/android/animation/SemListSortAnimator$2;->val$isLastChild:Z
@@ -41,29 +46,36 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 122
     iget-object v0, p0, Lcom/samsung/android/animation/SemListSortAnimator$2;->val$child:Landroid/view/View;
 
     const/high16 v1, 0x3f800000    # 1.0f
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setAlpha(F)V
 
+    .line 123
     iget-boolean v0, p0, Lcom/samsung/android/animation/SemListSortAnimator$2;->val$isLastChild:Z
 
     if-eqz v0, :cond_0
 
+    .line 124
     iget-object v0, p0, Lcom/samsung/android/animation/SemListSortAnimator$2;->this$0:Lcom/samsung/android/animation/SemListSortAnimator;
 
     iget-object v0, v0, Lcom/samsung/android/animation/SemListSortAnimator;->mOnSortListener:Lcom/samsung/android/animation/SemListSortAnimator$OnSortListener;
 
     invoke-interface {v0}, Lcom/samsung/android/animation/SemListSortAnimator$OnSortListener;->onSort()V
 
+    .line 125
     iget-object v0, p0, Lcom/samsung/android/animation/SemListSortAnimator$2;->this$0:Lcom/samsung/android/animation/SemListSortAnimator;
 
     iget-object v0, v0, Lcom/samsung/android/animation/SemListSortAnimator;->mListView:Landroid/widget/ListView;
 
     invoke-virtual {v0}, Landroid/view/View;->invalidate()V
 
+    .line 127
     iget-object v0, p0, Lcom/samsung/android/animation/SemListSortAnimator$2;->this$0:Lcom/samsung/android/animation/SemListSortAnimator;
 
     iget-object v0, v0, Lcom/samsung/android/animation/SemListSortAnimator;->mListView:Landroid/widget/ListView;
@@ -78,13 +90,17 @@
 
     invoke-virtual {v0, v1}, Landroid/view/ViewTreeObserver;->addOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
 
+    .line 119
     :cond_0
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
     .locals 2
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 116
     iget-boolean v0, p0, Lcom/samsung/android/animation/SemListSortAnimator$2;->val$isLastChild:Z
 
     if-eqz v0, :cond_0
@@ -97,6 +113,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setEnabled(Z)V
 
+    .line 115
     :cond_0
     return-void
 .end method

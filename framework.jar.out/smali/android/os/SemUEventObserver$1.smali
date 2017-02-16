@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Landroid/os/SemUEventObserver;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/os/SemUEventObserver;
 
+    .prologue
+    .line 49
     iput-object p1, p0, Landroid/os/SemUEventObserver$1;->this$0:Landroid/os/SemUEventObserver;
 
     invoke-direct {p0}, Landroid/os/UEventObserver;-><init>()V
@@ -33,7 +36,10 @@
 # virtual methods
 .method public onUEvent(Landroid/os/UEventObserver$UEvent;)V
     .locals 3
+    .param p1, "event"    # Landroid/os/UEventObserver$UEvent;
 
+    .prologue
+    .line 53
     iget-object v0, p0, Landroid/os/SemUEventObserver$1;->this$0:Landroid/os/SemUEventObserver;
 
     new-instance v1, Landroid/os/SemUEventObserver$SemUEvent;
@@ -44,5 +50,6 @@
 
     invoke-virtual {v0, v1}, Landroid/os/SemUEventObserver;->onSemUEvent(Landroid/os/SemUEventObserver$SemUEvent;)V
 
+    .line 52
     return-void
 .end method

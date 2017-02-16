@@ -34,7 +34,10 @@
 # direct methods
 .method constructor <init>(Landroid/location/GpsStatus;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/location/GpsStatus;
 
+    .prologue
+    .line 82
     iput-object p1, p0, Landroid/location/GpsStatus$1;->this$0:Landroid/location/GpsStatus;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -56,6 +59,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 85
     new-instance v0, Landroid/location/GpsStatus$SatelliteIterator;
 
     iget-object v1, p0, Landroid/location/GpsStatus$1;->this$0:Landroid/location/GpsStatus;

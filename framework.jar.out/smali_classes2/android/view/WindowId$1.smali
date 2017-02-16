@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 199
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,13 +42,18 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/view/WindowId;
     .locals 2
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 201
     invoke-virtual {p1}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v0
 
+    .line 202
+    .local v0, "target":Landroid/os/IBinder;
     if-eqz v0, :cond_0
 
     new-instance v1, Landroid/view/WindowId;
@@ -59,7 +66,10 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 200
     invoke-virtual {p0, p1}, Landroid/view/WindowId$1;->createFromParcel(Landroid/os/Parcel;)Landroid/view/WindowId;
 
     move-result-object v0
@@ -69,7 +79,10 @@
 
 .method public newArray(I)[Landroid/view/WindowId;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 206
     new-array v0, p1, [Landroid/view/WindowId;
 
     return-object v0
@@ -77,7 +90,10 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 205
     invoke-virtual {p0, p1}, Landroid/view/WindowId$1;->newArray(I)[Landroid/view/WindowId;
 
     move-result-object v0

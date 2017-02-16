@@ -25,15 +25,24 @@
 # direct methods
 .method public constructor <init>(Landroid/hardware/fingerprint/FingerprintManager$CryptoObject;Landroid/hardware/fingerprint/Fingerprint;I)V
     .locals 0
+    .param p1, "crypto"    # Landroid/hardware/fingerprint/FingerprintManager$CryptoObject;
+    .param p2, "fingerprint"    # Landroid/hardware/fingerprint/Fingerprint;
+    .param p3, "userId"    # I
 
+    .prologue
+    .line 390
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 391
     iput-object p1, p0, Landroid/hardware/fingerprint/FingerprintManager$AuthenticationResult;->mCryptoObject:Landroid/hardware/fingerprint/FingerprintManager$CryptoObject;
 
+    .line 392
     iput-object p2, p0, Landroid/hardware/fingerprint/FingerprintManager$AuthenticationResult;->mFingerprint:Landroid/hardware/fingerprint/Fingerprint;
 
+    .line 393
     iput p3, p0, Landroid/hardware/fingerprint/FingerprintManager$AuthenticationResult;->mUserId:I
 
+    .line 390
     return-void
 .end method
 
@@ -42,6 +51,8 @@
 .method public getCryptoObject()Landroid/hardware/fingerprint/FingerprintManager$CryptoObject;
     .locals 1
 
+    .prologue
+    .line 401
     iget-object v0, p0, Landroid/hardware/fingerprint/FingerprintManager$AuthenticationResult;->mCryptoObject:Landroid/hardware/fingerprint/FingerprintManager$CryptoObject;
 
     return-object v0
@@ -50,6 +61,8 @@
 .method public getFingerprint()Landroid/hardware/fingerprint/Fingerprint;
     .locals 1
 
+    .prologue
+    .line 409
     iget-object v0, p0, Landroid/hardware/fingerprint/FingerprintManager$AuthenticationResult;->mFingerprint:Landroid/hardware/fingerprint/Fingerprint;
 
     return-object v0
@@ -58,6 +71,8 @@
 .method public getUserId()I
     .locals 1
 
+    .prologue
+    .line 415
     iget v0, p0, Landroid/hardware/fingerprint/FingerprintManager$AuthenticationResult;->mUserId:I
 
     return v0

@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Landroid/widget/SemExpandableListView;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/widget/SemExpandableListView;
 
+    .prologue
+    .line 1830
     iput-object p1, p0, Landroid/widget/SemExpandableListView$2;->this$0:Landroid/widget/SemExpandableListView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,13 +39,18 @@
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
     .locals 11
+    .param p1, "anim"    # Landroid/animation/ValueAnimator;
 
+    .prologue
     const/4 v7, 0x0
 
+    .line 1835
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedFraction()F
 
     move-result v2
 
+    .line 1836
+    .local v2, "fraction":F
     iget-object v8, p0, Landroid/widget/SemExpandableListView$2;->this$0:Landroid/widget/SemExpandableListView;
 
     invoke-static {v8}, Landroid/widget/SemExpandableListView;->-get20(Landroid/widget/SemExpandableListView;)Ljava/util/ArrayList;
@@ -53,6 +61,8 @@
 
     move-result v4
 
+    .line 1837
+    .local v4, "ghostViewCount":I
     iget-object v8, p0, Landroid/widget/SemExpandableListView$2;->this$0:Landroid/widget/SemExpandableListView;
 
     invoke-static {v8}, Landroid/widget/SemExpandableListView;->-get19(Landroid/widget/SemExpandableListView;)Ljava/util/ArrayList;
@@ -63,6 +73,8 @@
 
     move-result v3
 
+    .line 1839
+    .local v3, "ghostExpandingViewsCount":I
     iget-object v8, p0, Landroid/widget/SemExpandableListView$2;->this$0:Landroid/widget/SemExpandableListView;
 
     invoke-static {v8}, Landroid/widget/SemExpandableListView;->-get6(Landroid/widget/SemExpandableListView;)I
@@ -73,6 +85,7 @@
 
     if-ne v8, v9, :cond_1
 
+    .line 1840
     iget-object v7, p0, Landroid/widget/SemExpandableListView$2;->this$0:Landroid/widget/SemExpandableListView;
 
     invoke-static {v7}, Landroid/widget/SemExpandableListView;->-get21(Landroid/widget/SemExpandableListView;)Landroid/graphics/RectF;
@@ -101,14 +114,17 @@
 
     iput v8, v7, Landroid/graphics/RectF;->bottom:F
 
+    .line 1856
     :cond_0
     :goto_0
     add-int v7, v4, v3
 
     if-nez v7, :cond_6
 
+    .line 1857
     return-void
 
+    .line 1841
     :cond_1
     iget-object v8, p0, Landroid/widget/SemExpandableListView$2;->this$0:Landroid/widget/SemExpandableListView;
 
@@ -120,6 +136,7 @@
 
     if-ne v8, v9, :cond_2
 
+    .line 1842
     iget-object v7, p0, Landroid/widget/SemExpandableListView$2;->this$0:Landroid/widget/SemExpandableListView;
 
     invoke-static {v7}, Landroid/widget/SemExpandableListView;->-get21(Landroid/widget/SemExpandableListView;)Landroid/graphics/RectF;
@@ -156,6 +173,7 @@
 
     iput v8, v7, Landroid/graphics/RectF;->top:F
 
+    .line 1843
     iget-object v7, p0, Landroid/widget/SemExpandableListView$2;->this$0:Landroid/widget/SemExpandableListView;
 
     invoke-static {v7}, Landroid/widget/SemExpandableListView;->-get21(Landroid/widget/SemExpandableListView;)Landroid/graphics/RectF;
@@ -190,6 +208,7 @@
 
     goto :goto_0
 
+    .line 1844
     :cond_2
     iget-object v8, p0, Landroid/widget/SemExpandableListView$2;->this$0:Landroid/widget/SemExpandableListView;
 
@@ -209,6 +228,7 @@
 
     if-eqz v8, :cond_4
 
+    .line 1845
     iget-object v8, p0, Landroid/widget/SemExpandableListView$2;->this$0:Landroid/widget/SemExpandableListView;
 
     invoke-static {v8}, Landroid/widget/SemExpandableListView;->-get18(Landroid/widget/SemExpandableListView;)[Landroid/widget/SemExpandableListView$ExpandingRect;
@@ -222,18 +242,24 @@
 
     aget-object v1, v8, v7
 
+    .line 1846
+    .local v1, "expRect":Landroid/widget/SemExpandableListView$ExpandingRect;
     if-nez v1, :cond_3
 
+    .line 1845
     :goto_2
     add-int/lit8 v7, v7, 0x1
 
     goto :goto_1
 
+    .line 1847
     :cond_3
     invoke-virtual {v1, v2}, Landroid/widget/SemExpandableListView$ExpandingRect;->update(F)V
 
     goto :goto_2
 
+    .line 1849
+    .end local v1    # "expRect":Landroid/widget/SemExpandableListView$ExpandingRect;
     :cond_4
     iget-object v8, p0, Landroid/widget/SemExpandableListView$2;->this$0:Landroid/widget/SemExpandableListView;
 
@@ -253,6 +279,7 @@
 
     if-eqz v8, :cond_0
 
+    .line 1850
     iget-object v8, p0, Landroid/widget/SemExpandableListView$2;->this$0:Landroid/widget/SemExpandableListView;
 
     invoke-static {v8}, Landroid/widget/SemExpandableListView;->-get14(Landroid/widget/SemExpandableListView;)[Landroid/widget/SemExpandableListView$CollapsingRect;
@@ -266,18 +293,24 @@
 
     aget-object v0, v8, v7
 
+    .line 1851
+    .local v0, "collapsingRect":Landroid/widget/SemExpandableListView$CollapsingRect;
     if-nez v0, :cond_5
 
+    .line 1850
     :goto_4
     add-int/lit8 v7, v7, 0x1
 
     goto :goto_3
 
+    .line 1852
     :cond_5
     invoke-virtual {v0, v2}, Landroid/widget/SemExpandableListView$CollapsingRect;->update(F)V
 
     goto :goto_4
 
+    .line 1861
+    .end local v0    # "collapsingRect":Landroid/widget/SemExpandableListView$CollapsingRect;
     :cond_6
     iget-object v7, p0, Landroid/widget/SemExpandableListView$2;->this$0:Landroid/widget/SemExpandableListView;
 
@@ -287,11 +320,14 @@
 
     invoke-virtual {v7}, Landroid/graphics/Rect;->setEmpty()V
 
+    .line 1862
     const/4 v5, 0x0
 
+    .local v5, "i":I
     :goto_5
     if-ge v5, v4, :cond_7
 
+    .line 1863
     iget-object v7, p0, Landroid/widget/SemExpandableListView$2;->this$0:Landroid/widget/SemExpandableListView;
 
     invoke-static {v7}, Landroid/widget/SemExpandableListView;->-get20(Landroid/widget/SemExpandableListView;)Ljava/util/ArrayList;
@@ -304,6 +340,8 @@
 
     check-cast v6, Landroid/widget/SemExpandableListView$ViewInfo;
 
+    .line 1864
+    .local v6, "vInfo":Landroid/widget/SemExpandableListView$ViewInfo;
     iget-object v7, p0, Landroid/widget/SemExpandableListView$2;->this$0:Landroid/widget/SemExpandableListView;
 
     invoke-static {v7}, Landroid/widget/SemExpandableListView;->-get7(Landroid/widget/SemExpandableListView;)Landroid/graphics/Rect;
@@ -318,16 +356,20 @@
 
     invoke-virtual {v7, v8}, Landroid/graphics/Rect;->union(Landroid/graphics/Rect;)V
 
+    .line 1862
     add-int/lit8 v5, v5, 0x1
 
     goto :goto_5
 
+    .line 1866
+    .end local v6    # "vInfo":Landroid/widget/SemExpandableListView$ViewInfo;
     :cond_7
     const/4 v5, 0x0
 
     :goto_6
     if-ge v5, v3, :cond_8
 
+    .line 1867
     iget-object v7, p0, Landroid/widget/SemExpandableListView$2;->this$0:Landroid/widget/SemExpandableListView;
 
     invoke-static {v7}, Landroid/widget/SemExpandableListView;->-get19(Landroid/widget/SemExpandableListView;)Ljava/util/ArrayList;
@@ -340,6 +382,8 @@
 
     check-cast v6, Landroid/widget/SemExpandableListView$ViewInfo;
 
+    .line 1868
+    .restart local v6    # "vInfo":Landroid/widget/SemExpandableListView$ViewInfo;
     iget-object v7, p0, Landroid/widget/SemExpandableListView$2;->this$0:Landroid/widget/SemExpandableListView;
 
     invoke-static {v7}, Landroid/widget/SemExpandableListView;->-get7(Landroid/widget/SemExpandableListView;)Landroid/graphics/Rect;
@@ -354,10 +398,13 @@
 
     invoke-virtual {v7, v8}, Landroid/graphics/Rect;->union(Landroid/graphics/Rect;)V
 
+    .line 1866
     add-int/lit8 v5, v5, 0x1
 
     goto :goto_6
 
+    .line 1870
+    .end local v6    # "vInfo":Landroid/widget/SemExpandableListView$ViewInfo;
     :cond_8
     iget-object v7, p0, Landroid/widget/SemExpandableListView$2;->this$0:Landroid/widget/SemExpandableListView;
 
@@ -369,5 +416,6 @@
 
     invoke-virtual {v7, v8}, Landroid/view/View;->invalidate(Landroid/graphics/Rect;)V
 
+    .line 1833
     return-void
 .end method

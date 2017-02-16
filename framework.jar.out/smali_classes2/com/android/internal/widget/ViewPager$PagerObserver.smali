@@ -21,7 +21,10 @@
 # direct methods
 .method private constructor <init>(Lcom/android/internal/widget/ViewPager;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/internal/widget/ViewPager;
 
+    .prologue
+    .line 2801
     iput-object p1, p0, Lcom/android/internal/widget/ViewPager$PagerObserver;->this$0:Lcom/android/internal/widget/ViewPager;
 
     invoke-direct {p0}, Landroid/database/DataSetObserver;-><init>()V
@@ -31,7 +34,9 @@
 
 .method synthetic constructor <init>(Lcom/android/internal/widget/ViewPager;Lcom/android/internal/widget/ViewPager$PagerObserver;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/internal/widget/ViewPager;
 
+    .prologue
     invoke-direct {p0, p1}, Lcom/android/internal/widget/ViewPager$PagerObserver;-><init>(Lcom/android/internal/widget/ViewPager;)V
 
     return-void
@@ -42,19 +47,25 @@
 .method public onChanged()V
     .locals 1
 
+    .prologue
+    .line 2804
     iget-object v0, p0, Lcom/android/internal/widget/ViewPager$PagerObserver;->this$0:Lcom/android/internal/widget/ViewPager;
 
     invoke-virtual {v0}, Lcom/android/internal/widget/ViewPager;->dataSetChanged()V
 
+    .line 2803
     return-void
 .end method
 
 .method public onInvalidated()V
     .locals 1
 
+    .prologue
+    .line 2808
     iget-object v0, p0, Lcom/android/internal/widget/ViewPager$PagerObserver;->this$0:Lcom/android/internal/widget/ViewPager;
 
     invoke-virtual {v0}, Lcom/android/internal/widget/ViewPager;->dataSetChanged()V
 
+    .line 2807
     return-void
 .end method

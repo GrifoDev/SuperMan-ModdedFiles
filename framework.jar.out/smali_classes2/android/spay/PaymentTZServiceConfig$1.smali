@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Landroid/spay/PaymentTZServiceConfig;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/spay/PaymentTZServiceConfig;
 
+    .prologue
+    .line 49
     iput-object p1, p0, Landroid/spay/PaymentTZServiceConfig$1;->this$0:Landroid/spay/PaymentTZServiceConfig;
 
     invoke-direct {p0}, Landroid/spay/IPaymentClient$Stub;-><init>()V

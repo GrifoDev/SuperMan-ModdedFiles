@@ -25,20 +25,26 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 44
     const-string/jumbo v0, "content://user_dictionary"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v0
 
+    .line 43
     sput-object v0, Landroid/provider/UserDictionary;->CONTENT_URI:Landroid/net/Uri;
 
+    .line 35
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 35
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

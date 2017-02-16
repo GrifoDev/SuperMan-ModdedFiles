@@ -28,12 +28,16 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 90
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 106
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/samsung/android/widget/SemAbstractIndexer$IndexInfo;->mLastPosition:I
 
+    .line 90
     return-void
 .end method
 
@@ -42,6 +46,8 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 109
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

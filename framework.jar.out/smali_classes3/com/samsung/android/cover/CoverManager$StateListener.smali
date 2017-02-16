@@ -18,6 +18,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 550
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -27,6 +29,9 @@
 # virtual methods
 .method public onCoverStateChanged(Lcom/samsung/android/cover/CoverState;)V
     .locals 0
+    .param p1, "state"    # Lcom/samsung/android/cover/CoverState;
 
+    .prologue
+    .line 558
     return-void
 .end method

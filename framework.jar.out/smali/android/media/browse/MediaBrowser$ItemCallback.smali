@@ -18,6 +18,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 919
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -27,12 +29,18 @@
 # virtual methods
 .method public onError(Ljava/lang/String;)V
     .locals 0
+    .param p1, "itemId"    # Ljava/lang/String;
 
+    .prologue
+    .line 933
     return-void
 .end method
 
 .method public onItemLoaded(Landroid/media/browse/MediaBrowser$MediaItem;)V
     .locals 0
+    .param p1, "item"    # Landroid/media/browse/MediaBrowser$MediaItem;
 
+    .prologue
+    .line 925
     return-void
 .end method

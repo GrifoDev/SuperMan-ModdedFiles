@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/fingerprint/FingerprintManager;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/samsung/android/fingerprint/FingerprintManager;
 
+    .prologue
+    .line 343
     iput-object p1, p0, Lcom/samsung/android/fingerprint/FingerprintManager$3;->this$0:Lcom/samsung/android/fingerprint/FingerprintManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,12 +40,16 @@
 .method public run()V
     .locals 4
 
+    .prologue
+    .line 346
     new-instance v1, Lcom/samsung/android/fingerprint/FingerprintEvent;
 
     const v2, 0x186a0
 
     invoke-direct {v1, v2}, Lcom/samsung/android/fingerprint/FingerprintEvent;-><init>(I)V
 
+    .line 348
+    .local v1, "evt":Lcom/samsung/android/fingerprint/FingerprintEvent;
     :try_start_0
     invoke-static {}, Lcom/samsung/android/fingerprint/FingerprintManager;->-get3()Lcom/samsung/android/fingerprint/IFingerprintClient;
 
@@ -50,6 +57,7 @@
 
     if-eqz v2, :cond_0
 
+    .line 349
     invoke-static {}, Lcom/samsung/android/fingerprint/FingerprintManager;->-get3()Lcom/samsung/android/fingerprint/IFingerprintClient;
 
     move-result-object v2
@@ -58,13 +66,17 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 345
     :cond_0
     :goto_0
     return-void
 
+    .line 351
     :catch_0
     move-exception v0
 
+    .line 352
+    .local v0, "e":Ljava/lang/Exception;
     const-string/jumbo v2, "FPMS_FingerprintManager"
 
     const-string/jumbo v3, "binderDied: failed to call onFingerprintEvent"

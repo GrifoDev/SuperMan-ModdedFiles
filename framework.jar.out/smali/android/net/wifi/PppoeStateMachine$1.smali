@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Landroid/net/wifi/PppoeStateMachine;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/net/wifi/PppoeStateMachine;
 
+    .prologue
+    .line 92
     iput-object p1, p0, Landroid/net/wifi/PppoeStateMachine$1;->this$0:Landroid/net/wifi/PppoeStateMachine;
 
     invoke-direct {p0}, Lcom/android/server/net/BaseNetworkObserver;-><init>()V
@@ -33,7 +36,11 @@
 # virtual methods
 .method public interfaceLinkStateChanged(Ljava/lang/String;Z)V
     .locals 3
+    .param p1, "iface"    # Ljava/lang/String;
+    .param p2, "up"    # Z
 
+    .prologue
+    .line 100
     const-string/jumbo v0, "PppoeStateMachine"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -66,6 +73,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 101
     const-string/jumbo v0, "PppoeStateMachine"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -96,6 +104,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 102
     const-string/jumbo v0, "ppp3"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -118,10 +127,12 @@
 
     if-eqz p2, :cond_1
 
+    .line 99
     :cond_0
     :goto_0
     return-void
 
+    .line 103
     :cond_1
     iget-object v0, p0, Landroid/net/wifi/PppoeStateMachine$1;->this$0:Landroid/net/wifi/PppoeStateMachine;
 
@@ -134,7 +145,11 @@
 
 .method public interfaceStatusChanged(Ljava/lang/String;Z)V
     .locals 3
+    .param p1, "iface"    # Ljava/lang/String;
+    .param p2, "up"    # Z
 
+    .prologue
+    .line 95
     const-string/jumbo v0, "PppoeStateMachine"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -167,5 +182,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 94
     return-void
 .end method

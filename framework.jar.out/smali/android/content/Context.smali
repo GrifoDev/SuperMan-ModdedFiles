@@ -325,6 +325,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 80
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -337,7 +339,14 @@
 
 .method public bindServiceAsUser(Landroid/content/Intent;Landroid/content/ServiceConnection;ILandroid/os/Handler;Landroid/os/UserHandle;)Z
     .locals 2
+    .param p1, "service"    # Landroid/content/Intent;
+    .param p2, "conn"    # Landroid/content/ServiceConnection;
+    .param p3, "flags"    # I
+    .param p4, "handler"    # Landroid/os/Handler;
+    .param p5, "user"    # Landroid/os/UserHandle;
 
+    .prologue
+    .line 2641
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string/jumbo v1, "Not implemented. Must override in a subclass."
@@ -349,7 +358,13 @@
 
 .method public bindServiceAsUser(Landroid/content/Intent;Landroid/content/ServiceConnection;ILandroid/os/UserHandle;)Z
     .locals 2
+    .param p1, "service"    # Landroid/content/Intent;
+    .param p2, "conn"    # Landroid/content/ServiceConnection;
+    .param p3, "flags"    # I
+    .param p4, "user"    # Landroid/os/UserHandle;
 
+    .prologue
+    .line 2630
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string/jumbo v1, "Not implemented. Must override in a subclass."
@@ -362,6 +377,8 @@
 .method public canStartActivityForResult()Z
     .locals 1
 
+    .prologue
+    .line 1636
     const/4 v0, 0x0
 
     return v0
@@ -424,6 +441,8 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    .prologue
+    .line 4730
     invoke-virtual {p0}, Landroid/content/Context;->createCredentialProtectedStorageContext()Landroid/content/Context;
 
     move-result-object v0
@@ -439,6 +458,8 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    .prologue
+    .line 4696
     invoke-virtual {p0}, Landroid/content/Context;->createDeviceProtectedStorageContext()Landroid/content/Context;
 
     move-result-object v0
@@ -462,12 +483,17 @@
 
 .method public createPackageContext(Ljava/lang/String;Ljava/lang/ClassLoader;I)Landroid/content/Context;
     .locals 1
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "baseLoader"    # Ljava/lang/ClassLoader;
+    .param p3, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/pm/PackageManager$NameNotFoundException;
         }
     .end annotation
 
+    .prologue
+    .line 4585
     invoke-virtual {p0, p1, p3}, Landroid/content/Context;->createPackageContext(Ljava/lang/String;I)Landroid/content/Context;
 
     move-result-object v0
@@ -485,12 +511,18 @@
 
 .method public createPackageContextAsUser(Ljava/lang/String;Ljava/lang/ClassLoader;ILandroid/os/UserHandle;)Landroid/content/Context;
     .locals 1
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "baseLoader"    # Ljava/lang/ClassLoader;
+    .param p3, "flags"    # I
+    .param p4, "user"    # Landroid/os/UserHandle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/pm/PackageManager$NameNotFoundException;
         }
     .end annotation
 
+    .prologue
+    .line 4594
     invoke-virtual {p0, p1, p3, p4}, Landroid/content/Context;->createPackageContextAsUser(Ljava/lang/String;ILandroid/os/UserHandle;)Landroid/content/Context;
 
     move-result-object v0
@@ -557,7 +589,10 @@
 
 .method public final getColor(I)I
     .locals 2
+    .param p1, "id"    # I
 
+    .prologue
+    .line 508
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -575,7 +610,10 @@
 
 .method public final getColorStateList(I)Landroid/content/res/ColorStateList;
     .locals 2
+    .param p1, "id"    # I
 
+    .prologue
+    .line 542
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -612,6 +650,8 @@
 .method public getDisplayId()I
     .locals 1
 
+    .prologue
+    .line 4796
     const/4 v0, 0x0
 
     return v0
@@ -619,7 +659,10 @@
 
 .method public final getDrawable(I)Landroid/graphics/drawable/Drawable;
     .locals 2
+    .param p1, "id"    # I
 
+    .prologue
+    .line 525
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -674,6 +717,8 @@
 .method public getOuterContext()Landroid/content/Context;
     .locals 1
 
+    .prologue
+    .line 4809
     const/4 v0, 0x0
 
     return-object v0
@@ -705,9 +750,12 @@
 
 .method public getSharedPrefsFile(Ljava/lang/String;)Ljava/io/File;
     .locals 1
+    .param p1, "name"    # Ljava/lang/String;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    .prologue
+    .line 667
     invoke-virtual {p0, p1}, Landroid/content/Context;->getSharedPreferencesPath(Ljava/lang/String;)Ljava/io/File;
 
     move-result-object v0
@@ -718,6 +766,8 @@
 .method public getShrinkRequested()Z
     .locals 1
 
+    .prologue
+    .line 4814
     const/4 v0, 0x0
 
     return v0
@@ -725,7 +775,10 @@
 
 .method public final getString(I)Ljava/lang/String;
     .locals 1
+    .param p1, "resId"    # I
 
+    .prologue
+    .line 476
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -739,7 +792,11 @@
 
 .method public final varargs getString(I[Ljava/lang/Object;)Ljava/lang/String;
     .locals 1
+    .param p1, "resId"    # I
+    .param p2, "formatArgs"    # [Ljava/lang/Object;
 
+    .prologue
+    .line 492
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -763,12 +820,17 @@
         }
     .end annotation
 
+    .prologue
+    .local p1, "serviceClass":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     const/4 v1, 0x0
 
+    .line 2932
     invoke-virtual {p0, p1}, Landroid/content/Context;->getSystemServiceName(Ljava/lang/Class;)Ljava/lang/String;
 
     move-result-object v0
 
+    .line 2933
+    .local v0, "serviceName":Ljava/lang/String;
     if-eqz v0, :cond_0
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -795,7 +857,10 @@
 
 .method public final getText(I)Ljava/lang/CharSequence;
     .locals 1
+    .param p1, "resId"    # I
 
+    .prologue
+    .line 463
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -816,6 +881,8 @@
 .method public getThemeResId()I
     .locals 1
 
+    .prologue
+    .line 558
     const/4 v0, 0x0
 
     return v0
@@ -847,6 +914,8 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    .prologue
+    .line 4787
     invoke-virtual {p0}, Landroid/content/Context;->isCredentialProtectedStorage()Z
 
     move-result v0
@@ -862,6 +931,8 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    .prologue
+    .line 4771
     invoke-virtual {p0}, Landroid/content/Context;->isDeviceProtectedStorage()Z
 
     move-result v0
@@ -875,6 +946,8 @@
 .method public isRestricted()Z
     .locals 1
 
+    .prologue
+    .line 4757
     const/4 v0, 0x0
 
     return v0
@@ -882,9 +955,13 @@
 
 .method public migrateDatabaseFrom(Landroid/content/Context;Ljava/lang/String;)Z
     .locals 1
+    .param p1, "sourceContext"    # Landroid/content/Context;
+    .param p2, "name"    # Ljava/lang/String;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    .prologue
+    .line 1439
     invoke-virtual {p0, p1, p2}, Landroid/content/Context;->moveDatabaseFrom(Landroid/content/Context;Ljava/lang/String;)Z
 
     move-result v0
@@ -894,9 +971,13 @@
 
 .method public migrateSharedPreferencesFrom(Landroid/content/Context;Ljava/lang/String;)Z
     .locals 1
+    .param p1, "sourceContext"    # Landroid/content/Context;
+    .param p2, "name"    # Ljava/lang/String;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    .prologue
+    .line 731
     invoke-virtual {p0, p1, p2}, Landroid/content/Context;->moveSharedPreferencesFrom(Landroid/content/Context;Ljava/lang/String;)Z
 
     move-result v0
@@ -912,12 +993,16 @@
 
 .method public final obtainStyledAttributes(I[I)Landroid/content/res/TypedArray;
     .locals 1
+    .param p1, "resid"    # I
+    .param p2, "attrs"    # [I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/res/Resources$NotFoundException;
         }
     .end annotation
 
+    .prologue
+    .line 587
     invoke-virtual {p0}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
 
     move-result-object v0
@@ -931,9 +1016,13 @@
 
 .method public final obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
     .locals 2
+    .param p1, "set"    # Landroid/util/AttributeSet;
+    .param p2, "attrs"    # [I
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 599
     invoke-virtual {p0}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
 
     move-result-object v0
@@ -947,7 +1036,13 @@
 
 .method public final obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
     .locals 1
+    .param p1, "set"    # Landroid/util/AttributeSet;
+    .param p2, "attrs"    # [I
+    .param p3, "defStyleAttr"    # I
+    .param p4, "defStyleRes"    # I
 
+    .prologue
+    .line 612
     invoke-virtual {p0}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
 
     move-result-object v0
@@ -961,7 +1056,10 @@
 
 .method public final obtainStyledAttributes([I)Landroid/content/res/TypedArray;
     .locals 1
+    .param p1, "attrs"    # [I
 
+    .prologue
+    .line 575
     invoke-virtual {p0}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
 
     move-result-object v0
@@ -1002,13 +1100,17 @@
 
 .method public registerComponentCallbacks(Landroid/content/ComponentCallbacks;)V
     .locals 1
+    .param p1, "callback"    # Landroid/content/ComponentCallbacks;
 
+    .prologue
+    .line 445
     invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v0
 
     invoke-virtual {v0, p1}, Landroid/content/Context;->registerComponentCallbacks(Landroid/content/ComponentCallbacks;)V
 
+    .line 444
     return-void
 .end method
 
@@ -1036,7 +1138,14 @@
 
 .method public semRegisterReceiverAsUser(Landroid/content/BroadcastReceiver;Landroid/os/UserHandle;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
     .locals 1
+    .param p1, "receiver"    # Landroid/content/BroadcastReceiver;
+    .param p2, "user"    # Landroid/os/UserHandle;
+    .param p3, "filter"    # Landroid/content/IntentFilter;
+    .param p4, "broadcastPermission"    # Ljava/lang/String;
+    .param p5, "scheduler"    # Landroid/os/Handler;
 
+    .prologue
+    .line 2452
     invoke-virtual/range {p0 .. p5}, Landroid/content/Context;->registerReceiverAsUser(Landroid/content/BroadcastReceiver;Landroid/os/UserHandle;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
 
     move-result-object v0
@@ -1046,25 +1155,38 @@
 
 .method public semSetKeyguardPreview(I)V
     .locals 0
+    .param p1, "resId"    # I
 
+    .prologue
+    .line 4853
     return-void
 .end method
 
 .method public semSetReverseStartingWindowContentView(I)V
     .locals 0
+    .param p1, "resId"    # I
 
+    .prologue
+    .line 4843
     return-void
 .end method
 
 .method public semSetStartingWindowContentView(I)V
     .locals 0
+    .param p1, "resId"    # I
 
+    .prologue
+    .line 4826
     return-void
 .end method
 
 .method public semStartServiceAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)Landroid/content/ComponentName;
     .locals 1
+    .param p1, "service"    # Landroid/content/Intent;
+    .param p2, "user"    # Landroid/os/UserHandle;
 
+    .prologue
+    .line 2563
     invoke-virtual {p0, p1, p2}, Landroid/content/Context;->startServiceAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)Landroid/content/ComponentName;
 
     move-result-object v0
@@ -1144,7 +1266,10 @@
 
 .method public setDisplay(Landroid/view/Display;)V
     .locals 0
+    .param p1, "display"    # Landroid/view/Display;
 
+    .prologue
+    .line 4804
     return-void
 .end method
 
@@ -1181,7 +1306,12 @@
 
 .method public startActivitiesAsUser([Landroid/content/Intent;Landroid/os/Bundle;Landroid/os/UserHandle;)V
     .locals 2
+    .param p1, "intents"    # [Landroid/content/Intent;
+    .param p2, "options"    # Landroid/os/Bundle;
+    .param p3, "userHandle"    # Landroid/os/UserHandle;
 
+    .prologue
+    .line 1705
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string/jumbo v1, "Not implemented. Must override in a subclass."
@@ -1199,7 +1329,12 @@
 
 .method public startActivityAsUser(Landroid/content/Intent;Landroid/os/Bundle;Landroid/os/UserHandle;)V
     .locals 2
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "options"    # Landroid/os/Bundle;
+    .param p3, "userId"    # Landroid/os/UserHandle;
 
+    .prologue
+    .line 1608
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string/jumbo v1, "Not implemented. Must override in a subclass."
@@ -1211,7 +1346,11 @@
 
 .method public startActivityAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
     .locals 2
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "user"    # Landroid/os/UserHandle;
 
+    .prologue
+    .line 1561
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string/jumbo v1, "Not implemented. Must override in a subclass."
@@ -1223,13 +1362,22 @@
 
 .method public startActivityForKey(Landroid/content/Intent;)V
     .locals 0
+    .param p1, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 4858
     return-void
 .end method
 
 .method public startActivityForResult(Ljava/lang/String;Landroid/content/Intent;ILandroid/os/Bundle;)V
     .locals 2
+    .param p1, "who"    # Ljava/lang/String;
+    .param p2, "intent"    # Landroid/content/Intent;
+    .param p3, "requestCode"    # I
+    .param p4, "options"    # Landroid/os/Bundle;
 
+    .prologue
+    .line 1626
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string/jumbo v1, "This method is only implemented for Activity-based Contexts. Check canStartActivityForResult() before calling."
@@ -1275,13 +1423,17 @@
 
 .method public unregisterComponentCallbacks(Landroid/content/ComponentCallbacks;)V
     .locals 1
+    .param p1, "callback"    # Landroid/content/ComponentCallbacks;
 
+    .prologue
+    .line 453
     invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v0
 
     invoke-virtual {v0, p1}, Landroid/content/Context;->unregisterComponentCallbacks(Landroid/content/ComponentCallbacks;)V
 
+    .line 452
     return-void
 .end method
 

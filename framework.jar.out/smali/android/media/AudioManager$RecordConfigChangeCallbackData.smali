@@ -32,6 +32,7 @@
 # direct methods
 .method constructor <init>(Landroid/media/AudioManager$AudioRecordingCallback;Ljava/util/List;)V
     .locals 0
+    .param p1, "cb"    # Landroid/media/AudioManager$AudioRecordingCallback;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -43,11 +44,17 @@
         }
     .end annotation
 
+    .prologue
+    .line 3579
+    .local p2, "configs":Ljava/util/List;, "Ljava/util/List<Landroid/media/AudioRecordingConfiguration;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 3581
     iput-object p1, p0, Landroid/media/AudioManager$RecordConfigChangeCallbackData;->mCb:Landroid/media/AudioManager$AudioRecordingCallback;
 
+    .line 3582
     iput-object p2, p0, Landroid/media/AudioManager$RecordConfigChangeCallbackData;->mConfigs:Ljava/util/List;
 
+    .line 3580
     return-void
 .end method

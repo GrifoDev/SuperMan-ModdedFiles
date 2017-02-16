@@ -26,7 +26,11 @@
 # direct methods
 .method constructor <init>(Landroid/widget/StackView;Landroid/view/View;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/widget/StackView;
+    .param p2, "val$view"    # Landroid/view/View;
 
+    .prologue
+    .line 303
     iput-object p1, p0, Landroid/widget/StackView$1;->this$0:Landroid/widget/StackView;
 
     iput-object p2, p0, Landroid/widget/StackView$1;->val$view:Landroid/view/View;
@@ -41,11 +45,14 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 305
     iget-object v0, p0, Landroid/widget/StackView$1;->val$view:Landroid/view/View;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setAlpha(F)V
 
+    .line 304
     return-void
 .end method

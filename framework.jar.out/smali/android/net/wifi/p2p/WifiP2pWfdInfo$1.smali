@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 269
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,19 +42,28 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/net/wifi/p2p/WifiP2pWfdInfo;
     .locals 1
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 271
     new-instance v0, Landroid/net/wifi/p2p/WifiP2pWfdInfo;
 
     invoke-direct {v0}, Landroid/net/wifi/p2p/WifiP2pWfdInfo;-><init>()V
 
+    .line 272
+    .local v0, "device":Landroid/net/wifi/p2p/WifiP2pWfdInfo;
     invoke-virtual {v0, p1}, Landroid/net/wifi/p2p/WifiP2pWfdInfo;->readFromParcel(Landroid/os/Parcel;)V
 
+    .line 273
     return-object v0
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 270
     invoke-virtual {p0, p1}, Landroid/net/wifi/p2p/WifiP2pWfdInfo$1;->createFromParcel(Landroid/os/Parcel;)Landroid/net/wifi/p2p/WifiP2pWfdInfo;
 
     move-result-object v0
@@ -62,7 +73,10 @@
 
 .method public newArray(I)[Landroid/net/wifi/p2p/WifiP2pWfdInfo;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 277
     new-array v0, p1, [Landroid/net/wifi/p2p/WifiP2pWfdInfo;
 
     return-object v0
@@ -70,7 +84,10 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 276
     invoke-virtual {p0, p1}, Landroid/net/wifi/p2p/WifiP2pWfdInfo$1;->newArray(I)[Landroid/net/wifi/p2p/WifiP2pWfdInfo;
 
     move-result-object v0

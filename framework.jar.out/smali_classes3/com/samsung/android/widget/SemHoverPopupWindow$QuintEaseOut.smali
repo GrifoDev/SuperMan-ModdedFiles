@@ -21,6 +21,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 3065
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -30,9 +32,12 @@
 # virtual methods
 .method public getInterpolation(F)F
     .locals 2
+    .param p1, "input"    # F
 
+    .prologue
     const/high16 v1, 0x3f800000    # 1.0f
 
+    .line 3067
     div-float v0, p1, v1
 
     sub-float p1, v0, v1

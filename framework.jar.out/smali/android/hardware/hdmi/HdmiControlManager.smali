@@ -214,23 +214,32 @@
 # direct methods
 .method public constructor <init>(Landroid/hardware/hdmi/IHdmiControlService;)V
     .locals 3
+    .param p1, "service"    # Landroid/hardware/hdmi/IHdmiControlService;
 
+    .prologue
+    .line 263
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 348
     new-instance v2, Landroid/util/ArrayMap;
 
     invoke-direct {v2}, Landroid/util/ArrayMap;-><init>()V
 
     iput-object v2, p0, Landroid/hardware/hdmi/HdmiControlManager;->mHotplugEventListeners:Landroid/util/ArrayMap;
 
+    .line 264
     iput-object p1, p0, Landroid/hardware/hdmi/HdmiControlManager;->mService:Landroid/hardware/hdmi/IHdmiControlService;
 
+    .line 265
     const/4 v1, 0x0
 
+    .line 266
+    .local v1, "types":[I
     iget-object v2, p0, Landroid/hardware/hdmi/HdmiControlManager;->mService:Landroid/hardware/hdmi/IHdmiControlService;
 
     if-eqz v2, :cond_0
 
+    .line 268
     :try_start_0
     iget-object v2, p0, Landroid/hardware/hdmi/HdmiControlManager;->mService:Landroid/hardware/hdmi/IHdmiControlService;
 
@@ -240,6 +249,8 @@
 
     move-result-object v1
 
+    .line 273
+    .end local v1    # "types":[I
     :cond_0
     const/4 v2, 0x0
 
@@ -249,6 +260,7 @@
 
     iput-boolean v2, p0, Landroid/hardware/hdmi/HdmiControlManager;->mHasTvDevice:Z
 
+    .line 274
     const/4 v2, 0x4
 
     invoke-static {v1, v2}, Landroid/hardware/hdmi/HdmiControlManager;->hasDeviceType([II)Z
@@ -257,11 +269,16 @@
 
     iput-boolean v2, p0, Landroid/hardware/hdmi/HdmiControlManager;->mHasPlaybackDevice:Z
 
+    .line 263
     return-void
 
+    .line 269
+    .restart local v1    # "types":[I
     :catch_0
     move-exception v0
 
+    .line 270
+    .local v0, "e":Landroid/os/RemoteException;
     invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
 
     move-result-object v2
@@ -271,7 +288,10 @@
 
 .method private getHotplugEventListenerWrapper(Landroid/hardware/hdmi/HdmiControlManager$HotplugEventListener;)Landroid/hardware/hdmi/IHdmiHotplugEventListener;
     .locals 1
+    .param p1, "listener"    # Landroid/hardware/hdmi/HdmiControlManager$HotplugEventListener;
 
+    .prologue
+    .line 434
     new-instance v0, Landroid/hardware/hdmi/HdmiControlManager$1;
 
     invoke-direct {v0, p0, p1}, Landroid/hardware/hdmi/HdmiControlManager$1;-><init>(Landroid/hardware/hdmi/HdmiControlManager;Landroid/hardware/hdmi/HdmiControlManager$HotplugEventListener;)V
@@ -281,13 +301,19 @@
 
 .method private static hasDeviceType([II)Z
     .locals 4
+    .param p0, "types"    # [I
+    .param p1, "type"    # I
 
+    .prologue
     const/4 v2, 0x0
 
+    .line 278
     if-nez p0, :cond_0
 
+    .line 279
     return v2
 
+    .line 281
     :cond_0
     array-length v3, p0
 
@@ -298,17 +324,23 @@
 
     aget v0, p0, v1
 
+    .line 282
+    .local v0, "t":I
     if-ne v0, p1, :cond_1
 
+    .line 283
     const/4 v1, 0x1
 
     return v1
 
+    .line 281
     :cond_1
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
+    .line 286
+    .end local v0    # "t":I
     :cond_2
     return v2
 .end method
@@ -317,19 +349,25 @@
 # virtual methods
 .method public addHotplugEventListener(Landroid/hardware/hdmi/HdmiControlManager$HotplugEventListener;)V
     .locals 4
+    .param p1, "listener"    # Landroid/hardware/hdmi/HdmiControlManager$HotplugEventListener;
 
+    .prologue
+    .line 393
     iget-object v2, p0, Landroid/hardware/hdmi/HdmiControlManager;->mService:Landroid/hardware/hdmi/IHdmiControlService;
 
     if-nez v2, :cond_0
 
+    .line 394
     const-string/jumbo v2, "HdmiControlManager"
 
     const-string/jumbo v3, "HdmiControlService is not available"
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 395
     return-void
 
+    .line 397
     :cond_0
     iget-object v2, p0, Landroid/hardware/hdmi/HdmiControlManager;->mHotplugEventListeners:Landroid/util/ArrayMap;
 
@@ -339,23 +377,29 @@
 
     if-eqz v2, :cond_1
 
+    .line 398
     const-string/jumbo v2, "HdmiControlManager"
 
     const-string/jumbo v3, "listener is already registered"
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 399
     return-void
 
+    .line 401
     :cond_1
     invoke-direct {p0, p1}, Landroid/hardware/hdmi/HdmiControlManager;->getHotplugEventListenerWrapper(Landroid/hardware/hdmi/HdmiControlManager$HotplugEventListener;)Landroid/hardware/hdmi/IHdmiHotplugEventListener;
 
     move-result-object v1
 
+    .line 402
+    .local v1, "wrappedListener":Landroid/hardware/hdmi/IHdmiHotplugEventListener;
     iget-object v2, p0, Landroid/hardware/hdmi/HdmiControlManager;->mHotplugEventListeners:Landroid/util/ArrayMap;
 
     invoke-virtual {v2, p1, v1}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 404
     :try_start_0
     iget-object v2, p0, Landroid/hardware/hdmi/HdmiControlManager;->mService:Landroid/hardware/hdmi/IHdmiControlService;
 
@@ -363,11 +407,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 392
     return-void
 
+    .line 405
     :catch_0
     move-exception v0
 
+    .line 406
+    .local v0, "e":Landroid/os/RemoteException;
     invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
 
     move-result-object v2
@@ -377,20 +425,27 @@
 
 .method public getClient(I)Landroid/hardware/hdmi/HdmiClient;
     .locals 2
+    .param p1, "type"    # I
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 299
     iget-object v1, p0, Landroid/hardware/hdmi/HdmiControlManager;->mService:Landroid/hardware/hdmi/IHdmiControlService;
 
     if-nez v1, :cond_0
 
+    .line 300
     return-object v0
 
+    .line 302
     :cond_0
     sparse-switch p1, :sswitch_data_0
 
+    .line 308
     return-object v0
 
+    .line 304
     :sswitch_0
     iget-boolean v1, p0, Landroid/hardware/hdmi/HdmiControlManager;->mHasTvDevice:Z
 
@@ -405,6 +460,7 @@
     :cond_1
     return-object v0
 
+    .line 306
     :sswitch_1
     iget-boolean v1, p0, Landroid/hardware/hdmi/HdmiControlManager;->mHasPlaybackDevice:Z
 
@@ -419,6 +475,7 @@
     :cond_2
     return-object v0
 
+    .line 302
     :sswitch_data_0
     .sparse-switch
         0x0 -> :sswitch_0
@@ -429,6 +486,8 @@
 .method public getPlaybackClient()Landroid/hardware/hdmi/HdmiPlaybackClient;
     .locals 1
 
+    .prologue
+    .line 323
     const/4 v0, 0x4
 
     invoke-virtual {p0, v0}, Landroid/hardware/hdmi/HdmiControlManager;->getClient(I)Landroid/hardware/hdmi/HdmiClient;
@@ -443,6 +502,8 @@
 .method public getTvClient()Landroid/hardware/hdmi/HdmiTvClient;
     .locals 1
 
+    .prologue
+    .line 337
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Landroid/hardware/hdmi/HdmiControlManager;->getClient(I)Landroid/hardware/hdmi/HdmiClient;
@@ -456,19 +517,25 @@
 
 .method public removeHotplugEventListener(Landroid/hardware/hdmi/HdmiControlManager$HotplugEventListener;)V
     .locals 4
+    .param p1, "listener"    # Landroid/hardware/hdmi/HdmiControlManager$HotplugEventListener;
 
+    .prologue
+    .line 416
     iget-object v2, p0, Landroid/hardware/hdmi/HdmiControlManager;->mService:Landroid/hardware/hdmi/IHdmiControlService;
 
     if-nez v2, :cond_0
 
+    .line 417
     const-string/jumbo v2, "HdmiControlManager"
 
     const-string/jumbo v3, "HdmiControlService is not available"
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 418
     return-void
 
+    .line 420
     :cond_0
     iget-object v2, p0, Landroid/hardware/hdmi/HdmiControlManager;->mHotplugEventListeners:Landroid/util/ArrayMap;
 
@@ -478,16 +545,21 @@
 
     check-cast v1, Landroid/hardware/hdmi/IHdmiHotplugEventListener;
 
+    .line 421
+    .local v1, "wrappedListener":Landroid/hardware/hdmi/IHdmiHotplugEventListener;
     if-nez v1, :cond_1
 
+    .line 422
     const-string/jumbo v2, "HdmiControlManager"
 
     const-string/jumbo v3, "tried to remove not-registered listener"
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 423
     return-void
 
+    .line 426
     :cond_1
     :try_start_0
     iget-object v2, p0, Landroid/hardware/hdmi/HdmiControlManager;->mService:Landroid/hardware/hdmi/IHdmiControlService;
@@ -496,11 +568,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 415
     return-void
 
+    .line 427
     :catch_0
     move-exception v0
 
+    .line 428
+    .local v0, "e":Landroid/os/RemoteException;
     invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
 
     move-result-object v2

@@ -36,6 +36,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 1894
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -44,6 +46,8 @@
 .method public static final builder()Landroid/provider/ContactsContract$Contacts$AggregationSuggestions$Builder;
     .locals 1
 
+    .prologue
+    .line 1978
     new-instance v0, Landroid/provider/ContactsContract$Contacts$AggregationSuggestions$Builder;
 
     invoke-direct {v0}, Landroid/provider/ContactsContract$Contacts$AggregationSuggestions$Builder;-><init>()V

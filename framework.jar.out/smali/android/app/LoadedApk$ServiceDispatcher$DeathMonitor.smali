@@ -28,15 +28,23 @@
 # direct methods
 .method constructor <init>(Landroid/app/LoadedApk$ServiceDispatcher;Landroid/content/ComponentName;Landroid/os/IBinder;)V
     .locals 0
+    .param p1, "this$1"    # Landroid/app/LoadedApk$ServiceDispatcher;
+    .param p2, "name"    # Landroid/content/ComponentName;
+    .param p3, "service"    # Landroid/os/IBinder;
 
+    .prologue
+    .line 1550
     iput-object p1, p0, Landroid/app/LoadedApk$ServiceDispatcher$DeathMonitor;->this$1:Landroid/app/LoadedApk$ServiceDispatcher;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 1551
     iput-object p2, p0, Landroid/app/LoadedApk$ServiceDispatcher$DeathMonitor;->mName:Landroid/content/ComponentName;
 
+    .line 1552
     iput-object p3, p0, Landroid/app/LoadedApk$ServiceDispatcher$DeathMonitor;->mService:Landroid/os/IBinder;
 
+    .line 1550
     return-void
 .end method
 
@@ -45,6 +53,8 @@
 .method public binderDied()V
     .locals 3
 
+    .prologue
+    .line 1556
     iget-object v0, p0, Landroid/app/LoadedApk$ServiceDispatcher$DeathMonitor;->this$1:Landroid/app/LoadedApk$ServiceDispatcher;
 
     iget-object v1, p0, Landroid/app/LoadedApk$ServiceDispatcher$DeathMonitor;->mName:Landroid/content/ComponentName;
@@ -53,5 +63,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/app/LoadedApk$ServiceDispatcher;->death(Landroid/content/ComponentName;Landroid/os/IBinder;)V
 
+    .line 1555
     return-void
 .end method

@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 130
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,9 +42,13 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/telephony/CellInfoLte;
     .locals 1
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 133
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
+    .line 134
     invoke-static {p1}, Landroid/telephony/CellInfoLte;->createFromParcelBody(Landroid/os/Parcel;)Landroid/telephony/CellInfoLte;
 
     move-result-object v0
@@ -52,7 +58,10 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 132
     invoke-virtual {p0, p1}, Landroid/telephony/CellInfoLte$1;->createFromParcel(Landroid/os/Parcel;)Landroid/telephony/CellInfoLte;
 
     move-result-object v0
@@ -62,7 +71,10 @@
 
 .method public newArray(I)[Landroid/telephony/CellInfoLte;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 139
     new-array v0, p1, [Landroid/telephony/CellInfoLte;
 
     return-object v0
@@ -70,7 +82,10 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 138
     invoke-virtual {p0, p1}, Landroid/telephony/CellInfoLte$1;->newArray(I)[Landroid/telephony/CellInfoLte;
 
     move-result-object v0

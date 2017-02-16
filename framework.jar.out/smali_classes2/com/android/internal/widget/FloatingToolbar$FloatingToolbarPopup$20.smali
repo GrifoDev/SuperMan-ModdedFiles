@@ -26,7 +26,11 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;Landroid/widget/ImageButton;)V
     .locals 0
+    .param p1, "this$1"    # Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
+    .param p2, "val$overflowButton"    # Landroid/widget/ImageButton;
 
+    .prologue
+    .line 1804
     iput-object p1, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$20;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
     iput-object p2, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$20;->val$overflowButton:Landroid/widget/ImageButton;
@@ -40,7 +44,10 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 2
+    .param p1, "v"    # Landroid/view/View;
 
+    .prologue
+    .line 1807
     iget-object v0, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$20;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
     invoke-static {v0}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->-get6(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;)Z
@@ -49,6 +56,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 1808
     iget-object v0, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$20;->val$overflowButton:Landroid/widget/ImageButton;
 
     iget-object v1, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$20;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
@@ -59,6 +67,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
+    .line 1809
     iget-object v0, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$20;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
     invoke-static {v0}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->-get22(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;)Landroid/graphics/drawable/AnimatedVectorDrawable;
@@ -67,13 +76,16 @@
 
     invoke-virtual {v0}, Landroid/graphics/drawable/AnimatedVectorDrawable;->start()V
 
+    .line 1810
     iget-object v0, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$20;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
     invoke-static {v0}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->-wrap3(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;)V
 
+    .line 1806
     :goto_0
     return-void
 
+    .line 1812
     :cond_0
     iget-object v0, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$20;->val$overflowButton:Landroid/widget/ImageButton;
 
@@ -85,6 +97,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
+    .line 1813
     iget-object v0, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$20;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
     invoke-static {v0}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->-get21(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;)Landroid/graphics/drawable/AnimatedVectorDrawable;
@@ -93,6 +106,7 @@
 
     invoke-virtual {v0}, Landroid/graphics/drawable/AnimatedVectorDrawable;->start()V
 
+    .line 1814
     iget-object v0, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$20;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
     invoke-static {v0}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->-wrap5(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;)V

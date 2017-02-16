@@ -30,7 +30,13 @@
 # direct methods
 .method constructor <init>(Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService$2;Landroid/content/pm/permission/RuntimePermissionPresenter$OnResultCallback;ZLjava/util/List;)V
     .locals 0
+    .param p1, "this$2"    # Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService$2;
+    .param p2, "val$callback"    # Landroid/content/pm/permission/RuntimePermissionPresenter$OnResultCallback;
+    .param p3, "val$system"    # Z
 
+    .prologue
+    .line 285
+    .local p4, "val$reportedApps":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/ApplicationInfo;>;"
     iput-object p1, p0, Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService$2$1;->this$2:Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService$2;
 
     iput-object p2, p0, Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService$2$1;->val$callback:Landroid/content/pm/permission/RuntimePermissionPresenter$OnResultCallback;
@@ -49,6 +55,8 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 288
     iget-object v0, p0, Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService$2$1;->val$callback:Landroid/content/pm/permission/RuntimePermissionPresenter$OnResultCallback;
 
     iget-boolean v1, p0, Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService$2$1;->val$system:Z
@@ -57,5 +65,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/pm/permission/RuntimePermissionPresenter$OnResultCallback;->getAppsUsingPermissions(ZLjava/util/List;)V
 
+    .line 287
     return-void
 .end method

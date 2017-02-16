@@ -21,6 +21,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 1973
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -30,13 +32,17 @@
 # virtual methods
 .method public checkSubUserCSCFile(I)Ljava/io/File;
     .locals 2
+    .param p1, "userId"    # I
 
+    .prologue
+    .line 1976
     if-eqz p1, :cond_0
 
     const/16 v0, 0x64
 
     if-ge p1, v0, :cond_0
 
+    .line 1977
     const-string/jumbo v0, "/system/wallpaper/default_wallpaper/"
 
     invoke-static {}, Landroid/app/WallpaperManager;->-get1()Ljava/io/FilenameFilter;
@@ -49,6 +55,7 @@
 
     return-object v0
 
+    .line 1979
     :cond_0
     const/4 v0, 0x0
 

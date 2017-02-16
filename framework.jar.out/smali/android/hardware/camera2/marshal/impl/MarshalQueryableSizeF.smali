@@ -32,6 +32,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -41,6 +43,7 @@
 # virtual methods
 .method public createMarshaler(Landroid/hardware/camera2/utils/TypeReference;I)Landroid/hardware/camera2/marshal/Marshaler;
     .locals 1
+    .param p2, "nativeType"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -55,6 +58,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 64
+    .local p1, "managedType":Landroid/hardware/camera2/utils/TypeReference;, "Landroid/hardware/camera2/utils/TypeReference<Landroid/util/SizeF;>;"
     new-instance v0, Landroid/hardware/camera2/marshal/impl/MarshalQueryableSizeF$MarshalerSizeF;
 
     invoke-direct {v0, p0, p1, p2}, Landroid/hardware/camera2/marshal/impl/MarshalQueryableSizeF$MarshalerSizeF;-><init>(Landroid/hardware/camera2/marshal/impl/MarshalQueryableSizeF;Landroid/hardware/camera2/utils/TypeReference;I)V
@@ -64,6 +70,7 @@
 
 .method public isTypeMappingSupported(Landroid/hardware/camera2/utils/TypeReference;I)Z
     .locals 2
+    .param p2, "nativeType"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -74,6 +81,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 69
+    .local p1, "managedType":Landroid/hardware/camera2/utils/TypeReference;, "Landroid/hardware/camera2/utils/TypeReference<Landroid/util/SizeF;>;"
     const/4 v0, 0x2
 
     if-ne p2, v0, :cond_0

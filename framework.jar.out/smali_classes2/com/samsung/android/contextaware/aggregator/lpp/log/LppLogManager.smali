@@ -67,20 +67,26 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 51
     const/4 v0, 0x1
 
     sput-boolean v0, Lcom/samsung/android/contextaware/aggregator/lpp/log/LppLogManager;->FlagLog_Monitor:Z
 
+    .line 15
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 3
 
+    .prologue
     const/4 v2, 0x1
 
+    .line 15
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 23
     new-instance v0, Lcom/samsung/android/contextaware/aggregator/lpp/log/LPPDataLogging;
 
     const-string/jumbo v1, "SensorLog"
@@ -89,6 +95,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/contextaware/aggregator/lpp/log/LppLogManager;->mSensor_Logging:Lcom/samsung/android/contextaware/aggregator/lpp/log/LPPDataLogging;
 
+    .line 24
     new-instance v0, Lcom/samsung/android/contextaware/aggregator/lpp/log/LPPDataLogging;
 
     const-string/jumbo v1, "APDR_LM"
@@ -97,6 +104,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/contextaware/aggregator/lpp/log/LppLogManager;->mAPDRLM_Logging:Lcom/samsung/android/contextaware/aggregator/lpp/log/LPPDataLogging;
 
+    .line 25
     new-instance v0, Lcom/samsung/android/contextaware/aggregator/lpp/log/LPPDataLogging;
 
     const-string/jumbo v1, "LPPResultTest"
@@ -105,6 +113,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/contextaware/aggregator/lpp/log/LppLogManager;->mLPPResuLogging:Lcom/samsung/android/contextaware/aggregator/lpp/log/LPPDataLogging;
 
+    .line 26
     new-instance v0, Lcom/samsung/android/contextaware/aggregator/lpp/log/LPPDataLogging;
 
     const-string/jumbo v1, "LPPResultKML"
@@ -113,6 +122,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/contextaware/aggregator/lpp/log/LppLogManager;->mLPPKML_Logging:Lcom/samsung/android/contextaware/aggregator/lpp/log/LPPDataLogging;
 
+    .line 27
     new-instance v0, Lcom/samsung/android/contextaware/aggregator/lpp/log/LPPDataLogging;
 
     const-string/jumbo v1, "LPPResultKMLRT"
@@ -121,6 +131,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/contextaware/aggregator/lpp/log/LppLogManager;->mLPPKMLRLogging:Lcom/samsung/android/contextaware/aggregator/lpp/log/LPPDataLogging;
 
+    .line 28
     new-instance v0, Lcom/samsung/android/contextaware/aggregator/lpp/log/LPPDataLogging;
 
     const-string/jumbo v1, "LPPMonitor"
@@ -129,6 +140,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/contextaware/aggregator/lpp/log/LppLogManager;->mLPPMon_Logging:Lcom/samsung/android/contextaware/aggregator/lpp/log/LPPDataLogging;
 
+    .line 29
     new-instance v0, Lcom/samsung/android/contextaware/aggregator/lpp/log/LPPDataLogging;
 
     const-string/jumbo v1, "Configuration"
@@ -137,6 +149,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/contextaware/aggregator/lpp/log/LppLogManager;->mConfig_Logging:Lcom/samsung/android/contextaware/aggregator/lpp/log/LPPDataLogging;
 
+    .line 30
     new-instance v0, Lcom/samsung/android/contextaware/aggregator/lpp/log/LPPDataLogging;
 
     const-string/jumbo v1, "GPSStatus"
@@ -145,6 +158,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/contextaware/aggregator/lpp/log/LppLogManager;->mGPSSta_Logging:Lcom/samsung/android/contextaware/aggregator/lpp/log/LPPDataLogging;
 
+    .line 31
     new-instance v0, Lcom/samsung/android/contextaware/aggregator/lpp/log/LPPDataLogging;
 
     const-string/jumbo v1, "GPS_NMEA"
@@ -153,16 +167,21 @@
 
     iput-object v0, p0, Lcom/samsung/android/contextaware/aggregator/lpp/log/LppLogManager;->mGPNMEA_Logging:Lcom/samsung/android/contextaware/aggregator/lpp/log/LPPDataLogging;
 
+    .line 33
     iput-boolean v2, p0, Lcom/samsung/android/contextaware/aggregator/lpp/log/LppLogManager;->FlagLog_Sensor:Z
 
+    .line 34
     iput-boolean v2, p0, Lcom/samsung/android/contextaware/aggregator/lpp/log/LppLogManager;->FlagLog_APDRLM:Z
 
+    .line 35
     iput-boolean v2, p0, Lcom/samsung/android/contextaware/aggregator/lpp/log/LppLogManager;->FlagLog_LPPRes:Z
 
+    .line 36
     const-string/jumbo v0, "test"
 
     iput-object v0, p0, Lcom/samsung/android/contextaware/aggregator/lpp/log/LppLogManager;->LogFolderName:Ljava/lang/String;
 
+    .line 38
     new-instance v0, Lcom/samsung/android/contextaware/aggregator/lpp/log/KMLGenerator;
 
     iget-object v1, p0, Lcom/samsung/android/contextaware/aggregator/lpp/log/LppLogManager;->LogFolderName:Ljava/lang/String;
@@ -171,6 +190,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/contextaware/aggregator/lpp/log/LppLogManager;->mKMLGen:Lcom/samsung/android/contextaware/aggregator/lpp/log/KMLGenerator;
 
+    .line 39
     new-instance v0, Lcom/samsung/android/contextaware/aggregator/lpp/log/KMLGenerator;
 
     iget-object v1, p0, Lcom/samsung/android/contextaware/aggregator/lpp/log/LppLogManager;->LogFolderName:Ljava/lang/String;
@@ -179,24 +199,31 @@
 
     iput-object v0, p0, Lcom/samsung/android/contextaware/aggregator/lpp/log/LppLogManager;->mKMLGenRT:Lcom/samsung/android/contextaware/aggregator/lpp/log/KMLGenerator;
 
+    .line 56
     const-string/jumbo v0, "\t0 0 0 0 0"
 
     iput-object v0, p0, Lcom/samsung/android/contextaware/aggregator/lpp/log/LppLogManager;->strFromAPDR:Ljava/lang/String;
 
+    .line 57
     const-string/jumbo v0, "\t0 0 0 0"
 
     iput-object v0, p0, Lcom/samsung/android/contextaware/aggregator/lpp/log/LppLogManager;->strFromLocM:Ljava/lang/String;
 
+    .line 171
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/samsung/android/contextaware/aggregator/lpp/log/LppLogManager;->mLppDataProviderLnr:Lcom/samsung/android/contextaware/aggregator/lpp/ILppDataProvider;
 
+    .line 15
     return-void
 .end method
 
 .method private LogAPDRLM(I)V
     .locals 4
+    .param p1, "Logindex"    # I
 
+    .prologue
+    .line 155
     iget-object v0, p0, Lcom/samsung/android/contextaware/aggregator/lpp/log/LppLogManager;->mAPDRLM_Logging:Lcom/samsung/android/contextaware/aggregator/lpp/log/LPPDataLogging;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -245,6 +272,7 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/contextaware/aggregator/lpp/log/LPPDataLogging;->addLogStream(Ljava/lang/String;)V
 
+    .line 154
     return-void
 .end method
 
@@ -262,6 +290,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 158
+    .local p1, "mLocation":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/location/Location;>;"
     return-void
 .end method
 
@@ -277,30 +308,43 @@
         }
     .end annotation
 
+    .prologue
+    .line 166
+    .local p1, "listGPSPos":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/location/Location;>;"
     return-void
 .end method
 
 .method public AddRTCoordinate(Landroid/location/Location;)V
     .locals 0
+    .param p1, "loc"    # Landroid/location/Location;
 
+    .prologue
+    .line 162
     return-void
 .end method
 
 .method public LogData(ILjava/lang/String;)V
     .locals 4
+    .param p1, "apdrLm"    # I
+    .param p2, "logData"    # Ljava/lang/String;
 
+    .prologue
+    .line 126
     packed-switch p1, :pswitch_data_0
 
+    .line 125
     :cond_0
     :goto_0
     :pswitch_0
     return-void
 
+    .line 145
     :pswitch_1
     iget-object v0, p0, Lcom/samsung/android/contextaware/aggregator/lpp/log/LppLogManager;->mLppDataProviderLnr:Lcom/samsung/android/contextaware/aggregator/lpp/ILppDataProvider;
 
     if-eqz v0, :cond_0
 
+    .line 147
     iget-object v0, p0, Lcom/samsung/android/contextaware/aggregator/lpp/log/LppLogManager;->mLppDataProviderLnr:Lcom/samsung/android/contextaware/aggregator/lpp/ILppDataProvider;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -339,6 +383,7 @@
 
     goto :goto_0
 
+    .line 126
     nop
 
     :pswitch_data_0
@@ -357,34 +402,49 @@
 
 .method public init(Lcom/samsung/android/contextaware/aggregator/lpp/LppConfig;)V
     .locals 0
+    .param p1, "config"    # Lcom/samsung/android/contextaware/aggregator/lpp/LppConfig;
 
+    .prologue
+    .line 60
     return-void
 .end method
 
 .method public setILppDataProviderListener(Lcom/samsung/android/contextaware/aggregator/lpp/ILppDataProvider;)V
     .locals 0
+    .param p1, "lnr"    # Lcom/samsung/android/contextaware/aggregator/lpp/ILppDataProvider;
 
+    .prologue
+    .line 174
     iput-object p1, p0, Lcom/samsung/android/contextaware/aggregator/lpp/log/LppLogManager;->mLppDataProviderLnr:Lcom/samsung/android/contextaware/aggregator/lpp/ILppDataProvider;
 
+    .line 172
     return-void
 .end method
 
 .method protected setLogName(Ljava/lang/String;)V
     .locals 0
+    .param p1, "str"    # Ljava/lang/String;
 
+    .prologue
+    .line 122
     iput-object p1, p0, Lcom/samsung/android/contextaware/aggregator/lpp/log/LppLogManager;->LogFolderName:Ljava/lang/String;
 
+    .line 121
     return-void
 .end method
 
 .method public start()V
     .locals 0
 
+    .prologue
+    .line 69
     return-void
 .end method
 
 .method public stop()V
     .locals 0
 
+    .prologue
+    .line 100
     return-void
 .end method

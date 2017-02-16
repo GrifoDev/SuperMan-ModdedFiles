@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/animation/SemListSortAnimator$2;)V
     .locals 0
+    .param p1, "this$1"    # Lcom/samsung/android/animation/SemListSortAnimator$2;
 
+    .prologue
+    .line 127
     iput-object p1, p0, Lcom/samsung/android/animation/SemListSortAnimator$2$1;->this$1:Lcom/samsung/android/animation/SemListSortAnimator$2;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +40,8 @@
 .method public onPreDraw()Z
     .locals 1
 
+    .prologue
+    .line 130
     iget-object v0, p0, Lcom/samsung/android/animation/SemListSortAnimator$2$1;->this$1:Lcom/samsung/android/animation/SemListSortAnimator$2;
 
     iget-object v0, v0, Lcom/samsung/android/animation/SemListSortAnimator$2;->this$0:Lcom/samsung/android/animation/SemListSortAnimator;
@@ -49,12 +54,14 @@
 
     invoke-virtual {v0, p0}, Landroid/view/ViewTreeObserver;->removeOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
 
+    .line 131
     iget-object v0, p0, Lcom/samsung/android/animation/SemListSortAnimator$2$1;->this$1:Lcom/samsung/android/animation/SemListSortAnimator$2;
 
     iget-object v0, v0, Lcom/samsung/android/animation/SemListSortAnimator$2;->this$0:Lcom/samsung/android/animation/SemListSortAnimator;
 
     invoke-static {v0}, Lcom/samsung/android/animation/SemListSortAnimator;->-wrap0(Lcom/samsung/android/animation/SemListSortAnimator;)V
 
+    .line 132
     const/4 v0, 0x1
 
     return v0

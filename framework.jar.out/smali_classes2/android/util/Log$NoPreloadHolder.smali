@@ -22,18 +22,24 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 602
     invoke-static {}, Landroid/util/Log;->-wrap0()I
 
     move-result v0
 
+    .line 601
     sput v0, Landroid/util/Log$NoPreloadHolder;->LOGGER_ENTRY_MAX_PAYLOAD:I
 
+    .line 600
     return-void
 .end method
 
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 600
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

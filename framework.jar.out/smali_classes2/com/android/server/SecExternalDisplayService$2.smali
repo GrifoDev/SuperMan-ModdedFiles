@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/SecExternalDisplayService;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/server/SecExternalDisplayService;
 
+    .prologue
+    .line 212
     iput-object p1, p0, Lcom/android/server/SecExternalDisplayService$2;->this$0:Lcom/android/server/SecExternalDisplayService;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -33,21 +36,27 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
+    .param p1, "message"    # Landroid/os/Message;
 
+    .prologue
+    .line 216
     iget v0, p1, Landroid/os/Message;->arg1:I
 
     if-eqz v0, :cond_1
 
+    .line 217
     iget-object v0, p0, Lcom/android/server/SecExternalDisplayService$2;->this$0:Lcom/android/server/SecExternalDisplayService;
 
     iget v1, p1, Landroid/os/Message;->arg1:I
 
     invoke-virtual {v0, v1}, Lcom/android/server/SecExternalDisplayService;->SecExternalDisplayAlertMsg(I)V
 
+    .line 215
     :cond_0
     :goto_0
     return-void
 
+    .line 218
     :cond_1
     iget-object v0, p0, Lcom/android/server/SecExternalDisplayService$2;->this$0:Lcom/android/server/SecExternalDisplayService;
 
@@ -57,6 +66,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 219
     iget-object v0, p0, Lcom/android/server/SecExternalDisplayService$2;->this$0:Lcom/android/server/SecExternalDisplayService;
 
     invoke-static {v0}, Lcom/android/server/SecExternalDisplayService;->-get2(Lcom/android/server/SecExternalDisplayService;)Landroid/app/AlertDialog;

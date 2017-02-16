@@ -37,12 +37,14 @@
 .method static constructor <clinit>()V
     .locals 5
 
+    .prologue
     const/4 v4, 0x2
 
     const/4 v3, 0x1
 
     const/4 v2, 0x0
 
+    .line 29
     new-instance v0, Landroid/net/wifi/WpsResult$Status;
 
     const-string/jumbo v1, "SUCCESS"
@@ -51,6 +53,7 @@
 
     sput-object v0, Landroid/net/wifi/WpsResult$Status;->SUCCESS:Landroid/net/wifi/WpsResult$Status;
 
+    .line 30
     new-instance v0, Landroid/net/wifi/WpsResult$Status;
 
     const-string/jumbo v1, "FAILURE"
@@ -59,6 +62,7 @@
 
     sput-object v0, Landroid/net/wifi/WpsResult$Status;->FAILURE:Landroid/net/wifi/WpsResult$Status;
 
+    .line 31
     new-instance v0, Landroid/net/wifi/WpsResult$Status;
 
     const-string/jumbo v1, "IN_PROGRESS"
@@ -67,6 +71,7 @@
 
     sput-object v0, Landroid/net/wifi/WpsResult$Status;->IN_PROGRESS:Landroid/net/wifi/WpsResult$Status;
 
+    .line 28
     const/4 v0, 0x3
 
     new-array v0, v0, [Landroid/net/wifi/WpsResult$Status;
@@ -91,6 +96,8 @@
 .method private constructor <init>(Ljava/lang/String;I)V
     .locals 0
 
+    .prologue
+    .line 28
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -98,7 +105,10 @@
 
 .method public static valueOf(Ljava/lang/String;)Landroid/net/wifi/WpsResult$Status;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 28
     const-class v0, Landroid/net/wifi/WpsResult$Status;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -113,6 +123,8 @@
 .method public static values()[Landroid/net/wifi/WpsResult$Status;
     .locals 1
 
+    .prologue
+    .line 28
     sget-object v0, Landroid/net/wifi/WpsResult$Status;->$VALUES:[Landroid/net/wifi/WpsResult$Status;
 
     return-object v0

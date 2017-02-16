@@ -41,21 +41,28 @@
 # direct methods
 .method public constructor <init>(Landroid/print/PrintManager$PrintServiceRecommendationsChangeListener;Landroid/os/Handler;)V
     .locals 1
+    .param p1, "listener"    # Landroid/print/PrintManager$PrintServiceRecommendationsChangeListener;
+    .param p2, "handler"    # Landroid/os/Handler;
 
+    .prologue
+    .line 1389
     invoke-direct {p0}, Landroid/printservice/recommendation/IRecommendationsChangeListener$Stub;-><init>()V
 
+    .line 1391
     new-instance v0, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
     iput-object v0, p0, Landroid/print/PrintManager$PrintServiceRecommendationsChangeListenerWrapper;->mWeakListener:Ljava/lang/ref/WeakReference;
 
+    .line 1392
     new-instance v0, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v0, p2}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
     iput-object v0, p0, Landroid/print/PrintManager$PrintServiceRecommendationsChangeListenerWrapper;->mWeakHandler:Ljava/lang/ref/WeakReference;
 
+    .line 1390
     return-void
 .end method
 
@@ -64,16 +71,21 @@
 .method public destroy()V
     .locals 1
 
+    .prologue
+    .line 1406
     iget-object v0, p0, Landroid/print/PrintManager$PrintServiceRecommendationsChangeListenerWrapper;->mWeakListener:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/Reference;->clear()V
 
+    .line 1405
     return-void
 .end method
 
 .method public getListener()Landroid/print/PrintManager$PrintServiceRecommendationsChangeListener;
     .locals 1
 
+    .prologue
+    .line 1410
     iget-object v0, p0, Landroid/print/PrintManager$PrintServiceRecommendationsChangeListenerWrapper;->mWeakListener:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
@@ -88,6 +100,8 @@
 .method public onRecommendationsChanged()V
     .locals 3
 
+    .prologue
+    .line 1397
     iget-object v2, p0, Landroid/print/PrintManager$PrintServiceRecommendationsChangeListenerWrapper;->mWeakHandler:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v2}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
@@ -96,6 +110,8 @@
 
     check-cast v0, Landroid/os/Handler;
 
+    .line 1398
+    .local v0, "handler":Landroid/os/Handler;
     iget-object v2, p0, Landroid/print/PrintManager$PrintServiceRecommendationsChangeListenerWrapper;->mWeakListener:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v2}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
@@ -104,10 +120,13 @@
 
     check-cast v1, Landroid/print/PrintManager$PrintServiceRecommendationsChangeListener;
 
+    .line 1399
+    .local v1, "listener":Landroid/print/PrintManager$PrintServiceRecommendationsChangeListener;
     if-eqz v0, :cond_0
 
     if-eqz v1, :cond_0
 
+    .line 1400
     const/4 v2, 0x3
 
     invoke-virtual {v0, v2, p0}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
@@ -116,6 +135,7 @@
 
     invoke-virtual {v2}, Landroid/os/Message;->sendToTarget()V
 
+    .line 1396
     :cond_0
     return-void
 .end method

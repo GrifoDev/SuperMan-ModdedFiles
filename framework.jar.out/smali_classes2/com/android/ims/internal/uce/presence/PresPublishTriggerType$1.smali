@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 91
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,7 +42,10 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Lcom/android/ims/internal/uce/presence/PresPublishTriggerType;
     .locals 2
+    .param p1, "source"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 95
     new-instance v0, Lcom/android/ims/internal/uce/presence/PresPublishTriggerType;
 
     const/4 v1, 0x0
@@ -52,7 +57,10 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
+    .param p1, "source"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 93
     invoke-virtual {p0, p1}, Lcom/android/ims/internal/uce/presence/PresPublishTriggerType$1;->createFromParcel(Landroid/os/Parcel;)Lcom/android/ims/internal/uce/presence/PresPublishTriggerType;
 
     move-result-object v0
@@ -62,7 +70,10 @@
 
 .method public newArray(I)[Lcom/android/ims/internal/uce/presence/PresPublishTriggerType;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 100
     new-array v0, p1, [Lcom/android/ims/internal/uce/presence/PresPublishTriggerType;
 
     return-object v0
@@ -70,7 +81,10 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 98
     invoke-virtual {p0, p1}, Lcom/android/ims/internal/uce/presence/PresPublishTriggerType$1;->newArray(I)[Lcom/android/ims/internal/uce/presence/PresPublishTriggerType;
 
     move-result-object v0

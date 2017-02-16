@@ -17,8 +17,10 @@
 .method public constructor <init>()V
     .locals 4
 
+    .prologue
     const/4 v3, 0x1
 
+    .line 36
     new-array v0, v3, [Ljava/lang/String;
 
     const-string/jumbo v1, "permissions"
@@ -29,6 +31,7 @@
 
     invoke-direct {p0, v3, v0}, Landroid/app/backup/BlobBackupHelper;-><init>(I[Ljava/lang/String;)V
 
+    .line 35
     return-void
 .end method
 
@@ -36,11 +39,17 @@
 # virtual methods
 .method protected applyRestoredPayload(Ljava/lang/String;[B)V
     .locals 5
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "payload"    # [B
 
+    .prologue
+    .line 61
     invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
 
     move-result-object v1
 
+    .line 66
+    .local v1, "pm":Landroid/content/pm/IPackageManager;
     :try_start_0
     const-string/jumbo v2, "permissions"
 
@@ -50,13 +59,16 @@
 
     if-eqz v2, :cond_0
 
+    .line 68
     const/4 v2, 0x0
 
     invoke-interface {v1, p2, v2}, Landroid/content/pm/IPackageManager;->restorePermissionGrants([BI)V
 
+    .line 60
     :goto_0
     return-void
 
+    .line 72
     :cond_0
     const-string/jumbo v2, "PermissionBackup"
 
@@ -84,9 +96,12 @@
 
     goto :goto_0
 
+    .line 74
     :catch_0
     move-exception v0
 
+    .line 75
+    .local v0, "e":Ljava/lang/Exception;
     const-string/jumbo v2, "PermissionBackup"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -114,11 +129,16 @@
 
 .method protected getBackupPayload(Ljava/lang/String;)[B
     .locals 5
+    .param p1, "key"    # Ljava/lang/String;
 
+    .prologue
+    .line 41
     invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
 
     move-result-object v1
 
+    .line 46
+    .local v1, "pm":Landroid/content/pm/IPackageManager;
     :try_start_0
     const-string/jumbo v2, "permissions"
 
@@ -128,6 +148,7 @@
 
     if-eqz v2, :cond_0
 
+    .line 48
     const/4 v2, 0x0
 
     invoke-interface {v1, v2}, Landroid/content/pm/IPackageManager;->getPermissionGrantBackup(I)[B
@@ -136,6 +157,7 @@
 
     return-object v2
 
+    .line 51
     :cond_0
     const-string/jumbo v2, "PermissionBackup"
 
@@ -161,14 +183,18 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 56
     :goto_0
     const/4 v2, 0x0
 
     return-object v2
 
+    .line 53
     :catch_0
     move-exception v0
 
+    .line 54
+    .local v0, "e":Ljava/lang/Exception;
     const-string/jumbo v2, "PermissionBackup"
 
     new-instance v3, Ljava/lang/StringBuilder;

@@ -28,7 +28,12 @@
 # direct methods
 .method constructor <init>(Landroid/app/EnterTransitionCoordinator$5;Landroid/view/View;Landroid/os/Bundle;)V
     .locals 0
+    .param p1, "this$1"    # Landroid/app/EnterTransitionCoordinator$5;
+    .param p2, "val$decorView"    # Landroid/view/View;
+    .param p3, "val$sharedElementState"    # Landroid/os/Bundle;
 
+    .prologue
+    .line 468
     iput-object p1, p0, Landroid/app/EnterTransitionCoordinator$5$1;->this$1:Landroid/app/EnterTransitionCoordinator$5;
 
     iput-object p2, p0, Landroid/app/EnterTransitionCoordinator$5$1;->val$decorView:Landroid/view/View;
@@ -45,6 +50,8 @@
 .method public onPreDraw()Z
     .locals 3
 
+    .prologue
+    .line 471
     iget-object v0, p0, Landroid/app/EnterTransitionCoordinator$5$1;->val$decorView:Landroid/view/View;
 
     invoke-virtual {v0}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
@@ -53,6 +60,7 @@
 
     invoke-virtual {v0, p0}, Landroid/view/ViewTreeObserver;->removeOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
 
+    .line 472
     iget-object v0, p0, Landroid/app/EnterTransitionCoordinator$5$1;->this$1:Landroid/app/EnterTransitionCoordinator$5;
 
     iget-object v0, v0, Landroid/app/EnterTransitionCoordinator$5;->this$0:Landroid/app/EnterTransitionCoordinator;
@@ -65,6 +73,7 @@
 
     invoke-virtual {v0, v1}, Landroid/app/EnterTransitionCoordinator;->startTransition(Ljava/lang/Runnable;)V
 
+    .line 478
     const/4 v0, 0x0
 
     return v0

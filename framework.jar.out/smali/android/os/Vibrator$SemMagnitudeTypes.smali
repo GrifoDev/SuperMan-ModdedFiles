@@ -45,6 +45,7 @@
 .method static constructor <clinit>()V
     .locals 8
 
+    .prologue
     const/4 v7, 0x4
 
     const/4 v6, 0x3
@@ -55,46 +56,57 @@
 
     const/4 v3, 0x0
 
+    .line 200
     new-instance v0, Landroid/os/Vibrator$SemMagnitudeTypes;
 
     const-string/jumbo v1, "TYPE_TOUCH"
 
     invoke-direct {v0, v1, v3}, Landroid/os/Vibrator$SemMagnitudeTypes;-><init>(Ljava/lang/String;I)V
 
+    .line 203
     sput-object v0, Landroid/os/Vibrator$SemMagnitudeTypes;->TYPE_TOUCH:Landroid/os/Vibrator$SemMagnitudeTypes;
 
+    .line 204
     new-instance v0, Landroid/os/Vibrator$SemMagnitudeTypes;
 
     const-string/jumbo v1, "TYPE_NOTIFICATION"
 
     invoke-direct {v0, v1, v4}, Landroid/os/Vibrator$SemMagnitudeTypes;-><init>(Ljava/lang/String;I)V
 
+    .line 207
     sput-object v0, Landroid/os/Vibrator$SemMagnitudeTypes;->TYPE_NOTIFICATION:Landroid/os/Vibrator$SemMagnitudeTypes;
 
+    .line 208
     new-instance v0, Landroid/os/Vibrator$SemMagnitudeTypes;
 
     const-string/jumbo v1, "TYPE_CALL"
 
     invoke-direct {v0, v1, v5}, Landroid/os/Vibrator$SemMagnitudeTypes;-><init>(Ljava/lang/String;I)V
 
+    .line 211
     sput-object v0, Landroid/os/Vibrator$SemMagnitudeTypes;->TYPE_CALL:Landroid/os/Vibrator$SemMagnitudeTypes;
 
+    .line 212
     new-instance v0, Landroid/os/Vibrator$SemMagnitudeTypes;
 
     const-string/jumbo v1, "TYPE_MAX"
 
     invoke-direct {v0, v1, v6}, Landroid/os/Vibrator$SemMagnitudeTypes;-><init>(Ljava/lang/String;I)V
 
+    .line 215
     sput-object v0, Landroid/os/Vibrator$SemMagnitudeTypes;->TYPE_MAX:Landroid/os/Vibrator$SemMagnitudeTypes;
 
+    .line 216
     new-instance v0, Landroid/os/Vibrator$SemMagnitudeTypes;
 
     const-string/jumbo v1, "TYPE_MIN"
 
     invoke-direct {v0, v1, v7}, Landroid/os/Vibrator$SemMagnitudeTypes;-><init>(Ljava/lang/String;I)V
 
+    .line 219
     sput-object v0, Landroid/os/Vibrator$SemMagnitudeTypes;->TYPE_MIN:Landroid/os/Vibrator$SemMagnitudeTypes;
 
+    .line 220
     new-instance v0, Landroid/os/Vibrator$SemMagnitudeTypes;
 
     const-string/jumbo v1, "TYPE_EXTRA"
@@ -103,8 +115,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/os/Vibrator$SemMagnitudeTypes;-><init>(Ljava/lang/String;I)V
 
+    .line 223
     sput-object v0, Landroid/os/Vibrator$SemMagnitudeTypes;->TYPE_EXTRA:Landroid/os/Vibrator$SemMagnitudeTypes;
 
+    .line 224
     new-instance v0, Landroid/os/Vibrator$SemMagnitudeTypes;
 
     const-string/jumbo v1, "TYPE_FORCE"
@@ -113,8 +127,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/os/Vibrator$SemMagnitudeTypes;-><init>(Ljava/lang/String;I)V
 
+    .line 227
     sput-object v0, Landroid/os/Vibrator$SemMagnitudeTypes;->TYPE_FORCE:Landroid/os/Vibrator$SemMagnitudeTypes;
 
+    .line 199
     const/4 v0, 0x7
 
     new-array v0, v0, [Landroid/os/Vibrator$SemMagnitudeTypes;
@@ -159,6 +175,8 @@
 .method private constructor <init>(Ljava/lang/String;I)V
     .locals 0
 
+    .prologue
+    .line 199
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -166,7 +184,10 @@
 
 .method public static valueOf(Ljava/lang/String;)Landroid/os/Vibrator$SemMagnitudeTypes;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 199
     const-class v0, Landroid/os/Vibrator$SemMagnitudeTypes;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -181,6 +202,8 @@
 .method public static values()[Landroid/os/Vibrator$SemMagnitudeTypes;
     .locals 1
 
+    .prologue
+    .line 199
     sget-object v0, Landroid/os/Vibrator$SemMagnitudeTypes;->$VALUES:[Landroid/os/Vibrator$SemMagnitudeTypes;
 
     return-object v0

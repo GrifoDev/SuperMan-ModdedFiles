@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
     .locals 0
+    .param p1, "val$prefix"    # Ljava/lang/String;
 
+    .prologue
+    .line 968
     iput-object p1, p0, Landroid/database/sqlite/SQLiteDatabase$2;->val$prefix:Ljava/lang/String;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +39,10 @@
 # virtual methods
 .method public accept(Ljava/io/File;)Z
     .locals 2
+    .param p1, "candidate"    # Ljava/io/File;
 
+    .prologue
+    .line 971
     invoke-virtual {p1}, Ljava/io/File;->getName()Ljava/lang/String;
 
     move-result-object v0

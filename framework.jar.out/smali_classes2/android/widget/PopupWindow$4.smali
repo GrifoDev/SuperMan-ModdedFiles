@@ -27,7 +27,13 @@
 # direct methods
 .method constructor <init>(Landroid/widget/PopupWindow;Landroid/widget/PopupWindow$PopupDecorView;Landroid/view/ViewGroup;Landroid/view/View;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/widget/PopupWindow;
+    .param p2, "val$decorView"    # Landroid/widget/PopupWindow$PopupDecorView;
+    .param p3, "val$contentHolder"    # Landroid/view/ViewGroup;
+    .param p4, "val$contentView"    # Landroid/view/View;
 
+    .prologue
+    .line 1954
     iput-object p1, p0, Landroid/widget/PopupWindow$4;->this$0:Landroid/widget/PopupWindow;
 
     iput-object p2, p0, Landroid/widget/PopupWindow$4;->val$decorView:Landroid/widget/PopupWindow$PopupDecorView;
@@ -45,7 +51,10 @@
 # virtual methods
 .method public onTransitionEnd(Landroid/transition/Transition;)V
     .locals 4
+    .param p1, "transition"    # Landroid/transition/Transition;
 
+    .prologue
+    .line 1957
     iget-object v0, p0, Landroid/widget/PopupWindow$4;->this$0:Landroid/widget/PopupWindow;
 
     iget-object v1, p0, Landroid/widget/PopupWindow$4;->val$decorView:Landroid/widget/PopupWindow$PopupDecorView;
@@ -56,5 +65,6 @@
 
     invoke-static {v0, v1, v2, v3}, Landroid/widget/PopupWindow;->-wrap2(Landroid/widget/PopupWindow;Landroid/view/View;Landroid/view/ViewGroup;Landroid/view/View;)V
 
+    .line 1956
     return-void
 .end method

@@ -28,7 +28,12 @@
 # direct methods
 .method constructor <init>(Landroid/app/ActivityTransitionCoordinator;Landroid/view/View;I)V
     .locals 0
+    .param p1, "this$0"    # Landroid/app/ActivityTransitionCoordinator;
+    .param p2, "val$decorView"    # Landroid/view/View;
+    .param p3, "val$visibility"    # I
 
+    .prologue
+    .line 920
     iput-object p1, p0, Landroid/app/ActivityTransitionCoordinator$2;->this$0:Landroid/app/ActivityTransitionCoordinator;
 
     iput-object p2, p0, Landroid/app/ActivityTransitionCoordinator$2;->val$decorView:Landroid/view/View;
@@ -45,6 +50,8 @@
 .method public onPreDraw()Z
     .locals 2
 
+    .prologue
+    .line 923
     iget-object v0, p0, Landroid/app/ActivityTransitionCoordinator$2;->val$decorView:Landroid/view/View;
 
     invoke-virtual {v0}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
@@ -53,12 +60,14 @@
 
     invoke-virtual {v0, p0}, Landroid/view/ViewTreeObserver;->removeOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
 
+    .line 924
     iget-object v0, p0, Landroid/app/ActivityTransitionCoordinator$2;->this$0:Landroid/app/ActivityTransitionCoordinator;
 
     iget v1, p0, Landroid/app/ActivityTransitionCoordinator$2;->val$visibility:I
 
     invoke-virtual {v0, v1}, Landroid/app/ActivityTransitionCoordinator;->setGhostVisibility(I)V
 
+    .line 925
     const/4 v0, 0x1
 
     return v0

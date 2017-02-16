@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Landroid/print/SemPrinterDiscoverySession;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/print/SemPrinterDiscoverySession;
 
+    .prologue
+    .line 141
     iput-object p1, p0, Landroid/print/SemPrinterDiscoverySession$1;->this$0:Landroid/print/SemPrinterDiscoverySession;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +40,8 @@
 .method public onPrintersChanged()V
     .locals 2
 
+    .prologue
+    .line 145
     iget-object v0, p0, Landroid/print/SemPrinterDiscoverySession$1;->this$0:Landroid/print/SemPrinterDiscoverySession;
 
     invoke-static {v0}, Landroid/print/SemPrinterDiscoverySession;->-get0(Landroid/print/SemPrinterDiscoverySession;)Landroid/print/SemPrinterDiscoverySession$OnPrintersChangeListener;
@@ -45,14 +50,17 @@
 
     if-nez v0, :cond_0
 
+    .line 146
     const-string/jumbo v0, "SemPrinterDiscoverySession"
 
     const-string/jumbo v1, "Error mListener is null"
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 147
     return-void
 
+    .line 149
     :cond_0
     iget-object v0, p0, Landroid/print/SemPrinterDiscoverySession$1;->this$0:Landroid/print/SemPrinterDiscoverySession;
 
@@ -62,5 +70,6 @@
 
     invoke-interface {v0}, Landroid/print/SemPrinterDiscoverySession$OnPrintersChangeListener;->onPrintersChanged()V
 
+    .line 144
     return-void
 .end method

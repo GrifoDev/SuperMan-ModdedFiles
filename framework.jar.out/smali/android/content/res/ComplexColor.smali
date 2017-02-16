@@ -11,6 +11,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -24,6 +26,8 @@
 .method public getChangingConfigurations()I
     .locals 1
 
+    .prologue
+    .line 76
     iget v0, p0, Landroid/content/res/ComplexColor;->mChangingConfigurations:I
 
     return v0
@@ -47,6 +51,8 @@
 .method public isStateful()Z
     .locals 1
 
+    .prologue
+    .line 35
     const/4 v0, 0x0
 
     return v0
@@ -57,8 +63,12 @@
 
 .method final setBaseChangingConfigurations(I)V
     .locals 0
+    .param p1, "changingConfigurations"    # I
 
+    .prologue
+    .line 63
     iput p1, p0, Landroid/content/res/ComplexColor;->mChangingConfigurations:I
 
+    .line 62
     return-void
 .end method

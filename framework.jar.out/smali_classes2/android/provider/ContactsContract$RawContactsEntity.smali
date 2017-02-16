@@ -37,6 +37,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 4946
     sget-object v0, Landroid/provider/ContactsContract;->AUTHORITY_URI:Landroid/net/Uri;
 
     const-string/jumbo v1, "raw_contact_entities"
@@ -45,8 +47,10 @@
 
     move-result-object v0
 
+    .line 4945
     sput-object v0, Landroid/provider/ContactsContract$RawContactsEntity;->CONTENT_URI:Landroid/net/Uri;
 
+    .line 4954
     sget-object v0, Landroid/provider/ContactsContract;->AUTHORITY_URI:Landroid/net/Uri;
 
     const-string/jumbo v1, "raw_contact_entities_corp"
@@ -55,8 +59,10 @@
 
     move-result-object v0
 
+    .line 4953
     sput-object v0, Landroid/provider/ContactsContract$RawContactsEntity;->CORP_CONTENT_URI:Landroid/net/Uri;
 
+    .line 4960
     sget-object v0, Landroid/provider/ContactsContract$Profile;->CONTENT_URI:Landroid/net/Uri;
 
     const-string/jumbo v1, "raw_contact_entities"
@@ -65,14 +71,18 @@
 
     move-result-object v0
 
+    .line 4959
     sput-object v0, Landroid/provider/ContactsContract$RawContactsEntity;->PROFILE_CONTENT_URI:Landroid/net/Uri;
 
+    .line 4935
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 4940
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

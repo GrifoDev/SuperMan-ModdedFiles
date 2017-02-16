@@ -18,6 +18,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 108
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -27,7 +29,11 @@
 # virtual methods
 .method public chooseClientKeyIdentity(Ljava/lang/String;Ljava/net/Socket;)Ljava/lang/String;
     .locals 1
+    .param p1, "identityHint"    # Ljava/lang/String;
+    .param p2, "socket"    # Ljava/net/Socket;
 
+    .prologue
+    .line 169
     const-string/jumbo v0, ""
 
     return-object v0
@@ -35,7 +41,11 @@
 
 .method public chooseClientKeyIdentity(Ljava/lang/String;Ljavax/net/ssl/SSLEngine;)Ljava/lang/String;
     .locals 1
+    .param p1, "identityHint"    # Ljava/lang/String;
+    .param p2, "engine"    # Ljavax/net/ssl/SSLEngine;
 
+    .prologue
+    .line 186
     const-string/jumbo v0, ""
 
     return-object v0
@@ -43,7 +53,10 @@
 
 .method public chooseServerKeyIdentityHint(Ljava/net/Socket;)Ljava/lang/String;
     .locals 1
+    .param p1, "socket"    # Ljava/net/Socket;
 
+    .prologue
+    .line 138
     const/4 v0, 0x0
 
     return-object v0
@@ -51,7 +64,10 @@
 
 .method public chooseServerKeyIdentityHint(Ljavax/net/ssl/SSLEngine;)Ljava/lang/String;
     .locals 1
+    .param p1, "engine"    # Ljavax/net/ssl/SSLEngine;
 
+    .prologue
+    .line 152
     const/4 v0, 0x0
 
     return-object v0
@@ -59,7 +75,12 @@
 
 .method public getKey(Ljava/lang/String;Ljava/lang/String;Ljava/net/Socket;)Ljavax/crypto/SecretKey;
     .locals 1
+    .param p1, "identityHint"    # Ljava/lang/String;
+    .param p2, "identity"    # Ljava/lang/String;
+    .param p3, "socket"    # Ljava/net/Socket;
 
+    .prologue
+    .line 204
     const/4 v0, 0x0
 
     return-object v0
@@ -67,7 +88,12 @@
 
 .method public getKey(Ljava/lang/String;Ljava/lang/String;Ljavax/net/ssl/SSLEngine;)Ljavax/crypto/SecretKey;
     .locals 1
+    .param p1, "identityHint"    # Ljava/lang/String;
+    .param p2, "identity"    # Ljava/lang/String;
+    .param p3, "engine"    # Ljavax/net/ssl/SSLEngine;
 
+    .prologue
+    .line 222
     const/4 v0, 0x0
 
     return-object v0

@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 1184
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,7 +42,11 @@
 # virtual methods
 .method public compare(Landroid/service/chooser/ChooserTarget;Landroid/service/chooser/ChooserTarget;)I
     .locals 2
+    .param p1, "lhs"    # Landroid/service/chooser/ChooserTarget;
+    .param p2, "rhs"    # Landroid/service/chooser/ChooserTarget;
 
+    .prologue
+    .line 1188
     invoke-virtual {p2}, Landroid/service/chooser/ChooserTarget;->getScore()F
 
     move-result v0
@@ -62,11 +68,17 @@
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
+    .param p1, "lhs"    # Ljava/lang/Object;
+    .param p2, "rhs"    # Ljava/lang/Object;
 
+    .prologue
+    .line 1186
     check-cast p1, Landroid/service/chooser/ChooserTarget;
 
+    .end local p1    # "lhs":Ljava/lang/Object;
     check-cast p2, Landroid/service/chooser/ChooserTarget;
 
+    .end local p2    # "rhs":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Lcom/android/internal/app/ChooserActivity$BaseChooserTargetComparator;->compare(Landroid/service/chooser/ChooserTarget;Landroid/service/chooser/ChooserTarget;)I
 
     move-result v0

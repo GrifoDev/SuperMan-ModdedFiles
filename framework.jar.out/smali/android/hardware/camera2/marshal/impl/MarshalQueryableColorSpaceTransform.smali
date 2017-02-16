@@ -34,6 +34,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -43,6 +45,7 @@
 # virtual methods
 .method public createMarshaler(Landroid/hardware/camera2/utils/TypeReference;I)Landroid/hardware/camera2/marshal/Marshaler;
     .locals 1
+    .param p2, "nativeType"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -57,6 +60,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 74
+    .local p1, "managedType":Landroid/hardware/camera2/utils/TypeReference;, "Landroid/hardware/camera2/utils/TypeReference<Landroid/hardware/camera2/params/ColorSpaceTransform;>;"
     new-instance v0, Landroid/hardware/camera2/marshal/impl/MarshalQueryableColorSpaceTransform$MarshalerColorSpaceTransform;
 
     invoke-direct {v0, p0, p1, p2}, Landroid/hardware/camera2/marshal/impl/MarshalQueryableColorSpaceTransform$MarshalerColorSpaceTransform;-><init>(Landroid/hardware/camera2/marshal/impl/MarshalQueryableColorSpaceTransform;Landroid/hardware/camera2/utils/TypeReference;I)V
@@ -66,6 +72,7 @@
 
 .method public isTypeMappingSupported(Landroid/hardware/camera2/utils/TypeReference;I)Z
     .locals 2
+    .param p2, "nativeType"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -76,10 +83,14 @@
         }
     .end annotation
 
+    .prologue
+    .line 80
+    .local p1, "managedType":Landroid/hardware/camera2/utils/TypeReference;, "Landroid/hardware/camera2/utils/TypeReference<Landroid/hardware/camera2/params/ColorSpaceTransform;>;"
     const/4 v0, 0x5
 
     if-ne p2, v0, :cond_0
 
+    .line 81
     const-class v0, Landroid/hardware/camera2/params/ColorSpaceTransform;
 
     invoke-virtual {p1}, Landroid/hardware/camera2/utils/TypeReference;->getType()Ljava/lang/reflect/Type;
@@ -90,6 +101,7 @@
 
     move-result v0
 
+    .line 80
     :goto_0
     return v0
 

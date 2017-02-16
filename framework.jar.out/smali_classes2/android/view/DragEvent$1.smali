@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 506
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,31 +42,39 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/view/DragEvent;
     .locals 3
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 508
     invoke-static {}, Landroid/view/DragEvent;->obtain()Landroid/view/DragEvent;
 
     move-result-object v0
 
+    .line 509
+    .local v0, "event":Landroid/view/DragEvent;
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     iput v2, v0, Landroid/view/DragEvent;->mAction:I
 
+    .line 510
     invoke-virtual {p1}, Landroid/os/Parcel;->readFloat()F
 
     move-result v2
 
     iput v2, v0, Landroid/view/DragEvent;->mX:F
 
+    .line 511
     invoke-virtual {p1}, Landroid/os/Parcel;->readFloat()F
 
     move-result v2
 
     iput v2, v0, Landroid/view/DragEvent;->mY:F
 
+    .line 512
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
@@ -76,12 +86,14 @@
     :cond_0
     iput-boolean v1, v0, Landroid/view/DragEvent;->mDragResult:Z
 
+    .line 513
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     if-eqz v1, :cond_1
 
+    .line 514
     sget-object v1, Landroid/content/ClipData;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v1, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -92,6 +104,7 @@
 
     iput-object v1, v0, Landroid/view/DragEvent;->mClipData:Landroid/content/ClipData;
 
+    .line 516
     :cond_1
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -99,6 +112,7 @@
 
     if-eqz v1, :cond_2
 
+    .line 517
     sget-object v1, Landroid/content/ClipDescription;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v1, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -109,6 +123,7 @@
 
     iput-object v1, v0, Landroid/view/DragEvent;->mClipDescription:Landroid/content/ClipDescription;
 
+    .line 519
     :cond_2
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -116,6 +131,7 @@
 
     if-eqz v1, :cond_3
 
+    .line 521
     invoke-virtual {p1}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v1
@@ -124,15 +140,20 @@
 
     move-result-object v1
 
+    .line 520
     iput-object v1, v0, Landroid/view/DragEvent;->mDragAndDropPermissions:Lcom/android/internal/view/IDragAndDropPermissions;
 
+    .line 523
     :cond_3
     return-object v0
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 507
     invoke-virtual {p0, p1}, Landroid/view/DragEvent$1;->createFromParcel(Landroid/os/Parcel;)Landroid/view/DragEvent;
 
     move-result-object v0
@@ -142,7 +163,10 @@
 
 .method public newArray(I)[Landroid/view/DragEvent;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 527
     new-array v0, p1, [Landroid/view/DragEvent;
 
     return-object v0
@@ -150,7 +174,10 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 526
     invoke-virtual {p0, p1}, Landroid/view/DragEvent$1;->newArray(I)[Landroid/view/DragEvent;
 
     move-result-object v0

@@ -29,6 +29,9 @@
 .method constructor <init>(Landroid/os/AsyncTask;)V
     .locals 1
 
+    .prologue
+    .line 298
+    .local p1, "this$0":Landroid/os/AsyncTask;, "Landroid/os/AsyncTask<TParams;TProgress;TResult;>;"
     iput-object p1, p0, Landroid/os/AsyncTask$2;->this$0:Landroid/os/AsyncTask;
 
     const/4 v0, 0x0
@@ -54,6 +57,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 300
     iget-object v1, p0, Landroid/os/AsyncTask$2;->this$0:Landroid/os/AsyncTask;
 
     invoke-static {v1}, Landroid/os/AsyncTask;->-get0(Landroid/os/AsyncTask;)Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -64,10 +69,12 @@
 
     invoke-virtual {v1, v2}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
+    .line 302
     const/16 v1, 0xa
 
     invoke-static {v1}, Landroid/os/Process;->setThreadPriority(I)V
 
+    .line 304
     iget-object v1, p0, Landroid/os/AsyncTask$2;->this$0:Landroid/os/AsyncTask;
 
     iget-object v2, p0, Landroid/os/AsyncTask$2;->mParams:[Ljava/lang/Object;
@@ -76,8 +83,11 @@
 
     move-result-object v0
 
+    .line 305
+    .local v0, "result":Ljava/lang/Object;, "TResult;"
     invoke-static {}, Landroid/os/Binder;->flushPendingCommands()V
 
+    .line 306
     iget-object v1, p0, Landroid/os/AsyncTask$2;->this$0:Landroid/os/AsyncTask;
 
     invoke-static {v1, v0}, Landroid/os/AsyncTask;->-wrap0(Landroid/os/AsyncTask;Ljava/lang/Object;)Ljava/lang/Object;

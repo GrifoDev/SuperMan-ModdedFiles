@@ -28,7 +28,12 @@
 # direct methods
 .method constructor <init>(Landroid/app/EnterTransitionCoordinator;Landroid/view/ViewGroup;Landroid/util/ArrayMap;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/app/EnterTransitionCoordinator;
+    .param p2, "val$decor"    # Landroid/view/ViewGroup;
 
+    .prologue
+    .line 156
+    .local p3, "val$sharedElements":Landroid/util/ArrayMap;, "Landroid/util/ArrayMap<Ljava/lang/String;Landroid/view/View;>;"
     iput-object p1, p0, Landroid/app/EnterTransitionCoordinator$2;->this$0:Landroid/app/EnterTransitionCoordinator;
 
     iput-object p2, p0, Landroid/app/EnterTransitionCoordinator$2;->val$decor:Landroid/view/ViewGroup;
@@ -45,12 +50,15 @@
 .method public onPreDraw()Z
     .locals 2
 
+    .prologue
+    .line 159
     iget-object v0, p0, Landroid/app/EnterTransitionCoordinator$2;->this$0:Landroid/app/EnterTransitionCoordinator;
 
     const/4 v1, 0x0
 
     invoke-static {v0, v1}, Landroid/app/EnterTransitionCoordinator;->-set1(Landroid/app/EnterTransitionCoordinator;Landroid/view/ViewTreeObserver$OnPreDrawListener;)Landroid/view/ViewTreeObserver$OnPreDrawListener;
 
+    .line 160
     iget-object v0, p0, Landroid/app/EnterTransitionCoordinator$2;->val$decor:Landroid/view/ViewGroup;
 
     invoke-virtual {v0}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
@@ -59,12 +67,14 @@
 
     invoke-virtual {v0, p0}, Landroid/view/ViewTreeObserver;->removeOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
 
+    .line 161
     iget-object v0, p0, Landroid/app/EnterTransitionCoordinator$2;->this$0:Landroid/app/EnterTransitionCoordinator;
 
     iget-object v1, p0, Landroid/app/EnterTransitionCoordinator$2;->val$sharedElements:Landroid/util/ArrayMap;
 
     invoke-virtual {v0, v1}, Landroid/app/EnterTransitionCoordinator;->viewsReady(Landroid/util/ArrayMap;)V
 
+    .line 162
     const/4 v0, 0x1
 
     return v0

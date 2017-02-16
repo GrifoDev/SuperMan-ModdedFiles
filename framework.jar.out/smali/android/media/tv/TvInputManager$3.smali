@@ -23,7 +23,11 @@
 # direct methods
 .method constructor <init>(Landroid/media/tv/TvInputManager;Landroid/media/tv/TvInputManager$HardwareCallback;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/media/tv/TvInputManager;
+    .param p2, "val$callback"    # Landroid/media/tv/TvInputManager$HardwareCallback;
 
+    .prologue
+    .line 1546
     iput-object p1, p0, Landroid/media/tv/TvInputManager$3;->this$0:Landroid/media/tv/TvInputManager;
 
     iput-object p2, p0, Landroid/media/tv/TvInputManager$3;->val$callback:Landroid/media/tv/TvInputManager$HardwareCallback;
@@ -38,19 +42,26 @@
 .method public onReleased()V
     .locals 1
 
+    .prologue
+    .line 1549
     iget-object v0, p0, Landroid/media/tv/TvInputManager$3;->val$callback:Landroid/media/tv/TvInputManager$HardwareCallback;
 
     invoke-virtual {v0}, Landroid/media/tv/TvInputManager$HardwareCallback;->onReleased()V
 
+    .line 1548
     return-void
 .end method
 
 .method public onStreamConfigChanged([Landroid/media/tv/TvStreamConfig;)V
     .locals 1
+    .param p1, "configs"    # [Landroid/media/tv/TvStreamConfig;
 
+    .prologue
+    .line 1554
     iget-object v0, p0, Landroid/media/tv/TvInputManager$3;->val$callback:Landroid/media/tv/TvInputManager$HardwareCallback;
 
     invoke-virtual {v0, p1}, Landroid/media/tv/TvInputManager$HardwareCallback;->onStreamConfigChanged([Landroid/media/tv/TvStreamConfig;)V
 
+    .line 1553
     return-void
 .end method

@@ -26,12 +26,19 @@
 # direct methods
 .method public constructor <init>(Lcom/samsung/android/widget/SemNumberPicker;Landroid/content/Context;)V
     .locals 0
+    .param p1, "delegator"    # Lcom/samsung/android/widget/SemNumberPicker;
+    .param p2, "context"    # Landroid/content/Context;
 
+    .prologue
+    .line 993
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 994
     iput-object p1, p0, Lcom/samsung/android/widget/SemNumberPicker$AbstractSemNumberPickerDelegate;->mDelegator:Lcom/samsung/android/widget/SemNumberPicker;
 
+    .line 995
     iput-object p2, p0, Lcom/samsung/android/widget/SemNumberPicker$AbstractSemNumberPickerDelegate;->mContext:Landroid/content/Context;
 
+    .line 993
     return-void
 .end method

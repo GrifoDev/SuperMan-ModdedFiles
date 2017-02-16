@@ -21,6 +21,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 75
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -30,7 +32,10 @@
 # virtual methods
 .method public onLoadClass(Ljava/lang/Class;)Z
     .locals 1
+    .param p1, "clazz"    # Ljava/lang/Class;
 
+    .prologue
+    .line 77
     const-class v0, Landroid/widget/RemoteViews$RemoteView;
 
     invoke-virtual {p1, v0}, Ljava/lang/Class;->isAnnotationPresent(Ljava/lang/Class;)Z

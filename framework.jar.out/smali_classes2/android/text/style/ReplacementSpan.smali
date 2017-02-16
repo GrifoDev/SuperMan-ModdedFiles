@@ -7,6 +7,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 26
     invoke-direct {p0}, Landroid/text/style/MetricAffectingSpan;-><init>()V
 
     return-void
@@ -22,12 +24,18 @@
 
 .method public updateDrawState(Landroid/text/TextPaint;)V
     .locals 0
+    .param p1, "ds"    # Landroid/text/TextPaint;
 
+    .prologue
+    .line 73
     return-void
 .end method
 
 .method public updateMeasureState(Landroid/text/TextPaint;)V
     .locals 0
+    .param p1, "p"    # Landroid/text/TextPaint;
 
+    .prologue
+    .line 67
     return-void
 .end method

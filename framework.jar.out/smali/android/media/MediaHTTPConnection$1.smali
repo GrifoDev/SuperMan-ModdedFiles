@@ -28,13 +28,17 @@
 .method constructor <init>()V
     .locals 2
 
+    .prologue
+    .line 110
     invoke-direct {p0}, Ljava/util/HashMap;-><init>()V
 
+    .line 112
     const-string/jumbo v0, "TimeSeekRange.dlna.org"
 
     const-string/jumbo v1, " ="
 
     invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 110
     return-void
 .end method

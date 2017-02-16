@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Landroid/print/PrintServiceRecommendationsLoader;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/print/PrintServiceRecommendationsLoader;
 
+    .prologue
+    .line 73
     iput-object p1, p0, Landroid/print/PrintServiceRecommendationsLoader$1;->this$0:Landroid/print/PrintServiceRecommendationsLoader;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,9 +40,12 @@
 .method public onPrintServiceRecommendationsChanged()V
     .locals 1
 
+    .prologue
+    .line 76
     iget-object v0, p0, Landroid/print/PrintServiceRecommendationsLoader$1;->this$0:Landroid/print/PrintServiceRecommendationsLoader;
 
     invoke-static {v0}, Landroid/print/PrintServiceRecommendationsLoader;->-wrap0(Landroid/print/PrintServiceRecommendationsLoader;)V
 
+    .line 75
     return-void
 .end method

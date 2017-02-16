@@ -28,7 +28,12 @@
 # direct methods
 .method constructor <init>(Landroid/hardware/camera2/dispatch/HandlerDispatcher;Ljava/lang/reflect/Method;[Ljava/lang/Object;)V
     .locals 0
+    .param p2, "val$method"    # Ljava/lang/reflect/Method;
+    .param p3, "val$args"    # [Ljava/lang/Object;
 
+    .prologue
+    .line 61
+    .local p1, "this$0":Landroid/hardware/camera2/dispatch/HandlerDispatcher;, "Landroid/hardware/camera2/dispatch/HandlerDispatcher<TT;>;"
     iput-object p1, p0, Landroid/hardware/camera2/dispatch/HandlerDispatcher$1;->this$0:Landroid/hardware/camera2/dispatch/HandlerDispatcher;
 
     iput-object p2, p0, Landroid/hardware/camera2/dispatch/HandlerDispatcher$1;->val$method:Ljava/lang/reflect/Method;
@@ -45,6 +50,8 @@
 .method public run()V
     .locals 8
 
+    .prologue
+    .line 65
     :try_start_0
     iget-object v5, p0, Landroid/hardware/camera2/dispatch/HandlerDispatcher$1;->this$0:Landroid/hardware/camera2/dispatch/HandlerDispatcher;
 
@@ -63,19 +70,27 @@
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 63
     :goto_0
     return-void
 
+    .line 76
     :catch_0
     move-exception v2
 
+    .line 77
+    .local v2, "e":Ljava/lang/Throwable;
     invoke-static {v2}, Landroid/hardware/camera2/utils/UncheckedThrow;->throwAnyException(Ljava/lang/Throwable;)V
 
     goto :goto_0
 
+    .line 73
+    .end local v2    # "e":Ljava/lang/Throwable;
     :catch_1
     move-exception v1
 
+    .line 75
+    .local v1, "e":Ljava/lang/IllegalArgumentException;
     const-string/jumbo v5, "HandlerDispatcher"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -102,9 +117,13 @@
 
     goto :goto_0
 
+    .line 70
+    .end local v1    # "e":Ljava/lang/IllegalArgumentException;
     :catch_2
     move-exception v0
 
+    .line 72
+    .local v0, "e":Ljava/lang/IllegalAccessException;
     const-string/jumbo v5, "HandlerDispatcher"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -131,13 +150,19 @@
 
     goto :goto_0
 
+    .line 66
+    .end local v0    # "e":Ljava/lang/IllegalAccessException;
     :catch_3
     move-exception v3
 
+    .line 67
+    .local v3, "e":Ljava/lang/reflect/InvocationTargetException;
     invoke-virtual {v3}, Ljava/lang/reflect/InvocationTargetException;->getTargetException()Ljava/lang/Throwable;
 
     move-result-object v4
 
+    .line 69
+    .local v4, "t":Ljava/lang/Throwable;
     invoke-static {v4}, Landroid/hardware/camera2/utils/UncheckedThrow;->throwAnyException(Ljava/lang/Throwable;)V
 
     goto :goto_0

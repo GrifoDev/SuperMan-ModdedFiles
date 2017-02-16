@@ -30,7 +30,13 @@
 # direct methods
 .method constructor <init>(Ljava/util/concurrent/CountDownLatch;[Landroid/graphics/Bitmap;Landroid/view/View;Z)V
     .locals 0
+    .param p1, "val$latch"    # Ljava/util/concurrent/CountDownLatch;
+    .param p2, "val$cache"    # [Landroid/graphics/Bitmap;
+    .param p3, "val$captureView"    # Landroid/view/View;
+    .param p4, "val$skipChildren"    # Z
 
+    .prologue
+    .line 830
     iput-object p1, p0, Landroid/view/ViewDebug$6;->val$latch:Ljava/util/concurrent/CountDownLatch;
 
     iput-object p2, p0, Landroid/view/ViewDebug$6;->val$cache:[Landroid/graphics/Bitmap;
@@ -49,17 +55,21 @@
 .method public run()V
     .locals 6
 
+    .prologue
+    .line 833
     :try_start_0
     iget-object v1, p0, Landroid/view/ViewDebug$6;->val$cache:[Landroid/graphics/Bitmap;
 
     iget-object v2, p0, Landroid/view/ViewDebug$6;->val$captureView:Landroid/view/View;
 
+    .line 834
     sget-object v3, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
     iget-boolean v4, p0, Landroid/view/ViewDebug$6;->val$skipChildren:Z
 
     const/4 v5, 0x0
 
+    .line 833
     invoke-virtual {v2, v3, v5, v4}, Landroid/view/View;->createSnapshot(Landroid/graphics/Bitmap$Config;IZ)Landroid/graphics/Bitmap;
 
     move-result-object v2
@@ -71,16 +81,21 @@
     .catch Ljava/lang/OutOfMemoryError; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 838
     iget-object v1, p0, Landroid/view/ViewDebug$6;->val$latch:Ljava/util/concurrent/CountDownLatch;
 
     invoke-virtual {v1}, Ljava/util/concurrent/CountDownLatch;->countDown()V
 
+    .line 831
     :goto_0
     return-void
 
+    .line 835
     :catch_0
     move-exception v0
 
+    .line 836
+    .local v0, "e":Ljava/lang/OutOfMemoryError;
     :try_start_1
     const-string/jumbo v1, "View"
 
@@ -90,18 +105,23 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    .line 838
     iget-object v1, p0, Landroid/view/ViewDebug$6;->val$latch:Ljava/util/concurrent/CountDownLatch;
 
     invoke-virtual {v1}, Ljava/util/concurrent/CountDownLatch;->countDown()V
 
     goto :goto_0
 
+    .line 837
+    .end local v0    # "e":Ljava/lang/OutOfMemoryError;
     :catchall_0
     move-exception v1
 
+    .line 838
     iget-object v2, p0, Landroid/view/ViewDebug$6;->val$latch:Ljava/util/concurrent/CountDownLatch;
 
     invoke-virtual {v2}, Ljava/util/concurrent/CountDownLatch;->countDown()V
 
+    .line 837
     throw v1
 .end method

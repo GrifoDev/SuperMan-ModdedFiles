@@ -34,7 +34,10 @@
 # direct methods
 .method constructor <init>(Landroid/os/BatteryStats;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/os/BatteryStats;
 
+    .prologue
+    .line 4092
     iput-object p1, p0, Landroid/os/BatteryStats$1;->this$0:Landroid/os/BatteryStats;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,28 +49,40 @@
 # virtual methods
 .method public compare(Landroid/os/BatteryStats$TimerEntry;Landroid/os/BatteryStats$TimerEntry;)I
     .locals 5
+    .param p1, "lhs"    # Landroid/os/BatteryStats$TimerEntry;
+    .param p2, "rhs"    # Landroid/os/BatteryStats$TimerEntry;
 
+    .prologue
+    .line 4095
     iget-wide v0, p1, Landroid/os/BatteryStats$TimerEntry;->mTime:J
 
+    .line 4096
+    .local v0, "lhsTime":J
     iget-wide v2, p2, Landroid/os/BatteryStats$TimerEntry;->mTime:J
 
+    .line 4097
+    .local v2, "rhsTime":J
     cmp-long v4, v0, v2
 
     if-gez v4, :cond_0
 
+    .line 4098
     const/4 v4, 0x1
 
     return v4
 
+    .line 4100
     :cond_0
     cmp-long v4, v0, v2
 
     if-lez v4, :cond_1
 
+    .line 4101
     const/4 v4, -0x1
 
     return v4
 
+    .line 4103
     :cond_1
     const/4 v4, 0x0
 
@@ -76,11 +91,17 @@
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
+    .param p1, "lhs"    # Ljava/lang/Object;
+    .param p2, "rhs"    # Ljava/lang/Object;
 
+    .prologue
+    .line 4094
     check-cast p1, Landroid/os/BatteryStats$TimerEntry;
 
+    .end local p1    # "lhs":Ljava/lang/Object;
     check-cast p2, Landroid/os/BatteryStats$TimerEntry;
 
+    .end local p2    # "rhs":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Landroid/os/BatteryStats$1;->compare(Landroid/os/BatteryStats$TimerEntry;Landroid/os/BatteryStats$TimerEntry;)I
 
     move-result v0

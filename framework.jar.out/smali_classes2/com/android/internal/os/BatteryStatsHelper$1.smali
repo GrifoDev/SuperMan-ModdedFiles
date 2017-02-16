@@ -34,7 +34,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/os/BatteryStatsHelper;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/android/internal/os/BatteryStatsHelper;
 
+    .prologue
+    .line 445
     iput-object p1, p0, Lcom/android/internal/os/BatteryStatsHelper$1;->this$0:Lcom/android/internal/os/BatteryStatsHelper;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,7 +49,11 @@
 # virtual methods
 .method public compare(Lcom/android/internal/os/BatterySipper;Lcom/android/internal/os/BatterySipper;)I
     .locals 4
+    .param p1, "lhs"    # Lcom/android/internal/os/BatterySipper;
+    .param p2, "rhs"    # Lcom/android/internal/os/BatterySipper;
 
+    .prologue
+    .line 448
     iget-wide v0, p2, Lcom/android/internal/os/BatterySipper;->mobilemspp:D
 
     iget-wide v2, p1, Lcom/android/internal/os/BatterySipper;->mobilemspp:D
@@ -60,11 +67,17 @@
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
+    .param p1, "lhs"    # Ljava/lang/Object;
+    .param p2, "rhs"    # Ljava/lang/Object;
 
+    .prologue
+    .line 447
     check-cast p1, Lcom/android/internal/os/BatterySipper;
 
+    .end local p1    # "lhs":Ljava/lang/Object;
     check-cast p2, Lcom/android/internal/os/BatterySipper;
 
+    .end local p2    # "rhs":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Lcom/android/internal/os/BatteryStatsHelper$1;->compare(Lcom/android/internal/os/BatterySipper;Lcom/android/internal/os/BatterySipper;)I
 
     move-result v0

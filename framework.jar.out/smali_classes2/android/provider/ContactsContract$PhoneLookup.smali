@@ -34,32 +34,42 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 5167
     sget-object v0, Landroid/provider/ContactsContract;->AUTHORITY_URI:Landroid/net/Uri;
 
+    .line 5168
     const-string/jumbo v1, "phone_lookup"
 
+    .line 5167
     invoke-static {v0, v1}, Landroid/net/Uri;->withAppendedPath(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v0
 
     sput-object v0, Landroid/provider/ContactsContract$PhoneLookup;->CONTENT_FILTER_URI:Landroid/net/Uri;
 
+    .line 5216
     sget-object v0, Landroid/provider/ContactsContract;->AUTHORITY_URI:Landroid/net/Uri;
 
+    .line 5217
     const-string/jumbo v1, "phone_lookup_enterprise"
 
+    .line 5216
     invoke-static {v0, v1}, Landroid/net/Uri;->withAppendedPath(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v0
 
     sput-object v0, Landroid/provider/ContactsContract$PhoneLookup;->ENTERPRISE_CONTENT_FILTER_URI:Landroid/net/Uri;
 
+    .line 5152
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 5157
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

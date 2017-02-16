@@ -43,6 +43,7 @@
 .method static constructor <clinit>()V
     .locals 8
 
+    .prologue
     const/4 v7, 0x4
 
     const/4 v6, 0x3
@@ -53,6 +54,7 @@
 
     const/4 v3, 0x0
 
+    .line 2530
     new-instance v0, Lcom/android/internal/widget/LockPatternUtils$SEC_PRIVATE_MODE_TYPE;
 
     const-string/jumbo v1, "None"
@@ -61,6 +63,7 @@
 
     sput-object v0, Lcom/android/internal/widget/LockPatternUtils$SEC_PRIVATE_MODE_TYPE;->None:Lcom/android/internal/widget/LockPatternUtils$SEC_PRIVATE_MODE_TYPE;
 
+    .line 2531
     new-instance v0, Lcom/android/internal/widget/LockPatternUtils$SEC_PRIVATE_MODE_TYPE;
 
     const-string/jumbo v1, "Pattern"
@@ -69,6 +72,7 @@
 
     sput-object v0, Lcom/android/internal/widget/LockPatternUtils$SEC_PRIVATE_MODE_TYPE;->Pattern:Lcom/android/internal/widget/LockPatternUtils$SEC_PRIVATE_MODE_TYPE;
 
+    .line 2532
     new-instance v0, Lcom/android/internal/widget/LockPatternUtils$SEC_PRIVATE_MODE_TYPE;
 
     const-string/jumbo v1, "Password"
@@ -77,6 +81,7 @@
 
     sput-object v0, Lcom/android/internal/widget/LockPatternUtils$SEC_PRIVATE_MODE_TYPE;->Password:Lcom/android/internal/widget/LockPatternUtils$SEC_PRIVATE_MODE_TYPE;
 
+    .line 2533
     new-instance v0, Lcom/android/internal/widget/LockPatternUtils$SEC_PRIVATE_MODE_TYPE;
 
     const-string/jumbo v1, "PIN"
@@ -85,6 +90,7 @@
 
     sput-object v0, Lcom/android/internal/widget/LockPatternUtils$SEC_PRIVATE_MODE_TYPE;->PIN:Lcom/android/internal/widget/LockPatternUtils$SEC_PRIVATE_MODE_TYPE;
 
+    .line 2534
     new-instance v0, Lcom/android/internal/widget/LockPatternUtils$SEC_PRIVATE_MODE_TYPE;
 
     const-string/jumbo v1, "BackupPin"
@@ -93,6 +99,7 @@
 
     sput-object v0, Lcom/android/internal/widget/LockPatternUtils$SEC_PRIVATE_MODE_TYPE;->BackupPin:Lcom/android/internal/widget/LockPatternUtils$SEC_PRIVATE_MODE_TYPE;
 
+    .line 2535
     new-instance v0, Lcom/android/internal/widget/LockPatternUtils$SEC_PRIVATE_MODE_TYPE;
 
     const-string/jumbo v1, "FingerPrint"
@@ -103,6 +110,7 @@
 
     sput-object v0, Lcom/android/internal/widget/LockPatternUtils$SEC_PRIVATE_MODE_TYPE;->FingerPrint:Lcom/android/internal/widget/LockPatternUtils$SEC_PRIVATE_MODE_TYPE;
 
+    .line 2529
     const/4 v0, 0x6
 
     new-array v0, v0, [Lcom/android/internal/widget/LockPatternUtils$SEC_PRIVATE_MODE_TYPE;
@@ -141,6 +149,8 @@
 .method private constructor <init>(Ljava/lang/String;I)V
     .locals 0
 
+    .prologue
+    .line 2529
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -148,7 +158,10 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/android/internal/widget/LockPatternUtils$SEC_PRIVATE_MODE_TYPE;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 2529
     const-class v0, Lcom/android/internal/widget/LockPatternUtils$SEC_PRIVATE_MODE_TYPE;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -163,6 +176,8 @@
 .method public static values()[Lcom/android/internal/widget/LockPatternUtils$SEC_PRIVATE_MODE_TYPE;
     .locals 1
 
+    .prologue
+    .line 2529
     sget-object v0, Lcom/android/internal/widget/LockPatternUtils$SEC_PRIVATE_MODE_TYPE;->$VALUES:[Lcom/android/internal/widget/LockPatternUtils$SEC_PRIVATE_MODE_TYPE;
 
     return-object v0

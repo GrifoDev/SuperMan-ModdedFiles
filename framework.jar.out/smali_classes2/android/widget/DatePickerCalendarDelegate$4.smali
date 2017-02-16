@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Landroid/widget/DatePickerCalendarDelegate;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/widget/DatePickerCalendarDelegate;
 
+    .prologue
+    .line 353
     iput-object p1, p0, Landroid/widget/DatePickerCalendarDelegate$4;->this$0:Landroid/widget/DatePickerCalendarDelegate;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +40,8 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 356
     iget-object v1, p0, Landroid/widget/DatePickerCalendarDelegate$4;->this$0:Landroid/widget/DatePickerCalendarDelegate;
 
     invoke-static {v1}, Landroid/widget/DatePickerCalendarDelegate;->-get2(Landroid/widget/DatePickerCalendarDelegate;)Landroid/widget/YearPickerView;
@@ -45,6 +50,7 @@
 
     invoke-virtual {v1}, Landroid/view/View;->requestFocus()Z
 
+    .line 357
     iget-object v1, p0, Landroid/widget/DatePickerCalendarDelegate$4;->this$0:Landroid/widget/DatePickerCalendarDelegate;
 
     invoke-static {v1}, Landroid/widget/DatePickerCalendarDelegate;->-get2(Landroid/widget/DatePickerCalendarDelegate;)Landroid/widget/YearPickerView;
@@ -55,10 +61,14 @@
 
     move-result-object v0
 
+    .line 358
+    .local v0, "selected":Landroid/view/View;
     if-eqz v0, :cond_0
 
+    .line 359
     invoke-virtual {v0}, Landroid/view/View;->requestFocus()Z
 
+    .line 355
     :cond_0
     return-void
 .end method

@@ -21,7 +21,11 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;Landroid/content/Context;)V
     .locals 0
+    .param p1, "this$1"    # Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
+    .param p2, "$anonymous0"    # Landroid/content/Context;
 
+    .prologue
+    .line 1759
     iput-object p1, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$19;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
     invoke-direct {p0, p2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
@@ -33,7 +37,10 @@
 # virtual methods
 .method public onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 1
+    .param p1, "ev"    # Landroid/view/MotionEvent;
 
+    .prologue
+    .line 1775
     iget-object v0, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$19;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
     invoke-static {v0}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->-wrap1(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;)Z
@@ -45,7 +52,11 @@
 
 .method protected onMeasure(II)V
     .locals 2
+    .param p1, "widthMeasureSpec"    # I
+    .param p2, "heightMeasureSpec"    # I
 
+    .prologue
+    .line 1762
     iget-object v0, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$19;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
     invoke-static {v0}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->-wrap1(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;)Z
@@ -54,6 +65,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 1766
     iget-object v0, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$19;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
     invoke-static {v0}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->-get8(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;)Landroid/util/Size;
@@ -64,14 +76,18 @@
 
     move-result v0
 
+    .line 1767
     const/high16 v1, 0x40000000    # 2.0f
 
+    .line 1765
     invoke-static {v0, v1}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
 
     move-result p1
 
+    .line 1769
     :cond_0
     invoke-super {p0, p1, p2}, Landroid/widget/LinearLayout;->onMeasure(II)V
 
+    .line 1761
     return-void
 .end method

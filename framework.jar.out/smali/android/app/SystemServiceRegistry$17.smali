@@ -27,6 +27,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 404
     invoke-direct {p0}, Landroid/app/SystemServiceRegistry$StaticServiceFetcher;-><init>()V
 
     return-void
@@ -37,6 +39,8 @@
 .method public createService()Landroid/os/BatteryManager;
     .locals 1
 
+    .prologue
+    .line 407
     new-instance v0, Landroid/os/BatteryManager;
 
     invoke-direct {v0}, Landroid/os/BatteryManager;-><init>()V
@@ -47,6 +51,8 @@
 .method public bridge synthetic createService()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 406
     invoke-virtual {p0}, Landroid/app/SystemServiceRegistry$17;->createService()Landroid/os/BatteryManager;
 
     move-result-object v0

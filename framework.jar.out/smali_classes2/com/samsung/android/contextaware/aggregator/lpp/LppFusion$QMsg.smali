@@ -57,6 +57,7 @@
 .method static constructor <clinit>()V
     .locals 9
 
+    .prologue
     const/4 v8, 0x4
 
     const/4 v7, 0x3
@@ -67,6 +68,7 @@
 
     const/4 v4, 0x0
 
+    .line 77
     new-instance v0, Lcom/samsung/android/contextaware/aggregator/lpp/LppFusion$QMsg;
 
     const-string/jumbo v1, "QMSG_APDR_NOTI"
@@ -77,6 +79,7 @@
 
     sput-object v0, Lcom/samsung/android/contextaware/aggregator/lpp/LppFusion$QMsg;->QMSG_APDR_NOTI:Lcom/samsung/android/contextaware/aggregator/lpp/LppFusion$QMsg;
 
+    .line 78
     new-instance v0, Lcom/samsung/android/contextaware/aggregator/lpp/LppFusion$QMsg;
 
     const-string/jumbo v1, "QMSG_LPPA_PAUSE"
@@ -87,6 +90,7 @@
 
     sput-object v0, Lcom/samsung/android/contextaware/aggregator/lpp/LppFusion$QMsg;->QMSG_LPPA_PAUSE:Lcom/samsung/android/contextaware/aggregator/lpp/LppFusion$QMsg;
 
+    .line 79
     new-instance v0, Lcom/samsung/android/contextaware/aggregator/lpp/LppFusion$QMsg;
 
     const-string/jumbo v1, "QMSG_LPPA_RESUME"
@@ -97,6 +101,7 @@
 
     sput-object v0, Lcom/samsung/android/contextaware/aggregator/lpp/LppFusion$QMsg;->QMSG_LPPA_RESUME:Lcom/samsung/android/contextaware/aggregator/lpp/LppFusion$QMsg;
 
+    .line 80
     new-instance v0, Lcom/samsung/android/contextaware/aggregator/lpp/LppFusion$QMsg;
 
     const-string/jumbo v1, "QMSG_LPPA_STOP"
@@ -107,6 +112,7 @@
 
     sput-object v0, Lcom/samsung/android/contextaware/aggregator/lpp/LppFusion$QMsg;->QMSG_LPPA_STOP:Lcom/samsung/android/contextaware/aggregator/lpp/LppFusion$QMsg;
 
+    .line 81
     new-instance v0, Lcom/samsung/android/contextaware/aggregator/lpp/LppFusion$QMsg;
 
     const-string/jumbo v1, "QMSG_SLEEP"
@@ -117,6 +123,7 @@
 
     sput-object v0, Lcom/samsung/android/contextaware/aggregator/lpp/LppFusion$QMsg;->QMSG_SLEEP:Lcom/samsung/android/contextaware/aggregator/lpp/LppFusion$QMsg;
 
+    .line 82
     new-instance v0, Lcom/samsung/android/contextaware/aggregator/lpp/LppFusion$QMsg;
 
     const-string/jumbo v1, "QMSG_APDR_DATA_RXED"
@@ -129,6 +136,7 @@
 
     sput-object v0, Lcom/samsung/android/contextaware/aggregator/lpp/LppFusion$QMsg;->QMSG_APDR_DATA_RXED:Lcom/samsung/android/contextaware/aggregator/lpp/LppFusion$QMsg;
 
+    .line 83
     new-instance v0, Lcom/samsung/android/contextaware/aggregator/lpp/LppFusion$QMsg;
 
     const-string/jumbo v1, "QMSG_LOCATION_LIST_RXED"
@@ -141,6 +149,7 @@
 
     sput-object v0, Lcom/samsung/android/contextaware/aggregator/lpp/LppFusion$QMsg;->QMSG_LOCATION_LIST_RXED:Lcom/samsung/android/contextaware/aggregator/lpp/LppFusion$QMsg;
 
+    .line 84
     new-instance v0, Lcom/samsung/android/contextaware/aggregator/lpp/LppFusion$QMsg;
 
     const-string/jumbo v1, "QMSG_BATCH_LOC_LIST_RXED"
@@ -153,6 +162,7 @@
 
     sput-object v0, Lcom/samsung/android/contextaware/aggregator/lpp/LppFusion$QMsg;->QMSG_BATCH_LOC_LIST_RXED:Lcom/samsung/android/contextaware/aggregator/lpp/LppFusion$QMsg;
 
+    .line 85
     new-instance v0, Lcom/samsung/android/contextaware/aggregator/lpp/LppFusion$QMsg;
 
     const-string/jumbo v1, "QMSG_BATCH_LOC_RXED"
@@ -165,6 +175,7 @@
 
     sput-object v0, Lcom/samsung/android/contextaware/aggregator/lpp/LppFusion$QMsg;->QMSG_BATCH_LOC_RXED:Lcom/samsung/android/contextaware/aggregator/lpp/LppFusion$QMsg;
 
+    .line 86
     new-instance v0, Lcom/samsung/android/contextaware/aggregator/lpp/LppFusion$QMsg;
 
     const-string/jumbo v1, "QMSG_PASS_LOC_RXED"
@@ -177,6 +188,7 @@
 
     sput-object v0, Lcom/samsung/android/contextaware/aggregator/lpp/LppFusion$QMsg;->QMSG_PASS_LOC_RXED:Lcom/samsung/android/contextaware/aggregator/lpp/LppFusion$QMsg;
 
+    .line 87
     new-instance v0, Lcom/samsung/android/contextaware/aggregator/lpp/LppFusion$QMsg;
 
     const-string/jumbo v1, "QMSG_PASS_LOC_BATCH_RXED"
@@ -189,6 +201,7 @@
 
     sput-object v0, Lcom/samsung/android/contextaware/aggregator/lpp/LppFusion$QMsg;->QMSG_PASS_LOC_BATCH_RXED:Lcom/samsung/android/contextaware/aggregator/lpp/LppFusion$QMsg;
 
+    .line 76
     const/16 v0, 0xb
 
     new-array v0, v0, [Lcom/samsung/android/contextaware/aggregator/lpp/LppFusion$QMsg;
@@ -256,17 +269,25 @@
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
+    .param p3, "val"    # I
 
+    .prologue
+    .line 92
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
+    .line 93
     iput p3, p0, Lcom/samsung/android/contextaware/aggregator/lpp/LppFusion$QMsg;->value:I
 
+    .line 92
     return-void
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/samsung/android/contextaware/aggregator/lpp/LppFusion$QMsg;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 76
     const-class v0, Lcom/samsung/android/contextaware/aggregator/lpp/LppFusion$QMsg;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -281,6 +302,8 @@
 .method public static values()[Lcom/samsung/android/contextaware/aggregator/lpp/LppFusion$QMsg;
     .locals 1
 
+    .prologue
+    .line 76
     sget-object v0, Lcom/samsung/android/contextaware/aggregator/lpp/LppFusion$QMsg;->$VALUES:[Lcom/samsung/android/contextaware/aggregator/lpp/LppFusion$QMsg;
 
     return-object v0

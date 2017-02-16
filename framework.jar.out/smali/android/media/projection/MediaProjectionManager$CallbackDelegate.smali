@@ -31,20 +31,31 @@
 
 .method public constructor <init>(Landroid/media/projection/MediaProjectionManager$Callback;Landroid/os/Handler;)V
     .locals 0
+    .param p1, "callback"    # Landroid/media/projection/MediaProjectionManager$Callback;
+    .param p2, "handler"    # Landroid/os/Handler;
 
+    .prologue
+    .line 241
     invoke-direct {p0}, Landroid/media/projection/IMediaProjectionWatcherCallback$Stub;-><init>()V
 
+    .line 242
     iput-object p1, p0, Landroid/media/projection/MediaProjectionManager$CallbackDelegate;->mCallback:Landroid/media/projection/MediaProjectionManager$Callback;
 
+    .line 243
     if-nez p2, :cond_0
 
+    .line 244
     new-instance p2, Landroid/os/Handler;
 
+    .end local p2    # "handler":Landroid/os/Handler;
     invoke-direct {p2}, Landroid/os/Handler;-><init>()V
 
+    .line 246
+    .restart local p2    # "handler":Landroid/os/Handler;
     :cond_0
     iput-object p2, p0, Landroid/media/projection/MediaProjectionManager$CallbackDelegate;->mHandler:Landroid/os/Handler;
 
+    .line 241
     return-void
 .end method
 
@@ -52,7 +63,10 @@
 # virtual methods
 .method public onStart(Landroid/media/projection/MediaProjectionInfo;)V
     .locals 2
+    .param p1, "info"    # Landroid/media/projection/MediaProjectionInfo;
 
+    .prologue
+    .line 251
     iget-object v0, p0, Landroid/media/projection/MediaProjectionManager$CallbackDelegate;->mHandler:Landroid/os/Handler;
 
     new-instance v1, Landroid/media/projection/MediaProjectionManager$CallbackDelegate$1;
@@ -61,12 +75,16 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
+    .line 250
     return-void
 .end method
 
 .method public onStop(Landroid/media/projection/MediaProjectionInfo;)V
     .locals 2
+    .param p1, "info"    # Landroid/media/projection/MediaProjectionInfo;
 
+    .prologue
+    .line 261
     iget-object v0, p0, Landroid/media/projection/MediaProjectionManager$CallbackDelegate;->mHandler:Landroid/os/Handler;
 
     new-instance v1, Landroid/media/projection/MediaProjectionManager$CallbackDelegate$2;
@@ -75,5 +93,6 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
+    .line 260
     return-void
 .end method

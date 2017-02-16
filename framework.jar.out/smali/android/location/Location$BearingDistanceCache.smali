@@ -146,32 +146,43 @@
 .method private constructor <init>()V
     .locals 3
 
+    .prologue
     const/4 v2, 0x0
 
     const-wide/16 v0, 0x0
 
+    .line 984
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 985
     iput-wide v0, p0, Landroid/location/Location$BearingDistanceCache;->mLat1:D
 
+    .line 986
     iput-wide v0, p0, Landroid/location/Location$BearingDistanceCache;->mLon1:D
 
+    .line 987
     iput-wide v0, p0, Landroid/location/Location$BearingDistanceCache;->mLat2:D
 
+    .line 988
     iput-wide v0, p0, Landroid/location/Location$BearingDistanceCache;->mLon2:D
 
+    .line 989
     iput v2, p0, Landroid/location/Location$BearingDistanceCache;->mDistance:F
 
+    .line 990
     iput v2, p0, Landroid/location/Location$BearingDistanceCache;->mInitialBearing:F
 
+    .line 991
     iput v2, p0, Landroid/location/Location$BearingDistanceCache;->mFinalBearing:F
 
+    .line 984
     return-void
 .end method
 
 .method synthetic constructor <init>(Landroid/location/Location$BearingDistanceCache;)V
     .locals 0
 
+    .prologue
     invoke-direct {p0}, Landroid/location/Location$BearingDistanceCache;-><init>()V
 
     return-void

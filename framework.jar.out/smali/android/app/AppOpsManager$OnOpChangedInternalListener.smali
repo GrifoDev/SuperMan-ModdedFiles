@@ -21,6 +21,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 1291
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -30,12 +32,20 @@
 # virtual methods
 .method public onOpChanged(ILjava/lang/String;)V
     .locals 0
+    .param p1, "op"    # I
+    .param p2, "packageName"    # Ljava/lang/String;
 
+    .prologue
+    .line 1293
     return-void
 .end method
 
 .method public onOpChanged(Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
+    .param p1, "op"    # Ljava/lang/String;
+    .param p2, "packageName"    # Ljava/lang/String;
 
+    .prologue
+    .line 1292
     return-void
 .end method

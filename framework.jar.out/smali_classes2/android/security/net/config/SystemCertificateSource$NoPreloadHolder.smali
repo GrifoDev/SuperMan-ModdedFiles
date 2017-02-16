@@ -30,6 +30,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 29
     new-instance v0, Landroid/security/net/config/SystemCertificateSource;
 
     const/4 v1, 0x0
@@ -38,12 +40,15 @@
 
     sput-object v0, Landroid/security/net/config/SystemCertificateSource$NoPreloadHolder;->INSTANCE:Landroid/security/net/config/SystemCertificateSource;
 
+    .line 28
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

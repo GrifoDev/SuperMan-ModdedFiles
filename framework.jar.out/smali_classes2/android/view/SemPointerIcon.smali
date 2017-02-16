@@ -41,6 +41,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 33
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -48,22 +50,31 @@
 
 .method public static setIcon(II)V
     .locals 0
+    .param p0, "deviceType"    # I
+    .param p1, "iconType"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 120
     return-void
 .end method
 
 .method public static setIcon(ILandroid/graphics/drawable/Drawable;Landroid/graphics/Point;)V
     .locals 0
+    .param p0, "deviceType"    # I
+    .param p1, "customIcon"    # Landroid/graphics/drawable/Drawable;
+    .param p2, "hotSpotPoint"    # Landroid/graphics/Point;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 134
     return-void
 .end method

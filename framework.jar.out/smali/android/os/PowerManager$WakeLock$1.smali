@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Landroid/os/PowerManager$WakeLock;)V
     .locals 0
+    .param p1, "this$1"    # Landroid/os/PowerManager$WakeLock;
 
+    .prologue
+    .line 1813
     iput-object p1, p0, Landroid/os/PowerManager$WakeLock$1;->this$1:Landroid/os/PowerManager$WakeLock;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,9 +40,12 @@
 .method public run()V
     .locals 1
 
+    .prologue
+    .line 1815
     iget-object v0, p0, Landroid/os/PowerManager$WakeLock$1;->this$1:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
 
+    .line 1814
     return-void
 .end method

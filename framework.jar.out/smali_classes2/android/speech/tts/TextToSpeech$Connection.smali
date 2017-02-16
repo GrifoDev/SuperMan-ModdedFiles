@@ -79,23 +79,30 @@
 
 .method private constructor <init>(Landroid/speech/tts/TextToSpeech;)V
     .locals 1
+    .param p1, "this$0"    # Landroid/speech/tts/TextToSpeech;
 
+    .prologue
+    .line 2099
     iput-object p1, p0, Landroid/speech/tts/TextToSpeech$Connection;->this$0:Landroid/speech/tts/TextToSpeech;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 2106
     new-instance v0, Landroid/speech/tts/TextToSpeech$Connection$1;
 
     invoke-direct {v0, p0}, Landroid/speech/tts/TextToSpeech$Connection$1;-><init>(Landroid/speech/tts/TextToSpeech$Connection;)V
 
     iput-object v0, p0, Landroid/speech/tts/TextToSpeech$Connection;->mCallback:Landroid/speech/tts/ITextToSpeechCallback$Stub;
 
+    .line 2099
     return-void
 .end method
 
 .method synthetic constructor <init>(Landroid/speech/tts/TextToSpeech;Landroid/speech/tts/TextToSpeech$Connection;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/speech/tts/TextToSpeech;
 
+    .prologue
     invoke-direct {p0, p1}, Landroid/speech/tts/TextToSpeech$Connection;-><init>(Landroid/speech/tts/TextToSpeech;)V
 
     return-void
@@ -104,6 +111,8 @@
 .method private clearServiceConnection()Z
     .locals 4
 
+    .prologue
+    .line 2236
     iget-object v1, p0, Landroid/speech/tts/TextToSpeech$Connection;->this$0:Landroid/speech/tts/TextToSpeech;
 
     invoke-static {v1}, Landroid/speech/tts/TextToSpeech;->-get4(Landroid/speech/tts/TextToSpeech;)Ljava/lang/Object;
@@ -112,13 +121,17 @@
 
     monitor-enter v2
 
+    .line 2237
     const/4 v0, 0x0
 
+    .line 2238
+    .local v0, "result":Z
     :try_start_0
     iget-object v1, p0, Landroid/speech/tts/TextToSpeech$Connection;->mOnSetupConnectionAsyncTask:Landroid/speech/tts/TextToSpeech$Connection$SetupConnectionAsyncTask;
 
     if-eqz v1, :cond_0
 
+    .line 2239
     iget-object v1, p0, Landroid/speech/tts/TextToSpeech$Connection;->mOnSetupConnectionAsyncTask:Landroid/speech/tts/TextToSpeech$Connection$SetupConnectionAsyncTask;
 
     const/4 v3, 0x0
@@ -127,15 +140,20 @@
 
     move-result v0
 
+    .line 2240
+    .local v0, "result":Z
     const/4 v1, 0x0
 
     iput-object v1, p0, Landroid/speech/tts/TextToSpeech$Connection;->mOnSetupConnectionAsyncTask:Landroid/speech/tts/TextToSpeech$Connection$SetupConnectionAsyncTask;
 
+    .line 2243
+    .end local v0    # "result":Z
     :cond_0
     const/4 v1, 0x0
 
     iput-object v1, p0, Landroid/speech/tts/TextToSpeech$Connection;->mService:Landroid/speech/tts/ITextToSpeechService;
 
+    .line 2245
     iget-object v1, p0, Landroid/speech/tts/TextToSpeech$Connection;->this$0:Landroid/speech/tts/TextToSpeech;
 
     invoke-static {v1}, Landroid/speech/tts/TextToSpeech;->-get3(Landroid/speech/tts/TextToSpeech;)Landroid/speech/tts/TextToSpeech$Connection;
@@ -144,6 +162,7 @@
 
     if-ne v1, p0, :cond_1
 
+    .line 2246
     iget-object v1, p0, Landroid/speech/tts/TextToSpeech$Connection;->this$0:Landroid/speech/tts/TextToSpeech;
 
     const/4 v3, 0x0
@@ -155,8 +174,10 @@
     :cond_1
     monitor-exit v2
 
+    .line 2248
     return v0
 
+    .line 2236
     :catchall_0
     move-exception v1
 
@@ -170,6 +191,8 @@
 .method public disconnect()V
     .locals 1
 
+    .prologue
+    .line 2267
     iget-object v0, p0, Landroid/speech/tts/TextToSpeech$Connection;->this$0:Landroid/speech/tts/TextToSpeech;
 
     invoke-static {v0}, Landroid/speech/tts/TextToSpeech;->-get0(Landroid/speech/tts/TextToSpeech;)Landroid/content/Context;
@@ -178,14 +201,18 @@
 
     invoke-virtual {v0, p0}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
 
+    .line 2268
     invoke-direct {p0}, Landroid/speech/tts/TextToSpeech$Connection;->clearServiceConnection()Z
 
+    .line 2266
     return-void
 .end method
 
 .method public getCallerIdentity()Landroid/os/IBinder;
     .locals 1
 
+    .prologue
+    .line 2227
     iget-object v0, p0, Landroid/speech/tts/TextToSpeech$Connection;->mCallback:Landroid/speech/tts/ITextToSpeechCallback$Stub;
 
     return-object v0
@@ -194,6 +221,8 @@
 .method public isEstablished()Z
     .locals 1
 
+    .prologue
+    .line 2272
     iget-object v0, p0, Landroid/speech/tts/TextToSpeech$Connection;->mService:Landroid/speech/tts/ITextToSpeechService;
 
     if-eqz v0, :cond_0
@@ -211,7 +240,11 @@
 
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
     .locals 4
+    .param p1, "name"    # Landroid/content/ComponentName;
+    .param p2, "service"    # Landroid/os/IBinder;
 
+    .prologue
+    .line 2208
     iget-object v0, p0, Landroid/speech/tts/TextToSpeech$Connection;->this$0:Landroid/speech/tts/TextToSpeech;
 
     invoke-static {v0}, Landroid/speech/tts/TextToSpeech;->-get4(Landroid/speech/tts/TextToSpeech;)Ljava/lang/Object;
@@ -220,6 +253,7 @@
 
     monitor-enter v1
 
+    .line 2209
     :try_start_0
     iget-object v0, p0, Landroid/speech/tts/TextToSpeech$Connection;->this$0:Landroid/speech/tts/TextToSpeech;
 
@@ -227,6 +261,7 @@
 
     invoke-static {v0, v2}, Landroid/speech/tts/TextToSpeech;->-set0(Landroid/speech/tts/TextToSpeech;Landroid/speech/tts/TextToSpeech$Connection;)Landroid/speech/tts/TextToSpeech$Connection;
 
+    .line 2211
     const-string/jumbo v0, "TextToSpeech"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -249,16 +284,19 @@
 
     invoke-static {v0, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2213
     iget-object v0, p0, Landroid/speech/tts/TextToSpeech$Connection;->mOnSetupConnectionAsyncTask:Landroid/speech/tts/TextToSpeech$Connection$SetupConnectionAsyncTask;
 
     if-eqz v0, :cond_0
 
+    .line 2214
     iget-object v0, p0, Landroid/speech/tts/TextToSpeech$Connection;->mOnSetupConnectionAsyncTask:Landroid/speech/tts/TextToSpeech$Connection$SetupConnectionAsyncTask;
 
     const/4 v2, 0x0
 
     invoke-virtual {v0, v2}, Landroid/speech/tts/TextToSpeech$Connection$SetupConnectionAsyncTask;->cancel(Z)Z
 
+    .line 2217
     :cond_0
     invoke-static {p2}, Landroid/speech/tts/ITextToSpeechService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/speech/tts/ITextToSpeechService;
 
@@ -266,20 +304,24 @@
 
     iput-object v0, p0, Landroid/speech/tts/TextToSpeech$Connection;->mService:Landroid/speech/tts/ITextToSpeechService;
 
+    .line 2218
     iget-object v0, p0, Landroid/speech/tts/TextToSpeech$Connection;->this$0:Landroid/speech/tts/TextToSpeech;
 
     invoke-static {v0, p0}, Landroid/speech/tts/TextToSpeech;->-set2(Landroid/speech/tts/TextToSpeech;Landroid/speech/tts/TextToSpeech$Connection;)Landroid/speech/tts/TextToSpeech$Connection;
 
+    .line 2220
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/speech/tts/TextToSpeech$Connection;->mEstablished:Z
 
+    .line 2221
     new-instance v0, Landroid/speech/tts/TextToSpeech$Connection$SetupConnectionAsyncTask;
 
     invoke-direct {v0, p0, p1}, Landroid/speech/tts/TextToSpeech$Connection$SetupConnectionAsyncTask;-><init>(Landroid/speech/tts/TextToSpeech$Connection;Landroid/content/ComponentName;)V
 
     iput-object v0, p0, Landroid/speech/tts/TextToSpeech$Connection;->mOnSetupConnectionAsyncTask:Landroid/speech/tts/TextToSpeech$Connection$SetupConnectionAsyncTask;
 
+    .line 2222
     iget-object v0, p0, Landroid/speech/tts/TextToSpeech$Connection;->mOnSetupConnectionAsyncTask:Landroid/speech/tts/TextToSpeech$Connection$SetupConnectionAsyncTask;
 
     const/4 v2, 0x0
@@ -292,8 +334,10 @@
 
     monitor-exit v1
 
+    .line 2207
     return-void
 
+    .line 2208
     :catchall_0
     move-exception v0
 
@@ -304,7 +348,10 @@
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
     .locals 3
+    .param p1, "name"    # Landroid/content/ComponentName;
 
+    .prologue
+    .line 2254
     const-string/jumbo v0, "TextToSpeech"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -327,24 +374,30 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2255
     invoke-direct {p0}, Landroid/speech/tts/TextToSpeech$Connection;->clearServiceConnection()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
+    .line 2262
     iget-object v0, p0, Landroid/speech/tts/TextToSpeech$Connection;->this$0:Landroid/speech/tts/TextToSpeech;
 
     const/4 v1, -0x1
 
     invoke-static {v0, v1}, Landroid/speech/tts/TextToSpeech;->-wrap4(Landroid/speech/tts/TextToSpeech;I)V
 
+    .line 2253
     :cond_0
     return-void
 .end method
 
 .method public runAction(Landroid/speech/tts/TextToSpeech$Action;Ljava/lang/Object;Ljava/lang/String;ZZ)Ljava/lang/Object;
     .locals 5
+    .param p3, "method"    # Ljava/lang/String;
+    .param p4, "reconnect"    # Z
+    .param p5, "onlyEstablishedConnection"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -357,6 +410,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 2277
+    .local p1, "action":Landroid/speech/tts/TextToSpeech$Action;, "Landroid/speech/tts/TextToSpeech$Action<TR;>;"
+    .local p2, "errorResult":Ljava/lang/Object;, "TR;"
     iget-object v1, p0, Landroid/speech/tts/TextToSpeech$Connection;->this$0:Landroid/speech/tts/TextToSpeech;
 
     invoke-static {v1}, Landroid/speech/tts/TextToSpeech;->-get4(Landroid/speech/tts/TextToSpeech;)Ljava/lang/Object;
@@ -365,11 +422,13 @@
 
     monitor-enter v2
 
+    .line 2279
     :try_start_0
     iget-object v1, p0, Landroid/speech/tts/TextToSpeech$Connection;->mService:Landroid/speech/tts/ITextToSpeechService;
 
     if-nez v1, :cond_0
 
+    .line 2280
     const-string/jumbo v1, "TextToSpeech"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -397,8 +456,10 @@
 
     monitor-exit v2
 
+    .line 2281
     return-object p2
 
+    .line 2283
     :cond_0
     if-eqz p5, :cond_1
 
@@ -409,6 +470,7 @@
 
     if-eqz v1, :cond_2
 
+    .line 2287
     :cond_1
     iget-object v1, p0, Landroid/speech/tts/TextToSpeech$Connection;->mService:Landroid/speech/tts/ITextToSpeechService;
 
@@ -423,6 +485,7 @@
 
     return-object v1
 
+    .line 2284
     :cond_2
     :try_start_2
     const-string/jumbo v1, "TextToSpeech"
@@ -452,11 +515,15 @@
 
     monitor-exit v2
 
+    .line 2285
     return-object p2
 
+    .line 2288
     :catch_0
     move-exception v0
 
+    .line 2289
+    .local v0, "ex":Landroid/os/RemoteException;
     :try_start_3
     const-string/jumbo v1, "TextToSpeech"
 
@@ -480,10 +547,13 @@
 
     invoke-static {v1, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
+    .line 2290
     if-eqz p4, :cond_3
 
+    .line 2291
     invoke-virtual {p0}, Landroid/speech/tts/TextToSpeech$Connection;->disconnect()V
 
+    .line 2292
     iget-object v1, p0, Landroid/speech/tts/TextToSpeech$Connection;->this$0:Landroid/speech/tts/TextToSpeech;
 
     invoke-static {v1}, Landroid/speech/tts/TextToSpeech;->-wrap3(Landroid/speech/tts/TextToSpeech;)I
@@ -493,8 +563,11 @@
     :cond_3
     monitor-exit v2
 
+    .line 2294
     return-object p2
 
+    .line 2277
+    .end local v0    # "ex":Landroid/os/RemoteException;
     :catchall_0
     move-exception v1
 

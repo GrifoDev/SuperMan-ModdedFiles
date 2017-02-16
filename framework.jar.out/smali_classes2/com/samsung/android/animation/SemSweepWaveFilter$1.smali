@@ -26,7 +26,11 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/animation/SemSweepWaveFilter;I)V
     .locals 0
+    .param p1, "this$0"    # Lcom/samsung/android/animation/SemSweepWaveFilter;
+    .param p2, "val$position"    # I
 
+    .prologue
+    .line 382
     iput-object p1, p0, Lcom/samsung/android/animation/SemSweepWaveFilter$1;->this$0:Lcom/samsung/android/animation/SemSweepWaveFilter;
 
     iput p2, p0, Lcom/samsung/android/animation/SemSweepWaveFilter$1;->val$position:I
@@ -40,13 +44,18 @@
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
     .locals 5
+    .param p1, "animation"    # Landroid/animation/ValueAnimator;
 
+    .prologue
     const/high16 v4, 0x40000000    # 2.0f
 
+    .line 386
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedFraction()F
 
     move-result v0
 
+    .line 388
+    .local v0, "fraction":F
     iget-object v1, p0, Lcom/samsung/android/animation/SemSweepWaveFilter$1;->this$0:Lcom/samsung/android/animation/SemSweepWaveFilter;
 
     iget-object v2, p0, Lcom/samsung/android/animation/SemSweepWaveFilter$1;->this$0:Lcom/samsung/android/animation/SemSweepWaveFilter;
@@ -61,6 +70,7 @@
 
     invoke-static {v1, v2}, Lcom/samsung/android/animation/SemSweepWaveFilter;->-set0(Lcom/samsung/android/animation/SemSweepWaveFilter;F)F
 
+    .line 389
     iget-object v1, p0, Lcom/samsung/android/animation/SemSweepWaveFilter$1;->this$0:Lcom/samsung/android/animation/SemSweepWaveFilter;
 
     neg-float v2, v0
@@ -77,6 +87,7 @@
 
     invoke-static {v1, v2}, Lcom/samsung/android/animation/SemSweepWaveFilter;->-set1(Lcom/samsung/android/animation/SemSweepWaveFilter;F)F
 
+    .line 395
     iget-object v1, p0, Lcom/samsung/android/animation/SemSweepWaveFilter$1;->this$0:Lcom/samsung/android/animation/SemSweepWaveFilter;
 
     iget-object v2, p0, Lcom/samsung/android/animation/SemSweepWaveFilter$1;->this$0:Lcom/samsung/android/animation/SemSweepWaveFilter;
@@ -95,5 +106,6 @@
 
     invoke-static {v1, v2, v3, v4}, Lcom/samsung/android/animation/SemSweepWaveFilter;->-wrap0(Lcom/samsung/android/animation/SemSweepWaveFilter;Landroid/view/View;FI)V
 
+    .line 385
     return-void
 .end method

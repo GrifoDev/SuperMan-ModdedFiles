@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/content/clipboard/SemClipboardManager$IClipboardDataPasteEventImpl;)V
     .locals 0
+    .param p1, "this$1"    # Lcom/samsung/android/content/clipboard/SemClipboardManager$IClipboardDataPasteEventImpl;
 
+    .prologue
+    .line 308
     iput-object p1, p0, Lcom/samsung/android/content/clipboard/SemClipboardManager$IClipboardDataPasteEventImpl$1;->this$1:Lcom/samsung/android/content/clipboard/SemClipboardManager$IClipboardDataPasteEventImpl;
 
     invoke-direct {p0}, Landroid/sec/clipboard/IClipboardDataPasteEvent$Stub;-><init>()V
@@ -33,10 +36,14 @@
 # virtual methods
 .method public onPaste(Lcom/samsung/android/content/clipboard/data/SemClipData;)V
     .locals 1
+    .param p1, "data"    # Lcom/samsung/android/content/clipboard/data/SemClipData;
 
+    .prologue
+    .line 311
     iget-object v0, p0, Lcom/samsung/android/content/clipboard/SemClipboardManager$IClipboardDataPasteEventImpl$1;->this$1:Lcom/samsung/android/content/clipboard/SemClipboardManager$IClipboardDataPasteEventImpl;
 
     invoke-virtual {v0, p1}, Lcom/samsung/android/content/clipboard/SemClipboardManager$IClipboardDataPasteEventImpl;->onPaste(Lcom/samsung/android/content/clipboard/data/SemClipData;)V
 
+    .line 310
     return-void
 .end method

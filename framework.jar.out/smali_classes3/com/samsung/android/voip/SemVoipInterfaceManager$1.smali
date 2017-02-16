@@ -18,6 +18,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 177
     invoke-direct {p0}, Landroid/os/IVoIPCallbackInterface$Stub;-><init>()V
 
     return-void
@@ -33,14 +35,17 @@
         }
     .end annotation
 
+    .prologue
     const/4 v1, 0x1
 
+    .line 181
     invoke-static {}, Lcom/samsung/android/voip/SemVoipInterfaceManager;->-get0()Lcom/samsung/android/voip/SemVoipInterfaceManager$CommandListener;
 
     move-result-object v0
 
     invoke-interface {v0, v1}, Lcom/samsung/android/voip/SemVoipInterfaceManager$CommandListener;->onCommandReceived(I)V
 
+    .line 182
     return v1
 .end method
 
@@ -52,6 +57,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 186
     invoke-static {}, Lcom/samsung/android/voip/SemVoipInterfaceManager;->-get0()Lcom/samsung/android/voip/SemVoipInterfaceManager$CommandListener;
 
     move-result-object v0
@@ -60,6 +67,7 @@
 
     invoke-interface {v0, v1}, Lcom/samsung/android/voip/SemVoipInterfaceManager$CommandListener;->onCommandReceived(I)V
 
+    .line 187
     const/4 v0, 0x1
 
     return v0
@@ -73,6 +81,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 191
     invoke-static {}, Lcom/samsung/android/voip/SemVoipInterfaceManager;->-get0()Lcom/samsung/android/voip/SemVoipInterfaceManager$CommandListener;
 
     move-result-object v0
@@ -81,6 +91,7 @@
 
     invoke-interface {v0, v1}, Lcom/samsung/android/voip/SemVoipInterfaceManager$CommandListener;->onCommandReceived(I)V
 
+    .line 192
     const/4 v0, 0x1
 
     return v0
@@ -94,6 +105,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 201
     invoke-static {}, Lcom/samsung/android/voip/SemVoipInterfaceManager;->-get0()Lcom/samsung/android/voip/SemVoipInterfaceManager$CommandListener;
 
     move-result-object v0
@@ -102,6 +115,7 @@
 
     invoke-interface {v0, v1}, Lcom/samsung/android/voip/SemVoipInterfaceManager$CommandListener;->onCommandReceived(I)V
 
+    .line 202
     const/4 v0, 0x1
 
     return v0
@@ -115,6 +129,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 206
     invoke-static {}, Lcom/samsung/android/voip/SemVoipInterfaceManager;->-get0()Lcom/samsung/android/voip/SemVoipInterfaceManager$CommandListener;
 
     move-result-object v0
@@ -123,6 +139,7 @@
 
     invoke-interface {v0, v1}, Lcom/samsung/android/voip/SemVoipInterfaceManager$CommandListener;->onCommandReceived(I)V
 
+    .line 207
     const/4 v0, 0x1
 
     return v0
@@ -136,6 +153,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 196
     invoke-static {}, Lcom/samsung/android/voip/SemVoipInterfaceManager;->-get0()Lcom/samsung/android/voip/SemVoipInterfaceManager$CommandListener;
 
     move-result-object v0
@@ -144,6 +163,7 @@
 
     invoke-interface {v0, v1}, Lcom/samsung/android/voip/SemVoipInterfaceManager$CommandListener;->onCommandReceived(I)V
 
+    .line 197
     const/4 v0, 0x1
 
     return v0

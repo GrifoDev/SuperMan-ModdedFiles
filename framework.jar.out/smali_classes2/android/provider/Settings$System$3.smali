@@ -25,6 +25,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 2060
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -34,7 +36,10 @@
 # virtual methods
 .method public validate(Ljava/lang/String;)Z
     .locals 2
+    .param p1, "value"    # Ljava/lang/String;
 
+    .prologue
+    .line 2065
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v0

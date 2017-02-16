@@ -18,10 +18,13 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 319
     const/4 v0, 0x2
 
     invoke-direct {p0, v0}, Landroid/security/keystore/AndroidKeyStoreRSACipherSpi$OAEPWithMGF1Padding;-><init>(I)V
 
+    .line 318
     return-void
 .end method
 
@@ -30,6 +33,7 @@
 .method public bridge synthetic finalize()V
     .locals 0
 
+    .prologue
     invoke-super {p0}, Landroid/security/keystore/AndroidKeyStoreRSACipherSpi$OAEPWithMGF1Padding;->finalize()V
 
     return-void

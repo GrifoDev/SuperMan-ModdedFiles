@@ -18,9 +18,12 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 114
     const/4 v0, 0x4
 
     invoke-direct {p0, v0}, Landroid/security/keystore/AndroidKeyStoreRSASignatureSpi$PSSPadding;-><init>(I)V
 
+    .line 113
     return-void
 .end method

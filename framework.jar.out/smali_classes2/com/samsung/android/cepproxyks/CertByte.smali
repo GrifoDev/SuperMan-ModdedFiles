@@ -41,18 +41,24 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 45
     new-instance v0, Lcom/samsung/android/cepproxyks/CertByte$1;
 
     invoke-direct {v0}, Lcom/samsung/android/cepproxyks/CertByte$1;-><init>()V
 
+    .line 44
     sput-object v0, Lcom/samsung/android/cepproxyks/CertByte;->CREATOR:Landroid/os/Parcelable$Creator;
 
+    .line 9
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 16
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -60,41 +66,51 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 1
+    .param p1, "source"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 20
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 21
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/samsung/android/cepproxyks/CertByte;->certsize:I
 
+    .line 22
     iget v0, p0, Lcom/samsung/android/cepproxyks/CertByte;->certsize:I
 
     new-array v0, v0, [B
 
     iput-object v0, p0, Lcom/samsung/android/cepproxyks/CertByte;->certBytes:[B
 
+    .line 24
     iget-object v0, p0, Lcom/samsung/android/cepproxyks/CertByte;->certBytes:[B
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->readByteArray([B)V
 
+    .line 25
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/samsung/android/cepproxyks/CertByte;->caSize:I
 
+    .line 26
     iget v0, p0, Lcom/samsung/android/cepproxyks/CertByte;->caSize:I
 
     new-array v0, v0, [B
 
     iput-object v0, p0, Lcom/samsung/android/cepproxyks/CertByte;->caCertBytes:[B
 
+    .line 28
     iget-object v0, p0, Lcom/samsung/android/cepproxyks/CertByte;->caCertBytes:[B
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->readByteArray([B)V
 
+    .line 20
     return-void
 .end method
 
@@ -103,6 +119,8 @@
 .method public describeContents()I
     .locals 1
 
+    .prologue
+    .line 33
     const/4 v0, 0x0
 
     return v0
@@ -110,22 +128,30 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
+    .prologue
+    .line 38
     iget v0, p0, Lcom/samsung/android/cepproxyks/CertByte;->certsize:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 39
     iget-object v0, p0, Lcom/samsung/android/cepproxyks/CertByte;->certBytes:[B
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByteArray([B)V
 
+    .line 40
     iget v0, p0, Lcom/samsung/android/cepproxyks/CertByte;->caSize:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 41
     iget-object v0, p0, Lcom/samsung/android/cepproxyks/CertByte;->caCertBytes:[B
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByteArray([B)V
 
+    .line 37
     return-void
 .end method

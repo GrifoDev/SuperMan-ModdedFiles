@@ -36,11 +36,16 @@
 # direct methods
 .method public constructor <init>(Ljava/io/File;)V
     .locals 2
+    .param p1, "f"    # Ljava/io/File;
 
+    .prologue
+    .line 568
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 569
     iput-object p1, p0, Lcom/android/internal/backup/LocalTransport$DecodedFilename;->file:Ljava/io/File;
 
+    .line 570
     new-instance v0, Ljava/lang/String;
 
     invoke-virtual {p1}, Ljava/io/File;->getName()Ljava/lang/String;
@@ -55,6 +60,7 @@
 
     iput-object v0, p0, Lcom/android/internal/backup/LocalTransport$DecodedFilename;->key:Ljava/lang/String;
 
+    .line 568
     return-void
 .end method
 
@@ -62,7 +68,10 @@
 # virtual methods
 .method public compareTo(Lcom/android/internal/backup/LocalTransport$DecodedFilename;)I
     .locals 2
+    .param p1, "other"    # Lcom/android/internal/backup/LocalTransport$DecodedFilename;
 
+    .prologue
+    .line 576
     iget-object v0, p0, Lcom/android/internal/backup/LocalTransport$DecodedFilename;->key:Ljava/lang/String;
 
     iget-object v1, p1, Lcom/android/internal/backup/LocalTransport$DecodedFilename;->key:Ljava/lang/String;
@@ -76,9 +85,13 @@
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
     .locals 1
+    .param p1, "other"    # Ljava/lang/Object;
 
+    .prologue
+    .line 574
     check-cast p1, Lcom/android/internal/backup/LocalTransport$DecodedFilename;
 
+    .end local p1    # "other":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/android/internal/backup/LocalTransport$DecodedFilename;->compareTo(Lcom/android/internal/backup/LocalTransport$DecodedFilename;)I
 
     move-result v0

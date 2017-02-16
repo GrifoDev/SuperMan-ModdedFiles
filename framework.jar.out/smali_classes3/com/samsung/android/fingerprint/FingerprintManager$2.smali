@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/fingerprint/FingerprintManager;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/samsung/android/fingerprint/FingerprintManager;
 
+    .prologue
+    .line 1256
     iput-object p1, p0, Lcom/samsung/android/fingerprint/FingerprintManager$2;->this$0:Lcom/samsung/android/fingerprint/FingerprintManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,9 +39,14 @@
 # virtual methods
 .method public onEvent(Lcom/samsung/android/fingerprint/FingerprintEvent;)V
     .locals 5
+    .param p1, "evt"    # Lcom/samsung/android/fingerprint/FingerprintEvent;
 
+    .prologue
+    .line 1261
     move-object v1, p1
 
+    .line 1262
+    .local v1, "event":Lcom/samsung/android/fingerprint/FingerprintEvent;
     :try_start_0
     iget-object v2, p0, Lcom/samsung/android/fingerprint/FingerprintManager$2;->this$0:Lcom/samsung/android/fingerprint/FingerprintManager;
 
@@ -48,6 +56,7 @@
 
     if-eqz v2, :cond_0
 
+    .line 1263
     iget-object v2, p0, Lcom/samsung/android/fingerprint/FingerprintManager$2;->this$0:Lcom/samsung/android/fingerprint/FingerprintManager;
 
     invoke-static {v2}, Lcom/samsung/android/fingerprint/FingerprintManager;->-get4(Lcom/samsung/android/fingerprint/FingerprintManager;)Landroid/os/Handler;
@@ -62,13 +71,17 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 1259
     :cond_0
     :goto_0
     return-void
 
+    .line 1296
     :catch_0
     move-exception v0
 
+    .line 1297
+    .local v0, "e":Ljava/lang/Exception;
     const-string/jumbo v2, "FPMS_FingerprintManager"
 
     new-instance v3, Ljava/lang/StringBuilder;

@@ -32,17 +32,26 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/cover/CoverManager$NfcLedCoverTouchListener;Landroid/os/Handler;Landroid/content/Context;)V
     .locals 3
+    .param p1, "listener"    # Lcom/samsung/android/cover/CoverManager$NfcLedCoverTouchListener;
+    .param p2, "handler"    # Landroid/os/Handler;
+    .param p3, "context"    # Landroid/content/Context;
 
+    .prologue
+    .line 24
     invoke-direct {p0}, Lcom/samsung/android/cover/INfcLedCoverTouchListenerCallback$Stub;-><init>()V
 
+    .line 25
     iput-object p1, p0, Lcom/samsung/android/cover/NfcLedCoverTouchListenerDelegate;->mListener:Lcom/samsung/android/cover/CoverManager$NfcLedCoverTouchListener;
 
+    .line 27
     if-nez p2, :cond_0
 
     invoke-virtual {p3}, Landroid/content/Context;->getMainLooper()Landroid/os/Looper;
 
     move-result-object v0
 
+    .line 30
+    .local v0, "looper":Landroid/os/Looper;
     :goto_0
     new-instance v1, Lcom/samsung/android/cover/NfcLedCoverTouchListenerDelegate$ListenerDelegateHandler;
 
@@ -52,13 +61,17 @@
 
     iput-object v1, p0, Lcom/samsung/android/cover/NfcLedCoverTouchListenerDelegate;->mHandler:Lcom/samsung/android/cover/NfcLedCoverTouchListenerDelegate$ListenerDelegateHandler;
 
+    .line 23
     return-void
 
+    .line 27
+    .end local v0    # "looper":Landroid/os/Looper;
     :cond_0
     invoke-virtual {p2}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
 
     move-result-object v0
 
+    .restart local v0    # "looper":Landroid/os/Looper;
     goto :goto_0
 .end method
 
@@ -67,6 +80,8 @@
 .method public getListener()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 34
     iget-object v0, p0, Lcom/samsung/android/cover/NfcLedCoverTouchListenerDelegate;->mListener:Lcom/samsung/android/cover/CoverManager$NfcLedCoverTouchListener;
 
     return-object v0
@@ -80,6 +95,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 48
     return-void
 .end method
 
@@ -91,6 +108,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 53
     return-void
 .end method
 
@@ -102,6 +121,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 58
     return-void
 .end method
 
@@ -113,6 +134,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 39
     iget-object v0, p0, Lcom/samsung/android/cover/NfcLedCoverTouchListenerDelegate;->mHandler:Lcom/samsung/android/cover/NfcLedCoverTouchListenerDelegate$ListenerDelegateHandler;
 
     const/4 v1, 0x0
@@ -123,6 +146,7 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
+    .line 38
     return-void
 .end method
 
@@ -134,6 +158,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 44
     iget-object v0, p0, Lcom/samsung/android/cover/NfcLedCoverTouchListenerDelegate;->mHandler:Lcom/samsung/android/cover/NfcLedCoverTouchListenerDelegate$ListenerDelegateHandler;
 
     const/4 v1, 0x1
@@ -144,16 +170,21 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
+    .line 43
     return-void
 .end method
 
 .method public onSystemCoverEvent(ILandroid/os/Bundle;)V
     .locals 0
+    .param p1, "event"    # I
+    .param p2, "args"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 63
     return-void
 .end method

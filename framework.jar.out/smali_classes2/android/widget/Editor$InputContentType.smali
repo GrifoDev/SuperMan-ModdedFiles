@@ -36,11 +36,15 @@
 .method constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 6757
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 6758
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/widget/Editor$InputContentType;->imeOptions:I
 
+    .line 6757
     return-void
 .end method

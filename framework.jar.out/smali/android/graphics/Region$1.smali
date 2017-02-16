@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 338
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,23 +42,30 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/graphics/Region;
     .locals 4
+    .param p1, "p"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 345
     invoke-static {p1}, Landroid/graphics/Region;->-wrap0(Landroid/os/Parcel;)J
 
     move-result-wide v0
 
+    .line 346
+    .local v0, "ni":J
     const-wide/16 v2, 0x0
 
     cmp-long v2, v0, v2
 
     if-nez v2, :cond_0
 
+    .line 347
     new-instance v2, Ljava/lang/RuntimeException;
 
     invoke-direct {v2}, Ljava/lang/RuntimeException;-><init>()V
 
     throw v2
 
+    .line 349
     :cond_0
     new-instance v2, Landroid/graphics/Region;
 
@@ -67,7 +76,10 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
+    .param p1, "p"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 344
     invoke-virtual {p0, p1}, Landroid/graphics/Region$1;->createFromParcel(Landroid/os/Parcel;)Landroid/graphics/Region;
 
     move-result-object v0
@@ -77,7 +89,10 @@
 
 .method public newArray(I)[Landroid/graphics/Region;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 352
     new-array v0, p1, [Landroid/graphics/Region;
 
     return-object v0
@@ -85,7 +100,10 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 351
     invoke-virtual {p0, p1}, Landroid/graphics/Region$1;->newArray(I)[Landroid/graphics/Region;
 
     move-result-object v0

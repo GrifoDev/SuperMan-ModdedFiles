@@ -28,7 +28,12 @@
 # direct methods
 .method constructor <init>(Landroid/media/tv/TvInputService$Session;ILjava/lang/String;)V
     .locals 0
+    .param p1, "this$1"    # Landroid/media/tv/TvInputService$Session;
+    .param p2, "val$type"    # I
+    .param p3, "val$trackId"    # Ljava/lang/String;
 
+    .prologue
+    .line 438
     iput-object p1, p0, Landroid/media/tv/TvInputService$Session$5;->this$1:Landroid/media/tv/TvInputService$Session;
 
     iput p2, p0, Landroid/media/tv/TvInputService$Session$5;->val$type:I
@@ -45,6 +50,8 @@
 .method public run()V
     .locals 4
 
+    .prologue
+    .line 444
     :try_start_0
     iget-object v1, p0, Landroid/media/tv/TvInputService$Session$5;->this$1:Landroid/media/tv/TvInputService$Session;
 
@@ -54,6 +61,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 445
     iget-object v1, p0, Landroid/media/tv/TvInputService$Session$5;->this$1:Landroid/media/tv/TvInputService$Session;
 
     invoke-static {v1}, Landroid/media/tv/TvInputService$Session;->-get3(Landroid/media/tv/TvInputService$Session;)Landroid/media/tv/ITvInputSessionCallback;
@@ -68,13 +76,17 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 441
     :cond_0
     :goto_0
     return-void
 
+    .line 447
     :catch_0
     move-exception v0
 
+    .line 448
+    .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "TvInputService"
 
     const-string/jumbo v2, "error in notifyTrackSelected"

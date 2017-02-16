@@ -89,37 +89,51 @@
 
 .method private constructor <init>(Landroid/net/ConnectivityManager;Landroid/net/Network;Landroid/net/ConnectivityManager$PacketKeepaliveCallback;)V
     .locals 4
+    .param p1, "this$0"    # Landroid/net/ConnectivityManager;
+    .param p2, "network"    # Landroid/net/Network;
+    .param p3, "callback"    # Landroid/net/ConnectivityManager$PacketKeepaliveCallback;
 
+    .prologue
+    .line 1769
     iput-object p1, p0, Landroid/net/ConnectivityManager$PacketKeepalive;->this$0:Landroid/net/ConnectivityManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 1770
     const-string/jumbo v1, "network cannot be null"
 
     invoke-static {p2, v1}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 1771
     const-string/jumbo v1, "callback cannot be null"
 
     invoke-static {p3, v1}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 1772
     iput-object p2, p0, Landroid/net/ConnectivityManager$PacketKeepalive;->mNetwork:Landroid/net/Network;
 
+    .line 1773
     iput-object p3, p0, Landroid/net/ConnectivityManager$PacketKeepalive;->mCallback:Landroid/net/ConnectivityManager$PacketKeepaliveCallback;
 
+    .line 1774
     new-instance v0, Landroid/os/HandlerThread;
 
     const-string/jumbo v1, "PacketKeepalive"
 
     invoke-direct {v0, v1}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;)V
 
+    .line 1775
+    .local v0, "thread":Landroid/os/HandlerThread;
     invoke-virtual {v0}, Landroid/os/HandlerThread;->start()V
 
+    .line 1776
     invoke-virtual {v0}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
 
     move-result-object v1
 
     iput-object v1, p0, Landroid/net/ConnectivityManager$PacketKeepalive;->mLooper:Landroid/os/Looper;
 
+    .line 1777
     new-instance v1, Landroid/os/Messenger;
 
     new-instance v2, Landroid/net/ConnectivityManager$PacketKeepalive$1;
@@ -132,12 +146,17 @@
 
     iput-object v1, p0, Landroid/net/ConnectivityManager$PacketKeepalive;->mMessenger:Landroid/os/Messenger;
 
+    .line 1769
     return-void
 .end method
 
 .method synthetic constructor <init>(Landroid/net/ConnectivityManager;Landroid/net/Network;Landroid/net/ConnectivityManager$PacketKeepaliveCallback;Landroid/net/ConnectivityManager$PacketKeepalive;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/net/ConnectivityManager;
+    .param p2, "network"    # Landroid/net/Network;
+    .param p3, "callback"    # Landroid/net/ConnectivityManager$PacketKeepaliveCallback;
 
+    .prologue
     invoke-direct {p0, p1, p2, p3}, Landroid/net/ConnectivityManager$PacketKeepalive;-><init>(Landroid/net/ConnectivityManager;Landroid/net/Network;Landroid/net/ConnectivityManager$PacketKeepaliveCallback;)V
 
     return-void
@@ -148,6 +167,8 @@
 .method public stop()V
     .locals 4
 
+    .prologue
+    .line 1762
     :try_start_0
     iget-object v1, p0, Landroid/net/ConnectivityManager$PacketKeepalive;->this$0:Landroid/net/ConnectivityManager;
 
@@ -167,18 +188,23 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 1760
     :goto_0
     return-void
 
+    .line 1763
     :catch_0
     move-exception v0
 
+    .line 1764
+    .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "PacketKeepalive"
 
     const-string/jumbo v2, "Error stopping packet keepalive: "
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
+    .line 1765
     invoke-virtual {p0}, Landroid/net/ConnectivityManager$PacketKeepalive;->stopLooper()V
 
     goto :goto_0
@@ -187,9 +213,12 @@
 .method stopLooper()V
     .locals 1
 
+    .prologue
+    .line 1757
     iget-object v0, p0, Landroid/net/ConnectivityManager$PacketKeepalive;->mLooper:Landroid/os/Looper;
 
     invoke-virtual {v0}, Landroid/os/Looper;->quit()V
 
+    .line 1756
     return-void
 .end method

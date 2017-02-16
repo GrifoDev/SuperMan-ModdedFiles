@@ -50,17 +50,23 @@
 
 .method constructor <init>(Landroid/view/View;)V
     .locals 1
+    .param p1, "view"    # Landroid/view/View;
 
+    .prologue
+    .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 24
     new-instance v0, Lcom/samsung/android/animation/SemDragAndDropAnimationCore$ItemAnimator;
 
     invoke-direct {v0, p0}, Lcom/samsung/android/animation/SemDragAndDropAnimationCore$ItemAnimator;-><init>(Lcom/samsung/android/animation/SemDragAndDropAnimationCore;)V
 
     iput-object v0, p0, Lcom/samsung/android/animation/SemDragAndDropAnimationCore;->itemAnimator:Lcom/samsung/android/animation/SemDragAndDropAnimationCore$ItemAnimator;
 
+    .line 29
     iput-object p1, p0, Lcom/samsung/android/animation/SemDragAndDropAnimationCore;->mView:Landroid/view/View;
 
+    .line 28
     return-void
 .end method
 
@@ -68,8 +74,12 @@
 # virtual methods
 .method setAnimationListener(Lcom/samsung/android/animation/SemDragAndDropAnimationCore$ItemAnimationListener;)V
     .locals 0
+    .param p1, "l"    # Lcom/samsung/android/animation/SemDragAndDropAnimationCore$ItemAnimationListener;
 
+    .prologue
+    .line 33
     iput-object p1, p0, Lcom/samsung/android/animation/SemDragAndDropAnimationCore;->mItemAnimationListener:Lcom/samsung/android/animation/SemDragAndDropAnimationCore$ItemAnimationListener;
 
+    .line 32
     return-void
 .end method

@@ -34,9 +34,13 @@
 # direct methods
 .method constructor <init>(I)V
     .locals 2
+    .param p1, "_uid"    # I
 
+    .prologue
+    .line 41
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 38
     new-instance v0, Landroid/util/SparseArray;
 
     const/4 v1, 0x1
@@ -45,11 +49,14 @@
 
     iput-object v0, p0, Landroid/app/AppImportanceMonitor$AppEntry;->procs:Landroid/util/SparseArray;
 
+    .line 39
     const/16 v0, 0x3e8
 
     iput v0, p0, Landroid/app/AppImportanceMonitor$AppEntry;->importance:I
 
+    .line 42
     iput p1, p0, Landroid/app/AppImportanceMonitor$AppEntry;->uid:I
 
+    .line 41
     return-void
 .end method

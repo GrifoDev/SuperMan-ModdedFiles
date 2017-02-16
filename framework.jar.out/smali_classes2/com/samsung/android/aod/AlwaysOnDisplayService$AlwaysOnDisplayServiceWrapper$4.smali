@@ -28,7 +28,12 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/aod/AlwaysOnDisplayService$AlwaysOnDisplayServiceWrapper;ILjava/util/List;)V
     .locals 0
+    .param p1, "this$1"    # Lcom/samsung/android/aod/AlwaysOnDisplayService$AlwaysOnDisplayServiceWrapper;
+    .param p2, "val$notiCount"    # I
 
+    .prologue
+    .line 82
+    .local p3, "val$keys":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     iput-object p1, p0, Lcom/samsung/android/aod/AlwaysOnDisplayService$AlwaysOnDisplayServiceWrapper$4;->this$1:Lcom/samsung/android/aod/AlwaysOnDisplayService$AlwaysOnDisplayServiceWrapper;
 
     iput p2, p0, Lcom/samsung/android/aod/AlwaysOnDisplayService$AlwaysOnDisplayServiceWrapper$4;->val$notiCount:I
@@ -45,6 +50,8 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 85
     iget-object v0, p0, Lcom/samsung/android/aod/AlwaysOnDisplayService$AlwaysOnDisplayServiceWrapper$4;->this$1:Lcom/samsung/android/aod/AlwaysOnDisplayService$AlwaysOnDisplayServiceWrapper;
 
     iget-object v0, v0, Lcom/samsung/android/aod/AlwaysOnDisplayService$AlwaysOnDisplayServiceWrapper;->this$0:Lcom/samsung/android/aod/AlwaysOnDisplayService;
@@ -55,5 +62,6 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/samsung/android/aod/AlwaysOnDisplayService;->updateNotificationKeys(ILjava/util/List;)V
 
+    .line 84
     return-void
 .end method

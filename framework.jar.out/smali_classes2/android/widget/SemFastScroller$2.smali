@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Landroid/widget/SemFastScroller;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/widget/SemFastScroller;
 
+    .prologue
+    .line 264
     iput-object p1, p0, Landroid/widget/SemFastScroller$2;->this$0:Landroid/widget/SemFastScroller;
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
@@ -33,7 +36,10 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 267
     iget-object v1, p0, Landroid/widget/SemFastScroller$2;->this$0:Landroid/widget/SemFastScroller;
 
     iget-object v0, p0, Landroid/widget/SemFastScroller$2;->this$0:Landroid/widget/SemFastScroller;
@@ -49,8 +55,10 @@
     :goto_0
     invoke-static {v1, v0}, Landroid/widget/SemFastScroller;->-set0(Landroid/widget/SemFastScroller;Z)Z
 
+    .line 266
     return-void
 
+    .line 267
     :cond_0
     const/4 v0, 0x1
 

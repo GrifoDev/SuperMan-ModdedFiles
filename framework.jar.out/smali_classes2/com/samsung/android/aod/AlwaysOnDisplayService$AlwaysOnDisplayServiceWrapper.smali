@@ -21,7 +21,10 @@
 # direct methods
 .method private constructor <init>(Lcom/samsung/android/aod/AlwaysOnDisplayService;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/samsung/android/aod/AlwaysOnDisplayService;
 
+    .prologue
+    .line 53
     iput-object p1, p0, Lcom/samsung/android/aod/AlwaysOnDisplayService$AlwaysOnDisplayServiceWrapper;->this$0:Lcom/samsung/android/aod/AlwaysOnDisplayService;
 
     invoke-direct {p0}, Lcom/samsung/android/aod/IAlwaysOnDisplayService$Stub;-><init>()V
@@ -31,7 +34,9 @@
 
 .method synthetic constructor <init>(Lcom/samsung/android/aod/AlwaysOnDisplayService;Lcom/samsung/android/aod/AlwaysOnDisplayService$AlwaysOnDisplayServiceWrapper;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/samsung/android/aod/AlwaysOnDisplayService;
 
+    .prologue
     invoke-direct {p0, p1}, Lcom/samsung/android/aod/AlwaysOnDisplayService$AlwaysOnDisplayServiceWrapper;-><init>(Lcom/samsung/android/aod/AlwaysOnDisplayService;)V
 
     return-void
@@ -42,6 +47,8 @@
 .method public requestHide()V
     .locals 2
 
+    .prologue
+    .line 73
     iget-object v0, p0, Lcom/samsung/android/aod/AlwaysOnDisplayService$AlwaysOnDisplayServiceWrapper;->this$0:Lcom/samsung/android/aod/AlwaysOnDisplayService;
 
     invoke-static {v0}, Lcom/samsung/android/aod/AlwaysOnDisplayService;->-get0(Lcom/samsung/android/aod/AlwaysOnDisplayService;)Landroid/os/Handler;
@@ -54,12 +61,15 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
+    .line 72
     return-void
 .end method
 
 .method public startAOD()V
     .locals 2
 
+    .prologue
+    .line 55
     iget-object v0, p0, Lcom/samsung/android/aod/AlwaysOnDisplayService$AlwaysOnDisplayServiceWrapper;->this$0:Lcom/samsung/android/aod/AlwaysOnDisplayService;
 
     invoke-static {v0}, Lcom/samsung/android/aod/AlwaysOnDisplayService;->-get0(Lcom/samsung/android/aod/AlwaysOnDisplayService;)Landroid/os/Handler;
@@ -72,12 +82,15 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
+    .line 54
     return-void
 .end method
 
 .method public stopAOD()V
     .locals 2
 
+    .prologue
+    .line 64
     iget-object v0, p0, Lcom/samsung/android/aod/AlwaysOnDisplayService$AlwaysOnDisplayServiceWrapper;->this$0:Lcom/samsung/android/aod/AlwaysOnDisplayService;
 
     invoke-static {v0}, Lcom/samsung/android/aod/AlwaysOnDisplayService;->-get0(Lcom/samsung/android/aod/AlwaysOnDisplayService;)Landroid/os/Handler;
@@ -90,11 +103,13 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
+    .line 63
     return-void
 .end method
 
 .method public updateNotificationKeys(ILjava/util/List;)V
     .locals 2
+    .param p1, "notiCount"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -105,6 +120,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 82
+    .local p2, "keys":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     iget-object v0, p0, Lcom/samsung/android/aod/AlwaysOnDisplayService$AlwaysOnDisplayServiceWrapper;->this$0:Lcom/samsung/android/aod/AlwaysOnDisplayService;
 
     invoke-static {v0}, Lcom/samsung/android/aod/AlwaysOnDisplayService;->-get0(Lcom/samsung/android/aod/AlwaysOnDisplayService;)Landroid/os/Handler;
@@ -117,5 +135,6 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
+    .line 81
     return-void
 .end method

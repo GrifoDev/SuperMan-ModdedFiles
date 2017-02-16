@@ -28,7 +28,12 @@
 # direct methods
 .method constructor <init>(Landroid/app/ActivityView$ActivityContainerCallback;Ljava/lang/ref/WeakReference;Landroid/app/ActivityView;)V
     .locals 0
+    .param p1, "this$1"    # Landroid/app/ActivityView$ActivityContainerCallback;
+    .param p3, "val$activityView"    # Landroid/app/ActivityView;
 
+    .prologue
+    .line 426
+    .local p2, "val$callbackRef":Ljava/lang/ref/WeakReference;, "Ljava/lang/ref/WeakReference<Landroid/app/ActivityView$ActivityViewCallback;>;"
     iput-object p1, p0, Landroid/app/ActivityView$ActivityContainerCallback$1;->this$1:Landroid/app/ActivityView$ActivityContainerCallback;
 
     iput-object p2, p0, Landroid/app/ActivityView$ActivityContainerCallback$1;->val$callbackRef:Ljava/lang/ref/WeakReference;
@@ -45,6 +50,8 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 429
     iget-object v1, p0, Landroid/app/ActivityView$ActivityContainerCallback$1;->val$callbackRef:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v1}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
@@ -53,12 +60,16 @@
 
     check-cast v0, Landroid/app/ActivityView$ActivityViewCallback;
 
+    .line 430
+    .local v0, "callback":Landroid/app/ActivityView$ActivityViewCallback;
     if-eqz v0, :cond_0
 
+    .line 431
     iget-object v1, p0, Landroid/app/ActivityView$ActivityContainerCallback$1;->val$activityView:Landroid/app/ActivityView;
 
     invoke-virtual {v0, v1}, Landroid/app/ActivityView$ActivityViewCallback;->onAllActivitiesComplete(Landroid/app/ActivityView;)V
 
+    .line 428
     :cond_0
     return-void
 .end method

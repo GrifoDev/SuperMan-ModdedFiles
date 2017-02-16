@@ -11,12 +11,16 @@
 .method constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 12
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 33
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/samsung/android/animation/SemAbsSweepAnimationFilter;->mIsAnimationBack:Z
 
+    .line 12
     return-void
 .end method
 
@@ -49,6 +53,8 @@
 .method public isAnimationBack()Z
     .locals 1
 
+    .prologue
+    .line 37
     iget-boolean v0, p0, Lcom/samsung/android/animation/SemAbsSweepAnimationFilter;->mIsAnimationBack:Z
 
     return v0

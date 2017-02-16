@@ -25,19 +25,28 @@
 # direct methods
 .method constructor <init>(Landroid/content/ContentResolver;Landroid/os/ParcelFileDescriptor;Landroid/content/IContentProvider;)V
     .locals 1
+    .param p1, "this$0"    # Landroid/content/ContentResolver;
+    .param p2, "pfd"    # Landroid/os/ParcelFileDescriptor;
+    .param p3, "icp"    # Landroid/content/IContentProvider;
 
+    .prologue
+    .line 2741
     iput-object p1, p0, Landroid/content/ContentResolver$ParcelFileDescriptorInner;->this$0:Landroid/content/ContentResolver;
 
+    .line 2742
     invoke-direct {p0, p2}, Landroid/os/ParcelFileDescriptor;-><init>(Landroid/os/ParcelFileDescriptor;)V
 
+    .line 2739
     new-instance v0, Ljava/util/concurrent/atomic/AtomicBoolean;
 
     invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>()V
 
     iput-object v0, p0, Landroid/content/ContentResolver$ParcelFileDescriptorInner;->mProviderReleased:Ljava/util/concurrent/atomic/AtomicBoolean;
 
+    .line 2743
     iput-object p3, p0, Landroid/content/ContentResolver$ParcelFileDescriptorInner;->mContentProvider:Landroid/content/IContentProvider;
 
+    .line 2741
     return-void
 .end method
 
@@ -46,6 +55,8 @@
 .method public releaseResources()V
     .locals 3
 
+    .prologue
+    .line 2748
     iget-object v0, p0, Landroid/content/ContentResolver$ParcelFileDescriptorInner;->mProviderReleased:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     const/4 v1, 0x0
@@ -58,12 +69,14 @@
 
     if-eqz v0, :cond_0
 
+    .line 2749
     iget-object v0, p0, Landroid/content/ContentResolver$ParcelFileDescriptorInner;->this$0:Landroid/content/ContentResolver;
 
     iget-object v1, p0, Landroid/content/ContentResolver$ParcelFileDescriptorInner;->mContentProvider:Landroid/content/IContentProvider;
 
     invoke-virtual {v0, v1}, Landroid/content/ContentResolver;->releaseProvider(Landroid/content/IContentProvider;)Z
 
+    .line 2747
     :cond_0
     return-void
 .end method

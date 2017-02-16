@@ -28,7 +28,12 @@
 # direct methods
 .method constructor <init>(Landroid/view/View;Landroid/view/ViewHierarchyEncoder;Ljava/util/concurrent/CountDownLatch;)V
     .locals 0
+    .param p1, "val$view"    # Landroid/view/View;
+    .param p2, "val$encoder"    # Landroid/view/ViewHierarchyEncoder;
+    .param p3, "val$latch"    # Ljava/util/concurrent/CountDownLatch;
 
+    .prologue
+    .line 892
     iput-object p1, p0, Landroid/view/ViewDebug$7;->val$view:Landroid/view/View;
 
     iput-object p2, p0, Landroid/view/ViewDebug$7;->val$encoder:Landroid/view/ViewHierarchyEncoder;
@@ -45,15 +50,19 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 895
     iget-object v0, p0, Landroid/view/ViewDebug$7;->val$view:Landroid/view/View;
 
     iget-object v1, p0, Landroid/view/ViewDebug$7;->val$encoder:Landroid/view/ViewHierarchyEncoder;
 
     invoke-virtual {v0, v1}, Landroid/view/View;->encode(Landroid/view/ViewHierarchyEncoder;)V
 
+    .line 896
     iget-object v0, p0, Landroid/view/ViewDebug$7;->val$latch:Ljava/util/concurrent/CountDownLatch;
 
     invoke-virtual {v0}, Ljava/util/concurrent/CountDownLatch;->countDown()V
 
+    .line 894
     return-void
 .end method

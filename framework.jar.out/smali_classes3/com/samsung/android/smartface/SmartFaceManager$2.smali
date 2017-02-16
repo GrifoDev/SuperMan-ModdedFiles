@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/smartface/SmartFaceManager;)V
     .locals 0
+    .param p1, "this$0"    # Lcom/samsung/android/smartface/SmartFaceManager;
 
+    .prologue
+    .line 467
     iput-object p1, p0, Lcom/samsung/android/smartface/SmartFaceManager$2;->this$0:Lcom/samsung/android/smartface/SmartFaceManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +39,11 @@
 # virtual methods
 .method public onInfo(Lcom/samsung/android/smartface/FaceInfo;I)V
     .locals 3
+    .param p1, "data"    # Lcom/samsung/android/smartface/FaceInfo;
+    .param p2, "service_type"    # I
 
+    .prologue
+    .line 472
     const-string/jumbo v0, "SmartFaceManager"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -75,10 +82,12 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 473
     and-int/lit8 v0, p2, 0x8
 
     if-eqz v0, :cond_0
 
+    .line 475
     iget-object v0, p0, Lcom/samsung/android/smartface/SmartFaceManager$2;->this$0:Lcom/samsung/android/smartface/SmartFaceManager;
 
     invoke-static {v0}, Lcom/samsung/android/smartface/SmartFaceManager;->-get1(Lcom/samsung/android/smartface/SmartFaceManager;)Ljava/util/concurrent/locks/Lock;
@@ -87,12 +96,14 @@
 
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->lock()V
 
+    .line 476
     iget-object v0, p0, Lcom/samsung/android/smartface/SmartFaceManager$2;->this$0:Lcom/samsung/android/smartface/SmartFaceManager;
 
     iget v1, p1, Lcom/samsung/android/smartface/FaceInfo;->needToRotate:I
 
     invoke-static {v0, v1}, Lcom/samsung/android/smartface/SmartFaceManager;->-set0(Lcom/samsung/android/smartface/SmartFaceManager;I)I
 
+    .line 477
     iget-object v0, p0, Lcom/samsung/android/smartface/SmartFaceManager$2;->this$0:Lcom/samsung/android/smartface/SmartFaceManager;
 
     invoke-static {v0}, Lcom/samsung/android/smartface/SmartFaceManager;->-get0(Lcom/samsung/android/smartface/SmartFaceManager;)Ljava/util/concurrent/locks/Condition;
@@ -101,6 +112,7 @@
 
     invoke-interface {v0}, Ljava/util/concurrent/locks/Condition;->signal()V
 
+    .line 478
     iget-object v0, p0, Lcom/samsung/android/smartface/SmartFaceManager$2;->this$0:Lcom/samsung/android/smartface/SmartFaceManager;
 
     invoke-static {v0}, Lcom/samsung/android/smartface/SmartFaceManager;->-get1(Lcom/samsung/android/smartface/SmartFaceManager;)Ljava/util/concurrent/locks/Lock;
@@ -109,6 +121,7 @@
 
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V
 
+    .line 470
     :cond_0
     return-void
 .end method
