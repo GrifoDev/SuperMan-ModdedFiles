@@ -32,6 +32,9 @@
 .method public constructor <init>()V
     .locals 3
 
+    .prologue
+    .line 154
+    .local p0, "this":Ljava/util/LinkedHashSet;, "Ljava/util/LinkedHashSet<TE;>;"
     const/16 v0, 0x10
 
     const/high16 v1, 0x3f400000    # 0.75f
@@ -40,28 +43,40 @@
 
     invoke-direct {p0, v0, v1, v2}, Ljava/util/HashSet;-><init>(IFZ)V
 
+    .line 153
     return-void
 .end method
 
 .method public constructor <init>(I)V
     .locals 2
+    .param p1, "initialCapacity"    # I
 
+    .prologue
+    .line 146
+    .local p0, "this":Ljava/util/LinkedHashSet;, "Ljava/util/LinkedHashSet<TE;>;"
     const/high16 v0, 0x3f400000    # 0.75f
 
     const/4 v1, 0x1
 
     invoke-direct {p0, p1, v0, v1}, Ljava/util/HashSet;-><init>(IFZ)V
 
+    .line 145
     return-void
 .end method
 
 .method public constructor <init>(IF)V
     .locals 1
+    .param p1, "initialCapacity"    # I
+    .param p2, "loadFactor"    # F
 
+    .prologue
+    .line 134
+    .local p0, "this":Ljava/util/LinkedHashSet;, "Ljava/util/LinkedHashSet<TE;>;"
     const/4 v0, 0x1
 
     invoke-direct {p0, p1, p2, v0}, Ljava/util/HashSet;-><init>(IFZ)V
 
+    .line 133
     return-void
 .end method
 
@@ -75,6 +90,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 168
+    .local p0, "this":Ljava/util/LinkedHashSet;, "Ljava/util/LinkedHashSet<TE;>;"
+    .local p1, "c":Ljava/util/Collection;, "Ljava/util/Collection<+TE;>;"
     invoke-interface {p1}, Ljava/util/Collection;->size()I
 
     move-result v0
@@ -93,8 +112,10 @@
 
     invoke-direct {p0, v0, v1, v2}, Ljava/util/HashSet;-><init>(IFZ)V
 
+    .line 169
     invoke-virtual {p0, p1}, Ljava/util/LinkedHashSet;->addAll(Ljava/util/Collection;)Z
 
+    .line 167
     return-void
 .end method
 
@@ -110,6 +131,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 193
+    .local p0, "this":Ljava/util/LinkedHashSet;, "Ljava/util/LinkedHashSet<TE;>;"
     const/16 v0, 0x11
 
     invoke-static {p0, v0}, Ljava/util/Spliterators;->spliterator(Ljava/util/Collection;I)Ljava/util/Spliterator;

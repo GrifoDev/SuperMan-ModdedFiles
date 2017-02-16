@@ -25,6 +25,7 @@
 .method public synthetic constructor <init>(Ljava/util/stream/SpinedBuffer;)V
     .locals 0
 
+    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Ljava/util/stream/StreamSpliterators$WrappingSpliterator$-void_initPartialTraversalState__LambdaImpl0;->val$-lambdaCtx:Ljava/util/stream/SpinedBuffer;
@@ -36,7 +37,9 @@
 # virtual methods
 .method public accept(Ljava/lang/Object;)V
     .locals 1
+    .param p1, "arg0"    # Ljava/lang/Object;
 
+    .prologue
     iget-object v0, p0, Ljava/util/stream/StreamSpliterators$WrappingSpliterator$-void_initPartialTraversalState__LambdaImpl0;->val$-lambdaCtx:Ljava/util/stream/SpinedBuffer;
 
     invoke-static {v0, p1}, Ljava/util/stream/StreamSpliterators$WrappingSpliterator;->-java_util_stream_StreamSpliterators$WrappingSpliterator-mthref-0(Ljava/util/stream/SpinedBuffer;Ljava/lang/Object;)V

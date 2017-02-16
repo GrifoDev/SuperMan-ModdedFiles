@@ -37,9 +37,14 @@
 # direct methods
 .method constructor <init>(Ljava/util/stream/MatchOps$MatchKind;)V
     .locals 1
+    .param p1, "matchKind"    # Ljava/util/stream/MatchOps$MatchKind;
 
+    .prologue
+    .line 256
+    .local p0, "this":Ljava/util/stream/MatchOps$BooleanTerminalSink;, "Ljava/util/stream/MatchOps$BooleanTerminalSink<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 257
     invoke-static {p1}, Ljava/util/stream/MatchOps$MatchKind;->-get0(Ljava/util/stream/MatchOps$MatchKind;)Z
 
     move-result v0
@@ -51,8 +56,10 @@
     :goto_0
     iput-boolean v0, p0, Ljava/util/stream/MatchOps$BooleanTerminalSink;->value:Z
 
+    .line 256
     return-void
 
+    .line 257
     :cond_0
     const/4 v0, 0x1
 
@@ -64,6 +71,9 @@
 .method public cancellationRequested()Z
     .locals 1
 
+    .prologue
+    .line 266
+    .local p0, "this":Ljava/util/stream/MatchOps$BooleanTerminalSink;, "Ljava/util/stream/MatchOps$BooleanTerminalSink<TT;>;"
     iget-boolean v0, p0, Ljava/util/stream/MatchOps$BooleanTerminalSink;->stop:Z
 
     return v0
@@ -72,6 +82,9 @@
 .method public getAndClearState()Z
     .locals 1
 
+    .prologue
+    .line 261
+    .local p0, "this":Ljava/util/stream/MatchOps$BooleanTerminalSink;, "Ljava/util/stream/MatchOps$BooleanTerminalSink<TT;>;"
     iget-boolean v0, p0, Ljava/util/stream/MatchOps$BooleanTerminalSink;->value:Z
 
     return v0

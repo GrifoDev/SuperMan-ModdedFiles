@@ -27,6 +27,7 @@
 .method public synthetic constructor <init>(Ljava/util/function/DoubleConsumer;Ljava/util/function/DoubleConsumer;)V
     .locals 0
 
+    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Ljava/util/function/DoubleConsumer$-java_util_function_DoubleConsumer_andThen_java_util_function_DoubleConsumer_after_LambdaImpl0;->val$this:Ljava/util/function/DoubleConsumer;
@@ -40,7 +41,9 @@
 # virtual methods
 .method public accept(D)V
     .locals 3
+    .param p1, "arg0"    # D
 
+    .prologue
     iget-object v0, p0, Ljava/util/function/DoubleConsumer$-java_util_function_DoubleConsumer_andThen_java_util_function_DoubleConsumer_after_LambdaImpl0;->val$this:Ljava/util/function/DoubleConsumer;
 
     iget-object v1, p0, Ljava/util/function/DoubleConsumer$-java_util_function_DoubleConsumer_andThen_java_util_function_DoubleConsumer_after_LambdaImpl0;->val$after:Ljava/util/function/DoubleConsumer;

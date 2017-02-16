@@ -34,7 +34,10 @@
 # direct methods
 .method constructor <init>(Lsun/net/www/protocol/http/HttpURLConnection;)V
     .locals 0
+    .param p1, "this$0"    # Lsun/net/www/protocol/http/HttpURLConnection;
 
+    .prologue
+    .line 917
     iput-object p1, p0, Lsun/net/www/protocol/http/HttpURLConnection$5;->this$0:Lsun/net/www/protocol/http/HttpURLConnection;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,6 +50,8 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 918
     invoke-virtual {p0}, Lsun/net/www/protocol/http/HttpURLConnection$5;->run()Ljava/net/ProxySelector;
 
     move-result-object v0
@@ -57,6 +62,8 @@
 .method public run()Ljava/net/ProxySelector;
     .locals 1
 
+    .prologue
+    .line 919
     invoke-static {}, Ljava/net/ProxySelector;->getDefault()Ljava/net/ProxySelector;
 
     move-result-object v0

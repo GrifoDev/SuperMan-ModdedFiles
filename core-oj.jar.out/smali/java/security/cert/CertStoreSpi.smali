@@ -6,14 +6,18 @@
 # direct methods
 .method public constructor <init>(Ljava/security/cert/CertStoreParameters;)V
     .locals 0
+    .param p1, "params"    # Ljava/security/cert/CertStoreParameters;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/InvalidAlgorithmParameterException;
         }
     .end annotation
 
+    .prologue
+    .line 67
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 68
     return-void
 .end method
 

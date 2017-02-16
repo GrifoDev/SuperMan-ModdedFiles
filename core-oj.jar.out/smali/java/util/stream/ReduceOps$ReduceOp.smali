@@ -39,11 +39,17 @@
 # direct methods
 .method constructor <init>(Ljava/util/stream/StreamShape;)V
     .locals 0
+    .param p1, "shape"    # Ljava/util/stream/StreamShape;
 
+    .prologue
+    .line 694
+    .local p0, "this":Ljava/util/stream/ReduceOps$ReduceOp;, "Ljava/util/stream/ReduceOps$ReduceOp<TT;TR;TS;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 695
     iput-object p1, p0, Ljava/util/stream/ReduceOps$ReduceOp;->inputShape:Ljava/util/stream/StreamShape;
 
+    .line 694
     return-void
 .end method
 
@@ -63,6 +69,11 @@
         }
     .end annotation
 
+    .prologue
+    .line 714
+    .local p0, "this":Ljava/util/stream/ReduceOps$ReduceOp;, "Ljava/util/stream/ReduceOps$ReduceOp<TT;TR;TS;>;"
+    .local p1, "helper":Ljava/util/stream/PipelineHelper;, "Ljava/util/stream/PipelineHelper<TT;>;"
+    .local p2, "spliterator":Ljava/util/Spliterator;, "Ljava/util/Spliterator<TP_IN;>;"
     new-instance v0, Ljava/util/stream/ReduceOps$ReduceTask;
 
     invoke-direct {v0, p0, p1, p2}, Ljava/util/stream/ReduceOps$ReduceTask;-><init>(Ljava/util/stream/ReduceOps$ReduceOp;Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)V
@@ -94,6 +105,11 @@
         }
     .end annotation
 
+    .prologue
+    .line 708
+    .local p0, "this":Ljava/util/stream/ReduceOps$ReduceOp;, "Ljava/util/stream/ReduceOps$ReduceOp<TT;TR;TS;>;"
+    .local p1, "helper":Ljava/util/stream/PipelineHelper;, "Ljava/util/stream/PipelineHelper<TT;>;"
+    .local p2, "spliterator":Ljava/util/Spliterator;, "Ljava/util/Spliterator<TP_IN;>;"
     invoke-virtual {p0}, Ljava/util/stream/ReduceOps$ReduceOp;->makeSink()Ljava/util/stream/ReduceOps$AccumulatingSink;
 
     move-result-object v0
@@ -114,6 +130,9 @@
 .method public inputShape()Ljava/util/stream/StreamShape;
     .locals 1
 
+    .prologue
+    .line 702
+    .local p0, "this":Ljava/util/stream/ReduceOps$ReduceOp;, "Ljava/util/stream/ReduceOps$ReduceOp<TT;TR;TS;>;"
     iget-object v0, p0, Ljava/util/stream/ReduceOps$ReduceOp;->inputShape:Ljava/util/stream/StreamShape;
 
     return-object v0

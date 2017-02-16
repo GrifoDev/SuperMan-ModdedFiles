@@ -15,9 +15,14 @@
 # direct methods
 .method public constructor <init>([BI)V
     .locals 1
+    .param p1, "salt"    # [B
+    .param p2, "iterationCount"    # I
 
+    .prologue
+    .line 55
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 56
     invoke-virtual {p1}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
@@ -26,8 +31,10 @@
 
     iput-object v0, p0, Ljavax/crypto/spec/PBEParameterSpec;->salt:[B
 
+    .line 57
     iput p2, p0, Ljavax/crypto/spec/PBEParameterSpec;->iterationCount:I
 
+    .line 55
     return-void
 .end method
 
@@ -36,6 +43,8 @@
 .method public getIterationCount()I
     .locals 1
 
+    .prologue
+    .line 76
     iget v0, p0, Ljavax/crypto/spec/PBEParameterSpec;->iterationCount:I
 
     return v0
@@ -44,6 +53,8 @@
 .method public getSalt()[B
     .locals 1
 
+    .prologue
+    .line 67
     iget-object v0, p0, Ljavax/crypto/spec/PBEParameterSpec;->salt:[B
 
     invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;

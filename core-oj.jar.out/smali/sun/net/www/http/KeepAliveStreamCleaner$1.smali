@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 65
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -41,6 +43,8 @@
 .method public run()Ljava/lang/Integer;
     .locals 2
 
+    .prologue
+    .line 67
     const-string/jumbo v0, "http.KeepAlive.remainingData"
 
     sget v1, Lsun/net/www/http/KeepAliveStreamCleaner;->MAX_DATA_REMAINING:I
@@ -55,6 +59,8 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 66
     invoke-virtual {p0}, Lsun/net/www/http/KeepAliveStreamCleaner$1;->run()Ljava/lang/Integer;
 
     move-result-object v0

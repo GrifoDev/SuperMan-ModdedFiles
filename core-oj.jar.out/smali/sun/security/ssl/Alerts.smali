@@ -71,6 +71,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 35
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -78,9 +80,13 @@
 
 .method static alertDescription(B)Ljava/lang/String;
     .locals 2
+    .param p0, "code"    # B
 
+    .prologue
+    .line 87
     sparse-switch p0, :sswitch_data_0
 
+    .line 149
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -109,151 +115,181 @@
 
     return-object v0
 
+    .line 90
     :sswitch_0
     const-string/jumbo v0, "close_notify"
 
     return-object v0
 
+    .line 92
     :sswitch_1
     const-string/jumbo v0, "unexpected_message"
 
     return-object v0
 
+    .line 94
     :sswitch_2
     const-string/jumbo v0, "bad_record_mac"
 
     return-object v0
 
+    .line 96
     :sswitch_3
     const-string/jumbo v0, "decryption_failed"
 
     return-object v0
 
+    .line 98
     :sswitch_4
     const-string/jumbo v0, "record_overflow"
 
     return-object v0
 
+    .line 100
     :sswitch_5
     const-string/jumbo v0, "decompression_failure"
 
     return-object v0
 
+    .line 102
     :sswitch_6
     const-string/jumbo v0, "handshake_failure"
 
     return-object v0
 
+    .line 104
     :sswitch_7
     const-string/jumbo v0, "no_certificate"
 
     return-object v0
 
+    .line 106
     :sswitch_8
     const-string/jumbo v0, "bad_certificate"
 
     return-object v0
 
+    .line 108
     :sswitch_9
     const-string/jumbo v0, "unsupported_certificate"
 
     return-object v0
 
+    .line 110
     :sswitch_a
     const-string/jumbo v0, "certificate_revoked"
 
     return-object v0
 
+    .line 112
     :sswitch_b
     const-string/jumbo v0, "certificate_expired"
 
     return-object v0
 
+    .line 114
     :sswitch_c
     const-string/jumbo v0, "certificate_unknown"
 
     return-object v0
 
+    .line 116
     :sswitch_d
     const-string/jumbo v0, "illegal_parameter"
 
     return-object v0
 
+    .line 118
     :sswitch_e
     const-string/jumbo v0, "unknown_ca"
 
     return-object v0
 
+    .line 120
     :sswitch_f
     const-string/jumbo v0, "access_denied"
 
     return-object v0
 
+    .line 122
     :sswitch_10
     const-string/jumbo v0, "decode_error"
 
     return-object v0
 
+    .line 124
     :sswitch_11
     const-string/jumbo v0, "decrypt_error"
 
     return-object v0
 
+    .line 126
     :sswitch_12
     const-string/jumbo v0, "export_restriction"
 
     return-object v0
 
+    .line 128
     :sswitch_13
     const-string/jumbo v0, "protocol_version"
 
     return-object v0
 
+    .line 130
     :sswitch_14
     const-string/jumbo v0, "insufficient_security"
 
     return-object v0
 
+    .line 132
     :sswitch_15
     const-string/jumbo v0, "internal_error"
 
     return-object v0
 
+    .line 134
     :sswitch_16
     const-string/jumbo v0, "user_canceled"
 
     return-object v0
 
+    .line 136
     :sswitch_17
     const-string/jumbo v0, "no_renegotiation"
 
     return-object v0
 
+    .line 138
     :sswitch_18
     const-string/jumbo v0, "unsupported_extension"
 
     return-object v0
 
+    .line 140
     :sswitch_19
     const-string/jumbo v0, "certificate_unobtainable"
 
     return-object v0
 
+    .line 142
     :sswitch_1a
     const-string/jumbo v0, "unrecognized_name"
 
     return-object v0
 
+    .line 144
     :sswitch_1b
     const-string/jumbo v0, "bad_certificate_status_response"
 
     return-object v0
 
+    .line 146
     :sswitch_1c
     const-string/jumbo v0, "bad_certificate_hash_value"
 
     return-object v0
 
+    .line 87
     nop
 
     :sswitch_data_0
@@ -292,7 +328,11 @@
 
 .method static getSSLException(BLjava/lang/String;)Ljavax/net/ssl/SSLException;
     .locals 1
+    .param p0, "description"    # B
+    .param p1, "reason"    # Ljava/lang/String;
 
+    .prologue
+    .line 154
     const/4 v0, 0x0
 
     invoke-static {p0, v0, p1}, Lsun/security/ssl/Alerts;->getSSLException(BLjava/lang/Throwable;Ljava/lang/String;)Ljavax/net/ssl/SSLException;
@@ -304,43 +344,62 @@
 
 .method static getSSLException(BLjava/lang/Throwable;Ljava/lang/String;)Ljavax/net/ssl/SSLException;
     .locals 1
+    .param p0, "description"    # B
+    .param p1, "cause"    # Ljava/lang/Throwable;
+    .param p2, "reason"    # Ljava/lang/String;
 
+    .prologue
+    .line 167
     if-nez p2, :cond_0
 
+    .line 168
     if-eqz p1, :cond_2
 
+    .line 169
     invoke-virtual {p1}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
 
     move-result-object p2
 
+    .line 174
     :cond_0
     :goto_0
     sparse-switch p0, :sswitch_data_0
 
+    .line 208
     new-instance v0, Ljavax/net/ssl/SSLException;
 
     invoke-direct {v0, p2}, Ljavax/net/ssl/SSLException;-><init>(Ljava/lang/String;)V
 
+    .line 212
+    .local v0, "e":Ljavax/net/ssl/SSLException;
     :goto_1
     if-eqz p1, :cond_1
 
+    .line 213
     invoke-virtual {v0, p1}, Ljava/lang/Throwable;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
+    .line 215
     :cond_1
     return-object v0
 
+    .line 171
+    .end local v0    # "e":Ljavax/net/ssl/SSLException;
     :cond_2
     const-string/jumbo p2, ""
 
     goto :goto_0
 
+    .line 192
     :sswitch_0
     new-instance v0, Ljavax/net/ssl/SSLHandshakeException;
 
     invoke-direct {v0, p2}, Ljavax/net/ssl/SSLHandshakeException;-><init>(Ljava/lang/String;)V
 
+    .line 193
+    .restart local v0    # "e":Ljavax/net/ssl/SSLException;
     goto :goto_1
 
+    .line 174
     :sswitch_data_0
     .sparse-switch
         0x28 -> :sswitch_0

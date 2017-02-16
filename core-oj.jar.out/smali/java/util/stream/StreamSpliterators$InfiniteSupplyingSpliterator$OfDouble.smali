@@ -34,11 +34,18 @@
 # direct methods
 .method constructor <init>(JLjava/util/function/DoubleSupplier;)V
     .locals 1
+    .param p1, "size"    # J
+    .param p3, "s"    # Ljava/util/function/DoubleSupplier;
 
+    .prologue
+    .line 1423
+    .local p0, "this":Ljava/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble;, "Ljava/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator<TT;>.OfDouble;"
     invoke-direct {p0, p1, p2}, Ljava/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator;-><init>(J)V
 
+    .line 1424
     iput-object p3, p0, Ljava/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble;->s:Ljava/util/function/DoubleSupplier;
 
+    .line 1422
     return-void
 .end method
 
@@ -46,9 +53,14 @@
 # virtual methods
 .method public bridge synthetic forEachRemaining(Ljava/lang/Object;)V
     .locals 0
+    .param p1, "action"    # Ljava/lang/Object;
 
+    .prologue
+    .line 781
+    .local p0, "this":Ljava/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble;, "Ljava/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator<TT;>.OfDouble;"
     check-cast p1, Ljava/util/function/DoubleConsumer;
 
+    .end local p1    # "action":Ljava/lang/Object;
     invoke-interface {p0, p1}, Ljava/util/Spliterator$OfDouble;->forEachRemaining(Ljava/util/function/DoubleConsumer;)V
 
     return-void
@@ -56,9 +68,14 @@
 
 .method public bridge synthetic tryAdvance(Ljava/lang/Object;)Z
     .locals 1
+    .param p1, "action"    # Ljava/lang/Object;
 
+    .prologue
+    .line 1428
+    .local p0, "this":Ljava/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble;, "Ljava/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator<TT;>.OfDouble;"
     check-cast p1, Ljava/util/function/DoubleConsumer;
 
+    .end local p1    # "action":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Ljava/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble;->tryAdvance(Ljava/util/function/DoubleConsumer;)Z
 
     move-result v0
@@ -68,9 +85,14 @@
 
 .method public tryAdvance(Ljava/util/function/DoubleConsumer;)Z
     .locals 2
+    .param p1, "action"    # Ljava/util/function/DoubleConsumer;
 
+    .prologue
+    .line 1429
+    .local p0, "this":Ljava/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble;, "Ljava/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator<TT;>.OfDouble;"
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 1431
     iget-object v0, p0, Ljava/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble;->s:Ljava/util/function/DoubleSupplier;
 
     invoke-interface {v0}, Ljava/util/function/DoubleSupplier;->getAsDouble()D
@@ -79,6 +101,7 @@
 
     invoke-interface {p1, v0, v1}, Ljava/util/function/DoubleConsumer;->accept(D)V
 
+    .line 1432
     const/4 v0, 0x1
 
     return v0
@@ -87,6 +110,9 @@
 .method public trySplit()Ljava/util/Spliterator$OfDouble;
     .locals 4
 
+    .prologue
+    .line 1437
+    .local p0, "this":Ljava/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble;, "Ljava/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator<TT;>.OfDouble;"
     iget-wide v0, p0, Ljava/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator;->estimate:J
 
     const-wide/16 v2, 0x0
@@ -95,10 +121,12 @@
 
     if-nez v0, :cond_0
 
+    .line 1438
     const/4 v0, 0x0
 
     return-object v0
 
+    .line 1439
     :cond_0
     new-instance v0, Ljava/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble;
 
@@ -120,6 +148,9 @@
 .method public bridge synthetic trySplit()Ljava/util/Spliterator$OfPrimitive;
     .locals 1
 
+    .prologue
+    .line 1436
+    .local p0, "this":Ljava/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble;, "Ljava/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator<TT;>.OfDouble;"
     invoke-virtual {p0}, Ljava/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble;->trySplit()Ljava/util/Spliterator$OfDouble;
 
     move-result-object v0
@@ -130,6 +161,9 @@
 .method public bridge synthetic trySplit()Ljava/util/Spliterator;
     .locals 1
 
+    .prologue
+    .line 1436
+    .local p0, "this":Ljava/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble;, "Ljava/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator<TT;>.OfDouble;"
     invoke-virtual {p0}, Ljava/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble;->trySplit()Ljava/util/Spliterator$OfDouble;
 
     move-result-object v0

@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 46
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -48,8 +50,10 @@
         }
     .end annotation
 
+    .prologue
     const/4 v4, 0x0
 
+    .line 49
     :try_start_0
     const-string/jumbo v1, "sun.security.ssl.krb5.KerberosClientKeyExchangeImpl"
 
@@ -65,15 +69,20 @@
 
     return-object v1
 
+    .line 50
     :catch_0
     move-exception v0
 
+    .line 51
+    .local v0, "cnf":Ljava/lang/ClassNotFoundException;
     return-object v4
 .end method
 
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 47
     invoke-virtual {p0}, Lsun/security/ssl/KerberosClientKeyExchange$1;->run()Ljava/lang/Class;
 
     move-result-object v0

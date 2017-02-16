@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Ljava/io/ExpiringCache;)V
     .locals 0
+    .param p1, "this$0"    # Ljava/io/ExpiringCache;
 
+    .prologue
+    .line 66
     iput-object p1, p0, Ljava/io/ExpiringCache$1;->this$0:Ljava/io/ExpiringCache;
 
     invoke-direct {p0}, Ljava/util/LinkedHashMap;-><init>()V
@@ -33,7 +36,10 @@
 # virtual methods
 .method protected removeEldestEntry(Ljava/util/Map$Entry;)Z
     .locals 2
+    .param p1, "eldest"    # Ljava/util/Map$Entry;
 
+    .prologue
+    .line 68
     invoke-virtual {p0}, Ljava/io/ExpiringCache$1;->size()I
 
     move-result v0

@@ -27,16 +27,24 @@
 # direct methods
 .method constructor <init>(Ljava/util/jar/Manifest;Ljava/util/jar/JarEntry;Ljava/io/InputStream;Ljava/util/jar/JarVerifier;)V
     .locals 4
+    .param p1, "man"    # Ljava/util/jar/Manifest;
+    .param p2, "je"    # Ljava/util/jar/JarEntry;
+    .param p3, "is"    # Ljava/io/InputStream;
+    .param p4, "jv"    # Ljava/util/jar/JarVerifier;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 435
     invoke-direct {p0}, Ljava/io/InputStream;-><init>()V
 
+    .line 442
     if-nez p3, :cond_0
 
+    .line 443
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string/jumbo v1, "is == null"
@@ -45,29 +53,35 @@
 
     throw v0
 
+    .line 445
     :cond_0
     iput-object p3, p0, Ljava/util/jar/JarVerifier$VerifierStream;->is:Ljava/io/InputStream;
 
+    .line 446
     iput-object p4, p0, Ljava/util/jar/JarVerifier$VerifierStream;->jv:Ljava/util/jar/JarVerifier;
 
+    .line 447
     new-instance v0, Lsun/security/util/ManifestEntryVerifier;
 
     invoke-direct {v0, p1}, Lsun/security/util/ManifestEntryVerifier;-><init>(Ljava/util/jar/Manifest;)V
 
     iput-object v0, p0, Ljava/util/jar/JarVerifier$VerifierStream;->mev:Lsun/security/util/ManifestEntryVerifier;
 
+    .line 448
     iget-object v0, p0, Ljava/util/jar/JarVerifier$VerifierStream;->jv:Ljava/util/jar/JarVerifier;
 
     iget-object v1, p0, Ljava/util/jar/JarVerifier$VerifierStream;->mev:Lsun/security/util/ManifestEntryVerifier;
 
     invoke-virtual {v0, p2, v1}, Ljava/util/jar/JarVerifier;->beginEntry(Ljava/util/jar/JarEntry;Lsun/security/util/ManifestEntryVerifier;)V
 
+    .line 449
     invoke-virtual {p2}, Ljava/util/jar/JarEntry;->getSize()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Ljava/util/jar/JarVerifier$VerifierStream;->numLeft:J
 
+    .line 450
     iget-wide v0, p0, Ljava/util/jar/JarVerifier$VerifierStream;->numLeft:J
 
     const-wide/16 v2, 0x0
@@ -76,6 +90,7 @@
 
     if-nez v0, :cond_1
 
+    .line 451
     iget-object v0, p0, Ljava/util/jar/JarVerifier$VerifierStream;->jv:Ljava/util/jar/JarVerifier;
 
     iget-object v1, p0, Ljava/util/jar/JarVerifier$VerifierStream;->mev:Lsun/security/util/ManifestEntryVerifier;
@@ -84,6 +99,7 @@
 
     invoke-virtual {v0, v2, v1}, Ljava/util/jar/JarVerifier;->update(ILsun/security/util/ManifestEntryVerifier;)V
 
+    .line 438
     :cond_1
     return-void
 .end method
@@ -98,10 +114,13 @@
         }
     .end annotation
 
+    .prologue
+    .line 507
     iget-object v0, p0, Ljava/util/jar/JarVerifier$VerifierStream;->is:Ljava/io/InputStream;
 
     if-nez v0, :cond_0
 
+    .line 508
     new-instance v0, Ljava/io/IOException;
 
     const-string/jumbo v1, "stream closed"
@@ -110,6 +129,7 @@
 
     throw v0
 
+    .line 511
     :cond_0
     iget-object v0, p0, Ljava/util/jar/JarVerifier$VerifierStream;->is:Ljava/io/InputStream;
 
@@ -128,23 +148,30 @@
         }
     .end annotation
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 498
     iget-object v0, p0, Ljava/util/jar/JarVerifier$VerifierStream;->is:Ljava/io/InputStream;
 
     if-eqz v0, :cond_0
 
+    .line 499
     iget-object v0, p0, Ljava/util/jar/JarVerifier$VerifierStream;->is:Ljava/io/InputStream;
 
     invoke-virtual {v0}, Ljava/io/InputStream;->close()V
 
+    .line 500
     :cond_0
     iput-object v1, p0, Ljava/util/jar/JarVerifier$VerifierStream;->is:Ljava/io/InputStream;
 
+    .line 501
     iput-object v1, p0, Ljava/util/jar/JarVerifier$VerifierStream;->mev:Lsun/security/util/ManifestEntryVerifier;
 
+    .line 502
     iput-object v1, p0, Ljava/util/jar/JarVerifier$VerifierStream;->jv:Ljava/util/jar/JarVerifier;
 
+    .line 496
     return-void
 .end method
 
@@ -156,14 +183,17 @@
         }
     .end annotation
 
+    .prologue
     const-wide/16 v8, 0x0
 
     const/4 v6, -0x1
 
+    .line 457
     iget-object v1, p0, Ljava/util/jar/JarVerifier$VerifierStream;->is:Ljava/io/InputStream;
 
     if-nez v1, :cond_0
 
+    .line 458
     new-instance v1, Ljava/io/IOException;
 
     const-string/jumbo v2, "stream closed"
@@ -172,6 +202,7 @@
 
     throw v1
 
+    .line 461
     :cond_0
     iget-wide v2, p0, Ljava/util/jar/JarVerifier$VerifierStream;->numLeft:J
 
@@ -179,18 +210,22 @@
 
     if-lez v1, :cond_2
 
+    .line 462
     iget-object v1, p0, Ljava/util/jar/JarVerifier$VerifierStream;->is:Ljava/io/InputStream;
 
     invoke-virtual {v1}, Ljava/io/InputStream;->read()I
 
     move-result v0
 
+    .line 463
+    .local v0, "b":I
     iget-object v1, p0, Ljava/util/jar/JarVerifier$VerifierStream;->jv:Ljava/util/jar/JarVerifier;
 
     iget-object v2, p0, Ljava/util/jar/JarVerifier$VerifierStream;->mev:Lsun/security/util/ManifestEntryVerifier;
 
     invoke-virtual {v1, v0, v2}, Ljava/util/jar/JarVerifier;->update(ILsun/security/util/ManifestEntryVerifier;)V
 
+    .line 464
     iget-wide v2, p0, Ljava/util/jar/JarVerifier$VerifierStream;->numLeft:J
 
     const-wide/16 v4, 0x1
@@ -199,41 +234,52 @@
 
     iput-wide v2, p0, Ljava/util/jar/JarVerifier$VerifierStream;->numLeft:J
 
+    .line 465
     iget-wide v2, p0, Ljava/util/jar/JarVerifier$VerifierStream;->numLeft:J
 
     cmp-long v1, v2, v8
 
     if-nez v1, :cond_1
 
+    .line 466
     iget-object v1, p0, Ljava/util/jar/JarVerifier$VerifierStream;->jv:Ljava/util/jar/JarVerifier;
 
     iget-object v2, p0, Ljava/util/jar/JarVerifier$VerifierStream;->mev:Lsun/security/util/ManifestEntryVerifier;
 
     invoke-virtual {v1, v6, v2}, Ljava/util/jar/JarVerifier;->update(ILsun/security/util/ManifestEntryVerifier;)V
 
+    .line 467
     :cond_1
     return v0
 
+    .line 469
+    .end local v0    # "b":I
     :cond_2
     return v6
 .end method
 
 .method public read([BII)I
     .locals 9
+    .param p1, "b"    # [B
+    .param p2, "off"    # I
+    .param p3, "len"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
     const/4 v8, -0x1
 
     const-wide/16 v6, 0x0
 
+    .line 475
     iget-object v0, p0, Ljava/util/jar/JarVerifier$VerifierStream;->is:Ljava/io/InputStream;
 
     if-nez v0, :cond_0
 
+    .line 476
     new-instance v0, Ljava/io/IOException;
 
     const-string/jumbo v2, "stream closed"
@@ -242,6 +288,7 @@
 
     throw v0
 
+    .line 479
     :cond_0
     iget-wide v2, p0, Ljava/util/jar/JarVerifier$VerifierStream;->numLeft:J
 
@@ -257,10 +304,12 @@
 
     if-gez v0, :cond_1
 
+    .line 480
     iget-wide v2, p0, Ljava/util/jar/JarVerifier$VerifierStream;->numLeft:J
 
     long-to-int p3, v2
 
+    .line 483
     :cond_1
     iget-wide v2, p0, Ljava/util/jar/JarVerifier$VerifierStream;->numLeft:J
 
@@ -268,12 +317,15 @@
 
     if-lez v0, :cond_3
 
+    .line 484
     iget-object v0, p0, Ljava/util/jar/JarVerifier$VerifierStream;->is:Ljava/io/InputStream;
 
     invoke-virtual {v0, p1, p2, p3}, Ljava/io/InputStream;->read([BII)I
 
     move-result v1
 
+    .line 485
+    .local v1, "n":I
     iget-object v0, p0, Ljava/util/jar/JarVerifier$VerifierStream;->jv:Ljava/util/jar/JarVerifier;
 
     iget-object v5, p0, Ljava/util/jar/JarVerifier$VerifierStream;->mev:Lsun/security/util/ManifestEntryVerifier;
@@ -286,6 +338,7 @@
 
     invoke-virtual/range {v0 .. v5}, Ljava/util/jar/JarVerifier;->update(I[BIILsun/security/util/ManifestEntryVerifier;)V
 
+    .line 486
     iget-wide v2, p0, Ljava/util/jar/JarVerifier$VerifierStream;->numLeft:J
 
     int-to-long v4, v1
@@ -294,12 +347,14 @@
 
     iput-wide v2, p0, Ljava/util/jar/JarVerifier$VerifierStream;->numLeft:J
 
+    .line 487
     iget-wide v2, p0, Ljava/util/jar/JarVerifier$VerifierStream;->numLeft:J
 
     cmp-long v0, v2, v6
 
     if-nez v0, :cond_2
 
+    .line 488
     iget-object v2, p0, Ljava/util/jar/JarVerifier$VerifierStream;->jv:Ljava/util/jar/JarVerifier;
 
     iget-object v7, p0, Ljava/util/jar/JarVerifier$VerifierStream;->mev:Lsun/security/util/ManifestEntryVerifier;
@@ -314,9 +369,12 @@
 
     invoke-virtual/range {v2 .. v7}, Ljava/util/jar/JarVerifier;->update(I[BIILsun/security/util/ManifestEntryVerifier;)V
 
+    .line 489
     :cond_2
     return v1
 
+    .line 491
+    .end local v1    # "n":I
     :cond_3
     return v8
 .end method

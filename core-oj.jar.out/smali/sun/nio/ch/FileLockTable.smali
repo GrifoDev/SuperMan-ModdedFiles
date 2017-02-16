@@ -7,6 +7,8 @@
 .method protected constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 36
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -14,12 +16,16 @@
 
 .method public static newSharedFileLockTable(Ljava/nio/channels/Channel;Ljava/io/FileDescriptor;)Lsun/nio/ch/FileLockTable;
     .locals 1
+    .param p0, "channel"    # Ljava/nio/channels/Channel;
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 47
     new-instance v0, Lsun/nio/ch/SharedFileLockTable;
 
     invoke-direct {v0, p0, p1}, Lsun/nio/ch/SharedFileLockTable;-><init>(Ljava/nio/channels/Channel;Ljava/io/FileDescriptor;)V

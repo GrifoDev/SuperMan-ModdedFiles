@@ -42,10 +42,14 @@
 .method constructor <init>(Ljava/util/Collection;)V
     .locals 1
 
+    .prologue
+    .line 4407
+    .local p1, "val$c":Ljava/util/Collection;, "Ljava/util/Collection<TT;>;"
     iput-object p1, p0, Ljava/util/Collections$3;->val$c:Ljava/util/Collection;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 4408
     iget-object v0, p0, Ljava/util/Collections$3;->val$c:Ljava/util/Collection;
 
     invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
@@ -54,6 +58,7 @@
 
     iput-object v0, p0, Ljava/util/Collections$3;->i:Ljava/util/Iterator;
 
+    .line 4407
     return-void
 .end method
 
@@ -62,6 +67,8 @@
 .method public hasMoreElements()Z
     .locals 1
 
+    .prologue
+    .line 4411
     iget-object v0, p0, Ljava/util/Collections$3;->i:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -79,6 +86,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 4415
     iget-object v0, p0, Ljava/util/Collections$3;->i:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;

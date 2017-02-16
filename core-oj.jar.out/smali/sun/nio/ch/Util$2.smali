@@ -33,6 +33,9 @@
 .method constructor <init>(Ljava/util/Set;)V
     .locals 0
 
+    .prologue
+    .line 299
+    .local p1, "val$s":Ljava/util/Set;, "Ljava/util/Set<TE;>;"
     iput-object p1, p0, Lsun/nio/ch/Util$2;->val$s:Ljava/util/Set;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,6 +53,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 324
+    .local p1, "o":Ljava/lang/Object;, "TE;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -67,6 +73,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 327
+    .local p1, "coll":Ljava/util/Collection;, "Ljava/util/Collection<+TE;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -77,6 +86,8 @@
 .method public clear()V
     .locals 1
 
+    .prologue
+    .line 310
     iget-object v0, p0, Lsun/nio/ch/Util$2;->val$s:Ljava/util/Set;
 
     invoke-interface {v0}, Ljava/util/Set;->clear()V
@@ -86,7 +97,10 @@
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
+    .param p1, "o"    # Ljava/lang/Object;
 
+    .prologue
+    .line 303
     iget-object v0, p0, Lsun/nio/ch/Util$2;->val$s:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
@@ -106,6 +120,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 314
+    .local p1, "coll":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     iget-object v0, p0, Lsun/nio/ch/Util$2;->val$s:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->containsAll(Ljava/util/Collection;)Z
@@ -117,7 +134,10 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
+    .param p1, "o"    # Ljava/lang/Object;
 
+    .prologue
+    .line 308
     iget-object v0, p0, Lsun/nio/ch/Util$2;->val$s:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->equals(Ljava/lang/Object;)Z
@@ -130,6 +150,8 @@
 .method public hashCode()I
     .locals 1
 
+    .prologue
+    .line 309
     iget-object v0, p0, Lsun/nio/ch/Util$2;->val$s:Ljava/util/Set;
 
     invoke-interface {v0}, Ljava/util/Set;->hashCode()I
@@ -142,6 +164,8 @@
 .method public isEmpty()Z
     .locals 1
 
+    .prologue
+    .line 302
     iget-object v0, p0, Lsun/nio/ch/Util$2;->val$s:Ljava/util/Set;
 
     invoke-interface {v0}, Ljava/util/Set;->isEmpty()Z
@@ -161,6 +185,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 307
     iget-object v0, p0, Lsun/nio/ch/Util$2;->val$s:Ljava/util/Set;
 
     invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
@@ -172,7 +198,10 @@
 
 .method public remove(Ljava/lang/Object;)Z
     .locals 1
+    .param p1, "o"    # Ljava/lang/Object;
 
+    .prologue
+    .line 311
     iget-object v0, p0, Lsun/nio/ch/Util$2;->val$s:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
@@ -192,6 +221,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 317
+    .local p1, "coll":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     iget-object v0, p0, Lsun/nio/ch/Util$2;->val$s:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->removeAll(Ljava/util/Collection;)Z
@@ -211,6 +243,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 320
+    .local p1, "coll":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     iget-object v0, p0, Lsun/nio/ch/Util$2;->val$s:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->retainAll(Ljava/util/Collection;)Z
@@ -223,6 +258,8 @@
 .method public size()I
     .locals 1
 
+    .prologue
+    .line 301
     iget-object v0, p0, Lsun/nio/ch/Util$2;->val$s:Ljava/util/Set;
 
     invoke-interface {v0}, Ljava/util/Set;->size()I
@@ -235,6 +272,8 @@
 .method public toArray()[Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 304
     iget-object v0, p0, Lsun/nio/ch/Util$2;->val$s:Ljava/util/Set;
 
     invoke-interface {v0}, Ljava/util/Set;->toArray()[Ljava/lang/Object;
@@ -254,6 +293,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 305
+    .local p1, "a":[Ljava/lang/Object;, "[TT;"
     iget-object v0, p0, Lsun/nio/ch/Util$2;->val$s:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
@@ -266,6 +308,8 @@
 .method public toString()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 306
     iget-object v0, p0, Lsun/nio/ch/Util$2;->val$s:Ljava/util/Set;
 
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;

@@ -21,6 +21,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 1097
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -30,7 +32,12 @@
 # virtual methods
 .method public assign(Ljava/net/HttpCookie;Ljava/lang/String;Ljava/lang/String;)V
     .locals 4
+    .param p1, "cookie"    # Ljava/net/HttpCookie;
+    .param p2, "attrName"    # Ljava/lang/String;
+    .param p3, "attrValue"    # Ljava/lang/String;
 
+    .prologue
+    .line 1099
     invoke-virtual {p1}, Ljava/net/HttpCookie;->getMaxAge()J
 
     move-result-wide v0
@@ -41,12 +48,14 @@
 
     if-nez v0, :cond_0
 
+    .line 1100
     invoke-static {p1, p3}, Ljava/net/HttpCookie;->-wrap0(Ljava/net/HttpCookie;Ljava/lang/String;)J
 
     move-result-wide v0
 
     invoke-virtual {p1, v0, v1}, Ljava/net/HttpCookie;->setMaxAge(J)V
 
+    .line 1098
     :cond_0
     return-void
 .end method

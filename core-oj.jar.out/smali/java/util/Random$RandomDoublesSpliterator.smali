@@ -32,19 +32,29 @@
 # direct methods
 .method constructor <init>(Ljava/util/Random;JJDD)V
     .locals 0
+    .param p1, "rng"    # Ljava/util/Random;
+    .param p2, "index"    # J
+    .param p4, "fence"    # J
+    .param p6, "origin"    # D
+    .param p8, "bound"    # D
 
+    .prologue
+    .line 1119
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 1121
     iput-object p1, p0, Ljava/util/Random$RandomDoublesSpliterator;->rng:Ljava/util/Random;
 
     iput-wide p2, p0, Ljava/util/Random$RandomDoublesSpliterator;->index:J
 
     iput-wide p4, p0, Ljava/util/Random$RandomDoublesSpliterator;->fence:J
 
+    .line 1122
     iput-wide p6, p0, Ljava/util/Random$RandomDoublesSpliterator;->origin:D
 
     iput-wide p8, p0, Ljava/util/Random$RandomDoublesSpliterator;->bound:D
 
+    .line 1120
     return-void
 .end method
 
@@ -53,6 +63,8 @@
 .method public characteristics()I
     .locals 1
 
+    .prologue
+    .line 1136
     const/16 v0, 0x4540
 
     return v0
@@ -61,6 +73,8 @@
 .method public estimateSize()J
     .locals 4
 
+    .prologue
+    .line 1132
     iget-wide v0, p0, Ljava/util/Random$RandomDoublesSpliterator;->fence:J
 
     iget-wide v2, p0, Ljava/util/Random$RandomDoublesSpliterator;->index:J
@@ -72,9 +86,13 @@
 
 .method public bridge synthetic forEachRemaining(Ljava/lang/Object;)V
     .locals 0
+    .param p1, "consumer"    # Ljava/lang/Object;
 
+    .prologue
+    .line 1151
     check-cast p1, Ljava/util/function/DoubleConsumer;
 
+    .end local p1    # "consumer":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Ljava/util/Random$RandomDoublesSpliterator;->forEachRemaining(Ljava/util/function/DoubleConsumer;)V
 
     return-void
@@ -82,7 +100,10 @@
 
 .method public forEachRemaining(Ljava/util/function/DoubleConsumer;)V
     .locals 12
+    .param p1, "consumer"    # Ljava/util/function/DoubleConsumer;
 
+    .prologue
+    .line 1152
     if-nez p1, :cond_0
 
     new-instance v9, Ljava/lang/NullPointerException;
@@ -91,23 +112,34 @@
 
     throw v9
 
+    .line 1153
     :cond_0
     iget-wide v4, p0, Ljava/util/Random$RandomDoublesSpliterator;->index:J
 
+    .local v4, "i":J
     iget-wide v2, p0, Ljava/util/Random$RandomDoublesSpliterator;->fence:J
 
+    .line 1154
+    .local v2, "f":J
     cmp-long v9, v4, v2
 
     if-gez v9, :cond_2
 
+    .line 1155
     iput-wide v2, p0, Ljava/util/Random$RandomDoublesSpliterator;->index:J
 
+    .line 1156
     iget-object v8, p0, Ljava/util/Random$RandomDoublesSpliterator;->rng:Ljava/util/Random;
 
+    .line 1157
+    .local v8, "r":Ljava/util/Random;
     iget-wide v6, p0, Ljava/util/Random$RandomDoublesSpliterator;->origin:D
 
+    .local v6, "o":D
     iget-wide v0, p0, Ljava/util/Random$RandomDoublesSpliterator;->bound:D
 
+    .line 1159
+    .local v0, "b":D
     :cond_1
     invoke-virtual {v8, v6, v7, v0, v1}, Ljava/util/Random;->internalNextDouble(DD)D
 
@@ -115,6 +147,7 @@
 
     invoke-interface {p1, v10, v11}, Ljava/util/function/DoubleConsumer;->accept(D)V
 
+    .line 1160
     const-wide/16 v10, 0x1
 
     add-long/2addr v4, v10
@@ -123,15 +156,23 @@
 
     if-ltz v9, :cond_1
 
+    .line 1151
+    .end local v0    # "b":D
+    .end local v6    # "o":D
+    .end local v8    # "r":Ljava/util/Random;
     :cond_2
     return-void
 .end method
 
 .method public bridge synthetic tryAdvance(Ljava/lang/Object;)Z
     .locals 1
+    .param p1, "consumer"    # Ljava/lang/Object;
 
+    .prologue
+    .line 1140
     check-cast p1, Ljava/util/function/DoubleConsumer;
 
+    .end local p1    # "consumer":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Ljava/util/Random$RandomDoublesSpliterator;->tryAdvance(Ljava/util/function/DoubleConsumer;)Z
 
     move-result v0
@@ -141,7 +182,10 @@
 
 .method public tryAdvance(Ljava/util/function/DoubleConsumer;)Z
     .locals 10
+    .param p1, "consumer"    # Ljava/util/function/DoubleConsumer;
 
+    .prologue
+    .line 1141
     if-nez p1, :cond_0
 
     new-instance v4, Ljava/lang/NullPointerException;
@@ -150,15 +194,20 @@
 
     throw v4
 
+    .line 1142
     :cond_0
     iget-wide v2, p0, Ljava/util/Random$RandomDoublesSpliterator;->index:J
 
+    .local v2, "i":J
     iget-wide v0, p0, Ljava/util/Random$RandomDoublesSpliterator;->fence:J
 
+    .line 1143
+    .local v0, "f":J
     cmp-long v4, v2, v0
 
     if-gez v4, :cond_1
 
+    .line 1144
     iget-object v4, p0, Ljava/util/Random$RandomDoublesSpliterator;->rng:Ljava/util/Random;
 
     iget-wide v6, p0, Ljava/util/Random$RandomDoublesSpliterator;->origin:D
@@ -171,16 +220,19 @@
 
     invoke-interface {p1, v4, v5}, Ljava/util/function/DoubleConsumer;->accept(D)V
 
+    .line 1145
     const-wide/16 v4, 0x1
 
     add-long/2addr v4, v2
 
     iput-wide v4, p0, Ljava/util/Random$RandomDoublesSpliterator;->index:J
 
+    .line 1146
     const/4 v4, 0x1
 
     return v4
 
+    .line 1148
     :cond_1
     const/4 v4, 0x0
 
@@ -190,8 +242,11 @@
 .method public trySplit()Ljava/util/Random$RandomDoublesSpliterator;
     .locals 10
 
+    .prologue
+    .line 1126
     iget-wide v2, p0, Ljava/util/Random$RandomDoublesSpliterator;->index:J
 
+    .local v2, "i":J
     iget-wide v0, p0, Ljava/util/Random$RandomDoublesSpliterator;->fence:J
 
     add-long/2addr v0, v2
@@ -200,6 +255,8 @@
 
     ushr-long v4, v0, v6
 
+    .line 1127
+    .local v4, "m":J
     cmp-long v0, v4, v2
 
     if-gtz v0, :cond_0
@@ -209,6 +266,7 @@
     :goto_0
     return-object v0
 
+    .line 1128
     :cond_0
     new-instance v0, Ljava/util/Random$RandomDoublesSpliterator;
 
@@ -228,6 +286,8 @@
 .method public bridge synthetic trySplit()Ljava/util/Spliterator$OfDouble;
     .locals 1
 
+    .prologue
+    .line 1125
     invoke-virtual {p0}, Ljava/util/Random$RandomDoublesSpliterator;->trySplit()Ljava/util/Random$RandomDoublesSpliterator;
 
     move-result-object v0
@@ -238,6 +298,8 @@
 .method public bridge synthetic trySplit()Ljava/util/Spliterator$OfPrimitive;
     .locals 1
 
+    .prologue
+    .line 1125
     invoke-virtual {p0}, Ljava/util/Random$RandomDoublesSpliterator;->trySplit()Ljava/util/Random$RandomDoublesSpliterator;
 
     move-result-object v0
@@ -248,6 +310,8 @@
 .method public bridge synthetic trySplit()Ljava/util/Spliterator;
     .locals 1
 
+    .prologue
+    .line 1125
     invoke-virtual {p0}, Ljava/util/Random$RandomDoublesSpliterator;->trySplit()Ljava/util/Random$RandomDoublesSpliterator;
 
     move-result-object v0

@@ -58,10 +58,18 @@
         }
     .end annotation
 
+    .prologue
+    .line 730
+    .local p0, "this":Ljava/util/stream/ReduceOps$ReduceTask;, "Ljava/util/stream/ReduceOps$ReduceTask<TP_IN;TP_OUT;TR;TS;>;"
+    .local p1, "op":Ljava/util/stream/ReduceOps$ReduceOp;, "Ljava/util/stream/ReduceOps$ReduceOp<TP_OUT;TR;TS;>;"
+    .local p2, "helper":Ljava/util/stream/PipelineHelper;, "Ljava/util/stream/PipelineHelper<TP_OUT;>;"
+    .local p3, "spliterator":Ljava/util/Spliterator;, "Ljava/util/Spliterator<TP_IN;>;"
     invoke-direct {p0, p2, p3}, Ljava/util/stream/AbstractTask;-><init>(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)V
 
+    .line 731
     iput-object p1, p0, Ljava/util/stream/ReduceOps$ReduceTask;->op:Ljava/util/stream/ReduceOps$ReduceOp;
 
+    .line 729
     return-void
 .end method
 
@@ -77,12 +85,19 @@
         }
     .end annotation
 
+    .prologue
+    .line 736
+    .local p0, "this":Ljava/util/stream/ReduceOps$ReduceTask;, "Ljava/util/stream/ReduceOps$ReduceTask<TP_IN;TP_OUT;TR;TS;>;"
+    .local p1, "parent":Ljava/util/stream/ReduceOps$ReduceTask;, "Ljava/util/stream/ReduceOps$ReduceTask<TP_IN;TP_OUT;TR;TS;>;"
+    .local p2, "spliterator":Ljava/util/Spliterator;, "Ljava/util/Spliterator<TP_IN;>;"
     invoke-direct {p0, p1, p2}, Ljava/util/stream/AbstractTask;-><init>(Ljava/util/stream/AbstractTask;Ljava/util/Spliterator;)V
 
+    .line 737
     iget-object v0, p1, Ljava/util/stream/ReduceOps$ReduceTask;->op:Ljava/util/stream/ReduceOps$ReduceOp;
 
     iput-object v0, p0, Ljava/util/stream/ReduceOps$ReduceTask;->op:Ljava/util/stream/ReduceOps$ReduceOp;
 
+    .line 735
     return-void
 .end method
 
@@ -91,6 +106,9 @@
 .method protected bridge synthetic doLeaf()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 746
+    .local p0, "this":Ljava/util/stream/ReduceOps$ReduceTask;, "Ljava/util/stream/ReduceOps$ReduceTask<TP_IN;TP_OUT;TR;TS;>;"
     invoke-virtual {p0}, Ljava/util/stream/ReduceOps$ReduceTask;->doLeaf()Ljava/util/stream/ReduceOps$AccumulatingSink;
 
     move-result-object v0
@@ -106,6 +124,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 747
+    .local p0, "this":Ljava/util/stream/ReduceOps$ReduceTask;, "Ljava/util/stream/ReduceOps$ReduceTask<TP_IN;TP_OUT;TR;TS;>;"
     iget-object v0, p0, Ljava/util/stream/AbstractTask;->helper:Ljava/util/stream/PipelineHelper;
 
     iget-object v1, p0, Ljava/util/stream/ReduceOps$ReduceTask;->op:Ljava/util/stream/ReduceOps$ReduceOp;
@@ -127,7 +148,11 @@
 
 .method protected bridge synthetic makeChild(Ljava/util/Spliterator;)Ljava/util/stream/AbstractTask;
     .locals 1
+    .param p1, "spliterator"    # Ljava/util/Spliterator;
 
+    .prologue
+    .line 741
+    .local p0, "this":Ljava/util/stream/ReduceOps$ReduceTask;, "Ljava/util/stream/ReduceOps$ReduceTask<TP_IN;TP_OUT;TR;TS;>;"
     invoke-virtual {p0, p1}, Ljava/util/stream/ReduceOps$ReduceTask;->makeChild(Ljava/util/Spliterator;)Ljava/util/stream/ReduceOps$ReduceTask;
 
     move-result-object v0
@@ -147,6 +172,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 742
+    .local p0, "this":Ljava/util/stream/ReduceOps$ReduceTask;, "Ljava/util/stream/ReduceOps$ReduceTask<TP_IN;TP_OUT;TR;TS;>;"
+    .local p1, "spliterator":Ljava/util/Spliterator;, "Ljava/util/Spliterator<TP_IN;>;"
     new-instance v0, Ljava/util/stream/ReduceOps$ReduceTask;
 
     invoke-direct {v0, p0, p1}, Ljava/util/stream/ReduceOps$ReduceTask;-><init>(Ljava/util/stream/ReduceOps$ReduceTask;Ljava/util/Spliterator;)V
@@ -164,12 +193,17 @@
         }
     .end annotation
 
+    .prologue
+    .line 752
+    .local p0, "this":Ljava/util/stream/ReduceOps$ReduceTask;, "Ljava/util/stream/ReduceOps$ReduceTask<TP_IN;TP_OUT;TR;TS;>;"
+    .local p1, "caller":Ljava/util/concurrent/CountedCompleter;, "Ljava/util/concurrent/CountedCompleter<*>;"
     invoke-virtual {p0}, Ljava/util/stream/AbstractTask;->isLeaf()Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
+    .line 753
     iget-object v1, p0, Ljava/util/stream/AbstractTask;->leftChild:Ljava/util/stream/AbstractTask;
 
     check-cast v1, Ljava/util/stream/ReduceOps$ReduceTask;
@@ -180,6 +214,8 @@
 
     check-cast v0, Ljava/util/stream/ReduceOps$AccumulatingSink;
 
+    .line 754
+    .local v0, "leftResult":Ljava/util/stream/ReduceOps$AccumulatingSink;, "TS;"
     iget-object v1, p0, Ljava/util/stream/AbstractTask;->rightChild:Ljava/util/stream/AbstractTask;
 
     check-cast v1, Ljava/util/stream/ReduceOps$ReduceTask;
@@ -192,10 +228,14 @@
 
     invoke-interface {v0, v1}, Ljava/util/stream/ReduceOps$AccumulatingSink;->combine(Ljava/util/stream/ReduceOps$AccumulatingSink;)V
 
+    .line 755
     invoke-virtual {p0, v0}, Ljava/util/stream/AbstractTask;->setLocalResult(Ljava/lang/Object;)V
 
+    .line 758
+    .end local v0    # "leftResult":Ljava/util/stream/ReduceOps$AccumulatingSink;, "TS;"
     :cond_0
     invoke-super {p0, p1}, Ljava/util/stream/AbstractTask;->onCompletion(Ljava/util/concurrent/CountedCompleter;)V
 
+    .line 751
     return-void
 .end method

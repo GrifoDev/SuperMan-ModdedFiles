@@ -30,6 +30,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 43
     const-string/jumbo v0, "certpath"
 
     invoke-static {v0}, Lsun/security/util/Debug;->getInstance(Ljava/lang/String;)Lsun/security/util/Debug;
@@ -38,12 +40,15 @@
 
     sput-object v0, Lsun/security/provider/certpath/PKIX;->debug:Lsun/security/util/Debug;
 
+    .line 41
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 45
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -51,16 +56,20 @@
 
 .method static checkBuilderParams(Ljava/security/cert/CertPathParameters;)Lsun/security/provider/certpath/PKIX$BuilderParams;
     .locals 2
+    .param p0, "params"    # Ljava/security/cert/CertPathParameters;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/InvalidAlgorithmParameterException;
         }
     .end annotation
 
+    .prologue
+    .line 65
     instance-of v0, p0, Ljava/security/cert/PKIXBuilderParameters;
 
     if-nez v0, :cond_0
 
+    .line 66
     new-instance v0, Ljava/security/InvalidAlgorithmParameterException;
 
     const-string/jumbo v1, "inappropriate params, must be an instance of PKIXBuilderParameters"
@@ -69,11 +78,13 @@
 
     throw v0
 
+    .line 69
     :cond_0
     new-instance v0, Lsun/security/provider/certpath/PKIX$BuilderParams;
 
     check-cast p0, Ljava/security/cert/PKIXBuilderParameters;
 
+    .end local p0    # "params":Ljava/security/cert/CertPathParameters;
     invoke-direct {v0, p0}, Lsun/security/provider/certpath/PKIX$BuilderParams;-><init>(Ljava/security/cert/PKIXBuilderParameters;)V
 
     return-object v0
@@ -81,16 +92,21 @@
 
 .method static checkParams(Ljava/security/cert/CertPath;Ljava/security/cert/CertPathParameters;)Lsun/security/provider/certpath/PKIX$ValidatorParams;
     .locals 2
+    .param p0, "cp"    # Ljava/security/cert/CertPath;
+    .param p1, "params"    # Ljava/security/cert/CertPathParameters;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/InvalidAlgorithmParameterException;
         }
     .end annotation
 
+    .prologue
+    .line 55
     instance-of v0, p1, Ljava/security/cert/PKIXParameters;
 
     if-nez v0, :cond_0
 
+    .line 56
     new-instance v0, Ljava/security/InvalidAlgorithmParameterException;
 
     const-string/jumbo v1, "inappropriate params, must be an instance of PKIXParameters"
@@ -99,11 +115,13 @@
 
     throw v0
 
+    .line 59
     :cond_0
     new-instance v0, Lsun/security/provider/certpath/PKIX$ValidatorParams;
 
     check-cast p1, Ljava/security/cert/PKIXParameters;
 
+    .end local p1    # "params":Ljava/security/cert/CertPathParameters;
     invoke-direct {v0, p0, p1}, Lsun/security/provider/certpath/PKIX$ValidatorParams;-><init>(Ljava/security/cert/CertPath;Ljava/security/cert/PKIXParameters;)V
 
     return-object v0
@@ -111,15 +129,20 @@
 
 .method static isDSAPublicKeyWithoutParams(Ljava/security/PublicKey;)Z
     .locals 2
+    .param p0, "publicKey"    # Ljava/security/PublicKey;
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 48
     instance-of v1, p0, Ljava/security/interfaces/DSAPublicKey;
 
     if-eqz v1, :cond_0
 
+    .line 49
     check-cast p0, Ljava/security/interfaces/DSAPublicKey;
 
+    .end local p0    # "publicKey":Ljava/security/PublicKey;
     invoke-interface {p0}, Ljava/security/interfaces/DSAPublicKey;->getParams()Ljava/security/interfaces/DSAParams;
 
     move-result-object v1
@@ -128,6 +151,7 @@
 
     const/4 v0, 0x1
 
+    .line 48
     :cond_0
     return v0
 .end method

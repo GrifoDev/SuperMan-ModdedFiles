@@ -41,6 +41,7 @@
 .method static constructor <clinit>()V
     .locals 7
 
+    .prologue
     const/4 v6, 0x4
 
     const/4 v5, 0x3
@@ -51,46 +52,57 @@
 
     const/4 v2, 0x0
 
+    .line 110
     new-instance v0, Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;
 
     const-string/jumbo v1, "NOT_HANDSHAKING"
 
     invoke-direct {v0, v1, v2}, Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;-><init>(Ljava/lang/String;I)V
 
+    .line 113
     sput-object v0, Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;->NOT_HANDSHAKING:Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;
 
+    .line 115
     new-instance v0, Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;
 
     const-string/jumbo v1, "FINISHED"
 
     invoke-direct {v0, v1, v3}, Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;-><init>(Ljava/lang/String;I)V
 
+    .line 127
     sput-object v0, Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;->FINISHED:Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;
 
+    .line 129
     new-instance v0, Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;
 
     const-string/jumbo v1, "NEED_TASK"
 
     invoke-direct {v0, v1, v4}, Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;-><init>(Ljava/lang/String;I)V
 
+    .line 135
     sput-object v0, Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;->NEED_TASK:Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;
 
+    .line 137
     new-instance v0, Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;
 
     const-string/jumbo v1, "NEED_WRAP"
 
     invoke-direct {v0, v1, v5}, Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;-><init>(Ljava/lang/String;I)V
 
+    .line 144
     sput-object v0, Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;->NEED_WRAP:Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;
 
+    .line 146
     new-instance v0, Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;
 
     const-string/jumbo v1, "NEED_UNWRAP"
 
     invoke-direct {v0, v1, v6}, Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;-><init>(Ljava/lang/String;I)V
 
+    .line 150
     sput-object v0, Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;->NEED_UNWRAP:Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;
 
+    .line 108
     const/4 v0, 0x5
 
     new-array v0, v0, [Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;
@@ -123,6 +135,8 @@
 .method private constructor <init>(Ljava/lang/String;I)V
     .locals 0
 
+    .prologue
+    .line 108
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -130,7 +144,10 @@
 
 .method public static valueOf(Ljava/lang/String;)Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 108
     const-class v0, Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -145,6 +162,8 @@
 .method public static values()[Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;
     .locals 1
 
+    .prologue
+    .line 108
     sget-object v0, Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;->$VALUES:[Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;
 
     return-object v0

@@ -26,20 +26,26 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 56
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     sput-object v0, Ljava/util/stream/Streams;->NONE:Ljava/lang/Object;
 
+    .line 44
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 2
 
+    .prologue
+    .line 46
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 47
     new-instance v0, Ljava/lang/Error;
 
     const-string/jumbo v1, "no instances"
@@ -51,7 +57,11 @@
 
 .method static composeWithExceptions(Ljava/lang/Runnable;Ljava/lang/Runnable;)Ljava/lang/Runnable;
     .locals 1
+    .param p0, "a"    # Ljava/lang/Runnable;
+    .param p1, "b"    # Ljava/lang/Runnable;
 
+    .prologue
+    .line 846
     new-instance v0, Ljava/util/stream/Streams$1;
 
     invoke-direct {v0, p0, p1}, Ljava/util/stream/Streams$1;-><init>(Ljava/lang/Runnable;Ljava/lang/Runnable;)V
@@ -72,6 +82,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 875
+    .local p0, "a":Ljava/util/stream/BaseStream;, "Ljava/util/stream/BaseStream<**>;"
+    .local p1, "b":Ljava/util/stream/BaseStream;, "Ljava/util/stream/BaseStream<**>;"
     new-instance v0, Ljava/util/stream/Streams$2;
 
     invoke-direct {v0, p0, p1}, Ljava/util/stream/Streams$2;-><init>(Ljava/util/stream/BaseStream;Ljava/util/stream/BaseStream;)V

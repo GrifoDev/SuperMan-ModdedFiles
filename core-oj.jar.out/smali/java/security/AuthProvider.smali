@@ -6,7 +6,12 @@
 # direct methods
 .method protected constructor <init>(Ljava/lang/String;DLjava/lang/String;)V
     .locals 4
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "version"    # D
+    .param p4, "info"    # Ljava/lang/String;
 
+    .prologue
+    .line 38
     const-string/jumbo v0, ""
 
     const-string/jumbo v1, ""
@@ -15,6 +20,7 @@
 
     invoke-direct {p0, v0, v2, v3, v1}, Ljava/security/Provider;-><init>(Ljava/lang/String;DLjava/lang/String;)V
 
+    .line 37
     return-void
 .end method
 

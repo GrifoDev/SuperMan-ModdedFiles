@@ -25,6 +25,7 @@
 .method public synthetic constructor <init>(Ljava/util/Spliterator;)V
     .locals 0
 
+    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Ljava/util/stream/AbstractPipeline$-java_util_Spliterator_wrapSpliterator_java_util_Spliterator_sourceSpliterator_LambdaImpl0;->val$sourceSpliterator:Ljava/util/Spliterator;
@@ -37,6 +38,7 @@
 .method public get()Ljava/lang/Object;
     .locals 1
 
+    .prologue
     iget-object v0, p0, Ljava/util/stream/AbstractPipeline$-java_util_Spliterator_wrapSpliterator_java_util_Spliterator_sourceSpliterator_LambdaImpl0;->val$sourceSpliterator:Ljava/util/Spliterator;
 
     invoke-static {v0}, Ljava/util/stream/AbstractPipeline;->-java_util_stream_AbstractPipeline_lambda$2(Ljava/util/Spliterator;)Ljava/util/Spliterator;

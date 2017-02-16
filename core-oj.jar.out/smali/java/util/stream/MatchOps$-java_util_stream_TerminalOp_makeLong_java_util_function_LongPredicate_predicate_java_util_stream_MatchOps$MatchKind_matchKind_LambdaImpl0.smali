@@ -27,6 +27,7 @@
 .method public synthetic constructor <init>(Ljava/util/stream/MatchOps$MatchKind;Ljava/util/function/LongPredicate;)V
     .locals 0
 
+    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Ljava/util/stream/MatchOps$-java_util_stream_TerminalOp_makeLong_java_util_function_LongPredicate_predicate_java_util_stream_MatchOps$MatchKind_matchKind_LambdaImpl0;->val$matchKind:Ljava/util/stream/MatchOps$MatchKind;
@@ -41,6 +42,7 @@
 .method public get()Ljava/lang/Object;
     .locals 2
 
+    .prologue
     iget-object v0, p0, Ljava/util/stream/MatchOps$-java_util_stream_TerminalOp_makeLong_java_util_function_LongPredicate_predicate_java_util_stream_MatchOps$MatchKind_matchKind_LambdaImpl0;->val$matchKind:Ljava/util/stream/MatchOps$MatchKind;
 
     iget-object v1, p0, Ljava/util/stream/MatchOps$-java_util_stream_TerminalOp_makeLong_java_util_function_LongPredicate_predicate_java_util_stream_MatchOps$MatchKind_matchKind_LambdaImpl0;->val$predicate:Ljava/util/function/LongPredicate;

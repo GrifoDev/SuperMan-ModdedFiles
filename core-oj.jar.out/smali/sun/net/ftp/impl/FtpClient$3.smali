@@ -34,7 +34,10 @@
 # direct methods
 .method constructor <init>(Lsun/net/ftp/impl/FtpClient;)V
     .locals 0
+    .param p1, "this$0"    # Lsun/net/ftp/impl/FtpClient;
 
+    .prologue
+    .line 654
     iput-object p1, p0, Lsun/net/ftp/impl/FtpClient$3;->this$0:Lsun/net/ftp/impl/FtpClient;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,6 +50,8 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 656
     invoke-virtual {p0}, Lsun/net/ftp/impl/FtpClient$3;->run()Ljava/net/InetAddress;
 
     move-result-object v0
@@ -57,6 +62,8 @@
 .method public run()Ljava/net/InetAddress;
     .locals 1
 
+    .prologue
+    .line 657
     iget-object v0, p0, Lsun/net/ftp/impl/FtpClient$3;->this$0:Lsun/net/ftp/impl/FtpClient;
 
     invoke-static {v0}, Lsun/net/ftp/impl/FtpClient;->-get5(Lsun/net/ftp/impl/FtpClient;)Ljava/net/Socket;

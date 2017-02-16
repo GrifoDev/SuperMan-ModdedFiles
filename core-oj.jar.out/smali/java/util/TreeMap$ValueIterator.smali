@@ -36,10 +36,17 @@
         }
     .end annotation
 
+    .prologue
+    .line 1273
+    .local p0, "this":Ljava/util/TreeMap$ValueIterator;, "Ljava/util/TreeMap<TK;TV;>.ValueIterator;"
+    .local p1, "this$0":Ljava/util/TreeMap;, "Ljava/util/TreeMap<TK;TV;>;"
+    .local p2, "first":Ljava/util/TreeMap$TreeMapEntry;, "Ljava/util/TreeMap$TreeMapEntry<TK;TV;>;"
     iput-object p1, p0, Ljava/util/TreeMap$ValueIterator;->this$0:Ljava/util/TreeMap;
 
+    .line 1274
     invoke-direct {p0, p1, p2}, Ljava/util/TreeMap$PrivateEntryIterator;-><init>(Ljava/util/TreeMap;Ljava/util/TreeMap$TreeMapEntry;)V
 
+    .line 1273
     return-void
 .end method
 
@@ -53,6 +60,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1277
+    .local p0, "this":Ljava/util/TreeMap$ValueIterator;, "Ljava/util/TreeMap<TK;TV;>.ValueIterator;"
     invoke-virtual {p0}, Ljava/util/TreeMap$ValueIterator;->nextEntry()Ljava/util/TreeMap$TreeMapEntry;
 
     move-result-object v0

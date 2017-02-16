@@ -39,6 +39,10 @@
 # direct methods
 .method constructor <init>(Ljava/util/TreeMap;ZLjava/lang/Object;ZZLjava/lang/Object;Z)V
     .locals 0
+    .param p2, "fromStart"    # Z
+    .param p4, "loInclusive"    # Z
+    .param p5, "toEnd"    # Z
+    .param p7, "hiInclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -47,8 +51,15 @@
         }
     .end annotation
 
+    .prologue
+    .line 1881
+    .local p0, "this":Ljava/util/TreeMap$AscendingSubMap;, "Ljava/util/TreeMap<TK;TV;>.AscendingSubMap<TK;TV;>;"
+    .local p1, "m":Ljava/util/TreeMap;, "Ljava/util/TreeMap<TK;TV;>;"
+    .local p3, "lo":Ljava/lang/Object;, "TK;"
+    .local p6, "hi":Ljava/lang/Object;, "TK;"
     invoke-direct/range {p0 .. p7}, Ljava/util/TreeMap$NavigableSubMap;-><init>(Ljava/util/TreeMap;ZLjava/lang/Object;ZZLjava/lang/Object;Z)V
 
+    .line 1880
     return-void
 .end method
 
@@ -64,6 +75,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1885
+    .local p0, "this":Ljava/util/TreeMap$AscendingSubMap;, "Ljava/util/TreeMap<TK;TV;>.AscendingSubMap<TK;TV;>;"
     iget-object v0, p0, Ljava/util/TreeMap$AscendingSubMap;->m:Ljava/util/TreeMap;
 
     invoke-virtual {v0}, Ljava/util/TreeMap;->comparator()Ljava/util/Comparator;
@@ -83,6 +97,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1943
+    .local p0, "this":Ljava/util/TreeMap$AscendingSubMap;, "Ljava/util/TreeMap<TK;TV;>.AscendingSubMap<TK;TV;>;"
     new-instance v0, Ljava/util/TreeMap$NavigableSubMap$DescendingSubMapKeyIterator;
 
     invoke-virtual {p0}, Ljava/util/TreeMap$AscendingSubMap;->absHighest()Ljava/util/TreeMap$TreeMapEntry;
@@ -108,32 +125,44 @@
         }
     .end annotation
 
+    .prologue
+    .line 1926
+    .local p0, "this":Ljava/util/TreeMap$AscendingSubMap;, "Ljava/util/TreeMap<TK;TV;>.AscendingSubMap<TK;TV;>;"
     iget-object v8, p0, Ljava/util/TreeMap$AscendingSubMap;->descendingMapView:Ljava/util/NavigableMap;
 
+    .line 1927
+    .local v8, "mv":Ljava/util/NavigableMap;, "Ljava/util/NavigableMap<TK;TV;>;"
     if-eqz v8, :cond_0
 
+    .end local v8    # "mv":Ljava/util/NavigableMap;, "Ljava/util/NavigableMap<TK;TV;>;"
     :goto_0
     return-object v8
 
+    .line 1929
+    .restart local v8    # "mv":Ljava/util/NavigableMap;, "Ljava/util/NavigableMap<TK;TV;>;"
     :cond_0
     new-instance v0, Ljava/util/TreeMap$DescendingSubMap;
 
     iget-object v1, p0, Ljava/util/TreeMap$AscendingSubMap;->m:Ljava/util/TreeMap;
 
+    .line 1930
     iget-boolean v2, p0, Ljava/util/TreeMap$AscendingSubMap;->fromStart:Z
 
     iget-object v3, p0, Ljava/util/TreeMap$AscendingSubMap;->lo:Ljava/lang/Object;
 
     iget-boolean v4, p0, Ljava/util/TreeMap$AscendingSubMap;->loInclusive:Z
 
+    .line 1931
     iget-boolean v5, p0, Ljava/util/TreeMap$AscendingSubMap;->toEnd:Z
 
     iget-object v6, p0, Ljava/util/TreeMap$AscendingSubMap;->hi:Ljava/lang/Object;
 
     iget-boolean v7, p0, Ljava/util/TreeMap$AscendingSubMap;->hiInclusive:Z
 
+    .line 1929
     invoke-direct/range {v0 .. v7}, Ljava/util/TreeMap$DescendingSubMap;-><init>(Ljava/util/TreeMap;ZLjava/lang/Object;ZZLjava/lang/Object;Z)V
 
+    .line 1928
     iput-object v0, p0, Ljava/util/TreeMap$AscendingSubMap;->descendingMapView:Ljava/util/NavigableMap;
 
     move-object v8, v0
@@ -153,16 +182,24 @@
         }
     .end annotation
 
+    .prologue
+    .line 1953
+    .local p0, "this":Ljava/util/TreeMap$AscendingSubMap;, "Ljava/util/TreeMap<TK;TV;>.AscendingSubMap<TK;TV;>;"
     iget-object v0, p0, Ljava/util/TreeMap$AscendingSubMap;->entrySetView:Ljava/util/TreeMap$NavigableSubMap$EntrySetView;
 
+    .line 1954
+    .local v0, "es":Ljava/util/TreeMap$NavigableSubMap$EntrySetView;, "Ljava/util/TreeMap$NavigableSubMap<TK;TV;>.EntrySetView;"
     if-eqz v0, :cond_0
 
+    .end local v0    # "es":Ljava/util/TreeMap$NavigableSubMap$EntrySetView;, "Ljava/util/TreeMap$NavigableSubMap<TK;TV;>.EntrySetView;"
     :goto_0
     return-object v0
 
+    .restart local v0    # "es":Ljava/util/TreeMap$NavigableSubMap$EntrySetView;, "Ljava/util/TreeMap$NavigableSubMap<TK;TV;>.EntrySetView;"
     :cond_0
     new-instance v0, Ljava/util/TreeMap$AscendingSubMap$AscendingEntrySetView;
 
+    .end local v0    # "es":Ljava/util/TreeMap$NavigableSubMap$EntrySetView;, "Ljava/util/TreeMap$NavigableSubMap<TK;TV;>.EntrySetView;"
     invoke-direct {v0, p0}, Ljava/util/TreeMap$AscendingSubMap$AscendingEntrySetView;-><init>(Ljava/util/TreeMap$AscendingSubMap;)V
 
     goto :goto_0
@@ -170,6 +207,7 @@
 
 .method public headMap(Ljava/lang/Object;Z)Ljava/util/NavigableMap;
     .locals 8
+    .param p2, "inclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;Z)",
@@ -178,8 +216,12 @@
         }
     .end annotation
 
+    .prologue
+    .local p0, "this":Ljava/util/TreeMap$AscendingSubMap;, "Ljava/util/TreeMap<TK;TV;>.AscendingSubMap<TK;TV;>;"
+    .local p1, "toKey":Ljava/lang/Object;, "TK;"
     const/4 v5, 0x0
 
+    .line 1903
     invoke-virtual {p0, p1}, Ljava/util/TreeMap$AscendingSubMap;->inRange(Ljava/lang/Object;)Z
 
     move-result v0
@@ -200,6 +242,7 @@
 
     if-eqz v0, :cond_1
 
+    .line 1906
     :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -209,18 +252,22 @@
 
     throw v0
 
+    .line 1904
     :cond_1
     iget-boolean v0, p0, Ljava/util/TreeMap$AscendingSubMap;->hiInclusive:Z
 
+    .line 1903
     if-nez v0, :cond_0
 
     if-nez p2, :cond_0
 
+    .line 1907
     :cond_2
     new-instance v0, Ljava/util/TreeMap$AscendingSubMap;
 
     iget-object v1, p0, Ljava/util/TreeMap$AscendingSubMap;->m:Ljava/util/TreeMap;
 
+    .line 1908
     iget-boolean v2, p0, Ljava/util/TreeMap$AscendingSubMap;->fromStart:Z
 
     iget-object v3, p0, Ljava/util/TreeMap$AscendingSubMap;->lo:Ljava/lang/Object;
@@ -231,6 +278,7 @@
 
     move v7, p2
 
+    .line 1907
     invoke-direct/range {v0 .. v7}, Ljava/util/TreeMap$AscendingSubMap;-><init>(Ljava/util/TreeMap;ZLjava/lang/Object;ZZLjava/lang/Object;Z)V
 
     return-object v0
@@ -246,6 +294,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1935
+    .local p0, "this":Ljava/util/TreeMap$AscendingSubMap;, "Ljava/util/TreeMap<TK;TV;>.AscendingSubMap<TK;TV;>;"
     new-instance v0, Ljava/util/TreeMap$NavigableSubMap$SubMapKeyIterator;
 
     invoke-virtual {p0}, Ljava/util/TreeMap$AscendingSubMap;->absLowest()Ljava/util/TreeMap$TreeMapEntry;
@@ -271,6 +322,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1939
+    .local p0, "this":Ljava/util/TreeMap$AscendingSubMap;, "Ljava/util/TreeMap<TK;TV;>.AscendingSubMap<TK;TV;>;"
     new-instance v0, Ljava/util/TreeMap$NavigableSubMap$SubMapKeyIterator;
 
     invoke-virtual {p0}, Ljava/util/TreeMap$AscendingSubMap;->absLowest()Ljava/util/TreeMap$TreeMapEntry;
@@ -296,6 +350,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 1959
+    .local p0, "this":Ljava/util/TreeMap$AscendingSubMap;, "Ljava/util/TreeMap<TK;TV;>.AscendingSubMap<TK;TV;>;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0, p1}, Ljava/util/TreeMap$AscendingSubMap;->absCeiling(Ljava/lang/Object;)Ljava/util/TreeMap$TreeMapEntry;
 
     move-result-object v0
@@ -313,6 +371,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 1961
+    .local p0, "this":Ljava/util/TreeMap$AscendingSubMap;, "Ljava/util/TreeMap<TK;TV;>.AscendingSubMap<TK;TV;>;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0, p1}, Ljava/util/TreeMap$AscendingSubMap;->absFloor(Ljava/lang/Object;)Ljava/util/TreeMap$TreeMapEntry;
 
     move-result-object v0
@@ -330,6 +392,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 1960
+    .local p0, "this":Ljava/util/TreeMap$AscendingSubMap;, "Ljava/util/TreeMap<TK;TV;>.AscendingSubMap<TK;TV;>;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0, p1}, Ljava/util/TreeMap$AscendingSubMap;->absHigher(Ljava/lang/Object;)Ljava/util/TreeMap$TreeMapEntry;
 
     move-result-object v0
@@ -347,6 +413,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1958
+    .local p0, "this":Ljava/util/TreeMap$AscendingSubMap;, "Ljava/util/TreeMap<TK;TV;>.AscendingSubMap<TK;TV;>;"
     invoke-virtual {p0}, Ljava/util/TreeMap$AscendingSubMap;->absHighest()Ljava/util/TreeMap$TreeMapEntry;
 
     move-result-object v0
@@ -364,6 +433,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 1962
+    .local p0, "this":Ljava/util/TreeMap$AscendingSubMap;, "Ljava/util/TreeMap<TK;TV;>.AscendingSubMap<TK;TV;>;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0, p1}, Ljava/util/TreeMap$AscendingSubMap;->absLower(Ljava/lang/Object;)Ljava/util/TreeMap$TreeMapEntry;
 
     move-result-object v0
@@ -381,6 +454,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1957
+    .local p0, "this":Ljava/util/TreeMap$AscendingSubMap;, "Ljava/util/TreeMap<TK;TV;>.AscendingSubMap<TK;TV;>;"
     invoke-virtual {p0}, Ljava/util/TreeMap$AscendingSubMap;->absLowest()Ljava/util/TreeMap$TreeMapEntry;
 
     move-result-object v0
@@ -390,6 +466,8 @@
 
 .method public subMap(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableMap;
     .locals 8
+    .param p2, "fromInclusive"    # Z
+    .param p4, "toInclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;ZTK;Z)",
@@ -398,14 +476,20 @@
         }
     .end annotation
 
+    .prologue
+    .local p0, "this":Ljava/util/TreeMap$AscendingSubMap;, "Ljava/util/TreeMap<TK;TV;>.AscendingSubMap<TK;TV;>;"
+    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
+    .local p3, "toKey":Ljava/lang/Object;, "TK;"
     const/4 v2, 0x0
 
+    .line 1890
     invoke-virtual {p0, p1, p2}, Ljava/util/TreeMap$AscendingSubMap;->inRange(Ljava/lang/Object;Z)Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
+    .line 1891
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "fromKey out of range"
@@ -414,6 +498,7 @@
 
     throw v0
 
+    .line 1892
     :cond_0
     invoke-virtual {p0, p3, p4}, Ljava/util/TreeMap$AscendingSubMap;->inRange(Ljava/lang/Object;Z)Z
 
@@ -421,6 +506,7 @@
 
     if-nez v0, :cond_1
 
+    .line 1893
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "toKey out of range"
@@ -429,6 +515,7 @@
 
     throw v0
 
+    .line 1894
     :cond_1
     new-instance v0, Ljava/util/TreeMap$AscendingSubMap;
 
@@ -451,6 +538,7 @@
 
 .method public tailMap(Ljava/lang/Object;Z)Ljava/util/NavigableMap;
     .locals 8
+    .param p2, "inclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;Z)",
@@ -459,8 +547,12 @@
         }
     .end annotation
 
+    .prologue
+    .local p0, "this":Ljava/util/TreeMap$AscendingSubMap;, "Ljava/util/TreeMap<TK;TV;>.AscendingSubMap<TK;TV;>;"
+    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
     const/4 v2, 0x0
 
+    .line 1916
     invoke-virtual {p0, p1}, Ljava/util/TreeMap$AscendingSubMap;->inRange(Ljava/lang/Object;)Z
 
     move-result v0
@@ -481,6 +573,7 @@
 
     if-eqz v0, :cond_1
 
+    .line 1919
     :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -490,18 +583,22 @@
 
     throw v0
 
+    .line 1917
     :cond_1
     iget-boolean v0, p0, Ljava/util/TreeMap$AscendingSubMap;->loInclusive:Z
 
+    .line 1916
     if-nez v0, :cond_0
 
     if-nez p2, :cond_0
 
+    .line 1920
     :cond_2
     new-instance v0, Ljava/util/TreeMap$AscendingSubMap;
 
     iget-object v1, p0, Ljava/util/TreeMap$AscendingSubMap;->m:Ljava/util/TreeMap;
 
+    .line 1922
     iget-boolean v5, p0, Ljava/util/TreeMap$AscendingSubMap;->toEnd:Z
 
     iget-object v6, p0, Ljava/util/TreeMap$AscendingSubMap;->hi:Ljava/lang/Object;
@@ -512,6 +609,7 @@
 
     move v4, p2
 
+    .line 1920
     invoke-direct/range {v0 .. v7}, Ljava/util/TreeMap$AscendingSubMap;-><init>(Ljava/util/TreeMap;ZLjava/lang/Object;ZZLjava/lang/Object;Z)V
 
     return-object v0

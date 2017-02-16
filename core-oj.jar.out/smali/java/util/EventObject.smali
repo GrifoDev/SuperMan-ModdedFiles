@@ -17,11 +17,16 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;)V
     .locals 2
+    .param p1, "source"    # Ljava/lang/Object;
 
+    .prologue
+    .line 54
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 55
     if-nez p1, :cond_0
 
+    .line 56
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "null source"
@@ -30,9 +35,11 @@
 
     throw v0
 
+    .line 58
     :cond_0
     iput-object p1, p0, Ljava/util/EventObject;->source:Ljava/lang/Object;
 
+    .line 54
     return-void
 .end method
 
@@ -41,6 +48,8 @@
 .method public getSource()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 67
     iget-object v0, p0, Ljava/util/EventObject;->source:Ljava/lang/Object;
 
     return-object v0
@@ -49,6 +58,8 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 76
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

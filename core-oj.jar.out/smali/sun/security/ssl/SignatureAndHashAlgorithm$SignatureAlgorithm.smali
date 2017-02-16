@@ -47,6 +47,7 @@
 .method static constructor <clinit>()V
     .locals 9
 
+    .prologue
     const/4 v8, 0x4
 
     const/4 v7, 0x3
@@ -57,6 +58,7 @@
 
     const/4 v4, 0x0
 
+    .line 370
     new-instance v0, Lsun/security/ssl/SignatureAndHashAlgorithm$SignatureAlgorithm;
 
     const-string/jumbo v1, "UNDEFINED"
@@ -69,6 +71,7 @@
 
     sput-object v0, Lsun/security/ssl/SignatureAndHashAlgorithm$SignatureAlgorithm;->UNDEFINED:Lsun/security/ssl/SignatureAndHashAlgorithm$SignatureAlgorithm;
 
+    .line 371
     new-instance v0, Lsun/security/ssl/SignatureAndHashAlgorithm$SignatureAlgorithm;
 
     const-string/jumbo v1, "ANONYMOUS"
@@ -79,6 +82,7 @@
 
     sput-object v0, Lsun/security/ssl/SignatureAndHashAlgorithm$SignatureAlgorithm;->ANONYMOUS:Lsun/security/ssl/SignatureAndHashAlgorithm$SignatureAlgorithm;
 
+    .line 372
     new-instance v0, Lsun/security/ssl/SignatureAndHashAlgorithm$SignatureAlgorithm;
 
     const-string/jumbo v1, "RSA"
@@ -89,6 +93,7 @@
 
     sput-object v0, Lsun/security/ssl/SignatureAndHashAlgorithm$SignatureAlgorithm;->RSA:Lsun/security/ssl/SignatureAndHashAlgorithm$SignatureAlgorithm;
 
+    .line 373
     new-instance v0, Lsun/security/ssl/SignatureAndHashAlgorithm$SignatureAlgorithm;
 
     const-string/jumbo v1, "DSA"
@@ -99,6 +104,7 @@
 
     sput-object v0, Lsun/security/ssl/SignatureAndHashAlgorithm$SignatureAlgorithm;->DSA:Lsun/security/ssl/SignatureAndHashAlgorithm$SignatureAlgorithm;
 
+    .line 374
     new-instance v0, Lsun/security/ssl/SignatureAndHashAlgorithm$SignatureAlgorithm;
 
     const-string/jumbo v1, "ECDSA"
@@ -109,6 +115,7 @@
 
     sput-object v0, Lsun/security/ssl/SignatureAndHashAlgorithm$SignatureAlgorithm;->ECDSA:Lsun/security/ssl/SignatureAndHashAlgorithm$SignatureAlgorithm;
 
+    .line 369
     const/4 v0, 0x5
 
     new-array v0, v0, [Lsun/security/ssl/SignatureAndHashAlgorithm$SignatureAlgorithm;
@@ -140,46 +147,64 @@
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;I)V
     .locals 0
+    .param p3, "name"    # Ljava/lang/String;
+    .param p4, "value"    # I
 
+    .prologue
+    .line 381
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
+    .line 382
     iput-object p3, p0, Lsun/security/ssl/SignatureAndHashAlgorithm$SignatureAlgorithm;->name:Ljava/lang/String;
 
+    .line 383
     iput p4, p0, Lsun/security/ssl/SignatureAndHashAlgorithm$SignatureAlgorithm;->value:I
 
+    .line 381
     return-void
 .end method
 
 .method static valueOf(I)Lsun/security/ssl/SignatureAndHashAlgorithm$SignatureAlgorithm;
     .locals 1
+    .param p0, "value"    # I
 
+    .prologue
+    .line 387
     sget-object v0, Lsun/security/ssl/SignatureAndHashAlgorithm$SignatureAlgorithm;->UNDEFINED:Lsun/security/ssl/SignatureAndHashAlgorithm$SignatureAlgorithm;
 
+    .line 388
+    .local v0, "algorithm":Lsun/security/ssl/SignatureAndHashAlgorithm$SignatureAlgorithm;
     packed-switch p0, :pswitch_data_0
 
+    .line 403
     :goto_0
     return-object v0
 
+    .line 390
     :pswitch_0
     sget-object v0, Lsun/security/ssl/SignatureAndHashAlgorithm$SignatureAlgorithm;->ANONYMOUS:Lsun/security/ssl/SignatureAndHashAlgorithm$SignatureAlgorithm;
 
     goto :goto_0
 
+    .line 393
     :pswitch_1
     sget-object v0, Lsun/security/ssl/SignatureAndHashAlgorithm$SignatureAlgorithm;->RSA:Lsun/security/ssl/SignatureAndHashAlgorithm$SignatureAlgorithm;
 
     goto :goto_0
 
+    .line 396
     :pswitch_2
     sget-object v0, Lsun/security/ssl/SignatureAndHashAlgorithm$SignatureAlgorithm;->DSA:Lsun/security/ssl/SignatureAndHashAlgorithm$SignatureAlgorithm;
 
     goto :goto_0
 
+    .line 399
     :pswitch_3
     sget-object v0, Lsun/security/ssl/SignatureAndHashAlgorithm$SignatureAlgorithm;->ECDSA:Lsun/security/ssl/SignatureAndHashAlgorithm$SignatureAlgorithm;
 
     goto :goto_0
 
+    .line 388
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -191,7 +216,10 @@
 
 .method public static valueOf(Ljava/lang/String;)Lsun/security/ssl/SignatureAndHashAlgorithm$SignatureAlgorithm;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 369
     const-class v0, Lsun/security/ssl/SignatureAndHashAlgorithm$SignatureAlgorithm;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -206,6 +234,8 @@
 .method public static values()[Lsun/security/ssl/SignatureAndHashAlgorithm$SignatureAlgorithm;
     .locals 1
 
+    .prologue
+    .line 369
     sget-object v0, Lsun/security/ssl/SignatureAndHashAlgorithm$SignatureAlgorithm;->$VALUES:[Lsun/security/ssl/SignatureAndHashAlgorithm$SignatureAlgorithm;
 
     return-object v0

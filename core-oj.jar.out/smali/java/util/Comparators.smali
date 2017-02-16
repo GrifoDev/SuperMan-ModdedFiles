@@ -16,8 +16,11 @@
 .method private constructor <init>()V
     .locals 2
 
+    .prologue
+    .line 38
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 39
     new-instance v0, Ljava/lang/AssertionError;
 
     const-string/jumbo v1, "no instances"

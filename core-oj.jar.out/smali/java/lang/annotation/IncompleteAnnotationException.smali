@@ -16,6 +16,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;Ljava/lang/String;)V
     .locals 2
+    .param p2, "elementName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -28,6 +29,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 58
+    .local p1, "annotationType":Ljava/lang/Class;, "Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;"
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -56,10 +60,13 @@
 
     invoke-direct {p0, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
+    .line 60
     iput-object p1, p0, Ljava/lang/annotation/IncompleteAnnotationException;->annotationType:Ljava/lang/Class;
 
+    .line 61
     iput-object p2, p0, Ljava/lang/annotation/IncompleteAnnotationException;->elementName:Ljava/lang/String;
 
+    .line 57
     return-void
 .end method
 
@@ -77,6 +84,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 72
     iget-object v0, p0, Ljava/lang/annotation/IncompleteAnnotationException;->annotationType:Ljava/lang/Class;
 
     return-object v0
@@ -85,6 +94,8 @@
 .method public elementName()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 81
     iget-object v0, p0, Ljava/lang/annotation/IncompleteAnnotationException;->elementName:Ljava/lang/String;
 
     return-object v0

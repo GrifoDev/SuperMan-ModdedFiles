@@ -29,6 +29,10 @@
 .method private constructor <init>(Ljava/util/HashMap;)V
     .locals 0
 
+    .prologue
+    .line 877
+    .local p0, "this":Ljava/util/HashMap$ValueIterator;, "Ljava/util/HashMap<TK;TV;>.ValueIterator;"
+    .local p1, "this$0":Ljava/util/HashMap;, "Ljava/util/HashMap<TK;TV;>;"
     iput-object p1, p0, Ljava/util/HashMap$ValueIterator;->this$0:Ljava/util/HashMap;
 
     invoke-direct {p0, p1}, Ljava/util/HashMap$HashIterator;-><init>(Ljava/util/HashMap;)V
@@ -38,7 +42,10 @@
 
 .method synthetic constructor <init>(Ljava/util/HashMap;Ljava/util/HashMap$ValueIterator;)V
     .locals 0
+    .param p1, "this$0"    # Ljava/util/HashMap;
 
+    .prologue
+    .local p0, "this":Ljava/util/HashMap$ValueIterator;, "Ljava/util/HashMap<TK;TV;>.ValueIterator;"
     invoke-direct {p0, p1}, Ljava/util/HashMap$ValueIterator;-><init>(Ljava/util/HashMap;)V
 
     return-void
@@ -54,6 +61,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 879
+    .local p0, "this":Ljava/util/HashMap$ValueIterator;, "Ljava/util/HashMap<TK;TV;>.ValueIterator;"
     invoke-virtual {p0}, Ljava/util/HashMap$ValueIterator;->nextEntry()Ljava/util/Map$Entry;
 
     move-result-object v0

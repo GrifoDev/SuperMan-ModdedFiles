@@ -23,28 +23,38 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
     .locals 2
+    .param p1, "algorithm"    # Ljava/lang/String;
 
+    .prologue
+    .line 272
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 273
     const-string/jumbo v1, "_"
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
 
     move-result v0
 
+    .line 274
+    .local v0, "k":I
     const/4 v1, -0x1
 
     if-ne v0, v1, :cond_0
 
+    .line 275
     iput-object p1, p0, Lsun/security/ssl/X509KeyManagerImpl$KeyType;->keyAlgorithm:Ljava/lang/String;
 
+    .line 276
     const/4 v1, 0x0
 
     iput-object v1, p0, Lsun/security/ssl/X509KeyManagerImpl$KeyType;->sigKeyAlgorithm:Ljava/lang/String;
 
+    .line 272
     :goto_0
     return-void
 
+    .line 278
     :cond_0
     const/4 v1, 0x0
 
@@ -54,6 +64,7 @@
 
     iput-object v1, p0, Lsun/security/ssl/X509KeyManagerImpl$KeyType;->keyAlgorithm:Ljava/lang/String;
 
+    .line 279
     add-int/lit8 v1, v0, 0x1
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
@@ -69,11 +80,14 @@
 # virtual methods
 .method matches([Ljava/security/cert/Certificate;)Z
     .locals 7
+    .param p1, "chain"    # [Ljava/security/cert/Certificate;
 
+    .prologue
     const/4 v6, 0x1
 
     const/4 v5, 0x0
 
+    .line 284
     aget-object v3, p1, v5
 
     invoke-virtual {v3}, Ljava/security/cert/Certificate;->getPublicKey()Ljava/security/PublicKey;
@@ -92,22 +106,28 @@
 
     if-nez v3, :cond_0
 
+    .line 285
     return v5
 
+    .line 287
     :cond_0
     iget-object v3, p0, Lsun/security/ssl/X509KeyManagerImpl$KeyType;->sigKeyAlgorithm:Ljava/lang/String;
 
     if-nez v3, :cond_1
 
+    .line 288
     return v6
 
+    .line 290
     :cond_1
     array-length v3, p1
 
     if-le v3, v6, :cond_2
 
+    .line 292
     iget-object v3, p0, Lsun/security/ssl/X509KeyManagerImpl$KeyType;->sigKeyAlgorithm:Ljava/lang/String;
 
+    .line 293
     aget-object v4, p1, v6
 
     invoke-virtual {v4}, Ljava/security/cert/Certificate;->getPublicKey()Ljava/security/PublicKey;
@@ -118,17 +138,21 @@
 
     move-result-object v4
 
+    .line 292
     invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
     return v3
 
+    .line 297
     :cond_2
     aget-object v0, p1, v5
 
     check-cast v0, Ljava/security/cert/X509Certificate;
 
+    .line 298
+    .local v0, "issuer":Ljava/security/cert/X509Certificate;
     invoke-virtual {v0}, Ljava/security/cert/X509Certificate;->getSigAlgName()Ljava/lang/String;
 
     move-result-object v3
@@ -139,6 +163,8 @@
 
     move-result-object v2
 
+    .line 299
+    .local v2, "sigAlgName":Ljava/lang/String;
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -165,6 +191,8 @@
 
     move-result-object v1
 
+    .line 300
+    .local v1, "pattern":Ljava/lang/String;
     invoke-virtual {v2, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
     move-result v3

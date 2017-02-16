@@ -7,6 +7,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -24,6 +26,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 40
+    .local p0, "klass":Ljava/lang/Class;, "Ljava/lang/Class<TE;>;"
     invoke-virtual {p0}, Ljava/lang/Class;->getEnumConstantsShared()[Ljava/lang/Object;
 
     move-result-object v0

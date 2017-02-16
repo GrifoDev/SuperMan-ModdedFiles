@@ -56,6 +56,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 63
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
@@ -64,8 +66,10 @@
 
     move-result-object v0
 
+    .line 62
     sput-object v0, Lsun/security/util/DisabledAlgorithmConstraints;->disabledAlgorithmsMap:Ljava/util/Map;
 
+    .line 65
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
@@ -74,20 +78,27 @@
 
     move-result-object v0
 
+    .line 64
     sput-object v0, Lsun/security/util/DisabledAlgorithmConstraints;->keySizeConstraintsMap:Ljava/util/Map;
 
+    .line 52
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 2
+    .param p1, "propertyName"    # Ljava/lang/String;
 
+    .prologue
+    .line 76
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 77
     sget-object v1, Lsun/security/util/DisabledAlgorithmConstraints;->disabledAlgorithmsMap:Ljava/util/Map;
 
     monitor-enter v1
 
+    .line 78
     :try_start_0
     sget-object v0, Lsun/security/util/DisabledAlgorithmConstraints;->disabledAlgorithmsMap:Ljava/util/Map;
 
@@ -97,8 +108,10 @@
 
     if-nez v0, :cond_0
 
+    .line 79
     invoke-static {p1}, Lsun/security/util/DisabledAlgorithmConstraints;->loadDisabledAlgorithmsMap(Ljava/lang/String;)V
 
+    .line 82
     :cond_0
     sget-object v0, Lsun/security/util/DisabledAlgorithmConstraints;->disabledAlgorithmsMap:Ljava/util/Map;
 
@@ -110,6 +123,7 @@
 
     iput-object v0, p0, Lsun/security/util/DisabledAlgorithmConstraints;->disabledAlgorithms:[Ljava/lang/String;
 
+    .line 83
     sget-object v0, Lsun/security/util/DisabledAlgorithmConstraints;->keySizeConstraintsMap:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -124,8 +138,10 @@
 
     monitor-exit v1
 
+    .line 76
     return-void
 
+    .line 77
     :catchall_0
     move-exception v0
 
@@ -136,6 +152,9 @@
 
 .method private checkConstraints(Ljava/util/Set;Ljava/lang/String;Ljava/security/Key;Ljava/security/AlgorithmParameters;)Z
     .locals 3
+    .param p2, "algorithm"    # Ljava/lang/String;
+    .param p3, "key"    # Ljava/security/Key;
+    .param p4, "parameters"    # Ljava/security/AlgorithmParameters;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -150,12 +169,16 @@
         }
     .end annotation
 
+    .prologue
+    .local p1, "primitives":Ljava/util/Set;, "Ljava/util/Set<Ljava/security/CryptoPrimitive;>;"
     const/4 v2, 0x0
 
     const/4 v1, 0x0
 
+    .line 240
     if-nez p3, :cond_0
 
+    .line 241
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "The key cannot be null"
@@ -164,6 +187,7 @@
 
     throw v0
 
+    .line 245
     :cond_0
     if-eqz p2, :cond_1
 
@@ -173,14 +197,17 @@
 
     if-eqz v0, :cond_1
 
+    .line 246
     invoke-virtual {p0, p1, p2, p4}, Lsun/security/util/DisabledAlgorithmConstraints;->permits(Ljava/util/Set;Ljava/lang/String;Ljava/security/AlgorithmParameters;)Z
 
     move-result v0
 
     if-nez v0, :cond_1
 
+    .line 247
     return v1
 
+    .line 252
     :cond_1
     invoke-interface {p3}, Ljava/security/Key;->getAlgorithm()Ljava/lang/String;
 
@@ -192,8 +219,10 @@
 
     if-nez v0, :cond_2
 
+    .line 253
     return v1
 
+    .line 257
     :cond_2
     iget-object v0, p0, Lsun/security/util/DisabledAlgorithmConstraints;->keySizeConstraints:Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraints;
 
@@ -203,8 +232,10 @@
 
     if-eqz v0, :cond_3
 
+    .line 258
     return v1
 
+    .line 261
     :cond_3
     const/4 v0, 0x1
 
@@ -213,23 +244,31 @@
 
 .method private static loadDisabledAlgorithmsMap(Ljava/lang/String;)V
     .locals 7
+    .param p0, "propertyName"    # Ljava/lang/String;
 
+    .prologue
     const/16 v5, 0x22
 
     const/4 v6, 0x0
 
+    .line 269
     new-instance v4, Lsun/security/util/DisabledAlgorithmConstraints$1;
 
     invoke-direct {v4, p0}, Lsun/security/util/DisabledAlgorithmConstraints$1;-><init>(Ljava/lang/String;)V
 
+    .line 268
     invoke-static {v4}, Ljava/security/AccessController;->doPrivileged(Ljava/security/PrivilegedAction;)Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Ljava/lang/String;
 
+    .line 275
+    .local v3, "property":Ljava/lang/String;
     const/4 v0, 0x0
 
+    .line 277
+    .local v0, "algorithmsInProperty":[Ljava/lang/String;
     if-eqz v3, :cond_0
 
     invoke-virtual {v3}, Ljava/lang/String;->isEmpty()Z
@@ -238,26 +277,37 @@
 
     if-eqz v4, :cond_2
 
+    .line 292
+    .end local v0    # "algorithmsInProperty":[Ljava/lang/String;
     :cond_0
     if-nez v0, :cond_1
 
+    .line 293
     new-array v0, v6, [Ljava/lang/String;
 
+    .line 295
     :cond_1
     sget-object v4, Lsun/security/util/DisabledAlgorithmConstraints;->disabledAlgorithmsMap:Ljava/util/Map;
 
     invoke-interface {v4, p0, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 299
     new-instance v2, Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraints;
 
     invoke-direct {v2, v0}, Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraints;-><init>([Ljava/lang/String;)V
 
+    .line 300
+    .local v2, "keySizeConstraints":Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraints;
     sget-object v4, Lsun/security/util/DisabledAlgorithmConstraints;->keySizeConstraintsMap:Ljava/util/Map;
 
     invoke-interface {v4, p0, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 266
     return-void
 
+    .line 280
+    .end local v2    # "keySizeConstraints":Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraints;
+    .restart local v0    # "algorithmsInProperty":[Ljava/lang/String;
     :cond_2
     invoke-virtual {v3, v6}, Ljava/lang/String;->charAt(I)C
 
@@ -265,6 +315,7 @@
 
     if-ne v4, v5, :cond_3
 
+    .line 281
     invoke-virtual {v3}, Ljava/lang/String;->length()I
 
     move-result v4
@@ -277,6 +328,7 @@
 
     if-ne v4, v5, :cond_3
 
+    .line 282
     invoke-virtual {v3}, Ljava/lang/String;->length()I
 
     move-result v4
@@ -289,6 +341,7 @@
 
     move-result-object v3
 
+    .line 285
     :cond_3
     const-string/jumbo v4, ","
 
@@ -296,13 +349,17 @@
 
     move-result-object v0
 
+    .line 286
+    .local v0, "algorithmsInProperty":[Ljava/lang/String;
     const/4 v1, 0x0
 
+    .local v1, "i":I
     :goto_0
     array-length v4, v0
 
     if-ge v1, v4, :cond_0
 
+    .line 287
     aget-object v4, v0, v1
 
     invoke-virtual {v4}, Ljava/lang/String;->trim()Ljava/lang/String;
@@ -311,6 +368,7 @@
 
     aput-object v4, v0, v1
 
+    .line 286
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
@@ -320,6 +378,7 @@
 # virtual methods
 .method protected decomposes(Ljava/lang/String;)Ljava/util/Set;
     .locals 13
+    .param p1, "algorithm"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -332,8 +391,10 @@
         }
     .end annotation
 
+    .prologue
     const/4 v8, 0x0
 
+    .line 153
     if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
@@ -342,6 +403,7 @@
 
     if-nez v7, :cond_1
 
+    .line 154
     :cond_0
     new-instance v7, Ljava/util/HashSet;
 
@@ -349,6 +411,7 @@
 
     return-object v7
 
+    .line 158
     :cond_1
     const-string/jumbo v7, "/"
 
@@ -356,14 +419,20 @@
 
     move-result-object v4
 
+    .line 159
+    .local v4, "transPattern":Ljava/util/regex/Pattern;
     invoke-virtual {v4, p1}, Ljava/util/regex/Pattern;->split(Ljava/lang/CharSequence;)[Ljava/lang/String;
 
     move-result-object v6
 
+    .line 161
+    .local v6, "transTockens":[Ljava/lang/String;
     new-instance v0, Ljava/util/HashSet;
 
     invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
 
+    .line 162
+    .local v0, "elements":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     array-length v10, v6
 
     move v9, v8
@@ -373,6 +442,8 @@
 
     aget-object v5, v6, v9
 
+    .line 163
+    .local v5, "transTocken":Ljava/lang/String;
     if-eqz v5, :cond_2
 
     invoke-virtual {v5}, Ljava/lang/String;->length()I
@@ -381,6 +452,7 @@
 
     if-nez v7, :cond_3
 
+    .line 162
     :cond_2
     add-int/lit8 v7, v9, 0x1
 
@@ -388,6 +460,7 @@
 
     goto :goto_0
 
+    .line 173
     :cond_3
     const-string/jumbo v7, "with|and"
 
@@ -397,10 +470,14 @@
 
     move-result-object v1
 
+    .line 174
+    .local v1, "pattern":Ljava/util/regex/Pattern;
     invoke-virtual {v1, v5}, Ljava/util/regex/Pattern;->split(Ljava/lang/CharSequence;)[Ljava/lang/String;
 
     move-result-object v3
 
+    .line 176
+    .local v3, "tokens":[Ljava/lang/String;
     array-length v11, v3
 
     move v7, v8
@@ -410,6 +487,8 @@
 
     aget-object v2, v3, v7
 
+    .line 177
+    .local v2, "token":Ljava/lang/String;
     if-eqz v2, :cond_4
 
     invoke-virtual {v2}, Ljava/lang/String;->length()I
@@ -418,17 +497,24 @@
 
     if-nez v12, :cond_5
 
+    .line 176
     :cond_4
     :goto_2
     add-int/lit8 v7, v7, 0x1
 
     goto :goto_1
 
+    .line 181
     :cond_5
     invoke-interface {v0, v2}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     goto :goto_2
 
+    .line 193
+    .end local v1    # "pattern":Ljava/util/regex/Pattern;
+    .end local v2    # "token":Ljava/lang/String;
+    .end local v3    # "tokens":[Ljava/lang/String;
+    .end local v5    # "transTocken":Ljava/lang/String;
     :cond_6
     const-string/jumbo v7, "SHA1"
 
@@ -446,6 +532,7 @@
 
     if-eqz v7, :cond_11
 
+    .line 196
     :cond_7
     :goto_3
     const-string/jumbo v7, "SHA-1"
@@ -464,6 +551,7 @@
 
     if-eqz v7, :cond_12
 
+    .line 201
     :cond_8
     :goto_4
     const-string/jumbo v7, "SHA224"
@@ -482,6 +570,7 @@
 
     if-eqz v7, :cond_13
 
+    .line 204
     :cond_9
     :goto_5
     const-string/jumbo v7, "SHA-224"
@@ -500,6 +589,7 @@
 
     if-eqz v7, :cond_14
 
+    .line 209
     :cond_a
     :goto_6
     const-string/jumbo v7, "SHA256"
@@ -518,6 +608,7 @@
 
     if-eqz v7, :cond_15
 
+    .line 212
     :cond_b
     :goto_7
     const-string/jumbo v7, "SHA-256"
@@ -536,6 +627,7 @@
 
     if-eqz v7, :cond_16
 
+    .line 217
     :cond_c
     :goto_8
     const-string/jumbo v7, "SHA384"
@@ -554,6 +646,7 @@
 
     if-eqz v7, :cond_17
 
+    .line 220
     :cond_d
     :goto_9
     const-string/jumbo v7, "SHA-384"
@@ -572,6 +665,7 @@
 
     if-eqz v7, :cond_18
 
+    .line 225
     :cond_e
     :goto_a
     const-string/jumbo v7, "SHA512"
@@ -590,6 +684,7 @@
 
     if-eqz v7, :cond_19
 
+    .line 228
     :cond_f
     :goto_b
     const-string/jumbo v7, "SHA-512"
@@ -608,10 +703,12 @@
 
     if-eqz v7, :cond_1a
 
+    .line 232
     :cond_10
     :goto_c
     return-object v0
 
+    .line 194
     :cond_11
     const-string/jumbo v7, "SHA-1"
 
@@ -619,6 +716,7 @@
 
     goto/16 :goto_3
 
+    .line 197
     :cond_12
     const-string/jumbo v7, "SHA1"
 
@@ -626,6 +724,7 @@
 
     goto/16 :goto_4
 
+    .line 202
     :cond_13
     const-string/jumbo v7, "SHA-224"
 
@@ -633,6 +732,7 @@
 
     goto/16 :goto_5
 
+    .line 205
     :cond_14
     const-string/jumbo v7, "SHA224"
 
@@ -640,6 +740,7 @@
 
     goto/16 :goto_6
 
+    .line 210
     :cond_15
     const-string/jumbo v7, "SHA-256"
 
@@ -647,6 +748,7 @@
 
     goto/16 :goto_7
 
+    .line 213
     :cond_16
     const-string/jumbo v7, "SHA256"
 
@@ -654,6 +756,7 @@
 
     goto :goto_8
 
+    .line 218
     :cond_17
     const-string/jumbo v7, "SHA-384"
 
@@ -661,6 +764,7 @@
 
     goto :goto_9
 
+    .line 221
     :cond_18
     const-string/jumbo v7, "SHA384"
 
@@ -668,6 +772,7 @@
 
     goto :goto_a
 
+    .line 226
     :cond_19
     const-string/jumbo v7, "SHA-512"
 
@@ -675,6 +780,7 @@
 
     goto :goto_b
 
+    .line 229
     :cond_1a
     const-string/jumbo v7, "SHA512"
 
@@ -685,6 +791,8 @@
 
 .method public final permits(Ljava/util/Set;Ljava/lang/String;Ljava/security/AlgorithmParameters;)Z
     .locals 9
+    .param p2, "algorithm"    # Ljava/lang/String;
+    .param p3, "parameters"    # Ljava/security/AlgorithmParameters;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -698,8 +806,11 @@
         }
     .end annotation
 
+    .prologue
+    .local p1, "primitives":Ljava/util/Set;, "Ljava/util/Set<Ljava/security/CryptoPrimitive;>;"
     const/4 v5, 0x0
 
+    .line 91
     if-eqz p2, :cond_0
 
     invoke-virtual {p2}, Ljava/lang/String;->length()I
@@ -708,6 +819,7 @@
 
     if-nez v4, :cond_1
 
+    .line 92
     :cond_0
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
@@ -717,6 +829,7 @@
 
     throw v4
 
+    .line 95
     :cond_1
     if-eqz p1, :cond_2
 
@@ -726,29 +839,38 @@
 
     if-eqz v4, :cond_3
 
+    .line 96
     :cond_2
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
+    .line 97
     const-string/jumbo v5, "No cryptographic primitive specified"
 
+    .line 96
     invoke-direct {v4, v5}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v4
 
+    .line 100
     :cond_3
     const/4 v3, 0x0
 
+    .line 101
+    .local v3, "elements":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     iget-object v6, p0, Lsun/security/util/DisabledAlgorithmConstraints;->disabledAlgorithms:[Ljava/lang/String;
 
     array-length v7, v6
 
     move v4, v5
 
+    .end local v3    # "elements":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     :goto_0
     if-ge v4, v7, :cond_9
 
     aget-object v0, v6, v4
 
+    .line 102
+    .local v0, "disabled":Ljava/lang/String;
     if-eqz v0, :cond_4
 
     invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
@@ -757,11 +879,13 @@
 
     if-eqz v8, :cond_5
 
+    .line 101
     :cond_4
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
 
+    .line 107
     :cond_5
     invoke-virtual {v0, p2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
@@ -769,20 +893,25 @@
 
     if-eqz v8, :cond_6
 
+    .line 108
     return v5
 
+    .line 112
     :cond_6
     if-nez v3, :cond_7
 
+    .line 113
     invoke-virtual {p0, p2}, Lsun/security/util/DisabledAlgorithmConstraints;->decomposes(Ljava/lang/String;)Ljava/util/Set;
 
     move-result-object v3
 
+    .line 117
     :cond_7
     invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
+    .local v2, "element$iterator":Ljava/util/Iterator;
     :cond_8
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
@@ -796,14 +925,21 @@
 
     check-cast v1, Ljava/lang/String;
 
+    .line 118
+    .local v1, "element":Ljava/lang/String;
     invoke-virtual {v0, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v8
 
     if-eqz v8, :cond_8
 
+    .line 119
     return v5
 
+    .line 124
+    .end local v0    # "disabled":Ljava/lang/String;
+    .end local v1    # "element":Ljava/lang/String;
+    .end local v2    # "element$iterator":Ljava/util/Iterator;
     :cond_9
     const/4 v4, 0x1
 
@@ -812,6 +948,9 @@
 
 .method public final permits(Ljava/util/Set;Ljava/lang/String;Ljava/security/Key;Ljava/security/AlgorithmParameters;)Z
     .locals 2
+    .param p2, "algorithm"    # Ljava/lang/String;
+    .param p3, "key"    # Ljava/security/Key;
+    .param p4, "parameters"    # Ljava/security/AlgorithmParameters;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -826,6 +965,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 136
+    .local p1, "primitives":Ljava/util/Set;, "Ljava/util/Set<Ljava/security/CryptoPrimitive;>;"
     if-eqz p2, :cond_0
 
     invoke-virtual {p2}, Ljava/lang/String;->length()I
@@ -834,6 +976,7 @@
 
     if-nez v0, :cond_1
 
+    .line 137
     :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -843,6 +986,7 @@
 
     throw v0
 
+    .line 140
     :cond_1
     invoke-direct {p0, p1, p2, p3, p4}, Lsun/security/util/DisabledAlgorithmConstraints;->checkConstraints(Ljava/util/Set;Ljava/lang/String;Ljava/security/Key;Ljava/security/AlgorithmParameters;)Z
 
@@ -853,6 +997,7 @@
 
 .method public final permits(Ljava/util/Set;Ljava/security/Key;)Z
     .locals 2
+    .param p2, "key"    # Ljava/security/Key;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -865,6 +1010,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 129
+    .local p1, "primitives":Ljava/util/Set;, "Ljava/util/Set<Ljava/security/CryptoPrimitive;>;"
     const-string/jumbo v0, ""
 
     const/4 v1, 0x0

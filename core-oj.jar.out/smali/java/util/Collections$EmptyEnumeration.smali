@@ -45,18 +45,25 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 3546
     new-instance v0, Ljava/util/Collections$EmptyEnumeration;
 
     invoke-direct {v0}, Ljava/util/Collections$EmptyEnumeration;-><init>()V
 
+    .line 3545
     sput-object v0, Ljava/util/Collections$EmptyEnumeration;->EMPTY_ENUMERATION:Ljava/util/Collections$EmptyEnumeration;
 
+    .line 3544
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 3544
+    .local p0, "this":Ljava/util/Collections$EmptyEnumeration;, "Ljava/util/Collections$EmptyEnumeration<TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -67,6 +74,9 @@
 .method public hasMoreElements()Z
     .locals 1
 
+    .prologue
+    .line 3548
+    .local p0, "this":Ljava/util/Collections$EmptyEnumeration;, "Ljava/util/Collections$EmptyEnumeration<TE;>;"
     const/4 v0, 0x0
 
     return v0
@@ -80,6 +90,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 3549
+    .local p0, "this":Ljava/util/Collections$EmptyEnumeration;, "Ljava/util/Collections$EmptyEnumeration<TE;>;"
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V

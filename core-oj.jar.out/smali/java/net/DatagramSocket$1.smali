@@ -34,7 +34,10 @@
 # direct methods
 .method constructor <init>(Ljava/net/DatagramSocket;)V
     .locals 0
+    .param p1, "this$0"    # Ljava/net/DatagramSocket;
 
+    .prologue
+    .line 308
     iput-object p1, p0, Ljava/net/DatagramSocket$1;->this$0:Ljava/net/DatagramSocket;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -52,6 +55,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 309
     invoke-virtual {p0}, Ljava/net/DatagramSocket$1;->run()Ljava/lang/Void;
 
     move-result-object v0
@@ -67,16 +72,21 @@
         }
     .end annotation
 
+    .prologue
+    .line 310
     const/4 v1, 0x1
 
     new-array v0, v1, [Ljava/lang/Class;
 
+    .line 311
+    .local v0, "cl":[Ljava/lang/Class;
     const-class v1, Ljava/net/DatagramPacket;
 
     const/4 v2, 0x0
 
     aput-object v1, v0, v2
 
+    .line 312
     iget-object v1, p0, Ljava/net/DatagramSocket$1;->this$0:Ljava/net/DatagramSocket;
 
     iget-object v1, v1, Ljava/net/DatagramSocket;->impl:Ljava/net/DatagramSocketImpl;
@@ -89,6 +99,7 @@
 
     invoke-virtual {v1, v2, v0}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
+    .line 313
     const/4 v1, 0x0
 
     return-object v1

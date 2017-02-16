@@ -55,12 +55,18 @@
         }
     .end annotation
 
+    .prologue
+    .line 418
+    .local p0, "this":Ljava/util/EnumSet$SerializationProxy;, "Ljava/util/EnumSet<TE;>.SerializationProxy<TE;>;"
+    .local p1, "set":Ljava/util/EnumSet;, "Ljava/util/EnumSet<TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 419
     iget-object v0, p1, Ljava/util/EnumSet;->elementType:Ljava/lang/Class;
 
     iput-object v0, p0, Ljava/util/EnumSet$SerializationProxy;->elementType:Ljava/lang/Class;
 
+    .line 420
     invoke-static {}, Ljava/util/EnumSet;->-get0()[Ljava/lang/Enum;
 
     move-result-object v0
@@ -73,18 +79,24 @@
 
     iput-object v0, p0, Ljava/util/EnumSet$SerializationProxy;->elements:[Ljava/lang/Enum;
 
+    .line 418
     return-void
 .end method
 
 .method private readResolve()Ljava/lang/Object;
     .locals 5
 
+    .prologue
+    .line 424
+    .local p0, "this":Ljava/util/EnumSet$SerializationProxy;, "Ljava/util/EnumSet<TE;>.SerializationProxy<TE;>;"
     iget-object v2, p0, Ljava/util/EnumSet$SerializationProxy;->elementType:Ljava/lang/Class;
 
     invoke-static {v2}, Ljava/util/EnumSet;->noneOf(Ljava/lang/Class;)Ljava/util/EnumSet;
 
     move-result-object v1
 
+    .line 425
+    .local v1, "result":Ljava/util/EnumSet;, "Ljava/util/EnumSet<TE;>;"
     iget-object v3, p0, Ljava/util/EnumSet$SerializationProxy;->elements:[Ljava/lang/Enum;
 
     const/4 v2, 0x0
@@ -96,12 +108,17 @@
 
     aget-object v0, v3, v2
 
+    .line 426
+    .local v0, "e":Ljava/lang/Enum;
     invoke-virtual {v1, v0}, Ljava/util/EnumSet;->add(Ljava/lang/Object;)Z
 
+    .line 425
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
+    .line 427
+    .end local v0    # "e":Ljava/lang/Enum;
     :cond_0
     return-object v1
 .end method

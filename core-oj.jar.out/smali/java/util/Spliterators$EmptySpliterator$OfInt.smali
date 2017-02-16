@@ -33,6 +33,9 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 870
+    .local p0, "this":Ljava/util/Spliterators$EmptySpliterator$OfInt;, "Ljava/util/Spliterators$EmptySpliterator<TT;TS;TC;>.OfInt;"
     invoke-direct {p0}, Ljava/util/Spliterators$EmptySpliterator;-><init>()V
 
     return-void
@@ -42,7 +45,11 @@
 # virtual methods
 .method public bridge synthetic forEachRemaining(Ljava/util/function/IntConsumer;)V
     .locals 0
+    .param p1, "consumer"    # Ljava/util/function/IntConsumer;
 
+    .prologue
+    .line 849
+    .local p0, "this":Ljava/util/Spliterators$EmptySpliterator$OfInt;, "Ljava/util/Spliterators$EmptySpliterator<TT;TS;TC;>.OfInt;"
     invoke-virtual {p0, p1}, Ljava/util/Spliterators$EmptySpliterator;->forEachRemaining(Ljava/lang/Object;)V
 
     return-void
@@ -50,7 +57,11 @@
 
 .method public bridge synthetic tryAdvance(Ljava/util/function/IntConsumer;)Z
     .locals 1
+    .param p1, "consumer"    # Ljava/util/function/IntConsumer;
 
+    .prologue
+    .line 844
+    .local p0, "this":Ljava/util/Spliterators$EmptySpliterator$OfInt;, "Ljava/util/Spliterators$EmptySpliterator<TT;TS;TC;>.OfInt;"
     invoke-virtual {p0, p1}, Ljava/util/Spliterators$EmptySpliterator;->tryAdvance(Ljava/lang/Object;)Z
 
     move-result v0
@@ -61,6 +72,9 @@
 .method public bridge synthetic trySplit()Ljava/util/Spliterator$OfInt;
     .locals 1
 
+    .prologue
+    .line 840
+    .local p0, "this":Ljava/util/Spliterators$EmptySpliterator$OfInt;, "Ljava/util/Spliterators$EmptySpliterator<TT;TS;TC;>.OfInt;"
     invoke-virtual {p0}, Ljava/util/Spliterators$EmptySpliterator;->trySplit()Ljava/util/Spliterator;
 
     move-result-object v0
@@ -73,6 +87,9 @@
 .method public bridge synthetic trySplit()Ljava/util/Spliterator$OfPrimitive;
     .locals 1
 
+    .prologue
+    .line 840
+    .local p0, "this":Ljava/util/Spliterators$EmptySpliterator$OfInt;, "Ljava/util/Spliterators$EmptySpliterator<TT;TS;TC;>.OfInt;"
     invoke-virtual {p0}, Ljava/util/Spliterators$EmptySpliterator;->trySplit()Ljava/util/Spliterator;
 
     move-result-object v0

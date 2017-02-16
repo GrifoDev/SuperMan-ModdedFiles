@@ -53,6 +53,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 3999
+    .local p0, "this":Ljava/util/Collections$SingletonList;, "Ljava/util/Collections$SingletonList<TE;>;"
+    .local p1, "obj":Ljava/lang/Object;, "TE;"
     invoke-direct {p0}, Ljava/util/AbstractList;-><init>()V
 
     iput-object p1, p0, Ljava/util/Collections$SingletonList;->element:Ljava/lang/Object;
@@ -64,7 +68,11 @@
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
+    .param p1, "obj"    # Ljava/lang/Object;
 
+    .prologue
+    .line 4007
+    .local p0, "this":Ljava/util/Collections$SingletonList;, "Ljava/util/Collections$SingletonList<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$SingletonList;->element:Ljava/lang/Object;
 
     invoke-static {p1, v0}, Ljava/util/Collections;->eq(Ljava/lang/Object;Ljava/lang/Object;)Z
@@ -84,23 +92,33 @@
         }
     .end annotation
 
+    .prologue
+    .line 4018
+    .local p0, "this":Ljava/util/Collections$SingletonList;, "Ljava/util/Collections$SingletonList<TE;>;"
+    .local p1, "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-TE;>;"
     iget-object v0, p0, Ljava/util/Collections$SingletonList;->element:Ljava/lang/Object;
 
     invoke-interface {p1, v0}, Ljava/util/function/Consumer;->accept(Ljava/lang/Object;)V
 
+    .line 4017
     return-void
 .end method
 
 .method public get(I)Ljava/lang/Object;
     .locals 3
+    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)TE;"
         }
     .end annotation
 
+    .prologue
+    .line 4010
+    .local p0, "this":Ljava/util/Collections$SingletonList;, "Ljava/util/Collections$SingletonList<TE;>;"
     if-eqz p1, :cond_0
 
+    .line 4011
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -131,6 +149,7 @@
 
     throw v0
 
+    .line 4012
     :cond_0
     iget-object v0, p0, Ljava/util/Collections$SingletonList;->element:Ljava/lang/Object;
 
@@ -147,6 +166,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 4002
+    .local p0, "this":Ljava/util/Collections$SingletonList;, "Ljava/util/Collections$SingletonList<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$SingletonList;->element:Ljava/lang/Object;
 
     invoke-static {v0}, Ljava/util/Collections;->singletonIterator(Ljava/lang/Object;)Ljava/util/Iterator;
@@ -166,6 +188,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 4022
+    .local p0, "this":Ljava/util/Collections$SingletonList;, "Ljava/util/Collections$SingletonList<TE;>;"
+    .local p1, "filter":Ljava/util/function/Predicate;, "Ljava/util/function/Predicate<-TE;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -183,6 +209,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 4029
+    .local p0, "this":Ljava/util/Collections$SingletonList;, "Ljava/util/Collections$SingletonList<TE;>;"
+    .local p1, "operator":Ljava/util/function/UnaryOperator;, "Ljava/util/function/UnaryOperator<TE;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -193,6 +223,9 @@
 .method public size()I
     .locals 1
 
+    .prologue
+    .line 4005
+    .local p0, "this":Ljava/util/Collections$SingletonList;, "Ljava/util/Collections$SingletonList<TE;>;"
     const/4 v0, 0x1
 
     return v0
@@ -208,6 +241,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 4032
+    .local p0, "this":Ljava/util/Collections$SingletonList;, "Ljava/util/Collections$SingletonList<TE;>;"
+    .local p1, "c":Ljava/util/Comparator;, "Ljava/util/Comparator<-TE;>;"
     return-void
 .end method
 
@@ -221,6 +258,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 4026
+    .local p0, "this":Ljava/util/Collections$SingletonList;, "Ljava/util/Collections$SingletonList<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$SingletonList;->element:Ljava/lang/Object;
 
     invoke-static {v0}, Ljava/util/Collections;->singletonSpliterator(Ljava/lang/Object;)Ljava/util/Spliterator;

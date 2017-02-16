@@ -25,6 +25,7 @@
 .method public synthetic constructor <init>(Ljava/util/function/Consumer;)V
     .locals 0
 
+    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Ljava/util/Collections$UnmodifiableMap$UnmodifiableEntrySet$-java_util_function_Consumer_entryConsumer_java_util_function_Consumer_action_LambdaImpl0;->val$action:Ljava/util/function/Consumer;
@@ -36,11 +37,14 @@
 # virtual methods
 .method public accept(Ljava/lang/Object;)V
     .locals 1
+    .param p1, "arg0"    # Ljava/lang/Object;
 
+    .prologue
     iget-object v0, p0, Ljava/util/Collections$UnmodifiableMap$UnmodifiableEntrySet$-java_util_function_Consumer_entryConsumer_java_util_function_Consumer_action_LambdaImpl0;->val$action:Ljava/util/function/Consumer;
 
     check-cast p1, Ljava/util/Map$Entry;
 
+    .end local p1    # "arg0":Ljava/lang/Object;
     invoke-static {v0, p1}, Ljava/util/Collections$UnmodifiableMap$UnmodifiableEntrySet;->-java_util_Collections$UnmodifiableMap$UnmodifiableEntrySet_lambda$1(Ljava/util/function/Consumer;Ljava/util/Map$Entry;)V
 
     return-void

@@ -109,6 +109,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 411
+    .local p0, "this":Ljava/util/Set;, "Ljava/util/Set<TE;>;"
     const/4 v0, 0x1
 
     invoke-static {p0, v0}, Ljava/util/Spliterators;->spliterator(Ljava/util/Collection;I)Ljava/util/Spliterator;

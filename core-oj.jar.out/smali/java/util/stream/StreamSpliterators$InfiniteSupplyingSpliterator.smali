@@ -44,11 +44,17 @@
 # direct methods
 .method protected constructor <init>(J)V
     .locals 1
+    .param p1, "estimate"    # J
 
+    .prologue
+    .line 1330
+    .local p0, "this":Ljava/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator;, "Ljava/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 1331
     iput-wide p1, p0, Ljava/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator;->estimate:J
 
+    .line 1330
     return-void
 .end method
 
@@ -57,6 +63,9 @@
 .method public characteristics()I
     .locals 1
 
+    .prologue
+    .line 1341
+    .local p0, "this":Ljava/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator;, "Ljava/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator<TT;>;"
     const/16 v0, 0x400
 
     return v0
@@ -65,6 +74,9 @@
 .method public estimateSize()J
     .locals 2
 
+    .prologue
+    .line 1336
+    .local p0, "this":Ljava/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator;, "Ljava/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator<TT;>;"
     iget-wide v0, p0, Ljava/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator;->estimate:J
 
     return-wide v0

@@ -31,7 +31,11 @@
 # direct methods
 .method constructor <init>(Ljava/util/Scanner;I)V
     .locals 0
+    .param p1, "this$0"    # Ljava/util/Scanner;
+    .param p2, "$anonymous0"    # I
 
+    .prologue
+    .line 408
     iput-object p1, p0, Ljava/util/Scanner$1;->this$0:Ljava/util/Scanner;
 
     invoke-direct {p0, p2}, Lsun/misc/LRUCache;-><init>(I)V
@@ -43,9 +47,13 @@
 # virtual methods
 .method protected bridge synthetic create(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
+    .param p1, "s"    # Ljava/lang/Object;
 
+    .prologue
+    .line 409
     check-cast p1, Ljava/lang/String;
 
+    .end local p1    # "s":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Ljava/util/Scanner$1;->create(Ljava/lang/String;)Ljava/util/regex/Pattern;
 
     move-result-object v0
@@ -55,7 +63,10 @@
 
 .method protected create(Ljava/lang/String;)Ljava/util/regex/Pattern;
     .locals 1
+    .param p1, "s"    # Ljava/lang/String;
 
+    .prologue
+    .line 410
     invoke-static {p1}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
 
     move-result-object v0
@@ -65,11 +76,17 @@
 
 .method protected bridge synthetic hasName(Ljava/lang/Object;Ljava/lang/Object;)Z
     .locals 1
+    .param p1, "p"    # Ljava/lang/Object;
+    .param p2, "s"    # Ljava/lang/Object;
 
+    .prologue
+    .line 412
     check-cast p1, Ljava/util/regex/Pattern;
 
+    .end local p1    # "p":Ljava/lang/Object;
     check-cast p2, Ljava/lang/String;
 
+    .end local p2    # "s":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Ljava/util/Scanner$1;->hasName(Ljava/util/regex/Pattern;Ljava/lang/String;)Z
 
     move-result v0
@@ -79,7 +96,11 @@
 
 .method protected hasName(Ljava/util/regex/Pattern;Ljava/lang/String;)Z
     .locals 1
+    .param p1, "p"    # Ljava/util/regex/Pattern;
+    .param p2, "s"    # Ljava/lang/String;
 
+    .prologue
+    .line 413
     invoke-virtual {p1}, Ljava/util/regex/Pattern;->pattern()Ljava/lang/String;
 
     move-result-object v0

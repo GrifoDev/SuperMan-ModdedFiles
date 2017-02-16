@@ -25,6 +25,7 @@
 .method public synthetic constructor <init>(Ljava/util/function/IntConsumer;)V
     .locals 0
 
+    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Ljava/util/stream/StreamSpliterators$IntWrappingSpliterator$-void_forEachRemaining_java_util_function_IntConsumer_consumer_LambdaImpl0;->val$-lambdaCtx:Ljava/util/function/IntConsumer;
@@ -36,7 +37,9 @@
 # virtual methods
 .method public accept(I)V
     .locals 1
+    .param p1, "arg0"    # I
 
+    .prologue
     iget-object v0, p0, Ljava/util/stream/StreamSpliterators$IntWrappingSpliterator$-void_forEachRemaining_java_util_function_IntConsumer_consumer_LambdaImpl0;->val$-lambdaCtx:Ljava/util/function/IntConsumer;
 
     invoke-static {v0, p1}, Ljava/util/stream/StreamSpliterators$IntWrappingSpliterator;->-java_util_stream_StreamSpliterators$IntWrappingSpliterator-mthref-1(Ljava/util/function/IntConsumer;I)V

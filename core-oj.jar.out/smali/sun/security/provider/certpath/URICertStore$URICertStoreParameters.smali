@@ -34,15 +34,21 @@
 
 .method constructor <init>(Ljava/net/URI;)V
     .locals 1
+    .param p1, "uri"    # Ljava/net/URI;
 
+    .prologue
+    .line 454
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 453
     const/4 v0, 0x0
 
     iput v0, p0, Lsun/security/provider/certpath/URICertStore$URICertStoreParameters;->hashCode:I
 
+    .line 455
     iput-object p1, p0, Lsun/security/provider/certpath/URICertStore$URICertStoreParameters;->uri:Ljava/net/URI;
 
+    .line 454
     return-void
 .end method
 
@@ -51,6 +57,8 @@
 .method public clone()Ljava/lang/Object;
     .locals 3
 
+    .prologue
+    .line 474
     :try_start_0
     invoke-super {p0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
     :try_end_0
@@ -60,9 +68,12 @@
 
     return-object v1
 
+    .line 475
     :catch_0
     move-exception v0
 
+    .line 477
+    .local v0, "e":Ljava/lang/CloneNotSupportedException;
     new-instance v1, Ljava/lang/InternalError;
 
     invoke-virtual {v0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
@@ -76,11 +87,15 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 3
+    .param p1, "obj"    # Ljava/lang/Object;
 
+    .prologue
+    .line 458
     instance-of v1, p1, Lsun/security/provider/certpath/URICertStore$URICertStoreParameters;
 
     if-nez v1, :cond_0
 
+    .line 459
     const/4 v1, 0x0
 
     return v1
@@ -88,10 +103,13 @@
     :cond_0
     move-object v0, p1
 
+    .line 461
     nop
 
     nop
 
+    .line 462
+    .local v0, "params":Lsun/security/provider/certpath/URICertStore$URICertStoreParameters;
     iget-object v1, p0, Lsun/security/provider/certpath/URICertStore$URICertStoreParameters;->uri:Ljava/net/URI;
 
     iget-object v2, v0, Lsun/security/provider/certpath/URICertStore$URICertStoreParameters;->uri:Ljava/net/URI;
@@ -106,10 +124,13 @@
 .method public hashCode()I
     .locals 2
 
+    .prologue
+    .line 465
     iget v1, p0, Lsun/security/provider/certpath/URICertStore$URICertStoreParameters;->hashCode:I
 
     if-nez v1, :cond_0
 
+    .line 467
     iget-object v1, p0, Lsun/security/provider/certpath/URICertStore$URICertStoreParameters;->uri:Ljava/net/URI;
 
     invoke-virtual {v1}, Ljava/net/URI;->hashCode()I
@@ -118,8 +139,12 @@
 
     add-int/lit16 v0, v1, 0x275
 
+    .line 468
+    .local v0, "result":I
     iput v0, p0, Lsun/security/provider/certpath/URICertStore$URICertStoreParameters;->hashCode:I
 
+    .line 470
+    .end local v0    # "result":I
     :cond_0
     iget v1, p0, Lsun/security/provider/certpath/URICertStore$URICertStoreParameters;->hashCode:I
 

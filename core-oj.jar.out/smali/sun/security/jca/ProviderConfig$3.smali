@@ -34,7 +34,10 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
     .locals 0
+    .param p1, "val$value"    # Ljava/lang/String;
 
+    .prologue
+    .line 283
     iput-object p1, p0, Lsun/security/jca/ProviderConfig$3;->val$value:Ljava/lang/String;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,6 +50,8 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 284
     invoke-virtual {p0}, Lsun/security/jca/ProviderConfig$3;->run()Ljava/lang/String;
 
     move-result-object v0
@@ -57,6 +62,8 @@
 .method public run()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 286
     :try_start_0
     iget-object v1, p0, Lsun/security/jca/ProviderConfig$3;->val$value:Ljava/lang/String;
 
@@ -68,9 +75,12 @@
 
     return-object v1
 
+    .line 287
     :catch_0
     move-exception v0
 
+    .line 288
+    .local v0, "e":Ljava/security/GeneralSecurityException;
     new-instance v1, Ljava/security/ProviderException;
 
     invoke-direct {v1, v0}, Ljava/security/ProviderException;-><init>(Ljava/lang/Throwable;)V

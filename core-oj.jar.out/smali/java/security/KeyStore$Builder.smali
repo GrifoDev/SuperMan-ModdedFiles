@@ -28,6 +28,8 @@
 .method protected constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 1420
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -35,11 +37,18 @@
 
 .method public static newInstance(Ljava/lang/String;Ljava/security/Provider;Ljava/io/File;Ljava/security/KeyStore$ProtectionParameter;)Ljava/security/KeyStore$Builder;
     .locals 6
+    .param p0, "type"    # Ljava/lang/String;
+    .param p1, "provider"    # Ljava/security/Provider;
+    .param p2, "file"    # Ljava/io/File;
+    .param p3, "protection"    # Ljava/security/KeyStore$ProtectionParameter;
 
+    .prologue
+    .line 1545
     if-eqz p0, :cond_0
 
     if-nez p2, :cond_1
 
+    .line 1546
     :cond_0
     new-instance v0, Ljava/lang/NullPointerException;
 
@@ -47,25 +56,32 @@
 
     throw v0
 
+    .line 1545
     :cond_1
     if-eqz p3, :cond_0
 
+    .line 1548
     instance-of v0, p3, Ljava/security/KeyStore$PasswordProtection;
 
     if-nez v0, :cond_2
 
+    .line 1549
     instance-of v0, p3, Ljava/security/KeyStore$CallbackHandlerProtection;
 
     if-nez v0, :cond_2
 
+    .line 1550
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
+    .line 1551
     const-string/jumbo v1, "Protection must be PasswordProtection or CallbackHandlerProtection"
 
+    .line 1550
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
+    .line 1554
     :cond_2
     invoke-virtual {p2}, Ljava/io/File;->isFile()Z
 
@@ -73,8 +89,10 @@
 
     if-nez v0, :cond_3
 
+    .line 1555
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
+    .line 1556
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -93,13 +111,16 @@
 
     move-result-object v1
 
+    .line 1555
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
+    .line 1559
     :cond_3
     new-instance v0, Ljava/security/KeyStore$Builder$FileBuilder;
 
+    .line 1560
     invoke-static {}, Ljava/security/AccessController;->getContext()Ljava/security/AccessControlContext;
 
     move-result-object v5
@@ -112,6 +133,7 @@
 
     move-object v4, p3
 
+    .line 1559
     invoke-direct/range {v0 .. v5}, Ljava/security/KeyStore$Builder$FileBuilder;-><init>(Ljava/lang/String;Ljava/security/Provider;Ljava/io/File;Ljava/security/KeyStore$ProtectionParameter;Ljava/security/AccessControlContext;)V
 
     return-object v0
@@ -119,11 +141,17 @@
 
 .method public static newInstance(Ljava/lang/String;Ljava/security/Provider;Ljava/security/KeyStore$ProtectionParameter;)Ljava/security/KeyStore$Builder;
     .locals 2
+    .param p0, "type"    # Ljava/lang/String;
+    .param p1, "provider"    # Ljava/security/Provider;
+    .param p2, "protection"    # Ljava/security/KeyStore$ProtectionParameter;
 
+    .prologue
+    .line 1710
     if-eqz p0, :cond_0
 
     if-nez p2, :cond_1
 
+    .line 1711
     :cond_0
     new-instance v1, Ljava/lang/NullPointerException;
 
@@ -131,11 +159,14 @@
 
     throw v1
 
+    .line 1713
     :cond_1
     invoke-static {}, Ljava/security/AccessController;->getContext()Ljava/security/AccessControlContext;
 
     move-result-object v0
 
+    .line 1714
+    .local v0, "context":Ljava/security/AccessControlContext;
     new-instance v1, Ljava/security/KeyStore$Builder$2;
 
     invoke-direct {v1, v0, p2, p1, p0}, Ljava/security/KeyStore$Builder$2;-><init>(Ljava/security/AccessControlContext;Ljava/security/KeyStore$ProtectionParameter;Ljava/security/Provider;Ljava/lang/String;)V
@@ -145,11 +176,16 @@
 
 .method public static newInstance(Ljava/security/KeyStore;Ljava/security/KeyStore$ProtectionParameter;)Ljava/security/KeyStore$Builder;
     .locals 2
+    .param p0, "keyStore"    # Ljava/security/KeyStore;
+    .param p1, "protectionParameter"    # Ljava/security/KeyStore$ProtectionParameter;
 
+    .prologue
+    .line 1472
     if-eqz p0, :cond_0
 
     if-nez p1, :cond_1
 
+    .line 1473
     :cond_0
     new-instance v0, Ljava/lang/NullPointerException;
 
@@ -157,6 +193,7 @@
 
     throw v0
 
+    .line 1475
     :cond_1
     invoke-static {p0}, Ljava/security/KeyStore;->-get0(Ljava/security/KeyStore;)Z
 
@@ -164,6 +201,7 @@
 
     if-nez v0, :cond_2
 
+    .line 1476
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "KeyStore not initialized"
@@ -172,6 +210,7 @@
 
     throw v0
 
+    .line 1478
     :cond_2
     new-instance v0, Ljava/security/KeyStore$Builder$1;
 

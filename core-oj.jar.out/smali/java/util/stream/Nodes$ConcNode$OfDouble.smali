@@ -34,9 +34,15 @@
 # direct methods
 .method constructor <init>(Ljava/util/stream/Node$OfDouble;Ljava/util/stream/Node$OfDouble;)V
     .locals 0
+    .param p1, "left"    # Ljava/util/stream/Node$OfDouble;
+    .param p2, "right"    # Ljava/util/stream/Node$OfDouble;
 
+    .prologue
+    .line 916
+    .local p0, "this":Ljava/util/stream/Nodes$ConcNode$OfDouble;, "Ljava/util/stream/Nodes$ConcNode<TT;>.OfDouble;"
     invoke-direct {p0, p1, p2}, Ljava/util/stream/Nodes$ConcNode$OfPrimitive;-><init>(Ljava/util/stream/Node$OfPrimitive;Ljava/util/stream/Node$OfPrimitive;)V
 
+    .line 915
     return-void
 .end method
 
@@ -45,6 +51,9 @@
 .method public spliterator()Ljava/util/Spliterator$OfDouble;
     .locals 1
 
+    .prologue
+    .line 921
+    .local p0, "this":Ljava/util/stream/Nodes$ConcNode$OfDouble;, "Ljava/util/stream/Nodes$ConcNode<TT;>.OfDouble;"
     new-instance v0, Ljava/util/stream/Nodes$InternalNodeSpliterator$OfDouble;
 
     invoke-direct {v0, p0}, Ljava/util/stream/Nodes$InternalNodeSpliterator$OfDouble;-><init>(Ljava/util/stream/Node$OfDouble;)V
@@ -55,6 +64,9 @@
 .method public bridge synthetic spliterator()Ljava/util/Spliterator$OfPrimitive;
     .locals 1
 
+    .prologue
+    .line 920
+    .local p0, "this":Ljava/util/stream/Nodes$ConcNode$OfDouble;, "Ljava/util/stream/Nodes$ConcNode<TT;>.OfDouble;"
     invoke-virtual {p0}, Ljava/util/stream/Nodes$ConcNode$OfDouble;->spliterator()Ljava/util/Spliterator$OfDouble;
 
     move-result-object v0
@@ -65,6 +77,9 @@
 .method public bridge synthetic spliterator()Ljava/util/Spliterator;
     .locals 1
 
+    .prologue
+    .line 920
+    .local p0, "this":Ljava/util/stream/Nodes$ConcNode$OfDouble;, "Ljava/util/stream/Nodes$ConcNode<TT;>.OfDouble;"
     invoke-virtual {p0}, Ljava/util/stream/Nodes$ConcNode$OfDouble;->spliterator()Ljava/util/Spliterator$OfDouble;
 
     move-result-object v0

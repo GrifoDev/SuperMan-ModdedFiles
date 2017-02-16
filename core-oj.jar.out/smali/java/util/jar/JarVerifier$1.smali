@@ -34,7 +34,10 @@
 # direct methods
 .method constructor <init>(Ljava/util/jar/JarVerifier;)V
     .locals 0
+    .param p1, "this$0"    # Ljava/util/jar/JarVerifier;
 
+    .prologue
+    .line 789
     iput-object p1, p0, Ljava/util/jar/JarVerifier$1;->this$0:Ljava/util/jar/JarVerifier;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,6 +50,8 @@
 .method public hasMoreElements()Z
     .locals 1
 
+    .prologue
+    .line 792
     const/4 v0, 0x0
 
     return v0
@@ -55,6 +60,8 @@
 .method public bridge synthetic nextElement()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 795
     invoke-virtual {p0}, Ljava/util/jar/JarVerifier$1;->nextElement()Ljava/lang/String;
 
     move-result-object v0
@@ -65,6 +72,8 @@
 .method public nextElement()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 796
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V

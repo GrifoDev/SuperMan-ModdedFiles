@@ -23,9 +23,13 @@
 
 .method public add(I)Ljava/util/stream/IntStream$Builder;
     .locals 0
+    .param p1, "t"    # I
 
+    .prologue
+    .line 896
     invoke-interface {p0, p1}, Ljava/util/stream/IntStream$Builder;->accept(I)V
 
+    .line 897
     return-object p0
 .end method
 

@@ -17,7 +17,10 @@
 # direct methods
 .method constructor <init>(Ljava/security/Provider;)V
     .locals 4
+    .param p1, "p"    # Ljava/security/Provider;
 
+    .prologue
+    .line 114
     const-string/jumbo v0, "SunCertificates"
 
     const-string/jumbo v1, "SunJSSE internal"
@@ -26,11 +29,13 @@
 
     invoke-direct {p0, v0, v2, v3, v1}, Ljava/security/Provider;-><init>(Ljava/lang/String;DLjava/lang/String;)V
 
+    .line 115
     new-instance v0, Lsun/security/ssl/JsseJce$SunCertificates$1;
 
     invoke-direct {v0, p0, p1}, Lsun/security/ssl/JsseJce$SunCertificates$1;-><init>(Lsun/security/ssl/JsseJce$SunCertificates;Ljava/security/Provider;)V
 
     invoke-static {v0}, Ljava/security/AccessController;->doPrivileged(Ljava/security/PrivilegedAction;)Ljava/lang/Object;
 
+    .line 113
     return-void
 .end method

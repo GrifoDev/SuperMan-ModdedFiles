@@ -37,6 +37,9 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 667
+    .local p0, "this":Ljava/util/stream/ReduceOps$Box;, "Ljava/util/stream/ReduceOps$Box<TU;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -52,6 +55,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 670
+    .local p0, "this":Ljava/util/stream/ReduceOps$Box;, "Ljava/util/stream/ReduceOps$Box<TU;>;"
     iget-object v0, p0, Ljava/util/stream/ReduceOps$Box;->state:Ljava/lang/Object;
 
     return-object v0

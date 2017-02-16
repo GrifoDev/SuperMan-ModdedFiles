@@ -17,37 +17,47 @@
 # direct methods
 .method public constructor <init>([B)V
     .locals 1
+    .param p1, "key"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/InvalidKeyException;
         }
     .end annotation
 
+    .prologue
+    .line 62
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Ljavax/crypto/spec/DESedeKeySpec;-><init>([BI)V
 
+    .line 61
     return-void
 .end method
 
 .method public constructor <init>([BI)V
     .locals 3
+    .param p1, "key"    # [B
+    .param p2, "offset"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/InvalidKeyException;
         }
     .end annotation
 
+    .prologue
     const/16 v2, 0x18
 
+    .line 83
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 84
     array-length v0, p1
 
     sub-int/2addr v0, p2
 
     if-ge v0, v2, :cond_0
 
+    .line 85
     new-instance v0, Ljava/security/InvalidKeyException;
 
     const-string/jumbo v1, "Wrong key size"
@@ -56,28 +66,35 @@
 
     throw v0
 
+    .line 87
     :cond_0
     new-array v0, v2, [B
 
     iput-object v0, p0, Ljavax/crypto/spec/DESedeKeySpec;->key:[B
 
+    .line 88
     iget-object v0, p0, Ljavax/crypto/spec/DESedeKeySpec;->key:[B
 
     const/4 v1, 0x0
 
     invoke-static {p1, p2, v0, v1, v2}, Ljava/lang/System;->arraycopy([BI[BII)V
 
+    .line 83
     return-void
 .end method
 
 .method public static isParityAdjusted([BI)Z
     .locals 2
+    .param p0, "key"    # [B
+    .param p1, "offset"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/InvalidKeyException;
         }
     .end annotation
 
+    .prologue
+    .line 116
     array-length v0, p0
 
     sub-int/2addr v0, p1
@@ -86,6 +103,7 @@
 
     if-ge v0, v1, :cond_0
 
+    .line 117
     new-instance v0, Ljava/security/InvalidKeyException;
 
     const-string/jumbo v1, "Wrong key size"
@@ -94,6 +112,7 @@
 
     throw v0
 
+    .line 119
     :cond_0
     invoke-static {p0, p1}, Ljavax/crypto/spec/DESKeySpec;->isParityAdjusted([BI)Z
 
@@ -101,6 +120,7 @@
 
     if-eqz v0, :cond_1
 
+    .line 120
     add-int/lit8 v0, p1, 0x8
 
     invoke-static {p0, v0}, Ljavax/crypto/spec/DESKeySpec;->isParityAdjusted([BI)Z
@@ -109,11 +129,13 @@
 
     if-nez v0, :cond_2
 
+    .line 122
     :cond_1
     const/4 v0, 0x0
 
     return v0
 
+    .line 121
     :cond_2
     add-int/lit8 v0, p1, 0x10
 
@@ -123,6 +145,7 @@
 
     if-eqz v0, :cond_1
 
+    .line 124
     const/4 v0, 0x1
 
     return v0
@@ -133,6 +156,8 @@
 .method public getKey()[B
     .locals 1
 
+    .prologue
+    .line 98
     iget-object v0, p0, Ljavax/crypto/spec/DESedeKeySpec;->key:[B
 
     invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;

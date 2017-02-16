@@ -25,6 +25,7 @@
 .method public synthetic constructor <init>(Ljava/lang/Object;)V
     .locals 0
 
+    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Ljava/util/stream/Collectors$-java_util_function_Supplier_boxSupplier_java_lang_Object_identity_LambdaImpl0;->val$identity:Ljava/lang/Object;
@@ -37,6 +38,7 @@
 .method public get()Ljava/lang/Object;
     .locals 1
 
+    .prologue
     iget-object v0, p0, Ljava/util/stream/Collectors$-java_util_function_Supplier_boxSupplier_java_lang_Object_identity_LambdaImpl0;->val$identity:Ljava/lang/Object;
 
     invoke-static {v0}, Ljava/util/stream/Collectors;->-java_util_stream_Collectors_lambda$50(Ljava/lang/Object;)[Ljava/lang/Object;

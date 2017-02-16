@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 96
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -41,6 +43,8 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 97
     invoke-virtual {p0}, Ljava/lang/UNIXProcess$ProcessReaperThreadFactory$1;->run()Ljava/lang/ThreadGroup;
 
     move-result-object v0
@@ -51,6 +55,8 @@
 .method public run()Ljava/lang/ThreadGroup;
     .locals 2
 
+    .prologue
+    .line 98
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
     move-result-object v1
@@ -59,6 +65,8 @@
 
     move-result-object v0
 
+    .line 99
+    .local v0, "root":Ljava/lang/ThreadGroup;
     :goto_0
     invoke-virtual {v0}, Ljava/lang/ThreadGroup;->getParent()Ljava/lang/ThreadGroup;
 
@@ -66,12 +74,14 @@
 
     if-eqz v1, :cond_0
 
+    .line 100
     invoke-virtual {v0}, Ljava/lang/ThreadGroup;->getParent()Ljava/lang/ThreadGroup;
 
     move-result-object v0
 
     goto :goto_0
 
+    .line 101
     :cond_0
     return-object v0
 .end method

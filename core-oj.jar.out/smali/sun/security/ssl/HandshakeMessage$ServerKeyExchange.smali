@@ -18,6 +18,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 535
     invoke-direct {p0}, Lsun/security/ssl/HandshakeMessage;-><init>()V
 
     return-void
@@ -28,6 +30,8 @@
 .method messageType()I
     .locals 1
 
+    .prologue
+    .line 537
     const/16 v0, 0xc
 
     return v0

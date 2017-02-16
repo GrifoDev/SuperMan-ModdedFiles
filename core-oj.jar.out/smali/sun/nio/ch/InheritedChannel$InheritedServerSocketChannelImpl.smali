@@ -17,16 +17,21 @@
 # direct methods
 .method constructor <init>(Ljava/nio/channels/spi/SelectorProvider;Ljava/io/FileDescriptor;)V
     .locals 1
+    .param p1, "sp"    # Ljava/nio/channels/spi/SelectorProvider;
+    .param p2, "fd"    # Ljava/io/FileDescriptor;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 99
     const/4 v0, 0x1
 
     invoke-direct {p0, p1, p2, v0}, Lsun/nio/ch/ServerSocketChannelImpl;-><init>(Ljava/nio/channels/spi/SelectorProvider;Ljava/io/FileDescriptor;Z)V
 
+    .line 97
     return-void
 .end method
 
@@ -35,6 +40,7 @@
 .method public bridge synthetic accept()Ljava/nio/channels/SocketChannel;
     .locals 1
 
+    .prologue
     invoke-super {p0}, Lsun/nio/ch/ServerSocketChannelImpl;->accept()Ljava/nio/channels/SocketChannel;
 
     move-result-object v0
@@ -44,7 +50,10 @@
 
 .method public bridge synthetic bind(Ljava/net/SocketAddress;I)Ljava/nio/channels/ServerSocketChannel;
     .locals 1
+    .param p1, "local"    # Ljava/net/SocketAddress;
+    .param p2, "backlog"    # I
 
+    .prologue
     invoke-super {p0, p1, p2}, Lsun/nio/ch/ServerSocketChannelImpl;->bind(Ljava/net/SocketAddress;I)Ljava/nio/channels/ServerSocketChannel;
 
     move-result-object v0
@@ -55,6 +64,7 @@
 .method public bridge synthetic getFD()Ljava/io/FileDescriptor;
     .locals 1
 
+    .prologue
     invoke-super {p0}, Lsun/nio/ch/ServerSocketChannelImpl;->getFD()Ljava/io/FileDescriptor;
 
     move-result-object v0
@@ -65,6 +75,7 @@
 .method public bridge synthetic getFDVal()I
     .locals 1
 
+    .prologue
     invoke-super {p0}, Lsun/nio/ch/ServerSocketChannelImpl;->getFDVal()I
 
     move-result v0
@@ -75,6 +86,7 @@
 .method public bridge synthetic getLocalAddress()Ljava/net/SocketAddress;
     .locals 1
 
+    .prologue
     invoke-super {p0}, Lsun/nio/ch/ServerSocketChannelImpl;->getLocalAddress()Ljava/net/SocketAddress;
 
     move-result-object v0
@@ -84,7 +96,9 @@
 
 .method public bridge synthetic getOption(Ljava/net/SocketOption;)Ljava/lang/Object;
     .locals 1
+    .param p1, "name"    # Ljava/net/SocketOption;
 
+    .prologue
     invoke-super {p0, p1}, Lsun/nio/ch/ServerSocketChannelImpl;->getOption(Ljava/net/SocketOption;)Ljava/lang/Object;
 
     move-result-object v0
@@ -100,16 +114,21 @@
         }
     .end annotation
 
+    .prologue
+    .line 103
     invoke-super {p0}, Lsun/nio/ch/ServerSocketChannelImpl;->implCloseSelectableChannel()V
 
+    .line 104
     invoke-static {}, Lsun/nio/ch/InheritedChannel;->-wrap0()V
 
+    .line 102
     return-void
 .end method
 
 .method public bridge synthetic isBound()Z
     .locals 1
 
+    .prologue
     invoke-super {p0}, Lsun/nio/ch/ServerSocketChannelImpl;->isBound()Z
 
     move-result v0
@@ -120,6 +139,7 @@
 .method public bridge synthetic kill()V
     .locals 0
 
+    .prologue
     invoke-super {p0}, Lsun/nio/ch/ServerSocketChannelImpl;->kill()V
 
     return-void
@@ -128,6 +148,7 @@
 .method public bridge synthetic localAddress()Ljava/net/InetSocketAddress;
     .locals 1
 
+    .prologue
     invoke-super {p0}, Lsun/nio/ch/ServerSocketChannelImpl;->localAddress()Ljava/net/InetSocketAddress;
 
     move-result-object v0
@@ -137,7 +158,10 @@
 
 .method public bridge synthetic setOption(Ljava/net/SocketOption;Ljava/lang/Object;)Ljava/nio/channels/NetworkChannel;
     .locals 1
+    .param p1, "name"    # Ljava/net/SocketOption;
+    .param p2, "value"    # Ljava/lang/Object;
 
+    .prologue
     invoke-super {p0, p1, p2}, Lsun/nio/ch/ServerSocketChannelImpl;->setOption(Ljava/net/SocketOption;Ljava/lang/Object;)Ljava/nio/channels/NetworkChannel;
 
     move-result-object v0
@@ -147,7 +171,10 @@
 
 .method public bridge synthetic setOption(Ljava/net/SocketOption;Ljava/lang/Object;)Ljava/nio/channels/ServerSocketChannel;
     .locals 1
+    .param p1, "name"    # Ljava/net/SocketOption;
+    .param p2, "value"    # Ljava/lang/Object;
 
+    .prologue
     invoke-super {p0, p1, p2}, Lsun/nio/ch/ServerSocketChannelImpl;->setOption(Ljava/net/SocketOption;Ljava/lang/Object;)Ljava/nio/channels/ServerSocketChannel;
 
     move-result-object v0
@@ -158,6 +185,7 @@
 .method public bridge synthetic socket()Ljava/net/ServerSocket;
     .locals 1
 
+    .prologue
     invoke-super {p0}, Lsun/nio/ch/ServerSocketChannelImpl;->socket()Ljava/net/ServerSocket;
 
     move-result-object v0
@@ -168,6 +196,7 @@
 .method public bridge synthetic toString()Ljava/lang/String;
     .locals 1
 
+    .prologue
     invoke-super {p0}, Lsun/nio/ch/ServerSocketChannelImpl;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -177,7 +206,10 @@
 
 .method public bridge synthetic translateAndSetInterestOps(ILsun/nio/ch/SelectionKeyImpl;)V
     .locals 0
+    .param p1, "ops"    # I
+    .param p2, "sk"    # Lsun/nio/ch/SelectionKeyImpl;
 
+    .prologue
     invoke-super {p0, p1, p2}, Lsun/nio/ch/ServerSocketChannelImpl;->translateAndSetInterestOps(ILsun/nio/ch/SelectionKeyImpl;)V
 
     return-void
@@ -185,7 +217,10 @@
 
 .method public bridge synthetic translateAndSetReadyOps(ILsun/nio/ch/SelectionKeyImpl;)Z
     .locals 1
+    .param p1, "ops"    # I
+    .param p2, "sk"    # Lsun/nio/ch/SelectionKeyImpl;
 
+    .prologue
     invoke-super {p0, p1, p2}, Lsun/nio/ch/ServerSocketChannelImpl;->translateAndSetReadyOps(ILsun/nio/ch/SelectionKeyImpl;)Z
 
     move-result v0
@@ -195,7 +230,10 @@
 
 .method public bridge synthetic translateAndUpdateReadyOps(ILsun/nio/ch/SelectionKeyImpl;)Z
     .locals 1
+    .param p1, "ops"    # I
+    .param p2, "sk"    # Lsun/nio/ch/SelectionKeyImpl;
 
+    .prologue
     invoke-super {p0, p1, p2}, Lsun/nio/ch/ServerSocketChannelImpl;->translateAndUpdateReadyOps(ILsun/nio/ch/SelectionKeyImpl;)Z
 
     move-result v0
@@ -205,7 +243,11 @@
 
 .method public bridge synthetic translateReadyOps(IILsun/nio/ch/SelectionKeyImpl;)Z
     .locals 1
+    .param p1, "ops"    # I
+    .param p2, "initialOps"    # I
+    .param p3, "sk"    # Lsun/nio/ch/SelectionKeyImpl;
 
+    .prologue
     invoke-super {p0, p1, p2, p3}, Lsun/nio/ch/ServerSocketChannelImpl;->translateReadyOps(IILsun/nio/ch/SelectionKeyImpl;)Z
 
     move-result v0

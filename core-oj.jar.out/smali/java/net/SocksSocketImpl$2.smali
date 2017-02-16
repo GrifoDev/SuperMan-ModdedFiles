@@ -36,7 +36,11 @@
 # direct methods
 .method constructor <init>(Ljava/net/SocksSocketImpl;Ljava/net/InetAddress;)V
     .locals 0
+    .param p1, "this$0"    # Ljava/net/SocksSocketImpl;
+    .param p2, "val$addr"    # Ljava/net/InetAddress;
 
+    .prologue
+    .line 160
     iput-object p1, p0, Ljava/net/SocksSocketImpl$2;->this$0:Ljava/net/SocksSocketImpl;
 
     iput-object p2, p0, Ljava/net/SocksSocketImpl$2;->val$addr:Ljava/net/InetAddress;
@@ -51,6 +55,8 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 161
     invoke-virtual {p0}, Ljava/net/SocksSocketImpl$2;->run()Ljava/net/PasswordAuthentication;
 
     move-result-object v0
@@ -61,6 +67,8 @@
 .method public run()Ljava/net/PasswordAuthentication;
     .locals 6
 
+    .prologue
+    .line 163
     iget-object v0, p0, Ljava/net/SocksSocketImpl$2;->this$0:Ljava/net/SocksSocketImpl;
 
     invoke-static {v0}, Ljava/net/SocksSocketImpl;->-get1(Ljava/net/SocksSocketImpl;)Ljava/lang/String;
@@ -81,6 +89,7 @@
 
     const/4 v5, 0x0
 
+    .line 162
     invoke-static/range {v0 .. v5}, Ljava/net/Authenticator;->requestPasswordAuthentication(Ljava/lang/String;Ljava/net/InetAddress;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/net/PasswordAuthentication;
 
     move-result-object v0

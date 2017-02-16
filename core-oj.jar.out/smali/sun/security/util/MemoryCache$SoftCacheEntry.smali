@@ -46,6 +46,7 @@
 # direct methods
 .method constructor <init>(Ljava/lang/Object;Ljava/lang/Object;JLjava/lang/ref/ReferenceQueue;)V
     .locals 1
+    .param p3, "expirationTime"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;J",
@@ -54,12 +55,21 @@
         }
     .end annotation
 
+    .prologue
+    .line 524
+    .local p0, "this":Lsun/security/util/MemoryCache$SoftCacheEntry;, "Lsun/security/util/MemoryCache<TK;TV;>.SoftCacheEntry<TK;TV;>;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
+    .local p2, "value":Ljava/lang/Object;, "TV;"
+    .local p5, "queue":Ljava/lang/ref/ReferenceQueue;, "Ljava/lang/ref/ReferenceQueue<TV;>;"
     invoke-direct {p0, p2, p5}, Ljava/lang/ref/SoftReference;-><init>(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V
 
+    .line 525
     iput-object p1, p0, Lsun/security/util/MemoryCache$SoftCacheEntry;->key:Ljava/lang/Object;
 
+    .line 526
     iput-wide p3, p0, Lsun/security/util/MemoryCache$SoftCacheEntry;->expirationTime:J
 
+    .line 523
     return-void
 .end method
 
@@ -73,6 +83,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 530
+    .local p0, "this":Lsun/security/util/MemoryCache$SoftCacheEntry;, "Lsun/security/util/MemoryCache<TK;TV;>.SoftCacheEntry<TK;TV;>;"
     iget-object v0, p0, Lsun/security/util/MemoryCache$SoftCacheEntry;->key:Ljava/lang/Object;
 
     return-object v0
@@ -86,6 +99,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 534
+    .local p0, "this":Lsun/security/util/MemoryCache$SoftCacheEntry;, "Lsun/security/util/MemoryCache<TK;TV;>.SoftCacheEntry<TK;TV;>;"
     invoke-virtual {p0}, Lsun/security/util/MemoryCache$SoftCacheEntry;->get()Ljava/lang/Object;
 
     move-result-object v0
@@ -96,24 +112,34 @@
 .method public invalidate()V
     .locals 2
 
+    .prologue
+    .line 546
+    .local p0, "this":Lsun/security/util/MemoryCache$SoftCacheEntry;, "Lsun/security/util/MemoryCache<TK;TV;>.SoftCacheEntry<TK;TV;>;"
     invoke-virtual {p0}, Lsun/security/util/MemoryCache$SoftCacheEntry;->clear()V
 
+    .line 547
     const/4 v0, 0x0
 
     iput-object v0, p0, Lsun/security/util/MemoryCache$SoftCacheEntry;->key:Ljava/lang/Object;
 
+    .line 548
     const-wide/16 v0, -0x1
 
     iput-wide v0, p0, Lsun/security/util/MemoryCache$SoftCacheEntry;->expirationTime:J
 
+    .line 545
     return-void
 .end method
 
 .method public isValid(J)Z
     .locals 5
+    .param p1, "currentTime"    # J
 
+    .prologue
+    .local p0, "this":Lsun/security/util/MemoryCache$SoftCacheEntry;, "Lsun/security/util/MemoryCache<TK;TV;>.SoftCacheEntry<TK;TV;>;"
     const/4 v0, 0x0
 
+    .line 538
     iget-wide v2, p0, Lsun/security/util/MemoryCache$SoftCacheEntry;->expirationTime:J
 
     cmp-long v1, p1, v2
@@ -128,11 +154,15 @@
 
     const/4 v0, 0x1
 
+    .line 539
+    .local v0, "valid":Z
     :cond_0
     if-nez v0, :cond_1
 
+    .line 540
     invoke-virtual {p0}, Lsun/security/util/MemoryCache$SoftCacheEntry;->invalidate()V
 
+    .line 542
     :cond_1
     return v0
 .end method

@@ -21,6 +21,7 @@
 .method public synthetic constructor <init>()V
     .locals 0
 
+    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -30,7 +31,9 @@
 # virtual methods
 .method public applyAsLong(Ljava/lang/Object;)J
     .locals 2
+    .param p1, "arg0"    # Ljava/lang/Object;
 
+    .prologue
     invoke-static {p1}, Ljava/util/stream/ReferencePipeline;->-java_util_stream_ReferencePipeline_lambda$6(Ljava/lang/Object;)J
 
     move-result-wide v0

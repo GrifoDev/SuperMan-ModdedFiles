@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 119
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -41,6 +43,8 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 120
     invoke-virtual {p0}, Ljava/lang/UNIXProcess$1;->run()Ljava/util/concurrent/Executor;
 
     move-result-object v0
@@ -51,12 +55,15 @@
 .method public run()Ljava/util/concurrent/Executor;
     .locals 2
 
+    .prologue
+    .line 122
     new-instance v0, Ljava/lang/UNIXProcess$ProcessReaperThreadFactory;
 
     const/4 v1, 0x0
 
     invoke-direct {v0, v1}, Ljava/lang/UNIXProcess$ProcessReaperThreadFactory;-><init>(Ljava/lang/UNIXProcess$ProcessReaperThreadFactory;)V
 
+    .line 121
     invoke-static {v0}, Ljava/util/concurrent/Executors;->newCachedThreadPool(Ljava/util/concurrent/ThreadFactory;)Ljava/util/concurrent/ExecutorService;
 
     move-result-object v0

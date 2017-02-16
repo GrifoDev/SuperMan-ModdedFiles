@@ -37,6 +37,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 100
     new-instance v0, Ljava/util/HashMap;
 
     const/4 v1, 0x7
@@ -45,6 +47,7 @@
 
     sput-object v0, Ljava/text/AttributedCharacterIterator$Attribute;->instanceMap:Ljava/util/Map;
 
+    .line 166
     new-instance v0, Ljava/text/AttributedCharacterIterator$Attribute;
 
     const-string/jumbo v1, "language"
@@ -53,6 +56,7 @@
 
     sput-object v0, Ljava/text/AttributedCharacterIterator$Attribute;->LANGUAGE:Ljava/text/AttributedCharacterIterator$Attribute;
 
+    .line 177
     new-instance v0, Ljava/text/AttributedCharacterIterator$Attribute;
 
     const-string/jumbo v1, "reading"
@@ -61,6 +65,7 @@
 
     sput-object v0, Ljava/text/AttributedCharacterIterator$Attribute;->READING:Ljava/text/AttributedCharacterIterator$Attribute;
 
+    .line 185
     new-instance v0, Ljava/text/AttributedCharacterIterator$Attribute;
 
     const-string/jumbo v1, "input_method_segment"
@@ -69,16 +74,22 @@
 
     sput-object v0, Ljava/text/AttributedCharacterIterator$Attribute;->INPUT_METHOD_SEGMENT:Ljava/text/AttributedCharacterIterator$Attribute;
 
+    .line 89
     return-void
 .end method
 
 .method protected constructor <init>(Ljava/lang/String;)V
     .locals 2
+    .param p1, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 105
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 106
     iput-object p1, p0, Ljava/text/AttributedCharacterIterator$Attribute;->name:Ljava/lang/String;
 
+    .line 107
     invoke-virtual {p0}, Ljava/text/AttributedCharacterIterator$Attribute;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -87,10 +98,12 @@
 
     if-ne v0, v1, :cond_0
 
+    .line 108
     sget-object v0, Ljava/text/AttributedCharacterIterator$Attribute;->instanceMap:Ljava/util/Map;
 
     invoke-interface {v0, p1, p0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 105
     :cond_0
     return-void
 .end method
@@ -99,7 +112,10 @@
 # virtual methods
 .method public final equals(Ljava/lang/Object;)Z
     .locals 1
+    .param p1, "obj"    # Ljava/lang/Object;
 
+    .prologue
+    .line 118
     invoke-super {p0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -110,6 +126,8 @@
 .method protected getName()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 142
     iget-object v0, p0, Ljava/text/AttributedCharacterIterator$Attribute;->name:Ljava/lang/String;
 
     return-object v0
@@ -118,6 +136,8 @@
 .method public final hashCode()I
     .locals 1
 
+    .prologue
+    .line 126
     invoke-super {p0}, Ljava/lang/Object;->hashCode()I
 
     move-result v0
@@ -133,6 +153,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 149
     invoke-virtual {p0}, Ljava/text/AttributedCharacterIterator$Attribute;->getClass()Ljava/lang/Class;
 
     move-result-object v1
@@ -141,6 +163,7 @@
 
     if-eq v1, v2, :cond_0
 
+    .line 150
     new-instance v1, Ljava/io/InvalidObjectException;
 
     const-string/jumbo v2, "subclass didn\'t correctly implement readResolve"
@@ -149,6 +172,7 @@
 
     throw v1
 
+    .line 153
     :cond_0
     sget-object v1, Ljava/text/AttributedCharacterIterator$Attribute;->instanceMap:Ljava/util/Map;
 
@@ -162,10 +186,14 @@
 
     check-cast v0, Ljava/text/AttributedCharacterIterator$Attribute;
 
+    .line 154
+    .local v0, "instance":Ljava/text/AttributedCharacterIterator$Attribute;
     if-eqz v0, :cond_1
 
+    .line 155
     return-object v0
 
+    .line 157
     :cond_1
     new-instance v1, Ljava/io/InvalidObjectException;
 
@@ -179,6 +207,8 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 135
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

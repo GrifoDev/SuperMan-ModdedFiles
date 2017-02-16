@@ -34,7 +34,10 @@
 # direct methods
 .method constructor <init>(Lsun/security/ssl/SSLSessionContextImpl;)V
     .locals 0
+    .param p1, "this$0"    # Lsun/security/ssl/SSLSessionContextImpl;
 
+    .prologue
+    .line 203
     iput-object p1, p0, Lsun/security/ssl/SSLSessionContextImpl$1;->this$0:Lsun/security/ssl/SSLSessionContextImpl;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,6 +50,8 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 205
     invoke-virtual {p0}, Lsun/security/ssl/SSLSessionContextImpl$1;->run()Ljava/lang/String;
 
     move-result-object v0
@@ -57,8 +62,11 @@
 .method public run()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 207
     const-string/jumbo v0, "javax.net.ssl.sessionCacheSize"
 
+    .line 206
     invoke-static {v0}, Ljava/lang/System;->getProperty(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0

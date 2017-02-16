@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 143
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -41,18 +43,22 @@
 .method public run()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 146
     invoke-static {}, Lsun/net/ftp/FtpClientProvider;->-wrap1()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
+    .line 147
     invoke-static {}, Lsun/net/ftp/FtpClientProvider;->-get0()Lsun/net/ftp/FtpClientProvider;
 
     move-result-object v0
 
     return-object v0
 
+    .line 149
     :cond_0
     invoke-static {}, Lsun/net/ftp/FtpClientProvider;->-wrap0()Z
 
@@ -60,12 +66,14 @@
 
     if-eqz v0, :cond_1
 
+    .line 150
     invoke-static {}, Lsun/net/ftp/FtpClientProvider;->-get0()Lsun/net/ftp/FtpClientProvider;
 
     move-result-object v0
 
     return-object v0
 
+    .line 152
     :cond_1
     new-instance v0, Lsun/net/ftp/impl/DefaultFtpClientProvider;
 
@@ -73,6 +81,7 @@
 
     invoke-static {v0}, Lsun/net/ftp/FtpClientProvider;->-set0(Lsun/net/ftp/FtpClientProvider;)Lsun/net/ftp/FtpClientProvider;
 
+    .line 153
     invoke-static {}, Lsun/net/ftp/FtpClientProvider;->-get0()Lsun/net/ftp/FtpClientProvider;
 
     move-result-object v0

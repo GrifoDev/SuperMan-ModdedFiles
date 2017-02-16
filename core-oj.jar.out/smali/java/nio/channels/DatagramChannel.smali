@@ -12,9 +12,13 @@
 # direct methods
 .method protected constructor <init>(Ljava/nio/channels/spi/SelectorProvider;)V
     .locals 0
+    .param p1, "provider"    # Ljava/nio/channels/spi/SelectorProvider;
 
+    .prologue
+    .line 122
     invoke-direct {p0, p1}, Ljava/nio/channels/spi/AbstractSelectableChannel;-><init>(Ljava/nio/channels/spi/SelectorProvider;)V
 
+    .line 121
     return-void
 .end method
 
@@ -26,6 +30,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 146
     invoke-static {}, Ljava/nio/channels/spi/SelectorProvider;->provider()Ljava/nio/channels/spi/SelectorProvider;
 
     move-result-object v0
@@ -39,12 +45,15 @@
 
 .method public static open(Ljava/net/ProtocolFamily;)Ljava/nio/channels/DatagramChannel;
     .locals 1
+    .param p0, "family"    # Ljava/net/ProtocolFamily;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 179
     invoke-static {}, Ljava/nio/channels/spi/SelectorProvider;->provider()Ljava/nio/channels/spi/SelectorProvider;
 
     move-result-object v0
@@ -68,12 +77,15 @@
 
 .method public bridge synthetic bind(Ljava/net/SocketAddress;)Ljava/nio/channels/NetworkChannel;
     .locals 1
+    .param p1, "local"    # Ljava/net/SocketAddress;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 212
     invoke-virtual {p0, p1}, Ljava/nio/channels/DatagramChannel;->bind(Ljava/net/SocketAddress;)Ljava/nio/channels/DatagramChannel;
 
     move-result-object v0
@@ -118,12 +130,15 @@
 
 .method public final read([Ljava/nio/ByteBuffer;)J
     .locals 2
+    .param p1, "dsts"    # [Ljava/nio/ByteBuffer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 511
     array-length v0, p1
 
     const/4 v1, 0x0
@@ -180,12 +195,16 @@
 
 .method public bridge synthetic setOption(Ljava/net/SocketOption;Ljava/lang/Object;)Ljava/nio/channels/NetworkChannel;
     .locals 1
+    .param p1, "name"    # Ljava/net/SocketOption;
+    .param p2, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 223
     invoke-virtual {p0, p1, p2}, Ljava/nio/channels/DatagramChannel;->setOption(Ljava/net/SocketOption;Ljava/lang/Object;)Ljava/nio/channels/DatagramChannel;
 
     move-result-object v0
@@ -199,6 +218,8 @@
 .method public final validOps()I
     .locals 1
 
+    .prologue
+    .line 193
     const/4 v0, 0x5
 
     return v0
@@ -214,12 +235,15 @@
 
 .method public final write([Ljava/nio/ByteBuffer;)J
     .locals 2
+    .param p1, "srcs"    # [Ljava/nio/ByteBuffer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 565
     array-length v0, p1
 
     const/4 v1, 0x0

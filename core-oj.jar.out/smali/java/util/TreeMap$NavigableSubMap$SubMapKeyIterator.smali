@@ -43,10 +43,18 @@
         }
     .end annotation
 
+    .prologue
+    .line 1801
+    .local p0, "this":Ljava/util/TreeMap$NavigableSubMap$SubMapKeyIterator;, "Ljava/util/TreeMap<TK;TV;>.NavigableSubMap<TK;TV;>.SubMapKeyIterator;"
+    .local p1, "this$1":Ljava/util/TreeMap$NavigableSubMap;, "Ljava/util/TreeMap<TK;TV;>.NavigableSubMap<TK;TV;>;"
+    .local p2, "first":Ljava/util/TreeMap$TreeMapEntry;, "Ljava/util/TreeMap$TreeMapEntry<TK;TV;>;"
+    .local p3, "fence":Ljava/util/TreeMap$TreeMapEntry;, "Ljava/util/TreeMap$TreeMapEntry<TK;TV;>;"
     iput-object p1, p0, Ljava/util/TreeMap$NavigableSubMap$SubMapKeyIterator;->this$1:Ljava/util/TreeMap$NavigableSubMap;
 
+    .line 1803
     invoke-direct {p0, p1, p2, p3}, Ljava/util/TreeMap$NavigableSubMap$SubMapIterator;-><init>(Ljava/util/TreeMap$NavigableSubMap;Ljava/util/TreeMap$TreeMapEntry;Ljava/util/TreeMap$TreeMapEntry;)V
 
+    .line 1802
     return-void
 .end method
 
@@ -55,6 +63,9 @@
 .method public characteristics()I
     .locals 1
 
+    .prologue
+    .line 1829
+    .local p0, "this":Ljava/util/TreeMap$NavigableSubMap$SubMapKeyIterator;, "Ljava/util/TreeMap<TK;TV;>.NavigableSubMap<TK;TV;>.SubMapKeyIterator;"
     const/16 v0, 0x15
 
     return v0
@@ -63,6 +74,9 @@
 .method public estimateSize()J
     .locals 2
 
+    .prologue
+    .line 1826
+    .local p0, "this":Ljava/util/TreeMap$NavigableSubMap$SubMapKeyIterator;, "Ljava/util/TreeMap<TK;TV;>.NavigableSubMap<TK;TV;>.SubMapKeyIterator;"
     const-wide v0, 0x7fffffffffffffffL
 
     return-wide v0
@@ -78,6 +92,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 1815
+    .local p0, "this":Ljava/util/TreeMap$NavigableSubMap$SubMapKeyIterator;, "Ljava/util/TreeMap<TK;TV;>.NavigableSubMap<TK;TV;>.SubMapKeyIterator;"
+    .local p1, "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-TK;>;"
     :goto_0
     invoke-virtual {p0}, Ljava/util/TreeMap$NavigableSubMap$SubMapKeyIterator;->hasNext()Z
 
@@ -85,6 +103,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 1816
     invoke-virtual {p0}, Ljava/util/TreeMap$NavigableSubMap$SubMapKeyIterator;->next()Ljava/lang/Object;
 
     move-result-object v0
@@ -93,6 +112,7 @@
 
     goto :goto_0
 
+    .line 1814
     :cond_0
     return-void
 .end method
@@ -107,6 +127,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1833
+    .local p0, "this":Ljava/util/TreeMap$NavigableSubMap$SubMapKeyIterator;, "Ljava/util/TreeMap<TK;TV;>.NavigableSubMap<TK;TV;>.SubMapKeyIterator;"
     iget-object v0, p0, Ljava/util/TreeMap$NavigableSubMap$SubMapKeyIterator;->this$1:Ljava/util/TreeMap$NavigableSubMap;
 
     invoke-virtual {v0}, Ljava/util/TreeMap$NavigableSubMap;->comparator()Ljava/util/Comparator;
@@ -124,6 +147,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1806
+    .local p0, "this":Ljava/util/TreeMap$NavigableSubMap$SubMapKeyIterator;, "Ljava/util/TreeMap<TK;TV;>.NavigableSubMap<TK;TV;>.SubMapKeyIterator;"
     invoke-virtual {p0}, Ljava/util/TreeMap$NavigableSubMap$SubMapKeyIterator;->nextEntry()Ljava/util/TreeMap$TreeMapEntry;
 
     move-result-object v0
@@ -136,8 +162,12 @@
 .method public remove()V
     .locals 0
 
+    .prologue
+    .line 1809
+    .local p0, "this":Ljava/util/TreeMap$NavigableSubMap$SubMapKeyIterator;, "Ljava/util/TreeMap<TK;TV;>.NavigableSubMap<TK;TV;>.SubMapKeyIterator;"
     invoke-virtual {p0}, Ljava/util/TreeMap$NavigableSubMap$SubMapKeyIterator;->removeAscending()V
 
+    .line 1808
     return-void
 .end method
 
@@ -151,22 +181,29 @@
         }
     .end annotation
 
+    .prologue
+    .line 1819
+    .local p0, "this":Ljava/util/TreeMap$NavigableSubMap$SubMapKeyIterator;, "Ljava/util/TreeMap<TK;TV;>.NavigableSubMap<TK;TV;>.SubMapKeyIterator;"
+    .local p1, "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-TK;>;"
     invoke-virtual {p0}, Ljava/util/TreeMap$NavigableSubMap$SubMapKeyIterator;->hasNext()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
+    .line 1820
     invoke-virtual {p0}, Ljava/util/TreeMap$NavigableSubMap$SubMapKeyIterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
     invoke-interface {p1, v0}, Ljava/util/function/Consumer;->accept(Ljava/lang/Object;)V
 
+    .line 1821
     const/4 v0, 0x1
 
     return v0
 
+    .line 1823
     :cond_0
     const/4 v0, 0x0
 
@@ -183,6 +220,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1812
+    .local p0, "this":Ljava/util/TreeMap$NavigableSubMap$SubMapKeyIterator;, "Ljava/util/TreeMap<TK;TV;>.NavigableSubMap<TK;TV;>.SubMapKeyIterator;"
     const/4 v0, 0x0
 
     return-object v0

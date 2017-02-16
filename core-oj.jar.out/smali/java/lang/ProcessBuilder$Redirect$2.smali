@@ -18,6 +18,8 @@
 .method constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 463
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Ljava/lang/ProcessBuilder$Redirect;-><init>(Ljava/lang/ProcessBuilder$Redirect;)V
@@ -30,6 +32,8 @@
 .method public toString()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 465
     invoke-virtual {p0}, Ljava/lang/ProcessBuilder$Redirect$2;->type()Ljava/lang/ProcessBuilder$Redirect$Type;
 
     move-result-object v0
@@ -44,6 +48,8 @@
 .method public type()Ljava/lang/ProcessBuilder$Redirect$Type;
     .locals 1
 
+    .prologue
+    .line 464
     sget-object v0, Ljava/lang/ProcessBuilder$Redirect$Type;->INHERIT:Ljava/lang/ProcessBuilder$Redirect$Type;
 
     return-object v0

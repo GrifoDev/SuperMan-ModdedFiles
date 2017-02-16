@@ -27,17 +27,28 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;III)V
     .locals 0
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "size"    # I
+    .param p3, "hashBlockSize"    # I
+    .param p4, "minimalPaddingSize"    # I
 
+    .prologue
+    .line 543
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 545
     iput-object p1, p0, Lsun/security/ssl/CipherSuite$MacAlg;->name:Ljava/lang/String;
 
+    .line 546
     iput p2, p0, Lsun/security/ssl/CipherSuite$MacAlg;->size:I
 
+    .line 547
     iput p3, p0, Lsun/security/ssl/CipherSuite$MacAlg;->hashBlockSize:I
 
+    .line 548
     iput p4, p0, Lsun/security/ssl/CipherSuite$MacAlg;->minimalPaddingSize:I
 
+    .line 544
     return-void
 .end method
 
@@ -45,6 +56,8 @@
 # virtual methods
 .method newMac(Lsun/security/ssl/ProtocolVersion;Ljavax/crypto/SecretKey;)Lsun/security/ssl/MAC;
     .locals 1
+    .param p1, "protocolVersion"    # Lsun/security/ssl/ProtocolVersion;
+    .param p2, "secret"    # Ljavax/crypto/SecretKey;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/NoSuchAlgorithmException;,
@@ -52,6 +65,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 559
     new-instance v0, Lsun/security/ssl/MAC;
 
     invoke-direct {v0, p0, p1, p2}, Lsun/security/ssl/MAC;-><init>(Lsun/security/ssl/CipherSuite$MacAlg;Lsun/security/ssl/ProtocolVersion;Ljavax/crypto/SecretKey;)V
@@ -62,6 +77,8 @@
 .method public toString()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 563
     iget-object v0, p0, Lsun/security/ssl/CipherSuite$MacAlg;->name:Ljava/lang/String;
 
     return-object v0

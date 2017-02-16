@@ -50,6 +50,8 @@
 # direct methods
 .method constructor <init>(Ljava/util/stream/StreamShape;Ljava/util/stream/MatchOps$MatchKind;Ljava/util/function/Supplier;)V
     .locals 0
+    .param p1, "shape"    # Ljava/util/stream/StreamShape;
+    .param p2, "matchKind"    # Ljava/util/stream/MatchOps$MatchKind;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -62,14 +64,22 @@
         }
     .end annotation
 
+    .prologue
+    .line 209
+    .local p0, "this":Ljava/util/stream/MatchOps$MatchOp;, "Ljava/util/stream/MatchOps$MatchOp<TT;>;"
+    .local p3, "sinkSupplier":Ljava/util/function/Supplier;, "Ljava/util/function/Supplier<Ljava/util/stream/MatchOps$BooleanTerminalSink<TT;>;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 212
     iput-object p1, p0, Ljava/util/stream/MatchOps$MatchOp;->inputShape:Ljava/util/stream/StreamShape;
 
+    .line 213
     iput-object p2, p0, Ljava/util/stream/MatchOps$MatchOp;->matchKind:Ljava/util/stream/MatchOps$MatchKind;
 
+    .line 214
     iput-object p3, p0, Ljava/util/stream/MatchOps$MatchOp;->sinkSupplier:Ljava/util/function/Supplier;
 
+    .line 211
     return-void
 .end method
 
@@ -90,6 +100,11 @@
         }
     .end annotation
 
+    .prologue
+    .line 242
+    .local p0, "this":Ljava/util/stream/MatchOps$MatchOp;, "Ljava/util/stream/MatchOps$MatchOp<TT;>;"
+    .local p1, "helper":Ljava/util/stream/PipelineHelper;, "Ljava/util/stream/PipelineHelper<TT;>;"
+    .local p2, "spliterator":Ljava/util/Spliterator;, "Ljava/util/Spliterator<TS;>;"
     new-instance v0, Ljava/util/stream/MatchOps$MatchTask;
 
     invoke-direct {v0, p0, p1, p2}, Ljava/util/stream/MatchOps$MatchTask;-><init>(Ljava/util/stream/MatchOps$MatchOp;Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)V
@@ -105,7 +120,12 @@
 
 .method public bridge synthetic evaluateParallel(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Object;
     .locals 1
+    .param p1, "helper"    # Ljava/util/stream/PipelineHelper;
+    .param p2, "spliterator"    # Ljava/util/Spliterator;
 
+    .prologue
+    .line 234
+    .local p0, "this":Ljava/util/stream/MatchOps$MatchOp;, "Ljava/util/stream/MatchOps$MatchOp<TT;>;"
     invoke-virtual {p0, p1, p2}, Ljava/util/stream/MatchOps$MatchOp;->evaluateParallel(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Boolean;
 
     move-result-object v0
@@ -128,6 +148,11 @@
         }
     .end annotation
 
+    .prologue
+    .line 230
+    .local p0, "this":Ljava/util/stream/MatchOps$MatchOp;, "Ljava/util/stream/MatchOps$MatchOp<TT;>;"
+    .local p1, "helper":Ljava/util/stream/PipelineHelper;, "Ljava/util/stream/PipelineHelper<TT;>;"
+    .local p2, "spliterator":Ljava/util/Spliterator;, "Ljava/util/Spliterator<TS;>;"
     iget-object v0, p0, Ljava/util/stream/MatchOps$MatchOp;->sinkSupplier:Ljava/util/function/Supplier;
 
     invoke-interface {v0}, Ljava/util/function/Supplier;->get()Ljava/lang/Object;
@@ -155,7 +180,12 @@
 
 .method public bridge synthetic evaluateSequential(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Object;
     .locals 1
+    .param p1, "helper"    # Ljava/util/stream/PipelineHelper;
+    .param p2, "spliterator"    # Ljava/util/Spliterator;
 
+    .prologue
+    .line 228
+    .local p0, "this":Ljava/util/stream/MatchOps$MatchOp;, "Ljava/util/stream/MatchOps$MatchOp<TT;>;"
     invoke-virtual {p0, p1, p2}, Ljava/util/stream/MatchOps$MatchOp;->evaluateSequential(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Boolean;
 
     move-result-object v0
@@ -166,6 +196,9 @@
 .method public getOpFlags()I
     .locals 2
 
+    .prologue
+    .line 219
+    .local p0, "this":Ljava/util/stream/MatchOps$MatchOp;, "Ljava/util/stream/MatchOps$MatchOp<TT;>;"
     sget v0, Ljava/util/stream/StreamOpFlag;->IS_SHORT_CIRCUIT:I
 
     sget v1, Ljava/util/stream/StreamOpFlag;->NOT_ORDERED:I
@@ -178,6 +211,9 @@
 .method public inputShape()Ljava/util/stream/StreamShape;
     .locals 1
 
+    .prologue
+    .line 224
+    .local p0, "this":Ljava/util/stream/MatchOps$MatchOp;, "Ljava/util/stream/MatchOps$MatchOp<TT;>;"
     iget-object v0, p0, Ljava/util/stream/MatchOps$MatchOp;->inputShape:Ljava/util/stream/StreamShape;
 
     return-object v0

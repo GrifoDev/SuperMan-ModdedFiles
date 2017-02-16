@@ -10,11 +10,16 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;)V
     .locals 0
+    .param p1, "value"    # Ljava/lang/Object;
 
+    .prologue
+    .line 64
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 65
     iput-object p1, p0, Ljava/text/Annotation;->value:Ljava/lang/Object;
 
+    .line 64
     return-void
 .end method
 
@@ -23,6 +28,8 @@
 .method public getValue()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 72
     iget-object v0, p0, Ljava/text/Annotation;->value:Ljava/lang/Object;
 
     return-object v0
@@ -31,6 +38,8 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 79
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

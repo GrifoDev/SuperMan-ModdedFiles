@@ -10,11 +10,16 @@
 # direct methods
 .method constructor <init>(Ljava/lang/Exception;)V
     .locals 0
+    .param p1, "reason"    # Ljava/lang/Exception;
 
+    .prologue
+    .line 186
     invoke-direct {p0}, Ljavax/net/ssl/SSLServerSocketFactory;-><init>()V
 
+    .line 187
     iput-object p1, p0, Ljavax/net/ssl/DefaultSSLServerSocketFactory;->reason:Ljava/lang/Exception;
 
+    .line 186
     return-void
 .end method
 
@@ -26,6 +31,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 192
     new-instance v0, Ljava/net/SocketException;
 
     iget-object v1, p0, Ljavax/net/ssl/DefaultSSLServerSocketFactory;->reason:Ljava/lang/Exception;
@@ -42,6 +49,7 @@
 
     move-result-object v0
 
+    .line 191
     check-cast v0, Ljava/net/SocketException;
 
     throw v0
@@ -57,6 +65,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 196
     invoke-direct {p0}, Ljavax/net/ssl/DefaultSSLServerSocketFactory;->throwException()Ljava/net/ServerSocket;
 
     move-result-object v0
@@ -66,12 +76,15 @@
 
 .method public createServerSocket(I)Ljava/net/ServerSocket;
     .locals 1
+    .param p1, "port"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 203
     invoke-direct {p0}, Ljavax/net/ssl/DefaultSSLServerSocketFactory;->throwException()Ljava/net/ServerSocket;
 
     move-result-object v0
@@ -81,12 +94,16 @@
 
 .method public createServerSocket(II)Ljava/net/ServerSocket;
     .locals 1
+    .param p1, "port"    # I
+    .param p2, "backlog"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 209
     invoke-direct {p0}, Ljavax/net/ssl/DefaultSSLServerSocketFactory;->throwException()Ljava/net/ServerSocket;
 
     move-result-object v0
@@ -96,12 +113,17 @@
 
 .method public createServerSocket(IILjava/net/InetAddress;)Ljava/net/ServerSocket;
     .locals 1
+    .param p1, "port"    # I
+    .param p2, "backlog"    # I
+    .param p3, "ifAddress"    # Ljava/net/InetAddress;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 216
     invoke-direct {p0}, Ljavax/net/ssl/DefaultSSLServerSocketFactory;->throwException()Ljava/net/ServerSocket;
 
     move-result-object v0
@@ -112,6 +134,8 @@
 .method public getDefaultCipherSuites()[Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 220
     const/4 v0, 0x0
 
     new-array v0, v0, [Ljava/lang/String;
@@ -122,6 +146,8 @@
 .method public getSupportedCipherSuites()[Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 224
     const/4 v0, 0x0
 
     new-array v0, v0, [Ljava/lang/String;

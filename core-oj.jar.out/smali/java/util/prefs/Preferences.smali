@@ -19,12 +19,15 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 228
     invoke-static {}, Ljava/util/prefs/Preferences;->findPreferencesFactory()Ljava/util/prefs/PreferencesFactory;
 
     move-result-object v0
 
     sput-object v0, Ljava/util/prefs/Preferences;->factory:Ljava/util/prefs/PreferencesFactory;
 
+    .line 392
     new-instance v0, Ljava/lang/RuntimePermission;
 
     const-string/jumbo v1, "preferences"
@@ -33,12 +36,15 @@
 
     sput-object v0, Ljava/util/prefs/Preferences;->prefsPerm:Ljava/security/Permission;
 
+    .line 225
     return-void
 .end method
 
 .method protected constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 440
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -47,6 +53,8 @@
 .method private static findPreferencesFactory()Ljava/util/prefs/PreferencesFactory;
     .locals 4
 
+    .prologue
+    .line 233
     const-class v3, Ljava/util/prefs/PreferencesFactory;
 
     invoke-static {v3}, Ljava/util/ServiceLoader;->loadFromSystemProperty(Ljava/lang/Class;)Ljava/lang/Object;
@@ -55,10 +63,14 @@
 
     check-cast v2, Ljava/util/prefs/PreferencesFactory;
 
+    .line 234
+    .local v2, "result":Ljava/util/prefs/PreferencesFactory;
     if-eqz v2, :cond_0
 
+    .line 235
     return-object v2
 
+    .line 238
     :cond_0
     const-class v3, Ljava/util/prefs/PreferencesFactory;
 
@@ -70,6 +82,7 @@
 
     move-result-object v1
 
+    .local v1, "impl$iterator":Ljava/util/Iterator;
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
@@ -82,8 +95,12 @@
 
     check-cast v0, Ljava/util/prefs/PreferencesFactory;
 
+    .line 239
+    .local v0, "impl":Ljava/util/prefs/PreferencesFactory;
     return-object v0
 
+    .line 242
+    .end local v0    # "impl":Ljava/util/prefs/PreferencesFactory;
     :cond_1
     new-instance v3, Ljava/util/prefs/FileSystemPreferencesFactory;
 
@@ -94,6 +111,7 @@
 
 .method public static importPreferences(Ljava/io/InputStream;)V
     .locals 0
+    .param p0, "is"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -101,52 +119,70 @@
         }
     .end annotation
 
+    .prologue
+    .line 1219
     invoke-static {p0}, Ljava/util/prefs/XmlSupport;->importPreferences(Ljava/io/InputStream;)V
 
+    .line 1217
     return-void
 .end method
 
 .method private static nodeName(Ljava/lang/Class;)Ljava/lang/String;
     .locals 6
+    .param p0, "c"    # Ljava/lang/Class;
 
+    .prologue
     const/16 v5, 0x2e
 
     const/4 v4, 0x0
 
+    .line 376
     invoke-virtual {p0}, Ljava/lang/Class;->isArray()Z
 
     move-result v3
 
     if-eqz v3, :cond_0
 
+    .line 377
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
+    .line 378
     const-string/jumbo v4, "Arrays have no associated preferences node."
 
+    .line 377
     invoke-direct {v3, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v3
 
+    .line 379
     :cond_0
     invoke-virtual {p0}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 380
+    .local v0, "className":Ljava/lang/String;
     invoke-virtual {v0, v5}, Ljava/lang/String;->lastIndexOf(I)I
 
     move-result v2
 
+    .line 381
+    .local v2, "pkgEndIndex":I
     if-gez v2, :cond_1
 
+    .line 382
     const-string/jumbo v3, "/<unnamed>"
 
     return-object v3
 
+    .line 383
     :cond_1
     invoke-virtual {v0, v4, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v1
 
+    .line 384
+    .local v1, "packageName":Ljava/lang/String;
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -176,11 +212,17 @@
 
 .method public static setPreferencesFactory(Ljava/util/prefs/PreferencesFactory;)Ljava/util/prefs/PreferencesFactory;
     .locals 1
+    .param p0, "pf"    # Ljava/util/prefs/PreferencesFactory;
 
+    .prologue
+    .line 250
     sget-object v0, Ljava/util/prefs/Preferences;->factory:Ljava/util/prefs/PreferencesFactory;
 
+    .line 251
+    .local v0, "previous":Ljava/util/prefs/PreferencesFactory;
     sput-object p0, Ljava/util/prefs/Preferences;->factory:Ljava/util/prefs/PreferencesFactory;
 
+    .line 252
     return-object v0
 .end method
 
@@ -195,6 +237,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 365
+    .local p0, "c":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-static {}, Ljava/util/prefs/Preferences;->systemRoot()Ljava/util/prefs/Preferences;
 
     move-result-object v0
@@ -213,16 +258,22 @@
 .method public static systemRoot()Ljava/util/prefs/Preferences;
     .locals 2
 
+    .prologue
+    .line 429
     invoke-static {}, Ljava/lang/System;->getSecurityManager()Ljava/lang/SecurityManager;
 
     move-result-object v0
 
+    .line 430
+    .local v0, "security":Ljava/lang/SecurityManager;
     if-eqz v0, :cond_0
 
+    .line 431
     sget-object v1, Ljava/util/prefs/Preferences;->prefsPerm:Ljava/security/Permission;
 
     invoke-virtual {v0, v1}, Ljava/lang/SecurityManager;->checkPermission(Ljava/security/Permission;)V
 
+    .line 433
     :cond_0
     sget-object v1, Ljava/util/prefs/Preferences;->factory:Ljava/util/prefs/PreferencesFactory;
 
@@ -244,6 +295,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 316
+    .local p0, "c":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-static {}, Ljava/util/prefs/Preferences;->userRoot()Ljava/util/prefs/Preferences;
 
     move-result-object v0
@@ -262,16 +316,22 @@
 .method public static userRoot()Ljava/util/prefs/Preferences;
     .locals 2
 
+    .prologue
+    .line 408
     invoke-static {}, Ljava/lang/System;->getSecurityManager()Ljava/lang/SecurityManager;
 
     move-result-object v0
 
+    .line 409
+    .local v0, "security":Ljava/lang/SecurityManager;
     if-eqz v0, :cond_0
 
+    .line 410
     sget-object v1, Ljava/util/prefs/Preferences;->prefsPerm:Ljava/security/Permission;
 
     invoke-virtual {v0, v1}, Ljava/lang/SecurityManager;->checkPermission(Ljava/security/Permission;)V
 
+    .line 412
     :cond_0
     sget-object v1, Ljava/util/prefs/Preferences;->factory:Ljava/util/prefs/PreferencesFactory;
 

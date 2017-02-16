@@ -40,7 +40,10 @@
 # direct methods
 .method public static synthetic -java_util_stream_Node$OfDouble_lambda$3(D)V
     .locals 0
+    .param p0, "e"    # D
 
+    .prologue
+    .line 0
     return-void
 .end method
 
@@ -48,11 +51,17 @@
 # virtual methods
 .method public copyInto([Ljava/lang/Double;I)V
     .locals 6
+    .param p1, "boxed"    # [Ljava/lang/Double;
+    .param p2, "offset"    # I
 
+    .prologue
+    .line 494
+    .local p0, "this":Ljava/util/stream/Node$OfDouble;, "Ljava/util/stream/Node<TT;>.OfDouble;"
     sget-boolean v2, Ljava/util/stream/Tripwire;->ENABLED:Z
 
     if-eqz v2, :cond_0
 
+    .line 495
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
@@ -61,6 +70,7 @@
 
     invoke-static {v2, v3}, Ljava/util/stream/Tripwire;->trip(Ljava/lang/Class;Ljava/lang/String;)V
 
+    .line 497
     :cond_0
     invoke-interface {p0}, Ljava/util/stream/Node$OfDouble;->asPrimitiveArray()Ljava/lang/Object;
 
@@ -68,13 +78,17 @@
 
     check-cast v0, [D
 
+    .line 498
+    .local v0, "array":[D
     const/4 v1, 0x0
 
+    .local v1, "i":I
     :goto_0
     array-length v2, v0
 
     if-ge v1, v2, :cond_1
 
+    .line 499
     add-int v2, p2, v1
 
     aget-wide v4, v0, v1
@@ -85,19 +99,27 @@
 
     aput-object v3, p1, v2
 
+    .line 498
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
+    .line 493
     :cond_1
     return-void
 .end method
 
 .method public bridge synthetic copyInto([Ljava/lang/Object;I)V
     .locals 0
+    .param p1, "boxed"    # [Ljava/lang/Object;
+    .param p2, "offset"    # I
 
+    .prologue
+    .line 493
+    .local p0, "this":Ljava/util/stream/Node$OfDouble;, "Ljava/util/stream/Node<TT;>.OfDouble;"
     check-cast p1, [Ljava/lang/Double;
 
+    .end local p1    # "boxed":[Ljava/lang/Object;
     invoke-interface {p0, p1, p2}, Ljava/util/stream/Node$OfDouble;->copyInto([Ljava/lang/Double;I)V
 
     return-void
@@ -115,22 +137,32 @@
         }
     .end annotation
 
+    .prologue
+    .line 472
+    .local p0, "this":Ljava/util/stream/Node$OfDouble;, "Ljava/util/stream/Node<TT;>.OfDouble;"
+    .local p1, "consumer":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-Ljava/lang/Double;>;"
     instance-of v0, p1, Ljava/util/function/DoubleConsumer;
 
     if-eqz v0, :cond_0
 
+    .line 473
     check-cast p1, Ljava/util/function/DoubleConsumer;
 
+    .end local p1    # "consumer":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-Ljava/lang/Double;>;"
     invoke-interface {p0, p1}, Ljava/util/stream/Node$OfDouble;->forEach(Ljava/lang/Object;)V
 
+    .line 471
     :goto_0
     return-void
 
+    .line 476
+    .restart local p1    # "consumer":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-Ljava/lang/Double;>;"
     :cond_0
     sget-boolean v0, Ljava/util/stream/Tripwire;->ENABLED:Z
 
     if-eqz v0, :cond_1
 
+    .line 477
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -139,6 +171,7 @@
 
     invoke-static {v0, v1}, Ljava/util/stream/Tripwire;->trip(Ljava/lang/Class;Ljava/lang/String;)V
 
+    .line 478
     :cond_1
     invoke-interface {p0}, Ljava/util/stream/Node$OfDouble;->spliterator()Ljava/util/Spliterator$OfPrimitive;
 
@@ -154,6 +187,9 @@
 .method public getShape()Ljava/util/stream/StreamShape;
     .locals 1
 
+    .prologue
+    .line 529
+    .local p0, "this":Ljava/util/stream/Node$OfDouble;, "Ljava/util/stream/Node<TT;>.OfDouble;"
     sget-object v0, Ljava/util/stream/StreamShape;->DOUBLE_VALUE:Ljava/util/stream/StreamShape;
 
     return-object v0
@@ -161,7 +197,11 @@
 
 .method public bridge synthetic newArray(I)Ljava/lang/Object;
     .locals 1
+    .param p1, "count"    # I
 
+    .prologue
+    .line 518
+    .local p0, "this":Ljava/util/stream/Node$OfDouble;, "Ljava/util/stream/Node<TT;>.OfDouble;"
     invoke-interface {p0, p1}, Ljava/util/stream/Node$OfDouble;->newArray(I)[D
 
     move-result-object v0
@@ -171,7 +211,11 @@
 
 .method public newArray(I)[D
     .locals 1
+    .param p1, "count"    # I
 
+    .prologue
+    .line 519
+    .local p0, "this":Ljava/util/stream/Node$OfDouble;, "Ljava/util/stream/Node<TT;>.OfDouble;"
     new-array v0, p1, [D
 
     return-object v0
@@ -179,6 +223,8 @@
 
 .method public truncate(JJLjava/util/function/IntFunction;)Ljava/util/stream/Node$OfDouble;
     .locals 9
+    .param p1, "from"    # J
+    .param p3, "to"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(JJ",
@@ -190,6 +236,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 505
+    .local p0, "this":Ljava/util/stream/Node$OfDouble;, "Ljava/util/stream/Node<TT;>.OfDouble;"
+    .local p5, "generator":Ljava/util/function/IntFunction;, "Ljava/util/function/IntFunction<[Ljava/lang/Double;>;"
     const-wide/16 v6, 0x0
 
     cmp-long v5, p1, v6
@@ -204,25 +254,35 @@
 
     if-nez v5, :cond_0
 
+    .line 506
     return-object p0
 
+    .line 507
     :cond_0
     sub-long v2, p3, p1
 
+    .line 508
+    .local v2, "size":J
     invoke-interface {p0}, Ljava/util/stream/Node$OfDouble;->spliterator()Ljava/util/Spliterator$OfPrimitive;
 
     move-result-object v4
 
     check-cast v4, Ljava/util/Spliterator$OfDouble;
 
+    .line 509
+    .local v4, "spliterator":Ljava/util/Spliterator$OfDouble;
     invoke-static {v2, v3}, Ljava/util/stream/Nodes;->doubleBuilder(J)Ljava/util/stream/Node$Builder$OfDouble;
 
     move-result-object v1
 
+    .line 510
+    .local v1, "nodeBuilder":Ljava/util/stream/Node$Builder$OfDouble;
     invoke-interface {v1, v2, v3}, Ljava/util/stream/Node$Builder$OfDouble;->begin(J)V
 
+    .line 511
     const/4 v0, 0x0
 
+    .local v0, "i":I
     :goto_0
     int-to-long v6, v0
 
@@ -244,6 +304,7 @@
 
     goto :goto_0
 
+    .line 512
     :cond_1
     const/4 v0, 0x0
 
@@ -264,9 +325,11 @@
 
     goto :goto_1
 
+    .line 513
     :cond_2
     invoke-interface {v1}, Ljava/util/stream/Node$Builder$OfDouble;->end()V
 
+    .line 514
     invoke-interface {v1}, Ljava/util/stream/Node$Builder$OfDouble;->build()Ljava/util/stream/Node$OfDouble;
 
     move-result-object v5
@@ -276,7 +339,13 @@
 
 .method public bridge synthetic truncate(JJLjava/util/function/IntFunction;)Ljava/util/stream/Node$OfPrimitive;
     .locals 1
+    .param p1, "from"    # J
+    .param p3, "to"    # J
+    .param p5, "generator"    # Ljava/util/function/IntFunction;
 
+    .prologue
+    .line 504
+    .local p0, "this":Ljava/util/stream/Node$OfDouble;, "Ljava/util/stream/Node<TT;>.OfDouble;"
     invoke-interface/range {p0 .. p5}, Ljava/util/stream/Node$OfDouble;->truncate(JJLjava/util/function/IntFunction;)Ljava/util/stream/Node$OfDouble;
 
     move-result-object v0
@@ -286,7 +355,13 @@
 
 .method public bridge synthetic truncate(JJLjava/util/function/IntFunction;)Ljava/util/stream/Node;
     .locals 1
+    .param p1, "from"    # J
+    .param p3, "to"    # J
+    .param p5, "generator"    # Ljava/util/function/IntFunction;
 
+    .prologue
+    .line 504
+    .local p0, "this":Ljava/util/stream/Node$OfDouble;, "Ljava/util/stream/Node<TT;>.OfDouble;"
     invoke-interface/range {p0 .. p5}, Ljava/util/stream/Node$OfDouble;->truncate(JJLjava/util/function/IntFunction;)Ljava/util/stream/Node$OfDouble;
 
     move-result-object v0

@@ -34,7 +34,10 @@
 # direct methods
 .method constructor <init>(Ljava/util/prefs/FileSystemPreferences;)V
     .locals 0
+    .param p1, "this$0"    # Ljava/util/prefs/FileSystemPreferences;
 
+    .prologue
+    .line 507
     iput-object p1, p0, Ljava/util/prefs/FileSystemPreferences$4;->this$0:Ljava/util/prefs/FileSystemPreferences;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,6 +50,8 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 508
     invoke-virtual {p0}, Ljava/util/prefs/FileSystemPreferences$4;->run()Ljava/lang/Void;
 
     move-result-object v0
@@ -57,6 +62,8 @@
 .method public run()Ljava/lang/Void;
     .locals 2
 
+    .prologue
+    .line 509
     iget-object v1, p0, Ljava/util/prefs/FileSystemPreferences$4;->this$0:Ljava/util/prefs/FileSystemPreferences;
 
     iget-object v0, p0, Ljava/util/prefs/FileSystemPreferences$4;->this$0:Ljava/util/prefs/FileSystemPreferences;
@@ -76,10 +83,12 @@
     :goto_0
     iput-boolean v0, v1, Ljava/util/prefs/AbstractPreferences;->newNode:Z
 
+    .line 510
     const/4 v0, 0x0
 
     return-object v0
 
+    .line 509
     :cond_0
     const/4 v0, 0x1
 

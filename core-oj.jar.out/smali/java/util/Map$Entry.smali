@@ -37,7 +37,11 @@
 # direct methods
 .method public static synthetic -java_util_Map$Entry_lambda$1(Ljava/util/Map$Entry;Ljava/util/Map$Entry;)I
     .locals 2
+    .param p0, "c1"    # Ljava/util/Map$Entry;
+    .param p1, "c2"    # Ljava/util/Map$Entry;
 
+    .prologue
+    .line 474
     invoke-interface {p0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v0
@@ -57,7 +61,11 @@
 
 .method public static synthetic -java_util_Map$Entry_lambda$2(Ljava/util/Map$Entry;Ljava/util/Map$Entry;)I
     .locals 2
+    .param p0, "c1"    # Ljava/util/Map$Entry;
+    .param p1, "c2"    # Ljava/util/Map$Entry;
 
+    .prologue
+    .line 491
     invoke-interface {p0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v0
@@ -77,7 +85,12 @@
 
 .method public static synthetic -java_util_Map$Entry_lambda$3(Ljava/util/Comparator;Ljava/util/Map$Entry;Ljava/util/Map$Entry;)I
     .locals 2
+    .param p0, "cmp"    # Ljava/util/Comparator;
+    .param p1, "c1"    # Ljava/util/Map$Entry;
+    .param p2, "c2"    # Ljava/util/Map$Entry;
 
+    .prologue
+    .line 510
     invoke-interface {p1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v0
@@ -95,7 +108,12 @@
 
 .method public static synthetic -java_util_Map$Entry_lambda$4(Ljava/util/Comparator;Ljava/util/Map$Entry;Ljava/util/Map$Entry;)I
     .locals 2
+    .param p0, "cmp"    # Ljava/util/Comparator;
+    .param p1, "c1"    # Ljava/util/Map$Entry;
+    .param p2, "c2"    # Ljava/util/Map$Entry;
 
+    .prologue
+    .line 529
     invoke-interface {p1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v0
@@ -127,10 +145,13 @@
         }
     .end annotation
 
+    .prologue
+    .line 474
     new-instance v0, Ljava/util/Map$Entry$-java_util_Comparator_comparingByKey__LambdaImpl0;
 
     invoke-direct {v0}, Ljava/util/Map$Entry$-java_util_Comparator_comparingByKey__LambdaImpl0;-><init>()V
 
+    .line 473
     check-cast v0, Ljava/io/Serializable;
 
     return-object v0
@@ -154,12 +175,17 @@
         }
     .end annotation
 
+    .prologue
+    .line 508
+    .local p0, "cmp":Ljava/util/Comparator;, "Ljava/util/Comparator<-TK;>;"
     invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 510
     new-instance v0, Ljava/util/Map$Entry$-java_util_Comparator_comparingByKey_java_util_Comparator_cmp_LambdaImpl0;
 
     invoke-direct {v0, p0}, Ljava/util/Map$Entry$-java_util_Comparator_comparingByKey_java_util_Comparator_cmp_LambdaImpl0;-><init>(Ljava/util/Comparator;)V
 
+    .line 509
     check-cast v0, Ljava/io/Serializable;
 
     return-object v0
@@ -181,10 +207,13 @@
         }
     .end annotation
 
+    .prologue
+    .line 491
     new-instance v0, Ljava/util/Map$Entry$-java_util_Comparator_comparingByValue__LambdaImpl0;
 
     invoke-direct {v0}, Ljava/util/Map$Entry$-java_util_Comparator_comparingByValue__LambdaImpl0;-><init>()V
 
+    .line 490
     check-cast v0, Ljava/io/Serializable;
 
     return-object v0
@@ -208,12 +237,17 @@
         }
     .end annotation
 
+    .prologue
+    .line 527
+    .local p0, "cmp":Ljava/util/Comparator;, "Ljava/util/Comparator<-TV;>;"
     invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 529
     new-instance v0, Ljava/util/Map$Entry$-java_util_Comparator_comparingByValue_java_util_Comparator_cmp_LambdaImpl0;
 
     invoke-direct {v0, p0}, Ljava/util/Map$Entry$-java_util_Comparator_comparingByValue_java_util_Comparator_cmp_LambdaImpl0;-><init>(Ljava/util/Comparator;)V
 
+    .line 528
     check-cast v0, Ljava/io/Serializable;
 
     return-object v0

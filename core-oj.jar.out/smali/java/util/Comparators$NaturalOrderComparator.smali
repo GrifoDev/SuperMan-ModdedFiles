@@ -42,8 +42,10 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
     const/4 v2, 0x0
 
+    .line 48
     new-instance v0, Ljava/util/Comparators$NaturalOrderComparator;
 
     const-string/jumbo v1, "INSTANCE"
@@ -52,6 +54,7 @@
 
     sput-object v0, Ljava/util/Comparators$NaturalOrderComparator;->INSTANCE:Ljava/util/Comparators$NaturalOrderComparator;
 
+    .line 47
     const/4 v0, 0x1
 
     new-array v0, v0, [Ljava/util/Comparators$NaturalOrderComparator;
@@ -68,6 +71,8 @@
 .method private constructor <init>(Ljava/lang/String;I)V
     .locals 0
 
+    .prologue
+    .line 47
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -75,7 +80,10 @@
 
 .method public static valueOf(Ljava/lang/String;)Ljava/util/Comparators$NaturalOrderComparator;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 47
     const-class v0, Ljava/util/Comparators$NaturalOrderComparator;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -90,6 +98,8 @@
 .method public static values()[Ljava/util/Comparators$NaturalOrderComparator;
     .locals 1
 
+    .prologue
+    .line 47
     sget-object v0, Ljava/util/Comparators$NaturalOrderComparator;->$VALUES:[Ljava/util/Comparators$NaturalOrderComparator;
 
     return-object v0
@@ -113,6 +123,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 52
+    .local p1, "c1":Ljava/lang/Comparable;, "Ljava/lang/Comparable<Ljava/lang/Object;>;"
+    .local p2, "c2":Ljava/lang/Comparable;, "Ljava/lang/Comparable<Ljava/lang/Object;>;"
     invoke-interface {p1, p2}, Ljava/lang/Comparable;->compareTo(Ljava/lang/Object;)I
 
     move-result v0
@@ -122,11 +136,17 @@
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
+    .param p1, "c1"    # Ljava/lang/Object;
+    .param p2, "c2"    # Ljava/lang/Object;
 
+    .prologue
+    .line 51
     check-cast p1, Ljava/lang/Comparable;
 
+    .end local p1    # "c1":Ljava/lang/Object;
     check-cast p2, Ljava/lang/Comparable;
 
+    .end local p2    # "c2":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Ljava/util/Comparators$NaturalOrderComparator;->compare(Ljava/lang/Comparable;Ljava/lang/Comparable;)I
 
     move-result v0
@@ -148,6 +168,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 57
     invoke-static {}, Ljava/util/Comparator;->reverseOrder()Ljava/util/Comparator;
 
     move-result-object v0

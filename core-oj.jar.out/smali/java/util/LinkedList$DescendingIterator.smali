@@ -43,10 +43,15 @@
 .method private constructor <init>(Ljava/util/LinkedList;)V
     .locals 3
 
+    .prologue
+    .line 993
+    .local p0, "this":Ljava/util/LinkedList$DescendingIterator;, "Ljava/util/LinkedList<TE;>.DescendingIterator;"
+    .local p1, "this$0":Ljava/util/LinkedList;, "Ljava/util/LinkedList<TE;>;"
     iput-object p1, p0, Ljava/util/LinkedList$DescendingIterator;->this$0:Ljava/util/LinkedList;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 994
     new-instance v0, Ljava/util/LinkedList$ListItr;
 
     iget-object v1, p0, Ljava/util/LinkedList$DescendingIterator;->this$0:Ljava/util/LinkedList;
@@ -61,12 +66,16 @@
 
     iput-object v0, p0, Ljava/util/LinkedList$DescendingIterator;->itr:Ljava/util/LinkedList$ListItr;
 
+    .line 993
     return-void
 .end method
 
 .method synthetic constructor <init>(Ljava/util/LinkedList;Ljava/util/LinkedList$DescendingIterator;)V
     .locals 0
+    .param p1, "this$0"    # Ljava/util/LinkedList;
 
+    .prologue
+    .local p0, "this":Ljava/util/LinkedList$DescendingIterator;, "Ljava/util/LinkedList<TE;>.DescendingIterator;"
     invoke-direct {p0, p1}, Ljava/util/LinkedList$DescendingIterator;-><init>(Ljava/util/LinkedList;)V
 
     return-void
@@ -77,6 +86,9 @@
 .method public hasNext()Z
     .locals 1
 
+    .prologue
+    .line 996
+    .local p0, "this":Ljava/util/LinkedList$DescendingIterator;, "Ljava/util/LinkedList<TE;>.DescendingIterator;"
     iget-object v0, p0, Ljava/util/LinkedList$DescendingIterator;->itr:Ljava/util/LinkedList$ListItr;
 
     invoke-virtual {v0}, Ljava/util/LinkedList$ListItr;->hasPrevious()Z
@@ -94,6 +106,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 999
+    .local p0, "this":Ljava/util/LinkedList$DescendingIterator;, "Ljava/util/LinkedList<TE;>.DescendingIterator;"
     iget-object v0, p0, Ljava/util/LinkedList$DescendingIterator;->itr:Ljava/util/LinkedList$ListItr;
 
     invoke-virtual {v0}, Ljava/util/LinkedList$ListItr;->previous()Ljava/lang/Object;
@@ -106,9 +121,13 @@
 .method public remove()V
     .locals 1
 
+    .prologue
+    .line 1002
+    .local p0, "this":Ljava/util/LinkedList$DescendingIterator;, "Ljava/util/LinkedList<TE;>.DescendingIterator;"
     iget-object v0, p0, Ljava/util/LinkedList$DescendingIterator;->itr:Ljava/util/LinkedList$ListItr;
 
     invoke-virtual {v0}, Ljava/util/LinkedList$ListItr;->remove()V
 
+    .line 1001
     return-void
 .end method

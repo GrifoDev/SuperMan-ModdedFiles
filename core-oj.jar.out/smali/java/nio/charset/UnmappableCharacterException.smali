@@ -14,11 +14,16 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 0
+    .param p1, "inputLength"    # I
 
+    .prologue
+    .line 45
     invoke-direct {p0}, Ljava/nio/charset/CharacterCodingException;-><init>()V
 
+    .line 46
     iput p1, p0, Ljava/nio/charset/UnmappableCharacterException;->inputLength:I
 
+    .line 45
     return-void
 .end method
 
@@ -27,6 +32,8 @@
 .method public getInputLength()I
     .locals 1
 
+    .prologue
+    .line 50
     iget v0, p0, Ljava/nio/charset/UnmappableCharacterException;->inputLength:I
 
     return v0
@@ -35,6 +42,8 @@
 .method public getMessage()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 54
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

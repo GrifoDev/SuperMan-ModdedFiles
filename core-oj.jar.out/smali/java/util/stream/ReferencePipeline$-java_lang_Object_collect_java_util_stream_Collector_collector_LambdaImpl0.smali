@@ -27,6 +27,7 @@
 .method public synthetic constructor <init>(Ljava/util/function/BiConsumer;Ljava/lang/Object;)V
     .locals 0
 
+    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Ljava/util/stream/ReferencePipeline$-java_lang_Object_collect_java_util_stream_Collector_collector_LambdaImpl0;->val$accumulator:Ljava/util/function/BiConsumer;
@@ -40,7 +41,9 @@
 # virtual methods
 .method public accept(Ljava/lang/Object;)V
     .locals 2
+    .param p1, "arg0"    # Ljava/lang/Object;
 
+    .prologue
     iget-object v0, p0, Ljava/util/stream/ReferencePipeline$-java_lang_Object_collect_java_util_stream_Collector_collector_LambdaImpl0;->val$accumulator:Ljava/util/function/BiConsumer;
 
     iget-object v1, p0, Ljava/util/stream/ReferencePipeline$-java_lang_Object_collect_java_util_stream_Collector_collector_LambdaImpl0;->val$container:Ljava/lang/Object;

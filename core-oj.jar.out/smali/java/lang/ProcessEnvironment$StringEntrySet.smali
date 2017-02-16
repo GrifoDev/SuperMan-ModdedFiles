@@ -66,6 +66,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 323
+    .local p1, "s":Ljava/util/Set;, "Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/ProcessEnvironment$Variable;Ljava/lang/ProcessEnvironment$Value;>;>;"
     invoke-direct {p0}, Ljava/util/AbstractSet;-><init>()V
 
     iput-object p1, p0, Ljava/lang/ProcessEnvironment$StringEntrySet;->s:Ljava/util/Set;
@@ -75,6 +78,7 @@
 
 .method private static vvEntry(Ljava/lang/Object;)Ljava/util/Map$Entry;
     .locals 1
+    .param p0, "o"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -88,20 +92,26 @@
         }
     .end annotation
 
+    .prologue
+    .line 338
     instance-of v0, p0, Ljava/lang/ProcessEnvironment$StringEntry;
 
     if-eqz v0, :cond_0
 
+    .line 339
     nop
 
     nop
 
+    .end local p0    # "o":Ljava/lang/Object;
     invoke-static {p0}, Ljava/lang/ProcessEnvironment$StringEntry;->-get0(Ljava/lang/ProcessEnvironment$StringEntry;)Ljava/util/Map$Entry;
 
     move-result-object v0
 
     return-object v0
 
+    .line 340
+    .restart local p0    # "o":Ljava/lang/Object;
     :cond_0
     new-instance v0, Ljava/lang/ProcessEnvironment$StringEntrySet$2;
 
@@ -115,6 +125,8 @@
 .method public clear()V
     .locals 1
 
+    .prologue
+    .line 326
     iget-object v0, p0, Ljava/lang/ProcessEnvironment$StringEntrySet;->s:Ljava/util/Set;
 
     invoke-interface {v0}, Ljava/util/Set;->clear()V
@@ -124,7 +136,10 @@
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 2
+    .param p1, "o"    # Ljava/lang/Object;
 
+    .prologue
+    .line 352
     iget-object v0, p0, Ljava/lang/ProcessEnvironment$StringEntrySet;->s:Ljava/util/Set;
 
     invoke-static {p1}, Ljava/lang/ProcessEnvironment$StringEntrySet;->vvEntry(Ljava/lang/Object;)Ljava/util/Map$Entry;
@@ -140,26 +155,33 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 2
+    .param p1, "o"    # Ljava/lang/Object;
 
+    .prologue
+    .line 355
     instance-of v0, p1, Ljava/lang/ProcessEnvironment$StringEntrySet;
 
     if-eqz v0, :cond_0
 
+    .line 356
     iget-object v0, p0, Ljava/lang/ProcessEnvironment$StringEntrySet;->s:Ljava/util/Set;
 
     nop
 
     nop
 
+    .end local p1    # "o":Ljava/lang/Object;
     iget-object v1, p1, Ljava/lang/ProcessEnvironment$StringEntrySet;->s:Ljava/util/Set;
 
     invoke-interface {v0, v1}, Ljava/util/Set;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
+    .line 355
     :goto_0
     return v0
 
+    .restart local p1    # "o":Ljava/lang/Object;
     :cond_0
     const/4 v0, 0x0
 
@@ -169,6 +191,8 @@
 .method public hashCode()I
     .locals 1
 
+    .prologue
+    .line 358
     iget-object v0, p0, Ljava/lang/ProcessEnvironment$StringEntrySet;->s:Ljava/util/Set;
 
     invoke-interface {v0}, Ljava/util/Set;->hashCode()I
@@ -181,6 +205,8 @@
 .method public isEmpty()Z
     .locals 1
 
+    .prologue
+    .line 325
     iget-object v0, p0, Ljava/lang/ProcessEnvironment$StringEntrySet;->s:Ljava/util/Set;
 
     invoke-interface {v0}, Ljava/util/Set;->isEmpty()Z
@@ -205,6 +231,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 328
     new-instance v0, Ljava/lang/ProcessEnvironment$StringEntrySet$1;
 
     invoke-direct {v0, p0}, Ljava/lang/ProcessEnvironment$StringEntrySet$1;-><init>(Ljava/lang/ProcessEnvironment$StringEntrySet;)V
@@ -214,7 +242,10 @@
 
 .method public remove(Ljava/lang/Object;)Z
     .locals 2
+    .param p1, "o"    # Ljava/lang/Object;
 
+    .prologue
+    .line 353
     iget-object v0, p0, Ljava/lang/ProcessEnvironment$StringEntrySet;->s:Ljava/util/Set;
 
     invoke-static {p1}, Ljava/lang/ProcessEnvironment$StringEntrySet;->vvEntry(Ljava/lang/Object;)Ljava/util/Map$Entry;
@@ -231,6 +262,8 @@
 .method public size()I
     .locals 1
 
+    .prologue
+    .line 324
     iget-object v0, p0, Ljava/lang/ProcessEnvironment$StringEntrySet;->s:Ljava/util/Set;
 
     invoke-interface {v0}, Ljava/util/Set;->size()I

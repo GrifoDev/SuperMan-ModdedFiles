@@ -30,7 +30,12 @@
 # direct methods
 .method constructor <init>(Ljava/util/stream/ReferencePipeline$3;Ljava/util/stream/Sink;Ljava/util/function/Function;)V
     .locals 0
+    .param p1, "this$1"    # Ljava/util/stream/ReferencePipeline$3;
 
+    .prologue
+    .line 191
+    .local p2, "$anonymous0":Ljava/util/stream/Sink;, "Ljava/util/stream/Sink<-TR;>;"
+    .local p3, "val$mapper":Ljava/util/function/Function;, "Ljava/util/function/Function<-TP_OUT;+TR;>;"
     iput-object p1, p0, Ljava/util/stream/ReferencePipeline$3$1;->this$1:Ljava/util/stream/ReferencePipeline$3;
 
     iput-object p3, p0, Ljava/util/stream/ReferencePipeline$3$1;->val$mapper:Ljava/util/function/Function;
@@ -50,6 +55,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 194
+    .local p1, "u":Ljava/lang/Object;, "TP_OUT;"
     iget-object v0, p0, Ljava/util/stream/Sink$ChainedReference;->downstream:Ljava/util/stream/Sink;
 
     iget-object v1, p0, Ljava/util/stream/ReferencePipeline$3$1;->val$mapper:Ljava/util/function/Function;
@@ -60,5 +68,6 @@
 
     invoke-interface {v0, v1}, Ljava/util/stream/Sink;->accept(Ljava/lang/Object;)V
 
+    .line 193
     return-void
 .end method

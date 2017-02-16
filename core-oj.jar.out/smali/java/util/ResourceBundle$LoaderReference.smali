@@ -34,11 +34,18 @@
 # direct methods
 .method constructor <init>(Ljava/lang/ClassLoader;Ljava/lang/ref/ReferenceQueue;Ljava/util/ResourceBundle$CacheKey;)V
     .locals 0
+    .param p1, "referent"    # Ljava/lang/ClassLoader;
+    .param p2, "q"    # Ljava/lang/ref/ReferenceQueue;
+    .param p3, "key"    # Ljava/util/ResourceBundle$CacheKey;
 
+    .prologue
+    .line 675
     invoke-direct {p0, p1, p2}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V
 
+    .line 676
     iput-object p3, p0, Ljava/util/ResourceBundle$LoaderReference;->cacheKey:Ljava/util/ResourceBundle$CacheKey;
 
+    .line 674
     return-void
 .end method
 
@@ -47,6 +54,8 @@
 .method public getCacheKey()Ljava/util/ResourceBundle$CacheKey;
     .locals 1
 
+    .prologue
+    .line 680
     iget-object v0, p0, Ljava/util/ResourceBundle$LoaderReference;->cacheKey:Ljava/util/ResourceBundle$CacheKey;
 
     return-object v0

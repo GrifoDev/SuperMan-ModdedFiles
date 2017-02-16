@@ -21,11 +21,17 @@
 # direct methods
 .method constructor <init>(Ljava/util/jar/JarFile;Ljava/util/zip/ZipEntry;)V
     .locals 0
+    .param p1, "this$0"    # Ljava/util/jar/JarFile;
+    .param p2, "ze"    # Ljava/util/zip/ZipEntry;
 
+    .prologue
+    .line 258
     iput-object p1, p0, Ljava/util/jar/JarFile$JarFileEntry;->this$0:Ljava/util/jar/JarFile;
 
+    .line 259
     invoke-direct {p0, p2}, Ljava/util/jar/JarEntry;-><init>(Ljava/util/zip/ZipEntry;)V
 
+    .line 258
     return-void
 .end method
 
@@ -39,16 +45,21 @@
         }
     .end annotation
 
+    .prologue
     const/4 v2, 0x0
 
+    .line 262
     iget-object v1, p0, Ljava/util/jar/JarFile$JarFileEntry;->this$0:Ljava/util/jar/JarFile;
 
     invoke-virtual {v1}, Ljava/util/jar/JarFile;->getManifest()Ljava/util/jar/Manifest;
 
     move-result-object v0
 
+    .line 263
+    .local v0, "man":Ljava/util/jar/Manifest;
     if-eqz v0, :cond_0
 
+    .line 264
     invoke-virtual {p0}, Ljava/util/jar/JarFile$JarFileEntry;->getName()Ljava/lang/String;
 
     move-result-object v1
@@ -59,6 +70,7 @@
 
     return-object v1
 
+    .line 266
     :cond_0
     return-object v2
 .end method
@@ -66,8 +78,10 @@
 .method public getCertificates()[Ljava/security/cert/Certificate;
     .locals 4
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 271
     :try_start_0
     iget-object v2, p0, Ljava/util/jar/JarFile$JarFileEntry;->this$0:Ljava/util/jar/JarFile;
 
@@ -75,6 +89,7 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 275
     iget-object v2, p0, Ljava/util/jar/JarFile$JarFileEntry;->certs:[Ljava/security/cert/Certificate;
 
     if-nez v2, :cond_0
@@ -87,6 +102,7 @@
 
     if-eqz v2, :cond_0
 
+    .line 276
     iget-object v2, p0, Ljava/util/jar/JarFile$JarFileEntry;->this$0:Ljava/util/jar/JarFile;
 
     invoke-static {v2}, Ljava/util/jar/JarFile;->-get0(Ljava/util/jar/JarFile;)Ljava/util/jar/JarVerifier;
@@ -101,6 +117,7 @@
 
     iput-object v2, p0, Ljava/util/jar/JarFile$JarFileEntry;->certs:[Ljava/security/cert/Certificate;
 
+    .line 278
     :cond_0
     iget-object v2, p0, Ljava/util/jar/JarFile$JarFileEntry;->certs:[Ljava/security/cert/Certificate;
 
@@ -109,15 +126,20 @@
     :goto_0
     return-object v1
 
+    .line 272
     :catch_0
     move-exception v0
 
+    .line 273
+    .local v0, "e":Ljava/io/IOException;
     new-instance v1, Ljava/lang/RuntimeException;
 
     invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
     throw v1
 
+    .line 278
+    .end local v0    # "e":Ljava/io/IOException;
     :cond_1
     iget-object v1, p0, Ljava/util/jar/JarFile$JarFileEntry;->certs:[Ljava/security/cert/Certificate;
 
@@ -133,8 +155,10 @@
 .method public getCodeSigners()[Ljava/security/CodeSigner;
     .locals 4
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 282
     :try_start_0
     iget-object v2, p0, Ljava/util/jar/JarFile$JarFileEntry;->this$0:Ljava/util/jar/JarFile;
 
@@ -142,6 +166,7 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 286
     iget-object v2, p0, Ljava/util/jar/JarFile$JarFileEntry;->signers:[Ljava/security/CodeSigner;
 
     if-nez v2, :cond_0
@@ -154,6 +179,7 @@
 
     if-eqz v2, :cond_0
 
+    .line 287
     iget-object v2, p0, Ljava/util/jar/JarFile$JarFileEntry;->this$0:Ljava/util/jar/JarFile;
 
     invoke-static {v2}, Ljava/util/jar/JarFile;->-get0(Ljava/util/jar/JarFile;)Ljava/util/jar/JarVerifier;
@@ -168,6 +194,7 @@
 
     iput-object v2, p0, Ljava/util/jar/JarFile$JarFileEntry;->signers:[Ljava/security/CodeSigner;
 
+    .line 289
     :cond_0
     iget-object v2, p0, Ljava/util/jar/JarFile$JarFileEntry;->signers:[Ljava/security/CodeSigner;
 
@@ -176,15 +203,20 @@
     :goto_0
     return-object v1
 
+    .line 283
     :catch_0
     move-exception v0
 
+    .line 284
+    .local v0, "e":Ljava/io/IOException;
     new-instance v1, Ljava/lang/RuntimeException;
 
     invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
     throw v1
 
+    .line 289
+    .end local v0    # "e":Ljava/io/IOException;
     :cond_1
     iget-object v1, p0, Ljava/util/jar/JarFile$JarFileEntry;->signers:[Ljava/security/CodeSigner;
 

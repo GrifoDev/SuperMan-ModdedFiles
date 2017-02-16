@@ -16,6 +16,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 38
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -36,12 +38,16 @@
 
 .method protected connect(Ljava/net/InetAddress;I)V
     .locals 0
+    .param p1, "address"    # Ljava/net/InetAddress;
+    .param p2, "port"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/SocketException;
         }
     .end annotation
 
+    .prologue
+    .line 95
     return-void
 .end method
 
@@ -56,12 +62,16 @@
 .method protected disconnect()V
     .locals 0
 
+    .prologue
+    .line 101
     return-void
 .end method
 
 .method protected getFileDescriptor()Ljava/io/FileDescriptor;
     .locals 1
 
+    .prologue
+    .line 242
     iget-object v0, p0, Ljava/net/DatagramSocketImpl;->fd:Ljava/io/FileDescriptor;
 
     return-object v0
@@ -70,6 +80,8 @@
 .method protected getLocalPort()I
     .locals 1
 
+    .prologue
+    .line 233
     iget v0, p0, Ljava/net/DatagramSocketImpl;->localPort:I
 
     return v0

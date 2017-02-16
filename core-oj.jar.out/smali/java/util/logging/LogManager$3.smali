@@ -38,7 +38,12 @@
 # direct methods
 .method constructor <init>(Ljava/util/logging/LogManager;Ljava/util/logging/Logger;Ljava/util/logging/Logger;)V
     .locals 0
+    .param p1, "this$0"    # Ljava/util/logging/LogManager;
+    .param p2, "val$l"    # Ljava/util/logging/Logger;
+    .param p3, "val$sysLogger"    # Ljava/util/logging/Logger;
 
+    .prologue
+    .line 422
     iput-object p1, p0, Ljava/util/logging/LogManager$3;->this$0:Ljava/util/logging/LogManager;
 
     iput-object p2, p0, Ljava/util/logging/LogManager$3;->val$l:Ljava/util/logging/Logger;
@@ -55,6 +60,8 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 423
     invoke-virtual {p0}, Ljava/util/logging/LogManager$3;->run()Ljava/lang/Void;
 
     move-result-object v0
@@ -65,6 +72,8 @@
 .method public run()Ljava/lang/Void;
     .locals 5
 
+    .prologue
+    .line 424
     iget-object v1, p0, Ljava/util/logging/LogManager$3;->val$l:Ljava/util/logging/Logger;
 
     invoke-virtual {v1}, Ljava/util/logging/Logger;->getHandlers()[Ljava/util/logging/Handler;
@@ -80,14 +89,19 @@
 
     aget-object v0, v2, v1
 
+    .line 425
+    .local v0, "hdl":Ljava/util/logging/Handler;
     iget-object v4, p0, Ljava/util/logging/LogManager$3;->val$sysLogger:Ljava/util/logging/Logger;
 
     invoke-virtual {v4, v0}, Ljava/util/logging/Logger;->addHandler(Ljava/util/logging/Handler;)V
 
+    .line 424
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
+    .line 427
+    .end local v0    # "hdl":Ljava/util/logging/Handler;
     :cond_0
     const/4 v1, 0x0
 

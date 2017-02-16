@@ -66,6 +66,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 4318
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -73,18 +75,24 @@
 
 .method static isCharacter(C)Z
     .locals 1
+    .param p0, "c"    # C
 
+    .prologue
+    .line 4382
     sparse-switch p0, :sswitch_data_0
 
+    .line 4387
     const/4 v0, 0x0
 
     return v0
 
+    .line 4385
     :sswitch_0
     const/4 v0, 0x1
 
     return v0
 
+    .line 4382
     nop
 
     :sswitch_data_0
@@ -96,18 +104,24 @@
 
 .method static isFloat(C)Z
     .locals 1
+    .param p0, "c"    # C
 
+    .prologue
+    .line 4406
     sparse-switch p0, :sswitch_data_0
 
+    .line 4416
     const/4 v0, 0x0
 
     return v0
 
+    .line 4414
     :sswitch_0
     const/4 v0, 0x1
 
     return v0
 
+    .line 4406
     nop
 
     :sswitch_data_0
@@ -124,18 +138,24 @@
 
 .method static isGeneral(C)Z
     .locals 1
+    .param p0, "c"    # C
 
+    .prologue
+    .line 4367
     sparse-switch p0, :sswitch_data_0
 
+    .line 4376
     const/4 v0, 0x0
 
     return v0
 
+    .line 4374
     :sswitch_0
     const/4 v0, 0x1
 
     return v0
 
+    .line 4367
     nop
 
     :sswitch_data_0
@@ -151,18 +171,24 @@
 
 .method static isInteger(C)Z
     .locals 1
+    .param p0, "c"    # C
 
+    .prologue
+    .line 4393
     sparse-switch p0, :sswitch_data_0
 
+    .line 4400
     const/4 v0, 0x0
 
     return v0
 
+    .line 4398
     :sswitch_0
     const/4 v0, 0x1
 
     return v0
 
+    .line 4393
     nop
 
     :sswitch_data_0
@@ -176,18 +202,24 @@
 
 .method static isText(C)Z
     .locals 1
+    .param p0, "c"    # C
 
+    .prologue
+    .line 4422
     sparse-switch p0, :sswitch_data_0
 
+    .line 4427
     const/4 v0, 0x0
 
     return v0
 
+    .line 4425
     :sswitch_0
     const/4 v0, 0x1
 
     return v0
 
+    .line 4422
     nop
 
     :sswitch_data_0
@@ -199,7 +231,10 @@
 
 .method static isValid(C)Z
     .locals 1
+    .param p0, "c"    # C
 
+    .prologue
+    .line 4361
     invoke-static {p0}, Ljava/util/Formatter$Conversion;->isGeneral(C)Z
 
     move-result v0
@@ -224,16 +259,19 @@
 
     if-nez v0, :cond_0
 
+    .line 4362
     const/16 v0, 0x74
 
     if-ne p0, v0, :cond_1
 
+    .line 4361
     :cond_0
     const/4 v0, 0x1
 
     :goto_0
     return v0
 
+    .line 4362
     :cond_1
     invoke-static {p0}, Ljava/util/Formatter$Conversion;->isCharacter(C)Z
 

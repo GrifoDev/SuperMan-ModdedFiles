@@ -15,30 +15,43 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 53
     invoke-direct {p0}, Ljava/lang/RuntimeException;-><init>()V
 
+    .line 46
     const/4 v0, -0x1
 
     iput v0, p0, Ljava/util/IllformedLocaleException;->_errIdx:I
 
+    .line 52
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
+    .param p1, "message"    # Ljava/lang/String;
 
+    .prologue
+    .line 63
     invoke-direct {p0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
+    .line 46
     const/4 v0, -0x1
 
     iput v0, p0, Ljava/util/IllformedLocaleException;->_errIdx:I
 
+    .line 62
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;I)V
     .locals 3
+    .param p1, "message"    # Ljava/lang/String;
+    .param p2, "errorIndex"    # I
 
+    .prologue
+    .line 77
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -62,14 +75,18 @@
 
     invoke-direct {p0, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
+    .line 46
     const/4 v0, -0x1
 
     iput v0, p0, Ljava/util/IllformedLocaleException;->_errIdx:I
 
+    .line 78
     iput p2, p0, Ljava/util/IllformedLocaleException;->_errIdx:I
 
+    .line 76
     return-void
 
+    .line 77
     :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -103,6 +120,8 @@
 .method public getErrorIndex()I
     .locals 1
 
+    .prologue
+    .line 88
     iget v0, p0, Ljava/util/IllformedLocaleException;->_errIdx:I
 
     return v0

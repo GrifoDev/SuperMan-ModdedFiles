@@ -10,6 +10,8 @@
 .method protected constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 211
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -23,6 +25,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 227
     invoke-static {}, Ljava/nio/channels/spi/SelectorProvider;->provider()Ljava/nio/channels/spi/SelectorProvider;
 
     move-result-object v0

@@ -63,10 +63,17 @@
         }
     .end annotation
 
+    .prologue
+    .line 2862
+    .local p0, "this":Ljava/util/Collections$CheckedList;, "Ljava/util/Collections$CheckedList<TE;>;"
+    .local p1, "list":Ljava/util/List;, "Ljava/util/List<TE;>;"
+    .local p2, "type":Ljava/lang/Class;, "Ljava/lang/Class<TE;>;"
     invoke-direct {p0, p1, p2}, Ljava/util/Collections$CheckedCollection;-><init>(Ljava/util/Collection;Ljava/lang/Class;)V
 
+    .line 2863
     iput-object p1, p0, Ljava/util/Collections$CheckedList;->list:Ljava/util/List;
 
+    .line 2861
     return-void
 .end method
 
@@ -74,35 +81,51 @@
 # virtual methods
 .method synthetic -java_util_Collections$CheckedList_lambda$2(Ljava/util/function/UnaryOperator;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
+    .param p1, "operator"    # Ljava/util/function/UnaryOperator;
+    .param p2, "e"    # Ljava/lang/Object;
 
+    .prologue
+    .line 2936
+    .local p0, "this":Ljava/util/Collections$CheckedList;, "Ljava/util/Collections$CheckedList<TE;>;"
     invoke-interface {p1, p2}, Ljava/util/function/UnaryOperator;->apply(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
+    .line 2937
+    .local v0, "newValue":Ljava/lang/Object;, "TE;"
     invoke-virtual {p0, v0}, Ljava/util/Collections$CheckedList;->typeCheck(Ljava/lang/Object;)V
 
+    .line 2938
     return-object v0
 .end method
 
 .method public add(ILjava/lang/Object;)V
     .locals 1
+    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ITE;)V"
         }
     .end annotation
 
+    .prologue
+    .line 2879
+    .local p0, "this":Ljava/util/Collections$CheckedList;, "Ljava/util/Collections$CheckedList<TE;>;"
+    .local p2, "element":Ljava/lang/Object;, "TE;"
     invoke-virtual {p0, p2}, Ljava/util/Collections$CheckedList;->typeCheck(Ljava/lang/Object;)V
 
+    .line 2880
     iget-object v0, p0, Ljava/util/Collections$CheckedList;->list:Ljava/util/List;
 
     invoke-interface {v0, p1, p2}, Ljava/util/List;->add(ILjava/lang/Object;)V
 
+    .line 2878
     return-void
 .end method
 
 .method public addAll(ILjava/util/Collection;)Z
     .locals 2
+    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -111,6 +134,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 2884
+    .local p0, "this":Ljava/util/Collections$CheckedList;, "Ljava/util/Collections$CheckedList<TE;>;"
+    .local p2, "c":Ljava/util/Collection;, "Ljava/util/Collection<+TE;>;"
     iget-object v0, p0, Ljava/util/Collections$CheckedList;->list:Ljava/util/List;
 
     invoke-virtual {p0, p2}, Ljava/util/Collections$CheckedList;->checkedCopyOf(Ljava/util/Collection;)Ljava/util/Collection;
@@ -126,7 +153,11 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
+    .param p1, "o"    # Ljava/lang/Object;
 
+    .prologue
+    .line 2866
+    .local p0, "this":Ljava/util/Collections$CheckedList;, "Ljava/util/Collections$CheckedList<TE;>;"
     if-eq p1, p0, :cond_0
 
     iget-object v0, p0, Ljava/util/Collections$CheckedList;->list:Ljava/util/List;
@@ -146,12 +177,16 @@
 
 .method public get(I)Ljava/lang/Object;
     .locals 1
+    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)TE;"
         }
     .end annotation
 
+    .prologue
+    .line 2868
+    .local p0, "this":Ljava/util/Collections$CheckedList;, "Ljava/util/Collections$CheckedList<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$CheckedList;->list:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -164,6 +199,9 @@
 .method public hashCode()I
     .locals 1
 
+    .prologue
+    .line 2867
+    .local p0, "this":Ljava/util/Collections$CheckedList;, "Ljava/util/Collections$CheckedList<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$CheckedList;->list:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->hashCode()I
@@ -175,7 +213,11 @@
 
 .method public indexOf(Ljava/lang/Object;)I
     .locals 1
+    .param p1, "o"    # Ljava/lang/Object;
 
+    .prologue
+    .line 2870
+    .local p0, "this":Ljava/util/Collections$CheckedList;, "Ljava/util/Collections$CheckedList<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$CheckedList;->list:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->indexOf(Ljava/lang/Object;)I
@@ -187,7 +229,11 @@
 
 .method public lastIndexOf(Ljava/lang/Object;)I
     .locals 1
+    .param p1, "o"    # Ljava/lang/Object;
 
+    .prologue
+    .line 2871
+    .local p0, "this":Ljava/util/Collections$CheckedList;, "Ljava/util/Collections$CheckedList<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$CheckedList;->list:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->lastIndexOf(Ljava/lang/Object;)I
@@ -207,6 +253,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 2886
+    .local p0, "this":Ljava/util/Collections$CheckedList;, "Ljava/util/Collections$CheckedList<TE;>;"
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Ljava/util/Collections$CheckedList;->listIterator(I)Ljava/util/ListIterator;
@@ -218,6 +267,7 @@
 
 .method public listIterator(I)Ljava/util/ListIterator;
     .locals 2
+    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -226,12 +276,17 @@
         }
     .end annotation
 
+    .prologue
+    .line 2889
+    .local p0, "this":Ljava/util/Collections$CheckedList;, "Ljava/util/Collections$CheckedList<TE;>;"
     iget-object v1, p0, Ljava/util/Collections$CheckedList;->list:Ljava/util/List;
 
     invoke-interface {v1, p1}, Ljava/util/List;->listIterator(I)Ljava/util/ListIterator;
 
     move-result-object v0
 
+    .line 2891
+    .local v0, "i":Ljava/util/ListIterator;, "Ljava/util/ListIterator<TE;>;"
     new-instance v1, Ljava/util/Collections$CheckedList$1;
 
     invoke-direct {v1, p0, v0}, Ljava/util/Collections$CheckedList$1;-><init>(Ljava/util/Collections$CheckedList;Ljava/util/ListIterator;)V
@@ -241,12 +296,16 @@
 
 .method public remove(I)Ljava/lang/Object;
     .locals 1
+    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)TE;"
         }
     .end annotation
 
+    .prologue
+    .line 2869
+    .local p0, "this":Ljava/util/Collections$CheckedList;, "Ljava/util/Collections$CheckedList<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$CheckedList;->list:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
@@ -266,8 +325,13 @@
         }
     .end annotation
 
+    .prologue
+    .line 2931
+    .local p0, "this":Ljava/util/Collections$CheckedList;, "Ljava/util/Collections$CheckedList<TE;>;"
+    .local p1, "operator":Ljava/util/function/UnaryOperator;, "Ljava/util/function/UnaryOperator<TE;>;"
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 2935
     iget-object v0, p0, Ljava/util/Collections$CheckedList;->list:Ljava/util/List;
 
     new-instance v1, Ljava/util/Collections$CheckedList$-void_replaceAll_java_util_function_UnaryOperator_operator_LambdaImpl0;
@@ -276,19 +340,26 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->replaceAll(Ljava/util/function/UnaryOperator;)V
 
+    .line 2930
     return-void
 .end method
 
 .method public set(ILjava/lang/Object;)Ljava/lang/Object;
     .locals 1
+    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ITE;)TE;"
         }
     .end annotation
 
+    .prologue
+    .line 2874
+    .local p0, "this":Ljava/util/Collections$CheckedList;, "Ljava/util/Collections$CheckedList<TE;>;"
+    .local p2, "element":Ljava/lang/Object;, "TE;"
     invoke-virtual {p0, p2}, Ljava/util/Collections$CheckedList;->typeCheck(Ljava/lang/Object;)V
 
+    .line 2875
     iget-object v0, p0, Ljava/util/Collections$CheckedList;->list:Ljava/util/List;
 
     invoke-interface {v0, p1, p2}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
@@ -308,15 +379,22 @@
         }
     .end annotation
 
+    .prologue
+    .line 2944
+    .local p0, "this":Ljava/util/Collections$CheckedList;, "Ljava/util/Collections$CheckedList<TE;>;"
+    .local p1, "c":Ljava/util/Comparator;, "Ljava/util/Comparator<-TE;>;"
     iget-object v0, p0, Ljava/util/Collections$CheckedList;->list:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->sort(Ljava/util/Comparator;)V
 
+    .line 2943
     return-void
 .end method
 
 .method public subList(II)Ljava/util/List;
     .locals 3
+    .param p1, "fromIndex"    # I
+    .param p2, "toIndex"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(II)",
@@ -325,6 +403,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 2918
+    .local p0, "this":Ljava/util/Collections$CheckedList;, "Ljava/util/Collections$CheckedList<TE;>;"
     new-instance v0, Ljava/util/Collections$CheckedList;
 
     iget-object v1, p0, Ljava/util/Collections$CheckedList;->list:Ljava/util/List;

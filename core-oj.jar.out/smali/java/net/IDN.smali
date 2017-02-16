@@ -13,6 +13,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 80
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -20,9 +22,13 @@
 
 .method private static convertFullStop(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;
     .locals 2
+    .param p0, "input"    # Ljava/lang/StringBuffer;
 
+    .prologue
+    .line 173
     const/4 v0, 0x0
 
+    .local v0, "i":I
     :goto_0
     invoke-virtual {p0}, Ljava/lang/StringBuffer;->length()I
 
@@ -30,6 +36,7 @@
 
     if-ge v0, v1, :cond_1
 
+    .line 174
     invoke-virtual {p0, v0}, Ljava/lang/StringBuffer;->charAt(I)C
 
     move-result v1
@@ -40,24 +47,30 @@
 
     if-eqz v1, :cond_0
 
+    .line 175
     const/16 v1, 0x2e
 
     invoke-virtual {p0, v0, v1}, Ljava/lang/StringBuffer;->setCharAt(IC)V
 
+    .line 173
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
+    .line 178
     :cond_1
     return-object p0
 .end method
 
 .method private static isLabelSeperator(C)Z
     .locals 2
+    .param p0, "c"    # C
 
+    .prologue
     const/4 v0, 0x1
 
+    .line 169
     const/16 v1, 0x3002
 
     if-eq p0, v1, :cond_0
@@ -82,7 +95,10 @@
 
 .method public static toASCII(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
+    .param p0, "input"    # Ljava/lang/String;
 
+    .prologue
+    .line 134
     const/4 v0, 0x0
 
     invoke-static {p0, v0}, Ljava/net/IDN;->toASCII(Ljava/lang/String;I)Ljava/lang/String;
@@ -94,7 +110,11 @@
 
 .method public static toASCII(Ljava/lang/String;I)Ljava/lang/String;
     .locals 4
+    .param p0, "input"    # Ljava/lang/String;
+    .param p1, "flag"    # I
 
+    .prologue
+    .line 110
     :try_start_0
     invoke-static {p0, p1}, Landroid/icu/text/IDNA;->convertIDNToASCII(Ljava/lang/String;I)Ljava/lang/StringBuffer;
 
@@ -108,9 +128,12 @@
 
     return-object v1
 
+    .line 111
     :catch_0
     move-exception v0
 
+    .line 112
+    .local v0, "e":Landroid/icu/text/StringPrepParseException;
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -138,7 +161,10 @@
 
 .method public static toUnicode(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
+    .param p0, "input"    # Ljava/lang/String;
 
+    .prologue
+    .line 197
     const/4 v0, 0x0
 
     invoke-static {p0, v0}, Ljava/net/IDN;->toUnicode(Ljava/lang/String;I)Ljava/lang/String;
@@ -150,7 +176,11 @@
 
 .method public static toUnicode(Ljava/lang/String;I)Ljava/lang/String;
     .locals 2
+    .param p0, "input"    # Ljava/lang/String;
+    .param p1, "flag"    # I
 
+    .prologue
+    .line 160
     :try_start_0
     invoke-static {p0, p1}, Landroid/icu/text/IDNA;->convertIDNToUnicode(Ljava/lang/String;I)Ljava/lang/StringBuffer;
 
@@ -168,8 +198,11 @@
 
     return-object v1
 
+    .line 161
     :catch_0
     move-exception v0
 
+    .line 164
+    .local v0, "e":Landroid/icu/text/StringPrepParseException;
     return-object p0
 .end method

@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 164
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -41,20 +43,26 @@
 .method public run()Ljava/lang/Boolean;
     .locals 4
 
+    .prologue
     const/4 v2, 0x1
 
+    .line 166
     const-string/jumbo v3, "java.util.logging.config.class"
 
     invoke-static {v3}, Ljava/lang/System;->getProperty(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
+    .line 167
+    .local v0, "cname":Ljava/lang/String;
     const-string/jumbo v3, "java.util.logging.config.file"
 
     invoke-static {v3}, Ljava/lang/System;->getProperty(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
+    .line 168
+    .local v1, "fname":Ljava/lang/String;
     if-nez v0, :cond_0
 
     if-eqz v1, :cond_1
@@ -76,6 +84,8 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 165
     invoke-virtual {p0}, Lsun/util/logging/PlatformLogger$1;->run()Ljava/lang/Boolean;
 
     move-result-object v0

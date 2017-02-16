@@ -11,14 +11,20 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 46
     invoke-direct {p0}, Ljava/lang/IndexOutOfBoundsException;-><init>()V
 
+    .line 45
     return-void
 .end method
 
 .method public constructor <init>(I)V
     .locals 2
+    .param p1, "index"    # I
 
+    .prologue
+    .line 56
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -39,12 +45,17 @@
 
     invoke-direct {p0, v0}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
 
+    .line 55
     return-void
 .end method
 
 .method public constructor <init>(II)V
     .locals 2
+    .param p1, "sourceLength"    # I
+    .param p2, "index"    # I
 
+    .prologue
+    .line 74
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -75,12 +86,18 @@
 
     invoke-direct {p0, v0}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
 
+    .line 73
     return-void
 .end method
 
 .method public constructor <init>(III)V
     .locals 2
+    .param p1, "sourceLength"    # I
+    .param p2, "offset"    # I
+    .param p3, "count"    # I
 
+    .prologue
+    .line 83
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -105,8 +122,10 @@
 
     move-result-object v0
 
+    .line 84
     const-string/jumbo v1, "; regionLength="
 
+    .line 83
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -121,13 +140,18 @@
 
     invoke-direct {p0, v0}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
 
+    .line 82
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 0
+    .param p1, "s"    # Ljava/lang/String;
 
+    .prologue
+    .line 66
     invoke-direct {p0, p1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
 
+    .line 65
     return-void
 .end method

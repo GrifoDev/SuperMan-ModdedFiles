@@ -28,7 +28,13 @@
 # direct methods
 .method constructor <init>(Ljava/util/stream/ReferencePipeline;Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;I)V
     .locals 0
+    .param p3, "$anonymous1"    # Ljava/util/stream/StreamShape;
+    .param p4, "$anonymous2"    # I
 
+    .prologue
+    .line 152
+    .local p1, "this$0":Ljava/util/stream/ReferencePipeline;, "Ljava/util/stream/ReferencePipeline<TP_IN;TP_OUT;>;"
+    .local p2, "$anonymous0":Ljava/util/stream/AbstractPipeline;, "Ljava/util/stream/AbstractPipeline<*TP_OUT;*>;"
     iput-object p1, p0, Ljava/util/stream/ReferencePipeline$1;->this$0:Ljava/util/stream/ReferencePipeline;
 
     invoke-direct {p0, p2, p3, p4}, Ljava/util/stream/ReferencePipeline$StatelessOp;-><init>(Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;I)V
@@ -40,6 +46,7 @@
 # virtual methods
 .method public opWrapSink(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;
     .locals 0
+    .param p1, "flags"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -50,5 +57,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 155
+    .local p2, "sink":Ljava/util/stream/Sink;, "Ljava/util/stream/Sink<TP_OUT;>;"
     return-object p2
 .end method

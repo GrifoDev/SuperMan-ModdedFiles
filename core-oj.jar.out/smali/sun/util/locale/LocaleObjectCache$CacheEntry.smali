@@ -47,10 +47,18 @@
         }
     .end annotation
 
+    .prologue
+    .line 107
+    .local p0, "this":Lsun/util/locale/LocaleObjectCache$CacheEntry;, "Lsun/util/locale/LocaleObjectCache<TK;TV;>.CacheEntry<TK;TV;>;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
+    .local p2, "value":Ljava/lang/Object;, "TV;"
+    .local p3, "queue":Ljava/lang/ref/ReferenceQueue;, "Ljava/lang/ref/ReferenceQueue<TV;>;"
     invoke-direct {p0, p2, p3}, Ljava/lang/ref/SoftReference;-><init>(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V
 
+    .line 108
     iput-object p1, p0, Lsun/util/locale/LocaleObjectCache$CacheEntry;->key:Ljava/lang/Object;
 
+    .line 106
     return-void
 .end method
 
@@ -64,6 +72,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 112
+    .local p0, "this":Lsun/util/locale/LocaleObjectCache$CacheEntry;, "Lsun/util/locale/LocaleObjectCache<TK;TV;>.CacheEntry<TK;TV;>;"
     iget-object v0, p0, Lsun/util/locale/LocaleObjectCache$CacheEntry;->key:Ljava/lang/Object;
 
     return-object v0

@@ -36,7 +36,11 @@
 # direct methods
 .method constructor <init>(Ljava/net/URLClassLoader;Ljava/lang/String;)V
     .locals 0
+    .param p1, "this$0"    # Ljava/net/URLClassLoader;
+    .param p2, "val$name"    # Ljava/lang/String;
 
+    .prologue
+    .line 355
     iput-object p1, p0, Ljava/net/URLClassLoader$1;->this$0:Ljava/net/URLClassLoader;
 
     iput-object p2, p0, Ljava/net/URLClassLoader$1;->val$name:Ljava/lang/String;
@@ -56,6 +60,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 357
     iget-object v3, p0, Ljava/net/URLClassLoader$1;->val$name:Ljava/lang/String;
 
     const/16 v4, 0x2e
@@ -72,6 +78,8 @@
 
     move-result-object v1
 
+    .line 358
+    .local v1, "path":Ljava/lang/String;
     iget-object v3, p0, Ljava/net/URLClassLoader$1;->this$0:Ljava/net/URLClassLoader;
 
     invoke-static {v3}, Ljava/net/URLClassLoader;->-get1(Ljava/net/URLClassLoader;)Lsun/misc/URLClassPath;
@@ -84,8 +92,11 @@
 
     move-result-object v2
 
+    .line 359
+    .local v2, "res":Lsun/misc/Resource;
     if-eqz v2, :cond_0
 
+    .line 361
     :try_start_0
     iget-object v3, p0, Ljava/net/URLClassLoader$1;->this$0:Ljava/net/URLClassLoader;
 
@@ -99,9 +110,12 @@
 
     return-object v3
 
+    .line 362
     :catch_0
     move-exception v0
 
+    .line 363
+    .local v0, "e":Ljava/io/IOException;
     new-instance v3, Ljava/lang/ClassNotFoundException;
 
     iget-object v4, p0, Ljava/net/URLClassLoader$1;->val$name:Ljava/lang/String;
@@ -110,6 +124,8 @@
 
     throw v3
 
+    .line 366
+    .end local v0    # "e":Ljava/io/IOException;
     :cond_0
     new-instance v3, Ljava/lang/ClassNotFoundException;
 
@@ -128,6 +144,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 356
     invoke-virtual {p0}, Ljava/net/URLClassLoader$1;->run()Ljava/lang/Class;
 
     move-result-object v0

@@ -21,6 +21,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 1087
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -30,21 +32,32 @@
 # virtual methods
 .method public assign(Ljava/net/HttpCookie;Ljava/lang/String;Ljava/lang/String;)V
     .locals 2
+    .param p1, "cookie"    # Ljava/net/HttpCookie;
+    .param p2, "attrName"    # Ljava/lang/String;
+    .param p3, "attrValue"    # Ljava/lang/String;
 
+    .prologue
+    .line 1090
     :try_start_0
     invoke-static {p3}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v1
 
+    .line 1091
+    .local v1, "version":I
     invoke-virtual {p1, v1}, Ljava/net/HttpCookie;->setVersion(I)V
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 1088
+    .end local v1    # "version":I
     :goto_0
     return-void
 
+    .line 1092
     :catch_0
     move-exception v0
 
+    .local v0, "ignored":Ljava/lang/NumberFormatException;
     goto :goto_0
 .end method

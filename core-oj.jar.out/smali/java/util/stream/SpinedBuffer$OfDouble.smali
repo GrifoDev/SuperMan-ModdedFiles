@@ -33,6 +33,9 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 958
+    .local p0, "this":Ljava/util/stream/SpinedBuffer$OfDouble;, "Ljava/util/stream/SpinedBuffer<TE;>.OfDouble;"
     invoke-direct {p0}, Ljava/util/stream/SpinedBuffer$OfPrimitive;-><init>()V
 
     return-void
@@ -40,9 +43,14 @@
 
 .method public constructor <init>(I)V
     .locals 0
+    .param p1, "initialCapacity"    # I
 
+    .prologue
+    .line 961
+    .local p0, "this":Ljava/util/stream/SpinedBuffer$OfDouble;, "Ljava/util/stream/SpinedBuffer<TE;>.OfDouble;"
     invoke-direct {p0, p1}, Ljava/util/stream/SpinedBuffer$OfPrimitive;-><init>(I)V
 
+    .line 960
     return-void
 .end method
 
@@ -50,9 +58,14 @@
 # virtual methods
 .method public accept(D)V
     .locals 3
+    .param p1, "i"    # D
 
+    .prologue
+    .line 1001
+    .local p0, "this":Ljava/util/stream/SpinedBuffer$OfDouble;, "Ljava/util/stream/SpinedBuffer<TE;>.OfDouble;"
     invoke-virtual {p0}, Ljava/util/stream/SpinedBuffer$OfPrimitive;->preAccept()V
 
+    .line 1002
     iget-object v0, p0, Ljava/util/stream/SpinedBuffer$OfPrimitive;->curChunk:Ljava/lang/Object;
 
     check-cast v0, [D
@@ -65,16 +78,26 @@
 
     aput-wide p1, v0, v1
 
+    .line 1000
     return-void
 .end method
 
 .method protected bridge synthetic arrayForEach(Ljava/lang/Object;IILjava/lang/Object;)V
     .locals 0
+    .param p1, "array"    # Ljava/lang/Object;
+    .param p2, "from"    # I
+    .param p3, "to"    # I
+    .param p4, "consumer"    # Ljava/lang/Object;
 
+    .prologue
+    .line 992
+    .local p0, "this":Ljava/util/stream/SpinedBuffer$OfDouble;, "Ljava/util/stream/SpinedBuffer<TE;>.OfDouble;"
     check-cast p1, [D
 
+    .end local p1    # "array":Ljava/lang/Object;
     check-cast p4, Ljava/util/function/DoubleConsumer;
 
+    .end local p4    # "consumer":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2, p3, p4}, Ljava/util/stream/SpinedBuffer$OfDouble;->arrayForEach([DIILjava/util/function/DoubleConsumer;)V
 
     return-void
@@ -82,29 +105,45 @@
 
 .method protected arrayForEach([DIILjava/util/function/DoubleConsumer;)V
     .locals 4
+    .param p1, "array"    # [D
+    .param p2, "from"    # I
+    .param p3, "to"    # I
+    .param p4, "consumer"    # Ljava/util/function/DoubleConsumer;
 
+    .prologue
+    .line 995
+    .local p0, "this":Ljava/util/stream/SpinedBuffer$OfDouble;, "Ljava/util/stream/SpinedBuffer<TE;>.OfDouble;"
     move v0, p2
 
+    .local v0, "i":I
     :goto_0
     if-ge v0, p3, :cond_0
 
+    .line 996
     aget-wide v2, p1, v0
 
     invoke-interface {p4, v2, v3}, Ljava/util/function/DoubleConsumer;->accept(D)V
 
+    .line 995
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
+    .line 994
     :cond_0
     return-void
 .end method
 
 .method protected bridge synthetic arrayLength(Ljava/lang/Object;)I
     .locals 1
+    .param p1, "array"    # Ljava/lang/Object;
 
+    .prologue
+    .line 987
+    .local p0, "this":Ljava/util/stream/SpinedBuffer$OfDouble;, "Ljava/util/stream/SpinedBuffer<TE;>.OfDouble;"
     check-cast p1, [D
 
+    .end local p1    # "array":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Ljava/util/stream/SpinedBuffer$OfDouble;->arrayLength([D)I
 
     move-result v0
@@ -114,7 +153,11 @@
 
 .method protected arrayLength([D)I
     .locals 1
+    .param p1, "array"    # [D
 
+    .prologue
+    .line 988
+    .local p0, "this":Ljava/util/stream/SpinedBuffer$OfDouble;, "Ljava/util/stream/SpinedBuffer<TE;>.OfDouble;"
     array-length v0, p1
 
     return v0
@@ -132,22 +175,32 @@
         }
     .end annotation
 
+    .prologue
+    .line 966
+    .local p0, "this":Ljava/util/stream/SpinedBuffer$OfDouble;, "Ljava/util/stream/SpinedBuffer<TE;>.OfDouble;"
+    .local p1, "consumer":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-Ljava/lang/Double;>;"
     instance-of v0, p1, Ljava/util/function/DoubleConsumer;
 
     if-eqz v0, :cond_0
 
+    .line 967
     check-cast p1, Ljava/util/function/DoubleConsumer;
 
+    .end local p1    # "consumer":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-Ljava/lang/Double;>;"
     invoke-virtual {p0, p1}, Ljava/util/stream/SpinedBuffer$OfPrimitive;->forEach(Ljava/lang/Object;)V
 
+    .line 965
     :goto_0
     return-void
 
+    .line 970
+    .restart local p1    # "consumer":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-Ljava/lang/Double;>;"
     :cond_0
     sget-boolean v0, Ljava/util/stream/Tripwire;->ENABLED:Z
 
     if-eqz v0, :cond_1
 
+    .line 971
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -156,6 +209,7 @@
 
     invoke-static {v0, v1}, Ljava/util/stream/Tripwire;->trip(Ljava/lang/Class;Ljava/lang/String;)V
 
+    .line 972
     :cond_1
     invoke-virtual {p0}, Ljava/util/stream/SpinedBuffer$OfDouble;->spliterator()Ljava/util/Spliterator$OfDouble;
 
@@ -168,17 +222,24 @@
 
 .method public get(J)D
     .locals 5
+    .param p1, "index"    # J
 
+    .prologue
+    .line 1008
+    .local p0, "this":Ljava/util/stream/SpinedBuffer$OfDouble;, "Ljava/util/stream/SpinedBuffer<TE;>.OfDouble;"
     invoke-virtual {p0, p1, p2}, Ljava/util/stream/SpinedBuffer$OfPrimitive;->chunkFor(J)I
 
     move-result v0
 
+    .line 1009
+    .local v0, "ch":I
     iget v1, p0, Ljava/util/stream/AbstractSpinedBuffer;->spineIndex:I
 
     if-nez v1, :cond_0
 
     if-nez v0, :cond_0
 
+    .line 1010
     iget-object v1, p0, Ljava/util/stream/SpinedBuffer$OfPrimitive;->curChunk:Ljava/lang/Object;
 
     check-cast v1, [D
@@ -189,6 +250,7 @@
 
     return-wide v2
 
+    .line 1012
     :cond_0
     iget-object v1, p0, Ljava/util/stream/SpinedBuffer$OfPrimitive;->spine:[Ljava/lang/Object;
 
@@ -212,6 +274,9 @@
 .method public bridge synthetic iterator()Ljava/util/Iterator;
     .locals 1
 
+    .prologue
+    .line 1016
+    .local p0, "this":Ljava/util/stream/SpinedBuffer$OfDouble;, "Ljava/util/stream/SpinedBuffer<TE;>.OfDouble;"
     invoke-virtual {p0}, Ljava/util/stream/SpinedBuffer$OfDouble;->iterator()Ljava/util/PrimitiveIterator$OfDouble;
 
     move-result-object v0
@@ -222,6 +287,9 @@
 .method public iterator()Ljava/util/PrimitiveIterator$OfDouble;
     .locals 1
 
+    .prologue
+    .line 1017
+    .local p0, "this":Ljava/util/stream/SpinedBuffer$OfDouble;, "Ljava/util/stream/SpinedBuffer<TE;>.OfDouble;"
     invoke-virtual {p0}, Ljava/util/stream/SpinedBuffer$OfDouble;->spliterator()Ljava/util/Spliterator$OfDouble;
 
     move-result-object v0
@@ -235,7 +303,11 @@
 
 .method public bridge synthetic newArray(I)Ljava/lang/Object;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 982
+    .local p0, "this":Ljava/util/stream/SpinedBuffer$OfDouble;, "Ljava/util/stream/SpinedBuffer<TE;>.OfDouble;"
     invoke-virtual {p0, p1}, Ljava/util/stream/SpinedBuffer$OfDouble;->newArray(I)[D
 
     move-result-object v0
@@ -245,7 +317,11 @@
 
 .method public newArray(I)[D
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 983
+    .local p0, "this":Ljava/util/stream/SpinedBuffer$OfDouble;, "Ljava/util/stream/SpinedBuffer<TE;>.OfDouble;"
     new-array v0, p1, [D
 
     return-object v0
@@ -253,7 +329,11 @@
 
 .method protected bridge synthetic newArrayArray(I)[Ljava/lang/Object;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 977
+    .local p0, "this":Ljava/util/stream/SpinedBuffer$OfDouble;, "Ljava/util/stream/SpinedBuffer<TE;>.OfDouble;"
     invoke-virtual {p0, p1}, Ljava/util/stream/SpinedBuffer$OfDouble;->newArrayArray(I)[[D
 
     move-result-object v0
@@ -263,7 +343,11 @@
 
 .method protected newArrayArray(I)[[D
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 978
+    .local p0, "this":Ljava/util/stream/SpinedBuffer$OfDouble;, "Ljava/util/stream/SpinedBuffer<TE;>.OfDouble;"
     new-array v0, p1, [[D
 
     return-object v0
@@ -272,8 +356,11 @@
 .method public spliterator()Ljava/util/Spliterator$OfDouble;
     .locals 6
 
+    .prologue
+    .local p0, "this":Ljava/util/stream/SpinedBuffer$OfDouble;, "Ljava/util/stream/SpinedBuffer<TE;>.OfDouble;"
     const/4 v2, 0x0
 
+    .line 1046
     new-instance v0, Ljava/util/stream/SpinedBuffer$OfDouble$1Splitr;
 
     iget v3, p0, Ljava/util/stream/AbstractSpinedBuffer;->spineIndex:I
@@ -292,6 +379,9 @@
 .method public bridge synthetic spliterator()Ljava/util/Spliterator;
     .locals 1
 
+    .prologue
+    .line 1020
+    .local p0, "this":Ljava/util/stream/SpinedBuffer$OfDouble;, "Ljava/util/stream/SpinedBuffer<TE;>.OfDouble;"
     invoke-virtual {p0}, Ljava/util/stream/SpinedBuffer$OfDouble;->spliterator()Ljava/util/Spliterator$OfDouble;
 
     move-result-object v0
@@ -302,6 +392,8 @@
 .method public toString()Ljava/lang/String;
     .locals 9
 
+    .prologue
+    .local p0, "this":Ljava/util/stream/SpinedBuffer$OfDouble;, "Ljava/util/stream/SpinedBuffer<TE;>.OfDouble;"
     const/4 v4, 0x4
 
     const/4 v8, 0x3
@@ -312,22 +404,27 @@
 
     const/4 v5, 0x0
 
+    .line 1051
     invoke-virtual {p0}, Ljava/util/stream/SpinedBuffer$OfPrimitive;->asPrimitiveArray()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, [D
 
+    .line 1052
+    .local v0, "array":[D
     array-length v2, v0
 
     const/16 v3, 0xc8
 
     if-ge v2, v3, :cond_0
 
+    .line 1053
     const-string/jumbo v2, "%s[length=%d, chunks=%d]%s"
 
     new-array v3, v4, [Ljava/lang/Object;
 
+    .line 1054
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v4
@@ -346,6 +443,7 @@
 
     aput-object v4, v3, v6
 
+    .line 1055
     iget v4, p0, Ljava/util/stream/AbstractSpinedBuffer;->spineIndex:I
 
     invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -360,12 +458,14 @@
 
     aput-object v4, v3, v8
 
+    .line 1053
     invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v2
 
     return-object v2
 
+    .line 1058
     :cond_0
     const/16 v2, 0xc8
 
@@ -373,10 +473,13 @@
 
     move-result-object v1
 
+    .line 1059
+    .local v1, "array2":[D
     const-string/jumbo v2, "%s[length=%d, chunks=%d]%s..."
 
     new-array v3, v4, [Ljava/lang/Object;
 
+    .line 1060
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v4
@@ -395,6 +498,7 @@
 
     aput-object v4, v3, v6
 
+    .line 1061
     iget v4, p0, Ljava/util/stream/AbstractSpinedBuffer;->spineIndex:I
 
     invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -409,6 +513,7 @@
 
     aput-object v4, v3, v8
 
+    .line 1059
     invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v2

@@ -29,6 +29,10 @@
 .method constructor <init>(Ljava/util/TreeMap;)V
     .locals 0
 
+    .prologue
+    .line 1050
+    .local p0, "this":Ljava/util/TreeMap$Values;, "Ljava/util/TreeMap<TK;TV;>.Values;"
+    .local p1, "this$0":Ljava/util/TreeMap;, "Ljava/util/TreeMap<TK;TV;>;"
     iput-object p1, p0, Ljava/util/TreeMap$Values;->this$0:Ljava/util/TreeMap;
 
     invoke-direct {p0}, Ljava/util/AbstractCollection;-><init>()V
@@ -41,16 +45,24 @@
 .method public clear()V
     .locals 1
 
+    .prologue
+    .line 1074
+    .local p0, "this":Ljava/util/TreeMap$Values;, "Ljava/util/TreeMap<TK;TV;>.Values;"
     iget-object v0, p0, Ljava/util/TreeMap$Values;->this$0:Ljava/util/TreeMap;
 
     invoke-virtual {v0}, Ljava/util/TreeMap;->clear()V
 
+    .line 1073
     return-void
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
+    .param p1, "o"    # Ljava/lang/Object;
 
+    .prologue
+    .line 1060
+    .local p0, "this":Ljava/util/TreeMap$Values;, "Ljava/util/TreeMap<TK;TV;>.Values;"
     iget-object v0, p0, Ljava/util/TreeMap$Values;->this$0:Ljava/util/TreeMap;
 
     invoke-virtual {v0, p1}, Ljava/util/TreeMap;->containsValue(Ljava/lang/Object;)Z
@@ -70,6 +82,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1052
+    .local p0, "this":Ljava/util/TreeMap$Values;, "Ljava/util/TreeMap<TK;TV;>.Values;"
     new-instance v0, Ljava/util/TreeMap$ValueIterator;
 
     iget-object v1, p0, Ljava/util/TreeMap$Values;->this$0:Ljava/util/TreeMap;
@@ -87,16 +102,22 @@
 
 .method public remove(Ljava/lang/Object;)Z
     .locals 2
+    .param p1, "o"    # Ljava/lang/Object;
 
+    .prologue
+    .line 1064
+    .local p0, "this":Ljava/util/TreeMap$Values;, "Ljava/util/TreeMap<TK;TV;>.Values;"
     iget-object v1, p0, Ljava/util/TreeMap$Values;->this$0:Ljava/util/TreeMap;
 
     invoke-virtual {v1}, Ljava/util/TreeMap;->getFirstEntry()Ljava/util/TreeMap$TreeMapEntry;
 
     move-result-object v0
 
+    .local v0, "e":Ljava/util/TreeMap$TreeMapEntry;, "Ljava/util/TreeMap$TreeMapEntry<TK;TV;>;"
     :goto_0
     if-eqz v0, :cond_1
 
+    .line 1065
     invoke-virtual {v0}, Ljava/util/TreeMap$TreeMapEntry;->getValue()Ljava/lang/Object;
 
     move-result-object v1
@@ -107,14 +128,17 @@
 
     if-eqz v1, :cond_0
 
+    .line 1066
     iget-object v1, p0, Ljava/util/TreeMap$Values;->this$0:Ljava/util/TreeMap;
 
     invoke-static {v1, v0}, Ljava/util/TreeMap;->-wrap0(Ljava/util/TreeMap;Ljava/util/TreeMap$TreeMapEntry;)V
 
+    .line 1067
     const/4 v1, 0x1
 
     return v1
 
+    .line 1064
     :cond_0
     invoke-static {v0}, Ljava/util/TreeMap;->successor(Ljava/util/TreeMap$TreeMapEntry;)Ljava/util/TreeMap$TreeMapEntry;
 
@@ -122,6 +146,7 @@
 
     goto :goto_0
 
+    .line 1070
     :cond_1
     const/4 v1, 0x0
 
@@ -131,6 +156,9 @@
 .method public size()I
     .locals 1
 
+    .prologue
+    .line 1056
+    .local p0, "this":Ljava/util/TreeMap$Values;, "Ljava/util/TreeMap<TK;TV;>.Values;"
     iget-object v0, p0, Ljava/util/TreeMap$Values;->this$0:Ljava/util/TreeMap;
 
     invoke-virtual {v0}, Ljava/util/TreeMap;->size()I
@@ -150,10 +178,13 @@
         }
     .end annotation
 
+    .prologue
+    .local p0, "this":Ljava/util/TreeMap$Values;, "Ljava/util/TreeMap<TK;TV;>.Values;"
     const/4 v2, 0x0
 
     const/4 v4, 0x0
 
+    .line 1078
     new-instance v0, Ljava/util/TreeMap$ValueSpliterator;
 
     iget-object v1, p0, Ljava/util/TreeMap$Values;->this$0:Ljava/util/TreeMap;

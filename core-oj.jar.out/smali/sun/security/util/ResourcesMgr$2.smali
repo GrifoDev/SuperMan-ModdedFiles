@@ -34,7 +34,10 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
     .locals 0
+    .param p1, "val$altBundleName"    # Ljava/lang/String;
 
+    .prologue
+    .line 61
     iput-object p1, p0, Lsun/security/util/ResourcesMgr$2;->val$altBundleName:Ljava/lang/String;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,6 +50,8 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 62
     invoke-virtual {p0}, Lsun/security/util/ResourcesMgr$2;->run()Ljava/util/ResourceBundle;
 
     move-result-object v0
@@ -57,6 +62,8 @@
 .method public run()Ljava/util/ResourceBundle;
     .locals 1
 
+    .prologue
+    .line 63
     iget-object v0, p0, Lsun/security/util/ResourcesMgr$2;->val$altBundleName:Ljava/lang/String;
 
     invoke-static {v0}, Ljava/util/ResourceBundle;->getBundle(Ljava/lang/String;)Ljava/util/ResourceBundle;

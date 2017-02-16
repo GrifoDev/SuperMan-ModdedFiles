@@ -35,18 +35,23 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 104
     new-instance v0, Ljava/util/Arrays$NaturalOrder;
 
     invoke-direct {v0}, Ljava/util/Arrays$NaturalOrder;-><init>()V
 
     sput-object v0, Ljava/util/Arrays$NaturalOrder;->INSTANCE:Ljava/util/Arrays$NaturalOrder;
 
+    .line 99
     return-void
 .end method
 
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 99
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -56,9 +61,14 @@
 # virtual methods
 .method public compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
+    .param p1, "first"    # Ljava/lang/Object;
+    .param p2, "second"    # Ljava/lang/Object;
 
+    .prologue
+    .line 102
     check-cast p1, Ljava/lang/Comparable;
 
+    .end local p1    # "first":Ljava/lang/Object;
     invoke-interface {p1, p2}, Ljava/lang/Comparable;->compareTo(Ljava/lang/Object;)I
 
     move-result v0

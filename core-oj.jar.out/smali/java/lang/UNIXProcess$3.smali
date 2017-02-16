@@ -24,7 +24,10 @@
 # direct methods
 .method constructor <init>(Ljava/lang/UNIXProcess;)V
     .locals 0
+    .param p1, "this$0"    # Ljava/lang/UNIXProcess;
 
+    .prologue
+    .line 170
     iput-object p1, p0, Ljava/lang/UNIXProcess$3;->this$0:Ljava/lang/UNIXProcess;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +40,8 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 172
     iget-object v1, p0, Ljava/lang/UNIXProcess$3;->this$0:Ljava/lang/UNIXProcess;
 
     iget-object v2, p0, Ljava/lang/UNIXProcess$3;->this$0:Ljava/lang/UNIXProcess;
@@ -49,9 +54,12 @@
 
     move-result v0
 
+    .line 173
+    .local v0, "exitcode":I
     iget-object v1, p0, Ljava/lang/UNIXProcess$3;->this$0:Ljava/lang/UNIXProcess;
 
     invoke-virtual {v1, v0}, Ljava/lang/UNIXProcess;->processExited(I)V
 
+    .line 171
     return-void
 .end method

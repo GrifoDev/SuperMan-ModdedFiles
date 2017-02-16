@@ -18,6 +18,8 @@
 .method constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 238
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Ljava/nio/charset/CoderResult$Cache;-><init>(Ljava/nio/charset/CoderResult$Cache;)V
@@ -29,7 +31,10 @@
 # virtual methods
 .method public create(I)Ljava/nio/charset/CoderResult;
     .locals 3
+    .param p1, "len"    # I
 
+    .prologue
+    .line 240
     new-instance v0, Ljava/nio/charset/CoderResult;
 
     const/4 v1, 0x3

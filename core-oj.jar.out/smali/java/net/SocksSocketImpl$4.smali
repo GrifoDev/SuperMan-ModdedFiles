@@ -34,7 +34,10 @@
 # direct methods
 .method constructor <init>(Ljava/net/SocksSocketImpl;)V
     .locals 0
+    .param p1, "this$0"    # Ljava/net/SocksSocketImpl;
 
+    .prologue
+    .line 598
     iput-object p1, p0, Ljava/net/SocksSocketImpl$4;->this$0:Ljava/net/SocksSocketImpl;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,6 +50,8 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 599
     invoke-virtual {p0}, Ljava/net/SocksSocketImpl$4;->run()Ljava/net/ProxySelector;
 
     move-result-object v0
@@ -57,6 +62,8 @@
 .method public run()Ljava/net/ProxySelector;
     .locals 1
 
+    .prologue
+    .line 600
     invoke-static {}, Ljava/net/ProxySelector;->getDefault()Ljava/net/ProxySelector;
 
     move-result-object v0

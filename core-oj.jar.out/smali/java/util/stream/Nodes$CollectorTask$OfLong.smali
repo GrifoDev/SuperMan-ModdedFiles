@@ -39,6 +39,8 @@
 .method static synthetic -java_util_stream_Nodes$CollectorTask$OfLong-mthref-0(J)Ljava/util/stream/Node$Builder$OfLong;
     .locals 2
 
+    .prologue
+    .line 2215
     invoke-static {p0, p1}, Ljava/util/stream/Nodes;->longBuilder(J)Ljava/util/stream/Node$Builder$OfLong;
 
     move-result-object v0
@@ -49,6 +51,8 @@
 .method static synthetic -java_util_stream_Nodes$CollectorTask$OfLong-mthref-1(Ljava/util/stream/Node$OfLong;Ljava/util/stream/Node$OfLong;)Ljava/util/stream/Node$OfLong;
     .locals 1
 
+    .prologue
+    .line 2215
     new-instance v0, Ljava/util/stream/Nodes$ConcNode$OfLong;
 
     invoke-direct {v0, p0, p1}, Ljava/util/stream/Nodes$ConcNode$OfLong;-><init>(Ljava/util/stream/Node$OfLong;Ljava/util/stream/Node$OfLong;)V
@@ -70,6 +74,11 @@
         }
     .end annotation
 
+    .prologue
+    .line 2215
+    .local p0, "this":Ljava/util/stream/Nodes$CollectorTask$OfLong;, "Ljava/util/stream/Nodes$CollectorTask<TP_IN;TP_OUT;TT_NODE;TT_BUILDER;>.OfLong<TP_IN;>;"
+    .local p1, "helper":Ljava/util/stream/PipelineHelper;, "Ljava/util/stream/PipelineHelper<Ljava/lang/Long;>;"
+    .local p2, "spliterator":Ljava/util/Spliterator;, "Ljava/util/Spliterator<TP_IN;>;"
     new-instance v0, Ljava/util/stream/Nodes$CollectorTask$OfLong$-void__init__java_util_stream_PipelineHelper_helper_java_util_Spliterator_spliterator_LambdaImpl0;
 
     invoke-direct {v0}, Ljava/util/stream/Nodes$CollectorTask$OfLong$-void__init__java_util_stream_PipelineHelper_helper_java_util_Spliterator_spliterator_LambdaImpl0;-><init>()V
@@ -80,5 +89,6 @@
 
     invoke-direct {p0, p1, p2, v0, v1}, Ljava/util/stream/Nodes$CollectorTask;-><init>(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/function/LongFunction;Ljava/util/function/BinaryOperator;)V
 
+    .line 2214
     return-void
 .end method

@@ -7,6 +7,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 37
     invoke-direct {p0}, Ljava/nio/channels/spi/SelectorProvider;-><init>()V
 
     return-void
@@ -22,6 +24,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 42
     new-instance v0, Lsun/nio/ch/DatagramChannelImpl;
 
     invoke-direct {v0, p0}, Lsun/nio/ch/DatagramChannelImpl;-><init>(Ljava/nio/channels/spi/SelectorProvider;)V
@@ -31,12 +35,15 @@
 
 .method public openDatagramChannel(Ljava/net/ProtocolFamily;)Ljava/nio/channels/DatagramChannel;
     .locals 1
+    .param p1, "family"    # Ljava/net/ProtocolFamily;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 46
     new-instance v0, Lsun/nio/ch/DatagramChannelImpl;
 
     invoke-direct {v0, p0, p1}, Lsun/nio/ch/DatagramChannelImpl;-><init>(Ljava/nio/channels/spi/SelectorProvider;Ljava/net/ProtocolFamily;)V
@@ -52,6 +59,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 50
     new-instance v0, Lsun/nio/ch/PipeImpl;
 
     invoke-direct {v0, p0}, Lsun/nio/ch/PipeImpl;-><init>(Ljava/nio/channels/spi/SelectorProvider;)V
@@ -75,6 +84,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 56
     new-instance v0, Lsun/nio/ch/ServerSocketChannelImpl;
 
     invoke-direct {v0, p0}, Lsun/nio/ch/ServerSocketChannelImpl;-><init>(Ljava/nio/channels/spi/SelectorProvider;)V
@@ -90,6 +101,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 60
     new-instance v0, Lsun/nio/ch/SocketChannelImpl;
 
     invoke-direct {v0, p0}, Lsun/nio/ch/SocketChannelImpl;-><init>(Ljava/nio/channels/spi/SelectorProvider;)V

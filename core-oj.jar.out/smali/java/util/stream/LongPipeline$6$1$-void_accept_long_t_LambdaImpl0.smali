@@ -25,6 +25,7 @@
 .method public synthetic constructor <init>(Ljava/util/stream/LongPipeline$6$1;)V
     .locals 0
 
+    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Ljava/util/stream/LongPipeline$6$1$-void_accept_long_t_LambdaImpl0;->val$this:Ljava/util/stream/LongPipeline$6$1;
@@ -36,7 +37,9 @@
 # virtual methods
 .method public accept(J)V
     .locals 1
+    .param p1, "arg0"    # J
 
+    .prologue
     iget-object v0, p0, Ljava/util/stream/LongPipeline$6$1$-void_accept_long_t_LambdaImpl0;->val$this:Ljava/util/stream/LongPipeline$6$1;
 
     invoke-virtual {v0, p1, p2}, Ljava/util/stream/LongPipeline$6$1;->-java_util_stream_LongPipeline$6$1_lambda$3(J)V

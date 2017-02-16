@@ -39,7 +39,13 @@
         }
     .end annotation
 
+    .prologue
+    .line 781
+    .local p0, "this":Ljava/util/stream/Streams$ConcatSpliterator$OfRef;, "Ljava/util/stream/Streams$ConcatSpliterator<TT;TT_SPLITR;>.OfRef<TT;>;"
+    .local p1, "aSpliterator":Ljava/util/Spliterator;, "Ljava/util/Spliterator<TT;>;"
+    .local p2, "bSpliterator":Ljava/util/Spliterator;, "Ljava/util/Spliterator<TT;>;"
     invoke-direct {p0, p1, p2}, Ljava/util/stream/Streams$ConcatSpliterator;-><init>(Ljava/util/Spliterator;Ljava/util/Spliterator;)V
 
+    .line 780
     return-void
 .end method

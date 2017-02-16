@@ -60,25 +60,33 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 49
     const/4 v0, 0x0
 
     sput-object v0, Lsun/net/www/protocol/jar/URLJarFile;->callback:Lsun/net/www/protocol/jar/URLJarFileCallBack;
 
+    .line 54
     const/16 v0, 0x800
 
     sput v0, Lsun/net/www/protocol/jar/URLJarFile;->BUF_SIZE:I
 
+    .line 43
     return-void
 .end method
 
 .method private constructor <init>(Ljava/net/URL;Lsun/net/www/protocol/jar/URLJarFile$URLJarFileCloseController;)V
     .locals 1
+    .param p1, "url"    # Ljava/net/URL;
+    .param p2, "closeController"    # Lsun/net/www/protocol/jar/URLJarFile$URLJarFileCloseController;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 73
     invoke-virtual {p1}, Ljava/net/URL;->getFile()Ljava/lang/String;
 
     move-result-object v0
@@ -89,39 +97,52 @@
 
     invoke-direct {p0, v0}, Ljava/util/jar/JarFile;-><init>(Ljava/lang/String;)V
 
+    .line 52
     const/4 v0, 0x0
 
     iput-object v0, p0, Lsun/net/www/protocol/jar/URLJarFile;->closeController:Lsun/net/www/protocol/jar/URLJarFile$URLJarFileCloseController;
 
+    .line 74
     iput-object p2, p0, Lsun/net/www/protocol/jar/URLJarFile;->closeController:Lsun/net/www/protocol/jar/URLJarFile$URLJarFileCloseController;
 
+    .line 72
     return-void
 .end method
 
 .method static copyToFile(Ljava/io/InputStream;Ljava/io/File;)V
     .locals 4
+    .param p0, "in"    # Ljava/io/InputStream;
+    .param p1, "dst"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 207
     new-instance v2, Ljava/io/FileOutputStream;
 
     invoke-direct {v2, p1}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
 
+    .line 209
+    .local v2, "out":Ljava/io/OutputStream;
     const/16 v3, 0x1000
 
     :try_start_0
     new-array v0, v3, [B
 
+    .line 211
+    .local v0, "buf":[B
     :goto_0
     invoke-virtual {p0, v0}, Ljava/io/InputStream;->read([B)I
 
     move-result v1
 
+    .local v1, "len":I
     if-lez v1, :cond_0
 
+    .line 212
     const/4 v3, 0x0
 
     invoke-virtual {v2, v0, v3, v1}, Ljava/io/FileOutputStream;->write([BII)V
@@ -130,27 +151,39 @@
 
     goto :goto_0
 
+    .line 214
+    .end local v0    # "buf":[B
+    .end local v1    # "len":I
     :catchall_0
     move-exception v3
 
+    .line 215
     invoke-virtual {v2}, Ljava/io/FileOutputStream;->close()V
 
+    .line 214
     throw v3
 
+    .line 215
+    .restart local v0    # "buf":[B
+    .restart local v1    # "len":I
     :cond_0
     invoke-virtual {v2}, Ljava/io/FileOutputStream;->close()V
 
+    .line 206
     return-void
 .end method
 
 .method static getJarFile(Ljava/net/URL;)Ljava/util/jar/JarFile;
     .locals 1
+    .param p0, "url"    # Ljava/net/URL;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 61
     const/4 v0, 0x0
 
     invoke-static {p0, v0}, Lsun/net/www/protocol/jar/URLJarFile;->getJarFile(Ljava/net/URL;Lsun/net/www/protocol/jar/URLJarFile$URLJarFileCloseController;)Ljava/util/jar/JarFile;
@@ -162,24 +195,30 @@
 
 .method static getJarFile(Ljava/net/URL;Lsun/net/www/protocol/jar/URLJarFile$URLJarFileCloseController;)Ljava/util/jar/JarFile;
     .locals 1
+    .param p0, "url"    # Ljava/net/URL;
+    .param p1, "closeController"    # Lsun/net/www/protocol/jar/URLJarFile$URLJarFileCloseController;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 65
     invoke-static {p0}, Lsun/net/www/protocol/jar/URLJarFile;->isFileURL(Ljava/net/URL;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
+    .line 66
     new-instance v0, Lsun/net/www/protocol/jar/URLJarFile;
 
     invoke-direct {v0, p0, p1}, Lsun/net/www/protocol/jar/URLJarFile;-><init>(Ljava/net/URL;Lsun/net/www/protocol/jar/URLJarFile$URLJarFileCloseController;)V
 
     return-object v0
 
+    .line 68
     :cond_0
     invoke-static {p0, p1}, Lsun/net/www/protocol/jar/URLJarFile;->retrieve(Ljava/net/URL;Lsun/net/www/protocol/jar/URLJarFile$URLJarFileCloseController;)Ljava/util/jar/JarFile;
 
@@ -190,7 +229,10 @@
 
 .method private static isFileURL(Ljava/net/URL;)Z
     .locals 3
+    .param p0, "url"    # Ljava/net/URL;
 
+    .prologue
+    .line 78
     invoke-virtual {p0}, Ljava/net/URL;->getProtocol()Ljava/lang/String;
 
     move-result-object v1
@@ -203,10 +245,13 @@
 
     if-eqz v1, :cond_1
 
+    .line 83
     invoke-virtual {p0}, Ljava/net/URL;->getHost()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 84
+    .local v0, "host":Ljava/lang/String;
     if-eqz v0, :cond_0
 
     const-string/jumbo v1, ""
@@ -225,19 +270,24 @@
 
     if-nez v1, :cond_0
 
+    .line 85
     const-string/jumbo v1, "localhost"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v1
 
+    .line 84
     if-eqz v1, :cond_1
 
+    .line 86
     :cond_0
     const/4 v1, 0x1
 
     return v1
 
+    .line 88
+    .end local v0    # "host":Ljava/lang/String;
     :cond_1
     const/4 v1, 0x0
 
@@ -252,24 +302,29 @@
         }
     .end annotation
 
+    .prologue
     monitor-enter p0
 
+    .line 153
     :try_start_0
     iget-object v0, p0, Lsun/net/www/protocol/jar/URLJarFile;->superMan:Ljava/util/jar/Manifest;
 
     if-nez v0, :cond_0
 
+    .line 154
     invoke-super {p0}, Ljava/util/jar/JarFile;->getManifest()Ljava/util/jar/Manifest;
 
     move-result-object v0
 
     iput-object v0, p0, Lsun/net/www/protocol/jar/URLJarFile;->superMan:Ljava/util/jar/Manifest;
 
+    .line 157
     :cond_0
     iget-object v0, p0, Lsun/net/www/protocol/jar/URLJarFile;->superMan:Ljava/util/jar/Manifest;
 
     if-eqz v0, :cond_1
 
+    .line 158
     iget-object v0, p0, Lsun/net/www/protocol/jar/URLJarFile;->superMan:Ljava/util/jar/Manifest;
 
     invoke-virtual {v0}, Ljava/util/jar/Manifest;->getMainAttributes()Ljava/util/jar/Attributes;
@@ -278,6 +333,7 @@
 
     iput-object v0, p0, Lsun/net/www/protocol/jar/URLJarFile;->superAttr:Ljava/util/jar/Attributes;
 
+    .line 159
     iget-object v0, p0, Lsun/net/www/protocol/jar/URLJarFile;->superMan:Ljava/util/jar/Manifest;
 
     invoke-virtual {v0}, Ljava/util/jar/Manifest;->getEntries()Ljava/util/Map;
@@ -288,12 +344,14 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 160
     const/4 v0, 0x1
 
     monitor-exit p0
 
     return v0
 
+    .line 162
     :cond_1
     const/4 v0, 0x0
 
@@ -311,12 +369,15 @@
 
 .method private static retrieve(Ljava/net/URL;)Ljava/util/jar/JarFile;
     .locals 1
+    .param p0, "url"    # Ljava/net/URL;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 170
     const/4 v0, 0x0
 
     invoke-static {p0, v0}, Lsun/net/www/protocol/jar/URLJarFile;->retrieve(Ljava/net/URL;Lsun/net/www/protocol/jar/URLJarFile$URLJarFileCloseController;)Ljava/util/jar/JarFile;
@@ -328,18 +389,23 @@
 
 .method private static retrieve(Ljava/net/URL;Lsun/net/www/protocol/jar/URLJarFile$URLJarFileCloseController;)Ljava/util/jar/JarFile;
     .locals 8
+    .param p0, "url"    # Ljava/net/URL;
+    .param p1, "closeController"    # Lsun/net/www/protocol/jar/URLJarFile$URLJarFileCloseController;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
     const/4 v5, 0x0
 
+    .line 183
     sget-object v4, Lsun/net/www/protocol/jar/URLJarFile;->callback:Lsun/net/www/protocol/jar/URLJarFileCallBack;
 
     if-eqz v4, :cond_0
 
+    .line 185
     sget-object v4, Lsun/net/www/protocol/jar/URLJarFile;->callback:Lsun/net/www/protocol/jar/URLJarFileCallBack;
 
     invoke-interface {v4, p0}, Lsun/net/www/protocol/jar/URLJarFileCallBack;->retrieve(Ljava/net/URL;)Ljava/util/jar/JarFile;
@@ -348,9 +414,11 @@
 
     return-object v4
 
+    .line 191
     :cond_0
     const/4 v0, 0x0
 
+    .local v0, "in":Ljava/io/InputStream;
     :try_start_0
     invoke-virtual {p0}, Ljava/net/URL;->openConnection()Ljava/net/URLConnection;
 
@@ -360,6 +428,8 @@
 
     move-result-object v0
 
+    .line 192
+    .local v0, "in":Ljava/io/InputStream;
     const-string/jumbo v4, "jar_cache"
 
     const/4 v6, 0x0
@@ -371,11 +441,15 @@
 
     move-result-object v3
 
+    .line 194
+    .local v3, "tmpFile":Ljava/io/File;
     :try_start_1
     invoke-static {v0, v3}, Lsun/net/www/protocol/jar/URLJarFile;->copyToFile(Ljava/io/InputStream;Ljava/io/File;)V
 
+    .line 195
     invoke-virtual {v3}, Ljava/io/File;->deleteOnExit()V
 
+    .line 196
     new-instance v1, Lsun/net/www/protocol/jar/URLJarFile;
 
     invoke-virtual {v3}, Ljava/io/File;->toURL()Ljava/net/URL;
@@ -387,6 +461,8 @@
     .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
+    .line 202
+    .local v1, "jarFile":Ljava/util/jar/JarFile;
     if-eqz v0, :cond_1
 
     :try_start_2
@@ -405,20 +481,30 @@
 
     goto :goto_0
 
+    .line 197
     :cond_2
     return-object v1
 
+    .line 198
+    .end local v1    # "jarFile":Ljava/util/jar/JarFile;
     :catch_1
     move-exception v2
 
+    .line 199
+    .local v2, "thr":Ljava/lang/Throwable;
     :try_start_3
     invoke-virtual {v3}, Ljava/io/File;->delete()Z
 
+    .line 200
     throw v2
     :try_end_3
     .catch Ljava/lang/Throwable; {:try_start_3 .. :try_end_3} :catch_2
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
+    .line 202
+    .end local v0    # "in":Ljava/io/InputStream;
+    .end local v2    # "thr":Ljava/lang/Throwable;
+    .end local v3    # "tmpFile":Ljava/io/File;
     :catch_2
     move-exception v4
 
@@ -477,9 +563,13 @@
 
 .method public static setCallBack(Lsun/net/www/protocol/jar/URLJarFileCallBack;)V
     .locals 0
+    .param p0, "cb"    # Lsun/net/www/protocol/jar/URLJarFileCallBack;
 
+    .prologue
+    .line 225
     sput-object p0, Lsun/net/www/protocol/jar/URLJarFile;->callback:Lsun/net/www/protocol/jar/URLJarFileCallBack;
 
+    .line 223
     return-void
 .end method
 
@@ -493,17 +583,22 @@
         }
     .end annotation
 
+    .prologue
+    .line 144
     iget-object v0, p0, Lsun/net/www/protocol/jar/URLJarFile;->closeController:Lsun/net/www/protocol/jar/URLJarFile$URLJarFileCloseController;
 
     if-eqz v0, :cond_0
 
+    .line 145
     iget-object v0, p0, Lsun/net/www/protocol/jar/URLJarFile;->closeController:Lsun/net/www/protocol/jar/URLJarFile$URLJarFileCloseController;
 
     invoke-interface {v0, p0}, Lsun/net/www/protocol/jar/URLJarFile$URLJarFileCloseController;->close(Ljava/util/jar/JarFile;)V
 
+    .line 147
     :cond_0
     invoke-super {p0}, Ljava/util/jar/JarFile;->close()V
 
+    .line 143
     return-void
 .end method
 
@@ -515,36 +610,49 @@
         }
     .end annotation
 
+    .prologue
+    .line 95
     invoke-virtual {p0}, Lsun/net/www/protocol/jar/URLJarFile;->close()V
 
+    .line 94
     return-void
 .end method
 
 .method public getEntry(Ljava/lang/String;)Ljava/util/zip/ZipEntry;
     .locals 4
+    .param p1, "name"    # Ljava/lang/String;
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 108
     invoke-super {p0, p1}, Ljava/util/jar/JarFile;->getEntry(Ljava/lang/String;)Ljava/util/zip/ZipEntry;
 
     move-result-object v0
 
+    .line 109
+    .local v0, "ze":Ljava/util/zip/ZipEntry;
     if-eqz v0, :cond_1
 
+    .line 110
     instance-of v1, v0, Ljava/util/jar/JarEntry;
 
     if-eqz v1, :cond_0
 
+    .line 111
     new-instance v1, Lsun/net/www/protocol/jar/URLJarFile$URLJarFileEntry;
 
     nop
 
     nop
 
+    .end local v0    # "ze":Ljava/util/zip/ZipEntry;
     invoke-direct {v1, p0, v0}, Lsun/net/www/protocol/jar/URLJarFile$URLJarFileEntry;-><init>(Lsun/net/www/protocol/jar/URLJarFile;Ljava/util/jar/JarEntry;)V
 
     return-object v1
 
+    .line 113
+    .restart local v0    # "ze":Ljava/util/zip/ZipEntry;
     :cond_0
     new-instance v1, Ljava/lang/InternalError;
 
@@ -560,16 +668,20 @@
 
     move-result-object v2
 
+    .line 114
     const-string/jumbo v3, " returned unexpected entry type "
 
+    .line 113
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
+    .line 115
     invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v3
 
+    .line 113
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v2
@@ -582,6 +694,7 @@
 
     throw v1
 
+    .line 117
     :cond_1
     return-object v1
 .end method
@@ -594,25 +707,33 @@
         }
     .end annotation
 
+    .prologue
     const/4 v7, 0x0
 
+    .line 122
     invoke-direct {p0}, Lsun/net/www/protocol/jar/URLJarFile;->isSuperMan()Z
 
     move-result v6
 
     if-nez v6, :cond_0
 
+    .line 123
     return-object v7
 
+    .line 126
     :cond_0
     new-instance v5, Ljava/util/jar/Manifest;
 
     invoke-direct {v5}, Ljava/util/jar/Manifest;-><init>()V
 
+    .line 127
+    .local v5, "man":Ljava/util/jar/Manifest;
     invoke-virtual {v5}, Ljava/util/jar/Manifest;->getMainAttributes()Ljava/util/jar/Attributes;
 
     move-result-object v1
 
+    .line 128
+    .local v1, "attr":Ljava/util/jar/Attributes;
     iget-object v6, p0, Lsun/net/www/protocol/jar/URLJarFile;->superAttr:Ljava/util/jar/Attributes;
 
     invoke-virtual {v6}, Ljava/util/jar/Attributes;->clone()Ljava/lang/Object;
@@ -623,14 +744,18 @@
 
     invoke-virtual {v1, v6}, Ljava/util/jar/Attributes;->putAll(Ljava/util/Map;)V
 
+    .line 131
     iget-object v6, p0, Lsun/net/www/protocol/jar/URLJarFile;->superEntries:Ljava/util/Map;
 
     if-eqz v6, :cond_1
 
+    .line 132
     invoke-virtual {v5}, Ljava/util/jar/Manifest;->getEntries()Ljava/util/Map;
 
     move-result-object v2
 
+    .line 133
+    .local v2, "entries":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/util/jar/Attributes;>;"
     iget-object v6, p0, Lsun/net/www/protocol/jar/URLJarFile;->superEntries:Ljava/util/Map;
 
     invoke-interface {v6}, Ljava/util/Map;->keySet()Ljava/util/Set;
@@ -641,6 +766,7 @@
 
     move-result-object v4
 
+    .local v4, "key$iterator":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
@@ -654,6 +780,8 @@
 
     check-cast v3, Ljava/lang/String;
 
+    .line 134
+    .local v3, "key":Ljava/lang/String;
     iget-object v6, p0, Lsun/net/www/protocol/jar/URLJarFile;->superEntries:Ljava/util/Map;
 
     invoke-interface {v6, v3}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -662,6 +790,8 @@
 
     check-cast v0, Ljava/util/jar/Attributes;
 
+    .line 135
+    .local v0, "at":Ljava/util/jar/Attributes;
     invoke-virtual {v0}, Ljava/util/jar/Attributes;->clone()Ljava/lang/Object;
 
     move-result-object v6
@@ -672,6 +802,11 @@
 
     goto :goto_0
 
+    .line 139
+    .end local v0    # "at":Ljava/util/jar/Attributes;
+    .end local v2    # "entries":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/util/jar/Attributes;>;"
+    .end local v3    # "key":Ljava/lang/String;
+    .end local v4    # "key$iterator":Ljava/util/Iterator;
     :cond_1
     return-object v5
 .end method

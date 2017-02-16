@@ -51,11 +51,17 @@
 # direct methods
 .method protected constructor <init>(Z)V
     .locals 0
+    .param p1, "ordered"    # Z
 
+    .prologue
+    .line 137
+    .local p0, "this":Ljava/util/stream/ForEachOps$ForEachOp;, "Ljava/util/stream/ForEachOps$ForEachOp<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 138
     iput-boolean p1, p0, Ljava/util/stream/ForEachOps$ForEachOp;->ordered:Z
 
+    .line 137
     return-void
 .end method
 
@@ -63,7 +69,12 @@
 # virtual methods
 .method public bridge synthetic evaluateParallel(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Object;
     .locals 1
+    .param p1, "helper"    # Ljava/util/stream/PipelineHelper;
+    .param p2, "spliterator"    # Ljava/util/Spliterator;
 
+    .prologue
+    .line 155
+    .local p0, "this":Ljava/util/stream/ForEachOps$ForEachOp;, "Ljava/util/stream/ForEachOps$ForEachOp<TT;>;"
     invoke-virtual {p0, p1, p2}, Ljava/util/stream/ForEachOps$ForEachOp;->evaluateParallel(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Void;
 
     move-result-object v0
@@ -86,21 +97,29 @@
         }
     .end annotation
 
+    .prologue
+    .line 157
+    .local p0, "this":Ljava/util/stream/ForEachOps$ForEachOp;, "Ljava/util/stream/ForEachOps$ForEachOp<TT;>;"
+    .local p1, "helper":Ljava/util/stream/PipelineHelper;, "Ljava/util/stream/PipelineHelper<TT;>;"
+    .local p2, "spliterator":Ljava/util/Spliterator;, "Ljava/util/Spliterator<TS;>;"
     iget-boolean v0, p0, Ljava/util/stream/ForEachOps$ForEachOp;->ordered:Z
 
     if-eqz v0, :cond_0
 
+    .line 158
     new-instance v0, Ljava/util/stream/ForEachOps$ForEachOrderedTask;
 
     invoke-direct {v0, p1, p2, p0}, Ljava/util/stream/ForEachOps$ForEachOrderedTask;-><init>(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/stream/Sink;)V
 
     invoke-virtual {v0}, Ljava/util/concurrent/ForkJoinTask;->invoke()Ljava/lang/Object;
 
+    .line 161
     :goto_0
     const/4 v0, 0x0
 
     return-object v0
 
+    .line 160
     :cond_0
     new-instance v0, Ljava/util/stream/ForEachOps$ForEachTask;
 
@@ -117,7 +136,12 @@
 
 .method public bridge synthetic evaluateSequential(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Object;
     .locals 1
+    .param p1, "helper"    # Ljava/util/stream/PipelineHelper;
+    .param p2, "spliterator"    # Ljava/util/Spliterator;
 
+    .prologue
+    .line 149
+    .local p0, "this":Ljava/util/stream/ForEachOps$ForEachOp;, "Ljava/util/stream/ForEachOps$ForEachOp<TT;>;"
     invoke-virtual {p0, p1, p2}, Ljava/util/stream/ForEachOps$ForEachOp;->evaluateSequential(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Void;
 
     move-result-object v0
@@ -140,6 +164,11 @@
         }
     .end annotation
 
+    .prologue
+    .line 151
+    .local p0, "this":Ljava/util/stream/ForEachOps$ForEachOp;, "Ljava/util/stream/ForEachOps$ForEachOp<TT;>;"
+    .local p1, "helper":Ljava/util/stream/PipelineHelper;, "Ljava/util/stream/PipelineHelper<TT;>;"
+    .local p2, "spliterator":Ljava/util/Spliterator;, "Ljava/util/Spliterator<TS;>;"
     invoke-virtual {p1, p0, p2}, Ljava/util/stream/PipelineHelper;->wrapAndCopyInto(Ljava/util/stream/Sink;Ljava/util/Spliterator;)Ljava/util/stream/Sink;
 
     move-result-object v0
@@ -156,6 +185,9 @@
 .method public bridge synthetic get()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 167
+    .local p0, "this":Ljava/util/stream/ForEachOps$ForEachOp;, "Ljava/util/stream/ForEachOps$ForEachOp<TT;>;"
     invoke-virtual {p0}, Ljava/util/stream/ForEachOps$ForEachOp;->get()Ljava/lang/Void;
 
     move-result-object v0
@@ -166,6 +198,9 @@
 .method public get()Ljava/lang/Void;
     .locals 1
 
+    .prologue
+    .line 168
+    .local p0, "this":Ljava/util/stream/ForEachOps$ForEachOp;, "Ljava/util/stream/ForEachOps$ForEachOp<TT;>;"
     const/4 v0, 0x0
 
     return-object v0
@@ -174,6 +209,9 @@
 .method public getOpFlags()I
     .locals 1
 
+    .prologue
+    .line 145
+    .local p0, "this":Ljava/util/stream/ForEachOps$ForEachOp;, "Ljava/util/stream/ForEachOps$ForEachOp<TT;>;"
     iget-boolean v0, p0, Ljava/util/stream/ForEachOps$ForEachOp;->ordered:Z
 
     if-eqz v0, :cond_0

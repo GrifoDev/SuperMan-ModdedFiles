@@ -21,6 +21,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 442
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -29,6 +31,7 @@
 .method synthetic constructor <init>(Ljava/util/prefs/XmlSupport$EH;)V
     .locals 0
 
+    .prologue
     invoke-direct {p0}, Ljava/util/prefs/XmlSupport$EH;-><init>()V
 
     return-void
@@ -38,33 +41,42 @@
 # virtual methods
 .method public error(Lorg/xml/sax/SAXParseException;)V
     .locals 0
+    .param p1, "x"    # Lorg/xml/sax/SAXParseException;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xml/sax/SAXException;
         }
     .end annotation
 
+    .prologue
+    .line 444
     throw p1
 .end method
 
 .method public fatalError(Lorg/xml/sax/SAXParseException;)V
     .locals 0
+    .param p1, "x"    # Lorg/xml/sax/SAXParseException;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xml/sax/SAXException;
         }
     .end annotation
 
+    .prologue
+    .line 447
     throw p1
 .end method
 
 .method public warning(Lorg/xml/sax/SAXParseException;)V
     .locals 0
+    .param p1, "x"    # Lorg/xml/sax/SAXParseException;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xml/sax/SAXException;
         }
     .end annotation
 
+    .prologue
+    .line 450
     throw p1
 .end method

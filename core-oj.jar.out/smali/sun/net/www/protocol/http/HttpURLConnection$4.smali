@@ -38,7 +38,12 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;Ljava/lang/String;[Z)V
     .locals 0
+    .param p1, "val$h1"    # Ljava/lang/String;
+    .param p2, "val$h2"    # Ljava/lang/String;
+    .param p3, "val$result"    # [Z
 
+    .prologue
+    .line 832
     iput-object p1, p0, Lsun/net/www/protocol/http/HttpURLConnection$4;->val$h1:Ljava/lang/String;
 
     iput-object p2, p0, Lsun/net/www/protocol/http/HttpURLConnection$4;->val$h2:Ljava/lang/String;
@@ -55,6 +60,8 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 833
     invoke-virtual {p0}, Lsun/net/www/protocol/http/HttpURLConnection$4;->run()Ljava/lang/Void;
 
     move-result-object v0
@@ -65,6 +72,8 @@
 .method public run()Ljava/lang/Void;
     .locals 7
 
+    .prologue
+    .line 835
     :try_start_0
     iget-object v4, p0, Lsun/net/www/protocol/http/HttpURLConnection$4;->val$h1:Ljava/lang/String;
 
@@ -72,12 +81,16 @@
 
     move-result-object v0
 
+    .line 836
+    .local v0, "a1":Ljava/net/InetAddress;
     iget-object v4, p0, Lsun/net/www/protocol/http/HttpURLConnection$4;->val$h2:Ljava/lang/String;
 
     invoke-static {v4}, Ljava/net/InetAddress;->getByName(Ljava/lang/String;)Ljava/net/InetAddress;
 
     move-result-object v1
 
+    .line 837
+    .local v1, "a2":Ljava/net/InetAddress;
     iget-object v4, p0, Lsun/net/www/protocol/http/HttpURLConnection$4;->val$result:[Z
 
     invoke-virtual {v0, v1}, Ljava/net/InetAddress;->equals(Ljava/lang/Object;)Z
@@ -91,18 +104,26 @@
     .catch Ljava/net/UnknownHostException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_1
 
+    .line 841
+    .end local v0    # "a1":Ljava/net/InetAddress;
+    .end local v1    # "a2":Ljava/net/InetAddress;
     :goto_0
     const/4 v4, 0x0
 
     return-object v4
 
+    .line 838
     :catch_0
     move-exception v3
 
+    .local v3, "e":Ljava/net/UnknownHostException;
     goto :goto_0
 
+    .line 839
+    .end local v3    # "e":Ljava/net/UnknownHostException;
     :catch_1
     move-exception v2
 
+    .local v2, "e":Ljava/lang/SecurityException;
     goto :goto_0
 .end method

@@ -34,7 +34,10 @@
 # direct methods
 .method constructor <init>(Ljava/net/Socket;)V
     .locals 0
+    .param p1, "this$0"    # Ljava/net/Socket;
 
+    .prologue
+    .line 465
     iput-object p1, p0, Ljava/net/Socket$1;->this$0:Ljava/net/Socket;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,22 +50,28 @@
 .method public run()Ljava/lang/Boolean;
     .locals 5
 
+    .prologue
+    .line 467
     const/4 v3, 0x2
 
     new-array v0, v3, [Ljava/lang/Class;
 
+    .line 468
+    .local v0, "cl":[Ljava/lang/Class;
     const-class v3, Ljava/net/SocketAddress;
 
     const/4 v4, 0x0
 
     aput-object v3, v0, v4
 
+    .line 469
     sget-object v3, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
     const/4 v4, 0x1
 
     aput-object v3, v0, v4
 
+    .line 470
     iget-object v3, p0, Ljava/net/Socket$1;->this$0:Ljava/net/Socket;
 
     iget-object v3, v3, Ljava/net/Socket;->impl:Ljava/net/SocketImpl;
@@ -71,25 +80,32 @@
 
     move-result-object v1
 
+    .line 473
+    .local v1, "clazz":Ljava/lang/Class;
     :cond_0
     :try_start_0
     const-string/jumbo v3, "connect"
 
     invoke-virtual {v1, v3, v0}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
+    .line 474
     sget-object v3, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
     :try_end_0
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
 
     return-object v3
 
+    .line 475
     :catch_0
     move-exception v2
 
+    .line 476
+    .local v2, "e":Ljava/lang/NoSuchMethodException;
     invoke-virtual {v1}, Ljava/lang/Class;->getSuperclass()Ljava/lang/Class;
 
     move-result-object v1
 
+    .line 480
     const-class v3, Ljava/net/SocketImpl;
 
     invoke-virtual {v1, v3}, Ljava/lang/Class;->equals(Ljava/lang/Object;)Z
@@ -98,6 +114,7 @@
 
     if-eqz v3, :cond_0
 
+    .line 481
     sget-object v3, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
     return-object v3
@@ -106,6 +123,8 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 466
     invoke-virtual {p0}, Ljava/net/Socket$1;->run()Ljava/lang/Boolean;
 
     move-result-object v0

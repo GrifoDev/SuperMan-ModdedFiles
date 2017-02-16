@@ -28,11 +28,19 @@
 # virtual methods
 .method public synthetic -java_util_function_BiConsumer_lambda$1(Ljava/util/function/BiConsumer;Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 0
+    .param p1, "after"    # Ljava/util/function/BiConsumer;
+    .param p2, "l"    # Ljava/lang/Object;
+    .param p3, "r"    # Ljava/lang/Object;
 
+    .prologue
+    .line 71
+    .local p0, "this":Ljava/util/function/BiConsumer;, "Ljava/util/function/BiConsumer<TT;TU;>;"
     invoke-interface {p0, p2, p3}, Ljava/util/function/BiConsumer;->accept(Ljava/lang/Object;Ljava/lang/Object;)V
 
+    .line 72
     invoke-interface {p1, p2, p3}, Ljava/util/function/BiConsumer;->accept(Ljava/lang/Object;Ljava/lang/Object;)V
 
+    .line 0
     return-void
 .end method
 
@@ -56,8 +64,13 @@
         }
     .end annotation
 
+    .prologue
+    .line 68
+    .local p0, "this":Ljava/util/function/BiConsumer;, "Ljava/util/function/BiConsumer<TT;TU;>;"
+    .local p1, "after":Ljava/util/function/BiConsumer;, "Ljava/util/function/BiConsumer<-TT;-TU;>;"
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 70
     new-instance v0, Ljava/util/function/BiConsumer$-java_util_function_BiConsumer_andThen_java_util_function_BiConsumer_after_LambdaImpl0;
 
     invoke-direct {v0, p0, p1}, Ljava/util/function/BiConsumer$-java_util_function_BiConsumer_andThen_java_util_function_BiConsumer_after_LambdaImpl0;-><init>(Ljava/util/function/BiConsumer;Ljava/util/function/BiConsumer;)V

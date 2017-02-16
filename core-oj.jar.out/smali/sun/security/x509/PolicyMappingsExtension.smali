@@ -43,61 +43,79 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 102
     invoke-direct {p0}, Lsun/security/x509/Extension;-><init>()V
 
+    .line 103
     sget-object v0, Lsun/security/x509/PKIXExtensions;->KeyUsage_Id:Lsun/security/util/ObjectIdentifier;
 
     iput-object v0, p0, Lsun/security/x509/PolicyMappingsExtension;->extensionId:Lsun/security/util/ObjectIdentifier;
 
+    .line 104
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lsun/security/x509/PolicyMappingsExtension;->critical:Z
 
+    .line 105
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lsun/security/x509/PolicyMappingsExtension;->maps:Ljava/util/List;
 
+    .line 102
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/Boolean;Ljava/lang/Object;)V
     .locals 5
+    .param p1, "critical"    # Ljava/lang/Boolean;
+    .param p2, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 116
     invoke-direct {p0}, Lsun/security/x509/Extension;-><init>()V
 
+    .line 118
     sget-object v3, Lsun/security/x509/PKIXExtensions;->PolicyMappings_Id:Lsun/security/util/ObjectIdentifier;
 
     iput-object v3, p0, Lsun/security/x509/PolicyMappingsExtension;->extensionId:Lsun/security/util/ObjectIdentifier;
 
+    .line 119
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v3
 
     iput-boolean v3, p0, Lsun/security/x509/PolicyMappingsExtension;->critical:Z
 
+    .line 121
     check-cast p2, [B
 
+    .end local p2    # "value":Ljava/lang/Object;
     iput-object p2, p0, Lsun/security/x509/PolicyMappingsExtension;->extensionValue:[B
 
+    .line 122
     new-instance v2, Lsun/security/util/DerValue;
 
     iget-object v3, p0, Lsun/security/x509/PolicyMappingsExtension;->extensionValue:[B
 
     invoke-direct {v2, v3}, Lsun/security/util/DerValue;-><init>([B)V
 
+    .line 123
+    .local v2, "val":Lsun/security/util/DerValue;
     iget-byte v3, v2, Lsun/security/util/DerValue;->tag:B
 
     const/16 v4, 0x30
 
     if-eq v3, v4, :cond_0
 
+    .line 124
     new-instance v3, Ljava/io/IOException;
 
     const-string/jumbo v4, "Invalid encoding for PolicyMappingsExtension."
@@ -106,6 +124,7 @@
 
     throw v3
 
+    .line 127
     :cond_0
     new-instance v3, Ljava/util/ArrayList;
 
@@ -113,6 +132,7 @@
 
     iput-object v3, p0, Lsun/security/x509/PolicyMappingsExtension;->maps:Ljava/util/List;
 
+    .line 128
     :goto_0
     iget-object v3, v2, Lsun/security/util/DerValue;->data:Lsun/security/util/DerInputStream;
 
@@ -122,22 +142,30 @@
 
     if-eqz v3, :cond_1
 
+    .line 129
     iget-object v3, v2, Lsun/security/util/DerValue;->data:Lsun/security/util/DerInputStream;
 
     invoke-virtual {v3}, Lsun/security/util/DerInputStream;->getDerValue()Lsun/security/util/DerValue;
 
     move-result-object v1
 
+    .line 130
+    .local v1, "seq":Lsun/security/util/DerValue;
     new-instance v0, Lsun/security/x509/CertificatePolicyMap;
 
     invoke-direct {v0, v1}, Lsun/security/x509/CertificatePolicyMap;-><init>(Lsun/security/util/DerValue;)V
 
+    .line 131
+    .local v0, "map":Lsun/security/x509/CertificatePolicyMap;
     iget-object v3, p0, Lsun/security/x509/PolicyMappingsExtension;->maps:Ljava/util/List;
 
     invoke-interface {v3, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
+    .line 117
+    .end local v0    # "map":Lsun/security/x509/CertificatePolicyMap;
+    .end local v1    # "seq":Lsun/security/util/DerValue;
     :cond_1
     return-void
 .end method
@@ -160,20 +188,28 @@
         }
     .end annotation
 
+    .prologue
+    .line 91
+    .local p1, "map":Ljava/util/List;, "Ljava/util/List<Lsun/security/x509/CertificatePolicyMap;>;"
     invoke-direct {p0}, Lsun/security/x509/Extension;-><init>()V
 
+    .line 93
     iput-object p1, p0, Lsun/security/x509/PolicyMappingsExtension;->maps:Ljava/util/List;
 
+    .line 94
     sget-object v0, Lsun/security/x509/PKIXExtensions;->PolicyMappings_Id:Lsun/security/util/ObjectIdentifier;
 
     iput-object v0, p0, Lsun/security/x509/PolicyMappingsExtension;->extensionId:Lsun/security/util/ObjectIdentifier;
 
+    .line 95
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lsun/security/x509/PolicyMappingsExtension;->critical:Z
 
+    .line 96
     invoke-direct {p0}, Lsun/security/x509/PolicyMappingsExtension;->encodeThis()V
 
+    .line 92
     return-void
 .end method
 
@@ -185,8 +221,10 @@
         }
     .end annotation
 
+    .prologue
     const/4 v5, 0x0
 
+    .line 71
     iget-object v4, p0, Lsun/security/x509/PolicyMappingsExtension;->maps:Ljava/util/List;
 
     if-eqz v4, :cond_0
@@ -199,26 +237,34 @@
 
     if-eqz v4, :cond_1
 
+    .line 72
     :cond_0
     iput-object v5, p0, Lsun/security/x509/PolicyMappingsExtension;->extensionValue:[B
 
+    .line 73
     return-void
 
+    .line 75
     :cond_1
     new-instance v2, Lsun/security/util/DerOutputStream;
 
     invoke-direct {v2}, Lsun/security/util/DerOutputStream;-><init>()V
 
+    .line 76
+    .local v2, "os":Lsun/security/util/DerOutputStream;
     new-instance v3, Lsun/security/util/DerOutputStream;
 
     invoke-direct {v3}, Lsun/security/util/DerOutputStream;-><init>()V
 
+    .line 78
+    .local v3, "tmp":Lsun/security/util/DerOutputStream;
     iget-object v4, p0, Lsun/security/x509/PolicyMappingsExtension;->maps:Ljava/util/List;
 
     invoke-interface {v4}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
+    .local v1, "map$iterator":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -232,21 +278,27 @@
 
     check-cast v0, Lsun/security/x509/CertificatePolicyMap;
 
+    .line 79
+    .local v0, "map":Lsun/security/x509/CertificatePolicyMap;
     invoke-virtual {v0, v3}, Lsun/security/x509/CertificatePolicyMap;->encode(Lsun/security/util/DerOutputStream;)V
 
     goto :goto_0
 
+    .line 82
+    .end local v0    # "map":Lsun/security/x509/CertificatePolicyMap;
     :cond_2
     const/16 v4, 0x30
 
     invoke-virtual {v2, v4, v3}, Lsun/security/util/DerOutputStream;->write(BLsun/security/util/DerOutputStream;)V
 
+    .line 83
     invoke-virtual {v2}, Lsun/security/util/DerOutputStream;->toByteArray()[B
 
     move-result-object v4
 
     iput-object v4, p0, Lsun/security/x509/PolicyMappingsExtension;->extensionValue:[B
 
+    .line 70
     return-void
 .end method
 
@@ -254,12 +306,15 @@
 # virtual methods
 .method public delete(Ljava/lang/String;)V
     .locals 2
+    .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 197
     const-string/jumbo v0, "map"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
@@ -268,14 +323,18 @@
 
     if-eqz v0, :cond_0
 
+    .line 198
     const/4 v0, 0x0
 
     iput-object v0, p0, Lsun/security/x509/PolicyMappingsExtension;->maps:Ljava/util/List;
 
+    .line 203
     invoke-direct {p0}, Lsun/security/x509/PolicyMappingsExtension;->encodeThis()V
 
+    .line 196
     return-void
 
+    .line 200
     :cond_0
     new-instance v0, Ljava/io/IOException;
 
@@ -288,44 +347,56 @@
 
 .method public encode(Ljava/io/OutputStream;)V
     .locals 2
+    .param p1, "out"    # Ljava/io/OutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 153
     new-instance v0, Lsun/security/util/DerOutputStream;
 
     invoke-direct {v0}, Lsun/security/util/DerOutputStream;-><init>()V
 
+    .line 154
+    .local v0, "tmp":Lsun/security/util/DerOutputStream;
     iget-object v1, p0, Lsun/security/x509/PolicyMappingsExtension;->extensionValue:[B
 
     if-nez v1, :cond_0
 
+    .line 155
     sget-object v1, Lsun/security/x509/PKIXExtensions;->PolicyMappings_Id:Lsun/security/util/ObjectIdentifier;
 
     iput-object v1, p0, Lsun/security/x509/PolicyMappingsExtension;->extensionId:Lsun/security/util/ObjectIdentifier;
 
+    .line 156
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Lsun/security/x509/PolicyMappingsExtension;->critical:Z
 
+    .line 157
     invoke-direct {p0}, Lsun/security/x509/PolicyMappingsExtension;->encodeThis()V
 
+    .line 159
     :cond_0
     invoke-super {p0, v0}, Lsun/security/x509/Extension;->encode(Lsun/security/util/DerOutputStream;)V
 
+    .line 160
     invoke-virtual {v0}, Lsun/security/util/DerOutputStream;->toByteArray()[B
 
     move-result-object v1
 
     invoke-virtual {p1, v1}, Ljava/io/OutputStream;->write([B)V
 
+    .line 152
     return-void
 .end method
 
 .method public bridge synthetic get(Ljava/lang/String;)Ljava/lang/Object;
     .locals 1
+    .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/cert/CertificateException;,
@@ -333,6 +404,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 184
     invoke-virtual {p0, p1}, Lsun/security/x509/PolicyMappingsExtension;->get(Ljava/lang/String;)Ljava/util/List;
 
     move-result-object v0
@@ -342,6 +415,7 @@
 
 .method public get(Ljava/lang/String;)Ljava/util/List;
     .locals 2
+    .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -360,6 +434,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 185
     const-string/jumbo v0, "map"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
@@ -368,10 +444,12 @@
 
     if-eqz v0, :cond_0
 
+    .line 186
     iget-object v0, p0, Lsun/security/x509/PolicyMappingsExtension;->maps:Ljava/util/List;
 
     return-object v0
 
+    .line 188
     :cond_0
     new-instance v0, Ljava/io/IOException;
 
@@ -394,14 +472,19 @@
         }
     .end annotation
 
+    .prologue
+    .line 211
     new-instance v0, Lsun/security/x509/AttributeNameEnumeration;
 
     invoke-direct {v0}, Lsun/security/x509/AttributeNameEnumeration;-><init>()V
 
+    .line 212
+    .local v0, "elements":Lsun/security/x509/AttributeNameEnumeration;
     const-string/jumbo v1, "map"
 
     invoke-virtual {v0, v1}, Lsun/security/x509/AttributeNameEnumeration;->addElement(Ljava/lang/Object;)V
 
+    .line 214
     invoke-virtual {v0}, Lsun/security/x509/AttributeNameEnumeration;->elements()Ljava/util/Enumeration;
 
     move-result-object v1
@@ -412,6 +495,8 @@
 .method public getName()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 221
     const-string/jumbo v0, "PolicyMappings"
 
     return-object v0
@@ -419,12 +504,16 @@
 
 .method public set(Ljava/lang/String;Ljava/lang/Object;)V
     .locals 2
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "obj"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 168
     const-string/jumbo v0, "map"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
@@ -433,10 +522,12 @@
 
     if-eqz v0, :cond_1
 
+    .line 169
     instance-of v0, p2, Ljava/util/List;
 
     if-nez v0, :cond_0
 
+    .line 170
     new-instance v0, Ljava/io/IOException;
 
     const-string/jumbo v1, "Attribute value should be of type List."
@@ -445,15 +536,21 @@
 
     throw v0
 
+    .line 173
     :cond_0
     check-cast p2, Ljava/util/List;
 
+    .end local p2    # "obj":Ljava/lang/Object;
     iput-object p2, p0, Lsun/security/x509/PolicyMappingsExtension;->maps:Ljava/util/List;
 
+    .line 178
     invoke-direct {p0}, Lsun/security/x509/PolicyMappingsExtension;->encodeThis()V
 
+    .line 167
     return-void
 
+    .line 175
+    .restart local p2    # "obj":Ljava/lang/Object;
     :cond_1
     new-instance v0, Ljava/io/IOException;
 
@@ -467,6 +564,8 @@
 .method public toString()Ljava/lang/String;
     .locals 3
 
+    .prologue
+    .line 139
     iget-object v1, p0, Lsun/security/x509/PolicyMappingsExtension;->maps:Ljava/util/List;
 
     if-nez v1, :cond_0
@@ -475,6 +574,7 @@
 
     return-object v1
 
+    .line 140
     :cond_0
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -494,18 +594,22 @@
 
     move-result-object v1
 
+    .line 141
     iget-object v2, p0, Lsun/security/x509/PolicyMappingsExtension;->maps:Ljava/util/List;
 
     invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v2
 
+    .line 140
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
+    .line 141
     const-string/jumbo v2, "]\n"
 
+    .line 140
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -514,5 +618,7 @@
 
     move-result-object v0
 
+    .line 143
+    .local v0, "s":Ljava/lang/String;
     return-object v0
 .end method

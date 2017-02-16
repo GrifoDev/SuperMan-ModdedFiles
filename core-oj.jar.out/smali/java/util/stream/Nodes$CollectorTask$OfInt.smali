@@ -39,6 +39,8 @@
 .method static synthetic -java_util_stream_Nodes$CollectorTask$OfInt-mthref-0(J)Ljava/util/stream/Node$Builder$OfInt;
     .locals 2
 
+    .prologue
+    .line 2207
     invoke-static {p0, p1}, Ljava/util/stream/Nodes;->intBuilder(J)Ljava/util/stream/Node$Builder$OfInt;
 
     move-result-object v0
@@ -49,6 +51,8 @@
 .method static synthetic -java_util_stream_Nodes$CollectorTask$OfInt-mthref-1(Ljava/util/stream/Node$OfInt;Ljava/util/stream/Node$OfInt;)Ljava/util/stream/Node$OfInt;
     .locals 1
 
+    .prologue
+    .line 2207
     new-instance v0, Ljava/util/stream/Nodes$ConcNode$OfInt;
 
     invoke-direct {v0, p0, p1}, Ljava/util/stream/Nodes$ConcNode$OfInt;-><init>(Ljava/util/stream/Node$OfInt;Ljava/util/stream/Node$OfInt;)V
@@ -70,6 +74,11 @@
         }
     .end annotation
 
+    .prologue
+    .line 2207
+    .local p0, "this":Ljava/util/stream/Nodes$CollectorTask$OfInt;, "Ljava/util/stream/Nodes$CollectorTask<TP_IN;TP_OUT;TT_NODE;TT_BUILDER;>.OfInt<TP_IN;>;"
+    .local p1, "helper":Ljava/util/stream/PipelineHelper;, "Ljava/util/stream/PipelineHelper<Ljava/lang/Integer;>;"
+    .local p2, "spliterator":Ljava/util/Spliterator;, "Ljava/util/Spliterator<TP_IN;>;"
     new-instance v0, Ljava/util/stream/Nodes$CollectorTask$OfInt$-void__init__java_util_stream_PipelineHelper_helper_java_util_Spliterator_spliterator_LambdaImpl0;
 
     invoke-direct {v0}, Ljava/util/stream/Nodes$CollectorTask$OfInt$-void__init__java_util_stream_PipelineHelper_helper_java_util_Spliterator_spliterator_LambdaImpl0;-><init>()V
@@ -80,5 +89,6 @@
 
     invoke-direct {p0, p1, p2, v0, v1}, Ljava/util/stream/Nodes$CollectorTask;-><init>(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/function/LongFunction;Ljava/util/function/BinaryOperator;)V
 
+    .line 2206
     return-void
 .end method

@@ -66,10 +66,15 @@
         }
     .end annotation
 
+    .prologue
+    .line 256
+    .local p0, "this":Ljava/util/SortedSet;, "Ljava/util/SortedSet<TE;>;"
     new-instance v0, Ljava/util/SortedSet$1;
 
+    .line 257
     const/16 v1, 0x15
 
+    .line 256
     invoke-direct {v0, p0, p0, v1}, Ljava/util/SortedSet$1;-><init>(Ljava/util/SortedSet;Ljava/util/Collection;I)V
 
     return-object v0

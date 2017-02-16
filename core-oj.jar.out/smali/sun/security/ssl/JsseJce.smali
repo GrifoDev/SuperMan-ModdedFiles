@@ -48,8 +48,10 @@
 .method static constructor <clinit>()V
     .locals 7
 
+    .prologue
     const/4 v5, 0x0
 
+    .line 58
     const-string/jumbo v4, "ssl"
 
     invoke-static {v4}, Lsun/security/ssl/Debug;->getInstance(Ljava/lang/String;)Lsun/security/ssl/Debug;
@@ -58,38 +60,53 @@
 
     sput-object v4, Lsun/security/ssl/JsseJce;->debug:Lsun/security/ssl/Debug;
 
+    .line 74
     :try_start_0
     new-instance v4, Lsun/security/ssl/JsseJce$1;
 
     invoke-direct {v4}, Lsun/security/ssl/JsseJce$1;-><init>()V
 
+    .line 73
     invoke-static {v4}, Ljava/security/AccessController;->doPrivileged(Ljava/security/PrivilegedExceptionAction;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 82
     const/4 v3, 0x1
 
+    .line 87
+    .local v3, "temp":Z
     :goto_0
     sput-boolean v3, Lsun/security/ssl/JsseJce;->kerberosAvailable:Z
 
+    .line 95
     invoke-static {}, Lsun/security/ssl/SunJSSE;->isFIPS()Z
 
     move-result v4
 
     if-nez v4, :cond_0
 
+    .line 96
     sput-object v5, Lsun/security/ssl/JsseJce;->fipsProviderList:Lsun/security/jca/ProviderList;
 
+    .line 56
     :goto_1
     return-void
 
+    .line 84
+    .end local v3    # "temp":Z
     :catch_0
     move-exception v0
 
+    .line 85
+    .local v0, "e":Ljava/lang/Exception;
     const/4 v3, 0x0
 
+    .restart local v3    # "temp":Z
     goto :goto_0
 
+    .line 102
+    .end local v0    # "e":Ljava/lang/Exception;
     :cond_0
     const-string/jumbo v4, "SUN"
 
@@ -97,21 +114,29 @@
 
     move-result-object v1
 
+    .line 103
+    .local v1, "sun":Ljava/security/Provider;
     if-nez v1, :cond_1
 
+    .line 104
     new-instance v4, Ljava/lang/RuntimeException;
 
+    .line 105
     const-string/jumbo v5, "FIPS mode: SUN provider must be installed"
 
+    .line 104
     invoke-direct {v4, v5}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     throw v4
 
+    .line 107
     :cond_1
     new-instance v2, Lsun/security/ssl/JsseJce$SunCertificates;
 
     invoke-direct {v2, v1}, Lsun/security/ssl/JsseJce$SunCertificates;-><init>(Ljava/security/Provider;)V
 
+    .line 108
+    .local v2, "sunCerts":Ljava/security/Provider;
     const/4 v4, 0x2
 
     new-array v4, v4, [Ljava/security/Provider;
@@ -138,6 +163,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 189
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -146,14 +173,18 @@
 .method static beginFipsProvider()Ljava/lang/Object;
     .locals 2
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 399
     sget-object v0, Lsun/security/ssl/JsseJce;->fipsProviderList:Lsun/security/jca/ProviderList;
 
     if-nez v0, :cond_0
 
+    .line 400
     return-object v1
 
+    .line 402
     :cond_0
     sget-object v0, Lsun/security/ssl/JsseJce;->fipsProviderList:Lsun/security/jca/ProviderList;
 
@@ -167,10 +198,12 @@
 .method static declared-synchronized clearEcAvailable()V
     .locals 2
 
+    .prologue
     const-class v0, Lsun/security/ssl/JsseJce;
 
     monitor-enter v0
 
+    .line 210
     const/4 v1, 0x0
 
     :try_start_0
@@ -180,6 +213,7 @@
 
     monitor-exit v0
 
+    .line 209
     return-void
 
     :catchall_0
@@ -192,12 +226,16 @@
 
 .method static decodePoint([BLjava/security/spec/EllipticCurve;)Ljava/security/spec/ECPoint;
     .locals 1
+    .param p0, "encoded"    # [B
+    .param p1, "curve"    # Ljava/security/spec/EllipticCurve;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 389
     invoke-static {p0, p1}, Lsun/security/ec/ECParameters;->decodePoint([BLjava/security/spec/EllipticCurve;)Ljava/security/spec/ECPoint;
 
     move-result-object v0
@@ -207,7 +245,11 @@
 
 .method static encodePoint(Ljava/security/spec/ECPoint;Ljava/security/spec/EllipticCurve;)[B
     .locals 1
+    .param p0, "point"    # Ljava/security/spec/ECPoint;
+    .param p1, "curve"    # Ljava/security/spec/EllipticCurve;
 
+    .prologue
+    .line 393
     invoke-static {p0, p1}, Lsun/security/ec/ECParameters;->encodePoint(Ljava/security/spec/ECPoint;Ljava/security/spec/EllipticCurve;)[B
 
     move-result-object v0
@@ -217,38 +259,49 @@
 
 .method static endFipsProvider(Ljava/lang/Object;)V
     .locals 1
+    .param p0, "o"    # Ljava/lang/Object;
 
+    .prologue
+    .line 407
     sget-object v0, Lsun/security/ssl/JsseJce;->fipsProviderList:Lsun/security/jca/ProviderList;
 
     if-eqz v0, :cond_0
 
+    .line 408
     check-cast p0, Lsun/security/jca/ProviderList;
 
+    .end local p0    # "o":Ljava/lang/Object;
     invoke-static {p0}, Lsun/security/jca/Providers;->endThreadProviderList(Lsun/security/jca/ProviderList;)V
 
+    .line 406
     :cond_0
     return-void
 .end method
 
 .method static getCipher(Ljava/lang/String;)Ljavax/crypto/Cipher;
     .locals 2
+    .param p0, "transformation"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/NoSuchAlgorithmException;
         }
     .end annotation
 
+    .prologue
+    .line 223
     :try_start_0
     sget-object v1, Lsun/security/ssl/SunJSSE;->cryptoProvider:Ljava/security/Provider;
 
     if-nez v1, :cond_0
 
+    .line 224
     invoke-static {p0}, Ljavax/crypto/Cipher;->getInstance(Ljava/lang/String;)Ljavax/crypto/Cipher;
 
     move-result-object v1
 
     return-object v1
 
+    .line 226
     :cond_0
     sget-object v1, Lsun/security/ssl/SunJSSE;->cryptoProvider:Ljava/security/Provider;
 
@@ -260,9 +313,12 @@
 
     return-object v1
 
+    .line 228
     :catch_0
     move-exception v0
 
+    .line 229
+    .local v0, "e":Ljavax/crypto/NoSuchPaddingException;
     new-instance v1, Ljava/security/NoSuchAlgorithmException;
 
     invoke-direct {v1, v0}, Ljava/security/NoSuchAlgorithmException;-><init>(Ljava/lang/Throwable;)V
@@ -272,7 +328,10 @@
 
 .method static getECParameterSpec(Ljava/lang/String;)Ljava/security/spec/ECParameterSpec;
     .locals 1
+    .param p0, "namedCurveOid"    # Ljava/lang/String;
 
+    .prologue
+    .line 380
     invoke-static {p0}, Lsun/security/ec/NamedCurve;->getECParameterSpec(Ljava/lang/String;)Ljava/security/spec/ECParameterSpec;
 
     move-result-object v0
@@ -282,22 +341,27 @@
 
 .method static getKeyAgreement(Ljava/lang/String;)Ljavax/crypto/KeyAgreement;
     .locals 1
+    .param p0, "algorithm"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/NoSuchAlgorithmException;
         }
     .end annotation
 
+    .prologue
+    .line 284
     sget-object v0, Lsun/security/ssl/SunJSSE;->cryptoProvider:Ljava/security/Provider;
 
     if-nez v0, :cond_0
 
+    .line 285
     invoke-static {p0}, Ljavax/crypto/KeyAgreement;->getInstance(Ljava/lang/String;)Ljavax/crypto/KeyAgreement;
 
     move-result-object v0
 
     return-object v0
 
+    .line 287
     :cond_0
     sget-object v0, Lsun/security/ssl/SunJSSE;->cryptoProvider:Ljava/security/Provider;
 
@@ -310,22 +374,27 @@
 
 .method static getKeyFactory(Ljava/lang/String;)Ljava/security/KeyFactory;
     .locals 1
+    .param p0, "algorithm"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/NoSuchAlgorithmException;
         }
     .end annotation
 
+    .prologue
+    .line 302
     sget-object v0, Lsun/security/ssl/SunJSSE;->cryptoProvider:Ljava/security/Provider;
 
     if-nez v0, :cond_0
 
+    .line 303
     invoke-static {p0}, Ljava/security/KeyFactory;->getInstance(Ljava/lang/String;)Ljava/security/KeyFactory;
 
     move-result-object v0
 
     return-object v0
 
+    .line 305
     :cond_0
     sget-object v0, Lsun/security/ssl/SunJSSE;->cryptoProvider:Ljava/security/Provider;
 
@@ -338,22 +407,27 @@
 
 .method static getKeyGenerator(Ljava/lang/String;)Ljavax/crypto/KeyGenerator;
     .locals 1
+    .param p0, "algorithm"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/NoSuchAlgorithmException;
         }
     .end annotation
 
+    .prologue
+    .line 266
     sget-object v0, Lsun/security/ssl/SunJSSE;->cryptoProvider:Ljava/security/Provider;
 
     if-nez v0, :cond_0
 
+    .line 267
     invoke-static {p0}, Ljavax/crypto/KeyGenerator;->getInstance(Ljava/lang/String;)Ljavax/crypto/KeyGenerator;
 
     move-result-object v0
 
     return-object v0
 
+    .line 269
     :cond_0
     sget-object v0, Lsun/security/ssl/SunJSSE;->cryptoProvider:Ljava/security/Provider;
 
@@ -366,22 +440,27 @@
 
 .method static getKeyPairGenerator(Ljava/lang/String;)Ljava/security/KeyPairGenerator;
     .locals 1
+    .param p0, "algorithm"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/NoSuchAlgorithmException;
         }
     .end annotation
 
+    .prologue
+    .line 275
     sget-object v0, Lsun/security/ssl/SunJSSE;->cryptoProvider:Ljava/security/Provider;
 
     if-nez v0, :cond_0
 
+    .line 276
     invoke-static {p0}, Ljava/security/KeyPairGenerator;->getInstance(Ljava/lang/String;)Ljava/security/KeyPairGenerator;
 
     move-result-object v0
 
     return-object v0
 
+    .line 278
     :cond_0
     sget-object v0, Lsun/security/ssl/SunJSSE;->cryptoProvider:Ljava/security/Provider;
 
@@ -395,6 +474,8 @@
 .method static getMD5()Ljava/security/MessageDigest;
     .locals 1
 
+    .prologue
+    .line 334
     const-string/jumbo v0, "MD5"
 
     invoke-static {v0}, Lsun/security/ssl/JsseJce;->getMessageDigest(Ljava/lang/String;)Ljava/security/MessageDigest;
@@ -406,22 +487,27 @@
 
 .method static getMac(Ljava/lang/String;)Ljavax/crypto/Mac;
     .locals 1
+    .param p0, "algorithm"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/NoSuchAlgorithmException;
         }
     .end annotation
 
+    .prologue
+    .line 293
     sget-object v0, Lsun/security/ssl/SunJSSE;->cryptoProvider:Ljava/security/Provider;
 
     if-nez v0, :cond_0
 
+    .line 294
     invoke-static {p0}, Ljavax/crypto/Mac;->getInstance(Ljava/lang/String;)Ljavax/crypto/Mac;
 
     move-result-object v0
 
     return-object v0
 
+    .line 296
     :cond_0
     sget-object v0, Lsun/security/ssl/SunJSSE;->cryptoProvider:Ljava/security/Provider;
 
@@ -434,18 +520,23 @@
 
 .method static getMessageDigest(Ljava/lang/String;)Ljava/security/MessageDigest;
     .locals 4
+    .param p0, "algorithm"    # Ljava/lang/String;
 
+    .prologue
+    .line 343
     :try_start_0
     sget-object v1, Lsun/security/ssl/SunJSSE;->cryptoProvider:Ljava/security/Provider;
 
     if-nez v1, :cond_0
 
+    .line 344
     invoke-static {p0}, Ljava/security/MessageDigest;->getInstance(Ljava/lang/String;)Ljava/security/MessageDigest;
 
     move-result-object v1
 
     return-object v1
 
+    .line 346
     :cond_0
     sget-object v1, Lsun/security/ssl/SunJSSE;->cryptoProvider:Ljava/security/Provider;
 
@@ -457,11 +548,15 @@
 
     return-object v1
 
+    .line 348
     :catch_0
     move-exception v0
 
+    .line 349
+    .local v0, "e":Ljava/security/NoSuchAlgorithmException;
     new-instance v1, Ljava/lang/RuntimeException;
 
+    .line 350
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -486,6 +581,7 @@
 
     move-result-object v2
 
+    .line 349
     invoke-direct {v1, v2, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     throw v1
@@ -493,7 +589,10 @@
 
 .method static getNamedCurveOid(Ljava/security/spec/ECParameterSpec;)Ljava/lang/String;
     .locals 1
+    .param p0, "params"    # Ljava/security/spec/ECParameterSpec;
 
+    .prologue
+    .line 384
     invoke-static {p0}, Lsun/security/ec/ECParameters;->getCurveName(Ljava/security/spec/ECParameterSpec;)Ljava/lang/String;
 
     move-result-object v0
@@ -503,17 +602,24 @@
 
 .method static getRSAKeyLength(Ljava/security/PublicKey;)I
     .locals 3
+    .param p0, "key"    # Ljava/security/PublicKey;
 
+    .prologue
+    .line 356
     instance-of v2, p0, Ljava/security/interfaces/RSAPublicKey;
 
     if-eqz v2, :cond_0
 
+    .line 357
     check-cast p0, Ljava/security/interfaces/RSAPublicKey;
 
+    .end local p0    # "key":Ljava/security/PublicKey;
     invoke-interface {p0}, Ljava/security/interfaces/RSAPublicKey;->getModulus()Ljava/math/BigInteger;
 
     move-result-object v0
 
+    .line 362
+    .local v0, "modulus":Ljava/math/BigInteger;
     :goto_0
     invoke-virtual {v0}, Ljava/math/BigInteger;->bitLength()I
 
@@ -521,43 +627,59 @@
 
     return v2
 
+    .line 359
+    .end local v0    # "modulus":Ljava/math/BigInteger;
+    .restart local p0    # "key":Ljava/security/PublicKey;
     :cond_0
     invoke-static {p0}, Lsun/security/ssl/JsseJce;->getRSAPublicKeySpec(Ljava/security/PublicKey;)Ljava/security/spec/RSAPublicKeySpec;
 
     move-result-object v1
 
+    .line 360
+    .local v1, "spec":Ljava/security/spec/RSAPublicKeySpec;
     invoke-virtual {v1}, Ljava/security/spec/RSAPublicKeySpec;->getModulus()Ljava/math/BigInteger;
 
     move-result-object v0
 
+    .restart local v0    # "modulus":Ljava/math/BigInteger;
     goto :goto_0
 .end method
 
 .method static getRSAPublicKeySpec(Ljava/security/PublicKey;)Ljava/security/spec/RSAPublicKeySpec;
     .locals 6
+    .param p0, "key"    # Ljava/security/PublicKey;
 
+    .prologue
+    .line 366
     instance-of v3, p0, Ljava/security/interfaces/RSAPublicKey;
 
     if-eqz v3, :cond_0
 
     move-object v2, p0
 
+    .line 367
     check-cast v2, Ljava/security/interfaces/RSAPublicKey;
 
+    .line 368
+    .local v2, "rsaKey":Ljava/security/interfaces/RSAPublicKey;
     new-instance v3, Ljava/security/spec/RSAPublicKeySpec;
 
     invoke-interface {v2}, Ljava/security/interfaces/RSAPublicKey;->getModulus()Ljava/math/BigInteger;
 
     move-result-object v4
 
+    .line 369
     invoke-interface {v2}, Ljava/security/interfaces/RSAPublicKey;->getPublicExponent()Ljava/math/BigInteger;
 
     move-result-object v5
 
+    .line 368
     invoke-direct {v3, v4, v5}, Ljava/security/spec/RSAPublicKeySpec;-><init>(Ljava/math/BigInteger;Ljava/math/BigInteger;)V
 
     return-object v3
 
+    .line 372
+    .end local v2    # "rsaKey":Ljava/security/interfaces/RSAPublicKey;
     :cond_0
     :try_start_0
     const-string/jumbo v3, "RSA"
@@ -566,6 +688,8 @@
 
     move-result-object v1
 
+    .line 373
+    .local v1, "factory":Ljava/security/KeyFactory;
     const-class v3, Ljava/security/spec/RSAPublicKeySpec;
 
     invoke-virtual {v1, p0, v3}, Ljava/security/KeyFactory;->getKeySpec(Ljava/security/Key;Ljava/lang/Class;)Ljava/security/spec/KeySpec;
@@ -578,9 +702,13 @@
 
     return-object v3
 
+    .line 374
+    .end local v1    # "factory":Ljava/security/KeyFactory;
     :catch_0
     move-exception v0
 
+    .line 375
+    .local v0, "e":Ljava/lang/Exception;
     new-instance v3, Ljava/lang/RuntimeException;
 
     invoke-direct {v3}, Ljava/lang/RuntimeException;-><init>()V
@@ -597,6 +725,8 @@
 .method static getSHA()Ljava/security/MessageDigest;
     .locals 1
 
+    .prologue
+    .line 338
     const-string/jumbo v0, "SHA"
 
     invoke-static {v0}, Lsun/security/ssl/JsseJce;->getMessageDigest(Ljava/lang/String;)Ljava/security/MessageDigest;
@@ -614,16 +744,20 @@
         }
     .end annotation
 
+    .prologue
+    .line 310
     sget-object v4, Lsun/security/ssl/SunJSSE;->cryptoProvider:Ljava/security/Provider;
 
     if-nez v4, :cond_0
 
+    .line 311
     new-instance v4, Ljava/security/SecureRandom;
 
     invoke-direct {v4}, Ljava/security/SecureRandom;-><init>()V
 
     return-object v4
 
+    .line 316
     :cond_0
     :try_start_0
     const-string/jumbo v4, "PKCS11"
@@ -638,9 +772,12 @@
 
     return-object v4
 
+    .line 317
     :catch_0
     move-exception v0
 
+    .line 320
+    .local v0, "e":Ljava/security/NoSuchAlgorithmException;
     sget-object v4, Lsun/security/ssl/SunJSSE;->cryptoProvider:Ljava/security/Provider;
 
     invoke-virtual {v4}, Ljava/security/Provider;->getServices()Ljava/util/Set;
@@ -651,6 +788,7 @@
 
     move-result-object v3
 
+    .local v3, "s$iterator":Ljava/util/Iterator;
     :cond_1
     :goto_0
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
@@ -665,6 +803,8 @@
 
     check-cast v2, Ljava/security/Provider$Service;
 
+    .line 321
+    .local v2, "s":Ljava/security/Provider$Service;
     invoke-virtual {v2}, Ljava/security/Provider$Service;->getType()Ljava/lang/String;
 
     move-result-object v4
@@ -677,6 +817,7 @@
 
     if-eqz v4, :cond_1
 
+    .line 323
     :try_start_1
     invoke-virtual {v2}, Ljava/security/Provider$Service;->getAlgorithm()Ljava/lang/String;
 
@@ -692,6 +833,8 @@
 
     return-object v4
 
+    .line 329
+    .end local v2    # "s":Ljava/security/Provider$Service;
     :cond_2
     new-instance v4, Ljava/security/KeyManagementException;
 
@@ -705,12 +848,14 @@
 
     move-result-object v5
 
+    .line 330
     sget-object v6, Lsun/security/ssl/SunJSSE;->cryptoProvider:Ljava/security/Provider;
 
     invoke-virtual {v6}, Ljava/security/Provider;->getName()Ljava/lang/String;
 
     move-result-object v6
 
+    .line 329
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
@@ -723,35 +868,44 @@
 
     throw v4
 
+    .line 324
+    .restart local v2    # "s":Ljava/security/Provider$Service;
     :catch_1
     move-exception v1
 
+    .local v1, "ee":Ljava/security/NoSuchAlgorithmException;
     goto :goto_0
 .end method
 
 .method static getSignature(Ljava/lang/String;)Ljava/security/Signature;
     .locals 3
+    .param p0, "algorithm"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/NoSuchAlgorithmException;
         }
     .end annotation
 
+    .prologue
+    .line 240
     sget-object v1, Lsun/security/ssl/SunJSSE;->cryptoProvider:Ljava/security/Provider;
 
     if-nez v1, :cond_0
 
+    .line 241
     invoke-static {p0}, Ljava/security/Signature;->getInstance(Ljava/lang/String;)Ljava/security/Signature;
 
     move-result-object v1
 
     return-object v1
 
+    .line 244
     :cond_0
     const-string/jumbo v1, "MD5andSHA1withRSA"
 
     if-ne p0, v1, :cond_1
 
+    .line 249
     sget-object v1, Lsun/security/ssl/SunJSSE;->cryptoProvider:Ljava/security/Provider;
 
     const-string/jumbo v2, "Signature"
@@ -762,6 +916,7 @@
 
     if-nez v1, :cond_1
 
+    .line 254
     :try_start_0
     const-string/jumbo v1, "SunJSSE"
 
@@ -773,15 +928,20 @@
 
     return-object v1
 
+    .line 255
     :catch_0
     move-exception v0
 
+    .line 256
+    .local v0, "e":Ljava/security/NoSuchProviderException;
     new-instance v1, Ljava/security/NoSuchAlgorithmException;
 
     invoke-direct {v1, v0}, Ljava/security/NoSuchAlgorithmException;-><init>(Ljava/lang/Throwable;)V
 
     throw v1
 
+    .line 260
+    .end local v0    # "e":Ljava/security/NoSuchProviderException;
     :cond_1
     sget-object v1, Lsun/security/ssl/SunJSSE;->cryptoProvider:Ljava/security/Provider;
 
@@ -795,10 +955,12 @@
 .method static declared-synchronized isEcAvailable()Z
     .locals 3
 
+    .prologue
     const-class v2, Lsun/security/ssl/JsseJce;
 
     monitor-enter v2
 
+    .line 194
     :try_start_0
     sget-object v1, Lsun/security/ssl/JsseJce;->ecAvailable:Ljava/lang/Boolean;
     :try_end_0
@@ -806,27 +968,33 @@
 
     if-nez v1, :cond_0
 
+    .line 196
     :try_start_1
     const-string/jumbo v1, "SHA1withECDSA"
 
     invoke-static {v1}, Lsun/security/ssl/JsseJce;->getSignature(Ljava/lang/String;)Ljava/security/Signature;
 
+    .line 197
     const-string/jumbo v1, "NONEwithECDSA"
 
     invoke-static {v1}, Lsun/security/ssl/JsseJce;->getSignature(Ljava/lang/String;)Ljava/security/Signature;
 
+    .line 198
     const-string/jumbo v1, "ECDH"
 
     invoke-static {v1}, Lsun/security/ssl/JsseJce;->getKeyAgreement(Ljava/lang/String;)Ljavax/crypto/KeyAgreement;
 
+    .line 199
     const-string/jumbo v1, "EC"
 
     invoke-static {v1}, Lsun/security/ssl/JsseJce;->getKeyFactory(Ljava/lang/String;)Ljava/security/KeyFactory;
 
+    .line 200
     const-string/jumbo v1, "EC"
 
     invoke-static {v1}, Lsun/security/ssl/JsseJce;->getKeyPairGenerator(Ljava/lang/String;)Ljava/security/KeyPairGenerator;
 
+    .line 201
     const/4 v1, 0x1
 
     invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -838,6 +1006,8 @@
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    .line 206
+    .local v0, "e":Ljava/lang/Exception;
     :cond_0
     :goto_0
     :try_start_2
@@ -853,9 +1023,13 @@
 
     return v1
 
+    .line 202
+    .end local v0    # "e":Ljava/lang/Exception;
     :catch_0
     move-exception v0
 
+    .line 203
+    .restart local v0    # "e":Ljava/lang/Exception;
     const/4 v1, 0x0
 
     :try_start_3
@@ -880,6 +1054,8 @@
 .method static isKerberosAvailable()Z
     .locals 1
 
+    .prologue
+    .line 214
     sget-boolean v0, Lsun/security/ssl/JsseJce;->kerberosAvailable:Z
 
     return v0

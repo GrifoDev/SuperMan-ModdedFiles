@@ -36,7 +36,11 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
+    .param p1, "val$cl"    # Ljava/lang/String;
+    .param p2, "val$type"    # Ljava/lang/String;
 
+    .prologue
+    .line 79
     iput-object p1, p0, Lsun/security/provider/certpath/CertStoreHelper$1;->val$cl:Ljava/lang/String;
 
     iput-object p2, p0, Lsun/security/provider/certpath/CertStoreHelper$1;->val$type:Ljava/lang/String;
@@ -56,6 +60,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 80
     invoke-virtual {p0}, Lsun/security/provider/certpath/CertStoreHelper$1;->run()Lsun/security/provider/certpath/CertStoreHelper;
 
     move-result-object v0
@@ -71,6 +77,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 82
     :try_start_0
     iget-object v3, p0, Lsun/security/provider/certpath/CertStoreHelper$1;->val$cl:Ljava/lang/String;
 
@@ -82,12 +90,16 @@
 
     move-result-object v0
 
+    .line 84
+    .local v0, "c":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-virtual {v0}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Lsun/security/provider/certpath/CertStoreHelper;
 
+    .line 85
+    .local v1, "csh":Lsun/security/provider/certpath/CertStoreHelper;
     invoke-static {}, Lsun/security/provider/certpath/CertStoreHelper;->-get0()Lsun/security/util/Cache;
 
     move-result-object v3
@@ -99,11 +111,17 @@
     .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 86
     return-object v1
 
+    .line 88
+    .end local v0    # "c":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
+    .end local v1    # "csh":Lsun/security/provider/certpath/CertStoreHelper;
     :catch_0
     move-exception v2
 
+    .line 89
+    .local v2, "e":Ljava/lang/ReflectiveOperationException;
     new-instance v3, Ljava/lang/AssertionError;
 
     invoke-direct {v3, v2}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V

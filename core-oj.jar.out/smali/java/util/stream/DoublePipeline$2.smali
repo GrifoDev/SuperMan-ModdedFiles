@@ -32,13 +32,21 @@
 # direct methods
 .method constructor <init>(Ljava/util/stream/DoublePipeline;Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;ILjava/util/function/DoubleFunction;)V
     .locals 0
+    .param p3, "$anonymous1"    # Ljava/util/stream/StreamShape;
+    .param p4, "$anonymous2"    # I
 
+    .prologue
+    .line 208
+    .local p1, "this$0":Ljava/util/stream/DoublePipeline;, "Ljava/util/stream/DoublePipeline<TE_IN;>;"
+    .local p2, "$anonymous0":Ljava/util/stream/AbstractPipeline;, "Ljava/util/stream/AbstractPipeline<*Ljava/lang/Double;*>;"
+    .local p5, "val$mapper":Ljava/util/function/DoubleFunction;, "Ljava/util/function/DoubleFunction<+TU;>;"
     iput-object p1, p0, Ljava/util/stream/DoublePipeline$2;->this$0:Ljava/util/stream/DoublePipeline;
 
     iput-object p5, p0, Ljava/util/stream/DoublePipeline$2;->val$mapper:Ljava/util/function/DoubleFunction;
 
     invoke-direct {p0, p2, p3, p4}, Ljava/util/stream/ReferencePipeline$StatelessOp;-><init>(Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;I)V
 
+    .line 209
     return-void
 .end method
 
@@ -46,6 +54,7 @@
 # virtual methods
 .method public opWrapSink(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;
     .locals 2
+    .param p1, "flags"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -58,6 +67,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 212
+    .local p2, "sink":Ljava/util/stream/Sink;, "Ljava/util/stream/Sink<TU;>;"
     new-instance v0, Ljava/util/stream/DoublePipeline$2$1;
 
     iget-object v1, p0, Ljava/util/stream/DoublePipeline$2;->val$mapper:Ljava/util/function/DoubleFunction;

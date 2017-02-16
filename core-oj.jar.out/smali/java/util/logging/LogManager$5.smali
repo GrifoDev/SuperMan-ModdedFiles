@@ -36,7 +36,11 @@
 # direct methods
 .method constructor <init>(Ljava/util/logging/Logger;Ljava/util/logging/Level;)V
     .locals 0
+    .param p1, "val$logger"    # Ljava/util/logging/Logger;
+    .param p2, "val$level"    # Ljava/util/logging/Level;
 
+    .prologue
+    .line 959
     iput-object p1, p0, Ljava/util/logging/LogManager$5;->val$logger:Ljava/util/logging/Logger;
 
     iput-object p2, p0, Ljava/util/logging/LogManager$5;->val$level:Ljava/util/logging/Level;
@@ -51,12 +55,15 @@
 .method public run()Ljava/lang/Object;
     .locals 2
 
+    .prologue
+    .line 961
     iget-object v0, p0, Ljava/util/logging/LogManager$5;->val$logger:Ljava/util/logging/Logger;
 
     iget-object v1, p0, Ljava/util/logging/LogManager$5;->val$level:Ljava/util/logging/Level;
 
     invoke-virtual {v0, v1}, Ljava/util/logging/Logger;->setLevel(Ljava/util/logging/Level;)V
 
+    .line 962
     const/4 v0, 0x0
 
     return-object v0

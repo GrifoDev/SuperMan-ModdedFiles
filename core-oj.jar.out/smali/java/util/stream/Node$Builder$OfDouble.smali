@@ -36,6 +36,9 @@
 .method public bridge synthetic build()Ljava/util/stream/Node;
     .locals 1
 
+    .prologue
+    .line 220
+    .local p0, "this":Ljava/util/stream/Node$Builder$OfDouble;, "Ljava/util/stream/Node<TT;>.Builder<TT;>.OfDouble;"
     invoke-interface {p0}, Ljava/util/stream/Node$Builder$OfDouble;->build()Ljava/util/stream/Node$OfDouble;
 
     move-result-object v0

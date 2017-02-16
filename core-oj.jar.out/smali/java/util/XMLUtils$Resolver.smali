@@ -21,6 +21,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 188
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -29,6 +31,7 @@
 .method synthetic constructor <init>(Ljava/util/XMLUtils$Resolver;)V
     .locals 0
 
+    .prologue
     invoke-direct {p0}, Ljava/util/XMLUtils$Resolver;-><init>()V
 
     return-void
@@ -38,12 +41,16 @@
 # virtual methods
 .method public resolveEntity(Ljava/lang/String;Ljava/lang/String;)Lorg/xml/sax/InputSource;
     .locals 4
+    .param p1, "pid"    # Ljava/lang/String;
+    .param p2, "sid"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xml/sax/SAXException;
         }
     .end annotation
 
+    .prologue
+    .line 192
     const-string/jumbo v1, "http://java.sun.com/dtd/properties.dtd"
 
     invoke-virtual {p2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -52,6 +59,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 194
     new-instance v0, Lorg/xml/sax/InputSource;
 
     new-instance v1, Ljava/io/StringReader;
@@ -62,12 +70,17 @@
 
     invoke-direct {v0, v1}, Lorg/xml/sax/InputSource;-><init>(Ljava/io/Reader;)V
 
+    .line 195
+    .local v0, "is":Lorg/xml/sax/InputSource;
     const-string/jumbo v1, "http://java.sun.com/dtd/properties.dtd"
 
     invoke-virtual {v0, v1}, Lorg/xml/sax/InputSource;->setSystemId(Ljava/lang/String;)V
 
+    .line 196
     return-object v0
 
+    .line 198
+    .end local v0    # "is":Lorg/xml/sax/InputSource;
     :cond_0
     new-instance v1, Lorg/xml/sax/SAXException;
 

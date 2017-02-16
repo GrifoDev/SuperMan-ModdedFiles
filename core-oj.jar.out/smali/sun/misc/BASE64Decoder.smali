@@ -17,6 +17,8 @@
 .method static constructor <clinit>()V
     .locals 4
 
+    .prologue
+    .line 77
     const/16 v1, 0x40
 
     new-array v1, v1, [C
@@ -25,29 +27,35 @@
 
     sput-object v1, Lsun/misc/BASE64Decoder;->pem_array:[C
 
+    .line 89
     const/16 v1, 0x100
 
     new-array v1, v1, [B
 
     sput-object v1, Lsun/misc/BASE64Decoder;->pem_convert_array:[B
 
+    .line 92
     const/4 v0, 0x0
 
+    .local v0, "i":I
     :goto_0
     const/16 v1, 0xff
 
     if-ge v0, v1, :cond_0
 
+    .line 93
     sget-object v1, Lsun/misc/BASE64Decoder;->pem_convert_array:[B
 
     const/4 v2, -0x1
 
     aput-byte v2, v1, v0
 
+    .line 92
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
+    .line 95
     :cond_0
     const/4 v0, 0x0
 
@@ -58,6 +66,7 @@
 
     if-ge v0, v1, :cond_1
 
+    .line 96
     sget-object v1, Lsun/misc/BASE64Decoder;->pem_convert_array:[B
 
     sget-object v2, Lsun/misc/BASE64Decoder;->pem_array:[C
@@ -68,13 +77,16 @@
 
     aput-byte v3, v1, v2
 
+    .line 95
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
+    .line 61
     :cond_1
     return-void
 
+    .line 77
     nop
 
     :array_0
@@ -149,14 +161,18 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 61
     invoke-direct {p0}, Lsun/misc/CharacterDecoder;-><init>()V
 
+    .line 100
     const/4 v0, 0x4
 
     new-array v0, v0, [B
 
     iput-object v0, p0, Lsun/misc/BASE64Decoder;->decode_buffer:[B
 
+    .line 61
     return-void
 .end method
 
@@ -165,6 +181,8 @@
 .method protected bytesPerAtom()I
     .locals 1
 
+    .prologue
+    .line 65
     const/4 v0, 0x4
 
     return v0
@@ -173,6 +191,8 @@
 .method protected bytesPerLine()I
     .locals 1
 
+    .prologue
+    .line 70
     const/16 v0, 0x48
 
     return v0
@@ -180,12 +200,16 @@
 
 .method protected decodeAtom(Ljava/io/PushbackInputStream;Ljava/io/OutputStream;I)V
     .locals 12
+    .param p1, "inStream"    # Ljava/io/PushbackInputStream;
+    .param p2, "outStream"    # Ljava/io/OutputStream;
+    .param p3, "rem"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
     const/4 v11, 0x1
 
     const/4 v10, 0x0
@@ -196,16 +220,23 @@
 
     const/4 v7, 0x2
 
+    .line 109
     const/4 v0, -0x1
 
+    .local v0, "a":B
     const/4 v1, -0x1
 
+    .local v1, "b":B
     const/4 v2, -0x1
 
+    .local v2, "c":B
     const/4 v3, -0x1
 
+    .line 111
+    .local v3, "d":B
     if-ge p3, v7, :cond_1
 
+    .line 112
     new-instance v5, Lsun/misc/CEFormatException;
 
     const-string/jumbo v6, "BASE64Decoder: Not enough bytes for an atom."
@@ -214,6 +245,8 @@
 
     throw v5
 
+    .line 119
+    .local v4, "i":I
     :cond_0
     const/16 v5, 0xa
 
@@ -223,19 +256,25 @@
 
     if-ne v4, v5, :cond_2
 
+    .line 115
+    .end local v4    # "i":I
     :cond_1
     invoke-virtual {p1}, Ljava/io/PushbackInputStream;->read()I
 
     move-result v4
 
+    .line 116
+    .restart local v4    # "i":I
     if-ne v4, v9, :cond_0
 
+    .line 117
     new-instance v5, Lsun/misc/CEStreamExhausted;
 
     invoke-direct {v5}, Lsun/misc/CEStreamExhausted;-><init>()V
 
     throw v5
 
+    .line 120
     :cond_2
     iget-object v5, p0, Lsun/misc/BASE64Decoder;->decode_buffer:[B
 
@@ -243,6 +282,7 @@
 
     aput-byte v6, v5, v10
 
+    .line 122
     iget-object v5, p0, Lsun/misc/BASE64Decoder;->decode_buffer:[B
 
     add-int/lit8 v6, p3, -0x1
@@ -251,14 +291,17 @@
 
     move-result v4
 
+    .line 123
     if-ne v4, v9, :cond_3
 
+    .line 124
     new-instance v5, Lsun/misc/CEStreamExhausted;
 
     invoke-direct {v5}, Lsun/misc/CEStreamExhausted;-><init>()V
 
     throw v5
 
+    .line 127
     :cond_3
     if-le p3, v8, :cond_4
 
@@ -270,8 +313,10 @@
 
     if-ne v5, v6, :cond_4
 
+    .line 128
     const/4 p3, 0x3
 
+    .line 130
     :cond_4
     if-le p3, v7, :cond_5
 
@@ -283,17 +328,30 @@
 
     if-ne v5, v6, :cond_5
 
+    .line 131
     const/4 p3, 0x2
 
+    .line 133
     :cond_5
     packed-switch p3, :pswitch_data_0
 
+    .line 146
+    .end local v0    # "a":B
+    .end local v1    # "b":B
+    .end local v2    # "c":B
+    .end local v3    # "d":B
     :goto_0
     packed-switch p3, :pswitch_data_1
 
+    .line 160
     :goto_1
     return-void
 
+    .line 135
+    .restart local v0    # "a":B
+    .restart local v1    # "b":B
+    .restart local v2    # "c":B
+    .restart local v3    # "d":B
     :pswitch_0
     sget-object v5, Lsun/misc/BASE64Decoder;->pem_convert_array:[B
 
@@ -305,6 +363,8 @@
 
     aget-byte v3, v5, v6
 
+    .line 138
+    .end local v3    # "d":B
     :pswitch_1
     sget-object v5, Lsun/misc/BASE64Decoder;->pem_convert_array:[B
 
@@ -316,6 +376,8 @@
 
     aget-byte v2, v5, v6
 
+    .line 141
+    .end local v2    # "c":B
     :pswitch_2
     sget-object v5, Lsun/misc/BASE64Decoder;->pem_convert_array:[B
 
@@ -327,6 +389,8 @@
 
     aget-byte v1, v5, v6
 
+    .line 142
+    .local v1, "b":B
     sget-object v5, Lsun/misc/BASE64Decoder;->pem_convert_array:[B
 
     iget-object v6, p0, Lsun/misc/BASE64Decoder;->decode_buffer:[B
@@ -337,8 +401,12 @@
 
     aget-byte v0, v5, v6
 
+    .local v0, "a":B
     goto :goto_0
 
+    .line 148
+    .end local v0    # "a":B
+    .end local v1    # "b":B
     :pswitch_3
     shl-int/lit8 v5, v0, 0x2
 
@@ -356,6 +424,7 @@
 
     goto :goto_1
 
+    .line 151
     :pswitch_4
     shl-int/lit8 v5, v0, 0x2
 
@@ -371,6 +440,7 @@
 
     invoke-virtual {p2, v5}, Ljava/io/OutputStream;->write(I)V
 
+    .line 152
     shl-int/lit8 v5, v1, 0x4
 
     and-int/lit16 v5, v5, 0xf0
@@ -387,6 +457,7 @@
 
     goto :goto_1
 
+    .line 155
     :pswitch_5
     shl-int/lit8 v5, v0, 0x2
 
@@ -402,6 +473,7 @@
 
     invoke-virtual {p2, v5}, Ljava/io/OutputStream;->write(I)V
 
+    .line 156
     shl-int/lit8 v5, v1, 0x4
 
     and-int/lit16 v5, v5, 0xf0
@@ -416,6 +488,7 @@
 
     invoke-virtual {p2, v5}, Ljava/io/OutputStream;->write(I)V
 
+    .line 157
     shl-int/lit8 v5, v2, 0x6
 
     and-int/lit16 v5, v5, 0xc0
@@ -430,6 +503,7 @@
 
     goto :goto_1
 
+    .line 133
     :pswitch_data_0
     .packed-switch 0x2
         :pswitch_2
@@ -437,6 +511,7 @@
         :pswitch_0
     .end packed-switch
 
+    .line 146
     :pswitch_data_1
     .packed-switch 0x2
         :pswitch_3

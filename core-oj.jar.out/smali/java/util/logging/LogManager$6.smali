@@ -36,7 +36,11 @@
 # direct methods
 .method constructor <init>(Ljava/util/logging/Logger;Ljava/util/logging/Logger;)V
     .locals 0
+    .param p1, "val$logger"    # Ljava/util/logging/Logger;
+    .param p2, "val$parent"    # Ljava/util/logging/Logger;
 
+    .prologue
+    .line 977
     iput-object p1, p0, Ljava/util/logging/LogManager$6;->val$logger:Ljava/util/logging/Logger;
 
     iput-object p2, p0, Ljava/util/logging/LogManager$6;->val$parent:Ljava/util/logging/Logger;
@@ -51,12 +55,15 @@
 .method public run()Ljava/lang/Object;
     .locals 2
 
+    .prologue
+    .line 979
     iget-object v0, p0, Ljava/util/logging/LogManager$6;->val$logger:Ljava/util/logging/Logger;
 
     iget-object v1, p0, Ljava/util/logging/LogManager$6;->val$parent:Ljava/util/logging/Logger;
 
     invoke-virtual {v0, v1}, Ljava/util/logging/Logger;->setParent(Ljava/util/logging/Logger;)V
 
+    .line 980
     const/4 v0, 0x0
 
     return-object v0

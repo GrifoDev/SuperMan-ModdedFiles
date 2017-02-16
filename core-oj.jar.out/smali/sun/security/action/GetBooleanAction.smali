@@ -25,11 +25,16 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 0
+    .param p1, "theProp"    # Ljava/lang/String;
 
+    .prologue
+    .line 59
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 60
     iput-object p1, p0, Lsun/security/action/GetBooleanAction;->theProp:Ljava/lang/String;
 
+    .line 59
     return-void
 .end method
 
@@ -38,6 +43,8 @@
 .method public run()Ljava/lang/Boolean;
     .locals 1
 
+    .prologue
+    .line 70
     iget-object v0, p0, Lsun/security/action/GetBooleanAction;->theProp:Ljava/lang/String;
 
     invoke-static {v0}, Ljava/lang/Boolean;->getBoolean(Ljava/lang/String;)Z
@@ -54,6 +61,8 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 69
     invoke-virtual {p0}, Lsun/security/action/GetBooleanAction;->run()Ljava/lang/Boolean;
 
     move-result-object v0

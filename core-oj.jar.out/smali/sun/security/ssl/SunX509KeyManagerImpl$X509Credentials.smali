@@ -34,13 +34,20 @@
 # direct methods
 .method constructor <init>(Ljava/security/PrivateKey;[Ljava/security/cert/X509Certificate;)V
     .locals 0
+    .param p1, "privateKey"    # Ljava/security/PrivateKey;
+    .param p2, "certificates"    # [Ljava/security/cert/X509Certificate;
 
+    .prologue
+    .line 97
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 99
     iput-object p1, p0, Lsun/security/ssl/SunX509KeyManagerImpl$X509Credentials;->privateKey:Ljava/security/PrivateKey;
 
+    .line 100
     iput-object p2, p0, Lsun/security/ssl/SunX509KeyManagerImpl$X509Credentials;->certificates:[Ljava/security/cert/X509Certificate;
 
+    .line 97
     return-void
 .end method
 
@@ -58,21 +65,26 @@
         }
     .end annotation
 
+    .prologue
     monitor-enter p0
 
+    .line 105
     :try_start_0
     iget-object v1, p0, Lsun/security/ssl/SunX509KeyManagerImpl$X509Credentials;->issuerX500Principals:Ljava/util/Set;
 
     if-nez v1, :cond_0
 
+    .line 106
     new-instance v1, Ljava/util/HashSet;
 
     invoke-direct {v1}, Ljava/util/HashSet;-><init>()V
 
     iput-object v1, p0, Lsun/security/ssl/SunX509KeyManagerImpl$X509Credentials;->issuerX500Principals:Ljava/util/Set;
 
+    .line 107
     const/4 v0, 0x0
 
+    .local v0, "i":I
     :goto_0
     iget-object v1, p0, Lsun/security/ssl/SunX509KeyManagerImpl$X509Credentials;->certificates:[Ljava/security/cert/X509Certificate;
 
@@ -80,8 +92,10 @@
 
     if-ge v0, v1, :cond_0
 
+    .line 108
     iget-object v1, p0, Lsun/security/ssl/SunX509KeyManagerImpl$X509Credentials;->issuerX500Principals:Ljava/util/Set;
 
+    .line 109
     iget-object v2, p0, Lsun/security/ssl/SunX509KeyManagerImpl$X509Credentials;->certificates:[Ljava/security/cert/X509Certificate;
 
     aget-object v2, v2, v0
@@ -90,12 +104,16 @@
 
     move-result-object v2
 
+    .line 108
     invoke-interface {v1, v2}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
+    .line 107
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
+    .line 112
+    .end local v0    # "i":I
     :cond_0
     iget-object v1, p0, Lsun/security/ssl/SunX509KeyManagerImpl$X509Credentials;->issuerX500Principals:Ljava/util/Set;
     :try_end_0

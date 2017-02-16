@@ -21,6 +21,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 60
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -30,7 +32,11 @@
 # virtual methods
 .method public shouldAccept(Ljava/net/URI;Ljava/net/HttpCookie;)Z
     .locals 2
+    .param p1, "uri"    # Ljava/net/URI;
+    .param p2, "cookie"    # Ljava/net/HttpCookie;
 
+    .prologue
+    .line 62
     invoke-virtual {p2}, Ljava/net/HttpCookie;->getDomain()Ljava/lang/String;
 
     move-result-object v0

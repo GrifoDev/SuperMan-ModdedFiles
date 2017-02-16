@@ -28,36 +28,44 @@
 .method static constructor <clinit>()V
     .locals 5
 
+    .prologue
     const/4 v4, 0x2
 
     const/4 v3, 0x1
 
     const/4 v2, 0x0
 
+    .line 38
     new-instance v0, Ljava/lang/annotation/RetentionPolicy;
 
     const-string/jumbo v1, "SOURCE"
 
     invoke-direct {v0, v1, v2}, Ljava/lang/annotation/RetentionPolicy;-><init>(Ljava/lang/String;I)V
 
+    .line 41
     sput-object v0, Ljava/lang/annotation/RetentionPolicy;->SOURCE:Ljava/lang/annotation/RetentionPolicy;
 
+    .line 43
     new-instance v0, Ljava/lang/annotation/RetentionPolicy;
 
     const-string/jumbo v1, "CLASS"
 
     invoke-direct {v0, v1, v3}, Ljava/lang/annotation/RetentionPolicy;-><init>(Ljava/lang/String;I)V
 
+    .line 48
     sput-object v0, Ljava/lang/annotation/RetentionPolicy;->CLASS:Ljava/lang/annotation/RetentionPolicy;
 
+    .line 50
     new-instance v0, Ljava/lang/annotation/RetentionPolicy;
 
     const-string/jumbo v1, "RUNTIME"
 
     invoke-direct {v0, v1, v4}, Ljava/lang/annotation/RetentionPolicy;-><init>(Ljava/lang/String;I)V
 
+    .line 56
     sput-object v0, Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
 
+    .line 37
     const/4 v0, 0x3
 
     new-array v0, v0, [Ljava/lang/annotation/RetentionPolicy;
@@ -82,6 +90,8 @@
 .method private constructor <init>(Ljava/lang/String;I)V
     .locals 0
 
+    .prologue
+    .line 37
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -89,7 +99,10 @@
 
 .method public static valueOf(Ljava/lang/String;)Ljava/lang/annotation/RetentionPolicy;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 37
     const-class v0, Ljava/lang/annotation/RetentionPolicy;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -104,6 +117,8 @@
 .method public static values()[Ljava/lang/annotation/RetentionPolicy;
     .locals 1
 
+    .prologue
+    .line 37
     sget-object v0, Ljava/lang/annotation/RetentionPolicy;->$VALUES:[Ljava/lang/annotation/RetentionPolicy;
 
     return-object v0

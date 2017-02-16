@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lsun/net/www/protocol/http/NegotiateAuthentication;)V
     .locals 0
+    .param p1, "this$0"    # Lsun/net/www/protocol/http/NegotiateAuthentication;
 
+    .prologue
+    .line 204
     iput-object p1, p0, Lsun/net/www/protocol/http/NegotiateAuthentication$B64Encoder;->this$0:Lsun/net/www/protocol/http/NegotiateAuthentication;
 
     invoke-direct {p0}, Lsun/misc/BASE64Encoder;-><init>()V
@@ -34,6 +37,8 @@
 .method protected bytesPerLine()I
     .locals 1
 
+    .prologue
+    .line 206
     const v0, 0x186a0
 
     return v0

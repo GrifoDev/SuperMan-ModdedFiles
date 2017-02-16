@@ -29,6 +29,10 @@
 .method private constructor <init>(Ljava/util/WeakHashMap;)V
     .locals 0
 
+    .prologue
+    .line 854
+    .local p0, "this":Ljava/util/WeakHashMap$KeySet;, "Ljava/util/WeakHashMap<TK;TV;>.KeySet;"
+    .local p1, "this$0":Ljava/util/WeakHashMap;, "Ljava/util/WeakHashMap<TK;TV;>;"
     iput-object p1, p0, Ljava/util/WeakHashMap$KeySet;->this$0:Ljava/util/WeakHashMap;
 
     invoke-direct {p0}, Ljava/util/AbstractSet;-><init>()V
@@ -38,7 +42,10 @@
 
 .method synthetic constructor <init>(Ljava/util/WeakHashMap;Ljava/util/WeakHashMap$KeySet;)V
     .locals 0
+    .param p1, "this$0"    # Ljava/util/WeakHashMap;
 
+    .prologue
+    .local p0, "this":Ljava/util/WeakHashMap$KeySet;, "Ljava/util/WeakHashMap<TK;TV;>.KeySet;"
     invoke-direct {p0, p1}, Ljava/util/WeakHashMap$KeySet;-><init>(Ljava/util/WeakHashMap;)V
 
     return-void
@@ -49,16 +56,24 @@
 .method public clear()V
     .locals 1
 
+    .prologue
+    .line 877
+    .local p0, "this":Ljava/util/WeakHashMap$KeySet;, "Ljava/util/WeakHashMap<TK;TV;>.KeySet;"
     iget-object v0, p0, Ljava/util/WeakHashMap$KeySet;->this$0:Ljava/util/WeakHashMap;
 
     invoke-virtual {v0}, Ljava/util/WeakHashMap;->clear()V
 
+    .line 876
     return-void
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
+    .param p1, "o"    # Ljava/lang/Object;
 
+    .prologue
+    .line 864
+    .local p0, "this":Ljava/util/WeakHashMap$KeySet;, "Ljava/util/WeakHashMap<TK;TV;>.KeySet;"
     iget-object v0, p0, Ljava/util/WeakHashMap$KeySet;->this$0:Ljava/util/WeakHashMap;
 
     invoke-virtual {v0, p1}, Ljava/util/WeakHashMap;->containsKey(Ljava/lang/Object;)Z
@@ -78,6 +93,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 856
+    .local p0, "this":Ljava/util/WeakHashMap$KeySet;, "Ljava/util/WeakHashMap<TK;TV;>.KeySet;"
     new-instance v0, Ljava/util/WeakHashMap$KeyIterator;
 
     iget-object v1, p0, Ljava/util/WeakHashMap$KeySet;->this$0:Ljava/util/WeakHashMap;
@@ -91,7 +109,11 @@
 
 .method public remove(Ljava/lang/Object;)Z
     .locals 1
+    .param p1, "o"    # Ljava/lang/Object;
 
+    .prologue
+    .line 868
+    .local p0, "this":Ljava/util/WeakHashMap$KeySet;, "Ljava/util/WeakHashMap<TK;TV;>.KeySet;"
     iget-object v0, p0, Ljava/util/WeakHashMap$KeySet;->this$0:Ljava/util/WeakHashMap;
 
     invoke-virtual {v0, p1}, Ljava/util/WeakHashMap;->containsKey(Ljava/lang/Object;)Z
@@ -100,14 +122,17 @@
 
     if-eqz v0, :cond_0
 
+    .line 869
     iget-object v0, p0, Ljava/util/WeakHashMap$KeySet;->this$0:Ljava/util/WeakHashMap;
 
     invoke-virtual {v0, p1}, Ljava/util/WeakHashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 870
     const/4 v0, 0x1
 
     return v0
 
+    .line 873
     :cond_0
     const/4 v0, 0x0
 
@@ -117,6 +142,9 @@
 .method public size()I
     .locals 1
 
+    .prologue
+    .line 860
+    .local p0, "this":Ljava/util/WeakHashMap$KeySet;, "Ljava/util/WeakHashMap<TK;TV;>.KeySet;"
     iget-object v0, p0, Ljava/util/WeakHashMap$KeySet;->this$0:Ljava/util/WeakHashMap;
 
     invoke-virtual {v0}, Ljava/util/WeakHashMap;->size()I
@@ -136,8 +164,11 @@
         }
     .end annotation
 
+    .prologue
+    .local p0, "this":Ljava/util/WeakHashMap$KeySet;, "Ljava/util/WeakHashMap<TK;TV;>.KeySet;"
     const/4 v2, 0x0
 
+    .line 881
     new-instance v0, Ljava/util/WeakHashMap$KeySpliterator;
 
     iget-object v1, p0, Ljava/util/WeakHashMap$KeySet;->this$0:Ljava/util/WeakHashMap;

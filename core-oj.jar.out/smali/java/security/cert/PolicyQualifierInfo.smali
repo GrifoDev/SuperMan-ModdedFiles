@@ -16,18 +16,22 @@
 # direct methods
 .method public constructor <init>([B)V
     .locals 6
+    .param p1, "encoded"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
     const/4 v5, 0x0
 
     const/4 v4, 0x0
 
+    .line 100
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 101
     invoke-virtual {p1}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v2
@@ -36,18 +40,22 @@
 
     iput-object v2, p0, Ljava/security/cert/PolicyQualifierInfo;->mEncoded:[B
 
+    .line 103
     new-instance v1, Lsun/security/util/DerValue;
 
     iget-object v2, p0, Ljava/security/cert/PolicyQualifierInfo;->mEncoded:[B
 
     invoke-direct {v1, v2}, Lsun/security/util/DerValue;-><init>([B)V
 
+    .line 104
+    .local v1, "val":Lsun/security/util/DerValue;
     iget-byte v2, v1, Lsun/security/util/DerValue;->tag:B
 
     const/16 v3, 0x30
 
     if-eq v2, v3, :cond_0
 
+    .line 105
     new-instance v2, Ljava/io/IOException;
 
     const-string/jumbo v3, "Invalid encoding for PolicyQualifierInfo"
@@ -56,6 +64,7 @@
 
     throw v2
 
+    .line 107
     :cond_0
     iget-object v2, v1, Lsun/security/util/DerValue;->data:Lsun/security/util/DerInputStream;
 
@@ -73,19 +82,25 @@
 
     iput-object v2, p0, Ljava/security/cert/PolicyQualifierInfo;->mId:Ljava/lang/String;
 
+    .line 108
     iget-object v2, v1, Lsun/security/util/DerValue;->data:Lsun/security/util/DerInputStream;
 
     invoke-virtual {v2}, Lsun/security/util/DerInputStream;->toByteArray()[B
 
     move-result-object v0
 
+    .line 109
+    .local v0, "tmp":[B
     if-nez v0, :cond_1
 
+    .line 110
     iput-object v5, p0, Ljava/security/cert/PolicyQualifierInfo;->mData:[B
 
+    .line 100
     :goto_0
     return-void
 
+    .line 112
     :cond_1
     array-length v2, v0
 
@@ -93,6 +108,7 @@
 
     iput-object v2, p0, Ljava/security/cert/PolicyQualifierInfo;->mData:[B
 
+    .line 113
     iget-object v2, p0, Ljava/security/cert/PolicyQualifierInfo;->mData:[B
 
     array-length v3, v0
@@ -107,6 +123,8 @@
 .method public final getEncoded()[B
     .locals 1
 
+    .prologue
+    .line 138
     iget-object v0, p0, Ljava/security/cert/PolicyQualifierInfo;->mEncoded:[B
 
     invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
@@ -121,8 +139,10 @@
 .method public final getPolicyQualifier()[B
     .locals 2
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 150
     iget-object v1, p0, Ljava/security/cert/PolicyQualifierInfo;->mData:[B
 
     if-nez v1, :cond_0
@@ -145,6 +165,8 @@
 .method public final getPolicyQualifierId()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 126
     iget-object v0, p0, Ljava/security/cert/PolicyQualifierInfo;->mId:Ljava/lang/String;
 
     return-object v0
@@ -153,27 +175,36 @@
 .method public toString()Ljava/lang/String;
     .locals 4
 
+    .prologue
+    .line 161
     iget-object v2, p0, Ljava/security/cert/PolicyQualifierInfo;->pqiString:Ljava/lang/String;
 
     if-eqz v2, :cond_0
 
+    .line 162
     iget-object v2, p0, Ljava/security/cert/PolicyQualifierInfo;->pqiString:Ljava/lang/String;
 
     return-object v2
 
+    .line 163
     :cond_0
     new-instance v0, Lsun/misc/HexDumpEncoder;
 
     invoke-direct {v0}, Lsun/misc/HexDumpEncoder;-><init>()V
 
+    .line 164
+    .local v0, "enc":Lsun/misc/HexDumpEncoder;
     new-instance v1, Ljava/lang/StringBuffer;
 
     invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
 
+    .line 165
+    .local v1, "sb":Ljava/lang/StringBuffer;
     const-string/jumbo v2, "PolicyQualifierInfo: [\n"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
+    .line 166
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -202,6 +233,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
+    .line 167
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -212,19 +244,23 @@
 
     move-result-object v3
 
+    .line 168
     iget-object v2, p0, Ljava/security/cert/PolicyQualifierInfo;->mData:[B
 
     if-nez v2, :cond_1
 
     const-string/jumbo v2, "null"
 
+    .line 167
     :goto_0
     invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
+    .line 168
     const-string/jumbo v3, "\n"
 
+    .line 167
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
@@ -235,20 +271,24 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
+    .line 169
     const-string/jumbo v2, "]"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
+    .line 170
     invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v2
 
     iput-object v2, p0, Ljava/security/cert/PolicyQualifierInfo;->pqiString:Ljava/lang/String;
 
+    .line 171
     iget-object v2, p0, Ljava/security/cert/PolicyQualifierInfo;->pqiString:Ljava/lang/String;
 
     return-object v2
 
+    .line 168
     :cond_1
     iget-object v2, p0, Ljava/security/cert/PolicyQualifierInfo;->mData:[B
 

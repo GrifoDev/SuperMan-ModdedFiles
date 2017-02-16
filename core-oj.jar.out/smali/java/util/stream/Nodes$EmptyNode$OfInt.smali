@@ -33,6 +33,9 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 589
+    .local p0, "this":Ljava/util/stream/Nodes$EmptyNode$OfInt;, "Ljava/util/stream/Nodes$EmptyNode<TT;TT_ARR;TT_CONS;>.OfInt;"
     invoke-direct {p0}, Ljava/util/stream/Nodes$EmptyNode;-><init>()V
 
     return-void
@@ -43,6 +46,9 @@
 .method public bridge synthetic asPrimitiveArray()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 597
+    .local p0, "this":Ljava/util/stream/Nodes$EmptyNode$OfInt;, "Ljava/util/stream/Nodes$EmptyNode<TT;TT_ARR;TT_CONS;>.OfInt;"
     invoke-virtual {p0}, Ljava/util/stream/Nodes$EmptyNode$OfInt;->asPrimitiveArray()[I
 
     move-result-object v0
@@ -53,6 +59,9 @@
 .method public asPrimitiveArray()[I
     .locals 1
 
+    .prologue
+    .line 598
+    .local p0, "this":Ljava/util/stream/Nodes$EmptyNode$OfInt;, "Ljava/util/stream/Nodes$EmptyNode<TT;TT_ARR;TT_CONS;>.OfInt;"
     invoke-static {}, Ljava/util/stream/Nodes;->-get1()[I
 
     move-result-object v0
@@ -62,7 +71,11 @@
 
 .method public bridge synthetic newArray(I)Ljava/lang/Object;
     .locals 1
+    .param p1, "count"    # I
 
+    .prologue
+    .line 370
+    .local p0, "this":Ljava/util/stream/Nodes$EmptyNode$OfInt;, "Ljava/util/stream/Nodes$EmptyNode<TT;TT_ARR;TT_CONS;>.OfInt;"
     invoke-interface {p0, p1}, Ljava/util/stream/Node$OfInt;->newArray(I)[I
 
     move-result-object v0
@@ -73,6 +86,9 @@
 .method public spliterator()Ljava/util/Spliterator$OfInt;
     .locals 1
 
+    .prologue
+    .line 593
+    .local p0, "this":Ljava/util/stream/Nodes$EmptyNode$OfInt;, "Ljava/util/stream/Nodes$EmptyNode<TT;TT_ARR;TT_CONS;>.OfInt;"
     invoke-static {}, Ljava/util/Spliterators;->emptyIntSpliterator()Ljava/util/Spliterator$OfInt;
 
     move-result-object v0
@@ -83,6 +99,9 @@
 .method public bridge synthetic spliterator()Ljava/util/Spliterator$OfPrimitive;
     .locals 1
 
+    .prologue
+    .line 592
+    .local p0, "this":Ljava/util/stream/Nodes$EmptyNode$OfInt;, "Ljava/util/stream/Nodes$EmptyNode<TT;TT_ARR;TT_CONS;>.OfInt;"
     invoke-virtual {p0}, Ljava/util/stream/Nodes$EmptyNode$OfInt;->spliterator()Ljava/util/Spliterator$OfInt;
 
     move-result-object v0
@@ -93,6 +112,9 @@
 .method public bridge synthetic spliterator()Ljava/util/Spliterator;
     .locals 1
 
+    .prologue
+    .line 592
+    .local p0, "this":Ljava/util/stream/Nodes$EmptyNode$OfInt;, "Ljava/util/stream/Nodes$EmptyNode<TT;TT_ARR;TT_CONS;>.OfInt;"
     invoke-virtual {p0}, Ljava/util/stream/Nodes$EmptyNode$OfInt;->spliterator()Ljava/util/Spliterator$OfInt;
 
     move-result-object v0
@@ -102,7 +124,13 @@
 
 .method public bridge synthetic truncate(JJLjava/util/function/IntFunction;)Ljava/util/stream/Node$OfPrimitive;
     .locals 1
+    .param p1, "from"    # J
+    .param p3, "to"    # J
+    .param p5, "generator"    # Ljava/util/function/IntFunction;
 
+    .prologue
+    .line 356
+    .local p0, "this":Ljava/util/stream/Nodes$EmptyNode$OfInt;, "Ljava/util/stream/Nodes$EmptyNode<TT;TT_ARR;TT_CONS;>.OfInt;"
     invoke-interface/range {p0 .. p5}, Ljava/util/stream/Node$OfInt;->truncate(JJLjava/util/function/IntFunction;)Ljava/util/stream/Node$OfInt;
 
     move-result-object v0

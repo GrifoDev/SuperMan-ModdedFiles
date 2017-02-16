@@ -45,6 +45,7 @@
 .method static constructor <clinit>()V
     .locals 8
 
+    .prologue
     const/4 v7, 0x4
 
     const/4 v6, 0x3
@@ -55,6 +56,7 @@
 
     const/4 v3, 0x0
 
+    .line 124
     new-instance v0, Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;
 
     const-string/jumbo v1, "SUCCESSFUL"
@@ -69,6 +71,7 @@
 
     invoke-direct {v0, v1, v4}, Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;-><init>(Ljava/lang/String;I)V
 
+    .line 125
     sput-object v0, Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;->MALFORMED_REQUEST:Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;
 
     new-instance v0, Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;
@@ -77,6 +80,7 @@
 
     invoke-direct {v0, v1, v5}, Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;-><init>(Ljava/lang/String;I)V
 
+    .line 126
     sput-object v0, Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;->INTERNAL_ERROR:Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;
 
     new-instance v0, Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;
@@ -85,6 +89,7 @@
 
     invoke-direct {v0, v1, v6}, Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;-><init>(Ljava/lang/String;I)V
 
+    .line 127
     sput-object v0, Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;->TRY_LATER:Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;
 
     new-instance v0, Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;
@@ -93,6 +98,7 @@
 
     invoke-direct {v0, v1, v7}, Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;-><init>(Ljava/lang/String;I)V
 
+    .line 128
     sput-object v0, Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;->UNUSED:Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;
 
     new-instance v0, Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;
@@ -103,6 +109,7 @@
 
     invoke-direct {v0, v1, v2}, Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;-><init>(Ljava/lang/String;I)V
 
+    .line 129
     sput-object v0, Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;->SIG_REQUIRED:Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;
 
     new-instance v0, Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;
@@ -113,8 +120,10 @@
 
     invoke-direct {v0, v1, v2}, Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;-><init>(Ljava/lang/String;I)V
 
+    .line 130
     sput-object v0, Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;->UNAUTHORIZED:Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;
 
+    .line 123
     const/4 v0, 0x7
 
     new-array v0, v0, [Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;
@@ -159,6 +168,8 @@
 .method private constructor <init>(Ljava/lang/String;I)V
     .locals 0
 
+    .prologue
+    .line 123
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -166,7 +177,10 @@
 
 .method public static valueOf(Ljava/lang/String;)Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 123
     const-class v0, Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -181,6 +195,8 @@
 .method public static values()[Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;
     .locals 1
 
+    .prologue
+    .line 123
     sget-object v0, Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;->$VALUES:[Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;
 
     return-object v0

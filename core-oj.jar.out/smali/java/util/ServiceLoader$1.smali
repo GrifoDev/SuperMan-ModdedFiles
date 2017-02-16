@@ -46,10 +46,14 @@
 .method constructor <init>(Ljava/util/ServiceLoader;)V
     .locals 1
 
+    .prologue
+    .line 434
+    .local p1, "this$0":Ljava/util/ServiceLoader;, "Ljava/util/ServiceLoader<TS;>;"
     iput-object p1, p0, Ljava/util/ServiceLoader$1;->this$0:Ljava/util/ServiceLoader;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 437
     iget-object v0, p0, Ljava/util/ServiceLoader$1;->this$0:Ljava/util/ServiceLoader;
 
     invoke-static {v0}, Ljava/util/ServiceLoader;->-get1(Ljava/util/ServiceLoader;)Ljava/util/LinkedHashMap;
@@ -64,8 +68,10 @@
 
     move-result-object v0
 
+    .line 436
     iput-object v0, p0, Ljava/util/ServiceLoader$1;->knownProviders:Ljava/util/Iterator;
 
+    .line 434
     return-void
 .end method
 
@@ -74,6 +80,8 @@
 .method public hasNext()Z
     .locals 1
 
+    .prologue
+    .line 440
     iget-object v0, p0, Ljava/util/ServiceLoader$1;->knownProviders:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -82,10 +90,12 @@
 
     if-eqz v0, :cond_0
 
+    .line 441
     const/4 v0, 0x1
 
     return v0
 
+    .line 442
     :cond_0
     iget-object v0, p0, Ljava/util/ServiceLoader$1;->this$0:Ljava/util/ServiceLoader;
 
@@ -108,6 +118,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 446
     iget-object v0, p0, Ljava/util/ServiceLoader$1;->knownProviders:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -116,6 +128,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 447
     iget-object v0, p0, Ljava/util/ServiceLoader$1;->knownProviders:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -130,6 +143,7 @@
 
     return-object v0
 
+    .line 448
     :cond_0
     iget-object v0, p0, Ljava/util/ServiceLoader$1;->this$0:Ljava/util/ServiceLoader;
 
@@ -147,6 +161,8 @@
 .method public remove()V
     .locals 1
 
+    .prologue
+    .line 452
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V

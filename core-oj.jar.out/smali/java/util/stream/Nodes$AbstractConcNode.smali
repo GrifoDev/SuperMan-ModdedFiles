@@ -59,12 +59,20 @@
         }
     .end annotation
 
+    .prologue
+    .line 750
+    .local p0, "this":Ljava/util/stream/Nodes$AbstractConcNode;, "Ljava/util/stream/Nodes$AbstractConcNode<TT;TT_NODE;>;"
+    .local p1, "left":Ljava/util/stream/Node;, "TT_NODE;"
+    .local p2, "right":Ljava/util/stream/Node;, "TT_NODE;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 751
     iput-object p1, p0, Ljava/util/stream/Nodes$AbstractConcNode;->left:Ljava/util/stream/Node;
 
+    .line 752
     iput-object p2, p0, Ljava/util/stream/Nodes$AbstractConcNode;->right:Ljava/util/stream/Node;
 
+    .line 757
     invoke-interface {p1}, Ljava/util/stream/Node;->count()J
 
     move-result-wide v0
@@ -77,6 +85,7 @@
 
     iput-wide v0, p0, Ljava/util/stream/Nodes$AbstractConcNode;->size:J
 
+    .line 750
     return-void
 .end method
 
@@ -85,6 +94,9 @@
 .method public count()J
     .locals 2
 
+    .prologue
+    .line 774
+    .local p0, "this":Ljava/util/stream/Nodes$AbstractConcNode;, "Ljava/util/stream/Nodes$AbstractConcNode<TT;TT_NODE;>;"
     iget-wide v0, p0, Ljava/util/stream/Nodes$AbstractConcNode;->size:J
 
     return-wide v0
@@ -92,18 +104,23 @@
 
 .method public getChild(I)Ljava/util/stream/Node;
     .locals 1
+    .param p1, "i"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)TT_NODE;"
         }
     .end annotation
 
+    .prologue
+    .line 767
+    .local p0, "this":Ljava/util/stream/Nodes$AbstractConcNode;, "Ljava/util/stream/Nodes$AbstractConcNode<TT;TT_NODE;>;"
     if-nez p1, :cond_0
 
     iget-object v0, p0, Ljava/util/stream/Nodes$AbstractConcNode;->left:Ljava/util/stream/Node;
 
     return-object v0
 
+    .line 768
     :cond_0
     const/4 v0, 0x1
 
@@ -113,6 +130,7 @@
 
     return-object v0
 
+    .line 769
     :cond_1
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
@@ -124,6 +142,9 @@
 .method public getChildCount()I
     .locals 1
 
+    .prologue
+    .line 762
+    .local p0, "this":Ljava/util/stream/Nodes$AbstractConcNode;, "Ljava/util/stream/Nodes$AbstractConcNode<TT;TT_NODE;>;"
     const/4 v0, 0x2
 
     return v0

@@ -32,7 +32,12 @@
 # direct methods
 .method constructor <init>(Ljava/util/stream/IntPipeline$6;Ljava/util/stream/Sink;Ljava/util/function/IntToDoubleFunction;)V
     .locals 0
+    .param p1, "this$1"    # Ljava/util/stream/IntPipeline$6;
+    .param p3, "val$mapper"    # Ljava/util/function/IntToDoubleFunction;
 
+    .prologue
+    .line 282
+    .local p2, "$anonymous0":Ljava/util/stream/Sink;, "Ljava/util/stream/Sink<-Ljava/lang/Double;>;"
     iput-object p1, p0, Ljava/util/stream/IntPipeline$6$1;->this$1:Ljava/util/stream/IntPipeline$6;
 
     iput-object p3, p0, Ljava/util/stream/IntPipeline$6$1;->val$mapper:Ljava/util/function/IntToDoubleFunction;
@@ -46,7 +51,10 @@
 # virtual methods
 .method public accept(I)V
     .locals 4
+    .param p1, "t"    # I
 
+    .prologue
+    .line 285
     iget-object v0, p0, Ljava/util/stream/Sink$ChainedInt;->downstream:Ljava/util/stream/Sink;
 
     iget-object v1, p0, Ljava/util/stream/IntPipeline$6$1;->val$mapper:Ljava/util/function/IntToDoubleFunction;
@@ -57,5 +65,6 @@
 
     invoke-interface {v0, v2, v3}, Ljava/util/stream/Sink;->accept(D)V
 
+    .line 284
     return-void
 .end method

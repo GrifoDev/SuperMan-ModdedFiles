@@ -67,6 +67,8 @@
 # direct methods
 .method constructor <init>(ZLjava/util/stream/StreamShape;Ljava/lang/Object;Ljava/util/function/Predicate;Ljava/util/function/Supplier;)V
     .locals 0
+    .param p1, "mustFindFirst"    # Z
+    .param p2, "shape"    # Ljava/util/stream/StreamShape;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(Z",
@@ -81,18 +83,30 @@
         }
     .end annotation
 
+    .prologue
+    .line 127
+    .local p0, "this":Ljava/util/stream/FindOps$FindOp;, "Ljava/util/stream/FindOps$FindOp<TT;TO;>;"
+    .local p3, "emptyValue":Ljava/lang/Object;, "TO;"
+    .local p4, "presentPredicate":Ljava/util/function/Predicate;, "Ljava/util/function/Predicate<TO;>;"
+    .local p5, "sinkSupplier":Ljava/util/function/Supplier;, "Ljava/util/function/Supplier<Ljava/util/stream/TerminalSink<TT;TO;>;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 132
     iput-boolean p1, p0, Ljava/util/stream/FindOps$FindOp;->mustFindFirst:Z
 
+    .line 133
     iput-object p2, p0, Ljava/util/stream/FindOps$FindOp;->shape:Ljava/util/stream/StreamShape;
 
+    .line 134
     iput-object p3, p0, Ljava/util/stream/FindOps$FindOp;->emptyValue:Ljava/lang/Object;
 
+    .line 135
     iput-object p4, p0, Ljava/util/stream/FindOps$FindOp;->presentPredicate:Ljava/util/function/Predicate;
 
+    .line 136
     iput-object p5, p0, Ljava/util/stream/FindOps$FindOp;->sinkSupplier:Ljava/util/function/Supplier;
 
+    .line 131
     return-void
 .end method
 
@@ -112,6 +126,11 @@
         }
     .end annotation
 
+    .prologue
+    .line 159
+    .local p0, "this":Ljava/util/stream/FindOps$FindOp;, "Ljava/util/stream/FindOps$FindOp<TT;TO;>;"
+    .local p1, "helper":Ljava/util/stream/PipelineHelper;, "Ljava/util/stream/PipelineHelper<TT;>;"
+    .local p2, "spliterator":Ljava/util/Spliterator;, "Ljava/util/Spliterator<TP_IN;>;"
     new-instance v0, Ljava/util/stream/FindOps$FindTask;
 
     invoke-direct {v0, p0, p1, p2}, Ljava/util/stream/FindOps$FindTask;-><init>(Ljava/util/stream/FindOps$FindOp;Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)V
@@ -137,6 +156,11 @@
         }
     .end annotation
 
+    .prologue
+    .line 152
+    .local p0, "this":Ljava/util/stream/FindOps$FindOp;, "Ljava/util/stream/FindOps$FindOp<TT;TO;>;"
+    .local p1, "helper":Ljava/util/stream/PipelineHelper;, "Ljava/util/stream/PipelineHelper<TT;>;"
+    .local p2, "spliterator":Ljava/util/Spliterator;, "Ljava/util/Spliterator<TS;>;"
     iget-object v1, p0, Ljava/util/stream/FindOps$FindOp;->sinkSupplier:Ljava/util/function/Supplier;
 
     invoke-interface {v1}, Ljava/util/function/Supplier;->get()Ljava/lang/Object;
@@ -155,11 +179,15 @@
 
     move-result-object v0
 
+    .line 153
+    .local v0, "result":Ljava/lang/Object;, "TO;"
     if-eqz v0, :cond_0
 
+    .end local v0    # "result":Ljava/lang/Object;, "TO;"
     :goto_0
     return-object v0
 
+    .restart local v0    # "result":Ljava/lang/Object;, "TO;"
     :cond_0
     iget-object v0, p0, Ljava/util/stream/FindOps$FindOp;->emptyValue:Ljava/lang/Object;
 
@@ -169,6 +197,9 @@
 .method public getOpFlags()I
     .locals 2
 
+    .prologue
+    .line 141
+    .local p0, "this":Ljava/util/stream/FindOps$FindOp;, "Ljava/util/stream/FindOps$FindOp<TT;TO;>;"
     sget v1, Ljava/util/stream/StreamOpFlag;->IS_SHORT_CIRCUIT:I
 
     iget-boolean v0, p0, Ljava/util/stream/FindOps$FindOp;->mustFindFirst:Z
@@ -191,6 +222,9 @@
 .method public inputShape()Ljava/util/stream/StreamShape;
     .locals 1
 
+    .prologue
+    .line 146
+    .local p0, "this":Ljava/util/stream/FindOps$FindOp;, "Ljava/util/stream/FindOps$FindOp<TT;TO;>;"
     iget-object v0, p0, Ljava/util/stream/FindOps$FindOp;->shape:Ljava/util/stream/StreamShape;
 
     return-object v0

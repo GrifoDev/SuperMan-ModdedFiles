@@ -21,8 +21,12 @@
 # direct methods
 .method constructor <init>(Ljava/lang/Throwable;)V
     .locals 0
+    .param p1, "x"    # Ljava/lang/Throwable;
 
+    .prologue
+    .line 41
     invoke-direct {p0, p1}, Ljava/lang/Error;-><init>(Ljava/lang/Throwable;)V
 
+    .line 40
     return-void
 .end method

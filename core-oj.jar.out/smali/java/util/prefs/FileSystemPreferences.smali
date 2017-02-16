@@ -287,7 +287,10 @@
 
 .method static synthetic -wrap0(Ljava/lang/String;I)I
     .locals 1
+    .param p0, "fileName"    # Ljava/lang/String;
+    .param p1, "permission"    # I
 
+    .prologue
     invoke-static {p0, p1}, Ljava/util/prefs/FileSystemPreferences;->chmod(Ljava/lang/String;I)I
 
     move-result v0
@@ -297,7 +300,9 @@
 
 .method static synthetic -wrap1(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
+    .param p0, "dirName"    # Ljava/lang/String;
 
+    .prologue
     invoke-static {p0}, Ljava/util/prefs/FileSystemPreferences;->nodeName(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -326,20 +331,27 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
     const/4 v2, 0x0
 
+    .line 86
     const/4 v0, 0x0
 
     sput-object v0, Ljava/util/prefs/FileSystemPreferences;->userRoot:Ljava/util/prefs/Preferences;
 
+    .line 240
     sput v2, Ljava/util/prefs/FileSystemPreferences;->userRootLockHandle:I
 
+    .line 247
     sput v2, Ljava/util/prefs/FileSystemPreferences;->systemRootLockHandle:I
 
+    .line 283
     sput-boolean v2, Ljava/util/prefs/FileSystemPreferences;->isUserRootModified:Z
 
+    .line 300
     sput-boolean v2, Ljava/util/prefs/FileSystemPreferences;->isSystemRootModified:Z
 
+    .line 423
     invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
 
     move-result-object v0
@@ -350,52 +362,68 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/Runtime;->addShutdownHook(Ljava/lang/Thread;)V
 
+    .line 660
     new-array v0, v2, [Ljava/lang/String;
 
     sput-object v0, Ljava/util/prefs/FileSystemPreferences;->EMPTY_STRING_ARRAY:[Ljava/lang/String;
 
+    .line 959
     const/16 v0, 0x32
 
     sput v0, Ljava/util/prefs/FileSystemPreferences;->INIT_SLEEP_TIME:I
 
+    .line 964
     const/4 v0, 0x5
 
     sput v0, Ljava/util/prefs/FileSystemPreferences;->MAX_ATTEMPTS:I
 
+    .line 54
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/io/File;Z)V
     .locals 4
+    .param p1, "path"    # Ljava/lang/String;
+    .param p2, "lockFile"    # Ljava/io/File;
+    .param p3, "isUserNode"    # Z
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 474
     const-string/jumbo v0, ""
 
     invoke-direct {p0, v3, v0}, Ljava/util/prefs/AbstractPreferences;-><init>(Ljava/util/prefs/AbstractPreferences;Ljava/lang/String;)V
 
+    .line 316
     iput-object v3, p0, Ljava/util/prefs/FileSystemPreferences;->prefsCache:Ljava/util/Map;
 
+    .line 327
     const-wide/16 v0, 0x0
 
     iput-wide v0, p0, Ljava/util/prefs/FileSystemPreferences;->lastSyncTime:J
 
+    .line 352
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Ljava/util/prefs/FileSystemPreferences;->changeLog:Ljava/util/List;
 
+    .line 411
     iput-object v3, p0, Ljava/util/prefs/FileSystemPreferences;->nodeCreate:Ljava/util/prefs/FileSystemPreferences$NodeCreate;
 
+    .line 475
     iput-boolean p3, p0, Ljava/util/prefs/FileSystemPreferences;->isUserNode:Z
 
+    .line 476
     new-instance v0, Ljava/io/File;
 
     invoke-direct {v0, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     iput-object v0, p0, Ljava/util/prefs/FileSystemPreferences;->dir:Ljava/io/File;
 
+    .line 477
     new-instance v0, Ljava/io/File;
 
     iget-object v1, p0, Ljava/util/prefs/FileSystemPreferences;->dir:Ljava/io/File;
@@ -406,6 +434,7 @@
 
     iput-object v0, p0, Ljava/util/prefs/FileSystemPreferences;->prefsFile:Ljava/io/File;
 
+    .line 478
     new-instance v0, Ljava/io/File;
 
     iget-object v1, p0, Ljava/util/prefs/FileSystemPreferences;->dir:Ljava/io/File;
@@ -416,6 +445,7 @@
 
     iput-object v0, p0, Ljava/util/prefs/FileSystemPreferences;->tmpFile:Ljava/io/File;
 
+    .line 479
     iget-object v0, p0, Ljava/util/prefs/FileSystemPreferences;->dir:Ljava/io/File;
 
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
@@ -429,33 +459,40 @@
     :goto_0
     iput-boolean v0, p0, Ljava/util/prefs/FileSystemPreferences;->newNode:Z
 
+    .line 480
     iget-boolean v0, p0, Ljava/util/prefs/FileSystemPreferences;->newNode:Z
 
     if-eqz v0, :cond_0
 
+    .line 482
     new-instance v0, Ljava/util/TreeMap;
 
     invoke-direct {v0}, Ljava/util/TreeMap;-><init>()V
 
     iput-object v0, p0, Ljava/util/prefs/FileSystemPreferences;->prefsCache:Ljava/util/Map;
 
+    .line 483
     new-instance v0, Ljava/util/prefs/FileSystemPreferences$NodeCreate;
 
     invoke-direct {v0, p0, v3}, Ljava/util/prefs/FileSystemPreferences$NodeCreate;-><init>(Ljava/util/prefs/FileSystemPreferences;Ljava/util/prefs/FileSystemPreferences$NodeCreate;)V
 
     iput-object v0, p0, Ljava/util/prefs/FileSystemPreferences;->nodeCreate:Ljava/util/prefs/FileSystemPreferences$NodeCreate;
 
+    .line 484
     iget-object v0, p0, Ljava/util/prefs/FileSystemPreferences;->changeLog:Ljava/util/List;
 
     iget-object v1, p0, Ljava/util/prefs/FileSystemPreferences;->nodeCreate:Ljava/util/prefs/FileSystemPreferences$NodeCreate;
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
+    .line 487
     :cond_0
     if-eqz p3, :cond_2
 
+    .line 488
     sput-object p2, Ljava/util/prefs/FileSystemPreferences;->userLockFile:Ljava/io/File;
 
+    .line 489
     new-instance v0, Ljava/io/File;
 
     invoke-virtual {p2}, Ljava/io/File;->getParentFile()Ljava/io/File;
@@ -488,17 +525,21 @@
 
     sput-object v0, Ljava/util/prefs/FileSystemPreferences;->userRootModFile:Ljava/io/File;
 
+    .line 473
     :goto_1
     return-void
 
+    .line 479
     :cond_1
     const/4 v0, 0x1
 
     goto :goto_0
 
+    .line 491
     :cond_2
     sput-object p2, Ljava/util/prefs/FileSystemPreferences;->systemLockFile:Ljava/io/File;
 
+    .line 492
     new-instance v0, Ljava/io/File;
 
     invoke-virtual {p2}, Ljava/io/File;->getParentFile()Ljava/io/File;
@@ -536,29 +577,39 @@
 
 .method private constructor <init>(Ljava/util/prefs/FileSystemPreferences;Ljava/lang/String;)V
     .locals 4
+    .param p1, "parent"    # Ljava/util/prefs/FileSystemPreferences;
+    .param p2, "name"    # Ljava/lang/String;
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 502
     invoke-direct {p0, p1, p2}, Ljava/util/prefs/AbstractPreferences;-><init>(Ljava/util/prefs/AbstractPreferences;Ljava/lang/String;)V
 
+    .line 316
     iput-object v3, p0, Ljava/util/prefs/FileSystemPreferences;->prefsCache:Ljava/util/Map;
 
+    .line 327
     const-wide/16 v0, 0x0
 
     iput-wide v0, p0, Ljava/util/prefs/FileSystemPreferences;->lastSyncTime:J
 
+    .line 352
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Ljava/util/prefs/FileSystemPreferences;->changeLog:Ljava/util/List;
 
+    .line 411
     iput-object v3, p0, Ljava/util/prefs/FileSystemPreferences;->nodeCreate:Ljava/util/prefs/FileSystemPreferences$NodeCreate;
 
+    .line 503
     iget-boolean v0, p1, Ljava/util/prefs/FileSystemPreferences;->isUserNode:Z
 
     iput-boolean v0, p0, Ljava/util/prefs/FileSystemPreferences;->isUserNode:Z
 
+    .line 504
     new-instance v0, Ljava/io/File;
 
     iget-object v1, p1, Ljava/util/prefs/FileSystemPreferences;->dir:Ljava/io/File;
@@ -571,6 +622,7 @@
 
     iput-object v0, p0, Ljava/util/prefs/FileSystemPreferences;->dir:Ljava/io/File;
 
+    .line 505
     new-instance v0, Ljava/io/File;
 
     iget-object v1, p0, Ljava/util/prefs/FileSystemPreferences;->dir:Ljava/io/File;
@@ -581,6 +633,7 @@
 
     iput-object v0, p0, Ljava/util/prefs/FileSystemPreferences;->prefsFile:Ljava/io/File;
 
+    .line 506
     new-instance v0, Ljava/io/File;
 
     iget-object v1, p0, Ljava/util/prefs/FileSystemPreferences;->dir:Ljava/io/File;
@@ -591,63 +644,78 @@
 
     iput-object v0, p0, Ljava/util/prefs/FileSystemPreferences;->tmpFile:Ljava/io/File;
 
+    .line 507
     new-instance v0, Ljava/util/prefs/FileSystemPreferences$4;
 
     invoke-direct {v0, p0}, Ljava/util/prefs/FileSystemPreferences$4;-><init>(Ljava/util/prefs/FileSystemPreferences;)V
 
     invoke-static {v0}, Ljava/security/AccessController;->doPrivileged(Ljava/security/PrivilegedAction;)Ljava/lang/Object;
 
+    .line 513
     iget-boolean v0, p0, Ljava/util/prefs/FileSystemPreferences;->newNode:Z
 
     if-eqz v0, :cond_0
 
+    .line 515
     new-instance v0, Ljava/util/TreeMap;
 
     invoke-direct {v0}, Ljava/util/TreeMap;-><init>()V
 
     iput-object v0, p0, Ljava/util/prefs/FileSystemPreferences;->prefsCache:Ljava/util/Map;
 
+    .line 516
     new-instance v0, Ljava/util/prefs/FileSystemPreferences$NodeCreate;
 
     invoke-direct {v0, p0, v3}, Ljava/util/prefs/FileSystemPreferences$NodeCreate;-><init>(Ljava/util/prefs/FileSystemPreferences;Ljava/util/prefs/FileSystemPreferences$NodeCreate;)V
 
     iput-object v0, p0, Ljava/util/prefs/FileSystemPreferences;->nodeCreate:Ljava/util/prefs/FileSystemPreferences$NodeCreate;
 
+    .line 517
     iget-object v0, p0, Ljava/util/prefs/FileSystemPreferences;->changeLog:Ljava/util/List;
 
     iget-object v1, p0, Ljava/util/prefs/FileSystemPreferences;->nodeCreate:Ljava/util/prefs/FileSystemPreferences$NodeCreate;
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
+    .line 501
     :cond_0
     return-void
 .end method
 
 .method private constructor <init>(Z)V
     .locals 3
+    .param p1, "user"    # Z
 
+    .prologue
     const/4 v2, 0x0
 
+    .line 464
     const-string/jumbo v0, ""
 
     invoke-direct {p0, v2, v0}, Ljava/util/prefs/AbstractPreferences;-><init>(Ljava/util/prefs/AbstractPreferences;Ljava/lang/String;)V
 
+    .line 316
     iput-object v2, p0, Ljava/util/prefs/FileSystemPreferences;->prefsCache:Ljava/util/Map;
 
+    .line 327
     const-wide/16 v0, 0x0
 
     iput-wide v0, p0, Ljava/util/prefs/FileSystemPreferences;->lastSyncTime:J
 
+    .line 352
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Ljava/util/prefs/FileSystemPreferences;->changeLog:Ljava/util/List;
 
+    .line 411
     iput-object v2, p0, Ljava/util/prefs/FileSystemPreferences;->nodeCreate:Ljava/util/prefs/FileSystemPreferences$NodeCreate;
 
+    .line 465
     iput-boolean p1, p0, Ljava/util/prefs/FileSystemPreferences;->isUserNode:Z
 
+    .line 466
     if-eqz p1, :cond_0
 
     sget-object v0, Ljava/util/prefs/FileSystemPreferences;->userRootDir:Ljava/io/File;
@@ -655,6 +723,7 @@
     :goto_0
     iput-object v0, p0, Ljava/util/prefs/FileSystemPreferences;->dir:Ljava/io/File;
 
+    .line 467
     new-instance v0, Ljava/io/File;
 
     iget-object v1, p0, Ljava/util/prefs/FileSystemPreferences;->dir:Ljava/io/File;
@@ -665,6 +734,7 @@
 
     iput-object v0, p0, Ljava/util/prefs/FileSystemPreferences;->prefsFile:Ljava/io/File;
 
+    .line 468
     new-instance v0, Ljava/io/File;
 
     iget-object v1, p0, Ljava/util/prefs/FileSystemPreferences;->dir:Ljava/io/File;
@@ -675,8 +745,10 @@
 
     iput-object v0, p0, Ljava/util/prefs/FileSystemPreferences;->tmpFile:Ljava/io/File;
 
+    .line 463
     return-void
 
+    .line 466
     :cond_0
     sget-object v0, Ljava/util/prefs/FileSystemPreferences;->systemRootDir:Ljava/io/File;
 
@@ -685,62 +757,88 @@
 
 .method private static byteArray(Ljava/lang/String;)[B
     .locals 7
+    .param p0, "s"    # Ljava/lang/String;
 
+    .prologue
+    .line 849
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v4
 
+    .line 850
+    .local v4, "len":I
     mul-int/lit8 v6, v4, 0x2
 
     new-array v5, v6, [B
 
+    .line 851
+    .local v5, "result":[B
     const/4 v1, 0x0
 
+    .local v1, "i":I
     const/4 v2, 0x0
 
+    .local v2, "j":I
     move v3, v2
 
+    .end local v2    # "j":I
+    .local v3, "j":I
     :goto_0
     if-ge v1, v4, :cond_0
 
+    .line 852
     invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
 
     move-result v0
 
+    .line 853
+    .local v0, "c":C
     add-int/lit8 v2, v3, 0x1
 
+    .end local v3    # "j":I
+    .restart local v2    # "j":I
     shr-int/lit8 v6, v0, 0x8
 
     int-to-byte v6, v6
 
     aput-byte v6, v5, v3
 
+    .line 854
     add-int/lit8 v3, v2, 0x1
 
+    .end local v2    # "j":I
+    .restart local v3    # "j":I
     int-to-byte v6, v0
 
     aput-byte v6, v5, v2
 
+    .line 851
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
+    .line 856
+    .end local v0    # "c":C
     :cond_0
     return-object v5
 .end method
 
 .method private checkLockFile0ErrorCode(I)V
     .locals 3
+    .param p1, "errorCode"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/SecurityException;
         }
     .end annotation
 
+    .prologue
+    .line 925
     const/16 v0, 0xd
 
     if-ne p1, v0, :cond_1
 
+    .line 926
     new-instance v1, Ljava/lang/SecurityException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -753,6 +851,7 @@
 
     move-result-object v2
 
+    .line 927
     invoke-virtual {p0}, Ljava/util/prefs/FileSystemPreferences;->isUserNode()Z
 
     move-result v0
@@ -761,13 +860,16 @@
 
     const-string/jumbo v0, "User prefs."
 
+    .line 926
     :goto_0
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
+    .line 928
     const-string/jumbo v2, " Lock file access denied."
 
+    .line 926
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -780,16 +882,19 @@
 
     throw v1
 
+    .line 927
     :cond_0
     const-string/jumbo v0, "System prefs."
 
     goto :goto_0
 
+    .line 929
     :cond_1
     const/16 v0, 0xb
 
     if-eq p1, v0, :cond_2
 
+    .line 930
     invoke-static {}, Ljava/util/prefs/FileSystemPreferences;->getLogger()Lsun/util/logging/PlatformLogger;
 
     move-result-object v1
@@ -804,6 +909,7 @@
 
     move-result-object v2
 
+    .line 931
     invoke-virtual {p0}, Ljava/util/prefs/FileSystemPreferences;->isUserNode()Z
 
     move-result v0
@@ -812,13 +918,16 @@
 
     const-string/jumbo v0, "User prefs. "
 
+    .line 930
     :goto_1
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
+    .line 932
     const-string/jumbo v2, " Unix error code "
 
+    .line 930
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -827,8 +936,10 @@
 
     move-result-object v0
 
+    .line 932
     const-string/jumbo v2, "."
 
+    .line 930
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -839,9 +950,11 @@
 
     invoke-virtual {v1, v0}, Lsun/util/logging/PlatformLogger;->warning(Ljava/lang/String;)V
 
+    .line 924
     :cond_2
     return-void
 
+    .line 931
     :cond_3
     const-string/jumbo v0, "System prefs."
 
@@ -853,16 +966,22 @@
 
 .method private static dirName(Ljava/lang/String;)Ljava/lang/String;
     .locals 4
+    .param p0, "nodeName"    # Ljava/lang/String;
 
+    .prologue
+    .line 838
     const/4 v0, 0x0
 
+    .local v0, "i":I
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v1
 
+    .local v1, "n":I
     :goto_0
     if-ge v0, v1, :cond_1
 
+    .line 839
     invoke-virtual {p0, v0}, Ljava/lang/String;->charAt(I)C
 
     move-result v2
@@ -873,6 +992,7 @@
 
     if-nez v2, :cond_0
 
+    .line 840
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -901,11 +1021,13 @@
 
     return-object v2
 
+    .line 838
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
+    .line 841
     :cond_1
     return-object p0
 .end method
@@ -913,6 +1035,8 @@
 .method private static getLogger()Lsun/util/logging/PlatformLogger;
     .locals 1
 
+    .prologue
+    .line 60
     const-string/jumbo v0, "java.util.prefs"
 
     invoke-static {v0}, Lsun/util/logging/PlatformLogger;->getLogger(Ljava/lang/String;)Lsun/util/logging/PlatformLogger;
@@ -925,17 +1049,21 @@
 .method static declared-synchronized getSystemRoot()Ljava/util/prefs/Preferences;
     .locals 3
 
+    .prologue
     const-class v1, Ljava/util/prefs/FileSystemPreferences;
 
     monitor-enter v1
 
+    .line 150
     :try_start_0
     sget-object v0, Ljava/util/prefs/FileSystemPreferences;->systemRoot:Ljava/util/prefs/Preferences;
 
     if-nez v0, :cond_0
 
+    .line 151
     invoke-static {}, Ljava/util/prefs/FileSystemPreferences;->setupSystemRoot()V
 
+    .line 152
     new-instance v0, Ljava/util/prefs/FileSystemPreferences;
 
     const/4 v2, 0x0
@@ -944,6 +1072,7 @@
 
     sput-object v0, Ljava/util/prefs/FileSystemPreferences;->systemRoot:Ljava/util/prefs/Preferences;
 
+    .line 154
     :cond_0
     sget-object v0, Ljava/util/prefs/FileSystemPreferences;->systemRoot:Ljava/util/prefs/Preferences;
     :try_end_0
@@ -964,17 +1093,21 @@
 .method static declared-synchronized getUserRoot()Ljava/util/prefs/Preferences;
     .locals 3
 
+    .prologue
     const-class v1, Ljava/util/prefs/FileSystemPreferences;
 
     monitor-enter v1
 
+    .line 89
     :try_start_0
     sget-object v0, Ljava/util/prefs/FileSystemPreferences;->userRoot:Ljava/util/prefs/Preferences;
 
     if-nez v0, :cond_0
 
+    .line 90
     invoke-static {}, Ljava/util/prefs/FileSystemPreferences;->setupUserRoot()V
 
+    .line 91
     new-instance v0, Ljava/util/prefs/FileSystemPreferences;
 
     const/4 v2, 0x1
@@ -983,6 +1116,7 @@
 
     sput-object v0, Ljava/util/prefs/FileSystemPreferences;->userRoot:Ljava/util/prefs/Preferences;
 
+    .line 93
     :cond_0
     sget-object v0, Ljava/util/prefs/FileSystemPreferences;->userRoot:Ljava/util/prefs/Preferences;
     :try_end_0
@@ -1003,24 +1137,32 @@
 .method private initCacheIfNecessary()V
     .locals 2
 
+    .prologue
+    .line 551
     iget-object v1, p0, Ljava/util/prefs/FileSystemPreferences;->prefsCache:Ljava/util/Map;
 
     if-eqz v1, :cond_0
 
+    .line 552
     return-void
 
+    .line 555
     :cond_0
     :try_start_0
     invoke-direct {p0}, Ljava/util/prefs/FileSystemPreferences;->loadCache()V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 550
     :goto_0
     return-void
 
+    .line 556
     :catch_0
     move-exception v0
 
+    .line 558
+    .local v0, "e":Ljava/lang/Exception;
     new-instance v1, Ljava/util/TreeMap;
 
     invoke-direct {v1}, Ljava/util/TreeMap;-><init>()V
@@ -1032,9 +1174,12 @@
 
 .method private static isDirChar(C)Z
     .locals 2
+    .param p0, "ch"    # C
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 828
     const/16 v1, 0x1f
 
     if-le p0, v1, :cond_0
@@ -1069,14 +1214,20 @@
         }
     .end annotation
 
+    .prologue
     const/4 v7, 0x0
 
+    .line 571
     new-instance v3, Ljava/util/TreeMap;
 
     invoke-direct {v3}, Ljava/util/TreeMap;-><init>()V
 
+    .line 572
+    .local v3, "m":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     const-wide/16 v4, 0x0
 
+    .line 574
+    .local v4, "newLastSyncTime":J
     :try_start_0
     iget-object v6, p0, Ljava/util/prefs/FileSystemPreferences;->prefsFile:Ljava/io/File;
 
@@ -1086,8 +1237,10 @@
 
     move-result-wide v4
 
+    .line 575
     const/4 v1, 0x0
 
+    .local v1, "fis":Ljava/io/FileInputStream;
     :try_start_1
     new-instance v2, Ljava/io/FileInputStream;
 
@@ -1098,12 +1251,16 @@
     .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_2
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
+    .line 576
+    .end local v1    # "fis":Ljava/io/FileInputStream;
+    .local v2, "fis":Ljava/io/FileInputStream;
     :try_start_2
     invoke-static {v2, v3}, Ljava/util/prefs/XmlSupport;->importMap(Ljava/io/InputStream;Ljava/util/Map;)V
     :try_end_2
     .catch Ljava/lang/Throwable; {:try_start_2 .. :try_end_2} :catch_4
     .catchall {:try_start_2 .. :try_end_2} :catchall_2
 
+    .line 577
     if-eqz v2, :cond_0
 
     :try_start_3
@@ -1121,13 +1278,18 @@
     :try_end_4
     .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_0
 
+    .line 578
+    .end local v2    # "fis":Ljava/io/FileInputStream;
     :catch_0
     move-exception v0
 
+    .line 579
+    .local v0, "e":Ljava/lang/Exception;
     instance-of v6, v0, Ljava/util/prefs/InvalidPreferencesFormatException;
 
     if-eqz v6, :cond_5
 
+    .line 580
     invoke-static {}, Ljava/util/prefs/FileSystemPreferences;->getLogger()Lsun/util/logging/PlatformLogger;
 
     move-result-object v6
@@ -1142,12 +1304,14 @@
 
     move-result-object v7
 
+    .line 581
     iget-object v8, p0, Ljava/util/prefs/FileSystemPreferences;->prefsFile:Ljava/io/File;
 
     invoke-virtual {v8}, Ljava/io/File;->getPath()Ljava/lang/String;
 
     move-result-object v8
 
+    .line 580
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v7
@@ -1158,42 +1322,58 @@
 
     invoke-virtual {v6, v7}, Lsun/util/logging/PlatformLogger;->warning(Ljava/lang/String;)V
 
+    .line 582
     iget-object v6, p0, Ljava/util/prefs/FileSystemPreferences;->prefsFile:Ljava/io/File;
 
     new-instance v7, Ljava/io/File;
 
+    .line 583
     iget-object v8, p0, Ljava/util/prefs/FileSystemPreferences;->prefsFile:Ljava/io/File;
 
     invoke-virtual {v8}, Ljava/io/File;->getParentFile()Ljava/io/File;
 
     move-result-object v8
 
+    .line 584
     const-string/jumbo v9, "IncorrectFormatPrefs.xml"
 
+    .line 582
     invoke-direct {v7, v8, v9}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
     invoke-virtual {v6, v7}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
 
+    .line 585
     new-instance v3, Ljava/util/TreeMap;
 
+    .end local v3    # "m":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     invoke-direct {v3}, Ljava/util/TreeMap;-><init>()V
 
+    .line 598
+    .end local v0    # "e":Ljava/lang/Exception;
+    .restart local v3    # "m":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     :cond_1
     :goto_1
     iput-object v3, p0, Ljava/util/prefs/FileSystemPreferences;->prefsCache:Ljava/util/Map;
 
+    .line 599
     iput-wide v4, p0, Ljava/util/prefs/FileSystemPreferences;->lastSyncTime:J
 
+    .line 570
     return-void
 
+    .line 577
+    .restart local v2    # "fis":Ljava/io/FileInputStream;
     :catch_1
     move-exception v7
 
     goto :goto_0
 
+    .end local v2    # "fis":Ljava/io/FileInputStream;
+    .restart local v1    # "fis":Ljava/io/FileInputStream;
     :catch_2
     move-exception v6
 
+    .end local v1    # "fis":Ljava/io/FileInputStream;
     :goto_2
     :try_start_5
     throw v6
@@ -1246,11 +1426,14 @@
     :try_end_7
     .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_7} :catch_0
 
+    .line 586
+    .restart local v0    # "e":Ljava/lang/Exception;
     :cond_5
     instance-of v6, v0, Ljava/io/FileNotFoundException;
 
     if-eqz v6, :cond_6
 
+    .line 587
     invoke-static {}, Ljava/util/prefs/FileSystemPreferences;->getLogger()Lsun/util/logging/PlatformLogger;
 
     move-result-object v6
@@ -1265,12 +1448,14 @@
 
     move-result-object v7
 
+    .line 588
     iget-object v8, p0, Ljava/util/prefs/FileSystemPreferences;->prefsFile:Ljava/io/File;
 
     invoke-virtual {v8}, Ljava/io/File;->getPath()Ljava/lang/String;
 
     move-result-object v8
 
+    .line 587
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v7
@@ -1283,6 +1468,7 @@
 
     goto :goto_1
 
+    .line 592
     :cond_6
     invoke-static {}, Ljava/util/prefs/FileSystemPreferences;->getLogger()Lsun/util/logging/PlatformLogger;
 
@@ -1298,10 +1484,12 @@
 
     move-result-object v7
 
+    .line 593
     invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
     move-result-object v8
 
+    .line 592
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v7
@@ -1312,70 +1500,97 @@
 
     invoke-virtual {v6, v7}, Lsun/util/logging/PlatformLogger;->warning(Ljava/lang/String;)V
 
+    .line 594
     new-instance v6, Ljava/util/prefs/BackingStoreException;
 
     invoke-direct {v6, v0}, Ljava/util/prefs/BackingStoreException;-><init>(Ljava/lang/Throwable;)V
 
     throw v6
 
+    .line 577
+    .end local v0    # "e":Ljava/lang/Exception;
+    .restart local v1    # "fis":Ljava/io/FileInputStream;
     :catchall_1
     move-exception v6
 
     goto :goto_3
 
+    .end local v1    # "fis":Ljava/io/FileInputStream;
+    .restart local v2    # "fis":Ljava/io/FileInputStream;
     :catchall_2
     move-exception v6
 
     move-object v1, v2
 
+    .end local v2    # "fis":Ljava/io/FileInputStream;
+    .local v1, "fis":Ljava/io/FileInputStream;
     goto :goto_3
 
+    .end local v1    # "fis":Ljava/io/FileInputStream;
+    .restart local v2    # "fis":Ljava/io/FileInputStream;
     :catch_4
     move-exception v6
 
     move-object v1, v2
 
+    .end local v2    # "fis":Ljava/io/FileInputStream;
+    .restart local v1    # "fis":Ljava/io/FileInputStream;
     goto :goto_2
 .end method
 
 .method private lockFile(Z)Z
     .locals 14
+    .param p1, "shared"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/SecurityException;
         }
     .end annotation
 
+    .prologue
     const/4 v13, 0x1
 
     const/4 v12, 0x0
 
+    .line 884
     invoke-virtual {p0}, Ljava/util/prefs/FileSystemPreferences;->isUserNode()Z
 
     move-result v7
 
+    .line 886
+    .local v7, "usernode":Z
     const/4 v2, 0x0
 
+    .line 887
+    .local v2, "errorCode":I
     if-eqz v7, :cond_0
 
     sget-object v4, Ljava/util/prefs/FileSystemPreferences;->userLockFile:Ljava/io/File;
 
+    .line 888
+    .local v4, "lockFile":Ljava/io/File;
     :goto_0
     sget v10, Ljava/util/prefs/FileSystemPreferences;->INIT_SLEEP_TIME:I
 
     int-to-long v8, v10
 
+    .line 889
+    .local v8, "sleepTime":J
     const/4 v3, 0x0
 
+    .local v3, "i":I
     :goto_1
     sget v10, Ljava/util/prefs/FileSystemPreferences;->MAX_ATTEMPTS:I
 
     if-ge v3, v10, :cond_4
 
+    .line 891
     if-eqz v7, :cond_1
 
     const/16 v5, 0x180
 
+    .line 892
+    .local v5, "perm":I
     :goto_2
     :try_start_0
     invoke-virtual {v4}, Ljava/io/File;->getCanonicalPath()Ljava/lang/String;
@@ -1386,18 +1601,23 @@
 
     move-result-object v6
 
+    .line 894
+    .local v6, "result":[I
     const/4 v10, 0x1
 
     aget v2, v6, v10
 
+    .line 895
     const/4 v10, 0x0
 
     aget v10, v6, v10
 
     if-eqz v10, :cond_3
 
+    .line 896
     if-eqz v7, :cond_2
 
+    .line 897
     const/4 v10, 0x0
 
     aget v10, v6, v10
@@ -1406,19 +1626,33 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 901
     :goto_3
     return v13
 
+    .line 887
+    .end local v3    # "i":I
+    .end local v4    # "lockFile":Ljava/io/File;
+    .end local v5    # "perm":I
+    .end local v6    # "result":[I
+    .end local v8    # "sleepTime":J
     :cond_0
     sget-object v4, Ljava/util/prefs/FileSystemPreferences;->systemLockFile:Ljava/io/File;
 
+    .restart local v4    # "lockFile":Ljava/io/File;
     goto :goto_0
 
+    .line 891
+    .restart local v3    # "i":I
+    .restart local v8    # "sleepTime":J
     :cond_1
     const/16 v5, 0x1a4
 
+    .restart local v5    # "perm":I
     goto :goto_2
 
+    .line 899
+    .restart local v6    # "result":[I
     :cond_2
     const/4 v10, 0x0
 
@@ -1431,33 +1665,46 @@
 
     goto :goto_3
 
+    .line 903
+    .end local v6    # "result":[I
     :catch_0
     move-exception v0
 
+    .line 908
     :cond_3
     :try_start_2
     invoke-static {v8, v9}, Ljava/lang/Thread;->sleep(J)V
     :try_end_2
     .catch Ljava/lang/InterruptedException; {:try_start_2 .. :try_end_2} :catch_1
 
+    .line 913
     const-wide/16 v10, 0x2
 
     mul-long/2addr v8, v10
 
+    .line 889
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
 
+    .line 909
     :catch_1
     move-exception v1
 
+    .line 910
+    .local v1, "e":Ljava/lang/InterruptedException;
     invoke-direct {p0, v2}, Ljava/util/prefs/FileSystemPreferences;->checkLockFile0ErrorCode(I)V
 
+    .line 911
     return v12
 
+    .line 915
+    .end local v1    # "e":Ljava/lang/InterruptedException;
+    .end local v5    # "perm":I
     :cond_4
     invoke-direct {p0, v2}, Ljava/util/prefs/FileSystemPreferences;->checkLockFile0ErrorCode(I)V
 
+    .line 916
     return v12
 .end method
 
@@ -1466,7 +1713,10 @@
 
 .method private static nodeName(Ljava/lang/String;)Ljava/lang/String;
     .locals 8
+    .param p0, "dirName"    # Ljava/lang/String;
 
+    .prologue
+    .line 864
     const/4 v6, 0x0
 
     invoke-virtual {p0, v6}, Ljava/lang/String;->charAt(I)C
@@ -1477,8 +1727,10 @@
 
     if-eq v6, v7, :cond_0
 
+    .line 865
     return-object p0
 
+    .line 866
     :cond_0
     const/4 v6, 0x1
 
@@ -1490,6 +1742,8 @@
 
     move-result-object v0
 
+    .line 867
+    .local v0, "a":[B
     new-instance v5, Ljava/lang/StringBuffer;
 
     array-length v6, v0
@@ -1498,25 +1752,37 @@
 
     invoke-direct {v5, v6}, Ljava/lang/StringBuffer;-><init>(I)V
 
+    .line 868
+    .local v5, "result":Ljava/lang/StringBuffer;
     const/4 v2, 0x0
 
+    .local v2, "i":I
     :goto_0
     array-length v6, v0
 
     if-ge v2, v6, :cond_1
 
+    .line 869
     add-int/lit8 v3, v2, 0x1
 
+    .end local v2    # "i":I
+    .local v3, "i":I
     aget-byte v6, v0, v2
 
     and-int/lit16 v1, v6, 0xff
 
+    .line 870
+    .local v1, "highByte":I
     add-int/lit8 v2, v3, 0x1
 
+    .end local v3    # "i":I
+    .restart local v2    # "i":I
     aget-byte v6, v0, v3
 
     and-int/lit16 v4, v6, 0xff
 
+    .line 871
+    .local v4, "lowByte":I
     shl-int/lit8 v6, v1, 0x8
 
     or-int/2addr v6, v4
@@ -1527,6 +1793,9 @@
 
     goto :goto_0
 
+    .line 873
+    .end local v1    # "highByte":I
+    .end local v4    # "lowByte":I
     :cond_1
     invoke-virtual {v5}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
@@ -1538,17 +1807,22 @@
 .method private replayChanges()V
     .locals 3
 
+    .prologue
+    .line 417
     const/4 v0, 0x0
 
+    .local v0, "i":I
     iget-object v2, p0, Ljava/util/prefs/FileSystemPreferences;->changeLog:Ljava/util/List;
 
     invoke-interface {v2}, Ljava/util/List;->size()I
 
     move-result v1
 
+    .local v1, "n":I
     :goto_0
     if-ge v0, v1, :cond_0
 
+    .line 418
     iget-object v2, p0, Ljava/util/prefs/FileSystemPreferences;->changeLog:Ljava/util/List;
 
     invoke-interface {v2, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -1559,10 +1833,12 @@
 
     invoke-virtual {v2}, Ljava/util/prefs/FileSystemPreferences$Change;->replay()V
 
+    .line 417
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
+    .line 416
     :cond_0
     return-void
 .end method
@@ -1570,24 +1846,30 @@
 .method private static setupSystemRoot()V
     .locals 1
 
+    .prologue
+    .line 158
     new-instance v0, Ljava/util/prefs/FileSystemPreferences$3;
 
     invoke-direct {v0}, Ljava/util/prefs/FileSystemPreferences$3;-><init>()V
 
     invoke-static {v0}, Ljava/security/AccessController;->doPrivileged(Ljava/security/PrivilegedAction;)Ljava/lang/Object;
 
+    .line 157
     return-void
 .end method
 
 .method private static setupUserRoot()V
     .locals 1
 
+    .prologue
+    .line 97
     new-instance v0, Ljava/util/prefs/FileSystemPreferences$2;
 
     invoke-direct {v0}, Ljava/util/prefs/FileSystemPreferences$2;-><init>()V
 
     invoke-static {v0}, Ljava/security/AccessController;->doPrivileged(Ljava/security/PrivilegedAction;)Ljava/lang/Object;
 
+    .line 96
     return-void
 .end method
 
@@ -1599,12 +1881,15 @@
         }
     .end annotation
 
+    .prologue
+    .line 770
     invoke-virtual {p0}, Ljava/util/prefs/FileSystemPreferences;->isRemoved()Z
 
     move-result v2
 
     if-eqz v2, :cond_0
 
+    .line 771
     new-instance v2, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v3, "Node has been removed"
@@ -1613,13 +1898,16 @@
 
     throw v2
 
+    .line 772
     :cond_0
     iget-object v2, p0, Ljava/util/prefs/FileSystemPreferences;->prefsCache:Ljava/util/Map;
 
     if-nez v2, :cond_1
 
+    .line 773
     return-void
 
+    .line 775
     :cond_1
     invoke-virtual {p0}, Ljava/util/prefs/FileSystemPreferences;->isUserNode()Z
 
@@ -1632,24 +1920,32 @@
     :goto_0
     if-eqz v2, :cond_6
 
+    .line 776
     iget-object v2, p0, Ljava/util/prefs/FileSystemPreferences;->prefsFile:Ljava/io/File;
 
     invoke-virtual {v2}, Ljava/io/File;->lastModified()J
 
     move-result-wide v0
 
+    .line 777
+    .local v0, "lastModifiedTime":J
     iget-wide v2, p0, Ljava/util/prefs/FileSystemPreferences;->lastSyncTime:J
 
     cmp-long v2, v0, v2
 
     if-eqz v2, :cond_2
 
+    .line 780
     invoke-direct {p0}, Ljava/util/prefs/FileSystemPreferences;->loadCache()V
 
+    .line 781
     invoke-direct {p0}, Ljava/util/prefs/FileSystemPreferences;->replayChanges()V
 
+    .line 782
     iput-wide v0, p0, Ljava/util/prefs/FileSystemPreferences;->lastSyncTime:J
 
+    .line 790
+    .end local v0    # "lastModifiedTime":J
     :cond_2
     :goto_1
     iget-object v2, p0, Ljava/util/prefs/FileSystemPreferences;->changeLog:Ljava/util/List;
@@ -1660,45 +1956,56 @@
 
     if-nez v2, :cond_4
 
+    .line 791
     invoke-direct {p0}, Ljava/util/prefs/FileSystemPreferences;->writeBackCache()V
 
+    .line 797
     iget-object v2, p0, Ljava/util/prefs/FileSystemPreferences;->prefsFile:Ljava/io/File;
 
     invoke-virtual {v2}, Ljava/io/File;->lastModified()J
 
     move-result-wide v0
 
+    .line 803
+    .restart local v0    # "lastModifiedTime":J
     iget-wide v2, p0, Ljava/util/prefs/FileSystemPreferences;->lastSyncTime:J
 
     cmp-long v2, v2, v0
 
     if-gtz v2, :cond_3
 
+    .line 804
     const-wide/16 v2, 0x3e8
 
     add-long/2addr v2, v0
 
     iput-wide v2, p0, Ljava/util/prefs/FileSystemPreferences;->lastSyncTime:J
 
+    .line 805
     iget-object v2, p0, Ljava/util/prefs/FileSystemPreferences;->prefsFile:Ljava/io/File;
 
     iget-wide v4, p0, Ljava/util/prefs/FileSystemPreferences;->lastSyncTime:J
 
     invoke-virtual {v2, v4, v5}, Ljava/io/File;->setLastModified(J)Z
 
+    .line 807
     :cond_3
     iget-object v2, p0, Ljava/util/prefs/FileSystemPreferences;->changeLog:Ljava/util/List;
 
     invoke-interface {v2}, Ljava/util/List;->clear()V
 
+    .line 769
+    .end local v0    # "lastModifiedTime":J
     :cond_4
     return-void
 
+    .line 775
     :cond_5
     sget-boolean v2, Ljava/util/prefs/FileSystemPreferences;->isSystemRootModified:Z
 
     goto :goto_0
 
+    .line 784
     :cond_6
     iget-wide v2, p0, Ljava/util/prefs/FileSystemPreferences;->lastSyncTime:J
 
@@ -1716,12 +2023,14 @@
 
     if-nez v2, :cond_2
 
+    .line 787
     new-instance v2, Ljava/util/TreeMap;
 
     invoke-direct {v2}, Ljava/util/TreeMap;-><init>()V
 
     iput-object v2, p0, Ljava/util/prefs/FileSystemPreferences;->prefsCache:Ljava/util/Map;
 
+    .line 788
     invoke-direct {p0}, Ljava/util/prefs/FileSystemPreferences;->replayChanges()V
 
     goto :goto_1
@@ -1730,39 +2039,52 @@
 .method private static syncWorld()V
     .locals 6
 
+    .prologue
+    .line 437
     const-class v4, Ljava/util/prefs/FileSystemPreferences;
 
     monitor-enter v4
 
+    .line 438
     :try_start_0
     sget-object v2, Ljava/util/prefs/FileSystemPreferences;->userRoot:Ljava/util/prefs/Preferences;
 
+    .line 439
+    .local v2, "userRt":Ljava/util/prefs/Preferences;
     sget-object v1, Ljava/util/prefs/FileSystemPreferences;->systemRoot:Ljava/util/prefs/Preferences;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .local v1, "systemRt":Ljava/util/prefs/Preferences;
     monitor-exit v4
 
+    .line 443
     if-eqz v2, :cond_0
 
+    .line 444
     :try_start_1
     invoke-virtual {v2}, Ljava/util/prefs/Preferences;->flush()V
     :try_end_1
     .catch Ljava/util/prefs/BackingStoreException; {:try_start_1 .. :try_end_1} :catch_0
 
+    .line 450
     :cond_0
     :goto_0
     if-eqz v1, :cond_1
 
+    .line 451
     :try_start_2
     invoke-virtual {v1}, Ljava/util/prefs/Preferences;->flush()V
     :try_end_2
     .catch Ljava/util/prefs/BackingStoreException; {:try_start_2 .. :try_end_2} :catch_1
 
+    .line 430
     :cond_1
     :goto_1
     return-void
 
+    .line 437
+    .end local v1    # "systemRt":Ljava/util/prefs/Preferences;
     :catchall_0
     move-exception v3
 
@@ -1770,9 +2092,13 @@
 
     throw v3
 
+    .line 445
+    .restart local v1    # "systemRt":Ljava/util/prefs/Preferences;
     :catch_0
     move-exception v0
 
+    .line 446
+    .local v0, "e":Ljava/util/prefs/BackingStoreException;
     invoke-static {}, Ljava/util/prefs/FileSystemPreferences;->getLogger()Lsun/util/logging/PlatformLogger;
 
     move-result-object v3
@@ -1799,9 +2125,13 @@
 
     goto :goto_0
 
+    .line 452
+    .end local v0    # "e":Ljava/util/prefs/BackingStoreException;
     :catch_1
     move-exception v0
 
+    .line 453
+    .restart local v0    # "e":Ljava/util/prefs/BackingStoreException;
     invoke-static {}, Ljava/util/prefs/FileSystemPreferences;->getLogger()Lsun/util/logging/PlatformLogger;
 
     move-result-object v3
@@ -1832,24 +2162,33 @@
 .method private unlockFile()V
     .locals 8
 
+    .prologue
     const/4 v7, 0x0
 
+    .line 972
     invoke-virtual {p0}, Ljava/util/prefs/FileSystemPreferences;->isUserNode()Z
 
     move-result v3
 
+    .line 973
+    .local v3, "usernode":Z
     if-eqz v3, :cond_0
 
     sget-object v0, Ljava/util/prefs/FileSystemPreferences;->userLockFile:Ljava/io/File;
 
+    .line 974
+    .local v0, "lockFile":Ljava/io/File;
     :goto_0
     if-eqz v3, :cond_1
 
     sget v1, Ljava/util/prefs/FileSystemPreferences;->userRootLockHandle:I
 
+    .line 975
+    .local v1, "lockHandle":I
     :goto_1
     if-nez v1, :cond_3
 
+    .line 976
     invoke-static {}, Ljava/util/prefs/FileSystemPreferences;->getLogger()Lsun/util/logging/PlatformLogger;
 
     move-result-object v5
@@ -1864,17 +2203,21 @@
 
     move-result-object v6
 
+    .line 977
     if-eqz v3, :cond_2
 
     const-string/jumbo v4, "user"
 
+    .line 976
     :goto_2
     invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
+    .line 977
     const-string/jumbo v6, " preferences.)"
 
+    .line 976
     invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
@@ -1885,30 +2228,42 @@
 
     invoke-virtual {v5, v4}, Lsun/util/logging/PlatformLogger;->warning(Ljava/lang/String;)V
 
+    .line 978
     return-void
 
+    .line 973
+    .end local v0    # "lockFile":Ljava/io/File;
+    .end local v1    # "lockHandle":I
     :cond_0
     sget-object v0, Ljava/util/prefs/FileSystemPreferences;->systemLockFile:Ljava/io/File;
 
+    .restart local v0    # "lockFile":Ljava/io/File;
     goto :goto_0
 
+    .line 974
     :cond_1
     sget v1, Ljava/util/prefs/FileSystemPreferences;->systemRootLockHandle:I
 
     goto :goto_1
 
+    .line 977
+    .restart local v1    # "lockHandle":I
     :cond_2
     const-string/jumbo v4, "system"
 
     goto :goto_2
 
+    .line 980
     :cond_3
     invoke-static {v1}, Ljava/util/prefs/FileSystemPreferences;->unlockFile0(I)I
 
     move-result v2
 
+    .line 981
+    .local v2, "result":I
     if-eqz v2, :cond_6
 
+    .line 982
     invoke-static {}, Ljava/util/prefs/FileSystemPreferences;->getLogger()Lsun/util/logging/PlatformLogger;
 
     move-result-object v5
@@ -1923,6 +2278,7 @@
 
     move-result-object v6
 
+    .line 983
     invoke-virtual {p0}, Ljava/util/prefs/FileSystemPreferences;->isUserNode()Z
 
     move-result v4
@@ -1931,19 +2287,24 @@
 
     const-string/jumbo v4, "user"
 
+    .line 982
     :goto_3
     invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
+    .line 983
     const-string/jumbo v6, " preferences."
 
+    .line 982
     invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
+    .line 984
     const-string/jumbo v6, " Unix error code "
 
+    .line 982
     invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
@@ -1952,8 +2313,10 @@
 
     move-result-object v4
 
+    .line 984
     const-string/jumbo v6, "."
 
+    .line 982
     invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
@@ -1964,10 +2327,12 @@
 
     invoke-virtual {v5, v4}, Lsun/util/logging/PlatformLogger;->warning(Ljava/lang/String;)V
 
+    .line 985
     const/16 v4, 0xd
 
     if-ne v2, v4, :cond_6
 
+    .line 986
     new-instance v5, Ljava/lang/SecurityException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -1980,6 +2345,7 @@
 
     move-result-object v6
 
+    .line 987
     invoke-virtual {p0}, Ljava/util/prefs/FileSystemPreferences;->isUserNode()Z
 
     move-result v4
@@ -1988,13 +2354,16 @@
 
     const-string/jumbo v4, "User prefs."
 
+    .line 986
     :goto_4
     invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
+    .line 988
     const-string/jumbo v6, " Lock file access denied."
 
+    .line 986
     invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
@@ -2007,16 +2376,19 @@
 
     throw v5
 
+    .line 983
     :cond_4
     const-string/jumbo v4, "system"
 
     goto :goto_3
 
+    .line 987
     :cond_5
     const-string/jumbo v4, "System prefs."
 
     goto :goto_4
 
+    .line 990
     :cond_6
     invoke-virtual {p0}, Ljava/util/prefs/FileSystemPreferences;->isUserNode()Z
 
@@ -2024,11 +2396,14 @@
 
     if-eqz v4, :cond_7
 
+    .line 991
     sput v7, Ljava/util/prefs/FileSystemPreferences;->userRootLockHandle:I
 
+    .line 970
     :goto_5
     return-void
 
+    .line 993
     :cond_7
     sput v7, Ljava/util/prefs/FileSystemPreferences;->systemRootLockHandle:I
 
@@ -2046,20 +2421,27 @@
         }
     .end annotation
 
+    .prologue
+    .line 614
     :try_start_0
     new-instance v1, Ljava/util/prefs/FileSystemPreferences$5;
 
     invoke-direct {v1, p0}, Ljava/util/prefs/FileSystemPreferences$5;-><init>(Ljava/util/prefs/FileSystemPreferences;)V
 
+    .line 613
     invoke-static {v1}, Ljava/security/AccessController;->doPrivileged(Ljava/security/PrivilegedExceptionAction;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/security/PrivilegedActionException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 611
     return-void
 
+    .line 634
     :catch_0
     move-exception v0
 
+    .line 635
+    .local v0, "e":Ljava/security/PrivilegedActionException;
     invoke-virtual {v0}, Ljava/security/PrivilegedActionException;->getException()Ljava/lang/Exception;
 
     move-result-object v1
@@ -2073,7 +2455,10 @@
 # virtual methods
 .method protected childSpi(Ljava/lang/String;)Ljava/util/prefs/AbstractPreferences;
     .locals 1
+    .param p1, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 663
     new-instance v0, Ljava/util/prefs/FileSystemPreferences;
 
     invoke-direct {v0, p0, p1}, Ljava/util/prefs/FileSystemPreferences;-><init>(Ljava/util/prefs/FileSystemPreferences;Ljava/lang/String;)V
@@ -2084,10 +2469,13 @@
 .method protected childrenNamesSpi()[Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 646
     new-instance v0, Ljava/util/prefs/FileSystemPreferences$6;
 
     invoke-direct {v0, p0}, Ljava/util/prefs/FileSystemPreferences$6;-><init>(Ljava/util/prefs/FileSystemPreferences;)V
 
+    .line 645
     invoke-static {v0}, Ljava/security/AccessController;->doPrivileged(Ljava/security/PrivilegedAction;)Ljava/lang/Object;
 
     move-result-object v0
@@ -2105,17 +2493,22 @@
         }
     .end annotation
 
+    .prologue
+    .line 812
     invoke-virtual {p0}, Ljava/util/prefs/FileSystemPreferences;->isRemoved()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
+    .line 813
     return-void
 
+    .line 814
     :cond_0
     invoke-virtual {p0}, Ljava/util/prefs/FileSystemPreferences;->sync()V
 
+    .line 811
     return-void
 .end method
 
@@ -2127,14 +2520,20 @@
         }
     .end annotation
 
+    .prologue
+    .line 817
     return-void
 .end method
 
 .method protected getSpi(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
+    .param p1, "key"    # Ljava/lang/String;
 
+    .prologue
+    .line 532
     invoke-direct {p0}, Ljava/util/prefs/FileSystemPreferences;->initCacheIfNecessary()V
 
+    .line 533
     iget-object v0, p0, Ljava/util/prefs/FileSystemPreferences;->prefsCache:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -2149,6 +2548,8 @@
 .method public isUserNode()Z
     .locals 1
 
+    .prologue
+    .line 522
     iget-boolean v0, p0, Ljava/util/prefs/FileSystemPreferences;->isUserNode:Z
 
     return v0
@@ -2157,8 +2558,11 @@
 .method protected keysSpi()[Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 640
     invoke-direct {p0}, Ljava/util/prefs/FileSystemPreferences;->initCacheIfNecessary()V
 
+    .line 641
     iget-object v0, p0, Ljava/util/prefs/FileSystemPreferences;->prefsCache:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->keySet()Ljava/util/Set;
@@ -2184,9 +2588,14 @@
 
 .method protected putSpi(Ljava/lang/String;Ljava/lang/String;)V
     .locals 2
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/String;
 
+    .prologue
+    .line 526
     invoke-direct {p0}, Ljava/util/prefs/FileSystemPreferences;->initCacheIfNecessary()V
 
+    .line 527
     iget-object v0, p0, Ljava/util/prefs/FileSystemPreferences;->changeLog:Ljava/util/List;
 
     new-instance v1, Ljava/util/prefs/FileSystemPreferences$Put;
@@ -2195,10 +2604,12 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
+    .line 528
     iget-object v0, p0, Ljava/util/prefs/FileSystemPreferences;->prefsCache:Ljava/util/Map;
 
     invoke-interface {v0, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 525
     return-void
 .end method
 
@@ -2210,6 +2621,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 667
     invoke-virtual {p0}, Ljava/util/prefs/FileSystemPreferences;->isUserNode()Z
 
     move-result v0
@@ -2221,6 +2634,7 @@
     :goto_0
     monitor-enter v0
 
+    .line 669
     const/4 v1, 0x0
 
     :try_start_0
@@ -2230,6 +2644,7 @@
 
     if-nez v1, :cond_1
 
+    .line 670
     new-instance v1, Ljava/util/prefs/BackingStoreException;
 
     const-string/jumbo v2, "Couldn\'t get file lock."
@@ -2240,6 +2655,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 667
     :catchall_0
     move-exception v1
 
@@ -2252,12 +2668,14 @@
 
     goto :goto_0
 
+    .line 672
     :cond_1
     :try_start_1
     invoke-super {p0}, Ljava/util/prefs/AbstractPreferences;->removeNode()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
+    .line 674
     :try_start_2
     invoke-direct {p0}, Ljava/util/prefs/FileSystemPreferences;->unlockFile()V
     :try_end_2
@@ -2265,14 +2683,18 @@
 
     monitor-exit v0
 
+    .line 666
     return-void
 
+    .line 673
     :catchall_1
     move-exception v1
 
+    .line 674
     :try_start_3
     invoke-direct {p0}, Ljava/util/prefs/FileSystemPreferences;->unlockFile()V
 
+    .line 673
     throw v1
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
@@ -2286,20 +2708,27 @@
         }
     .end annotation
 
+    .prologue
+    .line 685
     :try_start_0
     new-instance v1, Ljava/util/prefs/FileSystemPreferences$7;
 
     invoke-direct {v1, p0}, Ljava/util/prefs/FileSystemPreferences$7;-><init>(Ljava/util/prefs/FileSystemPreferences;)V
 
+    .line 684
     invoke-static {v1}, Ljava/security/AccessController;->doPrivileged(Ljava/security/PrivilegedExceptionAction;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/security/PrivilegedActionException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 682
     return-void
 
+    .line 711
     :catch_0
     move-exception v0
 
+    .line 712
+    .local v0, "e":Ljava/security/PrivilegedActionException;
     invoke-virtual {v0}, Ljava/security/PrivilegedActionException;->getException()Ljava/lang/Exception;
 
     move-result-object v1
@@ -2311,9 +2740,13 @@
 
 .method protected removeSpi(Ljava/lang/String;)V
     .locals 2
+    .param p1, "key"    # Ljava/lang/String;
 
+    .prologue
+    .line 537
     invoke-direct {p0}, Ljava/util/prefs/FileSystemPreferences;->initCacheIfNecessary()V
 
+    .line 538
     iget-object v0, p0, Ljava/util/prefs/FileSystemPreferences;->changeLog:Ljava/util/List;
 
     new-instance v1, Ljava/util/prefs/FileSystemPreferences$Remove;
@@ -2322,10 +2755,12 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
+    .line 539
     iget-object v0, p0, Ljava/util/prefs/FileSystemPreferences;->prefsCache:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 536
     return-void
 .end method
 
@@ -2337,17 +2772,24 @@
         }
     .end annotation
 
+    .prologue
     monitor-enter p0
 
+    .line 717
     :try_start_0
     invoke-virtual {p0}, Ljava/util/prefs/FileSystemPreferences;->isUserNode()Z
 
     move-result v2
 
+    .line 720
+    .local v2, "userNode":Z
     if-eqz v2, :cond_0
 
+    .line 721
     const/4 v1, 0x0
 
+    .line 727
+    .local v1, "shared":Z
     :goto_0
     invoke-virtual {p0}, Ljava/util/prefs/FileSystemPreferences;->isUserNode()Z
 
@@ -2364,6 +2806,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
+    .line 728
     :try_start_1
     invoke-direct {p0, v1}, Ljava/util/prefs/FileSystemPreferences;->lockFile(Z)Z
 
@@ -2371,6 +2814,7 @@
 
     if-nez v3, :cond_3
 
+    .line 729
     new-instance v3, Ljava/util/prefs/BackingStoreException;
 
     const-string/jumbo v5, "Couldn\'t get file lock."
@@ -2381,6 +2825,7 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    .line 727
     :catchall_0
     move-exception v3
 
@@ -2391,6 +2836,8 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
+    .end local v1    # "shared":Z
+    .end local v2    # "userNode":Z
     :catchall_1
     move-exception v3
 
@@ -2398,6 +2845,8 @@
 
     throw v3
 
+    .line 725
+    .restart local v2    # "userNode":Z
     :cond_0
     :try_start_3
     sget-boolean v3, Ljava/util/prefs/FileSystemPreferences;->isSystemRootWritable:Z
@@ -2406,13 +2855,17 @@
 
     const/4 v1, 0x0
 
+    .restart local v1    # "shared":Z
     goto :goto_0
 
+    .end local v1    # "shared":Z
     :cond_1
     const/4 v1, 0x1
 
+    .restart local v1    # "shared":Z
     goto :goto_0
 
+    .line 727
     :cond_2
     sget-object v3, Ljava/util/prefs/FileSystemPreferences;->systemLockFile:Ljava/io/File;
     :try_end_3
@@ -2422,12 +2875,14 @@
 
     goto :goto_1
 
+    .line 732
     :cond_3
     :try_start_4
     new-instance v3, Ljava/util/prefs/FileSystemPreferences$8;
 
     invoke-direct {v3, p0}, Ljava/util/prefs/FileSystemPreferences$8;-><init>(Ljava/util/prefs/FileSystemPreferences;)V
 
+    .line 731
     invoke-static {v3}, Ljava/security/AccessController;->doPrivileged(Ljava/security/PrivilegedAction;)Ljava/lang/Object;
 
     move-result-object v0
@@ -2436,9 +2891,12 @@
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
+    .line 746
+    .local v0, "newModTime":Ljava/lang/Long;
     :try_start_5
     invoke-super {p0}, Ljava/util/prefs/AbstractPreferences;->sync()V
 
+    .line 747
     new-instance v3, Ljava/util/prefs/FileSystemPreferences$9;
 
     invoke-direct {v3, p0, v0}, Ljava/util/prefs/FileSystemPreferences$9;-><init>(Ljava/util/prefs/FileSystemPreferences;Ljava/lang/Long;)V
@@ -2447,6 +2905,7 @@
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_2
 
+    .line 760
     :try_start_6
     invoke-direct {p0}, Ljava/util/prefs/FileSystemPreferences;->unlockFile()V
     :try_end_6
@@ -2459,14 +2918,18 @@
 
     monitor-exit p0
 
+    .line 716
     return-void
 
+    .line 759
     :catchall_2
     move-exception v3
 
+    .line 760
     :try_start_8
     invoke-direct {p0}, Ljava/util/prefs/FileSystemPreferences;->unlockFile()V
 
+    .line 759
     throw v3
     :try_end_8
     .catchall {:try_start_8 .. :try_end_8} :catchall_0
@@ -2480,7 +2943,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 766
     invoke-direct {p0}, Ljava/util/prefs/FileSystemPreferences;->syncSpiPrivileged()V
 
+    .line 765
     return-void
 .end method

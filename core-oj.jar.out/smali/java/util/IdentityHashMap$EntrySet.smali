@@ -31,6 +31,10 @@
 .method private constructor <init>(Ljava/util/IdentityHashMap;)V
     .locals 0
 
+    .prologue
+    .line 1188
+    .local p0, "this":Ljava/util/IdentityHashMap$EntrySet;, "Ljava/util/IdentityHashMap<TK;TV;>.EntrySet;"
+    .local p1, "this$0":Ljava/util/IdentityHashMap;, "Ljava/util/IdentityHashMap<TK;TV;>;"
     iput-object p1, p0, Ljava/util/IdentityHashMap$EntrySet;->this$0:Ljava/util/IdentityHashMap;
 
     invoke-direct {p0}, Ljava/util/AbstractSet;-><init>()V
@@ -40,7 +44,10 @@
 
 .method synthetic constructor <init>(Ljava/util/IdentityHashMap;Ljava/util/IdentityHashMap$EntrySet;)V
     .locals 0
+    .param p1, "this$0"    # Ljava/util/IdentityHashMap;
 
+    .prologue
+    .local p0, "this":Ljava/util/IdentityHashMap$EntrySet;, "Ljava/util/IdentityHashMap<TK;TV;>.EntrySet;"
     invoke-direct {p0, p1}, Ljava/util/IdentityHashMap$EntrySet;-><init>(Ljava/util/IdentityHashMap;)V
 
     return-void
@@ -51,20 +58,29 @@
 .method public clear()V
     .locals 1
 
+    .prologue
+    .line 1208
+    .local p0, "this":Ljava/util/IdentityHashMap$EntrySet;, "Ljava/util/IdentityHashMap<TK;TV;>.EntrySet;"
     iget-object v0, p0, Ljava/util/IdentityHashMap$EntrySet;->this$0:Ljava/util/IdentityHashMap;
 
     invoke-virtual {v0}, Ljava/util/IdentityHashMap;->clear()V
 
+    .line 1207
     return-void
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 4
+    .param p1, "o"    # Ljava/lang/Object;
 
+    .prologue
+    .line 1193
+    .local p0, "this":Ljava/util/IdentityHashMap$EntrySet;, "Ljava/util/IdentityHashMap<TK;TV;>.EntrySet;"
     instance-of v1, p1, Ljava/util/Map$Entry;
 
     if-nez v1, :cond_0
 
+    .line 1194
     const/4 v1, 0x0
 
     return v1
@@ -72,8 +88,11 @@
     :cond_0
     move-object v0, p1
 
+    .line 1195
     check-cast v0, Ljava/util/Map$Entry;
 
+    .line 1196
+    .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
     iget-object v1, p0, Ljava/util/IdentityHashMap$EntrySet;->this$0:Ljava/util/IdentityHashMap;
 
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -103,6 +122,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1190
+    .local p0, "this":Ljava/util/IdentityHashMap$EntrySet;, "Ljava/util/IdentityHashMap<TK;TV;>.EntrySet;"
     new-instance v0, Ljava/util/IdentityHashMap$EntryIterator;
 
     iget-object v1, p0, Ljava/util/IdentityHashMap$EntrySet;->this$0:Ljava/util/IdentityHashMap;
@@ -116,11 +138,16 @@
 
 .method public remove(Ljava/lang/Object;)Z
     .locals 4
+    .param p1, "o"    # Ljava/lang/Object;
 
+    .prologue
+    .line 1199
+    .local p0, "this":Ljava/util/IdentityHashMap$EntrySet;, "Ljava/util/IdentityHashMap<TK;TV;>.EntrySet;"
     instance-of v1, p1, Ljava/util/Map$Entry;
 
     if-nez v1, :cond_0
 
+    .line 1200
     const/4 v1, 0x0
 
     return v1
@@ -128,8 +155,11 @@
     :cond_0
     move-object v0, p1
 
+    .line 1201
     check-cast v0, Ljava/util/Map$Entry;
 
+    .line 1202
+    .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
     iget-object v1, p0, Ljava/util/IdentityHashMap$EntrySet;->this$0:Ljava/util/IdentityHashMap;
 
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -157,14 +187,22 @@
         }
     .end annotation
 
+    .prologue
+    .line 1216
+    .local p0, "this":Ljava/util/IdentityHashMap$EntrySet;, "Ljava/util/IdentityHashMap<TK;TV;>.EntrySet;"
+    .local p1, "c":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 1217
     const/4 v1, 0x0
 
+    .line 1218
+    .local v1, "modified":Z
     invoke-virtual {p0}, Ljava/util/IdentityHashMap$EntrySet;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
+    .local v0, "i":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;"
     :cond_0
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -173,6 +211,7 @@
 
     if-eqz v2, :cond_1
 
+    .line 1219
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
@@ -183,12 +222,15 @@
 
     if-eqz v2, :cond_0
 
+    .line 1220
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
+    .line 1221
     const/4 v1, 0x1
 
     goto :goto_0
 
+    .line 1224
     :cond_1
     return v1
 .end method
@@ -196,6 +238,9 @@
 .method public size()I
     .locals 1
 
+    .prologue
+    .line 1205
+    .local p0, "this":Ljava/util/IdentityHashMap$EntrySet;, "Ljava/util/IdentityHashMap<TK;TV;>.EntrySet;"
     iget-object v0, p0, Ljava/util/IdentityHashMap$EntrySet;->this$0:Ljava/util/IdentityHashMap;
 
     invoke-static {v0}, Ljava/util/IdentityHashMap;->-get1(Ljava/util/IdentityHashMap;)I
@@ -217,8 +262,11 @@
         }
     .end annotation
 
+    .prologue
+    .local p0, "this":Ljava/util/IdentityHashMap$EntrySet;, "Ljava/util/IdentityHashMap<TK;TV;>.EntrySet;"
     const/4 v2, 0x0
 
+    .line 1261
     new-instance v0, Ljava/util/IdentityHashMap$EntrySpliterator;
 
     iget-object v1, p0, Ljava/util/IdentityHashMap$EntrySet;->this$0:Ljava/util/IdentityHashMap;
@@ -237,6 +285,9 @@
 .method public toArray()[Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 1228
+    .local p0, "this":Ljava/util/IdentityHashMap$EntrySet;, "Ljava/util/IdentityHashMap<TK;TV;>.EntrySet;"
     const/4 v0, 0x0
 
     new-array v0, v0, [Ljava/lang/Object;
@@ -258,22 +309,31 @@
         }
     .end annotation
 
+    .prologue
+    .local p0, "this":Ljava/util/IdentityHashMap$EntrySet;, "Ljava/util/IdentityHashMap<TK;TV;>.EntrySet;"
+    .local p1, "a":[Ljava/lang/Object;, "[TT;"
     const/4 v10, 0x0
 
+    .line 1233
     iget-object v7, p0, Ljava/util/IdentityHashMap$EntrySet;->this$0:Ljava/util/IdentityHashMap;
 
     invoke-static {v7}, Ljava/util/IdentityHashMap;->-get0(Ljava/util/IdentityHashMap;)I
 
     move-result v0
 
+    .line 1234
+    .local v0, "expectedModCount":I
     invoke-virtual {p0}, Ljava/util/IdentityHashMap$EntrySet;->size()I
 
     move-result v3
 
+    .line 1235
+    .local v3, "size":I
     array-length v7, p1
 
     if-ge v7, v3, :cond_0
 
+    .line 1236
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v7
@@ -286,8 +346,11 @@
 
     move-result-object p1
 
+    .end local p1    # "a":[Ljava/lang/Object;, "[TT;"
     check-cast p1, [Ljava/lang/Object;
 
+    .line 1237
+    .restart local p1    # "a":[Ljava/lang/Object;, "[TT;"
     :cond_0
     iget-object v7, p0, Ljava/util/IdentityHashMap$EntrySet;->this$0:Ljava/util/IdentityHashMap;
 
@@ -295,30 +358,42 @@
 
     move-result-object v4
 
+    .line 1238
+    .local v4, "tab":[Ljava/lang/Object;
     const/4 v5, 0x0
 
+    .line 1239
+    .local v5, "ti":I
     const/4 v2, 0x0
 
+    .local v2, "si":I
     :goto_0
     array-length v7, v4
 
     if-ge v2, v7, :cond_3
 
+    .line 1241
     aget-object v1, v4, v2
 
+    .local v1, "key":Ljava/lang/Object;
     if-eqz v1, :cond_2
 
+    .line 1243
     if-lt v5, v3, :cond_1
 
+    .line 1244
     new-instance v7, Ljava/util/ConcurrentModificationException;
 
     invoke-direct {v7}, Ljava/util/ConcurrentModificationException;-><init>()V
 
     throw v7
 
+    .line 1246
     :cond_1
     add-int/lit8 v6, v5, 0x1
 
+    .end local v5    # "ti":I
+    .local v6, "ti":I
     new-instance v7, Ljava/util/AbstractMap$SimpleEntry;
 
     invoke-static {v1}, Ljava/util/IdentityHashMap;->-wrap4(Ljava/lang/Object;)Ljava/lang/Object;
@@ -335,11 +410,16 @@
 
     move v5, v6
 
+    .line 1239
+    .end local v6    # "ti":I
+    .restart local v5    # "ti":I
     :cond_2
     add-int/lit8 v2, v2, 0x2
 
     goto :goto_0
 
+    .line 1250
+    .end local v1    # "key":Ljava/lang/Object;
     :cond_3
     if-lt v5, v3, :cond_4
 
@@ -351,6 +431,7 @@
 
     if-eq v0, v7, :cond_5
 
+    .line 1251
     :cond_4
     new-instance v7, Ljava/util/ConcurrentModificationException;
 
@@ -358,13 +439,16 @@
 
     throw v7
 
+    .line 1254
     :cond_5
     array-length v7, p1
 
     if-ge v5, v7, :cond_6
 
+    .line 1255
     aput-object v10, p1, v5
 
+    .line 1257
     :cond_6
     return-object p1
 .end method

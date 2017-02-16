@@ -23,12 +23,19 @@
 # direct methods
 .method constructor <init>(Ljavax/crypto/CipherSpi;Ljava/security/Provider;)V
     .locals 0
+    .param p1, "cipherSpi"    # Ljavax/crypto/CipherSpi;
+    .param p2, "provider"    # Ljava/security/Provider;
 
+    .prologue
+    .line 2923
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 2924
     iput-object p1, p0, Ljavax/crypto/Cipher$CipherSpiAndProvider;->cipherSpi:Ljavax/crypto/CipherSpi;
 
+    .line 2925
     iput-object p2, p0, Ljavax/crypto/Cipher$CipherSpiAndProvider;->provider:Ljava/security/Provider;
 
+    .line 2923
     return-void
 .end method

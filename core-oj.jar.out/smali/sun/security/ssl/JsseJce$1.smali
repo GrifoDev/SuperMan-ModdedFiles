@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 74
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -46,6 +48,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 75
     invoke-virtual {p0}, Lsun/security/ssl/JsseJce$1;->run()Ljava/lang/Void;
 
     move-result-object v0
@@ -61,13 +65,16 @@
         }
     .end annotation
 
+    .prologue
     const/4 v2, 0x0
 
+    .line 77
     const-string/jumbo v0, "sun.security.krb5.PrincipalName"
 
     const/4 v1, 0x1
 
     invoke-static {v0, v1, v2}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
 
+    .line 79
     return-object v2
 .end method

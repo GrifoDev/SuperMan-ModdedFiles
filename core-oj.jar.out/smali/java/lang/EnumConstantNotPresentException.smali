@@ -25,6 +25,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;Ljava/lang/String;)V
     .locals 2
+    .param p2, "constantName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -37,6 +38,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 61
+    .local p1, "enumType":Ljava/lang/Class;, "Ljava/lang/Class<+Ljava/lang/Enum;>;"
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -65,10 +69,13 @@
 
     invoke-direct {p0, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
+    .line 62
     iput-object p1, p0, Ljava/lang/EnumConstantNotPresentException;->enumType:Ljava/lang/Class;
 
+    .line 63
     iput-object p2, p0, Ljava/lang/EnumConstantNotPresentException;->constantName:Ljava/lang/String;
 
+    .line 60
     return-void
 .end method
 
@@ -77,6 +84,8 @@
 .method public constantName()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 78
     iget-object v0, p0, Ljava/lang/EnumConstantNotPresentException;->constantName:Ljava/lang/String;
 
     return-object v0
@@ -94,6 +103,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 71
     iget-object v0, p0, Ljava/lang/EnumConstantNotPresentException;->enumType:Ljava/lang/Class;
 
     return-object v0

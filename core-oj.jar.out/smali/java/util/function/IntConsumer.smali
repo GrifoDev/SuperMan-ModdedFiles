@@ -17,11 +17,16 @@
 # virtual methods
 .method public synthetic -java_util_function_IntConsumer_lambda$1(Ljava/util/function/IntConsumer;I)V
     .locals 0
+    .param p1, "after"    # Ljava/util/function/IntConsumer;
+    .param p2, "t"    # I
 
+    .prologue
+    .line 65
     invoke-interface {p0, p2}, Ljava/util/function/IntConsumer;->accept(I)V
 
     invoke-interface {p1, p2}, Ljava/util/function/IntConsumer;->accept(I)V
 
+    .line 0
     return-void
 .end method
 
@@ -30,9 +35,13 @@
 
 .method public andThen(Ljava/util/function/IntConsumer;)Ljava/util/function/IntConsumer;
     .locals 1
+    .param p1, "after"    # Ljava/util/function/IntConsumer;
 
+    .prologue
+    .line 64
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 65
     new-instance v0, Ljava/util/function/IntConsumer$-java_util_function_IntConsumer_andThen_java_util_function_IntConsumer_after_LambdaImpl0;
 
     invoke-direct {v0, p0, p1}, Ljava/util/function/IntConsumer$-java_util_function_IntConsumer_andThen_java_util_function_IntConsumer_after_LambdaImpl0;-><init>(Ljava/util/function/IntConsumer;Ljava/util/function/IntConsumer;)V

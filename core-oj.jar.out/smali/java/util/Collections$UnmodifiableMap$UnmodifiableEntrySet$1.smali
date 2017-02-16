@@ -46,10 +46,14 @@
 .method constructor <init>(Ljava/util/Collections$UnmodifiableMap$UnmodifiableEntrySet;)V
     .locals 1
 
+    .prologue
+    .line 1639
+    .local p1, "this$2":Ljava/util/Collections$UnmodifiableMap$UnmodifiableEntrySet;, "Ljava/util/Collections$UnmodifiableMap<TK;TV;>.UnmodifiableEntrySet<TK;TV;>;"
     iput-object p1, p0, Ljava/util/Collections$UnmodifiableMap$UnmodifiableEntrySet$1;->this$2:Ljava/util/Collections$UnmodifiableMap$UnmodifiableEntrySet;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 1640
     iget-object v0, p0, Ljava/util/Collections$UnmodifiableMap$UnmodifiableEntrySet$1;->this$2:Ljava/util/Collections$UnmodifiableMap$UnmodifiableEntrySet;
 
     iget-object v0, v0, Ljava/util/Collections$UnmodifiableMap$UnmodifiableEntrySet;->c:Ljava/util/Collection;
@@ -60,6 +64,7 @@
 
     iput-object v0, p0, Ljava/util/Collections$UnmodifiableMap$UnmodifiableEntrySet$1;->i:Ljava/util/Iterator;
 
+    .line 1639
     return-void
 .end method
 
@@ -68,6 +73,8 @@
 .method public hasNext()Z
     .locals 1
 
+    .prologue
+    .line 1643
     iget-object v0, p0, Ljava/util/Collections$UnmodifiableMap$UnmodifiableEntrySet$1;->i:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -80,6 +87,8 @@
 .method public bridge synthetic next()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 1645
     invoke-virtual {p0}, Ljava/util/Collections$UnmodifiableMap$UnmodifiableEntrySet$1;->next()Ljava/util/Map$Entry;
 
     move-result-object v0
@@ -97,6 +106,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 1646
     new-instance v1, Ljava/util/Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntry;
 
     iget-object v0, p0, Ljava/util/Collections$UnmodifiableMap$UnmodifiableEntrySet$1;->i:Ljava/util/Iterator;
@@ -115,6 +126,8 @@
 .method public remove()V
     .locals 1
 
+    .prologue
+    .line 1649
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V

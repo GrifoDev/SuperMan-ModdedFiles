@@ -30,7 +30,12 @@
 # direct methods
 .method constructor <init>(Ljava/util/stream/IntPipeline$4;Ljava/util/stream/Sink;Ljava/util/function/IntFunction;)V
     .locals 0
+    .param p1, "this$1"    # Ljava/util/stream/IntPipeline$4;
 
+    .prologue
+    .line 248
+    .local p2, "$anonymous0":Ljava/util/stream/Sink;, "Ljava/util/stream/Sink<-TU;>;"
+    .local p3, "val$mapper":Ljava/util/function/IntFunction;, "Ljava/util/function/IntFunction<+TU;>;"
     iput-object p1, p0, Ljava/util/stream/IntPipeline$4$1;->this$1:Ljava/util/stream/IntPipeline$4;
 
     iput-object p3, p0, Ljava/util/stream/IntPipeline$4$1;->val$mapper:Ljava/util/function/IntFunction;
@@ -44,7 +49,10 @@
 # virtual methods
 .method public accept(I)V
     .locals 2
+    .param p1, "t"    # I
 
+    .prologue
+    .line 251
     iget-object v0, p0, Ljava/util/stream/Sink$ChainedInt;->downstream:Ljava/util/stream/Sink;
 
     iget-object v1, p0, Ljava/util/stream/IntPipeline$4$1;->val$mapper:Ljava/util/function/IntFunction;
@@ -55,5 +63,6 @@
 
     invoke-interface {v0, v1}, Ljava/util/stream/Sink;->accept(Ljava/lang/Object;)V
 
+    .line 250
     return-void
 .end method

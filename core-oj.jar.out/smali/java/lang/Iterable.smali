@@ -25,12 +25,18 @@
         }
     .end annotation
 
+    .prologue
+    .line 73
+    .local p0, "this":Ljava/lang/Iterable;, "Ljava/lang/Iterable<TT;>;"
+    .local p1, "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-TT;>;"
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 74
     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
+    .local v1, "t$iterator":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -42,10 +48,14 @@
 
     move-result-object v0
 
+    .line 75
+    .local v0, "t":Ljava/lang/Object;, "TT;"
     invoke-interface {p1, v0}, Ljava/util/function/Consumer;->accept(Ljava/lang/Object;)V
 
     goto :goto_0
 
+    .line 72
+    .end local v0    # "t":Ljava/lang/Object;, "TT;"
     :cond_0
     return-void
 .end method
@@ -70,6 +80,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 101
+    .local p0, "this":Ljava/lang/Iterable;, "Ljava/lang/Iterable<TT;>;"
     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v0

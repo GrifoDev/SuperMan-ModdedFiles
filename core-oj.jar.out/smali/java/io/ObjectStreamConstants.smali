@@ -67,21 +67,27 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 191
     new-instance v0, Ljava/io/SerializablePermission;
 
     const-string/jumbo v1, "enableSubstitution"
 
     invoke-direct {v0, v1}, Ljava/io/SerializablePermission;-><init>(Ljava/lang/String;)V
 
+    .line 190
     sput-object v0, Ljava/io/ObjectStreamConstants;->SUBSTITUTION_PERMISSION:Ljava/io/SerializablePermission;
 
+    .line 201
     new-instance v0, Ljava/io/SerializablePermission;
 
     const-string/jumbo v1, "enableSubclassImplementation"
 
     invoke-direct {v0, v1}, Ljava/io/SerializablePermission;-><init>(Ljava/lang/String;)V
 
+    .line 200
     sput-object v0, Ljava/io/ObjectStreamConstants;->SUBCLASS_IMPLEMENTATION_PERMISSION:Ljava/io/SerializablePermission;
 
+    .line 34
     return-void
 .end method

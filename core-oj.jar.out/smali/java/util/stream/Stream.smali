@@ -40,6 +40,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 963
     new-instance v0, Ljava/util/stream/Streams$StreamBuilderImpl;
 
     invoke-direct {v0}, Ljava/util/stream/Streams$StreamBuilderImpl;-><init>()V
@@ -63,12 +65,19 @@
         }
     .end annotation
 
+    .prologue
+    .line 1072
+    .local p0, "a":Ljava/util/stream/Stream;, "Ljava/util/stream/Stream<+TT;>;"
+    .local p1, "b":Ljava/util/stream/Stream;, "Ljava/util/stream/Stream<+TT;>;"
     invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 1073
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 1076
     new-instance v0, Ljava/util/stream/Streams$ConcatSpliterator$OfRef;
 
+    .line 1077
     invoke-interface {p0}, Ljava/util/stream/Stream;->spliterator()Ljava/util/Spliterator;
 
     move-result-object v2
@@ -77,8 +86,11 @@
 
     move-result-object v3
 
+    .line 1076
     invoke-direct {v0, v2, v3}, Ljava/util/stream/Streams$ConcatSpliterator$OfRef;-><init>(Ljava/util/Spliterator;Ljava/util/Spliterator;)V
 
+    .line 1078
+    .local v0, "split":Ljava/util/Spliterator;, "Ljava/util/Spliterator<TT;>;"
     invoke-interface {p0}, Ljava/util/stream/Stream;->isParallel()Z
 
     move-result v2
@@ -94,6 +106,8 @@
 
     move-result-object v1
 
+    .line 1079
+    .local v1, "stream":Ljava/util/stream/Stream;, "Ljava/util/stream/Stream<TT;>;"
     invoke-static {p0, p1}, Ljava/util/stream/Streams;->composedClose(Ljava/util/stream/BaseStream;Ljava/util/stream/BaseStream;)Ljava/lang/Runnable;
 
     move-result-object v2
@@ -106,6 +120,8 @@
 
     return-object v2
 
+    .line 1078
+    .end local v1    # "stream":Ljava/util/stream/Stream;, "Ljava/util/stream/Stream<TT;>;"
     :cond_0
     const/4 v2, 0x1
 
@@ -124,6 +140,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 973
     invoke-static {}, Ljava/util/Spliterators;->emptySpliterator()Ljava/util/Spliterator;
 
     move-result-object v0
@@ -151,8 +169,12 @@
         }
     .end annotation
 
+    .prologue
+    .line 1048
+    .local p0, "s":Ljava/util/function/Supplier;, "Ljava/util/function/Supplier<TT;>;"
     invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 1050
     new-instance v0, Ljava/util/stream/StreamSpliterators$InfiniteSupplyingSpliterator$OfRef;
 
     const-wide v2, 0x7fffffffffffffffL
@@ -161,6 +183,7 @@
 
     const/4 v1, 0x0
 
+    .line 1049
     invoke-static {v0, v1}, Ljava/util/stream/StreamSupport;->stream(Ljava/util/Spliterator;Z)Ljava/util/stream/Stream;
 
     move-result-object v0
@@ -182,20 +205,30 @@
         }
     .end annotation
 
+    .prologue
+    .line 1018
+    .local p0, "seed":Ljava/lang/Object;, "TT;"
+    .local p1, "f":Ljava/util/function/UnaryOperator;, "Ljava/util/function/UnaryOperator<TT;>;"
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 1019
     new-instance v0, Ljava/util/stream/Stream$1;
 
     invoke-direct {v0, p0, p1}, Ljava/util/stream/Stream$1;-><init>(Ljava/lang/Object;Ljava/util/function/UnaryOperator;)V
 
+    .line 1035
+    .local v0, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<TT;>;"
     const/16 v1, 0x410
 
+    .line 1033
     invoke-static {v0, v1}, Ljava/util/Spliterators;->spliteratorUnknownSize(Ljava/util/Iterator;I)Ljava/util/Spliterator;
 
     move-result-object v1
 
+    .line 1035
     const/4 v2, 0x0
 
+    .line 1033
     invoke-static {v1, v2}, Ljava/util/stream/StreamSupport;->stream(Ljava/util/Spliterator;Z)Ljava/util/stream/Stream;
 
     move-result-object v1
@@ -215,6 +248,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 984
+    .local p0, "t":Ljava/lang/Object;, "TT;"
     new-instance v0, Ljava/util/stream/Streams$StreamBuilderImpl;
 
     invoke-direct {v0, p0}, Ljava/util/stream/Streams$StreamBuilderImpl;-><init>(Ljava/lang/Object;)V
@@ -243,6 +279,9 @@
     .annotation runtime Ljava/lang/SafeVarargs;
     .end annotation
 
+    .prologue
+    .line 997
+    .local p0, "values":[Ljava/lang/Object;, "[TT;"
     invoke-static {p0}, Ljava/util/Arrays;->stream([Ljava/lang/Object;)Ljava/util/stream/Stream;
 
     move-result-object v0

@@ -42,7 +42,13 @@
 # direct methods
 .method constructor <init>(Ljava/util/jar/JarVerifier;Ljava/util/Iterator;Ljava/util/List;Ljava/util/Enumeration;)V
     .locals 0
+    .param p1, "this$0"    # Ljava/util/jar/JarVerifier;
+    .param p2, "val$itor"    # Ljava/util/Iterator;
+    .param p3, "val$signersReq"    # Ljava/util/List;
+    .param p4, "val$enum2"    # Ljava/util/Enumeration;
 
+    .prologue
+    .line 706
     iput-object p1, p0, Ljava/util/jar/JarVerifier$2;->this$0:Ljava/util/jar/JarVerifier;
 
     iput-object p2, p0, Ljava/util/jar/JarVerifier$2;->val$itor:Ljava/util/Iterator;
@@ -61,14 +67,18 @@
 .method public hasMoreElements()Z
     .locals 4
 
+    .prologue
     const/4 v3, 0x1
 
+    .line 711
     iget-object v1, p0, Ljava/util/jar/JarVerifier$2;->name:Ljava/lang/String;
 
     if-eqz v1, :cond_0
 
+    .line 712
     return v3
 
+    .line 715
     :cond_0
     iget-object v1, p0, Ljava/util/jar/JarVerifier$2;->val$itor:Ljava/util/Iterator;
 
@@ -78,6 +88,7 @@
 
     if-eqz v1, :cond_1
 
+    .line 716
     iget-object v1, p0, Ljava/util/jar/JarVerifier$2;->val$itor:Ljava/util/Iterator;
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -86,6 +97,8 @@
 
     check-cast v0, Ljava/util/Map$Entry;
 
+    .line 717
+    .local v0, "e":Ljava/util/Map$Entry;
     iget-object v2, p0, Ljava/util/jar/JarVerifier$2;->val$signersReq:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
@@ -100,6 +113,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 718
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v1
@@ -108,8 +122,11 @@
 
     iput-object v1, p0, Ljava/util/jar/JarVerifier$2;->name:Ljava/lang/String;
 
+    .line 719
     return v3
 
+    .line 722
+    .end local v0    # "e":Ljava/util/Map$Entry;
     :cond_1
     iget-object v1, p0, Ljava/util/jar/JarVerifier$2;->val$enum2:Ljava/util/Enumeration;
 
@@ -119,6 +136,7 @@
 
     if-eqz v1, :cond_2
 
+    .line 723
     iget-object v1, p0, Ljava/util/jar/JarVerifier$2;->val$enum2:Ljava/util/Enumeration;
 
     invoke-interface {v1}, Ljava/util/Enumeration;->nextElement()Ljava/lang/Object;
@@ -129,8 +147,10 @@
 
     iput-object v1, p0, Ljava/util/jar/JarVerifier$2;->name:Ljava/lang/String;
 
+    .line 724
     return v3
 
+    .line 726
     :cond_2
     const/4 v1, 0x0
 
@@ -140,6 +160,8 @@
 .method public bridge synthetic nextElement()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 729
     invoke-virtual {p0}, Ljava/util/jar/JarVerifier$2;->nextElement()Ljava/lang/String;
 
     move-result-object v0
@@ -150,20 +172,28 @@
 .method public nextElement()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 730
     invoke-virtual {p0}, Ljava/util/jar/JarVerifier$2;->hasMoreElements()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
+    .line 731
     iget-object v0, p0, Ljava/util/jar/JarVerifier$2;->name:Ljava/lang/String;
 
+    .line 732
+    .local v0, "value":Ljava/lang/String;
     const/4 v1, 0x0
 
     iput-object v1, p0, Ljava/util/jar/JarVerifier$2;->name:Ljava/lang/String;
 
+    .line 733
     return-object v0
 
+    .line 735
+    .end local v0    # "value":Ljava/lang/String;
     :cond_0
     new-instance v1, Ljava/util/NoSuchElementException;
 

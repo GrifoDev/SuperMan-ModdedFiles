@@ -47,22 +47,30 @@
 .method static constructor <clinit>()V
     .locals 6
 
+    .prologue
+    .line 610
     new-instance v0, Lsun/security/ssl/CipherSuite$PRF;
 
     const-string/jumbo v1, "P_NONE"
 
+    .line 611
     const-string/jumbo v3, "NONE"
 
+    .line 610
     const/4 v2, 0x0
 
+    .line 611
     const/4 v4, 0x0
 
     const/4 v5, 0x0
 
+    .line 610
     invoke-direct/range {v0 .. v5}, Lsun/security/ssl/CipherSuite$PRF;-><init>(Ljava/lang/String;ILjava/lang/String;II)V
 
+    .line 611
     sput-object v0, Lsun/security/ssl/CipherSuite$PRF;->P_NONE:Lsun/security/ssl/CipherSuite$PRF;
 
+    .line 612
     new-instance v0, Lsun/security/ssl/CipherSuite$PRF;
 
     const-string/jumbo v1, "P_SHA256"
@@ -79,6 +87,7 @@
 
     sput-object v0, Lsun/security/ssl/CipherSuite$PRF;->P_SHA256:Lsun/security/ssl/CipherSuite$PRF;
 
+    .line 613
     new-instance v0, Lsun/security/ssl/CipherSuite$PRF;
 
     const-string/jumbo v1, "P_SHA384"
@@ -95,6 +104,7 @@
 
     sput-object v0, Lsun/security/ssl/CipherSuite$PRF;->P_SHA384:Lsun/security/ssl/CipherSuite$PRF;
 
+    .line 614
     new-instance v0, Lsun/security/ssl/CipherSuite$PRF;
 
     const-string/jumbo v1, "P_SHA512"
@@ -111,6 +121,7 @@
 
     sput-object v0, Lsun/security/ssl/CipherSuite$PRF;->P_SHA512:Lsun/security/ssl/CipherSuite$PRF;
 
+    .line 608
     const/4 v0, 0x4
 
     new-array v0, v0, [Lsun/security/ssl/CipherSuite$PRF;
@@ -146,21 +157,33 @@
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;II)V
     .locals 0
+    .param p3, "prfHashAlg"    # Ljava/lang/String;
+    .param p4, "prfHashLength"    # I
+    .param p5, "prfBlockSize"    # I
 
+    .prologue
+    .line 621
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
+    .line 622
     iput-object p3, p0, Lsun/security/ssl/CipherSuite$PRF;->prfHashAlg:Ljava/lang/String;
 
+    .line 623
     iput p4, p0, Lsun/security/ssl/CipherSuite$PRF;->prfHashLength:I
 
+    .line 624
     iput p5, p0, Lsun/security/ssl/CipherSuite$PRF;->prfBlockSize:I
 
+    .line 621
     return-void
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lsun/security/ssl/CipherSuite$PRF;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 608
     const-class v0, Lsun/security/ssl/CipherSuite$PRF;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -175,6 +198,8 @@
 .method public static values()[Lsun/security/ssl/CipherSuite$PRF;
     .locals 1
 
+    .prologue
+    .line 608
     sget-object v0, Lsun/security/ssl/CipherSuite$PRF;->$VALUES:[Lsun/security/ssl/CipherSuite$PRF;
 
     return-object v0
@@ -185,6 +210,8 @@
 .method getPRFBlockSize()I
     .locals 1
 
+    .prologue
+    .line 636
     iget v0, p0, Lsun/security/ssl/CipherSuite$PRF;->prfBlockSize:I
 
     return v0
@@ -193,6 +220,8 @@
 .method getPRFHashAlg()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 628
     iget-object v0, p0, Lsun/security/ssl/CipherSuite$PRF;->prfHashAlg:Ljava/lang/String;
 
     return-object v0
@@ -201,6 +230,8 @@
 .method getPRFHashLength()I
     .locals 1
 
+    .prologue
+    .line 632
     iget v0, p0, Lsun/security/ssl/CipherSuite$PRF;->prfHashLength:I
 
     return v0

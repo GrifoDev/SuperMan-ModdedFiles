@@ -36,7 +36,11 @@
 # direct methods
 .method constructor <init>([I[Ljava/lang/String;)V
     .locals 0
+    .param p1, "val$vals"    # [I
+    .param p2, "val$encs"    # [Ljava/lang/String;
 
+    .prologue
+    .line 72
     iput-object p1, p0, Lsun/net/NetworkClient$1;->val$vals:[I
 
     iput-object p2, p0, Lsun/net/NetworkClient$1;->val$encs:[Ljava/lang/String;
@@ -51,6 +55,8 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 73
     invoke-virtual {p0}, Lsun/net/NetworkClient$1;->run()Ljava/lang/Void;
 
     move-result-object v0
@@ -61,8 +67,10 @@
 .method public run()Ljava/lang/Void;
     .locals 4
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 74
     iget-object v0, p0, Lsun/net/NetworkClient$1;->val$vals:[I
 
     const-string/jumbo v1, "sun.net.client.defaultReadTimeout"
@@ -77,6 +85,7 @@
 
     aput v1, v0, v3
 
+    .line 75
     iget-object v0, p0, Lsun/net/NetworkClient$1;->val$vals:[I
 
     const-string/jumbo v1, "sun.net.client.defaultConnectTimeout"
@@ -93,6 +102,7 @@
 
     aput v1, v0, v2
 
+    .line 76
     iget-object v0, p0, Lsun/net/NetworkClient$1;->val$encs:[Ljava/lang/String;
 
     const-string/jumbo v1, "file.encoding"
@@ -105,6 +115,7 @@
 
     aput-object v1, v0, v3
 
+    .line 77
     const/4 v0, 0x0
 
     return-object v0

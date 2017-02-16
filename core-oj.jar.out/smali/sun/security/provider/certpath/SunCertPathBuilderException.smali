@@ -15,52 +15,81 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 54
     invoke-direct {p0}, Ljava/security/cert/CertPathBuilderException;-><init>()V
 
+    .line 53
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 0
+    .param p1, "msg"    # Ljava/lang/String;
 
+    .prologue
+    .line 65
     invoke-direct {p0, p1}, Ljava/security/cert/CertPathBuilderException;-><init>(Ljava/lang/String;)V
 
+    .line 64
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/Throwable;)V
     .locals 0
+    .param p1, "msg"    # Ljava/lang/String;
+    .param p2, "cause"    # Ljava/lang/Throwable;
 
+    .prologue
+    .line 93
     invoke-direct {p0, p1, p2}, Ljava/security/cert/CertPathBuilderException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
+    .line 92
     return-void
 .end method
 
 .method constructor <init>(Ljava/lang/String;Ljava/lang/Throwable;Lsun/security/provider/certpath/AdjacencyList;)V
     .locals 0
+    .param p1, "msg"    # Ljava/lang/String;
+    .param p2, "cause"    # Ljava/lang/Throwable;
+    .param p3, "adjList"    # Lsun/security/provider/certpath/AdjacencyList;
 
+    .prologue
+    .line 119
     invoke-direct {p0, p1, p2}, Lsun/security/provider/certpath/SunCertPathBuilderException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
+    .line 120
     iput-object p3, p0, Lsun/security/provider/certpath/SunCertPathBuilderException;->adjList:Lsun/security/provider/certpath/AdjacencyList;
 
+    .line 117
     return-void
 .end method
 
 .method constructor <init>(Ljava/lang/String;Lsun/security/provider/certpath/AdjacencyList;)V
     .locals 0
+    .param p1, "msg"    # Ljava/lang/String;
+    .param p2, "adjList"    # Lsun/security/provider/certpath/AdjacencyList;
 
+    .prologue
+    .line 104
     invoke-direct {p0, p1}, Lsun/security/provider/certpath/SunCertPathBuilderException;-><init>(Ljava/lang/String;)V
 
+    .line 105
     iput-object p2, p0, Lsun/security/provider/certpath/SunCertPathBuilderException;->adjList:Lsun/security/provider/certpath/AdjacencyList;
 
+    .line 103
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/Throwable;)V
     .locals 0
+    .param p1, "cause"    # Ljava/lang/Throwable;
 
+    .prologue
+    .line 82
     invoke-direct {p0, p1}, Ljava/security/cert/CertPathBuilderException;-><init>(Ljava/lang/Throwable;)V
 
+    .line 81
     return-void
 .end method
 
@@ -69,6 +98,8 @@
 .method public getAdjacencyList()Lsun/security/provider/certpath/AdjacencyList;
     .locals 1
 
+    .prologue
+    .line 129
     iget-object v0, p0, Lsun/security/provider/certpath/SunCertPathBuilderException;->adjList:Lsun/security/provider/certpath/AdjacencyList;
 
     return-object v0

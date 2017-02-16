@@ -7,6 +7,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 51
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -16,7 +18,11 @@
 # virtual methods
 .method protected equals(Ljava/net/URL;Ljava/net/URL;)Z
     .locals 2
+    .param p1, "u1"    # Ljava/net/URL;
+    .param p2, "u2"    # Ljava/net/URL;
 
+    .prologue
+    .line 380
     invoke-virtual {p1}, Ljava/net/URL;->getRef()Ljava/lang/String;
 
     move-result-object v0
@@ -31,6 +37,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 381
     invoke-virtual {p1}, Ljava/net/URL;->getQuery()Ljava/lang/String;
 
     move-result-object v0
@@ -43,12 +50,15 @@
 
     move-result v0
 
+    .line 380
     if-eqz v0, :cond_0
 
+    .line 384
     invoke-virtual {p0, p1, p2}, Ljava/net/URLStreamHandler;->sameFile(Ljava/net/URL;Ljava/net/URL;)Z
 
     move-result v0
 
+    .line 380
     :goto_0
     return v0
 
@@ -61,6 +71,8 @@
 .method protected getDefaultPort()I
     .locals 1
 
+    .prologue
+    .line 364
     const/4 v0, -0x1
 
     return v0
@@ -68,16 +80,20 @@
 
 .method protected declared-synchronized getHostAddress(Ljava/net/URL;)Ljava/net/InetAddress;
     .locals 5
+    .param p1, "u"    # Ljava/net/URL;
 
+    .prologue
     const/4 v4, 0x0
 
     monitor-enter p0
 
+    .line 453
     :try_start_0
     iget-object v3, p1, Ljava/net/URL;->hostAddress:Ljava/net/InetAddress;
 
     if-eqz v3, :cond_0
 
+    .line 454
     iget-object v3, p1, Ljava/net/URL;->hostAddress:Ljava/net/InetAddress;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -86,12 +102,15 @@
 
     return-object v3
 
+    .line 456
     :cond_0
     :try_start_1
     invoke-virtual {p1}, Ljava/net/URL;->getHost()Ljava/lang/String;
 
     move-result-object v1
 
+    .line 457
+    .local v1, "host":Ljava/lang/String;
     if-eqz v1, :cond_1
 
     const-string/jumbo v3, ""
@@ -107,8 +126,10 @@
     :cond_1
     monitor-exit p0
 
+    .line 458
     return-object v4
 
+    .line 461
     :cond_2
     :try_start_2
     invoke-static {v1}, Ljava/net/InetAddress;->getByName(Ljava/lang/String;)Ljava/net/InetAddress;
@@ -121,6 +142,7 @@
     .catch Ljava/lang/SecurityException; {:try_start_2 .. :try_end_2} :catch_0
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
+    .line 468
     :try_start_3
     iget-object v3, p1, Ljava/net/URL;->hostAddress:Ljava/net/InetAddress;
     :try_end_3
@@ -130,20 +152,29 @@
 
     return-object v3
 
+    .line 464
     :catch_0
     move-exception v2
 
+    .local v2, "se":Ljava/lang/SecurityException;
     monitor-exit p0
 
+    .line 465
     return-object v4
 
+    .line 462
+    .end local v2    # "se":Ljava/lang/SecurityException;
     :catch_1
     move-exception v0
 
+    .local v0, "ex":Ljava/net/UnknownHostException;
     monitor-exit p0
 
+    .line 463
     return-object v4
 
+    .end local v0    # "ex":Ljava/net/UnknownHostException;
+    .end local v1    # "host":Ljava/lang/String;
     :catchall_0
     move-exception v3
 
@@ -154,11 +185,15 @@
 
 .method protected hashCode(Ljava/net/URL;)I
     .locals 3
+    .param p1, "u"    # Ljava/net/URL;
 
+    .prologue
+    .line 397
     const/4 v0, 0x6
 
     new-array v0, v0, [Ljava/lang/Object;
 
+    .line 398
     invoke-virtual {p1}, Ljava/net/URL;->getRef()Ljava/lang/String;
 
     move-result-object v1
@@ -167,6 +202,7 @@
 
     aput-object v1, v0, v2
 
+    .line 399
     invoke-virtual {p1}, Ljava/net/URL;->getQuery()Ljava/lang/String;
 
     move-result-object v1
@@ -175,6 +211,7 @@
 
     aput-object v1, v0, v2
 
+    .line 400
     invoke-virtual {p1}, Ljava/net/URL;->getProtocol()Ljava/lang/String;
 
     move-result-object v1
@@ -183,6 +220,7 @@
 
     aput-object v1, v0, v2
 
+    .line 401
     invoke-virtual {p1}, Ljava/net/URL;->getFile()Ljava/lang/String;
 
     move-result-object v1
@@ -191,6 +229,7 @@
 
     aput-object v1, v0, v2
 
+    .line 402
     invoke-virtual {p1}, Ljava/net/URL;->getHost()Ljava/lang/String;
 
     move-result-object v1
@@ -199,6 +238,7 @@
 
     aput-object v1, v0, v2
 
+    .line 403
     invoke-virtual {p1}, Ljava/net/URL;->getPort()I
 
     move-result v1
@@ -211,6 +251,7 @@
 
     aput-object v1, v0, v2
 
+    .line 397
     invoke-static {v0}, Ljava/util/Objects;->hash([Ljava/lang/Object;)I
 
     move-result v0
@@ -220,9 +261,13 @@
 
 .method protected hostsEqual(Ljava/net/URL;Ljava/net/URL;)Z
     .locals 2
+    .param p1, "u1"    # Ljava/net/URL;
+    .param p2, "u2"    # Ljava/net/URL;
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 481
     invoke-virtual {p1}, Ljava/net/URL;->getHost()Ljava/lang/String;
 
     move-result-object v1
@@ -235,6 +280,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 482
     invoke-virtual {p1}, Ljava/net/URL;->getHost()Ljava/lang/String;
 
     move-result-object v0
@@ -249,6 +295,7 @@
 
     return v0
 
+    .line 484
     :cond_0
     invoke-virtual {p1}, Ljava/net/URL;->getHost()Ljava/lang/String;
 
@@ -278,12 +325,16 @@
 
 .method protected openConnection(Ljava/net/URL;Ljava/net/Proxy;)Ljava/net/URLConnection;
     .locals 2
+    .param p1, "u"    # Ljava/net/URL;
+    .param p2, "p"    # Ljava/net/Proxy;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 95
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string/jumbo v1, "Method not implemented."
@@ -295,51 +346,80 @@
 
 .method protected parseURL(Ljava/net/URL;Ljava/lang/String;II)V
     .locals 23
+    .param p1, "u"    # Ljava/net/URL;
+    .param p2, "spec"    # Ljava/lang/String;
+    .param p3, "start"    # I
+    .param p4, "limit"    # I
 
+    .prologue
+    .line 125
     invoke-virtual/range {p1 .. p1}, Ljava/net/URL;->getProtocol()Ljava/lang/String;
 
     move-result-object v4
 
+    .line 126
+    .local v4, "protocol":Ljava/lang/String;
     invoke-virtual/range {p1 .. p1}, Ljava/net/URL;->getAuthority()Ljava/lang/String;
 
     move-result-object v7
 
+    .line 127
+    .local v7, "authority":Ljava/lang/String;
     invoke-virtual/range {p1 .. p1}, Ljava/net/URL;->getUserInfo()Ljava/lang/String;
 
     move-result-object v8
 
+    .line 128
+    .local v8, "userInfo":Ljava/lang/String;
     invoke-virtual/range {p1 .. p1}, Ljava/net/URL;->getHost()Ljava/lang/String;
 
     move-result-object v5
 
+    .line 129
+    .local v5, "host":Ljava/lang/String;
     invoke-virtual/range {p1 .. p1}, Ljava/net/URL;->getPort()I
 
     move-result v6
 
+    .line 130
+    .local v6, "port":I
     invoke-virtual/range {p1 .. p1}, Ljava/net/URL;->getPath()Ljava/lang/String;
 
     move-result-object v9
 
+    .line 131
+    .local v9, "path":Ljava/lang/String;
     invoke-virtual/range {p1 .. p1}, Ljava/net/URL;->getQuery()Ljava/lang/String;
 
     move-result-object v10
 
+    .line 134
+    .local v10, "query":Ljava/lang/String;
     invoke-virtual/range {p1 .. p1}, Ljava/net/URL;->getRef()Ljava/lang/String;
 
     move-result-object v11
 
+    .line 136
+    .local v11, "ref":Ljava/lang/String;
     const/4 v15, 0x0
 
+    .line 137
+    .local v15, "isRelPath":Z
     const/16 v18, 0x0
 
+    .line 139
+    .local v18, "queryOnly":Z
     const/16 v19, 0x0
 
+    .line 144
+    .local v19, "querySet":Z
     move/from16 v0, p3
 
     move/from16 v1, p4
 
     if-ge v0, v1, :cond_1
 
+    .line 145
     const/16 v2, 0x3f
 
     move-object/from16 v0, p2
@@ -348,6 +428,8 @@
 
     move-result v20
 
+    .line 146
+    .local v20, "queryStart":I
     move/from16 v0, v20
 
     move/from16 v1, p3
@@ -356,6 +438,7 @@
 
     const/16 v18, 0x1
 
+    .line 147
     :goto_0
     const/4 v2, -0x1
 
@@ -369,6 +452,7 @@
 
     if-ge v0, v1, :cond_1
 
+    .line 148
     add-int/lit8 v2, v20, 0x1
 
     move-object/from16 v0, p2
@@ -379,14 +463,17 @@
 
     move-result-object v10
 
+    .line 149
     move/from16 v0, p4
 
     move/from16 v1, v20
 
     if-le v0, v1, :cond_0
 
+    .line 150
     move/from16 p4, v20
 
+    .line 151
     :cond_0
     const/4 v2, 0x0
 
@@ -398,13 +485,20 @@
 
     move-result-object p2
 
+    .line 153
     const/16 v19, 0x1
 
+    .line 158
+    .end local v20    # "queryStart":I
     :cond_1
     const/4 v13, 0x0
 
+    .line 166
+    .local v13, "i":I
     const/16 v16, 0x0
 
+    .line 168
+    .local v16, "isUNCName":Z
     if-nez v16, :cond_f
 
     add-int/lit8 v2, p4, -0x2
@@ -421,6 +515,7 @@
 
     if-ne v2, v3, :cond_f
 
+    .line 169
     add-int/lit8 v2, p3, 0x1
 
     move-object/from16 v0, p2
@@ -433,8 +528,10 @@
 
     if-ne v2, v3, :cond_f
 
+    .line 170
     add-int/lit8 p3, p3, 0x2
 
+    .line 171
     const/16 v2, 0x2f
 
     move-object/from16 v0, p2
@@ -445,8 +542,10 @@
 
     move-result v13
 
+    .line 172
     if-gez v13, :cond_2
 
+    .line 173
     const/16 v2, 0x3f
 
     move-object/from16 v0, p2
@@ -457,17 +556,22 @@
 
     move-result v13
 
+    .line 174
     if-gez v13, :cond_2
 
+    .line 175
     move/from16 v13, p4
 
+    .line 181
     :cond_2
     move/from16 v0, p4
 
     if-le v13, v0, :cond_3
 
+    .line 182
     move/from16 v13, p4
 
+    .line 186
     :cond_3
     move-object/from16 v0, p2
 
@@ -479,31 +583,39 @@
 
     move-object v5, v7
 
+    .line 188
     const/16 v2, 0x40
 
     invoke-virtual {v7, v2}, Ljava/lang/String;->indexOf(I)I
 
     move-result v14
 
+    .line 189
+    .local v14, "ind":I
     const/4 v2, -0x1
 
     if-eq v14, v2, :cond_5
 
+    .line 190
     const/4 v2, 0x0
 
     invoke-virtual {v7, v2, v14}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v8
 
+    .line 191
     add-int/lit8 v2, v14, 0x1
 
     invoke-virtual {v7, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v5
 
+    .line 195
+    .end local v8    # "userInfo":Ljava/lang/String;
     :goto_1
     if-eqz v5, :cond_d
 
+    .line 198
     invoke-virtual {v5}, Ljava/lang/String;->length()I
 
     move-result v2
@@ -520,6 +632,7 @@
 
     if-ne v2, v3, :cond_a
 
+    .line 199
     const/16 v2, 0x5d
 
     invoke-virtual {v5, v2}, Ljava/lang/String;->indexOf(I)I
@@ -530,8 +643,11 @@
 
     if-le v14, v2, :cond_9
 
+    .line 201
     move-object/from16 v17, v5
 
+    .line 202
+    .local v17, "nhost":Ljava/lang/String;
     add-int/lit8 v2, v14, 0x1
 
     const/4 v3, 0x0
@@ -540,20 +656,24 @@
 
     move-result-object v5
 
+    .line 204
     const/4 v2, 0x1
 
     invoke-virtual {v5, v2, v14}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v2
 
+    .line 203
     invoke-static {v2}, Lsun/net/util/IPAddressUtil;->isIPv6LiteralAddress(Ljava/lang/String;)Z
 
     move-result v2
 
     if-nez v2, :cond_6
 
+    .line 205
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
+    .line 206
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -574,23 +694,41 @@
 
     move-result-object v3
 
+    .line 205
     invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v2
 
+    .line 146
+    .end local v13    # "i":I
+    .end local v14    # "ind":I
+    .end local v16    # "isUNCName":Z
+    .end local v17    # "nhost":Ljava/lang/String;
+    .restart local v8    # "userInfo":Ljava/lang/String;
+    .restart local v20    # "queryStart":I
     :cond_4
     const/16 v18, 0x0
 
     goto/16 :goto_0
 
+    .line 193
+    .end local v20    # "queryStart":I
+    .restart local v13    # "i":I
+    .restart local v14    # "ind":I
+    .restart local v16    # "isUNCName":Z
     :cond_5
     const/4 v8, 0x0
 
+    .local v8, "userInfo":Ljava/lang/String;
     goto :goto_1
 
+    .line 209
+    .end local v8    # "userInfo":Ljava/lang/String;
+    .restart local v17    # "nhost":Ljava/lang/String;
     :cond_6
     const/4 v6, -0x1
 
+    .line 210
     invoke-virtual/range {v17 .. v17}, Ljava/lang/String;->length()I
 
     move-result v2
@@ -599,6 +737,7 @@
 
     if-le v2, v3, :cond_7
 
+    .line 211
     add-int/lit8 v2, v14, 0x1
 
     move-object/from16 v0, v17
@@ -611,8 +750,10 @@
 
     if-ne v2, v3, :cond_8
 
+    .line 212
     add-int/lit8 v14, v14, 0x1
 
+    .line 214
     invoke-virtual/range {v17 .. v17}, Ljava/lang/String;->length()I
 
     move-result v2
@@ -621,6 +762,7 @@
 
     if-le v2, v3, :cond_7
 
+    .line 215
     add-int/lit8 v2, v14, 0x1
 
     move-object/from16 v0, v17
@@ -633,12 +775,15 @@
 
     move-result v6
 
+    .line 249
+    .end local v17    # "nhost":Ljava/lang/String;
     :cond_7
     :goto_2
     const/4 v2, -0x1
 
     if-ge v6, v2, :cond_e
 
+    .line 250
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -665,9 +810,12 @@
 
     throw v2
 
+    .line 218
+    .restart local v17    # "nhost":Ljava/lang/String;
     :cond_8
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
+    .line 219
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -688,13 +836,17 @@
 
     move-result-object v3
 
+    .line 218
     invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v2
 
+    .line 223
+    .end local v17    # "nhost":Ljava/lang/String;
     :cond_9
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
+    .line 224
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -715,10 +867,12 @@
 
     move-result-object v3
 
+    .line 223
     invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v2
 
+    .line 227
     :cond_a
     const/16 v2, 0x3a
 
@@ -726,10 +880,13 @@
 
     move-result v14
 
+    .line 228
     const/4 v6, -0x1
 
+    .line 229
     if-ltz v14, :cond_7
 
+    .line 231
     invoke-virtual {v5}, Ljava/lang/String;->length()I
 
     move-result v2
@@ -738,12 +895,15 @@
 
     if-le v2, v3, :cond_b
 
+    .line 234
     add-int/lit8 v2, v14, 0x1
 
     invoke-virtual {v5, v2}, Ljava/lang/String;->charAt(I)C
 
     move-result v12
 
+    .line 235
+    .local v12, "firstPortChar":C
     const/16 v2, 0x30
 
     if-lt v12, v2, :cond_c
@@ -752,6 +912,7 @@
 
     if-gt v12, v2, :cond_c
 
+    .line 236
     add-int/lit8 v2, v14, 0x1
 
     invoke-virtual {v5, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
@@ -762,6 +923,8 @@
 
     move-result v6
 
+    .line 243
+    .end local v12    # "firstPortChar":C
     :cond_b
     const/4 v2, 0x0
 
@@ -771,6 +934,8 @@
 
     goto/16 :goto_2
 
+    .line 238
+    .restart local v12    # "firstPortChar":C
     :cond_c
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
@@ -786,6 +951,7 @@
 
     move-result-object v3
 
+    .line 239
     add-int/lit8 v22, v14, 0x1
 
     move/from16 v0, v22
@@ -794,6 +960,7 @@
 
     move-result-object v22
 
+    .line 238
     move-object/from16 v0, v22
 
     invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -808,25 +975,38 @@
 
     throw v2
 
+    .line 247
+    .end local v12    # "firstPortChar":C
     :cond_d
     const-string/jumbo v5, ""
 
     goto/16 :goto_2
 
+    .line 252
     :cond_e
     move/from16 p3, v13
 
+    .line 259
     const/4 v9, 0x0
 
+    .line 260
+    .local v9, "path":Ljava/lang/String;
     if-nez v19, :cond_f
 
+    .line 261
     const/4 v10, 0x0
 
+    .line 266
+    .end local v9    # "path":Ljava/lang/String;
+    .end local v10    # "query":Ljava/lang/String;
+    .end local v14    # "ind":I
     :cond_f
     if-nez v5, :cond_10
 
+    .line 267
     const-string/jumbo v5, ""
 
+    .line 271
     :cond_10
     move/from16 v0, p3
 
@@ -834,6 +1014,7 @@
 
     if-ge v0, v1, :cond_11
 
+    .line 272
     invoke-virtual/range {p2 .. p3}, Ljava/lang/String;->charAt(I)C
 
     move-result v2
@@ -842,16 +1023,20 @@
 
     if-ne v2, v3, :cond_13
 
+    .line 273
     invoke-virtual/range {p2 .. p4}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v9
 
+    .line 296
     :cond_11
     :goto_3
     if-nez v9, :cond_12
 
+    .line 297
     const-string/jumbo v9, ""
 
+    .line 304
     :cond_12
     :goto_4
     const-string/jumbo v2, "/./"
@@ -862,6 +1047,7 @@
 
     if-ltz v13, :cond_17
 
+    .line 305
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -890,8 +1076,11 @@
 
     move-result-object v9
 
+    .local v9, "path":Ljava/lang/String;
     goto :goto_4
 
+    .line 274
+    .end local v9    # "path":Ljava/lang/String;
     :cond_13
     if-eqz v9, :cond_15
 
@@ -901,24 +1090,32 @@
 
     if-lez v2, :cond_15
 
+    .line 275
     const/4 v15, 0x1
 
+    .line 276
     const/16 v2, 0x2f
 
     invoke-virtual {v9, v2}, Ljava/lang/String;->lastIndexOf(I)I
 
     move-result v14
 
+    .line 277
+    .restart local v14    # "ind":I
     const-string/jumbo v21, ""
 
+    .line 278
+    .local v21, "seperator":Ljava/lang/String;
     const/4 v2, -0x1
 
     if-ne v14, v2, :cond_14
 
     if-eqz v7, :cond_14
 
+    .line 279
     const-string/jumbo v21, "/"
 
+    .line 280
     :cond_14
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -944,10 +1141,12 @@
 
     move-result-object v2
 
+    .line 281
     invoke-virtual/range {p2 .. p4}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v3
 
+    .line 280
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
@@ -956,13 +1155,20 @@
 
     move-result-object v9
 
+    .restart local v9    # "path":Ljava/lang/String;
     goto :goto_3
 
+    .line 284
+    .end local v9    # "path":Ljava/lang/String;
+    .end local v14    # "ind":I
+    .end local v21    # "seperator":Ljava/lang/String;
     :cond_15
     if-eqz v7, :cond_16
 
     const-string/jumbo v21, "/"
 
+    .line 285
+    .restart local v21    # "seperator":Ljava/lang/String;
     :goto_5
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -986,16 +1192,24 @@
 
     move-result-object v9
 
+    .restart local v9    # "path":Ljava/lang/String;
     goto/16 :goto_3
 
+    .line 284
+    .end local v9    # "path":Ljava/lang/String;
+    .end local v21    # "seperator":Ljava/lang/String;
     :cond_16
     const-string/jumbo v21, ""
 
+    .restart local v21    # "seperator":Ljava/lang/String;
     goto :goto_5
 
+    .line 308
+    .end local v21    # "seperator":Ljava/lang/String;
     :cond_17
     const/4 v13, 0x0
 
+    .line 309
     :goto_6
     const-string/jumbo v2, "/../"
 
@@ -1005,18 +1219,24 @@
 
     if-ltz v13, :cond_1a
 
+    .line 314
     if-nez v13, :cond_18
 
+    .line 315
     add-int/lit8 v2, v13, 0x3
 
     invoke-virtual {v9, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v9
 
+    .line 316
+    .restart local v9    # "path":Ljava/lang/String;
     const/4 v13, 0x0
 
     goto :goto_6
 
+    .line 324
+    .end local v9    # "path":Ljava/lang/String;
     :cond_18
     if-lez v13, :cond_19
 
@@ -1030,6 +1250,7 @@
 
     if-ltz p4, :cond_19
 
+    .line 325
     const-string/jumbo v2, "/../"
 
     move/from16 v0, p4
@@ -1040,6 +1261,7 @@
 
     if-eqz v2, :cond_19
 
+    .line 326
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -1070,15 +1292,21 @@
 
     move-result-object v9
 
+    .line 327
+    .restart local v9    # "path":Ljava/lang/String;
     const/4 v13, 0x0
 
+    .line 325
     goto :goto_6
 
+    .line 329
+    .end local v9    # "path":Ljava/lang/String;
     :cond_19
     add-int/lit8 v13, v13, 0x3
 
     goto :goto_6
 
+    .line 333
     :cond_1a
     :goto_7
     const-string/jumbo v2, "/.."
@@ -1089,12 +1317,14 @@
 
     if-eqz v2, :cond_1b
 
+    .line 334
     const-string/jumbo v2, "/.."
 
     invoke-virtual {v9, v2}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
 
     move-result v13
 
+    .line 335
     const/16 v2, 0x2f
 
     add-int/lit8 v3, v13, -0x1
@@ -1105,6 +1335,7 @@
 
     if-ltz p4, :cond_1b
 
+    .line 336
     add-int/lit8 v2, p4, 0x1
 
     const/4 v3, 0x0
@@ -1113,8 +1344,11 @@
 
     move-result-object v9
 
+    .restart local v9    # "path":Ljava/lang/String;
     goto :goto_7
 
+    .line 342
+    .end local v9    # "path":Ljava/lang/String;
     :cond_1b
     const-string/jumbo v2, "./"
 
@@ -1132,12 +1366,14 @@
 
     if-le v2, v3, :cond_1c
 
+    .line 343
     const/4 v2, 0x2
 
     invoke-virtual {v9, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v9
 
+    .line 346
     :cond_1c
     const-string/jumbo v2, "/."
 
@@ -1147,6 +1383,7 @@
 
     if-eqz v2, :cond_1d
 
+    .line 347
     invoke-virtual {v9}, Ljava/lang/String;->length()I
 
     move-result v2
@@ -1159,6 +1396,7 @@
 
     move-result-object v9
 
+    .line 350
     :cond_1d
     const-string/jumbo v2, "?"
 
@@ -1168,6 +1406,7 @@
 
     if-eqz v2, :cond_1e
 
+    .line 351
     invoke-virtual {v9}, Ljava/lang/String;->length()I
 
     move-result v2
@@ -1185,20 +1424,26 @@
 
     move-object/from16 v3, p1
 
+    .line 354
     invoke-virtual/range {v2 .. v11}, Ljava/net/URLStreamHandler;->setURL(Ljava/net/URL;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 123
     return-void
 .end method
 
 .method protected sameFile(Ljava/net/URL;Ljava/net/URL;)Z
     .locals 7
+    .param p1, "u1"    # Ljava/net/URL;
+    .param p2, "u2"    # Ljava/net/URL;
 
+    .prologue
     const/4 v6, -0x1
 
     const/4 v3, 0x1
 
     const/4 v4, 0x0
 
+    .line 419
     invoke-virtual {p1}, Ljava/net/URL;->getProtocol()Ljava/lang/String;
 
     move-result-object v2
@@ -1209,12 +1454,14 @@
 
     if-eq v2, v5, :cond_0
 
+    .line 420
     invoke-virtual {p1}, Ljava/net/URL;->getProtocol()Ljava/lang/String;
 
     move-result-object v2
 
     if-eqz v2, :cond_1
 
+    .line 421
     invoke-virtual {p1}, Ljava/net/URL;->getProtocol()Ljava/lang/String;
 
     move-result-object v2
@@ -1227,21 +1474,26 @@
 
     move-result v2
 
+    .line 419
     :goto_0
     if-nez v2, :cond_2
 
+    .line 422
     return v4
 
     :cond_0
     move v2, v3
 
+    .line 419
     goto :goto_0
 
     :cond_1
     move v2, v4
 
+    .line 420
     goto :goto_0
 
+    .line 425
     :cond_2
     invoke-virtual {p1}, Ljava/net/URL;->getFile()Ljava/lang/String;
 
@@ -1253,6 +1505,7 @@
 
     if-eq v2, v5, :cond_3
 
+    .line 426
     invoke-virtual {p1}, Ljava/net/URL;->getFile()Ljava/lang/String;
 
     move-result-object v2
@@ -1271,21 +1524,26 @@
 
     move-result v2
 
+    .line 425
     :goto_1
     if-nez v2, :cond_5
 
+    .line 427
     return v4
 
     :cond_3
     move v2, v3
 
+    .line 425
     goto :goto_1
 
     :cond_4
     move v2, v4
 
+    .line 426
     goto :goto_1
 
+    .line 431
     :cond_5
     invoke-virtual {p1}, Ljava/net/URL;->getPort()I
 
@@ -1297,6 +1555,8 @@
 
     move-result v0
 
+    .line 432
+    .local v0, "port1":I
     :goto_2
     invoke-virtual {p2}, Ljava/net/URL;->getPort()I
 
@@ -1308,11 +1568,17 @@
 
     move-result v1
 
+    .line 433
+    .local v1, "port2":I
     :goto_3
     if-eq v0, v1, :cond_8
 
+    .line 434
     return v4
 
+    .line 431
+    .end local v0    # "port1":I
+    .end local v1    # "port2":I
     :cond_6
     iget-object v2, p1, Ljava/net/URL;->handler:Ljava/net/URLStreamHandler;
 
@@ -1320,8 +1586,10 @@
 
     move-result v0
 
+    .restart local v0    # "port1":I
     goto :goto_2
 
+    .line 432
     :cond_7
     iget-object v2, p2, Ljava/net/URL;->handler:Ljava/net/URLStreamHandler;
 
@@ -1331,6 +1599,8 @@
 
     goto :goto_3
 
+    .line 437
+    .restart local v1    # "port2":I
     :cond_8
     invoke-virtual {p0, p1, p2}, Ljava/net/URLStreamHandler;->hostsEqual(Ljava/net/URL;Ljava/net/URL;)Z
 
@@ -1338,21 +1608,35 @@
 
     if-nez v2, :cond_9
 
+    .line 438
     return v4
 
+    .line 440
     :cond_9
     return v3
 .end method
 
 .method protected setURL(Ljava/net/URL;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V
     .locals 13
+    .param p1, "u"    # Ljava/net/URL;
+    .param p2, "protocol"    # Ljava/lang/String;
+    .param p3, "host"    # Ljava/lang/String;
+    .param p4, "port"    # I
+    .param p5, "file"    # Ljava/lang/String;
+    .param p6, "ref"    # Ljava/lang/String;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    .prologue
+    .line 579
     const/4 v6, 0x0
 
+    .line 580
+    .local v6, "authority":Ljava/lang/String;
     const/4 v7, 0x0
 
+    .line 581
+    .local v7, "userInfo":Ljava/lang/String;
     if-eqz p3, :cond_0
 
     invoke-virtual/range {p3 .. p3}, Ljava/lang/String;->length()I
@@ -1361,6 +1645,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 582
     const/4 v1, -0x1
 
     move/from16 v0, p4
@@ -1369,6 +1654,8 @@
 
     move-object/from16 v6, p3
 
+    .line 583
+    .local v6, "authority":Ljava/lang/String;
     :goto_0
     const/16 v1, 0x40
 
@@ -1378,10 +1665,13 @@
 
     move-result v11
 
+    .line 584
+    .local v11, "at":I
     const/4 v1, -0x1
 
     if-eq v11, v1, :cond_0
 
+    .line 585
     const/4 v1, 0x0
 
     move-object/from16 v0, p3
@@ -1390,6 +1680,8 @@
 
     move-result-object v7
 
+    .line 586
+    .local v7, "userInfo":Ljava/lang/String;
     add-int/lit8 v1, v11, 0x1
 
     move-object/from16 v0, p3
@@ -1398,13 +1690,22 @@
 
     move-result-object p3
 
+    .line 593
+    .end local v6    # "authority":Ljava/lang/String;
+    .end local v7    # "userInfo":Ljava/lang/String;
+    .end local v11    # "at":I
     :cond_0
     const/4 v8, 0x0
 
+    .line 594
+    .local v8, "path":Ljava/lang/String;
     const/4 v9, 0x0
 
+    .line 595
+    .local v9, "query":Ljava/lang/String;
     if-eqz p5, :cond_1
 
+    .line 596
     const/16 v1, 0x3f
 
     move-object/from16 v0, p5
@@ -1413,10 +1714,13 @@
 
     move-result v12
 
+    .line 597
+    .local v12, "q":I
     const/4 v1, -0x1
 
     if-eq v12, v1, :cond_3
 
+    .line 598
     add-int/lit8 v1, v12, 0x1
 
     move-object/from16 v0, p5
@@ -1425,6 +1729,8 @@
 
     move-result-object v9
 
+    .line 599
+    .local v9, "query":Ljava/lang/String;
     const/4 v1, 0x0
 
     move-object/from16 v0, p5
@@ -1433,6 +1739,9 @@
 
     move-result-object v8
 
+    .end local v8    # "path":Ljava/lang/String;
+    .end local v9    # "query":Ljava/lang/String;
+    .end local v12    # "q":I
     :cond_1
     :goto_1
     move-object v1, p0
@@ -1447,10 +1756,15 @@
 
     move-object/from16 v10, p6
 
+    .line 603
     invoke-virtual/range {v1 .. v10}, Ljava/net/URLStreamHandler;->setURL(Ljava/net/URL;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 574
     return-void
 
+    .line 582
+    .local v6, "authority":Ljava/lang/String;
+    .local v7, "userInfo":Ljava/lang/String;
     :cond_2
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1478,21 +1792,41 @@
 
     move-result-object v6
 
+    .local v6, "authority":Ljava/lang/String;
     goto :goto_0
 
+    .line 601
+    .end local v6    # "authority":Ljava/lang/String;
+    .end local v7    # "userInfo":Ljava/lang/String;
+    .restart local v8    # "path":Ljava/lang/String;
+    .local v9, "query":Ljava/lang/String;
+    .restart local v12    # "q":I
     :cond_3
     move-object/from16 v8, p5
 
+    .local v8, "path":Ljava/lang/String;
     goto :goto_1
 .end method
 
 .method protected setURL(Ljava/net/URL;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 9
+    .param p1, "u"    # Ljava/net/URL;
+    .param p2, "protocol"    # Ljava/lang/String;
+    .param p3, "host"    # Ljava/lang/String;
+    .param p4, "port"    # I
+    .param p5, "authority"    # Ljava/lang/String;
+    .param p6, "userInfo"    # Ljava/lang/String;
+    .param p7, "path"    # Ljava/lang/String;
+    .param p8, "query"    # Ljava/lang/String;
+    .param p9, "ref"    # Ljava/lang/String;
 
+    .prologue
+    .line 548
     iget-object v0, p1, Ljava/net/URL;->handler:Ljava/net/URLStreamHandler;
 
     if-eq p0, v0, :cond_0
 
+    .line 549
     new-instance v0, Ljava/lang/SecurityException;
 
     const-string/jumbo v1, "handler for url different from this handler"
@@ -1501,6 +1835,7 @@
 
     throw v0
 
+    .line 553
     :cond_0
     invoke-virtual {p1}, Ljava/net/URL;->getProtocol()Ljava/lang/String;
 
@@ -1524,12 +1859,16 @@
 
     invoke-virtual/range {v0 .. v8}, Ljava/net/URL;->set(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 547
     return-void
 .end method
 
 .method protected toExternalForm(Ljava/net/URL;)Ljava/lang/String;
     .locals 4
+    .param p1, "u"    # Ljava/net/URL;
 
+    .prologue
+    .line 496
     invoke-virtual {p1}, Ljava/net/URL;->getProtocol()Ljava/lang/String;
 
     move-result-object v3
@@ -1540,6 +1879,8 @@
 
     add-int/lit8 v1, v3, 0x1
 
+    .line 497
+    .local v1, "len":I
     invoke-virtual {p1}, Ljava/net/URL;->getAuthority()Ljava/lang/String;
 
     move-result-object v3
@@ -1556,6 +1897,7 @@
 
     if-lez v3, :cond_0
 
+    .line 498
     invoke-virtual {p1}, Ljava/net/URL;->getAuthority()Ljava/lang/String;
 
     move-result-object v3
@@ -1568,6 +1910,7 @@
 
     add-int/2addr v1, v3
 
+    .line 499
     :cond_0
     invoke-virtual {p1}, Ljava/net/URL;->getPath()Ljava/lang/String;
 
@@ -1575,6 +1918,7 @@
 
     if-eqz v3, :cond_1
 
+    .line 500
     invoke-virtual {p1}, Ljava/net/URL;->getPath()Ljava/lang/String;
 
     move-result-object v3
@@ -1585,6 +1929,7 @@
 
     add-int/2addr v1, v3
 
+    .line 502
     :cond_1
     invoke-virtual {p1}, Ljava/net/URL;->getQuery()Ljava/lang/String;
 
@@ -1592,6 +1937,7 @@
 
     if-eqz v3, :cond_2
 
+    .line 503
     invoke-virtual {p1}, Ljava/net/URL;->getQuery()Ljava/lang/String;
 
     move-result-object v3
@@ -1604,6 +1950,7 @@
 
     add-int/2addr v1, v3
 
+    .line 505
     :cond_2
     invoke-virtual {p1}, Ljava/net/URL;->getRef()Ljava/lang/String;
 
@@ -1611,6 +1958,7 @@
 
     if-eqz v3, :cond_3
 
+    .line 506
     invoke-virtual {p1}, Ljava/net/URL;->getRef()Ljava/lang/String;
 
     move-result-object v3
@@ -1623,46 +1971,58 @@
 
     add-int/2addr v1, v3
 
+    .line 508
     :cond_3
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
+    .line 509
+    .local v2, "result":Ljava/lang/StringBuilder;
     invoke-virtual {p1}, Ljava/net/URL;->getProtocol()Ljava/lang/String;
 
     move-result-object v3
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 510
     const-string/jumbo v3, ":"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 511
     invoke-virtual {p1}, Ljava/net/URL;->getAuthority()Ljava/lang/String;
 
     move-result-object v3
 
     if-eqz v3, :cond_4
 
+    .line 512
     const-string/jumbo v3, "//"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 513
     invoke-virtual {p1}, Ljava/net/URL;->getAuthority()Ljava/lang/String;
 
     move-result-object v3
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 515
     :cond_4
     invoke-virtual {p1}, Ljava/net/URL;->getFile()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 516
+    .local v0, "fileAndQuery":Ljava/lang/String;
     if-eqz v0, :cond_5
 
+    .line 517
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 519
     :cond_5
     invoke-virtual {p1}, Ljava/net/URL;->getRef()Ljava/lang/String;
 
@@ -1670,16 +2030,19 @@
 
     if-eqz v3, :cond_6
 
+    .line 520
     const-string/jumbo v3, "#"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 521
     invoke-virtual {p1}, Ljava/net/URL;->getRef()Ljava/lang/String;
 
     move-result-object v3
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 523
     :cond_6
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

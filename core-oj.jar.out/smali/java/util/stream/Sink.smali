@@ -34,7 +34,11 @@
 # virtual methods
 .method public accept(D)V
     .locals 2
+    .param p1, "value"    # D
 
+    .prologue
+    .line 182
+    .local p0, "this":Ljava/util/stream/Sink;, "Ljava/util/stream/Sink<TT;>;"
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "called wrong accept method"
@@ -46,7 +50,11 @@
 
 .method public accept(I)V
     .locals 2
+    .param p1, "value"    # I
 
+    .prologue
+    .line 160
+    .local p0, "this":Ljava/util/stream/Sink;, "Ljava/util/stream/Sink<TT;>;"
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "called wrong accept method"
@@ -58,7 +66,11 @@
 
 .method public accept(J)V
     .locals 2
+    .param p1, "value"    # J
 
+    .prologue
+    .line 171
+    .local p0, "this":Ljava/util/stream/Sink;, "Ljava/util/stream/Sink<TT;>;"
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "called wrong accept method"
@@ -70,13 +82,20 @@
 
 .method public begin(J)V
     .locals 0
+    .param p1, "size"    # J
 
+    .prologue
+    .line 129
+    .local p0, "this":Ljava/util/stream/Sink;, "Ljava/util/stream/Sink<TT;>;"
     return-void
 .end method
 
 .method public cancellationRequested()Z
     .locals 1
 
+    .prologue
+    .line 149
+    .local p0, "this":Ljava/util/stream/Sink;, "Ljava/util/stream/Sink<TT;>;"
     const/4 v0, 0x0
 
     return v0
@@ -85,5 +104,8 @@
 .method public end()V
     .locals 0
 
+    .prologue
+    .line 139
+    .local p0, "this":Ljava/util/stream/Sink;, "Ljava/util/stream/Sink<TT;>;"
     return-void
 .end method

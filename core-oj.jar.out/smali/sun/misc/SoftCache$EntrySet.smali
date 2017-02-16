@@ -23,11 +23,15 @@
 # direct methods
 .method private constructor <init>(Lsun/misc/SoftCache;)V
     .locals 1
+    .param p1, "this$0"    # Lsun/misc/SoftCache;
 
+    .prologue
+    .line 391
     iput-object p1, p0, Lsun/misc/SoftCache$EntrySet;->this$0:Lsun/misc/SoftCache;
 
     invoke-direct {p0}, Ljava/util/AbstractSet;-><init>()V
 
+    .line 392
     iget-object v0, p0, Lsun/misc/SoftCache$EntrySet;->this$0:Lsun/misc/SoftCache;
 
     invoke-static {v0}, Lsun/misc/SoftCache;->-get0(Lsun/misc/SoftCache;)Ljava/util/Map;
@@ -40,12 +44,15 @@
 
     iput-object v0, p0, Lsun/misc/SoftCache$EntrySet;->hashEntries:Ljava/util/Set;
 
+    .line 391
     return-void
 .end method
 
 .method synthetic constructor <init>(Lsun/misc/SoftCache;Lsun/misc/SoftCache$EntrySet;)V
     .locals 0
+    .param p1, "this$0"    # Lsun/misc/SoftCache;
 
+    .prologue
     invoke-direct {p0, p1}, Lsun/misc/SoftCache$EntrySet;-><init>(Lsun/misc/SoftCache;)V
 
     return-void
@@ -56,6 +63,8 @@
 .method public isEmpty()Z
     .locals 1
 
+    .prologue
+    .line 431
     invoke-virtual {p0}, Lsun/misc/SoftCache$EntrySet;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -80,6 +89,8 @@
 .method public iterator()Ljava/util/Iterator;
     .locals 1
 
+    .prologue
+    .line 396
     new-instance v0, Lsun/misc/SoftCache$EntrySet$1;
 
     invoke-direct {v0, p0}, Lsun/misc/SoftCache$EntrySet$1;-><init>(Lsun/misc/SoftCache$EntrySet;)V
@@ -89,11 +100,15 @@
 
 .method public remove(Ljava/lang/Object;)Z
     .locals 2
+    .param p1, "o"    # Ljava/lang/Object;
 
+    .prologue
+    .line 441
     iget-object v0, p0, Lsun/misc/SoftCache$EntrySet;->this$0:Lsun/misc/SoftCache;
 
     invoke-static {v0}, Lsun/misc/SoftCache;->-wrap1(Lsun/misc/SoftCache;)V
 
+    .line 442
     instance-of v0, p1, Lsun/misc/SoftCache$Entry;
 
     if-eqz v0, :cond_0
@@ -104,6 +119,7 @@
 
     nop
 
+    .end local p1    # "o":Ljava/lang/Object;
     invoke-static {p1}, Lsun/misc/SoftCache$Entry;->-get0(Lsun/misc/SoftCache$Entry;)Ljava/util/Map$Entry;
 
     move-result-object v1
@@ -114,6 +130,8 @@
 
     return v0
 
+    .line 443
+    .restart local p1    # "o":Ljava/lang/Object;
     :cond_0
     const/4 v0, 0x0
 
@@ -123,12 +141,17 @@
 .method public size()I
     .locals 3
 
+    .prologue
+    .line 435
     const/4 v1, 0x0
 
+    .line 436
+    .local v1, "j":I
     invoke-virtual {p0}, Lsun/misc/SoftCache$EntrySet;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
+    .local v0, "i":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -142,6 +165,7 @@
 
     goto :goto_0
 
+    .line 437
     :cond_0
     return v1
 .end method

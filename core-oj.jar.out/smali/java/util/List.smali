@@ -156,12 +156,19 @@
         }
     .end annotation
 
+    .prologue
+    .line 658
+    .local p0, "this":Ljava/util/List;, "Ljava/util/List<TE;>;"
+    .local p1, "operator":Ljava/util/function/UnaryOperator;, "Ljava/util/function/UnaryOperator<TE;>;"
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 659
     invoke-interface {p0}, Ljava/util/List;->listIterator()Ljava/util/ListIterator;
 
     move-result-object v0
 
+    .line 660
+    .local v0, "li":Ljava/util/ListIterator;, "Ljava/util/ListIterator<TE;>;"
     :goto_0
     invoke-interface {v0}, Ljava/util/ListIterator;->hasNext()Z
 
@@ -169,6 +176,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 661
     invoke-interface {v0}, Ljava/util/ListIterator;->next()Ljava/lang/Object;
 
     move-result-object v1
@@ -181,6 +189,7 @@
 
     goto :goto_0
 
+    .line 657
     :cond_0
     return-void
 .end method
@@ -216,8 +225,13 @@
         }
     .end annotation
 
+    .prologue
+    .line 686
+    .local p0, "this":Ljava/util/List;, "Ljava/util/List<TE;>;"
+    .local p1, "c":Ljava/util/Comparator;, "Ljava/util/Comparator<-TE;>;"
     invoke-static {p0, p1}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
 
+    .line 685
     return-void
 .end method
 
@@ -231,6 +245,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 625
+    .local p0, "this":Ljava/util/List;, "Ljava/util/List<TE;>;"
     const/16 v0, 0x10
 
     invoke-static {p0, v0}, Ljava/util/Spliterators;->spliterator(Ljava/util/Collection;I)Ljava/util/Spliterator;

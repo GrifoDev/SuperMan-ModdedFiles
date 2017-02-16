@@ -12,19 +12,26 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 1
+    .param p1, "index"    # I
 
+    .prologue
+    .line 87
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 65
     const/4 v0, 0x0
 
     iput v0, p0, Ljava/text/ParsePosition;->index:I
 
+    .line 66
     const/4 v0, -0x1
 
     iput v0, p0, Ljava/text/ParsePosition;->errorIndex:I
 
+    .line 88
     iput p1, p0, Ljava/text/ParsePosition;->index:I
 
+    .line 87
     return-void
 .end method
 
@@ -32,25 +39,33 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
+    .param p1, "obj"    # Ljava/lang/Object;
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 115
     if-nez p1, :cond_0
 
     return v1
 
+    .line 116
     :cond_0
     instance-of v2, p1, Ljava/text/ParsePosition;
 
     if-nez v2, :cond_1
 
+    .line 117
     return v1
 
     :cond_1
     move-object v0, p1
 
+    .line 118
     check-cast v0, Ljava/text/ParsePosition;
 
+    .line 119
+    .local v0, "other":Ljava/text/ParsePosition;
     iget v2, p0, Ljava/text/ParsePosition;->index:I
 
     iget v3, v0, Ljava/text/ParsePosition;->index:I
@@ -72,6 +87,8 @@
 .method public getErrorIndex()I
     .locals 1
 
+    .prologue
+    .line 108
     iget v0, p0, Ljava/text/ParsePosition;->errorIndex:I
 
     return v0
@@ -80,6 +97,8 @@
 .method public getIndex()I
     .locals 1
 
+    .prologue
+    .line 74
     iget v0, p0, Ljava/text/ParsePosition;->index:I
 
     return v0
@@ -88,6 +107,8 @@
 .method public hashCode()I
     .locals 2
 
+    .prologue
+    .line 127
     iget v0, p0, Ljava/text/ParsePosition;->errorIndex:I
 
     shl-int/lit8 v0, v0, 0x10
@@ -101,23 +122,33 @@
 
 .method public setErrorIndex(I)V
     .locals 0
+    .param p1, "ei"    # I
 
+    .prologue
+    .line 98
     iput p1, p0, Ljava/text/ParsePosition;->errorIndex:I
 
+    .line 96
     return-void
 .end method
 
 .method public setIndex(I)V
     .locals 0
+    .param p1, "index"    # I
 
+    .prologue
+    .line 81
     iput p1, p0, Ljava/text/ParsePosition;->index:I
 
+    .line 80
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 135
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -134,32 +165,42 @@
 
     move-result-object v0
 
+    .line 136
     const-string/jumbo v1, "[index="
 
+    .line 135
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
+    .line 136
     iget v1, p0, Ljava/text/ParsePosition;->index:I
 
+    .line 135
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
+    .line 137
     const-string/jumbo v1, ",errorIndex="
 
+    .line 135
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
+    .line 137
     iget v1, p0, Ljava/text/ParsePosition;->errorIndex:I
 
+    .line 135
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
+    .line 137
     const/16 v1, 0x5d
 
+    .line 135
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     move-result-object v0

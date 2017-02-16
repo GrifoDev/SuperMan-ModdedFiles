@@ -18,6 +18,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 277
     invoke-direct {p0}, Ljava/util/ResourceBundle;-><init>()V
 
     return-void
@@ -37,6 +39,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 278
     const/4 v0, 0x0
 
     return-object v0
@@ -44,7 +48,10 @@
 
 .method protected handleGetObject(Ljava/lang/String;)Ljava/lang/Object;
     .locals 1
+    .param p1, "key"    # Ljava/lang/String;
 
+    .prologue
+    .line 279
     const/4 v0, 0x0
 
     return-object v0
@@ -53,6 +60,8 @@
 .method public toString()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 280
     const-string/jumbo v0, "NONEXISTENT_BUNDLE"
 
     return-object v0

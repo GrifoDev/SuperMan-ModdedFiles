@@ -34,7 +34,10 @@
 # direct methods
 .method constructor <init>(Lsun/net/www/protocol/http/HttpURLConnection;)V
     .locals 0
+    .param p1, "this$0"    # Lsun/net/www/protocol/http/HttpURLConnection;
 
+    .prologue
+    .line 741
     iput-object p1, p0, Lsun/net/www/protocol/http/HttpURLConnection$2;->this$0:Lsun/net/www/protocol/http/HttpURLConnection;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,6 +50,8 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 742
     invoke-virtual {p0}, Lsun/net/www/protocol/http/HttpURLConnection$2;->run()Ljava/net/CookieHandler;
 
     move-result-object v0
@@ -57,6 +62,8 @@
 .method public run()Ljava/net/CookieHandler;
     .locals 1
 
+    .prologue
+    .line 743
     invoke-static {}, Ljava/net/CookieHandler;->getDefault()Ljava/net/CookieHandler;
 
     move-result-object v0

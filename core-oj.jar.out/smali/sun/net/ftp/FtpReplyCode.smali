@@ -130,6 +130,7 @@
 .method static constructor <clinit>()V
     .locals 9
 
+    .prologue
     const/4 v8, 0x4
 
     const/4 v7, 0x3
@@ -140,6 +141,7 @@
 
     const/4 v4, 0x0
 
+    .line 35
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "RESTART_MARKER"
@@ -150,6 +152,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->RESTART_MARKER:Lsun/net/ftp/FtpReplyCode;
 
+    .line 36
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "SERVICE_READY_IN"
@@ -160,6 +163,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->SERVICE_READY_IN:Lsun/net/ftp/FtpReplyCode;
 
+    .line 37
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "DATA_CONNECTION_ALREADY_OPEN"
@@ -170,6 +174,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->DATA_CONNECTION_ALREADY_OPEN:Lsun/net/ftp/FtpReplyCode;
 
+    .line 38
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "FILE_STATUS_OK"
@@ -180,6 +185,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->FILE_STATUS_OK:Lsun/net/ftp/FtpReplyCode;
 
+    .line 39
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "COMMAND_OK"
@@ -190,6 +196,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->COMMAND_OK:Lsun/net/ftp/FtpReplyCode;
 
+    .line 40
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "NOT_IMPLEMENTED"
@@ -202,6 +209,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->NOT_IMPLEMENTED:Lsun/net/ftp/FtpReplyCode;
 
+    .line 41
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "SYSTEM_STATUS"
@@ -214,6 +222,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->SYSTEM_STATUS:Lsun/net/ftp/FtpReplyCode;
 
+    .line 42
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "DIRECTORY_STATUS"
@@ -226,6 +235,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->DIRECTORY_STATUS:Lsun/net/ftp/FtpReplyCode;
 
+    .line 43
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "FILE_STATUS"
@@ -238,6 +248,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->FILE_STATUS:Lsun/net/ftp/FtpReplyCode;
 
+    .line 44
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "HELP_MESSAGE"
@@ -250,6 +261,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->HELP_MESSAGE:Lsun/net/ftp/FtpReplyCode;
 
+    .line 45
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "NAME_SYSTEM_TYPE"
@@ -262,6 +274,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->NAME_SYSTEM_TYPE:Lsun/net/ftp/FtpReplyCode;
 
+    .line 46
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "SERVICE_READY"
@@ -274,6 +287,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->SERVICE_READY:Lsun/net/ftp/FtpReplyCode;
 
+    .line 47
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "SERVICE_CLOSING"
@@ -286,6 +300,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->SERVICE_CLOSING:Lsun/net/ftp/FtpReplyCode;
 
+    .line 48
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "DATA_CONNECTION_OPEN"
@@ -298,6 +313,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->DATA_CONNECTION_OPEN:Lsun/net/ftp/FtpReplyCode;
 
+    .line 49
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "CLOSING_DATA_CONNECTION"
@@ -310,6 +326,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->CLOSING_DATA_CONNECTION:Lsun/net/ftp/FtpReplyCode;
 
+    .line 50
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "ENTERING_PASSIVE_MODE"
@@ -322,6 +339,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->ENTERING_PASSIVE_MODE:Lsun/net/ftp/FtpReplyCode;
 
+    .line 51
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "ENTERING_EXT_PASSIVE_MODE"
@@ -334,6 +352,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->ENTERING_EXT_PASSIVE_MODE:Lsun/net/ftp/FtpReplyCode;
 
+    .line 52
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "LOGGED_IN"
@@ -346,6 +365,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->LOGGED_IN:Lsun/net/ftp/FtpReplyCode;
 
+    .line 53
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "SECURELY_LOGGED_IN"
@@ -358,6 +378,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->SECURELY_LOGGED_IN:Lsun/net/ftp/FtpReplyCode;
 
+    .line 54
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "SECURITY_EXCHANGE_OK"
@@ -370,6 +391,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->SECURITY_EXCHANGE_OK:Lsun/net/ftp/FtpReplyCode;
 
+    .line 55
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "SECURITY_EXCHANGE_COMPLETE"
@@ -382,6 +404,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->SECURITY_EXCHANGE_COMPLETE:Lsun/net/ftp/FtpReplyCode;
 
+    .line 56
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "FILE_ACTION_OK"
@@ -394,6 +417,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->FILE_ACTION_OK:Lsun/net/ftp/FtpReplyCode;
 
+    .line 57
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "PATHNAME_CREATED"
@@ -406,6 +430,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->PATHNAME_CREATED:Lsun/net/ftp/FtpReplyCode;
 
+    .line 58
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "NEED_PASSWORD"
@@ -418,6 +443,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->NEED_PASSWORD:Lsun/net/ftp/FtpReplyCode;
 
+    .line 59
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "NEED_ACCOUNT"
@@ -430,6 +456,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->NEED_ACCOUNT:Lsun/net/ftp/FtpReplyCode;
 
+    .line 60
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "NEED_ADAT"
@@ -442,6 +469,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->NEED_ADAT:Lsun/net/ftp/FtpReplyCode;
 
+    .line 61
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "NEED_MORE_ADAT"
@@ -454,6 +482,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->NEED_MORE_ADAT:Lsun/net/ftp/FtpReplyCode;
 
+    .line 62
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "FILE_ACTION_PENDING"
@@ -466,6 +495,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->FILE_ACTION_PENDING:Lsun/net/ftp/FtpReplyCode;
 
+    .line 63
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "SERVICE_NOT_AVAILABLE"
@@ -478,6 +508,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->SERVICE_NOT_AVAILABLE:Lsun/net/ftp/FtpReplyCode;
 
+    .line 64
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "CANT_OPEN_DATA_CONNECTION"
@@ -490,6 +521,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->CANT_OPEN_DATA_CONNECTION:Lsun/net/ftp/FtpReplyCode;
 
+    .line 65
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "CONNECTION_CLOSED"
@@ -502,6 +534,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->CONNECTION_CLOSED:Lsun/net/ftp/FtpReplyCode;
 
+    .line 66
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "NEED_SECURITY_RESOURCE"
@@ -514,6 +547,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->NEED_SECURITY_RESOURCE:Lsun/net/ftp/FtpReplyCode;
 
+    .line 67
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "FILE_ACTION_NOT_TAKEN"
@@ -526,6 +560,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->FILE_ACTION_NOT_TAKEN:Lsun/net/ftp/FtpReplyCode;
 
+    .line 68
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "ACTION_ABORTED"
@@ -538,6 +573,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->ACTION_ABORTED:Lsun/net/ftp/FtpReplyCode;
 
+    .line 69
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "INSUFFICIENT_STORAGE"
@@ -550,6 +586,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->INSUFFICIENT_STORAGE:Lsun/net/ftp/FtpReplyCode;
 
+    .line 70
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "COMMAND_UNRECOGNIZED"
@@ -562,6 +599,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->COMMAND_UNRECOGNIZED:Lsun/net/ftp/FtpReplyCode;
 
+    .line 71
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "INVALID_PARAMETER"
@@ -574,6 +612,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->INVALID_PARAMETER:Lsun/net/ftp/FtpReplyCode;
 
+    .line 72
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "BAD_SEQUENCE"
@@ -586,6 +625,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->BAD_SEQUENCE:Lsun/net/ftp/FtpReplyCode;
 
+    .line 73
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "NOT_IMPLEMENTED_FOR_PARAMETER"
@@ -598,6 +638,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->NOT_IMPLEMENTED_FOR_PARAMETER:Lsun/net/ftp/FtpReplyCode;
 
+    .line 74
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "NOT_LOGGED_IN"
@@ -610,6 +651,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->NOT_LOGGED_IN:Lsun/net/ftp/FtpReplyCode;
 
+    .line 75
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "NEED_ACCOUNT_FOR_STORING"
@@ -622,6 +664,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->NEED_ACCOUNT_FOR_STORING:Lsun/net/ftp/FtpReplyCode;
 
+    .line 76
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "PROT_LEVEL_DENIED"
@@ -634,6 +677,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->PROT_LEVEL_DENIED:Lsun/net/ftp/FtpReplyCode;
 
+    .line 77
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "REQUEST_DENIED"
@@ -646,6 +690,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->REQUEST_DENIED:Lsun/net/ftp/FtpReplyCode;
 
+    .line 78
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "FAILED_SECURITY_CHECK"
@@ -658,6 +703,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->FAILED_SECURITY_CHECK:Lsun/net/ftp/FtpReplyCode;
 
+    .line 79
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "UNSUPPORTED_PROT_LEVEL"
@@ -670,6 +716,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->UNSUPPORTED_PROT_LEVEL:Lsun/net/ftp/FtpReplyCode;
 
+    .line 80
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "PROT_LEVEL_NOT_SUPPORTED_BY_SECURITY"
@@ -682,6 +729,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->PROT_LEVEL_NOT_SUPPORTED_BY_SECURITY:Lsun/net/ftp/FtpReplyCode;
 
+    .line 81
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "FILE_UNAVAILABLE"
@@ -694,6 +742,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->FILE_UNAVAILABLE:Lsun/net/ftp/FtpReplyCode;
 
+    .line 82
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "PAGE_TYPE_UNKNOWN"
@@ -706,6 +755,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->PAGE_TYPE_UNKNOWN:Lsun/net/ftp/FtpReplyCode;
 
+    .line 83
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "EXCEEDED_STORAGE"
@@ -718,6 +768,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->EXCEEDED_STORAGE:Lsun/net/ftp/FtpReplyCode;
 
+    .line 84
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "FILE_NAME_NOT_ALLOWED"
@@ -730,6 +781,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->FILE_NAME_NOT_ALLOWED:Lsun/net/ftp/FtpReplyCode;
 
+    .line 85
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "PROTECTED_REPLY"
@@ -742,6 +794,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->PROTECTED_REPLY:Lsun/net/ftp/FtpReplyCode;
 
+    .line 86
     new-instance v0, Lsun/net/ftp/FtpReplyCode;
 
     const-string/jumbo v1, "UNKNOWN_ERROR"
@@ -754,6 +807,7 @@
 
     sput-object v0, Lsun/net/ftp/FtpReplyCode;->UNKNOWN_ERROR:Lsun/net/ftp/FtpReplyCode;
 
+    .line 33
     const/16 v0, 0x34
 
     new-array v0, v0, [Lsun/net/ftp/FtpReplyCode;
@@ -1067,17 +1121,25 @@
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
+    .param p3, "val"    # I
 
+    .prologue
+    .line 89
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
+    .line 90
     iput p3, p0, Lsun/net/ftp/FtpReplyCode;->value:I
 
+    .line 89
     return-void
 .end method
 
 .method public static find(I)Lsun/net/ftp/FtpReplyCode;
     .locals 5
+    .param p0, "v"    # I
 
+    .prologue
+    .line 241
     invoke-static {}, Lsun/net/ftp/FtpReplyCode;->values()[Lsun/net/ftp/FtpReplyCode;
 
     move-result-object v2
@@ -1091,19 +1153,25 @@
 
     aget-object v0, v2, v1
 
+    .line 242
+    .local v0, "code":Lsun/net/ftp/FtpReplyCode;
     invoke-virtual {v0}, Lsun/net/ftp/FtpReplyCode;->getValue()I
 
     move-result v4
 
     if-ne v4, p0, :cond_0
 
+    .line 243
     return-object v0
 
+    .line 241
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
+    .line 246
+    .end local v0    # "code":Lsun/net/ftp/FtpReplyCode;
     :cond_1
     sget-object v1, Lsun/net/ftp/FtpReplyCode;->UNKNOWN_ERROR:Lsun/net/ftp/FtpReplyCode;
 
@@ -1112,7 +1180,10 @@
 
 .method public static valueOf(Ljava/lang/String;)Lsun/net/ftp/FtpReplyCode;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 33
     const-class v0, Lsun/net/ftp/FtpReplyCode;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -1127,6 +1198,8 @@
 .method public static values()[Lsun/net/ftp/FtpReplyCode;
     .locals 1
 
+    .prologue
+    .line 33
     sget-object v0, Lsun/net/ftp/FtpReplyCode;->$VALUES:[Lsun/net/ftp/FtpReplyCode;
 
     return-object v0
@@ -1137,6 +1210,8 @@
 .method public getValue()I
     .locals 1
 
+    .prologue
+    .line 99
     iget v0, p0, Lsun/net/ftp/FtpReplyCode;->value:I
 
     return v0
@@ -1145,6 +1220,8 @@
 .method public isAuthentication()Z
     .locals 2
 
+    .prologue
+    .line 209
     iget v0, p0, Lsun/net/ftp/FtpReplyCode;->value:I
 
     div-int/lit8 v0, v0, 0xa
@@ -1175,6 +1252,8 @@
 .method public isConnection()Z
     .locals 2
 
+    .prologue
+    .line 198
     iget v0, p0, Lsun/net/ftp/FtpReplyCode;->value:I
 
     div-int/lit8 v0, v0, 0xa
@@ -1205,6 +1284,8 @@
 .method public isFileSystem()Z
     .locals 2
 
+    .prologue
+    .line 231
     iget v0, p0, Lsun/net/ftp/FtpReplyCode;->value:I
 
     div-int/lit8 v0, v0, 0xa
@@ -1235,8 +1316,10 @@
 .method public isInformation()Z
     .locals 3
 
+    .prologue
     const/4 v0, 0x1
 
+    .line 187
     iget v1, p0, Lsun/net/ftp/FtpReplyCode;->value:I
 
     div-int/lit8 v1, v1, 0xa
@@ -1263,8 +1346,10 @@
 .method public isPermanentNegative()Z
     .locals 3
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 154
     iget v1, p0, Lsun/net/ftp/FtpReplyCode;->value:I
 
     const/16 v2, 0x1f4
@@ -1286,8 +1371,10 @@
 .method public isPositiveCompletion()Z
     .locals 3
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 121
     iget v1, p0, Lsun/net/ftp/FtpReplyCode;->value:I
 
     const/16 v2, 0xc8
@@ -1309,8 +1396,10 @@
 .method public isPositiveIntermediate()Z
     .locals 3
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 132
     iget v1, p0, Lsun/net/ftp/FtpReplyCode;->value:I
 
     const/16 v2, 0x12c
@@ -1332,8 +1421,10 @@
 .method public isPositivePreliminary()Z
     .locals 3
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 110
     iget v1, p0, Lsun/net/ftp/FtpReplyCode;->value:I
 
     const/16 v2, 0x64
@@ -1355,8 +1446,10 @@
 .method public isProtectedReply()Z
     .locals 3
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 165
     iget v1, p0, Lsun/net/ftp/FtpReplyCode;->value:I
 
     const/16 v2, 0x258
@@ -1378,8 +1471,10 @@
 .method public isSyntax()Z
     .locals 3
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 176
     iget v1, p0, Lsun/net/ftp/FtpReplyCode;->value:I
 
     div-int/lit8 v1, v1, 0xa
@@ -1403,8 +1498,10 @@
 .method public isTransientNegative()Z
     .locals 3
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 143
     iget v1, p0, Lsun/net/ftp/FtpReplyCode;->value:I
 
     const/16 v2, 0x190
@@ -1426,6 +1523,8 @@
 .method public isUnspecified()Z
     .locals 2
 
+    .prologue
+    .line 220
     iget v0, p0, Lsun/net/ftp/FtpReplyCode;->value:I
 
     div-int/lit8 v0, v0, 0xa

@@ -30,13 +30,21 @@
 # direct methods
 .method constructor <init>(Ljava/util/stream/ReferencePipeline;Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;ILjava/util/function/Function;)V
     .locals 0
+    .param p3, "$anonymous1"    # Ljava/util/stream/StreamShape;
+    .param p4, "$anonymous2"    # I
 
+    .prologue
+    .line 339
+    .local p1, "this$0":Ljava/util/stream/ReferencePipeline;, "Ljava/util/stream/ReferencePipeline<TP_IN;TP_OUT;>;"
+    .local p2, "$anonymous0":Ljava/util/stream/AbstractPipeline;, "Ljava/util/stream/AbstractPipeline<*TP_OUT;*>;"
+    .local p5, "val$mapper":Ljava/util/function/Function;, "Ljava/util/function/Function<-TP_OUT;+Ljava/util/stream/LongStream;>;"
     iput-object p1, p0, Ljava/util/stream/ReferencePipeline$10;->this$0:Ljava/util/stream/ReferencePipeline;
 
     iput-object p5, p0, Ljava/util/stream/ReferencePipeline$10;->val$mapper:Ljava/util/function/Function;
 
     invoke-direct {p0, p2, p3, p4}, Ljava/util/stream/LongPipeline$StatelessOp;-><init>(Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;I)V
 
+    .line 340
     return-void
 .end method
 
@@ -44,6 +52,7 @@
 # virtual methods
 .method public opWrapSink(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;
     .locals 2
+    .param p1, "flags"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -56,6 +65,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 343
+    .local p2, "sink":Ljava/util/stream/Sink;, "Ljava/util/stream/Sink<Ljava/lang/Long;>;"
     new-instance v0, Ljava/util/stream/ReferencePipeline$10$1;
 
     iget-object v1, p0, Ljava/util/stream/ReferencePipeline$10;->val$mapper:Ljava/util/function/Function;

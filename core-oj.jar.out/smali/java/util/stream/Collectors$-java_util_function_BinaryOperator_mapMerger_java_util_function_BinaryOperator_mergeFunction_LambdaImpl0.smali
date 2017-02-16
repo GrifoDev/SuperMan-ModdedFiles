@@ -25,6 +25,7 @@
 .method public synthetic constructor <init>(Ljava/util/function/BinaryOperator;)V
     .locals 0
 
+    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Ljava/util/stream/Collectors$-java_util_function_BinaryOperator_mapMerger_java_util_function_BinaryOperator_mergeFunction_LambdaImpl0;->val$mergeFunction:Ljava/util/function/BinaryOperator;
@@ -36,13 +37,18 @@
 # virtual methods
 .method public apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
+    .param p1, "arg0"    # Ljava/lang/Object;
+    .param p2, "arg1"    # Ljava/lang/Object;
 
+    .prologue
     iget-object v0, p0, Ljava/util/stream/Collectors$-java_util_function_BinaryOperator_mapMerger_java_util_function_BinaryOperator_mergeFunction_LambdaImpl0;->val$mergeFunction:Ljava/util/function/BinaryOperator;
 
     check-cast p1, Ljava/util/Map;
 
+    .end local p1    # "arg0":Ljava/lang/Object;
     check-cast p2, Ljava/util/Map;
 
+    .end local p2    # "arg1":Ljava/lang/Object;
     invoke-static {v0, p1, p2}, Ljava/util/stream/Collectors;->-java_util_stream_Collectors_lambda$19(Ljava/util/function/BinaryOperator;Ljava/util/Map;Ljava/util/Map;)Ljava/util/Map;
 
     move-result-object v0

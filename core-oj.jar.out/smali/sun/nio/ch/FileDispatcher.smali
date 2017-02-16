@@ -17,6 +17,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 30
     invoke-direct {p0}, Lsun/nio/ch/NativeDispatcher;-><init>()V
 
     return-void

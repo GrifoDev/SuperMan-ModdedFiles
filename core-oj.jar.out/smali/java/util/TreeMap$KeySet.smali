@@ -51,6 +51,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 1140
+    .local p0, "this":Ljava/util/TreeMap$KeySet;, "Ljava/util/TreeMap<TK;TV;>.KeySet<TE;>;"
+    .local p1, "map":Ljava/util/NavigableMap;, "Ljava/util/NavigableMap<TE;*>;"
     invoke-direct {p0}, Ljava/util/AbstractSet;-><init>()V
 
     iput-object p1, p0, Ljava/util/TreeMap$KeySet;->m:Ljava/util/NavigableMap;
@@ -68,6 +72,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 1162
+    .local p0, "this":Ljava/util/TreeMap$KeySet;, "Ljava/util/TreeMap<TK;TV;>.KeySet<TE;>;"
+    .local p1, "e":Ljava/lang/Object;, "TE;"
     iget-object v0, p0, Ljava/util/TreeMap$KeySet;->m:Ljava/util/NavigableMap;
 
     invoke-interface {v0, p1}, Ljava/util/NavigableMap;->ceilingKey(Ljava/lang/Object;)Ljava/lang/Object;
@@ -80,6 +88,9 @@
 .method public clear()V
     .locals 1
 
+    .prologue
+    .line 1159
+    .local p0, "this":Ljava/util/TreeMap$KeySet;, "Ljava/util/TreeMap<TK;TV;>.KeySet<TE;>;"
     iget-object v0, p0, Ljava/util/TreeMap$KeySet;->m:Ljava/util/NavigableMap;
 
     invoke-interface {v0}, Ljava/util/NavigableMap;->clear()V
@@ -97,6 +108,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1166
+    .local p0, "this":Ljava/util/TreeMap$KeySet;, "Ljava/util/TreeMap<TK;TV;>.KeySet<TE;>;"
     iget-object v0, p0, Ljava/util/TreeMap$KeySet;->m:Ljava/util/NavigableMap;
 
     invoke-interface {v0}, Ljava/util/NavigableMap;->comparator()Ljava/util/Comparator;
@@ -108,7 +122,11 @@
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
+    .param p1, "o"    # Ljava/lang/Object;
 
+    .prologue
+    .line 1158
+    .local p0, "this":Ljava/util/TreeMap$KeySet;, "Ljava/util/TreeMap<TK;TV;>.KeySet<TE;>;"
     iget-object v0, p0, Ljava/util/TreeMap$KeySet;->m:Ljava/util/NavigableMap;
 
     invoke-interface {v0, p1}, Ljava/util/NavigableMap;->containsKey(Ljava/lang/Object;)Z
@@ -128,12 +146,16 @@
         }
     .end annotation
 
+    .prologue
+    .line 1150
+    .local p0, "this":Ljava/util/TreeMap$KeySet;, "Ljava/util/TreeMap<TK;TV;>.KeySet<TE;>;"
     iget-object v0, p0, Ljava/util/TreeMap$KeySet;->m:Ljava/util/NavigableMap;
 
     instance-of v0, v0, Ljava/util/TreeMap;
 
     if-eqz v0, :cond_0
 
+    .line 1151
     iget-object v0, p0, Ljava/util/TreeMap$KeySet;->m:Ljava/util/NavigableMap;
 
     check-cast v0, Ljava/util/TreeMap;
@@ -144,6 +166,7 @@
 
     return-object v0
 
+    .line 1153
     :cond_0
     iget-object v0, p0, Ljava/util/TreeMap$KeySet;->m:Ljava/util/NavigableMap;
 
@@ -166,6 +189,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1201
+    .local p0, "this":Ljava/util/TreeMap$KeySet;, "Ljava/util/TreeMap<TK;TV;>.KeySet<TE;>;"
     new-instance v0, Ljava/util/TreeMap$KeySet;
 
     iget-object v1, p0, Ljava/util/TreeMap$KeySet;->m:Ljava/util/NavigableMap;
@@ -187,6 +213,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1164
+    .local p0, "this":Ljava/util/TreeMap$KeySet;, "Ljava/util/TreeMap<TK;TV;>.KeySet<TE;>;"
     iget-object v0, p0, Ljava/util/TreeMap$KeySet;->m:Ljava/util/NavigableMap;
 
     invoke-interface {v0}, Ljava/util/NavigableMap;->firstKey()Ljava/lang/Object;
@@ -204,6 +233,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 1161
+    .local p0, "this":Ljava/util/TreeMap$KeySet;, "Ljava/util/TreeMap<TK;TV;>.KeySet<TE;>;"
+    .local p1, "e":Ljava/lang/Object;, "TE;"
     iget-object v0, p0, Ljava/util/TreeMap$KeySet;->m:Ljava/util/NavigableMap;
 
     invoke-interface {v0, p1}, Ljava/util/NavigableMap;->floorKey(Ljava/lang/Object;)Ljava/lang/Object;
@@ -215,6 +248,7 @@
 
 .method public headSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
     .locals 2
+    .param p2, "inclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;Z)",
@@ -223,6 +257,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 1186
+    .local p0, "this":Ljava/util/TreeMap$KeySet;, "Ljava/util/TreeMap<TK;TV;>.KeySet<TE;>;"
+    .local p1, "toElement":Ljava/lang/Object;, "TE;"
     new-instance v0, Ljava/util/TreeMap$KeySet;
 
     iget-object v1, p0, Ljava/util/TreeMap$KeySet;->m:Ljava/util/NavigableMap;
@@ -246,6 +284,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 1195
+    .local p0, "this":Ljava/util/TreeMap$KeySet;, "Ljava/util/TreeMap<TK;TV;>.KeySet<TE;>;"
+    .local p1, "toElement":Ljava/lang/Object;, "TE;"
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, v0}, Ljava/util/TreeMap$KeySet;->headSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
@@ -263,6 +305,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 1163
+    .local p0, "this":Ljava/util/TreeMap$KeySet;, "Ljava/util/TreeMap<TK;TV;>.KeySet<TE;>;"
+    .local p1, "e":Ljava/lang/Object;, "TE;"
     iget-object v0, p0, Ljava/util/TreeMap$KeySet;->m:Ljava/util/NavigableMap;
 
     invoke-interface {v0, p1}, Ljava/util/NavigableMap;->higherKey(Ljava/lang/Object;)Ljava/lang/Object;
@@ -275,6 +321,9 @@
 .method public isEmpty()Z
     .locals 1
 
+    .prologue
+    .line 1157
+    .local p0, "this":Ljava/util/TreeMap$KeySet;, "Ljava/util/TreeMap<TK;TV;>.KeySet<TE;>;"
     iget-object v0, p0, Ljava/util/TreeMap$KeySet;->m:Ljava/util/NavigableMap;
 
     invoke-interface {v0}, Ljava/util/NavigableMap;->isEmpty()Z
@@ -294,12 +343,16 @@
         }
     .end annotation
 
+    .prologue
+    .line 1143
+    .local p0, "this":Ljava/util/TreeMap$KeySet;, "Ljava/util/TreeMap<TK;TV;>.KeySet<TE;>;"
     iget-object v0, p0, Ljava/util/TreeMap$KeySet;->m:Ljava/util/NavigableMap;
 
     instance-of v0, v0, Ljava/util/TreeMap;
 
     if-eqz v0, :cond_0
 
+    .line 1144
     iget-object v0, p0, Ljava/util/TreeMap$KeySet;->m:Ljava/util/NavigableMap;
 
     check-cast v0, Ljava/util/TreeMap;
@@ -310,6 +363,7 @@
 
     return-object v0
 
+    .line 1146
     :cond_0
     iget-object v0, p0, Ljava/util/TreeMap$KeySet;->m:Ljava/util/NavigableMap;
 
@@ -330,6 +384,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1165
+    .local p0, "this":Ljava/util/TreeMap$KeySet;, "Ljava/util/TreeMap<TK;TV;>.KeySet<TE;>;"
     iget-object v0, p0, Ljava/util/TreeMap$KeySet;->m:Ljava/util/NavigableMap;
 
     invoke-interface {v0}, Ljava/util/NavigableMap;->lastKey()Ljava/lang/Object;
@@ -347,6 +404,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 1160
+    .local p0, "this":Ljava/util/TreeMap$KeySet;, "Ljava/util/TreeMap<TK;TV;>.KeySet<TE;>;"
+    .local p1, "e":Ljava/lang/Object;, "TE;"
     iget-object v0, p0, Ljava/util/TreeMap$KeySet;->m:Ljava/util/NavigableMap;
 
     invoke-interface {v0, p1}, Ljava/util/NavigableMap;->lowerKey(Ljava/lang/Object;)Ljava/lang/Object;
@@ -364,14 +425,19 @@
         }
     .end annotation
 
+    .prologue
+    .local p0, "this":Ljava/util/TreeMap$KeySet;, "Ljava/util/TreeMap<TK;TV;>.KeySet<TE;>;"
     const/4 v1, 0x0
 
+    .line 1168
     iget-object v2, p0, Ljava/util/TreeMap$KeySet;->m:Ljava/util/NavigableMap;
 
     invoke-interface {v2}, Ljava/util/NavigableMap;->pollFirstEntry()Ljava/util/Map$Entry;
 
     move-result-object v0
 
+    .line 1169
+    .local v0, "e":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TE;*>;"
     if-nez v0, :cond_0
 
     :goto_0
@@ -393,14 +459,19 @@
         }
     .end annotation
 
+    .prologue
+    .local p0, "this":Ljava/util/TreeMap$KeySet;, "Ljava/util/TreeMap<TK;TV;>.KeySet<TE;>;"
     const/4 v1, 0x0
 
+    .line 1172
     iget-object v2, p0, Ljava/util/TreeMap$KeySet;->m:Ljava/util/NavigableMap;
 
     invoke-interface {v2}, Ljava/util/NavigableMap;->pollLastEntry()Ljava/util/Map$Entry;
 
     move-result-object v0
 
+    .line 1173
+    .local v0, "e":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TE;*>;"
     if-nez v0, :cond_0
 
     :goto_0
@@ -416,15 +487,22 @@
 
 .method public remove(Ljava/lang/Object;)Z
     .locals 2
+    .param p1, "o"    # Ljava/lang/Object;
 
+    .prologue
+    .line 1176
+    .local p0, "this":Ljava/util/TreeMap$KeySet;, "Ljava/util/TreeMap<TK;TV;>.KeySet<TE;>;"
     invoke-virtual {p0}, Ljava/util/TreeMap$KeySet;->size()I
 
     move-result v0
 
+    .line 1177
+    .local v0, "oldSize":I
     iget-object v1, p0, Ljava/util/TreeMap$KeySet;->m:Ljava/util/NavigableMap;
 
     invoke-interface {v1, p1}, Ljava/util/NavigableMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 1178
     invoke-virtual {p0}, Ljava/util/TreeMap$KeySet;->size()I
 
     move-result v1
@@ -445,6 +523,9 @@
 .method public size()I
     .locals 1
 
+    .prologue
+    .line 1156
+    .local p0, "this":Ljava/util/TreeMap$KeySet;, "Ljava/util/TreeMap<TK;TV;>.KeySet<TE;>;"
     iget-object v0, p0, Ljava/util/TreeMap$KeySet;->m:Ljava/util/NavigableMap;
 
     invoke-interface {v0}, Ljava/util/NavigableMap;->size()I
@@ -464,6 +545,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1205
+    .local p0, "this":Ljava/util/TreeMap$KeySet;, "Ljava/util/TreeMap<TK;TV;>.KeySet<TE;>;"
     iget-object v0, p0, Ljava/util/TreeMap$KeySet;->m:Ljava/util/NavigableMap;
 
     invoke-static {v0}, Ljava/util/TreeMap;->keySpliteratorFor(Ljava/util/NavigableMap;)Ljava/util/Spliterator;
@@ -475,6 +559,8 @@
 
 .method public subSet(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableSet;
     .locals 2
+    .param p2, "fromInclusive"    # Z
+    .param p4, "toInclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;ZTE;Z)",
@@ -483,6 +569,11 @@
         }
     .end annotation
 
+    .prologue
+    .line 1182
+    .local p0, "this":Ljava/util/TreeMap$KeySet;, "Ljava/util/TreeMap<TK;TV;>.KeySet<TE;>;"
+    .local p1, "fromElement":Ljava/lang/Object;, "TE;"
+    .local p3, "toElement":Ljava/lang/Object;, "TE;"
     new-instance v0, Ljava/util/TreeMap$KeySet;
 
     iget-object v1, p0, Ljava/util/TreeMap$KeySet;->m:Ljava/util/NavigableMap;
@@ -506,6 +597,11 @@
         }
     .end annotation
 
+    .prologue
+    .line 1192
+    .local p0, "this":Ljava/util/TreeMap$KeySet;, "Ljava/util/TreeMap<TK;TV;>.KeySet<TE;>;"
+    .local p1, "fromElement":Ljava/lang/Object;, "TE;"
+    .local p2, "toElement":Ljava/lang/Object;, "TE;"
     const/4 v0, 0x1
 
     const/4 v1, 0x0
@@ -519,6 +615,7 @@
 
 .method public tailSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
     .locals 2
+    .param p2, "inclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;Z)",
@@ -527,6 +624,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 1189
+    .local p0, "this":Ljava/util/TreeMap$KeySet;, "Ljava/util/TreeMap<TK;TV;>.KeySet<TE;>;"
+    .local p1, "fromElement":Ljava/lang/Object;, "TE;"
     new-instance v0, Ljava/util/TreeMap$KeySet;
 
     iget-object v1, p0, Ljava/util/TreeMap$KeySet;->m:Ljava/util/NavigableMap;
@@ -550,6 +651,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 1198
+    .local p0, "this":Ljava/util/TreeMap$KeySet;, "Ljava/util/TreeMap<TK;TV;>.KeySet<TE;>;"
+    .local p1, "fromElement":Ljava/lang/Object;, "TE;"
     const/4 v0, 0x1
 
     invoke-virtual {p0, p1, v0}, Ljava/util/TreeMap$KeySet;->tailSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;

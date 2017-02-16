@@ -11,6 +11,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 49
     invoke-direct {p0}, Ljava/io/IOException;-><init>()V
 
     return-void

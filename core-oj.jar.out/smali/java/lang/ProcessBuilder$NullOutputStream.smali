@@ -22,18 +22,23 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 365
     new-instance v0, Ljava/lang/ProcessBuilder$NullOutputStream;
 
     invoke-direct {v0}, Ljava/lang/ProcessBuilder$NullOutputStream;-><init>()V
 
     sput-object v0, Ljava/lang/ProcessBuilder$NullOutputStream;->INSTANCE:Ljava/lang/ProcessBuilder$NullOutputStream;
 
+    .line 364
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 366
     invoke-direct {p0}, Ljava/io/OutputStream;-><init>()V
 
     return-void
@@ -43,12 +48,15 @@
 # virtual methods
 .method public write(I)V
     .locals 2
+    .param p1, "b"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 368
     new-instance v0, Ljava/io/IOException;
 
     const-string/jumbo v1, "Stream closed"

@@ -88,24 +88,37 @@
         }
     .end annotation
 
+    .prologue
+    .local p0, "this":Ljava/util/TreeMap$TreeMapEntry;, "Ljava/util/TreeMap<TK;TV;>.TreeMapEntry<TK;TV;>;"
+    .local p1, "key":Ljava/lang/Object;, "TK;"
+    .local p2, "value":Ljava/lang/Object;, "TV;"
+    .local p3, "parent":Ljava/util/TreeMap$TreeMapEntry;, "Ljava/util/TreeMap$TreeMapEntry<TK;TV;>;"
     const/4 v0, 0x0
 
+    .line 2111
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 2102
     iput-object v0, p0, Ljava/util/TreeMap$TreeMapEntry;->left:Ljava/util/TreeMap$TreeMapEntry;
 
+    .line 2103
     iput-object v0, p0, Ljava/util/TreeMap$TreeMapEntry;->right:Ljava/util/TreeMap$TreeMapEntry;
 
+    .line 2105
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Ljava/util/TreeMap$TreeMapEntry;->color:Z
 
+    .line 2112
     iput-object p1, p0, Ljava/util/TreeMap$TreeMapEntry;->key:Ljava/lang/Object;
 
+    .line 2113
     iput-object p2, p0, Ljava/util/TreeMap$TreeMapEntry;->value:Ljava/lang/Object;
 
+    .line 2114
     iput-object p3, p0, Ljava/util/TreeMap$TreeMapEntry;->parent:Ljava/util/TreeMap$TreeMapEntry;
 
+    .line 2111
     return-void
 .end method
 
@@ -113,20 +126,28 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
+    .param p1, "o"    # Ljava/lang/Object;
 
+    .prologue
+    .local p0, "this":Ljava/util/TreeMap$TreeMapEntry;, "Ljava/util/TreeMap<TK;TV;>.TreeMapEntry<TK;TV;>;"
     const/4 v1, 0x0
 
+    .line 2149
     instance-of v2, p1, Ljava/util/Map$Entry;
 
     if-nez v2, :cond_0
 
+    .line 2150
     return v1
 
     :cond_0
     move-object v0, p1
 
+    .line 2151
     check-cast v0, Ljava/util/Map$Entry;
 
+    .line 2153
+    .local v0, "e":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
     iget-object v2, p0, Ljava/util/TreeMap$TreeMapEntry;->key:Ljava/lang/Object;
 
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -161,6 +182,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 2123
+    .local p0, "this":Ljava/util/TreeMap$TreeMapEntry;, "Ljava/util/TreeMap<TK;TV;>.TreeMapEntry<TK;TV;>;"
     iget-object v0, p0, Ljava/util/TreeMap$TreeMapEntry;->key:Ljava/lang/Object;
 
     return-object v0
@@ -174,6 +198,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 2132
+    .local p0, "this":Ljava/util/TreeMap$TreeMapEntry;, "Ljava/util/TreeMap<TK;TV;>.TreeMapEntry<TK;TV;>;"
     iget-object v0, p0, Ljava/util/TreeMap$TreeMapEntry;->value:Ljava/lang/Object;
 
     return-object v0
@@ -182,12 +209,17 @@
 .method public hashCode()I
     .locals 3
 
+    .prologue
+    .line 2157
+    .local p0, "this":Ljava/util/TreeMap$TreeMapEntry;, "Ljava/util/TreeMap<TK;TV;>.TreeMapEntry<TK;TV;>;"
     iget-object v2, p0, Ljava/util/TreeMap$TreeMapEntry;->key:Ljava/lang/Object;
 
     if-nez v2, :cond_0
 
     const/4 v0, 0x0
 
+    .line 2158
+    .local v0, "keyHash":I
     :goto_0
     iget-object v2, p0, Ljava/util/TreeMap$TreeMapEntry;->value:Ljava/lang/Object;
 
@@ -195,11 +227,16 @@
 
     const/4 v1, 0x0
 
+    .line 2159
+    .local v1, "valueHash":I
     :goto_1
     xor-int v2, v0, v1
 
     return v2
 
+    .line 2157
+    .end local v0    # "keyHash":I
+    .end local v1    # "valueHash":I
     :cond_0
     iget-object v2, p0, Ljava/util/TreeMap$TreeMapEntry;->key:Ljava/lang/Object;
 
@@ -207,8 +244,10 @@
 
     move-result v0
 
+    .restart local v0    # "keyHash":I
     goto :goto_0
 
+    .line 2158
     :cond_1
     iget-object v2, p0, Ljava/util/TreeMap$TreeMapEntry;->value:Ljava/lang/Object;
 
@@ -227,16 +266,26 @@
         }
     .end annotation
 
+    .prologue
+    .line 2143
+    .local p0, "this":Ljava/util/TreeMap$TreeMapEntry;, "Ljava/util/TreeMap<TK;TV;>.TreeMapEntry<TK;TV;>;"
+    .local p1, "value":Ljava/lang/Object;, "TV;"
     iget-object v0, p0, Ljava/util/TreeMap$TreeMapEntry;->value:Ljava/lang/Object;
 
+    .line 2144
+    .local v0, "oldValue":Ljava/lang/Object;, "TV;"
     iput-object p1, p0, Ljava/util/TreeMap$TreeMapEntry;->value:Ljava/lang/Object;
 
+    .line 2145
     return-object v0
 .end method
 
 .method public toString()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 2163
+    .local p0, "this":Ljava/util/TreeMap$TreeMapEntry;, "Ljava/util/TreeMap<TK;TV;>.TreeMapEntry<TK;TV;>;"
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

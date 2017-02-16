@@ -14,20 +14,27 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
+    .param p1, "s"    # Ljava/lang/String;
 
+    .prologue
+    .line 49
     invoke-direct {p0}, Ljava/util/IllegalFormatException;-><init>()V
 
+    .line 50
     if-nez p1, :cond_0
 
+    .line 51
     new-instance v0, Ljava/lang/NullPointerException;
 
     invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
 
     throw v0
 
+    .line 52
     :cond_0
     iput-object p1, p0, Ljava/util/UnknownFormatConversionException;->s:Ljava/lang/String;
 
+    .line 49
     return-void
 .end method
 
@@ -36,6 +43,8 @@
 .method public getConversion()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 61
     iget-object v0, p0, Ljava/util/UnknownFormatConversionException;->s:Ljava/lang/String;
 
     return-object v0
@@ -44,6 +53,8 @@
 .method public getMessage()Ljava/lang/String;
     .locals 4
 
+    .prologue
+    .line 66
     const-string/jumbo v0, "Conversion = \'%s\'"
 
     const/4 v1, 0x1

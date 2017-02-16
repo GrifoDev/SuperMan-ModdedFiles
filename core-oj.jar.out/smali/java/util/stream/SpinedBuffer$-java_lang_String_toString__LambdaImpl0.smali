@@ -25,6 +25,7 @@
 .method public synthetic constructor <init>(Ljava/util/List;)V
     .locals 0
 
+    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Ljava/util/stream/SpinedBuffer$-java_lang_String_toString__LambdaImpl0;->val$-lambdaCtx:Ljava/util/List;
@@ -36,7 +37,9 @@
 # virtual methods
 .method public accept(Ljava/lang/Object;)V
     .locals 1
+    .param p1, "arg0"    # Ljava/lang/Object;
 
+    .prologue
     iget-object v0, p0, Ljava/util/stream/SpinedBuffer$-java_lang_String_toString__LambdaImpl0;->val$-lambdaCtx:Ljava/util/List;
 
     invoke-static {v0, p1}, Ljava/util/stream/SpinedBuffer;->-java_util_stream_SpinedBuffer-mthref-0(Ljava/util/List;Ljava/lang/Object;)V

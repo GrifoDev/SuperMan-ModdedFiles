@@ -30,7 +30,12 @@
 # direct methods
 .method constructor <init>(Ljava/util/stream/ReferencePipeline$7;Ljava/util/stream/Sink;Ljava/util/function/Function;)V
     .locals 0
+    .param p1, "this$1"    # Ljava/util/stream/ReferencePipeline$7;
 
+    .prologue
+    .line 260
+    .local p2, "$anonymous0":Ljava/util/stream/Sink;, "Ljava/util/stream/Sink<-TR;>;"
+    .local p3, "val$mapper":Ljava/util/function/Function;, "Ljava/util/function/Function<-TP_OUT;+Ljava/util/stream/Stream<+TR;>;>;"
     iput-object p1, p0, Ljava/util/stream/ReferencePipeline$7$1;->this$1:Ljava/util/stream/ReferencePipeline$7;
 
     iput-object p3, p0, Ljava/util/stream/ReferencePipeline$7$1;->val$mapper:Ljava/util/function/Function;
@@ -50,10 +55,14 @@
         }
     .end annotation
 
+    .prologue
+    .local p1, "u":Ljava/lang/Object;, "TP_OUT;"
     const/4 v3, 0x0
 
+    .line 268
     const/4 v1, 0x0
 
+    .local v1, "result":Ljava/util/stream/Stream;, "Ljava/util/stream/Stream<+TR;>;"
     :try_start_0
     iget-object v2, p0, Ljava/util/stream/ReferencePipeline$7$1;->val$mapper:Ljava/util/function/Function;
 
@@ -67,8 +76,11 @@
 
     move-object v1, v0
 
+    .line 270
+    .local v1, "result":Ljava/util/stream/Stream;, "Ljava/util/stream/Stream<+TR;>;"
     if-eqz v1, :cond_0
 
+    .line 271
     invoke-interface {v1}, Ljava/util/stream/Stream;->sequential()Ljava/util/stream/BaseStream;
 
     move-result-object v2
@@ -82,6 +94,7 @@
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_1
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
+    .line 272
     :cond_0
     if-eqz v1, :cond_1
 
@@ -101,6 +114,7 @@
 
     goto :goto_0
 
+    .end local v1    # "result":Ljava/util/stream/Stream;, "Ljava/util/stream/Stream<+TR;>;"
     :catch_1
     move-exception v2
 
@@ -151,9 +165,13 @@
     :cond_4
     throw v2
 
+    .line 267
+    .restart local v1    # "result":Ljava/util/stream/Stream;, "Ljava/util/stream/Stream<+TR;>;"
     :cond_5
     return-void
 
+    .line 272
+    .end local v1    # "result":Ljava/util/stream/Stream;, "Ljava/util/stream/Stream<+TR;>;"
     :catchall_1
     move-exception v2
 
@@ -162,12 +180,16 @@
 
 .method public begin(J)V
     .locals 4
+    .param p1, "size"    # J
 
+    .prologue
+    .line 263
     iget-object v0, p0, Ljava/util/stream/Sink$ChainedReference;->downstream:Ljava/util/stream/Sink;
 
     const-wide/16 v2, -0x1
 
     invoke-interface {v0, v2, v3}, Ljava/util/stream/Sink;->begin(J)V
 
+    .line 262
     return-void
 .end method

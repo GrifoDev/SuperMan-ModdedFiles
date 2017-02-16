@@ -27,22 +27,31 @@
 .method protected constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 80
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 81
     const/4 v0, 0x4
 
     iput v0, p0, Ljava/util/stream/AbstractSpinedBuffer;->initialChunkPower:I
 
+    .line 80
     return-void
 .end method
 
 .method protected constructor <init>(I)V
     .locals 3
+    .param p1, "initialCapacity"    # I
 
+    .prologue
+    .line 89
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 90
     if-gez p1, :cond_0
 
+    .line 91
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -67,6 +76,7 @@
 
     throw v0
 
+    .line 94
     :cond_0
     add-int/lit8 v0, p1, -0x1
 
@@ -76,6 +86,7 @@
 
     rsub-int/lit8 v0, v0, 0x20
 
+    .line 93
     const/4 v1, 0x4
 
     invoke-static {v1, v0}, Ljava/lang/Math;->max(II)I
@@ -84,6 +95,7 @@
 
     iput v0, p0, Ljava/util/stream/AbstractSpinedBuffer;->initialChunkPower:I
 
+    .line 89
     return-void
 .end method
 
@@ -91,21 +103,29 @@
 # virtual methods
 .method protected chunkSize(I)I
     .locals 4
+    .param p1, "n"    # I
 
+    .prologue
     const/4 v3, 0x1
 
+    .line 117
     if-eqz p1, :cond_0
 
     if-ne p1, v3, :cond_1
 
+    .line 118
     :cond_0
     iget v0, p0, Ljava/util/stream/AbstractSpinedBuffer;->initialChunkPower:I
 
+    .line 120
+    .local v0, "power":I
     :goto_0
     shl-int v1, v3, v0
 
     return v1
 
+    .line 119
+    .end local v0    # "power":I
     :cond_1
     iget v1, p0, Ljava/util/stream/AbstractSpinedBuffer;->initialChunkPower:I
 
@@ -128,17 +148,22 @@
 .method public count()J
     .locals 4
 
+    .prologue
+    .line 108
     iget v0, p0, Ljava/util/stream/AbstractSpinedBuffer;->spineIndex:I
 
     if-nez v0, :cond_0
 
+    .line 109
     iget v0, p0, Ljava/util/stream/AbstractSpinedBuffer;->elementIndex:I
 
     int-to-long v0, v0
 
+    .line 108
     :goto_0
     return-wide v0
 
+    .line 110
     :cond_0
     iget-object v0, p0, Ljava/util/stream/AbstractSpinedBuffer;->priorElementCount:[J
 
@@ -158,8 +183,10 @@
 .method public isEmpty()Z
     .locals 2
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 101
     iget v1, p0, Ljava/util/stream/AbstractSpinedBuffer;->spineIndex:I
 
     if-nez v1, :cond_0

@@ -34,7 +34,10 @@
 # direct methods
 .method constructor <init>(Ljava/io/File;)V
     .locals 0
+    .param p1, "val$file"    # Ljava/io/File;
 
+    .prologue
+    .line 111
     iput-object p1, p0, Lsun/security/ssl/TrustManagerFactoryImpl$1;->val$file:Ljava/io/File;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -52,8 +55,10 @@
         }
     .end annotation
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 114
     :try_start_0
     iget-object v1, p0, Lsun/security/ssl/TrustManagerFactoryImpl$1;->val$file:Ljava/io/File;
 
@@ -63,6 +68,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 115
     new-instance v1, Ljava/io/FileInputStream;
 
     iget-object v2, p0, Lsun/security/ssl/TrustManagerFactoryImpl$1;->val$file:Ljava/io/File;
@@ -73,12 +79,16 @@
 
     return-object v1
 
+    .line 117
     :cond_0
     return-object v3
 
+    .line 119
     :catch_0
     move-exception v0
 
+    .line 121
+    .local v0, "e":Ljava/io/FileNotFoundException;
     return-object v3
 .end method
 
@@ -90,6 +100,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 112
     invoke-virtual {p0}, Lsun/security/ssl/TrustManagerFactoryImpl$1;->run()Ljava/io/FileInputStream;
 
     move-result-object v0

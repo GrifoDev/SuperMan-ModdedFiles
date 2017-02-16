@@ -7,6 +7,8 @@
 .method protected constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 50
     invoke-direct {p0}, Ljava/util/spi/LocaleServiceProvider;-><init>()V
 
     return-void
@@ -16,13 +18,18 @@
 # virtual methods
 .method public getDisplayName(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;
     .locals 7
+    .param p1, "currencyCode"    # Ljava/lang/String;
+    .param p2, "locale"    # Ljava/util/Locale;
 
+    .prologue
     const/4 v6, 0x0
 
+    .line 96
     if-eqz p1, :cond_0
 
     if-nez p2, :cond_1
 
+    .line 97
     :cond_0
     new-instance v3, Ljava/lang/NullPointerException;
 
@@ -30,17 +37,21 @@
 
     throw v3
 
+    .line 101
     :cond_1
     invoke-virtual {p1}, Ljava/lang/String;->toCharArray()[C
 
     move-result-object v2
 
+    .line 102
+    .local v2, "charray":[C
     array-length v3, v2
 
     const/4 v4, 0x3
 
     if-eq v3, v4, :cond_2
 
+    .line 103
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v4, "The currencyCode is not in the form of three upper-case letters."
@@ -49,6 +60,7 @@
 
     throw v3
 
+    .line 105
     :cond_2
     const/4 v3, 0x0
 
@@ -59,6 +71,8 @@
 
     aget-char v1, v2, v3
 
+    .line 106
+    .local v1, "c":C
     const/16 v5, 0x41
 
     if-lt v1, v5, :cond_3
@@ -67,6 +81,7 @@
 
     if-le v1, v5, :cond_4
 
+    .line 107
     :cond_3
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
@@ -76,11 +91,14 @@
 
     throw v3
 
+    .line 105
     :cond_4
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
+    .line 112
+    .end local v1    # "c":C
     :cond_5
     invoke-virtual {p0}, Ljava/util/spi/LocaleServiceProvider;->getAvailableLocales()[Ljava/util/Locale;
 
@@ -90,12 +108,15 @@
 
     move-result-object v0
 
+    .line 113
+    .local v0, "avail":Ljava/util/List;, "Ljava/util/List<Ljava/util/Locale;>;"
     invoke-interface {v0, p2}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
 
     move-result v3
 
     if-nez v3, :cond_6
 
+    .line 114
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v4, "The locale is not available"
@@ -104,6 +125,7 @@
 
     throw v3
 
+    .line 117
     :cond_6
     return-object v6
 .end method

@@ -21,6 +21,7 @@
 .method public synthetic constructor <init>()V
     .locals 0
 
+    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -30,7 +31,9 @@
 # virtual methods
 .method public applyAsLong(J)J
     .locals 3
+    .param p1, "arg0"    # J
 
+    .prologue
     invoke-static {p1, p2}, Ljava/util/function/LongUnaryOperator;->-java_util_function_LongUnaryOperator_lambda$3(J)J
 
     move-result-wide v0

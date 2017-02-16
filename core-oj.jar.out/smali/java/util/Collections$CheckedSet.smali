@@ -48,6 +48,11 @@
         }
     .end annotation
 
+    .prologue
+    .line 2749
+    .local p0, "this":Ljava/util/Collections$CheckedSet;, "Ljava/util/Collections$CheckedSet<TE;>;"
+    .local p1, "s":Ljava/util/Set;, "Ljava/util/Set<TE;>;"
+    .local p2, "elementType":Ljava/lang/Class;, "Ljava/lang/Class<TE;>;"
     invoke-direct {p0, p1, p2}, Ljava/util/Collections$CheckedCollection;-><init>(Ljava/util/Collection;Ljava/lang/Class;)V
 
     return-void
@@ -57,7 +62,11 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
+    .param p1, "o"    # Ljava/lang/Object;
 
+    .prologue
+    .line 2751
+    .local p0, "this":Ljava/util/Collections$CheckedSet;, "Ljava/util/Collections$CheckedSet<TE;>;"
     if-eq p1, p0, :cond_0
 
     iget-object v0, p0, Ljava/util/Collections$CheckedSet;->c:Ljava/util/Collection;
@@ -78,6 +87,9 @@
 .method public hashCode()I
     .locals 1
 
+    .prologue
+    .line 2752
+    .local p0, "this":Ljava/util/Collections$CheckedSet;, "Ljava/util/Collections$CheckedSet<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$CheckedSet;->c:Ljava/util/Collection;
 
     invoke-interface {v0}, Ljava/util/Collection;->hashCode()I

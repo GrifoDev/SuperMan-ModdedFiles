@@ -23,9 +23,13 @@
 
 .method public add(J)Ljava/util/stream/LongStream$Builder;
     .locals 1
+    .param p1, "t"    # J
 
+    .prologue
+    .line 911
     invoke-interface {p0, p1, p2}, Ljava/util/stream/LongStream$Builder;->accept(J)V
 
+    .line 912
     return-object p0
 .end method
 

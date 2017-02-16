@@ -33,8 +33,12 @@
         }
     .end annotation
 
+    .prologue
+    .line 531
+    .local p1, "downstream":Ljava/util/stream/Sink;, "Ljava/util/stream/Sink<-Ljava/lang/Long;>;"
     invoke-direct {p0, p1}, Ljava/util/stream/SortedOps$AbstractLongSortingSink;-><init>(Ljava/util/stream/Sink;)V
 
+    .line 530
     return-void
 .end method
 
@@ -42,7 +46,10 @@
 # virtual methods
 .method public accept(J)V
     .locals 3
+    .param p1, "t"    # J
 
+    .prologue
+    .line 559
     iget-object v0, p0, Ljava/util/stream/SortedOps$SizedLongSortingSink;->array:[J
 
     iget v1, p0, Ljava/util/stream/SortedOps$SizedLongSortingSink;->offset:I
@@ -53,18 +60,23 @@
 
     aput-wide p1, v0, v1
 
+    .line 558
     return-void
 .end method
 
 .method public begin(J)V
     .locals 3
+    .param p1, "size"    # J
 
+    .prologue
+    .line 536
     const-wide/32 v0, 0x7ffffff7
 
     cmp-long v0, p1, v0
 
     if-ltz v0, :cond_0
 
+    .line 537
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "Stream size exceeds max array size"
@@ -73,6 +85,7 @@
 
     throw v0
 
+    .line 538
     :cond_0
     long-to-int v0, p1
 
@@ -80,12 +93,15 @@
 
     iput-object v0, p0, Ljava/util/stream/SortedOps$SizedLongSortingSink;->array:[J
 
+    .line 535
     return-void
 .end method
 
 .method public end()V
     .locals 4
 
+    .prologue
+    .line 543
     iget-object v1, p0, Ljava/util/stream/SortedOps$SizedLongSortingSink;->array:[J
 
     iget v2, p0, Ljava/util/stream/SortedOps$SizedLongSortingSink;->offset:I
@@ -94,6 +110,7 @@
 
     invoke-static {v1, v3, v2}, Ljava/util/Arrays;->sort([JII)V
 
+    .line 544
     iget-object v1, p0, Ljava/util/stream/Sink$ChainedLong;->downstream:Ljava/util/stream/Sink;
 
     iget v2, p0, Ljava/util/stream/SortedOps$SizedLongSortingSink;->offset:I
@@ -102,17 +119,21 @@
 
     invoke-interface {v1, v2, v3}, Ljava/util/stream/Sink;->begin(J)V
 
+    .line 545
     iget-boolean v1, p0, Ljava/util/stream/SortedOps$AbstractLongSortingSink;->cancellationWasRequested:Z
 
     if-nez v1, :cond_0
 
+    .line 546
     const/4 v0, 0x0
 
+    .local v0, "i":I
     :goto_0
     iget v1, p0, Ljava/util/stream/SortedOps$SizedLongSortingSink;->offset:I
 
     if-ge v0, v1, :cond_1
 
+    .line 547
     iget-object v1, p0, Ljava/util/stream/Sink$ChainedLong;->downstream:Ljava/util/stream/Sink;
 
     iget-object v2, p0, Ljava/util/stream/SortedOps$SizedLongSortingSink;->array:[J
@@ -121,13 +142,17 @@
 
     invoke-interface {v1, v2, v3}, Ljava/util/stream/Sink;->accept(J)V
 
+    .line 546
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
+    .line 550
+    .end local v0    # "i":I
     :cond_0
     const/4 v0, 0x0
 
+    .restart local v0    # "i":I
     :goto_1
     iget v1, p0, Ljava/util/stream/SortedOps$SizedLongSortingSink;->offset:I
 
@@ -141,17 +166,21 @@
 
     if-eqz v1, :cond_2
 
+    .line 553
     :cond_1
     iget-object v1, p0, Ljava/util/stream/Sink$ChainedLong;->downstream:Ljava/util/stream/Sink;
 
     invoke-interface {v1}, Ljava/util/stream/Sink;->end()V
 
+    .line 554
     const/4 v1, 0x0
 
     iput-object v1, p0, Ljava/util/stream/SortedOps$SizedLongSortingSink;->array:[J
 
+    .line 542
     return-void
 
+    .line 551
     :cond_2
     iget-object v1, p0, Ljava/util/stream/Sink$ChainedLong;->downstream:Ljava/util/stream/Sink;
 
@@ -161,6 +190,7 @@
 
     invoke-interface {v1, v2, v3}, Ljava/util/stream/Sink;->accept(J)V
 
+    .line 550
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1

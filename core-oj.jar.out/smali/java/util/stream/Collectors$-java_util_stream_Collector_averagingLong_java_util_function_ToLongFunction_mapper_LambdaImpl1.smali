@@ -25,6 +25,7 @@
 .method public synthetic constructor <init>(Ljava/util/function/ToLongFunction;)V
     .locals 0
 
+    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Ljava/util/stream/Collectors$-java_util_stream_Collector_averagingLong_java_util_function_ToLongFunction_mapper_LambdaImpl1;->val$mapper:Ljava/util/function/ToLongFunction;
@@ -36,11 +37,15 @@
 # virtual methods
 .method public accept(Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 1
+    .param p1, "arg0"    # Ljava/lang/Object;
+    .param p2, "arg1"    # Ljava/lang/Object;
 
+    .prologue
     iget-object v0, p0, Ljava/util/stream/Collectors$-java_util_stream_Collector_averagingLong_java_util_function_ToLongFunction_mapper_LambdaImpl1;->val$mapper:Ljava/util/function/ToLongFunction;
 
     check-cast p1, [J
 
+    .end local p1    # "arg0":Ljava/lang/Object;
     invoke-static {v0, p1, p2}, Ljava/util/stream/Collectors;->-java_util_stream_Collectors_lambda$40(Ljava/util/function/ToLongFunction;[JLjava/lang/Object;)V
 
     return-void

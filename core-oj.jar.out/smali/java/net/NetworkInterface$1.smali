@@ -36,15 +36,20 @@
 # direct methods
 .method constructor <init>([Ljava/net/NetworkInterface;)V
     .locals 1
+    .param p1, "val$netifs"    # [Ljava/net/NetworkInterface;
 
+    .prologue
+    .line 339
     iput-object p1, p0, Ljava/net/NetworkInterface$1;->val$netifs:[Ljava/net/NetworkInterface;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 340
     const/4 v0, 0x0
 
     iput v0, p0, Ljava/net/NetworkInterface$1;->i:I
 
+    .line 339
     return-void
 .end method
 
@@ -53,8 +58,10 @@
 .method public hasMoreElements()Z
     .locals 3
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 351
     iget-object v1, p0, Ljava/net/NetworkInterface$1;->val$netifs:[Ljava/net/NetworkInterface;
 
     if-eqz v1, :cond_0
@@ -76,6 +83,8 @@
 .method public bridge synthetic nextElement()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 341
     invoke-virtual {p0}, Ljava/net/NetworkInterface$1;->nextElement()Ljava/net/NetworkInterface;
 
     move-result-object v0
@@ -86,6 +95,8 @@
 .method public nextElement()Ljava/net/NetworkInterface;
     .locals 4
 
+    .prologue
+    .line 342
     iget-object v1, p0, Ljava/net/NetworkInterface$1;->val$netifs:[Ljava/net/NetworkInterface;
 
     if-eqz v1, :cond_0
@@ -98,6 +109,7 @@
 
     if-ge v1, v2, :cond_0
 
+    .line 343
     iget-object v1, p0, Ljava/net/NetworkInterface$1;->val$netifs:[Ljava/net/NetworkInterface;
 
     iget v2, p0, Ljava/net/NetworkInterface$1;->i:I
@@ -108,8 +120,12 @@
 
     aget-object v0, v1, v2
 
+    .line 344
+    .local v0, "netif":Ljava/net/NetworkInterface;
     return-object v0
 
+    .line 346
+    .end local v0    # "netif":Ljava/net/NetworkInterface;
     :cond_0
     new-instance v1, Ljava/util/NoSuchElementException;
 

@@ -10,11 +10,16 @@
 # direct methods
 .method protected constructor <init>(Ljava/lang/String;)V
     .locals 0
+    .param p1, "type"    # Ljava/lang/String;
 
+    .prologue
+    .line 60
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 61
     iput-object p1, p0, Ljava/security/cert/CRL;->type:Ljava/lang/String;
 
+    .line 60
     return-void
 .end method
 
@@ -23,6 +28,8 @@
 .method public final getType()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 70
     iget-object v0, p0, Ljava/security/cert/CRL;->type:Ljava/lang/String;
 
     return-object v0

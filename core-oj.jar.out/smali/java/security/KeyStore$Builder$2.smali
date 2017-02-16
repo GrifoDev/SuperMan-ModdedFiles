@@ -64,7 +64,13 @@
 
 .method constructor <init>(Ljava/security/AccessControlContext;Ljava/security/KeyStore$ProtectionParameter;Ljava/security/Provider;Ljava/lang/String;)V
     .locals 4
+    .param p1, "val$context"    # Ljava/security/AccessControlContext;
+    .param p2, "val$protection"    # Ljava/security/KeyStore$ProtectionParameter;
+    .param p3, "val$provider"    # Ljava/security/Provider;
+    .param p4, "val$type"    # Ljava/lang/String;
 
+    .prologue
+    .line 1714
     iput-object p1, p0, Ljava/security/KeyStore$Builder$2;->val$context:Ljava/security/AccessControlContext;
 
     iput-object p2, p0, Ljava/security/KeyStore$Builder$2;->val$protection:Ljava/security/KeyStore$ProtectionParameter;
@@ -75,6 +81,7 @@
 
     invoke-direct {p0}, Ljava/security/KeyStore$Builder;-><init>()V
 
+    .line 1719
     new-instance v0, Ljava/security/KeyStore$Builder$2$1;
 
     iget-object v1, p0, Ljava/security/KeyStore$Builder$2;->val$provider:Ljava/security/Provider;
@@ -85,8 +92,10 @@
 
     invoke-direct {v0, p0, v1, v2, v3}, Ljava/security/KeyStore$Builder$2$1;-><init>(Ljava/security/KeyStore$Builder$2;Ljava/security/Provider;Ljava/lang/String;Ljava/security/KeyStore$ProtectionParameter;)V
 
+    .line 1718
     iput-object v0, p0, Ljava/security/KeyStore$Builder$2;->action:Ljava/security/PrivilegedExceptionAction;
 
+    .line 1714
     return-void
 .end method
 
@@ -100,19 +109,25 @@
         }
     .end annotation
 
+    .prologue
     monitor-enter p0
 
+    .line 1759
     :try_start_0
     iget-object v2, p0, Ljava/security/KeyStore$Builder$2;->oldException:Ljava/io/IOException;
 
     if-eqz v2, :cond_0
 
+    .line 1760
     new-instance v2, Ljava/security/KeyStoreException;
 
+    .line 1761
     const-string/jumbo v3, "Previous KeyStore instantiation failed"
 
+    .line 1762
     iget-object v4, p0, Ljava/security/KeyStore$Builder$2;->oldException:Ljava/io/IOException;
 
+    .line 1760
     invoke-direct {v2, v3, v4}, Ljava/security/KeyStoreException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     throw v2
@@ -126,6 +141,7 @@
 
     throw v2
 
+    .line 1765
     :cond_0
     :try_start_1
     iget-object v2, p0, Ljava/security/KeyStore$Builder$2;->action:Ljava/security/PrivilegedExceptionAction;
@@ -145,18 +161,25 @@
 
     return-object v2
 
+    .line 1766
     :catch_0
     move-exception v1
 
+    .line 1767
+    .local v1, "e":Ljava/security/PrivilegedActionException;
     :try_start_2
     invoke-virtual {v1}, Ljava/lang/Throwable;->getCause()Ljava/lang/Throwable;
 
     move-result-object v0
 
+    .line 1768
+    .local v0, "cause":Ljava/lang/Throwable;
     new-instance v2, Ljava/security/KeyStoreException;
 
+    .line 1769
     const-string/jumbo v3, "KeyStore instantiation failed"
 
+    .line 1768
     invoke-direct {v2, v3, v0}, Ljava/security/KeyStoreException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     throw v2
@@ -166,28 +189,37 @@
 
 .method public getProtectionParameter(Ljava/lang/String;)Ljava/security/KeyStore$ProtectionParameter;
     .locals 2
+    .param p1, "alias"    # Ljava/lang/String;
 
+    .prologue
+    .line 1775
     if-nez p1, :cond_0
 
+    .line 1776
     new-instance v0, Ljava/lang/NullPointerException;
 
     invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
 
     throw v0
 
+    .line 1778
     :cond_0
     iget-boolean v0, p0, Ljava/security/KeyStore$Builder$2;->getCalled:Z
 
     if-nez v0, :cond_1
 
+    .line 1779
     new-instance v0, Ljava/lang/IllegalStateException;
 
+    .line 1780
     const-string/jumbo v1, "getKeyStore() must be called first"
 
+    .line 1779
     invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
+    .line 1782
     :cond_1
     iget-object v0, p0, Ljava/security/KeyStore$Builder$2;->val$protection:Ljava/security/KeyStore$ProtectionParameter;
 

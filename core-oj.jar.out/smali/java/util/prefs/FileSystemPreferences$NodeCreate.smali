@@ -21,7 +21,10 @@
 # direct methods
 .method private constructor <init>(Ljava/util/prefs/FileSystemPreferences;)V
     .locals 1
+    .param p1, "this$0"    # Ljava/util/prefs/FileSystemPreferences;
 
+    .prologue
+    .line 398
     iput-object p1, p0, Ljava/util/prefs/FileSystemPreferences$NodeCreate;->this$0:Ljava/util/prefs/FileSystemPreferences;
 
     const/4 v0, 0x0
@@ -33,7 +36,9 @@
 
 .method synthetic constructor <init>(Ljava/util/prefs/FileSystemPreferences;Ljava/util/prefs/FileSystemPreferences$NodeCreate;)V
     .locals 0
+    .param p1, "this$0"    # Ljava/util/prefs/FileSystemPreferences;
 
+    .prologue
     invoke-direct {p0, p1}, Ljava/util/prefs/FileSystemPreferences$NodeCreate;-><init>(Ljava/util/prefs/FileSystemPreferences;)V
 
     return-void
@@ -44,5 +49,7 @@
 .method replay()V
     .locals 0
 
+    .prologue
+    .line 404
     return-void
 .end method

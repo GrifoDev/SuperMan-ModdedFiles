@@ -27,6 +27,7 @@
 .method public synthetic constructor <init>(Ljava/util/function/DoublePredicate;Ljava/util/function/DoublePredicate;)V
     .locals 0
 
+    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Ljava/util/function/DoublePredicate$-java_util_function_DoublePredicate_or_java_util_function_DoublePredicate_other_LambdaImpl0;->val$this:Ljava/util/function/DoublePredicate;
@@ -40,7 +41,9 @@
 # virtual methods
 .method public test(D)Z
     .locals 3
+    .param p1, "arg0"    # D
 
+    .prologue
     iget-object v0, p0, Ljava/util/function/DoublePredicate$-java_util_function_DoublePredicate_or_java_util_function_DoublePredicate_other_LambdaImpl0;->val$this:Ljava/util/function/DoublePredicate;
 
     iget-object v1, p0, Ljava/util/function/DoublePredicate$-java_util_function_DoublePredicate_or_java_util_function_DoublePredicate_other_LambdaImpl0;->val$other:Ljava/util/function/DoublePredicate;

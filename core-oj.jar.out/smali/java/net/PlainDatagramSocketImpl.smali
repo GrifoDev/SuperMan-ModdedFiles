@@ -7,14 +7,19 @@
 .method static constructor <clinit>()V
     .locals 0
 
+    .prologue
+    .line 38
     invoke-static {}, Ljava/net/PlainDatagramSocketImpl;->init()V
 
+    .line 35
     return-void
 .end method
 
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 35
     invoke-direct {p0}, Ljava/net/AbstractPlainDatagramSocketImpl;-><init>()V
 
     return-void

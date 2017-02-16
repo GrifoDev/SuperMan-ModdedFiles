@@ -51,6 +51,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 3950
+    .local p0, "this":Ljava/util/Collections$SingletonSet;, "Ljava/util/Collections$SingletonSet<TE;>;"
+    .local p1, "e":Ljava/lang/Object;, "TE;"
     invoke-direct {p0}, Ljava/util/AbstractSet;-><init>()V
 
     iput-object p1, p0, Ljava/util/Collections$SingletonSet;->element:Ljava/lang/Object;
@@ -62,7 +66,11 @@
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
+    .param p1, "o"    # Ljava/lang/Object;
 
+    .prologue
+    .line 3958
+    .local p0, "this":Ljava/util/Collections$SingletonSet;, "Ljava/util/Collections$SingletonSet<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$SingletonSet;->element:Ljava/lang/Object;
 
     invoke-static {p1, v0}, Ljava/util/Collections;->eq(Ljava/lang/Object;Ljava/lang/Object;)Z
@@ -82,10 +90,15 @@
         }
     .end annotation
 
+    .prologue
+    .line 3963
+    .local p0, "this":Ljava/util/Collections$SingletonSet;, "Ljava/util/Collections$SingletonSet<TE;>;"
+    .local p1, "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-TE;>;"
     iget-object v0, p0, Ljava/util/Collections$SingletonSet;->element:Ljava/lang/Object;
 
     invoke-interface {p1, v0}, Ljava/util/function/Consumer;->accept(Ljava/lang/Object;)V
 
+    .line 3962
     return-void
 .end method
 
@@ -99,6 +112,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 3953
+    .local p0, "this":Ljava/util/Collections$SingletonSet;, "Ljava/util/Collections$SingletonSet<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$SingletonSet;->element:Ljava/lang/Object;
 
     invoke-static {v0}, Ljava/util/Collections;->singletonIterator(Ljava/lang/Object;)Ljava/util/Iterator;
@@ -118,6 +134,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 3971
+    .local p0, "this":Ljava/util/Collections$SingletonSet;, "Ljava/util/Collections$SingletonSet<TE;>;"
+    .local p1, "filter":Ljava/util/function/Predicate;, "Ljava/util/function/Predicate<-TE;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -128,6 +148,9 @@
 .method public size()I
     .locals 1
 
+    .prologue
+    .line 3956
+    .local p0, "this":Ljava/util/Collections$SingletonSet;, "Ljava/util/Collections$SingletonSet<TE;>;"
     const/4 v0, 0x1
 
     return v0
@@ -143,6 +166,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 3967
+    .local p0, "this":Ljava/util/Collections$SingletonSet;, "Ljava/util/Collections$SingletonSet<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$SingletonSet;->element:Ljava/lang/Object;
 
     invoke-static {v0}, Ljava/util/Collections;->singletonSpliterator(Ljava/lang/Object;)Ljava/util/Spliterator;

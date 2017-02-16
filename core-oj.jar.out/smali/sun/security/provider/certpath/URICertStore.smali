@@ -71,6 +71,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 91
     const-string/jumbo v0, "certpath"
 
     invoke-static {v0}, Lsun/security/util/Debug;->getInstance(Ljava/lang/String;)Lsun/security/util/Debug;
@@ -79,12 +81,14 @@
 
     sput-object v0, Lsun/security/provider/certpath/URICertStore;->debug:Lsun/security/util/Debug;
 
+    .line 134
     invoke-static {}, Lsun/security/provider/certpath/URICertStore;->initializeTimeout()I
 
     move-result v0
 
     sput v0, Lsun/security/provider/certpath/URICertStore;->CRL_CONNECT_TIMEOUT:I
 
+    .line 188
     const/16 v0, 0xb9
 
     invoke-static {v0}, Lsun/security/util/Cache;->newSoftMemoryCache(I)Lsun/security/util/Cache;
@@ -93,11 +97,13 @@
 
     sput-object v0, Lsun/security/provider/certpath/URICertStore;->certStoreCache:Lsun/security/util/Cache;
 
+    .line 89
     return-void
 .end method
 
 .method constructor <init>(Ljava/security/cert/CertStoreParameters;)V
     .locals 5
+    .param p1, "params"    # Ljava/security/cert/CertStoreParameters;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/InvalidAlgorithmParameterException;,
@@ -105,43 +111,54 @@
         }
     .end annotation
 
+    .prologue
     const/4 v4, 0x1
 
     const/4 v3, 0x0
 
+    .line 159
     invoke-direct {p0, p1}, Ljava/security/cert/CertStoreSpi;-><init>(Ljava/security/cert/CertStoreParameters;)V
 
+    .line 104
     invoke-static {}, Ljava/util/Collections;->emptySet()Ljava/util/Set;
 
     move-result-object v1
 
     iput-object v1, p0, Lsun/security/provider/certpath/URICertStore;->certs:Ljava/util/Collection;
 
+    .line 120
     iput-boolean v3, p0, Lsun/security/provider/certpath/URICertStore;->ldap:Z
 
+    .line 160
     instance-of v1, p1, Lsun/security/provider/certpath/URICertStore$URICertStoreParameters;
 
     if-nez v1, :cond_0
 
+    .line 161
     new-instance v1, Ljava/security/InvalidAlgorithmParameterException;
 
+    .line 162
     const-string/jumbo v2, "params must be instanceof URICertStoreParameters"
 
+    .line 161
     invoke-direct {v1, v2}, Ljava/security/InvalidAlgorithmParameterException;-><init>(Ljava/lang/String;)V
 
     throw v1
 
+    .line 164
     :cond_0
     nop
 
     nop
 
+    .end local p1    # "params":Ljava/security/cert/CertStoreParameters;
     invoke-static {p1}, Lsun/security/provider/certpath/URICertStore$URICertStoreParameters;->-get0(Lsun/security/provider/certpath/URICertStore$URICertStoreParameters;)Ljava/net/URI;
 
     move-result-object v1
 
     iput-object v1, p0, Lsun/security/provider/certpath/URICertStore;->uri:Ljava/net/URI;
 
+    .line 166
     iget-object v1, p0, Lsun/security/provider/certpath/URICertStore;->uri:Ljava/net/URI;
 
     invoke-virtual {v1}, Ljava/net/URI;->getScheme()Ljava/lang/String;
@@ -162,8 +179,10 @@
 
     if-eqz v1, :cond_1
 
+    .line 167
     iput-boolean v4, p0, Lsun/security/provider/certpath/URICertStore;->ldap:Z
 
+    .line 168
     const-string/jumbo v1, "LDAP"
 
     invoke-static {v1}, Lsun/security/provider/certpath/CertStoreHelper;->getInstance(Ljava/lang/String;)Lsun/security/provider/certpath/CertStoreHelper;
@@ -172,6 +191,7 @@
 
     iput-object v1, p0, Lsun/security/provider/certpath/URICertStore;->ldapHelper:Lsun/security/provider/certpath/CertStoreHelper;
 
+    .line 169
     iget-object v1, p0, Lsun/security/provider/certpath/URICertStore;->ldapHelper:Lsun/security/provider/certpath/CertStoreHelper;
 
     iget-object v2, p0, Lsun/security/provider/certpath/URICertStore;->uri:Ljava/net/URI;
@@ -182,6 +202,7 @@
 
     iput-object v1, p0, Lsun/security/provider/certpath/URICertStore;->ldapCertStore:Ljava/security/cert/CertStore;
 
+    .line 170
     iget-object v1, p0, Lsun/security/provider/certpath/URICertStore;->uri:Ljava/net/URI;
 
     invoke-virtual {v1}, Ljava/net/URI;->getPath()Ljava/lang/String;
@@ -190,6 +211,7 @@
 
     iput-object v1, p0, Lsun/security/provider/certpath/URICertStore;->ldapPath:Ljava/lang/String;
 
+    .line 172
     iget-object v1, p0, Lsun/security/provider/certpath/URICertStore;->ldapPath:Ljava/lang/String;
 
     invoke-virtual {v1, v3}, Ljava/lang/String;->charAt(I)C
@@ -200,6 +222,7 @@
 
     if-ne v1, v2, :cond_1
 
+    .line 173
     iget-object v1, p0, Lsun/security/provider/certpath/URICertStore;->ldapPath:Ljava/lang/String;
 
     invoke-virtual {v1, v4}, Ljava/lang/String;->substring(I)Ljava/lang/String;
@@ -208,6 +231,7 @@
 
     iput-object v1, p0, Lsun/security/provider/certpath/URICertStore;->ldapPath:Ljava/lang/String;
 
+    .line 177
     :cond_1
     :try_start_0
     const-string/jumbo v1, "X.509"
@@ -220,11 +244,15 @@
     :try_end_0
     .catch Ljava/security/cert/CertificateException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 158
     return-void
 
+    .line 178
     :catch_0
     move-exception v0
 
+    .line 179
+    .local v0, "e":Ljava/security/cert/CertificateException;
     new-instance v1, Ljava/lang/RuntimeException;
 
     invoke-direct {v1}, Ljava/lang/RuntimeException;-><init>()V
@@ -234,6 +262,7 @@
 
 .method static declared-synchronized getInstance(Lsun/security/provider/certpath/URICertStore$URICertStoreParameters;)Ljava/security/cert/CertStore;
     .locals 5
+    .param p0, "params"    # Lsun/security/provider/certpath/URICertStore$URICertStoreParameters;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/NoSuchAlgorithmException;,
@@ -241,15 +270,18 @@
         }
     .end annotation
 
+    .prologue
     const-class v2, Lsun/security/provider/certpath/URICertStore;
 
     monitor-enter v2
 
+    .line 191
     :try_start_0
     sget-object v1, Lsun/security/provider/certpath/URICertStore;->debug:Lsun/security/util/Debug;
 
     if-eqz v1, :cond_0
 
+    .line 192
     sget-object v1, Lsun/security/provider/certpath/URICertStore;->debug:Lsun/security/util/Debug;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -276,6 +308,7 @@
 
     invoke-virtual {v1, v3}, Lsun/security/util/Debug;->println(Ljava/lang/String;)V
 
+    .line 194
     :cond_0
     sget-object v1, Lsun/security/provider/certpath/URICertStore;->certStoreCache:Lsun/security/util/Cache;
 
@@ -285,10 +318,14 @@
 
     check-cast v0, Ljava/security/cert/CertStore;
 
+    .line 195
+    .local v0, "ucs":Ljava/security/cert/CertStore;
     if-nez v0, :cond_2
 
+    .line 196
     new-instance v0, Lsun/security/provider/certpath/URICertStore$UCS;
 
+    .end local v0    # "ucs":Ljava/security/cert/CertStore;
     new-instance v1, Lsun/security/provider/certpath/URICertStore;
 
     invoke-direct {v1, p0}, Lsun/security/provider/certpath/URICertStore;-><init>(Ljava/security/cert/CertStoreParameters;)V
@@ -299,6 +336,8 @@
 
     invoke-direct {v0, v1, v4, v3, p0}, Lsun/security/provider/certpath/URICertStore$UCS;-><init>(Ljava/security/cert/CertStoreSpi;Ljava/security/Provider;Ljava/lang/String;Ljava/security/cert/CertStoreParameters;)V
 
+    .line 197
+    .restart local v0    # "ucs":Ljava/security/cert/CertStore;
     sget-object v1, Lsun/security/provider/certpath/URICertStore;->certStoreCache:Lsun/security/util/Cache;
 
     invoke-virtual {v1, p0, v0}, Lsun/security/util/Cache;->put(Ljava/lang/Object;Ljava/lang/Object;)V
@@ -309,14 +348,17 @@
     :goto_0
     monitor-exit v2
 
+    .line 203
     return-object v0
 
+    .line 199
     :cond_2
     :try_start_1
     sget-object v1, Lsun/security/provider/certpath/URICertStore;->debug:Lsun/security/util/Debug;
 
     if-eqz v1, :cond_1
 
+    .line 200
     sget-object v1, Lsun/security/provider/certpath/URICertStore;->debug:Lsun/security/util/Debug;
 
     const-string/jumbo v3, "URICertStore.getInstance: cache hit"
@@ -327,6 +369,7 @@
 
     goto :goto_0
 
+    .end local v0    # "ucs":Ljava/security/cert/CertStore;
     :catchall_0
     move-exception v1
 
@@ -337,23 +380,30 @@
 
 .method static getInstance(Lsun/security/x509/AccessDescription;)Ljava/security/cert/CertStore;
     .locals 7
+    .param p0, "ad"    # Lsun/security/x509/AccessDescription;
 
+    .prologue
     const/4 v6, 0x0
 
+    .line 211
     invoke-virtual {p0}, Lsun/security/x509/AccessDescription;->getAccessMethod()Lsun/security/util/ObjectIdentifier;
 
     move-result-object v3
 
+    .line 212
     sget-object v4, Lsun/security/x509/AccessDescription;->Ad_CAISSUERS_Id:Lsun/security/util/ObjectIdentifier;
 
+    .line 211
     invoke-virtual {v3, v4}, Lsun/security/util/ObjectIdentifier;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
     if-nez v3, :cond_0
 
+    .line 213
     return-object v6
 
+    .line 215
     :cond_0
     invoke-virtual {p0}, Lsun/security/x509/AccessDescription;->getAccessLocation()Lsun/security/x509/GeneralName;
 
@@ -363,26 +413,34 @@
 
     move-result-object v1
 
+    .line 216
+    .local v1, "gn":Lsun/security/x509/GeneralNameInterface;
     instance-of v3, v1, Lsun/security/x509/URIName;
 
     if-nez v3, :cond_1
 
+    .line 217
     return-object v6
 
+    .line 219
     :cond_1
     nop
 
     nop
 
+    .end local v1    # "gn":Lsun/security/x509/GeneralNameInterface;
     invoke-virtual {v1}, Lsun/security/x509/URIName;->getURI()Ljava/net/URI;
 
     move-result-object v2
 
+    .line 222
+    .local v2, "uri":Ljava/net/URI;
     :try_start_0
     new-instance v3, Lsun/security/provider/certpath/URICertStore$URICertStoreParameters;
 
     invoke-direct {v3, v2}, Lsun/security/provider/certpath/URICertStore$URICertStoreParameters;-><init>(Ljava/net/URI;)V
 
+    .line 221
     invoke-static {v3}, Lsun/security/provider/certpath/URICertStore;->getInstance(Lsun/security/provider/certpath/URICertStore$URICertStoreParameters;)Ljava/security/cert/CertStore;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
@@ -391,13 +449,17 @@
 
     return-object v3
 
+    .line 223
     :catch_0
     move-exception v0
 
+    .line 224
+    .local v0, "ex":Ljava/lang/Exception;
     sget-object v3, Lsun/security/provider/certpath/URICertStore;->debug:Lsun/security/util/Debug;
 
     if-eqz v3, :cond_2
 
+    .line 225
     sget-object v3, Lsun/security/provider/certpath/URICertStore;->debug:Lsun/security/util/Debug;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -420,14 +482,18 @@
 
     invoke-virtual {v3, v4}, Lsun/security/util/Debug;->println(Ljava/lang/String;)V
 
+    .line 226
     invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
+    .line 228
     :cond_2
     return-object v6
 .end method
 
 .method private static getMatchingCRLs(Ljava/security/cert/X509CRL;Ljava/security/cert/CRLSelector;)Ljava/util/Collection;
     .locals 1
+    .param p0, "crl"    # Ljava/security/cert/X509CRL;
+    .param p1, "selector"    # Ljava/security/cert/CRLSelector;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -441,6 +507,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 441
     if-eqz p1, :cond_0
 
     if-eqz p0, :cond_1
@@ -451,6 +519,7 @@
 
     if-eqz v0, :cond_1
 
+    .line 442
     :cond_0
     invoke-static {p0}, Ljava/util/Collections;->singletonList(Ljava/lang/Object;)Ljava/util/List;
 
@@ -458,6 +527,7 @@
 
     return-object v0
 
+    .line 444
     :cond_1
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
@@ -468,6 +538,7 @@
 
 .method private static getMatchingCerts(Ljava/util/Collection;Ljava/security/cert/CertSelector;)Ljava/util/Collection;
     .locals 4
+    .param p1, "selector"    # Ljava/security/cert/CertSelector;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -484,10 +555,15 @@
         }
     .end annotation
 
+    .prologue
+    .line 330
+    .local p0, "certs":Ljava/util/Collection;, "Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;"
     if-nez p1, :cond_0
 
+    .line 331
     return-object p0
 
+    .line 333
     :cond_0
     new-instance v2, Ljava/util/ArrayList;
 
@@ -497,10 +573,13 @@
 
     invoke-direct {v2, v3}, Ljava/util/ArrayList;-><init>(I)V
 
+    .line 334
+    .local v2, "matchedCerts":Ljava/util/List;, "Ljava/util/List<Ljava/security/cert/X509Certificate;>;"
     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
+    .local v1, "cert$iterator":Ljava/util/Iterator;
     :cond_1
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
@@ -515,16 +594,21 @@
 
     check-cast v0, Ljava/security/cert/X509Certificate;
 
+    .line 335
+    .local v0, "cert":Ljava/security/cert/X509Certificate;
     invoke-interface {p1, v0}, Ljava/security/cert/CertSelector;->match(Ljava/security/cert/Certificate;)Z
 
     move-result v3
 
     if-eqz v3, :cond_1
 
+    .line 336
     invoke-interface {v2, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
+    .line 339
+    .end local v0    # "cert":Ljava/security/cert/X509Certificate;
     :cond_2
     return-object v2
 .end method
@@ -532,18 +616,23 @@
 .method private static initializeTimeout()I
     .locals 3
 
+    .prologue
+    .line 143
     new-instance v1, Lsun/security/action/GetIntegerAction;
 
     const-string/jumbo v2, "com.sun.security.crl.timeout"
 
     invoke-direct {v1, v2}, Lsun/security/action/GetIntegerAction;-><init>(Ljava/lang/String;)V
 
+    .line 142
     invoke-static {v1}, Ljava/security/AccessController;->doPrivileged(Ljava/security/PrivilegedAction;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Ljava/lang/Integer;
 
+    .line 144
+    .local v0, "tmp":Ljava/lang/Integer;
     if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
@@ -552,11 +641,13 @@
 
     if-gez v1, :cond_1
 
+    .line 145
     :cond_0
     const/16 v1, 0x3a98
 
     return v1
 
+    .line 149
     :cond_1
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
@@ -571,6 +662,7 @@
 # virtual methods
 .method public declared-synchronized engineGetCRLs(Ljava/security/cert/CRLSelector;)Ljava/util/Collection;
     .locals 21
+    .param p1, "selector"    # Ljava/security/cert/CRLSelector;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -589,8 +681,10 @@
         }
     .end annotation
 
+    .prologue
     monitor-enter p0
 
+    .line 361
     :try_start_0
     move-object/from16 v0, p0
 
@@ -598,6 +692,7 @@
 
     if-eqz v15, :cond_0
 
+    .line 362
     move-object/from16 v0, p1
 
     check-cast v0, Ljava/security/cert/X509CRLSelector;
@@ -606,6 +701,8 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 364
+    .local v14, "xsel":Ljava/security/cert/X509CRLSelector;
     :try_start_1
     move-object/from16 v0, p0
 
@@ -630,6 +727,7 @@
 
     move-result-object v14
 
+    .line 372
     :try_start_2
     move-object/from16 v0, p0
 
@@ -646,9 +744,12 @@
 
     return-object v15
 
+    .line 365
     :catch_0
     move-exception v9
 
+    .line 366
+    .local v9, "ioe":Ljava/io/IOException;
     :try_start_3
     new-instance v15, Ljava/security/cert/CertStoreException;
 
@@ -658,6 +759,8 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
+    .end local v9    # "ioe":Ljava/io/IOException;
+    .end local v14    # "xsel":Ljava/security/cert/X509CRLSelector;
     :catchall_0
     move-exception v15
 
@@ -665,9 +768,13 @@
 
     throw v15
 
+    .line 373
+    .restart local v14    # "xsel":Ljava/security/cert/X509CRLSelector;
     :catch_1
     move-exception v5
 
+    .line 374
+    .local v5, "cse":Ljava/security/cert/CertStoreException;
     :try_start_4
     new-instance v15, Lsun/security/provider/certpath/PKIX$CertStoreTypeException;
 
@@ -679,11 +786,16 @@
 
     throw v15
 
+    .line 381
+    .end local v5    # "cse":Ljava/security/cert/CertStoreException;
+    .end local v14    # "xsel":Ljava/security/cert/X509CRLSelector;
     :cond_0
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v12
 
+    .line 382
+    .local v12, "time":J
     move-object/from16 v0, p0
 
     iget-wide v0, v0, Lsun/security/provider/certpath/URICertStore;->lastChecked:J
@@ -698,16 +810,19 @@
 
     if-gez v15, :cond_2
 
+    .line 383
     sget-object v15, Lsun/security/provider/certpath/URICertStore;->debug:Lsun/security/util/Debug;
 
     if-eqz v15, :cond_1
 
+    .line 384
     sget-object v15, Lsun/security/provider/certpath/URICertStore;->debug:Lsun/security/util/Debug;
 
     const-string/jumbo v16, "Returning CRL from cache"
 
     invoke-virtual/range {v15 .. v16}, Lsun/security/util/Debug;->println(Ljava/lang/String;)V
 
+    .line 386
     :cond_1
     move-object/from16 v0, p0
 
@@ -725,6 +840,7 @@
 
     return-object v15
 
+    .line 388
     :cond_2
     :try_start_5
     move-object/from16 v0, p0
@@ -733,6 +849,7 @@
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
+    .line 390
     :try_start_6
     move-object/from16 v0, p0
 
@@ -746,6 +863,8 @@
 
     move-result-object v4
 
+    .line 391
+    .local v4, "connection":Ljava/net/URLConnection;
     move-object/from16 v0, p0
 
     iget-wide v0, v0, Lsun/security/provider/certpath/URICertStore;->lastModified:J
@@ -758,6 +877,7 @@
 
     if-eqz v15, :cond_3
 
+    .line 392
     move-object/from16 v0, p0
 
     iget-wide v0, v0, Lsun/security/provider/certpath/URICertStore;->lastModified:J
@@ -768,11 +888,14 @@
 
     invoke-virtual {v4, v0, v1}, Ljava/net/URLConnection;->setIfModifiedSince(J)V
 
+    .line 394
     :cond_3
     move-object/from16 v0, p0
 
     iget-wide v10, v0, Lsun/security/provider/certpath/URICertStore;->lastModified:J
 
+    .line 395
+    .local v10, "oldLastModified":J
     sget v15, Lsun/security/provider/certpath/URICertStore;->CRL_CONNECT_TIMEOUT:I
 
     invoke-virtual {v4, v15}, Ljava/net/URLConnection;->setConnectTimeout(I)V
@@ -781,15 +904,19 @@
     .catch Ljava/security/cert/CRLException; {:try_start_6 .. :try_end_6} :catch_2
     .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
+    .line 396
     const/16 v16, 0x0
 
     const/4 v8, 0x0
 
+    .local v8, "in":Ljava/io/InputStream;
     :try_start_7
     invoke-virtual {v4}, Ljava/net/URLConnection;->getInputStream()Ljava/io/InputStream;
 
     move-result-object v8
 
+    .line 397
+    .local v8, "in":Ljava/io/InputStream;
     invoke-virtual {v4}, Ljava/net/URLConnection;->getLastModified()J
 
     move-result-wide v18
@@ -800,12 +927,14 @@
 
     iput-wide v0, v2, Lsun/security/provider/certpath/URICertStore;->lastModified:J
 
+    .line 398
     const-wide/16 v18, 0x0
 
     cmp-long v15, v10, v18
 
     if-eqz v15, :cond_c
 
+    .line 399
     move-object/from16 v0, p0
 
     iget-wide v0, v0, Lsun/security/provider/certpath/URICertStore;->lastModified:J
@@ -816,10 +945,12 @@
 
     if-nez v15, :cond_8
 
+    .line 400
     sget-object v15, Lsun/security/provider/certpath/URICertStore;->debug:Lsun/security/util/Debug;
 
     if-eqz v15, :cond_4
 
+    .line 401
     sget-object v15, Lsun/security/provider/certpath/URICertStore;->debug:Lsun/security/util/Debug;
 
     const-string/jumbo v17, "Not modified, using cached copy"
@@ -828,6 +959,7 @@
 
     invoke-virtual {v15, v0}, Lsun/security/util/Debug;->println(Ljava/lang/String;)V
 
+    .line 403
     :cond_4
     move-object/from16 v0, p0
 
@@ -842,6 +974,7 @@
 
     move-result-object v15
 
+    .line 420
     if-eqz v8, :cond_5
 
     :try_start_8
@@ -863,22 +996,31 @@
     .catch Ljava/security/cert/CRLException; {:try_start_9 .. :try_end_9} :catch_2
     .catchall {:try_start_9 .. :try_end_9} :catchall_0
 
+    .line 422
+    .end local v4    # "connection":Ljava/net/URLConnection;
+    .end local v8    # "in":Ljava/io/InputStream;
+    .end local v10    # "oldLastModified":J
     :catch_2
     move-exception v6
 
+    .line 423
+    .local v6, "e":Ljava/lang/Exception;
     :try_start_a
     sget-object v15, Lsun/security/provider/certpath/URICertStore;->debug:Lsun/security/util/Debug;
 
     if-eqz v15, :cond_6
 
+    .line 424
     sget-object v15, Lsun/security/provider/certpath/URICertStore;->debug:Lsun/security/util/Debug;
 
     const-string/jumbo v16, "Exception fetching CRL:"
 
     invoke-virtual/range {v15 .. v16}, Lsun/security/util/Debug;->println(Ljava/lang/String;)V
 
+    .line 425
     invoke-virtual {v6}, Ljava/lang/Throwable;->printStackTrace()V
 
+    .line 428
     :cond_6
     const-wide/16 v16, 0x0
 
@@ -888,28 +1030,37 @@
 
     iput-wide v0, v2, Lsun/security/provider/certpath/URICertStore;->lastModified:J
 
+    .line 429
     const/4 v15, 0x0
 
     move-object/from16 v0, p0
 
     iput-object v15, v0, Lsun/security/provider/certpath/URICertStore;->crl:Ljava/security/cert/X509CRL;
 
+    .line 430
     new-instance v15, Lsun/security/provider/certpath/PKIX$CertStoreTypeException;
 
     const-string/jumbo v16, "URI"
 
+    .line 431
     new-instance v17, Ljava/security/cert/CertStoreException;
 
     move-object/from16 v0, v17
 
     invoke-direct {v0, v6}, Ljava/security/cert/CertStoreException;-><init>(Ljava/lang/Throwable;)V
 
+    .line 430
     invoke-direct/range {v15 .. v17}, Lsun/security/provider/certpath/PKIX$CertStoreTypeException;-><init>(Ljava/lang/String;Ljava/security/cert/CertStoreException;)V
 
     throw v15
     :try_end_a
     .catchall {:try_start_a .. :try_end_a} :catchall_0
 
+    .line 420
+    .end local v6    # "e":Ljava/lang/Exception;
+    .restart local v4    # "connection":Ljava/net/URLConnection;
+    .restart local v8    # "in":Ljava/io/InputStream;
+    .restart local v10    # "oldLastModified":J
     :catch_3
     move-exception v16
 
@@ -918,14 +1069,17 @@
     :cond_7
     monitor-exit p0
 
+    .line 403
     return-object v15
 
+    .line 404
     :cond_8
     :try_start_b
     instance-of v15, v4, Ljava/net/HttpURLConnection;
 
     if-eqz v15, :cond_c
 
+    .line 406
     move-object v0, v4
 
     nop
@@ -934,20 +1088,26 @@
 
     move-object v7, v0
 
+    .line 407
+    .local v7, "hconn":Ljava/net/HttpURLConnection;
     invoke-virtual {v7}, Ljava/net/HttpURLConnection;->getResponseCode()I
 
     move-result v15
 
+    .line 408
     const/16 v17, 0x130
 
+    .line 407
     move/from16 v0, v17
 
     if-ne v15, v0, :cond_c
 
+    .line 409
     sget-object v15, Lsun/security/provider/certpath/URICertStore;->debug:Lsun/security/util/Debug;
 
     if-eqz v15, :cond_9
 
+    .line 410
     sget-object v15, Lsun/security/provider/certpath/URICertStore;->debug:Lsun/security/util/Debug;
 
     const-string/jumbo v17, "Not modified, using cached copy"
@@ -956,6 +1116,7 @@
 
     invoke-virtual {v15, v0}, Lsun/security/util/Debug;->println(Ljava/lang/String;)V
 
+    .line 412
     :cond_9
     move-object/from16 v0, p0
 
@@ -970,6 +1131,7 @@
 
     move-result-object v15
 
+    .line 420
     if-eqz v8, :cond_a
 
     :try_start_c
@@ -999,14 +1161,18 @@
     :cond_b
     monitor-exit p0
 
+    .line 412
     return-object v15
 
+    .line 416
+    .end local v7    # "hconn":Ljava/net/HttpURLConnection;
     :cond_c
     :try_start_e
     sget-object v15, Lsun/security/provider/certpath/URICertStore;->debug:Lsun/security/util/Debug;
 
     if-eqz v15, :cond_d
 
+    .line 417
     sget-object v15, Lsun/security/provider/certpath/URICertStore;->debug:Lsun/security/util/Debug;
 
     const-string/jumbo v17, "Downloading new CRL..."
@@ -1015,6 +1181,7 @@
 
     invoke-virtual {v15, v0}, Lsun/security/util/Debug;->println(Ljava/lang/String;)V
 
+    .line 419
     :cond_d
     move-object/from16 v0, p0
 
@@ -1033,6 +1200,7 @@
     .catch Ljava/lang/Throwable; {:try_start_e .. :try_end_e} :catch_6
     .catchall {:try_start_e .. :try_end_e} :catchall_2
 
+    .line 420
     if-eqz v8, :cond_e
 
     :try_start_f
@@ -1059,6 +1227,7 @@
 
     goto :goto_2
 
+    .end local v8    # "in":Ljava/io/InputStream;
     :catch_6
     move-exception v15
 
@@ -1117,6 +1286,8 @@
     :cond_11
     throw v15
 
+    .line 421
+    .restart local v8    # "in":Ljava/io/InputStream;
     :cond_12
     move-object/from16 v0, p0
 
@@ -1136,6 +1307,8 @@
 
     return-object v15
 
+    .line 420
+    .end local v8    # "in":Ljava/io/InputStream;
     :catchall_2
     move-exception v15
 
@@ -1144,6 +1317,7 @@
 
 .method public declared-synchronized engineGetCertificates(Ljava/security/cert/CertSelector;)Ljava/util/Collection;
     .locals 17
+    .param p1, "selector"    # Ljava/security/cert/CertSelector;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1162,8 +1336,10 @@
         }
     .end annotation
 
+    .prologue
     monitor-enter p0
 
+    .line 251
     :try_start_0
     move-object/from16 v0, p0
 
@@ -1171,6 +1347,7 @@
 
     if-eqz v12, :cond_0
 
+    .line 252
     move-object/from16 v0, p1
 
     check-cast v0, Ljava/security/cert/X509CertSelector;
@@ -1179,6 +1356,8 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 254
+    .local v7, "xsel":Ljava/security/cert/X509CertSelector;
     :try_start_1
     move-object/from16 v0, p0
 
@@ -1199,6 +1378,7 @@
 
     move-result-object v7
 
+    .line 262
     :try_start_2
     move-object/from16 v0, p0
 
@@ -1212,11 +1392,15 @@
 
     monitor-exit p0
 
+    .line 261
     return-object v12
 
+    .line 255
     :catch_0
     move-exception v6
 
+    .line 256
+    .local v6, "ioe":Ljava/io/IOException;
     :try_start_3
     new-instance v12, Ljava/security/cert/CertStoreException;
 
@@ -1226,6 +1410,8 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
+    .end local v6    # "ioe":Ljava/io/IOException;
+    .end local v7    # "xsel":Ljava/security/cert/X509CertSelector;
     :catchall_0
     move-exception v12
 
@@ -1233,12 +1419,15 @@
 
     throw v12
 
+    .line 268
     :cond_0
     :try_start_4
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v10
 
+    .line 269
+    .local v10, "time":J
     move-object/from16 v0, p0
 
     iget-wide v12, v0, Lsun/security/provider/certpath/URICertStore;->lastChecked:J
@@ -1251,16 +1440,19 @@
 
     if-gez v12, :cond_2
 
+    .line 270
     sget-object v12, Lsun/security/provider/certpath/URICertStore;->debug:Lsun/security/util/Debug;
 
     if-eqz v12, :cond_1
 
+    .line 271
     sget-object v12, Lsun/security/provider/certpath/URICertStore;->debug:Lsun/security/util/Debug;
 
     const-string/jumbo v13, "Returning certificates from cache"
 
     invoke-virtual {v12, v13}, Lsun/security/util/Debug;->println(Ljava/lang/String;)V
 
+    .line 273
     :cond_1
     move-object/from16 v0, p0
 
@@ -1278,6 +1470,7 @@
 
     return-object v12
 
+    .line 275
     :cond_2
     :try_start_5
     move-object/from16 v0, p0
@@ -1286,6 +1479,7 @@
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
+    .line 277
     :try_start_6
     move-object/from16 v0, p0
 
@@ -1299,6 +1493,8 @@
 
     move-result-object v2
 
+    .line 278
+    .local v2, "connection":Ljava/net/URLConnection;
     move-object/from16 v0, p0
 
     iget-wide v12, v0, Lsun/security/provider/certpath/URICertStore;->lastModified:J
@@ -1309,12 +1505,14 @@
 
     if-eqz v12, :cond_3
 
+    .line 279
     move-object/from16 v0, p0
 
     iget-wide v12, v0, Lsun/security/provider/certpath/URICertStore;->lastModified:J
 
     invoke-virtual {v2, v12, v13}, Ljava/net/URLConnection;->setIfModifiedSince(J)V
 
+    .line 281
     :cond_3
     move-object/from16 v0, p0
 
@@ -1324,15 +1522,20 @@
     .catch Ljava/security/cert/CertificateException; {:try_start_6 .. :try_end_6} :catch_1
     .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
+    .line 282
+    .local v8, "oldLastModified":J
     const/4 v13, 0x0
 
     const/4 v5, 0x0
 
+    .local v5, "in":Ljava/io/InputStream;
     :try_start_7
     invoke-virtual {v2}, Ljava/net/URLConnection;->getInputStream()Ljava/io/InputStream;
 
     move-result-object v5
 
+    .line 283
+    .local v5, "in":Ljava/io/InputStream;
     invoke-virtual {v2}, Ljava/net/URLConnection;->getLastModified()J
 
     move-result-wide v14
@@ -1341,12 +1544,14 @@
 
     iput-wide v14, v0, Lsun/security/provider/certpath/URICertStore;->lastModified:J
 
+    .line 284
     const-wide/16 v14, 0x0
 
     cmp-long v12, v8, v14
 
     if-eqz v12, :cond_c
 
+    .line 285
     move-object/from16 v0, p0
 
     iget-wide v14, v0, Lsun/security/provider/certpath/URICertStore;->lastModified:J
@@ -1355,16 +1560,19 @@
 
     if-nez v12, :cond_8
 
+    .line 286
     sget-object v12, Lsun/security/provider/certpath/URICertStore;->debug:Lsun/security/util/Debug;
 
     if-eqz v12, :cond_4
 
+    .line 287
     sget-object v12, Lsun/security/provider/certpath/URICertStore;->debug:Lsun/security/util/Debug;
 
     const-string/jumbo v14, "Not modified, using cached copy"
 
     invoke-virtual {v12, v14}, Lsun/security/util/Debug;->println(Ljava/lang/String;)V
 
+    .line 289
     :cond_4
     move-object/from16 v0, p0
 
@@ -1379,6 +1587,7 @@
 
     move-result-object v12
 
+    .line 308
     if-eqz v5, :cond_5
 
     :try_start_8
@@ -1400,22 +1609,31 @@
     .catch Ljava/security/cert/CertificateException; {:try_start_9 .. :try_end_9} :catch_1
     .catchall {:try_start_9 .. :try_end_9} :catchall_0
 
+    .line 310
+    .end local v2    # "connection":Ljava/net/URLConnection;
+    .end local v5    # "in":Ljava/io/InputStream;
+    .end local v8    # "oldLastModified":J
     :catch_1
     move-exception v3
 
+    .line 311
+    .local v3, "e":Ljava/lang/Exception;
     :try_start_a
     sget-object v12, Lsun/security/provider/certpath/URICertStore;->debug:Lsun/security/util/Debug;
 
     if-eqz v12, :cond_6
 
+    .line 312
     sget-object v12, Lsun/security/provider/certpath/URICertStore;->debug:Lsun/security/util/Debug;
 
     const-string/jumbo v13, "Exception fetching certificates:"
 
     invoke-virtual {v12, v13}, Lsun/security/util/Debug;->println(Ljava/lang/String;)V
 
+    .line 313
     invoke-virtual {v3}, Ljava/lang/Throwable;->printStackTrace()V
 
+    .line 317
     :cond_6
     const-wide/16 v12, 0x0
 
@@ -1423,6 +1641,7 @@
 
     iput-wide v12, v0, Lsun/security/provider/certpath/URICertStore;->lastModified:J
 
+    .line 318
     invoke-static {}, Ljava/util/Collections;->emptySet()Ljava/util/Set;
 
     move-result-object v12
@@ -1431,6 +1650,7 @@
 
     iput-object v12, v0, Lsun/security/provider/certpath/URICertStore;->certs:Ljava/util/Collection;
 
+    .line 319
     move-object/from16 v0, p0
 
     iget-object v12, v0, Lsun/security/provider/certpath/URICertStore;->certs:Ljava/util/Collection;
@@ -1441,6 +1661,11 @@
 
     return-object v12
 
+    .line 308
+    .end local v3    # "e":Ljava/lang/Exception;
+    .restart local v2    # "connection":Ljava/net/URLConnection;
+    .restart local v5    # "in":Ljava/io/InputStream;
+    .restart local v8    # "oldLastModified":J
     :catch_2
     move-exception v13
 
@@ -1449,14 +1674,17 @@
     :cond_7
     monitor-exit p0
 
+    .line 289
     return-object v12
 
+    .line 290
     :cond_8
     :try_start_b
     instance-of v12, v2, Ljava/net/HttpURLConnection;
 
     if-eqz v12, :cond_c
 
+    .line 292
     move-object v0, v2
 
     nop
@@ -1465,24 +1693,31 @@
 
     move-object v4, v0
 
+    .line 293
+    .local v4, "hconn":Ljava/net/HttpURLConnection;
     invoke-virtual {v4}, Ljava/net/HttpURLConnection;->getResponseCode()I
 
     move-result v12
 
+    .line 294
     const/16 v14, 0x130
 
+    .line 293
     if-ne v12, v14, :cond_c
 
+    .line 295
     sget-object v12, Lsun/security/provider/certpath/URICertStore;->debug:Lsun/security/util/Debug;
 
     if-eqz v12, :cond_9
 
+    .line 296
     sget-object v12, Lsun/security/provider/certpath/URICertStore;->debug:Lsun/security/util/Debug;
 
     const-string/jumbo v14, "Not modified, using cached copy"
 
     invoke-virtual {v12, v14}, Lsun/security/util/Debug;->println(Ljava/lang/String;)V
 
+    .line 298
     :cond_9
     move-object/from16 v0, p0
 
@@ -1497,6 +1732,7 @@
 
     move-result-object v12
 
+    .line 308
     if-eqz v5, :cond_a
 
     :try_start_c
@@ -1526,20 +1762,25 @@
     :cond_b
     monitor-exit p0
 
+    .line 298
     return-object v12
 
+    .line 302
+    .end local v4    # "hconn":Ljava/net/HttpURLConnection;
     :cond_c
     :try_start_e
     sget-object v12, Lsun/security/provider/certpath/URICertStore;->debug:Lsun/security/util/Debug;
 
     if-eqz v12, :cond_d
 
+    .line 303
     sget-object v12, Lsun/security/provider/certpath/URICertStore;->debug:Lsun/security/util/Debug;
 
     const-string/jumbo v14, "Downloading new certificates..."
 
     invoke-virtual {v12, v14}, Lsun/security/util/Debug;->println(Ljava/lang/String;)V
 
+    .line 307
     :cond_d
     move-object/from16 v0, p0
 
@@ -1549,6 +1790,7 @@
 
     move-result-object v12
 
+    .line 306
     move-object/from16 v0, p0
 
     iput-object v12, v0, Lsun/security/provider/certpath/URICertStore;->certs:Ljava/util/Collection;
@@ -1556,6 +1798,7 @@
     .catch Ljava/lang/Throwable; {:try_start_e .. :try_end_e} :catch_5
     .catchall {:try_start_e .. :try_end_e} :catchall_2
 
+    .line 308
     if-eqz v5, :cond_e
 
     :try_start_f
@@ -1582,6 +1825,7 @@
 
     goto :goto_2
 
+    .end local v5    # "in":Ljava/io/InputStream;
     :catch_5
     move-exception v12
 
@@ -1636,6 +1880,8 @@
     :cond_11
     throw v12
 
+    .line 309
+    .restart local v5    # "in":Ljava/io/InputStream;
     :cond_12
     move-object/from16 v0, p0
 
@@ -1655,6 +1901,8 @@
 
     return-object v12
 
+    .line 308
+    .end local v5    # "in":Ljava/io/InputStream;
     :catchall_2
     move-exception v12
 

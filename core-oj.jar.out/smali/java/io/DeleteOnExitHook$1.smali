@@ -21,6 +21,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 41
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -31,7 +33,10 @@
 .method public run()V
     .locals 0
 
+    .prologue
+    .line 43
     invoke-static {}, Ljava/io/DeleteOnExitHook;->runHooks()V
 
+    .line 42
     return-void
 .end method

@@ -21,11 +21,17 @@
 # direct methods
 .method public constructor <init>(Ljava/security/cert/X509Certificate;[B)V
     .locals 0
+    .param p1, "wrapped"    # Ljava/security/cert/X509Certificate;
+    .param p2, "encodedVerbatim"    # [B
 
+    .prologue
+    .line 783
     invoke-direct {p0, p1}, Lsun/security/pkcs/PKCS7$WrappedX509Certificate;-><init>(Ljava/security/cert/X509Certificate;)V
 
+    .line 784
     iput-object p2, p0, Lsun/security/pkcs/PKCS7$VerbatimX509Certificate;->encodedVerbatim:[B
 
+    .line 782
     return-void
 .end method
 
@@ -39,6 +45,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 789
     iget-object v0, p0, Lsun/security/pkcs/PKCS7$VerbatimX509Certificate;->encodedVerbatim:[B
 
     return-object v0

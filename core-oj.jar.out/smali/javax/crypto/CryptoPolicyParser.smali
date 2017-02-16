@@ -15,6 +15,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 38
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -25,6 +27,8 @@
 .method getPermissions()[Ljavax/crypto/CryptoPermission;
     .locals 1
 
+    .prologue
+    .line 43
     const/4 v0, 0x0
 
     return-object v0
@@ -32,6 +36,7 @@
 
 .method read(Ljava/io/Reader;)V
     .locals 0
+    .param p1, "policy"    # Ljava/io/Reader;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljavax/crypto/CryptoPolicyParser$ParsingException;,
@@ -39,5 +44,7 @@
         }
     .end annotation
 
+    .prologue
+    .line 41
     return-void
 .end method

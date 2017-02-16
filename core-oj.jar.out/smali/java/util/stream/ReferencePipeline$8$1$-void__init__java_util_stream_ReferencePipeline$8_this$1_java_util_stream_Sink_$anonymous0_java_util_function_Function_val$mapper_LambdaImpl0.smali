@@ -25,6 +25,7 @@
 .method public synthetic constructor <init>(Ljava/util/stream/Sink;)V
     .locals 0
 
+    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Ljava/util/stream/ReferencePipeline$8$1$-void__init__java_util_stream_ReferencePipeline$8_this$1_java_util_stream_Sink_$anonymous0_java_util_function_Function_val$mapper_LambdaImpl0;->val$-lambdaCtx:Ljava/util/stream/Sink;
@@ -36,7 +37,9 @@
 # virtual methods
 .method public accept(I)V
     .locals 1
+    .param p1, "arg0"    # I
 
+    .prologue
     iget-object v0, p0, Ljava/util/stream/ReferencePipeline$8$1$-void__init__java_util_stream_ReferencePipeline$8_this$1_java_util_stream_Sink_$anonymous0_java_util_function_Function_val$mapper_LambdaImpl0;->val$-lambdaCtx:Ljava/util/stream/Sink;
 
     invoke-static {v0, p1}, Ljava/util/stream/ReferencePipeline$8$1;->-java_util_stream_ReferencePipeline$8$1-mthref-0(Ljava/util/stream/Sink;I)V

@@ -25,6 +25,7 @@
 .method public synthetic constructor <init>(Ljava/util/BitSet;)V
     .locals 0
 
+    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Ljava/util/BitSet$-java_util_stream_IntStream_stream__LambdaImpl0;->val$this:Ljava/util/BitSet;
@@ -37,6 +38,7 @@
 .method public get()Ljava/lang/Object;
     .locals 1
 
+    .prologue
     iget-object v0, p0, Ljava/util/BitSet$-java_util_stream_IntStream_stream__LambdaImpl0;->val$this:Ljava/util/BitSet;
 
     invoke-virtual {v0}, Ljava/util/BitSet;->-java_util_BitSet_lambda$1()Ljava/util/Spliterator$OfInt;

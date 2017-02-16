@@ -25,6 +25,7 @@
 .method public synthetic constructor <init>(Ljava/util/stream/Collector;)V
     .locals 0
 
+    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Ljava/util/stream/Collectors$-java_util_stream_Collector_partitioningBy_java_util_function_Predicate_predicate_java_util_stream_Collector_downstream_LambdaImpl2;->val$downstream:Ljava/util/stream/Collector;
@@ -37,6 +38,7 @@
 .method public get()Ljava/lang/Object;
     .locals 1
 
+    .prologue
     iget-object v0, p0, Ljava/util/stream/Collectors$-java_util_stream_Collector_partitioningBy_java_util_function_Predicate_predicate_java_util_stream_Collector_downstream_LambdaImpl2;->val$downstream:Ljava/util/stream/Collector;
 
     invoke-static {v0}, Ljava/util/stream/Collectors;->-java_util_stream_Collectors_lambda$73(Ljava/util/stream/Collector;)Ljava/util/stream/Collectors$Partition;

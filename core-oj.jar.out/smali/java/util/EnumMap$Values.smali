@@ -29,6 +29,10 @@
 .method private constructor <init>(Ljava/util/EnumMap;)V
     .locals 0
 
+    .prologue
+    .line 427
+    .local p0, "this":Ljava/util/EnumMap$Values;, "Ljava/util/EnumMap<TK;TV;>.Values;"
+    .local p1, "this$0":Ljava/util/EnumMap;, "Ljava/util/EnumMap<TK;TV;>;"
     iput-object p1, p0, Ljava/util/EnumMap$Values;->this$0:Ljava/util/EnumMap;
 
     invoke-direct {p0}, Ljava/util/AbstractCollection;-><init>()V
@@ -38,7 +42,10 @@
 
 .method synthetic constructor <init>(Ljava/util/EnumMap;Ljava/util/EnumMap$Values;)V
     .locals 0
+    .param p1, "this$0"    # Ljava/util/EnumMap;
 
+    .prologue
+    .local p0, "this":Ljava/util/EnumMap$Values;, "Ljava/util/EnumMap<TK;TV;>.Values;"
     invoke-direct {p0, p1}, Ljava/util/EnumMap$Values;-><init>(Ljava/util/EnumMap;)V
 
     return-void
@@ -49,16 +56,24 @@
 .method public clear()V
     .locals 1
 
+    .prologue
+    .line 450
+    .local p0, "this":Ljava/util/EnumMap$Values;, "Ljava/util/EnumMap<TK;TV;>.Values;"
     iget-object v0, p0, Ljava/util/EnumMap$Values;->this$0:Ljava/util/EnumMap;
 
     invoke-virtual {v0}, Ljava/util/EnumMap;->clear()V
 
+    .line 449
     return-void
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
+    .param p1, "o"    # Ljava/lang/Object;
 
+    .prologue
+    .line 435
+    .local p0, "this":Ljava/util/EnumMap$Values;, "Ljava/util/EnumMap<TK;TV;>.Values;"
     iget-object v0, p0, Ljava/util/EnumMap$Values;->this$0:Ljava/util/EnumMap;
 
     invoke-virtual {v0, p1}, Ljava/util/EnumMap;->containsValue(Ljava/lang/Object;)Z
@@ -78,6 +93,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 429
+    .local p0, "this":Ljava/util/EnumMap$Values;, "Ljava/util/EnumMap<TK;TV;>.Values;"
     new-instance v0, Ljava/util/EnumMap$ValueIterator;
 
     iget-object v1, p0, Ljava/util/EnumMap$Values;->this$0:Ljava/util/EnumMap;
@@ -91,15 +109,21 @@
 
 .method public remove(Ljava/lang/Object;)Z
     .locals 3
+    .param p1, "o"    # Ljava/lang/Object;
 
+    .prologue
+    .line 438
+    .local p0, "this":Ljava/util/EnumMap$Values;, "Ljava/util/EnumMap<TK;TV;>.Values;"
     iget-object v1, p0, Ljava/util/EnumMap$Values;->this$0:Ljava/util/EnumMap;
 
     invoke-static {v1, p1}, Ljava/util/EnumMap;->-wrap3(Ljava/util/EnumMap;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
+    .line 440
     const/4 v0, 0x0
 
+    .local v0, "i":I
     :goto_0
     iget-object v1, p0, Ljava/util/EnumMap$Values;->this$0:Ljava/util/EnumMap;
 
@@ -111,6 +135,7 @@
 
     if-ge v0, v1, :cond_1
 
+    .line 441
     iget-object v1, p0, Ljava/util/EnumMap$Values;->this$0:Ljava/util/EnumMap;
 
     invoke-static {v1}, Ljava/util/EnumMap;->-get2(Ljava/util/EnumMap;)[Ljava/lang/Object;
@@ -125,6 +150,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 442
     iget-object v1, p0, Ljava/util/EnumMap$Values;->this$0:Ljava/util/EnumMap;
 
     invoke-static {v1}, Ljava/util/EnumMap;->-get2(Ljava/util/EnumMap;)[Ljava/lang/Object;
@@ -135,6 +161,7 @@
 
     aput-object v2, v1, v0
 
+    .line 443
     iget-object v1, p0, Ljava/util/EnumMap$Values;->this$0:Ljava/util/EnumMap;
 
     invoke-static {v1}, Ljava/util/EnumMap;->-get1(Ljava/util/EnumMap;)I
@@ -145,15 +172,18 @@
 
     invoke-static {v1, v2}, Ljava/util/EnumMap;->-set0(Ljava/util/EnumMap;I)I
 
+    .line 444
     const/4 v1, 0x1
 
     return v1
 
+    .line 440
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
+    .line 447
     :cond_1
     const/4 v1, 0x0
 
@@ -163,6 +193,9 @@
 .method public size()I
     .locals 1
 
+    .prologue
+    .line 432
+    .local p0, "this":Ljava/util/EnumMap$Values;, "Ljava/util/EnumMap<TK;TV;>.Values;"
     iget-object v0, p0, Ljava/util/EnumMap$Values;->this$0:Ljava/util/EnumMap;
 
     invoke-static {v0}, Ljava/util/EnumMap;->-get1(Ljava/util/EnumMap;)I

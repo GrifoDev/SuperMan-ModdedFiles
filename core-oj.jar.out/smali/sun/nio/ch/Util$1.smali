@@ -27,6 +27,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 53
     invoke-direct {p0}, Ljava/lang/ThreadLocal;-><init>()V
 
     return-void
@@ -37,6 +39,8 @@
 .method protected bridge synthetic initialValue()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 56
     invoke-virtual {p0}, Lsun/nio/ch/Util$1;->initialValue()Lsun/nio/ch/Util$BufferCache;
 
     move-result-object v0
@@ -47,6 +51,8 @@
 .method protected initialValue()Lsun/nio/ch/Util$BufferCache;
     .locals 1
 
+    .prologue
+    .line 57
     new-instance v0, Lsun/nio/ch/Util$BufferCache;
 
     invoke-direct {v0}, Lsun/nio/ch/Util$BufferCache;-><init>()V

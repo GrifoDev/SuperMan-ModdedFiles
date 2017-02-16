@@ -19,7 +19,11 @@
 # virtual methods
 .method public synthetic -java_util_function_IntPredicate_lambda$1(Ljava/util/function/IntPredicate;I)Z
     .locals 1
+    .param p1, "other"    # Ljava/util/function/IntPredicate;
+    .param p2, "value"    # I
 
+    .prologue
+    .line 70
     invoke-interface {p0, p2}, Ljava/util/function/IntPredicate;->test(I)Z
 
     move-result v0
@@ -41,7 +45,10 @@
 
 .method public synthetic -java_util_function_IntPredicate_lambda$2(I)Z
     .locals 1
+    .param p1, "value"    # I
 
+    .prologue
+    .line 81
     invoke-interface {p0, p1}, Ljava/util/function/IntPredicate;->test(I)Z
 
     move-result v0
@@ -61,7 +68,11 @@
 
 .method public synthetic -java_util_function_IntPredicate_lambda$3(Ljava/util/function/IntPredicate;I)Z
     .locals 1
+    .param p1, "other"    # Ljava/util/function/IntPredicate;
+    .param p2, "value"    # I
 
+    .prologue
+    .line 102
     invoke-interface {p0, p2}, Ljava/util/function/IntPredicate;->test(I)Z
 
     move-result v0
@@ -83,9 +94,13 @@
 
 .method public and(Ljava/util/function/IntPredicate;)Ljava/util/function/IntPredicate;
     .locals 1
+    .param p1, "other"    # Ljava/util/function/IntPredicate;
 
+    .prologue
+    .line 69
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 70
     new-instance v0, Ljava/util/function/IntPredicate$-java_util_function_IntPredicate_and_java_util_function_IntPredicate_other_LambdaImpl0;
 
     invoke-direct {v0, p0, p1}, Ljava/util/function/IntPredicate$-java_util_function_IntPredicate_and_java_util_function_IntPredicate_other_LambdaImpl0;-><init>(Ljava/util/function/IntPredicate;Ljava/util/function/IntPredicate;)V
@@ -96,6 +111,8 @@
 .method public negate()Ljava/util/function/IntPredicate;
     .locals 1
 
+    .prologue
+    .line 81
     new-instance v0, Ljava/util/function/IntPredicate$-java_util_function_IntPredicate_negate__LambdaImpl0;
 
     invoke-direct {v0, p0}, Ljava/util/function/IntPredicate$-java_util_function_IntPredicate_negate__LambdaImpl0;-><init>(Ljava/util/function/IntPredicate;)V
@@ -105,9 +122,13 @@
 
 .method public or(Ljava/util/function/IntPredicate;)Ljava/util/function/IntPredicate;
     .locals 1
+    .param p1, "other"    # Ljava/util/function/IntPredicate;
 
+    .prologue
+    .line 101
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 102
     new-instance v0, Ljava/util/function/IntPredicate$-java_util_function_IntPredicate_or_java_util_function_IntPredicate_other_LambdaImpl0;
 
     invoke-direct {v0, p0, p1}, Ljava/util/function/IntPredicate$-java_util_function_IntPredicate_or_java_util_function_IntPredicate_other_LambdaImpl0;-><init>(Ljava/util/function/IntPredicate;Ljava/util/function/IntPredicate;)V

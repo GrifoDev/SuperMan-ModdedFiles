@@ -57,6 +57,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 392
+    .local p1, "s":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/ProcessEnvironment$Variable;>;"
     invoke-direct {p0}, Ljava/util/AbstractSet;-><init>()V
 
     iput-object p1, p0, Ljava/lang/ProcessEnvironment$StringKeySet;->s:Ljava/util/Set;
@@ -69,6 +72,8 @@
 .method public clear()V
     .locals 1
 
+    .prologue
+    .line 395
     iget-object v0, p0, Ljava/lang/ProcessEnvironment$StringKeySet;->s:Ljava/util/Set;
 
     invoke-interface {v0}, Ljava/util/Set;->clear()V
@@ -78,7 +83,10 @@
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 2
+    .param p1, "o"    # Ljava/lang/Object;
 
+    .prologue
+    .line 405
     iget-object v0, p0, Ljava/lang/ProcessEnvironment$StringKeySet;->s:Ljava/util/Set;
 
     invoke-static {p1}, Ljava/lang/ProcessEnvironment$Variable;->valueOfQueryOnly(Ljava/lang/Object;)Ljava/lang/ProcessEnvironment$Variable;
@@ -95,6 +103,8 @@
 .method public isEmpty()Z
     .locals 1
 
+    .prologue
+    .line 394
     iget-object v0, p0, Ljava/lang/ProcessEnvironment$StringKeySet;->s:Ljava/util/Set;
 
     invoke-interface {v0}, Ljava/util/Set;->isEmpty()Z
@@ -116,6 +126,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 397
     new-instance v0, Ljava/lang/ProcessEnvironment$StringKeySet$1;
 
     invoke-direct {v0, p0}, Ljava/lang/ProcessEnvironment$StringKeySet$1;-><init>(Ljava/lang/ProcessEnvironment$StringKeySet;)V
@@ -125,7 +137,10 @@
 
 .method public remove(Ljava/lang/Object;)Z
     .locals 2
+    .param p1, "o"    # Ljava/lang/Object;
 
+    .prologue
+    .line 408
     iget-object v0, p0, Ljava/lang/ProcessEnvironment$StringKeySet;->s:Ljava/util/Set;
 
     invoke-static {p1}, Ljava/lang/ProcessEnvironment$Variable;->valueOfQueryOnly(Ljava/lang/Object;)Ljava/lang/ProcessEnvironment$Variable;
@@ -142,6 +157,8 @@
 .method public size()I
     .locals 1
 
+    .prologue
+    .line 393
     iget-object v0, p0, Ljava/lang/ProcessEnvironment$StringKeySet;->s:Ljava/util/Set;
 
     invoke-interface {v0}, Ljava/util/Set;->size()I

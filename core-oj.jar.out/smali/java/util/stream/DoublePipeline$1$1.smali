@@ -32,7 +32,12 @@
 # direct methods
 .method constructor <init>(Ljava/util/stream/DoublePipeline$1;Ljava/util/stream/Sink;Ljava/util/function/DoubleUnaryOperator;)V
     .locals 0
+    .param p1, "this$1"    # Ljava/util/stream/DoublePipeline$1;
+    .param p3, "val$mapper"    # Ljava/util/function/DoubleUnaryOperator;
 
+    .prologue
+    .line 195
+    .local p2, "$anonymous0":Ljava/util/stream/Sink;, "Ljava/util/stream/Sink<-Ljava/lang/Double;>;"
     iput-object p1, p0, Ljava/util/stream/DoublePipeline$1$1;->this$1:Ljava/util/stream/DoublePipeline$1;
 
     iput-object p3, p0, Ljava/util/stream/DoublePipeline$1$1;->val$mapper:Ljava/util/function/DoubleUnaryOperator;
@@ -46,7 +51,10 @@
 # virtual methods
 .method public accept(D)V
     .locals 5
+    .param p1, "t"    # D
 
+    .prologue
+    .line 198
     iget-object v0, p0, Ljava/util/stream/Sink$ChainedDouble;->downstream:Ljava/util/stream/Sink;
 
     iget-object v1, p0, Ljava/util/stream/DoublePipeline$1$1;->val$mapper:Ljava/util/function/DoubleUnaryOperator;
@@ -57,5 +65,6 @@
 
     invoke-interface {v0, v2, v3}, Ljava/util/stream/Sink;->accept(D)V
 
+    .line 197
     return-void
 .end method

@@ -18,6 +18,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 477
     invoke-direct {p0}, Ljava/util/ResourceBundle$Control;-><init>()V
 
     return-void

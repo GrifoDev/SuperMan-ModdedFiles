@@ -27,7 +27,13 @@
 # direct methods
 .method constructor <init>(Lsun/misc/URLClassPath$FileLoader;Ljava/lang/String;Ljava/net/URL;Ljava/io/File;)V
     .locals 0
+    .param p1, "this$1"    # Lsun/misc/URLClassPath$FileLoader;
+    .param p2, "val$name"    # Ljava/lang/String;
+    .param p3, "val$url"    # Ljava/net/URL;
+    .param p4, "val$file"    # Ljava/io/File;
 
+    .prologue
+    .line 1079
     iput-object p1, p0, Lsun/misc/URLClassPath$FileLoader$1;->this$1:Lsun/misc/URLClassPath$FileLoader;
 
     iput-object p2, p0, Lsun/misc/URLClassPath$FileLoader$1;->val$name:Ljava/lang/String;
@@ -46,6 +52,8 @@
 .method public getCodeSourceURL()Ljava/net/URL;
     .locals 1
 
+    .prologue
+    .line 1082
     iget-object v0, p0, Lsun/misc/URLClassPath$FileLoader$1;->this$1:Lsun/misc/URLClassPath$FileLoader;
 
     invoke-virtual {v0}, Lsun/misc/URLClassPath$Loader;->getBaseURL()Ljava/net/URL;
@@ -63,6 +71,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 1086
     iget-object v0, p0, Lsun/misc/URLClassPath$FileLoader$1;->val$file:Ljava/io/File;
 
     invoke-virtual {v0}, Ljava/io/File;->length()J
@@ -82,6 +92,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 1084
     new-instance v0, Ljava/io/FileInputStream;
 
     iget-object v1, p0, Lsun/misc/URLClassPath$FileLoader$1;->val$file:Ljava/io/File;
@@ -94,6 +106,8 @@
 .method public getName()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 1080
     iget-object v0, p0, Lsun/misc/URLClassPath$FileLoader$1;->val$name:Ljava/lang/String;
 
     return-object v0
@@ -102,6 +116,8 @@
 .method public getURL()Ljava/net/URL;
     .locals 1
 
+    .prologue
+    .line 1081
     iget-object v0, p0, Lsun/misc/URLClassPath$FileLoader$1;->val$url:Ljava/net/URL;
 
     return-object v0

@@ -65,8 +65,14 @@
         }
     .end annotation
 
+    .prologue
+    .line 3330
+    .local p0, "this":Ljava/util/Collections$CheckedMap$CheckedEntrySet$CheckedEntry;, "Ljava/util/Collections$CheckedMap<TK;TV;>.CheckedEntrySet<TK;TV;>.CheckedEntry<TK;TV;TT;>;"
+    .local p1, "e":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
+    .local p2, "valueType":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 3331
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -75,6 +81,7 @@
 
     iput-object v0, p0, Ljava/util/Collections$CheckedMap$CheckedEntrySet$CheckedEntry;->e:Ljava/util/Map$Entry;
 
+    .line 3332
     invoke-static {p2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -83,12 +90,17 @@
 
     iput-object v0, p0, Ljava/util/Collections$CheckedMap$CheckedEntrySet$CheckedEntry;->valueType:Ljava/lang/Class;
 
+    .line 3330
     return-void
 .end method
 
 .method private badValueMsg(Ljava/lang/Object;)Ljava/lang/String;
     .locals 2
+    .param p1, "value"    # Ljava/lang/Object;
 
+    .prologue
+    .line 3347
+    .local p0, "this":Ljava/util/Collections$CheckedMap$CheckedEntrySet$CheckedEntry;, "Ljava/util/Collections$CheckedMap<TK;TV;>.CheckedEntrySet<TK;TV;>.CheckedEntry<TK;TV;TT;>;"
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -107,14 +119,18 @@
 
     move-result-object v0
 
+    .line 3348
     const-string/jumbo v1, " value into map with value type "
 
+    .line 3347
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
+    .line 3348
     iget-object v1, p0, Ljava/util/Collections$CheckedMap$CheckedEntrySet$CheckedEntry;->valueType:Ljava/lang/Class;
 
+    .line 3347
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -130,29 +146,40 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 2
+    .param p1, "o"    # Ljava/lang/Object;
 
+    .prologue
+    .line 3352
+    .local p0, "this":Ljava/util/Collections$CheckedMap$CheckedEntrySet$CheckedEntry;, "Ljava/util/Collections$CheckedMap<TK;TV;>.CheckedEntrySet<TK;TV;>.CheckedEntry<TK;TV;TT;>;"
     if-ne p1, p0, :cond_0
 
+    .line 3353
     const/4 v0, 0x1
 
     return v0
 
+    .line 3354
     :cond_0
     instance-of v0, p1, Ljava/util/Map$Entry;
 
     if-nez v0, :cond_1
 
+    .line 3355
     const/4 v0, 0x0
 
     return v0
 
+    .line 3356
     :cond_1
     iget-object v0, p0, Ljava/util/Collections$CheckedMap$CheckedEntrySet$CheckedEntry;->e:Ljava/util/Map$Entry;
 
     new-instance v1, Ljava/util/AbstractMap$SimpleImmutableEntry;
 
+    .line 3357
     check-cast p1, Ljava/util/Map$Entry;
 
+    .line 3356
+    .end local p1    # "o":Ljava/lang/Object;
     invoke-direct {v1, p1}, Ljava/util/AbstractMap$SimpleImmutableEntry;-><init>(Ljava/util/Map$Entry;)V
 
     invoke-interface {v0, v1}, Ljava/util/Map$Entry;->equals(Ljava/lang/Object;)Z
@@ -170,6 +197,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 3335
+    .local p0, "this":Ljava/util/Collections$CheckedMap$CheckedEntrySet$CheckedEntry;, "Ljava/util/Collections$CheckedMap<TK;TV;>.CheckedEntrySet<TK;TV;>.CheckedEntry<TK;TV;TT;>;"
     iget-object v0, p0, Ljava/util/Collections$CheckedMap$CheckedEntrySet$CheckedEntry;->e:Ljava/util/Map$Entry;
 
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -187,6 +217,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 3336
+    .local p0, "this":Ljava/util/Collections$CheckedMap$CheckedEntrySet$CheckedEntry;, "Ljava/util/Collections$CheckedMap<TK;TV;>.CheckedEntrySet<TK;TV;>.CheckedEntry<TK;TV;TT;>;"
     iget-object v0, p0, Ljava/util/Collections$CheckedMap$CheckedEntrySet$CheckedEntry;->e:Ljava/util/Map$Entry;
 
     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
@@ -199,6 +232,9 @@
 .method public hashCode()I
     .locals 1
 
+    .prologue
+    .line 3337
+    .local p0, "this":Ljava/util/Collections$CheckedMap$CheckedEntrySet$CheckedEntry;, "Ljava/util/Collections$CheckedMap<TK;TV;>.CheckedEntrySet<TK;TV;>.CheckedEntry<TK;TV;TT;>;"
     iget-object v0, p0, Ljava/util/Collections$CheckedMap$CheckedEntrySet$CheckedEntry;->e:Ljava/util/Map$Entry;
 
     invoke-interface {v0}, Ljava/util/Map$Entry;->hashCode()I
@@ -216,6 +252,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 3341
+    .local p0, "this":Ljava/util/Collections$CheckedMap$CheckedEntrySet$CheckedEntry;, "Ljava/util/Collections$CheckedMap<TK;TV;>.CheckedEntrySet<TK;TV;>.CheckedEntry<TK;TV;TT;>;"
+    .local p1, "value":Ljava/lang/Object;, "TV;"
     if-eqz p1, :cond_0
 
     iget-object v0, p0, Ljava/util/Collections$CheckedMap$CheckedEntrySet$CheckedEntry;->valueType:Ljava/lang/Class;
@@ -226,6 +266,7 @@
 
     if-eqz v0, :cond_1
 
+    .line 3343
     :cond_0
     iget-object v0, p0, Ljava/util/Collections$CheckedMap$CheckedEntrySet$CheckedEntry;->e:Ljava/util/Map$Entry;
 
@@ -235,6 +276,7 @@
 
     return-object v0
 
+    .line 3342
     :cond_1
     new-instance v0, Ljava/lang/ClassCastException;
 
@@ -250,6 +292,9 @@
 .method public toString()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 3338
+    .local p0, "this":Ljava/util/Collections$CheckedMap$CheckedEntrySet$CheckedEntry;, "Ljava/util/Collections$CheckedMap<TK;TV;>.CheckedEntrySet<TK;TV;>.CheckedEntry<TK;TV;TT;>;"
     iget-object v0, p0, Ljava/util/Collections$CheckedMap$CheckedEntrySet$CheckedEntry;->e:Ljava/util/Map$Entry;
 
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;

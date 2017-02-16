@@ -32,7 +32,12 @@
 # direct methods
 .method constructor <init>(Ljava/util/stream/ReferencePipeline$5;Ljava/util/stream/Sink;Ljava/util/function/ToLongFunction;)V
     .locals 0
+    .param p1, "this$1"    # Ljava/util/stream/ReferencePipeline$5;
 
+    .prologue
+    .line 225
+    .local p2, "$anonymous0":Ljava/util/stream/Sink;, "Ljava/util/stream/Sink<-Ljava/lang/Long;>;"
+    .local p3, "val$mapper":Ljava/util/function/ToLongFunction;, "Ljava/util/function/ToLongFunction<-TP_OUT;>;"
     iput-object p1, p0, Ljava/util/stream/ReferencePipeline$5$1;->this$1:Ljava/util/stream/ReferencePipeline$5;
 
     iput-object p3, p0, Ljava/util/stream/ReferencePipeline$5$1;->val$mapper:Ljava/util/function/ToLongFunction;
@@ -52,6 +57,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 228
+    .local p1, "u":Ljava/lang/Object;, "TP_OUT;"
     iget-object v0, p0, Ljava/util/stream/Sink$ChainedReference;->downstream:Ljava/util/stream/Sink;
 
     iget-object v1, p0, Ljava/util/stream/ReferencePipeline$5$1;->val$mapper:Ljava/util/function/ToLongFunction;
@@ -62,5 +70,6 @@
 
     invoke-interface {v0, v2, v3}, Ljava/util/stream/Sink;->accept(J)V
 
+    .line 227
     return-void
 .end method

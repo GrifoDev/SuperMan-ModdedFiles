@@ -27,6 +27,7 @@
 .method public synthetic constructor <init>(Ljava/util/function/Predicate;Ljava/util/function/Predicate;)V
     .locals 0
 
+    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Ljava/util/function/Predicate$-java_util_function_Predicate_and_java_util_function_Predicate_other_LambdaImpl0;->val$this:Ljava/util/function/Predicate;
@@ -40,7 +41,9 @@
 # virtual methods
 .method public test(Ljava/lang/Object;)Z
     .locals 2
+    .param p1, "arg0"    # Ljava/lang/Object;
 
+    .prologue
     iget-object v0, p0, Ljava/util/function/Predicate$-java_util_function_Predicate_and_java_util_function_Predicate_other_LambdaImpl0;->val$this:Ljava/util/function/Predicate;
 
     iget-object v1, p0, Ljava/util/function/Predicate$-java_util_function_Predicate_and_java_util_function_Predicate_other_LambdaImpl0;->val$other:Ljava/util/function/Predicate;

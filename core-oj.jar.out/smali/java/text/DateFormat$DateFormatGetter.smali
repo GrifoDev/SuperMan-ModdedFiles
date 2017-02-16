@@ -46,6 +46,7 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
     const-class v0, Ljava/text/DateFormat$DateFormatGetter;
 
     invoke-virtual {v0}, Ljava/lang/Class;->desiredAssertionStatus()Z
@@ -59,12 +60,14 @@
     :goto_0
     sput-boolean v0, Ljava/text/DateFormat$DateFormatGetter;->-assertionsDisabled:Z
 
+    .line 1015
     new-instance v0, Ljava/text/DateFormat$DateFormatGetter;
 
     invoke-direct {v0}, Ljava/text/DateFormat$DateFormatGetter;-><init>()V
 
     sput-object v0, Ljava/text/DateFormat$DateFormatGetter;->INSTANCE:Ljava/text/DateFormat$DateFormatGetter;
 
+    .line 1013
     return-void
 
     :cond_0
@@ -76,6 +79,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 1013
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -85,9 +90,16 @@
 # virtual methods
 .method public bridge synthetic getObject(Ljava/lang/Object;Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
+    .param p1, "dateFormatProvider"    # Ljava/lang/Object;
+    .param p2, "locale"    # Ljava/util/Locale;
+    .param p3, "key"    # Ljava/lang/String;
+    .param p4, "params"    # [Ljava/lang/Object;
 
+    .prologue
+    .line 1017
     check-cast p1, Ljava/text/spi/DateFormatProvider;
 
+    .end local p1    # "dateFormatProvider":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2, p3, p4}, Ljava/text/DateFormat$DateFormatGetter;->getObject(Ljava/text/spi/DateFormatProvider;Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/text/DateFormat;
 
     move-result-object v0
@@ -97,11 +109,17 @@
 
 .method public varargs getObject(Ljava/text/spi/DateFormatProvider;Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/text/DateFormat;
     .locals 7
+    .param p1, "dateFormatProvider"    # Ljava/text/spi/DateFormatProvider;
+    .param p2, "locale"    # Ljava/util/Locale;
+    .param p3, "key"    # Ljava/lang/String;
+    .param p4, "params"    # [Ljava/lang/Object;
 
+    .prologue
     const/4 v4, 0x1
 
     const/4 v5, 0x0
 
+    .line 1021
     sget-boolean v3, Ljava/text/DateFormat$DateFormatGetter;->-assertionsDisabled:Z
 
     if-nez v3, :cond_1
@@ -128,6 +146,7 @@
 
     goto :goto_0
 
+    .line 1023
     :cond_1
     aget-object v3, p4, v5
 
@@ -137,6 +156,8 @@
 
     move-result v2
 
+    .line 1024
+    .local v2, "timeStyle":I
     aget-object v3, p4, v4
 
     check-cast v3, Ljava/lang/Integer;
@@ -145,6 +166,8 @@
 
     move-result v0
 
+    .line 1025
+    .local v0, "dateStyle":I
     const/4 v3, 0x2
 
     aget-object v3, p4, v3
@@ -155,8 +178,11 @@
 
     move-result v1
 
+    .line 1027
+    .local v1, "flags":I
     packed-switch v1, :pswitch_data_0
 
+    .line 1035
     sget-boolean v3, Ljava/text/DateFormat$DateFormatGetter;->-assertionsDisabled:Z
 
     if-nez v3, :cond_2
@@ -169,6 +195,7 @@
 
     throw v3
 
+    .line 1029
     :pswitch_0
     invoke-virtual {p1, v2, p2}, Ljava/text/spi/DateFormatProvider;->getTimeInstance(ILjava/util/Locale;)Ljava/text/DateFormat;
 
@@ -176,6 +203,7 @@
 
     return-object v3
 
+    .line 1031
     :pswitch_1
     invoke-virtual {p1, v0, p2}, Ljava/text/spi/DateFormatProvider;->getDateInstance(ILjava/util/Locale;)Ljava/text/DateFormat;
 
@@ -183,6 +211,7 @@
 
     return-object v3
 
+    .line 1033
     :pswitch_2
     invoke-virtual {p1, v0, v2, p2}, Ljava/text/spi/DateFormatProvider;->getDateTimeInstance(IILjava/util/Locale;)Ljava/text/DateFormat;
 
@@ -190,11 +219,13 @@
 
     return-object v3
 
+    .line 1038
     :cond_2
     const/4 v3, 0x0
 
     return-object v3
 
+    .line 1027
     nop
 
     :pswitch_data_0

@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 86
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -41,6 +43,8 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 87
     invoke-virtual {p0}, Lsun/net/www/MimeTable$DefaultInstanceHolder$1;->run()Lsun/net/www/MimeTable;
 
     move-result-object v0
@@ -51,11 +55,16 @@
 .method public run()Lsun/net/www/MimeTable;
     .locals 1
 
+    .prologue
+    .line 88
     new-instance v0, Lsun/net/www/MimeTable;
 
     invoke-direct {v0}, Lsun/net/www/MimeTable;-><init>()V
 
+    .line 89
+    .local v0, "instance":Lsun/net/www/MimeTable;
     invoke-static {v0}, Lsun/net/www/URLConnection;->setFileNameMap(Ljava/net/FileNameMap;)V
 
+    .line 90
     return-object v0
 .end method

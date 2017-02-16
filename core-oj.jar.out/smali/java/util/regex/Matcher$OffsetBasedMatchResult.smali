@@ -26,11 +26,17 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;[I)V
     .locals 1
+    .param p1, "input"    # Ljava/lang/String;
+    .param p2, "offsets"    # [I
 
+    .prologue
+    .line 1121
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 1122
     iput-object p1, p0, Ljava/util/regex/Matcher$OffsetBasedMatchResult;->input:Ljava/lang/String;
 
+    .line 1123
     invoke-virtual {p2}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
@@ -39,6 +45,7 @@
 
     iput-object v0, p0, Ljava/util/regex/Matcher$OffsetBasedMatchResult;->offsets:[I
 
+    .line 1121
     return-void
 .end method
 
@@ -47,6 +54,8 @@
 .method public end()I
     .locals 1
 
+    .prologue
+    .line 1138
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Ljava/util/regex/Matcher$OffsetBasedMatchResult;->end(I)I
@@ -58,7 +67,10 @@
 
 .method public end(I)I
     .locals 2
+    .param p1, "group"    # I
 
+    .prologue
+    .line 1143
     iget-object v0, p0, Ljava/util/regex/Matcher$OffsetBasedMatchResult;->offsets:[I
 
     mul-int/lit8 v1, p1, 0x2
@@ -73,6 +85,8 @@
 .method public group()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 1148
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Ljava/util/regex/Matcher$OffsetBasedMatchResult;->group(I)Ljava/lang/String;
@@ -84,26 +98,35 @@
 
 .method public group(I)Ljava/lang/String;
     .locals 3
+    .param p1, "group"    # I
 
+    .prologue
     const/4 v2, -0x1
 
+    .line 1153
     invoke-virtual {p0, p1}, Ljava/util/regex/Matcher$OffsetBasedMatchResult;->start(I)I
 
     move-result v1
 
+    .line 1154
+    .local v1, "start":I
     invoke-virtual {p0, p1}, Ljava/util/regex/Matcher$OffsetBasedMatchResult;->end(I)I
 
     move-result v0
 
+    .line 1155
+    .local v0, "end":I
     if-eq v1, v2, :cond_0
 
     if-ne v0, v2, :cond_1
 
+    .line 1156
     :cond_0
     const/4 v2, 0x0
 
     return-object v2
 
+    .line 1159
     :cond_1
     iget-object v2, p0, Ljava/util/regex/Matcher$OffsetBasedMatchResult;->input:Ljava/lang/String;
 
@@ -117,6 +140,8 @@
 .method public groupCount()I
     .locals 1
 
+    .prologue
+    .line 1164
     iget-object v0, p0, Ljava/util/regex/Matcher$OffsetBasedMatchResult;->offsets:[I
 
     array-length v0, v0
@@ -131,6 +156,8 @@
 .method public start()I
     .locals 1
 
+    .prologue
+    .line 1128
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Ljava/util/regex/Matcher$OffsetBasedMatchResult;->start(I)I
@@ -142,7 +169,10 @@
 
 .method public start(I)I
     .locals 2
+    .param p1, "group"    # I
 
+    .prologue
+    .line 1133
     iget-object v0, p0, Ljava/util/regex/Matcher$OffsetBasedMatchResult;->offsets:[I
 
     mul-int/lit8 v1, p1, 0x2

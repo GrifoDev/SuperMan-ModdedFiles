@@ -27,7 +27,13 @@
 # direct methods
 .method constructor <init>(Lsun/misc/URLClassPath$Loader;Ljava/lang/String;Ljava/net/URL;Ljava/net/URLConnection;)V
     .locals 0
+    .param p1, "this$1"    # Lsun/misc/URLClassPath$Loader;
+    .param p2, "val$name"    # Ljava/lang/String;
+    .param p3, "val$url"    # Ljava/net/URL;
+    .param p4, "val$uc"    # Ljava/net/URLConnection;
 
+    .prologue
+    .line 549
     iput-object p1, p0, Lsun/misc/URLClassPath$Loader$1;->this$1:Lsun/misc/URLClassPath$Loader;
 
     iput-object p2, p0, Lsun/misc/URLClassPath$Loader$1;->val$name:Ljava/lang/String;
@@ -46,6 +52,8 @@
 .method public getCodeSourceURL()Ljava/net/URL;
     .locals 1
 
+    .prologue
+    .line 552
     iget-object v0, p0, Lsun/misc/URLClassPath$Loader$1;->this$1:Lsun/misc/URLClassPath$Loader;
 
     invoke-static {v0}, Lsun/misc/URLClassPath$Loader;->-get0(Lsun/misc/URLClassPath$Loader;)Ljava/net/URL;
@@ -63,6 +71,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 557
     iget-object v0, p0, Lsun/misc/URLClassPath$Loader$1;->val$uc:Ljava/net/URLConnection;
 
     invoke-virtual {v0}, Ljava/net/URLConnection;->getContentLength()I
@@ -80,6 +90,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 554
     iget-object v0, p0, Lsun/misc/URLClassPath$Loader$1;->val$uc:Ljava/net/URLConnection;
 
     invoke-virtual {v0}, Ljava/net/URLConnection;->getInputStream()Ljava/io/InputStream;
@@ -92,6 +104,8 @@
 .method public getName()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 550
     iget-object v0, p0, Lsun/misc/URLClassPath$Loader$1;->val$name:Ljava/lang/String;
 
     return-object v0
@@ -100,6 +114,8 @@
 .method public getURL()Ljava/net/URL;
     .locals 1
 
+    .prologue
+    .line 551
     iget-object v0, p0, Lsun/misc/URLClassPath$Loader$1;->val$url:Ljava/net/URL;
 
     return-object v0

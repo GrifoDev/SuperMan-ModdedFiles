@@ -25,6 +25,7 @@
 .method public synthetic constructor <init>(Ljava/util/regex/Pattern;)V
     .locals 0
 
+    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Ljava/util/regex/Pattern$-java_util_function_Predicate_asPredicate__LambdaImpl0;->val$this:Ljava/util/regex/Pattern;
@@ -36,11 +37,14 @@
 # virtual methods
 .method public test(Ljava/lang/Object;)Z
     .locals 1
+    .param p1, "arg0"    # Ljava/lang/Object;
 
+    .prologue
     iget-object v0, p0, Ljava/util/regex/Pattern$-java_util_function_Predicate_asPredicate__LambdaImpl0;->val$this:Ljava/util/regex/Pattern;
 
     check-cast p1, Ljava/lang/String;
 
+    .end local p1    # "arg0":Ljava/lang/Object;
     invoke-virtual {v0, p1}, Ljava/util/regex/Pattern;->-java_util_regex_Pattern_lambda$1(Ljava/lang/String;)Z
 
     move-result v0

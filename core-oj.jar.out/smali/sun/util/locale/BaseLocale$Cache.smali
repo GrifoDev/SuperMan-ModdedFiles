@@ -28,6 +28,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 292
     invoke-direct {p0}, Lsun/util/locale/LocaleObjectCache;-><init>()V
 
     return-void
@@ -37,9 +39,13 @@
 # virtual methods
 .method protected bridge synthetic createObject(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
+    .param p1, "key"    # Ljava/lang/Object;
 
+    .prologue
+    .line 301
     check-cast p1, Lsun/util/locale/BaseLocale$Key;
 
+    .end local p1    # "key":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lsun/util/locale/BaseLocale$Cache;->createObject(Lsun/util/locale/BaseLocale$Key;)Lsun/util/locale/BaseLocale;
 
     move-result-object v0
@@ -49,7 +55,10 @@
 
 .method protected createObject(Lsun/util/locale/BaseLocale$Key;)Lsun/util/locale/BaseLocale;
     .locals 6
+    .param p1, "key"    # Lsun/util/locale/BaseLocale$Key;
 
+    .prologue
+    .line 302
     new-instance v0, Lsun/util/locale/BaseLocale;
 
     invoke-static {p1}, Lsun/util/locale/BaseLocale$Key;->-get0(Lsun/util/locale/BaseLocale$Key;)Ljava/lang/String;
@@ -77,9 +86,13 @@
 
 .method protected bridge synthetic normalizeKey(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
+    .param p1, "key"    # Ljava/lang/Object;
 
+    .prologue
+    .line 296
     check-cast p1, Lsun/util/locale/BaseLocale$Key;
 
+    .end local p1    # "key":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lsun/util/locale/BaseLocale$Cache;->normalizeKey(Lsun/util/locale/BaseLocale$Key;)Lsun/util/locale/BaseLocale$Key;
 
     move-result-object v0
@@ -89,7 +102,10 @@
 
 .method protected normalizeKey(Lsun/util/locale/BaseLocale$Key;)Lsun/util/locale/BaseLocale$Key;
     .locals 1
+    .param p1, "key"    # Lsun/util/locale/BaseLocale$Key;
 
+    .prologue
+    .line 297
     invoke-static {p1}, Lsun/util/locale/BaseLocale$Key;->normalize(Lsun/util/locale/BaseLocale$Key;)Lsun/util/locale/BaseLocale$Key;
 
     move-result-object v0

@@ -35,38 +35,50 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
     const/4 v0, 0x1
 
+    .line 235
     sput-boolean v0, Ljava/io/FileSystem;->useCanonCaches:Z
 
+    .line 236
     sput-boolean v0, Ljava/io/FileSystem;->useCanonPrefixCache:Z
 
+    .line 249
     const-string/jumbo v0, "sun.io.useCanonCaches"
 
+    .line 250
     sget-boolean v1, Ljava/io/FileSystem;->useCanonCaches:Z
 
+    .line 249
     invoke-static {v0, v1}, Ljava/io/FileSystem;->getBooleanProperty(Ljava/lang/String;Z)Z
 
     move-result v0
 
     sput-boolean v0, Ljava/io/FileSystem;->useCanonCaches:Z
 
+    .line 251
     const-string/jumbo v0, "sun.io.useCanonPrefixCache"
 
+    .line 252
     sget-boolean v1, Ljava/io/FileSystem;->useCanonPrefixCache:Z
 
+    .line 251
     invoke-static {v0, v1}, Ljava/io/FileSystem;->getBooleanProperty(Ljava/lang/String;Z)Z
 
     move-result v0
 
     sput-boolean v0, Ljava/io/FileSystem;->useCanonPrefixCache:Z
 
+    .line 34
     return-void
 .end method
 
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -74,15 +86,22 @@
 
 .method private static getBooleanProperty(Ljava/lang/String;Z)Z
     .locals 2
+    .param p0, "prop"    # Ljava/lang/String;
+    .param p1, "defaultVal"    # Z
 
+    .prologue
+    .line 239
     invoke-static {p0}, Ljava/lang/System;->getProperty(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
+    .line 240
+    .local v0, "val":Ljava/lang/String;
     if-nez v0, :cond_0
 
     return p1
 
+    .line 241
     :cond_0
     const-string/jumbo v1, "true"
 
@@ -92,10 +111,12 @@
 
     if-eqz v1, :cond_1
 
+    .line 242
     const/4 v1, 0x1
 
     return v1
 
+    .line 244
     :cond_1
     const/4 v1, 0x0
 

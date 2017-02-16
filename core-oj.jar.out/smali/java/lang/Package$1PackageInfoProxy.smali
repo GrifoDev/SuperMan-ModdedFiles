@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Ljava/lang/Package;)V
     .locals 0
+    .param p1, "this$0"    # Ljava/lang/Package;
 
+    .prologue
+    .line 387
     iput-object p1, p0, Ljava/lang/Package$1PackageInfoProxy;->this$0:Ljava/lang/Package;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

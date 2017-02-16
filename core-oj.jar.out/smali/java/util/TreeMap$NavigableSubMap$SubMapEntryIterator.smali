@@ -40,10 +40,18 @@
         }
     .end annotation
 
+    .prologue
+    .line 1772
+    .local p0, "this":Ljava/util/TreeMap$NavigableSubMap$SubMapEntryIterator;, "Ljava/util/TreeMap<TK;TV;>.NavigableSubMap<TK;TV;>.SubMapEntryIterator;"
+    .local p1, "this$1":Ljava/util/TreeMap$NavigableSubMap;, "Ljava/util/TreeMap<TK;TV;>.NavigableSubMap<TK;TV;>;"
+    .local p2, "first":Ljava/util/TreeMap$TreeMapEntry;, "Ljava/util/TreeMap$TreeMapEntry<TK;TV;>;"
+    .local p3, "fence":Ljava/util/TreeMap$TreeMapEntry;, "Ljava/util/TreeMap$TreeMapEntry<TK;TV;>;"
     iput-object p1, p0, Ljava/util/TreeMap$NavigableSubMap$SubMapEntryIterator;->this$1:Ljava/util/TreeMap$NavigableSubMap;
 
+    .line 1774
     invoke-direct {p0, p1, p2, p3}, Ljava/util/TreeMap$NavigableSubMap$SubMapIterator;-><init>(Ljava/util/TreeMap$NavigableSubMap;Ljava/util/TreeMap$TreeMapEntry;Ljava/util/TreeMap$TreeMapEntry;)V
 
+    .line 1773
     return-void
 .end method
 
@@ -52,6 +60,9 @@
 .method public bridge synthetic next()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 1776
+    .local p0, "this":Ljava/util/TreeMap$NavigableSubMap$SubMapEntryIterator;, "Ljava/util/TreeMap<TK;TV;>.NavigableSubMap<TK;TV;>.SubMapEntryIterator;"
     invoke-virtual {p0}, Ljava/util/TreeMap$NavigableSubMap$SubMapEntryIterator;->next()Ljava/util/Map$Entry;
 
     move-result-object v0
@@ -69,6 +80,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1777
+    .local p0, "this":Ljava/util/TreeMap$NavigableSubMap$SubMapEntryIterator;, "Ljava/util/TreeMap<TK;TV;>.NavigableSubMap<TK;TV;>.SubMapEntryIterator;"
     invoke-virtual {p0}, Ljava/util/TreeMap$NavigableSubMap$SubMapEntryIterator;->nextEntry()Ljava/util/TreeMap$TreeMapEntry;
 
     move-result-object v0
@@ -79,7 +93,11 @@
 .method public remove()V
     .locals 0
 
+    .prologue
+    .line 1780
+    .local p0, "this":Ljava/util/TreeMap$NavigableSubMap$SubMapEntryIterator;, "Ljava/util/TreeMap<TK;TV;>.NavigableSubMap<TK;TV;>.SubMapEntryIterator;"
     invoke-virtual {p0}, Ljava/util/TreeMap$NavigableSubMap$SubMapEntryIterator;->removeAscending()V
 
+    .line 1779
     return-void
 .end method

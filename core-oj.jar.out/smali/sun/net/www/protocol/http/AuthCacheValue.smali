@@ -22,18 +22,23 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 48
     new-instance v0, Lsun/net/www/protocol/http/AuthCacheImpl;
 
     invoke-direct {v0}, Lsun/net/www/protocol/http/AuthCacheImpl;-><init>()V
 
     sput-object v0, Lsun/net/www/protocol/http/AuthCacheValue;->cache:Lsun/net/www/protocol/http/AuthCache;
 
+    .line 38
     return-void
 .end method
 
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 56
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -41,9 +46,13 @@
 
 .method public static setAuthCache(Lsun/net/www/protocol/http/AuthCache;)V
     .locals 0
+    .param p0, "map"    # Lsun/net/www/protocol/http/AuthCache;
 
+    .prologue
+    .line 51
     sput-object p0, Lsun/net/www/protocol/http/AuthCacheValue;->cache:Lsun/net/www/protocol/http/AuthCache;
 
+    .line 50
     return-void
 .end method
 

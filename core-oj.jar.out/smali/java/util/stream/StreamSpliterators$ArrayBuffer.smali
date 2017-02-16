@@ -32,6 +32,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 1445
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -42,9 +44,12 @@
 .method reset()V
     .locals 1
 
+    .prologue
+    .line 1449
     const/4 v0, 0x0
 
     iput v0, p0, Ljava/util/stream/StreamSpliterators$ArrayBuffer;->index:I
 
+    .line 1448
     return-void
 .end method

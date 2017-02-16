@@ -36,7 +36,11 @@
 # direct methods
 .method constructor <init>(Lsun/misc/Cleaner;Ljava/lang/Throwable;)V
     .locals 0
+    .param p1, "this$0"    # Lsun/misc/Cleaner;
+    .param p2, "val$x"    # Ljava/lang/Throwable;
 
+    .prologue
+    .line 144
     iput-object p1, p0, Lsun/misc/Cleaner$1;->this$0:Lsun/misc/Cleaner;
 
     iput-object p2, p0, Lsun/misc/Cleaner$1;->val$x:Ljava/lang/Throwable;
@@ -51,6 +55,8 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 145
     invoke-virtual {p0}, Lsun/misc/Cleaner$1;->run()Ljava/lang/Void;
 
     move-result-object v0
@@ -61,12 +67,15 @@
 .method public run()Ljava/lang/Void;
     .locals 4
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 146
     sget-object v0, Ljava/lang/System;->err:Ljava/io/PrintStream;
 
     if-eqz v0, :cond_0
 
+    .line 147
     new-instance v0, Ljava/lang/Error;
 
     const-string/jumbo v1, "Cleaner terminated abnormally"
@@ -77,10 +86,12 @@
 
     invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
+    .line 149
     :cond_0
     const/4 v0, 0x1
 
     invoke-static {v0}, Ljava/lang/System;->exit(I)V
 
+    .line 150
     return-object v3
 .end method

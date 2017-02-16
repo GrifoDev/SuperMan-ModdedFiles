@@ -28,7 +28,10 @@
 # direct methods
 .method public static synthetic -java_util_stream_Node_lambda$4(Ljava/lang/Object;)V
     .locals 0
+    .param p0, "e"    # Ljava/lang/Object;
 
+    .prologue
+    .line 0
     return-void
 .end method
 
@@ -67,6 +70,7 @@
 
 .method public getChild(I)Ljava/util/stream/Node;
     .locals 1
+    .param p1, "i"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -75,6 +79,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 105
+    .local p0, "this":Ljava/util/stream/Node;, "Ljava/util/stream/Node<TT;>;"
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     invoke-direct {v0}, Ljava/lang/IndexOutOfBoundsException;-><init>()V
@@ -85,6 +92,9 @@
 .method public getChildCount()I
     .locals 1
 
+    .prologue
+    .line 90
+    .local p0, "this":Ljava/util/stream/Node;, "Ljava/util/stream/Node<TT;>;"
     const/4 v0, 0x0
 
     return v0
@@ -93,6 +103,9 @@
 .method public getShape()Ljava/util/stream/StreamShape;
     .locals 1
 
+    .prologue
+    .line 175
+    .local p0, "this":Ljava/util/stream/Node;, "Ljava/util/stream/Node<TT;>;"
     sget-object v0, Ljava/util/stream/StreamShape;->REFERENCE:Ljava/util/stream/StreamShape;
 
     return-object v0
@@ -110,6 +123,8 @@
 
 .method public truncate(JJLjava/util/function/IntFunction;)Ljava/util/stream/Node;
     .locals 9
+    .param p1, "from"    # J
+    .param p3, "to"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(JJ",
@@ -120,6 +135,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 122
+    .local p0, "this":Ljava/util/stream/Node;, "Ljava/util/stream/Node<TT;>;"
+    .local p5, "generator":Ljava/util/function/IntFunction;, "Ljava/util/function/IntFunction<[TT;>;"
     const-wide/16 v6, 0x0
 
     cmp-long v5, p1, v6
@@ -134,23 +153,33 @@
 
     if-nez v5, :cond_0
 
+    .line 123
     return-object p0
 
+    .line 124
     :cond_0
     invoke-interface {p0}, Ljava/util/stream/Node;->spliterator()Ljava/util/Spliterator;
 
     move-result-object v4
 
+    .line 125
+    .local v4, "spliterator":Ljava/util/Spliterator;, "Ljava/util/Spliterator<TT;>;"
     sub-long v2, p3, p1
 
+    .line 126
+    .local v2, "size":J
     invoke-static {v2, v3, p5}, Ljava/util/stream/Nodes;->builder(JLjava/util/function/IntFunction;)Ljava/util/stream/Node$Builder;
 
     move-result-object v1
 
+    .line 127
+    .local v1, "nodeBuilder":Ljava/util/stream/Node$Builder;, "Ljava/util/stream/Node$Builder<TT;>;"
     invoke-interface {v1, v2, v3}, Ljava/util/stream/Node$Builder;->begin(J)V
 
+    .line 128
     const/4 v0, 0x0
 
+    .local v0, "i":I
     :goto_0
     int-to-long v6, v0
 
@@ -172,6 +201,7 @@
 
     goto :goto_0
 
+    .line 129
     :cond_1
     const/4 v0, 0x0
 
@@ -192,9 +222,11 @@
 
     goto :goto_1
 
+    .line 130
     :cond_2
     invoke-interface {v1}, Ljava/util/stream/Node$Builder;->end()V
 
+    .line 131
     invoke-interface {v1}, Ljava/util/stream/Node$Builder;->build()Ljava/util/stream/Node;
 
     move-result-object v5

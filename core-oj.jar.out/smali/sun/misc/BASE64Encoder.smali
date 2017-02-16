@@ -11,6 +11,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 64
     const/16 v0, 0x40
 
     new-array v0, v0, [C
@@ -19,8 +21,10 @@
 
     sput-object v0, Lsun/misc/BASE64Encoder;->pem_array:[C
 
+    .line 47
     return-void
 
+    .line 64
     :array_0
     .array-data 2
         0x41s
@@ -93,6 +97,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 47
     invoke-direct {p0}, Lsun/misc/CharacterEncoder;-><init>()V
 
     return-void
@@ -103,6 +109,8 @@
 .method protected bytesPerAtom()I
     .locals 1
 
+    .prologue
+    .line 51
     const/4 v0, 0x3
 
     return v0
@@ -111,6 +119,8 @@
 .method protected bytesPerLine()I
     .locals 1
 
+    .prologue
+    .line 60
     const/16 v0, 0x39
 
     return v0
@@ -118,22 +128,33 @@
 
 .method protected encodeAtom(Ljava/io/OutputStream;[BII)V
     .locals 7
+    .param p1, "outStream"    # Ljava/io/OutputStream;
+    .param p2, "data"    # [B
+    .param p3, "offset"    # I
+    .param p4, "len"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
     const/16 v6, 0x3d
 
+    .line 86
     const/4 v3, 0x1
 
     if-ne p4, v3, :cond_0
 
+    .line 87
     aget-byte v0, p2, p3
 
+    .line 89
+    .local v0, "a":B
     const/4 v2, 0x0
 
+    .line 90
+    .local v2, "c":B
     sget-object v3, Lsun/misc/BASE64Encoder;->pem_array:[C
 
     ushr-int/lit8 v4, v0, 0x2
@@ -144,6 +165,7 @@
 
     invoke-virtual {p1, v3}, Ljava/io/OutputStream;->write(I)V
 
+    .line 91
     sget-object v3, Lsun/misc/BASE64Encoder;->pem_array:[C
 
     shl-int/lit8 v4, v0, 0x4
@@ -156,24 +178,35 @@
 
     invoke-virtual {p1, v3}, Ljava/io/OutputStream;->write(I)V
 
+    .line 92
     invoke-virtual {p1, v6}, Ljava/io/OutputStream;->write(I)V
 
+    .line 93
     invoke-virtual {p1, v6}, Ljava/io/OutputStream;->write(I)V
 
+    .line 83
+    .end local v2    # "c":B
     :goto_0
     return-void
 
+    .line 94
+    .end local v0    # "a":B
     :cond_0
     const/4 v3, 0x2
 
     if-ne p4, v3, :cond_1
 
+    .line 95
     aget-byte v0, p2, p3
 
+    .line 96
+    .restart local v0    # "a":B
     add-int/lit8 v3, p3, 0x1
 
     aget-byte v1, p2, v3
 
+    .line 98
+    .local v1, "b":B
     sget-object v3, Lsun/misc/BASE64Encoder;->pem_array:[C
 
     ushr-int/lit8 v4, v0, 0x2
@@ -184,6 +217,7 @@
 
     invoke-virtual {p1, v3}, Ljava/io/OutputStream;->write(I)V
 
+    .line 99
     sget-object v3, Lsun/misc/BASE64Encoder;->pem_array:[C
 
     shl-int/lit8 v4, v0, 0x4
@@ -200,6 +234,7 @@
 
     invoke-virtual {p1, v3}, Ljava/io/OutputStream;->write(I)V
 
+    .line 100
     sget-object v3, Lsun/misc/BASE64Encoder;->pem_array:[C
 
     shl-int/lit8 v4, v1, 0x2
@@ -212,21 +247,31 @@
 
     invoke-virtual {p1, v3}, Ljava/io/OutputStream;->write(I)V
 
+    .line 101
     invoke-virtual {p1, v6}, Ljava/io/OutputStream;->write(I)V
 
     goto :goto_0
 
+    .line 103
+    .end local v0    # "a":B
+    .end local v1    # "b":B
     :cond_1
     aget-byte v0, p2, p3
 
+    .line 104
+    .restart local v0    # "a":B
     add-int/lit8 v3, p3, 0x1
 
     aget-byte v1, p2, v3
 
+    .line 105
+    .restart local v1    # "b":B
     add-int/lit8 v3, p3, 0x2
 
     aget-byte v2, p2, v3
 
+    .line 106
+    .local v2, "c":B
     sget-object v3, Lsun/misc/BASE64Encoder;->pem_array:[C
 
     ushr-int/lit8 v4, v0, 0x2
@@ -237,6 +282,7 @@
 
     invoke-virtual {p1, v3}, Ljava/io/OutputStream;->write(I)V
 
+    .line 107
     sget-object v3, Lsun/misc/BASE64Encoder;->pem_array:[C
 
     shl-int/lit8 v4, v0, 0x4
@@ -253,6 +299,7 @@
 
     invoke-virtual {p1, v3}, Ljava/io/OutputStream;->write(I)V
 
+    .line 108
     sget-object v3, Lsun/misc/BASE64Encoder;->pem_array:[C
 
     shl-int/lit8 v4, v1, 0x2
@@ -269,6 +316,7 @@
 
     invoke-virtual {p1, v3}, Ljava/io/OutputStream;->write(I)V
 
+    .line 109
     sget-object v3, Lsun/misc/BASE64Encoder;->pem_array:[C
 
     and-int/lit8 v4, v2, 0x3f

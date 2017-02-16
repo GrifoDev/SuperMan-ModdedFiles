@@ -22,9 +22,14 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Z)V
     .locals 1
+    .param p1, "prompt"    # Ljava/lang/String;
+    .param p2, "echoOn"    # Z
 
+    .prologue
+    .line 70
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 71
     if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
@@ -33,6 +38,7 @@
 
     if-nez v0, :cond_1
 
+    .line 72
     :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -40,11 +46,14 @@
 
     throw v0
 
+    .line 74
     :cond_1
     iput-object p1, p0, Ljavax/security/auth/callback/PasswordCallback;->prompt:Ljava/lang/String;
 
+    .line 75
     iput-boolean p2, p0, Ljavax/security/auth/callback/PasswordCallback;->echoOn:Z
 
+    .line 70
     return-void
 .end method
 
@@ -53,12 +62,16 @@
 .method public clearPassword()V
     .locals 3
 
+    .prologue
+    .line 137
     iget-object v1, p0, Ljavax/security/auth/callback/PasswordCallback;->inputPassword:[C
 
     if-eqz v1, :cond_0
 
+    .line 138
     const/4 v0, 0x0
 
+    .local v0, "i":I
     :goto_0
     iget-object v1, p0, Ljavax/security/auth/callback/PasswordCallback;->inputPassword:[C
 
@@ -66,16 +79,20 @@
 
     if-ge v0, v1, :cond_0
 
+    .line 139
     iget-object v1, p0, Ljavax/security/auth/callback/PasswordCallback;->inputPassword:[C
 
     const/16 v2, 0x20
 
     aput-char v2, v1, v0
 
+    .line 138
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
+    .line 136
+    .end local v0    # "i":I
     :cond_0
     return-void
 .end method
@@ -83,8 +100,10 @@
 .method public getPassword()[C
     .locals 2
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 130
     iget-object v1, p0, Ljavax/security/auth/callback/PasswordCallback;->inputPassword:[C
 
     if-nez v1, :cond_0
@@ -107,6 +126,8 @@
 .method public getPrompt()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 86
     iget-object v0, p0, Ljavax/security/auth/callback/PasswordCallback;->prompt:Ljava/lang/String;
 
     return-object v0
@@ -115,6 +136,8 @@
 .method public isEchoOn()Z
     .locals 1
 
+    .prologue
+    .line 99
     iget-boolean v0, p0, Ljavax/security/auth/callback/PasswordCallback;->echoOn:Z
 
     return v0
@@ -122,16 +145,21 @@
 
 .method public setPassword([C)V
     .locals 1
+    .param p1, "password"    # [C
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 115
     if-nez p1, :cond_0
 
     :goto_0
     iput-object v0, p0, Ljavax/security/auth/callback/PasswordCallback;->inputPassword:[C
 
+    .line 114
     return-void
 
+    .line 115
     :cond_0
     invoke-virtual {p1}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 

@@ -7,6 +7,8 @@
 .method protected constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 45
     invoke-direct {p0}, Ljava/util/spi/LocaleServiceProvider;-><init>()V
 
     return-void

@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 49
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -41,6 +43,8 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 50
     invoke-virtual {p0}, Lsun/util/logging/LoggingSupport$1;->run()Lsun/util/logging/LoggingProxy;
 
     move-result-object v0
@@ -51,8 +55,10 @@
 .method public run()Lsun/util/logging/LoggingProxy;
     .locals 9
 
+    .prologue
     const/4 v8, 0x0
 
+    .line 54
     :try_start_0
     const-string/jumbo v5, "java.util.logging.LoggingProxyImpl"
 
@@ -64,16 +70,21 @@
 
     move-result-object v0
 
+    .line 55
+    .local v0, "c":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     const-string/jumbo v5, "INSTANCE"
 
     invoke-virtual {v0, v5}, Ljava/lang/Class;->getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;
 
     move-result-object v4
 
+    .line 56
+    .local v4, "f":Ljava/lang/reflect/Field;
     const/4 v5, 0x1
 
     invoke-virtual {v4, v5}, Ljava/lang/reflect/Field;->setAccessible(Z)V
 
+    .line 57
     const/4 v5, 0x0
 
     invoke-virtual {v4, v5}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -88,26 +99,39 @@
 
     return-object v5
 
+    .line 62
+    .end local v0    # "c":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
+    .end local v4    # "f":Ljava/lang/reflect/Field;
     :catch_0
     move-exception v2
 
+    .line 63
+    .local v2, "e":Ljava/lang/IllegalAccessException;
     new-instance v5, Ljava/lang/AssertionError;
 
     invoke-direct {v5, v2}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
 
     throw v5
 
+    .line 60
+    .end local v2    # "e":Ljava/lang/IllegalAccessException;
     :catch_1
     move-exception v3
 
+    .line 61
+    .local v3, "e":Ljava/lang/NoSuchFieldException;
     new-instance v5, Ljava/lang/AssertionError;
 
     invoke-direct {v5, v3}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
 
     throw v5
 
+    .line 58
+    .end local v3    # "e":Ljava/lang/NoSuchFieldException;
     :catch_2
     move-exception v1
 
+    .line 59
+    .local v1, "cnf":Ljava/lang/ClassNotFoundException;
     return-object v8
 .end method

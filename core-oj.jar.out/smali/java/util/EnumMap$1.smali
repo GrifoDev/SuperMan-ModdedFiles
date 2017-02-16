@@ -18,6 +18,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 109
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -28,6 +30,8 @@
 .method public hashCode()I
     .locals 1
 
+    .prologue
+    .line 111
     const/4 v0, 0x0
 
     return v0
@@ -36,6 +40,8 @@
 .method public toString()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 115
     const-string/jumbo v0, "java.util.EnumMap.NULL"
 
     return-object v0

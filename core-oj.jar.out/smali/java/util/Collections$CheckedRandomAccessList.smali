@@ -45,8 +45,14 @@
         }
     .end annotation
 
+    .prologue
+    .line 2957
+    .local p0, "this":Ljava/util/Collections$CheckedRandomAccessList;, "Ljava/util/Collections$CheckedRandomAccessList<TE;>;"
+    .local p1, "list":Ljava/util/List;, "Ljava/util/List<TE;>;"
+    .local p2, "type":Ljava/lang/Class;, "Ljava/lang/Class<TE;>;"
     invoke-direct {p0, p1, p2}, Ljava/util/Collections$CheckedList;-><init>(Ljava/util/List;Ljava/lang/Class;)V
 
+    .line 2956
     return-void
 .end method
 
@@ -54,6 +60,8 @@
 # virtual methods
 .method public subList(II)Ljava/util/List;
     .locals 3
+    .param p1, "fromIndex"    # I
+    .param p2, "toIndex"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(II)",
@@ -62,8 +70,12 @@
         }
     .end annotation
 
+    .prologue
+    .line 2961
+    .local p0, "this":Ljava/util/Collections$CheckedRandomAccessList;, "Ljava/util/Collections$CheckedRandomAccessList<TE;>;"
     new-instance v0, Ljava/util/Collections$CheckedRandomAccessList;
 
+    .line 2962
     iget-object v1, p0, Ljava/util/Collections$CheckedRandomAccessList;->list:Ljava/util/List;
 
     invoke-interface {v1, p1, p2}, Ljava/util/List;->subList(II)Ljava/util/List;
@@ -72,6 +84,7 @@
 
     iget-object v2, p0, Ljava/util/Collections$CheckedRandomAccessList;->type:Ljava/lang/Class;
 
+    .line 2961
     invoke-direct {v0, v1, v2}, Ljava/util/Collections$CheckedRandomAccessList;-><init>(Ljava/util/List;Ljava/lang/Class;)V
 
     return-object v0

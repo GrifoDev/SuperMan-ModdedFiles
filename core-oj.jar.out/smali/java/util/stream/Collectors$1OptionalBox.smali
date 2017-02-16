@@ -43,18 +43,24 @@
 .method constructor <init>(Ljava/util/function/BinaryOperator;)V
     .locals 1
 
+    .prologue
+    .line 699
+    .local p1, "val$op":Ljava/util/function/BinaryOperator;, "Ljava/util/function/BinaryOperator<TT;>;"
     iput-object p1, p0, Ljava/util/stream/Collectors$1OptionalBox;->val$op:Ljava/util/function/BinaryOperator;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 700
     const/4 v0, 0x0
 
     iput-object v0, p0, Ljava/util/stream/Collectors$1OptionalBox;->value:Ljava/lang/Object;
 
+    .line 701
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Ljava/util/stream/Collectors$1OptionalBox;->present:Z
 
+    .line 699
     return-void
 .end method
 
@@ -68,10 +74,14 @@
         }
     .end annotation
 
+    .prologue
+    .line 705
+    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-boolean v0, p0, Ljava/util/stream/Collectors$1OptionalBox;->present:Z
 
     if-eqz v0, :cond_0
 
+    .line 706
     iget-object v0, p0, Ljava/util/stream/Collectors$1OptionalBox;->val$op:Ljava/util/function/BinaryOperator;
 
     iget-object v1, p0, Ljava/util/stream/Collectors$1OptionalBox;->value:Ljava/lang/Object;
@@ -82,12 +92,15 @@
 
     iput-object v0, p0, Ljava/util/stream/Collectors$1OptionalBox;->value:Ljava/lang/Object;
 
+    .line 704
     :goto_0
     return-void
 
+    .line 709
     :cond_0
     iput-object p1, p0, Ljava/util/stream/Collectors$1OptionalBox;->value:Ljava/lang/Object;
 
+    .line 710
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Ljava/util/stream/Collectors$1OptionalBox;->present:Z

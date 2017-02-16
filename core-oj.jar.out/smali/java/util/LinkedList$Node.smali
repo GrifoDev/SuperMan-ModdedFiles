@@ -64,13 +64,23 @@
         }
     .end annotation
 
+    .prologue
+    .line 976
+    .local p0, "this":Ljava/util/LinkedList$Node;, "Ljava/util/LinkedList<TE;>.Node<TE;>;"
+    .local p1, "prev":Ljava/util/LinkedList$Node;, "Ljava/util/LinkedList$Node<TE;>;"
+    .local p2, "element":Ljava/lang/Object;, "TE;"
+    .local p3, "next":Ljava/util/LinkedList$Node;, "Ljava/util/LinkedList$Node<TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 977
     iput-object p2, p0, Ljava/util/LinkedList$Node;->item:Ljava/lang/Object;
 
+    .line 978
     iput-object p3, p0, Ljava/util/LinkedList$Node;->next:Ljava/util/LinkedList$Node;
 
+    .line 979
     iput-object p1, p0, Ljava/util/LinkedList$Node;->prev:Ljava/util/LinkedList$Node;
 
+    .line 976
     return-void
 .end method

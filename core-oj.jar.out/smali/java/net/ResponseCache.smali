@@ -11,6 +11,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 61
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -19,21 +21,27 @@
 .method public static declared-synchronized getDefault()Ljava/net/ResponseCache;
     .locals 3
 
+    .prologue
     const-class v2, Ljava/net/ResponseCache;
 
     monitor-enter v2
 
+    .line 84
     :try_start_0
     invoke-static {}, Ljava/lang/System;->getSecurityManager()Ljava/lang/SecurityManager;
 
     move-result-object v0
 
+    .line 85
+    .local v0, "sm":Ljava/lang/SecurityManager;
     if-eqz v0, :cond_0
 
+    .line 86
     sget-object v1, Lsun/security/util/SecurityConstants;->GET_RESPONSECACHE_PERMISSION:Ljava/net/NetPermission;
 
     invoke-virtual {v0, v1}, Ljava/lang/SecurityManager;->checkPermission(Ljava/security/Permission;)V
 
+    .line 88
     :cond_0
     sget-object v1, Ljava/net/ResponseCache;->theResponseCache:Ljava/net/ResponseCache;
     :try_end_0
@@ -53,22 +61,29 @@
 
 .method public static declared-synchronized setDefault(Ljava/net/ResponseCache;)V
     .locals 3
+    .param p0, "responseCache"    # Ljava/net/ResponseCache;
 
+    .prologue
     const-class v2, Ljava/net/ResponseCache;
 
     monitor-enter v2
 
+    .line 107
     :try_start_0
     invoke-static {}, Ljava/lang/System;->getSecurityManager()Ljava/lang/SecurityManager;
 
     move-result-object v0
 
+    .line 108
+    .local v0, "sm":Ljava/lang/SecurityManager;
     if-eqz v0, :cond_0
 
+    .line 109
     sget-object v1, Lsun/security/util/SecurityConstants;->SET_RESPONSECACHE_PERMISSION:Ljava/net/NetPermission;
 
     invoke-virtual {v0, v1}, Ljava/lang/SecurityManager;->checkPermission(Ljava/security/Permission;)V
 
+    .line 111
     :cond_0
     sput-object p0, Ljava/net/ResponseCache;->theResponseCache:Ljava/net/ResponseCache;
     :try_end_0
@@ -76,8 +91,10 @@
 
     monitor-exit v2
 
+    .line 106
     return-void
 
+    .end local v0    # "sm":Ljava/lang/SecurityManager;
     :catchall_0
     move-exception v1
 

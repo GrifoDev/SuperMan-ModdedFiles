@@ -21,6 +21,7 @@
 .method public synthetic constructor <init>()V
     .locals 0
 
+    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -30,7 +31,9 @@
 # virtual methods
 .method public accept(Ljava/lang/Object;)V
     .locals 0
+    .param p1, "arg0"    # Ljava/lang/Object;
 
+    .prologue
     invoke-static {p1}, Ljava/util/stream/Node;->-java_util_stream_Node_lambda$4(Ljava/lang/Object;)V
 
     return-void

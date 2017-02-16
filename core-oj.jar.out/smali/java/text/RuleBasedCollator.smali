@@ -6,24 +6,33 @@
 # direct methods
 .method constructor <init>(Landroid/icu/text/RuleBasedCollator;)V
     .locals 0
+    .param p1, "wrapper"    # Landroid/icu/text/RuleBasedCollator;
 
+    .prologue
+    .line 253
     invoke-direct {p0, p1}, Ljava/text/Collator;-><init>(Landroid/icu/text/Collator;)V
 
+    .line 252
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 4
+    .param p1, "rules"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/text/ParseException;
         }
     .end annotation
 
+    .prologue
+    .line 289
     invoke-direct {p0}, Ljava/text/Collator;-><init>()V
 
+    .line 290
     if-nez p1, :cond_0
 
+    .line 291
     new-instance v1, Ljava/lang/NullPointerException;
 
     const-string/jumbo v2, "rules == null"
@@ -32,6 +41,7 @@
 
     throw v1
 
+    .line 294
     :cond_0
     :try_start_0
     new-instance v1, Landroid/icu/text/RuleBasedCollator;
@@ -42,19 +52,27 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 289
     return-void
 
+    .line 295
     :catch_0
     move-exception v0
 
+    .line 296
+    .local v0, "e":Ljava/lang/Exception;
     instance-of v1, v0, Ljava/text/ParseException;
 
     if-eqz v1, :cond_1
 
+    .line 297
     check-cast v0, Ljava/text/ParseException;
 
+    .end local v0    # "e":Ljava/lang/Exception;
     throw v0
 
+    .line 303
+    .restart local v0    # "e":Ljava/lang/Exception;
     :cond_1
     new-instance v1, Ljava/text/ParseException;
 
@@ -72,6 +90,8 @@
 .method private collAsICU()Landroid/icu/text/RuleBasedCollator;
     .locals 1
 
+    .prologue
+    .line 400
     iget-object v0, p0, Ljava/text/RuleBasedCollator;->icuColl:Landroid/icu/text/Collator;
 
     check-cast v0, Landroid/icu/text/RuleBasedCollator;
@@ -84,6 +104,8 @@
 .method public clone()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 377
     invoke-super {p0}, Ljava/text/Collator;->clone()Ljava/lang/Object;
 
     move-result-object v0
@@ -93,13 +115,18 @@
 
 .method public declared-synchronized compare(Ljava/lang/String;Ljava/lang/String;)I
     .locals 1
+    .param p1, "source"    # Ljava/lang/String;
+    .param p2, "target"    # Ljava/lang/String;
 
+    .prologue
     monitor-enter p0
 
+    .line 355
     if-eqz p1, :cond_0
 
     if-nez p2, :cond_1
 
+    .line 356
     :cond_0
     :try_start_0
     new-instance v0, Ljava/lang/NullPointerException;
@@ -117,6 +144,7 @@
 
     throw v0
 
+    .line 358
     :cond_1
     :try_start_1
     iget-object v0, p0, Ljava/text/RuleBasedCollator;->icuColl:Landroid/icu/text/Collator;
@@ -134,13 +162,17 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
+    .param p1, "obj"    # Ljava/lang/Object;
 
+    .prologue
+    .line 388
     if-nez p1, :cond_0
 
     const/4 v0, 0x0
 
     return v0
 
+    .line 389
     :cond_0
     invoke-super {p0, p1}, Ljava/text/Collator;->equals(Ljava/lang/Object;)Z
 
@@ -151,9 +183,13 @@
 
 .method public getCollationElementIterator(Ljava/lang/String;)Ljava/text/CollationElementIterator;
     .locals 2
+    .param p1, "source"    # Ljava/lang/String;
 
+    .prologue
+    .line 326
     if-nez p1, :cond_0
 
+    .line 327
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string/jumbo v1, "source == null"
@@ -162,6 +198,7 @@
 
     throw v0
 
+    .line 329
     :cond_0
     new-instance v0, Ljava/text/CollationElementIterator;
 
@@ -180,9 +217,13 @@
 
 .method public getCollationElementIterator(Ljava/text/CharacterIterator;)Ljava/text/CollationElementIterator;
     .locals 2
+    .param p1, "source"    # Ljava/text/CharacterIterator;
 
+    .prologue
+    .line 340
     if-nez p1, :cond_0
 
+    .line 341
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string/jumbo v1, "source == null"
@@ -191,6 +232,7 @@
 
     throw v0
 
+    .line 343
     :cond_0
     new-instance v0, Ljava/text/CollationElementIterator;
 
@@ -209,17 +251,22 @@
 
 .method public declared-synchronized getCollationKey(Ljava/lang/String;)Ljava/text/CollationKey;
     .locals 2
+    .param p1, "source"    # Ljava/lang/String;
 
+    .prologue
     const/4 v0, 0x0
 
     monitor-enter p0
 
+    .line 367
     if-nez p1, :cond_0
 
     monitor-exit p0
 
+    .line 368
     return-object v0
 
+    .line 370
     :cond_0
     :try_start_0
     new-instance v0, Llibcore/icu/CollationKeyICU;
@@ -249,6 +296,8 @@
 .method public getRules()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 317
     invoke-direct {p0}, Ljava/text/RuleBasedCollator;->collAsICU()Landroid/icu/text/RuleBasedCollator;
 
     move-result-object v0
@@ -263,6 +312,8 @@
 .method public hashCode()I
     .locals 1
 
+    .prologue
+    .line 396
     iget-object v0, p0, Ljava/text/RuleBasedCollator;->icuColl:Landroid/icu/text/Collator;
 
     invoke-virtual {v0}, Landroid/icu/text/Collator;->hashCode()I

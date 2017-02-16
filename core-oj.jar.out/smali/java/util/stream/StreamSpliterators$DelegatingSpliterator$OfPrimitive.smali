@@ -52,8 +52,13 @@
         }
     .end annotation
 
+    .prologue
+    .line 563
+    .local p0, "this":Ljava/util/stream/StreamSpliterators$DelegatingSpliterator$OfPrimitive;, "Ljava/util/stream/StreamSpliterators$DelegatingSpliterator<TT;TT_SPLITR;>.OfPrimitive<TT;TT_CONS;TT_SPLITR;>;"
+    .local p1, "supplier":Ljava/util/function/Supplier;, "Ljava/util/function/Supplier<+TT_SPLITR;>;"
     invoke-direct {p0, p1}, Ljava/util/stream/StreamSpliterators$DelegatingSpliterator;-><init>(Ljava/util/function/Supplier;)V
 
+    .line 562
     return-void
 .end method
 
@@ -67,6 +72,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 573
+    .local p0, "this":Ljava/util/stream/StreamSpliterators$DelegatingSpliterator$OfPrimitive;, "Ljava/util/stream/StreamSpliterators$DelegatingSpliterator<TT;TT_SPLITR;>.OfPrimitive<TT;TT_CONS;TT_SPLITR;>;"
+    .local p1, "consumer":Ljava/lang/Object;, "TT_CONS;"
     invoke-virtual {p0}, Ljava/util/stream/StreamSpliterators$DelegatingSpliterator;->get()Ljava/util/Spliterator;
 
     move-result-object v0
@@ -75,6 +84,7 @@
 
     invoke-interface {v0, p1}, Ljava/util/Spliterator$OfPrimitive;->forEachRemaining(Ljava/lang/Object;)V
 
+    .line 572
     return-void
 .end method
 
@@ -86,6 +96,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 568
+    .local p0, "this":Ljava/util/stream/StreamSpliterators$DelegatingSpliterator$OfPrimitive;, "Ljava/util/stream/StreamSpliterators$DelegatingSpliterator<TT;TT_SPLITR;>.OfPrimitive<TT;TT_CONS;TT_SPLITR;>;"
+    .local p1, "consumer":Ljava/lang/Object;, "TT_CONS;"
     invoke-virtual {p0}, Ljava/util/stream/StreamSpliterators$DelegatingSpliterator;->get()Ljava/util/Spliterator;
 
     move-result-object v0
@@ -102,6 +116,9 @@
 .method public bridge synthetic trySplit()Ljava/util/Spliterator$OfPrimitive;
     .locals 1
 
+    .prologue
+    .line 520
+    .local p0, "this":Ljava/util/stream/StreamSpliterators$DelegatingSpliterator$OfPrimitive;, "Ljava/util/stream/StreamSpliterators$DelegatingSpliterator<TT;TT_SPLITR;>.OfPrimitive<TT;TT_CONS;TT_SPLITR;>;"
     invoke-virtual {p0}, Ljava/util/stream/StreamSpliterators$DelegatingSpliterator;->trySplit()Ljava/util/Spliterator;
 
     move-result-object v0

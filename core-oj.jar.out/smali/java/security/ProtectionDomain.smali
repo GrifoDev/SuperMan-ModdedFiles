@@ -6,17 +6,29 @@
 # direct methods
 .method public constructor <init>(Ljava/security/CodeSource;Ljava/security/PermissionCollection;)V
     .locals 0
+    .param p1, "codesource"    # Ljava/security/CodeSource;
+    .param p2, "permissions"    # Ljava/security/PermissionCollection;
 
+    .prologue
+    .line 35
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 36
     return-void
 .end method
 
 .method public constructor <init>(Ljava/security/CodeSource;Ljava/security/PermissionCollection;Ljava/lang/ClassLoader;[Ljava/security/Principal;)V
     .locals 0
+    .param p1, "codesource"    # Ljava/security/CodeSource;
+    .param p2, "permissions"    # Ljava/security/PermissionCollection;
+    .param p3, "classloader"    # Ljava/lang/ClassLoader;
+    .param p4, "principals"    # [Ljava/security/Principal;
 
+    .prologue
+    .line 38
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 41
     return-void
 .end method
 
@@ -25,6 +37,8 @@
 .method public final getClassLoader()Ljava/lang/ClassLoader;
     .locals 1
 
+    .prologue
+    .line 45
     const/4 v0, 0x0
 
     return-object v0
@@ -33,6 +47,8 @@
 .method public final getCodeSource()Ljava/security/CodeSource;
     .locals 1
 
+    .prologue
+    .line 43
     const/4 v0, 0x0
 
     return-object v0
@@ -41,6 +57,8 @@
 .method public final getPermissions()Ljava/security/PermissionCollection;
     .locals 1
 
+    .prologue
+    .line 49
     const/4 v0, 0x0
 
     return-object v0
@@ -49,6 +67,8 @@
 .method public final getPrincipals()[Ljava/security/Principal;
     .locals 1
 
+    .prologue
+    .line 47
     const/4 v0, 0x0
 
     return-object v0
@@ -56,7 +76,10 @@
 
 .method public implies(Ljava/security/Permission;)Z
     .locals 1
+    .param p1, "permission"    # Ljava/security/Permission;
 
+    .prologue
+    .line 51
     const/4 v0, 0x1
 
     return v0

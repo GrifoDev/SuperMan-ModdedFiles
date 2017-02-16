@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 489
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -41,6 +43,8 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 490
     invoke-virtual {p0}, Ljava/sql/DriverManager$2;->run()Ljava/lang/Void;
 
     move-result-object v0
@@ -51,16 +55,22 @@
 .method public run()Ljava/lang/Void;
     .locals 4
 
+    .prologue
+    .line 492
     const-class v3, Ljava/sql/Driver;
 
     invoke-static {v3}, Ljava/util/ServiceLoader;->load(Ljava/lang/Class;)Ljava/util/ServiceLoader;
 
     move-result-object v1
 
+    .line 493
+    .local v1, "loadedDrivers":Ljava/util/ServiceLoader;, "Ljava/util/ServiceLoader<Ljava/sql/Driver;>;"
     invoke-virtual {v1}, Ljava/util/ServiceLoader;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
+    .line 508
+    .local v0, "driversIterator":Ljava/util/Iterator;
     :goto_0
     :try_start_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -69,15 +79,18 @@
 
     if-eqz v3, :cond_0
 
+    .line 509
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
+    .line 511
     :catch_0
     move-exception v2
 
+    .line 514
     :cond_0
     const/4 v3, 0x0
 

@@ -37,6 +37,10 @@
 .method constructor <init>(Ljavax/security/auth/Subject$ClassSet;Ljava/util/Iterator;)V
     .locals 0
 
+    .prologue
+    .line 1353
+    .local p1, "this$1":Ljavax/security/auth/Subject$ClassSet;, "Ljavax/security/auth/Subject$ClassSet<TT;>;"
+    .local p2, "val$iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<*>;"
     iput-object p1, p0, Ljavax/security/auth/Subject$ClassSet$1;->this$1:Ljavax/security/auth/Subject$ClassSet;
 
     iput-object p2, p0, Ljavax/security/auth/Subject$ClassSet$1;->val$iterator:Ljava/util/Iterator;
@@ -51,6 +55,8 @@
 .method public run()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 1355
     iget-object v0, p0, Ljavax/security/auth/Subject$ClassSet$1;->val$iterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;

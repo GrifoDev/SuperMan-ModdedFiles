@@ -36,7 +36,11 @@
 # direct methods
 .method constructor <init>(Lsun/security/ssl/SSLSocketImpl$NotifyHandshakeThread;Ljavax/net/ssl/HandshakeCompletedListener;)V
     .locals 0
+    .param p1, "this$1"    # Lsun/security/ssl/SSLSocketImpl$NotifyHandshakeThread;
+    .param p2, "val$l"    # Ljavax/net/ssl/HandshakeCompletedListener;
 
+    .prologue
+    .line 2508
     iput-object p1, p0, Lsun/security/ssl/SSLSocketImpl$NotifyHandshakeThread$1;->this$1:Lsun/security/ssl/SSLSocketImpl$NotifyHandshakeThread;
 
     iput-object p2, p0, Lsun/security/ssl/SSLSocketImpl$NotifyHandshakeThread$1;->val$l:Ljavax/net/ssl/HandshakeCompletedListener;
@@ -51,6 +55,8 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 2509
     invoke-virtual {p0}, Lsun/security/ssl/SSLSocketImpl$NotifyHandshakeThread$1;->run()Ljava/lang/Void;
 
     move-result-object v0
@@ -61,6 +67,8 @@
 .method public run()Ljava/lang/Void;
     .locals 2
 
+    .prologue
+    .line 2510
     iget-object v0, p0, Lsun/security/ssl/SSLSocketImpl$NotifyHandshakeThread$1;->val$l:Ljavax/net/ssl/HandshakeCompletedListener;
 
     iget-object v1, p0, Lsun/security/ssl/SSLSocketImpl$NotifyHandshakeThread$1;->this$1:Lsun/security/ssl/SSLSocketImpl$NotifyHandshakeThread;
@@ -71,6 +79,7 @@
 
     invoke-interface {v0, v1}, Ljavax/net/ssl/HandshakeCompletedListener;->handshakeCompleted(Ljavax/net/ssl/HandshakeCompletedEvent;)V
 
+    .line 2511
     const/4 v0, 0x0
 
     return-object v0

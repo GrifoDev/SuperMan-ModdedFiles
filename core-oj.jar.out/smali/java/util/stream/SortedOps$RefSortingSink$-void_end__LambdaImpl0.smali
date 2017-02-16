@@ -25,6 +25,7 @@
 .method public synthetic constructor <init>(Ljava/util/stream/Sink;)V
     .locals 0
 
+    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Ljava/util/stream/SortedOps$RefSortingSink$-void_end__LambdaImpl0;->val$-lambdaCtx:Ljava/util/stream/Sink;
@@ -36,7 +37,9 @@
 # virtual methods
 .method public accept(Ljava/lang/Object;)V
     .locals 1
+    .param p1, "arg0"    # Ljava/lang/Object;
 
+    .prologue
     iget-object v0, p0, Ljava/util/stream/SortedOps$RefSortingSink$-void_end__LambdaImpl0;->val$-lambdaCtx:Ljava/util/stream/Sink;
 
     invoke-static {v0, p1}, Ljava/util/stream/SortedOps$RefSortingSink;->-java_util_stream_SortedOps$RefSortingSink-mthref-0(Ljava/util/stream/Sink;Ljava/lang/Object;)V

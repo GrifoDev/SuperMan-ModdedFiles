@@ -24,6 +24,8 @@
 .method static constructor <clinit>()V
     .locals 5
 
+    .prologue
+    .line 147
     new-instance v0, Ljava/lang/StackTraceElement;
 
     const-string/jumbo v1, ""
@@ -36,8 +38,10 @@
 
     invoke-direct {v0, v1, v2, v3, v4}, Ljava/lang/StackTraceElement;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V
 
+    .line 146
     sput-object v0, Ljava/lang/Throwable$SentinelHolder;->STACK_TRACE_ELEMENT_SENTINEL:Ljava/lang/StackTraceElement;
 
+    .line 154
     const/4 v0, 0x1
 
     new-array v0, v0, [Ljava/lang/StackTraceElement;
@@ -48,14 +52,18 @@
 
     aput-object v1, v0, v2
 
+    .line 153
     sput-object v0, Ljava/lang/Throwable$SentinelHolder;->STACK_TRACE_SENTINEL:[Ljava/lang/StackTraceElement;
 
+    .line 138
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 138
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

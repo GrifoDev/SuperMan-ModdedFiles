@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Ljava/util/Timer;)V
     .locals 0
+    .param p1, "this$0"    # Ljava/util/Timer;
 
+    .prologue
+    .line 110
     iput-object p1, p0, Ljava/util/Timer$1;->this$0:Ljava/util/Timer;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,6 +42,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 112
     iget-object v0, p0, Ljava/util/Timer$1;->this$0:Ljava/util/Timer;
 
     invoke-static {v0}, Ljava/util/Timer;->-get0(Ljava/util/Timer;)Ljava/util/TaskQueue;
@@ -47,6 +52,7 @@
 
     monitor-enter v1
 
+    .line 113
     :try_start_0
     iget-object v0, p0, Ljava/util/Timer$1;->this$0:Ljava/util/Timer;
 
@@ -58,6 +64,7 @@
 
     iput-boolean v2, v0, Ljava/util/TimerThread;->newTasksMayBeScheduled:Z
 
+    .line 114
     iget-object v0, p0, Ljava/util/Timer$1;->this$0:Ljava/util/Timer;
 
     invoke-static {v0}, Ljava/util/Timer;->-get0(Ljava/util/Timer;)Ljava/util/TaskQueue;
@@ -70,8 +77,10 @@
 
     monitor-exit v1
 
+    .line 111
     return-void
 
+    .line 112
     :catchall_0
     move-exception v0
 

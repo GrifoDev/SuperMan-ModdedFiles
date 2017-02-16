@@ -28,21 +28,31 @@
 # direct methods
 .method public constructor <init>([Ljava/util/Enumeration;)V
     .locals 1
+    .param p1, "enums"    # [Ljava/util/Enumeration;
 
+    .prologue
+    .line 39
+    .local p0, "this":Lsun/misc/CompoundEnumeration;, "Lsun/misc/CompoundEnumeration<TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 37
     const/4 v0, 0x0
 
     iput v0, p0, Lsun/misc/CompoundEnumeration;->index:I
 
+    .line 40
     iput-object p1, p0, Lsun/misc/CompoundEnumeration;->enums:[Ljava/util/Enumeration;
 
+    .line 39
     return-void
 .end method
 
 .method private next()Z
     .locals 2
 
+    .prologue
+    .line 44
+    .local p0, "this":Lsun/misc/CompoundEnumeration;, "Lsun/misc/CompoundEnumeration<TE;>;"
     :goto_0
     iget v0, p0, Lsun/misc/CompoundEnumeration;->index:I
 
@@ -52,6 +62,7 @@
 
     if-ge v0, v1, :cond_1
 
+    .line 45
     iget-object v0, p0, Lsun/misc/CompoundEnumeration;->enums:[Ljava/util/Enumeration;
 
     iget v1, p0, Lsun/misc/CompoundEnumeration;->index:I
@@ -72,10 +83,12 @@
 
     if-eqz v0, :cond_0
 
+    .line 46
     const/4 v0, 0x1
 
     return v0
 
+    .line 48
     :cond_0
     iget v0, p0, Lsun/misc/CompoundEnumeration;->index:I
 
@@ -85,6 +98,7 @@
 
     goto :goto_0
 
+    .line 50
     :cond_1
     const/4 v0, 0x0
 
@@ -96,6 +110,9 @@
 .method public hasMoreElements()Z
     .locals 1
 
+    .prologue
+    .line 54
+    .local p0, "this":Lsun/misc/CompoundEnumeration;, "Lsun/misc/CompoundEnumeration<TE;>;"
     invoke-direct {p0}, Lsun/misc/CompoundEnumeration;->next()Z
 
     move-result v0
@@ -111,18 +128,23 @@
         }
     .end annotation
 
+    .prologue
+    .line 58
+    .local p0, "this":Lsun/misc/CompoundEnumeration;, "Lsun/misc/CompoundEnumeration<TE;>;"
     invoke-direct {p0}, Lsun/misc/CompoundEnumeration;->next()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
+    .line 59
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
 
     throw v0
 
+    .line 61
     :cond_0
     iget-object v0, p0, Lsun/misc/CompoundEnumeration;->enums:[Ljava/util/Enumeration;
 

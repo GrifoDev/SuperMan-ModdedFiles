@@ -37,6 +37,9 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 864
+    .local p0, "this":Ljava/util/Spliterators$EmptySpliterator$OfRef;, "Ljava/util/Spliterators$EmptySpliterator<TT;TS;TC;>.OfRef<TT;>;"
     invoke-direct {p0}, Ljava/util/Spliterators$EmptySpliterator;-><init>()V
 
     return-void
@@ -46,7 +49,11 @@
 # virtual methods
 .method public bridge synthetic forEachRemaining(Ljava/util/function/Consumer;)V
     .locals 0
+    .param p1, "consumer"    # Ljava/util/function/Consumer;
 
+    .prologue
+    .line 849
+    .local p0, "this":Ljava/util/Spliterators$EmptySpliterator$OfRef;, "Ljava/util/Spliterators$EmptySpliterator<TT;TS;TC;>.OfRef<TT;>;"
     invoke-virtual {p0, p1}, Ljava/util/Spliterators$EmptySpliterator;->forEachRemaining(Ljava/lang/Object;)V
 
     return-void
@@ -54,7 +61,11 @@
 
 .method public bridge synthetic tryAdvance(Ljava/util/function/Consumer;)Z
     .locals 1
+    .param p1, "consumer"    # Ljava/util/function/Consumer;
 
+    .prologue
+    .line 844
+    .local p0, "this":Ljava/util/Spliterators$EmptySpliterator$OfRef;, "Ljava/util/Spliterators$EmptySpliterator<TT;TS;TC;>.OfRef<TT;>;"
     invoke-virtual {p0, p1}, Ljava/util/Spliterators$EmptySpliterator;->tryAdvance(Ljava/lang/Object;)Z
 
     move-result v0

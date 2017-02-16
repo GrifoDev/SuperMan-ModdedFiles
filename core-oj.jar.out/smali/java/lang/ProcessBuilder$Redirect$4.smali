@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Ljava/io/File;)V
     .locals 1
+    .param p1, "val$file"    # Ljava/io/File;
 
+    .prologue
+    .line 525
     iput-object p1, p0, Ljava/lang/ProcessBuilder$Redirect$4;->val$file:Ljava/io/File;
 
     const/4 v0, 0x0
@@ -36,6 +39,8 @@
 .method append()Z
     .locals 1
 
+    .prologue
+    .line 531
     const/4 v0, 0x0
 
     return v0
@@ -44,6 +49,8 @@
 .method public file()Ljava/io/File;
     .locals 1
 
+    .prologue
+    .line 527
     iget-object v0, p0, Ljava/lang/ProcessBuilder$Redirect$4;->val$file:Ljava/io/File;
 
     return-object v0
@@ -52,6 +59,8 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 529
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -84,6 +93,8 @@
 .method public type()Ljava/lang/ProcessBuilder$Redirect$Type;
     .locals 1
 
+    .prologue
+    .line 526
     sget-object v0, Ljava/lang/ProcessBuilder$Redirect$Type;->WRITE:Ljava/lang/ProcessBuilder$Redirect$Type;
 
     return-object v0

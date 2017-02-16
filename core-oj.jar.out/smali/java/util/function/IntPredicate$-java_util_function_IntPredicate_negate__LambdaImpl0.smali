@@ -25,6 +25,7 @@
 .method public synthetic constructor <init>(Ljava/util/function/IntPredicate;)V
     .locals 0
 
+    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Ljava/util/function/IntPredicate$-java_util_function_IntPredicate_negate__LambdaImpl0;->val$this:Ljava/util/function/IntPredicate;
@@ -36,7 +37,9 @@
 # virtual methods
 .method public test(I)Z
     .locals 1
+    .param p1, "arg0"    # I
 
+    .prologue
     iget-object v0, p0, Ljava/util/function/IntPredicate$-java_util_function_IntPredicate_negate__LambdaImpl0;->val$this:Ljava/util/function/IntPredicate;
 
     invoke-interface {v0, p1}, Ljava/util/function/IntPredicate;->-java_util_function_IntPredicate_lambda$2(I)Z

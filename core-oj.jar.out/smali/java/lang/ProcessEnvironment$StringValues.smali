@@ -57,6 +57,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 365
+    .local p1, "c":Ljava/util/Collection;, "Ljava/util/Collection<Ljava/lang/ProcessEnvironment$Value;>;"
     invoke-direct {p0}, Ljava/util/AbstractCollection;-><init>()V
 
     iput-object p1, p0, Ljava/lang/ProcessEnvironment$StringValues;->c:Ljava/util/Collection;
@@ -69,6 +72,8 @@
 .method public clear()V
     .locals 1
 
+    .prologue
+    .line 368
     iget-object v0, p0, Ljava/lang/ProcessEnvironment$StringValues;->c:Ljava/util/Collection;
 
     invoke-interface {v0}, Ljava/util/Collection;->clear()V
@@ -78,7 +83,10 @@
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 2
+    .param p1, "o"    # Ljava/lang/Object;
 
+    .prologue
+    .line 378
     iget-object v0, p0, Ljava/lang/ProcessEnvironment$StringValues;->c:Ljava/util/Collection;
 
     invoke-static {p1}, Ljava/lang/ProcessEnvironment$Value;->valueOfQueryOnly(Ljava/lang/Object;)Ljava/lang/ProcessEnvironment$Value;
@@ -94,26 +102,33 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 2
+    .param p1, "o"    # Ljava/lang/Object;
 
+    .prologue
+    .line 384
     instance-of v0, p1, Ljava/lang/ProcessEnvironment$StringValues;
 
     if-eqz v0, :cond_0
 
+    .line 385
     iget-object v0, p0, Ljava/lang/ProcessEnvironment$StringValues;->c:Ljava/util/Collection;
 
     nop
 
     nop
 
+    .end local p1    # "o":Ljava/lang/Object;
     iget-object v1, p1, Ljava/lang/ProcessEnvironment$StringValues;->c:Ljava/util/Collection;
 
     invoke-interface {v0, v1}, Ljava/util/Collection;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
+    .line 384
     :goto_0
     return v0
 
+    .restart local p1    # "o":Ljava/lang/Object;
     :cond_0
     const/4 v0, 0x0
 
@@ -123,6 +138,8 @@
 .method public hashCode()I
     .locals 1
 
+    .prologue
+    .line 387
     iget-object v0, p0, Ljava/lang/ProcessEnvironment$StringValues;->c:Ljava/util/Collection;
 
     invoke-interface {v0}, Ljava/util/Collection;->hashCode()I
@@ -135,6 +152,8 @@
 .method public isEmpty()Z
     .locals 1
 
+    .prologue
+    .line 367
     iget-object v0, p0, Ljava/lang/ProcessEnvironment$StringValues;->c:Ljava/util/Collection;
 
     invoke-interface {v0}, Ljava/util/Collection;->isEmpty()Z
@@ -156,6 +175,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 370
     new-instance v0, Ljava/lang/ProcessEnvironment$StringValues$1;
 
     invoke-direct {v0, p0}, Ljava/lang/ProcessEnvironment$StringValues$1;-><init>(Ljava/lang/ProcessEnvironment$StringValues;)V
@@ -165,7 +186,10 @@
 
 .method public remove(Ljava/lang/Object;)Z
     .locals 2
+    .param p1, "o"    # Ljava/lang/Object;
 
+    .prologue
+    .line 381
     iget-object v0, p0, Ljava/lang/ProcessEnvironment$StringValues;->c:Ljava/util/Collection;
 
     invoke-static {p1}, Ljava/lang/ProcessEnvironment$Value;->valueOfQueryOnly(Ljava/lang/Object;)Ljava/lang/ProcessEnvironment$Value;
@@ -182,6 +206,8 @@
 .method public size()I
     .locals 1
 
+    .prologue
+    .line 366
     iget-object v0, p0, Ljava/lang/ProcessEnvironment$StringValues;->c:Ljava/util/Collection;
 
     invoke-interface {v0}, Ljava/util/Collection;->size()I

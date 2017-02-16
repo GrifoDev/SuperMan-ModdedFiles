@@ -43,16 +43,22 @@
 .method constructor <init>(Ljava/lang/Object;Ljava/util/function/UnaryOperator;)V
     .locals 1
 
+    .prologue
+    .line 1019
+    .local p1, "val$seed":Ljava/lang/Object;, "TT;"
+    .local p2, "val$f":Ljava/util/function/UnaryOperator;, "Ljava/util/function/UnaryOperator<TT;>;"
     iput-object p1, p0, Ljava/util/stream/Stream$1;->val$seed:Ljava/lang/Object;
 
     iput-object p2, p0, Ljava/util/stream/Stream$1;->val$f:Ljava/util/function/UnaryOperator;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 1021
     sget-object v0, Ljava/util/stream/Streams;->NONE:Ljava/lang/Object;
 
     iput-object v0, p0, Ljava/util/stream/Stream$1;->t:Ljava/lang/Object;
 
+    .line 1019
     return-void
 .end method
 
@@ -61,6 +67,8 @@
 .method public hasNext()Z
     .locals 1
 
+    .prologue
+    .line 1025
     const/4 v0, 0x1
 
     return v0
@@ -74,6 +82,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 1030
     iget-object v0, p0, Ljava/util/stream/Stream$1;->t:Ljava/lang/Object;
 
     sget-object v1, Ljava/util/stream/Streams;->NONE:Ljava/lang/Object;

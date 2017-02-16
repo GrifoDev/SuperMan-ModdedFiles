@@ -30,18 +30,23 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 692
     new-instance v0, Ljava/util/Random;
 
     invoke-direct {v0}, Ljava/util/Random;-><init>()V
 
     sput-object v0, Ljava/lang/Math$NoImagePreloadHolder;->INSTANCE:Ljava/util/Random;
 
+    .line 691
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 691
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

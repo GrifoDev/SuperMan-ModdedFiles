@@ -29,6 +29,7 @@
 .method public synthetic constructor <init>(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V
     .locals 0
 
+    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Ljava/util/stream/Collectors$-java_util_stream_Collector_joining_java_lang_CharSequence_delimiter_java_lang_CharSequence_prefix_java_lang_CharSequence_suffix_LambdaImpl0;->val$delimiter:Ljava/lang/CharSequence;
@@ -45,6 +46,7 @@
 .method public get()Ljava/lang/Object;
     .locals 3
 
+    .prologue
     iget-object v0, p0, Ljava/util/stream/Collectors$-java_util_stream_Collector_joining_java_lang_CharSequence_delimiter_java_lang_CharSequence_prefix_java_lang_CharSequence_suffix_LambdaImpl0;->val$delimiter:Ljava/lang/CharSequence;
 
     iget-object v1, p0, Ljava/util/stream/Collectors$-java_util_stream_Collector_joining_java_lang_CharSequence_delimiter_java_lang_CharSequence_prefix_java_lang_CharSequence_suffix_LambdaImpl0;->val$prefix:Ljava/lang/CharSequence;

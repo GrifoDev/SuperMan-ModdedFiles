@@ -27,6 +27,9 @@
 .method protected constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 74
+    .local p0, "this":Lsun/security/util/Cache;, "Lsun/security/util/Cache<TK;TV;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -34,6 +37,7 @@
 
 .method public static newHardMemoryCache(I)Lsun/security/util/Cache;
     .locals 2
+    .param p0, "size"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -46,6 +50,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 140
     new-instance v0, Lsun/security/util/MemoryCache;
 
     const/4 v1, 0x0
@@ -57,6 +63,8 @@
 
 .method public static newHardMemoryCache(II)Lsun/security/util/Cache;
     .locals 2
+    .param p0, "size"    # I
+    .param p1, "timeout"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -69,6 +77,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 157
     new-instance v0, Lsun/security/util/MemoryCache;
 
     const/4 v1, 0x0
@@ -92,6 +102,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 148
     sget-object v0, Lsun/security/util/NullCache;->INSTANCE:Lsun/security/util/Cache;
 
     return-object v0
@@ -99,6 +111,7 @@
 
 .method public static newSoftMemoryCache(I)Lsun/security/util/Cache;
     .locals 2
+    .param p0, "size"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -111,6 +124,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 123
     new-instance v0, Lsun/security/util/MemoryCache;
 
     const/4 v1, 0x1
@@ -122,6 +137,8 @@
 
 .method public static newSoftMemoryCache(II)Lsun/security/util/Cache;
     .locals 2
+    .param p0, "size"    # I
+    .param p1, "timeout"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -134,6 +151,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 132
     new-instance v0, Lsun/security/util/MemoryCache;
 
     const/4 v1, 0x1

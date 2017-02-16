@@ -43,6 +43,7 @@
 # direct methods
 .method constructor <init>(Lsun/security/ssl/Handshaker;Ljava/security/PrivilegedExceptionAction;)V
     .locals 0
+    .param p1, "this$0"    # Lsun/security/ssl/Handshaker;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -51,12 +52,18 @@
         }
     .end annotation
 
+    .prologue
+    .line 1292
+    .local p0, "this":Lsun/security/ssl/Handshaker$DelegatedTask;, "Lsun/security/ssl/Handshaker$DelegatedTask<TE;>;"
+    .local p2, "pea":Ljava/security/PrivilegedExceptionAction;, "Ljava/security/PrivilegedExceptionAction<TE;>;"
     iput-object p1, p0, Lsun/security/ssl/Handshaker$DelegatedTask;->this$0:Lsun/security/ssl/Handshaker;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 1293
     iput-object p2, p0, Lsun/security/ssl/Handshaker$DelegatedTask;->pea:Ljava/security/PrivilegedExceptionAction;
 
+    .line 1292
     return-void
 .end method
 
@@ -65,12 +72,16 @@
 .method public run()V
     .locals 5
 
+    .prologue
+    .line 1297
+    .local p0, "this":Lsun/security/ssl/Handshaker$DelegatedTask;, "Lsun/security/ssl/Handshaker$DelegatedTask<TE;>;"
     iget-object v2, p0, Lsun/security/ssl/Handshaker$DelegatedTask;->this$0:Lsun/security/ssl/Handshaker;
 
     iget-object v3, v2, Lsun/security/ssl/Handshaker;->engine:Lsun/security/ssl/SSLEngineImpl;
 
     monitor-enter v3
 
+    .line 1299
     :try_start_0
     iget-object v2, p0, Lsun/security/ssl/Handshaker$DelegatedTask;->pea:Ljava/security/PrivilegedExceptionAction;
 
@@ -88,6 +99,7 @@
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 1305
     :goto_0
     :try_start_1
     iget-object v2, p0, Lsun/security/ssl/Handshaker$DelegatedTask;->this$0:Lsun/security/ssl/Handshaker;
@@ -96,6 +108,7 @@
 
     invoke-static {v2, v4}, Lsun/security/ssl/Handshaker;->-set0(Lsun/security/ssl/Handshaker;Lsun/security/ssl/Handshaker$DelegatedTask;)Lsun/security/ssl/Handshaker$DelegatedTask;
 
+    .line 1306
     iget-object v2, p0, Lsun/security/ssl/Handshaker$DelegatedTask;->this$0:Lsun/security/ssl/Handshaker;
 
     const/4 v4, 0x0
@@ -106,11 +119,15 @@
 
     monitor-exit v3
 
+    .line 1296
     return-void
 
+    .line 1302
     :catch_0
     move-exception v1
 
+    .line 1303
+    .local v1, "rte":Ljava/lang/RuntimeException;
     :try_start_2
     iget-object v2, p0, Lsun/security/ssl/Handshaker$DelegatedTask;->this$0:Lsun/security/ssl/Handshaker;
 
@@ -120,6 +137,8 @@
 
     goto :goto_0
 
+    .line 1297
+    .end local v1    # "rte":Ljava/lang/RuntimeException;
     :catchall_0
     move-exception v2
 
@@ -127,9 +146,12 @@
 
     throw v2
 
+    .line 1300
     :catch_1
     move-exception v0
 
+    .line 1301
+    .local v0, "pae":Ljava/security/PrivilegedActionException;
     :try_start_3
     iget-object v2, p0, Lsun/security/ssl/Handshaker$DelegatedTask;->this$0:Lsun/security/ssl/Handshaker;
 

@@ -34,7 +34,10 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
     .locals 0
+    .param p1, "val$defaultKeyStore"    # Ljava/lang/String;
 
+    .prologue
+    .line 581
     iput-object p1, p0, Lsun/security/ssl/SSLContextImpl$DefaultSSLContext$2;->val$defaultKeyStore:Ljava/lang/String;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -52,6 +55,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 583
     new-instance v0, Ljava/io/FileInputStream;
 
     iget-object v1, p0, Lsun/security/ssl/SSLContextImpl$DefaultSSLContext$2;->val$defaultKeyStore:Ljava/lang/String;
@@ -69,6 +74,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 582
     invoke-virtual {p0}, Lsun/security/ssl/SSLContextImpl$DefaultSSLContext$2;->run()Ljava/io/FileInputStream;
 
     move-result-object v0

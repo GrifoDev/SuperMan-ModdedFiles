@@ -36,7 +36,11 @@
 # direct methods
 .method constructor <init>(Ljava/security/Signer;Ljava/security/PublicKey;)V
     .locals 0
+    .param p1, "this$0"    # Ljava/security/Signer;
+    .param p2, "val$pub"    # Ljava/security/PublicKey;
 
+    .prologue
+    .line 143
     iput-object p1, p0, Ljava/security/Signer$1;->this$0:Ljava/security/Signer;
 
     iput-object p2, p0, Ljava/security/Signer$1;->val$pub:Ljava/security/PublicKey;
@@ -56,6 +60,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 144
     invoke-virtual {p0}, Ljava/security/Signer$1;->run()Ljava/lang/Void;
 
     move-result-object v0
@@ -71,12 +77,15 @@
         }
     .end annotation
 
+    .prologue
+    .line 145
     iget-object v0, p0, Ljava/security/Signer$1;->this$0:Ljava/security/Signer;
 
     iget-object v1, p0, Ljava/security/Signer$1;->val$pub:Ljava/security/PublicKey;
 
     invoke-virtual {v0, v1}, Ljava/security/Identity;->setPublicKey(Ljava/security/PublicKey;)V
 
+    .line 146
     const/4 v0, 0x0
 
     return-object v0

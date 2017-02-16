@@ -24,11 +24,16 @@
 # direct methods
 .method public constructor <init>(Ljavax/security/auth/callback/CallbackHandler;)V
     .locals 2
+    .param p1, "handler"    # Ljavax/security/auth/callback/CallbackHandler;
 
+    .prologue
+    .line 361
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 362
     if-nez p1, :cond_0
 
+    .line 363
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string/jumbo v1, "handler must not be null"
@@ -37,9 +42,11 @@
 
     throw v0
 
+    .line 365
     :cond_0
     iput-object p1, p0, Ljava/security/KeyStore$CallbackHandlerProtection;->handler:Ljavax/security/auth/callback/CallbackHandler;
 
+    .line 361
     return-void
 .end method
 
@@ -48,6 +55,8 @@
 .method public getCallbackHandler()Ljavax/security/auth/callback/CallbackHandler;
     .locals 1
 
+    .prologue
+    .line 374
     iget-object v0, p0, Ljava/security/KeyStore$CallbackHandlerProtection;->handler:Ljavax/security/auth/callback/CallbackHandler;
 
     return-object v0

@@ -38,7 +38,12 @@
 # direct methods
 .method constructor <init>([Ljava/net/URL;Ljava/lang/ClassLoader;Ljava/security/AccessControlContext;)V
     .locals 0
+    .param p1, "val$urls"    # [Ljava/net/URL;
+    .param p2, "val$parent"    # Ljava/lang/ClassLoader;
+    .param p3, "val$acc"    # Ljava/security/AccessControlContext;
 
+    .prologue
+    .line 716
     iput-object p1, p0, Ljava/net/URLClassLoader$5;->val$urls:[Ljava/net/URL;
 
     iput-object p2, p0, Ljava/net/URLClassLoader$5;->val$parent:Ljava/lang/ClassLoader;
@@ -55,6 +60,8 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 717
     invoke-virtual {p0}, Ljava/net/URLClassLoader$5;->run()Ljava/net/URLClassLoader;
 
     move-result-object v0
@@ -65,6 +72,8 @@
 .method public run()Ljava/net/URLClassLoader;
     .locals 4
 
+    .prologue
+    .line 718
     new-instance v0, Ljava/net/FactoryURLClassLoader;
 
     iget-object v1, p0, Ljava/net/URLClassLoader$5;->val$urls:[Ljava/net/URL;

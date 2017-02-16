@@ -30,7 +30,10 @@
 # direct methods
 .method constructor <init>(Lsun/security/jca/ProviderList;)V
     .locals 0
+    .param p1, "this$0"    # Lsun/security/jca/ProviderList;
 
+    .prologue
+    .line 142
     iput-object p1, p0, Lsun/security/jca/ProviderList$2;->this$0:Lsun/security/jca/ProviderList;
 
     invoke-direct {p0}, Ljava/util/AbstractList;-><init>()V
@@ -42,7 +45,10 @@
 # virtual methods
 .method public bridge synthetic get(I)Ljava/lang/Object;
     .locals 1
+    .param p1, "index"    # I
 
+    .prologue
+    .line 146
     invoke-virtual {p0, p1}, Lsun/security/jca/ProviderList$2;->get(I)Ljava/security/Provider;
 
     move-result-object v0
@@ -52,7 +58,10 @@
 
 .method public get(I)Ljava/security/Provider;
     .locals 1
+    .param p1, "index"    # I
 
+    .prologue
+    .line 147
     iget-object v0, p0, Lsun/security/jca/ProviderList$2;->this$0:Lsun/security/jca/ProviderList;
 
     invoke-virtual {v0, p1}, Lsun/security/jca/ProviderList;->getProvider(I)Ljava/security/Provider;
@@ -65,6 +74,8 @@
 .method public size()I
     .locals 1
 
+    .prologue
+    .line 144
     iget-object v0, p0, Lsun/security/jca/ProviderList$2;->this$0:Lsun/security/jca/ProviderList;
 
     invoke-static {v0}, Lsun/security/jca/ProviderList;->-get0(Lsun/security/jca/ProviderList;)[Lsun/security/jca/ProviderConfig;

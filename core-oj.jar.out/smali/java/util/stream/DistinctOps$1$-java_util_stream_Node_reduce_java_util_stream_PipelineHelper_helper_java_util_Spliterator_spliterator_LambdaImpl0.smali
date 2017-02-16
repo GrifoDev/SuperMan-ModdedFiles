@@ -21,6 +21,7 @@
 .method public synthetic constructor <init>()V
     .locals 0
 
+    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -31,6 +32,7 @@
 .method public get()Ljava/lang/Object;
     .locals 1
 
+    .prologue
     invoke-static {}, Ljava/util/stream/DistinctOps$1;->-java_util_stream_DistinctOps$1-mthref-0()Ljava/util/LinkedHashSet;
 
     move-result-object v0

@@ -19,17 +19,25 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
+    .param p1, "text"    # Ljava/lang/String;
 
+    .prologue
+    .line 65
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Ljava/text/StringCharacterIterator;-><init>(Ljava/lang/String;I)V
 
+    .line 63
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;I)V
     .locals 2
+    .param p1, "text"    # Ljava/lang/String;
+    .param p2, "pos"    # I
 
+    .prologue
+    .line 76
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v0
@@ -38,29 +46,41 @@
 
     invoke-direct {p0, p1, v1, v0, p2}, Ljava/text/StringCharacterIterator;-><init>(Ljava/lang/String;III)V
 
+    .line 74
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;III)V
     .locals 2
+    .param p1, "text"    # Ljava/lang/String;
+    .param p2, "begin"    # I
+    .param p3, "end"    # I
+    .param p4, "pos"    # I
 
+    .prologue
+    .line 88
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 89
     if-nez p1, :cond_0
 
+    .line 90
     new-instance v0, Ljava/lang/NullPointerException;
 
     invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
 
     throw v0
 
+    .line 91
     :cond_0
     iput-object p1, p0, Ljava/text/StringCharacterIterator;->text:Ljava/lang/String;
 
+    .line 93
     if-ltz p2, :cond_1
 
     if-le p2, p3, :cond_2
 
+    .line 94
     :cond_1
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -70,6 +90,7 @@
 
     throw v0
 
+    .line 93
     :cond_2
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
@@ -77,10 +98,12 @@
 
     if-gt p3, v0, :cond_1
 
+    .line 96
     if-lt p4, p2, :cond_3
 
     if-le p4, p3, :cond_4
 
+    .line 97
     :cond_3
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -90,13 +113,17 @@
 
     throw v0
 
+    .line 99
     :cond_4
     iput p2, p0, Ljava/text/StringCharacterIterator;->begin:I
 
+    .line 100
     iput p3, p0, Ljava/text/StringCharacterIterator;->end:I
 
+    .line 101
     iput p4, p0, Ljava/text/StringCharacterIterator;->pos:I
 
+    .line 88
     return-void
 .end method
 
@@ -105,6 +132,8 @@
 .method public clone()Ljava/lang/Object;
     .locals 3
 
+    .prologue
+    .line 271
     :try_start_0
     invoke-super {p0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
@@ -114,11 +143,17 @@
     :try_end_0
     .catch Ljava/lang/CloneNotSupportedException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 272
+    .local v1, "other":Ljava/text/StringCharacterIterator;
     return-object v1
 
+    .line 274
+    .end local v1    # "other":Ljava/text/StringCharacterIterator;
     :catch_0
     move-exception v0
 
+    .line 275
+    .local v0, "e":Ljava/lang/CloneNotSupportedException;
     new-instance v2, Ljava/lang/InternalError;
 
     invoke-direct {v2}, Ljava/lang/InternalError;-><init>()V
@@ -129,6 +164,8 @@
 .method public current()C
     .locals 2
 
+    .prologue
+    .line 164
     iget v0, p0, Ljava/text/StringCharacterIterator;->pos:I
 
     iget v1, p0, Ljava/text/StringCharacterIterator;->begin:I
@@ -141,6 +178,7 @@
 
     if-ge v0, v1, :cond_0
 
+    .line 165
     iget-object v0, p0, Ljava/text/StringCharacterIterator;->text:Ljava/lang/String;
 
     iget v1, p0, Ljava/text/StringCharacterIterator;->pos:I
@@ -151,6 +189,7 @@
 
     return v0
 
+    .line 168
     :cond_0
     const v0, 0xffff
 
@@ -159,27 +198,36 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
+    .param p1, "obj"    # Ljava/lang/Object;
 
+    .prologue
     const/4 v4, 0x1
 
     const/4 v3, 0x0
 
+    .line 238
     if-ne p0, p1, :cond_0
 
+    .line 239
     return v4
 
+    .line 240
     :cond_0
     instance-of v1, p1, Ljava/text/StringCharacterIterator;
 
     if-nez v1, :cond_1
 
+    .line 241
     return v3
 
     :cond_1
     move-object v0, p1
 
+    .line 243
     check-cast v0, Ljava/text/StringCharacterIterator;
 
+    .line 245
+    .local v0, "that":Ljava/text/StringCharacterIterator;
     invoke-virtual {p0}, Ljava/text/StringCharacterIterator;->hashCode()I
 
     move-result v1
@@ -190,8 +238,10 @@
 
     if-eq v1, v2, :cond_2
 
+    .line 246
     return v3
 
+    .line 247
     :cond_2
     iget-object v1, p0, Ljava/text/StringCharacterIterator;->text:Ljava/lang/String;
 
@@ -203,8 +253,10 @@
 
     if-nez v1, :cond_3
 
+    .line 248
     return v3
 
+    .line 249
     :cond_3
     iget v1, p0, Ljava/text/StringCharacterIterator;->pos:I
 
@@ -218,9 +270,11 @@
 
     if-eq v1, v2, :cond_5
 
+    .line 250
     :cond_4
     return v3
 
+    .line 249
     :cond_5
     iget v1, p0, Ljava/text/StringCharacterIterator;->end:I
 
@@ -228,16 +282,20 @@
 
     if-ne v1, v2, :cond_4
 
+    .line 251
     return v4
 .end method
 
 .method public first()C
     .locals 1
 
+    .prologue
+    .line 128
     iget v0, p0, Ljava/text/StringCharacterIterator;->begin:I
 
     iput v0, p0, Ljava/text/StringCharacterIterator;->pos:I
 
+    .line 129
     invoke-virtual {p0}, Ljava/text/StringCharacterIterator;->current()C
 
     move-result v0
@@ -248,6 +306,8 @@
 .method public getBeginIndex()I
     .locals 1
 
+    .prologue
+    .line 209
     iget v0, p0, Ljava/text/StringCharacterIterator;->begin:I
 
     return v0
@@ -256,6 +316,8 @@
 .method public getEndIndex()I
     .locals 1
 
+    .prologue
+    .line 218
     iget v0, p0, Ljava/text/StringCharacterIterator;->end:I
 
     return v0
@@ -264,6 +326,8 @@
 .method public getIndex()I
     .locals 1
 
+    .prologue
+    .line 227
     iget v0, p0, Ljava/text/StringCharacterIterator;->pos:I
 
     return v0
@@ -272,6 +336,8 @@
 .method public hashCode()I
     .locals 2
 
+    .prologue
+    .line 260
     iget-object v0, p0, Ljava/text/StringCharacterIterator;->text:Ljava/lang/String;
 
     invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
@@ -296,18 +362,22 @@
 .method public last()C
     .locals 2
 
+    .prologue
+    .line 138
     iget v0, p0, Ljava/text/StringCharacterIterator;->end:I
 
     iget v1, p0, Ljava/text/StringCharacterIterator;->begin:I
 
     if-eq v0, v1, :cond_0
 
+    .line 139
     iget v0, p0, Ljava/text/StringCharacterIterator;->end:I
 
     add-int/lit8 v0, v0, -0x1
 
     iput v0, p0, Ljava/text/StringCharacterIterator;->pos:I
 
+    .line 143
     :goto_0
     invoke-virtual {p0}, Ljava/text/StringCharacterIterator;->current()C
 
@@ -315,6 +385,7 @@
 
     return v0
 
+    .line 141
     :cond_0
     iget v0, p0, Ljava/text/StringCharacterIterator;->end:I
 
@@ -326,6 +397,8 @@
 .method public next()C
     .locals 2
 
+    .prologue
+    .line 178
     iget v0, p0, Ljava/text/StringCharacterIterator;->pos:I
 
     iget v1, p0, Ljava/text/StringCharacterIterator;->end:I
@@ -334,12 +407,14 @@
 
     if-ge v0, v1, :cond_0
 
+    .line 179
     iget v0, p0, Ljava/text/StringCharacterIterator;->pos:I
 
     add-int/lit8 v0, v0, 0x1
 
     iput v0, p0, Ljava/text/StringCharacterIterator;->pos:I
 
+    .line 180
     iget-object v0, p0, Ljava/text/StringCharacterIterator;->text:Ljava/lang/String;
 
     iget v1, p0, Ljava/text/StringCharacterIterator;->pos:I
@@ -350,11 +425,13 @@
 
     return v0
 
+    .line 183
     :cond_0
     iget v0, p0, Ljava/text/StringCharacterIterator;->end:I
 
     iput v0, p0, Ljava/text/StringCharacterIterator;->pos:I
 
+    .line 184
     const v0, 0xffff
 
     return v0
@@ -363,18 +440,22 @@
 .method public previous()C
     .locals 2
 
+    .prologue
+    .line 194
     iget v0, p0, Ljava/text/StringCharacterIterator;->pos:I
 
     iget v1, p0, Ljava/text/StringCharacterIterator;->begin:I
 
     if-le v0, v1, :cond_0
 
+    .line 195
     iget v0, p0, Ljava/text/StringCharacterIterator;->pos:I
 
     add-int/lit8 v0, v0, -0x1
 
     iput v0, p0, Ljava/text/StringCharacterIterator;->pos:I
 
+    .line 196
     iget-object v0, p0, Ljava/text/StringCharacterIterator;->text:Ljava/lang/String;
 
     iget v1, p0, Ljava/text/StringCharacterIterator;->pos:I
@@ -385,6 +466,7 @@
 
     return v0
 
+    .line 199
     :cond_0
     const v0, 0xffff
 
@@ -393,7 +475,10 @@
 
 .method public setIndex(I)C
     .locals 2
+    .param p1, "p"    # I
 
+    .prologue
+    .line 152
     iget v0, p0, Ljava/text/StringCharacterIterator;->begin:I
 
     if-lt p1, v0, :cond_0
@@ -402,6 +487,7 @@
 
     if-le p1, v0, :cond_1
 
+    .line 153
     :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -411,9 +497,11 @@
 
     throw v0
 
+    .line 154
     :cond_1
     iput p1, p0, Ljava/text/StringCharacterIterator;->pos:I
 
+    .line 155
     invoke-virtual {p0}, Ljava/text/StringCharacterIterator;->current()C
 
     move-result v0
@@ -423,29 +511,38 @@
 
 .method public setText(Ljava/lang/String;)V
     .locals 2
+    .param p1, "text"    # Ljava/lang/String;
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 114
     if-nez p1, :cond_0
 
+    .line 115
     new-instance v0, Ljava/lang/NullPointerException;
 
     invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
 
     throw v0
 
+    .line 116
     :cond_0
     iput-object p1, p0, Ljava/text/StringCharacterIterator;->text:Ljava/lang/String;
 
+    .line 117
     iput v1, p0, Ljava/text/StringCharacterIterator;->begin:I
 
+    .line 118
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v0
 
     iput v0, p0, Ljava/text/StringCharacterIterator;->end:I
 
+    .line 119
     iput v1, p0, Ljava/text/StringCharacterIterator;->pos:I
 
+    .line 113
     return-void
 .end method

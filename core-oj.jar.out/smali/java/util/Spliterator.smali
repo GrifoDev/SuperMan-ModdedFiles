@@ -58,6 +58,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 326
+    .local p0, "this":Ljava/util/Spliterator;, "Ljava/util/Spliterator<TT;>;"
+    .local p1, "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-TT;>;"
     :cond_0
     invoke-interface {p0, p1}, Ljava/util/Spliterator;->tryAdvance(Ljava/util/function/Consumer;)Z
 
@@ -65,6 +69,7 @@
 
     if-nez v0, :cond_0
 
+    .line 325
     return-void
 .end method
 
@@ -78,6 +83,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 465
+    .local p0, "this":Ljava/util/Spliterator;, "Ljava/util/Spliterator<TT;>;"
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V
@@ -88,6 +96,9 @@
 .method public getExactSizeIfKnown()J
     .locals 2
 
+    .prologue
+    .line 408
+    .local p0, "this":Ljava/util/Spliterator;, "Ljava/util/Spliterator<TT;>;"
     invoke-interface {p0}, Ljava/util/Spliterator;->characteristics()I
 
     move-result v0
@@ -111,7 +122,11 @@
 
 .method public hasCharacteristics(I)Z
     .locals 1
+    .param p1, "characteristics"    # I
 
+    .prologue
+    .line 447
+    .local p0, "this":Ljava/util/Spliterator;, "Ljava/util/Spliterator<TT;>;"
     invoke-interface {p0}, Ljava/util/Spliterator;->characteristics()I
 
     move-result v0

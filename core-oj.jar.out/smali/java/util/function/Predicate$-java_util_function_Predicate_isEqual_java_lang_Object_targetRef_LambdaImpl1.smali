@@ -25,6 +25,7 @@
 .method public synthetic constructor <init>(Ljava/lang/Object;)V
     .locals 0
 
+    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Ljava/util/function/Predicate$-java_util_function_Predicate_isEqual_java_lang_Object_targetRef_LambdaImpl1;->val$targetRef:Ljava/lang/Object;
@@ -36,7 +37,9 @@
 # virtual methods
 .method public test(Ljava/lang/Object;)Z
     .locals 1
+    .param p1, "arg0"    # Ljava/lang/Object;
 
+    .prologue
     iget-object v0, p0, Ljava/util/function/Predicate$-java_util_function_Predicate_isEqual_java_lang_Object_targetRef_LambdaImpl1;->val$targetRef:Ljava/lang/Object;
 
     invoke-static {v0, p1}, Ljava/util/function/Predicate;->-java_util_function_Predicate_lambda$5(Ljava/lang/Object;Ljava/lang/Object;)Z

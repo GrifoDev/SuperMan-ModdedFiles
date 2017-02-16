@@ -38,7 +38,12 @@
 # direct methods
 .method constructor <init>(Ljava/util/stream/DoublePipeline$5;Ljava/util/stream/Sink;Ljava/util/function/DoubleFunction;)V
     .locals 0
+    .param p1, "this$1"    # Ljava/util/stream/DoublePipeline$5;
 
+    .prologue
+    .line 262
+    .local p2, "$anonymous0":Ljava/util/stream/Sink;, "Ljava/util/stream/Sink<-Ljava/lang/Double;>;"
+    .local p3, "val$mapper":Ljava/util/function/DoubleFunction;, "Ljava/util/function/DoubleFunction<+Ljava/util/stream/DoubleStream;>;"
     iput-object p1, p0, Ljava/util/stream/DoublePipeline$5$1;->this$1:Ljava/util/stream/DoublePipeline$5;
 
     iput-object p3, p0, Ljava/util/stream/DoublePipeline$5$1;->val$mapper:Ljava/util/function/DoubleFunction;
@@ -52,21 +57,29 @@
 # virtual methods
 .method synthetic -java_util_stream_DoublePipeline$5$1_lambda$3(D)V
     .locals 1
+    .param p1, "i"    # D
 
+    .prologue
+    .line 273
     iget-object v0, p0, Ljava/util/stream/Sink$ChainedDouble;->downstream:Ljava/util/stream/Sink;
 
     invoke-interface {v0, p1, p2}, Ljava/util/stream/Sink;->accept(D)V
 
+    .line 0
     return-void
 .end method
 
 .method public accept(D)V
     .locals 7
+    .param p1, "t"    # D
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 270
     const/4 v1, 0x0
 
+    .local v1, "result":Ljava/util/stream/DoubleStream;
     :try_start_0
     iget-object v2, p0, Ljava/util/stream/DoublePipeline$5$1;->val$mapper:Ljava/util/function/DoubleFunction;
 
@@ -80,8 +93,11 @@
 
     move-object v1, v0
 
+    .line 272
+    .local v1, "result":Ljava/util/stream/DoubleStream;
     if-eqz v1, :cond_0
 
+    .line 273
     invoke-interface {v1}, Ljava/util/stream/DoubleStream;->sequential()Ljava/util/stream/DoubleStream;
 
     move-result-object v2
@@ -95,6 +111,7 @@
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_1
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
+    .line 274
     :cond_0
     if-eqz v1, :cond_1
 
@@ -114,6 +131,7 @@
 
     goto :goto_0
 
+    .end local v1    # "result":Ljava/util/stream/DoubleStream;
     :catch_1
     move-exception v2
 
@@ -164,9 +182,13 @@
     :cond_4
     throw v2
 
+    .line 269
+    .restart local v1    # "result":Ljava/util/stream/DoubleStream;
     :cond_5
     return-void
 
+    .line 274
+    .end local v1    # "result":Ljava/util/stream/DoubleStream;
     :catchall_1
     move-exception v2
 
@@ -175,12 +197,16 @@
 
 .method public begin(J)V
     .locals 4
+    .param p1, "size"    # J
 
+    .prologue
+    .line 265
     iget-object v0, p0, Ljava/util/stream/Sink$ChainedDouble;->downstream:Ljava/util/stream/Sink;
 
     const-wide/16 v2, -0x1
 
     invoke-interface {v0, v2, v3}, Ljava/util/stream/Sink;->begin(J)V
 
+    .line 264
     return-void
 .end method

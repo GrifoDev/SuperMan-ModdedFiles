@@ -14,15 +14,22 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/Exception;)V
     .locals 1
+    .param p1, "s"    # Ljava/lang/String;
+    .param p2, "ex"    # Ljava/lang/Exception;
 
+    .prologue
+    .line 67
     invoke-direct {p0, p1}, Ljava/io/ObjectStreamException;-><init>(Ljava/lang/String;)V
 
+    .line 68
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Ljava/lang/Throwable;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
+    .line 69
     iput-object p2, p0, Ljava/io/WriteAbortedException;->detail:Ljava/lang/Exception;
 
+    .line 66
     return-void
 .end method
 
@@ -31,6 +38,8 @@
 .method public getCause()Ljava/lang/Throwable;
     .locals 1
 
+    .prologue
+    .line 91
     iget-object v0, p0, Ljava/io/WriteAbortedException;->detail:Ljava/lang/Exception;
 
     return-object v0
@@ -39,16 +48,20 @@
 .method public getMessage()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 77
     iget-object v0, p0, Ljava/io/WriteAbortedException;->detail:Ljava/lang/Exception;
 
     if-nez v0, :cond_0
 
+    .line 78
     invoke-super {p0}, Ljava/io/ObjectStreamException;->getMessage()Ljava/lang/String;
 
     move-result-object v0
 
     return-object v0
 
+    .line 80
     :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 

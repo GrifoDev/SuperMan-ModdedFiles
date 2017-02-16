@@ -57,6 +57,8 @@
 .method static constructor <clinit>()V
     .locals 7
 
+    .prologue
+    .line 315
     new-instance v0, Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;
 
     const-string/jumbo v1, "UNDEFINED"
@@ -75,6 +77,7 @@
 
     sput-object v0, Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;->UNDEFINED:Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;
 
+    .line 316
     new-instance v0, Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;
 
     const-string/jumbo v1, "NONE"
@@ -93,6 +96,7 @@
 
     sput-object v0, Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;->NONE:Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;
 
+    .line 317
     new-instance v0, Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;
 
     const-string/jumbo v1, "MD5"
@@ -111,6 +115,7 @@
 
     sput-object v0, Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;->MD5:Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;
 
+    .line 318
     new-instance v0, Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;
 
     const-string/jumbo v1, "SHA1"
@@ -129,6 +134,7 @@
 
     sput-object v0, Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;->SHA1:Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;
 
+    .line 319
     new-instance v0, Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;
 
     const-string/jumbo v1, "SHA224"
@@ -147,6 +153,7 @@
 
     sput-object v0, Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;->SHA224:Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;
 
+    .line 320
     new-instance v0, Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;
 
     const-string/jumbo v1, "SHA256"
@@ -165,6 +172,7 @@
 
     sput-object v0, Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;->SHA256:Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;
 
+    .line 321
     new-instance v0, Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;
 
     const-string/jumbo v1, "SHA384"
@@ -183,6 +191,7 @@
 
     sput-object v0, Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;->SHA384:Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;
 
+    .line 322
     new-instance v0, Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;
 
     const-string/jumbo v1, "SHA512"
@@ -201,6 +210,7 @@
 
     sput-object v0, Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;->SHA512:Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;
 
+    .line 314
     const/16 v0, 0x8
 
     new-array v0, v0, [Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;
@@ -260,65 +270,90 @@
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;II)V
     .locals 0
+    .param p3, "name"    # Ljava/lang/String;
+    .param p4, "standardName"    # Ljava/lang/String;
+    .param p5, "value"    # I
+    .param p6, "length"    # I
 
+    .prologue
+    .line 331
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
+    .line 333
     iput-object p3, p0, Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;->name:Ljava/lang/String;
 
+    .line 334
     iput-object p4, p0, Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;->standardName:Ljava/lang/String;
 
+    .line 335
     iput p5, p0, Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;->value:I
 
+    .line 336
     iput p6, p0, Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;->length:I
 
+    .line 332
     return-void
 .end method
 
 .method static valueOf(I)Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;
     .locals 1
+    .param p0, "value"    # I
 
+    .prologue
+    .line 340
     sget-object v0, Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;->UNDEFINED:Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;
 
+    .line 341
+    .local v0, "algorithm":Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;
     packed-switch p0, :pswitch_data_0
 
+    .line 365
     :goto_0
     return-object v0
 
+    .line 343
     :pswitch_0
     sget-object v0, Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;->NONE:Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;
 
     goto :goto_0
 
+    .line 346
     :pswitch_1
     sget-object v0, Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;->MD5:Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;
 
     goto :goto_0
 
+    .line 349
     :pswitch_2
     sget-object v0, Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;->SHA1:Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;
 
     goto :goto_0
 
+    .line 352
     :pswitch_3
     sget-object v0, Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;->SHA224:Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;
 
     goto :goto_0
 
+    .line 355
     :pswitch_4
     sget-object v0, Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;->SHA256:Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;
 
     goto :goto_0
 
+    .line 358
     :pswitch_5
     sget-object v0, Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;->SHA384:Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;
 
     goto :goto_0
 
+    .line 361
     :pswitch_6
     sget-object v0, Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;->SHA512:Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;
 
     goto :goto_0
 
+    .line 341
     nop
 
     :pswitch_data_0
@@ -335,7 +370,10 @@
 
 .method public static valueOf(Ljava/lang/String;)Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 314
     const-class v0, Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -350,6 +388,8 @@
 .method public static values()[Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;
     .locals 1
 
+    .prologue
+    .line 314
     sget-object v0, Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;->$VALUES:[Lsun/security/ssl/SignatureAndHashAlgorithm$HashAlgorithm;
 
     return-object v0

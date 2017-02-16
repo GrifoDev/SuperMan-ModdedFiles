@@ -40,6 +40,11 @@
 .method constructor <init>(Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BiConsumer;)V
     .locals 0
 
+    .prologue
+    .line 211
+    .local p1, "val$seedFactory":Ljava/util/function/Supplier;, "Ljava/util/function/Supplier<TR;>;"
+    .local p2, "val$accumulator":Ljava/util/function/BiConsumer;, "Ljava/util/function/BiConsumer<TR;-TT;>;"
+    .local p3, "val$reducer":Ljava/util/function/BiConsumer;, "Ljava/util/function/BiConsumer<TR;TR;>;"
     iput-object p1, p0, Ljava/util/stream/ReduceOps$4ReducingSink;->val$seedFactory:Ljava/util/function/Supplier;
 
     iput-object p2, p0, Ljava/util/stream/ReduceOps$4ReducingSink;->val$accumulator:Ljava/util/function/BiConsumer;
@@ -61,18 +66,25 @@
         }
     .end annotation
 
+    .prologue
+    .line 220
+    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Ljava/util/stream/ReduceOps$4ReducingSink;->val$accumulator:Ljava/util/function/BiConsumer;
 
     iget-object v1, p0, Ljava/util/stream/ReduceOps$Box;->state:Ljava/lang/Object;
 
     invoke-interface {v0, v1, p1}, Ljava/util/function/BiConsumer;->accept(Ljava/lang/Object;Ljava/lang/Object;)V
 
+    .line 219
     return-void
 .end method
 
 .method public begin(J)V
     .locals 1
+    .param p1, "size"    # J
 
+    .prologue
+    .line 215
     iget-object v0, p0, Ljava/util/stream/ReduceOps$4ReducingSink;->val$seedFactory:Ljava/util/function/Supplier;
 
     invoke-interface {v0}, Ljava/util/function/Supplier;->get()Ljava/lang/Object;
@@ -81,12 +93,16 @@
 
     iput-object v0, p0, Ljava/util/stream/ReduceOps$Box;->state:Ljava/lang/Object;
 
+    .line 214
     return-void
 .end method
 
 .method public combine(Ljava/util/stream/ReduceOps$4ReducingSink;)V
     .locals 3
+    .param p1, "other"    # Ljava/util/stream/ReduceOps$4ReducingSink;
 
+    .prologue
+    .line 225
     iget-object v0, p0, Ljava/util/stream/ReduceOps$4ReducingSink;->val$reducer:Ljava/util/function/BiConsumer;
 
     iget-object v1, p0, Ljava/util/stream/ReduceOps$Box;->state:Ljava/lang/Object;
@@ -95,14 +111,19 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/function/BiConsumer;->accept(Ljava/lang/Object;Ljava/lang/Object;)V
 
+    .line 224
     return-void
 .end method
 
 .method public bridge synthetic combine(Ljava/util/stream/ReduceOps$AccumulatingSink;)V
     .locals 0
+    .param p1, "other"    # Ljava/util/stream/ReduceOps$AccumulatingSink;
 
+    .prologue
+    .line 224
     check-cast p1, Ljava/util/stream/ReduceOps$4ReducingSink;
 
+    .end local p1    # "other":Ljava/util/stream/ReduceOps$AccumulatingSink;
     invoke-virtual {p0, p1}, Ljava/util/stream/ReduceOps$4ReducingSink;->combine(Ljava/util/stream/ReduceOps$4ReducingSink;)V
 
     return-void

@@ -58,8 +58,13 @@
         }
     .end annotation
 
+    .prologue
+    .line 1849
+    .local p0, "this":Ljava/util/Collections$SynchronizedCollection;, "Ljava/util/Collections$SynchronizedCollection<TE;>;"
+    .local p1, "c":Ljava/util/Collection;, "Ljava/util/Collection<TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 1850
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -68,13 +73,16 @@
 
     iput-object v0, p0, Ljava/util/Collections$SynchronizedCollection;->c:Ljava/util/Collection;
 
+    .line 1851
     iput-object p0, p0, Ljava/util/Collections$SynchronizedCollection;->mutex:Ljava/lang/Object;
 
+    .line 1849
     return-void
 .end method
 
 .method constructor <init>(Ljava/util/Collection;Ljava/lang/Object;)V
     .locals 1
+    .param p2, "mutex"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -85,8 +93,13 @@
         }
     .end annotation
 
+    .prologue
+    .line 1854
+    .local p0, "this":Ljava/util/Collections$SynchronizedCollection;, "Ljava/util/Collections$SynchronizedCollection<TE;>;"
+    .local p1, "c":Ljava/util/Collection;, "Ljava/util/Collection<TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 1855
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -95,23 +108,29 @@
 
     iput-object v0, p0, Ljava/util/Collections$SynchronizedCollection;->c:Ljava/util/Collection;
 
+    .line 1856
     invoke-static {p2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     iput-object v0, p0, Ljava/util/Collections$SynchronizedCollection;->mutex:Ljava/lang/Object;
 
+    .line 1854
     return-void
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
     .locals 2
+    .param p1, "s"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 1926
+    .local p0, "this":Ljava/util/Collections$SynchronizedCollection;, "Ljava/util/Collections$SynchronizedCollection<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$SynchronizedCollection;->mutex:Ljava/lang/Object;
 
     monitor-enter v0
@@ -123,8 +142,10 @@
 
     monitor-exit v0
 
+    .line 1925
     return-void
 
+    .line 1926
     :catchall_0
     move-exception v1
 
@@ -143,6 +164,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 1880
+    .local p0, "this":Ljava/util/Collections$SynchronizedCollection;, "Ljava/util/Collections$SynchronizedCollection<TE;>;"
+    .local p1, "e":Ljava/lang/Object;, "TE;"
     iget-object v1, p0, Ljava/util/Collections$SynchronizedCollection;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
@@ -178,6 +203,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 1890
+    .local p0, "this":Ljava/util/Collections$SynchronizedCollection;, "Ljava/util/Collections$SynchronizedCollection<TE;>;"
+    .local p1, "coll":Ljava/util/Collection;, "Ljava/util/Collection<+TE;>;"
     iget-object v1, p0, Ljava/util/Collections$SynchronizedCollection;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
@@ -206,6 +235,9 @@
 .method public clear()V
     .locals 2
 
+    .prologue
+    .line 1899
+    .local p0, "this":Ljava/util/Collections$SynchronizedCollection;, "Ljava/util/Collections$SynchronizedCollection<TE;>;"
     iget-object v1, p0, Ljava/util/Collections$SynchronizedCollection;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
@@ -219,8 +251,10 @@
 
     monitor-exit v1
 
+    .line 1898
     return-void
 
+    .line 1899
     :catchall_0
     move-exception v0
 
@@ -231,7 +265,11 @@
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 2
+    .param p1, "o"    # Ljava/lang/Object;
 
+    .prologue
+    .line 1866
+    .local p0, "this":Ljava/util/Collections$SynchronizedCollection;, "Ljava/util/Collections$SynchronizedCollection<TE;>;"
     iget-object v1, p0, Ljava/util/Collections$SynchronizedCollection;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
@@ -267,6 +305,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 1887
+    .local p0, "this":Ljava/util/Collections$SynchronizedCollection;, "Ljava/util/Collections$SynchronizedCollection<TE;>;"
+    .local p1, "coll":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     iget-object v1, p0, Ljava/util/Collections$SynchronizedCollection;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
@@ -302,6 +344,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 1907
+    .local p0, "this":Ljava/util/Collections$SynchronizedCollection;, "Ljava/util/Collections$SynchronizedCollection<TE;>;"
+    .local p1, "consumer":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-TE;>;"
     iget-object v1, p0, Ljava/util/Collections$SynchronizedCollection;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
@@ -315,8 +361,10 @@
 
     monitor-exit v1
 
+    .line 1906
     return-void
 
+    .line 1907
     :catchall_0
     move-exception v0
 
@@ -328,6 +376,9 @@
 .method public isEmpty()Z
     .locals 2
 
+    .prologue
+    .line 1863
+    .local p0, "this":Ljava/util/Collections$SynchronizedCollection;, "Ljava/util/Collections$SynchronizedCollection<TE;>;"
     iget-object v1, p0, Ljava/util/Collections$SynchronizedCollection;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
@@ -363,6 +414,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1876
+    .local p0, "this":Ljava/util/Collections$SynchronizedCollection;, "Ljava/util/Collections$SynchronizedCollection<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$SynchronizedCollection;->c:Ljava/util/Collection;
 
     invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
@@ -382,6 +436,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1923
+    .local p0, "this":Ljava/util/Collections$SynchronizedCollection;, "Ljava/util/Collections$SynchronizedCollection<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$SynchronizedCollection;->c:Ljava/util/Collection;
 
     invoke-interface {v0}, Ljava/util/Collection;->parallelStream()Ljava/util/stream/Stream;
@@ -393,7 +450,11 @@
 
 .method public remove(Ljava/lang/Object;)Z
     .locals 2
+    .param p1, "o"    # Ljava/lang/Object;
 
+    .prologue
+    .line 1883
+    .local p0, "this":Ljava/util/Collections$SynchronizedCollection;, "Ljava/util/Collections$SynchronizedCollection<TE;>;"
     iget-object v1, p0, Ljava/util/Collections$SynchronizedCollection;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
@@ -429,6 +490,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 1893
+    .local p0, "this":Ljava/util/Collections$SynchronizedCollection;, "Ljava/util/Collections$SynchronizedCollection<TE;>;"
+    .local p1, "coll":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     iget-object v1, p0, Ljava/util/Collections$SynchronizedCollection;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
@@ -464,6 +529,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 1911
+    .local p0, "this":Ljava/util/Collections$SynchronizedCollection;, "Ljava/util/Collections$SynchronizedCollection<TE;>;"
+    .local p1, "filter":Ljava/util/function/Predicate;, "Ljava/util/function/Predicate<-TE;>;"
     iget-object v1, p0, Ljava/util/Collections$SynchronizedCollection;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
@@ -499,6 +568,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 1896
+    .local p0, "this":Ljava/util/Collections$SynchronizedCollection;, "Ljava/util/Collections$SynchronizedCollection<TE;>;"
+    .local p1, "coll":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     iget-object v1, p0, Ljava/util/Collections$SynchronizedCollection;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
@@ -527,6 +600,9 @@
 .method public size()I
     .locals 2
 
+    .prologue
+    .line 1860
+    .local p0, "this":Ljava/util/Collections$SynchronizedCollection;, "Ljava/util/Collections$SynchronizedCollection<TE;>;"
     iget-object v1, p0, Ljava/util/Collections$SynchronizedCollection;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
@@ -562,6 +638,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1915
+    .local p0, "this":Ljava/util/Collections$SynchronizedCollection;, "Ljava/util/Collections$SynchronizedCollection<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$SynchronizedCollection;->c:Ljava/util/Collection;
 
     invoke-interface {v0}, Ljava/util/Collection;->spliterator()Ljava/util/Spliterator;
@@ -581,6 +660,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1919
+    .local p0, "this":Ljava/util/Collections$SynchronizedCollection;, "Ljava/util/Collections$SynchronizedCollection<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$SynchronizedCollection;->c:Ljava/util/Collection;
 
     invoke-interface {v0}, Ljava/util/Collection;->stream()Ljava/util/stream/Stream;
@@ -593,6 +675,9 @@
 .method public toArray()[Ljava/lang/Object;
     .locals 2
 
+    .prologue
+    .line 1869
+    .local p0, "this":Ljava/util/Collections$SynchronizedCollection;, "Ljava/util/Collections$SynchronizedCollection<TE;>;"
     iget-object v1, p0, Ljava/util/Collections$SynchronizedCollection;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
@@ -628,6 +713,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 1872
+    .local p0, "this":Ljava/util/Collections$SynchronizedCollection;, "Ljava/util/Collections$SynchronizedCollection<TE;>;"
+    .local p1, "a":[Ljava/lang/Object;, "[TT;"
     iget-object v1, p0, Ljava/util/Collections$SynchronizedCollection;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
@@ -656,6 +745,9 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 1902
+    .local p0, "this":Ljava/util/Collections$SynchronizedCollection;, "Ljava/util/Collections$SynchronizedCollection<TE;>;"
     iget-object v1, p0, Ljava/util/Collections$SynchronizedCollection;->mutex:Ljava/lang/Object;
 
     monitor-enter v1

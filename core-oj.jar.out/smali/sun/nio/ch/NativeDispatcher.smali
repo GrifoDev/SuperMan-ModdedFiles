@@ -7,6 +7,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 35
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -25,6 +27,8 @@
 .method needsPositionLock()Z
     .locals 1
 
+    .prologue
+    .line 46
     const/4 v0, 0x0
 
     return v0
@@ -32,23 +36,32 @@
 
 .method preClose(Ljava/io/FileDescriptor;)V
     .locals 0
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 76
     return-void
 .end method
 
 .method pread(Ljava/io/FileDescriptor;JIJ)I
     .locals 2
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "address"    # J
+    .param p4, "len"    # I
+    .param p5, "position"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 52
     new-instance v0, Ljava/io/IOException;
 
     const-string/jumbo v1, "Operation Unsupported"
@@ -60,12 +73,18 @@
 
 .method pwrite(Ljava/io/FileDescriptor;JIJ)I
     .locals 2
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "address"    # J
+    .param p4, "len"    # I
+    .param p5, "position"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 64
     new-instance v0, Ljava/io/IOException;
 
     const-string/jumbo v1, "Operation Unsupported"

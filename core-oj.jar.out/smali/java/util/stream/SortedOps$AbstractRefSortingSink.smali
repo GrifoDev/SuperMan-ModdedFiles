@@ -50,10 +50,17 @@
         }
     .end annotation
 
+    .prologue
+    .line 310
+    .local p0, "this":Ljava/util/stream/SortedOps$AbstractRefSortingSink;, "Ljava/util/stream/SortedOps$AbstractRefSortingSink<TT;>;"
+    .local p1, "downstream":Ljava/util/stream/Sink;, "Ljava/util/stream/Sink<-TT;>;"
+    .local p2, "comparator":Ljava/util/Comparator;, "Ljava/util/Comparator<-TT;>;"
     invoke-direct {p0, p1}, Ljava/util/stream/Sink$ChainedReference;-><init>(Ljava/util/stream/Sink;)V
 
+    .line 311
     iput-object p2, p0, Ljava/util/stream/SortedOps$AbstractRefSortingSink;->comparator:Ljava/util/Comparator;
 
+    .line 309
     return-void
 .end method
 
@@ -62,10 +69,14 @@
 .method public final cancellationRequested()Z
     .locals 1
 
+    .prologue
+    .line 322
+    .local p0, "this":Ljava/util/stream/SortedOps$AbstractRefSortingSink;, "Ljava/util/stream/SortedOps$AbstractRefSortingSink<TT;>;"
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Ljava/util/stream/SortedOps$AbstractRefSortingSink;->cancellationWasRequested:Z
 
+    .line 323
     const/4 v0, 0x0
 
     return v0

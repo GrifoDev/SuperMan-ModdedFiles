@@ -36,15 +36,23 @@
 
 .method constructor <init>(Lsun/misc/SoftCache;Ljava/util/Map$Entry;Ljava/lang/Object;)V
     .locals 0
+    .param p1, "this$0"    # Lsun/misc/SoftCache;
+    .param p2, "ent"    # Ljava/util/Map$Entry;
+    .param p3, "value"    # Ljava/lang/Object;
 
+    .prologue
+    .line 357
     iput-object p1, p0, Lsun/misc/SoftCache$Entry;->this$0:Lsun/misc/SoftCache;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 358
     iput-object p2, p0, Lsun/misc/SoftCache$Entry;->ent:Ljava/util/Map$Entry;
 
+    .line 359
     iput-object p3, p0, Lsun/misc/SoftCache$Entry;->value:Ljava/lang/Object;
 
+    .line 357
     return-void
 .end method
 
@@ -52,9 +60,12 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
+    .param p1, "o"    # Ljava/lang/Object;
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 375
     instance-of v2, p1, Ljava/util/Map$Entry;
 
     if-nez v2, :cond_0
@@ -64,8 +75,11 @@
     :cond_0
     move-object v0, p1
 
+    .line 376
     check-cast v0, Ljava/util/Map$Entry;
 
+    .line 377
+    .local v0, "e":Ljava/util/Map$Entry;
     iget-object v2, p0, Lsun/misc/SoftCache$Entry;->ent:Ljava/util/Map$Entry;
 
     invoke-interface {v2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -82,6 +96,7 @@
 
     if-eqz v2, :cond_1
 
+    .line 378
     iget-object v1, p0, Lsun/misc/SoftCache$Entry;->value:Ljava/lang/Object;
 
     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
@@ -92,6 +107,7 @@
 
     move-result v1
 
+    .line 377
     :cond_1
     return v1
 .end method
@@ -99,6 +115,8 @@
 .method public getKey()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 363
     iget-object v0, p0, Lsun/misc/SoftCache$Entry;->ent:Ljava/util/Map$Entry;
 
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -111,6 +129,8 @@
 .method public getValue()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 367
     iget-object v0, p0, Lsun/misc/SoftCache$Entry;->value:Ljava/lang/Object;
 
     return-object v0
@@ -119,21 +139,26 @@
 .method public hashCode()I
     .locals 4
 
+    .prologue
     const/4 v2, 0x0
 
+    .line 383
     invoke-virtual {p0}, Lsun/misc/SoftCache$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v0
 
+    .local v0, "k":Ljava/lang/Object;
     if-nez v0, :cond_0
 
     move v1, v2
 
+    .line 384
     :goto_0
     iget-object v3, p0, Lsun/misc/SoftCache$Entry;->value:Ljava/lang/Object;
 
     if-nez v3, :cond_1
 
+    .line 383
     :goto_1
     xor-int/2addr v1, v2
 
@@ -146,6 +171,7 @@
 
     goto :goto_0
 
+    .line 384
     :cond_1
     iget-object v2, p0, Lsun/misc/SoftCache$Entry;->value:Ljava/lang/Object;
 
@@ -158,7 +184,10 @@
 
 .method public setValue(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 3
+    .param p1, "value"    # Ljava/lang/Object;
 
+    .prologue
+    .line 371
     iget-object v0, p0, Lsun/misc/SoftCache$Entry;->ent:Ljava/util/Map$Entry;
 
     iget-object v1, p0, Lsun/misc/SoftCache$Entry;->ent:Ljava/util/Map$Entry;

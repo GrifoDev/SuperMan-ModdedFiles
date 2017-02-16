@@ -36,7 +36,13 @@
 # direct methods
 .method constructor <init>(Ljava/util/stream/StreamShape;Ljava/util/function/Supplier;Ljava/util/function/ObjIntConsumer;Ljava/util/function/BinaryOperator;)V
     .locals 0
+    .param p1, "$anonymous0"    # Ljava/util/stream/StreamShape;
 
+    .prologue
+    .line 364
+    .local p2, "val$supplier":Ljava/util/function/Supplier;, "Ljava/util/function/Supplier<TR;>;"
+    .local p3, "val$accumulator":Ljava/util/function/ObjIntConsumer;, "Ljava/util/function/ObjIntConsumer<TR;>;"
+    .local p4, "val$combiner":Ljava/util/function/BinaryOperator;, "Ljava/util/function/BinaryOperator<TR;>;"
     iput-object p2, p0, Ljava/util/stream/ReduceOps$7;->val$supplier:Ljava/util/function/Supplier;
 
     iput-object p3, p0, Ljava/util/stream/ReduceOps$7;->val$accumulator:Ljava/util/function/ObjIntConsumer;
@@ -53,6 +59,8 @@
 .method public makeSink()Ljava/util/stream/ReduceOps$7ReducingSink;
     .locals 4
 
+    .prologue
+    .line 367
     new-instance v0, Ljava/util/stream/ReduceOps$7ReducingSink;
 
     iget-object v1, p0, Ljava/util/stream/ReduceOps$7;->val$supplier:Ljava/util/function/Supplier;
@@ -69,6 +77,8 @@
 .method public bridge synthetic makeSink()Ljava/util/stream/ReduceOps$AccumulatingSink;
     .locals 1
 
+    .prologue
+    .line 366
     invoke-virtual {p0}, Ljava/util/stream/ReduceOps$7;->makeSink()Ljava/util/stream/ReduceOps$7ReducingSink;
 
     move-result-object v0

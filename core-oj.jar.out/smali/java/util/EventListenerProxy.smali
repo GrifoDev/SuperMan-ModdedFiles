@@ -37,10 +37,16 @@
         }
     .end annotation
 
+    .prologue
+    .line 63
+    .local p0, "this":Ljava/util/EventListenerProxy;, "Ljava/util/EventListenerProxy<TT;>;"
+    .local p1, "listener":Ljava/util/EventListener;, "TT;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 64
     iput-object p1, p0, Ljava/util/EventListenerProxy;->listener:Ljava/util/EventListener;
 
+    .line 63
     return-void
 .end method
 
@@ -54,6 +60,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 73
+    .local p0, "this":Ljava/util/EventListenerProxy;, "Ljava/util/EventListenerProxy<TT;>;"
     iget-object v0, p0, Ljava/util/EventListenerProxy;->listener:Ljava/util/EventListener;
 
     return-object v0

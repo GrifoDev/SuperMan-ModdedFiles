@@ -26,15 +26,20 @@
 # direct methods
 .method constructor <init>(Ljava/lang/CharSequence;)V
     .locals 1
+    .param p1, "this$0"    # Ljava/lang/CharSequence;
 
+    .prologue
+    .line 131
     iput-object p1, p0, Ljava/lang/CharSequence$1CharIterator;->this$0:Ljava/lang/CharSequence;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 132
     const/4 v0, 0x0
 
     iput v0, p0, Ljava/lang/CharSequence$1CharIterator;->cur:I
 
+    .line 131
     return-void
 .end method
 
@@ -42,9 +47,13 @@
 # virtual methods
 .method public bridge synthetic forEachRemaining(Ljava/lang/Object;)V
     .locals 0
+    .param p1, "block"    # Ljava/lang/Object;
 
+    .prologue
+    .line 147
     check-cast p1, Ljava/util/function/IntConsumer;
 
+    .end local p1    # "block":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Ljava/lang/CharSequence$1CharIterator;->forEachRemaining(Ljava/util/function/IntConsumer;)V
 
     return-void
@@ -52,7 +61,10 @@
 
 .method public forEachRemaining(Ljava/util/function/IntConsumer;)V
     .locals 2
+    .param p1, "block"    # Ljava/util/function/IntConsumer;
 
+    .prologue
+    .line 148
     :goto_0
     iget v0, p0, Ljava/lang/CharSequence$1CharIterator;->cur:I
 
@@ -64,6 +76,7 @@
 
     if-ge v0, v1, :cond_0
 
+    .line 149
     iget-object v0, p0, Ljava/lang/CharSequence$1CharIterator;->this$0:Ljava/lang/CharSequence;
 
     iget v1, p0, Ljava/lang/CharSequence$1CharIterator;->cur:I
@@ -74,6 +87,7 @@
 
     invoke-interface {p1, v0}, Ljava/util/function/IntConsumer;->accept(I)V
 
+    .line 148
     iget v0, p0, Ljava/lang/CharSequence$1CharIterator;->cur:I
 
     add-int/lit8 v0, v0, 0x1
@@ -82,6 +96,7 @@
 
     goto :goto_0
 
+    .line 147
     :cond_0
     return-void
 .end method
@@ -89,6 +104,8 @@
 .method public hasNext()Z
     .locals 2
 
+    .prologue
+    .line 135
     iget v0, p0, Ljava/lang/CharSequence$1CharIterator;->cur:I
 
     iget-object v1, p0, Ljava/lang/CharSequence$1CharIterator;->this$0:Ljava/lang/CharSequence;
@@ -113,6 +130,8 @@
 .method public bridge synthetic next()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 125
     invoke-interface {p0}, Ljava/util/PrimitiveIterator$OfInt;->next()Ljava/lang/Integer;
 
     move-result-object v0
@@ -123,12 +142,15 @@
 .method public nextInt()I
     .locals 3
 
+    .prologue
+    .line 139
     invoke-virtual {p0}, Ljava/lang/CharSequence$1CharIterator;->hasNext()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
+    .line 140
     iget-object v0, p0, Ljava/lang/CharSequence$1CharIterator;->this$0:Ljava/lang/CharSequence;
 
     iget v1, p0, Ljava/lang/CharSequence$1CharIterator;->cur:I
@@ -143,6 +165,7 @@
 
     return v0
 
+    .line 142
     :cond_0
     new-instance v0, Ljava/util/NoSuchElementException;
 

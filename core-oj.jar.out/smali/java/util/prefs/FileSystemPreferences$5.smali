@@ -34,7 +34,10 @@
 # direct methods
 .method constructor <init>(Ljava/util/prefs/FileSystemPreferences;)V
     .locals 0
+    .param p1, "this$0"    # Ljava/util/prefs/FileSystemPreferences;
 
+    .prologue
+    .line 614
     iput-object p1, p0, Ljava/util/prefs/FileSystemPreferences$5;->this$0:Ljava/util/prefs/FileSystemPreferences;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -52,6 +55,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 615
     invoke-virtual {p0}, Ljava/util/prefs/FileSystemPreferences$5;->run()Ljava/lang/Void;
 
     move-result-object v0
@@ -67,8 +72,10 @@
         }
     .end annotation
 
+    .prologue
     const/4 v4, 0x0
 
+    .line 617
     :try_start_0
     iget-object v3, p0, Ljava/util/prefs/FileSystemPreferences$5;->this$0:Ljava/util/prefs/FileSystemPreferences;
 
@@ -96,9 +103,11 @@
 
     if-eqz v3, :cond_2
 
+    .line 620
     :cond_0
     const/4 v1, 0x0
 
+    .local v1, "fos":Ljava/io/FileOutputStream;
     :try_start_1
     new-instance v2, Ljava/io/FileOutputStream;
 
@@ -113,6 +122,9 @@
     .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_2
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
+    .line 621
+    .end local v1    # "fos":Ljava/io/FileOutputStream;
+    .local v2, "fos":Ljava/io/FileOutputStream;
     :try_start_2
     iget-object v3, p0, Ljava/util/prefs/FileSystemPreferences$5;->this$0:Ljava/util/prefs/FileSystemPreferences;
 
@@ -125,6 +137,7 @@
     .catch Ljava/lang/Throwable; {:try_start_2 .. :try_end_2} :catch_4
     .catchall {:try_start_2 .. :try_end_2} :catchall_2
 
+    .line 622
     if-eqz v2, :cond_1
 
     :try_start_3
@@ -144,19 +157,26 @@
     :try_end_4
     .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_0
 
+    .line 626
+    .end local v2    # "fos":Ljava/io/FileOutputStream;
     :catch_0
     move-exception v0
 
+    .line 627
+    .local v0, "e":Ljava/lang/Exception;
     instance-of v3, v0, Ljava/util/prefs/BackingStoreException;
 
     if-eqz v3, :cond_7
 
+    .line 628
     nop
 
     nop
 
+    .end local v0    # "e":Ljava/lang/Exception;
     throw v0
 
+    .line 618
     :cond_2
     :try_start_5
     new-instance v3, Ljava/util/prefs/BackingStoreException;
@@ -175,8 +195,10 @@
 
     move-result-object v4
 
+    .line 619
     const-string/jumbo v5, " create failed."
 
+    .line 618
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
@@ -191,14 +213,19 @@
     :try_end_5
     .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_0
 
+    .line 622
+    .restart local v2    # "fos":Ljava/io/FileOutputStream;
     :catch_1
     move-exception v3
 
     goto :goto_0
 
+    .end local v2    # "fos":Ljava/io/FileOutputStream;
+    .restart local v1    # "fos":Ljava/io/FileOutputStream;
     :catch_2
     move-exception v3
 
+    .end local v1    # "fos":Ljava/io/FileOutputStream;
     :goto_1
     :try_start_6
     throw v3
@@ -249,6 +276,8 @@
     :cond_5
     throw v3
 
+    .line 623
+    .restart local v2    # "fos":Ljava/io/FileOutputStream;
     :cond_6
     iget-object v3, p0, Ljava/util/prefs/FileSystemPreferences$5;->this$0:Ljava/util/prefs/FileSystemPreferences;
 
@@ -268,6 +297,7 @@
 
     if-nez v3, :cond_8
 
+    .line 624
     new-instance v3, Ljava/util/prefs/BackingStoreException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -280,28 +310,34 @@
 
     move-result-object v4
 
+    .line 625
     iget-object v5, p0, Ljava/util/prefs/FileSystemPreferences$5;->this$0:Ljava/util/prefs/FileSystemPreferences;
 
     invoke-static {v5}, Ljava/util/prefs/FileSystemPreferences;->-get8(Ljava/util/prefs/FileSystemPreferences;)Ljava/io/File;
 
     move-result-object v5
 
+    .line 624
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
+    .line 625
     const-string/jumbo v5, " to "
 
+    .line 624
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
+    .line 625
     iget-object v5, p0, Ljava/util/prefs/FileSystemPreferences$5;->this$0:Ljava/util/prefs/FileSystemPreferences;
 
     invoke-static {v5}, Ljava/util/prefs/FileSystemPreferences;->-get4(Ljava/util/prefs/FileSystemPreferences;)Ljava/io/File;
 
     move-result-object v5
 
+    .line 624
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v4
@@ -316,6 +352,9 @@
     :try_end_8
     .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_8} :catch_0
 
+    .line 629
+    .end local v2    # "fos":Ljava/io/FileOutputStream;
+    .restart local v0    # "e":Ljava/lang/Exception;
     :cond_7
     new-instance v3, Ljava/util/prefs/BackingStoreException;
 
@@ -323,25 +362,39 @@
 
     throw v3
 
+    .line 631
+    .end local v0    # "e":Ljava/lang/Exception;
+    .restart local v2    # "fos":Ljava/io/FileOutputStream;
     :cond_8
     return-object v4
 
+    .line 622
+    .end local v2    # "fos":Ljava/io/FileOutputStream;
+    .restart local v1    # "fos":Ljava/io/FileOutputStream;
     :catchall_1
     move-exception v3
 
     goto :goto_2
 
+    .end local v1    # "fos":Ljava/io/FileOutputStream;
+    .restart local v2    # "fos":Ljava/io/FileOutputStream;
     :catchall_2
     move-exception v3
 
     move-object v1, v2
 
+    .end local v2    # "fos":Ljava/io/FileOutputStream;
+    .local v1, "fos":Ljava/io/FileOutputStream;
     goto :goto_2
 
+    .end local v1    # "fos":Ljava/io/FileOutputStream;
+    .restart local v2    # "fos":Ljava/io/FileOutputStream;
     :catch_4
     move-exception v3
 
     move-object v1, v2
 
+    .end local v2    # "fos":Ljava/io/FileOutputStream;
+    .restart local v1    # "fos":Ljava/io/FileOutputStream;
     goto :goto_1
 .end method

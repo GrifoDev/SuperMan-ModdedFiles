@@ -42,6 +42,7 @@
 .method static constructor <clinit>()V
     .locals 8
 
+    .prologue
     const/4 v7, 0x4
 
     const/4 v6, 0x3
@@ -52,46 +53,57 @@
 
     const/4 v3, 0x0
 
+    .line 40
     new-instance v0, Ljava/lang/annotation/ElementType;
 
     const-string/jumbo v1, "TYPE"
 
     invoke-direct {v0, v1, v3}, Ljava/lang/annotation/ElementType;-><init>(Ljava/lang/String;I)V
 
+    .line 41
     sput-object v0, Ljava/lang/annotation/ElementType;->TYPE:Ljava/lang/annotation/ElementType;
 
+    .line 43
     new-instance v0, Ljava/lang/annotation/ElementType;
 
     const-string/jumbo v1, "FIELD"
 
     invoke-direct {v0, v1, v4}, Ljava/lang/annotation/ElementType;-><init>(Ljava/lang/String;I)V
 
+    .line 44
     sput-object v0, Ljava/lang/annotation/ElementType;->FIELD:Ljava/lang/annotation/ElementType;
 
+    .line 46
     new-instance v0, Ljava/lang/annotation/ElementType;
 
     const-string/jumbo v1, "METHOD"
 
     invoke-direct {v0, v1, v5}, Ljava/lang/annotation/ElementType;-><init>(Ljava/lang/String;I)V
 
+    .line 47
     sput-object v0, Ljava/lang/annotation/ElementType;->METHOD:Ljava/lang/annotation/ElementType;
 
+    .line 49
     new-instance v0, Ljava/lang/annotation/ElementType;
 
     const-string/jumbo v1, "PARAMETER"
 
     invoke-direct {v0, v1, v6}, Ljava/lang/annotation/ElementType;-><init>(Ljava/lang/String;I)V
 
+    .line 50
     sput-object v0, Ljava/lang/annotation/ElementType;->PARAMETER:Ljava/lang/annotation/ElementType;
 
+    .line 52
     new-instance v0, Ljava/lang/annotation/ElementType;
 
     const-string/jumbo v1, "CONSTRUCTOR"
 
     invoke-direct {v0, v1, v7}, Ljava/lang/annotation/ElementType;-><init>(Ljava/lang/String;I)V
 
+    .line 53
     sput-object v0, Ljava/lang/annotation/ElementType;->CONSTRUCTOR:Ljava/lang/annotation/ElementType;
 
+    .line 55
     new-instance v0, Ljava/lang/annotation/ElementType;
 
     const-string/jumbo v1, "LOCAL_VARIABLE"
@@ -100,8 +112,10 @@
 
     invoke-direct {v0, v1, v2}, Ljava/lang/annotation/ElementType;-><init>(Ljava/lang/String;I)V
 
+    .line 56
     sput-object v0, Ljava/lang/annotation/ElementType;->LOCAL_VARIABLE:Ljava/lang/annotation/ElementType;
 
+    .line 58
     new-instance v0, Ljava/lang/annotation/ElementType;
 
     const-string/jumbo v1, "ANNOTATION_TYPE"
@@ -110,8 +124,10 @@
 
     invoke-direct {v0, v1, v2}, Ljava/lang/annotation/ElementType;-><init>(Ljava/lang/String;I)V
 
+    .line 59
     sput-object v0, Ljava/lang/annotation/ElementType;->ANNOTATION_TYPE:Ljava/lang/annotation/ElementType;
 
+    .line 61
     new-instance v0, Ljava/lang/annotation/ElementType;
 
     const-string/jumbo v1, "PACKAGE"
@@ -120,8 +136,10 @@
 
     invoke-direct {v0, v1, v2}, Ljava/lang/annotation/ElementType;-><init>(Ljava/lang/String;I)V
 
+    .line 62
     sput-object v0, Ljava/lang/annotation/ElementType;->PACKAGE:Ljava/lang/annotation/ElementType;
 
+    .line 64
     new-instance v0, Ljava/lang/annotation/ElementType;
 
     const-string/jumbo v1, "TYPE_PARAMETER"
@@ -130,8 +148,10 @@
 
     invoke-direct {v0, v1, v2}, Ljava/lang/annotation/ElementType;-><init>(Ljava/lang/String;I)V
 
+    .line 70
     sput-object v0, Ljava/lang/annotation/ElementType;->TYPE_PARAMETER:Ljava/lang/annotation/ElementType;
 
+    .line 72
     new-instance v0, Ljava/lang/annotation/ElementType;
 
     const-string/jumbo v1, "TYPE_USE"
@@ -140,8 +160,10 @@
 
     invoke-direct {v0, v1, v2}, Ljava/lang/annotation/ElementType;-><init>(Ljava/lang/String;I)V
 
+    .line 78
     sput-object v0, Ljava/lang/annotation/ElementType;->TYPE_USE:Ljava/lang/annotation/ElementType;
 
+    .line 39
     const/16 v0, 0xa
 
     new-array v0, v0, [Ljava/lang/annotation/ElementType;
@@ -204,6 +226,8 @@
 .method private constructor <init>(Ljava/lang/String;I)V
     .locals 0
 
+    .prologue
+    .line 39
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -211,7 +235,10 @@
 
 .method public static valueOf(Ljava/lang/String;)Ljava/lang/annotation/ElementType;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 39
     const-class v0, Ljava/lang/annotation/ElementType;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -226,6 +253,8 @@
 .method public static values()[Ljava/lang/annotation/ElementType;
     .locals 1
 
+    .prologue
+    .line 39
     sget-object v0, Ljava/lang/annotation/ElementType;->$VALUES:[Ljava/lang/annotation/ElementType;
 
     return-object v0

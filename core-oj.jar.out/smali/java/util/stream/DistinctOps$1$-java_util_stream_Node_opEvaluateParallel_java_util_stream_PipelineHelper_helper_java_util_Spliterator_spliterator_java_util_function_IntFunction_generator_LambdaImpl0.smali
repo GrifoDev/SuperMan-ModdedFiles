@@ -27,6 +27,7 @@
 .method public synthetic constructor <init>(Ljava/util/concurrent/atomic/AtomicBoolean;Ljava/util/concurrent/ConcurrentHashMap;)V
     .locals 0
 
+    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Ljava/util/stream/DistinctOps$1$-java_util_stream_Node_opEvaluateParallel_java_util_stream_PipelineHelper_helper_java_util_Spliterator_spliterator_java_util_function_IntFunction_generator_LambdaImpl0;->val$seenNull:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -40,7 +41,9 @@
 # virtual methods
 .method public accept(Ljava/lang/Object;)V
     .locals 2
+    .param p1, "arg0"    # Ljava/lang/Object;
 
+    .prologue
     iget-object v0, p0, Ljava/util/stream/DistinctOps$1$-java_util_stream_Node_opEvaluateParallel_java_util_stream_PipelineHelper_helper_java_util_Spliterator_spliterator_java_util_function_IntFunction_generator_LambdaImpl0;->val$seenNull:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     iget-object v1, p0, Ljava/util/stream/DistinctOps$1$-java_util_stream_Node_opEvaluateParallel_java_util_stream_PipelineHelper_helper_java_util_Spliterator_spliterator_java_util_function_IntFunction_generator_LambdaImpl0;->val$map:Ljava/util/concurrent/ConcurrentHashMap;

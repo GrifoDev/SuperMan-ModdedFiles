@@ -23,19 +23,29 @@
 # direct methods
 .method private constructor <init>(Ljava/security/Provider;Ljava/lang/Object;)V
     .locals 0
+    .param p1, "provider"    # Ljava/security/Provider;
+    .param p2, "impl"    # Ljava/lang/Object;
 
+    .prologue
+    .line 53
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 54
     iput-object p1, p0, Lsun/security/jca/GetInstance$Instance;->provider:Ljava/security/Provider;
 
+    .line 55
     iput-object p2, p0, Lsun/security/jca/GetInstance$Instance;->impl:Ljava/lang/Object;
 
+    .line 53
     return-void
 .end method
 
 .method synthetic constructor <init>(Ljava/security/Provider;Ljava/lang/Object;Lsun/security/jca/GetInstance$Instance;)V
     .locals 0
+    .param p1, "provider"    # Ljava/security/Provider;
+    .param p2, "impl"    # Ljava/lang/Object;
 
+    .prologue
     invoke-direct {p0, p1, p2}, Lsun/security/jca/GetInstance$Instance;-><init>(Ljava/security/Provider;Ljava/lang/Object;)V
 
     return-void
@@ -46,6 +56,8 @@
 .method public toArray()[Ljava/lang/Object;
     .locals 3
 
+    .prologue
+    .line 60
     const/4 v0, 0x2
 
     new-array v0, v0, [Ljava/lang/Object;

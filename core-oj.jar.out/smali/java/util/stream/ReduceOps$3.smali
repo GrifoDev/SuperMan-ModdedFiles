@@ -36,7 +36,14 @@
 # direct methods
 .method constructor <init>(Ljava/util/stream/StreamShape;Ljava/util/stream/Collector;Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BinaryOperator;)V
     .locals 0
+    .param p1, "$anonymous0"    # Ljava/util/stream/StreamShape;
 
+    .prologue
+    .line 177
+    .local p2, "val$collector":Ljava/util/stream/Collector;, "Ljava/util/stream/Collector<-TT;TI;*>;"
+    .local p3, "val$supplier":Ljava/util/function/Supplier;, "Ljava/util/function/Supplier<TI;>;"
+    .local p4, "val$accumulator":Ljava/util/function/BiConsumer;, "Ljava/util/function/BiConsumer<TI;-TT;>;"
+    .local p5, "val$combiner":Ljava/util/function/BinaryOperator;, "Ljava/util/function/BinaryOperator<TI;>;"
     iput-object p2, p0, Ljava/util/stream/ReduceOps$3;->val$collector:Ljava/util/stream/Collector;
 
     iput-object p3, p0, Ljava/util/stream/ReduceOps$3;->val$supplier:Ljava/util/function/Supplier;
@@ -55,6 +62,8 @@
 .method public getOpFlags()I
     .locals 2
 
+    .prologue
+    .line 185
     iget-object v0, p0, Ljava/util/stream/ReduceOps$3;->val$collector:Ljava/util/stream/Collector;
 
     invoke-interface {v0}, Ljava/util/stream/Collector;->characteristics()Ljava/util/Set;
@@ -69,11 +78,14 @@
 
     if-eqz v0, :cond_0
 
+    .line 186
     sget v0, Ljava/util/stream/StreamOpFlag;->NOT_ORDERED:I
 
+    .line 185
     :goto_0
     return v0
 
+    .line 187
     :cond_0
     const/4 v0, 0x0
 
@@ -83,6 +95,8 @@
 .method public makeSink()Ljava/util/stream/ReduceOps$3ReducingSink;
     .locals 4
 
+    .prologue
+    .line 180
     new-instance v0, Ljava/util/stream/ReduceOps$3ReducingSink;
 
     iget-object v1, p0, Ljava/util/stream/ReduceOps$3;->val$supplier:Ljava/util/function/Supplier;
@@ -99,6 +113,8 @@
 .method public bridge synthetic makeSink()Ljava/util/stream/ReduceOps$AccumulatingSink;
     .locals 1
 
+    .prologue
+    .line 179
     invoke-virtual {p0}, Ljava/util/stream/ReduceOps$3;->makeSink()Ljava/util/stream/ReduceOps$3ReducingSink;
 
     move-result-object v0

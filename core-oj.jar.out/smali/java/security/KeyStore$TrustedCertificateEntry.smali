@@ -24,11 +24,16 @@
 # direct methods
 .method public constructor <init>(Ljava/security/cert/Certificate;)V
     .locals 2
+    .param p1, "trustedCert"    # Ljava/security/cert/Certificate;
 
+    .prologue
+    .line 576
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 577
     if-nez p1, :cond_0
 
+    .line 578
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string/jumbo v1, "invalid null input"
@@ -37,9 +42,11 @@
 
     throw v0
 
+    .line 580
     :cond_0
     iput-object p1, p0, Ljava/security/KeyStore$TrustedCertificateEntry;->cert:Ljava/security/cert/Certificate;
 
+    .line 576
     return-void
 .end method
 
@@ -48,6 +55,8 @@
 .method public getTrustedCertificate()Ljava/security/cert/Certificate;
     .locals 1
 
+    .prologue
+    .line 589
     iget-object v0, p0, Ljava/security/KeyStore$TrustedCertificateEntry;->cert:Ljava/security/cert/Certificate;
 
     return-object v0
@@ -56,6 +65,8 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 597
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

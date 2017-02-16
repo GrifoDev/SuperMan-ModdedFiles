@@ -36,7 +36,11 @@
 # direct methods
 .method constructor <init>(Lsun/util/LocaleServiceProviderPool;Ljava/lang/Class;)V
     .locals 0
+    .param p1, "this$0"    # Lsun/util/LocaleServiceProviderPool;
 
+    .prologue
+    .line 130
+    .local p2, "val$c":Ljava/lang/Class;, "Ljava/lang/Class<+Ljava/util/spi/LocaleServiceProvider;>;"
     iput-object p1, p0, Lsun/util/LocaleServiceProviderPool$1;->this$0:Lsun/util/LocaleServiceProviderPool;
 
     iput-object p2, p0, Lsun/util/LocaleServiceProviderPool$1;->val$c:Ljava/lang/Class;
@@ -51,6 +55,8 @@
 .method public run()Ljava/lang/Object;
     .locals 3
 
+    .prologue
+    .line 132
     iget-object v2, p0, Lsun/util/LocaleServiceProviderPool$1;->val$c:Ljava/lang/Class;
 
     invoke-static {v2}, Ljava/util/ServiceLoader;->loadInstalled(Ljava/lang/Class;)Ljava/util/ServiceLoader;
@@ -61,6 +67,7 @@
 
     move-result-object v1
 
+    .local v1, "provider$iterator":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -74,6 +81,8 @@
 
     check-cast v0, Ljava/util/spi/LocaleServiceProvider;
 
+    .line 133
+    .local v0, "provider":Ljava/util/spi/LocaleServiceProvider;
     iget-object v2, p0, Lsun/util/LocaleServiceProviderPool$1;->this$0:Lsun/util/LocaleServiceProviderPool;
 
     invoke-static {v2}, Lsun/util/LocaleServiceProviderPool;->-get0(Lsun/util/LocaleServiceProviderPool;)Ljava/util/Set;
@@ -84,6 +93,8 @@
 
     goto :goto_0
 
+    .line 135
+    .end local v0    # "provider":Ljava/util/spi/LocaleServiceProvider;
     :cond_0
     const/4 v2, 0x0
 

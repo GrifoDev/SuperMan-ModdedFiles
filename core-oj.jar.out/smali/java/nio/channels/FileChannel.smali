@@ -20,6 +20,8 @@
 .method protected constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 158
     invoke-direct {p0}, Ljava/nio/channels/spi/AbstractInterruptibleChannel;-><init>()V
 
     return-void
@@ -43,6 +45,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 875
     const-wide/16 v2, 0x0
 
     const-wide v4, 0x7fffffffffffffffL
@@ -92,12 +96,15 @@
 
 .method public bridge synthetic position(J)Ljava/nio/channels/SeekableByteChannel;
     .locals 1
+    .param p1, "newPosition"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 283
     invoke-virtual {p0, p1, p2}, Ljava/nio/channels/FileChannel;->position(J)Ljava/nio/channels/FileChannel;
 
     move-result-object v0
@@ -123,12 +130,15 @@
 
 .method public final read([Ljava/nio/ByteBuffer;)J
     .locals 2
+    .param p1, "dsts"    # [Ljava/nio/ByteBuffer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 193
     array-length v0, p1
 
     const/4 v1, 0x0
@@ -182,12 +192,15 @@
 
 .method public bridge synthetic truncate(J)Ljava/nio/channels/SeekableByteChannel;
     .locals 1
+    .param p1, "size"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 326
     invoke-virtual {p0, p1, p2}, Ljava/nio/channels/FileChannel;->truncate(J)Ljava/nio/channels/FileChannel;
 
     move-result-object v0
@@ -203,6 +216,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 977
     const-wide/16 v2, 0x0
 
     const-wide v4, 0x7fffffffffffffffL
@@ -244,12 +259,15 @@
 
 .method public final write([Ljava/nio/ByteBuffer;)J
     .locals 2
+    .param p1, "srcs"    # [Ljava/nio/ByteBuffer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 236
     array-length v0, p1
 
     const/4 v1, 0x0

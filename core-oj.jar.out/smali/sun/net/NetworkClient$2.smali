@@ -34,7 +34,10 @@
 # direct methods
 .method constructor <init>(Lsun/net/NetworkClient;)V
     .locals 0
+    .param p1, "this$0"    # Lsun/net/NetworkClient;
 
+    .prologue
+    .line 157
     iput-object p1, p0, Lsun/net/NetworkClient$2;->this$0:Lsun/net/NetworkClient;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,6 +50,8 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 158
     invoke-virtual {p0}, Lsun/net/NetworkClient$2;->run()Ljava/net/Socket;
 
     move-result-object v0
@@ -57,6 +62,8 @@
 .method public run()Ljava/net/Socket;
     .locals 2
 
+    .prologue
+    .line 159
     new-instance v0, Ljava/net/Socket;
 
     iget-object v1, p0, Lsun/net/NetworkClient$2;->this$0:Lsun/net/NetworkClient;

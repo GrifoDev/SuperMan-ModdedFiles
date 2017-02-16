@@ -38,7 +38,13 @@
 # direct methods
 .method constructor <init>(Ljava/util/stream/SliceOps$2;Ljava/util/stream/Sink;JJ)V
     .locals 5
+    .param p1, "this$1"    # Ljava/util/stream/SliceOps$2;
+    .param p3, "val$skip"    # J
+    .param p5, "val$limit"    # J
 
+    .prologue
+    .line 299
+    .local p2, "$anonymous0":Ljava/util/stream/Sink;, "Ljava/util/stream/Sink<-Ljava/lang/Integer;>;"
     iput-object p1, p0, Ljava/util/stream/SliceOps$2$1;->this$1:Ljava/util/stream/SliceOps$2;
 
     iput-wide p3, p0, Ljava/util/stream/SliceOps$2$1;->val$skip:J
@@ -47,10 +53,12 @@
 
     invoke-direct {p0, p2}, Ljava/util/stream/Sink$ChainedInt;-><init>(Ljava/util/stream/Sink;)V
 
+    .line 300
     iget-wide v0, p0, Ljava/util/stream/SliceOps$2$1;->val$skip:J
 
     iput-wide v0, p0, Ljava/util/stream/SliceOps$2$1;->n:J
 
+    .line 301
     iget-wide v0, p0, Ljava/util/stream/SliceOps$2$1;->val$limit:J
 
     const-wide/16 v2, 0x0
@@ -64,8 +72,10 @@
     :goto_0
     iput-wide v0, p0, Ljava/util/stream/SliceOps$2$1;->m:J
 
+    .line 299
     return-void
 
+    .line 301
     :cond_0
     const-wide v0, 0x7fffffffffffffffL
 
@@ -76,37 +86,45 @@
 # virtual methods
 .method public accept(I)V
     .locals 6
+    .param p1, "t"    # I
 
+    .prologue
     const-wide/16 v4, 0x1
 
     const-wide/16 v2, 0x0
 
+    .line 310
     iget-wide v0, p0, Ljava/util/stream/SliceOps$2$1;->n:J
 
     cmp-long v0, v0, v2
 
     if-nez v0, :cond_1
 
+    .line 311
     iget-wide v0, p0, Ljava/util/stream/SliceOps$2$1;->m:J
 
     cmp-long v0, v0, v2
 
     if-lez v0, :cond_0
 
+    .line 312
     iget-wide v0, p0, Ljava/util/stream/SliceOps$2$1;->m:J
 
     sub-long/2addr v0, v4
 
     iput-wide v0, p0, Ljava/util/stream/SliceOps$2$1;->m:J
 
+    .line 313
     iget-object v0, p0, Ljava/util/stream/Sink$ChainedInt;->downstream:Ljava/util/stream/Sink;
 
     invoke-interface {v0, p1}, Ljava/util/stream/Sink;->accept(I)V
 
+    .line 309
     :cond_0
     :goto_0
     return-void
 
+    .line 317
     :cond_1
     iget-wide v0, p0, Ljava/util/stream/SliceOps$2$1;->n:J
 
@@ -119,7 +137,10 @@
 
 .method public begin(J)V
     .locals 7
+    .param p1, "size"    # J
 
+    .prologue
+    .line 305
     iget-object v6, p0, Ljava/util/stream/Sink$ChainedInt;->downstream:Ljava/util/stream/Sink;
 
     iget-wide v2, p0, Ljava/util/stream/SliceOps$2$1;->val$skip:J
@@ -134,12 +155,15 @@
 
     invoke-interface {v6, v0, v1}, Ljava/util/stream/Sink;->begin(J)V
 
+    .line 304
     return-void
 .end method
 
 .method public cancellationRequested()Z
     .locals 4
 
+    .prologue
+    .line 323
     iget-wide v0, p0, Ljava/util/stream/SliceOps$2$1;->m:J
 
     const-wide/16 v2, 0x0

@@ -31,10 +31,16 @@
         }
     .end annotation
 
+    .prologue
+    .line 82
+    .local p0, "this":Ljava/util/stream/TerminalOp;, "Ljava/util/stream/TerminalOp<TE_IN;TR;>;"
+    .local p1, "helper":Ljava/util/stream/PipelineHelper;, "Ljava/util/stream/PipelineHelper<TE_IN;>;"
+    .local p2, "spliterator":Ljava/util/Spliterator;, "Ljava/util/Spliterator<TP_IN;>;"
     sget-boolean v0, Ljava/util/stream/Tripwire;->ENABLED:Z
 
     if-eqz v0, :cond_0
 
+    .line 83
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -43,6 +49,7 @@
 
     invoke-static {v0, v1}, Ljava/util/stream/Tripwire;->trip(Ljava/lang/Class;Ljava/lang/String;)V
 
+    .line 84
     :cond_0
     invoke-interface {p0, p1, p2}, Ljava/util/stream/TerminalOp;->evaluateSequential(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Object;
 
@@ -68,6 +75,9 @@
 .method public getOpFlags()I
     .locals 1
 
+    .prologue
+    .line 66
+    .local p0, "this":Ljava/util/stream/TerminalOp;, "Ljava/util/stream/TerminalOp<TE_IN;TR;>;"
     const/4 v0, 0x0
 
     return v0
@@ -76,6 +86,9 @@
 .method public inputShape()Ljava/util/stream/StreamShape;
     .locals 1
 
+    .prologue
+    .line 53
+    .local p0, "this":Ljava/util/stream/TerminalOp;, "Ljava/util/stream/TerminalOp<TE_IN;TR;>;"
     sget-object v0, Ljava/util/stream/StreamShape;->REFERENCE:Ljava/util/stream/StreamShape;
 
     return-object v0

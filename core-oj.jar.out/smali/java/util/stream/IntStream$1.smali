@@ -28,17 +28,23 @@
 # direct methods
 .method constructor <init>(ILjava/util/function/IntUnaryOperator;)V
     .locals 1
+    .param p1, "val$seed"    # I
+    .param p2, "val$f"    # Ljava/util/function/IntUnaryOperator;
 
+    .prologue
+    .line 743
     iput p1, p0, Ljava/util/stream/IntStream$1;->val$seed:I
 
     iput-object p2, p0, Ljava/util/stream/IntStream$1;->val$f:Ljava/util/function/IntUnaryOperator;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 744
     iget v0, p0, Ljava/util/stream/IntStream$1;->val$seed:I
 
     iput v0, p0, Ljava/util/stream/IntStream$1;->t:I
 
+    .line 743
     return-void
 .end method
 
@@ -46,9 +52,13 @@
 # virtual methods
 .method public bridge synthetic forEachRemaining(Ljava/lang/Object;)V
     .locals 0
+    .param p1, "action"    # Ljava/lang/Object;
 
+    .prologue
+    .line 112
     check-cast p1, Ljava/util/function/IntConsumer;
 
+    .end local p1    # "action":Ljava/lang/Object;
     invoke-interface {p0, p1}, Ljava/util/PrimitiveIterator$OfInt;->forEachRemaining(Ljava/util/function/IntConsumer;)V
 
     return-void
@@ -57,6 +67,8 @@
 .method public hasNext()Z
     .locals 1
 
+    .prologue
+    .line 748
     const/4 v0, 0x1
 
     return v0
@@ -65,6 +77,8 @@
 .method public bridge synthetic next()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 125
     invoke-interface {p0}, Ljava/util/PrimitiveIterator$OfInt;->next()Ljava/lang/Integer;
 
     move-result-object v0
@@ -75,8 +89,12 @@
 .method public nextInt()I
     .locals 3
 
+    .prologue
+    .line 753
     iget v0, p0, Ljava/util/stream/IntStream$1;->t:I
 
+    .line 754
+    .local v0, "v":I
     iget-object v1, p0, Ljava/util/stream/IntStream$1;->val$f:Ljava/util/function/IntUnaryOperator;
 
     iget v2, p0, Ljava/util/stream/IntStream$1;->t:I
@@ -87,5 +105,6 @@
 
     iput v1, p0, Ljava/util/stream/IntStream$1;->t:I
 
+    .line 755
     return v0
 .end method

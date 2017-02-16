@@ -36,7 +36,11 @@
 # direct methods
 .method constructor <init>(Lsun/net/www/protocol/http/HttpURLConnection;Ljava/lang/String;)V
     .locals 0
+    .param p1, "this$0"    # Lsun/net/www/protocol/http/HttpURLConnection;
+    .param p2, "val$finalHost"    # Ljava/lang/String;
 
+    .prologue
+    .line 2000
     iput-object p1, p0, Lsun/net/www/protocol/http/HttpURLConnection$7;->this$0:Lsun/net/www/protocol/http/HttpURLConnection;
 
     iput-object p2, p0, Lsun/net/www/protocol/http/HttpURLConnection$7;->val$finalHost:Ljava/lang/String;
@@ -56,6 +60,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 2001
     invoke-virtual {p0}, Lsun/net/www/protocol/http/HttpURLConnection$7;->run()Ljava/net/InetAddress;
 
     move-result-object v0
@@ -71,6 +77,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 2003
     iget-object v0, p0, Lsun/net/www/protocol/http/HttpURLConnection$7;->val$finalHost:Ljava/lang/String;
 
     invoke-static {v0}, Ljava/net/InetAddress;->getByName(Ljava/lang/String;)Ljava/net/InetAddress;

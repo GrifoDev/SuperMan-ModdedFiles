@@ -31,6 +31,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 144
+    .local p1, "annotationClass":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     invoke-static {p0, p1}, Llibcore/reflect/AnnotatedElements;->getAnnotationsByType(Ljava/lang/reflect/AnnotatedElement;Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;
 
     move-result-object v0
@@ -51,6 +54,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 124
+    .local p1, "annotationClass":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     invoke-static {p0, p1}, Llibcore/reflect/AnnotatedElements;->getDeclaredAnnotation(Ljava/lang/reflect/AnnotatedElement;Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
 
     move-result-object v0
@@ -73,6 +79,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 134
+    .local p1, "annotationClass":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     invoke-static {p0, p1}, Llibcore/reflect/AnnotatedElements;->getDeclaredAnnotationsByType(Ljava/lang/reflect/AnnotatedElement;Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;
 
     move-result-object v0
@@ -92,6 +101,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 77
+    .local p1, "annotationClass":Ljava/lang/Class;, "Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;"
     invoke-interface {p0, p1}, Ljava/lang/reflect/AnnotatedElement;->getAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
 
     move-result-object v0

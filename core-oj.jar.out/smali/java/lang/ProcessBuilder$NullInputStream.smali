@@ -22,18 +22,23 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 355
     new-instance v0, Ljava/lang/ProcessBuilder$NullInputStream;
 
     invoke-direct {v0}, Ljava/lang/ProcessBuilder$NullInputStream;-><init>()V
 
     sput-object v0, Ljava/lang/ProcessBuilder$NullInputStream;->INSTANCE:Ljava/lang/ProcessBuilder$NullInputStream;
 
+    .line 354
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 356
     invoke-direct {p0}, Ljava/io/InputStream;-><init>()V
 
     return-void
@@ -44,6 +49,8 @@
 .method public available()I
     .locals 1
 
+    .prologue
+    .line 358
     const/4 v0, 0x0
 
     return v0
@@ -52,6 +59,8 @@
 .method public read()I
     .locals 1
 
+    .prologue
+    .line 357
     const/4 v0, -0x1
 
     return v0

@@ -18,11 +18,16 @@
 # direct methods
 .method protected constructor <init>(Ljava/lang/String;)V
     .locals 2
+    .param p1, "pSrcName"    # Ljava/lang/String;
 
+    .prologue
+    .line 59
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 60
     if-nez p1, :cond_0
 
+    .line 61
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string/jumbo v1, "pSource algorithm is null"
@@ -31,9 +36,11 @@
 
     throw v0
 
+    .line 63
     :cond_0
     iput-object p1, p0, Ljavax/crypto/spec/PSource;->pSrcName:Ljava/lang/String;
 
+    .line 59
     return-void
 .end method
 
@@ -42,6 +49,8 @@
 .method public getAlgorithm()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 71
     iget-object v0, p0, Ljavax/crypto/spec/PSource;->pSrcName:Ljava/lang/String;
 
     return-object v0

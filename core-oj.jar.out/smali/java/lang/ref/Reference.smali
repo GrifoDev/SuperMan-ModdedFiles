@@ -54,12 +54,16 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 47
     sput-boolean v0, Ljava/lang/ref/Reference;->disableIntrinsic:Z
 
+    .line 55
     sput-boolean v0, Ljava/lang/ref/Reference;->slowPathEnabled:Z
 
+    .line 40
     return-void
 .end method
 
@@ -71,10 +75,15 @@
         }
     .end annotation
 
+    .prologue
+    .line 151
+    .local p0, "this":Ljava/lang/ref/Reference;, "Ljava/lang/ref/Reference<TT;>;"
+    .local p1, "referent":Ljava/lang/Object;, "TT;"
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Ljava/lang/ref/Reference;-><init>(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V
 
+    .line 150
     return-void
 .end method
 
@@ -88,12 +97,20 @@
         }
     .end annotation
 
+    .prologue
+    .line 154
+    .local p0, "this":Ljava/lang/ref/Reference;, "Ljava/lang/ref/Reference<TT;>;"
+    .local p1, "referent":Ljava/lang/Object;, "TT;"
+    .local p2, "queue":Ljava/lang/ref/ReferenceQueue;, "Ljava/lang/ref/ReferenceQueue<-TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 155
     iput-object p1, p0, Ljava/lang/ref/Reference;->referent:Ljava/lang/Object;
 
+    .line 156
     iput-object p2, p0, Ljava/lang/ref/Reference;->queue:Ljava/lang/ref/ReferenceQueue;
 
+    .line 154
     return-void
 .end method
 
@@ -110,16 +127,23 @@
 .method public clear()V
     .locals 1
 
+    .prologue
+    .line 109
+    .local p0, "this":Ljava/lang/ref/Reference;, "Ljava/lang/ref/Reference<TT;>;"
     const/4 v0, 0x0
 
     iput-object v0, p0, Ljava/lang/ref/Reference;->referent:Ljava/lang/Object;
 
+    .line 108
     return-void
 .end method
 
 .method public enqueue()Z
     .locals 1
 
+    .prologue
+    .line 144
+    .local p0, "this":Ljava/lang/ref/Reference;, "Ljava/lang/ref/Reference<TT;>;"
     iget-object v0, p0, Ljava/lang/ref/Reference;->queue:Ljava/lang/ref/ReferenceQueue;
 
     if-eqz v0, :cond_0
@@ -147,6 +171,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 96
+    .local p0, "this":Ljava/lang/ref/Reference;, "Ljava/lang/ref/Reference<TT;>;"
     invoke-direct {p0}, Ljava/lang/ref/Reference;->getReferent()Ljava/lang/Object;
 
     move-result-object v0
@@ -157,6 +184,9 @@
 .method public isEnqueued()Z
     .locals 1
 
+    .prologue
+    .line 129
+    .local p0, "this":Ljava/lang/ref/Reference;, "Ljava/lang/ref/Reference<TT;>;"
     iget-object v0, p0, Ljava/lang/ref/Reference;->queue:Ljava/lang/ref/ReferenceQueue;
 
     if-eqz v0, :cond_0

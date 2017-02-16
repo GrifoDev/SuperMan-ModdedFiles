@@ -25,10 +25,17 @@
 # direct methods
 .method constructor <init>(Ljava/util/prefs/AbstractPreferences;Ljava/util/prefs/Preferences;Ljava/util/prefs/Preferences;)V
     .locals 0
+    .param p1, "this$0"    # Ljava/util/prefs/AbstractPreferences;
+    .param p2, "parent"    # Ljava/util/prefs/Preferences;
+    .param p3, "child"    # Ljava/util/prefs/Preferences;
 
+    .prologue
+    .line 1420
     iput-object p1, p0, Ljava/util/prefs/AbstractPreferences$NodeAddedEvent;->this$0:Ljava/util/prefs/AbstractPreferences;
 
+    .line 1421
     invoke-direct {p0, p2, p3}, Ljava/util/prefs/NodeChangeEvent;-><init>(Ljava/util/prefs/Preferences;Ljava/util/prefs/Preferences;)V
 
+    .line 1420
     return-void
 .end method

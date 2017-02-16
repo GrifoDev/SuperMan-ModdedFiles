@@ -47,6 +47,8 @@
 # direct methods
 .method constructor <init>(Ljava/util/Spliterator;JJ)V
     .locals 0
+    .param p2, "skip"    # J
+    .param p4, "limit"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -55,8 +57,13 @@
         }
     .end annotation
 
+    .prologue
+    .line 996
+    .local p0, "this":Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfRef;, "Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator<TT;TT_SPLITR;>.OfRef<TT;>;"
+    .local p1, "s":Ljava/util/Spliterator;, "Ljava/util/Spliterator<TT;>;"
     invoke-direct/range {p0 .. p5}, Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator;-><init>(Ljava/util/Spliterator;JJ)V
 
+    .line 995
     return-void
 .end method
 
@@ -72,8 +79,14 @@
         }
     .end annotation
 
+    .prologue
+    .line 1000
+    .local p0, "this":Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfRef;, "Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator<TT;TT_SPLITR;>.OfRef<TT;>;"
+    .local p1, "s":Ljava/util/Spliterator;, "Ljava/util/Spliterator<TT;>;"
+    .local p2, "parent":Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfRef;, "Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfRef<TT;>;"
     invoke-direct {p0, p1, p2}, Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator;-><init>(Ljava/util/Spliterator;Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator;)V
 
+    .line 999
     return-void
 .end method
 
@@ -87,8 +100,13 @@
         }
     .end annotation
 
+    .prologue
+    .line 1005
+    .local p0, "this":Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfRef;, "Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator<TT;TT_SPLITR;>.OfRef<TT;>;"
+    .local p1, "t":Ljava/lang/Object;, "TT;"
     iput-object p1, p0, Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfRef;->tmpSlot:Ljava/lang/Object;
 
+    .line 1004
     return-void
 .end method
 
@@ -102,34 +120,47 @@
         }
     .end annotation
 
+    .prologue
+    .line 1026
+    .local p0, "this":Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfRef;, "Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator<TT;TT_SPLITR;>.OfRef<TT;>;"
+    .local p1, "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-TT;>;"
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 1028
     const/4 v1, 0x0
 
+    .line 1030
     :goto_0
     invoke-virtual {p0}, Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator;->permitStatus()Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;
 
     move-result-object v0
 
+    .local v0, "permitStatus":Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;
     sget-object v4, Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;->NO_MORE:Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;
 
     if-eq v0, v4, :cond_5
 
+    .line 1031
     sget-object v4, Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;->MAYBE_MORE:Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;
 
     if-ne v0, v4, :cond_4
 
+    .line 1033
     if-nez v1, :cond_2
 
+    .line 1034
     new-instance v1, Ljava/util/stream/StreamSpliterators$ArrayBuffer$OfRef;
 
     const/16 v4, 0x80
 
     invoke-direct {v1, v4}, Ljava/util/stream/StreamSpliterators$ArrayBuffer$OfRef;-><init>(I)V
 
+    .line 1037
     :goto_1
     const-wide/16 v2, 0x0
 
+    .line 1038
+    .local v2, "permitsRequested":J
     :cond_0
     iget-object v4, p0, Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator;->s:Ljava/util/Spliterator;
 
@@ -149,6 +180,7 @@
 
     if-ltz v4, :cond_0
 
+    .line 1039
     :cond_1
     const-wide/16 v4, 0x0
 
@@ -156,13 +188,18 @@
 
     if-nez v4, :cond_3
 
+    .line 1040
     return-void
 
+    .line 1036
+    .end local v2    # "permitsRequested":J
     :cond_2
     invoke-virtual {v1}, Ljava/util/stream/StreamSpliterators$ArrayBuffer;->reset()V
 
     goto :goto_1
 
+    .line 1041
+    .restart local v2    # "permitsRequested":J
     :cond_3
     invoke-virtual {p0, v2, v3}, Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator;->acquirePermits(J)J
 
@@ -172,13 +209,17 @@
 
     goto :goto_0
 
+    .line 1045
+    .end local v2    # "permitsRequested":J
     :cond_4
     iget-object v4, p0, Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator;->s:Ljava/util/Spliterator;
 
     invoke-interface {v4, p1}, Ljava/util/Spliterator;->forEachRemaining(Ljava/util/function/Consumer;)V
 
+    .line 1046
     return-void
 
+    .line 1025
     :cond_5
     return-void
 .end method
@@ -195,6 +236,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 1053
+    .local p0, "this":Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfRef;, "Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator<TT;TT_SPLITR;>.OfRef<TT;>;"
+    .local p1, "s":Ljava/util/Spliterator;, "Ljava/util/Spliterator<TT;>;"
     new-instance v0, Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfRef;
 
     invoke-direct {v0, p1, p0}, Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfRef;-><init>(Ljava/util/Spliterator;Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfRef;)V
@@ -212,12 +257,17 @@
         }
     .end annotation
 
+    .prologue
+    .local p0, "this":Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfRef;, "Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator<TT;TT_SPLITR;>.OfRef<TT;>;"
+    .local p1, "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-TT;>;"
     const-wide/16 v4, 0x1
 
     const/4 v2, 0x0
 
+    .line 1010
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 1012
     :cond_0
     invoke-virtual {p0}, Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator;->permitStatus()Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;
 
@@ -227,6 +277,7 @@
 
     if-eq v0, v1, :cond_2
 
+    .line 1013
     iget-object v0, p0, Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator;->s:Ljava/util/Spliterator;
 
     invoke-interface {v0, p0}, Ljava/util/Spliterator;->tryAdvance(Ljava/util/function/Consumer;)Z
@@ -235,8 +286,10 @@
 
     if-nez v0, :cond_1
 
+    .line 1014
     return v2
 
+    .line 1015
     :cond_1
     invoke-virtual {p0, v4, v5}, Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator;->acquirePermits(J)J
 
@@ -246,18 +299,22 @@
 
     if-nez v0, :cond_0
 
+    .line 1016
     iget-object v0, p0, Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfRef;->tmpSlot:Ljava/lang/Object;
 
     invoke-interface {p1, v0}, Ljava/util/function/Consumer;->accept(Ljava/lang/Object;)V
 
+    .line 1017
     const/4 v0, 0x0
 
     iput-object v0, p0, Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfRef;->tmpSlot:Ljava/lang/Object;
 
+    .line 1018
     const/4 v0, 0x1
 
     return v0
 
+    .line 1021
     :cond_2
     return v2
 .end method

@@ -34,7 +34,10 @@
 # direct methods
 .method constructor <init>(Ljava/net/Socket;)V
     .locals 0
+    .param p1, "this$0"    # Ljava/net/Socket;
 
+    .prologue
+    .line 928
     iput-object p1, p0, Ljava/net/Socket$3;->this$0:Ljava/net/Socket;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -52,6 +55,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 930
     iget-object v0, p0, Ljava/net/Socket$3;->this$0:Ljava/net/Socket;
 
     iget-object v0, v0, Ljava/net/Socket;->impl:Ljava/net/SocketImpl;
@@ -71,6 +76,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 929
     invoke-virtual {p0}, Ljava/net/Socket$3;->run()Ljava/io/OutputStream;
 
     move-result-object v0

@@ -18,6 +18,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 62
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -26,6 +28,7 @@
 .method synthetic constructor <init>(Ljava/lang/Shutdown$Lock;)V
     .locals 0
 
+    .prologue
     invoke-direct {p0}, Ljava/lang/Shutdown$Lock;-><init>()V
 
     return-void

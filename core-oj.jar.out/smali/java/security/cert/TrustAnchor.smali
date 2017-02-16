@@ -20,13 +20,20 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/security/PublicKey;[B)V
     .locals 2
+    .param p1, "caName"    # Ljava/lang/String;
+    .param p2, "pubKey"    # Ljava/security/PublicKey;
+    .param p3, "nameConstraints"    # [B
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 206
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 208
     if-nez p2, :cond_0
 
+    .line 209
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string/jumbo v1, "the pubKey parameter must be non-null"
@@ -35,9 +42,11 @@
 
     throw v0
 
+    .line 211
     :cond_0
     if-nez p1, :cond_1
 
+    .line 212
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string/jumbo v1, "the caName parameter must be non-null"
@@ -46,6 +55,7 @@
 
     throw v0
 
+    .line 214
     :cond_1
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
@@ -53,6 +63,7 @@
 
     if-nez v0, :cond_2
 
+    .line 215
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "the caName parameter must be a non-empty String"
@@ -61,6 +72,7 @@
 
     throw v0
 
+    .line 218
     :cond_2
     new-instance v0, Ljavax/security/auth/x500/X500Principal;
 
@@ -68,26 +80,37 @@
 
     iput-object v0, p0, Ljava/security/cert/TrustAnchor;->caPrincipal:Ljavax/security/auth/x500/X500Principal;
 
+    .line 219
     iput-object p2, p0, Ljava/security/cert/TrustAnchor;->pubKey:Ljava/security/PublicKey;
 
+    .line 220
     iput-object p1, p0, Ljava/security/cert/TrustAnchor;->caName:Ljava/lang/String;
 
+    .line 221
     iput-object v1, p0, Ljava/security/cert/TrustAnchor;->trustedCert:Ljava/security/cert/X509Certificate;
 
+    .line 222
     invoke-direct {p0, p3}, Ljava/security/cert/TrustAnchor;->setNameConstraints([B)V
 
+    .line 206
     return-void
 .end method
 
 .method public constructor <init>(Ljava/security/cert/X509Certificate;[B)V
     .locals 2
+    .param p1, "trustedCert"    # Ljava/security/cert/X509Certificate;
+    .param p2, "nameConstraints"    # [B
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 124
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 126
     if-nez p1, :cond_0
 
+    .line 127
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string/jumbo v1, "the trustedCert parameter must be non-null"
@@ -96,31 +119,44 @@
 
     throw v0
 
+    .line 129
     :cond_0
     iput-object p1, p0, Ljava/security/cert/TrustAnchor;->trustedCert:Ljava/security/cert/X509Certificate;
 
+    .line 130
     iput-object v0, p0, Ljava/security/cert/TrustAnchor;->pubKey:Ljava/security/PublicKey;
 
+    .line 131
     iput-object v0, p0, Ljava/security/cert/TrustAnchor;->caName:Ljava/lang/String;
 
+    .line 132
     iput-object v0, p0, Ljava/security/cert/TrustAnchor;->caPrincipal:Ljavax/security/auth/x500/X500Principal;
 
+    .line 133
     invoke-direct {p0, p2}, Ljava/security/cert/TrustAnchor;->setNameConstraints([B)V
 
+    .line 124
     return-void
 .end method
 
 .method public constructor <init>(Ljavax/security/auth/x500/X500Principal;Ljava/security/PublicKey;[B)V
     .locals 1
+    .param p1, "caPrincipal"    # Ljavax/security/auth/x500/X500Principal;
+    .param p2, "pubKey"    # Ljava/security/PublicKey;
+    .param p3, "nameConstraints"    # [B
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 163
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 165
     if-eqz p1, :cond_0
 
     if-nez p2, :cond_1
 
+    .line 166
     :cond_0
     new-instance v0, Ljava/lang/NullPointerException;
 
@@ -128,38 +164,51 @@
 
     throw v0
 
+    .line 168
     :cond_1
     iput-object v0, p0, Ljava/security/cert/TrustAnchor;->trustedCert:Ljava/security/cert/X509Certificate;
 
+    .line 169
     iput-object p1, p0, Ljava/security/cert/TrustAnchor;->caPrincipal:Ljavax/security/auth/x500/X500Principal;
 
+    .line 170
     invoke-virtual {p1}, Ljavax/security/auth/x500/X500Principal;->getName()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Ljava/security/cert/TrustAnchor;->caName:Ljava/lang/String;
 
+    .line 171
     iput-object p2, p0, Ljava/security/cert/TrustAnchor;->pubKey:Ljava/security/PublicKey;
 
+    .line 172
     invoke-direct {p0, p3}, Ljava/security/cert/TrustAnchor;->setNameConstraints([B)V
 
+    .line 164
     return-void
 .end method
 
 .method private setNameConstraints([B)V
     .locals 4
+    .param p1, "bytes"    # [B
 
+    .prologue
     const/4 v2, 0x0
 
+    .line 274
     if-nez p1, :cond_0
 
+    .line 275
     iput-object v2, p0, Ljava/security/cert/TrustAnchor;->ncBytes:[B
 
+    .line 276
     iput-object v2, p0, Ljava/security/cert/TrustAnchor;->nc:Lsun/security/x509/NameConstraintsExtension;
 
+    .line 273
     :goto_0
     return-void
 
+    .line 278
     :cond_0
     invoke-virtual {p1}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
@@ -169,6 +218,7 @@
 
     iput-object v2, p0, Ljava/security/cert/TrustAnchor;->ncBytes:[B
 
+    .line 281
     :try_start_0
     new-instance v2, Lsun/security/x509/NameConstraintsExtension;
 
@@ -182,9 +232,12 @@
 
     goto :goto_0
 
+    .line 282
     :catch_0
     move-exception v1
 
+    .line 284
+    .local v1, "ioe":Ljava/io/IOException;
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-virtual {v1}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
@@ -193,8 +246,11 @@
 
     invoke-direct {v0, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
+    .line 285
+    .local v0, "iae":Ljava/lang/IllegalArgumentException;
     invoke-virtual {v0, v1}, Ljava/lang/IllegalArgumentException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
+    .line 286
     throw v0
 .end method
 
@@ -203,6 +259,8 @@
 .method public final getCA()Ljavax/security/auth/x500/X500Principal;
     .locals 1
 
+    .prologue
+    .line 244
     iget-object v0, p0, Ljava/security/cert/TrustAnchor;->caPrincipal:Ljavax/security/auth/x500/X500Principal;
 
     return-object v0
@@ -211,6 +269,8 @@
 .method public final getCAName()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 256
     iget-object v0, p0, Ljava/security/cert/TrustAnchor;->caName:Ljava/lang/String;
 
     return-object v0
@@ -219,6 +279,8 @@
 .method public final getCAPublicKey()Ljava/security/PublicKey;
     .locals 1
 
+    .prologue
+    .line 267
     iget-object v0, p0, Ljava/security/cert/TrustAnchor;->pubKey:Ljava/security/PublicKey;
 
     return-object v0
@@ -227,8 +289,10 @@
 .method public final getNameConstraints()[B
     .locals 2
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 312
     iget-object v1, p0, Ljava/security/cert/TrustAnchor;->ncBytes:[B
 
     if-nez v1, :cond_0
@@ -251,6 +315,8 @@
 .method public final getTrustedCert()Ljava/security/cert/X509Certificate;
     .locals 1
 
+    .prologue
+    .line 232
     iget-object v0, p0, Ljava/security/cert/TrustAnchor;->trustedCert:Ljava/security/cert/X509Certificate;
 
     return-object v0
@@ -259,18 +325,24 @@
 .method public toString()Ljava/lang/String;
     .locals 3
 
+    .prologue
+    .line 321
     new-instance v0, Ljava/lang/StringBuffer;
 
     invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
 
+    .line 322
+    .local v0, "sb":Ljava/lang/StringBuffer;
     const-string/jumbo v1, "[\n"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
+    .line 323
     iget-object v1, p0, Ljava/security/cert/TrustAnchor;->pubKey:Ljava/security/PublicKey;
 
     if-eqz v1, :cond_1
 
+    .line 324
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -303,6 +375,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
+    .line 325
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -313,18 +386,22 @@
 
     move-result-object v1
 
+    .line 326
     iget-object v2, p0, Ljava/security/cert/TrustAnchor;->caName:Ljava/lang/String;
 
     invoke-static {v2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v2
 
+    .line 325
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
+    .line 326
     const-string/jumbo v2, "\n"
 
+    .line 325
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -335,11 +412,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
+    .line 330
     :goto_0
     iget-object v1, p0, Ljava/security/cert/TrustAnchor;->nc:Lsun/security/x509/NameConstraintsExtension;
 
     if-eqz v1, :cond_0
 
+    .line 331
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -372,6 +451,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
+    .line 332
     :cond_0
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
@@ -379,6 +459,7 @@
 
     return-object v1
 
+    .line 328
     :cond_1
     new-instance v1, Ljava/lang/StringBuilder;
 

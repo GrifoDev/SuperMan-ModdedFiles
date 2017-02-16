@@ -36,7 +36,11 @@
 # direct methods
 .method constructor <init>(Lsun/security/ssl/ServerHandshaker;Ljava/security/AccessControlContext;)V
     .locals 0
+    .param p1, "this$0"    # Lsun/security/ssl/ServerHandshaker;
+    .param p2, "val$acc"    # Ljava/security/AccessControlContext;
 
+    .prologue
+    .line 1284
     iput-object p1, p0, Lsun/security/ssl/ServerHandshaker$2;->this$0:Lsun/security/ssl/ServerHandshaker;
 
     iput-object p2, p0, Lsun/security/ssl/ServerHandshaker$2;->val$acc:Ljava/security/AccessControlContext;
@@ -56,6 +60,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 1285
     invoke-virtual {p0}, Lsun/security/ssl/ServerHandshaker$2;->run()[Ljavax/crypto/SecretKey;
 
     move-result-object v0
@@ -71,6 +77,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 1287
     iget-object v0, p0, Lsun/security/ssl/ServerHandshaker$2;->val$acc:Ljava/security/AccessControlContext;
 
     invoke-static {v0}, Lsun/security/ssl/Krb5Helper;->getServerKeys(Ljava/security/AccessControlContext;)[Ljavax/crypto/SecretKey;

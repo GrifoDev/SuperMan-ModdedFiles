@@ -36,7 +36,11 @@
 # direct methods
 .method constructor <init>(Ljava/util/jar/JarFile;Ljava/util/Enumeration;)V
     .locals 0
+    .param p1, "this$0"    # Ljava/util/jar/JarFile;
+    .param p2, "val$enum_"    # Ljava/util/Enumeration;
 
+    .prologue
+    .line 246
     iput-object p1, p0, Ljava/util/jar/JarFile$1;->this$0:Ljava/util/jar/JarFile;
 
     iput-object p2, p0, Ljava/util/jar/JarFile$1;->val$enum_:Ljava/util/Enumeration;
@@ -51,6 +55,8 @@
 .method public hasMoreElements()Z
     .locals 1
 
+    .prologue
+    .line 248
     iget-object v0, p0, Ljava/util/jar/JarFile$1;->val$enum_:Ljava/util/Enumeration;
 
     invoke-interface {v0}, Ljava/util/Enumeration;->hasMoreElements()Z
@@ -63,6 +69,8 @@
 .method public bridge synthetic nextElement()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 250
     invoke-virtual {p0}, Ljava/util/jar/JarFile$1;->nextElement()Ljava/util/jar/JarFile$JarFileEntry;
 
     move-result-object v0
@@ -73,6 +81,8 @@
 .method public nextElement()Ljava/util/jar/JarFile$JarFileEntry;
     .locals 3
 
+    .prologue
+    .line 251
     iget-object v1, p0, Ljava/util/jar/JarFile$1;->val$enum_:Ljava/util/Enumeration;
 
     invoke-interface {v1}, Ljava/util/Enumeration;->nextElement()Ljava/lang/Object;
@@ -81,6 +91,8 @@
 
     check-cast v0, Ljava/util/zip/ZipEntry;
 
+    .line 252
+    .local v0, "ze":Ljava/util/zip/ZipEntry;
     new-instance v1, Ljava/util/jar/JarFile$JarFileEntry;
 
     iget-object v2, p0, Ljava/util/jar/JarFile$1;->this$0:Ljava/util/jar/JarFile;

@@ -34,11 +34,18 @@
 # direct methods
 .method constructor <init>(Ljava/util/function/IntConsumer;Z)V
     .locals 0
+    .param p1, "consumer"    # Ljava/util/function/IntConsumer;
+    .param p2, "ordered"    # Z
 
+    .prologue
+    .line 194
+    .local p0, "this":Ljava/util/stream/ForEachOps$ForEachOp$OfInt;, "Ljava/util/stream/ForEachOps$ForEachOp<TT;>.OfInt;"
     invoke-direct {p0, p2}, Ljava/util/stream/ForEachOps$ForEachOp;-><init>(Z)V
 
+    .line 195
     iput-object p1, p0, Ljava/util/stream/ForEachOps$ForEachOp$OfInt;->consumer:Ljava/util/function/IntConsumer;
 
+    .line 193
     return-void
 .end method
 
@@ -46,17 +53,25 @@
 # virtual methods
 .method public accept(I)V
     .locals 1
+    .param p1, "t"    # I
 
+    .prologue
+    .line 205
+    .local p0, "this":Ljava/util/stream/ForEachOps$ForEachOp$OfInt;, "Ljava/util/stream/ForEachOps$ForEachOp<TT;>.OfInt;"
     iget-object v0, p0, Ljava/util/stream/ForEachOps$ForEachOp$OfInt;->consumer:Ljava/util/function/IntConsumer;
 
     invoke-interface {v0, p1}, Ljava/util/function/IntConsumer;->accept(I)V
 
+    .line 204
     return-void
 .end method
 
 .method public inputShape()Ljava/util/stream/StreamShape;
     .locals 1
 
+    .prologue
+    .line 200
+    .local p0, "this":Ljava/util/stream/ForEachOps$ForEachOp$OfInt;, "Ljava/util/stream/ForEachOps$ForEachOp<TT;>.OfInt;"
     sget-object v0, Ljava/util/stream/StreamShape;->INT_VALUE:Ljava/util/stream/StreamShape;
 
     return-object v0

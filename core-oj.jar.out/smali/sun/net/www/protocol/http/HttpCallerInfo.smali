@@ -24,35 +24,46 @@
 # direct methods
 .method public constructor <init>(Ljava/net/URL;)V
     .locals 4
+    .param p1, "url"    # Ljava/net/URL;
 
+    .prologue
+    .line 70
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 71
     iput-object p1, p0, Lsun/net/www/protocol/http/HttpCallerInfo;->url:Ljava/net/URL;
 
+    .line 72
     const-string/jumbo v3, ""
 
     iput-object v3, p0, Lsun/net/www/protocol/http/HttpCallerInfo;->prompt:Ljava/lang/String;
 
+    .line 73
     invoke-virtual {p1}, Ljava/net/URL;->getHost()Ljava/lang/String;
 
     move-result-object v3
 
     iput-object v3, p0, Lsun/net/www/protocol/http/HttpCallerInfo;->host:Ljava/lang/String;
 
+    .line 75
     invoke-virtual {p1}, Ljava/net/URL;->getPort()I
 
     move-result v2
 
+    .line 76
+    .local v2, "p":I
     const/4 v3, -0x1
 
     if-ne v2, v3, :cond_0
 
+    .line 77
     invoke-virtual {p1}, Ljava/net/URL;->getDefaultPort()I
 
     move-result v3
 
     iput v3, p0, Lsun/net/www/protocol/http/HttpCallerInfo;->port:I
 
+    .line 84
     :goto_0
     :try_start_0
     invoke-virtual {p1}, Ljava/net/URL;->getHost()Ljava/lang/String;
@@ -65,108 +76,145 @@
 
     move-result-object v1
 
+    .line 88
     :goto_1
     iput-object v1, p0, Lsun/net/www/protocol/http/HttpCallerInfo;->addr:Ljava/net/InetAddress;
 
+    .line 90
     invoke-virtual {p1}, Ljava/net/URL;->getProtocol()Ljava/lang/String;
 
     move-result-object v3
 
     iput-object v3, p0, Lsun/net/www/protocol/http/HttpCallerInfo;->protocol:Ljava/lang/String;
 
+    .line 91
     sget-object v3, Ljava/net/Authenticator$RequestorType;->SERVER:Ljava/net/Authenticator$RequestorType;
 
     iput-object v3, p0, Lsun/net/www/protocol/http/HttpCallerInfo;->authType:Ljava/net/Authenticator$RequestorType;
 
+    .line 92
     const-string/jumbo v3, ""
 
     iput-object v3, p0, Lsun/net/www/protocol/http/HttpCallerInfo;->scheme:Ljava/lang/String;
 
+    .line 70
     return-void
 
+    .line 79
     :cond_0
     iput v2, p0, Lsun/net/www/protocol/http/HttpCallerInfo;->port:I
 
     goto :goto_0
 
+    .line 85
     :catch_0
     move-exception v0
 
+    .line 86
+    .local v0, "e":Ljava/lang/Exception;
     const/4 v1, 0x0
 
+    .local v1, "ia":Ljava/net/InetAddress;
     goto :goto_1
 .end method
 
 .method public constructor <init>(Ljava/net/URL;Ljava/lang/String;I)V
     .locals 1
+    .param p1, "url"    # Ljava/net/URL;
+    .param p2, "host"    # Ljava/lang/String;
+    .param p3, "port"    # I
 
+    .prologue
+    .line 98
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 99
     iput-object p1, p0, Lsun/net/www/protocol/http/HttpCallerInfo;->url:Ljava/net/URL;
 
+    .line 100
     iput-object p2, p0, Lsun/net/www/protocol/http/HttpCallerInfo;->host:Ljava/lang/String;
 
+    .line 101
     iput p3, p0, Lsun/net/www/protocol/http/HttpCallerInfo;->port:I
 
+    .line 102
     const-string/jumbo v0, ""
 
     iput-object v0, p0, Lsun/net/www/protocol/http/HttpCallerInfo;->prompt:Ljava/lang/String;
 
+    .line 103
     const/4 v0, 0x0
 
     iput-object v0, p0, Lsun/net/www/protocol/http/HttpCallerInfo;->addr:Ljava/net/InetAddress;
 
+    .line 104
     invoke-virtual {p1}, Ljava/net/URL;->getProtocol()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lsun/net/www/protocol/http/HttpCallerInfo;->protocol:Ljava/lang/String;
 
+    .line 105
     sget-object v0, Ljava/net/Authenticator$RequestorType;->PROXY:Ljava/net/Authenticator$RequestorType;
 
     iput-object v0, p0, Lsun/net/www/protocol/http/HttpCallerInfo;->authType:Ljava/net/Authenticator$RequestorType;
 
+    .line 106
     const-string/jumbo v0, ""
 
     iput-object v0, p0, Lsun/net/www/protocol/http/HttpCallerInfo;->scheme:Ljava/lang/String;
 
+    .line 98
     return-void
 .end method
 
 .method public constructor <init>(Lsun/net/www/protocol/http/HttpCallerInfo;Ljava/lang/String;)V
     .locals 1
+    .param p1, "old"    # Lsun/net/www/protocol/http/HttpCallerInfo;
+    .param p2, "scheme"    # Ljava/lang/String;
 
+    .prologue
+    .line 56
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 57
     iget-object v0, p1, Lsun/net/www/protocol/http/HttpCallerInfo;->url:Ljava/net/URL;
 
     iput-object v0, p0, Lsun/net/www/protocol/http/HttpCallerInfo;->url:Ljava/net/URL;
 
+    .line 58
     iget-object v0, p1, Lsun/net/www/protocol/http/HttpCallerInfo;->host:Ljava/lang/String;
 
     iput-object v0, p0, Lsun/net/www/protocol/http/HttpCallerInfo;->host:Ljava/lang/String;
 
+    .line 59
     iget-object v0, p1, Lsun/net/www/protocol/http/HttpCallerInfo;->protocol:Ljava/lang/String;
 
     iput-object v0, p0, Lsun/net/www/protocol/http/HttpCallerInfo;->protocol:Ljava/lang/String;
 
+    .line 60
     iget-object v0, p1, Lsun/net/www/protocol/http/HttpCallerInfo;->prompt:Ljava/lang/String;
 
     iput-object v0, p0, Lsun/net/www/protocol/http/HttpCallerInfo;->prompt:Ljava/lang/String;
 
+    .line 61
     iget v0, p1, Lsun/net/www/protocol/http/HttpCallerInfo;->port:I
 
     iput v0, p0, Lsun/net/www/protocol/http/HttpCallerInfo;->port:I
 
+    .line 62
     iget-object v0, p1, Lsun/net/www/protocol/http/HttpCallerInfo;->addr:Ljava/net/InetAddress;
 
     iput-object v0, p0, Lsun/net/www/protocol/http/HttpCallerInfo;->addr:Ljava/net/InetAddress;
 
+    .line 63
     iget-object v0, p1, Lsun/net/www/protocol/http/HttpCallerInfo;->authType:Ljava/net/Authenticator$RequestorType;
 
     iput-object v0, p0, Lsun/net/www/protocol/http/HttpCallerInfo;->authType:Ljava/net/Authenticator$RequestorType;
 
+    .line 64
     iput-object p2, p0, Lsun/net/www/protocol/http/HttpCallerInfo;->scheme:Ljava/lang/String;
 
+    .line 56
     return-void
 .end method

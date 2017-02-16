@@ -39,24 +39,32 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 49
     new-instance v0, Ljava/util/Optional;
 
     invoke-direct {v0}, Ljava/util/Optional;-><init>()V
 
     sput-object v0, Ljava/util/Optional;->EMPTY:Ljava/util/Optional;
 
+    .line 45
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 62
+    .local p0, "this":Ljava/util/Optional;, "Ljava/util/Optional<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 63
     const/4 v0, 0x0
 
     iput-object v0, p0, Ljava/util/Optional;->value:Ljava/lang/Object;
 
+    .line 62
     return-void
 .end method
 
@@ -68,14 +76,20 @@
         }
     .end annotation
 
+    .prologue
+    .line 90
+    .local p0, "this":Ljava/util/Optional;, "Ljava/util/Optional<TT;>;"
+    .local p1, "value":Ljava/lang/Object;, "TT;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 91
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     iput-object v0, p0, Ljava/util/Optional;->value:Ljava/lang/Object;
 
+    .line 90
     return-void
 .end method
 
@@ -91,8 +105,12 @@
         }
     .end annotation
 
+    .prologue
+    .line 80
     sget-object v0, Ljava/util/Optional;->EMPTY:Ljava/util/Optional;
 
+    .line 81
+    .local v0, "t":Ljava/util/Optional;, "Ljava/util/Optional<TT;>;"
     return-object v0
 .end method
 
@@ -108,6 +126,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 103
+    .local p0, "value":Ljava/lang/Object;, "TT;"
     new-instance v0, Ljava/util/Optional;
 
     invoke-direct {v0, p0}, Ljava/util/Optional;-><init>(Ljava/lang/Object;)V
@@ -127,6 +148,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 116
+    .local p0, "value":Ljava/lang/Object;, "TT;"
     if-nez p0, :cond_0
 
     invoke-static {}, Ljava/util/Optional;->empty()Ljava/util/Optional;
@@ -148,18 +172,25 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 3
+    .param p1, "obj"    # Ljava/lang/Object;
 
+    .prologue
+    .line 304
+    .local p0, "this":Ljava/util/Optional;, "Ljava/util/Optional<TT;>;"
     if-ne p0, p1, :cond_0
 
+    .line 305
     const/4 v1, 0x1
 
     return v1
 
+    .line 308
     :cond_0
     instance-of v1, p1, Ljava/util/Optional;
 
     if-nez v1, :cond_1
 
+    .line 309
     const/4 v1, 0x0
 
     return v1
@@ -167,10 +198,13 @@
     :cond_1
     move-object v0, p1
 
+    .line 312
     nop
 
     nop
 
+    .line 313
+    .local v0, "other":Ljava/util/Optional;, "Ljava/util/Optional<*>;"
     iget-object v1, p0, Ljava/util/Optional;->value:Ljava/lang/Object;
 
     iget-object v2, v0, Ljava/util/Optional;->value:Ljava/lang/Object;
@@ -194,16 +228,23 @@
         }
     .end annotation
 
+    .prologue
+    .line 169
+    .local p0, "this":Ljava/util/Optional;, "Ljava/util/Optional<TT;>;"
+    .local p1, "predicate":Ljava/util/function/Predicate;, "Ljava/util/function/Predicate<-TT;>;"
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 170
     invoke-virtual {p0}, Ljava/util/Optional;->isPresent()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
+    .line 171
     return-object p0
 
+    .line 173
     :cond_0
     iget-object v0, p0, Ljava/util/Optional;->value:Ljava/lang/Object;
 
@@ -213,9 +254,11 @@
 
     if-eqz v0, :cond_1
 
+    .end local p0    # "this":Ljava/util/Optional;, "Ljava/util/Optional<TT;>;"
     :goto_0
     return-object p0
 
+    .restart local p0    # "this":Ljava/util/Optional;, "Ljava/util/Optional<TT;>;"
     :cond_1
     invoke-static {}, Ljava/util/Optional;->empty()Ljava/util/Optional;
 
@@ -240,20 +283,27 @@
         }
     .end annotation
 
+    .prologue
+    .line 232
+    .local p0, "this":Ljava/util/Optional;, "Ljava/util/Optional<TT;>;"
+    .local p1, "mapper":Ljava/util/function/Function;, "Ljava/util/function/Function<-TT;Ljava/util/Optional<TU;>;>;"
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 233
     invoke-virtual {p0}, Ljava/util/Optional;->isPresent()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
+    .line 234
     invoke-static {}, Ljava/util/Optional;->empty()Ljava/util/Optional;
 
     move-result-object v0
 
     return-object v0
 
+    .line 236
     :cond_0
     iget-object v0, p0, Ljava/util/Optional;->value:Ljava/lang/Object;
 
@@ -280,10 +330,14 @@
         }
     .end annotation
 
+    .prologue
+    .line 129
+    .local p0, "this":Ljava/util/Optional;, "Ljava/util/Optional<TT;>;"
     iget-object v0, p0, Ljava/util/Optional;->value:Ljava/lang/Object;
 
     if-nez v0, :cond_0
 
+    .line 130
     new-instance v0, Ljava/util/NoSuchElementException;
 
     const-string/jumbo v1, "No value present"
@@ -292,6 +346,7 @@
 
     throw v0
 
+    .line 132
     :cond_0
     iget-object v0, p0, Ljava/util/Optional;->value:Ljava/lang/Object;
 
@@ -301,6 +356,9 @@
 .method public hashCode()I
     .locals 1
 
+    .prologue
+    .line 324
+    .local p0, "this":Ljava/util/Optional;, "Ljava/util/Optional<TT;>;"
     iget-object v0, p0, Ljava/util/Optional;->value:Ljava/lang/Object;
 
     invoke-static {v0}, Ljava/util/Objects;->hashCode(Ljava/lang/Object;)I
@@ -320,14 +378,20 @@
         }
     .end annotation
 
+    .prologue
+    .line 153
+    .local p0, "this":Ljava/util/Optional;, "Ljava/util/Optional<TT;>;"
+    .local p1, "consumer":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-TT;>;"
     iget-object v0, p0, Ljava/util/Optional;->value:Ljava/lang/Object;
 
     if-eqz v0, :cond_0
 
+    .line 154
     iget-object v0, p0, Ljava/util/Optional;->value:Ljava/lang/Object;
 
     invoke-interface {p1, v0}, Ljava/util/function/Consumer;->accept(Ljava/lang/Object;)V
 
+    .line 152
     :cond_0
     return-void
 .end method
@@ -335,6 +399,9 @@
 .method public isPresent()Z
     .locals 1
 
+    .prologue
+    .line 141
+    .local p0, "this":Ljava/util/Optional;, "Ljava/util/Optional<TT;>;"
     iget-object v0, p0, Ljava/util/Optional;->value:Ljava/lang/Object;
 
     if-eqz v0, :cond_0
@@ -364,20 +431,27 @@
         }
     .end annotation
 
+    .prologue
+    .line 206
+    .local p0, "this":Ljava/util/Optional;, "Ljava/util/Optional<TT;>;"
+    .local p1, "mapper":Ljava/util/function/Function;, "Ljava/util/function/Function<-TT;+TU;>;"
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 207
     invoke-virtual {p0}, Ljava/util/Optional;->isPresent()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
+    .line 208
     invoke-static {}, Ljava/util/Optional;->empty()Ljava/util/Optional;
 
     move-result-object v0
 
     return-object v0
 
+    .line 210
     :cond_0
     iget-object v0, p0, Ljava/util/Optional;->value:Ljava/lang/Object;
 
@@ -400,12 +474,17 @@
         }
     .end annotation
 
+    .prologue
+    .line 248
+    .local p0, "this":Ljava/util/Optional;, "Ljava/util/Optional<TT;>;"
+    .local p1, "other":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Ljava/util/Optional;->value:Ljava/lang/Object;
 
     if-eqz v0, :cond_0
 
     iget-object p1, p0, Ljava/util/Optional;->value:Ljava/lang/Object;
 
+    .end local p1    # "other":Ljava/lang/Object;, "TT;"
     :cond_0
     return-object p1
 .end method
@@ -420,6 +499,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 262
+    .local p0, "this":Ljava/util/Optional;, "Ljava/util/Optional<TT;>;"
+    .local p1, "other":Ljava/util/function/Supplier;, "Ljava/util/function/Supplier<+TT;>;"
     iget-object v0, p0, Ljava/util/Optional;->value:Ljava/lang/Object;
 
     if-eqz v0, :cond_0
@@ -455,14 +538,20 @@
         }
     .end annotation
 
+    .prologue
+    .line 282
+    .local p0, "this":Ljava/util/Optional;, "Ljava/util/Optional<TT;>;"
+    .local p1, "exceptionSupplier":Ljava/util/function/Supplier;, "Ljava/util/function/Supplier<+TX;>;"
     iget-object v0, p0, Ljava/util/Optional;->value:Ljava/lang/Object;
 
     if-eqz v0, :cond_0
 
+    .line 283
     iget-object v0, p0, Ljava/util/Optional;->value:Ljava/lang/Object;
 
     return-object v0
 
+    .line 285
     :cond_0
     invoke-interface {p1}, Ljava/util/function/Supplier;->get()Ljava/lang/Object;
 
@@ -476,10 +565,14 @@
 .method public toString()Ljava/lang/String;
     .locals 4
 
+    .prologue
+    .line 340
+    .local p0, "this":Ljava/util/Optional;, "Ljava/util/Optional<TT;>;"
     iget-object v0, p0, Ljava/util/Optional;->value:Ljava/lang/Object;
 
     if-eqz v0, :cond_0
 
+    .line 341
     const-string/jumbo v0, "Optional[%s]"
 
     const/4 v1, 0x1
@@ -496,9 +589,11 @@
 
     move-result-object v0
 
+    .line 340
     :goto_0
     return-object v0
 
+    .line 342
     :cond_0
     const-string/jumbo v0, "Optional.empty"
 

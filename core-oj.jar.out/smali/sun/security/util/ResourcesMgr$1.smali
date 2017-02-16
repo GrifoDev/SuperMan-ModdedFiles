@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -41,6 +43,8 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 45
     invoke-virtual {p0}, Lsun/security/util/ResourcesMgr$1;->run()Ljava/util/ResourceBundle;
 
     move-result-object v0
@@ -51,6 +55,8 @@
 .method public run()Ljava/util/ResourceBundle;
     .locals 1
 
+    .prologue
+    .line 47
     const-class v0, Lsun/security/util/Resources;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;

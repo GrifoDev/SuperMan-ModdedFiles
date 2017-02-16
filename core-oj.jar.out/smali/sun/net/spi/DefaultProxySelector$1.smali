@@ -40,7 +40,13 @@
 # direct methods
 .method constructor <init>(Lsun/net/spi/DefaultProxySelector;Ljava/lang/String;Lsun/net/spi/DefaultProxySelector$NonProxyInfo;Ljava/lang/String;)V
     .locals 0
+    .param p1, "this$0"    # Lsun/net/spi/DefaultProxySelector;
+    .param p2, "val$proto"    # Ljava/lang/String;
+    .param p3, "val$nprop"    # Lsun/net/spi/DefaultProxySelector$NonProxyInfo;
+    .param p4, "val$urlhost"    # Ljava/lang/String;
 
+    .prologue
+    .line 190
     iput-object p1, p0, Lsun/net/spi/DefaultProxySelector$1;->this$0:Lsun/net/spi/DefaultProxySelector;
 
     iput-object p2, p0, Lsun/net/spi/DefaultProxySelector$1;->val$proto:Ljava/lang/String;
@@ -59,6 +65,8 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 191
     invoke-virtual {p0}, Lsun/net/spi/DefaultProxySelector$1;->run()Ljava/net/Proxy;
 
     move-result-object v0
@@ -69,18 +77,29 @@
 .method public run()Ljava/net/Proxy;
     .locals 15
 
+    .prologue
     const/4 v14, 0x0
 
+    .line 193
     const/4 v5, 0x0
 
+    .line 194
+    .local v5, "phost":Ljava/lang/String;
     const/4 v7, 0x0
 
+    .line 195
+    .local v7, "pport":I
     const/4 v4, 0x0
 
+    .line 196
+    .local v4, "nphosts":Ljava/lang/String;
     const/4 v8, 0x0
 
+    .line 199
+    .local v8, "saddr":Ljava/net/InetSocketAddress;
     const/4 v1, 0x0
 
+    .local v1, "i":I
     :goto_0
     sget-object v11, Lsun/net/spi/DefaultProxySelector;->props:[[Ljava/lang/String;
 
@@ -88,6 +107,7 @@
 
     if-ge v1, v11, :cond_11
 
+    .line 200
     sget-object v11, Lsun/net/spi/DefaultProxySelector;->props:[[Ljava/lang/String;
 
     aget-object v11, v11, v1
@@ -102,8 +122,11 @@
 
     if-eqz v11, :cond_10
 
+    .line 201
     const/4 v2, 0x1
 
+    .end local v5    # "phost":Ljava/lang/String;
+    .local v2, "j":I
     :goto_1
     sget-object v11, Lsun/net/spi/DefaultProxySelector;->props:[[Ljava/lang/String;
 
@@ -113,6 +136,7 @@
 
     if-ge v2, v11, :cond_0
 
+    .line 206
     new-instance v11, Ljava/lang/StringBuilder;
 
     invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
@@ -141,6 +165,8 @@
 
     move-result-object v5
 
+    .line 207
+    .local v5, "phost":Ljava/lang/String;
     if-eqz v5, :cond_2
 
     invoke-virtual {v5}, Ljava/lang/String;->length()I
@@ -149,6 +175,8 @@
 
     if-eqz v11, :cond_2
 
+    .line 210
+    .end local v5    # "phost":Ljava/lang/String;
     :cond_0
     if-eqz v5, :cond_1
 
@@ -158,21 +186,27 @@
 
     if-nez v11, :cond_3
 
+    .line 218
     :cond_1
     sget-object v11, Ljava/net/Proxy;->NO_PROXY:Ljava/net/Proxy;
 
     return-object v11
 
+    .line 201
+    .restart local v5    # "phost":Ljava/lang/String;
     :cond_2
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
+    .line 222
+    .end local v5    # "phost":Ljava/lang/String;
     :cond_3
     iget-object v11, p0, Lsun/net/spi/DefaultProxySelector$1;->val$nprop:Lsun/net/spi/DefaultProxySelector$NonProxyInfo;
 
     if-eqz v11, :cond_a
 
+    .line 223
     iget-object v11, p0, Lsun/net/spi/DefaultProxySelector$1;->val$nprop:Lsun/net/spi/DefaultProxySelector$NonProxyInfo;
 
     iget-object v11, v11, Lsun/net/spi/DefaultProxySelector$NonProxyInfo;->property:Ljava/lang/String;
@@ -181,12 +215,16 @@
 
     move-result-object v4
 
+    .line 224
+    .local v4, "nphosts":Ljava/lang/String;
     iget-object v12, p0, Lsun/net/spi/DefaultProxySelector$1;->val$nprop:Lsun/net/spi/DefaultProxySelector$NonProxyInfo;
 
     monitor-enter v12
 
+    .line 225
     if-nez v4, :cond_8
 
+    .line 226
     :try_start_0
     iget-object v11, p0, Lsun/net/spi/DefaultProxySelector$1;->val$nprop:Lsun/net/spi/DefaultProxySelector$NonProxyInfo;
 
@@ -194,14 +232,17 @@
 
     if-eqz v11, :cond_7
 
+    .line 227
     iget-object v11, p0, Lsun/net/spi/DefaultProxySelector$1;->val$nprop:Lsun/net/spi/DefaultProxySelector$NonProxyInfo;
 
     iget-object v4, v11, Lsun/net/spi/DefaultProxySelector$NonProxyInfo;->defaultVal:Ljava/lang/String;
 
+    .line 239
     :cond_4
     :goto_2
     if-eqz v4, :cond_6
 
+    .line 240
     iget-object v11, p0, Lsun/net/spi/DefaultProxySelector$1;->val$nprop:Lsun/net/spi/DefaultProxySelector$NonProxyInfo;
 
     iget-object v11, v11, Lsun/net/spi/DefaultProxySelector$NonProxyInfo;->hostsSource:Ljava/lang/String;
@@ -212,10 +253,13 @@
 
     if-nez v11, :cond_6
 
+    .line 241
     new-instance v6, Lsun/misc/RegexpPool;
 
     invoke-direct {v6}, Lsun/misc/RegexpPool;-><init>()V
 
+    .line 242
+    .local v6, "pool":Lsun/misc/RegexpPool;
     new-instance v9, Ljava/util/StringTokenizer;
 
     const-string/jumbo v11, "|"
@@ -226,6 +270,8 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 244
+    .local v9, "st":Ljava/util/StringTokenizer;
     :goto_3
     :try_start_1
     invoke-virtual {v9}, Ljava/util/StringTokenizer;->hasMoreTokens()Z
@@ -234,6 +280,7 @@
 
     if-eqz v11, :cond_5
 
+    .line 245
     invoke-virtual {v9}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v11
@@ -251,19 +298,25 @@
 
     goto :goto_3
 
+    .line 247
     :catch_0
     move-exception v0
 
+    .line 249
     :cond_5
     :try_start_2
     iget-object v11, p0, Lsun/net/spi/DefaultProxySelector$1;->val$nprop:Lsun/net/spi/DefaultProxySelector$NonProxyInfo;
 
     iput-object v6, v11, Lsun/net/spi/DefaultProxySelector$NonProxyInfo;->hostsPool:Lsun/misc/RegexpPool;
 
+    .line 250
     iget-object v11, p0, Lsun/net/spi/DefaultProxySelector$1;->val$nprop:Lsun/net/spi/DefaultProxySelector$NonProxyInfo;
 
     iput-object v4, v11, Lsun/net/spi/DefaultProxySelector$NonProxyInfo;->hostsSource:Ljava/lang/String;
 
+    .line 253
+    .end local v6    # "pool":Lsun/misc/RegexpPool;
+    .end local v9    # "st":Ljava/util/StringTokenizer;
     :cond_6
     iget-object v11, p0, Lsun/net/spi/DefaultProxySelector$1;->val$nprop:Lsun/net/spi/DefaultProxySelector$NonProxyInfo;
 
@@ -271,6 +324,7 @@
 
     if-eqz v11, :cond_9
 
+    .line 254
     iget-object v11, p0, Lsun/net/spi/DefaultProxySelector$1;->val$nprop:Lsun/net/spi/DefaultProxySelector$NonProxyInfo;
 
     iget-object v11, v11, Lsun/net/spi/DefaultProxySelector$NonProxyInfo;->hostsPool:Lsun/misc/RegexpPool;
@@ -283,6 +337,7 @@
 
     if-eqz v11, :cond_9
 
+    .line 255
     sget-object v11, Ljava/net/Proxy;->NO_PROXY:Ljava/net/Proxy;
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
@@ -291,6 +346,7 @@
 
     return-object v11
 
+    .line 229
     :cond_7
     :try_start_3
     iget-object v11, p0, Lsun/net/spi/DefaultProxySelector$1;->val$nprop:Lsun/net/spi/DefaultProxySelector$NonProxyInfo;
@@ -299,6 +355,7 @@
 
     iput-object v13, v11, Lsun/net/spi/DefaultProxySelector$NonProxyInfo;->hostsSource:Ljava/lang/String;
 
+    .line 230
     iget-object v11, p0, Lsun/net/spi/DefaultProxySelector$1;->val$nprop:Lsun/net/spi/DefaultProxySelector$NonProxyInfo;
 
     const/4 v13, 0x0
@@ -309,6 +366,7 @@
 
     goto :goto_2
 
+    .line 224
     :catchall_0
     move-exception v11
 
@@ -316,6 +374,7 @@
 
     throw v11
 
+    .line 232
     :cond_8
     :try_start_4
     invoke-virtual {v4}, Ljava/lang/String;->length()I
@@ -324,6 +383,7 @@
 
     if-eqz v11, :cond_4
 
+    .line 236
     new-instance v11, Ljava/lang/StringBuilder;
 
     invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
@@ -349,6 +409,8 @@
     :cond_9
     monitor-exit v12
 
+    .line 261
+    .end local v4    # "nphosts":Ljava/lang/String;
     :cond_a
     new-instance v11, Ljava/lang/StringBuilder;
 
@@ -382,6 +444,7 @@
 
     move-result v7
 
+    .line 262
     if-nez v7, :cond_c
 
     sget-object v11, Lsun/net/spi/DefaultProxySelector;->props:[[Ljava/lang/String;
@@ -394,8 +457,10 @@
 
     if-ge v2, v11, :cond_c
 
+    .line 266
     const/4 v3, 0x1
 
+    .local v3, "k":I
     :goto_4
     sget-object v11, Lsun/net/spi/DefaultProxySelector;->props:[[Ljava/lang/String;
 
@@ -407,10 +472,12 @@
 
     if-ge v3, v11, :cond_c
 
+    .line 267
     if-eq v3, v2, :cond_b
 
     if-nez v7, :cond_b
 
+    .line 268
     new-instance v11, Ljava/lang/StringBuilder;
 
     invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
@@ -443,14 +510,18 @@
 
     move-result v7
 
+    .line 266
     :cond_b
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_4
 
+    .line 273
+    .end local v3    # "k":I
     :cond_c
     if-nez v7, :cond_d
 
+    .line 274
     sget-object v11, Lsun/net/spi/DefaultProxySelector;->props:[[Ljava/lang/String;
 
     aget-object v11, v11, v1
@@ -461,6 +532,7 @@
 
     if-ne v2, v11, :cond_e
 
+    .line 275
     iget-object v11, p0, Lsun/net/spi/DefaultProxySelector$1;->this$0:Lsun/net/spi/DefaultProxySelector;
 
     const-string/jumbo v12, "socket"
@@ -469,12 +541,15 @@
 
     move-result v7
 
+    .line 282
     :cond_d
     :goto_5
     invoke-static {v5, v7}, Ljava/net/InetSocketAddress;->createUnresolved(Ljava/lang/String;I)Ljava/net/InetSocketAddress;
 
     move-result-object v8
 
+    .line 284
+    .local v8, "saddr":Ljava/net/InetSocketAddress;
     sget-object v11, Lsun/net/spi/DefaultProxySelector;->props:[[Ljava/lang/String;
 
     aget-object v11, v11, v1
@@ -485,6 +560,7 @@
 
     if-ne v2, v11, :cond_f
 
+    .line 285
     const-string/jumbo v11, "socksProxyVersion"
 
     const/4 v12, 0x5
@@ -497,12 +573,17 @@
 
     move-result v10
 
+    .line 286
+    .local v10, "version":I
     invoke-static {v8, v10}, Lsun/net/SocksProxy;->create(Ljava/net/SocketAddress;I)Lsun/net/SocksProxy;
 
     move-result-object v11
 
     return-object v11
 
+    .line 277
+    .end local v10    # "version":I
+    .local v8, "saddr":Ljava/net/InetSocketAddress;
     :cond_e
     iget-object v11, p0, Lsun/net/spi/DefaultProxySelector$1;->this$0:Lsun/net/spi/DefaultProxySelector;
 
@@ -514,6 +595,8 @@
 
     goto :goto_5
 
+    .line 288
+    .local v8, "saddr":Ljava/net/InetSocketAddress;
     :cond_f
     new-instance v11, Ljava/net/Proxy;
 
@@ -523,11 +606,17 @@
 
     return-object v11
 
+    .line 199
+    .end local v2    # "j":I
+    .local v4, "nphosts":Ljava/lang/String;
+    .local v5, "phost":Ljava/lang/String;
+    .local v8, "saddr":Ljava/net/InetSocketAddress;
     :cond_10
     add-int/lit8 v1, v1, 0x1
 
     goto/16 :goto_0
 
+    .line 292
     :cond_11
     sget-object v11, Ljava/net/Proxy;->NO_PROXY:Ljava/net/Proxy;
 

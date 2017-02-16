@@ -7,6 +7,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 39
     invoke-direct {p0}, Ljava/net/CacheResponse;-><init>()V
 
     return-void

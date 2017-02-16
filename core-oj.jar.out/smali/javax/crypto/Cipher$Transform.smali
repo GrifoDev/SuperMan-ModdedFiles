@@ -39,12 +39,19 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljavax/crypto/Cipher$NeedToSet;)V
     .locals 0
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "needToSet"    # Ljavax/crypto/Cipher$NeedToSet;
 
+    .prologue
+    .line 2703
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 2704
     iput-object p1, p0, Ljavax/crypto/Cipher$Transform;->name:Ljava/lang/String;
 
+    .line 2705
     iput-object p2, p0, Ljavax/crypto/Cipher$Transform;->needToSet:Ljavax/crypto/Cipher$NeedToSet;
 
+    .line 2703
     return-void
 .end method

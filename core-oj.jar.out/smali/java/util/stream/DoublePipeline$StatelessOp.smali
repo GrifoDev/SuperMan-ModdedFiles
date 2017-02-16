@@ -32,6 +32,7 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
     const-class v0, Ljava/util/stream/DoublePipeline$StatelessOp;
 
     invoke-virtual {v0}, Ljava/lang/Class;->desiredAssertionStatus()Z
@@ -45,6 +46,7 @@
     :goto_0
     sput-boolean v0, Ljava/util/stream/DoublePipeline$StatelessOp;->-assertionsDisabled:Z
 
+    .line 588
     return-void
 
     :cond_0
@@ -55,6 +57,8 @@
 
 .method public constructor <init>(Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;I)V
     .locals 1
+    .param p2, "inputShape"    # Ljava/util/stream/StreamShape;
+    .param p3, "opFlags"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -65,8 +69,13 @@
         }
     .end annotation
 
+    .prologue
+    .line 600
+    .local p0, "this":Ljava/util/stream/DoublePipeline$StatelessOp;, "Ljava/util/stream/DoublePipeline<TE_IN;>.StatelessOp<TE_IN;>;"
+    .local p1, "upstream":Ljava/util/stream/AbstractPipeline;, "Ljava/util/stream/AbstractPipeline<*TE_IN;*>;"
     invoke-direct {p0, p1, p3}, Ljava/util/stream/DoublePipeline;-><init>(Ljava/util/stream/AbstractPipeline;I)V
 
+    .line 601
     sget-boolean v0, Ljava/util/stream/DoublePipeline$StatelessOp;->-assertionsDisabled:Z
 
     if-nez v0, :cond_1
@@ -93,6 +102,7 @@
 
     goto :goto_0
 
+    .line 599
     :cond_1
     return-void
 .end method
@@ -102,6 +112,9 @@
 .method public final opIsStateful()Z
     .locals 1
 
+    .prologue
+    .line 606
+    .local p0, "this":Ljava/util/stream/DoublePipeline$StatelessOp;, "Ljava/util/stream/DoublePipeline<TE_IN;>.StatelessOp<TE_IN;>;"
     const/4 v0, 0x0
 
     return v0

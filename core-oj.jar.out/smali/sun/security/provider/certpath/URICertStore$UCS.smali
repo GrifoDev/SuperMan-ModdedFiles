@@ -17,8 +17,15 @@
 # direct methods
 .method protected constructor <init>(Ljava/security/cert/CertStoreSpi;Ljava/security/Provider;Ljava/lang/String;Ljava/security/cert/CertStoreParameters;)V
     .locals 0
+    .param p1, "spi"    # Ljava/security/cert/CertStoreSpi;
+    .param p2, "p"    # Ljava/security/Provider;
+    .param p3, "type"    # Ljava/lang/String;
+    .param p4, "params"    # Ljava/security/cert/CertStoreParameters;
 
+    .prologue
+    .line 488
     invoke-direct {p0, p1, p2, p3, p4}, Ljava/security/cert/CertStore;-><init>(Ljava/security/cert/CertStoreSpi;Ljava/security/Provider;Ljava/lang/String;Ljava/security/cert/CertStoreParameters;)V
 
+    .line 487
     return-void
 .end method

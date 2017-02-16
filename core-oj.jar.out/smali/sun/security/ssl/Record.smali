@@ -45,6 +45,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 71
     const-string/jumbo v0, "jsse.enableCBCProtection"
 
     const/4 v1, 0x1
@@ -53,7 +55,9 @@
 
     move-result v0
 
+    .line 70
     sput-boolean v0, Lsun/security/ssl/Record;->enableCBCProtection:Z
 
+    .line 37
     return-void
 .end method

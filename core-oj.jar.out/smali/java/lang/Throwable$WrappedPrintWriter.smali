@@ -21,13 +21,18 @@
 # direct methods
 .method constructor <init>(Ljava/io/PrintWriter;)V
     .locals 1
+    .param p1, "printWriter"    # Ljava/io/PrintWriter;
 
+    .prologue
+    .line 746
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Ljava/lang/Throwable$PrintStreamOrWriter;-><init>(Ljava/lang/Throwable$PrintStreamOrWriter;)V
 
+    .line 747
     iput-object p1, p0, Ljava/lang/Throwable$WrappedPrintWriter;->printWriter:Ljava/io/PrintWriter;
 
+    .line 746
     return-void
 .end method
 
@@ -36,6 +41,8 @@
 .method lock()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 751
     iget-object v0, p0, Ljava/lang/Throwable$WrappedPrintWriter;->printWriter:Ljava/io/PrintWriter;
 
     return-object v0
@@ -43,10 +50,14 @@
 
 .method println(Ljava/lang/Object;)V
     .locals 1
+    .param p1, "o"    # Ljava/lang/Object;
 
+    .prologue
+    .line 755
     iget-object v0, p0, Ljava/lang/Throwable$WrappedPrintWriter;->printWriter:Ljava/io/PrintWriter;
 
     invoke-virtual {v0, p1}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
 
+    .line 754
     return-void
 .end method

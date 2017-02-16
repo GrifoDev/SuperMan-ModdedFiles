@@ -48,44 +48,58 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 1138
     new-instance v0, Ljava/util/Hashtable;
 
     invoke-direct {v0}, Ljava/util/Hashtable;-><init>()V
 
     sput-object v0, Ljava/net/URL;->handlers:Ljava/util/Hashtable;
 
+    .line 1139
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     sput-object v0, Ljava/net/URL;->streamHandlerLock:Ljava/lang/Object;
 
+    .line 136
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
+    .param p1, "spec"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/MalformedURLException;
         }
     .end annotation
 
+    .prologue
+    .line 435
     const/4 v0, 0x0
 
     invoke-direct {p0, v0, p1}, Ljava/net/URL;-><init>(Ljava/net/URL;Ljava/lang/String;)V
 
+    .line 434
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)V
     .locals 6
+    .param p1, "protocol"    # Ljava/lang/String;
+    .param p2, "host"    # Ljava/lang/String;
+    .param p3, "port"    # I
+    .param p4, "file"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/MalformedURLException;
         }
     .end annotation
 
+    .prologue
+    .line 306
     const/4 v5, 0x0
 
     move-object v0, p0
@@ -100,44 +114,64 @@
 
     invoke-direct/range {v0 .. v5}, Ljava/net/URL;-><init>(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/net/URLStreamHandler;)V
 
+    .line 304
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/net/URLStreamHandler;)V
     .locals 5
+    .param p1, "protocol"    # Ljava/lang/String;
+    .param p2, "host"    # Ljava/lang/String;
+    .param p3, "port"    # I
+    .param p4, "file"    # Ljava/lang/String;
+    .param p5, "handler"    # Ljava/net/URLStreamHandler;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/MalformedURLException;
         }
     .end annotation
 
+    .prologue
     const/4 v4, -0x1
 
+    .line 371
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 170
     iput v4, p0, Ljava/net/URL;->port:I
 
+    .line 222
     iput v4, p0, Ljava/net/URL;->hashCode:I
 
+    .line 373
     if-eqz p5, :cond_0
 
+    .line 374
     invoke-static {}, Ljava/lang/System;->getSecurityManager()Ljava/lang/SecurityManager;
 
     move-result-object v1
 
+    .line 375
+    .local v1, "sm":Ljava/lang/SecurityManager;
     if-eqz v1, :cond_0
 
+    .line 377
     invoke-direct {p0, v1}, Ljava/net/URL;->checkSpecifyHandler(Ljava/lang/SecurityManager;)V
 
+    .line 381
+    .end local v1    # "sm":Ljava/lang/SecurityManager;
     :cond_0
     invoke-virtual {p1}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
     move-result-object p1
 
+    .line 382
     iput-object p1, p0, Ljava/net/URL;->protocol:Ljava/lang/String;
 
+    .line 383
     if-eqz p2, :cond_4
 
+    .line 389
     const/16 v2, 0x3a
 
     invoke-virtual {p2, v2}, Ljava/lang/String;->indexOf(I)I
@@ -154,12 +188,15 @@
 
     if-eqz v2, :cond_2
 
+    .line 392
     :cond_1
     :goto_0
     iput-object p2, p0, Ljava/net/URL;->host:Ljava/lang/String;
 
+    .line 394
     if-ge p3, v4, :cond_3
 
+    .line 395
     new-instance v2, Ljava/net/MalformedURLException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -184,6 +221,7 @@
 
     throw v2
 
+    .line 390
     :cond_2
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -211,9 +249,11 @@
 
     goto :goto_0
 
+    .line 398
     :cond_3
     iput p3, p0, Ljava/net/URL;->port:I
 
+    .line 399
     if-ne p3, v4, :cond_5
 
     move-object v2, p2
@@ -221,27 +261,33 @@
     :goto_1
     iput-object v2, p0, Ljava/net/URL;->authority:Ljava/lang/String;
 
+    .line 402
     :cond_4
     new-instance v0, Ljava/net/Parts;
 
     invoke-direct {v0, p4, p2}, Ljava/net/Parts;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 403
+    .local v0, "parts":Ljava/net/Parts;
     invoke-virtual {v0}, Ljava/net/Parts;->getPath()Ljava/lang/String;
 
     move-result-object v2
 
     iput-object v2, p0, Ljava/net/URL;->path:Ljava/lang/String;
 
+    .line 404
     invoke-virtual {v0}, Ljava/net/Parts;->getQuery()Ljava/lang/String;
 
     move-result-object v2
 
     iput-object v2, p0, Ljava/net/URL;->query:Ljava/lang/String;
 
+    .line 406
     iget-object v2, p0, Ljava/net/URL;->query:Ljava/lang/String;
 
     if-eqz v2, :cond_6
 
+    .line 407
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -270,6 +316,7 @@
 
     iput-object v2, p0, Ljava/net/URL;->file:Ljava/lang/String;
 
+    .line 411
     :goto_2
     invoke-virtual {v0}, Ljava/net/Parts;->getRef()Ljava/lang/String;
 
@@ -277,14 +324,17 @@
 
     iput-object v2, p0, Ljava/net/URL;->ref:Ljava/lang/String;
 
+    .line 415
     if-nez p5, :cond_7
 
+    .line 416
     invoke-static {p1}, Ljava/net/URL;->getURLStreamHandler(Ljava/lang/String;)Ljava/net/URLStreamHandler;
 
     move-result-object p5
 
     if-nez p5, :cond_7
 
+    .line 417
     new-instance v2, Ljava/net/MalformedURLException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -309,6 +359,8 @@
 
     throw v2
 
+    .line 399
+    .end local v0    # "parts":Ljava/net/Parts;
     :cond_5
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -334,6 +386,8 @@
 
     goto :goto_1
 
+    .line 409
+    .restart local v0    # "parts":Ljava/net/Parts;
     :cond_6
     iget-object v2, p0, Ljava/net/URL;->path:Ljava/lang/String;
 
@@ -341,94 +395,133 @@
 
     goto :goto_2
 
+    .line 419
     :cond_7
     iput-object p5, p0, Ljava/net/URL;->handler:Ljava/net/URLStreamHandler;
 
+    .line 372
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
+    .param p1, "protocol"    # Ljava/lang/String;
+    .param p2, "host"    # Ljava/lang/String;
+    .param p3, "file"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/MalformedURLException;
         }
     .end annotation
 
+    .prologue
+    .line 329
     const/4 v0, -0x1
 
     invoke-direct {p0, p1, p2, v0, p3}, Ljava/net/URL;-><init>(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)V
 
+    .line 328
     return-void
 .end method
 
 .method public constructor <init>(Ljava/net/URL;Ljava/lang/String;)V
     .locals 1
+    .param p1, "context"    # Ljava/net/URL;
+    .param p2, "spec"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/MalformedURLException;
         }
     .end annotation
 
+    .prologue
+    .line 486
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, p2, v0}, Ljava/net/URL;-><init>(Ljava/net/URL;Ljava/lang/String;Ljava/net/URLStreamHandler;)V
 
+    .line 485
     return-void
 .end method
 
 .method public constructor <init>(Ljava/net/URL;Ljava/lang/String;Ljava/net/URLStreamHandler;)V
     .locals 22
+    .param p1, "context"    # Ljava/net/URL;
+    .param p2, "spec"    # Ljava/lang/String;
+    .param p3, "handler"    # Ljava/net/URLStreamHandler;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/MalformedURLException;
         }
     .end annotation
 
+    .prologue
+    .line 509
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
+    .line 170
     const/4 v4, -0x1
 
     move-object/from16 v0, p0
 
     iput v4, v0, Ljava/net/URL;->port:I
 
+    .line 222
     const/4 v4, -0x1
 
     move-object/from16 v0, p0
 
     iput v4, v0, Ljava/net/URL;->hashCode:I
 
+    .line 512
     move-object/from16 v19, p2
 
+    .line 514
+    .local v19, "original":Ljava/lang/String;
     const/4 v6, 0x0
 
+    .line 515
+    .local v6, "start":I
     const/16 v18, 0x0
 
+    .line 516
+    .local v18, "newProtocol":Ljava/lang/String;
     const/4 v10, 0x0
 
+    .line 517
+    .local v10, "aRef":Z
     const/16 v16, 0x0
 
+    .line 520
+    .local v16, "isRelative":Z
     if-eqz p3, :cond_0
 
+    .line 521
     invoke-static {}, Ljava/lang/System;->getSecurityManager()Ljava/lang/SecurityManager;
 
     move-result-object v21
 
+    .line 522
+    .local v21, "sm":Ljava/lang/SecurityManager;
     if-eqz v21, :cond_0
 
+    .line 523
     move-object/from16 v0, p0
 
     move-object/from16 v1, v21
 
     invoke-direct {v0, v1}, Ljava/net/URL;->checkSpecifyHandler(Ljava/lang/SecurityManager;)V
 
+    .line 528
+    .end local v21    # "sm":Ljava/lang/SecurityManager;
     :cond_0
     :try_start_0
     invoke-virtual/range {p2 .. p2}, Ljava/lang/String;->length()I
 
     move-result v17
 
+    .line 529
+    .local v17, "limit":I
     :goto_0
     if-lez v17, :cond_1
 
@@ -444,10 +537,12 @@
 
     if-gt v4, v5, :cond_1
 
+    .line 530
     add-int/lit8 v17, v17, -0x1
 
     goto :goto_0
 
+    .line 532
     :cond_1
     :goto_1
     move/from16 v0, v17
@@ -464,10 +559,12 @@
 
     if-gt v4, v5, :cond_2
 
+    .line 533
     add-int/lit8 v6, v6, 0x1
 
     goto :goto_1
 
+    .line 536
     :cond_2
     const-string/jumbo v7, "url:"
 
@@ -485,8 +582,10 @@
 
     if-eqz v4, :cond_3
 
+    .line 537
     add-int/lit8 v6, v6, 0x4
 
+    .line 539
     :cond_3
     invoke-virtual/range {p2 .. p2}, Ljava/lang/String;->length()I
 
@@ -504,11 +603,14 @@
 
     if-ne v4, v5, :cond_4
 
+    .line 544
     const/4 v10, 0x1
 
+    .line 546
     :cond_4
     move v15, v6
 
+    .local v15, "i":I
     :goto_2
     if-nez v10, :cond_5
 
@@ -516,20 +618,24 @@
 
     if-ge v15, v0, :cond_5
 
+    .line 547
     move-object/from16 v0, p2
 
     invoke-virtual {v0, v15}, Ljava/lang/String;->charAt(I)C
 
     move-result v11
 
+    .local v11, "c":I
     const/16 v4, 0x2f
 
     if-eq v11, v4, :cond_5
 
+    .line 548
     const/16 v4, 0x3a
 
     if-ne v11, v4, :cond_a
 
+    .line 550
     move-object/from16 v0, p2
 
     invoke-virtual {v0, v6, v15}, Ljava/lang/String;->substring(II)Ljava/lang/String;
@@ -540,6 +646,8 @@
 
     move-result-object v20
 
+    .line 551
+    .local v20, "s":Ljava/lang/String;
     move-object/from16 v0, p0
 
     move-object/from16 v1, v20
@@ -550,10 +658,17 @@
 
     if-eqz v4, :cond_5
 
+    .line 552
     move-object/from16 v18, v20
 
+    .line 553
+    .local v18, "newProtocol":Ljava/lang/String;
     add-int/lit8 v6, v15, 0x1
 
+    .line 560
+    .end local v11    # "c":I
+    .end local v18    # "newProtocol":Ljava/lang/String;
+    .end local v20    # "s":Ljava/lang/String;
     :cond_5
     move-object/from16 v0, v18
 
@@ -561,10 +676,12 @@
 
     iput-object v0, v1, Ljava/net/URL;->protocol:Ljava/lang/String;
 
+    .line 561
     if-eqz p1, :cond_9
 
     if-eqz v18, :cond_6
 
+    .line 562
     move-object/from16 v0, p1
 
     iget-object v4, v0, Ljava/net/URL;->protocol:Ljava/lang/String;
@@ -575,17 +692,21 @@
 
     move-result v4
 
+    .line 561
     if-eqz v4, :cond_9
 
+    .line 565
     :cond_6
     if-nez p3, :cond_7
 
+    .line 566
     move-object/from16 v0, p1
 
     iget-object v0, v0, Ljava/net/URL;->handler:Ljava/net/URLStreamHandler;
 
     move-object/from16 p3, v0
 
+    .line 573
     :cond_7
     move-object/from16 v0, p1
 
@@ -605,11 +726,14 @@
 
     if-eqz v4, :cond_8
 
+    .line 574
     const/16 v18, 0x0
 
+    .line 576
     :cond_8
     if-nez v18, :cond_9
 
+    .line 577
     move-object/from16 v0, p1
 
     iget-object v4, v0, Ljava/net/URL;->protocol:Ljava/lang/String;
@@ -618,6 +742,7 @@
 
     iput-object v4, v0, Ljava/net/URL;->protocol:Ljava/lang/String;
 
+    .line 578
     move-object/from16 v0, p1
 
     iget-object v4, v0, Ljava/net/URL;->authority:Ljava/lang/String;
@@ -626,6 +751,7 @@
 
     iput-object v4, v0, Ljava/net/URL;->authority:Ljava/lang/String;
 
+    .line 579
     move-object/from16 v0, p1
 
     iget-object v4, v0, Ljava/net/URL;->userInfo:Ljava/lang/String;
@@ -634,6 +760,7 @@
 
     iput-object v4, v0, Ljava/net/URL;->userInfo:Ljava/lang/String;
 
+    .line 580
     move-object/from16 v0, p1
 
     iget-object v4, v0, Ljava/net/URL;->host:Ljava/lang/String;
@@ -642,6 +769,7 @@
 
     iput-object v4, v0, Ljava/net/URL;->host:Ljava/lang/String;
 
+    .line 581
     move-object/from16 v0, p1
 
     iget v4, v0, Ljava/net/URL;->port:I
@@ -650,6 +778,7 @@
 
     iput v4, v0, Ljava/net/URL;->port:I
 
+    .line 582
     move-object/from16 v0, p1
 
     iget-object v4, v0, Ljava/net/URL;->file:Ljava/lang/String;
@@ -658,6 +787,7 @@
 
     iput-object v4, v0, Ljava/net/URL;->file:Ljava/lang/String;
 
+    .line 583
     move-object/from16 v0, p1
 
     iget-object v4, v0, Ljava/net/URL;->path:Ljava/lang/String;
@@ -666,8 +796,10 @@
 
     iput-object v4, v0, Ljava/net/URL;->path:Ljava/lang/String;
 
+    .line 584
     const/16 v16, 0x1
 
+    .line 588
     :cond_9
     move-object/from16 v0, p0
 
@@ -675,6 +807,7 @@
 
     if-nez v4, :cond_b
 
+    .line 589
     new-instance v4, Ljava/net/MalformedURLException;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -704,19 +837,34 @@
     .catch Ljava/net/MalformedURLException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
 
+    .line 620
+    .end local v15    # "i":I
+    .end local v17    # "limit":I
     :catch_0
     move-exception v13
 
+    .line 621
+    .local v13, "e":Ljava/net/MalformedURLException;
     throw v13
 
+    .line 547
+    .end local v13    # "e":Ljava/net/MalformedURLException;
+    .restart local v11    # "c":I
+    .restart local v15    # "i":I
+    .restart local v17    # "limit":I
+    .local v18, "newProtocol":Ljava/lang/String;
     :cond_a
     add-int/lit8 v15, v15, 0x1
 
     goto/16 :goto_2
 
+    .line 594
+    .end local v11    # "c":I
+    .end local v18    # "newProtocol":Ljava/lang/String;
     :cond_b
     if-nez p3, :cond_c
 
+    .line 595
     :try_start_1
     move-object/from16 v0, p0
 
@@ -728,6 +876,7 @@
 
     if-nez p3, :cond_c
 
+    .line 596
     new-instance v4, Ljava/net/MalformedURLException;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -759,9 +908,14 @@
     .catch Ljava/net/MalformedURLException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
+    .line 622
+    .end local v15    # "i":I
+    .end local v17    # "limit":I
     :catch_1
     move-exception v12
 
+    .line 623
+    .local v12, "e":Ljava/lang/Exception;
     new-instance v14, Ljava/net/MalformedURLException;
 
     invoke-virtual {v12}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
@@ -770,10 +924,18 @@
 
     invoke-direct {v14, v4}, Ljava/net/MalformedURLException;-><init>(Ljava/lang/String;)V
 
+    .line 624
+    .local v14, "exception":Ljava/net/MalformedURLException;
     invoke-virtual {v14, v12}, Ljava/net/MalformedURLException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
+    .line 625
     throw v14
 
+    .line 599
+    .end local v12    # "e":Ljava/lang/Exception;
+    .end local v14    # "exception":Ljava/net/MalformedURLException;
+    .restart local v15    # "i":I
+    .restart local v17    # "limit":I
     :cond_c
     :try_start_2
     move-object/from16 v0, p3
@@ -782,6 +944,7 @@
 
     iput-object v0, v1, Ljava/net/URL;->handler:Ljava/net/URLStreamHandler;
 
+    .line 601
     const/16 v4, 0x23
 
     move-object/from16 v0, p2
@@ -790,8 +953,10 @@
 
     move-result v15
 
+    .line 602
     if-ltz v15, :cond_d
 
+    .line 603
     add-int/lit8 v4, v15, 0x1
 
     move-object/from16 v0, p2
@@ -806,8 +971,10 @@
 
     iput-object v4, v0, Ljava/net/URL;->ref:Ljava/lang/String;
 
+    .line 604
     move/from16 v17, v15
 
+    .line 611
     :cond_d
     if-eqz v16, :cond_e
 
@@ -815,6 +982,7 @@
 
     if-ne v6, v0, :cond_e
 
+    .line 612
     move-object/from16 v0, p1
 
     iget-object v4, v0, Ljava/net/URL;->query:Ljava/lang/String;
@@ -823,12 +991,14 @@
 
     iput-object v4, v0, Ljava/net/URL;->query:Ljava/lang/String;
 
+    .line 613
     move-object/from16 v0, p0
 
     iget-object v4, v0, Ljava/net/URL;->ref:Ljava/lang/String;
 
     if-nez v4, :cond_e
 
+    .line 614
     move-object/from16 v0, p1
 
     iget-object v4, v0, Ljava/net/URL;->ref:Ljava/lang/String;
@@ -837,6 +1007,7 @@
 
     iput-object v4, v0, Ljava/net/URL;->ref:Ljava/lang/String;
 
+    .line 618
     :cond_e
     move-object/from16 v0, p3
 
@@ -851,22 +1022,30 @@
     .catch Ljava/net/MalformedURLException; {:try_start_2 .. :try_end_2} :catch_0
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
 
+    .line 510
     return-void
 .end method
 
 .method private checkSpecifyHandler(Ljava/lang/SecurityManager;)V
     .locals 1
+    .param p1, "sm"    # Ljava/lang/SecurityManager;
 
+    .prologue
+    .line 653
     sget-object v0, Lsun/security/util/SecurityConstants;->SPECIFY_HANDLER_PERMISSION:Ljava/net/NetPermission;
 
     invoke-virtual {p1, v0}, Ljava/lang/SecurityManager;->checkPermission(Ljava/security/Permission;)V
 
+    .line 652
     return-void
 .end method
 
 .method static getURLStreamHandler(Ljava/lang/String;)Ljava/net/URLStreamHandler;
     .locals 16
+    .param p0, "protocol"    # Ljava/lang/String;
 
+    .prologue
+    .line 1147
     sget-object v14, Ljava/net/URL;->handlers:Ljava/util/Hashtable;
 
     move-object/from16 v0, p0
@@ -877,14 +1056,20 @@
 
     check-cast v8, Ljava/net/URLStreamHandler;
 
+    .line 1148
+    .local v8, "handler":Ljava/net/URLStreamHandler;
     if-nez v8, :cond_d
 
+    .line 1150
     const/4 v1, 0x0
 
+    .line 1153
+    .local v1, "checkedWithFactory":Z
     sget-object v14, Ljava/net/URL;->factory:Ljava/net/URLStreamHandlerFactory;
 
     if-eqz v14, :cond_0
 
+    .line 1154
     sget-object v14, Ljava/net/URL;->factory:Ljava/net/URLStreamHandlerFactory;
 
     move-object/from16 v0, p0
@@ -893,11 +1078,14 @@
 
     move-result-object v8
 
+    .line 1155
     const/4 v1, 0x1
 
+    .line 1159
     :cond_0
     if-nez v8, :cond_3
 
+    .line 1160
     const-string/jumbo v14, "java.protocol.handler.pkgs"
 
     const-string/jumbo v15, ""
@@ -906,22 +1094,29 @@
 
     move-result-object v13
 
+    .line 1161
+    .local v13, "packagePrefixList":Ljava/lang/String;
     new-instance v12, Ljava/util/StringTokenizer;
 
     const-string/jumbo v14, "|"
 
     invoke-direct {v12, v13, v14}, Ljava/util/StringTokenizer;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 1163
+    .local v12, "packagePrefixIter":Ljava/util/StringTokenizer;
     :cond_1
     :goto_0
     if-nez v8, :cond_3
 
+    .line 1164
     invoke-virtual {v12}, Ljava/util/StringTokenizer;->hasMoreTokens()Z
 
     move-result v14
 
+    .line 1163
     if-eqz v14, :cond_3
 
+    .line 1166
     invoke-virtual {v12}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v14
@@ -930,6 +1125,8 @@
 
     move-result-object v11
 
+    .line 1168
+    .local v11, "packagePrefix":Ljava/lang/String;
     :try_start_0
     new-instance v14, Ljava/lang/StringBuilder;
 
@@ -963,13 +1160,19 @@
 
     move-result-object v4
 
+    .line 1169
+    .local v4, "clsName":Ljava/lang/String;
     const/4 v3, 0x0
 
+    .line 1171
+    .local v3, "cls":Ljava/lang/Class;
     :try_start_1
     invoke-static {}, Ljava/lang/ClassLoader;->getSystemClassLoader()Ljava/lang/ClassLoader;
 
     move-result-object v2
 
+    .line 1172
+    .local v2, "cl":Ljava/lang/ClassLoader;
     const/4 v14, 0x1
 
     invoke-static {v4, v14, v2}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
@@ -979,10 +1182,14 @@
 
     move-result-object v3
 
+    .line 1179
+    .end local v2    # "cl":Ljava/lang/ClassLoader;
+    .end local v3    # "cls":Ljava/lang/Class;
     :cond_2
     :goto_1
     if-eqz v3, :cond_1
 
+    .line 1181
     :try_start_2
     invoke-virtual {v3}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
 
@@ -994,11 +1201,16 @@
 
     move-object v8, v0
 
+    .line 1180
     goto :goto_0
 
+    .line 1173
+    .restart local v3    # "cls":Ljava/lang/Class;
     :catch_0
     move-exception v6
 
+    .line 1174
+    .local v6, "e":Ljava/lang/ClassNotFoundException;
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
     move-result-object v14
@@ -1007,8 +1219,11 @@
 
     move-result-object v5
 
+    .line 1175
+    .local v5, "contextLoader":Ljava/lang/ClassLoader;
     if-eqz v5, :cond_2
 
+    .line 1176
     const/4 v14, 0x1
 
     invoke-static {v4, v14, v5}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
@@ -1017,11 +1232,21 @@
 
     move-result-object v3
 
+    .local v3, "cls":Ljava/lang/Class;
     goto :goto_1
 
+    .line 1190
+    .end local v3    # "cls":Ljava/lang/Class;
+    .end local v4    # "clsName":Ljava/lang/String;
+    .end local v5    # "contextLoader":Ljava/lang/ClassLoader;
+    .end local v6    # "e":Ljava/lang/ClassNotFoundException;
+    .end local v11    # "packagePrefix":Ljava/lang/String;
+    .end local v12    # "packagePrefixIter":Ljava/util/StringTokenizer;
+    .end local v13    # "packagePrefixList":Ljava/lang/String;
     :cond_3
     if-nez v8, :cond_4
 
+    .line 1192
     :try_start_3
     const-string/jumbo v14, "file"
 
@@ -1033,8 +1258,10 @@
 
     if-eqz v14, :cond_5
 
+    .line 1194
     const-string/jumbo v14, "sun.net.www.protocol.file.Handler"
 
+    .line 1193
     invoke-static {v14}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v14
@@ -1043,18 +1270,24 @@
 
     move-result-object v8
 
+    .end local v8    # "handler":Ljava/net/URLStreamHandler;
     check-cast v8, Ljava/net/URLStreamHandler;
     :try_end_3
     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_1
 
+    .line 1213
+    .restart local v8    # "handler":Ljava/net/URLStreamHandler;
     :cond_4
     :goto_2
     sget-object v15, Ljava/net/URL;->streamHandlerLock:Ljava/lang/Object;
 
     monitor-enter v15
 
+    .line 1215
     const/4 v9, 0x0
 
+    .line 1219
+    .local v9, "handler2":Ljava/net/URLStreamHandler;
     :try_start_4
     sget-object v14, Ljava/net/URL;->handlers:Ljava/util/Hashtable;
 
@@ -1072,12 +1305,17 @@
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
+    .line 1221
+    .local v9, "handler2":Ljava/net/URLStreamHandler;
     if-eqz v9, :cond_9
 
     monitor-exit v15
 
+    .line 1222
     return-object v9
 
+    .line 1195
+    .end local v9    # "handler2":Ljava/net/URLStreamHandler;
     :cond_5
     :try_start_5
     const-string/jumbo v14, "ftp"
@@ -1090,8 +1328,10 @@
 
     if-eqz v14, :cond_6
 
+    .line 1197
     const-string/jumbo v14, "sun.net.www.protocol.ftp.Handler"
 
+    .line 1196
     invoke-static {v14}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v14
@@ -1100,10 +1340,13 @@
 
     move-result-object v8
 
+    .end local v8    # "handler":Ljava/net/URLStreamHandler;
     check-cast v8, Ljava/net/URLStreamHandler;
 
+    .restart local v8    # "handler":Ljava/net/URLStreamHandler;
     goto :goto_2
 
+    .line 1198
     :cond_6
     const-string/jumbo v14, "jar"
 
@@ -1115,8 +1358,10 @@
 
     if-eqz v14, :cond_7
 
+    .line 1200
     const-string/jumbo v14, "sun.net.www.protocol.jar.Handler"
 
+    .line 1199
     invoke-static {v14}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v14
@@ -1125,10 +1370,13 @@
 
     move-result-object v8
 
+    .end local v8    # "handler":Ljava/net/URLStreamHandler;
     check-cast v8, Ljava/net/URLStreamHandler;
 
+    .restart local v8    # "handler":Ljava/net/URLStreamHandler;
     goto :goto_2
 
+    .line 1201
     :cond_7
     const-string/jumbo v14, "http"
 
@@ -1140,8 +1388,10 @@
 
     if-eqz v14, :cond_8
 
+    .line 1203
     const-string/jumbo v14, "com.android.okhttp.HttpHandler"
 
+    .line 1202
     invoke-static {v14}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v14
@@ -1150,10 +1400,13 @@
 
     move-result-object v8
 
+    .end local v8    # "handler":Ljava/net/URLStreamHandler;
     check-cast v8, Ljava/net/URLStreamHandler;
 
+    .restart local v8    # "handler":Ljava/net/URLStreamHandler;
     goto :goto_2
 
+    .line 1204
     :cond_8
     const-string/jumbo v14, "https"
 
@@ -1165,8 +1418,10 @@
 
     if-eqz v14, :cond_4
 
+    .line 1206
     const-string/jumbo v14, "com.android.okhttp.HttpsHandler"
 
+    .line 1205
     invoke-static {v14}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v14
@@ -1175,21 +1430,31 @@
 
     move-result-object v8
 
+    .end local v8    # "handler":Ljava/net/URLStreamHandler;
     check-cast v8, Ljava/net/URLStreamHandler;
     :try_end_5
     .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_1
 
+    .restart local v8    # "handler":Ljava/net/URLStreamHandler;
     goto :goto_2
 
+    .line 1208
+    .end local v8    # "handler":Ljava/net/URLStreamHandler;
     :catch_1
     move-exception v7
 
+    .line 1209
+    .local v7, "e":Ljava/lang/Exception;
     new-instance v14, Ljava/lang/AssertionError;
 
     invoke-direct {v14, v7}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
 
     throw v14
 
+    .line 1227
+    .end local v7    # "e":Ljava/lang/Exception;
+    .restart local v8    # "handler":Ljava/net/URLStreamHandler;
+    .restart local v9    # "handler2":Ljava/net/URLStreamHandler;
     :cond_9
     if-nez v1, :cond_a
 
@@ -1198,6 +1463,7 @@
 
     if-eqz v14, :cond_a
 
+    .line 1228
     sget-object v14, Ljava/net/URL;->factory:Ljava/net/URLStreamHandlerFactory;
 
     move-object/from16 v0, p0
@@ -1206,14 +1472,18 @@
 
     move-result-object v9
 
+    .line 1231
     :cond_a
     if-eqz v9, :cond_b
 
+    .line 1235
     move-object v8, v9
 
+    .line 1239
     :cond_b
     if-eqz v8, :cond_c
 
+    .line 1240
     sget-object v14, Ljava/net/URL;->handlers:Ljava/util/Hashtable;
 
     move-object/from16 v0, p0
@@ -1225,9 +1495,14 @@
     :cond_c
     monitor-exit v15
 
+    .line 1246
+    .end local v1    # "checkedWithFactory":Z
+    .end local v9    # "handler2":Ljava/net/URLStreamHandler;
     :cond_d
     return-object v8
 
+    .line 1213
+    .restart local v1    # "checkedWithFactory":Z
     :catchall_0
     move-exception v14
 
@@ -1235,50 +1510,69 @@
 
     throw v14
 
+    .line 1183
+    .restart local v11    # "packagePrefix":Ljava/lang/String;
+    .restart local v12    # "packagePrefixIter":Ljava/util/StringTokenizer;
+    .restart local v13    # "packagePrefixList":Ljava/lang/String;
     :catch_2
     move-exception v10
 
+    .local v10, "ignored":Ljava/lang/ReflectiveOperationException;
     goto/16 :goto_0
 .end method
 
 .method private isValidProtocol(Ljava/lang/String;)Z
     .locals 6
+    .param p1, "protocol"    # Ljava/lang/String;
 
+    .prologue
     const/4 v5, 0x1
 
     const/4 v4, 0x0
 
+    .line 633
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v2
 
+    .line 634
+    .local v2, "len":I
     if-ge v2, v5, :cond_0
 
+    .line 635
     return v4
 
+    .line 636
     :cond_0
     invoke-virtual {p1, v4}, Ljava/lang/String;->charAt(I)C
 
     move-result v0
 
+    .line 637
+    .local v0, "c":C
     invoke-static {v0}, Ljava/lang/Character;->isLetter(C)Z
 
     move-result v3
 
     if-nez v3, :cond_1
 
+    .line 638
     return v4
 
+    .line 639
     :cond_1
     const/4 v1, 0x1
 
+    .local v1, "i":I
     :goto_0
     if-ge v1, v2, :cond_3
 
+    .line 640
     invoke-virtual {p1, v1}, Ljava/lang/String;->charAt(I)C
 
     move-result v0
 
+    .line 641
     invoke-static {v0}, Ljava/lang/Character;->isLetterOrDigit(C)Z
 
     move-result v3
@@ -1293,23 +1587,28 @@
 
     if-eq v0, v3, :cond_2
 
+    .line 642
     const/16 v3, 0x2d
 
     if-eq v0, v3, :cond_2
 
+    .line 643
     return v4
 
+    .line 639
     :cond_2
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
+    .line 646
     :cond_3
     return v5
 .end method
 
 .method private declared-synchronized readObject(Ljava/io/ObjectInputStream;)V
     .locals 6
+    .param p1, "s"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -1317,13 +1616,16 @@
         }
     .end annotation
 
+    .prologue
     const/4 v5, -0x1
 
     monitor-enter p0
 
+    .line 1274
     :try_start_0
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->defaultReadObject()V
 
+    .line 1275
     iget-object v3, p0, Ljava/net/URL;->protocol:Ljava/lang/String;
 
     invoke-static {v3}, Ljava/net/URL;->getURLStreamHandler(Ljava/lang/String;)Ljava/net/URLStreamHandler;
@@ -1334,6 +1636,7 @@
 
     if-nez v3, :cond_0
 
+    .line 1276
     new-instance v3, Ljava/io/IOException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -1369,12 +1672,14 @@
 
     throw v3
 
+    .line 1280
     :cond_0
     :try_start_1
     iget-object v3, p0, Ljava/net/URL;->authority:Ljava/lang/String;
 
     if-nez v3, :cond_6
 
+    .line 1281
     iget-object v3, p0, Ljava/net/URL;->host:Ljava/lang/String;
 
     if-eqz v3, :cond_5
@@ -1387,15 +1692,18 @@
 
     if-lez v3, :cond_5
 
+    .line 1282
     :cond_1
     iget-object v3, p0, Ljava/net/URL;->host:Ljava/lang/String;
 
     if-nez v3, :cond_2
 
+    .line 1283
     const-string/jumbo v3, ""
 
     iput-object v3, p0, Ljava/net/URL;->host:Ljava/lang/String;
 
+    .line 1284
     :cond_2
     iget v3, p0, Ljava/net/URL;->port:I
 
@@ -1406,6 +1714,7 @@
     :goto_0
     iput-object v3, p0, Ljava/net/URL;->authority:Ljava/lang/String;
 
+    .line 1287
     iget-object v3, p0, Ljava/net/URL;->host:Ljava/lang/String;
 
     const/16 v4, 0x40
@@ -1414,8 +1723,11 @@
 
     move-result v0
 
+    .line 1288
+    .local v0, "at":I
     if-eq v0, v5, :cond_3
 
+    .line 1289
     iget-object v3, p0, Ljava/net/URL;->host:Ljava/lang/String;
 
     const/4 v4, 0x0
@@ -1426,6 +1738,7 @@
 
     iput-object v3, p0, Ljava/net/URL;->userInfo:Ljava/lang/String;
 
+    .line 1290
     iget-object v3, p0, Ljava/net/URL;->host:Ljava/lang/String;
 
     add-int/lit8 v4, v0, 0x1
@@ -1436,20 +1749,25 @@
 
     iput-object v3, p0, Ljava/net/URL;->host:Ljava/lang/String;
 
+    .line 1300
+    .end local v0    # "at":I
     :cond_3
     :goto_1
     const/4 v3, 0x0
 
     iput-object v3, p0, Ljava/net/URL;->path:Ljava/lang/String;
 
+    .line 1301
     const/4 v3, 0x0
 
     iput-object v3, p0, Ljava/net/URL;->query:Ljava/lang/String;
 
+    .line 1302
     iget-object v3, p0, Ljava/net/URL;->file:Ljava/lang/String;
 
     if-eqz v3, :cond_4
 
+    .line 1304
     iget-object v3, p0, Ljava/net/URL;->file:Ljava/lang/String;
 
     const/16 v4, 0x3f
@@ -1458,8 +1776,11 @@
 
     move-result v2
 
+    .line 1305
+    .local v2, "q":I
     if-eq v2, v5, :cond_8
 
+    .line 1306
     iget-object v3, p0, Ljava/net/URL;->file:Ljava/lang/String;
 
     add-int/lit8 v4, v2, 0x1
@@ -1470,6 +1791,7 @@
 
     iput-object v3, p0, Ljava/net/URL;->query:Ljava/lang/String;
 
+    .line 1307
     iget-object v3, p0, Ljava/net/URL;->file:Ljava/lang/String;
 
     const/4 v4, 0x0
@@ -1480,6 +1802,8 @@
 
     iput-object v3, p0, Ljava/net/URL;->path:Ljava/lang/String;
 
+    .line 1311
+    .end local v2    # "q":I
     :cond_4
     :goto_2
     const/4 v3, -0x1
@@ -1490,19 +1814,23 @@
 
     monitor-exit p0
 
+    .line 1272
     return-void
 
+    .line 1281
     :cond_5
     :try_start_2
     iget v3, p0, Ljava/net/URL;->port:I
 
     if-ne v3, v5, :cond_1
 
+    .line 1292
     :cond_6
     iget-object v3, p0, Ljava/net/URL;->authority:Ljava/lang/String;
 
     if-eqz v3, :cond_3
 
+    .line 1294
     iget-object v3, p0, Ljava/net/URL;->authority:Ljava/lang/String;
 
     const/16 v4, 0x40
@@ -1511,8 +1839,11 @@
 
     move-result v1
 
+    .line 1295
+    .local v1, "ind":I
     if-eq v1, v5, :cond_3
 
+    .line 1296
     iget-object v3, p0, Ljava/net/URL;->authority:Ljava/lang/String;
 
     const/4 v4, 0x0
@@ -1525,6 +1856,8 @@
 
     goto :goto_1
 
+    .line 1284
+    .end local v1    # "ind":I
     :cond_7
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -1554,6 +1887,8 @@
 
     goto/16 :goto_0
 
+    .line 1309
+    .restart local v2    # "q":I
     :cond_8
     iget-object v3, p0, Ljava/net/URL;->file:Ljava/lang/String;
 
@@ -1566,16 +1901,21 @@
 
 .method public static setURLStreamHandlerFactory(Ljava/net/URLStreamHandlerFactory;)V
     .locals 4
+    .param p0, "fac"    # Ljava/net/URLStreamHandlerFactory;
 
+    .prologue
+    .line 1122
     sget-object v2, Ljava/net/URL;->streamHandlerLock:Ljava/lang/Object;
 
     monitor-enter v2
 
+    .line 1123
     :try_start_0
     sget-object v1, Ljava/net/URL;->factory:Ljava/net/URLStreamHandlerFactory;
 
     if-eqz v1, :cond_0
 
+    .line 1124
     new-instance v1, Ljava/lang/Error;
 
     const-string/jumbo v3, "factory already defined"
@@ -1586,6 +1926,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 1122
     :catchall_0
     move-exception v1
 
@@ -1593,40 +1934,50 @@
 
     throw v1
 
+    .line 1126
     :cond_0
     :try_start_1
     invoke-static {}, Ljava/lang/System;->getSecurityManager()Ljava/lang/SecurityManager;
 
     move-result-object v0
 
+    .line 1127
+    .local v0, "security":Ljava/lang/SecurityManager;
     if-eqz v0, :cond_1
 
+    .line 1128
     invoke-virtual {v0}, Ljava/lang/SecurityManager;->checkSetFactory()V
 
+    .line 1130
     :cond_1
     sget-object v1, Ljava/net/URL;->handlers:Ljava/util/Hashtable;
 
     invoke-virtual {v1}, Ljava/util/Hashtable;->clear()V
 
+    .line 1131
     sput-object p0, Ljava/net/URL;->factory:Ljava/net/URLStreamHandlerFactory;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     monitor-exit v2
 
+    .line 1121
     return-void
 .end method
 
 .method private declared-synchronized writeObject(Ljava/io/ObjectOutputStream;)V
     .locals 1
+    .param p1, "s"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
     monitor-enter p0
 
+    .line 1263
     :try_start_0
     invoke-virtual {p1}, Ljava/io/ObjectOutputStream;->defaultWriteObject()V
     :try_end_0
@@ -1634,6 +1985,7 @@
 
     monitor-exit p0
 
+    .line 1261
     return-void
 
     :catchall_0
@@ -1648,11 +2000,15 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 2
+    .param p1, "obj"    # Ljava/lang/Object;
 
+    .prologue
+    .line 878
     instance-of v1, p1, Ljava/net/URL;
 
     if-nez v1, :cond_0
 
+    .line 879
     const/4 v1, 0x0
 
     return v1
@@ -1660,8 +2016,11 @@
     :cond_0
     move-object v0, p1
 
+    .line 880
     check-cast v0, Ljava/net/URL;
 
+    .line 882
+    .local v0, "u2":Ljava/net/URL;
     iget-object v1, p0, Ljava/net/URL;->handler:Ljava/net/URLStreamHandler;
 
     invoke-virtual {v1, p0, v0}, Ljava/net/URLStreamHandler;->equals(Ljava/net/URL;Ljava/net/URL;)Z
@@ -1674,6 +2033,8 @@
 .method public getAuthority()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 764
     iget-object v0, p0, Ljava/net/URL;->authority:Ljava/lang/String;
 
     return-object v0
@@ -1687,6 +2048,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 1071
     invoke-virtual {p0}, Ljava/net/URL;->openConnection()Ljava/net/URLConnection;
 
     move-result-object v0
@@ -1700,12 +2063,15 @@
 
 .method public final getContent([Ljava/lang/Class;)Ljava/lang/Object;
     .locals 1
+    .param p1, "classes"    # [Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 1090
     invoke-virtual {p0}, Ljava/net/URL;->openConnection()Ljava/net/URLConnection;
 
     move-result-object v0
@@ -1720,6 +2086,8 @@
 .method public getDefaultPort()I
     .locals 1
 
+    .prologue
+    .line 786
     iget-object v0, p0, Ljava/net/URL;->handler:Ljava/net/URLStreamHandler;
 
     invoke-virtual {v0}, Ljava/net/URLStreamHandler;->getDefaultPort()I
@@ -1732,6 +2100,8 @@
 .method public getFile()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 822
     iget-object v0, p0, Ljava/net/URL;->file:Ljava/lang/String;
 
     return-object v0
@@ -1740,6 +2110,8 @@
 .method public getHost()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 807
     iget-object v0, p0, Ljava/net/URL;->host:Ljava/lang/String;
 
     return-object v0
@@ -1748,6 +2120,8 @@
 .method public getPath()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 743
     iget-object v0, p0, Ljava/net/URL;->path:Ljava/lang/String;
 
     return-object v0
@@ -1756,6 +2130,8 @@
 .method public getPort()I
     .locals 1
 
+    .prologue
+    .line 773
     iget v0, p0, Ljava/net/URL;->port:I
 
     return v0
@@ -1764,6 +2140,8 @@
 .method public getProtocol()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 795
     iget-object v0, p0, Ljava/net/URL;->protocol:Ljava/lang/String;
 
     return-object v0
@@ -1772,6 +2150,8 @@
 .method public getQuery()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 732
     iget-object v0, p0, Ljava/net/URL;->query:Ljava/lang/String;
 
     return-object v0
@@ -1780,6 +2160,8 @@
 .method public getRef()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 833
     iget-object v0, p0, Ljava/net/URL;->ref:Ljava/lang/String;
 
     return-object v0
@@ -1788,6 +2170,8 @@
 .method public getUserInfo()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 754
     iget-object v0, p0, Ljava/net/URL;->userInfo:Ljava/lang/String;
 
     return-object v0
@@ -1796,8 +2180,10 @@
 .method public declared-synchronized hashCode()I
     .locals 2
 
+    .prologue
     monitor-enter p0
 
+    .line 894
     :try_start_0
     iget v0, p0, Ljava/net/URL;->hashCode:I
 
@@ -1805,6 +2191,7 @@
 
     if-eq v0, v1, :cond_0
 
+    .line 895
     iget v0, p0, Ljava/net/URL;->hashCode:I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -1813,6 +2200,7 @@
 
     return v0
 
+    .line 897
     :cond_0
     :try_start_1
     iget-object v0, p0, Ljava/net/URL;->handler:Ljava/net/URLStreamHandler;
@@ -1823,6 +2211,7 @@
 
     iput v0, p0, Ljava/net/URL;->hashCode:I
 
+    .line 898
     iget v0, p0, Ljava/net/URL;->hashCode:I
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -1847,6 +2236,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 991
     iget-object v0, p0, Ljava/net/URL;->handler:Ljava/net/URLStreamHandler;
 
     invoke-virtual {v0, p0}, Ljava/net/URLStreamHandler;->openConnection(Ljava/net/URL;)Ljava/net/URLConnection;
@@ -1858,14 +2249,18 @@
 
 .method public openConnection(Ljava/net/Proxy;)Ljava/net/URLConnection;
     .locals 5
+    .param p1, "proxy"    # Ljava/net/Proxy;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 1025
     if-nez p1, :cond_0
 
+    .line 1026
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v4, "proxy can not be null"
@@ -1874,6 +2269,7 @@
 
     throw v3
 
+    .line 1030
     :cond_0
     sget-object v3, Ljava/net/Proxy;->NO_PROXY:Ljava/net/Proxy;
 
@@ -1881,11 +2277,15 @@
 
     sget-object v1, Ljava/net/Proxy;->NO_PROXY:Ljava/net/Proxy;
 
+    .line 1031
+    .local v1, "p":Ljava/net/Proxy;
     :goto_0
     invoke-static {}, Ljava/lang/System;->getSecurityManager()Ljava/lang/SecurityManager;
 
     move-result-object v2
 
+    .line 1032
+    .local v2, "sm":Ljava/lang/SecurityManager;
     invoke-virtual {v1}, Ljava/net/Proxy;->type()Ljava/net/Proxy$Type;
 
     move-result-object v3
@@ -1896,18 +2296,22 @@
 
     if-eqz v2, :cond_1
 
+    .line 1033
     invoke-virtual {v1}, Ljava/net/Proxy;->address()Ljava/net/SocketAddress;
 
     move-result-object v0
 
     check-cast v0, Ljava/net/InetSocketAddress;
 
+    .line 1034
+    .local v0, "epoint":Ljava/net/InetSocketAddress;
     invoke-virtual {v0}, Ljava/net/InetSocketAddress;->isUnresolved()Z
 
     move-result v3
 
     if-eqz v3, :cond_3
 
+    .line 1035
     invoke-virtual {v0}, Ljava/net/InetSocketAddress;->getHostName()Ljava/lang/String;
 
     move-result-object v3
@@ -1918,6 +2322,8 @@
 
     invoke-virtual {v2, v3, v4}, Ljava/lang/SecurityManager;->checkConnect(Ljava/lang/String;I)V
 
+    .line 1040
+    .end local v0    # "epoint":Ljava/net/InetSocketAddress;
     :cond_1
     :goto_1
     iget-object v3, p0, Ljava/net/URL;->handler:Ljava/net/URLStreamHandler;
@@ -1928,13 +2334,20 @@
 
     return-object v3
 
+    .line 1030
+    .end local v1    # "p":Ljava/net/Proxy;
+    .end local v2    # "sm":Ljava/lang/SecurityManager;
     :cond_2
     invoke-static {p1}, Lsun/net/ApplicationProxy;->create(Ljava/net/Proxy;)Lsun/net/ApplicationProxy;
 
     move-result-object v1
 
+    .restart local v1    # "p":Ljava/net/Proxy;
     goto :goto_0
 
+    .line 1037
+    .restart local v0    # "epoint":Ljava/net/InetSocketAddress;
+    .restart local v2    # "sm":Ljava/lang/SecurityManager;
     :cond_3
     invoke-virtual {v0}, Ljava/net/InetSocketAddress;->getAddress()Ljava/net/InetAddress;
 
@@ -1944,10 +2357,12 @@
 
     move-result-object v3
 
+    .line 1038
     invoke-virtual {v0}, Ljava/net/InetSocketAddress;->getPort()I
 
     move-result v4
 
+    .line 1037
     invoke-virtual {v2, v3, v4}, Ljava/lang/SecurityManager;->checkConnect(Ljava/lang/String;I)V
 
     goto :goto_1
@@ -1961,6 +2376,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 1057
     invoke-virtual {p0}, Ljava/net/URL;->openConnection()Ljava/net/URLConnection;
 
     move-result-object v0
@@ -1974,7 +2391,10 @@
 
 .method public sameFile(Ljava/net/URL;)Z
     .locals 1
+    .param p1, "other"    # Ljava/net/URL;
 
+    .prologue
+    .line 913
     iget-object v0, p0, Ljava/net/URL;->handler:Ljava/net/URLStreamHandler;
 
     invoke-virtual {v0, p0, p1}, Ljava/net/URLStreamHandler;->sameFile(Ljava/net/URL;Ljava/net/URL;)Z
@@ -1986,43 +2406,63 @@
 
 .method protected set(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V
     .locals 4
+    .param p1, "protocol"    # Ljava/lang/String;
+    .param p2, "host"    # Ljava/lang/String;
+    .param p3, "port"    # I
+    .param p4, "file"    # Ljava/lang/String;
+    .param p5, "ref"    # Ljava/lang/String;
 
+    .prologue
     const/4 v3, -0x1
 
+    .line 669
     monitor-enter p0
 
+    .line 670
     :try_start_0
     iput-object p1, p0, Ljava/net/URL;->protocol:Ljava/lang/String;
 
+    .line 671
     iput-object p2, p0, Ljava/net/URL;->host:Ljava/lang/String;
 
+    .line 672
     if-ne p3, v3, :cond_0
 
+    .end local p2    # "host":Ljava/lang/String;
     :goto_0
     iput-object p2, p0, Ljava/net/URL;->authority:Ljava/lang/String;
 
+    .line 673
     iput p3, p0, Ljava/net/URL;->port:I
 
+    .line 674
     iput-object p4, p0, Ljava/net/URL;->file:Ljava/lang/String;
 
+    .line 675
     iput-object p5, p0, Ljava/net/URL;->ref:Ljava/lang/String;
 
+    .line 678
     const/4 v1, -0x1
 
     iput v1, p0, Ljava/net/URL;->hashCode:I
 
+    .line 679
     const/4 v1, 0x0
 
     iput-object v1, p0, Ljava/net/URL;->hostAddress:Ljava/net/InetAddress;
 
+    .line 680
     const/16 v1, 0x3f
 
     invoke-virtual {p4, v1}, Ljava/lang/String;->lastIndexOf(I)I
 
     move-result v0
 
+    .line 681
+    .local v0, "q":I
     if-eq v0, v3, :cond_1
 
+    .line 682
     add-int/lit8 v1, v0, 0x1
 
     invoke-virtual {p4, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
@@ -2031,6 +2471,7 @@
 
     iput-object v1, p0, Ljava/net/URL;->query:Ljava/lang/String;
 
+    .line 683
     const/4 v1, 0x0
 
     invoke-virtual {p4, v1, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
@@ -2044,8 +2485,12 @@
     :goto_1
     monitor-exit p0
 
+    .line 668
     return-void
 
+    .line 672
+    .end local v0    # "q":I
+    .restart local p2    # "host":Ljava/lang/String;
     :cond_0
     :try_start_1
     new-instance v1, Ljava/lang/StringBuilder;
@@ -2072,6 +2517,9 @@
 
     goto :goto_0
 
+    .line 685
+    .end local p2    # "host":Ljava/lang/String;
+    .restart local v0    # "q":I
     :cond_1
     iput-object p4, p0, Ljava/net/URL;->path:Ljava/lang/String;
     :try_end_1
@@ -2079,6 +2527,8 @@
 
     goto :goto_1
 
+    .line 669
+    .end local v0    # "q":I
     :catchall_0
     move-exception v1
 
@@ -2089,16 +2539,30 @@
 
 .method protected set(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 2
+    .param p1, "protocol"    # Ljava/lang/String;
+    .param p2, "host"    # Ljava/lang/String;
+    .param p3, "port"    # I
+    .param p4, "authority"    # Ljava/lang/String;
+    .param p5, "userInfo"    # Ljava/lang/String;
+    .param p6, "path"    # Ljava/lang/String;
+    .param p7, "query"    # Ljava/lang/String;
+    .param p8, "ref"    # Ljava/lang/String;
 
+    .prologue
+    .line 707
     monitor-enter p0
 
+    .line 708
     :try_start_0
     iput-object p1, p0, Ljava/net/URL;->protocol:Ljava/lang/String;
 
+    .line 709
     iput-object p2, p0, Ljava/net/URL;->host:Ljava/lang/String;
 
+    .line 710
     iput p3, p0, Ljava/net/URL;->port:I
 
+    .line 711
     if-eqz p7, :cond_0
 
     invoke-virtual {p7}, Ljava/lang/String;->isEmpty()Z
@@ -2113,30 +2577,39 @@
     :goto_0
     iput-object v0, p0, Ljava/net/URL;->file:Ljava/lang/String;
 
+    .line 712
     iput-object p5, p0, Ljava/net/URL;->userInfo:Ljava/lang/String;
 
+    .line 713
     iput-object p6, p0, Ljava/net/URL;->path:Ljava/lang/String;
 
+    .line 714
     iput-object p8, p0, Ljava/net/URL;->ref:Ljava/lang/String;
 
+    .line 717
     const/4 v0, -0x1
 
     iput v0, p0, Ljava/net/URL;->hashCode:I
 
+    .line 718
     const/4 v0, 0x0
 
     iput-object v0, p0, Ljava/net/URL;->hostAddress:Ljava/net/InetAddress;
 
+    .line 719
     iput-object p7, p0, Ljava/net/URL;->query:Ljava/lang/String;
 
+    .line 720
     iput-object p4, p0, Ljava/net/URL;->authority:Ljava/lang/String;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
+    .line 706
     return-void
 
+    .line 711
     :cond_1
     :try_start_1
     new-instance v0, Ljava/lang/StringBuilder;
@@ -2165,6 +2638,7 @@
 
     goto :goto_0
 
+    .line 707
     :catchall_0
     move-exception v0
 
@@ -2176,6 +2650,8 @@
 .method public toExternalForm()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 941
     iget-object v0, p0, Ljava/net/URL;->handler:Ljava/net/URLStreamHandler;
 
     invoke-virtual {v0, p0}, Ljava/net/URLStreamHandler;->toExternalForm(Ljava/net/URL;)Ljava/lang/String;
@@ -2188,6 +2664,8 @@
 .method public toString()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 927
     invoke-virtual {p0}, Ljava/net/URL;->toExternalForm()Ljava/lang/String;
 
     move-result-object v0
@@ -2203,6 +2681,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 958
     new-instance v0, Ljava/net/URI;
 
     invoke-virtual {p0}, Ljava/net/URL;->toString()Ljava/lang/String;

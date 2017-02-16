@@ -30,14 +30,20 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 576
+    .local p0, "this":Ljava/util/stream/Nodes$EmptyNode$OfRef;, "Ljava/util/stream/Nodes$EmptyNode<TT;TT_ARR;TT_CONS;>.OfRef<TT;>;"
     invoke-direct {p0}, Ljava/util/stream/Nodes$EmptyNode;-><init>()V
 
+    .line 575
     return-void
 .end method
 
 .method synthetic constructor <init>(Ljava/util/stream/Nodes$EmptyNode$OfRef;)V
     .locals 0
 
+    .prologue
+    .local p0, "this":Ljava/util/stream/Nodes$EmptyNode$OfRef;, "Ljava/util/stream/Nodes$EmptyNode<TT;TT_ARR;TT_CONS;>.OfRef<TT;>;"
     invoke-direct {p0}, Ljava/util/stream/Nodes$EmptyNode$OfRef;-><init>()V
 
     return-void
@@ -47,7 +53,12 @@
 # virtual methods
 .method public bridge synthetic copyInto([Ljava/lang/Object;I)V
     .locals 0
+    .param p1, "array"    # [Ljava/lang/Object;
+    .param p2, "offset"    # I
 
+    .prologue
+    .line 565
+    .local p0, "this":Ljava/util/stream/Nodes$EmptyNode$OfRef;, "Ljava/util/stream/Nodes$EmptyNode<TT;TT_ARR;TT_CONS;>.OfRef<TT;>;"
     invoke-virtual {p0, p1, p2}, Ljava/util/stream/Nodes$EmptyNode;->copyInto(Ljava/lang/Object;I)V
 
     return-void
@@ -55,7 +66,11 @@
 
 .method public bridge synthetic forEach(Ljava/util/function/Consumer;)V
     .locals 0
+    .param p1, "consumer"    # Ljava/util/function/Consumer;
 
+    .prologue
+    .line 572
+    .local p0, "this":Ljava/util/stream/Nodes$EmptyNode$OfRef;, "Ljava/util/stream/Nodes$EmptyNode<TT;TT_ARR;TT_CONS;>.OfRef<TT;>;"
     invoke-virtual {p0, p1}, Ljava/util/stream/Nodes$EmptyNode;->forEach(Ljava/lang/Object;)V
 
     return-void
@@ -71,6 +86,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 581
+    .local p0, "this":Ljava/util/stream/Nodes$EmptyNode$OfRef;, "Ljava/util/stream/Nodes$EmptyNode<TT;TT_ARR;TT_CONS;>.OfRef<TT;>;"
     invoke-static {}, Ljava/util/Spliterators;->emptySpliterator()Ljava/util/Spliterator;
 
     move-result-object v0

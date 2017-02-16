@@ -51,6 +51,7 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
     const-class v0, Ljava/util/Collections$ReverseComparator2;
 
     invoke-virtual {v0}, Ljava/lang/Class;->desiredAssertionStatus()Z
@@ -64,6 +65,7 @@
     :goto_0
     sput-boolean v0, Ljava/util/Collections$ReverseComparator2;->-assertionsDisabled:Z
 
+    .line 4357
     return-void
 
     :cond_0
@@ -82,8 +84,13 @@
         }
     .end annotation
 
+    .prologue
+    .line 4371
+    .local p0, "this":Ljava/util/Collections$ReverseComparator2;, "Ljava/util/Collections$ReverseComparator2<TT;>;"
+    .local p1, "cmp":Ljava/util/Comparator;, "Ljava/util/Comparator<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 4372
     sget-boolean v0, Ljava/util/Collections$ReverseComparator2;->-assertionsDisabled:Z
 
     if-nez v0, :cond_1
@@ -106,9 +113,11 @@
 
     goto :goto_0
 
+    .line 4373
     :cond_1
     iput-object p1, p0, Ljava/util/Collections$ReverseComparator2;->cmp:Ljava/util/Comparator;
 
+    .line 4371
     return-void
 .end method
 
@@ -122,6 +131,11 @@
         }
     .end annotation
 
+    .prologue
+    .line 4377
+    .local p0, "this":Ljava/util/Collections$ReverseComparator2;, "Ljava/util/Collections$ReverseComparator2<TT;>;"
+    .local p1, "t1":Ljava/lang/Object;, "TT;"
+    .local p2, "t2":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Ljava/util/Collections$ReverseComparator2;->cmp:Ljava/util/Comparator;
 
     invoke-interface {v0, p2, p1}, Ljava/util/Comparator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
@@ -133,31 +147,41 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 2
+    .param p1, "o"    # Ljava/lang/Object;
 
+    .prologue
+    .line 4381
+    .local p0, "this":Ljava/util/Collections$ReverseComparator2;, "Ljava/util/Collections$ReverseComparator2<TT;>;"
     if-eq p1, p0, :cond_0
 
+    .line 4382
     instance-of v0, p1, Ljava/util/Collections$ReverseComparator2;
 
     if-eqz v0, :cond_1
 
+    .line 4383
     iget-object v0, p0, Ljava/util/Collections$ReverseComparator2;->cmp:Ljava/util/Comparator;
 
     check-cast p1, Ljava/util/Collections$ReverseComparator2;
 
+    .end local p1    # "o":Ljava/lang/Object;
     iget-object v1, p1, Ljava/util/Collections$ReverseComparator2;->cmp:Ljava/util/Comparator;
 
     invoke-interface {v0, v1}, Ljava/util/Comparator;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
+    .line 4381
     :goto_0
     return v0
 
+    .restart local p1    # "o":Ljava/lang/Object;
     :cond_0
     const/4 v0, 0x1
 
     goto :goto_0
 
+    .line 4382
     :cond_1
     const/4 v0, 0x0
 
@@ -167,6 +191,9 @@
 .method public hashCode()I
     .locals 2
 
+    .prologue
+    .line 4387
+    .local p0, "this":Ljava/util/Collections$ReverseComparator2;, "Ljava/util/Collections$ReverseComparator2<TT;>;"
     iget-object v0, p0, Ljava/util/Collections$ReverseComparator2;->cmp:Ljava/util/Comparator;
 
     invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
@@ -190,6 +217,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 4392
+    .local p0, "this":Ljava/util/Collections$ReverseComparator2;, "Ljava/util/Collections$ReverseComparator2<TT;>;"
     iget-object v0, p0, Ljava/util/Collections$ReverseComparator2;->cmp:Ljava/util/Comparator;
 
     return-object v0

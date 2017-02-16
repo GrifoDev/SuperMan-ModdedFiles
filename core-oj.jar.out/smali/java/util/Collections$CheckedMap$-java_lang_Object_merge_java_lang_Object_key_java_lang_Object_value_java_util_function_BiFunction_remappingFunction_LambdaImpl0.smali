@@ -27,6 +27,7 @@
 .method public synthetic constructor <init>(Ljava/util/Collections$CheckedMap;Ljava/util/function/BiFunction;)V
     .locals 0
 
+    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Ljava/util/Collections$CheckedMap$-java_lang_Object_merge_java_lang_Object_key_java_lang_Object_value_java_util_function_BiFunction_remappingFunction_LambdaImpl0;->val$this:Ljava/util/Collections$CheckedMap;
@@ -40,7 +41,10 @@
 # virtual methods
 .method public apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 2
+    .param p1, "arg0"    # Ljava/lang/Object;
+    .param p2, "arg1"    # Ljava/lang/Object;
 
+    .prologue
     iget-object v0, p0, Ljava/util/Collections$CheckedMap$-java_lang_Object_merge_java_lang_Object_key_java_lang_Object_value_java_util_function_BiFunction_remappingFunction_LambdaImpl0;->val$this:Ljava/util/Collections$CheckedMap;
 
     iget-object v1, p0, Ljava/util/Collections$CheckedMap$-java_lang_Object_merge_java_lang_Object_key_java_lang_Object_value_java_util_function_BiFunction_remappingFunction_LambdaImpl0;->val$remappingFunction:Ljava/util/function/BiFunction;

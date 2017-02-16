@@ -34,7 +34,10 @@
 # direct methods
 .method constructor <init>(Ljava/util/logging/LogManager;)V
     .locals 0
+    .param p1, "this$0"    # Ljava/util/logging/LogManager;
 
+    .prologue
+    .line 286
     iput-object p1, p0, Ljava/util/logging/LogManager$2;->this$0:Ljava/util/logging/LogManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -52,6 +55,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 287
     invoke-virtual {p0}, Ljava/util/logging/LogManager$2;->run()Ljava/lang/Void;
 
     move-result-object v0
@@ -67,12 +72,16 @@
         }
     .end annotation
 
+    .prologue
+    .line 288
     iget-object v0, p0, Ljava/util/logging/LogManager$2;->this$0:Ljava/util/logging/LogManager;
 
     invoke-virtual {v0}, Ljava/util/logging/LogManager;->readConfiguration()V
 
+    .line 291
     invoke-static {}, Lsun/util/logging/PlatformLogger;->redirectPlatformLoggers()V
 
+    .line 292
     const/4 v0, 0x0
 
     return-object v0

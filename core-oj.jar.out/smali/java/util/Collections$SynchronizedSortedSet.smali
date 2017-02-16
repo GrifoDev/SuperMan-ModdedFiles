@@ -55,15 +55,22 @@
         }
     .end annotation
 
+    .prologue
+    .line 2043
+    .local p0, "this":Ljava/util/Collections$SynchronizedSortedSet;, "Ljava/util/Collections$SynchronizedSortedSet<TE;>;"
+    .local p1, "s":Ljava/util/SortedSet;, "Ljava/util/SortedSet<TE;>;"
     invoke-direct {p0, p1}, Ljava/util/Collections$SynchronizedSet;-><init>(Ljava/util/Set;)V
 
+    .line 2044
     iput-object p1, p0, Ljava/util/Collections$SynchronizedSortedSet;->ss:Ljava/util/SortedSet;
 
+    .line 2042
     return-void
 .end method
 
 .method constructor <init>(Ljava/util/SortedSet;Ljava/lang/Object;)V
     .locals 0
+    .param p2, "mutex"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -74,10 +81,16 @@
         }
     .end annotation
 
+    .prologue
+    .line 2047
+    .local p0, "this":Ljava/util/Collections$SynchronizedSortedSet;, "Ljava/util/Collections$SynchronizedSortedSet<TE;>;"
+    .local p1, "s":Ljava/util/SortedSet;, "Ljava/util/SortedSet<TE;>;"
     invoke-direct {p0, p1, p2}, Ljava/util/Collections$SynchronizedSet;-><init>(Ljava/util/Set;Ljava/lang/Object;)V
 
+    .line 2048
     iput-object p1, p0, Ljava/util/Collections$SynchronizedSortedSet;->ss:Ljava/util/SortedSet;
 
+    .line 2046
     return-void
 .end method
 
@@ -93,6 +106,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 2052
+    .local p0, "this":Ljava/util/Collections$SynchronizedSortedSet;, "Ljava/util/Collections$SynchronizedSortedSet<TE;>;"
     iget-object v1, p0, Ljava/util/Collections$SynchronizedSortedSet;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
@@ -126,6 +142,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 2073
+    .local p0, "this":Ljava/util/Collections$SynchronizedSortedSet;, "Ljava/util/Collections$SynchronizedSortedSet<TE;>;"
     iget-object v1, p0, Ljava/util/Collections$SynchronizedSortedSet;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
@@ -161,10 +180,15 @@
         }
     .end annotation
 
+    .prologue
+    .line 2062
+    .local p0, "this":Ljava/util/Collections$SynchronizedSortedSet;, "Ljava/util/Collections$SynchronizedSortedSet<TE;>;"
+    .local p1, "toElement":Ljava/lang/Object;, "TE;"
     iget-object v1, p0, Ljava/util/Collections$SynchronizedSortedSet;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
 
+    .line 2063
     :try_start_0
     new-instance v0, Ljava/util/Collections$SynchronizedSortedSet;
 
@@ -184,6 +208,7 @@
 
     return-object v0
 
+    .line 2062
     :catchall_0
     move-exception v0
 
@@ -200,6 +225,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 2076
+    .local p0, "this":Ljava/util/Collections$SynchronizedSortedSet;, "Ljava/util/Collections$SynchronizedSortedSet<TE;>;"
     iget-object v1, p0, Ljava/util/Collections$SynchronizedSortedSet;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
@@ -235,13 +263,20 @@
         }
     .end annotation
 
+    .prologue
+    .line 2056
+    .local p0, "this":Ljava/util/Collections$SynchronizedSortedSet;, "Ljava/util/Collections$SynchronizedSortedSet<TE;>;"
+    .local p1, "fromElement":Ljava/lang/Object;, "TE;"
+    .local p2, "toElement":Ljava/lang/Object;, "TE;"
     iget-object v1, p0, Ljava/util/Collections$SynchronizedSortedSet;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
 
+    .line 2057
     :try_start_0
     new-instance v0, Ljava/util/Collections$SynchronizedSortedSet;
 
+    .line 2058
     iget-object v2, p0, Ljava/util/Collections$SynchronizedSortedSet;->ss:Ljava/util/SortedSet;
 
     invoke-interface {v2, p1, p2}, Ljava/util/SortedSet;->subSet(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedSet;
@@ -250,6 +285,7 @@
 
     iget-object v3, p0, Ljava/util/Collections$SynchronizedSortedSet;->mutex:Ljava/lang/Object;
 
+    .line 2057
     invoke-direct {v0, v2, v3}, Ljava/util/Collections$SynchronizedSortedSet;-><init>(Ljava/util/SortedSet;Ljava/lang/Object;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -258,6 +294,7 @@
 
     return-object v0
 
+    .line 2056
     :catchall_0
     move-exception v0
 
@@ -276,10 +313,15 @@
         }
     .end annotation
 
+    .prologue
+    .line 2067
+    .local p0, "this":Ljava/util/Collections$SynchronizedSortedSet;, "Ljava/util/Collections$SynchronizedSortedSet<TE;>;"
+    .local p1, "fromElement":Ljava/lang/Object;, "TE;"
     iget-object v1, p0, Ljava/util/Collections$SynchronizedSortedSet;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
 
+    .line 2068
     :try_start_0
     new-instance v0, Ljava/util/Collections$SynchronizedSortedSet;
 
@@ -299,6 +341,7 @@
 
     return-object v0
 
+    .line 2067
     :catchall_0
     move-exception v0
 
