@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:id="@id/help_root_view" android:background="#aa000000" android:layout_width="fill_parent" android:layout_height="fill_parent" android:fillViewport="true"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:systemui="http://schemas.android.com/apk/res/com.android.systemui">
+    <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:padding="@dimen/recents_help_content_padding" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:id="@id/help_content_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/recents_help_content_margin">
+            <ImageView android:layout_gravity="center_horizontal" android:id="@id/help_image" android:layout_width="wrap_content" android:layout_height="185.0dip" android:layout_marginBottom="@dimen/recents_help_content_margin" android:src="@drawable/recents_help_split" android:scaleType="fitCenter" android:tint="@null" />
+            <com.android.systemui.recents.misc.HelpHubTextView android:textAppearance="?android:textAppearance" android:textSize="@dimen/recents_help_text_size" android:textColor="@color/recents_help_body_text_color" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/help_hubtext" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/recents_help_content_margin" android:lineSpacingExtra="@dimen/recents_help_text_line_spacing" android:textDirection="locale" systemui:insideImg_yDiff="@dimen/recents_help_list_item_image_bitmap_y_diff" systemui:image="@drawable/recents_help_body_split_icon" />
+        </LinearLayout>
+        <Button android:textSize="@dimen/recents_help_ok_text_size" android:textColor="@color/recents_help_ok_text_color" android:gravity="center" android:layout_gravity="end" android:id="@id/help_button_ok" android:background="@drawable/recents_help_ok_button_background_ripple" android:paddingLeft="20.0dip" android:paddingRight="20.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="@dimen/recents_help_ok_width" android:minHeight="@dimen/recents_help_ok_height" android:text="@android:string/ok" android:includeFontPadding="false" android:textDirection="locale" />
+    </LinearLayout>
+</ScrollView>

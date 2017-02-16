@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.sec.android.cover.clearcover.widget.ClearCoverNotificationView android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:background="@drawable/clear_noti_border" android:layout_width="@dimen/clear_cover_notifications_border_size" android:layout_height="@dimen/clear_cover_notifications_border_size" android:layout_marginStart="@dimen/clear_cover_notifications_divider_half_size" android:layout_marginEnd="@dimen/clear_cover_notifications_divider_half_size">
+        <com.sec.android.cover.widget.AnimatedImageView android:layout_gravity="center" android:id="@id/clear_cover_notification_icon" android:visibility="gone" android:layout_width="@dimen/clear_cover_notifications_icon_size" android:layout_height="@dimen/clear_cover_notifications_icon_size" android:scaleType="fitXY" android:importantForAccessibility="no" />
+        <TextView android:textSize="@dimen/clear_cover_notifications_text_font_size" android:textColor="@color/clear_cover_font_color" android:gravity="center_horizontal" android:layout_gravity="center" android:id="@id/clear_cover_notification_text" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:includeFontPadding="false" android:importantForAccessibility="no" android:fontFamily="sec-roboto-condensed" style="@style/clear_cover_text_shadow" />
+    </LinearLayout>
+</com.sec.android.cover.clearcover.widget.ClearCoverNotificationView>

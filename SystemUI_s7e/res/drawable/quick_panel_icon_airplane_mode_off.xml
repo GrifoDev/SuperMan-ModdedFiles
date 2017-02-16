@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:oneshot="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:duration="10" android:drawable="@drawable/quick_panel_icon_airplane_mode_on_016" />
+    <item android:duration="19" android:drawable="@drawable/quick_panel_icon_airplane_mode_on_016" />
+    <item android:duration="28" android:drawable="@drawable/quick_panel_icon_airplane_mode_on_016" />
+    <item android:duration="36" android:drawable="@drawable/quick_panel_icon_airplane_mode_on_016" />
+    <item android:duration="45" android:drawable="@drawable/quick_panel_icon_airplane_mode_on_016" />
+    <item android:duration="52" android:drawable="@drawable/quick_panel_icon_airplane_mode_on_016" />
+    <item android:duration="45" android:drawable="@drawable/quick_panel_icon_airplane_mode_on_016" />
+    <item android:duration="37" android:drawable="@drawable/quick_panel_icon_airplane_mode_on_016" />
+    <item android:duration="28" android:drawable="@drawable/quick_panel_icon_airplane_mode_on_016" />
+    <item android:duration="20" android:drawable="@drawable/quick_panel_icon_airplane_mode_on_016" />
+    <item android:duration="12" android:drawable="@drawable/quick_panel_icon_airplane_mode_on_016" />
+</animation-list>

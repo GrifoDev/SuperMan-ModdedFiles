@@ -1,0 +1,991 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="snapview_cancel">ပယ္ဖ်က္ပါ</string>
+    <string name="snapview_done">ၿပီးပါၿပီ</string>
+    <string name="mw_divider_button_snap">လွ်ပ္တစ္ျပက္ ဝင္းဒုိး</string>
+    <string name="mw_divider_button_switch">ဝင္းဒိုးမ်ား ေျပာင္းပါ</string>
+    <string name="mw_divider_button_freeform">ေပါ့-အပ္ျမင္ကြင္းတြင္ ဖြင့္ပါ</string>
+    <string name="mw_divider_button_close">အက္ပ္ ပိတ္ပါ</string>
+    <string name="multi_window_title_text">Multi window</string>
+    <string name="dock_minimized_notification_text">%s ကုိ ေလွ်ာ့ခ်ၿပီး</string>
+    <string name="dock_minimized_notification_dimiss_text">ပိတ္ထားပါ</string>
+    <string name="dock_minimized_notification_content_text">ဖြင့္ရန္ ဤေနရာကုိ ႏွိပ္ပါ။</string>
+    <string name="cancel">ပယ္ဖ်က္ပါ</string>
+    <string name="clearcover_1_missed_call">သင့္တြင္ လြတ္သြားေသာ ဖုန္းေခၚဆုိမႈ ၁ ခုရွိပါသည္။</string>
+    <string name="clearcover_1_unread_message">သင့္တြင္ မဖတ္ရေသးေသာ မက္ေဆ့ခ်္ ၁ ခု ရွိသည္။</string>
+    <string name="clearcover_n_missed_calls">သင့္တြင္ လြတ္သြားေသာ ဖုန္းေခၚဆုိမႈ %d ခုရွိပါသည္။</string>
+    <string name="clearcover_n_unread_messages">သင့္တြင္ မဖတ္ရေသးေသာ မက္ေဆ့ခ်္ %1$d ခု ရွိသည္။</string>
+    <string name="s_view_screen_roaming">လွည့္လည္ျခင္း</string>
+    <string name="s_view_screen_home">ပင္မ</string>
+    <string name="clock_roaming">လွည့္လည္ျခင္း</string>
+    <string name="clock_home">ပင္မ</string>
+    <string name="battery_charging_percent">အားသြင္းေနပါသည္: %d%%</string>
+    <string name="battery_wireless_charging_percent">၀ိုင္ယာလက္ျဖင့္ အားသြင္းျခင္း : %d%%</string>
+    <string name="battery_wireless_fast_charging_percent">ႀကိဳးမဲ့အျမန္ အားသြင္းႏိုင္မႈ : %d%%</string>
+    <string name="battery_charged">အားသြင္းၿပီး</string>
+    <string name="battery_charging_remaining_time">(ခန္႔မွန္းေခ် အားျပည့္သည္အထိ %s)</string>
+    <string name="time_format_hour_minute">%1$d နာရီ %2$d မိနစ္</string>
+    <string name="time_format_hour">%d နာရီ</string>
+    <string name="time_format_minute">%d မိနစ္</string>
+    <string name="s_view_cover_missed_event_secured_popup">ကိရိယာကို ေသာ့ခတ္ထားသည္။ ေနာက္ထပ္ အေသးစိတ္မ်ား ၾကည့္ရန္ အဖုံးကို ဖြင့္ပါ။</string>
+    <string name="s_view_cover_open_cover_popup_view_detail">ေနာက္ထပ္ အေသးစိတ္မ်ား ၾကည့္ရန္ အဖုံးကို ဖြင့္ပါ။</string>
+    <string name="s_view_cover_open_cover_popup_for_detail_message">မက္ေဆ့ခ်္ အေသးစိတ္ ၾကည့္ရန္ အဖံုး ဖြင့္ပါ။</string>
+    <string name="s_view_cover_open_cover_popup_view_notification_details">အသိေပးခ်က္ အေသးစိတ္မ်ားၾကည့္႐ႈရန္ အဖုံးကို ဖြင့္ပါ။</string>
+    <string name="s_view_cover_open_cover_popup_for_detail_call">ေခၚဆိုမႈ အေသးစိတ္မ်ား ၾကည့္ရန္ အဖံုး ဖြင့္ပါ</string>
+    <string name="s_view_cover_camera_button_accessibiliy">ကင္မရာကို ဖြင့္ရန္ ႏွစ္ႀကိမ္ဆက္ ႏွိပ္ၿပီး ဆြဲယူပါ။</string>
+    <string name="s_view_cover_favourite_button_accessibiliy">အႏွစ္သက္ဆုံး အဆက္အသြယ္မ်ားကိုဖြင့္ရန္ ႏွိစ္ၾကမ္ႏွိပ္ၿပီး ဆြဲယူပါ။</string>
+    <string name="s_view_cover_open_popup_favorite">ကိရိယာကို ေသာ့ခတ္ထားသည္။ စိတ္ၾကိဳက္ အဆက္အသြယ္မ်ားကုိ ၾကည့္ရန္ အဖံုးကုိ ဖြင့္ပါ။</string>
+    <string name="pinwindowcover_warning_content">ပင္ထိုးထားသည့္ အက္ပ္ကိုသုံးရန္ အဖုံး ဖြင့္ပါ။</string>
+    <string name="battery_fast_charging_percent">အျမန္အားသြင္းမႈ : %d%%</string>
+    <string name="permission_sviewcover_access_description">ဤအက္ပ္သည္ S View ဝင္းဒိုးမွတဆင့္ အခ်က္အလက္ ျပသႏိုင္သည္။</string>
+    <string name="tts_previous">လြန္ခဲ့ေသာ</string>
+    <string name="tts_next">ေနာက္ထပ္</string>
+    <string name="tts_pause">ရပ္ထားပါ</string>
+    <string name="tts_play">ဖြင့္ပါ</string>
+    <string name="sview_led_cover_download_feature_title">ျဖည့္စြက္ဝိေသသမ်ားကို ေဒါင္းလုတ္လုပ္ပါ</string>
+    <string name="sview_led_cover_download_feature_summary">LED ၾကည့္႐ႈကြက္ကာဗာအတြက္ ျဖည့္စြက္ဝိေသသမ်ားကို ေဒါင္းလုတ္လုပ္ၿပီး ထည့္သြင္းပါ။ ကိုယ္ပိုင္ LED သေကၤတမ်ားကို ဖန္တီးႏိုင္ၿပီး ၎တို႔ကို အသိေပးခ်က္သေကၤတမ်ားအျဖစ္သတ္မွတ္ႏိုင္သည္။ ၎တို႔ကိုေနာက္မွေဒါင္းလုတ္လုပ္ရန္၊ သတ္မွတ္ခ်က္မ်ား > အဆင့္ျမႇင့္ထားသည့္ ဝိေသသမ်ား > တြဲသုံးပစၥည္းမ်ား > LED ၾကည့္႐ႈကြက္ကာဗာသို႔သြားၿပီး၊ “ျဖည့္စြက္ဝိေသသမ်ားကို ေဒါင္းလုတ္လုပ္ပါ” ကိုေ႐ြးခ်ယ္ပါ။</string>
+    <string name="sview_led_cover_download_feature_summary_vzw">Download and install additional features for LED View Cover. You can create your own LED icons and set them as your notification icons. To download them later, go to Settings > Accessories > LED View Cover, then select Download additional features.</string>
+    <string name="monotype_dialog_button">ေဒါင္းလုတ္</string>
+    <string name="minimized_notification_talkback_description_open">%s မွအသိေပးခ်က္ကို ဖြင့္ရန္ ႏွစ္ခ်က္ႏွိပ္ပါ။</string>
+    <string name="minimized_notification_talkback_description_open_more">အသိေပးေဘာင္ကြက္ ဖြင့္ရန္ ႏွစ္ခါႏွိပ္ပါ။</string>
+    <string name="ok">အုိေက</string>
+    <string name="battery_history_hours_no_seconds">%1$dh %2$dm</string>
+    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="wifi_failed_to_obtain_IP">IP လိပ္စာ ရယူရန္ မေအာင္ျမင္ပါ။</string>
+    <string name="wifi_disabled_no_internet">အင္တာနက္ မရရွိႏိုင္ပါ</string>
+    <string name="wifi_disabled_password_failure">အေထာက္အထားျပျခင္း အမွား ျဖစ္သြားသည္</string>
+    <string name="wifi_auto_reconnect_disabled">အလုိအေလ်ာက္ ခ်ိတ္ဆက္မႈကုိ ပိတ္ထားသည္</string>
+    <string name="wifi_reconnecting">ကြန္ရက္ အရည္အေသြး ပိုေကာင္းလာသည့္အခါ ခ်ိတ္ဆက္ရန္ အဆင္သင့္</string>
+    <string name="wifi_connected_checking_quality">သင့္ အင္တာနက္ ခ်ိတ္ဆက္မႈ အရည္အေသြး စစ္ေဆးေနသည္…</string>
+    <string name="wifi_setup_title_connected_network">Wi-Fi ကြန္ယက္ %s သို႔ ခ်ိတ္ဆက္ျပီးၿပီ။</string>
+    <string name="wifi_sign_in_to_the_network">ကြန္ယက္သို႔ ဝင္ေရာက္ပါ။</string>
+    <string name="wifi_disabled_captive_portal">ဆိုင္းအင္ လိုအပ္သည္</string>
+    <string name="bluetooth_disconnect_message">%s ျဖင့္ ဘလူးတုသ္ ခ်ိတ္ဆက္ျခင္း ရပ္သြားသည္။</string>
+    <string name="bluetooth_disconnecting">ဆက္သြယ္ထားမႈကုိ ျဖတ္ေတာက္ေနပါသည္..</string>
+    <string name="bluetooth_connecting">ဆက္သြယ္ေနပါသည္…</string>
+    <string name="bluetooth_connected">ခ်ိတ္ဆက္ထားေသာ</string>
+    <string name="bluetooth_pairing">ယွဥ္တြဲသုံးစြဲေနပါသည္…</string>
+    <string name="bluetooth_profile_a2dp">မီဒီယာ အသံ</string>
+    <string name="bluetooth_profile_headset">အသံ ေခၚပါ</string>
+    <string name="bluetooth_profile_hid">ျဖည့္သြင္း ကိရိယာ</string>
+    <string name="bluetooth_profile_pan">အင္တာနက္ ဝင္ေရာက္မႈ</string>
+    <string name="bluetooth_profile_pbap">အဆက္အသြယ္ သုံးခြင့္ရမႈ</string>
+    <string name="bluetooth_profile_pan_nap">အင္တာနက္ အဆက္အသြယ္ မွ်ေဝျခင္း</string>
+    <string name="bluetooth_profile_map">မက္ေဆ့ခ္် သုံးခြင့္ရမႈ</string>
+    <string name="bluetooth_profile_sap">SIM ကဒ္ သုံးခြင့္ရမႈ</string>
+    <string name="bluetooth_a2dp_profile_summary_connected">မီဒီယာ ေအာ္ဒီယိုအတြက္ ခ်ိတ္ဆက္ထားသည္</string>
+    <string name="bluetooth_headset_profile_summary_connected">ေခၚဆိုမႈ ေအာ္ဒီယိုအတြက္ ခ်ိတ္ဆက္ထားသည္</string>
+    <string name="bluetooth_hid_profile_summary_connected">ထည့္သြင္း ကိရိယာအျဖစ္ ခ်ိတ္ဆက္ထားသည္</string>
+    <string name="bluetooth_pan_user_profile_summary_connected">အင္တာနက္ ဝင္ေရာက္မႈအတြက္ ကိရိယာသို႔ ခ်ိတ္ဆက္ပါ။</string>
+    <string name="bluetooth_spp_profile_summary_connected">Serial Port Profile မွတဆင့္ ခ်ိတ္ဆက္ထားသည္</string>
+    <string name="bluetooth_pan_profile_summary_use_for">ဤကိရိယာေပၚတြင္ အင္တာမက္သုံးခြင့္ရရန္ တြဲခ်ိတ္ထားသည့္ ကိရိယာေပၚတြင္ ဘလူးတုသ္ လံထားျခင္းကို ဖြင့္ပါ။</string>
+    <string name="bluetooth_profile_textinput">စာသား ျဖည့္သြင္းမႈ</string>
+    <string name="bluetooth_summary_connected_to_a2dp_headset">ေခၚဆိုမႈႏွင့္ မီဒီယာ ေအာ္ဒီယိုအတြက္ ခ်ိတ္ဆက္ထားသည္</string>
+    <string name="bluetooth_pan_nap_connected">အင္တာနက္ ခ်ိတ္ဆက္မႈ ပံ့ပိုးေပးရန္ ခ်ိတ္ဆက္ထားသည္</string>
+    <string name="bluetooth_pan_panu_connected">အင္တာနက္ ခ်ိတ္ဆက္မႈ သုံးခြင့္ရရန္ ခ်ိတ္ဆက္ထားသည္</string>
+    <string name="bluetooth_pairing_error_message">%1$s ႏွင့္ ဆက္သြယ္၍ မရပါ။</string>
+    <string name="bluetooth_pairing_pin_error_message">%1$s ႏွင့္တြဲ၍မရပါ။ %2$s သည္တြဲရန္အဆင္သင့္ျဖစ္ေၾကာင္း ေသခ်ာပါေစ။</string>
+    <string name="bluetooth_pairing_rejected_error_message">ယွဥ္တြဲသုံးစြဲျခင္းကုိ %sမွ ပယ္ခ်ထားပါသည္။</string>
+    <string name="tether_settings_title_all">မိုဘိုင္း ေဟာ့စေပါ့ႏွင့္ မွ်ေဝအသံုးျပဳျခင္း</string>
+    <string name="tts_settings_title">စာသား-မွ-စကား</string>
+    <string name="tts_default_rate_title">စကားႏႈန္း</string>
+    <string name="tts_default_rate_summary">စာသားသတင္းစကားသည္ စကားေျပာေနသျဖင့္ အရွိန္ျမွင့္ပါ။</string>
+    <string name="tts_default_pitch_title">အသံနိမ့္ျမင့္</string>
+    <string name="tts_default_lang_title">ဘာသာစကား</string>
+    <string name="tts_lang_use_system">စစ္စတမ္ ဘာသာစကားကို သံုးပါ</string>
+    <string name="tts_lang_not_selected">ဘာသာစကားကို မေရြးထားပါ</string>
+    <string name="tts_default_lang_summary">အသံသတင္းစကား အတြက္ တိက်ေသာ ဘာသာစကား အသံ သတ္မွတ္ပါ။</string>
+    <string name="tts_play_example_title">ဥပမာတစ္ခုကို နားေထာင္ပါ</string>
+    <string name="tts_play_example_summary">စကားေပါင္းစပ္ဖြဲ႔စည္မႈသရုပ္ျပခ်က္အတို ဖြင့္ပါ။</string>
+    <string name="tts_install_data_title">အသံ အခ်က္အလက္မ်ား ေနရာခ်ပါ</string>
+    <string name="tts_install_data_summary">စကားေပါင္းစပ္ဖြဲ႔စည္မႈအတြက္ လိုအပ္သည့္ အသံ အခ်က္အလက္မ်ားကို ေနရာခ်ပါ။</string>
+    <string name="tts_engine_security_warning">ဆက္လက္လုပ္ေဆာင္လိုပါသလား?</string>
+    <string name="tts_default_sample_string">မိန္႔ခြန္းေပါင္းစပ္ျခင္းအတြက္ ဥပမာ</string>
+    <string name="tts_status_title">အသင့္လုပ္ၿပီး ဘာသာစကား အေနအထား</string>
+    <string name="tts_status_ok">%s ကို အျပည့္အဝ ပ့ံပိုးေပးသည္</string>
+    <string name="tts_status_requires_network">%s ကို ပံ့ပိုးမႈေပးရန္ ကြန္ရက္ ခ်ိတ္ဆက္မႈတစ္ခု လိုအပ္ပါသည္</string>
+    <string name="tts_status_not_supported">%s ကိုမပံ့ပိုးထားပါ။</string>
+    <string name="tts_status_checking">စစ္ေဆးေနပါသည္….</string>
+    <string name="tts_engine_settings_title">%s အတြက္ ဆက္တင္မ်ား</string>
+    <string name="tts_engine_settings_button">စာသားမွ စကားသို႔ အင္ဂ်င္ ဆက္တင္မ်ား ဖြင့္ပါ။</string>
+    <string name="tts_engine_preference_section_title">ဦးစားေပး TTS အင္ဂ်င္</string>
+    <string name="tts_general_section_title">အေထြေထြ</string>
+    <string name="tts_reset_speech_pitch_title">အသံနိမ့္ျမင့္ကို ျပန္လည္သတ္မွတ္ပါ</string>
+    <string name="tts_reset_speech_pitch_summary">စာသားမ်ားကို မူရင္းပုံစံပါ သတ္မွတ္ခ်က္တြင္ ဖတ္ျပေပးမည့္ အသံအနိမ့္အျမင့္ကို ျပန္သတ္မွတ္ပါ။</string>
+    <string name="choose_profile">ပရုိဖုိင္ကုိ ေရြးပါ</string>
+    <string name="power_charging_duration">%1$s: အားအျပည့္သြင္းခ်ိန္ထိဆိုလွ်င္ %2$s ခန္႔ ၾကာႏိုင္သည္</string>
+    <string name="power_charging_duration_ac">%1$s: AC မွတဆင့္ အားအျပည့္သြင္းခ်ိန္ထိဆိုလွ်င္ %2$s ခန္႔ ၾကာႏိုင္သည္</string>
+    <string name="power_charging_duration_usb">%1$s: USB မွတဆင့္ အားအျပည့္သြင္းခ်ိန္ထိဆိုလွ်င္ %2$s ခန္႔ ၾကာႏိုင္သည္</string>
+    <string name="power_charging_duration_wireless">%1$s: အားျပည့္သည္အထိ %2$s က်န္ေသးသည္ (ႀကိဳးမဲ့နည္းျဖင့္ အားသြင္းေနသည္)</string>
+    <string name="battery_info_status_charging">အားသြင္းေနပါသည္</string>
+    <string name="battery_info_status_adaptive_fast_charging">အျမန္ အားသြင္းေနသည္</string>
+    <string name="battery_info_power_ac">(AC)</string>
+    <string name="battery_info_power_usb">USB</string>
+    <string name="battery_info_power_wireless">ဝါယာလက္</string>
+    <string name="charge_length_format">လြန္ခဲ့ေသာ %s က</string>
+    <string name="remaining_length_format">%s က်န္ရွိေသး</string>
+    <string name="battery_discharging_duration">ခန္႔မွန္း က်န္ေနသည့္ အသုံးျပဳခ်ိန္ : %s</string>
+    <string name="bluetooth_tethering_cannot_connect_while_connected_to_wifi">Wi-Fi ကြန္ယက္သို႔ ခ်ိတ္ဆက္ထားစဥ္အတြင္း ဘလူးတုသ္ လံထားျခင္း အသံုးျပဳ၍ မရႏိုင္ပါ။</string>
+    <string name="app_label">UI စနစ္</string>
+    <string name="status_bar_clear_all_button">အားလုံး ရွင္းပါ</string>
+    <string name="brightness_controller_label_text">ေအာ္တုိ</string>
+    <string name="quick_settings_brightness_controller_hbm">ေနေရာင္ျခည္ေအာက္တြင္ အေကာင္းဆုံးျမင္ကြင္းအတြက္ အႀကီးခ်ဲ႕ထားသည္</string>
+    <string name="tw_recents_lock_to_app_button_label">အက္ပ္ ပင္ထိုးပါ</string>
+    <string name="tw_lock_to_app_title">ပင္ ဝင္းဒိုး ဖြင့္ပါ</string>
+    <string name="tw_lock_to_app_description_1">ဤလုပ္ေဆာင္ခ်က္သည္ အက္ပ္မွ မ်က္ေျခမျပတ္ေစရန္ သင့္ကိရိယာ ဖန္သားျပင္ေပၚတြင္ ၄င္းကို ပင္ထိုးခြင့္ ျပဳသည္။</string>
+    <string name="tw_lock_to_app_description_2">အက္ပ္တစ္ခုကို ပင္ထိုးထားသည့္အခါ အျခားအပ္မ်ားမွ သတိေပးခ်က္မ်ားကို ပိတ္ဆီးသြားမည္ျဖစ္ၿပီး ေခၚဆိုျခင္းႏွင့္ မက္ေဆ့ခ္်ပို႔ျခင္းတို႔ကဲ့သို႔ အျခား လုပ္ေဆာင္ခ်က္မ်ား ရႏိုင္မည္မဟုတ္ပါ။</string>
+    <string name="tw_lock_to_app_description_tablet_wifi">အက္ပ္တစ္ခုကို ပင္ထိုးထားစဥ္တြင္ သတိေပးခ်က္မ်ားကို ပိတ္ဆီးသြားမည္ျဖစ္ၿပီး အျခားလုပ္ေဆာင္ခ်က္မ်ား ရႏိုင္မည္မဟုတ္ပါ။</string>
+    <string name="tw_lock_to_app_description_recents_and_back">အက္ပ္ကို ျပန္ျဖဳတ္ရန္ မီႏူး ခလုတ္ႏွင့္ ဘက္ျပန္ ခလုတ္တို႔ကို တၿပိဳင္တည္းႏွိပ္ကာ ကိုင္ထားပါ။</string>
+    <string name="tw_lock_to_app_description_menu_and_back">အက္ပ္ကို ျပန္ျဖဳတ္ရန္ မီႏူး ခလုတ္ႏွင့္ ဘက္ျပန္ ခလုတ္တို႔ကို တၿပိဳင္တည္းႏွိပ္ကာ ကိုင္ထားပါ။</string>
+    <string name="tw_lock_to_app_description_recents_and_back_accessible">အပလီေကးရွင္းကို ျပန္ျဖဳတ္ရန္၊ မၾကာမီက ကီးကို ႏွိပ္ၿပီး ကိုင္ထားပါ။</string>
+    <string name="tw_lock_to_app_description_menu_and_back_accessible">အပလီေကးရွင္းကို ျပန္ျဖဳတ္ရရန္ မီႏူး ခလုတ္ကိုႏွိပ္ၿပီး ကိုင္ထားပါ။</string>
+    <string name="tw_unable_to_pin_title">%s ကို ပင္ထိုး၍မရႏိုင္ပါ</string>
+    <string name="tw_unable_to_pin_description">ဤအက္ပ္သည္ ပင္ ဝင္းဒိုးမ်ားကို မပံ့ပိုးပါ။</string>
+    <string name="tw_unable_to_pin_description_toast">အက္ပ္ကို ပင္တြဲ၍မရႏိုင္ပါ။ %s ပိတ္ထားသည္။ မသိေသာအမွား ျဖစ္ပြားထားသည္။</string>
+    <string name="tw_screen_pinning_positive">စတင္ပါ</string>
+    <string name="tw_screen_pinning_negative">မလိုပါ၊ ေက်းဇူးတင္ပါသည္</string>
+    <string name="accessibility_recents_item_pin">ပင္တြဲပါ</string>
+    <string name="accessibility_recents_item_unpin">ပင္ျဖဳတ္ပါ</string>
+    <string name="memory_full_dialog_title">ဖန္သားျပင္ ႐ိုက္ကူး၍ မရႏိုင္ပါ</string>
+    <string name="memory_full_dialog_msg">သင့္ကိရိယာ သိုေလွာင္ခန္းထဲ ေနရာ မေလာက္ပါ။ ဖိုင္အခ်ိဳ႕ ဖ်က္ၿပီး ထပ္ၾကိဳးစားပါ။</string>
+    <string name="screen_capture_fail_for_storage_capacity">ကိရိယာ သိုေလွာင္ခန္းတြင္ ေနရာလြတ္ လုံေလာက္စြာ မရွိပါ။ ဖိုင္အခ်ိဳ႕ ဖ်က္ၿပီး ထပ္ၾကိဳးစားပါ။</string>
+    <string name="screen_capture_fail_for_security_policy">ဖန္သားျပင္႐ိုက္ခ်က္ ႐ိုက္ကူး၍မရႏိုင္ပါ။ လုံၿခဳံေရး ေပၚလစီအရ ကာကြယ္ထားသည္။</string>
+    <string name="screen_capture_edit">တည္းျဖတ္</string>
+    <string name="screen_capture_share">မွ်ေဝပါ</string>
+    <string name="screen_capture_delete">ဖ်က္ပစ္ပါ</string>
+    <string name="qs_detail_capture_screen">ဖန္သားျပင္ ဖမ္းယူပါ</string>
+    <string name="qs_detail_recorder_screen">Record screen</string>
+    <string name="qs_detail_capture_mode">Screen capture mode</string>
+    <string name="qs_detail_capture_mode_text">Select the function you want to add to the quick settings panel.</string>
+    <string name="unable_to_open_ps_in_emergency_mode">အေရးေပၚ အေနအထားတြင္ %s ကုိ ဖြင့္မရႏိုင္ပါ။</string>
+    <string name="unable_to_open_ps_in_upsm">ပုိမုိ ပါဝါေခၽြတာေရး အေနအထားထဲတြင္ %s ကုိ ဖြင့္မရႏိုင္ပါ။</string>
+    <string name="unable_to_open_ps_in_mpsm">အျမင့္ဆုံး ပါဝါေခၽြတာေရး အေနအထားထဲတြင္ %s ဖြင့္မရပါ။</string>
+    <string name="image_viewer">႐ုပ္ပုံ ၾကည့္သူ</string>
+    <string name="photo_editor">ဓာတ္ပံု တည္းျဖတ္သူ</string>
+    <string name="to_use_this_function_download_the_following_application">"ဤလုပ္ေဆာင္ခ်က္ သံုးရန္ ေအာက္ပါအပလီေကးရွင္းကို ေဒါင္းလုတ္လုပ္ပါ :
+
+%s"</string>
+    <string name="accessibility_desc_recent_apps">မၾကာေသးခင္က အပ္မ်ား</string>
+    <string name="wifi_not_found_hidden_ap">ကြန္ယက္သို႔ခ်ိတ္ဆက္၍မရႏိုင္ပါ။ %s အမည္ျဖင့္ ကြန္ယက္ရွာမေတြ႕ထားပါ။</string>
+    <string name="it_policy_not_allow_wifi">Wi-Fi သံုးျခင္းကို လံုျခံဳေရးေပၚလစီက တားဆီးသည္။</string>
+    <string name="it_policy_not_allow_wifiap">အင္တာနက္ မွ်ေဝျခင္းကို လံုၿခံဳေရး ေပၚလစီက တားျမစ္ထားပါသည္။</string>
+    <string name="wifi_authentication_succeed_kt">Wi-Fi AP ကို အေထာက္အထားျပဳစစ္ေဆးထားသည္။</string>
+    <string name="wifi_authentication_failed_kt">Wi-Fi AP ကို အေထာက္အထားျပဳစစ္ေဆးရန္ မေအာင္ျမင္ပါ။</string>
+    <string name="wifi_authentication_no_response">Wi-Fi AP သို႔ ခ်ိတ္ဆက္ရန္ မေအာင္ျမင္ပါ။</string>
+    <string name="wifi_authentication_invalid_value">အေထာက္အထားျပမႈ မေအာင္ျမင္ပါ။ သင့္ ID ႏွင့္ စကားဝွက္ကို စစ္ေဆးပါ္။</string>
+    <string name="wifi_exceeded_max_configured_networks_dialog_title">သတိေပးခ်က္</string>
+    <string name="wifi_exceeded_max_configured_networks_dialog_message">%1$d ထက္ပိုေသာ ကြန္ရက္မ်ားအတြက္ AP အမည္မ်ားကို သိမ္းဆည္းထားသည္။ Wi-Fi သုံးေသာအေတြ႕အႀကံ ပို၍ေကာင္းလာေစရန္ %2$d AP အမည္ေဟာင္းမ်ားကို ဖ်က္ပစ္ဖို႔ အႀကံျပဳပါသည္။</string>
+    <string name="wifi_exceeded_max_configured_networks_dialog_ok">AP အမည္ေဟာင္း %d ခုကို ဖ်က္ပါ</string>
+    <string name="quick_settings_bluetooth_label">ဘလူးတုသ္</string>
+    <string name="quick_settings_bluetooth_detail_empty_text_available">အနီးအနားတြင္ ဘလူးတုသ္ ကိရိယာမ်ား မေတြ႔ပါ</string>
+    <string name="quick_settings_bluetooth_detail_paired_devices_title">အတြဲခ်ိတ္ထားသည္ ကိရိယာမ်ား</string>
+    <string name="quick_settings_bluetooth_detail_available_devices_title">ရရွိႏိုင္ေသာ ကိရိယာမ်ား</string>
+    <string name="quick_settings_bluetooth_detail_off_text">တြဲႏုိင္သည့္ (သုိ႔) တြဲၿပီးသည့္ ကိရိယာမ်ား စာရင္းကုိ ၾကည့္ရန္ ဘလူးတုသ္ကုိ ဖြင့္ပါ။</string>
+    <string name="quick_settings_sound_mode_detail_label">အသံ အေနအထား</string>
+    <string name="quick_settings_sound_mode_detail_temporary_mute_title">အသံယာယီ ပိတ္ပါ</string>
+    <string name="quick_settings_sound_mode_detail_temporary_mute_summary">ယခင္ အသံမုဒ္ (%s) သုိ႔ ျပန္မသြားမီ ကိရိယာကုိ အခ်ိန္မည္မွ်ၾကာ အသံပိတ္ထားမည္ကုိ ေရြးခ်ယ္ပါ။</string>
+    <string name="quick_settings_sound_mode_detail_temporary_mute_duration">အသံပိတ္ၾကာခ်ိန္</string>
+    <string name="quick_settings_rotation_unlocked_label">"အလိုအေလ်ာက္
+လွည့္"</string>
+    <string name="quick_settings_rotation_locked_portrait_label">ပုံတူ</string>
+    <string name="quick_settings_location_label">တည္ေနရာ</string>
+    <string name="quick_settings_wifi_label">Wi-Fi</string>
+    <string name="quick_settings_wifi_detail_scanning_text">Wi-Fi ကြန္ရက္မ်ားအတြက္ စကဲန္လုပ္ေန…</string>
+    <string name="quick_settings_wifi_detail_off_text">ရႏိုင္သည့္ ကြန္ယက္မ်ား ျမင္ႏိုင္ရန္ Wi-Fi ဖြင့္ပါ။</string>
+    <string name="quick_settings_brightness_strain_warning">"ေတာက္ပႏႈန္းျမင့္အဆင့္မ်ားကို ကာလအေတာ္ၾကာ အသုံးျပဳျခင္းသည္ မ်က္စိေညာင္းနာမႈ ျဖစ္ေစႏုိင္ၿပီး ဘက္ထရီအသုံးျပဳမႈ မ်ားလာေစႏိုင္သည္။
+ေတာက္ပႏႈန္းကို အႏၱရာယ္ကင္းအဆင့္မ်ားအထက္သို႔ တိုးျမႇင့္ခြင့္ေပးရန္အတြက္ “အိုေက” ကို ႏွိပ္ပါ။"</string>
+    <string name="quick_settings_more_settings">အေသးစိတ္မ်ား</string>
+    <string name="quick_settings_done">ၿပီးၿပီ</string>
+    <string name="quick_settings_flashlight_label">လက္ႏွိပ္မီး</string>
+    <string name="quick_settings_sound_mode_sound_label">အသံ</string>
+    <string name="quick_settings_sound_mode_vibrate_label">တုန္ခါမႈ</string>
+    <string name="quick_settings_sound_mode_mute_label">အသံတိတ္</string>
+    <string name="quick_settings_nfc_card_mode_label">"NFC
+ကတ္ အေနအထား"</string>
+    <string name="quick_settings_nfc_p2p_label">"R/W
+P2P"</string>
+    <string name="quick_settings_my_device_visibility_label">"ကိရိယာ
+ျမင္ႏိုင္စြမ္း"</string>
+    <string name="quick_settings_aod_label">"Always On
+Display"</string>
+    <string name="quick_settings_screen_mirroring_label">"Screen
+Mirroring"</string>
+    <string name="quick_settings_power_saving_label">"ပါ၀ါ
+ေခၽြတာျခင္း"</string>
+    <string name="quick_settings_sec_dnd_label">"မေႏွာက္
+ယွက္ရ"</string>
+    <string name="quick_settings_mobile_hotspot_label">"မိုဘိုင္း
+ေဟာ့စေပါ့"</string>
+    <string name="quick_settings_airplane_mode_label">"ပ်ံသန္းမႈ
+အေနအထား"</string>
+    <string name="quick_settings_bluelightfilter_label">"အျပာႏုေရာင္
+စစ္ထုတ္ကိရိယာ"</string>
+    <string name="quick_settings_mobile_data_label">"မိုဘိုင္း
+ေဒတာ"</string>
+    <string name="quick_settings_wificalling_label">"Wi-Fi
+ေခၚဆိုမႈ"</string>
+    <string name="quick_settings_personal_mode_label">"သီးသန္႔
+အေနအထား"</string>
+    <string name="quick_settings_data_roaming_label">"ေဒတာ
+အျခားကြန္ယက္အသုံးျပဳမႈ"</string>
+    <string name="quick_settings_gps_label">GPS</string>
+    <string name="quick_settings_sync_label">ဆင့္ခ္</string>
+    <string name="quick_settings_ultra_power_saving_label">"ပိုမိုပါဝါ
+ေခၽြတာျခင္း"</string>
+    <string name="quick_settings_data_monitor_label">"ပိုမိုေဒတာ
+ေခၽြတာျခင္း"</string>
+    <string name="uds_toast_flight_mode_enabled">ပ်ံသန္းအေနအထားတြင္ ပိုမိုေဒတာေခၽြတာေရး အေနအထားကိုဖြင့္၍ မရႏိုင္ပါ။ ပ်ံသန္း အေနအထားကို ပိတ္ၿပီး ထပ္မံႀကိဳးစားပါ။</string>
+    <string name="qs_detail_flashlight_title">ဓါတ္မီး</string>
+    <string name="quick_settings_reading_mode_label">"စာဖတ္
+အေနအထား"</string>
+    <string name="quick_settings_bike_mode_label">"S bike
+အေနအထား"</string>
+    <string name="qs_detail_bike_mode_title">S bike အေနအထား</string>
+    <string name="qs_detail_bike_mode_text">အဝင္ဖုန္းအားလံုးကုိ စစ္ထုတ္ရန္ ဤမုဒ္ကုိ ဖြင့္ပါ။ ေမာင္းႏွင္ေနစဥ္ အေရးႀကီးေသာ ေခၚဆိုမႈမ်ားကိုသာ အသိေပးသြားပါမည္။ ေမာင္းေနစဥ္ သင့္ကိရိယာကုိ အသံုးျပဳႏုိင္မည္ မဟုတ္ပါ။ S bike မုဒ္ကုိ ဖြင့္ထားစဥ္ လြတ္သြားေသာ ဖုန္းေခၚဆုိမႈမ်ားကုိ ၾကည့္ႏုိင္သည္၊ သင္ေရြးခ်ယ္ထားသည့္ အဆက္အသြယ္မ်ားက ဖုန္းေခၚသည့္အခါ ၎တုိ႔ထံ ခရီးစဥ္အတြက္ ခန္႔မွန္း ၾကာခ်ိန္ပါဝင္ေသာ မက္ေဆ့ခ်္မ်ားကုိ အလုိအေလ်ာက္ ပုိ႔ႏုိင္သည္၊ ခရီးသြားအခ်က္အလက္မ်ားကုိ ၾကည့္ႏုိင္သည္၊ တံဆိပ္မ်ား ရယူႏုိင္သည္။</string>
+    <string name="qs_edit_summary">အျမန္သတ္မွတ္ခ်က္ မလုတ္မ်ားကို အျမန္သတ္မွတ္ခ်က္မ်ားအကန္႔သို႔ထည့္ရန္ ၎တို႔ကို အထက္ပါေနရာသို႔ ဆြဲယူပါ။</string>
+    <string name="notification_panel_unable_remove_minimum">ခလုတ္ကို ဖယ္၍မရပါ။ ခလုတ္ အေရအတြက္ အနည္းဆံုး (%d) သုိ႔ေရာက္ျပီ။</string>
+    <string name="disable">ပိတ္ရန္</string>
+    <string name="agree">သေဘာတူညီ</string>
+    <string name="disagree">သေဘာမတူ</string>
+    <string name="quick_settings_it_policy_prevents">လုံၿခဳံေရးမူဝါဒသည္ %s အသုံးျပဳမႈကို ဟန္႔တားထားသည္။</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message">မိုဘိုင္း ေဟာ့စေပါ့ႏွင့္ အျခား လံထားျခင္း လုပ္ေဆာင္ခ်က္မ်ား သံုးရန္ SIM ကတ္ တစ္ခု ထည့္သြင္းပါ။</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_title">မိုဘိုင္း ေဟာ့စေပါ့</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_title_jpn">Unable to enable Wi-Fi tethering</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message_jpn">Insert a SIM card to use Wi-Fi tethering.</string>
+    <string name="mobile_hotspot_dialog_nousim_or_nosim_warning">Insert a UIM/SIM card to use Mobile hotspot and other tethering functions.</string>
+    <string name="mobile_hotspot_toast_disable_airplne_mode">ပ်ံသန္း အေနအထား ရေနစဥ္ မိုဘိုင္း ကြန္ယက္မ်ားသို႔ ခ်ိတ္ဆက္မရပါ။ ပ်ံသန္း အေနအထားကို ပိတ္ၿပီး ျပန္ၾကိဳးစားပါ။</string>
+    <string name="mobile_hotspot_toast_internet_sharing">အင္တာနက္ မွ်ေဝျခင္း</string>
+    <string name="mobile_hotspot_detail_title">မိုဘိုင္း ေဟာ့စေပါ့</string>
+    <string name="mobile_hotspot_detail_title_vzw">မိုဘိုင္း ေဟာ့စေပါ့</string>
+    <string name="mobile_hotspot_detail_title_jpn">Wi-Fi တီသာရင္း</string>
+    <string name="mobile_hotspot_detail_connection_mode_allowed_device">ခြင့္ျပဳ ကိရိယာမ်ားသာ</string>
+    <string name="mobile_hotspot_detail_connected_devices">ခ်ိတ္ဆက္ထားသည့္ ကိရိယာမ်ား</string>
+    <string name="mobile_hotspot_detail_connection_mode_allow_all">ကိရိယာအားလံုးကို ခ်ိတ္ဆက္ရန္ ခြင့္ျပဳပါ</string>
+    <string name="insert_sim_card">SIM ကဒ္ကို ထည့္ပါ</string>
+    <string name="insert_sim_card_message">ကြန္ယက္ ၀န္ေဆာင္မႈမ်ားကုိ ၀င္ေရာက္ရရန္ SIM ကဒ္ကုိ ထည့္ပါ။</string>
+    <string name="mobile_data_show_toast_airplane_mode">ပ်ံသန္း အေနအထား ရေနစဥ္ မိုဘိုင္း ကြန္ယက္မ်ားသို႔ ခ်ိတ္ဆက္မရပါ။ ပ်ံသန္း အေနအထားကို ပိတ္ၿပီး ျပန္ၾကိဳးစားပါ။</string>
+    <string name="volte_show_toast_airplane_mode">ပ်ံသန္း အေနအထား လုပ္ေစထားလွ်င္ VoLTE ကို သံုးမရပါ။ ပ်ံသန္း အေနအထား ပိတ္ၿပီး ျပန္ၾကိဳးစားပါ။</string>
+    <string name="volte_show_toast_impossible_during_volte_call">VoLTE ေခၚစဥ္မွာ VoLTE သံုးပါ ရႏိုင္လွ်င္ မလုပ္ေစ၍ မရပါ။</string>
+    <string name="volte_show_toast_disable_not_allowed">VoLTE ကိုပိတ္ရန္ ဝန္ေဆာင္မႈေပးသူမွ ခြင့္ျပဳမထားပါ။</string>
+    <string name="volte_show_toast_not_support_operator">VoLTE ကို သင့္ ေဆာ့ဖ္ဝဲ ဗားရွင္းက ေထာက္ကူမထားပါ။ ေနာက္ထပ္ အေသးစိတ္မ်ားအတြက္ ဝယ္သူ ဝန္ေဆာင္မႈမ်ားသို႔ ဆက္သြယ္ပါ။</string>
+    <string name="volte_show_toast_enable_message">VoLTE ဝန္ေဆာင္မႈ သံုးရန္ VoLTE သို႔ မွာယူပါ။ အေသးစိတ္မ်ားအတြက္ သင့္ ဝန္ေဆာင္မႈ ေပးသူကို ဆက္သြယ္ပါ။</string>
+    <string name="unable_to_turn_on_being_used_by_camera">%s ကိုဖြင့္၍မရႏိုင္ပါ။ ကင္မရာအလင္းကို ကင္မရာမွအသုံးျပဳေနသည္။</string>
+    <string name="aod_title">Always On Display</string>
+    <string name="aod_power_saving_mode">ပါဝါ ေခၽြတာျခင္း အေနအထား</string>
+    <string name="aod_voice_assistant_title">Voice Assistant</string>
+    <string name="aod_magnification_gesture">အၾကီးခ်ဲ႕ျခင္း အမူအယာမ်ား</string>
+    <string name="aod_magnifier_window">ပုံႀကီးခ်ဲ႕ ဝင္းဒိုး</string>
+    <string name="aod_magnifier_assistant_menu">ပုံႀကီးခ်ဲ႕ ဝင္းဒိုး</string>
+    <string name="aod_talkback">TalkBack</string>
+    <string name="aod_show_toast_unavailable_with_at_same_time">%1$s ႏွင့္ %2$s တို႔ကိုက တၿပိဳင္တည္း မဖြင့္ႏိုင္ပါ။</string>
+    <string name="aod_show_popup_title">%s ဖြင့္ပါ</string>
+    <string name="aod_show_popup_unavailable_with_at_same_time">%1$s ႏွင့္ %2$s တို႔ကို တၿပိဳင္တည္း ဖြင့္မရပါ။ %3$s ကို ပိတ္သြားမည္။</string>
+    <string name="aod_show_popup_description">%s ႏွင့္ ေအာက္ရွိ ေ႐ြးခ်ယ္ရန္မ်ားကို တစ္ၿပိဳင္တည္း ဖြင့္၍ မရႏိုင္ပါ။ ေအာက္မွ ေ႐ြးစရာမ်ားကို ပိတ္မည္။</string>
+    <string name="wificalling_show_popup_use_location_inform">Wi-Fi ေခၚဆိုမႈသည္ သင္၏တည္ေနရာ အခ်က္အလက္မ်ားအသုံးျပဳရန္ လိုအပ္သည္။ အမည္မသိ တည္ေနရာေဒတာကို ရယူၿပီး Google ႏွင့္ သင္၏ ဝန္ေဆာင္မႈေပးသူထံသို႔ ေပးပို႔သြားမည္ျဖစ္သည္။ အေသးစိတ္အခ်က္မ်ားအတြက္ သင္၏ ဝန္ေဆာင္မႈေပးသူကို ဆက္သြယ္ပါ။</string>
+    <string name="wificalling_show_popup_enable_location_title">တည္ေနရာ အလုပ္လုပ္ေစပါႏွင့္</string>
+    <string name="wificalling_show_popup_enable_location_message">Wi-Fi ေခၚဆိုမႈသည္ သင္၏တည္ေနရာ အခ်က္အလက္မ်ားအသုံးျပဳရန္ လိုအပ္သည္။ တည္ေနရာ တဂ္မ်ား ဖြင့္မည္။ အမည္မသိ တည္ေနရာေဒတာကို ရယူၿပီး Google ႏွင့္ သင္၏ ဝန္ေဆာင္မႈေပးသူထံသို႔ ေပးပို႔သြားမည္ျဖစ္သည္။ အေသးစိတ္အခ်က္မ်ားအတြက္ သင္၏ ဝန္ေဆာင္မႈေပးသူကို ဆက္သြယ္ပါ။</string>
+    <string name="personal_mode_popup_diable_msg_while_afw_profile">အလုပ္ပ႐ိုဖိုင္တြင္ သီးသန္႔ အေနအထားမရရွိႏိုင္ပါ။</string>
+    <string name="personal_mode_popup_diable_msg_while_moving_item">ပစၥည္းမ်ားကုိ သီးသန္႔သုိ႔ ေရႊ႕ေနစဥ္ သီးသန္႔အေနအထားကုိ ပိတ္၍ မရႏုိင္ပါ။</string>
+    <string name="mobile_data_title">မိုဘိုင္း ေဒတာ</string>
+    <string name="mobile_data_show_popup_disable">"Wi-Fi မသံုးပါက အင္တာနက္၊ အီးေမးလ္ (သို႔) ေဒတာ ခ်ိတ္ဆက္မႈ လိုအပ္သည့္ အျခား အက္ပ္မ်ား သံုးရေတာ့မည္ မဟုတ္ပါ။
+
+မိုဘိုင္း ေဒတာကို ပိတ္ထားမည္။"</string>
+    <string name="mobile_data_show_popup_disable_vzw">"Unless you use Wi-Fi, you will not be able to use the Internet, Email, or other apps that require a data connection.
+
+Turn off Mobile data?"</string>
+    <string name="mobile_data_show_popup_disable_vzw_volte">"Unless you use Wi-Fi, you will not be able to use Internet, Email, or other apps that require a data connection. Your phone will not be able to use Video Calling while Mobile data is off.
+Turn off Mobile data?"</string>
+    <string name="mobile_data_show_popup_disable_kor_skt_kt">"Wi-Fi မသုံးပါက ေဒတာ ခ်ိတ္ဆက္မႈ လိုအပ္သည့္ အင္တာနက္၊ အီးေမးလ္ (သို႔) အျခား အက္ပ္မ်ား သုံးႏိုင္ေတာ့မည္ မဟုတ္ပါ။
+
+မိုဘိုင္း ေဒတာကို ပိတ္မည္။"</string>
+    <string name="mobile_data_show_popup_disable_kor_lgt">"Wi-Fi မသုံးပါက ေဒတာ ခ်ိတ္ဆက္မႈ လိုအပ္သည့္ အင္တာနက္၊ အီးေမးလ္ (သို႔) အျခား အက္ပ္မ်ား သုံးႏိုင္ေတာ့မည္ မဟုတ္ပါ။
+
+မိုဘိုင္း ေဒတာကို ပိတ္မည္။"</string>
+    <string name="mobile_data_show_popup_enable_kor_skt_kt">မိုဘိုင္း ေဒတာကို ဖြင့္မည္။ မိုဘိုင္း ကြန္ယက္မ်ားသို႔ ခ်ိတ္ဆက္ျခင္းသည္ သင္၏ ေငြေပးေခ်မႈ အစီအစဥ္ေပၚ မူတည္၍ ေနာက္ထပ္ အဖိုးအခမ်ား က်သင့္ႏိုင္ပါသည္။</string>
+    <string name="mobile_data_show_popup_enable_kor_lgt">မိုဘိုင္း ေဒတာကို ဖြင့္မည္။ မိုဘိုင္း ကြန္ယက္မ်ားသို႔ ခ်ိတ္ဆက္ျခင္းသည္ သင္၏ ေငြေပးေခ်မႈ အစီအစဥ္ေပၚ မူတည္၍ ေနာက္ထပ္ အဖိုးအခမ်ား က်သင့္ႏိုင္ပါသည္။</string>
+    <string name="mobile_data_roaming_title">လွည့္လည္သြားလာေနစဥ္ ေဒတာ</string>
+    <string name="mobile_data_show_popup_roaming_enable">ေဒတာ လွည့္လည္သြားလာမႈသည့္ သင့္ ေဒသတြင္း ညီညာေသာႏႈန္း အစီအစဥ္ထဲသို႔ ထပ္ေလာင္း၍ အပိုေပးေဆာင္ရႏိုင္သည္။ အီးေမးလ္ သို႔မဟုတ္ လုပ္ငန္းသံုးပရိုဂရမ္မ်ား အလိုအေလ်ာက္ အပ္ဒိတ္လုပ္ျခင္းကလည္း ေငြပိုေပးေဆာင္ က်ခံရႏိုင္သည္။ ဗီဒီယို သို႔မဟုတ္ အီးေမးလ္ ေဒတာအၾကီးစား ဝန္ေဆာင္မႈမ်ားက တစ္မိနစ္လွ်င္ ဝမ္ေငြ ၂၀,၀၀၀ ေက်ာ္က်ခံရႏိုင္သည္။</string>
+    <string name="mobile_data_show_toast_not_disable_during_voltecall">Unable to turn Mobile data on or off while Advanced calling enabled.</string>
+    <string name="flash_light_notification_title">လက္ႏွိပ္မီး ဖြင့္ထားသည္</string>
+    <string name="flash_light_notification_button">ပိတ္ပါ</string>
+    <string name="flash_light_disabled_by_low_battery">လက္ႏွိပ္မီး ဖြင့္မရပါ။ ဘက္ထရီ အား နည္းေနသည္။</string>
+    <string name="flash_light_turn_off_by_low_battery">ဘက္ထရီပါဝါ အားနည္းေနပါသည္။ ဓာတ္မီးကို ပိတ္ပါလိမ့္မည္။</string>
+    <string name="mobile_data_roaming_disable_toast_lgt">ေဒတာ လွည့္လည္ျခင္း ပိတ္ထားသည္</string>
+    <string name="location_show_enable_popup_title_vzw">တည္ေနရာ ခြင့္ျပဳခ်က္</string>
+    <string name="location_show_enable_popup_message_vzw">"Your phone can share its approximate location with apps and services like maps, shopping and weather. Apps and services that use your location should inform you. Read the privacy policy of any app or service provider you are considering to understand how they collect, use and share your location information before you use them.
+
+Determining your location will use the mobile network. Data usage will apply."</string>
+    <string name="location_show_enable_popup_message_tablet_vzw">"Your tablet can share its approximate location with apps and services like maps, shopping and weather.
+
+Apps and services that use your location should inform you. Read the privacy policy of any app or service provider you’re considering to understand how they collect, use and share your location information before you use them.
+
+Determining your location will use the mobile network. Data usage will apply."</string>
+    <string name="location_show_enable_popup_title_dcm">အသံုးျပဳသူ သေဘာတူမႈ</string>
+    <string name="location_show_enable_popup_message_dcm">သင္အသံုးျပဳသည့္အက္ပ္သည္ GPS တည္ေနရာႏွင့္ သင့္တည္ေနရာကို အသံုးျပဳျခင္းအား ထိန္းခ်ဳပ္ ထားသည္။</string>
+    <string name="location_show_popup_disable_wificalling_title">တည္ေနရာ ပိတ္ပါ</string>
+    <string name="location_show_popup_disable_wificalling_when_disable_location">Disabling Location will disable Wi-Fi calling.</string>
+    <string name="sync_show_popup_title_enable">ေအာ္တို စင့္က္ကို ဖြင့္</string>
+    <string name="sync_show_popup_title_disable">ေအာ္တို စင့္က္ကို ပိတ္</string>
+    <string name="sync_show_popup_message_enable">"ဝဘ္ေပၚတြင္ သင္၏အေကာင့္မ်ားေျပာင္းလဲျခင္းျပဳလုပ္မႈကို ကိရိယာသို႔အလိုအေလ်ာက္ ကူးယူသြားမည္။
+
+အခ်ိဳ႕အေကာင့္မ်ားသည္လည္း ကိရိယာရွိ ဝဘ္သို႔ အလိုအေလ်ာက္ ကူးယူၿပီး ေျပာင္းလဲသြားမည္။ အလိုလိုဆင့္ခ္လုပ္မႈ ဖြင့္သြားမည္။"</string>
+    <string name="sync_show_popup_message_disable">ဤဟာသည္ ေဒတာအသံုးျပဳမႈကို ေလွ်ာ့ခ်ျပီး ဘက္ထရီအားကို ထိန္းသိမ္းေပးမည္၊ သုိ႔ေသာ္ သင္သည္ လတ္တေလာ သတင္းခ်က္အလက္ ရယူရန္ အေကာင့္မ်ားအား ဆင့္ လက္ျဖင့္ လုပ္ရမည္။ ၎ကို အလုပ္လုပ္ေစရန္ လုပ္ထားလွ်င္ သင္သည္ အပ္ဒိတ္မ်ား သတိေပးျခင္းအား လက္ခံရရိွမည္မဟုတ္ပါ။</string>
+    <string name="airplane_mode">ပ်ံသန္းအေနအထား</string>
+    <string name="airplane_mode_show_popup_title">ပ်ံသန္း အေနအထား ဖြင့္ထားပါ</string>
+    <string name="airplane_mode_show_popup_title_vzw">Turn on Airplane mode</string>
+    <string name="airplane_mode_show_popup_message">ေခၚဆိုျခင္း၊ မက္ေဆ့ခ်္လုပ္ျခင္းႏွင့္ ေဒတာ ကြန္ယက္ အစီအစဥ္မ်ားကို ပ်ံသန္းအေနအထားက ပိတ္ထားႏိုင္သည္။ ၎သည္ Wi-Fi ႏွင့္ ဘလူးတုသ္တို႔ကဲ့သို႔ ခ်ိတ္ဆက္မႈ အစီအစဥ္မ်ားကိုလည္း ပိတ္ထားသည္။ Wi-Fi ႏွင့္ ဘလူးတုသ္ကို သံုးရန္ သတ္မွတ္ခ်က္မ်ားထဲ သို႔မဟုတ္ သတိေပးခ်က္ ပန္နယ္ေပၚတြင္ ၎တို႔ကို ဖြင့္ပါ္။</string>
+    <string name="airplane_mode_show_popup_message_wifi_without_bluetooth">ပ်ံသန္း အေနအထားက Wi-Fi အပါအဝင္ ကြန္ယက္ အစီအစဥ္မ်ား ပိတ္ရန္ ခြင့္ျပဳသည္။ Wi-Fi သံုးရန္ သတ္မွတ္ခ်က္မ်ား (သို႔) အသိေပးခ်က္ ပန္နယ္ထဲတြင္ ၎ကို ဖြင့္ပါ။</string>
+    <string name="airplane_mode_show_popup_message_without_bluetooth">ပ်ံသန္းအေနအထားကေခၚဆိုျခင္း၊ မက္ေဆ့ခ်္လုပ္ျခင္းႏွင့္ မိုဘိုင္းကြန္ယက္ အလုပ္မ်ားကိုပိတ္ရန္ ခြင့္ျပဳသည္။</string>
+    <string name="airplane_mode_show_popup_message_wifi">Wi-Fi ႏွင့္ ဘလူးတုသ္ အပါအဝင္ ကြန္ယက္ အစီအစဥ္မ်ားကို ပိတ္ရန္ ပ်ံသန္းအေနအထားက ခြင့္ျပဳသည္။ Wi-Fi ႏွင့္ ဘလူးတုသ္ သံုးရန္ ၎တို႔ကို သတ္မွတ္ခ်က္မ်ားထဲ (သို႔) အသိေပးခ်က္ ပန္နယ္ထဲတြင္ ဖြင့္ပါ။</string>
+    <string name="airplane_mode_show_popup_message_cmcc">ေခၚဆိုျခင္း၊ မက္ေဆ့ခ်္လုပ္ျခင္းႏွင့္ ေဒတာ ကြန္ယက္ အစီအစဥ္မ်ားကို ပ်ံသန္းအေနအထားက ပိတ္ထားႏိုင္သည္။ ၎သည္ Wi-Fi ႏွင့္ ဘလူးတုသ္တို႔ကဲ့သို႔ ခ်ိတ္ဆက္မႈ အစီအစဥ္မ်ားကိုလည္း ပိတ္ထားသည္။ Wi-Fi ႏွင့္ ဘလူးတုသ္ကို သံုးရန္ သတ္မွတ္ခ်က္မ်ားထဲ သို႔မဟုတ္ သတိေပးခ်က္ ပန္နယ္ေပၚတြင္ ၎တို႔ကို ဖြင့္ပါ္။</string>
+    <string name="airplane_mode_show_popup_message_vzw">"Unless you use Wi-Fi, you will not be able to use the Internet, Email, or other apps that require a data connection.
+Turn on Airplane mode?"</string>
+    <string name="airplane_mode_show_popup_message_vzw_volte">"Unless you use Wi-Fi, you will not be able to use Internet, Email, Wi-Fi Calling or other apps that require a data connection.
+Turn on Airplane mode?"</string>
+    <string name="airplane_mode_show_popup_safelock">ေသာ့ခ်မႈ ဖြင့္ထားၿပီး ပါဝါပိတ္မႈ ပိတ္ဆီးထားစဥ္ ပ်ံသန္းအေနအထားကိုဖြင့္၍ မရႏိုင္ပါ။ ဖန္သားျပင္ ေသာ့ဖြင့္ၿပီးေနာက္ ထပ္မံႀကိဳးစားပါ။</string>
+    <string name="airplane_mode_show_popup_disabled_on_demo_devices">ဒီမို ကိရိယာမ်ားေပၚတြင္ ပ်ံသန္း အေနအထားကို ပိတ္ထားသည္။</string>
+    <string name="airplane_mode_show_toast_turn_on_wifi_for_wificalling">Wi-Fi ေခၚဆိုမႈအသုံးျပဳရန္ Wi-Fi ဖြင့္ပါ။</string>
+    <string name="rotation_lock_auto_rotate">အလိုလို လွည့္</string>
+    <string name="rotation_lock_show_toast_mobile_keyboard_message">%s ကိုဖြင့္ရန္၊ ကိရိယာမွ ကီးဘုတ္အဖုံးကို ျဖဳတ္ထုတ္ပါ။</string>
+    <string name="quick_settings_location_detail_high_accuracy">ျမင့္မားေသာ တိက်မွန္ကန္မႈ</string>
+    <string name="quick_settings_location_detail_battery_saving">ဘက္ထရီ ေခၽြတာျခင္း</string>
+    <string name="quick_settings_location_detail_device_only">ကိရိယာသီးသန္႔</string>
+    <string name="quick_settings_location_detail_subtitle">ေနရပ္ေဒသ ရွာေသာ စနစ္</string>
+    <string name="quick_settings_location_detail_summary">သင့္တည္ေနရာကို ခန္႔မွန္ရန္ GPS, Wi-Fi ႏွင့္ မိုဘိုင္းကြန္ရက္မ်ားကို အသံုးျပဳပါ</string>
+    <string name="quick_settings_flight_mode_detail_title">ပ်ံသန္းအေနအထား</string>
+    <string name="quick_settings_flight_mode_detail_summary">"ေခၚဆိုမႈႏွင့္ မက္ေဆ့ခ္်ပို႔ လုပ္ေဆာင္ခ်က္မ်ား ပိတ္ထားၿပီး မိုဘိုင္း ေဒတာကို ပိတ္ပါ။
+
+Wi-Fi ႏွင့္ ဘလူးတုသ္တို႔ကိုလည္း ပိတ္သြားမည္၊ သို႔ေသာ္ သတ္မွတ္ခ်က္မ်ားတြင္ (သို႔) အျမန္သတ္မွတ္ခ်က္မ်ား အကန္႔တြင္ တစ္ဖန္ ျပန္ဖြင့္ႏိုင္သည္။"</string>
+    <string name="quick_settings_flight_mode_detail_off_summary_volte_vzw">Airplane mode turns off all network connections, including mobile data and Wi-Fi. Your phone will not be able to use Video Calling while Airplane mode is on. Turn on Wi-Fi to use apps that require a data connection.</string>
+    <string name="quick_settings_flight_mode_detail_on_summary_volte_vzw">Unless you use Wi-Fi, you will not be able to use Internet, Email, or other apps that require a data connection. Your phone will not be able to use Video Calling while Airplane mode is on.</string>
+    <string name="quick_settings_flight_mode_detail_off_summary_non_volte_vzw">Airplane mode turns off all network connections, including mobile data and Wi-Fi. Turn on Wi-Fi to use apps that require a data connection.</string>
+    <string name="quick_settings_flight_mode_detail_on_summary_non_volte_vzw">Unless you use Wi-Fi, you will not be able to use the Internet, Email, or other apps that require a data connection.</string>
+    <string name="quick_settings_mobile_data_detail_title">မိုဘိုင္း ေဒတာ</string>
+    <string name="quick_settings_data_roaming_detail_title">ေဒတာ လွည့္လည္ျခင္း</string>
+    <string name="quick_settings_mobile_data_detail_summary">အကယ္၍ မိုဘိုင္းေဒတာ ပိတ္ထားလၽွင္၊ သင့္ကိရိယာသည္ ဝန္ေဆာင္မႈမ်ားကို အသုံးျပဳရန္ Wi-Fi ကြန္ယက္တစ္ခုသို႔ ခ်ိတ္ဆက္ထားရမည္ျဖစ္ၿပီး ၎သည္ ကြန္ယက္ခ်ိတ္ဆက္မႈတစ္ခု လိုအပ္သည္။</string>
+    <string name="quick_settings_dnd_detail_title">မေႏွာင့္ယွက္ရ</string>
+    <string name="quick_settings_dnd_summary">ကိရိယာကို သင္ေ႐ြးထားေသာ ျခြင္းခ်က္မ်ားမွအပ ေခၚဖုန္းမ်ား၊ သတိေပးခ်က္မ်ား ႏွင့္၊ မီဒီယာ အားလုံးတို႔ကို အသံပိတ္ထားရန္အတြက္ သတ္မွတ္ပါ။</string>
+    <string name="quick_settings_dnd_summary_vzw">Silence all calls, alerts and media sound. You can allow exceptions.</string>
+    <string name="quick_settings_rotation_lock_auto_rotate">အလိုလို လွည့္ပါ</string>
+    <string name="quick_settings_rotation_lock_detail_title">ဖန္သားျပင္ လွည့္ျခင္း</string>
+    <string name="quick_settings_rotation_lock_detail_summary">ျပသကြက္ လွည့္လည္မႈကို ေရြးခ်ယ္ပါ။</string>
+    <string name="quick_settings_flashlight_detail_level">အဆင့္</string>
+    <string name="quick_settings_flashlight_detail_title">အလင္း</string>
+    <string name="quick_settings_flashlight_detail_warning">ကင္မရာ မီးအလင္းသည္ အသားအေရႏွင့္ အခ်ိန္ၾကာျမင့္စြာ ထိေတြ႔သည့္အခါ အားမျပင္းေသာ အပူေလာင္မႈမ်ား ျဖစ္ပြားေစႏိုင္ပါသည္။ %s ကို အခ်ိန္ၾကာ ဖြင့္ထားျခင္းမွ ေရွာင္ၾကဥ္ပါ။</string>
+    <string name="quick_settings_reading_mode_summary">စာဖတ္ဖိုု႔ရန္ အတြက္ မ်က္ႏွာျပင္ကိုု ခ်ံဳ႕ခ်ဲ႕လိုု႔ရပါသည္။ ဒီပံုုစံဟာ အခ်ိဳ႕ေသာ အထူး ေရြးျခယ္ ထားတဲ့ အပလီေကးရွင္းအခ်ိဳ႕အတြက္သာ အသံုုးျပဳႏိုင္သည္။</string>
+    <string name="quick_settings_volte_summary">ရရွိႏိုင္သည့္အခါ VoLTE ကိုအသုံးျပဳပါ</string>
+    <string name="quick_settings_blf_detail_title">အျပာေရာင္ အလင္း စစ္ထုတ္ကိရိယာ</string>
+    <string name="quick_settings_blf_detail_summary">ဖန္သားျပင္မွ ထုတ္လႊင့္သည့္ အျပာေရာင္အလင္းပမာဏကို ကန္႔သတ္ၿပီး မ်က္စိက်ိန္းမႈ ေလ်ာ့ပါးေစပါ။</string>
+    <string name="quick_settings_blf_detail_seekbar">အလင္းပိတ္</string>
+    <string name="quick_settings_wificalling_summary">"မိုဘိုင္းကြန္ယက္တစ္ခုသို႔ ခ်ိတ္ဆက္မႈမရွိဘဲ၊ မည္သည့္ေနရာမဆို ေခၚဆိုမႈမ်ား ျပဳလုပ္ရန္ႏွင့္ လက္ခံရန္ Wi-Fi ကြန္ယက္မ်ားကို အသုံးျပဳပါ။
+
+ဝန္ေဆာင္မႈရရွိစဥ္ Wi-Fi ေခၚဆိုမႈ သေကၤတသည္ ေအာက္တြင္ျပသထားသကဲ့သို႔ အသိေပးခ်က္အကန္႔တြင္ ေပၚလာမည္ျဖစ္သည္။"</string>
+    <string name="quick_settings_wificalling_wifi_preferred">ဦးစားေပး Wi-Fi</string>
+    <string name="quick_settings_wificalling_cs_preferred">ဦးစားေပး မိုဘိုင္း ကြန္ယက္</string>
+    <string name="quick_settings_wificalling_wifi_only">Wi-Fi သက္သက္သာ</string>
+    <string name="quick_settings_dual_label_content_description">%s၊ ခလုတ္အမည္၊ သက္ဆိုင္ရာ အျမန္ သတ္မွတ္ခ်က္မ်ားကိုၾကည့္႐ႈရန္ ႏွစ္ခ်က္ႏွိပ္ပါ။</string>
+    <string name="accessibility_button">ခလုတ္</string>
+    <string name="quick_settings_brightness_auto_brightness">ေအာ္တို ေတာက္ပႏႈန္း</string>
+    <string name="quick_settings_brightness_quick_access">ထိန္းခ်ဳပ္ကြက္ကို ထိပ္ပိုင္းတြင္ ျပပါ</string>
+    <string name="quick_settings_brightness_quick_access_summary">ေတာက္ပမႈထိန္းခ်ဳပ္ကြက္ကို အသိေပးခ်က္အကန္႔အေပၚတြင္ ျပပါ။</string>
+    <string name="quick_settings_brightness_detail_level">အဆင့္</string>
+    <string name="recents_empty_message">အက္ပ္မ်ားကို မၾကာမီက သံုးမထားပါ</string>
+    <string name="recents_drag_hint_message">အကန႔္လိုက္ျမင္ကြင္းတြင္ ဖြင့္ပါ</string>
+    <string name="recents_drag_freeform_hint_message">ေပါ့-အပ္ျမင္ကြင္းတြင္ ဖြင့္ပါ</string>
+    <string name="user_add_user">အသံုးျပဳသူ ထည့္ပါ</string>
+    <string name="guest_nickname">ဧည့္သည္</string>
+    <string name="guest_exit_guest">ဧည့္သည္ ဖ်က္ပစ္ပါ</string>
+    <string name="sanitized_content_text">%s ဝင္ေရာက္ရန္ ဤေနရာ ႏွိပ္ပါ။</string>
+    <string name="secure_folder_title">လုံၿခဳံစိတ္ခ်ရသည့္ ဖိုင္တြဲ</string>
+    <string name="tw_safe_media_volume_warning">အသံ က်ယ္က်ယ္ျဖင့္ အခ်ိန္ၾကာၾကာ နားေထာင္ျခင္းသည္ သင္၏ အၾကားအာရံုကို ထိခိုက္ေစႏိုင္ပါသည္။ လုံၿခံဳေသာ အဆင့္မ်ားထက္ အသံပမာဏ ျမႇင့္တင္သည္ကို ခြင့္ျပဳရန္ “အိုေက” ကို ႏွိပ္ပါ။</string>
+    <string name="tw_cover_volume_warning_message">အသံ က်ယ္က်ယ္ျဖင့္ အခ်ိန္ၾကာ နားေထာင္ပါက နားကို ထိခိုက္ပ်က္စီးေစႏိုင္သည္။ အသံျမွင့္ရန္ အဖံုး ဖြင့္ပါ။</string>
+    <string name="tw_safe_media_volume_warning_kids_mode">နားၾကပ္မ်ားကုိ Kids Mode တြင္ ခ်ိတ္ဆက္ထားစဥ္ အၾကံျပဳထားသည့္ ေဘးကင္းေရး ကန္႔သတ္ခ်က္ (%s) ထက္ အသံ က်ယ္၍ မရပါ။</string>
+    <string name="yes">အုိေက</string>
+    <string name="no">ပယ္ဖ်က္</string>
+    <string name="volume_limiter_notice_toast">အသံပမာဏ တိုးျမႇင္ရန္၊ “သတ္မွတ္ခ်က္မ်ား” ကို ႏွိပ္ပါ၊ ၿပီးလွ်င္ မီဒီယာ အသံအတိုးအက်ယ္ ကန္႔သတ္ကိရိယာကို ပိတ္ပါ (သို႔) အသံအတိုးအက်ယ္ ကန္႔သတ္ႏႈန္းကို ခ်ိန္ညွိပါ။</string>
+    <string name="volume_limiter_open_cover_toast">ဆက္လုပ္ရန္ အဖံုးကုိဖြင့္ပါ။</string>
+    <string name="quick_settings_settings">သတ္မွတ္ခ်က္မ်ား</string>
+    <string name="mobileap">မိုဘိုင္း ေဟာ့စေပါ့</string>
+    <string name="mobile_hotspot_wifi_off_warning">မိုဘိုင္း ေဟာ့စေပါ့ လုပ္ေစျခင္းျဖင့္ Wi-Fi ကို ပိတ္မည္။</string>
+    <string name="mobile_hotspot_wifi_off_warning_vzw">Mobile Hotspot uses your mobile data connection. Your Wi-Fi connection will be turned off.</string>
+    <string name="mobile_hotspot_wifi_off_warning_china">Enabling Mobile hotspot will turn off WLAN.</string>
+    <string name="mobile_hotspot_wifi_off_warning_jpn">Enabling Wi-Fi tethering will turn off Wi-Fi.</string>
+    <string name="tethering_attention_title">သတိ</string>
+    <string name="mobile_data_enable_toast_text">ပ်ံသန္း အေနအထား ရေနစဥ္ မိုဘိုင္း ကြန္ယက္မ်ားသို႔ ခ်ိတ္ဆက္မရပါ။ ပ်ံသန္း အေနအထားကို ပိတ္ၿပီး ျပန္ၾကိဳးစားပါ။</string>
+    <string name="wifi_ap_wifi_p2p_off_warn">မိုဘိုင္း ေဟာ့စေပါ့ကို ဖြင့္ျခင္းသည္ Wi-Fi Direct မွ တဆင့္ လက္ရွိ ခ်ိတ္ဆက္ ထားေသာ ကိရိယာတိုင္းကို ခ်ိတ္ဆက္ထားျခင္းမွ ျဖတ္ပါလိမ့္မည္။</string>
+    <string name="wifi_ap_wifi_p2p_off_warn_china">Enabling Portable WLAN hotspot will disconnect device connected via WLAN Direct.</string>
+    <string name="dialog_battery_data_warning">မုိဘုိင္းလ္ေဟာ့စေပါ့ကုိ ဖြင့္လိမ့္မည္။ ထုိသုိ႔ေဆာင္ရြက္ျခင္းသည္ ဘတၳရီသံုးစြဲမႈႏွင့္အခ်က္အလက္သံုးစြဲမႈကုိ တုိးျမွင့္ေစလိမ့္မည္။</string>
+    <string name="keyboard_shortcut_group_applications_email">အီးေမးလ္</string>
+    <string name="qs_edit">တည္းျဖတ္ပါ</string>
+    <string name="sec_qs_edit">တည္းျဖတ္</string>
+    <string name="screen_grid">ခလုတ္ ေနရာခ်ထားမႈပံုစံ</string>
+    <string name="brightness_control_on_top">ထိပ္ပိုင္းတြင္ အလင္းအေမွာင္ ထိန္းခ်ဳပ္မႈ</string>
+    <string name="screen_grid_popup_title">ခလုတ္ ေနရာခ်ထားမႈပံုစံ</string>
+    <string name="screen_grid_popup_apply">အသုုံးျပဳပါ</string>
+    <string name="screen_grid_popup_ok">အိုေက</string>
+    <string name="qs_contact_us">ကၽြႏု္ပ္တို႔ဆီ ဆက္သြယ္ရန္</string>
+    <string name="multiwindow_forced_resizable">ဤအက္ပ္သည္ ဝင္ဒုိးမ်ိဳးစံု ျမင္ကြင္းထဲတြင္ မွန္မွန္ကန္ကန္ အလုပ္လုပ္မည္ မဟုတ္ပါ။</string>
+    <string name="accessibility_quick_settings_more_option">ေနာက္ထပ္ေ႐ြးစရာမ်ား</string>
+    <string name="accessibility_quick_settings_voice_search">အသံ ရွာေဖြမႈ</string>
+    <string name="recents_close_all_button_text">အားလံုး ပိတ္ပါ</string>
+    <string name="recents_split_button_description">ဖန္သားျပင္ ခြဲထားေသာ ျမင္ကြင္းတြင္ ဖြင့္ပါ</string>
+    <string name="recents_lock_button_description">ဤအက္ပ္ကုိ လတ္တေလာ အက္ပ္ဖန္သားျပင္တြင္ ပင္တြဲပါ (သုိ႔) ျဖဳတ္ပါ</string>
+    <string name="recents_menu_more">ေနာက္ထပ္</string>
+    <string name="recents_menu_contact_us">ကၽြႏု္ပ္တို႔ကို ဆက္သြယ္ပါ</string>
+    <string name="recents_help_dlg_full_page1">အက္ပ္မ်ားကို အကန႔္လိုက္ျမင္ကြင္းထဲ၌ ဖြင့္ရန္ အက္ပ္ဝင္းဒိုး၏ ေခါင္းစဥ္ဘားရွိ %s ကို ႏွိပ္ပါ။ အက္ပ္က မာတီဝင္းဒိုးကို ပံ့ပိုးေပးလွ်င္ ဤသေကၤတကို ျပထားသည္။</string>
+    <string name="recents_help_dlg_full_page1_desc">အက္ပ္မ်ားကို အကန႔္လိုက္ျမင္ကြင္းထဲ၌ ဖြင့္ရန္ အက္ပ္ဝင္းဒိုး၏ ေခါင္းစဥ္ဘားရွိ အကန႔္လိုက္ျမင္ကြင္း သေကၤတကို ႏွိပ္ပါ။ အက္ပ္က မာတီဝင္းဒိုးကို ပံ့ပိုးေပးလွ်င္ ဤသေကၤတကို ျပထားသည္။</string>
+    <string name="recents_help_dlg_full_page2_hardkey">ဖန္သားျပင္အျပည့္ျမင္ကြင္းျဖင့္ အက္ပ္ကုိ အသံုးျပဳစဥ္ ခြဲထုတ္ဖန္သားျပင္ျမင္ကြင္းသုိ႔ ေျပာင္းရန္ လတ္တေလာကီးကုိ ဖိ၍ ႏွိပ္ထားပါ။</string>
+    <string name="recents_help_dlg_next_button_text">ေနာက္ထပ္</string>
+    <string name="recents_help_dlg_split_page1">ဖန္သားျပင္၏ ေအာက္ပိုင္းတစ္ဝက္ကို ဖြင့္ရန္ ယခင္အက္ပ္တစ္ခုကို ေ႐ြးပါ၊ (သို႔) ပင္မဖန္သားျပင္သို႔ သြားၿပီး ဖန္သားျပင္ခြဲျမင္ကြင္းထဲရွိ အက္ပ္အသစ္တစ္ခုကို ဖြင့္ပါ။</string>
+    <string name="recents_help_dlg_split_page2_hardkey">ဖန္သားျပင္အခြဲျမင္ကြင္းထဲရွိ ဖန္သားျပင္ အေပၚပုိင္းတဝက္ရွိ အက္ပ္ကုိ ခ်ံဳ႕ရန္ ပင္မကီးကုိ ႏွိပ္ပါ။ အက္ပ္ကုိ ခ်ံဳ႕ထားစဥ္ အျခားအက္ပ္တစ္ခုကုိ ပင္မစခရင္မွ ဖြင့္ၾကည့္လွ်င္ ၎ကုိ ဖန္သားျပင္အခြဲျမင္ကြင္းထဲရွိ ဖန္သားျပင္ ေအာက္ပုိင္းတစ္ဝက္တြင္ ဖြင့္ျပပါမည္။</string>
+    <string name="recents_help_dlg_split_page2_softkey">ဖန္သားျပင္အခြဲျမင္ကြင္းထဲရွိ ဖန္သားျပင္အေပၚပုိင္းတစ္ဝက္တြင္ အက္ပ္ကုိ ခ်ံဳ႕ရန္ ပင္မခလုတ္ကုိ ႏွိပ္ပါ။ အက္ပ္ကုိ ခ်ံဳ႕ထားစဥ္ အျခားအက္ပ္တစ္ခုကုိ ပင္မစခရင္မွ ဖြင့္ၾကည့္လွ်င္ ၎ကုိ ဖန္သားျပင္အခြဲျမင္ကြင္းထဲရွိ ဖန္သားျပင္ ေအာက္ပုိင္းတဝက္တြင္ ဖြင့္ျပပါမည္။</string>
+    <string name="recents_app_list_more_apps">ေနာက္ထပ္ အက္ပ္</string>
+    <string name="recents_app_list_recommendations">အႀကံျပဳခ်က္မ်ား</string>
+    <string name="recents_app_list_multi_window_apps">မာလ္တီ ဝင္းဒိုး အက္ပ္မ်ား</string>
+    <string name="data_connection_error_toast_notification">Wi-Fi ခ်ိတ္ဆက္ဖို႔လိုသည္။ Wi-Fi ကြန္ယက္သို႔ ခ်ိတ္၍ ျပန္စမ္းၾကည့္ပါ။</string>
+    <string name="data_connection_error_no_network_connection">ကြန္ယက္ ခ်ိပ္ဆက္မႈ မရွိပါ</string>
+    <string name="data_connection_error_flight_mode_on">ပ်ံသန္း အေနအထား ရေနစဥ္ မိုဘိုင္း ကြန္ယက္မ်ားသို႔ ခ်ိတ္ဆက္မရပါ။ ၎အစား Wi-Fi သို႔ ခ်ိတ္ဆက္ပါ (သို႔) ပ်ံသန္း အေနအထားကို ပိတ္ၿပီး ျပန္ၾကိဳးစားပါ</string>
+    <string name="data_connection_error_mobile_data_off">မိုဘိုင္းေဒတာ အလုပ္မလုပ္ေစပါ။ ၄င္းအစား Wi-Fi ကြန္ယက္သို႔ ခ်ိတ္ဆက္ပါ သို႔မဟုတ္ မိုဘိုင္းေဒတာကို အလုပ္လုပ္ေစျပီး ထပ္ၾကိဳးစားပါ</string>
+    <string name="data_connection_error_data_roaming_off">ေဒတာ လွည့္လည္မႈ ပိတ္ထားသည္။ ၎အစား Wi-Fi ကြန္ယက္သုိ႔ ခ်ိတ္ဆက္ (သုိ႔) ေဒတာ လွည့္လည္မႈကို ဖြင့္ျပီး ျပန္ၾကိဳးစားပါ</string>
+    <string name="data_connection_error_no_signal_no_sim">Wi-Fi ခ်ိတ္ဆက္ဖို႔လိုသည္။ Wi-Fi ကြန္ယက္သို႔ ခ်ိတ္၍ ျပန္စမ္းၾကည့္ပါ။</string>
+    <string name="data_connection_error_no_signal">မိုဘိုင္း ကြန္ရက္မ်ားအတြက္ အသံလႊင့္မႈ မေတြ႔ရ။</string>
+    <string name="retry">ျပန္ၾကိဳးစားပါ</string>
+    <string name="later">ေနာက္မွ</string>
+    <string name="mobile_device_warning_toast_notification">လမ္းေလွ်ာက္ေနစဥ္ (သို႔) ယာဥ္ေမာင္းေနစဥ္ မိုဘိုင္းဖုန္း အသံုးျပဳျခင္းသည္ မေတာ္တဆ ထိခိုက္မႈအႏၱရာယ္ ရွိသည္။</string>
+    <string name="flight_mode_enabled_dialog_title">Airplane mode turned on</string>
+    <string name="flight_mode_enabled_dialog_body">Unless you use Wi-Fi, you will not be able to use the Internet, Email, or other apps that require a data connection.</string>
+    <string name="flight_mode_enabled_dialog_body_volte_and_vowifi">Unless you use Wi-Fi, you will not be able to use Internet, Email, Wi-Fi Calling or other apps that require a data connection.</string>
+    <string name="popup_notification_title">သတိေပးခ်က္</string>
+    <string name="mcc_setting_dialog_body">ရက္စြဲႏွင့္ အခ်ိန္ သတင္းအခ်က္အလက္မ်ားကို ကြန္ယက္က မေပးပါ။ ကိုယ္တိုင္ သတ္မွတ္ရန္ ရက္စြဲႏွင့္ အခ်ိန္ ဆက္တင္မ်ားသို႔ သြားပါ။</string>
+    <string name="mcc_setting_dialog_body_vzw">Date and time information is not updating automatically. Go to Settings > Date and time to set manually.</string>
+    <string name="popup_set_manually_button_vzw">Set manually</string>
+    <string name="mcc_setting_toast_notification">အခ်ိန္ကို ဆက္တင္မလုပ္မီ အခ်ိန္ဇုန္ ေရြးပါ။</string>
+    <string name="sim_card_tray_water_protection_dialog_title">SIM/SD ကဒ္ ထည့္သည့္ေနရာကို စစ္ေဆးပါ</string>
+    <string name="sim_card_tray_water_protection_dialog_body">"SIM ကဒ္တစ္ခုကို ရွာ၍မရႏိုင္ပါ။ သင္၏ကိရိယာသည္ ေခၚဆိုမႈမ်ားျပဳလုပ္ျခင္းႏွင့္ မိုဘိုင္းကြန္ယက္မ်ားသို႔ ခ်ိတ္ဆက္ျခင္းတို႔ကဲ့သို႔ လုပ္ေဆာင္လႈပ္ရွားမႈမ်ားကို ရရွိႏိုင္လိမ့္မည္မဟုတ္ပါ။
+
+ေရေၾကာင့္ပ်က္စီးမႈမွ ကာကြယ္ရန္၊ SIM/SD ကဒ္ထည့္သည့္ေနရာကို တိက်စြာပိတ္ထားေၾကာင္း ေသခ်ာေစပါ။"</string>
+    <string name="sim_card_tray_empty_water_protection_dialog_body">ေရေၾကာင့္ပ်က္စီးမႈမွ ကာကြယ္ရန္၊ SIM/SD ကဒ္ထည့္သြင္းသည့္ေနရာကို တိက်စြာ ပိတ္ထားေၾကာင္း ေသခ်ာေစပါ။</string>
+    <string name="water_protection_notification_title">ေပါ့တ္ကို စစ္ေဆးပါ</string>
+    <string name="water_protection_notification_body">အစိုဓာတ္ကို ရွာသိထားသည္။ သင္၏ကိရိယာကို အားသြင္းရန္၊ သင္၏ အားသြင္းကိရိယာ/USB ေပါ့တ္ကိုေျခာက္ေသြ႕ေစရန္ ေသခ်ာေစပါ။</string>
+    <string name="full_battery_title">သတင္းအခ်က္အလက္</string>
+    <string name="full_battery_noti_text">ဘက္ထရီ အားျပည့္ေနၿပီ။</string>
+    <string name="cooling_title">ကိရိယာ ပူလြန္းသည္</string>
+    <string name="cooling_noti_text">အေသးစိတ္မ်ား ၾကည့္ရန္ ဤေနရာ ႏွိပ္ပါ။</string>
+    <string name="cooling_body">"သင့္ကိရိယာ အပူလြန္ေနပါသည္။ ၎ေအးသြားေစရန္ အဆင့္မ်ားကလုပ္ေဆာင္သြားမည္။
+
+ကိရိယာကို သင္ အသုံးျပဳႏိုင္ဆဲျဖစ္သည္၊ သို႔ေသာ္ :
+- ဖန္သားျပင္ မွိန္သြားႏိုင္သည္။
+- ကိရိယာလုပ္ငန္းပိုင္း ေႏွးသြားႏိုင္သည္။
+- အားသြင္းမႈ ရပ္တန္႔သြားႏိုင္သည္။
+
+ကိရိယာ ေအးသြားၿပီးေနာက္၊ စြမ္းေဆာင္မႈက အလိုအေလ်ာက္ ပုံမွန္ ျပန္အလုပ္လုပ္ပါမည္။"</string>
+    <string name="colling_high_level_noti_text">အပလီေကးရွင္းမ်ားကို ဖြင့္လို႔ မရႏုိင္ပါ။ ဖုန္းႏွင့္ အဆက္အသြယ္မ်ားဆိုင္ရာ အပလီေကးရွင္းမ်ားကိုသာ သင္ သံုးႏုိင္သည္။</string>
+    <string name="cooling_title_vzw">Cooling down</string>
+    <string name="cooling_noti_text_vzw">ေနာက္ထပ္ ေလ့လာရန္ ဤေနရာ ႏွိပ္ပါ။</string>
+    <string name="cooling_body_vzw">"Your phone is getting hot, so it's taking steps to cool itself down.
+
+You can still use it, but you may notice:
+- The screen might dim.
+- The phone might slow down.
+- Charging might pause.
+
+Your phone will return to normal once it cools down."</string>
+    <string name="cooling_body_tablet_vzw">"Your tablet is getting too hot, so it’s taking steps to cool itself down.
+
+You can still use your tablet, but you may notice:
+The screen might dim.
+The tablet might slow down.
+Charging might pause.
+
+After the tablet cools down, performance willAutomatically go back to normal."</string>
+    <string name="cooling_popup_title">ကိရိယာ ေအးလာေအာင္လုပ္ေနဆဲ</string>
+    <string name="overheat_shutdown_warning_title">Turning off</string>
+    <string name="overheat_shutdown_warning_text">"Your phone is getting hot.
+It will now turn off to cool down."</string>
+    <string name="overheat_shutdown_warning_text_tablet">Your tablet is getting too hot. It will now turn off to cool down.</string>
+    <string name="overheat_shutdown_warning_button_text">"Don't turn off"</string>
+    <string name="overheat_shutdown_notice_title">Why did my phone turn off by itself?</string>
+    <string name="overheat_shutdown_notice_title_tablet">Why did my tablet turn off by itself?</string>
+    <string name="overheat_shutdown_notice_text">"Your phone got hot. It turned off to prevent damage to the phone.
+
+This can be caused by:
+Using graphics-intensive apps, like video games and navigation apps, for long periods of time.
+Downloading or uploading large files.
+Using your phone in a very hot location."</string>
+    <string name="overheat_shutdown_notice_text_tablet">"Your tablet got too hot. It turned off to prevent damage to the tablet.
+
+Overheating can be caused by:
+Using graphics intensive apps like video games and navigation apps for long periods of time.
+Downloading or uploading large files.
+Using your tablet in a very hot location."</string>
+    <string name="overheat_poweroff_warning_title">ကိရိယာကို ပါဝါပိတ္ထားသည္</string>
+    <string name="overheat_poweroff_warning_text">သင့္ကိရိယာ အပူလြန္ေနပါသည္။ ေအးသြားေစရန္အတြက္ ပါဝါကို ယခု ပိတ္ထားပါလိမ့္မည္။</string>
+    <string name="overheat_poweroff_warning_text_new">သင့္ကိရိယာ အပူလြန္ေနပါသည္။ ေအးသြားေစရန္အတြက္၊ ပါဝါကို %d စကၠန္႔အၾကာခန္႔ ပိတ္ထားရပါမည္။</string>
+    <string name="overheat_poweroff_warning_text_append">ကိရိယာ ေအးသြားသည့္အခ်ိန္ထိတိုင္ ၎ကို ပါဝါျပန္ဖြင့္ႏိုင္မည္ မဟုတ္ပါ။</string>
+    <string name="overheat_poweroff_warning_button_text">ပါ၀ါကို မပိတ္လိုက္ပါႏွင့္</string>
+    <string name="overheat_poweroff_notice_title">ကိရိယာ၏ ပါ၀ါ အလိုလို ပိတ္သြားမည္</string>
+    <string name="overheat_poweroff_notice_text">"သင့္ကိရိယာ အပူလြန္ေနပါသည္။ ပ်က္စီးမႈမွ တားဆီးရန္ ပါဝါကို ပိတ္လိုက္သည္။
+
+အပူလြန္ေနျခင္းကို ျဖစ္ေစႏုိင္ေသာ အေၾကာင္းမွာ :
+- ဂိမ္းမ်ားႏွင့္ လမ္းေၾကာင္းျပအက္ပ္မ်ားကဲ့သို႔၊ ဂရပ္ဖစ္ႏႈန္းျမင့္-အက္ပ္မ်ားကို အခ်ိန္ၾကာျမင့္စြာ သုံးျခင္း။
+- အႀကီးစားဖိုင္မ်ားကို လႊဲေျပာင္းျခင္း။
+- ကိရိယာကို အပူဝန္းက်င္တစ္ခုမွာ သုံးျခင္းတို႔ေၾကာင့္ ျဖစ္သည္။"</string>
+    <string name="safe_mode_noti_title">စိတ္ခ် အေနအထား ရထားသည္</string>
+    <string name="safe_mode_noti_body">စိတ္ခ် အေနအထား ပိတ္ရန္ ဤေနရာ ႏွိပ္ပါ။</string>
+    <string name="safe_mode_alert_title">ကိရိယာ ျပန္စပါ</string>
+    <string name="safe_mode_alert_body">သိမ္းဆည္းျခင္း အေနအထားကို ပိတ္ရန္အတြက္၊ သင့္ကိရိယာကို ျပန္စတင္လိမ့္မည္။ ဒါဆိုရင္ သင့္ အက္ပ္အားလုံးကကို အရန္သင့္ သုံးႏိုင္ပါလိမ့္မည္။</string>
+    <string name="safe_mode_alert_positive_button">ယခု ျပန္လည္စတင္ပါ</string>
+    <string name="safe_mode_noti_title_vzw">Safe Mode Is On</string>
+    <string name="safe_mode_noti_body_vzw">Tap to turn off Safe Mode.</string>
+    <string name="safe_mode_alert_title_vzw">Turn Off Safe Mode</string>
+    <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
+    <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
+    <string name="battery_low_sec_title">ဘက္ထရီ ပါဝါ %d%%</string>
+    <string name="battery_low_sec_body_in_normal_mode">သင့္ကိရိယာကို အားသြင္းပါ (သို႔) “ပါဝါေခၽြတာ အေနအထား” ကို ဖြင့္ရန္ ဤေနရာတြင္ ႏွိပ္ပါ။</string>
+    <string name="battery_low_sec_body_in_ups_mode">သင့္ကိရိယာကို အားသြင္းကိရိယာ တစ္ခုသို႔ ခ်ိတ္ဆက္ပါ။</string>
+    <string name="battery_cable_charging_title">ၾကိဳး အားသြင္းျခင္း</string>
+    <string name="battery_charging_title">အားသြင္းေနပါသည္</string>
+    <string name="battery_fast_charging_title">အျမန္ အားသြင္းေနသည္</string>
+    <string name="battery_wireless_charging_title">ၾကိဳးမဲ့ အားသြင္းျခင္း</string>
+    <string name="battery_fast_wireless_charging_title">အျမန္ ႀကိဳးမဲ့ အားသြင္းျခင္း</string>
+    <string name="battery_wireless_charging_disconnect_text">ဝါယာလက္ အားသြင္းမႈ ရပ္ထားသည္။</string>
+    <string name="battery_wireless_charging_from_cable_to_wireless_text">ႀကိဳး ေငြေတာင္းခံမႈမွ ႀကိဳမဲ့ ေငြေတာင္းခံမႈဆီကို ေျပာင္းလဲ</string>
+    <string name="battery_cable_charging_from_wireless_to_cable_text">ႀကိဳးမဲ့ ေငြေတာင္းခံမႈ မွ ႀကိဳး ေငြေတာင္းခံမႈဆီသို႔ ေျပာင္းလဲ</string>
+    <string name="battery_slow_charging_title">ကိရိယာကို ျဖည္းၫွင္းစြာ အားသြင္းျခင္း</string>
+    <string name="battery_slow_charging_text">အျမန္အားသြင္းႏိုင္ရန္၊ မူလ အားသြင္းကိရိယာကို အသုံးျပဳပါ။</string>
+    <string name="battery_slow_charging_toast_text">To charge faster, use the charger and cable that were provided with this phone</string>
+    <string name="battery_charging_level_and_time_text">"အားသြင္းေနသည္ : %1$d%%
+(အားျပည့္သည္အထိ ခန္႔မွန္းေျခ %2$s)"</string>
+    <string name="battery_charging_level_text">အားသြင္းေနပါသည္: %d%%</string>
+    <string name="medium_power_saving_mode_notification_title">အလည္အလတ္ ပါဝါေခၽြတာေရး အေနအထားကို ဖြင့္ၿပီးၿပီ</string>
+    <string name="battery_saver_notification_text_time_extend">ဘက္ထရီသက္တမ္းကို တိုးျမႇင့္ထားပါသည္။</string>
+    <string name="button_detail">အေသးစိတ္</string>
+    <string name="battery_saver_recommend_notification_title">ဘက္ထရီ ပါဝါ %d%%</string>
+    <string name="battery_saver_recommend_notification_text">သင့္ကိရိယာကို အားသြင္းပါ (သို႔) “ပါဝါေခၽြတာ အေနအထား” ကို ဖြင့္ရန္ ဤေနရာတြင္ ႏွိပ္ပါ။</string>
+    <string name="button_close">ပိတ္ပါ</string>
+    <string name="battery_health_interruption_title">အားသြင္း၍ မရပါ</string>
+    <string name="battery_health_interruption_by_terminal_open_text">သင့္ကိရိယာ အားသြင္း၍ မရပါ။ ဆမ္ေဆာင္း ကိုက္ညီေသာ ဘက္ထရီတစ္ခုႏွင့္ အားသြင္းစရာ သံုးေနၿပီး သင့္ကိရိယာက အားသြင္းစရာသို႔ ေသခ်ာ ခ်ိတ္ဆက္ထားေၾကာင္း ေသခ်ာေစပါ။</string>
+    <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">အားသြင္းမႈ ရပ္တန္႔သြား။ ဘက္ထရီ အပူခ်ိန္ မ်ားလြန္။</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">အားသြင္းမႈ ရပ္တန္႔သြား။ ဘက္ထရီ အပူခ်ိန္ နည္းလြန္။</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"စက္ကုိ အားသြင္းျခင္း ရပ္ဆုိင္းသြားပါၿပီ။ ဘတၳရီအပူခ်ိန္ ပူလြန္းေနသည္။ အားသြင္းသည့္အရာကုိ ျဖဳတ္စဥ္ သတိထားပါ။ ၄င္းသည္ အလြန္ပူလြန္းေနသည္။
+
+အားသြင္းသည့္အရာကုိ ျဖဳတ္ၿပီး ျပန္တပ္ျခင္းျဖင့္ ပံုမွန္အတုိင္းဆက္လက္အားသြင္းႏုိင္သည္။ အပူခ်ိန္လြန္ကဲေနပါက မီးေလာင္ကြ်မ္းျခင္း သုိ႔မဟုတ္ ထိခုိက္ဒဏ္ရာရျခင္းတုိ႔ ျဖစ္ေစႏုိင္သည့္အတြက္ အသံုးျပဳသူကုိ ဝန္ေဆာင္မႈေပးသည့္ေနရာသုိ႔ ဆက္သြယ္ပါ။"</string>
+    <string name="incompatible_charger_title">အားသြင္း မေနပါ</string>
+    <string name="incompatible_charger_dialog_text">ဆက္ထားသည့္ အားသြင္းခ်ာဂ်ာသည္ ဤဖုုန္းႏွင့္ မကိုုက္ညီပါ။ သင့္ဖုုန္း ပ်က္စီးမႈကိုု ကာကြယ္ရန္ အားသြင္းမႈအား ရပ္တန္႔မည္။ ဆက္လက္ အားသြင္းရန္အတြက္ ဤဖုုန္းႏွင့္တြဲပါလာေသာ နဂိုုမူလ အားသြင္းခ်ာဂ်ာႏွင့္ ၾကိဳးကိုု အသံုုးျပဳပါ္။</string>
+    <string name="incompatible_charger_notification_text">အားသြင္း၍မရနိုုင္ပါ။ နဂိုုမူလအားသြင္းတံုုးကိုု အသံုုးျပဳပါ္။</string>
+    <string name="incompatible_charger_ticker">အားသြင္းမထားပါ</string>
+    <string name="warning_alert_check">ထပ္မျပပါေတာ့ႏွင့္</string>
+    <string name="power_supplying_low_battery_alert_title">ဘက္ထရီ အား နည္းေနသည္</string>
+    <string name="power_supplying_low_battery_alert_body">ဤကိရိယာသည္ USB မွတဆင့္ခ်ိတ္ဆက္ထားသည့္ အျခားကိရိယာကို အားသြင္းေနသည္။ ၎သည္ ဤကိရိယာ၏ ဘက္ထရီသုံးစြဲမႈ ပိုမ်ားေစပါသည္။ ခ်ိတ္ဆက္ထားသည့္ ကိရိယာသို႔ အားသြင္းမႈရပ္တန္႔ရန္ USB ႀကိဳး ျဖဳတ္ပါ။</string>
+    <string name="kg_iris_or_fingerprint_active_instructions">ဖြင့္ရန္ လက္ေဗြရာသုံးပါ (သို႔) ၎အစား မ်က္ဝန္းသုံးရန္ ဖန္သားျပင္ကို ပြတ္ဆြဲပါ</string>
+    <string name="kg_iris_or_fingerprint_unlock_instructions">ေသာ့ဖြင့္ရန္ လက္ေဗြရာသုံးပါ (သို႔) ၎အစား မ်က္ဝန္းသုံးရန္ ဖန္သားျပင္ကို ပြတ္ဆြဲပါ</string>
+    <string name="kg_fingerprint_or_swipe_active_instructions">ဖြင့္ရန္ လက္ေဖြရာ သုံးပါ (သို႔) ဖန္သားျပင္ကို ပြတ္ဆြဲပါ</string>
+    <string name="kg_fingerprint_or_swipe_unlock_instructions">ေသာ့ဖြင့္ရန္ လက္ေဗြရာ သုံးပါ (သို႔) ဖန္သားျပင္ကို ပြတ္ဆြဲပါ</string>
+    <string name="kg_iris_unlock_instructions">ေသာ့ဖြင့္ရန္အတြက္ မ်က္ဝန္းသုံးရန္ ဖန္သားျပင္ကို ပြတ္ဆြဲပါ</string>
+    <string name="kg_voice_assistant_active_instructions">ဖြင့္ရန္ လက္ေခ်ာင္းႏွစ္ေခ်ာင္းျဖင့္ ဖန္သားျပင္ကို ပြတ္ဆြဲပါ။</string>
+    <string name="kg_voice_assistant_unlock_instructions">ဖန္သားျပင္ ေသာ့ဖြင့္ရန္ လက္ႏွစ္ေခ်ာင္းျဖင့္ ဆြဲပါ။</string>
+    <string name="kg_swipe_active_instructions">ဖြင့္ရန္ ဖန္သားျပင္ကို ပြတ္ဆြဲပါ</string>
+    <string name="kg_swipe_unlock_instructions">ေသာ့ဖြင့္ရန္ ဖန္သားျပင္ကို ပြတ္ဆြဲပါ</string>
+    <string name="kg_power_connect_charger">အားသြင္းကိရိယာ ခ်ိတ္ဆက္ပါ</string>
+    <string name="kg_power_fully_charged">အျပည့္ အားသြင္းၿပီးပါၿပီ</string>
+    <string name="kg_power_fast_charging">အျမန္အားသြင္းမႈ : %d%%</string>
+    <string name="kg_power_charging_wirelessly">၀ိုင္ယာလက္ျဖင့္ အားသြင္းျခင္း : %d%%</string>
+    <string name="kg_power_fast_charging_wirelessly">ႀကိဳးမဲ့အျမန္ အားသြင္းႏိုင္မႈ : %d%%</string>
+    <string name="kg_power_charging">အားသြင္းေနပါသည္: %d%%</string>
+    <string name="kg_power_charging_remaining_time">(ခန္႔မွန္းေခ် အားျပည့္သည္အထိ %s)</string>
+    <string name="kg_power_time_format_hour_minute">%1$d နာရီ %2$d မိနစ္</string>
+    <string name="kg_power_time_format_hour">%d နာရီ</string>
+    <string name="kg_power_time_format_minute">%d မိနစ္</string>
+    <string name="kg_smart_lock_content_description">ကိရိယာ ေသာ့ခ်ရန္ ႏွစ္ခ်က္ႏွိပ္ၿပီး ဆြဲယူပါ။</string>
+    <string name="keyguard_skt_usim_unregistered">USIM ကဒ္ အသုံးျပဳ၍မရႏိုင္ပါ။ USIM ကဒ္ အခ်က္အလက္ ေဒါင္းလုတ္လုပ္ပါ။</string>
+    <string name="keyguard_missing_sim_message">USIM ကဒ္ထည့္သြင္းၿပီး ကိရိယာကိုျပန္လည္စတင္ပါ</string>
+    <string name="keyguard_usim_not_used">USIM ကဒ္အသုံးျပဳ၍မရႏိုင္ပါ။ မမွန္ကန္သည့္ PIN ေသာ့ဖြင့္ (PUK) ကုဒ္ကို %d ႀကိမ္ထည့္သြင္းထားသည္။ USIM ကဒ္အသစ္ဝယ္ယူပါ။</string>
+    <string name="lockscreen_nosim_text_kor_only">"USIM ကဒ္ ရွာမသိထားပါ
+အေရးေပၚ ေခၚဆိုမႈမ်ားသာလၽွင္"</string>
+    <string name="qs_sfinder_search_phone">ဖုန္းရွာၿပီး အနီးနားရွိ ကိရိယာမ်ားကို စကင္ဖတ္ပါ</string>
+    <string name="noti_setting_text">အသိေပးခ်က္ သတ္မွတ္ခ်က္မ်ား</string>
+    <string name="dnd_noti_title">မေႏွာက္ယွက္ရ အေနအထား ဖြင့္ထားသည္</string>
+    <string name="dnd_noti_message">ႏႈိးစက္မ်ား အသံေဖ်ာက္ထားသည္</string>
+    <string name="dnd_noti_action_disable">ပိတ္ပါ</string>
+    <string name="do_not_show_again">ထပ္မျပပါႏွင့္</string>
+    <string name="quick_settings_hongbao_assistant_label">"Hongbao
+assistant"</string>
+    <string name="hongbao_assistant_dialog_message">"Hongbao assistant will be enabled. This function will allow you to receive WeChat red envelopes more quickly and get notifications when they are received.
+A network connection is required.
+You can enable and disable this function via the quick settings panel."</string>
+    <string name="hongbao_assistant_noti_title">Hongbao assistant</string>
+    <string name="hongbao_assistant_noti_text">Receive WeChat red envelopes more quickly and get notifications when they are received. Tap here to enable this function.</string>
+    <string name="no_sim_notification_title">SIM မရွိ</string>
+    <string name="no_sim_notification_title_tmo">SIM ကဒ္ ထည့္သြင္းမထားပါ</string>
+    <string name="no_sim_notification_title_vzw">No SIM found</string>
+    <string name="no_sim_notification_text">SIM ကဒ္ကုိ ထည့္ပါ။</string>
+    <string name="no_sim_notification_text_vzw">Tap for more information.</string>
+    <string name="accessibility_phone_four_bars">ဖုန္းအခ်က္ျပ ဘားေလးခု</string>
+    <string name="quick_settings_screen_capture_label">"Capture
+screen"</string>
+    <string name="quick_settings_screen_recorder_label">"Record
+screen"</string>
+    <string name="airplane_mode_plmn">ပ်ံသန္းအေနအထား</string>
+    <string name="default_carrier_text_searching">ရွာေဖြေနသည္</string>
+    <string name="sec_data_usage_disabled_dialog_mobile_title">မိုဘိုင္း ေဒတာ ပိတ္ထားသည္</string>
+    <string name="sec_data_usage_disabled_dialog_mobile_title_vzw">Mobile data is now off</string>
+    <string name="sec_data_usage_disabled_dialog_body">သတ္မွတ္ထားေသာ ေဒတာ အသံုးျပဳမႈ ကန္႔သတ္ခ်က္ ေရာက္ရိွျပီး။ အပို ေဒတာ အသံုးျပဳပါက ဝန္ေဆာင္မႈ စီစဥ္သူက အခေၾကးေငြ ေကာက္ခံႏိုင္သည္။</string>
+    <string name="sec_data_usage_disabled_dialog_body_vzw">"You've reached your specified data usage limit, so mobile data has been turned off.
+
+If you turn mobile data back on, you may be charged for data usage by your carrier."</string>
+    <string name="sec_data_usage_disabled_dialog_enable">မိုဘိုင္း ေဒတာ ဖြင့္ပါ</string>
+    <string name="sec_data_usage_disabled_dialog_enable_vzw">Turn on data</string>
+    <string name="quick_panel_data_usage">Data usage</string>
+    <string name="qs_multisim_voice_preffered_btn_title">ဖုန္းေခၚဆုိမႈမ်ား</string>
+    <string name="qs_multisim_sms_preffered_btn_title">စာသား မက္ေဆ့ခ်္</string>
+    <string name="qs_multisim_data_preffered_btn_title">မိုဘိုင္း ေဒတာ</string>
+    <string name="qs_multisim_voice_ask_always">အျမဲ ေမးပါ</string>
+    <string name="qs_multisim_data_turned_off">ပိတ္ထားသည္</string>
+    <string name="app_locked">App locked</string>
+    <string name="uhq_toast_earphone_connect_request">Connect earphones to use UHQ upscaler.</string>
+    <string name="quick_settings_uhq_mode_label">"UHQ
+upscaler"</string>
+    <string name="uhq_mode_noti_title">UHQ အရည္အေသြးျမႇင့္တင္ကိရိယာ</string>
+    <string name="uhq_mode_noti_text">ၾကည္လင္ရွင္းလင္းသည့္ နားဆင္မႈအေတြ႕အႀကဳံတစ္ရပ္ကို ခံစားနားဆင္ရန္ ေတးဂီတႏွင့္ ဗီဒီယိုမ်ား၏ အသံၾကည္လင္ျပတ္သားမႈကို တိုးျမႇင့္ပါ။</string>
+    <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
+    <string name="assistance_app_setting_item_none">မရွိ</string>
+    <string name="keyguard_password_enter_pin_code">PIN ကုဒ္ကို ႐ိုက္ပါ</string>
+    <string name="keyguard_password_wrong_pin_code">PIN ကုဒ္ မွားေနသည္။</string>
+    <string name="keyguard_charged">အျပည့္ အားသြင္းၿပီးပါၿပီ</string>
+    <string name="keyguard_plugged_in">အားသြင္းေနပါသည္: %d%%</string>
+    <string name="keyguard_low_battery">အားသြင္းကိရိယာကို ခ်ိတ္ဆက္ပါ</string>
+    <string name="keyguard_instructions_when_pattern_disabled">ေသာဖြင့္ရန္အတြက္ ေရြးခ်ယ္ရန္ဇယားကိုႏွိပ္ပါ။</string>
+    <string name="keyguard_network_locked_message">ကြန္ယက္ေသာ့ခတ္ျပီး</string>
+    <string name="keyguard_missing_sim_message_short">မည္သည့္ SIM ကတ္မွ မရွိပါ</string>
+    <string name="keyguard_sim_locked_message">SIM ကဒ္ ေသာ့ခ်ထားသည္</string>
+    <string name="keyguard_sim_puk_locked_message">SIM ကဒ္ကို PUK ျဖင့္ ေသာ့ခ်ထားသည္</string>
+    <string name="keyguard_sim_unlock_progress_dialog_message">Unlocking SIM card</string>
+    <string name="keyguard_accessibility_pattern_unlock">ပံုစံ ေသာ့ဖြင့္</string>
+    <string name="keyboardview_keycode_enter">ထည့္ပါ</string>
+    <string name="kg_forgot_pattern_button_text">ပံုစံေမ့ေနပါသလား?</string>
+    <string name="kg_wrong_pattern">မမွန္ေသာ ပံုစံ ေရးဆြဲထားသည္</string>
+    <string name="kg_wrong_password">မမွန္ေသာ စကားဝွက္ ထည့္ထားသည္</string>
+    <string name="kg_wrong_pin">မွားေနသည့္ PIN ထည့္ထားသည္</string>
+    <string name="kg_too_many_failed_attempts_countdown">%d စကၠန္႔အတြင္ ထပ္ၾကိဳးစားပါ</string>
+    <string name="kg_pattern_instructions">သင့္ ေသာ့ဖြင့္ပံုစံဆြဲပါ။</string>
+    <string name="kg_sim_pin_instructions">SIM ကတ္ ေသာ့ဖြင့္ PIN ရိုက္ထည့္ပါ။</string>
+    <string name="kg_pin_instructions">PIN ထည့္ပါ</string>
+    <string name="kg_password_instructions">စကား၀ွက္ျဖည့္ပါ</string>
+    <string name="kg_puk_enter_puk_hint">SIM ေသာ့ခ်ထားသည္။ PUK ထည့္သြင္းပါ။ အေသးစိတ္အခ်က္မ်ားအတြက္ ဝန္ေဆာင္မႈ ေပးသူကို ဆက္သြယ္ပါ။</string>
+    <string name="kg_puk_enter_pin_hint">PIN အသစ္ တစ္ခုရိုက္ထည့္ပါ။</string>
+    <string name="kg_enter_confirm_pin_hint">သင့္ PIN အသစ္ကိုအတည္ျပဳပါ။</string>
+    <string name="kg_sim_unlock_progress_dialog_message">SIM ကဒ္ေသာ့ဖြင့္ေနပါသည္</string>
+    <string name="kg_invalid_sim_pin_hint">နံပါတ္ ၄ လုံးမွ ၈ လုံးအထိရွိေသာ PIN ႐ုိက္ပါ</string>
+    <string name="kg_invalid_sim_puk_hint">သင့္ PUK တြင္ ဂဏန္း ၈ လံုးသို႔မဟုတ္ ထို႔ထက္ပို၍ ပါရမည္။</string>
+    <string name="kg_invalid_confirm_pin_hint">သင္ ရိုက္ထည့္လိုက္ေသာ PIN မ်ားမကိုက္ညီပါ။</string>
+    <string name="kg_too_many_failed_pin_attempts_dialog_message">"မမွန္ေသာ PIN တစ္ခု %1$d ၾကိမ္ ထည့္ထားသည္။
+
+%2$d စကၠန္႔အတြင္း ျပန္ၾကိဳးစားပါ။"</string>
+    <string name="kg_too_many_failed_password_attempts_dialog_message">မမွန္သည့္ စကားဝွက္ကို %1$d ၾကိမ္ သြင္းထားၿပီ။ %2$d စကၠန္႔အတြင္း ျပန္ၾကိဳးစားပါ</string>
+    <string name="kg_too_many_failed_pattern_attempts_dialog_message">သင့္ကိရိယာ ေသာ့ဖြင့္ရန္ မေအာင္ျမင္ေသာ ၾကိဳးစားမႈ %1$d ၾကိမ္ လုပ္ထားသည္။ %2$d စကၠန္႔အတြင္း ျပန္ၾကိဳးစားပါ။</string>
+    <string name="kg_failed_attempts_almost_at_wipe">မမွန္ေသာ စကားဝွက္ တစ္ခု ထည့္ထားသည္။ ကိရိယာကို စက္႐ံုထုတ္ မူရင္းပါ သတ္မွတ္ခ်က္မ်ား သို႕ ျပန္သတ္မွတ္ၿပီး အခ်က္အလက္မ်ား အားလံုးမဖ်က္မီ သင္ %d ႀကိမ္ႀကိဳးစားရန္ က်န္ေသးသည္။</string>
+    <string name="kg_sec_1_failed_attempt_almost_at_wipe">ကိရိယာကိုေသာ့ဖြင့္ရန္ တစ္ႀကိမ္ႀကိဳးပမ္းထားသည္။ ကိရိယာကို စက္႐ုံထုတ္မူရင္းပါပုံစံသတ္မွတ္ခ်က္မ်ားသို႔ ျပန္လည္သတ္မွတ္ၿပီး ဖိုင္မ်ားႏွင့္ေဒါင္းလုတ္လုပ္ထားသည့္အက္ပ္မ်ားအပါအဝင္၊ ေဒတာအားလုံးကိုမဖ်က္မီ သင့္တြင္ႀကိဳးပမ္းခြင့္ %d ႀကိမ္က်န္ေသးသည္။</string>
+    <string name="kg_sec_failed_attempts_almost_at_wipe">ကိရိယာကိုေသာ့ဖြင့္ရန္ %1$d ႀကိမ္ႀကိဳးပမ္းထားသည္။ ကိရိယာကို စက္႐ုံထုတ္မူရင္းပါပုံစံသတ္မွတ္ခ်က္မ်ားသို႔ ျပန္လည္သတ္မွတ္ၿပီး ဖိုင္မ်ားႏွင့္ေဒါင္းလုတ္လုပ္ထားသည့္အက္ပ္မ်ားအပါအဝင္၊ ေဒတာအားလုံးကိုမဖ်က္မီ သင့္တြင္ႀကိဳးပမ္းခြင့္ %2$d ႀကိမ္က်န္ေသးသည္။</string>
+    <string name="kg_sec_1_remaing_count_almost_at_wipe">ကိရိယာေသာ့ဖြင့္ရန္ ႀကိဳးပမ္းမႈ %d ႀကိမ္ ျပဳလုပ္ထားသည္။ ကိရိယာကို စက္႐ုံထုတ္ မူရင္းပါပုံစံ သတ္မွတ္ခ်က္မ်ားသို႔ ျပန္လည္သတ္မွတ္ၿပီး ဖိုင္မ်ားႏွင့္ ေဒါင္းလုတ္လုပ္ထားေသာ အက္ပ္မ်ားအပါအဝင္၊ ေဒတာမ်ားအားလုံးမဖ်က္မီ သင့္တြင္ႀကိဳးပမ္းခြင့္ ၁ ႀကိမ္ က်န္ေသးသည္။</string>
+    <string name="kg_pin_accepted">ကုဒ္လက္ခံၿပီး။</string>
+    <string name="keyguard_carrier_default">၀န္ေဆာင္မႈ မရွိပါ</string>
+    <string name="kg_sim_locked_message">SIM ကဒ္ ေသာ့ခ်ထားသည္</string>
+    <string name="kg_missing_sim_message_short">မည္သည့္ SIM ကတ္မွ မရွိပါ</string>
+    <string name="kg_default_carrier_text_searching">ရွာေဖြေနသည္</string>
+    <string name="kg_perso_locked_message">အျခား USIM ပိတ္ဆီးပါ</string>
+    <string name="kg_pin_locked_message">PIN ထည့္သြင္းပါ</string>
+    <string name="kg_puk_locked_message">PUK ထည့္သြင္းပါ</string>
+    <string name="kg_flight_mode">ပ်ံသန္းအေနအထား</string>
+    <string name="kg_lockscreen_emergency_call_button_text">အေရးေပၚ ေခၚဆိုမႈ</string>
+    <string name="keyguard_dualclock_locale_view_home">ပင္မ</string>
+    <string name="keyguard_dualclock_locale_view_roaming">လွည့္လည္သြားလာေနျခင္း</string>
+    <string name="keyguard_dualclock_locale_view_seoul">ဆိုးလ္</string>
+    <string name="keyguard_dualclock_locale_view_korea">လွည့္လည္သြားလာေနျခင္း</string>
+    <string name="kg_wrong_direction_lock">မမွန္မကန္ ေရးဆြဲထားသည့္ ဦးတည္ခ်က္</string>
+    <string name="kg_direction_lock_instructions_normal_mode">ဖန္သားျပင္ကို ေသာ့ဖြင့္ရန္ ၫႊန္ၾကားခ်က္မ်ား ေရးဆြဲပါ</string>
+    <string name="keyguard_accessibility_direction_lock_unlock">ဦးတည္ခ်က္ ေသာ့ခ်ထားသည္</string>
+    <string name="kg_wrong_direction_lock_vzw">Incorrect directions (%d attempts remaining)</string>
+    <string name="direction_lock_too_many_failed_attempts_countdown">%d စကၠန္႔အတြင္ ထပ္ၾကိဳးစားပါ</string>
+    <string name="kg_iris_direction_instructions">မ်က္ဝန္း အသုံးျပဳပါ (သို႔) တြဲဆက္လမ္းေၾကာင္းမ်ား ေရးဆြဲပါ</string>
+    <string name="kg_1_attempt_remaining">(ႀကိဳးစားခြင့္ ၁ ႀကိမ္ က်န္ေသးသည္)</string>
+    <string name="kg_n_attempts_remaining">(ႀကိဳးစားခြင့္ %d ႀကိမ္ က်န္ေသးသည္)</string>
+    <string name="kg_multi_biometrics_strong_auth_prompt_reason_restarting_universal_lock">သင့္လမ္းၫႊန္ခ်က္မ်ားကို သုံးၿပီး ေသာ့ဖြင့္မႈတြင္ လိုအပ္ခ်က္မ်ားၿပီး ကိရိယာကို ျပန္လည္စတင္ထားသည္။ ယခုအခါ ေနာက္တစ္ႀကိမ္ သင္၏ကိရိယာေသာ့ဖြင့္မႈတြင္ ဇီဝ႐ုပ္လကၡဏာမ်ားကို သုံးႏိုင္ပါသည္။</string>
+    <string name="kg_iris_strong_auth_prompt_reason_restarting_universal_lock">သင့္ကိရိယာကို ျပန္စတင္ခဲ့ၿပီး ၎ကို သင့္အညြန္းတြဲ သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္မ်က္ဝန္းမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>
+    <string name="kg_multi_biometrics_prompt_reason_timeout_universal_lock_strong_auth">လုံၿခဳံေရး မူဝါဒအတြက္ ဇီဝ႐ုပ္လကၡဏာ မွတ္သားမႈအသုံးျပဳမည့္အစား တြဲဆက္လမ္းေၾကာင္းမ်ား ေရးဆြဲပါ</string>
+    <string name="kg_iris_strong_auth_prompt_reason_universal_lock_security_policy">လုံၿခဳံေရး မူဝါဒအတြက္ မ်က္ဝန္း မွတ္သားမႈအသုံးျပဳမည့္အစား တြဲဆက္လမ္းေၾကာင္းမ်ား ေရးဆြဲပါ</string>
+    <string name="kg_multi_biometrics_strong_auth_prompt_reason_24_timeout_universal_lock">သင္၏ကိရိယာကို ၂၄ နာရီေက်ာ္အတြက္ အသုံးမျပဳဘဲ ထားရွိခဲ့ၿပီး တြဲဆက္လမ္းေၾကာင္းသုံးၿပီး ေသာ့ဖြင့္ရန္ အပ္ပါသည္။ ေနာက္တစ္ႀကိမ္ သင္၏ကိရိယာေသာ့ဖြင့္မႈတြင္ ဇီဝ႐ုပ္လကၡဏာမ်ားကို သုံးႏိုင္ပါသည္။</string>
+    <string name="kg_iris_strong_auth_prompt_reason_24_timeout_universal_lock">ကိရိယာကို ၂၄ နာရီေက်ာ္ အသုံးမျပဳခဲ့ေသာေၾကာင့္ သင့္အညႊန္းတြဲကို သုံး၍ ေသာ့ဖြင့္ရမည္။ ေနာက္တႀကိမ္ ကိရိယာေသာ့ဖြင့္သည့္အခါ သင့္မ်က္လုံးမ်ားကို သုံးႏိုင္ပါသည္။</string>
+    <string name="kg_none_pin_none_frp">"If you do not enter the correct PIN within the next %d attempts, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_none_pin_1_frp">"If you do not enter the correct PIN in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_tablet_pin_none_frp">"If you do not enter the correct PIN within the next %d attempts, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_tablet_pin_1_frp">"If you do not enter the correct PIN in the next attempt, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_none_pattern_none_frp">"If you do not enter the correct pattern within the next %d attempts, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_none_pattern_1_frp">"If you do not enter the correct pattern in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_tablet_pattern_none_frp">"If you do not draw the correct pattern within the next %d attempts, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_tablet_pattern_1_frp">"If you do not draw the correct pattern in the next attempt, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_none_password_none_frp">"If you do not enter the correct password within the next %d attempts, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_none_password_1_frp">"If you do not enter the correct password in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_tablet_password_none_frp">"If you do not enter the correct password within the next %d attempts, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_tablet_password_1_frp">"If you do not enter the correct password in the next attempt, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_none_direction_none_frp">"If you do not draw the correct series of directions within the next %d attempts, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_none_direction_1_frp">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_tablet_direction_none_frp">"If you do not draw the correct series of directions within the next %d attempts, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_tablet_direction_1_frp">"If you do not draw the correct series of directions in the next attempt, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_warning_none_1_none_auto_wipe">There has been 1 attempt to unlock this phone. You have %d attempts left before the phone is reset to factory default settings and all data is erased, including files and downloaded apps.</string>
+    <string name="kg_warning_tablet_1_none_auto_wipe">There has been 1 attempt to unlock this tablet. You have %d attempts left before the tablet is reset to factory default settings and all data is erased, including files and downloaded apps.</string>
+    <string name="kg_warning_none_none_none_auto_wipe">There have been %1$d attempts to unlock this phone. You have %2$d attempts left before the phone is reset to factory default settings and all data is erased, including files and downloaded apps.</string>
+    <string name="kg_warning_tablet_none_none_auto_wipe">There have been %1$d attempts to unlock this tablet. You have %2$d attempts left before the tablet is reset to factory default settings and all data is erased, including files and downloaded apps.</string>
+    <string name="kg_warning_none_none_1_auto_wipe">There have been %d attempts to unlock this phone. You have 1 attempt left before the phone is reset to factory default settings and all data is erased, including files and downloaded apps.</string>
+    <string name="kg_warning_tablet_none_1_auto_wipe">There have been %d attempts to unlock this tablet. You have 1 attempt left before the tablet is reset to factory default settings and all data is erased, including files and downloaded apps.</string>
+    <string name="kg_multi_pin_none_instructions">လက္ေဗြရာ (သို႔) မ်က္ဝန္း အသုံးျပဳပါ (သို႔) စကားဝွက္ ထည့္ပါ</string>
+    <string name="kg_multi_pin_active_instructions">ဖြင့္ရန္၊ လက္ေဗြရာ (သို႔) မ်က္ဝန္း အသုံးျပဳပါ၊ (သို႔) PIN ထည့္ပါ</string>
+    <string name="kg_multi_pin_shutdown_instructions">ပါဝါပိတ္ရန္၊ လက္ေဗြ (သို႔) မ်က္ဝန္းမ်ား သုံးပါ၊ (သို႔) PIN ထည့္ပါ</string>
+    <string name="kg_fingerprint_pin_none_instructions">လက္ေဗြရာ အသုံးျပဳပါ (သို႔) PIN ထည့္သြင္းပါ</string>
+    <string name="kg_fingerprint_pin_active_instructions">ဖြင့္ရန္ လက္ေဗြရာကိုအသုံးျပဳပါ (သို႔) PIN ထည့္သြင္းပါ</string>
+    <string name="kg_fingerprint_pin_shutdown_instructions">ပါဝါပိတ္ရန္ လက္ေဗြ သုံးပါ (သို႔) PIN ထည့္ပါ</string>
+    <string name="kg_iris_pin_none_instructions">မ်က္ဝန္း အသုံးျပဳပါ (သို႔) PIN ထည့္ပါ</string>
+    <string name="kg_iris_pin_active_instructions">ဖြင့္ရန္ မ်က္ဝန္သုံးပါ (သို႔) PIN ထည့္သြင္းပါ</string>
+    <string name="kg_iris_pin_shutdown_instructions">ပါဝါပိတ္ရန္ မ်က္ဝန္း သုံးပါ (သို႔) PIN ထည့္ပါ</string>
+    <string name="kg_none_pin_none_instructions">PIN ထည့္ပါ</string>
+    <string name="kg_none_pin_active_instructions">ဖြင့္ရန္ PIN နံပါတ္ ထည့္သြင္းပါ</string>
+    <string name="kg_none_pin_shutdown_instructions">ပါဝါပိတ္ရန္ PIN ထည့္ပါ</string>
+    <string name="kg_multi_pattern_none_instructions">လက္ေဗြရာ (သို႔) မ်က္ဝန္းသုံးပါ (သို႔) ပုံစံ ေရးဆြဲပါ</string>
+    <string name="kg_multi_pattern_active_instructions">ဖြင့္ရန္ လက္ေဗြရာ (သို႔) မ်က္ဝန္းသုံးပါ (သို႔) ပုံစံ ေရးဆြဲပါ</string>
+    <string name="kg_multi_pattern_shutdown_instructions">ပါဝါပိတ္ရန္ လက္ေဗြ (သို႔) မ်က္ဝန္းမ်ားသုံးပါ (သို႔) အညြန္းပုံစံံ ေရးဆြဲပါ</string>
+    <string name="kg_fingerprint_pattern_none_instructions">လက္ေဗြရာ အသုံးျပဳပါ (သို႔) ေသာ့ဖြင့္ပုံစံေရးဆြဲပါ</string>
+    <string name="kg_fingerprint_pattern_active_instructions">ဖြင့္ရန္ လက္ေဗြရာကိုအသုံးျပဳပါ (သို႔) ပုံစံေရးဆြဲပါ</string>
+    <string name="kg_fingerprint_pattern_shutdown_instructions">ပါဝါပိတ္ရန္ လက္ေဗြ သုံးပါ (သို႔) အညြန္းပုံစံ ေရးဆြဲပါ</string>
+    <string name="kg_iris_pattern_none_instructions">မ်က္ဝန္း အသုံးျပဳပါ (သို႔) ပုံစံ ေရးဆြဲပါ</string>
+    <string name="kg_iris_pattern_active_instructions">ဖြင့္ရန္ မ်က္ဝန္သုံးပါ (သို႔) ပုံစံ ေရးဆြဲပါ</string>
+    <string name="kg_iris_pattern_shutdown_instructions">ပါဝါပိတ္ရန္ မ်က္ဝန္း သုံးပါ (သို႔) အညြန္းပုံစံံ ေရးဆြဲပါ</string>
+    <string name="kg_none_pattern_none_instructions">ေသာ့ဖြင့္ ပံုစံ ေရးဆြဲပါ</string>
+    <string name="kg_none_pattern_active_instructions">ဖြင့္ရန္ ေသာ့ဖြင့္ ပုံစံ ေရးဆြဲပါ</string>
+    <string name="kg_none_pattern_shutdown_instructions">ပါဝါပိတ္ရန္ အညႊန္းပုံစံမ်ား ေရးဆြဲပါ</string>
+    <string name="kg_multi_password_none_instructions">လက္ေဗြရာ (သို႔) မ်က္ဝန္း အသုံးျပဳပါ (သို႔) စကားဝွက္ ထည့္ပါ</string>
+    <string name="kg_multi_password_active_instructions">ဖြင့္ရန္ လက္ေဗြရာ (သို႔) မ်က္ဝန္းသုံးပါ (သို႔) စကားဝွက္ ထည့္သြင္းပါ</string>
+    <string name="kg_multi_password_shutdown_instructions">ပါဝါပိတ္ရန္၊ လက္ေဗြ (သို႔) မ်က္ဝန္းမ်ား သုံးပါ၊ (သို႔) စကားဝွက္ ထည့္ပါ</string>
+    <string name="kg_fingerprint_password_none_instructions">လက္ေဗြရာ အသုံးျပဳပါ (သို႔) စကားဝွက္ထည့္သြင္းပါ</string>
+    <string name="kg_fingerprint_password_active_instructions">ဖြင့္ရန္ လက္ေဗြရာကိုအသုံးျပဳပါ (သို႔) စကားဝွက္ ထည့္သြင္းပါ</string>
+    <string name="kg_fingerprint_password_shutdown_instructions">ပါဝါပိတ္ရန္ လက္ေဗြ သုံးပါ (သို႔) စကားဝွက္ ထည့္ပါ</string>
+    <string name="kg_iris_password_none_instructions">မ်က္ဝန္း အသုံးျပဳပါ (သို႔) PIN ထည့္ပါ</string>
+    <string name="kg_iris_password_active_instructions">ဖြင့္ရန္ မ်က္ဝန္သုံးပါ (သို႔) စကားဝွက္ ထည့္သြင္းပါ</string>
+    <string name="kg_iris_password_shutdown_instructions">ပါဝါပိတ္ရန္ မ်က္ဝန္း သုံးပါ (သို႔) စကားဝွက္ ထည့္ပါ</string>
+    <string name="kg_none_password_none_instructions">စကား၀ွက္ျဖည့္ပါ</string>
+    <string name="kg_none_password_active_instructions">ဖြင့္ရန္ စကားဝွက္ ထည့္သြင္းပါ</string>
+    <string name="kg_none_password_shutdown_instructions">ပါဝါပိတ္ရန္ စကားဝွက္ ထည့္ပါ</string>
+    <string name="kg_multi_direction_none_instructions">လက္ေဗြရာ (သို႔) မ်က္ဝန္းမ်ားကို အသုံးျပဳပါ (သို႔) တြဲဆက္လမ္းေၾကာင္းမ်ား ေရးဆြဲပါ</string>
+    <string name="kg_multi_direction_active_instructions">ဖြင့္ရန္ လက္ေဗြရာ (သို႔) မ်က္ဝန္းမ်ားကို အသုံးျပဳပါ (သို႔) တြဲဆက္လမ္းေၾကာင္းမ်ား ေရးဆြဲပါ</string>
+    <string name="kg_multi_direction_shutdown_instructions">ပါဝါပိတ္ရန္၊ လက္ေဗြ (သို႔) မ်က္ဝန္းမ်ား သုံးပါ၊ (သို႔) တြဲဆက္လမ္းေၾကာင္းမ်ား ေရးဆြဲပါ</string>
+    <string name="kg_fingerprint_direction_none_instructions">လက္ေဗြရာ (သို႔) လားရာပုံစံေရးဆြဲပါ</string>
+    <string name="kg_fingerprint_direction_active_instructions">ဖြင့္ရန္ လက္ေဗြရာကို အသုံးျပဳပါ (သို႔) တြဲဆက္လမ္းေၾကာင္းမ်ား ေရးဆြဲပါ</string>
+    <string name="kg_fingerprint_direction_shutdown_instructions">ပါဝါပိတ္ရန္ လက္ေဗြ သုံးပါ (သို႔) တြဲဆက္လမ္းေၾကာင္းမ်ား ေရးဆြဲပါ</string>
+    <string name="kg_iris_direction_none_instructions">မ်က္ဝန္း အသုံးျပဳပါ (သို႔) တြဲဆက္လမ္းေၾကာင္းမ်ား ေရးဆြဲပါ</string>
+    <string name="kg_iris_direction_active_instructions">ဖြင့္ရန္ မ်က္ဝန္းကို အသုံးျပဳပါ (သို႔) တြဲဆက္လမ္းေၾကာင္းမ်ား ေရးဆြဲပါ</string>
+    <string name="kg_iris_direction_shutdown_instructions">ပါဝါပိတ္ရန္ မ်က္ဝန္း သုံးပါ (သို႔) တြဲဆက္လမ္းေၾကာင္းမ်ား ေရးဆြဲပါ</string>
+    <string name="kg_none_direction_none_instructions">ဖန္သားျပင္ကို ေသာ့ဖြင့္ရန္ ၫႊန္ၾကားခ်က္မ်ား ေရးဆြဲပါ</string>
+    <string name="kg_none_direction_active_instructions">ဖြင့္ရန္ လားရာလမ္းေၾကာင္းမ်ားေရးဆြဲပါ</string>
+    <string name="kg_none_direction_shutdown_instructions">ပါဝါပိတ္ရန္ တြဲဆက္လမ္းေၾကာင္းမ်ား ေရးဆြဲပါ</string>
+    <string name="kg_none_multi_pin_restart_instructions">ကိရိယာေသာ့ဖြင့္ရန္ သင့္PIN ကိုသုံးၿပီးေသာ့ဖြင့္ရန္လိုအပ္ၿပီး ျပန္လည္စတင္ပါ။ ေနာက္တစ္ႀကိမ္ သင္၏ကိရိယာေသာ့ဖြင့္မႈတြင္ ဇီဝ႐ုပ္လကၡဏာမ်ားကို သုံးႏိုင္ပါသည္။</string>
+    <string name="kg_tablet_multi_pin_restart_instructions">ကိရိယာေသာ့ဖြင့္ရန္ သင့္PIN ကိုသုံးၿပီးေသာ့ဖြင့္ရန္လိုအပ္ၿပီး ျပန္လည္စတင္ပါ။ ေနာက္တစ္ႀကိမ္ သင္၏ကိရိယာေသာ့ဖြင့္မႈတြင္ ဇီဝ႐ုပ္လကၡဏာမ်ားကို သုံးႏိုင္ပါသည္။</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">သင့္ကိရိယာကို ျပန္စတင္ဖြင့္ခဲ့ၿပီး ၎ကို သင့္ PIN သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္လက္ေဗြမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>
+    <string name="kg_tablet_fingerprint_pin_restart_instructions">သင့္ကိရိယာကို ျပန္စတင္ဖြင့္ခဲ့ၿပီး ၎ကို သင့္ PIN သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္လက္ေဗြမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>
+    <string name="kg_none_iris_pin_restart_instructions">သင့္ကိရိယာကို ျပန္စတင္ဖြင့္ခဲ့ၿပီး ၎ကို သင့္ PIN သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္မ်က္ဝန္းမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>
+    <string name="kg_tablet_iris_pin_restart_instructions">သင့္ကိရိယာကို ျပန္စတင္ဖြင့္ခဲ့ၿပီး ၎ကို သင့္ PIN သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္မ်က္ဝန္းမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>
+    <string name="kg_none_multi_pin_timeout_instructions">သင္၏ကိရိယာကို ၂၄ နာရီေက်ာ္အတြက္ အသုံးမျပဳဘဲ ထားရွိခဲ့ၿပီး PIN မ်ားကို သုံးၿပီးေသာ့ဖြင့္ရန္လိုအပ္ပါသည္။ ေနာက္တစ္ႀကိမ္ သင္၏ကိရိယာေသာ့ဖြင့္မႈတြင္ ဇီဝ႐ုပ္လကၡဏာမ်ားကို သုံးႏိုင္ပါသည္။</string>
+    <string name="kg_tablet_multi_pin_timeout_instructions">သင္၏ကိရိယာကို ၂၄ နာရီေက်ာ္အတြက္ အသုံးမျပဳဘဲ ထားရွိခဲ့ၿပီး PIN မ်ားကို သုံးၿပီးေသာ့ဖြင့္ရန္လိုအပ္ပါသည္။ ေနာက္တစ္ႀကိမ္ သင္၏ကိရိယာေသာ့ဖြင့္မႈတြင္ ဇီဝ႐ုပ္လကၡဏာမ်ားကို သုံးႏိုင္ပါသည္။</string>
+    <string name="kg_none_fingerprint_pin_timeout_instructions">သင့္ကိရိယာကို ၂၄ နာရီေက်ာ္ အသုံးမျပဳေသာေၾကာင့္ သင့္ PIN ကို သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္လက္ေဗြမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>
+    <string name="kg_tablet_fingerprint_pin_timeout_instructions">သင့္ကိရိယာကို ၂၄ နာရီေက်ာ္ အသုံးမျပဳေသာေၾကာင့္ သင့္ PIN ကို သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္လက္ေဗြမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>
+    <string name="kg_none_iris_pin_timeout_instructions">ကိရိယာကို ၂၄ နာရီေက်ာ္ အသုံးမျပဳခဲ့ေသာေၾကာင့္ သင့္ PIN ကို သုံး၍ ေသာ့ဖြင့္ရမည္။ ေနာက္တႀကိမ္ ကိရိယာေသာ့ဖြင့္သည့္အခါ သင့္မ်က္လုံးမ်ားကို သုံးႏိုင္ပါသည္။</string>
+    <string name="kg_tablet_iris_pin_timeout_instructions">ကိရိယာကို ၂၄ နာရီေက်ာ္ အသုံးမျပဳခဲ့ေသာေၾကာင့္ သင့္ PIN ကို သုံး၍ ေသာ့ဖြင့္ရမည္။ ေနာက္တႀကိမ္ ကိရိယာေသာ့ဖြင့္သည့္အခါ သင့္မ်က္လုံးမ်ားကို သုံးႏိုင္ပါသည္။</string>
+    <string name="kg_none_multi_pin_deviceadmin_instructions">လုံၿခဳံေရး မူဝါဒအတြက္ ဇီဝ႐ုပ္လကၡဏာ မွတ္သားမႈအသုံးျပဳမည့္အစား PIN ထည့္သြင္းပါ</string>
+    <string name="kg_none_fingerprint_pin_deviceadmin_instructions">လုံၿခဳံေရးမူဝါဒေၾကာင့္ လက္ေဗြရာအမွတ္အသားျပဳမႈကိုအသုံးျပဳမည့္အစား PIN ထည့္သြင္းပါ</string>
+    <string name="kg_none_iris_pin_deviceadmin_instructions">လုံၿခဳံေရး မူဝါဒရွိသည့္အတြက္ မ်က္ဝန္းမွတ္သားခ်က္ အသုံးျပဳမႈအစား PIN ထည့္သြင္းပါ</string>
+    <string name="kg_none_multi_pattern_restart_instructions">ကိရိယာေသာ့ဖြင့္ရန္ သင့္ပုံစံကိုသုံးၿပီးေသာ့ဖြင့္ရန္လိုအပ္ၿပီး ျပန္လည္စတင္ပါ။ ေနာက္တစ္ႀကိမ္ သင္၏ကိရိယာေသာ့ဖြင့္မႈတြင္ ဇီဝ႐ုပ္လကၡဏာမ်ားကို သုံးႏိုင္ပါသည္။</string>
+    <string name="kg_tablet_multi_pattern_restart_instructions">ကိရိယာေသာ့ဖြင့္ရန္ သင့္ပုံစံကိုသုံးၿပီးေသာ့ဖြင့္ရန္လိုအပ္ၿပီး ျပန္လည္စတင္ပါ။ ေနာက္တစ္ႀကိမ္ သင္၏ကိရိယာေသာ့ဖြင့္မႈတြင္ ဇီဝ႐ုပ္လကၡဏာမ်ားကို သုံးႏိုင္ပါသည္။</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">သင့္ကိရိယာကို ျပန္စတင္ဖြင့္ခဲ့ၿပီး ၎ကို သင့္ေသာ့ဖြင့္ပုံစံ သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္လက္ေဗြမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>
+    <string name="kg_tablet_fingerprint_pattern_restart_instructions">သင့္ကိရိယာကို ျပန္စတင္ဖြင့္ခဲ့ၿပီး ၎ကို သင့္ေသာ့ဖြင့္ပုံစံ သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္လက္ေဗြမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>
+    <string name="kg_none_iris_pattern_restart_instructions">သင့္ကိရိယာကို ျပန္စတင္ဖြင့္ခဲ့ၿပီး ၎ကို သင့္ေသာ့ဖြင့္ပုံစံ သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္မ်က္ဝန္းမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>
+    <string name="kg_tablet_iris_pattern_restart_instructions">သင့္ကိရိယာကို ျပန္စတင္ဖြင့္ခဲ့ၿပီး ၎ကို သင့္ေသာ့ဖြင့္ပုံစံ သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္မ်က္ဝန္းမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>
+    <string name="kg_none_multi_pattern_timeout_instructions">သင္၏ကိရိယာကို ၂၄ နာရီေက်ာ္အတြက္ အသုံးမျပဳဘဲ ထားရွိခဲ့ၿပီး ပုံစံမ်ားကို သုံးၿပီးေသာ့ဖြင့္ရန္လိုအပ္ပါသည္။ ေနာက္တစ္ႀကိမ္ သင္၏ကိရိယာေသာ့ဖြင့္မႈတြင္ ဇီဝ႐ုပ္လကၡဏာမ်ားကို သုံးႏိုင္ပါသည္။</string>
+    <string name="kg_tablet_multi_pattern_timeout_instructions">သင္၏ကိရိယာကို ၂၄ နာရီေက်ာ္အတြက္ အသုံးမျပဳဘဲ ထားရွိခဲ့ၿပီး ပုံစံမ်ားကို သုံးၿပီးေသာ့ဖြင့္ရန္လိုအပ္ပါသည္။ ေနာက္တစ္ႀကိမ္ သင္၏ကိရိယာေသာ့ဖြင့္မႈတြင္ ဇီဝ႐ုပ္လကၡဏာမ်ားကို သုံးႏိုင္ပါသည္။</string>
+    <string name="kg_none_fingerprint_pattern_timeout_instructions">သင့္ကိရိယာကို ၂၄ နာရီေက်ာ္ အသုံးမျပဳေသာေၾကာင့္ သင့္ေသာ့ဖြင့္ပုံစံကို သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္လက္ေဗြမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>
+    <string name="kg_tablet_fingerprint_pattern_timeout_instructions">သင့္ကိရိယာကို ၂၄ နာရီေက်ာ္ အသုံးမျပဳေသာေၾကာင့္ သင့္ေသာ့ဖြင့္ပုံစံကို သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္လက္ေဗြမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>
+    <string name="kg_none_iris_pattern_timeout_instructions">ကိရိယာကို ၂၄ နာရီေက်ာ္ အသုံးမျပဳခဲ့ေသာေၾကာင့္ သင့္ေသာ့ဖြင့္ပုံစံကို သုံး၍ ေသာ့ဖြင့္ရမည္။ ေနာက္တႀကိမ္ ကိရိယာေသာ့ဖြင့္သည့္အခါ သင့္မ်က္လုံးမ်ားကို သုံးႏိုင္ပါသည္။</string>
+    <string name="kg_tablet_iris_pattern_timeout_instructions">ကိရိယာကို ၂၄ နာရီေက်ာ္ အသုံးမျပဳခဲ့ေသာေၾကာင့္ သင့္ေသာ့ဖြင့္ပုံစံကို သုံး၍ ေသာ့ဖြင့္ရမည္။ ေနာက္တႀကိမ္ ကိရိယာေသာ့ဖြင့္သည့္အခါ သင့္မ်က္လုံးမ်ားကို သုံးႏိုင္ပါသည္။</string>
+    <string name="kg_none_multi_pattern_deviceadmin_instructions">လုံၿခဳံေရး မူဝါဒအတြက္ ဇီဝ႐ုပ္လကၡဏာ မွတ္သားမႈအသုံးျပဳမည့္အစား ပုံစံေရးဆြဲပါ</string>
+    <string name="kg_none_fingerprint_pattern_deviceadmin_instructions">လုံၿခဳံေရးမူဝါဒေၾကာင့္ လက္ေဗြရာအမွတ္အသားျပဳမႈကိုအသုံးျပဳမည့္အစား ပုံစံကို ေရးဆြဲပါ</string>
+    <string name="kg_none_iris_pattern_deviceadmin_instructions">လုံၿခဳံေရး မူဝါဒရွိသည့္အတြက္ မ်က္ဝန္းမွတ္သားခ်က္ အသုံးျပဳမႈအစား ပုံစံ ေရးဆြဲပါ</string>
+    <string name="kg_none_multi_password_restart_instructions">ကိရိယာကို ျပန္လည္စတင္ထားၿပီး စကားဝွက္ျဖင့္ ေသာ့ဖြင့္ရန္ လိုအပ္ပါသည္။ ကိရိယာကို ေနာက္တစ္ႀကိမ္ေသာ့ဖြင့္သည့္အခါ ဇီဝ႐ုပ္လကၡဏာမ်ား သုံးႏိုင္ပါသည္။</string>
+    <string name="kg_tablet_multi_password_restart_instructions">ကိရိယာကို ျပန္လည္စတင္ထားၿပီး စကားဝွက္ျဖင့္ ေသာ့ဖြင့္ရန္ လိုအပ္ပါသည္။ ကိရိယာကို ေနာက္တစ္ႀကိမ္ေသာ့ဖြင့္သည့္အခါ ဇီဝ႐ုပ္လကၡဏာမ်ား သုံးႏိုင္ပါသည္။</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">သင့္ကိရိယာကို ျပန္စတင္ခဲ့ၿပီး ၎ကို သင့္စကားဝွက္ သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္လက္ေဗြမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>
+    <string name="kg_tablet_fingerprint_password_restart_instructions">သင့္ကိရိယာကို ျပန္စတင္ခဲ့ၿပီး ၎ကို သင့္စကားဝွက္ သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္လက္ေဗြမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>
+    <string name="kg_none_iris_password_restart_instructions">သင့္ကိရိယာကို ျပန္စတင္ခဲ့ၿပီး ၎ကို သင့္စကားဝွက္ သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္မ်က္ဝန္းမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>
+    <string name="kg_tablet_iris_password_restart_instructions">သင့္ကိရိယာကို ျပန္စတင္ခဲ့ၿပီး ၎ကို သင့္စကားဝွက္ သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္မ်က္ဝန္းမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>
+    <string name="kg_none_multi_password_timeout_instructions">သင္၏ကိရိယာကို ၂၄ နာရီအတြက္ အသုံးမျပဳဘဲ ထားရွိခဲ့ၿပီး စကားဝွက္ သုံးၿပီးေသာ့ဖြင့္ရန္လိုအပ္ပါသည္။ ေနာက္တစ္ႀကိမ္ သင္၏ကိရိယာေသာ့ဖြင့္မႈတြင္ ဇီဝ႐ုပ္လကၡဏာမ်ားကို သုံးႏိုင္ပါသည္။</string>
+    <string name="kg_tablet_multi_password_timeout_instructions">သင္၏ကိရိယာကို ၂၄ နာရီအတြက္ အသုံးမျပဳဘဲ ထားရွိခဲ့ၿပီး စကားဝွက္ သုံးၿပီးေသာ့ဖြင့္ရန္လိုအပ္ပါသည္။ ေနာက္တစ္ႀကိမ္ သင္၏ကိရိယာေသာ့ဖြင့္မႈတြင္ ဇီဝ႐ုပ္လကၡဏာမ်ားကို သုံးႏိုင္ပါသည္။</string>
+    <string name="kg_none_fingerprint_password_timeout_instructions">သင့္ကိရိယာကို ၂၄ နာရီေက်ာ္ အသုံးမျပဳေသာေၾကာင့္ သင့္စကားဝွက္ကို သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္လက္ေဗြမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>
+    <string name="kg_tablet_fingerprint_password_timeout_instructions">သင့္ကိရိယာကို ၂၄ နာရီေက်ာ္ အသုံးမျပဳေသာေၾကာင့္ သင့္စကားဝွက္ကို သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္လက္ေဗြမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>
+    <string name="kg_none_iris_password_timeout_instructions">ကိရိယာကို ၂၄ နာရီေက်ာ္ အသုံးမျပဳခဲ့ေသာေၾကာင့္ သင့္စကားဝွက္ကို သုံး၍ ေသာ့ဖြင့္ရမည္။ ေနာက္တႀကိမ္ ကိရိယာေသာ့ဖြင့္သည့္အခါ သင့္မ်က္လုံးမ်ားကို သုံးႏိုင္ပါသည္။</string>
+    <string name="kg_tablet_iris_password_timeout_instructions">ကိရိယာကို ၂၄ နာရီေက်ာ္ အသုံးမျပဳခဲ့ေသာေၾကာင့္ သင့္စကားဝွက္ကို သုံး၍ ေသာ့ဖြင့္ရမည္။ ေနာက္တႀကိမ္ ကိရိယာေသာ့ဖြင့္သည့္အခါ သင့္မ်က္လုံးမ်ားကို သုံးႏိုင္ပါသည္။</string>
+    <string name="kg_none_multi_password_deviceadmin_instructions">လုံၿခဳံေရး မူဝါဒအတြက္ ဇီဝ႐ုပ္လကၡဏာ မွတ္သားမႈအသုံးျပဳမည့္အစား စကားဝွက္ ထည့္သြင္းပါ</string>
+    <string name="kg_none_fingerprint_password_deviceadmin_instructions">လုံၿခဳံေရးမူဝါဒေၾကာင့္ လက္ေဗြရာအမွတ္အသားျပဳမႈကိုအသုံးျပဳမည့္အစား စကားဝွက္ ထည့္သြင္းပါ</string>
+    <string name="kg_none_iris_password_deviceadmin_instructions">လုံၿခဳံေရး မူဝါဒရွိသည့္အတြက္ မ်က္ဝန္းမွတ္သားခ်က္ အသုံးျပဳမႈအစား စကားဝွက္ ထည့္သြင္းပါ</string>
+    <string name="kg_none_multi_direction_restart_instructions">သင့္လမ္းၫႊန္ခ်က္မ်ားကို သုံးၿပီး ေသာ့ဖြင့္မႈတြင္ လိုအပ္ခ်က္မ်ားၿပီး ကိရိယာကို ျပန္လည္စတင္ထားသည္။ ယခုအခါ ေနာက္တစ္ႀကိမ္ သင္၏ကိရိယာေသာ့ဖြင့္မႈတြင္ ဇီဝ႐ုပ္လကၡဏာမ်ားကို သုံးႏိုင္ပါသည္။</string>
+    <string name="kg_tablet_multi_direction_restart_instructions">သင့္လမ္းၫႊန္ခ်က္မ်ားကို သုံးၿပီး ေသာ့ဖြင့္မႈတြင္ လိုအပ္ခ်က္မ်ားၿပီး ကိရိယာကို ျပန္လည္စတင္ထားသည္။ ယခုအခါ ေနာက္တစ္ႀကိမ္ သင္၏ကိရိယာေသာ့ဖြင့္မႈတြင္ ဇီဝ႐ုပ္လကၡဏာမ်ားကို သုံးႏိုင္ပါသည္။</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">သင့္ကိရိယာကို ျပန္စတင္ခဲ့ၿပီး ၎ကို သင့္အညြန္းတြဲ သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္လက္ေဗြမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>
+    <string name="kg_tablet_fingerprint_direction_restart_instructions">သင့္ကိရိယာကို ျပန္စတင္ခဲ့ၿပီး ၎ကို သင့္အညြန္းတြဲ သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္လက္ေဗြမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>
+    <string name="kg_none_iris_direction_restart_instructions">သင့္ကိရိယာကို ျပန္စတင္ခဲ့ၿပီး ၎ကို သင့္အညြန္းတြဲ သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္မ်က္ဝန္းမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>
+    <string name="kg_tablet_iris_direction_restart_instructions">သင့္ကိရိယာကို ျပန္စတင္ခဲ့ၿပီး ၎ကို သင့္အညြန္းတြဲ သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္မ်က္ဝန္းမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>
+    <string name="kg_none_multi_direction_timeout_instructions">သင္၏ကိရိယာကို ၂၄ နာရီေက်ာ္အတြက္ အသုံးမျပဳဘဲ ထားရွိခဲ့ၿပီး တြဲဆက္လမ္းေၾကာင္းသုံးၿပီး ေသာ့ဖြင့္ရန္ အပ္ပါသည္။ ေနာက္တစ္ႀကိမ္ သင္၏ကိရိယာေသာ့ဖြင့္မႈတြင္ ဇီဝ႐ုပ္လကၡဏာမ်ားကို သုံးႏိုင္ပါသည္။</string>
+    <string name="kg_tablet_multi_direction_timeout_instructions">သင္၏ကိရိယာကို ၂၄ နာရီေက်ာ္အတြက္ အသုံးမျပဳဘဲ ထားရွိခဲ့ၿပီး တြဲဆက္လမ္းေၾကာင္းသုံးၿပီး ေသာ့ဖြင့္ရန္ အပ္ပါသည္။ ေနာက္တစ္ႀကိမ္ သင္၏ကိရိယာေသာ့ဖြင့္မႈတြင္ ဇီဝ႐ုပ္လကၡဏာမ်ားကို သုံးႏိုင္ပါသည္။</string>
+    <string name="kg_none_fingerprint_direction_timeout_instructions">သင့္ကိရိယာကို ၂၄ နာရီေက်ာ္ အသုံးမျပဳေသာေၾကာင့္ သင့္အညႊန္းတြဲကို သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္လက္ေဗြမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>
+    <string name="kg_tablet_fingerprint_direction_timeout_instructions">သင့္ကိရိယာကို ၂၄ နာရီေက်ာ္ အသုံးမျပဳေသာေၾကာင့္ သင့္အညႊန္းတြဲကို သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္လက္ေဗြမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>
+    <string name="kg_none_iris_direction_timeout_instructions">ကိရိယာကို ၂၄ နာရီေက်ာ္ အသုံးမျပဳခဲ့ေသာေၾကာင့္ သင့္အညႊန္းတြဲကို သုံး၍ ေသာ့ဖြင့္ရမည္။ ေနာက္တႀကိမ္ ကိရိယာေသာ့ဖြင့္သည့္အခါ သင့္မ်က္လုံးမ်ားကို သုံးႏိုင္ပါသည္။</string>
+    <string name="kg_tablet_iris_direction_timeout_instructions">ကိရိယာကို ၂၄ နာရီေက်ာ္ အသုံးမျပဳခဲ့ေသာေၾကာင့္ သင့္အညႊန္းတြဲကို သုံး၍ ေသာ့ဖြင့္ရမည္။ ေနာက္တႀကိမ္ ကိရိယာေသာ့ဖြင့္သည့္အခါ သင့္မ်က္လုံးမ်ားကို သုံးႏိုင္ပါသည္။</string>
+    <string name="kg_none_multi_direction_deviceadmin_instructions">လုံၿခဳံေရး မူဝါဒအတြက္ ဇီဝ႐ုပ္လကၡဏာ မွတ္သားမႈအသုံးျပဳမည့္အစား တြဲဆက္လမ္းေၾကာင္းမ်ား ေရးဆြဲပါ</string>
+    <string name="kg_none_fingerprint_direction_deviceadmin_instructions">လုံၿခဳံေရး မူဝါဒအတြက္ လက္ေဗြယာ မွတ္သားမႈအသုံးျပဳမည့္အစား တြဲဆက္လမ္းေၾကာင္းမ်ား ေရးဆြဲပါ</string>
+    <string name="kg_none_iris_direction_deviceadmin_instructions">လုံၿခဳံေရး မူဝါဒအတြက္ မ်က္ဝန္း မွတ္သားမႈအသုံးျပဳမည့္အစား တြဲဆက္လမ္းေၾကာင္းမ်ား ေရးဆြဲပါ</string>
+    <string name="kg_none_recovery_none_instructions">ေသာ့ဖြင့္ရန္ ျပန္ရျခင္း စကားဝွက္ကို ရိုက္ထည့္ပါ။</string>
+    <string name="kg_incorrect_pattern">မမွန္ေသာ ပံုစံ ေရးဆြဲထားသည္</string>
+    <string name="kg_incorrect_password">မမွန္ေသာ စကားဝွက္ ထည့္ထားသည္</string>
+    <string name="kg_incorrect_pin">မွားေနသည့္ PIN ထည့္ထားသည္</string>
+    <string name="kg_pin_sub_instructions">သင့္ PIN သည္အနည္းဆုံး နံပါတ္ %d လုံးပါဝင္ရမည္။</string>
+    <string name="kg_password_sub_instructions">သင့္စကားဝွက္သည္ အနည္းဆုံး စာလုံးတစ္လုံး အပါအဝင္ အကၡရာမ်ား %d လုံး ပါဝင္ရမည္။</string>
+    <string name="card_crash">SIM ကဒ္ က်ကြဲသည္</string>
+    <string name="kg_unlock_sim_pin_instructions">SIM ကတ္ ေသာ့ဖြင့္ PIN ရိုက္ထည့္ပါ။</string>
+    <string name="kg_unlock_sim_pin_remaining_1_attempt">SIM ကဒ္ ေသာ့ဖြင့္ PIN ထည့္သြင္းပါ။ ႀကိဳးစားခြင့္ ၁ ႀကိမ္က်န္ေသးသည္။</string>
+    <string name="kg_unlock_sim_pin_remaining_attempts">SIM ကဒ္ ေသာ့ဖြင့္ PIN ထည့္သြင္းပါ။ ႀကိဳးစားခြင့္ %d ႀကိမ္က်န္ေသးသည္။</string>
+    <string name="kg_password_wrong_pin_code_one">မမွန္သည့္ မာစတာ SIM ကတ္ႏွင့္ PIN နံပါတ္ ထည့္သြင္းထားသည္။ သင့္တြင္ ႀကိဳးစားခြင့္ ၁ ႀကိမ္က်န္ေသးသည္။</string>
+    <string name="kg_password_wrong_pin_code_other">မမွန္သည့္ မာစတာ SIM ကဒ္ႏွင့္ PIN နံပါတ္ ထည့္သြင္းထားသည္။ သင့္မွာ ႀကိဳးစားရန္ %d ႀကိမ္ က်န္ေသးသည္။</string>
+    <string name="kg_sim_puk_instructions">SIM ကတ္ ေသာ့ခ်ထားသည္။ PUK ထည့္သြင္းပါ။ အေသးစိတ္အခ်က္မ်ားအတြက္ ဝန္ေဆာင္မႈ ေပးသူကို ဆက္သြယ္ပါ။</string>
+    <string name="kg_sim_puk_remaining_1_attempt">မမွန္သည့္ PUK နံပါတ္ ေနာက္ထပ္ ၁ ႀကိမ္ ထည့္သြင္းလၽွင္ SIM ကဒ္ ေသာ့ခ်သြားမည္။</string>
+    <string name="kg_sim_puk_remaining_attempts">မမွန္သည့္ PUK နံပါတ္ ေနာက္ထပ္ %d ႀကိမ္ ထည့္သြင္းလၽွင္ SIM ကဒ္ ေသာ့ခ်သြားမည္။</string>
+    <string name="kg_sec_sim_unlock_progress_dialog_message">SIM ကဒ္ေသာ့ဖြင့္ေနပါသည္</string>
+    <string name="kg_skt_sim_perso_instructions">USIM ကဒ္ ေသာ့ဖြင့္ PIN ထည့္သြင္းပါ (ဂဏန္း ၄ လုံး)</string>
+    <string name="kg_ktt_sim_perso_instructions">ဂဏန္း ၄ လံုးမွ ၈ လံုးရွိ စကားဝွက္ (PIN) ထည့္ပါ</string>
+    <string name="kg_kor_sim_unlock_progress_dialog_message">Unlocking SIM card</string>
+    <string name="kg_empty_sim_perso_hint">စကားဝွက္ ထည့္မထားပါ။ စကားဝွက္ (PIN) ထည့္ပါ။</string>
+    <string name="kg_password_perso_failed">မမွန္ေသာ PIN။ PIN စစ္ေဆးၿပီး ျပန္ႀကိဳးစားပါ။</string>
+    <string name="kg_password_perso_max_failed">USIM ကတ္ ေသာ့ဖြင့္ရန္ မမွန္ေသာ PIN ထည့္ထားသည္။ ျပန္ၾကိဳးစားမႈ အမ်ားဆံုး အေရအတြက္ ေရာက္ပါၿပီ။ ကိရိယာ ျပန္စတင္ပါ (သို႔) CS စင္တာသို႔ သြားပါ္။</string>
+    <string name="kg_sim_pin_remaining_1_attempt">သင့္တြင္ ႀကိဳးစားခြင့္ ၁ ႀကိမ္က်န္ေသးသည္။</string>
+    <string name="kg_sim_pin_remaining_attempts">သင့္မွာ ၾကိဳးစားရန္ %d ၾကိမ္ က်န္ေသးသည္။</string>
+    <string name="kg_kor_sim_pin_instructions">USIM ကဒ္ ေသာ့ဖြင့္ PIN ထည့္သြင္းပါ (ဂဏန္း ၄ လုံးမွ ၈ လုံး)</string>
+    <string name="kg_kor_password_wrong_pin_code">မမွန္ကန္သည့္ PIN ထည့္သြင္းထားသည္။ ႀကိဳးစားခြင့္ %d ႀကိမ္က်န္ေသးသည္။ သုံးစြဲသူဝန္ေဆာင္မႈမ်ားသို႔ ဆက္သြယ္ပါ။</string>
+    <string name="kg_kor_sim_puk_instructions">PUK ကိုထည့္သြင္းပါ။</string>
+    <string name="kg_kor_invalid_sim_puk_hint">(PUK) ကုတ္ ေသာ့ဖြင့္သည့္ ဂဏန္း ၈ လံုးရွိ PIN ထည့္ပါ</string>
+    <string name="kg_kor_empty_sim_puk_hint">(PUK) ကုဒ္ ေသာ့ဖြင့္သည့္ PIN ထည့္သြင္းမထားပါ။ ထပ္မံႀကိဳးစားပါ။</string>
+    <string name="kg_kor_puk_enter_pin_hint">"USIM ကဒ္အသစ္ PIN တစ္ခုဖန္တီးပါ။
+PIN သည္ ဂဏန္း ၄ လုံးမွ ၈ လုံးထိရွည္ရမည္။"</string>
+    <string name="kg_kor_enter_confirm_pin_hint">၎ကိုအတည္ျပဳရန္ USIM ကဒ္ PIN ကိုထပ္မံထည့္သြင္းပါ။</string>
+    <string name="kg_kor_invalid_confirm_pin_hint">PIN အသစ္မ်ားမွာ ကိုက္ညီမႈမရွိပါ။</string>
+    <string name="kg_kor_wrong_puk_code">ေသာ့ဖြင့္ ကုတ္ ထည့္သြင္းမႈ အမွား</string>
+    <string name="kg_kor_sim_puk_remaining_attempts">"မမွန္ကန္သည့္ PUK တစ္ခုကို %1$d ႀကိမ္ ထည့္သြင္းထားသည္။ မမွန္ကန္သည့္ PUK တစ္ခုကို ေနာက္ထပ္ %2$d ႀကိမ္ထည့္သြင္းမိလၽွင္ USIM ကဒ္ကို ရာသက္ပန္ပိတ္ဆီးသြားမည္။
+
+သင္၏ PUK ကိုမသိရွိပါက သုံးစြဲသူဝန္ေဆာင္မႈဌာနသို႔သြားေရာက္ပါ။"</string>
+    <string name="kg_kor_success_pin_message">စကားဝွက္ (PIN) အသစ္ ေအာင္ျမင္စြာ သိမ္းလိုက္သည္။</string>
+    <string name="kg_ctc_unlock_sim_pin_instructions">Enter UIM/SIM card unlock PIN</string>
+    <string name="kg_ctc_sim_puk_instructions">UIM/SIM card locked. Enter PUK. Contact service provider for details.</string>
+    <string name="kg_ctc_puk_enter_pin_hint">Enter new UIM/SIM card unlock PIN</string>
+    <string name="kg_ctc_enter_confirm_pin_hint">Enter new UIM/SIM card unlock PIN again to confirm it</string>
+    <string name="kg_ctc_sim_unlock_progress_dialog_message">Unlocking UIM/SIM card…</string>
+    <string name="kg_ctc_password_wrong_pin_code_one">Incorrect UIM/SIM card PIN entered. 1 attempt left.</string>
+    <string name="kg_ctc_password_wrong_pin_code_other">Incorrect UIM/SIM card PIN entered. %d attempts left.</string>
+    <string name="kg_ctc_sim_puk_remaining_1_attempt">Incorrect PUK entered. If incorrect PUK is entered 1 more time, UIM/SIM card will be locked.</string>
+    <string name="kg_ctc_sim_puk_remaining_attempts">Incorrect PUK entered. If incorrect PUK is entered %d more times, UIM/SIM card will be permanently locked.</string>
+    <string name="kg_dcm_sim_puk_instructions">PIN ကို ပိတ္ပင္ထားသည္။ ဆက္လုပ္ရန္ PUK ကို ထည့္ပါ။</string>
+    <string name="kg_sim_lock_accepted">ကုဒ္လက္ခံၿပီး။</string>
+    <string name="kg_carrier_lock_wrong_password">မွားယြင္းေသာစကားဝွက္ထည့္သြင္းထားသည္။</string>
+    <string name="kg_carrier_lock_too_many_failed_attempts">စကားဝွက္ကုိ ၅ ႀကိမ္ မွားယြင္းစြာ ထည့္ခဲ့သည္။ ၁၀ မိနစ္အတြင္းထပ္ႀကိဳးစားပါ။</string>
+    <string name="keyguard_fmm_phone_locked_title">ဖုန္း ေသာ့ခတ္ထားပါသည္</string>
+    <string name="keyguard_fmm_owner_phone">ပိုင္ရွင္၏ နံပါတ္</string>
+    <string name="keyguard_accessibility_call">ဖုန္းေခၚမႈ</string>
+    <string name="kg_fingerprint_no_match">ကိုက္ညီမႈ မရွိပါ</string>
+    <string name="kg_finger_print_not_responding_error_message">လက္ေဗြ အာရံုခံ တုန္႔ျပန္မႈမရွိပါ။ ေနာက္မွ ျပန္ၾကိဳးစားပါ။</string>
+    <string name="kg_finger_print_database_error_message">လက္ေဗြရာ အခ်က္အလက္မ်ား ခ်ိဳ႕ယြင္းထားသည္။ လက္ေဗြရာကို ဖန္သားျပင္ေသာ့ ပုံစံအျဖစ္ ျပန္လည္သတ္မွတ္ပါ၊ ၄င္းေနာက္ သင့္လက္ေဗြရာမ်ား ထပ္မံ ထည့္ပါ (သို႔) ဖန္သားျပင္ေသာ့ ပုံစံ ေျပာင္းပါ။</string>
+    <string name="kg_finger_print_sensor_with_recalibration_error_message">မူလ ခလုတ္သည္ သန္႔ရွင္း ေျခာက္ေသြ႕ေနေၾကာင္း ေသခ်ာေစပါ၊ ၄င္းေနာက္ ထပ္မံႀကိဳးစားပါ။</string>
+    <string name="kg_finger_print_sensor_changed_error_message">လက္ေဗြရာအာ႐ုံခံကို ေကာင္းမြန္စြာ ေျပာင္းလဲမထားပါ။ အသုံးျပဳသူဝန္ေဆာင္မႈမ်ားသို႔ ဆက္သြယ္ပါ။</string>
+    <string name="kg_fingerprints_direction_instructions">လက္ေဗြရာ (သို႔) လားရာပုံစံေရးဆြဲပါ</string>
+    <string name="kg_fingerprints_direction_bouncer_instructions">ဖြင့္ရန္ လက္ေဗြရာကို အသုံးျပဳပါ (သို႔) တြဲဆက္လမ္းေၾကာင္းမ်ား ေရးဆြဲပါ</string>
+    <string name="kg_strong_auth_prompt_reason_timeout_direction_lock">သင့္ကိရိယာကို ၂၄ နာရီေက်ာ္ အသုံးမျပဳေသာေၾကာင့္ သင့္အညႊန္းတြဲကို သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္လက္ေဗြမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>
+    <string name="kg_fingerprints_direction_unabled_instructions">သင့္ကိရိယာကို ျပန္စတင္ခဲ့ၿပီး ၎ကို သင့္အညြန္းတြဲ သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္လက္ေဗြမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>
+    <string name="kg_prompt_reason_timeout_universal_lock_strong_auth">လုံၿခဳံေရး မူဝါဒအတြက္ လက္ေဗြယာ မွတ္သားမႈအသုံးျပဳမည့္အစား တြဲဆက္လမ္းေၾကာင္းမ်ား ေရးဆြဲပါ</string>
+    <string name="kg_tablet_strong_auth_prompt_reason_timeout_direction_lock">သင့္ကိရိယာကို ၂၄ နာရီေက်ာ္ အသုံးမျပဳေသာေၾကာင့္ သင့္အညႊန္းတြဲကို သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္လက္ေဗြမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>
+    <string name="kg_tablet_fingerprints_direction_unabled_instructions">သင့္ကိရိယာကို ျပန္စတင္ခဲ့ၿပီး ၎ကို သင့္အညြန္းတြဲ သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္လက္ေဗြမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>
+    <string name="keyguard_progress_erasing_all">Deleting all data…</string>
+    <string name="iris_guide_str_enable_toggle">မ်က္ဝန္းသုံးရန္ ဤေနရာတြင္ ႏွိပ္ပါ</string>
+    <string name="kg_login_username_hint">သံုးစြဲသူအမည္ (အီးေမးလ္)</string>
+    <string name="kg_login_password_hint">စကား၀ွက္</string>
+    <string name="kg_login_submit_button">ဝင္ေရာက္ပါ</string>
+    <string name="kg_login_invalid_input">သံုးစြဲသူအမည္ သို႔မဟုတ္ စကားဝွက္ မမွန္ပါ။</string>
+    <string name="no_network_connection">ကြန္ရက္ ခ်ိတ္ဆက္မႈ မရွိပါ</string>
+    <string name="kg_forgot_spass_button_text">Samsung account</string>
+    <string name="kg_login_checking_password">အေကာင့္ စစ္ေဆးေနသည္…</string>
+    <string name="kg_too_many_failed_attempts_countdown_mins_with_auto_wipe">"ကိရိယာကိုေသာ့ဖြင့္ရန္ %1$d ႀကိမ္ ႀကိဳးပမ္းထားသည္။ ကိရိယာကို စက္႐ုံထုတ္ မူရင္းပါပုံစံ သတ္မွတ္ခ်က္မ်ားသို႔ ျပန္လည္သတ္မွတ္ၿပီး ေဒတာမ်ားအားလုံးမဖ်က္မီ သင့္တြင္ႀကိဳးပမ္းခြင့္ %2$d ႀကိမ္ က်န္ေသးသည္။
+
+%3$d မိနစ္အတြင္း ထပ္မံႀကိဳးစားပါ"</string>
+    <string name="kg_too_many_failed_attempts_countdown_secs_with_auto_wipe">"ကိရိယာကိုေသာ့ဖြင့္ရန္ %1$d ႀကိမ္ ႀကိဳးပမ္းထားသည္။ ကိရိယာကို စက္႐ုံထုတ္မူရင္းပါပုံစံသတ္မွတ္ခ်က္မ်ားသို႔ ျပန္လည္သတ္မွတ္ၿပီး ေဒတာအားလုံးကိုမဖ်က္မီ သင့္တြင္ ႀကိဳးစားခြင့္ %2$d ႀကိမ္က်န္ေသးသည္။
+
+%3$d စကၠန္႔အတြင္း ထပ္မံႀကိဳးစားပါ"</string>
+    <string name="kg_too_many_failed_attempts_countdown_1_min_with_auto_wipe">"ကိရိယာကိုေသာ့ဖြင့္ရန္ %1$d ႀကိမ္ ႀကိဳးပမ္းထားသည္။ ကိရိယာကို စက္႐ုံထုတ္ မူရင္းပါပုံစံ သတ္မွတ္ခ်က္မ်ားသို႔ ျပန္လည္သတ္မွတ္ၿပီး ေဒတာမ်ားအားလုံးမဖ်က္မီ သင့္တြင္ႀကိဳးပမ္းခြင့္ %2$d ႀကိမ္ က်န္ေသးသည္။
+
+၁ မိနစ္အတြင္း ထပ္မံႀကိဳးစားပါ"</string>
+    <string name="kg_too_many_failed_attempts_countdown_1_sec_with_auto_wipe">"ကိရိယာကိုေသာ့ဖြင့္ရန္ %1$d ႀကိမ္ ႀကိဳးပမ္းထားသည္။ ကိရိယာကို စက္႐ုံထုတ္မူရင္းပါပုံစံသတ္မွတ္ခ်က္မ်ားသို႔ ျပန္လည္သတ္မွတ္ၿပီး ေဒတာအားလုံးကိုမဖ်က္မီ သင့္တြင္ ႀကိဳးစားခြင့္ %2$d ႀကိမ္က်န္ေသးသည္။
+
+၁ စကၠန္႔အတြင္း ထပ္မံႀကိဳးစားပါ"</string>
+    <string name="kg_too_many_failed_countdown_1_sec_with_auto_wipe">၁ စကၠန္႔အတြင္း ထပ္မံႀကိဳးစားပါ</string>
+    <string name="kg_too_many_failed_attempt_countdown">၁ စကၠန္႔အတြင္း ထပ္မံႀကိဳးစားပါ</string>
+    <string name="kg_remained_1_attempt_countdown_mins_with_auto_wipe">"ကိရိယာကိုေသာ့ဖြင့္ရန္ %1$d ႀကိမ္ ႀကိဳးပမ္းထားသည္။ ကိရိယာကို စက္႐ုံထုတ္ မူရင္းပါပုံစံ သတ္မွတ္ခ်က္မ်ားသို႔ ျပန္လည္သတ္မွတ္ၿပီး ေဒတာမ်ားအားလုံးမဖ်က္မီ သင့္တြင္ႀကိဳးပမ္းခြင့္ ၁ ႀကိမ္ က်န္ေသးသည္။
+
+%2$d မိနစ္အတြင္း ထပ္မံႀကိဳးစားပါ"</string>
+    <string name="kg_remained_1_attempt_countdown_secs_with_auto_wipe">"ကိရိယာကိုေသာ့ဖြင့္ရန္ %1$d ႀကိမ္ ႀကိဳးပမ္းထားသည္။ ကိရိယာကို စက္႐ုံထုတ္ မူရင္းပါပုံစံ သတ္မွတ္ခ်က္မ်ားသို႔ ျပန္လည္သတ္မွတ္ၿပီး ေဒတာမ်ားအားလုံးမဖ်က္မီ သင့္တြင္ႀကိဳးပမ္းခြင့္ ၁ ႀကိမ္ က်န္ေသးသည္။
+
+%2$d စကၠန္႔အတြင္း ထပ္မံႀကိဳးစားပါ"</string>
+    <string name="kg_remained_1_attempt_countdown_1_min_with_auto_wipe">"ကိရိယာကိုေသာ့ဖြင့္ရန္ %d ႀကိမ္ ႀကိဳးပမ္းထားသည္။ ကိရိယာကို စက္႐ုံထုတ္ မူရင္းပါပုံစံ သတ္မွတ္ခ်က္မ်ားသို႔ ျပန္လည္သတ္မွတ္ၿပီး ေဒတာမ်ားအားလုံးမဖ်က္မီ သင့္တြင္ႀကိဳးပမ္းခြင့္ ၁ ႀကိမ္ က်န္ေသးသည္။
+
+၁ မိနစ္အတြင္း ထပ္မံႀကိဳးစားပါ"</string>
+    <string name="kg_remained_1_attempt_countdown_1_sec_with_auto_wipe">"ကိရိယာကိုေသာ့ဖြင့္ရန္ %d ႀကိမ္ ႀကိဳးပမ္းထားသည္။ ကိရိယာကို စက္႐ုံထုတ္ မူရင္းပါပုံစံ သတ္မွတ္ခ်က္မ်ားသို႔ ျပန္လည္သတ္မွတ္ၿပီး ေဒတာမ်ားအားလုံးမဖ်က္မီ သင့္တြင္ႀကိဳးပမ္းခြင့္ ၁ ႀကိမ္ က်န္ေသးသည္။
+
+၁ စကၠန္႔အတြင္း ထပ္မံႀကိဳးစားပါ"</string>
+    <string name="volumepanel_notification">သတိေပးခ်က္</string>
+    <string name="recents_help_dlg_split_icon_text">အက္ပ္မ်ားကို အကန႔္လိုက္ျမင္ကြင္းထဲ၌ ဖြင့္ရန္ အက္ပ္ဝင္းဒိုး၏ ေခါင္းစဥ္ဘားရွိ %s ကို ႏွိပ္ပါ။ အက္ပ္က မာတီဝင္းဒိုးကို ပံ့ပိုးေပးလွ်င္ ဤသေကၤတကို ျပထားသည္။</string>
+    <string name="recents_help_dlg_split_icon_desc">အက္ပ္မ်ားကို အကန႔္လိုက္ျမင္ကြင္းထဲ၌ ဖြင့္ရန္ အက္ပ္ဝင္းဒိုး၏ ေခါင္းစဥ္ဘားရွိ အကန႔္လိုက္ျမင္ကြင္း သေကၤတကို ႏွိပ္ပါ။ အက္ပ္က မာတီဝင္းဒိုးကို ပံ့ပိုးေပးလွ်င္ ဤသေကၤတကို ျပထားသည္။</string>
+    <string name="recents_help_dlg_long_click_recents_key_text">ဖန္သားျပင္အျပည့္ျမင္ကြင္းျဖင့္ အက္ပ္ကုိ အသံုးျပဳစဥ္ ခြဲထုတ္ဖန္သားျပင္ျမင္ကြင္းသုိ႔ ေျပာင္းရန္ လတ္တေလာကီးကုိ ဖိ၍ ႏွိပ္ထားပါ။</string>
+    <string name="recents_help_dlg_home_key_in_split_text">အကန႔္လိုက္ျမင္ကြင္းကို အသုံးျပဳေနစဥ္အတြင္း ပင္မကီးကို ႏွိပ္လွ်င္ ဖန္သားျပင္အေပၚပိုင္းထက္ဝက္တြင္ ျပထားေသာ အက္ပ္ကို ေဖ်ာက္လိုက္ပါမည္။ အေျခအေနျပဘားကို အျပာေရာင္ ျခယ္ထားစဥ္အတြင္း ပင္မမ်က္ႏွာျပင္မွ အက္ပ္ကို ဖြင့္ပါက အက္ပ္ကို ဖန္သားျပင္ေအာက္ပိုင္းထက္ဝက္တြင္ အကန႔္လိုက္ျမင္ကြင္းျဖင့္ ဖြင့္ပါမည္။</string>
+    <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+</resources>

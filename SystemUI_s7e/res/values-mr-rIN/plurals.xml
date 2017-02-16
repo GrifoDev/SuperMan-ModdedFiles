@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">विहंगावलोकनात %d स्क्रीन</item>
+        <item quantity="one">विहंगावलोकनात %d स्क्रीन</item>
+    </plurals>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">सिम पिन चुकीचा आहे, आपल्याकडे %d प्रयत्न उर्वरित आहेत.</item>
+        <item quantity="one">सिम पिन चुकीचा आहे, आपल्याकडे %d प्रयत्न उर्वरित आहे.</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">सिम PUK कोड चुकीचा आहे, सिम कायमचे निरूपयोगी होण्यापूर्वी आपल्याकडे %d प्रयत्न उर्वरित आहेत.</item>
+        <item quantity="one">सिम PUK कोड चुकीचा आहे, सिम कायमचे निरूपयोगी होण्यापूर्वी आपल्याकडे %d प्रयत्न उर्वरित आहे.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="other">डिव्‍हाइस %d तासांसाठी अनलॉक केले गेले नाही. नमुन्याची पुष्टी करा.</item>
+        <item quantity="one">डिव्‍हाइस %d तासासाठी अनलॉक केले गेले नाही. नमुन्याची पुष्टी करा.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="other">डिव्‍हाइस %d तासांसाठी अनलॉक केले गेले नाही. पिन ची पुष्टी करा.</item>
+        <item quantity="one">डिव्‍हाइस %d तासासाठी अनलॉक केले गेले नाही. पिन ची पुष्टी करा.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">डिव्‍हाइस %d तासांसाठी अनलॉक केले गेले नाही. संकेतशब्दाची पुष्टी करा.</item>
+        <item quantity="one">डिव्‍हाइस %d तासासाठी अनलॉक केले गेले नाही. संकेतशब्दाची पुष्टी करा.</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(%d प्रयत्‍न शिल्‍लक आहेत)</item>
+        <item quantity="one">(1 प्रयत्‍न शिल्‍लक आहे)</item>
+    </plurals>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">%d प्रयत्न शिल्लक आहेत</item>
+        <item quantity="one">%d प्रयत्न शिल्लक</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_min">
+        <item quantity="other">%d मिनिटांमध्‍ये पुन्‍हा प्रयत्‍न करा</item>
+        <item quantity="one">%d मिनिटांमध्‍ये पुन्‍हा प्रयत्‍न करा</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_sec">
+        <item quantity="other">%d सेकंदांमध्‍ये पुन्‍हा प्रयत्‍न करा</item>
+        <item quantity="one">%d सेकंदां मध्ये पुन्हा प्रयत्न करा</item>
+    </plurals>
+</resources>

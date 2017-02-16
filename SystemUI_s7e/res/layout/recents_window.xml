@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:id="@id/recents_layout" android:layout_width="@dimen/recents_window_width" android:layout_height="@dimen/recents_window_height">
+        <com.android.systemui.recents.desktop.views.RecentsWindowView android:id="@id/recents_window_view" android:focusable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0" />
+    </LinearLayout>
+    <ViewStub android:layout_gravity="center" android:id="@id/empty_view_stub" android:layout="@layout/recents_window_empty" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <Button android:textSize="@dimen/recents_window_close_all_button_text_size" android:textColor="@color/recents_close_all_button_text_color" android:ellipsize="marquee" android:gravity="center" android:layout_gravity="center|right|top" android:id="@id/recents_removeall_button" android:background="?android:selectableItemBackground" android:focusable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="148.0dip" android:layout_marginRight="309.0dip" android:text="@string/recents_close_all_button_text" android:singleLine="true" android:contentDescription="@string/recents_close_all_button_text" android:textAllCaps="true" android:importantForAccessibility="yes" android:fontFamily="Roboto Condensed Bold" />
+    <LinearLayout android:layout_gravity="bottom|center" android:orientation="horizontal" android:id="@id/recents_arrow_layout" android:layout_width="wrap_content" android:layout_height="@dimen/recents_window_arrow_layout_height" android:layout_marginBottom="164.0dip">
+        <FrameLayout android:id="@id/recents_scroll_up" android:background="?android:selectableItemBackground" android:layout_width="@dimen/recents_window_arrow_image_width" android:layout_height="@dimen/recents_window_arrow_image_width" android:layout_weight="0.0">
+            <ImageView android:layout_gravity="center" android:layout_width="@dimen/recents_window_arrow_image_width" android:layout_height="@dimen/recents_window_arrow_image_width" android:src="@drawable/recents_window_arrow_scroll_up" />
+        </FrameLayout>
+        <FrameLayout android:id="@id/recents_scroll_down" android:background="?android:selectableItemBackground" android:layout_width="@dimen/recents_window_arrow_image_width" android:layout_height="@dimen/recents_window_arrow_image_width" android:layout_weight="0.0">
+            <ImageView android:layout_gravity="center" android:layout_width="@dimen/recents_window_arrow_image_width" android:layout_height="@dimen/recents_window_arrow_image_width" android:src="@drawable/recents_window_arrow_scroll_down" />
+        </FrameLayout>
+    </LinearLayout>
+</FrameLayout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">একটি ভুল PIN লেখা হয়েছে। আপনার %dটি প্রয়াস বাকি আছে।</item>
+        <item quantity="one">একটি ভুল PIN লেখা হয়েছে। একটি ভুল PIN আরও %d বার লেখা হলে আপনার ডিভাইস আনলক করতে আপনাকে আপনার পরিষেবা সরবরাহকারীর সাথে যোগাযোগ করতে হবে।</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">একটি ভুল PUK লেখা হয়েছে। একটি ভুল PUK আরও %d বার লেখা হলে SIM কার্ডটি স্থায়ীভাবে লক হবে।</item>
+        <item quantity="one">একটি ভুল PUK লেখা হয়েছে। একটি ভুল PUK আরও %d বার লেখা হলে SIM কার্ডটি স্থায়ীভাবে লক হবে।</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(%dটি প্রয়াস অবশিষ্ট)</item>
+        <item quantity="one">(1টি প্রয়াস অবশিষ্ট)</item>
+    </plurals>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">%dটি প্রয়াস বাকি</item>
+        <item quantity="one">%dটি প্রয়াস বাকি</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_min">
+        <item quantity="other">%d মিনিট পরে পুনরায় চেষ্টা করুন</item>
+        <item quantity="one">%d মিনিটে আবার চেষ্টা করুন</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_sec">
+        <item quantity="other">%d সেকেন্ড পরে পুনরায় চেষ্টা করুন</item>
+        <item quantity="one">%d সেকেন্ডে আবার চেষ্টা করুন</item>
+    </plurals>
+</resources>

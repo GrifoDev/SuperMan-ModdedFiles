@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">විශ්ලේෂණය තුළ තිර %d</item>
+        <item quantity="one">විශ්ලේෂණය තුළ තිර %d යි</item>
+    </plurals>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">වැරදි SIM PIN කේතයකි, ඔබට උත්සාහයන් %d ක් ඉතිරිව ඇත.</item>
+        <item quantity="one">වැරදි SIM PIN කේතයකි, ඔබට උත්සාහයන් %d ක් ඉතිරිව ඇත.</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">වැරදී SIM PUK කේතයකි, SIM කාඩ් පත ස්ථිරවම පාවිච්චි කළ නොහැකි ලෙසට පත්වීමට පෙර ඔබට තවත් උත්සාහයන් %d ඉතිරිව ඇත.</item>
+        <item quantity="one">වැරදී SIM PUK කේතයකි, SIM කාඩ් පත ස්ථිරවම පාවිච්චි කළ නොහැකි ලෙසට පත්වීමට පෙර ඔබට තවත් උත්සාහයන් %d ඉතිරිව ඇත.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="other">උපාංගය පැය %dකට අගුලු හැර නැත. රටාව තහවුරු කරන්න.</item>
+        <item quantity="one">උපාංගය පැය %dකට අගුලු හැර නැත. රටාව තහවුරු කරන්න.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="other">උපාංගය පැය %dකට අගුලු හැර නැත. PIN අංකය තහවුරු කරන්න.</item>
+        <item quantity="one">උපාංගය පැය %dකට අගුලු හැර නැත. PIN අංකය තහවුරු කරන්න.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">උපාංගය පැය %dකට අගුලු හැර නැත. මුරපදය තහවුරු කරන්න.</item>
+        <item quantity="one">උපාංගය පැය %dකට අගුලු හැර නැත. මුරපදය තහවුරු කරන්න.</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(ප්‍රයත්න %d ක් ඉතිරියි)</item>
+        <item quantity="one">(ප්‍රයත්න 1 ක් ඉතිරියි)</item>
+    </plurals>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">ප්‍රයත්න %d ක් ඉතිරියි</item>
+        <item quantity="one">ප්‍රයත්නයන් %dක් ඉතිරියි</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_min">
+        <item quantity="other">විනාඩි %d කින් නැවත උත්සාහ කරන්න</item>
+        <item quantity="one">විනාඩි %d කින් නැවත උත්සාහ කරන්න</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_sec">
+        <item quantity="other">තත්පර %d කින් නැවත උත්සාහ කරන්න</item>
+        <item quantity="one">තත්පර %d කින් නැවත උත්සාහ කරන්න</item>
+    </plurals>
+</resources>

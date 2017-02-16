@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">1 экран Көз жүгүртүүдө</item>
+        <item quantity="one">%d экран Көз жүгүртүүдө</item>
+    </plurals>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">SIM PIN-коду туура эмес, сизде %d аракет калды.</item>
+        <item quantity="one">SIM PIN-коду туура эмес, сизде %d аракет калды. Болбосо, түзмөктүн кулпусун ачуу үчүн операторуңузга кайрылышыңыз керек.</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">SIM PUK-коду туура эмес, SIM биротоло жарактан чыгаарынан мурун сизде %d аракет калды.</item>
+        <item quantity="one">SIM PUK-коду туура эмес, SIM биротоло жарактан чыгаарынан мурун сизде %d аракет калды.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="other">Түзмөктүн кулпусу %d саат бою ачылган жок. Cүрөт үлгүсүн ырастаңыз.</item>
+        <item quantity="one">Түзмөктүн кулпусу %d саат бою ачылган жок. Cүрөт үлгүсүн ырастаңыз.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="other">"Түзмөктүн кулпусу %d саат бою ачылган жок. PIN'ди ырастаңыз."</item>
+        <item quantity="one">"Түзмөктүн кулпусу %d саат бою ачылган жок. PIN'ди ырастаңыз."</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">Түзмөктүн кулпусу %d саат бою ачылган жок. Сырсөздү ырастаңыз.</item>
+        <item quantity="one">Түзмөктүн кулпусу %d саат бою ачылган жок. Сырсөздү ырастаңыз.</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(%d аракет калды)</item>
+        <item quantity="one">(1 аракет калды)</item>
+    </plurals>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">%d аракет калды</item>
+        <item quantity="one">%d аракет калды</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_min">
+        <item quantity="other">%d мүнөттөн кийин дагы аракеттениңиз</item>
+        <item quantity="one">%d мүнөттөн кийин дагы аракеттениңиз</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_sec">
+        <item quantity="other">%d секундадан кийин дагы аракеттениңиз</item>
+        <item quantity="one">%d секундадан кийин дагы аракеттениңиз</item>
+    </plurals>
+</resources>

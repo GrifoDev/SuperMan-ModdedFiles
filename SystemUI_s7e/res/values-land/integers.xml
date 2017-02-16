@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="quick_settings_num_columns">6</integer>
+    <integer name="quick_qs_tile_num">10</integer>
+    <integer name="quick_settings_user_time_settings_tile_span">2</integer>
+    <integer name="recents_layout_inset_for_close_all_button_margin">23</integer>
+    <item type="integer" name="recents_layout_task_view_scale_full_inset">0.92</item>
+    <item type="integer" name="recents_layout_task_view_scale_split_inset">0.9</item>
+    <item type="integer" name="recents_layout_expanded_view_full_first_x_position">0.68</item>
+    <item type="integer" name="recents_layout_expanded_view_full_second_x_position">0.7</item>
+    <item type="integer" name="recents_layout_expanded_view_full_first_y_position">0.06</item>
+    <item type="integer" name="recents_layout_expanded_view_full_min_scroll_position">-0.3</item>
+    <item type="integer" name="recents_layout_expanded_view_split_first_x_position">0.6</item>
+    <item type="integer" name="recents_layout_expanded_view_split_second_x_position">0.7</item>
+    <item type="integer" name="recents_layout_expanded_view_split_first_y_position">0.05</item>
+    <item type="integer" name="recents_layout_expanded_view_split_min_scroll_position">-0.2</item>
+    <integer name="keyguard_max_notification_count">1</integer>
+    <item type="integer" name="notification_panel_layout_gravity">@integer/standard_notification_panel_layout_gravity</item>
+    <integer name="quick_settings_max_rows">2</integer>
+    <integer name="kg_selector_gravity">0x00000013</integer>
+</resources>

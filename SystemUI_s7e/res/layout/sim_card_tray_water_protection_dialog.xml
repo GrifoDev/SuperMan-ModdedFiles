@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/sim_card_tray_water_protection_dialog" android:paddingTop="@dimen/sim_card_tray_water_protection_dialog_top_bottom_padding" android:paddingBottom="@dimen/sim_card_tray_water_protection_dialog_top_bottom_padding" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="@dimen/sim_card_tray_water_protection_dialog_start_end_padding" android:paddingEnd="@dimen/sim_card_tray_water_protection_dialog_start_end_padding"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/sim_card_tray_water_protection_dialog_body_image" android:layout_width="fill_parent" android:layout_height="@dimen/sim_card_tray_water_protection_dialog_body_image_height" />
+    <ScrollView android:paddingTop="@dimen/sim_card_tray_water_protection_dialog_top_bottom_padding" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textAppearance="?android:textAppearance" android:id="@id/sim_card_tray_water_protection_dialog_body_message" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    </ScrollView>
+</LinearLayout>

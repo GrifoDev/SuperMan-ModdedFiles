@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="dimen" name="mw_divider_handle_touch_width">@dimen/mw_divider_handle_touch_short</item>
+    <item type="dimen" name="mw_divider_handle_touch_height">@dimen/mw_divider_handle_touch_long</item>
+    <dimen name="abc_action_bar_progress_bar_size">32.0dip</dimen>
+    <dimen name="abc_text_size_title_material_toolbar">14.0dip</dimen>
+    <dimen name="abc_text_size_subtitle_material_toolbar">12.0dip</dimen>
+    <dimen name="abc_action_bar_default_height_material">48.0dip</dimen>
+    <dimen name="recents_close_all_button_additional_margin_full">-15.0dip</dimen>
+    <dimen name="recents_close_all_button_additional_margin_split">10.0dip</dimen>
+    <item type="dimen" name="navigation_bar_size">@android:dimen/navigation_bar_width</item>
+    <dimen name="qs_tile_height">90.0dip</dimen>
+    <dimen name="qs_tile_vertical_margin">0.0dip</dimen>
+    <dimen name="qs_tile_margin_top">0.0dip</dimen>
+    <dimen name="qs_page_indicator_layout_height">21.0dip</dimen>
+    <dimen name="qs_tile_padding_top">4.0dip</dimen>
+    <dimen name="qs_tile_divider_top_margin">3.0dip</dimen>
+    <dimen name="qs_tile_label_top_margin">6.0dip</dimen>
+    <dimen name="qs_detail_header_height">64.0dip</dimen>
+    <dimen name="qs_detail_buttons_height">52.0dip</dimen>
+    <dimen name="qs_detail_height">360.0dip</dimen>
+    <dimen name="qs_brightness_padding_top">0.0dip</dimen>
+    <dimen name="qs_detail_margin_top">0.0dip</dimen>
+    <item type="dimen" name="docked_divider_handle_width">@dimen/mw_divider_handle_short</item>
+    <item type="dimen" name="docked_divider_handle_height">@dimen/mw_divider_handle_long</item>
+    <dimen name="battery_detail_graph_space_top">9.0dip</dimen>
+    <dimen name="battery_detail_graph_space_bottom">9.0dip</dimen>
+</resources>

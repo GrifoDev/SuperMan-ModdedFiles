@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">Se ha introducido un PIN incorrecto. Le quedan %d intentos.</item>
+        <item quantity="one">Se ha introducido un PIN incorrecto. Si introduce un PIN incorrecto %d veces más, tendrá que contactar con su proveedor de servicios para desbloquear su dispositivo.</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">Se ha introducido un PUK incorrecto. Si introduce un PUK incorrecto %d veces más, la tarjeta SIM se bloqueará permanentemente.</item>
+        <item quantity="one">Se ha introducido un PUK incorrecto. Si introduce un PUK incorrecto %d veces más, la tarjeta SIM se bloqueará permanentemente.</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(quedan %d intentos)</item>
+        <item quantity="one">(queda 1 intento)</item>
+    </plurals>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">Quedan %d intentos</item>
+        <item quantity="one">Quedan %d intentos</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_min">
+        <item quantity="other">Intentar de nuevo en %d minutos</item>
+        <item quantity="one">Intentar de nuevo en %d minuto</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_sec">
+        <item quantity="other">Intentar de nuevo en %d segundos</item>
+        <item quantity="one">Inténtelo de nuevo en %d segundo</item>
+    </plurals>
+</resources>

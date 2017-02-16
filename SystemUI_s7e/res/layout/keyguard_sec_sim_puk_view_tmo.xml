@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.keyguard.KeyguardSimPukTMOView android:gravity="center" android:orientation="vertical" android:id="@id/keyguard_sec_sim_puk_view_tmo" android:layout_width="fill_parent" android:layout_height="fill_parent" androidprv:layout_maxWidth="@dimen/keyguard_security_width" androidprv:layout_maxHeight="@dimen/keyguard_security_max_height"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:androidprv="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <TextView android:textSize="@dimen/kg_status_line_font_size" android:textColor="@color/keyguard_message_area_color" android:gravity="center" android:layout_gravity="bottom|center" android:id="@id/keyguard_unlock_view_help_text" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:shadowColor="@color/keyguard_avatar_frame_shadow_color" style="@style/keyguard_text_shadow" />
+        <Space android:layout_width="fill_parent" android:layout_height="100.0dip" />
+        <Button android:gravity="center" android:id="@id/emergency_call_button" android:background="@drawable/ripple_effect_transparent_button_drawable" android:paddingLeft="10.0dip" android:paddingRight="10.0dip" android:layout_width="wrap_content" android:layout_height="31.0dip" android:layout_marginBottom="10.0dip" android:text="@android:string/lockscreen_emergency_call" android:drawablePadding="8.0dip" style="@style/keyguard_button_style" />
+        <Button android:id="@id/forgot_password_button" android:background="@drawable/ripple_effect_transparent_button_drawable" android:paddingLeft="10.0dip" android:paddingRight="10.0dip" android:layout_width="wrap_content" android:layout_height="31.0dip" android:drawablePadding="8.0dip" style="@style/keyguard_button_style" />
+    </LinearLayout>
+</com.android.keyguard.KeyguardSimPukTMOView>

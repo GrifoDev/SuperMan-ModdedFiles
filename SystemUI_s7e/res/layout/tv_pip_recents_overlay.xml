@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center|top" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.systemui.tv.pip.PipRecentsControlsView android:layout_gravity="center_horizontal" android:id="@id/pip_controls" android:clipToPadding="false" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <View android:layout_gravity="center|top" android:id="@id/scrim" android:background="@drawable/tv_pip_recents_overlay_scrim" android:layout_width="160.0dip" android:layout_height="32.0dip" android:translationY="-46.0dip" />
+        <com.android.systemui.tv.pip.PipControlsView android:layout_gravity="center|top" android:id="@id/pip_control_contents" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" />
+    </com.android.systemui.tv.pip.PipRecentsControlsView>
+    <View android:id="@id/recents" android:focusable="true" android:layout_width="1.0dip" android:layout_height="1.0dip" />
+</LinearLayout>

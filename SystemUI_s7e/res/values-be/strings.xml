@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="cancel">Скасаваць</string>
+    <string name="clearcover_1_missed_call">У вас 1 прапушчаны выклік.</string>
+    <string name="clearcover_1_unread_message">У вас 1 непрачытанае паведамленне.</string>
+    <string name="clearcover_n_missed_calls">У вас %d прапушчаных выклікаў.</string>
+    <string name="clearcover_n_unread_messages">Непрачытаных паведамленняў: %1$d.</string>
+    <string name="s_view_screen_roaming">Роўмінг</string>
+    <string name="s_view_screen_home">Дома</string>
+    <string name="clock_roaming">Роўмінг</string>
+    <string name="clock_home">Дома</string>
+    <string name="battery_charging_percent">Зарадка: %d %%</string>
+    <string name="battery_wireless_charging_percent">Бесправадная зарадка: %d %%</string>
+    <string name="battery_wireless_fast_charging_percent">Хуткая бесправад. зарадка: %d%%</string>
+    <string name="battery_charged">Зараджана.</string>
+    <string name="battery_charging_remaining_time">(Прыбл. %s да поўнай зарадкі)</string>
+    <string name="time_format_hour_minute">%1$dг %2$dхв</string>
+    <string name="time_format_hour">%d гадз.</string>
+    <string name="time_format_minute">%d хв.</string>
+    <string name="s_view_cover_missed_event_secured_popup">Прылада заблакіравана. Каб праглядзець дадатковыя звесткі, адчыніце вечка.</string>
+    <string name="s_view_cover_open_cover_popup_view_detail">Адкрыйце вокладку, каб праглядзець звесткі.</string>
+    <string name="s_view_cover_open_cover_popup_for_detail_message">Адчыніце вечка, каб пабачыць звесткі паведамлення.</string>
+    <string name="s_view_cover_open_cover_popup_for_detail_call">Адкрыйце накрыўку, каб бачыць падрабязнасці выкліку.</string>
+    <string name="s_view_cover_camera_button_accessibiliy">Двойчы націсніце і перацягніце, каб адкрыць камеру.</string>
+    <string name="s_view_cover_favourite_button_accessibiliy">Каб адкрыць упадабаныя кантакты, двойчы націсніце і перацягніце.</string>
+    <string name="s_view_cover_open_popup_favorite">Прылада заблакавана. Адкрыйце вокладку для прагляду выбраных кантактаў.</string>
+    <string name="pinwindowcover_warning_content">Каб карыстацца замацаванай праграмай, адкрыйце вокладку.</string>
+    <string name="battery_fast_charging_percent">Хуткая зарадка: %d%%</string>
+    <string name="permission_sviewcover_access_description">Гэта праграма можа паказваць звесткі праз акно S View.</string>
+    <string name="tts_previous">Назад</string>
+    <string name="tts_next">Далей</string>
+    <string name="tts_pause">Паўза</string>
+    <string name="tts_play">Прайграваць</string>
+    <string name="sview_led_cover_download_feature_title">Спампаваць дадатковыя функцыі</string>
+    <string name="sview_led_cover_download_feature_summary">Спампаваць і ўсталяваць дадатковыя функцыі для LED View Cover. Вы можаце ствараць уласныя святлодыёдныя значкі і прызначаць іх у якасці значкоў aпавяшчэнняў. Каб спампаваць іх пазней, перайдзіце ў «Налады > Адмысловыя функцыі > Аксесуары > LED View Cover», затым выберыце «Спампаваць дадатковыя функцыі».</string>
+    <string name="sview_led_cover_download_feature_summary_vzw">Download and install additional features for LED View Cover. You can create your own LED icons and set them as your notification icons. To download them later, go to Settings > Accessories > LED View Cover, then select Download additional features.</string>
+    <string name="monotype_dialog_button">Спампаваць</string>
+    <string name="volumepanel_notification">Апавяшчэнне</string>
+</resources>

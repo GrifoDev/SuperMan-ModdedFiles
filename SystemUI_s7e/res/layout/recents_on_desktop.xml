@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.systemui.recents.desktop.views.RecentsDesktopView android:id="@id/recents_view" android:background="@drawable/recents_tv_background_gradient" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.systemui.recents.tv.views.TaskStackHorizontalGridView android:gravity="center_vertical" android:id="@id/task_list" android:focusable="true" android:clipChildren="false" android:clipToPadding="false" android:descendantFocusability="beforeDescendants" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layoutDirection="rtl" />
+    <View android:id="@id/pip" android:focusable="true" android:visibility="visible" android:layout_width="1.0dip" android:layout_height="1.0dip" />
+    <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/app_label" />
+</com.android.systemui.recents.desktop.views.RecentsDesktopView>

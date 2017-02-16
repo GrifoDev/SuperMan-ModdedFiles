@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">%d skærmbilleder i Oversigt</item>
+        <item quantity="one">%d skærmbilleder i Oversigt</item>
+    </plurals>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">Forkert pinkode til SIM-kort. Du har %d forsøg tilbage.</item>
+        <item quantity="one">Forkert pinkode til SIM-kort. Du har %d forsøg tilbage.</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">Forkert PUK-kode til SIM-kort. Du har %d forsøg tilbage, før SIM-kortet bliver permanent ubrugeligt.</item>
+        <item quantity="one">Forkert PUK-kode til SIM-kort. Du har %d forsøg tilbage, før SIM-kortet bliver permanent ubrugeligt.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="other">Enheden blev sidst låst op for %d timer siden. Bekræft mønsteret.</item>
+        <item quantity="one">Enheden blev sidst låst op for %d timer siden. Bekræft mønsteret.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="other">Enheden blev sidst låst op for %d timer siden. Bekræft pinkoden.</item>
+        <item quantity="one">Enheden blev sidst låst op for %d timer siden. Bekræft pinkoden.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">Enheden blev sidst låst op for %d timer siden. Bekræft adgangskoden.</item>
+        <item quantity="one">Enheden blev sidst låst op for %d timer siden. Bekræft adgangskoden.</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(%d resterende forsøg)</item>
+        <item quantity="one">(1 forsøg tilbage)</item>
+    </plurals>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">%d forsøg tilbage</item>
+        <item quantity="one">%d forsøg tilbage</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_min">
+        <item quantity="other">Prøv igen om %d minutter</item>
+        <item quantity="one">Prøv igen om %d minut</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_sec">
+        <item quantity="other">Prøv igen om %d sekunder</item>
+        <item quantity="one">Prøv igen om %d sekund</item>
+    </plurals>
+</resources>

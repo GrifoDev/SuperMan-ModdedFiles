@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">概覽中有 1 個畫面</item>
+        <item quantity="one">概覽中有 %d 個畫面</item>
+    </plurals>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">SIM PIN 碼不正確，您還有 %d 次機會輸入。</item>
+        <item quantity="one">SIM PIN 碼不正確，您還有 %d 次機會輸入。如果仍然輸入錯誤，您必須聯絡流動網絡供應商為您的裝置解鎖。</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">SIM PUK 碼不正確，您還有 %d 次機會輸入。如果仍然輸入錯誤，SIM 卡將永久無法使用。</item>
+        <item quantity="one">SIM PUK 碼不正確，您還有 %d 次機會輸入。如果仍然輸入錯誤，SIM 卡將永久無法使用。</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="other">裝置在 %d 小時後尚未解鎖，請確認圖案。</item>
+        <item quantity="one">裝置在 %d 小時後尚未解鎖，請確認圖案。</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="other">裝置在 %d 小時後尚未解鎖，請確認 PIN。</item>
+        <item quantity="one">裝置在 %d 小時後尚未解鎖，請確認 PIN。</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">裝置在 %d 小時後尚未解鎖，請確認密碼。</item>
+        <item quantity="one">裝置在 %d 小時後尚未解鎖，請確認密碼。</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(還可嘗試 %d 次)</item>
+        <item quantity="one">(還可嘗試 1 次)</item>
+    </plurals>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">剩餘 %d 次嘗試機會</item>
+        <item quantity="one">剩餘 %d 次嘗試機會</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_min">
+        <item quantity="other">請在 %d 分鐘後重試</item>
+        <item quantity="one">請在 %d 分鐘後重試</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_sec">
+        <item quantity="other">請在 %d 秒後重試</item>
+        <item quantity="one">請在 %d 秒後重試</item>
+    </plurals>
+</resources>

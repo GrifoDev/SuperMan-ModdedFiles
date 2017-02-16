@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="navigation_key_width">80.0dip</dimen>
+    <dimen name="navigation_side_padding">50.0dip</dimen>
+    <dimen name="screen_pinning_request_nav_side_padding">7.0dip</dimen>
+    <dimen name="screen_pinning_request_side_width">44.0dip</dimen>
+</resources>

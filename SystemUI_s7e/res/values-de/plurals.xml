@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">1 Bildschirm in der Übersicht</item>
+        <item quantity="one">%d Bildschirme in der Übersicht</item>
+    </plurals>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">Falscher PIN-Code der SIM-Karte. Du hast noch %d Versuche.</item>
+        <item quantity="one">Falscher PIN-Code der SIM-Karte. Du hast noch %d Versuch, bevor du das Gerät von deinem Mobilfunkanbieter entsperren lassen musst.</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">Falscher PUK-Code der SIM-Karte. Du hast noch %d Versuche, bevor deine SIM-Karte endgültig gesperrt wird.</item>
+        <item quantity="one">Falscher PUK-Code der SIM-Karte. Du hast noch %d Versuch, bevor deine SIM-Karte endgültig gesperrt wird.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="other">Das Gerät wurde seit %d Stunden nicht mehr entsperrt. Bestätige das Muster.</item>
+        <item quantity="one">Das Gerät wurde seit %d Stunde nicht mehr entsperrt. Bestätige das Muster.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="other">Das Gerät wurde seit %d Stunden nicht mehr entsperrt. Bestätige die PIN.</item>
+        <item quantity="one">Das Gerät wurde seit %d Stunde nicht mehr entsperrt. Bestätige die PIN.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">Das Gerät wurde seit %d Stunden nicht mehr entsperrt. Bestätige das Passwort.</item>
+        <item quantity="one">Das Gerät wurde seit %d Stunde nicht mehr entsperrt. Bestätige das Passwort.</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(%d Versuche verbleibend)</item>
+        <item quantity="one">(1 Versuch verbleibend)</item>
+    </plurals>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">Noch %d Versuche</item>
+        <item quantity="one">%d Versuch übrig</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_min">
+        <item quantity="other">Versuchen Sie es in %d Minuten erneut.</item>
+        <item quantity="one">Versuchen Sie es in %d Minute erneut.</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_sec">
+        <item quantity="other">Versuchen Sie es in %d Sekunden erneut.</item>
+        <item quantity="one">Versuchen Sie es in %d Sekunde erneut.</item>
+    </plurals>
+</resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.keyguard.servicebox.KeyguardServiceBoxContainer android:gravity="center|top" android:id="@id/keyguard_status_view" android:layout_width="fill_parent" android:layout_height="@dimen/servicebox_page_small_height" android:minHeight="@dimen/servicebox_page_small_height" androidprv:layout_maxWidth="@dimen/keyguard_security_width" androidprv:layout_maxHeight="@dimen/keyguard_security_height"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:androidprv="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:layout_gravity="bottom" android:orientation="vertical" android:id="@id/keyguard_servicebox_scailing_container" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <com.android.keyguard.servicebox.KeyguardServiceBoxViewPager android:id="@id/keyguard_servicebox_viewpager" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+            <ImageView android:layout_gravity="center|left" android:id="@id/keyguard_servicebox_affordance_arrow_l" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/lock_additional_visualcue_l_mtrl" android:layout_marginStart="5.0dip" />
+            <ImageView android:layout_gravity="center|right" android:id="@id/keyguard_servicebox_affordance_arrow_r" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/lock_additional_visualcue_r_mtrl" android:layout_marginEnd="5.0dip" />
+        </FrameLayout>
+        <com.android.keyguard.servicebox.pages.clock.KeyguardOwnerInfoView android:textSize="@dimen/keyguard_owner_info_text_size" android:textColor="@color/theme_clock_date_color" android:ellipsize="marquee" android:gravity="center_horizontal" android:layout_gravity="center_horizontal" android:id="@id/keyguard_owner_info" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="@dimen/keyguard_owner_info_min_height" android:singleLine="true" android:fontFamily="sans-serif" android:layout_marginStart="@dimen/keyguard_owner_info_side_margin" android:layout_marginEnd="@dimen/keyguard_owner_info_side_margin" style="@style/keyguard_headline_text_shadow" />
+    </LinearLayout>
+</com.android.keyguard.servicebox.KeyguardServiceBoxContainer>

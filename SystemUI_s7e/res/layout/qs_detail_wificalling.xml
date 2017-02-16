@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.keyguard.AlphaOptimizedLinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/qs_detail_items_side_padding" android:paddingEnd="@dimen/qs_detail_items_side_padding"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RadioGroup android:theme="@android:style/Theme.DeviceDefault.Light" android:id="@id/wificalling_mode" android:saveEnabled="false" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <RadioButton android:textAppearance="@style/TextAppearance.QS.DetailRadio" android:id="@android:id/button1" android:text="@string/quick_settings_wificalling_wifi_preferred" style="@style/QSDetailRadioButton" />
+        <RadioButton android:textAppearance="@style/TextAppearance.QS.DetailRadio" android:id="@android:id/button2" android:text="@string/quick_settings_wificalling_cs_preferred" style="@style/QSDetailRadioButton" />
+        <RadioButton android:textAppearance="@style/TextAppearance.QS.DetailRadio" android:id="@android:id/button3" android:visibility="gone" android:text="@string/quick_settings_wificalling_wifi_only" style="@style/QSDetailRadioButton" />
+    </RadioGroup>
+    <TextView android:textAppearance="@style/TextAppearance.QS.DetailEmpty" android:id="@id/summary" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/qs_detail_items_summary_padding_top" android:text="@string/quick_settings_wificalling_summary" />
+</com.android.keyguard.AlphaOptimizedLinearLayout>

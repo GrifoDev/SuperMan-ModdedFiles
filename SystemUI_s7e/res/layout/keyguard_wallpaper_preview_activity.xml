@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/root_view" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/background_image_view" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <TextView android:gravity="center" android:layout_gravity="center|top" android:id="@id/title_text_view" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/kg_title_text_view_margin_top" android:text="@string/kg_wallpaper_preview_title" style="@style/title_text_style" />
+    <FrameLayout android:layout_gravity="center|top" android:id="@id/preview_container" android:background="@drawable/preview_container_background_drawable" android:layout_width="@dimen/kg_preview_container_width" android:layout_height="@dimen/kg_preview_container_height" android:layout_marginTop="@dimen/kg_preview_container_margin_top" android:elevation="@dimen/kg_preview_container_shadow_elevation">
+        <FrameLayout android:id="@id/preview_area" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        <ImageView android:id="@id/captured_image_view" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        <ImageView android:layout_gravity="center|right|top" android:id="@id/animated_motion_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/kg_animated_motion_icon_margin" android:layout_marginRight="@dimen/kg_animated_motion_icon_margin" android:src="@drawable/ic_wallpapers_motion" />
+    </FrameLayout>
+    <FrameLayout android:layout_gravity="bottom|center" android:id="@id/set_as_wallpaper_button_view" android:background="@drawable/set_as_wallpaper_button_background_drawable" android:focusable="true" android:layout_width="@dimen/kg_set_as_wallpaper_button_view_width" android:layout_height="@dimen/kg_set_as_wallpaper_button_view_height" android:layout_marginBottom="@dimen/kg_set_as_wallpaper_button_view_margin_bottom">
+        <TextView android:gravity="center" android:id="@id/set_as_wallpaper_text_view" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/kg_wallpaper_preview_button" android:singleLine="true" style="@style/set_as_wallpaper_text_style" />
+    </FrameLayout>
+</FrameLayout>

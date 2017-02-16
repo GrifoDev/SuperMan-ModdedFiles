@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<View android:layout_gravity="center" android:id="@id/qs_edit_cross_icon" android:background="@drawable/quick_panel_edit_cross" android:layout_width="@dimen/qs_edit_panel_cross_icon_width" android:layout_height="@dimen/qs_edit_panel_cross_icon_height"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

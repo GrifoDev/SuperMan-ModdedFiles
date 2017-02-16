@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">‏شاشتان (%d) في النظرة العامة</item>
+        <item quantity="one">‏ لا توجد أية شاشات (%d) في النظرة العامة</item>
+    </plurals>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">‏رمز رقم التعريف الشخصي\" لبطاقة SIM غير صحيح، ويتبقى لديك %d من المحاولات.</item>
+        <item quantity="zero">‏رمز رقم التعريف الشخصي لبطاقة SIM غير صحيح، ولم تتبق لديك أية محاولات (%d).</item>
+        <item quantity="one">‏رمز رقم التعريف الشخصي لبطاقة SIM غير صحيح، ويتبقى لديك محاولة واحدة (%d) يتعين عليك بعدها الاتصال بمشغّل شبكة الجوّال لإلغاء قفل الجهاز.</item>
+        <item quantity="two">‏رمز رقم التعريف الشخصي لبطاقة SIM غير صحيح، ويتبقى لديك محاولتان (%d).</item>
+        <item quantity="few">‏رمز رقم التعريف الشخصي لبطاقة SIM غير صحيح، ويتبقى لديك %d محاولات.</item>
+        <item quantity="many">‏رمز رقم التعريف الشخصي لبطاقة SIM غير صحيح، ويتبقى لديك %d محاولة.</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">‏رمز PUK لشريحة SIM غير صحيح، ويتبقى لديك %d من المحاولات تصبح بعدها شريحة SIM غير صالحة للاستخدام بشكل دائم.</item>
+        <item quantity="zero">‏رمز PUK لشريحة SIM غير صحيح، ولم تتبق لديك أية محاولات (%d) تصبح بعدها شريحة SIM غير صالحة للاستخدام بشكل دائم.</item>
+        <item quantity="one">‏رمز PUK لشريحة SIM غير صحيح، ويتبقى لديك محاولة واحدة (%d) تصبح بعدها شريحة SIM غير صالحة للاستخدام بشكل دائم.</item>
+        <item quantity="two">‏رمز PUK لشريحة SIM غير صحيح، ويتبقى لديك محاولتان (%d) تصبح بعدها شريحة SIM غير صالحة للاستخدام بشكل دائم.</item>
+        <item quantity="few">‏رمز PUK لشريحة SIM غير صحيح، ويتبقى لديك %d محاولات تصبح بعدها شريحة SIM غير صالحة للاستخدام بشكل دائم.</item>
+        <item quantity="many">‏رمز PUK لشريحة SIM غير صحيح، ويتبقى لديك %d محاولة تصبح بعدها شريحة SIM غير صالحة للاستخدام بشكل دائم.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="other">لم يتم إلغاء تأمين الجهاز لمدة %d من الساعات. تأكيد النقش.</item>
+        <item quantity="zero">لم يتم إلغاء تأمين الجهاز لمدة %d من الساعات. تأكيد النقش.</item>
+        <item quantity="one">لم يتم إلغاء تأمين الجهاز لمدة %d ساعة. تأكيد النقش.</item>
+        <item quantity="two">لم يتم إلغاء تأمين الجهاز لمدة ساعتين (%d). تأكيد النقش.</item>
+        <item quantity="few">لم يتم إلغاء تأمين الجهاز لمدة %d ساعات. تأكيد النقش.</item>
+        <item quantity="many">لم يتم إلغاء تأمين الجهاز لمدة %d ساعة. تأكيد النقش.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="other">لم يتم إلغاء تأمين الجهاز لمدة %d من الساعات. تأكيد رقم التعريف الشخصي.</item>
+        <item quantity="zero">لم يتم إلغاء تأمين الجهاز لمدة %d من الساعات. تأكيد رقم التعريف الشخصي.</item>
+        <item quantity="one">لم يتم إلغاء تأمين الجهاز لمدة %d ساعة. تأكيد رقم التعريف الشخصي.</item>
+        <item quantity="two">لم يتم إلغاء تأمين الجهاز لمدة ساعتين (%d). تأكيد رقم التعريف الشخصي.</item>
+        <item quantity="few">لم يتم إلغاء تأمين الجهاز لمدة %d ساعات. تأكيد رقم التعريف الشخصي.</item>
+        <item quantity="many">لم يتم إلغاء تأمين الجهاز لمدة %d ساعة. تأكيد رقم التعريف الشخصي.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">لم يتم إلغاء تأمين الجهاز لمدة %d من الساعات. تأكيد كلمة المرور.</item>
+        <item quantity="zero">لم يتم إلغاء تأمين الجهاز لمدة %d من الساعات. تأكيد كلمة المرور.</item>
+        <item quantity="one">لم يتم إلغاء تأمين الجهاز لمدة %d ساعة. تأكيد كلمة المرور.</item>
+        <item quantity="two">لم يتم إلغاء تأمين الجهاز لمدة ساعتين (%d). تأكيد كلمة المرور.</item>
+        <item quantity="few">لم يتم إلغاء تأمين الجهاز لمدة %d ساعات. تأكيد كلمة المرور.</item>
+        <item quantity="many">لم يتم إلغاء تأمين الجهاز لمدة %d ساعة. تأكيد كلمة المرور.</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(تبقّت %d من المحاولات)</item>
+        <item quantity="one">(تبقّت محاولة واحدة)</item>
+    </plurals>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">تتبقى %d من المحاولات</item>
+        <item quantity="one">يتبقى %d من المحاولات</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_min">
+        <item quantity="other">حاول مجدداً بعد %d من الدقائق</item>
+        <item quantity="one">المحاولة مرة أخرى بعد %d من الدقائق</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_sec">
+        <item quantity="other">حاول مجدداً بعد %d من الثواني</item>
+        <item quantity="one">المحاولة مرة أخرى بعد %d من الثواني</item>
+    </plurals>
+</resources>

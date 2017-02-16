@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="recents_layout_inset_for_close_all_button_margin">40</integer>
+    <item type="integer" name="recents_layout_expanded_view_full_first_x_position">0.58</item>
+    <item type="integer" name="recents_layout_expanded_view_full_first_y_position">0.86</item>
+    <item type="integer" name="recents_layout_expanded_view_full_min_scroll_position">-0.185</item>
+</resources>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">%d zaslona u Pregledu</item>
+        <item quantity="one">%d zaslon u Pregledu</item>
+    </plurals>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">Netočan PIN kôd SIM kartice; imate još %d pokušaja.</item>
+        <item quantity="one">Netočan PIN kôd SIM kartice; imate još %d pokušaj.</item>
+        <item quantity="few">Netočan PIN kôd SIM kartice; imate još %d pokušaja.</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">Netočan PUK kôd SIM kartice; imate još %d pokušaja prije nego što SIM kartica postane trajno neupotrebljiva.</item>
+        <item quantity="one">Netočan PUK kôd SIM kartice; imate još %d pokušaj prije nego što SIM kartica postane trajno neupotrebljiva.</item>
+        <item quantity="few">Netočan PUK kôd SIM kartice; imate još %d pokušaja prije nego što SIM kartica postane trajno neupotrebljiva.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="other">Uređaj nije bio otključan %d sati. Potvrdite uzorak.</item>
+        <item quantity="one">Uređaj nije bio otključan %d sat. Potvrdite uzorak.</item>
+        <item quantity="few">Uređaj nije bio otključan %d sata. Potvrdite uzorak.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="other">Uređaj nije bio otključan %d sati. Potvrdite PIN.</item>
+        <item quantity="one">Uređaj nije bio otključan %d sat. Potvrdite PIN.</item>
+        <item quantity="few">Uređaj nije bio otključan %d sata. Potvrdite PIN.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">Uređaj nije bio otključan %d sati. Potvrdite zaporku.</item>
+        <item quantity="one">Uređaj nije bio otključan %d sat. Potvrdite zaporku.</item>
+        <item quantity="few">Uređaj nije bio otključan %d sata. Potvrdite zaporku.</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(preostali pokušaji: %d)</item>
+        <item quantity="one">(preostao 1 pokušaj)</item>
+    </plurals>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">Preostalo pokušaja: %d</item>
+        <item quantity="one">Preostali pokušaji: %d</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_min">
+        <item quantity="other">Pokušajte ponovno za %d min</item>
+        <item quantity="one">Pokušajte ponovno za %d min</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_sec">
+        <item quantity="other">Pokušajte ponovno za %d s</item>
+        <item quantity="one">Pokušajte ponovno za %d s</item>
+    </plurals>
+</resources>

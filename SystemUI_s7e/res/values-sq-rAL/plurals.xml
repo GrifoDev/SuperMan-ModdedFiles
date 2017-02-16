@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">1 ekran te \"Përmbledhja\"</item>
+        <item quantity="one">%d ekrane te \"Përmbledhja\"</item>
+    </plurals>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">PIN-i i kartës SIM është i pasaktë. Të kanë mbetur edhe %d tentativa.</item>
+        <item quantity="one">PIN-i i kartës SIM është i pasaktë. Të ka mbetur edhe %d tentativë para se të kontaktosh me operatorin tënd celular për ta shkyçur pajisjen.</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">PUK-u i kartës SIM është i pasaktë. Të kanë mbetur edhe %d tentativa para se karta SIM të bëhet e papërdorshme përgjithmonë.</item>
+        <item quantity="one">PUK-u i kartës SIM është i pasaktë. Të ka mbetur edhe %d tentativë para se karta SIM të bëhet e papërdorshme përgjithmonë.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="other">Pajisja nuk është shkyçur për %d orë. Konfirmo motivin.</item>
+        <item quantity="one">Pajisja nuk është shkyçur për %d orë. Konfirmo motivin.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="other">Pajisja nuk është shkyçur për %d orë. Konfirmo PIN-in.</item>
+        <item quantity="one">Pajisja nuk është shkyçur për %d orë. Konfirmo PIN-in.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">Pajisja nuk është shkyçur për %d orë. Konfirmo fjalëkalimin.</item>
+        <item quantity="one">Pajisja nuk është shkyçur për %d orë. Konfirmo fjalëkalimin.</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(%d orvatje mbetur)</item>
+        <item quantity="one">(1 orvatje mbetur)</item>
+    </plurals>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">%d orvatje mbetur</item>
+        <item quantity="one">%d orvatje mbetur</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_min">
+        <item quantity="other">Riprovo pas %d minutash</item>
+        <item quantity="one">Riprovo pas %d minute</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_sec">
+        <item quantity="other">Provo sërish pas %d sekondash</item>
+        <item quantity="one">Provo sërish pas %d sekonde</item>
+    </plurals>
+</resources>

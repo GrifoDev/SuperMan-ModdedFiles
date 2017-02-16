@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.sec.android.cover.sviewcover.SViewCoverView android:id="@id/s_view_cover_view" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/sview_cover_height"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.sec.android.cover.widget.CoverHideEffectView android:id="@id/s_view_cover_hide_effect" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <ImageView android:background="#ff000000" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <com.sec.android.cover.sviewcover.SViewCoverWallpaperView android:layout_gravity="left" android:id="@id/s_view_cover_wallpaper" android:layout_width="@dimen/sview_cover_wallpaper_width" android:layout_height="@dimen/sview_cover_wallpaper_height" android:layout_marginLeft="@dimen/sview_cover_margin_wallpaper" />
+    <FrameLayout android:id="@id/content_root_normal" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <FrameLayout android:layout_gravity="left" android:orientation="vertical" android:id="@id/sview_cover_root" android:layout_width="@dimen/sview_cover_pager_width" android:layout_height="@dimen/sview_cover_height" android:layout_marginLeft="@dimen/sview_cover_margin" android:layout_marginRight="@dimen/sview_cover_margin">
+            <include layout="@layout/s_view_cover_home_widget" />
+        </FrameLayout>
+    </FrameLayout>
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/content_root_pin_window" android:paddingLeft="@dimen/sview_cover_pin_widnow_side_padding" android:paddingTop="@dimen/sview_cover_pin_widnow_top_padding" android:paddingRight="@dimen/sview_cover_pin_widnow_side_padding" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/sview_cover_height">
+        <ImageView android:layout_width="@dimen/sview_cover_pin_widnow_image_size" android:layout_height="@dimen/sview_cover_pin_widnow_image_size" android:src="@drawable/sview_ic_pin" />
+        <TextView android:textSize="16.0dip" android:textColor="@color/sview_cover_titlebar_text_color" android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/sview_cover_pin_widnow_text_margin" android:text="@string/pinwindowcover_warning_content" android:shadowColor="#80000000" android:shadowDy="1.0" android:shadowRadius="1.0" />
+    </LinearLayout>
+</com.sec.android.cover.sviewcover.SViewCoverView>

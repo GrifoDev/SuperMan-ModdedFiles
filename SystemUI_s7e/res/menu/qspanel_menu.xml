@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu style="@style/QSDetailCheckBox"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:icon="@android:drawable/ic_menu_preferences" android:id="@id/edit" android:title="@string/sec_qs_edit" />
+    <item android:icon="@android:drawable/ic_menu_preferences" android:id="@id/screen_grid" android:title="@string/screen_grid" />
+    <item android:id="@id/brightness_control_on_top" android:title="@string/brightness_control_on_top" android:checkable="true" />
+    <item android:icon="@android:drawable/ic_menu_preferences" android:id="@id/contact_us" android:title="@string/qs_contact_us" />
+</menu>

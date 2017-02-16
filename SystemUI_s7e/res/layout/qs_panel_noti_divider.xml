@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:layout_width="fill_parent" android:layout_height="@dimen/qs_panel_noti_divider_height"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/quickpanel_noti_divider" android:background="#ffe8e8e8" android:layout_width="fill_parent" android:layout_height="@dimen/qs_panel_noti_divider_height" />
+</LinearLayout>

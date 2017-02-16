@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.keyguard.AlphaOptimizedLinearLayout android:gravity="center" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="@dimen/qs_detail_items_side_padding" android:paddingEnd="@dimen/qs_detail_items_side_padding">
+        <TextView android:textAppearance="@style/TextAppearance.QS.DetailHeader" android:id="@android:id/title" android:layout_width="0.0dip" android:layout_height="wrap_content" android:singleLine="true" android:layout_weight="1.0" />
+        <com.android.systemui.statusbar.AlphaOptimizedImageView android:id="@id/qs_detail_header_progress" android:layout_width="@dimen/qs_detail_header_progress_size" android:layout_height="@dimen/qs_detail_header_progress_size" android:src="@drawable/qs_detail_header_progress" android:alpha="0.0" android:layout_marginEnd="12.0dip" />
+        <com.android.systemui.qs.QSSwitch android:theme="@android:style/Theme.DeviceDefault.Light" android:textAppearance="@style/TextAppearance.QS.DetailHeader" android:id="@android:id/toggle" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </com.android.keyguard.AlphaOptimizedLinearLayout>
+    <View android:background="@color/qs_detail_divider" android:layout_width="fill_parent" android:layout_height="@dimen/qs_detail_divider_height" android:layout_alignParentBottom="true" android:layout_marginStart="@dimen/qs_detail_divider_side_padding" android:layout_marginEnd="@dimen/qs_detail_divider_side_padding" />
+</RelativeLayout>

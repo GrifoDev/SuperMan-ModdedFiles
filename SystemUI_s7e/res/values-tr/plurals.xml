@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">"Genel Bakış'ta 1 ekran"</item>
+        <item quantity="one">"Genel Bakış'ta %d ekran"</item>
+    </plurals>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">Yanlış SIM PIN kodu, %d deneme hakkınız kaldı.</item>
+        <item quantity="one">Yanlış SIM PIN kodu. Cihazınızın kilidini açmak için operatörünüzle bağlantı kurmak zorunda kalmadan önce %d deneme hakkınız kaldı.</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">Yanlış SIM PUK kodu, SIM kalıcı olarak kullanılmaz hale gelmeden önce %d deneme hakkınız kaldı.</item>
+        <item quantity="one">Yanlış SIM PUK kodu, SIM kalıcı olarak kullanılmaz hale gelmeden önce %d deneme hakkınız kaldı.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="other">Cihazın kilidi son %d saattir açılmadı. Deseni doğrulayın.</item>
+        <item quantity="one">Cihazın kilidi son %d saattir açılmadı. Deseni doğrulayın.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="other">"Cihazın kilidi son %d saattir açılmadı. PIN'i doğrulayın."</item>
+        <item quantity="one">"Cihazın kilidi son %d saattir açılmadı. PIN'i doğrulayın."</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">Cihazın kilidi son %d saattir açılmadı. Şifreyi doğrulayın.</item>
+        <item quantity="one">Cihazın kilidi son %d saattir açılmadı. Şifreyi doğrulayın.</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(%d deneme hakkı kaldı)</item>
+        <item quantity="one">(1 deneme hakkı kaldı)</item>
+    </plurals>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">%d deneme hakkı kaldı</item>
+        <item quantity="one">%d deneme hakkı kaldı</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_min">
+        <item quantity="other">%d dakika sonra tekrar deneyin</item>
+        <item quantity="one">%d dakika sonra tekrar deneyin</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_sec">
+        <item quantity="other">%d saniye sonra tekrar deneyin</item>
+        <item quantity="one">%d saniye sonra tekrar deneyin</item>
+    </plurals>
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:background="@android:color/transparent" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/content_view" android:layout_width="@dimen/recents_app_list_item_content_width" android:layout_height="@dimen/recents_app_list_item_content_height">
+        <ImageView android:layout_gravity="center_horizontal" android:id="@id/icon" android:layout_width="@dimen/recents_app_list_item_icon_size" android:layout_height="@dimen/recents_app_list_item_icon_size" android:scaleType="fitCenter" android:layout_weight="0.0" />
+        <TextView android:textAppearance="?android:textAppearanceMedium" android:textSize="@dimen/recents_app_list_item_label_text_size" android:textStyle="normal" android:textColor="#ffffffff" android:ellipsize="end" android:gravity="center" android:id="@id/label" android:fadingEdge="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/recents_app_list_item_label_margin_top" android:singleLine="true" android:layout_weight="0.0" android:fontFamily="sec-roboto-regular" />
+    </LinearLayout>
+</FrameLayout>

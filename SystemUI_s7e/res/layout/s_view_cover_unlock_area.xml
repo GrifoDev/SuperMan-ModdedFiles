@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.sec.android.cover.sviewcover.SViewCoverUnlockArea android:id="@id/s_view_cover_unlock_area" android:layout_width="@dimen/sview_cover_pager_width" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/s_view_cover_unlock_thrid_level_layout" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layoutDirection="ltr">
+        <include android:layout_gravity="start|bottom|center" android:layout_width="@dimen/sview_cover_unlock_area_shortcut_icon_size" android:layout_height="@dimen/sview_cover_unlock_area_shortcut_icon_size" android:layout_marginBottom="@dimen/sview_cover_unlock_area_margin" android:layout_marginStart="@dimen/sview_cover_unlock_area_margin_width" layout="@layout/s_view_cover_contact_circle_view" />
+        <include android:layout_gravity="end|bottom|center" android:layout_width="@dimen/sview_cover_unlock_area_shortcut_icon_size" android:layout_height="@dimen/sview_cover_unlock_area_shortcut_icon_size" android:layout_marginBottom="@dimen/sview_cover_unlock_area_margin" android:layout_marginEnd="@dimen/sview_cover_unlock_area_margin_width" layout="@layout/s_view_cover_camera_circle_view" />
+    </FrameLayout>
+</com.sec.android.cover.sviewcover.SViewCoverUnlockArea>

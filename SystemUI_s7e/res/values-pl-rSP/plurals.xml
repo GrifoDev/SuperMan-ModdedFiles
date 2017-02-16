@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">Wprowadzono nieprawidłowy kod PIN. Pozostało prób: %d.</item>
+        <item quantity="one">Wprowadzono nieprawidłowy kod PIN. Po wprowadzeniu nieprawidłowego numeru PIN jeszcze %d razy w celu odblokowania urządzenia konieczny będzie kontakt z dostawcą usług.</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">Wprowadzono nieprawidłowy numer PUK. Po wprowadzeniu nieprawidłowego numeru PUK jeszcze %d razy karta SIM zostanie trwale zablokowana.</item>
+        <item quantity="one">Wprowadzono nieprawidłowy kod PUK. Po wprowadzeniu nieprawidłowego numeru PUK jeszcze %d razy karta SIM zostanie trwale zablokowana.</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(ôzostałych prōb: %d)</item>
+        <item quantity="one">(ôstała 1 prōba)</item>
+    </plurals>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">Ôstało prōb: %d</item>
+        <item quantity="one">Pozostała %d próba</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_min">
+        <item quantity="other">Nabadej jeszcze rŏz za %d min</item>
+        <item quantity="one">Spróbuj ponownie za %d minutę</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_sec">
+        <item quantity="other">Nabadej jeszcze rŏz za %d s</item>
+        <item quantity="one">Spróbuj ponownie za %d sekundę</item>
+    </plurals>
+</resources>

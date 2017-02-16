@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:height="@dimen/qs_page_indicator_height" android:width="@dimen/qs_page_indicator_width" android:shape="oval"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/qs_page_indicator_tint_color" />
+</shape>

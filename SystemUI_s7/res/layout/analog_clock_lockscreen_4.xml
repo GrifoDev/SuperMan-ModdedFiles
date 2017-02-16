@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <AnalogClock android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:dial="@drawable/bg_ac4" android:hand_hour="@drawable/hour_ac4" android:hand_minute="@drawable/min_ac4" android:singleLine="true" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">PIN mícheart iontráilte. Tá %d iarracht fágtha agat.</item>
+        <item quantity="one">PIN mícheart iontráilte. Má iontráiltear PIN mícheart %d uair eile, beidh ort dul i dteagmháil le do sholáthraí seirbhíse le do ghléas a dhíghlasáil.</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">PUK mícheart iontráilte. Má iontráiltear PUK mícheart %d uair eile, glasálfar an cárta SIM go buan.</item>
+        <item quantity="one">PUK mícheart iontráilte. Má iontráiltear PUK mícheart %d uair eile, glasálfar an cárta SIM go buan.</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(%d iarracht fágtha)</item>
+        <item quantity="one">(1 iarracht fágtha)</item>
+    </plurals>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">%d iarracht fágtha</item>
+        <item quantity="one">%d iarracht fágtha</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_min">
+        <item quantity="other">Triail arís i gceann %d nóiméad</item>
+        <item quantity="one">Triail arís i gceann %d nóiméad</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_sec">
+        <item quantity="other">Triail arís i gceann %d soicind</item>
+        <item quantity="one">Triail arís i gceann %d soicind</item>
+    </plurals>
+</resources>

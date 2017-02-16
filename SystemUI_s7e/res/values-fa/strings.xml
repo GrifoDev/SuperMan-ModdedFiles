@@ -1,0 +1,1994 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="snapview_cancel">لغو</string>
+    <string name="snapview_done">انجام</string>
+    <string name="mw_divider_button_snap">عکس از پنجره</string>
+    <string name="mw_divider_button_switch">تغییر پنجره ها</string>
+    <string name="mw_divider_button_freeform">باز شدن در نمای بازشو</string>
+    <string name="mw_divider_button_close">بستن برنامه</string>
+    <string name="multi_window_title_text">چند پنجره</string>
+    <string name="dock_minimized_notification_text">%s کوچک شد</string>
+    <string name="dock_minimized_notification_dimiss_text">بستن</string>
+    <string name="dock_minimized_notification_content_text">برای باز کردن، اینجا ضربه بزنید.</string>
+    <string name="cancel">لغو</string>
+    <string name="clearcover_1_missed_call">یک تماس بی پاسخ دارید.</string>
+    <string name="clearcover_1_unread_message">1 پیام خوانده نشده دارید.</string>
+    <string name="clearcover_n_missed_calls">%d تماس بی پاسخ دارید.</string>
+    <string name="clearcover_n_unread_messages">%1$d پیام خوانده نشده دارید.</string>
+    <string name="s_view_screen_roaming">رومینگ</string>
+    <string name="s_view_screen_home">منزل</string>
+    <string name="clock_roaming">رومینگ</string>
+    <string name="clock_home">منزل</string>
+    <string name="battery_charging_percent">در حال شارژ: %%%d</string>
+    <string name="battery_wireless_charging_percent">شارژ به صورت بی‌سیم: %d%%</string>
+    <string name="battery_wireless_fast_charging_percent">شارژ سریع بی‌سیم: ‎%d درصد</string>
+    <string name="battery_charged">شارژ کامل انجام شد.</string>
+    <string name="battery_charging_remaining_time">(تقریباً %s تا وقتی کامل شارژ شود)</string>
+    <string name="time_format_hour_minute">%1$d ساعت و %2$d دقیقه</string>
+    <string name="time_format_hour">%d ساعت</string>
+    <string name="time_format_minute">%d دقیقه</string>
+    <string name="s_view_cover_missed_event_secured_popup">دستگاه قفل شد. برای مشاهده جزئیات بیشتر درپوش را باز کنید.</string>
+    <string name="s_view_cover_open_cover_popup_view_detail">برای مشاهده جزئیات جلد را باز کنید.</string>
+    <string name="s_view_cover_open_cover_popup_for_detail_message">برای مشاهده جزئیات پیام صفحه کشویی را باز کنید.</string>
+    <string name="s_view_cover_open_cover_popup_view_notification_details">برای مشاهده جزئیات اعلان، جلد را باز کنید.</string>
+    <string name="s_view_cover_open_cover_popup_for_detail_call">برای مشاهده جزئیات تماس تلفن را باز کنید</string>
+    <string name="s_view_cover_camera_button_accessibiliy">برای باز کردن دوربین دو بار ضربه زده و بکشید.</string>
+    <string name="s_view_cover_favourite_button_accessibiliy">برای باز کردن مخاطبین دلخواه، دو بار ضربه زده و بکشید.</string>
+    <string name="accessibility_battery_level">باتری %d درصد.</string>
+    <string name="s_view_cover_open_popup_favorite">دستگاه قفل شد. برای مشاهده مخاطبین دلخواه، روکش را باز کنید.</string>
+    <string name="pinwindowcover_warning_content">برای استفاده از برنامه متصل شده، جلد را باز کنید.</string>
+    <string name="battery_fast_charging_percent">شارژ سریع: %d درصد</string>
+    <string name="permission_sviewcover_access_description">این برنامه می‌تواند اطلاعات را از طریق پنجره S View نشان دهد.</string>
+    <string name="tts_previous">قبلی</string>
+    <string name="tts_next">بعدی</string>
+    <string name="tts_pause">وقفه</string>
+    <string name="tts_play">پخش</string>
+    <string name="sview_led_cover_download_feature_title">دانلود ویژگی‌های بیشتر</string>
+    <string name="sview_led_cover_download_feature_summary">ویژگی‌های بیشتری از LED View Cover را دانلود و نصب کنید. می‌توانید نمادهای LED شخصی ایجاد کرده و آنها را بعنوان نمادهای اعلان خود تنظیم کنید. برای دانلود در فرصت دیگر، به تنظیمات > ویژگی‌های پیشرفته > لوازم جانبی > LED View Cover بروید، سپس &lt;دانلود ویژگی‌های بیشتر> را انتخاب کنید.</string>
+    <string name="sview_led_cover_download_feature_summary_vzw">Download and install additional features for LED View Cover. You can create your own LED icons and set them as your notification icons. To download them later, go to Settings > Accessories > LED View Cover, then select Download additional features.</string>
+    <string name="monotype_dialog_button">بارگیری</string>
+    <string name="minimized_notification_talkback_description_open">برای دریافت اعلان از %s، دو بار ضربه بزنید.</string>
+    <string name="minimized_notification_talkback_description_open_more">دو بار ضربه بزنید تا صفحه اعلان‌ها باز شود.</string>
+    <string name="save">ذخیره کردن</string>
+    <string name="ok">تاييد</string>
+    <string name="battery_history_hours_no_seconds">‎%1$dh %2$dm</string>
+    <string name="battery_history_minutes_no_seconds">%dد</string>
+    <string name="wifi_fail_to_scan">اسکن شبکه‌ها امکان‌پذیر نیست</string>
+    <string name="wifi_failed_to_obtain_IP">دریافت آدرس IP انجام نشد.</string>
+    <string name="wifi_security_none">هیچ‌کدام</string>
+    <string name="wifi_remembered">ذخیره‌شده</string>
+    <string name="wifi_disabled_generic">غیرفعال شد</string>
+    <string name="wifi_disabled_network_failure">‏پیکربندی IP انجام نشد</string>
+    <string name="wifi_disabled_wifi_failure">‏اتصال Wi-Fi برقرار نشد</string>
+    <string name="wifi_disabled_no_internet">اینترنت در دسترس نیست</string>
+    <string name="wifi_disabled_password_failure">خطای تأیید اعتبار رخ داد</string>
+    <string name="wifi_not_in_range">در محدوده نیست</string>
+    <string name="wifi_no_internet">دسترسی به اینترنت شناسایی نشد، به صورت خودکار وصل نمی‌شود.</string>
+    <string name="saved_network">ذخیره‌شده توسط %1$s</string>
+    <string name="wifi_auto_reconnect_disabled">اتصال مجدد خودکار غیرفعال شد</string>
+    <string name="connected_via_wfa">‏متصل شده از طریق دستیار Wi-Fi</string>
+    <string name="connected_via_passpoint">‏متصل از طریق %1$s</string>
+    <string name="available_via_passpoint">‏در دسترس از طریق %1$s</string>
+    <string name="wifi_connected_no_internet">متصل، بدون اینترنت</string>
+    <string name="wifi_reconnecting">وقتی کیفیت شبکه بهبود می‌یابد شبکه آماده اتصال شود</string>
+    <string name="wifi_connected_checking_quality">در حال بررسی کیفیت اتصال اینترنت شما…</string>
+    <string name="wifi_setup_title_connected_network">به %s شبکه Wi-Fi وصل شد.</string>
+    <string name="wifi_sign_in_to_the_network">وارد شبکه شوید.</string>
+    <string name="wifi_disabled_captive_portal">ورود به سیستم مورد نیاز است.</string>
+    <string name="bluetooth_disconnect_message">اتصال بلوتوث با ‎%s پایان یافت.</string>
+    <string name="bluetooth_disconnected">اتصال قطع شد</string>
+    <string name="bluetooth_disconnecting">قطع…</string>
+    <string name="bluetooth_connecting">در حال اتصال…</string>
+    <string name="bluetooth_connected">وصل شد</string>
+    <string name="bluetooth_pairing">درحال جفت سازی…</string>
+    <string name="bluetooth_connected_no_headset">متصل شد (بدون تلفن)</string>
+    <string name="bluetooth_connected_no_a2dp">متصل شد (بدون رسانه)</string>
+    <string name="bluetooth_connected_no_map">متصل (عدم دسترسی به پیام)</string>
+    <string name="bluetooth_connected_no_headset_no_a2dp">متصل شد (بدون تلفن یا رسانه)</string>
+    <string name="bluetooth_profile_a2dp">صدای فیلم</string>
+    <string name="bluetooth_profile_headset">صدای تماس</string>
+    <string name="bluetooth_profile_opp">انتقال فایل</string>
+    <string name="bluetooth_profile_hid">دستگاه ورودی</string>
+    <string name="bluetooth_profile_pan">دسترسی به اینترنت</string>
+    <string name="bluetooth_profile_pbap">دسترسی به مخاطب</string>
+    <string name="bluetooth_profile_pbap_summary">استفاده برای اشتراک‌گذاری مخاطب</string>
+    <string name="bluetooth_profile_pan_nap">اشتراک گذاری اتصال اینترنت</string>
+    <string name="bluetooth_profile_map">دسترسی به پیام</string>
+    <string name="bluetooth_profile_sap">دسترسی به سیم‌کارت</string>
+    <string name="bluetooth_a2dp_profile_summary_connected">برای صدای رسانه متصل شد</string>
+    <string name="bluetooth_headset_profile_summary_connected">برای صدای تماس متصل شد</string>
+    <string name="bluetooth_opp_profile_summary_connected">به سرور انتقال فایل متصل شد</string>
+    <string name="bluetooth_map_profile_summary_connected">به نقشه متصل شد</string>
+    <string name="bluetooth_sap_profile_summary_connected">‏متصل به SAP</string>
+    <string name="bluetooth_opp_profile_summary_not_connected">به سرور انتقال فایل متصل نیست</string>
+    <string name="bluetooth_hid_profile_summary_connected">به عنوان دستگاه ورودی متصل شد</string>
+    <string name="bluetooth_pan_user_profile_summary_connected">به دستگاه برای دسترسی به اینترنت متصل است.</string>
+    <string name="bluetooth_pan_nap_profile_summary_connected">اشتراک‌گذاری اتصال اینترنت محلی با دستگاه</string>
+    <string name="bluetooth_spp_profile_summary_connected">متصل شده از طریق نمایه پورت سریال</string>
+    <string name="bluetooth_pan_profile_summary_use_for">برای دسترسی به اینترنت در این دستگاه، اتصال اینترنت بلوتوث را در دستگاه جفت شده فعال کنید.</string>
+    <string name="bluetooth_map_profile_summary_use_for">استفاده برای نقشه</string>
+    <string name="bluetooth_sap_profile_summary_use_for">استفاده برای دسترسی سیم‌کارت</string>
+    <string name="bluetooth_a2dp_profile_summary_use_for">استفاده برای رسانه صوتی</string>
+    <string name="bluetooth_headset_profile_summary_use_for">استفاده برای تلفن صوتی</string>
+    <string name="bluetooth_opp_profile_summary_use_for">استفاده برای انتقال فایل</string>
+    <string name="bluetooth_hid_profile_summary_use_for">استفاده برای چاپ</string>
+    <string name="bluetooth_profile_textinput">ورودی متن</string>
+    <string name="bluetooth_summary_connected_to_a2dp_headset">برای صدای رسانه و تماس متصل شد</string>
+    <string name="bluetooth_pan_nap_connected">برای ارائه اتصال اینترنت متصل شد</string>
+    <string name="bluetooth_pan_panu_connected">برای دسترسی به اتصال اینترنت متصل شد</string>
+    <string name="bluetooth_pairing_accept">مرتبط‌سازی</string>
+    <string name="bluetooth_pairing_accept_all_caps">مرتبط‌سازی</string>
+    <string name="bluetooth_pairing_decline">لغو</string>
+    <string name="bluetooth_pairing_will_share_phonebook">وقتی وصل باشید، مرتبط‌سازی اجازه دسترسی به مخاطبین و سابقه تماستان را فراهم می‌کند.</string>
+    <string name="bluetooth_pairing_error_message">ارتباط با %1$s ممکن نیست.</string>
+    <string name="bluetooth_pairing_pin_error_message">جفت شدن با ‎%1$s ممکن نیست. مطمئن شوید ‎%2$s برای جفت شدن آماده است.</string>
+    <string name="bluetooth_pairing_device_down_error_message">ارتباط با %1$s امکان‌پذیر نیست.</string>
+    <string name="bluetooth_pairing_rejected_error_message">مرتبط سازی توسط %s رد شد.</string>
+    <string name="accessibility_wifi_off">‏Wi‑Fi خاموش است.</string>
+    <string name="accessibility_no_wifi">‏Wi-Fi قطع‌ شد.</string>
+    <string name="accessibility_wifi_one_bar">‏یک نوار برای Wi‑Fi.</string>
+    <string name="accessibility_wifi_two_bars">‏دو نوار برای Wi‑Fi.</string>
+    <string name="accessibility_wifi_three_bars">‏سه نوار برای Wi‑Fi.</string>
+    <string name="accessibility_wifi_signal_full">‏قدرت سیگنال Wi‑Fi کامل است.</string>
+    <string name="process_kernel_label">‏سیستم عامل Android</string>
+    <string name="data_usage_uninstalled_apps">برنامه‌های حذف شده</string>
+    <string name="data_usage_uninstalled_apps_users">برنامه‌ها و کاربران حذف شده</string>
+    <string name="tether_settings_title_usb">‏اتصال داده با سیم USB</string>
+    <string name="tether_settings_title_wifi">نقطه اتصال قابل حمل</string>
+    <string name="tether_settings_title_bluetooth">اتصال اینترنت با تلفن همراه بلوتوث</string>
+    <string name="tether_settings_title_usb_bluetooth">اتصال به اینترنت با تلفن همراه</string>
+    <string name="tether_settings_title_all">نقطه اتصال تلفن همراه و اتصال اینترنت</string>
+    <string name="managed_user_title">همه برنامه‌های کاری</string>
+    <string name="user_guest">مهمان</string>
+    <string name="unknown">ناشناس</string>
+    <string name="running_process_item_user_label">کاربر: %1$s</string>
+    <string name="launch_defaults_some">بعضی پیش‌فرض‌ها تنظیم شده‌اند</string>
+    <string name="launch_defaults_none">هیچ پیش‌فرضی تنظیم نشده است</string>
+    <string name="tts_settings">تنظیمات متن به گفتار</string>
+    <string name="tts_settings_title">متن به گفتار</string>
+    <string name="tts_default_rate_title">سرعت گفتار</string>
+    <string name="tts_default_rate_summary">بازخوانی متن را سرعت دهید.</string>
+    <string name="tts_default_pitch_title">درجه صدا</string>
+    <string name="tts_default_pitch_summary">بر صدای متن گفته شده تأثیر می‌گذارد</string>
+    <string name="tts_default_lang_title">زبان</string>
+    <string name="tts_lang_use_system">استفاده از زبان سیستم</string>
+    <string name="tts_lang_not_selected">زبانی انتخاب نشده است</string>
+    <string name="tts_default_lang_summary">زبان بازخوانی متن را تنظیم کنید.</string>
+    <string name="tts_play_example_title">به یک مثال گوش کنید</string>
+    <string name="tts_play_example_summary">برنامه نمایشی کوتاهی از بازسازی گفتار را پخش کنید.</string>
+    <string name="tts_install_data_title">نصب اطلاعات صوتی</string>
+    <string name="tts_install_data_summary">نصب داده های صوتی برای بازسازی گفتار لازم است.</string>
+    <string name="tts_engine_security_warning">این موتور تولید صدا، تمام گفتگوها را جمع آوری می کند، از جمله رمزهای عبور، شماره های کارت اعتبار و دیگر اطلاعات شخصی. ادامه می دهید؟</string>
+    <string name="tts_engine_network_required">این زبان به یک اتصال شبکه فعال برای خروجی نوشتار به گفتار نیاز دارد.</string>
+    <string name="tts_default_sample_string">مثال تلفیق گفتار</string>
+    <string name="tts_status_title">وضعیت زبان پیش‌فرض</string>
+    <string name="tts_status_ok">‎%s کاملاً پشتیبانی می‌شود</string>
+    <string name="tts_status_requires_network">برای پشتیبانی از ‎%s، به اتصال شبکه نیاز است</string>
+    <string name="tts_status_not_supported">‎%s پشتیبانی نمی‌شود.</string>
+    <string name="tts_status_checking">کنترل…</string>
+    <string name="tts_engine_settings_title">تنظیمات برای %s</string>
+    <string name="tts_engine_settings_button">تنظیمات سیستم متن به گفتار را باز کنید.</string>
+    <string name="tts_engine_preference_section_title">موتور TTS برگزیده</string>
+    <string name="tts_general_section_title">عمومی</string>
+    <string name="tts_reset_speech_pitch_title">بازنشانی درجه صدا</string>
+    <string name="tts_reset_speech_pitch_summary">زیر و بمی صدای خواندن متن را به تنظیم پیش‌فرض بازنشانی کنید.</string>
+    <string name="choose_profile">انتخاب نمایه</string>
+    <string name="category_personal">شخصی</string>
+    <string name="category_work">محل کار</string>
+    <string name="development_settings_title">گزینه‌های برنامه‌نویسان</string>
+    <string name="development_settings_enable">فعال کردن گزینه‌های برنامه‌نویس</string>
+    <string name="development_settings_summary">تنظیم گزینه‌های مربوط به طراحی برنامه</string>
+    <string name="development_settings_not_available">گزینه‌های برنامه‌نویس برای این کاربر موجود نیست</string>
+    <string name="vpn_settings_not_available">‏تنظیمات VPN برای این کاربر در دسترس نیست</string>
+    <string name="tethering_settings_not_available">تنظیمات تترینگ برای این کاربر در دسترس نیست</string>
+    <string name="apn_settings_not_available">تنظیمات نام تقطه دسترسی برای این کاربر در دسترس نیست</string>
+    <string name="enable_adb">‏اشکال‌زدایی USB</string>
+    <string name="enable_adb_summary">‏با اتصال USB، حالت اشکال‌زدایی فعال شود</string>
+    <string name="clear_adb_keys">‏لغو مجوزهای اشکال‌زدایی USB</string>
+    <string name="bugreport_in_power">میان‌بر گزارش مشکل</string>
+    <string name="bugreport_in_power_summary">نمایش دکمه‌ای در منوی روشن/خاموش برای گرفتن گزارش اشکال</string>
+    <string name="keep_screen_on">بیدار ماندن</string>
+    <string name="keep_screen_on_summary">صفحه هرگز در حین شارژ شدن به حالت خواب نمی‌رود</string>
+    <string name="bt_hci_snoop_log">‏فعال کردن گزارش تجسس Bluetooth HCI</string>
+    <string name="bt_hci_snoop_log_summary">‏ذخیره تمامی بسته‌های HCI بلوتوث در یک فایل</string>
+    <string name="oem_unlock_enable">بازکردن سازنده تجهیزات اصلی</string>
+    <string name="oem_unlock_enable_summary">اجازه دهید قفل بوت‌لودر باز شود</string>
+    <string name="confirm_enable_oem_unlock_title">‏بازکردن سازنده تجهیزات اصلی مجاز (OEM) است؟</string>
+    <string name="confirm_enable_oem_unlock_text">اخطار: قابلیت‌های حفاظتی دستگاه وقتی این تنظیم روشن است در این دستگاه کار نمی‌کند.</string>
+    <string name="mock_location_app">انتخاب برنامه موقعیت مکانی ساختگی</string>
+    <string name="mock_location_app_not_set">هیچ برنامه موقعیت مکانی ساختگی تنظیم نشده است</string>
+    <string name="mock_location_app_set">برنامه موقعیت مکانی ساختگی: %1$s</string>
+    <string name="debug_networking_category">شبکه</string>
+    <string name="wifi_display_certification">گواهینامه نمایش بی‌سیم</string>
+    <string name="wifi_verbose_logging">‏فعال کردن گزارش‌گیری طولانی Wi‑Fi</string>
+    <string name="wifi_aggressive_handover">‏Wi‑Fi فعال برای واگذاری به شبکه سلولی</string>
+    <string name="wifi_allow_scan_with_traffic">‏اسکن‌های رومینگ Wi‑Fi همیشه مجاز است</string>
+    <string name="mobile_data_always_on">داده سلولی همیشه فعال</string>
+    <string name="bluetooth_disable_absolute_volume">غیرفعال کردن میزان صدای مطلق</string>
+    <string name="wifi_display_certification_summary">نمایش گزینه‌ها برای گواهینامه نمایش بی‌سیم</string>
+    <string name="wifi_verbose_logging_summary">‏افزایش سطح گزارش‌گیری Wi‑Fi، نمایش به ازای SSID RSSI در انتخاب‌کننده Wi‑Fi</string>
+    <string name="wifi_aggressive_handover_summary">‏وقتی فعال است، در شرایط پایین بودن سیگنال، Wi‑Fi برای واگذار کردن اتصال داده به شبکه سلولی فعال‌تر خواهد بود.</string>
+    <string name="wifi_allow_scan_with_traffic_summary">‏مجاز/غیرمجاز کردن اسکن‌های رومینگ Wi‑Fi براساس مقدار ترافیک داده موجود در واسط</string>
+    <string name="select_logd_size_title">اندازه‌های حافظه موقت ثبت‌کننده</string>
+    <string name="select_logd_size_dialog_title">انتخاب اندازه‌ ثبت‌کننده در حافظه موقت ثبت</string>
+    <string name="select_usb_configuration_title">‏انتخاب پیکربندی USB</string>
+    <string name="select_usb_configuration_dialog_title">‏انتخاب پیکربندی USB</string>
+    <string name="allow_mock_location">مکان‌های کاذب مجاز هستند</string>
+    <string name="allow_mock_location_summary">مکان‌های کاذب مجاز هستند</string>
+    <string name="debug_view_attributes">فعال کردن بازبینی ویژگی بازدید</string>
+    <string name="legacy_dhcp_client_summary">‏به جای کلاینت Android DHCP جدید، از کلاینت Lollipop DHCP استفاده کنید.</string>
+    <string name="mobile_data_always_on_summary">‏داده سلولی همیشه فعال نگه داشته می‌شود، حتی وقتی Wi-Fi فعال است (برای جابه‌جایی سریع شبکه).</string>
+    <string name="adb_warning_title">‏اشکال‌زدایی USB انجام شود؟</string>
+    <string name="adb_warning_message">‏اشکال‌زدایی USB فقط برای اهداف برنامه‌نویسی در نظر گرفته شده است. از آن برای رونوشت‌برداری داده بین رایانه و دستگاهتان، نصب برنامه‌ها در دستگاهتان بدون اعلان و خواندن داده‌های گزارش استفاده کنید.</string>
+    <string name="adb_keys_warning_message">‏دسترسی به اشکال‌زدایی USB از تمام رایانه‌هایی که قبلاً مجاز دانسته‌اید لغو شود؟</string>
+    <string name="dev_settings_warning_title">تنظیمات برنامه‌نویسی مجاز باشد؟</string>
+    <string name="dev_settings_warning_message">این تنظیمات فقط برای برنامه‌نویسی در نظر گرفته شده است. ممکن است استفاده از این تنظیمات موجب خرابی یا عملکرد نادرست دستگاه یا برنامه‌های شما شود.</string>
+    <string name="verify_apps_over_usb_title">‏تأیید برنامه‌های نصب شده از طریق USB</string>
+    <string name="verify_apps_over_usb_summary">‏برنامه‌های نصب شده از طریق ADB/ADT را ازنظر رفتار مخاطره‌آمیز بررسی کنید.</string>
+    <string name="bluetooth_disable_absolute_volume_summary">در صورت وجود مشکل میزان صدا با دستگاه‌های راه دور مثل میزان صدای بلند ناخوشایند یا عدم کنترل صدا، قابلیت میزان صدای کامل بلوتوث را غیرفعال کنید.</string>
+    <string name="enable_terminal_title">ترمینال محلی</string>
+    <string name="enable_terminal_summary">فعال کردن ترمینال برنامه‌ کاربردی که دسترسی به برنامه محلی را پیشنهاد می‌کند</string>
+    <string name="hdcp_checking_title">‏بررسی HDCP</string>
+    <string name="hdcp_checking_dialog_title">‏تنظیم عملکرد بررسی HDCP</string>
+    <string name="debug_debugging_category">اشکال‌زدایی</string>
+    <string name="debug_app">انتخاب برنامه اشکال‌زدایی</string>
+    <string name="debug_app_not_set">هیچ برنامه اشکال‌زدایی‌ای تنظیم نشده است</string>
+    <string name="debug_app_set">در حال اشکال‌زدایی برنامه: %1$s</string>
+    <string name="select_application">انتخاب برنامه</string>
+    <string name="no_application">هیچ چیز</string>
+    <string name="wait_for_debugger">انتظار برای اشکال‌زدا</string>
+    <string name="wait_for_debugger_summary">برنامه اشکال‌زدایی شده منتظر پیوست شدن اشکال‌زدا قبل از اجرا است</string>
+    <string name="debug_input_category">ورودی</string>
+    <string name="debug_drawing_category">طراحی</string>
+    <string name="debug_hw_drawing_category">پردازش سخت‌افزاری سریع</string>
+    <string name="media_category">رسانه</string>
+    <string name="debug_monitoring_category">نظارت</string>
+    <string name="strict_mode">حالت شدید فعال شد</string>
+    <string name="strict_mode_summary">چشمک زدن صفحه هنگام انجام عملیات طولانی توسط برنامه‌ها در رشته اصلی</string>
+    <string name="pointer_location">محل اشاره‌گر</string>
+    <string name="pointer_location_summary">هم‌پوشانی صفحهٔ نمایش با نمایش داده لمسی فعلی</string>
+    <string name="show_touches">نمایش ضربه‌ها</string>
+    <string name="show_touches_summary">نمایش بازخورد تصویری برای ضربه‌ها</string>
+    <string name="show_screen_updates">نمایش به‌روزرسانی سطح</string>
+    <string name="show_screen_updates_summary">هنگام به‌روزرسانی سطوح پنجره همه فلش شوند</string>
+    <string name="show_hw_screen_updates">‏نمایش به روزرسانی‌های نمای GPU</string>
+    <string name="show_hw_screen_updates_summary">‏در طراحی با GPU، نماها در داخل پنجره‌ها فلش شوند</string>
+    <string name="show_hw_layers_updates">نمایش به‌روزرسانی‌های لایه‌های سخت‌افزار</string>
+    <string name="show_hw_layers_updates_summary">وقتی لایه‌های سخت‌افزاری به‌روزرسانی‌ می‌شوند، به رنگ سبز درآیند</string>
+    <string name="debug_hw_overdraw">‏اشکال‌زدایی بازنویسی GPU</string>
+    <string name="disable_overlays">‏غیر فعال کردن پوشش HW</string>
+    <string name="disable_overlays_summary">‏همیشه از GPU در ترکیب صفحه استفاده شود</string>
+    <string name="simulate_color_space">شبیه‌سازی فضای رنگ</string>
+    <string name="enable_opengl_traces_title">‏فعال کردن ردیابی‌های OpenGL</string>
+    <string name="usb_audio_disable_routing">‏غیرفعال کردن مسیریابی صوتی USB</string>
+    <string name="usb_audio_disable_routing_summary">‏غیرفعال کردن مسیریابی خودکار به وسایل جانبی صوتی USB</string>
+    <string name="debug_layout">نمایش محدوده‌های طرح‌بندی</string>
+    <string name="debug_layout_summary">نمایش مرزها، حاشیه‌ها و ویژگی‌های دیگر کلیپ.</string>
+    <string name="force_rtl_layout_all_locales">‏اجباری کردن چیدمان RTL</string>
+    <string name="force_rtl_layout_all_locales_summary">‏اجباری کردن چیدمان RTL صفحه برای همه زبان‌ها</string>
+    <string name="show_cpu_usage">‏نمایش میزان استفاده از CPU</string>
+    <string name="show_cpu_usage_summary">‏هم‌پوشانی صفحهٔ نمایش میزان استفاده از CPU فعلی</string>
+    <string name="force_hw_ui">‏پردازش اجباری GPU</string>
+    <string name="force_hw_ui_summary">‏استفاده اجباری از GPU برای طراحی دوم</string>
+    <string name="force_msaa">‏اجبار 4x MSAA</string>
+    <string name="force_msaa_summary">‏فعال کردن 4X MSAA در برنامه‌های OpenGL ES 2.0</string>
+    <string name="show_non_rect_clip">اشکال‌زدایی عملکردهای کلیپ غیرمربعی</string>
+    <string name="track_frame_time">‏پردازش GPU نمایه</string>
+    <string name="window_animation_scale_title">مقیاس پویانمایی پنجره</string>
+    <string name="transition_animation_scale_title">مقیاس پویانمایی انتقالی</string>
+    <string name="animator_duration_scale_title">مقیاس طول مدت انیماتور</string>
+    <string name="overlay_display_devices_title">شبیه‌سازی نمایشگر ثانویه</string>
+    <string name="debug_applications_category">برنامه‌ها</string>
+    <string name="immediately_destroy_activities">فعالیت‌ها نگه داشته نشوند</string>
+    <string name="immediately_destroy_activities_summary">از بین بردن هر فعالیت به محض خروج کاربر از آن</string>
+    <string name="app_process_limit_title">محدودیت پردازش در پس‌زمینه</string>
+    <string name="show_all_anrs">‏نمایش تمام ANRها</string>
+    <string name="show_all_anrs_summary">نمایش گفتگوی \"برنامه پاسخ نمی‌دهد\" برای برنامه‌های پس‌زمینه</string>
+    <string name="force_allow_on_external">اجازه اجباری به برنامه‌های دستگاه ذخیره خارجی</string>
+    <string name="force_allow_on_external_summary">بدون توجه به مقادیر مانیفست، هر برنامه‌ای را برای نوشتن در حافظه خارجی واجد شرایط می‌کند</string>
+    <string name="force_resizable_activities">اجبار فعالیت‌ها به قابل تغییر اندازه بودن</string>
+    <string name="force_resizable_activities_summary">بدون توجه به مقادیر مانیفست، اندازه همه فعالیت‌ها برای حالت چند پنجره‌ای می‌تواند تغییر کند.</string>
+    <string name="enable_freeform_support">فعال کردن پنجره‌های آزاد</string>
+    <string name="enable_freeform_support_summary">فعال کردن پشتیبانی برای پنجره‌های آزاد آزمایشی.</string>
+    <string name="local_backup_password_title">گذرواژه پشتیبان‌گیری محلی</string>
+    <string name="local_backup_password_summary_none">پشتیبان‌گیری کامل رایانه درحال حاضر محافظت نمی‌شود</string>
+    <string name="local_backup_password_summary_change">برای تغییر یا حذف گذرواژه برای نسخه‌های پشتیبان کامل رایانه‌ای ضربه بزنید</string>
+    <string name="local_backup_password_toast_success">گذرواژه جدید نسخهٔ پشتیبان تنظیم شد</string>
+    <string name="local_backup_password_toast_confirmation_mismatch">گذرواژه جدید و تأیید آن با یکدیگر مطابقت ندارند</string>
+    <string name="local_backup_password_toast_validation_failure">گذرواژه پشتیبان‌گیری تنظیم نشد</string>
+    <string name="inactive_apps_title">برنامه‌های غیرفعال</string>
+    <string name="inactive_app_inactive_summary">غیرفعال. برای تغییر حالت ضربه بزنید.</string>
+    <string name="inactive_app_active_summary">فعال. برای تغییر حالت ضربه بزنید.</string>
+    <string name="runningservices_settings_title">سرویس‌های در حال اجرا</string>
+    <string name="runningservices_settings_summary">مشاهده و کنترل سرویس‌های در حال اجرای فعلی</string>
+    <string name="enable_webview_multiprocess">فعال کردن وب‌نمای چندپردازشی</string>
+    <string name="enable_webview_multiprocess_desc">اجرای تولیدکننده تصویر وب‌نما در یک پردازش مجزا.</string>
+    <string name="select_webview_provider_title">اجرای وب‌نما</string>
+    <string name="select_webview_provider_dialog_title">تنظیم اجرای وب‌نما</string>
+    <string name="select_webview_provider_toast_text">این انتخاب دیگر معتبر نیست. دوباره امتحان کنید.</string>
+    <string name="convert_to_file_encryption">تبدیل به رمزگذاری برحسب فایل</string>
+    <string name="convert_to_file_encryption_enabled">تبدیل…</string>
+    <string name="convert_to_file_encryption_done">از قبل به رمزگذاری بر حسب فایل تبدیل شده است</string>
+    <string name="title_convert_fbe">تبدیل به رمزگذاری مبتنی بر فایل</string>
+    <string name="convert_to_fbe_warning">"تبدیل پارتیشن داده‌ای به رمزگذاری مبتنی بر فایل.
+ !!هشدار!! این کار تمام داده‌هایتان را پاک می‌کند.
+ این قابلیت در نسخه آلفا قرار دارد و ممکن است به درستی کار نکند.
+ برای ادامه، «پاک کردن و تبدیل…» را فشار دهید."</string>
+    <string name="button_convert_fbe">پاک کردن و تبدیل…</string>
+    <string name="picture_color_mode">حالت رنگ عکس</string>
+    <string name="picture_color_mode_desc">‏استفاده از sRGB</string>
+    <string name="daltonizer_mode_disabled">غیر فعال</string>
+    <string name="daltonizer_mode_monochromacy">تک‌رنگ‌بینی</string>
+    <string name="daltonizer_mode_deuteranomaly">سبزدشواربینی (قرمز-سبز)</string>
+    <string name="daltonizer_mode_protanomaly">قرمزدشواربینی (قرمز-سبز)</string>
+    <string name="daltonizer_mode_tritanomaly">آبی‌دشواربینی (آبی-زرد)</string>
+    <string name="accessibility_display_daltonizer_preference_title">تصحیح رنگ</string>
+    <string name="accessibility_display_daltonizer_preference_subtitle">این قابلیت آزمایشی است و ممکن است عملکرد را تحت تأثیر قرار دهد.</string>
+    <string name="daltonizer_type_overridden">توسط %1$s لغو شد</string>
+    <string name="power_remaining_duration_only">تقریباً %1$s باقی مانده است</string>
+    <string name="power_remaining_duration_only_short">%1$s باقی مانده</string>
+    <string name="power_discharging_duration">%1$s - تقریباً ‏%2$s باقی مانده است</string>
+    <string name="power_discharging_duration_short">%1$s - %2$s باقی مانده</string>
+    <string name="power_charging">%1$s - ‏%2$s</string>
+    <string name="power_charging_duration">%1$s: %2$s تا شارژ کامل باقی مانده است</string>
+    <string name="power_charging_duration_short">%1$s - %2$s</string>
+    <string name="power_charging_duration_ac">%1$s: %2$s تا شارژ کامل با برق متناوب باقی مانده است</string>
+    <string name="power_charging_duration_ac_short">%1$s - %2$s</string>
+    <string name="power_charging_duration_usb">%1$s: %2$s تا شارژ کامل با USB باقی مانده است</string>
+    <string name="power_charging_duration_usb_short">%1$s - %2$s</string>
+    <string name="power_charging_duration_wireless">%1$s: ‏%2$s تا شارژ کامل باتری باقی مانده است (شارژ بی‌سیم)</string>
+    <string name="power_charging_duration_wireless_short">%1$s - %2$s</string>
+    <string name="battery_info_status_unknown">ناشناس</string>
+    <string name="battery_info_status_charging">شارژ کردن</string>
+    <string name="battery_info_status_charging_ac">شارژ با جریان متناوب</string>
+    <string name="battery_info_status_charging_ac_short">درحال شارژ شدن</string>
+    <string name="battery_info_status_charging_usb">‏شارژ از طریق USB</string>
+    <string name="battery_info_status_charging_usb_short">درحال شارژ شدن</string>
+    <string name="battery_info_status_charging_wireless">شارژ به صورت بی‌سیم</string>
+    <string name="battery_info_status_charging_wireless_short">درحال شارژ شدن</string>
+    <string name="battery_info_status_discharging">شارژ نمی‌شود</string>
+    <string name="battery_info_status_not_charging">شارژ نمی‌شود</string>
+    <string name="battery_info_status_full">پر</string>
+    <string name="battery_info_status_adaptive_fast_charging">شارژ سریع</string>
+    <string name="battery_info_power_ac">AC</string>
+    <string name="battery_info_power_usb">USB</string>
+    <string name="battery_info_power_wireless">بی سیم</string>
+    <string name="disabled_by_admin_summary_text">توسط سرپرست سیستم کنترل می‌شود</string>
+    <string name="enabled_by_admin">سرپرست آن را فعال کرده است</string>
+    <string name="disabled_by_admin">سرپرست آن را غیرفعال کرده است</string>
+    <string name="home">صفحه اصلی تنظیمات</string>
+    <string name="charge_length_format">%s قبل</string>
+    <string name="remaining_length_format">%s دقیقه باقی مانده</string>
+    <string name="screen_zoom_summary_small">کوچک</string>
+    <string name="screen_zoom_summary_default">پیش‌فرض</string>
+    <string name="screen_zoom_summary_large">بزرگ</string>
+    <string name="screen_zoom_summary_very_large">بزرگ‌تر</string>
+    <string name="screen_zoom_summary_extremely_large">بزرگ‌ترین</string>
+    <string name="screen_zoom_summary_custom">سفارشی (%d)</string>
+    <string name="help_feedback_label">راهنما و بازخورد</string>
+    <string name="default_app">تنظیم به عنوان پیش‌فرض</string>
+    <string name="no_default_app">هیچکدام بعنوان پیش‌فرض تنظیم نشد</string>
+    <string name="battery_discharging_duration">زمان باقیمانده تخمینی استفاده: ‎%s</string>
+    <string name="bluetooth_tethering_cannot_connect_while_connected_to_wifi">هنگامی که دستگاه به شبکه Wi-Fi متصل است، اتصال بلوتوث ممکن نیست.</string>
+    <string name="lb_navigation_menu_contentDescription">منوی پیمایش</string>
+    <string name="orb_search_action">عملکرد جستجو</string>
+    <string name="lb_search_bar_hint">جستجو</string>
+    <string name="lb_search_bar_hint_speech">برای جستجو صحبت کنید</string>
+    <string name="lb_search_bar_hint_with_title">جستجوی %1$s</string>
+    <string name="lb_search_bar_hint_with_title_speech">جستجو با گفتن %1$s</string>
+    <string name="lb_control_display_fast_forward_multiplier">%1$dX</string>
+    <string name="lb_control_display_rewind_multiplier">%1$dX</string>
+    <string name="lb_playback_controls_play">پخش</string>
+    <string name="lb_playback_controls_pause">مکث</string>
+    <string name="lb_playback_controls_fast_forward">جلو بردن سریع</string>
+    <string name="lb_playback_controls_fast_forward_multiplier">‏بازارسال سریع %1$dX</string>
+    <string name="lb_playback_controls_rewind">عقب بردن</string>
+    <string name="lb_playback_controls_rewind_multiplier">‏عقب بردن %1$dX</string>
+    <string name="lb_playback_controls_skip_next">رد شدن از بعدی</string>
+    <string name="lb_playback_controls_skip_previous">رد شدن از قبلی</string>
+    <string name="lb_playback_controls_more_actions">عملکردهای بیشتر</string>
+    <string name="lb_playback_controls_thumb_up">لغو انتخاب رأی موافق</string>
+    <string name="lb_playback_controls_thumb_up_outline">انتخاب رأی موافق</string>
+    <string name="lb_playback_controls_thumb_down">لغو انتخاب رأی مخالف</string>
+    <string name="lb_playback_controls_thumb_down_outline">انتخاب رأی مخالف</string>
+    <string name="lb_playback_controls_repeat_none">تکرار هیچ‌کدام</string>
+    <string name="lb_playback_controls_repeat_all">تکرار همه</string>
+    <string name="lb_playback_controls_repeat_one">یک‌بار تکرار</string>
+    <string name="lb_playback_controls_shuffle_enable">فعال کردن پخش تصادفی</string>
+    <string name="lb_playback_controls_shuffle_disable">غیرفعال کردن پخش تصادفی</string>
+    <string name="lb_playback_controls_high_quality_enable">فعال کردن کیفیت بالا</string>
+    <string name="lb_playback_controls_high_quality_disable">غیرفعال کردن کیفیت بالا</string>
+    <string name="lb_playback_controls_closed_captioning_enable">فعال کردن زیرنویس</string>
+    <string name="lb_playback_controls_closed_captioning_disable">غیرفعال کردن زیرنویس</string>
+    <string name="lb_playback_controls_picture_in_picture">وارد حالت تصویر در تصویر شوید</string>
+    <string name="lb_guidedaction_finish_title">پایان</string>
+    <string name="lb_guidedaction_continue_title">ادامه</string>
+    <string name="lb_date_separator">/</string>
+    <string name="lb_time_separator">:</string>
+    <string name="lb_onboarding_get_started">شروع به‌ کار</string>
+    <string name="lb_onboarding_accessibility_next">بعدی</string>
+    <string name="abc_action_mode_done">تمام</string>
+    <string name="abc_action_bar_home_description">پیمایش به صفحه اصلی</string>
+    <string name="abc_action_bar_up_description">پیمایش به بالا</string>
+    <string name="abc_action_menu_overflow_description">گزینه‌های بیشتر</string>
+    <string name="abc_toolbar_collapse_description">کوچک کردن</string>
+    <string name="abc_action_bar_home_description_format">‏%1$s‏، %2$s</string>
+    <string name="abc_action_bar_home_subtitle_description_format">‏%1$s‏، %2$s‏، %3$s</string>
+    <string name="abc_searchview_description_search">جستجو</string>
+    <string name="abc_search_hint">جستجو…</string>
+    <string name="abc_searchview_description_query">عبارت جستجو</string>
+    <string name="abc_searchview_description_clear">پاک کردن عبارت جستجو</string>
+    <string name="abc_searchview_description_submit">ارسال عبارت جستجو</string>
+    <string name="abc_searchview_description_voice">جستجوی شفاهی</string>
+    <string name="abc_activitychooserview_choose_application">انتخاب برنامه</string>
+    <string name="abc_activity_chooser_view_see_all">مشاهده همه</string>
+    <string name="abc_shareactionprovider_share_with_application">‏اشتراک‌گذاری با %s</string>
+    <string name="abc_shareactionprovider_share_with">اشتراک‌گذاری با</string>
+    <string name="status_bar_notification_info_overflow">۹۹۹+</string>
+    <string name="abc_capital_on">روشن</string>
+    <string name="abc_capital_off">خاموش</string>
+    <string name="app_label">‏UI سیستم</string>
+    <string name="status_bar_clear_all_button">پاک کردن همه</string>
+    <string name="status_bar_recent_remove_item_title">حذف از فهرست</string>
+    <string name="status_bar_recent_inspect_item_title">اطلاعات برنامه</string>
+    <string name="status_bar_no_recent_apps">صفحه‌های اخیر شما اینجا نمایان می‌شوند</string>
+    <string name="status_bar_accessibility_dismiss_recents">رد کردن برنامه‌های اخیر</string>
+    <string name="status_bar_no_notifications_title">اعلانی موجود نیست</string>
+    <string name="status_bar_ongoing_events_title">در حال انجام</string>
+    <string name="status_bar_latest_events_title">اعلان‌ها</string>
+    <string name="battery_low_title">شارژ باتری کم است</string>
+    <string name="battery_low_percent_format">%s باقی مانده است</string>
+    <string name="battery_low_percent_format_saver_started">%s باقی مانده است. بهینه‌سازی باتری روشن است.</string>
+    <string name="invalid_charger">"‏شارژ USB پشتیبانی نمی‌شود.
+فقط از شارژر ارائه شده استفاده کنید."</string>
+    <string name="invalid_charger_title">‏شارژ با USB پشتیبانی نمی‌شود.</string>
+    <string name="invalid_charger_text">فقط از شارژر ارائه شده استفاده کنید.</string>
+    <string name="battery_low_why">تنظیمات</string>
+    <string name="battery_saver_confirmation_title">بهینه‌سازی باتری روشن شود؟</string>
+    <string name="battery_saver_confirmation_ok">روشن کردن</string>
+    <string name="battery_saver_start_action">بهینه‌سازی باتری را روشن کنید</string>
+    <string name="status_bar_settings_settings_button">تنظیمات</string>
+    <string name="status_bar_settings_wifi_button">Wi-Fi</string>
+    <string name="status_bar_settings_auto_rotation">چرخش خودکار صفحه</string>
+    <string name="status_bar_settings_auto_brightness_label">خودکار</string>
+    <string name="brightness_controller_label_text">خودکار</string>
+    <string name="quick_settings_brightness_controller_hbm">افزایش روشنایی برای دید بهتر در نور خورشید</string>
+    <string name="status_bar_settings_notifications">اعلان‌ها</string>
+    <string name="bluetooth_tethered">اتصال اینترنتی با بلوتوث تلفن همراه</string>
+    <string name="status_bar_input_method_settings_configure_input_methods">تنظیم روش‌های ورودی</string>
+    <string name="status_bar_use_physical_keyboard">صفحه‌کلید فیزیکی</string>
+    <string name="usb_device_permission_prompt">‏به برنامه %1$s اجازه می‌دهید به دستگاه USB دسترسی داشته باشد؟</string>
+    <string name="usb_accessory_permission_prompt">‏به برنامه %1$s اجازه می‌دهد تا به وسیله جانبی USB دسترسی داشته باشد؟</string>
+    <string name="usb_device_confirm_prompt">‏وقتی این دستگاه USB وصل است، %1$s باز شود؟</string>
+    <string name="title_usb_accessory">‏لوازم جانبی USB</string>
+    <string name="always_use_device">‏استفاده به صورت پیش‌فرض برای این دستگاه USB</string>
+    <string name="usb_debugging_title">‏اشکال‌زدایی USB مجاز است؟</string>
+    <string name="usb_debugging_message">"‏اثر انگشت کلید RSA رایانه: 
+%1$s"</string>
+    <string name="usb_debugging_always">همیشه از این رایانه انجام شود</string>
+    <string name="usb_debugging_secondary_user_title">‏اشکال‌زدایی USB مجاز نیست</string>
+    <string name="usb_debugging_secondary_user_message">‏کاربری که درحال‌حاضر در این دستگاه وارد سیستم شده نمی‌تواند اشکال‌زدای USB را روشن کند. برای استفاده از این ویژگی، لطفاً به کاربر «سرپرست» تغییر حالت دهید.</string>
+    <string name="compat_mode_on">بزرگ‌نمایی برای پر کردن صفحه</string>
+    <string name="compat_mode_off">گسترده کردن برای پر کردن صفحه</string>
+    <string name="tw_recents_lock_to_app_button_label">اتصال برنامه</string>
+    <string name="tw_lock_to_app_title">فعال کردن لغو پنجره‌ها</string>
+    <string name="tw_lock_to_app_description_1">این عملکرد به شما امکان می‌دهد برنامه‌ای را به صفحه دستگاهتان متصل کنید تا لازم نباشد از صفحه اصلی دستگاه بیرون بروید.</string>
+    <string name="tw_lock_to_app_description_2">وقتی برنامه‌ای به صفحه نمایش متصل می‌شود، اعلان‌های برنامه‌های دیگر مسدود شده و ممکن است عملکردهای دیگر از جمله تماس و پیام‌رسانی در دسترس نباشند.</string>
+    <string name="tw_lock_to_app_description_tablet_wifi">وقتی برنامه‌ای به صفحه نمایش متصل می‌شود، اعلان‌ها مسدود شده و ممکن است عملکردهای دیگر در دسترس نباشند.</string>
+    <string name="tw_lock_to_app_description_recents_and_back">برای برداشتن اتصال برنامه، کلیدهای موارد اخیر و برگشت را همزمان فشار داده و نگهدارید.</string>
+    <string name="tw_lock_to_app_description_menu_and_back">برای برداشتن اتصال برنامه، کلیدهای منو و برگشت را همزمان فشار داده و نگهدارید.</string>
+    <string name="tw_lock_to_app_description_recents_and_back_accessible">برای برداشتن اتصال برنامه، کلید موارد اخیر را فشار داده و نگهدارید.</string>
+    <string name="tw_lock_to_app_description_menu_and_back_accessible">برای برداشتن اتصال برنامه، کلید منو را فشار داده و نگهدارید.</string>
+    <string name="tw_unable_to_pin_title">متصل کردن %s ممکن نیست</string>
+    <string name="tw_unable_to_pin_description">این برنامه از اتصال پنجره‌ها پشتیبانی نمی‌کند.</string>
+    <string name="tw_unable_to_pin_description_toast">اتصال برنامه ممکن نیست. %s بسته شد. خطای ناشناخته رخ داد.</string>
+    <string name="tw_screen_pinning_positive">شروع</string>
+    <string name="tw_screen_pinning_negative">خیر متشکرم</string>
+    <string name="accessibility_recents_item_pin">پین</string>
+    <string name="accessibility_recents_item_unpin">برداشتن اتصال</string>
+    <string name="screenshot_saving_ticker">در حال ذخیره عکس صفحه‌نمایش...</string>
+    <string name="screenshot_saving_title">در حال ذخیره عکس صفحه‌نمایش...</string>
+    <string name="screenshot_saving_text">عکس صفحه‌نمایش ذخیره شد.</string>
+    <string name="screenshot_saved_title">عکس صفحه‌نمایش گرفته شد.</string>
+    <string name="screenshot_failed_title">عکس صفحه‌نمایش گرفته نشد.</string>
+    <string name="memory_full_dialog_title">عکس از صفحه ممکن نیست</string>
+    <string name="memory_full_dialog_msg">فضای کافی در محل ذخیره دستگاهتان وجود ندارد. چند فایل را حذف کرده و دوباره امتحان کنید.</string>
+    <string name="screen_capture_fail_for_storage_capacity">فضای کافی در محل ذخیره دستگاه وجود ندارد. چند فایل را حذف کرده و دوباره امتحان کنید.</string>
+    <string name="screen_capture_fail_for_security_policy">عکس گرفتن از صفحه ممکن نیست. توسط سیاست امنیتی متوقف شد.</string>
+    <string name="screen_capture_edit">تصحيح</string>
+    <string name="screen_capture_share">اشتراک</string>
+    <string name="screen_capture_delete">حذف</string>
+    <string name="qs_detail_capture_screen">عکس از صفحه</string>
+    <string name="qs_detail_recorder_screen">Record screen</string>
+    <string name="qs_detail_capture_mode">Screen capture mode</string>
+    <string name="qs_detail_capture_mode_text">Select the function you want to add to the quick settings panel.</string>
+    <string name="unable_to_open_ps_in_emergency_mode">باز کردن %s در حالت اضطراری ممکن نیست.</string>
+    <string name="unable_to_open_ps_in_upsm">باز کردن ‎%s در حالت ذخیره نیروی بیشتر ممکن نیست.</string>
+    <string name="unable_to_open_ps_in_mpsm">باز کردن ‎%s در حالت ذخیره نیروی حداکثر ممکن نیست.</string>
+    <string name="image_viewer">مشاهده گر تصویر</string>
+    <string name="photo_editor">ویرایشگر عکس</string>
+    <string name="to_use_this_function_download_the_following_application">"برای استفاده از این عملکرد، برنامه زیر را دانلود کنید:‎%s
+
+"</string>
+    <string name="usb_preference_title">‏گزینه‌های انتقال فایل USB</string>
+    <string name="use_mtp_button_title">‏نصب به‌عنوان دستگاه پخش رسانه (MTP)</string>
+    <string name="use_ptp_button_title">‏تصب به‌عنوان دوربین (PTP)</string>
+    <string name="installer_cd_button_title">‏برنامه Android File Transfer را برای Mac نصب کنید</string>
+    <string name="accessibility_back">برگشت</string>
+    <string name="accessibility_home">صفحهٔ اصلی</string>
+    <string name="accessibility_menu">منو</string>
+    <string name="accessibility_recent">نمای کلی</string>
+    <string name="accessibility_camera_button">دوربین</string>
+    <string name="accessibility_phone_button">تلفن</string>
+    <string name="accessibility_voice_assist_button">دستیار صوتی</string>
+    <string name="accessibility_unlock_button">باز کردن قفل</string>
+    <string name="accessibility_unlock_button_fingerprint">دکمه باز کردن قفل، در انتظار اثر انگشت</string>
+    <string name="accessibility_unlock_without_fingerprint">باز کردن قفل بدون استفاده از اثر انگشت</string>
+    <string name="unlock_label">بازکردن قفل</string>
+    <string name="phone_label">باز کردن تلفن</string>
+    <string name="voice_assist_label">«دستیار صوتی» را باز کنید</string>
+    <string name="camera_label">باز کردن دوربین</string>
+    <string name="recents_caption_resize">انتخاب طرح‌بندی جدید کار</string>
+    <string name="accessibility_compatibility_zoom_button">دکمه بزرگ‌نمایی سازگار.</string>
+    <string name="accessibility_compatibility_zoom_example">بزرگ‌نمایی از صفحه‌های کوچک تا بزرگ.</string>
+    <string name="accessibility_bluetooth_connected">بلوتوث متصل است.</string>
+    <string name="accessibility_bluetooth_disconnected">بلوتوث قطع شده است.</string>
+    <string name="accessibility_no_battery">باتری موجود نیست.</string>
+    <string name="accessibility_battery_one_bar">یک نوار برای باتری.</string>
+    <string name="accessibility_battery_two_bars">دو نوار برای باتری.</string>
+    <string name="accessibility_battery_three_bars">سه نوار برای باتری.</string>
+    <string name="accessibility_battery_full">باتری پر است.</string>
+    <string name="accessibility_no_phone">بدون تلفن.</string>
+    <string name="accessibility_phone_one_bar">یک نوار برای تلفن.</string>
+    <string name="accessibility_phone_two_bars">دو نوار برای تلفن.</string>
+    <string name="accessibility_phone_three_bars">سه نوار برای تلفن.</string>
+    <string name="accessibility_phone_signal_full">قدرت امواج تلفن همراه کامل است.</string>
+    <string name="accessibility_no_data">داده‌ای وجود ندارد.</string>
+    <string name="accessibility_data_one_bar">یک نوار برای داده.</string>
+    <string name="accessibility_data_two_bars">دو نوار برای داده.</string>
+    <string name="accessibility_data_three_bars">سه نوار برای داده.</string>
+    <string name="accessibility_data_signal_full">قدرت سیگنال داده کامل است.</string>
+    <string name="accessibility_wifi_name">به %s متصل شد.</string>
+    <string name="accessibility_bluetooth_name">به %s متصل شد.</string>
+    <string name="accessibility_cast_name">متصل به %s.</string>
+    <string name="accessibility_no_wimax">‏WiMAX وجود ندارد.</string>
+    <string name="accessibility_wimax_one_bar">‏WiMAX دارای یک نوار است.</string>
+    <string name="accessibility_wimax_two_bars">‏WiMAX دارای دو نوار است.</string>
+    <string name="accessibility_wimax_three_bars">‏WiMAX دارای سه نوار است.</string>
+    <string name="accessibility_wimax_signal_full">‏قدرت سیگنال WiMAX کامل است.</string>
+    <string name="accessibility_ethernet_disconnected">اترنت قطع شد.</string>
+    <string name="accessibility_ethernet_connected">اترنت متصل شد.</string>
+    <string name="accessibility_no_signal">فاقد سیگنال.</string>
+    <string name="accessibility_not_connected">متصل نیست.</string>
+    <string name="accessibility_zero_bars">بدون میله.</string>
+    <string name="accessibility_one_bar">یک میله.</string>
+    <string name="accessibility_two_bars">دو میله.</string>
+    <string name="accessibility_three_bars">سه میله.</string>
+    <string name="accessibility_signal_full">سیگنال کامل.</string>
+    <string name="accessibility_desc_on">روشن.</string>
+    <string name="accessibility_desc_off">خاموش.</string>
+    <string name="accessibility_desc_connected">متصل.</string>
+    <string name="accessibility_desc_connecting">در حال مرتبط‌ شدن.</string>
+    <string name="accessibility_data_connection_gprs">GPRS</string>
+    <string name="accessibility_data_connection_1x">1 X</string>
+    <string name="accessibility_data_connection_hspa">HSPA</string>
+    <string name="accessibility_data_connection_3g">3G</string>
+    <string name="accessibility_data_connection_3.5g">3.5G</string>
+    <string name="accessibility_data_connection_4g">4G</string>
+    <string name="accessibility_data_connection_lte">LTE</string>
+    <string name="accessibility_data_connection_cdma">CDMA</string>
+    <string name="accessibility_data_connection_roaming">رومینگ</string>
+    <string name="accessibility_data_connection_edge">Edge</string>
+    <string name="accessibility_data_connection_wifi">Wi-Fi</string>
+    <string name="accessibility_no_sim">بدون سیم کارت.</string>
+    <string name="accessibility_cell_data">داده شبکه تلفن همراه</string>
+    <string name="accessibility_cell_data_on">داده شبکه تلفن همراه روشن</string>
+    <string name="accessibility_cell_data_off">داده تلفن همراه خاموش است</string>
+    <string name="accessibility_bluetooth_tether">اتصال اینترنت با بلوتوث تلفن همراه.</string>
+    <string name="accessibility_airplane_mode">حالت هواپیما.</string>
+    <string name="accessibility_no_sims">سیم‌کارتی موجود نیست.</string>
+    <string name="accessibility_carrier_network_change_mode">تغییر شبکه شرکت مخابراتی.</string>
+    <string name="accessibility_battery_details">باز کردن جزئیات باتری</string>
+    <string name="accessibility_battery_level_charging">در حال شارژ باتری، %d درصد</string>
+    <string name="accessibility_settings_button">تنظیمات سیستم.</string>
+    <string name="accessibility_notifications_button">اعلان‌ها.</string>
+    <string name="accessibility_remove_notification">پاک کردن اعلان</string>
+    <string name="accessibility_gps_enabled">‏GPS فعال شد.</string>
+    <string name="accessibility_gps_acquiring">‏دستیابی به GPS.</string>
+    <string name="accessibility_tty_enabled">‏TeleTypewriter فعال شد.</string>
+    <string name="accessibility_ringer_vibrate">زنگ لرزشی.</string>
+    <string name="accessibility_work_mode">حالت کار</string>
+    <string name="accessibility_recents_item_will_be_dismissed">رد کردن %s.</string>
+    <string name="accessibility_recents_item_dismissed">%s نادیده گرفته شد.</string>
+    <string name="accessibility_recents_all_items_dismissed">همه برنامه‌های اخیر رد شدند.</string>
+    <string name="accessibility_recents_item_open_app_info">باز کردن اطلاعات برنامه %s.</string>
+    <string name="accessibility_recents_item_launched">%s در حال شروع به کار است.</string>
+    <string name="accessibility_recents_task_header">%1$s %2$s</string>
+    <string name="accessibility_notification_dismissed">اعلان ردشد.</string>
+    <string name="accessibility_desc_notification_shade">مجموعه اعلان.</string>
+    <string name="accessibility_desc_quick_settings">تنظیمات سریع.</string>
+    <string name="accessibility_desc_lock_screen">صفحه در حالت قفل.</string>
+    <string name="accessibility_desc_settings">تنظیمات</string>
+    <string name="accessibility_desc_recent_apps">برنامه های اخیر</string>
+    <string name="accessibility_desc_close">بستن</string>
+    <string name="accessibility_quick_settings_user">کاربر %s.</string>
+    <string name="accessibility_quick_settings_wifi">%1$s.</string>
+    <string name="accessibility_quick_settings_wifi_changed_off">‏Wi-Fi خاموش شد.</string>
+    <string name="accessibility_quick_settings_wifi_changed_on">‏Wi-Fi روشن شد.</string>
+    <string name="accessibility_quick_settings_mobile">تلفن همراه %1$s. %2$s. %3$s.</string>
+    <string name="accessibility_quick_settings_battery">باتری %s.</string>
+    <string name="accessibility_quick_settings_airplane_off">حالت هواپیما خاموش است.</string>
+    <string name="accessibility_quick_settings_airplane_on">حالت هواپیما روشن است.</string>
+    <string name="accessibility_quick_settings_airplane_changed_off">حالت هواپیما خاموش شد.</string>
+    <string name="accessibility_quick_settings_airplane_changed_on">حالت هواپیما روشن شد.</string>
+    <string name="accessibility_quick_settings_dnd_priority_on">«مزاحم نشوید» روشن است، فقط اولویت‌دار.</string>
+    <string name="accessibility_quick_settings_dnd_none_on">حالت «مزاحم نشوید» روشن است، سکوت کامل.</string>
+    <string name="accessibility_quick_settings_dnd_alarms_on">حالت «مزاحم نشوید» روشن است، فقط هشدارها.</string>
+    <string name="accessibility_quick_settings_dnd">مزاحم نشوید.</string>
+    <string name="accessibility_quick_settings_dnd_off">«مزاحم نشوید» خاموش است.</string>
+    <string name="accessibility_quick_settings_dnd_changed_off">«مزاحم نشوید» خاموش شد.</string>
+    <string name="accessibility_quick_settings_dnd_changed_on">«مزاحم نشوید» روشن شد.</string>
+    <string name="accessibility_quick_settings_bluetooth">بلوتوث.</string>
+    <string name="accessibility_quick_settings_bluetooth_off">بلوتوث خاموش است.</string>
+    <string name="accessibility_quick_settings_bluetooth_on">بلوتوث روشن است.</string>
+    <string name="accessibility_quick_settings_bluetooth_connecting">بلوتوث در حال اتصال است.</string>
+    <string name="accessibility_quick_settings_bluetooth_connected">بلوتوث متصل است.</string>
+    <string name="accessibility_quick_settings_bluetooth_changed_off">بلوتوث خاموش شد.</string>
+    <string name="accessibility_quick_settings_bluetooth_changed_on">بلوتوث روشن شد.</string>
+    <string name="accessibility_quick_settings_location_off">گزارش موقعیت مکانی خاموش است.</string>
+    <string name="accessibility_quick_settings_location_on">گزارش موقعیت مکانی روشن است.</string>
+    <string name="accessibility_quick_settings_location_changed_off">گزارش موقعیت مکانی خاموش شد.</string>
+    <string name="accessibility_quick_settings_location_changed_on">گزارش موقعیت مکانی روشن شد.</string>
+    <string name="accessibility_quick_settings_alarm">هشدار برای %s تنظیم شد.</string>
+    <string name="accessibility_quick_settings_close">پانل را ببندید.</string>
+    <string name="accessibility_quick_settings_more_time">زمان بیشتر.</string>
+    <string name="accessibility_quick_settings_less_time">زمان کمتر.</string>
+    <string name="accessibility_quick_settings_flashlight_off">چراغ قوه خاموش است.</string>
+    <string name="accessibility_quick_settings_flashlight_unavailable">چراغ قوه در دسترس نیست.</string>
+    <string name="accessibility_quick_settings_flashlight_on">چراغ قوه روشن است.</string>
+    <string name="accessibility_quick_settings_flashlight_changed_off">چراغ قوه خاموش شد.</string>
+    <string name="accessibility_quick_settings_flashlight_changed_on">چراغ قوه روشن شد.</string>
+    <string name="accessibility_quick_settings_color_inversion_changed_off">وارونگی رنگ خاموش شد.</string>
+    <string name="accessibility_quick_settings_color_inversion_changed_on">وارونگی رنگ روشن شد.</string>
+    <string name="accessibility_quick_settings_hotspot_changed_off">نقطه اتصال دستگاه همراه خاموش شد.</string>
+    <string name="accessibility_quick_settings_hotspot_changed_on">نقطه اتصال دستگاه همراه روشن شد.</string>
+    <string name="accessibility_casting_turned_off">فرستادن صفحه نمایش متوقف شد.</string>
+    <string name="accessibility_quick_settings_work_mode_off">حالت کار خاموش.</string>
+    <string name="accessibility_quick_settings_work_mode_on">حالت کار روشن.</string>
+    <string name="accessibility_quick_settings_work_mode_changed_off">حالت کار خاموش شد.</string>
+    <string name="accessibility_quick_settings_work_mode_changed_on">حالت کار روشن شد.</string>
+    <string name="accessibility_quick_settings_data_saver_changed_off">صرفه‌جویی داده خاموش شد.</string>
+    <string name="accessibility_quick_settings_data_saver_changed_on">صرفه‌جویی داده روشن شد.</string>
+    <string name="accessibility_brightness">روشنایی نمایشگر</string>
+    <string name="data_usage_disabled_dialog_3g_title">‏داده 2G-3G موقتاً متوقف شده است</string>
+    <string name="data_usage_disabled_dialog_4g_title">‏داده 4G موقتاً متوقف شده است</string>
+    <string name="data_usage_disabled_dialog_mobile_title">داده شبکه همراه موقتاً متوقف شده است</string>
+    <string name="data_usage_disabled_dialog_title">داده موقتاً متوقف شده است</string>
+    <string name="data_usage_disabled_dialog">"چون به محدودیت داده تنظیم شده رسیده‌اید، دستگاه مصرف داده را برای باقیمانده این دوره موقتاً متوقف کرده است.
+
+اگر ادامه دهید شاید موجب کسر هزینه از طرف شرکت مخابراتی شما شود."</string>
+    <string name="data_usage_disabled_dialog_enable">از سر‌گیری</string>
+    <string name="status_bar_settings_signal_meter_disconnected">اتصال اینترنتی ندارید</string>
+    <string name="status_bar_settings_signal_meter_wifi_nossid">‏Wi-Fi متصل شد</string>
+    <string name="gps_notification_searching_text">‏جستجو برای GPS</string>
+    <string name="gps_notification_found_text">‏مکان تنظیم شده توسط GPS</string>
+    <string name="accessibility_location_active">درخواست‌های موقعیت مکانی فعال است</string>
+    <string name="accessibility_clear_all">پاک کردن تمام اعلان‌ها</string>
+    <string name="notification_group_overflow_indicator">+ %s</string>
+    <string name="status_bar_notification_inspect_item_title">تنظیمات اعلان</string>
+    <string name="status_bar_notification_app_settings_title">تنظیمات %s</string>
+    <string name="accessibility_rotation_lock_off">صفحه به صورت خودکار می‌چرخد.</string>
+    <string name="accessibility_rotation_lock_on_landscape">صفحه اکنون در جهت افقی قفل است.</string>
+    <string name="accessibility_rotation_lock_on_portrait">صفحه اکنون در جهت عمودی قفل است.</string>
+    <string name="accessibility_rotation_lock_off_changed">صفحه اکنون به صورت خودکار می‌چرخد.</string>
+    <string name="accessibility_rotation_lock_on_landscape_changed">صفحه اکنون روی جهت افقی قفل شده است.</string>
+    <string name="accessibility_rotation_lock_on_portrait_changed">صفحه اکنون روی جهت عمودی قفل شده است.</string>
+    <string name="dessert_case">ویترین دسر</string>
+    <string name="start_dreams">محافظ صفحه</string>
+    <string name="ethernet_label">اترنت</string>
+    <string name="wifi_not_found_hidden_ap">اتصال به شبکه ممکن نیست. شبکه‌ای با نام %s یافت نشد.</string>
+    <string name="it_policy_not_allow_wifi">سیاست امنیتی از استفاده از Wi-Fi جلوگیری می‌کند.</string>
+    <string name="it_policy_not_allow_wifiap">سیاست امنیتی استفاده از اشتراک گذاری اینترنت را محدود کرده است.</string>
+    <string name="wifi_authentication_succeed_kt">نقطه دسترسی Wi-Fi تأیید شد.</string>
+    <string name="wifi_authentication_failed_kt">تأیید نقطه دسترسی Wi-Fi ناموفق بود.</string>
+    <string name="wifi_authentication_no_response">اتصال به نقطه دسترسی Wi-Fi ناموفق بود.</string>
+    <string name="wifi_authentication_invalid_value">رد شد. شناسه و رمز را کنترل نمایید.</string>
+    <string name="wifi_exceeded_max_configured_networks_dialog_title">هشدار</string>
+    <string name="wifi_exceeded_max_configured_networks_dialog_message">نام‌های AP مربوط به بیش از %1$d شبکه ذخیره شده است. برای استفاده سریعتر از Wi-Fi، پیشنهاد می‌کنیم %2$d نام از قدیمی‌ترین نام‌های AP را حذف کنید.</string>
+    <string name="wifi_exceeded_max_configured_networks_dialog_ok">حذف %d نام قدیمی AP</string>
+    <string name="quick_settings_dnd_label">مزاحم نشوید</string>
+    <string name="quick_settings_dnd_priority_label">فقط اولویت‌دار</string>
+    <string name="quick_settings_dnd_alarms_label">فقط هشدارها</string>
+    <string name="quick_settings_dnd_none_label">سکوت کامل</string>
+    <string name="quick_settings_bluetooth_label">بلوتوث</string>
+    <string name="quick_settings_bluetooth_multiple_devices_label">بلوتوث ( %d دستگاه)</string>
+    <string name="quick_settings_bluetooth_off_label">بلوتوث خاموش</string>
+    <string name="quick_settings_bluetooth_detail_empty_text">هیچ دستگاه مرتبط شده‌ای موجود نیست</string>
+    <string name="quick_settings_bluetooth_detail_empty_text_available">دستگاه بلوتوثی در این نزدیکی یافت نشد</string>
+    <string name="quick_settings_bluetooth_detail_paired_devices_title">دستگاههای جفت شده</string>
+    <string name="quick_settings_bluetooth_detail_available_devices_title">دستگاه های موجود</string>
+    <string name="quick_settings_bluetooth_detail_off_text">بلوتوث را روشن کرده و فهرست دستگاههایی که می‌توانید با آنها جفت شوید یا قبلاً جفت شده‌اید را مشاهده کنید.</string>
+    <string name="quick_settings_sound_mode_detail_label">حالت صدا</string>
+    <string name="quick_settings_sound_mode_detail_temporary_mute_title">موقتاً بی‌صدا</string>
+    <string name="quick_settings_sound_mode_detail_temporary_mute_summary">انتخاب کنید قبل از آنکه دستگاه به حالت صوتی قبلی خود برگردد (%s)، چه مدت بی‌صدا بماند.</string>
+    <string name="quick_settings_sound_mode_detail_temporary_mute_duration">مدت زمان بی‌صدا بودن</string>
+    <string name="quick_settings_brightness_label">روشنایی</string>
+    <string name="quick_settings_rotation_unlocked_label">"چرخش‎
+خودکار"</string>
+    <string name="accessibility_quick_settings_rotation">چرخش خودکار صفحه‌نمایش</string>
+    <string name="accessibility_quick_settings_rotation_value">تنظیم روی %s</string>
+    <string name="quick_settings_rotation_locked_label">چرخش قفل شد</string>
+    <string name="quick_settings_rotation_locked_portrait_label">عمودی</string>
+    <string name="quick_settings_rotation_locked_landscape_label">افقی</string>
+    <string name="quick_settings_ime_label">روش ورودی</string>
+    <string name="quick_settings_location_label">مکان</string>
+    <string name="quick_settings_location_off_label">مکان خاموش</string>
+    <string name="quick_settings_media_device_label">دستگاه رسانه</string>
+    <string name="quick_settings_rssi_label">RSSI</string>
+    <string name="quick_settings_rssi_emergency_only">فقط تماس‌های اضطراری</string>
+    <string name="quick_settings_settings_label">تنظیمات</string>
+    <string name="quick_settings_time_label">زمان</string>
+    <string name="quick_settings_user_label">من</string>
+    <string name="quick_settings_user_title">کاربر</string>
+    <string name="quick_settings_user_new_user">کاربر جدید</string>
+    <string name="quick_settings_wifi_label">Wi-Fi</string>
+    <string name="quick_settings_wifi_not_connected">متصل نیست</string>
+    <string name="quick_settings_wifi_no_network">شبکه‌ای موجود نیست</string>
+    <string name="quick_settings_wifi_off_label">‏Wi-Fi خاموش است</string>
+    <string name="quick_settings_wifi_on_label">‏Wi-Fi روشن</string>
+    <string name="quick_settings_wifi_detail_empty_text">‏هیچ شبکه Wi-Fi موجود نیست</string>
+    <string name="quick_settings_wifi_detail_scanning_text">در حال اسکن شبکه های Wi-Fi…</string>
+    <string name="quick_settings_wifi_detail_off_text">برای مشاهده شبکه های موجود، Wi-Fi را روشن کنید.</string>
+    <string name="quick_settings_cast_title">فرستادن</string>
+    <string name="quick_settings_casting">در حال فرستادن</string>
+    <string name="quick_settings_cast_device_default_name">دستگاه بدون نام</string>
+    <string name="quick_settings_cast_device_default_description">آماده برای فرستادن</string>
+    <string name="quick_settings_cast_detail_empty_text">دستگاهی موجود نیست</string>
+    <string name="quick_settings_brightness_dialog_title">روشنایی</string>
+    <string name="quick_settings_brightness_dialog_auto_brightness_label">خودکار</string>
+    <string name="quick_settings_brightness_strain_warning">"استفاده از سطوح روشنایی زیاد برای مدت طولانی ممکن است باعث خستگی چشم و افزایش مصرف نیروی باتری شود.
+روی &lt;تأیید> ضربه بزنید تا روشنایی، فراتر از سطح ایمنی افزایش داده شود."</string>
+    <string name="quick_settings_inversion_label">برگردان رنگ‌ها</string>
+    <string name="quick_settings_color_space_label">حالت تصحیح رنگ</string>
+    <string name="quick_settings_more_settings">جزئيات</string>
+    <string name="quick_settings_done">انجام شد</string>
+    <string name="quick_settings_connected">متصل</string>
+    <string name="quick_settings_connecting">در حال اتصال...</string>
+    <string name="quick_settings_tethering_label">اتصال به اینترنت با تلفن همراه</string>
+    <string name="quick_settings_notifications_label">اعلان‌ها</string>
+    <string name="quick_settings_flashlight_label">چراغ‌قوه</string>
+    <string name="quick_settings_cellular_detail_title">داده‌های شبکه تلفن همراه</string>
+    <string name="quick_settings_cellular_detail_data_usage">مصرف داده</string>
+    <string name="quick_settings_cellular_detail_remaining_data">داده‌های باقی‌مانده</string>
+    <string name="quick_settings_cellular_detail_over_limit">بیش از حد مجاز</string>
+    <string name="quick_settings_cellular_detail_data_used">%s استفاده شده</string>
+    <string name="quick_settings_cellular_detail_data_limit">%s محدودیت</string>
+    <string name="quick_settings_cellular_detail_data_warning">هشدار %s</string>
+    <string name="quick_settings_work_mode_label">حالت کار</string>
+    <string name="quick_settings_sound_mode_sound_label">صدا</string>
+    <string name="quick_settings_sound_mode_vibrate_label">لرزش</string>
+    <string name="quick_settings_sound_mode_mute_label">حالت سکوت</string>
+    <string name="quick_settings_nfc_card_mode_label">"حالت‎
+کارت NFC"</string>
+    <string name="quick_settings_nfc_p2p_label">"R/W
+P2P"</string>
+    <string name="quick_settings_my_device_visibility_label">"قابلیت مشاهده
+دستگاه"</string>
+    <string name="quick_settings_aod_label">"Always On
+Display"</string>
+    <string name="quick_settings_screen_mirroring_label">"Screen
+mirroring"</string>
+    <string name="quick_settings_power_saving_label">"صرفه جویی
+انرژی"</string>
+    <string name="quick_settings_sec_dnd_label">"مزاحم‎
+نشوید"</string>
+    <string name="quick_settings_mobile_hotspot_label">"اتصال‎
+همراه"</string>
+    <string name="quick_settings_airplane_mode_label">"حالت
+پرواز"</string>
+    <string name="quick_settings_bluelightfilter_label">"فیلتر
+نور آبی"</string>
+    <string name="quick_settings_mobile_data_label">"داده
+تلفن همراه"</string>
+    <string name="quick_settings_wificalling_label">"تماس با
+‏Wi-Fi"</string>
+    <string name="quick_settings_personal_mode_label">"حالت‎
+خصوصی"</string>
+    <string name="quick_settings_data_roaming_label">"رومینگ
+داده"</string>
+    <string name="quick_settings_gps_label">GPS</string>
+    <string name="quick_settings_sync_label">همگامسازی</string>
+    <string name="quick_settings_ultra_power_saving_label">"ذخیره‎
+بیشترنیرو"</string>
+    <string name="quick_settings_data_monitor_label">"ذخیره داده
+بیشتر"</string>
+    <string name="uds_toast_flight_mode_enabled">فعال کردن حالت ذخیره داده بیشتر در حالت پرواز ممکن نیست. حالت پرواز را غیرفعال کرده و دوباره امتحان کنید.</string>
+    <string name="qs_detail_flashlight_title">چراغ قوه</string>
+    <string name="quick_settings_reading_mode_label">"حالت
+خواندن"</string>
+    <string name="quick_settings_bike_mode_label">"حالت
+‏S bike"</string>
+    <string name="qs_detail_bike_mode_title">حالت S bike</string>
+    <string name="qs_detail_bike_mode_text">برای فیلتر کردن همه تماس‌های ورودی، این حالت را فعال کنید. هنگام رانندگی، فقط تماس‌های فوری به شما اعلام خواهد شد. استفاده از دستگاه در حین رانندگی برای شما ممکن نخواهد بود. وقتی حالت S bike فعال است، می‌توانید تماس‌های بی‌پاسخ را مشاهده کنید، وقتی مخاطبین انتخابی تماس گرفتند، پیام‌های متنی خودکار محتوی زمان تخمینی سفرتان برای آنها ارسال شود، همچنین می‌توانید اطلاعات سفر را مشاهده کنید و نشان‌های امتیاز کسب نمایید.</string>
+    <string name="qs_edit_summary">دکمه‌های تنظیم سریع را به قسمت بالای صفحه بکشید تا به پَنل تنظیمات سریع اضافه شوند.</string>
+    <string name="notification_panel_unable_remove_minimum">حذف دکمه ممکن نیست. به حداقل تعداد دکمه ها (%d) رسیده است.</string>
+    <string name="disable">غیر فعال</string>
+    <string name="agree">موافقم</string>
+    <string name="disagree">ناموافق</string>
+    <string name="quick_settings_it_policy_prevents">سیاست امنیتی از استفاده از %s جلوگیری می‌کند.</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message">برای استفاده از نقطه اتصال تلفن همراه و سایر عملکردهای اینترنت با واسطه، یک سیم‌کارت وارد کنید.</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_title">نقطه اتصال Mobile</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_title_jpn">Unable to enable Wi-Fi tethering</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message_jpn">Insert a SIM card to use Wi-Fi tethering.</string>
+    <string name="mobile_hotspot_dialog_nousim_or_nosim_warning">Insert a UIM/SIM card to use Mobile hotspot and other tethering functions.</string>
+    <string name="mobile_hotspot_toast_disable_airplne_mode">هنگامی که حالت پرواز فعال است اتصال به شبکه های تلفن همراه ممکن نیست. حالت پرواز را غیرفعال کرده و دوباره امتحان کنید.</string>
+    <string name="mobile_hotspot_toast_internet_sharing">به اشتراک گذاری اینترنت</string>
+    <string name="mobile_hotspot_detail_title">نقطه اتصال Mobile</string>
+    <string name="mobile_hotspot_detail_title_vzw">Mobile Hotspot</string>
+    <string name="mobile_hotspot_detail_title_jpn">اتصال Wi-Fi</string>
+    <string name="mobile_hotspot_detail_connection_mode_allowed_device">فقط دستگاه های مجاز</string>
+    <string name="mobile_hotspot_detail_connected_devices">دستگاه‌های متصل</string>
+    <string name="mobile_hotspot_detail_connection_mode_allow_all">همه دستگاهها مجاز به اتصال باشند</string>
+    <string name="insert_sim_card">سیم کارت وارد شود</string>
+    <string name="insert_sim_card_message">برای دستیابی به خدمات شبکه سیم کارت را وارد کنید.</string>
+    <string name="mobile_data_show_toast_airplane_mode">هنگامی که حالت پرواز فعال است اتصال به شبکه های تلفن همراه ممکن نیست. حالت پرواز را غیرفعال کرده و دوباره امتحان کنید.</string>
+    <string name="volte_show_toast_airplane_mode">وقتی حالت پرواز فعال است، استفاده از VoLTE ممکن نیست. حالت پرواز را غیرفعال کرده و دوباره امتحان کنید.</string>
+    <string name="volte_show_toast_impossible_during_volte_call">غیرفعال کردن استفاده از VoLTE وقتی در مدت تماس VoLTE در دسترس باشد، ممکن نیست.</string>
+    <string name="volte_show_toast_disable_not_allowed">ارائه دهنده سرویس برای غیرفعال کردن VoLTE مجاز نیست.</string>
+    <string name="volte_show_toast_not_support_operator">‏VoLTE با نسخه فعلی نرم‌افزار پشتیبانی نمی‌شود. برای جزئیات بیشتر با سرویس‌های مشتری تماس بگیرید.</string>
+    <string name="volte_show_toast_enable_message">برای استفاده از سرویس VoLTE، در VoLTE مشترک شوید. برای جزئیات بیشتر با ارائه دهنده سرویس تماس بگیرید.</string>
+    <string name="unable_to_turn_on_being_used_by_camera">روشن کردن %s ممکن نیست. نور دوربین توسط دوربین استفاده می‌شود.</string>
+    <string name="aod_title">Always On Display</string>
+    <string name="aod_power_saving_mode">حالت ذخیره نیرو</string>
+    <string name="aod_voice_assistant_title">Voice Assistant</string>
+    <string name="aod_magnification_gesture">حرکات بزرگنمایی</string>
+    <string name="aod_magnifier_window">بزرگنمایی پنجره</string>
+    <string name="aod_magnifier_assistant_menu">بزرگنمایی پنجره</string>
+    <string name="aod_talkback">Talkback</string>
+    <string name="aod_show_toast_unavailable_with_at_same_time">فعال کردن ‎%1$s و ‎%2$s به طور همزمان ممکن نیست.</string>
+    <string name="aod_show_popup_title">فعال کردن ‎%s</string>
+    <string name="aod_show_popup_unavailable_with_at_same_time">فعال کردن ‎%1$s و ‎%2$s به طور همزمان ممکن نیست. ‎%3$s غیرفعال خواهد شد.</string>
+    <string name="aod_show_popup_description">‎%s و گزینه‌های زیر را نمی‌توان به طور همزمان فعال کرد. گزینه‌های زیر غیرفعال می‌شوند.</string>
+    <string name="wificalling_show_popup_use_location_inform">تماس با Wi-Fi از اطلاعات مکان شما استفاده می‌کند. اطلاعات مکان به صورت ناشناس جمع‌آوری شده و به Google و ارائه دهنده سرویس شما ارسال می‌شوند. برای جزئیات بیشتر با ارائه دهنده سرویس خود تماس بگیرید.</string>
+    <string name="wificalling_show_popup_enable_location_title">فعال‌سازی مکان</string>
+    <string name="wificalling_show_popup_enable_location_message">تماس با Wi-Fi از اطلاعات مکان شما استفاده می‌کند. مکان‌یابی فعال خواهد شد. اطلاعات مکان به صورت ناشناس جمع‌آوری شده و به Google و ارائه دهنده سرویس شما ارسال می‌شوند. برای جزئیات بیشتر با ارائه دهنده سرویس خود تماس بگیرید.</string>
+    <string name="personal_mode_popup_diable_msg_while_afw_profile">حالت خصوصی در نمایه کار در دسترس نیست.</string>
+    <string name="personal_mode_popup_diable_msg_while_moving_item">هنگام انتقال موارد به پوشه خصوصی، غیرفعال کردن حالت خصوصی ممکن نیست.</string>
+    <string name="mobile_data_title">داده تلفن همراه</string>
+    <string name="mobile_data_show_popup_disable">"اگر از Wi-Fi استفاده نکنید. دیگر قادر به استفاده از اینترنت، ایمیل یا دیگر برنامه هایی که به اتصال داده نیاز دارند، نخواهید بود.
+
+داده تلفن همراه شما غیرفعال می شود."</string>
+    <string name="mobile_data_show_popup_disable_vzw">"Unless you use Wi-Fi, you will not be able to use the Internet, Email, or other apps that require a data connection.
+
+Turn off Mobile data?"</string>
+    <string name="mobile_data_show_popup_disable_vzw_volte">"Unless you use Wi-Fi, you will not be able to use Internet, Email, or other apps that require a data connection. Your phone will not be able to use Video Calling while Mobile data is off.
+Turn off Mobile data?"</string>
+    <string name="mobile_data_show_popup_disable_kor_skt_kt">"اگر از Wi-Fi استفاده نکنید، استفاده از اینترنت، ایمیل یا برنامه‌های دیگری که به اتصال داده نیاز دارند، ممکن نخواهد بود.‎
+
+داده تلفن همراه غیرفعال می‌شود."</string>
+    <string name="mobile_data_show_popup_disable_kor_lgt">"اگر از Wi-Fi استفاده نکنید، استفاده از اینترنت، ایمیل یا برنامه‌های دیگری که به اتصال داده نیاز دارند، ممکن نخواهد بود.‎
+
+داده تلفن همراه غیرفعال می‌شود."</string>
+    <string name="mobile_data_show_popup_enable_kor_skt_kt">داده تلفن همراه روشن خواهد شد. اتصال به شبکه تلفن همراه ممکن است بسته به قرارداد پرداخت شما مشمول هزینه اضافی شود.</string>
+    <string name="mobile_data_show_popup_enable_kor_lgt">داده تلفن همراه روشن خواهد شد. اتصال به شبکه تلفن همراه ممکن است بسته به قرارداد پرداخت شما مشمول هزینه اضافی شود.</string>
+    <string name="mobile_data_roaming_title">دیتا هنگام رومینگ</string>
+    <string name="mobile_data_show_popup_roaming_enable">Data roaming may incur additional charges in addition to your domestic flat rate plan. Automatic updates for email or applications may also incur additional charges. Using large-data services such as video or email may incur charges over 20,000 won per minute.</string>
+    <string name="mobile_data_show_toast_not_disable_during_voltecall">Unable to turn Mobile data on or off while Advanced calling enabled.</string>
+    <string name="flash_light_notification_title">چراغ‌قوه روشن شد</string>
+    <string name="flash_light_notification_button">خاموش</string>
+    <string name="flash_light_disabled_by_low_battery">روشن کردن چراغ قوه ممکن نیست. باتری ضعیف است.</string>
+    <string name="flash_light_turn_off_by_low_battery">باتری ضعیف است. چراغ‌قوه خاموش خواهد شد.</string>
+    <string name="mobile_data_roaming_disable_toast_lgt">رومینگ داده غیرفعال است</string>
+    <string name="location_show_enable_popup_title_vzw">پذیرفتن مکان</string>
+    <string name="location_show_enable_popup_message_vzw">"Your phone can share its approximate location with apps and services like maps, shopping and weather. Apps and services that use your location should inform you. Read the privacy policy of any app or service provider you are considering to understand how they collect, use and share your location information before you use them.
+
+Determining your location will use the mobile network. Data usage will apply."</string>
+    <string name="location_show_enable_popup_message_tablet_vzw">"Your tablet can share its approximate location with apps and services like maps, shopping and weather.
+
+Apps and services that use your location should inform you. Read the privacy policy of any app or service provider you’re considering to understand how they collect, use and share your location information before you use them.
+
+Determining your location will use the mobile network. Data usage will apply."</string>
+    <string name="location_show_enable_popup_title_dcm">موافقت کاربر</string>
+    <string name="location_show_enable_popup_message_dcm">داده های مربوط به مکان GPS و استفاده از مکان شما توسط برنامه‌ای که از آن استفاده می کنید کنترل می‌شود.</string>
+    <string name="location_show_popup_disable_wificalling_title">غیرفعال کردن مکان</string>
+    <string name="location_show_popup_disable_wificalling_when_disable_location">Disabling Location will disable Wi-Fi calling.</string>
+    <string name="sync_show_popup_title_enable">فعال کردن همگام سازی خودکار</string>
+    <string name="sync_show_popup_title_disable">غیرفعال کردن همگام سازی خودکار</string>
+    <string name="sync_show_popup_message_enable">"هر تغییری که در حساب‌های خود در وب ایجاد کنید، بطور خودکار در دستگاه شما کپی می‌شود.
+
+برخی حساب‌ها نیز ممکن است هر تغییری که شما در دستگاه خود در وب ایجاد می‌کنید را بطور خودکار کپی کنند. همگام‌سازی خودکار فعال می‌شود."</string>
+    <string name="sync_show_popup_message_disable">این امر کاربرد داده را کاهش داده و در مصرف باطری صرفه جویی می کند، اما شما باید بطور دستی حساب ها را همگام کنید. تا بتوانید جدیدترین اطلاعات را جمع آوری کنید. هنگامی که عملکرد فعال شود، اعلان های مربوط به به روز رسانی را دریافت نخواهید کرد.</string>
+    <string name="airplane_mode">حالت هواپیما</string>
+    <string name="airplane_mode_show_popup_title">فعال کردن حالت پرواز</string>
+    <string name="airplane_mode_show_popup_title_vzw">Turn on Airplane mode</string>
+    <string name="airplane_mode_show_popup_message">حالت پرواز به شما اجازه می دهد ویژگی های تماس، پیام رسانی و شبکه داده را خاموش کنید. همچنین ویژگی های قابلیت اتصال مانند Wi-Fi و بلوتوث را نیز خاموش می کند. برای استفاده از Wi-Fi و بلوتوث از قسمت تنظیمات یا بر روی پانل اعلان آنها را روشن کنید.</string>
+    <string name="airplane_mode_show_popup_message_wifi_without_bluetooth">حالت پرواز به شما اجازه می دهد ویژگی های شبکه از جمله Wi-Fi را خاموش کنید. جهت استفاده از Wi-Fi، از قسمت تنظیمات یا پانل اعلان آن را روشن کنید.</string>
+    <string name="airplane_mode_show_popup_message_without_bluetooth">حالت پرواز به شما این امکان را می‌دهد که عملکردهای تماس، پیام رسانی، و شبکه های تلفن همراه را غیرفعال کنید.</string>
+    <string name="airplane_mode_show_popup_message_wifi">حالت پرواز به شما اجازه می دهد ویژگی های شبکه از جمله Wi-Fi و بلوتوث را خاموش کنید. جهت استفاده از Wi-Fi و بلوتوث، از قسمت تنظیمات یا پانل اعلان آن را روشن کنید.</string>
+    <string name="airplane_mode_show_popup_message_cmcc">حالت پرواز به شما اجازه می دهد ویژگی های تماس، پیام رسانی و شبکه داده را خاموش کنید. همچنین ویژگی های قابلیت اتصال مانند Wi-Fi و بلوتوث را نیز خاموش می کند. برای استفاده از Wi-Fi و بلوتوث از قسمت تنظیمات یا بر روی پانل اعلان آنها را روشن کنید.</string>
+    <string name="airplane_mode_show_popup_message_vzw">"Unless you use Wi-Fi, you will not be able to use the Internet, Email, or other apps that require a data connection.
+Turn on Airplane mode?"</string>
+    <string name="airplane_mode_show_popup_message_vzw_volte">"Unless you use Wi-Fi, you will not be able to use Internet, Email, Wi-Fi Calling or other apps that require a data connection.
+Turn on Airplane mode?"</string>
+    <string name="airplane_mode_show_popup_safelock">در حالی که قفل شده فعال و انسداد خاموش است، فعال کردن حالت پرواز ممکن نیست. پس از باز کردن قفل صفحه دوباره امتحان کنید.</string>
+    <string name="airplane_mode_show_popup_disabled_on_demo_devices">حالت پرواز در دستگاه‌های نمایشی غیرفعال شد.</string>
+    <string name="airplane_mode_show_toast_turn_on_wifi_for_wificalling">‏Wi-Fi را برای استفاده از تماس با Wi-Fi روشن کنید.</string>
+    <string name="rotation_lock_auto_rotate">چرخش خودکار</string>
+    <string name="rotation_lock_show_toast_mobile_keyboard_message">برای فعال کردن ‎%s، روکش صفحه کلید را از دستگاه جدا کنید.</string>
+    <string name="quick_settings_location_detail_high_accuracy">دقت زیاد</string>
+    <string name="quick_settings_location_detail_battery_saving">ذخیره نیروی باتری</string>
+    <string name="quick_settings_location_detail_device_only">فقط دستگاه</string>
+    <string name="quick_settings_location_detail_subtitle">روش مکان‌یابی</string>
+    <string name="quick_settings_location_detail_summary">از GPS،‏ Wi-Fi و شبکه‌های تلفن همراه برای تخمین موقعیت شما استفاده می‌شود</string>
+    <string name="quick_settings_flight_mode_detail_title">حالت پرواز</string>
+    <string name="quick_settings_flight_mode_detail_summary">"عملکردهای تماس و پیام‌رسانی را غیرفعال کرده و داده تلفن همراه را خاموش کنید.‎
+
+می‌توانید Wi-Fi و بلوتوث را نیز خاموش کنید و در تنظیمات یا صفحه تنظیمات سریع دوباره روشن نمایید."</string>
+    <string name="quick_settings_flight_mode_detail_off_summary_volte_vzw">Airplane mode turns off all network connections, including mobile data and Wi-Fi. Your phone will not be able to use Video Calling while Airplane mode is on. Turn on Wi-Fi to use apps that require a data connection.</string>
+    <string name="quick_settings_flight_mode_detail_on_summary_volte_vzw">Unless you use Wi-Fi, you will not be able to use Internet, Email, or other apps that require a data connection. Your phone will not be able to use Video Calling while Airplane mode is on.</string>
+    <string name="quick_settings_flight_mode_detail_off_summary_non_volte_vzw">Airplane mode turns off all network connections, including mobile data and Wi-Fi. Turn on Wi-Fi to use apps that require a data connection.</string>
+    <string name="quick_settings_flight_mode_detail_on_summary_non_volte_vzw">Unless you use Wi-Fi, you will not be able to use the Internet, Email, or other apps that require a data connection.</string>
+    <string name="quick_settings_mobile_data_detail_title">داده تلفن همراه</string>
+    <string name="quick_settings_data_roaming_detail_title">رومینگ داده</string>
+    <string name="quick_settings_mobile_data_detail_summary">اگر داده تلفن همراه خاموش باشد، دستگاه شما برای استفاده از سرویس‌هایی که به اتصال شبکه نیاز دارند، باید به یک شبکه Wi-Fi متصل شود.</string>
+    <string name="quick_settings_dnd_detail_title">مزاحم نشوید</string>
+    <string name="quick_settings_dnd_summary">دستگاهتان را طوری تنظیم کنید که همه تماس‌ها، هشدارها و رسانه‌ها، به جز استثنائاتی که انتخاب می‌کنید، بی‌صدا شوند.</string>
+    <string name="quick_settings_dnd_summary_vzw">Silence all calls, alerts and media sound. You can allow exceptions.</string>
+    <string name="quick_settings_rotation_lock_auto_rotate">چرخش خودکار</string>
+    <string name="quick_settings_rotation_lock_detail_title">چرخش صفحه</string>
+    <string name="quick_settings_rotation_lock_detail_summary">جهت نمایش را انتخاب کنید.</string>
+    <string name="quick_settings_flashlight_detail_level">درجه</string>
+    <string name="quick_settings_flashlight_detail_title">روشنایی</string>
+    <string name="quick_settings_flashlight_detail_warning">چنانچه چراغ دوربین مدت زیادی با پوست در تماس باشد ممکن است سبب سوختگی با دمای کم شود. از روشن گذاشتن %s برای مدت زمان طولانی خودداری کنید.</string>
+    <string name="quick_settings_reading_mode_summary">اکنون صفحه برای خواندن بهینه شده است. این حالت تنها برای برنامه های انتخابی در دسترس است.</string>
+    <string name="quick_settings_volte_summary">استفاده از VoLTE هنگام در دسترس بودن</string>
+    <string name="quick_settings_blf_detail_title">فیلتر نور آبی</string>
+    <string name="quick_settings_blf_detail_summary">با محدود کردن مقدار نور آبی خارج شده از صفحه نمایش، خستگی چشم را کاهش دهید.</string>
+    <string name="quick_settings_blf_detail_seekbar">ماتی</string>
+    <string name="quick_settings_wificalling_summary">"بدون نیاز به متصل شدن به شبکه تلفن همراه،‌ از شبکه‌های Wi-Fi برای برقرار کردن و دریافت تماس‌ها استفاده کنید.
+
+وقتی سرویس در دسترس بود، نماد تماس با Wi-Fi در پَنل اعلان‌ها مانند شکل زیر ظاهر می‌شود."</string>
+    <string name="quick_settings_wificalling_wifi_preferred">اولویت با Wi-Fi</string>
+    <string name="quick_settings_wificalling_cs_preferred">اولویت با شبکه تلفن همراه</string>
+    <string name="quick_settings_wificalling_wifi_only">فقط Wi-Fi</string>
+    <string name="quick_settings_dual_label_content_description">%s، برچسب دکمه، برای مشاهده تنظیمات سریع مربوطه، دو بار ضربه بزنید.</string>
+    <string name="accessibility_button">دکمه</string>
+    <string name="quick_settings_brightness_auto_brightness">روشنایی خودکار</string>
+    <string name="quick_settings_brightness_quick_access">نمایش کنترل در بالا</string>
+    <string name="quick_settings_brightness_quick_access_summary">کنترل روشنایی در بالای پَنل اعلان نمایش داده می‌شود.</string>
+    <string name="quick_settings_brightness_detail_level">درجه</string>
+    <string name="recents_empty_message">اخیراً برنامه‌ای استفاده نشده است</string>
+    <string name="recents_empty_message_dismissed_all">همه‌چیز را پاک کرده‌اید</string>
+    <string name="recents_lock_to_app_button_label">پین کردن صفحه</string>
+    <string name="recents_search_bar_label">جستجو</string>
+    <string name="recents_launch_error_message">%s شروع نشد.</string>
+    <string name="recents_launch_disabled_message">%s در حالت ایمن غیرفعال است.</string>
+    <string name="recents_stack_action_button_label">پاک کردن همه</string>
+    <string name="recents_incompatible_app_message">برنامه از تقسیم صفحه پشتیبانی نمی‌کند</string>
+    <string name="recents_drag_hint_message">باز شدن در نمای صفحه دوقسمتی</string>
+    <string name="recents_drag_freeform_hint_message">باز شدن در نمای بازشو</string>
+    <string name="recents_multistack_add_stack_dialog_split_horizontal">تقسیم افقی</string>
+    <string name="recents_multistack_add_stack_dialog_split_vertical">تقسیم عمودی</string>
+    <string name="recents_multistack_add_stack_dialog_split_custom">سفارشی کردن تقسیم</string>
+    <string name="expanded_header_battery_charged">شارژ کامل شد</string>
+    <string name="expanded_header_battery_charging">در حال شارژ شدن</string>
+    <string name="expanded_header_battery_charging_with_time">%s مانده تا شارژ کامل شود</string>
+    <string name="expanded_header_battery_not_charging">شارژ نمی‌شود</string>
+    <string name="ssl_ca_cert_warning">"ممکن است شبکه
+تحت نظارت باشد"</string>
+    <string name="description_target_search">جستجو</string>
+    <string name="description_direction_up">لغزاندن به بالا برای %s.</string>
+    <string name="description_direction_left">لغزاندن به چپ برای %s.</string>
+    <string name="zen_priority_introduction">صداها و لرزش‌هایی به جز هشدارها، یادآوری‌ها، رویدادها و تماس‌گیرنده‌هایی که مشخص می‌کنید، مزاحم شما نمی‌شوند.</string>
+    <string name="zen_priority_customize_button">سفارشی کردن</string>
+    <string name="zen_silence_introduction_voice">این کار «همه» صداها و لرزش‌ها از جمله هشدارها، موسیقی، ویدیوها و بازی‌ها را مسدود می‌کند. همچنان می‌توانید تماس تلفنی برقرار کنید.</string>
+    <string name="zen_silence_introduction">این کار «همه» صداها و لرزش‌ها از جمله هشدارها، موسیقی، ویدیوها و بازی‌ها را مسدود می‌کند.</string>
+    <string name="keyguard_more_overflow_text">+%d</string>
+    <string name="speed_bump_explanation">اعلان‌های کمتر فوری در زیر</string>
+    <string name="notification_tap_again">برای باز کردن دوباره ضربه بزنید</string>
+    <string name="keyguard_unlock">برای باز کردن قفل سریع به بالا بکشید</string>
+    <string name="phone_hint">انگشتتان را از نماد تلفن تند بکشید</string>
+    <string name="voice_hint">برای «دستیار صوتی»، تند بکشید</string>
+    <string name="camera_hint">انگشتتان را از نماد دوربین تند بکشید</string>
+    <string name="interruption_level_none_with_warning">سکوت مطلق. با این کار صفحه‌خوان‌ها هم ساکت می‌شوند.</string>
+    <string name="interruption_level_none">سکوت کامل</string>
+    <string name="interruption_level_priority">فقط اولویت‌دار</string>
+    <string name="interruption_level_alarms">فقط هشدارها</string>
+    <string name="interruption_level_none_twoline">"سکوت
+کامل"</string>
+    <string name="interruption_level_priority_twoline">"فقط
+اولویت‌دار"</string>
+    <string name="interruption_level_alarms_twoline">"فقط
+هشدارها"</string>
+    <string name="keyguard_indication_charging_time">در حال شارژ (%s تا شارژ کامل)</string>
+    <string name="keyguard_indication_charging_time_fast">در حال شارژ سریع (%s تا شارژ کامل)</string>
+    <string name="keyguard_indication_charging_time_slowly">در حال شارژ آهسته (%s تا شارژ کامل)</string>
+    <string name="accessibility_multi_user_switch_switcher">تغییر کاربر</string>
+    <string name="accessibility_multi_user_switch_switcher_with_current">تعویض کاربر، کاربر کنونی %s</string>
+    <string name="accessibility_multi_user_switch_inactive">کاربر کنونی %s</string>
+    <string name="accessibility_multi_user_switch_quick_contact">نمایش نمایه</string>
+    <string name="user_add_user">افزودن کاربر</string>
+    <string name="user_new_user_name">کاربر جدید</string>
+    <string name="guest_nickname">مهمان</string>
+    <string name="guest_new_guest">افزودن مهمان</string>
+    <string name="guest_exit_guest">حذف مهمان</string>
+    <string name="guest_exit_guest_dialog_title">مهمان حذف شود؟</string>
+    <string name="guest_exit_guest_dialog_message">همه برنامه‌ها و داده‌های این جلسه حذف خواهد شد.</string>
+    <string name="guest_exit_guest_dialog_remove">حذف</string>
+    <string name="guest_wipe_session_title">مهمان گرامی، بازگشتتان را خوش آمد می‌گوییم!</string>
+    <string name="guest_wipe_session_message">آیا می‌خواهید جلسه‌تان را ادامه دهید؟</string>
+    <string name="guest_wipe_session_wipe">شروع مجدد</string>
+    <string name="guest_wipe_session_dontwipe">بله، ادامه داده شود</string>
+    <string name="guest_notification_title">کاربر مهمان</string>
+    <string name="guest_notification_text">برای حذف برنامه‌ها و داده‌ها، کاربر مهمان را حذف کنید</string>
+    <string name="guest_notification_remove_action">حذف مهمان</string>
+    <string name="user_logout_notification_title">خروج کاربر از سیستم</string>
+    <string name="user_logout_notification_text">خروج کاربر فعلی از سیستم</string>
+    <string name="user_logout_notification_action">خروج کاربر از سیستم</string>
+    <string name="user_add_user_title">کاربر جدیدی اضافه می‌کنید؟</string>
+    <string name="user_add_user_message_short">"وقتی کاربر جدیدی را اضافه می‌کنید آن فرد باید فضای خودش را تنظیم کند.
+
+هر کاربری می‌تواند برنامه‌ها را برای همه کاربران دیگر به‌روزرسانی کند."</string>
+    <string name="user_remove_user_title">کاربر حذف شود؟</string>
+    <string name="user_remove_user_message">همه برنامه‌ها و داده‌های این کاربر حذف می‌شود.</string>
+    <string name="user_remove_user_remove">حذف</string>
+    <string name="battery_saver_notification_title">بهینه‌سازی باتری روشن است.</string>
+    <string name="battery_saver_notification_text">عملکرد و اطلاعات پس‌زمینه را کاهش می‌دهد</string>
+    <string name="battery_saver_notification_action_text">بهینه‌سازی باتری را خاموش کنید</string>
+    <string name="sanitized_content_text">برای ورود به ‎%s، اینجا ضربه بزنید.</string>
+    <string name="secure_folder_title">پوشه امن</string>
+    <string name="media_projection_dialog_text">%s شروع به ضبط هر چیزی می‌کند که در صفحه‌نمایش شما نمایش داده می‌شود.</string>
+    <string name="media_projection_remember_text">دوباره نشان داده نشود</string>
+    <string name="media_projection_action_text">اکنون شروع شود</string>
+    <string name="empty_shade_text">اعلانی موجود نیست</string>
+    <string name="device_owned_footer">ممکن است دستگاه کنترل شود</string>
+    <string name="profile_owned_footer">شاید نمایه کنترل شود</string>
+    <string name="vpn_footer">ممکن است شبکه کنترل شود</string>
+    <string name="monitoring_title_device_owned">کنترل دستگاه</string>
+    <string name="monitoring_title_profile_owned">کنترل نمایه</string>
+    <string name="monitoring_title">کنترل شبکه</string>
+    <string name="disable_vpn">‏غیرفعال کردن VPN</string>
+    <string name="disconnect_vpn">‏قطع اتصال VPN</string>
+    <string name="monitoring_description_device_owned">"مدیریت دستگاه شما توسط %1$s.
+
+سرپرستتان می‌تواند تنظیمات، دسترسی شرکت، برنامه‌ها داده‌های مرتبط با دستگاهتان و اطلاعات مکان دستگاهتان را کنترل و مدیریت کند. برای دریافت اطلاعات بیشتر، با سرپرستتان تماس بگیرید."</string>
+    <string name="monitoring_description_vpn">"‏شما به برنامه‌ای برای تنظیم اتصال VPN اجازه دادید.
+
+ این برنامه می‌تواند دستگاه و فعالیت شبکه‌تان را کنترل کند، از جمله ایمیل‌، برنامه‌ و وب‌سایت‌ها."</string>
+    <string name="monitoring_description_vpn_device_owned">"‏دستگاهتان توسط %1$s مدیریت می‌شود.
+
+سرپرستتان می‌تواند تنظیمات، دسترسی شرکت، برنامه‌ها، داده‌های مرتبط با دستگاهتان و اطلاعات مکان دستگاهتان را کنترل و مدیریت کند.
+
+شما به یک VPN وصل هستید که می‌تواند فعالیت شبکه شما را کنترل کند، از جمله ایمیل‌ها، برنامه‌ها و وب‌سایت‌ها.
+
+برای دریافت اطلاعات بیشتر، با سرپرستتان تماس بگیرید."</string>
+    <string name="monitoring_description_vpn_profile_owned">"‏نمایه کاری شما توسط %1$s مدیریت می‌شود.
+
+سرپرستتان می‌تواند فعالیت شبکه‌تان از جمله ایمیل‌، برنامه‌ و وب‌‌سایت‌ها را کنترل کند.
+
+برای دریافت اطلاعات بیشتر با سرپرستتان تماس بگیرید.
+
+همچنین به یک VPN وصل هستید که می‌تواند فعالیت شبکه شما را کنترل کند."</string>
+    <string name="legacy_vpn_name">VPN</string>
+    <string name="monitoring_description_app">شما به %1$s وصل شده‌اید، که می‌تواند فعالیت شبکه شما از جمله ایمیل‌، برنامه‌ و وب‌سایت‌ها را کنترل کند.</string>
+    <string name="monitoring_description_app_personal">شما به %1$s وصل شده‌اید، که می‌تواند فعالیت شبکه شخصی شما از جمله ایمیل‌، برنامه‌ و وب‌سایت‌ها را کنترل کند.</string>
+    <string name="monitoring_description_app_work">"نمایه کاری‌تان توسط %1$s مدیریت می‌شود. این به %2$s وصل است که فعالیت شبکه کاری‌تان از جمله ایمیل، برنامه و وب‌سایت‌ها را کنترل می‌کند.
+
+برای دریافت اطلاعات بیشتر، با سرپرستتان تماس بگیرید."</string>
+    <string name="monitoring_description_app_personal_work">"نمایه کاری شما توسط %1$s مدیریت می‌شود. این به %2$s متصل است که می‌تواند فعالیت شبکه کاری‌تان از جمله ایمیل، برنامه و وب‌سایت‌ها را کنترل کند.
+
+شما همچنین به %3$s متصل هستید که می‌تواند فعالیت شبکه شخصی‌تان را کنترل کند."</string>
+    <string name="monitoring_description_vpn_app_device_owned">"دستگاهتان توسط %1$s مدیریت می‌شود.
+
+سرپرستتان می‌تواند تنظیمات، دسترسی شرکت، برنامه‌ها، داده‌های مرتبط با دستگاهتان و اطلاعات مکان دستگاهتان را کنترل و مدیریت کند.
+
+شما به %2$s وصل هستید که می‌تواند فعالیت شبکه شما را کنترل کند، از جمله ایمیل‌، برنامه‌ و وب‌سایت‌ها.
+
+برای دریافت اطلاعات بیشتر، با سرپرستتان تماس بگیرید."</string>
+    <string name="keyguard_indication_trust_disabled">دستگاه قفل باقی می‌ماند تا زمانی که قفل آن را به صورت دستی باز کنید</string>
+    <string name="hidden_notifications_title">دریافت سریع‌تر اعلان‌ها</string>
+    <string name="hidden_notifications_text">قبل از باز کردن قفل آنها را مشاهده کنید</string>
+    <string name="hidden_notifications_cancel">نه متشکرم</string>
+    <string name="hidden_notifications_setup">راه‌اندازی</string>
+    <string name="zen_mode_and_condition">%1$s. ‏%2$s</string>
+    <string name="volume_zen_end_now">اکنون به پایان برسد</string>
+    <string name="accessibility_volume_expand">بزرگ کردن</string>
+    <string name="accessibility_volume_collapse">کوچک کردن</string>
+    <string name="screen_pinning_title">صفحه نمایش پین شد</string>
+    <string name="screen_pinning_description">تا زمانی که پین را بردارید، در نما نگه‌داشته می‌شود. برای برداشتن پین، «برگشت» را لمس کنید و نگه‌دارید.</string>
+    <string name="screen_pinning_negative">نه متشکرم</string>
+    <string name="quick_settings_reset_confirmation_title">%1$s مخفی شود؟</string>
+    <string name="quick_settings_reset_confirmation_message">دفعه بعد که آن را روشن کنید، در تنظیمات نشان داده می‌شود.</string>
+    <string name="quick_settings_reset_confirmation_button">پنهان کردن</string>
+    <string name="volumeui_prompt_message">%1$s می‌خواهد کنترل‌کننده صدا باشد.</string>
+    <string name="volumeui_prompt_allow">مجاز است</string>
+    <string name="volumeui_prompt_deny">اجازه ندارد</string>
+    <string name="volumeui_notification_title">%1$s کنترل‌کننده صدا است</string>
+    <string name="volumeui_notification_text">برای بازیابی نسخه اصلی ضربه بزنید.</string>
+    <string name="managed_profile_foreground_toast">درحال استفاده از نمایه کاری‌تان هستید</string>
+    <string name="volume_stream_content_description_unmute">‏%1$s. برای باصدا کردن ضربه بزنید.</string>
+    <string name="volume_stream_content_description_vibrate">‏%1$s. برای تنظیم روی لرزش ضربه بزنید. ممکن است سرویس‌های دسترس‌پذیری بی‌صدا شوند.</string>
+    <string name="volume_stream_content_description_mute">‏%1$s. برای بی‌صدا کردن ضربه بزنید. ممکن است سرویس‌های دسترس‌پذیری بی‌صدا شوند.</string>
+    <string name="volume_dialog_accessibility_shown_message">"‏کنترل‌های میزان صدای %s  نشان داده شدند. برای نپذیرفتن انگشتتان را تند بکشید."</string>
+    <string name="volume_dialog_accessibility_dismissed_message">کنترل‌های صدا پنهان هستند</string>
+    <string name="tw_safe_media_volume_warning">گوش دادن به صداهای بلند برای مدت طولانی می‌تواند به شنوایی شما آسیب برساند. برای اجازه به افزایش صدا بالاتر از سطح ایمنی، روی &lt;تأیید> ضربه بزنید.</string>
+    <string name="tw_cover_volume_warning_message">گوش دادن به صداهای بلند برای مدت طولانی می تواند به شنوایی شما آسیب برساند. برای افزایش صدا، صفحه کشویی را باز کنید.</string>
+    <string name="tw_safe_media_volume_warning_kids_mode">وقتی گوشی در حالت کودک متصل است، نمی‌توانید صدا را از حد مجاز ایمن توصیه شده (‎%s) بلندتر کنید.</string>
+    <string name="yes">تاييد</string>
+    <string name="no">خیر</string>
+    <string name="volume_limiter_notice_toast">برای افزایش صدا، روی &lt;تنظیمات> ضربه بزنید، سپس &lt;محدود کننده صدای رسانه> را غیرفعال کنید یا محدوده صدای خود را تغییر دهید.</string>
+    <string name="volume_limiter_open_cover_toast">برای ادامه، جلد تلفن را باز کنید.</string>
+    <string name="quick_settings_settings">تنظیمات</string>
+    <string name="system_ui_tuner">تنظیم‌کننده واسط کاربری سیستم</string>
+    <string name="show_battery_percentage">نمایش درصد شارژ باتری جاسازی شده</string>
+    <string name="show_battery_percentage_summary">نمایش درصد سطح باتری در نماد نوار وضعیت، هنگامی که باتری شارژ نمی‌شود</string>
+    <string name="quick_settings">تنظیمات سریع</string>
+    <string name="status_bar">نوار وضعیت</string>
+    <string name="overview">نمای کلی</string>
+    <string name="demo_mode">حالت نمایشی</string>
+    <string name="enable_demo_mode">فعال کردن حالت نمایشی</string>
+    <string name="show_demo_mode">نمایش حالت نمایشی</string>
+    <string name="status_bar_ethernet">اترنت</string>
+    <string name="status_bar_alarm">هشدار</string>
+    <string name="status_bar_work">نمایه کاری</string>
+    <string name="status_bar_airplane">حالت هواپیما</string>
+    <string name="add_tile">افزودن کاشی</string>
+    <string name="broadcast_tile">کاشی پخش عمومی</string>
+    <string name="mobileap">نقطه اتصال تلفن همراه</string>
+    <string name="mobile_hotspot_wifi_off_warning">با فعال کردن نقطه اتصال تلفن همراه، Wi-Fi خاموش می‌شود.</string>
+    <string name="mobile_hotspot_wifi_off_warning_vzw">Mobile Hotspot uses your mobile data connection. Your Wi-Fi connection will be turned off.</string>
+    <string name="mobile_hotspot_wifi_off_warning_china">Enabling Mobile hotspot will turn off WLAN.</string>
+    <string name="mobile_hotspot_wifi_off_warning_jpn">Enabling Wi-Fi tethering will turn off Wi-Fi.</string>
+    <string name="tethering_attention_title">توجه</string>
+    <string name="mobile_data_enable_toast_text">هنگامی که حالت پرواز فعال است اتصال به شبکه های تلفن همراه ممکن نیست. حالت پرواز را غیرفعال کرده و دوباره امتحان کنید.</string>
+    <string name="wifi_ap_wifi_p2p_off_warn">با فعال کردن نقطه اتصال تلفن همراه اتصال همه دستگاههایی که در حال حاضر از طریق Wi-Fi Direct متصل هستند قطع می‌شود.</string>
+    <string name="wifi_ap_wifi_p2p_off_warn_china">Enabling Portable WLAN hotspot will disconnect device connected via WLAN Direct.</string>
+    <string name="dialog_battery_data_warning">نقطه اتصال تلفن همراه فعال خواهد شد. با این کار میزان مصرف باتری و استفاده از داده‌ها افزایش می‌یابد.</string>
+    <string name="zen_alarm_warning_indef">در ساعت %1$s صدای زنگ ساعت بعدی‌تان را نمی‌شنوید، مگر اینکه قبل از آن، این تنظیم را خاموش کنید</string>
+    <string name="zen_alarm_warning">در ساعت %1$s، دیگر صدای زنگ ساعت را نمی‌شنوید</string>
+    <string name="alarm_template">در %1$s</string>
+    <string name="alarm_template_far">در %1$s</string>
+    <string name="accessibility_quick_settings_detail">تنظیمات سریع، %s.</string>
+    <string name="accessibility_status_bar_hotspot">نقطه اتصال</string>
+    <string name="accessibility_managed_profile">نمایه کاری</string>
+    <string name="tuner_warning_title">برای بعضی افراد سرگرم‌کننده است اما نه برای همه</string>
+    <string name="tuner_warning">‏«تنظیم‌کننده واسط کاربری سیستم» روش‌های بیشتری برای تنظیم دقیق و سفارشی کردن واسط کاربری Android در اختیار شما قرار می‌دهد. ممکن است این ویژگی‌های آزمایشی تغییر کنند، خراب شوند یا در نسخه‌های آینده جود نداشته باشند. با احتیاط ادامه دهید.</string>
+    <string name="tuner_persistent_warning">ممکن است این ویژگی‌های آزمایشی تغییر کنند، خراب شوند یا در نسخه‌های آینده وجود نداشته باشند. با احتیاط ادامه دهید.</string>
+    <string name="got_it">متوجه شدم</string>
+    <string name="tuner_toast">تبریک می‌گوییم! «تنظیم‌کننده واسط کاربری سیستم» به «تنظیمات» اضافه شد</string>
+    <string name="remove_from_settings">حذف از تنظیمات</string>
+    <string name="remove_from_settings_prompt">«تنظیم‌کننده واسط کاربری سیستم» از تنظیمات حذف شود و همه ویژگی‌های آن متوقف شوند؟</string>
+    <string name="activity_not_found">برنامه در دستگاه شما نصب نیست</string>
+    <string name="clock_seconds">نمایش ثانیه‌های ساعت</string>
+    <string name="clock_seconds_desc">ثانیه‌های ساعت را در نوار وضعیت نشان می‌دهد. ممکن است بر ماندگاری باتری تأثیر بگذارد.</string>
+    <string name="qs_rearrange">ترتیب مجدد در تنظیمات سریع</string>
+    <string name="show_brightness">نمایش روشنایی در تنظیمات سریع</string>
+    <string name="overview_nav_bar_gesture">فعال کردن تقسیم صفحه با اشاره بالا کشیدن</string>
+    <string name="overview_nav_bar_gesture_desc">اشاره ورود به تقسیم صفحه با بالا کشیدن صفحه از دکمه نمای کلی را فعال می‌کند</string>
+    <string name="experimental">آزمایشی</string>
+    <string name="enable_bluetooth_title">بلوتوث روشن شود؟</string>
+    <string name="enable_bluetooth_message">برای مرتبط کردن صفحه‌کلید با رایانه لوحی، ابتدا باید بلوتوث را روشن کنید.</string>
+    <string name="enable_bluetooth_confirmation_ok">روشن کردن</string>
+    <string name="show_silently">نمایش بی‌صدای اعلان‌ها</string>
+    <string name="block">مسدود کردن همه اعلان‌ها</string>
+    <string name="do_not_silence">ساکت نشود</string>
+    <string name="do_not_silence_block">ساکت یا مسدود نشود</string>
+    <string name="tuner_full_importance_settings">کنترل‌های قدرتمند اعلان</string>
+    <string name="tuner_full_importance_settings_on">روشن</string>
+    <string name="tuner_full_importance_settings_off">خاموش</string>
+    <string name="power_notification_controls_description">"با کنترل‌های قدرتمند اعلان می‌توانید سطح اهمیت اعلان‌های هر برنامه را از ۰ تا ۵ تعیین کنید. 
+
+"<b>سطح ۵</b>" 
+- در صدر فهرست اعلان‌ها نشان داده می‌شود 
+- وقفه برای نمایش تمام‌صفحه مجاز است 
+- همیشه اجمالی نشان داده می‌شود 
+
+"<b>سطح ۴</b>" 
+- وقفه برای نمایش تمام‌صفحه مجاز نیست 
+- همیشه اجمالی نشان داده می‌شود 
+
+"<b>سطح ۳</b>" 
+- وقفه برای نمایش تمام‌صفحه مجاز نیست 
+- هیچ‌وقت اجمالی نشان داده نمی‌شود 
+
+"<b>سطح ۲</b>" 
+- وقفه برای نمایش تمام‌صفحه مجاز نیست 
+- هیچ‌وقت اجمالی نشان داده نمی‌شود 
+- هیچ‌وقت صدا و لرزش ایجاد نمی‌کند 
+
+"<b>سطح ۱</b>" 
+- نمایش تمام صفحه مجاز نیست 
+- هیچ‌وقت اجمالی نشان داده نمی‌شود 
+- هیچ‌وقت صدا یا لرزش ایجاد نمی‌کند 
+- در صفحه درحالت قفل و نوار وضعیت پنهان است 
+- در پایین فهرست اعلان‌ها نشان داده می‌شود 
+
+"<b>سطح ۰</b>" 
+- همه اعلان‌های این برنامه مسدود است"</string>
+    <string name="user_unspecified_importance">اهمیت: خودکار</string>
+    <string name="blocked_importance">اهمیت: سطح ۰</string>
+    <string name="min_importance">اهمیت: سطح ۱</string>
+    <string name="low_importance">اهمیت: سطح ۲</string>
+    <string name="default_importance">اهمیت: سطح ۳</string>
+    <string name="high_importance">اهمیت: سطح ۴</string>
+    <string name="max_importance">اهمیت: سطح ۵</string>
+    <string name="notification_importance_user_unspecified">برنامه اهمیت هر اعلان را تعیین می‌کند.</string>
+    <string name="notification_importance_blocked">اعلان‌های این برنامه هرگز نشان داده نمی‌شود.</string>
+    <string name="notification_importance_min">بدون وقفه نمایش تمام‌صفحه، نمایش اجمالی، صدا یا لرزش. عدم نمایش در صفحه قفل و نوار وضعیت.</string>
+    <string name="notification_importance_low">بدون وقفه نمایش تمام‌صفحه، نمایش اجمالی، صدا یا لرزش.</string>
+    <string name="notification_importance_default">بدون وقفه نمایش تمام‌صفحه یا نمایش اجمالی.</string>
+    <string name="notification_importance_high">همیشه نمایش اجمالی. بدون وقفه نمایش تمام‌صفحه.</string>
+    <string name="notification_importance_max">همیشه نمایش اجمالی، و مجاز بودن وقفه برای نمایش تمام‌صفحه.</string>
+    <string name="notification_more_settings">تنظیمات بیشتر</string>
+    <string name="notification_done">تمام</string>
+    <string name="notification_gear_accessibility">کنترل‌های اعلان %1$s</string>
+    <string name="color_and_appearance">رنگ و ظاهر</string>
+    <string name="night_mode">حالت شب</string>
+    <string name="calibrate_display">درجه‌بندی نمایشگر</string>
+    <string name="night_mode_on">روشن</string>
+    <string name="night_mode_off">خاموش</string>
+    <string name="turn_on_automatically">روشن شدن خودکار</string>
+    <string name="turn_on_auto_summary">تغییر به حالت شب وقتی برای مکان و زمان روز مناسب است</string>
+    <string name="when_night_mode_on">وقتی حالت شب روشن است</string>
+    <string name="use_dark_theme">‏استفاده از زمینه تیره برای سیستم‌عامل Android</string>
+    <string name="adjust_tint">تنظیم سایه‌رنگ</string>
+    <string name="adjust_brightness">تنظیم روشنایی</string>
+    <string name="night_mode_disclaimer">‏زمینه تیره بر قسمت‌های اصلی سیستم‌عامل Android که به‌طور معمول با زمینه روشن نشان داده می‌شوند (مثل «تنظیمات») اعمال می‌شود.</string>
+    <string name="color_apply">اعمال‌ کردن</string>
+    <string name="color_revert_title">تأیید تنظیمات</string>
+    <string name="color_revert_message">بعضی از تنظیمات رنگ می‌توانند این دستگاه را غیرقابل استفاده کنند. برای تأیید این تنظیمات رنگ روی «تأیید» کلیک کنید، در غیر این صورت این تغییرات بعد از ۱۰ ثانیه بازنشانی می‌شوند.</string>
+    <string name="battery_panel_title">مصرف باتری</string>
+    <string name="battery_detail_charging_summary">هنگام شارژ شدن، «بهینه‌سازی باتری» در دسترس نیست</string>
+    <string name="battery_detail_switch_title">بهینه‌سازی باتری</string>
+    <string name="battery_detail_switch_summary">عملکرد و اطلاعات پس‌زمینه را کاهش می‌دهد</string>
+    <string name="keyboard_key_button_template">دکمه %1$s</string>
+    <string name="keyboard_key_home">ابتدا</string>
+    <string name="keyboard_key_back">برگشت</string>
+    <string name="keyboard_key_dpad_up">بالا</string>
+    <string name="keyboard_key_dpad_down">پایین</string>
+    <string name="keyboard_key_dpad_left">چپ</string>
+    <string name="keyboard_key_dpad_right">راست</string>
+    <string name="keyboard_key_dpad_center">مرکز</string>
+    <string name="keyboard_key_tab">جهش</string>
+    <string name="keyboard_key_space">فاصله</string>
+    <string name="keyboard_key_enter">ورود</string>
+    <string name="keyboard_key_backspace">پس‌بر</string>
+    <string name="keyboard_key_media_play_pause">پخش/مکث</string>
+    <string name="keyboard_key_media_stop">توقف</string>
+    <string name="keyboard_key_media_next">بعدی</string>
+    <string name="keyboard_key_media_previous">قبلی</string>
+    <string name="keyboard_key_media_rewind">عقب بردن</string>
+    <string name="keyboard_key_media_fast_forward">جلو بردن سریع</string>
+    <string name="keyboard_key_page_up">صفحه بعدی</string>
+    <string name="keyboard_key_page_down">صفحه قبلی</string>
+    <string name="keyboard_key_forward_del">حذف</string>
+    <string name="keyboard_key_move_home">ابتدا</string>
+    <string name="keyboard_key_move_end">انتها</string>
+    <string name="keyboard_key_insert">درج</string>
+    <string name="keyboard_key_num_lock">قفل اعداد</string>
+    <string name="keyboard_key_numpad_template">صفحه‌کلید عددی %1$s</string>
+    <string name="keyboard_shortcut_group_system">سیستم</string>
+    <string name="keyboard_shortcut_group_system_home">صفحه اصلی</string>
+    <string name="keyboard_shortcut_group_system_recents">موارد اخیر</string>
+    <string name="keyboard_shortcut_group_system_back">برگشت</string>
+    <string name="keyboard_shortcut_group_system_notifications">اعلان‌ها</string>
+    <string name="keyboard_shortcut_group_system_shortcuts_helper">میان‌برهای صفحه‌کلید</string>
+    <string name="keyboard_shortcut_group_system_switch_input">تغییر روش ورودی</string>
+    <string name="keyboard_shortcut_group_applications">برنامه‌ها</string>
+    <string name="keyboard_shortcut_group_applications_assist">دستیار</string>
+    <string name="keyboard_shortcut_group_applications_browser">مرورگر</string>
+    <string name="keyboard_shortcut_group_applications_contacts">مخاطبین</string>
+    <string name="keyboard_shortcut_group_applications_email">ایمیل</string>
+    <string name="keyboard_shortcut_group_applications_im">پیام فوری</string>
+    <string name="keyboard_shortcut_group_applications_music">موسیقی</string>
+    <string name="keyboard_shortcut_group_applications_youtube">YouTube</string>
+    <string name="keyboard_shortcut_group_applications_calendar">تقویم</string>
+    <string name="tuner_full_zen_title">نمایش با کنترل‌های صدا</string>
+    <string name="volume_and_do_not_disturb">مزاحم نشوید</string>
+    <string name="volume_dnd_silent">میان‌بر دکمه‌های صدا</string>
+    <string name="volume_up_silent">خارج شدن از حالت «مزاحم نشوید» در میزان صدای بالا</string>
+    <string name="battery">باتری</string>
+    <string name="clock">ساعت</string>
+    <string name="headset">هدست</string>
+    <string name="accessibility_status_bar_headphones">هدفون وصل شد</string>
+    <string name="accessibility_status_bar_headset">هدست وصل شد</string>
+    <string name="data_saver">صرفه‌جویی داده</string>
+    <string name="accessibility_data_saver_on">صرفه‌جویی داده روشن است</string>
+    <string name="accessibility_data_saver_off">صرفه‌جویی داده خاموش است</string>
+    <string name="switch_bar_on">روشن</string>
+    <string name="switch_bar_off">خاموش</string>
+    <string name="nav_bar">نوار پیمایش</string>
+    <string name="start">شروع</string>
+    <string name="center">وسط</string>
+    <string name="end">پایان</string>
+    <string name="space">جداکننده</string>
+    <string name="menu_ime">جابه‌جاکننده منو / صفحه‌کلید</string>
+    <string name="select_button">دکمه را برای افزودن انتخاب کنید</string>
+    <string name="add_button">دکمه افزودن</string>
+    <string name="reset">بازنشانی</string>
+    <string name="no_home_title">دکمه صفحه اصلی‌ای پیدا نشد</string>
+    <string name="no_home_message">برای پیمایش در این دستگاه به دکمه صفحه اصلی نیاز است. لطفاً قبل از ذخیره کردن، یک دکمه صفحه اصلی اضافه کنید.</string>
+    <string name="adjust_button_width">تنظیم پهنای دکمه</string>
+    <string name="clipboard">کلیپ‌بورد</string>
+    <string name="clipboard_description">«کلیپ‌بورد» امکان می‌دهد موارد به‌طور مستقیم به کلیپ‌بورد کشیده شوند. اگر مواردی در کلیپ‌بورد وجود داشته باشند می‌توانند به‌طور مستقیم به خارج از آن نیز کشیده شوند.</string>
+    <string name="accessibility_key">دکمه پیمایش سفارشی</string>
+    <string name="keycode">کد کلید</string>
+    <string name="keycode_description">دکمه «کد دکمه» به کلیدهای صفحه‌کلید امکان می‌دهند به «نوار پیمایش» اضافه شوند. وقتی فشار داده می‌شوند رفتار کلید صفحه‌کلید انتخاب‌شده را تقلید می‌کنند. ابتدا باید کلید را برای دکمه انتخاب کرد و به دنبال آن باید تصویری برای نشان داده شدن روی دکمه انتخاب شود.</string>
+    <string name="select_keycode">کلید صفحه‌کلید را انتخاب کنید</string>
+    <string name="preview">پیش‌نمایش</string>
+    <string name="drag_to_add_tiles">کشیدن برای افزودن کاشی‌ها</string>
+    <string name="drag_to_remove_tiles">برای حذف، به اینجا بکشید</string>
+    <string name="qs_edit">ویرایش</string>
+    <string name="sec_qs_edit">ویرایش</string>
+    <string name="screen_grid">طرح دکمه</string>
+    <string name="brightness_control_on_top">کنترل روشنایی در بالا</string>
+    <string name="screen_grid_popup_title">طرح دکمه</string>
+    <string name="screen_grid_popup_apply">اعمال کردن</string>
+    <string name="screen_grid_popup_ok">تأیید</string>
+    <string name="qs_contact_us">تماس با ما</string>
+    <string name="tuner_time">زمان</string>
+    <string name="other">موارد دیگر</string>
+    <string name="accessibility_divider">تقسیم‌کننده صفحه</string>
+    <string name="accessibility_action_divider_left_full">تمام‌صفحه چپ</string>
+    <string name="accessibility_action_divider_left_70">٪۷۰ چپ</string>
+    <string name="accessibility_action_divider_left_50">٪۵۰ چپ</string>
+    <string name="accessibility_action_divider_left_30">٪۳۰ چپ</string>
+    <string name="accessibility_action_divider_right_full">تمام‌صفحه راست</string>
+    <string name="accessibility_action_divider_top_full">تمام‌صفحه بالا</string>
+    <string name="accessibility_action_divider_top_70">٪۷۰ بالا</string>
+    <string name="accessibility_action_divider_top_50">٪۵۰ بالا</string>
+    <string name="accessibility_action_divider_top_30">٪۳۰ بالا</string>
+    <string name="accessibility_action_divider_bottom_full">تمام‌صفحه پایین</string>
+    <string name="accessibility_qs_edit_tile_label">موقعیت %1$d، %2$s. برای ویرایش دو ضربه سریع بزنید.</string>
+    <string name="accessibility_qs_edit_add_tile_label">%1$s. برای افزودن دو ضربه سریع بزنید.</string>
+    <string name="accessibility_qs_edit_position_label">موقعیت %1$d. برای انتخاب دو ضربه سریع بزنید.</string>
+    <string name="accessibility_qs_edit_move_tile">انتقال %1$s</string>
+    <string name="accessibility_qs_edit_remove_tile">حذف %1$s</string>
+    <string name="accessibility_qs_edit_tile_added">%1$s به موقعیت %2$d اضافه می‌شود</string>
+    <string name="accessibility_qs_edit_tile_removed">%1$s حذف می‌شود</string>
+    <string name="accessibility_qs_edit_tile_moved">%1$s به موقعیت %2$d منتقل شد</string>
+    <string name="accessibility_desc_quick_settings_edit">ویرایشگر تنظیمات سریع.</string>
+    <string name="accessibility_desc_notification_icon">اعلان %1$s: %2$s</string>
+    <string name="dock_forced_resizable">ممکن است برنامه با تقسیم صفحه کار نکند.</string>
+    <string name="dock_non_resizeble_failed_to_dock_text">برنامه از تقسیم صفحه پشتیبانی نمی‌کند.</string>
+    <string name="multiwindow_forced_resizable">این برنامه ممکن است در حالت چند پنجره‌ای درست کار نکند.</string>
+    <string name="accessibility_quick_settings_settings">باز کردن تنظیمات.</string>
+    <string name="accessibility_quick_settings_expand">باز کردن تنظیمات سریع.</string>
+    <string name="accessibility_quick_settings_collapse">بستن تنظیمات سریع.</string>
+    <string name="accessibility_quick_settings_alarm_set">تنظیم زنگ ساعت.</string>
+    <string name="accessibility_quick_settings_no_internet">عدم اتصال به اینترنت.</string>
+    <string name="accessibility_quick_settings_open_details">باز کردن جزئیات.</string>
+    <string name="accessibility_quick_settings_open_settings">باز کردن تنظیمات %s.</string>
+    <string name="accessibility_quick_settings_edit">ویرایش ترتیب تنظیمات.</string>
+    <string name="accessibility_quick_settings_page">صفحه %1$d از %2$d</string>
+    <string name="accessibility_quick_settings_more_option">گزینه‌های بیشتر</string>
+    <string name="accessibility_quick_settings_voice_search">جستجوی صوتی</string>
+    <string name="recents_close_all_button_text">بستن همه</string>
+    <string name="recents_split_button_description">باز کردن در نمای صفحه دوقسمتی</string>
+    <string name="recents_lock_button_description">این برنامه را به صفحه برنامه‌های اخیر متصل کنید یا بردارید</string>
+    <string name="recents_menu_more">بیشتر</string>
+    <string name="recents_menu_contact_us">با ما تماس بگیرید</string>
+    <string name="recents_help_dlg_full_page1">روی %s در نوار عنوان پنجره برنامه ضربه بزنید تا برنامه‌ها در نمای صفحه دوقسمتی باز شوند. اگر برنامه از حالت چند پنجره‌ای پشتیبانی کند، این نماد نشان داده می‌شود.</string>
+    <string name="recents_help_dlg_full_page1_desc">روی نماد صفحه دوقسمتی در نوار عنوان پنجره برنامه ضربه بزنید تا برنامه‌ها در نمای صفحه دوقسمتی باز شوند. اگر برنامه از حالت چند پنجره‌ای پشتیبانی کند، این نماد نشان داده می‌شود.</string>
+    <string name="recents_help_dlg_full_page2_hardkey">هنگام استفاده از یک برنامه در نمای تمام‌صفحه و برای تغییر به نمای صفحه دوقسمتی، کلید موارد اخیر را فشار داده و نگهدارید.</string>
+    <string name="recents_help_dlg_next_button_text">بعدی</string>
+    <string name="recents_help_dlg_split_page1">برنامه اخیر را انتخاب کنید تا در نیمه پایینی صفحه باز شود یا به صفحه اصلی بروید و برنامه جدیدی در نمای صفحه دوقسمتی باز کنید.</string>
+    <string name="recents_help_dlg_split_page2_hardkey">کلید صفحه اصلی را فشار دهید تا برنامه کوچک شده و در نیمه بالایی صفحه در نمای صفحه دوقسمتی قرار گیرد. هنگامی که برنامه‌ای کوچک شده، اگر برنامه دیگری را از صفحه اصلی باز کنید، در نیمه پایینی صفحه در نمای صفحه دوقسمتی باز خواهد شد.</string>
+    <string name="recents_help_dlg_split_page2_softkey">روی دکمه صفحه اصلی ضربه بزنید تا برنامه کوچک شده و در نیمه بالایی صفحه در نمای صفحه دوقسمتی قرار گیرد. هنگامی که برنامه‌ای کوچک شده، اگر برنامه دیگری را از صفحه اصلی باز کنید، در نیمه پایینی صفحه در نمای صفحه دوقسمتی باز خواهد شد.</string>
+    <string name="recents_app_list_more_apps">برنامه‌های بیشتر</string>
+    <string name="recents_app_list_recommendations">پیشنهادات</string>
+    <string name="recents_app_list_multi_window_apps">برنامه‌های چندپنجره‌ای</string>
+    <string name="data_connection_error_toast_notification">اتصال Wi-Fi مورد نیاز است. به شبکه Wi-Fi متصل شده و دوباره امتحان کنید.</string>
+    <string name="data_connection_error_no_network_connection">اتصال شبکه وجود ندارد</string>
+    <string name="data_connection_error_flight_mode_on">هنگامی که حالت پرواز فعال است اتصال به شبکه های تلفن همراه ممکن نیست. به جای آن، به شبکه Wi-Fi متصل شوید یا حالت پرواز را غیرفعال کرده و دوباره امتحان کنید.</string>
+    <string name="data_connection_error_mobile_data_off">داده تلفن همراه غیرفعال است. به جای آن، به شبکه Wi-Fi متصل شوید یا داده تلفن همراه را فعال کرده و دوباره امتحان کنید.</string>
+    <string name="data_connection_error_data_roaming_off">رومینگ داده غیرفعال است. به جای آن، به شبکه Wi-Fi متصل شوید یا رومینگ داده را فعال کرده و دوباره امتحان کنید.</string>
+    <string name="data_connection_error_no_signal_no_sim">اتصال Wi-Fi مورد نیاز است. به شبکه Wi-Fi متصل شده و دوباره امتحان کنید.</string>
+    <string name="data_connection_error_no_signal">سیگنالی برای شبکه های تلفن همراه یافت نمی شود.</string>
+    <string name="retry">امتحان دوباره</string>
+    <string name="later">بعدا</string>
+    <string name="mobile_device_warning_toast_notification">استفاده از دستگاه تلفن همراه در حین راه رفتن یا رانندگی، خطر تصادف در پی خواهد داشت.</string>
+    <string name="flight_mode_enabled_dialog_title">Airplane mode turned on</string>
+    <string name="flight_mode_enabled_dialog_body">Unless you use Wi-Fi, you will not be able to use the Internet, Email, or other apps that require a data connection.</string>
+    <string name="flight_mode_enabled_dialog_body_volte_and_vowifi">Unless you use Wi-Fi, you will not be able to use Internet, Email, Wi-Fi Calling or other apps that require a data connection.</string>
+    <string name="popup_notification_title">اعلان</string>
+    <string name="mcc_setting_dialog_body">شبکه اطلاعات تاریخ و زمان را ارائه نمی دهد. برای تنظیم دستی به تنظیمات تاریخ و زمان بروید.</string>
+    <string name="mcc_setting_dialog_body_vzw">Date and time information is not updating automatically. Go to Settings > Date and time to set manually.</string>
+    <string name="popup_set_manually_button_vzw">Set manually</string>
+    <string name="mcc_setting_toast_notification">قبل از تنظیم زمان، منطقه زمانی را انتخاب کنید.</string>
+    <string name="sim_card_tray_water_protection_dialog_title">بررسی سینی سیم‌کارت/کارت حافظه</string>
+    <string name="sim_card_tray_water_protection_dialog_body">"شناسایی سیم‌کارت ممکن نیست. دستگاه شما نمی‌تواند عملکردهایی از قبیل برقراری تماس و اتصال با شبکه تلفن همراه را انجام دهد.
+
+برای محافظت در برابر آسیب با آب، مطمئن شوید سینی سیم‌کارت/کارت حافظه کاملا بسته و محکم شده باشد."</string>
+    <string name="sim_card_tray_empty_water_protection_dialog_body">برای محافظت در برابر آسیب با آب، مطمئن شوید سینی سیم‌کارت/کارت حافظه کاملا بسته و محکم شده باشد.</string>
+    <string name="water_protection_notification_title">بررسی پورت</string>
+    <string name="water_protection_notification_body">رطوبت وجود دارد. برای شارژ کردن دستگاه خود، مطمئن شوید پورت شارژر/USB خشک است.</string>
+    <string name="full_battery_title">اطلاعات</string>
+    <string name="full_battery_noti_text">باطری بطور کامل پرشد.</string>
+    <string name="cooling_title">دستگاه داغ است</string>
+    <string name="cooling_noti_text">برای مشاهده جزئیات، اینجا را کلیک کنید.</string>
+    <string name="cooling_body">"دستگاهتان داغ است. مراحلی برای خنک کردن آن انجام خواهد شد.
+
+در این فاصله همچنان می‌توانید از تلفن استفاده کنید، ولی ممکن است:
+- نور صفحه نمایش کم شود.
+- سرعت دستگاه کاهش یابد.
+- شارژ موقتاً متوقف شود.
+
+پس از آنکه دستگاه خنک شد، کارکرد به طور خودکار به وضعیت عادی بازمی‌گردد."</string>
+    <string name="colling_high_level_noti_text">باز کردن برنامه‌ها ممکن نیست. فقط می‌توانید از برنامه‌های تلفن و مخاطبین استفاده کنید.</string>
+    <string name="cooling_title_vzw">Cooling down</string>
+    <string name="cooling_noti_text_vzw">برای اطلاعات بیشتر ضربه بزنید.</string>
+    <string name="cooling_body_vzw">"Your phone is getting hot, so it's taking steps to cool itself down.
+
+You can still use it, but you may notice:
+- The screen might dim.
+- The phone might slow down.
+- Charging might pause.
+
+Your phone will return to normal once it cools down."</string>
+    <string name="cooling_body_tablet_vzw">"Your tablet is getting too hot, so it’s taking steps to cool itself down.
+
+You can still use your tablet, but you may notice:
+The screen might dim.
+The tablet might slow down.
+Charging might pause.
+
+After the tablet cools down, performance willAutomatically go back to normal."</string>
+    <string name="cooling_popup_title">دستگاه در حال خنک شدن</string>
+    <string name="overheat_shutdown_warning_title">Turning off</string>
+    <string name="overheat_shutdown_warning_text">"Your phone is getting hot.
+It will now turn off to cool down."</string>
+    <string name="overheat_shutdown_warning_text_tablet">Your tablet is getting too hot. It will now turn off to cool down.</string>
+    <string name="overheat_shutdown_warning_button_text">"Don't turn off"</string>
+    <string name="overheat_shutdown_notice_title">Why did my phone turn off by itself?</string>
+    <string name="overheat_shutdown_notice_title_tablet">Why did my tablet turn off by itself?</string>
+    <string name="overheat_shutdown_notice_text">"Your phone got hot. It turned off to prevent damage to the phone.
+
+This can be caused by:
+Using graphics-intensive apps, like video games and navigation apps, for long periods of time.
+Downloading or uploading large files.
+Using your phone in a very hot location."</string>
+    <string name="overheat_shutdown_notice_text_tablet">"Your tablet got too hot. It turned off to prevent damage to the tablet.
+
+Overheating can be caused by:
+Using graphics intensive apps like video games and navigation apps for long periods of time.
+Downloading or uploading large files.
+Using your tablet in a very hot location."</string>
+    <string name="overheat_poweroff_warning_title">خاموش کردن دستگاه</string>
+    <string name="overheat_poweroff_warning_text">دستگاهتان بیش از حد داغ است. برای خنک شدن خاموش می‌شود.</string>
+    <string name="overheat_poweroff_warning_text_new">دستگاهتان داغ است. دستگاه برای خنک شدن، %d ثانیه دیگر خاموش می‌شود.</string>
+    <string name="overheat_poweroff_warning_text_append">تا زمانی که دستگاه خنک نشده است، نمی‌توانید مجدداً آن را روشن کنید.</string>
+    <string name="overheat_poweroff_warning_button_text">خاموش نکنید</string>
+    <string name="overheat_poweroff_notice_title">دستگاه به طور خودکار خاموش شد</string>
+    <string name="overheat_poweroff_notice_text">"دستگاهتان داغ شده است. برای جلوگیری از بروز آسیب خاموش می‌شود.
+
+داغ شدن بیش از حد ممکن است در اثر عوامل زیر رخ دهد:
+- استفاده از برنامه‌های گرافیکی سنگین مثل بازی‌ها و پیمایش برنامه‌ها برای مدت طولانی.
+- انتقال فایل‌های بزرگ.
+- استفاده از دستگاه در هوای خیلی گرم."</string>
+    <string name="safe_mode_noti_title">حالت ایمن فعال شد</string>
+    <string name="safe_mode_noti_body">برای ایمن غیرفعال، ضربه بزنید.</string>
+    <string name="safe_mode_alert_title">راه اندازي مجدد دستگاه</string>
+    <string name="safe_mode_alert_body">برای غیرفعال کردن حالت ایمن، دستگاه مجدداً راه‌اندازی می‌شود. بعد از آن، همه برنامه‌هایتان در دسترس خواهند بود.</string>
+    <string name="safe_mode_alert_positive_button">اکنون راه اندازی شود</string>
+    <string name="safe_mode_noti_title_vzw">Safe Mode Is On</string>
+    <string name="safe_mode_noti_body_vzw">Tap to turn off Safe Mode.</string>
+    <string name="safe_mode_alert_title_vzw">Turn Off Safe Mode</string>
+    <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
+    <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
+    <string name="battery_low_sec_title">نیروی باتری %d درصد</string>
+    <string name="battery_low_sec_body_in_normal_mode">دستگاه خود را شارژ کنید یا اینجا ضربه بزنید و &lt;حالت ذخیره نیرو> را فعال کنید.</string>
+    <string name="battery_low_sec_body_in_ups_mode">دستگاهتان را به یک شارژر متصل کنید.</string>
+    <string name="battery_cable_charging_title">شارژ کابلی</string>
+    <string name="battery_charging_title">شارژ کردن</string>
+    <string name="battery_fast_charging_title">شارژ سریع</string>
+    <string name="battery_wireless_charging_title">شارژ بی‌سیم</string>
+    <string name="battery_fast_wireless_charging_title">شارژ بی‌سیم سریع</string>
+    <string name="battery_wireless_charging_disconnect_text">شارژ کردن بی‌سیم متوقف شد.</string>
+    <string name="battery_wireless_charging_from_cable_to_wireless_text">تغییر از شارژ سیمی به شارژ بی سیم</string>
+    <string name="battery_cable_charging_from_wireless_to_cable_text">تغییر از شارژ بی سیم به شارژ سیمی</string>
+    <string name="battery_slow_charging_title">دستگاه کند شارژ می‌شود</string>
+    <string name="battery_slow_charging_text">برای شارژ سریع‌تر از شارژر اصل استفاده کنید.</string>
+    <string name="battery_slow_charging_toast_text">To charge faster, use the charger and cable that were provided with this phone</string>
+    <string name="battery_charging_level_and_time_text">"شارژ کردن: ‎%1$d%%‎‏‎
+(تقریباً ‎%2$s تا شارژ کامل)"</string>
+    <string name="battery_charging_level_text">در حال شارژ: %%%d</string>
+    <string name="medium_power_saving_mode_notification_title">حالت ذخیره نیروی متوسط فعال شد</string>
+    <string name="battery_saver_notification_text_time_extend">عمر باتری شما افزایش یافت.</string>
+    <string name="button_detail">جزئیات</string>
+    <string name="battery_saver_recommend_notification_title">نیروی باتری %d درصد</string>
+    <string name="battery_saver_recommend_notification_text">دستگاه خود را شارژ کنید یا اینجا ضربه بزنید و &lt;حالت ذخیره نیرو> را فعال کنید.</string>
+    <string name="button_close">بستن</string>
+    <string name="battery_health_interruption_title">شارژ ممکن نیست</string>
+    <string name="battery_health_interruption_by_terminal_open_text">شارژ دستگاه ممکن نیست. مطمئن شوید از باتری و شارژر سازگار با سامسونگ استفاده می‌کنید و دستگاهتان به درستی به شارژر متصل شده باشد.</string>
+    <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">شارژ متوقف شد. دمای باتری بسیار زیاد است.</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">شارژ متوقف شد. دمای باتری بسیار کم است.</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"شارژ دستگاه متوقف شده است. دمای باتری خیلی زیاد است. هنگام جدا کردن شارژر مراقب باشید. ممکن است خیلی داغ باشد.‎
+
+ممکن است با جدا کردن و وصل کردن مجدد شارژر، شارژ به صورت عادی ادامه یابد. اگر داغ شدن بیش از حد ادامه داشت، با سرویس‌های مشتری تماس بگیرید چون خطر آتش‌سوزی یا جراحت وجود دارد."</string>
+    <string name="incompatible_charger_title">شارژ نمی شود</string>
+    <string name="incompatible_charger_dialog_text">The connected charger is incompatible with this phone. To prevent damage to your phone, charging has been stopped. To continue charging, use the original charger and cable that were provided with this phone.</string>
+    <string name="incompatible_charger_notification_text">Unable to charge. Use the original charger.</string>
+    <string name="incompatible_charger_ticker">در حال شارژ نیست.</string>
+    <string name="warning_alert_check">بدون نمایش مجدد</string>
+    <string name="power_supplying_low_battery_alert_title">باتری ضعیف است</string>
+    <string name="power_supplying_low_battery_alert_body">این دستگاه در حال شارژ دستگاه دیگری است که از طریق USB به آن متصل شده است. این کار مصرف باتری دستگاه را افزایش می‌دهد. برای توقف شارژ دستگاه متصل، کابل USB را جدا کنید.</string>
+    <string name="kg_iris_or_fingerprint_active_instructions">با اثر انگشت قفل صفحه را باز کنید یا برای استفاده از چشم، انگشت را روی صفحه بکشید</string>
+    <string name="kg_iris_or_fingerprint_unlock_instructions">با اثر انگشت قفل را باز کنید یا جهت استفاده از چشم، روی صفحه بکشید</string>
+    <string name="kg_fingerprint_or_swipe_active_instructions">با کشیدن انگشت روی صفحه یا با اثر انگشت، باز کنید</string>
+    <string name="kg_fingerprint_or_swipe_unlock_instructions">با کشیدن انگشت روی صفحه یا با اثر انگشت، قفل را باز کنید</string>
+    <string name="kg_iris_unlock_instructions">کشیدن انگشت روی صفحه و استفاده از چشم برای بازگشایی قفل</string>
+    <string name="kg_voice_assistant_active_instructions">برای باز کردن، با دو انگشت روی صفحه بکشید.</string>
+    <string name="kg_voice_assistant_unlock_instructions">برای قفل گشایی صفحه، دو انگشت خود را روی صفحه بکشید</string>
+    <string name="kg_swipe_active_instructions">انگشت را روی صفحه بکشید تا باز شود</string>
+    <string name="kg_swipe_unlock_instructions">برای بازگشایی قفل انگشت را روی صفحه بکشید</string>
+    <string name="kg_power_connect_charger">متصل کردن شارژر</string>
+    <string name="kg_power_fully_charged">کاملاً شارژ شد</string>
+    <string name="kg_power_fast_charging">شارژ سریع: %d درصد</string>
+    <string name="kg_power_charging_wirelessly">شارژ به صورت بی‌سیم: %d%%</string>
+    <string name="kg_power_fast_charging_wirelessly">شارژ سریع بی‌سیم: ‎%d درصد</string>
+    <string name="kg_power_charging">در حال شارژ: %%%d</string>
+    <string name="kg_power_charging_remaining_time">(تقریباً %s تا وقتی کامل شارژ شود)</string>
+    <string name="kg_power_time_format_hour_minute">%1$d ساعت و %2$d دقیقه</string>
+    <string name="kg_power_time_format_hour">%d ساعت</string>
+    <string name="kg_power_time_format_minute">%d دقیقه</string>
+    <string name="kg_smart_lock_content_description">برای قفل کردن دستگاه، دو بار ضربه بزنید و بکشید.</string>
+    <string name="keyguard_skt_usim_unregistered">استفاده از سیم‌کارت ممکن نیست. اطلاعات سیم‌کارت را دانلود کنید.</string>
+    <string name="keyguard_missing_sim_message">سیم‌کارت را وارد کرده و دستگاه را راه‌اندازی مجدد کنید</string>
+    <string name="keyguard_usim_not_used">استفاده از سیم‌کارت ممکن نیست. کد بازگشایی قفل پین (PUK) ‏%d بار نادرست وارد شد. سیم‌کارت جدیدی خریداری کنید.</string>
+    <string name="lockscreen_nosim_text_kor_only">"سیم‌کارت شناسایی نشد
+فقط تماس‌های اضطراری"</string>
+    <string name="qs_sfinder_search_phone">جستجوی تلفن و اسکن دستگاه‌های نزدیک</string>
+    <string name="noti_setting_text">تنظیمات اعلان</string>
+    <string name="dnd_noti_title">حالت مزاحم نشوید فعال شد</string>
+    <string name="dnd_noti_message">زنگ‌های هشدار بی‌صدا شدند</string>
+    <string name="dnd_noti_action_disable">غیرفعال کردن</string>
+    <string name="do_not_show_again">دوباره نمایش داده نشود</string>
+    <string name="quick_settings_hongbao_assistant_label">"Hongbao
+assistant"</string>
+    <string name="hongbao_assistant_dialog_message">"Hongbao assistant will be enabled. This function will allow you to receive WeChat red envelopes more quickly and get notifications when they are received.
+A network connection is required.
+You can enable and disable this function via the quick settings panel."</string>
+    <string name="hongbao_assistant_noti_title">Hongbao assistant</string>
+    <string name="hongbao_assistant_noti_text">Receive WeChat red envelopes more quickly and get notifications when they are received. Tap here to enable this function.</string>
+    <string name="no_sim_notification_title">سیم وجود ندارد</string>
+    <string name="no_sim_notification_title_tmo">سیم‌کارتی وارد نشده است</string>
+    <string name="no_sim_notification_title_vzw">No SIM found</string>
+    <string name="no_sim_notification_text">لطفا سیم را وارد کنید.</string>
+    <string name="no_sim_notification_text_vzw">Tap for more information.</string>
+    <string name="accessibility_phone_four_bars">چهار ستون سیگنال تلفن</string>
+    <string name="quick_settings_screen_capture_label">"Capture
+screen"</string>
+    <string name="quick_settings_screen_recorder_label">"Record
+screen"</string>
+    <string name="airplane_mode_plmn">حالت پرواز</string>
+    <string name="default_carrier_text_searching">جستجو</string>
+    <string name="sec_data_usage_disabled_dialog_mobile_title">داده های تلفن همراه غیرفعال شد</string>
+    <string name="sec_data_usage_disabled_dialog_mobile_title_vzw">Mobile data is now off</string>
+    <string name="sec_data_usage_disabled_dialog_body">به حداکثر محدوده استفاده از داده مشخص شده رسید. استفاده از داده های بیشتر مشمول هزینه از طرف ارائه دهنده خدمات است.</string>
+    <string name="sec_data_usage_disabled_dialog_body_vzw">"You've reached your specified data usage limit, so mobile data has been turned off.
+
+If you turn mobile data back on, you may be charged for data usage by your carrier."</string>
+    <string name="sec_data_usage_disabled_dialog_enable">داده تلفن همراه روشن</string>
+    <string name="sec_data_usage_disabled_dialog_enable_vzw">Turn on data</string>
+    <string name="quick_panel_data_usage">Data usage</string>
+    <string name="qs_multisim_voice_preffered_btn_title">تماس ها</string>
+    <string name="qs_multisim_sms_preffered_btn_title">پیام متنی</string>
+    <string name="qs_multisim_data_preffered_btn_title">داده تلفن همراه</string>
+    <string name="qs_multisim_voice_ask_always">همیشه سؤال شود</string>
+    <string name="qs_multisim_data_turned_off">خاموش شد</string>
+    <string name="app_locked">App locked</string>
+    <string name="uhq_toast_earphone_connect_request">Connect earphones to use UHQ upscaler.</string>
+    <string name="quick_settings_uhq_mode_label">"UHQ
+upscaler"</string>
+    <string name="uhq_mode_noti_title">ارتقاء کیفیت UHQ</string>
+    <string name="uhq_mode_noti_text">برای داشتن تجربه بهتر صدا، وضوح صدای موسیقی و ویدیوها را بهتر کنید.</string>
+    <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
+    <string name="assistance_app_setting_item_none">هيچيک</string>
+    <string name="car_lockscreen_disclaimer_title">با ایمنی برانید</string>
+    <string name="car_lockscreen_disclaimer_text">‏کاملاً از شرایط رانندگی آگاه باشید و همیشه قوانین مربوطه را رعایت کنید. مسیرها ممکن است غیردقیق، ناقص، ناکامل، خطرناک، نامناسب، ممنوع یا مستلزم عبور از تقسیمات کشوری باشند. اطلاعات کسب و کار نیز ممکن است غیردقیق یا ناکامل باشند. داده‌ها بی‌درنگ نیستند و دقت مکان نمی‌تواند تضمین شود. هنگام رانندگی دستگاه همراه را در دست نگیرید یا از برنامه‌هایی که ویژه Android Auto نیستند استفاده نکنید.</string>
+    <string name="pip_close">‏بستن PIP</string>
+    <string name="pip_fullscreen">تمام صفحه</string>
+    <string name="pip_play">پخش</string>
+    <string name="pip_pause">مکث</string>
+    <string name="pip_hold_home">‏کنترل PIP ‏با نگه‌داشتن <b>HOME</b></string>
+    <string name="pip_onboarding_title">تصویر در تصویر</string>
+    <string name="pip_onboarding_description">تا زمانی که ویدیوی دیگری را پخش کنید، این صفحه حالت ویدیو در ویدیوی شما را حفظ می‌کند. برای کنترل آن، دکمه <b>صفحه اصلی</b> را فشار دهید و نگه دارید.</string>
+    <string name="pip_onboarding_button">متوجه شدم</string>
+    <string name="recents_tv_dismiss">رد کردن</string>
+    <string name="app_name">Keyguard</string>
+    <string name="keyguard_password_enter_pin_code">پین کد را وارد کنید</string>
+    <string name="keyguard_password_enter_puk_code">‏PUK سیم کارت و کد پین جدید را تایپ کنید</string>
+    <string name="keyguard_password_enter_puk_prompt">‏کد PUK سیم کارت</string>
+    <string name="keyguard_password_enter_pin_prompt">کد پین جدید سیم کارت</string>
+    <string name="keyguard_password_entry_touch_hint"><font size="17">برای تایپ گذرواژه لمس کنید</font></string>
+    <string name="keyguard_password_enter_password_code">برای بازکردن قفل، گذرواژه را وارد کنید</string>
+    <string name="keyguard_password_enter_pin_password_code">برای بازکردن قفل، پین را تایپ کنید</string>
+    <string name="keyguard_password_wrong_pin_code">پین کد اشتباه است.</string>
+    <string name="keyguard_charged">شارژ شد</string>
+    <string name="keyguard_plugged_in">در حال شارژ شدن</string>
+    <string name="keyguard_plugged_in_charging_fast">شارژ سریع</string>
+    <string name="keyguard_plugged_in_charging_slowly">شارژ آهسته</string>
+    <string name="keyguard_low_battery">شارژر خود را وصل کنید.</string>
+    <string name="keyguard_instructions_when_pattern_disabled">برای بازگشایی قفل روی منو فشار دهید.</string>
+    <string name="keyguard_network_locked_message">شبکه قفل شد</string>
+    <string name="keyguard_missing_sim_message_short">سیم کارت موجود نیست</string>
+    <string name="keyguard_missing_sim_instructions">سیم کارت را وارد کنید.</string>
+    <string name="keyguard_missing_sim_instructions_long">سیم کارت موجود نیست یا قابل خواندن نیست. یک سیم کارت وارد کنید.</string>
+    <string name="keyguard_permanent_disabled_sim_message_short">سیم کارت غیرقابل استفاده است.</string>
+    <string name="keyguard_permanent_disabled_sim_instructions">"‏سیم کارت شما به‌طور دائم غیر فعال شده است. 
+برای داشتن سیم کارت دیگر با ارائه‎دهنده سرویس بی‎سیم خود تماس بگیرید."</string>
+    <string name="keyguard_sim_locked_message">سیم‌کارت قفل شد</string>
+    <string name="keyguard_sim_puk_locked_message">سیم‌کارت با کد پاک قفل شد</string>
+    <string name="keyguard_sim_unlock_progress_dialog_message">در حال باز کردن قفل سیم کارت</string>
+    <string name="keyguard_accessibility_pattern_unlock">باز کردن قفل با الگو.</string>
+    <string name="keyguard_accessibility_pin_unlock">باز کردن قفل با پین.</string>
+    <string name="keyguard_accessibility_password_unlock">باز کردن قفل با گذرواژه.</string>
+    <string name="keyguard_accessibility_pattern_area">ناحیه الگو.</string>
+    <string name="keyguard_accessibility_slide_area">ناحیه کشیدن انگشت روی صفحه.</string>
+    <string name="keyguard_accessibility_pin_area">قسمت پین</string>
+    <string name="keyguard_accessibility_sim_pin_area">قسمت پین سیم‌کارت</string>
+    <string name="keyguard_accessibility_sim_puk_area">‏قسمت PUK سیم‌کارت</string>
+    <string name="keyguard_accessibility_next_alarm">هشدار بعدی برای %1$s تنظیم شد</string>
+    <string name="keyboardview_keycode_delete">Delete</string>
+    <string name="keyboardview_keycode_enter">Enter</string>
+    <string name="kg_forgot_pattern_button_text">الگو را فراموش کرده‌اید</string>
+    <string name="kg_wrong_pattern">الگوی اشتباه</string>
+    <string name="kg_wrong_password">گذرواژه اشتباه</string>
+    <string name="kg_wrong_pin">پین اشتباه وارد شد</string>
+    <string name="kg_too_many_failed_attempts_countdown">پس از %d ثانیه دوباره امتحان کنید.</string>
+    <string name="kg_pattern_instructions">الگوی خود را رسم کنید</string>
+    <string name="kg_sim_pin_instructions">پین سیم کارت را وارد کنید</string>
+    <string name="kg_sim_pin_instructions_multi">پین سیم‌کارت «%1$s» را وارد کنید</string>
+    <string name="kg_pin_instructions">پین را وارد کنید</string>
+    <string name="kg_password_instructions">گذرواژه را وارد کنید</string>
+    <string name="kg_puk_enter_puk_hint">اکنون سیم کارت غیرفعال است. پین کد را برای ادامه وارد کنید. برای جزئیات با شرکت مخابراتی خود تماس بگیرید.</string>
+    <string name="kg_puk_enter_puk_hint_multi">‏اکنون سیم‌کارت «%1$s» غیرفعال شده است. برای ادامه دادن، کد PUK را وارد کنید. برای اطلاع از جزئیات با شرکت مخابراتی تماس بگیرید.</string>
+    <string name="kg_puk_enter_pin_hint">پین کد دلخواه را وارد کنید</string>
+    <string name="kg_enter_confirm_pin_hint">تأیید پین کد دلخواه</string>
+    <string name="kg_sim_unlock_progress_dialog_message">بازگشایی قفل سیم کارت...</string>
+    <string name="kg_invalid_sim_pin_hint">یک پین ۴ تا ۸ رقمی را تایپ کنید.</string>
+    <string name="kg_invalid_sim_puk_hint">پین کد باید ۸ عدد یا بیشتر باشد.</string>
+    <string name="kg_invalid_puk">پین کد صحیح را دوباره وارد کنید. تلاش‌های مکرر به‌طور دائم سیم کارت را غیرفعال خواهد کرد.</string>
+    <string name="kg_invalid_confirm_pin_hint">پین کدها منطبق نیستند</string>
+    <string name="kg_login_too_many_attempts">‏تلاش‎های زیادی برای کشیدن الگو صورت گرفته است</string>
+    <string name="kg_too_many_failed_pin_attempts_dialog_message">"پین خود را %1$d بار اشتباه تایپ کردید. 
+
+پس از %2$d ثانیه دوباره امتحان کنید."</string>
+    <string name="kg_too_many_failed_password_attempts_dialog_message">"گذرواژه خود را %1$d بار اشتباه تایپ کردید. 
+
+پس از %2$d ثانیه دوباره امتحان کنید."</string>
+    <string name="kg_too_many_failed_pattern_attempts_dialog_message">"الگوی بازگشایی قفل خود را %1$d بار اشتباه کشیدید. 
+
+لطفاً پس از %2$d ثانیه دوباره امتحان کنید."</string>
+    <string name="kg_failed_attempts_almost_at_wipe">%1$d تلاش ناموفق برای باز کردن قفل تلفن داشته‌اید. پس از %2$d تلاش ناموفق دیگر، تلفن بازنشانی می‌شود که با آن کل اطلاعاتش حذف می‌شود.</string>
+    <string name="kg_failed_attempts_now_wiping">%d تلاش ناموفق برای باز کردن قفل تلفن داشته‌اید. این تلفن بازنشانی می‌شود که با آن همه اطلاعاتش حذف می‌شود.</string>
+    <string name="kg_failed_attempts_almost_at_erase_user">%1$d تلاش ناموفق برای باز کردن قفل تلفن داشته‌اید. پس از %2$d تلاش ناموفق دیگر، این کاربر حذف می‌شود که با آن کل اطلاعات کاربر حذف می‌شود.</string>
+    <string name="kg_failed_attempts_now_erasing_user">%d تلاش ناموفق برای باز کردن قفل تلفن داشته‌اید. این کاربر حذف می‌شود که با آن همه اطلاعات کاربر حذف می‌شود.</string>
+    <string name="kg_failed_attempts_almost_at_erase_profile">%1$d تلاش ناموفق برای باز کردن قفل تلفن داشته‌اید. پس از %2$d تلاش ناموفق دیگر، نمایه کار حذف می‌شود که با آن کل اطلاعات نمایه حذف می‌شود.</string>
+    <string name="kg_failed_attempts_now_erasing_profile">%d تلاش ناموفق برای باز کردن قفل تلفن داشته‌اید. نمایه کار حذف می‌شود که با آن همه اطلاعات نمایه حذف می‌شود.</string>
+    <string name="kg_sec_1_failed_attempt_almost_at_wipe">یک تلاش برای بازگشایی قفل دستگاه صورت گرفته است. %d تلاش دیگر باقی مانده است قبل از این که دستگاه به تنظیمات پیش‌فرض کارخانه بازنشانی شده و همه داده‌ها از جمله فایل‌ها و برنامه‌های دانلود شده پاک شوند.</string>
+    <string name="kg_sec_failed_attempts_almost_at_wipe">تلاش برای بازگشایی قفل دستگاه ‎%1$d بار صورت گرفته است. %2$d تلاش دیگر باقی مانده است قبل از این که دستگاه به تنظیمات پیش‌فرض کارخانه بازنشانی شده و همه داده‌ها از جمله فایل‌ها و برنامه‌های دانلود شده پاک شوند.</string>
+    <string name="kg_sec_1_remaing_count_almost_at_wipe">تلاش برای بازگشایی قفل دستگاه ‎%d بار صورت گرفته است. ۱ تلاش دیگر باقی مانده است قبل از این که دستگاه به تنظیمات پیش‌فرض کارخانه بازنشانی شده و همه داده‌ها از جمله فایل‌ها و برنامه‌های دانلود شده پاک شوند.</string>
+    <string name="kg_failed_attempts_almost_at_login">"‏شما الگوی بازگشایی قفل خود را %1$d بار اشتباه کشیده‌اید. پس از %2$d تلاش ناموفق، از شما خواسته می‎شود که با استفاده از یک حساب ایمیل قفل تلفن خود را باز کنید.
+
+ لطفاً پس از %3$d ثانیه دوباره امتحان کنید."</string>
+    <string name="kg_password_wrong_pin_code_pukked">کد پین سیم کارت اشتباه است، اکنون برای گشودن قفل دستگاهتان باید با شرکت مخابراتی تماس بگیرید.</string>
+    <string name="kg_password_wrong_puk_code_dead">سیم کارت غیر قابل استفاده است. با شرکت مخابراتی‌تان تماس بگیرید.</string>
+    <string name="kg_password_pin_failed">عملیات پین سیم کارت ناموفق بود!</string>
+    <string name="kg_password_puk_failed">‏عملیات PUK سیم کارت ناموفق بود!</string>
+    <string name="kg_pin_accepted">کد پذیرفته شد!</string>
+    <string name="keyguard_carrier_default">خدماتی وجود ندارد.</string>
+    <string name="accessibility_ime_switch_button">تغییر روش ورودی</string>
+    <string name="kg_prompt_reason_restart_pattern">بعد از بازنشانی دستگاه باید الگو وارد شود</string>
+    <string name="kg_prompt_reason_restart_pin">بعد از بازنشانی دستگاه باید پین وارد شود</string>
+    <string name="kg_prompt_reason_restart_password">بعد از بازنشانی دستگاه باید گذرواژه وارد شود</string>
+    <string name="kg_prompt_reason_timeout_pattern">برای ایمنی بیشتر باید الگو وارد شود</string>
+    <string name="kg_prompt_reason_timeout_pin">برای ایمنی بیشتر باید پین وارد شود</string>
+    <string name="kg_prompt_reason_timeout_password">برای ایمنی بیشتر باید گذرواژه وارد شود</string>
+    <string name="kg_prompt_reason_switch_profiles_pattern">بعد از تغییر نمایه‌ها باید الگو وارد شود</string>
+    <string name="kg_prompt_reason_switch_profiles_pin">بعد از تغییر نمایه‌ها باید پین وارد شود</string>
+    <string name="kg_prompt_reason_switch_profiles_password">بعد از تغییر نمایه‌ها باید گذرواژه وارد شود</string>
+    <string name="kg_prompt_reason_device_admin">سرپرست دستگاه آن را قفل کرده است</string>
+    <string name="kg_prompt_reason_user_request">دستگاه به‌صورت دستی قفل شده است</string>
+    <string name="fingerprint_not_recognized">شناخته نشد</string>
+    <string name="kg_sim_locked_message">سیم‌کارت قفل شد</string>
+    <string name="kg_missing_sim_message_short">سیم‌کارت وجود ندارد</string>
+    <string name="kg_default_carrier_text_searching">جستجو</string>
+    <string name="kg_perso_locked_message">Block other USIM</string>
+    <string name="kg_pin_locked_message">پین وارد شود</string>
+    <string name="kg_puk_locked_message">کد پاک را وارد کنید</string>
+    <string name="kg_flight_mode">حالت پرواز</string>
+    <string name="kg_lockscreen_emergency_call_button_text">تماس اضطراری</string>
+    <string name="keyguard_dualclock_locale_view_home">منزل</string>
+    <string name="keyguard_dualclock_locale_view_roaming">رومینگ</string>
+    <string name="keyguard_dualclock_locale_view_seoul">سئول</string>
+    <string name="keyguard_dualclock_locale_view_korea">رومینگ</string>
+    <string name="kg_wrong_direction_lock">جهت نادرست ترسیم شد</string>
+    <string name="kg_direction_lock_instructions_normal_mode">برای بازگشایی قفل چند جهت ترسیم کنید</string>
+    <string name="keyguard_accessibility_direction_lock_unlock">قفل کردن با جهت</string>
+    <string name="kg_wrong_direction_lock_vzw">Incorrect directions (%d attempts remaining)</string>
+    <string name="direction_lock_too_many_failed_attempts_countdown">سعی مجدد پس از %d ثانیه</string>
+    <string name="kg_iris_direction_instructions">استفاده از چشم یا ترسیم چند جهت</string>
+    <string name="kg_1_attempt_remaining">(۱ فرصت باقی‌مانده)</string>
+    <string name="kg_n_attempts_remaining">(‎%d فرصت باقی‌مانده)</string>
+    <string name="kg_multi_biometrics_strong_auth_prompt_reason_restarting_universal_lock">دستگاهتان راه‌اندازی مجدد شده و لازم است با ترسیم جهت‌های خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اطلاعات بیومتریک خود استفاده کنید.</string>
+    <string name="kg_iris_strong_auth_prompt_reason_restarting_universal_lock">دستگاه شما راه‌اندازی مجدد شده و لازم است با ترسیم جهت‌های خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از چشم‌های خود استفاده کنید.</string>
+    <string name="kg_multi_biometrics_prompt_reason_timeout_universal_lock_strong_auth">به دلیل سیاست امنیتی، به جای استفاده از تشخیص بیومتریک، چند جهت ترسیم کنید</string>
+    <string name="kg_iris_strong_auth_prompt_reason_universal_lock_security_policy">به دلیل سیاست امنیتی، به جای استفاده از تشخیص با چشم، چند جهت ترسیم کنید</string>
+    <string name="kg_multi_biometrics_strong_auth_prompt_reason_24_timeout_universal_lock">بیشتر از ۲۴ ساعت است که از دستگاهتان استفاده نشده است و لازم است با ترسیم جهت‌های خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اطلاعات بیومتریک خود استفاده کنید.</string>
+    <string name="kg_iris_strong_auth_prompt_reason_24_timeout_universal_lock">بیش از ۲۴ ساعت است که از دستگاهتان استفاده نشده است و لازم است با ترسیم جهت‌های خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از چشم‌های خود استفاده کنید.</string>
+    <string name="kg_none_pin_none_frp">"If you do not enter the correct PIN within the next %d attempts, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_none_pin_1_frp">"If you do not enter the correct PIN in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_tablet_pin_none_frp">"If you do not enter the correct PIN within the next %d attempts, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_tablet_pin_1_frp">"If you do not enter the correct PIN in the next attempt, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_none_pattern_none_frp">"If you do not enter the correct pattern within the next %d attempts, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_none_pattern_1_frp">"If you do not enter the correct pattern in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_tablet_pattern_none_frp">"If you do not draw the correct pattern within the next %d attempts, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_tablet_pattern_1_frp">"If you do not draw the correct pattern in the next attempt, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_none_password_none_frp">"If you do not enter the correct password within the next %d attempts, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_none_password_1_frp">"If you do not enter the correct password in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_tablet_password_none_frp">"If you do not enter the correct password within the next %d attempts, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_tablet_password_1_frp">"If you do not enter the correct password in the next attempt, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_none_direction_none_frp">"If you do not draw the correct series of directions within the next %d attempts, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_none_direction_1_frp">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_tablet_direction_none_frp">"If you do not draw the correct series of directions within the next %d attempts, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_tablet_direction_1_frp">"If you do not draw the correct series of directions in the next attempt, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_warning_none_1_none_auto_wipe">There has been 1 attempt to unlock this phone. You have %d attempts left before the phone is reset to factory default settings and all data is erased, including files and downloaded apps.</string>
+    <string name="kg_warning_tablet_1_none_auto_wipe">There has been 1 attempt to unlock this tablet. You have %d attempts left before the tablet is reset to factory default settings and all data is erased, including files and downloaded apps.</string>
+    <string name="kg_warning_none_none_none_auto_wipe">There have been %1$d attempts to unlock this phone. You have %2$d attempts left before the phone is reset to factory default settings and all data is erased, including files and downloaded apps.</string>
+    <string name="kg_warning_tablet_none_none_auto_wipe">There have been %1$d attempts to unlock this tablet. You have %2$d attempts left before the tablet is reset to factory default settings and all data is erased, including files and downloaded apps.</string>
+    <string name="kg_warning_none_none_1_auto_wipe">There have been %d attempts to unlock this phone. You have 1 attempt left before the phone is reset to factory default settings and all data is erased, including files and downloaded apps.</string>
+    <string name="kg_warning_tablet_none_1_auto_wipe">There have been %d attempts to unlock this tablet. You have 1 attempt left before the tablet is reset to factory default settings and all data is erased, including files and downloaded apps.</string>
+    <string name="kg_multi_pin_none_instructions">استفاده از اثر انگشت، چشم یا وارد کردن پین</string>
+    <string name="kg_multi_pin_active_instructions">استفاده از اثر انگشت، چشم یا وارد کردن پین برای باز کردن</string>
+    <string name="kg_multi_pin_shutdown_instructions">استفاده از اثر انگشت، چشم‌ها یا وارد کردن پین برای خاموش کردن</string>
+    <string name="kg_fingerprint_pin_none_instructions">استفاده از اثر انگشت یا وارد کردن پین</string>
+    <string name="kg_fingerprint_pin_active_instructions">استفاده از اثر انگشت یا وارد کردن پین برای باز کردن</string>
+    <string name="kg_fingerprint_pin_shutdown_instructions">استفاده از اثر انگشت یا وارد کردن پین برای خاموش کردن</string>
+    <string name="kg_iris_pin_none_instructions">استفاده از چشم یا وارد کردن پین</string>
+    <string name="kg_iris_pin_active_instructions">استفاده از چشم یا وارد کردن پین برای باز کردن</string>
+    <string name="kg_iris_pin_shutdown_instructions">استفاده از چشم یا وارد کردن پین برای خاموش کردن</string>
+    <string name="kg_none_pin_none_instructions">پین را وارد کنید</string>
+    <string name="kg_none_pin_active_instructions">پین را وارد کنید تا باز شود</string>
+    <string name="kg_none_pin_shutdown_instructions">وارد کردن پین برای خاموش کردن</string>
+    <string name="kg_multi_pattern_none_instructions">استفاده از اثر انگشت، چشم یا ترسیم الگو</string>
+    <string name="kg_multi_pattern_active_instructions">استفاده از اثر انگشت، چشم یا ترسیم الگو برای باز کردن</string>
+    <string name="kg_multi_pattern_shutdown_instructions">استفاده از اثر انگشت، چشم‌ها یا ترسیم الگو برای خاموش کردن</string>
+    <string name="kg_fingerprint_pattern_none_instructions">استفاده از اثر انگشت یا ترسیم الگوی بازگشایی قفل</string>
+    <string name="kg_fingerprint_pattern_active_instructions">استفاده از اثر انگشت یا ترسیم الگو برای باز کردن</string>
+    <string name="kg_fingerprint_pattern_shutdown_instructions">استفاده از اثر انگشت یا ترسیم الگو برای خاموش کردن</string>
+    <string name="kg_iris_pattern_none_instructions">استفاده از چشم یا ترسیم الگو</string>
+    <string name="kg_iris_pattern_active_instructions">استفاده از چشم یا ترسیم الگو برای باز کردن</string>
+    <string name="kg_iris_pattern_shutdown_instructions">استفاده از چشم یا ترسیم الگو برای خاموش کردن</string>
+    <string name="kg_none_pattern_none_instructions">ترسیم الگوی بازگشایی قفل</string>
+    <string name="kg_none_pattern_active_instructions">الگوی بازگشایی قفل را رسم کنید تا باز شود</string>
+    <string name="kg_none_pattern_shutdown_instructions">ترسیم الگو برای خاموش کردن</string>
+    <string name="kg_multi_password_none_instructions">استفاده از اثر انگشت، چشم یا وارد کردن رمزعبور</string>
+    <string name="kg_multi_password_active_instructions">استفاده از اثر انگشت، چشم یا وارد کردن رمزعبور برای باز کردن</string>
+    <string name="kg_multi_password_shutdown_instructions">استفاده از اثر انگشت، چشم‌ها یا وارد کردن رمزعبور برای خاموش کردن</string>
+    <string name="kg_fingerprint_password_none_instructions">استفاده از اثر انگشت یا وارد کردن رمز ورود</string>
+    <string name="kg_fingerprint_password_active_instructions">استفاده از اثر انگشت یا وارد کردن رمز ورود برای باز کردن</string>
+    <string name="kg_fingerprint_password_shutdown_instructions">استفاده از اثر انگشت یا وارد کردن رمزعبور برای خاموش کردن</string>
+    <string name="kg_iris_password_none_instructions">استفاده از چشم یا وارد کردن رمزعبور</string>
+    <string name="kg_iris_password_active_instructions">استفاده از چشم یا وارد کردن رمزعبور برای باز کردن</string>
+    <string name="kg_iris_password_shutdown_instructions">استفاده از چشم یا وارد کردن رمزعبور برای خاموش کردن</string>
+    <string name="kg_none_password_none_instructions">رمز ورود را وارد کنید</string>
+    <string name="kg_none_password_active_instructions">رمز ورود را وارد کنید تا باز شود</string>
+    <string name="kg_none_password_shutdown_instructions">وارد کردن رمزعبور برای خاموش کردن</string>
+    <string name="kg_multi_direction_none_instructions">استفاده از اثر انگشت، چشم یا ترسیم چند جهت</string>
+    <string name="kg_multi_direction_active_instructions">استفاده از اثر انگشت، چشم یا ترسیم چند جهت برای باز کردن</string>
+    <string name="kg_multi_direction_shutdown_instructions">استفاده از اثر انگشت، چشم‌ها یا ترسیم چند جهت برای خاموش کردن</string>
+    <string name="kg_fingerprint_direction_none_instructions">استفاده از اثر انگشت یا ترسیم چند جهت</string>
+    <string name="kg_fingerprint_direction_active_instructions">استفاده از اثر انگشت یا ترسیم چند جهت برای باز کردن</string>
+    <string name="kg_fingerprint_direction_shutdown_instructions">استفاده از اثر انگشت یا ترسیم چند جهت برای خاموش کردن</string>
+    <string name="kg_iris_direction_none_instructions">استفاده از چشم یا ترسیم چند جهت</string>
+    <string name="kg_iris_direction_active_instructions">استفاده از چشم یا ترسیم چند جهت برای باز کردن</string>
+    <string name="kg_iris_direction_shutdown_instructions">استفاده از چشم یا ترسیم چند جهت برای خاموش کردن</string>
+    <string name="kg_none_direction_none_instructions">برای بازگشایی قفل چند جهت ترسیم کنید</string>
+    <string name="kg_none_direction_active_instructions">برای باز کردن، چند جهت ترسیم کنید</string>
+    <string name="kg_none_direction_shutdown_instructions">ترسیم چند جهت برای خاموش کردن</string>
+    <string name="kg_none_multi_pin_restart_instructions">دستگاهتان راه‌اندازی مجدد شده و لازم است با پین خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اطلاعات بیومتریک خود استفاده کنید.</string>
+    <string name="kg_tablet_multi_pin_restart_instructions">دستگاهتان راه‌اندازی مجدد شده و لازم است با پین خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اطلاعات بیومتریک خود استفاده کنید.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">دستگاه شما راه‌اندازی مجدد شده و لازم است با پین خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اثر انگشت‌های خود استفاده کنید.</string>
+    <string name="kg_tablet_fingerprint_pin_restart_instructions">دستگاه شما راه‌اندازی مجدد شده و لازم است با پین خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اثر انگشت‌های خود استفاده کنید.</string>
+    <string name="kg_none_iris_pin_restart_instructions">دستگاه شما راه‌اندازی مجدد شده و لازم است با پین خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از چشم‌های خود استفاده کنید.</string>
+    <string name="kg_tablet_iris_pin_restart_instructions">دستگاه شما راه‌اندازی مجدد شده و لازم است با پین خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از چشم‌های خود استفاده کنید.</string>
+    <string name="kg_none_multi_pin_timeout_instructions">بیشتر از ۲۴ ساعت است که از دستگاهتان استفاده نشده است و لازم است با پین خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اطلاعات بیومتریک خود استفاده کنید.</string>
+    <string name="kg_tablet_multi_pin_timeout_instructions">بیشتر از ۲۴ ساعت است که از دستگاهتان استفاده نشده است و لازم است با پین خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اطلاعات بیومتریک خود استفاده کنید.</string>
+    <string name="kg_none_fingerprint_pin_timeout_instructions">بیشتر از ۲۴ ساعت است که از دستگاهتان استفاده نشده است و لازم است با پین خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اثر انگشت‌های خود استفاده کنید.</string>
+    <string name="kg_tablet_fingerprint_pin_timeout_instructions">بیشتر از ۲۴ ساعت است که از دستگاهتان استفاده نشده است و لازم است با پین خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اثر انگشت‌های خود استفاده کنید.</string>
+    <string name="kg_none_iris_pin_timeout_instructions">بیش از ۲۴ ساعت است که از دستگاهتان استفاده نشده است و لازم است با پین خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از چشم‌های خود استفاده کنید.</string>
+    <string name="kg_tablet_iris_pin_timeout_instructions">بیش از ۲۴ ساعت است که از دستگاهتان استفاده نشده است و لازم است با پین خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از چشم‌های خود استفاده کنید.</string>
+    <string name="kg_none_multi_pin_deviceadmin_instructions">به دلیل سیاست امنیتی، به جای استفاده از تشخیص بیومتریک، پین را وارد کنید</string>
+    <string name="kg_none_fingerprint_pin_deviceadmin_instructions">به دلیل سیاست‌های امنیتی، به جای استفاده از شناسایی اثر انگشت، پین وارد کنید</string>
+    <string name="kg_none_iris_pin_deviceadmin_instructions">به دلیل سیاست امنیتی، به جای استفاده از تشخیص چشم، پین را وارد کنید</string>
+    <string name="kg_none_multi_pattern_restart_instructions">دستگاهتان راه‌اندازی مجدد شده و لازم است با الگوی خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اطلاعات بیومتریک خود استفاده کنید.</string>
+    <string name="kg_tablet_multi_pattern_restart_instructions">دستگاهتان راه‌اندازی مجدد شده و لازم است با الگوی خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اطلاعات بیومتریک خود استفاده کنید.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">دستگاه شما راه‌اندازی مجدد شده و لازم است با الگوی خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اثر انگشت‌های خود استفاده کنید.</string>
+    <string name="kg_tablet_fingerprint_pattern_restart_instructions">دستگاه شما راه‌اندازی مجدد شده و لازم است با الگوی خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اثر انگشت‌های خود استفاده کنید.</string>
+    <string name="kg_none_iris_pattern_restart_instructions">دستگاه شما راه‌اندازی مجدد شده و لازم است با الگوی خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از چشم‌های خود استفاده کنید.</string>
+    <string name="kg_tablet_iris_pattern_restart_instructions">دستگاه شما راه‌اندازی مجدد شده و لازم است با الگوی خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از چشم‌های خود استفاده کنید.</string>
+    <string name="kg_none_multi_pattern_timeout_instructions">بیشتر از ۲۴ ساعت است که از دستگاهتان استفاده نشده است و لازم است با الگوی خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اطلاعات بیومتریک خود استفاده کنید.</string>
+    <string name="kg_tablet_multi_pattern_timeout_instructions">بیشتر از ۲۴ ساعت است که از دستگاهتان استفاده نشده است و لازم است با الگوی خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اطلاعات بیومتریک خود استفاده کنید.</string>
+    <string name="kg_none_fingerprint_pattern_timeout_instructions">بیشتر از ۲۴ ساعت است که از دستگاهتان استفاده نشده است و لازم است با الگوی خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اثر انگشت‌های خود استفاده کنید.</string>
+    <string name="kg_tablet_fingerprint_pattern_timeout_instructions">بیشتر از ۲۴ ساعت است که از دستگاهتان استفاده نشده است و لازم است با الگوی خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اثر انگشت‌های خود استفاده کنید.</string>
+    <string name="kg_none_iris_pattern_timeout_instructions">بیش از ۲۴ ساعت است که از دستگاهتان استفاده نشده است و لازم است با الگوی خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از چشم‌های خود استفاده کنید.</string>
+    <string name="kg_tablet_iris_pattern_timeout_instructions">بیش از ۲۴ ساعت است که از دستگاهتان استفاده نشده است و لازم است با الگوی خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از چشم‌های خود استفاده کنید.</string>
+    <string name="kg_none_multi_pattern_deviceadmin_instructions">به دلیل سیاست امنیتی، به جای استفاده از تشخیص بیومتریک، الگو ترسیم کنید</string>
+    <string name="kg_none_fingerprint_pattern_deviceadmin_instructions">به دلیل سیاست‌های امنیتی، به جای استفاده از شناسایی اثر انگشت، الگو ترسیم کنید</string>
+    <string name="kg_none_iris_pattern_deviceadmin_instructions">به دلیل سیاست امنیتی، به جای استفاده از تشخیص چشم، الگو ترسیم کنید</string>
+    <string name="kg_none_multi_password_restart_instructions">دستگاه شما راه‌اندازی مجدد شده و لازم است با رمزعبور خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اطلاعات بیومتریک خود استفاده کنید.</string>
+    <string name="kg_tablet_multi_password_restart_instructions">دستگاه شما راه‌اندازی مجدد شده و لازم است با رمزعبور خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اطلاعات بیومتریک خود استفاده کنید.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">دستگاه شما راه‌اندازی مجدد شده و لازم است با رمزعبور خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اثر انگشت‌های خود استفاده کنید.</string>
+    <string name="kg_tablet_fingerprint_password_restart_instructions">دستگاه شما راه‌اندازی مجدد شده و لازم است با رمزعبور خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اثر انگشت‌های خود استفاده کنید.</string>
+    <string name="kg_none_iris_password_restart_instructions">دستگاه شما راه‌اندازی مجدد شده و لازم است با رمزعبور خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از چشم‌های خود استفاده کنید.</string>
+    <string name="kg_tablet_iris_password_restart_instructions">دستگاه شما راه‌اندازی مجدد شده و لازم است با رمزعبور خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از چشم‌های خود استفاده کنید.</string>
+    <string name="kg_none_multi_password_timeout_instructions">بیشتر از ۲۴ ساعت است که از دستگاهتان استفاده نشده است و لازم است با رمزعبور خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اطلاعات بیومتریک خود استفاده کنید.</string>
+    <string name="kg_tablet_multi_password_timeout_instructions">بیشتر از ۲۴ ساعت است که از دستگاهتان استفاده نشده است و لازم است با رمزعبور خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اطلاعات بیومتریک خود استفاده کنید.</string>
+    <string name="kg_none_fingerprint_password_timeout_instructions">بیشتر از ۲۴ ساعت است که از دستگاهتان استفاده نشده است و لازم است با رمزعبور خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اثر انگشت‌های خود استفاده کنید.</string>
+    <string name="kg_tablet_fingerprint_password_timeout_instructions">بیشتر از ۲۴ ساعت است که از دستگاهتان استفاده نشده است و لازم است با رمزعبور خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اثر انگشت‌های خود استفاده کنید.</string>
+    <string name="kg_none_iris_password_timeout_instructions">بیش از ۲۴ ساعت است که از دستگاهتان استفاده نشده است و لازم است با رمزعبور خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از چشم‌های خود استفاده کنید.</string>
+    <string name="kg_tablet_iris_password_timeout_instructions">بیش از ۲۴ ساعت است که از دستگاهتان استفاده نشده است و لازم است با رمزعبور خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از چشم‌های خود استفاده کنید.</string>
+    <string name="kg_none_multi_password_deviceadmin_instructions">به دلیل سیاست امنیتی، به جای استفاده از تشخیص بیومتریک، رمزعبور را وارد کنید</string>
+    <string name="kg_none_fingerprint_password_deviceadmin_instructions">به دلیل سیاست‌های امنیتی، به جای استفاده از شناسایی اثر انگشت، رمز عبور وارد کنید</string>
+    <string name="kg_none_iris_password_deviceadmin_instructions">به دلیل سیاست امنیتی، به جای استفاده از تشخیص چشم، رمزعبور را وارد کنید</string>
+    <string name="kg_none_multi_direction_restart_instructions">دستگاهتان راه‌اندازی مجدد شده و لازم است با ترسیم جهت‌های خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اطلاعات بیومتریک خود استفاده کنید.</string>
+    <string name="kg_tablet_multi_direction_restart_instructions">دستگاهتان راه‌اندازی مجدد شده و لازم است با ترسیم جهت‌های خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اطلاعات بیومتریک خود استفاده کنید.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">دستگاه شما راه‌اندازی مجدد شده و لازم است با ترسیم جهت‌های خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اثر انگشت‌های خود استفاده کنید.</string>
+    <string name="kg_tablet_fingerprint_direction_restart_instructions">دستگاه شما راه‌اندازی مجدد شده و لازم است با ترسیم جهت‌های خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اثر انگشت‌های خود استفاده کنید.</string>
+    <string name="kg_none_iris_direction_restart_instructions">دستگاه شما راه‌اندازی مجدد شده و لازم است با ترسیم جهت‌های خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از چشم‌های خود استفاده کنید.</string>
+    <string name="kg_tablet_iris_direction_restart_instructions">دستگاه شما راه‌اندازی مجدد شده و لازم است با ترسیم جهت‌های خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از چشم‌های خود استفاده کنید.</string>
+    <string name="kg_none_multi_direction_timeout_instructions">بیشتر از ۲۴ ساعت است که از دستگاهتان استفاده نشده است و لازم است با ترسیم جهت‌های خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اطلاعات بیومتریک خود استفاده کنید.</string>
+    <string name="kg_tablet_multi_direction_timeout_instructions">بیشتر از ۲۴ ساعت است که از دستگاهتان استفاده نشده است و لازم است با ترسیم جهت‌های خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اطلاعات بیومتریک خود استفاده کنید.</string>
+    <string name="kg_none_fingerprint_direction_timeout_instructions">بیشتر از ۲۴ ساعت است که از دستگاهتان استفاده نشده است و لازم است با ترسیم جهت‌های خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اثر انگشت‌های خود استفاده کنید.</string>
+    <string name="kg_tablet_fingerprint_direction_timeout_instructions">بیشتر از ۲۴ ساعت است که از دستگاهتان استفاده نشده است و لازم است با ترسیم جهت‌های خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اثر انگشت‌های خود استفاده کنید.</string>
+    <string name="kg_none_iris_direction_timeout_instructions">بیش از ۲۴ ساعت است که از دستگاهتان استفاده نشده است و لازم است با ترسیم جهت‌های خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از چشم‌های خود استفاده کنید.</string>
+    <string name="kg_tablet_iris_direction_timeout_instructions">بیش از ۲۴ ساعت است که از دستگاهتان استفاده نشده است و لازم است با ترسیم جهت‌های خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از چشم‌های خود استفاده کنید.</string>
+    <string name="kg_none_multi_direction_deviceadmin_instructions">به دلیل سیاست امنیتی، به جای استفاده از تشخیص بیومتریک، چند جهت ترسیم کنید</string>
+    <string name="kg_none_fingerprint_direction_deviceadmin_instructions">به دلیل سیاست امنیتی، به جای استفاده از تشخیص با اثر انگشت، چند جهت ترسیم کنید</string>
+    <string name="kg_none_iris_direction_deviceadmin_instructions">به دلیل سیاست امنیتی، به جای استفاده از تشخیص با چشم، چند جهت ترسیم کنید</string>
+    <string name="kg_none_recovery_none_instructions">برای بازگشایی، رمز عبور بازیابی را وارد کنید.</string>
+    <string name="kg_incorrect_pattern">الگو نادرست ترسیم شد</string>
+    <string name="kg_incorrect_password">رمز ورود اشتباه وارد شد</string>
+    <string name="kg_incorrect_pin">پین اشتباه وارد شد</string>
+    <string name="kg_pin_sub_instructions">پین شما باید حداقل %d عدد داشته باشد.</string>
+    <string name="kg_password_sub_instructions">رمز ورود شما باید حداقل ‎%d نویسه و شامل حداقل یک حرف باشد.</string>
+    <string name="card_crash">خطای سیم کارت</string>
+    <string name="kg_unlock_sim_pin_instructions">پین قفل گشایی سیم کارت را وارد کنید.</string>
+    <string name="kg_unlock_sim_pin_remaining_1_attempt">پین بازگشایی قفل سیم‌کارت را وارد کنید. ۱ تلاش مانده است.</string>
+    <string name="kg_unlock_sim_pin_remaining_attempts">پین بازگشایی قفل سیم‌کارت را وارد کنید. %d تلاش مانده است.</string>
+    <string name="kg_password_wrong_pin_code_one">یک پین سیم‌کارت نادرست وارد شد. ۱ فرصت باقی مانده است.</string>
+    <string name="kg_password_wrong_pin_code_other">یک پین سیم‌کارت نادرست وارد شد. ‎%d فرصت دیگر باقی مانده است.</string>
+    <string name="kg_sim_puk_instructions">سیم‌کارت قفل شد. کد پاک را وارد کنید. برای جزئیات بیشتر با ارائه دهنده سرویس تماس بگیرید.</string>
+    <string name="kg_sim_puk_remaining_1_attempt">اگر پاک را ۱ بار دیگر اشتباه وارد کنید، سیم‌کارت قفل می‌شود.</string>
+    <string name="kg_sim_puk_remaining_attempts">اگر پاک را ‎%d بار دیگر اشتباه وارد کنید، سیم‌کارت قفل می‌شود.</string>
+    <string name="kg_sec_sim_unlock_progress_dialog_message">بازگشایی قفل سیم کارت…</string>
+    <string name="kg_skt_sim_perso_instructions">پین (۴ رقمی) بازگشایی قفل کارت حافظه را وارد کنید</string>
+    <string name="kg_ktt_sim_perso_instructions">رمز عبور (پین) 4 تا 8 رقمی را وارد کنید</string>
+    <string name="kg_kor_sim_unlock_progress_dialog_message">در حال باز کردن قفل سیم کارت</string>
+    <string name="kg_empty_sim_perso_hint">هیچ رمز عبوری وجود ندارد. رمز عبور (پین) را وارد کنید.</string>
+    <string name="kg_password_perso_failed">Incorrect PIN. Check PIN and try again.</string>
+    <string name="kg_password_perso_max_failed">Incorrect PIN entered for USIM card lock. Maximum number of retries reached. Restart device or visit CS centre.</string>
+    <string name="kg_sim_pin_remaining_1_attempt">۱ فرصت باقی مانده است.</string>
+    <string name="kg_sim_pin_remaining_attempts">‎%d تلاش دیگر باقی مانده است.</string>
+    <string name="kg_kor_sim_pin_instructions">پین بازگشایی قفل سیم‌کارت را وارد کنید (۴ تا ۸ رقم)</string>
+    <string name="kg_kor_password_wrong_pin_code">پین نادرست وارد شد. %d تلاش مانده است. با سرویس‌های مشتری تماس بگیرید.</string>
+    <string name="kg_kor_sim_puk_instructions">کد پاک را وارد کنید.</string>
+    <string name="kg_kor_invalid_sim_puk_hint">کد بازگشایی (پاک) پین هشت رقمی را وارد کنید</string>
+    <string name="kg_kor_empty_sim_puk_hint">کد (پاک) بازگشایی قفل پین وارد نشده است. دوباره امتحان کنید.</string>
+    <string name="kg_kor_puk_enter_pin_hint">"یک پین سیم‌کارت جدید ایجاد کنید.
+پین باید ۴ تا ۸ رقم باشد."</string>
+    <string name="kg_kor_enter_confirm_pin_hint">برای تأیید، پین سیم‌کارت را دوباره وارد کنید.</string>
+    <string name="kg_kor_invalid_confirm_pin_hint">پین‌های جدید یکسان نیستند.</string>
+    <string name="kg_kor_wrong_puk_code">خطای ورود کد بازگشایی</string>
+    <string name="kg_kor_sim_puk_remaining_attempts">"کد پاک %1$d بار نادرست وارد شده است. اگر کد پاک %2$d بار دیگر نادرست وارد شود، سیم‌کارت برای همیشه قفل خواهد شد.
+
+اگر کد پاک خود را نمی‌دانید، از یک مرکز سرویس مشتری کمک بخواهید."</string>
+    <string name="kg_kor_success_pin_message">رمز ورود (پین) جدید با موفقیت ذخیره شد.</string>
+    <string name="kg_ctc_unlock_sim_pin_instructions">Enter UIM/SIM card unlock PIN</string>
+    <string name="kg_ctc_sim_puk_instructions">UIM/SIM card locked. Enter PUK. Contact service provider for details.</string>
+    <string name="kg_ctc_puk_enter_pin_hint">Enter new UIM/SIM card unlock PIN</string>
+    <string name="kg_ctc_enter_confirm_pin_hint">Enter new UIM/SIM card unlock PIN again to confirm it</string>
+    <string name="kg_ctc_sim_unlock_progress_dialog_message">Unlocking UIM/SIM card…</string>
+    <string name="kg_ctc_password_wrong_pin_code_one">Incorrect UIM/SIM card PIN entered. 1 attempt left.</string>
+    <string name="kg_ctc_password_wrong_pin_code_other">Incorrect UIM/SIM card PIN entered. %d attempts left.</string>
+    <string name="kg_ctc_sim_puk_remaining_1_attempt">Incorrect PUK entered. If incorrect PUK is entered 1 more time, UIM/SIM card will be locked.</string>
+    <string name="kg_ctc_sim_puk_remaining_attempts">Incorrect PUK entered. If incorrect PUK is entered %d more times, UIM/SIM card will be permanently locked.</string>
+    <string name="kg_dcm_sim_puk_instructions">پین مسدود شد. برای ادامه، کد پاک را وارد کنید.</string>
+    <string name="kg_sim_lock_accepted">کد پذیرفته شد.</string>
+    <string name="kg_carrier_lock_wrong_password">رمزعبور وارد شده اشتباه است.</string>
+    <string name="kg_carrier_lock_too_many_failed_attempts">رمز عبور ۵ مرتبه اشتباه وارد شد. ۱۰ دقیقه دیگر، دوباره امتحان کنید.</string>
+    <string name="keyguard_fmm_phone_locked_title">تلفن قفل است.</string>
+    <string name="keyguard_fmm_owner_phone">شماره مالک</string>
+    <string name="keyguard_accessibility_call">تماس</string>
+    <string name="kg_fingerprint_no_match">مورد منطبقی نیست</string>
+    <string name="kg_finger_print_not_responding_error_message">حسگر اثر انگشت پاسخ نمی‌دهد. بعداً دوباره امتحان کنید.</string>
+    <string name="kg_finger_print_database_error_message">داده‌های اثر انگشت خراب است. اثر انگشت را به عنوان نوع قفل صفحه بازنشانی کرده و دوباره اثر انگشت خود را اضافه کنید یا نوع قفل صفحه را تغییر دهید.</string>
+    <string name="kg_finger_print_sensor_with_recalibration_error_message">مطمئن شوید کلید صفحه اصلی تمیز و خشک باشد، سپس دوباره امتحان کنید.</string>
+    <string name="kg_finger_print_sensor_changed_error_message">حسگر اثر انگشت درست تغییر نکرده است. با سرویس‌های مشتری تماس بگیرید.</string>
+    <string name="kg_fingerprints_direction_instructions">استفاده از اثر انگشت یا ترسیم چند جهت</string>
+    <string name="kg_fingerprints_direction_bouncer_instructions">استفاده از اثر انگشت یا ترسیم چند جهت برای باز کردن</string>
+    <string name="kg_strong_auth_prompt_reason_timeout_direction_lock">بیشتر از ۲۴ ساعت است که از دستگاهتان استفاده نشده است و لازم است با ترسیم جهت‌های خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اثر انگشت‌های خود استفاده کنید.</string>
+    <string name="kg_fingerprints_direction_unabled_instructions">دستگاه شما راه‌اندازی مجدد شده و لازم است با ترسیم جهت‌های خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اثر انگشت‌های خود استفاده کنید.</string>
+    <string name="kg_prompt_reason_timeout_universal_lock_strong_auth">به دلیل سیاست امنیتی، به جای استفاده از تشخیص با اثر انگشت، چند جهت ترسیم کنید</string>
+    <string name="kg_tablet_strong_auth_prompt_reason_timeout_direction_lock">بیشتر از ۲۴ ساعت است که از دستگاهتان استفاده نشده است و لازم است با ترسیم جهت‌های خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اثر انگشت‌های خود استفاده کنید.</string>
+    <string name="kg_tablet_fingerprints_direction_unabled_instructions">دستگاه شما راه‌اندازی مجدد شده و لازم است با ترسیم جهت‌های خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اثر انگشت‌های خود استفاده کنید.</string>
+    <string name="keyguard_progress_erasing_all">حذف همه داده ها…</string>
+    <string name="iris_guide_str_enable_toggle">جهت استفاده از چشم ضربه بزنید</string>
+    <string name="kg_login_username_hint">نام کاربر (ایمیل)</string>
+    <string name="kg_login_password_hint">رمز</string>
+    <string name="kg_login_submit_button">ورود به سیستم</string>
+    <string name="kg_login_invalid_input">نام کاربر یا رمز ورود نامعتبر است.</string>
+    <string name="no_network_connection">اتصال شبكه وجود ندارد</string>
+    <string name="kg_forgot_spass_button_text">Samsung account</string>
+    <string name="kg_login_checking_password">بررسی حساب…</string>
+    <string name="kg_too_many_failed_attempts_countdown_mins_with_auto_wipe">"تلاش برای بازگشایی قفل دستگاه %1$d بار صورت گرفته است. %2$d تلاش دیگر باقی مانده تا دستگاه به تنظیمات پیش‌فرض کارخانه بازنشانی شده و همه داده‌ها پاک شوند.
+
+‏%3$d دقیقه دیگر دوباره امتحان کنید"</string>
+    <string name="kg_too_many_failed_attempts_countdown_secs_with_auto_wipe">"تلاش برای بازگشایی قفل دستگاه %1$d بار صورت گرفته است. %2$d تلاش دیگر باقی مانده است قبل از این که دستگاه به تنظیمات پیش‌فرض کارخانه بازنشانی شده و همه اطلاعات پاک شوند.
+
+‏%3$d ثانیه دیگر دوباره امتحان کنید"</string>
+    <string name="kg_too_many_failed_attempts_countdown_1_min_with_auto_wipe">"تلاش برای بازگشایی قفل دستگاه %1$d بار صورت گرفته است. %2$d تلاش دیگر باقی مانده تا دستگاه به تنظیمات پیش‌فرض کارخانه بازنشانی شده و همه داده‌ها پاک شوند.
+
+‏۱ دقیقه دیگر دوباره امتحان کنید"</string>
+    <string name="kg_too_many_failed_attempts_countdown_1_sec_with_auto_wipe">"تلاش برای بازگشایی قفل دستگاه %1$d بار صورت گرفته است. %2$d تلاش دیگر باقی مانده است قبل از این که دستگاه به تنظیمات پیش‌فرض کارخانه بازنشانی شده و همه اطلاعات پاک شوند.
+
+‏۱ ثانیه دیگر دوباره امتحان کنید"</string>
+    <string name="kg_too_many_failed_countdown_1_sec_with_auto_wipe">۱ ثانیه دیگر دوباره امتحان کنید</string>
+    <string name="kg_too_many_failed_attempt_countdown">۱ ثانیه دیگر دوباره امتحان کنید</string>
+    <string name="kg_remained_1_attempt_countdown_mins_with_auto_wipe">"تلاش برای بازگشایی قفل دستگاه %1$d بار صورت گرفته است. ۱ تلاش دیگر باقی مانده تا دستگاه به تنظیمات پیش‌فرض کارخانه بازنشانی شده و همه داده‌ها پاک شوند.
+
+‏%2$d دقیقه دیگر دوباره امتحان کنید"</string>
+    <string name="kg_remained_1_attempt_countdown_secs_with_auto_wipe">"تلاش برای بازگشایی قفل دستگاه %1$d بار صورت گرفته است. ۱ تلاش دیگر باقی مانده تا دستگاه به تنظیمات پیش‌فرض کارخانه بازنشانی شده و همه اطلاعات پاک شوند.
+
+‏%2$d ثانیه دیگر دوباره امتحان کنید"</string>
+    <string name="kg_remained_1_attempt_countdown_1_min_with_auto_wipe">"تلاش برای بازگشایی قفل دستگاه %d بار صورت گرفته است. ۱ تلاش دیگر باقی مانده تا دستگاه به تنظیمات پیش‌فرض کارخانه بازنشانی شده و همه داده‌ها پاک شوند.
+
+‏۱ دقیقه دیگر دوباره امتحان کنید"</string>
+    <string name="kg_remained_1_attempt_countdown_1_sec_with_auto_wipe">"تلاش برای بازگشایی قفل دستگاه %d بار صورت گرفته است. ۱ تلاش دیگر باقی مانده تا دستگاه به تنظیمات پیش‌فرض کارخانه بازنشانی شده و همه داده‌ها پاک شوند.
+
+‏۱ ثانیه دیگر دوباره امتحان کنید"</string>
+    <string name="volumepanel_notification">اعلانات</string>
+    <string name="recents_help_dlg_split_icon_text">روی %s در نوار عنوان پنجره برنامه ضربه بزنید تا برنامه‌ها در نمای صفحه دوقسمتی باز شوند. اگر برنامه از حالت چند پنجره‌ای پشتیبانی کند، این نماد نشان داده می‌شود.</string>
+    <string name="recents_help_dlg_split_icon_desc">روی نماد صفحه دوقسمتی در نوار عنوان پنجره برنامه ضربه بزنید تا برنامه‌ها در نمای صفحه دوقسمتی باز شوند. اگر برنامه از حالت چند پنجره‌ای پشتیبانی کند، این نماد نشان داده می‌شود.</string>
+    <string name="recents_help_dlg_long_click_recents_key_text">هنگام استفاده از یک برنامه در نمای تمام‌صفحه و برای تغییر به نمای صفحه دوقسمتی، کلید موارد اخیر را فشار داده و نگهدارید.</string>
+    <string name="recents_help_dlg_home_key_in_split_text">اگر در نمای صفحه دوقسمتی، کلید صفحه اصلی را فشار دهید، برنامه نمایش داده شده در نیمه بالایی صفحه نمایش، کوچک می‌شود. اگر در حالی که نوار وضعیت به رنگ آبی است، برنامه‌ای را از صفحه اصلی باز کنید، برنامه به صورت نمای صفحه دوقسمتی در نیمه پایین صفحه باز می‌شود.</string>
+    <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+</resources>
