@@ -31,8 +31,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 293
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -42,53 +40,39 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Lcom/android/internal/telephony/OperatorInfo;
     .locals 6
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 296
     new-instance v0, Lcom/android/internal/telephony/OperatorInfo;
 
-    .line 297
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 298
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 299
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 300
     invoke-virtual {p1}, Landroid/os/Parcel;->readSerializable()Ljava/io/Serializable;
 
     move-result-object v4
 
     check-cast v4, Lcom/android/internal/telephony/OperatorInfo$State;
 
-    .line 302
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
 
-    .line 296
     invoke-direct/range {v0 .. v5}, Lcom/android/internal/telephony/OperatorInfo;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/android/internal/telephony/OperatorInfo$State;I)V
 
-    .line 304
-    .local v0, "opInfo":Lcom/android/internal/telephony/OperatorInfo;
     return-object v0
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 295
     invoke-virtual {p0, p1}, Lcom/android/internal/telephony/OperatorInfo$1;->createFromParcel(Landroid/os/Parcel;)Lcom/android/internal/telephony/OperatorInfo;
 
     move-result-object v0
@@ -98,10 +82,7 @@
 
 .method public newArray(I)[Lcom/android/internal/telephony/OperatorInfo;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 309
     new-array v0, p1, [Lcom/android/internal/telephony/OperatorInfo;
 
     return-object v0
@@ -109,10 +90,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 308
     invoke-virtual {p0, p1}, Lcom/android/internal/telephony/OperatorInfo$1;->newArray(I)[Lcom/android/internal/telephony/OperatorInfo;
 
     move-result-object v0

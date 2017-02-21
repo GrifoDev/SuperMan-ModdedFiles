@@ -29,35 +29,25 @@
 # direct methods
 .method public constructor <init>(IILandroid/graphics/Rect;)V
     .locals 3
-    .param p1, "displayId"    # I
-    .param p2, "taskId"    # I
-    .param p3, "bounds"    # Landroid/graphics/Rect;
 
-    .prologue
-    .line 353
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 351
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v0, p0, Lcom/samsung/android/multiwindow/MultiWindowEdgeDetector$ResizeInfo;->mBounds:Landroid/graphics/Rect;
 
-    .line 354
     iput p1, p0, Lcom/samsung/android/multiwindow/MultiWindowEdgeDetector$ResizeInfo;->mDisplayId:I
 
-    .line 355
     iput p2, p0, Lcom/samsung/android/multiwindow/MultiWindowEdgeDetector$ResizeInfo;->mTaskId:I
 
-    .line 356
     if-eqz p3, :cond_0
 
     iget-object v0, p0, Lcom/samsung/android/multiwindow/MultiWindowEdgeDetector$ResizeInfo;->mBounds:Landroid/graphics/Rect;
 
     invoke-virtual {v0, p3}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
-    .line 357
     :cond_0
     const-string/jumbo v0, "ResizeInfo"
 
@@ -101,6 +91,5 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 353
     return-void
 .end method

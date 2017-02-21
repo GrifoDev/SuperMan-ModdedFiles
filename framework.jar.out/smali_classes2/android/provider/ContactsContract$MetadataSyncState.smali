@@ -30,8 +30,6 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .prologue
-    .line 9492
     sget-object v0, Landroid/provider/ContactsContract$MetadataSync;->METADATA_AUTHORITY_URI:Landroid/net/Uri;
 
     const-string/jumbo v1, "metadata_sync_state"
@@ -40,18 +38,14 @@
 
     move-result-object v0
 
-    .line 9491
     sput-object v0, Landroid/provider/ContactsContract$MetadataSyncState;->CONTENT_URI:Landroid/net/Uri;
 
-    .line 9480
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 9485
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

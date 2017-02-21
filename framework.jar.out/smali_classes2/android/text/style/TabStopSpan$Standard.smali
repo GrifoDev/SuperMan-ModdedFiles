@@ -24,16 +24,11 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 0
-    .param p1, "where"    # I
 
-    .prologue
-    .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 45
     iput p1, p0, Landroid/text/style/TabStopSpan$Standard;->mTab:I
 
-    .line 44
     return-void
 .end method
 
@@ -42,8 +37,6 @@
 .method public getTabStop()I
     .locals 1
 
-    .prologue
-    .line 49
     iget v0, p0, Landroid/text/style/TabStopSpan$Standard;->mTab:I
 
     return v0

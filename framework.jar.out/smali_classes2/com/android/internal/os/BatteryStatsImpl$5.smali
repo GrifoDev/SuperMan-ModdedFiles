@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/os/BatteryStatsImpl;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/internal/os/BatteryStatsImpl;
 
-    .prologue
-    .line 10425
     iput-object p1, p0, Lcom/android/internal/os/BatteryStatsImpl$5;->this$0:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,12 +37,9 @@
 .method public run()V
     .locals 1
 
-    .prologue
-    .line 10427
     iget-object v0, p0, Lcom/android/internal/os/BatteryStatsImpl$5;->this$0:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v0}, Lcom/android/internal/os/BatteryStatsImpl;->commitPendingDataToDisk()V
 
-    .line 10426
     return-void
 .end method

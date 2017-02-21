@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/app/ActivityTransitionState;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/app/ActivityTransitionState;
 
-    .prologue
-    .line 246
     iput-object p1, p0, Landroid/app/ActivityTransitionState$1;->this$0:Landroid/app/ActivityTransitionState;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,8 +37,6 @@
 .method public run()V
     .locals 1
 
-    .prologue
-    .line 249
     iget-object v0, p0, Landroid/app/ActivityTransitionState$1;->this$0:Landroid/app/ActivityTransitionState;
 
     invoke-static {v0}, Landroid/app/ActivityTransitionState;->-get0(Landroid/app/ActivityTransitionState;)Landroid/app/EnterTransitionCoordinator;
@@ -50,7 +45,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 250
     iget-object v0, p0, Landroid/app/ActivityTransitionState$1;->this$0:Landroid/app/ActivityTransitionState;
 
     invoke-static {v0}, Landroid/app/ActivityTransitionState;->-get0(Landroid/app/ActivityTransitionState;)Landroid/app/EnterTransitionCoordinator;
@@ -61,21 +55,17 @@
 
     move-result v0
 
-    .line 249
     if-eqz v0, :cond_1
 
-    .line 251
     :cond_0
     iget-object v0, p0, Landroid/app/ActivityTransitionState$1;->this$0:Landroid/app/ActivityTransitionState;
 
     invoke-static {v0}, Landroid/app/ActivityTransitionState;->-wrap0(Landroid/app/ActivityTransitionState;)V
 
-    .line 252
     iget-object v0, p0, Landroid/app/ActivityTransitionState$1;->this$0:Landroid/app/ActivityTransitionState;
 
     invoke-static {v0}, Landroid/app/ActivityTransitionState;->-wrap1(Landroid/app/ActivityTransitionState;)V
 
-    .line 248
     :cond_1
     return-void
 .end method

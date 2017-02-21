@@ -21,11 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/gesture/SemMotionRecognitionManager$MRListenerDelegate;Landroid/os/Looper;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/samsung/android/gesture/SemMotionRecognitionManager$MRListenerDelegate;
-    .param p2, "$anonymous0"    # Landroid/os/Looper;
 
-    .prologue
-    .line 862
     iput-object p1, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager$MRListenerDelegate$1;->this$1:Lcom/samsung/android/gesture/SemMotionRecognitionManager$MRListenerDelegate;
 
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
@@ -37,10 +33,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 5
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .line 867
     :try_start_0
     iget-object v2, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager$MRListenerDelegate$1;->this$1:Lcom/samsung/android/gesture/SemMotionRecognitionManager$MRListenerDelegate;
 
@@ -50,7 +43,6 @@
 
     if-eqz v2, :cond_0
 
-    .line 868
     if-eqz p1, :cond_0
 
     iget v2, p1, Landroid/os/Message;->what:I
@@ -59,13 +51,10 @@
 
     if-ne v2, v3, :cond_0
 
-    .line 869
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Lcom/samsung/android/gesture/SemMotionRecognitionEvent;
 
-    .line 870
-    .local v1, "motionEvent":Lcom/samsung/android/gesture/SemMotionRecognitionEvent;
     iget-object v2, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager$MRListenerDelegate$1;->this$1:Lcom/samsung/android/gesture/SemMotionRecognitionManager$MRListenerDelegate;
 
     invoke-static {v2}, Lcom/samsung/android/gesture/SemMotionRecognitionManager$MRListenerDelegate;->-get0(Lcom/samsung/android/gesture/SemMotionRecognitionManager$MRListenerDelegate;)Lcom/samsung/android/gesture/SemMotionEventListener;
@@ -76,18 +65,13 @@
     :try_end_0
     .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 864
-    .end local v1    # "motionEvent":Lcom/samsung/android/gesture/SemMotionRecognitionEvent;
     :cond_0
     :goto_0
     return-void
 
-    .line 873
     :catch_0
     move-exception v0
 
-    .line 874
-    .local v0, "e":Ljava/lang/ClassCastException;
     const-string/jumbo v2, "MotionRecognitionManager"
 
     new-instance v3, Ljava/lang/StringBuilder;

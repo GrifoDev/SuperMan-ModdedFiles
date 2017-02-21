@@ -23,19 +23,12 @@
 # direct methods
 .method constructor <init>(Landroid/media/AudioManager$AudioRecordingCallback;Landroid/os/Handler;)V
     .locals 0
-    .param p1, "cb"    # Landroid/media/AudioManager$AudioRecordingCallback;
-    .param p2, "handler"    # Landroid/os/Handler;
 
-    .prologue
-    .line 3569
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 3570
     iput-object p1, p0, Landroid/media/AudioManager$AudioRecordingCallbackInfo;->mCb:Landroid/media/AudioManager$AudioRecordingCallback;
 
-    .line 3571
     iput-object p2, p0, Landroid/media/AudioManager$AudioRecordingCallbackInfo;->mHandler:Landroid/os/Handler;
 
-    .line 3569
     return-void
 .end method

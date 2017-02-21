@@ -31,8 +31,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 326
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -42,10 +40,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Lcom/android/internal/app/procstats/ProcessStats;
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 328
     new-instance v0, Lcom/android/internal/app/procstats/ProcessStats;
 
     invoke-direct {v0, p1}, Lcom/android/internal/app/procstats/ProcessStats;-><init>(Landroid/os/Parcel;)V
@@ -55,10 +50,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 327
     invoke-virtual {p0, p1}, Lcom/android/internal/app/procstats/ProcessStats$1;->createFromParcel(Landroid/os/Parcel;)Lcom/android/internal/app/procstats/ProcessStats;
 
     move-result-object v0
@@ -68,10 +60,7 @@
 
 .method public newArray(I)[Lcom/android/internal/app/procstats/ProcessStats;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 332
     new-array v0, p1, [Lcom/android/internal/app/procstats/ProcessStats;
 
     return-object v0
@@ -79,10 +68,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 331
     invoke-virtual {p0, p1}, Lcom/android/internal/app/procstats/ProcessStats$1;->newArray(I)[Lcom/android/internal/app/procstats/ProcessStats;
 
     move-result-object v0

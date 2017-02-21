@@ -94,23 +94,15 @@
 # direct methods
 .method public constructor <init>(IILandroid/drm/ProcessedData;Ljava/lang/String;)V
     .locals 3
-    .param p1, "statusCode"    # I
-    .param p2, "infoType"    # I
-    .param p3, "data"    # Landroid/drm/ProcessedData;
-    .param p4, "mimeType"    # Ljava/lang/String;
 
-    .prologue
-    .line 257
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 258
     invoke-static {p2}, Landroid/drm/DrmInfoRequest;->isValidType(I)Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 259
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -135,7 +127,6 @@
 
     throw v0
 
-    .line 262
     :cond_0
     invoke-direct {p0, p1}, Landroid/drm/DrmInfoStatus;->isValidStatusCode(I)Z
 
@@ -143,7 +134,6 @@
 
     if-nez v0, :cond_1
 
-    .line 263
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -168,7 +158,6 @@
 
     throw v0
 
-    .line 266
     :cond_1
     if-eqz p4, :cond_2
 
@@ -176,7 +165,6 @@
 
     if-ne p4, v0, :cond_3
 
-    .line 267
     :cond_2
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -186,33 +174,25 @@
 
     throw v0
 
-    .line 270
     :cond_3
     iput p1, p0, Landroid/drm/DrmInfoStatus;->statusCode:I
 
-    .line 271
     iput p2, p0, Landroid/drm/DrmInfoStatus;->infoType:I
 
-    .line 272
     iput-object p3, p0, Landroid/drm/DrmInfoStatus;->data:Landroid/drm/ProcessedData;
 
-    .line 273
     iput-object p4, p0, Landroid/drm/DrmInfoStatus;->mimeType:Ljava/lang/String;
 
-    .line 257
     return-void
 .end method
 
 .method private isValidStatusCode(I)Z
     .locals 3
-    .param p1, "statusCode"    # I
 
-    .prologue
     const/4 v1, 0x0
 
     const/4 v0, 0x1
 
-    .line 279
     if-eq p1, v0, :cond_0
 
     const/4 v2, 0x2
@@ -223,7 +203,6 @@
     :goto_0
     return v0
 
-    .line 280
     :cond_1
     const/16 v2, 0xdaf
 

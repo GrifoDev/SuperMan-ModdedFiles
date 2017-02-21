@@ -28,12 +28,7 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/animation/SemDragAndDropGridAnimator;II)V
     .locals 0
-    .param p1, "this$0"    # Lcom/samsung/android/animation/SemDragAndDropGridAnimator;
-    .param p2, "val$distX"    # I
-    .param p3, "val$distY"    # I
 
-    .prologue
-    .line 410
     iput-object p1, p0, Lcom/samsung/android/animation/SemDragAndDropGridAnimator$3;->this$0:Lcom/samsung/android/animation/SemDragAndDropGridAnimator;
 
     iput p2, p0, Lcom/samsung/android/animation/SemDragAndDropGridAnimator$3;->val$distX:I
@@ -49,10 +44,7 @@
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
     .locals 3
-    .param p1, "animator"    # Landroid/animation/ValueAnimator;
 
-    .prologue
-    .line 413
     iget-object v0, p0, Lcom/samsung/android/animation/SemDragAndDropGridAnimator$3;->this$0:Lcom/samsung/android/animation/SemDragAndDropGridAnimator;
 
     iget v1, p0, Lcom/samsung/android/animation/SemDragAndDropGridAnimator$3;->val$distX:I
@@ -69,7 +61,6 @@
 
     iput v1, v0, Lcom/samsung/android/animation/SemAbsDragAndDropAnimator;->mDragViewBitmapTranslateX:I
 
-    .line 414
     iget-object v0, p0, Lcom/samsung/android/animation/SemDragAndDropGridAnimator$3;->this$0:Lcom/samsung/android/animation/SemDragAndDropGridAnimator;
 
     iget v1, p0, Lcom/samsung/android/animation/SemDragAndDropGridAnimator$3;->val$distY:I
@@ -86,7 +77,6 @@
 
     iput v1, v0, Lcom/samsung/android/animation/SemAbsDragAndDropAnimator;->mDragViewBitmapTranslateY:I
 
-    .line 415
     iget-object v0, p0, Lcom/samsung/android/animation/SemDragAndDropGridAnimator$3;->this$0:Lcom/samsung/android/animation/SemDragAndDropGridAnimator;
 
     invoke-static {v0}, Lcom/samsung/android/animation/SemDragAndDropGridAnimator;->-get0(Lcom/samsung/android/animation/SemDragAndDropGridAnimator;)Landroid/widget/GridView;
@@ -95,6 +85,5 @@
 
     invoke-virtual {v0}, Landroid/view/View;->invalidate()V
 
-    .line 412
     return-void
 .end method

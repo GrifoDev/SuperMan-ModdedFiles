@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/app/ResolverActivity;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/internal/app/ResolverActivity;
 
-    .prologue
-    .line 252
     iput-object p1, p0, Lcom/android/internal/app/ResolverActivity$1;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     invoke-direct {p0}, Lcom/android/internal/content/PackageMonitor;-><init>()V
@@ -37,8 +34,6 @@
 .method public onSomePackagesChanged()V
     .locals 1
 
-    .prologue
-    .line 254
     iget-object v0, p0, Lcom/android/internal/app/ResolverActivity$1;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     invoke-static {v0}, Lcom/android/internal/app/ResolverActivity;->-get1(Lcom/android/internal/app/ResolverActivity;)Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;
@@ -47,7 +42,6 @@
 
     invoke-virtual {v0}, Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;->handlePackagesChanged()V
 
-    .line 255
     iget-object v0, p0, Lcom/android/internal/app/ResolverActivity$1;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     invoke-static {v0}, Lcom/android/internal/app/ResolverActivity;->-get15(Lcom/android/internal/app/ResolverActivity;)Landroid/view/View;
@@ -56,12 +50,10 @@
 
     if-eqz v0, :cond_0
 
-    .line 256
     iget-object v0, p0, Lcom/android/internal/app/ResolverActivity$1;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     invoke-virtual {v0}, Lcom/android/internal/app/ResolverActivity;->bindProfileView()V
 
-    .line 253
     :cond_0
     return-void
 .end method

@@ -34,10 +34,7 @@
 # direct methods
 .method constructor <init>(Landroid/view/View;)V
     .locals 0
-    .param p1, "val$view"    # Landroid/view/View;
 
-    .prologue
-    .line 611
     iput-object p1, p0, Landroid/view/ViewDebug$3;->val$view:Landroid/view/View;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,13 +46,9 @@
 # virtual methods
 .method public bridge synthetic post([Ljava/lang/Object;)V
     .locals 0
-    .param p1, "data"    # [Ljava/lang/Object;
 
-    .prologue
-    .line 620
     check-cast p1, [Ljava/lang/Void;
 
-    .end local p1    # "data":[Ljava/lang/Object;
     invoke-virtual {p0, p1}, Landroid/view/ViewDebug$3;->post([Ljava/lang/Void;)V
 
     return-void
@@ -63,18 +56,13 @@
 
 .method public varargs post([Ljava/lang/Void;)V
     .locals 0
-    .param p1, "data"    # [Ljava/lang/Void;
 
-    .prologue
-    .line 620
     return-void
 .end method
 
 .method public bridge synthetic pre()[Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 612
     invoke-virtual {p0}, Landroid/view/ViewDebug$3;->pre()[Ljava/lang/Void;
 
     move-result-object v0
@@ -85,8 +73,6 @@
 .method public pre()[Ljava/lang/Void;
     .locals 1
 
-    .prologue
-    .line 613
     const/4 v0, 0x0
 
     return-object v0
@@ -94,13 +80,9 @@
 
 .method public bridge synthetic run([Ljava/lang/Object;)V
     .locals 0
-    .param p1, "data"    # [Ljava/lang/Object;
 
-    .prologue
-    .line 616
     check-cast p1, [Ljava/lang/Void;
 
-    .end local p1    # "data":[Ljava/lang/Object;
     invoke-virtual {p0, p1}, Landroid/view/ViewDebug$3;->run([Ljava/lang/Void;)V
 
     return-void
@@ -108,10 +90,7 @@
 
 .method public varargs run([Ljava/lang/Void;)V
     .locals 5
-    .param p1, "data"    # [Ljava/lang/Void;
 
-    .prologue
-    .line 617
     iget-object v0, p0, Landroid/view/ViewDebug$3;->val$view:Landroid/view/View;
 
     iget-object v1, p0, Landroid/view/ViewDebug$3;->val$view:Landroid/view/View;
@@ -132,6 +111,5 @@
 
     invoke-virtual {v0, v1, v2, v3, v4}, Landroid/view/View;->layout(IIII)V
 
-    .line 616
     return-void
 .end method

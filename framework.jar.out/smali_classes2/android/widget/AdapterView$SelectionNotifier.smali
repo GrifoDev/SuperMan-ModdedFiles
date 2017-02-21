@@ -25,10 +25,6 @@
 .method private constructor <init>(Landroid/widget/AdapterView;)V
     .locals 0
 
-    .prologue
-    .line 1255
-    .local p0, "this":Landroid/widget/AdapterView$SelectionNotifier;, "Landroid/widget/AdapterView<TT;>.SelectionNotifier;"
-    .local p1, "this$0":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<TT;>;"
     iput-object p1, p0, Landroid/widget/AdapterView$SelectionNotifier;->this$0:Landroid/widget/AdapterView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,10 +34,7 @@
 
 .method synthetic constructor <init>(Landroid/widget/AdapterView;Landroid/widget/AdapterView$SelectionNotifier;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/widget/AdapterView;
 
-    .prologue
-    .local p0, "this":Landroid/widget/AdapterView$SelectionNotifier;, "Landroid/widget/AdapterView<TT;>.SelectionNotifier;"
     invoke-direct {p0, p1}, Landroid/widget/AdapterView$SelectionNotifier;-><init>(Landroid/widget/AdapterView;)V
 
     return-void
@@ -52,16 +45,12 @@
 .method public run()V
     .locals 2
 
-    .prologue
-    .local p0, "this":Landroid/widget/AdapterView$SelectionNotifier;, "Landroid/widget/AdapterView<TT;>.SelectionNotifier;"
     const/4 v1, 0x0
 
-    .line 1257
     iget-object v0, p0, Landroid/widget/AdapterView$SelectionNotifier;->this$0:Landroid/widget/AdapterView;
 
     invoke-static {v0, v1}, Landroid/widget/AdapterView;->-set0(Landroid/widget/AdapterView;Landroid/widget/AdapterView$SelectionNotifier;)Landroid/widget/AdapterView$SelectionNotifier;
 
-    .line 1259
     iget-object v0, p0, Landroid/widget/AdapterView$SelectionNotifier;->this$0:Landroid/widget/AdapterView;
 
     iget-boolean v0, v0, Landroid/widget/AdapterView;->mDataChanged:Z
@@ -76,7 +65,6 @@
 
     if-eqz v0, :cond_1
 
-    .line 1260
     iget-object v0, p0, Landroid/widget/AdapterView$SelectionNotifier;->this$0:Landroid/widget/AdapterView;
 
     invoke-virtual {v0}, Landroid/widget/AdapterView;->getViewRootImpl()Landroid/view/ViewRootImpl;
@@ -87,10 +75,8 @@
 
     move-result v0
 
-    .line 1259
     if-eqz v0, :cond_1
 
-    .line 1264
     iget-object v0, p0, Landroid/widget/AdapterView$SelectionNotifier;->this$0:Landroid/widget/AdapterView;
 
     invoke-virtual {v0}, Landroid/widget/AdapterView;->getAdapter()Landroid/widget/Adapter;
@@ -99,17 +85,14 @@
 
     if-eqz v0, :cond_0
 
-    .line 1265
     iget-object v0, p0, Landroid/widget/AdapterView$SelectionNotifier;->this$0:Landroid/widget/AdapterView;
 
     invoke-static {v0, p0}, Landroid/widget/AdapterView;->-set0(Landroid/widget/AdapterView;Landroid/widget/AdapterView$SelectionNotifier;)Landroid/widget/AdapterView$SelectionNotifier;
 
-    .line 1256
     :cond_0
     :goto_0
     return-void
 
-    .line 1268
     :cond_1
     iget-object v0, p0, Landroid/widget/AdapterView$SelectionNotifier;->this$0:Landroid/widget/AdapterView;
 

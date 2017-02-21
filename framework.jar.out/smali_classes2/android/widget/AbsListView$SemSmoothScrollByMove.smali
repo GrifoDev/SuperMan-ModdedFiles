@@ -24,10 +24,7 @@
 # direct methods
 .method private constructor <init>(Landroid/widget/AbsListView;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/widget/AbsListView;
 
-    .prologue
-    .line 7987
     iput-object p1, p0, Landroid/widget/AbsListView$SemSmoothScrollByMove;->this$0:Landroid/widget/AbsListView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,9 +34,7 @@
 
 .method synthetic constructor <init>(Landroid/widget/AbsListView;Landroid/widget/AbsListView$SemSmoothScrollByMove;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/widget/AbsListView;
 
-    .prologue
     invoke-direct {p0, p1}, Landroid/widget/AbsListView$SemSmoothScrollByMove;-><init>(Landroid/widget/AbsListView;)V
 
     return-void
@@ -50,8 +45,6 @@
 .method public run()V
     .locals 3
 
-    .prologue
-    .line 7989
     iget-object v1, p0, Landroid/widget/AbsListView$SemSmoothScrollByMove;->this$0:Landroid/widget/AbsListView;
 
     invoke-static {v1}, Landroid/widget/AbsListView;->-get10(Landroid/widget/AbsListView;)Landroid/widget/AbsListView$FlingRunnable;
@@ -68,7 +61,6 @@
 
     if-eqz v1, :cond_2
 
-    .line 7990
     iget-object v1, p0, Landroid/widget/AbsListView$SemSmoothScrollByMove;->this$0:Landroid/widget/AbsListView;
 
     invoke-static {v1}, Landroid/widget/AbsListView;->-get41(Landroid/widget/AbsListView;)Ljava/util/LinkedList;
@@ -89,11 +81,9 @@
 
     if-eqz v1, :cond_1
 
-    .line 7991
     :cond_0
     return-void
 
-    .line 7993
     :cond_1
     iget-object v1, p0, Landroid/widget/AbsListView$SemSmoothScrollByMove;->this$0:Landroid/widget/AbsListView;
 
@@ -111,21 +101,16 @@
 
     move-result v0
 
-    .line 7994
-    .local v0, "remain":I
     iget-object v1, p0, Landroid/widget/AbsListView$SemSmoothScrollByMove;->this$0:Landroid/widget/AbsListView;
 
     const/4 v2, 0x0
 
     invoke-virtual {v1, v0, v2}, Landroid/widget/AbsListView;->smoothScrollBy(II)V
 
-    .line 7997
-    .end local v0    # "remain":I
     :cond_2
     iget-object v1, p0, Landroid/widget/AbsListView$SemSmoothScrollByMove;->this$0:Landroid/widget/AbsListView;
 
     invoke-virtual {v1, p0}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
 
-    .line 7988
     return-void
 .end method

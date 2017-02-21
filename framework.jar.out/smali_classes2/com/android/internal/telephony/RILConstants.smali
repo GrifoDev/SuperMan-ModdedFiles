@@ -941,18 +941,14 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    .prologue
     const/4 v2, 0x0
 
-    .line 207
     const-string/jumbo v0, "ro.telephony.default_network"
 
-    .line 208
     invoke-static {v2}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 206
     invoke-static {v2, v0, v1}, Landroid/telephony/TelephonyManager;->getTelephonyProperty(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -963,6 +959,5 @@
 
     sput v0, Lcom/android/internal/telephony/RILConstants;->PREFERRED_NETWORK_MODE:I
 
-    .line 35
     return-void
 .end method

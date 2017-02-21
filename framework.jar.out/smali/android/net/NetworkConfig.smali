@@ -20,21 +20,15 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 3
-    .param p1, "init"    # Ljava/lang/String;
 
-    .prologue
-    .line 64
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 65
     const-string/jumbo v1, ","
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v0
 
-    .line 66
-    .local v0, "fragments":[Ljava/lang/String;
     const/4 v1, 0x0
 
     aget-object v1, v0, v1
@@ -51,7 +45,6 @@
 
     iput-object v1, p0, Landroid/net/NetworkConfig;->name:Ljava/lang/String;
 
-    .line 67
     const/4 v1, 0x1
 
     aget-object v1, v0, v1
@@ -62,7 +55,6 @@
 
     iput v1, p0, Landroid/net/NetworkConfig;->type:I
 
-    .line 68
     const/4 v1, 0x2
 
     aget-object v1, v0, v1
@@ -73,7 +65,6 @@
 
     iput v1, p0, Landroid/net/NetworkConfig;->radio:I
 
-    .line 69
     const/4 v1, 0x3
 
     aget-object v1, v0, v1
@@ -84,7 +75,6 @@
 
     iput v1, p0, Landroid/net/NetworkConfig;->priority:I
 
-    .line 70
     const/4 v1, 0x4
 
     aget-object v1, v0, v1
@@ -95,7 +85,6 @@
 
     iput v1, p0, Landroid/net/NetworkConfig;->restoreTime:I
 
-    .line 71
     const/4 v1, 0x5
 
     aget-object v1, v0, v1
@@ -106,7 +95,6 @@
 
     iput-boolean v1, p0, Landroid/net/NetworkConfig;->dependencyMet:Z
 
-    .line 64
     return-void
 .end method
 
@@ -115,8 +103,6 @@
 .method public isDefault()Z
     .locals 2
 
-    .prologue
-    .line 78
     iget v0, p0, Landroid/net/NetworkConfig;->type:I
 
     iget v1, p0, Landroid/net/NetworkConfig;->radio:I

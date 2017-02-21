@@ -51,7 +51,6 @@
 .method static constructor <clinit>()V
     .locals 8
 
-    .prologue
     const/4 v7, 0x4
 
     const/4 v6, 0x3
@@ -75,12 +74,10 @@
     :goto_0
     sput-boolean v0, Landroid/hardware/GeomagneticField;->-assertionsDisabled:Z
 
-    .line 52
     const/16 v0, 0xd
 
     new-array v0, v0, [[F
 
-    .line 53
     new-array v3, v2, [F
 
     const/4 v4, 0x0
@@ -89,28 +86,24 @@
 
     aput-object v3, v0, v1
 
-    .line 54
     new-array v3, v5, [F
 
     fill-array-data v3, :array_0
 
     aput-object v3, v0, v2
 
-    .line 55
     new-array v3, v6, [F
 
     fill-array-data v3, :array_1
 
     aput-object v3, v0, v5
 
-    .line 56
     new-array v3, v7, [F
 
     fill-array-data v3, :array_2
 
     aput-object v3, v0, v6
 
-    .line 57
     const/4 v3, 0x5
 
     new-array v3, v3, [F
@@ -119,7 +112,6 @@
 
     aput-object v3, v0, v7
 
-    .line 58
     const/4 v3, 0x6
 
     new-array v3, v3, [F
@@ -130,7 +122,6 @@
 
     aput-object v3, v0, v4
 
-    .line 59
     const/4 v3, 0x7
 
     new-array v3, v3, [F
@@ -141,7 +132,6 @@
 
     aput-object v3, v0, v4
 
-    .line 60
     const/16 v3, 0x8
 
     new-array v3, v3, [F
@@ -152,7 +142,6 @@
 
     aput-object v3, v0, v4
 
-    .line 61
     const/16 v3, 0x9
 
     new-array v3, v3, [F
@@ -163,7 +152,6 @@
 
     aput-object v3, v0, v4
 
-    .line 62
     const/16 v3, 0xa
 
     new-array v3, v3, [F
@@ -174,7 +162,6 @@
 
     aput-object v3, v0, v4
 
-    .line 63
     const/16 v3, 0xb
 
     new-array v3, v3, [F
@@ -185,7 +172,6 @@
 
     aput-object v3, v0, v4
 
-    .line 64
     const/16 v3, 0xc
 
     new-array v3, v3, [F
@@ -196,7 +182,6 @@
 
     aput-object v3, v0, v4
 
-    .line 65
     const/16 v3, 0xd
 
     new-array v3, v3, [F
@@ -207,15 +192,12 @@
 
     aput-object v3, v0, v4
 
-    .line 52
     sput-object v0, Landroid/hardware/GeomagneticField;->G_COEFF:[[F
 
-    .line 67
     const/16 v0, 0xd
 
     new-array v0, v0, [[F
 
-    .line 68
     new-array v3, v2, [F
 
     const/4 v4, 0x0
@@ -224,28 +206,24 @@
 
     aput-object v3, v0, v1
 
-    .line 69
     new-array v3, v5, [F
 
     fill-array-data v3, :array_c
 
     aput-object v3, v0, v2
 
-    .line 70
     new-array v3, v6, [F
 
     fill-array-data v3, :array_d
 
     aput-object v3, v0, v5
 
-    .line 71
     new-array v3, v7, [F
 
     fill-array-data v3, :array_e
 
     aput-object v3, v0, v6
 
-    .line 72
     const/4 v3, 0x5
 
     new-array v3, v3, [F
@@ -254,7 +232,6 @@
 
     aput-object v3, v0, v7
 
-    .line 73
     const/4 v3, 0x6
 
     new-array v3, v3, [F
@@ -265,7 +242,6 @@
 
     aput-object v3, v0, v4
 
-    .line 74
     const/4 v3, 0x7
 
     new-array v3, v3, [F
@@ -276,7 +252,6 @@
 
     aput-object v3, v0, v4
 
-    .line 75
     const/16 v3, 0x8
 
     new-array v3, v3, [F
@@ -287,7 +262,6 @@
 
     aput-object v3, v0, v4
 
-    .line 76
     const/16 v3, 0x9
 
     new-array v3, v3, [F
@@ -298,7 +272,6 @@
 
     aput-object v3, v0, v4
 
-    .line 77
     const/16 v3, 0xa
 
     new-array v3, v3, [F
@@ -309,7 +282,6 @@
 
     aput-object v3, v0, v4
 
-    .line 78
     const/16 v3, 0xb
 
     new-array v3, v3, [F
@@ -320,7 +292,6 @@
 
     aput-object v3, v0, v4
 
-    .line 79
     const/16 v3, 0xc
 
     new-array v3, v3, [F
@@ -331,7 +302,6 @@
 
     aput-object v3, v0, v4
 
-    .line 80
     const/16 v3, 0xd
 
     new-array v3, v3, [F
@@ -342,15 +312,12 @@
 
     aput-object v3, v0, v4
 
-    .line 67
     sput-object v0, Landroid/hardware/GeomagneticField;->H_COEFF:[[F
 
-    .line 82
     const/16 v0, 0xd
 
     new-array v0, v0, [[F
 
-    .line 83
     new-array v3, v2, [F
 
     const/4 v4, 0x0
@@ -359,28 +326,24 @@
 
     aput-object v3, v0, v1
 
-    .line 84
     new-array v3, v5, [F
 
     fill-array-data v3, :array_18
 
     aput-object v3, v0, v2
 
-    .line 85
     new-array v3, v6, [F
 
     fill-array-data v3, :array_19
 
     aput-object v3, v0, v5
 
-    .line 86
     new-array v3, v7, [F
 
     fill-array-data v3, :array_1a
 
     aput-object v3, v0, v6
 
-    .line 87
     const/4 v3, 0x5
 
     new-array v3, v3, [F
@@ -389,7 +352,6 @@
 
     aput-object v3, v0, v7
 
-    .line 88
     const/4 v3, 0x6
 
     new-array v3, v3, [F
@@ -400,7 +362,6 @@
 
     aput-object v3, v0, v4
 
-    .line 89
     const/4 v3, 0x7
 
     new-array v3, v3, [F
@@ -411,7 +372,6 @@
 
     aput-object v3, v0, v4
 
-    .line 90
     const/16 v3, 0x8
 
     new-array v3, v3, [F
@@ -422,7 +382,6 @@
 
     aput-object v3, v0, v4
 
-    .line 91
     const/16 v3, 0x9
 
     new-array v3, v3, [F
@@ -433,7 +392,6 @@
 
     aput-object v3, v0, v4
 
-    .line 92
     const/16 v3, 0xa
 
     new-array v3, v3, [F
@@ -444,7 +402,6 @@
 
     aput-object v3, v0, v4
 
-    .line 93
     const/16 v3, 0xb
 
     new-array v3, v3, [F
@@ -455,7 +412,6 @@
 
     aput-object v3, v0, v4
 
-    .line 94
     const/16 v3, 0xc
 
     new-array v3, v3, [F
@@ -466,7 +422,6 @@
 
     aput-object v3, v0, v4
 
-    .line 95
     const/16 v3, 0xd
 
     new-array v3, v3, [F
@@ -477,15 +432,12 @@
 
     aput-object v3, v0, v4
 
-    .line 82
     sput-object v0, Landroid/hardware/GeomagneticField;->DELTA_G:[[F
 
-    .line 97
     const/16 v0, 0xd
 
     new-array v0, v0, [[F
 
-    .line 98
     new-array v3, v2, [F
 
     const/4 v4, 0x0
@@ -494,28 +446,24 @@
 
     aput-object v3, v0, v1
 
-    .line 99
     new-array v1, v5, [F
 
     fill-array-data v1, :array_24
 
     aput-object v1, v0, v2
 
-    .line 100
     new-array v1, v6, [F
 
     fill-array-data v1, :array_25
 
     aput-object v1, v0, v5
 
-    .line 101
     new-array v1, v7, [F
 
     fill-array-data v1, :array_26
 
     aput-object v1, v0, v6
 
-    .line 102
     const/4 v1, 0x5
 
     new-array v1, v1, [F
@@ -524,7 +472,6 @@
 
     aput-object v1, v0, v7
 
-    .line 103
     const/4 v1, 0x6
 
     new-array v1, v1, [F
@@ -535,7 +482,6 @@
 
     aput-object v1, v0, v3
 
-    .line 104
     const/4 v1, 0x7
 
     new-array v1, v1, [F
@@ -546,7 +492,6 @@
 
     aput-object v1, v0, v3
 
-    .line 105
     const/16 v1, 0x8
 
     new-array v1, v1, [F
@@ -557,7 +502,6 @@
 
     aput-object v1, v0, v3
 
-    .line 106
     const/16 v1, 0x9
 
     new-array v1, v1, [F
@@ -568,7 +512,6 @@
 
     aput-object v1, v0, v3
 
-    .line 107
     const/16 v1, 0xa
 
     new-array v1, v1, [F
@@ -579,7 +522,6 @@
 
     aput-object v1, v0, v3
 
-    .line 108
     const/16 v1, 0xb
 
     new-array v1, v1, [F
@@ -590,7 +532,6 @@
 
     aput-object v1, v0, v3
 
-    .line 109
     const/16 v1, 0xc
 
     new-array v1, v1, [F
@@ -601,7 +542,6 @@
 
     aput-object v1, v0, v3
 
-    .line 110
     const/16 v1, 0xd
 
     new-array v1, v1, [F
@@ -612,10 +552,8 @@
 
     aput-object v1, v0, v3
 
-    .line 97
     sput-object v0, Landroid/hardware/GeomagneticField;->DELTA_H:[[F
 
-    .line 113
     new-instance v0, Ljava/util/GregorianCalendar;
 
     const/16 v1, 0x7da
@@ -626,10 +564,8 @@
 
     move-result-wide v0
 
-    .line 112
     sput-wide v0, Landroid/hardware/GeomagneticField;->BASE_TIME:J
 
-    .line 119
     sget-object v0, Landroid/hardware/GeomagneticField;->G_COEFF:[[F
 
     array-length v0, v0
@@ -638,10 +574,8 @@
 
     move-result-object v0
 
-    .line 118
     sput-object v0, Landroid/hardware/GeomagneticField;->SCHMIDT_QUASI_NORM_FACTORS:[[F
 
-    .line 33
     return-void
 
     :cond_0
@@ -649,14 +583,12 @@
 
     goto/16 :goto_0
 
-    .line 54
     :array_0
     .array-data 4
         -0x39198ecd
         -0x3b39b666    # -1586.3f
     .end array-data
 
-    .line 55
     :array_1
     .array-data 4
         -0x3aea3666    # -2396.6f
@@ -664,7 +596,6 @@
         0x44d09333    # 1668.6f
     .end array-data
 
-    .line 56
     :array_2
     .array-data 4
         0x44a78333    # 1340.1f
@@ -673,7 +604,6 @@
         0x441e8000    # 634.0f
     .end array-data
 
-    .line 57
     :array_3
     .array-data 4
         0x44642666    # 912.6f
@@ -683,7 +613,6 @@
         0x42b2cccd    # 89.4f
     .end array-data
 
-    .line 58
     :array_4
     .array-data 4
         -0x3c99199a    # -230.9f
@@ -694,7 +623,6 @@
         -0x3f066666    # -7.8f
     .end array-data
 
-    .line 59
     :array_5
     .array-data 4
         0x4291999a    # 72.8f
@@ -706,7 +634,6 @@
         -0x3d643333    # -77.9f
     .end array-data
 
-    .line 60
     :array_6
     .array-data 4
         0x42a10000    # 80.5f
@@ -719,7 +646,6 @@
         0x409ccccd    # 4.9f
     .end array-data
 
-    .line 61
     :array_7
     .array-data 4
         0x41c33333    # 24.4f
@@ -733,7 +659,6 @@
         -0x3f933333    # -3.7f
     .end array-data
 
-    .line 62
     :array_8
     .array-data 4
         0x40accccd    # 5.4f
@@ -748,7 +673,6 @@
         -0x3ede6666    # -10.1f
     .end array-data
 
-    .line 63
     :array_9
     .array-data 4
         -0x40000000    # -2.0f
@@ -764,7 +688,6 @@
         -0x3fcccccd    # -2.8f
     .end array-data
 
-    .line 64
     :array_a
     .array-data 4
         0x40400000    # 3.0f
@@ -781,7 +704,6 @@
         0x40733333    # 3.8f
     .end array-data
 
-    .line 65
     :array_b
     .array-data 4
         -0x3ff33333    # -2.2f
@@ -799,14 +721,12 @@
         0x0
     .end array-data
 
-    .line 69
     :array_c
     .array-data 4
         0x0
         0x459a8333    # 4944.4f
     .end array-data
 
-    .line 70
     :array_d
     .array-data 4
         0x0
@@ -814,7 +734,6 @@
         -0x3beff99a    # -576.1f
     .end array-data
 
-    .line 71
     :array_e
     .array-data 4
         0x0
@@ -823,7 +742,6 @@
         -0x3bf9d99a    # -536.6f
     .end array-data
 
-    .line 72
     :array_f
     .array-data 4
         0x0
@@ -833,7 +751,6 @@
         -0x3c657333    # -309.1f
     .end array-data
 
-    .line 73
     :array_10
     .array-data 4
         0x0
@@ -844,7 +761,6 @@
         0x42c9cccd    # 100.9f
     .end array-data
 
-    .line 74
     :array_11
     .array-data 4
         0x0
@@ -856,7 +772,6 @@
         0x425c0000    # 55.0f
     .end array-data
 
-    .line 75
     :array_12
     .array-data 4
         0x0
@@ -869,7 +784,6 @@
         -0x3faccccd    # -3.3f
     .end array-data
 
-    .line 76
     :array_13
     .array-data 4
         0x0
@@ -883,7 +797,6 @@
         0x3fd9999a    # 1.7f
     .end array-data
 
-    .line 77
     :array_14
     .array-data 4
         0x0
@@ -898,7 +811,6 @@
         0x40e00000    # 7.0f
     .end array-data
 
-    .line 78
     :array_15
     .array-data 4
         0x0
@@ -914,7 +826,6 @@
         -0x3efb3333    # -8.3f
     .end array-data
 
-    .line 79
     :array_16
     .array-data 4
         0x0
@@ -931,7 +842,6 @@
         -0x4019999a    # -1.8f
     .end array-data
 
-    .line 80
     :array_17
     .array-data 4
         0x0
@@ -949,14 +859,12 @@
         0x3f666666    # 0.9f
     .end array-data
 
-    .line 84
     :array_18
     .array-data 4
         0x4139999a    # 11.6f
         0x41840000    # 16.5f
     .end array-data
 
-    .line 85
     :array_19
     .array-data 4
         -0x3ebe6666    # -12.1f
@@ -964,7 +872,6 @@
         0x3ff33333    # 1.9f
     .end array-data
 
-    .line 86
     :array_1a
     .array-data 4
         0x3ecccccd    # 0.4f
@@ -973,7 +880,6 @@
         -0x3f09999a    # -7.7f
     .end array-data
 
-    .line 87
     :array_1b
     .array-data 4
         -0x4019999a    # -1.8f
@@ -983,7 +889,6 @@
         -0x3ff9999a    # -2.1f
     .end array-data
 
-    .line 88
     :array_1c
     .array-data 4
         -0x40800000    # -1.0f
@@ -994,7 +899,6 @@
         0x3f800000    # 1.0f
     .end array-data
 
-    .line 89
     :array_1d
     .array-data 4
         -0x41b33333    # -0.2f
@@ -1006,7 +910,6 @@
         0x3fd9999a    # 1.7f
     .end array-data
 
-    .line 90
     :array_1e
     .array-data 4
         0x3dcccccd    # 0.1f
@@ -1019,7 +922,6 @@
         0x3f19999a    # 0.6f
     .end array-data
 
-    .line 91
     :array_1f
     .array-data 4
         -0x42333333    # -0.1f
@@ -1033,7 +935,6 @@
         0x3e4ccccd    # 0.2f
     .end array-data
 
-    .line 92
     :array_20
     .array-data 4
         0x0
@@ -1048,7 +949,6 @@
         -0x41b33333    # -0.2f
     .end array-data
 
-    .line 93
     :array_21
     .array-data 4
         0x0
@@ -1064,7 +964,6 @@
         -0x41b33333    # -0.2f
     .end array-data
 
-    .line 94
     :array_22
     .array-data 4
         0x0
@@ -1081,7 +980,6 @@
         0x0
     .end array-data
 
-    .line 95
     :array_23
     .array-data 4
         0x0
@@ -1099,14 +997,12 @@
         0x3dcccccd    # 0.1f
     .end array-data
 
-    .line 99
     :array_24
     .array-data 4
         0x0
         -0x3e30cccd    # -25.9f
     .end array-data
 
-    .line 100
     :array_25
     .array-data 4
         0x0
@@ -1114,7 +1010,6 @@
         -0x3ec33333    # -11.8f
     .end array-data
 
-    .line 101
     :array_26
     .array-data 4
         0x0
@@ -1123,7 +1018,6 @@
         -0x3fd9999a    # -2.6f
     .end array-data
 
-    .line 102
     :array_27
     .array-data 4
         0x0
@@ -1133,7 +1027,6 @@
         -0x40b33333    # -0.8f
     .end array-data
 
-    .line 103
     :array_28
     .array-data 4
         0x0
@@ -1144,7 +1037,6 @@
         -0x40e66666    # -0.6f
     .end array-data
 
-    .line 104
     :array_29
     .array-data 4
         0x0
@@ -1156,7 +1048,6 @@
         0x3f666666    # 0.9f
     .end array-data
 
-    .line 105
     :array_2a
     .array-data 4
         0x0
@@ -1169,7 +1060,6 @@
         0x3e99999a    # 0.3f
     .end array-data
 
-    .line 106
     :array_2b
     .array-data 4
         0x0
@@ -1183,7 +1073,6 @@
         0x3e99999a    # 0.3f
     .end array-data
 
-    .line 107
     :array_2c
     .array-data 4
         0x0
@@ -1198,7 +1087,6 @@
         0x3e4ccccd    # 0.2f
     .end array-data
 
-    .line 108
     :array_2d
     .array-data 4
         0x0
@@ -1214,7 +1102,6 @@
         -0x42333333    # -0.1f
     .end array-data
 
-    .line 109
     :array_2e
     .array-data 4
         0x0
@@ -1231,7 +1118,6 @@
         -0x42333333    # -0.1f
     .end array-data
 
-    .line 110
     :array_2f
     .array-data 4
         0x0
@@ -1252,24 +1138,15 @@
 
 .method public constructor <init>(FFFJ)V
     .locals 26
-    .param p1, "gdLatitudeDeg"    # F
-    .param p2, "gdLongitudeDeg"    # F
-    .param p3, "altitudeMeters"    # F
-    .param p4, "timeMillis"    # J
 
-    .prologue
-    .line 135
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 139
     sget-object v20, Landroid/hardware/GeomagneticField;->G_COEFF:[[F
 
     move-object/from16 v0, v20
 
     array-length v2, v0
 
-    .line 144
-    .local v2, "MAX_N":I
     const v20, -0x3d4c0001    # -89.99999f
 
     move/from16 v0, v20
@@ -1280,7 +1157,6 @@
 
     move-result v20
 
-    .line 143
     const v21, 0x42b3ffff    # 89.99999f
 
     move/from16 v0, v21
@@ -1291,10 +1167,8 @@
 
     move-result p1
 
-    .line 145
     invoke-direct/range {p0 .. p3}, Landroid/hardware/GeomagneticField;->computeGeocentricCoordinates(FFF)V
 
-    .line 149
     sget-boolean v20, Landroid/hardware/GeomagneticField;->-assertionsDisabled:Z
 
     if-nez v20, :cond_1
@@ -1337,13 +1211,11 @@
 
     goto :goto_0
 
-    .line 156
     :cond_1
     new-instance v11, Landroid/hardware/GeomagneticField$LegendreTable;
 
     add-int/lit8 v20, v2, -0x1
 
-    .line 157
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/hardware/GeomagneticField;->mGcLatitudeRad:F
@@ -1366,15 +1238,12 @@
 
     move/from16 v21, v0
 
-    .line 156
     move/from16 v0, v20
 
     move/from16 v1, v21
 
     invoke-direct {v11, v0, v1}, Landroid/hardware/GeomagneticField$LegendreTable;-><init>(IF)V
 
-    .line 161
-    .local v11, "legendre":Landroid/hardware/GeomagneticField$LegendreTable;
     add-int/lit8 v20, v2, 0x2
 
     move/from16 v0, v20
@@ -1383,15 +1252,12 @@
 
     move-object/from16 v16, v0
 
-    .line 162
-    .local v16, "relativeRadiusPower":[F
     const/high16 v20, 0x3f800000    # 1.0f
 
     const/16 v21, 0x0
 
     aput v20, v16, v21
 
-    .line 163
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/hardware/GeomagneticField;->mGcRadiusKm:F
@@ -1406,10 +1272,8 @@
 
     aput v20, v16, v21
 
-    .line 164
     const/4 v9, 0x2
 
-    .local v9, "i":I
     :goto_1
     move-object/from16 v0, v16
 
@@ -1421,52 +1285,41 @@
 
     if-ge v9, v0, :cond_2
 
-    .line 165
     add-int/lit8 v20, v9, -0x1
 
     aget v20, v16, v20
 
-    .line 166
     const/16 v21, 0x1
 
     aget v21, v16, v21
 
-    .line 165
     mul-float v20, v20, v21
 
     aput v20, v16, v9
 
-    .line 164
     add-int/lit8 v9, v9, 0x1
 
     goto :goto_1
 
-    .line 171
     :cond_2
     new-array v0, v2, [F
 
     move-object/from16 v17, v0
 
-    .line 172
-    .local v17, "sinMLon":[F
     new-array v3, v2, [F
 
-    .line 173
-    .local v3, "cosMLon":[F
     const/16 v20, 0x0
 
     const/16 v21, 0x0
 
     aput v20, v17, v21
 
-    .line 174
     const/high16 v20, 0x3f800000    # 1.0f
 
     const/16 v21, 0x0
 
     aput v20, v3, v21
 
-    .line 175
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/hardware/GeomagneticField;->mGcLongitudeRad:F
@@ -1493,7 +1346,6 @@
 
     aput v20, v17, v21
 
-    .line 176
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/hardware/GeomagneticField;->mGcLongitudeRad:F
@@ -1520,18 +1372,13 @@
 
     aput v20, v3, v21
 
-    .line 178
     const/4 v14, 0x2
 
-    .local v14, "m":I
     :goto_2
     if-ge v14, v2, :cond_3
 
-    .line 181
     shr-int/lit8 v18, v14, 0x1
 
-    .line 182
-    .local v18, "x":I
     sub-int v20, v14, v18
 
     aget v20, v17, v20
@@ -1552,7 +1399,6 @@
 
     aput v20, v17, v14
 
-    .line 183
     sub-int v20, v14, v18
 
     aget v20, v3, v20
@@ -1573,13 +1419,10 @@
 
     aput v20, v3, v14
 
-    .line 178
     add-int/lit8 v14, v14, 0x1
 
     goto :goto_2
 
-    .line 186
-    .end local v18    # "x":I
     :cond_3
     move-object/from16 v0, p0
 
@@ -1607,8 +1450,6 @@
 
     div-float v10, v21, v20
 
-    .line 188
-    .local v10, "inverseCosLatitude":F
     sget-wide v20, Landroid/hardware/GeomagneticField;->BASE_TIME:J
 
     sub-long v20, p4, v20
@@ -1623,33 +1464,22 @@
 
     div-float v19, v20, v21
 
-    .line 194
-    .local v19, "yearsSinceBase":F
     const/4 v5, 0x0
 
-    .line 195
-    .local v5, "gcX":F
     const/4 v6, 0x0
 
-    .line 196
-    .local v6, "gcY":F
     const/4 v7, 0x0
 
-    .line 198
-    .local v7, "gcZ":F
     const/4 v15, 0x1
 
-    .local v15, "n":I
     :goto_3
     if-ge v15, v2, :cond_5
 
-    .line 199
     const/4 v14, 0x0
 
     :goto_4
     if-gt v14, v15, :cond_4
 
-    .line 201
     sget-object v20, Landroid/hardware/GeomagneticField;->G_COEFF:[[F
 
     aget-object v20, v20, v15
@@ -1666,8 +1496,6 @@
 
     add-float v4, v20, v21
 
-    .line 202
-    .local v4, "g":F
     sget-object v20, Landroid/hardware/GeomagneticField;->H_COEFF:[[F
 
     aget-object v20, v20, v15
@@ -1684,13 +1512,10 @@
 
     add-float v8, v20, v21
 
-    .line 209
-    .local v8, "h":F
     add-int/lit8 v20, v15, 0x2
 
     aget v20, v16, v20
 
-    .line 210
     aget v21, v3, v14
 
     mul-float v21, v21, v4
@@ -1701,10 +1526,8 @@
 
     add-float v21, v21, v22
 
-    .line 209
     mul-float v20, v20, v21
 
-    .line 211
     iget-object v0, v11, Landroid/hardware/GeomagneticField$LegendreTable;->mPDeriv:[[F
 
     move-object/from16 v21, v0
@@ -1713,22 +1536,18 @@
 
     aget v21, v21, v14
 
-    .line 209
     mul-float v20, v20, v21
 
-    .line 212
     sget-object v21, Landroid/hardware/GeomagneticField;->SCHMIDT_QUASI_NORM_FACTORS:[[F
 
     aget-object v21, v21, v15
 
     aget v21, v21, v14
 
-    .line 209
     mul-float v20, v20, v21
 
     add-float v5, v5, v20
 
-    .line 216
     add-int/lit8 v20, v15, 0x2
 
     aget v20, v16, v20
@@ -1739,7 +1558,6 @@
 
     mul-float v20, v20, v21
 
-    .line 217
     aget v21, v17, v14
 
     mul-float v21, v21, v4
@@ -1750,10 +1568,8 @@
 
     sub-float v21, v21, v22
 
-    .line 216
     mul-float v20, v20, v21
 
-    .line 218
     iget-object v0, v11, Landroid/hardware/GeomagneticField$LegendreTable;->mP:[[F
 
     move-object/from16 v21, v0
@@ -1762,24 +1578,20 @@
 
     aget v21, v21, v14
 
-    .line 216
     mul-float v20, v20, v21
 
-    .line 219
     sget-object v21, Landroid/hardware/GeomagneticField;->SCHMIDT_QUASI_NORM_FACTORS:[[F
 
     aget-object v21, v21, v15
 
     aget v21, v21, v14
 
-    .line 216
     mul-float v20, v20, v21
 
     mul-float v20, v20, v10
 
     add-float v6, v6, v20
 
-    .line 223
     add-int/lit8 v20, v15, 0x1
 
     move/from16 v0, v20
@@ -1794,7 +1606,6 @@
 
     mul-float v20, v20, v21
 
-    .line 224
     aget v21, v3, v14
 
     mul-float v21, v21, v4
@@ -1805,10 +1616,8 @@
 
     add-float v21, v21, v22
 
-    .line 223
     mul-float v20, v20, v21
 
-    .line 225
     iget-object v0, v11, Landroid/hardware/GeomagneticField$LegendreTable;->mP:[[F
 
     move-object/from16 v21, v0
@@ -1817,35 +1626,27 @@
 
     aget v21, v21, v14
 
-    .line 223
     mul-float v20, v20, v21
 
-    .line 226
     sget-object v21, Landroid/hardware/GeomagneticField;->SCHMIDT_QUASI_NORM_FACTORS:[[F
 
     aget-object v21, v21, v15
 
     aget v21, v21, v14
 
-    .line 223
     mul-float v20, v20, v21
 
     sub-float v7, v7, v20
 
-    .line 199
     add-int/lit8 v14, v14, 0x1
 
     goto/16 :goto_4
 
-    .line 198
-    .end local v4    # "g":F
-    .end local v8    # "h":F
     :cond_4
     add-int/lit8 v15, v15, 0x1
 
     goto/16 :goto_3
 
-    .line 233
     :cond_5
     move/from16 v0, p1
 
@@ -1871,8 +1672,6 @@
 
     sub-double v12, v20, v22
 
-    .line 234
-    .local v12, "latDiffRad":D
     float-to-double v0, v5
 
     move-wide/from16 v20, v0
@@ -1883,7 +1682,6 @@
 
     mul-double v20, v20, v22
 
-    .line 235
     float-to-double v0, v7
 
     move-wide/from16 v22, v0
@@ -1894,7 +1692,6 @@
 
     mul-double v22, v22, v24
 
-    .line 234
     add-double v20, v20, v22
 
     move-wide/from16 v0, v20
@@ -1909,12 +1706,10 @@
 
     iput v0, v1, Landroid/hardware/GeomagneticField;->mX:F
 
-    .line 236
     move-object/from16 v0, p0
 
     iput v6, v0, Landroid/hardware/GeomagneticField;->mY:F
 
-    .line 237
     neg-float v0, v5
 
     move/from16 v20, v0
@@ -1931,7 +1726,6 @@
 
     mul-double v20, v20, v22
 
-    .line 238
     float-to-double v0, v7
 
     move-wide/from16 v22, v0
@@ -1942,7 +1736,6 @@
 
     mul-double v22, v22, v24
 
-    .line 237
     add-double v20, v20, v22
 
     move-wide/from16 v0, v20
@@ -1957,63 +1750,44 @@
 
     iput v0, v1, Landroid/hardware/GeomagneticField;->mZ:F
 
-    .line 138
     return-void
 .end method
 
 .method private computeGeocentricCoordinates(FFF)V
     .locals 12
-    .param p1, "gdLatitudeDeg"    # F
-    .param p2, "gdLongitudeDeg"    # F
-    .param p3, "altitudeMeters"    # F
 
-    .prologue
-    .line 307
     const/high16 v8, 0x447a0000    # 1000.0f
 
     div-float v0, p3, v8
 
-    .line 310
-    .local v0, "altitudeKm":F
     float-to-double v8, p1
 
     invoke-static {v8, v9}, Ljava/lang/Math;->toRadians(D)D
 
     move-result-wide v2
 
-    .line 311
-    .local v2, "gdLatRad":D
     invoke-static {v2, v3}, Ljava/lang/Math;->cos(D)D
 
     move-result-wide v8
 
     double-to-float v1, v8
 
-    .line 312
-    .local v1, "clat":F
     invoke-static {v2, v3}, Ljava/lang/Math;->sin(D)D
 
     move-result-wide v8
 
     double-to-float v6, v8
 
-    .line 313
-    .local v6, "slat":F
     div-float v7, v6, v1
 
-    .line 308
-    .local v7, "tlat":F
     const v8, 0x4c1b2f2f    # 4.0680636E7f
 
-    .line 315
     mul-float/2addr v8, v1
 
     mul-float/2addr v8, v1
 
-    .line 309
     const v9, 0x4c1a253b    # 4.04083E7f
 
-    .line 315
     mul-float/2addr v9, v6
 
     mul-float/2addr v9, v6
@@ -2028,28 +1802,20 @@
 
     double-to-float v4, v8
 
-    .line 317
-    .local v4, "latRad":F
     mul-float v8, v4, v0
 
-    .line 309
     const v9, 0x4c1a253b    # 4.04083E7f
 
-    .line 317
     add-float/2addr v8, v9
 
     mul-float/2addr v8, v7
 
-    .line 318
     mul-float v9, v4, v0
 
-    .line 308
     const v10, 0x4c1b2f2f    # 4.0680636E7f
 
-    .line 318
     add-float/2addr v9, v10
 
-    .line 317
     div-float/2addr v8, v9
 
     float-to-double v8, v8
@@ -2062,7 +1828,6 @@
 
     iput v8, p0, Landroid/hardware/GeomagneticField;->mGcLatitudeRad:F
 
-    .line 320
     float-to-double v8, p2
 
     invoke-static {v8, v9}, Ljava/lang/Math;->toRadians(D)D
@@ -2073,31 +1838,24 @@
 
     iput v8, p0, Landroid/hardware/GeomagneticField;->mGcLongitudeRad:F
 
-    .line 322
     mul-float v8, v0, v0
 
-    .line 323
     const/high16 v9, 0x40000000    # 2.0f
 
     mul-float/2addr v9, v0
 
-    .line 308
     const v10, 0x4c1b2f2f    # 4.0680636E7f
 
-    .line 323
     mul-float/2addr v10, v1
 
     mul-float/2addr v10, v1
 
-    .line 309
     const v11, 0x4c1a253b    # 4.04083E7f
 
-    .line 324
     mul-float/2addr v11, v6
 
     mul-float/2addr v11, v6
 
-    .line 323
     add-float/2addr v10, v11
 
     float-to-double v10, v10
@@ -2110,10 +1868,8 @@
 
     mul-float/2addr v9, v10
 
-    .line 322
     add-float/2addr v8, v9
 
-    .line 325
     const v9, 0x58bc2457
 
     mul-float/2addr v9, v1
@@ -2128,32 +1884,24 @@
 
     add-float/2addr v9, v10
 
-    .line 308
     const v10, 0x4c1b2f2f    # 4.0680636E7f
 
-    .line 326
     mul-float/2addr v10, v1
 
     mul-float/2addr v10, v1
 
-    .line 309
     const v11, 0x4c1a253b    # 4.04083E7f
 
-    .line 326
     mul-float/2addr v11, v6
 
     mul-float/2addr v11, v6
 
     add-float/2addr v10, v11
 
-    .line 325
     div-float/2addr v9, v10
 
-    .line 322
     add-float v5, v8, v9
 
-    .line 327
-    .local v5, "radSq":F
     float-to-double v8, v5
 
     invoke-static {v8, v9}, Ljava/lang/Math;->sqrt(D)D
@@ -2164,28 +1912,22 @@
 
     iput v8, p0, Landroid/hardware/GeomagneticField;->mGcRadiusKm:F
 
-    .line 306
     return-void
 .end method
 
 .method private static computeSchmidtQuasiNormFactors(I)[[F
     .locals 11
-    .param p0, "maxN"    # I
 
-    .prologue
     const/4 v4, 0x2
 
     const/4 v5, 0x1
 
     const/4 v10, 0x0
 
-    .line 394
     add-int/lit8 v3, p0, 0x1
 
     new-array v2, v3, [[F
 
-    .line 395
-    .local v2, "schmidtQuasiNorm":[[F
     new-array v3, v5, [F
 
     const/high16 v6, 0x3f800000    # 1.0f
@@ -2194,24 +1936,19 @@
 
     aput-object v3, v2, v10
 
-    .line 396
     const/4 v1, 0x1
 
-    .local v1, "n":I
     :goto_0
     if-gt v1, p0, :cond_2
 
-    .line 397
     add-int/lit8 v3, v1, 0x1
 
     new-array v3, v3, [F
 
     aput-object v3, v2, v1
 
-    .line 398
     aget-object v3, v2, v1
 
-    .line 399
     add-int/lit8 v6, v1, -0x1
 
     aget-object v6, v2, v6
@@ -2230,17 +1967,13 @@
 
     div-float/2addr v6, v7
 
-    .line 398
     aput v6, v3, v10
 
-    .line 400
     const/4 v0, 0x1
 
-    .local v0, "m":I
     :goto_1
     if-gt v0, v1, :cond_1
 
-    .line 401
     aget-object v6, v2, v1
 
     aget-object v3, v2, v1
@@ -2249,7 +1982,6 @@
 
     aget v7, v3, v7
 
-    .line 402
     sub-int v3, v1, v0
 
     add-int/lit8 v8, v3, 0x1
@@ -2263,12 +1995,10 @@
 
     int-to-float v3, v3
 
-    .line 403
     add-int v8, v1, v0
 
     int-to-float v8, v8
 
-    .line 402
     div-float/2addr v3, v8
 
     float-to-double v8, v3
@@ -2279,12 +2009,10 @@
 
     double-to-float v3, v8
 
-    .line 401
     mul-float/2addr v3, v7
 
     aput v3, v6, v0
 
-    .line 400
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
@@ -2292,17 +2020,13 @@
     :cond_0
     move v3, v5
 
-    .line 402
     goto :goto_2
 
-    .line 396
     :cond_1
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 406
-    .end local v0    # "m":I
     :cond_2
     return-object v2
 .end method
@@ -2312,8 +2036,6 @@
 .method public getDeclination()F
     .locals 4
 
-    .prologue
-    .line 268
     iget v0, p0, Landroid/hardware/GeomagneticField;->mY:F
 
     float-to-double v0, v0
@@ -2338,8 +2060,6 @@
 .method public getFieldStrength()F
     .locals 3
 
-    .prologue
-    .line 291
     iget v0, p0, Landroid/hardware/GeomagneticField;->mX:F
 
     iget v1, p0, Landroid/hardware/GeomagneticField;->mX:F
@@ -2376,8 +2096,6 @@
 .method public getHorizontalStrength()F
     .locals 4
 
-    .prologue
-    .line 284
     iget v0, p0, Landroid/hardware/GeomagneticField;->mX:F
 
     float-to-double v0, v0
@@ -2398,20 +2116,16 @@
 .method public getInclination()F
     .locals 4
 
-    .prologue
-    .line 276
     iget v0, p0, Landroid/hardware/GeomagneticField;->mZ:F
 
     float-to-double v0, v0
 
-    .line 277
     invoke-virtual {p0}, Landroid/hardware/GeomagneticField;->getHorizontalStrength()F
 
     move-result v2
 
     float-to-double v2, v2
 
-    .line 276
     invoke-static {v0, v1, v2, v3}, Ljava/lang/Math;->atan2(DD)D
 
     move-result-wide v0
@@ -2428,8 +2142,6 @@
 .method public getX()F
     .locals 1
 
-    .prologue
-    .line 245
     iget v0, p0, Landroid/hardware/GeomagneticField;->mX:F
 
     return v0
@@ -2438,8 +2150,6 @@
 .method public getY()F
     .locals 1
 
-    .prologue
-    .line 252
     iget v0, p0, Landroid/hardware/GeomagneticField;->mY:F
 
     return v0
@@ -2448,8 +2158,6 @@
 .method public getZ()F
     .locals 1
 
-    .prologue
-    .line 259
     iget v0, p0, Landroid/hardware/GeomagneticField;->mZ:F
 
     return v0

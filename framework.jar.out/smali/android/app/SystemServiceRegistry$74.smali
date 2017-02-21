@@ -27,8 +27,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 918
     invoke-direct {p0}, Landroid/app/SystemServiceRegistry$CachedServiceFetcher;-><init>()V
 
     return-void
@@ -38,10 +36,7 @@
 # virtual methods
 .method public createService(Landroid/app/ContextImpl;)Landroid/net/NetworkScoreManager;
     .locals 1
-    .param p1, "ctx"    # Landroid/app/ContextImpl;
 
-    .prologue
-    .line 921
     new-instance v0, Landroid/net/NetworkScoreManager;
 
     invoke-direct {v0, p1}, Landroid/net/NetworkScoreManager;-><init>(Landroid/content/Context;)V
@@ -51,10 +46,7 @@
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
-    .param p1, "ctx"    # Landroid/app/ContextImpl;
 
-    .prologue
-    .line 920
     invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$74;->createService(Landroid/app/ContextImpl;)Landroid/net/NetworkScoreManager;
 
     move-result-object v0

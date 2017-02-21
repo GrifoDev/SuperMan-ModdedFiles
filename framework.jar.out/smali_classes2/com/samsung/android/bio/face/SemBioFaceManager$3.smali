@@ -38,17 +38,7 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/bio/face/SemBioFaceManager;[BLandroid/os/CancellationSignal;IILcom/samsung/android/bio/face/SemBioFaceManager$EnrollmentCallback;Landroid/os/Bundle;Landroid/view/View;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/samsung/android/bio/face/SemBioFaceManager;
-    .param p2, "val$token"    # [B
-    .param p3, "val$cancel"    # Landroid/os/CancellationSignal;
-    .param p4, "val$flags"    # I
-    .param p5, "val$userId"    # I
-    .param p6, "val$callback"    # Lcom/samsung/android/bio/face/SemBioFaceManager$EnrollmentCallback;
-    .param p7, "val$attr"    # Landroid/os/Bundle;
-    .param p8, "val$faceView"    # Landroid/view/View;
 
-    .prologue
-    .line 1016
     iput-object p1, p0, Lcom/samsung/android/bio/face/SemBioFaceManager$3;->this$0:Lcom/samsung/android/bio/face/SemBioFaceManager;
 
     iput-object p2, p0, Lcom/samsung/android/bio/face/SemBioFaceManager$3;->val$token:[B
@@ -75,8 +65,6 @@
 .method public run()V
     .locals 8
 
-    .prologue
-    .line 1018
     iget-object v0, p0, Lcom/samsung/android/bio/face/SemBioFaceManager$3;->this$0:Lcom/samsung/android/bio/face/SemBioFaceManager;
 
     iget-object v1, p0, Lcom/samsung/android/bio/face/SemBioFaceManager$3;->val$token:[B
@@ -95,6 +83,5 @@
 
     invoke-static/range {v0 .. v7}, Lcom/samsung/android/bio/face/SemBioFaceManager;->-wrap5(Lcom/samsung/android/bio/face/SemBioFaceManager;[BLandroid/os/CancellationSignal;IILcom/samsung/android/bio/face/SemBioFaceManager$EnrollmentCallback;Landroid/os/Bundle;Landroid/view/View;)V
 
-    .line 1017
     return-void
 .end method

@@ -25,10 +25,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/app/ResolverActivity;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/internal/app/ResolverActivity;
 
-    .prologue
-    .line 3237
     iput-object p1, p0, Lcom/android/internal/app/ResolverActivity$MoreActionsItemClickListener;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,9 +37,6 @@
 # virtual methods
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
     .locals 3
-    .param p2, "view"    # Landroid/view/View;
-    .param p3, "position"    # I
-    .param p4, "id"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -53,9 +47,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3241
-    .local p1, "parent":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<*>;"
     iget-object v0, p0, Lcom/android/internal/app/ResolverActivity$MoreActionsItemClickListener;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     invoke-static {v0}, Lcom/android/internal/app/ResolverActivity;->-get12(Lcom/android/internal/app/ResolverActivity;)Lcom/samsung/android/share/SShareMoreActions;
@@ -64,7 +55,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 3242
     iget-object v0, p0, Lcom/android/internal/app/ResolverActivity$MoreActionsItemClickListener;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     invoke-static {v0}, Lcom/android/internal/app/ResolverActivity;->-get30(Lcom/android/internal/app/ResolverActivity;)Landroid/view/View;
@@ -73,7 +63,6 @@
 
     if-eqz v0, :cond_1
 
-    .line 3243
     iget-object v0, p0, Lcom/android/internal/app/ResolverActivity$MoreActionsItemClickListener;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     invoke-static {v0}, Lcom/android/internal/app/ResolverActivity;->-get12(Lcom/android/internal/app/ResolverActivity;)Lcom/samsung/android/share/SShareMoreActions;
@@ -92,7 +81,6 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/share/SShareMoreActions;->setSharePanelVisibleHeight(I)V
 
-    .line 3247
     :goto_0
     iget-object v0, p0, Lcom/android/internal/app/ResolverActivity$MoreActionsItemClickListener;->this$0:Lcom/android/internal/app/ResolverActivity;
 
@@ -116,16 +104,13 @@
 
     invoke-virtual {v1, p3, v0}, Lcom/samsung/android/share/SShareMoreActions;->startMoreActions(ILandroid/content/Intent;)V
 
-    .line 3249
     :cond_0
     iget-object v0, p0, Lcom/android/internal/app/ResolverActivity$MoreActionsItemClickListener;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     invoke-virtual {v0}, Lcom/android/internal/app/ResolverActivity;->finish()V
 
-    .line 3240
     return-void
 
-    .line 3245
     :cond_1
     const-string/jumbo v0, "ResolverActivity"
 
@@ -138,9 +123,6 @@
 
 .method public onItemLongClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)Z
     .locals 1
-    .param p2, "view"    # Landroid/view/View;
-    .param p3, "position"    # I
-    .param p4, "id"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -151,9 +133,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3254
-    .local p1, "parent":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<*>;"
     const/4 v0, 0x1
 
     return v0

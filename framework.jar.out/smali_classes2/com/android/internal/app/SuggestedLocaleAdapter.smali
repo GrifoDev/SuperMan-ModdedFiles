@@ -165,7 +165,6 @@
 
 .method public constructor <init>(Ljava/util/Set;Z)V
     .locals 4
-    .param p2, "countryMode"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -176,20 +175,14 @@
         }
     .end annotation
 
-    .prologue
-    .line 66
-    .local p1, "localeOptions":Ljava/util/Set;, "Ljava/util/Set<Lcom/android/internal/app/LocaleStore$LocaleInfo;>;"
     invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V
 
-    .line 67
     iput-boolean p2, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mCountryMode:Z
 
-    .line 68
     const/4 v2, 0x0
 
     iput-boolean v2, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mIsShowAll:Z
 
-    .line 69
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-interface {p1}, Ljava/util/Set;->size()I
@@ -200,7 +193,6 @@
 
     iput-object v2, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mLocaleOptions:Ljava/util/ArrayList;
 
-    .line 70
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-interface {p1}, Ljava/util/Set;->size()I
@@ -211,7 +203,6 @@
 
     iput-object v2, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mLocaleOptionsforSecSuggested:Ljava/util/ArrayList;
 
-    .line 71
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-interface {p1}, Ljava/util/Set;->size()I
@@ -222,12 +213,10 @@
 
     iput-object v2, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mLocaleOptionsforShowAll:Ljava/util/ArrayList;
 
-    .line 72
     invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    .local v1, "li$iterator":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -241,34 +230,28 @@
 
     check-cast v0, Lcom/android/internal/app/LocaleStore$LocaleInfo;
 
-    .line 73
-    .local v0, "li":Lcom/android/internal/app/LocaleStore$LocaleInfo;
     invoke-virtual {v0}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->isSuggested()Z
 
     move-result v2
 
     if-eqz v2, :cond_2
 
-    .line 74
     iget v2, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mSuggestionCount:I
 
     add-int/lit8 v2, v2, 0x1
 
     iput v2, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mSuggestionCount:I
 
-    .line 79
     :cond_0
     :goto_1
     iget-boolean v2, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mCountryMode:Z
 
     if-eqz v2, :cond_3
 
-    .line 80
     iget-object v2, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mLocaleOptions:Ljava/util/ArrayList;
 
     invoke-virtual {v2, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 84
     :cond_1
     :goto_2
     iget-object v2, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mLocaleOptionsforShowAll:Ljava/util/ArrayList;
@@ -277,7 +260,6 @@
 
     goto :goto_0
 
-    .line 75
     :cond_2
     iget-boolean v2, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mCountryMode:Z
 
@@ -289,7 +271,6 @@
 
     if-eqz v2, :cond_0
 
-    .line 76
     iget v2, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mSecSuggestionCount:I
 
     add-int/lit8 v2, v2, 0x1
@@ -298,7 +279,6 @@
 
     goto :goto_1
 
-    .line 81
     :cond_3
     invoke-virtual {v0}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->isSuggested()Z
 
@@ -312,7 +292,6 @@
 
     if-eqz v2, :cond_1
 
-    .line 82
     :cond_4
     iget-object v2, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mLocaleOptionsforSecSuggested:Ljava/util/ArrayList;
 
@@ -320,21 +299,17 @@
 
     goto :goto_2
 
-    .line 87
-    .end local v0    # "li":Lcom/android/internal/app/LocaleStore$LocaleInfo;
     :cond_5
     iget-boolean v2, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mCountryMode:Z
 
     if-nez v2, :cond_6
 
-    .line 88
     iget-object v2, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mLocaleOptions:Ljava/util/ArrayList;
 
     iget-object v3, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mLocaleOptionsforSecSuggested:Ljava/util/ArrayList;
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
 
-    .line 66
     :cond_6
     return-void
 .end method
@@ -342,10 +317,8 @@
 .method private showHeaders()Z
     .locals 2
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 282
     iget v1, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mSuggestionCount:I
 
     if-eqz v1, :cond_0
@@ -359,18 +332,14 @@
 .method private showSecHeaders()Z
     .locals 2
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 263
     iget-boolean v1, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mCountryMode:Z
 
     if-eqz v1, :cond_0
 
-    .line 264
     return v0
 
-    .line 266
     :cond_0
     iget v1, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mSecSuggestionCount:I
 
@@ -387,8 +356,6 @@
 .method public areAllItemsEnabled()Z
     .locals 1
 
-    .prologue
-    .line 94
     const/4 v0, 0x0
 
     return v0
@@ -397,15 +364,12 @@
 .method public getCount()I
     .locals 3
 
-    .prologue
-    .line 151
     invoke-direct {p0}, Lcom/android/internal/app/SuggestedLocaleAdapter;->showHeaders()Z
 
     move-result v1
 
     if-eqz v1, :cond_2
 
-    .line 152
     invoke-direct {p0}, Lcom/android/internal/app/SuggestedLocaleAdapter;->showSecHeaders()Z
 
     move-result v1
@@ -422,12 +386,9 @@
 
     if-eq v1, v2, :cond_1
 
-    .line 153
     :cond_0
     const/4 v0, 0x2
 
-    .line 167
-    .local v0, "offset":I
     :goto_0
     iget-object v1, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mLocaleOptions:Ljava/util/ArrayList;
 
@@ -439,16 +400,11 @@
 
     return v1
 
-    .line 155
-    .end local v0    # "offset":I
     :cond_1
     const/4 v0, 0x1
 
-    .restart local v0    # "offset":I
     goto :goto_0
 
-    .line 157
-    .end local v0    # "offset":I
     :cond_2
     invoke-direct {p0}, Lcom/android/internal/app/SuggestedLocaleAdapter;->showSecHeaders()Z
 
@@ -456,7 +412,6 @@
 
     if-eqz v1, :cond_4
 
-    .line 158
     iget v1, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mSecSuggestionCount:I
 
     iget-object v2, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mLocaleOptions:Ljava/util/ArrayList;
@@ -467,34 +422,24 @@
 
     if-eq v1, v2, :cond_3
 
-    .line 159
     const/4 v0, 0x2
 
-    .restart local v0    # "offset":I
     goto :goto_0
 
-    .line 161
-    .end local v0    # "offset":I
     :cond_3
     const/4 v0, 0x1
 
-    .restart local v0    # "offset":I
     goto :goto_0
 
-    .line 164
-    .end local v0    # "offset":I
     :cond_4
     const/4 v0, 0x1
 
-    .restart local v0    # "offset":I
     goto :goto_0
 .end method
 
 .method public getFilter()Landroid/widget/Filter;
     .locals 1
 
-    .prologue
-    .line 413
     new-instance v0, Lcom/android/internal/app/SuggestedLocaleAdapter$FilterByNativeAndUiNames;
 
     invoke-direct {v0, p0}, Lcom/android/internal/app/SuggestedLocaleAdapter$FilterByNativeAndUiNames;-><init>(Lcom/android/internal/app/SuggestedLocaleAdapter;)V
@@ -504,21 +449,15 @@
 
 .method public getItem(I)Ljava/lang/Object;
     .locals 3
-    .param p1, "position"    # I
 
-    .prologue
-    .line 178
     const/4 v0, 0x0
 
-    .line 179
-    .local v0, "offset":I
     invoke-direct {p0}, Lcom/android/internal/app/SuggestedLocaleAdapter;->showHeaders()Z
 
     move-result v1
 
     if-eqz v1, :cond_6
 
-    .line 180
     iget v1, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mSuggestionCount:I
 
     iget-object v2, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mLocaleOptions:Ljava/util/ArrayList;
@@ -529,10 +468,8 @@
 
     if-ne v1, v2, :cond_1
 
-    .line 181
     const/4 v0, -0x1
 
-    .line 201
     :cond_0
     :goto_0
     iget-object v1, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mLocaleOptions:Ljava/util/ArrayList;
@@ -545,13 +482,11 @@
 
     return-object v1
 
-    .line 182
     :cond_1
     iget v1, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mSecSuggestionCount:I
 
     if-lez v1, :cond_4
 
-    .line 183
     iget v1, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mSuggestionCount:I
 
     if-le p1, v1, :cond_2
@@ -566,13 +501,10 @@
 
     if-gt p1, v1, :cond_2
 
-    .line 184
     const/4 v0, -0x2
 
-    .line 183
     goto :goto_0
 
-    .line 185
     :cond_2
     iget v1, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mSuggestionCount:I
 
@@ -582,18 +514,15 @@
 
     if-le p1, v1, :cond_3
 
-    .line 186
     const/4 v0, -0x3
 
     goto :goto_0
 
-    .line 188
     :cond_3
     const/4 v0, -0x1
 
     goto :goto_0
 
-    .line 191
     :cond_4
     iget v1, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mSuggestionCount:I
 
@@ -608,7 +537,6 @@
 
     goto :goto_0
 
-    .line 193
     :cond_6
     invoke-direct {p0}, Lcom/android/internal/app/SuggestedLocaleAdapter;->showSecHeaders()Z
 
@@ -616,7 +544,6 @@
 
     if-eqz v1, :cond_7
 
-    .line 194
     iget v1, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mSecSuggestionCount:I
 
     iget-object v2, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mLocaleOptions:Ljava/util/ArrayList;
@@ -627,12 +554,10 @@
 
     if-ne v1, v2, :cond_0
 
-    .line 195
     const/4 v0, -0x1
 
     goto :goto_0
 
-    .line 198
     :cond_7
     const/4 v0, -0x1
 
@@ -641,10 +566,7 @@
 
 .method public getItemId(I)J
     .locals 2
-    .param p1, "position"    # I
 
-    .prologue
-    .line 206
     int-to-long v0, p1
 
     return-wide v0
@@ -652,9 +574,7 @@
 
 .method public getItemViewType(I)I
     .locals 5
-    .param p1, "position"    # I
 
-    .prologue
     const/4 v4, 0x3
 
     const/4 v3, 0x2
@@ -663,7 +583,6 @@
 
     const/4 v1, 0x0
 
-    .line 104
     invoke-direct {p0}, Lcom/android/internal/app/SuggestedLocaleAdapter;->showHeaders()Z
 
     move-result v0
@@ -676,7 +595,6 @@
 
     if-eqz v0, :cond_1
 
-    .line 109
     :cond_0
     invoke-direct {p0}, Lcom/android/internal/app/SuggestedLocaleAdapter;->showHeaders()Z
 
@@ -684,40 +602,31 @@
 
     if-eqz v0, :cond_7
 
-    .line 110
     if-nez p1, :cond_3
 
-    .line 111
     return v1
 
-    .line 105
     :cond_1
     if-nez p1, :cond_2
 
-    .line 106
     return v2
 
-    .line 108
     :cond_2
     return v3
 
-    .line 113
     :cond_3
     iget v0, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mSecSuggestionCount:I
 
     if-lez v0, :cond_5
 
-    .line 114
     iget v0, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mSuggestionCount:I
 
     add-int/lit8 v0, v0, 0x1
 
     if-ne p1, v0, :cond_4
 
-    .line 115
     return v4
 
-    .line 117
     :cond_4
     iget v0, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mSuggestionCount:I
 
@@ -731,10 +640,8 @@
 
     if-ne p1, v0, :cond_6
 
-    .line 118
     return v2
 
-    .line 121
     :cond_5
     iget v0, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mSuggestionCount:I
 
@@ -742,14 +649,11 @@
 
     if-ne p1, v0, :cond_6
 
-    .line 122
     return v2
 
-    .line 125
     :cond_6
     return v3
 
-    .line 127
     :cond_7
     invoke-direct {p0}, Lcom/android/internal/app/SuggestedLocaleAdapter;->showSecHeaders()Z
 
@@ -757,13 +661,10 @@
 
     if-eqz v0, :cond_9
 
-    .line 128
     if-nez p1, :cond_8
 
-    .line 129
     return v4
 
-    .line 130
     :cond_8
     iget v0, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mSecSuggestionCount:I
 
@@ -771,10 +672,8 @@
 
     if-ne p1, v0, :cond_9
 
-    .line 131
     return v2
 
-    .line 134
     :cond_9
     return v3
 .end method
@@ -782,8 +681,6 @@
 .method public getSecSuggestionCount()I
     .locals 1
 
-    .prologue
-    .line 310
     iget v0, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mSecSuggestionCount:I
 
     return v0
@@ -792,8 +689,6 @@
 .method public getShowAll()Z
     .locals 1
 
-    .prologue
-    .line 306
     iget-boolean v0, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mIsShowAll:Z
 
     return v0
@@ -801,23 +696,17 @@
 
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 9
-    .param p1, "position"    # I
-    .param p2, "convertView"    # Landroid/view/View;
-    .param p3, "parent"    # Landroid/view/ViewGroup;
 
-    .prologue
     const/4 v5, 0x3
 
     const/4 v8, 0x0
 
-    .line 211
     if-nez p2, :cond_0
 
     iget-object v6, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mInflater:Landroid/view/LayoutInflater;
 
     if-nez v6, :cond_0
 
-    .line 212
     invoke-virtual {p3}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v6
@@ -828,23 +717,18 @@
 
     iput-object v6, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    .line 215
     :cond_0
     invoke-virtual {p0, p1}, Lcom/android/internal/app/SuggestedLocaleAdapter;->getItemViewType(I)I
 
     move-result v1
 
-    .line 216
-    .local v1, "itemType":I
     packed-switch v1, :pswitch_data_0
 
-    .line 241
     :pswitch_0
     instance-of v6, p2, Landroid/view/ViewGroup;
 
     if-nez v6, :cond_1
 
-    .line 242
     iget-object v6, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mInflater:Landroid/view/LayoutInflater;
 
     const v7, 0x1090083
@@ -853,7 +737,6 @@
 
     move-result-object p2
 
-    .line 245
     :cond_1
     const v6, 0x10200dc
 
@@ -863,16 +746,12 @@
 
     check-cast v3, Landroid/widget/TextView;
 
-    .line 246
-    .local v3, "text":Landroid/widget/TextView;
     invoke-virtual {p0, p1}, Lcom/android/internal/app/SuggestedLocaleAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lcom/android/internal/app/LocaleStore$LocaleInfo;
 
-    .line 247
-    .local v0, "item":Lcom/android/internal/app/LocaleStore$LocaleInfo;
     iget-boolean v6, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mCountryMode:Z
 
     invoke-virtual {v0, v6}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->getLabel(Z)Ljava/lang/String;
@@ -881,14 +760,12 @@
 
     invoke-virtual {v3, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 248
     invoke-virtual {v0}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->getLocale()Ljava/util/Locale;
 
     move-result-object v6
 
     invoke-virtual {v3, v6}, Landroid/widget/TextView;->setTextLocale(Ljava/util/Locale;)V
 
-    .line 249
     iget-boolean v6, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mCountryMode:Z
 
     invoke-virtual {v0, v6}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->getContentDescription(Z)Ljava/lang/String;
@@ -897,12 +774,10 @@
 
     invoke-virtual {v3, v6}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    .line 250
     iget-boolean v6, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mCountryMode:Z
 
     if-eqz v6, :cond_3
 
-    .line 251
     invoke-virtual {v0}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->getParent()Ljava/util/Locale;
 
     move-result-object v6
@@ -911,37 +786,26 @@
 
     move-result v2
 
-    .line 253
-    .local v2, "layoutDir":I
     invoke-virtual {p2, v2}, Landroid/view/View;->setLayoutDirection(I)V
 
-    .line 254
     const/4 v6, 0x1
 
     if-ne v2, v6, :cond_2
 
-    .line 255
     const/4 v5, 0x4
 
-    .line 254
     :cond_2
     invoke-virtual {v3, v5}, Landroid/view/View;->setTextDirection(I)V
 
-    .line 259
-    .end local v0    # "item":Lcom/android/internal/app/LocaleStore$LocaleInfo;
-    .end local v2    # "layoutDir":I
-    .end local v3    # "text":Landroid/widget/TextView;
     :cond_3
     :goto_0
     return-object p2
 
-    .line 221
     :pswitch_1
     instance-of v6, p2, Landroid/widget/TextView;
 
     if-nez v6, :cond_4
 
-    .line 222
     iget-object v6, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mInflater:Landroid/view/LayoutInflater;
 
     const v7, 0x1090085
@@ -950,7 +814,6 @@
 
     move-result-object p2
 
-    .line 225
     :cond_4
     const v6, 0x1020402
 
@@ -960,16 +823,12 @@
 
     check-cast v4, Landroid/widget/TextView;
 
-    .line 226
-    .local v4, "textView":Landroid/widget/TextView;
     if-nez v1, :cond_5
 
-    .line 227
     const v5, 0x10405ed
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(I)V
 
-    .line 237
     :goto_1
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
@@ -979,11 +838,9 @@
 
     goto :goto_0
 
-    .line 228
     :cond_5
     if-ne v1, v5, :cond_7
 
-    .line 229
     invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
 
     move-result-object v5
@@ -996,14 +853,12 @@
 
     if-eqz v5, :cond_6
 
-    .line 230
     const v5, 0x104063f
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(I)V
 
     goto :goto_1
 
-    .line 232
     :cond_6
     const v5, 0x104063e
 
@@ -1011,7 +866,6 @@
 
     goto :goto_1
 
-    .line 235
     :cond_7
     const v5, 0x10405ee
 
@@ -1019,7 +873,6 @@
 
     goto :goto_1
 
-    .line 216
     nop
 
     :pswitch_data_0
@@ -1034,8 +887,6 @@
 .method public getViewTypeCount()I
     .locals 1
 
-    .prologue
-    .line 142
     const/4 v0, 0x4
 
     return v0
@@ -1043,10 +894,7 @@
 
 .method public isEnabled(I)Z
     .locals 2
-    .param p1, "position"    # I
 
-    .prologue
-    .line 99
     invoke-virtual {p0, p1}, Lcom/android/internal/app/SuggestedLocaleAdapter;->getItemViewType(I)I
 
     move-result v0
@@ -1068,113 +916,84 @@
 
 .method public setSecSuggestionCount(I)V
     .locals 0
-    .param p1, "count"    # I
 
-    .prologue
-    .line 314
     iput p1, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mSecSuggestionCount:I
 
-    .line 313
     return-void
 .end method
 
 .method public setShowAll(Z)V
     .locals 0
-    .param p1, "flag"    # Z
 
-    .prologue
-    .line 302
     iput-boolean p1, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mIsShowAll:Z
 
-    .line 301
     return-void
 .end method
 
 .method public showAllItems()V
     .locals 2
 
-    .prologue
-    .line 286
     iget-object v0, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mLocaleOptions:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
-    .line 287
     iget-object v0, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mLocaleOptions:Ljava/util/ArrayList;
 
     iget-object v1, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mLocaleOptionsforShowAll:Ljava/util/ArrayList;
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
 
-    .line 289
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mIsShowAll:Z
 
-    .line 290
     invoke-virtual {p0}, Landroid/widget/BaseAdapter;->notifyDataSetChanged()V
 
-    .line 285
     return-void
 .end method
 
 .method public showSamsungSuggestedItems()V
     .locals 2
 
-    .prologue
-    .line 294
     iget-object v0, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mLocaleOptions:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
-    .line 295
     iget-object v0, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mLocaleOptions:Ljava/util/ArrayList;
 
     iget-object v1, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mLocaleOptionsforSecSuggested:Ljava/util/ArrayList;
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
 
-    .line 297
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mIsShowAll:Z
 
-    .line 298
     invoke-virtual {p0}, Landroid/widget/BaseAdapter;->notifyDataSetChanged()V
 
-    .line 293
     return-void
 .end method
 
 .method public sort(Lcom/android/internal/app/LocaleHelper$LocaleInfoComparator;)V
     .locals 1
-    .param p1, "comp"    # Lcom/android/internal/app/LocaleHelper$LocaleInfoComparator;
 
-    .prologue
-    .line 321
     iget-object v0, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mLocaleOptionsforShowAll:Ljava/util/ArrayList;
 
     invoke-static {v0, p1}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
 
-    .line 320
     return-void
 .end method
 
 .method public sortForSecSuggested(Lcom/android/internal/app/LocaleHelper$LocaleInfoComparator;)V
     .locals 1
-    .param p1, "comp"    # Lcom/android/internal/app/LocaleHelper$LocaleInfoComparator;
 
-    .prologue
-    .line 325
     iget-object v0, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mLocaleOptions:Ljava/util/ArrayList;
 
     invoke-static {v0, p1}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
 
-    .line 326
     iget-object v0, p0, Lcom/android/internal/app/SuggestedLocaleAdapter;->mLocaleOptionsforSecSuggested:Ljava/util/ArrayList;
 
     invoke-static {v0, p1}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
 
-    .line 324
     return-void
 .end method

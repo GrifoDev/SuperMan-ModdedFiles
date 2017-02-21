@@ -21,11 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/speech/SemSpeechRecognizer;Landroid/os/Looper;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/samsung/android/speech/SemSpeechRecognizer;
-    .param p2, "$anonymous0"    # Landroid/os/Looper;
 
-    .prologue
-    .line 167
     iput-object p1, p0, Lcom/samsung/android/speech/SemSpeechRecognizer$2;->this$0:Lcom/samsung/android/speech/SemSpeechRecognizer;
 
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
@@ -37,10 +33,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .line 169
     invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;
 
     move-result-object v1
@@ -51,8 +44,6 @@
 
     move-result v0
 
-    .line 170
-    .local v0, "result":I
     iget-object v1, p0, Lcom/samsung/android/speech/SemSpeechRecognizer$2;->this$0:Lcom/samsung/android/speech/SemSpeechRecognizer;
 
     iget-object v2, p0, Lcom/samsung/android/speech/SemSpeechRecognizer$2;->this$0:Lcom/samsung/android/speech/SemSpeechRecognizer;
@@ -63,6 +54,5 @@
 
     invoke-static {v1, v0, v2}, Lcom/samsung/android/speech/SemSpeechRecognizer;->-wrap0(Lcom/samsung/android/speech/SemSpeechRecognizer;ILandroid/os/Handler;)V
 
-    .line 168
     return-void
 .end method

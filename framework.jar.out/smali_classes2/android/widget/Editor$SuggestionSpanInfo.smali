@@ -26,8 +26,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 3449
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -36,7 +34,6 @@
 .method synthetic constructor <init>(Landroid/widget/Editor$SuggestionSpanInfo;)V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Landroid/widget/Editor$SuggestionSpanInfo;-><init>()V
 
     return-void
@@ -47,12 +44,9 @@
 .method clear()V
     .locals 1
 
-    .prologue
-    .line 3461
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/widget/Editor$SuggestionSpanInfo;->mSuggestionSpan:Landroid/text/style/SuggestionSpan;
 
-    .line 3460
     return-void
 .end method

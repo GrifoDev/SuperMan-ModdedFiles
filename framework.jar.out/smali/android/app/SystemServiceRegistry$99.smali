@@ -27,8 +27,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 1207
     invoke-direct {p0}, Landroid/app/SystemServiceRegistry$CachedServiceFetcher;-><init>()V
 
     return-void
@@ -38,34 +36,25 @@
 # virtual methods
 .method public createService(Landroid/app/ContextImpl;)Landroid/os/SemHqmManager;
     .locals 4
-    .param p1, "ctx"    # Landroid/app/ContextImpl;
 
-    .prologue
-    .line 1210
     const-string/jumbo v2, "HqmManagerService"
 
     invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
-    .line 1211
-    .local v0, "b":Landroid/os/IBinder;
     invoke-static {v0}, Landroid/os/ISemHqmManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/ISemHqmManager;
 
     move-result-object v1
 
-    .line 1212
-    .local v1, "service":Landroid/os/ISemHqmManager;
     if-nez v1, :cond_0
 
-    .line 1213
     const-string/jumbo v2, "SystemServiceRegistry"
 
     const-string/jumbo v3, "Failed to get Hqm manager service."
 
     invoke-static {v2, v3}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1215
     :cond_0
     new-instance v2, Landroid/os/SemHqmManager;
 
@@ -82,10 +71,7 @@
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
-    .param p1, "ctx"    # Landroid/app/ContextImpl;
 
-    .prologue
-    .line 1209
     invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$99;->createService(Landroid/app/ContextImpl;)Landroid/os/SemHqmManager;
 
     move-result-object v0

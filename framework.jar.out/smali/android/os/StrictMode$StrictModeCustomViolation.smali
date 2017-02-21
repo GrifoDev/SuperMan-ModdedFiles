@@ -17,15 +17,10 @@
 # direct methods
 .method public constructor <init>(ILjava/lang/String;)V
     .locals 1
-    .param p1, "policyMask"    # I
-    .param p2, "name"    # Ljava/lang/String;
 
-    .prologue
-    .line 963
     const/16 v0, 0x8
 
     invoke-direct {p0, p1, v0, p2}, Landroid/os/StrictMode$StrictModeViolation;-><init>(IILjava/lang/String;)V
 
-    .line 962
     return-void
 .end method

@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/app/ResolverActivity;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/internal/app/ResolverActivity;
 
-    .prologue
-    .line 3460
     iput-object p1, p0, Lcom/android/internal/app/ResolverActivity$2;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -36,20 +33,15 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .line 3463
     iget v1, p1, Landroid/os/Message;->what:I
 
     packed-switch v1, :pswitch_data_0
 
-    .line 3462
     :cond_0
     :goto_0
     return-void
 
-    .line 3465
     :pswitch_0
     iget-object v2, p0, Lcom/android/internal/app/ResolverActivity$2;->this$0:Lcom/android/internal/app/ResolverActivity;
 
@@ -61,8 +53,6 @@
 
     move-result-object v0
 
-    .line 3466
-    .local v0, "ti":Lcom/android/internal/app/ResolverActivity$TargetInfo;
     iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$2;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     const/4 v2, 0x0
@@ -73,14 +63,12 @@
 
     if-eqz v1, :cond_0
 
-    .line 3467
     iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$2;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     invoke-virtual {v1}, Lcom/android/internal/app/ResolverActivity;->finish()V
 
     goto :goto_0
 
-    .line 3463
     nop
 
     :pswitch_data_0

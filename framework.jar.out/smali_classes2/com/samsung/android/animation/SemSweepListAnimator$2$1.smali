@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/animation/SemSweepListAnimator$2;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/samsung/android/animation/SemSweepListAnimator$2;
 
-    .prologue
-    .line 360
     iput-object p1, p0, Lcom/samsung/android/animation/SemSweepListAnimator$2$1;->this$1:Lcom/samsung/android/animation/SemSweepListAnimator$2;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,10 +36,7 @@
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
     .locals 3
-    .param p1, "anim"    # Landroid/animation/ValueAnimator;
 
-    .prologue
-    .line 363
     iget-object v1, p0, Lcom/samsung/android/animation/SemSweepListAnimator$2$1;->this$1:Lcom/samsung/android/animation/SemSweepListAnimator$2;
 
     iget-object v1, v1, Lcom/samsung/android/animation/SemSweepListAnimator$2;->this$0:Lcom/samsung/android/animation/SemSweepListAnimator;
@@ -61,7 +55,6 @@
 
     if-eqz v1, :cond_0
 
-    .line 364
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
 
     move-result-object v1
@@ -72,8 +65,6 @@
 
     move-result v0
 
-    .line 366
-    .local v0, "animatedValue":I
     iget-object v1, p0, Lcom/samsung/android/animation/SemSweepListAnimator$2$1;->this$1:Lcom/samsung/android/animation/SemSweepListAnimator$2;
 
     iget-object v1, v1, Lcom/samsung/android/animation/SemSweepListAnimator$2;->this$0:Lcom/samsung/android/animation/SemSweepListAnimator;
@@ -84,7 +75,6 @@
 
     invoke-virtual {v1, v0}, Landroid/graphics/drawable/BitmapDrawable;->setAlpha(I)V
 
-    .line 367
     iget-object v1, p0, Lcom/samsung/android/animation/SemSweepListAnimator$2$1;->this$1:Lcom/samsung/android/animation/SemSweepListAnimator$2;
 
     iget-object v1, v1, Lcom/samsung/android/animation/SemSweepListAnimator$2;->this$0:Lcom/samsung/android/animation/SemSweepListAnimator;
@@ -105,8 +95,6 @@
 
     invoke-virtual {v1, v2}, Landroid/view/View;->invalidate(Landroid/graphics/Rect;)V
 
-    .line 362
-    .end local v0    # "animatedValue":I
     :cond_0
     return-void
 .end method

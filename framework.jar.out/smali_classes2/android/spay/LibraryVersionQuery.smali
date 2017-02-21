@@ -10,8 +10,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 19
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -22,8 +20,6 @@
 .method public getLibraryVersion()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 25
     new-instance v0, Ljava/lang/String;
 
     const-string/jumbo v1, "1.6.0"

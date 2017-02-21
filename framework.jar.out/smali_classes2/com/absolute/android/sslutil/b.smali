@@ -14,13 +14,10 @@
 .method public constructor <init>(Lcom/absolute/android/sslutil/SslUtil;)V
     .locals 3
 
-    .prologue
-    .line 99
     iput-object p1, p0, Lcom/absolute/android/sslutil/b;->a:Lcom/absolute/android/sslutil/SslUtil;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 100
     invoke-static {}, Lcom/absolute/android/logutil/LogUtil;->get()Lcom/absolute/android/logutil/LogUtil;
 
     move-result-object v0
@@ -31,7 +28,6 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/absolute/android/logutil/LogUtil;->logMessage(ILjava/lang/String;)V
 
-    .line 102
     return-void
 .end method
 
@@ -40,26 +36,20 @@
 .method public final checkClientTrusted([Ljava/security/cert/X509Certificate;Ljava/lang/String;)V
     .locals 0
 
-    .prologue
-    .line 105
     return-void
 .end method
 
 .method public final checkServerTrusted([Ljava/security/cert/X509Certificate;Ljava/lang/String;)V
     .locals 0
 
-    .prologue
-    .line 108
     return-void
 .end method
 
 .method public final getAcceptedIssuers()[Ljava/security/cert/X509Certificate;
     .locals 1
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 111
     new-array v0, v0, [Ljava/security/cert/X509Certificate;
 
     return-object v0

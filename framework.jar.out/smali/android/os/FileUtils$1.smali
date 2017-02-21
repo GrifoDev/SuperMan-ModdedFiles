@@ -31,8 +31,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 380
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -42,11 +40,7 @@
 # virtual methods
 .method public compare(Ljava/io/File;Ljava/io/File;)I
     .locals 4
-    .param p1, "lhs"    # Ljava/io/File;
-    .param p2, "rhs"    # Ljava/io/File;
 
-    .prologue
-    .line 383
     invoke-virtual {p2}, Ljava/io/File;->lastModified()J
 
     move-result-wide v0
@@ -64,17 +58,11 @@
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
-    .param p1, "lhs"    # Ljava/lang/Object;
-    .param p2, "rhs"    # Ljava/lang/Object;
 
-    .prologue
-    .line 382
     check-cast p1, Ljava/io/File;
 
-    .end local p1    # "lhs":Ljava/lang/Object;
     check-cast p2, Ljava/io/File;
 
-    .end local p2    # "rhs":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Landroid/os/FileUtils$1;->compare(Ljava/io/File;Ljava/io/File;)I
 
     move-result v0

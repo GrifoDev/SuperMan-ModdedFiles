@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/PhoneFallbackEventHandler;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/internal/policy/PhoneFallbackEventHandler;
 
-    .prologue
-    .line 109
     iput-object p1, p0, Lcom/android/internal/policy/PhoneFallbackEventHandler$1;->this$0:Lcom/android/internal/policy/PhoneFallbackEventHandler;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,8 +37,6 @@
 .method public run()V
     .locals 2
 
-    .prologue
-    .line 112
     iget-object v0, p0, Lcom/android/internal/policy/PhoneFallbackEventHandler$1;->this$0:Lcom/android/internal/policy/PhoneFallbackEventHandler;
 
     invoke-static {v0}, Lcom/android/internal/policy/PhoneFallbackEventHandler;->-get0(Lcom/android/internal/policy/PhoneFallbackEventHandler;)Z
@@ -50,19 +45,16 @@
 
     if-eqz v0, :cond_0
 
-    .line 113
     iget-object v0, p0, Lcom/android/internal/policy/PhoneFallbackEventHandler$1;->this$0:Lcom/android/internal/policy/PhoneFallbackEventHandler;
 
     const/4 v1, 0x0
 
     invoke-static {v0, v1}, Lcom/android/internal/policy/PhoneFallbackEventHandler;->-set0(Lcom/android/internal/policy/PhoneFallbackEventHandler;Z)Z
 
-    .line 114
     iget-object v0, p0, Lcom/android/internal/policy/PhoneFallbackEventHandler$1;->this$0:Lcom/android/internal/policy/PhoneFallbackEventHandler;
 
     invoke-static {v0}, Lcom/android/internal/policy/PhoneFallbackEventHandler;->-wrap0(Lcom/android/internal/policy/PhoneFallbackEventHandler;)V
 
-    .line 111
     :cond_0
     return-void
 .end method

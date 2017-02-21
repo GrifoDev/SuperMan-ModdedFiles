@@ -24,10 +24,7 @@
 # direct methods
 .method private constructor <init>(Landroid/media/RemoteController;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/media/RemoteController;
 
-    .prologue
-    .line 496
     iput-object p1, p0, Landroid/media/RemoteController$TopTransportSessionListener;->this$0:Landroid/media/RemoteController;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,9 +34,7 @@
 
 .method synthetic constructor <init>(Landroid/media/RemoteController;Landroid/media/RemoteController$TopTransportSessionListener;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/media/RemoteController;
 
-    .prologue
     invoke-direct {p0, p1}, Landroid/media/RemoteController$TopTransportSessionListener;-><init>(Landroid/media/RemoteController;)V
 
     return-void
@@ -59,36 +54,25 @@
         }
     .end annotation
 
-    .prologue
-    .line 501
-    .local p1, "controllers":Ljava/util/List;, "Ljava/util/List<Landroid/media/session/MediaController;>;"
     invoke-interface {p1}, Ljava/util/List;->size()I
 
     move-result v4
 
-    .line 502
-    .local v4, "size":I
     const/4 v1, 0x0
 
-    .local v1, "i":I
     :goto_0
     if-ge v1, v4, :cond_1
 
-    .line 503
     invoke-interface {p1, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/media/session/MediaController;
 
-    .line 504
-    .local v0, "controller":Landroid/media/session/MediaController;
     invoke-virtual {v0}, Landroid/media/session/MediaController;->getFlags()J
 
     move-result-wide v2
 
-    .line 507
-    .local v2, "flags":J
     const-wide/16 v6, 0x2
 
     and-long/2addr v6, v2
@@ -99,23 +83,17 @@
 
     if-eqz v5, :cond_0
 
-    .line 508
     iget-object v5, p0, Landroid/media/RemoteController$TopTransportSessionListener;->this$0:Landroid/media/RemoteController;
 
     invoke-static {v5, v0}, Landroid/media/RemoteController;->-wrap3(Landroid/media/RemoteController;Landroid/media/session/MediaController;)V
 
-    .line 509
     return-void
 
-    .line 502
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 512
-    .end local v0    # "controller":Landroid/media/session/MediaController;
-    .end local v2    # "flags":J
     :cond_1
     iget-object v5, p0, Landroid/media/RemoteController$TopTransportSessionListener;->this$0:Landroid/media/RemoteController;
 
@@ -123,6 +101,5 @@
 
     invoke-static {v5, v6}, Landroid/media/RemoteController;->-wrap3(Landroid/media/RemoteController;Landroid/media/session/MediaController;)V
 
-    .line 500
     return-void
 .end method

@@ -31,8 +31,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 128
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -42,10 +40,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/location/GnssMeasurementsEvent;
     .locals 5
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 131
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v4
@@ -54,31 +49,22 @@
 
     move-result-object v0
 
-    .line 133
-    .local v0, "classLoader":Ljava/lang/ClassLoader;
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
 
     move-result-object v1
 
     check-cast v1, Landroid/location/GnssClock;
 
-    .line 135
-    .local v1, "clock":Landroid/location/GnssClock;
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
-    .line 136
-    .local v3, "measurementsLength":I
     new-array v2, v3, [Landroid/location/GnssMeasurement;
 
-    .line 137
-    .local v2, "measurementsArray":[Landroid/location/GnssMeasurement;
     sget-object v4, Landroid/location/GnssMeasurement;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-virtual {p1, v2, v4}, Landroid/os/Parcel;->readTypedArray([Ljava/lang/Object;Landroid/os/Parcelable$Creator;)V
 
-    .line 139
     new-instance v4, Landroid/location/GnssMeasurementsEvent;
 
     invoke-direct {v4, v1, v2}, Landroid/location/GnssMeasurementsEvent;-><init>(Landroid/location/GnssClock;[Landroid/location/GnssMeasurement;)V
@@ -88,10 +74,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 130
     invoke-virtual {p0, p1}, Landroid/location/GnssMeasurementsEvent$1;->createFromParcel(Landroid/os/Parcel;)Landroid/location/GnssMeasurementsEvent;
 
     move-result-object v0
@@ -101,10 +84,7 @@
 
 .method public newArray(I)[Landroid/location/GnssMeasurementsEvent;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 144
     new-array v0, p1, [Landroid/location/GnssMeasurementsEvent;
 
     return-object v0
@@ -112,10 +92,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 143
     invoke-virtual {p0, p1}, Landroid/location/GnssMeasurementsEvent$1;->newArray(I)[Landroid/location/GnssMeasurementsEvent;
 
     move-result-object v0

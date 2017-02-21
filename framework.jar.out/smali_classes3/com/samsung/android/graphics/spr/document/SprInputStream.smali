@@ -29,28 +29,21 @@
 # direct methods
 .method public constructor <init>(Ljava/io/InputStream;)V
     .locals 2
-    .param p1, "in"    # Ljava/io/InputStream;
 
-    .prologue
     const-wide/16 v0, 0x0
 
-    .line 19
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 14
     iput-wide v0, p0, Lcom/samsung/android/graphics/spr/document/SprInputStream;->mPosition:J
 
-    .line 15
     iput-wide v0, p0, Lcom/samsung/android/graphics/spr/document/SprInputStream;->mMark:J
 
-    .line 20
     new-instance v0, Ljava/io/DataInputStream;
 
     invoke-direct {v0, p1}, Ljava/io/DataInputStream;-><init>(Ljava/io/InputStream;)V
 
     iput-object v0, p0, Lcom/samsung/android/graphics/spr/document/SprInputStream;->in:Ljava/io/DataInputStream;
 
-    .line 19
     return-void
 .end method
 
@@ -59,8 +52,6 @@
 .method public getPosition()J
     .locals 2
 
-    .prologue
-    .line 62
     iget-wide v0, p0, Lcom/samsung/android/graphics/spr/document/SprInputStream;->mPosition:J
 
     return-wide v0
@@ -68,18 +59,14 @@
 
 .method public declared-synchronized mark(I)V
     .locals 2
-    .param p1, "readlimit"    # I
 
-    .prologue
     monitor-enter p0
 
-    .line 24
     :try_start_0
     iget-object v0, p0, Lcom/samsung/android/graphics/spr/document/SprInputStream;->in:Ljava/io/DataInputStream;
 
     invoke-virtual {v0, p1}, Ljava/io/FilterInputStream;->mark(I)V
 
-    .line 25
     iget-wide v0, p0, Lcom/samsung/android/graphics/spr/document/SprInputStream;->mPosition:J
 
     iput-wide v0, p0, Lcom/samsung/android/graphics/spr/document/SprInputStream;->mMark:J
@@ -88,7 +75,6 @@
 
     monitor-exit p0
 
-    .line 23
     return-void
 
     :catchall_0
@@ -107,19 +93,14 @@
         }
     .end annotation
 
-    .prologue
-    .line 29
     iget-object v1, p0, Lcom/samsung/android/graphics/spr/document/SprInputStream;->in:Ljava/io/DataInputStream;
 
     invoke-virtual {v1}, Ljava/io/FilterInputStream;->read()I
 
     move-result v0
 
-    .line 30
-    .local v0, "v":I
     if-ltz v0, :cond_0
 
-    .line 31
     iget-wide v2, p0, Lcom/samsung/android/graphics/spr/document/SprInputStream;->mPosition:J
 
     const-wide/16 v4, 0x1
@@ -128,35 +109,26 @@
 
     iput-wide v2, p0, Lcom/samsung/android/graphics/spr/document/SprInputStream;->mPosition:J
 
-    .line 33
     :cond_0
     return v0
 .end method
 
 .method public read([BII)I
     .locals 6
-    .param p1, "buffer"    # [B
-    .param p2, "byteOffset"    # I
-    .param p3, "byteCount"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
-    .line 37
     iget-object v1, p0, Lcom/samsung/android/graphics/spr/document/SprInputStream;->in:Ljava/io/DataInputStream;
 
     invoke-virtual {v1, p1, p2, p3}, Ljava/io/DataInputStream;->read([BII)I
 
     move-result v0
 
-    .line 38
-    .local v0, "n":I
     if-lez v0, :cond_0
 
-    .line 39
     iget-wide v2, p0, Lcom/samsung/android/graphics/spr/document/SprInputStream;->mPosition:J
 
     int-to-long v4, v0
@@ -165,7 +137,6 @@
 
     iput-wide v2, p0, Lcom/samsung/android/graphics/spr/document/SprInputStream;->mPosition:J
 
-    .line 42
     :cond_0
     return v0
 .end method
@@ -178,16 +149,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 84
     iget-object v1, p0, Lcom/samsung/android/graphics/spr/document/SprInputStream;->in:Ljava/io/DataInputStream;
 
     invoke-virtual {v1}, Ljava/io/DataInputStream;->readByte()B
 
     move-result v0
 
-    .line 85
-    .local v0, "value":B
     iget-wide v2, p0, Lcom/samsung/android/graphics/spr/document/SprInputStream;->mPosition:J
 
     const-wide/16 v4, 0x1
@@ -196,7 +163,6 @@
 
     iput-wide v2, p0, Lcom/samsung/android/graphics/spr/document/SprInputStream;->mPosition:J
 
-    .line 86
     return v0
 .end method
 
@@ -208,16 +174,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 78
     iget-object v1, p0, Lcom/samsung/android/graphics/spr/document/SprInputStream;->in:Ljava/io/DataInputStream;
 
     invoke-virtual {v1}, Ljava/io/DataInputStream;->readFloat()F
 
     move-result v0
 
-    .line 79
-    .local v0, "value":F
     iget-wide v2, p0, Lcom/samsung/android/graphics/spr/document/SprInputStream;->mPosition:J
 
     const-wide/16 v4, 0x4
@@ -226,7 +188,6 @@
 
     iput-wide v2, p0, Lcom/samsung/android/graphics/spr/document/SprInputStream;->mPosition:J
 
-    .line 80
     return v0
 .end method
 
@@ -238,16 +199,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 66
     iget-object v1, p0, Lcom/samsung/android/graphics/spr/document/SprInputStream;->in:Ljava/io/DataInputStream;
 
     invoke-virtual {v1}, Ljava/io/DataInputStream;->readInt()I
 
     move-result v0
 
-    .line 67
-    .local v0, "value":I
     iget-wide v2, p0, Lcom/samsung/android/graphics/spr/document/SprInputStream;->mPosition:J
 
     const-wide/16 v4, 0x4
@@ -256,7 +213,6 @@
 
     iput-wide v2, p0, Lcom/samsung/android/graphics/spr/document/SprInputStream;->mPosition:J
 
-    .line 68
     return v0
 .end method
 
@@ -268,16 +224,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 72
     iget-object v1, p0, Lcom/samsung/android/graphics/spr/document/SprInputStream;->in:Ljava/io/DataInputStream;
 
     invoke-virtual {v1}, Ljava/io/DataInputStream;->readShort()S
 
     move-result v0
 
-    .line 73
-    .local v0, "value":S
     iget-wide v2, p0, Lcom/samsung/android/graphics/spr/document/SprInputStream;->mPosition:J
 
     const-wide/16 v4, 0x2
@@ -286,7 +238,6 @@
 
     iput-wide v2, p0, Lcom/samsung/android/graphics/spr/document/SprInputStream;->mPosition:J
 
-    .line 74
     return v0
 .end method
 
@@ -298,10 +249,8 @@
         }
     .end annotation
 
-    .prologue
     monitor-enter p0
 
-    .line 46
     :try_start_0
     iget-object v0, p0, Lcom/samsung/android/graphics/spr/document/SprInputStream;->in:Ljava/io/DataInputStream;
 
@@ -311,7 +260,6 @@
 
     if-nez v0, :cond_0
 
-    .line 47
     new-instance v0, Ljava/io/IOException;
 
     const-string/jumbo v1, "Mark not supported"
@@ -329,14 +277,12 @@
 
     throw v0
 
-    .line 49
     :cond_0
     :try_start_1
     iget-object v0, p0, Lcom/samsung/android/graphics/spr/document/SprInputStream;->in:Ljava/io/DataInputStream;
 
     invoke-virtual {v0}, Ljava/io/FilterInputStream;->reset()V
 
-    .line 50
     iget-wide v0, p0, Lcom/samsung/android/graphics/spr/document/SprInputStream;->mMark:J
 
     iput-wide v0, p0, Lcom/samsung/android/graphics/spr/document/SprInputStream;->mPosition:J
@@ -345,43 +291,35 @@
 
     monitor-exit p0
 
-    .line 45
     return-void
 .end method
 
 .method public skip(J)J
     .locals 5
-    .param p1, "byteCount"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
-    .line 54
     iget-object v2, p0, Lcom/samsung/android/graphics/spr/document/SprInputStream;->in:Ljava/io/DataInputStream;
 
     invoke-virtual {v2, p1, p2}, Ljava/io/FilterInputStream;->skip(J)J
 
     move-result-wide v0
 
-    .line 55
-    .local v0, "n":J
     const-wide/16 v2, 0x0
 
     cmp-long v2, v0, v2
 
     if-lez v2, :cond_0
 
-    .line 56
     iget-wide v2, p0, Lcom/samsung/android/graphics/spr/document/SprInputStream;->mPosition:J
 
     add-long/2addr v2, v0
 
     iput-wide v2, p0, Lcom/samsung/android/graphics/spr/document/SprInputStream;->mPosition:J
 
-    .line 58
     :cond_0
     return-wide v0
 .end method

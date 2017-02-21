@@ -28,8 +28,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 432
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -37,11 +35,7 @@
 
 .method public static parseResult(ILandroid/content/Intent;)[Landroid/net/Uri;
     .locals 1
-    .param p0, "resultCode"    # I
-    .param p1, "data"    # Landroid/content/Intent;
 
-    .prologue
-    .line 455
     invoke-static {}, Landroid/webkit/WebViewFactory;->getProvider()Landroid/webkit/WebViewFactoryProvider;
 
     move-result-object v0

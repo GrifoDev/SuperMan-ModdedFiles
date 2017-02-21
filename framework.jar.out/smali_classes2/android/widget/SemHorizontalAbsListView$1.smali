@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/widget/SemHorizontalAbsListView;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/widget/SemHorizontalAbsListView;
 
-    .prologue
-    .line 11011
     iput-object p1, p0, Landroid/widget/SemHorizontalAbsListView$1;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,8 +37,6 @@
 .method public run()V
     .locals 6
 
-    .prologue
-    .line 11014
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView$1;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
     invoke-static {v1}, Landroid/widget/SemHorizontalAbsListView;->-get27(Landroid/widget/SemHorizontalAbsListView;)I
@@ -64,7 +59,6 @@
 
     if-ge v1, v2, :cond_0
 
-    .line 11015
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView$1;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
     iget-object v2, p0, Landroid/widget/SemHorizontalAbsListView$1;->this$0:Landroid/widget/SemHorizontalAbsListView;
@@ -75,11 +69,9 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/SemHorizontalAbsListView;->smoothScrollToPosition(I)V
 
-    .line 11013
     :goto_0
     return-void
 
-    .line 11017
     :cond_0
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView$1;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
@@ -107,7 +99,6 @@
 
     move-result-object v2
 
-    .line 11018
     iget-object v3, p0, Landroid/widget/SemHorizontalAbsListView$1;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
     invoke-static {v3}, Landroid/widget/SemHorizontalAbsListView;->-get28(Landroid/widget/SemHorizontalAbsListView;)I
@@ -120,7 +111,6 @@
 
     div-float/2addr v3, v4
 
-    .line 11017
     invoke-virtual {v2, v3}, Landroid/view/animation/DecelerateInterpolator;->getInterpolation(F)F
 
     move-result v2
@@ -129,8 +119,6 @@
 
     float-to-int v0, v1
 
-    .line 11019
-    .local v0, "movingDistance":I
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView$1;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
     invoke-static {v1}, Landroid/widget/SemHorizontalAbsListView;->-get28(Landroid/widget/SemHorizontalAbsListView;)I
@@ -141,7 +129,6 @@
 
     invoke-static {v1, v2}, Landroid/widget/SemHorizontalAbsListView;->-set6(Landroid/widget/SemHorizontalAbsListView;I)I
 
-    .line 11020
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView$1;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
     invoke-static {v1}, Landroid/widget/SemHorizontalAbsListView;->-get23(Landroid/widget/SemHorizontalAbsListView;)I
@@ -152,12 +139,10 @@
 
     if-ne v1, v2, :cond_1
 
-    .line 11021
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView$1;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
     invoke-static {v1, v0}, Landroid/widget/SemHorizontalAbsListView;->-set5(Landroid/widget/SemHorizontalAbsListView;I)I
 
-    .line 11022
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView$1;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
     iget-object v2, p0, Landroid/widget/SemHorizontalAbsListView$1;->this$0:Landroid/widget/SemHorizontalAbsListView;
@@ -168,7 +153,6 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/AdapterView;->setSelection(I)V
 
-    .line 11027
     :goto_1
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView$1;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
@@ -184,7 +168,6 @@
 
     goto :goto_0
 
-    .line 11024
     :cond_1
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView$1;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
@@ -198,7 +181,6 @@
 
     invoke-static {v1, v2}, Landroid/widget/SemHorizontalAbsListView;->-set5(Landroid/widget/SemHorizontalAbsListView;I)I
 
-    .line 11025
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView$1;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
     iget-object v2, p0, Landroid/widget/SemHorizontalAbsListView$1;->this$0:Landroid/widget/SemHorizontalAbsListView;

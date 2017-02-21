@@ -28,12 +28,7 @@
 # direct methods
 .method constructor <init>(Landroid/telecom/ConnectionService$5;Ljava/util/List;Ljava/util/List;)V
     .locals 0
-    .param p1, "this$1"    # Landroid/telecom/ConnectionService$5;
 
-    .prologue
-    .line 1029
-    .local p2, "val$componentNames":Ljava/util/List;, "Ljava/util/List<Landroid/content/ComponentName;>;"
-    .local p3, "val$services":Ljava/util/List;, "Ljava/util/List<Landroid/os/IBinder;>;"
     iput-object p1, p0, Landroid/telecom/ConnectionService$5$1;->this$1:Landroid/telecom/ConnectionService$5;
 
     iput-object p2, p0, Landroid/telecom/ConnectionService$5$1;->val$componentNames:Ljava/util/List;
@@ -50,11 +45,8 @@
 .method public run()V
     .locals 4
 
-    .prologue
-    .line 1032
     const/4 v0, 0x0
 
-    .local v0, "i":I
     :goto_0
     iget-object v1, p0, Landroid/telecom/ConnectionService$5$1;->val$componentNames:Ljava/util/List;
 
@@ -72,7 +64,6 @@
 
     if-ge v0, v1, :cond_0
 
-    .line 1033
     iget-object v1, p0, Landroid/telecom/ConnectionService$5$1;->this$1:Landroid/telecom/ConnectionService$5;
 
     iget-object v1, v1, Landroid/telecom/ConnectionService$5;->this$0:Landroid/telecom/ConnectionService;
@@ -81,7 +72,6 @@
 
     move-result-object v3
 
-    .line 1034
     iget-object v1, p0, Landroid/telecom/ConnectionService$5$1;->val$componentNames:Ljava/util/List;
 
     invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -90,7 +80,6 @@
 
     check-cast v1, Landroid/content/ComponentName;
 
-    .line 1035
     iget-object v2, p0, Landroid/telecom/ConnectionService$5$1;->val$services:Ljava/util/List;
 
     invoke-interface {v2, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -103,15 +92,12 @@
 
     move-result-object v2
 
-    .line 1033
     invoke-virtual {v3, v1, v2}, Landroid/telecom/RemoteConnectionManager;->addConnectionService(Landroid/content/ComponentName;Lcom/android/internal/telecom/IConnectionService;)V
 
-    .line 1032
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 1037
     :cond_0
     iget-object v1, p0, Landroid/telecom/ConnectionService$5$1;->this$1:Landroid/telecom/ConnectionService$5;
 
@@ -119,7 +105,6 @@
 
     invoke-static {v1}, Landroid/telecom/ConnectionService;->-wrap11(Landroid/telecom/ConnectionService;)V
 
-    .line 1038
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -146,6 +131,5 @@
 
     invoke-static {p0, v1, v2}, Landroid/telecom/Log;->d(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
 
-    .line 1031
     return-void
 .end method

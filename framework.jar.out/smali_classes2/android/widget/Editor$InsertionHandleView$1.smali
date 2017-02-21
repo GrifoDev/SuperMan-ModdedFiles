@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/widget/Editor$InsertionHandleView;)V
     .locals 0
-    .param p1, "this$1"    # Landroid/widget/Editor$InsertionHandleView;
 
-    .prologue
-    .line 5334
     iput-object p1, p0, Landroid/widget/Editor$InsertionHandleView$1;->this$1:Landroid/widget/Editor$InsertionHandleView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,14 +37,11 @@
 .method public run()V
     .locals 1
 
-    .prologue
-    .line 5337
     iget-object v0, p0, Landroid/widget/Editor$InsertionHandleView$1;->this$1:Landroid/widget/Editor$InsertionHandleView;
 
     iget-object v0, v0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
     invoke-virtual {v0}, Landroid/widget/Editor;->startInsertionActionMode()V
 
-    .line 5336
     return-void
 .end method

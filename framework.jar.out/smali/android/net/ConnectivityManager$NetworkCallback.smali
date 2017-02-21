@@ -38,8 +38,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 2941
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -49,83 +47,54 @@
 # virtual methods
 .method public onAvailable(Landroid/net/Network;)V
     .locals 0
-    .param p1, "network"    # Landroid/net/Network;
 
-    .prologue
-    .line 2966
     return-void
 .end method
 
 .method public onCapabilitiesChanged(Landroid/net/Network;Landroid/net/NetworkCapabilities;)V
     .locals 0
-    .param p1, "network"    # Landroid/net/Network;
-    .param p2, "networkCapabilities"    # Landroid/net/NetworkCapabilities;
 
-    .prologue
-    .line 3007
     return-void
 .end method
 
 .method public onLinkPropertiesChanged(Landroid/net/Network;Landroid/net/LinkProperties;)V
     .locals 0
-    .param p1, "network"    # Landroid/net/Network;
-    .param p2, "linkProperties"    # Landroid/net/LinkProperties;
 
-    .prologue
-    .line 3016
     return-void
 .end method
 
 .method public onLosing(Landroid/net/Network;I)V
     .locals 0
-    .param p1, "network"    # Landroid/net/Network;
-    .param p2, "maxMsToLive"    # I
 
-    .prologue
-    .line 2982
     return-void
 .end method
 
 .method public onLost(Landroid/net/Network;)V
     .locals 0
-    .param p1, "network"    # Landroid/net/Network;
 
-    .prologue
-    .line 2990
     return-void
 .end method
 
 .method public onNetworkResumed(Landroid/net/Network;)V
     .locals 0
-    .param p1, "network"    # Landroid/net/Network;
 
-    .prologue
-    .line 3036
     return-void
 .end method
 
 .method public onNetworkSuspended(Landroid/net/Network;)V
     .locals 0
-    .param p1, "network"    # Landroid/net/Network;
 
-    .prologue
-    .line 3027
     return-void
 .end method
 
 .method public onPreCheck(Landroid/net/Network;)V
     .locals 0
-    .param p1, "network"    # Landroid/net/Network;
 
-    .prologue
-    .line 2957
     return-void
 .end method
 
 .method public onUnavailable()V
     .locals 0
 
-    .prologue
-    .line 2997
     return-void
 .end method

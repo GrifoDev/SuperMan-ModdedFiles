@@ -43,7 +43,6 @@
 .method static constructor <clinit>()V
     .locals 8
 
-    .prologue
     const/4 v7, 0x4
 
     const/4 v6, 0x3
@@ -54,7 +53,6 @@
 
     const/4 v3, 0x0
 
-    .line 1047
     new-instance v0, Landroid/text/TextUtils$TruncateAt;
 
     const-string/jumbo v1, "START"
@@ -63,7 +61,6 @@
 
     sput-object v0, Landroid/text/TextUtils$TruncateAt;->START:Landroid/text/TextUtils$TruncateAt;
 
-    .line 1048
     new-instance v0, Landroid/text/TextUtils$TruncateAt;
 
     const-string/jumbo v1, "MIDDLE"
@@ -72,7 +69,6 @@
 
     sput-object v0, Landroid/text/TextUtils$TruncateAt;->MIDDLE:Landroid/text/TextUtils$TruncateAt;
 
-    .line 1049
     new-instance v0, Landroid/text/TextUtils$TruncateAt;
 
     const-string/jumbo v1, "END"
@@ -81,7 +77,6 @@
 
     sput-object v0, Landroid/text/TextUtils$TruncateAt;->END:Landroid/text/TextUtils$TruncateAt;
 
-    .line 1050
     new-instance v0, Landroid/text/TextUtils$TruncateAt;
 
     const-string/jumbo v1, "MARQUEE"
@@ -90,17 +85,14 @@
 
     sput-object v0, Landroid/text/TextUtils$TruncateAt;->MARQUEE:Landroid/text/TextUtils$TruncateAt;
 
-    .line 1051
     new-instance v0, Landroid/text/TextUtils$TruncateAt;
 
     const-string/jumbo v1, "END_SMALL"
 
     invoke-direct {v0, v1, v7}, Landroid/text/TextUtils$TruncateAt;-><init>(Ljava/lang/String;I)V
 
-    .line 1054
     sput-object v0, Landroid/text/TextUtils$TruncateAt;->END_SMALL:Landroid/text/TextUtils$TruncateAt;
 
-    .line 1055
     new-instance v0, Landroid/text/TextUtils$TruncateAt;
 
     const-string/jumbo v1, "SEM_KEYWORD"
@@ -109,10 +101,8 @@
 
     invoke-direct {v0, v1, v2}, Landroid/text/TextUtils$TruncateAt;-><init>(Ljava/lang/String;I)V
 
-    .line 1061
     sput-object v0, Landroid/text/TextUtils$TruncateAt;->SEM_KEYWORD:Landroid/text/TextUtils$TruncateAt;
 
-    .line 1046
     const/4 v0, 0x6
 
     new-array v0, v0, [Landroid/text/TextUtils$TruncateAt;
@@ -151,8 +141,6 @@
 .method private constructor <init>(Ljava/lang/String;I)V
     .locals 0
 
-    .prologue
-    .line 1046
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -160,10 +148,7 @@
 
 .method public static valueOf(Ljava/lang/String;)Landroid/text/TextUtils$TruncateAt;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
-    .prologue
-    .line 1046
     const-class v0, Landroid/text/TextUtils$TruncateAt;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -178,8 +163,6 @@
 .method public static values()[Landroid/text/TextUtils$TruncateAt;
     .locals 1
 
-    .prologue
-    .line 1046
     sget-object v0, Landroid/text/TextUtils$TruncateAt;->$VALUES:[Landroid/text/TextUtils$TruncateAt;
 
     return-object v0

@@ -25,10 +25,7 @@
 # direct methods
 .method private constructor <init>(Landroid/webkit/JsDialogHelper;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/webkit/JsDialogHelper;
 
-    .prologue
-    .line 131
     iput-object p1, p0, Landroid/webkit/JsDialogHelper$CancelListener;->this$0:Landroid/webkit/JsDialogHelper;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,9 +35,7 @@
 
 .method synthetic constructor <init>(Landroid/webkit/JsDialogHelper;Landroid/webkit/JsDialogHelper$CancelListener;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/webkit/JsDialogHelper;
 
-    .prologue
     invoke-direct {p0, p1}, Landroid/webkit/JsDialogHelper$CancelListener;-><init>(Landroid/webkit/JsDialogHelper;)V
 
     return-void
@@ -50,10 +45,7 @@
 # virtual methods
 .method public onCancel(Landroid/content/DialogInterface;)V
     .locals 1
-    .param p1, "dialog"    # Landroid/content/DialogInterface;
 
-    .prologue
-    .line 135
     iget-object v0, p0, Landroid/webkit/JsDialogHelper$CancelListener;->this$0:Landroid/webkit/JsDialogHelper;
 
     invoke-static {v0}, Landroid/webkit/JsDialogHelper;->-get0(Landroid/webkit/JsDialogHelper;)Landroid/webkit/JsPromptResult;
@@ -62,17 +54,12 @@
 
     invoke-virtual {v0}, Landroid/webkit/JsResult;->cancel()V
 
-    .line 134
     return-void
 .end method
 
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 1
-    .param p1, "dialog"    # Landroid/content/DialogInterface;
-    .param p2, "which"    # I
 
-    .prologue
-    .line 139
     iget-object v0, p0, Landroid/webkit/JsDialogHelper$CancelListener;->this$0:Landroid/webkit/JsDialogHelper;
 
     invoke-static {v0}, Landroid/webkit/JsDialogHelper;->-get0(Landroid/webkit/JsDialogHelper;)Landroid/webkit/JsPromptResult;
@@ -81,6 +68,5 @@
 
     invoke-virtual {v0}, Landroid/webkit/JsResult;->cancel()V
 
-    .line 138
     return-void
 .end method

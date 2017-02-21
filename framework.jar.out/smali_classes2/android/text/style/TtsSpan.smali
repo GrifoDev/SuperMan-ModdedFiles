@@ -199,46 +199,33 @@
 # direct methods
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .param p1, "src"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 470
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 471
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/text/style/TtsSpan;->mType:Ljava/lang/String;
 
-    .line 472
     invoke-virtual {p1}, Landroid/os/Parcel;->readPersistableBundle()Landroid/os/PersistableBundle;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/text/style/TtsSpan;->mArgs:Landroid/os/PersistableBundle;
 
-    .line 470
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Landroid/os/PersistableBundle;)V
     .locals 0
-    .param p1, "type"    # Ljava/lang/String;
-    .param p2, "args"    # Landroid/os/PersistableBundle;
 
-    .prologue
-    .line 465
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 466
     iput-object p1, p0, Landroid/text/style/TtsSpan;->mType:Ljava/lang/String;
 
-    .line 467
     iput-object p2, p0, Landroid/text/style/TtsSpan;->mArgs:Landroid/os/PersistableBundle;
 
-    .line 465
     return-void
 .end method
 
@@ -247,8 +234,6 @@
 .method public describeContents()I
     .locals 1
 
-    .prologue
-    .line 493
     const/4 v0, 0x0
 
     return v0
@@ -257,8 +242,6 @@
 .method public getArgs()Landroid/os/PersistableBundle;
     .locals 1
 
-    .prologue
-    .line 488
     iget-object v0, p0, Landroid/text/style/TtsSpan;->mArgs:Landroid/os/PersistableBundle;
 
     return-object v0
@@ -267,8 +250,6 @@
 .method public getSpanTypeId()I
     .locals 1
 
-    .prologue
-    .line 509
     invoke-virtual {p0}, Landroid/text/style/TtsSpan;->getSpanTypeIdInternal()I
 
     move-result v0
@@ -279,8 +260,6 @@
 .method public getSpanTypeIdInternal()I
     .locals 1
 
-    .prologue
-    .line 514
     const/16 v0, 0x18
 
     return v0
@@ -289,8 +268,6 @@
 .method public getType()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 480
     iget-object v0, p0, Landroid/text/style/TtsSpan;->mType:Ljava/lang/String;
 
     return-object v0
@@ -298,33 +275,22 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 0
-    .param p1, "dest"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
-    .prologue
-    .line 498
     invoke-virtual {p0, p1, p2}, Landroid/text/style/TtsSpan;->writeToParcelInternal(Landroid/os/Parcel;I)V
 
-    .line 497
     return-void
 .end method
 
 .method public writeToParcelInternal(Landroid/os/Parcel;I)V
     .locals 1
-    .param p1, "dest"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
-    .prologue
-    .line 503
     iget-object v0, p0, Landroid/text/style/TtsSpan;->mType:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 504
     iget-object v0, p0, Landroid/text/style/TtsSpan;->mArgs:Landroid/os/PersistableBundle;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writePersistableBundle(Landroid/os/PersistableBundle;)V
 
-    .line 502
     return-void
 .end method

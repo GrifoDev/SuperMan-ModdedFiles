@@ -50,32 +50,24 @@
 
 .method public constructor <init>(Lcom/samsung/android/content/clipboard/data/SemClipData;)V
     .locals 2
-    .param p1, "clip"    # Lcom/samsung/android/content/clipboard/data/SemClipData;
 
-    .prologue
     const/4 v1, 0x0
 
-    .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 26
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Landroid/sec/clipboard/data/file/WrapFileClipData;->mDeletedUserList:Ljava/util/ArrayList;
 
-    .line 29
     if-eqz p1, :cond_0
 
-    .line 30
     invoke-virtual {p1, v1}, Lcom/samsung/android/content/clipboard/data/SemClipData;->setClipData(Landroid/content/ClipData;)V
 
-    .line 32
     :cond_0
     iput-object p1, p0, Landroid/sec/clipboard/data/file/WrapFileClipData;->mClip:Lcom/samsung/android/content/clipboard/data/SemClipData;
 
-    .line 33
     invoke-static {}, Landroid/sec/clipboard/util/FileHelper;->getInstance()Landroid/sec/clipboard/util/FileHelper;
 
     move-result-object v0
@@ -86,31 +78,24 @@
 
     iput-object v0, p0, Landroid/sec/clipboard/data/file/WrapFileClipData;->mPath:Ljava/io/File;
 
-    .line 28
     return-void
 .end method
 
 .method private loadClipboardData(Landroid/sec/clipboard/data/ClipboardData;)Z
     .locals 3
-    .param p1, "data"    # Landroid/sec/clipboard/data/ClipboardData;
 
-    .prologue
     const/4 v2, 0x0
 
-    .line 174
     const-string/jumbo v0, "WrapFileClipData"
 
     const-string/jumbo v1, "Restoring data from ClipboardData to SemClipData."
 
     invoke-static {v0, v1}, Landroid/sec/clipboard/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 175
     if-nez p1, :cond_0
 
-    .line 176
     return v2
 
-    .line 179
     :cond_0
     invoke-virtual {p1}, Landroid/sec/clipboard/data/ClipboardData;->restoreToSemClipData()Lcom/samsung/android/content/clipboard/data/SemClipData;
 
@@ -118,15 +103,12 @@
 
     iput-object v0, p0, Landroid/sec/clipboard/data/file/WrapFileClipData;->mClip:Lcom/samsung/android/content/clipboard/data/SemClipData;
 
-    .line 180
     iget-object v0, p0, Landroid/sec/clipboard/data/file/WrapFileClipData;->mClip:Lcom/samsung/android/content/clipboard/data/SemClipData;
 
     if-nez v0, :cond_1
 
-    .line 181
     return v2
 
-    .line 183
     :cond_1
     const/4 v0, 0x1
 
@@ -136,8 +118,6 @@
 .method private loadData()Ljava/lang/Object;
     .locals 2
 
-    .prologue
-    .line 105
     invoke-static {}, Landroid/sec/clipboard/util/FileHelper;->getInstance()Landroid/sec/clipboard/util/FileHelper;
 
     move-result-object v0
@@ -153,27 +133,20 @@
 
 .method private loadSemClipData(Lcom/samsung/android/content/clipboard/data/SemClipData;)Z
     .locals 5
-    .param p1, "data"    # Lcom/samsung/android/content/clipboard/data/SemClipData;
 
-    .prologue
     const/4 v4, 0x0
 
-    .line 148
     if-nez p1, :cond_0
 
-    .line 149
     return v4
 
-    .line 152
     :cond_0
     iput-object p1, p0, Landroid/sec/clipboard/data/file/WrapFileClipData;->mClip:Lcom/samsung/android/content/clipboard/data/SemClipData;
 
-    .line 153
     iget-object v3, p0, Landroid/sec/clipboard/data/file/WrapFileClipData;->mClip:Lcom/samsung/android/content/clipboard/data/SemClipData;
 
     invoke-virtual {v3}, Lcom/samsung/android/content/clipboard/data/SemClipData;->checkClipId()V
 
-    .line 155
     iget-object v3, p0, Landroid/sec/clipboard/data/file/WrapFileClipData;->mClip:Lcom/samsung/android/content/clipboard/data/SemClipData;
 
     invoke-virtual {v3}, Lcom/samsung/android/content/clipboard/data/SemClipData;->getClipType()I
@@ -182,34 +155,26 @@
 
     packed-switch v3, :pswitch_data_0
 
-    .line 170
     :cond_1
     :goto_0
     const/4 v3, 0x1
 
     return v3
 
-    .line 157
     :pswitch_0
     iget-object v2, p0, Landroid/sec/clipboard/data/file/WrapFileClipData;->mClip:Lcom/samsung/android/content/clipboard/data/SemClipData;
 
     check-cast v2, Lcom/samsung/android/content/clipboard/data/SemTextClipData;
 
-    .line 158
-    .local v2, "textData":Lcom/samsung/android/content/clipboard/data/SemTextClipData;
     invoke-virtual {v2}, Lcom/samsung/android/content/clipboard/data/SemTextClipData;->toLoad()V
 
     goto :goto_0
 
-    .line 162
-    .end local v2    # "textData":Lcom/samsung/android/content/clipboard/data/SemTextClipData;
     :pswitch_1
     iget-object v0, p0, Landroid/sec/clipboard/data/file/WrapFileClipData;->mClip:Lcom/samsung/android/content/clipboard/data/SemClipData;
 
     check-cast v0, Lcom/samsung/android/content/clipboard/data/SemImageClipData;
 
-    .line 163
-    .local v0, "imageData":Lcom/samsung/android/content/clipboard/data/SemImageClipData;
     new-instance v1, Ljava/io/File;
 
     invoke-virtual {v0}, Lcom/samsung/android/content/clipboard/data/SemImageClipData;->getBitmapPath()Ljava/lang/String;
@@ -218,18 +183,14 @@
 
     invoke-direct {v1, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 164
-    .local v1, "tempFile":Ljava/io/File;
     invoke-virtual {v1}, Ljava/io/File;->exists()Z
 
     move-result v3
 
     if-nez v3, :cond_1
 
-    .line 165
     return v4
 
-    .line 155
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -241,10 +202,7 @@
 # virtual methods
 .method public addDeletedUserList(I)V
     .locals 3
-    .param p1, "userId"    # I
 
-    .prologue
-    .line 109
     const-string/jumbo v0, "WrapFileClipData"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -267,19 +225,16 @@
 
     invoke-static {v0, v1}, Landroid/sec/clipboard/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 110
     iget-object v0, p0, Landroid/sec/clipboard/data/file/WrapFileClipData;->mDeletedUserList:Ljava/util/ArrayList;
 
     if-nez v0, :cond_0
 
-    .line 111
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Landroid/sec/clipboard/data/file/WrapFileClipData;->mDeletedUserList:Ljava/util/ArrayList;
 
-    .line 114
     :cond_0
     invoke-virtual {p0, p1}, Landroid/sec/clipboard/data/file/WrapFileClipData;->isDeletedUser(I)Z
 
@@ -287,7 +242,6 @@
 
     if-nez v0, :cond_1
 
-    .line 115
     iget-object v0, p0, Landroid/sec/clipboard/data/file/WrapFileClipData;->mDeletedUserList:Ljava/util/ArrayList;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -296,7 +250,6 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 108
     :cond_1
     return-void
 .end method
@@ -304,16 +257,12 @@
 .method public getClipData()Lcom/samsung/android/content/clipboard/data/SemClipData;
     .locals 1
 
-    .prologue
-    .line 37
     iget-object v0, p0, Landroid/sec/clipboard/data/file/WrapFileClipData;->mClip:Lcom/samsung/android/content/clipboard/data/SemClipData;
 
     if-nez v0, :cond_0
 
-    .line 38
     invoke-virtual {p0}, Landroid/sec/clipboard/data/file/WrapFileClipData;->load()Z
 
-    .line 40
     :cond_0
     iget-object v0, p0, Landroid/sec/clipboard/data/file/WrapFileClipData;->mClip:Lcom/samsung/android/content/clipboard/data/SemClipData;
 
@@ -323,8 +272,6 @@
 .method public getDir()Ljava/io/File;
     .locals 1
 
-    .prologue
-    .line 57
     iget-object v0, p0, Landroid/sec/clipboard/data/file/WrapFileClipData;->mDir:Ljava/io/File;
 
     return-object v0
@@ -333,8 +280,6 @@
 .method public getFile()Ljava/io/File;
     .locals 1
 
-    .prologue
-    .line 49
     iget-object v0, p0, Landroid/sec/clipboard/data/file/WrapFileClipData;->mPath:Ljava/io/File;
 
     return-object v0
@@ -342,15 +287,11 @@
 
 .method public isDeletedUser(I)Z
     .locals 2
-    .param p1, "userId"    # I
 
-    .prologue
-    .line 120
     iget-object v0, p0, Landroid/sec/clipboard/data/file/WrapFileClipData;->mDeletedUserList:Ljava/util/ArrayList;
 
     if-eqz v0, :cond_0
 
-    .line 121
     iget-object v0, p0, Landroid/sec/clipboard/data/file/WrapFileClipData;->mDeletedUserList:Ljava/util/ArrayList;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -363,7 +304,6 @@
 
     return v0
 
-    .line 123
     :cond_0
     new-instance v0, Ljava/util/ArrayList;
 
@@ -371,7 +311,6 @@
 
     iput-object v0, p0, Landroid/sec/clipboard/data/file/WrapFileClipData;->mDeletedUserList:Ljava/util/ArrayList;
 
-    .line 124
     const/4 v0, 0x0
 
     return v0
@@ -380,72 +319,55 @@
 .method public load()Z
     .locals 4
 
-    .prologue
     const/4 v3, 0x0
 
-    .line 83
     invoke-direct {p0}, Landroid/sec/clipboard/data/file/WrapFileClipData;->loadData()Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 84
-    .local v0, "loadedData":Ljava/lang/Object;
     if-nez v0, :cond_0
 
-    .line 85
     return v3
 
-    .line 88
     :cond_0
     instance-of v1, v0, Lcom/samsung/android/content/clipboard/data/SemClipData;
 
     if-eqz v1, :cond_1
 
-    .line 89
     nop
 
     nop
 
-    .end local v0    # "loadedData":Ljava/lang/Object;
     invoke-direct {p0, v0}, Landroid/sec/clipboard/data/file/WrapFileClipData;->loadSemClipData(Lcom/samsung/android/content/clipboard/data/SemClipData;)Z
 
     move-result v1
 
     return v1
 
-    .line 90
-    .restart local v0    # "loadedData":Ljava/lang/Object;
     :cond_1
     instance-of v1, v0, Landroid/sec/clipboard/data/ClipboardData;
 
     if-eqz v1, :cond_3
 
-    .line 91
     nop
 
     nop
 
-    .end local v0    # "loadedData":Ljava/lang/Object;
     invoke-direct {p0, v0}, Landroid/sec/clipboard/data/file/WrapFileClipData;->loadClipboardData(Landroid/sec/clipboard/data/ClipboardData;)Z
 
     move-result v1
 
     if-eqz v1, :cond_2
 
-    .line 93
     invoke-virtual {p0}, Landroid/sec/clipboard/data/file/WrapFileClipData;->save()V
 
-    .line 94
     const/4 v1, 0x1
 
     return v1
 
-    .line 96
     :cond_2
     return v3
 
-    .line 99
-    .restart local v0    # "loadedData":Ljava/lang/Object;
     :cond_3
     const-string/jumbo v1, "WrapFileClipData"
 
@@ -453,20 +375,16 @@
 
     invoke-static {v1, v2}, Landroid/sec/clipboard/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 100
     return v3
 .end method
 
 .method public reAddForKnox()V
     .locals 3
 
-    .prologue
-    .line 129
     iget-object v0, p0, Landroid/sec/clipboard/data/file/WrapFileClipData;->mDeletedUserList:Ljava/util/ArrayList;
 
     if-eqz v0, :cond_0
 
-    .line 130
     const-string/jumbo v0, "WrapFileClipData"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -491,22 +409,17 @@
 
     invoke-static {v0, v1}, Landroid/sec/clipboard/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 131
     iget-object v0, p0, Landroid/sec/clipboard/data/file/WrapFileClipData;->mDeletedUserList:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
-    .line 128
     :cond_0
     return-void
 .end method
 
 .method public resetOwnerClips(I)V
     .locals 4
-    .param p1, "userId"    # I
 
-    .prologue
-    .line 136
     const-string/jumbo v1, "WrapFileClipData"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -531,12 +444,10 @@
 
     invoke-static {v1, v2}, Landroid/sec/clipboard/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 137
     iget-object v1, p0, Landroid/sec/clipboard/data/file/WrapFileClipData;->mDeletedUserList:Ljava/util/ArrayList;
 
     if-eqz v1, :cond_0
 
-    .line 138
     iget-object v1, p0, Landroid/sec/clipboard/data/file/WrapFileClipData;->mDeletedUserList:Ljava/util/ArrayList;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -547,8 +458,6 @@
 
     move-result v0
 
-    .line 139
-    .local v0, "index":I
     const-string/jumbo v1, "WrapFileClipData"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -571,12 +480,10 @@
 
     invoke-static {v1, v2}, Landroid/sec/clipboard/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 140
     const/4 v1, -0x1
 
     if-le v0, v1, :cond_0
 
-    .line 141
     const-string/jumbo v1, "WrapFileClipData"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -599,13 +506,10 @@
 
     invoke-static {v1, v2}, Landroid/sec/clipboard/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 142
     iget-object v1, p0, Landroid/sec/clipboard/data/file/WrapFileClipData;->mDeletedUserList:Ljava/util/ArrayList;
 
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
-    .line 135
-    .end local v0    # "index":I
     :cond_0
     return-void
 .end method
@@ -613,16 +517,12 @@
 .method public save()V
     .locals 2
 
-    .prologue
-    .line 65
     iget-object v0, p0, Landroid/sec/clipboard/data/file/WrapFileClipData;->mClip:Lcom/samsung/android/content/clipboard/data/SemClipData;
 
     if-nez v0, :cond_0
 
-    .line 66
     return-void
 
-    .line 69
     :cond_0
     new-instance v0, Ljava/lang/Thread;
 
@@ -634,47 +534,33 @@
 
     invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
-    .line 64
     return-void
 .end method
 
 .method public setClipData(Lcom/samsung/android/content/clipboard/data/SemClipData;)V
     .locals 1
-    .param p1, "clip"    # Lcom/samsung/android/content/clipboard/data/SemClipData;
 
-    .prologue
-    .line 44
     const/4 v0, 0x0
 
     invoke-virtual {p1, v0}, Lcom/samsung/android/content/clipboard/data/SemClipData;->setClipData(Landroid/content/ClipData;)V
 
-    .line 45
     iput-object p1, p0, Landroid/sec/clipboard/data/file/WrapFileClipData;->mClip:Lcom/samsung/android/content/clipboard/data/SemClipData;
 
-    .line 43
     return-void
 .end method
 
 .method public setDir(Ljava/io/File;)V
     .locals 0
-    .param p1, "dir"    # Ljava/io/File;
 
-    .prologue
-    .line 61
     iput-object p1, p0, Landroid/sec/clipboard/data/file/WrapFileClipData;->mDir:Ljava/io/File;
 
-    .line 60
     return-void
 .end method
 
 .method public setFile(Ljava/io/File;)V
     .locals 0
-    .param p1, "path"    # Ljava/io/File;
 
-    .prologue
-    .line 53
     iput-object p1, p0, Landroid/sec/clipboard/data/file/WrapFileClipData;->mPath:Ljava/io/File;
 
-    .line 52
     return-void
 .end method

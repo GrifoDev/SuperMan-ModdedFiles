@@ -25,12 +25,7 @@
 # direct methods
 .method constructor <init>(Landroid/nfc/NfcAdapter;Landroid/os/Handler;Landroid/nfc/NfcAdapter$OnTagRemovedListener;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/nfc/NfcAdapter;
-    .param p2, "val$handler"    # Landroid/os/Handler;
-    .param p3, "val$tagRemovedListener"    # Landroid/nfc/NfcAdapter$OnTagRemovedListener;
 
-    .prologue
-    .line 2038
     iput-object p1, p0, Landroid/nfc/NfcAdapter$4;->this$0:Landroid/nfc/NfcAdapter;
 
     iput-object p2, p0, Landroid/nfc/NfcAdapter$4;->val$handler:Landroid/os/Handler;
@@ -52,13 +47,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 2041
     iget-object v0, p0, Landroid/nfc/NfcAdapter$4;->val$handler:Landroid/os/Handler;
 
     if-eqz v0, :cond_0
 
-    .line 2042
     iget-object v0, p0, Landroid/nfc/NfcAdapter$4;->val$handler:Landroid/os/Handler;
 
     new-instance v1, Landroid/nfc/NfcAdapter$4$1;
@@ -69,7 +61,6 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 2051
     :goto_0
     iget-object v0, p0, Landroid/nfc/NfcAdapter$4;->this$0:Landroid/nfc/NfcAdapter;
 
@@ -77,7 +68,6 @@
 
     monitor-enter v1
 
-    .line 2052
     :try_start_0
     iget-object v0, p0, Landroid/nfc/NfcAdapter$4;->this$0:Landroid/nfc/NfcAdapter;
 
@@ -89,10 +79,8 @@
 
     monitor-exit v1
 
-    .line 2040
     return-void
 
-    .line 2049
     :cond_0
     iget-object v0, p0, Landroid/nfc/NfcAdapter$4;->val$tagRemovedListener:Landroid/nfc/NfcAdapter$OnTagRemovedListener;
 
@@ -100,7 +88,6 @@
 
     goto :goto_0
 
-    .line 2051
     :catchall_0
     move-exception v0
 

@@ -23,28 +23,21 @@
 # direct methods
 .method private constructor <init>(Landroid/view/Surface;)V
     .locals 1
-    .param p1, "this$0"    # Landroid/view/Surface;
 
-    .prologue
-    .line 636
     iput-object p1, p0, Landroid/view/Surface$CompatibleCanvas;->this$0:Landroid/view/Surface;
 
     invoke-direct {p0}, Landroid/graphics/Canvas;-><init>()V
 
-    .line 638
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/view/Surface$CompatibleCanvas;->mOrigMatrix:Landroid/graphics/Matrix;
 
-    .line 636
     return-void
 .end method
 
 .method synthetic constructor <init>(Landroid/view/Surface;Landroid/view/Surface$CompatibleCanvas;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/view/Surface;
 
-    .prologue
     invoke-direct {p0, p1}, Landroid/view/Surface$CompatibleCanvas;-><init>(Landroid/view/Surface;)V
 
     return-void
@@ -54,40 +47,30 @@
 # virtual methods
 .method public getMatrix(Landroid/graphics/Matrix;)V
     .locals 1
-    .param p1, "m"    # Landroid/graphics/Matrix;
 
-    .prologue
-    .line 656
     invoke-super {p0, p1}, Landroid/graphics/Canvas;->getMatrix(Landroid/graphics/Matrix;)V
 
-    .line 657
     iget-object v0, p0, Landroid/view/Surface$CompatibleCanvas;->mOrigMatrix:Landroid/graphics/Matrix;
 
     if-nez v0, :cond_0
 
-    .line 658
     new-instance v0, Landroid/graphics/Matrix;
 
     invoke-direct {v0}, Landroid/graphics/Matrix;-><init>()V
 
     iput-object v0, p0, Landroid/view/Surface$CompatibleCanvas;->mOrigMatrix:Landroid/graphics/Matrix;
 
-    .line 660
     :cond_0
     iget-object v0, p0, Landroid/view/Surface$CompatibleCanvas;->mOrigMatrix:Landroid/graphics/Matrix;
 
     invoke-virtual {v0, p1}, Landroid/graphics/Matrix;->set(Landroid/graphics/Matrix;)V
 
-    .line 655
     return-void
 .end method
 
 .method public setMatrix(Landroid/graphics/Matrix;)V
     .locals 2
-    .param p1, "matrix"    # Landroid/graphics/Matrix;
 
-    .prologue
-    .line 642
     iget-object v1, p0, Landroid/view/Surface$CompatibleCanvas;->this$0:Landroid/view/Surface;
 
     invoke-static {v1}, Landroid/view/Surface;->-get0(Landroid/view/Surface;)Landroid/graphics/Matrix;
@@ -100,15 +83,12 @@
 
     if-nez v1, :cond_1
 
-    .line 645
     :cond_0
     invoke-super {p0, p1}, Landroid/graphics/Canvas;->setMatrix(Landroid/graphics/Matrix;)V
 
-    .line 641
     :goto_0
     return-void
 
-    .line 642
     :cond_1
     iget-object v1, p0, Landroid/view/Surface$CompatibleCanvas;->mOrigMatrix:Landroid/graphics/Matrix;
 
@@ -118,7 +98,6 @@
 
     if-nez v1, :cond_0
 
-    .line 647
     new-instance v0, Landroid/graphics/Matrix;
 
     iget-object v1, p0, Landroid/view/Surface$CompatibleCanvas;->this$0:Landroid/view/Surface;
@@ -129,11 +108,8 @@
 
     invoke-direct {v0, v1}, Landroid/graphics/Matrix;-><init>(Landroid/graphics/Matrix;)V
 
-    .line 648
-    .local v0, "m":Landroid/graphics/Matrix;
     invoke-virtual {v0, p1}, Landroid/graphics/Matrix;->preConcat(Landroid/graphics/Matrix;)Z
 
-    .line 649
     invoke-super {p0, v0}, Landroid/graphics/Canvas;->setMatrix(Landroid/graphics/Matrix;)V
 
     goto :goto_0

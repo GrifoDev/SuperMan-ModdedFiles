@@ -255,19 +255,14 @@
 .method static constructor <clinit>()V
     .locals 0
 
-    .prologue
-    .line 150
     invoke-static {}, Landroid/opengl/GLES11;->_nativeClassInit()V
 
-    .line 24
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 24
     invoke-direct {p0}, Landroid/opengl/GLES10;-><init>()V
 
     return-void
@@ -446,37 +441,26 @@
 
 .method public static glPointSizePointerOES(IILjava/nio/Buffer;)V
     .locals 1
-    .param p0, "type"    # I
-    .param p1, "stride"    # I
-    .param p2, "pointer"    # Ljava/nio/Buffer;
 
-    .prologue
-    .line 616
     invoke-virtual {p2}, Ljava/nio/Buffer;->remaining()I
 
     move-result v0
 
-    .line 612
     invoke-static {p0, p1, p2, v0}, Landroid/opengl/GLES11;->glPointSizePointerOESBounds(IILjava/nio/Buffer;I)V
 
-    .line 618
     const/16 v0, 0x1406
 
     if-eq p0, v0, :cond_0
 
-    .line 619
     const/16 v0, 0x140c
 
     if-ne p0, v0, :cond_1
 
-    .line 620
     :cond_0
     if-ltz p1, :cond_1
 
-    .line 621
     sput-object p2, Landroid/opengl/GLES11;->_pointSizePointerOES:Ljava/nio/Buffer;
 
-    .line 611
     :cond_1
     return-void
 .end method

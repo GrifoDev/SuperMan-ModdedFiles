@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/widget/TabHost;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/widget/TabHost;
 
-    .prologue
-    .line 152
     iput-object p1, p0, Landroid/widget/TabHost$1;->this$0:Landroid/widget/TabHost;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,17 +36,11 @@
 # virtual methods
 .method public onKey(Landroid/view/View;ILandroid/view/KeyEvent;)Z
     .locals 2
-    .param p1, "v"    # Landroid/view/View;
-    .param p2, "keyCode"    # I
-    .param p3, "event"    # Landroid/view/KeyEvent;
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 154
     sparse-switch p2, :sswitch_data_0
 
-    .line 173
     iget-object v0, p0, Landroid/widget/TabHost$1;->this$0:Landroid/widget/TabHost;
 
     invoke-static {v0}, Landroid/widget/TabHost;->-get0(Landroid/widget/TabHost;)Landroid/widget/FrameLayout;
@@ -60,7 +51,6 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->requestFocus(I)Z
 
-    .line 174
     iget-object v0, p0, Landroid/widget/TabHost$1;->this$0:Landroid/widget/TabHost;
 
     invoke-static {v0}, Landroid/widget/TabHost;->-get0(Landroid/widget/TabHost;)Landroid/widget/FrameLayout;
@@ -73,11 +63,9 @@
 
     return v0
 
-    .line 161
     :sswitch_0
     return v0
 
-    .line 164
     :sswitch_1
     invoke-virtual {p3}, Landroid/view/KeyEvent;->getAction()I
 
@@ -85,7 +73,6 @@
 
     if-nez v0, :cond_1
 
-    .line 165
     iget-object v0, p0, Landroid/widget/TabHost$1;->this$0:Landroid/widget/TabHost;
 
     iget v0, v0, Landroid/widget/TabHost;->mCurrentTab:I
@@ -104,7 +91,6 @@
 
     if-ge v0, v1, :cond_0
 
-    .line 166
     iget-object v0, p0, Landroid/widget/TabHost$1;->this$0:Landroid/widget/TabHost;
 
     invoke-static {v0}, Landroid/widget/TabHost;->-get2(Landroid/widget/TabHost;)Landroid/widget/TabWidget;
@@ -123,7 +109,6 @@
 
     invoke-virtual {v0}, Landroid/view/View;->requestFocus()Z
 
-    .line 168
     :cond_0
     iget-object v0, p0, Landroid/widget/TabHost$1;->this$0:Landroid/widget/TabHost;
 
@@ -131,13 +116,11 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TabHost;->playSoundEffect(I)V
 
-    .line 170
     :cond_1
     const/4 v0, 0x1
 
     return v0
 
-    .line 154
     nop
 
     :sswitch_data_0

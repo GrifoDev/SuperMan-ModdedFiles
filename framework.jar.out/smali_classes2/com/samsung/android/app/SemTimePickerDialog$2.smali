@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/app/SemTimePickerDialog;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/samsung/android/app/SemTimePickerDialog;
 
-    .prologue
-    .line 159
     iput-object p1, p0, Lcom/samsung/android/app/SemTimePickerDialog$2;->this$0:Lcom/samsung/android/app/SemTimePickerDialog;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,14 +37,11 @@
 .method public onAnimationEnd()V
     .locals 2
 
-    .prologue
-    .line 162
     iget-object v0, p0, Lcom/samsung/android/app/SemTimePickerDialog$2;->this$0:Lcom/samsung/android/app/SemTimePickerDialog;
 
     const/4 v1, 0x0
 
     invoke-static {v0, v1}, Lcom/samsung/android/app/SemTimePickerDialog;->-set0(Lcom/samsung/android/app/SemTimePickerDialog;Z)Z
 
-    .line 161
     return-void
 .end method

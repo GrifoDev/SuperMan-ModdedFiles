@@ -144,10 +144,7 @@
 # direct methods
 .method public constructor <init>(Landroid/speech/tts/TextToSpeech;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/speech/tts/TextToSpeech;
 
-    .prologue
-    .line 235
     iput-object p1, p0, Landroid/speech/tts/TextToSpeech$Engine;->this$0:Landroid/speech/tts/TextToSpeech;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

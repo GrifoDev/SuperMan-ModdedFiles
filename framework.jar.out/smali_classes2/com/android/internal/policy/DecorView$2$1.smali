@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/DecorView$2;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/android/internal/policy/DecorView$2;
 
-    .prologue
-    .line 1824
     iput-object p1, p0, Lcom/android/internal/policy/DecorView$2$1;->this$1:Lcom/android/internal/policy/DecorView$2;
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
@@ -36,10 +33,7 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
-    .param p1, "animation"    # Landroid/animation/Animator;
 
-    .prologue
-    .line 1832
     iget-object v0, p0, Lcom/android/internal/policy/DecorView$2$1;->this$1:Lcom/android/internal/policy/DecorView$2;
 
     iget-object v0, v0, Lcom/android/internal/policy/DecorView$2;->this$0:Lcom/android/internal/policy/DecorView;
@@ -52,7 +46,6 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setAlpha(F)V
 
-    .line 1833
     iget-object v0, p0, Lcom/android/internal/policy/DecorView$2$1;->this$1:Lcom/android/internal/policy/DecorView$2;
 
     iget-object v0, v0, Lcom/android/internal/policy/DecorView$2;->this$0:Lcom/android/internal/policy/DecorView;
@@ -61,16 +54,12 @@
 
     invoke-static {v0, v1}, Lcom/android/internal/policy/DecorView;->-set0(Lcom/android/internal/policy/DecorView;Landroid/animation/ObjectAnimator;)Landroid/animation/ObjectAnimator;
 
-    .line 1831
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
     .locals 2
-    .param p1, "animation"    # Landroid/animation/Animator;
 
-    .prologue
-    .line 1827
     iget-object v0, p0, Lcom/android/internal/policy/DecorView$2$1;->this$1:Lcom/android/internal/policy/DecorView$2;
 
     iget-object v0, v0, Lcom/android/internal/policy/DecorView$2;->this$0:Lcom/android/internal/policy/DecorView;
@@ -83,6 +72,5 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/widget/AbsActionBarView;->setVisibility(I)V
 
-    .line 1826
     return-void
 .end method

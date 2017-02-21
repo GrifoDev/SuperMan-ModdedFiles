@@ -15,10 +15,8 @@
 .method public constructor <init>()V
     .locals 4
 
-    .prologue
     const/4 v3, 0x1
 
-    .line 32
     new-array v0, v3, [Ljava/lang/String;
 
     const-string/jumbo v1, "shortcutuser.xml"
@@ -29,22 +27,18 @@
 
     invoke-direct {p0, v3, v0}, Landroid/app/backup/BlobBackupHelper;-><init>(I[Ljava/lang/String;)V
 
-    .line 31
     return-void
 .end method
 
 .method private getShortcutService()Landroid/content/pm/IShortcutService;
     .locals 1
 
-    .prologue
-    .line 37
     const-string/jumbo v0, "shortcut"
 
     invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
-    .line 36
     invoke-static {v0}, Landroid/content/pm/IShortcutService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/content/pm/IShortcutService;
 
     move-result-object v0
@@ -56,11 +50,7 @@
 # virtual methods
 .method protected applyRestoredPayload(Ljava/lang/String;[B)V
     .locals 4
-    .param p1, "key"    # Ljava/lang/String;
-    .param p2, "payload"    # [B
 
-    .prologue
-    .line 58
     const-string/jumbo v1, "shortcutuser.xml"
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -69,7 +59,6 @@
 
     if-eqz v1, :cond_0
 
-    .line 61
     :try_start_0
     invoke-direct {p0}, Lcom/android/server/backup/ShortcutBackupHelper;->getShortcutService()Landroid/content/pm/IShortcutService;
 
@@ -81,16 +70,12 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 57
     :goto_0
     return-void
 
-    .line 62
     :catch_0
     move-exception v0
 
-    .line 63
-    .local v0, "e":Ljava/lang/Exception;
     const-string/jumbo v1, "ShortcutBackupAgent"
 
     const-string/jumbo v2, "Restore failed"
@@ -99,8 +84,6 @@
 
     goto :goto_0
 
-    .line 67
-    .end local v0    # "e":Ljava/lang/Exception;
     :cond_0
     const-string/jumbo v1, "ShortcutBackupAgent"
 
@@ -129,10 +112,7 @@
 
 .method protected getBackupPayload(Ljava/lang/String;)[B
     .locals 4
-    .param p1, "key"    # Ljava/lang/String;
 
-    .prologue
-    .line 42
     const-string/jumbo v1, "shortcutuser.xml"
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -141,7 +121,6 @@
 
     if-eqz v1, :cond_0
 
-    .line 45
     :try_start_0
     invoke-direct {p0}, Lcom/android/server/backup/ShortcutBackupHelper;->getShortcutService()Landroid/content/pm/IShortcutService;
 
@@ -157,26 +136,20 @@
 
     return-object v1
 
-    .line 46
     :catch_0
     move-exception v0
 
-    .line 47
-    .local v0, "e":Ljava/lang/Exception;
     const-string/jumbo v1, "ShortcutBackupAgent"
 
     const-string/jumbo v2, "Backup failed"
 
     invoke-static {v1, v2, v0}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 53
-    .end local v0    # "e":Ljava/lang/Exception;
     :goto_0
     const/4 v1, 0x0
 
     return-object v1
 
-    .line 51
     :cond_0
     const-string/jumbo v1, "ShortcutBackupAgent"
 

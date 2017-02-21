@@ -10,8 +10,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 528
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -22,13 +20,10 @@
 .method public verify(Ljava/lang/String;Ljavax/net/ssl/SSLSession;)Z
     .locals 2
 
-    .prologue
-    .line 531
     invoke-static {}, Ljavax/net/ssl/HttpsURLConnection;->getDefaultHostnameVerifier()Ljavax/net/ssl/HostnameVerifier;
 
     move-result-object v0
 
-    .line 532
     invoke-static {}, Lcom/absolute/android/persistservice/r;->a()Ljava/lang/String;
 
     move-result-object v1
@@ -37,6 +32,5 @@
 
     move-result v0
 
-    .line 536
     return v0
 .end method

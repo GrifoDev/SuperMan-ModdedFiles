@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Landroid/bluetooth/BluetoothGatt;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/bluetooth/BluetoothGatt;
 
-    .prologue
-    .line 595
     iput-object p1, p0, Landroid/bluetooth/BluetoothGatt$2;->this$0:Landroid/bluetooth/BluetoothGatt;
 
     invoke-direct {p0}, Landroid/bluetooth/IBluetoothStateChangeCallback$Stub;-><init>()V
@@ -36,10 +33,7 @@
 # virtual methods
 .method public onBluetoothStateChange(Z)V
     .locals 3
-    .param p1, "up"    # Z
 
-    .prologue
-    .line 597
     const-string/jumbo v0, "BluetoothGatt"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -62,10 +56,8 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 598
     if-nez p1, :cond_1
 
-    .line 599
     iget-object v0, p0, Landroid/bluetooth/BluetoothGatt$2;->this$0:Landroid/bluetooth/BluetoothGatt;
 
     invoke-static {v0}, Landroid/bluetooth/BluetoothGatt;->-get1(Landroid/bluetooth/BluetoothGatt;)Landroid/bluetooth/BluetoothAdapter;
@@ -78,24 +70,20 @@
 
     if-nez v0, :cond_0
 
-    .line 600
     const-string/jumbo v0, "BluetoothGatt"
 
     const-string/jumbo v1, "Bluetooth is turned off, disconnect all client connections"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 601
     iget-object v0, p0, Landroid/bluetooth/BluetoothGatt$2;->this$0:Landroid/bluetooth/BluetoothGatt;
 
     invoke-virtual {v0}, Landroid/bluetooth/BluetoothGatt;->disconnect()V
 
-    .line 596
     :cond_0
     :goto_0
     return-void
 
-    .line 604
     :cond_1
     const-string/jumbo v0, "BluetoothGatt"
 

@@ -17,10 +17,7 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
     .locals 1
-    .param p3, "$anonymous0"    # Ljava/lang/String;
 
-    .prologue
-    .line 216
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, p2, p3, v0}, Lcom/samsung/android/contextaware/creator/builtin/AndroidRunnerConcreteCreator$AndroidRunnerList;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/samsung/android/contextaware/creator/builtin/AndroidRunnerConcreteCreator$AndroidRunnerList;)V
@@ -33,8 +30,6 @@
 .method public final getObject()Lcom/samsung/android/contextaware/manager/ContextComponent;
     .locals 7
 
-    .prologue
-    .line 219
     invoke-static {}, Lcom/samsung/android/contextaware/creator/builtin/AndroidRunnerConcreteCreator;->-wrap5()Ljava/util/concurrent/ConcurrentHashMap;
 
     move-result-object v0
@@ -49,19 +44,16 @@
 
     if-nez v0, :cond_0
 
-    .line 220
     invoke-static {}, Lcom/samsung/android/contextaware/creator/builtin/AndroidRunnerConcreteCreator;->-wrap5()Ljava/util/concurrent/ConcurrentHashMap;
 
     move-result-object v0
 
-    .line 221
     invoke-virtual {p0}, Ljava/lang/Enum;->name()Ljava/lang/String;
 
     move-result-object v1
 
     new-instance v2, Lcom/samsung/android/contextaware/dataprovider/androidprovider/builtin/MagneticSensorRunner;
 
-    .line 222
     invoke-static {}, Lcom/samsung/android/contextaware/creator/builtin/AndroidRunnerConcreteCreator;->-wrap4()I
 
     move-result v3
@@ -74,18 +66,14 @@
 
     move-result-object v5
 
-    .line 223
     invoke-static {}, Lcom/samsung/android/contextaware/creator/builtin/AndroidRunnerConcreteCreator;->-wrap3()Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/ISensorHubResetObservable;
 
     move-result-object v6
 
-    .line 221
     invoke-direct {v2, v3, v4, v5, v6}, Lcom/samsung/android/contextaware/dataprovider/androidprovider/builtin/MagneticSensorRunner;-><init>(ILandroid/content/Context;Landroid/os/Looper;Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/ISensorHubResetObservable;)V
 
-    .line 220
     invoke-virtual {v0, v1, v2}, Ljava/util/concurrent/ConcurrentHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 225
     :cond_0
     invoke-static {}, Lcom/samsung/android/contextaware/creator/builtin/AndroidRunnerConcreteCreator;->-wrap5()Ljava/util/concurrent/ConcurrentHashMap;
 
@@ -106,22 +94,17 @@
 
 .method public final varargs getObject([Ljava/lang/Object;)Lcom/samsung/android/contextaware/manager/ContextComponent;
     .locals 8
-    .param p1, "property"    # [Ljava/lang/Object;
 
-    .prologue
-    .line 236
     array-length v0, p1
 
     const/4 v1, 0x1
 
     if-eq v0, v1, :cond_0
 
-    .line 237
     const/4 v0, 0x0
 
     return-object v0
 
-    .line 240
     :cond_0
     invoke-static {}, Lcom/samsung/android/contextaware/creator/builtin/AndroidRunnerConcreteCreator;->-wrap5()Ljava/util/concurrent/ConcurrentHashMap;
 
@@ -137,19 +120,16 @@
 
     if-nez v0, :cond_1
 
-    .line 241
     invoke-static {}, Lcom/samsung/android/contextaware/creator/builtin/AndroidRunnerConcreteCreator;->-wrap5()Ljava/util/concurrent/ConcurrentHashMap;
 
     move-result-object v6
 
-    .line 242
     invoke-virtual {p0}, Ljava/lang/Enum;->name()Ljava/lang/String;
 
     move-result-object v7
 
     new-instance v0, Lcom/samsung/android/contextaware/dataprovider/androidprovider/builtin/MagneticSensorRunner;
 
-    .line 243
     invoke-static {}, Lcom/samsung/android/contextaware/creator/builtin/AndroidRunnerConcreteCreator;->-wrap4()I
 
     move-result v1
@@ -162,12 +142,10 @@
 
     move-result-object v3
 
-    .line 244
     invoke-static {}, Lcom/samsung/android/contextaware/creator/builtin/AndroidRunnerConcreteCreator;->-wrap3()Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/ISensorHubResetObservable;
 
     move-result-object v4
 
-    .line 245
     const/4 v5, 0x0
 
     aget-object v5, p1, v5
@@ -178,13 +156,10 @@
 
     move-result v5
 
-    .line 242
     invoke-direct/range {v0 .. v5}, Lcom/samsung/android/contextaware/dataprovider/androidprovider/builtin/MagneticSensorRunner;-><init>(ILandroid/content/Context;Landroid/os/Looper;Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/ISensorHubResetObservable;I)V
 
-    .line 241
     invoke-virtual {v6, v7, v0}, Ljava/util/concurrent/ConcurrentHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 247
     :cond_1
     invoke-static {}, Lcom/samsung/android/contextaware/creator/builtin/AndroidRunnerConcreteCreator;->-wrap5()Ljava/util/concurrent/ConcurrentHashMap;
 
@@ -206,8 +181,6 @@
 .method public final getObjectForSubCollection()Lcom/samsung/android/contextaware/manager/ContextComponent;
     .locals 5
 
-    .prologue
-    .line 230
     new-instance v0, Lcom/samsung/android/contextaware/dataprovider/androidprovider/builtin/MagneticSensorRunner;
 
     invoke-static {}, Lcom/samsung/android/contextaware/creator/builtin/AndroidRunnerConcreteCreator;->-wrap4()I
@@ -218,14 +191,12 @@
 
     move-result-object v2
 
-    .line 231
     invoke-static {}, Lcom/samsung/android/contextaware/creator/builtin/AndroidRunnerConcreteCreator;->-wrap1()Landroid/os/Looper;
 
     move-result-object v3
 
     const/4 v4, 0x0
 
-    .line 230
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/samsung/android/contextaware/dataprovider/androidprovider/builtin/MagneticSensorRunner;-><init>(ILandroid/content/Context;Landroid/os/Looper;Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/ISensorHubResetObservable;)V
 
     return-object v0
@@ -233,10 +204,7 @@
 
 .method public final varargs getObjectForSubCollection([Ljava/lang/Object;)Lcom/samsung/android/contextaware/manager/ContextComponent;
     .locals 6
-    .param p1, "property"    # [Ljava/lang/Object;
 
-    .prologue
-    .line 253
     new-instance v0, Lcom/samsung/android/contextaware/dataprovider/androidprovider/builtin/MagneticSensorRunner;
 
     invoke-static {}, Lcom/samsung/android/contextaware/creator/builtin/AndroidRunnerConcreteCreator;->-wrap4()I
@@ -247,7 +215,6 @@
 
     move-result-object v2
 
-    .line 254
     invoke-static {}, Lcom/samsung/android/contextaware/creator/builtin/AndroidRunnerConcreteCreator;->-wrap1()Landroid/os/Looper;
 
     move-result-object v3
@@ -264,7 +231,6 @@
 
     const/4 v4, 0x0
 
-    .line 253
     invoke-direct/range {v0 .. v5}, Lcom/samsung/android/contextaware/dataprovider/androidprovider/builtin/MagneticSensorRunner;-><init>(ILandroid/content/Context;Landroid/os/Looper;Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/ISensorHubResetObservable;I)V
 
     return-object v0

@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/app/ResolverActivity;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/internal/app/ResolverActivity;
 
-    .prologue
-    .line 3358
     iput-object p1, p0, Lcom/android/internal/app/ResolverActivity$9;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,48 +36,34 @@
 # virtual methods
 .method public onAnimationCancel(Landroid/animation/Animator;)V
     .locals 0
-    .param p1, "animation"    # Landroid/animation/Animator;
 
-    .prologue
-    .line 3368
     return-void
 .end method
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
-    .param p1, "animation"    # Landroid/animation/Animator;
 
-    .prologue
-    .line 3364
     iget-object v0, p0, Lcom/android/internal/app/ResolverActivity$9;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     const/4 v1, 0x0
 
     invoke-static {v0, v1}, Lcom/android/internal/app/ResolverActivity;->-set3(Lcom/android/internal/app/ResolverActivity;Landroid/animation/Animator;)Landroid/animation/Animator;
 
-    .line 3365
     iget-object v0, p0, Lcom/android/internal/app/ResolverActivity$9;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     invoke-virtual {v0}, Lcom/android/internal/app/ResolverActivity;->finish()V
 
-    .line 3363
     return-void
 .end method
 
 .method public onAnimationRepeat(Landroid/animation/Animator;)V
     .locals 0
-    .param p1, "animation"    # Landroid/animation/Animator;
 
-    .prologue
-    .line 3371
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
     .locals 0
-    .param p1, "animation"    # Landroid/animation/Animator;
 
-    .prologue
-    .line 3360
     return-void
 .end method

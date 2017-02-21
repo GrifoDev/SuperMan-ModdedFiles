@@ -27,8 +27,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 692
     invoke-direct {p0}, Landroid/app/SystemServiceRegistry$CachedServiceFetcher;-><init>()V
 
     return-void
@@ -38,10 +36,7 @@
 # virtual methods
 .method public createService(Landroid/app/ContextImpl;)Lcom/samsung/android/contextaware/ContextAwareManager;
     .locals 2
-    .param p1, "ctx"    # Landroid/app/ContextImpl;
 
-    .prologue
-    .line 695
     new-instance v0, Lcom/samsung/android/contextaware/ContextAwareManager;
 
     iget-object v1, p1, Landroid/app/ContextImpl;->mMainThread:Landroid/app/ActivityThread;
@@ -61,10 +56,7 @@
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
-    .param p1, "ctx"    # Landroid/app/ContextImpl;
 
-    .prologue
-    .line 694
     invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$49;->createService(Landroid/app/ContextImpl;)Lcom/samsung/android/contextaware/ContextAwareManager;
 
     move-result-object v0

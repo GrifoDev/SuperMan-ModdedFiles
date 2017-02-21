@@ -34,8 +34,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 897
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -46,21 +44,16 @@
 .method public copy()Landroid/service/notification/ZenModeConfig$ScheduleInfo;
     .locals 5
 
-    .prologue
     const/4 v4, 0x0
 
-    .line 924
     new-instance v0, Landroid/service/notification/ZenModeConfig$ScheduleInfo;
 
     invoke-direct {v0}, Landroid/service/notification/ZenModeConfig$ScheduleInfo;-><init>()V
 
-    .line 925
-    .local v0, "rt":Landroid/service/notification/ZenModeConfig$ScheduleInfo;
     iget-object v1, p0, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->days:[I
 
     if-eqz v1, :cond_0
 
-    .line 926
     iget-object v1, p0, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->days:[I
 
     array-length v1, v1
@@ -69,7 +62,6 @@
 
     iput-object v1, v0, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->days:[I
 
-    .line 927
     iget-object v1, p0, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->days:[I
 
     iget-object v2, v0, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->days:[I
@@ -80,49 +72,39 @@
 
     invoke-static {v1, v4, v2, v4, v3}, Ljava/lang/System;->arraycopy([II[III)V
 
-    .line 929
     :cond_0
     iget v1, p0, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->startHour:I
 
     iput v1, v0, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->startHour:I
 
-    .line 930
     iget v1, p0, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->startMinute:I
 
     iput v1, v0, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->startMinute:I
 
-    .line 931
     iget v1, p0, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->endHour:I
 
     iput v1, v0, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->endHour:I
 
-    .line 932
     iget v1, p0, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->endMinute:I
 
     iput v1, v0, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->endMinute:I
 
-    .line 933
     iget-boolean v1, p0, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->exitAtAlarm:Z
 
     iput-boolean v1, v0, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->exitAtAlarm:Z
 
-    .line 934
     iget-wide v2, p0, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->nextAlarm:J
 
     iput-wide v2, v0, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->nextAlarm:J
 
-    .line 935
     return-object v0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
-    .param p1, "o"    # Ljava/lang/Object;
 
-    .prologue
     const/4 v1, 0x0
 
-    .line 913
     instance-of v2, p1, Landroid/service/notification/ZenModeConfig$ScheduleInfo;
 
     if-nez v2, :cond_0
@@ -132,11 +114,8 @@
     :cond_0
     move-object v0, p1
 
-    .line 914
     check-cast v0, Landroid/service/notification/ZenModeConfig$ScheduleInfo;
 
-    .line 915
-    .local v0, "other":Landroid/service/notification/ZenModeConfig$ScheduleInfo;
     iget-object v2, p0, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->days:[I
 
     invoke-static {v2}, Landroid/service/notification/ZenModeConfig;->-wrap5([I)Ljava/lang/String;
@@ -155,35 +134,30 @@
 
     if-eqz v2, :cond_1
 
-    .line 916
     iget v2, p0, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->startHour:I
 
     iget v3, v0, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->startHour:I
 
     if-ne v2, v3, :cond_1
 
-    .line 917
     iget v2, p0, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->startMinute:I
 
     iget v3, v0, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->startMinute:I
 
     if-ne v2, v3, :cond_1
 
-    .line 918
     iget v2, p0, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->endHour:I
 
     iget v3, v0, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->endHour:I
 
     if-ne v2, v3, :cond_1
 
-    .line 919
     iget v2, p0, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->endMinute:I
 
     iget v3, v0, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->endMinute:I
 
     if-ne v2, v3, :cond_1
 
-    .line 920
     iget-boolean v2, p0, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->exitAtAlarm:Z
 
     iget-boolean v3, v0, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->exitAtAlarm:Z
@@ -192,7 +166,6 @@
 
     const/4 v1, 0x1
 
-    .line 915
     :cond_1
     return v1
 .end method
@@ -200,8 +173,6 @@
 .method public hashCode()I
     .locals 1
 
-    .prologue
-    .line 908
     const/4 v0, 0x0
 
     return v0
@@ -210,8 +181,6 @@
 .method public toString()Ljava/lang/String;
     .locals 4
 
-    .prologue
-    .line 940
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -222,118 +191,90 @@
 
     move-result-object v0
 
-    .line 941
     iget-object v1, p0, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->days:[I
 
     invoke-static {v1}, Ljava/util/Arrays;->toString([I)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 940
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 942
     const-string/jumbo v1, ", startHour="
 
-    .line 940
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 942
     iget v1, p0, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->startHour:I
 
-    .line 940
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 943
     const-string/jumbo v1, ", startMinute="
 
-    .line 940
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 943
     iget v1, p0, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->startMinute:I
 
-    .line 940
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 944
     const-string/jumbo v1, ", endHour="
 
-    .line 940
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 944
     iget v1, p0, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->endHour:I
 
-    .line 940
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 945
     const-string/jumbo v1, ", endMinute="
 
-    .line 940
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 945
     iget v1, p0, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->endMinute:I
 
-    .line 940
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 946
     const-string/jumbo v1, ", exitAtAlarm="
 
-    .line 940
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 946
     iget-boolean v1, p0, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->exitAtAlarm:Z
 
-    .line 940
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 947
     const-string/jumbo v1, ", nextAlarm="
 
-    .line 940
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 947
     iget-wide v2, p0, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->nextAlarm:J
 
-    .line 940
     invoke-virtual {v0, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 948
     const/16 v1, 0x7d
 
-    .line 940
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     move-result-object v0

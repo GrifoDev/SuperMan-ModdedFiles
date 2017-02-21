@@ -68,8 +68,6 @@
 
 .method public onProvideKeyboardShortcuts(Ljava/util/List;Landroid/view/Menu;I)V
     .locals 0
-    .param p2, "menu"    # Landroid/view/Menu;
-    .param p3, "deviceId"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -82,9 +80,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 579
-    .local p1, "data":Ljava/util/List;, "Ljava/util/List<Landroid/view/KeyboardShortcutGroup;>;"
     return-void
 .end method
 

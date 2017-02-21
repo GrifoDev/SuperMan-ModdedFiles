@@ -45,7 +45,6 @@
 .method static constructor <clinit>()V
     .locals 7
 
-    .prologue
     const/4 v6, 0x4
 
     const/4 v5, 0x3
@@ -56,7 +55,6 @@
 
     const/4 v2, 0x0
 
-    .line 7649
     new-instance v0, Landroid/widget/Editor$SFEffectsAPI$AnimationMode;
 
     const-string/jumbo v1, "kAnimStatic"
@@ -97,7 +95,6 @@
 
     sput-object v0, Landroid/widget/Editor$SFEffectsAPI$AnimationMode;->kAnimOnceDestroy:Landroid/widget/Editor$SFEffectsAPI$AnimationMode;
 
-    .line 7648
     const/4 v0, 0x5
 
     new-array v0, v0, [Landroid/widget/Editor$SFEffectsAPI$AnimationMode;
@@ -129,25 +126,17 @@
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
-    .param p3, "id"    # I
 
-    .prologue
-    .line 7653
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 7654
     iput p3, p0, Landroid/widget/Editor$SFEffectsAPI$AnimationMode;->id:I
 
-    .line 7653
     return-void
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroid/widget/Editor$SFEffectsAPI$AnimationMode;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
-    .prologue
-    .line 7648
     const-class v0, Landroid/widget/Editor$SFEffectsAPI$AnimationMode;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -162,8 +151,6 @@
 .method public static values()[Landroid/widget/Editor$SFEffectsAPI$AnimationMode;
     .locals 1
 
-    .prologue
-    .line 7648
     sget-object v0, Landroid/widget/Editor$SFEffectsAPI$AnimationMode;->$VALUES:[Landroid/widget/Editor$SFEffectsAPI$AnimationMode;
 
     return-object v0

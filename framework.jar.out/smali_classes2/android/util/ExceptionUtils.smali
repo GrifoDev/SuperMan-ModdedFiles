@@ -11,8 +11,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -20,20 +18,13 @@
 
 .method public static getCompleteMessage(Ljava/lang/String;Ljava/lang/Throwable;)Ljava/lang/String;
     .locals 3
-    .param p0, "msg"    # Ljava/lang/String;
-    .param p1, "t"    # Ljava/lang/Throwable;
 
-    .prologue
-    .line 44
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 45
-    .local v0, "builder":Ljava/lang/StringBuilder;
     if-eqz p0, :cond_0
 
-    .line 46
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -42,7 +33,6 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 48
     :cond_0
     invoke-virtual {p1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
@@ -50,7 +40,6 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 49
     :goto_0
     invoke-virtual {p1}, Ljava/lang/Throwable;->getCause()Ljava/lang/Throwable;
 
@@ -58,7 +47,6 @@
 
     if-eqz p1, :cond_1
 
-    .line 50
     const-string/jumbo v1, ": "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -73,7 +61,6 @@
 
     goto :goto_0
 
-    .line 52
     :cond_1
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -84,10 +71,7 @@
 
 .method public static getCompleteMessage(Ljava/lang/Throwable;)Ljava/lang/String;
     .locals 1
-    .param p0, "t"    # Ljava/lang/Throwable;
 
-    .prologue
-    .line 56
     const/4 v0, 0x0
 
     invoke-static {v0, p0}, Landroid/util/ExceptionUtils;->getCompleteMessage(Ljava/lang/String;Ljava/lang/Throwable;)Ljava/lang/String;
@@ -99,15 +83,12 @@
 
 .method public static maybeUnwrapIOException(Ljava/lang/RuntimeException;)V
     .locals 3
-    .param p0, "e"    # Ljava/lang/RuntimeException;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
-    .line 38
     instance-of v0, p0, Ljava/lang/IllegalStateException;
 
     if-eqz v0, :cond_0
@@ -124,7 +105,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 39
     new-instance v0, Ljava/io/IOException;
 
     invoke-virtual {p0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
@@ -145,17 +125,13 @@
 
     throw v0
 
-    .line 37
     :cond_0
     return-void
 .end method
 
 .method public static wrap(Ljava/io/IOException;)Ljava/lang/RuntimeException;
     .locals 3
-    .param p0, "e"    # Ljava/io/IOException;
 
-    .prologue
-    .line 34
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;

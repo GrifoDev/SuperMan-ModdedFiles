@@ -21,18 +21,14 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 27
     new-instance v0, Ljava/util/concurrent/ConcurrentHashMap;
 
     invoke-direct {v0}, Ljava/util/concurrent/ConcurrentHashMap;-><init>()V
 
     iput-object v0, p0, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/SensorHubParserBean;->mParserMap:Ljava/util/concurrent/ConcurrentHashMap;
 
-    .line 24
     return-void
 .end method
 
@@ -41,10 +37,8 @@
 .method public final checkParserMap()Z
     .locals 2
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 65
     iget-object v1, p0, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/SensorHubParserBean;->mParserMap:Ljava/util/concurrent/ConcurrentHashMap;
 
     if-eqz v1, :cond_0
@@ -69,12 +63,9 @@
 
 .method protected final checkParserMap(Ljava/lang/String;)Z
     .locals 2
-    .param p1, "key"    # Ljava/lang/String;
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 76
     iget-object v1, p0, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/SensorHubParserBean;->mParserMap:Ljava/util/concurrent/ConcurrentHashMap;
 
     if-eqz v1, :cond_0
@@ -105,12 +96,9 @@
 
 .method public final getParser(Ljava/lang/String;)Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/ISensorHubParser;
     .locals 2
-    .param p1, "key"    # Ljava/lang/String;
 
-    .prologue
     const/4 v1, 0x0
 
-    .line 88
     iget-object v0, p0, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/SensorHubParserBean;->mParserMap:Ljava/util/concurrent/ConcurrentHashMap;
 
     if-eqz v0, :cond_0
@@ -123,7 +111,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 91
     iget-object v0, p0, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/SensorHubParserBean;->mParserMap:Ljava/util/concurrent/ConcurrentHashMap;
 
     invoke-virtual {v0, p1}, Ljava/util/concurrent/ConcurrentHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -134,18 +121,13 @@
 
     return-object v0
 
-    .line 89
     :cond_0
     return-object v1
 .end method
 
 .method public final registerParser(Ljava/lang/String;Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/ISensorHubParser;)V
     .locals 1
-    .param p1, "key"    # Ljava/lang/String;
-    .param p2, "parser"    # Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/ISensorHubParser;
 
-    .prologue
-    .line 39
     iget-object v0, p0, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/SensorHubParserBean;->mParserMap:Ljava/util/concurrent/ConcurrentHashMap;
 
     if-eqz v0, :cond_0
@@ -158,26 +140,20 @@
 
     if-eqz v0, :cond_1
 
-    .line 40
     :cond_0
     return-void
 
-    .line 43
     :cond_1
     iget-object v0, p0, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/SensorHubParserBean;->mParserMap:Ljava/util/concurrent/ConcurrentHashMap;
 
     invoke-virtual {v0, p1, p2}, Ljava/util/concurrent/ConcurrentHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 38
     return-void
 .end method
 
 .method public final unregisterParser(Ljava/lang/String;)V
     .locals 1
-    .param p1, "key"    # Ljava/lang/String;
 
-    .prologue
-    .line 53
     iget-object v0, p0, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/SensorHubParserBean;->mParserMap:Ljava/util/concurrent/ConcurrentHashMap;
 
     if-eqz v0, :cond_0
@@ -190,15 +166,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 56
     iget-object v0, p0, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/SensorHubParserBean;->mParserMap:Ljava/util/concurrent/ConcurrentHashMap;
 
     invoke-virtual {v0, p1}, Ljava/util/concurrent/ConcurrentHashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 52
     return-void
 
-    .line 54
     :cond_0
     return-void
 .end method

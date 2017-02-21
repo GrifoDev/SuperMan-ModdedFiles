@@ -30,28 +30,19 @@
 # direct methods
 .method public constructor <init>(FFF)V
     .locals 2
-    .param p1, "base"    # F
-    .param p2, "timeScale"    # F
-    .param p3, "drift"    # F
 
-    .prologue
     const/high16 v1, 0x3f800000    # 1.0f
 
-    .line 367
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 368
     iput p1, p0, Landroid/graphics/drawable/RippleForeground$LogDecelerateInterpolator;->mBase:F
 
-    .line 369
     iput p3, p0, Landroid/graphics/drawable/RippleForeground$LogDecelerateInterpolator;->mDrift:F
 
-    .line 370
     div-float v0, v1, p2
 
     iput v0, p0, Landroid/graphics/drawable/RippleForeground$LogDecelerateInterpolator;->mTimeScale:F
 
-    .line 372
     invoke-direct {p0, v1}, Landroid/graphics/drawable/RippleForeground$LogDecelerateInterpolator;->computeLog(F)F
 
     move-result v0
@@ -60,16 +51,12 @@
 
     iput v0, p0, Landroid/graphics/drawable/RippleForeground$LogDecelerateInterpolator;->mOutputScale:F
 
-    .line 367
     return-void
 .end method
 
 .method private computeLog(F)F
     .locals 4
-    .param p1, "t"    # F
 
-    .prologue
-    .line 376
     iget v0, p0, Landroid/graphics/drawable/RippleForeground$LogDecelerateInterpolator;->mBase:F
 
     float-to-double v0, v0
@@ -105,10 +92,7 @@
 # virtual methods
 .method public getInterpolation(F)F
     .locals 2
-    .param p1, "t"    # F
 
-    .prologue
-    .line 381
     invoke-direct {p0, p1}, Landroid/graphics/drawable/RippleForeground$LogDecelerateInterpolator;->computeLog(F)F
 
     move-result v0

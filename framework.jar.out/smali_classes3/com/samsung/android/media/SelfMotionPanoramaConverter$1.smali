@@ -28,12 +28,7 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/media/SelfMotionPanoramaConverter;Ljava/lang/String;Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/SelfMotionPanoramaInfo;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/samsung/android/media/SelfMotionPanoramaConverter;
-    .param p2, "val$targetPath"    # Ljava/lang/String;
-    .param p3, "val$info"    # Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/SelfMotionPanoramaInfo;
 
-    .prologue
-    .line 138
     iput-object p1, p0, Lcom/samsung/android/media/SelfMotionPanoramaConverter$1;->this$0:Lcom/samsung/android/media/SelfMotionPanoramaConverter;
 
     iput-object p2, p0, Lcom/samsung/android/media/SelfMotionPanoramaConverter$1;->val$targetPath:Ljava/lang/String;
@@ -50,8 +45,6 @@
 .method public run()V
     .locals 3
 
-    .prologue
-    .line 141
     iget-object v0, p0, Lcom/samsung/android/media/SelfMotionPanoramaConverter$1;->this$0:Lcom/samsung/android/media/SelfMotionPanoramaConverter;
 
     iget-object v1, p0, Lcom/samsung/android/media/SelfMotionPanoramaConverter$1;->val$targetPath:Ljava/lang/String;
@@ -60,6 +53,5 @@
 
     invoke-static {v0, v1, v2}, Lcom/samsung/android/media/SelfMotionPanoramaConverter;->-wrap0(Lcom/samsung/android/media/SelfMotionPanoramaConverter;Ljava/lang/String;Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/SelfMotionPanoramaInfo;)V
 
-    .line 140
     return-void
 .end method

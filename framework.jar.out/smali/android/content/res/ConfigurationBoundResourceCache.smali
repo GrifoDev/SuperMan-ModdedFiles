@@ -21,9 +21,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 27
-    .local p0, "this":Landroid/content/res/ConfigurationBoundResourceCache;, "Landroid/content/res/ConfigurationBoundResourceCache<TT;>;"
     invoke-direct {p0}, Landroid/content/res/ThemedResourceCache;-><init>()V
 
     return-void
@@ -33,11 +30,7 @@
 # virtual methods
 .method public bridge synthetic get(JLandroid/content/res/Resources$Theme;)Ljava/lang/Object;
     .locals 1
-    .param p1, "key"    # J
-    .param p3, "theme"    # Landroid/content/res/Resources$Theme;
 
-    .prologue
-    .local p0, "this":Landroid/content/res/ConfigurationBoundResourceCache;, "Landroid/content/res/ConfigurationBoundResourceCache<TT;>;"
     invoke-super {p0, p1, p2, p3}, Landroid/content/res/ThemedResourceCache;->get(JLandroid/content/res/Resources$Theme;)Ljava/lang/Object;
 
     move-result-object v0
@@ -47,9 +40,6 @@
 
 .method public getInstance(JLandroid/content/res/Resources;Landroid/content/res/Resources$Theme;)Ljava/lang/Object;
     .locals 3
-    .param p1, "key"    # J
-    .param p3, "resources"    # Landroid/content/res/Resources;
-    .param p4, "theme"    # Landroid/content/res/Resources$Theme;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -59,39 +49,29 @@
         }
     .end annotation
 
-    .prologue
-    .local p0, "this":Landroid/content/res/ConfigurationBoundResourceCache;, "Landroid/content/res/ConfigurationBoundResourceCache<TT;>;"
     const/4 v1, 0x0
 
-    .line 38
     invoke-virtual {p0, p1, p2, p4}, Landroid/content/res/ConfigurationBoundResourceCache;->get(JLandroid/content/res/Resources$Theme;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/content/res/ConstantState;
 
-    .line 39
-    .local v0, "entry":Landroid/content/res/ConstantState;, "Landroid/content/res/ConstantState<TT;>;"
     if-eqz v0, :cond_0
 
-    .line 40
     invoke-virtual {v0, p3, p4}, Landroid/content/res/ConstantState;->newInstance(Landroid/content/res/Resources;Landroid/content/res/Resources$Theme;)Ljava/lang/Object;
 
     move-result-object v1
 
     return-object v1
 
-    .line 43
     :cond_0
     return-object v1
 .end method
 
 .method public bridge synthetic onConfigurationChange(I)V
     .locals 0
-    .param p1, "configChanges"    # I
 
-    .prologue
-    .local p0, "this":Landroid/content/res/ConfigurationBoundResourceCache;, "Landroid/content/res/ConfigurationBoundResourceCache<TT;>;"
     invoke-super {p0, p1}, Landroid/content/res/ThemedResourceCache;->onConfigurationChange(I)V
 
     return-void
@@ -99,12 +79,7 @@
 
 .method public bridge synthetic put(JLandroid/content/res/Resources$Theme;Ljava/lang/Object;)V
     .locals 1
-    .param p1, "key"    # J
-    .param p3, "theme"    # Landroid/content/res/Resources$Theme;
-    .param p4, "entry"    # Ljava/lang/Object;
 
-    .prologue
-    .local p0, "this":Landroid/content/res/ConfigurationBoundResourceCache;, "Landroid/content/res/ConfigurationBoundResourceCache<TT;>;"
     invoke-super {p0, p1, p2, p3, p4}, Landroid/content/res/ThemedResourceCache;->put(JLandroid/content/res/Resources$Theme;Ljava/lang/Object;)V
 
     return-void
@@ -112,13 +87,7 @@
 
 .method public bridge synthetic put(JLandroid/content/res/Resources$Theme;Ljava/lang/Object;Z)V
     .locals 1
-    .param p1, "key"    # J
-    .param p3, "theme"    # Landroid/content/res/Resources$Theme;
-    .param p4, "entry"    # Ljava/lang/Object;
-    .param p5, "usesTheme"    # Z
 
-    .prologue
-    .local p0, "this":Landroid/content/res/ConfigurationBoundResourceCache;, "Landroid/content/res/ConfigurationBoundResourceCache<TT;>;"
     invoke-super/range {p0 .. p5}, Landroid/content/res/ThemedResourceCache;->put(JLandroid/content/res/Resources$Theme;Ljava/lang/Object;Z)V
 
     return-void
@@ -126,7 +95,6 @@
 
 .method public shouldInvalidateEntry(Landroid/content/res/ConstantState;I)Z
     .locals 1
-    .param p2, "configChanges"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -135,10 +103,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 48
-    .local p0, "this":Landroid/content/res/ConfigurationBoundResourceCache;, "Landroid/content/res/ConfigurationBoundResourceCache<TT;>;"
-    .local p1, "entry":Landroid/content/res/ConstantState;, "Landroid/content/res/ConstantState<TT;>;"
     invoke-virtual {p1}, Landroid/content/res/ConstantState;->getChangingConfigurations()I
 
     move-result v0
@@ -152,15 +116,9 @@
 
 .method public bridge synthetic shouldInvalidateEntry(Ljava/lang/Object;I)Z
     .locals 1
-    .param p1, "entry"    # Ljava/lang/Object;
-    .param p2, "configChanges"    # I
 
-    .prologue
-    .line 47
-    .local p0, "this":Landroid/content/res/ConfigurationBoundResourceCache;, "Landroid/content/res/ConfigurationBoundResourceCache<TT;>;"
     check-cast p1, Landroid/content/res/ConstantState;
 
-    .end local p1    # "entry":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Landroid/content/res/ConfigurationBoundResourceCache;->shouldInvalidateEntry(Landroid/content/res/ConstantState;I)Z
 
     move-result v0

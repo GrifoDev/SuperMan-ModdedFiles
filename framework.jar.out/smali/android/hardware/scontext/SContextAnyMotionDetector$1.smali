@@ -31,8 +31,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 152
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -42,10 +40,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/hardware/scontext/SContextAnyMotionDetector;
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 156
     new-instance v0, Landroid/hardware/scontext/SContextAnyMotionDetector;
 
     invoke-direct {v0, p1}, Landroid/hardware/scontext/SContextAnyMotionDetector;-><init>(Landroid/os/Parcel;)V
@@ -55,10 +50,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 155
     invoke-virtual {p0, p1}, Landroid/hardware/scontext/SContextAnyMotionDetector$1;->createFromParcel(Landroid/os/Parcel;)Landroid/hardware/scontext/SContextAnyMotionDetector;
 
     move-result-object v0
@@ -68,10 +60,7 @@
 
 .method public newArray(I)[Landroid/hardware/scontext/SContextAnyMotionDetector;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 161
     new-array v0, p1, [Landroid/hardware/scontext/SContextAnyMotionDetector;
 
     return-object v0
@@ -79,10 +68,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 160
     invoke-virtual {p0, p1}, Landroid/hardware/scontext/SContextAnyMotionDetector$1;->newArray(I)[Landroid/hardware/scontext/SContextAnyMotionDetector;
 
     move-result-object v0

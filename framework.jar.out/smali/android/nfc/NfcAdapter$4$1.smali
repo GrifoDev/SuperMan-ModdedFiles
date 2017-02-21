@@ -26,11 +26,7 @@
 # direct methods
 .method constructor <init>(Landroid/nfc/NfcAdapter$4;Landroid/nfc/NfcAdapter$OnTagRemovedListener;)V
     .locals 0
-    .param p1, "this$1"    # Landroid/nfc/NfcAdapter$4;
-    .param p2, "val$tagRemovedListener"    # Landroid/nfc/NfcAdapter$OnTagRemovedListener;
 
-    .prologue
-    .line 2042
     iput-object p1, p0, Landroid/nfc/NfcAdapter$4$1;->this$1:Landroid/nfc/NfcAdapter$4;
 
     iput-object p2, p0, Landroid/nfc/NfcAdapter$4$1;->val$tagRemovedListener:Landroid/nfc/NfcAdapter$OnTagRemovedListener;
@@ -45,12 +41,9 @@
 .method public run()V
     .locals 1
 
-    .prologue
-    .line 2045
     iget-object v0, p0, Landroid/nfc/NfcAdapter$4$1;->val$tagRemovedListener:Landroid/nfc/NfcAdapter$OnTagRemovedListener;
 
     invoke-interface {v0}, Landroid/nfc/NfcAdapter$OnTagRemovedListener;->onTagRemoved()V
 
-    .line 2044
     return-void
 .end method

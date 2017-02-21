@@ -23,11 +23,7 @@
 # direct methods
 .method constructor <init>(Landroid/nfc/NfcAdapter;Landroid/nfc/NfcAdapter$NfcUnlockHandler;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/nfc/NfcAdapter;
-    .param p2, "val$unlockHandler"    # Landroid/nfc/NfcAdapter$NfcUnlockHandler;
 
-    .prologue
-    .line 2275
     iput-object p1, p0, Landroid/nfc/NfcAdapter$5;->this$0:Landroid/nfc/NfcAdapter;
 
     iput-object p2, p0, Landroid/nfc/NfcAdapter$5;->val$unlockHandler:Landroid/nfc/NfcAdapter$NfcUnlockHandler;
@@ -41,15 +37,12 @@
 # virtual methods
 .method public onUnlockAttempted(Landroid/nfc/Tag;)Z
     .locals 1
-    .param p1, "tag"    # Landroid/nfc/Tag;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
-    .line 2278
     iget-object v0, p0, Landroid/nfc/NfcAdapter$5;->val$unlockHandler:Landroid/nfc/NfcAdapter$NfcUnlockHandler;
 
     invoke-interface {v0, p1}, Landroid/nfc/NfcAdapter$NfcUnlockHandler;->onUnlockAttempted(Landroid/nfc/Tag;)Z

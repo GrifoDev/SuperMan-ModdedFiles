@@ -23,20 +23,15 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/widget/ToolbarWidgetWrapper;)V
     .locals 1
-    .param p1, "this$0"    # Lcom/android/internal/widget/ToolbarWidgetWrapper;
 
-    .prologue
-    .line 619
     iput-object p1, p0, Lcom/android/internal/widget/ToolbarWidgetWrapper$2;->this$0:Lcom/android/internal/widget/ToolbarWidgetWrapper;
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
 
-    .line 620
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/internal/widget/ToolbarWidgetWrapper$2;->mCanceled:Z
 
-    .line 619
     return-void
 .end method
 
@@ -44,29 +39,21 @@
 # virtual methods
 .method public onAnimationCancel(Landroid/animation/Animator;)V
     .locals 1
-    .param p1, "animation"    # Landroid/animation/Animator;
 
-    .prologue
-    .line 630
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/internal/widget/ToolbarWidgetWrapper$2;->mCanceled:Z
 
-    .line 629
     return-void
 .end method
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
-    .param p1, "animation"    # Landroid/animation/Animator;
 
-    .prologue
-    .line 623
     iget-boolean v0, p0, Lcom/android/internal/widget/ToolbarWidgetWrapper$2;->mCanceled:Z
 
     if-nez v0, :cond_0
 
-    .line 624
     iget-object v0, p0, Lcom/android/internal/widget/ToolbarWidgetWrapper$2;->this$0:Lcom/android/internal/widget/ToolbarWidgetWrapper;
 
     invoke-static {v0}, Lcom/android/internal/widget/ToolbarWidgetWrapper;->-get3(Lcom/android/internal/widget/ToolbarWidgetWrapper;)Landroid/widget/Toolbar;
@@ -77,7 +64,6 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/Toolbar;->setVisibility(I)V
 
-    .line 622
     :cond_0
     return-void
 .end method

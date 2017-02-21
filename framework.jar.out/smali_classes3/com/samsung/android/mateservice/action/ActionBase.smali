@@ -45,8 +45,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 7
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -54,21 +52,17 @@
 
 .method public static convertSysActionToAppAction(I)I
     .locals 7
-    .param p0, "action"    # I
 
-    .prologue
     const/high16 v2, 0x200000
 
     const/4 v6, 0x1
 
     const/4 v5, 0x0
 
-    .line 141
     and-int v1, p0, v2
 
     if-eqz v1, :cond_0
 
-    .line 142
     const-string/jumbo v1, "ActionBase"
 
     const-string/jumbo v2, "convertSysActionToAppAction already converted 0x%x"
@@ -83,10 +77,8 @@
 
     invoke-static {v1, v2, v3}, Lcom/samsung/android/mateservice/MateLog;->v(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    .line 143
     return p0
 
-    .line 145
     :cond_0
     const/high16 v1, 0x100000
 
@@ -94,16 +86,12 @@
 
     if-eqz v1, :cond_1
 
-    .line 146
     const v1, -0x100001
 
     and-int v0, p0, v1
 
-    .line 147
-    .local v0, "ret":I
     or-int/2addr v0, v2
 
-    .line 149
     const-string/jumbo v1, "ActionBase"
 
     const-string/jumbo v2, "convertSysActionToAppAction 0x%x(%d) to 0x%x(%d)"
@@ -142,11 +130,8 @@
 
     invoke-static {v1, v2, v3}, Lcom/samsung/android/mateservice/MateLog;->v(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    .line 150
     return v0
 
-    .line 153
-    .end local v0    # "ret":I
     :cond_1
     const/4 v1, -0x1
 
@@ -155,28 +140,21 @@
 
 .method public static isValidAgentSvcActionFormat(I)Z
     .locals 6
-    .param p0, "action"    # I
 
-    .prologue
     const/4 v5, 0x0
 
-    .line 72
     const/4 v0, 0x0
 
-    .line 80
-    .local v0, "ret":Z
     const/high16 v1, 0x200000
 
     and-int/2addr v1, p0
 
     if-nez v1, :cond_2
 
-    .line 101
     :cond_0
     :goto_0
     if-nez v0, :cond_1
 
-    .line 102
     const-string/jumbo v1, "ActionBase"
 
     const-string/jumbo v2, "invalid action [0x%x]"
@@ -193,25 +171,20 @@
 
     invoke-static {v1, v2, v3}, Lcom/samsung/android/mateservice/MateLog;->e(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    .line 104
     :cond_1
     return v0
 
-    .line 73
     :cond_2
     const/high16 v1, 0xf0000
 
-    .line 85
     and-int/2addr v1, p0
 
     if-eqz v1, :cond_0
 
-    .line 92
     and-int/lit16 v1, p0, 0xfff
 
     if-eqz v1, :cond_0
 
-    .line 96
     const/4 v0, 0x1
 
     goto :goto_0
@@ -219,12 +192,9 @@
 
 .method public static isValidSysSvcActionFormat(I)Z
     .locals 11
-    .param p0, "action"    # I
 
-    .prologue
     const/4 v5, 0x0
 
-    .line 110
     const/high16 v6, -0x1000000
 
     const/high16 v7, -0x10000000
@@ -239,28 +209,18 @@
 
     move-result-object v2
 
-    .line 111
-    .local v2, "mask":[I
     const/high16 v6, 0x100000
 
-    .line 112
     const/high16 v7, 0x70000
 
-    .line 111
     filled-new-array {v5, v6, v7, v5, v5}, [I
 
     move-result-object v4
 
-    .line 114
-    .local v4, "value":[I
     const/4 v1, 0x0
 
-    .line 115
-    .local v1, "index":I
     const/4 v3, 0x0
 
-    .line 116
-    .local v3, "valid":I
     array-length v7, v2
 
     move v6, v5
@@ -270,11 +230,8 @@
 
     aget v0, v2, v6
 
-    .line 117
-    .local v0, "cur":I
     packed-switch v1, :pswitch_data_0
 
-    .line 130
     :pswitch_0
     aget v8, v4, v1
 
@@ -282,20 +239,16 @@
 
     if-ne v8, v9, :cond_0
 
-    .line 131
     add-int/lit8 v3, v3, 0x1
 
-    .line 134
     :cond_0
     :goto_1
     add-int/lit8 v1, v1, 0x1
 
-    .line 116
     add-int/lit8 v6, v6, 0x1
 
     goto :goto_0
 
-    .line 119
     :pswitch_1
     aget v8, v4, v1
 
@@ -305,12 +258,10 @@
 
     if-eqz v8, :cond_0
 
-    .line 120
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
 
-    .line 124
     :pswitch_2
     and-int v8, p0, v0
 
@@ -318,13 +269,10 @@
 
     if-le v8, v9, :cond_0
 
-    .line 125
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
 
-    .line 137
-    .end local v0    # "cur":I
     :cond_1
     add-int/lit8 v6, v3, 0x1
 
@@ -337,7 +285,6 @@
     :cond_2
     return v5
 
-    .line 117
     :pswitch_data_0
     .packed-switch 0x2
         :pswitch_1

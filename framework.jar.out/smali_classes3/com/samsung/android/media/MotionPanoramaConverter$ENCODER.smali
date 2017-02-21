@@ -37,14 +37,12 @@
 .method static constructor <clinit>()V
     .locals 5
 
-    .prologue
     const/4 v4, 0x2
 
     const/4 v3, 0x1
 
     const/4 v2, 0x0
 
-    .line 50
     new-instance v0, Lcom/samsung/android/media/MotionPanoramaConverter$ENCODER;
 
     const-string/jumbo v1, "NATIVE"
@@ -53,7 +51,6 @@
 
     sput-object v0, Lcom/samsung/android/media/MotionPanoramaConverter$ENCODER;->NATIVE:Lcom/samsung/android/media/MotionPanoramaConverter$ENCODER;
 
-    .line 51
     new-instance v0, Lcom/samsung/android/media/MotionPanoramaConverter$ENCODER;
 
     const-string/jumbo v1, "MP4_CONVERTER"
@@ -62,7 +59,6 @@
 
     sput-object v0, Lcom/samsung/android/media/MotionPanoramaConverter$ENCODER;->MP4_CONVERTER:Lcom/samsung/android/media/MotionPanoramaConverter$ENCODER;
 
-    .line 52
     new-instance v0, Lcom/samsung/android/media/MotionPanoramaConverter$ENCODER;
 
     const-string/jumbo v1, "ANDROID_ENCODER"
@@ -71,7 +67,6 @@
 
     sput-object v0, Lcom/samsung/android/media/MotionPanoramaConverter$ENCODER;->ANDROID_ENCODER:Lcom/samsung/android/media/MotionPanoramaConverter$ENCODER;
 
-    .line 48
     const/4 v0, 0x3
 
     new-array v0, v0, [Lcom/samsung/android/media/MotionPanoramaConverter$ENCODER;
@@ -96,8 +91,6 @@
 .method private constructor <init>(Ljava/lang/String;I)V
     .locals 0
 
-    .prologue
-    .line 48
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -105,10 +98,7 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/samsung/android/media/MotionPanoramaConverter$ENCODER;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
-    .prologue
-    .line 48
     const-class v0, Lcom/samsung/android/media/MotionPanoramaConverter$ENCODER;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -123,8 +113,6 @@
 .method public static values()[Lcom/samsung/android/media/MotionPanoramaConverter$ENCODER;
     .locals 1
 
-    .prologue
-    .line 48
     sget-object v0, Lcom/samsung/android/media/MotionPanoramaConverter$ENCODER;->$VALUES:[Lcom/samsung/android/media/MotionPanoramaConverter$ENCODER;
 
     return-object v0

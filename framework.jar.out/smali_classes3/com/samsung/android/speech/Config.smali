@@ -93,7 +93,6 @@
 .method static constructor <clinit>()V
     .locals 8
 
-    .prologue
     const/4 v7, 0x4
 
     const/4 v6, 0x3
@@ -104,110 +103,92 @@
 
     const/4 v3, 0x0
 
-    .line 83
     const/16 v0, 0xf
 
     new-array v0, v0, [Ljava/lang/String;
 
-    .line 84
     const-string/jumbo v1, "models_16k_KOR.bin"
 
     aput-object v1, v0, v3
 
-    .line 85
     const-string/jumbo v1, "models_hci_daco.bin"
 
     aput-object v1, v0, v4
 
-    .line 86
     const-string/jumbo v1, "models_16k_CHI.bin"
 
     aput-object v1, v0, v5
 
-    .line 87
     const-string/jumbo v1, "models_16k_ESP.bin"
 
     aput-object v1, v0, v6
 
-    .line 88
     const-string/jumbo v1, "models_16k_FRA.bin"
 
     aput-object v1, v0, v7
 
-    .line 89
     const-string/jumbo v1, "models_16k_GER.bin"
 
     const/4 v2, 0x5
 
     aput-object v1, v0, v2
 
-    .line 90
     const-string/jumbo v1, "models_16k_ITA.bin"
 
     const/4 v2, 0x6
 
     aput-object v1, v0, v2
 
-    .line 91
     const-string/jumbo v1, "models_16k_JAPANESE_bi.bin"
 
     const/4 v2, 0x7
 
     aput-object v1, v0, v2
 
-    .line 92
     const-string/jumbo v1, "models_16k_RUSSIAN_bi.bin"
 
     const/16 v2, 0x8
 
     aput-object v1, v0, v2
 
-    .line 93
     const-string/jumbo v1, "models_hci_daco.bin"
 
     const/16 v2, 0x9
 
     aput-object v1, v0, v2
 
-    .line 94
     const-string/jumbo v1, "models_hci_daco.bin"
 
     const/16 v2, 0xa
 
     aput-object v1, v0, v2
 
-    .line 95
     const-string/jumbo v1, "models_16k_ESP.bin"
 
     const/16 v2, 0xb
 
     aput-object v1, v0, v2
 
-    .line 96
     const-string/jumbo v1, "models_hci_daco.bin"
 
     const/16 v2, 0xc
 
     aput-object v1, v0, v2
 
-    .line 97
     const-string/jumbo v1, "models_hci_daco.bin"
 
     const/16 v2, 0xd
 
     aput-object v1, v0, v2
 
-    .line 98
     const-string/jumbo v1, "models_hci_daco.bin"
 
     const/16 v2, 0xe
 
     aput-object v1, v0, v2
 
-    .line 83
     sput-object v0, Lcom/samsung/android/speech/Config;->MODELS_SAMSUNG:[Ljava/lang/String;
 
-    .line 105
     const/16 v0, 0xf
 
     new-array v0, v0, [Ljava/lang/String;
@@ -294,7 +275,6 @@
 
     sput-object v0, Lcom/samsung/android/speech/Config;->STRING_SAMSUNG:[Ljava/lang/String;
 
-    .line 106
     const/16 v0, 0xf
 
     new-array v0, v0, [Ljava/lang/String;
@@ -381,7 +361,6 @@
 
     sput-object v0, Lcom/samsung/android/speech/Config;->STRING_SENSORY:[Ljava/lang/String;
 
-    .line 107
     const/16 v0, 0xb
 
     new-array v0, v0, [Ljava/lang/String;
@@ -444,15 +423,12 @@
 
     sput-object v0, Lcom/samsung/android/speech/Config;->STRING_DOMAIN:[Ljava/lang/String;
 
-    .line 6
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 6
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -460,18 +436,13 @@
 
 .method public static GetSamsungModels(I)Ljava/lang/String;
     .locals 2
-    .param p0, "language"    # I
 
-    .prologue
-    .line 147
     const/16 v0, 0xf
 
     if-lt p0, v0, :cond_0
 
-    .line 148
     const/4 p0, 0x1
 
-    .line 149
     :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -508,24 +479,18 @@
 
 .method public static GetSamsungNameList(I)Ljava/lang/String;
     .locals 2
-    .param p0, "domain"    # I
 
-    .prologue
-    .line 154
     const/16 v0, 0xb
 
     if-lt p0, v0, :cond_0
 
-    .line 155
     const/4 v0, 0x0
 
     return-object v0
 
-    .line 157
     :cond_0
     packed-switch p0, :pswitch_data_0
 
-    .line 165
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -556,19 +521,16 @@
 
     return-object v0
 
-    .line 159
     :pswitch_0
     const-string/jumbo v0, "nameList_voicetalk_all.txt"
 
     return-object v0
 
-    .line 162
     :pswitch_1
     const-string/jumbo v0, "nameList_voicetalk_schedule.txt"
 
     return-object v0
 
-    .line 157
     nop
 
     :pswitch_data_0
@@ -580,18 +542,13 @@
 
 .method public static GetSamsungPath(I)Ljava/lang/String;
     .locals 2
-    .param p0, "language"    # I
 
-    .prologue
-    .line 140
     const/16 v0, 0xf
 
     if-lt p0, v0, :cond_0
 
-    .line 141
     const/4 p0, 0x1
 
-    .line 142
     :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -626,37 +583,26 @@
 
 .method public static GetSensoryAM(II)Ljava/lang/String;
     .locals 4
-    .param p0, "language"    # I
-    .param p1, "domain"    # I
 
-    .prologue
-    .line 112
     const/16 v2, 0xf
 
     if-lt p0, v2, :cond_0
 
-    .line 113
     const/4 p0, 0x1
 
-    .line 115
     :cond_0
     const/16 v2, 0xb
 
     if-ge p1, v2, :cond_1
 
-    .line 116
     sget-object v2, Lcom/samsung/android/speech/Config;->STRING_SENSORY:[Ljava/lang/String;
 
     aget-object v1, v2, p0
 
-    .line 117
-    .local v1, "SensoryModelLangauge":Ljava/lang/String;
     sget-object v2, Lcom/samsung/android/speech/Config;->STRING_DOMAIN:[Ljava/lang/String;
 
     aget-object v0, v2, p1
 
-    .line 118
-    .local v0, "SensoryModelDomain":Ljava/lang/String;
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -697,9 +643,6 @@
 
     return-object v2
 
-    .line 121
-    .end local v0    # "SensoryModelDomain":Ljava/lang/String;
-    .end local v1    # "SensoryModelLangauge":Ljava/lang/String;
     :cond_1
     const/4 v2, 0x0
 
@@ -708,37 +651,26 @@
 
 .method public static GetSensoryGRAMMAR(II)Ljava/lang/String;
     .locals 4
-    .param p0, "language"    # I
-    .param p1, "domain"    # I
 
-    .prologue
-    .line 126
     const/16 v2, 0xf
 
     if-lt p0, v2, :cond_0
 
-    .line 127
     const/4 p0, 0x1
 
-    .line 129
     :cond_0
     const/16 v2, 0xb
 
     if-ge p1, v2, :cond_1
 
-    .line 130
     sget-object v2, Lcom/samsung/android/speech/Config;->STRING_SENSORY:[Ljava/lang/String;
 
     aget-object v1, v2, p0
 
-    .line 131
-    .local v1, "SensoryModelLangauge":Ljava/lang/String;
     sget-object v2, Lcom/samsung/android/speech/Config;->STRING_DOMAIN:[Ljava/lang/String;
 
     aget-object v0, v2, p1
 
-    .line 132
-    .local v0, "SensoryModelDomain":Ljava/lang/String;
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -779,9 +711,6 @@
 
     return-object v2
 
-    .line 135
-    .end local v0    # "SensoryModelDomain":Ljava/lang/String;
-    .end local v1    # "SensoryModelLangauge":Ljava/lang/String;
     :cond_1
     const/4 v2, 0x0
 

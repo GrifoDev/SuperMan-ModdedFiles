@@ -10,13 +10,9 @@
 # direct methods
 .method public constructor <init>(Ljava/io/FileDescriptor;)V
     .locals 4
-    .param p1, "fd"    # Ljava/io/FileDescriptor;
 
-    .prologue
-    .line 69
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 70
     if-nez p1, :cond_0
 
     new-instance v0, Ljava/lang/NullPointerException;
@@ -25,7 +21,6 @@
 
     throw v0
 
-    .line 71
     :cond_0
     invoke-static {p1}, Landroid/app/backup/BackupDataOutput;->ctor(Ljava/io/FileDescriptor;)J
 
@@ -33,7 +28,6 @@
 
     iput-wide v0, p0, Landroid/app/backup/BackupDataOutput;->mBackupWriter:J
 
-    .line 72
     iget-wide v0, p0, Landroid/app/backup/BackupDataOutput;->mBackupWriter:J
 
     const-wide/16 v2, 0x0
@@ -42,7 +36,6 @@
 
     if-nez v0, :cond_1
 
-    .line 73
     new-instance v0, Ljava/lang/RuntimeException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -67,7 +60,6 @@
 
     throw v0
 
-    .line 69
     :cond_1
     return-void
 .end method
@@ -97,8 +89,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 121
     :try_start_0
     iget-wide v0, p0, Landroid/app/backup/BackupDataOutput;->mBackupWriter:J
 
@@ -106,63 +96,46 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 123
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
 
-    .line 119
     return-void
 
-    .line 122
     :catchall_0
     move-exception v0
 
-    .line 123
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
 
-    .line 122
     throw v0
 .end method
 
 .method public setKeyPrefix(Ljava/lang/String;)V
     .locals 2
-    .param p1, "keyPrefix"    # Ljava/lang/String;
 
-    .prologue
-    .line 114
     iget-wide v0, p0, Landroid/app/backup/BackupDataOutput;->mBackupWriter:J
 
     invoke-static {v0, v1, p1}, Landroid/app/backup/BackupDataOutput;->setKeyPrefix_native(JLjava/lang/String;)V
 
-    .line 113
     return-void
 .end method
 
 .method public writeEntityData([BI)I
     .locals 4
-    .param p1, "data"    # [B
-    .param p2, "size"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
-    .line 104
     iget-wide v2, p0, Landroid/app/backup/BackupDataOutput;->mBackupWriter:J
 
     invoke-static {v2, v3, p1, p2}, Landroid/app/backup/BackupDataOutput;->writeEntityData_native(J[BI)I
 
     move-result v0
 
-    .line 105
-    .local v0, "result":I
     if-ltz v0, :cond_0
 
-    .line 106
     return v0
 
-    .line 108
     :cond_0
     new-instance v1, Ljava/io/IOException;
 
@@ -195,30 +168,22 @@
 
 .method public writeEntityHeader(Ljava/lang/String;I)I
     .locals 4
-    .param p1, "key"    # Ljava/lang/String;
-    .param p2, "dataSize"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
-    .line 88
     iget-wide v2, p0, Landroid/app/backup/BackupDataOutput;->mBackupWriter:J
 
     invoke-static {v2, v3, p1, p2}, Landroid/app/backup/BackupDataOutput;->writeEntityHeader_native(JLjava/lang/String;I)I
 
     move-result v0
 
-    .line 89
-    .local v0, "result":I
     if-ltz v0, :cond_0
 
-    .line 90
     return v0
 
-    .line 92
     :cond_0
     new-instance v1, Ljava/io/IOException;
 

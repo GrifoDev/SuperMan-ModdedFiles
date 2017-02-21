@@ -52,7 +52,6 @@
 .method static constructor <clinit>()V
     .locals 8
 
-    .prologue
     const/4 v7, 0x4
 
     const/4 v6, 0x3
@@ -63,12 +62,10 @@
 
     const/4 v3, 0x0
 
-    .line 491
     const/4 v0, 0x6
 
     new-array v0, v0, [Ljava/lang/String;
 
-    .line 492
     const-string/jumbo v1, "Top"
 
     aput-object v1, v0, v3
@@ -95,13 +92,10 @@
 
     aput-object v1, v0, v2
 
-    .line 491
     sput-object v0, Landroid/os/BatteryStats$Uid;->PROCESS_STATE_NAMES:[Ljava/lang/String;
 
-    .line 507
     new-array v0, v7, [Ljava/lang/String;
 
-    .line 508
     const-string/jumbo v1, "other"
 
     aput-object v1, v0, v3
@@ -118,18 +112,14 @@
 
     aput-object v1, v0, v6
 
-    .line 507
     sput-object v0, Landroid/os/BatteryStats$Uid;->USER_ACTIVITY_TYPES:[Ljava/lang/String;
 
-    .line 363
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 363
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -270,11 +260,7 @@
 
 .method public getTimeAtGpuSpeed(II)J
     .locals 2
-    .param p1, "step"    # I
-    .param p2, "which"    # I
 
-    .prologue
-    .line 551
     const-wide/16 v0, 0x0
 
     return-wide v0

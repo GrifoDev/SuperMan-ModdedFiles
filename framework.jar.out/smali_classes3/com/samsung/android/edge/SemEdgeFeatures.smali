@@ -13,8 +13,6 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    .prologue
-    .line 39
     invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
 
     move-result-object v1
@@ -25,8 +23,6 @@
 
     move-result-object v0
 
-    .line 40
-    .local v0, "feature":Ljava/lang/String;
     if-eqz v0, :cond_0
 
     const-string/jumbo v1, "edgelighting_v2"
@@ -38,10 +34,8 @@
     :goto_0
     sput-boolean v1, Lcom/samsung/android/edge/SemEdgeFeatures;->EDGE_LIGHTING_ENABLED:Z
 
-    .line 27
     return-void
 
-    .line 40
     :cond_0
     const/4 v1, 0x0
 
@@ -51,8 +45,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

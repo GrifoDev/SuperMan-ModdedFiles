@@ -33,17 +33,13 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 524
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 547
     const/4 v0, 0x4
 
     new-array v0, v0, [C
 
     iput-object v0, p0, Landroid/view/KeyCharacterMap$KeyData;->meta:[C
 
-    .line 524
     return-void
 .end method

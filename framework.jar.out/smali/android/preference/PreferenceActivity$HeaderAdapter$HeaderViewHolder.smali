@@ -26,8 +26,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 306
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -36,7 +34,6 @@
 .method synthetic constructor <init>(Landroid/preference/PreferenceActivity$HeaderAdapter$HeaderViewHolder;)V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Landroid/preference/PreferenceActivity$HeaderAdapter$HeaderViewHolder;-><init>()V
 
     return-void

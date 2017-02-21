@@ -14,21 +14,15 @@
 # direct methods
 .method public constructor <init>(Landroid/graphics/drawable/Drawable;Lcom/samsung/android/graphics/spr/document/SprDocument;)V
     .locals 2
-    .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
-    .param p2, "document"    # Lcom/samsung/android/graphics/spr/document/SprDocument;
 
-    .prologue
-    .line 14
     const/4 v0, 0x2
 
     invoke-direct {p0, v0, p1, p2}, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimation;-><init>(BLandroid/graphics/drawable/Drawable;Lcom/samsung/android/graphics/spr/document/SprDocument;)V
 
-    .line 11
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimationFrame;->mCurrentFrameIndex:I
 
-    .line 15
     iget-object v0, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimation;->mDocument:Lcom/samsung/android/graphics/spr/document/SprDocument;
 
     invoke-virtual {v0}, Lcom/samsung/android/graphics/spr/document/SprDocument;->getFrameAnimationCount()I
@@ -37,7 +31,6 @@
 
     iput v0, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimationFrame;->mFrameCount:I
 
-    .line 16
     iget v0, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimationFrame;->mFrameCount:I
 
     iget-object v1, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimation;->mDocument:Lcom/samsung/android/graphics/spr/document/SprDocument;
@@ -48,7 +41,6 @@
 
     iput v0, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimationFrame;->mTotalFrameCount:I
 
-    .line 13
     return-void
 .end method
 
@@ -57,32 +49,25 @@
 .method public getAnimationIndex()I
     .locals 4
 
-    .prologue
     const/4 v3, 0x2
 
-    .line 30
     const/4 v1, 0x0
 
-    .line 31
-    .local v1, "result":I
     iget-object v2, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimation;->mDocument:Lcom/samsung/android/graphics/spr/document/SprDocument;
 
     iget-byte v2, v2, Lcom/samsung/android/graphics/spr/document/SprDocument;->mRepeatMode:B
 
     if-ne v2, v3, :cond_0
 
-    .line 32
     iget v2, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimationFrame;->mCurrentFrameIndex:I
 
     iget v3, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimationFrame;->mFrameCount:I
 
     rem-int v1, v2, v3
 
-    .line 37
     :goto_0
     return v1
 
-    .line 34
     :cond_0
     iget v2, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimationFrame;->mCurrentFrameIndex:I
 
@@ -92,8 +77,6 @@
 
     rem-int v0, v2, v3
 
-    .line 35
-    .local v0, "index":I
     iget v2, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimationFrame;->mFrameCount:I
 
     if-ge v0, v2, :cond_1
@@ -119,17 +102,14 @@
 .method public run()V
     .locals 6
 
-    .prologue
     const/4 v2, 0x0
 
-    .line 42
     iget v0, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimationFrame;->mCurrentFrameIndex:I
 
     add-int/lit8 v0, v0, 0x1
 
     iput v0, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimationFrame;->mCurrentFrameIndex:I
 
-    .line 44
     iget-object v0, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimation;->mDocument:Lcom/samsung/android/graphics/spr/document/SprDocument;
 
     iget v0, v0, Lcom/samsung/android/graphics/spr/document/SprDocument;->mRepeatCount:I
@@ -142,7 +122,6 @@
 
     if-ge v0, v1, :cond_2
 
-    .line 45
     :cond_0
     iget-object v0, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimation;->mDrawable:Landroid/graphics/drawable/Drawable;
 
@@ -158,7 +137,6 @@
 
     invoke-virtual {v0, p0, v2, v3}, Landroid/graphics/drawable/Drawable;->scheduleSelf(Ljava/lang/Runnable;J)V
 
-    .line 46
     iget-object v0, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimation;->mDocument:Lcom/samsung/android/graphics/spr/document/SprDocument;
 
     iget v0, v0, Lcom/samsung/android/graphics/spr/document/SprDocument;->mRepeatCount:I
@@ -173,7 +151,6 @@
 
     if-le v0, v1, :cond_1
 
-    .line 47
     iget v0, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimationFrame;->mCurrentFrameIndex:I
 
     iget v1, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimationFrame;->mFrameCount:I
@@ -184,17 +161,14 @@
 
     iput v0, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimationFrame;->mCurrentFrameIndex:I
 
-    .line 53
     :cond_1
     :goto_0
     iget-object v0, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimation;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->invalidateSelf()V
 
-    .line 41
     return-void
 
-    .line 50
     :cond_2
     iput-boolean v2, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimation;->mIsRunning:Z
 
@@ -204,16 +178,12 @@
 .method public start()V
     .locals 4
 
-    .prologue
-    .line 21
     invoke-super {p0}, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimation;->start()V
 
-    .line 23
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimationFrame;->mCurrentFrameIndex:I
 
-    .line 25
     iget-object v0, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimation;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
@@ -222,6 +192,5 @@
 
     invoke-virtual {v0, p0, v2, v3}, Landroid/graphics/drawable/Drawable;->scheduleSelf(Ljava/lang/Runnable;J)V
 
-    .line 20
     return-void
 .end method

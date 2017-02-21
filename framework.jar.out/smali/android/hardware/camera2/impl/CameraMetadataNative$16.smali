@@ -21,8 +21,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 981
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -32,7 +30,6 @@
 # virtual methods
 .method public setValue(Landroid/hardware/camera2/impl/CameraMetadataNative;Ljava/lang/Object;)V
     .locals 0
-    .param p1, "metadata"    # Landroid/hardware/camera2/impl/CameraMetadataNative;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -43,14 +40,9 @@
         }
     .end annotation
 
-    .prologue
-    .line 984
-    .local p2, "value":Ljava/lang/Object;, "TT;"
     check-cast p2, [Landroid/graphics/Rect;
 
-    .end local p2    # "value":Ljava/lang/Object;, "TT;"
     invoke-static {p1, p2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->-wrap7(Landroid/hardware/camera2/impl/CameraMetadataNative;[Landroid/graphics/Rect;)Z
 
-    .line 983
     return-void
 .end method

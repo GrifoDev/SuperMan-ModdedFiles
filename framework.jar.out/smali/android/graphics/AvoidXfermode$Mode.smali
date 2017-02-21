@@ -39,12 +39,10 @@
 .method static constructor <clinit>()V
     .locals 4
 
-    .prologue
     const/4 v3, 0x1
 
     const/4 v2, 0x0
 
-    .line 30
     new-instance v0, Landroid/graphics/AvoidXfermode$Mode;
 
     const-string/jumbo v1, "AVOID"
@@ -59,10 +57,8 @@
 
     invoke-direct {v0, v1, v3, v3}, Landroid/graphics/AvoidXfermode$Mode;-><init>(Ljava/lang/String;II)V
 
-    .line 31
     sput-object v0, Landroid/graphics/AvoidXfermode$Mode;->TARGET:Landroid/graphics/AvoidXfermode$Mode;
 
-    .line 29
     const/4 v0, 0x2
 
     new-array v0, v0, [Landroid/graphics/AvoidXfermode$Mode;
@@ -82,25 +78,17 @@
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
-    .param p3, "nativeInt"    # I
 
-    .prologue
-    .line 33
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 34
     iput p3, p0, Landroid/graphics/AvoidXfermode$Mode;->nativeInt:I
 
-    .line 33
     return-void
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroid/graphics/AvoidXfermode$Mode;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
-    .prologue
-    .line 29
     const-class v0, Landroid/graphics/AvoidXfermode$Mode;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -115,8 +103,6 @@
 .method public static values()[Landroid/graphics/AvoidXfermode$Mode;
     .locals 1
 
-    .prologue
-    .line 29
     sget-object v0, Landroid/graphics/AvoidXfermode$Mode;->$VALUES:[Landroid/graphics/AvoidXfermode$Mode;
 
     return-object v0

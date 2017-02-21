@@ -21,11 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/sensorhub/SensorHubManager$ListenerDelegate;Landroid/os/Looper;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/samsung/android/sensorhub/SensorHubManager$ListenerDelegate;
-    .param p2, "$anonymous0"    # Landroid/os/Looper;
 
-    .prologue
-    .line 245
     iput-object p1, p0, Lcom/samsung/android/sensorhub/SensorHubManager$ListenerDelegate$1;->this$1:Lcom/samsung/android/sensorhub/SensorHubManager$ListenerDelegate;
 
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
@@ -37,16 +33,11 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .line 248
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Lcom/samsung/android/sensorhub/SensorHubEvent;
 
-    .line 249
-    .local v0, "t":Lcom/samsung/android/sensorhub/SensorHubEvent;
     iget-object v1, p0, Lcom/samsung/android/sensorhub/SensorHubManager$ListenerDelegate$1;->this$1:Lcom/samsung/android/sensorhub/SensorHubManager$ListenerDelegate;
 
     invoke-static {v1}, Lcom/samsung/android/sensorhub/SensorHubManager$ListenerDelegate;->-get0(Lcom/samsung/android/sensorhub/SensorHubManager$ListenerDelegate;)Lcom/samsung/android/sensorhub/SensorHubEventListener;
@@ -55,13 +46,11 @@
 
     invoke-interface {v1, v0}, Lcom/samsung/android/sensorhub/SensorHubEventListener;->onGetSensorHubData(Lcom/samsung/android/sensorhub/SensorHubEvent;)V
 
-    .line 250
     invoke-static {}, Lcom/samsung/android/sensorhub/SensorHubManager;->-get0()Lcom/samsung/android/sensorhub/SensorHubManager$SensorHubEventPool;
 
     move-result-object v1
 
     invoke-virtual {v1, v0}, Lcom/samsung/android/sensorhub/SensorHubManager$SensorHubEventPool;->returnToPool(Lcom/samsung/android/sensorhub/SensorHubEvent;)V
 
-    .line 247
     return-void
 .end method

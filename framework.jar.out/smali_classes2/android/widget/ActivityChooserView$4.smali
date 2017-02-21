@@ -21,11 +21,7 @@
 # direct methods
 .method constructor <init>(Landroid/widget/ActivityChooserView;Landroid/view/View;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/widget/ActivityChooserView;
-    .param p2, "$anonymous0"    # Landroid/view/View;
 
-    .prologue
-    .line 264
     iput-object p1, p0, Landroid/widget/ActivityChooserView$4;->this$0:Landroid/widget/ActivityChooserView;
 
     invoke-direct {p0, p2}, Landroid/widget/ForwardingListener;-><init>(Landroid/view/View;)V
@@ -38,8 +34,6 @@
 .method public getPopup()Lcom/android/internal/view/menu/ShowableListMenu;
     .locals 1
 
-    .prologue
-    .line 267
     iget-object v0, p0, Landroid/widget/ActivityChooserView$4;->this$0:Landroid/widget/ActivityChooserView;
 
     invoke-static {v0}, Landroid/widget/ActivityChooserView;->-wrap0(Landroid/widget/ActivityChooserView;)Landroid/widget/ListPopupWindow;
@@ -52,13 +46,10 @@
 .method protected onForwardingStarted()Z
     .locals 1
 
-    .prologue
-    .line 272
     iget-object v0, p0, Landroid/widget/ActivityChooserView$4;->this$0:Landroid/widget/ActivityChooserView;
 
     invoke-virtual {v0}, Landroid/widget/ActivityChooserView;->showPopup()Z
 
-    .line 273
     const/4 v0, 0x1
 
     return v0
@@ -67,13 +58,10 @@
 .method protected onForwardingStopped()Z
     .locals 1
 
-    .prologue
-    .line 278
     iget-object v0, p0, Landroid/widget/ActivityChooserView$4;->this$0:Landroid/widget/ActivityChooserView;
 
     invoke-virtual {v0}, Landroid/widget/ActivityChooserView;->dismissPopup()Z
 
-    .line 279
     const/4 v0, 0x1
 
     return v0

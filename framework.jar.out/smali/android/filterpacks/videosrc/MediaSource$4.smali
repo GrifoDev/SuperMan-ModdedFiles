@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/filterpacks/videosrc/MediaSource;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/filterpacks/videosrc/MediaSource;
 
-    .prologue
-    .line 558
     iput-object p1, p0, Landroid/filterpacks/videosrc/MediaSource$4;->this$0:Landroid/filterpacks/videosrc/MediaSource;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,10 +36,7 @@
 # virtual methods
 .method public onFrameAvailable(Landroid/graphics/SurfaceTexture;)V
     .locals 3
-    .param p1, "surfaceTexture"    # Landroid/graphics/SurfaceTexture;
 
-    .prologue
-    .line 560
     iget-object v0, p0, Landroid/filterpacks/videosrc/MediaSource$4;->this$0:Landroid/filterpacks/videosrc/MediaSource;
 
     invoke-static {v0}, Landroid/filterpacks/videosrc/MediaSource;->-get1(Landroid/filterpacks/videosrc/MediaSource;)Z
@@ -57,13 +51,11 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 561
     :cond_0
     iget-object v1, p0, Landroid/filterpacks/videosrc/MediaSource$4;->this$0:Landroid/filterpacks/videosrc/MediaSource;
 
     monitor-enter v1
 
-    .line 562
     :try_start_0
     iget-object v0, p0, Landroid/filterpacks/videosrc/MediaSource$4;->this$0:Landroid/filterpacks/videosrc/MediaSource;
 
@@ -79,7 +71,6 @@
 
     invoke-static {v0, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 563
     :cond_1
     iget-object v0, p0, Landroid/filterpacks/videosrc/MediaSource$4;->this$0:Landroid/filterpacks/videosrc/MediaSource;
 
@@ -87,12 +78,10 @@
 
     invoke-static {v0, v2}, Landroid/filterpacks/videosrc/MediaSource;->-set3(Landroid/filterpacks/videosrc/MediaSource;Z)Z
 
-    .line 564
     iget-object v0, p0, Landroid/filterpacks/videosrc/MediaSource$4;->this$0:Landroid/filterpacks/videosrc/MediaSource;
 
     invoke-virtual {v0}, Ljava/lang/Object;->notify()V
 
-    .line 565
     iget-object v0, p0, Landroid/filterpacks/videosrc/MediaSource$4;->this$0:Landroid/filterpacks/videosrc/MediaSource;
 
     invoke-static {v0}, Landroid/filterpacks/videosrc/MediaSource;->-get1(Landroid/filterpacks/videosrc/MediaSource;)Z
@@ -112,10 +101,8 @@
     :cond_2
     monitor-exit v1
 
-    .line 559
     return-void
 
-    .line 561
     :catchall_0
     move-exception v0
 

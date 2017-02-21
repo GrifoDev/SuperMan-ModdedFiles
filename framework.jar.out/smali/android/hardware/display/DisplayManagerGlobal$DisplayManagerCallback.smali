@@ -21,10 +21,7 @@
 # direct methods
 .method private constructor <init>(Landroid/hardware/display/DisplayManagerGlobal;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/hardware/display/DisplayManagerGlobal;
 
-    .prologue
-    .line 644
     iput-object p1, p0, Landroid/hardware/display/DisplayManagerGlobal$DisplayManagerCallback;->this$0:Landroid/hardware/display/DisplayManagerGlobal;
 
     invoke-direct {p0}, Landroid/hardware/display/IDisplayManagerCallback$Stub;-><init>()V
@@ -34,9 +31,7 @@
 
 .method synthetic constructor <init>(Landroid/hardware/display/DisplayManagerGlobal;Landroid/hardware/display/DisplayManagerGlobal$DisplayManagerCallback;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/hardware/display/DisplayManagerGlobal;
 
-    .prologue
     invoke-direct {p0, p1}, Landroid/hardware/display/DisplayManagerGlobal$DisplayManagerCallback;-><init>(Landroid/hardware/display/DisplayManagerGlobal;)V
 
     return-void
@@ -46,45 +41,30 @@
 # virtual methods
 .method public onDeviceEvent(Landroid/os/Bundle;I)V
     .locals 1
-    .param p1, "msg"    # Landroid/os/Bundle;
-    .param p2, "event"    # I
 
-    .prologue
-    .line 659
     iget-object v0, p0, Landroid/hardware/display/DisplayManagerGlobal$DisplayManagerCallback;->this$0:Landroid/hardware/display/DisplayManagerGlobal;
 
     invoke-static {v0, p1, p2}, Landroid/hardware/display/DisplayManagerGlobal;->-wrap0(Landroid/hardware/display/DisplayManagerGlobal;Landroid/os/Bundle;I)V
 
-    .line 655
     return-void
 .end method
 
 .method public onDisplayEvent(II)V
     .locals 1
-    .param p1, "displayId"    # I
-    .param p2, "event"    # I
 
-    .prologue
-    .line 650
     iget-object v0, p0, Landroid/hardware/display/DisplayManagerGlobal$DisplayManagerCallback;->this$0:Landroid/hardware/display/DisplayManagerGlobal;
 
     invoke-static {v0, p1, p2}, Landroid/hardware/display/DisplayManagerGlobal;->-wrap1(Landroid/hardware/display/DisplayManagerGlobal;II)V
 
-    .line 646
     return-void
 .end method
 
 .method public onDisplayVolumeEvent(Landroid/os/Bundle;I)V
     .locals 1
-    .param p1, "msg"    # Landroid/os/Bundle;
-    .param p2, "event"    # I
 
-    .prologue
-    .line 667
     iget-object v0, p0, Landroid/hardware/display/DisplayManagerGlobal$DisplayManagerCallback;->this$0:Landroid/hardware/display/DisplayManagerGlobal;
 
     invoke-static {v0, p1, p2}, Landroid/hardware/display/DisplayManagerGlobal;->-wrap2(Landroid/hardware/display/DisplayManagerGlobal;Landroid/os/Bundle;I)V
 
-    .line 663
     return-void
 .end method

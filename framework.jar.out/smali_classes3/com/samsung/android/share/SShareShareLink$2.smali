@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/share/SShareShareLink;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/samsung/android/share/SShareShareLink;
 
-    .prologue
-    .line 153
     iput-object p1, p0, Lcom/samsung/android/share/SShareShareLink$2;->this$0:Lcom/samsung/android/share/SShareShareLink;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,14 +36,10 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 1
-    .param p1, "v"    # Landroid/view/View;
 
-    .prologue
-    .line 156
     iget-object v0, p0, Lcom/samsung/android/share/SShareShareLink$2;->this$0:Lcom/samsung/android/share/SShareShareLink;
 
     invoke-virtual {v0}, Lcom/samsung/android/share/SShareShareLink;->shareLinkTipClick()V
 
-    .line 155
     return-void
 .end method

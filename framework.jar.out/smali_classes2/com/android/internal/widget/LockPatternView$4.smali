@@ -26,11 +26,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/widget/LockPatternView;Lcom/android/internal/widget/LockPatternView$CellState;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/internal/widget/LockPatternView;
-    .param p2, "val$cellState"    # Lcom/android/internal/widget/LockPatternView$CellState;
 
-    .prologue
-    .line 747
     iput-object p1, p0, Lcom/android/internal/widget/LockPatternView$4;->this$0:Lcom/android/internal/widget/LockPatternView;
 
     iput-object p2, p0, Lcom/android/internal/widget/LockPatternView$4;->val$cellState:Lcom/android/internal/widget/LockPatternView$CellState;
@@ -45,8 +41,6 @@
 .method public run()V
     .locals 9
 
-    .prologue
-    .line 750
     iget-object v1, p0, Lcom/android/internal/widget/LockPatternView$4;->this$0:Lcom/android/internal/widget/LockPatternView;
 
     iget-object v0, p0, Lcom/android/internal/widget/LockPatternView$4;->this$0:Lcom/android/internal/widget/LockPatternView;
@@ -71,21 +65,17 @@
 
     const-wide/16 v4, 0xc0
 
-    .line 751
     iget-object v0, p0, Lcom/android/internal/widget/LockPatternView$4;->this$0:Lcom/android/internal/widget/LockPatternView;
 
     invoke-static {v0}, Lcom/android/internal/widget/LockPatternView;->-get4(Lcom/android/internal/widget/LockPatternView;)Landroid/view/animation/Interpolator;
 
     move-result-object v6
 
-    .line 752
     iget-object v7, p0, Lcom/android/internal/widget/LockPatternView$4;->val$cellState:Lcom/android/internal/widget/LockPatternView$CellState;
 
     const/4 v8, 0x0
 
-    .line 750
     invoke-static/range {v1 .. v8}, Lcom/android/internal/widget/LockPatternView;->-wrap2(Lcom/android/internal/widget/LockPatternView;FFJLandroid/view/animation/Interpolator;Lcom/android/internal/widget/LockPatternView$CellState;Ljava/lang/Runnable;)V
 
-    .line 749
     return-void
 .end method

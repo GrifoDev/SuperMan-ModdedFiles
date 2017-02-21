@@ -21,8 +21,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 104
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -32,10 +30,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/bluetooth/SdpMnsRecord;
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 106
     new-instance v0, Landroid/bluetooth/SdpMnsRecord;
 
     invoke-direct {v0, p1}, Landroid/bluetooth/SdpMnsRecord;-><init>(Landroid/os/Parcel;)V
@@ -45,10 +40,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 105
     invoke-virtual {p0, p1}, Landroid/bluetooth/SdpMnsRecord$1;->createFromParcel(Landroid/os/Parcel;)Landroid/bluetooth/SdpMnsRecord;
 
     move-result-object v0
@@ -58,10 +50,7 @@
 
 .method public newArray(I)[Landroid/bluetooth/SdpMnsRecord;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 109
     new-array v0, p1, [Landroid/bluetooth/SdpMnsRecord;
 
     return-object v0
@@ -69,10 +58,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 108
     invoke-virtual {p0, p1}, Landroid/bluetooth/SdpMnsRecord$1;->newArray(I)[Landroid/bluetooth/SdpMnsRecord;
 
     move-result-object v0

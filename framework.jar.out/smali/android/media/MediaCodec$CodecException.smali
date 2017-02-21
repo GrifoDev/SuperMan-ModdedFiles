@@ -35,27 +35,17 @@
 # direct methods
 .method constructor <init>(IILjava/lang/String;)V
     .locals 3
-    .param p1, "errorCode"    # I
-    .param p2, "actionCode"    # I
-    .param p3, "detailMessage"    # Ljava/lang/String;
 
-    .prologue
-    .line 2062
     invoke-direct {p0, p3}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    .line 2063
     iput p1, p0, Landroid/media/MediaCodec$CodecException;->mErrorCode:I
 
-    .line 2064
     iput p2, p0, Landroid/media/MediaCodec$CodecException;->mActionCode:I
 
-    .line 2067
     if-gez p1, :cond_0
 
     const-string/jumbo v0, "neg_"
 
-    .line 2069
-    .local v0, "sign":Ljava/lang/String;
     :goto_0
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -83,18 +73,13 @@
 
     move-result-object v1
 
-    .line 2068
     iput-object v1, p0, Landroid/media/MediaCodec$CodecException;->mDiagnosticInfo:Ljava/lang/String;
 
-    .line 2061
     return-void
 
-    .line 2067
-    .end local v0    # "sign":Ljava/lang/String;
     :cond_0
     const-string/jumbo v0, ""
 
-    .restart local v0    # "sign":Ljava/lang/String;
     goto :goto_0
 .end method
 
@@ -103,8 +88,6 @@
 .method public getDiagnosticInfo()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 2104
     iget-object v0, p0, Landroid/media/MediaCodec$CodecException;->mDiagnosticInfo:Ljava/lang/String;
 
     return-object v0
@@ -113,8 +96,6 @@
 .method public getErrorCode()I
     .locals 1
 
-    .prologue
-    .line 2094
     iget v0, p0, Landroid/media/MediaCodec$CodecException;->mErrorCode:I
 
     return v0
@@ -123,8 +104,6 @@
 .method public isRecoverable()Z
     .locals 2
 
-    .prologue
-    .line 2087
     iget v0, p0, Landroid/media/MediaCodec$CodecException;->mActionCode:I
 
     const/4 v1, 0x2
@@ -145,10 +124,8 @@
 .method public isTransient()Z
     .locals 2
 
-    .prologue
     const/4 v0, 0x1
 
-    .line 2078
     iget v1, p0, Landroid/media/MediaCodec$CodecException;->mActionCode:I
 
     if-ne v1, v0, :cond_0

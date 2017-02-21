@@ -50,57 +50,42 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 166
     new-instance v0, Lcom/samsung/android/hardware/context/SemContextActivityTracker$1;
 
     invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextActivityTracker$1;-><init>()V
 
     sput-object v0, Lcom/samsung/android/hardware/context/SemContextActivityTracker;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    .line 113
     return-void
 .end method
 
 .method constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 186
     invoke-direct {p0}, Lcom/samsung/android/hardware/context/SemContextEventContext;-><init>()V
 
-    .line 187
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
     iput-object v0, p0, Lcom/samsung/android/hardware/context/SemContextActivityTracker;->mContext:Landroid/os/Bundle;
 
-    .line 186
     return-void
 .end method
 
 .method constructor <init>(Landroid/os/Parcel;)V
     .locals 0
-    .param p1, "src"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 193
     invoke-direct {p0}, Lcom/samsung/android/hardware/context/SemContextEventContext;-><init>()V
 
-    .line 194
     invoke-direct {p0, p1}, Lcom/samsung/android/hardware/context/SemContextActivityTracker;->readFromParcel(Landroid/os/Parcel;)V
 
-    .line 193
     return-void
 .end method
 
 .method private readFromParcel(Landroid/os/Parcel;)V
     .locals 1
-    .param p1, "src"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 262
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -115,7 +100,6 @@
 
     iput-object v0, p0, Lcom/samsung/android/hardware/context/SemContextActivityTracker;->mContext:Landroid/os/Bundle;
 
-    .line 261
     return-void
 .end method
 
@@ -124,8 +108,6 @@
 .method public getAccuracy()I
     .locals 2
 
-    .prologue
-    .line 227
     iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextActivityTracker;->mContext:Landroid/os/Bundle;
 
     const-string/jumbo v1, "Accuracy"
@@ -140,8 +122,6 @@
 .method public getStatus()I
     .locals 2
 
-    .prologue
-    .line 216
     iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextActivityTracker;->mContext:Landroid/os/Bundle;
 
     const-string/jumbo v1, "ActivityType"
@@ -156,8 +136,6 @@
 .method public getTimeStamp()J
     .locals 2
 
-    .prologue
-    .line 203
     iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextActivityTracker;->mContext:Landroid/os/Bundle;
 
     const-string/jumbo v1, "TimeStamp"
@@ -171,27 +149,18 @@
 
 .method public setValues(Landroid/os/Bundle;)V
     .locals 0
-    .param p1, "context"    # Landroid/os/Bundle;
 
-    .prologue
-    .line 238
     iput-object p1, p0, Lcom/samsung/android/hardware/context/SemContextActivityTracker;->mContext:Landroid/os/Bundle;
 
-    .line 237
     return-void
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .param p1, "dest"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
-    .prologue
-    .line 252
     iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextActivityTracker;->mContext:Landroid/os/Bundle;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
 
-    .line 251
     return-void
 .end method

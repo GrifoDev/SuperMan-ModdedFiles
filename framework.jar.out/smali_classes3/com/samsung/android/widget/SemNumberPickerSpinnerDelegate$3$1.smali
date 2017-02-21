@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate$3;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate$3;
 
-    .prologue
-    .line 1546
     iput-object p1, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate$3$1;->this$1:Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate$3;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,14 +37,10 @@
 .method public run()V
     .locals 3
 
-    .prologue
-    .line 1548
     invoke-static {}, Landroid/view/inputmethod/InputMethodManager;->peekInstance()Landroid/view/inputmethod/InputMethodManager;
 
     move-result-object v0
 
-    .line 1549
-    .local v0, "inputMethodManager":Landroid/view/inputmethod/InputMethodManager;
     if-eqz v0, :cond_0
 
     iget-object v1, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate$3$1;->this$1:Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate$3;
@@ -74,7 +67,6 @@
 
     if-eqz v1, :cond_0
 
-    .line 1550
     iget-object v1, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate$3$1;->this$1:Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate$3;
 
     iget-object v1, v1, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate$3;->this$0:Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;
@@ -87,7 +79,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/view/inputmethod/InputMethodManager;->showSoftInput(Landroid/view/View;I)Z
 
-    .line 1547
     :cond_0
     return-void
 .end method

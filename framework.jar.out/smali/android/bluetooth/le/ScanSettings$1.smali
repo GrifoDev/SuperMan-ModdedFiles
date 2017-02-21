@@ -31,8 +31,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 298
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -42,10 +40,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/bluetooth/le/ScanSettings;
     .locals 2
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 306
     new-instance v0, Landroid/bluetooth/le/ScanSettings;
 
     const/4 v1, 0x0
@@ -57,10 +52,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 305
     invoke-virtual {p0, p1}, Landroid/bluetooth/le/ScanSettings$1;->createFromParcel(Landroid/os/Parcel;)Landroid/bluetooth/le/ScanSettings;
 
     move-result-object v0
@@ -70,10 +62,7 @@
 
 .method public newArray(I)[Landroid/bluetooth/le/ScanSettings;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 301
     new-array v0, p1, [Landroid/bluetooth/le/ScanSettings;
 
     return-object v0
@@ -81,10 +70,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 300
     invoke-virtual {p0, p1}, Landroid/bluetooth/le/ScanSettings$1;->newArray(I)[Landroid/bluetooth/le/ScanSettings;
 
     move-result-object v0

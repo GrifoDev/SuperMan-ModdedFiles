@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/app/EphemeralResolverService;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/internal/app/EphemeralResolverService;
 
-    .prologue
-    .line 59
     iput-object p1, p0, Lcom/android/internal/app/EphemeralResolverService$1;->this$0:Lcom/android/internal/app/EphemeralResolverService;
 
     invoke-direct {p0}, Lcom/android/internal/app/IEphemeralResolver$Stub;-><init>()V
@@ -36,12 +33,7 @@
 # virtual methods
 .method public getEphemeralResolveInfoList(Landroid/os/IRemoteCallback;II)V
     .locals 2
-    .param p1, "callback"    # Landroid/os/IRemoteCallback;
-    .param p2, "digestPrefix"    # I
-    .param p3, "sequence"    # I
 
-    .prologue
-    .line 63
     iget-object v0, p0, Lcom/android/internal/app/EphemeralResolverService$1;->this$0:Lcom/android/internal/app/EphemeralResolverService;
 
     invoke-static {v0}, Lcom/android/internal/app/EphemeralResolverService;->-get0(Lcom/android/internal/app/EphemeralResolverService;)Landroid/os/Handler;
@@ -56,6 +48,5 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    .line 62
     return-void
 .end method

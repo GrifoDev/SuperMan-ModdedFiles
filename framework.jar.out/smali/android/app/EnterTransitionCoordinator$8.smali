@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Landroid/app/EnterTransitionCoordinator;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/app/EnterTransitionCoordinator;
 
-    .prologue
-    .line 609
     iput-object p1, p0, Landroid/app/EnterTransitionCoordinator$8;->this$0:Landroid/app/EnterTransitionCoordinator;
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
@@ -36,14 +33,10 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 1
-    .param p1, "animation"    # Landroid/animation/Animator;
 
-    .prologue
-    .line 612
     iget-object v0, p0, Landroid/app/EnterTransitionCoordinator$8;->this$0:Landroid/app/EnterTransitionCoordinator;
 
     invoke-static {v0}, Landroid/app/EnterTransitionCoordinator;->-wrap1(Landroid/app/EnterTransitionCoordinator;)V
 
-    .line 611
     return-void
 .end method

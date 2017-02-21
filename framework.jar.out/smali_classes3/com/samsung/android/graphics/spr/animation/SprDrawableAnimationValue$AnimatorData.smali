@@ -40,25 +40,20 @@
 .method private constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 21
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 22
     new-instance v0, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase$UpdateParameter;
 
     invoke-direct {v0}, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase$UpdateParameter;-><init>()V
 
     iput-object v0, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimationValue$AnimatorData;->updateParameter:Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase$UpdateParameter;
 
-    .line 21
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimationValue$AnimatorData;)V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimationValue$AnimatorData;-><init>()V
 
     return-void

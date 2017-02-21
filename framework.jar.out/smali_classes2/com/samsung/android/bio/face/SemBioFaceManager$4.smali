@@ -25,12 +25,7 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/bio/face/SemBioFaceManager;Landroid/os/PowerManager;Lcom/samsung/android/bio/face/SemBioFaceManager$LockoutResetCallback;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/samsung/android/bio/face/SemBioFaceManager;
-    .param p2, "val$powerManager"    # Landroid/os/PowerManager;
-    .param p3, "val$callback"    # Lcom/samsung/android/bio/face/SemBioFaceManager$LockoutResetCallback;
 
-    .prologue
-    .line 1561
     iput-object p1, p0, Lcom/samsung/android/bio/face/SemBioFaceManager$4;->this$0:Lcom/samsung/android/bio/face/SemBioFaceManager;
 
     iput-object p2, p0, Lcom/samsung/android/bio/face/SemBioFaceManager$4;->val$powerManager:Landroid/os/PowerManager;
@@ -46,15 +41,12 @@
 # virtual methods
 .method public onLockoutReset(J)V
     .locals 4
-    .param p1, "deviceId"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
-    .line 1565
     iget-object v1, p0, Lcom/samsung/android/bio/face/SemBioFaceManager$4;->val$powerManager:Landroid/os/PowerManager;
 
     const-string/jumbo v2, "lockoutResetCallback"
@@ -65,11 +57,8 @@
 
     move-result-object v0
 
-    .line 1566
-    .local v0, "wakeLock":Landroid/os/PowerManager$WakeLock;
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->acquire()V
 
-    .line 1567
     iget-object v1, p0, Lcom/samsung/android/bio/face/SemBioFaceManager$4;->this$0:Lcom/samsung/android/bio/face/SemBioFaceManager;
 
     invoke-static {v1}, Lcom/samsung/android/bio/face/SemBioFaceManager;->-get4(Lcom/samsung/android/bio/face/SemBioFaceManager;)Landroid/os/Handler;
@@ -84,6 +73,5 @@
 
     invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 1564
     return-void
 .end method

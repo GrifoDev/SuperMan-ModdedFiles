@@ -86,7 +86,6 @@
 .method static constructor <clinit>()V
     .locals 8
 
-    .prologue
     const/4 v7, 0x4
 
     const/4 v6, 0x3
@@ -97,169 +96,138 @@
 
     const/4 v3, 0x0
 
-    .line 72
     const/4 v0, 0x7
 
     new-array v0, v0, [Ljava/lang/String;
 
-    .line 73
     const-string/jumbo v1, "rank"
 
     aput-object v1, v0, v3
 
-    .line 74
     const-string/jumbo v1, "xmlResId"
 
     aput-object v1, v0, v4
 
-    .line 75
     const-string/jumbo v1, "className"
 
     aput-object v1, v0, v5
 
-    .line 76
     const-string/jumbo v1, "iconResId"
 
     aput-object v1, v0, v6
 
-    .line 77
     const-string/jumbo v1, "intentAction"
 
     aput-object v1, v0, v7
 
-    .line 78
     const-string/jumbo v1, "intentTargetPackage"
 
     const/4 v2, 0x5
 
     aput-object v1, v0, v2
 
-    .line 79
     const-string/jumbo v1, "intentTargetClass"
 
     const/4 v2, 0x6
 
     aput-object v1, v0, v2
 
-    .line 72
     sput-object v0, Landroid/provider/SearchIndexablesContract;->INDEXABLES_XML_RES_COLUMNS:[Ljava/lang/String;
 
-    .line 96
     const/16 v0, 0xe
 
     new-array v0, v0, [Ljava/lang/String;
 
-    .line 97
     const-string/jumbo v1, "rank"
 
     aput-object v1, v0, v3
 
-    .line 98
     const-string/jumbo v1, "title"
 
     aput-object v1, v0, v4
 
-    .line 99
     const-string/jumbo v1, "summaryOn"
 
     aput-object v1, v0, v5
 
-    .line 100
     const-string/jumbo v1, "summaryOff"
 
     aput-object v1, v0, v6
 
-    .line 101
     const-string/jumbo v1, "entries"
 
     aput-object v1, v0, v7
 
-    .line 102
     const-string/jumbo v1, "keywords"
 
     const/4 v2, 0x5
 
     aput-object v1, v0, v2
 
-    .line 103
     const-string/jumbo v1, "screenTitle"
 
     const/4 v2, 0x6
 
     aput-object v1, v0, v2
 
-    .line 104
     const-string/jumbo v1, "className"
 
     const/4 v2, 0x7
 
     aput-object v1, v0, v2
 
-    .line 105
     const-string/jumbo v1, "iconResId"
 
     const/16 v2, 0x8
 
     aput-object v1, v0, v2
 
-    .line 106
     const-string/jumbo v1, "intentAction"
 
     const/16 v2, 0x9
 
     aput-object v1, v0, v2
 
-    .line 107
     const-string/jumbo v1, "intentTargetPackage"
 
     const/16 v2, 0xa
 
     aput-object v1, v0, v2
 
-    .line 108
     const-string/jumbo v1, "intentTargetClass"
 
     const/16 v2, 0xb
 
     aput-object v1, v0, v2
 
-    .line 109
     const-string/jumbo v1, "key"
 
     const/16 v2, 0xc
 
     aput-object v1, v0, v2
 
-    .line 110
     const-string/jumbo v1, "user_id"
 
     const/16 v2, 0xd
 
     aput-object v1, v0, v2
 
-    .line 96
     sput-object v0, Landroid/provider/SearchIndexablesContract;->INDEXABLES_RAW_COLUMNS:[Ljava/lang/String;
 
-    .line 134
     new-array v0, v4, [Ljava/lang/String;
 
-    .line 135
     const-string/jumbo v1, "key"
 
     aput-object v1, v0, v3
 
-    .line 134
     sput-object v0, Landroid/provider/SearchIndexablesContract;->NON_INDEXABLES_KEYS_COLUMNS:[Ljava/lang/String;
 
-    .line 28
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

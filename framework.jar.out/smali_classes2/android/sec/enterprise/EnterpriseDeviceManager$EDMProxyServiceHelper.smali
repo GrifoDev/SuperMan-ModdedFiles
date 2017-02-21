@@ -22,8 +22,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 85
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -32,16 +30,12 @@
 .method public static getService()Landroid/sec/enterprise/IEDMProxy;
     .locals 1
 
-    .prologue
-    .line 90
     sget-object v0, Landroid/sec/enterprise/EnterpriseDeviceManager$EDMProxyServiceHelper;->mService:Landroid/sec/enterprise/IEDMProxy;
 
     if-nez v0, :cond_0
 
-    .line 92
     const-string/jumbo v0, "edm_proxy"
 
-    .line 91
     invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
@@ -52,7 +46,6 @@
 
     sput-object v0, Landroid/sec/enterprise/EnterpriseDeviceManager$EDMProxyServiceHelper;->mService:Landroid/sec/enterprise/IEDMProxy;
 
-    .line 94
     :cond_0
     sget-object v0, Landroid/sec/enterprise/EnterpriseDeviceManager$EDMProxyServiceHelper;->mService:Landroid/sec/enterprise/IEDMProxy;
 

@@ -127,8 +127,6 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    .prologue
-    .line 20
     const-string/jumbo v0, "eng"
 
     sget-object v1, Landroid/os/Build;->TYPE:Ljava/lang/String;
@@ -139,7 +137,6 @@
 
     sput-boolean v0, Landroid/sec/clipboard/data/ClipboardConstants;->DEBUG:Z
 
-    .line 21
     const-string/jumbo v0, "eng"
 
     sget-object v1, Landroid/os/Build;->TYPE:Ljava/lang/String;
@@ -150,7 +147,6 @@
 
     sput-boolean v0, Landroid/sec/clipboard/data/ClipboardConstants;->INFO_DEBUG:Z
 
-    .line 49
     const-string/jumbo v0, "1"
 
     const-string/jumbo v1, "ro.config.knox"
@@ -167,7 +163,6 @@
 
     sput-boolean v0, Landroid/sec/clipboard/data/ClipboardConstants;->SUPPORT_KNOX:Z
 
-    .line 50
     const-string/jumbo v0, "ro.config.knox"
 
     invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
@@ -182,7 +177,6 @@
 
     sput-boolean v0, Landroid/sec/clipboard/data/ClipboardConstants;->HAS_KNOX_FEATURE:Z
 
-    .line 86
     const-string/jumbo v0, "content://com.sec.knox.provider/RestrictionPolicy1/isClipboardAllowed"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -191,7 +185,6 @@
 
     sput-object v0, Landroid/sec/clipboard/data/ClipboardConstants;->CLIPBOARD_ALLOWED_URI:Landroid/net/Uri;
 
-    .line 87
     const-string/jumbo v0, "content://com.sec.knox.provider/RestrictionPolicy1/isClipboardShareAllowed"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -200,7 +193,6 @@
 
     sput-object v0, Landroid/sec/clipboard/data/ClipboardConstants;->CLIPBOARD_SHARED_ALLOWED_URI:Landroid/net/Uri;
 
-    .line 91
     const-string/jumbo v0, "content://com.sec.knox.rcppolicyprovider/RCP_DATA"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -209,7 +201,6 @@
 
     sput-object v0, Landroid/sec/clipboard/data/ClipboardConstants;->RCP_CONTENT_URI:Landroid/net/Uri;
 
-    .line 92
     const-string/jumbo v0, "content://com.sec.knox.provider2/ApplicationPolicy/getPackagesFromDisableClipboardBlackList"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -218,7 +209,6 @@
 
     sput-object v0, Landroid/sec/clipboard/data/ClipboardConstants;->CLIPBOARD_ALLOWED_BLACKLIST_APP_URI:Landroid/net/Uri;
 
-    .line 93
     const-string/jumbo v0, "content://com.sec.knox.provider2/ApplicationPolicy/getPackagesFromDisableClipboardWhiteList"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -227,15 +217,12 @@
 
     sput-object v0, Landroid/sec/clipboard/data/ClipboardConstants;->CLIPBOARD_ALLOWED_WHITELIST_APP_URI:Landroid/net/Uri;
 
-    .line 17
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 17
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

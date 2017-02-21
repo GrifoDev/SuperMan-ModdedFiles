@@ -35,17 +35,11 @@
 # direct methods
 .method public constructor <init>(ILjava/lang/String;)V
     .locals 0
-    .param p1, "errorCode"    # I
-    .param p2, "detailMessage"    # Ljava/lang/String;
 
-    .prologue
-    .line 2141
     invoke-direct {p0, p2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    .line 2142
     iput p1, p0, Landroid/media/MediaCodec$CryptoException;->mErrorCode:I
 
-    .line 2140
     return-void
 .end method
 
@@ -54,8 +48,6 @@
 .method public getErrorCode()I
     .locals 1
 
-    .prologue
-    .line 2208
     iget v0, p0, Landroid/media/MediaCodec$CryptoException;->mErrorCode:I
 
     return v0

@@ -26,11 +26,7 @@
 # direct methods
 .method constructor <init>(Landroid/view/inputmethod/InputMethodManager;I)V
     .locals 0
-    .param p1, "this$0"    # Landroid/view/inputmethod/InputMethodManager;
-    .param p2, "val$startInputReason"    # I
 
-    .prologue
-    .line 1612
     iput-object p1, p0, Landroid/view/inputmethod/InputMethodManager$2;->this$0:Landroid/view/inputmethod/InputMethodManager;
 
     iput p2, p0, Landroid/view/inputmethod/InputMethodManager$2;->val$startInputReason:I
@@ -45,10 +41,8 @@
 .method public run()V
     .locals 6
 
-    .prologue
     const/4 v3, 0x0
 
-    .line 1615
     iget-object v0, p0, Landroid/view/inputmethod/InputMethodManager$2;->this$0:Landroid/view/inputmethod/InputMethodManager;
 
     iget v1, p0, Landroid/view/inputmethod/InputMethodManager$2;->val$startInputReason:I
@@ -61,6 +55,5 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/view/inputmethod/InputMethodManager;->startInputInner(ILandroid/os/IBinder;III)Z
 
-    .line 1614
     return-void
 .end method

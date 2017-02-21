@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/widget/MediaController;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/widget/MediaController;
 
-    .prologue
-    .line 402
     iput-object p1, p0, Landroid/widget/MediaController$3;->this$0:Landroid/widget/MediaController;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,12 +37,9 @@
 .method public run()V
     .locals 1
 
-    .prologue
-    .line 405
     iget-object v0, p0, Landroid/widget/MediaController$3;->this$0:Landroid/widget/MediaController;
 
     invoke-virtual {v0}, Landroid/widget/MediaController;->hide()V
 
-    .line 404
     return-void
 .end method

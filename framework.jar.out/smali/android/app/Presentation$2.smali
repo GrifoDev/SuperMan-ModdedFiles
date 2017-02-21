@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Landroid/app/Presentation;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/app/Presentation;
 
-    .prologue
-    .line 362
     iput-object p1, p0, Landroid/app/Presentation$2;->this$0:Landroid/app/Presentation;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -36,19 +33,14 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 1
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .line 365
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 364
     :goto_0
     return-void
 
-    .line 367
     :pswitch_0
     iget-object v0, p0, Landroid/app/Presentation$2;->this$0:Landroid/app/Presentation;
 
@@ -56,7 +48,6 @@
 
     goto :goto_0
 
-    .line 365
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

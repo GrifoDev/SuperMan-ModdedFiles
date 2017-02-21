@@ -27,8 +27,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 791
     invoke-direct {p0}, Landroid/app/SystemServiceRegistry$CachedServiceFetcher;-><init>()V
 
     return-void
@@ -38,24 +36,17 @@
 # virtual methods
 .method public createService(Landroid/app/ContextImpl;)Landroid/net/EthernetManager;
     .locals 4
-    .param p1, "ctx"    # Landroid/app/ContextImpl;
 
-    .prologue
-    .line 794
     const-string/jumbo v2, "ethernet"
 
     invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
-    .line 795
-    .local v0, "b":Landroid/os/IBinder;
     invoke-static {v0}, Landroid/net/IEthernetManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/net/IEthernetManager;
 
     move-result-object v1
 
-    .line 796
-    .local v1, "service":Landroid/net/IEthernetManager;
     new-instance v2, Landroid/net/EthernetManager;
 
     invoke-virtual {p1}, Landroid/app/ContextImpl;->getOuterContext()Landroid/content/Context;
@@ -69,10 +60,7 @@
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
-    .param p1, "ctx"    # Landroid/app/ContextImpl;
 
-    .prologue
-    .line 793
     invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$60;->createService(Landroid/app/ContextImpl;)Landroid/net/EthernetManager;
 
     move-result-object v0

@@ -32,34 +32,25 @@
 .method public constructor <init>()V
     .locals 2
 
-    .prologue
     const/4 v1, 0x0
 
     const/4 v0, 0x0
 
-    .line 1753
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1758
     iput-object v0, p0, Lcom/samsung/android/camera/core/SemCamera$TransformData;->range:[I
 
-    .line 1763
     iput-object v0, p0, Lcom/samsung/android/camera/core/SemCamera$TransformData;->transformX:[I
 
-    .line 1768
     iput-object v0, p0, Lcom/samsung/android/camera/core/SemCamera$TransformData;->transformY:[I
 
-    .line 1773
     iput v1, p0, Lcom/samsung/android/camera/core/SemCamera$TransformData;->faceAngle:I
 
-    .line 1778
     iput v1, p0, Lcom/samsung/android/camera/core/SemCamera$TransformData;->lightIntensity:I
 
-    .line 1783
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/samsung/android/camera/core/SemCamera$TransformData;->id:I
 
-    .line 1753
     return-void
 .end method

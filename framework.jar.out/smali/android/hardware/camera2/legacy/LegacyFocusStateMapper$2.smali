@@ -28,12 +28,7 @@
 # direct methods
 .method constructor <init>(Landroid/hardware/camera2/legacy/LegacyFocusStateMapper;ILjava/lang/String;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/hardware/camera2/legacy/LegacyFocusStateMapper;
-    .param p2, "val$currentAfRun"    # I
-    .param p3, "val$afMode"    # Ljava/lang/String;
 
-    .prologue
-    .line 205
     iput-object p1, p0, Landroid/hardware/camera2/legacy/LegacyFocusStateMapper$2;->this$0:Landroid/hardware/camera2/legacy/LegacyFocusStateMapper;
 
     iput p2, p0, Landroid/hardware/camera2/legacy/LegacyFocusStateMapper$2;->val$currentAfRun:I
@@ -49,11 +44,7 @@
 # virtual methods
 .method public onAutoFocus(ZLandroid/hardware/Camera;)V
     .locals 8
-    .param p1, "success"    # Z
-    .param p2, "camera"    # Landroid/hardware/Camera;
 
-    .prologue
-    .line 208
     iget-object v2, p0, Landroid/hardware/camera2/legacy/LegacyFocusStateMapper$2;->this$0:Landroid/hardware/camera2/legacy/LegacyFocusStateMapper;
 
     invoke-static {v2}, Landroid/hardware/camera2/legacy/LegacyFocusStateMapper;->-get2(Landroid/hardware/camera2/legacy/LegacyFocusStateMapper;)Ljava/lang/Object;
@@ -62,7 +53,6 @@
 
     monitor-enter v3
 
-    .line 209
     :try_start_0
     iget-object v2, p0, Landroid/hardware/camera2/legacy/LegacyFocusStateMapper$2;->this$0:Landroid/hardware/camera2/legacy/LegacyFocusStateMapper;
 
@@ -70,13 +60,10 @@
 
     move-result v0
 
-    .line 217
-    .local v0, "latestAfRun":I
     iget v2, p0, Landroid/hardware/camera2/legacy/LegacyFocusStateMapper$2;->val$currentAfRun:I
 
     if-eq v0, v2, :cond_0
 
-    .line 218
     invoke-static {}, Landroid/hardware/camera2/legacy/LegacyFocusStateMapper;->-get0()Ljava/lang/String;
 
     move-result-object v2
@@ -87,7 +74,6 @@
 
     new-array v5, v5, [Ljava/lang/Object;
 
-    .line 219
     iget v6, p0, Landroid/hardware/camera2/legacy/LegacyFocusStateMapper$2;->val$currentAfRun:I
 
     invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -106,7 +92,6 @@
 
     aput-object v6, v5, v7
 
-    .line 218
     invoke-static {v4, v5}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v4
@@ -117,18 +102,13 @@
 
     monitor-exit v3
 
-    .line 221
     return-void
 
-    .line 224
     :cond_0
     if-eqz p1, :cond_2
 
-    .line 225
     const/4 v1, 0x4
 
-    .line 228
-    .local v1, "newAfState":I
     :goto_0
     :try_start_1
     iget-object v2, p0, Landroid/hardware/camera2/legacy/LegacyFocusStateMapper$2;->val$afMode:Ljava/lang/String;
@@ -141,7 +121,6 @@
 
     if-eqz v4, :cond_3
 
-    .line 241
     :cond_1
     :goto_1
     iget-object v2, p0, Landroid/hardware/camera2/legacy/LegacyFocusStateMapper$2;->this$0:Landroid/hardware/camera2/legacy/LegacyFocusStateMapper;
@@ -152,18 +131,13 @@
 
     monitor-exit v3
 
-    .line 207
     return-void
 
-    .line 226
-    .end local v1    # "newAfState":I
     :cond_2
     const/4 v1, 0x5
 
-    .restart local v1    # "newAfState":I
     goto :goto_0
 
-    .line 228
     :cond_3
     :try_start_2
     const-string/jumbo v4, "continuous-picture"
@@ -190,7 +164,6 @@
 
     if-nez v2, :cond_1
 
-    .line 236
     invoke-static {}, Landroid/hardware/camera2/legacy/LegacyFocusStateMapper;->-get0()Ljava/lang/String;
 
     move-result-object v2
@@ -205,10 +178,8 @@
 
     move-result-object v4
 
-    .line 237
     iget-object v5, p0, Landroid/hardware/camera2/legacy/LegacyFocusStateMapper$2;->val$afMode:Ljava/lang/String;
 
-    .line 236
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
@@ -223,9 +194,6 @@
 
     goto :goto_1
 
-    .line 208
-    .end local v0    # "latestAfRun":I
-    .end local v1    # "newAfState":I
     :catchall_0
     move-exception v2
 

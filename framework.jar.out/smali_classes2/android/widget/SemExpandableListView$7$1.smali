@@ -23,11 +23,7 @@
 # direct methods
 .method constructor <init>(Landroid/widget/SemExpandableListView$7;Ljava/lang/Runnable;)V
     .locals 0
-    .param p1, "this$1"    # Landroid/widget/SemExpandableListView$7;
-    .param p2, "val$animationEndRunnable"    # Ljava/lang/Runnable;
 
-    .prologue
-    .line 1366
     iput-object p1, p0, Landroid/widget/SemExpandableListView$7$1;->this$1:Landroid/widget/SemExpandableListView$7;
 
     iput-object p2, p0, Landroid/widget/SemExpandableListView$7$1;->val$animationEndRunnable:Ljava/lang/Runnable;
@@ -41,10 +37,7 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
-    .param p1, "animation"    # Landroid/animation/Animator;
 
-    .prologue
-    .line 1375
     invoke-static {}, Landroid/widget/SemExpandableListView;->-get4()Ljava/lang/String;
 
     move-result-object v0
@@ -53,28 +46,22 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1376
     iget-object v0, p0, Landroid/widget/SemExpandableListView$7$1;->val$animationEndRunnable:Ljava/lang/Runnable;
 
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
-    .line 1377
     iget-object v0, p0, Landroid/widget/SemExpandableListView$7$1;->this$1:Landroid/widget/SemExpandableListView$7;
 
     iget-object v0, v0, Landroid/widget/SemExpandableListView$7;->this$0:Landroid/widget/SemExpandableListView;
 
     invoke-static {v0}, Landroid/widget/SemExpandableListView;->-wrap10(Landroid/widget/SemExpandableListView;)V
 
-    .line 1374
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
     .locals 2
-    .param p1, "animation"    # Landroid/animation/Animator;
 
-    .prologue
-    .line 1370
     iget-object v0, p0, Landroid/widget/SemExpandableListView$7$1;->this$1:Landroid/widget/SemExpandableListView$7;
 
     iget-object v0, v0, Landroid/widget/SemExpandableListView$7;->this$0:Landroid/widget/SemExpandableListView;
@@ -83,6 +70,5 @@
 
     invoke-static {v0, v1}, Landroid/widget/SemExpandableListView;->-set0(Landroid/widget/SemExpandableListView;I)I
 
-    .line 1369
     return-void
 .end method

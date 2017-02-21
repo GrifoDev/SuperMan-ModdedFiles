@@ -288,49 +288,40 @@
 .method public constructor <init>()V
     .locals 2
 
-    .prologue
     const/16 v1, 0x20
 
-    .line 47
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 49
     new-array v0, v1, [F
 
     iput-object v0, p0, Lcom/android/internal/widget/PointerLocationView$PointerState;->mTraceX:[F
 
-    .line 50
     new-array v0, v1, [F
 
     iput-object v0, p0, Lcom/android/internal/widget/PointerLocationView$PointerState;->mTraceY:[F
 
-    .line 51
     new-array v0, v1, [Z
 
     iput-object v0, p0, Lcom/android/internal/widget/PointerLocationView$PointerState;->mTraceCurrent:[Z
 
-    .line 58
     new-instance v0, Landroid/view/MotionEvent$PointerCoords;
 
     invoke-direct {v0}, Landroid/view/MotionEvent$PointerCoords;-><init>()V
 
     iput-object v0, p0, Lcom/android/internal/widget/PointerLocationView$PointerState;->mCoords:Landroid/view/MotionEvent$PointerCoords;
 
-    .line 75
     new-instance v0, Landroid/view/VelocityTracker$Estimator;
 
     invoke-direct {v0}, Landroid/view/VelocityTracker$Estimator;-><init>()V
 
     iput-object v0, p0, Lcom/android/internal/widget/PointerLocationView$PointerState;->mEstimator:Landroid/view/VelocityTracker$Estimator;
 
-    .line 76
     new-instance v0, Landroid/view/VelocityTracker$Estimator;
 
     invoke-direct {v0}, Landroid/view/VelocityTracker$Estimator;-><init>()V
 
     iput-object v0, p0, Lcom/android/internal/widget/PointerLocationView$PointerState;->mAltEstimator:Landroid/view/VelocityTracker$Estimator;
 
-    .line 47
     return-void
 .end method
 
@@ -338,73 +329,49 @@
 # virtual methods
 .method public addTrace(FFZ)V
     .locals 7
-    .param p1, "x"    # F
-    .param p2, "y"    # F
-    .param p3, "current"    # Z
 
-    .prologue
     const/4 v6, 0x0
 
-    .line 83
     iget-object v4, p0, Lcom/android/internal/widget/PointerLocationView$PointerState;->mTraceX:[F
 
     array-length v3, v4
 
-    .line 84
-    .local v3, "traceCapacity":I
     iget v4, p0, Lcom/android/internal/widget/PointerLocationView$PointerState;->mTraceCount:I
 
     if-ne v4, v3, :cond_0
 
-    .line 85
     mul-int/lit8 v3, v3, 0x2
 
-    .line 86
     new-array v1, v3, [F
 
-    .line 87
-    .local v1, "newTraceX":[F
     iget-object v4, p0, Lcom/android/internal/widget/PointerLocationView$PointerState;->mTraceX:[F
 
     iget v5, p0, Lcom/android/internal/widget/PointerLocationView$PointerState;->mTraceCount:I
 
     invoke-static {v4, v6, v1, v6, v5}, Ljava/lang/System;->arraycopy([FI[FII)V
 
-    .line 88
     iput-object v1, p0, Lcom/android/internal/widget/PointerLocationView$PointerState;->mTraceX:[F
 
-    .line 90
     new-array v2, v3, [F
 
-    .line 91
-    .local v2, "newTraceY":[F
     iget-object v4, p0, Lcom/android/internal/widget/PointerLocationView$PointerState;->mTraceY:[F
 
     iget v5, p0, Lcom/android/internal/widget/PointerLocationView$PointerState;->mTraceCount:I
 
     invoke-static {v4, v6, v2, v6, v5}, Ljava/lang/System;->arraycopy([FI[FII)V
 
-    .line 92
     iput-object v2, p0, Lcom/android/internal/widget/PointerLocationView$PointerState;->mTraceY:[F
 
-    .line 94
     new-array v0, v3, [Z
 
-    .line 95
-    .local v0, "newTraceCurrent":[Z
     iget-object v4, p0, Lcom/android/internal/widget/PointerLocationView$PointerState;->mTraceCurrent:[Z
 
     iget v5, p0, Lcom/android/internal/widget/PointerLocationView$PointerState;->mTraceCount:I
 
     invoke-static {v4, v6, v0, v6, v5}, Ljava/lang/System;->arraycopy([ZI[ZII)V
 
-    .line 96
     iput-object v0, p0, Lcom/android/internal/widget/PointerLocationView$PointerState;->mTraceCurrent:[Z
 
-    .line 99
-    .end local v0    # "newTraceCurrent":[Z
-    .end local v1    # "newTraceX":[F
-    .end local v2    # "newTraceY":[F
     :cond_0
     iget-object v4, p0, Lcom/android/internal/widget/PointerLocationView$PointerState;->mTraceX:[F
 
@@ -412,40 +379,33 @@
 
     aput p1, v4, v5
 
-    .line 100
     iget-object v4, p0, Lcom/android/internal/widget/PointerLocationView$PointerState;->mTraceY:[F
 
     iget v5, p0, Lcom/android/internal/widget/PointerLocationView$PointerState;->mTraceCount:I
 
     aput p2, v4, v5
 
-    .line 101
     iget-object v4, p0, Lcom/android/internal/widget/PointerLocationView$PointerState;->mTraceCurrent:[Z
 
     iget v5, p0, Lcom/android/internal/widget/PointerLocationView$PointerState;->mTraceCount:I
 
     aput-boolean p3, v4, v5
 
-    .line 102
     iget v4, p0, Lcom/android/internal/widget/PointerLocationView$PointerState;->mTraceCount:I
 
     add-int/lit8 v4, v4, 0x1
 
     iput v4, p0, Lcom/android/internal/widget/PointerLocationView$PointerState;->mTraceCount:I
 
-    .line 82
     return-void
 .end method
 
 .method public clearTrace()V
     .locals 1
 
-    .prologue
-    .line 79
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/internal/widget/PointerLocationView$PointerState;->mTraceCount:I
 
-    .line 78
     return-void
 .end method

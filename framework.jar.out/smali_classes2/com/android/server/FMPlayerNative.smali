@@ -13,24 +13,20 @@
 .method static constructor <clinit>()V
     .locals 4
 
-    .prologue
     const/4 v0, 0x1
 
     const/4 v1, 0x0
 
-    .line 16
     const-string/jumbo v2, "fmradio_jni"
 
     invoke-static {v2}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
 
-    .line 17
     sget-object v2, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     const-string/jumbo v3, "FMRadio lib loaded"
 
     invoke-virtual {v2, v3}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 21
     const-string/jumbo v2, "ro.debuggable"
 
     invoke-static {v2, v1}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
@@ -42,37 +38,27 @@
     :goto_0
     sput-boolean v0, Lcom/android/server/FMPlayerNative;->DEBUGGABLE:Z
 
-    .line 13
     return-void
 
     :cond_0
     move v0, v1
 
-    .line 21
     goto :goto_0
 .end method
 
 .method public constructor <init>(Lcom/android/server/FMRadioService;)V
     .locals 0
-    .param p1, "service"    # Lcom/android/server/FMRadioService;
 
-    .prologue
-    .line 24
     invoke-direct {p0, p1}, Lcom/android/server/FMPlayerNativeBase;-><init>(Lcom/android/server/FMRadioService;)V
 
-    .line 25
     sput-object p1, Lcom/android/server/FMPlayerNative;->mService:Lcom/android/server/FMRadioService;
 
-    .line 23
     return-void
 .end method
 
 .method public static notifyAFDataReceived(J)V
     .locals 4
-    .param p0, "af"    # J
 
-    .prologue
-    .line 88
     sget-object v0, Lcom/android/server/FMPlayerNative;->mService:Lcom/android/server/FMRadioService;
 
     invoke-virtual {v0}, Lcom/android/server/FMRadioService;->isAFEnable()Z
@@ -81,10 +67,8 @@
 
     if-nez v0, :cond_0
 
-    .line 89
     return-void
 
-    .line 90
     :cond_0
     sget-boolean v0, Lcom/android/server/FMPlayerNative;->DEBUGGABLE:Z
 
@@ -110,7 +94,6 @@
 
     invoke-static {v0}, Lcom/android/server/FMRadioService;->log(Ljava/lang/String;)V
 
-    .line 91
     :cond_1
     sget-object v0, Lcom/android/server/FMPlayerNative;->mService:Lcom/android/server/FMRadioService;
 
@@ -122,15 +105,12 @@
 
     invoke-virtual {v0, v2, v1}, Lcom/android/server/FMRadioService;->notifyEvent(ILjava/lang/Object;)V
 
-    .line 87
     return-void
 .end method
 
 .method public static notifyAFStarted()V
     .locals 3
 
-    .prologue
-    .line 76
     sget-object v0, Lcom/android/server/FMPlayerNative;->mService:Lcom/android/server/FMRadioService;
 
     invoke-virtual {v0}, Lcom/android/server/FMRadioService;->isAFEnable()Z
@@ -139,16 +119,13 @@
 
     if-nez v0, :cond_0
 
-    .line 77
     return-void
 
-    .line 78
     :cond_0
     const-string/jumbo v0, "NotifyAFStarted :"
 
     invoke-static {v0}, Lcom/android/server/FMRadioService;->log(Ljava/lang/String;)V
 
-    .line 79
     sget-object v0, Lcom/android/server/FMPlayerNative;->mService:Lcom/android/server/FMRadioService;
 
     const/16 v1, 0xd
@@ -157,16 +134,12 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/server/FMRadioService;->notifyEvent(ILjava/lang/Object;)V
 
-    .line 75
     return-void
 .end method
 
 .method public static notifyPIECCEvent(Lcom/android/server/FMPlayerNativeBase$PIECCData;)V
     .locals 2
-    .param p0, "ob"    # Lcom/android/server/FMPlayerNativeBase$PIECCData;
 
-    .prologue
-    .line 62
     sget-object v0, Lcom/android/server/FMPlayerNative;->mService:Lcom/android/server/FMRadioService;
 
     invoke-virtual {v0}, Lcom/android/server/FMRadioService;->isDNSEnable()Z
@@ -175,10 +148,8 @@
 
     if-nez v0, :cond_0
 
-    .line 63
     return-void
 
-    .line 64
     :cond_0
     sget-boolean v0, Lcom/android/server/FMPlayerNative;->DEBUGGABLE:Z
 
@@ -204,7 +175,6 @@
 
     invoke-static {v0}, Lcom/android/server/FMRadioService;->log(Ljava/lang/String;)V
 
-    .line 66
     :cond_1
     sget-object v0, Lcom/android/server/FMPlayerNative;->mService:Lcom/android/server/FMRadioService;
 
@@ -212,16 +182,12 @@
 
     invoke-virtual {v0, v1, p0}, Lcom/android/server/FMRadioService;->notifyEvent(ILjava/lang/Object;)V
 
-    .line 59
     return-void
 .end method
 
 .method public static notifyRDSEvent(Lcom/android/server/FMPlayerNativeBase$RDSData;)V
     .locals 2
-    .param p0, "ob"    # Lcom/android/server/FMPlayerNativeBase$RDSData;
 
-    .prologue
-    .line 42
     sget-object v0, Lcom/android/server/FMPlayerNative;->mService:Lcom/android/server/FMRadioService;
 
     invoke-virtual {v0}, Lcom/android/server/FMRadioService;->isRDSEnable()Z
@@ -230,10 +196,8 @@
 
     if-nez v0, :cond_0
 
-    .line 43
     return-void
 
-    .line 44
     :cond_0
     sget-boolean v0, Lcom/android/server/FMPlayerNative;->DEBUGGABLE:Z
 
@@ -259,7 +223,6 @@
 
     invoke-static {v0}, Lcom/android/server/FMRadioService;->log(Ljava/lang/String;)V
 
-    .line 46
     :cond_1
     sget-object v0, Lcom/android/server/FMPlayerNative;->mService:Lcom/android/server/FMRadioService;
 
@@ -267,16 +230,12 @@
 
     invoke-virtual {v0, v1, p0}, Lcom/android/server/FMRadioService;->notifyEvent(ILjava/lang/Object;)V
 
-    .line 39
     return-void
 .end method
 
 .method public static notifyRTPlusEvent(Lcom/android/server/FMPlayerNativeBase$RTPlusData;)V
     .locals 2
-    .param p0, "ob"    # Lcom/android/server/FMPlayerNativeBase$RTPlusData;
 
-    .prologue
-    .line 52
     sget-object v0, Lcom/android/server/FMPlayerNative;->mService:Lcom/android/server/FMRadioService;
 
     invoke-virtual {v0}, Lcom/android/server/FMRadioService;->isRDSEnable()Z
@@ -285,10 +244,8 @@
 
     if-nez v0, :cond_0
 
-    .line 53
     return-void
 
-    .line 54
     :cond_0
     sget-boolean v0, Lcom/android/server/FMPlayerNative;->DEBUGGABLE:Z
 
@@ -314,7 +271,6 @@
 
     invoke-static {v0}, Lcom/android/server/FMRadioService;->log(Ljava/lang/String;)V
 
-    .line 56
     :cond_1
     sget-object v0, Lcom/android/server/FMPlayerNative;->mService:Lcom/android/server/FMRadioService;
 
@@ -322,7 +278,6 @@
 
     invoke-virtual {v0, v1, p0}, Lcom/android/server/FMRadioService;->notifyEvent(ILjava/lang/Object;)V
 
-    .line 49
     return-void
 .end method
 
@@ -360,16 +315,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 30
     invoke-super {p0}, Lcom/android/server/FMPlayerNativeBase;->finalize()V
 
-    .line 31
     const/4 v0, 0x0
 
     sput-object v0, Lcom/android/server/FMPlayerNative;->mService:Lcom/android/server/FMRadioService;
 
-    .line 29
     return-void
 .end method
 
@@ -412,8 +363,6 @@
 .method public getFrequencyOffsetThreshold()I
     .locals 1
 
-    .prologue
-    .line 281
     const/4 v0, -0x1
 
     return v0
@@ -431,8 +380,6 @@
 .method public getNoisePowerThreshold()I
     .locals 1
 
-    .prologue
-    .line 287
     const/4 v0, -0x1
 
     return v0
@@ -447,8 +394,6 @@
 .method public getPilotPowerThreshold()I
     .locals 1
 
-    .prologue
-    .line 284
     const/4 v0, -0x1
 
     return v0
@@ -505,8 +450,6 @@
 .method public offFMService()V
     .locals 0
 
-    .prologue
-    .line 100
     return-void
 .end method
 
@@ -569,15 +512,11 @@
 
 .method public setFrequencyOffsetThreshold(I)V
     .locals 1
-    .param p1, "value"    # I
 
-    .prologue
-    .line 272
     const-string/jumbo v0, "setFrequencyOffsetThreshold not supported :"
 
     invoke-static {v0}, Lcom/android/server/FMRadioService;->log(Ljava/lang/String;)V
 
-    .line 271
     return-void
 .end method
 
@@ -598,15 +537,11 @@
 
 .method public setNoisePowerThreshold(I)V
     .locals 1
-    .param p1, "value"    # I
 
-    .prologue
-    .line 278
     const-string/jumbo v0, "setNoisePowerThreshold not supported :"
 
     invoke-static {v0}, Lcom/android/server/FMRadioService;->log(Ljava/lang/String;)V
 
-    .line 277
     return-void
 .end method
 
@@ -618,15 +553,11 @@
 
 .method public setPilotPowerThreshold(I)V
     .locals 1
-    .param p1, "value"    # I
 
-    .prologue
-    .line 275
     const-string/jumbo v0, "setPilotPowerThreshold not supported :"
 
     invoke-static {v0}, Lcom/android/server/FMRadioService;->log(Ljava/lang/String;)V
 
-    .line 274
     return-void
 .end method
 

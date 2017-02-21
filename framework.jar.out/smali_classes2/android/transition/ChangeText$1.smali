@@ -31,15 +31,7 @@
 # direct methods
 .method constructor <init>(Landroid/transition/ChangeText;Ljava/lang/CharSequence;Landroid/widget/TextView;Ljava/lang/CharSequence;II)V
     .locals 0
-    .param p1, "this$0"    # Landroid/transition/ChangeText;
-    .param p2, "val$startText"    # Ljava/lang/CharSequence;
-    .param p3, "val$view"    # Landroid/widget/TextView;
-    .param p4, "val$endText"    # Ljava/lang/CharSequence;
-    .param p5, "val$endSelectionStart"    # I
-    .param p6, "val$endSelectionEnd"    # I
 
-    .prologue
-    .line 194
     iput-object p1, p0, Landroid/transition/ChangeText$1;->this$0:Landroid/transition/ChangeText;
 
     iput-object p2, p0, Landroid/transition/ChangeText$1;->val$startText:Ljava/lang/CharSequence;
@@ -61,10 +53,7 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 4
-    .param p1, "animation"    # Landroid/animation/Animator;
 
-    .prologue
-    .line 197
     iget-object v0, p0, Landroid/transition/ChangeText$1;->val$startText:Ljava/lang/CharSequence;
 
     iget-object v1, p0, Landroid/transition/ChangeText$1;->val$view:Landroid/widget/TextView;
@@ -79,21 +68,18 @@
 
     if-eqz v0, :cond_0
 
-    .line 199
     iget-object v0, p0, Landroid/transition/ChangeText$1;->val$view:Landroid/widget/TextView;
 
     iget-object v1, p0, Landroid/transition/ChangeText$1;->val$endText:Ljava/lang/CharSequence;
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 200
     iget-object v0, p0, Landroid/transition/ChangeText$1;->val$view:Landroid/widget/TextView;
 
     instance-of v0, v0, Landroid/widget/EditText;
 
     if-eqz v0, :cond_0
 
-    .line 201
     iget-object v1, p0, Landroid/transition/ChangeText$1;->this$0:Landroid/transition/ChangeText;
 
     iget-object v0, p0, Landroid/transition/ChangeText$1;->val$view:Landroid/widget/TextView;
@@ -106,7 +92,6 @@
 
     invoke-static {v1, v0, v2, v3}, Landroid/transition/ChangeText;->-wrap0(Landroid/transition/ChangeText;Landroid/widget/EditText;II)V
 
-    .line 196
     :cond_0
     return-void
 .end method

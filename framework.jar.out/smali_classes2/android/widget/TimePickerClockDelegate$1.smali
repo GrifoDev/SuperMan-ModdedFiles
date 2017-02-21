@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/widget/TimePickerClockDelegate;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/widget/TimePickerClockDelegate;
 
-    .prologue
-    .line 702
     iput-object p1, p0, Landroid/widget/TimePickerClockDelegate$1;->this$0:Landroid/widget/TimePickerClockDelegate;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,19 +36,13 @@
 # virtual methods
 .method public onValueSelected(IIZ)V
     .locals 5
-    .param p1, "pickerIndex"    # I
-    .param p2, "newValue"    # I
-    .param p3, "autoAdvance"    # Z
 
-    .prologue
     const/4 v2, 0x0
 
     const/4 v3, 0x1
 
-    .line 705
     packed-switch p1, :pswitch_data_0
 
-    .line 722
     :cond_0
     :goto_0
     iget-object v1, p0, Landroid/widget/TimePickerClockDelegate$1;->this$0:Landroid/widget/TimePickerClockDelegate;
@@ -60,7 +51,6 @@
 
     if-eqz v1, :cond_1
 
-    .line 723
     iget-object v1, p0, Landroid/widget/TimePickerClockDelegate$1;->this$0:Landroid/widget/TimePickerClockDelegate;
 
     iget-object v1, v1, Landroid/widget/TimePicker$AbstractTimePickerDelegate;->mOnTimeChangedListener:Landroid/widget/TimePicker$OnTimeChangedListener;
@@ -83,11 +73,9 @@
 
     invoke-interface {v1, v2, v3, v4}, Landroid/widget/TimePicker$OnTimeChangedListener;->onTimeChanged(Landroid/widget/TimePicker;II)V
 
-    .line 704
     :cond_1
     return-void
 
-    .line 707
     :pswitch_0
     iget-object v1, p0, Landroid/widget/TimePickerClockDelegate$1;->this$0:Landroid/widget/TimePickerClockDelegate;
 
@@ -99,7 +87,6 @@
 
     move v0, p3
 
-    .line 708
     :goto_1
     iget-object v4, p0, Landroid/widget/TimePickerClockDelegate$1;->this$0:Landroid/widget/TimePickerClockDelegate;
 
@@ -110,15 +97,12 @@
     :goto_2
     invoke-static {v4, p2, v3, v1}, Landroid/widget/TimePickerClockDelegate;->-wrap2(Landroid/widget/TimePickerClockDelegate;IZZ)V
 
-    .line 709
     if-eqz v0, :cond_0
 
-    .line 710
     iget-object v1, p0, Landroid/widget/TimePickerClockDelegate$1;->this$0:Landroid/widget/TimePickerClockDelegate;
 
     invoke-static {v1, v3, v3, v2}, Landroid/widget/TimePickerClockDelegate;->-wrap1(Landroid/widget/TimePickerClockDelegate;IZZ)V
 
-    .line 711
     iget-object v1, p0, Landroid/widget/TimePickerClockDelegate$1;->this$0:Landroid/widget/TimePickerClockDelegate;
 
     iget-object v1, v1, Landroid/widget/TimePicker$AbstractTimePickerDelegate;->mDelegator:Landroid/widget/TimePicker;
@@ -155,21 +139,16 @@
 
     goto :goto_0
 
-    .line 707
     :cond_2
     const/4 v0, 0x0
 
-    .local v0, "isTransition":Z
     goto :goto_1
 
-    .end local v0    # "isTransition":Z
     :cond_3
     move v1, v3
 
-    .line 708
     goto :goto_2
 
-    .line 715
     :pswitch_1
     iget-object v1, p0, Landroid/widget/TimePickerClockDelegate$1;->this$0:Landroid/widget/TimePickerClockDelegate;
 
@@ -177,7 +156,6 @@
 
     goto :goto_0
 
-    .line 718
     :pswitch_2
     iget-object v1, p0, Landroid/widget/TimePickerClockDelegate$1;->this$0:Landroid/widget/TimePickerClockDelegate;
 
@@ -185,7 +163,6 @@
 
     goto :goto_0
 
-    .line 705
     nop
 
     :pswitch_data_0

@@ -165,10 +165,7 @@
 # direct methods
 .method static synthetic -wrap0(Landroid/util/Range;Landroid/media/MediaFormat;)Z
     .locals 1
-    .param p0, "bitrateRange"    # Landroid/util/Range;
-    .param p1, "format"    # Landroid/media/MediaFormat;
 
-    .prologue
     invoke-static {p0, p1}, Landroid/media/MediaCodecInfo$CodecCapabilities;->supportsBitrate(Landroid/util/Range;Landroid/media/MediaFormat;)Z
 
     move-result v0
@@ -179,19 +176,16 @@
 .method static constructor <clinit>()V
     .locals 7
 
-    .prologue
     const/4 v6, 0x2
 
     const/4 v5, 0x1
 
     const/4 v4, 0x0
 
-    .line 488
     const/4 v0, 0x3
 
     new-array v0, v0, [Landroid/media/MediaCodecInfo$Feature;
 
-    .line 489
     new-instance v1, Landroid/media/MediaCodecInfo$Feature;
 
     const-string/jumbo v2, "adaptive-playback"
@@ -200,7 +194,6 @@
 
     aput-object v1, v0, v4
 
-    .line 490
     new-instance v1, Landroid/media/MediaCodecInfo$Feature;
 
     const-string/jumbo v2, "secure-playback"
@@ -209,7 +202,6 @@
 
     aput-object v1, v0, v5
 
-    .line 491
     new-instance v1, Landroid/media/MediaCodecInfo$Feature;
 
     const-string/jumbo v2, "tunneled-playback"
@@ -220,13 +212,10 @@
 
     aput-object v1, v0, v6
 
-    .line 488
     sput-object v0, Landroid/media/MediaCodecInfo$CodecCapabilities;->decoderFeatures:[Landroid/media/MediaCodecInfo$Feature;
 
-    .line 494
     new-array v0, v5, [Landroid/media/MediaCodecInfo$Feature;
 
-    .line 495
     new-instance v1, Landroid/media/MediaCodecInfo$Feature;
 
     const-string/jumbo v2, "intra-refresh"
@@ -235,18 +224,14 @@
 
     aput-object v1, v0, v4
 
-    .line 494
     sput-object v0, Landroid/media/MediaCodecInfo$CodecCapabilities;->encoderFeatures:[Landroid/media/MediaCodecInfo$Feature;
 
-    .line 148
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 149
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -254,42 +239,27 @@
 
 .method constructor <init>([Landroid/media/MediaCodecInfo$CodecProfileLevel;[IZILandroid/media/MediaFormat;Landroid/media/MediaFormat;)V
     .locals 13
-    .param p1, "profLevs"    # [Landroid/media/MediaCodecInfo$CodecProfileLevel;
-    .param p2, "colFmts"    # [I
-    .param p3, "encoder"    # Z
-    .param p4, "flags"    # I
-    .param p5, "defaultFormat"    # Landroid/media/MediaFormat;
-    .param p6, "info"    # Landroid/media/MediaFormat;
 
-    .prologue
-    .line 880
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 883
     invoke-virtual/range {p6 .. p6}, Landroid/media/MediaFormat;->getMap()Ljava/util/Map;
 
     move-result-object v4
 
-    .line 884
-    .local v4, "map":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
     iput-object p2, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->colorFormats:[I
 
-    .line 885
     move/from16 v0, p4
 
     iput v0, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->mFlagsVerified:I
 
-    .line 886
     move-object/from16 v0, p5
 
     iput-object v0, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->mDefaultFormat:Landroid/media/MediaFormat;
 
-    .line 887
     move-object/from16 v0, p6
 
     iput-object v0, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->mCapabilitiesInfo:Landroid/media/MediaFormat;
 
-    .line 888
     iget-object v8, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->mDefaultFormat:Landroid/media/MediaFormat;
 
     const-string/jumbo v9, "mime"
@@ -300,7 +270,6 @@
 
     iput-object v8, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->mMime:Ljava/lang/String;
 
-    .line 892
     array-length v8, p1
 
     if-nez v8, :cond_0
@@ -315,41 +284,31 @@
 
     if-eqz v8, :cond_0
 
-    .line 893
     new-instance v6, Landroid/media/MediaCodecInfo$CodecProfileLevel;
 
     invoke-direct {v6}, Landroid/media/MediaCodecInfo$CodecProfileLevel;-><init>()V
 
-    .line 894
-    .local v6, "profLev":Landroid/media/MediaCodecInfo$CodecProfileLevel;
     const/4 v8, 0x1
 
     iput v8, v6, Landroid/media/MediaCodecInfo$CodecProfileLevel;->profile:I
 
-    .line 895
     invoke-static/range {p6 .. p6}, Landroid/media/MediaCodecInfo$VideoCapabilities;->equivalentVP9Level(Landroid/media/MediaFormat;)I
 
     move-result v8
 
     iput v8, v6, Landroid/media/MediaCodecInfo$CodecProfileLevel;->level:I
 
-    .line 896
     const/4 v8, 0x1
 
     new-array p1, v8, [Landroid/media/MediaCodecInfo$CodecProfileLevel;
 
-    .end local p1    # "profLevs":[Landroid/media/MediaCodecInfo$CodecProfileLevel;
     const/4 v8, 0x0
 
     aput-object v6, p1, v8
 
-    .line 898
-    .end local v6    # "profLev":Landroid/media/MediaCodecInfo$CodecProfileLevel;
-    .restart local p1    # "profLevs":[Landroid/media/MediaCodecInfo$CodecProfileLevel;
     :cond_0
     iput-object p1, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->profileLevels:[Landroid/media/MediaCodecInfo$CodecProfileLevel;
 
-    .line 900
     iget-object v8, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->mMime:Ljava/lang/String;
 
     invoke-virtual {v8}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
@@ -364,7 +323,6 @@
 
     if-eqz v8, :cond_3
 
-    .line 901
     move-object/from16 v0, p6
 
     invoke-static {v0, p0}, Landroid/media/MediaCodecInfo$AudioCapabilities;->create(Landroid/media/MediaFormat;Landroid/media/MediaCodecInfo$CodecCapabilities;)Landroid/media/MediaCodecInfo$AudioCapabilities;
@@ -373,19 +331,16 @@
 
     iput-object v8, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->mAudioCaps:Landroid/media/MediaCodecInfo$AudioCapabilities;
 
-    .line 902
     iget-object v8, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->mAudioCaps:Landroid/media/MediaCodecInfo$AudioCapabilities;
 
     iget-object v9, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->mDefaultFormat:Landroid/media/MediaFormat;
 
     invoke-virtual {v8, v9}, Landroid/media/MediaCodecInfo$AudioCapabilities;->setDefaultFormat(Landroid/media/MediaFormat;)V
 
-    .line 906
     :cond_1
     :goto_0
     if-eqz p3, :cond_2
 
-    .line 907
     move-object/from16 v0, p6
 
     invoke-static {v0, p0}, Landroid/media/MediaCodecInfo$EncoderCapabilities;->create(Landroid/media/MediaFormat;Landroid/media/MediaCodecInfo$CodecCapabilities;)Landroid/media/MediaCodecInfo$EncoderCapabilities;
@@ -394,21 +349,17 @@
 
     iput-object v8, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->mEncoderCaps:Landroid/media/MediaCodecInfo$EncoderCapabilities;
 
-    .line 908
     iget-object v8, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->mEncoderCaps:Landroid/media/MediaCodecInfo$EncoderCapabilities;
 
     iget-object v9, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->mDefaultFormat:Landroid/media/MediaFormat;
 
     invoke-virtual {v8, v9}, Landroid/media/MediaCodecInfo$EncoderCapabilities;->setDefaultFormat(Landroid/media/MediaFormat;)V
 
-    .line 911
     :cond_2
     invoke-static {}, Landroid/media/MediaCodecList;->getGlobalSettings()Ljava/util/Map;
 
     move-result-object v2
 
-    .line 913
-    .local v2, "global":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
     const-string/jumbo v8, "max-concurrent-instances"
 
     invoke-interface {v2, v8}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -417,14 +368,12 @@
 
     const/16 v9, 0x20
 
-    .line 912
     invoke-static {v8, v9}, Landroid/media/Utils;->parseIntSafely(Ljava/lang/Object;I)I
 
     move-result v8
 
     iput v8, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->mMaxSupportedInstances:I
 
-    .line 916
     const-string/jumbo v8, "max-concurrent-instances"
 
     invoke-interface {v4, v8}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -433,13 +382,10 @@
 
     iget v9, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->mMaxSupportedInstances:I
 
-    .line 915
     invoke-static {v8, v9}, Landroid/media/Utils;->parseIntSafely(Ljava/lang/Object;I)I
 
     move-result v5
 
-    .line 918
-    .local v5, "maxInstances":I
     const/4 v8, 0x1
 
     invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -470,10 +416,8 @@
 
     move-result v8
 
-    .line 917
     iput v8, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->mMaxSupportedInstances:I
 
-    .line 920
     invoke-direct {p0}, Landroid/media/MediaCodecInfo$CodecCapabilities;->getValidFeatures()[Landroid/media/MediaCodecInfo$Feature;
 
     move-result-object v9
@@ -487,8 +431,6 @@
 
     aget-object v1, v9, v8
 
-    .line 921
-    .local v1, "feat":Landroid/media/MediaCodecInfo$Feature;
     new-instance v11, Ljava/lang/StringBuilder;
 
     invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
@@ -509,30 +451,19 @@
 
     move-result-object v3
 
-    .line 922
-    .local v3, "key":Ljava/lang/String;
     invoke-interface {v4, v3}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v7
 
     check-cast v7, Ljava/lang/Integer;
 
-    .line 923
-    .local v7, "yesNo":Ljava/lang/Integer;
     if-nez v7, :cond_4
 
-    .line 920
     :goto_2
     add-int/lit8 v8, v8, 0x1
 
     goto :goto_1
 
-    .line 903
-    .end local v1    # "feat":Landroid/media/MediaCodecInfo$Feature;
-    .end local v2    # "global":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
-    .end local v3    # "key":Ljava/lang/String;
-    .end local v5    # "maxInstances":I
-    .end local v7    # "yesNo":Ljava/lang/Integer;
     :cond_3
     iget-object v8, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->mMime:Ljava/lang/String;
 
@@ -548,7 +479,6 @@
 
     if-eqz v8, :cond_1
 
-    .line 904
     move-object/from16 v0, p6
 
     invoke-static {v0, p0}, Landroid/media/MediaCodecInfo$VideoCapabilities;->create(Landroid/media/MediaFormat;Landroid/media/MediaCodecInfo$CodecCapabilities;)Landroid/media/MediaCodecInfo$VideoCapabilities;
@@ -559,12 +489,6 @@
 
     goto/16 :goto_0
 
-    .line 926
-    .restart local v1    # "feat":Landroid/media/MediaCodecInfo$Feature;
-    .restart local v2    # "global":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
-    .restart local v3    # "key":Ljava/lang/String;
-    .restart local v5    # "maxInstances":I
-    .restart local v7    # "yesNo":Ljava/lang/Integer;
     :cond_4
     invoke-virtual {v7}, Ljava/lang/Integer;->intValue()I
 
@@ -572,7 +496,6 @@
 
     if-lez v11, :cond_5
 
-    .line 927
     iget v11, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->mFlagsRequired:I
 
     iget v12, v1, Landroid/media/MediaCodecInfo$Feature;->mValue:I
@@ -581,7 +504,6 @@
 
     iput v11, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->mFlagsRequired:I
 
-    .line 929
     :cond_5
     iget v11, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->mFlagsSupported:I
 
@@ -591,7 +513,6 @@
 
     iput v11, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->mFlagsSupported:I
 
-    .line 930
     iget-object v11, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->mDefaultFormat:Landroid/media/MediaFormat;
 
     const/4 v12, 0x1
@@ -600,20 +521,12 @@
 
     goto :goto_2
 
-    .line 882
-    .end local v1    # "feat":Landroid/media/MediaCodecInfo$Feature;
-    .end local v3    # "key":Ljava/lang/String;
-    .end local v7    # "yesNo":Ljava/lang/Integer;
     :cond_6
     return-void
 .end method
 
 .method constructor <init>([Landroid/media/MediaCodecInfo$CodecProfileLevel;[IZILjava/util/Map;Ljava/util/Map;)V
     .locals 7
-    .param p1, "profLevs"    # [Landroid/media/MediaCodecInfo$CodecProfileLevel;
-    .param p2, "colFmts"    # [I
-    .param p3, "encoder"    # Z
-    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -632,15 +545,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 874
-    .local p5, "defaultFormatMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
-    .local p6, "capabilitiesMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
     new-instance v5, Landroid/media/MediaFormat;
 
     invoke-direct {v5, p5}, Landroid/media/MediaFormat;-><init>(Ljava/util/Map;)V
 
-    .line 875
     new-instance v6, Landroid/media/MediaFormat;
 
     invoke-direct {v6, p6}, Landroid/media/MediaFormat;-><init>(Ljava/util/Map;)V
@@ -655,22 +563,16 @@
 
     move v4, p4
 
-    .line 873
     invoke-direct/range {v0 .. v6}, Landroid/media/MediaCodecInfo$CodecCapabilities;-><init>([Landroid/media/MediaCodecInfo$CodecProfileLevel;[IZILandroid/media/MediaFormat;Landroid/media/MediaFormat;)V
 
-    .line 872
     return-void
 .end method
 
 .method private checkFeature(Ljava/lang/String;I)Z
     .locals 6
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "flags"    # I
 
-    .prologue
     const/4 v1, 0x0
 
-    .line 516
     invoke-direct {p0}, Landroid/media/MediaCodecInfo$CodecCapabilities;->getValidFeatures()[Landroid/media/MediaCodecInfo$Feature;
 
     move-result-object v3
@@ -684,8 +586,6 @@
 
     aget-object v0, v3, v2
 
-    .line 517
-    .local v0, "feat":Landroid/media/MediaCodecInfo$Feature;
     iget-object v5, v0, Landroid/media/MediaCodecInfo$Feature;->mName:Ljava/lang/String;
 
     invoke-virtual {v5, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -694,7 +594,6 @@
 
     if-eqz v5, :cond_1
 
-    .line 518
     iget v2, v0, Landroid/media/MediaCodecInfo$Feature;->mValue:I
 
     and-int/2addr v2, p2
@@ -706,82 +605,60 @@
     :cond_0
     return v1
 
-    .line 516
     :cond_1
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 521
-    .end local v0    # "feat":Landroid/media/MediaCodecInfo$Feature;
     :cond_2
     return v1
 .end method
 
 .method public static createFromProfileLevel(Ljava/lang/String;II)Landroid/media/MediaCodecInfo$CodecCapabilities;
     .locals 8
-    .param p0, "mime"    # Ljava/lang/String;
-    .param p1, "profile"    # I
-    .param p2, "level"    # I
 
-    .prologue
     const/4 v3, 0x1
 
     const/4 v4, 0x0
 
-    .line 853
     new-instance v7, Landroid/media/MediaCodecInfo$CodecProfileLevel;
 
     invoke-direct {v7}, Landroid/media/MediaCodecInfo$CodecProfileLevel;-><init>()V
 
-    .line 854
-    .local v7, "pl":Landroid/media/MediaCodecInfo$CodecProfileLevel;
     iput p1, v7, Landroid/media/MediaCodecInfo$CodecProfileLevel;->profile:I
 
-    .line 855
     iput p2, v7, Landroid/media/MediaCodecInfo$CodecProfileLevel;->level:I
 
-    .line 856
     new-instance v5, Landroid/media/MediaFormat;
 
     invoke-direct {v5}, Landroid/media/MediaFormat;-><init>()V
 
-    .line 857
-    .local v5, "defaultFormat":Landroid/media/MediaFormat;
     const-string/jumbo v1, "mime"
 
     invoke-virtual {v5, v1, p0}, Landroid/media/MediaFormat;->setString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 859
     new-instance v0, Landroid/media/MediaCodecInfo$CodecCapabilities;
 
-    .line 860
     new-array v1, v3, [Landroid/media/MediaCodecInfo$CodecProfileLevel;
 
     aput-object v7, v1, v4
 
     new-array v2, v4, [I
 
-    .line 861
     new-instance v6, Landroid/media/MediaFormat;
 
     invoke-direct {v6}, Landroid/media/MediaFormat;-><init>()V
 
-    .line 859
     invoke-direct/range {v0 .. v6}, Landroid/media/MediaCodecInfo$CodecCapabilities;-><init>([Landroid/media/MediaCodecInfo$CodecProfileLevel;[IZILandroid/media/MediaFormat;Landroid/media/MediaFormat;)V
 
-    .line 862
-    .local v0, "ret":Landroid/media/MediaCodecInfo$CodecCapabilities;
     iget v1, v0, Landroid/media/MediaCodecInfo$CodecCapabilities;->mError:I
 
     if-eqz v1, :cond_0
 
-    .line 863
     const/4 v1, 0x0
 
     return-object v1
 
-    .line 865
     :cond_0
     return-object v0
 .end method
@@ -789,20 +666,16 @@
 .method private getValidFeatures()[Landroid/media/MediaCodecInfo$Feature;
     .locals 1
 
-    .prologue
-    .line 509
     invoke-direct {p0}, Landroid/media/MediaCodecInfo$CodecCapabilities;->isEncoder()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 510
     sget-object v0, Landroid/media/MediaCodecInfo$CodecCapabilities;->decoderFeatures:[Landroid/media/MediaCodecInfo$Feature;
 
     return-object v0
 
-    .line 512
     :cond_0
     sget-object v0, Landroid/media/MediaCodecInfo$CodecCapabilities;->encoderFeatures:[Landroid/media/MediaCodecInfo$Feature;
 
@@ -812,8 +685,6 @@
 .method private isAudio()Z
     .locals 1
 
-    .prologue
-    .line 799
     iget-object v0, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->mAudioCaps:Landroid/media/MediaCodecInfo$AudioCapabilities;
 
     if-eqz v0, :cond_0
@@ -832,8 +703,6 @@
 .method private isEncoder()Z
     .locals 1
 
-    .prologue
-    .line 810
     iget-object v0, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->mEncoderCaps:Landroid/media/MediaCodecInfo$EncoderCapabilities;
 
     if-eqz v0, :cond_0
@@ -852,8 +721,6 @@
 .method private isVideo()Z
     .locals 1
 
-    .prologue
-    .line 821
     iget-object v0, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->mVideoCaps:Landroid/media/MediaCodecInfo$VideoCapabilities;
 
     if-eqz v0, :cond_0
@@ -871,7 +738,6 @@
 
 .method private static supportsBitrate(Landroid/util/Range;Landroid/media/MediaFormat;)Z
     .locals 5
-    .param p1, "format"    # Landroid/media/MediaFormat;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -884,15 +750,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 683
-    .local p0, "bitrateRange":Landroid/util/Range;, "Landroid/util/Range<Ljava/lang/Integer;>;"
     invoke-virtual {p1}, Landroid/media/MediaFormat;->getMap()Ljava/util/Map;
 
     move-result-object v1
 
-    .line 686
-    .local v1, "map":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
     const-string/jumbo v3, "max-bitrate"
 
     invoke-interface {v1, v3}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -901,8 +762,6 @@
 
     check-cast v2, Ljava/lang/Integer;
 
-    .line 687
-    .local v2, "maxBitrate":Ljava/lang/Integer;
     const-string/jumbo v3, "bitrate"
 
     invoke-interface {v1, v3}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -911,14 +770,10 @@
 
     check-cast v0, Ljava/lang/Integer;
 
-    .line 688
-    .local v0, "bitrate":Ljava/lang/Integer;
     if-nez v0, :cond_1
 
-    .line 689
     move-object v0, v2
 
-    .line 694
     :cond_0
     :goto_0
     if-eqz v0, :cond_2
@@ -929,18 +784,15 @@
 
     if-lez v3, :cond_2
 
-    .line 695
     invoke-virtual {p0, v0}, Landroid/util/Range;->contains(Ljava/lang/Comparable;)Z
 
     move-result v3
 
     return v3
 
-    .line 690
     :cond_1
     if-eqz v2, :cond_0
 
-    .line 691
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v3
@@ -959,7 +811,6 @@
 
     goto :goto_0
 
-    .line 698
     :cond_2
     const/4 v3, 0x1
 
@@ -968,17 +819,13 @@
 
 .method private supportsProfileLevel(ILjava/lang/Integer;)Z
     .locals 11
-    .param p1, "profile"    # I
-    .param p2, "level"    # Ljava/lang/Integer;
 
-    .prologue
     const v10, 0x2aaaaaa
 
     const/4 v3, 0x1
 
     const/4 v4, 0x0
 
-    .line 702
     iget-object v6, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->profileLevels:[Landroid/media/MediaCodecInfo$CodecProfileLevel;
 
     array-length v7, v6
@@ -990,19 +837,15 @@
 
     aget-object v1, v6, v5
 
-    .line 703
-    .local v1, "pl":Landroid/media/MediaCodecInfo$CodecProfileLevel;
     iget v8, v1, Landroid/media/MediaCodecInfo$CodecProfileLevel;->profile:I
 
     if-eq v8, p1, :cond_1
 
-    .line 702
     :cond_0
     add-int/lit8 v5, v5, 0x1
 
     goto :goto_0
 
-    .line 708
     :cond_1
     if-eqz p2, :cond_2
 
@@ -1016,11 +859,9 @@
 
     if-eqz v8, :cond_3
 
-    .line 709
     :cond_2
     return v3
 
-    .line 714
     :cond_3
     iget-object v8, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->mMime:Ljava/lang/String;
 
@@ -1032,7 +873,6 @@
 
     if-eqz v8, :cond_4
 
-    .line 715
     iget v8, v1, Landroid/media/MediaCodecInfo$CodecProfileLevel;->level:I
 
     invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
@@ -1047,14 +887,12 @@
 
     if-ne v8, v9, :cond_4
 
-    .line 716
     invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
 
     move-result v8
 
     if-gt v8, v3, :cond_0
 
-    .line 723
     :cond_4
     iget-object v8, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->mMime:Ljava/lang/String;
 
@@ -1066,7 +904,6 @@
 
     if-eqz v8, :cond_5
 
-    .line 724
     iget v8, v1, Landroid/media/MediaCodecInfo$CodecProfileLevel;->level:I
 
     invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
@@ -1081,14 +918,12 @@
 
     if-ne v8, v9, :cond_5
 
-    .line 725
     invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
 
     move-result v8
 
     if-gt v8, v3, :cond_0
 
-    .line 731
     :cond_5
     iget-object v8, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->mMime:Ljava/lang/String;
 
@@ -1100,7 +935,6 @@
 
     if-eqz v8, :cond_6
 
-    .line 733
     iget v8, v1, Landroid/media/MediaCodecInfo$CodecProfileLevel;->level:I
 
     and-int/2addr v8, v10
@@ -1109,8 +943,6 @@
 
     const/4 v2, 0x1
 
-    .line 734
-    .local v2, "supportsHighTier":Z
     :goto_1
     invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
 
@@ -1122,16 +954,11 @@
 
     move v0, v3
 
-    .line 736
-    .local v0, "checkingHighTier":Z
     :goto_2
     if-eqz v0, :cond_6
 
     if-eqz v2, :cond_0
 
-    .line 741
-    .end local v0    # "checkingHighTier":Z
-    .end local v2    # "supportsHighTier":Z
     :cond_6
     iget v8, v1, Landroid/media/MediaCodecInfo$CodecProfileLevel;->level:I
 
@@ -1141,7 +968,6 @@
 
     if-lt v8, v9, :cond_0
 
-    .line 744
     iget-object v5, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->mMime:Ljava/lang/String;
 
     iget v6, v1, Landroid/media/MediaCodecInfo$CodecProfileLevel;->level:I
@@ -1152,7 +978,6 @@
 
     if-eqz v5, :cond_a
 
-    .line 745
     iget-object v5, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->mMime:Ljava/lang/String;
 
     invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
@@ -1168,32 +993,24 @@
     :goto_3
     return v3
 
-    .line 733
     :cond_7
     const/4 v2, 0x0
 
-    .restart local v2    # "supportsHighTier":Z
     goto :goto_1
 
     :cond_8
     move v0, v4
 
-    .line 734
     goto :goto_2
 
-    .end local v2    # "supportsHighTier":Z
     :cond_9
     move v3, v4
 
-    .line 745
     goto :goto_3
 
-    .line 747
     :cond_a
     return v3
 
-    .line 750
-    .end local v1    # "pl":Landroid/media/MediaCodecInfo$CodecProfileLevel;
     :cond_b
     return v4
 .end method
@@ -1203,11 +1020,8 @@
 .method public dup()Landroid/media/MediaCodecInfo$CodecCapabilities;
     .locals 7
 
-    .prologue
-    .line 833
     new-instance v0, Landroid/media/MediaCodecInfo$CodecCapabilities;
 
-    .line 835
     iget-object v1, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->profileLevels:[Landroid/media/MediaCodecInfo$CodecProfileLevel;
 
     iget-object v2, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->profileLevels:[Landroid/media/MediaCodecInfo$CodecProfileLevel;
@@ -1220,7 +1034,6 @@
 
     check-cast v1, [Landroid/media/MediaCodecInfo$CodecProfileLevel;
 
-    .line 836
     iget-object v2, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->colorFormats:[I
 
     iget-object v3, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->colorFormats:[I
@@ -1231,21 +1044,16 @@
 
     move-result-object v2
 
-    .line 837
     invoke-direct {p0}, Landroid/media/MediaCodecInfo$CodecCapabilities;->isEncoder()Z
 
     move-result v3
 
-    .line 838
     iget v4, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->mFlagsVerified:I
 
-    .line 839
     iget-object v5, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->mDefaultFormat:Landroid/media/MediaFormat;
 
-    .line 840
     iget-object v6, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->mCapabilitiesInfo:Landroid/media/MediaFormat;
 
-    .line 833
     invoke-direct/range {v0 .. v6}, Landroid/media/MediaCodecInfo$CodecCapabilities;-><init>([Landroid/media/MediaCodecInfo$CodecProfileLevel;[IZILandroid/media/MediaFormat;Landroid/media/MediaFormat;)V
 
     return-object v0
@@ -1254,8 +1062,6 @@
 .method public getAudioCapabilities()Landroid/media/MediaCodecInfo$AudioCapabilities;
     .locals 1
 
-    .prologue
-    .line 806
     iget-object v0, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->mAudioCaps:Landroid/media/MediaCodecInfo$AudioCapabilities;
 
     return-object v0
@@ -1264,8 +1070,6 @@
 .method public getCapabilitiesInfoFormat()Landroid/media/MediaFormat;
     .locals 1
 
-    .prologue
-    .line 776
     iget-object v0, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->mCapabilitiesInfo:Landroid/media/MediaFormat;
 
     return-object v0
@@ -1274,8 +1078,6 @@
 .method public getDefaultFormat()Landroid/media/MediaFormat;
     .locals 1
 
-    .prologue
-    .line 769
     iget-object v0, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->mDefaultFormat:Landroid/media/MediaFormat;
 
     return-object v0
@@ -1284,8 +1086,6 @@
 .method public getEncoderCapabilities()Landroid/media/MediaCodecInfo$EncoderCapabilities;
     .locals 1
 
-    .prologue
-    .line 817
     iget-object v0, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->mEncoderCaps:Landroid/media/MediaCodecInfo$EncoderCapabilities;
 
     return-object v0
@@ -1294,8 +1094,6 @@
 .method public getMaxSupportedInstances()I
     .locals 1
 
-    .prologue
-    .line 795
     iget v0, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->mMaxSupportedInstances:I
 
     return v0
@@ -1304,8 +1102,6 @@
 .method public getMimeType()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 783
     iget-object v0, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->mMime:Ljava/lang/String;
 
     return-object v0
@@ -1314,8 +1110,6 @@
 .method public getVideoCapabilities()Landroid/media/MediaCodecInfo$VideoCapabilities;
     .locals 1
 
-    .prologue
-    .line 828
     iget-object v0, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->mVideoCaps:Landroid/media/MediaCodecInfo$VideoCapabilities;
 
     return-object v0
@@ -1323,10 +1117,7 @@
 
 .method public final isFeatureRequired(Ljava/lang/String;)Z
     .locals 1
-    .param p1, "name"    # Ljava/lang/String;
 
-    .prologue
-    .line 485
     iget v0, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->mFlagsRequired:I
 
     invoke-direct {p0, p1, v0}, Landroid/media/MediaCodecInfo$CodecCapabilities;->checkFeature(Ljava/lang/String;I)Z
@@ -1338,10 +1129,7 @@
 
 .method public final isFeatureSupported(Ljava/lang/String;)Z
     .locals 1
-    .param p1, "name"    # Ljava/lang/String;
 
-    .prologue
-    .line 475
     iget v0, p0, Landroid/media/MediaCodecInfo$CodecCapabilities;->mFlagsSupported:I
 
     invoke-direct {p0, p1, v0}, Landroid/media/MediaCodecInfo$CodecCapabilities;->checkFeature(Ljava/lang/String;I)Z
@@ -1353,16 +1141,11 @@
 
 .method public final isFormatSupported(Landroid/media/MediaFormat;)Z
     .locals 17
-    .param p1, "format"    # Landroid/media/MediaFormat;
 
-    .prologue
-    .line 617
     invoke-virtual/range {p1 .. p1}, Landroid/media/MediaFormat;->getMap()Ljava/util/Map;
 
     move-result-object v5
 
-    .line 618
-    .local v5, "map":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
     const-string/jumbo v12, "mime"
 
     invoke-interface {v5, v12}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1371,8 +1154,6 @@
 
     check-cast v8, Ljava/lang/String;
 
-    .line 621
-    .local v8, "mime":Ljava/lang/String;
     if-eqz v8, :cond_0
 
     move-object/from16 v0, p0
@@ -1385,7 +1166,6 @@
 
     if-eqz v12, :cond_2
 
-    .line 626
     :cond_0
     invoke-direct/range {p0 .. p0}, Landroid/media/MediaCodecInfo$CodecCapabilities;->getValidFeatures()[Landroid/media/MediaCodecInfo$Feature;
 
@@ -1400,8 +1180,6 @@
 
     aget-object v1, v13, v12
 
-    .line 627
-    .local v1, "feat":Landroid/media/MediaCodecInfo$Feature;
     new-instance v15, Ljava/lang/StringBuilder;
 
     invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
@@ -1430,27 +1208,18 @@
 
     check-cast v11, Ljava/lang/Integer;
 
-    .line 628
-    .local v11, "yesNo":Ljava/lang/Integer;
     if-nez v11, :cond_3
 
-    .line 626
     :cond_1
     add-int/lit8 v12, v12, 0x1
 
     goto :goto_0
 
-    .line 622
-    .end local v1    # "feat":Landroid/media/MediaCodecInfo$Feature;
-    .end local v11    # "yesNo":Ljava/lang/Integer;
     :cond_2
     const/4 v12, 0x0
 
     return v12
 
-    .line 631
-    .restart local v1    # "feat":Landroid/media/MediaCodecInfo$Feature;
-    .restart local v11    # "yesNo":Ljava/lang/Integer;
     :cond_3
     invoke-virtual {v11}, Ljava/lang/Integer;->intValue()I
 
@@ -1472,7 +1241,6 @@
 
     if-eqz v15, :cond_5
 
-    .line 632
     :cond_4
     invoke-virtual {v11}, Ljava/lang/Integer;->intValue()I
 
@@ -1488,18 +1256,13 @@
 
     move-result v15
 
-    .line 631
     if-eqz v15, :cond_1
 
-    .line 633
     :cond_5
     const/4 v12, 0x0
 
     return v12
 
-    .line 637
-    .end local v1    # "feat":Landroid/media/MediaCodecInfo$Feature;
-    .end local v11    # "yesNo":Ljava/lang/Integer;
     :cond_6
     const-string/jumbo v12, "profile"
 
@@ -1509,8 +1272,6 @@
 
     check-cast v10, Ljava/lang/Integer;
 
-    .line 638
-    .local v10, "profile":Ljava/lang/Integer;
     const-string/jumbo v12, "level"
 
     invoke-interface {v5, v12}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1519,11 +1280,8 @@
 
     check-cast v3, Ljava/lang/Integer;
 
-    .line 640
-    .local v3, "level":Ljava/lang/Integer;
     if-eqz v10, :cond_a
 
-    .line 641
     invoke-virtual {v10}, Ljava/lang/Integer;->intValue()I
 
     move-result v12
@@ -1536,21 +1294,15 @@
 
     if-nez v12, :cond_7
 
-    .line 642
     const/4 v12, 0x0
 
     return v12
 
-    .line 652
     :cond_7
     const/4 v4, 0x0
 
-    .line 653
-    .local v4, "levelCaps":Landroid/media/MediaCodecInfo$CodecCapabilities;
     const/4 v7, 0x0
 
-    .line 654
-    .local v7, "maxLevel":I
     move-object/from16 v0, p0
 
     iget-object v13, v0, Landroid/media/MediaCodecInfo$CodecCapabilities;->profileLevels:[Landroid/media/MediaCodecInfo$CodecProfileLevel;
@@ -1564,8 +1316,6 @@
 
     aget-object v9, v13, v12
 
-    .line 655
-    .local v9, "pl":Landroid/media/MediaCodecInfo$CodecProfileLevel;
     iget v15, v9, Landroid/media/MediaCodecInfo$CodecProfileLevel;->profile:I
 
     invoke-virtual {v10}, Ljava/lang/Integer;->intValue()I
@@ -1580,17 +1330,13 @@
 
     if-le v15, v7, :cond_8
 
-    .line 656
     iget v7, v9, Landroid/media/MediaCodecInfo$CodecProfileLevel;->level:I
 
-    .line 654
     :cond_8
     add-int/lit8 v12, v12, 0x1
 
     goto :goto_1
 
-    .line 659
-    .end local v9    # "pl":Landroid/media/MediaCodecInfo$CodecProfileLevel;
     :cond_9
     move-object/from16 v0, p0
 
@@ -1604,25 +1350,18 @@
 
     move-result-object v4
 
-    .line 662
-    .local v4, "levelCaps":Landroid/media/MediaCodecInfo$CodecCapabilities;
     new-instance v6, Ljava/util/HashMap;
 
     invoke-direct {v6, v5}, Ljava/util/HashMap;-><init>(Ljava/util/Map;)V
 
-    .line 663
-    .local v6, "mapWithoutProfile":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
     const-string/jumbo v12, "profile"
 
     invoke-interface {v6, v12}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 664
     new-instance v2, Landroid/media/MediaFormat;
 
     invoke-direct {v2, v6}, Landroid/media/MediaFormat;-><init>(Ljava/util/Map;)V
 
-    .line 665
-    .local v2, "formatWithoutProfile":Landroid/media/MediaFormat;
     if-eqz v4, :cond_a
 
     invoke-virtual {v4, v2}, Landroid/media/MediaCodecInfo$CodecCapabilities;->isFormatSupported(Landroid/media/MediaFormat;)Z
@@ -1631,11 +1370,6 @@
 
     if-eqz v12, :cond_e
 
-    .line 669
-    .end local v2    # "formatWithoutProfile":Landroid/media/MediaFormat;
-    .end local v4    # "levelCaps":Landroid/media/MediaCodecInfo$CodecCapabilities;
-    .end local v6    # "mapWithoutProfile":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
-    .end local v7    # "maxLevel":I
     :cond_a
     move-object/from16 v0, p0
 
@@ -1655,7 +1389,6 @@
 
     if-eqz v12, :cond_f
 
-    .line 672
     :cond_b
     move-object/from16 v0, p0
 
@@ -1675,7 +1408,6 @@
 
     if-eqz v12, :cond_10
 
-    .line 675
     :cond_c
     move-object/from16 v0, p0
 
@@ -1695,39 +1427,26 @@
 
     if-eqz v12, :cond_11
 
-    .line 678
     :cond_d
     const/4 v12, 0x1
 
     return v12
 
-    .line 666
-    .restart local v2    # "formatWithoutProfile":Landroid/media/MediaFormat;
-    .restart local v4    # "levelCaps":Landroid/media/MediaCodecInfo$CodecCapabilities;
-    .restart local v6    # "mapWithoutProfile":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
-    .restart local v7    # "maxLevel":I
     :cond_e
     const/4 v12, 0x0
 
     return v12
 
-    .line 670
-    .end local v2    # "formatWithoutProfile":Landroid/media/MediaFormat;
-    .end local v4    # "levelCaps":Landroid/media/MediaCodecInfo$CodecCapabilities;
-    .end local v6    # "mapWithoutProfile":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
-    .end local v7    # "maxLevel":I
     :cond_f
     const/4 v12, 0x0
 
     return v12
 
-    .line 673
     :cond_10
     const/4 v12, 0x0
 
     return v12
 
-    .line 676
     :cond_11
     const/4 v12, 0x0
 
@@ -1737,10 +1456,8 @@
 .method public isRegular()Z
     .locals 6
 
-    .prologue
     const/4 v2, 0x0
 
-    .line 527
     invoke-direct {p0}, Landroid/media/MediaCodecInfo$CodecCapabilities;->getValidFeatures()[Landroid/media/MediaCodecInfo$Feature;
 
     move-result-object v3
@@ -1754,8 +1471,6 @@
 
     aget-object v0, v3, v1
 
-    .line 528
-    .local v0, "feat":Landroid/media/MediaCodecInfo$Feature;
     iget-boolean v5, v0, Landroid/media/MediaCodecInfo$Feature;->mDefault:Z
 
     if-nez v5, :cond_0
@@ -1768,17 +1483,13 @@
 
     if-eqz v5, :cond_0
 
-    .line 529
     return v2
 
-    .line 527
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 532
-    .end local v0    # "feat":Landroid/media/MediaCodecInfo$Feature;
     :cond_1
     const/4 v1, 0x1
 
@@ -1788,41 +1499,31 @@
 .method public validFeatures()[Ljava/lang/String;
     .locals 4
 
-    .prologue
-    .line 500
     invoke-direct {p0}, Landroid/media/MediaCodecInfo$CodecCapabilities;->getValidFeatures()[Landroid/media/MediaCodecInfo$Feature;
 
     move-result-object v0
 
-    .line 501
-    .local v0, "features":[Landroid/media/MediaCodecInfo$Feature;
     array-length v3, v0
 
     new-array v2, v3, [Ljava/lang/String;
 
-    .line 502
-    .local v2, "res":[Ljava/lang/String;
     const/4 v1, 0x0
 
-    .local v1, "i":I
     :goto_0
     array-length v3, v2
 
     if-ge v1, v3, :cond_0
 
-    .line 503
     aget-object v3, v0, v1
 
     iget-object v3, v3, Landroid/media/MediaCodecInfo$Feature;->mName:Ljava/lang/String;
 
     aput-object v3, v2, v1
 
-    .line 502
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 505
     :cond_0
     return-object v2
 .end method

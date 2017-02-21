@@ -18,8 +18,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 512
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -29,18 +27,12 @@
 # virtual methods
 .method public onCameraAvailable(Ljava/lang/String;)V
     .locals 0
-    .param p1, "cameraId"    # Ljava/lang/String;
 
-    .prologue
-    .line 521
     return-void
 .end method
 
 .method public onCameraUnavailable(Ljava/lang/String;)V
     .locals 0
-    .param p1, "cameraId"    # Ljava/lang/String;
 
-    .prologue
-    .line 536
     return-void
 .end method

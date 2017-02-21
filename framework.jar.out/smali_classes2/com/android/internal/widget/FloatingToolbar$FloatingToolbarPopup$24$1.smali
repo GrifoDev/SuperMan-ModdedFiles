@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$24;)V
     .locals 0
-    .param p1, "this$2"    # Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$24;
 
-    .prologue
-    .line 1927
     iput-object p1, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$24$1;->this$2:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$24;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,21 +37,17 @@
 .method public run()V
     .locals 1
 
-    .prologue
-    .line 1930
     iget-object v0, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$24$1;->this$2:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$24;
 
     iget-object v0, v0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$24;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
     invoke-static {v0}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->-wrap9(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;)V
 
-    .line 1931
     iget-object v0, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$24$1;->this$2:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$24;
 
     iget-object v0, v0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$24;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
     invoke-static {v0}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->-wrap7(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;)V
 
-    .line 1929
     return-void
 .end method

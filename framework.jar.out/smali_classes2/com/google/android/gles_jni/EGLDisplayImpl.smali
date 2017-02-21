@@ -10,16 +10,11 @@
 # direct methods
 .method public constructor <init>(J)V
     .locals 1
-    .param p1, "dpy"    # J
 
-    .prologue
-    .line 24
     invoke-direct {p0}, Ljavax/microedition/khronos/egl/EGLDisplay;-><init>()V
 
-    .line 25
     iput-wide p1, p0, Lcom/google/android/gles_jni/EGLDisplayImpl;->mEGLDisplay:J
 
-    .line 24
     return-void
 .end method
 
@@ -27,19 +22,15 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 8
-    .param p1, "o"    # Ljava/lang/Object;
 
-    .prologue
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
-    .line 30
     if-ne p0, p1, :cond_0
 
     return v1
 
-    .line 31
     :cond_0
     if-eqz p1, :cond_1
 
@@ -59,11 +50,8 @@
     :cond_2
     move-object v0, p1
 
-    .line 33
     check-cast v0, Lcom/google/android/gles_jni/EGLDisplayImpl;
 
-    .line 35
-    .local v0, "that":Lcom/google/android/gles_jni/EGLDisplayImpl;
     iget-wide v4, p0, Lcom/google/android/gles_jni/EGLDisplayImpl;->mEGLDisplay:J
 
     iget-wide v6, v0, Lcom/google/android/gles_jni/EGLDisplayImpl;->mEGLDisplay:J
@@ -84,8 +72,6 @@
 .method public hashCode()I
     .locals 6
 
-    .prologue
-    .line 46
     iget-wide v2, p0, Lcom/google/android/gles_jni/EGLDisplayImpl;->mEGLDisplay:J
 
     iget-wide v4, p0, Lcom/google/android/gles_jni/EGLDisplayImpl;->mEGLDisplay:J
@@ -100,7 +86,5 @@
 
     add-int/lit16 v0, v1, 0x20f
 
-    .line 47
-    .local v0, "result":I
     return v0
 .end method

@@ -31,35 +31,25 @@
 
 .method private constructor <init>(Lcom/samsung/android/camera/core/SemCamera;[B)V
     .locals 8
-    .param p1, "this$0"    # Lcom/samsung/android/camera/core/SemCamera;
-    .param p2, "data"    # [B
 
-    .prologue
     const/4 v7, 0x0
 
-    .line 2274
     iput-object p1, p0, Lcom/samsung/android/camera/core/SemCamera$SlowMotionEventResult;->this$0:Lcom/samsung/android/camera/core/SemCamera;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 2291
     iput-object v7, p0, Lcom/samsung/android/camera/core/SemCamera$SlowMotionEventResult;->events:[Lcom/samsung/android/camera/core/SemCamera$SlowMotionEvent;
 
-    .line 2275
     const/4 v4, 0x0
 
-    .line 2276
     const/4 v1, 0x1
 
-    .local v1, "idx":I
     aget-byte v4, p2, v4
 
     and-int/lit16 v4, v4, 0xff
 
     add-int/lit8 v2, v1, 0x1
 
-    .end local v1    # "idx":I
-    .local v2, "idx":I
     aget-byte v5, p2, v1
 
     and-int/lit16 v5, v5, 0xff
@@ -70,8 +60,6 @@
 
     add-int/lit8 v1, v2, 0x1
 
-    .end local v2    # "idx":I
-    .restart local v1    # "idx":I
     aget-byte v5, p2, v2
 
     and-int/lit16 v5, v5, 0xff
@@ -82,8 +70,6 @@
 
     add-int/lit8 v2, v1, 0x1
 
-    .end local v1    # "idx":I
-    .restart local v2    # "idx":I
     aget-byte v5, p2, v1
 
     and-int/lit16 v5, v5, 0xff
@@ -92,8 +78,6 @@
 
     or-int v3, v4, v5
 
-    .line 2278
-    .local v3, "numberOfEvent":I
     const-string/jumbo v4, "SemCamera-JNI-Java"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -116,19 +100,15 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2279
     new-array v4, v3, [Lcom/samsung/android/camera/core/SemCamera$SlowMotionEvent;
 
     iput-object v4, p0, Lcom/samsung/android/camera/core/SemCamera$SlowMotionEventResult;->events:[Lcom/samsung/android/camera/core/SemCamera$SlowMotionEvent;
 
-    .line 2280
     const/4 v0, 0x0
 
-    .local v0, "i":I
     :goto_0
     if-ge v0, v3, :cond_0
 
-    .line 2281
     iget-object v4, p0, Lcom/samsung/android/camera/core/SemCamera$SlowMotionEventResult;->events:[Lcom/samsung/android/camera/core/SemCamera$SlowMotionEvent;
 
     new-instance v5, Lcom/samsung/android/camera/core/SemCamera$SlowMotionEvent;
@@ -137,23 +117,18 @@
 
     aput-object v5, v4, v0
 
-    .line 2282
     iget-object v4, p0, Lcom/samsung/android/camera/core/SemCamera$SlowMotionEventResult;->events:[Lcom/samsung/android/camera/core/SemCamera$SlowMotionEvent;
 
     aget-object v4, v4, v0
 
     add-int/lit8 v1, v2, 0x1
 
-    .end local v2    # "idx":I
-    .restart local v1    # "idx":I
     aget-byte v5, p2, v2
 
     and-int/lit16 v5, v5, 0xff
 
     add-int/lit8 v2, v1, 0x1
 
-    .end local v1    # "idx":I
-    .restart local v2    # "idx":I
     aget-byte v6, p2, v1
 
     and-int/lit16 v6, v6, 0xff
@@ -164,8 +139,6 @@
 
     add-int/lit8 v1, v2, 0x1
 
-    .end local v2    # "idx":I
-    .restart local v1    # "idx":I
     aget-byte v6, p2, v2
 
     and-int/lit16 v6, v6, 0xff
@@ -176,8 +149,6 @@
 
     add-int/lit8 v2, v1, 0x1
 
-    .end local v1    # "idx":I
-    .restart local v2    # "idx":I
     aget-byte v6, p2, v1
 
     and-int/lit16 v6, v6, 0xff
@@ -188,23 +159,18 @@
 
     iput v5, v4, Lcom/samsung/android/camera/core/SemCamera$SlowMotionEvent;->startMillisecond:I
 
-    .line 2283
     iget-object v4, p0, Lcom/samsung/android/camera/core/SemCamera$SlowMotionEventResult;->events:[Lcom/samsung/android/camera/core/SemCamera$SlowMotionEvent;
 
     aget-object v4, v4, v0
 
     add-int/lit8 v1, v2, 0x1
 
-    .end local v2    # "idx":I
-    .restart local v1    # "idx":I
     aget-byte v5, p2, v2
 
     and-int/lit16 v5, v5, 0xff
 
     add-int/lit8 v2, v1, 0x1
 
-    .end local v1    # "idx":I
-    .restart local v2    # "idx":I
     aget-byte v6, p2, v1
 
     and-int/lit16 v6, v6, 0xff
@@ -215,8 +181,6 @@
 
     add-int/lit8 v1, v2, 0x1
 
-    .end local v2    # "idx":I
-    .restart local v1    # "idx":I
     aget-byte v6, p2, v2
 
     and-int/lit16 v6, v6, 0xff
@@ -227,8 +191,6 @@
 
     add-int/lit8 v2, v1, 0x1
 
-    .end local v1    # "idx":I
-    .restart local v2    # "idx":I
     aget-byte v6, p2, v1
 
     and-int/lit16 v6, v6, 0xff
@@ -239,22 +201,17 @@
 
     iput v5, v4, Lcom/samsung/android/camera/core/SemCamera$SlowMotionEvent;->endMillisecond:I
 
-    .line 2280
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 2274
     :cond_0
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/samsung/android/camera/core/SemCamera;[BLcom/samsung/android/camera/core/SemCamera$SlowMotionEventResult;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/samsung/android/camera/core/SemCamera;
-    .param p2, "data"    # [B
 
-    .prologue
     invoke-direct {p0, p1, p2}, Lcom/samsung/android/camera/core/SemCamera$SlowMotionEventResult;-><init>(Lcom/samsung/android/camera/core/SemCamera;[B)V
 
     return-void

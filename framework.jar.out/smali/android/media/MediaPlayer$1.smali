@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/media/MediaPlayer;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/media/MediaPlayer;
 
-    .prologue
-    .line 2759
     iput-object p1, p0, Landroid/media/MediaPlayer$1;->this$0:Landroid/media/MediaPlayer;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,17 +36,11 @@
 # virtual methods
 .method public onSubtitleData(Landroid/media/MediaPlayer;Landroid/media/SubtitleData;)V
     .locals 6
-    .param p1, "mp"    # Landroid/media/MediaPlayer;
-    .param p2, "data"    # Landroid/media/SubtitleData;
 
-    .prologue
-    .line 2762
     invoke-virtual {p2}, Landroid/media/SubtitleData;->getTrackIndex()I
 
     move-result v0
 
-    .line 2763
-    .local v0, "index":I
     iget-object v4, p0, Landroid/media/MediaPlayer$1;->this$0:Landroid/media/MediaPlayer;
 
     invoke-static {v4}, Landroid/media/MediaPlayer;->-get6(Landroid/media/MediaPlayer;)Ljava/util/Vector;
@@ -58,7 +49,6 @@
 
     monitor-enter v5
 
-    .line 2764
     :try_start_0
     iget-object v4, p0, Landroid/media/MediaPlayer$1;->this$0:Landroid/media/MediaPlayer;
 
@@ -70,7 +60,6 @@
 
     move-result-object v2
 
-    .local v2, "p$iterator":Ljava/util/Iterator;
     :cond_0
     :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
@@ -85,8 +74,6 @@
 
     check-cast v1, Landroid/util/Pair;
 
-    .line 2765
-    .local v1, "p":Landroid/util/Pair;, "Landroid/util/Pair<Ljava/lang/Integer;Landroid/media/SubtitleTrack;>;"
     iget-object v4, v1, Landroid/util/Pair;->first:Ljava/lang/Object;
 
     if-eqz v4, :cond_0
@@ -105,23 +92,16 @@
 
     if-eqz v4, :cond_0
 
-    .line 2767
     iget-object v3, v1, Landroid/util/Pair;->second:Ljava/lang/Object;
 
     check-cast v3, Landroid/media/SubtitleTrack;
 
-    .line 2768
-    .local v3, "track":Landroid/media/SubtitleTrack;
     invoke-virtual {v3, p2}, Landroid/media/SubtitleTrack;->onData(Landroid/media/SubtitleData;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     goto :goto_0
 
-    .line 2763
-    .end local v1    # "p":Landroid/util/Pair;, "Landroid/util/Pair<Ljava/lang/Integer;Landroid/media/SubtitleTrack;>;"
-    .end local v2    # "p$iterator":Ljava/util/Iterator;
-    .end local v3    # "track":Landroid/media/SubtitleTrack;
     :catchall_0
     move-exception v4
 
@@ -129,10 +109,8 @@
 
     throw v4
 
-    .restart local v2    # "p$iterator":Ljava/util/Iterator;
     :cond_1
     monitor-exit v5
 
-    .line 2761
     return-void
 .end method

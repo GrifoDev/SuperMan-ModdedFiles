@@ -28,12 +28,7 @@
 # direct methods
 .method constructor <init>(Landroid/widget/AbsListView;Landroid/view/View;Landroid/widget/AbsListView$PerformClick;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/widget/AbsListView;
-    .param p2, "val$child"    # Landroid/view/View;
-    .param p3, "val$performClick"    # Landroid/widget/AbsListView$PerformClick;
 
-    .prologue
-    .line 6764
     iput-object p1, p0, Landroid/widget/AbsListView$13;->this$0:Landroid/widget/AbsListView;
 
     iput-object p2, p0, Landroid/widget/AbsListView$13;->val$child:Landroid/view/View;
@@ -50,34 +45,28 @@
 .method public run()V
     .locals 3
 
-    .prologue
     const/4 v2, 0x0
 
-    .line 6767
     iget-object v0, p0, Landroid/widget/AbsListView$13;->this$0:Landroid/widget/AbsListView;
 
     const/4 v1, 0x0
 
     invoke-static {v0, v1}, Landroid/widget/AbsListView;->-set13(Landroid/widget/AbsListView;Ljava/lang/Runnable;)Ljava/lang/Runnable;
 
-    .line 6768
     iget-object v0, p0, Landroid/widget/AbsListView$13;->this$0:Landroid/widget/AbsListView;
 
     const/4 v1, -0x1
 
     iput v1, v0, Landroid/widget/AbsListView;->mTouchMode:I
 
-    .line 6769
     iget-object v0, p0, Landroid/widget/AbsListView$13;->val$child:Landroid/view/View;
 
     invoke-virtual {v0, v2}, Landroid/view/View;->setPressed(Z)V
 
-    .line 6770
     iget-object v0, p0, Landroid/widget/AbsListView$13;->this$0:Landroid/widget/AbsListView;
 
     invoke-virtual {v0, v2}, Landroid/view/View;->setPressed(Z)V
 
-    .line 6771
     iget-object v0, p0, Landroid/widget/AbsListView$13;->this$0:Landroid/widget/AbsListView;
 
     invoke-static {v0}, Landroid/widget/AbsListView;->-get12(Landroid/widget/AbsListView;)Z
@@ -100,12 +89,10 @@
 
     if-eqz v0, :cond_1
 
-    .line 6766
     :cond_0
     :goto_0
     return-void
 
-    .line 6771
     :cond_1
     iget-object v0, p0, Landroid/widget/AbsListView$13;->this$0:Landroid/widget/AbsListView;
 
@@ -115,7 +102,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 6772
     :cond_2
     iget-object v0, p0, Landroid/widget/AbsListView$13;->val$performClick:Landroid/widget/AbsListView$PerformClick;
 

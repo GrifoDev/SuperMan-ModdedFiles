@@ -28,12 +28,7 @@
 # direct methods
 .method constructor <init>(Landroid/media/midi/MidiManager;Landroid/media/midi/MidiManager$OnDeviceOpenedListener;Landroid/media/midi/MidiDevice;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/media/midi/MidiManager;
-    .param p2, "val$listener"    # Landroid/media/midi/MidiManager$OnDeviceOpenedListener;
-    .param p3, "val$device"    # Landroid/media/midi/MidiDevice;
 
-    .prologue
-    .line 226
     iput-object p1, p0, Landroid/media/midi/MidiManager$1;->this$0:Landroid/media/midi/MidiManager;
 
     iput-object p2, p0, Landroid/media/midi/MidiManager$1;->val$listener:Landroid/media/midi/MidiManager$OnDeviceOpenedListener;
@@ -50,14 +45,11 @@
 .method public run()V
     .locals 2
 
-    .prologue
-    .line 228
     iget-object v0, p0, Landroid/media/midi/MidiManager$1;->val$listener:Landroid/media/midi/MidiManager$OnDeviceOpenedListener;
 
     iget-object v1, p0, Landroid/media/midi/MidiManager$1;->val$device:Landroid/media/midi/MidiDevice;
 
     invoke-interface {v0, v1}, Landroid/media/midi/MidiManager$OnDeviceOpenedListener;->onDeviceOpened(Landroid/media/midi/MidiDevice;)V
 
-    .line 227
     return-void
 .end method

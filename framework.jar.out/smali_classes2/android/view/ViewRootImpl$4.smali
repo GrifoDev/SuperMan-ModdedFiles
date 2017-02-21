@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/view/ViewRootImpl;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/view/ViewRootImpl;
 
-    .prologue
-    .line 2822
     iput-object p1, p0, Landroid/view/ViewRootImpl$4;->this$0:Landroid/view/ViewRootImpl;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,12 +36,9 @@
 # virtual methods
 .method public doFrame(J)V
     .locals 4
-    .param p1, "frameTimeNanos"    # J
 
-    .prologue
     const/4 v3, 0x0
 
-    .line 2825
     iget-object v0, p0, Landroid/view/ViewRootImpl$4;->this$0:Landroid/view/ViewRootImpl;
 
     iget-object v0, v0, Landroid/view/ViewRootImpl;->mDirty:Landroid/graphics/Rect;
@@ -59,12 +53,10 @@
 
     invoke-virtual {v0, v3, v3, v1, v2}, Landroid/graphics/Rect;->set(IIII)V
 
-    .line 2826
     iget-object v0, p0, Landroid/view/ViewRootImpl$4;->this$0:Landroid/view/ViewRootImpl;
 
     invoke-virtual {v0}, Landroid/view/ViewRootImpl;->scheduleTraversals()V
 
-    .line 2827
     iget-object v0, p0, Landroid/view/ViewRootImpl$4;->this$0:Landroid/view/ViewRootImpl;
 
     invoke-static {v0}, Landroid/view/ViewRootImpl;->-get3(Landroid/view/ViewRootImpl;)Z
@@ -73,7 +65,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 2828
     iget-object v0, p0, Landroid/view/ViewRootImpl$4;->this$0:Landroid/view/ViewRootImpl;
 
     iget-object v0, v0, Landroid/view/ViewRootImpl;->mChoreographer:Landroid/view/Choreographer;
@@ -86,7 +77,6 @@
 
     invoke-virtual {v0, v1}, Landroid/view/Choreographer;->postFrameCallback(Landroid/view/Choreographer$FrameCallback;)V
 
-    .line 2824
     :cond_0
     return-void
 .end method

@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Landroid/hardware/fingerprint/FingerprintManager;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/hardware/fingerprint/FingerprintManager;
 
-    .prologue
-    .line 1345
     iput-object p1, p0, Landroid/hardware/fingerprint/FingerprintManager$1;->this$0:Landroid/hardware/fingerprint/FingerprintManager;
 
     invoke-direct {p0}, Landroid/hardware/fingerprint/IFingerprintServiceReceiver$Stub;-><init>()V
@@ -36,11 +33,7 @@
 # virtual methods
 .method public onAcquired(JI)V
     .locals 5
-    .param p1, "deviceId"    # J
-    .param p3, "acquireInfo"    # I
 
-    .prologue
-    .line 1355
     iget-object v0, p0, Landroid/hardware/fingerprint/FingerprintManager$1;->this$0:Landroid/hardware/fingerprint/FingerprintManager;
 
     invoke-static {v0}, Landroid/hardware/fingerprint/FingerprintManager;->-get3(Landroid/hardware/fingerprint/FingerprintManager;)Landroid/os/Handler;
@@ -61,16 +54,12 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    .line 1354
     return-void
 .end method
 
 .method public onAuthenticationFailed(J)V
     .locals 2
-    .param p1, "deviceId"    # J
 
-    .prologue
-    .line 1365
     iget-object v0, p0, Landroid/hardware/fingerprint/FingerprintManager$1;->this$0:Landroid/hardware/fingerprint/FingerprintManager;
 
     invoke-static {v0}, Landroid/hardware/fingerprint/FingerprintManager;->-get3(Landroid/hardware/fingerprint/FingerprintManager;)Landroid/os/Handler;
@@ -85,18 +74,12 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    .line 1364
     return-void
 .end method
 
 .method public onAuthenticationSucceeded(JLandroid/hardware/fingerprint/Fingerprint;I)V
     .locals 3
-    .param p1, "deviceId"    # J
-    .param p3, "fp"    # Landroid/hardware/fingerprint/Fingerprint;
-    .param p4, "userId"    # I
 
-    .prologue
-    .line 1360
     iget-object v0, p0, Landroid/hardware/fingerprint/FingerprintManager$1;->this$0:Landroid/hardware/fingerprint/FingerprintManager;
 
     invoke-static {v0}, Landroid/hardware/fingerprint/FingerprintManager;->-get3(Landroid/hardware/fingerprint/FingerprintManager;)Landroid/os/Handler;
@@ -113,26 +96,18 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    .line 1359
     return-void
 .end method
 
 .method public onEnrollResult(JIII)V
     .locals 7
-    .param p1, "deviceId"    # J
-    .param p3, "fingerId"    # I
-    .param p4, "groupId"    # I
-    .param p5, "remaining"    # I
 
-    .prologue
-    .line 1349
     iget-object v0, p0, Landroid/hardware/fingerprint/FingerprintManager$1;->this$0:Landroid/hardware/fingerprint/FingerprintManager;
 
     invoke-static {v0}, Landroid/hardware/fingerprint/FingerprintManager;->-get3(Landroid/hardware/fingerprint/FingerprintManager;)Landroid/os/Handler;
 
     move-result-object v6
 
-    .line 1350
     new-instance v0, Landroid/hardware/fingerprint/Fingerprint;
 
     const/4 v1, 0x0
@@ -145,7 +120,6 @@
 
     invoke-direct/range {v0 .. v5}, Landroid/hardware/fingerprint/Fingerprint;-><init>(Ljava/lang/CharSequence;IIJ)V
 
-    .line 1349
     const/16 v1, 0x64
 
     const/4 v2, 0x0
@@ -156,17 +130,12 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    .line 1348
     return-void
 .end method
 
 .method public onError(JI)V
     .locals 5
-    .param p1, "deviceId"    # J
-    .param p3, "error"    # I
 
-    .prologue
-    .line 1370
     iget-object v0, p0, Landroid/hardware/fingerprint/FingerprintManager$1;->this$0:Landroid/hardware/fingerprint/FingerprintManager;
 
     invoke-static {v0}, Landroid/hardware/fingerprint/FingerprintManager;->-get3(Landroid/hardware/fingerprint/FingerprintManager;)Landroid/os/Handler;
@@ -187,18 +156,12 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    .line 1369
     return-void
 .end method
 
 .method public onRemoved(JII)V
     .locals 3
-    .param p1, "deviceId"    # J
-    .param p3, "fingerId"    # I
-    .param p4, "groupId"    # I
 
-    .prologue
-    .line 1375
     iget-object v0, p0, Landroid/hardware/fingerprint/FingerprintManager$1;->this$0:Landroid/hardware/fingerprint/FingerprintManager;
 
     invoke-static {v0}, Landroid/hardware/fingerprint/FingerprintManager;->-get3(Landroid/hardware/fingerprint/FingerprintManager;)Landroid/os/Handler;
@@ -217,6 +180,5 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    .line 1374
     return-void
 .end method

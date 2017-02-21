@@ -36,8 +36,6 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    .prologue
-    .line 446
     const/4 v0, 0x5
 
     new-array v0, v0, [Ljava/lang/String;
@@ -60,7 +58,6 @@
 
     aput-object v1, v0, v2
 
-    .line 447
     const-string/jumbo v1, "MSCHAPV2"
 
     const/4 v2, 0x3
@@ -73,18 +70,14 @@
 
     aput-object v1, v0, v2
 
-    .line 446
     sput-object v0, Landroid/net/wifi/WifiEnterpriseConfig$Phase2;->strings:[Ljava/lang/String;
 
-    .line 433
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 450
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

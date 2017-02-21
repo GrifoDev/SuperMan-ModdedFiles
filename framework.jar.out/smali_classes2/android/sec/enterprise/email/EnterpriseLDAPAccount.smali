@@ -99,23 +99,18 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 103
     new-instance v0, Landroid/sec/enterprise/email/EnterpriseLDAPAccount$1;
 
     invoke-direct {v0}, Landroid/sec/enterprise/email/EnterpriseLDAPAccount$1;-><init>()V
 
     sput-object v0, Landroid/sec/enterprise/email/EnterpriseLDAPAccount;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    .line 42
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 91
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -123,64 +118,51 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 0
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 114
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 115
     invoke-direct {p0, p1}, Landroid/sec/enterprise/email/EnterpriseLDAPAccount;->readFromParcel(Landroid/os/Parcel;)V
 
-    .line 114
     return-void
 .end method
 
 .method private readFromParcel(Landroid/os/Parcel;)V
     .locals 6
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
-    .line 135
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v4
 
     iput-wide v4, p0, Landroid/sec/enterprise/email/EnterpriseLDAPAccount;->mId:J
 
-    .line 136
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/sec/enterprise/email/EnterpriseLDAPAccount;->mUserName:Ljava/lang/String;
 
-    .line 137
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/sec/enterprise/email/EnterpriseLDAPAccount;->mPassword:Ljava/lang/String;
 
-    .line 138
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/sec/enterprise/email/EnterpriseLDAPAccount;->mPort:I
 
-    .line 139
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/sec/enterprise/email/EnterpriseLDAPAccount;->mHost:Ljava/lang/String;
 
-    .line 140
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -192,7 +174,6 @@
     :goto_0
     iput-boolean v0, p0, Landroid/sec/enterprise/email/EnterpriseLDAPAccount;->mUseSSL:Z
 
-    .line 141
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -202,33 +183,28 @@
     :goto_1
     iput-boolean v1, p0, Landroid/sec/enterprise/email/EnterpriseLDAPAccount;->mIsAnonymous:Z
 
-    .line 142
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/sec/enterprise/email/EnterpriseLDAPAccount;->mBaseDN:Ljava/lang/String;
 
-    .line 143
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/sec/enterprise/email/EnterpriseLDAPAccount;->mTrustAll:I
 
-    .line 134
     return-void
 
     :cond_0
     move v0, v2
 
-    .line 140
     goto :goto_0
 
     :cond_1
     move v1, v2
 
-    .line 141
     goto :goto_1
 .end method
 
@@ -237,8 +213,6 @@
 .method public describeContents()I
     .locals 1
 
-    .prologue
-    .line 99
     const/4 v0, 0x0
 
     return v0
@@ -246,40 +220,31 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 6
-    .param p1, "out"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
-    .prologue
     const/4 v2, 0x1
 
     const/4 v1, 0x0
 
-    .line 123
     iget-wide v4, p0, Landroid/sec/enterprise/email/EnterpriseLDAPAccount;->mId:J
 
     invoke-virtual {p1, v4, v5}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 124
     iget-object v0, p0, Landroid/sec/enterprise/email/EnterpriseLDAPAccount;->mUserName:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 125
     iget-object v0, p0, Landroid/sec/enterprise/email/EnterpriseLDAPAccount;->mPassword:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 126
     iget v0, p0, Landroid/sec/enterprise/email/EnterpriseLDAPAccount;->mPort:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 127
     iget-object v0, p0, Landroid/sec/enterprise/email/EnterpriseLDAPAccount;->mHost:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 128
     iget-boolean v0, p0, Landroid/sec/enterprise/email/EnterpriseLDAPAccount;->mUseSSL:Z
 
     if-eqz v0, :cond_0
@@ -289,7 +254,6 @@
     :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 129
     iget-boolean v0, p0, Landroid/sec/enterprise/email/EnterpriseLDAPAccount;->mIsAnonymous:Z
 
     if-eqz v0, :cond_1
@@ -297,28 +261,23 @@
     :goto_1
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 130
     iget-object v0, p0, Landroid/sec/enterprise/email/EnterpriseLDAPAccount;->mBaseDN:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 131
     iget v0, p0, Landroid/sec/enterprise/email/EnterpriseLDAPAccount;->mTrustAll:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 122
     return-void
 
     :cond_0
     move v0, v2
 
-    .line 128
     goto :goto_0
 
     :cond_1
     move v1, v2
 
-    .line 129
     goto :goto_1
 .end method

@@ -37,10 +37,7 @@
 # direct methods
 .method private constructor <init>(Lcom/samsung/android/infoextraction/regex/SemEntityInfo;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/samsung/android/infoextraction/regex/SemEntityInfo;
 
-    .prologue
-    .line 57
     iput-object p1, p0, Lcom/samsung/android/infoextraction/regex/SemEntityInfo$Type;->this$0:Lcom/samsung/android/infoextraction/regex/SemEntityInfo;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

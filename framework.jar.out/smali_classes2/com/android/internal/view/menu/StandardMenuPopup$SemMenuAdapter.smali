@@ -23,22 +23,13 @@
 # direct methods
 .method public constructor <init>(Lcom/android/internal/view/menu/StandardMenuPopup;Lcom/android/internal/view/menu/MenuBuilder;Landroid/view/LayoutInflater;Z)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/internal/view/menu/StandardMenuPopup;
-    .param p2, "menu"    # Lcom/android/internal/view/menu/MenuBuilder;
-    .param p3, "inflater"    # Landroid/view/LayoutInflater;
-    .param p4, "overflowOnly"    # Z
 
-    .prologue
-    .line 454
     iput-object p1, p0, Lcom/android/internal/view/menu/StandardMenuPopup$SemMenuAdapter;->this$0:Lcom/android/internal/view/menu/StandardMenuPopup;
 
-    .line 455
     invoke-direct {p0, p2, p3, p4}, Lcom/android/internal/view/menu/MenuAdapter;-><init>(Lcom/android/internal/view/menu/MenuBuilder;Landroid/view/LayoutInflater;Z)V
 
-    .line 456
     iput-object p3, p0, Lcom/android/internal/view/menu/StandardMenuPopup$SemMenuAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    .line 454
     return-void
 .end method
 
@@ -46,17 +37,11 @@
 # virtual methods
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 4
-    .param p1, "position"    # I
-    .param p2, "convertView"    # Landroid/view/View;
-    .param p3, "parent"    # Landroid/view/ViewGroup;
 
-    .prologue
     const/4 v3, 0x0
 
-    .line 461
     if-nez p2, :cond_0
 
-    .line 462
     iget-object v1, p0, Lcom/android/internal/view/menu/StandardMenuPopup$SemMenuAdapter;->this$0:Lcom/android/internal/view/menu/StandardMenuPopup;
 
     invoke-static {v1}, Lcom/android/internal/view/menu/StandardMenuPopup;->-get1(Lcom/android/internal/view/menu/StandardMenuPopup;)Z
@@ -65,7 +50,6 @@
 
     if-eqz v1, :cond_2
 
-    .line 463
     iget-object v1, p0, Lcom/android/internal/view/menu/StandardMenuPopup$SemMenuAdapter;->mInflater:Landroid/view/LayoutInflater;
 
     const v2, 0x109014d
@@ -78,11 +62,8 @@
     :goto_0
     move-object v0, p2
 
-    .line 469
     check-cast v0, Lcom/android/internal/view/menu/MenuView$ItemView;
 
-    .line 470
-    .local v0, "itemView":Lcom/android/internal/view/menu/MenuView$ItemView;
     invoke-virtual {p0}, Lcom/android/internal/view/menu/MenuAdapter;->getForceShowIcon()Z
 
     move-result v1
@@ -91,14 +72,12 @@
 
     move-object v1, p2
 
-    .line 471
     check-cast v1, Lcom/android/internal/view/menu/ListMenuItemView;
 
     const/4 v2, 0x1
 
     invoke-virtual {v1, v2}, Lcom/android/internal/view/menu/ListMenuItemView;->setForceShowIcon(Z)V
 
-    .line 473
     :cond_1
     invoke-virtual {p0, p1}, Lcom/android/internal/view/menu/MenuAdapter;->getItem(I)Lcom/android/internal/view/menu/MenuItemImpl;
 
@@ -106,11 +85,8 @@
 
     invoke-interface {v0, v1, v3}, Lcom/android/internal/view/menu/MenuView$ItemView;->initialize(Lcom/android/internal/view/menu/MenuItemImpl;I)V
 
-    .line 474
     return-object p2
 
-    .line 465
-    .end local v0    # "itemView":Lcom/android/internal/view/menu/MenuView$ItemView;
     :cond_2
     iget-object v1, p0, Lcom/android/internal/view/menu/StandardMenuPopup$SemMenuAdapter;->mInflater:Landroid/view/LayoutInflater;
 

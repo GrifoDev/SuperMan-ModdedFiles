@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/app/WindowDecorActionBar;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/internal/app/WindowDecorActionBar;
 
-    .prologue
-    .line 150
     iput-object p1, p0, Lcom/android/internal/app/WindowDecorActionBar$2;->this$0:Lcom/android/internal/app/WindowDecorActionBar;
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
@@ -36,17 +33,13 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
-    .param p1, "animation"    # Landroid/animation/Animator;
 
-    .prologue
-    .line 153
     iget-object v0, p0, Lcom/android/internal/app/WindowDecorActionBar$2;->this$0:Lcom/android/internal/app/WindowDecorActionBar;
 
     const/4 v1, 0x0
 
     invoke-static {v0, v1}, Lcom/android/internal/app/WindowDecorActionBar;->-set0(Lcom/android/internal/app/WindowDecorActionBar;Landroid/animation/Animator;)Landroid/animation/Animator;
 
-    .line 154
     iget-object v0, p0, Lcom/android/internal/app/WindowDecorActionBar$2;->this$0:Lcom/android/internal/app/WindowDecorActionBar;
 
     invoke-static {v0}, Lcom/android/internal/app/WindowDecorActionBar;->-get0(Lcom/android/internal/app/WindowDecorActionBar;)Lcom/android/internal/widget/ActionBarContainer;
@@ -55,6 +48,5 @@
 
     invoke-virtual {v0}, Lcom/android/internal/widget/ActionBarContainer;->requestLayout()V
 
-    .line 152
     return-void
 .end method

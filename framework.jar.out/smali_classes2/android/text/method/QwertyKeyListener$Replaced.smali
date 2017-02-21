@@ -32,15 +32,10 @@
 
 .method public constructor <init>([C)V
     .locals 0
-    .param p1, "text"    # [C
 
-    .prologue
-    .line 517
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 518
     iput-object p1, p0, Landroid/text/method/QwertyKeyListener$Replaced;->mText:[C
 
-    .line 517
     return-void
 .end method

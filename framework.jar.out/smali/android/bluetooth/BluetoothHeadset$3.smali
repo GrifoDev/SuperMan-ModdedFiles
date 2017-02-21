@@ -21,11 +21,7 @@
 # direct methods
 .method constructor <init>(Landroid/bluetooth/BluetoothHeadset;Landroid/os/Looper;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/bluetooth/BluetoothHeadset;
-    .param p2, "$anonymous0"    # Landroid/os/Looper;
 
-    .prologue
-    .line 1400
     iput-object p1, p0, Landroid/bluetooth/BluetoothHeadset$3;->this$0:Landroid/bluetooth/BluetoothHeadset;
 
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
@@ -37,22 +33,17 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
     const/4 v2, 0x1
 
-    .line 1403
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 1402
     :cond_0
     :goto_0
     return-void
 
-    .line 1405
     :pswitch_0
     iget-object v0, p0, Landroid/bluetooth/BluetoothHeadset$3;->this$0:Landroid/bluetooth/BluetoothHeadset;
 
@@ -62,22 +53,18 @@
 
     if-eqz v0, :cond_0
 
-    .line 1406
     iget-object v0, p0, Landroid/bluetooth/BluetoothHeadset$3;->this$0:Landroid/bluetooth/BluetoothHeadset;
 
     invoke-static {v0}, Landroid/bluetooth/BluetoothHeadset;->-get4(Landroid/bluetooth/BluetoothHeadset;)Landroid/bluetooth/BluetoothProfile$ServiceListener;
 
     move-result-object v0
 
-    .line 1407
     iget-object v1, p0, Landroid/bluetooth/BluetoothHeadset$3;->this$0:Landroid/bluetooth/BluetoothHeadset;
 
-    .line 1406
     invoke-interface {v0, v2, v1}, Landroid/bluetooth/BluetoothProfile$ServiceListener;->onServiceConnected(ILandroid/bluetooth/BluetoothProfile;)V
 
     goto :goto_0
 
-    .line 1412
     :pswitch_1
     iget-object v0, p0, Landroid/bluetooth/BluetoothHeadset$3;->this$0:Landroid/bluetooth/BluetoothHeadset;
 
@@ -87,7 +74,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 1413
     iget-object v0, p0, Landroid/bluetooth/BluetoothHeadset$3;->this$0:Landroid/bluetooth/BluetoothHeadset;
 
     invoke-static {v0}, Landroid/bluetooth/BluetoothHeadset;->-get4(Landroid/bluetooth/BluetoothHeadset;)Landroid/bluetooth/BluetoothProfile$ServiceListener;
@@ -98,7 +84,6 @@
 
     goto :goto_0
 
-    .line 1403
     nop
 
     :pswitch_data_0

@@ -32,14 +32,7 @@
 # direct methods
 .method constructor <init>(Landroid/telecom/RemoteConnection;Landroid/telecom/RemoteConnection$Callback;Landroid/telecom/RemoteConnection;Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/telecom/RemoteConnection;
-    .param p2, "val$callback"    # Landroid/telecom/RemoteConnection$Callback;
-    .param p3, "val$connection"    # Landroid/telecom/RemoteConnection;
-    .param p4, "val$event"    # Ljava/lang/String;
-    .param p5, "val$extras"    # Landroid/os/Bundle;
 
-    .prologue
-    .line 1388
     iput-object p1, p0, Landroid/telecom/RemoteConnection$18;->this$0:Landroid/telecom/RemoteConnection;
 
     iput-object p2, p0, Landroid/telecom/RemoteConnection$18;->val$callback:Landroid/telecom/RemoteConnection$Callback;
@@ -60,8 +53,6 @@
 .method public run()V
     .locals 4
 
-    .prologue
-    .line 1391
     iget-object v0, p0, Landroid/telecom/RemoteConnection$18;->val$callback:Landroid/telecom/RemoteConnection$Callback;
 
     iget-object v1, p0, Landroid/telecom/RemoteConnection$18;->val$connection:Landroid/telecom/RemoteConnection;
@@ -72,6 +63,5 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/telecom/RemoteConnection$Callback;->onConnectionEvent(Landroid/telecom/RemoteConnection;Ljava/lang/String;Landroid/os/Bundle;)V
 
-    .line 1390
     return-void
 .end method

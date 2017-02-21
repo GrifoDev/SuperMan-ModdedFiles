@@ -7,8 +7,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -16,14 +14,7 @@
 
 .method public static createCircularReveal(Landroid/view/View;IIFF)Landroid/animation/Animator;
     .locals 6
-    .param p0, "view"    # Landroid/view/View;
-    .param p1, "centerX"    # I
-    .param p2, "centerY"    # I
-    .param p3, "startRadius"    # F
-    .param p4, "endRadius"    # F
 
-    .prologue
-    .line 71
     new-instance v0, Landroid/animation/RevealAnimator;
 
     move-object v1, p0

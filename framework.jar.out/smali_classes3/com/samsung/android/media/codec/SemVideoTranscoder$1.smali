@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/media/codec/SemVideoTranscoder;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/samsung/android/media/codec/SemVideoTranscoder;
 
-    .prologue
-    .line 170
     iput-object p1, p0, Lcom/samsung/android/media/codec/SemVideoTranscoder$1;->this$0:Lcom/samsung/android/media/codec/SemVideoTranscoder;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,8 +37,6 @@
 .method public onCompleted()V
     .locals 1
 
-    .prologue
-    .line 179
     iget-object v0, p0, Lcom/samsung/android/media/codec/SemVideoTranscoder$1;->this$0:Lcom/samsung/android/media/codec/SemVideoTranscoder;
 
     invoke-static {v0}, Lcom/samsung/android/media/codec/SemVideoTranscoder;->-get0(Lcom/samsung/android/media/codec/SemVideoTranscoder;)Lcom/samsung/android/media/codec/SemVideoTranscoder$ProgressEventListener;
@@ -50,15 +45,12 @@
 
     invoke-interface {v0}, Lcom/samsung/android/media/codec/SemVideoTranscoder$ProgressEventListener;->onCompleted()V
 
-    .line 178
     return-void
 .end method
 
 .method public onStarted()V
     .locals 1
 
-    .prologue
-    .line 174
     iget-object v0, p0, Lcom/samsung/android/media/codec/SemVideoTranscoder$1;->this$0:Lcom/samsung/android/media/codec/SemVideoTranscoder;
 
     invoke-static {v0}, Lcom/samsung/android/media/codec/SemVideoTranscoder;->-get0(Lcom/samsung/android/media/codec/SemVideoTranscoder;)Lcom/samsung/android/media/codec/SemVideoTranscoder$ProgressEventListener;
@@ -67,6 +59,5 @@
 
     invoke-interface {v0}, Lcom/samsung/android/media/codec/SemVideoTranscoder$ProgressEventListener;->onStarted()V
 
-    .line 173
     return-void
 .end method

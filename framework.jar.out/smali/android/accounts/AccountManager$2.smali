@@ -34,15 +34,7 @@
 # direct methods
 .method constructor <init>(Landroid/accounts/AccountManager;Landroid/accounts/AccountManager;Landroid/os/Handler;Landroid/accounts/AccountManagerCallback;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/accounts/AccountManager;
-    .param p2, "this$0_1"    # Landroid/accounts/AccountManager;
-    .param p3, "$anonymous0"    # Landroid/os/Handler;
-    .param p5, "val$accountType"    # Ljava/lang/String;
-    .param p6, "val$authTokenType"    # Ljava/lang/String;
 
-    .prologue
-    .line 588
-    .local p4, "$anonymous1":Landroid/accounts/AccountManagerCallback;, "Landroid/accounts/AccountManagerCallback<Ljava/lang/String;>;"
     iput-object p2, p0, Landroid/accounts/AccountManager$2;->this$0:Landroid/accounts/AccountManager;
 
     iput-object p5, p0, Landroid/accounts/AccountManager$2;->val$accountType:Ljava/lang/String;
@@ -58,15 +50,12 @@
 # virtual methods
 .method public bridge synthetic bundleToResult(Landroid/os/Bundle;)Ljava/lang/Object;
     .locals 1
-    .param p1, "bundle"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/accounts/AuthenticatorException;
         }
     .end annotation
 
-    .prologue
-    .line 595
     invoke-virtual {p0, p1}, Landroid/accounts/AccountManager$2;->bundleToResult(Landroid/os/Bundle;)Ljava/lang/String;
 
     move-result-object v0
@@ -76,15 +65,12 @@
 
 .method public bundleToResult(Landroid/os/Bundle;)Ljava/lang/String;
     .locals 2
-    .param p1, "bundle"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/accounts/AuthenticatorException;
         }
     .end annotation
 
-    .prologue
-    .line 596
     const-string/jumbo v0, "authTokenLabelKey"
 
     invoke-virtual {p1, v0}, Landroid/os/BaseBundle;->containsKey(Ljava/lang/String;)Z
@@ -93,7 +79,6 @@
 
     if-nez v0, :cond_0
 
-    .line 597
     new-instance v0, Landroid/accounts/AuthenticatorException;
 
     const-string/jumbo v1, "no result in response"
@@ -102,7 +87,6 @@
 
     throw v0
 
-    .line 599
     :cond_0
     const-string/jumbo v0, "authTokenLabelKey"
 
@@ -121,8 +105,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 591
     iget-object v0, p0, Landroid/accounts/AccountManager$2;->this$0:Landroid/accounts/AccountManager;
 
     invoke-static {v0}, Landroid/accounts/AccountManager;->-get3(Landroid/accounts/AccountManager;)Landroid/accounts/IAccountManager;
@@ -137,6 +119,5 @@
 
     invoke-interface {v0, v1, v2, v3}, Landroid/accounts/IAccountManager;->getAuthTokenLabel(Landroid/accounts/IAccountManagerResponse;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 590
     return-void
 .end method

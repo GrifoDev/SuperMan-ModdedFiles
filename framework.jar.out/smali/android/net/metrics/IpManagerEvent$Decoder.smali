@@ -31,12 +31,10 @@
 .method static constructor <clinit>()V
     .locals 5
 
-    .prologue
     const/4 v4, 0x1
 
     const/4 v3, 0x0
 
-    .line 85
     new-array v0, v4, [Ljava/lang/Class;
 
     const-class v1, Landroid/net/metrics/IpManagerEvent;
@@ -55,22 +53,18 @@
 
     aput-object v2, v1, v4
 
-    .line 84
     invoke-static {v0, v1}, Lcom/android/internal/util/MessageUtils;->findMessageNames([Ljava/lang/Class;[Ljava/lang/String;)Landroid/util/SparseArray;
 
     move-result-object v0
 
     sput-object v0, Landroid/net/metrics/IpManagerEvent$Decoder;->constants:Landroid/util/SparseArray;
 
-    .line 83
     return-void
 .end method
 
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 83
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

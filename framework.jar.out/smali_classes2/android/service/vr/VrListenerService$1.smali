@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Landroid/service/vr/VrListenerService;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/service/vr/VrListenerService;
 
-    .prologue
-    .line 71
     iput-object p1, p0, Landroid/service/vr/VrListenerService$1;->this$0:Landroid/service/vr/VrListenerService;
 
     invoke-direct {p0}, Landroid/service/vr/IVrListener$Stub;-><init>()V
@@ -36,10 +33,7 @@
 # virtual methods
 .method public focusedActivityChanged(Landroid/content/ComponentName;)V
     .locals 2
-    .param p1, "component"    # Landroid/content/ComponentName;
 
-    .prologue
-    .line 74
     iget-object v0, p0, Landroid/service/vr/VrListenerService$1;->this$0:Landroid/service/vr/VrListenerService;
 
     invoke-static {v0}, Landroid/service/vr/VrListenerService;->-get0(Landroid/service/vr/VrListenerService;)Landroid/os/Handler;
@@ -54,6 +48,5 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    .line 73
     return-void
 .end method

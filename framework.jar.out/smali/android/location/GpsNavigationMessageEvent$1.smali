@@ -31,8 +31,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 88
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -42,10 +40,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/location/GpsNavigationMessageEvent;
     .locals 3
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 91
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
@@ -54,16 +49,12 @@
 
     move-result-object v0
 
-    .line 92
-    .local v0, "classLoader":Ljava/lang/ClassLoader;
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
 
     move-result-object v1
 
     check-cast v1, Landroid/location/GpsNavigationMessage;
 
-    .line 93
-    .local v1, "navigationMessage":Landroid/location/GpsNavigationMessage;
     new-instance v2, Landroid/location/GpsNavigationMessageEvent;
 
     invoke-direct {v2, v1}, Landroid/location/GpsNavigationMessageEvent;-><init>(Landroid/location/GpsNavigationMessage;)V
@@ -73,10 +64,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 90
     invoke-virtual {p0, p1}, Landroid/location/GpsNavigationMessageEvent$1;->createFromParcel(Landroid/os/Parcel;)Landroid/location/GpsNavigationMessageEvent;
 
     move-result-object v0
@@ -86,10 +74,7 @@
 
 .method public newArray(I)[Landroid/location/GpsNavigationMessageEvent;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 98
     new-array v0, p1, [Landroid/location/GpsNavigationMessageEvent;
 
     return-object v0
@@ -97,10 +82,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 97
     invoke-virtual {p0, p1}, Landroid/location/GpsNavigationMessageEvent$1;->newArray(I)[Landroid/location/GpsNavigationMessageEvent;
 
     move-result-object v0

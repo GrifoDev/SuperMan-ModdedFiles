@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;)V
     .locals 0
-    .param p1, "this$1"    # Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;
 
-    .prologue
-    .line 369
     iput-object p1, p0, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem$1;->this$1:Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,8 +37,6 @@
 .method public run()V
     .locals 3
 
-    .prologue
-    .line 372
     iget-object v0, p0, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem$1;->this$1:Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;
 
     invoke-static {v0}, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;->-wrap0(Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;)Z
@@ -50,7 +45,6 @@
 
     if-eqz v0, :cond_1
 
-    .line 373
     iget-object v0, p0, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem$1;->this$1:Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;
 
     invoke-static {v0}, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;->-get0(Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;)Landroid/sec/clipboard/util/FileHelper;
@@ -95,25 +89,21 @@
 
     if-ge v0, v1, :cond_0
 
-    .line 374
     iget-object v0, p0, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem$1;->this$1:Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;
 
     invoke-virtual {v0}, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;->gc()V
 
-    .line 376
     :cond_0
     iget-object v0, p0, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem$1;->this$1:Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;
 
     invoke-static {v0}, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;->-wrap1(Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;)Z
 
-    .line 377
     iget-object v0, p0, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem$1;->this$1:Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;
 
     iget-object v0, v0, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;->this$0:Landroid/sec/clipboard/data/file/FileManager;
 
     invoke-static {v0}, Landroid/sec/clipboard/data/file/FileManager;->-wrap0(Landroid/sec/clipboard/data/file/FileManager;)V
 
-    .line 371
     :cond_1
     return-void
 .end method

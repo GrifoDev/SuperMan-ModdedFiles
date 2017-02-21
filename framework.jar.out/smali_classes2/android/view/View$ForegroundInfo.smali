@@ -130,45 +130,36 @@
 .method private constructor <init>()V
     .locals 2
 
-    .prologue
     const/4 v1, 0x1
 
-    .line 3668
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 3671
     const/16 v0, 0x77
 
     iput v0, p0, Landroid/view/View$ForegroundInfo;->mGravity:I
 
-    .line 3672
     iput-boolean v1, p0, Landroid/view/View$ForegroundInfo;->mInsidePadding:Z
 
-    .line 3673
     iput-boolean v1, p0, Landroid/view/View$ForegroundInfo;->mBoundsChanged:Z
 
-    .line 3674
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v0, p0, Landroid/view/View$ForegroundInfo;->mSelfBounds:Landroid/graphics/Rect;
 
-    .line 3675
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v0, p0, Landroid/view/View$ForegroundInfo;->mOverlayBounds:Landroid/graphics/Rect;
 
-    .line 3668
     return-void
 .end method
 
 .method synthetic constructor <init>(Landroid/view/View$ForegroundInfo;)V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Landroid/view/View$ForegroundInfo;-><init>()V
 
     return-void

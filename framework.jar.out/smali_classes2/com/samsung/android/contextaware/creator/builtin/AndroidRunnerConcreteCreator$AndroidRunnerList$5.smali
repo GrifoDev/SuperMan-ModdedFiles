@@ -17,10 +17,7 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
     .locals 1
-    .param p3, "$anonymous0"    # Ljava/lang/String;
 
-    .prologue
-    .line 129
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, p2, p3, v0}, Lcom/samsung/android/contextaware/creator/builtin/AndroidRunnerConcreteCreator$AndroidRunnerList;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/samsung/android/contextaware/creator/builtin/AndroidRunnerConcreteCreator$AndroidRunnerList;)V
@@ -33,8 +30,6 @@
 .method public final getObject()Lcom/samsung/android/contextaware/manager/ContextComponent;
     .locals 7
 
-    .prologue
-    .line 132
     invoke-static {}, Lcom/samsung/android/contextaware/creator/builtin/AndroidRunnerConcreteCreator;->-wrap5()Ljava/util/concurrent/ConcurrentHashMap;
 
     move-result-object v0
@@ -49,19 +44,16 @@
 
     if-nez v0, :cond_0
 
-    .line 133
     invoke-static {}, Lcom/samsung/android/contextaware/creator/builtin/AndroidRunnerConcreteCreator;->-wrap5()Ljava/util/concurrent/ConcurrentHashMap;
 
     move-result-object v0
 
-    .line 134
     invoke-virtual {p0}, Ljava/lang/Enum;->name()Ljava/lang/String;
 
     move-result-object v1
 
     new-instance v2, Lcom/samsung/android/contextaware/dataprovider/androidprovider/builtin/AccelerometerSensorRunner;
 
-    .line 135
     invoke-static {}, Lcom/samsung/android/contextaware/creator/builtin/AndroidRunnerConcreteCreator;->-wrap4()I
 
     move-result v3
@@ -74,18 +66,14 @@
 
     move-result-object v5
 
-    .line 136
     invoke-static {}, Lcom/samsung/android/contextaware/creator/builtin/AndroidRunnerConcreteCreator;->-wrap3()Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/ISensorHubResetObservable;
 
     move-result-object v6
 
-    .line 134
     invoke-direct {v2, v3, v4, v5, v6}, Lcom/samsung/android/contextaware/dataprovider/androidprovider/builtin/AccelerometerSensorRunner;-><init>(ILandroid/content/Context;Landroid/os/Looper;Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/ISensorHubResetObservable;)V
 
-    .line 133
     invoke-virtual {v0, v1, v2}, Ljava/util/concurrent/ConcurrentHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 138
     :cond_0
     invoke-static {}, Lcom/samsung/android/contextaware/creator/builtin/AndroidRunnerConcreteCreator;->-wrap5()Ljava/util/concurrent/ConcurrentHashMap;
 
@@ -106,22 +94,17 @@
 
 .method public final varargs getObject([Ljava/lang/Object;)Lcom/samsung/android/contextaware/manager/ContextComponent;
     .locals 8
-    .param p1, "property"    # [Ljava/lang/Object;
 
-    .prologue
-    .line 149
     array-length v0, p1
 
     const/4 v1, 0x1
 
     if-eq v0, v1, :cond_0
 
-    .line 150
     const/4 v0, 0x0
 
     return-object v0
 
-    .line 153
     :cond_0
     invoke-static {}, Lcom/samsung/android/contextaware/creator/builtin/AndroidRunnerConcreteCreator;->-wrap5()Ljava/util/concurrent/ConcurrentHashMap;
 
@@ -137,19 +120,16 @@
 
     if-nez v0, :cond_1
 
-    .line 154
     invoke-static {}, Lcom/samsung/android/contextaware/creator/builtin/AndroidRunnerConcreteCreator;->-wrap5()Ljava/util/concurrent/ConcurrentHashMap;
 
     move-result-object v6
 
-    .line 155
     invoke-virtual {p0}, Ljava/lang/Enum;->name()Ljava/lang/String;
 
     move-result-object v7
 
     new-instance v0, Lcom/samsung/android/contextaware/dataprovider/androidprovider/builtin/AccelerometerSensorRunner;
 
-    .line 156
     invoke-static {}, Lcom/samsung/android/contextaware/creator/builtin/AndroidRunnerConcreteCreator;->-wrap4()I
 
     move-result v1
@@ -162,12 +142,10 @@
 
     move-result-object v3
 
-    .line 157
     invoke-static {}, Lcom/samsung/android/contextaware/creator/builtin/AndroidRunnerConcreteCreator;->-wrap3()Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/ISensorHubResetObservable;
 
     move-result-object v4
 
-    .line 158
     const/4 v5, 0x0
 
     aget-object v5, p1, v5
@@ -178,13 +156,10 @@
 
     move-result v5
 
-    .line 155
     invoke-direct/range {v0 .. v5}, Lcom/samsung/android/contextaware/dataprovider/androidprovider/builtin/AccelerometerSensorRunner;-><init>(ILandroid/content/Context;Landroid/os/Looper;Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/ISensorHubResetObservable;I)V
 
-    .line 154
     invoke-virtual {v6, v7, v0}, Ljava/util/concurrent/ConcurrentHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 160
     :cond_1
     invoke-static {}, Lcom/samsung/android/contextaware/creator/builtin/AndroidRunnerConcreteCreator;->-wrap5()Ljava/util/concurrent/ConcurrentHashMap;
 
@@ -206,15 +181,12 @@
 .method public final getObjectForSubCollection()Lcom/samsung/android/contextaware/manager/ContextComponent;
     .locals 5
 
-    .prologue
-    .line 143
     new-instance v0, Lcom/samsung/android/contextaware/dataprovider/androidprovider/builtin/AccelerometerSensorRunner;
 
     invoke-static {}, Lcom/samsung/android/contextaware/creator/builtin/AndroidRunnerConcreteCreator;->-wrap4()I
 
     move-result v1
 
-    .line 144
     invoke-static {}, Lcom/samsung/android/contextaware/creator/builtin/AndroidRunnerConcreteCreator;->-wrap0()Landroid/content/Context;
 
     move-result-object v2
@@ -225,7 +197,6 @@
 
     const/4 v4, 0x0
 
-    .line 143
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/samsung/android/contextaware/dataprovider/androidprovider/builtin/AccelerometerSensorRunner;-><init>(ILandroid/content/Context;Landroid/os/Looper;Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/ISensorHubResetObservable;)V
 
     return-object v0
@@ -233,17 +204,13 @@
 
 .method public final varargs getObjectForSubCollection([Ljava/lang/Object;)Lcom/samsung/android/contextaware/manager/ContextComponent;
     .locals 6
-    .param p1, "property"    # [Ljava/lang/Object;
 
-    .prologue
-    .line 166
     new-instance v0, Lcom/samsung/android/contextaware/dataprovider/androidprovider/builtin/AccelerometerSensorRunner;
 
     invoke-static {}, Lcom/samsung/android/contextaware/creator/builtin/AndroidRunnerConcreteCreator;->-wrap4()I
 
     move-result v1
 
-    .line 167
     invoke-static {}, Lcom/samsung/android/contextaware/creator/builtin/AndroidRunnerConcreteCreator;->-wrap0()Landroid/content/Context;
 
     move-result-object v2
@@ -264,7 +231,6 @@
 
     const/4 v4, 0x0
 
-    .line 166
     invoke-direct/range {v0 .. v5}, Lcom/samsung/android/contextaware/dataprovider/androidprovider/builtin/AccelerometerSensorRunner;-><init>(ILandroid/content/Context;Landroid/os/Looper;Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/ISensorHubResetObservable;I)V
 
     return-object v0

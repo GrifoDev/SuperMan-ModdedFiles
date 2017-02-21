@@ -50,24 +50,18 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 753
     new-instance v0, Landroid/appwidget/AppWidgetHostView$ParcelableSparseArray$1;
 
     invoke-direct {v0}, Landroid/appwidget/AppWidgetHostView$ParcelableSparseArray$1;-><init>()V
 
-    .line 752
     sput-object v0, Landroid/appwidget/AppWidgetHostView$ParcelableSparseArray;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    .line 738
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 738
     invoke-direct {p0}, Landroid/util/SparseArray;-><init>()V
 
     return-void
@@ -76,7 +70,6 @@
 .method synthetic constructor <init>(Landroid/appwidget/AppWidgetHostView$ParcelableSparseArray;)V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Landroid/appwidget/AppWidgetHostView$ParcelableSparseArray;-><init>()V
 
     return-void
@@ -87,8 +80,6 @@
 .method public describeContents()I
     .locals 1
 
-    .prologue
-    .line 740
     const/4 v0, 0x0
 
     return v0
@@ -96,34 +87,24 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 4
-    .param p1, "dest"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
-    .prologue
-    .line 744
     invoke-virtual {p0}, Landroid/util/SparseArray;->size()I
 
     move-result v0
 
-    .line 745
-    .local v0, "count":I
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 746
     const/4 v1, 0x0
 
-    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_0
 
-    .line 747
     invoke-virtual {p0, v1}, Landroid/util/SparseArray;->keyAt(I)I
 
     move-result v2
 
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 748
     invoke-virtual {p0, v1}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
 
     move-result-object v2
@@ -134,12 +115,10 @@
 
     invoke-virtual {p1, v2, v3}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 746
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 743
     :cond_0
     return-void
 .end method

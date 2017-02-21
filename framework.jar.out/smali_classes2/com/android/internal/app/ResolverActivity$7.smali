@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/app/ResolverActivity;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/internal/app/ResolverActivity;
 
-    .prologue
-    .line 3209
     iput-object p1, p0, Lcom/android/internal/app/ResolverActivity$7;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,13 +36,9 @@
 # virtual methods
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
     .locals 3
-    .param p1, "v"    # Landroid/view/View;
-    .param p2, "event"    # Landroid/view/MotionEvent;
 
-    .prologue
     const/4 v2, 0x1
 
-    .line 3212
     iget-object v0, p0, Lcom/android/internal/app/ResolverActivity$7;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     invoke-static {v0}, Lcom/android/internal/app/ResolverActivity;->-get27(Lcom/android/internal/app/ResolverActivity;)Lcom/android/internal/widget/ViewPager;
@@ -64,6 +57,5 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/internal/widget/ViewPager;->setCurrentItem(IZ)V
 
-    .line 3213
     return v2
 .end method

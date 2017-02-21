@@ -44,31 +44,22 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 903
     new-instance v0, Landroid/nfc/cardemulation/ApduServiceInfo$SecureElementInfo$1;
 
     invoke-direct {v0}, Landroid/nfc/cardemulation/ApduServiceInfo$SecureElementInfo$1;-><init>()V
 
-    .line 902
     sput-object v0, Landroid/nfc/cardemulation/ApduServiceInfo$SecureElementInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    .line 875
     return-void
 .end method
 
 .method public constructor <init>(I)V
     .locals 0
-    .param p1, "seId"    # I
 
-    .prologue
-    .line 878
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 879
     iput p1, p0, Landroid/nfc/cardemulation/ApduServiceInfo$SecureElementInfo;->seId:I
 
-    .line 878
     return-void
 .end method
 
@@ -77,8 +68,6 @@
 .method public describeContents()I
     .locals 1
 
-    .prologue
-    .line 894
     const/4 v0, 0x0
 
     return v0
@@ -87,8 +76,6 @@
 .method public getSeId()I
     .locals 1
 
-    .prologue
-    .line 883
     iget v0, p0, Landroid/nfc/cardemulation/ApduServiceInfo$SecureElementInfo;->seId:I
 
     return v0
@@ -97,8 +84,6 @@
 .method public toString()Ljava/lang/String;
     .locals 3
 
-    .prologue
-    .line 888
     new-instance v0, Ljava/lang/StringBuilder;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -123,8 +108,6 @@
 
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    .line 889
-    .local v0, "out":Ljava/lang/StringBuilder;
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -134,15 +117,10 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .param p1, "dest"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
-    .prologue
-    .line 899
     iget v0, p0, Landroid/nfc/cardemulation/ApduServiceInfo$SecureElementInfo;->seId:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 898
     return-void
 .end method

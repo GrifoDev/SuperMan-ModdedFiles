@@ -23,49 +23,34 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 152
     const-string/jumbo v0, "filterfw"
 
     invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
 
-    .line 26
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
     .locals 10
-    .param p1, "nativeLibName"    # Ljava/lang/String;
-    .param p2, "nativeFunctionPrefix"    # Ljava/lang/String;
 
-    .prologue
     const/4 v7, 0x0
 
-    .line 36
     invoke-direct {p0}, Landroid/filterfw/core/Program;-><init>()V
 
-    .line 29
     iput-boolean v7, p0, Landroid/filterfw/core/NativeProgram;->mHasInitFunction:Z
 
-    .line 30
     iput-boolean v7, p0, Landroid/filterfw/core/NativeProgram;->mHasTeardownFunction:Z
 
-    .line 31
     iput-boolean v7, p0, Landroid/filterfw/core/NativeProgram;->mHasSetValueFunction:Z
 
-    .line 32
     iput-boolean v7, p0, Landroid/filterfw/core/NativeProgram;->mHasGetValueFunction:Z
 
-    .line 33
     iput-boolean v7, p0, Landroid/filterfw/core/NativeProgram;->mHasResetFunction:Z
 
-    .line 34
     iput-boolean v7, p0, Landroid/filterfw/core/NativeProgram;->mTornDown:Z
 
-    .line 38
     invoke-direct {p0}, Landroid/filterfw/core/NativeProgram;->allocate()Z
 
-    .line 41
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -90,15 +75,12 @@
 
     move-result-object v0
 
-    .line 42
-    .local v0, "fullLibName":Ljava/lang/String;
     invoke-direct {p0, v0}, Landroid/filterfw/core/NativeProgram;->openNativeLibrary(Ljava/lang/String;)Z
 
     move-result v7
 
     if-nez v7, :cond_0
 
-    .line 43
     new-instance v7, Ljava/lang/RuntimeException;
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -121,10 +103,8 @@
 
     move-result-object v8
 
-    .line 44
     const-string/jumbo v9, "required for native program!"
 
-    .line 43
     invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v8
@@ -137,7 +117,6 @@
 
     throw v7
 
-    .line 48
     :cond_0
     new-instance v7, Ljava/lang/StringBuilder;
 
@@ -157,15 +136,12 @@
 
     move-result-object v3
 
-    .line 49
-    .local v3, "processFuncName":Ljava/lang/String;
     invoke-direct {p0, v3}, Landroid/filterfw/core/NativeProgram;->bindProcessFunction(Ljava/lang/String;)Z
 
     move-result v7
 
     if-nez v7, :cond_1
 
-    .line 50
     new-instance v7, Ljava/lang/RuntimeException;
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -182,10 +158,8 @@
 
     move-result-object v8
 
-    .line 51
     const-string/jumbo v9, " in library "
 
-    .line 50
     invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v8
@@ -194,18 +168,14 @@
 
     move-result-object v8
 
-    .line 51
     const-string/jumbo v9, "! "
 
-    .line 50
     invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v8
 
-    .line 52
     const-string/jumbo v9, "This function is required!"
 
-    .line 50
     invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v8
@@ -218,7 +188,6 @@
 
     throw v7
 
-    .line 55
     :cond_1
     new-instance v7, Ljava/lang/StringBuilder;
 
@@ -238,15 +207,12 @@
 
     move-result-object v2
 
-    .line 56
-    .local v2, "initFuncName":Ljava/lang/String;
     invoke-direct {p0, v2}, Landroid/filterfw/core/NativeProgram;->bindInitFunction(Ljava/lang/String;)Z
 
     move-result v7
 
     iput-boolean v7, p0, Landroid/filterfw/core/NativeProgram;->mHasInitFunction:Z
 
-    .line 58
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -265,15 +231,12 @@
 
     move-result-object v6
 
-    .line 59
-    .local v6, "teardownFuncName":Ljava/lang/String;
     invoke-direct {p0, v6}, Landroid/filterfw/core/NativeProgram;->bindTeardownFunction(Ljava/lang/String;)Z
 
     move-result v7
 
     iput-boolean v7, p0, Landroid/filterfw/core/NativeProgram;->mHasTeardownFunction:Z
 
-    .line 61
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -292,15 +255,12 @@
 
     move-result-object v5
 
-    .line 62
-    .local v5, "setValueFuncName":Ljava/lang/String;
     invoke-direct {p0, v5}, Landroid/filterfw/core/NativeProgram;->bindSetValueFunction(Ljava/lang/String;)Z
 
     move-result v7
 
     iput-boolean v7, p0, Landroid/filterfw/core/NativeProgram;->mHasSetValueFunction:Z
 
-    .line 64
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -319,15 +279,12 @@
 
     move-result-object v1
 
-    .line 65
-    .local v1, "getValueFuncName":Ljava/lang/String;
     invoke-direct {p0, v1}, Landroid/filterfw/core/NativeProgram;->bindGetValueFunction(Ljava/lang/String;)Z
 
     move-result v7
 
     iput-boolean v7, p0, Landroid/filterfw/core/NativeProgram;->mHasGetValueFunction:Z
 
-    .line 67
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -346,15 +303,12 @@
 
     move-result-object v4
 
-    .line 68
-    .local v4, "resetFuncName":Ljava/lang/String;
     invoke-direct {p0, v4}, Landroid/filterfw/core/NativeProgram;->bindResetFunction(Ljava/lang/String;)Z
 
     move-result v7
 
     iput-boolean v7, p0, Landroid/filterfw/core/NativeProgram;->mHasResetFunction:Z
 
-    .line 71
     iget-boolean v7, p0, Landroid/filterfw/core/NativeProgram;->mHasInitFunction:Z
 
     if-eqz v7, :cond_2
@@ -365,11 +319,9 @@
 
     if-eqz v7, :cond_3
 
-    .line 36
     :cond_2
     return-void
 
-    .line 72
     :cond_3
     new-instance v7, Ljava/lang/RuntimeException;
 
@@ -438,25 +390,18 @@
         }
     .end annotation
 
-    .prologue
-    .line 94
     invoke-virtual {p0}, Landroid/filterfw/core/NativeProgram;->tearDown()V
 
-    .line 93
     return-void
 .end method
 
 .method public getHostValue(Ljava/lang/String;)Ljava/lang/Object;
     .locals 2
-    .param p1, "variableName"    # Ljava/lang/String;
 
-    .prologue
-    .line 141
     iget-boolean v0, p0, Landroid/filterfw/core/NativeProgram;->mTornDown:Z
 
     if-eqz v0, :cond_0
 
-    .line 142
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string/jumbo v1, "NativeProgram already torn down!"
@@ -465,13 +410,11 @@
 
     throw v0
 
-    .line 144
     :cond_0
     iget-boolean v0, p0, Landroid/filterfw/core/NativeProgram;->mHasGetValueFunction:Z
 
     if-nez v0, :cond_1
 
-    .line 145
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string/jumbo v1, "Attempting to get native variable, but native code does not define native getvalue function!"
@@ -480,7 +423,6 @@
 
     throw v0
 
-    .line 148
     :cond_1
     invoke-direct {p0, p1}, Landroid/filterfw/core/NativeProgram;->callNativeGetValue(Ljava/lang/String;)Ljava/lang/String;
 
@@ -491,16 +433,11 @@
 
 .method public process([Landroid/filterfw/core/Frame;Landroid/filterfw/core/Frame;)V
     .locals 6
-    .param p1, "inputs"    # [Landroid/filterfw/core/Frame;
-    .param p2, "output"    # Landroid/filterfw/core/Frame;
 
-    .prologue
-    .line 99
     iget-boolean v3, p0, Landroid/filterfw/core/NativeProgram;->mTornDown:Z
 
     if-eqz v3, :cond_0
 
-    .line 100
     new-instance v3, Ljava/lang/RuntimeException;
 
     const-string/jumbo v4, "NativeProgram already torn down!"
@@ -509,23 +446,18 @@
 
     throw v3
 
-    .line 102
     :cond_0
     array-length v3, p1
 
     new-array v1, v3, [Landroid/filterfw/core/NativeFrame;
 
-    .line 103
-    .local v1, "nativeInputs":[Landroid/filterfw/core/NativeFrame;
     const/4 v0, 0x0
 
-    .local v0, "i":I
     :goto_0
     array-length v3, p1
 
     if-ge v0, v3, :cond_3
 
-    .line 104
     aget-object v3, p1, v0
 
     if-eqz v3, :cond_1
@@ -536,7 +468,6 @@
 
     if-eqz v3, :cond_2
 
-    .line 105
     :cond_1
     aget-object v3, p1, v0
 
@@ -544,12 +475,10 @@
 
     aput-object v3, v1, v0
 
-    .line 103
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 107
     :cond_2
     new-instance v3, Ljava/lang/RuntimeException;
 
@@ -581,12 +510,9 @@
 
     throw v3
 
-    .line 112
     :cond_3
     const/4 v2, 0x0
 
-    .line 113
-    .local v2, "nativeOutput":Landroid/filterfw/core/NativeFrame;
     if-eqz p2, :cond_4
 
     instance-of v3, p2, Landroid/filterfw/core/NativeFrame;
@@ -596,18 +522,14 @@
     :cond_4
     move-object v2, p2
 
-    .line 114
     check-cast v2, Landroid/filterfw/core/NativeFrame;
 
-    .line 120
-    .local v2, "nativeOutput":Landroid/filterfw/core/NativeFrame;
     invoke-direct {p0, v1, v2}, Landroid/filterfw/core/NativeProgram;->callNativeProcess([Landroid/filterfw/core/NativeFrame;Landroid/filterfw/core/NativeFrame;)Z
 
     move-result v3
 
     if-nez v3, :cond_6
 
-    .line 121
     new-instance v3, Ljava/lang/RuntimeException;
 
     const-string/jumbo v4, "Calling native process() caused error!"
@@ -616,8 +538,6 @@
 
     throw v3
 
-    .line 116
-    .local v2, "nativeOutput":Landroid/filterfw/core/NativeFrame;
     :cond_5
     new-instance v3, Ljava/lang/RuntimeException;
 
@@ -627,8 +547,6 @@
 
     throw v3
 
-    .line 98
-    .local v2, "nativeOutput":Landroid/filterfw/core/NativeFrame;
     :cond_6
     return-void
 .end method
@@ -636,8 +554,6 @@
 .method public reset()V
     .locals 2
 
-    .prologue
-    .line 87
     iget-boolean v0, p0, Landroid/filterfw/core/NativeProgram;->mHasResetFunction:Z
 
     if-eqz v0, :cond_0
@@ -648,11 +564,9 @@
 
     if-eqz v0, :cond_1
 
-    .line 86
     :cond_0
     return-void
 
-    .line 88
     :cond_1
     new-instance v0, Ljava/lang/RuntimeException;
 
@@ -665,16 +579,11 @@
 
 .method public setHostValue(Ljava/lang/String;Ljava/lang/Object;)V
     .locals 3
-    .param p1, "variableName"    # Ljava/lang/String;
-    .param p2, "value"    # Ljava/lang/Object;
 
-    .prologue
-    .line 127
     iget-boolean v0, p0, Landroid/filterfw/core/NativeProgram;->mTornDown:Z
 
     if-eqz v0, :cond_0
 
-    .line 128
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string/jumbo v1, "NativeProgram already torn down!"
@@ -683,13 +592,11 @@
 
     throw v0
 
-    .line 130
     :cond_0
     iget-boolean v0, p0, Landroid/filterfw/core/NativeProgram;->mHasSetValueFunction:Z
 
     if-nez v0, :cond_1
 
-    .line 131
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string/jumbo v1, "Attempting to set native variable, but native code does not define native setvalue function!"
@@ -698,7 +605,6 @@
 
     throw v0
 
-    .line 134
     :cond_1
     invoke-virtual {p2}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
@@ -710,7 +616,6 @@
 
     if-nez v0, :cond_2
 
-    .line 135
     new-instance v0, Ljava/lang/RuntimeException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -741,7 +646,6 @@
 
     throw v0
 
-    .line 126
     :cond_2
     return-void
 .end method
@@ -749,15 +653,12 @@
 .method public tearDown()V
     .locals 2
 
-    .prologue
-    .line 77
     iget-boolean v0, p0, Landroid/filterfw/core/NativeProgram;->mTornDown:Z
 
     if-eqz v0, :cond_0
 
     return-void
 
-    .line 78
     :cond_0
     iget-boolean v0, p0, Landroid/filterfw/core/NativeProgram;->mHasTeardownFunction:Z
 
@@ -769,19 +670,15 @@
 
     if-eqz v0, :cond_2
 
-    .line 81
     :cond_1
     invoke-direct {p0}, Landroid/filterfw/core/NativeProgram;->deallocate()Z
 
-    .line 82
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/filterfw/core/NativeProgram;->mTornDown:Z
 
-    .line 76
     return-void
 
-    .line 79
     :cond_2
     new-instance v0, Ljava/lang/RuntimeException;
 

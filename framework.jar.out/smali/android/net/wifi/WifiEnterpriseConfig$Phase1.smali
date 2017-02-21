@@ -34,8 +34,6 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    .prologue
-    .line 429
     const/4 v0, 0x4
 
     new-array v0, v0, [Ljava/lang/String;
@@ -66,15 +64,12 @@
 
     sput-object v0, Landroid/net/wifi/WifiEnterpriseConfig$Phase1;->strings:[Ljava/lang/String;
 
-    .line 414
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 416
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

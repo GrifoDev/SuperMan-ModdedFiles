@@ -30,8 +30,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 244
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,7 +38,6 @@
 .method synthetic constructor <init>(Landroid/graphics/Atlas$SlicePolicy$Cell;)V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Landroid/graphics/Atlas$SlicePolicy$Cell;-><init>()V
 
     return-void
@@ -51,8 +48,6 @@
 .method public toString()Ljava/lang/String;
     .locals 4
 
-    .prologue
-    .line 255
     const-string/jumbo v0, "cell[x=%d y=%d width=%d height=%d"
 
     const/4 v1, 0x4

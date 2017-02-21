@@ -16,33 +16,21 @@
 # direct methods
 .method public constructor <init>(Landroid/hardware/usb/UsbDevice;)V
     .locals 0
-    .param p1, "device"    # Landroid/hardware/usb/UsbDevice;
 
-    .prologue
-    .line 52
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 53
     iput-object p1, p0, Landroid/hardware/usb/UsbDeviceConnection;->mDevice:Landroid/hardware/usb/UsbDevice;
 
-    .line 52
     return-void
 .end method
 
 .method private static checkBounds([BII)V
     .locals 3
-    .param p0, "buffer"    # [B
-    .param p1, "start"    # I
-    .param p2, "length"    # I
 
-    .prologue
-    .line 290
     if-eqz p0, :cond_1
 
     array-length v0, p0
 
-    .line 291
-    .local v0, "bufferLength":I
     :goto_0
     if-ltz p1, :cond_0
 
@@ -50,7 +38,6 @@
 
     if-le v1, v0, :cond_2
 
-    .line 292
     :cond_0
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
@@ -60,15 +47,11 @@
 
     throw v1
 
-    .line 290
-    .end local v0    # "bufferLength":I
     :cond_1
     const/4 v0, 0x0
 
-    .restart local v0    # "bufferLength":I
     goto :goto_0
 
-    .line 289
     :cond_2
     return-void
 .end method
@@ -113,13 +96,7 @@
 # virtual methods
 .method public bulkTransfer(Landroid/hardware/usb/UsbEndpoint;[BII)I
     .locals 6
-    .param p1, "endpoint"    # Landroid/hardware/usb/UsbEndpoint;
-    .param p2, "buffer"    # [B
-    .param p3, "length"    # I
-    .param p4, "timeout"    # I
 
-    .prologue
-    .line 240
     const/4 v3, 0x0
 
     move-object v0, p0
@@ -141,17 +118,9 @@
 
 .method public bulkTransfer(Landroid/hardware/usb/UsbEndpoint;[BIII)I
     .locals 6
-    .param p1, "endpoint"    # Landroid/hardware/usb/UsbEndpoint;
-    .param p2, "buffer"    # [B
-    .param p3, "offset"    # I
-    .param p4, "length"    # I
-    .param p5, "timeout"    # I
 
-    .prologue
-    .line 257
     invoke-static {p2, p3, p4}, Landroid/hardware/usb/UsbDeviceConnection;->checkBounds([BII)V
 
-    .line 258
     invoke-virtual {p1}, Landroid/hardware/usb/UsbEndpoint;->getAddress()I
 
     move-result v1
@@ -175,13 +144,9 @@
 
 .method public claimInterface(Landroid/hardware/usb/UsbInterface;Z)Z
     .locals 11
-    .param p1, "intf"    # Landroid/hardware/usb/UsbInterface;
-    .param p2, "force"    # Z
 
-    .prologue
     const/4 v10, 0x0
 
-    .line 105
     if-eqz p1, :cond_1
 
     :try_start_0
@@ -193,13 +158,10 @@
 
     if-ne v7, v8, :cond_1
 
-    .line 106
     invoke-static {}, Landroid/os/UserHandle;->getCallingUserId()I
 
     move-result v6
 
-    .line 107
-    .local v6, "userId":I
     const/16 v7, 0x64
 
     if-lt v6, v7, :cond_1
@@ -208,7 +170,6 @@
 
     if-gt v6, v7, :cond_1
 
-    .line 108
     const-string/jumbo v7, "UsbDeviceConnection"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -245,13 +206,10 @@
 
     invoke-static {v7, v8}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 109
     invoke-static {}, Lcom/samsung/android/knox/SemPersonaManager;->getKnoxContainerVersion()Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
     move-result-object v2
 
-    .line 110
-    .local v2, "currentVersion":Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
     sget-object v7, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_2_2_0:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
     invoke-virtual {v2, v7}, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->compareTo(Ljava/lang/Enum;)I
@@ -260,29 +218,21 @@
 
     if-ltz v7, :cond_1
 
-    .line 111
     invoke-static {}, Landroid/sec/enterprise/EnterpriseDeviceManager$EDMProxyServiceHelper;->getService()Landroid/sec/enterprise/IEDMProxy;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
 
     move-result-object v4
 
-    .line 112
-    .local v4, "lService":Landroid/sec/enterprise/IEDMProxy;
     const/4 v0, 0x0
 
-    .line 113
-    .local v0, "allowed":Z
     if-eqz v4, :cond_0
 
-    .line 115
     :try_start_1
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
     move-result v1
 
-    .line 116
-    .local v1, "callingUid":I
     const-string/jumbo v7, "UsbDeviceConnection"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -315,13 +265,10 @@
 
     invoke-static {v7, v8}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 117
     invoke-interface {v4, v6, v1}, Landroid/sec/enterprise/IEDMProxy;->isPackageAllowedToAccessExternalSdcard(II)Z
 
     move-result v0
 
-    .line 118
-    .local v0, "allowed":Z
     const-string/jumbo v7, "UsbDeviceConnection"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -347,14 +294,10 @@
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 123
-    .end local v0    # "allowed":Z
-    .end local v1    # "callingUid":I
     :cond_0
     :goto_0
     if-nez v0, :cond_1
 
-    .line 124
     :try_start_2
     const-string/jumbo v7, "UsbDeviceConnection"
 
@@ -362,15 +305,11 @@
 
     invoke-static {v7, v8}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 125
     return v10
 
-    .line 119
     :catch_0
     move-exception v5
 
-    .line 120
-    .local v5, "re":Landroid/os/RemoteException;
     const-string/jumbo v7, "UsbDeviceConnection"
 
     const-string/jumbo v8, "doBind(): isPackageAllowedToAccessExternalSdcard on EDMProxy failed! "
@@ -381,24 +320,15 @@
 
     goto :goto_0
 
-    .line 130
-    .end local v2    # "currentVersion":Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
-    .end local v4    # "lService":Landroid/sec/enterprise/IEDMProxy;
-    .end local v5    # "re":Landroid/os/RemoteException;
-    .end local v6    # "userId":I
     :catch_1
     move-exception v3
 
-    .line 131
-    .local v3, "e":Ljava/lang/Exception;
     const-string/jumbo v7, "UsbDeviceConnection"
 
     const-string/jumbo v8, "claimInterface exception "
 
     invoke-static {v7, v8, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 135
-    .end local v3    # "e":Ljava/lang/Exception;
     :cond_1
     invoke-virtual {p1}, Landroid/hardware/usb/UsbInterface;->getId()I
 
@@ -414,26 +344,14 @@
 .method public close()V
     .locals 0
 
-    .prologue
-    .line 67
     invoke-direct {p0}, Landroid/hardware/usb/UsbDeviceConnection;->native_close()V
 
-    .line 66
     return-void
 .end method
 
 .method public controlTransfer(IIII[BII)I
     .locals 9
-    .param p1, "requestType"    # I
-    .param p2, "request"    # I
-    .param p3, "value"    # I
-    .param p4, "index"    # I
-    .param p5, "buffer"    # [B
-    .param p6, "length"    # I
-    .param p7, "timeout"    # I
 
-    .prologue
-    .line 192
     const/4 v6, 0x0
 
     move-object v0, p0
@@ -461,20 +379,9 @@
 
 .method public controlTransfer(IIII[BIII)I
     .locals 1
-    .param p1, "requestType"    # I
-    .param p2, "request"    # I
-    .param p3, "value"    # I
-    .param p4, "index"    # I
-    .param p5, "buffer"    # [B
-    .param p6, "offset"    # I
-    .param p7, "length"    # I
-    .param p8, "timeout"    # I
 
-    .prologue
-    .line 217
     invoke-static {p5, p6, p7}, Landroid/hardware/usb/UsbDeviceConnection;->checkBounds([BII)V
 
-    .line 218
     invoke-direct/range {p0 .. p8}, Landroid/hardware/usb/UsbDeviceConnection;->native_control_request(IIII[BIII)I
 
     move-result v0
@@ -485,8 +392,6 @@
 .method public getFileDescriptor()I
     .locals 1
 
-    .prologue
-    .line 78
     invoke-direct {p0}, Landroid/hardware/usb/UsbDeviceConnection;->native_get_fd()I
 
     move-result v0
@@ -497,8 +402,6 @@
 .method public getRawDescriptors()[B
     .locals 1
 
-    .prologue
-    .line 89
     invoke-direct {p0}, Landroid/hardware/usb/UsbDeviceConnection;->native_get_desc()[B
 
     move-result-object v0
@@ -509,8 +412,6 @@
 .method public getSerial()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 286
     invoke-direct {p0}, Landroid/hardware/usb/UsbDeviceConnection;->native_get_serial()Ljava/lang/String;
 
     move-result-object v0
@@ -520,11 +421,7 @@
 
 .method open(Ljava/lang/String;Landroid/os/ParcelFileDescriptor;)Z
     .locals 1
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "pfd"    # Landroid/os/ParcelFileDescriptor;
 
-    .prologue
-    .line 57
     invoke-virtual {p2}, Landroid/os/ParcelFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
 
     move-result-object v0
@@ -538,10 +435,7 @@
 
 .method public releaseInterface(Landroid/hardware/usb/UsbInterface;)Z
     .locals 1
-    .param p1, "intf"    # Landroid/hardware/usb/UsbInterface;
 
-    .prologue
-    .line 144
     invoke-virtual {p1}, Landroid/hardware/usb/UsbInterface;->getId()I
 
     move-result v0
@@ -556,30 +450,21 @@
 .method public requestWait()Landroid/hardware/usb/UsbRequest;
     .locals 1
 
-    .prologue
-    .line 272
     invoke-direct {p0}, Landroid/hardware/usb/UsbDeviceConnection;->native_request_wait()Landroid/hardware/usb/UsbRequest;
 
     move-result-object v0
 
-    .line 273
-    .local v0, "request":Landroid/hardware/usb/UsbRequest;
     if-eqz v0, :cond_0
 
-    .line 274
     invoke-virtual {v0}, Landroid/hardware/usb/UsbRequest;->dequeue()V
 
-    .line 276
     :cond_0
     return-object v0
 .end method
 
 .method public setConfiguration(Landroid/hardware/usb/UsbConfiguration;)Z
     .locals 1
-    .param p1, "configuration"    # Landroid/hardware/usb/UsbConfiguration;
 
-    .prologue
-    .line 163
     invoke-virtual {p1}, Landroid/hardware/usb/UsbConfiguration;->getId()I
 
     move-result v0
@@ -593,10 +478,7 @@
 
 .method public setInterface(Landroid/hardware/usb/UsbInterface;)Z
     .locals 2
-    .param p1, "intf"    # Landroid/hardware/usb/UsbInterface;
 
-    .prologue
-    .line 154
     invoke-virtual {p1}, Landroid/hardware/usb/UsbInterface;->getId()I
 
     move-result v0

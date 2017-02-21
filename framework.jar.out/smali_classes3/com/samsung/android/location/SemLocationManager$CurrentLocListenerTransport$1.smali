@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/location/SemLocationManager$CurrentLocListenerTransport;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/samsung/android/location/SemLocationManager$CurrentLocListenerTransport;
 
-    .prologue
-    .line 343
     iput-object p1, p0, Lcom/samsung/android/location/SemLocationManager$CurrentLocListenerTransport$1;->this$1:Lcom/samsung/android/location/SemLocationManager$CurrentLocListenerTransport;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -36,14 +33,10 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 1
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .line 346
     iget-object v0, p0, Lcom/samsung/android/location/SemLocationManager$CurrentLocListenerTransport$1;->this$1:Lcom/samsung/android/location/SemLocationManager$CurrentLocListenerTransport;
 
     invoke-static {v0, p1}, Lcom/samsung/android/location/SemLocationManager$CurrentLocListenerTransport;->-wrap0(Lcom/samsung/android/location/SemLocationManager$CurrentLocListenerTransport;Landroid/os/Message;)V
 
-    .line 345
     return-void
 .end method

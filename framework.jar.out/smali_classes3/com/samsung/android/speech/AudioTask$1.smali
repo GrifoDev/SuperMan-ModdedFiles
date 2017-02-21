@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/speech/AudioTask;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/samsung/android/speech/AudioTask;
 
-    .prologue
-    .line 759
     iput-object p1, p0, Lcom/samsung/android/speech/AudioTask$1;->this$0:Lcom/samsung/android/speech/AudioTask;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -36,10 +33,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .line 761
     invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;
 
     move-result-object v1
@@ -50,8 +44,6 @@
 
     move-result-object v0
 
-    .line 762
-    .local v0, "result":[Ljava/lang/String;
     iget-object v1, p0, Lcom/samsung/android/speech/AudioTask$1;->this$0:Lcom/samsung/android/speech/AudioTask;
 
     invoke-static {v1}, Lcom/samsung/android/speech/AudioTask;->-get0(Lcom/samsung/android/speech/AudioTask;)Lcom/samsung/android/speech/SemSpeechRecognizer$ResultListener;
@@ -60,7 +52,6 @@
 
     if-eqz v1, :cond_0
 
-    .line 763
     iget-object v1, p0, Lcom/samsung/android/speech/AudioTask$1;->this$0:Lcom/samsung/android/speech/AudioTask;
 
     invoke-static {v1}, Lcom/samsung/android/speech/AudioTask;->-get0(Lcom/samsung/android/speech/AudioTask;)Lcom/samsung/android/speech/SemSpeechRecognizer$ResultListener;
@@ -69,7 +60,6 @@
 
     invoke-interface {v1, v0}, Lcom/samsung/android/speech/SemSpeechRecognizer$ResultListener;->onResults([Ljava/lang/String;)V
 
-    .line 760
     :cond_0
     return-void
 .end method

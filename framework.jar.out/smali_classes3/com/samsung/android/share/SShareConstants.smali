@@ -207,8 +207,6 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .prologue
-    .line 32
     const-string/jumbo v0, "ro.build.scafe.version"
 
     invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
@@ -217,7 +215,6 @@
 
     sput-object v0, Lcom/samsung/android/share/SShareConstants;->SECUX_VERSION:Ljava/lang/String;
 
-    .line 52
     invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
 
     move-result-object v0
@@ -230,15 +227,12 @@
 
     sput-boolean v0, Lcom/samsung/android/share/SShareConstants;->ENABLE_SURVEY_MODE:Z
 
-    .line 9
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 9
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

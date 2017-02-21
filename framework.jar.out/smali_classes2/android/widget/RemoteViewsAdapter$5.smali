@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/widget/RemoteViewsAdapter;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/widget/RemoteViewsAdapter;
 
-    .prologue
-    .line 1237
     iput-object p1, p0, Landroid/widget/RemoteViewsAdapter$5;->this$0:Landroid/widget/RemoteViewsAdapter;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,8 +37,6 @@
 .method public run()V
     .locals 2
 
-    .prologue
-    .line 1240
     iget-object v0, p0, Landroid/widget/RemoteViewsAdapter$5;->this$0:Landroid/widget/RemoteViewsAdapter;
 
     invoke-static {v0}, Landroid/widget/RemoteViewsAdapter;->-get0(Landroid/widget/RemoteViewsAdapter;)Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;
@@ -50,7 +45,6 @@
 
     monitor-enter v1
 
-    .line 1241
     :try_start_0
     iget-object v0, p0, Landroid/widget/RemoteViewsAdapter$5;->this$0:Landroid/widget/RemoteViewsAdapter;
 
@@ -64,20 +58,16 @@
 
     monitor-exit v1
 
-    .line 1244
     iget-object v0, p0, Landroid/widget/RemoteViewsAdapter$5;->this$0:Landroid/widget/RemoteViewsAdapter;
 
     invoke-virtual {v0}, Landroid/widget/RemoteViewsAdapter;->superNotifyDataSetChanged()V
 
-    .line 1245
     iget-object v0, p0, Landroid/widget/RemoteViewsAdapter$5;->this$0:Landroid/widget/RemoteViewsAdapter;
 
     invoke-static {v0}, Landroid/widget/RemoteViewsAdapter;->-wrap0(Landroid/widget/RemoteViewsAdapter;)V
 
-    .line 1239
     return-void
 
-    .line 1240
     :catchall_0
     move-exception v0
 

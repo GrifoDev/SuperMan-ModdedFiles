@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/share/SShareSimpleSharing;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/samsung/android/share/SShareSimpleSharing;
 
-    .prologue
-    .line 80
     iput-object p1, p0, Lcom/samsung/android/share/SShareSimpleSharing$1;->this$0:Lcom/samsung/android/share/SShareSimpleSharing;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -36,19 +33,14 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 1
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .line 83
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 82
     :goto_0
     return-void
 
-    .line 98
     :pswitch_0
     iget-object v0, p0, Lcom/samsung/android/share/SShareSimpleSharing$1;->this$0:Lcom/samsung/android/share/SShareSimpleSharing;
 
@@ -56,7 +48,6 @@
 
     goto :goto_0
 
-    .line 83
     :pswitch_data_0
     .packed-switch 0x7d0
         :pswitch_0

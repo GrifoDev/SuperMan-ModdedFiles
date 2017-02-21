@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Landroid/service/quicksettings/TileService;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/service/quicksettings/TileService;
 
-    .prologue
-    .line 440
     iput-object p1, p0, Landroid/service/quicksettings/TileService$2;->this$0:Landroid/service/quicksettings/TileService;
 
     invoke-direct {p0}, Landroid/service/quicksettings/IQSTileService$Stub;-><init>()V
@@ -36,15 +33,12 @@
 # virtual methods
 .method public onClick(Landroid/os/IBinder;)V
     .locals 2
-    .param p1, "wtoken"    # Landroid/os/IBinder;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
-    .line 463
     iget-object v0, p0, Landroid/service/quicksettings/TileService$2;->this$0:Landroid/service/quicksettings/TileService;
 
     invoke-static {v0}, Landroid/service/quicksettings/TileService;->-get0(Landroid/service/quicksettings/TileService;)Landroid/service/quicksettings/TileService$H;
@@ -59,7 +53,6 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    .line 462
     return-void
 .end method
 
@@ -71,8 +64,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 458
     iget-object v0, p0, Landroid/service/quicksettings/TileService$2;->this$0:Landroid/service/quicksettings/TileService;
 
     invoke-static {v0}, Landroid/service/quicksettings/TileService;->-get0(Landroid/service/quicksettings/TileService;)Landroid/service/quicksettings/TileService$H;
@@ -83,7 +74,6 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    .line 457
     return-void
 .end method
 
@@ -95,8 +85,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 453
     iget-object v0, p0, Landroid/service/quicksettings/TileService$2;->this$0:Landroid/service/quicksettings/TileService;
 
     invoke-static {v0}, Landroid/service/quicksettings/TileService;->-get0(Landroid/service/quicksettings/TileService;)Landroid/service/quicksettings/TileService$H;
@@ -107,7 +95,6 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    .line 452
     return-void
 .end method
 
@@ -119,8 +106,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 448
     iget-object v0, p0, Landroid/service/quicksettings/TileService$2;->this$0:Landroid/service/quicksettings/TileService;
 
     invoke-static {v0}, Landroid/service/quicksettings/TileService;->-get0(Landroid/service/quicksettings/TileService;)Landroid/service/quicksettings/TileService$H;
@@ -131,7 +116,6 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    .line 447
     return-void
 .end method
 
@@ -143,8 +127,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 443
     iget-object v0, p0, Landroid/service/quicksettings/TileService$2;->this$0:Landroid/service/quicksettings/TileService;
 
     invoke-static {v0}, Landroid/service/quicksettings/TileService;->-get0(Landroid/service/quicksettings/TileService;)Landroid/service/quicksettings/TileService$H;
@@ -155,7 +137,6 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    .line 442
     return-void
 .end method
 
@@ -167,8 +148,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 468
     iget-object v0, p0, Landroid/service/quicksettings/TileService$2;->this$0:Landroid/service/quicksettings/TileService;
 
     invoke-static {v0}, Landroid/service/quicksettings/TileService;->-get0(Landroid/service/quicksettings/TileService;)Landroid/service/quicksettings/TileService$H;
@@ -179,7 +158,6 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    .line 467
     return-void
 .end method
 
@@ -191,8 +169,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 488
     iget-object v0, p0, Landroid/service/quicksettings/TileService$2;->this$0:Landroid/service/quicksettings/TileService;
 
     invoke-virtual {v0}, Landroid/service/quicksettings/TileService;->semGetDetailView()Landroid/widget/RemoteViews;
@@ -210,8 +186,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 473
     iget-object v0, p0, Landroid/service/quicksettings/TileService$2;->this$0:Landroid/service/quicksettings/TileService;
 
     invoke-virtual {v0}, Landroid/service/quicksettings/TileService;->semGetDetailViewTitle()Ljava/lang/CharSequence;
@@ -229,8 +203,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 493
     iget-object v0, p0, Landroid/service/quicksettings/TileService$2;->this$0:Landroid/service/quicksettings/TileService;
 
     invoke-virtual {v0}, Landroid/service/quicksettings/TileService;->semGetSettingsIntent()Landroid/content/Intent;
@@ -248,8 +220,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 483
     iget-object v0, p0, Landroid/service/quicksettings/TileService$2;->this$0:Landroid/service/quicksettings/TileService;
 
     invoke-virtual {v0}, Landroid/service/quicksettings/TileService;->semIsToggleButtonChecked()Z
@@ -267,8 +237,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 478
     iget-object v0, p0, Landroid/service/quicksettings/TileService$2;->this$0:Landroid/service/quicksettings/TileService;
 
     invoke-virtual {v0}, Landroid/service/quicksettings/TileService;->semIsToggleButtonExists()Z
@@ -280,34 +248,27 @@
 
 .method public semRefreshConnection(Landroid/content/Intent;)V
     .locals 1
-    .param p1, "intent"    # Landroid/content/Intent;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
-    .line 503
     iget-object v0, p0, Landroid/service/quicksettings/TileService$2;->this$0:Landroid/service/quicksettings/TileService;
 
     invoke-virtual {v0, p1}, Landroid/service/quicksettings/TileService;->semRefreshConnection(Landroid/content/Intent;)V
 
-    .line 502
     return-void
 .end method
 
 .method public semSetToggleButtonChecked(Z)V
     .locals 3
-    .param p1, "checked"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
-    .line 498
     iget-object v0, p0, Landroid/service/quicksettings/TileService$2;->this$0:Landroid/service/quicksettings/TileService;
 
     invoke-static {v0}, Landroid/service/quicksettings/TileService;->-get0(Landroid/service/quicksettings/TileService;)Landroid/service/quicksettings/TileService$H;
@@ -326,6 +287,5 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    .line 497
     return-void
 .end method

@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/view/menu/MenuItemImpl;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/internal/view/menu/MenuItemImpl;
 
-    .prologue
-    .line 607
     iput-object p1, p0, Lcom/android/internal/view/menu/MenuItemImpl$1;->this$0:Lcom/android/internal/view/menu/MenuItemImpl;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,10 +36,7 @@
 # virtual methods
 .method public onActionProviderVisibilityChanged(Z)V
     .locals 2
-    .param p1, "isVisible"    # Z
 
-    .prologue
-    .line 609
     iget-object v0, p0, Lcom/android/internal/view/menu/MenuItemImpl$1;->this$0:Lcom/android/internal/view/menu/MenuItemImpl;
 
     invoke-static {v0}, Lcom/android/internal/view/menu/MenuItemImpl;->-get0(Lcom/android/internal/view/menu/MenuItemImpl;)Lcom/android/internal/view/menu/MenuBuilder;
@@ -53,6 +47,5 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/view/menu/MenuBuilder;->onItemVisibleChanged(Lcom/android/internal/view/menu/MenuItemImpl;)V
 
-    .line 608
     return-void
 .end method

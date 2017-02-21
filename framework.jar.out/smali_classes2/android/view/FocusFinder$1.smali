@@ -27,8 +27,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 35
     invoke-direct {p0}, Ljava/lang/ThreadLocal;-><init>()V
 
     return-void
@@ -39,8 +37,6 @@
 .method protected initialValue()Landroid/view/FocusFinder;
     .locals 2
 
-    .prologue
-    .line 38
     new-instance v0, Landroid/view/FocusFinder;
 
     const/4 v1, 0x0
@@ -53,8 +49,6 @@
 .method protected bridge synthetic initialValue()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 37
     invoke-virtual {p0}, Landroid/view/FocusFinder$1;->initialValue()Landroid/view/FocusFinder;
 
     move-result-object v0

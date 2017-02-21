@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/app/ResolverGuideActivity;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/internal/app/ResolverGuideActivity;
 
-    .prologue
-    .line 101
     iput-object p1, p0, Lcom/android/internal/app/ResolverGuideActivity$1;->this$0:Lcom/android/internal/app/ResolverGuideActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,11 +36,7 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 2
-    .param p1, "dialog"    # Landroid/content/DialogInterface;
-    .param p2, "which"    # I
 
-    .prologue
-    .line 106
     sget-object v1, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_2_4_0:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
     invoke-static {v1}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxVersionSupported(Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;)Z
@@ -52,7 +45,6 @@
 
     if-eqz v1, :cond_0
 
-    .line 107
     iget-object v1, p0, Lcom/android/internal/app/ResolverGuideActivity$1;->this$0:Lcom/android/internal/app/ResolverGuideActivity;
 
     invoke-virtual {v1}, Lcom/android/internal/app/ResolverGuideActivity;->handlePendingIntent()Z
@@ -61,10 +53,8 @@
 
     if-eqz v1, :cond_0
 
-    .line 108
     return-void
 
-    .line 114
     :cond_0
     iget-object v1, p0, Lcom/android/internal/app/ResolverGuideActivity$1;->this$0:Lcom/android/internal/app/ResolverGuideActivity;
 
@@ -72,21 +62,16 @@
 
     move-result-object v0
 
-    .line 115
-    .local v0, "intent":Landroid/content/Intent;
     if-eqz v0, :cond_1
 
-    .line 116
     iget-object v1, p0, Lcom/android/internal/app/ResolverGuideActivity$1;->this$0:Lcom/android/internal/app/ResolverGuideActivity;
 
     invoke-virtual {v1, v0}, Lcom/android/internal/app/ResolverGuideActivity;->safelyStartActivity(Landroid/content/Intent;)V
 
-    .line 118
     :cond_1
     iget-object v1, p0, Lcom/android/internal/app/ResolverGuideActivity$1;->this$0:Lcom/android/internal/app/ResolverGuideActivity;
 
     invoke-virtual {v1}, Lcom/android/internal/app/AlertActivity;->dismiss()V
 
-    .line 103
     return-void
 .end method

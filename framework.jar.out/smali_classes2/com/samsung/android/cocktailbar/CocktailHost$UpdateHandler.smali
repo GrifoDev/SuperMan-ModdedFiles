@@ -21,17 +21,11 @@
 # direct methods
 .method public constructor <init>(Lcom/samsung/android/cocktailbar/CocktailHost;Landroid/os/Looper;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/samsung/android/cocktailbar/CocktailHost;
-    .param p2, "looper"    # Landroid/os/Looper;
 
-    .prologue
-    .line 214
     iput-object p1, p0, Lcom/samsung/android/cocktailbar/CocktailHost$UpdateHandler;->this$0:Lcom/samsung/android/cocktailbar/CocktailHost;
 
-    .line 215
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    .line 214
     return-void
 .end method
 
@@ -39,19 +33,14 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 4
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .line 219
     iget v0, p1, Landroid/os/Message;->what:I
 
     sparse-switch v0, :sswitch_data_0
 
-    .line 218
     :goto_0
     return-void
 
-    .line 221
     :sswitch_0
     iget-object v1, p0, Lcom/samsung/android/cocktailbar/CocktailHost$UpdateHandler;->this$0:Lcom/samsung/android/cocktailbar/CocktailHost;
 
@@ -67,7 +56,6 @@
 
     goto :goto_0
 
-    .line 225
     :sswitch_1
     iget-object v1, p0, Lcom/samsung/android/cocktailbar/CocktailHost$UpdateHandler;->this$0:Lcom/samsung/android/cocktailbar/CocktailHost;
 
@@ -83,7 +71,6 @@
 
     goto :goto_0
 
-    .line 229
     :sswitch_2
     iget-object v0, p0, Lcom/samsung/android/cocktailbar/CocktailHost$UpdateHandler;->this$0:Lcom/samsung/android/cocktailbar/CocktailHost;
 
@@ -95,7 +82,6 @@
 
     goto :goto_0
 
-    .line 233
     :sswitch_3
     iget-object v0, p0, Lcom/samsung/android/cocktailbar/CocktailHost$UpdateHandler;->this$0:Lcom/samsung/android/cocktailbar/CocktailHost;
 
@@ -107,7 +93,6 @@
 
     goto :goto_0
 
-    .line 237
     :sswitch_4
     iget-object v1, p0, Lcom/samsung/android/cocktailbar/CocktailHost$UpdateHandler;->this$0:Lcom/samsung/android/cocktailbar/CocktailHost;
 
@@ -127,7 +112,6 @@
 
     goto :goto_0
 
-    .line 241
     :sswitch_5
     iget-object v1, p0, Lcom/samsung/android/cocktailbar/CocktailHost$UpdateHandler;->this$0:Lcom/samsung/android/cocktailbar/CocktailHost;
 
@@ -147,7 +131,6 @@
 
     goto :goto_0
 
-    .line 245
     :sswitch_6
     iget-object v0, p0, Lcom/samsung/android/cocktailbar/CocktailHost$UpdateHandler;->this$0:Lcom/samsung/android/cocktailbar/CocktailHost;
 
@@ -157,7 +140,6 @@
 
     goto :goto_0
 
-    .line 249
     :sswitch_7
     iget-object v0, p0, Lcom/samsung/android/cocktailbar/CocktailHost$UpdateHandler;->this$0:Lcom/samsung/android/cocktailbar/CocktailHost;
 
@@ -169,7 +151,6 @@
 
     goto :goto_0
 
-    .line 253
     :sswitch_8
     iget-object v0, p0, Lcom/samsung/android/cocktailbar/CocktailHost$UpdateHandler;->this$0:Lcom/samsung/android/cocktailbar/CocktailHost;
 
@@ -179,7 +160,6 @@
 
     goto :goto_0
 
-    .line 257
     :sswitch_9
     iget-object v1, p0, Lcom/samsung/android/cocktailbar/CocktailHost$UpdateHandler;->this$0:Lcom/samsung/android/cocktailbar/CocktailHost;
 
@@ -193,7 +173,6 @@
 
     goto :goto_0
 
-    .line 261
     :sswitch_a
     iget-object v1, p0, Lcom/samsung/android/cocktailbar/CocktailHost$UpdateHandler;->this$0:Lcom/samsung/android/cocktailbar/CocktailHost;
 
@@ -213,7 +192,6 @@
 
     goto/16 :goto_0
 
-    .line 265
     :sswitch_b
     iget-object v0, p0, Lcom/samsung/android/cocktailbar/CocktailHost$UpdateHandler;->this$0:Lcom/samsung/android/cocktailbar/CocktailHost;
 
@@ -225,7 +203,6 @@
 
     goto/16 :goto_0
 
-    .line 269
     :sswitch_c
     iget-object v0, p0, Lcom/samsung/android/cocktailbar/CocktailHost$UpdateHandler;->this$0:Lcom/samsung/android/cocktailbar/CocktailHost;
 
@@ -237,7 +214,6 @@
 
     goto/16 :goto_0
 
-    .line 273
     :sswitch_d
     iget-object v1, p0, Lcom/samsung/android/cocktailbar/CocktailHost$UpdateHandler;->this$0:Lcom/samsung/android/cocktailbar/CocktailHost;
 
@@ -253,7 +229,6 @@
 
     goto/16 :goto_0
 
-    .line 219
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_0

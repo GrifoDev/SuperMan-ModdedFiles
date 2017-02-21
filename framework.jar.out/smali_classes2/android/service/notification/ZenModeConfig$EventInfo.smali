@@ -34,25 +34,18 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 991
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 996
     const/16 v0, -0x2710
 
     iput v0, p0, Landroid/service/notification/ZenModeConfig$EventInfo;->userId:I
 
-    .line 991
     return-void
 .end method
 
 .method public static resolveUserId(I)I
     .locals 1
-    .param p0, "userId"    # I
 
-    .prologue
-    .line 1023
     const/16 v0, -0x2710
 
     if-ne p0, v0, :cond_0
@@ -61,7 +54,6 @@
 
     move-result p0
 
-    .end local p0    # "userId":I
     :cond_0
     return p0
 .end method
@@ -71,40 +63,30 @@
 .method public copy()Landroid/service/notification/ZenModeConfig$EventInfo;
     .locals 2
 
-    .prologue
-    .line 1015
     new-instance v0, Landroid/service/notification/ZenModeConfig$EventInfo;
 
     invoke-direct {v0}, Landroid/service/notification/ZenModeConfig$EventInfo;-><init>()V
 
-    .line 1016
-    .local v0, "rt":Landroid/service/notification/ZenModeConfig$EventInfo;
     iget v1, p0, Landroid/service/notification/ZenModeConfig$EventInfo;->userId:I
 
     iput v1, v0, Landroid/service/notification/ZenModeConfig$EventInfo;->userId:I
 
-    .line 1017
     iget-object v1, p0, Landroid/service/notification/ZenModeConfig$EventInfo;->calendar:Ljava/lang/String;
 
     iput-object v1, v0, Landroid/service/notification/ZenModeConfig$EventInfo;->calendar:Ljava/lang/String;
 
-    .line 1018
     iget v1, p0, Landroid/service/notification/ZenModeConfig$EventInfo;->reply:I
 
     iput v1, v0, Landroid/service/notification/ZenModeConfig$EventInfo;->reply:I
 
-    .line 1019
     return-object v0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
-    .param p1, "o"    # Ljava/lang/Object;
 
-    .prologue
     const/4 v1, 0x0
 
-    .line 1007
     instance-of v2, p1, Landroid/service/notification/ZenModeConfig$EventInfo;
 
     if-nez v2, :cond_0
@@ -114,18 +96,14 @@
     :cond_0
     move-object v0, p1
 
-    .line 1008
     check-cast v0, Landroid/service/notification/ZenModeConfig$EventInfo;
 
-    .line 1009
-    .local v0, "other":Landroid/service/notification/ZenModeConfig$EventInfo;
     iget v2, p0, Landroid/service/notification/ZenModeConfig$EventInfo;->userId:I
 
     iget v3, v0, Landroid/service/notification/ZenModeConfig$EventInfo;->userId:I
 
     if-ne v2, v3, :cond_1
 
-    .line 1010
     iget-object v2, p0, Landroid/service/notification/ZenModeConfig$EventInfo;->calendar:Ljava/lang/String;
 
     iget-object v3, v0, Landroid/service/notification/ZenModeConfig$EventInfo;->calendar:Ljava/lang/String;
@@ -134,10 +112,8 @@
 
     move-result v2
 
-    .line 1009
     if-eqz v2, :cond_1
 
-    .line 1011
     iget v2, p0, Landroid/service/notification/ZenModeConfig$EventInfo;->reply:I
 
     iget v3, v0, Landroid/service/notification/ZenModeConfig$EventInfo;->reply:I
@@ -146,7 +122,6 @@
 
     const/4 v1, 0x1
 
-    .line 1009
     :cond_1
     return v1
 .end method
@@ -154,8 +129,6 @@
 .method public hashCode()I
     .locals 1
 
-    .prologue
-    .line 1002
     const/4 v0, 0x0
 
     return v0

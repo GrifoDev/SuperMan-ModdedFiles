@@ -26,11 +26,7 @@
 # direct methods
 .method constructor <init>(Landroid/security/net/config/DirectoryCertificateSource;Ljava/security/cert/X509Certificate;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/security/net/config/DirectoryCertificateSource;
-    .param p2, "val$cert"    # Ljava/security/cert/X509Certificate;
 
-    .prologue
-    .line 91
     iput-object p1, p0, Landroid/security/net/config/DirectoryCertificateSource$1;->this$0:Landroid/security/net/config/DirectoryCertificateSource;
 
     iput-object p2, p0, Landroid/security/net/config/DirectoryCertificateSource$1;->val$cert:Ljava/security/cert/X509Certificate;
@@ -44,10 +40,7 @@
 # virtual methods
 .method public match(Ljava/security/cert/X509Certificate;)Z
     .locals 2
-    .param p1, "ca"    # Ljava/security/cert/X509Certificate;
 
-    .prologue
-    .line 94
     invoke-virtual {p1}, Ljava/security/cert/X509Certificate;->getPublicKey()Ljava/security/PublicKey;
 
     move-result-object v0

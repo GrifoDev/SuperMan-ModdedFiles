@@ -29,11 +29,6 @@
 .method constructor <init>(Landroid/location/LocalListenerHelper;Landroid/location/LocalListenerHelper$ListenerOperation;Ljava/util/Map$Entry;)V
     .locals 0
 
-    .prologue
-    .line 148
-    .local p1, "this$0":Landroid/location/LocalListenerHelper;, "Landroid/location/LocalListenerHelper<TTListener;>;"
-    .local p2, "val$operation":Landroid/location/LocalListenerHelper$ListenerOperation;, "Landroid/location/LocalListenerHelper$ListenerOperation<TTListener;>;"
-    .local p3, "val$listener":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TTListener;Landroid/os/Handler;>;"
     iput-object p1, p0, Landroid/location/LocalListenerHelper$1;->this$0:Landroid/location/LocalListenerHelper;
 
     iput-object p2, p0, Landroid/location/LocalListenerHelper$1;->val$operation:Landroid/location/LocalListenerHelper$ListenerOperation;
@@ -50,8 +45,6 @@
 .method public run()V
     .locals 3
 
-    .prologue
-    .line 151
     iget-object v0, p0, Landroid/location/LocalListenerHelper$1;->this$0:Landroid/location/LocalListenerHelper;
 
     iget-object v1, p0, Landroid/location/LocalListenerHelper$1;->val$operation:Landroid/location/LocalListenerHelper$ListenerOperation;
@@ -64,6 +57,5 @@
 
     invoke-static {v0, v1, v2}, Landroid/location/LocalListenerHelper;->-wrap0(Landroid/location/LocalListenerHelper;Landroid/location/LocalListenerHelper$ListenerOperation;Ljava/lang/Object;)V
 
-    .line 150
     return-void
 .end method

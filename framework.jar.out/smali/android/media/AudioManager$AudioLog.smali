@@ -34,21 +34,16 @@
 .method static constructor <clinit>()V
     .locals 5
 
-    .prologue
     const/16 v4, 0x4f4c
 
     const/4 v1, 0x0
 
-    .line 5197
     sput-boolean v1, Landroid/media/AudioManager$AudioLog;->isSecLogEnable:Z
 
-    .line 5198
     sput-boolean v1, Landroid/media/AudioManager$AudioLog;->isAudioCoreLogEnable:Z
 
-    .line 5207
     sput v4, Landroid/media/AudioManager$AudioLog;->debugLevel:I
 
-    .line 5211
     const-string/jumbo v1, "1"
 
     const-string/jumbo v2, "persist.log.seclevel"
@@ -65,7 +60,6 @@
 
     sput-boolean v1, Landroid/media/AudioManager$AudioLog;->isSecLogEnable:Z
 
-    .line 5215
     :try_start_0
     const-string/jumbo v1, "ro.debug_level"
 
@@ -91,18 +85,12 @@
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 5196
-    .local v0, "ne":Ljava/lang/NumberFormatException;
     :goto_0
     return-void
 
-    .line 5216
-    .end local v0    # "ne":Ljava/lang/NumberFormatException;
     :catch_0
     move-exception v0
 
-    .line 5217
-    .restart local v0    # "ne":Ljava/lang/NumberFormatException;
     sput v4, Landroid/media/AudioManager$AudioLog;->debugLevel:I
 
     goto :goto_0
@@ -111,8 +99,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 5196
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -120,32 +106,24 @@
 
 .method public static isLoggable(Ljava/lang/String;I)Z
     .locals 3
-    .param p0, "tag"    # Ljava/lang/String;
-    .param p1, "level"    # I
 
-    .prologue
     const/4 v0, 0x1
 
     const/4 v1, 0x0
 
-    .line 5222
     sget-boolean v2, Landroid/media/AudioManager$AudioLog;->isAudioCoreLogEnable:Z
 
     if-eqz v2, :cond_0
 
-    .line 5223
     return v0
 
-    .line 5225
     :cond_0
     if-nez p1, :cond_1
 
-    .line 5226
     sget-boolean v0, Landroid/media/AudioManager$AudioLog;->isSecLogEnable:Z
 
     return v0
 
-    .line 5227
     :cond_1
     const/16 v2, 0x4f4c
 
@@ -155,7 +133,6 @@
 
     if-ne p1, v2, :cond_3
 
-    .line 5228
     :cond_2
     sget v2, Landroid/media/AudioManager$AudioLog;->debugLevel:I
 
@@ -164,18 +141,15 @@
     :goto_0
     return v0
 
-    .line 5227
     :cond_3
     const/16 v2, 0x4948
 
     if-eq p1, v2, :cond_2
 
-    .line 5229
     return v1
 
     :cond_4
     move v0, v1
 
-    .line 5228
     goto :goto_0
 .end method

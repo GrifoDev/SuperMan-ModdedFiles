@@ -33,10 +33,7 @@
 # direct methods
 .method private constructor <init>(Lcom/samsung/android/content/clipboard/SemClipboardManager;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/samsung/android/content/clipboard/SemClipboardManager;
 
-    .prologue
-    .line 165
     iput-object p1, p0, Lcom/samsung/android/content/clipboard/SemClipboardManager$ClipboardEvent;->this$0:Lcom/samsung/android/content/clipboard/SemClipboardManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

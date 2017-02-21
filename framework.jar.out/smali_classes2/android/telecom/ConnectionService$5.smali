@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Landroid/telecom/ConnectionService;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/telecom/ConnectionService;
 
-    .prologue
-    .line 1024
     iput-object p1, p0, Landroid/telecom/ConnectionService$5;->this$0:Landroid/telecom/ConnectionService;
 
     invoke-direct {p0}, Lcom/android/internal/telecom/RemoteServiceCallback$Stub;-><init>()V
@@ -37,8 +34,6 @@
 .method public onError()V
     .locals 2
 
-    .prologue
-    .line 1045
     iget-object v0, p0, Landroid/telecom/ConnectionService$5;->this$0:Landroid/telecom/ConnectionService;
 
     invoke-static {v0}, Landroid/telecom/ConnectionService;->-get2(Landroid/telecom/ConnectionService;)Landroid/os/Handler;
@@ -51,7 +46,6 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 1044
     return-void
 .end method
 
@@ -71,10 +65,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1029
-    .local p1, "componentNames":Ljava/util/List;, "Ljava/util/List<Landroid/content/ComponentName;>;"
-    .local p2, "services":Ljava/util/List;, "Ljava/util/List<Landroid/os/IBinder;>;"
     iget-object v0, p0, Landroid/telecom/ConnectionService$5;->this$0:Landroid/telecom/ConnectionService;
 
     invoke-static {v0}, Landroid/telecom/ConnectionService;->-get2(Landroid/telecom/ConnectionService;)Landroid/os/Handler;
@@ -87,6 +77,5 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 1028
     return-void
 .end method

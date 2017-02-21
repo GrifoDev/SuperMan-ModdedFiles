@@ -28,12 +28,7 @@
 # direct methods
 .method constructor <init>(Landroid/media/RemoteDisplay;ILjava/lang/String;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/media/RemoteDisplay;
-    .param p2, "val$msg"    # I
-    .param p3, "val$data"    # Ljava/lang/String;
 
-    .prologue
-    .line 224
     iput-object p1, p0, Landroid/media/RemoteDisplay$4;->this$0:Landroid/media/RemoteDisplay;
 
     iput p2, p0, Landroid/media/RemoteDisplay$4;->val$msg:I
@@ -50,8 +45,6 @@
 .method public run()V
     .locals 3
 
-    .prologue
-    .line 227
     invoke-static {}, Landroid/media/RemoteDisplay;->-get1()Landroid/media/RemoteDisplayCallback;
 
     move-result-object v0
@@ -62,6 +55,5 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/media/RemoteDisplayCallback;->onNoti(ILjava/lang/String;)V
 
-    .line 226
     return-void
 .end method

@@ -75,18 +75,14 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 39
     invoke-direct {p0}, Landroid/filterfw/io/GraphReader;-><init>()V
 
-    .line 41
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Landroid/filterfw/io/TextGraphReader;->mCommands:Ljava/util/ArrayList;
 
-    .line 39
     return-void
 .end method
 
@@ -98,8 +94,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 452
     iget-object v3, p0, Landroid/filterfw/io/TextGraphReader;->mSettings:Landroid/filterfw/core/KeyValueMap;
 
     invoke-virtual {v3}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
@@ -110,7 +104,6 @@
 
     move-result-object v1
 
-    .local v1, "setting$iterator":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -124,16 +117,12 @@
 
     check-cast v0, Ljava/lang/String;
 
-    .line 453
-    .local v0, "setting":Ljava/lang/String;
     iget-object v3, p0, Landroid/filterfw/io/TextGraphReader;->mSettings:Landroid/filterfw/core/KeyValueMap;
 
     invoke-virtual {v3, v0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
 
-    .line 454
-    .local v2, "value":Ljava/lang/Object;
     const-string/jumbo v3, "autoBranch"
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -142,12 +131,10 @@
 
     if-eqz v3, :cond_3
 
-    .line 455
     const-class v3, Ljava/lang/String;
 
     invoke-direct {p0, v0, v2, v3}, Landroid/filterfw/io/TextGraphReader;->expectSettingClass(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Class;)V
 
-    .line 456
     const-string/jumbo v3, "synced"
 
     invoke-virtual {v2, v3}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
@@ -156,7 +143,6 @@
 
     if-eqz v3, :cond_0
 
-    .line 457
     iget-object v3, p0, Landroid/filterfw/io/TextGraphReader;->mCurrentGraph:Landroid/filterfw/core/FilterGraph;
 
     const/4 v4, 0x1
@@ -165,7 +151,6 @@
 
     goto :goto_0
 
-    .line 458
     :cond_0
     const-string/jumbo v3, "unsynced"
 
@@ -175,7 +160,6 @@
 
     if-eqz v3, :cond_1
 
-    .line 459
     iget-object v3, p0, Landroid/filterfw/io/TextGraphReader;->mCurrentGraph:Landroid/filterfw/core/FilterGraph;
 
     const/4 v4, 0x2
@@ -184,7 +168,6 @@
 
     goto :goto_0
 
-    .line 460
     :cond_1
     const-string/jumbo v3, "off"
 
@@ -194,7 +177,6 @@
 
     if-eqz v3, :cond_2
 
-    .line 461
     iget-object v3, p0, Landroid/filterfw/io/TextGraphReader;->mCurrentGraph:Landroid/filterfw/core/FilterGraph;
 
     const/4 v4, 0x0
@@ -203,7 +185,6 @@
 
     goto :goto_0
 
-    .line 463
     :cond_2
     new-instance v3, Landroid/filterfw/io/GraphIOException;
 
@@ -235,7 +216,6 @@
 
     throw v3
 
-    .line 465
     :cond_3
     const-string/jumbo v3, "discardUnconnectedOutputs"
 
@@ -245,17 +225,14 @@
 
     if-eqz v3, :cond_4
 
-    .line 466
     const-class v3, Ljava/lang/Boolean;
 
     invoke-direct {p0, v0, v2, v3}, Landroid/filterfw/io/TextGraphReader;->expectSettingClass(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Class;)V
 
-    .line 467
     iget-object v3, p0, Landroid/filterfw/io/TextGraphReader;->mCurrentGraph:Landroid/filterfw/core/FilterGraph;
 
     check-cast v2, Ljava/lang/Boolean;
 
-    .end local v2    # "value":Ljava/lang/Object;
     invoke-virtual {v2}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v4
@@ -264,8 +241,6 @@
 
     goto/16 :goto_0
 
-    .line 469
-    .restart local v2    # "value":Ljava/lang/Object;
     :cond_4
     new-instance v3, Landroid/filterfw/io/GraphIOException;
 
@@ -297,24 +272,18 @@
 
     throw v3
 
-    .line 451
-    .end local v0    # "setting":Ljava/lang/String;
-    .end local v2    # "value":Ljava/lang/Object;
     :cond_5
     return-void
 .end method
 
 .method private bindExternal(Ljava/lang/String;)V
     .locals 4
-    .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/filterfw/io/GraphIOException;
         }
     .end annotation
 
-    .prologue
-    .line 426
     iget-object v1, p0, Landroid/filterfw/io/GraphReader;->mReferences:Landroid/filterfw/core/KeyValueMap;
 
     invoke-virtual {v1, p1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
@@ -323,24 +292,18 @@
 
     if-eqz v1, :cond_0
 
-    .line 427
     iget-object v1, p0, Landroid/filterfw/io/GraphReader;->mReferences:Landroid/filterfw/core/KeyValueMap;
 
     invoke-virtual {v1, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 428
-    .local v0, "value":Ljava/lang/Object;
     iget-object v1, p0, Landroid/filterfw/io/TextGraphReader;->mBoundReferences:Landroid/filterfw/core/KeyValueMap;
 
     invoke-virtual {v1, p1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 425
     return-void
 
-    .line 430
-    .end local v0    # "value":Ljava/lang/Object;
     :cond_0
     new-instance v1, Landroid/filterfw/io/GraphIOException;
 
@@ -364,18 +327,14 @@
 
     move-result-object v2
 
-    .line 431
     const-string/jumbo v3, "You must add a reference to this external in the host program using "
 
-    .line 430
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    .line 432
     const-string/jumbo v3, "addReference(...)!"
 
-    .line 430
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
@@ -397,8 +356,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 442
     iget-object v2, p0, Landroid/filterfw/io/GraphReader;->mReferences:Landroid/filterfw/core/KeyValueMap;
 
     invoke-virtual {v2}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
@@ -409,7 +366,6 @@
 
     move-result-object v1
 
-    .local v1, "reference$iterator":Ljava/util/Iterator;
     :cond_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -423,8 +379,6 @@
 
     check-cast v0, Ljava/lang/String;
 
-    .line 443
-    .local v0, "reference":Ljava/lang/String;
     iget-object v2, p0, Landroid/filterfw/io/TextGraphReader;->mBoundReferences:Landroid/filterfw/core/KeyValueMap;
 
     invoke-virtual {v2, v0}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
@@ -433,10 +387,8 @@
 
     if-nez v2, :cond_0
 
-    .line 444
     new-instance v2, Landroid/filterfw/io/GraphIOException;
 
-    .line 445
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -457,10 +409,8 @@
 
     move-result-object v3
 
-    .line 446
     const-string/jumbo v4, "declared @external in graph file!"
 
-    .line 445
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -469,13 +419,10 @@
 
     move-result-object v3
 
-    .line 444
     invoke-direct {v2, v3}, Landroid/filterfw/io/GraphIOException;-><init>(Ljava/lang/String;)V
 
     throw v2
 
-    .line 441
-    .end local v0    # "reference":Ljava/lang/String;
     :cond_1
     return-void
 .end method
@@ -488,15 +435,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 485
     iget-object v2, p0, Landroid/filterfw/io/TextGraphReader;->mCommands:Ljava/util/ArrayList;
 
     invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    .local v1, "command$iterator":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -510,38 +454,28 @@
 
     check-cast v0, Landroid/filterfw/io/TextGraphReader$Command;
 
-    .line 486
-    .local v0, "command":Landroid/filterfw/io/TextGraphReader$Command;
     invoke-interface {v0, p0}, Landroid/filterfw/io/TextGraphReader$Command;->execute(Landroid/filterfw/io/TextGraphReader;)V
 
     goto :goto_0
 
-    .line 484
-    .end local v0    # "command":Landroid/filterfw/io/TextGraphReader$Command;
     :cond_0
     return-void
 .end method
 
 .method private expectSettingClass(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Class;)V
     .locals 3
-    .param p1, "setting"    # Ljava/lang/String;
-    .param p2, "value"    # Ljava/lang/Object;
-    .param p3, "expectedClass"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/filterfw/io/GraphIOException;
         }
     .end annotation
 
-    .prologue
-    .line 477
     invoke-virtual {p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
 
     if-eq v0, p3, :cond_0
 
-    .line 478
     new-instance v0, Landroid/filterfw/io/GraphIOException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -564,25 +498,20 @@
 
     move-result-object v1
 
-    .line 479
     invoke-virtual {p3}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 478
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 479
     const-string/jumbo v2, ", but found a value of type "
 
-    .line 478
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 480
     invoke-virtual {p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
@@ -591,15 +520,12 @@
 
     move-result-object v2
 
-    .line 478
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 480
     const-string/jumbo v2, "!"
 
-    .line 478
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -612,174 +538,114 @@
 
     throw v0
 
-    .line 476
     :cond_0
     return-void
 .end method
 
 .method private parseString(Ljava/lang/String;)V
     .locals 49
-    .param p1, "graphString"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/filterfw/io/GraphIOException;
         }
     .end annotation
 
-    .prologue
-    .line 170
     const-string/jumbo v3, "@[a-zA-Z]+"
 
     invoke-static {v3}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
 
     move-result-object v27
 
-    .line 171
-    .local v27, "commandPattern":Ljava/util/regex/Pattern;
     const-string/jumbo v3, "\\}"
 
     invoke-static {v3}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
 
     move-result-object v31
 
-    .line 172
-    .local v31, "curlyClosePattern":Ljava/util/regex/Pattern;
     const-string/jumbo v3, "\\{"
 
     invoke-static {v3}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
 
     move-result-object v32
 
-    .line 173
-    .local v32, "curlyOpenPattern":Ljava/util/regex/Pattern;
     const-string/jumbo v3, "(\\s+|//[^\\n]*\\n)+"
 
     invoke-static {v3}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
 
     move-result-object v34
 
-    .line 174
-    .local v34, "ignorePattern":Ljava/util/regex/Pattern;
     const-string/jumbo v3, "[a-zA-Z\\.]+"
 
     invoke-static {v3}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
 
     move-result-object v38
 
-    .line 175
-    .local v38, "packageNamePattern":Ljava/util/regex/Pattern;
     const-string/jumbo v3, "[a-zA-Z\\./:]+"
 
     invoke-static {v3}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
 
     move-result-object v36
 
-    .line 176
-    .local v36, "libraryNamePattern":Ljava/util/regex/Pattern;
     const-string/jumbo v3, "\\[[a-zA-Z0-9\\-_]+\\]"
 
     invoke-static {v3}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
 
     move-result-object v40
 
-    .line 177
-    .local v40, "portPattern":Ljava/util/regex/Pattern;
     const-string/jumbo v3, "=>"
 
     invoke-static {v3}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
 
     move-result-object v42
 
-    .line 178
-    .local v42, "rightArrowPattern":Ljava/util/regex/Pattern;
     const-string/jumbo v3, ";"
 
     invoke-static {v3}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
 
     move-result-object v44
 
-    .line 179
-    .local v44, "semicolonPattern":Ljava/util/regex/Pattern;
     const-string/jumbo v3, "[a-zA-Z0-9\\-_]+"
 
     invoke-static {v3}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
 
     move-result-object v47
 
-    .line 181
-    .local v47, "wordPattern":Ljava/util/regex/Pattern;
     const/4 v11, 0x0
 
-    .line 182
-    .local v11, "STATE_COMMAND":I
     const/16 v17, 0x1
 
-    .line 183
-    .local v17, "STATE_IMPORT_PKG":I
     const/4 v9, 0x2
 
-    .line 184
-    .local v9, "STATE_ADD_LIBRARY":I
     const/4 v15, 0x3
 
-    .line 185
-    .local v15, "STATE_FILTER_CLASS":I
     const/16 v16, 0x4
 
-    .line 186
-    .local v16, "STATE_FILTER_NAME":I
     const/4 v13, 0x5
 
-    .line 187
-    .local v13, "STATE_CURLY_OPEN":I
     const/16 v18, 0x6
 
-    .line 188
-    .local v18, "STATE_PARAMETERS":I
     const/4 v12, 0x7
 
-    .line 189
-    .local v12, "STATE_CURLY_CLOSE":I
     const/16 v22, 0x8
 
-    .line 190
-    .local v22, "STATE_SOURCE_FILTERNAME":I
     const/16 v23, 0x9
 
-    .line 191
-    .local v23, "STATE_SOURCE_PORT":I
     const/16 v19, 0xa
 
-    .line 192
-    .local v19, "STATE_RIGHT_ARROW":I
     const/16 v24, 0xb
 
-    .line 193
-    .local v24, "STATE_TARGET_FILTERNAME":I
     const/16 v25, 0xc
 
-    .line 194
-    .local v25, "STATE_TARGET_PORT":I
     const/16 v10, 0xd
 
-    .line 195
-    .local v10, "STATE_ASSIGNMENT":I
     const/16 v14, 0xe
 
-    .line 196
-    .local v14, "STATE_EXTERNAL":I
     const/16 v21, 0xf
 
-    .line 197
-    .local v21, "STATE_SETTING":I
     const/16 v20, 0x10
 
-    .line 199
-    .local v20, "STATE_SEMICOLON":I
     const/16 v46, 0x0
 
-    .line 200
-    .local v46, "state":I
     new-instance v43, Landroid/filterfw/io/PatternScanner;
 
     move-object/from16 v0, v43
@@ -790,31 +656,16 @@
 
     invoke-direct {v0, v1, v2}, Landroid/filterfw/io/PatternScanner;-><init>(Ljava/lang/String;Ljava/util/regex/Pattern;)V
 
-    .line 202
-    .local v43, "scanner":Landroid/filterfw/io/PatternScanner;
     const/16 v28, 0x0
 
-    .line 203
-    .local v28, "curClassName":Ljava/lang/String;
     const/4 v5, 0x0
 
-    .line 204
-    .local v5, "curSourceFilterName":Ljava/lang/String;
     const/4 v6, 0x0
 
-    .line 205
-    .local v6, "curSourcePortName":Ljava/lang/String;
     const/4 v7, 0x0
 
-    .line 206
-    .local v7, "curTargetFilterName":Ljava/lang/String;
     const/4 v8, 0x0
 
-    .line 209
-    .end local v5    # "curSourceFilterName":Ljava/lang/String;
-    .end local v6    # "curSourcePortName":Ljava/lang/String;
-    .end local v7    # "curTargetFilterName":Ljava/lang/String;
-    .end local v28    # "curClassName":Ljava/lang/String;
     :goto_0
     invoke-virtual/range {v43 .. v43}, Landroid/filterfw/io/PatternScanner;->atEnd()Z
 
@@ -822,12 +673,10 @@
 
     if-nez v3, :cond_7
 
-    .line 210
     packed-switch v46, :pswitch_data_0
 
     goto :goto_0
 
-    .line 212
     :pswitch_0
     const-string/jumbo v3, "<command>"
 
@@ -839,8 +688,6 @@
 
     move-result-object v29
 
-    .line 213
-    .local v29, "curCommand":Ljava/lang/String;
     const-string/jumbo v3, "@import"
 
     move-object/from16 v0, v29
@@ -851,12 +698,10 @@
 
     if-eqz v3, :cond_0
 
-    .line 214
     const/16 v46, 0x1
 
     goto :goto_0
 
-    .line 215
     :cond_0
     const-string/jumbo v3, "@library"
 
@@ -868,12 +713,10 @@
 
     if-eqz v3, :cond_1
 
-    .line 216
     const/16 v46, 0x2
 
     goto :goto_0
 
-    .line 217
     :cond_1
     const-string/jumbo v3, "@filter"
 
@@ -885,12 +728,10 @@
 
     if-eqz v3, :cond_2
 
-    .line 218
     const/16 v46, 0x3
 
     goto :goto_0
 
-    .line 219
     :cond_2
     const-string/jumbo v3, "@connect"
 
@@ -902,12 +743,10 @@
 
     if-eqz v3, :cond_3
 
-    .line 220
     const/16 v46, 0x8
 
     goto :goto_0
 
-    .line 221
     :cond_3
     const-string/jumbo v3, "@set"
 
@@ -919,12 +758,10 @@
 
     if-eqz v3, :cond_4
 
-    .line 222
     const/16 v46, 0xd
 
     goto :goto_0
 
-    .line 223
     :cond_4
     const-string/jumbo v3, "@external"
 
@@ -936,12 +773,10 @@
 
     if-eqz v3, :cond_5
 
-    .line 224
     const/16 v46, 0xe
 
     goto :goto_0
 
-    .line 225
     :cond_5
     const-string/jumbo v3, "@setting"
 
@@ -953,12 +788,10 @@
 
     if-eqz v3, :cond_6
 
-    .line 226
     const/16 v46, 0xf
 
     goto :goto_0
 
-    .line 228
     :cond_6
     new-instance v3, Landroid/filterfw/io/GraphIOException;
 
@@ -996,8 +829,6 @@
 
     throw v3
 
-    .line 234
-    .end local v29    # "curCommand":Ljava/lang/String;
     :pswitch_1
     const-string/jumbo v3, "<package-name>"
 
@@ -1009,8 +840,6 @@
 
     move-result-object v37
 
-    .line 235
-    .local v37, "packageName":Ljava/lang/String;
     move-object/from16 v0, p0
 
     iget-object v3, v0, Landroid/filterfw/io/TextGraphReader;->mCommands:Ljava/util/ArrayList;
@@ -1025,14 +854,10 @@
 
     invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 236
     const/16 v46, 0x10
 
-    .line 237
     goto/16 :goto_0
 
-    .line 241
-    .end local v37    # "packageName":Ljava/lang/String;
     :pswitch_2
     const-string/jumbo v3, "<library-name>"
 
@@ -1044,8 +869,6 @@
 
     move-result-object v35
 
-    .line 242
-    .local v35, "libraryName":Ljava/lang/String;
     move-object/from16 v0, p0
 
     iget-object v3, v0, Landroid/filterfw/io/TextGraphReader;->mCommands:Ljava/util/ArrayList;
@@ -1060,14 +883,10 @@
 
     invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 243
     const/16 v46, 0x10
 
-    .line 244
     goto/16 :goto_0
 
-    .line 248
-    .end local v35    # "libraryName":Ljava/lang/String;
     :pswitch_3
     const-string/jumbo v3, "<class-name>"
 
@@ -1079,15 +898,10 @@
 
     move-result-object v28
 
-    .line 249
-    .local v28, "curClassName":Ljava/lang/String;
     const/16 v46, 0x4
 
-    .line 250
     goto/16 :goto_0
 
-    .line 253
-    .end local v28    # "curClassName":Ljava/lang/String;
     :pswitch_4
     const-string/jumbo v3, "<filter-name>"
 
@@ -1099,8 +913,6 @@
 
     move-result-object v30
 
-    .line 254
-    .local v30, "curFilterName":Ljava/lang/String;
     move-object/from16 v0, p0
 
     iget-object v3, v0, Landroid/filterfw/io/TextGraphReader;->mCommands:Ljava/util/ArrayList;
@@ -1117,14 +929,10 @@
 
     invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 255
     const/16 v46, 0x5
 
-    .line 256
     goto/16 :goto_0
 
-    .line 260
-    .end local v30    # "curFilterName":Ljava/lang/String;
     :pswitch_5
     const-string/jumbo v3, "{"
 
@@ -1134,13 +942,10 @@
 
     invoke-virtual {v0, v1, v3}, Landroid/filterfw/io/PatternScanner;->eat(Ljava/util/regex/Pattern;Ljava/lang/String;)Ljava/lang/String;
 
-    .line 261
     const/16 v46, 0x6
 
-    .line 262
     goto/16 :goto_0
 
-    .line 265
     :pswitch_6
     move-object/from16 v0, p0
 
@@ -1152,8 +957,6 @@
 
     move-result-object v39
 
-    .line 266
-    .local v39, "params":Landroid/filterfw/core/KeyValueMap;
     move-object/from16 v0, p0
 
     iget-object v3, v0, Landroid/filterfw/io/TextGraphReader;->mCommands:Ljava/util/ArrayList;
@@ -1168,14 +971,10 @@
 
     invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 267
     const/16 v46, 0x7
 
-    .line 268
     goto/16 :goto_0
 
-    .line 272
-    .end local v39    # "params":Landroid/filterfw/core/KeyValueMap;
     :pswitch_7
     const-string/jumbo v3, "}"
 
@@ -1185,13 +984,10 @@
 
     invoke-virtual {v0, v1, v3}, Landroid/filterfw/io/PatternScanner;->eat(Ljava/util/regex/Pattern;Ljava/lang/String;)Ljava/lang/String;
 
-    .line 273
     const/16 v46, 0x0
 
-    .line 274
     goto/16 :goto_0
 
-    .line 277
     :pswitch_8
     const-string/jumbo v3, "<source-filter-name>"
 
@@ -1203,15 +999,10 @@
 
     move-result-object v5
 
-    .line 278
-    .local v5, "curSourceFilterName":Ljava/lang/String;
     const/16 v46, 0x9
 
-    .line 279
     goto/16 :goto_0
 
-    .line 282
-    .end local v5    # "curSourceFilterName":Ljava/lang/String;
     :pswitch_9
     const-string/jumbo v3, "[<source-port-name>]"
 
@@ -1223,8 +1014,6 @@
 
     move-result-object v41
 
-    .line 283
-    .local v41, "portString":Ljava/lang/String;
     invoke-virtual/range {v41 .. v41}, Ljava/lang/String;->length()I
 
     move-result v3
@@ -1239,16 +1028,10 @@
 
     move-result-object v6
 
-    .line 284
-    .local v6, "curSourcePortName":Ljava/lang/String;
     const/16 v46, 0xa
 
-    .line 285
     goto/16 :goto_0
 
-    .line 289
-    .end local v6    # "curSourcePortName":Ljava/lang/String;
-    .end local v41    # "portString":Ljava/lang/String;
     :pswitch_a
     const-string/jumbo v3, "=>"
 
@@ -1258,13 +1041,10 @@
 
     invoke-virtual {v0, v1, v3}, Landroid/filterfw/io/PatternScanner;->eat(Ljava/util/regex/Pattern;Ljava/lang/String;)Ljava/lang/String;
 
-    .line 290
     const/16 v46, 0xb
 
-    .line 291
     goto/16 :goto_0
 
-    .line 294
     :pswitch_b
     const-string/jumbo v3, "<target-filter-name>"
 
@@ -1276,15 +1056,10 @@
 
     move-result-object v7
 
-    .line 295
-    .local v7, "curTargetFilterName":Ljava/lang/String;
     const/16 v46, 0xc
 
-    .line 296
     goto/16 :goto_0
 
-    .line 299
-    .end local v7    # "curTargetFilterName":Ljava/lang/String;
     :pswitch_c
     const-string/jumbo v3, "[<target-port-name>]"
 
@@ -1296,8 +1071,6 @@
 
     move-result-object v41
 
-    .line 300
-    .restart local v41    # "portString":Ljava/lang/String;
     invoke-virtual/range {v41 .. v41}, Ljava/lang/String;->length()I
 
     move-result v3
@@ -1312,8 +1085,6 @@
 
     move-result-object v8
 
-    .line 301
-    .local v8, "curTargetPortName":Ljava/lang/String;
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/filterfw/io/TextGraphReader;->mCommands:Ljava/util/ArrayList;
@@ -1330,15 +1101,10 @@
 
     invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 305
     const/16 v46, 0x10
 
-    .line 306
     goto/16 :goto_0
 
-    .line 310
-    .end local v8    # "curTargetPortName":Ljava/lang/String;
-    .end local v41    # "portString":Ljava/lang/String;
     :pswitch_d
     move-object/from16 v0, p0
 
@@ -1350,8 +1116,6 @@
 
     move-result-object v26
 
-    .line 311
-    .local v26, "assignment":Landroid/filterfw/core/KeyValueMap;
     move-object/from16 v0, p0
 
     iget-object v3, v0, Landroid/filterfw/io/TextGraphReader;->mBoundReferences:Landroid/filterfw/core/KeyValueMap;
@@ -1360,14 +1124,10 @@
 
     invoke-virtual {v3, v0}, Ljava/util/HashMap;->putAll(Ljava/util/Map;)V
 
-    .line 312
     const/16 v46, 0x10
 
-    .line 313
     goto/16 :goto_0
 
-    .line 317
-    .end local v26    # "assignment":Landroid/filterfw/core/KeyValueMap;
     :pswitch_e
     const-string/jumbo v3, "<external-identifier>"
 
@@ -1379,22 +1139,16 @@
 
     move-result-object v33
 
-    .line 318
-    .local v33, "externalName":Ljava/lang/String;
     move-object/from16 v0, p0
 
     move-object/from16 v1, v33
 
     invoke-direct {v0, v1}, Landroid/filterfw/io/TextGraphReader;->bindExternal(Ljava/lang/String;)V
 
-    .line 319
     const/16 v46, 0x10
 
-    .line 320
     goto/16 :goto_0
 
-    .line 324
-    .end local v33    # "externalName":Ljava/lang/String;
     :pswitch_f
     move-object/from16 v0, p0
 
@@ -1406,8 +1160,6 @@
 
     move-result-object v45
 
-    .line 325
-    .local v45, "setting":Landroid/filterfw/core/KeyValueMap;
     move-object/from16 v0, p0
 
     iget-object v3, v0, Landroid/filterfw/io/TextGraphReader;->mSettings:Landroid/filterfw/core/KeyValueMap;
@@ -1416,14 +1168,10 @@
 
     invoke-virtual {v3, v0}, Ljava/util/HashMap;->putAll(Ljava/util/Map;)V
 
-    .line 326
     const/16 v46, 0x10
 
-    .line 327
     goto/16 :goto_0
 
-    .line 331
-    .end local v45    # "setting":Landroid/filterfw/core/KeyValueMap;
     :pswitch_10
     const-string/jumbo v3, ";"
 
@@ -1433,13 +1181,10 @@
 
     invoke-virtual {v0, v1, v3}, Landroid/filterfw/io/PatternScanner;->eat(Ljava/util/regex/Pattern;Ljava/lang/String;)Ljava/lang/String;
 
-    .line 332
     const/16 v46, 0x0
 
-    .line 333
     goto/16 :goto_0
 
-    .line 338
     :cond_7
     const/16 v3, 0x10
 
@@ -1449,7 +1194,6 @@
 
     if-eqz v46, :cond_8
 
-    .line 339
     new-instance v3, Landroid/filterfw/io/GraphIOException;
 
     const-string/jumbo v4, "Unexpected end of input!"
@@ -1458,11 +1202,9 @@
 
     throw v3
 
-    .line 169
     :cond_8
     return-void
 
-    .line 210
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -1487,114 +1229,78 @@
 
 .method private readKeyValueAssignments(Landroid/filterfw/io/PatternScanner;Ljava/util/regex/Pattern;)Landroid/filterfw/core/KeyValueMap;
     .locals 24
-    .param p1, "scanner"    # Landroid/filterfw/io/PatternScanner;
-    .param p2, "endPattern"    # Ljava/util/regex/Pattern;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/filterfw/io/GraphIOException;
         }
     .end annotation
 
-    .prologue
-    .line 353
     const/4 v4, 0x0
 
-    .line 354
-    .local v4, "STATE_IDENTIFIER":I
     const/4 v3, 0x1
 
-    .line 355
-    .local v3, "STATE_EQUALS":I
     const/4 v6, 0x2
 
-    .line 356
-    .local v6, "STATE_VALUE":I
     const/4 v5, 0x3
 
-    .line 358
-    .local v5, "STATE_POST_VALUE":I
     const-string/jumbo v21, "="
 
     invoke-static/range {v21 .. v21}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
 
     move-result-object v10
 
-    .line 359
-    .local v10, "equalsPattern":Ljava/util/regex/Pattern;
     const-string/jumbo v21, ";"
 
     invoke-static/range {v21 .. v21}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
 
     move-result-object v17
 
-    .line 360
-    .local v17, "semicolonPattern":Ljava/util/regex/Pattern;
     const-string/jumbo v21, "[a-zA-Z]+[a-zA-Z0-9]*"
 
     invoke-static/range {v21 .. v21}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
 
     move-result-object v20
 
-    .line 361
-    .local v20, "wordPattern":Ljava/util/regex/Pattern;
     const-string/jumbo v21, "\'[^\']*\'|\\\"[^\\\"]*\\\""
 
     invoke-static/range {v21 .. v21}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
 
     move-result-object v19
 
-    .line 362
-    .local v19, "stringPattern":Ljava/util/regex/Pattern;
     const-string/jumbo v21, "[0-9]+"
 
     invoke-static/range {v21 .. v21}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
 
     move-result-object v12
 
-    .line 363
-    .local v12, "intPattern":Ljava/util/regex/Pattern;
     const-string/jumbo v21, "[0-9]*\\.[0-9]+f?"
 
     invoke-static/range {v21 .. v21}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
 
     move-result-object v11
 
-    .line 364
-    .local v11, "floatPattern":Ljava/util/regex/Pattern;
     const-string/jumbo v21, "\\$[a-zA-Z]+[a-zA-Z0-9]"
 
     invoke-static/range {v21 .. v21}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
 
     move-result-object v15
 
-    .line 365
-    .local v15, "referencePattern":Ljava/util/regex/Pattern;
     const-string/jumbo v21, "true|false"
 
     invoke-static/range {v21 .. v21}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
 
     move-result-object v7
 
-    .line 367
-    .local v7, "booleanPattern":Ljava/util/regex/Pattern;
     const/16 v18, 0x0
 
-    .line 368
-    .local v18, "state":I
     new-instance v13, Landroid/filterfw/core/KeyValueMap;
 
     invoke-direct {v13}, Landroid/filterfw/core/KeyValueMap;-><init>()V
 
-    .line 369
-    .local v13, "newVals":Landroid/filterfw/core/KeyValueMap;
     const/4 v8, 0x0
 
-    .line 370
-    .local v8, "curKey":Ljava/lang/String;
     const/4 v9, 0x0
 
-    .line 372
-    .end local v8    # "curKey":Ljava/lang/String;
     :goto_0
     invoke-virtual/range {p1 .. p1}, Landroid/filterfw/io/PatternScanner;->atEnd()Z
 
@@ -1610,7 +1316,6 @@
 
     if-eqz v21, :cond_1
 
-    .line 417
     :cond_0
     if-eqz v18, :cond_9
 
@@ -1622,10 +1327,8 @@
 
     if-eq v0, v1, :cond_9
 
-    .line 418
     new-instance v21, Landroid/filterfw/io/GraphIOException;
 
-    .line 419
     new-instance v22, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
@@ -1654,18 +1357,15 @@
 
     move-result-object v22
 
-    .line 418
     invoke-direct/range {v21 .. v22}, Landroid/filterfw/io/GraphIOException;-><init>(Ljava/lang/String;)V
 
     throw v21
 
-    .line 373
     :cond_1
     packed-switch v18, :pswitch_data_0
 
     goto :goto_0
 
-    .line 375
     :pswitch_0
     const-string/jumbo v21, "<identifier>"
 
@@ -1679,15 +1379,10 @@
 
     move-result-object v8
 
-    .line 376
-    .local v8, "curKey":Ljava/lang/String;
     const/16 v18, 0x1
 
-    .line 377
     goto :goto_0
 
-    .line 380
-    .end local v8    # "curKey":Ljava/lang/String;
     :pswitch_1
     const-string/jumbo v21, "="
 
@@ -1697,13 +1392,10 @@
 
     invoke-virtual {v0, v10, v1}, Landroid/filterfw/io/PatternScanner;->eat(Ljava/util/regex/Pattern;Ljava/lang/String;)Ljava/lang/String;
 
-    .line 381
     const/16 v18, 0x2
 
-    .line 382
     goto :goto_0
 
-    .line 385
     :pswitch_2
     move-object/from16 v0, p1
 
@@ -1713,10 +1405,8 @@
 
     move-result-object v9
 
-    .local v9, "curValue":Ljava/lang/String;
     if-eqz v9, :cond_2
 
-    .line 386
     invoke-virtual {v9}, Ljava/lang/String;->length()I
 
     move-result v21
@@ -1737,14 +1427,11 @@
 
     invoke-virtual {v13, v8, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 406
     :goto_1
     const/16 v18, 0x3
 
-    .line 407
     goto :goto_0
 
-    .line 387
     :cond_2
     move-object/from16 v0, p1
 
@@ -1754,7 +1441,6 @@
 
     if-eqz v9, :cond_5
 
-    .line 388
     invoke-virtual {v9}, Ljava/lang/String;->length()I
 
     move-result v21
@@ -1769,8 +1455,6 @@
 
     move-result-object v14
 
-    .line 389
-    .local v14, "refName":Ljava/lang/String;
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/filterfw/io/TextGraphReader;->mBoundReferences:Landroid/filterfw/core/KeyValueMap;
@@ -1779,7 +1463,6 @@
 
     if-eqz v21, :cond_3
 
-    .line 390
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/filterfw/io/TextGraphReader;->mBoundReferences:Landroid/filterfw/core/KeyValueMap;
@@ -1792,15 +1475,11 @@
 
     move-result-object v16
 
-    .line 392
-    .local v16, "referencedObject":Ljava/lang/Object;
     :goto_2
     if-nez v16, :cond_4
 
-    .line 393
     new-instance v21, Landroid/filterfw/io/GraphIOException;
 
-    .line 394
     new-instance v22, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
@@ -1827,20 +1506,15 @@
 
     move-result-object v22
 
-    .line 393
     invoke-direct/range {v21 .. v22}, Landroid/filterfw/io/GraphIOException;-><init>(Ljava/lang/String;)V
 
     throw v21
 
-    .line 391
-    .end local v16    # "referencedObject":Ljava/lang/Object;
     :cond_3
     const/16 v16, 0x0
 
     goto :goto_2
 
-    .line 396
-    .restart local v16    # "referencedObject":Ljava/lang/Object;
     :cond_4
     move-object/from16 v0, v16
 
@@ -1848,9 +1522,6 @@
 
     goto :goto_1
 
-    .line 397
-    .end local v14    # "refName":Ljava/lang/String;
-    .end local v16    # "referencedObject":Ljava/lang/Object;
     :cond_5
     move-object/from16 v0, p1
 
@@ -1860,7 +1531,6 @@
 
     if-eqz v9, :cond_6
 
-    .line 398
     invoke-static {v9}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
 
     move-result v21
@@ -1875,7 +1545,6 @@
 
     goto :goto_1
 
-    .line 399
     :cond_6
     move-object/from16 v0, p1
 
@@ -1885,7 +1554,6 @@
 
     if-eqz v9, :cond_7
 
-    .line 400
     invoke-static {v9}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v21
@@ -1900,7 +1568,6 @@
 
     goto/16 :goto_1
 
-    .line 401
     :cond_7
     move-object/from16 v0, p1
 
@@ -1910,7 +1577,6 @@
 
     if-eqz v9, :cond_8
 
-    .line 402
     invoke-static {v9}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v21
@@ -1925,7 +1591,6 @@
 
     goto/16 :goto_1
 
-    .line 404
     :cond_8
     new-instance v21, Landroid/filterfw/io/GraphIOException;
 
@@ -1943,8 +1608,6 @@
 
     throw v21
 
-    .line 410
-    .end local v9    # "curValue":Ljava/lang/String;
     :pswitch_3
     const-string/jumbo v21, ";"
 
@@ -1956,17 +1619,13 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/filterfw/io/PatternScanner;->eat(Ljava/util/regex/Pattern;Ljava/lang/String;)Ljava/lang/String;
 
-    .line 411
     const/16 v18, 0x0
 
-    .line 412
     goto/16 :goto_0
 
-    .line 422
     :cond_9
     return-object v13
 
-    .line 373
     nop
 
     :pswitch_data_0
@@ -1981,42 +1640,34 @@
 .method private reset()V
     .locals 1
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 161
     iput-object v0, p0, Landroid/filterfw/io/TextGraphReader;->mCurrentGraph:Landroid/filterfw/core/FilterGraph;
 
-    .line 162
     iput-object v0, p0, Landroid/filterfw/io/TextGraphReader;->mCurrentFilter:Landroid/filterfw/core/Filter;
 
-    .line 163
     iget-object v0, p0, Landroid/filterfw/io/TextGraphReader;->mCommands:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
-    .line 164
     new-instance v0, Landroid/filterfw/core/KeyValueMap;
 
     invoke-direct {v0}, Landroid/filterfw/core/KeyValueMap;-><init>()V
 
     iput-object v0, p0, Landroid/filterfw/io/TextGraphReader;->mBoundReferences:Landroid/filterfw/core/KeyValueMap;
 
-    .line 165
     new-instance v0, Landroid/filterfw/core/KeyValueMap;
 
     invoke-direct {v0}, Landroid/filterfw/core/KeyValueMap;-><init>()V
 
     iput-object v0, p0, Landroid/filterfw/io/TextGraphReader;->mSettings:Landroid/filterfw/core/KeyValueMap;
 
-    .line 166
     new-instance v0, Landroid/filterfw/core/FilterFactory;
 
     invoke-direct {v0}, Landroid/filterfw/core/FilterFactory;-><init>()V
 
     iput-object v0, p0, Landroid/filterfw/io/TextGraphReader;->mFactory:Landroid/filterfw/core/FilterFactory;
 
-    .line 160
     return-void
 .end method
 
@@ -2024,67 +1675,49 @@
 # virtual methods
 .method public readGraphString(Ljava/lang/String;)Landroid/filterfw/core/FilterGraph;
     .locals 1
-    .param p1, "graphString"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/filterfw/io/GraphIOException;
         }
     .end annotation
 
-    .prologue
-    .line 148
     new-instance v0, Landroid/filterfw/core/FilterGraph;
 
     invoke-direct {v0}, Landroid/filterfw/core/FilterGraph;-><init>()V
 
-    .line 150
-    .local v0, "result":Landroid/filterfw/core/FilterGraph;
     invoke-direct {p0}, Landroid/filterfw/io/TextGraphReader;->reset()V
 
-    .line 151
     iput-object v0, p0, Landroid/filterfw/io/TextGraphReader;->mCurrentGraph:Landroid/filterfw/core/FilterGraph;
 
-    .line 152
     invoke-direct {p0, p1}, Landroid/filterfw/io/TextGraphReader;->parseString(Ljava/lang/String;)V
 
-    .line 153
     invoke-direct {p0}, Landroid/filterfw/io/TextGraphReader;->applySettings()V
 
-    .line 154
     invoke-direct {p0}, Landroid/filterfw/io/TextGraphReader;->executeCommands()V
 
-    .line 155
     invoke-direct {p0}, Landroid/filterfw/io/TextGraphReader;->reset()V
 
-    .line 157
     return-object v0
 .end method
 
 .method public readKeyValueAssignments(Ljava/lang/String;)Landroid/filterfw/core/KeyValueMap;
     .locals 3
-    .param p1, "assignments"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/filterfw/io/GraphIOException;
         }
     .end annotation
 
-    .prologue
-    .line 345
     const-string/jumbo v2, "\\s+"
 
     invoke-static {v2}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
 
     move-result-object v0
 
-    .line 346
-    .local v0, "ignorePattern":Ljava/util/regex/Pattern;
     new-instance v1, Landroid/filterfw/io/PatternScanner;
 
     invoke-direct {v1, p1, v0}, Landroid/filterfw/io/PatternScanner;-><init>(Ljava/lang/String;Ljava/util/regex/Pattern;)V
 
-    .line 347
-    .local v1, "scanner":Landroid/filterfw/io/PatternScanner;
     const/4 v2, 0x0
 
     invoke-direct {p0, v1, v2}, Landroid/filterfw/io/TextGraphReader;->readKeyValueAssignments(Landroid/filterfw/io/PatternScanner;Ljava/util/regex/Pattern;)Landroid/filterfw/core/KeyValueMap;

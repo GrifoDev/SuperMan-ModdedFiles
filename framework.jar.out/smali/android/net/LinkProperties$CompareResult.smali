@@ -47,26 +47,20 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 73
-    .local p0, "this":Landroid/net/LinkProperties$CompareResult;, "Landroid/net/LinkProperties$CompareResult<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 74
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Landroid/net/LinkProperties$CompareResult;->removed:Ljava/util/List;
 
-    .line 75
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Landroid/net/LinkProperties$CompareResult;->added:Ljava/util/List;
 
-    .line 73
     return-void
 .end method
 
@@ -75,20 +69,14 @@
 .method public toString()Ljava/lang/String;
     .locals 5
 
-    .prologue
-    .line 79
-    .local p0, "this":Landroid/net/LinkProperties$CompareResult;, "Landroid/net/LinkProperties$CompareResult<TT;>;"
     const-string/jumbo v2, "removed=["
 
-    .line 80
-    .local v2, "retVal":Ljava/lang/String;
     iget-object v3, p0, Landroid/net/LinkProperties$CompareResult;->removed:Ljava/util/List;
 
     invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    .local v1, "addr$iterator":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -100,7 +88,6 @@
 
     move-result-object v0
 
-    .local v0, "addr":Ljava/lang/Object;, "TT;"
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -129,8 +116,6 @@
 
     goto :goto_0
 
-    .line 81
-    .end local v0    # "addr":Ljava/lang/Object;, "TT;"
     :cond_0
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -150,7 +135,6 @@
 
     move-result-object v2
 
-    .line 82
     iget-object v3, p0, Landroid/net/LinkProperties$CompareResult;->added:Ljava/util/List;
 
     invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
@@ -168,7 +152,6 @@
 
     move-result-object v0
 
-    .restart local v0    # "addr":Ljava/lang/Object;, "TT;"
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -197,8 +180,6 @@
 
     goto :goto_1
 
-    .line 83
-    .end local v0    # "addr":Ljava/lang/Object;, "TT;"
     :cond_1
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -218,6 +199,5 @@
 
     move-result-object v2
 
-    .line 84
     return-object v2
 .end method

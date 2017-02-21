@@ -26,11 +26,7 @@
 # direct methods
 .method constructor <init>(Landroid/media/tv/TvInputService$Session;I)V
     .locals 0
-    .param p1, "this$1"    # Landroid/media/tv/TvInputService$Session;
-    .param p2, "val$status"    # I
 
-    .prologue
-    .line 630
     iput-object p1, p0, Landroid/media/tv/TvInputService$Session$10;->this$1:Landroid/media/tv/TvInputService$Session;
 
     iput p2, p0, Landroid/media/tv/TvInputService$Session$10;->val$status:I
@@ -45,8 +41,6 @@
 .method public run()V
     .locals 3
 
-    .prologue
-    .line 636
     :try_start_0
     iget-object v1, p0, Landroid/media/tv/TvInputService$Session$10;->this$1:Landroid/media/tv/TvInputService$Session;
 
@@ -56,7 +50,6 @@
 
     if-eqz v1, :cond_0
 
-    .line 637
     iget-object v1, p0, Landroid/media/tv/TvInputService$Session$10;->this$1:Landroid/media/tv/TvInputService$Session;
 
     invoke-static {v1}, Landroid/media/tv/TvInputService$Session;->-get3(Landroid/media/tv/TvInputService$Session;)Landroid/media/tv/ITvInputSessionCallback;
@@ -69,17 +62,13 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 633
     :cond_0
     :goto_0
     return-void
 
-    .line 639
     :catch_0
     move-exception v0
 
-    .line 640
-    .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "TvInputService"
 
     const-string/jumbo v2, "error in notifyTimeShiftStatusChanged"

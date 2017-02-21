@@ -36,11 +36,7 @@
 # direct methods
 .method constructor <init>(Landroid/service/carrier/CarrierMessagingService$ICarrierMessagingWrapper;Landroid/service/carrier/ICarrierMessagingCallback;)V
     .locals 0
-    .param p1, "this$1"    # Landroid/service/carrier/CarrierMessagingService$ICarrierMessagingWrapper;
-    .param p2, "val$callback"    # Landroid/service/carrier/ICarrierMessagingCallback;
 
-    .prologue
-    .line 480
     iput-object p1, p0, Landroid/service/carrier/CarrierMessagingService$ICarrierMessagingWrapper$2;->this$1:Landroid/service/carrier/CarrierMessagingService$ICarrierMessagingWrapper;
 
     iput-object p2, p0, Landroid/service/carrier/CarrierMessagingService$ICarrierMessagingWrapper$2;->val$callback:Landroid/service/carrier/ICarrierMessagingCallback;
@@ -54,15 +50,12 @@
 # virtual methods
 .method public onReceiveResult(Landroid/service/carrier/CarrierMessagingService$SendSmsResult;)V
     .locals 3
-    .param p1, "result"    # Landroid/service/carrier/CarrierMessagingService$SendSmsResult;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
-    .line 483
     iget-object v0, p0, Landroid/service/carrier/CarrierMessagingService$ICarrierMessagingWrapper$2;->val$callback:Landroid/service/carrier/ICarrierMessagingCallback;
 
     invoke-virtual {p1}, Landroid/service/carrier/CarrierMessagingService$SendSmsResult;->getSendStatus()I
@@ -75,24 +68,19 @@
 
     invoke-interface {v0, v1, v2}, Landroid/service/carrier/ICarrierMessagingCallback;->onSendSmsComplete(II)V
 
-    .line 482
     return-void
 .end method
 
 .method public bridge synthetic onReceiveResult(Ljava/lang/Object;)V
     .locals 0
-    .param p1, "result"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
-    .line 482
     check-cast p1, Landroid/service/carrier/CarrierMessagingService$SendSmsResult;
 
-    .end local p1    # "result":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Landroid/service/carrier/CarrierMessagingService$ICarrierMessagingWrapper$2;->onReceiveResult(Landroid/service/carrier/CarrierMessagingService$SendSmsResult;)V
 
     return-void

@@ -21,20 +21,15 @@
 # direct methods
 .method public constructor <init>(Landroid/widget/DigitalClock;)V
     .locals 1
-    .param p1, "this$0"    # Landroid/widget/DigitalClock;
 
-    .prologue
-    .line 107
     iput-object p1, p0, Landroid/widget/DigitalClock$FormatChangeObserver;->this$0:Landroid/widget/DigitalClock;
 
-    .line 108
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
     invoke-direct {p0, v0}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
-    .line 107
     return-void
 .end method
 
@@ -42,14 +37,10 @@
 # virtual methods
 .method public onChange(Z)V
     .locals 1
-    .param p1, "selfChange"    # Z
 
-    .prologue
-    .line 113
     iget-object v0, p0, Landroid/widget/DigitalClock$FormatChangeObserver;->this$0:Landroid/widget/DigitalClock;
 
     invoke-static {v0}, Landroid/widget/DigitalClock;->-wrap0(Landroid/widget/DigitalClock;)V
 
-    .line 112
     return-void
 .end method

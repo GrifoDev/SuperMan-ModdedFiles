@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/widget/YearPickerView;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/widget/YearPickerView;
 
-    .prologue
-    .line 59
     iput-object p1, p0, Landroid/widget/YearPickerView$1;->this$0:Landroid/widget/YearPickerView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,9 +36,6 @@
 # virtual methods
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
     .locals 3
-    .param p2, "view"    # Landroid/view/View;
-    .param p3, "position"    # I
-    .param p4, "id"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -52,9 +46,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 62
-    .local p1, "parent":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<*>;"
     iget-object v1, p0, Landroid/widget/YearPickerView$1;->this$0:Landroid/widget/YearPickerView;
 
     invoke-static {v1}, Landroid/widget/YearPickerView;->-get0(Landroid/widget/YearPickerView;)Landroid/widget/YearPickerView$YearAdapter;
@@ -65,8 +56,6 @@
 
     move-result v0
 
-    .line 63
-    .local v0, "year":I
     iget-object v1, p0, Landroid/widget/YearPickerView$1;->this$0:Landroid/widget/YearPickerView;
 
     invoke-static {v1}, Landroid/widget/YearPickerView;->-get0(Landroid/widget/YearPickerView;)Landroid/widget/YearPickerView$YearAdapter;
@@ -75,7 +64,6 @@
 
     invoke-virtual {v1, v0}, Landroid/widget/YearPickerView$YearAdapter;->setSelection(I)Z
 
-    .line 65
     iget-object v1, p0, Landroid/widget/YearPickerView$1;->this$0:Landroid/widget/YearPickerView;
 
     invoke-static {v1}, Landroid/widget/YearPickerView;->-get1(Landroid/widget/YearPickerView;)Landroid/widget/YearPickerView$OnYearSelectedListener;
@@ -84,7 +72,6 @@
 
     if-eqz v1, :cond_0
 
-    .line 66
     iget-object v1, p0, Landroid/widget/YearPickerView$1;->this$0:Landroid/widget/YearPickerView;
 
     invoke-static {v1}, Landroid/widget/YearPickerView;->-get1(Landroid/widget/YearPickerView;)Landroid/widget/YearPickerView$OnYearSelectedListener;
@@ -95,7 +82,6 @@
 
     invoke-interface {v1, v2, v0}, Landroid/widget/YearPickerView$OnYearSelectedListener;->onYearChanged(Landroid/widget/YearPickerView;I)V
 
-    .line 61
     :cond_0
     return-void
 .end method

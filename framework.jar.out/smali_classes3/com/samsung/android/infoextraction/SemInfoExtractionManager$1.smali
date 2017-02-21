@@ -28,12 +28,7 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/infoextraction/SemInfoExtractionManager;ILjava/lang/Object;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/samsung/android/infoextraction/SemInfoExtractionManager;
-    .param p2, "val$dataType"    # I
-    .param p3, "val$reqObject"    # Ljava/lang/Object;
 
-    .prologue
-    .line 367
     iput-object p1, p0, Lcom/samsung/android/infoextraction/SemInfoExtractionManager$1;->this$0:Lcom/samsung/android/infoextraction/SemInfoExtractionManager;
 
     iput p2, p0, Lcom/samsung/android/infoextraction/SemInfoExtractionManager$1;->val$dataType:I
@@ -49,16 +44,11 @@
 # virtual methods
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
     .locals 3
-    .param p1, "name"    # Landroid/content/ComponentName;
-    .param p2, "service"    # Landroid/os/IBinder;
 
-    .prologue
-    .line 370
     iget-object v0, p0, Lcom/samsung/android/infoextraction/SemInfoExtractionManager$1;->this$0:Lcom/samsung/android/infoextraction/SemInfoExtractionManager;
 
     invoke-static {v0, p2}, Lcom/samsung/android/infoextraction/SemInfoExtractionManager;->-set0(Lcom/samsung/android/infoextraction/SemInfoExtractionManager;Landroid/os/IBinder;)Landroid/os/IBinder;
 
-    .line 371
     iget-object v0, p0, Lcom/samsung/android/infoextraction/SemInfoExtractionManager$1;->this$0:Lcom/samsung/android/infoextraction/SemInfoExtractionManager;
 
     iget v1, p0, Lcom/samsung/android/infoextraction/SemInfoExtractionManager$1;->val$dataType:I
@@ -67,22 +57,17 @@
 
     invoke-static {v0, p2, v1, v2}, Lcom/samsung/android/infoextraction/SemInfoExtractionManager;->-wrap0(Lcom/samsung/android/infoextraction/SemInfoExtractionManager;Landroid/os/IBinder;ILjava/lang/Object;)V
 
-    .line 369
     return-void
 .end method
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
     .locals 2
-    .param p1, "name"    # Landroid/content/ComponentName;
 
-    .prologue
-    .line 376
     iget-object v0, p0, Lcom/samsung/android/infoextraction/SemInfoExtractionManager$1;->this$0:Lcom/samsung/android/infoextraction/SemInfoExtractionManager;
 
     const/4 v1, 0x0
 
     invoke-static {v0, v1}, Lcom/samsung/android/infoextraction/SemInfoExtractionManager;->-set0(Lcom/samsung/android/infoextraction/SemInfoExtractionManager;Landroid/os/IBinder;)Landroid/os/IBinder;
 
-    .line 375
     return-void
 .end method

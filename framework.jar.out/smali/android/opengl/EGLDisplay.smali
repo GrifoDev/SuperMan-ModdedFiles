@@ -6,13 +6,9 @@
 # direct methods
 .method private constructor <init>(J)V
     .locals 1
-    .param p1, "handle"    # J
 
-    .prologue
-    .line 26
     invoke-direct {p0, p1, p2}, Landroid/opengl/EGLObjectHandle;-><init>(J)V
 
-    .line 25
     return-void
 .end method
 
@@ -20,19 +16,15 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 8
-    .param p1, "o"    # Ljava/lang/Object;
 
-    .prologue
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
-    .line 31
     if-ne p0, p1, :cond_0
 
     return v1
 
-    .line 32
     :cond_0
     instance-of v3, p1, Landroid/opengl/EGLDisplay;
 
@@ -43,11 +35,8 @@
     :cond_1
     move-object v0, p1
 
-    .line 34
     check-cast v0, Landroid/opengl/EGLDisplay;
 
-    .line 35
-    .local v0, "that":Landroid/opengl/EGLDisplay;
     invoke-virtual {p0}, Landroid/opengl/EGLDisplay;->getNativeHandle()J
 
     move-result-wide v4

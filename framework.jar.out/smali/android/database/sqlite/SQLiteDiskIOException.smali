@@ -17,19 +17,16 @@
 .method static constructor <clinit>()V
     .locals 6
 
-    .prologue
     const/4 v5, 0x2
 
     const/4 v4, 0x1
 
     const/4 v3, 0x0
 
-    .line 29
     const/16 v0, 0x1d
 
     new-array v0, v0, [[Ljava/lang/String;
 
-    .line 30
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "SQLITE_IOERR"
@@ -42,7 +39,6 @@
 
     aput-object v1, v0, v3
 
-    .line 31
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "SQLITE_IOERR_READ"
@@ -55,7 +51,6 @@
 
     aput-object v1, v0, v4
 
-    .line 32
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "SQLITE_IOERR_SHORT_READ"
@@ -68,7 +63,6 @@
 
     aput-object v1, v0, v5
 
-    .line 33
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "SQLITE_IOERR_WRITE"
@@ -83,7 +77,6 @@
 
     aput-object v1, v0, v2
 
-    .line 34
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "SQLITE_IOERR_FSYNC"
@@ -98,7 +91,6 @@
 
     aput-object v1, v0, v2
 
-    .line 35
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "SQLITE_IOERR_DIR_FSYNC"
@@ -113,7 +105,6 @@
 
     aput-object v1, v0, v2
 
-    .line 36
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "SQLITE_IOERR_TRUNCATE"
@@ -128,7 +119,6 @@
 
     aput-object v1, v0, v2
 
-    .line 37
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "SQLITE_IOERR_FSTAT"
@@ -143,7 +133,6 @@
 
     aput-object v1, v0, v2
 
-    .line 38
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "SQLITE_IOERR_UNLOCK"
@@ -158,7 +147,6 @@
 
     aput-object v1, v0, v2
 
-    .line 39
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "SQLITE_IOERR_RDLOCK"
@@ -173,7 +161,6 @@
 
     aput-object v1, v0, v2
 
-    .line 40
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "SQLITE_IOERR_DELETE"
@@ -188,7 +175,6 @@
 
     aput-object v1, v0, v2
 
-    .line 41
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "SQLITE_IOERR_BLOCKED"
@@ -203,7 +189,6 @@
 
     aput-object v1, v0, v2
 
-    .line 42
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "SQLITE_IOERR_NOMEM"
@@ -218,7 +203,6 @@
 
     aput-object v1, v0, v2
 
-    .line 43
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "SQLITE_IOERR_ACCESS"
@@ -233,7 +217,6 @@
 
     aput-object v1, v0, v2
 
-    .line 44
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "SQLITE_IOERR_CHECKRESERVEDLOCK"
@@ -248,7 +231,6 @@
 
     aput-object v1, v0, v2
 
-    .line 45
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "SQLITE_IOERR_LOCK"
@@ -263,7 +245,6 @@
 
     aput-object v1, v0, v2
 
-    .line 46
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "SQLITE_IOERR_CLOSE"
@@ -278,7 +259,6 @@
 
     aput-object v1, v0, v2
 
-    .line 47
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "SQLITE_IOERR_DIR_CLOSE"
@@ -293,7 +273,6 @@
 
     aput-object v1, v0, v2
 
-    .line 48
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "SQLITE_IOERR_SHMOPEN"
@@ -308,7 +287,6 @@
 
     aput-object v1, v0, v2
 
-    .line 49
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "SQLITE_IOERR_SHMSIZE"
@@ -323,7 +301,6 @@
 
     aput-object v1, v0, v2
 
-    .line 50
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "SQLITE_IOERR_SHMLOCK"
@@ -338,7 +315,6 @@
 
     aput-object v1, v0, v2
 
-    .line 51
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "SQLITE_IOERR_SHMMAP"
@@ -353,7 +329,6 @@
 
     aput-object v1, v0, v2
 
-    .line 52
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "SQLITE_IOERR_SEEK"
@@ -368,7 +343,6 @@
 
     aput-object v1, v0, v2
 
-    .line 53
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "SQLITE_IOERR_DELETE_NOENT"
@@ -383,7 +357,6 @@
 
     aput-object v1, v0, v2
 
-    .line 54
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "SQLITE_IOERR_MMAP"
@@ -398,7 +371,6 @@
 
     aput-object v1, v0, v2
 
-    .line 55
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "SQLITE_IOERR_GETTEMPPATH"
@@ -413,7 +385,6 @@
 
     aput-object v1, v0, v2
 
-    .line 56
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "SQLITE_IOERR_CONVPATH"
@@ -428,7 +399,6 @@
 
     aput-object v1, v0, v2
 
-    .line 57
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "SQLITE_IOERR_VNODE"
@@ -443,7 +413,6 @@
 
     aput-object v1, v0, v2
 
-    .line 58
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "SQLITE_IOERR_LOCK_EBADF"
@@ -458,18 +427,14 @@
 
     aput-object v1, v0, v2
 
-    .line 29
     sput-object v0, Landroid/database/sqlite/SQLiteDiskIOException;->errString:[[Ljava/lang/String;
 
-    .line 23
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 65
     invoke-direct {p0}, Landroid/database/sqlite/SQLiteException;-><init>()V
 
     return-void
@@ -477,10 +442,7 @@
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 2
-    .param p1, "error"    # Ljava/lang/String;
 
-    .prologue
-    .line 68
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -503,16 +465,12 @@
 
     invoke-direct {p0, v0}, Landroid/database/sqlite/SQLiteException;-><init>(Ljava/lang/String;)V
 
-    .line 67
     return-void
 .end method
 
 .method private static addErrCode(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .param p0, "errMessage"    # Ljava/lang/String;
 
-    .prologue
-    .line 72
     if-eqz p0, :cond_0
 
     const-string/jumbo v0, "(code "
@@ -523,12 +481,10 @@
 
     if-lez v0, :cond_0
 
-    .line 73
     const-string/jumbo v0, ""
 
     return-object v0
 
-    .line 74
     :cond_0
     const-string/jumbo v0, " (code 10)"
 
@@ -537,16 +493,11 @@
 
 .method public static makeCausedBy(I)Ljava/lang/String;
     .locals 4
-    .param p0, "minorCode"    # I
 
-    .prologue
     const/4 v3, 0x1
 
-    .line 79
     const-string/jumbo v0, ""
 
-    .line 80
-    .local v0, "caused":Ljava/lang/String;
     sget-object v1, Landroid/database/sqlite/SQLiteDiskIOException;->errString:[[Ljava/lang/String;
 
     aget-object v1, v1, p0
@@ -563,7 +514,6 @@
 
     if-ne v1, v2, :cond_0
 
-    .line 81
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -594,11 +544,9 @@
 
     move-result-object v0
 
-    .line 84
     :goto_0
     return-object v0
 
-    .line 83
     :cond_0
     sget-object v1, Landroid/database/sqlite/SQLiteDiskIOException;->errString:[[Ljava/lang/String;
 

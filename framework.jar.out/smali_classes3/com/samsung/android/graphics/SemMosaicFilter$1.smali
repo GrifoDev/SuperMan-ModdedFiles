@@ -30,12 +30,7 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/graphics/SemMosaicFilter;FF)V
     .locals 3
-    .param p1, "this$0"    # Lcom/samsung/android/graphics/SemMosaicFilter;
-    .param p2, "val$aEndValue"    # F
-    .param p3, "val$aStartValue"    # F
 
-    .prologue
-    .line 132
     iput-object p1, p0, Lcom/samsung/android/graphics/SemMosaicFilter$1;->this$0:Lcom/samsung/android/graphics/SemMosaicFilter;
 
     iput p2, p0, Lcom/samsung/android/graphics/SemMosaicFilter$1;->val$aEndValue:F
@@ -44,7 +39,6 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 133
     const/4 v0, 0x1
 
     new-array v0, v0, [F
@@ -57,7 +51,6 @@
 
     iput-object v0, p0, Lcom/samsung/android/graphics/SemMosaicFilter$1;->params:[F
 
-    .line 132
     return-void
 .end method
 
@@ -65,22 +58,17 @@
 # virtual methods
 .method public animate(FLcom/samsung/android/graphics/SemImageFilter$ImageFilterAnimator;)V
     .locals 6
-    .param p1, "aFraction"    # F
-    .param p2, "aImageFilterAnimator"    # Lcom/samsung/android/graphics/SemImageFilter$ImageFilterAnimator;
 
-    .prologue
     const/high16 v5, 0x44800000    # 1024.0f
 
     const/high16 v4, 0x3f800000    # 1.0f
 
     const/4 v3, 0x0
 
-    .line 139
     sget-boolean v0, Lcom/samsung/android/graphics/SemMosaicFilter;->sLogingEnabled:Z
 
     if-eqz v0, :cond_0
 
-    .line 140
     const-string/jumbo v0, "HWUIIF"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -103,7 +91,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 143
     :cond_0
     iget-object v0, p0, Lcom/samsung/android/graphics/SemMosaicFilter$1;->this$0:Lcom/samsung/android/graphics/SemMosaicFilter;
 
@@ -121,7 +108,6 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/graphics/SemMosaicFilter;->-set0(Lcom/samsung/android/graphics/SemMosaicFilter;F)F
 
-    .line 144
     iget-object v0, p0, Lcom/samsung/android/graphics/SemMosaicFilter$1;->this$0:Lcom/samsung/android/graphics/SemMosaicFilter;
 
     invoke-static {v0}, Lcom/samsung/android/graphics/SemMosaicFilter;->-get0(Lcom/samsung/android/graphics/SemMosaicFilter;)F
@@ -132,19 +118,16 @@
 
     if-lez v0, :cond_3
 
-    .line 145
     iget-object v0, p0, Lcom/samsung/android/graphics/SemMosaicFilter$1;->this$0:Lcom/samsung/android/graphics/SemMosaicFilter;
 
     invoke-static {v0, v5}, Lcom/samsung/android/graphics/SemMosaicFilter;->-set0(Lcom/samsung/android/graphics/SemMosaicFilter;F)F
 
-    .line 149
     :cond_1
     :goto_0
     sget-boolean v0, Lcom/samsung/android/graphics/SemMosaicFilter;->sLogingEnabled:Z
 
     if-eqz v0, :cond_2
 
-    .line 150
     const-string/jumbo v0, "HWUIIF"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -173,7 +156,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 153
     :cond_2
     iget-object v0, p0, Lcom/samsung/android/graphics/SemMosaicFilter$1;->params:[F
 
@@ -185,7 +167,6 @@
 
     aput v1, v0, v3
 
-    .line 154
     iget-object v0, p0, Lcom/samsung/android/graphics/SemMosaicFilter$1;->this$0:Lcom/samsung/android/graphics/SemMosaicFilter;
 
     iget-object v0, v0, Lcom/samsung/android/graphics/SemGenericImageFilter;->mParams:[F
@@ -196,17 +177,14 @@
 
     aput v1, v0, v3
 
-    .line 155
     const-string/jumbo v0, "filterParams"
 
     iget-object v1, p0, Lcom/samsung/android/graphics/SemMosaicFilter$1;->params:[F
 
     invoke-virtual {p2, v0, v1, v3}, Lcom/samsung/android/graphics/SemImageFilter$ImageFilterAnimator;->setUniformf(Ljava/lang/String;[FI)V
 
-    .line 138
     return-void
 
-    .line 146
     :cond_3
     iget-object v0, p0, Lcom/samsung/android/graphics/SemMosaicFilter$1;->this$0:Lcom/samsung/android/graphics/SemMosaicFilter;
 
@@ -218,7 +196,6 @@
 
     if-gez v0, :cond_1
 
-    .line 147
     iget-object v0, p0, Lcom/samsung/android/graphics/SemMosaicFilter$1;->this$0:Lcom/samsung/android/graphics/SemMosaicFilter;
 
     invoke-static {v0, v4}, Lcom/samsung/android/graphics/SemMosaicFilter;->-set0(Lcom/samsung/android/graphics/SemMosaicFilter;F)F

@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Landroid/accounts/AccountManager;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/accounts/AccountManager;
 
-    .prologue
-    .line 2549
     iput-object p1, p0, Landroid/accounts/AccountManager$1;->this$0:Landroid/accounts/AccountManager;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -36,19 +33,13 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 7
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "intent"    # Landroid/content/Intent;
 
-    .prologue
-    .line 2552
     iget-object v3, p0, Landroid/accounts/AccountManager$1;->this$0:Landroid/accounts/AccountManager;
 
     invoke-virtual {v3}, Landroid/accounts/AccountManager;->getAccounts()[Landroid/accounts/Account;
 
     move-result-object v0
 
-    .line 2554
-    .local v0, "accounts":[Landroid/accounts/Account;
     iget-object v3, p0, Landroid/accounts/AccountManager$1;->this$0:Landroid/accounts/AccountManager;
 
     invoke-static {v3}, Landroid/accounts/AccountManager;->-get0(Landroid/accounts/AccountManager;)Ljava/util/HashMap;
@@ -57,7 +48,6 @@
 
     monitor-enter v5
 
-    .line 2556
     :try_start_0
     iget-object v3, p0, Landroid/accounts/AccountManager$1;->this$0:Landroid/accounts/AccountManager;
 
@@ -69,12 +59,10 @@
 
     move-result-object v3
 
-    .line 2555
     invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    .local v2, "entry$iterator":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
@@ -88,8 +76,6 @@
 
     check-cast v1, Ljava/util/Map$Entry;
 
-    .line 2557
-    .local v1, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Landroid/accounts/OnAccountsUpdateListener;Landroid/os/Handler;>;"
     iget-object v6, p0, Landroid/accounts/AccountManager$1;->this$0:Landroid/accounts/AccountManager;
 
     invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
@@ -110,9 +96,6 @@
 
     goto :goto_0
 
-    .line 2554
-    .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Landroid/accounts/OnAccountsUpdateListener;Landroid/os/Handler;>;"
-    .end local v2    # "entry$iterator":Ljava/util/Iterator;
     :catchall_0
     move-exception v3
 
@@ -120,10 +103,8 @@
 
     throw v3
 
-    .restart local v2    # "entry$iterator":Ljava/util/Iterator;
     :cond_0
     monitor-exit v5
 
-    .line 2551
     return-void
 .end method

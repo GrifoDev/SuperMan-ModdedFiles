@@ -34,10 +34,7 @@
 # direct methods
 .method constructor <init>(Landroid/graphics/Paint;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/graphics/Paint;
 
-    .prologue
-    .line 1530
     iput-object p1, p0, Landroid/graphics/Paint$1;->this$0:Landroid/graphics/Paint;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,11 +46,7 @@
 # virtual methods
 .method public compare(Landroid/graphics/Paint$Gradient;Landroid/graphics/Paint$Gradient;)I
     .locals 2
-    .param p1, "o1"    # Landroid/graphics/Paint$Gradient;
-    .param p2, "o2"    # Landroid/graphics/Paint$Gradient;
 
-    .prologue
-    .line 1533
     iget v0, p1, Landroid/graphics/Paint$Gradient;->position:F
 
     iget v1, p2, Landroid/graphics/Paint$Gradient;->position:F
@@ -88,17 +81,11 @@
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
-    .param p1, "o1"    # Ljava/lang/Object;
-    .param p2, "o2"    # Ljava/lang/Object;
 
-    .prologue
-    .line 1532
     check-cast p1, Landroid/graphics/Paint$Gradient;
 
-    .end local p1    # "o1":Ljava/lang/Object;
     check-cast p2, Landroid/graphics/Paint$Gradient;
 
-    .end local p2    # "o2":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Landroid/graphics/Paint$1;->compare(Landroid/graphics/Paint$Gradient;Landroid/graphics/Paint$Gradient;)I
 
     move-result v0

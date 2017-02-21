@@ -21,16 +21,11 @@
 # direct methods
 .method public constructor <init>(Ljava/security/cert/X509Certificate;)V
     .locals 0
-    .param p1, "wrapped"    # Ljava/security/cert/X509Certificate;
 
-    .prologue
-    .line 1145
     invoke-direct {p0}, Ljava/security/cert/X509Certificate;-><init>()V
 
-    .line 1146
     iput-object p1, p0, Landroid/util/apk/ApkSignatureSchemeV2Verifier$WrappedX509Certificate;->wrapped:Ljava/security/cert/X509Certificate;
 
-    .line 1145
     return-void
 .end method
 
@@ -45,19 +40,15 @@
         }
     .end annotation
 
-    .prologue
-    .line 1172
     iget-object v0, p0, Landroid/util/apk/ApkSignatureSchemeV2Verifier$WrappedX509Certificate;->wrapped:Ljava/security/cert/X509Certificate;
 
     invoke-virtual {v0}, Ljava/security/cert/X509Certificate;->checkValidity()V
 
-    .line 1171
     return-void
 .end method
 
 .method public checkValidity(Ljava/util/Date;)V
     .locals 1
-    .param p1, "date"    # Ljava/util/Date;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/cert/CertificateExpiredException;,
@@ -65,21 +56,16 @@
         }
     .end annotation
 
-    .prologue
-    .line 1178
     iget-object v0, p0, Landroid/util/apk/ApkSignatureSchemeV2Verifier$WrappedX509Certificate;->wrapped:Ljava/security/cert/X509Certificate;
 
     invoke-virtual {v0, p1}, Ljava/security/cert/X509Certificate;->checkValidity(Ljava/util/Date;)V
 
-    .line 1177
     return-void
 .end method
 
 .method public getBasicConstraints()I
     .locals 1
 
-    .prologue
-    .line 1253
     iget-object v0, p0, Landroid/util/apk/ApkSignatureSchemeV2Verifier$WrappedX509Certificate;->wrapped:Ljava/security/cert/X509Certificate;
 
     invoke-virtual {v0}, Ljava/security/cert/X509Certificate;->getBasicConstraints()I
@@ -101,8 +87,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1151
     iget-object v0, p0, Landroid/util/apk/ApkSignatureSchemeV2Verifier$WrappedX509Certificate;->wrapped:Ljava/security/cert/X509Certificate;
 
     invoke-virtual {v0}, Ljava/security/cert/X509Certificate;->getCriticalExtensionOIDs()Ljava/util/Set;
@@ -120,8 +104,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1258
     iget-object v0, p0, Landroid/util/apk/ApkSignatureSchemeV2Verifier$WrappedX509Certificate;->wrapped:Ljava/security/cert/X509Certificate;
 
     invoke-virtual {v0}, Ljava/security/cert/Certificate;->getEncoded()[B
@@ -133,10 +115,7 @@
 
 .method public getExtensionValue(Ljava/lang/String;)[B
     .locals 1
-    .param p1, "oid"    # Ljava/lang/String;
 
-    .prologue
-    .line 1156
     iget-object v0, p0, Landroid/util/apk/ApkSignatureSchemeV2Verifier$WrappedX509Certificate;->wrapped:Ljava/security/cert/X509Certificate;
 
     invoke-virtual {v0, p1}, Ljava/security/cert/X509Certificate;->getExtensionValue(Ljava/lang/String;)[B
@@ -149,8 +128,6 @@
 .method public getIssuerDN()Ljava/security/Principal;
     .locals 1
 
-    .prologue
-    .line 1193
     iget-object v0, p0, Landroid/util/apk/ApkSignatureSchemeV2Verifier$WrappedX509Certificate;->wrapped:Ljava/security/cert/X509Certificate;
 
     invoke-virtual {v0}, Ljava/security/cert/X509Certificate;->getIssuerDN()Ljava/security/Principal;
@@ -163,8 +140,6 @@
 .method public getIssuerUniqueID()[Z
     .locals 1
 
-    .prologue
-    .line 1238
     iget-object v0, p0, Landroid/util/apk/ApkSignatureSchemeV2Verifier$WrappedX509Certificate;->wrapped:Ljava/security/cert/X509Certificate;
 
     invoke-virtual {v0}, Ljava/security/cert/X509Certificate;->getIssuerUniqueID()[Z
@@ -177,8 +152,6 @@
 .method public getKeyUsage()[Z
     .locals 1
 
-    .prologue
-    .line 1248
     iget-object v0, p0, Landroid/util/apk/ApkSignatureSchemeV2Verifier$WrappedX509Certificate;->wrapped:Ljava/security/cert/X509Certificate;
 
     invoke-virtual {v0}, Ljava/security/cert/X509Certificate;->getKeyUsage()[Z
@@ -200,8 +173,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1161
     iget-object v0, p0, Landroid/util/apk/ApkSignatureSchemeV2Verifier$WrappedX509Certificate;->wrapped:Ljava/security/cert/X509Certificate;
 
     invoke-virtual {v0}, Ljava/security/cert/X509Certificate;->getNonCriticalExtensionOIDs()Ljava/util/Set;
@@ -214,8 +185,6 @@
 .method public getNotAfter()Ljava/util/Date;
     .locals 1
 
-    .prologue
-    .line 1208
     iget-object v0, p0, Landroid/util/apk/ApkSignatureSchemeV2Verifier$WrappedX509Certificate;->wrapped:Ljava/security/cert/X509Certificate;
 
     invoke-virtual {v0}, Ljava/security/cert/X509Certificate;->getNotAfter()Ljava/util/Date;
@@ -228,8 +197,6 @@
 .method public getNotBefore()Ljava/util/Date;
     .locals 1
 
-    .prologue
-    .line 1203
     iget-object v0, p0, Landroid/util/apk/ApkSignatureSchemeV2Verifier$WrappedX509Certificate;->wrapped:Ljava/security/cert/X509Certificate;
 
     invoke-virtual {v0}, Ljava/security/cert/X509Certificate;->getNotBefore()Ljava/util/Date;
@@ -242,8 +209,6 @@
 .method public getPublicKey()Ljava/security/PublicKey;
     .locals 1
 
-    .prologue
-    .line 1281
     iget-object v0, p0, Landroid/util/apk/ApkSignatureSchemeV2Verifier$WrappedX509Certificate;->wrapped:Ljava/security/cert/X509Certificate;
 
     invoke-virtual {v0}, Ljava/security/cert/Certificate;->getPublicKey()Ljava/security/PublicKey;
@@ -256,8 +221,6 @@
 .method public getSerialNumber()Ljava/math/BigInteger;
     .locals 1
 
-    .prologue
-    .line 1188
     iget-object v0, p0, Landroid/util/apk/ApkSignatureSchemeV2Verifier$WrappedX509Certificate;->wrapped:Ljava/security/cert/X509Certificate;
 
     invoke-virtual {v0}, Ljava/security/cert/X509Certificate;->getSerialNumber()Ljava/math/BigInteger;
@@ -270,8 +233,6 @@
 .method public getSigAlgName()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 1223
     iget-object v0, p0, Landroid/util/apk/ApkSignatureSchemeV2Verifier$WrappedX509Certificate;->wrapped:Ljava/security/cert/X509Certificate;
 
     invoke-virtual {v0}, Ljava/security/cert/X509Certificate;->getSigAlgName()Ljava/lang/String;
@@ -284,8 +245,6 @@
 .method public getSigAlgOID()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 1228
     iget-object v0, p0, Landroid/util/apk/ApkSignatureSchemeV2Verifier$WrappedX509Certificate;->wrapped:Ljava/security/cert/X509Certificate;
 
     invoke-virtual {v0}, Ljava/security/cert/X509Certificate;->getSigAlgOID()Ljava/lang/String;
@@ -298,8 +257,6 @@
 .method public getSigAlgParams()[B
     .locals 1
 
-    .prologue
-    .line 1233
     iget-object v0, p0, Landroid/util/apk/ApkSignatureSchemeV2Verifier$WrappedX509Certificate;->wrapped:Ljava/security/cert/X509Certificate;
 
     invoke-virtual {v0}, Ljava/security/cert/X509Certificate;->getSigAlgParams()[B
@@ -312,8 +269,6 @@
 .method public getSignature()[B
     .locals 1
 
-    .prologue
-    .line 1218
     iget-object v0, p0, Landroid/util/apk/ApkSignatureSchemeV2Verifier$WrappedX509Certificate;->wrapped:Ljava/security/cert/X509Certificate;
 
     invoke-virtual {v0}, Ljava/security/cert/X509Certificate;->getSignature()[B
@@ -326,8 +281,6 @@
 .method public getSubjectDN()Ljava/security/Principal;
     .locals 1
 
-    .prologue
-    .line 1198
     iget-object v0, p0, Landroid/util/apk/ApkSignatureSchemeV2Verifier$WrappedX509Certificate;->wrapped:Ljava/security/cert/X509Certificate;
 
     invoke-virtual {v0}, Ljava/security/cert/X509Certificate;->getSubjectDN()Ljava/security/Principal;
@@ -340,8 +293,6 @@
 .method public getSubjectUniqueID()[Z
     .locals 1
 
-    .prologue
-    .line 1243
     iget-object v0, p0, Landroid/util/apk/ApkSignatureSchemeV2Verifier$WrappedX509Certificate;->wrapped:Ljava/security/cert/X509Certificate;
 
     invoke-virtual {v0}, Ljava/security/cert/X509Certificate;->getSubjectUniqueID()[Z
@@ -359,8 +310,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1213
     iget-object v0, p0, Landroid/util/apk/ApkSignatureSchemeV2Verifier$WrappedX509Certificate;->wrapped:Ljava/security/cert/X509Certificate;
 
     invoke-virtual {v0}, Ljava/security/cert/X509Certificate;->getTBSCertificate()[B
@@ -373,8 +322,6 @@
 .method public getVersion()I
     .locals 1
 
-    .prologue
-    .line 1183
     iget-object v0, p0, Landroid/util/apk/ApkSignatureSchemeV2Verifier$WrappedX509Certificate;->wrapped:Ljava/security/cert/X509Certificate;
 
     invoke-virtual {v0}, Ljava/security/cert/X509Certificate;->getVersion()I
@@ -387,8 +334,6 @@
 .method public hasUnsupportedCriticalExtension()Z
     .locals 1
 
-    .prologue
-    .line 1166
     iget-object v0, p0, Landroid/util/apk/ApkSignatureSchemeV2Verifier$WrappedX509Certificate;->wrapped:Ljava/security/cert/X509Certificate;
 
     invoke-virtual {v0}, Ljava/security/cert/X509Certificate;->hasUnsupportedCriticalExtension()Z
@@ -401,8 +346,6 @@
 .method public toString()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 1276
     iget-object v0, p0, Landroid/util/apk/ApkSignatureSchemeV2Verifier$WrappedX509Certificate;->wrapped:Ljava/security/cert/X509Certificate;
 
     invoke-virtual {v0}, Ljava/security/cert/Certificate;->toString()Ljava/lang/String;
@@ -414,7 +357,6 @@
 
 .method public verify(Ljava/security/PublicKey;)V
     .locals 1
-    .param p1, "key"    # Ljava/security/PublicKey;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/cert/CertificateException;,
@@ -425,20 +367,15 @@
         }
     .end annotation
 
-    .prologue
-    .line 1264
     iget-object v0, p0, Landroid/util/apk/ApkSignatureSchemeV2Verifier$WrappedX509Certificate;->wrapped:Ljava/security/cert/X509Certificate;
 
     invoke-virtual {v0, p1}, Ljava/security/cert/Certificate;->verify(Ljava/security/PublicKey;)V
 
-    .line 1263
     return-void
 .end method
 
 .method public verify(Ljava/security/PublicKey;Ljava/lang/String;)V
     .locals 1
-    .param p1, "key"    # Ljava/security/PublicKey;
-    .param p2, "sigProvider"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/cert/CertificateException;,
@@ -449,12 +386,9 @@
         }
     .end annotation
 
-    .prologue
-    .line 1271
     iget-object v0, p0, Landroid/util/apk/ApkSignatureSchemeV2Verifier$WrappedX509Certificate;->wrapped:Ljava/security/cert/X509Certificate;
 
     invoke-virtual {v0, p1, p2}, Ljava/security/cert/Certificate;->verify(Ljava/security/PublicKey;Ljava/lang/String;)V
 
-    .line 1270
     return-void
 .end method

@@ -11,8 +11,6 @@
 .method private constructor <init>(Lcom/absolute/android/persistservice/ae;)V
     .locals 0
 
-    .prologue
-    .line 176
     iput-object p1, p0, Lcom/absolute/android/persistservice/ag;->a:Lcom/absolute/android/persistservice/ae;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -23,8 +21,6 @@
 .method synthetic constructor <init>(Lcom/absolute/android/persistservice/ae;Lcom/absolute/android/persistservice/af;)V
     .locals 0
 
-    .prologue
-    .line 176
     invoke-direct {p0, p1}, Lcom/absolute/android/persistservice/ag;-><init>(Lcom/absolute/android/persistservice/ae;)V
 
     return-void
@@ -35,12 +31,10 @@
 .method public declared-synchronized handleMessage(Landroid/os/Message;)V
     .locals 4
 
-    .prologue
     const/4 v1, 0x3
 
     monitor-enter p0
 
-    .line 179
     :try_start_0
     iget v0, p1, Landroid/os/Message;->what:I
     :try_end_0
@@ -52,10 +46,8 @@
     :goto_0
     monitor-exit p0
 
-    .line 209
     return-void
 
-    .line 181
     :cond_1
     :try_start_1
     iget-object v0, p0, Lcom/absolute/android/persistservice/ag;->a:Lcom/absolute/android/persistservice/ae;
@@ -68,7 +60,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 184
     :try_start_2
     iget-object v0, p0, Lcom/absolute/android/persistservice/ag;->a:Lcom/absolute/android/persistservice/ae;
 
@@ -78,7 +69,6 @@
 
     invoke-interface {v0}, Lcom/absolute/android/persistence/IABTPing;->ping()Z
 
-    .line 189
     iget-object v0, p0, Lcom/absolute/android/persistservice/ag;->a:Lcom/absolute/android/persistservice/ae;
 
     invoke-static {v0}, Lcom/absolute/android/persistservice/ae;->d(Lcom/absolute/android/persistservice/ae;)Lcom/absolute/android/persistservice/l;
@@ -99,13 +89,11 @@
     :goto_1
     const/4 v0, 0x3
 
-    .line 205
     :try_start_3
     invoke-virtual {p0, v0}, Landroid/os/Handler;->removeMessages(I)V
 
     const/4 v0, 0x3
 
-    .line 206
     iget-object v1, p0, Lcom/absolute/android/persistservice/ag;->a:Lcom/absolute/android/persistservice/ae;
 
     invoke-static {v1}, Lcom/absolute/android/persistservice/ae;->e(Lcom/absolute/android/persistservice/ae;)I
@@ -129,11 +117,9 @@
 
     throw v0
 
-    .line 196
     :catch_0
     move-exception v0
 
-    .line 195
     :try_start_4
     iget-object v0, p0, Lcom/absolute/android/persistservice/ag;->a:Lcom/absolute/android/persistservice/ae;
 

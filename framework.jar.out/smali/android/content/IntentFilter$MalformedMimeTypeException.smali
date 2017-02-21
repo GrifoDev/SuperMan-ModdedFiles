@@ -18,8 +18,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 347
     invoke-direct {p0}, Landroid/util/AndroidException;-><init>()V
 
     return-void
@@ -27,12 +25,8 @@
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .param p1, "name"    # Ljava/lang/String;
 
-    .prologue
-    .line 351
     invoke-direct {p0, p1}, Landroid/util/AndroidException;-><init>(Ljava/lang/String;)V
 
-    .line 350
     return-void
 .end method

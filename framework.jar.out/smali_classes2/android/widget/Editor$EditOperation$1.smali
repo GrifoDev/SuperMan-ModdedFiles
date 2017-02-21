@@ -31,8 +31,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 7235
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -42,10 +40,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/widget/Editor$EditOperation;
     .locals 2
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 7238
     new-instance v0, Landroid/widget/Editor$EditOperation;
 
     const/4 v1, 0x0
@@ -57,11 +52,7 @@
 
 .method public createFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Landroid/widget/Editor$EditOperation;
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
-    .param p2, "loader"    # Ljava/lang/ClassLoader;
 
-    .prologue
-    .line 7243
     new-instance v0, Landroid/widget/Editor$EditOperation;
 
     invoke-direct {v0, p1, p2}, Landroid/widget/Editor$EditOperation;-><init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
@@ -71,10 +62,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 7237
     invoke-virtual {p0, p1}, Landroid/widget/Editor$EditOperation$1;->createFromParcel(Landroid/os/Parcel;)Landroid/widget/Editor$EditOperation;
 
     move-result-object v0
@@ -84,11 +72,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Ljava/lang/Object;
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
-    .param p2, "loader"    # Ljava/lang/ClassLoader;
 
-    .prologue
-    .line 7242
     invoke-virtual {p0, p1, p2}, Landroid/widget/Editor$EditOperation$1;->createFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Landroid/widget/Editor$EditOperation;
 
     move-result-object v0
@@ -98,10 +82,7 @@
 
 .method public newArray(I)[Landroid/widget/Editor$EditOperation;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 7248
     new-array v0, p1, [Landroid/widget/Editor$EditOperation;
 
     return-object v0
@@ -109,10 +90,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 7247
     invoke-virtual {p0, p1}, Landroid/widget/Editor$EditOperation$1;->newArray(I)[Landroid/widget/Editor$EditOperation;
 
     move-result-object v0

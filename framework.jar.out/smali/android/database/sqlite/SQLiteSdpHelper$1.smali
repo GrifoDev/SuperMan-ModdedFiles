@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Landroid/database/sqlite/SQLiteSdpHelper;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/database/sqlite/SQLiteSdpHelper;
 
-    .prologue
-    .line 47
     iput-object p1, p0, Landroid/database/sqlite/SQLiteSdpHelper$1;->this$0:Landroid/database/sqlite/SQLiteSdpHelper;
 
     invoke-direct {p0}, Landroid/database/sqlite/SQLiteSdpListener;-><init>()V
@@ -42,29 +39,22 @@
         }
     .end annotation
 
-    .prologue
-    .line 62
     return-void
 .end method
 
 .method public onStateChange(I)V
     .locals 2
-    .param p1, "state"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
-    .line 50
     packed-switch p1, :pswitch_data_0
 
-    .line 49
     :goto_0
     return-void
 
-    .line 52
     :pswitch_0
     iget-object v0, p0, Landroid/database/sqlite/SQLiteSdpHelper$1;->this$0:Landroid/database/sqlite/SQLiteSdpHelper;
 
@@ -78,7 +68,6 @@
 
     goto :goto_0
 
-    .line 55
     :pswitch_1
     iget-object v0, p0, Landroid/database/sqlite/SQLiteSdpHelper$1;->this$0:Landroid/database/sqlite/SQLiteSdpHelper;
 
@@ -92,7 +81,6 @@
 
     goto :goto_0
 
-    .line 50
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

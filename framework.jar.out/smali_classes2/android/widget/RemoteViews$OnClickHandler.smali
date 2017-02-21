@@ -22,8 +22,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 326
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -33,12 +31,7 @@
 # virtual methods
 .method public onClickHandler(Landroid/view/View;Landroid/app/PendingIntent;Landroid/content/Intent;)Z
     .locals 1
-    .param p1, "view"    # Landroid/view/View;
-    .param p2, "pendingIntent"    # Landroid/app/PendingIntent;
-    .param p3, "fillInIntent"    # Landroid/content/Intent;
 
-    .prologue
-    .line 332
     const/4 v0, -0x1
 
     invoke-virtual {p0, p1, p2, p3, v0}, Landroid/widget/RemoteViews$OnClickHandler;->onClickHandler(Landroid/view/View;Landroid/app/PendingIntent;Landroid/content/Intent;I)Z
@@ -50,27 +43,18 @@
 
 .method public onClickHandler(Landroid/view/View;Landroid/app/PendingIntent;Landroid/content/Intent;I)Z
     .locals 11
-    .param p1, "view"    # Landroid/view/View;
-    .param p2, "pendingIntent"    # Landroid/app/PendingIntent;
-    .param p3, "fillInIntent"    # Landroid/content/Intent;
-    .param p4, "launchStackId"    # I
 
-    .prologue
     const/4 v10, 0x0
 
-    .line 339
     :try_start_0
     invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    .line 341
-    .local v0, "context":Landroid/content/Context;
     iget v1, p0, Landroid/widget/RemoteViews$OnClickHandler;->mEnterAnimationId:I
 
     if-eqz v1, :cond_1
 
-    .line 342
     iget v1, p0, Landroid/widget/RemoteViews$OnClickHandler;->mEnterAnimationId:I
 
     const/4 v2, 0x0
@@ -79,53 +63,41 @@
 
     move-result-object v9
 
-    .line 349
-    .local v9, "opts":Landroid/app/ActivityOptions;
     :goto_0
     const/4 v1, -0x1
 
     if-eq p4, v1, :cond_0
 
-    .line 350
     invoke-virtual {v9, p4}, Landroid/app/ActivityOptions;->setLaunchStackId(I)V
 
-    .line 352
     :cond_0
     iget v1, p0, Landroid/widget/RemoteViews$OnClickHandler;->mEnterAnimationId:I
 
     if-eqz v1, :cond_2
 
-    .line 354
     invoke-virtual {p2}, Landroid/app/PendingIntent;->getIntentSender()Landroid/content/IntentSender;
 
     move-result-object v1
 
-    .line 356
     invoke-virtual {v9}, Landroid/app/ActivityOptions;->toBundle()Landroid/os/Bundle;
 
     move-result-object v6
 
-    .line 355
     const/high16 v3, 0x10000000
 
-    .line 356
     const/high16 v4, 0x10000000
 
     const/4 v5, 0x0
 
     move-object v2, p3
 
-    .line 353
     invoke-virtual/range {v0 .. v6}, Landroid/content/Context;->startIntentSender(Landroid/content/IntentSender;Landroid/content/Intent;IIILandroid/os/Bundle;)V
 
-    .line 372
     :goto_1
     const/4 v1, 0x1
 
     return v1
 
-    .line 346
-    .end local v9    # "opts":Landroid/app/ActivityOptions;
     :cond_1
     invoke-virtual {p1}, Landroid/view/View;->getMeasuredWidth()I
 
@@ -135,36 +107,29 @@
 
     move-result v2
 
-    .line 345
     const/4 v3, 0x0
 
     const/4 v4, 0x0
 
-    .line 344
     invoke-static {p1, v3, v4, v1, v2}, Landroid/app/ActivityOptions;->makeScaleUpAnimation(Landroid/view/View;IIII)Landroid/app/ActivityOptions;
 
     move-result-object v9
 
-    .restart local v9    # "opts":Landroid/app/ActivityOptions;
     goto :goto_0
 
-    .line 360
     :cond_2
     invoke-virtual {p2}, Landroid/app/PendingIntent;->getIntentSender()Landroid/content/IntentSender;
 
     move-result-object v1
 
-    .line 361
     const/high16 v3, 0x10000000
 
-    .line 362
     const/high16 v4, 0x10000000
 
     const/4 v5, 0x0
 
     move-object v2, p3
 
-    .line 359
     invoke-virtual/range {v0 .. v5}, Landroid/content/Context;->startIntentSender(Landroid/content/IntentSender;Landroid/content/Intent;III)V
     :try_end_0
     .catch Landroid/content/IntentSender$SendIntentException; {:try_start_0 .. :try_end_0} :catch_0
@@ -172,48 +137,33 @@
 
     goto :goto_1
 
-    .line 364
-    .end local v0    # "context":Landroid/content/Context;
-    .end local v9    # "opts":Landroid/app/ActivityOptions;
     :catch_0
     move-exception v7
 
-    .line 365
-    .local v7, "e":Landroid/content/IntentSender$SendIntentException;
     const-string/jumbo v1, "RemoteViews"
 
     const-string/jumbo v2, "Cannot send pending intent: "
 
     invoke-static {v1, v2, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 366
     return v10
 
-    .line 367
-    .end local v7    # "e":Landroid/content/IntentSender$SendIntentException;
     :catch_1
     move-exception v8
 
-    .line 368
-    .local v8, "e":Ljava/lang/Exception;
     const-string/jumbo v1, "RemoteViews"
 
     const-string/jumbo v2, "Cannot send pending intent due to unknown exception: "
 
     invoke-static {v1, v2, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 370
     return v10
 .end method
 
 .method public setEnterAnimationId(I)V
     .locals 0
-    .param p1, "enterAnimationId"    # I
 
-    .prologue
-    .line 376
     iput p1, p0, Landroid/widget/RemoteViews$OnClickHandler;->mEnterAnimationId:I
 
-    .line 375
     return-void
 .end method

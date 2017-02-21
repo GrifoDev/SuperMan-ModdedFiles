@@ -27,39 +27,23 @@
 # direct methods
 .method private constructor <init>(II[BI)V
     .locals 0
-    .param p1, "type"    # I
-    .param p2, "length"    # I
-    .param p3, "refArray"    # [B
-    .param p4, "offset"    # I
 
-    .prologue
-    .line 309
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 310
     iput p1, p0, Landroid/net/wifi/nan/TlvBufferUtils$TlvElement;->mType:I
 
-    .line 311
     iput p2, p0, Landroid/net/wifi/nan/TlvBufferUtils$TlvElement;->mLength:I
 
-    .line 312
     iput-object p3, p0, Landroid/net/wifi/nan/TlvBufferUtils$TlvElement;->mRefArray:[B
 
-    .line 313
     iput p4, p0, Landroid/net/wifi/nan/TlvBufferUtils$TlvElement;->mOffset:I
 
-    .line 309
     return-void
 .end method
 
 .method synthetic constructor <init>(II[BILandroid/net/wifi/nan/TlvBufferUtils$TlvElement;)V
     .locals 0
-    .param p1, "type"    # I
-    .param p2, "length"    # I
-    .param p3, "refArray"    # [B
-    .param p4, "offset"    # I
 
-    .prologue
     invoke-direct {p0, p1, p2, p3, p4}, Landroid/net/wifi/nan/TlvBufferUtils$TlvElement;-><init>(II[BI)V
 
     return-void
@@ -70,18 +54,14 @@
 .method public getByte()B
     .locals 3
 
-    .prologue
-    .line 324
     iget v0, p0, Landroid/net/wifi/nan/TlvBufferUtils$TlvElement;->mLength:I
 
     const/4 v1, 0x1
 
     if-eq v0, v1, :cond_0
 
-    .line 325
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    .line 326
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -102,12 +82,10 @@
 
     move-result-object v1
 
-    .line 325
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
-    .line 328
     :cond_0
     iget-object v0, p0, Landroid/net/wifi/nan/TlvBufferUtils$TlvElement;->mRefArray:[B
 
@@ -121,18 +99,14 @@
 .method public getInt()I
     .locals 3
 
-    .prologue
-    .line 354
     iget v0, p0, Landroid/net/wifi/nan/TlvBufferUtils$TlvElement;->mLength:I
 
     const/4 v1, 0x4
 
     if-eq v0, v1, :cond_0
 
-    .line 355
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    .line 356
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -153,12 +127,10 @@
 
     move-result-object v1
 
-    .line 355
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
-    .line 358
     :cond_0
     iget-object v0, p0, Landroid/net/wifi/nan/TlvBufferUtils$TlvElement;->mRefArray:[B
 
@@ -176,18 +148,14 @@
 .method public getShort()S
     .locals 3
 
-    .prologue
-    .line 339
     iget v0, p0, Landroid/net/wifi/nan/TlvBufferUtils$TlvElement;->mLength:I
 
     const/4 v1, 0x2
 
     if-eq v0, v1, :cond_0
 
-    .line 340
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    .line 341
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -208,12 +176,10 @@
 
     move-result-object v1
 
-    .line 340
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
-    .line 343
     :cond_0
     iget-object v0, p0, Landroid/net/wifi/nan/TlvBufferUtils$TlvElement;->mRefArray:[B
 
@@ -231,8 +197,6 @@
 .method public getString()Ljava/lang/String;
     .locals 4
 
-    .prologue
-    .line 367
     new-instance v0, Ljava/lang/String;
 
     iget-object v1, p0, Landroid/net/wifi/nan/TlvBufferUtils$TlvElement;->mRefArray:[B

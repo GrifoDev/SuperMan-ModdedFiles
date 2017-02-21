@@ -31,8 +31,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 165
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -42,10 +40,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/app/admin/SecurityLog$SecurityEvent;
     .locals 2
-    .param p1, "source"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 168
     new-instance v0, Landroid/app/admin/SecurityLog$SecurityEvent;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->createByteArray()[B
@@ -59,10 +54,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .param p1, "source"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 167
     invoke-virtual {p0, p1}, Landroid/app/admin/SecurityLog$SecurityEvent$1;->createFromParcel(Landroid/os/Parcel;)Landroid/app/admin/SecurityLog$SecurityEvent;
 
     move-result-object v0
@@ -72,10 +64,7 @@
 
 .method public newArray(I)[Landroid/app/admin/SecurityLog$SecurityEvent;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 173
     new-array v0, p1, [Landroid/app/admin/SecurityLog$SecurityEvent;
 
     return-object v0
@@ -83,10 +72,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 172
     invoke-virtual {p0, p1}, Landroid/app/admin/SecurityLog$SecurityEvent$1;->newArray(I)[Landroid/app/admin/SecurityLog$SecurityEvent;
 
     move-result-object v0

@@ -28,24 +28,17 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 112
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 107
     iput-object v0, p0, Lcom/samsung/android/smartface/FaceInfo$PersonInfo;->addressEMail:Ljava/lang/String;
 
-    .line 108
     iput-object v0, p0, Lcom/samsung/android/smartface/FaceInfo$PersonInfo;->phoneNumber:Ljava/lang/String;
 
-    .line 109
     iput-object v0, p0, Lcom/samsung/android/smartface/FaceInfo$PersonInfo;->address:Ljava/lang/String;
 
-    .line 110
     iput-object v0, p0, Lcom/samsung/android/smartface/FaceInfo$PersonInfo;->name:Ljava/lang/String;
 
-    .line 112
     return-void
 .end method

@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/app/ExitTransitionCoordinator;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/app/ExitTransitionCoordinator;
 
-    .prologue
-    .line 251
     iput-object p1, p0, Landroid/app/ExitTransitionCoordinator$6;->this$0:Landroid/app/ExitTransitionCoordinator;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,10 +36,7 @@
 # virtual methods
 .method public onTranslucentConversionComplete(Z)V
     .locals 1
-    .param p1, "drawComplete"    # Z
 
-    .prologue
-    .line 254
     iget-object v0, p0, Landroid/app/ExitTransitionCoordinator$6;->this$0:Landroid/app/ExitTransitionCoordinator;
 
     invoke-static {v0}, Landroid/app/ExitTransitionCoordinator;->-get1(Landroid/app/ExitTransitionCoordinator;)Z
@@ -51,12 +45,10 @@
 
     if-nez v0, :cond_0
 
-    .line 255
     iget-object v0, p0, Landroid/app/ExitTransitionCoordinator$6;->this$0:Landroid/app/ExitTransitionCoordinator;
 
     invoke-static {v0}, Landroid/app/ExitTransitionCoordinator;->-wrap2(Landroid/app/ExitTransitionCoordinator;)V
 
-    .line 253
     :cond_0
     return-void
 .end method

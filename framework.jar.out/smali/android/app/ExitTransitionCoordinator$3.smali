@@ -28,12 +28,7 @@
 # direct methods
 .method constructor <init>(Landroid/app/ExitTransitionCoordinator;Landroid/view/ViewGroup;Ljava/util/ArrayList;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/app/ExitTransitionCoordinator;
-    .param p2, "val$decorView"    # Landroid/view/ViewGroup;
 
-    .prologue
-    .line 178
-    .local p3, "val$sharedElementSnapshots":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/view/View;>;"
     iput-object p1, p0, Landroid/app/ExitTransitionCoordinator$3;->this$0:Landroid/app/ExitTransitionCoordinator;
 
     iput-object p2, p0, Landroid/app/ExitTransitionCoordinator$3;->val$decorView:Landroid/view/ViewGroup;
@@ -50,8 +45,6 @@
 .method public onPreDraw()Z
     .locals 3
 
-    .prologue
-    .line 181
     iget-object v0, p0, Landroid/app/ExitTransitionCoordinator$3;->val$decorView:Landroid/view/ViewGroup;
 
     invoke-virtual {v0}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
@@ -60,7 +53,6 @@
 
     invoke-virtual {v0, p0}, Landroid/view/ViewTreeObserver;->removeOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
 
-    .line 182
     iget-object v0, p0, Landroid/app/ExitTransitionCoordinator$3;->this$0:Landroid/app/ExitTransitionCoordinator;
 
     iget-object v1, p0, Landroid/app/ExitTransitionCoordinator$3;->this$0:Landroid/app/ExitTransitionCoordinator;
@@ -73,7 +65,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/app/ActivityTransitionCoordinator;->setSharedElementState(Landroid/os/Bundle;Ljava/util/ArrayList;)Ljava/util/ArrayList;
 
-    .line 183
     const/4 v0, 0x1
 
     return v0

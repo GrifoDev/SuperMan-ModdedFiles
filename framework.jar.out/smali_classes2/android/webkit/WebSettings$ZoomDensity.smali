@@ -41,14 +41,12 @@
 .method static constructor <clinit>()V
     .locals 6
 
-    .prologue
     const/4 v5, 0x2
 
     const/4 v4, 0x1
 
     const/4 v3, 0x0
 
-    .line 105
     new-instance v0, Landroid/webkit/WebSettings$ZoomDensity;
 
     const-string/jumbo v1, "FAR"
@@ -63,29 +61,22 @@
 
     const-string/jumbo v1, "MEDIUM"
 
-    .line 106
     const/16 v2, 0x64
 
-    .line 105
     invoke-direct {v0, v1, v4, v2}, Landroid/webkit/WebSettings$ZoomDensity;-><init>(Ljava/lang/String;II)V
 
-    .line 106
     sput-object v0, Landroid/webkit/WebSettings$ZoomDensity;->MEDIUM:Landroid/webkit/WebSettings$ZoomDensity;
 
     new-instance v0, Landroid/webkit/WebSettings$ZoomDensity;
 
     const-string/jumbo v1, "CLOSE"
 
-    .line 107
     const/16 v2, 0x4b
 
-    .line 106
     invoke-direct {v0, v1, v5, v2}, Landroid/webkit/WebSettings$ZoomDensity;-><init>(Ljava/lang/String;II)V
 
-    .line 107
     sput-object v0, Landroid/webkit/WebSettings$ZoomDensity;->CLOSE:Landroid/webkit/WebSettings$ZoomDensity;
 
-    .line 104
     const/4 v0, 0x3
 
     new-array v0, v0, [Landroid/webkit/WebSettings$ZoomDensity;
@@ -109,25 +100,17 @@
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
-    .param p3, "size"    # I
 
-    .prologue
-    .line 108
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 109
     iput p3, p0, Landroid/webkit/WebSettings$ZoomDensity;->value:I
 
-    .line 108
     return-void
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroid/webkit/WebSettings$ZoomDensity;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
-    .prologue
-    .line 104
     const-class v0, Landroid/webkit/WebSettings$ZoomDensity;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -142,8 +125,6 @@
 .method public static values()[Landroid/webkit/WebSettings$ZoomDensity;
     .locals 1
 
-    .prologue
-    .line 104
     sget-object v0, Landroid/webkit/WebSettings$ZoomDensity;->$VALUES:[Landroid/webkit/WebSettings$ZoomDensity;
 
     return-object v0
@@ -154,8 +135,6 @@
 .method public getValue()I
     .locals 1
 
-    .prologue
-    .line 116
     iget v0, p0, Landroid/webkit/WebSettings$ZoomDensity;->value:I
 
     return v0

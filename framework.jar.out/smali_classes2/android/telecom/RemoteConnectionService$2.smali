@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/telecom/RemoteConnectionService;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/telecom/RemoteConnectionService;
 
-    .prologue
-    .line 365
     iput-object p1, p0, Landroid/telecom/RemoteConnectionService$2;->this$0:Landroid/telecom/RemoteConnectionService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,8 +37,6 @@
 .method public binderDied()V
     .locals 6
 
-    .prologue
-    .line 368
     iget-object v3, p0, Landroid/telecom/RemoteConnectionService$2;->this$0:Landroid/telecom/RemoteConnectionService;
 
     invoke-static {v3}, Landroid/telecom/RemoteConnectionService;->-get3(Landroid/telecom/RemoteConnectionService;)Ljava/util/Map;
@@ -56,7 +51,6 @@
 
     move-result-object v2
 
-    .local v2, "c$iterator":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
@@ -70,14 +64,10 @@
 
     check-cast v1, Landroid/telecom/RemoteConnection;
 
-    .line 369
-    .local v1, "c":Landroid/telecom/RemoteConnection;
     invoke-virtual {v1}, Landroid/telecom/RemoteConnection;->setDestroyed()V
 
     goto :goto_0
 
-    .line 371
-    .end local v1    # "c":Landroid/telecom/RemoteConnection;
     :cond_0
     iget-object v3, p0, Landroid/telecom/RemoteConnectionService$2;->this$0:Landroid/telecom/RemoteConnectionService;
 
@@ -106,14 +96,10 @@
 
     check-cast v0, Landroid/telecom/RemoteConference;
 
-    .line 372
-    .local v0, "c":Landroid/telecom/RemoteConference;
     invoke-virtual {v0}, Landroid/telecom/RemoteConference;->setDestroyed()V
 
     goto :goto_1
 
-    .line 374
-    .end local v0    # "c":Landroid/telecom/RemoteConference;
     :cond_1
     iget-object v3, p0, Landroid/telecom/RemoteConnectionService$2;->this$0:Landroid/telecom/RemoteConnectionService;
 
@@ -123,7 +109,6 @@
 
     invoke-interface {v3}, Ljava/util/Map;->clear()V
 
-    .line 375
     iget-object v3, p0, Landroid/telecom/RemoteConnectionService$2;->this$0:Landroid/telecom/RemoteConnectionService;
 
     invoke-static {v3}, Landroid/telecom/RemoteConnectionService;->-get2(Landroid/telecom/RemoteConnectionService;)Ljava/util/Map;
@@ -132,7 +117,6 @@
 
     invoke-interface {v3}, Ljava/util/Map;->clear()V
 
-    .line 376
     iget-object v3, p0, Landroid/telecom/RemoteConnectionService$2;->this$0:Landroid/telecom/RemoteConnectionService;
 
     invoke-static {v3}, Landroid/telecom/RemoteConnectionService;->-get7(Landroid/telecom/RemoteConnectionService;)Ljava/util/Set;
@@ -141,7 +125,6 @@
 
     invoke-interface {v3}, Ljava/util/Set;->clear()V
 
-    .line 377
     iget-object v3, p0, Landroid/telecom/RemoteConnectionService$2;->this$0:Landroid/telecom/RemoteConnectionService;
 
     invoke-static {v3}, Landroid/telecom/RemoteConnectionService;->-get6(Landroid/telecom/RemoteConnectionService;)Lcom/android/internal/telecom/IConnectionService;
@@ -162,6 +145,5 @@
 
     invoke-interface {v3, v4, v5}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
 
-    .line 367
     return-void
 .end method

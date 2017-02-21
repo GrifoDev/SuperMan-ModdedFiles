@@ -24,10 +24,7 @@
 # direct methods
 .method private constructor <init>(Lcom/samsung/android/contextaware/aggregator/lpp/LppLocationManager;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/samsung/android/contextaware/aggregator/lpp/LppLocationManager;
 
-    .prologue
-    .line 1785
     iput-object p1, p0, Lcom/samsung/android/contextaware/aggregator/lpp/LppLocationManager$FindGps;->this$0:Lcom/samsung/android/contextaware/aggregator/lpp/LppLocationManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,9 +34,7 @@
 
 .method synthetic constructor <init>(Lcom/samsung/android/contextaware/aggregator/lpp/LppLocationManager;Lcom/samsung/android/contextaware/aggregator/lpp/LppLocationManager$FindGps;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/samsung/android/contextaware/aggregator/lpp/LppLocationManager;
 
-    .prologue
     invoke-direct {p0, p1}, Lcom/samsung/android/contextaware/aggregator/lpp/LppLocationManager$FindGps;-><init>(Lcom/samsung/android/contextaware/aggregator/lpp/LppLocationManager;)V
 
     return-void
@@ -49,23 +44,17 @@
 # virtual methods
 .method public onLocationChanged(Landroid/location/Location;)V
     .locals 3
-    .param p1, "loc"    # Landroid/location/Location;
 
-    .prologue
-    .line 1790
     const-string/jumbo v0, "LppLocationManager"
 
     const-string/jumbo v1, "FindGps- onLocationChanged"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1791
     if-nez p1, :cond_0
 
-    .line 1792
     return-void
 
-    .line 1794
     :cond_0
     iget-object v0, p0, Lcom/samsung/android/contextaware/aggregator/lpp/LppLocationManager$FindGps;->this$0:Lcom/samsung/android/contextaware/aggregator/lpp/LppLocationManager;
 
@@ -85,35 +74,23 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/internal/util/StateMachine;->sendMessage(ILjava/lang/Object;)V
 
-    .line 1788
     return-void
 .end method
 
 .method public onProviderDisabled(Ljava/lang/String;)V
     .locals 0
-    .param p1, "arg0"    # Ljava/lang/String;
 
-    .prologue
-    .line 1798
     return-void
 .end method
 
 .method public onProviderEnabled(Ljava/lang/String;)V
     .locals 0
-    .param p1, "arg0"    # Ljava/lang/String;
 
-    .prologue
-    .line 1803
     return-void
 .end method
 
 .method public onStatusChanged(Ljava/lang/String;ILandroid/os/Bundle;)V
     .locals 0
-    .param p1, "arg0"    # Ljava/lang/String;
-    .param p2, "arg1"    # I
-    .param p3, "arg2"    # Landroid/os/Bundle;
 
-    .prologue
-    .line 1808
     return-void
 .end method

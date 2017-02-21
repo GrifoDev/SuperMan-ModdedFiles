@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Landroid/service/voice/VoiceInteractionSessionService;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/service/voice/VoiceInteractionSessionService;
 
-    .prologue
-    .line 46
     iput-object p1, p0, Landroid/service/voice/VoiceInteractionSessionService$1;->this$0:Landroid/service/voice/VoiceInteractionSessionService;
 
     invoke-direct {p0}, Landroid/service/voice/IVoiceInteractionSessionService$Stub;-><init>()V
@@ -36,12 +33,7 @@
 # virtual methods
 .method public newSession(Landroid/os/IBinder;Landroid/os/Bundle;I)V
     .locals 3
-    .param p1, "token"    # Landroid/os/IBinder;
-    .param p2, "args"    # Landroid/os/Bundle;
-    .param p3, "startFlags"    # I
 
-    .prologue
-    .line 48
     iget-object v0, p0, Landroid/service/voice/VoiceInteractionSessionService$1;->this$0:Landroid/service/voice/VoiceInteractionSessionService;
 
     iget-object v0, v0, Landroid/service/voice/VoiceInteractionSessionService;->mHandlerCaller:Lcom/android/internal/os/HandlerCaller;
@@ -58,6 +50,5 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/os/HandlerCaller;->sendMessage(Landroid/os/Message;)V
 
-    .line 47
     return-void
 .end method

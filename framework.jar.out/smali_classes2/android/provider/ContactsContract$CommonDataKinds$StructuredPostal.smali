@@ -53,29 +53,22 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .prologue
-    .line 6422
     sget-object v0, Landroid/provider/ContactsContract$Data;->CONTENT_URI:Landroid/net/Uri;
 
-    .line 6423
     const-string/jumbo v1, "postals"
 
-    .line 6422
     invoke-static {v0, v1}, Landroid/net/Uri;->withAppendedPath(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v0
 
     sput-object v0, Landroid/provider/ContactsContract$CommonDataKinds$StructuredPostal;->CONTENT_URI:Landroid/net/Uri;
 
-    .line 6400
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 6405
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -83,12 +76,7 @@
 
 .method public static final getTypeLabel(Landroid/content/res/Resources;ILjava/lang/CharSequence;)Ljava/lang/CharSequence;
     .locals 2
-    .param p0, "res"    # Landroid/content/res/Resources;
-    .param p1, "type"    # I
-    .param p2, "label"    # Ljava/lang/CharSequence;
 
-    .prologue
-    .line 6514
     if-nez p1, :cond_0
 
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -97,58 +85,45 @@
 
     if-eqz v1, :cond_1
 
-    .line 6517
     :cond_0
     invoke-static {p1}, Landroid/provider/ContactsContract$CommonDataKinds$StructuredPostal;->getTypeLabelResource(I)I
 
     move-result v0
 
-    .line 6518
-    .local v0, "labelRes":I
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v1
 
     return-object v1
 
-    .line 6515
-    .end local v0    # "labelRes":I
     :cond_1
     return-object p2
 .end method
 
 .method public static final getTypeLabelResource(I)I
     .locals 1
-    .param p0, "type"    # I
 
-    .prologue
-    .line 6499
     packed-switch p0, :pswitch_data_0
 
-    .line 6503
     const v0, 0x1040266
 
     return v0
 
-    .line 6500
     :pswitch_0
     const v0, 0x1040267
 
     return v0
 
-    .line 6501
     :pswitch_1
     const v0, 0x1040268
 
     return v0
 
-    .line 6502
     :pswitch_2
     const v0, 0x1040269
 
     return v0
 
-    .line 6499
     nop
 
     :pswitch_data_0

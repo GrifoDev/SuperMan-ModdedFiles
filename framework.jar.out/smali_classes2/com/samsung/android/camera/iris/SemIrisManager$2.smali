@@ -44,20 +44,7 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/camera/iris/SemIrisManager;Lcom/samsung/android/camera/iris/SemIrisManager$CryptoObject;Landroid/os/CancellationSignal;ILcom/samsung/android/camera/iris/SemIrisManager$AuthenticationCallback;Landroid/os/Handler;ILandroid/os/Bundle;Landroid/view/View;J[B)V
     .locals 0
-    .param p1, "this$0"    # Lcom/samsung/android/camera/iris/SemIrisManager;
-    .param p2, "val$crypto"    # Lcom/samsung/android/camera/iris/SemIrisManager$CryptoObject;
-    .param p3, "val$cancel"    # Landroid/os/CancellationSignal;
-    .param p4, "val$flags"    # I
-    .param p5, "val$callback"    # Lcom/samsung/android/camera/iris/SemIrisManager$AuthenticationCallback;
-    .param p6, "val$handler"    # Landroid/os/Handler;
-    .param p7, "val$userId"    # I
-    .param p8, "val$attr"    # Landroid/os/Bundle;
-    .param p9, "val$irisView"    # Landroid/view/View;
-    .param p10, "val$sessionId"    # J
-    .param p12, "val$fidoRequestData"    # [B
 
-    .prologue
-    .line 949
     iput-object p1, p0, Lcom/samsung/android/camera/iris/SemIrisManager$2;->this$0:Lcom/samsung/android/camera/iris/SemIrisManager;
 
     iput-object p2, p0, Lcom/samsung/android/camera/iris/SemIrisManager$2;->val$crypto:Lcom/samsung/android/camera/iris/SemIrisManager$CryptoObject;
@@ -90,8 +77,6 @@
 .method public run()V
     .locals 13
 
-    .prologue
-    .line 951
     iget-object v1, p0, Lcom/samsung/android/camera/iris/SemIrisManager$2;->this$0:Lcom/samsung/android/camera/iris/SemIrisManager;
 
     iget-object v2, p0, Lcom/samsung/android/camera/iris/SemIrisManager$2;->val$crypto:Lcom/samsung/android/camera/iris/SemIrisManager$CryptoObject;
@@ -116,6 +101,5 @@
 
     invoke-static/range {v1 .. v12}, Lcom/samsung/android/camera/iris/SemIrisManager;->-wrap4(Lcom/samsung/android/camera/iris/SemIrisManager;Lcom/samsung/android/camera/iris/SemIrisManager$CryptoObject;Landroid/os/CancellationSignal;ILcom/samsung/android/camera/iris/SemIrisManager$AuthenticationCallback;Landroid/os/Handler;ILandroid/os/Bundle;Landroid/view/View;J[B)V
 
-    .line 950
     return-void
 .end method

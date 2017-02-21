@@ -26,11 +26,7 @@
 # direct methods
 .method constructor <init>(Landroid/speech/RecognitionService;Landroid/speech/IRecognitionListener;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/speech/RecognitionService;
-    .param p2, "val$listener"    # Landroid/speech/IRecognitionListener;
 
-    .prologue
-    .line 102
     iput-object p1, p0, Landroid/speech/RecognitionService$2;->this$0:Landroid/speech/RecognitionService;
 
     iput-object p2, p0, Landroid/speech/RecognitionService$2;->val$listener:Landroid/speech/IRecognitionListener;
@@ -45,8 +41,6 @@
 .method public binderDied()V
     .locals 4
 
-    .prologue
-    .line 105
     iget-object v0, p0, Landroid/speech/RecognitionService$2;->this$0:Landroid/speech/RecognitionService;
 
     invoke-static {v0}, Landroid/speech/RecognitionService;->-get0(Landroid/speech/RecognitionService;)Landroid/os/Handler;
@@ -69,6 +63,5 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 104
     return-void
 .end method

@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/widget/ActionMenuPresenter$SemOverflowMenuButton;)V
     .locals 0
-    .param p1, "this$1"    # Landroid/widget/ActionMenuPresenter$SemOverflowMenuButton;
 
-    .prologue
-    .line 1186
     iput-object p1, p0, Landroid/widget/ActionMenuPresenter$SemOverflowMenuButton$1;->this$1:Landroid/widget/ActionMenuPresenter$SemOverflowMenuButton;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,41 +36,30 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/view/animation/Animation;)V
     .locals 2
-    .param p1, "animation"    # Landroid/view/animation/Animation;
 
-    .prologue
-    .line 1195
     iget-object v0, p0, Landroid/widget/ActionMenuPresenter$SemOverflowMenuButton$1;->this$1:Landroid/widget/ActionMenuPresenter$SemOverflowMenuButton;
 
     const/4 v1, 0x0
 
     invoke-static {v0, v1}, Landroid/widget/ActionMenuPresenter$SemOverflowMenuButton;->-set0(Landroid/widget/ActionMenuPresenter$SemOverflowMenuButton;Z)Z
 
-    .line 1194
     return-void
 .end method
 
 .method public onAnimationRepeat(Landroid/view/animation/Animation;)V
     .locals 0
-    .param p1, "animation"    # Landroid/view/animation/Animation;
 
-    .prologue
-    .line 1199
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/view/animation/Animation;)V
     .locals 2
-    .param p1, "animation"    # Landroid/view/animation/Animation;
 
-    .prologue
-    .line 1190
     iget-object v0, p0, Landroid/widget/ActionMenuPresenter$SemOverflowMenuButton$1;->this$1:Landroid/widget/ActionMenuPresenter$SemOverflowMenuButton;
 
     const/4 v1, 0x1
 
     invoke-static {v0, v1}, Landroid/widget/ActionMenuPresenter$SemOverflowMenuButton;->-set0(Landroid/widget/ActionMenuPresenter$SemOverflowMenuButton;Z)Z
 
-    .line 1189
     return-void
 .end method

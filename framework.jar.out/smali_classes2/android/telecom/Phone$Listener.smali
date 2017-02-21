@@ -18,8 +18,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 39
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -29,81 +27,50 @@
 # virtual methods
 .method public onAudioStateChanged(Landroid/telecom/Phone;Landroid/telecom/AudioState;)V
     .locals 0
-    .param p1, "phone"    # Landroid/telecom/Phone;
-    .param p2, "audioState"    # Landroid/telecom/AudioState;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .prologue
-    .line 49
     return-void
 .end method
 
 .method public onBringToForeground(Landroid/telecom/Phone;Z)V
     .locals 0
-    .param p1, "phone"    # Landroid/telecom/Phone;
-    .param p2, "showDialpad"    # Z
 
-    .prologue
-    .line 77
     return-void
 .end method
 
 .method public onCallAdded(Landroid/telecom/Phone;Landroid/telecom/Call;)V
     .locals 0
-    .param p1, "phone"    # Landroid/telecom/Phone;
-    .param p2, "call"    # Landroid/telecom/Call;
 
-    .prologue
-    .line 89
     return-void
 .end method
 
 .method public onCallAudioStateChanged(Landroid/telecom/Phone;Landroid/telecom/CallAudioState;)V
     .locals 0
-    .param p1, "phone"    # Landroid/telecom/Phone;
-    .param p2, "callAudioState"    # Landroid/telecom/CallAudioState;
 
-    .prologue
-    .line 57
     return-void
 .end method
 
 .method public onCallRemoved(Landroid/telecom/Phone;Landroid/telecom/Call;)V
     .locals 0
-    .param p1, "phone"    # Landroid/telecom/Phone;
-    .param p2, "call"    # Landroid/telecom/Call;
 
-    .prologue
-    .line 100
     return-void
 .end method
 
 .method public onCanAddCallChanged(Landroid/telecom/Phone;Z)V
     .locals 0
-    .param p1, "phone"    # Landroid/telecom/Phone;
-    .param p2, "canAddCall"    # Z
 
-    .prologue
-    .line 110
     return-void
 .end method
 
 .method public onChangeInContent(Landroid/telecom/Phone;I)V
     .locals 0
-    .param p1, "phone"    # Landroid/telecom/Phone;
-    .param p2, "contentObserver"    # I
 
-    .prologue
-    .line 66
     return-void
 .end method
 
 .method public onSilenceRinger(Landroid/telecom/Phone;)V
     .locals 0
-    .param p1, "phone"    # Landroid/telecom/Phone;
 
-    .prologue
-    .line 117
     return-void
 .end method

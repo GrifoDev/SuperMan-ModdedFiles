@@ -27,10 +27,7 @@
 # direct methods
 .method public constructor <init>(Landroid/widget/ListView;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/widget/ListView;
 
-    .prologue
-    .line 126
     iput-object p1, p0, Landroid/widget/ListView$FixedViewInfo;->this$0:Landroid/widget/ListView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

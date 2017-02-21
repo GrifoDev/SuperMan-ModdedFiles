@@ -23,11 +23,7 @@
 # direct methods
 .method constructor <init>(Landroid/view/View;Landroid/graphics/Rect;)V
     .locals 0
-    .param p1, "val$view"    # Landroid/view/View;
-    .param p2, "val$terminalClip"    # Landroid/graphics/Rect;
 
-    .prologue
-    .line 234
     iput-object p1, p0, Lcom/android/internal/transition/EpicenterTranslateClipReveal$1;->val$view:Landroid/view/View;
 
     iput-object p2, p0, Lcom/android/internal/transition/EpicenterTranslateClipReveal$1;->val$terminalClip:Landroid/graphics/Rect;
@@ -41,16 +37,12 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
-    .param p1, "animation"    # Landroid/animation/Animator;
 
-    .prologue
-    .line 237
     iget-object v0, p0, Lcom/android/internal/transition/EpicenterTranslateClipReveal$1;->val$view:Landroid/view/View;
 
     iget-object v1, p0, Lcom/android/internal/transition/EpicenterTranslateClipReveal$1;->val$terminalClip:Landroid/graphics/Rect;
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setClipBounds(Landroid/graphics/Rect;)V
 
-    .line 236
     return-void
 .end method

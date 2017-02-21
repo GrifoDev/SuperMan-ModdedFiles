@@ -25,17 +25,11 @@
 # direct methods
 .method public constructor <init>(Lcom/android/internal/widget/LockPatternUtils$StrongAuthTracker;Landroid/os/Looper;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/android/internal/widget/LockPatternUtils$StrongAuthTracker;
-    .param p2, "looper"    # Landroid/os/Looper;
 
-    .prologue
-    .line 2326
     iput-object p1, p0, Lcom/android/internal/widget/LockPatternUtils$StrongAuthTracker$H;->this$1:Lcom/android/internal/widget/LockPatternUtils$StrongAuthTracker;
 
-    .line 2327
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    .line 2326
     return-void
 .end method
 
@@ -43,19 +37,14 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .line 2332
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 2331
     :goto_0
     return-void
 
-    .line 2334
     :pswitch_0
     iget-object v0, p0, Lcom/android/internal/widget/LockPatternUtils$StrongAuthTracker$H;->this$1:Lcom/android/internal/widget/LockPatternUtils$StrongAuthTracker;
 
@@ -67,7 +56,6 @@
 
     goto :goto_0
 
-    .line 2332
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

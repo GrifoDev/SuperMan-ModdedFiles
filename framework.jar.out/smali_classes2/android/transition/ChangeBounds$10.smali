@@ -29,14 +29,7 @@
 # direct methods
 .method constructor <init>(Landroid/transition/ChangeBounds;Landroid/view/ViewGroup;Landroid/graphics/drawable/BitmapDrawable;Landroid/view/View;F)V
     .locals 0
-    .param p1, "this$0"    # Landroid/transition/ChangeBounds;
-    .param p2, "val$sceneRoot"    # Landroid/view/ViewGroup;
-    .param p3, "val$drawable"    # Landroid/graphics/drawable/BitmapDrawable;
-    .param p4, "val$view"    # Landroid/view/View;
-    .param p5, "val$transitionAlpha"    # F
 
-    .prologue
-    .line 456
     iput-object p1, p0, Landroid/transition/ChangeBounds$10;->this$0:Landroid/transition/ChangeBounds;
 
     iput-object p2, p0, Landroid/transition/ChangeBounds$10;->val$sceneRoot:Landroid/view/ViewGroup;
@@ -56,10 +49,7 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
-    .param p1, "animation"    # Landroid/animation/Animator;
 
-    .prologue
-    .line 459
     iget-object v0, p0, Landroid/transition/ChangeBounds$10;->val$sceneRoot:Landroid/view/ViewGroup;
 
     invoke-virtual {v0}, Landroid/view/ViewGroup;->getOverlay()Landroid/view/ViewGroupOverlay;
@@ -70,13 +60,11 @@
 
     invoke-virtual {v0, v1}, Landroid/view/ViewOverlay;->remove(Landroid/graphics/drawable/Drawable;)V
 
-    .line 460
     iget-object v0, p0, Landroid/transition/ChangeBounds$10;->val$view:Landroid/view/View;
 
     iget v1, p0, Landroid/transition/ChangeBounds$10;->val$transitionAlpha:F
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setTransitionAlpha(F)V
 
-    .line 458
     return-void
 .end method

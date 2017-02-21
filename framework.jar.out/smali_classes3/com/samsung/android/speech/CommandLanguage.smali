@@ -19,7 +19,6 @@
 .method static constructor <clinit>()V
     .locals 9
 
-    .prologue
     const/4 v8, 0x4
 
     const/4 v7, 0x3
@@ -30,12 +29,10 @@
 
     const/4 v4, 0x0
 
-    .line 7
     const/16 v0, 0xf
 
     new-array v0, v0, [[Ljava/lang/String;
 
-    .line 8
     new-array v1, v6, [Ljava/lang/String;
 
     const-string/jumbo v2, "\uc218\uc2e0"
@@ -48,7 +45,6 @@
 
     aput-object v1, v0, v4
 
-    .line 9
     new-array v1, v6, [Ljava/lang/String;
 
     const-string/jumbo v2, "Answer"
@@ -61,7 +57,6 @@
 
     aput-object v1, v0, v5
 
-    .line 10
     new-array v1, v6, [Ljava/lang/String;
 
     const-string/jumbo v2, "\u63a5\u542c"
@@ -74,7 +69,6 @@
 
     aput-object v1, v0, v6
 
-    .line 11
     new-array v1, v6, [Ljava/lang/String;
 
     const-string/jumbo v2, "Responder"
@@ -87,7 +81,6 @@
 
     aput-object v1, v0, v7
 
-    .line 12
     new-array v1, v6, [Ljava/lang/String;
 
     const-string/jumbo v2, "R\u00e9pondre"
@@ -100,7 +93,6 @@
 
     aput-object v1, v0, v8
 
-    .line 13
     new-array v1, v6, [Ljava/lang/String;
 
     const-string/jumbo v2, "Antworten"
@@ -115,7 +107,6 @@
 
     aput-object v1, v0, v2
 
-    .line 14
     new-array v1, v6, [Ljava/lang/String;
 
     const-string/jumbo v2, "Rispondi"
@@ -130,7 +121,6 @@
 
     aput-object v1, v0, v2
 
-    .line 15
     new-array v1, v6, [Ljava/lang/String;
 
     const-string/jumbo v2, "\u5fdc\u7b54"
@@ -145,7 +135,6 @@
 
     aput-object v1, v0, v2
 
-    .line 16
     new-array v1, v6, [Ljava/lang/String;
 
     const-string/jumbo v2, "\u041e\u0442\u0432\u0435\u0442\u0438\u0442\u044c"
@@ -160,7 +149,6 @@
 
     aput-object v1, v0, v2
 
-    .line 17
     new-array v1, v6, [Ljava/lang/String;
 
     const-string/jumbo v2, "Atender"
@@ -175,7 +163,6 @@
 
     aput-object v1, v0, v2
 
-    .line 18
     new-array v1, v6, [Ljava/lang/String;
 
     const-string/jumbo v2, "Answer"
@@ -190,7 +177,6 @@
 
     aput-object v1, v0, v2
 
-    .line 19
     new-array v1, v6, [Ljava/lang/String;
 
     const-string/jumbo v2, "Responder"
@@ -205,7 +191,6 @@
 
     aput-object v1, v0, v2
 
-    .line 20
     new-array v1, v6, [Ljava/lang/String;
 
     const-string/jumbo v2, "\u63a5\u901a"
@@ -220,7 +205,6 @@
 
     aput-object v1, v0, v2
 
-    .line 21
     new-array v1, v6, [Ljava/lang/String;
 
     const-string/jumbo v2, "\u807d\u96fb\u8a71"
@@ -235,7 +219,6 @@
 
     aput-object v1, v0, v2
 
-    .line 22
     new-array v1, v6, [Ljava/lang/String;
 
     const-string/jumbo v2, "\u542c\u7535\u8bdd"
@@ -250,15 +233,12 @@
 
     aput-object v1, v0, v2
 
-    .line 7
     sput-object v0, Lcom/samsung/android/speech/CommandLanguage;->CALL:[[Ljava/lang/String;
 
-    .line 26
     const/16 v0, 0xf
 
     new-array v0, v0, [[Ljava/lang/String;
 
-    .line 27
     new-array v1, v6, [Ljava/lang/String;
 
     const-string/jumbo v2, "\uc911\uc9c0"
@@ -271,7 +251,6 @@
 
     aput-object v1, v0, v4
 
-    .line 28
     new-array v1, v6, [Ljava/lang/String;
 
     const-string/jumbo v2, "Stop"
@@ -284,7 +263,6 @@
 
     aput-object v1, v0, v5
 
-    .line 29
     new-array v1, v6, [Ljava/lang/String;
 
     const-string/jumbo v2, "\u505c\u6b62"
@@ -297,7 +275,6 @@
 
     aput-object v1, v0, v6
 
-    .line 30
     new-array v1, v6, [Ljava/lang/String;
 
     const-string/jumbo v2, "Parar"
@@ -310,7 +287,6 @@
 
     aput-object v1, v0, v7
 
-    .line 31
     new-array v1, v6, [Ljava/lang/String;
 
     const-string/jumbo v2, "Arr\u00eater"
@@ -323,7 +299,6 @@
 
     aput-object v1, v0, v8
 
-    .line 32
     new-array v1, v6, [Ljava/lang/String;
 
     const-string/jumbo v2, "Stopp"
@@ -338,7 +313,6 @@
 
     aput-object v1, v0, v2
 
-    .line 33
     new-array v1, v6, [Ljava/lang/String;
 
     const-string/jumbo v2, "Stop"
@@ -353,7 +327,6 @@
 
     aput-object v1, v0, v2
 
-    .line 34
     new-array v1, v6, [Ljava/lang/String;
 
     const-string/jumbo v2, "\u30b9\u30c8\u30c3\u30d7"
@@ -368,7 +341,6 @@
 
     aput-object v1, v0, v2
 
-    .line 35
     new-array v1, v6, [Ljava/lang/String;
 
     const-string/jumbo v2, "\u041e\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c"
@@ -383,7 +355,6 @@
 
     aput-object v1, v0, v2
 
-    .line 36
     new-array v1, v6, [Ljava/lang/String;
 
     const-string/jumbo v2, "Soneca"
@@ -398,7 +369,6 @@
 
     aput-object v1, v0, v2
 
-    .line 37
     new-array v1, v6, [Ljava/lang/String;
 
     const-string/jumbo v2, "Stop"
@@ -413,7 +383,6 @@
 
     aput-object v1, v0, v2
 
-    .line 38
     new-array v1, v6, [Ljava/lang/String;
 
     const-string/jumbo v2, "Parar"
@@ -428,7 +397,6 @@
 
     aput-object v1, v0, v2
 
-    .line 39
     new-array v1, v6, [Ljava/lang/String;
 
     const-string/jumbo v2, "\u95dc\u9589"
@@ -443,7 +411,6 @@
 
     aput-object v1, v0, v2
 
-    .line 40
     new-array v1, v6, [Ljava/lang/String;
 
     const-string/jumbo v2, "\u95dc\u9589"
@@ -458,7 +425,6 @@
 
     aput-object v1, v0, v2
 
-    .line 41
     new-array v1, v6, [Ljava/lang/String;
 
     const-string/jumbo v2, "\u5173\u95ed"
@@ -473,15 +439,12 @@
 
     aput-object v1, v0, v2
 
-    .line 26
     sput-object v0, Lcom/samsung/android/speech/CommandLanguage;->ALARM:[[Ljava/lang/String;
 
-    .line 44
     const/16 v0, 0xf
 
     new-array v0, v0, [[Ljava/lang/String;
 
-    .line 45
     const/4 v1, 0x6
 
     new-array v1, v1, [Ljava/lang/String;
@@ -514,7 +477,6 @@
 
     aput-object v1, v0, v4
 
-    .line 46
     const/4 v1, 0x6
 
     new-array v1, v1, [Ljava/lang/String;
@@ -547,7 +509,6 @@
 
     aput-object v1, v0, v5
 
-    .line 47
     const/4 v1, 0x6
 
     new-array v1, v1, [Ljava/lang/String;
@@ -580,7 +541,6 @@
 
     aput-object v1, v0, v6
 
-    .line 48
     const/4 v1, 0x6
 
     new-array v1, v1, [Ljava/lang/String;
@@ -613,7 +573,6 @@
 
     aput-object v1, v0, v7
 
-    .line 49
     const/4 v1, 0x6
 
     new-array v1, v1, [Ljava/lang/String;
@@ -646,7 +605,6 @@
 
     aput-object v1, v0, v8
 
-    .line 50
     const/4 v1, 0x6
 
     new-array v1, v1, [Ljava/lang/String;
@@ -681,7 +639,6 @@
 
     aput-object v1, v0, v2
 
-    .line 51
     const/4 v1, 0x6
 
     new-array v1, v1, [Ljava/lang/String;
@@ -716,7 +673,6 @@
 
     aput-object v1, v0, v2
 
-    .line 52
     const/4 v1, 0x6
 
     new-array v1, v1, [Ljava/lang/String;
@@ -751,7 +707,6 @@
 
     aput-object v1, v0, v2
 
-    .line 53
     const/4 v1, 0x6
 
     new-array v1, v1, [Ljava/lang/String;
@@ -786,7 +741,6 @@
 
     aput-object v1, v0, v2
 
-    .line 54
     const/4 v1, 0x6
 
     new-array v1, v1, [Ljava/lang/String;
@@ -821,7 +775,6 @@
 
     aput-object v1, v0, v2
 
-    .line 55
     const/4 v1, 0x6
 
     new-array v1, v1, [Ljava/lang/String;
@@ -856,7 +809,6 @@
 
     aput-object v1, v0, v2
 
-    .line 56
     const/4 v1, 0x6
 
     new-array v1, v1, [Ljava/lang/String;
@@ -891,7 +843,6 @@
 
     aput-object v1, v0, v2
 
-    .line 57
     const/4 v1, 0x6
 
     new-array v1, v1, [Ljava/lang/String;
@@ -926,7 +877,6 @@
 
     aput-object v1, v0, v2
 
-    .line 58
     const/4 v1, 0x6
 
     new-array v1, v1, [Ljava/lang/String;
@@ -961,7 +911,6 @@
 
     aput-object v1, v0, v2
 
-    .line 59
     const/4 v1, 0x6
 
     new-array v1, v1, [Ljava/lang/String;
@@ -996,15 +945,12 @@
 
     aput-object v1, v0, v2
 
-    .line 44
     sput-object v0, Lcom/samsung/android/speech/CommandLanguage;->MUSIC:[[Ljava/lang/String;
 
-    .line 62
     const/16 v0, 0xf
 
     new-array v0, v0, [[Ljava/lang/String;
 
-    .line 63
     const/4 v1, 0x5
 
     new-array v1, v1, [Ljava/lang/String;
@@ -1031,7 +977,6 @@
 
     aput-object v1, v0, v4
 
-    .line 64
     const/4 v1, 0x5
 
     new-array v1, v1, [Ljava/lang/String;
@@ -1058,7 +1003,6 @@
 
     aput-object v1, v0, v5
 
-    .line 65
     const/4 v1, 0x5
 
     new-array v1, v1, [Ljava/lang/String;
@@ -1085,7 +1029,6 @@
 
     aput-object v1, v0, v6
 
-    .line 66
     const/4 v1, 0x5
 
     new-array v1, v1, [Ljava/lang/String;
@@ -1112,7 +1055,6 @@
 
     aput-object v1, v0, v7
 
-    .line 67
     const/4 v1, 0x5
 
     new-array v1, v1, [Ljava/lang/String;
@@ -1139,7 +1081,6 @@
 
     aput-object v1, v0, v8
 
-    .line 68
     const/4 v1, 0x5
 
     new-array v1, v1, [Ljava/lang/String;
@@ -1168,7 +1109,6 @@
 
     aput-object v1, v0, v2
 
-    .line 69
     const/4 v1, 0x5
 
     new-array v1, v1, [Ljava/lang/String;
@@ -1197,7 +1137,6 @@
 
     aput-object v1, v0, v2
 
-    .line 70
     const/4 v1, 0x5
 
     new-array v1, v1, [Ljava/lang/String;
@@ -1226,7 +1165,6 @@
 
     aput-object v1, v0, v2
 
-    .line 71
     const/4 v1, 0x5
 
     new-array v1, v1, [Ljava/lang/String;
@@ -1255,7 +1193,6 @@
 
     aput-object v1, v0, v2
 
-    .line 72
     const/4 v1, 0x5
 
     new-array v1, v1, [Ljava/lang/String;
@@ -1284,7 +1221,6 @@
 
     aput-object v1, v0, v2
 
-    .line 73
     const/4 v1, 0x5
 
     new-array v1, v1, [Ljava/lang/String;
@@ -1313,7 +1249,6 @@
 
     aput-object v1, v0, v2
 
-    .line 74
     const/4 v1, 0x5
 
     new-array v1, v1, [Ljava/lang/String;
@@ -1342,7 +1277,6 @@
 
     aput-object v1, v0, v2
 
-    .line 75
     const/4 v1, 0x5
 
     new-array v1, v1, [Ljava/lang/String;
@@ -1371,7 +1305,6 @@
 
     aput-object v1, v0, v2
 
-    .line 76
     const/4 v1, 0x5
 
     new-array v1, v1, [Ljava/lang/String;
@@ -1400,7 +1333,6 @@
 
     aput-object v1, v0, v2
 
-    .line 77
     const/4 v1, 0x5
 
     new-array v1, v1, [Ljava/lang/String;
@@ -1429,15 +1361,12 @@
 
     aput-object v1, v0, v2
 
-    .line 62
     sput-object v0, Lcom/samsung/android/speech/CommandLanguage;->CAMERA:[[Ljava/lang/String;
 
-    .line 80
     const/16 v0, 0xf
 
     new-array v0, v0, [[Ljava/lang/String;
 
-    .line 81
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "\ucde8\uc18c"
@@ -1446,7 +1375,6 @@
 
     aput-object v1, v0, v4
 
-    .line 82
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "Cancel"
@@ -1455,7 +1383,6 @@
 
     aput-object v1, v0, v5
 
-    .line 83
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "\u53d6\u6d88"
@@ -1464,7 +1391,6 @@
 
     aput-object v1, v0, v6
 
-    .line 84
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "Cancelar"
@@ -1473,7 +1399,6 @@
 
     aput-object v1, v0, v7
 
-    .line 85
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "Annuler"
@@ -1482,7 +1407,6 @@
 
     aput-object v1, v0, v8
 
-    .line 86
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "Abbrechen"
@@ -1493,7 +1417,6 @@
 
     aput-object v1, v0, v2
 
-    .line 87
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "Annulla"
@@ -1504,7 +1427,6 @@
 
     aput-object v1, v0, v2
 
-    .line 88
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "\u30ad\u30e3\u30f3\u30bb\u30eb"
@@ -1515,7 +1437,6 @@
 
     aput-object v1, v0, v2
 
-    .line 89
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "\u041e\u0442\u043c\u0435\u043d\u0430"
@@ -1526,7 +1447,6 @@
 
     aput-object v1, v0, v2
 
-    .line 90
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "Cancelar"
@@ -1537,7 +1457,6 @@
 
     aput-object v1, v0, v2
 
-    .line 91
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "Cancel"
@@ -1548,7 +1467,6 @@
 
     aput-object v1, v0, v2
 
-    .line 92
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "Cancelar"
@@ -1559,7 +1477,6 @@
 
     aput-object v1, v0, v2
 
-    .line 93
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "\u9000\u51fa"
@@ -1570,7 +1487,6 @@
 
     aput-object v1, v0, v2
 
-    .line 94
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "\u53d6\u6d88"
@@ -1581,7 +1497,6 @@
 
     aput-object v1, v0, v2
 
-    .line 95
     new-array v1, v5, [Ljava/lang/String;
 
     const-string/jumbo v2, "\u53d6\u6d88"
@@ -1592,18 +1507,14 @@
 
     aput-object v1, v0, v2
 
-    .line 80
     sput-object v0, Lcom/samsung/android/speech/CommandLanguage;->CANCEL:[[Ljava/lang/String;
 
-    .line 5
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 5
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

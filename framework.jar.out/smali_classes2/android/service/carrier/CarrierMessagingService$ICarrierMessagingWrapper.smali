@@ -21,10 +21,7 @@
 # direct methods
 .method private constructor <init>(Landroid/service/carrier/CarrierMessagingService;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/service/carrier/CarrierMessagingService;
 
-    .prologue
-    .line 463
     iput-object p1, p0, Landroid/service/carrier/CarrierMessagingService$ICarrierMessagingWrapper;->this$0:Landroid/service/carrier/CarrierMessagingService;
 
     invoke-direct {p0}, Landroid/service/carrier/ICarrierMessagingService$Stub;-><init>()V
@@ -34,9 +31,7 @@
 
 .method synthetic constructor <init>(Landroid/service/carrier/CarrierMessagingService;Landroid/service/carrier/CarrierMessagingService$ICarrierMessagingWrapper;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/service/carrier/CarrierMessagingService;
 
-    .prologue
     invoke-direct {p0, p1}, Landroid/service/carrier/CarrierMessagingService$ICarrierMessagingWrapper;-><init>(Landroid/service/carrier/CarrierMessagingService;)V
 
     return-void
@@ -46,13 +41,7 @@
 # virtual methods
 .method public downloadMms(Landroid/net/Uri;ILandroid/net/Uri;Landroid/service/carrier/ICarrierMessagingCallback;)V
     .locals 2
-    .param p1, "pduUri"    # Landroid/net/Uri;
-    .param p2, "subId"    # I
-    .param p3, "location"    # Landroid/net/Uri;
-    .param p4, "callback"    # Landroid/service/carrier/ICarrierMessagingCallback;
 
-    .prologue
-    .line 528
     iget-object v0, p0, Landroid/service/carrier/CarrierMessagingService$ICarrierMessagingWrapper;->this$0:Landroid/service/carrier/CarrierMessagingService;
 
     new-instance v1, Landroid/service/carrier/CarrierMessagingService$ICarrierMessagingWrapper$6;
@@ -61,23 +50,14 @@
 
     invoke-virtual {v0, p1, p2, p3, v1}, Landroid/service/carrier/CarrierMessagingService;->onDownloadMms(Landroid/net/Uri;ILandroid/net/Uri;Landroid/service/carrier/CarrierMessagingService$ResultCallback;)V
 
-    .line 527
     return-void
 .end method
 
 .method public filterSms(Landroid/service/carrier/MessagePdu;Ljava/lang/String;IILandroid/service/carrier/ICarrierMessagingCallback;)V
     .locals 6
-    .param p1, "pdu"    # Landroid/service/carrier/MessagePdu;
-    .param p2, "format"    # Ljava/lang/String;
-    .param p3, "destPort"    # I
-    .param p4, "subId"    # I
-    .param p5, "callback"    # Landroid/service/carrier/ICarrierMessagingCallback;
 
-    .prologue
-    .line 467
     iget-object v0, p0, Landroid/service/carrier/CarrierMessagingService$ICarrierMessagingWrapper;->this$0:Landroid/service/carrier/CarrierMessagingService;
 
-    .line 468
     new-instance v5, Landroid/service/carrier/CarrierMessagingService$ICarrierMessagingWrapper$1;
 
     invoke-direct {v5, p0, p5}, Landroid/service/carrier/CarrierMessagingService$ICarrierMessagingWrapper$1;-><init>(Landroid/service/carrier/CarrierMessagingService$ICarrierMessagingWrapper;Landroid/service/carrier/ICarrierMessagingCallback;)V
@@ -90,27 +70,16 @@
 
     move v4, p4
 
-    .line 467
     invoke-virtual/range {v0 .. v5}, Landroid/service/carrier/CarrierMessagingService;->onReceiveTextSms(Landroid/service/carrier/MessagePdu;Ljava/lang/String;IILandroid/service/carrier/CarrierMessagingService$ResultCallback;)V
 
-    .line 466
     return-void
 .end method
 
 .method public sendDataSms([BILjava/lang/String;IILandroid/service/carrier/ICarrierMessagingCallback;)V
     .locals 7
-    .param p1, "data"    # [B
-    .param p2, "subId"    # I
-    .param p3, "destAddress"    # Ljava/lang/String;
-    .param p4, "destPort"    # I
-    .param p5, "sendSmsFlag"    # I
-    .param p6, "callback"    # Landroid/service/carrier/ICarrierMessagingCallback;
 
-    .prologue
-    .line 491
     iget-object v0, p0, Landroid/service/carrier/CarrierMessagingService$ICarrierMessagingWrapper;->this$0:Landroid/service/carrier/CarrierMessagingService;
 
-    .line 492
     new-instance v6, Landroid/service/carrier/CarrierMessagingService$ICarrierMessagingWrapper$3;
 
     invoke-direct {v6, p0, p6}, Landroid/service/carrier/CarrierMessagingService$ICarrierMessagingWrapper$3;-><init>(Landroid/service/carrier/CarrierMessagingService$ICarrierMessagingWrapper;Landroid/service/carrier/ICarrierMessagingCallback;)V
@@ -125,22 +94,14 @@
 
     move v5, p5
 
-    .line 491
     invoke-virtual/range {v0 .. v6}, Landroid/service/carrier/CarrierMessagingService;->onSendDataSms([BILjava/lang/String;IILandroid/service/carrier/CarrierMessagingService$ResultCallback;)V
 
-    .line 490
     return-void
 .end method
 
 .method public sendMms(Landroid/net/Uri;ILandroid/net/Uri;Landroid/service/carrier/ICarrierMessagingCallback;)V
     .locals 2
-    .param p1, "pduUri"    # Landroid/net/Uri;
-    .param p2, "subId"    # I
-    .param p3, "location"    # Landroid/net/Uri;
-    .param p4, "callback"    # Landroid/service/carrier/ICarrierMessagingCallback;
 
-    .prologue
-    .line 517
     iget-object v0, p0, Landroid/service/carrier/CarrierMessagingService$ICarrierMessagingWrapper;->this$0:Landroid/service/carrier/CarrierMessagingService;
 
     new-instance v1, Landroid/service/carrier/CarrierMessagingService$ICarrierMessagingWrapper$5;
@@ -149,16 +110,11 @@
 
     invoke-virtual {v0, p1, p2, p3, v1}, Landroid/service/carrier/CarrierMessagingService;->onSendMms(Landroid/net/Uri;ILandroid/net/Uri;Landroid/service/carrier/CarrierMessagingService$ResultCallback;)V
 
-    .line 516
     return-void
 .end method
 
 .method public sendMultipartTextSms(Ljava/util/List;ILjava/lang/String;ILandroid/service/carrier/ICarrierMessagingCallback;)V
     .locals 6
-    .param p2, "subId"    # I
-    .param p3, "destAddress"    # Ljava/lang/String;
-    .param p4, "sendSmsFlag"    # I
-    .param p5, "callback"    # Landroid/service/carrier/ICarrierMessagingCallback;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -173,12 +129,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 503
-    .local p1, "parts":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     iget-object v0, p0, Landroid/service/carrier/CarrierMessagingService$ICarrierMessagingWrapper;->this$0:Landroid/service/carrier/CarrierMessagingService;
 
-    .line 504
     new-instance v5, Landroid/service/carrier/CarrierMessagingService$ICarrierMessagingWrapper$4;
 
     invoke-direct {v5, p0, p5}, Landroid/service/carrier/CarrierMessagingService$ICarrierMessagingWrapper$4;-><init>(Landroid/service/carrier/CarrierMessagingService$ICarrierMessagingWrapper;Landroid/service/carrier/ICarrierMessagingCallback;)V
@@ -191,26 +143,16 @@
 
     move v4, p4
 
-    .line 503
     invoke-virtual/range {v0 .. v5}, Landroid/service/carrier/CarrierMessagingService;->onSendMultipartTextSms(Ljava/util/List;ILjava/lang/String;ILandroid/service/carrier/CarrierMessagingService$ResultCallback;)V
 
-    .line 502
     return-void
 .end method
 
 .method public sendTextSms(Ljava/lang/String;ILjava/lang/String;ILandroid/service/carrier/ICarrierMessagingCallback;)V
     .locals 6
-    .param p1, "text"    # Ljava/lang/String;
-    .param p2, "subId"    # I
-    .param p3, "destAddress"    # Ljava/lang/String;
-    .param p4, "sendSmsFlag"    # I
-    .param p5, "callback"    # Landroid/service/carrier/ICarrierMessagingCallback;
 
-    .prologue
-    .line 479
     iget-object v0, p0, Landroid/service/carrier/CarrierMessagingService$ICarrierMessagingWrapper;->this$0:Landroid/service/carrier/CarrierMessagingService;
 
-    .line 480
     new-instance v5, Landroid/service/carrier/CarrierMessagingService$ICarrierMessagingWrapper$2;
 
     invoke-direct {v5, p0, p5}, Landroid/service/carrier/CarrierMessagingService$ICarrierMessagingWrapper$2;-><init>(Landroid/service/carrier/CarrierMessagingService$ICarrierMessagingWrapper;Landroid/service/carrier/ICarrierMessagingCallback;)V
@@ -223,9 +165,7 @@
 
     move v4, p4
 
-    .line 479
     invoke-virtual/range {v0 .. v5}, Landroid/service/carrier/CarrierMessagingService;->onSendTextSms(Ljava/lang/String;ILjava/lang/String;ILandroid/service/carrier/CarrierMessagingService$ResultCallback;)V
 
-    .line 478
     return-void
 .end method

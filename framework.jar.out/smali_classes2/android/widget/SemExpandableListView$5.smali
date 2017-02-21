@@ -28,12 +28,7 @@
 # direct methods
 .method constructor <init>(Landroid/widget/SemExpandableListView;II)V
     .locals 0
-    .param p1, "this$0"    # Landroid/widget/SemExpandableListView;
-    .param p2, "val$groupPos"    # I
-    .param p3, "val$shiftedGroupPosition"    # I
 
-    .prologue
-    .line 1059
     iput-object p1, p0, Landroid/widget/SemExpandableListView$5;->this$0:Landroid/widget/SemExpandableListView;
 
     iput p2, p0, Landroid/widget/SemExpandableListView$5;->val$groupPos:I
@@ -50,8 +45,6 @@
 .method public run()V
     .locals 4
 
-    .prologue
-    .line 1061
     iget-object v0, p0, Landroid/widget/SemExpandableListView$5;->this$0:Landroid/widget/SemExpandableListView;
 
     invoke-static {v0}, Landroid/widget/SemExpandableListView;->-get30(Landroid/widget/SemExpandableListView;)Landroid/widget/SemExpandableListView$OnGroupExpandListener;
@@ -60,7 +53,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 1062
     iget-object v0, p0, Landroid/widget/SemExpandableListView$5;->this$0:Landroid/widget/SemExpandableListView;
 
     invoke-static {v0}, Landroid/widget/SemExpandableListView;->-get30(Landroid/widget/SemExpandableListView;)Landroid/widget/SemExpandableListView$OnGroupExpandListener;
@@ -71,7 +63,6 @@
 
     invoke-interface {v0, v1}, Landroid/widget/SemExpandableListView$OnGroupExpandListener;->onGroupExpand(I)V
 
-    .line 1064
     :cond_0
     iget-object v0, p0, Landroid/widget/SemExpandableListView$5;->this$0:Landroid/widget/SemExpandableListView;
 
@@ -91,12 +82,9 @@
 
     add-int/2addr v1, v2
 
-    .line 1065
     iget v2, p0, Landroid/widget/SemExpandableListView$5;->val$shiftedGroupPosition:I
 
-    .line 1064
     invoke-virtual {v0, v1, v2}, Landroid/widget/AbsListView;->smoothScrollToPosition(II)V
 
-    .line 1060
     return-void
 .end method

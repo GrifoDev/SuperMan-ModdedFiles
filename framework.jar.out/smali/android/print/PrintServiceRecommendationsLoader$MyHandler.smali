@@ -21,13 +21,9 @@
 # direct methods
 .method public constructor <init>(Landroid/print/PrintServiceRecommendationsLoader;)V
     .locals 1
-    .param p1, "this$0"    # Landroid/print/PrintServiceRecommendationsLoader;
 
-    .prologue
-    .line 110
     iput-object p1, p0, Landroid/print/PrintServiceRecommendationsLoader$MyHandler;->this$0:Landroid/print/PrintServiceRecommendationsLoader;
 
-    .line 111
     invoke-virtual {p1}, Landroid/content/Loader;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -38,7 +34,6 @@
 
     invoke-direct {p0, v0}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    .line 110
     return-void
 .end method
 
@@ -46,10 +41,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .line 116
     iget-object v0, p0, Landroid/print/PrintServiceRecommendationsLoader$MyHandler;->this$0:Landroid/print/PrintServiceRecommendationsLoader;
 
     invoke-virtual {v0}, Landroid/content/Loader;->isStarted()Z
@@ -58,7 +50,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 117
     iget-object v1, p0, Landroid/print/PrintServiceRecommendationsLoader$MyHandler;->this$0:Landroid/print/PrintServiceRecommendationsLoader;
 
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -67,7 +58,6 @@
 
     invoke-virtual {v1, v0}, Landroid/content/Loader;->deliverResult(Ljava/lang/Object;)V
 
-    .line 115
     :cond_0
     return-void
 .end method

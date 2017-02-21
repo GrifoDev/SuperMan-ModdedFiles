@@ -27,18 +27,14 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 26
     new-instance v0, Lcom/android/internal/os/BaseCommand$1;
 
     invoke-direct {v0, p0}, Lcom/android/internal/os/BaseCommand$1;-><init>(Lcom/android/internal/os/BaseCommand;)V
 
     iput-object v0, p0, Lcom/android/internal/os/BaseCommand;->mArgs:Landroid/os/ShellCommand;
 
-    .line 24
     return-void
 .end method
 
@@ -47,8 +43,6 @@
 .method public nextArg()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 102
     iget-object v0, p0, Lcom/android/internal/os/BaseCommand;->mArgs:Landroid/os/ShellCommand;
 
     invoke-virtual {v0}, Landroid/os/ShellCommand;->getNextArg()Ljava/lang/String;
@@ -61,8 +55,6 @@
 .method public nextArgRequired()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 110
     iget-object v0, p0, Lcom/android/internal/os/BaseCommand;->mArgs:Landroid/os/ShellCommand;
 
     invoke-virtual {v0}, Landroid/os/ShellCommand;->getNextArgRequired()Ljava/lang/String;
@@ -75,8 +67,6 @@
 .method public nextOption()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 94
     iget-object v0, p0, Lcom/android/internal/os/BaseCommand;->mArgs:Landroid/os/ShellCommand;
 
     invoke-virtual {v0}, Landroid/os/ShellCommand;->getNextOption()Ljava/lang/String;
@@ -99,27 +89,21 @@
 
 .method public run([Ljava/lang/String;)V
     .locals 10
-    .param p1, "args"    # [Ljava/lang/String;
 
-    .prologue
     const/4 v9, 0x1
 
     const/4 v1, 0x0
 
-    .line 43
     array-length v0, p1
 
     if-ge v0, v9, :cond_0
 
-    .line 44
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     invoke-virtual {p0, v0}, Lcom/android/internal/os/BaseCommand;->onShowUsage(Ljava/io/PrintStream;)V
 
-    .line 45
     return-void
 
-    .line 48
     :cond_0
     iget-object v0, p0, Lcom/android/internal/os/BaseCommand;->mArgs:Landroid/os/ShellCommand;
 
@@ -135,49 +119,37 @@
 
     invoke-virtual/range {v0 .. v6}, Landroid/os/ShellCommand;->init(Landroid/os/Binder;Ljava/io/FileDescriptor;Ljava/io/FileDescriptor;Ljava/io/FileDescriptor;[Ljava/lang/String;I)V
 
-    .line 51
     :try_start_0
     invoke-virtual {p0}, Lcom/android/internal/os/BaseCommand;->onRun()V
     :try_end_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 42
     :goto_0
     return-void
 
-    .line 56
     :catch_0
     move-exception v7
 
-    .line 57
-    .local v7, "e":Ljava/lang/Exception;
     sget-object v0, Ljava/lang/System;->err:Ljava/io/PrintStream;
 
     invoke-virtual {v7, v0}, Ljava/lang/Throwable;->printStackTrace(Ljava/io/PrintStream;)V
 
-    .line 58
     invoke-static {v9}, Ljava/lang/System;->exit(I)V
 
     goto :goto_0
 
-    .line 52
-    .end local v7    # "e":Ljava/lang/Exception;
     :catch_1
     move-exception v8
 
-    .line 53
-    .local v8, "e":Ljava/lang/IllegalArgumentException;
     sget-object v0, Ljava/lang/System;->err:Ljava/io/PrintStream;
 
     invoke-virtual {p0, v0}, Lcom/android/internal/os/BaseCommand;->onShowUsage(Ljava/io/PrintStream;)V
 
-    .line 54
     sget-object v0, Ljava/lang/System;->err:Ljava/io/PrintStream;
 
     invoke-virtual {v0}, Ljava/io/PrintStream;->println()V
 
-    .line 55
     sget-object v0, Ljava/lang/System;->err:Ljava/io/PrintStream;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -209,37 +181,28 @@
 
 .method public showError(Ljava/lang/String;)V
     .locals 1
-    .param p1, "message"    # Ljava/lang/String;
 
-    .prologue
-    .line 74
     sget-object v0, Ljava/lang/System;->err:Ljava/io/PrintStream;
 
     invoke-virtual {p0, v0}, Lcom/android/internal/os/BaseCommand;->onShowUsage(Ljava/io/PrintStream;)V
 
-    .line 75
     sget-object v0, Ljava/lang/System;->err:Ljava/io/PrintStream;
 
     invoke-virtual {v0}, Ljava/io/PrintStream;->println()V
 
-    .line 76
     sget-object v0, Ljava/lang/System;->err:Ljava/io/PrintStream;
 
     invoke-virtual {v0, p1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 73
     return-void
 .end method
 
 .method public showUsage()V
     .locals 1
 
-    .prologue
-    .line 66
     sget-object v0, Ljava/lang/System;->err:Ljava/io/PrintStream;
 
     invoke-virtual {p0, v0}, Lcom/android/internal/os/BaseCommand;->onShowUsage(Ljava/io/PrintStream;)V
 
-    .line 65
     return-void
 .end method

@@ -49,48 +49,36 @@
 # direct methods
 .method public constructor <init>([I[I)V
     .locals 2
-    .param p1, "_screenStates"    # [I
-    .param p2, "_memStates"    # [I
 
-    .prologue
     const/16 v1, 0xe
 
-    .line 1859
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1865
     new-array v0, v1, [J
 
     iput-object v0, p0, Lcom/android/internal/app/procstats/ProcessStats$TotalMemoryUseCollection;->processStatePss:[J
 
-    .line 1866
     new-array v0, v1, [D
 
     iput-object v0, p0, Lcom/android/internal/app/procstats/ProcessStats$TotalMemoryUseCollection;->processStateWeight:[D
 
-    .line 1867
     new-array v0, v1, [J
 
     iput-object v0, p0, Lcom/android/internal/app/procstats/ProcessStats$TotalMemoryUseCollection;->processStateTime:[J
 
-    .line 1868
     new-array v0, v1, [I
 
     iput-object v0, p0, Lcom/android/internal/app/procstats/ProcessStats$TotalMemoryUseCollection;->processStateSamples:[I
 
-    .line 1869
     const/16 v0, 0x10
 
     new-array v0, v0, [J
 
     iput-object v0, p0, Lcom/android/internal/app/procstats/ProcessStats$TotalMemoryUseCollection;->sysMemUsage:[J
 
-    .line 1860
     iput-object p1, p0, Lcom/android/internal/app/procstats/ProcessStats$TotalMemoryUseCollection;->screenStates:[I
 
-    .line 1861
     iput-object p2, p0, Lcom/android/internal/app/procstats/ProcessStats$TotalMemoryUseCollection;->memStates:[I
 
-    .line 1859
     return-void
 .end method

@@ -34,10 +34,7 @@
 # direct methods
 .method constructor <init>(Landroid/speech/tts/TextToSpeech;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/speech/tts/TextToSpeech;
 
-    .prologue
-    .line 1574
     iput-object p1, p0, Landroid/speech/tts/TextToSpeech$10;->this$0:Landroid/speech/tts/TextToSpeech;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,15 +46,12 @@
 # virtual methods
 .method public bridge synthetic run(Landroid/speech/tts/ITextToSpeechService;)Ljava/lang/Object;
     .locals 1
-    .param p1, "service"    # Landroid/speech/tts/ITextToSpeechService;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
-    .line 1576
     invoke-virtual {p0, p1}, Landroid/speech/tts/TextToSpeech$10;->run(Landroid/speech/tts/ITextToSpeechService;)Ljava/util/Locale;
 
     move-result-object v0
@@ -67,10 +61,7 @@
 
 .method public run(Landroid/speech/tts/ITextToSpeechService;)Ljava/util/Locale;
     .locals 6
-    .param p1, "service"    # Landroid/speech/tts/ITextToSpeechService;
 
-    .prologue
-    .line 1579
     iget-object v3, p0, Landroid/speech/tts/TextToSpeech$10;->this$0:Landroid/speech/tts/TextToSpeech;
 
     invoke-static {v3}, Landroid/speech/tts/TextToSpeech;->-get2(Landroid/speech/tts/TextToSpeech;)Landroid/os/Bundle;
@@ -85,8 +76,6 @@
 
     move-result-object v1
 
-    .line 1580
-    .local v1, "lang":Ljava/lang/String;
     iget-object v3, p0, Landroid/speech/tts/TextToSpeech$10;->this$0:Landroid/speech/tts/TextToSpeech;
 
     invoke-static {v3}, Landroid/speech/tts/TextToSpeech;->-get2(Landroid/speech/tts/TextToSpeech;)Landroid/os/Bundle;
@@ -101,8 +90,6 @@
 
     move-result-object v0
 
-    .line 1581
-    .local v0, "country":Ljava/lang/String;
     iget-object v3, p0, Landroid/speech/tts/TextToSpeech$10;->this$0:Landroid/speech/tts/TextToSpeech;
 
     invoke-static {v3}, Landroid/speech/tts/TextToSpeech;->-get2(Landroid/speech/tts/TextToSpeech;)Landroid/os/Bundle;
@@ -117,8 +104,6 @@
 
     move-result-object v2
 
-    .line 1582
-    .local v2, "variant":Ljava/lang/String;
     new-instance v3, Ljava/util/Locale;
 
     invoke-direct {v3, v1, v0, v2}, Ljava/util/Locale;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V

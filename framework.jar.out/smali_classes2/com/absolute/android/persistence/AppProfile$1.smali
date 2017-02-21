@@ -31,8 +31,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 648
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -43,8 +41,6 @@
 .method public createFromParcel(Landroid/os/Parcel;)Lcom/absolute/android/persistence/AppProfile;
     .locals 2
 
-    .prologue
-    .line 650
     new-instance v0, Lcom/absolute/android/persistence/AppProfile;
 
     const/4 v1, 0x0
@@ -57,8 +53,6 @@
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 648
     invoke-virtual {p0, p1}, Lcom/absolute/android/persistence/AppProfile$1;->createFromParcel(Landroid/os/Parcel;)Lcom/absolute/android/persistence/AppProfile;
 
     move-result-object v0
@@ -69,8 +63,6 @@
 .method public newArray(I)[Lcom/absolute/android/persistence/AppProfile;
     .locals 1
 
-    .prologue
-    .line 654
     new-array v0, p1, [Lcom/absolute/android/persistence/AppProfile;
 
     return-object v0
@@ -79,8 +71,6 @@
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 648
     invoke-virtual {p0, p1}, Lcom/absolute/android/persistence/AppProfile$1;->newArray(I)[Lcom/absolute/android/persistence/AppProfile;
 
     move-result-object v0

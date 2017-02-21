@@ -63,7 +63,6 @@
 .method static constructor <clinit>()V
     .locals 8
 
-    .prologue
     const/4 v7, 0x4
 
     const/4 v6, 0x3
@@ -74,7 +73,6 @@
 
     const/4 v3, 0x0
 
-    .line 10
     new-instance v0, Landroid/content/pm/PersonaAttribute;
 
     const-string/jumbo v1, "UPGRADING"
@@ -83,7 +81,6 @@
 
     sput-object v0, Landroid/content/pm/PersonaAttribute;->UPGRADING:Landroid/content/pm/PersonaAttribute;
 
-    .line 11
     new-instance v0, Landroid/content/pm/PersonaAttribute;
 
     const-string/jumbo v1, "PASSWORD_CHANGE_REQUEST"
@@ -92,7 +89,6 @@
 
     sput-object v0, Landroid/content/pm/PersonaAttribute;->PASSWORD_CHANGE_REQUEST:Landroid/content/pm/PersonaAttribute;
 
-    .line 12
     new-instance v0, Landroid/content/pm/PersonaAttribute;
 
     const-string/jumbo v1, "RESETTING"
@@ -101,7 +97,6 @@
 
     sput-object v0, Landroid/content/pm/PersonaAttribute;->RESETTING:Landroid/content/pm/PersonaAttribute;
 
-    .line 13
     new-instance v0, Landroid/content/pm/PersonaAttribute;
 
     const-string/jumbo v1, "DISABLE_KNOX_KEYGUARD"
@@ -110,7 +105,6 @@
 
     sput-object v0, Landroid/content/pm/PersonaAttribute;->DISABLE_KNOX_KEYGUARD:Landroid/content/pm/PersonaAttribute;
 
-    .line 14
     new-instance v0, Landroid/content/pm/PersonaAttribute;
 
     const-string/jumbo v1, "PASSWORD_CHANGE_REQUEST_ENFORCED"
@@ -119,7 +113,6 @@
 
     sput-object v0, Landroid/content/pm/PersonaAttribute;->PASSWORD_CHANGE_REQUEST_ENFORCED:Landroid/content/pm/PersonaAttribute;
 
-    .line 15
     new-instance v0, Landroid/content/pm/PersonaAttribute;
 
     const-string/jumbo v1, "QUICK_UNLOCK_NOT_AVAILABLE"
@@ -128,10 +121,8 @@
 
     invoke-direct {v0, v1, v2}, Landroid/content/pm/PersonaAttribute;-><init>(Ljava/lang/String;I)V
 
-    .line 16
     sput-object v0, Landroid/content/pm/PersonaAttribute;->QUICK_UNLOCK_NOT_AVAILABLE:Landroid/content/pm/PersonaAttribute;
 
-    .line 17
     new-instance v0, Landroid/content/pm/PersonaAttribute;
 
     const-string/jumbo v1, "MY_KNOX"
@@ -140,10 +131,8 @@
 
     invoke-direct {v0, v1, v2}, Landroid/content/pm/PersonaAttribute;-><init>(Ljava/lang/String;I)V
 
-    .line 18
     sput-object v0, Landroid/content/pm/PersonaAttribute;->MY_KNOX:Landroid/content/pm/PersonaAttribute;
 
-    .line 19
     new-instance v0, Landroid/content/pm/PersonaAttribute;
 
     const-string/jumbo v1, "ALERT_DO_NOT_SHOW_AGAIN"
@@ -154,7 +143,6 @@
 
     sput-object v0, Landroid/content/pm/PersonaAttribute;->ALERT_DO_NOT_SHOW_AGAIN:Landroid/content/pm/PersonaAttribute;
 
-    .line 20
     new-instance v0, Landroid/content/pm/PersonaAttribute;
 
     const-string/jumbo v1, "SHOW_FOLDER_HELP_AFTER_STYLE_CHANGING"
@@ -165,7 +153,6 @@
 
     sput-object v0, Landroid/content/pm/PersonaAttribute;->SHOW_FOLDER_HELP_AFTER_STYLE_CHANGING:Landroid/content/pm/PersonaAttribute;
 
-    .line 21
     new-instance v0, Landroid/content/pm/PersonaAttribute;
 
     const-string/jumbo v1, "SHOW_LAUNCHER_HELP_AFTER_STYLE_CHANGING"
@@ -176,7 +163,6 @@
 
     sput-object v0, Landroid/content/pm/PersonaAttribute;->SHOW_LAUNCHER_HELP_AFTER_STYLE_CHANGING:Landroid/content/pm/PersonaAttribute;
 
-    .line 8
     const/16 v0, 0xa
 
     new-array v0, v0, [Landroid/content/pm/PersonaAttribute;
@@ -233,22 +219,18 @@
 
     sput-object v0, Landroid/content/pm/PersonaAttribute;->$VALUES:[Landroid/content/pm/PersonaAttribute;
 
-    .line 33
     new-instance v0, Landroid/content/pm/PersonaAttribute$1;
 
     invoke-direct {v0}, Landroid/content/pm/PersonaAttribute$1;-><init>()V
 
     sput-object v0, Landroid/content/pm/PersonaAttribute;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    .line 8
     return-void
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
     .locals 0
 
-    .prologue
-    .line 8
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -256,10 +238,7 @@
 
 .method public static valueOf(Ljava/lang/String;)Landroid/content/pm/PersonaAttribute;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
-    .prologue
-    .line 8
     const-class v0, Landroid/content/pm/PersonaAttribute;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -274,8 +253,6 @@
 .method public static values()[Landroid/content/pm/PersonaAttribute;
     .locals 1
 
-    .prologue
-    .line 8
     sget-object v0, Landroid/content/pm/PersonaAttribute;->$VALUES:[Landroid/content/pm/PersonaAttribute;
 
     return-object v0
@@ -286,8 +263,6 @@
 .method public describeContents()I
     .locals 1
 
-    .prologue
-    .line 25
     const/4 v0, 0x0
 
     return v0
@@ -295,17 +270,12 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .param p1, "dest"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
-    .prologue
-    .line 30
     invoke-virtual {p0}, Ljava/lang/Enum;->name()Ljava/lang/String;
 
     move-result-object v0
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 29
     return-void
 .end method

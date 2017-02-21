@@ -154,31 +154,26 @@
 .method static constructor <clinit>()V
     .locals 4
 
-    .prologue
     const-wide/16 v2, 0x0
 
-    .line 93
     new-instance v0, Lcom/google/android/gles_jni/EGLDisplayImpl;
 
     invoke-direct {v0, v2, v3}, Lcom/google/android/gles_jni/EGLDisplayImpl;-><init>(J)V
 
     sput-object v0, Ljavax/microedition/khronos/egl/EGL10;->EGL_NO_DISPLAY:Ljavax/microedition/khronos/egl/EGLDisplay;
 
-    .line 94
     new-instance v0, Lcom/google/android/gles_jni/EGLContextImpl;
 
     invoke-direct {v0, v2, v3}, Lcom/google/android/gles_jni/EGLContextImpl;-><init>(J)V
 
     sput-object v0, Ljavax/microedition/khronos/egl/EGL10;->EGL_NO_CONTEXT:Ljavax/microedition/khronos/egl/EGLContext;
 
-    .line 95
     new-instance v0, Lcom/google/android/gles_jni/EGLSurfaceImpl;
 
     invoke-direct {v0, v2, v3}, Lcom/google/android/gles_jni/EGLSurfaceImpl;-><init>(J)V
 
     sput-object v0, Ljavax/microedition/khronos/egl/EGL10;->EGL_NO_SURFACE:Ljavax/microedition/khronos/egl/EGLSurface;
 
-    .line 21
     return-void
 .end method
 

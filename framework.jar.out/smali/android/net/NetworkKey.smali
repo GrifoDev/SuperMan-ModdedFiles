@@ -39,60 +39,44 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 119
     new-instance v0, Landroid/net/NetworkKey$1;
 
     invoke-direct {v0}, Landroid/net/NetworkKey$1;-><init>()V
 
-    .line 118
     sput-object v0, Landroid/net/NetworkKey;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    .line 37
     return-void
 .end method
 
 .method public constructor <init>(Landroid/net/WifiKey;)V
     .locals 1
-    .param p1, "wifiKey"    # Landroid/net/WifiKey;
 
-    .prologue
-    .line 58
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 59
     const/4 v0, 0x1
 
     iput v0, p0, Landroid/net/NetworkKey;->type:I
 
-    .line 60
     iput-object p1, p0, Landroid/net/NetworkKey;->wifiKey:Landroid/net/WifiKey;
 
-    .line 58
     return-void
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 3
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 63
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 64
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/net/NetworkKey;->type:I
 
-    .line 65
     iget v0, p0, Landroid/net/NetworkKey;->type:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 70
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -119,7 +103,6 @@
 
     throw v0
 
-    .line 67
     :pswitch_0
     sget-object v0, Landroid/net/WifiKey;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -131,10 +114,8 @@
 
     iput-object v0, p0, Landroid/net/NetworkKey;->wifiKey:Landroid/net/WifiKey;
 
-    .line 63
     return-void
 
-    .line 65
     nop
 
     :pswitch_data_0
@@ -145,9 +126,7 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/net/NetworkKey;)V
     .locals 0
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
     invoke-direct {p0, p1}, Landroid/net/NetworkKey;-><init>(Landroid/os/Parcel;)V
 
     return-void
@@ -158,8 +137,6 @@
 .method public describeContents()I
     .locals 1
 
-    .prologue
-    .line 76
     const/4 v0, 0x0
 
     return v0
@@ -167,19 +144,15 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
-    .param p1, "o"    # Ljava/lang/Object;
 
-    .prologue
     const/4 v1, 0x0
 
-    .line 93
     if-ne p0, p1, :cond_0
 
     const/4 v1, 0x1
 
     return v1
 
-    .line 94
     :cond_0
     if-eqz p1, :cond_1
 
@@ -199,11 +172,8 @@
     :cond_2
     move-object v0, p1
 
-    .line 96
     check-cast v0, Landroid/net/NetworkKey;
 
-    .line 98
-    .local v0, "that":Landroid/net/NetworkKey;
     iget v2, p0, Landroid/net/NetworkKey;->type:I
 
     iget v3, v0, Landroid/net/NetworkKey;->type:I
@@ -225,8 +195,6 @@
 .method public hashCode()I
     .locals 3
 
-    .prologue
-    .line 103
     const/4 v0, 0x2
 
     new-array v0, v0, [Ljava/lang/Object;
@@ -257,18 +225,14 @@
 .method public toString()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 108
     iget v0, p0, Landroid/net/NetworkKey;->type:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 114
     const-string/jumbo v0, "InvalidKey"
 
     return-object v0
 
-    .line 110
     :pswitch_0
     iget-object v0, p0, Landroid/net/NetworkKey;->wifiKey:Landroid/net/WifiKey;
 
@@ -278,7 +242,6 @@
 
     return-object v0
 
-    .line 108
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -287,21 +250,15 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 3
-    .param p1, "out"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
-    .prologue
-    .line 81
     iget v0, p0, Landroid/net/NetworkKey;->type:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 82
     iget v0, p0, Landroid/net/NetworkKey;->type:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 87
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -328,16 +285,13 @@
 
     throw v0
 
-    .line 84
     :pswitch_0
     iget-object v0, p0, Landroid/net/NetworkKey;->wifiKey:Landroid/net/WifiKey;
 
     invoke-virtual {v0, p1, p2}, Landroid/net/WifiKey;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 80
     return-void
 
-    .line 82
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

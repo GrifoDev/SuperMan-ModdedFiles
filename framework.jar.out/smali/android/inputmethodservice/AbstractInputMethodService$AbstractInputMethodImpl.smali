@@ -24,10 +24,7 @@
 # direct methods
 .method public constructor <init>(Landroid/inputmethodservice/AbstractInputMethodService;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/inputmethodservice/AbstractInputMethodService;
 
-    .prologue
-    .line 60
     iput-object p1, p0, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodImpl;->this$0:Landroid/inputmethodservice/AbstractInputMethodService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,10 +36,7 @@
 # virtual methods
 .method public createSession(Landroid/view/inputmethod/InputMethod$SessionCallback;)V
     .locals 1
-    .param p1, "callback"    # Landroid/view/inputmethod/InputMethod$SessionCallback;
 
-    .prologue
-    .line 67
     iget-object v0, p0, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodImpl;->this$0:Landroid/inputmethodservice/AbstractInputMethodService;
 
     invoke-virtual {v0}, Landroid/inputmethodservice/AbstractInputMethodService;->onCreateInputMethodSessionInterface()Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;
@@ -51,37 +45,25 @@
 
     invoke-interface {p1, v0}, Landroid/view/inputmethod/InputMethod$SessionCallback;->sessionCreated(Landroid/view/inputmethod/InputMethodSession;)V
 
-    .line 66
     return-void
 .end method
 
 .method public revokeSession(Landroid/view/inputmethod/InputMethodSession;)V
     .locals 0
-    .param p1, "session"    # Landroid/view/inputmethod/InputMethodSession;
 
-    .prologue
-    .line 85
     check-cast p1, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;
 
-    .end local p1    # "session":Landroid/view/inputmethod/InputMethodSession;
     invoke-virtual {p1}, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;->revokeSelf()V
 
-    .line 84
     return-void
 .end method
 
 .method public setSessionEnabled(Landroid/view/inputmethod/InputMethodSession;Z)V
     .locals 0
-    .param p1, "session"    # Landroid/view/inputmethod/InputMethodSession;
-    .param p2, "enabled"    # Z
 
-    .prologue
-    .line 76
     check-cast p1, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;
 
-    .end local p1    # "session":Landroid/view/inputmethod/InputMethodSession;
     invoke-virtual {p1, p2}, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;->setEnabled(Z)V
 
-    .line 75
     return-void
 .end method

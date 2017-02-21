@@ -26,11 +26,7 @@
 # direct methods
 .method constructor <init>(ZI)V
     .locals 0
-    .param p1, "val$enabled"    # Z
-    .param p2, "val$rotation"    # I
 
-    .prologue
-    .line 139
     iput-boolean p1, p0, Lcom/android/internal/view/RotationPolicy$1;->val$enabled:Z
 
     iput p2, p0, Lcom/android/internal/view/RotationPolicy$1;->val$rotation:I
@@ -45,31 +41,22 @@
 .method public run()V
     .locals 4
 
-    .prologue
-    .line 143
     :try_start_0
     invoke-static {}, Landroid/view/WindowManagerGlobal;->getWindowManagerService()Landroid/view/IWindowManager;
 
     move-result-object v1
 
-    .line 144
-    .local v1, "wm":Landroid/view/IWindowManager;
     iget-boolean v2, p0, Lcom/android/internal/view/RotationPolicy$1;->val$enabled:Z
 
     if-eqz v2, :cond_0
 
-    .line 145
     iget v2, p0, Lcom/android/internal/view/RotationPolicy$1;->val$rotation:I
 
     invoke-interface {v1, v2}, Landroid/view/IWindowManager;->freezeRotation(I)V
 
-    .line 141
-    .end local v1    # "wm":Landroid/view/IWindowManager;
     :goto_0
     return-void
 
-    .line 147
-    .restart local v1    # "wm":Landroid/view/IWindowManager;
     :cond_0
     invoke-interface {v1}, Landroid/view/IWindowManager;->thawRotation()V
     :try_end_0
@@ -77,13 +64,9 @@
 
     goto :goto_0
 
-    .line 149
-    .end local v1    # "wm":Landroid/view/IWindowManager;
     :catch_0
     move-exception v0
 
-    .line 150
-    .local v0, "exc":Landroid/os/RemoteException;
     const-string/jumbo v2, "RotationPolicy"
 
     const-string/jumbo v3, "Unable to save auto-rotate setting"

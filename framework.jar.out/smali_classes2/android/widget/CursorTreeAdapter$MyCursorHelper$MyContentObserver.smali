@@ -21,13 +21,9 @@
 # direct methods
 .method public constructor <init>(Landroid/widget/CursorTreeAdapter$MyCursorHelper;)V
     .locals 1
-    .param p1, "this$1"    # Landroid/widget/CursorTreeAdapter$MyCursorHelper;
 
-    .prologue
-    .line 489
     iput-object p1, p0, Landroid/widget/CursorTreeAdapter$MyCursorHelper$MyContentObserver;->this$1:Landroid/widget/CursorTreeAdapter$MyCursorHelper;
 
-    .line 490
     iget-object v0, p1, Landroid/widget/CursorTreeAdapter$MyCursorHelper;->this$0:Landroid/widget/CursorTreeAdapter;
 
     invoke-static {v0}, Landroid/widget/CursorTreeAdapter;->-get1(Landroid/widget/CursorTreeAdapter;)Landroid/os/Handler;
@@ -36,7 +32,6 @@
 
     invoke-direct {p0, v0}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
-    .line 489
     return-void
 .end method
 
@@ -45,8 +40,6 @@
 .method public deliverSelfNotifications()Z
     .locals 1
 
-    .prologue
-    .line 495
     const/4 v0, 0x1
 
     return v0
@@ -54,10 +47,7 @@
 
 .method public onChange(Z)V
     .locals 2
-    .param p1, "selfChange"    # Z
 
-    .prologue
-    .line 500
     iget-object v0, p0, Landroid/widget/CursorTreeAdapter$MyCursorHelper$MyContentObserver;->this$1:Landroid/widget/CursorTreeAdapter$MyCursorHelper;
 
     iget-object v0, v0, Landroid/widget/CursorTreeAdapter$MyCursorHelper;->this$0:Landroid/widget/CursorTreeAdapter;
@@ -88,12 +78,10 @@
 
     if-eqz v0, :cond_1
 
-    .line 499
     :cond_0
     :goto_0
     return-void
 
-    .line 503
     :cond_1
     iget-object v0, p0, Landroid/widget/CursorTreeAdapter$MyCursorHelper$MyContentObserver;->this$1:Landroid/widget/CursorTreeAdapter$MyCursorHelper;
 

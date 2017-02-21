@@ -21,10 +21,7 @@
 # direct methods
 .method private constructor <init>(Landroid/media/projection/MediaProjection;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/media/projection/MediaProjection;
 
-    .prologue
-    .line 207
     iput-object p1, p0, Landroid/media/projection/MediaProjection$MediaProjectionCallback;->this$0:Landroid/media/projection/MediaProjection;
 
     invoke-direct {p0}, Landroid/media/projection/IMediaProjectionCallback$Stub;-><init>()V
@@ -34,9 +31,7 @@
 
 .method synthetic constructor <init>(Landroid/media/projection/MediaProjection;Landroid/media/projection/MediaProjection$MediaProjectionCallback;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/media/projection/MediaProjection;
 
-    .prologue
     invoke-direct {p0, p1}, Landroid/media/projection/MediaProjection$MediaProjectionCallback;-><init>(Landroid/media/projection/MediaProjection;)V
 
     return-void
@@ -47,8 +42,6 @@
 .method public onStop()V
     .locals 3
 
-    .prologue
-    .line 210
     iget-object v2, p0, Landroid/media/projection/MediaProjection$MediaProjectionCallback;->this$0:Landroid/media/projection/MediaProjection;
 
     invoke-static {v2}, Landroid/media/projection/MediaProjection;->-get0(Landroid/media/projection/MediaProjection;)Ljava/util/Map;
@@ -63,7 +56,6 @@
 
     move-result-object v1
 
-    .local v1, "cbr$iterator":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -77,14 +69,10 @@
 
     check-cast v0, Landroid/media/projection/MediaProjection$CallbackRecord;
 
-    .line 211
-    .local v0, "cbr":Landroid/media/projection/MediaProjection$CallbackRecord;
     invoke-virtual {v0}, Landroid/media/projection/MediaProjection$CallbackRecord;->onStop()V
 
     goto :goto_0
 
-    .line 209
-    .end local v0    # "cbr":Landroid/media/projection/MediaProjection$CallbackRecord;
     :cond_0
     return-void
 .end method

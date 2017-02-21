@@ -23,26 +23,20 @@
 .method static constructor <clinit>()V
     .locals 9
 
-    .prologue
     const/4 v3, 0x0
 
     const/4 v4, 0x1
 
     const/4 v5, 0x0
 
-    .line 22
     sput-boolean v5, Lcom/samsung/android/graphics/spr/document/debug/SprDebug;->IsDebug:Z
 
-    .line 23
     sput-object v3, Lcom/samsung/android/graphics/spr/document/debug/SprDebug;->mDebugLevel:Ljava/lang/Integer;
 
-    .line 24
     sput-object v3, Lcom/samsung/android/graphics/spr/document/debug/SprDebug;->mTextPaint:Landroid/graphics/Paint;
 
-    .line 25
     sput-object v3, Lcom/samsung/android/graphics/spr/document/debug/SprDebug;->mTextOutlinePaint:Landroid/graphics/Paint;
 
-    .line 28
     const-string/jumbo v3, "eng"
 
     sget-object v6, Landroid/os/Build;->TYPE:Ljava/lang/String;
@@ -53,7 +47,6 @@
 
     if-eqz v3, :cond_0
 
-    .line 30
     :try_start_0
     const-string/jumbo v3, "android.os.SystemProperties"
 
@@ -61,8 +54,6 @@
 
     move-result-object v0
 
-    .line 31
-    .local v0, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     const-string/jumbo v3, "getInt"
 
     const/4 v6, 0x2
@@ -85,8 +76,6 @@
 
     move-result-object v2
 
-    .line 32
-    .local v2, "md":Ljava/lang/reflect/Method;
     const/4 v3, 0x2
 
     new-array v3, v3, [Ljava/lang/Object;
@@ -117,9 +106,6 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 41
-    .end local v2    # "md":Ljava/lang/reflect/Method;
-    .local v1, "e":Ljava/lang/Exception;
     :goto_0
     sget-object v3, Lcom/samsung/android/graphics/spr/document/debug/SprDebug;->mDebugLevel:Ljava/lang/Integer;
 
@@ -134,19 +120,13 @@
     :goto_1
     sput-boolean v3, Lcom/samsung/android/graphics/spr/document/debug/SprDebug;->IsDebug:Z
 
-    .line 17
     return-void
 
-    .line 33
-    .end local v1    # "e":Ljava/lang/Exception;
     :catch_0
     move-exception v1
 
-    .line 34
-    .restart local v1    # "e":Ljava/lang/Exception;
     invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
-    .line 35
     invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v3
@@ -155,9 +135,6 @@
 
     goto :goto_0
 
-    .line 38
-    .end local v0    # "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .end local v1    # "e":Ljava/lang/Exception;
     :cond_0
     invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -167,20 +144,15 @@
 
     goto :goto_0
 
-    .restart local v0    # "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .restart local v1    # "e":Ljava/lang/Exception;
     :cond_1
     move v3, v5
 
-    .line 41
     goto :goto_1
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 17
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -188,14 +160,7 @@
 
 .method public static drawDebugInfo(Landroid/graphics/Canvas;Lcom/samsung/android/graphics/spr/document/SprDocument;III)V
     .locals 2
-    .param p0, "canvas"    # Landroid/graphics/Canvas;
-    .param p1, "document"    # Lcom/samsung/android/graphics/spr/document/SprDocument;
-    .param p2, "displayWidth"    # I
-    .param p3, "displayHeight"    # I
-    .param p4, "dpi"    # I
 
-    .prologue
-    .line 86
     sget-object v0, Lcom/samsung/android/graphics/spr/document/debug/SprDebug;->mDebugLevel:Ljava/lang/Integer;
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
@@ -206,7 +171,6 @@
 
     if-lt v0, v1, :cond_0
 
-    .line 89
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -224,7 +188,6 @@
 
     move-result-object v0
 
-    .line 90
     invoke-virtual {p1}, Ljava/lang/Object;->hashCode()I
 
     move-result v1
@@ -235,7 +198,6 @@
 
     move-result-object v1
 
-    .line 89
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -244,20 +206,16 @@
 
     move-result-object v0
 
-    .line 90
     const/16 v1, 0x14
 
-    .line 87
     invoke-static {p0, v0, v1}, Lcom/samsung/android/graphics/spr/document/debug/SprDebug;->drawText(Landroid/graphics/Canvas;Ljava/lang/String;I)V
 
-    .line 91
     iget-object v0, p1, Lcom/samsung/android/graphics/spr/document/SprDocument;->mName:Ljava/lang/String;
 
     const/16 v1, 0x28
 
     invoke-static {p0, v0, v1}, Lcom/samsung/android/graphics/spr/document/debug/SprDebug;->drawText(Landroid/graphics/Canvas;Ljava/lang/String;I)V
 
-    .line 92
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -294,7 +252,6 @@
 
     invoke-static {p0, v0, v1}, Lcom/samsung/android/graphics/spr/document/debug/SprDebug;->drawText(Landroid/graphics/Canvas;Ljava/lang/String;I)V
 
-    .line 94
     sget-object v0, Lcom/samsung/android/graphics/spr/document/debug/SprDebug;->mDebugLevel:Ljava/lang/Integer;
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
@@ -305,7 +262,6 @@
 
     if-lt v0, v1, :cond_0
 
-    .line 95
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -338,30 +294,24 @@
 
     move-result-object v0
 
-    .line 96
     invoke-virtual {p1}, Lcom/samsung/android/graphics/spr/document/SprDocument;->getTotalSegmentCount()I
 
     move-result v1
 
-    .line 95
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 96
     const-string/jumbo v1, " A:"
 
-    .line 95
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 96
     invoke-virtual {p1}, Lcom/samsung/android/graphics/spr/document/SprDocument;->getTotalAttributeCount()I
 
     move-result v1
 
-    .line 95
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -370,17 +320,13 @@
 
     move-result-object v0
 
-    .line 96
     const/16 v1, 0x50
 
-    .line 95
     invoke-static {p0, v0, v1}, Lcom/samsung/android/graphics/spr/document/debug/SprDebug;->drawText(Landroid/graphics/Canvas;Ljava/lang/String;I)V
 
-    .line 85
     :cond_0
     return-void
 
-    .line 89
     :cond_1
     invoke-virtual {p1}, Lcom/samsung/android/graphics/spr/document/SprDocument;->isIntrinsic()Z
 
@@ -400,39 +346,27 @@
 
 .method public static drawRect(Landroid/graphics/Canvas;Lcom/samsung/android/graphics/spr/document/SprDocument;II)V
     .locals 6
-    .param p0, "canvas"    # Landroid/graphics/Canvas;
-    .param p1, "document"    # Lcom/samsung/android/graphics/spr/document/SprDocument;
-    .param p2, "displayWidth"    # I
-    .param p3, "displayHeight"    # I
 
-    .prologue
-    .line 65
     new-instance v5, Landroid/graphics/Paint;
 
     invoke-direct {v5}, Landroid/graphics/Paint;-><init>()V
 
-    .line 66
-    .local v5, "debugPaint":Landroid/graphics/Paint;
     const/4 v0, 0x1
 
     invoke-virtual {v5, v0}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
-    .line 67
     sget-object v0, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
 
     invoke-virtual {v5, v0}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
-    .line 68
     const/high16 v0, 0x40a00000    # 5.0f
 
     invoke-virtual {v5, v0}, Landroid/graphics/Paint;->setStrokeWidth(F)V
 
-    .line 70
     const/high16 v0, -0x10000
 
     invoke-virtual {v5, v0}, Landroid/graphics/Paint;->setColor(I)V
 
-    .line 71
     iget v1, p1, Lcom/samsung/android/graphics/spr/document/SprDocument;->mLeft:F
 
     iget v2, p1, Lcom/samsung/android/graphics/spr/document/SprDocument;->mTop:F
@@ -453,104 +387,85 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/graphics/Canvas;->drawRect(FFFFLandroid/graphics/Paint;)V
 
-    .line 64
     return-void
 .end method
 
 .method private static drawText(Landroid/graphics/Canvas;Ljava/lang/String;I)V
     .locals 5
-    .param p0, "canvas"    # Landroid/graphics/Canvas;
-    .param p1, "text"    # Ljava/lang/String;
-    .param p2, "y"    # I
 
-    .prologue
     const/4 v4, 0x1
 
     const/high16 v3, 0x41a00000    # 20.0f
 
     const/high16 v2, 0x40a00000    # 5.0f
 
-    .line 102
     sget-object v0, Lcom/samsung/android/graphics/spr/document/debug/SprDebug;->mTextOutlinePaint:Landroid/graphics/Paint;
 
     if-nez v0, :cond_0
 
-    .line 103
     new-instance v0, Landroid/graphics/Paint;
 
     invoke-direct {v0}, Landroid/graphics/Paint;-><init>()V
 
     sput-object v0, Lcom/samsung/android/graphics/spr/document/debug/SprDebug;->mTextOutlinePaint:Landroid/graphics/Paint;
 
-    .line 104
     sget-object v0, Lcom/samsung/android/graphics/spr/document/debug/SprDebug;->mTextOutlinePaint:Landroid/graphics/Paint;
 
     invoke-virtual {v0, v4}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
-    .line 105
     sget-object v0, Lcom/samsung/android/graphics/spr/document/debug/SprDebug;->mTextOutlinePaint:Landroid/graphics/Paint;
 
     invoke-virtual {v0, v3}, Landroid/graphics/Paint;->setTextSize(F)V
 
-    .line 106
     sget-object v0, Lcom/samsung/android/graphics/spr/document/debug/SprDebug;->mTextOutlinePaint:Landroid/graphics/Paint;
 
     sget-object v1, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
-    .line 107
     sget-object v0, Lcom/samsung/android/graphics/spr/document/debug/SprDebug;->mTextOutlinePaint:Landroid/graphics/Paint;
 
     const/high16 v1, -0x1000000
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
 
-    .line 108
     sget-object v0, Lcom/samsung/android/graphics/spr/document/debug/SprDebug;->mTextOutlinePaint:Landroid/graphics/Paint;
 
     const/high16 v1, 0x40800000    # 4.0f
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setStrokeWidth(F)V
 
-    .line 111
     :cond_0
     sget-object v0, Lcom/samsung/android/graphics/spr/document/debug/SprDebug;->mTextPaint:Landroid/graphics/Paint;
 
     if-nez v0, :cond_1
 
-    .line 112
     new-instance v0, Landroid/graphics/Paint;
 
     invoke-direct {v0}, Landroid/graphics/Paint;-><init>()V
 
     sput-object v0, Lcom/samsung/android/graphics/spr/document/debug/SprDebug;->mTextPaint:Landroid/graphics/Paint;
 
-    .line 113
     sget-object v0, Lcom/samsung/android/graphics/spr/document/debug/SprDebug;->mTextPaint:Landroid/graphics/Paint;
 
     invoke-virtual {v0, v4}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
-    .line 114
     sget-object v0, Lcom/samsung/android/graphics/spr/document/debug/SprDebug;->mTextPaint:Landroid/graphics/Paint;
 
     invoke-virtual {v0, v3}, Landroid/graphics/Paint;->setTextSize(F)V
 
-    .line 115
     sget-object v0, Lcom/samsung/android/graphics/spr/document/debug/SprDebug;->mTextPaint:Landroid/graphics/Paint;
 
     sget-object v1, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
-    .line 116
     sget-object v0, Lcom/samsung/android/graphics/spr/document/debug/SprDebug;->mTextPaint:Landroid/graphics/Paint;
 
     const/4 v1, -0x1
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
 
-    .line 119
     :cond_1
     int-to-float v0, p2
 
@@ -558,27 +473,22 @@
 
     invoke-virtual {p0, p1, v2, v0, v1}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
 
-    .line 120
     int-to-float v0, p2
 
     sget-object v1, Lcom/samsung/android/graphics/spr/document/debug/SprDebug;->mTextPaint:Landroid/graphics/Paint;
 
     invoke-virtual {p0, p1, v2, v0, v1}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
 
-    .line 101
     return-void
 .end method
 
 .method public static preDraw(Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;)V
     .locals 4
-    .param p0, "object"    # Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;
 
-    .prologue
     const/16 v3, 0xff
 
     const/high16 v2, 0x40000000    # 2.0f
 
-    .line 76
     sget-object v0, Lcom/samsung/android/graphics/spr/document/debug/SprDebug;->mDebugLevel:Ljava/lang/Integer;
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
@@ -593,12 +503,10 @@
 
     if-eqz v0, :cond_0
 
-    .line 77
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->isVisibleStroke:Z
 
-    .line 78
     iget-object v0, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->strokePaint:Landroid/graphics/Paint;
 
     const/4 v1, 0x0
@@ -609,7 +517,6 @@
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
 
-    .line 79
     iget-object v0, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->strokePaint:Landroid/graphics/Paint;
 
     invoke-virtual {v0}, Landroid/graphics/Paint;->getStrokeWidth()F
@@ -620,12 +527,10 @@
 
     if-gez v0, :cond_0
 
-    .line 80
     iget-object v0, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->strokePaint:Landroid/graphics/Paint;
 
     invoke-virtual {v0, v2}, Landroid/graphics/Paint;->setStrokeWidth(F)V
 
-    .line 75
     :cond_0
     return-void
 .end method
@@ -634,27 +539,17 @@
 # virtual methods
 .method public dumpPNG(Lcom/samsung/android/graphics/spr/document/SprDocument;III)V
     .locals 11
-    .param p1, "document"    # Lcom/samsung/android/graphics/spr/document/SprDocument;
-    .param p2, "displayWidth"    # I
-    .param p3, "displayHeight"    # I
-    .param p4, "dpi"    # I
 
-    .prologue
-    .line 45
     sget-object v0, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
     invoke-static {p2, p3, v0}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
 
     move-result-object v6
 
-    .line 46
-    .local v6, "bm":Landroid/graphics/Bitmap;
     new-instance v1, Landroid/graphics/Canvas;
 
     invoke-direct {v1, v6}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
 
-    .line 47
-    .local v1, "c":Landroid/graphics/Canvas;
     const/4 v4, 0x0
 
     move-object v0, p1
@@ -667,7 +562,6 @@
 
     invoke-virtual/range {v0 .. v5}, Lcom/samsung/android/graphics/spr/document/SprDocument;->draw(Landroid/graphics/Canvas;IIII)V
 
-    .line 51
     :try_start_0
     new-instance v7, Ljava/io/File;
 
@@ -675,8 +569,6 @@
 
     invoke-direct {v7, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 52
-    .local v7, "dir":Ljava/io/File;
     invoke-virtual {v7}, Ljava/io/File;->mkdir()Z
 
     move-result v0
@@ -689,7 +581,6 @@
 
     if-eqz v0, :cond_1
 
-    .line 53
     :cond_0
     new-instance v10, Ljava/io/FileOutputStream;
 
@@ -727,44 +618,31 @@
 
     invoke-direct {v10, v0}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
 
-    .line 54
-    .local v10, "out":Ljava/io/OutputStream;
     sget-object v0, Landroid/graphics/Bitmap$CompressFormat;->PNG:Landroid/graphics/Bitmap$CompressFormat;
 
     const/16 v2, 0x5a
 
     invoke-virtual {v6, v0, v2, v10}, Landroid/graphics/Bitmap;->compress(Landroid/graphics/Bitmap$CompressFormat;ILjava/io/OutputStream;)Z
 
-    .line 55
     invoke-virtual {v10}, Ljava/io/FileOutputStream;->close()V
     :try_end_0
     .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 44
-    .end local v7    # "dir":Ljava/io/File;
-    .end local v10    # "out":Ljava/io/OutputStream;
     :cond_1
     :goto_0
     return-void
 
-    .line 59
     :catch_0
     move-exception v9
 
-    .line 60
-    .local v9, "e":Ljava/io/IOException;
     invoke-virtual {v9}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
-    .line 57
-    .end local v9    # "e":Ljava/io/IOException;
     :catch_1
     move-exception v8
 
-    .line 58
-    .local v8, "e":Ljava/io/FileNotFoundException;
     invoke-virtual {v8}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0

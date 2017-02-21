@@ -21,17 +21,11 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/view/IInputConnectionWrapper;Landroid/os/Looper;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/internal/view/IInputConnectionWrapper;
-    .param p2, "looper"    # Landroid/os/Looper;
 
-    .prologue
-    .line 85
     iput-object p1, p0, Lcom/android/internal/view/IInputConnectionWrapper$MyHandler;->this$0:Lcom/android/internal/view/IInputConnectionWrapper;
 
-    .line 86
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    .line 85
     return-void
 .end method
 
@@ -39,14 +33,10 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 1
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .line 91
     iget-object v0, p0, Lcom/android/internal/view/IInputConnectionWrapper$MyHandler;->this$0:Lcom/android/internal/view/IInputConnectionWrapper;
 
     invoke-virtual {v0, p1}, Lcom/android/internal/view/IInputConnectionWrapper;->executeMessage(Landroid/os/Message;)V
 
-    .line 90
     return-void
 .end method

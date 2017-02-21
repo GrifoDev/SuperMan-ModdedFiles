@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/nfc/NfcAdapter;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/nfc/NfcAdapter;
 
-    .prologue
-    .line 1577
     iput-object p1, p0, Landroid/nfc/NfcAdapter$1;->this$0:Landroid/nfc/NfcAdapter;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,16 +36,12 @@
 # virtual methods
 .method public onPaused(Landroid/app/Activity;)V
     .locals 2
-    .param p1, "activity"    # Landroid/app/Activity;
 
-    .prologue
-    .line 1580
     iget-object v0, p0, Landroid/nfc/NfcAdapter$1;->this$0:Landroid/nfc/NfcAdapter;
 
     const/4 v1, 0x1
 
     invoke-virtual {v0, p1, v1}, Landroid/nfc/NfcAdapter;->disableForegroundDispatchInternal(Landroid/app/Activity;Z)V
 
-    .line 1579
     return-void
 .end method

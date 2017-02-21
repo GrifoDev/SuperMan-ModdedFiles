@@ -22,23 +22,18 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 128
     new-instance v0, Landroid/text/Editable$Factory;
 
     invoke-direct {v0}, Landroid/text/Editable$Factory;-><init>()V
 
     sput-object v0, Landroid/text/Editable$Factory;->sInstance:Landroid/text/Editable$Factory;
 
-    .line 127
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 127
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -47,8 +42,6 @@
 .method public static getInstance()Landroid/text/Editable$Factory;
     .locals 1
 
-    .prologue
-    .line 134
     sget-object v0, Landroid/text/Editable$Factory;->sInstance:Landroid/text/Editable$Factory;
 
     return-object v0
@@ -58,10 +51,7 @@
 # virtual methods
 .method public newEditable(Ljava/lang/CharSequence;)Landroid/text/Editable;
     .locals 1
-    .param p1, "source"    # Ljava/lang/CharSequence;
 
-    .prologue
-    .line 143
     new-instance v0, Landroid/text/SpannableStringBuilder;
 
     invoke-direct {v0, p1}, Landroid/text/SpannableStringBuilder;-><init>(Ljava/lang/CharSequence;)V

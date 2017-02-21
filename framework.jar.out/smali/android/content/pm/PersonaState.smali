@@ -71,7 +71,6 @@
 .method static constructor <clinit>()V
     .locals 9
 
-    .prologue
     const/4 v8, 0x3
 
     const/4 v7, 0x2
@@ -82,7 +81,6 @@
 
     const/4 v4, -0x1
 
-    .line 9
     new-instance v0, Landroid/content/pm/PersonaState;
 
     const-string/jumbo v1, "INVALID"
@@ -91,7 +89,6 @@
 
     sput-object v0, Landroid/content/pm/PersonaState;->INVALID:Landroid/content/pm/PersonaState;
 
-    .line 10
     new-instance v0, Landroid/content/pm/PersonaState;
 
     const-string/jumbo v1, "CREATING"
@@ -106,7 +103,6 @@
 
     invoke-direct {v0, v1, v7, v5}, Landroid/content/pm/PersonaState;-><init>(Ljava/lang/String;II)V
 
-    .line 11
     sput-object v0, Landroid/content/pm/PersonaState;->ACTIVE:Landroid/content/pm/PersonaState;
 
     new-instance v0, Landroid/content/pm/PersonaState;
@@ -115,7 +111,6 @@
 
     invoke-direct {v0, v1, v8, v7}, Landroid/content/pm/PersonaState;-><init>(Ljava/lang/String;II)V
 
-    .line 12
     sput-object v0, Landroid/content/pm/PersonaState;->LOCKED:Landroid/content/pm/PersonaState;
 
     new-instance v0, Landroid/content/pm/PersonaState;
@@ -126,7 +121,6 @@
 
     invoke-direct {v0, v1, v2, v4}, Landroid/content/pm/PersonaState;-><init>(Ljava/lang/String;II)V
 
-    .line 13
     sput-object v0, Landroid/content/pm/PersonaState;->SUPER_LOCKED:Landroid/content/pm/PersonaState;
 
     new-instance v0, Landroid/content/pm/PersonaState;
@@ -135,13 +129,10 @@
 
     const/4 v2, 0x5
 
-    .line 14
     const/16 v3, 0x9
 
-    .line 13
     invoke-direct {v0, v1, v2, v3}, Landroid/content/pm/PersonaState;-><init>(Ljava/lang/String;II)V
 
-    .line 14
     sput-object v0, Landroid/content/pm/PersonaState;->LICENSE_LOCKED:Landroid/content/pm/PersonaState;
 
     new-instance v0, Landroid/content/pm/PersonaState;
@@ -150,13 +141,10 @@
 
     const/4 v2, 0x6
 
-    .line 15
     const/16 v3, 0x8
 
-    .line 14
     invoke-direct {v0, v1, v2, v3}, Landroid/content/pm/PersonaState;-><init>(Ljava/lang/String;II)V
 
-    .line 15
     sput-object v0, Landroid/content/pm/PersonaState;->ADMIN_LOCKED:Landroid/content/pm/PersonaState;
 
     new-instance v0, Landroid/content/pm/PersonaState;
@@ -167,7 +155,6 @@
 
     invoke-direct {v0, v1, v2, v4}, Landroid/content/pm/PersonaState;-><init>(Ljava/lang/String;II)V
 
-    .line 16
     sput-object v0, Landroid/content/pm/PersonaState;->ADMIN_LICENSE_LOCKED:Landroid/content/pm/PersonaState;
 
     new-instance v0, Landroid/content/pm/PersonaState;
@@ -178,7 +165,6 @@
 
     invoke-direct {v0, v1, v2, v4}, Landroid/content/pm/PersonaState;-><init>(Ljava/lang/String;II)V
 
-    .line 17
     sput-object v0, Landroid/content/pm/PersonaState;->TERMINUS:Landroid/content/pm/PersonaState;
 
     new-instance v0, Landroid/content/pm/PersonaState;
@@ -189,7 +175,6 @@
 
     invoke-direct {v0, v1, v2, v8}, Landroid/content/pm/PersonaState;-><init>(Ljava/lang/String;II)V
 
-    .line 18
     sput-object v0, Landroid/content/pm/PersonaState;->DELETING:Landroid/content/pm/PersonaState;
 
     new-instance v0, Landroid/content/pm/PersonaState;
@@ -198,13 +183,10 @@
 
     const/16 v2, 0xa
 
-    .line 19
     const/4 v3, 0x7
 
-    .line 18
     invoke-direct {v0, v1, v2, v3}, Landroid/content/pm/PersonaState;-><init>(Ljava/lang/String;II)V
 
-    .line 19
     sput-object v0, Landroid/content/pm/PersonaState;->TIMA_COMPROMISED:Landroid/content/pm/PersonaState;
 
     new-instance v0, Landroid/content/pm/PersonaState;
@@ -215,10 +197,8 @@
 
     invoke-direct {v0, v1, v2, v4}, Landroid/content/pm/PersonaState;-><init>(Ljava/lang/String;II)V
 
-    .line 22
     sput-object v0, Landroid/content/pm/PersonaState;->CONTAINER_APPS_URGENT_UPDATE:Landroid/content/pm/PersonaState;
 
-    .line 7
     const/16 v0, 0xc
 
     new-array v0, v0, [Landroid/content/pm/PersonaState;
@@ -289,43 +269,32 @@
 
     sput-object v0, Landroid/content/pm/PersonaState;->$VALUES:[Landroid/content/pm/PersonaState;
 
-    .line 60
     new-instance v0, Landroid/content/pm/PersonaState$1;
 
     invoke-direct {v0}, Landroid/content/pm/PersonaState$1;-><init>()V
 
     sput-object v0, Landroid/content/pm/PersonaState;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    .line 7
     return-void
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 1
-    .param p3, "knox2_0_state_id"    # I
 
-    .prologue
-    .line 39
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 37
     const/4 v0, -0x1
 
     iput v0, p0, Landroid/content/pm/PersonaState;->knox2_0_state_id:I
 
-    .line 40
     iput p3, p0, Landroid/content/pm/PersonaState;->knox2_0_state_id:I
 
-    .line 39
     return-void
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroid/content/pm/PersonaState;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
-    .prologue
-    .line 7
     const-class v0, Landroid/content/pm/PersonaState;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -340,8 +309,6 @@
 .method public static values()[Landroid/content/pm/PersonaState;
     .locals 1
 
-    .prologue
-    .line 7
     sget-object v0, Landroid/content/pm/PersonaState;->$VALUES:[Landroid/content/pm/PersonaState;
 
     return-object v0
@@ -352,8 +319,6 @@
 .method public describeContents()I
     .locals 1
 
-    .prologue
-    .line 51
     const/4 v0, 0x0
 
     return v0
@@ -362,8 +327,6 @@
 .method public getKnox2_0State()I
     .locals 1
 
-    .prologue
-    .line 45
     iget v0, p0, Landroid/content/pm/PersonaState;->knox2_0_state_id:I
 
     return v0
@@ -371,17 +334,12 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .param p1, "dest"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
-    .prologue
-    .line 57
     invoke-virtual {p0}, Ljava/lang/Enum;->name()Ljava/lang/String;
 
     move-result-object v0
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 56
     return-void
 .end method

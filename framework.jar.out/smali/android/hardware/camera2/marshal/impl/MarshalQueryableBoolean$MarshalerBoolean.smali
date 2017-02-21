@@ -30,8 +30,6 @@
 # direct methods
 .method protected constructor <init>(Landroid/hardware/camera2/marshal/impl/MarshalQueryableBoolean;Landroid/hardware/camera2/utils/TypeReference;I)V
     .locals 0
-    .param p1, "this$0"    # Landroid/hardware/camera2/marshal/impl/MarshalQueryableBoolean;
-    .param p3, "nativeType"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -42,15 +40,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 33
-    .local p2, "typeReference":Landroid/hardware/camera2/utils/TypeReference;, "Landroid/hardware/camera2/utils/TypeReference<Ljava/lang/Boolean;>;"
     iput-object p1, p0, Landroid/hardware/camera2/marshal/impl/MarshalQueryableBoolean$MarshalerBoolean;->this$0:Landroid/hardware/camera2/marshal/impl/MarshalQueryableBoolean;
 
-    .line 34
     invoke-direct {p0, p1, p2, p3}, Landroid/hardware/camera2/marshal/Marshaler;-><init>(Landroid/hardware/camera2/marshal/MarshalQueryable;Landroid/hardware/camera2/utils/TypeReference;I)V
 
-    .line 33
     return-void
 .end method
 
@@ -59,8 +52,6 @@
 .method public getNativeSize()I
     .locals 1
 
-    .prologue
-    .line 50
     const/4 v0, 0x1
 
     return v0
@@ -68,17 +59,11 @@
 
 .method public marshal(Ljava/lang/Boolean;Ljava/nio/ByteBuffer;)V
     .locals 2
-    .param p1, "value"    # Ljava/lang/Boolean;
-    .param p2, "buffer"    # Ljava/nio/ByteBuffer;
 
-    .prologue
-    .line 39
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v0
 
-    .line 40
-    .local v0, "unboxValue":Z
     if-eqz v0, :cond_0
 
     const/4 v1, 0x1
@@ -88,10 +73,8 @@
 
     invoke-virtual {p2, v1}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
 
-    .line 38
     return-void
 
-    .line 40
     :cond_0
     const/4 v1, 0x0
 
@@ -100,14 +83,9 @@
 
 .method public bridge synthetic marshal(Ljava/lang/Object;Ljava/nio/ByteBuffer;)V
     .locals 0
-    .param p1, "value"    # Ljava/lang/Object;
-    .param p2, "buffer"    # Ljava/nio/ByteBuffer;
 
-    .prologue
-    .line 38
     check-cast p1, Ljava/lang/Boolean;
 
-    .end local p1    # "value":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Landroid/hardware/camera2/marshal/impl/MarshalQueryableBoolean$MarshalerBoolean;->marshal(Ljava/lang/Boolean;Ljava/nio/ByteBuffer;)V
 
     return-void
@@ -115,12 +93,9 @@
 
 .method public unmarshal(Ljava/nio/ByteBuffer;)Ljava/lang/Boolean;
     .locals 2
-    .param p1, "buffer"    # Ljava/nio/ByteBuffer;
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 45
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->get()B
 
     move-result v1
@@ -139,10 +114,7 @@
 
 .method public bridge synthetic unmarshal(Ljava/nio/ByteBuffer;)Ljava/lang/Object;
     .locals 1
-    .param p1, "buffer"    # Ljava/nio/ByteBuffer;
 
-    .prologue
-    .line 44
     invoke-virtual {p0, p1}, Landroid/hardware/camera2/marshal/impl/MarshalQueryableBoolean$MarshalerBoolean;->unmarshal(Ljava/nio/ByteBuffer;)Ljava/lang/Boolean;
 
     move-result-object v0

@@ -26,11 +26,7 @@
 # direct methods
 .method constructor <init>(Landroid/view/PixelCopy$OnPixelCopyFinishedListener;I)V
     .locals 0
-    .param p1, "val$listener"    # Landroid/view/PixelCopy$OnPixelCopyFinishedListener;
-    .param p2, "val$result"    # I
 
-    .prologue
-    .line 131
     iput-object p1, p0, Landroid/view/PixelCopy$1;->val$listener:Landroid/view/PixelCopy$OnPixelCopyFinishedListener;
 
     iput p2, p0, Landroid/view/PixelCopy$1;->val$result:I
@@ -45,14 +41,11 @@
 .method public run()V
     .locals 2
 
-    .prologue
-    .line 134
     iget-object v0, p0, Landroid/view/PixelCopy$1;->val$listener:Landroid/view/PixelCopy$OnPixelCopyFinishedListener;
 
     iget v1, p0, Landroid/view/PixelCopy$1;->val$result:I
 
     invoke-interface {v0, v1}, Landroid/view/PixelCopy$OnPixelCopyFinishedListener;->onPixelCopyFinished(I)V
 
-    .line 133
     return-void
 .end method

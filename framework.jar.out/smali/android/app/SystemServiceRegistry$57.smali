@@ -27,8 +27,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 759
     invoke-direct {p0}, Landroid/app/SystemServiceRegistry$StaticServiceFetcher;-><init>()V
 
     return-void
@@ -39,30 +37,22 @@
 .method public createService()Landroid/net/wifi/nan/WifiNanManager;
     .locals 4
 
-    .prologue
     const/4 v3, 0x0
 
-    .line 762
     const-string/jumbo v2, "wifinan"
 
     invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
-    .line 763
-    .local v0, "b":Landroid/os/IBinder;
     invoke-static {v0}, Landroid/net/wifi/nan/IWifiNanManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/net/wifi/nan/IWifiNanManager;
 
     move-result-object v1
 
-    .line 764
-    .local v1, "service":Landroid/net/wifi/nan/IWifiNanManager;
     if-nez v1, :cond_0
 
-    .line 765
     return-object v3
 
-    .line 767
     :cond_0
     new-instance v2, Landroid/net/wifi/nan/WifiNanManager;
 
@@ -74,8 +64,6 @@
 .method public bridge synthetic createService()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 761
     invoke-virtual {p0}, Landroid/app/SystemServiceRegistry$57;->createService()Landroid/net/wifi/nan/WifiNanManager;
 
     move-result-object v0

@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Landroid/media/session/MediaSessionManager$SessionsChangedWrapper;)V
     .locals 0
-    .param p1, "this$1"    # Landroid/media/session/MediaSessionManager$SessionsChangedWrapper;
 
-    .prologue
-    .line 335
     iput-object p1, p0, Landroid/media/session/MediaSessionManager$SessionsChangedWrapper$1;->this$1:Landroid/media/session/MediaSessionManager$SessionsChangedWrapper;
 
     invoke-direct {p0}, Landroid/media/session/IActiveSessionsListener$Stub;-><init>()V
@@ -46,9 +43,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 338
-    .local p1, "tokens":Ljava/util/List;, "Ljava/util/List<Landroid/media/session/MediaSession$Token;>;"
     iget-object v0, p0, Landroid/media/session/MediaSessionManager$SessionsChangedWrapper$1;->this$1:Landroid/media/session/MediaSessionManager$SessionsChangedWrapper;
 
     invoke-static {v0}, Landroid/media/session/MediaSessionManager$SessionsChangedWrapper;->-get1(Landroid/media/session/MediaSessionManager$SessionsChangedWrapper;)Landroid/os/Handler;
@@ -57,7 +51,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 339
     iget-object v0, p0, Landroid/media/session/MediaSessionManager$SessionsChangedWrapper$1;->this$1:Landroid/media/session/MediaSessionManager$SessionsChangedWrapper;
 
     invoke-static {v0}, Landroid/media/session/MediaSessionManager$SessionsChangedWrapper;->-get1(Landroid/media/session/MediaSessionManager$SessionsChangedWrapper;)Landroid/os/Handler;
@@ -70,7 +63,6 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 337
     :cond_0
     return-void
 .end method

@@ -27,10 +27,7 @@
 # direct methods
 .method private constructor <init>(Landroid/media/WFDUibcManager;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/media/WFDUibcManager;
 
-    .prologue
-    .line 104
     iput-object p1, p0, Landroid/media/WFDUibcManager$Keyevnt_arrC;->this$0:Landroid/media/WFDUibcManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,9 +37,7 @@
 
 .method synthetic constructor <init>(Landroid/media/WFDUibcManager;Landroid/media/WFDUibcManager$Keyevnt_arrC;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/media/WFDUibcManager;
 
-    .prologue
     invoke-direct {p0, p1}, Landroid/media/WFDUibcManager$Keyevnt_arrC;-><init>(Landroid/media/WFDUibcManager;)V
 
     return-void

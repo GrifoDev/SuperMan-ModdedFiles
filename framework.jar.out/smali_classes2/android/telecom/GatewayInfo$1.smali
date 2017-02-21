@@ -31,8 +31,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 84
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -42,16 +40,11 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/telecom/GatewayInfo;
     .locals 4
-    .param p1, "source"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 88
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 89
-    .local v0, "gatewayPackageName":Ljava/lang/String;
     sget-object v3, Landroid/net/Uri;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v3, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -60,8 +53,6 @@
 
     check-cast v1, Landroid/net/Uri;
 
-    .line 90
-    .local v1, "gatewayUri":Landroid/net/Uri;
     sget-object v3, Landroid/net/Uri;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v3, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -70,8 +61,6 @@
 
     check-cast v2, Landroid/net/Uri;
 
-    .line 91
-    .local v2, "originalAddress":Landroid/net/Uri;
     new-instance v3, Landroid/telecom/GatewayInfo;
 
     invoke-direct {v3, v0, v1, v2}, Landroid/telecom/GatewayInfo;-><init>(Ljava/lang/String;Landroid/net/Uri;Landroid/net/Uri;)V
@@ -81,10 +70,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .param p1, "source"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 87
     invoke-virtual {p0, p1}, Landroid/telecom/GatewayInfo$1;->createFromParcel(Landroid/os/Parcel;)Landroid/telecom/GatewayInfo;
 
     move-result-object v0
@@ -94,10 +80,7 @@
 
 .method public newArray(I)[Landroid/telecom/GatewayInfo;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 96
     new-array v0, p1, [Landroid/telecom/GatewayInfo;
 
     return-object v0
@@ -105,10 +88,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 95
     invoke-virtual {p0, p1}, Landroid/telecom/GatewayInfo$1;->newArray(I)[Landroid/telecom/GatewayInfo;
 
     move-result-object v0

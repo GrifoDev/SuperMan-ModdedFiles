@@ -31,8 +31,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 86
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -42,28 +40,19 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/net/wifi/nan/PublishSettings;
     .locals 5
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 94
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
-    .line 95
-    .local v1, "publishType":I
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
-    .line 96
-    .local v0, "publishCount":I
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    .line 97
-    .local v2, "ttlSec":I
     new-instance v3, Landroid/net/wifi/nan/PublishSettings;
 
     const/4 v4, 0x0
@@ -75,10 +64,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 93
     invoke-virtual {p0, p1}, Landroid/net/wifi/nan/PublishSettings$1;->createFromParcel(Landroid/os/Parcel;)Landroid/net/wifi/nan/PublishSettings;
 
     move-result-object v0
@@ -88,10 +74,7 @@
 
 .method public newArray(I)[Landroid/net/wifi/nan/PublishSettings;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 89
     new-array v0, p1, [Landroid/net/wifi/nan/PublishSettings;
 
     return-object v0
@@ -99,10 +82,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 88
     invoke-virtual {p0, p1}, Landroid/net/wifi/nan/PublishSettings$1;->newArray(I)[Landroid/net/wifi/nan/PublishSettings;
 
     move-result-object v0

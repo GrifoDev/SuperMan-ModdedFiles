@@ -26,11 +26,7 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/media/InteractivePanoramaConverter;Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/InteractiveShotInfo;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/samsung/android/media/InteractivePanoramaConverter;
-    .param p2, "val$info"    # Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/InteractiveShotInfo;
 
-    .prologue
-    .line 140
     iput-object p1, p0, Lcom/samsung/android/media/InteractivePanoramaConverter$2;->this$0:Lcom/samsung/android/media/InteractivePanoramaConverter;
 
     iput-object p2, p0, Lcom/samsung/android/media/InteractivePanoramaConverter$2;->val$info:Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/InteractiveShotInfo;
@@ -45,14 +41,11 @@
 .method public run()V
     .locals 2
 
-    .prologue
-    .line 143
     iget-object v0, p0, Lcom/samsung/android/media/InteractivePanoramaConverter$2;->this$0:Lcom/samsung/android/media/InteractivePanoramaConverter;
 
     iget-object v1, p0, Lcom/samsung/android/media/InteractivePanoramaConverter$2;->val$info:Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/InteractiveShotInfo;
 
     invoke-static {v0, v1}, Lcom/samsung/android/media/InteractivePanoramaConverter;->-wrap1(Lcom/samsung/android/media/InteractivePanoramaConverter;Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/InteractiveShotInfo;)V
 
-    .line 142
     return-void
 .end method

@@ -26,11 +26,7 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/graphics/SemImageFilter;I)V
     .locals 0
-    .param p1, "this$0"    # Lcom/samsung/android/graphics/SemImageFilter;
-    .param p2, "val$id"    # I
 
-    .prologue
-    .line 379
     iput-object p1, p0, Lcom/samsung/android/graphics/SemImageFilter$2;->this$0:Lcom/samsung/android/graphics/SemImageFilter;
 
     iput p2, p0, Lcom/samsung/android/graphics/SemImageFilter$2;->val$id:I
@@ -45,8 +41,6 @@
 .method public run()V
     .locals 3
 
-    .prologue
-    .line 382
     iget-object v0, p0, Lcom/samsung/android/graphics/SemImageFilter$2;->this$0:Lcom/samsung/android/graphics/SemImageFilter;
 
     iget-wide v0, v0, Lcom/samsung/android/graphics/SemImageFilter;->mNativeImageFilter:J
@@ -55,6 +49,5 @@
 
     invoke-static {v0, v1, v2}, Lcom/samsung/android/graphics/SemImageFilter;->-wrap1(JI)V
 
-    .line 381
     return-void
 .end method

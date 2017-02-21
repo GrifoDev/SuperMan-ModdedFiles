@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/widget/TimePickerClockDelegate;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/widget/TimePickerClockDelegate;
 
-    .prologue
-    .line 772
     iput-object p1, p0, Landroid/widget/TimePickerClockDelegate$4;->this$0:Landroid/widget/TimePickerClockDelegate;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,8 +37,6 @@
 .method public run()V
     .locals 2
 
-    .prologue
-    .line 775
     iget-object v0, p0, Landroid/widget/TimePickerClockDelegate$4;->this$0:Landroid/widget/TimePickerClockDelegate;
 
     iget-object v1, p0, Landroid/widget/TimePickerClockDelegate$4;->this$0:Landroid/widget/TimePickerClockDelegate;
@@ -56,6 +51,5 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TimePickerClockDelegate;->setMinute(I)V
 
-    .line 774
     return-void
 .end method

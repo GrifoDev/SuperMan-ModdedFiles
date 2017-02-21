@@ -27,8 +27,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 925
     invoke-direct {p0}, Landroid/app/SystemServiceRegistry$CachedServiceFetcher;-><init>()V
 
     return-void
@@ -38,24 +36,17 @@
 # virtual methods
 .method public createService(Landroid/app/ContextImpl;)Landroid/app/usage/UsageStatsManager;
     .locals 4
-    .param p1, "ctx"    # Landroid/app/ContextImpl;
 
-    .prologue
-    .line 928
     const-string/jumbo v2, "usagestats"
 
     invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
-    .line 929
-    .local v0, "iBinder":Landroid/os/IBinder;
     invoke-static {v0}, Landroid/app/usage/IUsageStatsManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/usage/IUsageStatsManager;
 
     move-result-object v1
 
-    .line 930
-    .local v1, "service":Landroid/app/usage/IUsageStatsManager;
     new-instance v2, Landroid/app/usage/UsageStatsManager;
 
     invoke-virtual {p1}, Landroid/app/ContextImpl;->getOuterContext()Landroid/content/Context;
@@ -69,10 +60,7 @@
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
-    .param p1, "ctx"    # Landroid/app/ContextImpl;
 
-    .prologue
-    .line 927
     invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$75;->createService(Landroid/app/ContextImpl;)Landroid/app/usage/UsageStatsManager;
 
     move-result-object v0

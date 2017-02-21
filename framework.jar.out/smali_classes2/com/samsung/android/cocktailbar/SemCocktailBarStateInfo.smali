@@ -59,21 +59,15 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 166
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 143
     iput v0, p0, Lcom/samsung/android/cocktailbar/SemCocktailBarStateInfo;->background:I
 
-    .line 152
     iput v0, p0, Lcom/samsung/android/cocktailbar/SemCocktailBarStateInfo;->position:I
 
-    .line 159
     iput v0, p0, Lcom/samsung/android/cocktailbar/SemCocktailBarStateInfo;->windowType:I
 
-    .line 166
     return-void
 .end method

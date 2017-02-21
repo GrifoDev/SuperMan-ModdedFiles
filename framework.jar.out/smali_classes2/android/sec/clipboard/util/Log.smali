@@ -11,8 +11,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 4
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -20,11 +18,7 @@
 
 .method public static d(Ljava/lang/String;Ljava/lang/String;)I
     .locals 2
-    .param p0, "tag"    # Ljava/lang/String;
-    .param p1, "msg"    # Ljava/lang/String;
 
-    .prologue
-    .line 8
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -52,11 +46,7 @@
 
 .method public static e(Ljava/lang/String;Ljava/lang/String;)I
     .locals 2
-    .param p0, "tag"    # Ljava/lang/String;
-    .param p1, "msg"    # Ljava/lang/String;
 
-    .prologue
-    .line 24
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -84,11 +74,7 @@
 
 .method public static i(Ljava/lang/String;Ljava/lang/String;)I
     .locals 2
-    .param p0, "tag"    # Ljava/lang/String;
-    .param p1, "msg"    # Ljava/lang/String;
 
-    .prologue
-    .line 16
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -116,11 +102,7 @@
 
 .method public static secD(Ljava/lang/String;Ljava/lang/String;)I
     .locals 2
-    .param p0, "tag"    # Ljava/lang/String;
-    .param p1, "msg"    # Ljava/lang/String;
 
-    .prologue
-    .line 28
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -148,11 +130,7 @@
 
 .method public static secE(Ljava/lang/String;Ljava/lang/String;)I
     .locals 2
-    .param p0, "tag"    # Ljava/lang/String;
-    .param p1, "msg"    # Ljava/lang/String;
 
-    .prologue
-    .line 44
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -180,11 +158,7 @@
 
 .method public static secI(Ljava/lang/String;Ljava/lang/String;)I
     .locals 2
-    .param p0, "tag"    # Ljava/lang/String;
-    .param p1, "msg"    # Ljava/lang/String;
 
-    .prologue
-    .line 36
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -212,11 +186,7 @@
 
 .method public static secV(Ljava/lang/String;Ljava/lang/String;)I
     .locals 2
-    .param p0, "tag"    # Ljava/lang/String;
-    .param p1, "msg"    # Ljava/lang/String;
 
-    .prologue
-    .line 32
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -244,11 +214,7 @@
 
 .method public static secW(Ljava/lang/String;Ljava/lang/String;)I
     .locals 2
-    .param p0, "tag"    # Ljava/lang/String;
-    .param p1, "msg"    # Ljava/lang/String;
 
-    .prologue
-    .line 40
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -276,11 +242,7 @@
 
 .method public static v(Ljava/lang/String;Ljava/lang/String;)I
     .locals 2
-    .param p0, "tag"    # Ljava/lang/String;
-    .param p1, "msg"    # Ljava/lang/String;
 
-    .prologue
-    .line 12
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -308,11 +270,7 @@
 
 .method public static w(Ljava/lang/String;Ljava/lang/String;)I
     .locals 2
-    .param p0, "tag"    # Ljava/lang/String;
-    .param p1, "msg"    # Ljava/lang/String;
 
-    .prologue
-    .line 20
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

@@ -25,12 +25,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/UpdateEngine;Landroid/os/Handler;Landroid/os/UpdateEngineCallback;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/os/UpdateEngine;
-    .param p2, "val$handler"    # Landroid/os/Handler;
-    .param p3, "val$callback"    # Landroid/os/UpdateEngineCallback;
 
-    .prologue
-    .line 91
     iput-object p1, p0, Landroid/os/UpdateEngine$1;->this$0:Landroid/os/UpdateEngine;
 
     iput-object p2, p0, Landroid/os/UpdateEngine$1;->val$handler:Landroid/os/Handler;
@@ -46,15 +41,11 @@
 # virtual methods
 .method public onPayloadApplicationComplete(I)V
     .locals 3
-    .param p1, "errorCode"    # I
 
-    .prologue
-    .line 108
     iget-object v0, p0, Landroid/os/UpdateEngine$1;->val$handler:Landroid/os/Handler;
 
     if-eqz v0, :cond_0
 
-    .line 109
     iget-object v0, p0, Landroid/os/UpdateEngine$1;->val$handler:Landroid/os/Handler;
 
     new-instance v1, Landroid/os/UpdateEngine$1$2;
@@ -65,11 +56,9 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 107
     :goto_0
     return-void
 
-    .line 116
     :cond_0
     iget-object v0, p0, Landroid/os/UpdateEngine$1;->val$callback:Landroid/os/UpdateEngineCallback;
 
@@ -80,16 +69,11 @@
 
 .method public onStatusUpdate(IF)V
     .locals 3
-    .param p1, "status"    # I
-    .param p2, "percent"    # F
 
-    .prologue
-    .line 94
     iget-object v0, p0, Landroid/os/UpdateEngine$1;->val$handler:Landroid/os/Handler;
 
     if-eqz v0, :cond_0
 
-    .line 95
     iget-object v0, p0, Landroid/os/UpdateEngine$1;->val$handler:Landroid/os/Handler;
 
     new-instance v1, Landroid/os/UpdateEngine$1$1;
@@ -100,11 +84,9 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 93
     :goto_0
     return-void
 
-    .line 102
     :cond_0
     iget-object v0, p0, Landroid/os/UpdateEngine$1;->val$callback:Landroid/os/UpdateEngineCallback;
 

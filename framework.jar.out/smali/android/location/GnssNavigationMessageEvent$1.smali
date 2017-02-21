@@ -31,8 +31,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 94
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -42,10 +40,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/location/GnssNavigationMessageEvent;
     .locals 3
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 97
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
@@ -54,16 +49,12 @@
 
     move-result-object v0
 
-    .line 98
-    .local v0, "classLoader":Ljava/lang/ClassLoader;
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
 
     move-result-object v1
 
     check-cast v1, Landroid/location/GnssNavigationMessage;
 
-    .line 99
-    .local v1, "navigationMessage":Landroid/location/GnssNavigationMessage;
     new-instance v2, Landroid/location/GnssNavigationMessageEvent;
 
     invoke-direct {v2, v1}, Landroid/location/GnssNavigationMessageEvent;-><init>(Landroid/location/GnssNavigationMessage;)V
@@ -73,10 +64,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 96
     invoke-virtual {p0, p1}, Landroid/location/GnssNavigationMessageEvent$1;->createFromParcel(Landroid/os/Parcel;)Landroid/location/GnssNavigationMessageEvent;
 
     move-result-object v0
@@ -86,10 +74,7 @@
 
 .method public newArray(I)[Landroid/location/GnssNavigationMessageEvent;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 104
     new-array v0, p1, [Landroid/location/GnssNavigationMessageEvent;
 
     return-object v0
@@ -97,10 +82,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 103
     invoke-virtual {p0, p1}, Landroid/location/GnssNavigationMessageEvent$1;->newArray(I)[Landroid/location/GnssNavigationMessageEvent;
 
     move-result-object v0

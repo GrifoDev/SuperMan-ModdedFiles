@@ -117,71 +117,55 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 310
     new-instance v0, Lcom/samsung/android/bio/face/FaceInfo$1;
 
     invoke-direct {v0}, Lcom/samsung/android/bio/face/FaceInfo$1;-><init>()V
 
     sput-object v0, Lcom/samsung/android/bio/face/FaceInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    .line 26
     return-void
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 4
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
     const/4 v2, 0x0
 
     const/4 v3, 0x2
 
     const/4 v1, -0x1
 
-    .line 228
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 206
     iput-object v2, p0, Lcom/samsung/android/bio/face/FaceInfo;->mPupilInfo:[Lcom/samsung/android/bio/face/FaceInfo$PupilInfo;
 
-    .line 208
     iput-object v2, p0, Lcom/samsung/android/bio/face/FaceInfo;->mReflectionInfo:[Lcom/samsung/android/bio/face/FaceInfo$ReflectionInfo;
 
-    .line 212
     iput v1, p0, Lcom/samsung/android/bio/face/FaceInfo;->mAcquireInfo:I
 
-    .line 214
     iput v1, p0, Lcom/samsung/android/bio/face/FaceInfo;->mReflectionNum:I
 
-    .line 229
     new-array v1, v3, [Lcom/samsung/android/bio/face/FaceInfo$PupilInfo;
 
     iput-object v1, p0, Lcom/samsung/android/bio/face/FaceInfo;->mPupilInfo:[Lcom/samsung/android/bio/face/FaceInfo$PupilInfo;
 
-    .line 230
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     iput v1, p0, Lcom/samsung/android/bio/face/FaceInfo;->mReflectionNum:I
 
-    .line 231
     iget v1, p0, Lcom/samsung/android/bio/face/FaceInfo;->mReflectionNum:I
 
     new-array v1, v1, [Lcom/samsung/android/bio/face/FaceInfo$ReflectionInfo;
 
     iput-object v1, p0, Lcom/samsung/android/bio/face/FaceInfo;->mReflectionInfo:[Lcom/samsung/android/bio/face/FaceInfo$ReflectionInfo;
 
-    .line 232
     const/4 v0, 0x0
 
-    .local v0, "i":I
     :goto_0
     if-ge v0, v3, :cond_0
 
-    .line 233
     iget-object v1, p0, Lcom/samsung/android/bio/face/FaceInfo;->mPupilInfo:[Lcom/samsung/android/bio/face/FaceInfo$PupilInfo;
 
     new-instance v2, Lcom/samsung/android/bio/face/FaceInfo$PupilInfo;
@@ -190,7 +174,6 @@
 
     aput-object v2, v1, v0
 
-    .line 234
     iget-object v1, p0, Lcom/samsung/android/bio/face/FaceInfo;->mPupilInfo:[Lcom/samsung/android/bio/face/FaceInfo$PupilInfo;
 
     aget-object v1, v1, v0
@@ -201,7 +184,6 @@
 
     iput-object v2, v1, Lcom/samsung/android/bio/face/FaceInfo$PupilInfo;->mRect:Landroid/graphics/Rect;
 
-    .line 236
     iget-object v1, p0, Lcom/samsung/android/bio/face/FaceInfo;->mPupilInfo:[Lcom/samsung/android/bio/face/FaceInfo$PupilInfo;
 
     aget-object v1, v1, v0
@@ -214,7 +196,6 @@
 
     iput v2, v1, Landroid/graphics/Rect;->left:I
 
-    .line 237
     iget-object v1, p0, Lcom/samsung/android/bio/face/FaceInfo;->mPupilInfo:[Lcom/samsung/android/bio/face/FaceInfo$PupilInfo;
 
     aget-object v1, v1, v0
@@ -227,7 +208,6 @@
 
     iput v2, v1, Landroid/graphics/Rect;->top:I
 
-    .line 238
     iget-object v1, p0, Lcom/samsung/android/bio/face/FaceInfo;->mPupilInfo:[Lcom/samsung/android/bio/face/FaceInfo$PupilInfo;
 
     aget-object v1, v1, v0
@@ -240,7 +220,6 @@
 
     iput v2, v1, Landroid/graphics/Rect;->right:I
 
-    .line 239
     iget-object v1, p0, Lcom/samsung/android/bio/face/FaceInfo;->mPupilInfo:[Lcom/samsung/android/bio/face/FaceInfo$PupilInfo;
 
     aget-object v1, v1, v0
@@ -253,7 +232,6 @@
 
     iput v2, v1, Landroid/graphics/Rect;->bottom:I
 
-    .line 240
     iget-object v1, p0, Lcom/samsung/android/bio/face/FaceInfo;->mPupilInfo:[Lcom/samsung/android/bio/face/FaceInfo$PupilInfo;
 
     aget-object v1, v1, v0
@@ -264,7 +242,6 @@
 
     iput v2, v1, Lcom/samsung/android/bio/face/FaceInfo$PupilInfo;->mDistance:I
 
-    .line 241
     iget-object v1, p0, Lcom/samsung/android/bio/face/FaceInfo;->mPupilInfo:[Lcom/samsung/android/bio/face/FaceInfo$PupilInfo;
 
     aget-object v1, v1, v0
@@ -275,7 +252,6 @@
 
     iput v2, v1, Lcom/samsung/android/bio/face/FaceInfo$PupilInfo;->mOpening:I
 
-    .line 242
     iget-object v1, p0, Lcom/samsung/android/bio/face/FaceInfo;->mPupilInfo:[Lcom/samsung/android/bio/face/FaceInfo$PupilInfo;
 
     aget-object v1, v1, v0
@@ -286,12 +262,10 @@
 
     iput v2, v1, Lcom/samsung/android/bio/face/FaceInfo$PupilInfo;->mMsgId:I
 
-    .line 232
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 244
     :cond_0
     const/4 v0, 0x0
 
@@ -300,7 +274,6 @@
 
     if-ge v0, v1, :cond_1
 
-    .line 245
     iget-object v1, p0, Lcom/samsung/android/bio/face/FaceInfo;->mReflectionInfo:[Lcom/samsung/android/bio/face/FaceInfo$ReflectionInfo;
 
     new-instance v2, Lcom/samsung/android/bio/face/FaceInfo$ReflectionInfo;
@@ -309,7 +282,6 @@
 
     aput-object v2, v1, v0
 
-    .line 246
     iget-object v1, p0, Lcom/samsung/android/bio/face/FaceInfo;->mReflectionInfo:[Lcom/samsung/android/bio/face/FaceInfo$ReflectionInfo;
 
     aget-object v1, v1, v0
@@ -320,7 +292,6 @@
 
     iput-object v2, v1, Lcom/samsung/android/bio/face/FaceInfo$ReflectionInfo;->mRect:Landroid/graphics/Rect;
 
-    .line 248
     iget-object v1, p0, Lcom/samsung/android/bio/face/FaceInfo;->mReflectionInfo:[Lcom/samsung/android/bio/face/FaceInfo$ReflectionInfo;
 
     aget-object v1, v1, v0
@@ -333,7 +304,6 @@
 
     iput v2, v1, Landroid/graphics/Rect;->left:I
 
-    .line 249
     iget-object v1, p0, Lcom/samsung/android/bio/face/FaceInfo;->mReflectionInfo:[Lcom/samsung/android/bio/face/FaceInfo$ReflectionInfo;
 
     aget-object v1, v1, v0
@@ -346,7 +316,6 @@
 
     iput v2, v1, Landroid/graphics/Rect;->top:I
 
-    .line 250
     iget-object v1, p0, Lcom/samsung/android/bio/face/FaceInfo;->mReflectionInfo:[Lcom/samsung/android/bio/face/FaceInfo$ReflectionInfo;
 
     aget-object v1, v1, v0
@@ -359,7 +328,6 @@
 
     iput v2, v1, Landroid/graphics/Rect;->right:I
 
-    .line 251
     iget-object v1, p0, Lcom/samsung/android/bio/face/FaceInfo;->mReflectionInfo:[Lcom/samsung/android/bio/face/FaceInfo$ReflectionInfo;
 
     aget-object v1, v1, v0
@@ -372,7 +340,6 @@
 
     iput v2, v1, Landroid/graphics/Rect;->bottom:I
 
-    .line 252
     iget-object v1, p0, Lcom/samsung/android/bio/face/FaceInfo;->mReflectionInfo:[Lcom/samsung/android/bio/face/FaceInfo$ReflectionInfo;
 
     aget-object v1, v1, v0
@@ -383,12 +350,10 @@
 
     iput v2, v1, Lcom/samsung/android/bio/face/FaceInfo$ReflectionInfo;->mMsgId:I
 
-    .line 244
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    .line 254
     :cond_1
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -396,15 +361,12 @@
 
     iput v1, p0, Lcom/samsung/android/bio/face/FaceInfo;->mAcquireInfo:I
 
-    .line 228
     return-void
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Lcom/samsung/android/bio/face/FaceInfo;)V
     .locals 0
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
     invoke-direct {p0, p1}, Lcom/samsung/android/bio/face/FaceInfo;-><init>(Landroid/os/Parcel;)V
 
     return-void
@@ -412,44 +374,29 @@
 
 .method public constructor <init>([Lcom/samsung/android/bio/face/FaceInfo$PupilInfo;[Lcom/samsung/android/bio/face/FaceInfo$ReflectionInfo;II)V
     .locals 2
-    .param p1, "pupilInfo"    # [Lcom/samsung/android/bio/face/FaceInfo$PupilInfo;
-    .param p2, "reflectionInfo"    # [Lcom/samsung/android/bio/face/FaceInfo$ReflectionInfo;
-    .param p3, "acquireInfo"    # I
-    .param p4, "reflectionNum"    # I
 
-    .prologue
     const/4 v1, 0x0
 
     const/4 v0, -0x1
 
-    .line 219
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 206
     iput-object v1, p0, Lcom/samsung/android/bio/face/FaceInfo;->mPupilInfo:[Lcom/samsung/android/bio/face/FaceInfo$PupilInfo;
 
-    .line 208
     iput-object v1, p0, Lcom/samsung/android/bio/face/FaceInfo;->mReflectionInfo:[Lcom/samsung/android/bio/face/FaceInfo$ReflectionInfo;
 
-    .line 212
     iput v0, p0, Lcom/samsung/android/bio/face/FaceInfo;->mAcquireInfo:I
 
-    .line 214
     iput v0, p0, Lcom/samsung/android/bio/face/FaceInfo;->mReflectionNum:I
 
-    .line 220
     iput-object p1, p0, Lcom/samsung/android/bio/face/FaceInfo;->mPupilInfo:[Lcom/samsung/android/bio/face/FaceInfo$PupilInfo;
 
-    .line 221
     iput-object p2, p0, Lcom/samsung/android/bio/face/FaceInfo;->mReflectionInfo:[Lcom/samsung/android/bio/face/FaceInfo$ReflectionInfo;
 
-    .line 223
     iput p3, p0, Lcom/samsung/android/bio/face/FaceInfo;->mAcquireInfo:I
 
-    .line 224
     iput p4, p0, Lcom/samsung/android/bio/face/FaceInfo;->mReflectionNum:I
 
-    .line 219
     return-void
 .end method
 
@@ -458,8 +405,6 @@
 .method public describeContents()I
     .locals 1
 
-    .prologue
-    .line 273
     const/4 v0, 0x0
 
     return v0
@@ -467,25 +412,18 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .param p1, "out"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
-    .prologue
-    .line 278
     iget v1, p0, Lcom/samsung/android/bio/face/FaceInfo;->mReflectionNum:I
 
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 279
     const/4 v0, 0x0
 
-    .local v0, "i":I
     :goto_0
     const/4 v1, 0x2
 
     if-ge v0, v1, :cond_0
 
-    .line 280
     iget-object v1, p0, Lcom/samsung/android/bio/face/FaceInfo;->mPupilInfo:[Lcom/samsung/android/bio/face/FaceInfo$PupilInfo;
 
     aget-object v1, v1, v0
@@ -496,7 +434,6 @@
 
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 281
     iget-object v1, p0, Lcom/samsung/android/bio/face/FaceInfo;->mPupilInfo:[Lcom/samsung/android/bio/face/FaceInfo$PupilInfo;
 
     aget-object v1, v1, v0
@@ -507,7 +444,6 @@
 
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 282
     iget-object v1, p0, Lcom/samsung/android/bio/face/FaceInfo;->mPupilInfo:[Lcom/samsung/android/bio/face/FaceInfo$PupilInfo;
 
     aget-object v1, v1, v0
@@ -518,7 +454,6 @@
 
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 283
     iget-object v1, p0, Lcom/samsung/android/bio/face/FaceInfo;->mPupilInfo:[Lcom/samsung/android/bio/face/FaceInfo$PupilInfo;
 
     aget-object v1, v1, v0
@@ -529,7 +464,6 @@
 
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 284
     iget-object v1, p0, Lcom/samsung/android/bio/face/FaceInfo;->mPupilInfo:[Lcom/samsung/android/bio/face/FaceInfo$PupilInfo;
 
     aget-object v1, v1, v0
@@ -538,7 +472,6 @@
 
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 285
     iget-object v1, p0, Lcom/samsung/android/bio/face/FaceInfo;->mPupilInfo:[Lcom/samsung/android/bio/face/FaceInfo$PupilInfo;
 
     aget-object v1, v1, v0
@@ -547,7 +480,6 @@
 
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 286
     iget-object v1, p0, Lcom/samsung/android/bio/face/FaceInfo;->mPupilInfo:[Lcom/samsung/android/bio/face/FaceInfo$PupilInfo;
 
     aget-object v1, v1, v0
@@ -556,12 +488,10 @@
 
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 279
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 289
     :cond_0
     const/4 v0, 0x0
 
@@ -570,7 +500,6 @@
 
     if-ge v0, v1, :cond_1
 
-    .line 290
     iget-object v1, p0, Lcom/samsung/android/bio/face/FaceInfo;->mReflectionInfo:[Lcom/samsung/android/bio/face/FaceInfo$ReflectionInfo;
 
     aget-object v1, v1, v0
@@ -581,7 +510,6 @@
 
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 291
     iget-object v1, p0, Lcom/samsung/android/bio/face/FaceInfo;->mReflectionInfo:[Lcom/samsung/android/bio/face/FaceInfo$ReflectionInfo;
 
     aget-object v1, v1, v0
@@ -592,7 +520,6 @@
 
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 292
     iget-object v1, p0, Lcom/samsung/android/bio/face/FaceInfo;->mReflectionInfo:[Lcom/samsung/android/bio/face/FaceInfo$ReflectionInfo;
 
     aget-object v1, v1, v0
@@ -603,7 +530,6 @@
 
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 293
     iget-object v1, p0, Lcom/samsung/android/bio/face/FaceInfo;->mReflectionInfo:[Lcom/samsung/android/bio/face/FaceInfo$ReflectionInfo;
 
     aget-object v1, v1, v0
@@ -614,7 +540,6 @@
 
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 294
     iget-object v1, p0, Lcom/samsung/android/bio/face/FaceInfo;->mReflectionInfo:[Lcom/samsung/android/bio/face/FaceInfo$ReflectionInfo;
 
     aget-object v1, v1, v0
@@ -623,17 +548,14 @@
 
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 289
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    .line 296
     :cond_1
     iget v1, p0, Lcom/samsung/android/bio/face/FaceInfo;->mAcquireInfo:I
 
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 277
     return-void
 .end method

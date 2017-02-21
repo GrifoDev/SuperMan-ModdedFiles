@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/FMRadioService;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/server/FMRadioService;
 
-    .prologue
-    .line 475
     iput-object p1, p0, Lcom/android/server/FMRadioService$5;->this$0:Lcom/android/server/FMRadioService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -36,36 +33,27 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 5
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "intent"    # Landroid/content/Intent;
 
-    .prologue
     const/4 v4, 0x1
 
-    .line 477
     const-string/jumbo v2, "command"
 
     invoke-virtual {p2, v2}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 478
-    .local v1, "cmdStr":Ljava/lang/String;
     const-string/jumbo v2, "from"
 
     invoke-virtual {p2, v2}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 479
-    .local v0, "appName":Ljava/lang/String;
     invoke-static {}, Lcom/android/server/FMRadioService;->-get0()Z
 
     move-result v2
 
     if-eqz v2, :cond_0
 
-    .line 480
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -96,7 +84,6 @@
 
     invoke-static {v2}, Lcom/android/server/FMRadioService;->log(Ljava/lang/String;)V
 
-    .line 481
     :cond_0
     const-string/jumbo v2, "com.sec.android.app.fm"
 
@@ -122,7 +109,6 @@
 
     if-eqz v2, :cond_2
 
-    .line 482
     :cond_1
     iget-object v2, p0, Lcom/android/server/FMRadioService$5;->this$0:Lcom/android/server/FMRadioService;
 
@@ -130,7 +116,6 @@
 
     invoke-static {v2, v4, v3, v4}, Lcom/android/server/FMRadioService;->-wrap0(Lcom/android/server/FMRadioService;ZIZ)Z
 
-    .line 476
     :cond_2
     return-void
 .end method

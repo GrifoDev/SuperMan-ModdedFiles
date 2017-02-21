@@ -25,11 +25,8 @@
 .method constructor <init>()V
     .locals 2
 
-    .prologue
-    .line 70
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 71
     new-instance v0, Ljava/util/concurrent/atomic/AtomicInteger;
 
     const/4 v1, 0x1
@@ -38,7 +35,6 @@
 
     iput-object v0, p0, Landroid/app/ActivityView$1;->mCount:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    .line 70
     return-void
 .end method
 
@@ -46,10 +42,7 @@
 # virtual methods
 .method public newThread(Ljava/lang/Runnable;)Ljava/lang/Thread;
     .locals 3
-    .param p1, "r"    # Ljava/lang/Runnable;
 
-    .prologue
-    .line 74
     new-instance v0, Ljava/lang/Thread;
 
     new-instance v1, Ljava/lang/StringBuilder;

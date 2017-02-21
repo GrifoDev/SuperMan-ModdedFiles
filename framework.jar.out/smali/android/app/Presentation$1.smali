@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/app/Presentation;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/app/Presentation;
 
-    .prologue
-    .line 342
     iput-object p1, p0, Landroid/app/Presentation$1;->this$0:Landroid/app/Presentation;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,19 +36,13 @@
 # virtual methods
 .method public onDisplayAdded(I)V
     .locals 0
-    .param p1, "displayId"    # I
 
-    .prologue
-    .line 344
     return-void
 .end method
 
 .method public onDisplayChanged(I)V
     .locals 1
-    .param p1, "displayId"    # I
 
-    .prologue
-    .line 356
     iget-object v0, p0, Landroid/app/Presentation$1;->this$0:Landroid/app/Presentation;
 
     invoke-static {v0}, Landroid/app/Presentation;->-get0(Landroid/app/Presentation;)Landroid/view/Display;
@@ -64,22 +55,17 @@
 
     if-ne p1, v0, :cond_0
 
-    .line 357
     iget-object v0, p0, Landroid/app/Presentation$1;->this$0:Landroid/app/Presentation;
 
     invoke-static {v0}, Landroid/app/Presentation;->-wrap0(Landroid/app/Presentation;)V
 
-    .line 355
     :cond_0
     return-void
 .end method
 
 .method public onDisplayRemoved(I)V
     .locals 1
-    .param p1, "displayId"    # I
 
-    .prologue
-    .line 349
     iget-object v0, p0, Landroid/app/Presentation$1;->this$0:Landroid/app/Presentation;
 
     invoke-static {v0}, Landroid/app/Presentation;->-get0(Landroid/app/Presentation;)Landroid/view/Display;
@@ -92,12 +78,10 @@
 
     if-ne p1, v0, :cond_0
 
-    .line 350
     iget-object v0, p0, Landroid/app/Presentation$1;->this$0:Landroid/app/Presentation;
 
     invoke-static {v0}, Landroid/app/Presentation;->-wrap1(Landroid/app/Presentation;)V
 
-    .line 348
     :cond_0
     return-void
 .end method

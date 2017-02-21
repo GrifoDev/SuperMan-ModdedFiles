@@ -31,21 +31,15 @@
 # direct methods
 .method public constructor <init>(Landroid/view/accessibility/AccessibilityManager;Landroid/os/Looper;)V
     .locals 2
-    .param p1, "this$0"    # Landroid/view/accessibility/AccessibilityManager;
-    .param p2, "looper"    # Landroid/os/Looper;
 
-    .prologue
-    .line 742
     iput-object p1, p0, Landroid/view/accessibility/AccessibilityManager$MyHandler;->this$0:Landroid/view/accessibility/AccessibilityManager;
 
-    .line 743
     const/4 v0, 0x0
 
     const/4 v1, 0x0
 
     invoke-direct {p0, p2, v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;Landroid/os/Handler$Callback;Z)V
 
-    .line 742
     return-void
 .end method
 
@@ -53,19 +47,14 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
-    .param p1, "message"    # Landroid/os/Message;
 
-    .prologue
-    .line 748
     iget v1, p1, Landroid/os/Message;->what:I
 
     packed-switch v1, :pswitch_data_0
 
-    .line 747
     :goto_0
     return-void
 
-    .line 750
     :pswitch_0
     iget-object v1, p0, Landroid/view/accessibility/AccessibilityManager$MyHandler;->this$0:Landroid/view/accessibility/AccessibilityManager;
 
@@ -73,7 +62,6 @@
 
     goto :goto_0
 
-    .line 754
     :pswitch_1
     iget-object v1, p0, Landroid/view/accessibility/AccessibilityManager$MyHandler;->this$0:Landroid/view/accessibility/AccessibilityManager;
 
@@ -81,7 +69,6 @@
 
     goto :goto_0
 
-    .line 758
     :pswitch_2
     iget-object v1, p0, Landroid/view/accessibility/AccessibilityManager$MyHandler;->this$0:Landroid/view/accessibility/AccessibilityManager;
 
@@ -89,12 +76,9 @@
 
     goto :goto_0
 
-    .line 763
     :pswitch_3
     iget v0, p1, Landroid/os/Message;->arg1:I
 
-    .line 764
-    .local v0, "state":I
     iget-object v1, p0, Landroid/view/accessibility/AccessibilityManager$MyHandler;->this$0:Landroid/view/accessibility/AccessibilityManager;
 
     invoke-static {v1}, Landroid/view/accessibility/AccessibilityManager;->-get0(Landroid/view/accessibility/AccessibilityManager;)Ljava/lang/Object;
@@ -103,7 +87,6 @@
 
     monitor-enter v2
 
-    .line 765
     :try_start_0
     iget-object v1, p0, Landroid/view/accessibility/AccessibilityManager$MyHandler;->this$0:Landroid/view/accessibility/AccessibilityManager;
 
@@ -115,7 +98,6 @@
 
     goto :goto_0
 
-    .line 764
     :catchall_0
     move-exception v1
 
@@ -123,7 +105,6 @@
 
     throw v1
 
-    .line 748
     nop
 
     :pswitch_data_0

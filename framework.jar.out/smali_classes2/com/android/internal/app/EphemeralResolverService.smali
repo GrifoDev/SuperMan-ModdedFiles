@@ -33,8 +33,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 39
     invoke-direct {p0}, Landroid/app/Service;-><init>()V
 
     return-void
@@ -44,13 +42,9 @@
 # virtual methods
 .method protected final attachBaseContext(Landroid/content/Context;)V
     .locals 2
-    .param p1, "base"    # Landroid/content/Context;
 
-    .prologue
-    .line 53
     invoke-super {p0, p1}, Landroid/app/Service;->attachBaseContext(Landroid/content/Context;)V
 
-    .line 54
     new-instance v0, Lcom/android/internal/app/EphemeralResolverService$ServiceHandler;
 
     invoke-virtual {p1}, Landroid/content/Context;->getMainLooper()Landroid/os/Looper;
@@ -61,7 +55,6 @@
 
     iput-object v0, p0, Lcom/android/internal/app/EphemeralResolverService;->mHandler:Landroid/os/Handler;
 
-    .line 52
     return-void
 .end method
 
@@ -79,10 +72,7 @@
 
 .method public final onBind(Landroid/content/Intent;)Landroid/os/IBinder;
     .locals 1
-    .param p1, "intent"    # Landroid/content/Intent;
 
-    .prologue
-    .line 59
     new-instance v0, Lcom/android/internal/app/EphemeralResolverService$1;
 
     invoke-direct {v0, p0}, Lcom/android/internal/app/EphemeralResolverService$1;-><init>(Lcom/android/internal/app/EphemeralResolverService;)V

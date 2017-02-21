@@ -42,8 +42,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 1878
     const-string/jumbo v0, "content://contacts/photos"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -52,15 +50,12 @@
 
     sput-object v0, Landroid/provider/Contacts$Photos;->CONTENT_URI:Landroid/net/Uri;
 
-    .line 1867
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 1871
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

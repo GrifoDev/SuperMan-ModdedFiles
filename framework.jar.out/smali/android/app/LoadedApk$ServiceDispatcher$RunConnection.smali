@@ -30,27 +30,17 @@
 # direct methods
 .method constructor <init>(Landroid/app/LoadedApk$ServiceDispatcher;Landroid/content/ComponentName;Landroid/os/IBinder;I)V
     .locals 0
-    .param p1, "this$1"    # Landroid/app/LoadedApk$ServiceDispatcher;
-    .param p2, "name"    # Landroid/content/ComponentName;
-    .param p3, "service"    # Landroid/os/IBinder;
-    .param p4, "command"    # I
 
-    .prologue
-    .line 1529
     iput-object p1, p0, Landroid/app/LoadedApk$ServiceDispatcher$RunConnection;->this$1:Landroid/app/LoadedApk$ServiceDispatcher;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1530
     iput-object p2, p0, Landroid/app/LoadedApk$ServiceDispatcher$RunConnection;->mName:Landroid/content/ComponentName;
 
-    .line 1531
     iput-object p3, p0, Landroid/app/LoadedApk$ServiceDispatcher$RunConnection;->mService:Landroid/os/IBinder;
 
-    .line 1532
     iput p4, p0, Landroid/app/LoadedApk$ServiceDispatcher$RunConnection;->mCommand:I
 
-    .line 1529
     return-void
 .end method
 
@@ -59,13 +49,10 @@
 .method public run()V
     .locals 3
 
-    .prologue
-    .line 1536
     iget v0, p0, Landroid/app/LoadedApk$ServiceDispatcher$RunConnection;->mCommand:I
 
     if-nez v0, :cond_1
 
-    .line 1537
     iget-object v0, p0, Landroid/app/LoadedApk$ServiceDispatcher$RunConnection;->this$1:Landroid/app/LoadedApk$ServiceDispatcher;
 
     iget-object v1, p0, Landroid/app/LoadedApk$ServiceDispatcher$RunConnection;->mName:Landroid/content/ComponentName;
@@ -74,12 +61,10 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/app/LoadedApk$ServiceDispatcher;->doConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
 
-    .line 1535
     :cond_0
     :goto_0
     return-void
 
-    .line 1538
     :cond_1
     iget v0, p0, Landroid/app/LoadedApk$ServiceDispatcher$RunConnection;->mCommand:I
 
@@ -87,7 +72,6 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 1539
     iget-object v0, p0, Landroid/app/LoadedApk$ServiceDispatcher$RunConnection;->this$1:Landroid/app/LoadedApk$ServiceDispatcher;
 
     iget-object v1, p0, Landroid/app/LoadedApk$ServiceDispatcher$RunConnection;->mName:Landroid/content/ComponentName;

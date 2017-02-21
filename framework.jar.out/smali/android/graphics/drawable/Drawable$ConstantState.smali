@@ -18,8 +18,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 1331
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -39,9 +37,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1392
-    .local p1, "atlasList":Ljava/util/Collection;, "Ljava/util/Collection<Landroid/graphics/Bitmap;>;"
     const/4 v0, 0x0
 
     return v0
@@ -50,8 +45,6 @@
 .method public canApplyTheme()Z
     .locals 1
 
-    .prologue
-    .line 1404
     const/4 v0, 0x0
 
     return v0
@@ -62,12 +55,9 @@
 
 .method protected final isAtlasable(Landroid/graphics/Bitmap;)Z
     .locals 3
-    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 1397
     if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getConfig()Landroid/graphics/Bitmap$Config;
@@ -89,10 +79,7 @@
 
 .method public newDrawable(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
     .locals 1
-    .param p1, "res"    # Landroid/content/res/Resources;
 
-    .prologue
-    .line 1359
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable$ConstantState;->newDrawable()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
@@ -102,11 +89,7 @@
 
 .method public newDrawable(Landroid/content/res/Resources;Landroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
     .locals 1
-    .param p1, "res"    # Landroid/content/res/Resources;
-    .param p2, "theme"    # Landroid/content/res/Resources$Theme;
 
-    .prologue
-    .line 1378
     invoke-virtual {p0, p1}, Landroid/graphics/drawable/Drawable$ConstantState;->newDrawable(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0

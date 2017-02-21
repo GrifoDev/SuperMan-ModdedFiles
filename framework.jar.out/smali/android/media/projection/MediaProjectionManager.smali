@@ -47,38 +47,29 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 2
-    .param p1, "context"    # Landroid/content/Context;
 
-    .prologue
-    .line 72
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 73
     iput-object p1, p0, Landroid/media/projection/MediaProjectionManager;->mContext:Landroid/content/Context;
 
-    .line 74
     const-string/jumbo v1, "media_projection"
 
     invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
-    .line 75
-    .local v0, "b":Landroid/os/IBinder;
     invoke-static {v0}, Landroid/media/projection/IMediaProjectionManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/media/projection/IMediaProjectionManager;
 
     move-result-object v1
 
     iput-object v1, p0, Landroid/media/projection/MediaProjectionManager;->mService:Landroid/media/projection/IMediaProjectionManager;
 
-    .line 76
     new-instance v1, Landroid/util/ArrayMap;
 
     invoke-direct {v1}, Landroid/util/ArrayMap;-><init>()V
 
     iput-object v1, p0, Landroid/media/projection/MediaProjectionManager;->mCallbacks:Ljava/util/Map;
 
-    .line 72
     return-void
 .end method
 
@@ -86,14 +77,9 @@
 # virtual methods
 .method public addCallback(Landroid/media/projection/MediaProjectionManager$Callback;Landroid/os/Handler;)V
     .locals 4
-    .param p1, "callback"    # Landroid/media/projection/MediaProjectionManager$Callback;
-    .param p2, "handler"    # Landroid/os/Handler;
 
-    .prologue
-    .line 200
     if-nez p1, :cond_0
 
-    .line 201
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v3, "callback must not be null"
@@ -102,19 +88,15 @@
 
     throw v2
 
-    .line 203
     :cond_0
     new-instance v0, Landroid/media/projection/MediaProjectionManager$CallbackDelegate;
 
     invoke-direct {v0, p1, p2}, Landroid/media/projection/MediaProjectionManager$CallbackDelegate;-><init>(Landroid/media/projection/MediaProjectionManager$Callback;Landroid/os/Handler;)V
 
-    .line 204
-    .local v0, "delegate":Landroid/media/projection/MediaProjectionManager$CallbackDelegate;
     iget-object v2, p0, Landroid/media/projection/MediaProjectionManager;->mCallbacks:Ljava/util/Map;
 
     invoke-interface {v2, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 206
     :try_start_0
     iget-object v2, p0, Landroid/media/projection/MediaProjectionManager;->mService:Landroid/media/projection/IMediaProjectionManager;
 
@@ -122,16 +104,12 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 199
     :goto_0
     return-void
 
-    .line 207
     :catch_0
     move-exception v1
 
-    .line 208
-    .local v1, "e":Landroid/os/RemoteException;
     const-string/jumbo v2, "MediaProjectionManager"
 
     const-string/jumbo v3, "Unable to add callbacks to MediaProjection service"
@@ -144,25 +122,18 @@
 .method public createScreenCaptureIntent()Landroid/content/Intent;
     .locals 6
 
-    .prologue
     const/4 v5, 0x0
 
-    .line 86
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 87
-    .local v0, "i":Landroid/content/Intent;
     const-string/jumbo v2, "com.android.systemui"
 
-    .line 88
     const-string/jumbo v3, "com.android.systemui.media.MediaProjectionPermissionActivity"
 
-    .line 87
     invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 92
     iget-object v2, p0, Landroid/media/projection/MediaProjectionManager;->mContext:Landroid/content/Context;
 
     const-string/jumbo v3, "vr"
@@ -173,18 +144,14 @@
 
     check-cast v1, Lcom/samsung/android/vr/GearVrManager;
 
-    .line 93
-    .local v1, "vr":Lcom/samsung/android/vr/GearVrManager;
     if-eqz v1, :cond_0
 
-    .line 94
     invoke-virtual {v1}, Lcom/samsung/android/vr/GearVrManager;->isDock()Z
 
     move-result v2
 
     if-eqz v2, :cond_0
 
-    .line 96
     iget-object v2, p0, Landroid/media/projection/MediaProjectionManager;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
@@ -201,25 +168,20 @@
 
     if-nez v2, :cond_1
 
-    .line 97
     invoke-virtual {v0, v5}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
-    .line 98
     const-string/jumbo v2, "com.samsung.android.hmt.vrsvc"
 
     invoke-virtual {v0, v2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 99
     const-string/jumbo v2, "com.samsung.intent.action.MEDIA_PROJECTION_PERMISSION_UI"
 
     invoke-virtual {v0, v2}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 107
     :cond_0
     :goto_0
     return-object v0
 
-    .line 101
     :cond_1
     const-string/jumbo v2, "MediaProjectionManager"
 
@@ -233,8 +195,6 @@
 .method public getActiveProjectionInfo()Landroid/media/projection/MediaProjectionInfo;
     .locals 3
 
-    .prologue
-    .line 175
     :try_start_0
     iget-object v1, p0, Landroid/media/projection/MediaProjectionManager;->mService:Landroid/media/projection/IMediaProjectionManager;
 
@@ -246,19 +206,15 @@
 
     return-object v1
 
-    .line 176
     :catch_0
     move-exception v0
 
-    .line 177
-    .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "MediaProjectionManager"
 
     const-string/jumbo v2, "Unable to get the active projection info"
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 179
     const/4 v1, 0x0
 
     return-object v1
@@ -266,24 +222,18 @@
 
 .method public getMediaProjection(ILandroid/content/Intent;)Landroid/media/projection/MediaProjection;
     .locals 4
-    .param p1, "resultCode"    # I
-    .param p2, "resultData"    # Landroid/content/Intent;
 
-    .prologue
     const/4 v2, 0x0
 
-    .line 159
     const/4 v1, -0x1
 
     if-ne p1, v1, :cond_0
 
     if-nez p2, :cond_1
 
-    .line 160
     :cond_0
     return-object v2
 
-    .line 162
     :cond_1
     const-string/jumbo v1, "android.media.projection.extra.EXTRA_MEDIA_PROJECTION"
 
@@ -291,14 +241,10 @@
 
     move-result-object v0
 
-    .line 163
-    .local v0, "projection":Landroid/os/IBinder;
     if-nez v0, :cond_2
 
-    .line 164
     return-object v2
 
-    .line 166
     :cond_2
     new-instance v1, Landroid/media/projection/MediaProjection;
 
@@ -315,13 +261,9 @@
 
 .method public removeCallback(Landroid/media/projection/MediaProjectionManager$Callback;)V
     .locals 4
-    .param p1, "callback"    # Landroid/media/projection/MediaProjectionManager$Callback;
 
-    .prologue
-    .line 217
     if-nez p1, :cond_0
 
-    .line 218
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v3, "callback must not be null"
@@ -330,7 +272,6 @@
 
     throw v2
 
-    .line 220
     :cond_0
     iget-object v2, p0, Landroid/media/projection/MediaProjectionManager;->mCallbacks:Ljava/util/Map;
 
@@ -340,11 +281,8 @@
 
     check-cast v0, Landroid/media/projection/MediaProjectionManager$CallbackDelegate;
 
-    .line 222
-    .local v0, "delegate":Landroid/media/projection/MediaProjectionManager$CallbackDelegate;
     if-eqz v0, :cond_1
 
-    .line 223
     :try_start_0
     iget-object v2, p0, Landroid/media/projection/MediaProjectionManager;->mService:Landroid/media/projection/IMediaProjectionManager;
 
@@ -352,17 +290,13 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 216
     :cond_1
     :goto_0
     return-void
 
-    .line 225
     :catch_0
     move-exception v1
 
-    .line 226
-    .local v1, "e":Landroid/os/RemoteException;
     const-string/jumbo v2, "MediaProjectionManager"
 
     const-string/jumbo v3, "Unable to add callbacks to MediaProjection service"
@@ -375,34 +309,24 @@
 .method public semGetMediaProjection()Landroid/media/projection/MediaProjection;
     .locals 11
 
-    .prologue
     const/4 v10, 0x0
 
-    .line 118
     const/4 v5, 0x0
 
-    .line 120
-    .local v5, "projection":Landroid/media/projection/IMediaProjection;
     iget-object v6, p0, Landroid/media/projection/MediaProjectionManager;->mContext:Landroid/content/Context;
 
     invoke-virtual {v6}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
     move-result-object v4
 
-    .line 122
-    .local v4, "packageName":Ljava/lang/String;
     iget-object v6, p0, Landroid/media/projection/MediaProjectionManager;->mContext:Landroid/content/Context;
 
     invoke-virtual {v6}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v3
 
-    .line 123
-    .local v3, "packageManager":Landroid/content/pm/PackageManager;
     const/4 v0, 0x0
 
-    .line 126
-    .local v0, "aInfo":Landroid/content/pm/ApplicationInfo;
     const/4 v6, 0x0
 
     :try_start_0
@@ -412,8 +336,6 @@
 
     move-result-object v0
 
-    .line 133
-    .local v0, "aInfo":Landroid/content/pm/ApplicationInfo;
     :try_start_1
     iget-object v6, p0, Landroid/media/projection/MediaProjectionManager;->mService:Landroid/media/projection/IMediaProjectionManager;
 
@@ -421,67 +343,46 @@
 
     const/4 v8, 0x0
 
-    .line 134
     const/4 v9, 0x0
 
-    .line 133
     invoke-interface {v6, v7, v4, v8, v9}, Landroid/media/projection/IMediaProjectionManager;->createProjection(ILjava/lang/String;IZ)Landroid/media/projection/IMediaProjection;
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
 
     move-result-object v5
 
-    .line 140
-    .local v5, "projection":Landroid/media/projection/IMediaProjection;
     if-nez v5, :cond_0
 
-    .line 141
     const-string/jumbo v6, "MediaProjectionManager"
 
     const-string/jumbo v7, "Can\'t create projection"
 
     invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 142
     return-object v10
 
-    .line 127
-    .local v0, "aInfo":Landroid/content/pm/ApplicationInfo;
-    .local v5, "projection":Landroid/media/projection/IMediaProjection;
     :catch_0
     move-exception v1
 
-    .line 128
-    .local v1, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     const-string/jumbo v6, "MediaProjectionManager"
 
     const-string/jumbo v7, "unable to look up package name"
 
     invoke-static {v6, v7, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 129
     return-object v10
 
-    .line 135
-    .end local v1    # "e":Landroid/content/pm/PackageManager$NameNotFoundException;
-    .local v0, "aInfo":Landroid/content/pm/ApplicationInfo;
     :catch_1
     move-exception v2
 
-    .line 136
-    .local v2, "e":Landroid/os/RemoteException;
     const-string/jumbo v6, "MediaProjectionManager"
 
     const-string/jumbo v7, "unable to create projection"
 
     invoke-static {v6, v7, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 137
     return-object v10
 
-    .line 145
-    .end local v2    # "e":Landroid/os/RemoteException;
-    .local v5, "projection":Landroid/media/projection/IMediaProjection;
     :cond_0
     new-instance v6, Landroid/media/projection/MediaProjection;
 
@@ -495,8 +396,6 @@
 .method public stopActiveProjection()V
     .locals 3
 
-    .prologue
-    .line 188
     :try_start_0
     iget-object v1, p0, Landroid/media/projection/MediaProjectionManager;->mService:Landroid/media/projection/IMediaProjectionManager;
 
@@ -504,16 +403,12 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 186
     :goto_0
     return-void
 
-    .line 189
     :catch_0
     move-exception v0
 
-    .line 190
-    .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "MediaProjectionManager"
 
     const-string/jumbo v2, "Unable to stop the currently active media projection"

@@ -36,57 +36,42 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 106
     new-instance v0, Lcom/samsung/android/hardware/context/SemContextAnyMotionDetector$1;
 
     invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextAnyMotionDetector$1;-><init>()V
 
     sput-object v0, Lcom/samsung/android/hardware/context/SemContextAnyMotionDetector;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    .line 90
     return-void
 .end method
 
 .method constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 126
     invoke-direct {p0}, Lcom/samsung/android/hardware/context/SemContextEventContext;-><init>()V
 
-    .line 127
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
     iput-object v0, p0, Lcom/samsung/android/hardware/context/SemContextAnyMotionDetector;->mContext:Landroid/os/Bundle;
 
-    .line 126
     return-void
 .end method
 
 .method constructor <init>(Landroid/os/Parcel;)V
     .locals 0
-    .param p1, "src"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 133
     invoke-direct {p0}, Lcom/samsung/android/hardware/context/SemContextEventContext;-><init>()V
 
-    .line 134
     invoke-direct {p0, p1}, Lcom/samsung/android/hardware/context/SemContextAnyMotionDetector;->readFromParcel(Landroid/os/Parcel;)V
 
-    .line 133
     return-void
 .end method
 
 .method private readFromParcel(Landroid/os/Parcel;)V
     .locals 1
-    .param p1, "src"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 180
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -101,7 +86,6 @@
 
     iput-object v0, p0, Lcom/samsung/android/hardware/context/SemContextAnyMotionDetector;->mContext:Landroid/os/Bundle;
 
-    .line 179
     return-void
 .end method
 
@@ -110,8 +94,6 @@
 .method public getAction()I
     .locals 2
 
-    .prologue
-    .line 145
     iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextAnyMotionDetector;->mContext:Landroid/os/Bundle;
 
     const-string/jumbo v1, "Action"
@@ -125,27 +107,18 @@
 
 .method public setValues(Landroid/os/Bundle;)V
     .locals 0
-    .param p1, "context"    # Landroid/os/Bundle;
 
-    .prologue
-    .line 156
     iput-object p1, p0, Lcom/samsung/android/hardware/context/SemContextAnyMotionDetector;->mContext:Landroid/os/Bundle;
 
-    .line 155
     return-void
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .param p1, "dest"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
-    .prologue
-    .line 170
     iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextAnyMotionDetector;->mContext:Landroid/os/Bundle;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
 
-    .line 169
     return-void
 .end method

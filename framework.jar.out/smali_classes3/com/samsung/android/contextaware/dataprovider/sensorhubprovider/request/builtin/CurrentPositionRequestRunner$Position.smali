@@ -110,8 +110,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 51
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -122,8 +120,6 @@
 .method public getAccuracy()F
     .locals 1
 
-    .prologue
-    .line 149
     iget v0, p0, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/request/builtin/CurrentPositionRequestRunner$Position;->accuracy:F
 
     return v0
@@ -132,8 +128,6 @@
 .method public getAltitude()D
     .locals 2
 
-    .prologue
-    .line 122
     iget-wide v0, p0, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/request/builtin/CurrentPositionRequestRunner$Position;->altitude:D
 
     return-wide v0
@@ -142,8 +136,6 @@
 .method public getDistance()D
     .locals 2
 
-    .prologue
-    .line 131
     iget-wide v0, p0, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/request/builtin/CurrentPositionRequestRunner$Position;->distance:D
 
     return-wide v0
@@ -152,8 +144,6 @@
 .method public getLatitude()D
     .locals 2
 
-    .prologue
-    .line 104
     iget-wide v0, p0, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/request/builtin/CurrentPositionRequestRunner$Position;->latitude:D
 
     return-wide v0
@@ -162,8 +152,6 @@
 .method public getLongitude()D
     .locals 2
 
-    .prologue
-    .line 113
     iget-wide v0, p0, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/request/builtin/CurrentPositionRequestRunner$Position;->longitude:D
 
     return-wide v0
@@ -172,8 +160,6 @@
 .method public getSatelliteCount()I
     .locals 1
 
-    .prologue
-    .line 158
     iget v0, p0, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/request/builtin/CurrentPositionRequestRunner$Position;->satelliteCount:I
 
     return v0
@@ -182,8 +168,6 @@
 .method public getSpeed()F
     .locals 1
 
-    .prologue
-    .line 140
     iget v0, p0, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/request/builtin/CurrentPositionRequestRunner$Position;->speed:F
 
     return v0
@@ -192,8 +176,6 @@
 .method public getType()I
     .locals 1
 
-    .prologue
-    .line 86
     iget v0, p0, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/request/builtin/CurrentPositionRequestRunner$Position;->type:I
 
     return v0
@@ -202,8 +184,6 @@
 .method public getUtcTime()[I
     .locals 1
 
-    .prologue
-    .line 95
     iget-object v0, p0, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/request/builtin/CurrentPositionRequestRunner$Position;->utcTime:[I
 
     return-object v0

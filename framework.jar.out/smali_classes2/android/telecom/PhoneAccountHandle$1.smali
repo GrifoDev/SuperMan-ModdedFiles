@@ -31,8 +31,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 155
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -42,10 +40,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/telecom/PhoneAccountHandle;
     .locals 2
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 158
     new-instance v0, Landroid/telecom/PhoneAccountHandle;
 
     const/4 v1, 0x0
@@ -57,10 +52,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 157
     invoke-virtual {p0, p1}, Landroid/telecom/PhoneAccountHandle$1;->createFromParcel(Landroid/os/Parcel;)Landroid/telecom/PhoneAccountHandle;
 
     move-result-object v0
@@ -70,10 +62,7 @@
 
 .method public newArray(I)[Landroid/telecom/PhoneAccountHandle;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 163
     new-array v0, p1, [Landroid/telecom/PhoneAccountHandle;
 
     return-object v0
@@ -81,10 +70,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 162
     invoke-virtual {p0, p1}, Landroid/telecom/PhoneAccountHandle$1;->newArray(I)[Landroid/telecom/PhoneAccountHandle;
 
     move-result-object v0

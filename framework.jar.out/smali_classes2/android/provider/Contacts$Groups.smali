@@ -62,36 +62,28 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 805
     const-string/jumbo v0, "content://contacts/groups"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v0
 
-    .line 804
     sput-object v0, Landroid/provider/Contacts$Groups;->CONTENT_URI:Landroid/net/Uri;
 
-    .line 814
     const-string/jumbo v0, "content://contacts/deleted_groups"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v0
 
-    .line 813
     sput-object v0, Landroid/provider/Contacts$Groups;->DELETED_CONTENT_URI:Landroid/net/Uri;
 
-    .line 792
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 797
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

@@ -23,19 +23,12 @@
 # direct methods
 .method public constructor <init>(II)V
     .locals 0
-    .param p1, "startChar"    # I
-    .param p2, "endChar"    # I
 
-    .prologue
-    .line 156
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 157
     iput p1, p0, Landroid/media/TimedText$CharPos;->startChar:I
 
-    .line 158
     iput p2, p0, Landroid/media/TimedText$CharPos;->endChar:I
 
-    .line 156
     return-void
 .end method

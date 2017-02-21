@@ -26,17 +26,13 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/widget/ToolbarWidgetWrapper;)V
     .locals 7
-    .param p1, "this$0"    # Lcom/android/internal/widget/ToolbarWidgetWrapper;
 
-    .prologue
     const/4 v2, 0x0
 
-    .line 193
     iput-object p1, p0, Lcom/android/internal/widget/ToolbarWidgetWrapper$1;->this$0:Lcom/android/internal/widget/ToolbarWidgetWrapper;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 194
     new-instance v0, Lcom/android/internal/view/menu/ActionMenuItem;
 
     iget-object v1, p0, Lcom/android/internal/widget/ToolbarWidgetWrapper$1;->this$0:Lcom/android/internal/widget/ToolbarWidgetWrapper;
@@ -49,7 +45,6 @@
 
     move-result-object v1
 
-    .line 195
     iget-object v3, p0, Lcom/android/internal/widget/ToolbarWidgetWrapper$1;->this$0:Lcom/android/internal/widget/ToolbarWidgetWrapper;
 
     invoke-static {v3}, Lcom/android/internal/widget/ToolbarWidgetWrapper;->-get2(Lcom/android/internal/widget/ToolbarWidgetWrapper;)Ljava/lang/CharSequence;
@@ -62,12 +57,10 @@
 
     move v5, v2
 
-    .line 194
     invoke-direct/range {v0 .. v6}, Lcom/android/internal/view/menu/ActionMenuItem;-><init>(Landroid/content/Context;IIIILjava/lang/CharSequence;)V
 
     iput-object v0, p0, Lcom/android/internal/widget/ToolbarWidgetWrapper$1;->mNavItem:Lcom/android/internal/view/menu/ActionMenuItem;
 
-    .line 193
     return-void
 .end method
 
@@ -75,12 +68,9 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 5
-    .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     const/4 v4, 0x0
 
-    .line 198
     iget-object v1, p0, Lcom/android/internal/widget/ToolbarWidgetWrapper$1;->this$0:Lcom/android/internal/widget/ToolbarWidgetWrapper;
 
     invoke-static {v1}, Lcom/android/internal/widget/ToolbarWidgetWrapper;->-get4(Lcom/android/internal/widget/ToolbarWidgetWrapper;)Landroid/view/Window$Callback;
@@ -97,7 +87,6 @@
 
     if-eqz v1, :cond_0
 
-    .line 200
     iget-object v1, p0, Lcom/android/internal/widget/ToolbarWidgetWrapper$1;->this$0:Lcom/android/internal/widget/ToolbarWidgetWrapper;
 
     invoke-static {v1}, Lcom/android/internal/widget/ToolbarWidgetWrapper;->-get0(Lcom/android/internal/widget/ToolbarWidgetWrapper;)Z
@@ -106,13 +95,10 @@
 
     if-eqz v1, :cond_2
 
-    .line 201
     invoke-static {}, Landroid/view/inputmethod/InputMethodManager;->peekInstance()Landroid/view/inputmethod/InputMethodManager;
 
     move-result-object v0
 
-    .line 202
-    .local v0, "imm":Landroid/view/inputmethod/InputMethodManager;
     if-eqz v0, :cond_1
 
     iget-object v1, p0, Lcom/android/internal/widget/ToolbarWidgetWrapper$1;->this$0:Lcom/android/internal/widget/ToolbarWidgetWrapper;
@@ -145,14 +131,10 @@
 
     if-eqz v1, :cond_1
 
-    .line 197
-    .end local v0    # "imm":Landroid/view/inputmethod/InputMethodManager;
     :cond_0
     :goto_0
     return-void
 
-    .line 207
-    .restart local v0    # "imm":Landroid/view/inputmethod/InputMethodManager;
     :cond_1
     iget-object v1, p0, Lcom/android/internal/widget/ToolbarWidgetWrapper$1;->this$0:Lcom/android/internal/widget/ToolbarWidgetWrapper;
 
@@ -166,8 +148,6 @@
 
     goto :goto_0
 
-    .line 212
-    .end local v0    # "imm":Landroid/view/inputmethod/InputMethodManager;
     :cond_2
     iget-object v1, p0, Lcom/android/internal/widget/ToolbarWidgetWrapper$1;->this$0:Lcom/android/internal/widget/ToolbarWidgetWrapper;
 

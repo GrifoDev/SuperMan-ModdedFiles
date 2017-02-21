@@ -130,53 +130,33 @@
 
 .method public constructor <init>(Landroid/graphics/Atlas$Type;II)V
     .locals 1
-    .param p1, "type"    # Landroid/graphics/Atlas$Type;
-    .param p2, "width"    # I
-    .param p3, "height"    # I
 
-    .prologue
-    .line 84
     const/4 v0, 0x2
 
     invoke-direct {p0, p1, p2, p3, v0}, Landroid/graphics/Atlas;-><init>(Landroid/graphics/Atlas$Type;III)V
 
-    .line 83
     return-void
 .end method
 
 .method public constructor <init>(Landroid/graphics/Atlas$Type;III)V
     .locals 1
-    .param p1, "type"    # Landroid/graphics/Atlas$Type;
-    .param p2, "width"    # I
-    .param p3, "height"    # I
-    .param p4, "flags"    # I
 
-    .prologue
-    .line 100
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 101
     invoke-static {p1, p2, p3, p4}, Landroid/graphics/Atlas;->findPolicy(Landroid/graphics/Atlas$Type;III)Landroid/graphics/Atlas$Policy;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/graphics/Atlas;->mPolicy:Landroid/graphics/Atlas$Policy;
 
-    .line 100
     return-void
 .end method
 
 .method private static findPolicy(Landroid/graphics/Atlas$Type;III)Landroid/graphics/Atlas$Policy;
     .locals 3
-    .param p0, "type"    # Landroid/graphics/Atlas$Type;
-    .param p1, "width"    # I
-    .param p2, "height"    # I
-    .param p3, "flags"    # I
 
-    .prologue
     const/4 v2, 0x0
 
-    .line 138
     invoke-static {}, Landroid/graphics/Atlas;->-getandroid-graphics-Atlas$TypeSwitchesValues()[I
 
     move-result-object v0
@@ -189,66 +169,52 @@
 
     packed-switch v0, :pswitch_data_0
 
-    .line 152
     return-object v2
 
-    .line 140
     :pswitch_0
     new-instance v0, Landroid/graphics/Atlas$SlicePolicy;
 
-    .line 141
     new-instance v1, Landroid/graphics/Atlas$SlicePolicy$MinAreaSplitDecision;
 
     invoke-direct {v1, v2}, Landroid/graphics/Atlas$SlicePolicy$MinAreaSplitDecision;-><init>(Landroid/graphics/Atlas$SlicePolicy$MinAreaSplitDecision;)V
 
-    .line 140
     invoke-direct {v0, p1, p2, p3, v1}, Landroid/graphics/Atlas$SlicePolicy;-><init>(IIILandroid/graphics/Atlas$SlicePolicy$SplitDecision;)V
 
     return-object v0
 
-    .line 143
     :pswitch_1
     new-instance v0, Landroid/graphics/Atlas$SlicePolicy;
 
-    .line 144
     new-instance v1, Landroid/graphics/Atlas$SlicePolicy$MaxAreaSplitDecision;
 
     invoke-direct {v1, v2}, Landroid/graphics/Atlas$SlicePolicy$MaxAreaSplitDecision;-><init>(Landroid/graphics/Atlas$SlicePolicy$MaxAreaSplitDecision;)V
 
-    .line 143
     invoke-direct {v0, p1, p2, p3, v1}, Landroid/graphics/Atlas$SlicePolicy;-><init>(IIILandroid/graphics/Atlas$SlicePolicy$SplitDecision;)V
 
     return-object v0
 
-    .line 146
     :pswitch_2
     new-instance v0, Landroid/graphics/Atlas$SlicePolicy;
 
-    .line 147
     new-instance v1, Landroid/graphics/Atlas$SlicePolicy$ShorterFreeAxisSplitDecision;
 
     invoke-direct {v1, v2}, Landroid/graphics/Atlas$SlicePolicy$ShorterFreeAxisSplitDecision;-><init>(Landroid/graphics/Atlas$SlicePolicy$ShorterFreeAxisSplitDecision;)V
 
-    .line 146
     invoke-direct {v0, p1, p2, p3, v1}, Landroid/graphics/Atlas$SlicePolicy;-><init>(IIILandroid/graphics/Atlas$SlicePolicy$SplitDecision;)V
 
     return-object v0
 
-    .line 149
     :pswitch_3
     new-instance v0, Landroid/graphics/Atlas$SlicePolicy;
 
-    .line 150
     new-instance v1, Landroid/graphics/Atlas$SlicePolicy$LongerFreeAxisSplitDecision;
 
     invoke-direct {v1, v2}, Landroid/graphics/Atlas$SlicePolicy$LongerFreeAxisSplitDecision;-><init>(Landroid/graphics/Atlas$SlicePolicy$LongerFreeAxisSplitDecision;)V
 
-    .line 149
     invoke-direct {v0, p1, p2, p3, v1}, Landroid/graphics/Atlas$SlicePolicy;-><init>(IIILandroid/graphics/Atlas$SlicePolicy$SplitDecision;)V
 
     return-object v0
 
-    .line 138
     nop
 
     :pswitch_data_0
@@ -264,11 +230,7 @@
 # virtual methods
 .method public pack(II)Landroid/graphics/Atlas$Entry;
     .locals 1
-    .param p1, "width"    # I
-    .param p2, "height"    # I
 
-    .prologue
-    .line 116
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, p2, v0}, Landroid/graphics/Atlas;->pack(IILandroid/graphics/Atlas$Entry;)Landroid/graphics/Atlas$Entry;
@@ -280,21 +242,13 @@
 
 .method public pack(IILandroid/graphics/Atlas$Entry;)Landroid/graphics/Atlas$Entry;
     .locals 1
-    .param p1, "width"    # I
-    .param p2, "height"    # I
-    .param p3, "entry"    # Landroid/graphics/Atlas$Entry;
 
-    .prologue
-    .line 133
     if-nez p3, :cond_0
 
     new-instance p3, Landroid/graphics/Atlas$Entry;
 
-    .end local p3    # "entry":Landroid/graphics/Atlas$Entry;
     invoke-direct {p3}, Landroid/graphics/Atlas$Entry;-><init>()V
 
-    .line 134
-    .restart local p3    # "entry":Landroid/graphics/Atlas$Entry;
     :cond_0
     iget-object v0, p0, Landroid/graphics/Atlas;->mPolicy:Landroid/graphics/Atlas$Policy;
 

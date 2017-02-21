@@ -46,53 +46,38 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 1221
     new-instance v0, Landroid/app/AlarmManager$AlarmClockInfo$1;
 
     invoke-direct {v0}, Landroid/app/AlarmManager$AlarmClockInfo$1;-><init>()V
 
     sput-object v0, Landroid/app/AlarmManager$AlarmClockInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    .line 1159
     return-void
 .end method
 
 .method public constructor <init>(JLandroid/app/PendingIntent;)V
     .locals 1
-    .param p1, "triggerTime"    # J
-    .param p3, "showIntent"    # Landroid/app/PendingIntent;
 
-    .prologue
-    .line 1172
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1173
     iput-wide p1, p0, Landroid/app/AlarmManager$AlarmClockInfo;->mTriggerTime:J
 
-    .line 1174
     iput-object p3, p0, Landroid/app/AlarmManager$AlarmClockInfo;->mShowIntent:Landroid/app/PendingIntent;
 
-    .line 1172
     return-void
 .end method
 
 .method constructor <init>(Landroid/os/Parcel;)V
     .locals 2
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 1181
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1182
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Landroid/app/AlarmManager$AlarmClockInfo;->mTriggerTime:J
 
-    .line 1183
     const-class v0, Landroid/app/PendingIntent;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -107,7 +92,6 @@
 
     iput-object v0, p0, Landroid/app/AlarmManager$AlarmClockInfo;->mShowIntent:Landroid/app/PendingIntent;
 
-    .line 1181
     return-void
 .end method
 
@@ -116,8 +100,6 @@
 .method public describeContents()I
     .locals 1
 
-    .prologue
-    .line 1212
     const/4 v0, 0x0
 
     return v0
@@ -126,8 +108,6 @@
 .method public getShowIntent()Landroid/app/PendingIntent;
     .locals 1
 
-    .prologue
-    .line 1207
     iget-object v0, p0, Landroid/app/AlarmManager$AlarmClockInfo;->mShowIntent:Landroid/app/PendingIntent;
 
     return-object v0
@@ -136,8 +116,6 @@
 .method public getTriggerTime()J
     .locals 2
 
-    .prologue
-    .line 1193
     iget-wide v0, p0, Landroid/app/AlarmManager$AlarmClockInfo;->mTriggerTime:J
 
     return-wide v0
@@ -145,20 +123,14 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .param p1, "dest"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
-    .prologue
-    .line 1217
     iget-wide v0, p0, Landroid/app/AlarmManager$AlarmClockInfo;->mTriggerTime:J
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 1218
     iget-object v0, p0, Landroid/app/AlarmManager$AlarmClockInfo;->mShowIntent:Landroid/app/PendingIntent;
 
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 1216
     return-void
 .end method

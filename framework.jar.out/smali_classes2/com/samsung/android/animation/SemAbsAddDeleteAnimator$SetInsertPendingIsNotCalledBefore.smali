@@ -21,17 +21,12 @@
 # direct methods
 .method public constructor <init>(Lcom/samsung/android/animation/SemAbsAddDeleteAnimator;)V
     .locals 1
-    .param p1, "this$0"    # Lcom/samsung/android/animation/SemAbsAddDeleteAnimator;
 
-    .prologue
-    .line 238
     iput-object p1, p0, Lcom/samsung/android/animation/SemAbsAddDeleteAnimator$SetInsertPendingIsNotCalledBefore;->this$0:Lcom/samsung/android/animation/SemAbsAddDeleteAnimator;
 
-    .line 239
     const-string/jumbo v0, "setInsertPending() should be called prior to calling insertFromAdapterCompleted()"
 
     invoke-direct {p0, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    .line 238
     return-void
 .end method

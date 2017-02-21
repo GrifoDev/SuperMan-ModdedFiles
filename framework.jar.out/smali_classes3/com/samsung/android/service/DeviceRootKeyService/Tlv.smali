@@ -80,33 +80,26 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 93
     new-instance v0, Lcom/samsung/android/service/DeviceRootKeyService/Tlv$1;
 
     invoke-direct {v0}, Lcom/samsung/android/service/DeviceRootKeyService/Tlv$1;-><init>()V
 
     sput-object v0, Lcom/samsung/android/service/DeviceRootKeyService/Tlv;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    .line 18
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 40
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 42
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Lcom/samsung/android/service/DeviceRootKeyService/Tlv;->mTlvList:Ljava/util/HashMap;
 
-    .line 40
     return-void
 .end method
 
@@ -115,8 +108,6 @@
 .method public describeContents()I
     .locals 1
 
-    .prologue
-    .line 77
     const/4 v0, 0x0
 
     return v0
@@ -124,10 +115,7 @@
 
 .method public getTlvValue(I)[B
     .locals 2
-    .param p1, "tlvTag"    # I
 
-    .prologue
-    .line 63
     const/4 v0, 0x1
 
     if-lt p1, v0, :cond_0
@@ -136,7 +124,6 @@
 
     if-ge p1, v0, :cond_0
 
-    .line 64
     iget-object v0, p0, Lcom/samsung/android/service/DeviceRootKeyService/Tlv;->mTlvList:Ljava/util/HashMap;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -151,7 +138,6 @@
 
     return-object v0
 
-    .line 66
     :cond_0
     const/4 v0, 0x0
 
@@ -161,8 +147,6 @@
 .method public getTotalSize()I
     .locals 1
 
-    .prologue
-    .line 47
     iget-object v0, p0, Lcom/samsung/android/service/DeviceRootKeyService/Tlv;->mTlvList:Ljava/util/HashMap;
 
     invoke-virtual {v0}, Ljava/util/HashMap;->size()I
@@ -184,8 +168,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 71
     iget-object v0, p0, Lcom/samsung/android/service/DeviceRootKeyService/Tlv;->mTlvList:Ljava/util/HashMap;
 
     invoke-virtual {v0}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
@@ -197,20 +179,15 @@
 
 .method public setTlv(I[B)Z
     .locals 3
-    .param p1, "tlvTag"    # I
-    .param p2, "tlvValue"    # [B
 
-    .prologue
     const/4 v2, 0x1
 
-    .line 52
     if-lt p1, v2, :cond_0
 
     const/16 v0, 0x12
 
     if-ge p1, v0, :cond_0
 
-    .line 54
     iget-object v0, p0, Lcom/samsung/android/service/DeviceRootKeyService/Tlv;->mTlvList:Ljava/util/HashMap;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -219,10 +196,8 @@
 
     invoke-virtual {v0, v1, p2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 55
     return v2
 
-    .line 58
     :cond_0
     const/4 v0, 0x0
 
@@ -231,11 +206,7 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 4
-    .param p1, "dest"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
-    .prologue
-    .line 83
     iget-object v2, p0, Lcom/samsung/android/service/DeviceRootKeyService/Tlv;->mTlvList:Ljava/util/HashMap;
 
     invoke-virtual {v2}, Ljava/util/HashMap;->size()I
@@ -244,7 +215,6 @@
 
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 85
     iget-object v2, p0, Lcom/samsung/android/service/DeviceRootKeyService/Tlv;->mTlvList:Ljava/util/HashMap;
 
     invoke-virtual {v2}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
@@ -255,7 +225,6 @@
 
     move-result-object v1
 
-    .local v1, "key$iterator":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -273,11 +242,8 @@
 
     move-result v0
 
-    .line 87
-    .local v0, "key":I
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 88
     iget-object v2, p0, Lcom/samsung/android/service/DeviceRootKeyService/Tlv;->mTlvList:Ljava/util/HashMap;
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -294,7 +260,6 @@
 
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 89
     iget-object v2, p0, Lcom/samsung/android/service/DeviceRootKeyService/Tlv;->mTlvList:Ljava/util/HashMap;
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -311,8 +276,6 @@
 
     goto :goto_0
 
-    .line 81
-    .end local v0    # "key":I
     :cond_0
     return-void
 .end method

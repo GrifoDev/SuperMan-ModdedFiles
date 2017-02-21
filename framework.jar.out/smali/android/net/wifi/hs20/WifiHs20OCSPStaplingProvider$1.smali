@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/net/wifi/hs20/WifiHs20OCSPStaplingProvider;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/net/wifi/hs20/WifiHs20OCSPStaplingProvider;
 
-    .prologue
-    .line 26
     iput-object p1, p0, Landroid/net/wifi/hs20/WifiHs20OCSPStaplingProvider$1;->this$0:Landroid/net/wifi/hs20/WifiHs20OCSPStaplingProvider;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,13 +37,10 @@
 .method public run()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 28
     iget-object v0, p0, Landroid/net/wifi/hs20/WifiHs20OCSPStaplingProvider$1;->this$0:Landroid/net/wifi/hs20/WifiHs20OCSPStaplingProvider;
 
     invoke-static {v0}, Landroid/net/wifi/hs20/WifiHs20OCSPStaplingProvider;->-wrap0(Landroid/net/wifi/hs20/WifiHs20OCSPStaplingProvider;)V
 
-    .line 29
     const/4 v0, 0x0
 
     return-object v0

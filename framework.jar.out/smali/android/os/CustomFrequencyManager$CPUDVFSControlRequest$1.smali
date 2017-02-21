@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;)V
     .locals 0
-    .param p1, "this$1"    # Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;
 
-    .prologue
-    .line 501
     iput-object p1, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest$1;->this$1:Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,12 +37,9 @@
 .method public run()V
     .locals 1
 
-    .prologue
-    .line 503
     iget-object v0, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest$1;->this$1:Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;
 
     invoke-virtual {v0}, Landroid/os/CustomFrequencyManager$FrequencyRequest;->cancelFrequencyRequest()V
 
-    .line 502
     return-void
 .end method

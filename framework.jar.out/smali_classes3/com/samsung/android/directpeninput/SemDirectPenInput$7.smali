@@ -21,16 +21,11 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/directpeninput/SemDirectPenInput;Landroid/os/Handler;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/samsung/android/directpeninput/SemDirectPenInput;
-    .param p2, "$anonymous0"    # Landroid/os/Handler;
 
-    .prologue
-    .line 2624
     iput-object p1, p0, Lcom/samsung/android/directpeninput/SemDirectPenInput$7;->this$0:Lcom/samsung/android/directpeninput/SemDirectPenInput;
 
     invoke-direct {p0, p2}, Landroid/os/ResultReceiver;-><init>(Landroid/os/Handler;)V
 
-    .line 2625
     return-void
 .end method
 
@@ -38,11 +33,7 @@
 # virtual methods
 .method protected onReceiveResult(ILandroid/os/Bundle;)V
     .locals 4
-    .param p1, "resultCode"    # I
-    .param p2, "resultData"    # Landroid/os/Bundle;
 
-    .prologue
-    .line 2627
     iget-object v0, p0, Lcom/samsung/android/directpeninput/SemDirectPenInput$7;->this$0:Lcom/samsung/android/directpeninput/SemDirectPenInput;
 
     invoke-static {v0}, Lcom/samsung/android/directpeninput/SemDirectPenInput;->-wrap0(Lcom/samsung/android/directpeninput/SemDirectPenInput;)Landroid/os/Handler;
@@ -55,6 +46,5 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    .line 2626
     return-void
 .end method

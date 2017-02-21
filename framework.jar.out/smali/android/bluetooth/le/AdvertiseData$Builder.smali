@@ -55,32 +55,26 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 222
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 224
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Landroid/bluetooth/le/AdvertiseData$Builder;->mServiceUuids:Ljava/util/List;
 
-    .line 225
     new-instance v0, Landroid/util/SparseArray;
 
     invoke-direct {v0}, Landroid/util/SparseArray;-><init>()V
 
     iput-object v0, p0, Landroid/bluetooth/le/AdvertiseData$Builder;->mManufacturerSpecificData:Landroid/util/SparseArray;
 
-    .line 226
     new-instance v0, Landroid/util/ArrayMap;
 
     invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
 
     iput-object v0, p0, Landroid/bluetooth/le/AdvertiseData$Builder;->mServiceData:Ljava/util/Map;
 
-    .line 222
     return-void
 .end method
 
@@ -88,17 +82,11 @@
 # virtual methods
 .method public addManufacturerData(I[B)Landroid/bluetooth/le/AdvertiseData$Builder;
     .locals 3
-    .param p1, "manufacturerId"    # I
-    .param p2, "manufacturerSpecificData"    # [B
 
-    .prologue
-    .line 274
     if-gez p1, :cond_0
 
-    .line 275
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    .line 276
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -117,16 +105,13 @@
 
     move-result-object v1
 
-    .line 275
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
-    .line 278
     :cond_0
     if-nez p2, :cond_1
 
-    .line 279
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "manufacturerSpecificData is null"
@@ -135,58 +120,43 @@
 
     throw v0
 
-    .line 281
     :cond_1
     iget-object v0, p0, Landroid/bluetooth/le/AdvertiseData$Builder;->mManufacturerSpecificData:Landroid/util/SparseArray;
 
     invoke-virtual {v0, p1, p2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 282
     return-object p0
 .end method
 
 .method public addServiceData(Landroid/os/ParcelUuid;[B)Landroid/bluetooth/le/AdvertiseData$Builder;
     .locals 2
-    .param p1, "serviceDataUuid"    # Landroid/os/ParcelUuid;
-    .param p2, "serviceData"    # [B
 
-    .prologue
-    .line 253
     if-eqz p1, :cond_0
 
     if-nez p2, :cond_1
 
-    .line 254
     :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    .line 255
     const-string/jumbo v1, "serviceDataUuid or serviceDataUuid is null"
 
-    .line 254
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
-    .line 257
     :cond_1
     iget-object v0, p0, Landroid/bluetooth/le/AdvertiseData$Builder;->mServiceData:Ljava/util/Map;
 
     invoke-interface {v0, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 258
     return-object p0
 .end method
 
 .method public addServiceUuid(Landroid/os/ParcelUuid;)Landroid/bluetooth/le/AdvertiseData$Builder;
     .locals 2
-    .param p1, "serviceUuid"    # Landroid/os/ParcelUuid;
 
-    .prologue
-    .line 237
     if-nez p1, :cond_0
 
-    .line 238
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "serivceUuids are null"
@@ -195,21 +165,17 @@
 
     throw v0
 
-    .line 240
     :cond_0
     iget-object v0, p0, Landroid/bluetooth/le/AdvertiseData$Builder;->mServiceUuids:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 241
     return-object p0
 .end method
 
 .method public build()Landroid/bluetooth/le/AdvertiseData;
     .locals 7
 
-    .prologue
-    .line 306
     new-instance v0, Landroid/bluetooth/le/AdvertiseData;
 
     iget-object v1, p0, Landroid/bluetooth/le/AdvertiseData$Builder;->mServiceUuids:Ljava/util/List;
@@ -218,12 +184,10 @@
 
     iget-object v3, p0, Landroid/bluetooth/le/AdvertiseData$Builder;->mServiceData:Ljava/util/Map;
 
-    .line 307
     iget-boolean v4, p0, Landroid/bluetooth/le/AdvertiseData$Builder;->mIncludeTxPowerLevel:Z
 
     iget-boolean v5, p0, Landroid/bluetooth/le/AdvertiseData$Builder;->mIncludeDeviceName:Z
 
-    .line 306
     const/4 v6, 0x0
 
     invoke-direct/range {v0 .. v6}, Landroid/bluetooth/le/AdvertiseData;-><init>(Ljava/util/List;Landroid/util/SparseArray;Ljava/util/Map;ZZLandroid/bluetooth/le/AdvertiseData;)V
@@ -233,24 +197,16 @@
 
 .method public setIncludeDeviceName(Z)Landroid/bluetooth/le/AdvertiseData$Builder;
     .locals 0
-    .param p1, "includeDeviceName"    # Z
 
-    .prologue
-    .line 298
     iput-boolean p1, p0, Landroid/bluetooth/le/AdvertiseData$Builder;->mIncludeDeviceName:Z
 
-    .line 299
     return-object p0
 .end method
 
 .method public setIncludeTxPowerLevel(Z)Landroid/bluetooth/le/AdvertiseData$Builder;
     .locals 0
-    .param p1, "includeTxPowerLevel"    # Z
 
-    .prologue
-    .line 290
     iput-boolean p1, p0, Landroid/bluetooth/le/AdvertiseData$Builder;->mIncludeTxPowerLevel:Z
 
-    .line 291
     return-object p0
 .end method

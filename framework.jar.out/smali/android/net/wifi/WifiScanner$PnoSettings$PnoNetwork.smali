@@ -47,23 +47,16 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .param p1, "ssid"    # Ljava/lang/String;
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 549
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 550
     iput-object p1, p0, Landroid/net/wifi/WifiScanner$PnoSettings$PnoNetwork;->ssid:Ljava/lang/String;
 
-    .line 551
     iput-byte v0, p0, Landroid/net/wifi/WifiScanner$PnoSettings$PnoNetwork;->flags:B
 
-    .line 552
     iput-byte v0, p0, Landroid/net/wifi/WifiScanner$PnoSettings$PnoNetwork;->authBitField:B
 
-    .line 549
     return-void
 .end method

@@ -195,20 +195,16 @@
 .method static constructor <clinit>()V
     .locals 4
 
-    .prologue
     const/16 v3, 0x35
 
-    .line 415
     new-instance v0, Lcom/samsung/android/hardware/context/SemContext$1;
 
     invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContext$1;-><init>()V
 
     sput-object v0, Lcom/samsung/android/hardware/context/SemContext;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    .line 451
     new-array v0, v3, [Ljava/lang/String;
 
-    .line 452
     const-string/jumbo v1, "Approach"
 
     const/4 v2, 0x0
@@ -245,7 +241,6 @@
 
     aput-object v1, v0, v2
 
-    .line 453
     const-string/jumbo v1, "Air Motion"
 
     const/4 v2, 0x6
@@ -264,7 +259,6 @@
 
     aput-object v1, v0, v2
 
-    .line 454
     const-string/jumbo v1, "Current Status For Positioning"
 
     const/16 v2, 0x9
@@ -289,7 +283,6 @@
 
     aput-object v1, v0, v2
 
-    .line 455
     const-string/jumbo v1, "Gyro Temperature"
 
     const/16 v2, 0xd
@@ -314,7 +307,6 @@
 
     aput-object v1, v0, v2
 
-    .line 456
     const-string/jumbo v1, "Bounce Long Motion"
 
     const/16 v2, 0x11
@@ -339,7 +331,6 @@
 
     aput-object v1, v0, v2
 
-    .line 457
     const-string/jumbo v1, "Device Position"
 
     const/16 v2, 0x15
@@ -358,7 +349,6 @@
 
     aput-object v1, v0, v2
 
-    .line 458
     const-string/jumbo v1, "Activity Tracker"
 
     const/16 v2, 0x18
@@ -383,7 +373,6 @@
 
     aput-object v1, v0, v2
 
-    .line 459
     const-string/jumbo v1, "Sleep Monitor"
 
     const/16 v2, 0x1c
@@ -408,7 +397,6 @@
 
     aput-object v1, v0, v2
 
-    .line 460
     const-string/jumbo v1, "Step Level Monitor"
 
     const/16 v2, 0x20
@@ -427,7 +415,6 @@
 
     aput-object v1, v0, v2
 
-    .line 461
     const-string/jumbo v1, "Flat Motion For Table Mode"
 
     const/16 v2, 0x23
@@ -446,7 +433,6 @@
 
     aput-object v1, v0, v2
 
-    .line 462
     const-string/jumbo v1, "Auto Brightness"
 
     const/16 v2, 0x26
@@ -471,7 +457,6 @@
 
     aput-object v1, v0, v2
 
-    .line 463
     const-string/jumbo v1, "Hall Sensor"
 
     const/16 v2, 0x2a
@@ -490,7 +475,6 @@
 
     aput-object v1, v0, v2
 
-    .line 464
     const-string/jumbo v1, "Wireless Charging Detection"
 
     const/16 v2, 0x2d
@@ -515,7 +499,6 @@
 
     aput-object v1, v0, v2
 
-    .line 465
     const-string/jumbo v1, "Any Motion Detector"
 
     const/16 v2, 0x31
@@ -534,27 +517,22 @@
 
     aput-object v1, v0, v2
 
-    .line 466
     const-string/jumbo v1, "Activity Calibration"
 
     const/16 v2, 0x34
 
     aput-object v1, v0, v2
 
-    .line 451
     sput-object v0, Lcom/samsung/android/hardware/context/SemContext;->sServiceList:[Ljava/lang/String;
 
-    .line 472
     new-array v0, v3, [I
 
     fill-array-data v0, :array_0
 
     sput-object v0, Lcom/samsung/android/hardware/context/SemContext;->sServiceReportingModes:[I
 
-    .line 33
     return-void
 
-    .line 472
     :array_0
     .array-data 4
         0x3
@@ -616,47 +594,34 @@
 .method constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 503
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 504
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/samsung/android/hardware/context/SemContext;->mType:I
 
-    .line 503
     return-void
 .end method
 
 .method constructor <init>(Landroid/os/Parcel;)V
     .locals 0
-    .param p1, "src"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 510
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 511
     invoke-direct {p0, p1}, Lcom/samsung/android/hardware/context/SemContext;->readFromParcel(Landroid/os/Parcel;)V
 
-    .line 510
     return-void
 .end method
 
 .method public static getReportingMode(I)I
     .locals 2
-    .param p0, "service"    # I
 
-    .prologue
-    .line 537
     sget-object v0, Lcom/samsung/android/hardware/context/SemContext;->sServiceReportingModes:[I
 
     array-length v0, v0
 
     if-gt p0, v0, :cond_0
 
-    .line 538
     sget-object v0, Lcom/samsung/android/hardware/context/SemContext;->sServiceReportingModes:[I
 
     add-int/lit8 v1, p0, -0x1
@@ -665,7 +630,6 @@
 
     return v0
 
-    .line 540
     :cond_0
     const/4 v0, 0x0
 
@@ -674,17 +638,13 @@
 
 .method public static getServiceName(I)Ljava/lang/String;
     .locals 2
-    .param p0, "service"    # I
 
-    .prologue
-    .line 522
     sget-object v0, Lcom/samsung/android/hardware/context/SemContext;->sServiceList:[Ljava/lang/String;
 
     array-length v0, v0
 
     if-gt p0, v0, :cond_0
 
-    .line 523
     sget-object v0, Lcom/samsung/android/hardware/context/SemContext;->sServiceList:[Ljava/lang/String;
 
     add-int/lit8 v1, p0, -0x1
@@ -693,7 +653,6 @@
 
     return-object v0
 
-    .line 525
     :cond_0
     const-string/jumbo v0, ""
 
@@ -702,17 +661,13 @@
 
 .method private readFromParcel(Landroid/os/Parcel;)V
     .locals 1
-    .param p1, "src"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 594
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/samsung/android/hardware/context/SemContext;->mType:I
 
-    .line 593
     return-void
 .end method
 
@@ -721,8 +676,6 @@
 .method public describeContents()I
     .locals 1
 
-    .prologue
-    .line 571
     const/4 v0, 0x0
 
     return v0
@@ -731,8 +684,6 @@
 .method public getType()I
     .locals 1
 
-    .prologue
-    .line 550
     iget v0, p0, Lcom/samsung/android/hardware/context/SemContext;->mType:I
 
     return v0
@@ -740,27 +691,18 @@
 
 .method setType(I)V
     .locals 0
-    .param p1, "type"    # I
 
-    .prologue
-    .line 559
     iput p1, p0, Lcom/samsung/android/hardware/context/SemContext;->mType:I
 
-    .line 558
     return-void
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .param p1, "dest"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
-    .prologue
-    .line 584
     iget v0, p0, Lcom/samsung/android/hardware/context/SemContext;->mType:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 583
     return-void
 .end method

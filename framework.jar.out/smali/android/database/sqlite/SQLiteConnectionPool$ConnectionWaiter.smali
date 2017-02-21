@@ -40,8 +40,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 1143
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -50,7 +48,6 @@
 .method synthetic constructor <init>(Landroid/database/sqlite/SQLiteConnectionPool$ConnectionWaiter;)V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Landroid/database/sqlite/SQLiteConnectionPool$ConnectionWaiter;-><init>()V
 
     return-void

@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/app/ExitTransitionCoordinator;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/app/ExitTransitionCoordinator;
 
-    .prologue
-    .line 259
     iput-object p1, p0, Landroid/app/ExitTransitionCoordinator$7;->this$0:Landroid/app/ExitTransitionCoordinator;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,12 +37,9 @@
 .method public run()V
     .locals 1
 
-    .prologue
-    .line 262
     iget-object v0, p0, Landroid/app/ExitTransitionCoordinator$7;->this$0:Landroid/app/ExitTransitionCoordinator;
 
     invoke-static {v0}, Landroid/app/ExitTransitionCoordinator;->-wrap5(Landroid/app/ExitTransitionCoordinator;)V
 
-    .line 261
     return-void
 .end method

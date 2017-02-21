@@ -25,53 +25,37 @@
 # direct methods
 .method constructor <init>(Landroid/media/AudioAttributes;I)V
     .locals 1
-    .param p1, "attributes"    # Landroid/media/AudioAttributes;
-    .param p2, "rule"    # I
 
-    .prologue
-    .line 100
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 101
     iput-object p1, p0, Landroid/media/audiopolicy/AudioMixingRule$AudioMixMatchCriterion;->mAttr:Landroid/media/AudioAttributes;
 
-    .line 102
     const/high16 v0, -0x80000000
 
     iput v0, p0, Landroid/media/audiopolicy/AudioMixingRule$AudioMixMatchCriterion;->mIntProp:I
 
-    .line 103
     iput p2, p0, Landroid/media/audiopolicy/AudioMixingRule$AudioMixMatchCriterion;->mRule:I
 
-    .line 100
     return-void
 .end method
 
 .method constructor <init>(Ljava/lang/Integer;I)V
     .locals 1
-    .param p1, "intProp"    # Ljava/lang/Integer;
-    .param p2, "rule"    # I
 
-    .prologue
-    .line 106
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 107
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/media/audiopolicy/AudioMixingRule$AudioMixMatchCriterion;->mAttr:Landroid/media/AudioAttributes;
 
-    .line 108
     invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
 
     iput v0, p0, Landroid/media/audiopolicy/AudioMixingRule$AudioMixMatchCriterion;->mIntProp:I
 
-    .line 109
     iput p2, p0, Landroid/media/audiopolicy/AudioMixingRule$AudioMixMatchCriterion;->mRule:I
 
-    .line 106
     return-void
 .end method
 
@@ -80,8 +64,6 @@
 .method public hashCode()I
     .locals 3
 
-    .prologue
-    .line 114
     const/4 v0, 0x3
 
     new-array v0, v0, [Ljava/lang/Object;
@@ -121,26 +103,19 @@
 
 .method writeToParcel(Landroid/os/Parcel;)V
     .locals 4
-    .param p1, "dest"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 118
     iget v1, p0, Landroid/media/audiopolicy/AudioMixingRule$AudioMixMatchCriterion;->mRule:I
 
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 119
     iget v1, p0, Landroid/media/audiopolicy/AudioMixingRule$AudioMixMatchCriterion;->mRule:I
 
     const v2, -0x8001
 
     and-int v0, v1, v2
 
-    .line 120
-    .local v0, "match_rule":I
     packed-switch v0, :pswitch_data_0
 
-    .line 131
     :pswitch_0
     const-string/jumbo v1, "AudioMixMatchCriterion"
 
@@ -158,10 +133,8 @@
 
     move-result-object v2
 
-    .line 132
     const-string/jumbo v3, " when writing to Parcel"
 
-    .line 131
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
@@ -172,16 +145,13 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 133
     const/4 v1, -0x1
 
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 117
     :goto_0
     return-void
 
-    .line 122
     :pswitch_1
     iget-object v1, p0, Landroid/media/audiopolicy/AudioMixingRule$AudioMixMatchCriterion;->mAttr:Landroid/media/AudioAttributes;
 
@@ -193,7 +163,6 @@
 
     goto :goto_0
 
-    .line 125
     :pswitch_2
     iget-object v1, p0, Landroid/media/audiopolicy/AudioMixingRule$AudioMixMatchCriterion;->mAttr:Landroid/media/AudioAttributes;
 
@@ -205,7 +174,6 @@
 
     goto :goto_0
 
-    .line 128
     :pswitch_3
     iget v1, p0, Landroid/media/audiopolicy/AudioMixingRule$AudioMixMatchCriterion;->mIntProp:I
 
@@ -213,7 +181,6 @@
 
     goto :goto_0
 
-    .line 120
     nop
 
     :pswitch_data_0

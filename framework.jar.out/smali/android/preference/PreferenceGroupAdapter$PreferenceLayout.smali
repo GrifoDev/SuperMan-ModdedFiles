@@ -73,8 +73,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 109
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -83,7 +81,6 @@
 .method synthetic constructor <init>(Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;)V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;-><init>()V
 
     return-void
@@ -93,12 +90,9 @@
 # virtual methods
 .method public compareTo(Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;)I
     .locals 4
-    .param p1, "other"    # Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;
 
-    .prologue
     const/4 v3, 0x0
 
-    .line 116
     iget-object v1, p0, Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;->name:Ljava/lang/String;
 
     iget-object v2, p1, Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;->name:Ljava/lang/String;
@@ -107,28 +101,22 @@
 
     move-result v0
 
-    .line 117
-    .local v0, "compareNames":I
     if-nez v0, :cond_2
 
-    .line 118
     iget v1, p0, Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;->resId:I
 
     iget v2, p1, Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;->resId:I
 
     if-ne v1, v2, :cond_1
 
-    .line 119
     iget v1, p0, Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;->widgetResId:I
 
     iget v2, p1, Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;->widgetResId:I
 
     if-ne v1, v2, :cond_0
 
-    .line 120
     return v3
 
-    .line 122
     :cond_0
     iget v1, p0, Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;->widgetResId:I
 
@@ -138,7 +126,6 @@
 
     return v1
 
-    .line 125
     :cond_1
     iget v1, p0, Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;->resId:I
 
@@ -148,20 +135,15 @@
 
     return v1
 
-    .line 128
     :cond_2
     return v0
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
     .locals 1
-    .param p1, "other"    # Ljava/lang/Object;
 
-    .prologue
-    .line 115
     check-cast p1, Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;
 
-    .end local p1    # "other":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;->compareTo(Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;)I
 
     move-result v0

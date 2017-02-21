@@ -21,37 +21,30 @@
 .method public constructor <init>()V
     .locals 4
 
-    .prologue
     const/4 v3, 0x3
 
-    .line 42
     new-array v0, v3, [Ljava/lang/String;
 
-    .line 43
     const-string/jumbo v1, "preferred-activity"
 
     const/4 v2, 0x0
 
     aput-object v1, v0, v2
 
-    .line 44
     const-string/jumbo v1, "default-apps"
 
     const/4 v2, 0x1
 
     aput-object v1, v0, v2
 
-    .line 45
     const-string/jumbo v1, "intent-verification"
 
     const/4 v2, 0x2
 
     aput-object v1, v0, v2
 
-    .line 42
     invoke-direct {p0, v3, v0}, Landroid/app/backup/BlobBackupHelper;-><init>(I[Ljava/lang/String;)V
 
-    .line 41
     return-void
 .end method
 
@@ -59,17 +52,11 @@
 # virtual methods
 .method protected applyRestoredPayload(Ljava/lang/String;[B)V
     .locals 5
-    .param p1, "key"    # Ljava/lang/String;
-    .param p2, "payload"    # [B
 
-    .prologue
-    .line 74
     invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
 
     move-result-object v1
 
-    .line 80
-    .local v1, "pm":Landroid/content/pm/IPackageManager;
     :try_start_0
     const-string/jumbo v2, "preferred-activity"
 
@@ -79,16 +66,13 @@
 
     if-eqz v2, :cond_0
 
-    .line 82
     const/4 v2, 0x0
 
     invoke-interface {v1, p2, v2}, Landroid/content/pm/IPackageManager;->restorePreferredActivities([BI)V
 
-    .line 73
     :goto_0
     return-void
 
-    .line 80
     :cond_0
     const-string/jumbo v2, "default-apps"
 
@@ -98,7 +82,6 @@
 
     if-eqz v2, :cond_1
 
-    .line 85
     const/4 v2, 0x0
 
     invoke-interface {v1, p2, v2}, Landroid/content/pm/IPackageManager;->restoreDefaultApps([BI)V
@@ -107,12 +90,9 @@
 
     goto :goto_0
 
-    .line 93
     :catch_0
     move-exception v0
 
-    .line 94
-    .local v0, "e":Ljava/lang/Exception;
     const-string/jumbo v2, "PreferredBackup"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -137,8 +117,6 @@
 
     goto :goto_0
 
-    .line 80
-    .end local v0    # "e":Ljava/lang/Exception;
     :cond_1
     :try_start_1
     const-string/jumbo v2, "intent-verification"
@@ -149,14 +127,12 @@
 
     if-eqz v2, :cond_2
 
-    .line 88
     const/4 v2, 0x0
 
     invoke-interface {v1, p2, v2}, Landroid/content/pm/IPackageManager;->restoreIntentFilterVerification([BI)V
 
     goto :goto_0
 
-    .line 91
     :cond_2
     const-string/jumbo v2, "PreferredBackup"
 
@@ -187,16 +163,11 @@
 
 .method protected getBackupPayload(Ljava/lang/String;)[B
     .locals 5
-    .param p1, "key"    # Ljava/lang/String;
 
-    .prologue
-    .line 50
     invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
 
     move-result-object v1
 
-    .line 56
-    .local v1, "pm":Landroid/content/pm/IPackageManager;
     :try_start_0
     const-string/jumbo v2, "preferred-activity"
 
@@ -206,7 +177,6 @@
 
     if-eqz v2, :cond_0
 
-    .line 58
     const/4 v2, 0x0
 
     invoke-interface {v1, v2}, Landroid/content/pm/IPackageManager;->getPreferredActivityBackup(I)[B
@@ -215,7 +185,6 @@
 
     return-object v2
 
-    .line 56
     :cond_0
     const-string/jumbo v2, "default-apps"
 
@@ -225,7 +194,6 @@
 
     if-eqz v2, :cond_1
 
-    .line 60
     const/4 v2, 0x0
 
     invoke-interface {v1, v2}, Landroid/content/pm/IPackageManager;->getDefaultAppsBackup(I)[B
@@ -234,7 +202,6 @@
 
     return-object v2
 
-    .line 56
     :cond_1
     const-string/jumbo v2, "intent-verification"
 
@@ -244,7 +211,6 @@
 
     if-eqz v2, :cond_2
 
-    .line 62
     const/4 v2, 0x0
 
     invoke-interface {v1, v2}, Landroid/content/pm/IPackageManager;->getIntentFilterVerificationBackup(I)[B
@@ -253,7 +219,6 @@
 
     return-object v2
 
-    .line 64
     :cond_2
     const-string/jumbo v2, "PreferredBackup"
 
@@ -279,18 +244,14 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 69
     :goto_0
     const/4 v2, 0x0
 
     return-object v2
 
-    .line 66
     :catch_0
     move-exception v0
 
-    .line 67
-    .local v0, "e":Ljava/lang/Exception;
     const-string/jumbo v2, "PreferredBackup"
 
     new-instance v3, Ljava/lang/StringBuilder;

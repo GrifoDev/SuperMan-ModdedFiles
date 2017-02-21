@@ -18,8 +18,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 78
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -41,11 +39,7 @@
 
 .method public onPackagesSuspended([Ljava/lang/String;Landroid/os/UserHandle;)V
     .locals 0
-    .param p1, "packageNames"    # [Ljava/lang/String;
-    .param p2, "user"    # Landroid/os/UserHandle;
 
-    .prologue
-    .line 148
     return-void
 .end method
 
@@ -54,18 +48,12 @@
 
 .method public onPackagesUnsuspended([Ljava/lang/String;Landroid/os/UserHandle;)V
     .locals 0
-    .param p1, "packageNames"    # [Ljava/lang/String;
-    .param p2, "user"    # Landroid/os/UserHandle;
 
-    .prologue
-    .line 160
     return-void
 .end method
 
 .method public onShortcutsChanged(Ljava/lang/String;Ljava/util/List;Landroid/os/UserHandle;)V
     .locals 0
-    .param p1, "packageName"    # Ljava/lang/String;
-    .param p3, "user"    # Landroid/os/UserHandle;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -79,8 +67,5 @@
         }
     .end annotation
 
-    .prologue
-    .line 178
-    .local p2, "shortcuts":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/ShortcutInfo;>;"
     return-void
 .end method

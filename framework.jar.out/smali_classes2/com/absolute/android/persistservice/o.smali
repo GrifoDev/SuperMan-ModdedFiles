@@ -11,8 +11,6 @@
 .method private constructor <init>(Lcom/absolute/android/persistservice/n;)V
     .locals 0
 
-    .prologue
-    .line 738
     iput-object p1, p0, Lcom/absolute/android/persistservice/o;->a:Lcom/absolute/android/persistservice/n;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -23,8 +21,6 @@
 .method synthetic constructor <init>(Lcom/absolute/android/persistservice/n;Lcom/absolute/android/persistservice/m;)V
     .locals 0
 
-    .prologue
-    .line 738
     invoke-direct {p0, p1}, Lcom/absolute/android/persistservice/o;-><init>(Lcom/absolute/android/persistservice/n;)V
 
     return-void
@@ -35,29 +31,24 @@
 .method public handleMessage(Landroid/os/Message;)V
     .locals 7
 
-    .prologue
     const/4 v6, 0x1
 
     const/4 v5, 0x2
 
     const/4 v4, 0x0
 
-    .line 743
     iget v0, p1, Landroid/os/Message;->what:I
 
     if-eq v0, v5, :cond_0
 
-    .line 789
     :goto_0
     return-void
 
-    .line 744
     :cond_0
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Ljava/lang/String;
 
-    .line 746
     iget-object v1, p0, Lcom/absolute/android/persistservice/o;->a:Lcom/absolute/android/persistservice/n;
 
     invoke-static {v1}, Lcom/absolute/android/persistservice/n;->a(Lcom/absolute/android/persistservice/n;)Ljava/util/Hashtable;
@@ -70,10 +61,8 @@
 
     check-cast v1, Ljava/lang/Integer;
 
-    .line 747
     if-eqz v1, :cond_1
 
-    .line 754
     iget-object v2, p0, Lcom/absolute/android/persistservice/o;->a:Lcom/absolute/android/persistservice/n;
 
     iget-object v2, v2, Lcom/absolute/android/persistservice/n;->a:Lcom/absolute/android/persistservice/l;
@@ -92,17 +81,14 @@
 
     const/16 v3, 0x3e8
 
-    .line 757
     invoke-virtual {v2, v3}, Landroid/app/ActivityManager;->getRunningServices(I)Ljava/util/List;
 
     move-result-object v3
 
-    .line 759
     invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v2
 
-    .line 760
     invoke-interface {v3}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
@@ -116,25 +102,21 @@
 
     if-nez v2, :cond_2
 
-    .line 766
     invoke-virtual {v3}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v2
 
     if-eqz v2, :cond_4
 
-    .line 776
     iget-object v2, p0, Lcom/absolute/android/persistservice/o;->a:Lcom/absolute/android/persistservice/n;
 
     iget-object v2, v2, Lcom/absolute/android/persistservice/n;->a:Lcom/absolute/android/persistservice/l;
 
     invoke-virtual {v2, v0}, Lcom/absolute/android/persistservice/l;->c(Ljava/lang/String;)V
 
-    .line 786
     :goto_2
     invoke-virtual {p0, v5, v0}, Landroid/os/Handler;->removeMessages(ILjava/lang/Object;)V
 
-    .line 787
     invoke-virtual {p0, v5, v0}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v0
@@ -153,7 +135,6 @@
 
     goto :goto_0
 
-    .line 749
     :cond_1
     iget-object v1, p0, Lcom/absolute/android/persistservice/o;->a:Lcom/absolute/android/persistservice/n;
 
@@ -187,10 +168,8 @@
 
     invoke-virtual {v1, v0}, Lcom/absolute/android/persistservice/v;->c(Ljava/lang/String;)V
 
-    .line 751
     return-void
 
-    .line 760
     :cond_2
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -198,10 +177,8 @@
 
     check-cast v2, Landroid/app/ActivityManager$RunningServiceInfo;
 
-    .line 761
     iget-object v2, v2, Landroid/app/ActivityManager$RunningServiceInfo;->process:Ljava/lang/String;
 
-    .line 762
     invoke-virtual {v2, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
     move-result v2
@@ -213,10 +190,8 @@
     :goto_3
     move-object v3, v2
 
-    .line 765
     goto :goto_1
 
-    .line 763
     :cond_3
     invoke-static {v6}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
@@ -224,7 +199,6 @@
 
     goto :goto_3
 
-    .line 770
     :cond_4
     iget-object v2, p0, Lcom/absolute/android/persistservice/o;->a:Lcom/absolute/android/persistservice/n;
 

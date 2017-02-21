@@ -73,38 +73,22 @@
 
 .method constructor <init>(Landroid/hardware/location/GeofenceHardwareImpl;IIJLandroid/location/Location;II)V
     .locals 0
-    .param p1, "this$0"    # Landroid/hardware/location/GeofenceHardwareImpl;
-    .param p2, "geofenceId"    # I
-    .param p3, "transition"    # I
-    .param p4, "timestamp"    # J
-    .param p6, "location"    # Landroid/location/Location;
-    .param p7, "monitoringType"    # I
-    .param p8, "sourcesUsed"    # I
 
-    .prologue
-    .line 806
     iput-object p1, p0, Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;->this$0:Landroid/hardware/location/GeofenceHardwareImpl;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 813
     iput p2, p0, Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;->mGeofenceId:I
 
-    .line 814
     iput p3, p0, Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;->mTransition:I
 
-    .line 815
     iput-wide p4, p0, Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;->mTimestamp:J
 
-    .line 816
     iput-object p6, p0, Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;->mLocation:Landroid/location/Location;
 
-    .line 817
     iput p7, p0, Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;->mMonitoringType:I
 
-    .line 818
     iput p8, p0, Landroid/hardware/location/GeofenceHardwareImpl$GeofenceTransition;->mSourcesUsed:I
 
-    .line 812
     return-void
 .end method

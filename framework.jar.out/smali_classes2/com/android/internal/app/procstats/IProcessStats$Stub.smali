@@ -39,33 +39,24 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 13
     invoke-direct {p0}, Landroid/os/Binder;-><init>()V
 
-    .line 15
     const-string/jumbo v0, "com.android.internal.app.procstats.IProcessStats"
 
     invoke-virtual {p0, p0, v0}, Lcom/android/internal/app/procstats/IProcessStats$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
-    .line 13
     return-void
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Lcom/android/internal/app/procstats/IProcessStats;
     .locals 2
-    .param p0, "obj"    # Landroid/os/IBinder;
 
-    .prologue
     const/4 v1, 0x0
 
-    .line 23
     if-nez p0, :cond_0
 
-    .line 24
     return-object v1
 
-    .line 26
     :cond_0
     const-string/jumbo v1, "com.android.internal.app.procstats.IProcessStats"
 
@@ -73,22 +64,16 @@
 
     move-result-object v0
 
-    .line 27
-    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Lcom/android/internal/app/procstats/IProcessStats;
 
     if-eqz v1, :cond_1
 
-    .line 28
     check-cast v0, Lcom/android/internal/app/procstats/IProcessStats;
 
-    .end local v0    # "iin":Landroid/os/IInterface;
     return-object v0
 
-    .line 30
-    .restart local v0    # "iin":Landroid/os/IInterface;
     :cond_1
     new-instance v1, Lcom/android/internal/app/procstats/IProcessStats$Stub$Proxy;
 
@@ -102,112 +87,79 @@
 .method public asBinder()Landroid/os/IBinder;
     .locals 0
 
-    .prologue
-    .line 34
     return-object p0
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 9
-    .param p1, "code"    # I
-    .param p2, "data"    # Landroid/os/Parcel;
-    .param p3, "reply"    # Landroid/os/Parcel;
-    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
     const/4 v8, 0x1
 
-    .line 38
     sparse-switch p1, :sswitch_data_0
 
-    .line 91
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v7
 
     return v7
 
-    .line 42
     :sswitch_0
     const-string/jumbo v7, "com.android.internal.app.procstats.IProcessStats"
 
     invoke-virtual {p3, v7}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 43
     return v8
 
-    .line 47
     :sswitch_1
     const-string/jumbo v7, "com.android.internal.app.procstats.IProcessStats"
 
     invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 49
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    .line 50
-    .local v2, "_arg0":Ljava/util/List;, "Ljava/util/List<Landroid/os/ParcelFileDescriptor;>;"
     invoke-virtual {p0, v2}, Lcom/android/internal/app/procstats/IProcessStats$Stub;->getCurrentStats(Ljava/util/List;)[B
 
     move-result-object v6
 
-    .line 51
-    .local v6, "_result":[B
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 52
     invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeByteArray([B)V
 
-    .line 53
     invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
 
-    .line 54
     return v8
 
-    .line 58
-    .end local v2    # "_arg0":Ljava/util/List;, "Ljava/util/List<Landroid/os/ParcelFileDescriptor;>;"
-    .end local v6    # "_result":[B
     :sswitch_2
     const-string/jumbo v7, "com.android.internal.app.procstats.IProcessStats"
 
     invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 60
     invoke-virtual {p2}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v0
 
-    .line 61
-    .local v0, "_arg0":J
     invoke-virtual {p0, v0, v1}, Lcom/android/internal/app/procstats/IProcessStats$Stub;->getStatsOverTime(J)Landroid/os/ParcelFileDescriptor;
 
     move-result-object v4
 
-    .line 62
-    .local v4, "_result":Landroid/os/ParcelFileDescriptor;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 63
     if-eqz v4, :cond_0
 
-    .line 64
     invoke-virtual {p3, v8}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 65
     invoke-virtual {v4, p3, v8}, Landroid/os/ParcelFileDescriptor;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 70
     :goto_0
     return v8
 
-    .line 68
     :cond_0
     const/4 v7, 0x0
 
@@ -215,58 +167,40 @@
 
     goto :goto_0
 
-    .line 74
-    .end local v0    # "_arg0":J
-    .end local v4    # "_result":Landroid/os/ParcelFileDescriptor;
     :sswitch_3
     const-string/jumbo v7, "com.android.internal.app.procstats.IProcessStats"
 
     invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 75
     invoke-virtual {p0}, Lcom/android/internal/app/procstats/IProcessStats$Stub;->getCurrentMemoryState()I
 
     move-result v3
 
-    .line 76
-    .local v3, "_result":I
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 77
     invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 78
     return v8
 
-    .line 82
-    .end local v3    # "_result":I
     :sswitch_4
     const-string/jumbo v7, "com.android.internal.app.procstats.IProcessStats"
 
     invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 84
     invoke-virtual {p2}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v0
 
-    .line 85
-    .restart local v0    # "_arg0":J
     invoke-virtual {p0, v0, v1}, Lcom/android/internal/app/procstats/IProcessStats$Stub;->DataCollection(J)Ljava/util/List;
 
     move-result-object v5
 
-    .line 86
-    .local v5, "_result":Ljava/util/List;, "Ljava/util/List<Lcom/android/internal/app/procstats/ProcStatsCollection;>;"
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 87
     invoke-virtual {p3, v5}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
 
-    .line 88
     return v8
 
-    .line 38
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_1

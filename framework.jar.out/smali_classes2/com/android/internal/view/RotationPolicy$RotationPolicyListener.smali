@@ -28,11 +28,8 @@
 .method public constructor <init>()V
     .locals 2
 
-    .prologue
-    .line 189
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 190
     new-instance v0, Lcom/android/internal/view/RotationPolicy$RotationPolicyListener$1;
 
     new-instance v1, Landroid/os/Handler;
@@ -43,7 +40,6 @@
 
     iput-object v0, p0, Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;->mObserver:Landroid/database/ContentObserver;
 
-    .line 189
     return-void
 .end method
 

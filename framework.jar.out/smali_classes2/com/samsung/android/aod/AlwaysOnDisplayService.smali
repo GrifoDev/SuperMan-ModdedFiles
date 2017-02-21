@@ -31,8 +31,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 16
     const-class v0, Lcom/samsung/android/aod/AlwaysOnDisplayService;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
@@ -41,25 +39,20 @@
 
     sput-object v0, Lcom/samsung/android/aod/AlwaysOnDisplayService;->TAG:Ljava/lang/String;
 
-    .line 15
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 15
     invoke-direct {p0}, Landroid/app/Service;-><init>()V
 
-    .line 18
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
     iput-object v0, p0, Lcom/samsung/android/aod/AlwaysOnDisplayService;->mHandler:Landroid/os/Handler;
 
-    .line 15
     return-void
 .end method
 
@@ -67,10 +60,7 @@
 # virtual methods
 .method public final onBind(Landroid/content/Intent;)Landroid/os/IBinder;
     .locals 2
-    .param p1, "intent"    # Landroid/content/Intent;
 
-    .prologue
-    .line 22
     new-instance v0, Lcom/samsung/android/aod/AlwaysOnDisplayService$AlwaysOnDisplayServiceWrapper;
 
     const/4 v1, 0x0
@@ -83,51 +73,41 @@
 .method public requestHide()V
     .locals 2
 
-    .prologue
-    .line 43
     sget-object v0, Lcom/samsung/android/aod/AlwaysOnDisplayService;->TAG:Ljava/lang/String;
 
     const-string/jumbo v1, "requestHide Called!"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 42
     return-void
 .end method
 
 .method public startAOD()V
     .locals 2
 
-    .prologue
-    .line 29
     sget-object v0, Lcom/samsung/android/aod/AlwaysOnDisplayService;->TAG:Ljava/lang/String;
 
     const-string/jumbo v1, "startAOD Called!"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 28
     return-void
 .end method
 
 .method public stopAOD()V
     .locals 2
 
-    .prologue
-    .line 36
     sget-object v0, Lcom/samsung/android/aod/AlwaysOnDisplayService;->TAG:Ljava/lang/String;
 
     const-string/jumbo v1, "stopAOD Called!"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 35
     return-void
 .end method
 
 .method public updateNotificationKeys(ILjava/util/List;)V
     .locals 2
-    .param p1, "notiCount"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -138,15 +118,11 @@
         }
     .end annotation
 
-    .prologue
-    .line 50
-    .local p2, "keys":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     sget-object v0, Lcom/samsung/android/aod/AlwaysOnDisplayService;->TAG:Ljava/lang/String;
 
     const-string/jumbo v1, "updateNotificationKeys!"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 49
     return-void
 .end method

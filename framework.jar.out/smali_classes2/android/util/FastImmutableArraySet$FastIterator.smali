@@ -49,16 +49,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 59
-    .local p0, "this":Landroid/util/FastImmutableArraySet$FastIterator;, "Landroid/util/FastImmutableArraySet<TT;>.FastIterator<TT;>;"
-    .local p1, "contents":[Ljava/lang/Object;, "[TT;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 60
     iput-object p1, p0, Landroid/util/FastImmutableArraySet$FastIterator;->mContents:[Ljava/lang/Object;
 
-    .line 59
     return-void
 .end method
 
@@ -67,9 +61,6 @@
 .method public hasNext()Z
     .locals 2
 
-    .prologue
-    .line 65
-    .local p0, "this":Landroid/util/FastImmutableArraySet$FastIterator;, "Landroid/util/FastImmutableArraySet<TT;>.FastIterator<TT;>;"
     iget v0, p0, Landroid/util/FastImmutableArraySet$FastIterator;->mIndex:I
 
     iget-object v1, p0, Landroid/util/FastImmutableArraySet$FastIterator;->mContents:[Ljava/lang/Object;
@@ -97,9 +88,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 70
-    .local p0, "this":Landroid/util/FastImmutableArraySet$FastIterator;, "Landroid/util/FastImmutableArraySet<TT;>.FastIterator<TT;>;"
     iget-object v0, p0, Landroid/util/FastImmutableArraySet$FastIterator;->mContents:[Ljava/lang/Object;
 
     iget v1, p0, Landroid/util/FastImmutableArraySet$FastIterator;->mIndex:I
@@ -116,9 +104,6 @@
 .method public remove()V
     .locals 1
 
-    .prologue
-    .line 75
-    .local p0, "this":Landroid/util/FastImmutableArraySet$FastIterator;, "Landroid/util/FastImmutableArraySet<TT;>.FastIterator<TT;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V

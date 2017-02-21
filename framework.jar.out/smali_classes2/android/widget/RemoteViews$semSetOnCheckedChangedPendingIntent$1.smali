@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/widget/RemoteViews$semSetOnCheckedChangedPendingIntent;)V
     .locals 0
-    .param p1, "this$1"    # Landroid/widget/RemoteViews$semSetOnCheckedChangedPendingIntent;
 
-    .prologue
-    .line 4862
     iput-object p1, p0, Landroid/widget/RemoteViews$semSetOnCheckedChangedPendingIntent$1;->this$1:Landroid/widget/RemoteViews$semSetOnCheckedChangedPendingIntent;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,23 +36,16 @@
 # virtual methods
 .method public onCheckedChanged(Landroid/widget/CompoundButton;Z)V
     .locals 7
-    .param p1, "buttonView"    # Landroid/widget/CompoundButton;
-    .param p2, "isChecked"    # Z
 
-    .prologue
-    .line 4865
     :try_start_0
     new-instance v2, Landroid/content/Intent;
 
     invoke-direct {v2}, Landroid/content/Intent;-><init>()V
 
-    .line 4866
-    .local v2, "intent":Landroid/content/Intent;
     const-string/jumbo v0, "isChecked"
 
     invoke-virtual {v2, v0, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 4867
     invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -68,30 +58,22 @@
 
     move-result-object v1
 
-    .line 4868
     const/high16 v3, 0x10000000
 
-    .line 4869
     const/high16 v4, 0x10000000
 
     const/4 v5, 0x0
 
-    .line 4867
     invoke-virtual/range {v0 .. v5}, Landroid/content/Context;->startIntentSender(Landroid/content/IntentSender;Landroid/content/Intent;III)V
     :try_end_0
     .catch Landroid/content/IntentSender$SendIntentException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 4863
-    .end local v2    # "intent":Landroid/content/Intent;
     :goto_0
     return-void
 
-    .line 4870
     :catch_0
     move-exception v6
 
-    .line 4871
-    .local v6, "e":Landroid/content/IntentSender$SendIntentException;
     const-string/jumbo v0, "RemoteViews"
 
     const-string/jumbo v1, "Cannot send pending intent: "

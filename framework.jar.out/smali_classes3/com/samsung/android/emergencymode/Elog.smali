@@ -13,8 +13,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -22,11 +20,7 @@
 
 .method public static d(Ljava/lang/String;Ljava/lang/String;)V
     .locals 3
-    .param p0, "moduleTag"    # Ljava/lang/String;
-    .param p1, "log"    # Ljava/lang/String;
 
-    .prologue
-    .line 28
     const-string/jumbo v0, "EmergencyMode"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -59,17 +53,12 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/util/SemLog;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 27
     return-void
 .end method
 
 .method public static v(Ljava/lang/String;Ljava/lang/String;)V
     .locals 3
-    .param p0, "moduleTag"    # Ljava/lang/String;
-    .param p1, "log"    # Ljava/lang/String;
 
-    .prologue
-    .line 31
     const-string/jumbo v0, "EmergencyMode"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -102,6 +91,5 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/util/SemLog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 30
     return-void
 .end method

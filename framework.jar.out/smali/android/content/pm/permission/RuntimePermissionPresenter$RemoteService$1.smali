@@ -28,12 +28,7 @@
 # direct methods
 .method constructor <init>(Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService;Landroid/os/Handler;Landroid/content/pm/permission/RuntimePermissionPresenter$OnResultCallback;)V
     .locals 0
-    .param p1, "this$1"    # Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService;
-    .param p2, "val$handler"    # Landroid/os/Handler;
-    .param p3, "val$callback"    # Landroid/content/pm/permission/RuntimePermissionPresenter$OnResultCallback;
 
-    .prologue
-    .line 227
     iput-object p1, p0, Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService$1;->this$1:Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService;
 
     iput-object p2, p0, Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService$1;->val$handler:Landroid/os/Handler;
@@ -49,44 +44,31 @@
 # virtual methods
 .method public onResult(Landroid/os/Bundle;)V
     .locals 5
-    .param p1, "result"    # Landroid/os/Bundle;
 
-    .prologue
-    .line 231
     const/4 v0, 0x0
 
-    .line 232
-    .local v0, "permissions":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/permission/RuntimePermissionPresentationInfo;>;"
     if-eqz p1, :cond_0
 
-    .line 233
     const-string/jumbo v2, "android.content.pm.permission.RuntimePermissionPresenter.key.result"
 
     invoke-virtual {p1, v2}, Landroid/os/Bundle;->getParcelableArrayList(Ljava/lang/String;)Ljava/util/ArrayList;
 
     move-result-object v0
 
-    .line 235
-    .end local v0    # "permissions":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/permission/RuntimePermissionPresentationInfo;>;"
     :cond_0
     if-nez v0, :cond_1
 
-    .line 236
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
     move-result-object v0
 
-    .line 238
     :cond_1
     move-object v1, v0
 
-    .line 239
-    .local v1, "reportedPermissions":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/permission/RuntimePermissionPresentationInfo;>;"
     iget-object v2, p0, Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService$1;->val$handler:Landroid/os/Handler;
 
     if-eqz v2, :cond_2
 
-    .line 240
     iget-object v2, p0, Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService$1;->val$handler:Landroid/os/Handler;
 
     new-instance v3, Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService$1$1;
@@ -97,11 +79,9 @@
 
     invoke-virtual {v2, v3}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 229
     :goto_0
     return-void
 
-    .line 247
     :cond_2
     iget-object v2, p0, Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService$1;->val$callback:Landroid/content/pm/permission/RuntimePermissionPresenter$OnResultCallback;
 

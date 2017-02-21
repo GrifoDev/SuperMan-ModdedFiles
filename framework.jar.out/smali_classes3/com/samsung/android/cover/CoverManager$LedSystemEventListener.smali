@@ -22,8 +22,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 906
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -33,10 +31,6 @@
 # virtual methods
 .method public onSystemCoverEvent(ILandroid/os/Bundle;)V
     .locals 0
-    .param p1, "event"    # I
-    .param p2, "args"    # Landroid/os/Bundle;
 
-    .prologue
-    .line 923
     return-void
 .end method

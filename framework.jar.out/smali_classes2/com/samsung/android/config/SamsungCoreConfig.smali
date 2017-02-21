@@ -43,15 +43,12 @@
 .method static constructor <clinit>()V
     .locals 4
 
-    .prologue
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
-    .line 34
     const-string/jumbo v0, "2"
 
-    .line 33
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
 
     move-result-object v0
@@ -62,7 +59,6 @@
 
     sput v0, Lcom/samsung/android/config/SamsungCoreConfig;->VERSION_AOD:I
 
-    .line 37
     const-string/jumbo v0, "1"
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
@@ -79,11 +75,9 @@
 
     move v0, v1
 
-    .line 36
     :goto_0
     sput-boolean v0, Lcom/samsung/android/config/SamsungCoreConfig;->FEATURE_AUDIO_SPEAKER_LR_SWITCHING:Z
 
-    .line 43
     sget v0, Lcom/samsung/android/config/SamsungCoreConfig;->VERSION_AOD:I
 
     if-lez v0, :cond_1
@@ -91,27 +85,22 @@
     :goto_1
     sput-boolean v1, Lcom/samsung/android/config/SamsungCoreConfig;->FEATURE_AOD:Z
 
-    .line 28
     return-void
 
     :cond_0
     move v0, v2
 
-    .line 37
     goto :goto_0
 
     :cond_1
     move v1, v2
 
-    .line 43
     goto :goto_1
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -119,13 +108,9 @@
 
 .method public static dump(Ljava/lang/String;Ljava/io/PrintWriter;)V
     .locals 2
-    .param p0, "prefix"    # Ljava/lang/String;
-    .param p1, "pw"    # Ljava/io/PrintWriter;
 
-    .prologue
     const/4 v1, 0x1
 
-    .line 72
     invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string/jumbo v0, "VERSION_AOD="
@@ -140,12 +125,10 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 73
     const-string/jumbo v0, ""
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 74
     invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string/jumbo v0, "FEATURE_COCKTAIL="
@@ -158,7 +141,6 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 75
     invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string/jumbo v0, "FEATURE_REDUCE_SCREEN="
@@ -171,7 +153,6 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 76
     invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string/jumbo v0, "FEATURE_CAMERA_ROTATION="
@@ -184,7 +165,6 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 77
     invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string/jumbo v0, "FEATURE_HORIZONTAL_MODE="
@@ -199,6 +179,5 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 71
     return-void
 .end method

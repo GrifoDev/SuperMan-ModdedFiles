@@ -23,19 +23,12 @@
 # direct methods
 .method public constructor <init>(ILjava/lang/Object;)V
     .locals 0
-    .param p1, "type"    # I
-    .param p2, "obj"    # Ljava/lang/Object;
 
-    .prologue
-    .line 868
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 869
     iput p1, p0, Landroid/media/Cea708CCParser$CaptionEvent;->type:I
 
-    .line 870
     iput-object p2, p0, Landroid/media/Cea708CCParser$CaptionEvent;->obj:Ljava/lang/Object;
 
-    .line 868
     return-void
 .end method

@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;
 
-    .prologue
-    .line 51
     iput-object p1, p0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$1;->this$0:Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;
 
     invoke-direct {p0}, Lcom/samsung/android/fingerprint/IFingerprintClient$Stub;-><init>()V
@@ -36,19 +33,14 @@
 # virtual methods
 .method public onFingerprintEvent(Lcom/samsung/android/fingerprint/FingerprintEvent;)V
     .locals 4
-    .param p1, "evt"    # Lcom/samsung/android/fingerprint/FingerprintEvent;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
-    .line 55
     move-object v0, p1
 
-    .line 56
-    .local v0, "event":Lcom/samsung/android/fingerprint/FingerprintEvent;
     if-eqz p1, :cond_0
 
     iget-object v1, p0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$1;->this$0:Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;
@@ -59,7 +51,6 @@
 
     if-eqz v1, :cond_0
 
-    .line 57
     iget-object v1, p0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$1;->this$0:Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;
 
     invoke-static {v1}, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;->-get0(Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;)Landroid/os/Handler;
@@ -80,7 +71,6 @@
 
     invoke-virtual {v1, v2}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 54
     :cond_0
     return-void
 .end method

@@ -26,11 +26,7 @@
 # direct methods
 .method constructor <init>(Landroid/app/EnterTransitionCoordinator;Landroid/view/View;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/app/EnterTransitionCoordinator;
-    .param p2, "val$decorView"    # Landroid/view/View;
 
-    .prologue
-    .line 89
     iput-object p1, p0, Landroid/app/EnterTransitionCoordinator$1;->this$0:Landroid/app/EnterTransitionCoordinator;
 
     iput-object p2, p0, Landroid/app/EnterTransitionCoordinator$1;->val$decorView:Landroid/view/View;
@@ -45,8 +41,6 @@
 .method public onPreDraw()Z
     .locals 1
 
-    .prologue
-    .line 92
     iget-object v0, p0, Landroid/app/EnterTransitionCoordinator$1;->this$0:Landroid/app/EnterTransitionCoordinator;
 
     invoke-static {v0}, Landroid/app/EnterTransitionCoordinator;->-get0(Landroid/app/EnterTransitionCoordinator;)Z
@@ -55,7 +49,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 93
     iget-object v0, p0, Landroid/app/EnterTransitionCoordinator$1;->val$decorView:Landroid/view/View;
 
     invoke-virtual {v0}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
@@ -64,7 +57,6 @@
 
     invoke-virtual {v0, p0}, Landroid/view/ViewTreeObserver;->removeOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
 
-    .line 95
     :cond_0
     iget-object v0, p0, Landroid/app/EnterTransitionCoordinator$1;->this$0:Landroid/app/EnterTransitionCoordinator;
 

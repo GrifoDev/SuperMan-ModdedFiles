@@ -51,7 +51,6 @@
 .method static constructor <clinit>()V
     .locals 9
 
-    .prologue
     const/4 v8, 0x6
 
     const/4 v7, 0x5
@@ -62,7 +61,6 @@
 
     const/4 v4, 0x0
 
-    .line 7691
     new-instance v0, Landroid/widget/Editor$SFEffectsAPI$PixEffectType;
 
     const-string/jumbo v1, "NONE"
@@ -139,7 +137,6 @@
 
     sput-object v0, Landroid/widget/Editor$SFEffectsAPI$PixEffectType;->MAGNIFIER:Landroid/widget/Editor$SFEffectsAPI$PixEffectType;
 
-    .line 7690
     const/16 v0, 0x8
 
     new-array v0, v0, [Landroid/widget/Editor$SFEffectsAPI$PixEffectType;
@@ -189,25 +186,17 @@
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
-    .param p3, "id"    # I
 
-    .prologue
-    .line 7695
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 7696
     iput p3, p0, Landroid/widget/Editor$SFEffectsAPI$PixEffectType;->id:I
 
-    .line 7695
     return-void
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroid/widget/Editor$SFEffectsAPI$PixEffectType;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
-    .prologue
-    .line 7690
     const-class v0, Landroid/widget/Editor$SFEffectsAPI$PixEffectType;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -222,8 +211,6 @@
 .method public static values()[Landroid/widget/Editor$SFEffectsAPI$PixEffectType;
     .locals 1
 
-    .prologue
-    .line 7690
     sget-object v0, Landroid/widget/Editor$SFEffectsAPI$PixEffectType;->$VALUES:[Landroid/widget/Editor$SFEffectsAPI$PixEffectType;
 
     return-object v0

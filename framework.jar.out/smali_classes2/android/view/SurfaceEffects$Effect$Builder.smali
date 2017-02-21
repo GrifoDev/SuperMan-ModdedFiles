@@ -107,54 +107,44 @@
 .method private constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 153
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 146
     sget-object v0, Landroid/view/SurfaceEffects$AnimationMode;->STATIC:Landroid/view/SurfaceEffects$AnimationMode;
 
     iput-object v0, p0, Landroid/view/SurfaceEffects$Effect$Builder;->mAnimationMode:Landroid/view/SurfaceEffects$AnimationMode;
 
-    .line 147
     sget-object v0, Landroid/view/SurfaceEffects$EffectTarget;->BEHIND:Landroid/view/SurfaceEffects$EffectTarget;
 
     iput-object v0, p0, Landroid/view/SurfaceEffects$Effect$Builder;->mEffectTarget:Landroid/view/SurfaceEffects$EffectTarget;
 
-    .line 148
     sget-object v0, Landroid/view/SurfaceEffects$PixEffectType;->NONE:Landroid/view/SurfaceEffects$PixEffectType;
 
     iput-object v0, p0, Landroid/view/SurfaceEffects$Effect$Builder;->mPixelEffectType:Landroid/view/SurfaceEffects$PixEffectType;
 
-    .line 149
     new-instance v0, Ljava/util/Vector;
 
     invoke-direct {v0}, Ljava/util/Vector;-><init>()V
 
     iput-object v0, p0, Landroid/view/SurfaceEffects$Effect$Builder;->mEffectRegion:Ljava/util/Vector;
 
-    .line 150
     new-instance v0, Ljava/util/Vector;
 
     invoke-direct {v0}, Ljava/util/Vector;-><init>()V
 
     iput-object v0, p0, Landroid/view/SurfaceEffects$Effect$Builder;->mPixelAnimationVector:Ljava/util/Vector;
 
-    .line 151
     new-instance v0, Ljava/util/Vector;
 
     invoke-direct {v0}, Ljava/util/Vector;-><init>()V
 
     iput-object v0, p0, Landroid/view/SurfaceEffects$Effect$Builder;->mGeometryAnimationVector:Ljava/util/Vector;
 
-    .line 153
     return-void
 .end method
 
 .method synthetic constructor <init>(Landroid/view/SurfaceEffects$Effect$Builder;)V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Landroid/view/SurfaceEffects$Effect$Builder;-><init>()V
 
     return-void
@@ -164,10 +154,7 @@
 # virtual methods
 .method public addEffectRegionRect(Landroid/graphics/Rect;)Landroid/view/SurfaceEffects$Effect$Builder;
     .locals 2
-    .param p1, "rect"    # Landroid/graphics/Rect;
 
-    .prologue
-    .line 201
     iget-object v0, p0, Landroid/view/SurfaceEffects$Effect$Builder;->mEffectRegion:Ljava/util/Vector;
 
     new-instance v1, Landroid/graphics/Rect;
@@ -176,19 +163,12 @@
 
     invoke-virtual {v0, v1}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
 
-    .line 202
     return-object p0
 .end method
 
 .method public addGeoAnimation(Landroid/view/SurfaceEffects$AnimParam;IFLandroid/view/SurfaceEffects$InterpMode;)Landroid/view/SurfaceEffects$Effect$Builder;
     .locals 2
-    .param p1, "animParam"    # Landroid/view/SurfaceEffects$AnimParam;
-    .param p2, "timeMs"    # I
-    .param p3, "value"    # F
-    .param p4, "interpolation"    # Landroid/view/SurfaceEffects$InterpMode;
 
-    .prologue
-    .line 192
     iget-object v0, p0, Landroid/view/SurfaceEffects$Effect$Builder;->mGeometryAnimationVector:Ljava/util/Vector;
 
     new-instance v1, Landroid/view/SurfaceEffects$AnimKeyFrame;
@@ -197,19 +177,12 @@
 
     invoke-virtual {v0, v1}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
 
-    .line 193
     return-object p0
 .end method
 
 .method public addPixAnimation(Landroid/view/SurfaceEffects$AnimParam;IFLandroid/view/SurfaceEffects$InterpMode;)Landroid/view/SurfaceEffects$Effect$Builder;
     .locals 2
-    .param p1, "animParam"    # Landroid/view/SurfaceEffects$AnimParam;
-    .param p2, "timeMs"    # I
-    .param p3, "value"    # F
-    .param p4, "interpolation"    # Landroid/view/SurfaceEffects$InterpMode;
 
-    .prologue
-    .line 183
     iget-object v0, p0, Landroid/view/SurfaceEffects$Effect$Builder;->mPixelAnimationVector:Ljava/util/Vector;
 
     new-instance v1, Landroid/view/SurfaceEffects$AnimKeyFrame;
@@ -218,15 +191,12 @@
 
     invoke-virtual {v0, v1}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
 
-    .line 184
     return-object p0
 .end method
 
 .method public build()Landroid/view/SurfaceEffects$Effect;
     .locals 2
 
-    .prologue
-    .line 216
     new-instance v0, Landroid/view/SurfaceEffects$Effect;
 
     const/4 v1, 0x0
@@ -239,8 +209,6 @@
 .method public getAnimationMode()Landroid/view/SurfaceEffects$AnimationMode;
     .locals 1
 
-    .prologue
-    .line 156
     iget-object v0, p0, Landroid/view/SurfaceEffects$Effect$Builder;->mAnimationMode:Landroid/view/SurfaceEffects$AnimationMode;
 
     return-object v0
@@ -258,8 +226,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 212
     iget-object v0, p0, Landroid/view/SurfaceEffects$Effect$Builder;->mEffectRegion:Ljava/util/Vector;
 
     return-object v0
@@ -268,8 +234,6 @@
 .method public getEffectTarget()Landroid/view/SurfaceEffects$EffectTarget;
     .locals 1
 
-    .prologue
-    .line 165
     iget-object v0, p0, Landroid/view/SurfaceEffects$Effect$Builder;->mEffectTarget:Landroid/view/SurfaceEffects$EffectTarget;
 
     return-object v0
@@ -287,8 +251,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 197
     iget-object v0, p0, Landroid/view/SurfaceEffects$Effect$Builder;->mGeometryAnimationVector:Ljava/util/Vector;
 
     return-object v0
@@ -306,8 +268,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 188
     iget-object v0, p0, Landroid/view/SurfaceEffects$Effect$Builder;->mPixelAnimationVector:Ljava/util/Vector;
 
     return-object v0
@@ -316,8 +276,6 @@
 .method public getPixelEffectType()Landroid/view/SurfaceEffects$PixEffectType;
     .locals 1
 
-    .prologue
-    .line 174
     iget-object v0, p0, Landroid/view/SurfaceEffects$Effect$Builder;->mPixelEffectType:Landroid/view/SurfaceEffects$PixEffectType;
 
     return-object v0
@@ -326,17 +284,14 @@
 .method public makeFullscreen()Landroid/view/SurfaceEffects$Effect$Builder;
     .locals 4
 
-    .prologue
     const/16 v3, 0x2710
 
     const/4 v2, 0x0
 
-    .line 206
     iget-object v0, p0, Landroid/view/SurfaceEffects$Effect$Builder;->mEffectRegion:Ljava/util/Vector;
 
     invoke-virtual {v0}, Ljava/util/Vector;->clear()V
 
-    .line 207
     iget-object v0, p0, Landroid/view/SurfaceEffects$Effect$Builder;->mEffectRegion:Ljava/util/Vector;
 
     new-instance v1, Landroid/graphics/Rect;
@@ -345,42 +300,29 @@
 
     invoke-virtual {v0, v1}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
 
-    .line 208
     return-object p0
 .end method
 
 .method public setAnimationMode(Landroid/view/SurfaceEffects$AnimationMode;)Landroid/view/SurfaceEffects$Effect$Builder;
     .locals 0
-    .param p1, "mAnimationMode"    # Landroid/view/SurfaceEffects$AnimationMode;
 
-    .prologue
-    .line 160
     iput-object p1, p0, Landroid/view/SurfaceEffects$Effect$Builder;->mAnimationMode:Landroid/view/SurfaceEffects$AnimationMode;
 
-    .line 161
     return-object p0
 .end method
 
 .method public setEffectTarget(Landroid/view/SurfaceEffects$EffectTarget;)Landroid/view/SurfaceEffects$Effect$Builder;
     .locals 0
-    .param p1, "mEffectTarget"    # Landroid/view/SurfaceEffects$EffectTarget;
 
-    .prologue
-    .line 169
     iput-object p1, p0, Landroid/view/SurfaceEffects$Effect$Builder;->mEffectTarget:Landroid/view/SurfaceEffects$EffectTarget;
 
-    .line 170
     return-object p0
 .end method
 
 .method public setPixelEffectType(Landroid/view/SurfaceEffects$PixEffectType;)Landroid/view/SurfaceEffects$Effect$Builder;
     .locals 0
-    .param p1, "mPixelEffectType"    # Landroid/view/SurfaceEffects$PixEffectType;
 
-    .prologue
-    .line 178
     iput-object p1, p0, Landroid/view/SurfaceEffects$Effect$Builder;->mPixelEffectType:Landroid/view/SurfaceEffects$PixEffectType;
 
-    .line 179
     return-object p0
 .end method

@@ -28,12 +28,7 @@
 # direct methods
 .method constructor <init>([BII)V
     .locals 0
-    .param p1, "val$bytes"    # [B
-    .param p2, "val$start"    # I
-    .param p3, "val$end"    # I
 
-    .prologue
-    .line 64
     iput-object p1, p0, Lcom/android/internal/util/CharSequences$2;->val$bytes:[B
 
     iput p2, p0, Lcom/android/internal/util/CharSequences$2;->val$start:I
@@ -49,10 +44,7 @@
 # virtual methods
 .method public charAt(I)C
     .locals 2
-    .param p1, "index"    # I
 
-    .prologue
-    .line 66
     iget-object v0, p0, Lcom/android/internal/util/CharSequences$2;->val$bytes:[B
 
     iget v1, p0, Lcom/android/internal/util/CharSequences$2;->val$start:I
@@ -69,8 +61,6 @@
 .method public length()I
     .locals 2
 
-    .prologue
-    .line 70
     iget v0, p0, Lcom/android/internal/util/CharSequences$2;->val$end:I
 
     iget v1, p0, Lcom/android/internal/util/CharSequences$2;->val$start:I
@@ -82,28 +72,21 @@
 
 .method public subSequence(II)Ljava/lang/CharSequence;
     .locals 1
-    .param p1, "newStart"    # I
-    .param p2, "newEnd"    # I
 
-    .prologue
-    .line 74
     iget v0, p0, Lcom/android/internal/util/CharSequences$2;->val$start:I
 
     sub-int/2addr p1, v0
 
-    .line 75
     iget v0, p0, Lcom/android/internal/util/CharSequences$2;->val$start:I
 
     sub-int/2addr p2, v0
 
-    .line 76
     invoke-virtual {p0}, Lcom/android/internal/util/CharSequences$2;->length()I
 
     move-result v0
 
     invoke-static {p1, p2, v0}, Lcom/android/internal/util/CharSequences;->validate(III)V
 
-    .line 77
     iget-object v0, p0, Lcom/android/internal/util/CharSequences$2;->val$bytes:[B
 
     invoke-static {v0, p1, p2}, Lcom/android/internal/util/CharSequences;->forAsciiBytes([BII)Ljava/lang/CharSequence;
@@ -116,8 +99,6 @@
 .method public toString()Ljava/lang/String;
     .locals 4
 
-    .prologue
-    .line 81
     new-instance v0, Ljava/lang/String;
 
     iget-object v1, p0, Lcom/android/internal/util/CharSequences$2;->val$bytes:[B

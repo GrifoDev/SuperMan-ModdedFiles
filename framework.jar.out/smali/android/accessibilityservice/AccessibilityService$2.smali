@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/accessibilityservice/AccessibilityService;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/accessibilityservice/AccessibilityService;
 
-    .prologue
-    .line 1459
     iput-object p1, p0, Landroid/accessibilityservice/AccessibilityService$2;->this$0:Landroid/accessibilityservice/AccessibilityService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,21 +36,15 @@
 # virtual methods
 .method public init(ILandroid/os/IBinder;)V
     .locals 3
-    .param p1, "connectionId"    # I
-    .param p2, "windowToken"    # Landroid/os/IBinder;
 
-    .prologue
-    .line 1477
     iget-object v1, p0, Landroid/accessibilityservice/AccessibilityService$2;->this$0:Landroid/accessibilityservice/AccessibilityService;
 
     invoke-static {v1, p1}, Landroid/accessibilityservice/AccessibilityService;->-set0(Landroid/accessibilityservice/AccessibilityService;I)I
 
-    .line 1478
     iget-object v1, p0, Landroid/accessibilityservice/AccessibilityService$2;->this$0:Landroid/accessibilityservice/AccessibilityService;
 
     invoke-static {v1, p2}, Landroid/accessibilityservice/AccessibilityService;->-set1(Landroid/accessibilityservice/AccessibilityService;Landroid/os/IBinder;)Landroid/os/IBinder;
 
-    .line 1482
     iget-object v1, p0, Landroid/accessibilityservice/AccessibilityService$2;->this$0:Landroid/accessibilityservice/AccessibilityService;
 
     const-string/jumbo v2, "window"
@@ -64,34 +55,24 @@
 
     check-cast v0, Landroid/view/WindowManagerImpl;
 
-    .line 1483
-    .local v0, "wm":Landroid/view/WindowManagerImpl;
     invoke-virtual {v0, p2}, Landroid/view/WindowManagerImpl;->setDefaultToken(Landroid/os/IBinder;)V
 
-    .line 1476
     return-void
 .end method
 
 .method public onAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
     .locals 1
-    .param p1, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
-    .prologue
-    .line 1472
     iget-object v0, p0, Landroid/accessibilityservice/AccessibilityService$2;->this$0:Landroid/accessibilityservice/AccessibilityService;
 
     invoke-virtual {v0, p1}, Landroid/accessibilityservice/AccessibilityService;->onAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
 
-    .line 1471
     return-void
 .end method
 
 .method public onGesture(I)Z
     .locals 1
-    .param p1, "gestureId"    # I
 
-    .prologue
-    .line 1488
     iget-object v0, p0, Landroid/accessibilityservice/AccessibilityService$2;->this$0:Landroid/accessibilityservice/AccessibilityService;
 
     invoke-virtual {v0, p1}, Landroid/accessibilityservice/AccessibilityService;->onGesture(I)Z
@@ -104,22 +85,16 @@
 .method public onInterrupt()V
     .locals 1
 
-    .prologue
-    .line 1467
     iget-object v0, p0, Landroid/accessibilityservice/AccessibilityService$2;->this$0:Landroid/accessibilityservice/AccessibilityService;
 
     invoke-virtual {v0}, Landroid/accessibilityservice/AccessibilityService;->onInterrupt()V
 
-    .line 1466
     return-void
 .end method
 
 .method public onKeyEvent(Landroid/view/KeyEvent;)Z
     .locals 1
-    .param p1, "event"    # Landroid/view/KeyEvent;
 
-    .prologue
-    .line 1493
     iget-object v0, p0, Landroid/accessibilityservice/AccessibilityService$2;->this$0:Landroid/accessibilityservice/AccessibilityService;
 
     invoke-virtual {v0, p1}, Landroid/accessibilityservice/AccessibilityService;->onKeyEvent(Landroid/view/KeyEvent;)Z
@@ -131,59 +106,40 @@
 
 .method public onMagnificationChanged(Landroid/graphics/Region;FFF)V
     .locals 1
-    .param p1, "region"    # Landroid/graphics/Region;
-    .param p2, "scale"    # F
-    .param p3, "centerX"    # F
-    .param p4, "centerY"    # F
 
-    .prologue
-    .line 1499
     iget-object v0, p0, Landroid/accessibilityservice/AccessibilityService$2;->this$0:Landroid/accessibilityservice/AccessibilityService;
 
     invoke-static {v0, p1, p2, p3, p4}, Landroid/accessibilityservice/AccessibilityService;->-wrap1(Landroid/accessibilityservice/AccessibilityService;Landroid/graphics/Region;FFF)V
 
-    .line 1498
     return-void
 .end method
 
 .method public onPerformGestureResult(IZ)V
     .locals 1
-    .param p1, "sequence"    # I
-    .param p2, "completedSuccessfully"    # Z
 
-    .prologue
-    .line 1509
     iget-object v0, p0, Landroid/accessibilityservice/AccessibilityService$2;->this$0:Landroid/accessibilityservice/AccessibilityService;
 
     invoke-virtual {v0, p1, p2}, Landroid/accessibilityservice/AccessibilityService;->onPerformGestureResult(IZ)V
 
-    .line 1508
     return-void
 .end method
 
 .method public onServiceConnected()V
     .locals 1
 
-    .prologue
-    .line 1462
     iget-object v0, p0, Landroid/accessibilityservice/AccessibilityService$2;->this$0:Landroid/accessibilityservice/AccessibilityService;
 
     invoke-static {v0}, Landroid/accessibilityservice/AccessibilityService;->-wrap0(Landroid/accessibilityservice/AccessibilityService;)V
 
-    .line 1461
     return-void
 .end method
 
 .method public onSoftKeyboardShowModeChanged(I)V
     .locals 1
-    .param p1, "showMode"    # I
 
-    .prologue
-    .line 1504
     iget-object v0, p0, Landroid/accessibilityservice/AccessibilityService$2;->this$0:Landroid/accessibilityservice/AccessibilityService;
 
     invoke-static {v0, p1}, Landroid/accessibilityservice/AccessibilityService;->-wrap2(Landroid/accessibilityservice/AccessibilityService;I)V
 
-    .line 1503
     return-void
 .end method

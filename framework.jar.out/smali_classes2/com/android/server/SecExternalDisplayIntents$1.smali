@@ -565,10 +565,7 @@
 
 .method constructor <init>(Lcom/android/server/SecExternalDisplayIntents;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/server/SecExternalDisplayIntents;
 
-    .prologue
-    .line 229
     iput-object p1, p0, Lcom/android/server/SecExternalDisplayIntents$1;->this$0:Lcom/android/server/SecExternalDisplayIntents;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -580,21 +577,13 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 13
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "intent"    # Landroid/content/Intent;
 
-    .prologue
-    .line 233
     const/4 v9, -0x1
 
-    .line 234
-    .local v9, "value":I
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 236
-    .local v2, "action":Ljava/lang/String;
     :try_start_0
     iget-object v10, p0, Lcom/android/server/SecExternalDisplayIntents$1;->this$0:Lcom/android/server/SecExternalDisplayIntents;
 
@@ -612,8 +601,6 @@
 
     move-result v0
 
-    .line 237
-    .local v0, "IntentInfo":I
     const-string/jumbo v10, "SecExternalDisplayIntents_Java"
 
     new-instance v11, Ljava/lang/StringBuilder;
@@ -646,7 +633,6 @@
 
     invoke-static {v10, v11}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 239
     invoke-static {v0}, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->toStatus(I)Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;
 
     move-result-object v10
@@ -655,7 +641,6 @@
 
     return-void
 
-    .line 241
     :cond_0
     invoke-static {}, Lcom/android/server/SecExternalDisplayIntents$1;->-getcom-android-server-SecExternalDisplayIntents$EDSRecievedIntentSwitchesValues()[I
 
@@ -673,27 +658,21 @@
 
     packed-switch v10, :pswitch_data_0
 
-    .line 231
-    .end local v0    # "IntentInfo":I
     :cond_1
     :goto_0
     return-void
 
-    .line 244
-    .restart local v0    # "IntentInfo":I
     :pswitch_0
     sget-boolean v10, Lcom/android/server/SecExternalDisplayIntents;->bIsLogEnabled:Z
 
     if-eqz v10, :cond_2
 
-    .line 245
     const-string/jumbo v10, "SecExternalDisplayIntents_Java"
 
     const-string/jumbo v11, "entered HDMI Case"
 
     invoke-static {v10, v11}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 246
     :cond_2
     const-string/jumbo v10, "state"
 
@@ -703,8 +682,6 @@
 
     move-result v7
 
-    .line 247
-    .local v7, "bStatus":Z
     iget-object v10, p0, Lcom/android/server/SecExternalDisplayIntents$1;->this$0:Lcom/android/server/SecExternalDisplayIntents;
 
     iget-object v10, v10, Lcom/android/server/SecExternalDisplayOrientation;->mEDSServiceObj:Lcom/android/server/SecExternalDisplayService;
@@ -715,14 +692,9 @@
 
     goto :goto_0
 
-    .line 407
-    .end local v0    # "IntentInfo":I
-    .end local v7    # "bStatus":Z
     :catch_0
     move-exception v8
 
-    .line 408
-    .local v8, "e":Ljava/lang/Exception;
     const-string/jumbo v10, "SecExternalDisplayIntents_Java"
 
     new-instance v11, Ljava/lang/StringBuilder;
@@ -747,23 +719,18 @@
 
     goto :goto_0
 
-    .line 251
-    .end local v8    # "e":Ljava/lang/Exception;
-    .restart local v0    # "IntentInfo":I
     :pswitch_1
     :try_start_1
     sget-boolean v10, Lcom/android/server/SecExternalDisplayIntents;->bIsLogEnabled:Z
 
     if-eqz v10, :cond_3
 
-    .line 252
     const-string/jumbo v10, "SecExternalDisplayIntents_Java"
 
     const-string/jumbo v11, "entered rear camera Case"
 
     invoke-static {v10, v11}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 253
     :cond_3
     iget-object v10, p0, Lcom/android/server/SecExternalDisplayIntents$1;->this$0:Lcom/android/server/SecExternalDisplayIntents;
 
@@ -777,20 +744,17 @@
 
     goto :goto_0
 
-    .line 257
     :pswitch_2
     sget-boolean v10, Lcom/android/server/SecExternalDisplayIntents;->bIsLogEnabled:Z
 
     if-eqz v10, :cond_4
 
-    .line 258
     const-string/jumbo v10, "SecExternalDisplayIntents_Java"
 
     const-string/jumbo v11, "entered Front Case"
 
     invoke-static {v10, v11}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 259
     :cond_4
     iget-object v10, p0, Lcom/android/server/SecExternalDisplayIntents$1;->this$0:Lcom/android/server/SecExternalDisplayIntents;
 
@@ -804,20 +768,17 @@
 
     goto :goto_0
 
-    .line 263
     :pswitch_3
     sget-boolean v10, Lcom/android/server/SecExternalDisplayIntents;->bIsLogEnabled:Z
 
     if-eqz v10, :cond_5
 
-    .line 264
     const-string/jumbo v10, "SecExternalDisplayIntents_Java"
 
     const-string/jumbo v11, "entered Camera Stop Case"
 
     invoke-static {v10, v11}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 265
     :cond_5
     iget-object v10, p0, Lcom/android/server/SecExternalDisplayIntents$1;->this$0:Lcom/android/server/SecExternalDisplayIntents;
 
@@ -831,20 +792,17 @@
 
     goto/16 :goto_0
 
-    .line 269
     :pswitch_4
     sget-boolean v10, Lcom/android/server/SecExternalDisplayIntents;->bIsLogEnabled:Z
 
     if-eqz v10, :cond_6
 
-    .line 270
     const-string/jumbo v10, "SecExternalDisplayIntents_Java"
 
     const-string/jumbo v11, "entered RVF Case"
 
     invoke-static {v10, v11}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 271
     :cond_6
     const-string/jumbo v10, "running"
 
@@ -854,29 +812,23 @@
 
     move-result v6
 
-    .line 272
-    .local v6, "bRVFStatus":Z
     iget-object v10, p0, Lcom/android/server/SecExternalDisplayIntents$1;->this$0:Lcom/android/server/SecExternalDisplayIntents;
 
     invoke-virtual {v10, v6}, Lcom/android/server/SecExternalDisplayOrientation;->handleRVFConnection(Z)Z
 
     goto/16 :goto_0
 
-    .line 276
-    .end local v6    # "bRVFStatus":Z
     :pswitch_5
     sget-boolean v10, Lcom/android/server/SecExternalDisplayIntents;->bIsLogEnabled:Z
 
     if-eqz v10, :cond_7
 
-    .line 277
     const-string/jumbo v10, "SecExternalDisplayIntents_Java"
 
     const-string/jumbo v11, "entered WFD Case"
 
     invoke-static {v10, v11}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 278
     :cond_7
     const-string/jumbo v10, "state"
 
@@ -886,8 +838,6 @@
 
     move-result v3
 
-    .line 279
-    .local v3, "bAllShareCastConnectedFlag":I
     iget-object v10, p0, Lcom/android/server/SecExternalDisplayIntents$1;->this$0:Lcom/android/server/SecExternalDisplayIntents;
 
     iget-object v10, v10, Lcom/android/server/SecExternalDisplayOrientation;->mEDSServiceObj:Lcom/android/server/SecExternalDisplayService;
@@ -896,21 +846,17 @@
 
     goto/16 :goto_0
 
-    .line 285
-    .end local v3    # "bAllShareCastConnectedFlag":I
     :pswitch_6
     sget-boolean v10, Lcom/android/server/SecExternalDisplayIntents;->bIsLogEnabled:Z
 
     if-eqz v10, :cond_8
 
-    .line 286
     const-string/jumbo v10, "SecExternalDisplayIntents_Java"
 
     const-string/jumbo v11, "entered Camera Start Case"
 
     invoke-static {v10, v11}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 287
     :cond_8
     iget-object v10, p0, Lcom/android/server/SecExternalDisplayIntents$1;->this$0:Lcom/android/server/SecExternalDisplayIntents;
 
@@ -922,20 +868,17 @@
 
     goto/16 :goto_0
 
-    .line 293
     :pswitch_7
     sget-boolean v10, Lcom/android/server/SecExternalDisplayIntents;->bIsLogEnabled:Z
 
     if-eqz v10, :cond_9
 
-    .line 294
     const-string/jumbo v10, "SecExternalDisplayIntents_Java"
 
     const-string/jumbo v11, "entered Camera Stop Case"
 
     invoke-static {v10, v11}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 295
     :cond_9
     iget-object v10, p0, Lcom/android/server/SecExternalDisplayIntents$1;->this$0:Lcom/android/server/SecExternalDisplayIntents;
 
@@ -947,20 +890,17 @@
 
     goto/16 :goto_0
 
-    .line 299
     :pswitch_8
     sget-boolean v10, Lcom/android/server/SecExternalDisplayIntents;->bIsLogEnabled:Z
 
     if-eqz v10, :cond_a
 
-    .line 300
     const-string/jumbo v10, "SecExternalDisplayIntents_Java"
 
     const-string/jumbo v11, "entered SideSync Connected Case"
 
     invoke-static {v10, v11}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 301
     :cond_a
     iget-object v10, p0, Lcom/android/server/SecExternalDisplayIntents$1;->this$0:Lcom/android/server/SecExternalDisplayIntents;
 
@@ -970,20 +910,17 @@
 
     goto/16 :goto_0
 
-    .line 305
     :pswitch_9
     sget-boolean v10, Lcom/android/server/SecExternalDisplayIntents;->bIsLogEnabled:Z
 
     if-eqz v10, :cond_b
 
-    .line 306
     const-string/jumbo v10, "SecExternalDisplayIntents_Java"
 
     const-string/jumbo v11, "entered SideSync DC Case"
 
     invoke-static {v10, v11}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 307
     :cond_b
     iget-object v10, p0, Lcom/android/server/SecExternalDisplayIntents$1;->this$0:Lcom/android/server/SecExternalDisplayIntents;
 
@@ -993,33 +930,26 @@
 
     goto/16 :goto_0
 
-    .line 312
     :pswitch_a
     sget-boolean v10, Lcom/android/server/SecExternalDisplayIntents;->bIsLogEnabled:Z
 
     if-eqz v10, :cond_c
 
-    .line 313
     const-string/jumbo v10, "SecExternalDisplayIntents_Java"
 
     const-string/jumbo v11, "entered ScreenRecorder Case"
 
     invoke-static {v10, v11}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 314
     :cond_c
     const/4 v1, 0x0
 
-    .line 315
-    .local v1, "SRState":Ljava/lang/String;
     const-string/jumbo v10, "IsRunning"
 
     invoke-virtual {p2, v10}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 316
-    .local v1, "SRState":Ljava/lang/String;
     const-string/jumbo v10, "SecExternalDisplayIntents_Java"
 
     new-instance v11, Ljava/lang/StringBuilder;
@@ -1042,7 +972,6 @@
 
     invoke-static {v10, v11}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 318
     const-string/jumbo v10, "run"
 
     invoke-virtual {v10, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1051,7 +980,6 @@
 
     if-eqz v10, :cond_d
 
-    .line 319
     iget-object v10, p0, Lcom/android/server/SecExternalDisplayIntents$1;->this$0:Lcom/android/server/SecExternalDisplayIntents;
 
     iget-object v10, v10, Lcom/android/server/SecExternalDisplayOrientation;->mEDSServiceObj:Lcom/android/server/SecExternalDisplayService;
@@ -1068,7 +996,6 @@
 
     goto/16 :goto_0
 
-    .line 320
     :cond_d
     const-string/jumbo v10, "stop"
 
@@ -1078,7 +1005,6 @@
 
     if-eqz v10, :cond_1
 
-    .line 321
     iget-object v10, p0, Lcom/android/server/SecExternalDisplayIntents$1;->this$0:Lcom/android/server/SecExternalDisplayIntents;
 
     iget-object v10, v10, Lcom/android/server/SecExternalDisplayOrientation;->mEDSServiceObj:Lcom/android/server/SecExternalDisplayService;
@@ -1095,21 +1021,17 @@
 
     goto/16 :goto_0
 
-    .line 325
-    .end local v1    # "SRState":Ljava/lang/String;
     :pswitch_b
     sget-boolean v10, Lcom/android/server/SecExternalDisplayIntents;->bIsLogEnabled:Z
 
     if-eqz v10, :cond_e
 
-    .line 326
     const-string/jumbo v10, "SecExternalDisplayIntents_Java"
 
     const-string/jumbo v11, "entered SmartDock Case"
 
     invoke-static {v10, v11}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 327
     :cond_e
     const-string/jumbo v10, "android.intent.extra.device_state"
 
@@ -1119,8 +1041,6 @@
 
     move-result v5
 
-    .line 328
-    .local v5, "bMouseDockedFlag":I
     const-string/jumbo v10, "sys.hmt.connected"
 
     const/4 v11, 0x0
@@ -1129,8 +1049,6 @@
 
     move-result v4
 
-    .line 329
-    .local v4, "bHMTConnection":Z
     const-string/jumbo v10, "SecExternalDisplayIntents_Java"
 
     new-instance v11, Ljava/lang/StringBuilder;
@@ -1163,10 +1081,8 @@
 
     invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 330
     if-nez v4, :cond_1
 
-    .line 331
     iget-object v10, p0, Lcom/android/server/SecExternalDisplayIntents$1;->this$0:Lcom/android/server/SecExternalDisplayIntents;
 
     iget-object v10, v10, Lcom/android/server/SecExternalDisplayOrientation;->mEDSServiceObj:Lcom/android/server/SecExternalDisplayService;
@@ -1175,15 +1091,11 @@
 
     goto/16 :goto_0
 
-    .line 335
-    .end local v4    # "bHMTConnection":Z
-    .end local v5    # "bMouseDockedFlag":I
     :pswitch_c
     sget-boolean v10, Lcom/android/server/SecExternalDisplayIntents;->bIsLogEnabled:Z
 
     if-eqz v10, :cond_1
 
-    .line 336
     const-string/jumbo v10, "SecExternalDisplayIntents_Java"
 
     const-string/jumbo v11, "entered ScreenLock Case"
@@ -1192,13 +1104,11 @@
 
     goto/16 :goto_0
 
-    .line 344
     :pswitch_d
     sget-boolean v10, Lcom/android/server/SecExternalDisplayIntents;->bIsLogEnabled:Z
 
     if-eqz v10, :cond_1
 
-    .line 345
     const-string/jumbo v10, "SecExternalDisplayIntents_Java"
 
     const-string/jumbo v11, "entered Screen Unlocked Case"
@@ -1207,20 +1117,17 @@
 
     goto/16 :goto_0
 
-    .line 353
     :pswitch_e
     sget-boolean v10, Lcom/android/server/SecExternalDisplayIntents;->bIsLogEnabled:Z
 
     if-eqz v10, :cond_f
 
-    .line 354
     const-string/jumbo v10, "SecExternalDisplayIntents_Java"
 
     const-string/jumbo v11, "Entered Video Start Case"
 
     invoke-static {v10, v11}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 357
     :cond_f
     iget-object v10, p0, Lcom/android/server/SecExternalDisplayIntents$1;->this$0:Lcom/android/server/SecExternalDisplayIntents;
 
@@ -1232,20 +1139,17 @@
 
     goto/16 :goto_0
 
-    .line 361
     :pswitch_f
     sget-boolean v10, Lcom/android/server/SecExternalDisplayIntents;->bIsLogEnabled:Z
 
     if-eqz v10, :cond_10
 
-    .line 362
     const-string/jumbo v10, "SecExternalDisplayIntents_Java"
 
     const-string/jumbo v11, "Entered Video Stop Case"
 
     invoke-static {v10, v11}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 365
     :cond_10
     iget-object v10, p0, Lcom/android/server/SecExternalDisplayIntents$1;->this$0:Lcom/android/server/SecExternalDisplayIntents;
 
@@ -1257,20 +1161,17 @@
 
     goto/16 :goto_0
 
-    .line 369
     :pswitch_10
     sget-boolean v10, Lcom/android/server/SecExternalDisplayIntents;->bIsLogEnabled:Z
 
     if-eqz v10, :cond_11
 
-    .line 370
     const-string/jumbo v10, "SecExternalDisplayIntents_Java"
 
     const-string/jumbo v11, "entered Presentation Start Case"
 
     invoke-static {v10, v11}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 371
     :cond_11
     iget-object v10, p0, Lcom/android/server/SecExternalDisplayIntents$1;->this$0:Lcom/android/server/SecExternalDisplayIntents;
 
@@ -1282,20 +1183,17 @@
 
     goto/16 :goto_0
 
-    .line 375
     :pswitch_11
     sget-boolean v10, Lcom/android/server/SecExternalDisplayIntents;->bIsLogEnabled:Z
 
     if-eqz v10, :cond_12
 
-    .line 376
     const-string/jumbo v10, "SecExternalDisplayIntents_Java"
 
     const-string/jumbo v11, "entered Presentation Stop Case"
 
     invoke-static {v10, v11}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 377
     :cond_12
     iget-object v10, p0, Lcom/android/server/SecExternalDisplayIntents$1;->this$0:Lcom/android/server/SecExternalDisplayIntents;
 
@@ -1307,20 +1205,17 @@
 
     goto/16 :goto_0
 
-    .line 381
     :pswitch_12
     sget-boolean v10, Lcom/android/server/SecExternalDisplayIntents;->bIsLogEnabled:Z
 
     if-eqz v10, :cond_13
 
-    .line 382
     const-string/jumbo v10, "SecExternalDisplayIntents_Java"
 
     const-string/jumbo v11, "Entered Kddi auShareLink connect case"
 
     invoke-static {v10, v11}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 383
     :cond_13
     iget-object v10, p0, Lcom/android/server/SecExternalDisplayIntents$1;->this$0:Lcom/android/server/SecExternalDisplayIntents;
 
@@ -1330,20 +1225,17 @@
 
     goto/16 :goto_0
 
-    .line 387
     :pswitch_13
     sget-boolean v10, Lcom/android/server/SecExternalDisplayIntents;->bIsLogEnabled:Z
 
     if-eqz v10, :cond_14
 
-    .line 388
     const-string/jumbo v10, "SecExternalDisplayIntents_Java"
 
     const-string/jumbo v11, "Entered Kddi auShareLink disconnect case"
 
     invoke-static {v10, v11}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 389
     :cond_14
     iget-object v10, p0, Lcom/android/server/SecExternalDisplayIntents$1;->this$0:Lcom/android/server/SecExternalDisplayIntents;
 
@@ -1353,20 +1245,17 @@
 
     goto/16 :goto_0
 
-    .line 393
     :pswitch_14
     sget-boolean v10, Lcom/android/server/SecExternalDisplayIntents;->bIsLogEnabled:Z
 
     if-eqz v10, :cond_15
 
-    .line 394
     const-string/jumbo v10, "SecExternalDisplayIntents_Java"
 
     const-string/jumbo v11, "Entered KNOX_DESKTOP_MODE"
 
     invoke-static {v10, v11}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 395
     :cond_15
     iget-object v10, p0, Lcom/android/server/SecExternalDisplayIntents$1;->this$0:Lcom/android/server/SecExternalDisplayIntents;
 
@@ -1378,20 +1267,17 @@
 
     goto/16 :goto_0
 
-    .line 399
     :pswitch_15
     sget-boolean v10, Lcom/android/server/SecExternalDisplayIntents;->bIsLogEnabled:Z
 
     if-eqz v10, :cond_16
 
-    .line 400
     const-string/jumbo v10, "SecExternalDisplayIntents_Java"
 
     const-string/jumbo v11, "Exited KNOX_DESKTOP_MODE"
 
     invoke-static {v10, v11}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 401
     :cond_16
     iget-object v10, p0, Lcom/android/server/SecExternalDisplayIntents$1;->this$0:Lcom/android/server/SecExternalDisplayIntents;
 
@@ -1409,7 +1295,6 @@
 
     if-eqz v10, :cond_1
 
-    .line 402
     iget-object v10, p0, Lcom/android/server/SecExternalDisplayIntents$1;->this$0:Lcom/android/server/SecExternalDisplayIntents;
 
     iget-object v10, v10, Lcom/android/server/SecExternalDisplayOrientation;->mEDSServiceObj:Lcom/android/server/SecExternalDisplayService;
@@ -1422,7 +1307,6 @@
 
     goto/16 :goto_0
 
-    .line 241
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_6

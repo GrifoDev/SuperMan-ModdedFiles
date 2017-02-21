@@ -37,14 +37,12 @@
 .method static constructor <clinit>()V
     .locals 5
 
-    .prologue
     const/4 v4, 0x2
 
     const/4 v3, 0x1
 
     const/4 v2, 0x0
 
-    .line 10273
     new-instance v0, Landroid/widget/TextView$BufferType;
 
     const-string/jumbo v1, "NORMAL"
@@ -69,7 +67,6 @@
 
     sput-object v0, Landroid/widget/TextView$BufferType;->EDITABLE:Landroid/widget/TextView$BufferType;
 
-    .line 10272
     const/4 v0, 0x3
 
     new-array v0, v0, [Landroid/widget/TextView$BufferType;
@@ -94,8 +91,6 @@
 .method private constructor <init>(Ljava/lang/String;I)V
     .locals 0
 
-    .prologue
-    .line 10272
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -103,10 +98,7 @@
 
 .method public static valueOf(Ljava/lang/String;)Landroid/widget/TextView$BufferType;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
-    .prologue
-    .line 10272
     const-class v0, Landroid/widget/TextView$BufferType;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -121,8 +113,6 @@
 .method public static values()[Landroid/widget/TextView$BufferType;
     .locals 1
 
-    .prologue
-    .line 10272
     sget-object v0, Landroid/widget/TextView$BufferType;->$VALUES:[Landroid/widget/TextView$BufferType;
 
     return-object v0

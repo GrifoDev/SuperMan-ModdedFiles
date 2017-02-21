@@ -87,24 +87,18 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 194
     new-instance v0, Landroid/net/wifi/WifiLinkLayerStats$1;
 
     invoke-direct {v0}, Landroid/net/wifi/WifiLinkLayerStats$1;-><init>()V
 
-    .line 193
     sput-object v0, Landroid/net/wifi/WifiLinkLayerStats;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    .line 28
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 113
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -115,8 +109,6 @@
 .method public describeContents()I
     .locals 1
 
-    .prologue
-    .line 157
     const/4 v0, 0x0
 
     return v0
@@ -125,7 +117,6 @@
 .method public getPrintableSsid()Ljava/lang/String;
     .locals 8
 
-    .prologue
     const/4 v7, 0x2
 
     const/4 v6, 0x1
@@ -134,7 +125,6 @@
 
     const/16 v4, 0x22
 
-    .line 162
     iget-object v2, p0, Landroid/net/wifi/WifiLinkLayerStats;->SSID:Ljava/lang/String;
 
     if-nez v2, :cond_0
@@ -143,7 +133,6 @@
 
     return-object v2
 
-    .line 163
     :cond_0
     iget-object v2, p0, Landroid/net/wifi/WifiLinkLayerStats;->SSID:Ljava/lang/String;
 
@@ -151,8 +140,6 @@
 
     move-result v0
 
-    .line 164
-    .local v0, "length":I
     if-le v0, v7, :cond_1
 
     iget-object v2, p0, Landroid/net/wifi/WifiLinkLayerStats;->SSID:Ljava/lang/String;
@@ -173,7 +160,6 @@
 
     if-ne v2, v4, :cond_1
 
-    .line 165
     iget-object v2, p0, Landroid/net/wifi/WifiLinkLayerStats;->SSID:Ljava/lang/String;
 
     add-int/lit8 v3, v0, -0x1
@@ -184,7 +170,6 @@
 
     return-object v2
 
-    .line 172
     :cond_1
     const/4 v2, 0x3
 
@@ -208,7 +193,6 @@
 
     if-ne v2, v4, :cond_2
 
-    .line 173
     iget-object v2, p0, Landroid/net/wifi/WifiLinkLayerStats;->SSID:Ljava/lang/String;
 
     add-int/lit8 v3, v0, -0x1
@@ -219,7 +203,6 @@
 
     if-ne v2, v4, :cond_2
 
-    .line 175
     iget-object v2, p0, Landroid/net/wifi/WifiLinkLayerStats;->SSID:Ljava/lang/String;
 
     add-int/lit8 v3, v0, -0x1
@@ -228,21 +211,16 @@
 
     move-result-object v2
 
-    .line 174
     invoke-static {v2}, Landroid/net/wifi/WifiSsid;->createFromAsciiEncoded(Ljava/lang/String;)Landroid/net/wifi/WifiSsid;
 
     move-result-object v1
 
-    .line 176
-    .local v1, "wifiSsid":Landroid/net/wifi/WifiSsid;
     invoke-virtual {v1}, Landroid/net/wifi/WifiSsid;->toString()Ljava/lang/String;
 
     move-result-object v2
 
     return-object v2
 
-    .line 178
-    .end local v1    # "wifiSsid":Landroid/net/wifi/WifiSsid;
     :cond_2
     iget-object v2, p0, Landroid/net/wifi/WifiLinkLayerStats;->SSID:Ljava/lang/String;
 
@@ -252,16 +230,12 @@
 .method public toString()Ljava/lang/String;
     .locals 5
 
-    .prologue
     const/16 v4, 0xa
 
-    .line 119
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 120
-    .local v0, "sbuf":Ljava/lang/StringBuilder;
     const-string/jumbo v1, " WifiLinkLayerStats: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -270,12 +244,10 @@
 
     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 122
     iget-object v1, p0, Landroid/net/wifi/WifiLinkLayerStats;->SSID:Ljava/lang/String;
 
     if-eqz v1, :cond_0
 
-    .line 123
     const-string/jumbo v1, " SSID: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -290,13 +262,11 @@
 
     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 125
     :cond_0
     iget-object v1, p0, Landroid/net/wifi/WifiLinkLayerStats;->BSSID:Ljava/lang/String;
 
     if-eqz v1, :cond_1
 
-    .line 126
     const-string/jumbo v1, " BSSID: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -311,7 +281,6 @@
 
     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 129
     :cond_1
     const-string/jumbo v1, " my bss beacon rx: "
 
@@ -331,7 +300,6 @@
 
     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 130
     const-string/jumbo v1, " RSSI mgmt: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -350,7 +318,6 @@
 
     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 131
     const-string/jumbo v1, " BE : "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -373,69 +340,56 @@
 
     move-result-object v1
 
-    .line 132
     const-string/jumbo v2, " tx="
 
-    .line 131
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 132
     iget-wide v2, p0, Landroid/net/wifi/WifiLinkLayerStats;->txmpdu_be:J
 
     invoke-static {v2, v3}, Ljava/lang/Long;->toString(J)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 131
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 133
     const-string/jumbo v2, " lost="
 
-    .line 131
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 133
     iget-wide v2, p0, Landroid/net/wifi/WifiLinkLayerStats;->lostmpdu_be:J
 
     invoke-static {v2, v3}, Ljava/lang/Long;->toString(J)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 131
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 134
     const-string/jumbo v2, " retries="
 
-    .line 131
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 134
     iget-wide v2, p0, Landroid/net/wifi/WifiLinkLayerStats;->retries_be:J
 
     invoke-static {v2, v3}, Ljava/lang/Long;->toString(J)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 131
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 135
     const-string/jumbo v1, " BK : "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -458,69 +412,56 @@
 
     move-result-object v1
 
-    .line 136
     const-string/jumbo v2, " tx="
 
-    .line 135
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 136
     iget-wide v2, p0, Landroid/net/wifi/WifiLinkLayerStats;->txmpdu_bk:J
 
     invoke-static {v2, v3}, Ljava/lang/Long;->toString(J)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 135
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 137
     const-string/jumbo v2, " lost="
 
-    .line 135
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 137
     iget-wide v2, p0, Landroid/net/wifi/WifiLinkLayerStats;->lostmpdu_bk:J
 
     invoke-static {v2, v3}, Ljava/lang/Long;->toString(J)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 135
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 138
     const-string/jumbo v2, " retries="
 
-    .line 135
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 138
     iget-wide v2, p0, Landroid/net/wifi/WifiLinkLayerStats;->retries_bk:J
 
     invoke-static {v2, v3}, Ljava/lang/Long;->toString(J)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 135
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 139
     const-string/jumbo v1, " VI : "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -543,69 +484,56 @@
 
     move-result-object v1
 
-    .line 140
     const-string/jumbo v2, " tx="
 
-    .line 139
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 140
     iget-wide v2, p0, Landroid/net/wifi/WifiLinkLayerStats;->txmpdu_vi:J
 
     invoke-static {v2, v3}, Ljava/lang/Long;->toString(J)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 139
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 141
     const-string/jumbo v2, " lost="
 
-    .line 139
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 141
     iget-wide v2, p0, Landroid/net/wifi/WifiLinkLayerStats;->lostmpdu_vi:J
 
     invoke-static {v2, v3}, Ljava/lang/Long;->toString(J)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 139
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 142
     const-string/jumbo v2, " retries="
 
-    .line 139
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 142
     iget-wide v2, p0, Landroid/net/wifi/WifiLinkLayerStats;->retries_vi:J
 
     invoke-static {v2, v3}, Ljava/lang/Long;->toString(J)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 139
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 143
     const-string/jumbo v1, " VO : "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -628,69 +556,56 @@
 
     move-result-object v1
 
-    .line 144
     const-string/jumbo v2, " tx="
 
-    .line 143
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 144
     iget-wide v2, p0, Landroid/net/wifi/WifiLinkLayerStats;->txmpdu_vo:J
 
     invoke-static {v2, v3}, Ljava/lang/Long;->toString(J)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 143
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 145
     const-string/jumbo v2, " lost="
 
-    .line 143
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 145
     iget-wide v2, p0, Landroid/net/wifi/WifiLinkLayerStats;->lostmpdu_vo:J
 
     invoke-static {v2, v3}, Ljava/lang/Long;->toString(J)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 143
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 146
     const-string/jumbo v2, " retries="
 
-    .line 143
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 146
     iget-wide v2, p0, Landroid/net/wifi/WifiLinkLayerStats;->retries_vo:J
 
     invoke-static {v2, v3}, Ljava/lang/Long;->toString(J)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 143
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 147
     const-string/jumbo v1, " on_time : "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -707,42 +622,34 @@
 
     move-result-object v1
 
-    .line 148
     const-string/jumbo v2, " rx_time="
 
-    .line 147
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 148
     iget v2, p0, Landroid/net/wifi/WifiLinkLayerStats;->rx_time:I
 
     invoke-static {v2}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 147
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 149
     const-string/jumbo v2, " scan_time="
 
-    .line 147
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 149
     iget v2, p0, Landroid/net/wifi/WifiLinkLayerStats;->on_time_scan:I
 
     invoke-static {v2}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 147
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -751,27 +658,22 @@
 
     move-result-object v1
 
-    .line 150
     const-string/jumbo v2, " tx_time="
 
-    .line 147
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 150
     iget v2, p0, Landroid/net/wifi/WifiLinkLayerStats;->tx_time:I
 
     invoke-static {v2}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 147
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 151
     const-string/jumbo v2, " tx_time_per_level="
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -786,7 +688,6 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 152
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -796,45 +697,34 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .param p1, "dest"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
-    .prologue
-    .line 183
     iget-object v0, p0, Landroid/net/wifi/WifiLinkLayerStats;->SSID:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 184
     iget-object v0, p0, Landroid/net/wifi/WifiLinkLayerStats;->BSSID:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 185
     iget v0, p0, Landroid/net/wifi/WifiLinkLayerStats;->on_time:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 186
     iget v0, p0, Landroid/net/wifi/WifiLinkLayerStats;->tx_time:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 187
     iget-object v0, p0, Landroid/net/wifi/WifiLinkLayerStats;->tx_time_per_level:[I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeIntArray([I)V
 
-    .line 188
     iget v0, p0, Landroid/net/wifi/WifiLinkLayerStats;->rx_time:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 189
     iget v0, p0, Landroid/net/wifi/WifiLinkLayerStats;->on_time_scan:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 182
     return-void
 .end method

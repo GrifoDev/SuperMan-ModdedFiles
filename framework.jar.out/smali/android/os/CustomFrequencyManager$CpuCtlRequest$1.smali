@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/CustomFrequencyManager$CpuCtlRequest;)V
     .locals 0
-    .param p1, "this$1"    # Landroid/os/CustomFrequencyManager$CpuCtlRequest;
 
-    .prologue
-    .line 838
     iput-object p1, p0, Landroid/os/CustomFrequencyManager$CpuCtlRequest$1;->this$1:Landroid/os/CustomFrequencyManager$CpuCtlRequest;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,12 +37,9 @@
 .method public run()V
     .locals 1
 
-    .prologue
-    .line 840
     iget-object v0, p0, Landroid/os/CustomFrequencyManager$CpuCtlRequest$1;->this$1:Landroid/os/CustomFrequencyManager$CpuCtlRequest;
 
     invoke-virtual {v0}, Landroid/os/CustomFrequencyManager$FrequencyRequest;->cancelFrequencyRequest()V
 
-    .line 839
     return-void
 .end method

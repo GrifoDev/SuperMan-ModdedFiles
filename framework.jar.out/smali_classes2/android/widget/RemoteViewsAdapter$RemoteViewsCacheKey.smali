@@ -23,20 +23,13 @@
 # direct methods
 .method constructor <init>(Landroid/content/Intent$FilterComparison;I)V
     .locals 0
-    .param p1, "filter"    # Landroid/content/Intent$FilterComparison;
-    .param p2, "widgetId"    # I
 
-    .prologue
-    .line 805
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 806
     iput-object p1, p0, Landroid/widget/RemoteViewsAdapter$RemoteViewsCacheKey;->filter:Landroid/content/Intent$FilterComparison;
 
-    .line 807
     iput p2, p0, Landroid/widget/RemoteViewsAdapter$RemoteViewsCacheKey;->widgetId:I
 
-    .line 805
     return-void
 .end method
 
@@ -44,29 +37,22 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
-    .param p1, "o"    # Ljava/lang/Object;
 
-    .prologue
     const/4 v1, 0x0
 
-    .line 812
     instance-of v2, p1, Landroid/widget/RemoteViewsAdapter$RemoteViewsCacheKey;
 
     if-nez v2, :cond_0
 
-    .line 813
     return v1
 
     :cond_0
     move-object v0, p1
 
-    .line 815
     nop
 
     nop
 
-    .line 816
-    .local v0, "other":Landroid/widget/RemoteViewsAdapter$RemoteViewsCacheKey;
     iget-object v2, v0, Landroid/widget/RemoteViewsAdapter$RemoteViewsCacheKey;->filter:Landroid/content/Intent$FilterComparison;
 
     iget-object v3, p0, Landroid/widget/RemoteViewsAdapter$RemoteViewsCacheKey;->filter:Landroid/content/Intent$FilterComparison;
@@ -92,8 +78,6 @@
 .method public hashCode()I
     .locals 2
 
-    .prologue
-    .line 821
     iget-object v0, p0, Landroid/widget/RemoteViewsAdapter$RemoteViewsCacheKey;->filter:Landroid/content/Intent$FilterComparison;
 
     if-nez v0, :cond_0

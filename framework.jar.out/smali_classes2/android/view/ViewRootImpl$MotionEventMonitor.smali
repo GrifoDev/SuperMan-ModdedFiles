@@ -43,48 +43,36 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 8554
     const/4 v0, 0x0
 
     sput-boolean v0, Landroid/view/ViewRootImpl$MotionEventMonitor;->DEBUG:Z
 
-    .line 8552
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 8552
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 8560
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Landroid/view/ViewRootImpl$MotionEventMonitor;->mListeners:Ljava/util/ArrayList;
 
-    .line 8552
     return-void
 .end method
 
 .method private notifyTouchEvent(Landroid/view/MotionEvent;)V
     .locals 6
-    .param p1, "event"    # Landroid/view/MotionEvent;
 
-    .prologue
-    .line 8610
     iget-object v3, p0, Landroid/view/ViewRootImpl$MotionEventMonitor;->mListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
-    .line 8611
-    .local v0, "cnt":I
     const-string/jumbo v3, "MotionEventMonitor"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -107,14 +95,11 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 8612
     const/4 v1, 0x0
 
-    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_1
 
-    .line 8613
     iget-object v3, p0, Landroid/view/ViewRootImpl$MotionEventMonitor;->mListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v3, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -123,21 +108,15 @@
 
     check-cast v2, Landroid/view/ViewRootImpl$MotionEventMonitor$OnTouchListener;
 
-    .line 8614
-    .local v2, "listener":Landroid/view/ViewRootImpl$MotionEventMonitor$OnTouchListener;
     if-eqz v2, :cond_0
 
-    .line 8615
     invoke-interface {v2, p1}, Landroid/view/ViewRootImpl$MotionEventMonitor$OnTouchListener;->onTouch(Landroid/view/MotionEvent;)V
 
-    .line 8612
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 8609
-    .end local v2    # "listener":Landroid/view/ViewRootImpl$MotionEventMonitor$OnTouchListener;
     :cond_1
     return-void
 .end method
@@ -146,10 +125,7 @@
 # virtual methods
 .method public dispatchInputEvent(Landroid/view/InputEvent;)V
     .locals 5
-    .param p1, "event"    # Landroid/view/InputEvent;
 
-    .prologue
-    .line 8582
     iget-object v2, p0, Landroid/view/ViewRootImpl$MotionEventMonitor;->mListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
@@ -158,10 +134,8 @@
 
     if-nez v2, :cond_0
 
-    .line 8583
     return-void
 
-    .line 8586
     :cond_0
     instance-of v2, p1, Landroid/view/MotionEvent;
 
@@ -169,24 +143,18 @@
 
     move-object v1, p1
 
-    .line 8587
     nop
 
     nop
 
-    .line 8588
-    .local v1, "motionEvent":Landroid/view/MotionEvent;
     invoke-virtual {v1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
-    .line 8589
-    .local v0, "action":I
     sget-boolean v2, Landroid/view/ViewRootImpl$MotionEventMonitor;->DEBUG:Z
 
     if-eqz v2, :cond_1
 
-    .line 8590
     const-string/jumbo v2, "MotionEventMonitor"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -209,35 +177,24 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 8592
     :cond_1
     packed-switch v0, :pswitch_data_0
 
-    .line 8581
-    .end local v0    # "action":I
-    .end local v1    # "motionEvent":Landroid/view/MotionEvent;
     :cond_2
     :goto_0
     :pswitch_0
     return-void
 
-    .line 8599
-    .restart local v0    # "action":I
-    .restart local v1    # "motionEvent":Landroid/view/MotionEvent;
     :pswitch_1
     invoke-direct {p0, v1}, Landroid/view/ViewRootImpl$MotionEventMonitor;->notifyTouchEvent(Landroid/view/MotionEvent;)V
 
     goto :goto_0
 
-    .line 8603
-    .end local v0    # "action":I
-    .end local v1    # "motionEvent":Landroid/view/MotionEvent;
     :cond_3
     sget-boolean v2, Landroid/view/ViewRootImpl$MotionEventMonitor;->DEBUG:Z
 
     if-eqz v2, :cond_2
 
-    .line 8604
     const-string/jumbo v2, "MotionEventMonitor"
 
     const-string/jumbo v3, "dispatchInputEvent : The event is not instance of MotionEvent"
@@ -246,7 +203,6 @@
 
     goto :goto_0
 
-    .line 8592
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_1
@@ -265,10 +221,7 @@
 
 .method public registerMotionEventMonitor(Landroid/view/ViewRootImpl$MotionEventMonitor$OnTouchListener;)V
     .locals 3
-    .param p1, "listener"    # Landroid/view/ViewRootImpl$MotionEventMonitor$OnTouchListener;
 
-    .prologue
-    .line 8563
     iget-object v0, p0, Landroid/view/ViewRootImpl$MotionEventMonitor;->mListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
@@ -277,28 +230,23 @@
 
     if-lez v0, :cond_0
 
-    .line 8564
     const-string/jumbo v0, "MotionEventMonitor"
 
     const-string/jumbo v1, "registerMotionEventMonitor : Just one event listener is allowed"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 8565
     return-void
 
-    .line 8568
     :cond_0
     iget-object v0, p0, Landroid/view/ViewRootImpl$MotionEventMonitor;->mListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 8569
     sget-boolean v0, Landroid/view/ViewRootImpl$MotionEventMonitor;->DEBUG:Z
 
     if-eqz v0, :cond_1
 
-    .line 8570
     const-string/jumbo v0, "MotionEventMonitor"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -327,27 +275,21 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 8562
     :cond_1
     return-void
 .end method
 
 .method public unregisterMotionEventMonitor(Landroid/view/ViewRootImpl$MotionEventMonitor$OnTouchListener;)V
     .locals 3
-    .param p1, "listener"    # Landroid/view/ViewRootImpl$MotionEventMonitor$OnTouchListener;
 
-    .prologue
-    .line 8575
     iget-object v0, p0, Landroid/view/ViewRootImpl$MotionEventMonitor;->mListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    .line 8576
     sget-boolean v0, Landroid/view/ViewRootImpl$MotionEventMonitor;->DEBUG:Z
 
     if-eqz v0, :cond_0
 
-    .line 8577
     const-string/jumbo v0, "MotionEventMonitor"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -376,7 +318,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 8574
     :cond_0
     return-void
 .end method

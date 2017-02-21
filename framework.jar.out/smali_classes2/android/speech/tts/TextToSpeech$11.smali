@@ -36,10 +36,7 @@
 # direct methods
 .method constructor <init>(Landroid/speech/tts/TextToSpeech;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/speech/tts/TextToSpeech;
 
-    .prologue
-    .line 1591
     iput-object p1, p0, Landroid/speech/tts/TextToSpeech$11;->this$0:Landroid/speech/tts/TextToSpeech;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -51,15 +48,12 @@
 # virtual methods
 .method public bridge synthetic run(Landroid/speech/tts/ITextToSpeechService;)Ljava/lang/Object;
     .locals 1
-    .param p1, "service"    # Landroid/speech/tts/ITextToSpeechService;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
-    .line 1593
     invoke-virtual {p0, p1}, Landroid/speech/tts/TextToSpeech$11;->run(Landroid/speech/tts/ITextToSpeechService;)Ljava/util/Set;
 
     move-result-object v0
@@ -69,7 +63,6 @@
 
 .method public run(Landroid/speech/tts/ITextToSpeechService;)Ljava/util/Set;
     .locals 5
-    .param p1, "service"    # Landroid/speech/tts/ITextToSpeechService;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -88,36 +81,27 @@
         }
     .end annotation
 
-    .prologue
-    .line 1594
     invoke-interface {p1}, Landroid/speech/tts/ITextToSpeechService;->getVoices()Ljava/util/List;
 
     move-result-object v3
 
-    .line 1595
-    .local v3, "voices":Ljava/util/List;, "Ljava/util/List<Landroid/speech/tts/Voice;>;"
     if-nez v3, :cond_0
 
-    .line 1596
     new-instance v4, Ljava/util/HashSet;
 
     invoke-direct {v4}, Ljava/util/HashSet;-><init>()V
 
     return-object v4
 
-    .line 1598
     :cond_0
     new-instance v0, Ljava/util/HashSet;
 
     invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
 
-    .line 1599
-    .local v0, "locales":Ljava/util/HashSet;, "Ljava/util/HashSet<Ljava/util/Locale;>;"
     invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    .local v2, "voice$iterator":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
@@ -131,8 +115,6 @@
 
     check-cast v1, Landroid/speech/tts/Voice;
 
-    .line 1600
-    .local v1, "voice":Landroid/speech/tts/Voice;
     invoke-virtual {v1}, Landroid/speech/tts/Voice;->getLocale()Ljava/util/Locale;
 
     move-result-object v4
@@ -141,8 +123,6 @@
 
     goto :goto_0
 
-    .line 1602
-    .end local v1    # "voice":Landroid/speech/tts/Voice;
     :cond_1
     return-object v0
 .end method

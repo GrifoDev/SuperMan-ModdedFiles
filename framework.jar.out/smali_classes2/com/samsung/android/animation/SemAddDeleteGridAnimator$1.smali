@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/animation/SemAddDeleteGridAnimator;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/samsung/android/animation/SemAddDeleteGridAnimator;
 
-    .prologue
-    .line 154
     iput-object p1, p0, Lcom/samsung/android/animation/SemAddDeleteGridAnimator$1;->this$0:Lcom/samsung/android/animation/SemAddDeleteGridAnimator;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,10 +37,8 @@
 .method public onPreDraw()Z
     .locals 2
 
-    .prologue
     const/4 v1, 0x0
 
-    .line 157
     iget-object v0, p0, Lcom/samsung/android/animation/SemAddDeleteGridAnimator$1;->this$0:Lcom/samsung/android/animation/SemAddDeleteGridAnimator;
 
     invoke-static {v0}, Lcom/samsung/android/animation/SemAddDeleteGridAnimator;->-get0(Lcom/samsung/android/animation/SemAddDeleteGridAnimator;)Landroid/widget/GridView;
@@ -56,26 +51,22 @@
 
     invoke-virtual {v0, p0}, Landroid/view/ViewTreeObserver;->removeOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
 
-    .line 158
     iget-object v0, p0, Lcom/samsung/android/animation/SemAddDeleteGridAnimator$1;->this$0:Lcom/samsung/android/animation/SemAddDeleteGridAnimator;
 
     iget-object v0, v0, Lcom/samsung/android/animation/SemAbsAddDeleteAnimator;->mDeleteRunnable:Ljava/lang/Runnable;
 
     if-eqz v0, :cond_0
 
-    .line 159
     iget-object v0, p0, Lcom/samsung/android/animation/SemAddDeleteGridAnimator$1;->this$0:Lcom/samsung/android/animation/SemAddDeleteGridAnimator;
 
     iget-object v0, v0, Lcom/samsung/android/animation/SemAbsAddDeleteAnimator;->mDeleteRunnable:Ljava/lang/Runnable;
 
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
-    .line 160
     iget-object v0, p0, Lcom/samsung/android/animation/SemAddDeleteGridAnimator$1;->this$0:Lcom/samsung/android/animation/SemAddDeleteGridAnimator;
 
     iput-object v1, v0, Lcom/samsung/android/animation/SemAbsAddDeleteAnimator;->mDeleteRunnable:Ljava/lang/Runnable;
 
-    .line 162
     :cond_0
     const/4 v0, 0x1
 

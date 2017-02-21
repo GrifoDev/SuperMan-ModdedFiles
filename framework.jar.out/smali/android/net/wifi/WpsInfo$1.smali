@@ -31,8 +31,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 125
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -42,67 +40,53 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/net/wifi/WpsInfo;
     .locals 2
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 127
     new-instance v0, Landroid/net/wifi/WpsInfo;
 
     invoke-direct {v0}, Landroid/net/wifi/WpsInfo;-><init>()V
 
-    .line 128
-    .local v0, "config":Landroid/net/wifi/WpsInfo;
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     iput v1, v0, Landroid/net/wifi/WpsInfo;->setup:I
 
-    .line 129
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
     iput-object v1, v0, Landroid/net/wifi/WpsInfo;->BSSID:Ljava/lang/String;
 
-    .line 130
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
     iput-object v1, v0, Landroid/net/wifi/WpsInfo;->pin:Ljava/lang/String;
 
-    .line 133
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
     iput-object v1, v0, Landroid/net/wifi/WpsInfo;->dev_nfc_hashkey:Ljava/lang/String;
 
-    .line 134
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
     iput-object v1, v0, Landroid/net/wifi/WpsInfo;->dev_pw_id:Ljava/lang/String;
 
-    .line 135
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
     iput-object v1, v0, Landroid/net/wifi/WpsInfo;->dev_pw:Ljava/lang/String;
 
-    .line 136
     return-object v0
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 126
     invoke-virtual {p0, p1}, Landroid/net/wifi/WpsInfo$1;->createFromParcel(Landroid/os/Parcel;)Landroid/net/wifi/WpsInfo;
 
     move-result-object v0
@@ -112,10 +96,7 @@
 
 .method public newArray(I)[Landroid/net/wifi/WpsInfo;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 140
     new-array v0, p1, [Landroid/net/wifi/WpsInfo;
 
     return-object v0
@@ -123,10 +104,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 139
     invoke-virtual {p0, p1}, Landroid/net/wifi/WpsInfo$1;->newArray(I)[Landroid/net/wifi/WpsInfo;
 
     move-result-object v0

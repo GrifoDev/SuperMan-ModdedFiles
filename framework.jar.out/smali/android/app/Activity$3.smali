@@ -26,11 +26,7 @@
 # direct methods
 .method constructor <init>(Landroid/app/Activity;Landroid/app/Activity$SemTranslucentConversionListener;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/app/Activity;
-    .param p2, "val$callback"    # Landroid/app/Activity$SemTranslucentConversionListener;
 
-    .prologue
-    .line 6222
     iput-object p1, p0, Landroid/app/Activity$3;->this$0:Landroid/app/Activity;
 
     iput-object p2, p0, Landroid/app/Activity$3;->val$callback:Landroid/app/Activity$SemTranslucentConversionListener;
@@ -44,20 +40,15 @@
 # virtual methods
 .method public onTranslucentConversionComplete(Z)V
     .locals 1
-    .param p1, "drawComplete"    # Z
 
-    .prologue
-    .line 6225
     iget-object v0, p0, Landroid/app/Activity$3;->val$callback:Landroid/app/Activity$SemTranslucentConversionListener;
 
     if-eqz v0, :cond_0
 
-    .line 6226
     iget-object v0, p0, Landroid/app/Activity$3;->val$callback:Landroid/app/Activity$SemTranslucentConversionListener;
 
     invoke-interface {v0, p1}, Landroid/app/Activity$SemTranslucentConversionListener;->onTranslucentConversionCompleted(Z)V
 
-    .line 6224
     :cond_0
     return-void
 .end method

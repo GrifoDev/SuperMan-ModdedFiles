@@ -223,8 +223,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 282
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -232,10 +230,7 @@
 
 .method public static disconnectCauseId(Ljava/lang/String;)I
     .locals 1
-    .param p0, "cause"    # Ljava/lang/String;
 
-    .prologue
-    .line 509
     const-string/jumbo v0, "NOT_DISCONNECTED"
 
     invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -244,12 +239,10 @@
 
     if-eqz v0, :cond_0
 
-    .line 510
     const/4 v0, 0x0
 
     return v0
 
-    .line 511
     :cond_0
     const-string/jumbo v0, "INCOMING_MISSED"
 
@@ -259,12 +252,10 @@
 
     if-eqz v0, :cond_1
 
-    .line 512
     const/4 v0, 0x1
 
     return v0
 
-    .line 513
     :cond_1
     const-string/jumbo v0, "NORMAL"
 
@@ -274,12 +265,10 @@
 
     if-eqz v0, :cond_2
 
-    .line 514
     const/4 v0, 0x2
 
     return v0
 
-    .line 515
     :cond_2
     const-string/jumbo v0, "LOCAL"
 
@@ -289,12 +278,10 @@
 
     if-eqz v0, :cond_3
 
-    .line 516
     const/4 v0, 0x3
 
     return v0
 
-    .line 517
     :cond_3
     const-string/jumbo v0, "BUSY"
 
@@ -304,12 +291,10 @@
 
     if-eqz v0, :cond_4
 
-    .line 518
     const/4 v0, 0x4
 
     return v0
 
-    .line 519
     :cond_4
     const-string/jumbo v0, "CONGESTION"
 
@@ -319,12 +304,10 @@
 
     if-eqz v0, :cond_5
 
-    .line 520
     const/4 v0, 0x5
 
     return v0
 
-    .line 521
     :cond_5
     const-string/jumbo v0, "INVALID_NUMBER"
 
@@ -334,12 +317,10 @@
 
     if-eqz v0, :cond_6
 
-    .line 522
     const/4 v0, 0x7
 
     return v0
 
-    .line 523
     :cond_6
     const-string/jumbo v0, "NUMBER_UNREACHABLE"
 
@@ -349,12 +330,10 @@
 
     if-eqz v0, :cond_7
 
-    .line 524
     const/16 v0, 0x8
 
     return v0
 
-    .line 525
     :cond_7
     const-string/jumbo v0, "SERVER_UNREACHABLE"
 
@@ -364,12 +343,10 @@
 
     if-eqz v0, :cond_8
 
-    .line 526
     const/16 v0, 0x9
 
     return v0
 
-    .line 527
     :cond_8
     const-string/jumbo v0, "INVALID_CREDENTIALS"
 
@@ -379,12 +356,10 @@
 
     if-eqz v0, :cond_9
 
-    .line 528
     const/16 v0, 0xa
 
     return v0
 
-    .line 529
     :cond_9
     const-string/jumbo v0, "OUT_OF_NETWORK"
 
@@ -394,12 +369,10 @@
 
     if-eqz v0, :cond_a
 
-    .line 530
     const/16 v0, 0xb
 
     return v0
 
-    .line 531
     :cond_a
     const-string/jumbo v0, "SERVER_ERROR"
 
@@ -409,12 +382,10 @@
 
     if-eqz v0, :cond_b
 
-    .line 532
     const/16 v0, 0xc
 
     return v0
 
-    .line 533
     :cond_b
     const-string/jumbo v0, "TIMED_OUT"
 
@@ -424,12 +395,10 @@
 
     if-eqz v0, :cond_c
 
-    .line 534
     const/16 v0, 0xd
 
     return v0
 
-    .line 535
     :cond_c
     const-string/jumbo v0, "LOST_SIGNAL"
 
@@ -439,12 +408,10 @@
 
     if-eqz v0, :cond_d
 
-    .line 536
     const/16 v0, 0xe
 
     return v0
 
-    .line 537
     :cond_d
     const-string/jumbo v0, "LIMIT_EXCEEDED"
 
@@ -454,12 +421,10 @@
 
     if-eqz v0, :cond_e
 
-    .line 538
     const/16 v0, 0xf
 
     return v0
 
-    .line 539
     :cond_e
     const-string/jumbo v0, "INCOMING_REJECTED"
 
@@ -469,12 +434,10 @@
 
     if-eqz v0, :cond_f
 
-    .line 540
     const/16 v0, 0x10
 
     return v0
 
-    .line 541
     :cond_f
     const-string/jumbo v0, "POWER_OFF"
 
@@ -484,12 +447,10 @@
 
     if-eqz v0, :cond_10
 
-    .line 542
     const/16 v0, 0x11
 
     return v0
 
-    .line 543
     :cond_10
     const-string/jumbo v0, "OUT_OF_SERVICE"
 
@@ -499,12 +460,10 @@
 
     if-eqz v0, :cond_11
 
-    .line 544
     const/16 v0, 0x12
 
     return v0
 
-    .line 545
     :cond_11
     const-string/jumbo v0, "ICC_ERROR"
 
@@ -514,12 +473,10 @@
 
     if-eqz v0, :cond_12
 
-    .line 546
     const/16 v0, 0x13
 
     return v0
 
-    .line 547
     :cond_12
     const-string/jumbo v0, "CALL_BARRED"
 
@@ -529,12 +486,10 @@
 
     if-eqz v0, :cond_13
 
-    .line 548
     const/16 v0, 0x14
 
     return v0
 
-    .line 549
     :cond_13
     const-string/jumbo v0, "FDN_BLOCKED"
 
@@ -544,12 +499,10 @@
 
     if-eqz v0, :cond_14
 
-    .line 550
     const/16 v0, 0x15
 
     return v0
 
-    .line 551
     :cond_14
     const-string/jumbo v0, "CS_RESTRICTED"
 
@@ -559,12 +512,10 @@
 
     if-eqz v0, :cond_15
 
-    .line 552
     const/16 v0, 0x16
 
     return v0
 
-    .line 553
     :cond_15
     const-string/jumbo v0, "CS_RESTRICTED_NORMAL"
 
@@ -574,12 +525,10 @@
 
     if-eqz v0, :cond_16
 
-    .line 554
     const/16 v0, 0x17
 
     return v0
 
-    .line 555
     :cond_16
     const-string/jumbo v0, "CS_RESTRICTED_EMERGENCY"
 
@@ -589,12 +538,10 @@
 
     if-eqz v0, :cond_17
 
-    .line 556
     const/16 v0, 0x18
 
     return v0
 
-    .line 557
     :cond_17
     const-string/jumbo v0, "UNOBTAINABLE_NUMBER"
 
@@ -604,12 +551,10 @@
 
     if-eqz v0, :cond_18
 
-    .line 558
     const/16 v0, 0x19
 
     return v0
 
-    .line 559
     :cond_18
     const-string/jumbo v0, "CDMA_LOCKED_UNTIL_POWER_CYCLE"
 
@@ -619,12 +564,10 @@
 
     if-eqz v0, :cond_19
 
-    .line 560
     const/16 v0, 0x1a
 
     return v0
 
-    .line 561
     :cond_19
     const-string/jumbo v0, "CDMA_DROP"
 
@@ -634,12 +577,10 @@
 
     if-eqz v0, :cond_1a
 
-    .line 562
     const/16 v0, 0x1b
 
     return v0
 
-    .line 563
     :cond_1a
     const-string/jumbo v0, "CDMA_INTERCEPT"
 
@@ -649,12 +590,10 @@
 
     if-eqz v0, :cond_1b
 
-    .line 564
     const/16 v0, 0x1c
 
     return v0
 
-    .line 565
     :cond_1b
     const-string/jumbo v0, "CDMA_REORDER"
 
@@ -664,12 +603,10 @@
 
     if-eqz v0, :cond_1c
 
-    .line 566
     const/16 v0, 0x1d
 
     return v0
 
-    .line 567
     :cond_1c
     const-string/jumbo v0, "CDMA_SO_REJECT"
 
@@ -679,12 +616,10 @@
 
     if-eqz v0, :cond_1d
 
-    .line 568
     const/16 v0, 0x1e
 
     return v0
 
-    .line 569
     :cond_1d
     const-string/jumbo v0, "CDMA_RETRY_ORDER"
 
@@ -694,12 +629,10 @@
 
     if-eqz v0, :cond_1e
 
-    .line 570
     const/16 v0, 0x1f
 
     return v0
 
-    .line 571
     :cond_1e
     const-string/jumbo v0, "CDMA_ACCESS_FAILURE"
 
@@ -709,12 +642,10 @@
 
     if-eqz v0, :cond_1f
 
-    .line 572
     const/16 v0, 0x20
 
     return v0
 
-    .line 573
     :cond_1f
     const-string/jumbo v0, "CDMA_PREEMPTED"
 
@@ -724,12 +655,10 @@
 
     if-eqz v0, :cond_20
 
-    .line 574
     const/16 v0, 0x21
 
     return v0
 
-    .line 575
     :cond_20
     const-string/jumbo v0, "CDMA_NOT_EMERGENCY"
 
@@ -739,12 +668,10 @@
 
     if-eqz v0, :cond_21
 
-    .line 576
     const/16 v0, 0x22
 
     return v0
 
-    .line 577
     :cond_21
     const-string/jumbo v0, "CDMA_ACCESS_BLOCKED"
 
@@ -754,12 +681,10 @@
 
     if-eqz v0, :cond_22
 
-    .line 578
     const/16 v0, 0x23
 
     return v0
 
-    .line 579
     :cond_22
     const-string/jumbo v0, "EMERGENCY_ONLY"
 
@@ -769,12 +694,10 @@
 
     if-eqz v0, :cond_23
 
-    .line 580
     const/16 v0, 0x25
 
     return v0
 
-    .line 581
     :cond_23
     const-string/jumbo v0, "NO_PHONE_NUMBER_SUPPLIED"
 
@@ -784,12 +707,10 @@
 
     if-eqz v0, :cond_24
 
-    .line 582
     const/16 v0, 0x26
 
     return v0
 
-    .line 583
     :cond_24
     const-string/jumbo v0, "DIALED_MMI"
 
@@ -799,12 +720,10 @@
 
     if-eqz v0, :cond_25
 
-    .line 584
     const/16 v0, 0x27
 
     return v0
 
-    .line 585
     :cond_25
     const-string/jumbo v0, "VOICEMAIL_NUMBER_MISSING"
 
@@ -814,12 +733,10 @@
 
     if-eqz v0, :cond_26
 
-    .line 586
     const/16 v0, 0x28
 
     return v0
 
-    .line 587
     :cond_26
     const-string/jumbo v0, "CDMA_CALL_LOST"
 
@@ -829,12 +746,10 @@
 
     if-eqz v0, :cond_27
 
-    .line 588
     const/16 v0, 0x29
 
     return v0
 
-    .line 589
     :cond_27
     const-string/jumbo v0, "EXITED_ECM"
 
@@ -844,12 +759,10 @@
 
     if-eqz v0, :cond_28
 
-    .line 590
     const/16 v0, 0x2a
 
     return v0
 
-    .line 591
     :cond_28
     const-string/jumbo v0, "DIAL_MODIFIED_TO_USSD"
 
@@ -859,12 +772,10 @@
 
     if-eqz v0, :cond_29
 
-    .line 592
     const/16 v0, 0x2e
 
     return v0
 
-    .line 593
     :cond_29
     const-string/jumbo v0, "DIAL_MODIFIED_TO_SS"
 
@@ -874,12 +785,10 @@
 
     if-eqz v0, :cond_2a
 
-    .line 594
     const/16 v0, 0x2f
 
     return v0
 
-    .line 595
     :cond_2a
     const-string/jumbo v0, "DIAL_MODIFIED_TO_DIAL"
 
@@ -889,12 +798,10 @@
 
     if-eqz v0, :cond_2b
 
-    .line 596
     const/16 v0, 0x30
 
     return v0
 
-    .line 597
     :cond_2b
     const-string/jumbo v0, "ERROR_UNSPECIFIED"
 
@@ -904,12 +811,10 @@
 
     if-eqz v0, :cond_2c
 
-    .line 598
     const/16 v0, 0x24
 
     return v0
 
-    .line 599
     :cond_2c
     const-string/jumbo v0, "OUTGOING_FAILURE"
 
@@ -919,12 +824,10 @@
 
     if-eqz v0, :cond_2d
 
-    .line 600
     const/16 v0, 0x2b
 
     return v0
 
-    .line 601
     :cond_2d
     const-string/jumbo v0, "OUTGOING_CANCELED"
 
@@ -934,12 +837,10 @@
 
     if-eqz v0, :cond_2e
 
-    .line 602
     const/16 v0, 0x2c
 
     return v0
 
-    .line 603
     :cond_2e
     const-string/jumbo v0, "IMS_MERGED_SUCCESSFULLY"
 
@@ -949,12 +850,10 @@
 
     if-eqz v0, :cond_2f
 
-    .line 604
     const/16 v0, 0x2d
 
     return v0
 
-    .line 605
     :cond_2f
     const-string/jumbo v0, "CDMA_ALREADY_ACTIVATED"
 
@@ -964,12 +863,10 @@
 
     if-eqz v0, :cond_30
 
-    .line 606
     const/16 v0, 0x31
 
     return v0
 
-    .line 607
     :cond_30
     const-string/jumbo v0, "VIDEO_CALL_NOT_ALLOWED_WHILE_TTY_ENABLED"
 
@@ -979,12 +876,10 @@
 
     if-eqz v0, :cond_31
 
-    .line 608
     const/16 v0, 0x32
 
     return v0
 
-    .line 610
     :cond_31
     const-string/jumbo v0, "NO_ANSWER"
 
@@ -994,12 +889,10 @@
 
     if-eqz v0, :cond_32
 
-    .line 611
     const/16 v0, 0x64
 
     return v0
 
-    .line 612
     :cond_32
     const-string/jumbo v0, "IMS_ERROR"
 
@@ -1009,12 +902,10 @@
 
     if-eqz v0, :cond_33
 
-    .line 613
     const/16 v0, 0x65
 
     return v0
 
-    .line 614
     :cond_33
     const-string/jumbo v0, "UAVAILABLE_CHANNEL"
 
@@ -1024,12 +915,10 @@
 
     if-eqz v0, :cond_34
 
-    .line 615
     const/16 v0, 0x66
 
     return v0
 
-    .line 618
     :cond_34
     const-string/jumbo v0, "WIFI_OUT_OF_FOOTPRINT"
 
@@ -1039,12 +928,10 @@
 
     if-eqz v0, :cond_35
 
-    .line 619
     const/16 v0, 0x67
 
     return v0
 
-    .line 622
     :cond_35
     const-string/jumbo v0, "BEARER_CAPABILITY_NOT_AUTHORIZED"
 
@@ -1054,12 +941,10 @@
 
     if-eqz v0, :cond_36
 
-    .line 623
     const/16 v0, 0xc8
 
     return v0
 
-    .line 624
     :cond_36
     const-string/jumbo v0, "REQUESTED_FACILITY_NOT_IMPLEMENTED"
 
@@ -1069,12 +954,10 @@
 
     if-eqz v0, :cond_37
 
-    .line 625
     const/16 v0, 0xc9
 
     return v0
 
-    .line 628
     :cond_37
     const-string/jumbo v0, "NO_USER_RESP"
 
@@ -1084,12 +967,10 @@
 
     if-eqz v0, :cond_38
 
-    .line 629
     const/16 v0, 0xce
 
     return v0
 
-    .line 630
     :cond_38
     const-string/jumbo v0, "NO_CIRCUIT"
 
@@ -1099,12 +980,10 @@
 
     if-eqz v0, :cond_39
 
-    .line 631
     const/16 v0, 0xd8
 
     return v0
 
-    .line 632
     :cond_39
     const-string/jumbo v0, "TMP_FAIL"
 
@@ -1114,12 +993,10 @@
 
     if-eqz v0, :cond_3a
 
-    .line 633
     const/16 v0, 0xda
 
     return v0
 
-    .line 634
     :cond_3a
     const-string/jumbo v0, "SWITCH_CONGESTION"
 
@@ -1129,12 +1006,10 @@
 
     if-eqz v0, :cond_3b
 
-    .line 635
     const/16 v0, 0xdb
 
     return v0
 
-    .line 636
     :cond_3b
     const-string/jumbo v0, "NO_CHANNEL"
 
@@ -1144,12 +1019,10 @@
 
     if-eqz v0, :cond_3c
 
-    .line 637
     const/16 v0, 0xdd
 
     return v0
 
-    .line 638
     :cond_3c
     const-string/jumbo v0, "NO_QOS"
 
@@ -1159,12 +1032,10 @@
 
     if-eqz v0, :cond_3d
 
-    .line 639
     const/16 v0, 0xdf
 
     return v0
 
-    .line 640
     :cond_3d
     const-string/jumbo v0, "NO_BEARER"
 
@@ -1174,12 +1045,10 @@
 
     if-eqz v0, :cond_3e
 
-    .line 641
     const/16 v0, 0xe3
 
     return v0
 
-    .line 642
     :cond_3e
     const-string/jumbo v0, "ACM_EXCEED"
 
@@ -1189,12 +1058,10 @@
 
     if-eqz v0, :cond_3f
 
-    .line 643
     const/16 v0, 0xe6
 
     return v0
 
-    .line 644
     :cond_3f
     const-string/jumbo v0, "UNASSIGNED_NUM"
 
@@ -1204,12 +1071,10 @@
 
     if-eqz v0, :cond_40
 
-    .line 645
     const/16 v0, 0xca
 
     return v0
 
-    .line 646
     :cond_40
     const-string/jumbo v0, "NO_ROUTE"
 
@@ -1219,12 +1084,10 @@
 
     if-eqz v0, :cond_41
 
-    .line 647
     const/16 v0, 0xcb
 
     return v0
 
-    .line 648
     :cond_41
     const-string/jumbo v0, "CHANNEL_UNACCEPT"
 
@@ -1234,12 +1097,10 @@
 
     if-eqz v0, :cond_42
 
-    .line 649
     const/16 v0, 0xcc
 
     return v0
 
-    .line 650
     :cond_42
     const-string/jumbo v0, "OP_DETERMINED"
 
@@ -1249,12 +1110,10 @@
 
     if-eqz v0, :cond_43
 
-    .line 651
     const/16 v0, 0xcd
 
     return v0
 
-    .line 652
     :cond_43
     const-string/jumbo v0, "CALL_REJECT"
 
@@ -1264,12 +1123,10 @@
 
     if-eqz v0, :cond_44
 
-    .line 653
     const/16 v0, 0xcf
 
     return v0
 
-    .line 654
     :cond_44
     const-string/jumbo v0, "PRE_EMPTION"
 
@@ -1279,12 +1136,10 @@
 
     if-eqz v0, :cond_45
 
-    .line 655
     const/16 v0, 0xd1
 
     return v0
 
-    .line 656
     :cond_45
     const-string/jumbo v0, "NON_SELECTED"
 
@@ -1294,12 +1149,10 @@
 
     if-eqz v0, :cond_46
 
-    .line 657
     const/16 v0, 0xd2
 
     return v0
 
-    .line 658
     :cond_46
     const-string/jumbo v0, "DESTINATION_OUT_OF"
 
@@ -1309,12 +1162,10 @@
 
     if-eqz v0, :cond_47
 
-    .line 659
     const/16 v0, 0xd3
 
     return v0
 
-    .line 660
     :cond_47
     const-string/jumbo v0, "INVALID_NUM_FORMAT"
 
@@ -1324,12 +1175,10 @@
 
     if-eqz v0, :cond_48
 
-    .line 661
     const/16 v0, 0xd4
 
     return v0
 
-    .line 662
     :cond_48
     const-string/jumbo v0, "FACILITY_REJECT"
 
@@ -1339,12 +1188,10 @@
 
     if-eqz v0, :cond_49
 
-    .line 663
     const/16 v0, 0xd5
 
     return v0
 
-    .line 664
     :cond_49
     const-string/jumbo v0, "NET_OUT_OF"
 
@@ -1354,12 +1201,10 @@
 
     if-eqz v0, :cond_4a
 
-    .line 665
     const/16 v0, 0xd9
 
     return v0
 
-    .line 666
     :cond_4a
     const-string/jumbo v0, "ACCESS_DISCARD"
 
@@ -1369,12 +1214,10 @@
 
     if-eqz v0, :cond_4b
 
-    .line 667
     const/16 v0, 0xdc
 
     return v0
 
-    .line 668
     :cond_4b
     const-string/jumbo v0, "NO_RESOURCE"
 
@@ -1384,12 +1227,10 @@
 
     if-eqz v0, :cond_4c
 
-    .line 669
     const/16 v0, 0xde
 
     return v0
 
-    .line 670
     :cond_4c
     const-string/jumbo v0, "NO_SUBSCRIBED"
 
@@ -1399,12 +1240,10 @@
 
     if-eqz v0, :cond_4d
 
-    .line 671
     const/16 v0, 0xe0
 
     return v0
 
-    .line 672
     :cond_4d
     const-string/jumbo v0, "BARRED_IN_CUG"
 
@@ -1414,12 +1253,10 @@
 
     if-eqz v0, :cond_4e
 
-    .line 673
     const/16 v0, 0xe1
 
     return v0
 
-    .line 674
     :cond_4e
     const-string/jumbo v0, "BARRER_NOT_ALLOWED"
 
@@ -1429,12 +1266,10 @@
 
     if-eqz v0, :cond_4f
 
-    .line 675
     const/16 v0, 0xe2
 
     return v0
 
-    .line 676
     :cond_4f
     const-string/jumbo v0, "SERVICE_UNAVAILABLE"
 
@@ -1444,12 +1279,10 @@
 
     if-eqz v0, :cond_50
 
-    .line 677
     const/16 v0, 0xe4
 
     return v0
 
-    .line 678
     :cond_50
     const-string/jumbo v0, "BEARER_UNINPLEMENTED"
 
@@ -1459,12 +1292,10 @@
 
     if-eqz v0, :cond_51
 
-    .line 679
     const/16 v0, 0xe5
 
     return v0
 
-    .line 680
     :cond_51
     const-string/jumbo v0, "FACILITY_UNINPLEMENTED"
 
@@ -1474,12 +1305,10 @@
 
     if-eqz v0, :cond_52
 
-    .line 681
     const/16 v0, 0xe7
 
     return v0
 
-    .line 682
     :cond_52
     const-string/jumbo v0, "RESTRICTED_DIGITAL"
 
@@ -1489,12 +1318,10 @@
 
     if-eqz v0, :cond_53
 
-    .line 683
     const/16 v0, 0xe8
 
     return v0
 
-    .line 684
     :cond_53
     const-string/jumbo v0, "SERVICE_UNINPLEMENTED"
 
@@ -1504,12 +1331,10 @@
 
     if-eqz v0, :cond_54
 
-    .line 685
     const/16 v0, 0xe9
 
     return v0
 
-    .line 686
     :cond_54
     const-string/jumbo v0, "INVALID_TI"
 
@@ -1519,12 +1344,10 @@
 
     if-eqz v0, :cond_55
 
-    .line 687
     const/16 v0, 0xea
 
     return v0
 
-    .line 688
     :cond_55
     const-string/jumbo v0, "NOT_IN_CUG"
 
@@ -1534,12 +1357,10 @@
 
     if-eqz v0, :cond_56
 
-    .line 689
     const/16 v0, 0xeb
 
     return v0
 
-    .line 690
     :cond_56
     const-string/jumbo v0, "INCOMPATIBLE_DEST"
 
@@ -1549,12 +1370,10 @@
 
     if-eqz v0, :cond_57
 
-    .line 691
     const/16 v0, 0xec
 
     return v0
 
-    .line 692
     :cond_57
     const-string/jumbo v0, "INVALID_TRANSIT_NET"
 
@@ -1564,12 +1383,10 @@
 
     if-eqz v0, :cond_58
 
-    .line 693
     const/16 v0, 0xed
 
     return v0
 
-    .line 694
     :cond_58
     const-string/jumbo v0, "INCORRECT_MSG"
 
@@ -1579,12 +1396,10 @@
 
     if-eqz v0, :cond_59
 
-    .line 695
     const/16 v0, 0xee
 
     return v0
 
-    .line 696
     :cond_59
     const-string/jumbo v0, "IE_ERROR"
 
@@ -1594,12 +1409,10 @@
 
     if-eqz v0, :cond_5a
 
-    .line 697
     const/16 v0, 0xef
 
     return v0
 
-    .line 698
     :cond_5a
     const-string/jumbo v0, "MSG_TYPE_NON_EXIST"
 
@@ -1609,12 +1422,10 @@
 
     if-eqz v0, :cond_5b
 
-    .line 699
     const/16 v0, 0xf0
 
     return v0
 
-    .line 700
     :cond_5b
     const-string/jumbo v0, "MSG_NOT_COMP"
 
@@ -1624,12 +1435,10 @@
 
     if-eqz v0, :cond_5c
 
-    .line 701
     const/16 v0, 0xf1
 
     return v0
 
-    .line 702
     :cond_5c
     const-string/jumbo v0, "IE_NON_EXIST"
 
@@ -1639,12 +1448,10 @@
 
     if-eqz v0, :cond_5d
 
-    .line 703
     const/16 v0, 0xf2
 
     return v0
 
-    .line 704
     :cond_5d
     const-string/jumbo v0, "INVALID_IE_CONTENTS"
 
@@ -1654,12 +1461,10 @@
 
     if-eqz v0, :cond_5e
 
-    .line 705
     const/16 v0, 0xf3
 
     return v0
 
-    .line 706
     :cond_5e
     const-string/jumbo v0, "MSG_NOT_COMP_CALL_STATE"
 
@@ -1669,12 +1474,10 @@
 
     if-eqz v0, :cond_5f
 
-    .line 707
     const/16 v0, 0xf4
 
     return v0
 
-    .line 708
     :cond_5f
     const-string/jumbo v0, "RECOVERY_TIMER_EXPIRY"
 
@@ -1684,12 +1487,10 @@
 
     if-eqz v0, :cond_60
 
-    .line 709
     const/16 v0, 0xf5
 
     return v0
 
-    .line 710
     :cond_60
     const-string/jumbo v0, "PROTOCOL_ERROR"
 
@@ -1699,12 +1500,10 @@
 
     if-eqz v0, :cond_61
 
-    .line 711
     const/16 v0, 0xf6
 
     return v0
 
-    .line 712
     :cond_61
     const-string/jumbo v0, "INTERWORKING"
 
@@ -1714,12 +1513,10 @@
 
     if-eqz v0, :cond_62
 
-    .line 713
     const/16 v0, 0xf7
 
     return v0
 
-    .line 714
     :cond_62
     const-string/jumbo v0, "NUMBER_CHANGED"
 
@@ -1729,12 +1526,10 @@
 
     if-eqz v0, :cond_63
 
-    .line 715
     const/16 v0, 0xd0
 
     return v0
 
-    .line 716
     :cond_63
     const-string/jumbo v0, "STATUS_ENQUIRY"
 
@@ -1744,12 +1539,10 @@
 
     if-eqz v0, :cond_64
 
-    .line 717
     const/16 v0, 0xd6
 
     return v0
 
-    .line 718
     :cond_64
     const-string/jumbo v0, "NORMAL_UNSPECIFIED"
 
@@ -1759,12 +1552,10 @@
 
     if-eqz v0, :cond_65
 
-    .line 719
     const/16 v0, 0xd7
 
     return v0
 
-    .line 720
     :cond_65
     const-string/jumbo v0, "PLAY_BUSYTONE"
 
@@ -1774,12 +1565,10 @@
 
     if-eqz v0, :cond_66
 
-    .line 721
     const/16 v0, 0xf8
 
     return v0
 
-    .line 724
     :cond_66
     const/4 v0, -0x1
 
@@ -1788,13 +1577,9 @@
 
 .method public static toString(I)Ljava/lang/String;
     .locals 2
-    .param p0, "cause"    # I
 
-    .prologue
-    .line 288
     packed-switch p0, :pswitch_data_0
 
-    .line 504
     :pswitch_0
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -1816,625 +1601,521 @@
 
     return-object v0
 
-    .line 290
     :pswitch_1
     const-string/jumbo v0, "NOT_DISCONNECTED"
 
     return-object v0
 
-    .line 292
     :pswitch_2
     const-string/jumbo v0, "INCOMING_MISSED"
 
     return-object v0
 
-    .line 294
     :pswitch_3
     const-string/jumbo v0, "NORMAL"
 
     return-object v0
 
-    .line 296
     :pswitch_4
     const-string/jumbo v0, "LOCAL"
 
     return-object v0
 
-    .line 298
     :pswitch_5
     const-string/jumbo v0, "BUSY"
 
     return-object v0
 
-    .line 300
     :pswitch_6
     const-string/jumbo v0, "CONGESTION"
 
     return-object v0
 
-    .line 302
     :pswitch_7
     const-string/jumbo v0, "INVALID_NUMBER"
 
     return-object v0
 
-    .line 304
     :pswitch_8
     const-string/jumbo v0, "NUMBER_UNREACHABLE"
 
     return-object v0
 
-    .line 306
     :pswitch_9
     const-string/jumbo v0, "SERVER_UNREACHABLE"
 
     return-object v0
 
-    .line 308
     :pswitch_a
     const-string/jumbo v0, "INVALID_CREDENTIALS"
 
     return-object v0
 
-    .line 310
     :pswitch_b
     const-string/jumbo v0, "OUT_OF_NETWORK"
 
     return-object v0
 
-    .line 312
     :pswitch_c
     const-string/jumbo v0, "SERVER_ERROR"
 
     return-object v0
 
-    .line 314
     :pswitch_d
     const-string/jumbo v0, "TIMED_OUT"
 
     return-object v0
 
-    .line 316
     :pswitch_e
     const-string/jumbo v0, "LOST_SIGNAL"
 
     return-object v0
 
-    .line 318
     :pswitch_f
     const-string/jumbo v0, "LIMIT_EXCEEDED"
 
     return-object v0
 
-    .line 320
     :pswitch_10
     const-string/jumbo v0, "INCOMING_REJECTED"
 
     return-object v0
 
-    .line 322
     :pswitch_11
     const-string/jumbo v0, "POWER_OFF"
 
     return-object v0
 
-    .line 324
     :pswitch_12
     const-string/jumbo v0, "OUT_OF_SERVICE"
 
     return-object v0
 
-    .line 326
     :pswitch_13
     const-string/jumbo v0, "ICC_ERROR"
 
     return-object v0
 
-    .line 328
     :pswitch_14
     const-string/jumbo v0, "CALL_BARRED"
 
     return-object v0
 
-    .line 330
     :pswitch_15
     const-string/jumbo v0, "FDN_BLOCKED"
 
     return-object v0
 
-    .line 332
     :pswitch_16
     const-string/jumbo v0, "CS_RESTRICTED"
 
     return-object v0
 
-    .line 334
     :pswitch_17
     const-string/jumbo v0, "CS_RESTRICTED_NORMAL"
 
     return-object v0
 
-    .line 336
     :pswitch_18
     const-string/jumbo v0, "CS_RESTRICTED_EMERGENCY"
 
     return-object v0
 
-    .line 338
     :pswitch_19
     const-string/jumbo v0, "UNOBTAINABLE_NUMBER"
 
     return-object v0
 
-    .line 340
     :pswitch_1a
     const-string/jumbo v0, "CDMA_LOCKED_UNTIL_POWER_CYCLE"
 
     return-object v0
 
-    .line 342
     :pswitch_1b
     const-string/jumbo v0, "CDMA_DROP"
 
     return-object v0
 
-    .line 344
     :pswitch_1c
     const-string/jumbo v0, "CDMA_INTERCEPT"
 
     return-object v0
 
-    .line 346
     :pswitch_1d
     const-string/jumbo v0, "CDMA_REORDER"
 
     return-object v0
 
-    .line 348
     :pswitch_1e
     const-string/jumbo v0, "CDMA_SO_REJECT"
 
     return-object v0
 
-    .line 350
     :pswitch_1f
     const-string/jumbo v0, "CDMA_RETRY_ORDER"
 
     return-object v0
 
-    .line 352
     :pswitch_20
     const-string/jumbo v0, "CDMA_ACCESS_FAILURE"
 
     return-object v0
 
-    .line 354
     :pswitch_21
     const-string/jumbo v0, "CDMA_PREEMPTED"
 
     return-object v0
 
-    .line 356
     :pswitch_22
     const-string/jumbo v0, "CDMA_NOT_EMERGENCY"
 
     return-object v0
 
-    .line 358
     :pswitch_23
     const-string/jumbo v0, "CDMA_ACCESS_BLOCKED"
 
     return-object v0
 
-    .line 360
     :pswitch_24
     const-string/jumbo v0, "EMERGENCY_ONLY"
 
     return-object v0
 
-    .line 362
     :pswitch_25
     const-string/jumbo v0, "NO_PHONE_NUMBER_SUPPLIED"
 
     return-object v0
 
-    .line 364
     :pswitch_26
     const-string/jumbo v0, "DIALED_MMI"
 
     return-object v0
 
-    .line 366
     :pswitch_27
     const-string/jumbo v0, "VOICEMAIL_NUMBER_MISSING"
 
     return-object v0
 
-    .line 368
     :pswitch_28
     const-string/jumbo v0, "CDMA_CALL_LOST"
 
     return-object v0
 
-    .line 370
     :pswitch_29
     const-string/jumbo v0, "EXITED_ECM"
 
     return-object v0
 
-    .line 372
     :pswitch_2a
     const-string/jumbo v0, "DIAL_MODIFIED_TO_USSD"
 
     return-object v0
 
-    .line 374
     :pswitch_2b
     const-string/jumbo v0, "DIAL_MODIFIED_TO_SS"
 
     return-object v0
 
-    .line 376
     :pswitch_2c
     const-string/jumbo v0, "DIAL_MODIFIED_TO_DIAL"
 
     return-object v0
 
-    .line 378
     :pswitch_2d
     const-string/jumbo v0, "ERROR_UNSPECIFIED"
 
     return-object v0
 
-    .line 380
     :pswitch_2e
     const-string/jumbo v0, "OUTGOING_FAILURE"
 
     return-object v0
 
-    .line 382
     :pswitch_2f
     const-string/jumbo v0, "OUTGOING_CANCELED"
 
     return-object v0
 
-    .line 384
     :pswitch_30
     const-string/jumbo v0, "IMS_MERGED_SUCCESSFULLY"
 
     return-object v0
 
-    .line 386
     :pswitch_31
     const-string/jumbo v0, "CDMA_ALREADY_ACTIVATED"
 
     return-object v0
 
-    .line 388
     :pswitch_32
     const-string/jumbo v0, "VIDEO_CALL_NOT_ALLOWED_WHILE_TTY_ENABLED"
 
     return-object v0
 
-    .line 391
     :pswitch_33
     const-string/jumbo v0, "NO_ANSWER"
 
     return-object v0
 
-    .line 393
     :pswitch_34
     const-string/jumbo v0, "IMS_ERROR"
 
     return-object v0
 
-    .line 395
     :pswitch_35
     const-string/jumbo v0, "UAVAILABLE_CHANNEL"
 
     return-object v0
 
-    .line 399
     :pswitch_36
     const-string/jumbo v0, "WIFI_OUT_OF_FOOTPRINT"
 
     return-object v0
 
-    .line 403
     :pswitch_37
     const-string/jumbo v0, "BEARER_CAPABILITY_NOT_AUTHORIZED"
 
     return-object v0
 
-    .line 405
     :pswitch_38
     const-string/jumbo v0, "REQUESTED_FACILITY_NOT_IMPLEMENTED"
 
     return-object v0
 
-    .line 409
     :pswitch_39
     const-string/jumbo v0, "NO_USER_RESP"
 
     return-object v0
 
-    .line 411
     :pswitch_3a
     const-string/jumbo v0, "NO_CIRCUIT"
 
     return-object v0
 
-    .line 413
     :pswitch_3b
     const-string/jumbo v0, "TMP_FAIL"
 
     return-object v0
 
-    .line 415
     :pswitch_3c
     const-string/jumbo v0, "SWITCH_CONGESTION"
 
     return-object v0
 
-    .line 417
     :pswitch_3d
     const-string/jumbo v0, "NO_CHANNEL"
 
     return-object v0
 
-    .line 419
     :pswitch_3e
     const-string/jumbo v0, "NO_QOS"
 
     return-object v0
 
-    .line 421
     :pswitch_3f
     const-string/jumbo v0, "NO_BEARER"
 
     return-object v0
 
-    .line 423
     :pswitch_40
     const-string/jumbo v0, "ACM_EXCEED"
 
     return-object v0
 
-    .line 425
     :pswitch_41
     const-string/jumbo v0, "UNASSIGNED_NUM"
 
     return-object v0
 
-    .line 427
     :pswitch_42
     const-string/jumbo v0, "NO_ROUTE"
 
     return-object v0
 
-    .line 429
     :pswitch_43
     const-string/jumbo v0, "CHANNEL_UNACCEPT"
 
     return-object v0
 
-    .line 431
     :pswitch_44
     const-string/jumbo v0, "OP_DETERMINED"
 
     return-object v0
 
-    .line 433
     :pswitch_45
     const-string/jumbo v0, "CALL_REJECT"
 
     return-object v0
 
-    .line 435
     :pswitch_46
     const-string/jumbo v0, "PRE_EMPTION"
 
     return-object v0
 
-    .line 437
     :pswitch_47
     const-string/jumbo v0, "NON_SELECTED"
 
     return-object v0
 
-    .line 439
     :pswitch_48
     const-string/jumbo v0, "DESTINATION_OUT_OF"
 
     return-object v0
 
-    .line 441
     :pswitch_49
     const-string/jumbo v0, "INVALID_NUM_FORMAT"
 
     return-object v0
 
-    .line 443
     :pswitch_4a
     const-string/jumbo v0, "FACILITY_REJECT"
 
     return-object v0
 
-    .line 445
     :pswitch_4b
     const-string/jumbo v0, "NET_OUT_OF"
 
     return-object v0
 
-    .line 447
     :pswitch_4c
     const-string/jumbo v0, "ACCESS_DISCARD"
 
     return-object v0
 
-    .line 449
     :pswitch_4d
     const-string/jumbo v0, "NO_RESOURCE"
 
     return-object v0
 
-    .line 451
     :pswitch_4e
     const-string/jumbo v0, "NO_SUBSCRIBED"
 
     return-object v0
 
-    .line 453
     :pswitch_4f
     const-string/jumbo v0, "BARRED_IN_CUG"
 
     return-object v0
 
-    .line 455
     :pswitch_50
     const-string/jumbo v0, "BARRER_NOT_ALLOWED"
 
     return-object v0
 
-    .line 457
     :pswitch_51
     const-string/jumbo v0, "SERVICE_UNAVAILABLE"
 
     return-object v0
 
-    .line 459
     :pswitch_52
     const-string/jumbo v0, "BEARER_UNINPLEMENTED"
 
     return-object v0
 
-    .line 461
     :pswitch_53
     const-string/jumbo v0, "FACILITY_UNINPLEMENTED"
 
     return-object v0
 
-    .line 463
     :pswitch_54
     const-string/jumbo v0, "RESTRICTED_DIGITAL"
 
     return-object v0
 
-    .line 465
     :pswitch_55
     const-string/jumbo v0, "SERVICE_UNINPLEMENTED"
 
     return-object v0
 
-    .line 467
     :pswitch_56
     const-string/jumbo v0, "INVALID_TI"
 
     return-object v0
 
-    .line 469
     :pswitch_57
     const-string/jumbo v0, "NOT_IN_CUG"
 
     return-object v0
 
-    .line 471
     :pswitch_58
     const-string/jumbo v0, "INCOMPATIBLE_DEST"
 
     return-object v0
 
-    .line 473
     :pswitch_59
     const-string/jumbo v0, "INVALID_TRANSIT_NET"
 
     return-object v0
 
-    .line 475
     :pswitch_5a
     const-string/jumbo v0, "INCORRECT_MSG"
 
     return-object v0
 
-    .line 477
     :pswitch_5b
     const-string/jumbo v0, "IE_ERROR"
 
     return-object v0
 
-    .line 479
     :pswitch_5c
     const-string/jumbo v0, "MSG_TYPE_NON_EXIST"
 
     return-object v0
 
-    .line 481
     :pswitch_5d
     const-string/jumbo v0, "MSG_NOT_COMP"
 
     return-object v0
 
-    .line 483
     :pswitch_5e
     const-string/jumbo v0, "IE_NON_EXIST"
 
     return-object v0
 
-    .line 485
     :pswitch_5f
     const-string/jumbo v0, "INVALID_IE_CONTENTS"
 
     return-object v0
 
-    .line 487
     :pswitch_60
     const-string/jumbo v0, "MSG_NOT_COMP_CALL_STATE"
 
     return-object v0
 
-    .line 489
     :pswitch_61
     const-string/jumbo v0, "RECOVERY_TIMER_EXPIRY"
 
     return-object v0
 
-    .line 491
     :pswitch_62
     const-string/jumbo v0, "PROTOCOL_ERROR"
 
     return-object v0
 
-    .line 493
     :pswitch_63
     const-string/jumbo v0, "INTERWORKING"
 
     return-object v0
 
-    .line 495
     :pswitch_64
     const-string/jumbo v0, "NUMBER_CHANGED"
 
     return-object v0
 
-    .line 497
     :pswitch_65
     const-string/jumbo v0, "STATUS_ENQUIRY"
 
     return-object v0
 
-    .line 499
     :pswitch_66
     const-string/jumbo v0, "NORMAL_UNSPECIFIED"
 
     return-object v0
 
-    .line 501
     :pswitch_67
     const-string/jumbo v0, "PLAY_BUSYTONE"
 
     return-object v0
 
-    .line 288
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_1

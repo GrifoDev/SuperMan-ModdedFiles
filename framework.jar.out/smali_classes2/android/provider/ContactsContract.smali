@@ -93,8 +93,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 117
     const-string/jumbo v0, "content://com.android.contacts"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -103,15 +101,12 @@
 
     sput-object v0, Landroid/provider/ContactsContract;->AUTHORITY_URI:Landroid/net/Uri;
 
-    .line 113
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 113
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -119,10 +114,7 @@
 
 .method public static isProfileId(J)Z
     .locals 2
-    .param p0, "id"    # J
 
-    .prologue
-    .line 2245
     const-wide v0, 0x7fffffff80000000L
 
     cmp-long v0, p0, v0

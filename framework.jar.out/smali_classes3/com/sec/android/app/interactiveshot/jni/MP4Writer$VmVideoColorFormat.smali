@@ -51,7 +51,6 @@
 .method static constructor <clinit>()V
     .locals 9
 
-    .prologue
     const/4 v8, 0x4
 
     const/4 v7, 0x3
@@ -62,7 +61,6 @@
 
     const/4 v4, 0x0
 
-    .line 38
     new-instance v0, Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoColorFormat;
 
     const-string/jumbo v1, "VM_COLOR_FORMAT_UNSUPPORTED"
@@ -71,7 +69,6 @@
 
     sput-object v0, Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoColorFormat;->VM_COLOR_FORMAT_UNSUPPORTED:Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoColorFormat;
 
-    .line 39
     new-instance v0, Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoColorFormat;
 
     const-string/jumbo v1, "VM_COLOR_FORMAT_YUV420_PLANAR"
@@ -80,7 +77,6 @@
 
     sput-object v0, Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoColorFormat;->VM_COLOR_FORMAT_YUV420_PLANAR:Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoColorFormat;
 
-    .line 40
     new-instance v0, Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoColorFormat;
 
     const-string/jumbo v1, "VM_COLOR_FORMAT_YUV420_SEMI_PLANAR"
@@ -89,7 +85,6 @@
 
     sput-object v0, Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoColorFormat;->VM_COLOR_FORMAT_YUV420_SEMI_PLANAR:Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoColorFormat;
 
-    .line 41
     new-instance v0, Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoColorFormat;
 
     const-string/jumbo v1, "VM_COLOR_FORMAT_YUV420SP_TILED"
@@ -98,7 +93,6 @@
 
     sput-object v0, Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoColorFormat;->VM_COLOR_FORMAT_YUV420SP_TILED:Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoColorFormat;
 
-    .line 42
     new-instance v0, Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoColorFormat;
 
     const-string/jumbo v1, "VM_COLOR_FORMAT_ARGB"
@@ -107,7 +101,6 @@
 
     sput-object v0, Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoColorFormat;->VM_COLOR_FORMAT_ARGB:Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoColorFormat;
 
-    .line 43
     new-instance v0, Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoColorFormat;
 
     const-string/jumbo v1, "VM_COLOR_FORMAT_RGBA"
@@ -120,7 +113,6 @@
 
     sput-object v0, Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoColorFormat;->VM_COLOR_FORMAT_RGBA:Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoColorFormat;
 
-    .line 44
     new-instance v0, Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoColorFormat;
 
     const-string/jumbo v1, "VM_COLOR_FORMAT_RGB565"
@@ -133,7 +125,6 @@
 
     sput-object v0, Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoColorFormat;->VM_COLOR_FORMAT_RGB565:Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoColorFormat;
 
-    .line 45
     new-instance v0, Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoColorFormat;
 
     const-string/jumbo v1, "VM_COLOR_FORMAT_NV21"
@@ -148,7 +139,6 @@
 
     const/16 v0, 0x8
 
-    .line 37
     new-array v0, v0, [Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoColorFormat;
 
     sget-object v1, Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoColorFormat;->VM_COLOR_FORMAT_UNSUPPORTED:Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoColorFormat;
@@ -197,24 +187,18 @@
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
 
-    .prologue
-    .line 49
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 50
     iput p3, p0, Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoColorFormat;->mColorFormatValue:I
 
-    .line 51
     return-void
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoColorFormat;
     .locals 1
 
-    .prologue
     const-class v0, Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoColorFormat;
 
-    .line 1
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
     move-result-object v0
@@ -227,10 +211,8 @@
 .method public static values()[Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoColorFormat;
     .locals 4
 
-    .prologue
     const/4 v3, 0x0
 
-    .line 1
     sget-object v0, Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoColorFormat;->ENUM$VALUES:[Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoColorFormat;
 
     array-length v1, v0
@@ -247,8 +229,6 @@
 .method public getValue()I
     .locals 1
 
-    .prologue
-    .line 54
     iget v0, p0, Lcom/sec/android/app/interactiveshot/jni/MP4Writer$VmVideoColorFormat;->mColorFormatValue:I
 
     return v0

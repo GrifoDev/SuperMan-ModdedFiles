@@ -36,7 +36,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
     const-class v0, Landroid/widget/GridLayout$Axis$1;
 
     invoke-virtual {v0}, Ljava/lang/Class;->desiredAssertionStatus()Z
@@ -50,7 +49,6 @@
     :goto_0
     sput-boolean v0, Landroid/widget/GridLayout$Axis$1;->-assertionsDisabled:Z
 
-    .line 1425
     return-void
 
     :cond_0
@@ -61,18 +59,13 @@
 
 .method constructor <init>(Landroid/widget/GridLayout$Axis;[Landroid/widget/GridLayout$Arc;)V
     .locals 2
-    .param p1, "this$1"    # Landroid/widget/GridLayout$Axis;
-    .param p2, "val$arcs"    # [Landroid/widget/GridLayout$Arc;
 
-    .prologue
-    .line 1425
     iput-object p1, p0, Landroid/widget/GridLayout$Axis$1;->this$1:Landroid/widget/GridLayout$Axis;
 
     iput-object p2, p0, Landroid/widget/GridLayout$Axis$1;->val$arcs:[Landroid/widget/GridLayout$Arc;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1426
     iget-object v0, p0, Landroid/widget/GridLayout$Axis$1;->val$arcs:[Landroid/widget/GridLayout$Arc;
 
     array-length v0, v0
@@ -81,7 +74,6 @@
 
     iput-object v0, p0, Landroid/widget/GridLayout$Axis$1;->result:[Landroid/widget/GridLayout$Arc;
 
-    .line 1427
     iget-object v0, p0, Landroid/widget/GridLayout$Axis$1;->result:[Landroid/widget/GridLayout$Arc;
 
     array-length v0, v0
@@ -90,7 +82,6 @@
 
     iput v0, p0, Landroid/widget/GridLayout$Axis$1;->cursor:I
 
-    .line 1428
     iget-object v0, p0, Landroid/widget/GridLayout$Axis$1;->this$1:Landroid/widget/GridLayout$Axis;
 
     iget-object v1, p0, Landroid/widget/GridLayout$Axis$1;->val$arcs:[Landroid/widget/GridLayout$Arc;
@@ -101,7 +92,6 @@
 
     iput-object v0, p0, Landroid/widget/GridLayout$Axis$1;->arcsByVertex:[[Landroid/widget/GridLayout$Arc;
 
-    .line 1429
     iget-object v0, p0, Landroid/widget/GridLayout$Axis$1;->this$1:Landroid/widget/GridLayout$Axis;
 
     invoke-virtual {v0}, Landroid/widget/GridLayout$Axis;->getCount()I
@@ -114,7 +104,6 @@
 
     iput-object v0, p0, Landroid/widget/GridLayout$Axis$1;->visited:[I
 
-    .line 1425
     return-void
 .end method
 
@@ -123,28 +112,21 @@
 .method sort()[Landroid/widget/GridLayout$Arc;
     .locals 4
 
-    .prologue
-    .line 1454
     const/4 v1, 0x0
 
-    .local v1, "loc":I
     iget-object v2, p0, Landroid/widget/GridLayout$Axis$1;->arcsByVertex:[[Landroid/widget/GridLayout$Arc;
 
     array-length v0, v2
 
-    .local v0, "N":I
     :goto_0
     if-ge v1, v0, :cond_0
 
-    .line 1455
     invoke-virtual {p0, v1}, Landroid/widget/GridLayout$Axis$1;->walk(I)V
 
-    .line 1454
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 1457
     :cond_0
     sget-boolean v2, Landroid/widget/GridLayout$Axis$1;->-assertionsDisabled:Z
 
@@ -172,7 +154,6 @@
 
     goto :goto_1
 
-    .line 1458
     :cond_2
     iget-object v2, p0, Landroid/widget/GridLayout$Axis$1;->result:[Landroid/widget/GridLayout$Arc;
 
@@ -181,23 +162,18 @@
 
 .method walk(I)V
     .locals 7
-    .param p1, "loc"    # I
 
-    .prologue
-    .line 1432
     iget-object v1, p0, Landroid/widget/GridLayout$Axis$1;->visited:[I
 
     aget v1, v1, p1
 
     packed-switch v1, :pswitch_data_0
 
-    .line 1431
     :cond_0
     :goto_0
     :pswitch_0
     return-void
 
-    .line 1434
     :pswitch_1
     iget-object v1, p0, Landroid/widget/GridLayout$Axis$1;->visited:[I
 
@@ -205,7 +181,6 @@
 
     aput v2, v1, p1
 
-    .line 1435
     iget-object v1, p0, Landroid/widget/GridLayout$Axis$1;->arcsByVertex:[[Landroid/widget/GridLayout$Arc;
 
     aget-object v2, v1, p1
@@ -219,15 +194,12 @@
 
     aget-object v0, v2, v1
 
-    .line 1436
-    .local v0, "arc":Landroid/widget/GridLayout$Arc;
     iget-object v4, v0, Landroid/widget/GridLayout$Arc;->span:Landroid/widget/GridLayout$Interval;
 
     iget v4, v4, Landroid/widget/GridLayout$Interval;->max:I
 
     invoke-virtual {p0, v4}, Landroid/widget/GridLayout$Axis$1;->walk(I)V
 
-    .line 1437
     iget-object v4, p0, Landroid/widget/GridLayout$Axis$1;->result:[Landroid/widget/GridLayout$Arc;
 
     iget v5, p0, Landroid/widget/GridLayout$Axis$1;->cursor:I
@@ -238,13 +210,10 @@
 
     aput-object v0, v4, v5
 
-    .line 1435
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
-    .line 1439
-    .end local v0    # "arc":Landroid/widget/GridLayout$Arc;
     :cond_1
     iget-object v1, p0, Landroid/widget/GridLayout$Axis$1;->visited:[I
 
@@ -254,7 +223,6 @@
 
     goto :goto_0
 
-    .line 1444
     :pswitch_2
     sget-boolean v1, Landroid/widget/GridLayout$Axis$1;->-assertionsDisabled:Z
 
@@ -266,7 +234,6 @@
 
     throw v1
 
-    .line 1432
     nop
 
     :pswitch_data_0

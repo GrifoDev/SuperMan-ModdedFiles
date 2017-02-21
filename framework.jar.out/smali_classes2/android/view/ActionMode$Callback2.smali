@@ -21,8 +21,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 373
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -32,17 +30,11 @@
 # virtual methods
 .method public onGetContentRect(Landroid/view/ActionMode;Landroid/view/View;Landroid/graphics/Rect;)V
     .locals 3
-    .param p1, "mode"    # Landroid/view/ActionMode;
-    .param p2, "view"    # Landroid/view/View;
-    .param p3, "outRect"    # Landroid/graphics/Rect;
 
-    .prologue
     const/4 v2, 0x0
 
-    .line 387
     if-eqz p2, :cond_0
 
-    .line 388
     invoke-virtual {p2}, Landroid/view/View;->getWidth()I
 
     move-result v0
@@ -53,11 +45,9 @@
 
     invoke-virtual {p3, v2, v2, v0, v1}, Landroid/graphics/Rect;->set(IIII)V
 
-    .line 386
     :goto_0
     return-void
 
-    .line 390
     :cond_0
     invoke-virtual {p3, v2, v2, v2, v2}, Landroid/graphics/Rect;->set(IIII)V
 

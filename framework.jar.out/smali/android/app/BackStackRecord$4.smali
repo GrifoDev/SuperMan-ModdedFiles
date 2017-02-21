@@ -25,11 +25,7 @@
 # direct methods
 .method constructor <init>(Landroid/app/BackStackRecord;Landroid/app/BackStackRecord$TransitionState;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/app/BackStackRecord;
-    .param p2, "val$state"    # Landroid/app/BackStackRecord$TransitionState;
 
-    .prologue
-    .line 1640
     iput-object p1, p0, Landroid/app/BackStackRecord$4;->this$0:Landroid/app/BackStackRecord;
 
     iput-object p2, p0, Landroid/app/BackStackRecord$4;->val$state:Landroid/app/BackStackRecord$TransitionState;
@@ -43,10 +39,7 @@
 # virtual methods
 .method public onGetEpicenter(Landroid/transition/Transition;)Landroid/graphics/Rect;
     .locals 2
-    .param p1, "transition"    # Landroid/transition/Transition;
 
-    .prologue
-    .line 1645
     iget-object v0, p0, Landroid/app/BackStackRecord$4;->mEpicenter:Landroid/graphics/Rect;
 
     if-nez v0, :cond_0
@@ -57,14 +50,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 1646
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v0, p0, Landroid/app/BackStackRecord$4;->mEpicenter:Landroid/graphics/Rect;
 
-    .line 1647
     iget-object v0, p0, Landroid/app/BackStackRecord$4;->val$state:Landroid/app/BackStackRecord$TransitionState;
 
     iget-object v0, v0, Landroid/app/BackStackRecord$TransitionState;->enteringEpicenterView:Landroid/view/View;
@@ -73,7 +64,6 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->getBoundsOnScreen(Landroid/graphics/Rect;)V
 
-    .line 1649
     :cond_0
     iget-object v0, p0, Landroid/app/BackStackRecord$4;->mEpicenter:Landroid/graphics/Rect;
 

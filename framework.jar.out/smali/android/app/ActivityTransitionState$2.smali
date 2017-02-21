@@ -28,12 +28,7 @@
 # direct methods
 .method constructor <init>(Landroid/app/ActivityTransitionState;Landroid/view/ViewGroup;Landroid/app/Activity;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/app/ActivityTransitionState;
-    .param p2, "val$finalDecor"    # Landroid/view/ViewGroup;
-    .param p3, "val$activity"    # Landroid/app/Activity;
 
-    .prologue
-    .line 313
     iput-object p1, p0, Landroid/app/ActivityTransitionState$2;->this$0:Landroid/app/ActivityTransitionState;
 
     iput-object p2, p0, Landroid/app/ActivityTransitionState$2;->val$finalDecor:Landroid/view/ViewGroup;
@@ -50,8 +45,6 @@
 .method public onPreDraw()Z
     .locals 3
 
-    .prologue
-    .line 316
     iget-object v0, p0, Landroid/app/ActivityTransitionState$2;->val$finalDecor:Landroid/view/ViewGroup;
 
     invoke-virtual {v0}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
@@ -60,7 +53,6 @@
 
     invoke-virtual {v0, p0}, Landroid/view/ViewTreeObserver;->removeOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
 
-    .line 317
     iget-object v0, p0, Landroid/app/ActivityTransitionState$2;->this$0:Landroid/app/ActivityTransitionState;
 
     invoke-static {v0}, Landroid/app/ActivityTransitionState;->-get1(Landroid/app/ActivityTransitionState;)Landroid/app/ExitTransitionCoordinator;
@@ -69,7 +61,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 318
     iget-object v0, p0, Landroid/app/ActivityTransitionState$2;->this$0:Landroid/app/ActivityTransitionState;
 
     invoke-static {v0}, Landroid/app/ActivityTransitionState;->-get1(Landroid/app/ActivityTransitionState;)Landroid/app/ExitTransitionCoordinator;
@@ -80,15 +71,12 @@
 
     iget v1, v1, Landroid/app/Activity;->mResultCode:I
 
-    .line 319
     iget-object v2, p0, Landroid/app/ActivityTransitionState$2;->val$activity:Landroid/app/Activity;
 
     iget-object v2, v2, Landroid/app/Activity;->mResultData:Landroid/content/Intent;
 
-    .line 318
     invoke-virtual {v0, v1, v2}, Landroid/app/ExitTransitionCoordinator;->startExit(ILandroid/content/Intent;)V
 
-    .line 321
     :cond_0
     const/4 v0, 0x1
 

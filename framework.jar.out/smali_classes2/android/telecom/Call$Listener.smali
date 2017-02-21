@@ -21,8 +21,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 886
     invoke-direct {p0}, Landroid/telecom/Call$Callback;-><init>()V
 
     return-void

@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/widget/AppSecurityPermissions$PermissionItemView;)V
     .locals 0
-    .param p1, "this$1"    # Landroid/widget/AppSecurityPermissions$PermissionItemView;
 
-    .prologue
-    .line 241
     iput-object p1, p0, Landroid/widget/AppSecurityPermissions$PermissionItemView$1;->this$1:Landroid/widget/AppSecurityPermissions$PermissionItemView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,11 +36,7 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 5
-    .param p1, "dialog"    # Landroid/content/DialogInterface;
-    .param p2, "which"    # I
 
-    .prologue
-    .line 244
     iget-object v1, p0, Landroid/widget/AppSecurityPermissions$PermissionItemView$1;->this$1:Landroid/widget/AppSecurityPermissions$PermissionItemView;
 
     invoke-virtual {v1}, Landroid/view/View;->getContext()Landroid/content/Context;
@@ -54,8 +47,6 @@
 
     move-result-object v0
 
-    .line 245
-    .local v0, "pm":Landroid/content/pm/PackageManager;
     iget-object v1, p0, Landroid/widget/AppSecurityPermissions$PermissionItemView$1;->this$1:Landroid/widget/AppSecurityPermissions$PermissionItemView;
 
     invoke-static {v1}, Landroid/widget/AppSecurityPermissions$PermissionItemView;->-get1(Landroid/widget/AppSecurityPermissions$PermissionItemView;)Ljava/lang/String;
@@ -68,7 +59,6 @@
 
     iget-object v2, v2, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
-    .line 246
     new-instance v3, Landroid/os/UserHandle;
 
     iget-object v4, p0, Landroid/widget/AppSecurityPermissions$PermissionItemView$1;->this$1:Landroid/widget/AppSecurityPermissions$PermissionItemView;
@@ -83,16 +73,13 @@
 
     invoke-direct {v3, v4}, Landroid/os/UserHandle;-><init>(I)V
 
-    .line 245
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/pm/PackageManager;->revokeRuntimePermission(Ljava/lang/String;Ljava/lang/String;Landroid/os/UserHandle;)V
 
-    .line 247
     iget-object v1, p0, Landroid/widget/AppSecurityPermissions$PermissionItemView$1;->this$1:Landroid/widget/AppSecurityPermissions$PermissionItemView;
 
     const/16 v2, 0x8
 
     invoke-virtual {v1, v2}, Landroid/view/View;->setVisibility(I)V
 
-    .line 243
     return-void
 .end method

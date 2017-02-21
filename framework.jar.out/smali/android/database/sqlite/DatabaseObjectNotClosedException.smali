@@ -11,12 +11,9 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 29
     const-string/jumbo v0, "Application did not close the cursor or database object that was opened here"
 
     invoke-direct {p0, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    .line 28
     return-void
 .end method

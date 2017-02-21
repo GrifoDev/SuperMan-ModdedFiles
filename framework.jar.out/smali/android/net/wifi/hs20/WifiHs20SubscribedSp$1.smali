@@ -31,8 +31,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 229
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -42,10 +40,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/net/wifi/hs20/WifiHs20SubscribedSp;
     .locals 17
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 233
     :try_start_0
     new-instance v0, Landroid/net/wifi/hs20/WifiHs20SubscribedSp;
 
@@ -53,7 +48,6 @@
 
     move-result v1
 
-    .line 234
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readByte()B
 
     move-result v2
@@ -75,7 +69,6 @@
 
     move-result-object v5
 
-    .line 235
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v6
@@ -92,7 +85,6 @@
 
     move-result-object v9
 
-    .line 236
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v10
@@ -113,7 +105,6 @@
 
     move-result v14
 
-    .line 237
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v15
@@ -122,31 +113,22 @@
 
     move-result-object v15
 
-    .line 233
     invoke-direct/range {v0 .. v15}, Landroid/net/wifi/hs20/WifiHs20SubscribedSp;-><init>(IZILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IIIILandroid/net/wifi/hs20/WifiHs20SubscribedSp$CredType;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 238
-    .local v0, "newSp":Landroid/net/wifi/hs20/WifiHs20SubscribedSp;
     return-object v0
 
-    .line 234
-    .end local v0    # "newSp":Landroid/net/wifi/hs20/WifiHs20SubscribedSp;
     :cond_0
     const/4 v2, 0x0
 
     goto :goto_0
 
-    .line 239
     :catch_0
     move-exception v16
 
-    .line 240
-    .local v16, "e":Ljava/lang/Exception;
     invoke-virtual/range {v16 .. v16}, Ljava/lang/Throwable;->printStackTrace()V
 
-    .line 241
     const/4 v1, 0x0
 
     return-object v1
@@ -154,10 +136,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 231
     invoke-virtual {p0, p1}, Landroid/net/wifi/hs20/WifiHs20SubscribedSp$1;->createFromParcel(Landroid/os/Parcel;)Landroid/net/wifi/hs20/WifiHs20SubscribedSp;
 
     move-result-object v0
@@ -167,10 +146,7 @@
 
 .method public newArray(I)[Landroid/net/wifi/hs20/WifiHs20SubscribedSp;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 247
     new-array v0, p1, [Landroid/net/wifi/hs20/WifiHs20SubscribedSp;
 
     return-object v0
@@ -178,10 +154,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 246
     invoke-virtual {p0, p1}, Landroid/net/wifi/hs20/WifiHs20SubscribedSp$1;->newArray(I)[Landroid/net/wifi/hs20/WifiHs20SubscribedSp;
 
     move-result-object v0

@@ -38,17 +38,7 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/camera/iris/SemIrisManager;[BLandroid/os/CancellationSignal;IILcom/samsung/android/camera/iris/SemIrisManager$EnrollmentCallback;Landroid/os/Bundle;Landroid/view/View;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/samsung/android/camera/iris/SemIrisManager;
-    .param p2, "val$token"    # [B
-    .param p3, "val$cancel"    # Landroid/os/CancellationSignal;
-    .param p4, "val$flags"    # I
-    .param p5, "val$userId"    # I
-    .param p6, "val$callback"    # Lcom/samsung/android/camera/iris/SemIrisManager$EnrollmentCallback;
-    .param p7, "val$attr"    # Landroid/os/Bundle;
-    .param p8, "val$irisView"    # Landroid/view/View;
 
-    .prologue
-    .line 1090
     iput-object p1, p0, Lcom/samsung/android/camera/iris/SemIrisManager$3;->this$0:Lcom/samsung/android/camera/iris/SemIrisManager;
 
     iput-object p2, p0, Lcom/samsung/android/camera/iris/SemIrisManager$3;->val$token:[B
@@ -75,8 +65,6 @@
 .method public run()V
     .locals 8
 
-    .prologue
-    .line 1092
     iget-object v0, p0, Lcom/samsung/android/camera/iris/SemIrisManager$3;->this$0:Lcom/samsung/android/camera/iris/SemIrisManager;
 
     iget-object v1, p0, Lcom/samsung/android/camera/iris/SemIrisManager$3;->val$token:[B
@@ -95,6 +83,5 @@
 
     invoke-static/range {v0 .. v7}, Lcom/samsung/android/camera/iris/SemIrisManager;->-wrap5(Lcom/samsung/android/camera/iris/SemIrisManager;[BLandroid/os/CancellationSignal;IILcom/samsung/android/camera/iris/SemIrisManager$EnrollmentCallback;Landroid/os/Bundle;Landroid/view/View;)V
 
-    .line 1091
     return-void
 .end method

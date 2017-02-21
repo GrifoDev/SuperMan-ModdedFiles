@@ -24,8 +24,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 496
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -33,10 +31,7 @@
 
 .method public static getContentUri(Ljava/lang/String;)Landroid/net/Uri;
     .locals 2
-    .param p0, "volumeName"    # Ljava/lang/String;
 
-    .prologue
-    .line 506
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -51,10 +46,8 @@
 
     move-result-object v0
 
-    .line 507
     const-string/jumbo v1, "/file"
 
-    .line 506
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -72,11 +65,7 @@
 
 .method public static final getContentUri(Ljava/lang/String;J)Landroid/net/Uri;
     .locals 3
-    .param p0, "volumeName"    # Ljava/lang/String;
-    .param p1, "rowId"    # J
 
-    .prologue
-    .line 520
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -91,10 +80,8 @@
 
     move-result-object v0
 
-    .line 521
     const-string/jumbo v1, "/file/"
 
-    .line 520
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -116,10 +103,7 @@
 
 .method public static getMtpObjectsUri(Ljava/lang/String;)Landroid/net/Uri;
     .locals 2
-    .param p0, "volumeName"    # Ljava/lang/String;
 
-    .prologue
-    .line 529
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -134,10 +118,8 @@
 
     move-result-object v0
 
-    .line 530
     const-string/jumbo v1, "/object"
 
-    .line 529
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -155,11 +137,7 @@
 
 .method public static final getMtpObjectsUri(Ljava/lang/String;J)Landroid/net/Uri;
     .locals 3
-    .param p0, "volumeName"    # Ljava/lang/String;
-    .param p1, "fileId"    # J
 
-    .prologue
-    .line 539
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -174,10 +152,8 @@
 
     move-result-object v0
 
-    .line 540
     const-string/jumbo v1, "/object/"
 
-    .line 539
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -199,11 +175,7 @@
 
 .method public static final getMtpReferencesUri(Ljava/lang/String;J)Landroid/net/Uri;
     .locals 3
-    .param p0, "volumeName"    # Ljava/lang/String;
-    .param p1, "fileId"    # J
 
-    .prologue
-    .line 549
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -218,10 +190,8 @@
 
     move-result-object v0
 
-    .line 550
     const-string/jumbo v1, "/object/"
 
-    .line 549
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -230,10 +200,8 @@
 
     move-result-object v0
 
-    .line 550
     const-string/jumbo v1, "/references"
 
-    .line 549
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0

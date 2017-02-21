@@ -27,42 +27,32 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 33
     const-string/jumbo v0, "#ifdef GL_ES\nprecision mediump float;\n#endif\nvarying vec2 outTexCoords;\nuniform sampler2D baseSampler;\nuniform float filterParams[16];\nvoid main(void) {\n  vec4 color = texture2D(baseSampler, outTexCoords);\n  vec4 minVal = vec4(filterParams[0], filterParams[1], filterParams[2], filterParams[3]);\n  vec4 maxVal = vec4(filterParams[4], filterParams[5], filterParams[6], filterParams[7]);\n  gl_FragColor = clamp(color, minVal, maxVal);\n}\n\n"
 
-    .line 31
     sput-object v0, Lcom/samsung/android/graphics/SemColorClampFilter;->mFragmentShaderCode:Ljava/lang/String;
 
-    .line 29
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 4
 
-    .prologue
     const/high16 v3, 0x3f800000    # 1.0f
 
     const/4 v2, 0x0
 
-    .line 57
     const-string/jumbo v0, "attribute vec2 texCoords;\nattribute vec4 position;\nvarying vec2 outTexCoords;\nuniform mat4 projection;\nvoid main() {\n   outTexCoords = texCoords;\n   gl_Position = projection * position;\n}\n"
 
     sget-object v1, Lcom/samsung/android/graphics/SemColorClampFilter;->mFragmentShaderCode:Ljava/lang/String;
 
     invoke-direct {p0, v0, v1}, Lcom/samsung/android/graphics/SemGenericImageFilter;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 58
     invoke-virtual {p0}, Lcom/samsung/android/graphics/SemGenericImageFilter;->useFilterParams()V
 
-    .line 59
     invoke-virtual {p0, v2, v2, v2, v2}, Lcom/samsung/android/graphics/SemColorClampFilter;->setMinColor(FFFF)V
 
-    .line 60
     invoke-virtual {p0, v3, v3, v3, v3}, Lcom/samsung/android/graphics/SemColorClampFilter;->setMaxColor(FFFF)V
 
-    .line 56
     return-void
 .end method
 
@@ -70,20 +60,7 @@
 # virtual methods
 .method public animateMaxColor(FFFFFFFFJJLandroid/animation/TimeInterpolator;)[I
     .locals 11
-    .param p1, "aStartValueRed"    # F
-    .param p2, "aEndValueRed"    # F
-    .param p3, "aStartValueGreen"    # F
-    .param p4, "aEndValueGreen"    # F
-    .param p5, "aStartValueBlue"    # F
-    .param p6, "aEndValueBlue"    # F
-    .param p7, "aStartValueAlpha"    # F
-    .param p8, "aEndValueAlpha"    # F
-    .param p9, "aDuration"    # J
-    .param p11, "aDelay"    # J
-    .param p13, "aInterpolator"    # Landroid/animation/TimeInterpolator;
 
-    .prologue
-    .line 256
     new-instance v0, Lcom/samsung/android/graphics/SemColorClampFilter$2;
 
     move-object v1, p0
@@ -125,14 +102,7 @@
 
 .method public animateMaxColor(IIJJLandroid/animation/TimeInterpolator;)[I
     .locals 15
-    .param p1, "aStartValueColor"    # I
-    .param p2, "aEndValueColor"    # I
-    .param p3, "aDuration"    # J
-    .param p5, "aDelay"    # J
-    .param p7, "aInterpolator"    # Landroid/animation/TimeInterpolator;
 
-    .prologue
-    .line 224
     invoke-static/range {p1 .. p1}, Landroid/graphics/Color;->red(I)I
 
     move-result v0
@@ -153,7 +123,6 @@
 
     div-float v3, v0, v1
 
-    .line 225
     invoke-static/range {p1 .. p1}, Landroid/graphics/Color;->green(I)I
 
     move-result v0
@@ -174,7 +143,6 @@
 
     div-float v5, v0, v1
 
-    .line 226
     invoke-static/range {p1 .. p1}, Landroid/graphics/Color;->blue(I)I
 
     move-result v0
@@ -195,7 +163,6 @@
 
     div-float v7, v0, v1
 
-    .line 227
     invoke-static/range {p1 .. p1}, Landroid/graphics/Color;->alpha(I)I
 
     move-result v0
@@ -224,7 +191,6 @@
 
     move-object/from16 v14, p7
 
-    .line 223
     invoke-virtual/range {v1 .. v14}, Lcom/samsung/android/graphics/SemColorClampFilter;->animateMaxColor(FFFFFFFFJJLandroid/animation/TimeInterpolator;)[I
 
     move-result-object v0
@@ -234,20 +200,7 @@
 
 .method public animateMinColor(FFFFFFFFJJLandroid/animation/TimeInterpolator;)[I
     .locals 11
-    .param p1, "aStartValueRed"    # F
-    .param p2, "aEndValueRed"    # F
-    .param p3, "aStartValueGreen"    # F
-    .param p4, "aEndValueGreen"    # F
-    .param p5, "aStartValueBlue"    # F
-    .param p6, "aEndValueBlue"    # F
-    .param p7, "aStartValueAlpha"    # F
-    .param p8, "aEndValueAlpha"    # F
-    .param p9, "aDuration"    # J
-    .param p11, "aDelay"    # J
-    .param p13, "aInterpolator"    # Landroid/animation/TimeInterpolator;
 
-    .prologue
-    .line 171
     new-instance v0, Lcom/samsung/android/graphics/SemColorClampFilter$1;
 
     move-object v1, p0
@@ -289,14 +242,7 @@
 
 .method public animateMinColor(IIJJLandroid/animation/TimeInterpolator;)[I
     .locals 15
-    .param p1, "aStartValueColor"    # I
-    .param p2, "aEndValueColor"    # I
-    .param p3, "aDuration"    # J
-    .param p5, "aDelay"    # J
-    .param p7, "aInterpolator"    # Landroid/animation/TimeInterpolator;
 
-    .prologue
-    .line 139
     invoke-static/range {p1 .. p1}, Landroid/graphics/Color;->red(I)I
 
     move-result v0
@@ -317,7 +263,6 @@
 
     div-float v3, v0, v1
 
-    .line 140
     invoke-static/range {p1 .. p1}, Landroid/graphics/Color;->green(I)I
 
     move-result v0
@@ -338,7 +283,6 @@
 
     div-float v5, v0, v1
 
-    .line 141
     invoke-static/range {p1 .. p1}, Landroid/graphics/Color;->blue(I)I
 
     move-result v0
@@ -359,7 +303,6 @@
 
     div-float v7, v0, v1
 
-    .line 142
     invoke-static/range {p1 .. p1}, Landroid/graphics/Color;->alpha(I)I
 
     move-result v0
@@ -388,7 +331,6 @@
 
     move-object/from16 v14, p7
 
-    .line 138
     invoke-virtual/range {v1 .. v14}, Lcom/samsung/android/graphics/SemColorClampFilter;->animateMinColor(FFFFFFFFJJLandroid/animation/TimeInterpolator;)[I
 
     move-result-object v0
@@ -398,17 +340,11 @@
 
 .method public setMaxColor(FFFF)V
     .locals 5
-    .param p1, "red"    # F
-    .param p2, "green"    # F
-    .param p3, "blue"    # F
-    .param p4, "alpha"    # F
 
-    .prologue
     const/high16 v4, 0x3f800000    # 1.0f
 
     const/4 v3, 0x0
 
-    .line 115
     iget-object v0, p0, Lcom/samsung/android/graphics/SemGenericImageFilter;->mParams:[F
 
     invoke-static {p1, v4}, Ljava/lang/Math;->min(FF)F
@@ -423,7 +359,6 @@
 
     aput v1, v0, v2
 
-    .line 116
     iget-object v0, p0, Lcom/samsung/android/graphics/SemGenericImageFilter;->mParams:[F
 
     invoke-static {p2, v4}, Ljava/lang/Math;->min(FF)F
@@ -438,7 +373,6 @@
 
     aput v1, v0, v2
 
-    .line 117
     iget-object v0, p0, Lcom/samsung/android/graphics/SemGenericImageFilter;->mParams:[F
 
     invoke-static {p3, v4}, Ljava/lang/Math;->min(FF)F
@@ -453,7 +387,6 @@
 
     aput v1, v0, v2
 
-    .line 118
     iget-object v0, p0, Lcom/samsung/android/graphics/SemGenericImageFilter;->mParams:[F
 
     invoke-static {p4, v4}, Ljava/lang/Math;->min(FF)F
@@ -468,24 +401,18 @@
 
     aput v1, v0, v2
 
-    .line 119
     invoke-virtual {p0}, Lcom/samsung/android/graphics/SemGenericImageFilter;->setFilterParamsChanged()V
 
-    .line 120
     invoke-virtual {p0}, Lcom/samsung/android/graphics/SemGenericImageFilter;->notifyWorkerFilters()V
 
-    .line 114
     return-void
 .end method
 
 .method public setMaxColor(I)V
     .locals 5
-    .param p1, "color"    # I
 
-    .prologue
     const/high16 v4, 0x437f0000    # 255.0f
 
-    .line 101
     invoke-static {p1}, Landroid/graphics/Color;->red(I)I
 
     move-result v0
@@ -520,23 +447,16 @@
 
     invoke-virtual {p0, v0, v1, v2, v3}, Lcom/samsung/android/graphics/SemColorClampFilter;->setMaxColor(FFFF)V
 
-    .line 100
     return-void
 .end method
 
 .method public setMinColor(FFFF)V
     .locals 5
-    .param p1, "red"    # F
-    .param p2, "green"    # F
-    .param p3, "blue"    # F
-    .param p4, "alpha"    # F
 
-    .prologue
     const/high16 v4, 0x3f800000    # 1.0f
 
     const/4 v3, 0x0
 
-    .line 85
     iget-object v0, p0, Lcom/samsung/android/graphics/SemGenericImageFilter;->mParams:[F
 
     invoke-static {p1, v4}, Ljava/lang/Math;->min(FF)F
@@ -551,7 +471,6 @@
 
     aput v1, v0, v2
 
-    .line 86
     iget-object v0, p0, Lcom/samsung/android/graphics/SemGenericImageFilter;->mParams:[F
 
     invoke-static {p2, v4}, Ljava/lang/Math;->min(FF)F
@@ -566,7 +485,6 @@
 
     aput v1, v0, v2
 
-    .line 87
     iget-object v0, p0, Lcom/samsung/android/graphics/SemGenericImageFilter;->mParams:[F
 
     invoke-static {p3, v4}, Ljava/lang/Math;->min(FF)F
@@ -581,7 +499,6 @@
 
     aput v1, v0, v2
 
-    .line 88
     iget-object v0, p0, Lcom/samsung/android/graphics/SemGenericImageFilter;->mParams:[F
 
     invoke-static {p4, v4}, Ljava/lang/Math;->min(FF)F
@@ -596,24 +513,18 @@
 
     aput v1, v0, v2
 
-    .line 89
     invoke-virtual {p0}, Lcom/samsung/android/graphics/SemGenericImageFilter;->setFilterParamsChanged()V
 
-    .line 90
     invoke-virtual {p0}, Lcom/samsung/android/graphics/SemGenericImageFilter;->notifyWorkerFilters()V
 
-    .line 84
     return-void
 .end method
 
 .method public setMinColor(I)V
     .locals 5
-    .param p1, "color"    # I
 
-    .prologue
     const/high16 v4, 0x437f0000    # 255.0f
 
-    .line 71
     invoke-static {p1}, Landroid/graphics/Color;->red(I)I
 
     move-result v0
@@ -648,6 +559,5 @@
 
     invoke-virtual {p0, v0, v1, v2, v3}, Lcom/samsung/android/graphics/SemColorClampFilter;->setMinColor(FFFF)V
 
-    .line 70
     return-void
 .end method

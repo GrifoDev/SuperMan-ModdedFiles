@@ -24,10 +24,7 @@
 # direct methods
 .method private constructor <init>(Landroid/speech/tts/AudioPlaybackHandler;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/speech/tts/AudioPlaybackHandler;
 
-    .prologue
-    .line 117
     iput-object p1, p0, Landroid/speech/tts/AudioPlaybackHandler$MessageLoop;->this$0:Landroid/speech/tts/AudioPlaybackHandler;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,9 +34,7 @@
 
 .method synthetic constructor <init>(Landroid/speech/tts/AudioPlaybackHandler;Landroid/speech/tts/AudioPlaybackHandler$MessageLoop;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/speech/tts/AudioPlaybackHandler;
 
-    .prologue
     invoke-direct {p0, p1}, Landroid/speech/tts/AudioPlaybackHandler$MessageLoop;-><init>(Landroid/speech/tts/AudioPlaybackHandler;)V
 
     return-void
@@ -50,13 +45,9 @@
 .method public run()V
     .locals 4
 
-    .prologue
-    .line 121
     :goto_0
     const/4 v1, 0x0
 
-    .line 123
-    .local v1, "item":Landroid/speech/tts/PlaybackQueueItem;
     :try_start_0
     iget-object v2, p0, Landroid/speech/tts/AudioPlaybackHandler$MessageLoop;->this$0:Landroid/speech/tts/AudioPlaybackHandler;
 
@@ -68,21 +59,16 @@
 
     move-result-object v1
 
-    .end local v1    # "item":Landroid/speech/tts/PlaybackQueueItem;
     check-cast v1, Landroid/speech/tts/PlaybackQueueItem;
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 133
-    .local v1, "item":Landroid/speech/tts/PlaybackQueueItem;
     iget-object v2, p0, Landroid/speech/tts/AudioPlaybackHandler$MessageLoop;->this$0:Landroid/speech/tts/AudioPlaybackHandler;
 
     invoke-static {v2, v1}, Landroid/speech/tts/AudioPlaybackHandler;->-set0(Landroid/speech/tts/AudioPlaybackHandler;Landroid/speech/tts/PlaybackQueueItem;)Landroid/speech/tts/PlaybackQueueItem;
 
-    .line 134
     invoke-virtual {v1}, Landroid/speech/tts/PlaybackQueueItem;->run()V
 
-    .line 135
     iget-object v2, p0, Landroid/speech/tts/AudioPlaybackHandler$MessageLoop;->this$0:Landroid/speech/tts/AudioPlaybackHandler;
 
     const/4 v3, 0x0
@@ -91,12 +77,8 @@
 
     goto :goto_0
 
-    .line 124
-    .end local v1    # "item":Landroid/speech/tts/PlaybackQueueItem;
     :catch_0
     move-exception v0
 
-    .line 126
-    .local v0, "ie":Ljava/lang/InterruptedException;
     return-void
 .end method

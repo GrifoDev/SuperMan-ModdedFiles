@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/sec/clipboard/ClipboardUIManager;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/sec/clipboard/ClipboardUIManager;
 
-    .prologue
-    .line 44
     iput-object p1, p0, Landroid/sec/clipboard/ClipboardUIManager$1;->this$0:Landroid/sec/clipboard/ClipboardUIManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,8 +37,6 @@
 .method public run()V
     .locals 3
 
-    .prologue
-    .line 48
     iget-object v0, p0, Landroid/sec/clipboard/ClipboardUIManager$1;->this$0:Landroid/sec/clipboard/ClipboardUIManager;
 
     invoke-static {v0}, Landroid/sec/clipboard/ClipboardUIManager;->-get1(Landroid/sec/clipboard/ClipboardUIManager;)Lcom/samsung/android/content/clipboard/SemClipboardManager;
@@ -50,7 +45,6 @@
 
     if-nez v0, :cond_0
 
-    .line 49
     iget-object v1, p0, Landroid/sec/clipboard/ClipboardUIManager$1;->this$0:Landroid/sec/clipboard/ClipboardUIManager;
 
     iget-object v0, p0, Landroid/sec/clipboard/ClipboardUIManager$1;->this$0:Landroid/sec/clipboard/ClipboardUIManager;
@@ -69,7 +63,6 @@
 
     invoke-static {v1, v0}, Landroid/sec/clipboard/ClipboardUIManager;->-set0(Landroid/sec/clipboard/ClipboardUIManager;Lcom/samsung/android/content/clipboard/SemClipboardManager;)Lcom/samsung/android/content/clipboard/SemClipboardManager;
 
-    .line 51
     :cond_0
     iget-object v0, p0, Landroid/sec/clipboard/ClipboardUIManager$1;->this$0:Landroid/sec/clipboard/ClipboardUIManager;
 
@@ -79,6 +72,5 @@
 
     invoke-virtual {v0}, Lcom/samsung/android/content/clipboard/SemClipboardManager;->showDialog()V
 
-    .line 47
     return-void
 .end method

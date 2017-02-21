@@ -31,8 +31,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 76
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -42,16 +40,11 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/net/wifi/PPPOEInfo;
     .locals 4
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 78
     new-instance v0, Landroid/net/wifi/PPPOEInfo;
 
     invoke-direct {v0}, Landroid/net/wifi/PPPOEInfo;-><init>()V
 
-    .line 79
-    .local v0, "info":Landroid/net/wifi/PPPOEInfo;
     invoke-static {}, Landroid/net/wifi/PPPOEInfo$Status;->values()[Landroid/net/wifi/PPPOEInfo$Status;
 
     move-result-object v1
@@ -64,23 +57,18 @@
 
     iput-object v1, v0, Landroid/net/wifi/PPPOEInfo;->status:Landroid/net/wifi/PPPOEInfo$Status;
 
-    .line 80
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v2
 
     iput-wide v2, v0, Landroid/net/wifi/PPPOEInfo;->online_time:J
 
-    .line 81
     return-object v0
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 77
     invoke-virtual {p0, p1}, Landroid/net/wifi/PPPOEInfo$1;->createFromParcel(Landroid/os/Parcel;)Landroid/net/wifi/PPPOEInfo;
 
     move-result-object v0
@@ -90,10 +78,7 @@
 
 .method public newArray(I)[Landroid/net/wifi/PPPOEInfo;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 85
     new-array v0, p1, [Landroid/net/wifi/PPPOEInfo;
 
     return-object v0
@@ -101,10 +86,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 84
     invoke-virtual {p0, p1}, Landroid/net/wifi/PPPOEInfo$1;->newArray(I)[Landroid/net/wifi/PPPOEInfo;
 
     move-result-object v0

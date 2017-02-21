@@ -26,11 +26,7 @@
 # direct methods
 .method constructor <init>(Landroid/app/ActivityOptions$1;Landroid/app/ActivityOptions$OnAnimationStartedListener;)V
     .locals 0
-    .param p1, "this$1"    # Landroid/app/ActivityOptions$1;
-    .param p2, "val$listener"    # Landroid/app/ActivityOptions$OnAnimationStartedListener;
 
-    .prologue
-    .line 328
     iput-object p1, p0, Landroid/app/ActivityOptions$1$1;->this$1:Landroid/app/ActivityOptions$1;
 
     iput-object p2, p0, Landroid/app/ActivityOptions$1$1;->val$listener:Landroid/app/ActivityOptions$OnAnimationStartedListener;
@@ -45,12 +41,9 @@
 .method public run()V
     .locals 1
 
-    .prologue
-    .line 330
     iget-object v0, p0, Landroid/app/ActivityOptions$1$1;->val$listener:Landroid/app/ActivityOptions$OnAnimationStartedListener;
 
     invoke-interface {v0}, Landroid/app/ActivityOptions$OnAnimationStartedListener;->onAnimationStarted()V
 
-    .line 329
     return-void
 .end method

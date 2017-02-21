@@ -26,11 +26,7 @@
 # direct methods
 .method constructor <init>(Landroid/view/ViewRootImpl;Ljava/util/ArrayList;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/view/ViewRootImpl;
 
-    .prologue
-    .line 2653
-    .local p2, "val$finalRequesters":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/view/View;>;"
     iput-object p1, p0, Landroid/view/ViewRootImpl$3;->this$0:Landroid/view/ViewRootImpl;
 
     iput-object p2, p0, Landroid/view/ViewRootImpl$3;->val$finalRequesters:Ljava/util/ArrayList;
@@ -45,23 +41,17 @@
 .method public run()V
     .locals 6
 
-    .prologue
-    .line 2656
     iget-object v3, p0, Landroid/view/ViewRootImpl$3;->val$finalRequesters:Ljava/util/ArrayList;
 
     invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    .line 2657
-    .local v1, "numValidRequests":I
     const/4 v0, 0x0
 
-    .local v0, "i":I
     :goto_0
     if-ge v0, v1, :cond_0
 
-    .line 2658
     iget-object v3, p0, Landroid/view/ViewRootImpl$3;->val$finalRequesters:Ljava/util/ArrayList;
 
     invoke-virtual {v3, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -70,8 +60,6 @@
 
     check-cast v2, Landroid/view/View;
 
-    .line 2659
-    .local v2, "view":Landroid/view/View;
     const-string/jumbo v3, "View"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -88,10 +76,8 @@
 
     move-result-object v4
 
-    .line 2660
     const-string/jumbo v5, " during second layout pass: posting in next frame"
 
-    .line 2659
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
@@ -102,16 +88,12 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2661
     invoke-virtual {v2}, Landroid/view/View;->requestLayout()V
 
-    .line 2657
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 2655
-    .end local v2    # "view":Landroid/view/View;
     :cond_0
     return-void
 .end method

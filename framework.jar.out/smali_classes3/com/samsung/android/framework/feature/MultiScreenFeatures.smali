@@ -25,21 +25,16 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 45
     const/4 v0, 0x0
 
     sput-boolean v0, Lcom/samsung/android/framework/feature/MultiScreenFeatures;->SUPPORT_DISPLAY_CHOOSER:Z
 
-    .line 32
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

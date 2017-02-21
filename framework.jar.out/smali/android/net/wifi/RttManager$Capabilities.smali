@@ -28,10 +28,7 @@
 # direct methods
 .method public constructor <init>(Landroid/net/wifi/RttManager;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/net/wifi/RttManager;
 
-    .prologue
-    .line 163
     iput-object p1, p0, Landroid/net/wifi/RttManager$Capabilities;->this$0:Landroid/net/wifi/RttManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

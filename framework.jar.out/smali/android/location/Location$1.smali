@@ -27,8 +27,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 106
     invoke-direct {p0}, Ljava/lang/ThreadLocal;-><init>()V
 
     return-void
@@ -39,8 +37,6 @@
 .method protected initialValue()Landroid/location/Location$BearingDistanceCache;
     .locals 2
 
-    .prologue
-    .line 109
     new-instance v0, Landroid/location/Location$BearingDistanceCache;
 
     const/4 v1, 0x0
@@ -53,8 +49,6 @@
 .method protected bridge synthetic initialValue()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 108
     invoke-virtual {p0}, Landroid/location/Location$1;->initialValue()Landroid/location/Location$BearingDistanceCache;
 
     move-result-object v0

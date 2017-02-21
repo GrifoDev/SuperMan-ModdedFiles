@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Landroid/net/wifi/PppoeStateMachine;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/net/wifi/PppoeStateMachine;
 
-    .prologue
-    .line 190
     iput-object p1, p0, Landroid/net/wifi/PppoeStateMachine$DefaultState;->this$0:Landroid/net/wifi/PppoeStateMachine;
 
     invoke-direct {p0}, Lcom/android/internal/util/State;-><init>()V
@@ -37,8 +34,6 @@
 .method public enter()V
     .locals 3
 
-    .prologue
-    .line 192
     const-string/jumbo v0, "PppoeStateMachine"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -65,18 +60,14 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 191
     return-void
 .end method
 
 .method public processMessage(Landroid/os/Message;)Z
     .locals 4
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
     const/4 v3, 0x2
 
-    .line 196
     const-string/jumbo v0, "PppoeStateMachine"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -111,19 +102,16 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 197
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 209
     :goto_0
     :pswitch_0
     const/4 v0, 0x1
 
     return v0
 
-    .line 199
     :pswitch_1
     const-string/jumbo v0, "PppoeStateMachine"
 
@@ -131,7 +119,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 200
     iget-object v0, p0, Landroid/net/wifi/PppoeStateMachine$DefaultState;->this$0:Landroid/net/wifi/PppoeStateMachine;
 
     const v1, 0x70002
@@ -140,7 +127,6 @@
 
     goto :goto_0
 
-    .line 203
     :pswitch_2
     iget-object v0, p0, Landroid/net/wifi/PppoeStateMachine$DefaultState;->this$0:Landroid/net/wifi/PppoeStateMachine;
 
@@ -150,7 +136,6 @@
 
     goto :goto_0
 
-    .line 197
     nop
 
     :pswitch_data_0

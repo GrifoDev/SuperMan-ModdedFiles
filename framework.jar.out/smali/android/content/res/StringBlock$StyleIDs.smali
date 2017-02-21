@@ -236,48 +236,33 @@
 .method constructor <init>()V
     .locals 1
 
-    .prologue
     const/4 v0, -0x1
 
-    .line 164
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 165
     iput v0, p0, Landroid/content/res/StringBlock$StyleIDs;->boldId:I
 
-    .line 166
     iput v0, p0, Landroid/content/res/StringBlock$StyleIDs;->italicId:I
 
-    .line 167
     iput v0, p0, Landroid/content/res/StringBlock$StyleIDs;->underlineId:I
 
-    .line 168
     iput v0, p0, Landroid/content/res/StringBlock$StyleIDs;->ttId:I
 
-    .line 169
     iput v0, p0, Landroid/content/res/StringBlock$StyleIDs;->bigId:I
 
-    .line 170
     iput v0, p0, Landroid/content/res/StringBlock$StyleIDs;->smallId:I
 
-    .line 171
     iput v0, p0, Landroid/content/res/StringBlock$StyleIDs;->subId:I
 
-    .line 172
     iput v0, p0, Landroid/content/res/StringBlock$StyleIDs;->supId:I
 
-    .line 173
     iput v0, p0, Landroid/content/res/StringBlock$StyleIDs;->strikeId:I
 
-    .line 174
     iput v0, p0, Landroid/content/res/StringBlock$StyleIDs;->listItemId:I
 
-    .line 175
     iput v0, p0, Landroid/content/res/StringBlock$StyleIDs;->marqueeId:I
 
-    .line 176
     iput v0, p0, Landroid/content/res/StringBlock$StyleIDs;->uniqueTextId:I
 
-    .line 164
     return-void
 .end method

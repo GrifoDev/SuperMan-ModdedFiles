@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/preference/PreferenceFragment;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/preference/PreferenceFragment;
 
-    .prologue
-    .line 137
     iput-object p1, p0, Landroid/preference/PreferenceFragment$2;->this$0:Landroid/preference/PreferenceFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,8 +37,6 @@
 .method public run()V
     .locals 2
 
-    .prologue
-    .line 139
     iget-object v0, p0, Landroid/preference/PreferenceFragment$2;->this$0:Landroid/preference/PreferenceFragment;
 
     invoke-static {v0}, Landroid/preference/PreferenceFragment;->-get0(Landroid/preference/PreferenceFragment;)Landroid/widget/ListView;
@@ -56,6 +51,5 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ListView;->focusableViewAvailable(Landroid/view/View;)V
 
-    .line 138
     return-void
 .end method

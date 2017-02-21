@@ -31,8 +31,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 79
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -42,28 +40,19 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestInfo;
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 81
     new-instance v0, Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestInfo;
 
     invoke-direct {v0}, Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestInfo;-><init>()V
 
-    .line 82
-    .local v0, "data":Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestInfo;
     invoke-virtual {v0, p1}, Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestInfo;->readFromParcel(Landroid/os/Parcel;)V
 
-    .line 83
     return-object v0
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 80
     invoke-virtual {p0, p1}, Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestInfo$1;->createFromParcel(Landroid/os/Parcel;)Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestInfo;
 
     move-result-object v0
@@ -73,10 +62,7 @@
 
 .method public newArray(I)[Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestInfo;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 87
     new-array v0, p1, [Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestInfo;
 
     return-object v0
@@ -84,10 +70,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 86
     invoke-virtual {p0, p1}, Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestInfo$1;->newArray(I)[Lcom/samsung/android/content/smartclip/SmartClipRemoteRequestInfo;
 
     move-result-object v0

@@ -33,89 +33,65 @@
 # direct methods
 .method public constructor <init>(Landroid/widget/RemoteViews;IIIII)V
     .locals 1
-    .param p1, "this$0"    # Landroid/widget/RemoteViews;
-    .param p2, "viewId"    # I
-    .param p3, "left"    # I
-    .param p4, "top"    # I
-    .param p5, "right"    # I
-    .param p6, "bottom"    # I
 
-    .prologue
-    .line 2272
     iput-object p1, p0, Landroid/widget/RemoteViews$ViewPaddingAction;->this$0:Landroid/widget/RemoteViews;
 
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Landroid/widget/RemoteViews$Action;-><init>(Landroid/widget/RemoteViews$Action;)V
 
-    .line 2273
     iput p2, p0, Landroid/widget/RemoteViews$ViewPaddingAction;->viewId:I
 
-    .line 2274
     iput p3, p0, Landroid/widget/RemoteViews$ViewPaddingAction;->left:I
 
-    .line 2275
     iput p4, p0, Landroid/widget/RemoteViews$ViewPaddingAction;->top:I
 
-    .line 2276
     iput p5, p0, Landroid/widget/RemoteViews$ViewPaddingAction;->right:I
 
-    .line 2277
     iput p6, p0, Landroid/widget/RemoteViews$ViewPaddingAction;->bottom:I
 
-    .line 2272
     return-void
 .end method
 
 .method public constructor <init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
     .locals 1
-    .param p1, "this$0"    # Landroid/widget/RemoteViews;
-    .param p2, "parcel"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 2280
     iput-object p1, p0, Landroid/widget/RemoteViews$ViewPaddingAction;->this$0:Landroid/widget/RemoteViews;
 
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Landroid/widget/RemoteViews$Action;-><init>(Landroid/widget/RemoteViews$Action;)V
 
-    .line 2281
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/widget/RemoteViews$ViewPaddingAction;->viewId:I
 
-    .line 2282
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/widget/RemoteViews$ViewPaddingAction;->left:I
 
-    .line 2283
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/widget/RemoteViews$ViewPaddingAction;->top:I
 
-    .line 2284
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/widget/RemoteViews$ViewPaddingAction;->right:I
 
-    .line 2285
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/widget/RemoteViews$ViewPaddingAction;->bottom:I
 
-    .line 2280
     return-void
 .end method
 
@@ -123,25 +99,17 @@
 # virtual methods
 .method public apply(Landroid/view/View;Landroid/view/ViewGroup;Landroid/widget/RemoteViews$OnClickHandler;)V
     .locals 5
-    .param p1, "root"    # Landroid/view/View;
-    .param p2, "rootParent"    # Landroid/view/ViewGroup;
-    .param p3, "handler"    # Landroid/widget/RemoteViews$OnClickHandler;
 
-    .prologue
-    .line 2299
     iget v1, p0, Landroid/widget/RemoteViews$ViewPaddingAction;->viewId:I
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    .line 2300
-    .local v0, "target":Landroid/view/View;
     if-nez v0, :cond_0
 
     return-void
 
-    .line 2301
     :cond_0
     iget v1, p0, Landroid/widget/RemoteViews$ViewPaddingAction;->left:I
 
@@ -153,15 +121,12 @@
 
     invoke-virtual {v0, v1, v2, v3, v4}, Landroid/view/View;->setPadding(IIII)V
 
-    .line 2298
     return-void
 .end method
 
 .method public getActionName()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 2305
     const-string/jumbo v0, "ViewPaddingAction"
 
     return-object v0
@@ -169,40 +134,30 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .param p1, "dest"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
-    .prologue
-    .line 2289
     const/16 v0, 0xe
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 2290
     iget v0, p0, Landroid/widget/RemoteViews$ViewPaddingAction;->viewId:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 2291
     iget v0, p0, Landroid/widget/RemoteViews$ViewPaddingAction;->left:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 2292
     iget v0, p0, Landroid/widget/RemoteViews$ViewPaddingAction;->top:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 2293
     iget v0, p0, Landroid/widget/RemoteViews$ViewPaddingAction;->right:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 2294
     iget v0, p0, Landroid/widget/RemoteViews$ViewPaddingAction;->bottom:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 2288
     return-void
 .end method

@@ -40,8 +40,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 49
     const-string/jumbo v0, "content://com.android.browser"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -50,15 +48,12 @@
 
     sput-object v0, Landroid/provider/BrowserContract;->AUTHORITY_URI:Landroid/net/Uri;
 
-    .line 44
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

@@ -27,17 +27,7 @@
 # direct methods
 .method constructor <init>(Landroid/accounts/AccountManager;Landroid/accounts/AccountManager;Landroid/app/Activity;Landroid/os/Handler;Landroid/accounts/AccountManagerCallback;Landroid/accounts/Account;Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/accounts/AccountManager;
-    .param p2, "this$0_1"    # Landroid/accounts/AccountManager;
-    .param p3, "$anonymous0"    # Landroid/app/Activity;
-    .param p4, "$anonymous1"    # Landroid/os/Handler;
-    .param p6, "val$account"    # Landroid/accounts/Account;
-    .param p7, "val$authTokenType"    # Ljava/lang/String;
-    .param p8, "val$optionsIn"    # Landroid/os/Bundle;
 
-    .prologue
-    .line 1288
-    .local p5, "$anonymous2":Landroid/accounts/AccountManagerCallback;, "Landroid/accounts/AccountManagerCallback<Landroid/os/Bundle;>;"
     iput-object p2, p0, Landroid/accounts/AccountManager$10;->this$0:Landroid/accounts/AccountManager;
 
     iput-object p6, p0, Landroid/accounts/AccountManager$10;->val$account:Landroid/accounts/Account;
@@ -61,8 +51,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1291
     iget-object v0, p0, Landroid/accounts/AccountManager$10;->this$0:Landroid/accounts/AccountManager;
 
     invoke-static {v0}, Landroid/accounts/AccountManager;->-get3(Landroid/accounts/AccountManager;)Landroid/accounts/IAccountManager;
@@ -75,17 +63,13 @@
 
     iget-object v3, p0, Landroid/accounts/AccountManager$10;->val$authTokenType:Ljava/lang/String;
 
-    .line 1293
     iget-object v6, p0, Landroid/accounts/AccountManager$10;->val$optionsIn:Landroid/os/Bundle;
 
-    .line 1292
     const/4 v4, 0x0
 
     const/4 v5, 0x1
 
-    .line 1291
     invoke-interface/range {v0 .. v6}, Landroid/accounts/IAccountManager;->getAuthToken(Landroid/accounts/IAccountManagerResponse;Landroid/accounts/Account;Ljava/lang/String;ZZLandroid/os/Bundle;)V
 
-    .line 1290
     return-void
 .end method

@@ -16,28 +16,17 @@
 # direct methods
 .method public constructor <init>(IIII)V
     .locals 0
-    .param p1, "totalFrames"    # I
-    .param p2, "periodFrames"    # I
-    .param p3, "periodTime"    # I
-    .param p4, "pixels"    # I
 
-    .prologue
-    .line 30
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 31
     iput p1, p0, Landroid/filterpacks/performance/Throughput;->mTotalFrames:I
 
-    .line 32
     iput p2, p0, Landroid/filterpacks/performance/Throughput;->mPeriodFrames:I
 
-    .line 33
     iput p3, p0, Landroid/filterpacks/performance/Throughput;->mPeriodTime:I
 
-    .line 34
     iput p4, p0, Landroid/filterpacks/performance/Throughput;->mPixels:I
 
-    .line 30
     return-void
 .end method
 
@@ -46,8 +35,6 @@
 .method public getFramesPerSecond()F
     .locals 2
 
-    .prologue
-    .line 50
     iget v0, p0, Landroid/filterpacks/performance/Throughput;->mPeriodFrames:I
 
     int-to-float v0, v0
@@ -64,8 +51,6 @@
 .method public getNanosPerPixel()F
     .locals 6
 
-    .prologue
-    .line 54
     iget v2, p0, Landroid/filterpacks/performance/Throughput;->mPeriodTime:I
 
     int-to-double v2, v2
@@ -80,8 +65,6 @@
 
     mul-double v0, v2, v4
 
-    .line 55
-    .local v0, "frameTimeInNanos":D
     iget v2, p0, Landroid/filterpacks/performance/Throughput;->mPixels:I
 
     int-to-double v2, v2
@@ -96,8 +79,6 @@
 .method public getPeriodFrameCount()I
     .locals 1
 
-    .prologue
-    .line 42
     iget v0, p0, Landroid/filterpacks/performance/Throughput;->mPeriodFrames:I
 
     return v0
@@ -106,8 +87,6 @@
 .method public getPeriodTime()I
     .locals 1
 
-    .prologue
-    .line 46
     iget v0, p0, Landroid/filterpacks/performance/Throughput;->mPeriodTime:I
 
     return v0
@@ -116,8 +95,6 @@
 .method public getTotalFrameCount()I
     .locals 1
 
-    .prologue
-    .line 38
     iget v0, p0, Landroid/filterpacks/performance/Throughput;->mTotalFrames:I
 
     return v0
@@ -126,8 +103,6 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 59
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

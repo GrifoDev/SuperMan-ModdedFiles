@@ -7,37 +7,28 @@
 .method protected constructor <init>()V
     .locals 2
 
-    .prologue
-    .line 48
     const/4 v0, 0x2
 
     const/4 v1, 0x0
 
     invoke-direct {p0, v0, v1}, Landroid/net/wifi/p2p/nsd/WifiP2pServiceRequest;-><init>(ILjava/lang/String;)V
 
-    .line 47
     return-void
 .end method
 
 .method protected constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .param p1, "query"    # Ljava/lang/String;
 
-    .prologue
-    .line 40
     const/4 v0, 0x2
 
     invoke-direct {p0, v0, p1}, Landroid/net/wifi/p2p/nsd/WifiP2pServiceRequest;-><init>(ILjava/lang/String;)V
 
-    .line 39
     return-void
 .end method
 
 .method public static newInstance()Landroid/net/wifi/p2p/nsd/WifiP2pUpnpServiceRequest;
     .locals 1
 
-    .prologue
-    .line 57
     new-instance v0, Landroid/net/wifi/p2p/nsd/WifiP2pUpnpServiceRequest;
 
     invoke-direct {v0}, Landroid/net/wifi/p2p/nsd/WifiP2pUpnpServiceRequest;-><init>()V
@@ -47,13 +38,9 @@
 
 .method public static newInstance(Ljava/lang/String;)Landroid/net/wifi/p2p/nsd/WifiP2pUpnpServiceRequest;
     .locals 6
-    .param p0, "st"    # Ljava/lang/String;
 
-    .prologue
-    .line 74
     if-nez p0, :cond_0
 
-    .line 75
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v2, "search target cannot be null"
@@ -62,14 +49,11 @@
 
     throw v1
 
-    .line 77
     :cond_0
     new-instance v0, Ljava/lang/StringBuffer;
 
     invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
 
-    .line 78
-    .local v0, "sb":Ljava/lang/StringBuffer;
     sget-object v1, Ljava/util/Locale;->US:Ljava/util/Locale;
 
     const-string/jumbo v2, "%02x"
@@ -94,7 +78,6 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 79
     invoke-virtual {p0}, Ljava/lang/String;->getBytes()[B
 
     move-result-object v1
@@ -105,7 +88,6 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 80
     new-instance v1, Landroid/net/wifi/p2p/nsd/WifiP2pUpnpServiceRequest;
 
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;

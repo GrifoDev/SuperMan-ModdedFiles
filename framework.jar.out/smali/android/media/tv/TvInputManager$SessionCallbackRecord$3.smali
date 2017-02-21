@@ -26,11 +26,7 @@
 # direct methods
 .method constructor <init>(Landroid/media/tv/TvInputManager$SessionCallbackRecord;Landroid/net/Uri;)V
     .locals 0
-    .param p1, "this$1"    # Landroid/media/tv/TvInputManager$SessionCallbackRecord;
-    .param p2, "val$channelUri"    # Landroid/net/Uri;
 
-    .prologue
-    .line 571
     iput-object p1, p0, Landroid/media/tv/TvInputManager$SessionCallbackRecord$3;->this$1:Landroid/media/tv/TvInputManager$SessionCallbackRecord;
 
     iput-object p2, p0, Landroid/media/tv/TvInputManager$SessionCallbackRecord$3;->val$channelUri:Landroid/net/Uri;
@@ -45,8 +41,6 @@
 .method public run()V
     .locals 3
 
-    .prologue
-    .line 574
     iget-object v0, p0, Landroid/media/tv/TvInputManager$SessionCallbackRecord$3;->this$1:Landroid/media/tv/TvInputManager$SessionCallbackRecord;
 
     invoke-static {v0}, Landroid/media/tv/TvInputManager$SessionCallbackRecord;->-get1(Landroid/media/tv/TvInputManager$SessionCallbackRecord;)Landroid/media/tv/TvInputManager$SessionCallback;
@@ -63,6 +57,5 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/media/tv/TvInputManager$SessionCallback;->onChannelRetuned(Landroid/media/tv/TvInputManager$Session;Landroid/net/Uri;)V
 
-    .line 573
     return-void
 .end method

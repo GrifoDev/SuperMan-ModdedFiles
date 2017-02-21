@@ -159,7 +159,6 @@
 .method static constructor <clinit>()V
     .locals 8
 
-    .prologue
     const/4 v7, 0x4
 
     const/4 v6, 0x3
@@ -170,7 +169,6 @@
 
     const/4 v3, 0x0
 
-    .line 30
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_VT_CREATE_SESSION_CONFIRMED"
@@ -179,7 +177,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_VT_CREATE_SESSION_CONFIRMED:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 31
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_VT_AUDIO_TX_OLC_ESTABLISHED"
@@ -188,7 +185,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_VT_AUDIO_TX_OLC_ESTABLISHED:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 32
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_VT_AUDIO_RX_OLC_ESTABLISHED"
@@ -197,7 +193,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_VT_AUDIO_RX_OLC_ESTABLISHED:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 33
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_VT_VIDEO_TX_OLC_ESTABLISHED"
@@ -206,7 +201,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_VT_VIDEO_TX_OLC_ESTABLISHED:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 34
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_VT_VIDEO_RX_OLC_ESTABLISHED"
@@ -215,7 +209,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_VT_VIDEO_RX_OLC_ESTABLISHED:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 35
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_VT_AUDIO_TX_OLC_CLOSED"
@@ -226,7 +219,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_VT_AUDIO_TX_OLC_CLOSED:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 36
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_VT_AUDIO_RX_OLC_CLOSED"
@@ -237,7 +229,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_VT_AUDIO_RX_OLC_CLOSED:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 37
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_VT_VIDEO_TX_OLC_CLOSED"
@@ -248,7 +239,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_VT_VIDEO_TX_OLC_CLOSED:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 38
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_VT_VIDEO_RX_OLC_CLOSED"
@@ -259,7 +249,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_VT_VIDEO_RX_OLC_CLOSED:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 39
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_VT_START_CALL_SUCCESS"
@@ -270,7 +259,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_VT_START_CALL_SUCCESS:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 40
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_VT_START_CALL_FAILURE"
@@ -281,7 +269,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_VT_START_CALL_FAILURE:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 41
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_VT_SESSION_STOP_SUCCESS"
@@ -292,7 +279,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_VT_SESSION_STOP_SUCCESS:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 42
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_VT_SESSION_STOP_FAILED"
@@ -303,7 +289,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_VT_SESSION_STOP_FAILED:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 43
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_VT_END_CALL_REQUEST"
@@ -314,7 +299,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_VT_END_CALL_REQUEST:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 44
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_VT_PROTOCOL_ERR_IND"
@@ -325,7 +309,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_VT_PROTOCOL_ERR_IND:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 45
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_RB_CALL_DISCONNECTED"
@@ -336,7 +319,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_RB_CALL_DISCONNECTED:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 46
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_VT_CALL_DEINITIALIZED"
@@ -347,7 +329,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_VT_CALL_DEINITIALIZED:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 47
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_VT_SET_CAMERA_FRAME_RATE"
@@ -358,7 +339,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_VT_SET_CAMERA_FRAME_RATE:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 48
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_VT_GENERATE_IFRAME"
@@ -369,7 +349,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_VT_GENERATE_IFRAME:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 49
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_VT_VENDOR_ID_IND"
@@ -380,7 +359,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_VT_VENDOR_ID_IND:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 50
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_VT_USER_INPUT_INDICATION"
@@ -391,7 +369,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_VT_USER_INPUT_INDICATION:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 51
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_VT_FIRST_VIDEO_FRAME_DECODED"
@@ -402,7 +379,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_VT_FIRST_VIDEO_FRAME_DECODED:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 52
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_VT_UL_VIDEO_RESOURCE_INIT_DONE"
@@ -413,7 +389,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_VT_UL_VIDEO_RESOURCE_INIT_DONE:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 53
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_IC_START_SUCESS"
@@ -424,7 +399,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_IC_START_SUCESS:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 54
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_IC_START_FAILURE"
@@ -435,7 +409,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_IC_START_FAILURE:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 55
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_IC_STOP_SUCESS"
@@ -446,7 +419,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_IC_STOP_SUCESS:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 56
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_IC_STOP_FAILURE"
@@ -457,7 +429,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_IC_STOP_FAILURE:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 58
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_FC_START_SUCCESS"
@@ -468,7 +439,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_FC_START_SUCCESS:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 59
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_FC_START_FAILURE"
@@ -479,7 +449,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_FC_START_FAILURE:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 60
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_FC_UNSUPPORTED_AUDIO"
@@ -490,7 +459,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_FC_UNSUPPORTED_AUDIO:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 61
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_FC_UNSUPPORTED_VIDEO"
@@ -501,7 +469,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_FC_UNSUPPORTED_VIDEO:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 62
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_FC_FILE_READ_ERR"
@@ -512,7 +479,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_FC_FILE_READ_ERR:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 63
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_FC_NO_AUDIO"
@@ -523,7 +489,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_FC_NO_AUDIO:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 64
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_FC_NO_VIDEO"
@@ -534,7 +499,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_FC_NO_VIDEO:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 65
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_FC_STOP_SUCCESS"
@@ -545,7 +509,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_FC_STOP_SUCCESS:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 66
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_FC_STOP_FAILED"
@@ -556,7 +519,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_FC_STOP_FAILED:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 67
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_FC_PROTOCOL_ERROR"
@@ -567,7 +529,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_FC_PROTOCOL_ERROR:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 68
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H234M_FC_VOL_READ_FAILED"
@@ -578,7 +539,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H234M_FC_VOL_READ_FAILED:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 70
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_REC_START_SUCCESS"
@@ -589,7 +549,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_REC_START_SUCCESS:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 71
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_REC_START_FAILURE"
@@ -600,7 +559,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_REC_START_FAILURE:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 72
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_REC_STOP_SUCCESS"
@@ -611,7 +569,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_REC_STOP_SUCCESS:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 73
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_REC_STOP_FAILED"
@@ -622,7 +579,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_REC_STOP_FAILED:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 74
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_REC_CANCEL_SUCCESS"
@@ -633,7 +589,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_REC_CANCEL_SUCCESS:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 75
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_REC_PROTOCOL_ERROR"
@@ -644,7 +599,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_REC_PROTOCOL_ERROR:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 76
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_REC_MAX_TIMEOUT"
@@ -655,7 +609,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_REC_MAX_TIMEOUT:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 78
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_VT_CAMERA_CONNECT_FAILED"
@@ -666,7 +619,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_VT_CAMERA_CONNECT_FAILED:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 79
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_IC_VIDEO_DEACTIVATED"
@@ -677,7 +629,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_IC_VIDEO_DEACTIVATED:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 80
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_IC_VIDEO_ACTIVATED"
@@ -688,7 +639,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_IC_VIDEO_ACTIVATED:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 81
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_VT_PREVIEW_VIDEO_DATA_IND"
@@ -699,7 +649,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_VT_PREVIEW_VIDEO_DATA_IND:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 82
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_VT_REMOTE_VIDEO_DATA_IND"
@@ -710,7 +659,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_VT_REMOTE_VIDEO_DATA_IND:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 83
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_VT_ALL_OLC_ESTABLISHED"
@@ -721,7 +669,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_VT_ALL_OLC_ESTABLISHED:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 84
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_VT_MRBT_START"
@@ -732,7 +679,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_VT_MRBT_START:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 85
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_VT_MRBT_END"
@@ -743,7 +689,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_VT_MRBT_END:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 88
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_VT_NO_DATA_ERR_IND"
@@ -754,7 +699,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_VT_NO_DATA_ERR_IND:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 89
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_VT_RECIEVED_DATA_IND"
@@ -765,7 +709,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_VT_RECIEVED_DATA_IND:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 90
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "H324M_IND_TO_APP_MAX"
@@ -776,7 +719,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->H324M_IND_TO_APP_MAX:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 92
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "VTMNGR_DECODE_JPEG_FAILURE"
@@ -787,7 +729,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->VTMNGR_DECODE_JPEG_FAILURE:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 93
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "VTMNGR_SURFACE_INIT_FAILURE"
@@ -798,7 +739,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->VTMNGR_SURFACE_INIT_FAILURE:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 94
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "VTMNGR_CAMERA_START_FAILURE"
@@ -809,7 +749,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->VTMNGR_CAMERA_START_FAILURE:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 95
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "VTMNGR_CAMERA_START_SUCCESS"
@@ -820,7 +759,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->VTMNGR_CAMERA_START_SUCCESS:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 96
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "VTMNGR_CAMERA_RETRY_START_SUCCESS"
@@ -831,7 +769,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->VTMNGR_CAMERA_RETRY_START_SUCCESS:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 97
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "VTMNGR_USER_INDICATION"
@@ -842,7 +779,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->VTMNGR_USER_INDICATION:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 98
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "VTMNGR_VMS_MODE"
@@ -853,7 +789,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->VTMNGR_VMS_MODE:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 99
     new-instance v0, Lsiso/vt/VTManager$VTEventForUI;
 
     const-string/jumbo v1, "VTMNGR_FIRST_FRAME_FROM_CAMERA"
@@ -864,7 +799,6 @@
 
     sput-object v0, Lsiso/vt/VTManager$VTEventForUI;->VTMNGR_FIRST_FRAME_FROM_CAMERA:Lsiso/vt/VTManager$VTEventForUI;
 
-    .line 28
     const/16 v0, 0x40
 
     new-array v0, v0, [Lsiso/vt/VTManager$VTEventForUI;
@@ -1251,8 +1185,6 @@
 .method private constructor <init>(Ljava/lang/String;I)V
     .locals 0
 
-    .prologue
-    .line 28
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -1260,10 +1192,7 @@
 
 .method public static valueOf(Ljava/lang/String;)Lsiso/vt/VTManager$VTEventForUI;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
-    .prologue
-    .line 28
     const-class v0, Lsiso/vt/VTManager$VTEventForUI;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -1278,8 +1207,6 @@
 .method public static values()[Lsiso/vt/VTManager$VTEventForUI;
     .locals 1
 
-    .prologue
-    .line 28
     sget-object v0, Lsiso/vt/VTManager$VTEventForUI;->$VALUES:[Lsiso/vt/VTManager$VTEventForUI;
 
     return-object v0

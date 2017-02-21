@@ -67,84 +67,66 @@
 .method constructor <init>()V
     .locals 3
 
-    .prologue
     const/4 v2, -0x2
 
-    .line 639
     invoke-direct {p0}, Landroid/app/ITransientNotification$Stub;-><init>()V
 
-    .line 605
     new-instance v1, Landroid/widget/Toast$TN$1;
 
     invoke-direct {v1, p0}, Landroid/widget/Toast$TN$1;-><init>(Landroid/widget/Toast$TN;)V
 
     iput-object v1, p0, Landroid/widget/Toast$TN;->mShow:Ljava/lang/Runnable;
 
-    .line 612
     new-instance v1, Landroid/widget/Toast$TN$2;
 
     invoke-direct {v1, p0}, Landroid/widget/Toast$TN$2;-><init>(Landroid/widget/Toast$TN;)V
 
     iput-object v1, p0, Landroid/widget/Toast$TN;->mHide:Ljava/lang/Runnable;
 
-    .line 621
     new-instance v1, Landroid/view/WindowManager$LayoutParams;
 
     invoke-direct {v1}, Landroid/view/WindowManager$LayoutParams;-><init>()V
 
     iput-object v1, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
 
-    .line 622
     new-instance v1, Landroid/os/Handler;
 
     invoke-direct {v1}, Landroid/os/Handler;-><init>()V
 
     iput-object v1, p0, Landroid/widget/Toast$TN;->mHandler:Landroid/os/Handler;
 
-    .line 642
     iget-object v0, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
 
-    .line 643
-    .local v0, "params":Landroid/view/WindowManager$LayoutParams;
     iput v2, v0, Landroid/view/WindowManager$LayoutParams;->height:I
 
-    .line 644
     iput v2, v0, Landroid/view/WindowManager$LayoutParams;->width:I
 
-    .line 645
     const/4 v1, -0x3
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->format:I
 
-    .line 646
     const v1, 0x1030004
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
-    .line 647
     const/16 v1, 0x7d5
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->type:I
 
-    .line 648
     const-string/jumbo v1, "Toast"
 
     invoke-virtual {v0, v1}, Landroid/view/WindowManager$LayoutParams;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 650
     const v1, 0x40088
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    .line 639
     return-void
 .end method
 
 .method private trySendAccessibilityEvent()V
     .locals 3
 
-    .prologue
-    .line 731
     iget-object v2, p0, Landroid/widget/Toast$TN;->mView:Landroid/view/View;
 
     invoke-virtual {v2}, Landroid/view/View;->getContext()Landroid/content/Context;
@@ -155,28 +137,21 @@
 
     move-result-object v0
 
-    .line 732
-    .local v0, "accessibilityManager":Landroid/view/accessibility/AccessibilityManager;
     invoke-virtual {v0}, Landroid/view/accessibility/AccessibilityManager;->isEnabled()Z
 
     move-result v2
 
     if-nez v2, :cond_0
 
-    .line 733
     return-void
 
-    .line 738
     :cond_0
     const/16 v2, 0x40
 
-    .line 737
     invoke-static {v2}, Landroid/view/accessibility/AccessibilityEvent;->obtain(I)Landroid/view/accessibility/AccessibilityEvent;
 
     move-result-object v1
 
-    .line 739
-    .local v1, "event":Landroid/view/accessibility/AccessibilityEvent;
     invoke-virtual {p0}, Landroid/widget/Toast$TN;->getClass()Ljava/lang/Class;
 
     move-result-object v2
@@ -187,7 +162,6 @@
 
     invoke-virtual {v1, v2}, Landroid/view/accessibility/AccessibilityEvent;->setClassName(Ljava/lang/CharSequence;)V
 
-    .line 740
     iget-object v2, p0, Landroid/widget/Toast$TN;->mView:Landroid/view/View;
 
     invoke-virtual {v2}, Landroid/view/View;->getContext()Landroid/content/Context;
@@ -200,15 +174,12 @@
 
     invoke-virtual {v1, v2}, Landroid/view/accessibility/AccessibilityEvent;->setPackageName(Ljava/lang/CharSequence;)V
 
-    .line 741
     iget-object v2, p0, Landroid/widget/Toast$TN;->mView:Landroid/view/View;
 
     invoke-virtual {v2, v1}, Landroid/view/View;->dispatchPopulateAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)Z
 
-    .line 742
     invoke-virtual {v0, v1}, Landroid/view/accessibility/AccessibilityManager;->sendAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
 
-    .line 729
     return-void
 .end method
 
@@ -217,10 +188,8 @@
 .method public handleHide()V
     .locals 4
 
-    .prologue
     const/4 v3, 0x0
 
-    .line 746
     sget-boolean v0, Landroid/widget/Toast;->localLOGV:Z
 
     if-eqz v0, :cond_0
@@ -259,13 +228,11 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 747
     :cond_0
     iget-object v0, p0, Landroid/widget/Toast$TN;->mView:Landroid/view/View;
 
     if-eqz v0, :cond_3
 
-    .line 751
     iget-object v0, p0, Landroid/widget/Toast$TN;->mView:Landroid/view/View;
 
     invoke-virtual {v0}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
@@ -274,7 +241,6 @@
 
     if-eqz v0, :cond_2
 
-    .line 752
     sget-boolean v0, Landroid/widget/Toast;->localLOGV:Z
 
     if-eqz v0, :cond_1
@@ -313,7 +279,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 753
     :cond_1
     iget-object v0, p0, Landroid/widget/Toast$TN;->mWM:Landroid/view/WindowManager;
 
@@ -321,11 +286,9 @@
 
     invoke-interface {v0, v1}, Landroid/view/WindowManager;->removeView(Landroid/view/View;)V
 
-    .line 756
     :cond_2
     iput-object v3, p0, Landroid/widget/Toast$TN;->mView:Landroid/view/View;
 
-    .line 745
     :cond_3
     return-void
 .end method
@@ -333,10 +296,8 @@
 .method public handleShow()V
     .locals 8
 
-    .prologue
     const/high16 v7, 0x3f800000    # 1.0f
 
-    .line 675
     sget-boolean v4, Landroid/widget/Toast;->localLOGV:Z
 
     if-eqz v4, :cond_0
@@ -369,18 +330,14 @@
 
     move-result-object v5
 
-    .line 676
     const-string/jumbo v6, " mNextView="
 
-    .line 675
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
-    .line 676
     iget-object v6, p0, Landroid/widget/Toast$TN;->mNextView:Landroid/view/View;
 
-    .line 675
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v5
@@ -391,7 +348,6 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 677
     :cond_0
     iget-object v4, p0, Landroid/widget/Toast$TN;->mView:Landroid/view/View;
 
@@ -399,15 +355,12 @@
 
     if-eq v4, v5, :cond_8
 
-    .line 679
     invoke-virtual {p0}, Landroid/widget/Toast$TN;->handleHide()V
 
-    .line 680
     iget-object v4, p0, Landroid/widget/Toast$TN;->mNextView:Landroid/view/View;
 
     iput-object v4, p0, Landroid/widget/Toast$TN;->mView:Landroid/view/View;
 
-    .line 681
     iget-object v4, p0, Landroid/widget/Toast$TN;->mView:Landroid/view/View;
 
     invoke-virtual {v4}, Landroid/view/View;->getContext()Landroid/content/Context;
@@ -418,8 +371,6 @@
 
     move-result-object v1
 
-    .line 682
-    .local v1, "context":Landroid/content/Context;
     iget-object v4, p0, Landroid/widget/Toast$TN;->mView:Landroid/view/View;
 
     invoke-virtual {v4}, Landroid/view/View;->getContext()Landroid/content/Context;
@@ -430,18 +381,14 @@
 
     move-result-object v3
 
-    .line 683
-    .local v3, "packageName":Ljava/lang/String;
     if-nez v1, :cond_1
 
-    .line 684
     iget-object v4, p0, Landroid/widget/Toast$TN;->mView:Landroid/view/View;
 
     invoke-virtual {v4}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
-    .line 686
     :cond_1
     const-string/jumbo v4, "window"
 
@@ -453,7 +400,6 @@
 
     iput-object v4, p0, Landroid/widget/Toast$TN;->mWM:Landroid/view/WindowManager;
 
-    .line 700
     iget-object v4, p0, Landroid/widget/Toast$TN;->mView:Landroid/view/View;
 
     invoke-virtual {v4}, Landroid/view/View;->getContext()Landroid/content/Context;
@@ -468,8 +414,6 @@
 
     move-result-object v0
 
-    .line 701
-    .local v0, "config":Landroid/content/res/Configuration;
     iget v4, p0, Landroid/widget/Toast$TN;->mGravity:I
 
     invoke-virtual {v0}, Landroid/content/res/Configuration;->getLayoutDirection()I
@@ -494,26 +438,21 @@
 
     packed-switch v4, :pswitch_data_0
 
-    .line 702
-    .local v2, "gravity":I
     :goto_0
     iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
 
     iput v2, v4, Landroid/view/WindowManager$LayoutParams;->gravity:I
 
-    .line 703
     and-int/lit8 v4, v2, 0x7
 
     const/4 v5, 0x7
 
     if-ne v4, v5, :cond_2
 
-    .line 704
     iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
 
     iput v7, v4, Landroid/view/WindowManager$LayoutParams;->horizontalWeight:F
 
-    .line 706
     :cond_2
     and-int/lit8 v4, v2, 0x70
 
@@ -521,12 +460,10 @@
 
     if-ne v4, v5, :cond_3
 
-    .line 707
     iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
 
     iput v7, v4, Landroid/view/WindowManager$LayoutParams;->verticalWeight:F
 
-    .line 709
     :cond_3
     iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
 
@@ -534,28 +471,24 @@
 
     iput v5, v4, Landroid/view/WindowManager$LayoutParams;->x:I
 
-    .line 710
     iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
 
     iget v5, p0, Landroid/widget/Toast$TN;->mY:I
 
     iput v5, v4, Landroid/view/WindowManager$LayoutParams;->y:I
 
-    .line 711
     iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
 
     iget v5, p0, Landroid/widget/Toast$TN;->mVerticalMargin:F
 
     iput v5, v4, Landroid/view/WindowManager$LayoutParams;->verticalMargin:F
 
-    .line 712
     iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
 
     iget v5, p0, Landroid/widget/Toast$TN;->mHorizontalMargin:F
 
     iput v5, v4, Landroid/view/WindowManager$LayoutParams;->horizontalMargin:F
 
-    .line 713
     iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
 
     iput-object v3, v4, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
@@ -586,7 +519,6 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 718
     :cond_4
     iget-object v4, p0, Landroid/widget/Toast$TN;->mView:Landroid/view/View;
 
@@ -596,7 +528,6 @@
 
     if-eqz v4, :cond_6
 
-    .line 720
     sget-boolean v4, Landroid/widget/Toast;->localLOGV:Z
 
     if-eqz v4, :cond_5
@@ -635,7 +566,6 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 721
     :cond_5
     iget-object v4, p0, Landroid/widget/Toast$TN;->mWM:Landroid/view/WindowManager;
 
@@ -643,7 +573,6 @@
 
     invoke-interface {v4, v5}, Landroid/view/WindowManager;->removeView(Landroid/view/View;)V
 
-    .line 723
     :cond_6
     sget-boolean v4, Landroid/widget/Toast;->localLOGV:Z
 
@@ -683,7 +612,6 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 724
     :cond_7
     iget-object v4, p0, Landroid/widget/Toast$TN;->mWM:Landroid/view/WindowManager;
 
@@ -693,14 +621,8 @@
 
     invoke-interface {v4, v5, v6}, Landroid/view/WindowManager;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 725
     invoke-direct {p0}, Landroid/widget/Toast$TN;->trySendAccessibilityEvent()V
 
-    .line 674
-    .end local v0    # "config":Landroid/content/res/Configuration;
-    .end local v1    # "context":Landroid/content/Context;
-    .end local v2    # "gravity":I
-    .end local v3    # "packageName":Ljava/lang/String;
     :cond_8
     return-void
 
@@ -711,11 +633,6 @@
 
     iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
-    .line 715
-    .restart local v0    # "config":Landroid/content/res/Configuration;
-    .restart local v1    # "context":Landroid/content/Context;
-    .restart local v2    # "gravity":I
-    .restart local v3    # "packageName":Ljava/lang/String;
     goto/16 :goto_0
 
     :pswitch_1
@@ -877,8 +794,6 @@
 .method public hide()V
     .locals 3
 
-    .prologue
-    .line 670
     sget-boolean v0, Landroid/widget/Toast;->localLOGV:Z
 
     if-eqz v0, :cond_0
@@ -905,7 +820,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 671
     :cond_0
     iget-object v0, p0, Landroid/widget/Toast$TN;->mHandler:Landroid/os/Handler;
 
@@ -913,23 +827,18 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 669
     return-void
 .end method
 
 .method public setIgnoreMultiWindowLayout()V
     .locals 0
 
-    .prologue
-    .line 765
     return-void
 .end method
 
 .method public setShowForAllUsers()V
     .locals 2
 
-    .prologue
-    .line 761
     iget-object v0, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
 
     iget v1, v0, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
@@ -938,15 +847,12 @@
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
 
-    .line 760
     return-void
 .end method
 
 .method public show()V
     .locals 3
 
-    .prologue
-    .line 661
     sget-boolean v0, Landroid/widget/Toast;->localLOGV:Z
 
     if-eqz v0, :cond_0
@@ -973,7 +879,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 662
     :cond_0
     iget-object v0, p0, Landroid/widget/Toast$TN;->mHandler:Landroid/os/Handler;
 
@@ -981,6 +886,5 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 660
     return-void
 .end method

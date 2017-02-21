@@ -21,17 +21,11 @@
 # direct methods
 .method public constructor <init>(Landroid/media/SoundPool;Landroid/os/Looper;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/media/SoundPool;
-    .param p2, "looper"    # Landroid/os/Looper;
 
-    .prologue
-    .line 581
     iput-object p1, p0, Landroid/media/SoundPool$EventHandler;->this$0:Landroid/media/SoundPool;
 
-    .line 582
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    .line 581
     return-void
 .end method
 
@@ -39,15 +33,11 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 5
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .line 587
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 597
     const-string/jumbo v0, "SoundPool"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -72,10 +62,8 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 598
     return-void
 
-    .line 589
     :pswitch_0
     invoke-static {}, Landroid/media/SoundPool;->-get0()Z
 
@@ -113,7 +101,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 590
     :cond_0
     iget-object v0, p0, Landroid/media/SoundPool$EventHandler;->this$0:Landroid/media/SoundPool;
 
@@ -123,7 +110,6 @@
 
     monitor-enter v1
 
-    .line 591
     :try_start_0
     iget-object v0, p0, Landroid/media/SoundPool$EventHandler;->this$0:Landroid/media/SoundPool;
 
@@ -133,7 +119,6 @@
 
     if-eqz v0, :cond_1
 
-    .line 592
     iget-object v0, p0, Landroid/media/SoundPool$EventHandler;->this$0:Landroid/media/SoundPool;
 
     invoke-static {v0}, Landroid/media/SoundPool;->-get2(Landroid/media/SoundPool;)Landroid/media/SoundPool$OnLoadCompleteListener;
@@ -153,10 +138,8 @@
     :cond_1
     monitor-exit v1
 
-    .line 586
     return-void
 
-    .line 590
     :catchall_0
     move-exception v0
 
@@ -164,7 +147,6 @@
 
     throw v0
 
-    .line 587
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/widget/SemHoverPopupWindow;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/samsung/android/widget/SemHoverPopupWindow;
 
-    .prologue
-    .line 574
     iput-object p1, p0, Lcom/samsung/android/widget/SemHoverPopupWindow$3;->this$0:Lcom/samsung/android/widget/SemHoverPopupWindow;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,12 +36,9 @@
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
     .locals 4
-    .param p1, "animation"    # Landroid/animation/ValueAnimator;
 
-    .prologue
     const/4 v3, -0x1
 
-    .line 576
     iget-object v1, p0, Lcom/samsung/android/widget/SemHoverPopupWindow$3;->this$0:Lcom/samsung/android/widget/SemHoverPopupWindow;
 
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
@@ -59,7 +53,6 @@
 
     invoke-static {v1, v0}, Lcom/samsung/android/widget/SemHoverPopupWindow;->-set5(Lcom/samsung/android/widget/SemHoverPopupWindow;F)F
 
-    .line 578
     iget-object v0, p0, Lcom/samsung/android/widget/SemHoverPopupWindow$3;->this$0:Lcom/samsung/android/widget/SemHoverPopupWindow;
 
     invoke-static {v0}, Lcom/samsung/android/widget/SemHoverPopupWindow;->-get27(Lcom/samsung/android/widget/SemHoverPopupWindow;)Landroid/widget/PopupWindow;
@@ -68,7 +61,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 579
     iget-object v0, p0, Lcom/samsung/android/widget/SemHoverPopupWindow$3;->this$0:Lcom/samsung/android/widget/SemHoverPopupWindow;
 
     invoke-static {v0}, Lcom/samsung/android/widget/SemHoverPopupWindow;->-get11(Lcom/samsung/android/widget/SemHoverPopupWindow;)I
@@ -83,7 +75,6 @@
 
     if-ne v0, v1, :cond_1
 
-    .line 580
     iget-object v0, p0, Lcom/samsung/android/widget/SemHoverPopupWindow$3;->this$0:Lcom/samsung/android/widget/SemHoverPopupWindow;
 
     invoke-static {v0}, Lcom/samsung/android/widget/SemHoverPopupWindow;->-get14(Lcom/samsung/android/widget/SemHoverPopupWindow;)I
@@ -124,7 +115,6 @@
 
     if-gez v0, :cond_1
 
-    .line 582
     iget-object v0, p0, Lcom/samsung/android/widget/SemHoverPopupWindow$3;->this$0:Lcom/samsung/android/widget/SemHoverPopupWindow;
 
     invoke-static {v0}, Lcom/samsung/android/widget/SemHoverPopupWindow;->-get27(Lcom/samsung/android/widget/SemHoverPopupWindow;)Landroid/widget/PopupWindow;
@@ -157,12 +147,10 @@
 
     invoke-virtual {v0, v1, v2, v3, v3}, Landroid/widget/PopupWindow;->update(IIII)V
 
-    .line 575
     :cond_0
     :goto_0
     return-void
 
-    .line 583
     :cond_1
     iget-object v0, p0, Lcom/samsung/android/widget/SemHoverPopupWindow$3;->this$0:Lcom/samsung/android/widget/SemHoverPopupWindow;
 
@@ -178,7 +166,6 @@
 
     if-ne v0, v1, :cond_2
 
-    .line 584
     iget-object v0, p0, Lcom/samsung/android/widget/SemHoverPopupWindow$3;->this$0:Lcom/samsung/android/widget/SemHoverPopupWindow;
 
     invoke-static {v0}, Lcom/samsung/android/widget/SemHoverPopupWindow;->-get15(Lcom/samsung/android/widget/SemHoverPopupWindow;)I
@@ -219,7 +206,6 @@
 
     if-lez v0, :cond_2
 
-    .line 586
     iget-object v0, p0, Lcom/samsung/android/widget/SemHoverPopupWindow$3;->this$0:Lcom/samsung/android/widget/SemHoverPopupWindow;
 
     invoke-static {v0}, Lcom/samsung/android/widget/SemHoverPopupWindow;->-get27(Lcom/samsung/android/widget/SemHoverPopupWindow;)Landroid/widget/PopupWindow;
@@ -254,7 +240,6 @@
 
     goto :goto_0
 
-    .line 587
     :cond_2
     iget-object v0, p0, Lcom/samsung/android/widget/SemHoverPopupWindow$3;->this$0:Lcom/samsung/android/widget/SemHoverPopupWindow;
 
@@ -270,7 +255,6 @@
 
     if-ne v0, v1, :cond_3
 
-    .line 588
     iget-object v0, p0, Lcom/samsung/android/widget/SemHoverPopupWindow$3;->this$0:Lcom/samsung/android/widget/SemHoverPopupWindow;
 
     invoke-static {v0}, Lcom/samsung/android/widget/SemHoverPopupWindow;->-get27(Lcom/samsung/android/widget/SemHoverPopupWindow;)Landroid/widget/PopupWindow;
@@ -305,7 +289,6 @@
 
     goto :goto_0
 
-    .line 589
     :cond_3
     iget-object v0, p0, Lcom/samsung/android/widget/SemHoverPopupWindow$3;->this$0:Lcom/samsung/android/widget/SemHoverPopupWindow;
 
@@ -321,7 +304,6 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 590
     iget-object v0, p0, Lcom/samsung/android/widget/SemHoverPopupWindow$3;->this$0:Lcom/samsung/android/widget/SemHoverPopupWindow;
 
     invoke-static {v0}, Lcom/samsung/android/widget/SemHoverPopupWindow;->-get27(Lcom/samsung/android/widget/SemHoverPopupWindow;)Landroid/widget/PopupWindow;

@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/share/SShareSimpleSharing;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/samsung/android/share/SShareSimpleSharing;
 
-    .prologue
-    .line 105
     iput-object p1, p0, Lcom/samsung/android/share/SShareSimpleSharing$2;->this$0:Lcom/samsung/android/share/SShareSimpleSharing;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -36,13 +33,9 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 9
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "intent"    # Landroid/content/Intent;
 
-    .prologue
     const/4 v8, 0x0
 
-    .line 107
     const-string/jumbo v4, "com.samsung.android.coreapps.rshare.responserecentgroupcontacts"
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -55,12 +48,10 @@
 
     if-eqz v4, :cond_3
 
-    .line 110
     iget-object v4, p0, Lcom/samsung/android/share/SShareSimpleSharing$2;->this$0:Lcom/samsung/android/share/SShareSimpleSharing;
 
     invoke-static {v4, v8}, Lcom/samsung/android/share/SShareSimpleSharing;->-set2(Lcom/samsung/android/share/SShareSimpleSharing;I)I
 
-    .line 111
     iget-object v4, p0, Lcom/samsung/android/share/SShareSimpleSharing$2;->this$0:Lcom/samsung/android/share/SShareSimpleSharing;
 
     invoke-static {v4}, Lcom/samsung/android/share/SShareSimpleSharing;->-get6(Lcom/samsung/android/share/SShareSimpleSharing;)Ljava/util/List;
@@ -73,7 +64,6 @@
 
     if-eqz v4, :cond_0
 
-    .line 112
     iget-object v4, p0, Lcom/samsung/android/share/SShareSimpleSharing$2;->this$0:Lcom/samsung/android/share/SShareSimpleSharing;
 
     invoke-static {v4}, Lcom/samsung/android/share/SShareSimpleSharing;->-get6(Lcom/samsung/android/share/SShareSimpleSharing;)Ljava/util/List;
@@ -82,7 +72,6 @@
 
     invoke-interface {v4}, Ljava/util/List;->clear()V
 
-    .line 114
     :cond_0
     iget-object v4, p0, Lcom/samsung/android/share/SShareSimpleSharing$2;->this$0:Lcom/samsung/android/share/SShareSimpleSharing;
 
@@ -96,7 +85,6 @@
 
     if-eqz v4, :cond_1
 
-    .line 115
     iget-object v4, p0, Lcom/samsung/android/share/SShareSimpleSharing$2;->this$0:Lcom/samsung/android/share/SShareSimpleSharing;
 
     invoke-static {v4}, Lcom/samsung/android/share/SShareSimpleSharing;->-get5(Lcom/samsung/android/share/SShareSimpleSharing;)Ljava/util/ArrayList;
@@ -105,17 +93,14 @@
 
     invoke-virtual {v4}, Ljava/util/ArrayList;->clear()V
 
-    .line 117
     :cond_1
     const/4 v0, 0x0
 
-    .local v0, "i":I
     :goto_0
     const/4 v4, 0x5
 
     if-ge v0, v4, :cond_2
 
-    .line 118
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -140,7 +125,6 @@
 
     if-nez v4, :cond_4
 
-    .line 151
     :cond_2
     iget-object v4, p0, Lcom/samsung/android/share/SShareSimpleSharing$2;->this$0:Lcom/samsung/android/share/SShareSimpleSharing;
 
@@ -150,13 +134,9 @@
 
     invoke-virtual {v4, v5}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    .line 106
-    .end local v0    # "i":I
     :cond_3
     return-void
 
-    .line 122
-    .restart local v0    # "i":I
     :cond_4
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -180,18 +160,12 @@
 
     move-result-object v2
 
-    .line 123
-    .local v2, "tmpGroupName":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     if-eqz v2, :cond_8
 
-    .line 124
     const-string/jumbo v3, ""
 
-    .line 126
-    .local v3, "tmpName":Ljava/lang/String;
     const/4 v1, 0x0
 
-    .local v1, "j":I
     :goto_1
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
@@ -199,7 +173,6 @@
 
     if-ge v1, v4, :cond_6
 
-    .line 127
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -222,7 +195,6 @@
 
     move-result-object v3
 
-    .line 129
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
     move-result v4
@@ -231,7 +203,6 @@
 
     if-eq v1, v4, :cond_5
 
-    .line 130
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -250,13 +221,11 @@
 
     move-result-object v3
 
-    .line 126
     :cond_5
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
-    .line 133
     :cond_6
     iget-object v4, p0, Lcom/samsung/android/share/SShareSimpleSharing$2;->this$0:Lcom/samsung/android/share/SShareSimpleSharing;
 
@@ -266,9 +235,6 @@
 
     invoke-virtual {v4, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 138
-    .end local v1    # "j":I
-    .end local v3    # "tmpName":Ljava/lang/String;
     :goto_2
     iget-object v4, p0, Lcom/samsung/android/share/SShareSimpleSharing$2;->this$0:Lcom/samsung/android/share/SShareSimpleSharing;
 
@@ -300,7 +266,6 @@
 
     aput-object v5, v4, v0
 
-    .line 139
     iget-object v4, p0, Lcom/samsung/android/share/SShareSimpleSharing$2;->this$0:Lcom/samsung/android/share/SShareSimpleSharing;
 
     invoke-static {v4}, Lcom/samsung/android/share/SShareSimpleSharing;->-get2(Lcom/samsung/android/share/SShareSimpleSharing;)[J
@@ -333,7 +298,6 @@
 
     aput-wide v6, v4, v0
 
-    .line 140
     iget-object v4, p0, Lcom/samsung/android/share/SShareSimpleSharing$2;->this$0:Lcom/samsung/android/share/SShareSimpleSharing;
 
     invoke-static {v4}, Lcom/samsung/android/share/SShareSimpleSharing;->-get3(Lcom/samsung/android/share/SShareSimpleSharing;)[I
@@ -364,7 +328,6 @@
 
     aput v5, v4, v0
 
-    .line 142
     iget-object v4, p0, Lcom/samsung/android/share/SShareSimpleSharing$2;->this$0:Lcom/samsung/android/share/SShareSimpleSharing;
 
     invoke-static {v4}, Lcom/samsung/android/share/SShareSimpleSharing;->-get6(Lcom/samsung/android/share/SShareSimpleSharing;)Ljava/util/List;
@@ -395,7 +358,6 @@
 
     invoke-interface {v4, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 143
     iget-object v4, p0, Lcom/samsung/android/share/SShareSimpleSharing$2;->this$0:Lcom/samsung/android/share/SShareSimpleSharing;
 
     invoke-static {v4}, Lcom/samsung/android/share/SShareSimpleSharing;->-get6(Lcom/samsung/android/share/SShareSimpleSharing;)Ljava/util/List;
@@ -408,7 +370,6 @@
 
     if-eqz v4, :cond_7
 
-    .line 148
     :cond_7
     iget-object v4, p0, Lcom/samsung/android/share/SShareSimpleSharing$2;->this$0:Lcom/samsung/android/share/SShareSimpleSharing;
 
@@ -420,12 +381,10 @@
 
     invoke-static {v4, v5}, Lcom/samsung/android/share/SShareSimpleSharing;->-set2(Lcom/samsung/android/share/SShareSimpleSharing;I)I
 
-    .line 117
     add-int/lit8 v0, v0, 0x1
 
     goto/16 :goto_0
 
-    .line 135
     :cond_8
     iget-object v4, p0, Lcom/samsung/android/share/SShareSimpleSharing$2;->this$0:Lcom/samsung/android/share/SShareSimpleSharing;
 
@@ -433,7 +392,6 @@
 
     invoke-static {v4, v5}, Lcom/samsung/android/share/SShareSimpleSharing;->-set1(Lcom/samsung/android/share/SShareSimpleSharing;Z)Z
 
-    .line 136
     iget-object v4, p0, Lcom/samsung/android/share/SShareSimpleSharing$2;->this$0:Lcom/samsung/android/share/SShareSimpleSharing;
 
     invoke-static {v4}, Lcom/samsung/android/share/SShareSimpleSharing;->-get5(Lcom/samsung/android/share/SShareSimpleSharing;)Ljava/util/ArrayList;

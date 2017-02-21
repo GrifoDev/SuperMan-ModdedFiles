@@ -23,11 +23,7 @@
 # direct methods
 .method constructor <init>(Landroid/app/Activity;Landroid/os/IBinder;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/app/Activity;
-    .param p2, "val$token"    # Landroid/os/IBinder;
 
-    .prologue
-    .line 5853
     iput-object p1, p0, Landroid/app/Activity$2;->this$0:Landroid/app/Activity;
 
     iput-object p2, p0, Landroid/app/Activity$2;->val$token:Landroid/os/IBinder;
@@ -42,8 +38,6 @@
 .method public run()V
     .locals 4
 
-    .prologue
-    .line 5856
     :try_start_0
     invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
 
@@ -61,14 +55,11 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 5854
     :goto_0
     return-void
 
-    .line 5857
     :catch_0
     move-exception v0
 
-    .local v0, "e":Landroid/os/RemoteException;
     goto :goto_0
 .end method

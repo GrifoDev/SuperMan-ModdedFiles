@@ -32,12 +32,7 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/graphics/SemDropShadowFilter;FF)V
     .locals 3
-    .param p1, "this$0"    # Lcom/samsung/android/graphics/SemDropShadowFilter;
-    .param p2, "val$aEndValue"    # F
-    .param p3, "val$aStartValue"    # F
 
-    .prologue
-    .line 481
     iput-object p1, p0, Lcom/samsung/android/graphics/SemDropShadowFilter$4;->this$0:Lcom/samsung/android/graphics/SemDropShadowFilter;
 
     iput p2, p0, Lcom/samsung/android/graphics/SemDropShadowFilter$4;->val$aEndValue:F
@@ -46,14 +41,12 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 482
     const/4 v0, 0x2
 
     new-array v0, v0, [F
 
     iput-object v0, p0, Lcom/samsung/android/graphics/SemDropShadowFilter$4;->params1:[F
 
-    .line 483
     const/4 v0, 0x1
 
     new-array v0, v0, [F
@@ -66,7 +59,6 @@
 
     iput-object v0, p0, Lcom/samsung/android/graphics/SemDropShadowFilter$4;->params2:[F
 
-    .line 481
     return-void
 .end method
 
@@ -74,22 +66,17 @@
 # virtual methods
 .method public animate(FLcom/samsung/android/graphics/SemImageFilter$ImageFilterAnimator;)V
     .locals 12
-    .param p1, "aFraction"    # F
-    .param p2, "aImageFilterAnimator"    # Lcom/samsung/android/graphics/SemImageFilter$ImageFilterAnimator;
 
-    .prologue
     const/4 v11, 0x7
 
     const/4 v10, 0x1
 
     const/4 v9, 0x0
 
-    .line 489
     sget-boolean v6, Lcom/samsung/android/graphics/SemDropShadowFilter;->sLogingEnabled:Z
 
     if-eqz v6, :cond_0
 
-    .line 490
     const-string/jumbo v6, "HWUIIF"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -112,7 +99,6 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 493
     :cond_0
     iget v6, p0, Lcom/samsung/android/graphics/SemDropShadowFilter$4;->val$aEndValue:F
 
@@ -126,8 +112,6 @@
 
     add-float v1, v6, v7
 
-    .line 494
-    .local v1, "quality":F
     const/high16 v6, 0x447a0000    # 1000.0f
 
     invoke-static {v1, v6}, Ljava/lang/Math;->min(FF)F
@@ -148,8 +132,6 @@
 
     add-float v3, v7, v6
 
-    .line 495
-    .local v3, "scaleQuality":F
     iget-object v6, p0, Lcom/samsung/android/graphics/SemDropShadowFilter$4;->this$0:Lcom/samsung/android/graphics/SemDropShadowFilter;
 
     float-to-int v7, v3
@@ -158,7 +140,6 @@
 
     invoke-static {v6, v7}, Lcom/samsung/android/graphics/SemDropShadowFilter;->-set2(Lcom/samsung/android/graphics/SemDropShadowFilter;F)F
 
-    .line 497
     iget-object v6, p0, Lcom/samsung/android/graphics/SemDropShadowFilter$4;->this$0:Lcom/samsung/android/graphics/SemDropShadowFilter;
 
     invoke-static {v6}, Lcom/samsung/android/graphics/SemDropShadowFilter;->-get0(Lcom/samsung/android/graphics/SemDropShadowFilter;)F
@@ -173,8 +154,6 @@
 
     mul-float v2, v6, v7
 
-    .line 499
-    .local v2, "radian":F
     float-to-double v6, v2
 
     invoke-static {v6, v7}, Ljava/lang/Math;->cos(D)D
@@ -183,8 +162,6 @@
 
     double-to-float v4, v6
 
-    .line 500
-    .local v4, "xdir":F
     float-to-double v6, v2
 
     invoke-static {v6, v7}, Ljava/lang/Math;->sin(D)D
@@ -193,8 +170,6 @@
 
     double-to-float v5, v6
 
-    .line 502
-    .local v5, "ydir":F
     iget-object v6, p0, Lcom/samsung/android/graphics/SemDropShadowFilter$4;->this$0:Lcom/samsung/android/graphics/SemDropShadowFilter;
 
     invoke-static {v6}, Lcom/samsung/android/graphics/SemDropShadowFilter;->-get1(Lcom/samsung/android/graphics/SemDropShadowFilter;)F
@@ -209,19 +184,14 @@
 
     div-float v0, v6, v7
 
-    .line 504
-    .local v0, "normDistance":F
     mul-float/2addr v4, v0
 
-    .line 505
     mul-float/2addr v5, v0
 
-    .line 507
     sget-boolean v6, Lcom/samsung/android/graphics/SemDropShadowFilter;->sLogingEnabled:Z
 
     if-eqz v6, :cond_1
 
-    .line 508
     const-string/jumbo v6, "HWUIIF"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -250,7 +220,6 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 509
     const-string/jumbo v6, "HWUIIF"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -273,7 +242,6 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 510
     const-string/jumbo v6, "HWUIIF"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -296,18 +264,15 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 513
     :cond_1
     iget-object v6, p0, Lcom/samsung/android/graphics/SemDropShadowFilter$4;->params1:[F
 
     aput v4, v6, v9
 
-    .line 514
     iget-object v6, p0, Lcom/samsung/android/graphics/SemDropShadowFilter$4;->params1:[F
 
     aput v5, v6, v10
 
-    .line 515
     iget-object v6, p0, Lcom/samsung/android/graphics/SemDropShadowFilter$4;->this$0:Lcom/samsung/android/graphics/SemDropShadowFilter;
 
     iget-object v6, v6, Lcom/samsung/android/graphics/SemGenericImageFilter;->mParams:[F
@@ -318,7 +283,6 @@
 
     aput v7, v6, v10
 
-    .line 516
     iget-object v6, p0, Lcom/samsung/android/graphics/SemDropShadowFilter$4;->this$0:Lcom/samsung/android/graphics/SemDropShadowFilter;
 
     iget-object v6, v6, Lcom/samsung/android/graphics/SemGenericImageFilter;->mParams:[F
@@ -331,14 +295,12 @@
 
     aput v7, v6, v8
 
-    .line 517
     const-string/jumbo v6, "filterParams"
 
     iget-object v7, p0, Lcom/samsung/android/graphics/SemDropShadowFilter$4;->params1:[F
 
     invoke-virtual {p2, v6, v7, v10}, Lcom/samsung/android/graphics/SemImageFilter$ImageFilterAnimator;->setUniformf(Ljava/lang/String;[FI)V
 
-    .line 519
     iget-object v6, p0, Lcom/samsung/android/graphics/SemDropShadowFilter$4;->params2:[F
 
     iget-object v7, p0, Lcom/samsung/android/graphics/SemDropShadowFilter$4;->this$0:Lcom/samsung/android/graphics/SemDropShadowFilter;
@@ -349,7 +311,6 @@
 
     aput v7, v6, v9
 
-    .line 520
     iget-object v6, p0, Lcom/samsung/android/graphics/SemDropShadowFilter$4;->this$0:Lcom/samsung/android/graphics/SemDropShadowFilter;
 
     iget-object v6, v6, Lcom/samsung/android/graphics/SemGenericImageFilter;->mParams:[F
@@ -360,13 +321,11 @@
 
     aput v7, v6, v11
 
-    .line 521
     const-string/jumbo v6, "filterParams"
 
     iget-object v7, p0, Lcom/samsung/android/graphics/SemDropShadowFilter$4;->params2:[F
 
     invoke-virtual {p2, v6, v7, v11}, Lcom/samsung/android/graphics/SemImageFilter$ImageFilterAnimator;->setUniformf(Ljava/lang/String;[FI)V
 
-    .line 488
     return-void
 .end method

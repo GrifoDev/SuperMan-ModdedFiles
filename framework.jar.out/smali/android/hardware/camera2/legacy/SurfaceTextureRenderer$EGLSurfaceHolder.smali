@@ -29,10 +29,7 @@
 # direct methods
 .method private constructor <init>(Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;
 
-    .prologue
-    .line 70
     iput-object p1, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;->this$0:Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,9 +39,7 @@
 
 .method synthetic constructor <init>(Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;
 
-    .prologue
     invoke-direct {p0, p1}, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;-><init>(Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;)V
 
     return-void

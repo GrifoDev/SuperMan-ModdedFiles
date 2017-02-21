@@ -62,7 +62,6 @@
 .method public constructor <init>()V
     .locals 8
 
-    .prologue
     const/high16 v7, 0x42200000    # 40.0f
 
     const/4 v6, 0x0
@@ -73,7 +72,6 @@
 
     const/4 v3, 0x0
 
-    .line 115
     new-array v0, v4, [Ljava/lang/String;
 
     const-string/jumbo v1, "#ifdef GL_ES\nprecision mediump float;\n#endif\nattribute vec2 texCoords;\nattribute vec4 position;\nvarying vec2 outTexCoords;\nuniform mat4 projection;\nuniform float filterParams[16];\nvoid main() {\n   outTexCoords = texCoords;\n   gl_Position = projection * position;\n}\n"
@@ -96,82 +94,60 @@
 
     invoke-direct {p0, v4, v0, v1}, Lcom/samsung/android/graphics/SemGenericImageFilter;-><init>(I[Ljava/lang/String;[Ljava/lang/String;)V
 
-    .line 23
     iput v7, p0, Lcom/samsung/android/graphics/SemKnittedFilter;->DEFAULT_DOWNSAMPLING_RATE:F
 
-    .line 24
     const/high16 v0, 0x41f00000    # 30.0f
 
     iput v0, p0, Lcom/samsung/android/graphics/SemKnittedFilter;->DEFAULT_MASK_ITEM_SIZE:F
 
-    .line 25
     const-string/jumbo v0, "zknitted_filter_mask"
 
     iput-object v0, p0, Lcom/samsung/android/graphics/SemKnittedFilter;->DEFAULT_MASK_NAME:Ljava/lang/String;
 
-    .line 26
     const-string/jumbo v0, "maskSampler"
 
     iput-object v0, p0, Lcom/samsung/android/graphics/SemKnittedFilter;->SAMPLER_MASK_NAME:Ljava/lang/String;
 
-    .line 28
     const/high16 v0, 0x3f800000    # 1.0f
 
     iput v0, p0, Lcom/samsung/android/graphics/SemKnittedFilter;->mDownSampleRate:F
 
-    .line 29
     iput v3, p0, Lcom/samsung/android/graphics/SemKnittedFilter;->mInvDownSamplerWidth:F
 
-    .line 30
     iput v3, p0, Lcom/samsung/android/graphics/SemKnittedFilter;->mInvDownSamplerHeight:F
 
-    .line 31
     iput v3, p0, Lcom/samsung/android/graphics/SemKnittedFilter;->mInvTexelSizeX:F
 
-    .line 32
     iput v3, p0, Lcom/samsung/android/graphics/SemKnittedFilter;->mInvTexelSizeY:F
 
-    .line 33
     iput v3, p0, Lcom/samsung/android/graphics/SemKnittedFilter;->mItemWidth:F
 
-    .line 34
     iput v3, p0, Lcom/samsung/android/graphics/SemKnittedFilter;->mMaskWidth:F
 
-    .line 35
     iput v3, p0, Lcom/samsung/android/graphics/SemKnittedFilter;->mItemsCount:F
 
-    .line 36
     iput v3, p0, Lcom/samsung/android/graphics/SemKnittedFilter;->mInvItemsCount:F
 
-    .line 37
     iput v3, p0, Lcom/samsung/android/graphics/SemKnittedFilter;->mSamplerLineRatio:F
 
-    .line 116
     invoke-virtual {p0, p0}, Lcom/samsung/android/graphics/SemImageFilterSet;->setListener(Lcom/samsung/android/graphics/SemImageFilter$IImageFilterListener;)V
 
-    .line 117
     invoke-virtual {p0}, Lcom/samsung/android/graphics/SemGenericImageFilter;->useFilterParams()V
 
-    .line 118
     invoke-virtual {p0, v6, v4, v4}, Lcom/samsung/android/graphics/SemGenericImageFilter;->setFiltering(III)V
 
-    .line 119
     invoke-virtual {p0, v5, v4, v5}, Lcom/samsung/android/graphics/SemGenericImageFilter;->setFiltering(III)V
 
-    .line 120
     invoke-virtual {p0, v7}, Lcom/samsung/android/graphics/SemKnittedFilter;->setDownSampleRate(F)V
 
-    .line 114
     return-void
 .end method
 
 .method private calculateAndSetAllParams()V
     .locals 5
 
-    .prologue
     const/high16 v4, 0x3f800000    # 1.0f
 
-    .line 148
     iget-object v2, p0, Lcom/samsung/android/graphics/SemImageFilter;->mView:Landroid/view/View;
 
     if-eqz v2, :cond_0
@@ -192,7 +168,6 @@
 
     if-lez v2, :cond_0
 
-    .line 149
     iget-object v2, p0, Lcom/samsung/android/graphics/SemImageFilter;->mView:Landroid/view/View;
 
     invoke-virtual {v2}, Landroid/view/View;->getWidth()I
@@ -205,8 +180,6 @@
 
     div-float v1, v2, v3
 
-    .line 150
-    .local v1, "downSamplerWidth":F
     iget-object v2, p0, Lcom/samsung/android/graphics/SemImageFilter;->mView:Landroid/view/View;
 
     invoke-virtual {v2}, Landroid/view/View;->getHeight()I
@@ -219,28 +192,22 @@
 
     div-float v0, v2, v3
 
-    .line 152
-    .local v0, "downSamplerHeight":F
     iput v1, p0, Lcom/samsung/android/graphics/SemKnittedFilter;->mInvTexelSizeX:F
 
-    .line 153
     const/high16 v2, 0x3f000000    # 0.5f
 
     mul-float/2addr v2, v0
 
     iput v2, p0, Lcom/samsung/android/graphics/SemKnittedFilter;->mInvTexelSizeY:F
 
-    .line 154
     div-float v2, v4, v1
 
     iput v2, p0, Lcom/samsung/android/graphics/SemKnittedFilter;->mInvDownSamplerWidth:F
 
-    .line 155
     div-float v2, v4, v0
 
     iput v2, p0, Lcom/samsung/android/graphics/SemKnittedFilter;->mInvDownSamplerHeight:F
 
-    .line 156
     iget v2, p0, Lcom/samsung/android/graphics/SemKnittedFilter;->mMaskWidth:F
 
     iget v3, p0, Lcom/samsung/android/graphics/SemKnittedFilter;->mItemWidth:F
@@ -249,7 +216,6 @@
 
     iput v2, p0, Lcom/samsung/android/graphics/SemKnittedFilter;->mItemsCount:F
 
-    .line 157
     iget v2, p0, Lcom/samsung/android/graphics/SemKnittedFilter;->mItemWidth:F
 
     iget v3, p0, Lcom/samsung/android/graphics/SemKnittedFilter;->mMaskWidth:F
@@ -258,7 +224,6 @@
 
     iput v2, p0, Lcom/samsung/android/graphics/SemKnittedFilter;->mInvItemsCount:F
 
-    .line 158
     iget v2, p0, Lcom/samsung/android/graphics/SemKnittedFilter;->mInvTexelSizeX:F
 
     iget v3, p0, Lcom/samsung/android/graphics/SemKnittedFilter;->mInvItemsCount:F
@@ -267,61 +232,50 @@
 
     iput v2, p0, Lcom/samsung/android/graphics/SemKnittedFilter;->mSamplerLineRatio:F
 
-    .line 160
     iget v2, p0, Lcom/samsung/android/graphics/SemKnittedFilter;->mInvDownSamplerWidth:F
 
     const/4 v3, 0x4
 
     invoke-virtual {p0, v3, v2}, Lcom/samsung/android/graphics/SemGenericImageFilter;->setParam(IF)V
 
-    .line 161
     iget v2, p0, Lcom/samsung/android/graphics/SemKnittedFilter;->mInvDownSamplerHeight:F
 
     const/4 v3, 0x5
 
     invoke-virtual {p0, v3, v2}, Lcom/samsung/android/graphics/SemGenericImageFilter;->setParam(IF)V
 
-    .line 162
     iget v2, p0, Lcom/samsung/android/graphics/SemKnittedFilter;->mInvTexelSizeX:F
 
     const/4 v3, 0x6
 
     invoke-virtual {p0, v3, v2}, Lcom/samsung/android/graphics/SemGenericImageFilter;->setParam(IF)V
 
-    .line 163
     iget v2, p0, Lcom/samsung/android/graphics/SemKnittedFilter;->mInvTexelSizeY:F
 
     const/4 v3, 0x7
 
     invoke-virtual {p0, v3, v2}, Lcom/samsung/android/graphics/SemGenericImageFilter;->setParam(IF)V
 
-    .line 164
     iget v2, p0, Lcom/samsung/android/graphics/SemKnittedFilter;->mItemsCount:F
 
     const/16 v3, 0x8
 
     invoke-virtual {p0, v3, v2}, Lcom/samsung/android/graphics/SemGenericImageFilter;->setParam(IF)V
 
-    .line 165
     iget v2, p0, Lcom/samsung/android/graphics/SemKnittedFilter;->mInvItemsCount:F
 
     const/16 v3, 0x9
 
     invoke-virtual {p0, v3, v2}, Lcom/samsung/android/graphics/SemGenericImageFilter;->setParam(IF)V
 
-    .line 166
     iget v2, p0, Lcom/samsung/android/graphics/SemKnittedFilter;->mSamplerLineRatio:F
 
     const/16 v3, 0xa
 
     invoke-virtual {p0, v3, v2}, Lcom/samsung/android/graphics/SemGenericImageFilter;->setParam(IF)V
 
-    .line 167
     invoke-virtual {p0}, Lcom/samsung/android/graphics/SemGenericImageFilter;->notifyWorkerFilters()V
 
-    .line 147
-    .end local v0    # "downSamplerHeight":F
-    .end local v1    # "downSamplerWidth":F
     :cond_0
     return-void
 .end method
@@ -331,8 +285,6 @@
 .method public onAttachedToView()V
     .locals 6
 
-    .prologue
-    .line 183
     iget-object v2, p0, Lcom/samsung/android/graphics/SemImageFilter;->mView:Landroid/view/View;
 
     invoke-virtual {v2}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
@@ -349,11 +301,8 @@
 
     move-result v1
 
-    .line 184
-    .local v1, "resId":I
     if-lez v1, :cond_0
 
-    .line 185
     iget-object v2, p0, Lcom/samsung/android/graphics/SemImageFilter;->mView:Landroid/view/View;
 
     invoke-virtual {v2}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
@@ -364,89 +313,65 @@
 
     move-result-object v0
 
-    .line 186
-    .local v0, "bm":Landroid/graphics/Bitmap;
     const/high16 v2, 0x41f00000    # 30.0f
 
     invoke-virtual {p0, v0, v2}, Lcom/samsung/android/graphics/SemKnittedFilter;->setMask(Landroid/graphics/Bitmap;F)V
 
-    .line 188
-    .end local v0    # "bm":Landroid/graphics/Bitmap;
     :cond_0
     invoke-direct {p0}, Lcom/samsung/android/graphics/SemKnittedFilter;->calculateAndSetAllParams()V
 
-    .line 182
     return-void
 .end method
 
 .method public onParamsChanged()V
     .locals 0
 
-    .prologue
-    .line 175
     return-void
 .end method
 
 .method public onViewSizeChanged()V
     .locals 0
 
-    .prologue
-    .line 196
     invoke-direct {p0}, Lcom/samsung/android/graphics/SemKnittedFilter;->calculateAndSetAllParams()V
 
-    .line 195
     return-void
 .end method
 
 .method public setDownSampleRate(F)V
     .locals 1
-    .param p1, "aDownSampleRate"    # F
 
-    .prologue
-    .line 128
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0, p1, p1}, Lcom/samsung/android/graphics/SemGenericImageFilter;->setSamplingRate(IFF)V
 
-    .line 129
     iput p1, p0, Lcom/samsung/android/graphics/SemKnittedFilter;->mDownSampleRate:F
 
-    .line 130
     invoke-direct {p0}, Lcom/samsung/android/graphics/SemKnittedFilter;->calculateAndSetAllParams()V
 
-    .line 127
     return-void
 .end method
 
 .method public setMask(Landroid/graphics/Bitmap;F)V
     .locals 3
-    .param p1, "aBitmap"    # Landroid/graphics/Bitmap;
-    .param p2, "aItemWidth"    # F
 
-    .prologue
     const/4 v2, 0x1
 
     const/4 v1, 0x0
 
-    .line 138
     const-string/jumbo v0, "maskSampler"
 
     invoke-virtual {p0, v0, p1}, Lcom/samsung/android/graphics/SemGenericImageFilter;->setBitmap(Ljava/lang/String;Landroid/graphics/Bitmap;)V
 
-    .line 139
     const-string/jumbo v0, "maskSampler"
 
     invoke-virtual {p0, v1, v0, v2, v1}, Lcom/samsung/android/graphics/SemGenericImageFilter;->setBitmapWrap(ILjava/lang/String;ZZ)V
 
-    .line 140
     const-string/jumbo v0, "maskSampler"
 
     invoke-virtual {p0, v2, v0, v2, v1}, Lcom/samsung/android/graphics/SemGenericImageFilter;->setBitmapWrap(ILjava/lang/String;ZZ)V
 
-    .line 141
     iput p2, p0, Lcom/samsung/android/graphics/SemKnittedFilter;->mItemWidth:F
 
-    .line 142
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v0
@@ -455,9 +380,7 @@
 
     iput v0, p0, Lcom/samsung/android/graphics/SemKnittedFilter;->mMaskWidth:F
 
-    .line 144
     invoke-direct {p0}, Lcom/samsung/android/graphics/SemKnittedFilter;->calculateAndSetAllParams()V
 
-    .line 137
     return-void
 .end method

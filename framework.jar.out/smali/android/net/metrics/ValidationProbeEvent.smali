@@ -54,91 +54,66 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 71
     new-instance v0, Landroid/net/metrics/ValidationProbeEvent$1;
 
     invoke-direct {v0}, Landroid/net/metrics/ValidationProbeEvent$1;-><init>()V
 
-    .line 70
     sput-object v0, Landroid/net/metrics/ValidationProbeEvent;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    .line 30
     return-void
 .end method
 
 .method private constructor <init>(IJII)V
     .locals 0
-    .param p1, "netId"    # I
-    .param p2, "durationMs"    # J
-    .param p4, "probeType"    # I
-    .param p5, "returnCode"    # I
 
-    .prologue
-    .line 45
     invoke-direct {p0}, Landroid/net/metrics/IpConnectivityEvent;-><init>()V
 
-    .line 46
     iput p1, p0, Landroid/net/metrics/ValidationProbeEvent;->netId:I
 
-    .line 47
     iput-wide p2, p0, Landroid/net/metrics/ValidationProbeEvent;->durationMs:J
 
-    .line 48
     iput p4, p0, Landroid/net/metrics/ValidationProbeEvent;->probeType:I
 
-    .line 49
     iput p5, p0, Landroid/net/metrics/ValidationProbeEvent;->returnCode:I
 
-    .line 45
     return-void
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 2
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 52
     invoke-direct {p0}, Landroid/net/metrics/IpConnectivityEvent;-><init>()V
 
-    .line 53
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/net/metrics/ValidationProbeEvent;->netId:I
 
-    .line 54
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Landroid/net/metrics/ValidationProbeEvent;->durationMs:J
 
-    .line 55
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/net/metrics/ValidationProbeEvent;->probeType:I
 
-    .line 56
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/net/metrics/ValidationProbeEvent;->returnCode:I
 
-    .line 52
     return-void
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/net/metrics/ValidationProbeEvent;)V
     .locals 0
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
     invoke-direct {p0, p1}, Landroid/net/metrics/ValidationProbeEvent;-><init>(Landroid/os/Parcel;)V
 
     return-void
@@ -146,10 +121,7 @@
 
 .method public static getProbeName(I)Ljava/lang/String;
     .locals 2
-    .param p0, "probeType"    # I
 
-    .prologue
-    .line 83
     sget-object v0, Landroid/net/metrics/ValidationProbeEvent$Decoder;->constants:Landroid/util/SparseArray;
 
     const-string/jumbo v1, "PROBE_???"
@@ -165,13 +137,7 @@
 
 .method public static logEvent(IJII)V
     .locals 7
-    .param p0, "netId"    # I
-    .param p1, "durationMs"    # J
-    .param p3, "probeType"    # I
-    .param p4, "returnCode"    # I
 
-    .prologue
-    .line 87
     new-instance v0, Landroid/net/metrics/ValidationProbeEvent;
 
     move v1, p0
@@ -186,7 +152,6 @@
 
     invoke-static {v0}, Landroid/net/metrics/ValidationProbeEvent;->logEvent(Landroid/net/metrics/IpConnectivityEvent;)V
 
-    .line 86
     return-void
 .end method
 
@@ -195,8 +160,6 @@
 .method public describeContents()I
     .locals 1
 
-    .prologue
-    .line 67
     const/4 v0, 0x0
 
     return v0
@@ -205,15 +168,12 @@
 .method public toString()Ljava/lang/String;
     .locals 4
 
-    .prologue
-    .line 92
     const-string/jumbo v0, "ValidationProbeEvent(%d, %s:%d, %dms)"
 
     const/4 v1, 0x4
 
     new-array v1, v1, [Ljava/lang/Object;
 
-    .line 93
     iget v2, p0, Landroid/net/metrics/ValidationProbeEvent;->netId:I
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -254,7 +214,6 @@
 
     aput-object v2, v1, v3
 
-    .line 92
     invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
@@ -264,30 +223,22 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .param p1, "out"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
-    .prologue
-    .line 60
     iget v0, p0, Landroid/net/metrics/ValidationProbeEvent;->netId:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 61
     iget-wide v0, p0, Landroid/net/metrics/ValidationProbeEvent;->durationMs:J
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 62
     iget v0, p0, Landroid/net/metrics/ValidationProbeEvent;->probeType:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 63
     iget v0, p0, Landroid/net/metrics/ValidationProbeEvent;->returnCode:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 59
     return-void
 .end method

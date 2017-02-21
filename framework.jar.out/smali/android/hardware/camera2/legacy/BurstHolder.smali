@@ -27,9 +27,6 @@
 # direct methods
 .method public constructor <init>(IZ[Landroid/hardware/camera2/CaptureRequest;Ljava/util/Collection;)V
     .locals 9
-    .param p1, "requestId"    # I
-    .param p2, "repeating"    # Z
-    .param p3, "requests"    # [Landroid/hardware/camera2/CaptureRequest;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(IZ[",
@@ -41,23 +38,16 @@
         }
     .end annotation
 
-    .prologue
-    .line 41
-    .local p4, "jpegSurfaceIds":Ljava/util/Collection;, "Ljava/util/Collection<Ljava/lang/Long;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 43
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Landroid/hardware/camera2/legacy/BurstHolder;->mRequestBuilders:Ljava/util/ArrayList;
 
-    .line 44
     const/4 v2, 0x0
 
-    .line 45
-    .local v2, "i":I
     const/4 v0, 0x0
 
     array-length v7, p3
@@ -69,8 +59,6 @@
 
     aget-object v3, p3, v6
 
-    .line 46
-    .local v3, "r":Landroid/hardware/camera2/CaptureRequest;
     iget-object v8, p0, Landroid/hardware/camera2/legacy/BurstHolder;->mRequestBuilders:Ljava/util/ArrayList;
 
     new-instance v0, Landroid/hardware/camera2/legacy/RequestHolder$Builder;
@@ -85,25 +73,19 @@
 
     invoke-virtual {v8, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 48
     add-int/lit8 v2, v2, 0x1
 
-    .line 45
     add-int/lit8 v0, v6, 0x1
 
     move v6, v0
 
     goto :goto_0
 
-    .line 50
-    .end local v3    # "r":Landroid/hardware/camera2/CaptureRequest;
     :cond_0
     iput-boolean p2, p0, Landroid/hardware/camera2/legacy/BurstHolder;->mRepeating:Z
 
-    .line 51
     iput p1, p0, Landroid/hardware/camera2/legacy/BurstHolder;->mRequestId:I
 
-    .line 42
     return-void
 .end method
 
@@ -112,8 +94,6 @@
 .method public getNumberOfRequests()I
     .locals 1
 
-    .prologue
-    .line 72
     iget-object v0, p0, Landroid/hardware/camera2/legacy/BurstHolder;->mRequestBuilders:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
@@ -126,8 +106,6 @@
 .method public getRequestId()I
     .locals 1
 
-    .prologue
-    .line 58
     iget v0, p0, Landroid/hardware/camera2/legacy/BurstHolder;->mRequestId:I
 
     return v0
@@ -136,8 +114,6 @@
 .method public isRepeating()Z
     .locals 1
 
-    .prologue
-    .line 65
     iget-boolean v0, p0, Landroid/hardware/camera2/legacy/BurstHolder;->mRepeating:Z
 
     return v0
@@ -145,7 +121,6 @@
 
 .method public produceRequestHolders(J)Ljava/util/List;
     .locals 7
-    .param p1, "frameNumber"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J)",
@@ -156,25 +131,18 @@
         }
     .end annotation
 
-    .prologue
-    .line 82
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    .line 83
-    .local v2, "holders":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/hardware/camera2/legacy/RequestHolder;>;"
     const/4 v3, 0x0
 
-    .line 84
-    .local v3, "i":I
     iget-object v4, p0, Landroid/hardware/camera2/legacy/BurstHolder;->mRequestBuilders:Ljava/util/ArrayList;
 
     invoke-interface {v4}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    .local v1, "b$iterator":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -188,8 +156,6 @@
 
     check-cast v0, Landroid/hardware/camera2/legacy/RequestHolder$Builder;
 
-    .line 85
-    .local v0, "b":Landroid/hardware/camera2/legacy/RequestHolder$Builder;
     int-to-long v4, v3
 
     add-long/2addr v4, p1
@@ -200,13 +166,10 @@
 
     invoke-virtual {v2, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 86
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 88
-    .end local v0    # "b":Landroid/hardware/camera2/legacy/RequestHolder$Builder;
     :cond_0
     return-object v2
 .end method

@@ -30,20 +30,15 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/directpeninput/SemDirectPenInput;)V
     .locals 1
-    .param p1, "dpi"    # Lcom/samsung/android/directpeninput/SemDirectPenInput;
 
-    .prologue
-    .line 2974
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
 
-    .line 2975
     new-instance v0, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
     iput-object v0, p0, Lcom/samsung/android/directpeninput/SemDirectPenInput$DPIHandler;->mDirectPenInput:Ljava/lang/ref/WeakReference;
 
-    .line 2974
     return-void
 .end method
 
@@ -51,10 +46,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .line 2980
     iget-object v1, p0, Lcom/samsung/android/directpeninput/SemDirectPenInput$DPIHandler;->mDirectPenInput:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v1}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
@@ -63,14 +55,10 @@
 
     check-cast v0, Lcom/samsung/android/directpeninput/SemDirectPenInput;
 
-    .line 2981
-    .local v0, "dpi":Lcom/samsung/android/directpeninput/SemDirectPenInput;
     if-eqz v0, :cond_0
 
-    .line 2982
     invoke-static {v0, p1}, Lcom/samsung/android/directpeninput/SemDirectPenInput;->-wrap6(Lcom/samsung/android/directpeninput/SemDirectPenInput;Landroid/os/Message;)V
 
-    .line 2979
     :cond_0
     return-void
 .end method

@@ -31,8 +31,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 588
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -42,10 +40,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/hardware/soundtrigger/SoundTrigger$RecognitionEvent;
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 590
     invoke-static {p1}, Landroid/hardware/soundtrigger/SoundTrigger$RecognitionEvent;->fromParcel(Landroid/os/Parcel;)Landroid/hardware/soundtrigger/SoundTrigger$RecognitionEvent;
 
     move-result-object v0
@@ -55,10 +50,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 589
     invoke-virtual {p0, p1}, Landroid/hardware/soundtrigger/SoundTrigger$RecognitionEvent$1;->createFromParcel(Landroid/os/Parcel;)Landroid/hardware/soundtrigger/SoundTrigger$RecognitionEvent;
 
     move-result-object v0
@@ -68,10 +60,7 @@
 
 .method public newArray(I)[Landroid/hardware/soundtrigger/SoundTrigger$RecognitionEvent;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 594
     new-array v0, p1, [Landroid/hardware/soundtrigger/SoundTrigger$RecognitionEvent;
 
     return-object v0
@@ -79,10 +68,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 593
     invoke-virtual {p0, p1}, Landroid/hardware/soundtrigger/SoundTrigger$RecognitionEvent$1;->newArray(I)[Landroid/hardware/soundtrigger/SoundTrigger$RecognitionEvent;
 
     move-result-object v0

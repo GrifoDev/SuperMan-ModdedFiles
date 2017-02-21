@@ -23,20 +23,13 @@
 # direct methods
 .method public constructor <init>(Lcom/samsung/android/camera/iris/SemIrisManager$CryptoObject;Lcom/samsung/android/camera/iris/Iris;)V
     .locals 0
-    .param p1, "crypto"    # Lcom/samsung/android/camera/iris/SemIrisManager$CryptoObject;
-    .param p2, "iris"    # Lcom/samsung/android/camera/iris/Iris;
 
-    .prologue
-    .line 620
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 621
     iput-object p1, p0, Lcom/samsung/android/camera/iris/SemIrisManager$AuthenticationResult;->mCryptoObject:Lcom/samsung/android/camera/iris/SemIrisManager$CryptoObject;
 
-    .line 622
     iput-object p2, p0, Lcom/samsung/android/camera/iris/SemIrisManager$AuthenticationResult;->mIris:Lcom/samsung/android/camera/iris/Iris;
 
-    .line 620
     return-void
 .end method
 
@@ -45,8 +38,6 @@
 .method public getCryptoObject()Lcom/samsung/android/camera/iris/SemIrisManager$CryptoObject;
     .locals 1
 
-    .prologue
-    .line 631
     iget-object v0, p0, Lcom/samsung/android/camera/iris/SemIrisManager$AuthenticationResult;->mCryptoObject:Lcom/samsung/android/camera/iris/SemIrisManager$CryptoObject;
 
     return-object v0
@@ -55,8 +46,6 @@
 .method public getIris()Lcom/samsung/android/camera/iris/Iris;
     .locals 1
 
-    .prologue
-    .line 641
     iget-object v0, p0, Lcom/samsung/android/camera/iris/SemIrisManager$AuthenticationResult;->mIris:Lcom/samsung/android/camera/iris/Iris;
 
     return-object v0

@@ -27,8 +27,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 2111
     invoke-direct {p0}, Ljava/lang/ThreadLocal;-><init>()V
 
     return-void
@@ -39,8 +37,6 @@
 .method protected initialValue()Landroid/os/StrictMode$ThreadSpanState;
     .locals 2
 
-    .prologue
-    .line 2113
     new-instance v0, Landroid/os/StrictMode$ThreadSpanState;
 
     const/4 v1, 0x0
@@ -53,8 +49,6 @@
 .method protected bridge synthetic initialValue()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 2112
     invoke-virtual {p0}, Landroid/os/StrictMode$7;->initialValue()Landroid/os/StrictMode$ThreadSpanState;
 
     move-result-object v0

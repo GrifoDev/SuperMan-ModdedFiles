@@ -43,7 +43,6 @@
 .method static constructor <clinit>()V
     .locals 7
 
-    .prologue
     const/4 v6, 0x3
 
     const/4 v5, 0x2
@@ -52,7 +51,6 @@
 
     const/4 v3, 0x0
 
-    .line 131
     new-instance v0, Landroid/util/Xml$Encoding;
 
     const-string/jumbo v1, "US_ASCII"
@@ -63,7 +61,6 @@
 
     sput-object v0, Landroid/util/Xml$Encoding;->US_ASCII:Landroid/util/Xml$Encoding;
 
-    .line 132
     new-instance v0, Landroid/util/Xml$Encoding;
 
     const-string/jumbo v1, "UTF_8"
@@ -74,7 +71,6 @@
 
     sput-object v0, Landroid/util/Xml$Encoding;->UTF_8:Landroid/util/Xml$Encoding;
 
-    .line 133
     new-instance v0, Landroid/util/Xml$Encoding;
 
     const-string/jumbo v1, "UTF_16"
@@ -85,7 +81,6 @@
 
     sput-object v0, Landroid/util/Xml$Encoding;->UTF_16:Landroid/util/Xml$Encoding;
 
-    .line 134
     new-instance v0, Landroid/util/Xml$Encoding;
 
     const-string/jumbo v1, "ISO_8859_1"
@@ -96,7 +91,6 @@
 
     sput-object v0, Landroid/util/Xml$Encoding;->ISO_8859_1:Landroid/util/Xml$Encoding;
 
-    .line 129
     const/4 v0, 0x4
 
     new-array v0, v0, [Landroid/util/Xml$Encoding;
@@ -124,25 +118,17 @@
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
     .locals 0
-    .param p3, "expatName"    # Ljava/lang/String;
 
-    .prologue
-    .line 138
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 139
     iput-object p3, p0, Landroid/util/Xml$Encoding;->expatName:Ljava/lang/String;
 
-    .line 138
     return-void
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroid/util/Xml$Encoding;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
-    .prologue
-    .line 129
     const-class v0, Landroid/util/Xml$Encoding;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -157,8 +143,6 @@
 .method public static values()[Landroid/util/Xml$Encoding;
     .locals 1
 
-    .prologue
-    .line 129
     sget-object v0, Landroid/util/Xml$Encoding;->$VALUES:[Landroid/util/Xml$Encoding;
 
     return-object v0

@@ -28,12 +28,7 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/camera/iris/SemIrisManager$4;Landroid/os/PowerManager$WakeLock;Lcom/samsung/android/camera/iris/SemIrisManager$LockoutResetCallback;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/samsung/android/camera/iris/SemIrisManager$4;
-    .param p2, "val$wakeLock"    # Landroid/os/PowerManager$WakeLock;
-    .param p3, "val$callback"    # Lcom/samsung/android/camera/iris/SemIrisManager$LockoutResetCallback;
 
-    .prologue
-    .line 1698
     iput-object p1, p0, Lcom/samsung/android/camera/iris/SemIrisManager$4$1;->this$1:Lcom/samsung/android/camera/iris/SemIrisManager$4;
 
     iput-object p2, p0, Lcom/samsung/android/camera/iris/SemIrisManager$4$1;->val$wakeLock:Landroid/os/PowerManager$WakeLock;
@@ -50,8 +45,6 @@
 .method public run()V
     .locals 2
 
-    .prologue
-    .line 1702
     :try_start_0
     iget-object v0, p0, Lcom/samsung/android/camera/iris/SemIrisManager$4$1;->val$callback:Lcom/samsung/android/camera/iris/SemIrisManager$LockoutResetCallback;
 
@@ -59,23 +52,18 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 1704
     iget-object v0, p0, Lcom/samsung/android/camera/iris/SemIrisManager$4$1;->val$wakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
 
-    .line 1700
     return-void
 
-    .line 1703
     :catchall_0
     move-exception v0
 
-    .line 1704
     iget-object v1, p0, Lcom/samsung/android/camera/iris/SemIrisManager$4$1;->val$wakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v1}, Landroid/os/PowerManager$WakeLock;->release()V
 
-    .line 1703
     throw v0
 .end method

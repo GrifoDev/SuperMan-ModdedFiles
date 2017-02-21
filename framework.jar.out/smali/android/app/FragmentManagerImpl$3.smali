@@ -28,12 +28,7 @@
 # direct methods
 .method constructor <init>(Landroid/app/FragmentManagerImpl;Ljava/lang/String;I)V
     .locals 0
-    .param p1, "this$0"    # Landroid/app/FragmentManagerImpl;
-    .param p2, "val$name"    # Ljava/lang/String;
-    .param p3, "val$flags"    # I
 
-    .prologue
-    .line 584
     iput-object p1, p0, Landroid/app/FragmentManagerImpl$3;->this$0:Landroid/app/FragmentManagerImpl;
 
     iput-object p2, p0, Landroid/app/FragmentManagerImpl$3;->val$name:Ljava/lang/String;
@@ -50,8 +45,6 @@
 .method public run()V
     .locals 5
 
-    .prologue
-    .line 586
     iget-object v0, p0, Landroid/app/FragmentManagerImpl$3;->this$0:Landroid/app/FragmentManagerImpl;
 
     iget-object v1, p0, Landroid/app/FragmentManagerImpl$3;->this$0:Landroid/app/FragmentManagerImpl;
@@ -70,6 +63,5 @@
 
     invoke-virtual {v0, v1, v2, v4, v3}, Landroid/app/FragmentManagerImpl;->popBackStackState(Landroid/os/Handler;Ljava/lang/String;II)Z
 
-    .line 585
     return-void
 .end method

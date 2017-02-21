@@ -30,8 +30,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 224
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -39,39 +37,26 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
-    .param p1, "type"    # Ljava/lang/String;
-    .param p2, "uuid"    # Ljava/lang/String;
-    .param p3, "connectMode"    # Ljava/lang/String;
-    .param p4, "name"    # Ljava/lang/String;
-    .param p5, "implementor"    # Ljava/lang/String;
 
-    .prologue
-    .line 240
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 242
     invoke-static {p1}, Ljava/util/UUID;->fromString(Ljava/lang/String;)Ljava/util/UUID;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/media/audiofx/AudioEffect$Descriptor;->type:Ljava/util/UUID;
 
-    .line 243
     invoke-static {p2}, Ljava/util/UUID;->fromString(Ljava/lang/String;)Ljava/util/UUID;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/media/audiofx/AudioEffect$Descriptor;->uuid:Ljava/util/UUID;
 
-    .line 244
     iput-object p3, p0, Landroid/media/audiofx/AudioEffect$Descriptor;->connectMode:Ljava/lang/String;
 
-    .line 245
     iput-object p4, p0, Landroid/media/audiofx/AudioEffect$Descriptor;->name:Ljava/lang/String;
 
-    .line 246
     iput-object p5, p0, Landroid/media/audiofx/AudioEffect$Descriptor;->implementor:Ljava/lang/String;
 
-    .line 241
     return-void
 .end method

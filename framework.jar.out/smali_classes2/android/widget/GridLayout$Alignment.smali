@@ -18,8 +18,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 2745
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -33,8 +31,6 @@
 .method getBounds()Landroid/widget/GridLayout$Bounds;
     .locals 2
 
-    .prologue
-    .line 2780
     new-instance v0, Landroid/widget/GridLayout$Bounds;
 
     const/4 v1, 0x0
@@ -49,11 +45,6 @@
 
 .method getSizeInCell(Landroid/view/View;II)I
     .locals 0
-    .param p1, "view"    # Landroid/view/View;
-    .param p2, "viewSize"    # I
-    .param p3, "cellSize"    # I
 
-    .prologue
-    .line 2776
     return p2
 .end method

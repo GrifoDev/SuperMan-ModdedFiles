@@ -47,8 +47,6 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .prologue
-    .line 71
     new-instance v0, Landroid/os/health/HealthKeys$Constants;
 
     const-class v1, Landroid/os/health/ProcessHealthStats;
@@ -57,15 +55,12 @@
 
     sput-object v0, Landroid/os/health/ProcessHealthStats;->CONSTANTS:Landroid/os/health/HealthKeys$Constants;
 
-    .line 24
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

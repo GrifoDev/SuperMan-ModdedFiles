@@ -21,17 +21,11 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;)V
     .locals 0
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "cache"    # Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;
 
-    .prologue
-    .line 344
     invoke-direct {p0, p1}, Landroid/appwidget/AppWidgetHostView;-><init>(Landroid/content/Context;)V
 
-    .line 345
     iput-object p2, p0, Landroid/widget/RemoteViewsAdapter$RemoteViewsFrameLayout;->mCache:Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;
 
-    .line 343
     return-void
 .end method
 
@@ -40,8 +34,6 @@
 .method protected getDefaultView()Landroid/view/View;
     .locals 1
 
-    .prologue
-    .line 360
     iget-object v0, p0, Landroid/widget/RemoteViewsAdapter$RemoteViewsFrameLayout;->mCache:Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;
 
     invoke-virtual {v0}, Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;->getMetaData()Landroid/widget/RemoteViewsAdapter$RemoteViewsMetaData;
@@ -58,8 +50,6 @@
 .method protected getErrorView()Landroid/view/View;
     .locals 1
 
-    .prologue
-    .line 371
     invoke-virtual {p0}, Landroid/widget/RemoteViewsAdapter$RemoteViewsFrameLayout;->getDefaultView()Landroid/view/View;
 
     move-result-object v0
@@ -70,8 +60,6 @@
 .method protected getRemoteContext()Landroid/content/Context;
     .locals 1
 
-    .prologue
-    .line 365
     const/4 v0, 0x0
 
     return-object v0
@@ -79,16 +67,10 @@
 
 .method public onRemoteViewsLoaded(Landroid/widget/RemoteViews;Landroid/widget/RemoteViews$OnClickHandler;)V
     .locals 0
-    .param p1, "view"    # Landroid/widget/RemoteViews;
-    .param p2, "handler"    # Landroid/widget/RemoteViews$OnClickHandler;
 
-    .prologue
-    .line 354
     invoke-virtual {p0, p2}, Landroid/appwidget/AppWidgetHostView;->setOnClickHandler(Landroid/widget/RemoteViews$OnClickHandler;)V
 
-    .line 355
     invoke-virtual {p0, p1}, Landroid/appwidget/AppWidgetHostView;->applyRemoteViews(Landroid/widget/RemoteViews;)V
 
-    .line 353
     return-void
 .end method

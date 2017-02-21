@@ -23,19 +23,12 @@
 # direct methods
 .method public constructor <init>(Landroid/media/MediaRouter$VolumeCallback;Landroid/media/MediaRouter$RouteInfo;)V
     .locals 0
-    .param p1, "vcb"    # Landroid/media/MediaRouter$VolumeCallback;
-    .param p2, "route"    # Landroid/media/MediaRouter$RouteInfo;
 
-    .prologue
-    .line 2948
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 2949
     iput-object p1, p0, Landroid/media/MediaRouter$VolumeCallbackInfo;->vcb:Landroid/media/MediaRouter$VolumeCallback;
 
-    .line 2950
     iput-object p2, p0, Landroid/media/MediaRouter$VolumeCallbackInfo;->route:Landroid/media/MediaRouter$RouteInfo;
 
-    .line 2948
     return-void
 .end method

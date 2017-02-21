@@ -25,37 +25,28 @@
 # direct methods
 .method public constructor <init>([Ljava/lang/String;[I)V
     .locals 4
-    .param p1, "smilies"    # [Ljava/lang/String;
-    .param p2, "smileyResIds"    # [I
 
-    .prologue
-    .line 35
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 28
     new-instance v1, Ljava/util/HashMap;
 
     invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
 
     iput-object v1, p0, Lcom/google/android/util/SmileyResources;->mSmileyToRes:Ljava/util/HashMap;
 
-    .line 56
     new-instance v1, Lcom/google/android/util/AbstractMessageParser$TrieNode;
 
     invoke-direct {v1}, Lcom/google/android/util/AbstractMessageParser$TrieNode;-><init>()V
 
     iput-object v1, p0, Lcom/google/android/util/SmileyResources;->smileys:Lcom/google/android/util/AbstractMessageParser$TrieNode;
 
-    .line 36
     const/4 v0, 0x0
 
-    .local v0, "i":I
     :goto_0
     array-length v1, p1
 
     if-ge v0, v1, :cond_0
 
-    .line 37
     iget-object v1, p0, Lcom/google/android/util/SmileyResources;->smileys:Lcom/google/android/util/AbstractMessageParser$TrieNode;
 
     aget-object v2, p1, v0
@@ -64,7 +55,6 @@
 
     invoke-static {v1, v2, v3}, Lcom/google/android/util/AbstractMessageParser$TrieNode;->addToTrie(Lcom/google/android/util/AbstractMessageParser$TrieNode;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 38
     iget-object v1, p0, Lcom/google/android/util/SmileyResources;->mSmileyToRes:Ljava/util/HashMap;
 
     aget-object v2, p1, v0
@@ -77,12 +67,10 @@
 
     invoke-virtual {v1, v2, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 36
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 35
     :cond_0
     return-void
 .end method
@@ -92,8 +80,6 @@
 .method public getAcronyms()Lcom/google/android/util/AbstractMessageParser$TrieNode;
     .locals 1
 
-    .prologue
-    .line 71
     const/4 v0, 0x0
 
     return-object v0
@@ -102,8 +88,6 @@
 .method public getDomainSuffixes()Lcom/google/android/util/AbstractMessageParser$TrieNode;
     .locals 1
 
-    .prologue
-    .line 63
     const/4 v0, 0x0
 
     return-object v0
@@ -121,8 +105,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 59
     const/4 v0, 0x0
 
     return-object v0
@@ -130,10 +112,7 @@
 
 .method public getSmileyRes(Ljava/lang/String;)I
     .locals 2
-    .param p1, "smiley"    # Ljava/lang/String;
 
-    .prologue
-    .line 49
     iget-object v1, p0, Lcom/google/android/util/SmileyResources;->mSmileyToRes:Ljava/util/HashMap;
 
     invoke-virtual {v1, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -142,16 +121,12 @@
 
     check-cast v0, Ljava/lang/Integer;
 
-    .line 50
-    .local v0, "i":Ljava/lang/Integer;
     if-nez v0, :cond_0
 
-    .line 51
     const/4 v1, -0x1
 
     return v1
 
-    .line 53
     :cond_0
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
@@ -163,8 +138,6 @@
 .method public getSmileys()Lcom/google/android/util/AbstractMessageParser$TrieNode;
     .locals 1
 
-    .prologue
-    .line 67
     iget-object v0, p0, Lcom/google/android/util/SmileyResources;->smileys:Lcom/google/android/util/AbstractMessageParser$TrieNode;
 
     return-object v0

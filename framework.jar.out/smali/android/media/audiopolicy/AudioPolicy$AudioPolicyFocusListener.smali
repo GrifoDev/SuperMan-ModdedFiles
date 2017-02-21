@@ -18,8 +18,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 402
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -29,20 +27,12 @@
 # virtual methods
 .method public onAudioFocusGrant(Landroid/media/AudioFocusInfo;I)V
     .locals 0
-    .param p1, "afi"    # Landroid/media/AudioFocusInfo;
-    .param p2, "requestResult"    # I
 
-    .prologue
-    .line 403
     return-void
 .end method
 
 .method public onAudioFocusLoss(Landroid/media/AudioFocusInfo;Z)V
     .locals 0
-    .param p1, "afi"    # Landroid/media/AudioFocusInfo;
-    .param p2, "wasNotified"    # Z
 
-    .prologue
-    .line 404
     return-void
 .end method

@@ -27,8 +27,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 1109
     invoke-direct {p0}, Landroid/app/SystemServiceRegistry$CachedServiceFetcher;-><init>()V
 
     return-void
@@ -38,10 +36,7 @@
 # virtual methods
 .method public createService(Landroid/app/ContextImpl;)Lcom/samsung/android/content/smartclip/SpenGestureManager;
     .locals 1
-    .param p1, "ctx"    # Landroid/app/ContextImpl;
 
-    .prologue
-    .line 1112
     new-instance v0, Lcom/samsung/android/content/smartclip/SpenGestureManager;
 
     invoke-direct {v0, p1}, Lcom/samsung/android/content/smartclip/SpenGestureManager;-><init>(Landroid/content/Context;)V
@@ -51,10 +46,7 @@
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
-    .param p1, "ctx"    # Landroid/app/ContextImpl;
 
-    .prologue
-    .line 1111
     invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$93;->createService(Landroid/app/ContextImpl;)Lcom/samsung/android/content/smartclip/SpenGestureManager;
 
     move-result-object v0

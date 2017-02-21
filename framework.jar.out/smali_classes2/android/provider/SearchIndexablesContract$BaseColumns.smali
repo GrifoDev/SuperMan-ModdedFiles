@@ -32,8 +32,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 240
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -42,7 +40,6 @@
 .method synthetic constructor <init>(Landroid/provider/SearchIndexablesContract$BaseColumns;)V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Landroid/provider/SearchIndexablesContract$BaseColumns;-><init>()V
 
     return-void

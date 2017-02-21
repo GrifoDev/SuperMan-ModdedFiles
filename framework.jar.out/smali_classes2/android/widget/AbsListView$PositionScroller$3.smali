@@ -30,13 +30,7 @@
 # direct methods
 .method constructor <init>(Landroid/widget/AbsListView$PositionScroller;III)V
     .locals 0
-    .param p1, "this$1"    # Landroid/widget/AbsListView$PositionScroller;
-    .param p2, "val$position"    # I
-    .param p3, "val$postOffset"    # I
-    .param p4, "val$duration"    # I
 
-    .prologue
-    .line 11651
     iput-object p1, p0, Landroid/widget/AbsListView$PositionScroller$3;->this$1:Landroid/widget/AbsListView$PositionScroller;
 
     iput p2, p0, Landroid/widget/AbsListView$PositionScroller$3;->val$position:I
@@ -55,8 +49,6 @@
 .method public run()V
     .locals 4
 
-    .prologue
-    .line 11653
     iget-object v0, p0, Landroid/widget/AbsListView$PositionScroller$3;->this$1:Landroid/widget/AbsListView$PositionScroller;
 
     iget v1, p0, Landroid/widget/AbsListView$PositionScroller$3;->val$position:I
@@ -67,6 +59,5 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/widget/AbsListView$PositionScroller;->startWithOffset(III)V
 
-    .line 11652
     return-void
 .end method

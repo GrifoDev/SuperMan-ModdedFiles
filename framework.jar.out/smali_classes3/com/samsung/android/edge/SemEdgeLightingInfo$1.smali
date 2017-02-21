@@ -31,8 +31,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 189
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -42,10 +40,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Lcom/samsung/android/edge/SemEdgeLightingInfo;
     .locals 2
-    .param p1, "source"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 191
     new-instance v0, Lcom/samsung/android/edge/SemEdgeLightingInfo;
 
     const/4 v1, 0x0
@@ -57,10 +52,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .param p1, "source"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 190
     invoke-virtual {p0, p1}, Lcom/samsung/android/edge/SemEdgeLightingInfo$1;->createFromParcel(Landroid/os/Parcel;)Lcom/samsung/android/edge/SemEdgeLightingInfo;
 
     move-result-object v0
@@ -70,10 +62,7 @@
 
 .method public newArray(I)[Lcom/samsung/android/edge/SemEdgeLightingInfo;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 195
     new-array v0, p1, [Lcom/samsung/android/edge/SemEdgeLightingInfo;
 
     return-object v0
@@ -81,10 +70,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 194
     invoke-virtual {p0, p1}, Lcom/samsung/android/edge/SemEdgeLightingInfo$1;->newArray(I)[Lcom/samsung/android/edge/SemEdgeLightingInfo;
 
     move-result-object v0

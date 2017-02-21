@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/widget/Toolbar;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/widget/Toolbar;
 
-    .prologue
-    .line 1732
     iput-object p1, p0, Landroid/widget/Toolbar$3;->this$0:Landroid/widget/Toolbar;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,12 +37,9 @@
 .method public run()V
     .locals 1
 
-    .prologue
-    .line 1734
     iget-object v0, p0, Landroid/widget/Toolbar$3;->this$0:Landroid/widget/Toolbar;
 
     invoke-virtual {v0}, Landroid/widget/Toolbar;->collapseActionView()V
 
-    .line 1733
     return-void
 .end method

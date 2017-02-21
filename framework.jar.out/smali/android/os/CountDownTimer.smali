@@ -54,32 +54,23 @@
 
 .method public constructor <init>(JJ)V
     .locals 1
-    .param p1, "millisInFuture"    # J
-    .param p3, "countDownInterval"    # J
 
-    .prologue
-    .line 70
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 61
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/os/CountDownTimer;->mCancelled:Z
 
-    .line 114
     new-instance v0, Landroid/os/CountDownTimer$1;
 
     invoke-direct {v0, p0}, Landroid/os/CountDownTimer$1;-><init>(Landroid/os/CountDownTimer;)V
 
     iput-object v0, p0, Landroid/os/CountDownTimer;->mHandler:Landroid/os/Handler;
 
-    .line 71
     iput-wide p1, p0, Landroid/os/CountDownTimer;->mMillisInFuture:J
 
-    .line 72
     iput-wide p3, p0, Landroid/os/CountDownTimer;->mCountdownInterval:J
 
-    .line 70
     return-void
 .end method
 
@@ -88,16 +79,13 @@
 .method public final declared-synchronized cancel()V
     .locals 2
 
-    .prologue
     monitor-enter p0
 
-    .line 79
     const/4 v0, 0x1
 
     :try_start_0
     iput-boolean v0, p0, Landroid/os/CountDownTimer;->mCancelled:Z
 
-    .line 80
     iget-object v0, p0, Landroid/os/CountDownTimer;->mHandler:Landroid/os/Handler;
 
     const/4 v1, 0x1
@@ -108,7 +96,6 @@
 
     monitor-exit p0
 
-    .line 78
     return-void
 
     :catchall_0
@@ -128,16 +115,13 @@
 .method public final declared-synchronized start()Landroid/os/CountDownTimer;
     .locals 4
 
-    .prologue
     monitor-enter p0
 
-    .line 87
     const/4 v0, 0x0
 
     :try_start_0
     iput-boolean v0, p0, Landroid/os/CountDownTimer;->mCancelled:Z
 
-    .line 88
     iget-wide v0, p0, Landroid/os/CountDownTimer;->mMillisInFuture:J
 
     const-wide/16 v2, 0x0
@@ -146,17 +130,14 @@
 
     if-gtz v0, :cond_0
 
-    .line 89
     invoke-virtual {p0}, Landroid/os/CountDownTimer;->onFinish()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
-    .line 90
     return-object p0
 
-    .line 92
     :cond_0
     :try_start_1
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
@@ -169,7 +150,6 @@
 
     iput-wide v0, p0, Landroid/os/CountDownTimer;->mStopTimeInFuture:J
 
-    .line 93
     iget-object v0, p0, Landroid/os/CountDownTimer;->mHandler:Landroid/os/Handler;
 
     iget-object v1, p0, Landroid/os/CountDownTimer;->mHandler:Landroid/os/Handler;
@@ -186,7 +166,6 @@
 
     monitor-exit p0
 
-    .line 94
     return-object p0
 
     :catchall_0

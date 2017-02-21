@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/contextaware/ContextAwareManager;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/samsung/android/contextaware/ContextAwareManager;
 
-    .prologue
-    .line 1430
     iput-object p1, p0, Lcom/samsung/android/contextaware/ContextAwareManager$1;->this$0:Lcom/samsung/android/contextaware/ContextAwareManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,10 +36,6 @@
 # virtual methods
 .method public onContextChanged(ILandroid/os/Bundle;)V
     .locals 0
-    .param p1, "type"    # I
-    .param p2, "context"    # Landroid/os/Bundle;
 
-    .prologue
-    .line 1439
     return-void
 .end method

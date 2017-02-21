@@ -55,18 +55,14 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    .prologue
-    .line 17
     const/4 v0, 0x0
 
     sput-object v0, Lcom/samsung/android/app/SemDualAppManager;->sDAInstance:Lcom/samsung/android/app/SemDualAppManager;
 
-    .line 58
     const/16 v0, 0x10
 
     new-array v0, v0, [Ljava/lang/String;
 
-    .line 59
     const-string/jumbo v1, "com.facebook.katana"
 
     const/4 v2, 0x0
@@ -85,7 +81,6 @@
 
     aput-object v1, v0, v2
 
-    .line 60
     const-string/jumbo v1, "com.tencent.mobileqq"
 
     const/4 v2, 0x3
@@ -104,7 +99,6 @@
 
     aput-object v1, v0, v2
 
-    .line 61
     const-string/jumbo v1, "com.skype.raider"
 
     const/4 v2, 0x6
@@ -123,7 +117,6 @@
 
     aput-object v1, v0, v2
 
-    .line 62
     const-string/jumbo v1, "com.bbm"
 
     const/16 v2, 0x9
@@ -142,7 +135,6 @@
 
     aput-object v1, v0, v2
 
-    .line 63
     const-string/jumbo v1, "com.bsb.hike"
 
     const/16 v2, 0xc
@@ -167,18 +159,14 @@
 
     aput-object v1, v0, v2
 
-    .line 58
     sput-object v0, Lcom/samsung/android/app/SemDualAppManager;->DUAL_APP_WHITELIST_PACKAGES:[Ljava/lang/String;
 
-    .line 14
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 66
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -186,33 +174,26 @@
 
 .method public static getInstance(Landroid/content/Context;)Lcom/samsung/android/app/SemDualAppManager;
     .locals 2
-    .param p0, "context"    # Landroid/content/Context;
 
-    .prologue
-    .line 77
     sget-object v0, Lcom/samsung/android/app/SemDualAppManager;->sDAInstance:Lcom/samsung/android/app/SemDualAppManager;
 
     if-nez v0, :cond_1
 
-    .line 78
     const-class v1, Lcom/samsung/android/app/SemDualAppManager;
 
     monitor-enter v1
 
-    .line 79
     :try_start_0
     sget-object v0, Lcom/samsung/android/app/SemDualAppManager;->sDAInstance:Lcom/samsung/android/app/SemDualAppManager;
 
     if-nez v0, :cond_0
 
-    .line 80
     new-instance v0, Lcom/samsung/android/app/SemDualAppManager;
 
     invoke-direct {v0}, Lcom/samsung/android/app/SemDualAppManager;-><init>()V
 
     sput-object v0, Lcom/samsung/android/app/SemDualAppManager;->sDAInstance:Lcom/samsung/android/app/SemDualAppManager;
 
-    .line 81
     sget-object v0, Lcom/samsung/android/app/SemDualAppManager;->sDAInstance:Lcom/samsung/android/app/SemDualAppManager;
 
     iput-object p0, v0, Lcom/samsung/android/app/SemDualAppManager;->mContext:Landroid/content/Context;
@@ -222,13 +203,11 @@
     :cond_0
     monitor-exit v1
 
-    .line 86
     :cond_1
     sget-object v0, Lcom/samsung/android/app/SemDualAppManager;->sDAInstance:Lcom/samsung/android/app/SemDualAppManager;
 
     return-object v0
 
-    .line 78
     :catchall_0
     move-exception v0
 
@@ -239,12 +218,9 @@
 
 .method public static isDualAppId(I)Z
     .locals 4
-    .param p0, "userId"    # I
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 143
     const-string/jumbo v1, "SemDualAppManager"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -267,7 +243,6 @@
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 144
     const/16 v1, 0x5f
 
     if-lt p0, v1, :cond_0
@@ -287,15 +262,12 @@
 .method public isSupport()Z
     .locals 2
 
-    .prologue
-    .line 130
     const-string/jumbo v0, "SemDualAppManager"
 
     const-string/jumbo v1, "This device doesn\'t support DA. Return false"
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 131
     const/4 v0, 0x0
 
     return v0
@@ -303,12 +275,9 @@
 
 .method public isWhitelistedPackage(Ljava/lang/String;)Z
     .locals 3
-    .param p1, "pkgName"    # Ljava/lang/String;
 
-    .prologue
     const/4 v2, 0x0
 
-    .line 97
     if-eqz p1, :cond_0
 
     const-string/jumbo v0, ""
@@ -319,7 +288,6 @@
 
     if-eqz v0, :cond_1
 
-    .line 98
     :cond_0
     const-string/jumbo v0, "SemDualAppManager"
 
@@ -327,10 +295,8 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 99
     return v2
 
-    .line 103
     :cond_1
     const-string/jumbo v0, "SemDualAppManager"
 
@@ -338,6 +304,5 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 104
     return v2
 .end method

@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/widget/TextView$Marquee;)V
     .locals 0
-    .param p1, "this$1"    # Landroid/widget/TextView$Marquee;
 
-    .prologue
-    .line 12215
     iput-object p1, p0, Landroid/widget/TextView$Marquee$3;->this$1:Landroid/widget/TextView$Marquee;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,10 +36,7 @@
 # virtual methods
 .method public doFrame(J)V
     .locals 2
-    .param p1, "frameTimeNanos"    # J
 
-    .prologue
-    .line 12218
     iget-object v0, p0, Landroid/widget/TextView$Marquee$3;->this$1:Landroid/widget/TextView$Marquee;
 
     invoke-static {v0}, Landroid/widget/TextView$Marquee;->-get2(Landroid/widget/TextView$Marquee;)B
@@ -53,7 +47,6 @@
 
     if-ne v0, v1, :cond_1
 
-    .line 12219
     iget-object v0, p0, Landroid/widget/TextView$Marquee$3;->this$1:Landroid/widget/TextView$Marquee;
 
     invoke-static {v0}, Landroid/widget/TextView$Marquee;->-get1(Landroid/widget/TextView$Marquee;)I
@@ -62,7 +55,6 @@
 
     if-ltz v0, :cond_0
 
-    .line 12220
     iget-object v0, p0, Landroid/widget/TextView$Marquee$3;->this$1:Landroid/widget/TextView$Marquee;
 
     invoke-static {v0}, Landroid/widget/TextView$Marquee;->-get1(Landroid/widget/TextView$Marquee;)I
@@ -73,7 +65,6 @@
 
     invoke-static {v0, v1}, Landroid/widget/TextView$Marquee;->-set1(Landroid/widget/TextView$Marquee;I)I
 
-    .line 12222
     :cond_0
     iget-object v0, p0, Landroid/widget/TextView$Marquee$3;->this$1:Landroid/widget/TextView$Marquee;
 
@@ -85,7 +76,6 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView$Marquee;->start(I)V
 
-    .line 12217
     :cond_1
     return-void
 .end method

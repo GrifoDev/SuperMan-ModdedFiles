@@ -25,8 +25,6 @@
 .method constructor <init>(Lcom/samsung/android/transcode/core/EncodeVideo;)V
     .locals 0
 
-    .prologue
-    .line 518
     iput-object p1, p0, Lcom/samsung/android/transcode/core/EncodeVideo$1;->this$0:Lcom/samsung/android/transcode/core/EncodeVideo;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,8 +37,6 @@
 .method public run()V
     .locals 2
 
-    .prologue
-    .line 522
     iget-object v0, p0, Lcom/samsung/android/transcode/core/EncodeVideo$1;->this$0:Lcom/samsung/android/transcode/core/EncodeVideo;
 
     const/4 v1, 0x1
@@ -48,6 +44,5 @@
     # setter for: Lcom/samsung/android/transcode/core/EncodeVideo;->formatupdated:Z
     invoke-static {v0, v1}, Lcom/samsung/android/transcode/core/EncodeVideo;->access$002(Lcom/samsung/android/transcode/core/EncodeVideo;Z)Z
 
-    .line 523
     return-void
 .end method

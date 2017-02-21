@@ -27,8 +27,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 1089
     invoke-direct {p0}, Landroid/app/SystemServiceRegistry$CachedServiceFetcher;-><init>()V
 
     return-void
@@ -38,18 +36,13 @@
 # virtual methods
 .method public createService(Landroid/app/ContextImpl;)Lcom/samsung/android/knox/SemRemoteContentManager;
     .locals 3
-    .param p1, "ctx"    # Landroid/app/ContextImpl;
 
-    .prologue
-    .line 1092
     const-string/jumbo v1, "rcp"
 
     invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
-    .line 1093
-    .local v0, "b":Landroid/os/IBinder;
     new-instance v1, Lcom/samsung/android/knox/SemRemoteContentManager;
 
     invoke-static {v0}, Lcom/samsung/android/knox/ISemRemoteContentManager$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/knox/ISemRemoteContentManager;
@@ -63,10 +56,7 @@
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
-    .param p1, "ctx"    # Landroid/app/ContextImpl;
 
-    .prologue
-    .line 1091
     invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$91;->createService(Landroid/app/ContextImpl;)Lcom/samsung/android/knox/SemRemoteContentManager;
 
     move-result-object v0

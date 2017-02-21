@@ -34,10 +34,7 @@
 # direct methods
 .method private constructor <init>(Landroid/media/tv/TvInputManager$Session;)V
     .locals 0
-    .param p1, "this$1"    # Landroid/media/tv/TvInputManager$Session;
 
-    .prologue
-    .line 2444
     iput-object p1, p0, Landroid/media/tv/TvInputManager$Session$PendingEvent;->this$1:Landroid/media/tv/TvInputManager$Session;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,9 +44,7 @@
 
 .method synthetic constructor <init>(Landroid/media/tv/TvInputManager$Session;Landroid/media/tv/TvInputManager$Session$PendingEvent;)V
     .locals 0
-    .param p1, "this$1"    # Landroid/media/tv/TvInputManager$Session;
 
-    .prologue
     invoke-direct {p0, p1}, Landroid/media/tv/TvInputManager$Session$PendingEvent;-><init>(Landroid/media/tv/TvInputManager$Session;)V
 
     return-void
@@ -60,35 +55,26 @@
 .method public recycle()V
     .locals 1
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 2452
     iput-object v0, p0, Landroid/media/tv/TvInputManager$Session$PendingEvent;->mEvent:Landroid/view/InputEvent;
 
-    .line 2453
     iput-object v0, p0, Landroid/media/tv/TvInputManager$Session$PendingEvent;->mEventToken:Ljava/lang/Object;
 
-    .line 2454
     iput-object v0, p0, Landroid/media/tv/TvInputManager$Session$PendingEvent;->mCallback:Landroid/media/tv/TvInputManager$Session$FinishedInputEventCallback;
 
-    .line 2455
     iput-object v0, p0, Landroid/media/tv/TvInputManager$Session$PendingEvent;->mEventHandler:Landroid/os/Handler;
 
-    .line 2456
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/media/tv/TvInputManager$Session$PendingEvent;->mHandled:Z
 
-    .line 2451
     return-void
 .end method
 
 .method public run()V
     .locals 3
 
-    .prologue
-    .line 2461
     iget-object v0, p0, Landroid/media/tv/TvInputManager$Session$PendingEvent;->mCallback:Landroid/media/tv/TvInputManager$Session$FinishedInputEventCallback;
 
     iget-object v1, p0, Landroid/media/tv/TvInputManager$Session$PendingEvent;->mEventToken:Ljava/lang/Object;
@@ -97,12 +83,10 @@
 
     invoke-interface {v0, v1, v2}, Landroid/media/tv/TvInputManager$Session$FinishedInputEventCallback;->onFinishedInputEvent(Ljava/lang/Object;Z)V
 
-    .line 2463
     iget-object v1, p0, Landroid/media/tv/TvInputManager$Session$PendingEvent;->mEventHandler:Landroid/os/Handler;
 
     monitor-enter v1
 
-    .line 2464
     :try_start_0
     iget-object v0, p0, Landroid/media/tv/TvInputManager$Session$PendingEvent;->this$1:Landroid/media/tv/TvInputManager$Session;
 
@@ -112,10 +96,8 @@
 
     monitor-exit v1
 
-    .line 2460
     return-void
 
-    .line 2463
     :catchall_0
     move-exception v0
 

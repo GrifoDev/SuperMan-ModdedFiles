@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/CountDownTimer;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/os/CountDownTimer;
 
-    .prologue
-    .line 114
     iput-object p1, p0, Landroid/os/CountDownTimer$1;->this$0:Landroid/os/CountDownTimer;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -36,17 +33,13 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 14
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
     const-wide/16 v12, 0x0
 
-    .line 119
     iget-object v7, p0, Landroid/os/CountDownTimer$1;->this$0:Landroid/os/CountDownTimer;
 
     monitor-enter v7
 
-    .line 120
     :try_start_0
     iget-object v6, p0, Landroid/os/CountDownTimer$1;->this$0:Landroid/os/CountDownTimer;
 
@@ -60,10 +53,8 @@
 
     monitor-exit v7
 
-    .line 121
     return-void
 
-    .line 124
     :cond_0
     :try_start_1
     iget-object v6, p0, Landroid/os/CountDownTimer$1;->this$0:Landroid/os/CountDownTimer;
@@ -78,13 +69,10 @@
 
     sub-long v4, v8, v10
 
-    .line 126
-    .local v4, "millisLeft":J
     cmp-long v6, v4, v12
 
     if-gtz v6, :cond_1
 
-    .line 127
     iget-object v6, p0, Landroid/os/CountDownTimer$1;->this$0:Landroid/os/CountDownTimer;
 
     invoke-virtual {v6}, Landroid/os/CountDownTimer;->onFinish()V
@@ -94,10 +82,8 @@
     :goto_0
     monitor-exit v7
 
-    .line 117
     return-void
 
-    .line 128
     :cond_1
     :try_start_2
     iget-object v6, p0, Landroid/os/CountDownTimer$1;->this$0:Landroid/os/CountDownTimer;
@@ -110,7 +96,6 @@
 
     if-gez v6, :cond_2
 
-    .line 130
     const/4 v6, 0x1
 
     invoke-virtual {p0, v6}, Landroid/os/CountDownTimer$1;->obtainMessage(I)Landroid/os/Message;
@@ -123,8 +108,6 @@
 
     goto :goto_0
 
-    .line 119
-    .end local v4    # "millisLeft":J
     :catchall_0
     move-exception v6
 
@@ -132,21 +115,16 @@
 
     throw v6
 
-    .line 132
-    .restart local v4    # "millisLeft":J
     :cond_2
     :try_start_3
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v2
 
-    .line 133
-    .local v2, "lastTickStart":J
     iget-object v6, p0, Landroid/os/CountDownTimer$1;->this$0:Landroid/os/CountDownTimer;
 
     invoke-virtual {v6, v4, v5}, Landroid/os/CountDownTimer;->onTick(J)V
 
-    .line 136
     iget-object v6, p0, Landroid/os/CountDownTimer$1;->this$0:Landroid/os/CountDownTimer;
 
     invoke-static {v6}, Landroid/os/CountDownTimer;->-get1(Landroid/os/CountDownTimer;)J
@@ -161,8 +139,6 @@
 
     sub-long v0, v8, v10
 
-    .line 140
-    .local v0, "delay":J
     :goto_1
     cmp-long v6, v0, v12
 
@@ -178,7 +154,6 @@
 
     goto :goto_1
 
-    .line 142
     :cond_3
     const/4 v6, 0x1
 

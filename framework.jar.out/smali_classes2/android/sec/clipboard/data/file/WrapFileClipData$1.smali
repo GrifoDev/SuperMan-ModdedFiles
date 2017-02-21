@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/sec/clipboard/data/file/WrapFileClipData;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/sec/clipboard/data/file/WrapFileClipData;
 
-    .prologue
-    .line 69
     iput-object p1, p0, Landroid/sec/clipboard/data/file/WrapFileClipData$1;->this$0:Landroid/sec/clipboard/data/file/WrapFileClipData;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,8 +37,6 @@
 .method public run()V
     .locals 4
 
-    .prologue
-    .line 71
     iget-object v0, p0, Landroid/sec/clipboard/data/file/WrapFileClipData$1;->this$0:Landroid/sec/clipboard/data/file/WrapFileClipData;
 
     invoke-static {v0}, Landroid/sec/clipboard/data/file/WrapFileClipData;->-get0(Landroid/sec/clipboard/data/file/WrapFileClipData;)Lcom/samsung/android/content/clipboard/data/SemClipData;
@@ -50,7 +45,6 @@
 
     monitor-enter v1
 
-    .line 72
     :try_start_0
     iget-object v0, p0, Landroid/sec/clipboard/data/file/WrapFileClipData$1;->this$0:Landroid/sec/clipboard/data/file/WrapFileClipData;
 
@@ -66,7 +60,6 @@
 
     if-ne v0, v2, :cond_0
 
-    .line 73
     iget-object v0, p0, Landroid/sec/clipboard/data/file/WrapFileClipData$1;->this$0:Landroid/sec/clipboard/data/file/WrapFileClipData;
 
     invoke-static {v0}, Landroid/sec/clipboard/data/file/WrapFileClipData;->-get0(Landroid/sec/clipboard/data/file/WrapFileClipData;)Lcom/samsung/android/content/clipboard/data/SemClipData;
@@ -77,7 +70,6 @@
 
     invoke-virtual {v0}, Lcom/samsung/android/content/clipboard/data/SemTextClipData;->toSave()V
 
-    .line 76
     :cond_0
     invoke-static {}, Landroid/sec/clipboard/util/FileHelper;->getInstance()Landroid/sec/clipboard/util/FileHelper;
 
@@ -105,10 +97,8 @@
 
     monitor-exit v1
 
-    .line 70
     return-void
 
-    .line 71
     :catchall_0
     move-exception v0
 

@@ -31,8 +31,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 33
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -42,10 +40,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/content/pm/PersonaAttribute;
     .locals 1
-    .param p1, "source"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 36
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
@@ -59,10 +54,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .param p1, "source"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 35
     invoke-virtual {p0, p1}, Landroid/content/pm/PersonaAttribute$1;->createFromParcel(Landroid/os/Parcel;)Landroid/content/pm/PersonaAttribute;
 
     move-result-object v0
@@ -72,10 +64,7 @@
 
 .method public newArray(I)[Landroid/content/pm/PersonaAttribute;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 41
     new-array v0, p1, [Landroid/content/pm/PersonaAttribute;
 
     return-object v0
@@ -83,10 +72,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 40
     invoke-virtual {p0, p1}, Landroid/content/pm/PersonaAttribute$1;->newArray(I)[Landroid/content/pm/PersonaAttribute;
 
     move-result-object v0

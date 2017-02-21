@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/widget/ActionBarContextView;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/internal/widget/ActionBarContextView;
 
-    .prologue
-    .line 288
     iput-object p1, p0, Lcom/android/internal/widget/ActionBarContextView$2;->this$0:Lcom/android/internal/widget/ActionBarContextView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,10 +36,7 @@
 # virtual methods
 .method public onLongClick(Landroid/view/View;)Z
     .locals 27
-    .param p1, "v"    # Landroid/view/View;
 
-    .prologue
-    .line 291
     const/16 v24, 0x2
 
     move/from16 v0, v24
@@ -51,14 +45,10 @@
 
     move-object/from16 v18, v0
 
-    .line 292
-    .local v18, "screenPos":[I
     new-instance v7, Landroid/graphics/Rect;
 
     invoke-direct {v7}, Landroid/graphics/Rect;-><init>()V
 
-    .line 293
-    .local v7, "displayFrame":Landroid/graphics/Rect;
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/ActionBarContextView$2;->this$0:Lcom/android/internal/widget/ActionBarContextView;
@@ -71,7 +61,6 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->getLocationOnScreen([I)V
 
-    .line 294
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/ActionBarContextView$2;->this$0:Lcom/android/internal/widget/ActionBarContextView;
@@ -82,7 +71,6 @@
 
     invoke-virtual {v0, v7}, Landroid/view/View;->getWindowVisibleDisplayFrame(Landroid/graphics/Rect;)V
 
-    .line 296
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/ActionBarContextView$2;->this$0:Lcom/android/internal/widget/ActionBarContextView;
@@ -93,8 +81,6 @@
 
     move-result-object v4
 
-    .line 297
-    .local v4, "context":Landroid/content/Context;
     invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v24
@@ -105,8 +91,6 @@
 
     move-result v20
 
-    .line 298
-    .local v20, "statusBarHeight":I
     invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v24
@@ -117,8 +101,6 @@
 
     move-result v12
 
-    .line 299
-    .local v12, "navigationBarHeight":F
     invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v24
@@ -129,8 +111,6 @@
 
     move-result v9
 
-    .line 300
-    .local v9, "hasNavigationBar":Z
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/ActionBarContextView$2;->this$0:Lcom/android/internal/widget/ActionBarContextView;
@@ -141,8 +121,6 @@
 
     move-result v21
 
-    .line 301
-    .local v21, "width":I
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/ActionBarContextView$2;->this$0:Lcom/android/internal/widget/ActionBarContextView;
@@ -153,8 +131,6 @@
 
     move-result v10
 
-    .line 302
-    .local v10, "height":I
     invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v24
@@ -167,8 +143,6 @@
 
     iget v5, v0, Landroid/util/DisplayMetrics;->density:F
 
-    .line 304
-    .local v5, "density":F
     const/high16 v24, 0x40a00000    # 5.0f
 
     mul-float v24, v24, v5
@@ -177,8 +151,6 @@
 
     float-to-int v11, v0
 
-    .line 305
-    .local v11, "imagePadding":I
     const-string/jumbo v24, "window"
 
     move-object/from16 v0, v24
@@ -193,60 +165,38 @@
 
     move-result-object v6
 
-    .line 307
-    .local v6, "display":Landroid/view/Display;
     new-instance v14, Landroid/util/DisplayMetrics;
 
     invoke-direct {v14}, Landroid/util/DisplayMetrics;-><init>()V
 
-    .line 308
-    .local v14, "realDisplayMetrics":Landroid/util/DisplayMetrics;
     new-instance v8, Landroid/util/DisplayMetrics;
 
     invoke-direct {v8}, Landroid/util/DisplayMetrics;-><init>()V
 
-    .line 309
-    .local v8, "displayMetrics":Landroid/util/DisplayMetrics;
     invoke-virtual {v6, v14}, Landroid/view/Display;->getRealMetrics(Landroid/util/DisplayMetrics;)V
 
-    .line 310
     invoke-virtual {v6, v8}, Landroid/view/Display;->getMetrics(Landroid/util/DisplayMetrics;)V
 
-    .line 312
     iget v0, v14, Landroid/util/DisplayMetrics;->widthPixels:I
 
     move/from16 v16, v0
 
-    .line 313
-    .local v16, "realScreenWidth":I
     iget v15, v14, Landroid/util/DisplayMetrics;->heightPixels:I
 
-    .line 314
-    .local v15, "realScreenHeight":I
     iget v13, v14, Landroid/util/DisplayMetrics;->density:F
 
-    .line 316
-    .local v13, "realDensity":F
     iget v0, v8, Landroid/util/DisplayMetrics;->widthPixels:I
 
     move/from16 v19, v0
 
-    .line 317
-    .local v19, "screenWidth":I
     iget v0, v8, Landroid/util/DisplayMetrics;->heightPixels:I
 
     move/from16 v17, v0
 
-    .line 318
-    .local v17, "screenHeight":I
     const/16 v22, 0x0
 
-    .line 319
-    .local v22, "xOffset":I
     const/16 v23, 0x0
 
-    .line 320
-    .local v23, "yOffset":I
     const/16 v24, 0x1
 
     aget v24, v18, v24
@@ -255,7 +205,6 @@
 
     sub-int v23, v24, v20
 
-    .line 321
     const/16 v24, 0x0
 
     aget v24, v18, v24
@@ -306,7 +255,6 @@
 
     sub-int v22, v24, v11
 
-    .line 323
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/ActionBarContextView$2;->this$0:Lcom/android/internal/widget/ActionBarContextView;
@@ -327,15 +275,12 @@
 
     move-result-object v3
 
-    .line 324
-    .local v3, "cheatSheet":Landroid/widget/Toast;
     invoke-virtual/range {p1 .. p1}, Landroid/view/View;->getLayoutDirection()I
 
     move-result v24
 
     if-nez v24, :cond_1
 
-    .line 325
     invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v24
@@ -358,10 +303,8 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 326
     if-eqz v9, :cond_0
 
-    .line 327
     div-float v24, v12, v5
 
     mul-float v24, v24, v13
@@ -374,7 +317,6 @@
 
     sub-int v22, v22, v24
 
-    .line 330
     :cond_0
     const/16 v24, 0x35
 
@@ -386,16 +328,13 @@
 
     invoke-virtual {v3, v0, v1, v2}, Landroid/widget/Toast;->setGravity(III)V
 
-    .line 336
     :goto_0
     invoke-virtual {v3}, Landroid/widget/Toast;->show()V
 
-    .line 337
     const/16 v24, 0x1
 
     return v24
 
-    .line 332
     :cond_1
     const/16 v24, 0x0
 
@@ -445,7 +384,6 @@
 
     sub-int v22, v24, v11
 
-    .line 333
     const/16 v24, 0x33
 
     move/from16 v0, v24

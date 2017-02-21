@@ -24,15 +24,10 @@
 # direct methods
 .method public constructor <init>(Landroid/security/net/config/ApplicationConfig;)V
     .locals 0
-    .param p1, "config"    # Landroid/security/net/config/ApplicationConfig;
 
-    .prologue
-    .line 71
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 72
     iput-object p1, p0, Landroid/security/net/config/RootTrustManagerFactorySpi$ApplicationConfigParameters;->config:Landroid/security/net/config/ApplicationConfig;
 
-    .line 71
     return-void
 .end method

@@ -32,14 +32,7 @@
 # direct methods
 .method constructor <init>(Landroid/telecom/RemoteConnection;Landroid/telecom/RemoteConnection$Callback;Landroid/telecom/RemoteConnection;Ljava/lang/String;I)V
     .locals 0
-    .param p1, "this$0"    # Landroid/telecom/RemoteConnection;
-    .param p2, "val$callback"    # Landroid/telecom/RemoteConnection$Callback;
-    .param p3, "val$connection"    # Landroid/telecom/RemoteConnection;
-    .param p4, "val$callerDisplayName"    # Ljava/lang/String;
-    .param p5, "val$presentation"    # I
 
-    .prologue
-    .line 1304
     iput-object p1, p0, Landroid/telecom/RemoteConnection$14;->this$0:Landroid/telecom/RemoteConnection;
 
     iput-object p2, p0, Landroid/telecom/RemoteConnection$14;->val$callback:Landroid/telecom/RemoteConnection$Callback;
@@ -60,20 +53,15 @@
 .method public run()V
     .locals 4
 
-    .prologue
-    .line 1307
     iget-object v0, p0, Landroid/telecom/RemoteConnection$14;->val$callback:Landroid/telecom/RemoteConnection$Callback;
 
-    .line 1308
     iget-object v1, p0, Landroid/telecom/RemoteConnection$14;->val$connection:Landroid/telecom/RemoteConnection;
 
     iget-object v2, p0, Landroid/telecom/RemoteConnection$14;->val$callerDisplayName:Ljava/lang/String;
 
     iget v3, p0, Landroid/telecom/RemoteConnection$14;->val$presentation:I
 
-    .line 1307
     invoke-virtual {v0, v1, v2, v3}, Landroid/telecom/RemoteConnection$Callback;->onCallerDisplayNameChanged(Landroid/telecom/RemoteConnection;Ljava/lang/String;I)V
 
-    .line 1306
     return-void
 .end method

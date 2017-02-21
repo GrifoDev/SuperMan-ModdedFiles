@@ -27,8 +27,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 68
     invoke-interface {p0}, Landroid/animation/Keyframes;->clone()Landroid/animation/Keyframes;
 
     move-result-object v0

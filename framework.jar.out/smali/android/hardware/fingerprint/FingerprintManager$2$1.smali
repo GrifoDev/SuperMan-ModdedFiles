@@ -28,12 +28,7 @@
 # direct methods
 .method constructor <init>(Landroid/hardware/fingerprint/FingerprintManager$2;Landroid/os/PowerManager$WakeLock;Landroid/hardware/fingerprint/FingerprintManager$LockoutResetCallback;)V
     .locals 0
-    .param p1, "this$1"    # Landroid/hardware/fingerprint/FingerprintManager$2;
-    .param p2, "val$wakeLock"    # Landroid/os/PowerManager$WakeLock;
-    .param p3, "val$callback"    # Landroid/hardware/fingerprint/FingerprintManager$LockoutResetCallback;
 
-    .prologue
-    .line 1057
     iput-object p1, p0, Landroid/hardware/fingerprint/FingerprintManager$2$1;->this$1:Landroid/hardware/fingerprint/FingerprintManager$2;
 
     iput-object p2, p0, Landroid/hardware/fingerprint/FingerprintManager$2$1;->val$wakeLock:Landroid/os/PowerManager$WakeLock;
@@ -50,8 +45,6 @@
 .method public run()V
     .locals 2
 
-    .prologue
-    .line 1061
     :try_start_0
     iget-object v0, p0, Landroid/hardware/fingerprint/FingerprintManager$2$1;->val$callback:Landroid/hardware/fingerprint/FingerprintManager$LockoutResetCallback;
 
@@ -59,23 +52,18 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 1063
     iget-object v0, p0, Landroid/hardware/fingerprint/FingerprintManager$2$1;->val$wakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
 
-    .line 1059
     return-void
 
-    .line 1062
     :catchall_0
     move-exception v0
 
-    .line 1063
     iget-object v1, p0, Landroid/hardware/fingerprint/FingerprintManager$2$1;->val$wakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v1}, Landroid/os/PowerManager$WakeLock;->release()V
 
-    .line 1062
     throw v0
 .end method

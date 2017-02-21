@@ -31,8 +31,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 463
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -42,18 +40,13 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/content/ContentValues;
     .locals 3
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
     const/4 v2, 0x0
 
-    .line 467
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->readHashMap(Ljava/lang/ClassLoader;)Ljava/util/HashMap;
 
     move-result-object v0
 
-    .line 468
-    .local v0, "values":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;"
     new-instance v1, Landroid/content/ContentValues;
 
     invoke-direct {v1, v0, v2}, Landroid/content/ContentValues;-><init>(Ljava/util/HashMap;Landroid/content/ContentValues;)V
@@ -63,10 +56,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 465
     invoke-virtual {p0, p1}, Landroid/content/ContentValues$1;->createFromParcel(Landroid/os/Parcel;)Landroid/content/ContentValues;
 
     move-result-object v0
@@ -76,10 +66,7 @@
 
 .method public newArray(I)[Landroid/content/ContentValues;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 472
     new-array v0, p1, [Landroid/content/ContentValues;
 
     return-object v0
@@ -87,10 +74,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 471
     invoke-virtual {p0, p1}, Landroid/content/ContentValues$1;->newArray(I)[Landroid/content/ContentValues;
 
     move-result-object v0

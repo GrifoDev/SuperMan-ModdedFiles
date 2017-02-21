@@ -31,43 +31,32 @@
 .method constructor <init>()V
     .locals 2
 
-    .prologue
-    .line 92
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 85
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
     iput-object v1, p0, Lcom/samsung/android/widget/SemNumberPicker$TwoDigitFormatter;->mBuilder:Ljava/lang/StringBuilder;
 
-    .line 90
     const/4 v1, 0x1
 
     new-array v1, v1, [Ljava/lang/Object;
 
     iput-object v1, p0, Lcom/samsung/android/widget/SemNumberPicker$TwoDigitFormatter;->mArgs:[Ljava/lang/Object;
 
-    .line 93
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
     move-result-object v0
 
-    .line 94
-    .local v0, "locale":Ljava/util/Locale;
     invoke-direct {p0, v0}, Lcom/samsung/android/widget/SemNumberPicker$TwoDigitFormatter;->init(Ljava/util/Locale;)V
 
-    .line 92
     return-void
 .end method
 
 .method private createFormatter(Ljava/util/Locale;)Ljava/util/Formatter;
     .locals 2
-    .param p1, "locale"    # Ljava/util/Locale;
 
-    .prologue
-    .line 118
     new-instance v0, Ljava/util/Formatter;
 
     iget-object v1, p0, Lcom/samsung/android/widget/SemNumberPicker$TwoDigitFormatter;->mBuilder:Ljava/lang/StringBuilder;
@@ -79,10 +68,7 @@
 
 .method private static getZeroDigit(Ljava/util/Locale;)C
     .locals 1
-    .param p0, "locale"    # Ljava/util/Locale;
 
-    .prologue
-    .line 114
     invoke-static {p0}, Llibcore/icu/LocaleData;->get(Ljava/util/Locale;)Llibcore/icu/LocaleData;
 
     move-result-object v0
@@ -94,24 +80,19 @@
 
 .method private init(Ljava/util/Locale;)V
     .locals 1
-    .param p1, "locale"    # Ljava/util/Locale;
 
-    .prologue
-    .line 98
     invoke-direct {p0, p1}, Lcom/samsung/android/widget/SemNumberPicker$TwoDigitFormatter;->createFormatter(Ljava/util/Locale;)Ljava/util/Formatter;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/samsung/android/widget/SemNumberPicker$TwoDigitFormatter;->mFmt:Ljava/util/Formatter;
 
-    .line 99
     invoke-static {p1}, Lcom/samsung/android/widget/SemNumberPicker$TwoDigitFormatter;->getZeroDigit(Ljava/util/Locale;)C
 
     move-result v0
 
     iput-char v0, p0, Lcom/samsung/android/widget/SemNumberPicker$TwoDigitFormatter;->mZeroDigit:C
 
-    .line 97
     return-void
 .end method
 
@@ -119,18 +100,13 @@
 # virtual methods
 .method public format(I)Ljava/lang/String;
     .locals 4
-    .param p1, "value"    # I
 
-    .prologue
     const/4 v3, 0x0
 
-    .line 103
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
     move-result-object v0
 
-    .line 104
-    .local v0, "currentLocale":Ljava/util/Locale;
     iget-char v1, p0, Lcom/samsung/android/widget/SemNumberPicker$TwoDigitFormatter;->mZeroDigit:C
 
     invoke-static {v0}, Lcom/samsung/android/widget/SemNumberPicker$TwoDigitFormatter;->getZeroDigit(Ljava/util/Locale;)C
@@ -139,10 +115,8 @@
 
     if-eq v1, v2, :cond_0
 
-    .line 105
     invoke-direct {p0, v0}, Lcom/samsung/android/widget/SemNumberPicker$TwoDigitFormatter;->init(Ljava/util/Locale;)V
 
-    .line 107
     :cond_0
     iget-object v1, p0, Lcom/samsung/android/widget/SemNumberPicker$TwoDigitFormatter;->mArgs:[Ljava/lang/Object;
 
@@ -152,7 +126,6 @@
 
     aput-object v2, v1, v3
 
-    .line 108
     iget-object v1, p0, Lcom/samsung/android/widget/SemNumberPicker$TwoDigitFormatter;->mBuilder:Ljava/lang/StringBuilder;
 
     iget-object v2, p0, Lcom/samsung/android/widget/SemNumberPicker$TwoDigitFormatter;->mBuilder:Ljava/lang/StringBuilder;
@@ -163,7 +136,6 @@
 
     invoke-virtual {v1, v3, v2}, Ljava/lang/StringBuilder;->delete(II)Ljava/lang/StringBuilder;
 
-    .line 109
     iget-object v1, p0, Lcom/samsung/android/widget/SemNumberPicker$TwoDigitFormatter;->mFmt:Ljava/util/Formatter;
 
     const-string/jumbo v2, "%02d"
@@ -172,7 +144,6 @@
 
     invoke-virtual {v1, v2, v3}, Ljava/util/Formatter;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/util/Formatter;
 
-    .line 110
     iget-object v1, p0, Lcom/samsung/android/widget/SemNumberPicker$TwoDigitFormatter;->mFmt:Ljava/util/Formatter;
 
     invoke-virtual {v1}, Ljava/util/Formatter;->toString()Ljava/lang/String;

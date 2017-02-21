@@ -415,7 +415,6 @@
 .method static constructor <clinit>()V
     .locals 8
 
-    .prologue
     const/4 v7, 0x4
 
     const/4 v6, 0x3
@@ -426,7 +425,6 @@
 
     const/4 v3, 0x0
 
-    .line 1261
     new-instance v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
     const-string/jumbo v1, "KNOX_CONTAINER_VERSION_NONE"
@@ -435,7 +433,6 @@
 
     sput-object v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_NONE:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
-    .line 1262
     new-instance v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
     const-string/jumbo v1, "KNOX_CONTAINER_VERSION_1_0_0"
@@ -444,7 +441,6 @@
 
     sput-object v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_1_0_0:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
-    .line 1263
     new-instance v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
     const-string/jumbo v1, "KNOX_CONTAINER_VERSION_2_0_0"
@@ -453,7 +449,6 @@
 
     sput-object v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_2_0_0:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
-    .line 1264
     new-instance v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
     const-string/jumbo v1, "KNOX_CONTAINER_VERSION_2_1_0"
@@ -462,7 +457,6 @@
 
     sput-object v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_2_1_0:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
-    .line 1265
     new-instance v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
     const-string/jumbo v1, "KNOX_CONTAINER_VERSION_2_2_0"
@@ -471,7 +465,6 @@
 
     sput-object v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_2_2_0:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
-    .line 1266
     new-instance v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
     const-string/jumbo v1, "KNOX_CONTAINER_VERSION_2_3_0"
@@ -482,7 +475,6 @@
 
     sput-object v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_2_3_0:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
-    .line 1267
     new-instance v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
     const-string/jumbo v1, "KNOX_CONTAINER_VERSION_2_3_1"
@@ -493,7 +485,6 @@
 
     sput-object v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_2_3_1:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
-    .line 1268
     new-instance v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
     const-string/jumbo v1, "KNOX_CONTAINER_VERSION_2_4_0"
@@ -504,7 +495,6 @@
 
     sput-object v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_2_4_0:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
-    .line 1269
     new-instance v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
     const-string/jumbo v1, "KNOX_CONTAINER_VERSION_2_4_1"
@@ -515,7 +505,6 @@
 
     sput-object v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_2_4_1:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
-    .line 1270
     new-instance v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
     const-string/jumbo v1, "KNOX_CONTAINER_VERSION_2_5_0"
@@ -526,7 +515,6 @@
 
     sput-object v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_2_5_0:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
-    .line 1271
     new-instance v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
     const-string/jumbo v1, "KNOX_CONTAINER_VERSION_2_5_1"
@@ -535,10 +523,8 @@
 
     invoke-direct {v0, v1, v2}, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;-><init>(Ljava/lang/String;I)V
 
-    .line 1272
     sput-object v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_2_5_1:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
-    .line 1273
     new-instance v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
     const-string/jumbo v1, "KNOX_CONTAINER_VERSION_2_5_2"
@@ -547,10 +533,8 @@
 
     invoke-direct {v0, v1, v2}, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;-><init>(Ljava/lang/String;I)V
 
-    .line 1274
     sput-object v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_2_5_2:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
-    .line 1275
     new-instance v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
     const-string/jumbo v1, "KNOX_CONTAINER_VERSION_2_6_0"
@@ -559,10 +543,8 @@
 
     invoke-direct {v0, v1, v2}, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;-><init>(Ljava/lang/String;I)V
 
-    .line 1276
     sput-object v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_2_6_0:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
-    .line 1277
     new-instance v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
     const-string/jumbo v1, "KNOX_CONTAINER_VERSION_2_6_1"
@@ -571,10 +553,8 @@
 
     invoke-direct {v0, v1, v2}, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;-><init>(Ljava/lang/String;I)V
 
-    .line 1278
     sput-object v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_2_6_1:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
-    .line 1279
     new-instance v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
     const-string/jumbo v1, "KNOX_CONTAINER_VERSION_2_7_0"
@@ -583,10 +563,8 @@
 
     invoke-direct {v0, v1, v2}, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;-><init>(Ljava/lang/String;I)V
 
-    .line 1280
     sput-object v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_2_7_0:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
-    .line 1281
     new-instance v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
     const-string/jumbo v1, "KNOX_CONTAINER_VERSION_2_7_1"
@@ -595,10 +573,8 @@
 
     invoke-direct {v0, v1, v2}, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;-><init>(Ljava/lang/String;I)V
 
-    .line 1282
     sput-object v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_2_7_1:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
-    .line 1283
     new-instance v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
     const-string/jumbo v1, "KNOX_CONTAINER_VERSION_2_8_0"
@@ -607,10 +583,8 @@
 
     invoke-direct {v0, v1, v2}, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;-><init>(Ljava/lang/String;I)V
 
-    .line 1284
     sput-object v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_2_8_0:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
-    .line 1260
     const/16 v0, 0x11
 
     new-array v0, v0, [Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
@@ -715,8 +689,6 @@
 .method private constructor <init>(Ljava/lang/String;I)V
     .locals 0
 
-    .prologue
-    .line 1260
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -724,10 +696,7 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
-    .prologue
-    .line 1260
     const-class v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -742,8 +711,6 @@
 .method public static values()[Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
     .locals 1
 
-    .prologue
-    .line 1260
     sget-object v0, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->$VALUES:[Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
 
     return-object v0
@@ -754,8 +721,6 @@
 .method public getVersionNumber()I
     .locals 2
 
-    .prologue
-    .line 1329
     invoke-static {}, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->-getcom-samsung-android-knox-SemPersonaManager$KnoxContainerVersionSwitchesValues()[I
 
     move-result-object v0
@@ -768,108 +733,90 @@
 
     packed-switch v0, :pswitch_data_0
 
-    .line 1365
     const/4 v0, -0x1
 
     return v0
 
-    .line 1331
     :pswitch_0
     const/16 v0, 0x64
 
     return v0
 
-    .line 1333
     :pswitch_1
     const/16 v0, 0xc8
 
     return v0
 
-    .line 1335
     :pswitch_2
     const/16 v0, 0xd2
 
     return v0
 
-    .line 1337
     :pswitch_3
     const/16 v0, 0xdc
 
     return v0
 
-    .line 1339
     :pswitch_4
     const/16 v0, 0xe6
 
     return v0
 
-    .line 1341
     :pswitch_5
     const/16 v0, 0xe7
 
     return v0
 
-    .line 1343
     :pswitch_6
     const/16 v0, 0xf0
 
     return v0
 
-    .line 1345
     :pswitch_7
     const/16 v0, 0xf1
 
     return v0
 
-    .line 1347
     :pswitch_8
     const/16 v0, 0xfa
 
     return v0
 
-    .line 1349
     :pswitch_9
     const/16 v0, 0xfb
 
     return v0
 
-    .line 1351
     :pswitch_a
     const/16 v0, 0xfc
 
     return v0
 
-    .line 1353
     :pswitch_b
     const/16 v0, 0x104
 
     return v0
 
-    .line 1355
     :pswitch_c
     const/16 v0, 0x105
 
     return v0
 
-    .line 1357
     :pswitch_d
     const/16 v0, 0x10e
 
     return v0
 
-    .line 1359
     :pswitch_e
     const/16 v0, 0x10f
 
     return v0
 
-    .line 1361
     :pswitch_f
     const/16 v0, 0x118
 
     return v0
 
-    .line 1329
     nop
 
     :pswitch_data_0
@@ -896,8 +843,6 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 1288
     invoke-static {}, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->-getcom-samsung-android-knox-SemPersonaManager$KnoxContainerVersionSwitchesValues()[I
 
     move-result-object v0
@@ -910,108 +855,90 @@
 
     packed-switch v0, :pswitch_data_0
 
-    .line 1323
     const-string/jumbo v0, "N/A"
 
     return-object v0
 
-    .line 1290
     :pswitch_0
     const-string/jumbo v0, "1.0.0"
 
     return-object v0
 
-    .line 1292
     :pswitch_1
     const-string/jumbo v0, "2.0.0"
 
     return-object v0
 
-    .line 1294
     :pswitch_2
     const-string/jumbo v0, "2.1.0"
 
     return-object v0
 
-    .line 1296
     :pswitch_3
     const-string/jumbo v0, "2.2.0"
 
     return-object v0
 
-    .line 1298
     :pswitch_4
     const-string/jumbo v0, "2.3.0"
 
     return-object v0
 
-    .line 1300
     :pswitch_5
     const-string/jumbo v0, "2.3.1"
 
     return-object v0
 
-    .line 1302
     :pswitch_6
     const-string/jumbo v0, "2.4.0"
 
     return-object v0
 
-    .line 1304
     :pswitch_7
     const-string/jumbo v0, "2.4.1"
 
     return-object v0
 
-    .line 1306
     :pswitch_8
     const-string/jumbo v0, "2.5.0"
 
     return-object v0
 
-    .line 1308
     :pswitch_9
     const-string/jumbo v0, "2.5.1"
 
     return-object v0
 
-    .line 1310
     :pswitch_a
     const-string/jumbo v0, "2.5.2"
 
     return-object v0
 
-    .line 1312
     :pswitch_b
     const-string/jumbo v0, "2.6.0"
 
     return-object v0
 
-    .line 1314
     :pswitch_c
     const-string/jumbo v0, "2.6.1"
 
     return-object v0
 
-    .line 1316
     :pswitch_d
     const-string/jumbo v0, "2.7.0"
 
     return-object v0
 
-    .line 1318
     :pswitch_e
     const-string/jumbo v0, "2.7.1"
 
     return-object v0
 
-    .line 1320
     :pswitch_f
     const-string/jumbo v0, "2.8.0"
 
     return-object v0
 
-    .line 1288
     nop
 
     :pswitch_data_0

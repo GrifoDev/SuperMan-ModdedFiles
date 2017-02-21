@@ -33,38 +33,25 @@
 # direct methods
 .method private constructor <init>(IILandroid/hardware/hdmi/HdmiRecordSources$DigitalServiceIdentification;)V
     .locals 2
-    .param p1, "identificatinoMethod"    # I
-    .param p2, "broadcastSystem"    # I
-    .param p3, "identification"    # Landroid/hardware/hdmi/HdmiRecordSources$DigitalServiceIdentification;
 
-    .prologue
-    .line 521
     const/4 v0, 0x2
 
     const/4 v1, 0x7
 
     invoke-direct {p0, v0, v1}, Landroid/hardware/hdmi/HdmiRecordSources$RecordSource;-><init>(II)V
 
-    .line 522
     iput p1, p0, Landroid/hardware/hdmi/HdmiRecordSources$DigitalServiceSource;->mIdentificationMethod:I
 
-    .line 523
     iput p2, p0, Landroid/hardware/hdmi/HdmiRecordSources$DigitalServiceSource;->mBroadcastSystem:I
 
-    .line 524
     iput-object p3, p0, Landroid/hardware/hdmi/HdmiRecordSources$DigitalServiceSource;->mIdentification:Landroid/hardware/hdmi/HdmiRecordSources$DigitalServiceIdentification;
 
-    .line 520
     return-void
 .end method
 
 .method synthetic constructor <init>(IILandroid/hardware/hdmi/HdmiRecordSources$DigitalServiceIdentification;Landroid/hardware/hdmi/HdmiRecordSources$DigitalServiceSource;)V
     .locals 0
-    .param p1, "identificatinoMethod"    # I
-    .param p2, "broadcastSystem"    # I
-    .param p3, "identification"    # Landroid/hardware/hdmi/HdmiRecordSources$DigitalServiceIdentification;
 
-    .prologue
     invoke-direct {p0, p1, p2, p3}, Landroid/hardware/hdmi/HdmiRecordSources$DigitalServiceSource;-><init>(IILandroid/hardware/hdmi/HdmiRecordSources$DigitalServiceIdentification;)V
 
     return-void
@@ -74,11 +61,7 @@
 # virtual methods
 .method extraParamToByteArray([BI)I
     .locals 2
-    .param p1, "data"    # [B
-    .param p2, "index"    # I
 
-    .prologue
-    .line 529
     iget v0, p0, Landroid/hardware/hdmi/HdmiRecordSources$DigitalServiceSource;->mIdentificationMethod:I
 
     shl-int/lit8 v0, v0, 0x7
@@ -93,14 +76,12 @@
 
     aput-byte v0, p1, p2
 
-    .line 530
     iget-object v0, p0, Landroid/hardware/hdmi/HdmiRecordSources$DigitalServiceSource;->mIdentification:Landroid/hardware/hdmi/HdmiRecordSources$DigitalServiceIdentification;
 
     add-int/lit8 v1, p2, 0x1
 
     invoke-interface {v0, p1, v1}, Landroid/hardware/hdmi/HdmiRecordSources$DigitalServiceIdentification;->toByteArray([BI)I
 
-    .line 531
     const/4 v0, 0x7
 
     return v0

@@ -26,11 +26,7 @@
 # direct methods
 .method constructor <init>(Landroid/widget/SemHorizontalAbsListView;Z)V
     .locals 0
-    .param p1, "this$0"    # Landroid/widget/SemHorizontalAbsListView;
-    .param p2, "val$alwaysShow"    # Z
 
-    .prologue
-    .line 1794
     iput-object p1, p0, Landroid/widget/SemHorizontalAbsListView$3;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
     iput-boolean p2, p0, Landroid/widget/SemHorizontalAbsListView$3;->val$alwaysShow:Z
@@ -45,14 +41,11 @@
 .method public run()V
     .locals 2
 
-    .prologue
-    .line 1797
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView$3;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
     iget-boolean v1, p0, Landroid/widget/SemHorizontalAbsListView$3;->val$alwaysShow:Z
 
     invoke-static {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->-wrap11(Landroid/widget/SemHorizontalAbsListView;Z)V
 
-    .line 1796
     return-void
 .end method

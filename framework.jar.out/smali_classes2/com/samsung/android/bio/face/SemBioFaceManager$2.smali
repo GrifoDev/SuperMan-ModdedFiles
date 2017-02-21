@@ -44,20 +44,7 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/bio/face/SemBioFaceManager;Lcom/samsung/android/bio/face/SemBioFaceManager$CryptoObject;Landroid/os/CancellationSignal;ILcom/samsung/android/bio/face/SemBioFaceManager$AuthenticationCallback;Landroid/os/Handler;ILandroid/os/Bundle;Landroid/view/View;J[B)V
     .locals 0
-    .param p1, "this$0"    # Lcom/samsung/android/bio/face/SemBioFaceManager;
-    .param p2, "val$crypto"    # Lcom/samsung/android/bio/face/SemBioFaceManager$CryptoObject;
-    .param p3, "val$cancel"    # Landroid/os/CancellationSignal;
-    .param p4, "val$flags"    # I
-    .param p5, "val$callback"    # Lcom/samsung/android/bio/face/SemBioFaceManager$AuthenticationCallback;
-    .param p6, "val$handler"    # Landroid/os/Handler;
-    .param p7, "val$userId"    # I
-    .param p8, "val$attr"    # Landroid/os/Bundle;
-    .param p9, "val$faceView"    # Landroid/view/View;
-    .param p10, "val$sessionId"    # J
-    .param p12, "val$fidoRequestData"    # [B
 
-    .prologue
-    .line 875
     iput-object p1, p0, Lcom/samsung/android/bio/face/SemBioFaceManager$2;->this$0:Lcom/samsung/android/bio/face/SemBioFaceManager;
 
     iput-object p2, p0, Lcom/samsung/android/bio/face/SemBioFaceManager$2;->val$crypto:Lcom/samsung/android/bio/face/SemBioFaceManager$CryptoObject;
@@ -90,8 +77,6 @@
 .method public run()V
     .locals 13
 
-    .prologue
-    .line 877
     iget-object v1, p0, Lcom/samsung/android/bio/face/SemBioFaceManager$2;->this$0:Lcom/samsung/android/bio/face/SemBioFaceManager;
 
     iget-object v2, p0, Lcom/samsung/android/bio/face/SemBioFaceManager$2;->val$crypto:Lcom/samsung/android/bio/face/SemBioFaceManager$CryptoObject;
@@ -116,6 +101,5 @@
 
     invoke-static/range {v1 .. v12}, Lcom/samsung/android/bio/face/SemBioFaceManager;->-wrap4(Lcom/samsung/android/bio/face/SemBioFaceManager;Lcom/samsung/android/bio/face/SemBioFaceManager$CryptoObject;Landroid/os/CancellationSignal;ILcom/samsung/android/bio/face/SemBioFaceManager$AuthenticationCallback;Landroid/os/Handler;ILandroid/os/Bundle;Landroid/view/View;J[B)V
 
-    .line 876
     return-void
 .end method

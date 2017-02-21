@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/view/ViewGroup;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/view/ViewGroup;
 
-    .prologue
-    .line 3802
     iput-object p1, p0, Landroid/view/ViewGroup$3;->this$0:Landroid/view/ViewGroup;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,12 +37,9 @@
 .method public run()V
     .locals 1
 
-    .prologue
-    .line 3805
     iget-object v0, p0, Landroid/view/ViewGroup$3;->this$0:Landroid/view/ViewGroup;
 
     invoke-static {v0}, Landroid/view/ViewGroup;->-wrap1(Landroid/view/ViewGroup;)V
 
-    .line 3804
     return-void
 .end method

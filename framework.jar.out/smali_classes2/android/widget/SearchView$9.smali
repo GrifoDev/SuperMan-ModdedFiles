@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/widget/SearchView;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/widget/SearchView;
 
-    .prologue
-    .line 1927
     iput-object p1, p0, Landroid/widget/SearchView$9;->this$0:Landroid/widget/SearchView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,38 +36,22 @@
 # virtual methods
 .method public afterTextChanged(Landroid/text/Editable;)V
     .locals 0
-    .param p1, "s"    # Landroid/text/Editable;
 
-    .prologue
-    .line 1936
     return-void
 .end method
 
 .method public beforeTextChanged(Ljava/lang/CharSequence;III)V
     .locals 0
-    .param p1, "s"    # Ljava/lang/CharSequence;
-    .param p2, "start"    # I
-    .param p3, "before"    # I
-    .param p4, "after"    # I
 
-    .prologue
-    .line 1929
     return-void
 .end method
 
 .method public onTextChanged(Ljava/lang/CharSequence;III)V
     .locals 1
-    .param p1, "s"    # Ljava/lang/CharSequence;
-    .param p2, "start"    # I
-    .param p3, "before"    # I
-    .param p4, "after"    # I
 
-    .prologue
-    .line 1933
     iget-object v0, p0, Landroid/widget/SearchView$9;->this$0:Landroid/widget/SearchView;
 
     invoke-static {v0, p1}, Landroid/widget/SearchView;->-wrap9(Landroid/widget/SearchView;Ljava/lang/CharSequence;)V
 
-    .line 1932
     return-void
 .end method

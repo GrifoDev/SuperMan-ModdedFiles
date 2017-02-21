@@ -25,10 +25,7 @@
 # direct methods
 .method private constructor <init>(Lcom/samsung/android/camera/core/SemCamera;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/samsung/android/camera/core/SemCamera;
 
-    .prologue
-    .line 2255
     iput-object p1, p0, Lcom/samsung/android/camera/core/SemCamera$SlowMotionEvent;->this$0:Lcom/samsung/android/camera/core/SemCamera;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,9 +35,7 @@
 
 .method synthetic constructor <init>(Lcom/samsung/android/camera/core/SemCamera;Lcom/samsung/android/camera/core/SemCamera$SlowMotionEvent;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/samsung/android/camera/core/SemCamera;
 
-    .prologue
     invoke-direct {p0, p1}, Lcom/samsung/android/camera/core/SemCamera$SlowMotionEvent;-><init>(Lcom/samsung/android/camera/core/SemCamera;)V
 
     return-void

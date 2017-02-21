@@ -28,29 +28,23 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/widget/FloatingToolbar;)V
     .locals 1
-    .param p1, "this$0"    # Lcom/android/internal/widget/FloatingToolbar;
 
-    .prologue
-    .line 119
     iput-object p1, p0, Lcom/android/internal/widget/FloatingToolbar$2;->this$0:Lcom/android/internal/widget/FloatingToolbar;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 121
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v0, p0, Lcom/android/internal/widget/FloatingToolbar$2;->mNewRect:Landroid/graphics/Rect;
 
-    .line 122
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v0, p0, Lcom/android/internal/widget/FloatingToolbar$2;->mOldRect:Landroid/graphics/Rect;
 
-    .line 119
     return-void
 .end method
 
@@ -58,28 +52,15 @@
 # virtual methods
 .method public onLayoutChange(Landroid/view/View;IIIIIIII)V
     .locals 2
-    .param p1, "view"    # Landroid/view/View;
-    .param p2, "newLeft"    # I
-    .param p3, "newRight"    # I
-    .param p4, "newTop"    # I
-    .param p5, "newBottom"    # I
-    .param p6, "oldLeft"    # I
-    .param p7, "oldRight"    # I
-    .param p8, "oldTop"    # I
-    .param p9, "oldBottom"    # I
 
-    .prologue
-    .line 129
     iget-object v0, p0, Lcom/android/internal/widget/FloatingToolbar$2;->mNewRect:Landroid/graphics/Rect;
 
     invoke-virtual {v0, p2, p3, p4, p5}, Landroid/graphics/Rect;->set(IIII)V
 
-    .line 130
     iget-object v0, p0, Lcom/android/internal/widget/FloatingToolbar$2;->mOldRect:Landroid/graphics/Rect;
 
     invoke-virtual {v0, p6, p7, p8, p9}, Landroid/graphics/Rect;->set(IIII)V
 
-    .line 131
     iget-object v0, p0, Lcom/android/internal/widget/FloatingToolbar$2;->this$0:Lcom/android/internal/widget/FloatingToolbar;
 
     invoke-static {v0}, Lcom/android/internal/widget/FloatingToolbar;->-get1(Lcom/android/internal/widget/FloatingToolbar;)Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
@@ -102,12 +83,10 @@
 
     if-eqz v0, :cond_1
 
-    .line 128
     :cond_0
     :goto_0
     return-void
 
-    .line 132
     :cond_1
     iget-object v0, p0, Lcom/android/internal/widget/FloatingToolbar$2;->this$0:Lcom/android/internal/widget/FloatingToolbar;
 

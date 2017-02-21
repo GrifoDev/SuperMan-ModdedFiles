@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/app/CustomBootMsgDialog$2;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/samsung/android/app/CustomBootMsgDialog$2;
 
-    .prologue
-    .line 131
     iput-object p1, p0, Lcom/samsung/android/app/CustomBootMsgDialog$2$1;->this$1:Lcom/samsung/android/app/CustomBootMsgDialog$2;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,8 +37,6 @@
 .method public run()V
     .locals 4
 
-    .prologue
-    .line 134
     iget-object v0, p0, Lcom/samsung/android/app/CustomBootMsgDialog$2$1;->this$1:Lcom/samsung/android/app/CustomBootMsgDialog$2;
 
     iget-object v0, v0, Lcom/samsung/android/app/CustomBootMsgDialog$2;->this$0:Lcom/samsung/android/app/CustomBootMsgDialog;
@@ -50,7 +45,6 @@
 
     invoke-static {v0, v2, v3}, Lcom/samsung/android/app/CustomBootMsgDialog;->-set1(Lcom/samsung/android/app/CustomBootMsgDialog;J)J
 
-    .line 135
     iget-object v0, p0, Lcom/samsung/android/app/CustomBootMsgDialog$2$1;->this$1:Lcom/samsung/android/app/CustomBootMsgDialog$2;
 
     iget-object v0, v0, Lcom/samsung/android/app/CustomBootMsgDialog$2;->this$0:Lcom/samsung/android/app/CustomBootMsgDialog;
@@ -59,7 +53,6 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/app/CustomBootMsgDialog;->-set0(Lcom/samsung/android/app/CustomBootMsgDialog;Z)Z
 
-    .line 136
     iget-object v0, p0, Lcom/samsung/android/app/CustomBootMsgDialog$2$1;->this$1:Lcom/samsung/android/app/CustomBootMsgDialog$2;
 
     iget-object v0, v0, Lcom/samsung/android/app/CustomBootMsgDialog$2;->this$0:Lcom/samsung/android/app/CustomBootMsgDialog;
@@ -78,6 +71,5 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->postOnAnimation(Ljava/lang/Runnable;)V
 
-    .line 133
     return-void
 .end method

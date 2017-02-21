@@ -23,15 +23,11 @@
 # direct methods
 .method public constructor <init>(Landroid/app/WallpaperManager;)V
     .locals 2
-    .param p1, "this$0"    # Landroid/app/WallpaperManager;
 
-    .prologue
-    .line 2469
     iput-object p1, p0, Landroid/app/WallpaperManager$WallpaperSetCompletion;->this$0:Landroid/app/WallpaperManager;
 
     invoke-direct {p0}, Landroid/app/IWallpaperManagerCallback$Stub;-><init>()V
 
-    .line 2470
     new-instance v0, Ljava/util/concurrent/CountDownLatch;
 
     const/4 v1, 0x1
@@ -40,7 +36,6 @@
 
     iput-object v0, p0, Landroid/app/WallpaperManager$WallpaperSetCompletion;->mLatch:Ljava/util/concurrent/CountDownLatch;
 
-    .line 2469
     return-void
 .end method
 
@@ -54,21 +49,16 @@
         }
     .end annotation
 
-    .prologue
-    .line 2485
     iget-object v0, p0, Landroid/app/WallpaperManager$WallpaperSetCompletion;->mLatch:Ljava/util/concurrent/CountDownLatch;
 
     invoke-virtual {v0}, Ljava/util/concurrent/CountDownLatch;->countDown()V
 
-    .line 2484
     return-void
 .end method
 
 .method public waitForCompletion()V
     .locals 5
 
-    .prologue
-    .line 2475
     :try_start_0
     iget-object v1, p0, Landroid/app/WallpaperManager$WallpaperSetCompletion;->mLatch:Ljava/util/concurrent/CountDownLatch;
 
@@ -80,14 +70,11 @@
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 2473
     :goto_0
     return-void
 
-    .line 2476
     :catch_0
     move-exception v0
 
-    .local v0, "e":Ljava/lang/InterruptedException;
     goto :goto_0
 .end method

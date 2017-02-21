@@ -30,13 +30,7 @@
 # direct methods
 .method constructor <init>(Landroid/hardware/SystemSensorManager;Ljava/util/List;Landroid/hardware/SensorManager$DynamicSensorCallback;Ljava/util/List;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/hardware/SystemSensorManager;
-    .param p3, "val$callback"    # Landroid/hardware/SensorManager$DynamicSensorCallback;
 
-    .prologue
-    .line 456
-    .local p2, "val$addedList":Ljava/util/List;, "Ljava/util/List<Landroid/hardware/Sensor;>;"
-    .local p4, "val$removedList":Ljava/util/List;, "Ljava/util/List<Landroid/hardware/Sensor;>;"
     iput-object p1, p0, Landroid/hardware/SystemSensorManager$1;->this$0:Landroid/hardware/SystemSensorManager;
 
     iput-object p2, p0, Landroid/hardware/SystemSensorManager$1;->val$addedList:Ljava/util/List;
@@ -55,15 +49,12 @@
 .method public run()V
     .locals 3
 
-    .prologue
-    .line 459
     iget-object v2, p0, Landroid/hardware/SystemSensorManager$1;->val$addedList:Ljava/util/List;
 
     invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    .local v1, "s$iterator":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -77,16 +68,12 @@
 
     check-cast v0, Landroid/hardware/Sensor;
 
-    .line 460
-    .local v0, "s":Landroid/hardware/Sensor;
     iget-object v2, p0, Landroid/hardware/SystemSensorManager$1;->val$callback:Landroid/hardware/SensorManager$DynamicSensorCallback;
 
     invoke-virtual {v2, v0}, Landroid/hardware/SensorManager$DynamicSensorCallback;->onDynamicSensorConnected(Landroid/hardware/Sensor;)V
 
     goto :goto_0
 
-    .line 462
-    .end local v0    # "s":Landroid/hardware/Sensor;
     :cond_0
     iget-object v2, p0, Landroid/hardware/SystemSensorManager$1;->val$removedList:Ljava/util/List;
 
@@ -107,16 +94,12 @@
 
     check-cast v0, Landroid/hardware/Sensor;
 
-    .line 463
-    .restart local v0    # "s":Landroid/hardware/Sensor;
     iget-object v2, p0, Landroid/hardware/SystemSensorManager$1;->val$callback:Landroid/hardware/SensorManager$DynamicSensorCallback;
 
     invoke-virtual {v2, v0}, Landroid/hardware/SensorManager$DynamicSensorCallback;->onDynamicSensorDisconnected(Landroid/hardware/Sensor;)V
 
     goto :goto_1
 
-    .line 458
-    .end local v0    # "s":Landroid/hardware/Sensor;
     :cond_1
     return-void
 .end method

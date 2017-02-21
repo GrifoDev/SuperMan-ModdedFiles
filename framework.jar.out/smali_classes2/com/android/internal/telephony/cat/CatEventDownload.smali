@@ -89,114 +89,82 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 70
     new-instance v0, Lcom/android/internal/telephony/cat/CatEventDownload$1;
 
     invoke-direct {v0}, Lcom/android/internal/telephony/cat/CatEventDownload$1;-><init>()V
 
-    .line 69
     sput-object v0, Lcom/android/internal/telephony/cat/CatEventDownload;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    .line 25
     return-void
 .end method
 
 .method public constructor <init>(I)V
     .locals 1
-    .param p1, "event"    # I
 
-    .prologue
-    .line 107
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 65
     const/16 v0, 0xfe
 
     iput v0, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mEvent:I
 
-    .line 66
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mLanguage:Ljava/lang/String;
 
-    .line 67
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mBrowserTerminationCause:I
 
-    .line 108
     invoke-virtual {p0, p1}, Lcom/android/internal/telephony/cat/CatEventDownload;->setEvent(I)V
 
-    .line 107
     return-void
 .end method
 
 .method public constructor <init>(II)V
     .locals 1
-    .param p1, "event"    # I
-    .param p2, "browserTerminationCause"    # I
 
-    .prologue
-    .line 111
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 65
     const/16 v0, 0xfe
 
     iput v0, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mEvent:I
 
-    .line 66
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mLanguage:Ljava/lang/String;
 
-    .line 67
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mBrowserTerminationCause:I
 
-    .line 112
     invoke-virtual {p0, p1}, Lcom/android/internal/telephony/cat/CatEventDownload;->setEvent(I)V
 
-    .line 113
     invoke-virtual {p0, p2}, Lcom/android/internal/telephony/cat/CatEventDownload;->setBrowserTerminationCause(I)V
 
-    .line 111
     return-void
 .end method
 
 .method public constructor <init>(ILjava/lang/String;)V
     .locals 1
-    .param p1, "event"    # I
-    .param p2, "language"    # Ljava/lang/String;
 
-    .prologue
-    .line 116
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 65
     const/16 v0, 0xfe
 
     iput v0, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mEvent:I
 
-    .line 66
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mLanguage:Ljava/lang/String;
 
-    .line 67
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mBrowserTerminationCause:I
 
-    .line 117
     invoke-virtual {p0, p1}, Lcom/android/internal/telephony/cat/CatEventDownload;->setEvent(I)V
 
-    .line 118
     invoke-virtual {p0, p2}, Lcom/android/internal/telephony/cat/CatEventDownload;->setLenguage(Ljava/lang/String;)V
 
-    .line 116
     return-void
 .end method
 
@@ -205,8 +173,6 @@
 .method public describeContents()I
     .locals 1
 
-    .prologue
-    .line 104
     const/4 v0, 0x0
 
     return v0
@@ -215,8 +181,6 @@
 .method public getBrowserTerminationCause()I
     .locals 1
 
-    .prologue
-    .line 138
     iget v0, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mBrowserTerminationCause:I
 
     return v0
@@ -225,8 +189,6 @@
 .method public getEvent()I
     .locals 1
 
-    .prologue
-    .line 126
     iget v0, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mEvent:I
 
     return v0
@@ -235,8 +197,6 @@
 .method public getLanguage()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 134
     iget-object v0, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mLanguage:Ljava/lang/String;
 
     return-object v0
@@ -244,61 +204,42 @@
 
 .method public setBrowserTerminationCause(I)V
     .locals 0
-    .param p1, "browserTerminationCause"    # I
 
-    .prologue
-    .line 142
     iput p1, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mBrowserTerminationCause:I
 
-    .line 141
     return-void
 .end method
 
 .method public setEvent(I)V
     .locals 0
-    .param p1, "event"    # I
 
-    .prologue
-    .line 122
     iput p1, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mEvent:I
 
-    .line 121
     return-void
 .end method
 
 .method public setLenguage(Ljava/lang/String;)V
     .locals 0
-    .param p1, "language"    # Ljava/lang/String;
 
-    .prologue
-    .line 130
     iput-object p1, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mLanguage:Ljava/lang/String;
 
-    .line 129
     return-void
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .param p1, "dest"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
-    .prologue
-    .line 98
     iget v0, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mEvent:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 99
     iget-object v0, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mLanguage:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 100
     iget v0, p0, Lcom/android/internal/telephony/cat/CatEventDownload;->mBrowserTerminationCause:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 96
     return-void
 .end method

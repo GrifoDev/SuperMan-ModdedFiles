@@ -420,9 +420,6 @@
 .method protected constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 67
-    .local p0, "this":Landroid/hardware/camera2/CameraMetadata;, "Landroid/hardware/camera2/CameraMetadata<TTKey;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -430,7 +427,6 @@
 
 .method static getKeysStatic(Ljava/lang/Class;Ljava/lang/Class;Landroid/hardware/camera2/CameraMetadata;[I)Ljava/util/ArrayList;
     .locals 14
-    .param p3, "filterTags"    # [I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<TKey:",
@@ -447,11 +443,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 137
-    .local p0, "type":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .local p1, "keyClass":Ljava/lang/Class;, "Ljava/lang/Class<TTKey;>;"
-    .local p2, "instance":Landroid/hardware/camera2/CameraMetadata;, "Landroid/hardware/camera2/CameraMetadata<TTKey;>;"
     const-class v11, Landroid/hardware/camera2/TotalCaptureResult;
 
     invoke-virtual {p0, v11}, Ljava/lang/Class;->equals(Ljava/lang/Object;)Z
@@ -460,30 +451,22 @@
 
     if-eqz v11, :cond_0
 
-    .line 138
     const-class p0, Landroid/hardware/camera2/CaptureResult;
 
-    .line 141
     :cond_0
     if-eqz p3, :cond_1
 
-    .line 142
     invoke-static/range {p3 .. p3}, Ljava/util/Arrays;->sort([I)V
 
-    .line 145
     :cond_1
     new-instance v8, Ljava/util/ArrayList;
 
     invoke-direct {v8}, Ljava/util/ArrayList;-><init>()V
 
-    .line 147
-    .local v8, "keyList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<TTKey;>;"
     invoke-virtual {p0}, Ljava/lang/Class;->getDeclaredFields()[Ljava/lang/reflect/Field;
 
     move-result-object v4
 
-    .line 148
-    .local v4, "fields":[Ljava/lang/reflect/Field;
     const/4 v11, 0x0
 
     array-length v12, v4
@@ -493,8 +476,6 @@
 
     aget-object v3, v4, v11
 
-    .line 150
-    .local v3, "field":Ljava/lang/reflect/Field;
     invoke-virtual {v3}, Ljava/lang/reflect/Field;->getType()Ljava/lang/Class;
 
     move-result-object v13
@@ -505,7 +486,6 @@
 
     if-eqz v13, :cond_3
 
-    .line 151
     invoke-virtual {v3}, Ljava/lang/reflect/Field;->getModifiers()I
 
     move-result v13
@@ -514,7 +494,6 @@
 
     if-eqz v13, :cond_3
 
-    .line 155
     :try_start_0
     move-object/from16 v0, p2
 
@@ -525,8 +504,6 @@
 
     move-result-object v7
 
-    .line 162
-    .local v7, "key":Ljava/lang/Object;, "TTKey;"
     if-eqz p2, :cond_2
 
     move-object/from16 v0, p2
@@ -537,7 +514,6 @@
 
     if-eqz v13, :cond_3
 
-    .line 163
     :cond_2
     move-object/from16 v0, p3
 
@@ -547,22 +523,16 @@
 
     if-eqz v13, :cond_3
 
-    .line 164
     invoke-virtual {v8, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 148
-    .end local v7    # "key":Ljava/lang/Object;, "TTKey;"
     :cond_3
     add-int/lit8 v11, v11, 0x1
 
     goto :goto_0
 
-    .line 158
     :catch_0
     move-exception v2
 
-    .line 159
-    .local v2, "e":Ljava/lang/IllegalArgumentException;
     new-instance v11, Ljava/lang/AssertionError;
 
     const-string/jumbo v12, "Can\'t get IllegalArgumentException"
@@ -571,13 +541,9 @@
 
     throw v11
 
-    .line 156
-    .end local v2    # "e":Ljava/lang/IllegalArgumentException;
     :catch_1
     move-exception v1
 
-    .line 157
-    .local v1, "e":Ljava/lang/IllegalAccessException;
     new-instance v11, Ljava/lang/AssertionError;
 
     const-string/jumbo v12, "Can\'t get IllegalAccessException"
@@ -586,24 +552,17 @@
 
     throw v11
 
-    .line 176
-    .end local v1    # "e":Ljava/lang/IllegalAccessException;
-    .end local v3    # "field":Ljava/lang/reflect/Field;
     :cond_4
     invoke-static {p1}, Landroid/hardware/camera2/impl/CameraMetadataNative;->getAllVendorKeys(Ljava/lang/Class;)Ljava/util/ArrayList;
 
     move-result-object v10
 
-    .line 178
-    .local v10, "vendorKeys":Ljava/util/ArrayList;, "Ljava/util/ArrayList<TTKey;>;"
     if-eqz v10, :cond_9
 
-    .line 179
     invoke-interface {v10}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v6
 
-    .local v6, "k$iterator":Ljava/util/Iterator;
     :cond_5
     :goto_1
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
@@ -616,32 +575,25 @@
 
     move-result-object v5
 
-    .line 181
-    .local v5, "k":Ljava/lang/Object;, "TTKey;"
     instance-of v11, v5, Landroid/hardware/camera2/CaptureRequest$Key;
 
     if-eqz v11, :cond_7
 
     move-object v11, v5
 
-    .line 182
     check-cast v11, Landroid/hardware/camera2/CaptureRequest$Key;
 
     invoke-virtual {v11}, Landroid/hardware/camera2/CaptureRequest$Key;->getName()Ljava/lang/String;
 
     move-result-object v9
 
-    .line 191
-    .local v9, "keyName":Ljava/lang/String;
     :goto_2
     if-eqz p3, :cond_6
 
-    .line 192
     invoke-static {v9}, Landroid/hardware/camera2/impl/CameraMetadataNative;->getTag(Ljava/lang/String;)I
 
     move-result v11
 
-    .line 191
     move-object/from16 v0, p3
 
     invoke-static {v0, v11}, Ljava/util/Arrays;->binarySearch([II)I
@@ -650,14 +602,11 @@
 
     if-ltz v11, :cond_5
 
-    .line 193
     :cond_6
     invoke-virtual {v8, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_1
 
-    .line 183
-    .end local v9    # "keyName":Ljava/lang/String;
     :cond_7
     instance-of v11, v5, Landroid/hardware/camera2/CaptureResult$Key;
 
@@ -665,18 +614,14 @@
 
     move-object v11, v5
 
-    .line 184
     check-cast v11, Landroid/hardware/camera2/CaptureResult$Key;
 
     invoke-virtual {v11}, Landroid/hardware/camera2/CaptureResult$Key;->getName()Ljava/lang/String;
 
     move-result-object v9
 
-    .restart local v9    # "keyName":Ljava/lang/String;
     goto :goto_2
 
-    .line 185
-    .end local v9    # "keyName":Ljava/lang/String;
     :cond_8
     instance-of v11, v5, Landroid/hardware/camera2/CameraCharacteristics$Key;
 
@@ -684,28 +629,20 @@
 
     move-object v11, v5
 
-    .line 186
     check-cast v11, Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     invoke-virtual {v11}, Landroid/hardware/camera2/CameraCharacteristics$Key;->getName()Ljava/lang/String;
 
     move-result-object v9
 
-    .restart local v9    # "keyName":Ljava/lang/String;
     goto :goto_2
 
-    .line 198
-    .end local v5    # "k":Ljava/lang/Object;, "TTKey;"
-    .end local v6    # "k$iterator":Ljava/util/Iterator;
-    .end local v9    # "keyName":Ljava/lang/String;
     :cond_9
     return-object v8
 .end method
 
 .method private static shouldKeyBeAdded(Ljava/lang/Object;Ljava/lang/reflect/Field;[I)Z
     .locals 5
-    .param p1, "field"    # Ljava/lang/reflect/Field;
-    .param p2, "filterTags"    # [I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<TKey:",
@@ -716,16 +653,12 @@
         }
     .end annotation
 
-    .prologue
-    .local p0, "key":Ljava/lang/Object;, "TTKey;"
     const/4 v2, 0x1
 
     const/4 v3, 0x0
 
-    .line 203
     if-nez p0, :cond_0
 
-    .line 204
     new-instance v2, Ljava/lang/NullPointerException;
 
     const-string/jumbo v3, "key must not be null"
@@ -734,22 +667,17 @@
 
     throw v2
 
-    .line 212
     :cond_0
     instance-of v4, p0, Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     if-eqz v4, :cond_1
 
-    .line 213
     check-cast p0, Landroid/hardware/camera2/CameraCharacteristics$Key;
 
-    .end local p0    # "key":Ljava/lang/Object;, "TTKey;"
     invoke-virtual {p0}, Landroid/hardware/camera2/CameraCharacteristics$Key;->getNativeKey()Landroid/hardware/camera2/impl/CameraMetadataNative$Key;
 
     move-result-object v1
 
-    .line 223
-    .local v1, "nativeKey":Landroid/hardware/camera2/impl/CameraMetadataNative$Key;
     :goto_0
     const-class v4, Landroid/hardware/camera2/impl/PublicKey;
 
@@ -759,50 +687,34 @@
 
     if-nez v4, :cond_4
 
-    .line 225
     return v3
 
-    .line 214
-    .end local v1    # "nativeKey":Landroid/hardware/camera2/impl/CameraMetadataNative$Key;
-    .restart local p0    # "key":Ljava/lang/Object;, "TTKey;"
     :cond_1
     instance-of v4, p0, Landroid/hardware/camera2/CaptureResult$Key;
 
     if-eqz v4, :cond_2
 
-    .line 215
     check-cast p0, Landroid/hardware/camera2/CaptureResult$Key;
 
-    .end local p0    # "key":Ljava/lang/Object;, "TTKey;"
     invoke-virtual {p0}, Landroid/hardware/camera2/CaptureResult$Key;->getNativeKey()Landroid/hardware/camera2/impl/CameraMetadataNative$Key;
 
     move-result-object v1
 
-    .restart local v1    # "nativeKey":Landroid/hardware/camera2/impl/CameraMetadataNative$Key;
     goto :goto_0
 
-    .line 216
-    .end local v1    # "nativeKey":Landroid/hardware/camera2/impl/CameraMetadataNative$Key;
-    .restart local p0    # "key":Ljava/lang/Object;, "TTKey;"
     :cond_2
     instance-of v4, p0, Landroid/hardware/camera2/CaptureRequest$Key;
 
     if-eqz v4, :cond_3
 
-    .line 217
     check-cast p0, Landroid/hardware/camera2/CaptureRequest$Key;
 
-    .end local p0    # "key":Ljava/lang/Object;, "TTKey;"
     invoke-virtual {p0}, Landroid/hardware/camera2/CaptureRequest$Key;->getNativeKey()Landroid/hardware/camera2/impl/CameraMetadataNative$Key;
 
     move-result-object v1
 
-    .restart local v1    # "nativeKey":Landroid/hardware/camera2/impl/CameraMetadataNative$Key;
     goto :goto_0
 
-    .line 220
-    .end local v1    # "nativeKey":Landroid/hardware/camera2/impl/CameraMetadataNative$Key;
-    .restart local p0    # "key":Ljava/lang/Object;, "TTKey;"
     :cond_3
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
@@ -812,16 +724,11 @@
 
     throw v2
 
-    .line 229
-    .end local p0    # "key":Ljava/lang/Object;, "TTKey;"
-    .restart local v1    # "nativeKey":Landroid/hardware/camera2/impl/CameraMetadataNative$Key;
     :cond_4
     if-nez p2, :cond_5
 
-    .line 230
     return v2
 
-    .line 233
     :cond_5
     const-class v4, Landroid/hardware/camera2/impl/SyntheticKey;
 
@@ -831,17 +738,13 @@
 
     if-eqz v4, :cond_6
 
-    .line 237
     return v2
 
-    .line 244
     :cond_6
     invoke-virtual {v1}, Landroid/hardware/camera2/impl/CameraMetadataNative$Key;->getTag()I
 
     move-result v0
 
-    .line 247
-    .local v0, "keyTag":I
     invoke-static {p2, v0}, Ljava/util/Arrays;->binarySearch([II)I
 
     move-result v4
@@ -879,15 +782,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 109
-    .local p0, "this":Landroid/hardware/camera2/CameraMetadata;, "Landroid/hardware/camera2/CameraMetadata<TTKey;>;"
     invoke-virtual {p0}, Landroid/hardware/camera2/CameraMetadata;->getClass()Ljava/lang/Class;
 
     move-result-object v0
 
-    .line 111
-    .local v0, "thisClass":Ljava/lang/Class;, "Ljava/lang/Class<Landroid/hardware/camera2/CameraMetadata<TTKey;>;>;"
     invoke-virtual {p0}, Landroid/hardware/camera2/CameraMetadata;->getKeyClass()Ljava/lang/Class;
 
     move-result-object v1
@@ -898,7 +796,6 @@
 
     move-result-object v1
 
-    .line 110
     invoke-static {v1}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
 
     move-result-object v1

@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/widget/Toolbar;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/widget/Toolbar;
 
-    .prologue
-    .line 244
     iput-object p1, p0, Landroid/widget/Toolbar$2;->this$0:Landroid/widget/Toolbar;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,12 +37,9 @@
 .method public run()V
     .locals 1
 
-    .prologue
-    .line 246
     iget-object v0, p0, Landroid/widget/Toolbar$2;->this$0:Landroid/widget/Toolbar;
 
     invoke-virtual {v0}, Landroid/widget/Toolbar;->showOverflowMenu()Z
 
-    .line 245
     return-void
 .end method

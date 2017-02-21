@@ -95,30 +95,23 @@
 
 .method public constructor <init>(Lcom/android/internal/telecom/IConnectionServiceAdapter;)V
     .locals 1
-    .param p1, "delegate"    # Lcom/android/internal/telecom/IConnectionServiceAdapter;
 
-    .prologue
-    .line 474
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 71
     new-instance v0, Landroid/telecom/ConnectionServiceAdapterServant$1;
 
     invoke-direct {v0, p0}, Landroid/telecom/ConnectionServiceAdapterServant$1;-><init>(Landroid/telecom/ConnectionServiceAdapterServant;)V
 
     iput-object v0, p0, Landroid/telecom/ConnectionServiceAdapterServant;->mHandler:Landroid/os/Handler;
 
-    .line 273
     new-instance v0, Landroid/telecom/ConnectionServiceAdapterServant$2;
 
     invoke-direct {v0, p0}, Landroid/telecom/ConnectionServiceAdapterServant$2;-><init>(Landroid/telecom/ConnectionServiceAdapterServant;)V
 
     iput-object v0, p0, Landroid/telecom/ConnectionServiceAdapterServant;->mStub:Lcom/android/internal/telecom/IConnectionServiceAdapter;
 
-    .line 475
     iput-object p1, p0, Landroid/telecom/ConnectionServiceAdapterServant;->mDelegate:Lcom/android/internal/telecom/IConnectionServiceAdapter;
 
-    .line 474
     return-void
 .end method
 
@@ -127,8 +120,6 @@
 .method public getStub()Lcom/android/internal/telecom/IConnectionServiceAdapter;
     .locals 1
 
-    .prologue
-    .line 479
     iget-object v0, p0, Landroid/telecom/ConnectionServiceAdapterServant;->mStub:Lcom/android/internal/telecom/IConnectionServiceAdapter;
 
     return-object v0

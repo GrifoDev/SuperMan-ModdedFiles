@@ -23,13 +23,7 @@
 # direct methods
 .method constructor <init>(Landroid/content/pm/AMSLogger;Ljava/lang/String;ILjava/lang/String;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/content/pm/AMSLogger;
-    .param p2, "$anonymous0"    # Ljava/lang/String;
-    .param p3, "$anonymous1"    # I
-    .param p4, "val$traceFile"    # Ljava/lang/String;
 
-    .prologue
-    .line 235
     iput-object p1, p0, Landroid/content/pm/AMSLogger$1;->this$0:Landroid/content/pm/AMSLogger;
 
     iput-object p4, p0, Landroid/content/pm/AMSLogger$1;->val$traceFile:Ljava/lang/String;
@@ -43,13 +37,9 @@
 # virtual methods
 .method public declared-synchronized onEvent(ILjava/lang/String;)V
     .locals 3
-    .param p1, "event"    # I
-    .param p2, "path"    # Ljava/lang/String;
 
-    .prologue
     monitor-enter p0
 
-    .line 237
     :try_start_0
     invoke-static {}, Landroid/content/pm/AMSLogger;->-get0()Ljava/lang/String;
 
@@ -77,14 +67,12 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 238
     invoke-virtual {p0}, Ljava/lang/Object;->notifyAll()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
-    .line 236
     return-void
 
     :catchall_0

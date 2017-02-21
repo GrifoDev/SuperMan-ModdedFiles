@@ -19,18 +19,14 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 13
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 14
     new-instance v0, Lcom/samsung/android/knox/SemUnlockAction$SubSemUnlockAction;
 
     invoke-direct {v0, p0, p0}, Lcom/samsung/android/knox/SemUnlockAction$SubSemUnlockAction;-><init>(Lcom/samsung/android/knox/SemUnlockAction;Lcom/samsung/android/knox/SemUnlockAction;)V
 
     iput-object v0, p0, Lcom/samsung/android/knox/SemUnlockAction;->s:Lcom/samsung/android/knox/SemIUnlockAction;
 
-    .line 13
     return-void
 .end method
 
@@ -39,8 +35,6 @@
 .method public getChild()Lcom/samsung/android/knox/SemIUnlockAction;
     .locals 1
 
-    .prologue
-    .line 41
     iget-object v0, p0, Lcom/samsung/android/knox/SemUnlockAction;->s:Lcom/samsung/android/knox/SemIUnlockAction;
 
     return-object v0

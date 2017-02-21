@@ -18,8 +18,6 @@
 .method constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 103
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Landroid/transition/Slide$CalculateSlideVertical;-><init>(Landroid/transition/Slide$CalculateSlideVertical;)V
@@ -31,12 +29,7 @@
 # virtual methods
 .method public getGoneY(Landroid/view/ViewGroup;Landroid/view/View;F)F
     .locals 2
-    .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
-    .param p2, "view"    # Landroid/view/View;
-    .param p3, "fraction"    # F
 
-    .prologue
-    .line 106
     invoke-virtual {p2}, Landroid/view/View;->getTranslationY()F
 
     move-result v0

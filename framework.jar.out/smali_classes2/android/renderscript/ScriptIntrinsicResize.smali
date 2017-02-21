@@ -10,23 +10,15 @@
 # direct methods
 .method private constructor <init>(JLandroid/renderscript/RenderScript;)V
     .locals 1
-    .param p1, "id"    # J
-    .param p3, "rs"    # Landroid/renderscript/RenderScript;
 
-    .prologue
-    .line 26
     invoke-direct {p0, p1, p2, p3}, Landroid/renderscript/ScriptIntrinsic;-><init>(JLandroid/renderscript/RenderScript;)V
 
-    .line 25
     return-void
 .end method
 
 .method public static create(Landroid/renderscript/RenderScript;)Landroid/renderscript/ScriptIntrinsicResize;
     .locals 6
-    .param p0, "rs"    # Landroid/renderscript/RenderScript;
 
-    .prologue
-    .line 40
     const-wide/16 v4, 0x0
 
     const/16 v3, 0xc
@@ -35,14 +27,10 @@
 
     move-result-wide v0
 
-    .line 41
-    .local v0, "id":J
     new-instance v2, Landroid/renderscript/ScriptIntrinsicResize;
 
     invoke-direct {v2, v0, v1, p0}, Landroid/renderscript/ScriptIntrinsicResize;-><init>(JLandroid/renderscript/RenderScript;)V
 
-    .line 42
-    .local v2, "si":Landroid/renderscript/ScriptIntrinsicResize;
     return-object v2
 .end method
 
@@ -50,15 +38,11 @@
 # virtual methods
 .method public forEach_bicubic(Landroid/renderscript/Allocation;)V
     .locals 2
-    .param p1, "aout"    # Landroid/renderscript/Allocation;
 
-    .prologue
-    .line 88
     iget-object v0, p0, Landroid/renderscript/ScriptIntrinsicResize;->mInput:Landroid/renderscript/Allocation;
 
     if-ne p1, v0, :cond_0
 
-    .line 89
     new-instance v0, Landroid/renderscript/RSIllegalArgumentException;
 
     const-string/jumbo v1, "Output cannot be same as Input."
@@ -67,27 +51,21 @@
 
     throw v0
 
-    .line 91
     :cond_0
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, v0}, Landroid/renderscript/ScriptIntrinsicResize;->forEach_bicubic(Landroid/renderscript/Allocation;Landroid/renderscript/Script$LaunchOptions;)V
 
-    .line 87
     return-void
 .end method
 
 .method public forEach_bicubic(Landroid/renderscript/Allocation;Landroid/renderscript/Script$LaunchOptions;)V
     .locals 6
-    .param p1, "aout"    # Landroid/renderscript/Allocation;
-    .param p2, "opt"    # Landroid/renderscript/Script$LaunchOptions;
 
-    .prologue
     const/4 v4, 0x0
 
     move-object v2, v4
 
-    .line 104
     nop
 
     nop
@@ -102,15 +80,12 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/renderscript/Script;->forEach(ILandroid/renderscript/Allocation;Landroid/renderscript/Allocation;Landroid/renderscript/FieldPacker;Landroid/renderscript/Script$LaunchOptions;)V
 
-    .line 103
     return-void
 .end method
 
 .method public getFieldID_Input()Landroid/renderscript/Script$FieldID;
     .locals 2
 
-    .prologue
-    .line 75
     const/4 v0, 0x0
 
     const/4 v1, 0x0
@@ -125,10 +100,8 @@
 .method public getKernelID_bicubic()Landroid/renderscript/Script$KernelID;
     .locals 3
 
-    .prologue
     const/4 v2, 0x0
 
-    .line 113
     const/4 v0, 0x0
 
     const/4 v1, 0x2
@@ -142,16 +115,11 @@
 
 .method public setInput(Landroid/renderscript/Allocation;)V
     .locals 3
-    .param p1, "ain"    # Landroid/renderscript/Allocation;
 
-    .prologue
-    .line 53
     invoke-virtual {p1}, Landroid/renderscript/Allocation;->getElement()Landroid/renderscript/Element;
 
     move-result-object v0
 
-    .line 54
-    .local v0, "e":Landroid/renderscript/Element;
     iget-object v1, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-static {v1}, Landroid/renderscript/Element;->U8(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
@@ -164,7 +132,6 @@
 
     if-nez v1, :cond_0
 
-    .line 55
     iget-object v1, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-static {v1}, Landroid/renderscript/Element;->U8_2(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
@@ -177,19 +144,15 @@
 
     if-eqz v1, :cond_1
 
-    .line 65
     :cond_0
     iput-object p1, p0, Landroid/renderscript/ScriptIntrinsicResize;->mInput:Landroid/renderscript/Allocation;
 
-    .line 66
     const/4 v1, 0x0
 
     invoke-virtual {p0, v1, p1}, Landroid/renderscript/Script;->setVar(ILandroid/renderscript/BaseObj;)V
 
-    .line 52
     return-void
 
-    .line 56
     :cond_1
     iget-object v1, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
 
@@ -203,7 +166,6 @@
 
     if-nez v1, :cond_0
 
-    .line 57
     iget-object v1, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-static {v1}, Landroid/renderscript/Element;->U8_4(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
@@ -216,7 +178,6 @@
 
     if-nez v1, :cond_0
 
-    .line 58
     iget-object v1, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-static {v1}, Landroid/renderscript/Element;->F32(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
@@ -229,7 +190,6 @@
 
     if-nez v1, :cond_0
 
-    .line 59
     iget-object v1, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-static {v1}, Landroid/renderscript/Element;->F32_2(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
@@ -242,7 +202,6 @@
 
     if-nez v1, :cond_0
 
-    .line 60
     iget-object v1, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-static {v1}, Landroid/renderscript/Element;->F32_3(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
@@ -255,7 +214,6 @@
 
     if-nez v1, :cond_0
 
-    .line 61
     iget-object v1, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-static {v1}, Landroid/renderscript/Element;->F32_4(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
@@ -268,7 +226,6 @@
 
     if-nez v1, :cond_0
 
-    .line 62
     new-instance v1, Landroid/renderscript/RSIllegalArgumentException;
 
     const-string/jumbo v2, "Unsuported element type."

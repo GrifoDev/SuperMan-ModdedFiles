@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/media/WebVttParser;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/media/WebVttParser;
 
-    .prologue
-    .line 703
     iput-object p1, p0, Landroid/media/WebVttParser$1;->this$0:Landroid/media/WebVttParser;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,9 +36,6 @@
 # virtual methods
 .method public parse(Ljava/lang/String;)V
     .locals 0
-    .param p1, "line"    # Ljava/lang/String;
 
-    .prologue
-    .line 705
     return-void
 .end method

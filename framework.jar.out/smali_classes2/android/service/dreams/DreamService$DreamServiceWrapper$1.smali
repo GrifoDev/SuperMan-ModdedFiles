@@ -28,12 +28,7 @@
 # direct methods
 .method constructor <init>(Landroid/service/dreams/DreamService$DreamServiceWrapper;Landroid/os/IBinder;Z)V
     .locals 0
-    .param p1, "this$1"    # Landroid/service/dreams/DreamService$DreamServiceWrapper;
-    .param p2, "val$windowToken"    # Landroid/os/IBinder;
-    .param p3, "val$canDoze"    # Z
 
-    .prologue
-    .line 1096
     iput-object p1, p0, Landroid/service/dreams/DreamService$DreamServiceWrapper$1;->this$1:Landroid/service/dreams/DreamService$DreamServiceWrapper;
 
     iput-object p2, p0, Landroid/service/dreams/DreamService$DreamServiceWrapper$1;->val$windowToken:Landroid/os/IBinder;
@@ -50,8 +45,6 @@
 .method public run()V
     .locals 3
 
-    .prologue
-    .line 1099
     iget-object v0, p0, Landroid/service/dreams/DreamService$DreamServiceWrapper$1;->this$1:Landroid/service/dreams/DreamService$DreamServiceWrapper;
 
     iget-object v0, v0, Landroid/service/dreams/DreamService$DreamServiceWrapper;->this$0:Landroid/service/dreams/DreamService;
@@ -62,6 +55,5 @@
 
     invoke-static {v0, v1, v2}, Landroid/service/dreams/DreamService;->-wrap0(Landroid/service/dreams/DreamService;Landroid/os/IBinder;Z)V
 
-    .line 1098
     return-void
 .end method

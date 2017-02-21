@@ -31,8 +31,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -42,10 +40,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/security/keymaster/OperationResult;
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 40
     new-instance v0, Landroid/security/keymaster/OperationResult;
 
     invoke-direct {v0, p1}, Landroid/security/keymaster/OperationResult;-><init>(Landroid/os/Parcel;)V
@@ -55,10 +50,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 39
     invoke-virtual {p0, p1}, Landroid/security/keymaster/OperationResult$1;->createFromParcel(Landroid/os/Parcel;)Landroid/security/keymaster/OperationResult;
 
     move-result-object v0
@@ -68,10 +60,7 @@
 
 .method public newArray(I)[Landroid/security/keymaster/OperationResult;
     .locals 1
-    .param p1, "length"    # I
 
-    .prologue
-    .line 45
     new-array v0, p1, [Landroid/security/keymaster/OperationResult;
 
     return-object v0
@@ -79,10 +68,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .param p1, "length"    # I
 
-    .prologue
-    .line 44
     invoke-virtual {p0, p1}, Landroid/security/keymaster/OperationResult$1;->newArray(I)[Landroid/security/keymaster/OperationResult;
 
     move-result-object v0

@@ -50,25 +50,16 @@
         }
     .end annotation
 
-    .prologue
-    .line 117
-    .local p0, "this":Lcom/android/internal/util/Predicates$NotPredicate;, "Lcom/android/internal/util/Predicates$NotPredicate<TT;>;"
-    .local p1, "predicate":Lcom/android/internal/util/Predicate;, "Lcom/android/internal/util/Predicate<-TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 118
     iput-object p1, p0, Lcom/android/internal/util/Predicates$NotPredicate;->predicate:Lcom/android/internal/util/Predicate;
 
-    .line 117
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/android/internal/util/Predicate;Lcom/android/internal/util/Predicates$NotPredicate;)V
     .locals 0
-    .param p1, "predicate"    # Lcom/android/internal/util/Predicate;
 
-    .prologue
-    .local p0, "this":Lcom/android/internal/util/Predicates$NotPredicate;, "Lcom/android/internal/util/Predicates$NotPredicate<TT;>;"
     invoke-direct {p0, p1}, Lcom/android/internal/util/Predicates$NotPredicate;-><init>(Lcom/android/internal/util/Predicate;)V
 
     return-void
@@ -84,10 +75,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 122
-    .local p0, "this":Lcom/android/internal/util/Predicates$NotPredicate;, "Lcom/android/internal/util/Predicates$NotPredicate<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lcom/android/internal/util/Predicates$NotPredicate;->predicate:Lcom/android/internal/util/Predicate;
 
     invoke-interface {v0, p1}, Lcom/android/internal/util/Predicate;->apply(Ljava/lang/Object;)Z

@@ -18,13 +18,10 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 57
     const/16 v0, 0x40
 
     invoke-direct {p0, v0}, Landroid/security/keystore/AndroidKeyStoreUnauthenticatedAESCipherSpi$ECB;-><init>(I)V
 
-    .line 56
     return-void
 .end method
 
@@ -33,7 +30,6 @@
 .method public bridge synthetic finalize()V
     .locals 0
 
-    .prologue
     invoke-super {p0}, Landroid/security/keystore/AndroidKeyStoreUnauthenticatedAESCipherSpi$ECB;->finalize()V
 
     return-void

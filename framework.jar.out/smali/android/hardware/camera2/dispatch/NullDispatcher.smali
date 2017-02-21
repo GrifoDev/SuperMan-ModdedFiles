@@ -23,9 +23,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 28
-    .local p0, "this":Landroid/hardware/camera2/dispatch/NullDispatcher;, "Landroid/hardware/camera2/dispatch/NullDispatcher<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -35,12 +32,7 @@
 # virtual methods
 .method public dispatch(Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1, "method"    # Ljava/lang/reflect/Method;
-    .param p2, "args"    # [Ljava/lang/Object;
 
-    .prologue
-    .line 36
-    .local p0, "this":Landroid/hardware/camera2/dispatch/NullDispatcher;, "Landroid/hardware/camera2/dispatch/NullDispatcher<TT;>;"
     const/4 v0, 0x0
 
     return-object v0

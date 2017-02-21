@@ -32,8 +32,6 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .prologue
-    .line 8228
     sget-object v0, Landroid/provider/ContactsContract$Data;->CONTENT_URI:Landroid/net/Uri;
 
     const-string/jumbo v1, "usagefeedback"
@@ -42,10 +40,8 @@
 
     move-result-object v0
 
-    .line 8227
     sput-object v0, Landroid/provider/ContactsContract$DataUsageFeedback;->FEEDBACK_URI:Landroid/net/Uri;
 
-    .line 8236
     sget-object v0, Landroid/provider/ContactsContract$Contacts;->CONTENT_URI:Landroid/net/Uri;
 
     const-string/jumbo v1, "delete_usage"
@@ -54,18 +50,14 @@
 
     move-result-object v0
 
-    .line 8235
     sput-object v0, Landroid/provider/ContactsContract$DataUsageFeedback;->DELETE_USAGE_URI:Landroid/net/Uri;
 
-    .line 8221
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 8221
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

@@ -24,8 +24,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 786
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -34,7 +32,6 @@
 .method synthetic constructor <init>(Landroid/app/Activity$ManagedDialog;)V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Landroid/app/Activity$ManagedDialog;-><init>()V
 
     return-void

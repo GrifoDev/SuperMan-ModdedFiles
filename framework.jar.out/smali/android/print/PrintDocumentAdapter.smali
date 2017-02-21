@@ -20,8 +20,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 109
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -32,8 +30,6 @@
 .method public onFinish()V
     .locals 0
 
-    .prologue
-    .line 249
     return-void
 .end method
 
@@ -43,8 +39,6 @@
 .method public onStart()V
     .locals 0
 
-    .prologue
-    .line 127
     return-void
 .end method
 

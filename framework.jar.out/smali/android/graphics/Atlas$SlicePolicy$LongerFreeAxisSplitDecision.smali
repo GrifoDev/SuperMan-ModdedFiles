@@ -21,8 +21,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 336
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -31,7 +29,6 @@
 .method synthetic constructor <init>(Landroid/graphics/Atlas$SlicePolicy$LongerFreeAxisSplitDecision;)V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Landroid/graphics/Atlas$SlicePolicy$LongerFreeAxisSplitDecision;-><init>()V
 
     return-void
@@ -41,13 +38,7 @@
 # virtual methods
 .method public splitHorizontal(IIII)Z
     .locals 1
-    .param p1, "freeWidth"    # I
-    .param p2, "freeHeight"    # I
-    .param p3, "rectWidth"    # I
-    .param p4, "rectHeight"    # I
 
-    .prologue
-    .line 340
     if-le p1, p2, :cond_0
 
     const/4 v0, 0x1

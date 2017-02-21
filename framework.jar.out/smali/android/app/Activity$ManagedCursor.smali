@@ -65,23 +65,16 @@
 
 .method constructor <init>(Landroid/database/Cursor;)V
     .locals 1
-    .param p1, "cursor"    # Landroid/database/Cursor;
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 852
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 853
     iput-object p1, p0, Landroid/app/Activity$ManagedCursor;->mCursor:Landroid/database/Cursor;
 
-    .line 854
     iput-boolean v0, p0, Landroid/app/Activity$ManagedCursor;->mReleased:Z
 
-    .line 855
     iput-boolean v0, p0, Landroid/app/Activity$ManagedCursor;->mUpdated:Z
 
-    .line 852
     return-void
 .end method

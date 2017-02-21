@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/widget/RemoteViews$SemSetOnLongClickDragable;)V
     .locals 0
-    .param p1, "this$1"    # Landroid/widget/RemoteViews$SemSetOnLongClickDragable;
 
-    .prologue
-    .line 4548
     iput-object p1, p0, Landroid/widget/RemoteViews$SemSetOnLongClickDragable$1;->this$1:Landroid/widget/RemoteViews$SemSetOnLongClickDragable;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,20 +36,15 @@
 # virtual methods
 .method public onLongClick(Landroid/view/View;)Z
     .locals 9
-    .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     const/4 v4, 0x0
 
     const/4 v3, 0x0
 
-    .line 4552
     new-instance v8, Landroid/view/View$DragShadowBuilder;
 
     invoke-direct {v8, p1}, Landroid/view/View$DragShadowBuilder;-><init>(Landroid/view/View;)V
 
-    .line 4553
-    .local v8, "shadowBuilder":Landroid/view/View$DragShadowBuilder;
     const-string/jumbo v0, "RemoteViews"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -95,21 +87,18 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 4554
     iget-object v0, p0, Landroid/widget/RemoteViews$SemSetOnLongClickDragable$1;->this$1:Landroid/widget/RemoteViews$SemSetOnLongClickDragable;
 
     iget-object v0, v0, Landroid/widget/RemoteViews$SemSetOnLongClickDragable;->clipData:Landroid/content/ClipData;
 
     invoke-virtual {p1, v0, v8, v3, v4}, Landroid/view/View;->startDrag(Landroid/content/ClipData;Landroid/view/View$DragShadowBuilder;Ljava/lang/Object;I)Z
 
-    .line 4555
     iget-object v0, p0, Landroid/widget/RemoteViews$SemSetOnLongClickDragable$1;->this$1:Landroid/widget/RemoteViews$SemSetOnLongClickDragable;
 
     iget-object v0, v0, Landroid/widget/RemoteViews$SemSetOnLongClickDragable;->dragStartIntent:Landroid/app/PendingIntent;
 
     if-eqz v0, :cond_0
 
-    .line 4558
     :try_start_0
     invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
 
@@ -123,22 +112,18 @@
 
     move-result-object v1
 
-    .line 4559
     const/4 v2, 0x0
 
     const/high16 v3, 0x10000000
 
-    .line 4560
     const/high16 v4, 0x10000000
 
     const/4 v5, 0x0
 
-    .line 4558
     invoke-virtual/range {v0 .. v5}, Landroid/content/Context;->startIntentSender(Landroid/content/IntentSender;Landroid/content/Intent;III)V
     :try_end_0
     .catch Landroid/content/IntentSender$SendIntentException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 4565
     :cond_0
     :goto_0
     iget-object v0, p0, Landroid/widget/RemoteViews$SemSetOnLongClickDragable$1;->this$1:Landroid/widget/RemoteViews$SemSetOnLongClickDragable;
@@ -147,33 +132,24 @@
 
     if-eqz v0, :cond_1
 
-    .line 4566
     invoke-virtual {p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
     move-result-object v7
 
     check-cast v7, Landroid/view/ViewGroup;
 
-    .line 4567
-    .local v7, "parent":Landroid/view/ViewGroup;
     if-eqz v7, :cond_1
 
-    .line 4568
     invoke-virtual {v7, p1}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
-    .line 4571
-    .end local v7    # "parent":Landroid/view/ViewGroup;
     :cond_1
     const/4 v0, 0x1
 
     return v0
 
-    .line 4561
     :catch_0
     move-exception v6
 
-    .line 4562
-    .local v6, "e":Landroid/content/IntentSender$SendIntentException;
     const-string/jumbo v0, "RemoteViews"
 
     const-string/jumbo v1, "Cannot send pending intent: "

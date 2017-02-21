@@ -23,11 +23,7 @@
 # direct methods
 .method constructor <init>(Landroid/app/FragmentManagerImpl;Landroid/app/Fragment;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/app/FragmentManagerImpl;
-    .param p2, "val$finalFragment"    # Landroid/app/Fragment;
 
-    .prologue
-    .line 1297
     iput-object p1, p0, Landroid/app/FragmentManagerImpl$6;->this$0:Landroid/app/FragmentManagerImpl;
 
     iput-object p2, p0, Landroid/app/FragmentManagerImpl$6;->val$finalFragment:Landroid/app/Fragment;
@@ -41,17 +37,13 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
-    .param p1, "animation"    # Landroid/animation/Animator;
 
-    .prologue
-    .line 1300
     iget-object v0, p0, Landroid/app/FragmentManagerImpl$6;->val$finalFragment:Landroid/app/Fragment;
 
     iget-object v0, v0, Landroid/app/Fragment;->mView:Landroid/view/View;
 
     if-eqz v0, :cond_0
 
-    .line 1301
     iget-object v0, p0, Landroid/app/FragmentManagerImpl$6;->val$finalFragment:Landroid/app/Fragment;
 
     iget-object v0, v0, Landroid/app/Fragment;->mView:Landroid/view/View;
@@ -60,7 +52,6 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 1299
     :cond_0
     return-void
 .end method

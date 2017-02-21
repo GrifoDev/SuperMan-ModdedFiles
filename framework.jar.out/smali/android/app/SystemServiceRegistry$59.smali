@@ -27,8 +27,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 781
     invoke-direct {p0}, Landroid/app/SystemServiceRegistry$CachedServiceFetcher;-><init>()V
 
     return-void
@@ -38,36 +36,27 @@
 # virtual methods
 .method public createService(Landroid/app/ContextImpl;)Landroid/net/wifi/RttManager;
     .locals 5
-    .param p1, "ctx"    # Landroid/app/ContextImpl;
 
-    .prologue
-    .line 784
     const-string/jumbo v2, "rttmanager"
 
     invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
-    .line 785
-    .local v0, "b":Landroid/os/IBinder;
     invoke-static {v0}, Landroid/net/wifi/IRttManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/net/wifi/IRttManager;
 
     move-result-object v1
 
-    .line 786
-    .local v1, "service":Landroid/net/wifi/IRttManager;
     new-instance v2, Landroid/net/wifi/RttManager;
 
     invoke-virtual {p1}, Landroid/app/ContextImpl;->getOuterContext()Landroid/content/Context;
 
     move-result-object v3
 
-    .line 787
     invoke-static {}, Landroid/net/ConnectivityThread;->getInstanceLooper()Landroid/os/Looper;
 
     move-result-object v4
 
-    .line 786
     invoke-direct {v2, v3, v1, v4}, Landroid/net/wifi/RttManager;-><init>(Landroid/content/Context;Landroid/net/wifi/IRttManager;Landroid/os/Looper;)V
 
     return-object v2
@@ -75,10 +64,7 @@
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
-    .param p1, "ctx"    # Landroid/app/ContextImpl;
 
-    .prologue
-    .line 783
     invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$59;->createService(Landroid/app/ContextImpl;)Landroid/net/wifi/RttManager;
 
     move-result-object v0

@@ -39,24 +39,18 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 36
     new-instance v0, Landroid/view/InputChannel$1;
 
     invoke-direct {v0}, Landroid/view/InputChannel$1;-><init>()V
 
-    .line 35
     sput-object v0, Landroid/view/InputChannel;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    .line 30
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 66
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -85,13 +79,9 @@
 
 .method public static openInputChannelPair(Ljava/lang/String;)[Landroid/view/InputChannel;
     .locals 2
-    .param p0, "name"    # Ljava/lang/String;
 
-    .prologue
-    .line 87
     if-nez p0, :cond_0
 
-    .line 88
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "name must not be null"
@@ -100,7 +90,6 @@
 
     throw v0
 
-    .line 94
     :cond_0
     invoke-static {p0}, Landroid/view/InputChannel;->nativeOpenInputChannelPair(Ljava/lang/String;)[Landroid/view/InputChannel;
 
@@ -114,8 +103,6 @@
 .method public describeContents()I
     .locals 1
 
-    .prologue
-    .line 140
     const/4 v0, 0x1
 
     return v0
@@ -124,30 +111,22 @@
 .method public dispose()V
     .locals 1
 
-    .prologue
-    .line 112
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Landroid/view/InputChannel;->nativeDispose(Z)V
 
-    .line 111
     return-void
 .end method
 
 .method public dup()Landroid/view/InputChannel;
     .locals 1
 
-    .prologue
-    .line 133
     new-instance v0, Landroid/view/InputChannel;
 
     invoke-direct {v0}, Landroid/view/InputChannel;-><init>()V
 
-    .line 134
-    .local v0, "target":Landroid/view/InputChannel;
     invoke-direct {p0, v0}, Landroid/view/InputChannel;->nativeDup(Landroid/view/InputChannel;)V
 
-    .line 135
     return-object v0
 .end method
 
@@ -159,8 +138,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 72
     const/4 v0, 0x1
 
     :try_start_0
@@ -168,41 +145,30 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 74
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
 
-    .line 70
     return-void
 
-    .line 73
     :catchall_0
     move-exception v0
 
-    .line 74
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
 
-    .line 73
     throw v0
 .end method
 
 .method public getName()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 102
     invoke-direct {p0}, Landroid/view/InputChannel;->nativeGetName()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 103
-    .local v0, "name":Ljava/lang/String;
     if-eqz v0, :cond_0
 
-    .end local v0    # "name":Ljava/lang/String;
     :goto_0
     return-object v0
 
-    .restart local v0    # "name":Ljava/lang/String;
     :cond_0
     const-string/jumbo v0, "uninitialized"
 
@@ -211,13 +177,9 @@
 
 .method public readFromParcel(Landroid/os/Parcel;)V
     .locals 2
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 144
     if-nez p1, :cond_0
 
-    .line 145
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "in must not be null"
@@ -226,19 +188,15 @@
 
     throw v0
 
-    .line 148
     :cond_0
     invoke-direct {p0, p1}, Landroid/view/InputChannel;->nativeReadFromParcel(Landroid/os/Parcel;)V
 
-    .line 143
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 166
     invoke-virtual {p0}, Landroid/view/InputChannel;->getName()Ljava/lang/String;
 
     move-result-object v0
@@ -248,13 +206,9 @@
 
 .method public transferTo(Landroid/view/InputChannel;)V
     .locals 2
-    .param p1, "outParameter"    # Landroid/view/InputChannel;
 
-    .prologue
-    .line 122
     if-nez p1, :cond_0
 
-    .line 123
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "outParameter must not be null"
@@ -263,24 +217,17 @@
 
     throw v0
 
-    .line 126
     :cond_0
     invoke-direct {p0, p1}, Landroid/view/InputChannel;->nativeTransferTo(Landroid/view/InputChannel;)V
 
-    .line 121
     return-void
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .param p1, "out"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
-    .prologue
-    .line 153
     if-nez p1, :cond_0
 
-    .line 154
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "out must not be null"
@@ -289,19 +236,15 @@
 
     throw v0
 
-    .line 157
     :cond_0
     invoke-direct {p0, p1}, Landroid/view/InputChannel;->nativeWriteToParcel(Landroid/os/Parcel;)V
 
-    .line 159
     and-int/lit8 v0, p2, 0x1
 
     if-eqz v0, :cond_1
 
-    .line 160
     invoke-virtual {p0}, Landroid/view/InputChannel;->dispose()V
 
-    .line 152
     :cond_1
     return-void
 .end method

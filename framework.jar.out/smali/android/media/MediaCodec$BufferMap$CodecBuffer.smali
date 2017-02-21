@@ -24,8 +24,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 2745
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -34,7 +32,6 @@
 .method synthetic constructor <init>(Landroid/media/MediaCodec$BufferMap$CodecBuffer;)V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Landroid/media/MediaCodec$BufferMap$CodecBuffer;-><init>()V
 
     return-void
@@ -45,67 +42,49 @@
 .method public free()V
     .locals 2
 
-    .prologue
     const/4 v1, 0x0
 
-    .line 2750
     iget-object v0, p0, Landroid/media/MediaCodec$BufferMap$CodecBuffer;->mByteBuffer:Ljava/nio/ByteBuffer;
 
     if-eqz v0, :cond_0
 
-    .line 2752
     iget-object v0, p0, Landroid/media/MediaCodec$BufferMap$CodecBuffer;->mByteBuffer:Ljava/nio/ByteBuffer;
 
     invoke-static {v0}, Ljava/nio/NioUtils;->freeDirectBuffer(Ljava/nio/ByteBuffer;)V
 
-    .line 2753
     iput-object v1, p0, Landroid/media/MediaCodec$BufferMap$CodecBuffer;->mByteBuffer:Ljava/nio/ByteBuffer;
 
-    .line 2755
     :cond_0
     iget-object v0, p0, Landroid/media/MediaCodec$BufferMap$CodecBuffer;->mImage:Landroid/media/Image;
 
     if-eqz v0, :cond_1
 
-    .line 2756
     iget-object v0, p0, Landroid/media/MediaCodec$BufferMap$CodecBuffer;->mImage:Landroid/media/Image;
 
     invoke-virtual {v0}, Landroid/media/Image;->close()V
 
-    .line 2757
     iput-object v1, p0, Landroid/media/MediaCodec$BufferMap$CodecBuffer;->mImage:Landroid/media/Image;
 
-    .line 2749
     :cond_1
     return-void
 .end method
 
 .method public setByteBuffer(Ljava/nio/ByteBuffer;)V
     .locals 0
-    .param p1, "buffer"    # Ljava/nio/ByteBuffer;
 
-    .prologue
-    .line 2767
     invoke-virtual {p0}, Landroid/media/MediaCodec$BufferMap$CodecBuffer;->free()V
 
-    .line 2768
     iput-object p1, p0, Landroid/media/MediaCodec$BufferMap$CodecBuffer;->mByteBuffer:Ljava/nio/ByteBuffer;
 
-    .line 2766
     return-void
 .end method
 
 .method public setImage(Landroid/media/Image;)V
     .locals 0
-    .param p1, "image"    # Landroid/media/Image;
 
-    .prologue
-    .line 2762
     invoke-virtual {p0}, Landroid/media/MediaCodec$BufferMap$CodecBuffer;->free()V
 
-    .line 2763
     iput-object p1, p0, Landroid/media/MediaCodec$BufferMap$CodecBuffer;->mImage:Landroid/media/Image;
 
-    .line 2761
     return-void
 .end method

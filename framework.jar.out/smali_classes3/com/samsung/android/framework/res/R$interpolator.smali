@@ -22,21 +22,16 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 114
     const/high16 v0, 0x50000
 
     sput v0, Lcom/samsung/android/framework/res/R$interpolator;->deceleration:I
 
-    .line 113
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 113
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

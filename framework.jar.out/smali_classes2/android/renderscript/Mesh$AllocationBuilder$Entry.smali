@@ -25,10 +25,7 @@
 # direct methods
 .method constructor <init>(Landroid/renderscript/Mesh$AllocationBuilder;)V
     .locals 0
-    .param p1, "this$1"    # Landroid/renderscript/Mesh$AllocationBuilder;
 
-    .prologue
-    .line 414
     iput-object p1, p0, Landroid/renderscript/Mesh$AllocationBuilder$Entry;->this$1:Landroid/renderscript/Mesh$AllocationBuilder;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

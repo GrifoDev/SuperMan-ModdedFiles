@@ -30,8 +30,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 143
     const-string/jumbo v0, "external"
 
     invoke-static {v0}, Landroid/mtp/MTPJNIInterface$MusicPlaylist;->getContentUri(Ljava/lang/String;)Landroid/net/Uri;
@@ -40,15 +38,12 @@
 
     sput-object v0, Landroid/mtp/MTPJNIInterface$MusicPlaylist;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
 
-    .line 129
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 129
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -56,10 +51,7 @@
 
 .method public static getContentUri(Ljava/lang/String;)Landroid/net/Uri;
     .locals 2
-    .param p0, "volumeName"    # Ljava/lang/String;
 
-    .prologue
-    .line 140
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -93,10 +85,7 @@
 
 .method public static getMembersContentUri(Ljava/lang/String;)Landroid/net/Uri;
     .locals 2
-    .param p0, "volumeName"    # Ljava/lang/String;
 
-    .prologue
-    .line 152
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -111,10 +100,8 @@
 
     move-result-object v0
 
-    .line 153
     const-string/jumbo v1, "/audio/playlists/members"
 
-    .line 152
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -132,11 +119,7 @@
 
 .method public static getMembersContentUri(Ljava/lang/String;J)Landroid/net/Uri;
     .locals 3
-    .param p0, "volumeName"    # Ljava/lang/String;
-    .param p1, "playlistId"    # J
 
-    .prologue
-    .line 146
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -151,10 +134,8 @@
 
     move-result-object v0
 
-    .line 147
     const-string/jumbo v1, "/audio/playlists/"
 
-    .line 146
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -163,10 +144,8 @@
 
     move-result-object v0
 
-    .line 147
     const-string/jumbo v1, "/members"
 
-    .line 146
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0

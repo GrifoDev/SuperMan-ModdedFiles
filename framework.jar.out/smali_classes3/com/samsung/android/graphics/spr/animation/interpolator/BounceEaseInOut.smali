@@ -10,8 +10,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 41
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -19,11 +17,7 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 0
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
-    .prologue
-    .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -31,12 +25,9 @@
 
 .method private in(F)F
     .locals 2
-    .param p1, "t"    # F
 
-    .prologue
     const/high16 v1, 0x3f800000    # 1.0f
 
-    .line 67
     sub-float v0, v1, p1
 
     invoke-direct {p0, v0}, Lcom/samsung/android/graphics/spr/animation/interpolator/BounceEaseInOut;->out(F)F
@@ -50,19 +41,15 @@
 
 .method private inout(F)F
     .locals 3
-    .param p1, "t"    # F
 
-    .prologue
     const/high16 v1, 0x40000000    # 2.0f
 
     const/high16 v2, 0x3f000000    # 0.5f
 
-    .line 71
     cmpg-float v0, p1, v2
 
     if-gez v0, :cond_0
 
-    .line 72
     mul-float v0, p1, v1
 
     invoke-direct {p0, v0}, Lcom/samsung/android/graphics/spr/animation/interpolator/BounceEaseInOut;->in(F)F
@@ -73,7 +60,6 @@
 
     return v0
 
-    .line 74
     :cond_0
     mul-float v0, p1, v1
 
@@ -94,12 +80,9 @@
 
 .method private out(F)F
     .locals 6
-    .param p1, "t"    # F
 
-    .prologue
     const-wide v4, 0x401e400000000000L    # 7.5625
 
-    .line 53
     float-to-double v0, p1
 
     const-wide v2, 0x3fd745d1745d1746L    # 0.36363636363636365
@@ -108,7 +91,6 @@
 
     if-gez v0, :cond_0
 
-    .line 54
     const/high16 v0, 0x40f20000    # 7.5625f
 
     mul-float/2addr v0, p1
@@ -117,7 +99,6 @@
 
     return v0
 
-    .line 56
     :cond_0
     float-to-double v0, p1
 
@@ -127,7 +108,6 @@
 
     if-gez v0, :cond_1
 
-    .line 57
     float-to-double v0, p1
 
     const-wide v2, 0x3fe1745d1745d174L    # 0.5454545454545454
@@ -150,7 +130,6 @@
 
     return v0
 
-    .line 59
     :cond_1
     float-to-double v0, p1
 
@@ -160,7 +139,6 @@
 
     if-gez v0, :cond_2
 
-    .line 60
     float-to-double v0, p1
 
     const-wide v2, 0x3fea2e8ba2e8ba2fL    # 0.8181818181818182
@@ -183,7 +161,6 @@
 
     return v0
 
-    .line 62
     :cond_2
     float-to-double v0, p1
 
@@ -212,10 +189,7 @@
 # virtual methods
 .method public getInterpolation(F)F
     .locals 1
-    .param p1, "t"    # F
 
-    .prologue
-    .line 49
     invoke-direct {p0, p1}, Lcom/samsung/android/graphics/spr/animation/interpolator/BounceEaseInOut;->inout(F)F
 
     move-result v0

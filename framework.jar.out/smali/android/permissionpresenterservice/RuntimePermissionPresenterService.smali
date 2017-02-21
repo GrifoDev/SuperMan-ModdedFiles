@@ -31,8 +31,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 49
     invoke-direct {p0}, Landroid/app/Service;-><init>()V
 
     return-void
@@ -42,13 +40,9 @@
 # virtual methods
 .method public final attachBaseContext(Landroid/content/Context;)V
     .locals 2
-    .param p1, "base"    # Landroid/content/Context;
 
-    .prologue
-    .line 64
     invoke-super {p0, p1}, Landroid/app/Service;->attachBaseContext(Landroid/content/Context;)V
 
-    .line 65
     new-instance v0, Landroid/permissionpresenterservice/RuntimePermissionPresenterService$MyHandler;
 
     invoke-virtual {p1}, Landroid/content/Context;->getMainLooper()Landroid/os/Looper;
@@ -59,16 +53,12 @@
 
     iput-object v0, p0, Landroid/permissionpresenterservice/RuntimePermissionPresenterService;->mHandler:Landroid/os/Handler;
 
-    .line 63
     return-void
 .end method
 
 .method public final onBind(Landroid/content/Intent;)Landroid/os/IBinder;
     .locals 1
-    .param p1, "intent"    # Landroid/content/Intent;
 
-    .prologue
-    .line 85
     new-instance v0, Landroid/permissionpresenterservice/RuntimePermissionPresenterService$1;
 
     invoke-direct {v0, p0}, Landroid/permissionpresenterservice/RuntimePermissionPresenterService$1;-><init>(Landroid/permissionpresenterservice/RuntimePermissionPresenterService;)V

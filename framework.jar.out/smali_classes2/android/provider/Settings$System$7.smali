@@ -25,8 +25,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 6117
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -36,12 +34,9 @@
 # virtual methods
 .method public validate(Ljava/lang/String;)Z
     .locals 3
-    .param p1, "value"    # Ljava/lang/String;
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 6122
     if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
@@ -52,10 +47,8 @@
 
     if-le v1, v2, :cond_0
 
-    .line 6123
     return v0
 
-    .line 6125
     :cond_0
     invoke-static {p1}, Landroid/content/ComponentName;->unflattenFromString(Ljava/lang/String;)Landroid/content/ComponentName;
 

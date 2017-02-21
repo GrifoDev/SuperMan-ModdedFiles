@@ -26,11 +26,7 @@
 # direct methods
 .method constructor <init>(Landroid/animation/AnimationHandler;Landroid/animation/AnimationHandler$AnimationFrameCallback;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/animation/AnimationHandler;
-    .param p2, "val$callback"    # Landroid/animation/AnimationHandler$AnimationFrameCallback;
 
-    .prologue
-    .line 148
     iput-object p1, p0, Landroid/animation/AnimationHandler$2;->this$0:Landroid/animation/AnimationHandler;
 
     iput-object p2, p0, Landroid/animation/AnimationHandler$2;->val$callback:Landroid/animation/AnimationHandler$AnimationFrameCallback;
@@ -45,8 +41,6 @@
 .method public run()V
     .locals 4
 
-    .prologue
-    .line 151
     iget-object v0, p0, Landroid/animation/AnimationHandler$2;->this$0:Landroid/animation/AnimationHandler;
 
     iget-object v1, p0, Landroid/animation/AnimationHandler$2;->val$callback:Landroid/animation/AnimationHandler$AnimationFrameCallback;
@@ -63,6 +57,5 @@
 
     invoke-static {v0, v1, v2, v3}, Landroid/animation/AnimationHandler;->-wrap1(Landroid/animation/AnimationHandler;Landroid/animation/AnimationHandler$AnimationFrameCallback;J)V
 
-    .line 150
     return-void
 .end method

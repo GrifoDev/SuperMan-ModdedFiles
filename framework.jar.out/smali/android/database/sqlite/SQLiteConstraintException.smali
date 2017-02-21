@@ -13,13 +13,10 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    .prologue
-    .line 28
     const/16 v0, 0xb
 
     new-array v0, v0, [Ljava/lang/String;
 
-    .line 29
     const-string/jumbo v1, "SQLITE_CONSTRAINT"
 
     const/4 v2, 0x0
@@ -32,7 +29,6 @@
 
     aput-object v1, v0, v2
 
-    .line 30
     const-string/jumbo v1, "SQLITE_CONSTRAINT_COMMITHOOK"
 
     const/4 v2, 0x2
@@ -45,7 +41,6 @@
 
     aput-object v1, v0, v2
 
-    .line 31
     const-string/jumbo v1, "SQLITE_CONSTRAINT_FUNCTION"
 
     const/4 v2, 0x4
@@ -58,7 +53,6 @@
 
     aput-object v1, v0, v2
 
-    .line 32
     const-string/jumbo v1, "SQLITE_CONSTRAINT_PRIMARYKEY"
 
     const/4 v2, 0x6
@@ -71,7 +65,6 @@
 
     aput-object v1, v0, v2
 
-    .line 33
     const-string/jumbo v1, "SQLITE_CONSTRAINT_UNIQUE"
 
     const/16 v2, 0x8
@@ -84,25 +77,20 @@
 
     aput-object v1, v0, v2
 
-    .line 34
     const-string/jumbo v1, "SQLITE_CONSTRAINT_ROWID"
 
     const/16 v2, 0xa
 
     aput-object v1, v0, v2
 
-    .line 28
     sput-object v0, Landroid/database/sqlite/SQLiteConstraintException;->errString:[Ljava/lang/String;
 
-    .line 22
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 36
     invoke-direct {p0}, Landroid/database/sqlite/SQLiteException;-><init>()V
 
     return-void
@@ -110,10 +98,7 @@
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 2
-    .param p1, "error"    # Ljava/lang/String;
 
-    .prologue
-    .line 39
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -136,16 +121,12 @@
 
     invoke-direct {p0, v0}, Landroid/database/sqlite/SQLiteException;-><init>(Ljava/lang/String;)V
 
-    .line 38
     return-void
 .end method
 
 .method private static addErrCode(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .param p0, "errMessage"    # Ljava/lang/String;
 
-    .prologue
-    .line 43
     if-eqz p0, :cond_0
 
     const-string/jumbo v0, "(code "
@@ -156,12 +137,10 @@
 
     if-lez v0, :cond_0
 
-    .line 44
     const-string/jumbo v0, ""
 
     return-object v0
 
-    .line 45
     :cond_0
     const-string/jumbo v0, " (code 19)"
 

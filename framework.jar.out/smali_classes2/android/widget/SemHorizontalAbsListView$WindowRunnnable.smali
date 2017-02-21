@@ -23,10 +23,7 @@
 # direct methods
 .method private constructor <init>(Landroid/widget/SemHorizontalAbsListView;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/widget/SemHorizontalAbsListView;
 
-    .prologue
-    .line 4119
     iput-object p1, p0, Landroid/widget/SemHorizontalAbsListView$WindowRunnnable;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,9 +33,7 @@
 
 .method synthetic constructor <init>(Landroid/widget/SemHorizontalAbsListView;Landroid/widget/SemHorizontalAbsListView$WindowRunnnable;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/widget/SemHorizontalAbsListView;
 
-    .prologue
     invoke-direct {p0, p1}, Landroid/widget/SemHorizontalAbsListView$WindowRunnnable;-><init>(Landroid/widget/SemHorizontalAbsListView;)V
 
     return-void
@@ -49,8 +44,6 @@
 .method public rememberWindowAttachCount()V
     .locals 1
 
-    .prologue
-    .line 4123
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView$WindowRunnnable;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
     invoke-static {v0}, Landroid/widget/SemHorizontalAbsListView;->-wrap3(Landroid/widget/SemHorizontalAbsListView;)I
@@ -59,15 +52,12 @@
 
     iput v0, p0, Landroid/widget/SemHorizontalAbsListView$WindowRunnnable;->mOriginalAttachCount:I
 
-    .line 4122
     return-void
 .end method
 
 .method public sameWindow()Z
     .locals 2
 
-    .prologue
-    .line 4127
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView$WindowRunnnable;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
     invoke-static {v0}, Landroid/widget/SemHorizontalAbsListView;->-wrap3(Landroid/widget/SemHorizontalAbsListView;)I

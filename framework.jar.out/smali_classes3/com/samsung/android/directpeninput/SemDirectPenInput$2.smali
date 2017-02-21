@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/directpeninput/SemDirectPenInput;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/samsung/android/directpeninput/SemDirectPenInput;
 
-    .prologue
-    .line 2987
     iput-object p1, p0, Lcom/samsung/android/directpeninput/SemDirectPenInput$2;->this$0:Lcom/samsung/android/directpeninput/SemDirectPenInput;
 
     invoke-direct {p0}, Lcom/samsung/android/directpeninput/ISemDirectPenInputClient$Stub;-><init>()V
@@ -36,16 +33,12 @@
 # virtual methods
 .method public onResultReceived(ILandroid/os/Bundle;)V
     .locals 4
-    .param p1, "clientId"    # I
-    .param p2, "result"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
-    .line 3005
     const-string/jumbo v1, "DirectPenInput"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -72,7 +65,6 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3006
     iget-object v1, p0, Lcom/samsung/android/directpeninput/SemDirectPenInput$2;->this$0:Lcom/samsung/android/directpeninput/SemDirectPenInput;
 
     invoke-static {v1}, Lcom/samsung/android/directpeninput/SemDirectPenInput;->-get1(Lcom/samsung/android/directpeninput/SemDirectPenInput;)Landroid/os/Handler;
@@ -87,34 +79,25 @@
 
     move-result-object v0
 
-    .line 3007
-    .local v0, "msg":Landroid/os/Message;
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    .line 3004
     return-void
 .end method
 
 .method public onTextDeleted(III)V
     .locals 3
-    .param p1, "clientId"    # I
-    .param p2, "start"    # I
-    .param p3, "end"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
-    .line 2998
     const-string/jumbo v1, "DirectPenInput"
 
     const-string/jumbo v2, "mServiceCallback onTextDeleted()"
 
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2999
     iget-object v1, p0, Lcom/samsung/android/directpeninput/SemDirectPenInput$2;->this$0:Lcom/samsung/android/directpeninput/SemDirectPenInput;
 
     invoke-static {v1}, Lcom/samsung/android/directpeninput/SemDirectPenInput;->-get1(Lcom/samsung/android/directpeninput/SemDirectPenInput;)Landroid/os/Handler;
@@ -127,35 +110,25 @@
 
     move-result-object v0
 
-    .line 3000
-    .local v0, "msg":Landroid/os/Message;
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    .line 2997
     return-void
 .end method
 
 .method public onTextInserted(IILjava/lang/CharSequence;I)V
     .locals 3
-    .param p1, "clientId"    # I
-    .param p2, "where"    # I
-    .param p3, "text"    # Ljava/lang/CharSequence;
-    .param p4, "nextCursor"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
-    .line 2991
     const-string/jumbo v1, "DirectPenInput"
 
     const-string/jumbo v2, "mServiceCallback onTextInserted()"
 
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2992
     iget-object v1, p0, Lcom/samsung/android/directpeninput/SemDirectPenInput$2;->this$0:Lcom/samsung/android/directpeninput/SemDirectPenInput;
 
     invoke-static {v1}, Lcom/samsung/android/directpeninput/SemDirectPenInput;->-get1(Lcom/samsung/android/directpeninput/SemDirectPenInput;)Landroid/os/Handler;
@@ -168,25 +141,19 @@
 
     move-result-object v0
 
-    .line 2993
-    .local v0, "msg":Landroid/os/Message;
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    .line 2990
     return-void
 .end method
 
 .method public onUpdateDialog(I)V
     .locals 4
-    .param p1, "clientId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
-    .line 3012
     const-string/jumbo v1, "DirectPenInput"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -213,7 +180,6 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3013
     iget-object v1, p0, Lcom/samsung/android/directpeninput/SemDirectPenInput$2;->this$0:Lcom/samsung/android/directpeninput/SemDirectPenInput;
 
     invoke-static {v1}, Lcom/samsung/android/directpeninput/SemDirectPenInput;->-get1(Lcom/samsung/android/directpeninput/SemDirectPenInput;)Landroid/os/Handler;
@@ -226,10 +192,7 @@
 
     move-result-object v0
 
-    .line 3014
-    .local v0, "msg":Landroid/os/Message;
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    .line 3011
     return-void
 .end method

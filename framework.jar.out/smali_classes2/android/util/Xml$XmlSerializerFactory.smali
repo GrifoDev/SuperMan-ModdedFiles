@@ -24,8 +24,6 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    .prologue
-    .line 119
     :try_start_0
     const-string/jumbo v1, "org.kxml2.io.KXmlParser,org.kxml2.io.KXmlSerializer"
 
@@ -39,15 +37,11 @@
     :try_end_0
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 113
     return-void
 
-    .line 120
     :catch_0
     move-exception v0
 
-    .line 121
-    .local v0, "e":Lorg/xmlpull/v1/XmlPullParserException;
     new-instance v1, Ljava/lang/AssertionError;
 
     invoke-direct {v1, v0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
@@ -58,8 +52,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 113
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

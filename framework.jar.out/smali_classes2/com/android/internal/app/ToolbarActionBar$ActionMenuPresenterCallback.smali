@@ -26,10 +26,7 @@
 # direct methods
 .method private constructor <init>(Lcom/android/internal/app/ToolbarActionBar;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/internal/app/ToolbarActionBar;
 
-    .prologue
-    .line 534
     iput-object p1, p0, Lcom/android/internal/app/ToolbarActionBar$ActionMenuPresenterCallback;->this$0:Lcom/android/internal/app/ToolbarActionBar;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,9 +36,7 @@
 
 .method synthetic constructor <init>(Lcom/android/internal/app/ToolbarActionBar;Lcom/android/internal/app/ToolbarActionBar$ActionMenuPresenterCallback;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/internal/app/ToolbarActionBar;
 
-    .prologue
     invoke-direct {p0, p1}, Lcom/android/internal/app/ToolbarActionBar$ActionMenuPresenterCallback;-><init>(Lcom/android/internal/app/ToolbarActionBar;)V
 
     return-void
@@ -51,25 +46,18 @@
 # virtual methods
 .method public onCloseMenu(Lcom/android/internal/view/menu/MenuBuilder;Z)V
     .locals 2
-    .param p1, "menu"    # Lcom/android/internal/view/menu/MenuBuilder;
-    .param p2, "allMenusAreClosing"    # Z
 
-    .prologue
-    .line 548
     iget-boolean v0, p0, Lcom/android/internal/app/ToolbarActionBar$ActionMenuPresenterCallback;->mClosingActionMenu:Z
 
     if-eqz v0, :cond_0
 
-    .line 549
     return-void
 
-    .line 552
     :cond_0
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/internal/app/ToolbarActionBar$ActionMenuPresenterCallback;->mClosingActionMenu:Z
 
-    .line 553
     iget-object v0, p0, Lcom/android/internal/app/ToolbarActionBar$ActionMenuPresenterCallback;->this$0:Lcom/android/internal/app/ToolbarActionBar;
 
     invoke-static {v0}, Lcom/android/internal/app/ToolbarActionBar;->-get0(Lcom/android/internal/app/ToolbarActionBar;)Lcom/android/internal/widget/DecorToolbar;
@@ -78,7 +66,6 @@
 
     invoke-interface {v0}, Lcom/android/internal/widget/DecorToolbar;->dismissPopupMenus()V
 
-    .line 554
     iget-object v0, p0, Lcom/android/internal/app/ToolbarActionBar$ActionMenuPresenterCallback;->this$0:Lcom/android/internal/app/ToolbarActionBar;
 
     invoke-static {v0}, Lcom/android/internal/app/ToolbarActionBar;->-get2(Lcom/android/internal/app/ToolbarActionBar;)Landroid/view/Window$Callback;
@@ -87,7 +74,6 @@
 
     if-eqz v0, :cond_1
 
-    .line 555
     iget-object v0, p0, Lcom/android/internal/app/ToolbarActionBar$ActionMenuPresenterCallback;->this$0:Lcom/android/internal/app/ToolbarActionBar;
 
     invoke-static {v0}, Lcom/android/internal/app/ToolbarActionBar;->-get2(Lcom/android/internal/app/ToolbarActionBar;)Landroid/view/Window$Callback;
@@ -98,22 +84,17 @@
 
     invoke-interface {v0, v1, p1}, Landroid/view/Window$Callback;->onPanelClosed(ILandroid/view/Menu;)V
 
-    .line 557
     :cond_1
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/internal/app/ToolbarActionBar$ActionMenuPresenterCallback;->mClosingActionMenu:Z
 
-    .line 547
     return-void
 .end method
 
 .method public onOpenSubMenu(Lcom/android/internal/view/menu/MenuBuilder;)Z
     .locals 2
-    .param p1, "subMenu"    # Lcom/android/internal/view/menu/MenuBuilder;
 
-    .prologue
-    .line 539
     iget-object v0, p0, Lcom/android/internal/app/ToolbarActionBar$ActionMenuPresenterCallback;->this$0:Lcom/android/internal/app/ToolbarActionBar;
 
     invoke-static {v0}, Lcom/android/internal/app/ToolbarActionBar;->-get2(Lcom/android/internal/app/ToolbarActionBar;)Landroid/view/Window$Callback;
@@ -122,7 +103,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 540
     iget-object v0, p0, Lcom/android/internal/app/ToolbarActionBar$ActionMenuPresenterCallback;->this$0:Lcom/android/internal/app/ToolbarActionBar;
 
     invoke-static {v0}, Lcom/android/internal/app/ToolbarActionBar;->-get2(Lcom/android/internal/app/ToolbarActionBar;)Landroid/view/Window$Callback;
@@ -133,12 +113,10 @@
 
     invoke-interface {v0, v1, p1}, Landroid/view/Window$Callback;->onMenuOpened(ILandroid/view/Menu;)Z
 
-    .line 541
     const/4 v0, 0x1
 
     return v0
 
-    .line 543
     :cond_0
     const/4 v0, 0x0
 

@@ -18,8 +18,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 1283
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -28,7 +26,6 @@
 .method synthetic constructor <init>(Landroid/text/HtmlToSpannedConverter$Super;)V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Landroid/text/HtmlToSpannedConverter$Super;-><init>()V
 
     return-void

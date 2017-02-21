@@ -23,21 +23,13 @@
 # direct methods
 .method public constructor <init>(Lcom/android/internal/app/ResolverActivity;Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;Landroid/widget/ImageView;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/internal/app/ResolverActivity;
-    .param p2, "dri"    # Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;
-    .param p3, "target"    # Landroid/widget/ImageView;
 
-    .prologue
-    .line 2663
     iput-object p1, p0, Lcom/android/internal/app/ResolverActivity$LoadIconIntoViewTask;->this$0:Lcom/android/internal/app/ResolverActivity;
 
-    .line 2664
     invoke-direct {p0, p1, p2}, Lcom/android/internal/app/ResolverActivity$LoadIconTask;-><init>(Lcom/android/internal/app/ResolverActivity;Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;)V
 
-    .line 2665
     iput-object p3, p0, Lcom/android/internal/app/ResolverActivity$LoadIconIntoViewTask;->mTargetView:Landroid/widget/ImageView;
 
-    .line 2663
     return-void
 .end method
 
@@ -45,13 +37,9 @@
 # virtual methods
 .method protected onPostExecute(Landroid/graphics/drawable/Drawable;)V
     .locals 4
-    .param p1, "d"    # Landroid/graphics/drawable/Drawable;
 
-    .prologue
-    .line 2670
     invoke-super {p0, p1}, Lcom/android/internal/app/ResolverActivity$LoadIconTask;->onPostExecute(Landroid/graphics/drawable/Drawable;)V
 
-    .line 2672
     iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$LoadIconIntoViewTask;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     invoke-static {v1}, Lcom/android/internal/app/ResolverActivity;->-wrap0(Lcom/android/internal/app/ResolverActivity;)Z
@@ -60,7 +48,6 @@
 
     if-eqz v1, :cond_0
 
-    .line 2673
     iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$LoadIconTask;->mDisplayResolveInfo:Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;
 
     invoke-virtual {v1}, Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;->getResolveInfo()Landroid/content/pm/ResolveInfo;
@@ -77,15 +64,12 @@
 
     move-result v0
 
-    .line 2674
-    .local v0, "userId":I
     invoke-static {v0}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 2675
     const-string/jumbo v1, "ResolverActivity"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -108,7 +92,6 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2676
     iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$LoadIconIntoViewTask;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     invoke-static {v1}, Lcom/android/internal/app/ResolverActivity;->-get14(Lcom/android/internal/app/ResolverActivity;)Landroid/content/pm/PackageManager;
@@ -129,13 +112,10 @@
 
     move-result-object p1
 
-    .line 2680
-    .end local v0    # "userId":I
     :cond_0
     iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$LoadIconIntoViewTask;->mTargetView:Landroid/widget/ImageView;
 
     invoke-virtual {v1, p1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 2669
     return-void
 .end method

@@ -56,62 +56,46 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 162
     new-instance v0, Lcom/samsung/android/hardware/context/SemContextActivityBatch$1;
 
     invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextActivityBatch$1;-><init>()V
 
     sput-object v0, Lcom/samsung/android/hardware/context/SemContextActivityBatch;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    .line 94
     return-void
 .end method
 
 .method constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 186
     invoke-direct {p0}, Lcom/samsung/android/hardware/context/SemContextEventContext;-><init>()V
 
-    .line 187
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
     iput-object v0, p0, Lcom/samsung/android/hardware/context/SemContextActivityBatch;->mContext:Landroid/os/Bundle;
 
-    .line 188
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/samsung/android/hardware/context/SemContextActivityBatch;->mMode:I
 
-    .line 186
     return-void
 .end method
 
 .method constructor <init>(Landroid/os/Parcel;)V
     .locals 0
-    .param p1, "src"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 194
     invoke-direct {p0}, Lcom/samsung/android/hardware/context/SemContextEventContext;-><init>()V
 
-    .line 195
     invoke-direct {p0, p1}, Lcom/samsung/android/hardware/context/SemContextActivityBatch;->readFromParcel(Landroid/os/Parcel;)V
 
-    .line 194
     return-void
 .end method
 
 .method private readFromParcel(Landroid/os/Parcel;)V
     .locals 1
-    .param p1, "src"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 304
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -126,14 +110,12 @@
 
     iput-object v0, p0, Lcom/samsung/android/hardware/context/SemContextActivityBatch;->mContext:Landroid/os/Bundle;
 
-    .line 305
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/samsung/android/hardware/context/SemContextActivityBatch;->mMode:I
 
-    .line 303
     return-void
 .end method
 
@@ -142,8 +124,6 @@
 .method public getAccuracyArray()[I
     .locals 2
 
-    .prologue
-    .line 255
     iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextActivityBatch;->mContext:Landroid/os/Bundle;
 
     const-string/jumbo v1, "Accuracy"
@@ -158,8 +138,6 @@
 .method public getMode()I
     .locals 1
 
-    .prologue
-    .line 267
     iget v0, p0, Lcom/samsung/android/hardware/context/SemContextActivityBatch;->mMode:I
 
     return v0
@@ -168,8 +146,6 @@
 .method public getMostActivity()I
     .locals 2
 
-    .prologue
-    .line 243
     iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextActivityBatch;->mContext:Landroid/os/Bundle;
 
     const-string/jumbo v1, "MostActivity"
@@ -184,8 +160,6 @@
 .method public getStatusArray()[I
     .locals 2
 
-    .prologue
-    .line 234
     iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextActivityBatch;->mContext:Landroid/os/Bundle;
 
     const-string/jumbo v1, "ActivityType"
@@ -200,17 +174,12 @@
 .method public getTimeStampArray()[J
     .locals 8
 
-    .prologue
-    .line 204
     const/4 v3, 0x0
 
-    .line 205
-    .local v3, "timestamp":[J
     iget v4, p0, Lcom/samsung/android/hardware/context/SemContextActivityBatch;->mMode:I
 
     if-nez v4, :cond_1
 
-    .line 206
     iget-object v4, p0, Lcom/samsung/android/hardware/context/SemContextActivityBatch;->mContext:Landroid/os/Bundle;
 
     const-string/jumbo v5, "Count"
@@ -219,8 +188,6 @@
 
     move-result v2
 
-    .line 207
-    .local v2, "size":I
     iget-object v4, p0, Lcom/samsung/android/hardware/context/SemContextActivityBatch;->mContext:Landroid/os/Bundle;
 
     const-string/jumbo v5, "Duration"
@@ -229,25 +196,17 @@
 
     move-result-object v0
 
-    .line 208
-    .local v0, "duration":[J
     if-eqz v0, :cond_2
 
-    .line 209
     new-array v3, v2, [J
 
-    .line 210
-    .local v3, "timestamp":[J
     const/4 v1, 0x0
 
-    .local v1, "i":I
     :goto_0
     if-ge v1, v2, :cond_2
 
-    .line 211
     if-nez v1, :cond_0
 
-    .line 212
     iget-object v4, p0, Lcom/samsung/android/hardware/context/SemContextActivityBatch;->mContext:Landroid/os/Bundle;
 
     const-string/jumbo v5, "TimeStamp"
@@ -258,13 +217,11 @@
 
     aput-wide v4, v3, v1
 
-    .line 210
     :goto_1
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 214
     :cond_0
     add-int/lit8 v4, v1, -0x1
 
@@ -280,11 +237,6 @@
 
     goto :goto_1
 
-    .line 218
-    .end local v0    # "duration":[J
-    .end local v1    # "i":I
-    .end local v2    # "size":I
-    .local v3, "timestamp":[J
     :cond_1
     iget v4, p0, Lcom/samsung/android/hardware/context/SemContextActivityBatch;->mMode:I
 
@@ -292,7 +244,6 @@
 
     if-ne v4, v5, :cond_2
 
-    .line 219
     iget-object v4, p0, Lcom/samsung/android/hardware/context/SemContextActivityBatch;->mContext:Landroid/os/Bundle;
 
     const-string/jumbo v5, "TimeStampArray"
@@ -301,21 +252,15 @@
 
     move-result-object v3
 
-    .line 221
-    .end local v3    # "timestamp":[J
     :cond_2
     return-object v3
 .end method
 
 .method public setValues(Landroid/os/Bundle;)V
     .locals 2
-    .param p1, "context"    # Landroid/os/Bundle;
 
-    .prologue
-    .line 278
     iput-object p1, p0, Lcom/samsung/android/hardware/context/SemContextActivityBatch;->mContext:Landroid/os/Bundle;
 
-    .line 279
     iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextActivityBatch;->mContext:Landroid/os/Bundle;
 
     const-string/jumbo v1, "Mode"
@@ -326,26 +271,19 @@
 
     iput v0, p0, Lcom/samsung/android/hardware/context/SemContextActivityBatch;->mMode:I
 
-    .line 277
     return-void
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .param p1, "dest"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
-    .prologue
-    .line 293
     iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextActivityBatch;->mContext:Landroid/os/Bundle;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
 
-    .line 294
     iget v0, p0, Lcom/samsung/android/hardware/context/SemContextActivityBatch;->mMode:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 292
     return-void
 .end method

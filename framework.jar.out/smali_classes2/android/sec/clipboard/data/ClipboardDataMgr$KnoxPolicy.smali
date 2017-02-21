@@ -21,10 +21,7 @@
 # direct methods
 .method private constructor <init>(Landroid/sec/clipboard/data/ClipboardDataMgr;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/sec/clipboard/data/ClipboardDataMgr;
 
-    .prologue
-    .line 91
     iput-object p1, p0, Landroid/sec/clipboard/data/ClipboardDataMgr$KnoxPolicy;->this$0:Landroid/sec/clipboard/data/ClipboardDataMgr;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,9 +31,7 @@
 
 .method synthetic constructor <init>(Landroid/sec/clipboard/data/ClipboardDataMgr;Landroid/sec/clipboard/data/ClipboardDataMgr$KnoxPolicy;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/sec/clipboard/data/ClipboardDataMgr;
 
-    .prologue
     invoke-direct {p0, p1}, Landroid/sec/clipboard/data/ClipboardDataMgr$KnoxPolicy;-><init>(Landroid/sec/clipboard/data/ClipboardDataMgr;)V
 
     return-void
@@ -46,10 +41,7 @@
 # virtual methods
 .method public isAllowedSharingKnoxDataToPersonal(I)Z
     .locals 1
-    .param p1, "userId"    # I
 
-    .prologue
-    .line 93
     iget-object v0, p0, Landroid/sec/clipboard/data/ClipboardDataMgr$KnoxPolicy;->this$0:Landroid/sec/clipboard/data/ClipboardDataMgr;
 
     invoke-static {v0}, Landroid/sec/clipboard/data/ClipboardDataMgr;->-get0(Landroid/sec/clipboard/data/ClipboardDataMgr;)Landroid/content/Context;
@@ -69,10 +61,7 @@
 
 .method public isAllowedSharingPersonalDataToKnox(I)Z
     .locals 1
-    .param p1, "userId"    # I
 
-    .prologue
-    .line 97
     iget-object v0, p0, Landroid/sec/clipboard/data/ClipboardDataMgr$KnoxPolicy;->this$0:Landroid/sec/clipboard/data/ClipboardDataMgr;
 
     invoke-static {v0}, Landroid/sec/clipboard/data/ClipboardDataMgr;->-get0(Landroid/sec/clipboard/data/ClipboardDataMgr;)Landroid/content/Context;

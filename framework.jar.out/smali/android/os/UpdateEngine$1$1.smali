@@ -30,13 +30,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/UpdateEngine$1;Landroid/os/UpdateEngineCallback;IF)V
     .locals 0
-    .param p1, "this$1"    # Landroid/os/UpdateEngine$1;
-    .param p2, "val$callback"    # Landroid/os/UpdateEngineCallback;
-    .param p3, "val$status"    # I
-    .param p4, "val$percent"    # F
 
-    .prologue
-    .line 95
     iput-object p1, p0, Landroid/os/UpdateEngine$1$1;->this$1:Landroid/os/UpdateEngine$1;
 
     iput-object p2, p0, Landroid/os/UpdateEngine$1$1;->val$callback:Landroid/os/UpdateEngineCallback;
@@ -55,8 +49,6 @@
 .method public run()V
     .locals 3
 
-    .prologue
-    .line 98
     iget-object v0, p0, Landroid/os/UpdateEngine$1$1;->val$callback:Landroid/os/UpdateEngineCallback;
 
     iget v1, p0, Landroid/os/UpdateEngine$1$1;->val$status:I
@@ -65,6 +57,5 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/UpdateEngineCallback;->onStatusUpdate(IF)V
 
-    .line 97
     return-void
 .end method

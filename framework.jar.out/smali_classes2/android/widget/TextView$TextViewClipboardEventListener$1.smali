@@ -26,11 +26,7 @@
 # direct methods
 .method constructor <init>(Landroid/widget/TextView$TextViewClipboardEventListener;Lcom/samsung/android/content/clipboard/data/SemClipData;)V
     .locals 0
-    .param p1, "this$1"    # Landroid/widget/TextView$TextViewClipboardEventListener;
-    .param p2, "val$dataInner"    # Lcom/samsung/android/content/clipboard/data/SemClipData;
 
-    .prologue
-    .line 504
     iput-object p1, p0, Landroid/widget/TextView$TextViewClipboardEventListener$1;->this$1:Landroid/widget/TextView$TextViewClipboardEventListener;
 
     iput-object p2, p0, Landroid/widget/TextView$TextViewClipboardEventListener$1;->val$dataInner:Lcom/samsung/android/content/clipboard/data/SemClipData;
@@ -45,8 +41,6 @@
 .method public run()V
     .locals 2
 
-    .prologue
-    .line 506
     iget-object v0, p0, Landroid/widget/TextView$TextViewClipboardEventListener$1;->this$1:Landroid/widget/TextView$TextViewClipboardEventListener;
 
     iget-object v0, v0, Landroid/widget/TextView$TextViewClipboardEventListener;->this$0:Landroid/widget/TextView;
@@ -55,6 +49,5 @@
 
     invoke-static {v0, v1}, Landroid/widget/TextView;->-wrap11(Landroid/widget/TextView;Lcom/samsung/android/content/clipboard/data/SemClipData;)V
 
-    .line 505
     return-void
 .end method

@@ -31,23 +31,17 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 1
-    .param p1, "maxLines"    # I
 
-    .prologue
-    .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 35
     new-instance v0, Ljava/util/LinkedList;
 
     invoke-direct {v0}, Ljava/util/LinkedList;-><init>()V
 
     iput-object v0, p0, Landroid/util/LocalLog;->mLog:Ljava/util/LinkedList;
 
-    .line 36
     iput p1, p0, Landroid/util/LocalLog;->mMaxLines:I
 
-    .line 34
     return-void
 .end method
 
@@ -55,14 +49,9 @@
 # virtual methods
 .method public declared-synchronized dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 3
-    .param p1, "fd"    # Ljava/io/FileDescriptor;
-    .param p2, "pw"    # Ljava/io/PrintWriter;
-    .param p3, "args"    # [Ljava/lang/String;
 
-    .prologue
     monitor-enter p0
 
-    .line 52
     :try_start_0
     iget-object v1, p0, Landroid/util/LocalLog;->mLog:Ljava/util/LinkedList;
 
@@ -72,8 +61,6 @@
 
     move-result-object v0
 
-    .line 53
-    .local v0, "itr":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/lang/String;>;"
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -81,7 +68,6 @@
 
     if-eqz v1, :cond_0
 
-    .line 54
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
@@ -94,7 +80,6 @@
 
     goto :goto_0
 
-    .end local v0    # "itr":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/lang/String;>;"
     :catchall_0
     move-exception v1
 
@@ -102,52 +87,40 @@
 
     throw v1
 
-    .restart local v0    # "itr":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/lang/String;>;"
     :cond_0
     monitor-exit p0
 
-    .line 51
     return-void
 .end method
 
 .method public declared-synchronized log(Ljava/lang/String;)V
     .locals 5
-    .param p1, "msg"    # Ljava/lang/String;
 
-    .prologue
     monitor-enter p0
 
-    .line 40
     :try_start_0
     iget v2, p0, Landroid/util/LocalLog;->mMaxLines:I
 
     if-lez v2, :cond_0
 
-    .line 41
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v2
 
     iput-wide v2, p0, Landroid/util/LocalLog;->mNow:J
 
-    .line 42
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 43
-    .local v1, "sb":Ljava/lang/StringBuilder;
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
 
     move-result-object v0
 
-    .line 44
-    .local v0, "c":Ljava/util/Calendar;
     iget-wide v2, p0, Landroid/util/LocalLog;->mNow:J
 
     invoke-virtual {v0, v2, v3}, Ljava/util/Calendar;->setTimeInMillis(J)V
 
-    .line 45
     const-string/jumbo v2, "%tm-%td %tH:%tM:%tS.%tL"
 
     const/4 v3, 0x6
@@ -184,7 +157,6 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 46
     iget-object v2, p0, Landroid/util/LocalLog;->mLog:Ljava/util/LinkedList;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -215,7 +187,6 @@
 
     invoke-virtual {v2, v3}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
 
-    .line 47
     :goto_0
     iget-object v2, p0, Landroid/util/LocalLog;->mLog:Ljava/util/LinkedList;
 
@@ -235,8 +206,6 @@
 
     goto :goto_0
 
-    .end local v0    # "c":Ljava/util/Calendar;
-    .end local v1    # "sb":Ljava/lang/StringBuilder;
     :catchall_0
     move-exception v2
 
@@ -247,15 +216,12 @@
     :cond_0
     monitor-exit p0
 
-    .line 39
     return-void
 .end method
 
 .method public readOnlyLocalLog()Landroid/util/LocalLog$ReadOnlyLocalLog;
     .locals 1
 
-    .prologue
-    .line 75
     new-instance v0, Landroid/util/LocalLog$ReadOnlyLocalLog;
 
     invoke-direct {v0, p0}, Landroid/util/LocalLog$ReadOnlyLocalLog;-><init>(Landroid/util/LocalLog;)V
@@ -265,14 +231,9 @@
 
 .method public declared-synchronized reverseDump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 2
-    .param p1, "fd"    # Ljava/io/FileDescriptor;
-    .param p2, "pw"    # Ljava/io/PrintWriter;
-    .param p3, "args"    # [Ljava/lang/String;
 
-    .prologue
     monitor-enter p0
 
-    .line 59
     :try_start_0
     iget-object v1, p0, Landroid/util/LocalLog;->mLog:Ljava/util/LinkedList;
 
@@ -282,11 +243,9 @@
 
     add-int/lit8 v0, v1, -0x1
 
-    .local v0, "i":I
     :goto_0
     if-ltz v0, :cond_0
 
-    .line 60
     iget-object v1, p0, Landroid/util/LocalLog;->mLog:Ljava/util/LinkedList;
 
     invoke-virtual {v1, v0}, Ljava/util/LinkedList;->get(I)Ljava/lang/Object;
@@ -299,7 +258,6 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 59
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
@@ -307,10 +265,8 @@
     :cond_0
     monitor-exit p0
 
-    .line 58
     return-void
 
-    .end local v0    # "i":I
     :catchall_0
     move-exception v1
 

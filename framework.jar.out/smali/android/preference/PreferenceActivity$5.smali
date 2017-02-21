@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/preference/PreferenceActivity;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/preference/PreferenceActivity;
 
-    .prologue
-    .line 793
     iput-object p1, p0, Landroid/preference/PreferenceActivity$5;->this$0:Landroid/preference/PreferenceActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,18 +36,7 @@
 # virtual methods
 .method public onLayoutChange(Landroid/view/View;IIIIIIII)V
     .locals 4
-    .param p1, "v"    # Landroid/view/View;
-    .param p2, "left"    # I
-    .param p3, "top"    # I
-    .param p4, "right"    # I
-    .param p5, "bottom"    # I
-    .param p6, "oldLeft"    # I
-    .param p7, "oldTop"    # I
-    .param p8, "oldRight"    # I
-    .param p9, "oldBottom"    # I
 
-    .prologue
-    .line 797
     iget-object v2, p0, Landroid/preference/PreferenceActivity$5;->this$0:Landroid/preference/PreferenceActivity;
 
     invoke-static {v2}, Landroid/preference/PreferenceActivity;->-get2(Landroid/preference/PreferenceActivity;)Z
@@ -59,15 +45,11 @@
 
     if-nez v2, :cond_0
 
-    .line 798
     return-void
 
-    .line 802
     :cond_0
     const/4 v0, 0x0
 
-    .line 803
-    .local v0, "mRightLayoutStartPosition":F
     iget-object v2, p0, Landroid/preference/PreferenceActivity$5;->this$0:Landroid/preference/PreferenceActivity;
 
     invoke-static {v2}, Landroid/preference/PreferenceActivity;->-get6(Landroid/preference/PreferenceActivity;)Z
@@ -76,7 +58,6 @@
 
     if-eqz v2, :cond_3
 
-    .line 804
     iget-object v2, p0, Landroid/preference/PreferenceActivity$5;->this$0:Landroid/preference/PreferenceActivity;
 
     invoke-static {v2}, Landroid/preference/PreferenceActivity;->-get3(Landroid/preference/PreferenceActivity;)Landroid/widget/LinearLayout;
@@ -87,7 +68,6 @@
 
     move-result v0
 
-    .line 811
     :goto_0
     iget-object v2, p0, Landroid/preference/PreferenceActivity$5;->this$0:Landroid/preference/PreferenceActivity;
 
@@ -105,7 +85,6 @@
 
     if-eqz v2, :cond_2
 
-    .line 812
     iget-object v2, p0, Landroid/preference/PreferenceActivity$5;->this$0:Landroid/preference/PreferenceActivity;
 
     invoke-static {v2}, Landroid/preference/PreferenceActivity;->-get9(Landroid/preference/PreferenceActivity;)Landroid/view/View;
@@ -124,18 +103,14 @@
 
     sub-float v1, v0, v2
 
-    .line 813
-    .local v1, "x":F
     const/4 v2, 0x0
 
     cmpg-float v2, v1, v2
 
     if-gez v2, :cond_1
 
-    .line 814
     const/4 v1, 0x0
 
-    .line 816
     :cond_1
     iget-object v2, p0, Landroid/preference/PreferenceActivity$5;->this$0:Landroid/preference/PreferenceActivity;
 
@@ -151,7 +126,6 @@
 
     if-eqz v2, :cond_2
 
-    .line 817
     iget-object v2, p0, Landroid/preference/PreferenceActivity$5;->this$0:Landroid/preference/PreferenceActivity;
 
     invoke-static {v2}, Landroid/preference/PreferenceActivity;->-get9(Landroid/preference/PreferenceActivity;)Landroid/view/View;
@@ -160,12 +134,9 @@
 
     invoke-virtual {v2, v1}, Landroid/view/View;->setX(F)V
 
-    .line 796
-    .end local v1    # "x":F
     :cond_2
     return-void
 
-    .line 807
     :cond_3
     iget-object v2, p0, Landroid/preference/PreferenceActivity$5;->this$0:Landroid/preference/PreferenceActivity;
 

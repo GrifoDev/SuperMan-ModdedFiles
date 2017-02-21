@@ -18,8 +18,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 772
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -30,15 +28,11 @@
 .method public onCoverTouchAccept()V
     .locals 0
 
-    .prologue
-    .line 778
     return-void
 .end method
 
 .method public onCoverTouchReject()V
     .locals 0
 
-    .prologue
-    .line 786
     return-void
 .end method

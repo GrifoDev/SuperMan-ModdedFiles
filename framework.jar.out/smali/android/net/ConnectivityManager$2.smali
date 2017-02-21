@@ -23,12 +23,7 @@
 # direct methods
 .method constructor <init>(Landroid/net/ConnectivityManager;Landroid/os/Handler;Landroid/net/ConnectivityManager$OnStartTetheringCallback;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/net/ConnectivityManager;
-    .param p2, "$anonymous0"    # Landroid/os/Handler;
-    .param p3, "val$callback"    # Landroid/net/ConnectivityManager$OnStartTetheringCallback;
 
-    .prologue
-    .line 2382
     iput-object p1, p0, Landroid/net/ConnectivityManager$2;->this$0:Landroid/net/ConnectivityManager;
 
     iput-object p3, p0, Landroid/net/ConnectivityManager$2;->val$callback:Landroid/net/ConnectivityManager$OnStartTetheringCallback;
@@ -42,23 +37,16 @@
 # virtual methods
 .method protected onReceiveResult(ILandroid/os/Bundle;)V
     .locals 1
-    .param p1, "resultCode"    # I
-    .param p2, "resultData"    # Landroid/os/Bundle;
 
-    .prologue
-    .line 2385
     if-nez p1, :cond_0
 
-    .line 2386
     iget-object v0, p0, Landroid/net/ConnectivityManager$2;->val$callback:Landroid/net/ConnectivityManager$OnStartTetheringCallback;
 
     invoke-virtual {v0}, Landroid/net/ConnectivityManager$OnStartTetheringCallback;->onTetheringStarted()V
 
-    .line 2384
     :goto_0
     return-void
 
-    .line 2388
     :cond_0
     iget-object v0, p0, Landroid/net/ConnectivityManager$2;->val$callback:Landroid/net/ConnectivityManager$OnStartTetheringCallback;
 

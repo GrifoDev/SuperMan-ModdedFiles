@@ -13,33 +13,27 @@
 .method static constructor <clinit>()V
     .locals 4
 
-    .prologue
     :try_start_0
     const-string/jumbo v0, "InteractivePanoramaUtil"
 
-    .line 17
     invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
 
     const-string/jumbo v0, ""
 
     const-string/jumbo v1, "InteractivePanoramaUtil loaded"
 
-    .line 18
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catch Ljava/lang/UnsatisfiedLinkError; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 24
     :goto_0
     return-void
 
-    .line 19
     :catch_0
     move-exception v0
 
     const-string/jumbo v1, ""
 
-    .line 22
     new-instance v2, Ljava/lang/StringBuilder;
 
     const-string/jumbo v3, "Unable to Load "
@@ -66,8 +60,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 7
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

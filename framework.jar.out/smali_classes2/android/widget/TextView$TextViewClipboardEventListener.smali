@@ -24,10 +24,7 @@
 # direct methods
 .method protected constructor <init>(Landroid/widget/TextView;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/widget/TextView;
 
-    .prologue
-    .line 500
     iput-object p1, p0, Landroid/widget/TextView$TextViewClipboardEventListener;->this$0:Landroid/widget/TextView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,14 +36,9 @@
 # virtual methods
 .method public onPaste(Lcom/samsung/android/content/clipboard/data/SemClipData;)V
     .locals 3
-    .param p1, "data"    # Lcom/samsung/android/content/clipboard/data/SemClipData;
 
-    .prologue
-    .line 503
     move-object v0, p1
 
-    .line 504
-    .local v0, "dataInner":Lcom/samsung/android/content/clipboard/data/SemClipData;
     iget-object v1, p0, Landroid/widget/TextView$TextViewClipboardEventListener;->this$0:Landroid/widget/TextView;
 
     new-instance v2, Landroid/widget/TextView$TextViewClipboardEventListener$1;
@@ -55,6 +47,5 @@
 
     invoke-virtual {v1, v2}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
 
-    .line 501
     return-void
 .end method

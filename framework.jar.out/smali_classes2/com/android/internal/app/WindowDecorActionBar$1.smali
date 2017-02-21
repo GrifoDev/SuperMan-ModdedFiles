@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/app/WindowDecorActionBar;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/internal/app/WindowDecorActionBar;
 
-    .prologue
-    .line 130
     iput-object p1, p0, Lcom/android/internal/app/WindowDecorActionBar$1;->this$0:Lcom/android/internal/app/WindowDecorActionBar;
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
@@ -36,16 +33,13 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 4
-    .param p1, "animation"    # Landroid/animation/Animator;
 
-    .prologue
     const/16 v3, 0x8
 
     const/4 v1, 0x0
 
     const/4 v2, 0x0
 
-    .line 133
     iget-object v0, p0, Lcom/android/internal/app/WindowDecorActionBar$1;->this$0:Lcom/android/internal/app/WindowDecorActionBar;
 
     invoke-static {v0}, Lcom/android/internal/app/WindowDecorActionBar;->-get1(Lcom/android/internal/app/WindowDecorActionBar;)Z
@@ -62,7 +56,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 134
     iget-object v0, p0, Lcom/android/internal/app/WindowDecorActionBar$1;->this$0:Lcom/android/internal/app/WindowDecorActionBar;
 
     invoke-static {v0}, Lcom/android/internal/app/WindowDecorActionBar;->-get2(Lcom/android/internal/app/WindowDecorActionBar;)Landroid/view/View;
@@ -71,7 +64,6 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setTranslationY(F)V
 
-    .line 135
     iget-object v0, p0, Lcom/android/internal/app/WindowDecorActionBar$1;->this$0:Lcom/android/internal/app/WindowDecorActionBar;
 
     invoke-static {v0}, Lcom/android/internal/app/WindowDecorActionBar;->-get0(Lcom/android/internal/app/WindowDecorActionBar;)Lcom/android/internal/widget/ActionBarContainer;
@@ -80,7 +72,6 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/widget/ActionBarContainer;->setTranslationY(F)V
 
-    .line 137
     :cond_0
     iget-object v0, p0, Lcom/android/internal/app/WindowDecorActionBar$1;->this$0:Lcom/android/internal/app/WindowDecorActionBar;
 
@@ -100,7 +91,6 @@
 
     if-ne v0, v1, :cond_1
 
-    .line 138
     iget-object v0, p0, Lcom/android/internal/app/WindowDecorActionBar$1;->this$0:Lcom/android/internal/app/WindowDecorActionBar;
 
     invoke-static {v0}, Lcom/android/internal/app/WindowDecorActionBar;->-get10(Lcom/android/internal/app/WindowDecorActionBar;)Lcom/android/internal/widget/ActionBarContainer;
@@ -109,7 +99,6 @@
 
     invoke-virtual {v0, v3}, Lcom/android/internal/widget/ActionBarContainer;->setVisibility(I)V
 
-    .line 140
     :cond_1
     iget-object v0, p0, Lcom/android/internal/app/WindowDecorActionBar$1;->this$0:Lcom/android/internal/app/WindowDecorActionBar;
 
@@ -119,7 +108,6 @@
 
     invoke-virtual {v0, v3}, Lcom/android/internal/widget/ActionBarContainer;->setVisibility(I)V
 
-    .line 141
     iget-object v0, p0, Lcom/android/internal/app/WindowDecorActionBar$1;->this$0:Lcom/android/internal/app/WindowDecorActionBar;
 
     invoke-static {v0}, Lcom/android/internal/app/WindowDecorActionBar;->-get0(Lcom/android/internal/app/WindowDecorActionBar;)Lcom/android/internal/widget/ActionBarContainer;
@@ -130,17 +118,14 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/widget/ActionBarContainer;->setTransitioning(Z)V
 
-    .line 142
     iget-object v0, p0, Lcom/android/internal/app/WindowDecorActionBar$1;->this$0:Lcom/android/internal/app/WindowDecorActionBar;
 
     invoke-static {v0, v2}, Lcom/android/internal/app/WindowDecorActionBar;->-set0(Lcom/android/internal/app/WindowDecorActionBar;Landroid/animation/Animator;)Landroid/animation/Animator;
 
-    .line 143
     iget-object v0, p0, Lcom/android/internal/app/WindowDecorActionBar$1;->this$0:Lcom/android/internal/app/WindowDecorActionBar;
 
     invoke-virtual {v0}, Lcom/android/internal/app/WindowDecorActionBar;->completeDeferredDestroyActionMode()V
 
-    .line 144
     iget-object v0, p0, Lcom/android/internal/app/WindowDecorActionBar$1;->this$0:Lcom/android/internal/app/WindowDecorActionBar;
 
     invoke-static {v0}, Lcom/android/internal/app/WindowDecorActionBar;->-get9(Lcom/android/internal/app/WindowDecorActionBar;)Lcom/android/internal/widget/ActionBarOverlayLayout;
@@ -149,7 +134,6 @@
 
     if-eqz v0, :cond_2
 
-    .line 145
     iget-object v0, p0, Lcom/android/internal/app/WindowDecorActionBar$1;->this$0:Lcom/android/internal/app/WindowDecorActionBar;
 
     invoke-static {v0}, Lcom/android/internal/app/WindowDecorActionBar;->-get9(Lcom/android/internal/app/WindowDecorActionBar;)Lcom/android/internal/widget/ActionBarOverlayLayout;
@@ -158,7 +142,6 @@
 
     invoke-virtual {v0}, Lcom/android/internal/widget/ActionBarOverlayLayout;->requestApplyInsets()V
 
-    .line 132
     :cond_2
     return-void
 .end method

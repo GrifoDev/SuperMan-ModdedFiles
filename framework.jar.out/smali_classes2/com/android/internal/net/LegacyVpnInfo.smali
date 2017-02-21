@@ -327,43 +327,32 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 58
     new-instance v0, Lcom/android/internal/net/LegacyVpnInfo$1;
 
     invoke-direct {v0}, Lcom/android/internal/net/LegacyVpnInfo$1;-><init>()V
 
-    .line 57
     sput-object v0, Lcom/android/internal/net/LegacyVpnInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    .line 31
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 42
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/internal/net/LegacyVpnInfo;->state:I
 
-    .line 31
     return-void
 .end method
 
 .method public static stateFromNetworkInfo(Landroid/net/NetworkInfo;)I
     .locals 4
-    .param p0, "info"    # Landroid/net/NetworkInfo;
 
-    .prologue
     const/4 v3, 0x0
 
-    .line 79
     invoke-static {}, Lcom/android/internal/net/LegacyVpnInfo;->-getandroid-net-NetworkInfo$DetailedStateSwitchesValues()[I
 
     move-result-object v0
@@ -380,7 +369,6 @@
 
     packed-switch v0, :pswitch_data_0
 
-    .line 89
     const-string/jumbo v0, "LegacyVpnInfo"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -401,10 +389,8 @@
 
     move-result-object v1
 
-    .line 90
     const-string/jumbo v2, " ; treating as disconnected"
 
-    .line 89
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -415,32 +401,26 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 91
     return v3
 
-    .line 81
     :pswitch_0
     const/4 v0, 0x2
 
     return v0
 
-    .line 83
     :pswitch_1
     const/4 v0, 0x3
 
     return v0
 
-    .line 85
     :pswitch_2
     return v3
 
-    .line 87
     :pswitch_3
     const/4 v0, 0x5
 
     return v0
 
-    .line 79
     nop
 
     :pswitch_data_0
@@ -457,8 +437,6 @@
 .method public describeContents()I
     .locals 1
 
-    .prologue
-    .line 47
     const/4 v0, 0x0
 
     return v0
@@ -466,25 +444,18 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .param p1, "out"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
-    .prologue
-    .line 52
     iget-object v0, p0, Lcom/android/internal/net/LegacyVpnInfo;->key:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 53
     iget v0, p0, Lcom/android/internal/net/LegacyVpnInfo;->state:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 54
     iget-object v0, p0, Lcom/android/internal/net/LegacyVpnInfo;->intent:Landroid/app/PendingIntent;
 
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 51
     return-void
 .end method

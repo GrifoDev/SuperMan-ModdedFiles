@@ -71,8 +71,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 1569
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -81,7 +79,6 @@
 .method synthetic constructor <init>(Landroid/database/sqlite/SQLiteConnection$Operation;)V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Landroid/database/sqlite/SQLiteConnection$Operation;-><init>()V
 
     return-void
@@ -90,8 +87,6 @@
 .method private getFormattedStartTime()Ljava/lang/String;
     .locals 4
 
-    .prologue
-    .line 1642
     new-instance v0, Ljava/text/SimpleDateFormat;
 
     const-string/jumbo v1, "yyyy-MM-dd HH:mm:ss.SSS"
@@ -114,18 +109,14 @@
 .method private getStatus()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 1624
     iget-boolean v0, p0, Landroid/database/sqlite/SQLiteConnection$Operation;->mFinished:Z
 
     if-nez v0, :cond_0
 
-    .line 1625
     const-string/jumbo v0, "running"
 
     return-object v0
 
-    .line 1627
     :cond_0
     iget-object v0, p0, Landroid/database/sqlite/SQLiteConnection$Operation;->mException:Ljava/lang/Exception;
 
@@ -145,10 +136,8 @@
 .method private getTraceMethodName()Ljava/lang/String;
     .locals 4
 
-    .prologue
     const/16 v3, 0x100
 
-    .line 1631
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -175,15 +164,12 @@
 
     move-result-object v0
 
-    .line 1632
-    .local v0, "methodName":Ljava/lang/String;
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result v1
 
     if-le v1, v3, :cond_0
 
-    .line 1633
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
@@ -192,7 +178,6 @@
 
     return-object v1
 
-    .line 1634
     :cond_0
     return-object v0
 .end method
@@ -201,21 +186,15 @@
 # virtual methods
 .method public describe(Ljava/lang/StringBuilder;Z)V
     .locals 8
-    .param p1, "msg"    # Ljava/lang/StringBuilder;
-    .param p2, "verbose"    # Z
 
-    .prologue
-    .line 1587
     iget-object v3, p0, Landroid/database/sqlite/SQLiteConnection$Operation;->mKind:Ljava/lang/String;
 
     invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1588
     iget-boolean v3, p0, Landroid/database/sqlite/SQLiteConnection$Operation;->mFinished:Z
 
     if-eqz v3, :cond_2
 
-    .line 1589
     const-string/jumbo v3, " took "
 
     invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -236,7 +215,6 @@
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1594
     :goto_0
     const-string/jumbo v3, " - "
 
@@ -250,12 +228,10 @@
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1595
     iget-object v3, p0, Landroid/database/sqlite/SQLiteConnection$Operation;->mSql:Ljava/lang/String;
 
     if-eqz v3, :cond_0
 
-    .line 1596
     const-string/jumbo v3, ", sql=\""
 
     invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -276,7 +252,6 @@
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1598
     :cond_0
     if-eqz p2, :cond_7
 
@@ -292,61 +267,45 @@
 
     if-eqz v3, :cond_7
 
-    .line 1599
     const-string/jumbo v3, ", bindArgs=["
 
     invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1600
     iget-object v3, p0, Landroid/database/sqlite/SQLiteConnection$Operation;->mBindArgs:Ljava/util/ArrayList;
 
     invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    .line 1601
-    .local v1, "count":I
     const/4 v2, 0x0
 
-    .local v2, "i":I
     :goto_1
     if-ge v2, v1, :cond_6
 
-    .line 1602
     iget-object v3, p0, Landroid/database/sqlite/SQLiteConnection$Operation;->mBindArgs:Ljava/util/ArrayList;
 
     invoke-virtual {v3, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 1603
-    .local v0, "arg":Ljava/lang/Object;
     if-eqz v2, :cond_1
 
-    .line 1604
     const-string/jumbo v3, ", "
 
     invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1606
     :cond_1
     if-nez v0, :cond_3
 
-    .line 1607
     const-string/jumbo v3, "null"
 
     invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1601
-    .end local v0    # "arg":Ljava/lang/Object;
     :goto_2
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
-    .line 1591
-    .end local v1    # "count":I
-    .end local v2    # "i":I
     :cond_2
     const-string/jumbo v3, " started "
 
@@ -366,37 +325,28 @@
 
     move-result-object v3
 
-    .line 1592
     const-string/jumbo v4, "ms ago"
 
-    .line 1591
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     goto :goto_0
 
-    .line 1608
-    .restart local v0    # "arg":Ljava/lang/Object;
-    .restart local v1    # "count":I
-    .restart local v2    # "i":I
     :cond_3
     instance-of v3, v0, [B
 
     if-eqz v3, :cond_4
 
-    .line 1609
     const-string/jumbo v3, "<byte[]>"
 
     invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     goto :goto_2
 
-    .line 1610
     :cond_4
     instance-of v3, v0, Ljava/lang/String;
 
     if-eqz v3, :cond_5
 
-    .line 1611
     const-string/jumbo v3, "\""
 
     invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -405,7 +355,6 @@
 
     check-cast v0, Ljava/lang/String;
 
-    .end local v0    # "arg":Ljava/lang/Object;
     invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -416,29 +365,21 @@
 
     goto :goto_2
 
-    .line 1613
-    .restart local v0    # "arg":Ljava/lang/Object;
     :cond_5
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     goto :goto_2
 
-    .line 1616
-    .end local v0    # "arg":Ljava/lang/Object;
     :cond_6
     const-string/jumbo v3, "]"
 
     invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1618
-    .end local v1    # "count":I
-    .end local v2    # "i":I
     :cond_7
     iget-object v3, p0, Landroid/database/sqlite/SQLiteConnection$Operation;->mException:Ljava/lang/Exception;
 
     if-eqz v3, :cond_8
 
-    .line 1619
     const-string/jumbo v3, ", exception=\""
 
     invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -459,7 +400,6 @@
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1586
     :cond_8
     return-void
 .end method

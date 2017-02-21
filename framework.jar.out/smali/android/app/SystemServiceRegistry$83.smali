@@ -27,8 +27,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 997
     invoke-direct {p0}, Landroid/app/SystemServiceRegistry$CachedServiceFetcher;-><init>()V
 
     return-void
@@ -38,39 +36,29 @@
 # virtual methods
 .method public createService(Landroid/app/ContextImpl;)Landroid/os/HardwarePropertiesManager;
     .locals 5
-    .param p1, "ctx"    # Landroid/app/ContextImpl;
 
-    .prologue
     const/4 v4, 0x0
 
-    .line 1000
     const-string/jumbo v2, "hardware_properties"
 
     invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
-    .line 1002
-    .local v0, "b":Landroid/os/IBinder;
     invoke-static {v0}, Landroid/os/IHardwarePropertiesManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/IHardwarePropertiesManager;
 
     move-result-object v1
 
-    .line 1003
-    .local v1, "service":Landroid/os/IHardwarePropertiesManager;
     if-nez v1, :cond_0
 
-    .line 1004
     const-string/jumbo v2, "SystemServiceRegistry"
 
     const-string/jumbo v3, "Failed to get hardwareproperties service."
 
     invoke-static {v2, v3}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1005
     return-object v4
 
-    .line 1007
     :cond_0
     new-instance v2, Landroid/os/HardwarePropertiesManager;
 
@@ -81,10 +69,7 @@
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
-    .param p1, "ctx"    # Landroid/app/ContextImpl;
 
-    .prologue
-    .line 999
     invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$83;->createService(Landroid/app/ContextImpl;)Landroid/os/HardwarePropertiesManager;
 
     move-result-object v0

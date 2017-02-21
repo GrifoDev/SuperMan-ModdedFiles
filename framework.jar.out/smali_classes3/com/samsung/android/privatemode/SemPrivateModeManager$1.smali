@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/privatemode/SemPrivateModeManager$StateListener;)V
     .locals 0
-    .param p1, "val$listener"    # Lcom/samsung/android/privatemode/SemPrivateModeManager$StateListener;
 
-    .prologue
-    .line 292
     iput-object p1, p0, Lcom/samsung/android/privatemode/SemPrivateModeManager$1;->val$listener:Lcom/samsung/android/privatemode/SemPrivateModeManager$StateListener;
 
     invoke-direct {p0}, Lcom/samsung/android/privatemode/IPrivateModeClient$Stub;-><init>()V
@@ -36,20 +33,15 @@
 # virtual methods
 .method public onStateChange(II)V
     .locals 1
-    .param p1, "state"    # I
-    .param p2, "extInfo"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
-    .line 295
     iget-object v0, p0, Lcom/samsung/android/privatemode/SemPrivateModeManager$1;->val$listener:Lcom/samsung/android/privatemode/SemPrivateModeManager$StateListener;
 
     invoke-interface {v0, p1, p2}, Lcom/samsung/android/privatemode/SemPrivateModeManager$StateListener;->onStateChanged(II)V
 
-    .line 294
     return-void
 .end method

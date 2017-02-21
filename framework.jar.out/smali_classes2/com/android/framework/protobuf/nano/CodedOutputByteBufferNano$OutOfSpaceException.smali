@@ -21,11 +21,7 @@
 # direct methods
 .method constructor <init>(II)V
     .locals 2
-    .param p1, "position"    # I
-    .param p2, "limit"    # I
 
-    .prologue
-    .line 976
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -40,10 +36,8 @@
 
     move-result-object v0
 
-    .line 977
     const-string/jumbo v1, " limit "
 
-    .line 976
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -52,10 +46,8 @@
 
     move-result-object v0
 
-    .line 977
     const-string/jumbo v1, ")."
 
-    .line 976
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -66,6 +58,5 @@
 
     invoke-direct {p0, v0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    .line 975
     return-void
 .end method

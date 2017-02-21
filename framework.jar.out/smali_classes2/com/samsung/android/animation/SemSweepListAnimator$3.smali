@@ -30,13 +30,7 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/animation/SemSweepListAnimator;Landroid/view/View;II)V
     .locals 0
-    .param p1, "this$0"    # Lcom/samsung/android/animation/SemSweepListAnimator;
-    .param p2, "val$viewForeground"    # Landroid/view/View;
-    .param p3, "val$width"    # I
-    .param p4, "val$position"    # I
 
-    .prologue
-    .line 420
     iput-object p1, p0, Lcom/samsung/android/animation/SemSweepListAnimator$3;->this$0:Lcom/samsung/android/animation/SemSweepListAnimator;
 
     iput-object p2, p0, Lcom/samsung/android/animation/SemSweepListAnimator$3;->val$viewForeground:Landroid/view/View;
@@ -54,14 +48,9 @@
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
     .locals 3
-    .param p1, "anim"    # Landroid/animation/ValueAnimator;
 
-    .prologue
-    .line 423
     const/high16 v0, -0x40800000    # -1.0f
 
-    .line 425
-    .local v0, "sweeprogress":F
     iget-object v1, p0, Lcom/samsung/android/animation/SemSweepListAnimator$3;->this$0:Lcom/samsung/android/animation/SemSweepListAnimator;
 
     invoke-static {v1}, Lcom/samsung/android/animation/SemSweepListAnimator;->-get4(Lcom/samsung/android/animation/SemSweepListAnimator;)I
@@ -72,7 +61,6 @@
 
     if-ne v1, v2, :cond_1
 
-    .line 426
     iget-object v1, p0, Lcom/samsung/android/animation/SemSweepListAnimator$3;->val$viewForeground:Landroid/view/View;
 
     invoke-virtual {v1}, Landroid/view/View;->getTranslationX()F
@@ -85,7 +73,6 @@
 
     div-float v0, v1, v2
 
-    .line 432
     :cond_0
     :goto_0
     iget-object v1, p0, Lcom/samsung/android/animation/SemSweepListAnimator$3;->this$0:Lcom/samsung/android/animation/SemSweepListAnimator;
@@ -98,10 +85,8 @@
 
     invoke-virtual {v1, v2, v0}, Lcom/samsung/android/animation/SemAbsSweepAnimationFilter;->doUpActionWhenAnimationUpdate(IF)V
 
-    .line 422
     return-void
 
-    .line 427
     :cond_1
     iget-object v1, p0, Lcom/samsung/android/animation/SemSweepListAnimator$3;->this$0:Lcom/samsung/android/animation/SemSweepListAnimator;
 
@@ -113,7 +98,6 @@
 
     if-ne v1, v2, :cond_0
 
-    .line 428
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
 
     move-result-object v1

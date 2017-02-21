@@ -28,10 +28,7 @@
 # direct methods
 .method private constructor <init>(Landroid/gesture/GestureOverlayView;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/gesture/GestureOverlayView;
 
-    .prologue
-    .line 741
     iput-object p1, p0, Landroid/gesture/GestureOverlayView$FadeOutRunnable;->this$0:Landroid/gesture/GestureOverlayView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,9 +38,7 @@
 
 .method synthetic constructor <init>(Landroid/gesture/GestureOverlayView;Landroid/gesture/GestureOverlayView$FadeOutRunnable;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/gesture/GestureOverlayView;
 
-    .prologue
     invoke-direct {p0, p1}, Landroid/gesture/GestureOverlayView$FadeOutRunnable;-><init>(Landroid/gesture/GestureOverlayView;)V
 
     return-void
@@ -54,7 +49,6 @@
 .method public run()V
     .locals 13
 
-    .prologue
     const/4 v12, 0x0
 
     const/16 v11, 0xff
@@ -65,7 +59,6 @@
 
     const/4 v8, 0x0
 
-    .line 746
     iget-object v3, p0, Landroid/gesture/GestureOverlayView$FadeOutRunnable;->this$0:Landroid/gesture/GestureOverlayView;
 
     invoke-static {v3}, Landroid/gesture/GestureOverlayView;->-get4(Landroid/gesture/GestureOverlayView;)Z
@@ -74,13 +67,10 @@
 
     if-eqz v3, :cond_2
 
-    .line 747
     invoke-static {}, Landroid/view/animation/AnimationUtils;->currentAnimationTimeMillis()J
 
     move-result-wide v4
 
-    .line 748
-    .local v4, "now":J
     iget-object v3, p0, Landroid/gesture/GestureOverlayView$FadeOutRunnable;->this$0:Landroid/gesture/GestureOverlayView;
 
     invoke-static {v3}, Landroid/gesture/GestureOverlayView;->-get2(Landroid/gesture/GestureOverlayView;)J
@@ -89,8 +79,6 @@
 
     sub-long v0, v4, v6
 
-    .line 750
-    .local v0, "duration":J
     iget-object v3, p0, Landroid/gesture/GestureOverlayView$FadeOutRunnable;->this$0:Landroid/gesture/GestureOverlayView;
 
     invoke-static {v3}, Landroid/gesture/GestureOverlayView;->-get0(Landroid/gesture/GestureOverlayView;)J
@@ -101,33 +89,27 @@
 
     if-lez v3, :cond_1
 
-    .line 751
     iget-boolean v3, p0, Landroid/gesture/GestureOverlayView$FadeOutRunnable;->fireActionPerformed:Z
 
     if-eqz v3, :cond_0
 
-    .line 752
     iget-object v3, p0, Landroid/gesture/GestureOverlayView$FadeOutRunnable;->this$0:Landroid/gesture/GestureOverlayView;
 
     invoke-static {v3}, Landroid/gesture/GestureOverlayView;->-wrap0(Landroid/gesture/GestureOverlayView;)V
 
-    .line 755
     :cond_0
     iget-object v3, p0, Landroid/gesture/GestureOverlayView$FadeOutRunnable;->this$0:Landroid/gesture/GestureOverlayView;
 
     invoke-static {v3, v8}, Landroid/gesture/GestureOverlayView;->-set4(Landroid/gesture/GestureOverlayView;Z)Z
 
-    .line 756
     iget-object v3, p0, Landroid/gesture/GestureOverlayView$FadeOutRunnable;->this$0:Landroid/gesture/GestureOverlayView;
 
     invoke-static {v3, v8}, Landroid/gesture/GestureOverlayView;->-set3(Landroid/gesture/GestureOverlayView;Z)Z
 
-    .line 757
     iget-object v3, p0, Landroid/gesture/GestureOverlayView$FadeOutRunnable;->this$0:Landroid/gesture/GestureOverlayView;
 
     invoke-static {v3, v8}, Landroid/gesture/GestureOverlayView;->-set2(Landroid/gesture/GestureOverlayView;Z)Z
 
-    .line 758
     iget-object v3, p0, Landroid/gesture/GestureOverlayView$FadeOutRunnable;->this$0:Landroid/gesture/GestureOverlayView;
 
     invoke-static {v3}, Landroid/gesture/GestureOverlayView;->-get5(Landroid/gesture/GestureOverlayView;)Landroid/graphics/Path;
@@ -136,36 +118,26 @@
 
     invoke-virtual {v3}, Landroid/graphics/Path;->rewind()V
 
-    .line 759
     iget-object v3, p0, Landroid/gesture/GestureOverlayView$FadeOutRunnable;->this$0:Landroid/gesture/GestureOverlayView;
 
     invoke-static {v3, v12}, Landroid/gesture/GestureOverlayView;->-set0(Landroid/gesture/GestureOverlayView;Landroid/gesture/Gesture;)Landroid/gesture/Gesture;
 
-    .line 760
     iget-object v3, p0, Landroid/gesture/GestureOverlayView$FadeOutRunnable;->this$0:Landroid/gesture/GestureOverlayView;
 
     invoke-static {v3, v11}, Landroid/gesture/GestureOverlayView;->-wrap1(Landroid/gesture/GestureOverlayView;I)V
 
-    .line 781
-    .end local v0    # "duration":J
-    .end local v4    # "now":J
     :goto_0
     iget-object v3, p0, Landroid/gesture/GestureOverlayView$FadeOutRunnable;->this$0:Landroid/gesture/GestureOverlayView;
 
     invoke-virtual {v3}, Landroid/view/View;->invalidate()V
 
-    .line 745
     return-void
 
-    .line 762
-    .restart local v0    # "duration":J
-    .restart local v4    # "now":J
     :cond_1
     iget-object v3, p0, Landroid/gesture/GestureOverlayView$FadeOutRunnable;->this$0:Landroid/gesture/GestureOverlayView;
 
     invoke-static {v3, v10}, Landroid/gesture/GestureOverlayView;->-set2(Landroid/gesture/GestureOverlayView;Z)Z
 
-    .line 764
     long-to-float v3, v0
 
     iget-object v6, p0, Landroid/gesture/GestureOverlayView$FadeOutRunnable;->this$0:Landroid/gesture/GestureOverlayView;
@@ -182,15 +154,12 @@
 
     move-result v3
 
-    .line 763
     const/4 v6, 0x0
 
     invoke-static {v6, v3}, Ljava/lang/Math;->max(FF)F
 
     move-result v2
 
-    .line 765
-    .local v2, "interpolatedTime":F
     iget-object v3, p0, Landroid/gesture/GestureOverlayView$FadeOutRunnable;->this$0:Landroid/gesture/GestureOverlayView;
 
     iget-object v6, p0, Landroid/gesture/GestureOverlayView$FadeOutRunnable;->this$0:Landroid/gesture/GestureOverlayView;
@@ -207,7 +176,6 @@
 
     invoke-static {v3, v6}, Landroid/gesture/GestureOverlayView;->-set1(Landroid/gesture/GestureOverlayView;F)F
 
-    .line 766
     iget-object v3, p0, Landroid/gesture/GestureOverlayView$FadeOutRunnable;->this$0:Landroid/gesture/GestureOverlayView;
 
     iget-object v6, p0, Landroid/gesture/GestureOverlayView$FadeOutRunnable;->this$0:Landroid/gesture/GestureOverlayView;
@@ -224,7 +192,6 @@
 
     invoke-static {v3, v6}, Landroid/gesture/GestureOverlayView;->-wrap1(Landroid/gesture/GestureOverlayView;I)V
 
-    .line 767
     iget-object v3, p0, Landroid/gesture/GestureOverlayView$FadeOutRunnable;->this$0:Landroid/gesture/GestureOverlayView;
 
     const-wide/16 v6, 0x10
@@ -233,34 +200,26 @@
 
     goto :goto_0
 
-    .line 769
-    .end local v0    # "duration":J
-    .end local v2    # "interpolatedTime":F
-    .end local v4    # "now":J
     :cond_2
     iget-boolean v3, p0, Landroid/gesture/GestureOverlayView$FadeOutRunnable;->resetMultipleStrokes:Z
 
     if-eqz v3, :cond_3
 
-    .line 770
     iget-object v3, p0, Landroid/gesture/GestureOverlayView$FadeOutRunnable;->this$0:Landroid/gesture/GestureOverlayView;
 
     invoke-static {v3, v10}, Landroid/gesture/GestureOverlayView;->-set5(Landroid/gesture/GestureOverlayView;Z)Z
 
     goto :goto_0
 
-    .line 772
     :cond_3
     iget-object v3, p0, Landroid/gesture/GestureOverlayView$FadeOutRunnable;->this$0:Landroid/gesture/GestureOverlayView;
 
     invoke-static {v3}, Landroid/gesture/GestureOverlayView;->-wrap0(Landroid/gesture/GestureOverlayView;)V
 
-    .line 774
     iget-object v3, p0, Landroid/gesture/GestureOverlayView$FadeOutRunnable;->this$0:Landroid/gesture/GestureOverlayView;
 
     invoke-static {v3, v8}, Landroid/gesture/GestureOverlayView;->-set2(Landroid/gesture/GestureOverlayView;Z)Z
 
-    .line 775
     iget-object v3, p0, Landroid/gesture/GestureOverlayView$FadeOutRunnable;->this$0:Landroid/gesture/GestureOverlayView;
 
     invoke-static {v3}, Landroid/gesture/GestureOverlayView;->-get5(Landroid/gesture/GestureOverlayView;)Landroid/graphics/Path;
@@ -269,17 +228,14 @@
 
     invoke-virtual {v3}, Landroid/graphics/Path;->rewind()V
 
-    .line 776
     iget-object v3, p0, Landroid/gesture/GestureOverlayView$FadeOutRunnable;->this$0:Landroid/gesture/GestureOverlayView;
 
     invoke-static {v3, v12}, Landroid/gesture/GestureOverlayView;->-set0(Landroid/gesture/GestureOverlayView;Landroid/gesture/Gesture;)Landroid/gesture/Gesture;
 
-    .line 777
     iget-object v3, p0, Landroid/gesture/GestureOverlayView$FadeOutRunnable;->this$0:Landroid/gesture/GestureOverlayView;
 
     invoke-static {v3, v8}, Landroid/gesture/GestureOverlayView;->-set4(Landroid/gesture/GestureOverlayView;Z)Z
 
-    .line 778
     iget-object v3, p0, Landroid/gesture/GestureOverlayView$FadeOutRunnable;->this$0:Landroid/gesture/GestureOverlayView;
 
     invoke-static {v3, v11}, Landroid/gesture/GestureOverlayView;->-wrap1(Landroid/gesture/GestureOverlayView;I)V

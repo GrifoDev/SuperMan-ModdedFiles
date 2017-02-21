@@ -23,10 +23,7 @@
 # direct methods
 .method public constructor <init>(Landroid/webkit/WebView;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/webkit/WebView;
 
-    .prologue
-    .line 344
     iput-object p1, p0, Landroid/webkit/WebView$WebViewTransport;->this$0:Landroid/webkit/WebView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,10 +36,8 @@
 .method public declared-synchronized getWebView()Landroid/webkit/WebView;
     .locals 1
 
-    .prologue
     monitor-enter p0
 
-    .line 362
     :try_start_0
     iget-object v0, p0, Landroid/webkit/WebView$WebViewTransport;->mWebview:Landroid/webkit/WebView;
     :try_end_0
@@ -62,12 +57,9 @@
 
 .method public declared-synchronized setWebView(Landroid/webkit/WebView;)V
     .locals 1
-    .param p1, "webview"    # Landroid/webkit/WebView;
 
-    .prologue
     monitor-enter p0
 
-    .line 353
     :try_start_0
     iput-object p1, p0, Landroid/webkit/WebView$WebViewTransport;->mWebview:Landroid/webkit/WebView;
     :try_end_0
@@ -75,7 +67,6 @@
 
     monitor-exit p0
 
-    .line 352
     return-void
 
     :catchall_0

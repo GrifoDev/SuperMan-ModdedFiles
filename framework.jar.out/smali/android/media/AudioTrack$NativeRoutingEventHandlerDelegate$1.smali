@@ -25,13 +25,7 @@
 # direct methods
 .method constructor <init>(Landroid/media/AudioTrack$NativeRoutingEventHandlerDelegate;Landroid/os/Looper;Landroid/media/AudioTrack;Landroid/media/AudioRouting$OnRoutingChangedListener;)V
     .locals 0
-    .param p1, "this$1"    # Landroid/media/AudioTrack$NativeRoutingEventHandlerDelegate;
-    .param p2, "$anonymous0"    # Landroid/os/Looper;
-    .param p3, "val$track"    # Landroid/media/AudioTrack;
-    .param p4, "val$listener"    # Landroid/media/AudioRouting$OnRoutingChangedListener;
 
-    .prologue
-    .line 2703
     iput-object p1, p0, Landroid/media/AudioTrack$NativeRoutingEventHandlerDelegate$1;->this$1:Landroid/media/AudioTrack$NativeRoutingEventHandlerDelegate;
 
     iput-object p3, p0, Landroid/media/AudioTrack$NativeRoutingEventHandlerDelegate$1;->val$track:Landroid/media/AudioTrack;
@@ -47,24 +41,18 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .line 2706
     iget-object v0, p0, Landroid/media/AudioTrack$NativeRoutingEventHandlerDelegate$1;->val$track:Landroid/media/AudioTrack;
 
     if-nez v0, :cond_0
 
-    .line 2707
     return-void
 
-    .line 2709
     :cond_0
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 2716
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -87,18 +75,15 @@
 
     invoke-static {v0}, Landroid/media/AudioTrack;->-wrap0(Ljava/lang/String;)V
 
-    .line 2705
     :cond_1
     :goto_0
     return-void
 
-    .line 2711
     :pswitch_0
     iget-object v0, p0, Landroid/media/AudioTrack$NativeRoutingEventHandlerDelegate$1;->val$listener:Landroid/media/AudioRouting$OnRoutingChangedListener;
 
     if-eqz v0, :cond_1
 
-    .line 2712
     iget-object v0, p0, Landroid/media/AudioTrack$NativeRoutingEventHandlerDelegate$1;->val$listener:Landroid/media/AudioRouting$OnRoutingChangedListener;
 
     iget-object v1, p0, Landroid/media/AudioTrack$NativeRoutingEventHandlerDelegate$1;->val$track:Landroid/media/AudioTrack;
@@ -107,7 +92,6 @@
 
     goto :goto_0
 
-    .line 2709
     :pswitch_data_0
     .packed-switch 0x3e8
         :pswitch_0

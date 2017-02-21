@@ -24,10 +24,7 @@
 # direct methods
 .method private constructor <init>(Lcom/samsung/android/bio/face/SemBioFaceManager;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/samsung/android/bio/face/SemBioFaceManager;
 
-    .prologue
-    .line 441
     iput-object p1, p0, Lcom/samsung/android/bio/face/SemBioFaceManager$OnEnrollCancelListener;->this$0:Lcom/samsung/android/bio/face/SemBioFaceManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,9 +34,7 @@
 
 .method synthetic constructor <init>(Lcom/samsung/android/bio/face/SemBioFaceManager;Lcom/samsung/android/bio/face/SemBioFaceManager$OnEnrollCancelListener;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/samsung/android/bio/face/SemBioFaceManager;
 
-    .prologue
     invoke-direct {p0, p1}, Lcom/samsung/android/bio/face/SemBioFaceManager$OnEnrollCancelListener;-><init>(Lcom/samsung/android/bio/face/SemBioFaceManager;)V
 
     return-void
@@ -50,12 +45,9 @@
 .method public onCancel()V
     .locals 1
 
-    .prologue
-    .line 445
     iget-object v0, p0, Lcom/samsung/android/bio/face/SemBioFaceManager$OnEnrollCancelListener;->this$0:Lcom/samsung/android/bio/face/SemBioFaceManager;
 
     invoke-static {v0}, Lcom/samsung/android/bio/face/SemBioFaceManager;->-wrap3(Lcom/samsung/android/bio/face/SemBioFaceManager;)V
 
-    .line 444
     return-void
 .end method

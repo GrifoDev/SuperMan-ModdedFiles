@@ -34,15 +34,7 @@
 # direct methods
 .method constructor <init>(Landroid/accessibilityservice/AccessibilityService$MagnificationController;Landroid/accessibilityservice/AccessibilityService$MagnificationController$OnMagnificationChangedListener;Landroid/graphics/Region;FFF)V
     .locals 0
-    .param p1, "this$1"    # Landroid/accessibilityservice/AccessibilityService$MagnificationController;
-    .param p2, "val$listener"    # Landroid/accessibilityservice/AccessibilityService$MagnificationController$OnMagnificationChangedListener;
-    .param p3, "val$region"    # Landroid/graphics/Region;
-    .param p4, "val$scale"    # F
-    .param p5, "val$centerX"    # F
-    .param p6, "val$centerY"    # F
 
-    .prologue
-    .line 853
     iput-object p1, p0, Landroid/accessibilityservice/AccessibilityService$MagnificationController$1;->this$1:Landroid/accessibilityservice/AccessibilityService$MagnificationController;
 
     iput-object p2, p0, Landroid/accessibilityservice/AccessibilityService$MagnificationController$1;->val$listener:Landroid/accessibilityservice/AccessibilityService$MagnificationController$OnMagnificationChangedListener;
@@ -65,13 +57,10 @@
 .method public run()V
     .locals 6
 
-    .prologue
-    .line 856
     iget-object v0, p0, Landroid/accessibilityservice/AccessibilityService$MagnificationController$1;->val$listener:Landroid/accessibilityservice/AccessibilityService$MagnificationController$OnMagnificationChangedListener;
 
     iget-object v1, p0, Landroid/accessibilityservice/AccessibilityService$MagnificationController$1;->this$1:Landroid/accessibilityservice/AccessibilityService$MagnificationController;
 
-    .line 857
     iget-object v2, p0, Landroid/accessibilityservice/AccessibilityService$MagnificationController$1;->val$region:Landroid/graphics/Region;
 
     iget v3, p0, Landroid/accessibilityservice/AccessibilityService$MagnificationController$1;->val$scale:F
@@ -80,9 +69,7 @@
 
     iget v5, p0, Landroid/accessibilityservice/AccessibilityService$MagnificationController$1;->val$centerY:F
 
-    .line 856
     invoke-interface/range {v0 .. v5}, Landroid/accessibilityservice/AccessibilityService$MagnificationController$OnMagnificationChangedListener;->onMagnificationChanged(Landroid/accessibilityservice/AccessibilityService$MagnificationController;Landroid/graphics/Region;FFF)V
 
-    .line 855
     return-void
 .end method

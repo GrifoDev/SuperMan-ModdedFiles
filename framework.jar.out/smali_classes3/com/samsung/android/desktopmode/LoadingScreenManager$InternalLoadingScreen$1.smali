@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/desktopmode/LoadingScreenManager$InternalLoadingScreen;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/samsung/android/desktopmode/LoadingScreenManager$InternalLoadingScreen;
 
-    .prologue
-    .line 232
     iput-object p1, p0, Lcom/samsung/android/desktopmode/LoadingScreenManager$InternalLoadingScreen$1;->this$1:Lcom/samsung/android/desktopmode/LoadingScreenManager$InternalLoadingScreen;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,10 +37,8 @@
 .method public run()V
     .locals 2
 
-    .prologue
     const/4 v1, 0x1
 
-    .line 235
     iget-object v0, p0, Lcom/samsung/android/desktopmode/LoadingScreenManager$InternalLoadingScreen$1;->this$1:Lcom/samsung/android/desktopmode/LoadingScreenManager$InternalLoadingScreen;
 
     iget-object v0, v0, Lcom/samsung/android/desktopmode/LoadingScreenManager$InternalLoadingScreen;->this$0:Lcom/samsung/android/desktopmode/LoadingScreenManager;
@@ -54,7 +49,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 236
     iget-object v0, p0, Lcom/samsung/android/desktopmode/LoadingScreenManager$InternalLoadingScreen$1;->this$1:Lcom/samsung/android/desktopmode/LoadingScreenManager$InternalLoadingScreen;
 
     iget-object v0, v0, Lcom/samsung/android/desktopmode/LoadingScreenManager$InternalLoadingScreen;->this$0:Lcom/samsung/android/desktopmode/LoadingScreenManager;
@@ -65,7 +59,6 @@
 
     if-ne v0, v1, :cond_1
 
-    .line 237
     iget-object v0, p0, Lcom/samsung/android/desktopmode/LoadingScreenManager$InternalLoadingScreen$1;->this$1:Lcom/samsung/android/desktopmode/LoadingScreenManager$InternalLoadingScreen;
 
     iget-object v0, v0, Lcom/samsung/android/desktopmode/LoadingScreenManager$InternalLoadingScreen;->this$0:Lcom/samsung/android/desktopmode/LoadingScreenManager;
@@ -76,12 +69,10 @@
 
     invoke-interface {v0, v1}, Lcom/samsung/android/desktopmode/LoadingScreenManager$AnimationListener;->onWindowShown(Z)V
 
-    .line 234
     :cond_0
     :goto_0
     return-void
 
-    .line 238
     :cond_1
     iget-object v0, p0, Lcom/samsung/android/desktopmode/LoadingScreenManager$InternalLoadingScreen$1;->this$1:Lcom/samsung/android/desktopmode/LoadingScreenManager$InternalLoadingScreen;
 
@@ -95,7 +86,6 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 239
     iget-object v0, p0, Lcom/samsung/android/desktopmode/LoadingScreenManager$InternalLoadingScreen$1;->this$1:Lcom/samsung/android/desktopmode/LoadingScreenManager$InternalLoadingScreen;
 
     iget-object v0, v0, Lcom/samsung/android/desktopmode/LoadingScreenManager$InternalLoadingScreen;->this$0:Lcom/samsung/android/desktopmode/LoadingScreenManager;

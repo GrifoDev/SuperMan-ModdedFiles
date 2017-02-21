@@ -31,8 +31,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 238
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -42,10 +40,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/os/LocaleList;
     .locals 1
-    .param p1, "source"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 241
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
@@ -59,10 +54,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .param p1, "source"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 240
     invoke-virtual {p0, p1}, Landroid/os/LocaleList$1;->createFromParcel(Landroid/os/Parcel;)Landroid/os/LocaleList;
 
     move-result-object v0
@@ -72,10 +64,7 @@
 
 .method public newArray(I)[Landroid/os/LocaleList;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 246
     new-array v0, p1, [Landroid/os/LocaleList;
 
     return-object v0
@@ -83,10 +72,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 245
     invoke-virtual {p0, p1}, Landroid/os/LocaleList$1;->newArray(I)[Landroid/os/LocaleList;
 
     move-result-object v0

@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Landroid/view/WindowId$FocusObserver;)V
     .locals 0
-    .param p1, "this$1"    # Landroid/view/WindowId$FocusObserver;
 
-    .prologue
-    .line 80
     iput-object p1, p0, Landroid/view/WindowId$FocusObserver$H;->this$1:Landroid/view/WindowId$FocusObserver;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -36,22 +33,16 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .line 83
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 91
     invoke-super {p0, p1}, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
 
-    .line 82
     :goto_0
     return-void
 
-    .line 85
     :pswitch_0
     iget-object v1, p0, Landroid/view/WindowId$FocusObserver$H;->this$1:Landroid/view/WindowId$FocusObserver;
 
@@ -63,7 +54,6 @@
 
     goto :goto_0
 
-    .line 88
     :pswitch_1
     iget-object v1, p0, Landroid/view/WindowId$FocusObserver$H;->this$1:Landroid/view/WindowId$FocusObserver;
 
@@ -75,7 +65,6 @@
 
     goto :goto_0
 
-    .line 83
     nop
 
     :pswitch_data_0

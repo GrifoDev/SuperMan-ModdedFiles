@@ -20,24 +20,17 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/print/PrintAttributes;)V
     .locals 9
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "attributes"    # Landroid/print/PrintAttributes;
 
-    .prologue
     const/high16 v8, 0x447a0000    # 1000.0f
 
     const/high16 v7, 0x42900000    # 72.0f
 
-    .line 83
     invoke-direct {p0}, Landroid/graphics/pdf/PdfDocument;-><init>()V
 
-    .line 84
     invoke-virtual {p2}, Landroid/print/PrintAttributes;->getMediaSize()Landroid/print/PrintAttributes$MediaSize;
 
     move-result-object v4
 
-    .line 87
-    .local v4, "mediaSize":Landroid/print/PrintAttributes$MediaSize;
     invoke-virtual {v4}, Landroid/print/PrintAttributes$MediaSize;->getWidthMils()I
 
     move-result v6
@@ -52,7 +45,6 @@
 
     iput v6, p0, Landroid/print/pdf/PrintedPdfDocument;->mPageWidth:I
 
-    .line 89
     invoke-virtual {v4}, Landroid/print/PrintAttributes$MediaSize;->getHeightMils()I
 
     move-result v6
@@ -67,13 +59,10 @@
 
     iput v6, p0, Landroid/print/pdf/PrintedPdfDocument;->mPageHeight:I
 
-    .line 93
     invoke-virtual {p2}, Landroid/print/PrintAttributes;->getMinMargins()Landroid/print/PrintAttributes$Margins;
 
     move-result-object v5
 
-    .line 94
-    .local v5, "minMargins":Landroid/print/PrintAttributes$Margins;
     invoke-virtual {v5}, Landroid/print/PrintAttributes$Margins;->getLeftMils()I
 
     move-result v6
@@ -86,8 +75,6 @@
 
     float-to-int v1, v6
 
-    .line 96
-    .local v1, "marginLeft":I
     invoke-virtual {v5}, Landroid/print/PrintAttributes$Margins;->getTopMils()I
 
     move-result v6
@@ -100,8 +87,6 @@
 
     float-to-int v3, v6
 
-    .line 98
-    .local v3, "marginTop":I
     invoke-virtual {v5}, Landroid/print/PrintAttributes$Margins;->getRightMils()I
 
     move-result v6
@@ -114,8 +99,6 @@
 
     float-to-int v2, v6
 
-    .line 100
-    .local v2, "marginRight":I
     invoke-virtual {v5}, Landroid/print/PrintAttributes$Margins;->getBottomMils()I
 
     move-result v6
@@ -128,25 +111,20 @@
 
     float-to-int v0, v6
 
-    .line 102
-    .local v0, "marginBottom":I
     new-instance v6, Landroid/graphics/Rect;
 
     iget v7, p0, Landroid/print/pdf/PrintedPdfDocument;->mPageWidth:I
 
     sub-int/2addr v7, v2
 
-    .line 103
     iget v8, p0, Landroid/print/pdf/PrintedPdfDocument;->mPageHeight:I
 
     sub-int/2addr v8, v0
 
-    .line 102
     invoke-direct {v6, v1, v3, v7, v8}, Landroid/graphics/Rect;-><init>(IIII)V
 
     iput-object v6, p0, Landroid/print/pdf/PrintedPdfDocument;->mContentRect:Landroid/graphics/Rect;
 
-    .line 83
     return-void
 .end method
 
@@ -155,8 +133,6 @@
 .method public getPageContentRect()Landroid/graphics/Rect;
     .locals 1
 
-    .prologue
-    .line 161
     iget-object v0, p0, Landroid/print/pdf/PrintedPdfDocument;->mContentRect:Landroid/graphics/Rect;
 
     return-object v0
@@ -165,8 +141,6 @@
 .method public getPageHeight()I
     .locals 1
 
-    .prologue
-    .line 151
     iget v0, p0, Landroid/print/pdf/PrintedPdfDocument;->mPageHeight:I
 
     return v0
@@ -175,8 +149,6 @@
 .method public getPageWidth()I
     .locals 1
 
-    .prologue
-    .line 142
     iget v0, p0, Landroid/print/pdf/PrintedPdfDocument;->mPageWidth:I
 
     return v0
@@ -184,24 +156,17 @@
 
 .method public startPage(I)Landroid/graphics/pdf/PdfDocument$Page;
     .locals 4
-    .param p1, "pageNumber"    # I
 
-    .prologue
-    .line 129
     new-instance v1, Landroid/graphics/pdf/PdfDocument$PageInfo$Builder;
 
-    .line 130
     iget v2, p0, Landroid/print/pdf/PrintedPdfDocument;->mPageWidth:I
 
     iget v3, p0, Landroid/print/pdf/PrintedPdfDocument;->mPageHeight:I
 
-    .line 129
     invoke-direct {v1, v2, v3, p1}, Landroid/graphics/pdf/PdfDocument$PageInfo$Builder;-><init>(III)V
 
-    .line 131
     iget-object v2, p0, Landroid/print/pdf/PrintedPdfDocument;->mContentRect:Landroid/graphics/Rect;
 
-    .line 129
     invoke-virtual {v1, v2}, Landroid/graphics/pdf/PdfDocument$PageInfo$Builder;->setContentRect(Landroid/graphics/Rect;)Landroid/graphics/pdf/PdfDocument$PageInfo$Builder;
 
     move-result-object v1
@@ -210,8 +175,6 @@
 
     move-result-object v0
 
-    .line 133
-    .local v0, "pageInfo":Landroid/graphics/pdf/PdfDocument$PageInfo;
     invoke-virtual {p0, v0}, Landroid/print/pdf/PrintedPdfDocument;->startPage(Landroid/graphics/pdf/PdfDocument$PageInfo;)Landroid/graphics/pdf/PdfDocument$Page;
 
     move-result-object v1

@@ -25,8 +25,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -36,10 +34,6 @@
 # virtual methods
 .method public onObbStateChange(Ljava/lang/String;I)V
     .locals 0
-    .param p1, "path"    # Ljava/lang/String;
-    .param p2, "state"    # I
 
-    .prologue
-    .line 83
     return-void
 .end method

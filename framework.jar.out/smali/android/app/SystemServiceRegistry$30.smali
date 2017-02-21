@@ -27,8 +27,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 527
     invoke-direct {p0}, Landroid/app/SystemServiceRegistry$CachedServiceFetcher;-><init>()V
 
     return-void
@@ -38,31 +36,23 @@
 # virtual methods
 .method public createService(Landroid/app/ContextImpl;)Landroid/net/wifi/WifiOffloadManager;
     .locals 4
-    .param p1, "ctx"    # Landroid/app/ContextImpl;
 
-    .prologue
-    .line 530
     const-string/jumbo v2, "wifioffload"
 
     invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
-    .line 531
-    .local v0, "b":Landroid/os/IBinder;
     invoke-static {v0}, Landroid/net/wifi/IWifiOffloadManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/net/wifi/IWifiOffloadManager;
 
     move-result-object v1
 
-    .line 532
-    .local v1, "service":Landroid/net/wifi/IWifiOffloadManager;
     const-string/jumbo v2, "SystemServiceRegistry"
 
     const-string/jumbo v3, "return wifioffload service"
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 533
     new-instance v2, Landroid/net/wifi/WifiOffloadManager;
 
     invoke-direct {v2, v1}, Landroid/net/wifi/WifiOffloadManager;-><init>(Landroid/net/wifi/IWifiOffloadManager;)V
@@ -72,10 +62,7 @@
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
-    .param p1, "ctx"    # Landroid/app/ContextImpl;
 
-    .prologue
-    .line 529
     invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$30;->createService(Landroid/app/ContextImpl;)Landroid/net/wifi/WifiOffloadManager;
 
     move-result-object v0

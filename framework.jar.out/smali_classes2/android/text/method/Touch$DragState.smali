@@ -34,27 +34,16 @@
 # direct methods
 .method public constructor <init>(FFII)V
     .locals 0
-    .param p1, "x"    # F
-    .param p2, "y"    # F
-    .param p3, "scrollX"    # I
-    .param p4, "scrollY"    # I
 
-    .prologue
-    .line 206
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 207
     iput p1, p0, Landroid/text/method/Touch$DragState;->mX:F
 
-    .line 208
     iput p2, p0, Landroid/text/method/Touch$DragState;->mY:F
 
-    .line 209
     iput p3, p0, Landroid/text/method/Touch$DragState;->mScrollX:I
 
-    .line 210
     iput p4, p0, Landroid/text/method/Touch$DragState;->mScrollY:I
 
-    .line 206
     return-void
 .end method

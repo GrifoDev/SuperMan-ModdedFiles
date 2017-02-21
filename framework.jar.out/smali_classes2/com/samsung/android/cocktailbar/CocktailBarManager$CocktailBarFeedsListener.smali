@@ -23,8 +23,6 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .prologue
-    .line 2242
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -34,7 +32,6 @@
 # virtual methods
 .method public onFeedsUpdated(ILjava/util/List;)V
     .locals 0
-    .param p1, "cocktailId"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -48,8 +45,5 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .prologue
-    .line 2253
-    .local p2, "feedsInfoList":Ljava/util/List;, "Ljava/util/List<Lcom/samsung/android/cocktailbar/FeedsInfo;>;"
     return-void
 .end method

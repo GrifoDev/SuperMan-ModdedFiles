@@ -21,8 +21,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 2330
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -32,45 +30,30 @@
 # virtual methods
 .method public onTransitionCancel(Landroid/transition/Transition;)V
     .locals 0
-    .param p1, "transition"    # Landroid/transition/Transition;
 
-    .prologue
-    .line 2340
     return-void
 .end method
 
 .method public onTransitionEnd(Landroid/transition/Transition;)V
     .locals 0
-    .param p1, "transition"    # Landroid/transition/Transition;
 
-    .prologue
-    .line 2336
     return-void
 .end method
 
 .method public onTransitionPause(Landroid/transition/Transition;)V
     .locals 0
-    .param p1, "transition"    # Landroid/transition/Transition;
 
-    .prologue
-    .line 2344
     return-void
 .end method
 
 .method public onTransitionResume(Landroid/transition/Transition;)V
     .locals 0
-    .param p1, "transition"    # Landroid/transition/Transition;
 
-    .prologue
-    .line 2348
     return-void
 .end method
 
 .method public onTransitionStart(Landroid/transition/Transition;)V
     .locals 0
-    .param p1, "transition"    # Landroid/transition/Transition;
 
-    .prologue
-    .line 2332
     return-void
 .end method

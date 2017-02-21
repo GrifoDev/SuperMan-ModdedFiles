@@ -21,17 +21,11 @@
 # direct methods
 .method public constructor <init>(Landroid/content/IntentFilter;Landroid/content/pm/EphemeralResolveInfo;)V
     .locals 0
-    .param p1, "orig"    # Landroid/content/IntentFilter;
-    .param p2, "resolveInfo"    # Landroid/content/pm/EphemeralResolveInfo;
 
-    .prologue
-    .line 131
     invoke-direct {p0, p1}, Landroid/content/IntentFilter;-><init>(Landroid/content/IntentFilter;)V
 
-    .line 132
     iput-object p2, p0, Landroid/content/pm/EphemeralResolveInfo$EphemeralResolveIntentInfo;->mResolveInfo:Landroid/content/pm/EphemeralResolveInfo;
 
-    .line 130
     return-void
 .end method
 
@@ -40,8 +34,6 @@
 .method public getEphemeralResolveInfo()Landroid/content/pm/EphemeralResolveInfo;
     .locals 1
 
-    .prologue
-    .line 136
     iget-object v0, p0, Landroid/content/pm/EphemeralResolveInfo$EphemeralResolveIntentInfo;->mResolveInfo:Landroid/content/pm/EphemeralResolveInfo;
 
     return-object v0

@@ -21,8 +21,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 211
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -31,7 +29,6 @@
 .method synthetic constructor <init>(Landroid/animation/PathKeyframes$SimpleKeyframes;)V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Landroid/animation/PathKeyframes$SimpleKeyframes;-><init>()V
 
     return-void
@@ -42,12 +39,8 @@
 .method public clone()Landroid/animation/Keyframes;
     .locals 4
 
-    .prologue
-    .line 227
     const/4 v1, 0x0
 
-    .line 229
-    .local v1, "clone":Landroid/animation/Keyframes;
     :try_start_0
     invoke-super {p0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
@@ -61,17 +54,12 @@
     :try_end_0
     .catch Ljava/lang/CloneNotSupportedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 231
-    .end local v1    # "clone":Landroid/animation/Keyframes;
     :goto_0
     return-object v1
 
-    .line 230
-    .restart local v1    # "clone":Landroid/animation/Keyframes;
     :catch_0
     move-exception v2
 
-    .local v2, "e":Ljava/lang/CloneNotSupportedException;
     goto :goto_0
 .end method
 
@@ -83,8 +71,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 226
     invoke-virtual {p0}, Landroid/animation/PathKeyframes$SimpleKeyframes;->clone()Landroid/animation/Keyframes;
 
     move-result-object v0
@@ -104,8 +90,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 222
     invoke-static {}, Landroid/animation/PathKeyframes;->-get0()Ljava/util/ArrayList;
 
     move-result-object v0
@@ -116,8 +100,6 @@
 .method public bridge synthetic getKeyframes()Ljava/util/List;
     .locals 1
 
-    .prologue
-    .line 221
     invoke-virtual {p0}, Landroid/animation/PathKeyframes$SimpleKeyframes;->getKeyframes()Ljava/util/ArrayList;
 
     move-result-object v0
@@ -128,16 +110,11 @@
 .method public invalidateCache()V
     .locals 0
 
-    .prologue
-    .line 217
     return-void
 .end method
 
 .method public setEvaluator(Landroid/animation/TypeEvaluator;)V
     .locals 0
-    .param p1, "evaluator"    # Landroid/animation/TypeEvaluator;
 
-    .prologue
-    .line 213
     return-void
 .end method

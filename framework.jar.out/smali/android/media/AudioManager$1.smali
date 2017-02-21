@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Landroid/media/AudioManager;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/media/AudioManager;
 
-    .prologue
-    .line 2934
     iput-object p1, p0, Landroid/media/AudioManager$1;->this$0:Landroid/media/AudioManager;
 
     invoke-direct {p0}, Landroid/media/IAudioFocusDispatcher$Stub;-><init>()V
@@ -36,13 +33,9 @@
 # virtual methods
 .method public dispatchAudioFocusChange(ILjava/lang/String;)V
     .locals 3
-    .param p1, "focusChange"    # I
-    .param p2, "id"    # Ljava/lang/String;
 
-    .prologue
     const/4 v2, 0x0
 
-    .line 2937
     iget-object v1, p0, Landroid/media/AudioManager$1;->this$0:Landroid/media/AudioManager;
 
     invoke-static {v1}, Landroid/media/AudioManager;->-get4(Landroid/media/AudioManager;)Landroid/media/AudioManager$ServiceEventHandlerDelegate;
@@ -57,8 +50,6 @@
 
     move-result-object v0
 
-    .line 2939
-    .local v0, "m":Landroid/os/Message;
     iget-object v1, p0, Landroid/media/AudioManager$1;->this$0:Landroid/media/AudioManager;
 
     invoke-static {v1}, Landroid/media/AudioManager;->-get4(Landroid/media/AudioManager;)Landroid/media/AudioManager$ServiceEventHandlerDelegate;
@@ -71,6 +62,5 @@
 
     invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 2936
     return-void
 .end method

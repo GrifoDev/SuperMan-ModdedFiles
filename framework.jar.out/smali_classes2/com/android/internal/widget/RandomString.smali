@@ -7,8 +7,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 3139
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -16,35 +14,23 @@
 
 .method private static rand(II)I
     .locals 4
-    .param p0, "lo"    # I
-    .param p1, "hi"    # I
 
-    .prologue
-    .line 3161
     new-instance v2, Ljava/util/Random;
 
     invoke-direct {v2}, Ljava/util/Random;-><init>()V
 
-    .line 3162
-    .local v2, "rn":Ljava/util/Random;
     sub-int v3, p1, p0
 
     add-int/lit8 v1, v3, 0x1
 
-    .line 3163
-    .local v1, "n":I
     invoke-virtual {v2, v1}, Ljava/util/Random;->nextInt(I)I
 
     move-result v0
 
-    .line 3164
-    .local v0, "i":I
     if-gez v0, :cond_0
 
-    .line 3165
     neg-int v0, v0
 
-    .line 3166
     :cond_0
     add-int v3, p0, v0
 
@@ -54,8 +40,6 @@
 .method public static randomstring()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 3174
     const/4 v0, 0x5
 
     const/16 v1, 0xa
@@ -69,30 +53,20 @@
 
 .method public static randomstring(II)Ljava/lang/String;
     .locals 6
-    .param p0, "lo"    # I
-    .param p1, "hi"    # I
 
-    .prologue
     const/4 v5, 0x0
 
-    .line 3148
     invoke-static {p0, p1}, Lcom/android/internal/widget/RandomString;->rand(II)I
 
     move-result v2
 
-    .line 3149
-    .local v2, "n":I
     new-array v0, v2, [B
 
-    .line 3150
-    .local v0, "b":[B
     const/4 v1, 0x0
 
-    .local v1, "i":I
     :goto_0
     if-ge v1, v2, :cond_1
 
-    .line 3151
     const/16 v3, 0xa
 
     invoke-static {v5, v3}, Lcom/android/internal/widget/RandomString;->rand(II)I
@@ -103,7 +77,6 @@
 
     if-nez v3, :cond_0
 
-    .line 3152
     const/16 v3, 0x30
 
     const/16 v4, 0x39
@@ -116,13 +89,11 @@
 
     aput-byte v3, v0, v1
 
-    .line 3150
     :goto_1
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 3154
     :cond_0
     const/16 v3, 0x61
 
@@ -138,7 +109,6 @@
 
     goto :goto_1
 
-    .line 3157
     :cond_1
     new-instance v3, Ljava/lang/String;
 

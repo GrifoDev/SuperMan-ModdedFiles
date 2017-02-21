@@ -28,26 +28,19 @@
 .method public constructor <init>()V
     .locals 2
 
-    .prologue
     const/4 v1, -0x1
 
-    .line 176
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 167
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/samsung/android/bio/face/FaceInfo$PupilInfo;->mRect:Landroid/graphics/Rect;
 
-    .line 169
     iput v1, p0, Lcom/samsung/android/bio/face/FaceInfo$PupilInfo;->mDistance:I
 
-    .line 171
     iput v1, p0, Lcom/samsung/android/bio/face/FaceInfo$PupilInfo;->mOpening:I
 
-    .line 173
     iput v1, p0, Lcom/samsung/android/bio/face/FaceInfo$PupilInfo;->mMsgId:I
 
-    .line 176
     return-void
 .end method

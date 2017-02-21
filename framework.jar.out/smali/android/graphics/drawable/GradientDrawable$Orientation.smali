@@ -47,7 +47,6 @@
 .method static constructor <clinit>()V
     .locals 8
 
-    .prologue
     const/4 v7, 0x4
 
     const/4 v6, 0x3
@@ -58,57 +57,46 @@
 
     const/4 v3, 0x0
 
-    .line 182
     new-instance v0, Landroid/graphics/drawable/GradientDrawable$Orientation;
 
     const-string/jumbo v1, "TOP_BOTTOM"
 
     invoke-direct {v0, v1, v3}, Landroid/graphics/drawable/GradientDrawable$Orientation;-><init>(Ljava/lang/String;I)V
 
-    .line 183
     sput-object v0, Landroid/graphics/drawable/GradientDrawable$Orientation;->TOP_BOTTOM:Landroid/graphics/drawable/GradientDrawable$Orientation;
 
-    .line 184
     new-instance v0, Landroid/graphics/drawable/GradientDrawable$Orientation;
 
     const-string/jumbo v1, "TR_BL"
 
     invoke-direct {v0, v1, v4}, Landroid/graphics/drawable/GradientDrawable$Orientation;-><init>(Ljava/lang/String;I)V
 
-    .line 185
     sput-object v0, Landroid/graphics/drawable/GradientDrawable$Orientation;->TR_BL:Landroid/graphics/drawable/GradientDrawable$Orientation;
 
-    .line 186
     new-instance v0, Landroid/graphics/drawable/GradientDrawable$Orientation;
 
     const-string/jumbo v1, "RIGHT_LEFT"
 
     invoke-direct {v0, v1, v5}, Landroid/graphics/drawable/GradientDrawable$Orientation;-><init>(Ljava/lang/String;I)V
 
-    .line 187
     sput-object v0, Landroid/graphics/drawable/GradientDrawable$Orientation;->RIGHT_LEFT:Landroid/graphics/drawable/GradientDrawable$Orientation;
 
-    .line 188
     new-instance v0, Landroid/graphics/drawable/GradientDrawable$Orientation;
 
     const-string/jumbo v1, "BR_TL"
 
     invoke-direct {v0, v1, v6}, Landroid/graphics/drawable/GradientDrawable$Orientation;-><init>(Ljava/lang/String;I)V
 
-    .line 189
     sput-object v0, Landroid/graphics/drawable/GradientDrawable$Orientation;->BR_TL:Landroid/graphics/drawable/GradientDrawable$Orientation;
 
-    .line 190
     new-instance v0, Landroid/graphics/drawable/GradientDrawable$Orientation;
 
     const-string/jumbo v1, "BOTTOM_TOP"
 
     invoke-direct {v0, v1, v7}, Landroid/graphics/drawable/GradientDrawable$Orientation;-><init>(Ljava/lang/String;I)V
 
-    .line 191
     sput-object v0, Landroid/graphics/drawable/GradientDrawable$Orientation;->BOTTOM_TOP:Landroid/graphics/drawable/GradientDrawable$Orientation;
 
-    .line 192
     new-instance v0, Landroid/graphics/drawable/GradientDrawable$Orientation;
 
     const-string/jumbo v1, "BL_TR"
@@ -117,10 +105,8 @@
 
     invoke-direct {v0, v1, v2}, Landroid/graphics/drawable/GradientDrawable$Orientation;-><init>(Ljava/lang/String;I)V
 
-    .line 193
     sput-object v0, Landroid/graphics/drawable/GradientDrawable$Orientation;->BL_TR:Landroid/graphics/drawable/GradientDrawable$Orientation;
 
-    .line 194
     new-instance v0, Landroid/graphics/drawable/GradientDrawable$Orientation;
 
     const-string/jumbo v1, "LEFT_RIGHT"
@@ -129,10 +115,8 @@
 
     invoke-direct {v0, v1, v2}, Landroid/graphics/drawable/GradientDrawable$Orientation;-><init>(Ljava/lang/String;I)V
 
-    .line 195
     sput-object v0, Landroid/graphics/drawable/GradientDrawable$Orientation;->LEFT_RIGHT:Landroid/graphics/drawable/GradientDrawable$Orientation;
 
-    .line 196
     new-instance v0, Landroid/graphics/drawable/GradientDrawable$Orientation;
 
     const-string/jumbo v1, "TL_BR"
@@ -141,10 +125,8 @@
 
     invoke-direct {v0, v1, v2}, Landroid/graphics/drawable/GradientDrawable$Orientation;-><init>(Ljava/lang/String;I)V
 
-    .line 197
     sput-object v0, Landroid/graphics/drawable/GradientDrawable$Orientation;->TL_BR:Landroid/graphics/drawable/GradientDrawable$Orientation;
 
-    .line 181
     const/16 v0, 0x8
 
     new-array v0, v0, [Landroid/graphics/drawable/GradientDrawable$Orientation;
@@ -195,8 +177,6 @@
 .method private constructor <init>(Ljava/lang/String;I)V
     .locals 0
 
-    .prologue
-    .line 181
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -204,10 +184,7 @@
 
 .method public static valueOf(Ljava/lang/String;)Landroid/graphics/drawable/GradientDrawable$Orientation;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
-    .prologue
-    .line 181
     const-class v0, Landroid/graphics/drawable/GradientDrawable$Orientation;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -222,8 +199,6 @@
 .method public static values()[Landroid/graphics/drawable/GradientDrawable$Orientation;
     .locals 1
 
-    .prologue
-    .line 181
     sget-object v0, Landroid/graphics/drawable/GradientDrawable$Orientation;->$VALUES:[Landroid/graphics/drawable/GradientDrawable$Orientation;
 
     return-object v0

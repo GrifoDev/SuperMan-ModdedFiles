@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/app/SemTimePickerDialog;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/samsung/android/app/SemTimePickerDialog;
 
-    .prologue
-    .line 55
     iput-object p1, p0, Lcom/samsung/android/app/SemTimePickerDialog$1;->this$0:Lcom/samsung/android/app/SemTimePickerDialog;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,11 +36,7 @@
 # virtual methods
 .method public onFocusChange(Landroid/view/View;Z)V
     .locals 2
-    .param p1, "v"    # Landroid/view/View;
-    .param p2, "hasFocus"    # Z
 
-    .prologue
-    .line 58
     iget-object v0, p0, Lcom/samsung/android/app/SemTimePickerDialog$1;->this$0:Lcom/samsung/android/app/SemTimePickerDialog;
 
     invoke-static {v0}, Lcom/samsung/android/app/SemTimePickerDialog;->-get0(Lcom/samsung/android/app/SemTimePickerDialog;)Lcom/samsung/android/widget/SemTimePicker;
@@ -58,7 +51,6 @@
 
     if-eqz p2, :cond_0
 
-    .line 59
     iget-object v0, p0, Lcom/samsung/android/app/SemTimePickerDialog$1;->this$0:Lcom/samsung/android/app/SemTimePickerDialog;
 
     invoke-static {v0}, Lcom/samsung/android/app/SemTimePickerDialog;->-get0(Lcom/samsung/android/app/SemTimePickerDialog;)Lcom/samsung/android/widget/SemTimePicker;
@@ -69,7 +61,6 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/widget/SemTimePicker;->setEditTextMode(Z)V
 
-    .line 57
     :cond_0
     return-void
 .end method

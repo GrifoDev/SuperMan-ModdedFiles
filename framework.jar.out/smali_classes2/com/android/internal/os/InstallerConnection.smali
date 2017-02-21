@@ -33,36 +33,28 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 53
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 51
     const/16 v0, 0x400
 
     new-array v0, v0, [B
 
     iput-object v0, p0, Lcom/android/internal/os/InstallerConnection;->buf:[B
 
-    .line 53
     return-void
 .end method
 
 .method private connect()Z
     .locals 5
 
-    .prologue
     const/4 v4, 0x1
 
-    .line 187
     iget-object v2, p0, Lcom/android/internal/os/InstallerConnection;->mSocket:Landroid/net/LocalSocket;
 
     if-eqz v2, :cond_0
 
-    .line 188
     return v4
 
-    .line 190
     :cond_0
     const-string/jumbo v2, "InstallerConnection"
 
@@ -70,7 +62,6 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 192
     :try_start_0
     new-instance v2, Landroid/net/LocalSocket;
 
@@ -78,24 +69,18 @@
 
     iput-object v2, p0, Lcom/android/internal/os/InstallerConnection;->mSocket:Landroid/net/LocalSocket;
 
-    .line 194
     new-instance v0, Landroid/net/LocalSocketAddress;
 
     const-string/jumbo v2, "installd"
 
-    .line 195
     sget-object v3, Landroid/net/LocalSocketAddress$Namespace;->RESERVED:Landroid/net/LocalSocketAddress$Namespace;
 
-    .line 194
     invoke-direct {v0, v2, v3}, Landroid/net/LocalSocketAddress;-><init>(Ljava/lang/String;Landroid/net/LocalSocketAddress$Namespace;)V
 
-    .line 197
-    .local v0, "address":Landroid/net/LocalSocketAddress;
     iget-object v2, p0, Lcom/android/internal/os/InstallerConnection;->mSocket:Landroid/net/LocalSocket;
 
     invoke-virtual {v2, v0}, Landroid/net/LocalSocket;->connect(Landroid/net/LocalSocketAddress;)V
 
-    .line 199
     iget-object v2, p0, Lcom/android/internal/os/InstallerConnection;->mSocket:Landroid/net/LocalSocket;
 
     invoke-virtual {v2}, Landroid/net/LocalSocket;->getInputStream()Ljava/io/InputStream;
@@ -104,7 +89,6 @@
 
     iput-object v2, p0, Lcom/android/internal/os/InstallerConnection;->mIn:Ljava/io/InputStream;
 
-    .line 200
     iget-object v2, p0, Lcom/android/internal/os/InstallerConnection;->mSocket:Landroid/net/LocalSocket;
 
     invoke-virtual {v2}, Landroid/net/LocalSocket;->getOutputStream()Ljava/io/OutputStream;
@@ -115,19 +99,13 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 205
     return v4
 
-    .line 201
-    .end local v0    # "address":Landroid/net/LocalSocketAddress;
     :catch_0
     move-exception v1
 
-    .line 202
-    .local v1, "ex":Ljava/io/IOException;
     invoke-virtual {p0}, Lcom/android/internal/os/InstallerConnection;->disconnect()V
 
-    .line 203
     const/4 v2, 0x0
 
     return v2
@@ -135,13 +113,9 @@
 
 .method private readFully([BI)Z
     .locals 4
-    .param p1, "buffer"    # [B
-    .param p2, "len"    # I
 
-    .prologue
     const/4 v3, 0x0
 
-    .line 222
     :try_start_0
     iget-object v1, p0, Lcom/android/internal/os/InstallerConnection;->mIn:Ljava/io/InputStream;
 
@@ -151,39 +125,31 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 233
     const/4 v1, 0x1
 
     return v1
 
-    .line 223
     :catch_0
     move-exception v0
 
-    .line 224
-    .local v0, "ioe":Ljava/io/IOException;
     const-string/jumbo v1, "InstallerConnection"
 
     const-string/jumbo v2, "read exception"
 
     invoke-static {v1, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 225
     invoke-virtual {p0}, Lcom/android/internal/os/InstallerConnection;->disconnect()V
 
-    .line 226
     return v3
 .end method
 
 .method private readReply()I
     .locals 5
 
-    .prologue
     const/4 v3, 0x1
 
     const/4 v4, -0x1
 
-    .line 237
     iget-object v1, p0, Lcom/android/internal/os/InstallerConnection;->buf:[B
 
     const/4 v2, 0x2
@@ -194,10 +160,8 @@
 
     if-nez v1, :cond_0
 
-    .line 238
     return v4
 
-    .line 241
     :cond_0
     iget-object v1, p0, Lcom/android/internal/os/InstallerConnection;->buf:[B
 
@@ -217,8 +181,6 @@
 
     or-int v0, v1, v2
 
-    .line 242
-    .local v0, "len":I
     if-lt v0, v3, :cond_1
 
     iget-object v1, p0, Lcom/android/internal/os/InstallerConnection;->buf:[B
@@ -227,7 +189,6 @@
 
     if-le v0, v1, :cond_2
 
-    .line 243
     :cond_1
     const-string/jumbo v1, "InstallerConnection"
 
@@ -257,13 +218,10 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 244
     invoke-virtual {p0}, Lcom/android/internal/os/InstallerConnection;->disconnect()V
 
-    .line 245
     return v4
 
-    .line 248
     :cond_2
     iget-object v1, p0, Lcom/android/internal/os/InstallerConnection;->buf:[B
 
@@ -273,27 +231,22 @@
 
     if-nez v1, :cond_3
 
-    .line 249
     return v4
 
-    .line 252
     :cond_3
     return v0
 .end method
 
 .method private safeParseBooleanResult([Ljava/lang/String;)Z
     .locals 3
-    .param p1, "res"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/internal/os/InstallerConnection$InstallerException;
         }
     .end annotation
 
-    .prologue
     const/4 v2, 0x1
 
-    .line 161
     if-eqz p1, :cond_0
 
     array-length v0, p1
@@ -302,7 +255,6 @@
 
     if-eq v0, v1, :cond_1
 
-    .line 162
     :cond_0
     new-instance v0, Lcom/android/internal/os/InstallerConnection$InstallerException;
 
@@ -332,7 +284,6 @@
 
     throw v0
 
-    .line 166
     :cond_1
     aget-object v0, p1, v2
 
@@ -354,7 +305,6 @@
 
     if-eqz v0, :cond_3
 
-    .line 170
     :cond_2
     aget-object v0, p1, v2
 
@@ -364,7 +314,6 @@
 
     return v0
 
-    .line 167
     :cond_3
     new-instance v0, Lcom/android/internal/os/InstallerConnection$InstallerException;
 
@@ -397,24 +346,17 @@
 
 .method private writeCommand(Ljava/lang/String;)Z
     .locals 9
-    .param p1, "cmdString"    # Ljava/lang/String;
 
-    .prologue
     const/4 v8, 0x1
 
     const/4 v7, 0x0
 
-    .line 256
     invoke-virtual {p1}, Ljava/lang/String;->getBytes()[B
 
     move-result-object v0
 
-    .line 257
-    .local v0, "cmd":[B
     array-length v2, v0
 
-    .line 258
-    .local v2, "len":I
     if-lt v2, v8, :cond_0
 
     iget-object v3, p0, Lcom/android/internal/os/InstallerConnection;->buf:[B
@@ -423,11 +365,9 @@
 
     if-le v2, v3, :cond_1
 
-    .line 259
     :cond_0
     return v7
 
-    .line 262
     :cond_1
     iget-object v3, p0, Lcom/android/internal/os/InstallerConnection;->buf:[B
 
@@ -437,7 +377,6 @@
 
     aput-byte v4, v3, v7
 
-    .line 263
     iget-object v3, p0, Lcom/android/internal/os/InstallerConnection;->buf:[B
 
     shr-int/lit8 v4, v2, 0x8
@@ -448,7 +387,6 @@
 
     aput-byte v4, v3, v8
 
-    .line 265
     :try_start_0
     iget-object v3, p0, Lcom/android/internal/os/InstallerConnection;->mOut:Ljava/io/OutputStream;
 
@@ -460,7 +398,6 @@
 
     invoke-virtual {v3, v4, v5, v6}, Ljava/io/OutputStream;->write([BII)V
 
-    .line 266
     iget-object v3, p0, Lcom/android/internal/os/InstallerConnection;->mOut:Ljava/io/OutputStream;
 
     const/4 v4, 0x0
@@ -469,25 +406,19 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 272
     return v8
 
-    .line 267
     :catch_0
     move-exception v1
 
-    .line 268
-    .local v1, "ex":Ljava/io/IOException;
     const-string/jumbo v3, "InstallerConnection"
 
     const-string/jumbo v4, "write error"
 
     invoke-static {v3, v4}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 269
     invoke-virtual {p0}, Lcom/android/internal/os/InstallerConnection;->disconnect()V
 
-    .line 270
     return v7
 .end method
 
@@ -495,22 +426,12 @@
 # virtual methods
 .method public dexopt(Ljava/lang/String;ILjava/lang/String;IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 11
-    .param p1, "apkPath"    # Ljava/lang/String;
-    .param p2, "uid"    # I
-    .param p3, "instructionSet"    # Ljava/lang/String;
-    .param p4, "dexoptNeeded"    # I
-    .param p5, "dexFlags"    # I
-    .param p6, "compilerFilter"    # Ljava/lang/String;
-    .param p7, "volumeUuid"    # Ljava/lang/String;
-    .param p8, "sharedLibraries"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/internal/os/InstallerConnection$InstallerException;
         }
     .end annotation
 
-    .prologue
-    .line 140
     const-string/jumbo v3, "*"
 
     const/4 v6, 0x0
@@ -535,42 +456,27 @@
 
     invoke-virtual/range {v0 .. v10}, Lcom/android/internal/os/InstallerConnection;->dexopt(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;ILjava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 139
     return-void
 .end method
 
 .method public dexopt(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;ILjava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 4
-    .param p1, "apkPath"    # Ljava/lang/String;
-    .param p2, "uid"    # I
-    .param p3, "pkgName"    # Ljava/lang/String;
-    .param p4, "instructionSet"    # Ljava/lang/String;
-    .param p5, "dexoptNeeded"    # I
-    .param p6, "outputPath"    # Ljava/lang/String;
-    .param p7, "dexFlags"    # I
-    .param p8, "compilerFilter"    # Ljava/lang/String;
-    .param p9, "volumeUuid"    # Ljava/lang/String;
-    .param p10, "sharedLibraries"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/internal/os/InstallerConnection$InstallerException;
         }
     .end annotation
 
-    .prologue
-    .line 147
     const-string/jumbo v0, "dexopt"
 
     const/16 v1, 0xa
 
     new-array v1, v1, [Ljava/lang/Object;
 
-    .line 148
     const/4 v2, 0x0
 
     aput-object p1, v1, v2
 
-    .line 149
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v2
@@ -579,17 +485,14 @@
 
     aput-object v2, v1, v3
 
-    .line 150
     const/4 v2, 0x2
 
     aput-object p3, v1, v2
 
-    .line 151
     const/4 v2, 0x3
 
     aput-object p4, v1, v2
 
-    .line 152
     invoke-static {p5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v2
@@ -598,12 +501,10 @@
 
     aput-object v2, v1, v3
 
-    .line 153
     const/4 v2, 0x5
 
     aput-object p6, v1, v2
 
-    .line 154
     invoke-static {p7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v2
@@ -612,82 +513,63 @@
 
     aput-object v2, v1, v3
 
-    .line 155
     const/4 v2, 0x7
 
     aput-object p8, v1, v2
 
-    .line 156
     const/16 v2, 0x8
 
     aput-object p9, v1, v2
 
-    .line 157
     const/16 v2, 0x9
 
     aput-object p10, v1, v2
 
-    .line 147
     invoke-virtual {p0, v0, v1}, Lcom/android/internal/os/InstallerConnection;->execute(Ljava/lang/String;[Ljava/lang/Object;)[Ljava/lang/String;
 
-    .line 146
     return-void
 .end method
 
 .method public disconnect()V
     .locals 3
 
-    .prologue
     const/4 v2, 0x0
 
-    .line 209
     const-string/jumbo v0, "InstallerConnection"
 
     const-string/jumbo v1, "disconnecting..."
 
     invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 210
     iget-object v0, p0, Lcom/android/internal/os/InstallerConnection;->mSocket:Landroid/net/LocalSocket;
 
     invoke-static {v0}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
-    .line 211
     iget-object v0, p0, Lcom/android/internal/os/InstallerConnection;->mIn:Ljava/io/InputStream;
 
     invoke-static {v0}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
-    .line 212
     iget-object v0, p0, Lcom/android/internal/os/InstallerConnection;->mOut:Ljava/io/OutputStream;
 
     invoke-static {v0}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
-    .line 214
     iput-object v2, p0, Lcom/android/internal/os/InstallerConnection;->mSocket:Landroid/net/LocalSocket;
 
-    .line 215
     iput-object v2, p0, Lcom/android/internal/os/InstallerConnection;->mIn:Ljava/io/InputStream;
 
-    .line 216
     iput-object v2, p0, Lcom/android/internal/os/InstallerConnection;->mOut:Ljava/io/OutputStream;
 
-    .line 208
     return-void
 .end method
 
 .method public dumpProfiles(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
     .locals 4
-    .param p1, "gid"    # Ljava/lang/String;
-    .param p2, "packageName"    # Ljava/lang/String;
-    .param p3, "codePaths"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/internal/os/InstallerConnection$InstallerException;
         }
     .end annotation
 
-    .prologue
-    .line 181
     const-string/jumbo v1, "dump_profiles"
 
     const/4 v2, 0x3
@@ -710,8 +592,6 @@
 
     move-result-object v0
 
-    .line 183
-    .local v0, "res":[Ljava/lang/String;
     invoke-direct {p0, v0}, Lcom/android/internal/os/InstallerConnection;->safeParseBooleanResult([Ljava/lang/String;)Z
 
     move-result v1
@@ -721,28 +601,22 @@
 
 .method public varargs execute(Ljava/lang/String;[Ljava/lang/Object;)[Ljava/lang/String;
     .locals 12
-    .param p1, "cmd"    # Ljava/lang/String;
-    .param p2, "args"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/internal/os/InstallerConnection$InstallerException;
         }
     .end annotation
 
-    .prologue
     const/16 v11, 0x20
 
     const/4 v10, -0x1
 
     const/4 v7, 0x0
 
-    .line 107
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1, p1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    .line 108
-    .local v1, "builder":Ljava/lang/StringBuilder;
     array-length v8, p2
 
     move v6, v7
@@ -752,15 +626,10 @@
 
     aget-object v0, p2, v6
 
-    .line 110
-    .local v0, "arg":Ljava/lang/Object;
     if-nez v0, :cond_1
 
-    .line 111
     const-string/jumbo v2, ""
 
-    .line 115
-    .local v2, "escaped":Ljava/lang/String;
     :goto_1
     invoke-virtual {v2, v7}, Ljava/lang/String;->indexOf(I)I
 
@@ -774,11 +643,9 @@
 
     if-eq v9, v10, :cond_2
 
-    .line 116
     :cond_0
     new-instance v6, Lcom/android/internal/os/InstallerConnection$InstallerException;
 
-    .line 117
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -811,22 +678,17 @@
 
     move-result-object v7
 
-    .line 116
     invoke-direct {v6, v7}, Lcom/android/internal/os/InstallerConnection$InstallerException;-><init>(Ljava/lang/String;)V
 
     throw v6
 
-    .line 113
-    .end local v2    # "escaped":Ljava/lang/String;
     :cond_1
     invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v2
 
-    .restart local v2    # "escaped":Ljava/lang/String;
     goto :goto_1
 
-    .line 115
     :cond_2
     const-string/jumbo v9, "!"
 
@@ -836,17 +698,14 @@
 
     if-nez v9, :cond_0
 
-    .line 119
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v9
 
     if-eqz v9, :cond_3
 
-    .line 120
     const-string/jumbo v2, "!"
 
-    .line 122
     :cond_3
     invoke-virtual {v1, v11}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
@@ -854,14 +713,10 @@
 
     invoke-virtual {v9, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 108
     add-int/lit8 v6, v6, 0x1
 
     goto :goto_0
 
-    .line 124
-    .end local v0    # "arg":Ljava/lang/Object;
-    .end local v2    # "escaped":Ljava/lang/String;
     :cond_4
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -877,12 +732,8 @@
 
     move-result-object v5
 
-    .line 125
-    .local v5, "resRaw":[Ljava/lang/String;
     const/4 v4, -0x1
 
-    .line 127
-    .local v4, "res":I
     const/4 v6, 0x0
 
     :try_start_0
@@ -895,14 +746,11 @@
 
     move-result v4
 
-    .line 130
     :goto_2
     if-eqz v4, :cond_5
 
-    .line 131
     new-instance v6, Lcom/android/internal/os/InstallerConnection$InstallerException;
 
-    .line 132
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -945,35 +793,27 @@
 
     move-result-object v7
 
-    .line 131
     invoke-direct {v6, v7}, Lcom/android/internal/os/InstallerConnection$InstallerException;-><init>(Ljava/lang/String;)V
 
     throw v6
 
-    .line 134
     :cond_5
     return-object v5
 
-    .line 128
     :catch_0
     move-exception v3
 
-    .local v3, "ignored":Ljava/lang/RuntimeException;
     goto :goto_2
 .end method
 
 .method public mergeProfiles(ILjava/lang/String;)Z
     .locals 5
-    .param p1, "uid"    # I
-    .param p2, "pkgName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/internal/os/InstallerConnection$InstallerException;
         }
     .end annotation
 
-    .prologue
-    .line 174
     const-string/jumbo v1, "merge_profiles"
 
     const/4 v2, 0x2
@@ -996,8 +836,6 @@
 
     move-result-object v0
 
-    .line 176
-    .local v0, "res":[Ljava/lang/String;
     invoke-direct {p0, v0}, Lcom/android/internal/os/InstallerConnection;->safeParseBooleanResult([Ljava/lang/String;)Z
 
     move-result v1
@@ -1007,10 +845,7 @@
 
 .method public setWarnIfHeld(Ljava/lang/Object;)V
     .locals 1
-    .param p1, "warnIfHeld"    # Ljava/lang/Object;
 
-    .prologue
-    .line 61
     iget-object v0, p0, Lcom/android/internal/os/InstallerConnection;->mWarnIfHeld:Ljava/lang/Object;
 
     if-nez v0, :cond_0
@@ -1020,17 +855,14 @@
     :goto_0
     invoke-static {v0}, Lcom/android/internal/util/Preconditions;->checkState(Z)V
 
-    .line 62
     invoke-static {p1}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/internal/os/InstallerConnection;->mWarnIfHeld:Ljava/lang/Object;
 
-    .line 60
     return-void
 
-    .line 61
     :cond_0
     const/4 v0, 0x0
 
@@ -1039,12 +871,9 @@
 
 .method public declared-synchronized transact(Ljava/lang/String;)Ljava/lang/String;
     .locals 5
-    .param p1, "cmd"    # Ljava/lang/String;
 
-    .prologue
     monitor-enter p0
 
-    .line 66
     :try_start_0
     iget-object v2, p0, Lcom/android/internal/os/InstallerConnection;->mWarnIfHeld:Ljava/lang/Object;
 
@@ -1058,7 +887,6 @@
 
     if-eqz v2, :cond_0
 
-    .line 67
     const-string/jumbo v2, "InstallerConnection"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1089,7 +917,6 @@
 
     move-result-object v3
 
-    .line 68
     iget-object v4, p0, Lcom/android/internal/os/InstallerConnection;->mWarnIfHeld:Ljava/lang/Object;
 
     invoke-static {v4}, Ljava/lang/System;->identityHashCode(Ljava/lang/Object;)I
@@ -1100,7 +927,6 @@
 
     move-result-object v4
 
-    .line 67
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -1109,15 +935,12 @@
 
     move-result-object v3
 
-    .line 68
     new-instance v4, Ljava/lang/Throwable;
 
     invoke-direct {v4}, Ljava/lang/Throwable;-><init>()V
 
-    .line 67
     invoke-static {v2, v3, v4}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 71
     :cond_0
     invoke-direct {p0}, Lcom/android/internal/os/InstallerConnection;->connect()Z
 
@@ -1125,14 +948,12 @@
 
     if-nez v2, :cond_1
 
-    .line 72
     const-string/jumbo v2, "InstallerConnection"
 
     const-string/jumbo v3, "connection failed"
 
     invoke-static {v2, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 73
     const-string/jumbo v2, "-1"
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -1141,7 +962,6 @@
 
     return-object v2
 
-    .line 76
     :cond_1
     :try_start_1
     invoke-direct {p0, p1}, Lcom/android/internal/os/InstallerConnection;->writeCommand(Ljava/lang/String;)Z
@@ -1150,14 +970,12 @@
 
     if-nez v2, :cond_2
 
-    .line 82
     const-string/jumbo v2, "InstallerConnection"
 
     const-string/jumbo v3, "write command failed? reconnect!"
 
     invoke-static {v2, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 83
     invoke-direct {p0}, Lcom/android/internal/os/InstallerConnection;->connect()Z
 
     move-result v2
@@ -1170,17 +988,13 @@
 
     if-eqz v2, :cond_3
 
-    .line 91
     :cond_2
     invoke-direct {p0}, Lcom/android/internal/os/InstallerConnection;->readReply()I
 
     move-result v0
 
-    .line 92
-    .local v0, "replyLength":I
     if-lez v0, :cond_4
 
-    .line 93
     new-instance v1, Ljava/lang/String;
 
     iget-object v2, p0, Lcom/android/internal/os/InstallerConnection;->buf:[B
@@ -1191,15 +1005,10 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .local v1, "s":Ljava/lang/String;
     monitor-exit p0
 
-    .line 97
     return-object v1
 
-    .line 84
-    .end local v0    # "replyLength":I
-    .end local v1    # "s":Ljava/lang/String;
     :cond_3
     :try_start_2
     const-string/jumbo v2, "-1"
@@ -1210,8 +1019,6 @@
 
     return-object v2
 
-    .line 102
-    .restart local v0    # "replyLength":I
     :cond_4
     :try_start_3
     const-string/jumbo v2, "-1"
@@ -1222,7 +1029,6 @@
 
     return-object v2
 
-    .end local v0    # "replyLength":I
     :catchall_0
     move-exception v2
 
@@ -1234,8 +1040,6 @@
 .method public waitForConnection()V
     .locals 4
 
-    .prologue
-    .line 278
     :goto_0
     :try_start_0
     const-string/jumbo v1, "ping"
@@ -1248,22 +1052,17 @@
     :try_end_0
     .catch Lcom/android/internal/os/InstallerConnection$InstallerException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 279
     return-void
 
-    .line 280
     :catch_0
     move-exception v0
 
-    .line 282
-    .local v0, "ignored":Lcom/android/internal/os/InstallerConnection$InstallerException;
     const-string/jumbo v1, "InstallerConnection"
 
     const-string/jumbo v2, "installd not ready"
 
     invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 283
     const-wide/16 v2, 0x3e8
 
     invoke-static {v2, v3}, Landroid/os/SystemClock;->sleep(J)V

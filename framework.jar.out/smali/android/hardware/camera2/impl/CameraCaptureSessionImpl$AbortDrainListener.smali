@@ -24,10 +24,7 @@
 # direct methods
 .method private constructor <init>(Landroid/hardware/camera2/impl/CameraCaptureSessionImpl;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/hardware/camera2/impl/CameraCaptureSessionImpl;
 
-    .prologue
-    .line 669
     iput-object p1, p0, Landroid/hardware/camera2/impl/CameraCaptureSessionImpl$AbortDrainListener;->this$0:Landroid/hardware/camera2/impl/CameraCaptureSessionImpl;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,9 +34,7 @@
 
 .method synthetic constructor <init>(Landroid/hardware/camera2/impl/CameraCaptureSessionImpl;Landroid/hardware/camera2/impl/CameraCaptureSessionImpl$AbortDrainListener;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/hardware/camera2/impl/CameraCaptureSessionImpl;
 
-    .prologue
     invoke-direct {p0, p1}, Landroid/hardware/camera2/impl/CameraCaptureSessionImpl$AbortDrainListener;-><init>(Landroid/hardware/camera2/impl/CameraCaptureSessionImpl;)V
 
     return-void
@@ -50,13 +45,10 @@
 .method public onDrained()V
     .locals 2
 
-    .prologue
-    .line 673
     iget-object v1, p0, Landroid/hardware/camera2/impl/CameraCaptureSessionImpl$AbortDrainListener;->this$0:Landroid/hardware/camera2/impl/CameraCaptureSessionImpl;
 
     monitor-enter v1
 
-    .line 685
     :try_start_0
     iget-object v0, p0, Landroid/hardware/camera2/impl/CameraCaptureSessionImpl$AbortDrainListener;->this$0:Landroid/hardware/camera2/impl/CameraCaptureSessionImpl;
 
@@ -70,10 +62,8 @@
 
     monitor-exit v1
 
-    .line 686
     return-void
 
-    .line 688
     :cond_0
     :try_start_1
     iget-object v0, p0, Landroid/hardware/camera2/impl/CameraCaptureSessionImpl$AbortDrainListener;->this$0:Landroid/hardware/camera2/impl/CameraCaptureSessionImpl;
@@ -88,10 +78,8 @@
 
     monitor-exit v1
 
-    .line 671
     return-void
 
-    .line 673
     :catchall_0
     move-exception v0
 

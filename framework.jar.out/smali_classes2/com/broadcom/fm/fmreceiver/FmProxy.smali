@@ -205,8 +205,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 122
     const-string/jumbo v0, "com.broadcom.bt.app.fm.action."
 
     invoke-virtual {v0}, Ljava/lang/String;->length()I
@@ -215,15 +213,12 @@
 
     sput v0, Lcom/broadcom/fm/fmreceiver/FmProxy;->ACTION_PREFIX_LENGTH:I
 
-    .line 106
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 106
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

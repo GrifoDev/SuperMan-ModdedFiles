@@ -23,11 +23,7 @@
 # direct methods
 .method constructor <init>(Landroid/widget/GridLayout$Alignment;Landroid/widget/GridLayout$Alignment;)V
     .locals 0
-    .param p1, "val$ltr"    # Landroid/widget/GridLayout$Alignment;
-    .param p2, "val$rtl"    # Landroid/widget/GridLayout$Alignment;
 
-    .prologue
-    .line 2853
     iput-object p1, p0, Landroid/widget/GridLayout$8;->val$ltr:Landroid/widget/GridLayout$Alignment;
 
     iput-object p2, p0, Landroid/widget/GridLayout$8;->val$rtl:Landroid/widget/GridLayout$Alignment;
@@ -41,12 +37,7 @@
 # virtual methods
 .method public getAlignmentValue(Landroid/view/View;II)I
     .locals 1
-    .param p1, "view"    # Landroid/view/View;
-    .param p2, "viewSize"    # I
-    .param p3, "mode"    # I
 
-    .prologue
-    .line 2861
     invoke-virtual {p1}, Landroid/view/View;->isLayoutRtl()Z
 
     move-result v0
@@ -70,11 +61,7 @@
 
 .method getGravityOffset(Landroid/view/View;I)I
     .locals 1
-    .param p1, "view"    # Landroid/view/View;
-    .param p2, "cellDelta"    # I
 
-    .prologue
-    .line 2856
     invoke-virtual {p1}, Landroid/view/View;->isLayoutRtl()Z
 
     move-result v0

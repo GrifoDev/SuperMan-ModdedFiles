@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/widget/ActionBarView;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/internal/widget/ActionBarView;
 
-    .prologue
-    .line 168
     iput-object p1, p0, Lcom/android/internal/widget/ActionBarView$2;->this$0:Lcom/android/internal/widget/ActionBarView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,10 +36,7 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 3
-    .param p1, "v"    # Landroid/view/View;
 
-    .prologue
-    .line 170
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$2;->this$0:Lcom/android/internal/widget/ActionBarView;
 
     invoke-static {v0}, Lcom/android/internal/widget/ActionBarView;->-get9(Lcom/android/internal/widget/ActionBarView;)Z
@@ -51,7 +45,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 172
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$2;->this$0:Lcom/android/internal/widget/ActionBarView;
 
     iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mWindowCallback:Landroid/view/Window$Callback;
@@ -66,7 +59,6 @@
 
     invoke-interface {v0, v2, v1}, Landroid/view/Window$Callback;->onMenuItemSelected(ILandroid/view/MenuItem;)Z
 
-    .line 169
     :cond_0
     return-void
 .end method

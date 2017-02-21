@@ -21,15 +21,10 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .param p1, "href"    # Ljava/lang/String;
 
-    .prologue
-    .line 1298
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1299
     iput-object p1, p0, Landroid/text/HtmlToSpannedConverter$Href;->mHref:Ljava/lang/String;
 
-    .line 1298
     return-void
 .end method

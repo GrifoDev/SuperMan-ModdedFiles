@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/CustomFrequencyManager$CPUHotplugDisableRequest;)V
     .locals 0
-    .param p1, "this$1"    # Landroid/os/CustomFrequencyManager$CPUHotplugDisableRequest;
 
-    .prologue
-    .line 718
     iput-object p1, p0, Landroid/os/CustomFrequencyManager$CPUHotplugDisableRequest$1;->this$1:Landroid/os/CustomFrequencyManager$CPUHotplugDisableRequest;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,12 +37,9 @@
 .method public run()V
     .locals 1
 
-    .prologue
-    .line 720
     iget-object v0, p0, Landroid/os/CustomFrequencyManager$CPUHotplugDisableRequest$1;->this$1:Landroid/os/CustomFrequencyManager$CPUHotplugDisableRequest;
 
     invoke-virtual {v0}, Landroid/os/CustomFrequencyManager$FrequencyRequest;->cancelFrequencyRequest()V
 
-    .line 719
     return-void
 .end method

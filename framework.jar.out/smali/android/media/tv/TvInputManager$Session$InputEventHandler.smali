@@ -29,21 +29,15 @@
 # direct methods
 .method constructor <init>(Landroid/media/tv/TvInputManager$Session;Landroid/os/Looper;)V
     .locals 2
-    .param p1, "this$1"    # Landroid/media/tv/TvInputManager$Session;
-    .param p2, "looper"    # Landroid/os/Looper;
 
-    .prologue
-    .line 2410
     iput-object p1, p0, Landroid/media/tv/TvInputManager$Session$InputEventHandler;->this$1:Landroid/media/tv/TvInputManager$Session;
 
-    .line 2411
     const/4 v0, 0x0
 
     const/4 v1, 0x1
 
     invoke-direct {p0, p2, v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;Landroid/os/Handler$Callback;Z)V
 
-    .line 2410
     return-void
 .end method
 
@@ -51,20 +45,15 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 4
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
     const/4 v3, 0x0
 
-    .line 2416
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 2415
     return-void
 
-    .line 2418
     :pswitch_0
     iget-object v1, p0, Landroid/media/tv/TvInputManager$Session$InputEventHandler;->this$1:Landroid/media/tv/TvInputManager$Session;
 
@@ -74,10 +63,8 @@
 
     invoke-static {v1, v0}, Landroid/media/tv/TvInputManager$Session;->-wrap2(Landroid/media/tv/TvInputManager$Session;Landroid/media/tv/TvInputManager$Session$PendingEvent;)V
 
-    .line 2419
     return-void
 
-    .line 2422
     :pswitch_1
     iget-object v0, p0, Landroid/media/tv/TvInputManager$Session$InputEventHandler;->this$1:Landroid/media/tv/TvInputManager$Session;
 
@@ -87,10 +74,8 @@
 
     invoke-virtual {v0, v1, v3, v2}, Landroid/media/tv/TvInputManager$Session;->finishedInputEvent(IZZ)V
 
-    .line 2423
     return-void
 
-    .line 2426
     :pswitch_2
     iget-object v0, p0, Landroid/media/tv/TvInputManager$Session$InputEventHandler;->this$1:Landroid/media/tv/TvInputManager$Session;
 
@@ -98,10 +83,8 @@
 
     invoke-virtual {v0, v1, v3, v3}, Landroid/media/tv/TvInputManager$Session;->finishedInputEvent(IZZ)V
 
-    .line 2427
     return-void
 
-    .line 2416
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

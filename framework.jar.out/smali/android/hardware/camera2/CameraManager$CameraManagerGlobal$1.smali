@@ -28,12 +28,7 @@
 # direct methods
 .method constructor <init>(Landroid/hardware/camera2/CameraManager$CameraManagerGlobal;Landroid/hardware/camera2/CameraManager$AvailabilityCallback;Ljava/lang/String;)V
     .locals 0
-    .param p1, "this$1"    # Landroid/hardware/camera2/CameraManager$CameraManagerGlobal;
-    .param p2, "val$callback"    # Landroid/hardware/camera2/CameraManager$AvailabilityCallback;
-    .param p3, "val$id"    # Ljava/lang/String;
 
-    .prologue
-    .line 939
     iput-object p1, p0, Landroid/hardware/camera2/CameraManager$CameraManagerGlobal$1;->this$1:Landroid/hardware/camera2/CameraManager$CameraManagerGlobal;
 
     iput-object p2, p0, Landroid/hardware/camera2/CameraManager$CameraManagerGlobal$1;->val$callback:Landroid/hardware/camera2/CameraManager$AvailabilityCallback;
@@ -50,14 +45,11 @@
 .method public run()V
     .locals 2
 
-    .prologue
-    .line 942
     iget-object v0, p0, Landroid/hardware/camera2/CameraManager$CameraManagerGlobal$1;->val$callback:Landroid/hardware/camera2/CameraManager$AvailabilityCallback;
 
     iget-object v1, p0, Landroid/hardware/camera2/CameraManager$CameraManagerGlobal$1;->val$id:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Landroid/hardware/camera2/CameraManager$AvailabilityCallback;->onCameraAvailable(Ljava/lang/String;)V
 
-    .line 941
     return-void
 .end method

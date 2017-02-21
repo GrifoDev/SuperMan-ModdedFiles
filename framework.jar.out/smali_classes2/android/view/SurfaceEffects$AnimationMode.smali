@@ -45,7 +45,6 @@
 .method static constructor <clinit>()V
     .locals 7
 
-    .prologue
     const/4 v6, 0x4
 
     const/4 v5, 0x3
@@ -56,7 +55,6 @@
 
     const/4 v2, 0x0
 
-    .line 75
     new-instance v0, Landroid/view/SurfaceEffects$AnimationMode;
 
     const-string/jumbo v1, "STATIC"
@@ -65,7 +63,6 @@
 
     sput-object v0, Landroid/view/SurfaceEffects$AnimationMode;->STATIC:Landroid/view/SurfaceEffects$AnimationMode;
 
-    .line 76
     new-instance v0, Landroid/view/SurfaceEffects$AnimationMode;
 
     const-string/jumbo v1, "LOOP"
@@ -74,7 +71,6 @@
 
     sput-object v0, Landroid/view/SurfaceEffects$AnimationMode;->LOOP:Landroid/view/SurfaceEffects$AnimationMode;
 
-    .line 77
     new-instance v0, Landroid/view/SurfaceEffects$AnimationMode;
 
     const-string/jumbo v1, "ONCE_STAY_START"
@@ -83,7 +79,6 @@
 
     sput-object v0, Landroid/view/SurfaceEffects$AnimationMode;->ONCE_STAY_START:Landroid/view/SurfaceEffects$AnimationMode;
 
-    .line 78
     new-instance v0, Landroid/view/SurfaceEffects$AnimationMode;
 
     const-string/jumbo v1, "ONCE_STAY_END"
@@ -92,7 +87,6 @@
 
     sput-object v0, Landroid/view/SurfaceEffects$AnimationMode;->ONCE_STAY_END:Landroid/view/SurfaceEffects$AnimationMode;
 
-    .line 79
     new-instance v0, Landroid/view/SurfaceEffects$AnimationMode;
 
     const-string/jumbo v1, "ONCE_DESTROY"
@@ -101,7 +95,6 @@
 
     sput-object v0, Landroid/view/SurfaceEffects$AnimationMode;->ONCE_DESTROY:Landroid/view/SurfaceEffects$AnimationMode;
 
-    .line 74
     const/4 v0, 0x5
 
     new-array v0, v0, [Landroid/view/SurfaceEffects$AnimationMode;
@@ -133,10 +126,7 @@
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
-    .param p3, "id"    # I
 
-    .prologue
-    .line 82
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     iput p3, p0, Landroid/view/SurfaceEffects$AnimationMode;->id:I
@@ -146,10 +136,7 @@
 
 .method public static valueOf(Ljava/lang/String;)Landroid/view/SurfaceEffects$AnimationMode;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
-    .prologue
-    .line 74
     const-class v0, Landroid/view/SurfaceEffects$AnimationMode;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -164,8 +151,6 @@
 .method public static values()[Landroid/view/SurfaceEffects$AnimationMode;
     .locals 1
 
-    .prologue
-    .line 74
     sget-object v0, Landroid/view/SurfaceEffects$AnimationMode;->$VALUES:[Landroid/view/SurfaceEffects$AnimationMode;
 
     return-object v0

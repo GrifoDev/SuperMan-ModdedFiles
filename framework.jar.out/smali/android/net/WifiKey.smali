@@ -41,73 +41,56 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .prologue
-    .line 36
     const-string/jumbo v0, "(\".*\")|(0x[\\p{XDigit}]+)"
 
-    .line 37
     const/16 v1, 0x20
 
-    .line 36
     invoke-static {v0, v1}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;I)Ljava/util/regex/Pattern;
 
     move-result-object v0
 
     sput-object v0, Landroid/net/WifiKey;->SSID_PATTERN:Ljava/util/regex/Pattern;
 
-    .line 39
     const-string/jumbo v0, "([\\p{XDigit}]{2}:){5}[\\p{XDigit}]{2}"
 
     invoke-static {v0}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
 
     move-result-object v0
 
-    .line 38
     sput-object v0, Landroid/net/WifiKey;->BSSID_PATTERN:Ljava/util/regex/Pattern;
 
-    .line 114
     new-instance v0, Landroid/net/WifiKey$1;
 
     invoke-direct {v0}, Landroid/net/WifiKey$1;-><init>()V
 
-    .line 113
     sput-object v0, Landroid/net/WifiKey;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    .line 33
     return-void
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 77
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 78
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/net/WifiKey;->ssid:Ljava/lang/String;
 
-    .line 79
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/net/WifiKey;->bssid:Ljava/lang/String;
 
-    .line 77
     return-void
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/net/WifiKey;)V
     .locals 0
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
     invoke-direct {p0, p1}, Landroid/net/WifiKey;-><init>(Landroid/os/Parcel;)V
 
     return-void
@@ -115,14 +98,9 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
     .locals 3
-    .param p1, "ssid"    # Ljava/lang/String;
-    .param p2, "bssid"    # Ljava/lang/String;
 
-    .prologue
-    .line 66
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 67
     sget-object v0, Landroid/net/WifiKey;->SSID_PATTERN:Ljava/util/regex/Pattern;
 
     invoke-virtual {v0, p1}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
@@ -135,7 +113,6 @@
 
     if-nez v0, :cond_0
 
-    .line 68
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -160,7 +137,6 @@
 
     throw v0
 
-    .line 70
     :cond_0
     sget-object v0, Landroid/net/WifiKey;->BSSID_PATTERN:Ljava/util/regex/Pattern;
 
@@ -174,7 +150,6 @@
 
     if-nez v0, :cond_1
 
-    .line 71
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -199,14 +174,11 @@
 
     throw v0
 
-    .line 73
     :cond_1
     iput-object p1, p0, Landroid/net/WifiKey;->ssid:Ljava/lang/String;
 
-    .line 74
     iput-object p2, p0, Landroid/net/WifiKey;->bssid:Ljava/lang/String;
 
-    .line 66
     return-void
 .end method
 
@@ -215,8 +187,6 @@
 .method public describeContents()I
     .locals 1
 
-    .prologue
-    .line 84
     const/4 v0, 0x0
 
     return v0
@@ -224,19 +194,15 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
-    .param p1, "o"    # Ljava/lang/Object;
 
-    .prologue
     const/4 v1, 0x0
 
-    .line 95
     if-ne p0, p1, :cond_0
 
     const/4 v1, 0x1
 
     return v1
 
-    .line 96
     :cond_0
     if-eqz p1, :cond_1
 
@@ -256,11 +222,8 @@
     :cond_2
     move-object v0, p1
 
-    .line 98
     check-cast v0, Landroid/net/WifiKey;
 
-    .line 100
-    .local v0, "wifiKey":Landroid/net/WifiKey;
     iget-object v2, p0, Landroid/net/WifiKey;->ssid:Ljava/lang/String;
 
     iget-object v3, v0, Landroid/net/WifiKey;->ssid:Ljava/lang/String;
@@ -286,8 +249,6 @@
 .method public hashCode()I
     .locals 3
 
-    .prologue
-    .line 105
     const/4 v0, 0x2
 
     new-array v0, v0, [Ljava/lang/Object;
@@ -314,8 +275,6 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 110
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -359,20 +318,14 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .param p1, "out"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
-    .prologue
-    .line 89
     iget-object v0, p0, Landroid/net/WifiKey;->ssid:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 90
     iget-object v0, p0, Landroid/net/WifiKey;->bssid:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 88
     return-void
 .end method

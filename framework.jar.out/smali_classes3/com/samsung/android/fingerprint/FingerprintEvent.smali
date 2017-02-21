@@ -284,216 +284,173 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .prologue
-    .line 37
     invoke-static {}, Landroid/os/Debug;->semIsProductDev()Z
 
     move-result v0
 
     sput-boolean v0, Lcom/samsung/android/fingerprint/FingerprintEvent;->DEBUG:Z
 
-    .line 652
     new-instance v0, Landroid/util/SparseArray;
 
     invoke-direct {v0}, Landroid/util/SparseArray;-><init>()V
 
     sput-object v0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventIdNameMap:Landroid/util/SparseArray;
 
-    .line 657
     new-instance v0, Landroid/util/SparseArray;
 
     invoke-direct {v0}, Landroid/util/SparseArray;-><init>()V
 
     sput-object v0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventResultNameMap:Landroid/util/SparseArray;
 
-    .line 662
     new-instance v0, Landroid/util/SparseArray;
 
     invoke-direct {v0}, Landroid/util/SparseArray;-><init>()V
 
     sput-object v0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventStatusNameMap:Landroid/util/SparseArray;
 
-    .line 667
     new-instance v0, Landroid/util/SparseArray;
 
     invoke-direct {v0}, Landroid/util/SparseArray;-><init>()V
 
     sput-object v0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventImageQualityNameMap:Landroid/util/SparseArray;
 
-    .line 672
     new-instance v0, Landroid/util/SparseArray;
 
     invoke-direct {v0}, Landroid/util/SparseArray;-><init>()V
 
     sput-object v0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventSwipeDirectionMap:Landroid/util/SparseArray;
 
-    .line 681
     sget-object v0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventIdNameMap:Landroid/util/SparseArray;
 
     const-string/jumbo v1, "EVENT_"
 
     invoke-static {v0, v1}, Lcom/samsung/android/fingerprint/FingerprintEvent;->generateNameMap(Landroid/util/SparseArray;Ljava/lang/String;)V
 
-    .line 682
     sget-object v0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventResultNameMap:Landroid/util/SparseArray;
 
     const-string/jumbo v1, "RESULT_"
 
     invoke-static {v0, v1}, Lcom/samsung/android/fingerprint/FingerprintEvent;->generateNameMap(Landroid/util/SparseArray;Ljava/lang/String;)V
 
-    .line 683
     sget-object v0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventStatusNameMap:Landroid/util/SparseArray;
 
     const-string/jumbo v1, "STATUS_"
 
     invoke-static {v0, v1}, Lcom/samsung/android/fingerprint/FingerprintEvent;->generateNameMap(Landroid/util/SparseArray;Ljava/lang/String;)V
 
-    .line 684
     sget-object v0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventImageQualityNameMap:Landroid/util/SparseArray;
 
     const-string/jumbo v1, "IMAGE_"
 
     invoke-static {v0, v1}, Lcom/samsung/android/fingerprint/FingerprintEvent;->generateNameMap(Landroid/util/SparseArray;Ljava/lang/String;)V
 
-    .line 685
     sget-object v0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventSwipeDirectionMap:Landroid/util/SparseArray;
 
     const-string/jumbo v1, "SWIPE_DIRECTION_"
 
     invoke-static {v0, v1}, Lcom/samsung/android/fingerprint/FingerprintEvent;->generateNameMap(Landroid/util/SparseArray;Ljava/lang/String;)V
 
-    .line 718
     new-instance v0, Lcom/samsung/android/fingerprint/FingerprintEvent$1;
 
     invoke-direct {v0}, Lcom/samsung/android/fingerprint/FingerprintEvent$1;-><init>()V
 
     sput-object v0, Lcom/samsung/android/fingerprint/FingerprintEvent;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    .line 34
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 692
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 42
     iput v0, p0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventId:I
 
-    .line 47
     iput v0, p0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventResult:I
 
-    .line 52
     iput v0, p0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventStatus:I
 
-    .line 57
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
     iput-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventData:Landroid/os/Bundle;
 
-    .line 692
     return-void
 .end method
 
 .method public constructor <init>(I)V
     .locals 1
-    .param p1, "eventId"    # I
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 699
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 42
     iput v0, p0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventId:I
 
-    .line 47
     iput v0, p0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventResult:I
 
-    .line 52
     iput v0, p0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventStatus:I
 
-    .line 57
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
     iput-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventData:Landroid/os/Bundle;
 
-    .line 700
     iput p1, p0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventId:I
 
-    .line 699
     return-void
 .end method
 
 .method constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 706
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 42
     iput v0, p0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventId:I
 
-    .line 47
     iput v0, p0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventResult:I
 
-    .line 52
     iput v0, p0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventStatus:I
 
-    .line 57
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
     iput-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventData:Landroid/os/Bundle;
 
-    .line 707
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventId:I
 
-    .line 708
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventResult:I
 
-    .line 709
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventStatus:I
 
-    .line 711
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventData:Landroid/os/Bundle;
 
     invoke-virtual {v0, p1}, Landroid/os/Bundle;->readFromParcel(Landroid/os/Parcel;)V
 
-    .line 706
     return-void
 .end method
 
 .method private static generateNameMap(Landroid/util/SparseArray;Ljava/lang/String;)V
     .locals 8
-    .param p1, "prefix"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -506,15 +463,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 882
-    .local p0, "map":Landroid/util/SparseArray;, "Landroid/util/SparseArray<Ljava/lang/String;>;"
     if-nez p1, :cond_0
 
-    .line 883
     return-void
 
-    .line 886
     :cond_0
     const-class v4, Lcom/samsung/android/fingerprint/FingerprintEvent;
 
@@ -522,8 +474,6 @@
 
     move-result-object v3
 
-    .line 888
-    .local v3, "fields":[Ljava/lang/reflect/Field;
     const/4 v4, 0x0
 
     array-length v5, v3
@@ -533,8 +483,6 @@
 
     aget-object v1, v3, v4
 
-    .line 889
-    .local v1, "field":Ljava/lang/reflect/Field;
     invoke-virtual {v1}, Ljava/lang/reflect/Field;->getName()Ljava/lang/String;
 
     move-result-object v6
@@ -545,14 +493,12 @@
 
     if-nez v6, :cond_2
 
-    .line 888
     :cond_1
     :goto_1
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
 
-    .line 894
     :cond_2
     const/4 v6, 0x0
 
@@ -561,8 +507,6 @@
 
     move-result v2
 
-    .line 896
-    .local v2, "fieldValue":I
     invoke-virtual {v1}, Ljava/lang/reflect/Field;->getName()Ljava/lang/String;
 
     move-result-object v6
@@ -573,35 +517,25 @@
 
     goto :goto_1
 
-    .line 897
-    .end local v2    # "fieldValue":I
     :catch_0
     move-exception v0
 
-    .line 898
-    .local v0, "e":Ljava/lang/Exception;
     const-string/jumbo v6, "FPMS_FingerprintEvent"
 
     const-string/jumbo v7, "generateNameMap: failed "
 
     invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 900
     sget-boolean v6, Lcom/samsung/android/fingerprint/FingerprintEvent;->DEBUG:Z
 
     if-eqz v6, :cond_1
 
-    .line 901
     if-eqz v0, :cond_1
 
-    .line 902
     invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_1
 
-    .line 881
-    .end local v0    # "e":Ljava/lang/Exception;
-    .end local v1    # "field":Ljava/lang/reflect/Field;
     :cond_3
     return-void
 .end method
@@ -609,8 +543,6 @@
 .method private getSwipeDirection()I
     .locals 3
 
-    .prologue
-    .line 835
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventData:Landroid/os/Bundle;
 
     const-string/jumbo v1, "direction"
@@ -629,8 +561,6 @@
 .method public describeContents()I
     .locals 1
 
-    .prologue
-    .line 733
     const/4 v0, 0x0
 
     return v0
@@ -639,8 +569,6 @@
 .method public getBadSwipes()I
     .locals 2
 
-    .prologue
-    .line 754
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventData:Landroid/os/Bundle;
 
     const-string/jumbo v1, "badSwipes"
@@ -655,8 +583,6 @@
 .method public getEventIdName()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 916
     sget-object v0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventIdNameMap:Landroid/util/SparseArray;
 
     iget v1, p0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventId:I
@@ -673,8 +599,6 @@
 .method public getEventResultName()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 926
     sget-object v0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventResultNameMap:Landroid/util/SparseArray;
 
     iget v1, p0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventResult:I
@@ -691,8 +615,6 @@
 .method public getEventStatusName()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 936
     sget-object v0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventStatusNameMap:Landroid/util/SparseArray;
 
     iget v1, p0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventStatus:I
@@ -709,8 +631,6 @@
 .method public getFingerIndex()I
     .locals 3
 
-    .prologue
-    .line 826
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventData:Landroid/os/Bundle;
 
     const-string/jumbo v1, "fingerIndex"
@@ -727,8 +647,6 @@
 .method public getIdentifiedUserId()I
     .locals 3
 
-    .prologue
-    .line 817
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventData:Landroid/os/Bundle;
 
     const-string/jumbo v1, "userId"
@@ -745,8 +663,6 @@
 .method public getImageQuality()I
     .locals 2
 
-    .prologue
-    .line 763
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventData:Landroid/os/Bundle;
 
     const-string/jumbo v1, "imageQuality"
@@ -761,8 +677,6 @@
 .method public getImageQualityFeedback()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 772
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventData:Landroid/os/Bundle;
 
     const-string/jumbo v1, "imageQualityFeedback"
@@ -777,8 +691,6 @@
 .method public getImageQualityName()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 946
     sget-object v0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventImageQualityNameMap:Landroid/util/SparseArray;
 
     invoke-virtual {p0}, Lcom/samsung/android/fingerprint/FingerprintEvent;->getImageQuality()I
@@ -797,8 +709,6 @@
 .method public getImageQualityRsrcId()I
     .locals 2
 
-    .prologue
-    .line 781
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventData:Landroid/os/Bundle;
 
     const-string/jumbo v1, "imageQualityRsrcId"
@@ -813,8 +723,6 @@
 .method public getProgress()I
     .locals 2
 
-    .prologue
-    .line 790
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventData:Landroid/os/Bundle;
 
     const-string/jumbo v1, "progress"
@@ -829,8 +737,6 @@
 .method public getSwipeDirectionName()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 956
     sget-object v0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventSwipeDirectionMap:Landroid/util/SparseArray;
 
     invoke-direct {p0}, Lcom/samsung/android/fingerprint/FingerprintEvent;->getSwipeDirection()I
@@ -849,8 +755,6 @@
 .method public getSwipeSpeed()I
     .locals 3
 
-    .prologue
-    .line 844
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventData:Landroid/os/Bundle;
 
     const-string/jumbo v1, "swipeSpeed"
@@ -867,8 +771,6 @@
 .method public getTemplateResult()I
     .locals 2
 
-    .prologue
-    .line 799
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventData:Landroid/os/Bundle;
 
     const-string/jumbo v1, "templateResult"
@@ -883,8 +785,6 @@
 .method public getTotalSwipes()I
     .locals 2
 
-    .prologue
-    .line 808
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventData:Landroid/os/Bundle;
 
     const-string/jumbo v1, "totalSwipes"
@@ -898,30 +798,22 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .param p1, "dest"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
-    .prologue
-    .line 741
     iget v0, p0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventId:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 742
     iget v0, p0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventResult:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 743
     iget v0, p0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventStatus:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 745
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintEvent;->eventData:Landroid/os/Bundle;
 
     invoke-virtual {v0, p1, p2}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 740
     return-void
 .end method

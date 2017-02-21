@@ -18,8 +18,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 2053
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
 
     return-void
@@ -29,10 +27,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 5
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .line 2056
     const-string/jumbo v2, "MTPJNIInterface"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -57,30 +52,22 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2057
     iget v0, p1, Landroid/os/Message;->arg2:I
 
-    .line 2058
-    .local v0, "ServiceID":I
     iget v2, p1, Landroid/os/Message;->what:I
 
     packed-switch v2, :pswitch_data_0
 
-    .line 2065
     invoke-super {p0, p1}, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
 
-    .line 2055
     :goto_0
     return-void
 
-    .line 2060
     :pswitch_0
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Landroid/os/Bundle;
 
-    .line 2061
-    .local v1, "bundle":Landroid/os/Bundle;
     const-string/jumbo v2, "json"
 
     invoke-virtual {v1, v2}, Landroid/os/BaseBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -89,7 +76,6 @@
 
     sput-object v2, Landroid/mtp/MTPJNIInterface;->jsonData:Ljava/lang/String;
 
-    .line 2062
     const-string/jumbo v2, "MTPJNIInterface"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -128,7 +114,6 @@
 
     goto :goto_0
 
-    .line 2058
     :pswitch_data_0
     .packed-switch 0x3
         :pswitch_0

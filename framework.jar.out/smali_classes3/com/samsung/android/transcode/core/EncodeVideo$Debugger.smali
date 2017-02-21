@@ -18,8 +18,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 2644
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -28,8 +26,6 @@
 .method public static isEnabled()Z
     .locals 1
 
-    .prologue
-    .line 2647
     const/4 v0, 0x0
 
     return v0
@@ -38,22 +34,18 @@
 .method public static log(Ljava/lang/Object;)V
     .locals 2
 
-    .prologue
-    .line 2651
     invoke-static {}, Lcom/samsung/android/transcode/core/EncodeVideo$Debugger;->isEnabled()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 2655
     :goto_0
     return-void
 
     :cond_0
     const-string/jumbo v0, "TranscodeLib"
 
-    .line 2652
     invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v1

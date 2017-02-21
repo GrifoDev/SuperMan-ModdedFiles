@@ -28,33 +28,26 @@
 # direct methods
 .method public constructor <init>(Landroid/nfc/Tag;)V
     .locals 5
-    .param p1, "tag"    # Landroid/nfc/Tag;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
     const/16 v4, 0x9
 
     const/4 v3, 0x0
 
-    .line 104
     invoke-direct {p0, p1, v4}, Landroid/nfc/tech/BasicTagTechnology;-><init>(Landroid/nfc/Tag;I)V
 
-    .line 107
     invoke-static {p1}, Landroid/nfc/tech/NfcA;->get(Landroid/nfc/Tag;)Landroid/nfc/tech/NfcA;
 
     move-result-object v0
 
-    .line 109
-    .local v0, "a":Landroid/nfc/tech/NfcA;
     const/4 v2, -0x1
 
     iput v2, p0, Landroid/nfc/tech/MifareUltralight;->mType:I
 
-    .line 111
     invoke-virtual {v0}, Landroid/nfc/tech/NfcA;->getSak()S
 
     move-result v2
@@ -71,13 +64,10 @@
 
     if-ne v2, v3, :cond_0
 
-    .line 112
     invoke-virtual {p1, v4}, Landroid/nfc/Tag;->getTechExtras(I)Landroid/os/Bundle;
 
     move-result-object v1
 
-    .line 113
-    .local v1, "extras":Landroid/os/Bundle;
     const-string/jumbo v2, "isulc"
 
     invoke-virtual {v1, v2}, Landroid/os/BaseBundle;->getBoolean(Ljava/lang/String;)Z
@@ -86,19 +76,14 @@
 
     if-eqz v2, :cond_1
 
-    .line 114
     const/4 v2, 0x2
 
     iput v2, p0, Landroid/nfc/tech/MifareUltralight;->mType:I
 
-    .line 103
-    .end local v1    # "extras":Landroid/os/Bundle;
     :cond_0
     :goto_0
     return-void
 
-    .line 116
-    .restart local v1    # "extras":Landroid/os/Bundle;
     :cond_1
     const/4 v2, 0x1
 
@@ -109,12 +94,9 @@
 
 .method public static get(Landroid/nfc/Tag;)Landroid/nfc/tech/MifareUltralight;
     .locals 3
-    .param p0, "tag"    # Landroid/nfc/Tag;
 
-    .prologue
     const/4 v2, 0x0
 
-    .line 94
     const/16 v1, 0x9
 
     invoke-virtual {p0, v1}, Landroid/nfc/Tag;->hasTech(I)Z
@@ -125,7 +107,6 @@
 
     return-object v2
 
-    .line 96
     :cond_0
     :try_start_0
     new-instance v1, Landroid/nfc/tech/MifareUltralight;
@@ -136,28 +117,21 @@
 
     return-object v1
 
-    .line 97
     :catch_0
     move-exception v0
 
-    .line 98
-    .local v0, "e":Landroid/os/RemoteException;
     return-object v2
 .end method
 
 .method private static validatePageIndex(I)V
     .locals 3
-    .param p0, "pageIndex"    # I
 
-    .prologue
-    .line 274
     if-ltz p0, :cond_0
 
     const/16 v0, 0x100
 
     if-lt p0, v0, :cond_1
 
-    .line 275
     :cond_0
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
@@ -183,7 +157,6 @@
 
     throw v0
 
-    .line 268
     :cond_1
     return-void
 .end method
@@ -193,7 +166,6 @@
 .method public bridge synthetic close()V
     .locals 0
 
-    .prologue
     invoke-super {p0}, Landroid/nfc/tech/BasicTagTechnology;->close()V
 
     return-void
@@ -202,7 +174,6 @@
 .method public bridge synthetic connect()V
     .locals 0
 
-    .prologue
     invoke-super {p0}, Landroid/nfc/tech/BasicTagTechnology;->connect()V
 
     return-void
@@ -211,8 +182,6 @@
 .method public getMaxTransceiveLength()I
     .locals 1
 
-    .prologue
-    .line 223
     invoke-virtual {p0}, Landroid/nfc/tech/BasicTagTechnology;->getMaxTransceiveLengthInternal()I
 
     move-result v0
@@ -223,7 +192,6 @@
 .method public bridge synthetic getTag()Landroid/nfc/Tag;
     .locals 1
 
-    .prologue
     invoke-super {p0}, Landroid/nfc/tech/BasicTagTechnology;->getTag()Landroid/nfc/Tag;
 
     move-result-object v0
@@ -234,8 +202,6 @@
 .method public getTimeout()I
     .locals 3
 
-    .prologue
-    .line 261
     :try_start_0
     iget-object v1, p0, Landroid/nfc/tech/BasicTagTechnology;->mTag:Landroid/nfc/Tag;
 
@@ -253,19 +219,15 @@
 
     return v1
 
-    .line 262
     :catch_0
     move-exception v0
 
-    .line 263
-    .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "NFC"
 
     const-string/jumbo v2, "NFC service dead"
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 264
     const/4 v1, 0x0
 
     return v1
@@ -274,8 +236,6 @@
 .method public getType()I
     .locals 1
 
-    .prologue
-    .line 133
     iget v0, p0, Landroid/nfc/tech/MifareUltralight;->mType:I
 
     return v0
@@ -284,7 +244,6 @@
 .method public bridge synthetic isConnected()Z
     .locals 1
 
-    .prologue
     invoke-super {p0}, Landroid/nfc/tech/BasicTagTechnology;->isConnected()Z
 
     move-result v0
@@ -294,23 +253,18 @@
 
 .method public readPages(I)[B
     .locals 4
-    .param p1, "pageOffset"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
     const/4 v3, 0x0
 
-    .line 160
     invoke-static {p1}, Landroid/nfc/tech/MifareUltralight;->validatePageIndex(I)V
 
-    .line 161
     invoke-virtual {p0}, Landroid/nfc/tech/BasicTagTechnology;->checkConnected()V
 
-    .line 163
     const/4 v1, 0x2
 
     new-array v0, v1, [B
@@ -325,8 +279,6 @@
 
     aput-byte v1, v0, v2
 
-    .line 164
-    .local v0, "cmd":[B
     invoke-virtual {p0, v0, v3}, Landroid/nfc/tech/BasicTagTechnology;->transceive([BZ)[B
 
     move-result-object v1
@@ -337,7 +289,6 @@
 .method public bridge synthetic reconnect()V
     .locals 0
 
-    .prologue
     invoke-super {p0}, Landroid/nfc/tech/BasicTagTechnology;->reconnect()V
 
     return-void
@@ -345,10 +296,7 @@
 
 .method public setTimeout(I)V
     .locals 4
-    .param p1, "timeout"    # I
 
-    .prologue
-    .line 242
     :try_start_0
     iget-object v2, p0, Landroid/nfc/tech/BasicTagTechnology;->mTag:Landroid/nfc/Tag;
 
@@ -356,19 +304,14 @@
 
     move-result-object v2
 
-    .line 243
     const/16 v3, 0x9
 
-    .line 242
     invoke-interface {v2, v3, p1}, Landroid/nfc/INfcTag;->setTimeout(II)I
 
     move-result v1
 
-    .line 244
-    .local v1, "err":I
     if-eqz v1, :cond_0
 
-    .line 245
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v3, "The supplied timeout is not valid"
@@ -379,36 +322,27 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 247
-    .end local v1    # "err":I
     :catch_0
     move-exception v0
 
-    .line 248
-    .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v2, "NFC"
 
     const-string/jumbo v3, "NFC service dead"
 
     invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 240
-    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     return-void
 .end method
 
 .method public transceive([B)[B
     .locals 1
-    .param p1, "data"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
-    .line 215
     const/4 v0, 0x1
 
     invoke-virtual {p0, p1, v0}, Landroid/nfc/tech/BasicTagTechnology;->transceive([BZ)[B
@@ -420,53 +354,41 @@
 
 .method public writePage(I[B)V
     .locals 4
-    .param p1, "pageOffset"    # I
-    .param p2, "data"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
     const/4 v3, 0x0
 
-    .line 185
     invoke-static {p1}, Landroid/nfc/tech/MifareUltralight;->validatePageIndex(I)V
 
-    .line 186
     invoke-virtual {p0}, Landroid/nfc/tech/BasicTagTechnology;->checkConnected()V
 
-    .line 188
     array-length v1, p2
 
     add-int/lit8 v1, v1, 0x2
 
     new-array v0, v1, [B
 
-    .line 189
-    .local v0, "cmd":[B
     const/16 v1, -0x5e
 
     aput-byte v1, v0, v3
 
-    .line 190
     int-to-byte v1, p1
 
     const/4 v2, 0x1
 
     aput-byte v1, v0, v2
 
-    .line 191
     array-length v1, p2
 
     const/4 v2, 0x2
 
     invoke-static {p2, v3, v0, v2, v1}, Ljava/lang/System;->arraycopy([BI[BII)V
 
-    .line 193
     invoke-virtual {p0, v0, v3}, Landroid/nfc/tech/BasicTagTechnology;->transceive([BZ)[B
 
-    .line 184
     return-void
 .end method

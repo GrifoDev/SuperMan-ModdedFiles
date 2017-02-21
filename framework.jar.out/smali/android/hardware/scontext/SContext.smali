@@ -312,13 +312,10 @@
 .method static constructor <clinit>()V
     .locals 4
 
-    .prologue
     const/16 v3, 0x35
 
-    .line 455
     new-array v0, v3, [Ljava/lang/String;
 
-    .line 456
     const-string/jumbo v1, "Approach"
 
     const/4 v2, 0x0
@@ -355,7 +352,6 @@
 
     aput-object v1, v0, v2
 
-    .line 457
     const-string/jumbo v1, "Air Motion"
 
     const/4 v2, 0x6
@@ -374,7 +370,6 @@
 
     aput-object v1, v0, v2
 
-    .line 458
     const-string/jumbo v1, "Current Status For Positioning"
 
     const/16 v2, 0x9
@@ -399,7 +394,6 @@
 
     aput-object v1, v0, v2
 
-    .line 459
     const-string/jumbo v1, "Gyro Temperature"
 
     const/16 v2, 0xd
@@ -424,7 +418,6 @@
 
     aput-object v1, v0, v2
 
-    .line 460
     const-string/jumbo v1, "Bounce Long Motion"
 
     const/16 v2, 0x11
@@ -449,7 +442,6 @@
 
     aput-object v1, v0, v2
 
-    .line 461
     const-string/jumbo v1, "Device Position"
 
     const/16 v2, 0x15
@@ -468,7 +460,6 @@
 
     aput-object v1, v0, v2
 
-    .line 462
     const-string/jumbo v1, "Activity Tracker"
 
     const/16 v2, 0x18
@@ -493,7 +484,6 @@
 
     aput-object v1, v0, v2
 
-    .line 463
     const-string/jumbo v1, "Sleep Monitor"
 
     const/16 v2, 0x1c
@@ -518,7 +508,6 @@
 
     aput-object v1, v0, v2
 
-    .line 464
     const-string/jumbo v1, "Step Level Monitor"
 
     const/16 v2, 0x20
@@ -537,7 +526,6 @@
 
     aput-object v1, v0, v2
 
-    .line 465
     const-string/jumbo v1, "Flat Motion For Table Mode"
 
     const/16 v2, 0x23
@@ -556,7 +544,6 @@
 
     aput-object v1, v0, v2
 
-    .line 466
     const-string/jumbo v1, "Auto Brightness"
 
     const/16 v2, 0x26
@@ -581,7 +568,6 @@
 
     aput-object v1, v0, v2
 
-    .line 467
     const-string/jumbo v1, "Hall Sensor"
 
     const/16 v2, 0x2a
@@ -600,7 +586,6 @@
 
     aput-object v1, v0, v2
 
-    .line 468
     const-string/jumbo v1, "Wireless Charging Detection"
 
     const/16 v2, 0x2d
@@ -625,7 +610,6 @@
 
     aput-object v1, v0, v2
 
-    .line 469
     const-string/jumbo v1, "Any Motion Detector"
 
     const/16 v2, 0x31
@@ -644,34 +628,28 @@
 
     aput-object v1, v0, v2
 
-    .line 470
     const-string/jumbo v1, "Activity Calibration"
 
     const/16 v2, 0x34
 
     aput-object v1, v0, v2
 
-    .line 455
     sput-object v0, Landroid/hardware/scontext/SContext;->sServiceList:[Ljava/lang/String;
 
-    .line 474
     new-array v0, v3, [I
 
     fill-array-data v0, :array_0
 
     sput-object v0, Landroid/hardware/scontext/SContext;->sServiceReportingModes:[I
 
-    .line 605
     new-instance v0, Landroid/hardware/scontext/SContext$1;
 
     invoke-direct {v0}, Landroid/hardware/scontext/SContext$1;-><init>()V
 
     sput-object v0, Landroid/hardware/scontext/SContext;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    .line 29
     return-void
 
-    .line 474
     :array_0
     .array-data 4
         0x3
@@ -733,49 +711,36 @@
 .method constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 501
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 502
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/hardware/scontext/SContext;->mType:I
 
-    .line 501
     return-void
 .end method
 
 .method constructor <init>(Landroid/os/Parcel;)V
     .locals 0
-    .param p1, "src"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 508
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 509
     invoke-direct {p0, p1}, Landroid/hardware/scontext/SContext;->readFromParcel(Landroid/os/Parcel;)V
 
-    .line 508
     return-void
 .end method
 
 .method public static getReportingMode(I)I
     .locals 2
-    .param p0, "service"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .prologue
-    .line 537
     sget-object v0, Landroid/hardware/scontext/SContext;->sServiceReportingModes:[I
 
     array-length v0, v0
 
     if-gt p0, v0, :cond_0
 
-    .line 538
     sget-object v0, Landroid/hardware/scontext/SContext;->sServiceReportingModes:[I
 
     add-int/lit8 v1, p0, -0x1
@@ -784,7 +749,6 @@
 
     return v0
 
-    .line 540
     :cond_0
     const/4 v0, 0x0
 
@@ -793,19 +757,15 @@
 
 .method public static getServiceName(I)Ljava/lang/String;
     .locals 2
-    .param p0, "service"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .prologue
-    .line 521
     sget-object v0, Landroid/hardware/scontext/SContext;->sServiceList:[Ljava/lang/String;
 
     array-length v0, v0
 
     if-gt p0, v0, :cond_0
 
-    .line 522
     sget-object v0, Landroid/hardware/scontext/SContext;->sServiceList:[Ljava/lang/String;
 
     add-int/lit8 v1, p0, -0x1
@@ -814,7 +774,6 @@
 
     return-object v0
 
-    .line 524
     :cond_0
     const-string/jumbo v0, ""
 
@@ -823,17 +782,13 @@
 
 .method private readFromParcel(Landroid/os/Parcel;)V
     .locals 1
-    .param p1, "src"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 597
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/hardware/scontext/SContext;->mType:I
 
-    .line 596
     return-void
 .end method
 
@@ -842,8 +797,6 @@
 .method public describeContents()I
     .locals 1
 
-    .prologue
-    .line 573
     const/4 v0, 0x0
 
     return v0
@@ -854,8 +807,6 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .prologue
-    .line 551
     iget v0, p0, Landroid/hardware/scontext/SContext;->mType:I
 
     return v0
@@ -863,27 +814,18 @@
 
 .method setType(I)V
     .locals 0
-    .param p1, "type"    # I
 
-    .prologue
-    .line 560
     iput p1, p0, Landroid/hardware/scontext/SContext;->mType:I
 
-    .line 559
     return-void
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .param p1, "dest"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
-    .prologue
-    .line 587
     iget v0, p0, Landroid/hardware/scontext/SContext;->mType:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 586
     return-void
 .end method

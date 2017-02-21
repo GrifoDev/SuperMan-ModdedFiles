@@ -29,34 +29,16 @@
 # direct methods
 .method constructor <init>(Landroid/content/pm/PackageParser$Package;[Ljava/lang/String;IIIII[Ljava/lang/String;III)V
     .locals 0
-    .param p1, "_owner"    # Landroid/content/pm/PackageParser$Package;
-    .param p2, "_outError"    # [Ljava/lang/String;
-    .param p3, "_nameRes"    # I
-    .param p4, "_labelRes"    # I
-    .param p5, "_iconRes"    # I
-    .param p6, "_logoRes"    # I
-    .param p7, "_bannerRes"    # I
-    .param p8, "_sepProcesses"    # [Ljava/lang/String;
-    .param p9, "_processRes"    # I
-    .param p10, "_descriptionRes"    # I
-    .param p11, "_enabledRes"    # I
 
-    .prologue
-    .line 335
     invoke-direct/range {p0 .. p7}, Landroid/content/pm/PackageParser$ParsePackageItemArgs;-><init>(Landroid/content/pm/PackageParser$Package;[Ljava/lang/String;IIIII)V
 
-    .line 336
     iput-object p8, p0, Landroid/content/pm/PackageParser$ParseComponentArgs;->sepProcesses:[Ljava/lang/String;
 
-    .line 337
     iput p9, p0, Landroid/content/pm/PackageParser$ParseComponentArgs;->processRes:I
 
-    .line 338
     iput p10, p0, Landroid/content/pm/PackageParser$ParseComponentArgs;->descriptionRes:I
 
-    .line 339
     iput p11, p0, Landroid/content/pm/PackageParser$ParseComponentArgs;->enabledRes:I
 
-    .line 334
     return-void
 .end method

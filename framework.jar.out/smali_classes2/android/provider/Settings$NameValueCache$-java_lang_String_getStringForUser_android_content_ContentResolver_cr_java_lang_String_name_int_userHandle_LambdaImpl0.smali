@@ -25,7 +25,6 @@
 .method public synthetic constructor <init>(Landroid/provider/Settings$NameValueCache;)V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Landroid/provider/Settings$NameValueCache$-java_lang_String_getStringForUser_android_content_ContentResolver_cr_java_lang_String_name_int_userHandle_LambdaImpl0;->val$this:Landroid/provider/Settings$NameValueCache;
@@ -38,7 +37,6 @@
 .method public run()V
     .locals 1
 
-    .prologue
     iget-object v0, p0, Landroid/provider/Settings$NameValueCache$-java_lang_String_getStringForUser_android_content_ContentResolver_cr_java_lang_String_name_int_userHandle_LambdaImpl0;->val$this:Landroid/provider/Settings$NameValueCache;
 
     invoke-virtual {v0}, Landroid/provider/Settings$NameValueCache;->-android_provider_Settings$NameValueCache_lambda$1()V

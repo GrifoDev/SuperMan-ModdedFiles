@@ -18,8 +18,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 1693
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -29,25 +27,18 @@
 # virtual methods
 .method public onError(I)V
     .locals 0
-    .param p1, "error"    # I
 
-    .prologue
-    .line 1699
     return-void
 .end method
 
 .method public onStarted()V
     .locals 0
 
-    .prologue
-    .line 1695
     return-void
 .end method
 
 .method public onStopped()V
     .locals 0
 
-    .prologue
-    .line 1697
     return-void
 .end method

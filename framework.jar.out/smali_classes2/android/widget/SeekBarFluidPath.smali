@@ -343,120 +343,92 @@
 
 .method public constructor <init>(F)V
     .locals 3
-    .param p1, "thumbWidth"    # F
 
-    .prologue
     const/16 v2, 0xf
 
     const v1, 0x434d09ba
 
-    .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 10
     const-string/jumbo v0, "SeekBarFluidPath"
 
     iput-object v0, p0, Landroid/widget/SeekBarFluidPath;->TAG:Ljava/lang/String;
 
-    .line 12
     const/4 v0, 0x6
 
     iput v0, p0, Landroid/widget/SeekBarFluidPath;->circleTotal:I
 
-    .line 13
     const/16 v0, 0x9
 
     iput v0, p0, Landroid/widget/SeekBarFluidPath;->shapeTotal:I
 
-    .line 14
     iput v2, p0, Landroid/widget/SeekBarFluidPath;->pathTotal:I
 
-    .line 15
     const v0, 0x43ce7d2f
 
     iput v0, p0, Landroid/widget/SeekBarFluidPath;->cx:F
 
-    .line 16
     const v0, 0x436aaac1
 
     iput v0, p0, Landroid/widget/SeekBarFluidPath;->cy:F
 
-    .line 17
     const v0, -0x3c3182d1
 
     iput v0, p0, Landroid/widget/SeekBarFluidPath;->offsetX:F
 
-    .line 18
     const v0, -0x3c95553f
 
     iput v0, p0, Landroid/widget/SeekBarFluidPath;->offsetY:F
 
-    .line 19
     iput v1, p0, Landroid/widget/SeekBarFluidPath;->radius:F
 
-    .line 20
     const v0, 0x43a48ccd    # 329.1f
 
     iput v0, p0, Landroid/widget/SeekBarFluidPath;->tailWidthFromCircleCenter:F
 
-    .line 25
     new-array v0, v2, [Landroid/graphics/Path;
 
     iput-object v0, p0, Landroid/widget/SeekBarFluidPath;->path:[Landroid/graphics/Path;
 
-    .line 32
     div-float v0, p1, v1
 
     iput v0, p0, Landroid/widget/SeekBarFluidPath;->scale:F
 
-    .line 33
     invoke-direct {p0}, Landroid/widget/SeekBarFluidPath;->setPath()V
 
-    .line 31
     return-void
 .end method
 
 .method private setPath()V
     .locals 13
 
-    .prologue
-    .line 38
     const/4 v9, -0x1
 
-    .line 39
-    .local v9, "count":I
     new-instance v11, Landroid/graphics/Matrix;
 
     invoke-direct {v11}, Landroid/graphics/Matrix;-><init>()V
 
-    .line 40
-    .local v11, "mtrx":Landroid/graphics/Matrix;
     const v0, -0x3c3182d1
 
     const v2, -0x3c95553f
 
     invoke-virtual {v11, v0, v2}, Landroid/graphics/Matrix;->postTranslate(FF)Z
 
-    .line 41
     iget v0, p0, Landroid/widget/SeekBarFluidPath;->scale:F
 
     iget v2, p0, Landroid/widget/SeekBarFluidPath;->scale:F
 
     invoke-virtual {v11, v0, v2}, Landroid/graphics/Matrix;->postScale(FF)Z
 
-    .line 46
     const/4 v10, 0x0
 
-    .local v10, "i":I
     :goto_0
     const/4 v0, 0x6
 
     if-ge v10, v0, :cond_0
 
-    .line 47
     add-int/lit8 v9, v9, 0x1
 
-    .line 48
     const v0, 0x41ec53f8    # 29.541f
 
     int-to-float v2, v10
@@ -467,20 +439,14 @@
 
     div-float/2addr v0, v2
 
-    .line 44
     const v2, 0x4291f4bc
 
-    .line 48
     add-float v12, v2, v0
 
-    .line 49
-    .local v12, "radius":F
     new-instance v1, Landroid/graphics/Path;
 
     invoke-direct {v1}, Landroid/graphics/Path;-><init>()V
 
-    .line 50
-    .local v1, "seqPath":Landroid/graphics/Path;
     sget-object v0, Landroid/graphics/Path$Direction;->CW:Landroid/graphics/Path$Direction;
 
     const v2, 0x43ce7d2f
@@ -489,32 +455,23 @@
 
     invoke-virtual {v1, v2, v3, v12, v0}, Landroid/graphics/Path;->addCircle(FFFLandroid/graphics/Path$Direction;)V
 
-    .line 51
     invoke-virtual {v1, v11}, Landroid/graphics/Path;->transform(Landroid/graphics/Matrix;)V
 
-    .line 52
     iget-object v0, p0, Landroid/widget/SeekBarFluidPath;->path:[Landroid/graphics/Path;
 
     aput-object v1, v0, v9
 
-    .line 46
     add-int/lit8 v10, v10, 0x1
 
     goto :goto_0
 
-    .line 56
-    .end local v1    # "seqPath":Landroid/graphics/Path;
-    .end local v12    # "radius":F
     :cond_0
     add-int/lit8 v9, v9, 0x1
 
-    .line 57
     new-instance v1, Landroid/graphics/Path;
 
     invoke-direct {v1}, Landroid/graphics/Path;-><init>()V
 
-    .line 58
-    .restart local v1    # "seqPath":Landroid/graphics/Path;
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->M:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v2, 0x43995042
@@ -523,7 +480,6 @@
 
     invoke-direct {p0, v1, v0, v2, v3}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FF)V
 
-    .line 59
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const/4 v3, 0x0
@@ -542,7 +498,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 60
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->l:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v2, -0x44bb645a    # -0.003f
@@ -551,7 +506,6 @@
 
     invoke-direct {p0, v1, v0, v2, v3}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FF)V
 
-    .line 61
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x41841893    # 16.512f
@@ -570,7 +524,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 62
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x42627ae1    # 56.62f
@@ -589,7 +542,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 63
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const/4 v3, 0x0
@@ -608,7 +560,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 64
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x3ddcdf3b
@@ -627,7 +578,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 65
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->l:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v2, 0x3b449ba6    # 0.003f
@@ -636,7 +586,6 @@
 
     invoke-direct {p0, v1, v0, v2, v3}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FF)V
 
-    .line 66
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->C:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x43a03be7
@@ -655,30 +604,22 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 67
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->z:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     invoke-direct {p0, v1, v0}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;)V
 
-    .line 68
     invoke-virtual {v1, v11}, Landroid/graphics/Path;->transform(Landroid/graphics/Matrix;)V
 
-    .line 69
     iget-object v0, p0, Landroid/widget/SeekBarFluidPath;->path:[Landroid/graphics/Path;
 
     aput-object v1, v0, v9
 
-    .line 73
     add-int/lit8 v9, v9, 0x1
 
-    .line 74
     new-instance v1, Landroid/graphics/Path;
 
-    .end local v1    # "seqPath":Landroid/graphics/Path;
     invoke-direct {v1}, Landroid/graphics/Path;-><init>()V
 
-    .line 75
-    .restart local v1    # "seqPath":Landroid/graphics/Path;
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->M:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v2, 0x43ce7d2f
@@ -687,7 +628,6 @@
 
     invoke-direct {p0, v1, v0, v2, v3}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FF)V
 
-    .line 76
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x3dd0c396
@@ -706,7 +646,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 77
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->l:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v2, -0x43ec8b44    # -0.009f
@@ -715,7 +654,6 @@
 
     invoke-direct {p0, v1, v0, v2, v3}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FF)V
 
-    .line 78
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const/4 v3, 0x0
@@ -734,7 +672,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 79
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x4253f7cf    # -0.084f
@@ -753,7 +690,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 80
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x407353f8    # -1.099f
@@ -772,7 +708,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 81
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->l:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v2, 0x3b449ba6    # 0.003f
@@ -781,7 +716,6 @@
 
     invoke-direct {p0, v1, v0, v2, v3}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FF)V
 
-    .line 82
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x3f1bb646    # -7.134f
@@ -800,7 +734,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 83
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const/4 v3, 0x0
@@ -819,7 +752,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 84
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->l:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v2, 0x3d3020c5    # 0.043f
@@ -828,7 +760,6 @@
 
     invoke-direct {p0, v1, v0, v2, v3}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FF)V
 
-    .line 85
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x41416873    # 12.088f
@@ -847,7 +778,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 86
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->l:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v2, 0x3c656042    # 0.014f
@@ -856,7 +786,6 @@
 
     invoke-direct {p0, v1, v0, v2, v3}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FF)V
 
-    .line 87
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x416ae979    # 14.682f
@@ -875,7 +804,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 88
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x426279db    # 56.619f
@@ -894,7 +822,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 89
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->C:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x4400dfae
@@ -913,30 +840,22 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 90
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->z:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     invoke-direct {p0, v1, v0}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;)V
 
-    .line 91
     invoke-virtual {v1, v11}, Landroid/graphics/Path;->transform(Landroid/graphics/Matrix;)V
 
-    .line 92
     iget-object v0, p0, Landroid/widget/SeekBarFluidPath;->path:[Landroid/graphics/Path;
 
     aput-object v1, v0, v9
 
-    .line 96
     add-int/lit8 v9, v9, 0x1
 
-    .line 97
     new-instance v1, Landroid/graphics/Path;
 
-    .end local v1    # "seqPath":Landroid/graphics/Path;
     invoke-direct {v1}, Landroid/graphics/Path;-><init>()V
 
-    .line 98
-    .restart local v1    # "seqPath":Landroid/graphics/Path;
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->M:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v2, 0x43ce7d2f
@@ -945,7 +864,6 @@
 
     invoke-direct {p0, v1, v0, v2, v3}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FF)V
 
-    .line 99
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x3ddc8c4a
@@ -964,14 +882,12 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 100
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->v:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v2, -0x43cbc6a8    # -0.011f
 
     invoke-direct {p0, v1, v0, v2}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;F)V
 
-    .line 101
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const/4 v3, 0x0
@@ -990,7 +906,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 102
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->C:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x43958000    # 299.0f
@@ -1009,7 +924,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 103
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x3fa2e148    # -3.455f
@@ -1028,7 +942,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 104
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->s:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x403a1cac    # 2.908f
@@ -1043,7 +956,6 @@
 
     invoke-direct/range {v0 .. v6}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFF)V
 
-    .line 105
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->C:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const/high16 v3, 0x43890000    # 274.0f
@@ -1062,7 +974,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 106
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x4055a1cb    # 3.338f
@@ -1081,14 +992,12 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 107
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->v:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v2, -0x43cbc6a8    # -0.011f
 
     invoke-direct {p0, v1, v0, v2}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;F)V
 
-    .line 108
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x4183c49c    # 16.471f
@@ -1107,7 +1016,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 109
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x426279db    # 56.619f
@@ -1126,7 +1034,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 110
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->C:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x4400dfae
@@ -1145,30 +1052,22 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 111
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->z:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     invoke-direct {p0, v1, v0}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;)V
 
-    .line 112
     invoke-virtual {v1, v11}, Landroid/graphics/Path;->transform(Landroid/graphics/Matrix;)V
 
-    .line 113
     iget-object v0, p0, Landroid/widget/SeekBarFluidPath;->path:[Landroid/graphics/Path;
 
     aput-object v1, v0, v9
 
-    .line 117
     add-int/lit8 v9, v9, 0x1
 
-    .line 118
     new-instance v1, Landroid/graphics/Path;
 
-    .end local v1    # "seqPath":Landroid/graphics/Path;
     invoke-direct {v1}, Landroid/graphics/Path;-><init>()V
 
-    .line 119
-    .restart local v1    # "seqPath":Landroid/graphics/Path;
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->M:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v2, 0x43ce7d2f
@@ -1177,7 +1076,6 @@
 
     invoke-direct {p0, v1, v0, v2, v3}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FF)V
 
-    .line 120
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x3de80f5c    # -37.985f
@@ -1196,7 +1094,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 121
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->l:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v2, -0x457ced91    # -0.001f
@@ -1205,7 +1102,6 @@
 
     invoke-direct {p0, v1, v0, v2, v3}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FF)V
 
-    .line 122
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const/4 v3, 0x0
@@ -1224,7 +1120,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 123
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x3e8d5810    # -15.166f
@@ -1243,7 +1138,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 124
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x3f847ae1    # -3.93f
@@ -1262,7 +1156,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 125
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const/4 v3, 0x0
@@ -1281,7 +1174,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 126
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x4118872b    # 9.533f
@@ -1300,7 +1192,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 127
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const/high16 v3, 0x41e30000    # 28.375f
@@ -1319,7 +1210,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 128
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->l:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v2, 0x3a83126f    # 0.001f
@@ -1328,7 +1218,6 @@
 
     invoke-direct {p0, v1, v0, v2, v3}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FF)V
 
-    .line 129
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x418db021    # 17.711f
@@ -1347,7 +1236,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 130
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x426279db    # 56.619f
@@ -1366,7 +1254,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 131
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->C:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x4400dfae
@@ -1385,30 +1272,22 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 132
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->z:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     invoke-direct {p0, v1, v0}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;)V
 
-    .line 133
     invoke-virtual {v1, v11}, Landroid/graphics/Path;->transform(Landroid/graphics/Matrix;)V
 
-    .line 134
     iget-object v0, p0, Landroid/widget/SeekBarFluidPath;->path:[Landroid/graphics/Path;
 
     aput-object v1, v0, v9
 
-    .line 138
     add-int/lit8 v9, v9, 0x1
 
-    .line 139
     new-instance v1, Landroid/graphics/Path;
 
-    .end local v1    # "seqPath":Landroid/graphics/Path;
     invoke-direct {v1}, Landroid/graphics/Path;-><init>()V
 
-    .line 140
-    .restart local v1    # "seqPath":Landroid/graphics/Path;
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->M:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v2, 0x4400dfae
@@ -1417,7 +1296,6 @@
 
     invoke-direct {p0, v1, v0, v2, v3}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FF)V
 
-    .line 141
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const/4 v3, 0x0
@@ -1436,7 +1314,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 142
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x3e22e148    # -27.64f
@@ -1455,7 +1332,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 143
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x3fec7ae1    # -2.305f
@@ -1474,7 +1350,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 144
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->C:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const/high16 v3, 0x43a40000    # 328.0f
@@ -1493,7 +1368,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 145
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x3fde6666    # -2.525f
@@ -1512,7 +1386,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 146
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x3edd5c29    # -10.165f
@@ -1531,7 +1404,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 147
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x3e7f5a1d    # -16.081f
@@ -1550,7 +1422,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 148
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->l:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v2, -0x3e558106    # -21.312f
@@ -1559,14 +1430,12 @@
 
     invoke-direct {p0, v1, v0, v2, v3}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FF)V
 
-    .line 149
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->h:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v2, -0x41e353f8    # -0.153f
 
     invoke-direct {p0, v1, v0, v2}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;F)V
 
-    .line 150
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->l:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v2, -0x419ba5e3    # -0.223f
@@ -1575,7 +1444,6 @@
 
     invoke-direct {p0, v1, v0, v2, v3}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FF)V
 
-    .line 151
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->l:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const/high16 v2, 0x41ac0000    # 21.5f
@@ -1584,7 +1452,6 @@
 
     invoke-direct {p0, v1, v0, v2, v3}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FF)V
 
-    .line 152
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const/4 v3, 0x0
@@ -1603,7 +1470,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 153
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x419cf7cf    # 19.621f
@@ -1622,7 +1488,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 154
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x4058d4fe    # 3.388f
@@ -1641,7 +1506,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 155
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x4105ae14    # 8.355f
@@ -1660,7 +1524,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 156
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x4005b22d    # 2.089f
@@ -1679,7 +1542,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 157
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x41938106    # 18.438f
@@ -1698,7 +1560,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 158
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x42626c8b
@@ -1717,14 +1578,12 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 159
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->h:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v2, 0x3e408312    # 0.188f
 
     invoke-direct {p0, v1, v0, v2}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;F)V
 
-    .line 160
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->C:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x4400df9e
@@ -1743,30 +1602,22 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 161
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->z:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     invoke-direct {p0, v1, v0}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;)V
 
-    .line 162
     invoke-virtual {v1, v11}, Landroid/graphics/Path;->transform(Landroid/graphics/Matrix;)V
 
-    .line 163
     iget-object v0, p0, Landroid/widget/SeekBarFluidPath;->path:[Landroid/graphics/Path;
 
     aput-object v1, v0, v9
 
-    .line 167
     add-int/lit8 v9, v9, 0x1
 
-    .line 168
     new-instance v1, Landroid/graphics/Path;
 
-    .end local v1    # "seqPath":Landroid/graphics/Path;
     invoke-direct {v1}, Landroid/graphics/Path;-><init>()V
 
-    .line 169
-    .restart local v1    # "seqPath":Landroid/graphics/Path;
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->M:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v2, 0x43412000    # 193.125f
@@ -1775,14 +1626,12 @@
 
     invoke-direct {p0, v1, v0, v2, v3}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FF)V
 
-    .line 170
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->v:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v2, 0x3b03126f    # 0.002f
 
     invoke-direct {p0, v1, v0, v2}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;F)V
 
-    .line 171
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const/4 v3, 0x0
@@ -1801,7 +1650,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 172
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x412c1893    # 10.756f
@@ -1820,7 +1668,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 173
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x41086a7f    # 8.526f
@@ -1839,7 +1686,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 174
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->C:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x43a28000    # 325.0f
@@ -1858,7 +1704,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 175
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x40b6b021    # 5.709f
@@ -1877,7 +1722,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 176
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x41518937    # 13.096f
@@ -1896,7 +1740,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 177
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x425ef7cf    # 55.742f
@@ -1915,7 +1758,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 178
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x3c23d70a    # 0.01f
@@ -1934,7 +1776,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 179
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const/4 v3, 0x0
@@ -1953,7 +1794,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 180
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const/4 v3, 0x0
@@ -1972,7 +1812,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 181
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const/4 v3, 0x0
@@ -1991,7 +1830,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 182
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x409a5e35    # -0.897f
@@ -2010,7 +1848,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 183
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x3e89a9fc    # -15.396f
@@ -2029,7 +1866,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 184
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x3f2e76c9    # -6.548f
@@ -2048,7 +1884,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 185
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->C:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const/high16 v3, 0x43a70000    # 334.0f
@@ -2067,7 +1902,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 186
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x3f35374c    # -6.337f
@@ -2086,7 +1920,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 187
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x3ef79168    # -8.527f
@@ -2105,7 +1938,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 188
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x3dedcccd    # -36.55f
@@ -2124,7 +1956,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 189
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->l:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v2, -0x3e6ffbe7    # -18.002f
@@ -2133,7 +1964,6 @@
 
     invoke-direct {p0, v1, v0, v2, v3}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FF)V
 
-    .line 190
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->l:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v2, -0x4096872b    # -0.912f
@@ -2142,7 +1972,6 @@
 
     invoke-direct {p0, v1, v0, v2, v3}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FF)V
 
-    .line 191
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->l:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v2, 0x3e010625    # 0.126f
@@ -2151,7 +1980,6 @@
 
     invoke-direct {p0, v1, v0, v2, v3}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FF)V
 
-    .line 192
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->l:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v2, -0x41fef9db    # -0.126f
@@ -2160,7 +1988,6 @@
 
     invoke-direct {p0, v1, v0, v2, v3}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FF)V
 
-    .line 193
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->l:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v2, 0x3f6978d5    # 0.912f
@@ -2169,7 +1996,6 @@
 
     invoke-direct {p0, v1, v0, v2, v3}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FF)V
 
-    .line 194
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->L:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v2, 0x43412000    # 193.125f
@@ -2178,30 +2004,22 @@
 
     invoke-direct {p0, v1, v0, v2, v3}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FF)V
 
-    .line 195
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->z:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     invoke-direct {p0, v1, v0}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;)V
 
-    .line 196
     invoke-virtual {v1, v11}, Landroid/graphics/Path;->transform(Landroid/graphics/Matrix;)V
 
-    .line 197
     iget-object v0, p0, Landroid/widget/SeekBarFluidPath;->path:[Landroid/graphics/Path;
 
     aput-object v1, v0, v9
 
-    .line 201
     add-int/lit8 v9, v9, 0x1
 
-    .line 202
     new-instance v1, Landroid/graphics/Path;
 
-    .end local v1    # "seqPath":Landroid/graphics/Path;
     invoke-direct {v1}, Landroid/graphics/Path;-><init>()V
 
-    .line 203
-    .restart local v1    # "seqPath":Landroid/graphics/Path;
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->M:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v2, 0x43d6e5c3
@@ -2210,7 +2028,6 @@
 
     invoke-direct {p0, v1, v0, v2, v3}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FF)V
 
-    .line 204
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x3f55999a    # -5.325f
@@ -2229,7 +2046,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 205
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x3f85e354    # -3.908f
@@ -2248,7 +2064,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 206
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x3e969fbe    # -14.586f
@@ -2267,7 +2082,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 207
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x3fe6147b    # -2.405f
@@ -2286,7 +2100,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 208
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x3ed65e35    # -10.602f
@@ -2305,7 +2118,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 209
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x3ff4ac08    # -2.177f
@@ -2324,7 +2136,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 210
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->C:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x43948000    # 297.0f
@@ -2343,7 +2154,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 211
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x3fcc3958    # -2.809f
@@ -2362,7 +2172,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 212
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x3f68d4fe    # -4.724f
@@ -2381,7 +2190,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 213
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x3fe820c5    # -2.373f
@@ -2400,7 +2208,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 214
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x3e5476c9    # -21.442f
@@ -2419,7 +2226,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 215
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x41ab5604    # 21.417f
@@ -2438,7 +2244,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 216
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x40176c8b    # 2.366f
@@ -2457,7 +2262,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 217
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x4097ced9    # 4.744f
@@ -2476,7 +2280,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 218
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x40356042    # 2.834f
@@ -2495,7 +2298,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 219
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->C:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const/high16 v3, 0x43870000    # 270.0f
@@ -2514,7 +2316,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 220
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x40108312    # 2.258f
@@ -2533,7 +2334,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 221
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x410b4bc7    # 8.706f
@@ -2552,7 +2352,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 222
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x4014ed91    # 2.327f
@@ -2571,7 +2370,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 223
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x41408b44    # 12.034f
@@ -2590,7 +2388,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 224
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x407c0831    # 3.938f
@@ -2609,7 +2406,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 225
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x40b1eb85    # 5.56f
@@ -2628,7 +2424,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 226
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x423fbf7d    # 47.937f
@@ -2647,7 +2442,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 227
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->C:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x4400b24e
@@ -2666,30 +2460,22 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 228
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->z:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     invoke-direct {p0, v1, v0}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;)V
 
-    .line 229
     invoke-virtual {v1, v11}, Landroid/graphics/Path;->transform(Landroid/graphics/Matrix;)V
 
-    .line 230
     iget-object v0, p0, Landroid/widget/SeekBarFluidPath;->path:[Landroid/graphics/Path;
 
     aput-object v1, v0, v9
 
-    .line 234
     add-int/lit8 v9, v9, 0x1
 
-    .line 235
     new-instance v1, Landroid/graphics/Path;
 
-    .end local v1    # "seqPath":Landroid/graphics/Path;
     invoke-direct {v1}, Landroid/graphics/Path;-><init>()V
 
-    .line 236
-    .restart local v1    # "seqPath":Landroid/graphics/Path;
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->M:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v2, 0x43ce7d2f
@@ -2698,7 +2484,6 @@
 
     invoke-direct {p0, v1, v0, v2, v3}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FF)V
 
-    .line 237
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x3f5dcac1    # -5.069f
@@ -2717,7 +2502,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 238
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x3eb3ced9    # -12.762f
@@ -2736,7 +2520,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 239
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x3f878d50    # -3.882f
@@ -2755,7 +2538,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 240
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x3fbb851f    # -3.07f
@@ -2774,7 +2556,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 241
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x3ef88b44    # -8.466f
@@ -2793,7 +2574,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 242
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x3f786a7f    # -4.237f
@@ -2812,7 +2592,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 243
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x3e489fbe    # -22.922f
@@ -2831,7 +2610,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 244
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x4015a1cb    # -1.831f
@@ -2850,7 +2628,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 245
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->C:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const/high16 v3, 0x43510000    # 209.0f
@@ -2869,7 +2646,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 246
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const/4 v3, 0x0
@@ -2888,7 +2664,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 247
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x3e7b5604    # -16.583f
@@ -2907,7 +2682,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 248
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->s:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const/high16 v3, 0x42470000    # 49.75f
@@ -2922,7 +2696,6 @@
 
     invoke-direct/range {v0 .. v6}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFF)V
 
-    .line 249
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x40543958    # 3.316f
@@ -2941,7 +2714,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 250
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x40fd9168    # 7.924f
@@ -2960,7 +2732,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 251
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x3fe1cac1    # 1.764f
@@ -2979,7 +2750,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 252
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x41cd0a3d    # 25.63f
@@ -2998,7 +2768,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 253
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x4088d4fe    # 4.276f
@@ -3017,7 +2786,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 254
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x41079168    # 8.473f
@@ -3036,7 +2804,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 255
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x4043851f    # 3.055f
@@ -3055,7 +2822,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 256
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x4073126f    # 3.798f
@@ -3074,7 +2840,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 257
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x413a5e35    # 11.648f
@@ -3093,7 +2858,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 258
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x409c4189    # 4.883f
@@ -3112,7 +2876,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 259
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x426279db    # 56.619f
@@ -3131,7 +2894,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 260
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->C:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x4400dfae
@@ -3150,30 +2912,22 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 261
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->z:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     invoke-direct {p0, v1, v0}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;)V
 
-    .line 262
     invoke-virtual {v1, v11}, Landroid/graphics/Path;->transform(Landroid/graphics/Matrix;)V
 
-    .line 263
     iget-object v0, p0, Landroid/widget/SeekBarFluidPath;->path:[Landroid/graphics/Path;
 
     aput-object v1, v0, v9
 
-    .line 267
     add-int/lit8 v9, v9, 0x1
 
-    .line 268
     new-instance v1, Landroid/graphics/Path;
 
-    .end local v1    # "seqPath":Landroid/graphics/Path;
     invoke-direct {v1}, Landroid/graphics/Path;-><init>()V
 
-    .line 269
-    .restart local v1    # "seqPath":Landroid/graphics/Path;
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->M:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v2, 0x4400df5c    # 515.49f
@@ -3182,7 +2936,6 @@
 
     invoke-direct {p0, v1, v0, v2, v3}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FF)V
 
-    .line 270
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const/4 v3, 0x0
@@ -3201,14 +2954,12 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 271
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->h:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v2, -0x443b645a    # -0.006f
 
     invoke-direct {p0, v1, v0, v2}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;F)V
 
-    .line 272
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x419db22d    # -0.221f
@@ -3227,7 +2978,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 273
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x3f698106    # -4.703f
@@ -3246,7 +2996,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 274
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x3e3d6e98    # -24.321f
@@ -3265,7 +3014,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 275
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x3f74b439    # -4.353f
@@ -3284,7 +3032,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 276
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x3dd976c9
@@ -3303,7 +3050,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 277
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x3f72d0e5    # -4.412f
@@ -3322,7 +3068,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 278
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x3e4de148    # -22.265f
@@ -3341,7 +3086,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 279
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x3f6d2f1b    # -4.588f
@@ -3360,7 +3104,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 280
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, -0x3f76353f    # -4.306f
@@ -3379,7 +3122,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 281
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->l:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v2, -0x3d59d893
@@ -3388,14 +3130,12 @@
 
     invoke-direct {p0, v1, v0, v2, v3}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FF)V
 
-    .line 282
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->h:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v2, -0x40072b02    # -1.944f
 
     invoke-direct {p0, v1, v0, v2}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;F)V
 
-    .line 283
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->l:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v2, 0x3f78d4fe    # 0.972f
@@ -3404,7 +3144,6 @@
 
     invoke-direct {p0, v1, v0, v2, v3}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FF)V
 
-    .line 284
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->l:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v2, -0x40872b02    # -0.972f
@@ -3413,14 +3152,12 @@
 
     invoke-direct {p0, v1, v0, v2, v3}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FF)V
 
-    .line 285
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->h:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v2, 0x3ff8d4fe    # 1.944f
 
     invoke-direct {p0, v1, v0, v2}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;F)V
 
-    .line 286
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->l:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v2, 0x42a6276d
@@ -3429,7 +3166,6 @@
 
     invoke-direct {p0, v1, v0, v2, v3}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FF)V
 
-    .line 287
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x4088c49c    # 4.274f
@@ -3448,7 +3184,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 288
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x4093c6a8    # 4.618f
@@ -3467,7 +3202,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 289
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x41b9b021    # 23.211f
@@ -3486,7 +3220,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 290
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x408e7efa    # 4.453f
@@ -3505,7 +3238,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 291
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x422a6354    # 42.597f
@@ -3524,7 +3256,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 292
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x4089374c    # 4.288f
@@ -3543,7 +3274,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 293
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x41ae1cac    # 21.764f
@@ -3562,7 +3292,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 294
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x40a33b64    # 5.101f
@@ -3581,7 +3310,6 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 295
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x42030312
@@ -3600,14 +3328,12 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 296
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->h:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v2, 0x3bc49ba6    # 0.006f
 
     invoke-direct {p0, v1, v0, v2}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;F)V
 
-    .line 297
     sget-object v2, Landroid/widget/SeekBarFluidPath$SVGCommand;->C:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     const v3, 0x4400df8d
@@ -3626,29 +3352,22 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 298
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->z:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     invoke-direct {p0, v1, v0}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;)V
 
-    .line 299
     invoke-virtual {v1, v11}, Landroid/graphics/Path;->transform(Landroid/graphics/Matrix;)V
 
-    .line 300
     iget-object v0, p0, Landroid/widget/SeekBarFluidPath;->path:[Landroid/graphics/Path;
 
     aput-object v1, v0, v9
 
-    .line 36
     return-void
 .end method
 
 .method private vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;)V
     .locals 9
-    .param p1, "p"    # Landroid/graphics/Path;
-    .param p2, "cmd"    # Landroid/widget/SeekBarFluidPath$SVGCommand;
 
-    .prologue
     const/4 v3, 0x0
 
     move-object v0, p0
@@ -3667,21 +3386,14 @@
 
     move v8, v3
 
-    .line 321
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 320
     return-void
 .end method
 
 .method private vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;F)V
     .locals 9
-    .param p1, "p"    # Landroid/graphics/Path;
-    .param p2, "cmd"    # Landroid/widget/SeekBarFluidPath$SVGCommand;
-    .param p3, "value"    # F
 
-    .prologue
-    .line 325
     invoke-static {}, Landroid/widget/SeekBarFluidPath;->-getandroid-widget-SeekBarFluidPath$SVGCommandSwitchesValues()[I
 
     move-result-object v0
@@ -3694,11 +3406,9 @@
 
     sparse-switch v0, :sswitch_data_0
 
-    .line 324
     :goto_0
     return-void
 
-    .line 328
     :sswitch_0
     const/4 v3, 0x0
 
@@ -3722,7 +3432,6 @@
 
     goto :goto_0
 
-    .line 333
     :sswitch_1
     const/4 v4, 0x0
 
@@ -3746,7 +3455,6 @@
 
     goto :goto_0
 
-    .line 325
     :sswitch_data_0
     .sparse-switch
         0x2 -> :sswitch_1
@@ -3758,12 +3466,7 @@
 
 .method private vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FF)V
     .locals 9
-    .param p1, "p"    # Landroid/graphics/Path;
-    .param p2, "cmd"    # Landroid/widget/SeekBarFluidPath$SVGCommand;
-    .param p3, "x1"    # F
-    .param p4, "y1"    # F
 
-    .prologue
     const/4 v5, 0x0
 
     move-object v0, p0
@@ -3782,23 +3485,14 @@
 
     move v8, v5
 
-    .line 342
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 341
     return-void
 .end method
 
 .method private vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFF)V
     .locals 9
-    .param p1, "p"    # Landroid/graphics/Path;
-    .param p2, "cmd"    # Landroid/widget/SeekBarFluidPath$SVGCommand;
-    .param p3, "x1"    # F
-    .param p4, "y1"    # F
-    .param p5, "x2"    # F
-    .param p6, "y2"    # F
 
-    .prologue
     const/4 v7, 0x0
 
     move-object v0, p0
@@ -3817,30 +3511,16 @@
 
     move v8, v7
 
-    .line 346
     invoke-direct/range {v0 .. v8}, Landroid/widget/SeekBarFluidPath;->vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
 
-    .line 345
     return-void
 .end method
 
 .method private vectorParsing(Landroid/graphics/Path;Landroid/widget/SeekBarFluidPath$SVGCommand;FFFFFF)V
     .locals 11
-    .param p1, "p"    # Landroid/graphics/Path;
-    .param p2, "cmd"    # Landroid/widget/SeekBarFluidPath$SVGCommand;
-    .param p3, "x1"    # F
-    .param p4, "y1"    # F
-    .param p5, "x2"    # F
-    .param p6, "y2"    # F
-    .param p7, "x3"    # F
-    .param p8, "y3"    # F
 
-    .prologue
-    .line 351
     const/4 v7, 0x0
 
-    .line 352
-    .local v7, "wasCurve":Z
     invoke-static {}, Landroid/widget/SeekBarFluidPath;->-getandroid-widget-SeekBarFluidPath$SVGCommandSwitchesValues()[I
 
     move-result-object v0
@@ -3853,49 +3533,37 @@
 
     packed-switch v0, :pswitch_data_0
 
-    .line 463
     :goto_0
     if-nez v7, :cond_0
 
-    .line 464
     iget v0, p0, Landroid/widget/SeekBarFluidPath;->lastX:F
 
     iput v0, p0, Landroid/widget/SeekBarFluidPath;->lastX1:F
 
-    .line 465
     iget v0, p0, Landroid/widget/SeekBarFluidPath;->lastY:F
 
     iput v0, p0, Landroid/widget/SeekBarFluidPath;->lastY1:F
 
-    .line 350
     :cond_0
     return-void
 
-    .line 355
     :pswitch_0
     move v8, p3
 
-    .line 356
-    .local v8, "x":F
     move v9, p4
 
-    .line 357
-    .local v9, "y":F
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->m:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     if-ne p2, v0, :cond_1
 
-    .line 358
     invoke-virtual {p1, p3, p4}, Landroid/graphics/Path;->rMoveTo(FF)V
 
-    .line 359
     iget v0, p0, Landroid/widget/SeekBarFluidPath;->lastX:F
 
     add-float/2addr v0, p3
 
     iput v0, p0, Landroid/widget/SeekBarFluidPath;->lastX:F
 
-    .line 360
     iget v0, p0, Landroid/widget/SeekBarFluidPath;->lastY:F
 
     add-float/2addr v0, p4
@@ -3904,71 +3572,53 @@
 
     goto :goto_0
 
-    .line 362
     :cond_1
     invoke-virtual {p1, p3, p4}, Landroid/graphics/Path;->moveTo(FF)V
 
-    .line 363
     iput p3, p0, Landroid/widget/SeekBarFluidPath;->lastX:F
 
-    .line 364
     iput p4, p0, Landroid/widget/SeekBarFluidPath;->lastY:F
 
     goto :goto_0
 
-    .line 370
-    .end local v8    # "x":F
-    .end local v9    # "y":F
     :pswitch_1
     invoke-virtual {p1}, Landroid/graphics/Path;->close()V
 
-    .line 371
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/widget/SeekBarFluidPath;->lastX1:F
 
-    .line 372
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/widget/SeekBarFluidPath;->lastY1:F
 
-    .line 373
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/widget/SeekBarFluidPath;->lastX:F
 
-    .line 374
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/widget/SeekBarFluidPath;->lastY:F
 
     goto :goto_0
 
-    .line 379
     :pswitch_2
     move v8, p3
 
-    .line 380
-    .restart local v8    # "x":F
     move v9, p4
 
-    .line 381
-    .restart local v9    # "y":F
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->l:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     if-ne p2, v0, :cond_2
 
-    .line 382
     invoke-virtual {p1, p3, p4}, Landroid/graphics/Path;->rLineTo(FF)V
 
-    .line 383
     iget v0, p0, Landroid/widget/SeekBarFluidPath;->lastX:F
 
     add-float/2addr v0, p3
 
     iput v0, p0, Landroid/widget/SeekBarFluidPath;->lastX:F
 
-    .line 384
     iget v0, p0, Landroid/widget/SeekBarFluidPath;->lastY:F
 
     add-float/2addr v0, p4
@@ -3977,36 +3627,26 @@
 
     goto :goto_0
 
-    .line 386
     :cond_2
     invoke-virtual {p1, p3, p4}, Landroid/graphics/Path;->lineTo(FF)V
 
-    .line 387
     iput p3, p0, Landroid/widget/SeekBarFluidPath;->lastX:F
 
-    .line 388
     iput p4, p0, Landroid/widget/SeekBarFluidPath;->lastY:F
 
     goto :goto_0
 
-    .line 394
-    .end local v8    # "x":F
-    .end local v9    # "y":F
     :pswitch_3
     move v8, p3
 
-    .line 395
-    .restart local v8    # "x":F
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->h:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     if-ne p2, v0, :cond_3
 
-    .line 396
     const/4 v0, 0x0
 
     invoke-virtual {p1, p3, v0}, Landroid/graphics/Path;->rLineTo(FF)V
 
-    .line 397
     iget v0, p0, Landroid/widget/SeekBarFluidPath;->lastX:F
 
     add-float/2addr v0, p3
@@ -4015,34 +3655,26 @@
 
     goto :goto_0
 
-    .line 399
     :cond_3
     iget v0, p0, Landroid/widget/SeekBarFluidPath;->lastY:F
 
     invoke-virtual {p1, p3, v0}, Landroid/graphics/Path;->lineTo(FF)V
 
-    .line 400
     iput p3, p0, Landroid/widget/SeekBarFluidPath;->lastX:F
 
     goto :goto_0
 
-    .line 406
-    .end local v8    # "x":F
     :pswitch_4
     move v9, p4
 
-    .line 407
-    .restart local v9    # "y":F
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->v:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     if-ne p2, v0, :cond_4
 
-    .line 408
     const/4 v0, 0x0
 
     invoke-virtual {p1, v0, p4}, Landroid/graphics/Path;->rLineTo(FF)V
 
-    .line 409
     iget v0, p0, Landroid/widget/SeekBarFluidPath;->lastY:F
 
     add-float/2addr v0, p4
@@ -4051,77 +3683,54 @@
 
     goto :goto_0
 
-    .line 411
     :cond_4
     iget v0, p0, Landroid/widget/SeekBarFluidPath;->lastX:F
 
     invoke-virtual {p1, v0, p4}, Landroid/graphics/Path;->lineTo(FF)V
 
-    .line 412
     iput p4, p0, Landroid/widget/SeekBarFluidPath;->lastY:F
 
     goto :goto_0
 
-    .line 418
-    .end local v9    # "y":F
     :pswitch_5
     const/4 v7, 0x1
 
-    .line 419
     move v1, p3
 
-    .line 420
-    .local v1, "tx1":F
     move v2, p4
 
-    .line 421
-    .local v2, "ty1":F
     move/from16 v3, p5
 
-    .line 422
-    .local v3, "tx2":F
     move/from16 v4, p6
 
-    .line 423
-    .local v4, "ty2":F
     move/from16 v5, p7
 
-    .line 424
-    .local v5, "tx":F
     move/from16 v6, p8
 
-    .line 425
-    .local v6, "ty":F
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->c:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     if-ne p2, v0, :cond_5
 
-    .line 426
     iget v0, p0, Landroid/widget/SeekBarFluidPath;->lastX:F
 
     add-float v1, p3, v0
 
-    .line 427
     iget v0, p0, Landroid/widget/SeekBarFluidPath;->lastX:F
 
     add-float v3, p5, v0
 
-    .line 428
     iget v0, p0, Landroid/widget/SeekBarFluidPath;->lastX:F
 
     add-float v5, p7, v0
 
-    .line 429
     iget v0, p0, Landroid/widget/SeekBarFluidPath;->lastY:F
 
     add-float v2, p4, v0
 
-    .line 430
     iget v0, p0, Landroid/widget/SeekBarFluidPath;->lastY:F
 
     add-float v4, p6, v0
 
-    .line 431
     iget v0, p0, Landroid/widget/SeekBarFluidPath;->lastY:F
 
     add-float v6, p8, v0
@@ -4129,75 +3738,49 @@
     :cond_5
     move-object v0, p1
 
-    .line 433
     invoke-virtual/range {v0 .. v6}, Landroid/graphics/Path;->cubicTo(FFFFFF)V
 
-    .line 434
     iput v3, p0, Landroid/widget/SeekBarFluidPath;->lastX1:F
 
-    .line 435
     iput v4, p0, Landroid/widget/SeekBarFluidPath;->lastY1:F
 
-    .line 436
     iput v5, p0, Landroid/widget/SeekBarFluidPath;->lastX:F
 
-    .line 437
     iput v6, p0, Landroid/widget/SeekBarFluidPath;->lastY:F
 
     goto/16 :goto_0
 
-    .line 442
-    .end local v1    # "tx1":F
-    .end local v2    # "ty1":F
-    .end local v3    # "tx2":F
-    .end local v4    # "ty2":F
-    .end local v5    # "tx":F
-    .end local v6    # "ty":F
     :pswitch_6
     const/4 v7, 0x1
 
-    .line 443
     move v3, p3
 
-    .line 444
-    .restart local v3    # "tx2":F
     move v4, p4
 
-    .line 445
-    .restart local v4    # "ty2":F
     move/from16 v5, p5
 
-    .line 446
-    .restart local v5    # "tx":F
     move/from16 v6, p6
 
-    .line 447
-    .restart local v6    # "ty":F
     sget-object v0, Landroid/widget/SeekBarFluidPath$SVGCommand;->s:Landroid/widget/SeekBarFluidPath$SVGCommand;
 
     if-ne p2, v0, :cond_6
 
-    .line 448
     iget v0, p0, Landroid/widget/SeekBarFluidPath;->lastX:F
 
     add-float v3, p3, v0
 
-    .line 449
     iget v0, p0, Landroid/widget/SeekBarFluidPath;->lastX:F
 
     add-float v5, p5, v0
 
-    .line 450
     iget v0, p0, Landroid/widget/SeekBarFluidPath;->lastY:F
 
     add-float v4, p4, v0
 
-    .line 451
     iget v0, p0, Landroid/widget/SeekBarFluidPath;->lastY:F
 
     add-float v6, p6, v0
 
-    .line 453
     :cond_6
     iget v0, p0, Landroid/widget/SeekBarFluidPath;->lastX:F
 
@@ -4209,8 +3792,6 @@
 
     sub-float v1, v0, v10
 
-    .line 454
-    .restart local v1    # "tx1":F
     iget v0, p0, Landroid/widget/SeekBarFluidPath;->lastY:F
 
     const/high16 v10, 0x40000000    # 2.0f
@@ -4221,27 +3802,20 @@
 
     sub-float v2, v0, v10
 
-    .restart local v2    # "ty1":F
     move-object v0, p1
 
-    .line 455
     invoke-virtual/range {v0 .. v6}, Landroid/graphics/Path;->cubicTo(FFFFFF)V
 
-    .line 456
     iput v3, p0, Landroid/widget/SeekBarFluidPath;->lastX1:F
 
-    .line 457
     iput v4, p0, Landroid/widget/SeekBarFluidPath;->lastY1:F
 
-    .line 458
     iput v5, p0, Landroid/widget/SeekBarFluidPath;->lastX:F
 
-    .line 459
     iput v6, p0, Landroid/widget/SeekBarFluidPath;->lastY:F
 
     goto/16 :goto_0
 
-    .line 352
     nop
 
     :pswitch_data_0
@@ -4268,8 +3842,6 @@
 .method public getCircleTotal()I
     .locals 1
 
-    .prologue
-    .line 313
     const/4 v0, 0x6
 
     return v0
@@ -4277,24 +3849,17 @@
 
 .method public getPath(I)Landroid/graphics/Path;
     .locals 2
-    .param p1, "index"    # I
 
-    .prologue
-    .line 304
     iget-object v1, p0, Landroid/widget/SeekBarFluidPath;->path:[Landroid/graphics/Path;
 
     aget-object v0, v1, p1
 
-    .line 305
-    .local v0, "tPath":Landroid/graphics/Path;
     return-object v0
 .end method
 
 .method public getPathTotal()I
     .locals 1
 
-    .prologue
-    .line 309
     const/16 v0, 0xf
 
     return v0
@@ -4303,8 +3868,6 @@
 .method public getTailWidthFromCircleCenter()F
     .locals 2
 
-    .prologue
-    .line 317
     iget v0, p0, Landroid/widget/SeekBarFluidPath;->scale:F
 
     const v1, 0x43a48ccd    # 329.1f

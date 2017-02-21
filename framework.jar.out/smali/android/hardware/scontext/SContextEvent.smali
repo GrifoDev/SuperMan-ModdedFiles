@@ -44,69 +44,52 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 984
     new-instance v0, Landroid/hardware/scontext/SContextEvent$1;
 
     invoke-direct {v0}, Landroid/hardware/scontext/SContextEvent$1;-><init>()V
 
     sput-object v0, Landroid/hardware/scontext/SContextEvent;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    .line 61
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 2
 
-    .prologue
-    .line 79
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 80
     new-instance v0, Landroid/hardware/scontext/SContext;
 
     invoke-direct {v0}, Landroid/hardware/scontext/SContext;-><init>()V
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->scontext:Landroid/hardware/scontext/SContext;
 
-    .line 81
     const-wide/16 v0, 0x0
 
     iput-wide v0, p0, Landroid/hardware/scontext/SContextEvent;->timestamp:J
 
-    .line 79
     return-void
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 0
-    .param p1, "src"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 87
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 88
     invoke-direct {p0, p1}, Landroid/hardware/scontext/SContextEvent;->readFromParcel(Landroid/os/Parcel;)V
 
-    .line 87
     return-void
 .end method
 
 .method private readFromParcel(Landroid/os/Parcel;)V
     .locals 2
-    .param p1, "src"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 971
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Landroid/hardware/scontext/SContextEvent;->timestamp:J
 
-    .line 972
     const-class v0, Landroid/hardware/scontext/SContext;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -121,7 +104,6 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->scontext:Landroid/hardware/scontext/SContext;
 
-    .line 973
     const-class v0, Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -136,7 +118,6 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 974
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->scontext:Landroid/hardware/scontext/SContext;
 
     invoke-virtual {v0}, Landroid/hardware/scontext/SContext;->getType()I
@@ -147,7 +128,6 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 975
     const-class v0, Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -162,7 +142,6 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mDuplicatedEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 970
     :cond_0
     return-void
 .end method
@@ -172,8 +151,6 @@
 .method public describeContents()I
     .locals 1
 
-    .prologue
-    .line 940
     const/4 v0, 0x0
 
     return v0
@@ -182,8 +159,6 @@
 .method public getAbnormalPressureContext()Landroid/hardware/scontext/SContextAbnormalPressure;
     .locals 1
 
-    .prologue
-    .line 539
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextAbnormalPressure;
@@ -194,8 +169,6 @@
 .method public getActiveTimeMonitorContext()Landroid/hardware/scontext/SContextActiveTimeMonitor;
     .locals 1
 
-    .prologue
-    .line 485
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextActiveTimeMonitor;
@@ -206,8 +179,6 @@
 .method public getActivityBatchContext()Landroid/hardware/scontext/SContextActivityBatch;
     .locals 1
 
-    .prologue
-    .line 394
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextActivityBatch;
@@ -218,8 +189,6 @@
 .method public getActivityLocationLoggingContext()Landroid/hardware/scontext/SContextActivityLocationLogging;
     .locals 1
 
-    .prologue
-    .line 374
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextActivityLocationLogging;
@@ -230,8 +199,6 @@
 .method public getActivityNotificationContext()Landroid/hardware/scontext/SContextActivityNotification;
     .locals 1
 
-    .prologue
-    .line 405
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextActivityNotification;
@@ -242,8 +209,6 @@
 .method public getActivityNotificationExContext()Landroid/hardware/scontext/SContextActivityNotificationEx;
     .locals 1
 
-    .prologue
-    .line 440
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextActivityNotificationEx;
@@ -254,8 +219,6 @@
 .method public getActivityTrackerContext()Landroid/hardware/scontext/SContextActivityTracker;
     .locals 1
 
-    .prologue
-    .line 384
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextActivityTracker;
@@ -266,8 +229,6 @@
 .method public getAirMotionContext()Landroid/hardware/scontext/SContextAirMotion;
     .locals 1
 
-    .prologue
-    .line 164
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextAirMotion;
@@ -278,8 +239,6 @@
 .method public getAnyMotionDetectorContext()Landroid/hardware/scontext/SContextAnyMotionDetector;
     .locals 1
 
-    .prologue
-    .line 641
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextAnyMotionDetector;
@@ -290,8 +249,6 @@
 .method public getApproachContext()Landroid/hardware/scontext/SContextApproach;
     .locals 1
 
-    .prologue
-    .line 99
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextApproach;
@@ -302,8 +259,6 @@
 .method public getAutoBrightnessContext()Landroid/hardware/scontext/SContextAutoBrightness;
     .locals 1
 
-    .prologue
-    .line 517
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextAutoBrightness;
@@ -314,8 +269,6 @@
 .method public getAutoRotationContext()Landroid/hardware/scontext/SContextAutoRotation;
     .locals 1
 
-    .prologue
-    .line 154
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextAutoRotation;
@@ -326,8 +279,6 @@
 .method public getBounceLongMotionContext()Landroid/hardware/scontext/SContextBounceLongMotion;
     .locals 1
 
-    .prologue
-    .line 290
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextBounceLongMotion;
@@ -338,8 +289,6 @@
 .method public getBounceShortMotionContext()Landroid/hardware/scontext/SContextBounceShortMotion;
     .locals 1
 
-    .prologue
-    .line 279
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextBounceShortMotion;
@@ -350,8 +299,6 @@
 .method getCallMotionContext()Landroid/hardware/scontext/SContextCallMotion;
     .locals 1
 
-    .prologue
-    .line 464
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextCallMotion;
@@ -362,8 +309,6 @@
 .method public getCallPoseContext()Landroid/hardware/scontext/SContextCallPose;
     .locals 1
 
-    .prologue
-    .line 214
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextCallPose;
@@ -376,8 +321,6 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .prologue
-    .line 453
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextCaptureMotion;
@@ -390,8 +333,6 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .prologue
-    .line 203
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextCurrentStatusForPositioning;
@@ -402,8 +343,6 @@
 .method public getDevicePhysicalContextMonitorContext()Landroid/hardware/scontext/SContextDevicePhysicalContextMonitor;
     .locals 1
 
-    .prologue
-    .line 651
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextDevicePhysicalContextMonitor;
@@ -414,8 +353,6 @@
 .method public getDevicePositionContext()Landroid/hardware/scontext/SContextDevicePosition;
     .locals 1
 
-    .prologue
-    .line 351
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextDevicePosition;
@@ -426,8 +363,6 @@
 .method public getDualDisplayAngleContext()Landroid/hardware/scontext/SContextDualDisplayAngle;
     .locals 1
 
-    .prologue
-    .line 583
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextDualDisplayAngle;
@@ -438,8 +373,6 @@
 .method public getEnvironmentAdaptiveDisplayContext()Landroid/hardware/scontext/SContextEnvironmentAdaptiveDisplay;
     .locals 1
 
-    .prologue
-    .line 572
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextEnvironmentAdaptiveDisplay;
@@ -452,8 +385,6 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .prologue
-    .line 177
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextEnvironment;
@@ -464,8 +395,6 @@
 .method public getExerciseContext()Landroid/hardware/scontext/SContextExercise;
     .locals 1
 
-    .prologue
-    .line 528
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextExercise;
@@ -476,8 +405,6 @@
 .method public getFlatMotioForTableModeContext()Landroid/hardware/scontext/SContextFlatMotionForTableMode;
     .locals 1
 
-    .prologue
-    .line 506
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextFlatMotionForTableMode;
@@ -488,8 +415,6 @@
 .method public getFlatMotionContext()Landroid/hardware/scontext/SContextFlatMotion;
     .locals 1
 
-    .prologue
-    .line 313
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextFlatMotion;
@@ -500,8 +425,6 @@
 .method public getFlipCoverActionContext()Landroid/hardware/scontext/SContextFlipCoverAction;
     .locals 1
 
-    .prologue
-    .line 236
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextFlipCoverAction;
@@ -512,8 +435,6 @@
 .method public getFlipMotionContext()Landroid/hardware/scontext/SContextFlipMotion;
     .locals 1
 
-    .prologue
-    .line 630
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextFlipMotion;
@@ -524,8 +445,6 @@
 .method public getGyroTemperatureContext()Landroid/hardware/scontext/SContextGyroTemperature;
     .locals 1
 
-    .prologue
-    .line 247
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextGyroTemperature;
@@ -536,8 +455,6 @@
 .method public getHallSensorContext()Landroid/hardware/scontext/SContextHallSensor;
     .locals 1
 
-    .prologue
-    .line 561
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextHallSensor;
@@ -548,8 +465,6 @@
 .method public getInactiveTimerContext()Landroid/hardware/scontext/SContextInactiveTimer;
     .locals 1
 
-    .prologue
-    .line 495
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextInactiveTimer;
@@ -560,8 +475,6 @@
 .method public getMainScreenDetectionContext()Landroid/hardware/scontext/SContextMainScreenDetection;
     .locals 1
 
-    .prologue
-    .line 618
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mDuplicatedEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextMainScreenDetection;
@@ -574,8 +487,6 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .prologue
-    .line 132
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextMotion;
@@ -588,8 +499,6 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .prologue
-    .line 326
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextMovementAlert;
@@ -600,8 +509,6 @@
 .method public getMovementContext()Landroid/hardware/scontext/SContextMovement;
     .locals 1
 
-    .prologue
-    .line 144
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextMovement;
@@ -614,8 +521,6 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .prologue
-    .line 190
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextMovementForPositioning;
@@ -626,8 +531,6 @@
 .method public getPedometerContext()Landroid/hardware/scontext/SContextPedometer;
     .locals 1
 
-    .prologue
-    .line 109
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextPedometer;
@@ -638,8 +541,6 @@
 .method public getPhoneStatusMonitorContext()Landroid/hardware/scontext/SContextPhoneStatusMonitor;
     .locals 1
 
-    .prologue
-    .line 550
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextPhoneStatusMonitor;
@@ -650,8 +551,6 @@
 .method public getPutDownMotionContext()Landroid/hardware/scontext/SContextPutDownMotion;
     .locals 1
 
-    .prologue
-    .line 257
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextPutDownMotion;
@@ -662,8 +561,6 @@
 .method public getSLocationCoreContext()Landroid/hardware/scontext/SContextSLocationCore;
     .locals 1
 
-    .prologue
-    .line 605
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextSLocationCore;
@@ -674,8 +571,6 @@
 .method public getSensorStatusCheckContext()Landroid/hardware/scontext/SContextSensorStatusCheck;
     .locals 1
 
-    .prologue
-    .line 662
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextSensorStatusCheck;
@@ -686,8 +581,6 @@
 .method public getShakeMotionContext()Landroid/hardware/scontext/SContextShakeMotion;
     .locals 1
 
-    .prologue
-    .line 225
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextShakeMotion;
@@ -700,8 +593,6 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .prologue
-    .line 429
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextSleepMonitor;
@@ -712,8 +603,6 @@
 .method public getSpecificPoseAlertContext()Landroid/hardware/scontext/SContextSpecificPoseAlert;
     .locals 1
 
-    .prologue
-    .line 416
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextSpecificPoseAlert;
@@ -724,8 +613,6 @@
 .method getStepCountAlertContext()Landroid/hardware/scontext/SContextStepCountAlert;
     .locals 1
 
-    .prologue
-    .line 119
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextStepCountAlert;
@@ -736,8 +623,6 @@
 .method public getStepLevelMonitorContext()Landroid/hardware/scontext/SContextStepLevelMonitor;
     .locals 1
 
-    .prologue
-    .line 474
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextStepLevelMonitor;
@@ -750,8 +635,6 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .prologue
-    .line 363
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextTemperatureAlert;
@@ -764,8 +647,6 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .prologue
-    .line 339
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextTestFlatMotion;
@@ -776,8 +657,6 @@
 .method public getWakeUpVoiceContext()Landroid/hardware/scontext/SContextWakeUpVoice;
     .locals 1
 
-    .prologue
-    .line 268
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextWakeUpVoice;
@@ -788,8 +667,6 @@
 .method public getWirelessChargingDetectionContext()Landroid/hardware/scontext/SContextWirelessChargingDetection;
     .locals 1
 
-    .prologue
-    .line 594
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextWirelessChargingDetection;
@@ -802,8 +679,6 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .prologue
-    .line 303
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     check-cast v0, Landroid/hardware/scontext/SContextWristUpMotion;
@@ -813,31 +688,23 @@
 
 .method public setSContextEvent(ILandroid/os/Bundle;)V
     .locals 2
-    .param p1, "event"    # I
-    .param p2, "context"    # Landroid/os/Bundle;
 
-    .prologue
-    .line 674
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->scontext:Landroid/hardware/scontext/SContext;
 
     invoke-virtual {v0, p1}, Landroid/hardware/scontext/SContext;->setType(I)V
 
-    .line 675
     invoke-static {}, Ljava/lang/System;->nanoTime()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Landroid/hardware/scontext/SContextEvent;->timestamp:J
 
-    .line 676
     packed-switch p1, :pswitch_data_0
 
-    .line 673
     :goto_0
     :pswitch_0
     return-void
 
-    .line 679
     :pswitch_1
     new-instance v0, Landroid/hardware/scontext/SContextApproach;
 
@@ -845,14 +712,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 680
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto :goto_0
 
-    .line 684
     :pswitch_2
     new-instance v0, Landroid/hardware/scontext/SContextPedometer;
 
@@ -860,14 +725,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 685
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto :goto_0
 
-    .line 689
     :pswitch_3
     new-instance v0, Landroid/hardware/scontext/SContextStepCountAlert;
 
@@ -875,14 +738,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 690
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto :goto_0
 
-    .line 694
     :pswitch_4
     new-instance v0, Landroid/hardware/scontext/SContextMotion;
 
@@ -890,14 +751,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 695
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto :goto_0
 
-    .line 699
     :pswitch_5
     new-instance v0, Landroid/hardware/scontext/SContextMovement;
 
@@ -905,14 +764,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 700
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto :goto_0
 
-    .line 704
     :pswitch_6
     new-instance v0, Landroid/hardware/scontext/SContextAutoRotation;
 
@@ -920,14 +777,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 705
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto :goto_0
 
-    .line 709
     :pswitch_7
     new-instance v0, Landroid/hardware/scontext/SContextAirMotion;
 
@@ -935,14 +790,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 710
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto :goto_0
 
-    .line 714
     :pswitch_8
     new-instance v0, Landroid/hardware/scontext/SContextEnvironment;
 
@@ -950,14 +803,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 715
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto :goto_0
 
-    .line 719
     :pswitch_9
     new-instance v0, Landroid/hardware/scontext/SContextMovementForPositioning;
 
@@ -965,14 +816,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 720
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto :goto_0
 
-    .line 724
     :pswitch_a
     new-instance v0, Landroid/hardware/scontext/SContextCurrentStatusForPositioning;
 
@@ -980,14 +829,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 725
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto/16 :goto_0
 
-    .line 729
     :pswitch_b
     new-instance v0, Landroid/hardware/scontext/SContextCallPose;
 
@@ -995,14 +842,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 730
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto/16 :goto_0
 
-    .line 734
     :pswitch_c
     new-instance v0, Landroid/hardware/scontext/SContextShakeMotion;
 
@@ -1010,14 +855,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 735
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto/16 :goto_0
 
-    .line 739
     :pswitch_d
     new-instance v0, Landroid/hardware/scontext/SContextFlipCoverAction;
 
@@ -1025,14 +868,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 740
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto/16 :goto_0
 
-    .line 744
     :pswitch_e
     new-instance v0, Landroid/hardware/scontext/SContextGyroTemperature;
 
@@ -1040,14 +881,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 745
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto/16 :goto_0
 
-    .line 749
     :pswitch_f
     new-instance v0, Landroid/hardware/scontext/SContextPutDownMotion;
 
@@ -1055,14 +894,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 750
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto/16 :goto_0
 
-    .line 754
     :pswitch_10
     new-instance v0, Landroid/hardware/scontext/SContextWakeUpVoice;
 
@@ -1070,14 +907,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 755
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto/16 :goto_0
 
-    .line 759
     :pswitch_11
     new-instance v0, Landroid/hardware/scontext/SContextBounceShortMotion;
 
@@ -1085,14 +920,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 760
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto/16 :goto_0
 
-    .line 764
     :pswitch_12
     new-instance v0, Landroid/hardware/scontext/SContextBounceLongMotion;
 
@@ -1100,14 +933,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 765
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto/16 :goto_0
 
-    .line 769
     :pswitch_13
     new-instance v0, Landroid/hardware/scontext/SContextWristUpMotion;
 
@@ -1115,14 +946,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 770
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto/16 :goto_0
 
-    .line 774
     :pswitch_14
     new-instance v0, Landroid/hardware/scontext/SContextFlatMotion;
 
@@ -1130,14 +959,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 775
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto/16 :goto_0
 
-    .line 779
     :pswitch_15
     new-instance v0, Landroid/hardware/scontext/SContextMovementAlert;
 
@@ -1145,14 +972,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 780
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto/16 :goto_0
 
-    .line 784
     :pswitch_16
     new-instance v0, Landroid/hardware/scontext/SContextDevicePosition;
 
@@ -1160,14 +985,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 785
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto/16 :goto_0
 
-    .line 789
     :pswitch_17
     new-instance v0, Landroid/hardware/scontext/SContextTemperatureAlert;
 
@@ -1175,14 +998,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 790
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto/16 :goto_0
 
-    .line 794
     :pswitch_18
     new-instance v0, Landroid/hardware/scontext/SContextActivityLocationLogging;
 
@@ -1190,14 +1011,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 795
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto/16 :goto_0
 
-    .line 799
     :pswitch_19
     new-instance v0, Landroid/hardware/scontext/SContextActivityTracker;
 
@@ -1205,14 +1024,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 800
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto/16 :goto_0
 
-    .line 804
     :pswitch_1a
     new-instance v0, Landroid/hardware/scontext/SContextActivityBatch;
 
@@ -1220,14 +1037,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 805
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto/16 :goto_0
 
-    .line 809
     :pswitch_1b
     new-instance v0, Landroid/hardware/scontext/SContextActivityNotification;
 
@@ -1235,14 +1050,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 810
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto/16 :goto_0
 
-    .line 814
     :pswitch_1c
     new-instance v0, Landroid/hardware/scontext/SContextSpecificPoseAlert;
 
@@ -1250,14 +1063,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 815
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto/16 :goto_0
 
-    .line 819
     :pswitch_1d
     new-instance v0, Landroid/hardware/scontext/SContextSleepMonitor;
 
@@ -1265,14 +1076,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 820
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto/16 :goto_0
 
-    .line 824
     :pswitch_1e
     new-instance v0, Landroid/hardware/scontext/SContextActivityNotificationEx;
 
@@ -1280,14 +1089,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 825
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto/16 :goto_0
 
-    .line 829
     :pswitch_1f
     new-instance v0, Landroid/hardware/scontext/SContextCaptureMotion;
 
@@ -1295,14 +1102,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 830
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto/16 :goto_0
 
-    .line 834
     :pswitch_20
     new-instance v0, Landroid/hardware/scontext/SContextCallMotion;
 
@@ -1310,14 +1115,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 835
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto/16 :goto_0
 
-    .line 839
     :pswitch_21
     new-instance v0, Landroid/hardware/scontext/SContextStepLevelMonitor;
 
@@ -1325,14 +1128,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 840
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto/16 :goto_0
 
-    .line 844
     :pswitch_22
     new-instance v0, Landroid/hardware/scontext/SContextActiveTimeMonitor;
 
@@ -1340,14 +1141,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 845
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto/16 :goto_0
 
-    .line 849
     :pswitch_23
     new-instance v0, Landroid/hardware/scontext/SContextInactiveTimer;
 
@@ -1355,14 +1154,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 850
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto/16 :goto_0
 
-    .line 854
     :pswitch_24
     new-instance v0, Landroid/hardware/scontext/SContextFlatMotionForTableMode;
 
@@ -1370,14 +1167,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 855
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto/16 :goto_0
 
-    .line 859
     :pswitch_25
     new-instance v0, Landroid/hardware/scontext/SContextAutoBrightness;
 
@@ -1385,14 +1180,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 860
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto/16 :goto_0
 
-    .line 864
     :pswitch_26
     new-instance v0, Landroid/hardware/scontext/SContextExercise;
 
@@ -1400,14 +1193,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 865
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto/16 :goto_0
 
-    .line 869
     :pswitch_27
     new-instance v0, Landroid/hardware/scontext/SContextAbnormalPressure;
 
@@ -1415,14 +1206,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 870
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto/16 :goto_0
 
-    .line 874
     :pswitch_28
     new-instance v0, Landroid/hardware/scontext/SContextPhoneStatusMonitor;
 
@@ -1430,14 +1219,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 875
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto/16 :goto_0
 
-    .line 879
     :pswitch_29
     new-instance v0, Landroid/hardware/scontext/SContextHallSensor;
 
@@ -1445,14 +1232,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 880
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto/16 :goto_0
 
-    .line 884
     :pswitch_2a
     new-instance v0, Landroid/hardware/scontext/SContextEnvironmentAdaptiveDisplay;
 
@@ -1460,14 +1245,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 885
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto/16 :goto_0
 
-    .line 889
     :pswitch_2b
     new-instance v0, Landroid/hardware/scontext/SContextDualDisplayAngle;
 
@@ -1475,14 +1258,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 890
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto/16 :goto_0
 
-    .line 894
     :pswitch_2c
     new-instance v0, Landroid/hardware/scontext/SContextWirelessChargingDetection;
 
@@ -1490,14 +1271,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 895
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto/16 :goto_0
 
-    .line 899
     :pswitch_2d
     new-instance v0, Landroid/hardware/scontext/SContextSLocationCore;
 
@@ -1505,14 +1284,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 900
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto/16 :goto_0
 
-    .line 904
     :pswitch_2e
     new-instance v0, Landroid/hardware/scontext/SContextFlipMotion;
 
@@ -1520,26 +1297,22 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 905
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
-    .line 906
     new-instance v0, Landroid/hardware/scontext/SContextMainScreenDetection;
 
     invoke-direct {v0}, Landroid/hardware/scontext/SContextMainScreenDetection;-><init>()V
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mDuplicatedEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 907
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mDuplicatedEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto/16 :goto_0
 
-    .line 911
     :pswitch_2f
     new-instance v0, Landroid/hardware/scontext/SContextAnyMotionDetector;
 
@@ -1547,14 +1320,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 912
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto/16 :goto_0
 
-    .line 916
     :pswitch_30
     new-instance v0, Landroid/hardware/scontext/SContextDevicePhysicalContextMonitor;
 
@@ -1562,14 +1333,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 917
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto/16 :goto_0
 
-    .line 921
     :pswitch_31
     new-instance v0, Landroid/hardware/scontext/SContextSensorStatusCheck;
 
@@ -1577,14 +1346,12 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
-    .line 922
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {v0, p2}, Landroid/hardware/scontext/SContextEventContext;->setValues(Landroid/os/Bundle;)V
 
     goto/16 :goto_0
 
-    .line 676
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_1
@@ -1644,26 +1411,19 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .param p1, "dest"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
-    .prologue
-    .line 955
     iget-wide v0, p0, Landroid/hardware/scontext/SContextEvent;->timestamp:J
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 956
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->scontext:Landroid/hardware/scontext/SContext;
 
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 957
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 958
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->scontext:Landroid/hardware/scontext/SContext;
 
     invoke-virtual {v0}, Landroid/hardware/scontext/SContext;->getType()I
@@ -1674,12 +1434,10 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 959
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mDuplicatedEventContext:Landroid/hardware/scontext/SContextEventContext;
 
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 954
     :cond_0
     return-void
 .end method

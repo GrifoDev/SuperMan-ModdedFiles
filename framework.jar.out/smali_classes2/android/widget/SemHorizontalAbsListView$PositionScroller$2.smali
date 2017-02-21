@@ -28,12 +28,7 @@
 # direct methods
 .method constructor <init>(Landroid/widget/SemHorizontalAbsListView$PositionScroller;II)V
     .locals 0
-    .param p1, "this$1"    # Landroid/widget/SemHorizontalAbsListView$PositionScroller;
-    .param p2, "val$position"    # I
-    .param p3, "val$boundPosition"    # I
 
-    .prologue
-    .line 10079
     iput-object p1, p0, Landroid/widget/SemHorizontalAbsListView$PositionScroller$2;->this$1:Landroid/widget/SemHorizontalAbsListView$PositionScroller;
 
     iput p2, p0, Landroid/widget/SemHorizontalAbsListView$PositionScroller$2;->val$position:I
@@ -50,8 +45,6 @@
 .method public run()V
     .locals 3
 
-    .prologue
-    .line 10081
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView$PositionScroller$2;->this$1:Landroid/widget/SemHorizontalAbsListView$PositionScroller;
 
     iget v1, p0, Landroid/widget/SemHorizontalAbsListView$PositionScroller$2;->val$position:I
@@ -60,6 +53,5 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/widget/SemHorizontalAbsListView$PositionScroller;->start(II)V
 
-    .line 10080
     return-void
 .end method

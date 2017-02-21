@@ -24,10 +24,7 @@
 # direct methods
 .method private constructor <init>(Landroid/widget/ForwardingListener;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/widget/ForwardingListener;
 
-    .prologue
-    .line 285
     iput-object p1, p0, Landroid/widget/ForwardingListener$TriggerLongPress;->this$0:Landroid/widget/ForwardingListener;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,9 +34,7 @@
 
 .method synthetic constructor <init>(Landroid/widget/ForwardingListener;Landroid/widget/ForwardingListener$TriggerLongPress;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/widget/ForwardingListener;
 
-    .prologue
     invoke-direct {p0, p1}, Landroid/widget/ForwardingListener$TriggerLongPress;-><init>(Landroid/widget/ForwardingListener;)V
 
     return-void
@@ -50,12 +45,9 @@
 .method public run()V
     .locals 1
 
-    .prologue
-    .line 288
     iget-object v0, p0, Landroid/widget/ForwardingListener$TriggerLongPress;->this$0:Landroid/widget/ForwardingListener;
 
     invoke-static {v0}, Landroid/widget/ForwardingListener;->-wrap0(Landroid/widget/ForwardingListener;)V
 
-    .line 287
     return-void
 .end method
