@@ -14431,6 +14431,8 @@
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->updateKygrdHideLeftSignal()V
 
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->updateSFinderView()V
+
     move-object/from16 v0, p0
 
     const/4 v7, 0x0
@@ -15730,6 +15732,17 @@
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setNotificationBottomColor()V
 
     :cond_21
+    const-string v0, "hide_sfinder"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_22
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->updateSFinderView()V
+
+    :cond_22
     return-void
 .end method
 
@@ -17053,6 +17066,10 @@
     invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     const-string v4, "bottom_normal_mode_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string v4, "hide_sfinder"
 
     invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
@@ -22441,6 +22458,43 @@
     :cond_4
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->resetBatteryPercentageObserver()V
 
+    return-void
+.end method
+
+.method updateSFinderView()V
+    .locals 3
+
+    const-string v0, "hide_sfinder"
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const v0, 0x8
+
+    goto :goto_0
+
+    :cond_0
+    const v0, 0x0
+
+    :goto_0
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
+
+    const v2, 0x7f1302f3
+
+    invoke-virtual {v1, v2}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_1
+
+    invoke-virtual {v2, v0}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    :cond_1
     return-void
 .end method
 
