@@ -1190,52 +1190,6 @@
     return-void
 .end method
 
-.method HideWeather2()V
-    .locals 5
-
-    iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    const-string v1, "weath1"
-
-    const/4 v2, 0x0
-
-    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    const v2, 0x8
-
-    sget v3, Lcom/android/keyguard/R$id;->lockweather2:I
-
-    invoke-virtual {p0, v3}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v2}, Lcom/android/keyguard/KeyguardTextClock;->setVisibility(I)V
-
-    goto/16 :goto_0
-
-    :cond_0
-    const v2, 0x3
-
-    sget v3, Lcom/android/keyguard/R$id;->lockweather2:I
-
-    invoke-virtual {p0, v3}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v2}, Lcom/android/keyguard/KeyguardTextClock;->setVisibility(I)V
-
-    :goto_0
-    return-void
-.end method
-
 .method public changeHourFormat()V
     .locals 0
 
@@ -1407,8 +1361,6 @@
     invoke-virtual {p0}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->HideWeather()V
 
     invoke-virtual {p0}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->HideWeather1()V
-
-    invoke-virtual {p0}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->HideWeather2()V
 
     return-void
 .end method

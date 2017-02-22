@@ -2329,8 +2329,8 @@ Try again in 1 second"</string>
     <string name="kg_wallpaper_preview_button">Set as wallpaper</string>
     <string name="status_view_12_hours_format">h:mm</string>
     <string name="status_view_24_hours_format">kk:mm</string>
-    <string name="text_pressure_scale_1" />
-    <string name="text_pressure_scale_2">hPa</string>
+    <string name="text_pressure_scale_1">mm</string>
+    <string name="text_pressure_scale_2">Hg. Art.</string>
     <string name="text_pressure_scale_3">bar</string>
     <string name="zakat">Sunset :</string>
     <string name="voshod">Sunrise :</string>

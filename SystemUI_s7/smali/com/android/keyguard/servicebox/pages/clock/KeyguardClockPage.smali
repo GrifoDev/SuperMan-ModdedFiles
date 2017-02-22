@@ -9,8 +9,7 @@
         Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage$1;,
         Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage$2;,
         Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage$ClockType;,
-        Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage$KeyguardTimePatterns;,
-        Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage$SettingsObserver;
+        Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage$KeyguardTimePatterns;
     }
 .end annotation
 
@@ -347,21 +346,11 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 3
+    .locals 1
 
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, p2, v0}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-
-    new-instance v1, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage$SettingsObserver;
-
-    new-instance v2, Landroid/os/Handler;
-
-    invoke-direct {v2}, Landroid/os/Handler;-><init>()V
-
-    invoke-direct {v1, p0, v2}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage$SettingsObserver;-><init>(Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;Landroid/os/Handler;)V
-
-    invoke-virtual {v1}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage$SettingsObserver;->observe()V
 
     return-void
 .end method
@@ -392,14 +381,6 @@
     iput-object v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mKnoxStateCallback:Lcom/android/keyguard/KnoxStateMonitorCallback;
 
     return-void
-.end method
-
-.method static synthetic access$001(Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;)Landroid/content/Context;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mContext:Landroid/content/Context;
-
-    return-object v0
 .end method
 
 .method private attachClockView(Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage$ClockType;Ljava/lang/String;)V

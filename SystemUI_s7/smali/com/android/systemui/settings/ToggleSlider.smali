@@ -453,6 +453,16 @@
 .method private showStrainWarningPopup()V
     .locals 4
 
+    const-string v0, "hide_brightness_warning"
+
+    const v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
     iget-object v1, p0, Lcom/android/systemui/settings/ToggleSlider;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -545,6 +555,7 @@
 
     invoke-virtual {v1}, Landroid/app/AlertDialog;->show()V
 
+    :cond_0
     return-void
 .end method
 

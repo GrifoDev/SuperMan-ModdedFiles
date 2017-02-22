@@ -43,7 +43,7 @@
 
     const/16 v5, 0x8
 
-    const-wide v10, 0x3ff0000000000000L    # 1.0
+    const-wide v10, 0x3fe800d1b71758e2L    # 0.7501
 
     const-wide/high16 v8, 0x3fe0000000000000L    # 0.5
 
