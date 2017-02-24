@@ -730,7 +730,7 @@
     :cond_4
     const/4 v7, 0x0
 
-    if-eqz v6, :cond_6
+    if-eqz v6, :cond_7
 
     const v13, 0x105004e
 
@@ -753,7 +753,7 @@
 
     move-result v13
 
-    if-nez v13, :cond_7
+    if-nez v13, :cond_8
 
     const/4 v13, 0x0
 
@@ -797,11 +797,11 @@
 
     move-result v14
 
-    if-ge v13, v14, :cond_9
+    if-ge v13, v14, :cond_a
 
     array-length v13, v10
 
-    if-ge v7, v13, :cond_9
+    if-ge v7, v13, :cond_a
 
     move-object/from16 v0, p0
 
@@ -829,33 +829,42 @@
 
     invoke-virtual {v2, v9, v13}, Landroid/widget/RemoteViews;->setTextViewText(ILjava/lang/CharSequence;)V
 
-    if-ne v4, v8, :cond_5
+    sget v0, Landroid/app/Notification$Builder;->mAllowNotificationColorChange:I
+
+    if-eqz v0, :cond_5
+
+    sget v0, Landroid/app/Notification$Builder;->mNotifSummaryTextColor:I
+
+    invoke-virtual {v2, v9, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
+
+    :cond_5
+    if-ne v4, v8, :cond_6
 
     move v3, v9
 
-    :cond_5
+    :cond_6
     add-int/lit8 v7, v7, 0x1
 
     goto :goto_6
 
-    :cond_6
+    :cond_7
     const/4 v13, 0x0
 
     goto :goto_4
 
-    :cond_7
-    if-eqz v6, :cond_8
+    :cond_8
+    if-eqz v6, :cond_9
 
     const/4 v13, 0x1
 
     goto :goto_5
 
-    :cond_8
+    :cond_9
     const/4 v13, 0x2
 
     goto :goto_5
 
-    :cond_9
+    :cond_a
     const-string/jumbo v13, "setContractedChildId"
 
     const v14, 0x1020443
@@ -863,6 +872,8 @@
     invoke-virtual {v2, v14, v13, v3}, Landroid/widget/RemoteViews;->setInt(ILjava/lang/String;I)V
 
     return-object v2
+
+    nop
 
     :array_0
     .array-data 4
