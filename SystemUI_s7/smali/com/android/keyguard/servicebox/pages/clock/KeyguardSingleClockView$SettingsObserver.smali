@@ -55,7 +55,15 @@
 
     invoke-virtual {v0, v1, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    const-string v1, "hide_digital_clock"
+    const-string v1, "hide_digital_hour"
+
+    invoke-static {v1}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
+    const-string v1, "hide_digital_min"
 
     invoke-static {v1}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -239,6 +247,30 @@
 
     invoke-virtual {v0, v1, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
+    const-string v1, "kg_clock_second_color"
+
+    invoke-static {v1}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
+    const-string v1, "kg_clock_hours_color"
+
+    invoke-static {v1}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
+    const-string v1, "kg_clock_minutes_color"
+
+    invoke-static {v1}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
     return-void
 .end method
 
@@ -251,7 +283,11 @@
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView$SettingsObserver;->this$0:Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;
 
-    invoke-virtual {v0}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->HideDigitalClock()V
+    invoke-virtual {v0}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->HideDigitalHour()V
+
+    iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView$SettingsObserver;->this$0:Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;
+
+    invoke-virtual {v0}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->HideDigitalMin()V
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView$SettingsObserver;->this$0:Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;
 
@@ -340,6 +376,10 @@
     iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView$SettingsObserver;->this$0:Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;
 
     invoke-virtual {v0}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->HideWeather1()V
+
+    iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView$SettingsObserver;->this$0:Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;
+
+    invoke-virtual {v0}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->setLockScreenColors()V
 
     return-void
 .end method

@@ -9318,10 +9318,10 @@
     <public type="id" name="dynamic_status_bar_gradient" id="0x7f130444" />
     <public type="id" name="dynamic_status_bar" id="0x7f130445" />
     <public type="id" name="custom_text" id="0x7f130446" />
-    <public type="id" name="custom_clock" id="0x7f130447" />
-    <public type="id" name="custom_clock_hour" id="0x7f130448" />
-    <public type="id" name="custom_clock_min" id="0x7f130449" />
-    <public type="id" name="custom_date" id="0x7f13044a" />
+    <public type="id" name="custom_clock_hour" id="0x7f130447" />
+    <public type="id" name="hour_clock" id="0x7f130448" />
+    <public type="id" name="minute_clock" id="0x7f130449" />
+    <public type="id" name="seconds_clock" id="0x7f13044a" />
     <public type="id" name="pedometr" id="0x7f13044b" />
     <public type="id" name="analog_clock_lockscreen" id="0x7f13044c" />
     <public type="id" name="lockscreen_calendar" id="0x7f13044d" />

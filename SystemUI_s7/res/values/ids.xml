@@ -1042,10 +1042,10 @@
     <item type="id" name="dynamic_status_bar_gradient">false</item>
     <item type="id" name="dynamic_status_bar">false</item>
     <item type="id" name="custom_text">false</item>
-    <item type="id" name="custom_clock" />
-    <item type="id" name="custom_clock_hour" />
-    <item type="id" name="custom_clock_min" />
-    <item type="id" name="custom_date" />
+    <item type="id" name="custom_clock_hour">false</item>
+    <item type="id" name="hour_clock">false</item>
+    <item type="id" name="minute_clock">false</item>
+    <item type="id" name="seconds_clock">false</item>
     <item type="id" name="pedometr">false</item>
     <item type="id" name="analog_clock_lockscreen">false</item>
     <item type="id" name="lockscreen_calendar">false</item>

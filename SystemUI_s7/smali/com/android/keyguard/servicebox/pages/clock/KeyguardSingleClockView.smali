@@ -17,11 +17,23 @@
 # instance fields
 .field private mCacheKey:Ljava/lang/String;
 
+.field private mClockHourColor:I
+
+.field private mClockMinuteColor:I
+
+.field private mClockSecondColor:I
+
 .field private mDateShamsiView:Lcom/android/keyguard/KeyguardTextView;
 
 .field private mDateView:Lcom/android/keyguard/KeyguardTextClock;
 
+.field private mHourTime:Lcom/android/keyguard/KeyguardTextClock;
+
+.field private mMinuteTime:Lcom/android/keyguard/KeyguardTextClock;
+
 .field private mPCalUtil:Lcom/android/keyguard/servicebox/pages/clock/PersianCalendarUtil;
+
+.field private mSecondsTime:Lcom/android/keyguard/KeyguardTextClock;
 
 .field private mTimeView:Lcom/android/keyguard/KeyguardTextClock;
 
@@ -132,52 +144,6 @@
     return-void
 .end method
 
-.method HideDigitalClock()V
-    .locals 5
-
-    iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    const-string v1, "hide_digital_clock"
-
-    const/4 v2, 0x1
-
-    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    const v2, 0x8
-
-    sget v3, Lcom/android/keyguard/R$id;->hide_clock:I
-
-    invoke-virtual {p0, v3}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v2}, Lcom/android/keyguard/KeyguardTextClock;->setVisibility(I)V
-
-    goto/16 :goto_0
-
-    :cond_0
-    const v2, 0x3
-
-    sget v3, Lcom/android/keyguard/R$id;->hide_clock:I
-
-    invoke-virtual {p0, v3}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v2}, Lcom/android/keyguard/KeyguardTextClock;->setVisibility(I)V
-
-    :goto_0
-    return-void
-.end method
-
 .method HideDigitalData()V
     .locals 5
 
@@ -224,6 +190,98 @@
     return-void
 .end method
 
+.method HideDigitalHour()V
+    .locals 5
+
+    iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "hide_digital_hour"
+
+    const/4 v2, 0x1
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const v2, 0x8
+
+    sget v3, Lcom/android/keyguard/R$id;->keyguard_single_time_hour_view:I
+
+    invoke-virtual {p0, v3}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v2}, Lcom/android/keyguard/KeyguardTextClock;->setVisibility(I)V
+
+    goto/16 :goto_0
+
+    :cond_0
+    const v2, 0x3
+
+    sget v3, Lcom/android/keyguard/R$id;->keyguard_single_time_hour_view:I
+
+    invoke-virtual {p0, v3}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v2}, Lcom/android/keyguard/KeyguardTextClock;->setVisibility(I)V
+
+    :goto_0
+    return-void
+.end method
+
+.method HideDigitalMin()V
+    .locals 5
+
+    iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "hide_digital_min"
+
+    const/4 v2, 0x1
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const v2, 0x8
+
+    sget v3, Lcom/android/keyguard/R$id;->keyguard_single_time_minute_view:I
+
+    invoke-virtual {p0, v3}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v2}, Lcom/android/keyguard/KeyguardTextClock;->setVisibility(I)V
+
+    goto/16 :goto_0
+
+    :cond_0
+    const v2, 0x3
+
+    sget v3, Lcom/android/keyguard/R$id;->keyguard_single_time_minute_view:I
+
+    invoke-virtual {p0, v3}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v2}, Lcom/android/keyguard/KeyguardTextClock;->setVisibility(I)V
+
+    :goto_0
+    return-void
+.end method
+
 .method HideDigitalSec()V
     .locals 5
 
@@ -245,7 +303,7 @@
 
     const v2, 0x8
 
-    sget v3, Lcom/android/keyguard/R$id;->hide_sec:I
+    sget v3, Lcom/android/keyguard/R$id;->keyguard_single_time_seconds_view:I
 
     invoke-virtual {p0, v3}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->findViewById(I)Landroid/view/View;
 
@@ -258,7 +316,7 @@
     :cond_0
     const v2, 0x3
 
-    sget v3, Lcom/android/keyguard/R$id;->hide_sec:I
+    sget v3, Lcom/android/keyguard/R$id;->keyguard_single_time_seconds_view:I
 
     invoke-virtual {p0, v3}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->findViewById(I)Landroid/view/View;
 
@@ -1249,7 +1307,7 @@
 .end method
 
 .method protected onFinishInflate()V
-    .locals 2
+    .locals 4
 
     const/4 v1, 0x0
 
@@ -1264,6 +1322,54 @@
     check-cast v0, Lcom/android/keyguard/KeyguardTextClock;
 
     iput-object v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->mTimeView:Lcom/android/keyguard/KeyguardTextClock;
+
+    sget v0, Lcom/android/keyguard/R$id;->keyguard_single_time_seconds_view:I
+
+    invoke-virtual {p0, v0}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/keyguard/KeyguardTextClock;
+
+    iput-object v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->mSecondsTime:Lcom/android/keyguard/KeyguardTextClock;
+
+    invoke-virtual {p0}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->setLockScreenColors()V
+
+    iget v3, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->mClockSecondColor:I
+
+    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setTextColor(I)V
+
+    sget v0, Lcom/android/keyguard/R$id;->keyguard_single_time_hour_view:I
+
+    invoke-virtual {p0, v0}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/keyguard/KeyguardTextClock;
+
+    iput-object v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->mHourTime:Lcom/android/keyguard/KeyguardTextClock;
+
+    invoke-virtual {p0}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->setLockScreenColors()V
+
+    iget v3, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->mClockHourColor:I
+
+    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setTextColor(I)V
+
+    sget v0, Lcom/android/keyguard/R$id;->keyguard_single_time_minute_view:I
+
+    invoke-virtual {p0, v0}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/keyguard/KeyguardTextClock;
+
+    iput-object v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->mMinuteTime:Lcom/android/keyguard/KeyguardTextClock;
+
+    invoke-virtual {p0}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->setLockScreenColors()V
+
+    iget v3, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->mClockMinuteColor:I
+
+    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setTextColor(I)V
 
     sget v0, Lcom/android/keyguard/R$id;->keyguard_single_date_view:I
 
@@ -1314,7 +1420,9 @@
 
     invoke-virtual {v0, v1}, Lcom/android/keyguard/util/ViewStyleUtils;->setTextFontEffect(Landroid/widget/TextView;)V
 
-    invoke-virtual {p0}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->HideDigitalClock()V
+    invoke-virtual {p0}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->HideDigitalHour()V
+
+    invoke-virtual {p0}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->HideDigitalMin()V
 
     invoke-virtual {p0}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->HideDigitalData()V
 
@@ -1361,6 +1469,8 @@
     invoke-virtual {p0}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->HideWeather()V
 
     invoke-virtual {p0}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->HideWeather1()V
+
+    invoke-virtual {p0}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->setLockScreenColors()V
 
     return-void
 .end method
@@ -1430,6 +1540,60 @@
     iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->mDateView:Lcom/android/keyguard/KeyguardTextClock;
 
     invoke-virtual {v0, p1}, Lcom/android/keyguard/KeyguardTextClock;->setVisibility(I)V
+
+    return-void
+.end method
+
+.method setLockScreenColors()V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "kg_clock_second_color"
+
+    const v2, -0x50506
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->mClockSecondColor:I
+
+    iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "kg_clock_hours_color"
+
+    const v2, -0x50506
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->mClockHourColor:I
+
+    iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "kg_clock_minutes_color"
+
+    const v2, -0x50506
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->mClockMinuteColor:I
 
     return-void
 .end method
