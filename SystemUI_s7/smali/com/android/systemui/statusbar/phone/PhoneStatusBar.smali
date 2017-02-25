@@ -12368,7 +12368,7 @@
 .end method
 
 .method protected loadDimens()V
-    .locals 5 #increased local by 1
+    .locals 4
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mContext:Landroid/content/Context;
 
@@ -12401,33 +12401,11 @@
     invoke-virtual {v2, v3}, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->setBarHeight(I)V
 
     :cond_0
-    iget-object v3, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
+    const v2, 0x7f0c005a
 
-    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
-    move-result-object v3
-
-    const-string v6, "lockscreen_notifications"
-
-    const/4 v7, 0x4
-
-    invoke-static {v3, v6, v7}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v3
-    
-    if-nez v3, :cond_ok
-    
-    const/4 v3, 0x2
-    
-    :cond_ok
-    
-    const/4 v7, 0x5
-    
-    if-lt v3, v7, :cond_ok2
-    
-    const/4 v3, 0x2
-    
-    :cond_ok2
+    move-result v2
 
     iput v2, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mMaxAllowedKeyguardNotifications:I
 
