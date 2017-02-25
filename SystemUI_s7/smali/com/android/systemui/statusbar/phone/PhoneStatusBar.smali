@@ -18987,11 +18987,11 @@
 .end method
 
 .method setNotifFooterBackgroundColor()V
-    .locals 3
+    .locals 4
 
     sget-boolean v0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mAllowNotificationColorChange:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     const-string v0, "notif_footer_background_color"
 
@@ -19014,6 +19014,19 @@
     invoke-virtual {v1, v0}, Landroid/view/View;->setBackgroundColor(I)V
 
     :cond_0
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
+
+    const v2, 0x7f1303cf
+
+    invoke-virtual {v1, v2}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_1
+
+    invoke-virtual {v3, v0}, Landroid/view/View;->setBackgroundColor(I)V
+
+    :cond_1
     return-void
 .end method
 
