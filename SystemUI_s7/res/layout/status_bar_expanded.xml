@@ -2,6 +2,7 @@
 <com.android.systemui.statusbar.phone.NotificationPanelView android:id="@id/notification_panel" android:background="@android:color/transparent" android:layout_width="fill_parent" android:layout_height="fill_parent"
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:systemui="http://schemas.android.com/apk/res/com.android.systemui">
+    <com.android.systemui.statusbar.phone.PhoneStatusBarBlurImageView android:id="@id/backgroundImageView" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="centerCrop" />
     <FrameLayout android:id="@id/cover_holder_for_notification" android:background="@android:color/black" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:statusBarColor="@android:color/transparent" />
     <ViewStub android:id="@id/keyguard_status_view_stub" android:layout_width="fill_parent" android:layout_height="wrap_content" />
     <ViewStub android:id="@id/keyguard_iris_text_preview_stub" android:layout_width="fill_parent" android:layout_height="wrap_content" />

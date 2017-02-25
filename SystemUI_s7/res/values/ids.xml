@@ -1086,4 +1086,5 @@
     <item type="id" name="left_signal">false</item>
     <item type="id" name="recents_matrix_anim">false</item>
     <item type="id" name="gif_animation">false</item>
+    <item type="id" name="backgroundImageView">false</item>
 </resources>

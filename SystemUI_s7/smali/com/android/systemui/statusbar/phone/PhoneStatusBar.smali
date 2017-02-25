@@ -12436,6 +12436,10 @@
     if-nez v0, :cond_1
 
     :cond_0
+    const/4 v0, 0x4
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setBlurImageView(I)V
+
     return-void
 
     :cond_1
@@ -12462,6 +12466,10 @@
     iget v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mState:I
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->goToKeyguardOrCover(I)V
+
+    const/4 v0, 0x4
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setBlurImageView(I)V
 
     return-void
 
@@ -12528,6 +12536,10 @@
     invoke-virtual {v0, v1}, Landroid/view/WindowManagerGlobal;->trimMemory(I)V
 
     :cond_4
+    const/4 v0, 0x4
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setBlurImageView(I)V
+
     return-void
 .end method
 
@@ -12542,7 +12554,7 @@
 
     iget-boolean v2, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mExpandedVisible:Z
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_5
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->panelsEnabled()Z
 
@@ -12556,7 +12568,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_5
 
     :cond_0
     iput-boolean v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mExpandedVisible:Z
@@ -12582,7 +12594,7 @@
 
     iget v3, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mDisabledUnmodified2:I
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_6
 
     :goto_0
     invoke-virtual {p0, v2, v3, v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->disable(IIZ)V
@@ -12604,12 +12616,32 @@
     invoke-virtual {v0}, Lcom/android/systemui/qs/QSBarController;->onPanelVisible()V
 
     :cond_2
-    return-void
+    const/4 v0, 0x0
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mNotificationPanel:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
+
+    invoke-virtual {v2}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->isPanelVisibleBecauseOfHeadsUp()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    const/4 v0, 0x4
 
     :cond_3
-    return-void
+    if-eqz p1, :cond_4
+
+    const/4 v0, 0x4
 
     :cond_4
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setBlurImageView(I)V
+
+    return-void
+
+    :cond_5
+    return-void
+
+    :cond_6
     move v0, v1
 
     goto :goto_0
@@ -15413,7 +15445,7 @@
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setUpNotificationIconsColor()V
 
     :cond_4
-    const-string v0, "header_text_color"
+    const-string v0, "unlock_header_colors"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -15421,10 +15453,10 @@
 
     if-eqz v0, :cond_5
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setHeaderTextColor()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->allowHeaderColorChange()Z
 
     :cond_5
-    const-string v0, "header_background_color"
+    const-string v0, "unlock_notification_colors"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -15432,10 +15464,10 @@
 
     if-eqz v0, :cond_6
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setHeaderBackgroundColor()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->allowNotificationColorChange()Z
 
     :cond_6
-    const-string v0, "header_icon_color"
+    const-string v0, "unlock_qs_colors"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -15443,10 +15475,10 @@
 
     if-eqz v0, :cond_7
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setHeaderIconColor()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->allowQsColorChange()Z
 
     :cond_7
-    const-string v0, "qs_background_color"
+    const-string v0, "header_text_color"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -15454,10 +15486,10 @@
 
     if-eqz v0, :cond_8
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setQsBackgroundColor()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setHeaderTextColor()V
 
     :cond_8
-    const-string v0, "qs_text_color"
+    const-string v0, "header_background_color"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -15465,10 +15497,10 @@
 
     if-eqz v0, :cond_9
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setQsTextColor()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setHeaderBackgroundColor()V
 
     :cond_9
-    const-string v0, "qs_icon_on_color"
+    const-string v0, "header_icon_color"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -15476,10 +15508,10 @@
 
     if-eqz v0, :cond_a
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setQsIconOnColor()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setHeaderIconColor()V
 
     :cond_a
-    const-string v0, "qs_icon_off_color"
+    const-string v0, "qs_background_color"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -15487,10 +15519,10 @@
 
     if-eqz v0, :cond_b
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setQsIconOffColor()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setQsBackgroundColor()V
 
     :cond_b
-    const-string v0, "qs_divider_color"
+    const-string v0, "qs_text_color"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -15498,10 +15530,10 @@
 
     if-eqz v0, :cond_c
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setQsDividerColor()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setQsTextColor()V
 
     :cond_c
-    const-string v0, "qs_drag_handle_background_color"
+    const-string v0, "qs_icon_on_color"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -15509,10 +15541,10 @@
 
     if-eqz v0, :cond_d
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setQsDragHandleBackgroundColor()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setQsIconOnColor()V
 
     :cond_d
-    const-string v0, "qs_drag_handle_icon_color"
+    const-string v0, "qs_icon_off_color"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -15520,10 +15552,10 @@
 
     if-eqz v0, :cond_e
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setQsDragHandleIconColor()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setQsIconOffColor()V
 
     :cond_e
-    const-string v0, "battbar_no_pulldown_below"
+    const-string v0, "qs_divider_color"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -15531,10 +15563,10 @@
 
     if-eqz v0, :cond_f
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setBatteryBarSbOnly()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setQsDividerColor()V
 
     :cond_f
-    const-string v0, "minit_battery_visible"
+    const-string v0, "qs_drag_handle_background_color"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -15542,10 +15574,10 @@
 
     if-eqz v0, :cond_10
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->set3Minitbattery()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setQsDragHandleBackgroundColor()V
 
     :cond_10
-    const-string v0, "minit_clock_visible"
+    const-string v0, "qs_drag_handle_icon_color"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -15553,10 +15585,10 @@
 
     if-eqz v0, :cond_11
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->set3Minitclock()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setQsDragHandleIconColor()V
 
     :cond_11
-    const-string v0, "clock_visible"
+    const-string v0, "battbar_no_pulldown_below"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -15564,10 +15596,10 @@
 
     if-eqz v0, :cond_12
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->HideStockClockView()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setBatteryBarSbOnly()V
 
     :cond_12
-    const-string v0, "hide_battery_stock"
+    const-string v0, "minit_battery_visible"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -15575,10 +15607,10 @@
 
     if-eqz v0, :cond_13
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->HideKeyguardStockBattery()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->set3Minitbattery()V
 
     :cond_13
-    const-string v0, "hide_battery_stock"
+    const-string v0, "minit_clock_visible"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -15586,10 +15618,10 @@
 
     if-eqz v0, :cond_14
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->HideStockBattery()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->set3Minitclock()V
 
     :cond_14
-    const-string v0, "clock_color"
+    const-string v0, "clock_visible"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -15597,10 +15629,10 @@
 
     if-eqz v0, :cond_15
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setUpClockCenterColor()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->HideStockClockView()V
 
     :cond_15
-    const-string v0, "clock_color"
+    const-string v0, "hide_battery_stock"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -15608,10 +15640,10 @@
 
     if-eqz v0, :cond_16
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setUpClockColor()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->HideKeyguardStockBattery()V
 
     :cond_16
-    const-string v0, "clock_color"
+    const-string v0, "hide_battery_stock"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -15619,10 +15651,10 @@
 
     if-eqz v0, :cond_17
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setUpClockLeftColor()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->HideStockBattery()V
 
     :cond_17
-    const-string v0, "left_signal"
+    const-string v0, "clock_color"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -15630,10 +15662,10 @@
 
     if-eqz v0, :cond_18
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->updateSignalPosition()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setUpClockCenterColor()V
 
     :cond_18
-    const-string v0, "left_signal"
+    const-string v0, "clock_color"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -15641,10 +15673,10 @@
 
     if-eqz v0, :cond_19
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->updateKygrdHideLeftSignal()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setUpClockColor()V
 
     :cond_19
-    const-string v0, "show_gif_animation"
+    const-string v0, "clock_color"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -15652,10 +15684,10 @@
 
     if-eqz v0, :cond_1a
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->updateGifAnimationView()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setUpClockLeftColor()V
 
     :cond_1a
-    const-string v0, "qs_search_background_color"
+    const-string v0, "left_signal"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -15663,10 +15695,10 @@
 
     if-eqz v0, :cond_1b
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setQsSearchBackgroundColor()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->updateSignalPosition()V
 
     :cond_1b
-    const-string v0, "qs_search_text_color"
+    const-string v0, "left_signal"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -15674,10 +15706,10 @@
 
     if-eqz v0, :cond_1c
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setQsSearchTextColor()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->updateKygrdHideLeftSignal()V
 
     :cond_1c
-    const-string v0, "notif_footer_text_color"
+    const-string v0, "show_gif_animation"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -15685,10 +15717,10 @@
 
     if-eqz v0, :cond_1d
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setNotifFooterTextColor()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->updateGifAnimationView()V
 
     :cond_1d
-    const-string v0, "notif_footer_background_color"
+    const-string v0, "qs_search_background_color"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -15696,10 +15728,10 @@
 
     if-eqz v0, :cond_1e
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setNotifFooterBackgroundColor()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setQsSearchBackgroundColor()V
 
     :cond_1e
-    const-string v0, "hide_sfinder"
+    const-string v0, "qs_search_text_color"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -15707,9 +15739,42 @@
 
     if-eqz v0, :cond_1f
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->updateSFinderView()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setQsSearchTextColor()V
 
     :cond_1f
+    const-string v0, "notif_footer_text_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_20
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setNotifFooterTextColor()V
+
+    :cond_20
+    const-string v0, "notif_footer_background_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_21
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setNotifFooterBackgroundColor()V
+
+    :cond_21
+    const-string v0, "hide_sfinder"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_22
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->updateSFinderView()V
+
+    :cond_22
     return-void
 .end method
 
@@ -16933,6 +16998,18 @@
     invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     const-string v4, "notification_icons_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string v4, "unlock_header_colors"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string v4, "unlock_notification_colors"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string v4, "unlock_qs_colors"
 
     invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
@@ -18254,6 +18331,47 @@
     move-result v0
 
     goto :goto_0
+.end method
+
+.method public setBlurImageView(I)V
+    .locals 4
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const v2, 0x1
+
+    const-string/jumbo v1, "enable_blur"
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v3
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mNotificationPanel:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
+
+    const v1, 0x7f130473
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/widget/ImageView;
+
+    if-eqz v3, :cond_0
+
+    invoke-virtual {v2, p1}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    return-void
+
+    :cond_0
+    const v1, 0x4
+
+    invoke-virtual {v2, v1}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    return-void
 .end method
 
 .method public setBouncerShowing(Z)V
