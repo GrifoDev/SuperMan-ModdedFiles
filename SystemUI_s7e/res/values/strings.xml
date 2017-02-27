@@ -503,7 +503,7 @@
     <string name="v7_preference_on">ON</string>
     <string name="v7_preference_off">OFF</string>
     <string name="config_statusBarComponent">com.android.systemui.statusbar.phone.PhoneStatusBar</string>
-    <string name="quick_settings_tiles_default">Wifi,SilentMode,Bluetooth,RotationLock,Flashlight,ScreenCapture,ScreenRecord,PowerSaving,MobileData,AirplaneMode,Performance,BlueLightFilter,WifiHotspot,PersonalMode,SecureFolder,Location,Nfc,Aod,AllShareCast,DeviceVisibility,Dnd,Sync,UDS,BikeMode</string>
+    <string name="quick_settings_tiles_default">Wifi,SilentMode,Bluetooth,RotationLock,Flashlight,ScreenCapture,ScreenRecorder,PowerSaving,MobileData,AirplaneMode,Performance,BlueLightFilter,WifiHotspot,PersonalMode,SecureFolder,Location,Nfc,Aod,AllShareCast,DeviceVisibility,Dnd,Sync,UDS,BikeMode</string>
     <string name="quick_settings_tiles_upsm">Wifi,SilentMode,Bluetooth,custom(com.sec.android.emergencymode.service/.PowerSavingTile),MobileData,AirplaneMode,Location</string>
     <string name="quick_settings_custom_tile_component_names">Performance:com.samsung.android.lool/com.samsung.android.sm.ui.booster.PerformanceTile,PerformanceCHN:com.samsung.android.sm_cn/com.samsung.android.sm.ui.booster.PerformanceTile,PowerSaving:com.android.settings/com.samsung.android.settings.powersaving.PowerSavingTile,Aod:com.samsung.android.app.aodservice/.settings.AODTileService,DeviceVisibility:com.samsung.android.oneconnect/.external.DeviceVisibilityTile,PowerSavingUPSM:com.sec.android.emergencymode.service/.PowerSavingTile,Sync:com.android.settings/com.samsung.android.settings.qstile.SecAccountTiles,PersonalMode:com.android.settings/com.samsung.android.settings.qstile.PersonalModeTile,AllShareCast:com.sec.android.app.wfdbroker/.AllShareCastTile,Nfc:com.android.nfc/com.samsung.android.nfc.quicktile.NfcTile,SecureFolder:com.samsung.knox.securefolder/.switcher.SecureFolderTile</string>
     <string name="quick_settings_tiles">default</string>
@@ -2329,8 +2329,8 @@ Try again in 1 second"</string>
     <string name="kg_wallpaper_preview_button">Set as wallpaper</string>
     <string name="status_view_12_hours_format">h:mm</string>
     <string name="status_view_24_hours_format">kk:mm</string>
-    <string name="text_pressure_scale_1" />
-    <string name="text_pressure_scale_2">hPa</string>
+    <string name="text_pressure_scale_1">mm</string>
+    <string name="text_pressure_scale_2">Hg. Art.</string>
     <string name="text_pressure_scale_3">bar</string>
     <string name="zakat">Sunset :</string>
     <string name="voshod">Sunrise :</string>

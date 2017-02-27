@@ -1517,7 +1517,7 @@
 
     invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v2     ## Make sure this variable matches the one below
+    move-result v2
 
     int-to-long v0, v2
 

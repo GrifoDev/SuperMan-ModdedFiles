@@ -793,7 +793,7 @@
 .end method
 
 .method private updateAlarm()V
-    .locals 7
+    .locals 10
 
     const/4 v6, 0x0
 
@@ -805,7 +805,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     invoke-virtual {v0}, Landroid/app/AlarmManager$AlarmClockInfo;->getTriggerTime()J
 
@@ -815,7 +815,7 @@
 
     cmp-long v2, v2, v4
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_6
 
     const/4 v1, 0x1
 
@@ -824,8 +824,69 @@
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;->mSlotAlarmClock:Ljava/lang/String;
 
+    const/4 v7, 0x1
+
+    const-string v8, "switch_alarm"
+
+    invoke-static {v8, v7}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v8
+
+    if-eqz v8, :cond_5
+
+    const v9, 0x1
+
+    if-eq v8, v9, :cond_5
+
+    const v9, 0x2
+
+    if-eq v8, v9, :cond_0
+
+    const v9, 0x3
+
+    if-eq v8, v9, :cond_1
+
+    const v9, 0x4
+
+    if-eq v8, v9, :cond_2
+
+    const v9, 0x5
+
+    if-eq v8, v9, :cond_3
+
+    const v9, 0x6
+
+    if-eq v8, v9, :cond_4
+
+    :cond_0
+    const v4, 0x7f020805
+
+    goto :goto_1
+
+    :cond_1
+    const v4, 0x7f020806
+
+    goto :goto_1
+
+    :cond_2
+    const v4, 0x7f020807
+
+    goto :goto_1
+
+    :cond_3
+    const v4, 0x7f020808
+
+    goto :goto_1
+
+    :cond_4
+    const v4, 0x7f020809
+
+    goto :goto_1
+
+    :cond_5
     const v4, 0x7f02057a
 
+    :goto_1
     invoke-virtual {v2, v3, v4, v6}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->setIcon(Ljava/lang/String;ILjava/lang/CharSequence;)V
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;->mIconController:Lcom/android/systemui/statusbar/phone/StatusBarIconController;
@@ -834,22 +895,22 @@
 
     iget-boolean v4, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;->mCurrentUserSetup:Z
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_7
 
-    :goto_1
+    :goto_2
     invoke-virtual {v2, v3, v1}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->setIconVisibility(Ljava/lang/String;Z)V
 
     return-void
 
-    :cond_0
+    :cond_6
     const/4 v1, 0x0
 
     goto :goto_0
 
-    :cond_1
+    :cond_7
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_2
 .end method
 
 .method private final updateBluetooth()V
