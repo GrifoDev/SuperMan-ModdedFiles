@@ -1505,20 +1505,6 @@
 
     sget v2, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->AWAKE_INTERVAL_DEFAULT_MS_DEFAULT:I
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v1
-
-    const-string v2, "display_timeout_delay"
-
-    const/16 v3, 0x2710
-
-    invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v2
-
     int-to-long v0, v2
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mContext:Landroid/content/Context;
