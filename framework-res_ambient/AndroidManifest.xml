@@ -441,6 +441,8 @@
     <protected-broadcast android:name="android.media.INTERNAL_RINGER_MODE_CHANGED_ACTION"/>
     <protected-broadcast android:name="android.media.STREAM_DEVICES_CHANGED_ACTION"/>
     <protected-broadcast android:name="android.media.STREAM_MUTE_CHANGED_ACTION"/>
+    <protected-broadcast android:name="android.intent.action.WIFI_DISPLAY"/>
+    <protected-broadcast android:name="com.samsung.flipfolder.OPEN"/>
     <protected-broadcast android:name="android.net.sip.SIP_SERVICE_UP"/>
     <protected-broadcast android:name="android.os.action.CHARGING"/>
     <protected-broadcast android:name="android.os.action.DISCHARGING"/>
