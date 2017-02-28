@@ -338,6 +338,291 @@
     goto :goto_1
 .end method
 
+.method private adminSatisfiesForceSMIMECertificateRules(IJZI)Z
+    .locals 14
+
+    if-eqz p4, :cond_4
+
+    const/4 v7, 0x1
+
+    const/4 v12, 0x1
+
+    new-array v1, v12, [Ljava/lang/String;
+
+    const-string/jumbo v12, "adminUid"
+
+    const/4 v13, 0x0
+
+    aput-object v12, v1, v13
+
+    new-instance v8, Landroid/content/ContentValues;
+
+    invoke-direct {v8}, Landroid/content/ContentValues;-><init>()V
+
+    invoke-static {p1}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v10
+
+    const/4 v12, 0x0
+
+    invoke-static {v12, v10}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getAdminLUIDWhereIn(II)Ljava/lang/String;
+
+    move-result-object v12
+
+    const-string/jumbo v13, "#SelectClause#"
+
+    invoke-virtual {v8, v12, v13}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string/jumbo v12, "AccountId"
+
+    invoke-static/range {p2 .. p3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v13
+
+    invoke-virtual {v8, v12, v13}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
+
+    const/4 v12, 0x3
+
+    move/from16 v0, p5
+
+    if-ne v0, v12, :cond_1
+
+    const-string/jumbo v9, "(ForceSmimeCertForSigning=1 OR ForceSmimeCert=1)"
+
+    const-string/jumbo v12, "#SelectClause#"
+
+    invoke-virtual {v8, v9, v12}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+
+    :goto_0
+    iget-object v12, p0, Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+
+    const-string/jumbo v13, "ExchangeAccountTable"
+
+    invoke-virtual {v12, v13, v1, v8}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getValues(Ljava/lang/String;[Ljava/lang/String;Landroid/content/ContentValues;)Ljava/util/List;
+
+    move-result-object v11
+
+    if-eqz v11, :cond_0
+
+    invoke-interface {v11}, Ljava/util/List;->isEmpty()Z
+
+    move-result v12
+
+    if-eqz v12, :cond_3
+
+    :cond_0
+    :goto_1
+    return v7
+
+    :cond_1
+    const/4 v12, 0x2
+
+    move/from16 v0, p5
+
+    if-ne v0, v12, :cond_2
+
+    const-string/jumbo v9, "(ForceSmimeCertForEncryption=1 OR ForceSmimeCert=1)"
+
+    const-string/jumbo v12, "#SelectClause#"
+
+    invoke-virtual {v8, v9, v12}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_2
+    const-string/jumbo v9, "((ForceSmimeCertForEncryption=1 AND ForceSmimeCertForSigning=1) OR (ForceSmimeCert=1))"
+
+    const-string/jumbo v12, "#SelectClause#"
+
+    invoke-virtual {v8, v9, v12}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_3
+    const/4 v12, 0x0
+
+    invoke-interface {v11, v12}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/content/ContentValues;
+
+    const-string/jumbo v12, "adminUid"
+
+    invoke-virtual {v2, v12}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Ljava/lang/Integer;->intValue()I
+
+    move-result v3
+
+    if-eq v3, p1, :cond_0
+
+    const/4 v7, 0x0
+
+    goto :goto_1
+
+    :cond_4
+    const/4 v7, 0x0
+
+    const/4 v12, 0x3
+
+    new-array v1, v12, [Ljava/lang/String;
+
+    const-string/jumbo v12, "ForceSmimeCert"
+
+    const/4 v13, 0x0
+
+    aput-object v12, v1, v13
+
+    const-string/jumbo v12, "ForceSmimeCertForEncryption"
+
+    const/4 v13, 0x1
+
+    aput-object v12, v1, v13
+
+    const-string/jumbo v12, "ForceSmimeCertForSigning"
+
+    const/4 v13, 0x2
+
+    aput-object v12, v1, v13
+
+    new-instance v8, Landroid/content/ContentValues;
+
+    invoke-direct {v8}, Landroid/content/ContentValues;-><init>()V
+
+    const-string/jumbo v12, "adminUid"
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v13
+
+    invoke-virtual {v8, v12, v13}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+
+    const-string/jumbo v12, "AccountId"
+
+    invoke-static/range {p2 .. p3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v13
+
+    invoke-virtual {v8, v12, v13}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
+
+    iget-object v12, p0, Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+
+    const-string/jumbo v13, "ExchangeAccountTable"
+
+    invoke-virtual {v12, v13, v1, v8}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getValues(Ljava/lang/String;[Ljava/lang/String;Landroid/content/ContentValues;)Ljava/util/List;
+
+    move-result-object v11
+
+    if-eqz v11, :cond_0
+
+    invoke-interface {v11}, Ljava/util/List;->isEmpty()Z
+
+    move-result v12
+
+    if-nez v12, :cond_0
+
+    const/4 v12, 0x0
+
+    invoke-interface {v11, v12}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/content/ContentValues;
+
+    const-string/jumbo v12, "ForceSmimeCert"
+
+    invoke-virtual {v2, v12}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Ljava/lang/Integer;->intValue()I
+
+    move-result v4
+
+    const-string/jumbo v12, "ForceSmimeCertForEncryption"
+
+    invoke-virtual {v2, v12}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Ljava/lang/Integer;->intValue()I
+
+    move-result v5
+
+    const-string/jumbo v12, "ForceSmimeCertForSigning"
+
+    invoke-virtual {v2, v12}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Ljava/lang/Integer;->intValue()I
+
+    move-result v6
+
+    const/4 v12, 0x3
+
+    move/from16 v0, p5
+
+    if-ne v0, v12, :cond_6
+
+    const/4 v12, 0x1
+
+    if-eq v6, v12, :cond_5
+
+    const/4 v12, 0x1
+
+    if-ne v4, v12, :cond_0
+
+    :cond_5
+    const/4 v7, 0x1
+
+    goto/16 :goto_1
+
+    :cond_6
+    const/4 v12, 0x2
+
+    move/from16 v0, p5
+
+    if-ne v0, v12, :cond_8
+
+    const/4 v12, 0x1
+
+    if-eq v5, v12, :cond_7
+
+    const/4 v12, 0x1
+
+    if-ne v4, v12, :cond_0
+
+    :cond_7
+    const/4 v7, 0x1
+
+    goto/16 :goto_1
+
+    :cond_8
+    const/4 v12, 0x1
+
+    if-ne v5, v12, :cond_9
+
+    const/4 v12, 0x1
+
+    if-ne v6, v12, :cond_9
+
+    :goto_2
+    const/4 v7, 0x1
+
+    goto/16 :goto_1
+
+    :cond_9
+    const/4 v12, 0x1
+
+    if-ne v4, v12, :cond_0
+
+    goto :goto_2
+.end method
+
 .method private convertUcmUri(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 9
 
@@ -2909,143 +3194,200 @@
 .end method
 
 .method private setForceSMIMECertificateInternal(Lcom/samsung/android/knox/ContextInfo;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
-    .locals 22
+    .locals 24
 
     invoke-direct/range {p0 .. p1}, Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->enforceExchangeAccountPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
     move-result-object p1
 
-    const-string/jumbo v18, "ExchangeAccountPolicy"
+    const-string/jumbo v4, "ExchangeAccountPolicy"
 
-    new-instance v19, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v20, "setForceSMIMECertificateInternal() : "
+    const-string/jumbo v7, "setForceSMIMECertificateInternal() : "
 
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v19
+    move-result-object v6
 
-    move-object/from16 v0, v19
+    move-wide/from16 v0, p2
 
-    move-wide/from16 v1, p2
+    invoke-virtual {v6, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    move-result-object v6
 
-    move-result-object v19
+    const-string/jumbo v7, ", "
 
-    const-string/jumbo v20, ", "
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v6
 
-    move-result-object v19
+    move-object/from16 v0, p6
 
-    move-object/from16 v0, v19
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v1, p6
+    move-result-object v6
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v19
+    move-result-object v6
 
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-static/range {v18 .. v19}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v4, v6}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
 
     move-object/from16 v0, p1
 
-    iget v5, v0, Lcom/samsung/android/knox/ContextInfo;->mContainerId:I
+    iget v14, v0, Lcom/samsung/android/knox/ContextInfo;->mContainerId:I
 
     move-object/from16 v0, p1
 
-    iget v4, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+    iget v5, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
     invoke-static/range {p1 .. p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
 
-    move-result v15
+    move-result v22
 
-    const/4 v13, 0x0
+    const/16 v18, 0x0
 
     invoke-direct/range {p0 .. p3}, Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->isValidEASAccountId(Lcom/samsung/android/knox/ContextInfo;J)Z
 
-    move-result v18
+    move-result v4
 
-    if-nez v18, :cond_0
+    if-nez v4, :cond_0
 
-    const-string/jumbo v18, "ExchangeAccountPolicy"
+    const-string/jumbo v4, "ExchangeAccountPolicy"
 
-    new-instance v19, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v20, "setForceSMIMECertificateInternal() : No exist accId : "
+    const-string/jumbo v7, "setForceSMIMECertificateInternal() : No exist accId : "
 
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v19
+    move-result-object v6
 
-    move-object/from16 v0, v19
+    move-wide/from16 v0, p2
 
-    move-wide/from16 v1, p2
+    invoke-virtual {v6, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    move-result-object v6
 
-    move-result-object v19
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v6
 
-    move-result-object v19
+    invoke-static {v4, v6}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-static/range {v18 .. v19}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+    const/4 v4, 0x3
 
-    const/16 v18, 0x3
-
-    return v18
+    return v4
 
     :cond_0
     if-eqz p4, :cond_1
 
     invoke-virtual/range {p4 .. p4}, Ljava/lang/String;->isEmpty()Z
 
-    move-result v18
+    move-result v4
 
-    if-eqz v18, :cond_2
+    if-eqz v4, :cond_2
 
     :cond_1
-    const-string/jumbo v18, "ExchangeAccountPolicy"
+    const-string/jumbo v4, "ExchangeAccountPolicy"
 
-    const-string/jumbo v19, "setForceSMIMECertificateInternal() : certPath is null"
+    const-string/jumbo v6, "setForceSMIMECertificateInternal() : certPath is null"
 
-    invoke-static/range {v18 .. v19}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v4, v6}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/16 v18, 0x1
+    const/4 v4, 0x1
 
-    return v18
+    return v4
 
     :cond_2
     if-eqz p5, :cond_3
 
     invoke-virtual/range {p5 .. p5}, Ljava/lang/String;->isEmpty()Z
 
-    move-result v18
+    move-result v4
 
-    if-eqz v18, :cond_4
+    if-eqz v4, :cond_4
 
     :cond_3
-    const-string/jumbo v18, "ExchangeAccountPolicy"
+    const-string/jumbo v4, "ExchangeAccountPolicy"
 
-    const-string/jumbo v19, "setForceSMIMECertificateInternal() : certPassword is null"
+    const-string/jumbo v6, "setForceSMIMECertificateInternal() : certPassword is null"
 
-    invoke-static/range {v18 .. v19}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v4, v6}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/16 v18, 0x2
+    const/4 v4, 0x2
+
+    return v4
+
+    :cond_4
+    const/4 v9, 0x1
+
+    if-eqz p6, :cond_7
+
+    const-string/jumbo v4, "com.samsung.android.knox.intent.action.FORCE_SMIME_CERTIFICATE_FOR_SIGNING_INTERNAL"
+
+    move-object/from16 v0, p6
+
+    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_6
+
+    const/4 v9, 0x3
+
+    :cond_5
+    :goto_0
+    const/4 v8, 0x1
+
+    move-object/from16 v4, p0
+
+    move-wide/from16 v6, p2
+
+    invoke-direct/range {v4 .. v9}, Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->adminSatisfiesForceSMIMECertificateRules(IJZI)Z
+
+    move-result v4
+
+    if-nez v4, :cond_8
+
+    const-string/jumbo v4, "ExchangeAccountPolicy"
+
+    const-string/jumbo v6, "setForceSMIMECertificateInternal() : a smime certificate has already been enforced on this user"
+
+    invoke-static {v4, v6}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
 
     return v18
 
-    :cond_4
+    :cond_6
+    const-string/jumbo v4, "com.samsung.android.knox.intent.action.FORCE_SMIME_CERTIFICATE_FOR_ENCRYPTION_INTERNAL"
+
+    move-object/from16 v0, p6
+
+    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_5
+
+    const/4 v9, 0x2
+
+    goto :goto_0
+
+    :cond_7
+    const-string/jumbo v4, "ExchangeAccountPolicy"
+
+    const-string/jumbo v6, "setForceSMIMECertificateInternal() : Action is null"
+
+    invoke-static {v4, v6}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    return v18
+
+    :cond_8
     monitor-enter p0
 
     :try_start_0
@@ -3057,205 +3399,193 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->setAccountCertificatePassword(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)J
 
-    move-result-wide v6
+    move-result-wide v10
 
     invoke-static {}, Lcom/android/server/enterprise/email/SettingsUtils;->createIDforAccount()J
 
-    move-result-wide v8
+    move-result-wide v12
 
-    new-instance v11, Landroid/content/Intent;
+    new-instance v16, Landroid/content/Intent;
 
-    move-object/from16 v0, p6
+    move-object/from16 v0, v16
 
-    invoke-direct {v11, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    move-object/from16 v1, p6
 
-    const-string/jumbo v18, "com.samsung.android.knox.intent.extra.ACCOUNT_ID"
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    move-object/from16 v0, v18
+    const-string/jumbo v4, "com.samsung.android.knox.intent.extra.ACCOUNT_ID"
+
+    move-object/from16 v0, v16
 
     move-wide/from16 v1, p2
 
-    invoke-virtual {v11, v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;J)Landroid/content/Intent;
+    invoke-virtual {v0, v4, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;J)Landroid/content/Intent;
 
-    const-string/jumbo v18, "com.samsung.android.knox.intent.extra.CERT_PATH_INTERNAL"
+    const-string/jumbo v4, "com.samsung.android.knox.intent.extra.CERT_PATH_INTERNAL"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v16
 
     move-object/from16 v1, p4
 
-    invoke-virtual {v11, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v0, v4, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    const-string/jumbo v18, "com.samsung.android.knox.intent.extra.CERT_PASSWORD_ID_INTERNAL"
+    const-string/jumbo v4, "com.samsung.android.knox.intent.extra.CERT_PASSWORD_ID_INTERNAL"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v16
 
-    invoke-virtual {v11, v0, v6, v7}, Landroid/content/Intent;->putExtra(Ljava/lang/String;J)Landroid/content/Intent;
+    invoke-virtual {v0, v4, v10, v11}, Landroid/content/Intent;->putExtra(Ljava/lang/String;J)Landroid/content/Intent;
 
-    const-string/jumbo v18, "com.samsung.android.knox.intent.extra.CERT_RESULT_ID_INTERNAL"
+    const-string/jumbo v4, "com.samsung.android.knox.intent.extra.CERT_RESULT_ID_INTERNAL"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v16
 
-    invoke-virtual {v11, v0, v8, v9}, Landroid/content/Intent;->putExtra(Ljava/lang/String;J)Landroid/content/Intent;
+    invoke-virtual {v0, v4, v12, v13}, Landroid/content/Intent;->putExtra(Ljava/lang/String;J)Landroid/content/Intent;
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result-wide v16
+    move-result-wide v20
 
     :try_start_1
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->mContext:Landroid/content/Context;
+    iget-object v4, v0, Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->mContext:Landroid/content/Context;
 
-    move-object/from16 v18, v0
+    new-instance v6, Landroid/os/UserHandle;
 
-    new-instance v19, Landroid/os/UserHandle;
+    move/from16 v0, v22
 
-    move-object/from16 v0, v19
+    invoke-direct {v6, v0}, Landroid/os/UserHandle;-><init>(I)V
 
-    invoke-direct {v0, v15}, Landroid/os/UserHandle;-><init>(I)V
+    const-string/jumbo v7, "com.samsung.android.knox.permission.SMIME_CERTIFICATE_INTERNAL"
 
-    const-string/jumbo v20, "com.samsung.android.knox.permission.SMIME_CERTIFICATE_INTERNAL"
+    move-object/from16 v0, v16
 
-    move-object/from16 v0, v18
+    invoke-virtual {v4, v0, v6, v7}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Ljava/lang/String;)V
 
-    move-object/from16 v1, v19
-
-    move-object/from16 v2, v20
-
-    invoke-virtual {v0, v11, v1, v2}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Ljava/lang/String;)V
-
-    new-instance v12, Lcom/android/server/enterprise/email/AccountSMIMECertificate;
+    new-instance v17, Lcom/android/server/enterprise/email/AccountSMIMECertificate;
 
     invoke-static/range {p6 .. p6}, Lcom/android/server/enterprise/email/SettingsUtils;->getSMIMEModeFromAction(Ljava/lang/String;)I
 
-    move-result v18
+    move-result v4
 
-    move-object/from16 v0, p1
+    move-object/from16 v0, v17
 
-    move-object/from16 v1, p4
+    move-object/from16 v1, p1
 
-    move-object/from16 v2, p5
+    move-object/from16 v2, p4
 
-    move/from16 v3, v18
+    move-object/from16 v3, p5
 
-    invoke-direct {v12, v0, v1, v2, v3}, Lcom/android/server/enterprise/email/AccountSMIMECertificate;-><init>(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;Ljava/lang/String;I)V
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/enterprise/email/AccountSMIMECertificate;-><init>(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;Ljava/lang/String;I)V
 
-    new-instance v18, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v19, "S"
+    const-string/jumbo v6, "S"
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v4
 
-    move-object/from16 v0, v18
+    invoke-virtual {v4, v12, v13}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v8, v9}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    move-result-object v18
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v4
 
-    move-result-object v18
+    move-object/from16 v0, v17
 
-    move-object/from16 v0, v18
+    invoke-static {v4, v0}, Lcom/android/server/enterprise/email/AccountsReceiver;->pushSMIMECertificate(Ljava/lang/String;Lcom/android/server/enterprise/email/AccountSMIMECertificate;)Z
 
-    invoke-static {v0, v12}, Lcom/android/server/enterprise/email/AccountsReceiver;->pushSMIMECertificate(Ljava/lang/String;Lcom/android/server/enterprise/email/AccountSMIMECertificate;)Z
+    move-result v19
 
-    move-result v14
+    const-string/jumbo v4, "ExchangeAccountPolicy"
 
-    const-string/jumbo v18, "ExchangeAccountPolicy"
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    new-instance v19, Ljava/lang/StringBuilder;
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v7, "setForceSMIMECertificateInternal() : sendBroadcast success, accId = "
 
-    const-string/jumbo v20, "setForceSMIMECertificateInternal() : sendBroadcast success, accId = "
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v6
 
-    move-result-object v19
+    move-wide/from16 v0, p2
 
-    move-object/from16 v0, v19
+    invoke-virtual {v6, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    move-wide/from16 v1, p2
+    move-result-object v6
 
-    invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v19
+    move-result-object v6
 
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-static/range {v18 .. v19}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v4, v6}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    if-eqz v14, :cond_5
+    if-eqz v19, :cond_9
 
-    const/4 v13, -0x1
+    const/16 v18, -0x1
 
-    :goto_0
+    :goto_1
     :try_start_2
-    invoke-static/range {v16 .. v17}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static/range {v20 .. v21}, Landroid/os/Binder;->restoreCallingIdentity(J)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    :goto_1
+    :goto_2
     monitor-exit p0
 
-    return v13
+    return v18
 
-    :cond_5
-    const/4 v13, 0x0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v10
-
-    :try_start_3
-    const-string/jumbo v18, "ExchangeAccountPolicy"
-
-    const-string/jumbo v19, "setForceSMIMECertificateInternal() : failed. "
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, v19
-
-    invoke-static {v0, v1, v10}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
-
-    const/4 v13, 0x0
-
-    :try_start_4
-    invoke-static/range {v16 .. v17}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+    :cond_9
+    const/16 v18, 0x0
 
     goto :goto_1
 
+    :catch_0
+    move-exception v15
+
+    :try_start_3
+    const-string/jumbo v4, "ExchangeAccountPolicy"
+
+    const-string/jumbo v6, "setForceSMIMECertificateInternal() : failed. "
+
+    invoke-static {v4, v6, v15}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+
+    const/16 v18, 0x0
+
+    :try_start_4
+    invoke-static/range {v20 .. v21}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+
+    goto :goto_2
+
     :catchall_0
-    move-exception v18
+    move-exception v4
 
     monitor-exit p0
 
-    throw v18
+    throw v4
 
     :catchall_1
-    move-exception v18
+    move-exception v4
 
     :try_start_5
-    invoke-static/range {v16 .. v17}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static/range {v20 .. v21}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v18
+    throw v4
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 .end method
@@ -3612,149 +3942,198 @@
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 .end method
 
-.method private setReleaseSMIMECertificateInernal(Lcom/samsung/android/knox/ContextInfo;JI)Z
-    .locals 14
-
-    const/4 v12, 0x3
-
-    const/4 v7, 0x2
-
-    const/4 v11, 0x1
-
-    const/4 v8, 0x0
+.method private setReleaseSMIMECertificateInternal(Lcom/samsung/android/knox/ContextInfo;JI)Z
+    .locals 10
 
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->enforceExchangeAccountPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
     move-result-object p1
 
-    iget v9, p1, Lcom/samsung/android/knox/ContextInfo;->mContainerId:I
+    iget v7, p1, Lcom/samsung/android/knox/ContextInfo;->mContainerId:I
 
     invoke-static {p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
 
-    move-result v6
+    move-result v9
 
-    const/4 v10, 0x0
+    const/4 v8, 0x0
 
-    invoke-direct/range {p0 .. p3}, Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->isValidEASAccountId(Lcom/samsung/android/knox/ContextInfo;J)Z
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->isValidEASAccountId(Lcom/samsung/android/knox/ContextInfo;J)Z
 
-    move-result v2
+    move-result v0
 
-    if-nez v2, :cond_0
+    if-nez v0, :cond_0
 
-    const-string/jumbo v2, "ExchangeAccountPolicy"
+    const-string/jumbo v0, "ExchangeAccountPolicy"
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "setReleaseSMIMECertificateInernal() : No exist accId : "
+    const-string/jumbo v2, "setReleaseSMIMECertificateInternal() : No exist accId : "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v1
 
-    move-wide/from16 v0, p2
+    invoke-virtual {v1, p2, p3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    move-result-object v3
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v3
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-static {v2, v3}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
-
-    return v10
+    return v8
 
     :cond_0
-    move/from16 v0, p4
+    iget v1, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
-    if-eq v0, v11, :cond_1
+    const/4 v4, 0x0
 
-    move/from16 v0, p4
+    move-object v0, p0
 
-    if-ne v0, v7, :cond_2
+    move-wide v2, p2
+
+    move v5, p4
+
+    invoke-direct/range {v0 .. v5}, Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->adminSatisfiesForceSMIMECertificateRules(IJZI)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    const-string/jumbo v0, "ExchangeAccountPolicy"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "setReleaseSMIMECertificateInternal() : admin "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget v2, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, " is trying to release a certificate which was not enforced by him"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    return v8
 
     :cond_1
-    move-object v2, p0
+    const/4 v0, 0x1
 
-    move-object v3, p1
+    if-eq p4, v0, :cond_2
 
-    move-wide/from16 v4, p2
+    const/4 v0, 0x2
 
-    invoke-direct/range {v2 .. v8}, Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->resetForcedSMIMECertificateInternal(Lcom/samsung/android/knox/ContextInfo;JIIZ)Z
-
-    move-result v10
-
-    const-string/jumbo v2, "ExchangeAccountPolicy"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "setReleaseSMIMECertificateInernal() : release SMIME Encryption = "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v10}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+    if-ne p4, v0, :cond_3
 
     :cond_2
-    move/from16 v0, p4
+    const/4 v5, 0x2
 
-    if-eq v0, v11, :cond_3
+    const/4 v6, 0x0
 
-    move/from16 v0, p4
+    move-object v0, p0
 
-    if-ne v0, v12, :cond_4
+    move-object v1, p1
+
+    move-wide v2, p2
+
+    move v4, v9
+
+    invoke-direct/range {v0 .. v6}, Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->resetForcedSMIMECertificateInternal(Lcom/samsung/android/knox/ContextInfo;JIIZ)Z
+
+    move-result v8
+
+    const-string/jumbo v0, "ExchangeAccountPolicy"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "setReleaseSMIMECertificateInternal() : release SMIME Encryption = "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v8}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_3
-    move-object v2, p0
+    const/4 v0, 0x1
 
-    move-object v3, p1
+    if-eq p4, v0, :cond_4
 
-    move-wide/from16 v4, p2
+    const/4 v0, 0x3
 
-    move v7, v12
-
-    invoke-direct/range {v2 .. v8}, Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->resetForcedSMIMECertificateInternal(Lcom/samsung/android/knox/ContextInfo;JIIZ)Z
-
-    move-result v10
-
-    const-string/jumbo v2, "ExchangeAccountPolicy"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "setReleaseSMIMECertificateInernal() : release SMIME Signing = "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v10}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+    if-ne p4, v0, :cond_5
 
     :cond_4
-    return v10
+    const/4 v5, 0x3
+
+    const/4 v6, 0x0
+
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move-wide v2, p2
+
+    move v4, v9
+
+    invoke-direct/range {v0 .. v6}, Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->resetForcedSMIMECertificateInternal(Lcom/samsung/android/knox/ContextInfo;JIIZ)Z
+
+    move-result v8
+
+    const-string/jumbo v0, "ExchangeAccountPolicy"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "setReleaseSMIMECertificateInternal() : release SMIME Signing = "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v8}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_5
+    return v8
 .end method
 
 .method private updateAccount(Lcom/samsung/android/knox/ContextInfo;Lcom/android/server/enterprise/email/AccountMetaData;JZ)J
@@ -10745,110 +11124,110 @@
 .end method
 
 .method public setForceSMIMECertificateAlias(Lcom/samsung/android/knox/ContextInfo;JLjava/lang/String;Ljava/lang/String;I)Z
-    .locals 18
+    .locals 20
 
-    const-string/jumbo v14, "ExchangeAccountPolicy"
+    const-string/jumbo v4, "ExchangeAccountPolicy"
 
-    new-instance v15, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v16, "setForceSMIMECertificateAlias() : accId = "
+    const-string/jumbo v6, "setForceSMIMECertificateAlias() : accId = "
 
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    move-result-object v5
 
     move-wide/from16 v0, p2
 
-    invoke-virtual {v15, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    move-result-object v5
 
-    const-string/jumbo v16, ", alias = "
+    const-string/jumbo v6, ", alias = "
 
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    move-result-object v5
 
     move-object/from16 v0, p5
 
-    invoke-virtual {v15, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    move-result-object v5
 
-    const-string/jumbo v16, ", type = "
+    const-string/jumbo v6, ", type = "
 
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    move-result-object v5
 
     move/from16 v0, p6
 
-    invoke-virtual {v15, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    move-result-object v5
 
-    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v15
+    move-result-object v5
 
-    invoke-static {v14, v15}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-static/range {p4 .. p4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v14
+    move-result v4
 
-    if-nez v14, :cond_0
+    if-nez v4, :cond_0
 
-    const-string/jumbo v14, "ExchangeAccountPolicy"
+    const-string/jumbo v4, "ExchangeAccountPolicy"
 
-    new-instance v15, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v16, "setForceSMIMECertificateAlias() : credential storage name = "
+    const-string/jumbo v6, "setForceSMIMECertificateAlias() : credential storage name = "
 
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    move-result-object v5
 
     move-object/from16 v0, p4
 
-    invoke-virtual {v15, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    move-result-object v5
 
-    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v15
+    move-result-object v5
 
-    invoke-static {v14, v15}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    const-string/jumbo v14, "ExchangeAccountPolicy"
+    const-string/jumbo v4, "ExchangeAccountPolicy"
 
-    new-instance v15, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v16, "setForceSMIMECertificateAlias() : accId = "
+    const-string/jumbo v6, "setForceSMIMECertificateAlias() : accId = "
 
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    move-result-object v5
 
     move-wide/from16 v0, p2
 
-    invoke-virtual {v15, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    move-result-object v5
 
-    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v15
+    move-result-object v5
 
-    invoke-static {v14, v15}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-direct/range {p0 .. p1}, Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->enforceExchangeAccountPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
@@ -10864,83 +11243,155 @@
 
     invoke-static/range {p1 .. p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
 
-    move-result v11
+    move-result v17
 
-    const/4 v10, 0x0
+    const/16 v16, 0x0
 
-    const/4 v14, 0x1
+    const/4 v4, 0x1
 
     move/from16 v0, p6
 
-    if-eq v0, v14, :cond_1
+    if-eq v0, v4, :cond_1
 
     if-eqz p6, :cond_1
 
-    const-string/jumbo v14, "ExchangeAccountPolicy"
+    const-string/jumbo v4, "ExchangeAccountPolicy"
 
-    new-instance v15, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v16, "setForceSMIMECertificateAlias() : invalid type : "
+    const-string/jumbo v6, "setForceSMIMECertificateAlias() : invalid type : "
 
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    move-result-object v5
 
     move/from16 v0, p6
 
-    invoke-virtual {v15, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    move-result-object v5
 
-    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v15
+    move-result-object v5
 
-    invoke-static {v14, v15}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    return v10
+    return v16
 
     :cond_1
     invoke-direct/range {p0 .. p3}, Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->isValidEASAccountId(Lcom/samsung/android/knox/ContextInfo;J)Z
 
-    move-result v14
+    move-result v4
 
-    if-nez v14, :cond_2
+    if-nez v4, :cond_2
 
-    const-string/jumbo v14, "ExchangeAccountPolicy"
+    const-string/jumbo v4, "ExchangeAccountPolicy"
 
-    new-instance v15, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v16, "setForceSMIMECertificateAlias() : No exist accId : "
+    const-string/jumbo v6, "setForceSMIMECertificateAlias() : No exist accId : "
 
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    move-result-object v5
 
     move-wide/from16 v0, p2
 
-    invoke-virtual {v15, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    move-result-object v5
 
-    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v15
+    move-result-object v5
 
-    invoke-static {v14, v15}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    return v10
+    return v16
 
     :cond_2
+    const/4 v9, 0x3
+
+    if-nez p6, :cond_3
+
+    const/4 v9, 0x2
+
+    :cond_3
+    move-object/from16 v0, p1
+
+    iget v5, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    if-eqz p5, :cond_4
+
+    const/4 v8, 0x1
+
+    :goto_0
+    move-object/from16 v4, p0
+
+    move-wide/from16 v6, p2
+
+    invoke-direct/range {v4 .. v9}, Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->adminSatisfiesForceSMIMECertificateRules(IJZI)Z
+
+    move-result v4
+
+    if-nez v4, :cond_5
+
+    const-string/jumbo v4, "ExchangeAccountPolicy"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "setForceSMIMECertificateAlias() : either a smime certificate has already been enforced on this user by other admin or admin "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    move-object/from16 v0, p1
+
+    iget v6, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string/jumbo v6, " is trying to "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "release a certificate which was not enforced by him"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    return v16
+
+    :cond_4
+    const/4 v8, 0x0
+
+    goto :goto_0
+
+    :cond_5
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    move-result-wide v12
+    move-result-wide v18
 
-    if-eqz p5, :cond_3
+    if-eqz p5, :cond_6
 
     :try_start_0
     move-object/from16 v0, p0
@@ -10955,259 +11406,261 @@
 
     move-result-object p5
 
-    if-nez p5, :cond_3
+    if-nez p5, :cond_6
 
-    const-string/jumbo v14, "ExchangeAccountPolicy"
+    const-string/jumbo v4, "ExchangeAccountPolicy"
 
-    new-instance v15, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v16, "setForceSMIMECertificateAlias() : storage name "
+    const-string/jumbo v6, "setForceSMIMECertificateAlias() : storage name "
 
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    move-result-object v5
 
     move-object/from16 v0, p4
 
-    invoke-virtual {v15, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    move-result-object v5
 
-    const-string/jumbo v16, " does not exist!"
+    const-string/jumbo v6, " does not exist!"
 
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    move-result-object v5
 
-    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v15
+    move-result-object v5
 
-    invoke-static {v14, v15}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    const/4 v14, 0x0
+    const/4 v4, 0x0
 
-    invoke-static {v12, v13}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static/range {v18 .. v19}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    return v14
+    return v4
 
-    :cond_3
+    :cond_6
     :try_start_1
     invoke-static {}, Lcom/android/server/enterprise/email/SettingsUtils;->createIDforAccount()J
 
-    move-result-wide v8
+    move-result-wide v14
 
-    new-instance v7, Landroid/content/Intent;
+    new-instance v13, Landroid/content/Intent;
 
-    const-string/jumbo v14, "com.samsung.edm.intent.action.ENFORCE_SMIME_ALIAS_INTERNAL"
+    const-string/jumbo v4, "com.samsung.edm.intent.action.ENFORCE_SMIME_ALIAS_INTERNAL"
 
-    invoke-direct {v7, v14}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v13, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const-string/jumbo v14, "account_id"
-
-    move-wide/from16 v0, p2
-
-    invoke-virtual {v7, v14, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;J)Landroid/content/Intent;
-
-    const-string/jumbo v14, "com.samsung.edm.intent.extra.ENFORCE_SMIME_ALIAS_NAME"
-
-    move-object/from16 v0, p5
-
-    invoke-virtual {v7, v14, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    const-string/jumbo v14, "com.samsung.edm.intent.extra.ENFORCE_SMIME_ALIAS_TYPE"
-
-    move/from16 v0, p6
-
-    invoke-virtual {v7, v14, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
-
-    const-string/jumbo v14, "certificate_result_id"
-
-    invoke-virtual {v7, v14, v8, v9}, Landroid/content/Intent;->putExtra(Ljava/lang/String;J)Landroid/content/Intent;
-
-    new-instance v5, Landroid/content/Intent;
-
-    const-string/jumbo v14, "com.samsung.android.knox.intent.action.ENFORCE_SMIME_ALIAS_INTERNAL"
-
-    invoke-direct {v5, v14}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    const-string/jumbo v14, "com.samsung.android.knox.intent.extra.ACCOUNT_ID"
+    const-string/jumbo v4, "account_id"
 
     move-wide/from16 v0, p2
 
-    invoke-virtual {v5, v14, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;J)Landroid/content/Intent;
+    invoke-virtual {v13, v4, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;J)Landroid/content/Intent;
 
-    const-string/jumbo v14, "com.samsung.android.knox.intent.extra.ENFORCE_SMIME_ALIAS_NAME_INTERNAL"
+    const-string/jumbo v4, "com.samsung.edm.intent.extra.ENFORCE_SMIME_ALIAS_NAME"
 
     move-object/from16 v0, p5
 
-    invoke-virtual {v5, v14, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v13, v4, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    const-string/jumbo v14, "com.samsung.android.knox.intent.extra.ENFORCE_SMIME_ALIAS_TYPE"
+    const-string/jumbo v4, "com.samsung.edm.intent.extra.ENFORCE_SMIME_ALIAS_TYPE"
 
     move/from16 v0, p6
 
-    invoke-virtual {v5, v14, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+    invoke-virtual {v13, v4, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    const-string/jumbo v14, "com.samsung.android.knox.intent.extra.CERT_RESULT_ID_INTERNAL"
+    const-string/jumbo v4, "certificate_result_id"
 
-    invoke-virtual {v5, v14, v8, v9}, Landroid/content/Intent;->putExtra(Ljava/lang/String;J)Landroid/content/Intent;
+    invoke-virtual {v13, v4, v14, v15}, Landroid/content/Intent;->putExtra(Ljava/lang/String;J)Landroid/content/Intent;
+
+    new-instance v11, Landroid/content/Intent;
+
+    const-string/jumbo v4, "com.samsung.android.knox.intent.action.ENFORCE_SMIME_ALIAS_INTERNAL"
+
+    invoke-direct {v11, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const-string/jumbo v4, "com.samsung.android.knox.intent.extra.ACCOUNT_ID"
+
+    move-wide/from16 v0, p2
+
+    invoke-virtual {v11, v4, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;J)Landroid/content/Intent;
+
+    const-string/jumbo v4, "com.samsung.android.knox.intent.extra.ENFORCE_SMIME_ALIAS_NAME_INTERNAL"
+
+    move-object/from16 v0, p5
+
+    invoke-virtual {v11, v4, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string/jumbo v4, "com.samsung.android.knox.intent.extra.ENFORCE_SMIME_ALIAS_TYPE"
+
+    move/from16 v0, p6
+
+    invoke-virtual {v11, v4, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    const-string/jumbo v4, "com.samsung.android.knox.intent.extra.CERT_RESULT_ID_INTERNAL"
+
+    invoke-virtual {v11, v4, v14, v15}, Landroid/content/Intent;->putExtra(Ljava/lang/String;J)Landroid/content/Intent;
 
     invoke-static/range {p4 .. p4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v14
+    move-result v4
 
-    if-nez v14, :cond_4
+    if-nez v4, :cond_7
 
-    const-string/jumbo v14, "com.samsung.edm.intent.extra.ENFORCE_SMIME_ALIAS_STORAGE"
-
-    move-object/from16 v0, p4
-
-    invoke-virtual {v7, v14, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    const-string/jumbo v14, "com.samsung.android.knox.intent.extra.ENFORCE_SMIME_ALIAS_STORAGE_INTERNAL"
+    const-string/jumbo v4, "com.samsung.edm.intent.extra.ENFORCE_SMIME_ALIAS_STORAGE"
 
     move-object/from16 v0, p4
 
-    invoke-virtual {v5, v14, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v13, v4, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    :cond_4
-    new-instance v6, Lcom/android/server/enterprise/email/AccountSMIMECertificate;
+    const-string/jumbo v4, "com.samsung.android.knox.intent.extra.ENFORCE_SMIME_ALIAS_STORAGE_INTERNAL"
 
-    const/4 v14, 0x0
+    move-object/from16 v0, p4
 
-    const/4 v15, -0x1
+    invoke-virtual {v11, v4, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    :cond_7
+    new-instance v12, Lcom/android/server/enterprise/email/AccountSMIMECertificate;
+
+    const/4 v4, 0x0
+
+    const/4 v5, -0x1
 
     move-object/from16 v0, p1
 
     move-object/from16 v1, p5
 
-    invoke-direct {v6, v0, v1, v14, v15}, Lcom/android/server/enterprise/email/AccountSMIMECertificate;-><init>(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;Ljava/lang/String;I)V
+    invoke-direct {v12, v0, v1, v4, v5}, Lcom/android/server/enterprise/email/AccountSMIMECertificate;-><init>(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;Ljava/lang/String;I)V
 
-    new-instance v14, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v15, "S"
+    const-string/jumbo v5, "S"
 
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v14
+    move-result-object v4
 
-    invoke-virtual {v14, v8, v9}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v14, v15}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    move-result-object v14
+    move-result-object v4
 
-    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v14
+    move-result-object v4
 
-    invoke-static {v14, v6}, Lcom/android/server/enterprise/email/AccountsReceiver;->pushSMIMECertificate(Ljava/lang/String;Lcom/android/server/enterprise/email/AccountSMIMECertificate;)Z
+    invoke-static {v4, v12}, Lcom/android/server/enterprise/email/AccountsReceiver;->pushSMIMECertificate(Ljava/lang/String;Lcom/android/server/enterprise/email/AccountSMIMECertificate;)Z
 
-    move-result v10
+    move-result v16
 
-    if-eqz v10, :cond_5
-
-    move-object/from16 v0, p0
-
-    iget-object v14, v0, Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->mContext:Landroid/content/Context;
-
-    new-instance v15, Landroid/os/UserHandle;
-
-    invoke-direct {v15, v11}, Landroid/os/UserHandle;-><init>(I)V
-
-    const-string/jumbo v16, "android.permission.sec.SMIME_CERTIFICATE"
-
-    move-object/from16 v0, v16
-
-    invoke-virtual {v14, v7, v15, v0}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Ljava/lang/String;)V
+    if-eqz v16, :cond_8
 
     move-object/from16 v0, p0
 
-    iget-object v14, v0, Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->mContext:Landroid/content/Context;
+    iget-object v4, v0, Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->mContext:Landroid/content/Context;
 
-    new-instance v15, Landroid/os/UserHandle;
+    new-instance v5, Landroid/os/UserHandle;
 
-    invoke-direct {v15, v11}, Landroid/os/UserHandle;-><init>(I)V
+    move/from16 v0, v17
 
-    const-string/jumbo v16, "com.samsung.android.knox.permission.SMIME_CERTIFICATE_INTERNAL"
+    invoke-direct {v5, v0}, Landroid/os/UserHandle;-><init>(I)V
 
-    move-object/from16 v0, v16
+    const-string/jumbo v6, "android.permission.sec.SMIME_CERTIFICATE"
 
-    invoke-virtual {v14, v5, v15, v0}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Ljava/lang/String;)V
+    invoke-virtual {v4, v13, v5, v6}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->mContext:Landroid/content/Context;
+
+    new-instance v5, Landroid/os/UserHandle;
+
+    move/from16 v0, v17
+
+    invoke-direct {v5, v0}, Landroid/os/UserHandle;-><init>(I)V
+
+    const-string/jumbo v6, "com.samsung.android.knox.permission.SMIME_CERTIFICATE_INTERNAL"
+
+    invoke-virtual {v4, v11, v5, v6}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Ljava/lang/String;)V
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    :cond_5
-    invoke-static {v12, v13}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    :cond_8
+    invoke-static/range {v18 .. v19}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    :goto_0
-    const-string/jumbo v14, "ExchangeAccountPolicy"
+    :goto_1
+    const-string/jumbo v4, "ExchangeAccountPolicy"
 
-    new-instance v15, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v16, "setForceSMIMECertificateAlias() : accId = "
+    const-string/jumbo v6, "setForceSMIMECertificateAlias() : accId = "
 
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    move-result-object v5
 
     move-wide/from16 v0, p2
 
-    invoke-virtual {v15, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    move-result-object v5
 
-    const-string/jumbo v16, ", ret = "
+    const-string/jumbo v6, ", ret = "
 
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    move-result-object v5
 
-    invoke-virtual {v15, v10}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    move/from16 v0, v16
 
-    move-result-object v15
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v5
 
-    move-result-object v15
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v14, v15}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+    move-result-object v5
 
-    return v10
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    return v16
 
     :catch_0
-    move-exception v4
+    move-exception v10
 
     :try_start_2
-    const-string/jumbo v14, "ExchangeAccountPolicy"
+    const-string/jumbo v4, "ExchangeAccountPolicy"
 
-    const-string/jumbo v15, "setForceSMIMECertificateAlias() : failed. "
+    const-string/jumbo v5, "setForceSMIMECertificateAlias() : failed. "
 
-    invoke-static {v14, v15, v4}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-static {v4, v5, v10}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    const/4 v10, 0x0
+    const/16 v16, 0x0
 
-    invoke-static {v12, v13}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static/range {v18 .. v19}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    goto :goto_0
+    goto :goto_1
 
     :catchall_0
-    move-exception v14
+    move-exception v4
 
-    invoke-static {v12, v13}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static/range {v18 .. v19}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v14
+    throw v4
 .end method
 
 .method public setForceSMIMECertificateForEncryption(Lcom/samsung/android/knox/ContextInfo;JLjava/lang/String;Ljava/lang/String;)I
@@ -13831,7 +14284,7 @@
 
     const/4 v0, 0x1
 
-    invoke-direct {p0, p1, p2, p3, v0}, Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->setReleaseSMIMECertificateInernal(Lcom/samsung/android/knox/ContextInfo;JI)Z
+    invoke-direct {p0, p1, p2, p3, v0}, Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->setReleaseSMIMECertificateInternal(Lcom/samsung/android/knox/ContextInfo;JI)Z
 
     move-result v0
 
@@ -13843,7 +14296,7 @@
 
     const/4 v0, 0x2
 
-    invoke-direct {p0, p1, p2, p3, v0}, Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->setReleaseSMIMECertificateInernal(Lcom/samsung/android/knox/ContextInfo;JI)Z
+    invoke-direct {p0, p1, p2, p3, v0}, Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->setReleaseSMIMECertificateInternal(Lcom/samsung/android/knox/ContextInfo;JI)Z
 
     move-result v0
 
@@ -13855,7 +14308,7 @@
 
     const/4 v0, 0x3
 
-    invoke-direct {p0, p1, p2, p3, v0}, Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->setReleaseSMIMECertificateInernal(Lcom/samsung/android/knox/ContextInfo;JI)Z
+    invoke-direct {p0, p1, p2, p3, v0}, Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->setReleaseSMIMECertificateInternal(Lcom/samsung/android/knox/ContextInfo;JI)Z
 
     move-result v0
 

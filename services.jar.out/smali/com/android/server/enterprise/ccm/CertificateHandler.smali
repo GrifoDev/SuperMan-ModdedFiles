@@ -255,58 +255,142 @@
 
 # virtual methods
 .method public extractPkcs12([BLjava/lang/String;)Z
-    .locals 10
+    .locals 12
 
-    const/4 v9, 0x0
+    const/4 v11, 0x0
 
     if-nez p2, :cond_0
 
-    return v9
+    const-string/jumbo v8, "CertificateHandler"
+
+    const-string/jumbo v9, "extractPkcs12() password is null"
+
+    invoke-static {v8, v9}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v11
 
     :cond_0
+    const/4 v5, 0x0
+
+    :goto_0
+    const/4 v8, 0x5
+
+    if-ge v5, v8, :cond_4
+
+    const-string/jumbo v8, "CertificateHandler"
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v10, "extractPkcs12() try "
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v8, v9}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v8, "CertificateHandler"
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v10, "extractPkcs12() data length is "
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    array-length v10, p1
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v8, v9}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
     :try_start_0
-    const-string/jumbo v6, "PKCS12"
+    const-string/jumbo v8, "PKCS12"
 
-    invoke-static {v6}, Ljava/security/KeyStore;->getInstance(Ljava/lang/String;)Ljava/security/KeyStore;
-
-    move-result-object v4
-
-    new-instance v5, Ljava/security/KeyStore$PasswordProtection;
-
-    invoke-virtual {p2}, Ljava/lang/String;->toCharArray()[C
+    invoke-static {v8}, Ljava/security/KeyStore;->getInstance(Ljava/lang/String;)Ljava/security/KeyStore;
 
     move-result-object v6
 
-    invoke-direct {v5, v6}, Ljava/security/KeyStore$PasswordProtection;-><init>([C)V
+    new-instance v7, Ljava/security/KeyStore$PasswordProtection;
 
-    new-instance v6, Ljava/io/ByteArrayInputStream;
+    invoke-virtual {p2}, Ljava/lang/String;->toCharArray()[C
 
-    invoke-direct {v6, p1}, Ljava/io/ByteArrayInputStream;-><init>([B)V
+    move-result-object v8
 
-    invoke-virtual {v5}, Ljava/security/KeyStore$PasswordProtection;->getPassword()[C
+    invoke-direct {v7, v8}, Ljava/security/KeyStore$PasswordProtection;-><init>([C)V
 
-    move-result-object v7
+    const-string/jumbo v8, "CertificateHandler"
 
-    invoke-virtual {v4, v6, v7}, Ljava/security/KeyStore;->load(Ljava/io/InputStream;[C)V
+    const-string/jumbo v9, "extractPkcs12() keystore.load()"
 
-    invoke-virtual {v4}, Ljava/security/KeyStore;->aliases()Ljava/util/Enumeration;
+    invoke-static {v8, v9}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v8, Ljava/io/ByteArrayInputStream;
+
+    invoke-direct {v8, p1}, Ljava/io/ByteArrayInputStream;-><init>([B)V
+
+    invoke-virtual {v7}, Ljava/security/KeyStore$PasswordProtection;->getPassword()[C
+
+    move-result-object v9
+
+    invoke-virtual {v6, v8, v9}, Ljava/security/KeyStore;->load(Ljava/io/InputStream;[C)V
+
+    const-string/jumbo v8, "CertificateHandler"
+
+    const-string/jumbo v9, "extractPkcs12() keystore.aliases()"
+
+    invoke-static {v8, v9}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {v6}, Ljava/security/KeyStore;->aliases()Ljava/util/Enumeration;
 
     move-result-object v1
 
     invoke-interface {v1}, Ljava/util/Enumeration;->hasMoreElements()Z
 
-    move-result v6
+    move-result v8
 
-    if-nez v6, :cond_1
+    if-nez v8, :cond_1
 
-    return v9
+    return v11
 
     :cond_1
+    const-string/jumbo v8, "CertificateHandler"
+
+    const-string/jumbo v9, "extractPkcs12() aliases.hasMoreElements()"
+
+    invoke-static {v8, v9}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_2
     invoke-interface {v1}, Ljava/util/Enumeration;->hasMoreElements()Z
 
-    move-result v6
+    move-result v8
 
-    if-eqz v6, :cond_2
+    if-eqz v8, :cond_3
+
+    const-string/jumbo v8, "CertificateHandler"
+
+    const-string/jumbo v9, "extractPkcs12()  aliases.nextElement()"
+
+    invoke-static {v8, v9}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-interface {v1}, Ljava/util/Enumeration;->nextElement()Ljava/lang/Object;
 
@@ -314,19 +398,43 @@
 
     check-cast v0, Ljava/lang/String;
 
-    invoke-virtual {v4, v0}, Ljava/security/KeyStore;->isKeyEntry(Ljava/lang/String;)Z
+    const-string/jumbo v8, "CertificateHandler"
 
-    move-result v6
+    const-string/jumbo v9, "extractPkcs12()  keystore.isKeyEntry(alias)"
 
-    if-eqz v6, :cond_1
+    invoke-static {v8, v9}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v4, v0, v5}, Ljava/security/KeyStore;->getEntry(Ljava/lang/String;Ljava/security/KeyStore$ProtectionParameter;)Ljava/security/KeyStore$Entry;
+    invoke-virtual {v6, v0}, Ljava/security/KeyStore;->isKeyEntry(Ljava/lang/String;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_2
+
+    const-string/jumbo v8, "CertificateHandler"
+
+    const-string/jumbo v9, "extractPkcs12()  keystore.getEntry()"
+
+    invoke-static {v8, v9}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {v6, v0, v7}, Ljava/security/KeyStore;->getEntry(Ljava/lang/String;Ljava/security/KeyStore$ProtectionParameter;)Ljava/security/KeyStore$Entry;
 
     move-result-object v3
 
-    instance-of v6, v3, Ljava/security/KeyStore$PrivateKeyEntry;
+    const-string/jumbo v8, "CertificateHandler"
 
-    if-eqz v6, :cond_1
+    const-string/jumbo v9, "extractPkcs12() entry instanceof PrivateKeyEntry"
+
+    invoke-static {v8, v9}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    instance-of v8, v3, Ljava/security/KeyStore$PrivateKeyEntry;
+
+    if-eqz v8, :cond_2
+
+    const-string/jumbo v8, "CertificateHandler"
+
+    const-string/jumbo v9, "extractPkcs12() installFrom((PrivateKeyEntry) entry)"
+
+    invoke-static {v8, v9}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     check-cast v3, Ljava/security/KeyStore$PrivateKeyEntry;
 
@@ -334,39 +442,57 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v6
+    move-result v8
 
-    return v6
+    return v8
 
     :catch_0
     move-exception v2
 
-    const-string/jumbo v6, "CertificateHandler"
+    const-string/jumbo v8, "CertificateHandler"
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v8, "extractPkcs12 exception - "
+    const-string/jumbo v10, "extractPkcs12 exception - "
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v9
 
-    invoke-virtual {v7, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v9
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v9
 
-    invoke-static {v6, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v9
+    const-wide/16 v8, 0x5
 
-    :cond_2
-    return v9
+    :try_start_1
+    invoke-static {v8, v9}, Ljava/lang/Thread;->sleep(J)V
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+
+    :cond_3
+    :goto_1
+    add-int/lit8 v5, v5, 0x1
+
+    goto/16 :goto_0
+
+    :catch_1
+    move-exception v4
+
+    invoke-virtual {v4}, Ljava/lang/Exception;->printStackTrace()V
+
+    goto :goto_1
+
+    :cond_4
+    return v11
 .end method
 
 .method public getFormattedPrivateKey()[B
