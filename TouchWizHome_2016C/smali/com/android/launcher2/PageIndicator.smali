@@ -3658,7 +3658,7 @@
 
     iput-object v0, p0, Lcom/android/launcher2/PageIndicator;->mFastScrollBarDrawable:Landroid/graphics/drawable/Drawable;
 
-    const v0, 0x7f02008b
+    const v0, 0x7f02008d
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -3666,7 +3666,7 @@
 
     iput-object v0, p0, Lcom/android/launcher2/PageIndicator;->mPageNumberBg:Landroid/graphics/drawable/Drawable;
 
-    const v0, 0x7f090287
+    const v0, 0x7f090288
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3766,7 +3766,7 @@
 
     iput v0, p0, Lcom/android/launcher2/PageIndicator;->mFastScrollPaddingTop:I
 
-    const v0, 0x7f09039b
+    const v0, 0x7f09039f
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

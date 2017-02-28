@@ -98,7 +98,7 @@
 
     invoke-virtual {v2, v3, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    sget-object v2, Lcom/android/launcher2/LauncherModel$36;->$SwitchMap$com$android$launcher2$BaseItem$Type:[I
+    sget-object v2, Lcom/android/launcher2/LauncherModel$37;->$SwitchMap$com$android$launcher2$BaseItem$Type:[I
 
     iget-object v3, p0, Lcom/android/launcher2/LauncherModel$10;->val$item:Lcom/android/launcher2/HomeItem;
 

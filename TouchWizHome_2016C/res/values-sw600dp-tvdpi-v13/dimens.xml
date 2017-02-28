@@ -481,9 +481,9 @@
     <dimen name="appsearch_list_icon_width">54.0dip</dimen>
     <dimen name="appsearch_list_item_text_size">16.0dip</dimen>
     <dimen name="appsearch_searchview_height">48.0dip</dimen>
+    <dimen name="folder_multi_icon_checkbox_size">27.0dip</dimen>
     <dimen name="folder_multi_header_margin_end">40.0dip</dimen>
     <dimen name="folder_multi_header_margin_start">16.0dip</dimen>
-    <dimen name="folder_multi_icon_checkbox_size">27.0dip</dimen>
     <dimen name="folder_multi_header_margin_bottom">2.0dip</dimen>
     <dimen name="folder_multi_header_text_size">16.0sp</dimen>
     <dimen name="moveApps_help_imgHeight">250.0dip</dimen>

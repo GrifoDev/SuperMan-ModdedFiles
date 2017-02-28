@@ -337,6 +337,8 @@
     </style>
     <style name="SettingsTheme" parent="@android:style/Theme.DeviceDefault.Light">
         <item name="android:actionBarStyle">@style/LauncherActionBar</item>
+        <item name="android:statusBarColor">#fffafafa</item>
+        <item name="android:windowLightStatusBar">true</item>
     </style>
     <style name="ViewMoreBtnTransparent" parent="@android:style/Widget.Holo.ActionButton">
         <item name="android:orientation">horizontal</item>

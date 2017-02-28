@@ -2,4 +2,5 @@
 <resources>
     <dimen name="home_pageIndicatorTopEdit">376.0dip</dimen>
     <dimen name="menu_pageIndicatorTop">420.0dip</dimen>
+    <dimen name="menu_edit_button_text_height">42.0dip</dimen>
 </resources>

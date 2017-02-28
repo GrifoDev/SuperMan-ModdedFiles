@@ -587,6 +587,15 @@
 
     move-result-object v2
 
+    if-eqz v2, :cond_2
+
+    iget-object v2, p0, Lcom/android/launcher2/MenuAppsSearch$SearchAdapter;->this$0:Lcom/android/launcher2/MenuAppsSearch;
+
+    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mResultGridView:Landroid/widget/GridView;
+    invoke-static {v2}, Lcom/android/launcher2/MenuAppsSearch;->access$600(Lcom/android/launcher2/MenuAppsSearch;)Landroid/widget/GridView;
+
+    move-result-object v2
+
     iget-object v3, p0, Lcom/android/launcher2/MenuAppsSearch$SearchAdapter;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
     # getter for: Lcom/android/launcher2/MenuAppsSearch;->mCurrentCellCount:I
@@ -595,6 +604,16 @@
     move-result v3
 
     invoke-virtual {v2, v3}, Landroid/widget/GridView;->setNumColumns(I)V
+
+    :cond_2
+    iget-object v2, p0, Lcom/android/launcher2/MenuAppsSearch$SearchAdapter;->this$0:Lcom/android/launcher2/MenuAppsSearch;
+
+    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mRecentGridView:Landroid/widget/GridView;
+    invoke-static {v2}, Lcom/android/launcher2/MenuAppsSearch;->access$200(Lcom/android/launcher2/MenuAppsSearch;)Landroid/widget/GridView;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_3
 
     iget-object v2, p0, Lcom/android/launcher2/MenuAppsSearch$SearchAdapter;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
@@ -612,11 +631,18 @@
 
     invoke-virtual {v2, v3}, Landroid/widget/GridView;->setNumColumns(I)V
 
+    :cond_3
     invoke-static {}, Lcom/android/launcher2/LauncherFeature;->supportGalaxyAppsSearch()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_4
+
+    iget-object v2, p0, Lcom/android/launcher2/MenuAppsSearch$SearchAdapter;->this$0:Lcom/android/launcher2/MenuAppsSearch;
+
+    iget-object v2, v2, Lcom/android/launcher2/MenuAppsSearch;->mGalaxyAppsGridView:Landroid/widget/GridView;
+
+    if-eqz v2, :cond_4
 
     iget-object v2, p0, Lcom/android/launcher2/MenuAppsSearch$SearchAdapter;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
@@ -631,7 +657,7 @@
 
     invoke-virtual {v2, v3}, Landroid/widget/GridView;->setNumColumns(I)V
 
-    :cond_2
+    :cond_4
     iget-object v2, p0, Lcom/android/launcher2/MenuAppsSearch$SearchAdapter;->mFilter:Lcom/android/launcher2/MenuAppsSearch$SearchFilter;
 
     invoke-virtual {v2}, Lcom/android/launcher2/MenuAppsSearch$SearchFilter;->filterApps()Ljava/util/List;
@@ -659,7 +685,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_5
 
     iget-object v2, p0, Lcom/android/launcher2/MenuAppsSearch$SearchAdapter;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
@@ -670,7 +696,7 @@
     # invokes: Lcom/android/launcher2/MenuAppsSearch;->showGalaxyAppsResult(Z)V
     invoke-static {v2, v6}, Lcom/android/launcher2/MenuAppsSearch;->access$1000(Lcom/android/launcher2/MenuAppsSearch;Z)V
 
-    :cond_3
+    :cond_5
     iget-object v2, p0, Lcom/android/launcher2/MenuAppsSearch$SearchAdapter;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
     # getter for: Lcom/android/launcher2/MenuAppsSearch;->mSearchSubTitleText:Landroid/widget/TextView;
@@ -688,7 +714,7 @@
 
     move-result v2
 
-    if-le v2, v5, :cond_4
+    if-le v2, v5, :cond_6
 
     invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
 
@@ -734,7 +760,7 @@
 
     goto/16 :goto_0
 
-    :cond_4
+    :cond_6
     invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
 
     move-result-object v2

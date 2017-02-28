@@ -191,7 +191,7 @@
 
     sput-object v7, Lcom/android/launcher2/PkgResCache;->mDefaultIcon:Landroid/graphics/Bitmap;
 
-    const v7, 0x7f0200b3
+    const v7, 0x7f0200b5
 
     invoke-direct {p0, v0, v7}, Lcom/android/launcher2/PkgResCache;->createDefaultBitmap(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 

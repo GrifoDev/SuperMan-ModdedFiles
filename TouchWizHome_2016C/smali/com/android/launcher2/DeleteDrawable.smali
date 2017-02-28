@@ -215,7 +215,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090339
+    const v1, 0x7f09033d
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -245,7 +245,7 @@
     :pswitch_0
     iget-object v1, p0, Lcom/android/launcher2/DeleteDrawable;->mBulgeFrames:[Landroid/graphics/drawable/Drawable;
 
-    const v2, 0x7f0200bd
+    const v2, 0x7f0200bf
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -255,7 +255,7 @@
 
     iget-object v1, p0, Lcom/android/launcher2/DeleteDrawable;->mBulgeFrames:[Landroid/graphics/drawable/Drawable;
 
-    const v2, 0x7f0200be
+    const v2, 0x7f0200c0
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -265,7 +265,7 @@
 
     iget-object v1, p0, Lcom/android/launcher2/DeleteDrawable;->mBulgeFrames:[Landroid/graphics/drawable/Drawable;
 
-    const v2, 0x7f0200bf
+    const v2, 0x7f0200c1
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -277,7 +277,7 @@
 
     const/4 v2, 0x3
 
-    const v3, 0x7f0200c0
+    const v3, 0x7f0200c2
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -289,7 +289,7 @@
 
     const/4 v2, 0x4
 
-    const v3, 0x7f0200c1
+    const v3, 0x7f0200c3
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -301,7 +301,7 @@
 
     const/4 v2, 0x5
 
-    const v3, 0x7f0200c2
+    const v3, 0x7f0200c4
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -313,7 +313,7 @@
 
     const/4 v2, 0x6
 
-    const v3, 0x7f0200c3
+    const v3, 0x7f0200c5
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -325,7 +325,7 @@
 
     const/4 v2, 0x7
 
-    const v3, 0x7f0200c4
+    const v3, 0x7f0200c6
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -338,7 +338,7 @@
     :pswitch_1
     iget-object v1, p0, Lcom/android/launcher2/DeleteDrawable;->mBulgeFrames:[Landroid/graphics/drawable/Drawable;
 
-    const v2, 0x7f0200c9
+    const v2, 0x7f0200cb
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -348,7 +348,7 @@
 
     iget-object v1, p0, Lcom/android/launcher2/DeleteDrawable;->mBulgeFrames:[Landroid/graphics/drawable/Drawable;
 
-    const v2, 0x7f0200ca
+    const v2, 0x7f0200cc
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -358,7 +358,7 @@
 
     iget-object v1, p0, Lcom/android/launcher2/DeleteDrawable;->mBulgeFrames:[Landroid/graphics/drawable/Drawable;
 
-    const v2, 0x7f0200cb
+    const v2, 0x7f0200cd
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -370,7 +370,7 @@
 
     const/4 v2, 0x3
 
-    const v3, 0x7f0200cc
+    const v3, 0x7f0200ce
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -382,7 +382,7 @@
 
     const/4 v2, 0x4
 
-    const v3, 0x7f0200cd
+    const v3, 0x7f0200cf
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -394,7 +394,7 @@
 
     const/4 v2, 0x5
 
-    const v3, 0x7f0200ce
+    const v3, 0x7f0200d0
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -406,7 +406,7 @@
 
     const/4 v2, 0x6
 
-    const v3, 0x7f0200cf
+    const v3, 0x7f0200d1
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -418,7 +418,7 @@
 
     const/4 v2, 0x7
 
-    const v3, 0x7f0200d0
+    const v3, 0x7f0200d2
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -431,7 +431,7 @@
     :pswitch_2
     iget-object v1, p0, Lcom/android/launcher2/DeleteDrawable;->mBulgeFrames:[Landroid/graphics/drawable/Drawable;
 
-    const v2, 0x7f0200d4
+    const v2, 0x7f0200d6
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -441,7 +441,7 @@
 
     iget-object v1, p0, Lcom/android/launcher2/DeleteDrawable;->mBulgeFrames:[Landroid/graphics/drawable/Drawable;
 
-    const v2, 0x7f0200d5
+    const v2, 0x7f0200d7
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -451,7 +451,7 @@
 
     iget-object v1, p0, Lcom/android/launcher2/DeleteDrawable;->mBulgeFrames:[Landroid/graphics/drawable/Drawable;
 
-    const v2, 0x7f0200d6
+    const v2, 0x7f0200d8
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -463,7 +463,7 @@
 
     const/4 v2, 0x3
 
-    const v3, 0x7f0200d7
+    const v3, 0x7f0200d9
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -475,7 +475,7 @@
 
     const/4 v2, 0x4
 
-    const v3, 0x7f0200d8
+    const v3, 0x7f0200da
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -487,7 +487,7 @@
 
     const/4 v2, 0x5
 
-    const v3, 0x7f0200d9
+    const v3, 0x7f0200db
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -499,7 +499,7 @@
 
     const/4 v2, 0x6
 
-    const v3, 0x7f0200da
+    const v3, 0x7f0200dc
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -511,7 +511,7 @@
 
     const/4 v2, 0x7
 
-    const v3, 0x7f0200db
+    const v3, 0x7f0200dd
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

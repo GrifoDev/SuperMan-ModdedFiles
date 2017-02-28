@@ -13,7 +13,7 @@
     <dimen name="home_pageIndicatorTop">403.0dip</dimen>
     <dimen name="home_pageIndicatorTopDrag">403.0dip</dimen>
     <dimen name="home_pageIndicatorTopEdit">403.0dip</dimen>
-    <dimen name="home_pageMarginTop">6.0dip</dimen>
+    <dimen name="home_pageMarginTop">4.0dip</dimen>
     <dimen name="home_pagePaddingBottom">9.0dip</dimen>
     <dimen name="home_pagePaddingLeft">9.0dip</dimen>
     <dimen name="home_pagePaddingRight">9.0dip</dimen>

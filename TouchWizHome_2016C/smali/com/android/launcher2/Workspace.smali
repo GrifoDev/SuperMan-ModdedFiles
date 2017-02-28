@@ -2931,7 +2931,7 @@
 
     move-result-object v17
 
-    const v18, 0x7f020077
+    const v18, 0x7f020079
 
     invoke-static/range {v17 .. v18}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
@@ -11797,7 +11797,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0902c2
+    const v6, 0x7f0902c4
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -13552,6 +13552,14 @@
 
     invoke-virtual {p0, v4}, Lcom/android/launcher2/Workspace;->post(Ljava/lang/Runnable;)Z
 
+    iget-object v4, p0, Lcom/android/launcher2/Workspace;->mHomeView:Lcom/android/launcher2/HomeView;
+
+    invoke-virtual {v4}, Lcom/android/launcher2/HomeView;->getModel()Lcom/android/launcher2/LauncherModel;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/android/launcher2/LauncherModel;->runDragCompleteCallback()V
+
     goto/16 :goto_0
 .end method
 
@@ -14868,7 +14876,7 @@
 
     new-instance v0, Lcom/android/launcher2/PanelBgDrawer;
 
-    const v3, 0x7f020085
+    const v3, 0x7f020087
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

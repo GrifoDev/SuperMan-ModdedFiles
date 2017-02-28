@@ -1250,7 +1250,7 @@
 
     if-eqz v13, :cond_5
 
-    const v13, 0x7f0200a8
+    const v13, 0x7f0200aa
 
     :goto_0
     invoke-virtual {p0, v13}, Lcom/android/launcher2/MenuWidgets;->getSearchBarBgDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -1261,14 +1261,14 @@
 
     if-eqz v13, :cond_6
 
-    const v13, 0x7f0200a6
+    const v13, 0x7f0200a8
 
     :goto_1
     invoke-virtual {p0, v13}, Lcom/android/launcher2/MenuWidgets;->getSearchBarBgDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v6
 
-    const v13, 0x7f0200aa
+    const v13, 0x7f0200ac
 
     invoke-virtual {p0, v13}, Lcom/android/launcher2/MenuWidgets;->getSearchBarBgDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1379,12 +1379,12 @@
     return-void
 
     :cond_5
-    const v13, 0x7f0200a6
+    const v13, 0x7f0200a8
 
     goto/16 :goto_0
 
     :cond_6
-    const v13, 0x7f0200a8
+    const v13, 0x7f0200aa
 
     goto :goto_1
 
@@ -1395,7 +1395,7 @@
 
     if-eqz v13, :cond_8
 
-    const v13, 0x7f0200a7
+    const v13, 0x7f0200a9
 
     :goto_3
     invoke-virtual {p0, v13}, Lcom/android/launcher2/MenuWidgets;->getSearchBarBgDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -1406,14 +1406,14 @@
 
     if-eqz v13, :cond_9
 
-    const v13, 0x7f0200a5
+    const v13, 0x7f0200a7
 
     :goto_4
     invoke-virtual {p0, v13}, Lcom/android/launcher2/MenuWidgets;->getSearchBarBgDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v6
 
-    const v13, 0x7f0200a9
+    const v13, 0x7f0200ab
 
     invoke-virtual {p0, v13}, Lcom/android/launcher2/MenuWidgets;->getSearchBarBgDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1422,12 +1422,12 @@
     goto/16 :goto_2
 
     :cond_8
-    const v13, 0x7f0200a5
+    const v13, 0x7f0200a7
 
     goto :goto_3
 
     :cond_9
-    const v13, 0x7f0200a7
+    const v13, 0x7f0200a9
 
     goto :goto_4
 .end method
@@ -2553,7 +2553,7 @@
 
     invoke-virtual {p0, v4}, Lcom/android/launcher2/MenuWidgets;->setPageZoom(F)V
 
-    const v4, 0x7f0903ab
+    const v4, 0x7f0903af
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2563,7 +2563,7 @@
 
     iput v6, v0, Landroid/widget/FrameLayout$LayoutParams;->rightMargin:I
 
-    const v4, 0x7f0903b9
+    const v4, 0x7f0903bd
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2591,7 +2591,7 @@
 
     iput v6, v0, Landroid/widget/FrameLayout$LayoutParams;->topMargin:I
 
-    const v4, 0x7f0903a9
+    const v4, 0x7f0903ad
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3761,7 +3761,7 @@
 
     if-eqz v25, :cond_10
 
-    const v25, 0x7f020076
+    const v25, 0x7f020078
 
     move-object/from16 v0, v23
 
@@ -3848,7 +3848,7 @@
     goto :goto_e
 
     :cond_10
-    const v25, 0x7f020075
+    const v25, 0x7f020077
 
     move-object/from16 v0, v23
 
@@ -4594,7 +4594,7 @@
 
     if-eqz v6, :cond_d
 
-    const v6, 0x7f020076
+    const v6, 0x7f020078
 
     move-object/from16 v0, v32
 
@@ -4664,7 +4664,7 @@
     goto :goto_c
 
     :cond_d
-    const v6, 0x7f020075
+    const v6, 0x7f020077
 
     move-object/from16 v0, v32
 
@@ -6593,7 +6593,7 @@
     if-ne p1, v4, :cond_9
 
     :cond_4
-    const v4, 0x7f0903ab
+    const v4, 0x7f0903af
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -6603,7 +6603,7 @@
 
     iput v7, v1, Landroid/widget/FrameLayout$LayoutParams;->rightMargin:I
 
-    const v4, 0x7f0903b9
+    const v4, 0x7f0903bd
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -6643,7 +6643,7 @@
 
     iput v7, v1, Landroid/widget/FrameLayout$LayoutParams;->topMargin:I
 
-    const v4, 0x7f0903a9
+    const v4, 0x7f0903ad
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher2/LauncherModel;->deleteFestivalPage(Lcom/android/launcher2/Launcher;)V
+    value = Lcom/android/launcher2/LauncherModel;->startLoader(ZZZZ)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,20 +20,28 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher2/LauncherModel;
 
-.field final synthetic val$app:Lcom/android/launcher2/Launcher;
+.field final synthetic val$forceRefresh:Z
 
-.field final synthetic val$festivalAppWidgets:Ljava/util/List;
+.field final synthetic val$isFestivalLoader:Z
+
+.field final synthetic val$isLaunchRequired:Z
+
+.field final synthetic val$isModeChanged:Z
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher2/LauncherModel;Lcom/android/launcher2/Launcher;Ljava/util/List;)V
+.method constructor <init>(Lcom/android/launcher2/LauncherModel;ZZZZ)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher2/LauncherModel$13;->this$0:Lcom/android/launcher2/LauncherModel;
 
-    iput-object p2, p0, Lcom/android/launcher2/LauncherModel$13;->val$app:Lcom/android/launcher2/Launcher;
+    iput-boolean p2, p0, Lcom/android/launcher2/LauncherModel$13;->val$isLaunchRequired:Z
 
-    iput-object p3, p0, Lcom/android/launcher2/LauncherModel$13;->val$festivalAppWidgets:Ljava/util/List;
+    iput-boolean p3, p0, Lcom/android/launcher2/LauncherModel$13;->val$forceRefresh:Z
+
+    iput-boolean p4, p0, Lcom/android/launcher2/LauncherModel$13;->val$isModeChanged:Z
+
+    iput-boolean p5, p0, Lcom/android/launcher2/LauncherModel$13;->val$isFestivalLoader:Z
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -43,13 +51,20 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .locals 5
 
-    iget-object v0, p0, Lcom/android/launcher2/LauncherModel$13;->val$app:Lcom/android/launcher2/Launcher;
+    iget-object v0, p0, Lcom/android/launcher2/LauncherModel$13;->this$0:Lcom/android/launcher2/LauncherModel;
 
-    iget-object v1, p0, Lcom/android/launcher2/LauncherModel$13;->val$festivalAppWidgets:Ljava/util/List;
+    iget-boolean v1, p0, Lcom/android/launcher2/LauncherModel$13;->val$isLaunchRequired:Z
 
-    invoke-virtual {v0, v1}, Lcom/android/launcher2/Launcher;->bindHomeDeleteFestivalPage(Ljava/util/List;)V
+    iget-boolean v2, p0, Lcom/android/launcher2/LauncherModel$13;->val$forceRefresh:Z
+
+    iget-boolean v3, p0, Lcom/android/launcher2/LauncherModel$13;->val$isModeChanged:Z
+
+    iget-boolean v4, p0, Lcom/android/launcher2/LauncherModel$13;->val$isFestivalLoader:Z
+
+    # invokes: Lcom/android/launcher2/LauncherModel;->startLoader(ZZZZ)V
+    invoke-static {v0, v1, v2, v3, v4}, Lcom/android/launcher2/LauncherModel;->access$000(Lcom/android/launcher2/LauncherModel;ZZZZ)V
 
     return-void
 .end method

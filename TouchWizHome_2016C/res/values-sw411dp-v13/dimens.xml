@@ -351,7 +351,7 @@
     <dimen name="menuWidgets_widgetOverlay_padding">3.0dip</dimen>
     <dimen name="menuWidgets_widgetSize_textSize">14.0dip</dimen>
     <dimen name="menu_editDragBarSize">55.0dip</dimen>
-    <dimen name="menu_edit_button_text_size">17.0sp</dimen>
+    <dimen name="menu_edit_button_text_size">17.0dip</dimen>
     <dimen name="menu_edit_cancel_left_padding">43.0dip</dimen>
     <dimen name="menu_edit_done_left_padding">55.0dip</dimen>
     <item type="dimen" name="menu_edit_translation_view_factor">0.935</item>
@@ -609,9 +609,12 @@
     <dimen name="folder_icon_marginTop">10.0dip</dimen>
     <dimen name="folder_multi_header_text_height">32.0dip</dimen>
     <dimen name="folder_multi_icon_text_size">15.0dip</dimen>
+    <dimen name="folder_multi_search_bar_layout_height">63.0dip</dimen>
+    <dimen name="folder_multi_title_layout_height">65.0dip</dimen>
     <dimen name="home_icon_text_theme_extra_padding">-2.0dip</dimen>
     <dimen name="appsearch_grid_cell_height">101.0dip</dimen>
     <dimen name="appsearch_grid_cell_height_4x4">110.0dip</dimen>
+    <dimen name="folder_multi_icon_checkbox_size">34.0dip</dimen>
     <dimen name="menu_scroll_zone_left_width_edge">14.0dip</dimen>
     <dimen name="menu_scroll_zone_right_width_edge">14.0dip</dimen>
     <item type="dimen" name="config_menuBgDarkenAmountNormal">0.2</item>
@@ -620,9 +623,6 @@
     <dimen name="extra_layout_width">731.0dip</dimen>
     <dimen name="folder_multi_header_margin_end">33.0dip</dimen>
     <dimen name="folder_multi_header_margin_start">9.0dip</dimen>
-    <dimen name="folder_multi_icon_checkbox_size">34.0dip</dimen>
-    <dimen name="folder_multi_search_bar_layout_height">63.0dip</dimen>
-    <dimen name="folder_multi_title_layout_height">65.0dip</dimen>
     <dimen name="folder_multi_title_select_all_text_width">72.0dip</dimen>
     <dimen name="home_icon_text_theme_extra_padding_bottom">6.0dip</dimen>
     <dimen name="home_pageNumberBubbleMarginButton">170.0dip</dimen>

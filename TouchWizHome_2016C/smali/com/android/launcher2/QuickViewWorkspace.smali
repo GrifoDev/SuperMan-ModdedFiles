@@ -1967,13 +1967,13 @@
 
     new-instance v0, Landroid/widget/FrameLayout$LayoutParams;
 
-    const v3, 0x7f0902a2
+    const v3, 0x7f0902a3
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v3
 
-    const v4, 0x7f0902a1
+    const v4, 0x7f0902a2
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -7666,7 +7666,7 @@
 
     if-eqz v13, :cond_6
 
-    const v13, 0x7f020073
+    const v13, 0x7f020075
 
     invoke-virtual {v8, v13}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -7837,7 +7837,7 @@
     goto :goto_2
 
     :cond_6
-    const v13, 0x7f020072
+    const v13, 0x7f020074
 
     invoke-virtual {v8, v13}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -8027,7 +8027,7 @@
 
     if-nez v13, :cond_b
 
-    const v13, 0x7f090366
+    const v13, 0x7f09036a
 
     invoke-virtual {v8, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -8548,7 +8548,7 @@
 
     iget-object v9, p0, Lcom/android/launcher2/QuickViewWorkspace;->mZeroPageOnOffSwitch:Landroid/widget/Switch;
 
-    const v10, 0x7f0902a9
+    const v10, 0x7f0902aa
 
     invoke-virtual {v6, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

@@ -2142,7 +2142,7 @@
 
     check-cast v10, Landroid/widget/TextView;
 
-    const v11, 0x7f02009f
+    const v11, 0x7f0200a1
 
     invoke-virtual {v10, v12, v11, v12, v12}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(IIII)V
 
@@ -2150,7 +2150,7 @@
 
     check-cast v10, Landroid/widget/TextView;
 
-    const v11, 0x7f0200a0
+    const v11, 0x7f0200a2
 
     invoke-virtual {v10, v12, v11, v12, v12}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(IIII)V
 
@@ -2158,7 +2158,7 @@
 
     check-cast v10, Landroid/widget/TextView;
 
-    const v11, 0x7f0200a1
+    const v11, 0x7f0200a3
 
     invoke-virtual {v10, v12, v11, v12, v12}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(IIII)V
 

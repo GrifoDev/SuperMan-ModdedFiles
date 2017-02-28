@@ -49,6 +49,8 @@
 
 .field public static final PREFS_HIDDENADD_HOMEFOLDERIDS:Ljava/lang/String; = "HomeFolderIds"
 
+.field public static final PREFS_NEED_BINDING_WIDGETS:Ljava/lang/String; = "NeedBindingWidgets"
+
 .field public static final PREFS_PREFESTIVAL:Ljava/lang/String; = "PrefsPreFestival"
 
 .field private static final RESTRICTION_PACKAGE_NAME:Ljava/lang/String; = "workspace.configuration.package.name"

@@ -6341,7 +6341,7 @@
     :goto_2
     if-nez v10, :cond_5
 
-    const v6, 0x7f020078
+    const v6, 0x7f02007a
 
     move-object/from16 v0, v31
 

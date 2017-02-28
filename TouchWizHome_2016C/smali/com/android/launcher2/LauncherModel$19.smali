@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher2/LauncherModel;->addShortcutHomeOnlyFromDeleteFolder(Lcom/android/launcher2/HomeItem;Landroid/content/ComponentName;Lcom/android/launcher2/compat/UserHandleCompat;Lcom/android/launcher2/BaseItem$Type;)V
+    value = Lcom/android/launcher2/LauncherModel;->addShortcutToHotseatHomeOnly(Landroid/content/Context;Landroid/content/ComponentName;Lcom/android/launcher2/compat/UserHandleCompat;ILcom/android/launcher2/HomeView;Lcom/android/launcher2/Hotseat;Lcom/android/launcher2/LauncherModel$Callbacks;ZLcom/android/launcher2/BaseItem$Type;)Z
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,20 +20,24 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher2/LauncherModel;
 
-.field final synthetic val$launcher:Lcom/android/launcher2/Launcher;
+.field final synthetic val$cellHome:Lcom/android/launcher2/CellLayoutHotseat;
 
-.field final synthetic val$pageCount:I
+.field final synthetic val$item:Lcom/android/launcher2/HomeShortcutItem;
+
+.field final synthetic val$mHotseat:Lcom/android/launcher2/Hotseat;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher2/LauncherModel;Lcom/android/launcher2/Launcher;I)V
+.method constructor <init>(Lcom/android/launcher2/LauncherModel;Lcom/android/launcher2/CellLayoutHotseat;Lcom/android/launcher2/HomeShortcutItem;Lcom/android/launcher2/Hotseat;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher2/LauncherModel$19;->this$0:Lcom/android/launcher2/LauncherModel;
 
-    iput-object p2, p0, Lcom/android/launcher2/LauncherModel$19;->val$launcher:Lcom/android/launcher2/Launcher;
+    iput-object p2, p0, Lcom/android/launcher2/LauncherModel$19;->val$cellHome:Lcom/android/launcher2/CellLayoutHotseat;
 
-    iput p3, p0, Lcom/android/launcher2/LauncherModel$19;->val$pageCount:I
+    iput-object p3, p0, Lcom/android/launcher2/LauncherModel$19;->val$item:Lcom/android/launcher2/HomeShortcutItem;
+
+    iput-object p4, p0, Lcom/android/launcher2/LauncherModel$19;->val$mHotseat:Lcom/android/launcher2/Hotseat;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -43,42 +47,17 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/launcher2/LauncherModel$19;->val$launcher:Lcom/android/launcher2/Launcher;
+    iget-object v0, p0, Lcom/android/launcher2/LauncherModel$19;->val$cellHome:Lcom/android/launcher2/CellLayoutHotseat;
 
-    iget-object v0, v0, Lcom/android/launcher2/Launcher;->mHomeView:Lcom/android/launcher2/HomeView;
+    iget-object v1, p0, Lcom/android/launcher2/LauncherModel$19;->val$item:Lcom/android/launcher2/HomeShortcutItem;
 
-    invoke-virtual {v0}, Lcom/android/launcher2/HomeView;->getWorkspace()Lcom/android/launcher2/Workspace;
+    invoke-virtual {v0, v1}, Lcom/android/launcher2/CellLayoutHotseat;->addItem(Lcom/android/launcher2/BaseItem;)Z
 
-    move-result-object v0
+    iget-object v0, p0, Lcom/android/launcher2/LauncherModel$19;->val$mHotseat:Lcom/android/launcher2/Hotseat;
 
-    iget v1, p0, Lcom/android/launcher2/LauncherModel$19;->val$pageCount:I
+    invoke-virtual {v0}, Lcom/android/launcher2/Hotseat;->reapplyIconViewStyles()V
 
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/launcher2/Workspace;->insertWorkspaceScreen(IZ)Lcom/android/launcher2/CellLayout;
-
-    iget-object v0, p0, Lcom/android/launcher2/LauncherModel$19;->val$launcher:Lcom/android/launcher2/Launcher;
-
-    iget-object v0, v0, Lcom/android/launcher2/Launcher;->mHomeView:Lcom/android/launcher2/HomeView;
-
-    invoke-virtual {v0}, Lcom/android/launcher2/HomeView;->isQuickViewWorkspaceOpened()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/launcher2/LauncherModel$19;->val$launcher:Lcom/android/launcher2/Launcher;
-
-    iget-object v0, v0, Lcom/android/launcher2/Launcher;->mHomeView:Lcom/android/launcher2/HomeView;
-
-    invoke-virtual {v0}, Lcom/android/launcher2/HomeView;->getQuickViewWorkspace()Lcom/android/launcher2/QuickViewWorkspace;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/launcher2/QuickViewWorkspace;->updateAddScreen()V
-
-    :cond_0
     return-void
 .end method

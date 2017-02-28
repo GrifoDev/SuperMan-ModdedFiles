@@ -90,9 +90,9 @@
     <style name="MenuIcon" parent="@style/BaseMenuIcon">
         <item name="android:textSize">@dimen/menu_icon_textsize</item>
         <item name="android:ellipsize">end</item>
-        <item name="android:paddingLeft">1.0dip</item>
+        <item name="android:paddingLeft">2.0dip</item>
         <item name="android:paddingTop">@dimen/menu_icon_paddingTop</item>
-        <item name="android:paddingRight">1.0dip</item>
+        <item name="android:paddingRight">2.0dip</item>
         <item name="android:paddingBottom">0.0dip</item>
         <item name="android:lines">@integer/menu_icon_text_maxline</item>
         <item name="android:shadowDy">2.0</item>

@@ -527,7 +527,7 @@
     iget-object v4, v0, Lcom/android/launcher2/LauncherModel$PackageUpdatedTask;->this$0:Lcom/android/launcher2/LauncherModel;
 
     # getter for: Lcom/android/launcher2/LauncherModel;->mHomeLoader:Lcom/android/launcher2/HomeLoader;
-    invoke-static {v4}, Lcom/android/launcher2/LauncherModel;->access$1800(Lcom/android/launcher2/LauncherModel;)Lcom/android/launcher2/HomeLoader;
+    invoke-static {v4}, Lcom/android/launcher2/LauncherModel;->access$2000(Lcom/android/launcher2/LauncherModel;)Lcom/android/launcher2/HomeLoader;
 
     move-result-object v4
 
@@ -650,7 +650,7 @@
     iget-object v4, v0, Lcom/android/launcher2/LauncherModel$PackageUpdatedTask;->this$0:Lcom/android/launcher2/LauncherModel;
 
     # getter for: Lcom/android/launcher2/LauncherModel;->mHomeLoader:Lcom/android/launcher2/HomeLoader;
-    invoke-static {v4}, Lcom/android/launcher2/LauncherModel;->access$1800(Lcom/android/launcher2/LauncherModel;)Lcom/android/launcher2/HomeLoader;
+    invoke-static {v4}, Lcom/android/launcher2/LauncherModel;->access$2000(Lcom/android/launcher2/LauncherModel;)Lcom/android/launcher2/HomeLoader;
 
     move-result-object v4
 
@@ -782,7 +782,7 @@
     iget-object v4, v0, Lcom/android/launcher2/LauncherModel$PackageUpdatedTask;->this$0:Lcom/android/launcher2/LauncherModel;
 
     # getter for: Lcom/android/launcher2/LauncherModel;->mHomeLoader:Lcom/android/launcher2/HomeLoader;
-    invoke-static {v4}, Lcom/android/launcher2/LauncherModel;->access$1800(Lcom/android/launcher2/LauncherModel;)Lcom/android/launcher2/HomeLoader;
+    invoke-static {v4}, Lcom/android/launcher2/LauncherModel;->access$2000(Lcom/android/launcher2/LauncherModel;)Lcom/android/launcher2/HomeLoader;
 
     move-result-object v12
 
@@ -1498,7 +1498,7 @@
     move-object/from16 v0, v26
 
     # invokes: Lcom/android/launcher2/LauncherModel;->addShortcutHomeOnly(Landroid/content/ComponentName;Lcom/android/launcher2/compat/UserHandleCompat;Lcom/android/launcher2/LauncherModel$Callbacks;Lcom/android/launcher2/BaseItem$Type;)V
-    invoke-static {v6, v7, v12, v0, v13}, Lcom/android/launcher2/LauncherModel;->access$200(Lcom/android/launcher2/LauncherModel;Landroid/content/ComponentName;Lcom/android/launcher2/compat/UserHandleCompat;Lcom/android/launcher2/LauncherModel$Callbacks;Lcom/android/launcher2/BaseItem$Type;)V
+    invoke-static {v6, v7, v12, v0, v13}, Lcom/android/launcher2/LauncherModel;->access$300(Lcom/android/launcher2/LauncherModel;Landroid/content/ComponentName;Lcom/android/launcher2/compat/UserHandleCompat;Lcom/android/launcher2/LauncherModel$Callbacks;Lcom/android/launcher2/BaseItem$Type;)V
 
     goto :goto_f
 

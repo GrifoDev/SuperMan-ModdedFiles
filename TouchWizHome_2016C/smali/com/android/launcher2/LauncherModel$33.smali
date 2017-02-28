@@ -20,16 +20,20 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher2/LauncherModel;
 
-.field final synthetic val$removeFolder:Lcom/android/launcher2/HomeFolderItem;
+.field final synthetic val$homeFolder:Lcom/android/launcher2/HomeFolderItem;
+
+.field final synthetic val$item:Lcom/android/launcher2/HomeItem;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher2/LauncherModel;Lcom/android/launcher2/HomeFolderItem;)V
+.method constructor <init>(Lcom/android/launcher2/LauncherModel;Lcom/android/launcher2/HomeFolderItem;Lcom/android/launcher2/HomeItem;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher2/LauncherModel$33;->this$0:Lcom/android/launcher2/LauncherModel;
 
-    iput-object p2, p0, Lcom/android/launcher2/LauncherModel$33;->val$removeFolder:Lcom/android/launcher2/HomeFolderItem;
+    iput-object p2, p0, Lcom/android/launcher2/LauncherModel$33;->val$homeFolder:Lcom/android/launcher2/HomeFolderItem;
+
+    iput-object p3, p0, Lcom/android/launcher2/LauncherModel$33;->val$item:Lcom/android/launcher2/HomeItem;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -59,9 +63,9 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lcom/android/launcher2/LauncherModel$33;->val$removeFolder:Lcom/android/launcher2/HomeFolderItem;
+    iget-object v1, p0, Lcom/android/launcher2/LauncherModel$33;->val$homeFolder:Lcom/android/launcher2/HomeFolderItem;
 
-    const/4 v2, 0x0
+    iget-object v2, p0, Lcom/android/launcher2/LauncherModel$33;->val$item:Lcom/android/launcher2/HomeItem;
 
     invoke-interface {v0, v1, v2}, Lcom/android/launcher2/LauncherModel$Callbacks;->bindHomeRemoveCurrentItem(Lcom/android/launcher2/HomeFolderItem;Lcom/android/launcher2/HomeItem;)V
 

@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher2/LauncherModel;->addShortcutHomeOnly(Landroid/content/Context;Landroid/content/ComponentName;Lcom/android/launcher2/compat/UserHandleCompat;IIILcom/android/launcher2/LauncherModel$Callbacks;ZLcom/android/launcher2/BaseItem$Type;)V
+    value = Lcom/android/launcher2/LauncherModel;->addShortcutToFolderHomeOnly(Landroid/content/Context;Landroid/content/ComponentName;Lcom/android/launcher2/compat/UserHandleCompat;Lcom/android/launcher2/HomeFolderItem;ILcom/android/launcher2/LauncherModel$Callbacks;ZLcom/android/launcher2/BaseItem$Type;)Z
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,20 +20,24 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher2/LauncherModel;
 
-.field final synthetic val$callbacks:Lcom/android/launcher2/LauncherModel$Callbacks;
+.field final synthetic val$folderItem:Lcom/android/launcher2/HomeFolderItem;
 
 .field final synthetic val$item:Lcom/android/launcher2/HomeShortcutItem;
 
+.field final synthetic val$screen:I
+
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher2/LauncherModel;Lcom/android/launcher2/LauncherModel$Callbacks;Lcom/android/launcher2/HomeShortcutItem;)V
+.method constructor <init>(Lcom/android/launcher2/LauncherModel;Lcom/android/launcher2/HomeFolderItem;Lcom/android/launcher2/HomeShortcutItem;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher2/LauncherModel$15;->this$0:Lcom/android/launcher2/LauncherModel;
 
-    iput-object p2, p0, Lcom/android/launcher2/LauncherModel$15;->val$callbacks:Lcom/android/launcher2/LauncherModel$Callbacks;
+    iput-object p2, p0, Lcom/android/launcher2/LauncherModel$15;->val$folderItem:Lcom/android/launcher2/HomeFolderItem;
 
     iput-object p3, p0, Lcom/android/launcher2/LauncherModel$15;->val$item:Lcom/android/launcher2/HomeShortcutItem;
+
+    iput p4, p0, Lcom/android/launcher2/LauncherModel$15;->val$screen:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -43,13 +47,15 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .locals 3
 
-    iget-object v0, p0, Lcom/android/launcher2/LauncherModel$15;->val$callbacks:Lcom/android/launcher2/LauncherModel$Callbacks;
+    iget-object v0, p0, Lcom/android/launcher2/LauncherModel$15;->val$folderItem:Lcom/android/launcher2/HomeFolderItem;
 
     iget-object v1, p0, Lcom/android/launcher2/LauncherModel$15;->val$item:Lcom/android/launcher2/HomeShortcutItem;
 
-    invoke-interface {v0, v1}, Lcom/android/launcher2/LauncherModel$Callbacks;->bindHomeShortcut(Lcom/android/launcher2/HomeItem;)V
+    iget v2, p0, Lcom/android/launcher2/LauncherModel$15;->val$screen:I
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/launcher2/HomeFolderItem;->addItemAt(Lcom/android/launcher2/BaseItem;I)V
 
     return-void
 .end method

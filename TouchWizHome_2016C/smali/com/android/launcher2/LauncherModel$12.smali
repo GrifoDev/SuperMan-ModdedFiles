@@ -53,7 +53,7 @@
 
     const/4 v10, 0x0
 
-    sget-object v4, Lcom/android/launcher2/LauncherModel$36;->$SwitchMap$com$android$launcher2$BaseItem$Type:[I
+    sget-object v4, Lcom/android/launcher2/LauncherModel$37;->$SwitchMap$com$android$launcher2$BaseItem$Type:[I
 
     iget-object v5, p0, Lcom/android/launcher2/LauncherModel$12;->val$item:Lcom/android/launcher2/HomeItem;
 

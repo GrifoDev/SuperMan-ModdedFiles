@@ -1,4 +1,4 @@
-.class Lcom/android/launcher2/LauncherModel$29$1;
+.class Lcom/android/launcher2/LauncherModel$30$1;
 .super Ljava/lang/Object;
 .source "LauncherModel.java"
 
@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher2/LauncherModel$29;->run()V
+    value = Lcom/android/launcher2/LauncherModel$30;->run()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -18,18 +18,18 @@
 
 
 # instance fields
-.field final synthetic this$1:Lcom/android/launcher2/LauncherModel$29;
+.field final synthetic this$1:Lcom/android/launcher2/LauncherModel$30;
 
 .field final synthetic val$allApps:Ljava/util/Map;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher2/LauncherModel$29;Ljava/util/Map;)V
+.method constructor <init>(Lcom/android/launcher2/LauncherModel$30;Ljava/util/Map;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/launcher2/LauncherModel$29$1;->this$1:Lcom/android/launcher2/LauncherModel$29;
+    iput-object p1, p0, Lcom/android/launcher2/LauncherModel$30$1;->this$1:Lcom/android/launcher2/LauncherModel$30;
 
-    iput-object p2, p0, Lcom/android/launcher2/LauncherModel$29$1;->val$allApps:Ljava/util/Map;
+    iput-object p2, p0, Lcom/android/launcher2/LauncherModel$30$1;->val$allApps:Ljava/util/Map;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -43,7 +43,7 @@
 
     sget-object v0, Lcom/android/launcher2/MenuAppModel;->INSTANCE:Lcom/android/launcher2/MenuAppModel;
 
-    iget-object v1, p0, Lcom/android/launcher2/LauncherModel$29$1;->val$allApps:Ljava/util/Map;
+    iget-object v1, p0, Lcom/android/launcher2/LauncherModel$30$1;->val$allApps:Ljava/util/Map;
 
     invoke-virtual {v0, v1}, Lcom/android/launcher2/MenuAppModel;->setModelItems(Ljava/util/Map;)V
 
@@ -53,9 +53,9 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v0, p0, Lcom/android/launcher2/LauncherModel$29$1;->this$1:Lcom/android/launcher2/LauncherModel$29;
+    iget-object v0, p0, Lcom/android/launcher2/LauncherModel$30$1;->this$1:Lcom/android/launcher2/LauncherModel$30;
 
-    iget-object v0, v0, Lcom/android/launcher2/LauncherModel$29;->val$folder:Lcom/android/launcher2/Folder;
+    iget-object v0, v0, Lcom/android/launcher2/LauncherModel$30;->val$folder:Lcom/android/launcher2/Folder;
 
     invoke-virtual {v0}, Lcom/android/launcher2/Folder;->showSearchAppListAfterLoadAllApps()V
 

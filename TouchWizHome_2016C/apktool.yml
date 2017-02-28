@@ -6,68 +6,20 @@ doNotCompress:
 - qio
 - qmg
 - res/drawable-mdpi-v4/homescreen_badge.9.qmg
-- res/drawable-mdpi-v4/page_view_overlay_default.9.qmg
-- res/drawable-mdpi-v4/page_view_overlay_select.9.qmg
-- res/drawable-nodpi-v4/edit_apps_bg.9.qmg
-- res/drawable-nodpi-v4/edit_home_bg.9.qmg
-- res/drawable-nodpi-v4/page_scroll_bg.9.qmg
-- res/drawable-nodpi-v4/pagenum_bg.9.qmg
-- res/drawable-nodpi-v4/text_cursor_holo_light.9.qmg
-- res/drawable-nodpi-v4/tw_action_item_background_focused_holo_light.9.qmg
-- res/drawable-nodpi-v4/tw_action_item_background_pressed_holo_light.9.qmg
-- res/drawable-nodpi-v4/tw_action_item_background_selected_holo_light.9.qmg
-- res/drawable-sw768dp-mdpi-v13/focused_bg.9.qmg
-- res/drawable-sw768dp-mdpi-v13/page_view_overlay_default.9.qmg
-- res/drawable-sw768dp-mdpi-v13/page_view_overlay_select.9.qmg
-- res/drawable-sw768dp-xhdpi-v13/home_edit_panel_bg_default.9.qmg
-- res/drawable-sw768dp-xhdpi-v13/home_edit_panel_bg_main.9.qmg
 - res/drawable-sw768dp-xhdpi-v13/homescreen_badge.9.qmg
-- res/drawable-sw768dp-xhdpi-v13/pagenum_bg.9.qmg
 - res/drawable-sw768dp-xhdpi-v13/quick_option_popup_bg.9.qmg
-- res/drawable-sw768dp-xhdpi-v13/widget_resize_frame.9.qmg
-- res/drawable-sw768dp-xhdpi-v13/widget_resize_frame_invalid.9.qmg
 - res/drawable-xxhdpi-v4/bg_appwidget_error.9.qmg
 - res/drawable-xxhdpi-v4/btn_swallpaper.9.qmg
-- res/drawable-xxhdpi-v4/contacts_text_bg.9.qmg
-- res/drawable-xxhdpi-v4/default_widget_preview_holo.9.qmg
-- res/drawable-xxhdpi-v4/focused_bg.9.qmg
 - res/drawable-xxhdpi-v4/help_popup_picker_bg_w_01.9.qmg
-- res/drawable-xxhdpi-v4/home_edit_panel_bg_default.9.qmg
-- res/drawable-xxhdpi-v4/home_edit_panel_bg_main.9.qmg
-- res/drawable-xxhdpi-v4/home_edit_panel_bg_main_dark.9.qmg
-- res/drawable-xxhdpi-v4/home_edit_panel_bg_off.9.qmg
-- res/drawable-xxhdpi-v4/home_edit_panel_bg_off_dark.9.qmg
 - res/drawable-xxhdpi-v4/home_fast_navi_bg.9.qmg
-- res/drawable-xxhdpi-v4/home_folder_textfield_bg.9.qmg
 - res/drawable-xxhdpi-v4/homescreen_apptray_btn_bg.9.qmg
-- res/drawable-xxhdpi-v4/homescreen_apptray_scroll.9.qmg
 - res/drawable-xxhdpi-v4/homescreen_badge.9.qmg
 - res/drawable-xxhdpi-v4/homescreen_badge_s.9.qmg
-- res/drawable-xxhdpi-v4/homescreen_widgets_preview_bg.9.qmg
-- res/drawable-xxhdpi-v4/homescreen_widgets_preview_bg_w.9.qmg
-- res/drawable-xxhdpi-v4/page_top.9.qmg
 - res/drawable-xxhdpi-v4/page_view_clear_bg.9.qmg
-- res/drawable-xxhdpi-v4/page_view_overlay_default.9.qmg
-- res/drawable-xxhdpi-v4/page_view_overlay_select.9.qmg
 - res/drawable-xxhdpi-v4/quantum_panel_dark_bitmap.9.qmg
-- res/drawable-xxhdpi-v4/shape.9.qmg
-- res/drawable-xxhdpi-v4/tw_action_item_background_focused_holo_light.9.qmg
-- res/drawable-xxhdpi-v4/tw_action_item_background_pressed_holo_light.9.qmg
-- res/drawable-xxhdpi-v4/tw_action_item_background_selected_holo_light.9.qmg
-- res/drawable-xxhdpi-v4/tw_buttonbarbutton_selector_default_holo_dark.9.qmg
-- res/drawable-xxhdpi-v4/tw_buttonbarbutton_selector_focused_holo_dark.9.qmg
-- res/drawable-xxhdpi-v4/tw_buttonbarbutton_selector_pressed_holo_dark.9.qmg
 - res/drawable-xxhdpi-v4/tw_scrollbar_handle_right_bg_mtrl.9.qmg
-- res/drawable-xxhdpi-v4/tw_tab_unselected_bar_holo.9.qmg
 - res/drawable-xxhdpi-v4/tw_toast_frame_mtrl_light.9.qmg
-- res/drawable-xxhdpi-v4/widget_resize_frame.9.qmg
-- res/drawable-xxhdpi-v4/widget_resize_frame_invalid.9.qmg
-- res/drawable-xxxhdpi-v4/page_view_overlay_default.9.qmg
-- res/drawable-xxxhdpi-v4/page_view_overlay_select.9.qmg
 - res/drawable-xxxhdpi-v4/quick_option_popup_bg.9.qmg
-- res/drawable/focused_bg.9.qmg
-- res/drawable/tw_ab_bottom_transparent_mtrl.9.qmg
-- res/drawable/tw_list_toast_popup_bg.9.qmg
 - res/drawable/tw_scroll_popup_bg_holo_light.9.qmg
 isFrameworkApk: false
 packageInfo:
@@ -86,5 +38,5 @@ usesFramework:
   tag: null
 version: 2.2.2
 versionInfo:
-  versionCode: '578100000'
-  versionName: 5.7.81
+  versionCode: '579200000'
+  versionName: 5.7.92

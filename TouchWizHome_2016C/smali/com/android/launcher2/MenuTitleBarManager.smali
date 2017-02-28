@@ -4141,13 +4141,13 @@
 .method public setSearchBarBackground()V
     .locals 9
 
-    const v6, 0x7f0200a8
+    const v6, 0x7f0200aa
 
-    const v4, 0x7f0200a7
+    const v4, 0x7f0200a9
 
-    const v7, 0x7f0200a6
+    const v7, 0x7f0200a8
 
-    const v5, 0x7f0200a5
+    const v5, 0x7f0200a7
 
     iget-object v8, p0, Lcom/android/launcher2/MenuTitleBarManager;->mMoreOptionBtnContainer:Landroid/widget/FrameLayout;
 
@@ -4179,9 +4179,9 @@
     move v0, v5
 
     :goto_1
-    const v3, 0x7f0200a9
+    const v3, 0x7f0200ab
 
-    const v1, 0x7f0200a3
+    const v1, 0x7f0200a5
 
     :goto_2
     iget-object v4, p0, Lcom/android/launcher2/MenuTitleBarManager;->mSearchBarDivider:Landroid/view/View;
@@ -4253,9 +4253,9 @@
     move v0, v7
 
     :goto_5
-    const v3, 0x7f0200aa
+    const v3, 0x7f0200ac
 
-    const v1, 0x7f0200a4
+    const v1, 0x7f0200a6
 
     goto :goto_2
 

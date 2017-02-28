@@ -301,7 +301,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f02006d
+    const v7, 0x7f02006f
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -443,7 +443,7 @@
     sput v6, Lcom/android/launcher2/AppIconView;->mBadgeClearViewHeight:I
 
     :cond_5
-    const v6, 0x7f090327
+    const v6, 0x7f09032b
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2944,7 +2944,7 @@
 
     move-result-object v19
 
-    const v20, 0x7f0902c0
+    const v20, 0x7f0902c2
 
     invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3026,7 +3026,7 @@
 
     move-result-object v19
 
-    const v20, 0x7f090363
+    const v20, 0x7f090367
 
     invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4153,7 +4153,7 @@
 
     move-result-object v22
 
-    const v23, 0x7f0902bd
+    const v23, 0x7f0902bf
 
     invoke-virtual/range {v22 .. v23}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4225,7 +4225,7 @@
 
     move-result-object v22
 
-    const v23, 0x7f090328
+    const v23, 0x7f09032c
 
     invoke-virtual/range {v22 .. v23}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4244,7 +4244,7 @@
 
     move-result-object v21
 
-    const v22, 0x7f0902be
+    const v22, 0x7f0902c0
 
     invoke-virtual/range {v21 .. v22}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4439,7 +4439,7 @@
 
     move-result-object v21
 
-    const v22, 0x7f0902bf
+    const v22, 0x7f0902c1
 
     invoke-virtual/range {v21 .. v22}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

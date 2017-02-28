@@ -333,7 +333,7 @@
     <dimen name="menuWidgets_widgetOverlay_padding">3.0dip</dimen>
     <dimen name="menuWidgets_widgetSize_textSize">14.0dip</dimen>
     <dimen name="menu_editDragBarSize">55.0dip</dimen>
-    <dimen name="menu_edit_button_text_size">15.0sp</dimen>
+    <dimen name="menu_edit_button_text_size">15.0dip</dimen>
     <dimen name="menu_edit_cancel_left_padding">43.0dip</dimen>
     <dimen name="menu_edit_done_left_padding">55.0dip</dimen>
     <item type="dimen" name="menu_edit_translation_view_factor">0.953</item>

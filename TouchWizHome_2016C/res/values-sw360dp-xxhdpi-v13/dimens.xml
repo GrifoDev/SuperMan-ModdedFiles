@@ -347,7 +347,7 @@
     <dimen name="menuWidgets_widgetOverlay_padding">3.0dip</dimen>
     <dimen name="menuWidgets_widgetSize_textSize">14.0dip</dimen>
     <dimen name="menu_editDragBarSize">55.0dip</dimen>
-    <dimen name="menu_edit_button_text_size">15.0sp</dimen>
+    <dimen name="menu_edit_button_text_size">15.0dip</dimen>
     <dimen name="menu_edit_cancel_left_padding">43.0dip</dimen>
     <dimen name="menu_edit_done_left_padding">55.0dip</dimen>
     <item type="dimen" name="menu_edit_translation_view_factor">0.937</item>
@@ -509,6 +509,7 @@
     <dimen name="screen_grid_title_margin_bottom">7.0dip</dimen>
     <dimen name="screen_grid_title_width">295.0dip</dimen>
     <item type="dimen" name="transition_bounce_min_scale">0.89</item>
+    <dimen name="menuWidgets_fragment_margin_left">-2.2999878dip</dimen>
     <dimen name="popup_menu_listView_offsetX">4.0dip</dimen>
     <dimen name="folder_multi_header_line_height">2.0px</dimen>
     <dimen name="folder_multi_icon_layout_height">100.0dip</dimen>
@@ -519,7 +520,6 @@
     <dimen name="open_folder_layout_bottom_gradation_height">20.0dip</dimen>
     <dimen name="appsearch_grid_cell_padding">3.0dip</dimen>
     <dimen name="folder_icon_marginTop">4.0dip</dimen>
-    <dimen name="menuWidgets_fragment_margin_left">-2.2999878dip</dimen>
     <dimen name="open_folder_title_option_button_img_padding">3.0dip</dimen>
     <dimen name="appsearch_font_size">14.0sp</dimen>
     <dimen name="appsearch_list_item_margin_top">3.0dip</dimen>

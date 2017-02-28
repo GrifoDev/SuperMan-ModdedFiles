@@ -36,6 +36,7 @@
     <item type="dimen" name="menu5x5_edit_translation_view_factor">0.975</item>
     <dimen name="moveApps_scroll_margin">20.0dip</dimen>
     <dimen name="moveApps_topGap">12.0dip</dimen>
+    <dimen name="folder_multi_header_line_height">1.0px</dimen>
     <dimen name="moveApps_cellHeight">74.0dip</dimen>
     <dimen name="app_searchview_margin_top">8.0dip</dimen>
     <item type="dimen" name="config_hotseatDragModeShrinkFactor">0.92</item>

@@ -748,7 +748,7 @@
 
     move-result-object v3
 
-    const v5, 0x7f090375
+    const v5, 0x7f090379
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -865,7 +865,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0902ce
+    const v6, 0x7f0902d1
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -877,7 +877,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0902cf
+    const v6, 0x7f0902d2
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4932,6 +4932,8 @@
 .method public clearLayout(Lcom/android/launcher2/Page;)V
     .locals 7
 
+    const/4 v6, 0x0
+
     new-instance v4, Ljava/util/ArrayList;
 
     invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
@@ -5004,9 +5006,15 @@
 
     check-cast v5, Lcom/android/launcher2/AppItem;
 
-    const/4 v6, 0x0
-
     invoke-virtual {v5, v6}, Lcom/android/launcher2/AppItem;->setLoadingListener(Lcom/android/launcher2/BaseItem$LoadingListener;)V
+
+    invoke-virtual {v3}, Lcom/android/launcher2/MenuAppIconView;->getTag()Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Lcom/android/launcher2/AppItem;
+
+    invoke-virtual {v5, v6}, Lcom/android/launcher2/AppItem;->setIconView(Landroid/view/View;)V
 
     :cond_2
     iget-object v5, p0, Lcom/android/launcher2/MenuAppsGrid;->mRecycledViews:Ljava/util/Stack;
@@ -7275,6 +7283,14 @@
     return-void
 
     :cond_1
+    invoke-virtual {p0}, Lcom/android/launcher2/MenuAppsGrid;->getState()Lcom/android/launcher2/MenuAppsGrid$State;
+
+    move-result-object v2
+
+    sget-object v3, Lcom/android/launcher2/MenuAppsGrid$State;->SEARCH:Lcom/android/launcher2/MenuAppsGrid$State;
+
+    if-eq v2, v3, :cond_0
+
     check-cast v0, Lcom/android/launcher2/FolderItem;
 
     invoke-virtual {p0, v0, v4}, Lcom/android/launcher2/MenuAppsGrid;->openFolder(Lcom/android/launcher2/FolderItem;Z)V
@@ -7414,6 +7430,14 @@
     goto/16 :goto_0
 
     :cond_6
+    invoke-virtual {p0}, Lcom/android/launcher2/MenuAppsGrid;->getState()Lcom/android/launcher2/MenuAppsGrid$State;
+
+    move-result-object v2
+
+    sget-object v3, Lcom/android/launcher2/MenuAppsGrid$State;->SEARCH:Lcom/android/launcher2/MenuAppsGrid$State;
+
+    if-eq v2, v3, :cond_0
+
     check-cast v0, Lcom/android/launcher2/FolderItem;
 
     invoke-virtual {p0, v0, v4}, Lcom/android/launcher2/MenuAppsGrid;->openFolder(Lcom/android/launcher2/FolderItem;Z)V
@@ -8802,9 +8826,9 @@
 .method public relayoutOnConfigChange()V
     .locals 9
 
-    const v8, 0x7f0903aa
+    const v8, 0x7f0903ae
 
-    const v7, 0x7f0903a9
+    const v7, 0x7f0903ad
 
     const/4 v6, 0x0
 
@@ -8846,7 +8870,7 @@
 
     invoke-virtual {p0, v4}, Lcom/android/launcher2/MenuAppsGrid;->setPageZoom(F)V
 
-    const v4, 0x7f0903ab
+    const v4, 0x7f0903af
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -10441,13 +10465,13 @@
 .end method
 
 .method updateCalendarLiveIcon()V
-    .locals 9
+    .locals 10
 
     invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6}, Lcom/android/launcher2/Launcher;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {v7}, Lcom/android/launcher2/Launcher;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v5
 
@@ -10455,7 +10479,7 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_0
 
     invoke-virtual {v3}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
 
@@ -10463,44 +10487,60 @@
 
     invoke-static {}, Lcom/android/launcher2/MenuAppLoader;->getApps()Ljava/util/Map;
 
-    move-result-object v6
+    move-result-object v7
 
-    new-instance v7, Lcom/android/launcher2/PkgResCache$CacheKey;
+    new-instance v8, Lcom/android/launcher2/PkgResCache$CacheKey;
 
     invoke-static {}, Lcom/android/launcher2/compat/UserHandleCompat;->myUserHandle()Lcom/android/launcher2/compat/UserHandleCompat;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-direct {v7, v0, v8}, Lcom/android/launcher2/PkgResCache$CacheKey;-><init>(Landroid/content/ComponentName;Lcom/android/launcher2/compat/UserHandleCompat;)V
+    invoke-direct {v8, v0, v9}, Lcom/android/launcher2/PkgResCache$CacheKey;-><init>(Landroid/content/ComponentName;Lcom/android/launcher2/compat/UserHandleCompat;)V
 
-    invoke-interface {v6, v7}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v7, v8}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v4
 
     check-cast v4, Lcom/android/launcher2/AppItem;
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_0
 
-    iget v6, v4, Lcom/android/launcher2/AppItem;->mScreen:I
+    invoke-virtual {p0}, Lcom/android/launcher2/MenuAppsGrid;->getContext()Landroid/content/Context;
 
-    invoke-virtual {p0}, Lcom/android/launcher2/MenuAppsGrid;->getCurrentPage()I
+    move-result-object v7
+
+    check-cast v7, Lcom/android/launcher2/Launcher;
+
+    invoke-virtual {v7}, Lcom/android/launcher2/Launcher;->getMenuView()Lcom/android/launcher2/MenuView;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Lcom/android/launcher2/MenuView;->getViewType()Lcom/android/launcher2/MenuView$ViewType;
+
+    move-result-object v7
+
+    sget-object v8, Lcom/android/launcher2/MenuView$ViewType;->ALPHABETIC_GRID:Lcom/android/launcher2/MenuView$ViewType;
+
+    if-ne v7, v8, :cond_2
+
+    iget-object v7, v4, Lcom/android/launcher2/AppItem;->mFolder:Lcom/android/launcher2/AppFolderItem;
+
+    if-eqz v7, :cond_1
+
+    iget-object v7, v4, Lcom/android/launcher2/AppItem;->mFolder:Lcom/android/launcher2/AppFolderItem;
+
+    iget v6, v7, Lcom/android/launcher2/AppFolderItem;->mScreenInAlphabetical:I
+
+    :goto_0
+    invoke-virtual {p0, v6}, Lcom/android/launcher2/MenuAppsGrid;->isPageInclusive(I)Z
 
     move-result v7
 
-    if-eq v6, v7, :cond_0
+    if-eqz v7, :cond_0
 
-    iget v6, v4, Lcom/android/launcher2/AppItem;->mScreenInAlphabetical:I
+    iget-object v7, v4, Lcom/android/launcher2/AppItem;->mFolder:Lcom/android/launcher2/AppFolderItem;
 
-    invoke-virtual {p0}, Lcom/android/launcher2/MenuAppsGrid;->getCurrentPage()I
-
-    move-result v7
-
-    if-ne v6, v7, :cond_1
-
-    :cond_0
-    iget-object v6, v4, Lcom/android/launcher2/AppItem;->mFolder:Lcom/android/launcher2/AppFolderItem;
-
-    if-eqz v6, :cond_2
+    if-eqz v7, :cond_4
 
     iget-object v1, v4, Lcom/android/launcher2/AppItem;->mFolder:Lcom/android/launcher2/AppFolderItem;
 
@@ -10510,38 +10550,57 @@
 
     check-cast v2, Lcom/android/launcher2/FolderIconView;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_0
 
     invoke-virtual {v2, v1}, Lcom/android/launcher2/FolderIconView;->applyBaseItem(Lcom/android/launcher2/BaseItem;)V
 
-    :cond_1
-    :goto_0
+    :cond_0
+    :goto_1
     return-void
 
+    :cond_1
+    iget v6, v4, Lcom/android/launcher2/AppItem;->mScreenInAlphabetical:I
+
+    goto :goto_0
+
     :cond_2
+    iget-object v7, v4, Lcom/android/launcher2/AppItem;->mFolder:Lcom/android/launcher2/AppFolderItem;
+
+    if-eqz v7, :cond_3
+
+    iget v6, v4, Lcom/android/launcher2/AppItem;->mScreen:I
+
+    goto :goto_0
+
+    :cond_3
+    iget v6, v4, Lcom/android/launcher2/AppItem;->mScreen:I
+
+    goto :goto_0
+
+    :cond_4
     invoke-virtual {v4}, Lcom/android/launcher2/AppItem;->getIconView()Landroid/view/View;
 
     move-result-object v2
 
     check-cast v2, Lcom/android/launcher2/AppIconView;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_0
 
     invoke-virtual {v2, v4}, Lcom/android/launcher2/AppIconView;->applyBaseItem(Lcom/android/launcher2/BaseItem;)V
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method updateClockLiveIcon()V
-    .locals 9
+    .locals 10
 
     invoke-virtual {p0}, Lcom/android/launcher2/MenuAppsGrid;->getComingPageForLiveIcon()I
 
     move-result v4
 
-    const/high16 v6, -0x80000000
+    const/high16 v7, -0x80000000
 
-    if-ne v4, v6, :cond_1
+    if-ne v4, v7, :cond_1
 
     :cond_0
     :goto_0
@@ -10550,9 +10609,9 @@
     :cond_1
     invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6}, Lcom/android/launcher2/Launcher;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {v7}, Lcom/android/launcher2/Launcher;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v5
 
@@ -10568,17 +10627,17 @@
 
     invoke-static {}, Lcom/android/launcher2/MenuAppLoader;->getApps()Ljava/util/Map;
 
-    move-result-object v6
+    move-result-object v7
 
-    new-instance v7, Lcom/android/launcher2/PkgResCache$CacheKey;
+    new-instance v8, Lcom/android/launcher2/PkgResCache$CacheKey;
 
     invoke-static {}, Lcom/android/launcher2/compat/UserHandleCompat;->myUserHandle()Lcom/android/launcher2/compat/UserHandleCompat;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-direct {v7, v0, v8}, Lcom/android/launcher2/PkgResCache$CacheKey;-><init>(Landroid/content/ComponentName;Lcom/android/launcher2/compat/UserHandleCompat;)V
+    invoke-direct {v8, v0, v9}, Lcom/android/launcher2/PkgResCache$CacheKey;-><init>(Landroid/content/ComponentName;Lcom/android/launcher2/compat/UserHandleCompat;)V
 
-    invoke-interface {v6, v7}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v7, v8}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
 
@@ -10586,22 +10645,35 @@
 
     if-eqz v3, :cond_0
 
-    iget-object v6, v3, Lcom/android/launcher2/AppItem;->mFolder:Lcom/android/launcher2/AppFolderItem;
+    invoke-virtual {p0}, Lcom/android/launcher2/MenuAppsGrid;->getContext()Landroid/content/Context;
 
-    if-eqz v6, :cond_2
+    move-result-object v7
 
-    iget-object v6, v3, Lcom/android/launcher2/AppItem;->mFolder:Lcom/android/launcher2/AppFolderItem;
+    check-cast v7, Lcom/android/launcher2/Launcher;
 
-    iget v6, v6, Lcom/android/launcher2/AppFolderItem;->mScreen:I
+    invoke-virtual {v7}, Lcom/android/launcher2/Launcher;->getMenuView()Lcom/android/launcher2/MenuView;
 
-    if-eq v6, v4, :cond_3
+    move-result-object v7
 
-    :cond_2
-    iget v6, v3, Lcom/android/launcher2/AppItem;->mScreen:I
+    invoke-virtual {v7}, Lcom/android/launcher2/MenuView;->getViewType()Lcom/android/launcher2/MenuView$ViewType;
 
+    move-result-object v7
+
+    sget-object v8, Lcom/android/launcher2/MenuView$ViewType;->ALPHABETIC_GRID:Lcom/android/launcher2/MenuView$ViewType;
+
+    if-ne v7, v8, :cond_3
+
+    iget-object v7, v3, Lcom/android/launcher2/AppItem;->mFolder:Lcom/android/launcher2/AppFolderItem;
+
+    if-eqz v7, :cond_2
+
+    iget-object v7, v3, Lcom/android/launcher2/AppItem;->mFolder:Lcom/android/launcher2/AppFolderItem;
+
+    iget v6, v7, Lcom/android/launcher2/AppFolderItem;->mScreenInAlphabetical:I
+
+    :goto_1
     if-ne v6, v4, :cond_0
 
-    :cond_3
     invoke-virtual {v3}, Lcom/android/launcher2/AppItem;->getIconView()Landroid/view/View;
 
     move-result-object v1
@@ -10613,6 +10685,25 @@
     invoke-virtual {v1, v3}, Lcom/android/launcher2/AppIconView;->applyBaseItem(Lcom/android/launcher2/BaseItem;)V
 
     goto :goto_0
+
+    :cond_2
+    iget v6, v3, Lcom/android/launcher2/AppItem;->mScreenInAlphabetical:I
+
+    goto :goto_1
+
+    :cond_3
+    iget-object v7, v3, Lcom/android/launcher2/AppItem;->mFolder:Lcom/android/launcher2/AppFolderItem;
+
+    if-eqz v7, :cond_4
+
+    iget v6, v3, Lcom/android/launcher2/AppItem;->mScreen:I
+
+    goto :goto_1
+
+    :cond_4
+    iget v6, v3, Lcom/android/launcher2/AppItem;->mScreen:I
+
+    goto :goto_1
 .end method
 
 .method public updateMoreButtonState(Lcom/android/launcher2/MenuAppsGrid$State;)V

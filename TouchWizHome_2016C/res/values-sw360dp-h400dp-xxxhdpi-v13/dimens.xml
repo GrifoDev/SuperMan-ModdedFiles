@@ -19,9 +19,9 @@
     <dimen name="home_screen_option_menu_icon_width">89.0dip</dimen>
     <dimen name="home_screen_option_menu_padding_bottom">2.0dip</dimen>
     <dimen name="home_screen_option_menu_padding_side">6.0dip</dimen>
-    <dimen name="home_screen_option_menu_text_padding">3.0dip</dimen>
+    <dimen name="home_screen_option_menu_text_padding">-2.0dip</dimen>
     <dimen name="home_screen_option_menu_text_size">13.0dip</dimen>
-    <dimen name="homescreen_option_menu_margin_top">6.0dip</dimen>
+    <dimen name="homescreen_option_menu_margin_top">3.0dip</dimen>
     <dimen name="hotseat_barSize">77.0dip</dimen>
     <dimen name="hotseat_bottomGap">3.0dip</dimen>
     <dimen name="hotseat_cellHeight">73.0dip</dimen>

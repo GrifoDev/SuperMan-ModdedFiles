@@ -248,7 +248,7 @@
 
     if-eqz v10, :cond_7
 
-    const v10, 0x7f020076
+    const v10, 0x7f020078
 
     invoke-virtual {v6, v10}, Landroid/view/View;->setBackgroundResource(I)V
 
@@ -313,7 +313,7 @@
     goto :goto_4
 
     :cond_7
-    const v10, 0x7f020075
+    const v10, 0x7f020077
 
     invoke-virtual {v6, v10}, Landroid/view/View;->setBackgroundResource(I)V
 
@@ -387,7 +387,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090383
+    const v1, 0x7f090387
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

@@ -40,7 +40,7 @@
     iget-object v0, p0, Lcom/android/launcher2/LauncherModel$LoaderTask$26;->this$1:Lcom/android/launcher2/LauncherModel$LoaderTask;
 
     # getter for: Lcom/android/launcher2/LauncherModel$LoaderTask;->mStopped:Z
-    invoke-static {v0}, Lcom/android/launcher2/LauncherModel$LoaderTask;->access$1300(Lcom/android/launcher2/LauncherModel$LoaderTask;)Z
+    invoke-static {v0}, Lcom/android/launcher2/LauncherModel$LoaderTask;->access$1500(Lcom/android/launcher2/LauncherModel$LoaderTask;)Z
 
     move-result v0
 
@@ -49,7 +49,7 @@
     iget-object v0, p0, Lcom/android/launcher2/LauncherModel$LoaderTask$26;->this$1:Lcom/android/launcher2/LauncherModel$LoaderTask;
 
     # invokes: Lcom/android/launcher2/LauncherModel$LoaderTask;->postModelRefreshed()V
-    invoke-static {v0}, Lcom/android/launcher2/LauncherModel$LoaderTask;->access$1400(Lcom/android/launcher2/LauncherModel$LoaderTask;)V
+    invoke-static {v0}, Lcom/android/launcher2/LauncherModel$LoaderTask;->access$1600(Lcom/android/launcher2/LauncherModel$LoaderTask;)V
 
     :cond_0
     return-void

@@ -987,7 +987,7 @@
 
     if-eqz v10, :cond_3
 
-    const v10, 0x7f020076
+    const v10, 0x7f020078
 
     invoke-virtual {v4, v10}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 
@@ -1068,7 +1068,7 @@
     goto :goto_0
 
     :cond_3
-    const v10, 0x7f020075
+    const v10, 0x7f020077
 
     invoke-virtual {v4, v10}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 

@@ -97,7 +97,7 @@
 
     invoke-virtual {v0, v1}, Landroid/text/TextPaint;->setTextSize(F)V
 
-    const v0, 0x7f02008c
+    const v0, 0x7f02008e
 
     invoke-virtual {p0, v0}, Lcom/android/launcher2/PendingAppWidgetHostView;->setBackgroundResource(I)V
 
@@ -115,7 +115,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f09039c
+    const v1, 0x7f0903a0
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -150,7 +150,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f09039d
+    const v3, 0x7f0903a1
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

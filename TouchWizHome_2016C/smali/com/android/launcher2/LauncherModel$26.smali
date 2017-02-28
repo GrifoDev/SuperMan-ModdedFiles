@@ -22,14 +22,18 @@
 
 .field final synthetic val$launcher:Lcom/android/launcher2/Launcher;
 
+.field final synthetic val$screenCount:I
+
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher2/LauncherModel;Lcom/android/launcher2/Launcher;)V
+.method constructor <init>(Lcom/android/launcher2/LauncherModel;Lcom/android/launcher2/Launcher;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher2/LauncherModel$26;->this$0:Lcom/android/launcher2/LauncherModel;
 
     iput-object p2, p0, Lcom/android/launcher2/LauncherModel$26;->val$launcher:Lcom/android/launcher2/Launcher;
+
+    iput p3, p0, Lcom/android/launcher2/LauncherModel$26;->val$screenCount:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -39,13 +43,21 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .locals 3
 
     iget-object v0, p0, Lcom/android/launcher2/LauncherModel$26;->val$launcher:Lcom/android/launcher2/Launcher;
 
     iget-object v0, v0, Lcom/android/launcher2/Launcher;->mHomeView:Lcom/android/launcher2/HomeView;
 
-    invoke-virtual {v0}, Lcom/android/launcher2/HomeView;->addPage()V
+    invoke-virtual {v0}, Lcom/android/launcher2/HomeView;->getWorkspace()Lcom/android/launcher2/Workspace;
+
+    move-result-object v0
+
+    iget v1, p0, Lcom/android/launcher2/LauncherModel$26;->val$screenCount:I
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/launcher2/Workspace;->insertWorkspaceScreen(IZ)Lcom/android/launcher2/CellLayout;
 
     iget-object v0, p0, Lcom/android/launcher2/LauncherModel$26;->val$launcher:Lcom/android/launcher2/Launcher;
 

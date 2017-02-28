@@ -32,7 +32,7 @@ Name: res/layout-sw768dp-land-v13/hotseat.xml
 SHA-256-Digest: zPYCeMW4aUMXPXVPIeuqmTa0s58mxgO6hTARNpPrFj4=
 
 Name: res/drawable/cling_ok_button.xml
-SHA-256-Digest: nVQY9SfNfREdu103C+mEB1W8YaSdN5R+h0MtgiNFB1Y=
+SHA-256-Digest: Qi01wYhOid86ja3wGcUs4t5w+QoO1/MxHrb2es12j4A=
 
 Name: res/anim/quick_options_popup_hide_top_left.xml
 SHA-256-Digest: 3qbWHLcAsNO8azBPr1AvSDXjWRuYUDdowOI2C/iJmX4=
@@ -80,7 +80,7 @@ Name: res/drawable-sw768dp-xhdpi-v13/folder_colorpicker_yellow.qio
 SHA-256-Digest: vv/2z+/H8jPuHgxhQnnL1lFSnY7HwHjsWCFQKoR7Fis=
 
 Name: resources.arsc
-SHA-256-Digest: 6gczfJmndoiz54TbqELDY6qd2IiYiHbi264VusYlnsE=
+SHA-256-Digest: btUP62oLNEmy5KjfHZHLgZFdBLO9k+JU9XedOQNnGfU=
 
 Name: res/drawable-xxhdpi-v4/tw_tab_unselected_bar_holo.9.qmg
 SHA-256-Digest: Zisc7AVkGwDbBuetPR5mZ4wOSk3Faua8IMXoPc0t3rE=
@@ -108,7 +108,7 @@ Name: res/drawable/rectangle_button_background.xml
 SHA-256-Digest: IOzQ5dRg+WxZ6Mwp/FAGpRdceEEmUGw6bbbTohRg4Nw=
 
 Name: res/animator/trashcan_translatey_reverse.xml
-SHA-256-Digest: gm9I7ZGZ/FsheN7BRbRcnQqctN8NWBzanGWHKYaa5jE=
+SHA-256-Digest: 8yhPqh8IcxkntXOsbeZ0SFmhupqdtaYMx8QThpnZUZs=
 
 Name: res/color/menu_title_done_text_color_phone.xml
 SHA-256-Digest: OvscFijdEGENrb3jX0laAnHZ5Vnf/Y8RQYIvFnobDSM=
@@ -123,7 +123,7 @@ Name: res/drawable/menu_uninstall_icon.xml
 SHA-256-Digest: LTaw13XxgzNC56BFtB4BsWMrllF5yi5x0tYayn4mRM8=
 
 Name: res/animator/workspace_edit_enter.xml
-SHA-256-Digest: HEuihgbHFA94Ce0zjH2sQEE8uoJIa2bw/AHxmiGc31U=
+SHA-256-Digest: fCcbZlY0xPg6ZDE5kGfpagqhMSpFYrvc3yu5OMO64bY=
 
 Name: res/drawable-xxhdpi-v4/toolbar_ic_uninstall_004.qio
 SHA-256-Digest: SPoOu5/384hZvyFgTyxlPU0dSCYG3xHG5Jc6XObCBtc=
@@ -144,13 +144,13 @@ Name: res/drawable-xxhdpi-v4/toolbar_ic_cancel_normal.qio
 SHA-256-Digest: TM70PejPAqRuL5T0u6fdBqOTKH8TBA05/wKkvkolUws=
 
 Name: res/layout/menu_icon.xml
-SHA-256-Digest: D+i5E+Pk5HOwffWjiw5TEfFtb+AflOPccnHe1kG+jck=
+SHA-256-Digest: njZ6fLK8Rc8DtEDO9tg63fkSavs0dPc6onDm0x/G150=
 
 Name: res/drawable/page_view_clear_ic.bmp
 SHA-256-Digest: 6EDeOMFeo+v28Fty0ZZ82Pb1apRKllwfJnc774fcVt4=
 
 Name: res/layout/badge_clear_button.xml
-SHA-256-Digest: D2Gb8/NRItCj/dkrf3fk63m70LTLmpQt7uGBRQRXQ9o=
+SHA-256-Digest: SHyvwbQBINe9xLUQCDwGGPzd7eG17EZ6mBS5qzJsbac=
 
 Name: res/drawable-xxhdpi-v4/contacts_icon_msg.qio
 SHA-256-Digest: z8pU921lUpIMgEBjC8Tj1fdu9v+AC6XDZfn+H4Fy8AA=
@@ -192,7 +192,7 @@ Name: res/drawable/screen_grid_icon_4x4.xml
 SHA-256-Digest: Q6O/2+np2wZf9+LAk9lMLGWpDF7f/8RG+HpQMYEWas4=
 
 Name: res/layout/widget_folder_open_content.xml
-SHA-256-Digest: 8dN1BdIi/cv+6CBAW8fKFu1EAai0ummvIdMnyU0JWY4=
+SHA-256-Digest: kbiuGQZbV2mYW+sz5qzVivqbbQent9mw0YwaRkvNGnI=
 
 Name: res/anim/quick_options_popup_show_bottom_left.xml
 SHA-256-Digest: DNyi5C047XC8qJGDQ4LAaSLHtxk1OfduU2POoIPrhq4=
@@ -210,13 +210,13 @@ Name: res/drawable-xxhdpi-v4/home_fast_navi_bg.9.qmg
 SHA-256-Digest: DzO6lrGZNqbNPwCm1YnIdo3WTvb9tsSmPRJ/2WmsRg8=
 
 Name: res/layout-sw360dp-xxhdpi-v13/create_folder_text.xml
-SHA-256-Digest: KcZ2nY3aLSTpT7oLXWWSg2BMsMs8pGPL6vYMfhlbaws=
+SHA-256-Digest: gRrDWb7E7En5S8Jhup5XPjc/nD1jMLfzgHi1FkAfcwc=
 
 Name: res/drawable-xxhdpi-v4/homescreen_ic_navi_grid_5x5_selected.qio
 SHA-256-Digest: nTxMmpiKwIsPBf8F6VbMI/Gmb7OO3O8muGtX6ODy6zg=
 
 Name: res/xml-sw768dp-xhdpi-v13/default_workspace_knox.xml
-SHA-256-Digest: HtIAyul1iQShNcJI16EeLggfE/7qN/5NENm/VHBX5m4=
+SHA-256-Digest: 3MGqtWnJDZbCamxG+e3gVlWVBttKjM+sc6yzpwUVvYg=
 
 Name: res/drawable-tvdpi-v4/homescreen_ic_folder_orange.qmg
 SHA-256-Digest: 4PK/DVhtbMRl6rNJfhmKsSSxohyW7Z8S0+3K3iQlCkI=
@@ -271,7 +271,7 @@ Name: res/xml/default_application_order_guest.xml
 SHA-256-Digest: Z70waVG+2hBZw6tkRVMHISrOrBHw47VTzoM79BxSfZA=
 
 Name: res/layout/folder_content_vertical.xml
-SHA-256-Digest: awhm5EgD8Zd4SF7hcjewqEH3ENv5unpparsqRJJrTTQ=
+SHA-256-Digest: Xwcd2R6vBSjVbzWL2m+xC3Vd0yFiqKdKMnvahOgupRA=
 
 Name: res/drawable-xxhdpi-v4/tw_btn_check_to_on_mtrl_007.qmg
 SHA-256-Digest: ND5S33C/EDHdu7BDwY5Vp8LGZhfBq3k6wE/PDJ7VAl4=
@@ -289,16 +289,16 @@ Name: res/drawable-xxhdpi-v4/home_ic_folder_shape3.qio
 SHA-256-Digest: NeJV77IPUPDKKQGoN0ot1yGH5UBVgUc2UK3efYpq9e0=
 
 Name: res/layout/searchapp_alphabetical_layout.xml
-SHA-256-Digest: HYnJIN/dcbnoYWogeMLkvf0RSOPDeSC7a7NoItp2640=
+SHA-256-Digest: 4nYJsGiZ1NmmFPNS1z1ioZg8Pmily6g558JdbQi1CcU=
 
 Name: res/layout-sw512dp-v13/add_button.xml
 SHA-256-Digest: IrzoTFAtpwHKlulOSE9p9kq/o5QLQ0gnAvMJyeOHtsQ=
 
 Name: res/drawable/badge_clear_btn_bg.xml
-SHA-256-Digest: wMVe0iYhlOx/7EP//wDuYaHTcDwXYMYfTV3W++Kjtrs=
+SHA-256-Digest: 7BsGyfYUK85E/PEOUXxU7HhujFW/DD3ekyA5VXkR8eA=
 
 Name: res/layout/menu_widgets_fragment.xml
-SHA-256-Digest: gtZc56prlCcJg6ZR09+X8vaF3rwFB91c6xABLZKXNzo=
+SHA-256-Digest: 8iDSndtz4EANmXZ8aX6SbEX50vyIy2ccR6zaF8S7PMo=
 
 Name: res/anim/quick_options_popup_hide_bottom_left.xml
 SHA-256-Digest: yZeWQ0QirRDVHkVT0uN+xVR5yYqPMqu+5BT0hc8nxEM=
@@ -307,7 +307,7 @@ Name: res/animator/bottom_bar_show.xml
 SHA-256-Digest: f9BCrEdYlFe03QM7VyZ0LlYPVioXdlCojHG1toJ48/E=
 
 Name: SEC-INF/buildinfo.xml
-SHA-256-Digest: 4gSLKbeOXjVm7z7KUptI8+4ECEuEXsWVz5YRlnOzLPI=
+SHA-256-Digest: mOGuaSOKGS9aIjNfpaq2/wmYx5xvJ+Ge+tm/ArQeE4Q=
 
 Name: res/xml/crystal_info.xml
 SHA-256-Digest: hmYT4EKow02s/Zu34AaH8RERGlyz9kIq+elQBd7uvwU=
@@ -319,7 +319,7 @@ Name: res/drawable-xxhdpi-v4/tw_toast_frame_mtrl_light.9.qmg
 SHA-256-Digest: jVTBcSt58eSNtDpryUk13S2HDqV+9KP1Qc7fPPAKGdA=
 
 Name: res/layout-sw320dp-hdpi-v13/menu_widgets_search_title_bar.xml
-SHA-256-Digest: 8AEf8NyHn8PQv9LjKJhvsHD3HgOCZAzVYClq/mYv8SU=
+SHA-256-Digest: zH5ms5v8Zw4mpXs4hVkOogBfDbOKe372IyDUgxMQGW4=
 
 Name: res/xml/default_workspace_wifi.xml
 SHA-256-Digest: Lvm+D9Thaisvjw4r1sL3Y6lCkcGeSWGC6DBjG2I1ldE=
@@ -366,7 +366,7 @@ Name: res/drawable-sw768dp-xhdpi-v13/homescreen_menu_page_navi_headlin
 SHA-256-Digest: a42tQ4Z2mx6m7huqRGN4GemToVcJ5o9Ruyfy6wv7V0M=
 
 Name: res/layout/home_screen_mode_view.xml
-SHA-256-Digest: tfmeQVAGZZSWuWpMPDur1ufWxFO8BpcG4oeKy3ZQHhI=
+SHA-256-Digest: weg9AzxV/0mnld+dwaRaRGr4mJJwoWHdAGQg+YyJVJw=
 
 Name: res/drawable-hdpi-v4/homescreen_ic_folder_yellow.qmg
 SHA-256-Digest: SvNSzE0uDHe+H51zE9Zh7nB//W9e3uBMap76OQlR9lo=
@@ -387,7 +387,7 @@ Name: res/xml/searchable_include_voice.xml
 SHA-256-Digest: tdtxPZf2N3stY1ya0PeAufAX265UJL7+/M7bgUwkhIY=
 
 Name: res/drawable/toolbar_ic_uninstall.xml
-SHA-256-Digest: dcOVGvR96dsTbUlea2kpfmHmJ7Rh0mPzGVZoBMqD7Ms=
+SHA-256-Digest: tQUhG21MurIq1VALqk+Dz6V3WYDBCcYsSW7NfA0dG00=
 
 Name: res/layout/folder_add_item_button.xml
 SHA-256-Digest: nGuXEbRqiCPwHWjXOivgf/ui1IKwt1KoNOxOZOvMP/k=
@@ -414,7 +414,7 @@ Name: res/drawable-xxhdpi-v4/toolbar_ic_disable_004.qmg
 SHA-256-Digest: mSLY18wLPaiqQXGuMUp/J7vLcv7/+NAlEJRl1bR3wJg=
 
 Name: res/layout/deletetarget_layout.xml
-SHA-256-Digest: O8CG6/NDBmlqOr5+b7+aZ+j/ZYWYR9/ljT6W/ec5WtU=
+SHA-256-Digest: Y7jk0+7Kf32UIiWx1VTtv5t6ebQuooI3z1vkEByjcBA=
 
 Name: res/drawable-xxhdpi-v4/home_ic_folder_shape4.qio
 SHA-256-Digest: MGM2kytFtto1SSV14LuXKiELa3llFNB8EpNWrRtg8Hw=
@@ -445,13 +445,13 @@ Name: res/drawable/sm_ic_home_foler_loc_kxx.qmg
 SHA-256-Digest: 4SGOS1PzjqAakGQbmzBgzlZPTTdU1xK3sBLfvAJmhKU=
 
 Name: res/animator/hotseat_layout_edit_enter.xml
-SHA-256-Digest: rMb79jBgmtyqPHCsMt7/6ZfX5u2Kxl70m4R8acPbLuw=
+SHA-256-Digest: zs6zX5rt+6kzVSd8bCyBeBbZmuOlrYeGE0PvyvnE62k=
 
 Name: res/drawable-sw512dp-v13/homescreen_menu_page_navi_default.qio
 SHA-256-Digest: 3o6NagddCIVf7pTi6erMv1ctkixaJpjhcA4Urg2Bhy0=
 
 Name: res/layout/menu_uninstall_apps_title_bar.xml
-SHA-256-Digest: R6gjj/pLISdPQNHk5RQp9jCcMZc8pj3gbR/clGwPdIg=
+SHA-256-Digest: hCJNV4sCjH+zXs+S73f2En0pRjzV504BXF5aG6jslD8=
 
 Name: res/layout/list_menu_item_radio.xml
 SHA-256-Digest: MOcpjGrJ3XpUlRfxCCwOEwc7CG+aERgIa0teRSpOdYw=
@@ -482,13 +482,13 @@ Name: res/drawable/tw_ab_bottom_transparent_mtrl.9.qmg
 SHA-256-Digest: L+99O5HyYDAw01rK335Ot4/NVMqL+o2UNcccPjQ+KcM=
 
 Name: res/layout-sw512dp-v13/menu_view.xml
-SHA-256-Digest: 6jfMAaEYf+Ztg3TtMbRvwfevLx+pOO0ZCn8w6/0nO90=
+SHA-256-Digest: djAlzAekP719ond9WTPHJ/0g1fA4L4lENeSRq6xo5dY=
 
 Name: res/drawable-xxhdpi-v4/sohu_news.qmg
 SHA-256-Digest: D8UwZMH0JZJV5lSdz+J1Pn8PHDDzJdGkmN2KIjg3P2I=
 
 Name: res/layout/widget_folder_open_container_horizontal.xml
-SHA-256-Digest: G8qTuEtX9R7fxG/BkSz+JqDnpa7xGA4KYv3R8uo4Yuc=
+SHA-256-Digest: OmyWmouk3k2PDUL4E8WL8nR6kzhz799K2nFkYcTGtU4=
 
 Name: res/menu/options_menu.xml
 SHA-256-Digest: 91XPAqEzdfi7HPKN2bdDCA2Bf1F01Vo0ywom1YsRwqI=
@@ -500,7 +500,7 @@ Name: res/animator/hotseat_layout_edit_exit.xml
 SHA-256-Digest: wfZvERavbCcVqOTBqFhiBq0dEB0bSphVF/sd/rffz/s=
 
 Name: res/layout/quick_options_container.xml
-SHA-256-Digest: T4SmphKGpgZKBzpMnrdwOyP+QdQkTdBhd6EM1sKvK3s=
+SHA-256-Digest: TpLHAStzHpuB0/PQPFLJKwir38E3oIy3ffYgvgnhU9w=
 
 Name: res/drawable-xxhdpi-v4/toolbar_ic_delete_004.qmg
 SHA-256-Digest: 81RbLgA7FogoDiBzpAugy3EvX5ZB+sICW3NhpINi+AQ=
@@ -509,13 +509,13 @@ Name: res/drawable-xxhdpi-v4/toolbar_ic_uninstall_normal.qmg
 SHA-256-Digest: NgiwO10R7GxRnKbjvmLaWaoK5KThda7i9U9UOL6pA6M=
 
 Name: res/drawable/toolbar_ic_disable.xml
-SHA-256-Digest: vQTCZwuOgM6EzHXWX2RImojbovjCjMngC2chVfC4knY=
+SHA-256-Digest: kC3gCRNHRVFDZsruoTmfD/ZDH2aMc16futJdDZhBkPs=
 
 Name: res/xml-sw768dp-xhdpi-v13/default_application_order.xml
 SHA-256-Digest: x7G8/kzlD5BVOcGvxzN4zdLIXpEdORQA3O7HvXs9WYE=
 
 Name: res/animator/exit_menu_darken_to_option_menu.xml
-SHA-256-Digest: aKAoOdo2NsQkFIsMnji5uQz58QSzBaNHM2Tz4WPVpyo=
+SHA-256-Digest: uALs5evnp2CGY0EKsymfrW1kLTvExnAs32OxKet5TC8=
 
 Name: res/animator/top_bar_show.xml
 SHA-256-Digest: 6SEZVoJ5sPD2M9zlNiLGfmFVgVNx/ZK9BhglLpV72uA=
@@ -530,13 +530,13 @@ Name: res/drawable-xxxhdpi-v4/toolbar_ic_add_to_personal_normal.qmg
 SHA-256-Digest: mQlTFBVGMyvGDo2fgXQXXEBJIDLLvGzJgImdXabkG+c=
 
 Name: res/drawable/icon_auto_align_btn_bg.xml
-SHA-256-Digest: Q6jpROPZ0YceHSkJ275XmEJueso8tlo6888yv+ql/ik=
+SHA-256-Digest: 1gbux4U30BJ+bVFfkps0RnNVvo0FZdTe584fEqymVS8=
 
 Name: res/layout/launcher.xml
-SHA-256-Digest: cPdDVwbcfmaWtkv84Bd+D+vJijccDSwCOnMX3FEVkFA=
+SHA-256-Digest: CdtWoh6YNI9L7GrihL1QTHXPlVf0Rr7LanxKVPa51Hs=
 
 Name: res/drawable/focusable_show_button_bg.xml
-SHA-256-Digest: 18WqwUXIjbvedzcpPRhqnS5/IPfbnSJoi2/4CYcyabk=
+SHA-256-Digest: LRiep+V2VoZkmSadFij7lnp4MRA4PgcixByomsI/25w=
 
 Name: res/drawable-sw768dp-mdpi-v13/widget_resize_handle.qio
 SHA-256-Digest: oRgLGCYzEV3/9GW45u4hNba3qxIGfD9OorfsdQWImWE=
@@ -548,13 +548,13 @@ Name: res/layout/workspace_screen_festival.xml
 SHA-256-Digest: bdTIFsTfqzk24TJqgl+NwTOWiveojxpnyv1+hsvMbsY=
 
 Name: res/drawable/focusable_rounded_focus_bg.xml
-SHA-256-Digest: wUARpXdwWv3J4KtvO65uSHIE8FFt5vN/5IxSLt8eygU=
+SHA-256-Digest: C532ExOZkXb4eV8psdbBD2FpV89d9NFGU/SKfhIGrAk=
 
 Name: res/drawable/folder_background_with_border.xml
-SHA-256-Digest: R4G3NGn/E2i3PJ1O9cyA/lVva+hUaXogGEOwoYowfI4=
+SHA-256-Digest: klO7KQ/5FfBu5dxAAuhwg+i4nuXgw4AKvi+2GYFUHO8=
 
 Name: res/layout/menu_lock_unlock_edit_bar.xml
-SHA-256-Digest: LFWRVFNpC8avOhVUhwllRfmyUlDk5x7JwmHdr/cw6qQ=
+SHA-256-Digest: 2KSeDFHFk9UopY55+ONFpthXu/n8Tu1KB+0UwkUfpi0=
 
 Name: res/xml-sw682dp-xxhdpi-v13/default_workspace.xml
 SHA-256-Digest: LiUHwTmzvxyxQfBmJ4kB/NCFWcrZ9pwAcOe98AUVGXs=
@@ -566,7 +566,7 @@ Name: res/drawable-xxhdpi-v4/page_view_clear_bg.9.qmg
 SHA-256-Digest: 778wI551H5r0sCHJpNPNj8IuPeEnGP1HqZx+UuHtsQ0=
 
 Name: res/layout/quick_options_row.xml
-SHA-256-Digest: aAi+mFthug0DRYE7weHT/LhfK6DozOwYMwZQ4h1f9G4=
+SHA-256-Digest: ++DC7CZNC/qFx3ci0skPcDkmgkisBQX+n3cvkWxFkHQ=
 
 Name: res/xml/default_workspace_homeonly.xml
 SHA-256-Digest: FbAGjEB5AgKaxoJ3lFcuEvbNvbFt92AkNoy80R4Z6jg=
@@ -578,10 +578,10 @@ Name: res/drawable/homescreen_menu_page_navi_default.bmp
 SHA-256-Digest: 5MN2hcT7L5QomthKJGe4BFz9l69L/B5eZr6KW9zZEX0=
 
 Name: res/layout-sw320dp-hdpi-v13/menu_uninstall_apps_title_bar.xml
-SHA-256-Digest: 79+DeXBFfZnZdCnJITDYi2NU0bfkbW1Q79G10Lbcc/8=
+SHA-256-Digest: Mnhb3bMeiACOCag8hQiIwifWEQKz0AR5XpBHl0W2jT0=
 
 Name: res/layout-sw320dp-hdpi-v13/home_screen_option_menu.xml
-SHA-256-Digest: xvABPdPuU/SQ6yQPHNTs8s2HOxdJXdP3tfQi8QkX3r0=
+SHA-256-Digest: nmOxt1kcOdO3gsEtuaKWTOCCTJoKHFcqGtX3zh4FAc0=
 
 Name: res/drawable-mdpi-v4/page_view_overlay_select.9.qmg
 SHA-256-Digest: fFxuiikeIqySu+nfI/OfCbfQ0j4qPIbIKMHXo2SPOzo=
@@ -590,7 +590,7 @@ Name: res/drawable-xxhdpi-v4/homescreen_add_apps_checkbox_disable.qmg
 SHA-256-Digest: EMcOX8cHRn3XucGRHfBRBaowxvhWpshauiV7HvQRObA=
 
 Name: res/layout/menu_folder_icon.xml
-SHA-256-Digest: 57hHxOjKN4H7YOI0Grxd19W7uUMIJXDshEAeQX3+Ei4=
+SHA-256-Digest: VYRaNLeX6Ah4e2p6k6pBHOLE7DEn8CDz1U6sh3V84SU=
 
 Name: res/layout/folder_content_horizontal.xml
 SHA-256-Digest: jUhkfZEbEAd4WEt1Xn+PLO3OxTtAedhNs5bo8QLCpjY=
@@ -626,7 +626,7 @@ Name: res/drawable/title_bar_divider.xml
 SHA-256-Digest: AKMggtbpKYSymZWLaTS3t44AOkbvpT4h9mx9JQ+lOKw=
 
 Name: res/layout-sw360dp-xxhdpi-v13/menu_uninstall_apps_title_bar.xml
-SHA-256-Digest: 1ZoYt01wgkKzRAgf6tjWatRF2HxmDshf94Bfmbii9Pc=
+SHA-256-Digest: 0Ujsc+OjsEeprU/TbIC0k9FDGnGE9v0Gna7jAobybqc=
 
 Name: res/layout/move_apps_icon.xml
 SHA-256-Digest: IR7A6caCFfteSqQiI6YCcVMgR5oTc1j+Z+a+L4S26Vk=
@@ -650,10 +650,10 @@ Name: res/drawable-xhdpi-v4/folder_colorpicker_blue.qio
 SHA-256-Digest: PkHrLbf83Xi2wCBY+jlhhcnv3yyyiq1U9L9tlt7KnBM=
 
 Name: res/drawable/quantum_panel_dark.xml
-SHA-256-Digest: aJI0ki2LQ+hKuMPSgifkeia9FBiKtsyXgeR9KlxvP4M=
+SHA-256-Digest: xVLxHCwTzT/gxgi9+p4HIKcY4hDlzexMM3PgkNoaiXM=
 
 Name: res/drawable/searchbar_divider_darken.xml
-SHA-256-Digest: 87o9lDdowKalfVSBHeY5LFC7Qv95l6+y+5/Tgi1SQkQ=
+SHA-256-Digest: 02CxeThMyzEb25SXl04HYJZTR9RUajax6bUaxX7oitU=
 
 Name: res/menu/apps_options_menu.xml
 SHA-256-Digest: ZsuOEOnqwKOeBLyMKOdBxerBavaO62hetlqeerhPnPc=
@@ -672,7 +672,7 @@ Name: res/drawable-xxhdpi-v4/toolbar_ic_disable_003.qmg
 SHA-256-Digest: duuFqibRvnsZTLRKvm0kVq6/spi6KC0akVu58e6R838=
 
 Name: res/layout/home_view.xml
-SHA-256-Digest: Q9h8Kj6GHsMIyxSjrYi2Xbrx1na0JsKRErLgl8UtozY=
+SHA-256-Digest: mM+BH4kumz/AHwdj1mTwZd5CeE9Gg3h7q9pGlSWWTK4=
 
 Name: res/drawable-xxxhdpi-v4/quick_option_popup_bg.9.qmg
 SHA-256-Digest: 8UsQY70B1DfWTbJ2UZVcNtoJHK/M7XudYwO0cJ1SuoM=
@@ -690,7 +690,7 @@ Name: res/animator/exit_home_view_alpha.xml
 SHA-256-Digest: Jy3PQjICBeF1/lPgPEZtA0FXWJLLoD5QkFwrjQY+a6k=
 
 Name: res/layout/widget_searchbar_container_layout.xml
-SHA-256-Digest: akASe5M/483FOxl+9bt1+FaZ/ZU/9dM+yRIAJPD5CG8=
+SHA-256-Digest: VCnrSzuwc/Lpe+RDsBmFTkXLAkDBNenWgaY121Redmw=
 
 Name: res/drawable-hdpi-v4/folder_colorpicker_blue.qio
 SHA-256-Digest: cu3UdORVwQVvNjN0O3+fzIprJwslMuuEIWVvDqd/N1g=
@@ -714,7 +714,7 @@ Name: res/drawable-xxhdpi-v4/toolbar_ic_delete_003.qmg
 SHA-256-Digest: Mr6aIZ01w8I9bHFh2v5LIQnEG75FLamWUzap4cGaFvw=
 
 Name: res/layout/quick_options_help_dialog.xml
-SHA-256-Digest: uuiKXqgpprzKVZf67JuoUWMjxGsxcbu0KhgFlSXjCoo=
+SHA-256-Digest: dKsNl/+7T4eySbXpUeY6ocsiUF+CLsDIJTZNuAYR+jY=
 
 Name: res/drawable-xxhdpi-v4/home_edit_panel_bg_off_dark.9.qmg
 SHA-256-Digest: kiR8X3rMj2ne8LgRWJhDekDOFp1bxApSCojp0ZHank4=
@@ -735,7 +735,7 @@ Name: res/drawable-xxhdpi-v4/tw_btn_check_to_on_mtrl_015.qmg
 SHA-256-Digest: PpD35xImlsxvGBz+8tszHv0M/HCtllKD/qi+h6LvFGM=
 
 Name: res/layout-sw360dp-xxxhdpi-v13/menu_widgets_search_title_bar.xml
-SHA-256-Digest: 8AEf8NyHn8PQv9LjKJhvsHD3HgOCZAzVYClq/mYv8SU=
+SHA-256-Digest: zH5ms5v8Zw4mpXs4hVkOogBfDbOKe372IyDUgxMQGW4=
 
 Name: res/drawable-xxhdpi-v4/default_widget_preview_holo.9.qmg
 SHA-256-Digest: gYAKtIUzhVbakviUWioExfIgCPthdoPuW/1ssBGpSBY=
@@ -747,13 +747,13 @@ Name: res/drawable-sw768dp-xhdpi-v13/toolbar_ic_delete_bin.qmg
 SHA-256-Digest: SXuSyq82w0lOZ2D2A7qAi0EawH2Jpi+v9CUMdOoh9qA=
 
 Name: res/layout/searchapp_search_list_item.xml
-SHA-256-Digest: xsYPOSvBRTz/7jaMQUK0Dvy5qlyGtOPw2fSo3nDgG2A=
+SHA-256-Digest: +zqMLW3VmNEdti1uTbz6qJEYZhjf9ypx3pFFmBarXjw=
 
 Name: res/xml/default_workspace_simple.xml
 SHA-256-Digest: hEAzJRxQ1psRoj7d78S+Ax6B77bfNESfiXoCeqgMyiU=
 
 Name: res/layout/add_to_list_item.xml
-SHA-256-Digest: GUF/HqK9p8c5JKR6EZxxzW8aNhfS/NH353OumfVymgE=
+SHA-256-Digest: h2HchNeLcRGew3SH7n1pRh7xYGNv7KT8ujRlPe2QbMg=
 
 Name: res/layout/workspace_screen_festival_4x5.xml
 SHA-256-Digest: AYK/hq7NjwOf7XSxztMX75xgVang9L1gmVAxUymqRD0=
@@ -783,7 +783,7 @@ Name: res/drawable-xxhdpi-v4/tw_btn_check_to_on_mtrl_000.qmg
 SHA-256-Digest: zRIgl6W3aeyyWO2Pc2uSx59Fb2M8MjXL9uTuDS5K7R4=
 
 Name: res/layout-sw320dp-hdpi-v13/create_folder_text.xml
-SHA-256-Digest: KcZ2nY3aLSTpT7oLXWWSg2BMsMs8pGPL6vYMfhlbaws=
+SHA-256-Digest: gRrDWb7E7En5S8Jhup5XPjc/nD1jMLfzgHi1FkAfcwc=
 
 Name: res/animator/editbar_bg_hide.xml
 SHA-256-Digest: PkZ/ibQi55flb+Zk4JQz7PYJ85K4dnE2vTEwD4IK4WQ=
@@ -810,7 +810,7 @@ Name: res/layout/menu_apps_grid_fragment.xml
 SHA-256-Digest: ExQAFIhAuwj2K3a3VQtnk9kcTR2p/m1ncyGi53fJzBg=
 
 Name: res/layout/menu_title_bar_back.xml
-SHA-256-Digest: fjm87uqB69cJcurfaLkGiGbDzozgVDRY8WlTHtgwikk=
+SHA-256-Digest: mdPV/8R3SZ1lJtczqJhvscLWpmfoc2gi9CIYd7zjl+4=
 
 Name: res/drawable-xxhdpi-v4/labs_homeapps.qmg
 SHA-256-Digest: /7K551gZnplDXtmJwT9WbIrObxA2uccYFAPj0njtocs=
@@ -835,7 +835,7 @@ Name: res/drawable-xxhdpi-v4/toolbar_ic_disable_002.qmg
 SHA-256-Digest: /YP2AM/k/1C2nYnw8pCIX7qQcWpqdQPgLBdskpdFjsU=
 
 Name: res/layout/searchapp_list_container.xml
-SHA-256-Digest: 5Eaco1Fsri4nsYbDm4Amd+Bu2t7dNlHDd1g/VmBMvSA=
+SHA-256-Digest: Vhvjya1167KAD2+TlJrzbs2ZeTZe6M91PyKzukur7Bc=
 
 Name: res/layout/workspace_screen_festival_5x5.xml
 SHA-256-Digest: 0Ep2dLGBUQC44nHWf7BhAI5VLYduU1+DmvB0TT+Zwww=
@@ -860,13 +860,13 @@ Name: res/drawable-xxhdpi-v4/toolbar_ic_disable_001.qio
 SHA-256-Digest: V2LZ1bMam0fQrtBEH3RzkGFz2voYL5v4gHHA+QkWv3A=
 
 Name: res/animator/enter_menu_darken_whithbg.xml
-SHA-256-Digest: /Lfb3hO9jvIf0e/zNEuIjxVsk/EpQEK3zcSZvcmkcyM=
+SHA-256-Digest: NVokEL0mRIuMNTQICmkYboUg3/6JnajjsNpuKb4PtuI=
 
 Name: res/drawable-land-xxhdpi-v4/bottom_bar.qmg
 SHA-256-Digest: achDuv4DNmp8eRw7ZAOFITEPjDHovBuC58N1o1ANiaM=
 
 Name: res/layout/badge_settings_list_item.xml
-SHA-256-Digest: WX7JLm2XAvxLYMnFPzV6eRjrxOw8hRTKxfVp2SLP54k=
+SHA-256-Digest: CgGe6H8R3Z0gvS87+8wH/9lCp9GVWesch70MEgo79Fs=
 
 Name: res/drawable-sw768dp-xhdpi-v13/homescreen_ic_folder_orange.qmg
 SHA-256-Digest: b5cycDK01emNl3Vwl0WICz1SXHUMk13827q1Cjj0Ol4=
@@ -878,7 +878,7 @@ Name: res/layout-sw320dp-hdpi-v13/add_apps_widgets_toast_popup.xml
 SHA-256-Digest: l/yjtt7fr9RsYlQqrrOKNCz2MV9x6o/Z8F6023PAUV0=
 
 Name: res/layout/menu_folder_item.xml
-SHA-256-Digest: 5ZTIUufvVkjRUTC4NhlOYHTcFEocEY1L+sDnfyjtT5M=
+SHA-256-Digest: OJFmt9xQ4Ez5bTQUwKX+B6EBuhiZbrh+f5RaLhyKh5M=
 
 Name: res/drawable-xxhdpi-v4/home_bg_select.qio
 SHA-256-Digest: mGbBaOAVkuRSHI+j7qoFZM0AtY3EzfyoxCxeO35+QVg=
@@ -887,7 +887,7 @@ Name: res/drawable-xxhdpi-v4/widget_resize_handle_invalid.qio
 SHA-256-Digest: VTC6bFDBOtYaUwMGRmnniwrlQLQdUrkpZuW8GX4n+M0=
 
 Name: res/layout/move_apps_help_dialog.xml
-SHA-256-Digest: wsdf/ACpMAxQK0aqQq3m19vemS2S+oqpZDNhfrZ5cBI=
+SHA-256-Digest: VBJ935px5cAVhF2gfpNkbpbhBo7WBfFJQHzprukaq8M=
 
 Name: res/drawable-sw768dp-mdpi-v13/toolbar_ic_disable_bin.qio
 SHA-256-Digest: 89CnwTHy0e40gOaovaZBI2BPB7q/9QVICtO3G+p6TJU=
@@ -946,6 +946,9 @@ SHA-256-Digest: mrEfuwpv3Kh0ChV2C0WGDFZFMEg6xgtitL489DCW268=
 Name: res/drawable-xxhdpi-v4/topline.qmg
 SHA-256-Digest: Ic2bO5vSnFS3Tg2o7k2q2/EmmnrSb+LVS7wJsCg/Onk=
 
+Name: res/drawable-hdpi-v4/homescreen_ic_reorder_wallpapers.bmp
+SHA-256-Digest: xsSVwgOs2/16AVP/ZuOT38K83Rsskw/aoqfAwbZpHRY=
+
 Name: res/drawable-mdpi-v4/folder_colorpicker_blue.qio
 SHA-256-Digest: xn9q8s5toq7PMgxapksESM4bfwD/Q70wMYwACXgJ6Jk=
 
@@ -962,13 +965,13 @@ Name: res/drawable-hdpi-v4/homescreen_folder_color.qmg
 SHA-256-Digest: oo9Hn2dZNXcRPCeKPhQDlhmT/Omxu+pLexM+6Sp7yF4=
 
 Name: res/drawable/folder_add_button_ripple_effect.xml
-SHA-256-Digest: Oj3gKfdonZ0fHPcz737toJkV/I8SSIwxhT2FXs7vSwU=
+SHA-256-Digest: 5xEfYCDE1T4A5acdeBWfmVF//TFw5WMnYQmTptbhOs0=
 
 Name: res/drawable-xxhdpi-v4/toolbar_ic_uninstall_001.qio
 SHA-256-Digest: XOWj7gf4vB16AQ+4UgWgfCvAYqvSW7Wr0NmMLA2+dCg=
 
 Name: res/drawable/all_apps_button_icon.xml
-SHA-256-Digest: eGB7lUYQ4b45nbWMy57XPFjWQ+xJijwHlKFjlvFB5qI=
+SHA-256-Digest: 1G0isjnZnYa3zLD65dl/j20Ml1bSl1yjo10HgjK/XzY=
 
 Name: res/animator/trashcan_lid_down.xml
 SHA-256-Digest: eYoZ1hpeRrNPGLfyzoyhhtr9T+19g++/pTZd+P7ZUII=
@@ -1017,10 +1020,10 @@ Name: res/drawable-sw768dp-xhdpi-v13/homescreen_menu_page_navi_home.qi
 SHA-256-Digest: eDe252SM306V6LACwAIIJ1/pO+OkyXO2CpC2b3yvu1A=
 
 Name: res/layout-sw768dp-xhdpi-v13/menu_view.xml
-SHA-256-Digest: gE9uJAabM94tgt45veu5z7SRjp4gxght5fcFT/94qsA=
+SHA-256-Digest: sXd0eGRW22J/6SF3cmTi+xNaDnvIrrN7npr4eWCxWos=
 
 Name: res/layout/apps_customize_widget.xml
-SHA-256-Digest: MmANVM8CCdxOUgxyz/g9uZoLlznZkWrgDNZiQ0MViLo=
+SHA-256-Digest: g51SKCTIeI+7lAlnVcUQupp/x+DK3CFTXAO8w6Mgk7I=
 
 Name: res/drawable-sw768dp-xhdpi-v13/homescreen_quick_view_add_tablet.
  qio
@@ -1051,13 +1054,13 @@ Name: res/drawable/searchbar_background_left_rounded_darken.xml
 SHA-256-Digest: UFeTEAKiWeYB6Bhai5DutOueGl1V1ogFFF0tgMK/mVo=
 
 Name: res/animator/enter_menu_white_darken.xml
-SHA-256-Digest: /Lfb3hO9jvIf0e/zNEuIjxVsk/EpQEK3zcSZvcmkcyM=
+SHA-256-Digest: NVokEL0mRIuMNTQICmkYboUg3/6JnajjsNpuKb4PtuI=
 
 Name: res/drawable-xxhdpi-v4/toolbar_ic_delete_002.qmg
 SHA-256-Digest: pETyaMtsuXSsZH/VVk/h5Vf74cy1MYMPEqE3Pg2Yts4=
 
 Name: AndroidManifest.xml
-SHA-256-Digest: /REIBk64ZLqsFNWtw6WH/gDXxbTPGqqkTBC4l+av8AY=
+SHA-256-Digest: b/ACPA/hpkKqcvSJFhTBJQH9ASwNzcv+LLJ4AAdU/kI=
 
 Name: res/drawable-xxhdpi-v4/homescreen_quick_view_add.qio
 SHA-256-Digest: Hg3YPRLiJ67nowj7FP9m/OewvktdQ392IZDgDrJpqio=
@@ -1069,13 +1072,13 @@ Name: res/drawable-mdpi-v4/folder_colorpicker_green.qio
 SHA-256-Digest: rcqM/9ovZ0y9EpfZC/yYt7hJj6AkjFlzJlLrjEXnCMY=
 
 Name: res/layout-sw360dp-xxxhdpi-v13/launcher.xml
-SHA-256-Digest: 4fHF1INKG6Q3d0dTWOzlt+vNdwaj4i327L6Sq0gXulE=
+SHA-256-Digest: o/hrgf1Pj5roKFg8L3m+PEgQL5UwdTZEt+E1GwtFWR8=
 
 Name: res/anim/color_picker_item_dismiss.xml
 SHA-256-Digest: NfvRSh7a8P8qCX1VZdKUWgXC0klQlha4vs3AmRBUnyk=
 
 Name: res/layout/popup_menu_item_layout.xml
-SHA-256-Digest: AVvPC0Sug/y/P2JJwiqhsq5VVT63QToD5aJWtjMGaT0=
+SHA-256-Digest: yL1jL1VXGTkNz1RoFOu/hmRLVVd+mMLXqxzQ137qljQ=
 
 Name: res/anim/headlines_exit_to_left.xml
 SHA-256-Digest: JdnByWXBZ7AeeShB8tS6dFUFdubzdzTCZUCuuTLM42Y=
@@ -1105,8 +1108,11 @@ SHA-256-Digest: 4d7TAXMG3ox9xiKBmXprnW6x4ZhCGlDBWCTEo+1Dsas=
 Name: res/layout-sw320dp-hdpi-v13/menu_title_bar_back.xml
 SHA-256-Digest: u5+mxy9kxGF/aUsbsO9YYbd5y8fPvkwnlBLvTwie3Vk=
 
+Name: res/drawable-hdpi-v4/homescreen_ic_reorder_widgets.bmp
+SHA-256-Digest: rb++N1g55RW/tTHyom6H2BZQ7WUKkwjCrrGCjGaX3vQ=
+
 Name: res/layout-sw360dp-xxxhdpi-v13/menu_uninstall_apps_title_bar.xml
-SHA-256-Digest: 79+DeXBFfZnZdCnJITDYi2NU0bfkbW1Q79G10Lbcc/8=
+SHA-256-Digest: Mnhb3bMeiACOCag8hQiIwifWEQKz0AR5XpBHl0W2jT0=
 
 Name: res/xml/default_removablepreloadapp_list.xml
 SHA-256-Digest: WPNjsF1sp5+/bT8DfLZxoNKHoRlQ3SxhVStLCEmohAU=
@@ -1115,19 +1121,19 @@ Name: res/drawable-xxhdpi-v4/homescreen_ic_folder_default.qmg
 SHA-256-Digest: 8bxMVw8KpQn85G2NBXmSd6V8rrsNwU2Le0p1rDGFXQA=
 
 Name: res/animator/enter_menu_darken.xml
-SHA-256-Digest: oKOxpHpDWC9qkmFiJbz50Nw8cQQ7zNgMViUZZcNXij0=
+SHA-256-Digest: Dnyt4YoXjWef/D2mXWDZmKknHN6P0dsdK/3AwBLqwA4=
 
 Name: res/drawable-sw768dp-xhdpi-v13/home_edit_panel_bg_main.9.qmg
 SHA-256-Digest: Q1ruqTkSsS8zA1F3CEqwMjLPWILvfl1XWGnSJ3Dyy6U=
 
 Name: res/drawable/tw_text_action_btn_material_light_option_menu.xml
-SHA-256-Digest: v/eBHcL+SzPzWUzmkJlhI48I9Ee/nqy6dMbSk+KZMdc=
+SHA-256-Digest: yl2ze5L5oENKhKAHLiN7LBuYYm2lTLns+qIL4/JUyRU=
 
 Name: res/drawable/tw_list_toast_popup_bg.9.qmg
 SHA-256-Digest: ujAzOOOx8ISnJX/+RtiScwHHMCyFVgsgHVRQTLKhB2w=
 
 Name: res/drawable/focusable_quick_options_button_bg.xml
-SHA-256-Digest: T9tG0+39so5eoAt+nfomrnffaYl8EXvxmX/5ueKz3Dg=
+SHA-256-Digest: cM/sPLa7O1p6a0bIZuZ9b17wKQm+gcUhOH1HR+KbY10=
 
 Name: res/drawable/homescreen_btn_delete_pressed.bmp
 SHA-256-Digest: Xx8S0UYbiWNL9y4cn8QK8wuXBNaPt+1sVT4QhT+EZv4=
@@ -1176,7 +1182,7 @@ Name: res/layout-sw360dp-xxhdpi-v13/menu_title_bar_back.xml
 SHA-256-Digest: u5+mxy9kxGF/aUsbsO9YYbd5y8fPvkwnlBLvTwie3Vk=
 
 Name: res/animator/quickview_workspace_enter.xml
-SHA-256-Digest: DjGiaEulXhX8LEb9/+NvlRPA/0v19lRs7wctziK8UcI=
+SHA-256-Digest: Gn/kcurL6EiQLUkufuSFlxYIN6ab7oqPqWXThbY4hxQ=
 
 Name: res/anim/quick_options_popup_show_top_left.xml
 SHA-256-Digest: isYt4EXfXZi932d8tFP4CBOSPpe2KTY7RF0OocoQ51I=
@@ -1185,7 +1191,7 @@ Name: res/animator/folder_fade_in_animation.xml
 SHA-256-Digest: JUFWaa4JrvjSwiEZF2y0dzmFcVAddRcSGMTJfFKeYn4=
 
 Name: res/drawable/fluid_index_scroll_background.xml
-SHA-256-Digest: HKGYxY1paw7mrhiwKHnF6jWqKyMHjOnev5CaHJ8CN/0=
+SHA-256-Digest: H1joH3pFeZdSjPyMSx3tlMB9ljkMZ28af7EE7xS2Ses=
 
 Name: res/animator/trashcan_close.xml
 SHA-256-Digest: 8c3NAdykVI0feCA7u6c7ZvqKOiybjwbdqHumT4bVYwE=
@@ -1245,7 +1251,7 @@ SHA-256-Digest: q57ha1gvpdgFBEZyEiDh0Aa1DS2Q4K10ZcSXYFAVrlY=
 
 Name: res/layout-sw768dp-xhdpi-v13/widget_searchbar_container_layout.x
  ml
-SHA-256-Digest: oDgALVOTfWzG2RvXeZ5Z5XhHXEKqJN1WYDXruo09DoA=
+SHA-256-Digest: 9VBCYNxz9Eeark/sue/7CcHuo8/Y1/9Oc/rjNFOhLqo=
 
 Name: res/drawable-xxhdpi-v4/homescreen_moveapps_overlayhelp_01.qmg
 SHA-256-Digest: NjGK1dWuEz8YyXcb9T1UctR0QQKhT56OPsqodN8tYzA=
@@ -1260,7 +1266,7 @@ Name: res/anim/home_zeropage_fade_in.xml
 SHA-256-Digest: pBqaUHe9YRt7gCjvx6VUgvwgLbuhjE+bi/N42VxEkpA=
 
 Name: res/layout-land/hotseat.xml
-SHA-256-Digest: uywt8wJ7KYhxBsBm2o4r0A48FSh1vyUFrdc4bW11KCc=
+SHA-256-Digest: 0JRUdxHmh1fKC1PqUELco59ll9THCQZ5LCZvSTbQN8I=
 
 Name: res/layout/home_folder_icon.xml
 SHA-256-Digest: S8RK3QNPXcfv/mthFj1Vb4bO+IyQ3C8hSm7i+ovBbcc=
@@ -1275,7 +1281,7 @@ Name: res/drawable/home_folder_colorpicker_selector_color_stroke.xml
 SHA-256-Digest: qHTAyQCtglaYdirsrnQ0w7aTZBNGrNfM2qSLahsfZ/E=
 
 Name: res/layout-sw360dp-xxhdpi-v13/menu_widgets_search_title_bar.xml
-SHA-256-Digest: n+zorfJG/MAM00ZGEirlyrEg9M5W97StsxvkXJiwAGg=
+SHA-256-Digest: bbP8Pg7yN3IFtd+jinpP5dCZigRL9ny8FHsUVcFRQjs=
 
 Name: res/animator/enter_tabcontent_widget.xml
 SHA-256-Digest: pZzgZtZaBpyrfxXhOXn+ckrNuZamY6xmQxuP8F+kx4w=
@@ -1297,10 +1303,10 @@ Name: res/drawable-xxhdpi-v4/page_top.9.qmg
 SHA-256-Digest: Sh5qPZEEF08lhyHLr65qcoZLtKagqvWqFN5gdg/Zrgg=
 
 Name: res/drawable/toolbar_ic_delete.xml
-SHA-256-Digest: FlHxpSh/UqxXFMAJUhW05mjcngTIEKQt2UhdAHDZMqI=
+SHA-256-Digest: pxzM7gMif8eh7Ef2s9gKtyiPuyvGsxlq3nVIW0oZc/A=
 
 Name: res/layout/more_icon_button.xml
-SHA-256-Digest: OjsFsL515XAxEZ94HslodiJtzZQqWBlAkwcVmTBN9mM=
+SHA-256-Digest: Dif+YDuT3A8NIVbKGAU+YfFc3U3fKvCs58GuTz0Llcw=
 
 Name: res/drawable-sw768dp-xhdpi-v13/home_add_apps_checkbox_off.qmg
 SHA-256-Digest: ZtupiMU+YtdfHZgSHO0tsqMKakX4YCX6vVhPfUMZjZ0=
@@ -1339,7 +1345,7 @@ Name: res/drawable-xxhdpi-v4/bottom_bar.qio
 SHA-256-Digest: zLaL4PKEpgWzKAIKp9t/4Q6XAWFzg+zsxm68FW+/eK8=
 
 Name: res/drawable/focusable_apps_edit_button_bg.xml
-SHA-256-Digest: T9tG0+39so5eoAt+nfomrnffaYl8EXvxmX/5ueKz3Dg=
+SHA-256-Digest: cM/sPLa7O1p6a0bIZuZ9b17wKQm+gcUhOH1HR+KbY10=
 
 Name: res/drawable-sw768dp-xhdpi-v13/widget_resize_frame_invalid.9.qmg
 SHA-256-Digest: 67h3cqvCfeGZ2dCARbanaVafkMqNPbYXd8gMuZaqT14=
@@ -1363,7 +1369,7 @@ Name: res/drawable/homescreen_folder_color.qmg
 SHA-256-Digest: oo9Hn2dZNXcRPCeKPhQDlhmT/Omxu+pLexM+6Sp7yF4=
 
 Name: res/layout-sw360dp-xxxhdpi-v13/home_screen_option_menu.xml
-SHA-256-Digest: jifd+YVCytyCuPwqQNoedO5GYGgU8x+PiEsqSx2GKVw=
+SHA-256-Digest: vAdKNjcqZsBZju97X5rojPQOXQT5uH77IYtLoXViZtw=
 
 Name: res/drawable-nodpi-v4/help_start_now_04.qio
 SHA-256-Digest: DgzdK0i5pZYxn1fif37kgBF8b2tDISosJ+5g2FRS73E=
@@ -1412,7 +1418,7 @@ Name: res/color/homescreen_mode_apply_text_color.xml
 SHA-256-Digest: IIX120qqyI8aAKkElqJDF/wInUl6ZOxN/KRU0EZBUxs=
 
 Name: res/layout/menu_view.xml
-SHA-256-Digest: yuoUjqLrFLKvYuNPjcwB+m8sKeCBkGu6CsKxf40uDe8=
+SHA-256-Digest: QzKuivmpouAVs/FvXSiu+mSNLSuv33QqsR66PnMiU7s=
 
 Name: res/drawable-mdpi-v4/folder_colorpicker_orange.qio
 SHA-256-Digest: O2EEjGmDKLzZ7kSUubEqhmCLTtxrbKep4FYuYNJ88cI=
@@ -1453,10 +1459,10 @@ Name: res/drawable-xxhdpi-v4/tw_buttonbarbutton_selector_focused_holo_
 SHA-256-Digest: duv0cZhBT+OaVh+IDgIjheTJQ6RzxWBuhyga2Qh8Wfs=
 
 Name: res/animator/trashcan_translatey.xml
-SHA-256-Digest: fWbrtb356FrQKE2tXY8nhoJic3FRsox0uuK6LX72bVU=
+SHA-256-Digest: gbjMUHLnCgcY4wUCwz/TeBz8Bxef14NTQbFnQOfD/rg=
 
 Name: res/layout/folder_page_screen.xml
-SHA-256-Digest: oKwL/ztqSj+hOmBNWZqJrvBdZ+lMWHNzZBLtQ1dXyxA=
+SHA-256-Digest: qEdouWsLm8q9B6VJtES3jmWfWex19ExHSf4o7V65pS0=
 
 Name: res/raw/response.xml
 SHA-256-Digest: Xvn8hBC9L23673bySY9WvD2ZxL9gDjFhbGKht0mnEgA=
@@ -1468,25 +1474,25 @@ Name: res/drawable/homescreen_btn_delete.bmp
 SHA-256-Digest: 7JjcxMfWHZyFoyL9zEnAdSo5s46+xOPADC8yczWQZQg=
 
 Name: res/layout/permission_popup_item_layout.xml
-SHA-256-Digest: sjWUW0FMCXfqsIfBWhRFaBdYwoEI0A7vSzGxYx8WfzQ=
+SHA-256-Digest: bKVa7xOMzOo8ANhnDlRpvSWtEdZjOY2g8ko7WfCDiDQ=
 
 Name: res/layout/user_folder.xml
-SHA-256-Digest: HIUHpEtHnKF3CiZK4q+umIsu0zl8Q7/+GfK8npIpvkQ=
+SHA-256-Digest: 2WXxUgZxUJ/wJTorgJyVgP+tN1qT4QluTYQwjKO9/C4=
 
 Name: res/drawable-mdpi-v4/folder_colorpicker_yellow.qio
 SHA-256-Digest: VhK3eTEiP4YHoOseiMyB319Ec15AdVvfNT3StkB+NRY=
 
 Name: res/layout/widget_folder_open.xml
-SHA-256-Digest: cxB+8z4eX58ZWf36CQ8S1OSa23PY4RVwG0imbbL1MMg=
+SHA-256-Digest: TiW2Hok7rOwyKxzq8g32+XXn6Rw3WgXmNa+5/d4V3ms=
 
 Name: res/drawable/searchbar_divider.xml
-SHA-256-Digest: P9pUSf4P8FYnbbUKl8KOOz/9HHNC5WZRnkKbLT/TkKk=
+SHA-256-Digest: 1CvG1K63UYcmCkFYU/CuZFyyDcMOpvlR5Mc/kRXuDwY=
 
 Name: res/animator/exit_tabcontent_alpha.xml
 SHA-256-Digest: GGsroN/VPjCaBtU6vvZ57eokab3K3j2chPPJVeeP6Yo=
 
 Name: res/layout-sw512dp-v13/widget_searchbar_container_layout.xml
-SHA-256-Digest: oDgALVOTfWzG2RvXeZ5Z5XhHXEKqJN1WYDXruo09DoA=
+SHA-256-Digest: 9VBCYNxz9Eeark/sue/7CcHuo8/Y1/9Oc/rjNFOhLqo=
 
 Name: res/anim/uninstall_icon_hide_anim.xml
 SHA-256-Digest: YiIFIVVzIcd+XkTJZ1jlALXqHXX/ZFikKFMotVyKucQ=
@@ -1522,7 +1528,7 @@ Name: res/drawable-xxhdpi-v4/tw_btn_check_to_on_mtrl_012.qmg
 SHA-256-Digest: dUy+TiqejMNx6UlHwYEHrs/0LIksNKzCM8iJqZESdDI=
 
 Name: res/layout/menu_widgets_search_title_bar.xml
-SHA-256-Digest: FrjEY0Ltw5M30WKCFH2CEcm4G63ng2fYpUdMFmzc05w=
+SHA-256-Digest: dP3iu5axI3a/29EBH2yJ1aBGX2PPGsxXSweI/tG4k9Y=
 
 Name: res/xml/app_target_camera.xml
 SHA-256-Digest: Zj5QH7WSx8Bvq02dbGoqKNSlxj+rNuBVv6zNMvFKOoA=
@@ -1580,7 +1586,7 @@ Name: res/drawable-nodpi-v4/tw_action_item_background_selected_holo_li
 SHA-256-Digest: qco+wRMD+PkR30USMMtRJs0aor4H0XK6EXRvUYiNsJQ=
 
 Name: res/drawable/tab_widget_indicator_selector.xml
-SHA-256-Digest: bDkuQ2szT1zlP6TJndMhDNcVG5RPQHh5w2FVWa6FdfE=
+SHA-256-Digest: HtVy+QxznIz4M50V14Nvg+zjXKnZRTmCewocgtLieCA=
 
 Name: res/anim/uninstall_icon_show_anim.xml
 SHA-256-Digest: BTggxo3snCcUGKrA19ZMaJMI2atBanzTUfgRzfJXqrs=
@@ -1604,19 +1610,19 @@ Name: res/drawable-xxhdpi-v4/toolbar_ic_cancel_focus.qio
 SHA-256-Digest: 0TG6J3AsCziHep3zEyJwJNcqKOdlghqNZCbjfDUQbaE=
 
 Name: res/layout/tw_transient_notification.xml
-SHA-256-Digest: pyqTBo+y63xjPMz4ggGBh6w90eXn3Zu3aPiqA23NcbU=
+SHA-256-Digest: fZ0j4+bFGDt/0ey8FkaRsf9XtWLBGlAxE6amOfVk4WQ=
 
 Name: res/drawable/folder_homescreen_add_btn.bmp
 SHA-256-Digest: GxCUSfg/m6OQghrQgBMAmD7Xa478xMmh85tFnCrKLhI=
 
 Name: res/layout-sw320dp-hdpi-v13/add_to_list_item.xml
-SHA-256-Digest: kFOjt65uGg4w1eH3Wqy95AH02QRK4OYn8qGc0MdnggU=
+SHA-256-Digest: wUAVt6g4O11Y2T1PnZQnyyIsNC/gzy6c87P7bWc9+Jc=
 
 Name: res/layout-sw411dp-v13/launcher.xml
-SHA-256-Digest: zpB0yuWmRYnT2TfZNkG68/tBpzJWKB8HhtUp/xBJeL0=
+SHA-256-Digest: 0E3mVSbLdER5HHaexkcIMxsrQOIbbOwmvXWMy026XCw=
 
 Name: res/layout/icon_move_container.xml
-SHA-256-Digest: btLC9liJS/wo6hyRm6lLHbbABgvruPa70wLXUDUm4sA=
+SHA-256-Digest: NqD1Xjb+758/Zsfb87dF4Sv7dhvOhqXcSSPe9ycIHwA=
 
 Name: res/drawable-sw768dp-xhdpi-v13/toolbar_ic_delete_lid.qio
 SHA-256-Digest: YFckMuLrBgF+iTtWqTdmu9FiP6DCLOEfIxJxuzp5tTE=
@@ -1640,7 +1646,7 @@ Name: res/drawable/tw_scroll_popup_bg_holo_light.9.qmg
 SHA-256-Digest: j/ONsmrMUl2rqKsIwgFUcuRpXGj3+sb7gYEsoGzSWbc=
 
 Name: res/layout/home_edit_drag_bar.xml
-SHA-256-Digest: NzRP5NDawNHK7BMPP0ZO3VZSF/AQjj07QDQIOCuwWWk=
+SHA-256-Digest: n884evbX0SSNAZnrcxW6xlTgbX2cREvpdVlKwplZhRk=
 
 Name: res/drawable-xxhdpi-v4/home_reoder_ic_themes.qio
 SHA-256-Digest: 0+cbGib2GqU4nEvUW81gQCIC9shElIu9JpXxiWOeGoY=
@@ -1673,7 +1679,7 @@ Name: res/drawable-sw768dp-xhdpi-v13/quick_ic_forcestop.bmp
 SHA-256-Digest: NynWt+RPbzMlNpWdnZxQodlNqAQk2nr9+05hN/js4ng=
 
 Name: res/layout/home_screen_option_menu.xml
-SHA-256-Digest: kvFQ39CNeGBKQkxdIMJEcgDr5v2ZfppMT56RjAFk8WM=
+SHA-256-Digest: 5ShSP6XrPYdCYUi9CE/cRnWizUauvz8tsJZaMkflnZU=
 
 Name: res/drawable-xxhdpi-v4/help_popup_picker_b_c.qio
 SHA-256-Digest: PjLUsQyI58qxtRN0wY3WIKskeefNPqb96d8tph3UT6k=
@@ -1706,7 +1712,7 @@ Name: res/drawable-xxhdpi-v4/help_tap.qmg
 SHA-256-Digest: 5OCYl7nWk4hg80MrJ/ujtsF4fVV8qfLaGLpLesvTeYw=
 
 Name: res/layout-sw360dp-xxxhdpi-v13/add_to_list_item.xml
-SHA-256-Digest: kFOjt65uGg4w1eH3Wqy95AH02QRK4OYn8qGc0MdnggU=
+SHA-256-Digest: wUAVt6g4O11Y2T1PnZQnyyIsNC/gzy6c87P7bWc9+Jc=
 
 Name: res/animator/top_bar_show_quickview.xml
 SHA-256-Digest: 9ntvYUxMT7Iir39rBOSjkK7SuaGDzao9Xa1CpkTJc1U=
@@ -1727,7 +1733,7 @@ Name: res/drawable/help_next_button_background_ripple.xml
 SHA-256-Digest: kjNTB4EL5G0IAtUon21SUauoIAiilmFxf9sIVTux1WI=
 
 Name: res/layout/menu_title_bar_divider.xml
-SHA-256-Digest: Ndg+pOLcyfZdyZJWUDlh0eCQh6PlDJpavVuNc/ejvq0=
+SHA-256-Digest: BfKaoveob/LzSaPrXkOXdk9e7pAP9BPdtgggLD1DR4Y=
 
 Name: res/drawable-xxhdpi-v4/toolbar_ic_disable_006.qmg
 SHA-256-Digest: 4H3WjeTrcCQPQyE4VWTaKH9tdd10j+ZUQTYrXtPq3vA=
@@ -1755,7 +1761,7 @@ Name: res/drawable/ripple_effct_drawable.xml
 SHA-256-Digest: o0KyFOsyiOVwy+OLy+Ryct3WLcMhT1EtJ4nMWU7NHhQ=
 
 Name: res/layout-sw360dp-xxhdpi-v13/add_to_list_item.xml
-SHA-256-Digest: 5xnrzZ9twQorcXCKZbe/O0DNwoerlXDGh+pGPLx0YXk=
+SHA-256-Digest: IrksLk5OTpBik/e5pEKtswyaLTi3DIZt5nHJFpw/R8s=
 
 Name: res/drawable-xxhdpi-v4/homescreen_ic_check.qmg
 SHA-256-Digest: qMNZSsn8Aym1Zgmk5TQbpeKSfBGh/GqFjtD34+pMjF8=
@@ -1830,13 +1836,13 @@ Name: res/drawable/screen_grid_btn_bg.xml
 SHA-256-Digest: QqFnZBF7Q0Q7gxz987WE43oLw3IzV5E2ojasLMc+Xdg=
 
 Name: res/layout-sw360dp-xxhdpi-v13/home_screen_option_menu.xml
-SHA-256-Digest: +LtjD4KEIjKE+Qs25PDwVUVCvi/Hq2HPgNxoodWnJ4o=
+SHA-256-Digest: n39hITADhneI9WeJPushsrSa9/gkMflsHG+G68JF7VU=
 
 Name: res/layout-sw360dp-xxxhdpi-v13/create_folder_text.xml
-SHA-256-Digest: KcZ2nY3aLSTpT7oLXWWSg2BMsMs8pGPL6vYMfhlbaws=
+SHA-256-Digest: gRrDWb7E7En5S8Jhup5XPjc/nD1jMLfzgHi1FkAfcwc=
 
 Name: res/layout/icon_auto_align.xml
-SHA-256-Digest: j+sGnfW+XkT98n0nGw+rhsQVV+3aFuje4xXlNlJ6Hmo=
+SHA-256-Digest: DBXWPCjW2rDCd+VLPbIcxG5xzX6XW6R7IQyXOaP5wqo=
 
 Name: res/drawable/circle_shape_remove.xml
 SHA-256-Digest: t2Fc8XmQQxZ0WBpBTcWDwwsLTE7S97A4CVC7IWuATQo=
@@ -1875,7 +1881,7 @@ Name: res/layout/edit_done_button.xml
 SHA-256-Digest: bvIlhf971NbIUDKmYTDJ3iWVT9Trxh+eJbGEwUG56mI=
 
 Name: res/drawable/open_folder_gradation.xml
-SHA-256-Digest: Tt1EV7VQO/sFaL7AMy4SgqAjsbF0rbZ9w6dI7O2wjzE=
+SHA-256-Digest: 0kG/1YKMt8CFAzih8NYBa2r7UBqDOTZp65KAc6LIMPY=
 
 Name: res/xml/home_screen_settings.xml
 SHA-256-Digest: YbW/jqKnLx6HFupTZ7D8nbIpKekexMmjcLpD/+VqIX0=
@@ -1893,13 +1899,13 @@ Name: res/layout/zeropage_dualscreen.xml
 SHA-256-Digest: 3OzIMTpViHv6BH5ADf13KmKsZm8ZgHbZ9iq7mA6ZYes=
 
 Name: res/drawable/fluid_index_scroll_background_darken.xml
-SHA-256-Digest: l81IVAFtBEng7gZjRsZNB/UMf5D9zu0o5bBBl+2T+Cw=
+SHA-256-Digest: rPuErBXlHju0JEPYou4xk4J8CrhyrG9fIXwYdhVeAtM=
 
 Name: res/layout/screen_grid_menu.xml
-SHA-256-Digest: rjlBl4MuqS9I0bZQYo46xnguwQLs+wsDLyRL1z2jVVc=
+SHA-256-Digest: M/P/J7kbL7sYgJTIaR3yb/GHpFRFWdhmOkIb8TBzFCA=
 
 Name: res/drawable/tw_text_action_btn_material_light_edit.xml
-SHA-256-Digest: tnV4n7eBZda13rK3fLeLZAUbn/wbUcLKgZJUYijF+Us=
+SHA-256-Digest: uPZ7CSDiclxAKoynRg6mnQ2QNFELB1H6GcnrFJV+cRQ=
 
 Name: res/layout/hotseat_icon.xml
 SHA-256-Digest: 2qp1X343DJyU55TW3QEWSuN3Iii7PVZPROyykxDqoAY=
@@ -1911,7 +1917,7 @@ Name: res/animator/exit_menu_darken.xml
 SHA-256-Digest: ZG6OhIe51Ae2e9llOV5GyKE134ysP0qEExD+cz62888=
 
 Name: res/drawable/menu_edit_header_grid.xml
-SHA-256-Digest: gIIyDStU6ePCKjyLh9z4kjfvp+POesrGsWVkr4kDj40=
+SHA-256-Digest: MTanI1tPHzOoKLLnyp3WR+5uHNMt9K85ABtv+QDLum8=
 
 Name: res/layout-sw320dp-hdpi-v13/disable_apps_toast_popup.xml
 SHA-256-Digest: rRmkTbbjcY4pjbZ3E7TS5vm5ppgu9GcByKVEgOGkS1Y=
@@ -1923,10 +1929,10 @@ Name: res/drawable-xxxhdpi-v4/quick_ic_appinfo.bmp
 SHA-256-Digest: 7R9AGqZqNSfry4cJi1zlMp+An/1k/S/sLswgsHEIl5M=
 
 Name: res/layout/searchapp_list_item.xml
-SHA-256-Digest: sHY40qzfjW92Mc3UhgrVXdeNGFshX623UDEWTZvS3jI=
+SHA-256-Digest: oFtBzBdJ1aQTByPbHaBu50x88En+yw2S3yPcZvZb0GU=
 
 Name: res/drawable/toolbar_ic_cancel.xml
-SHA-256-Digest: r0tUsIy/PcUsGQfnT5aDBSmgzUkBBy7V9zKpy6TwtzY=
+SHA-256-Digest: mHsozFCl/oAyp5YRpNnQR53l6au0SRRQIaDL0x70sj8=
 
 Name: res/layout/widget_folder_closed.xml
 SHA-256-Digest: nQVWkOZYgRRQwh8z+DLB737UOBLFtdzC3/eMaGk7kwM=

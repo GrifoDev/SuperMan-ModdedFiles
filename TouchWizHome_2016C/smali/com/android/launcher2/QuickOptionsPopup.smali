@@ -1640,7 +1640,7 @@
 
     iget-object v2, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
 
-    const v3, 0x7f090291
+    const v3, 0x7f090292
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1650,7 +1650,7 @@
 
     iget-object v2, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
 
-    const v3, 0x7f090290
+    const v3, 0x7f090291
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1696,7 +1696,7 @@
 
     iget-object v3, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
 
-    const v4, 0x7f020091
+    const v4, 0x7f020093
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1742,7 +1742,7 @@
 
     iget-object v3, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
 
-    const v4, 0x7f02008f
+    const v4, 0x7f020091
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1788,7 +1788,7 @@
 
     iget-object v3, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
 
-    const v4, 0x7f020093
+    const v4, 0x7f020095
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1847,7 +1847,7 @@
 
     if-eqz v2, :cond_b
 
-    const v2, 0x7f020094
+    const v2, 0x7f020096
 
     :goto_2
     invoke-virtual {v4, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -1894,7 +1894,7 @@
 
     iget-object v3, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
 
-    const v4, 0x7f020090
+    const v4, 0x7f020092
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1940,7 +1940,7 @@
 
     iget-object v3, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
 
-    const v4, 0x7f02008e
+    const v4, 0x7f020090
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -2042,7 +2042,7 @@
 
     iget-object v3, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
 
-    const v4, 0x7f090299
+    const v4, 0x7f09029a
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2054,7 +2054,7 @@
 
     iget-object v3, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
 
-    const v4, 0x7f090296
+    const v4, 0x7f090297
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2336,7 +2336,7 @@
     goto/16 :goto_1
 
     :cond_b
-    const v2, 0x7f020092
+    const v2, 0x7f020094
 
     goto/16 :goto_2
 

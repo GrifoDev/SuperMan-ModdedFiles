@@ -20,16 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher2/LauncherModel;
 
-.field final synthetic val$list:Ljava/util/ArrayList;
+.field final synthetic val$removedFinal:Ljava/util/List;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher2/LauncherModel;Ljava/util/ArrayList;)V
+.method constructor <init>(Lcom/android/launcher2/LauncherModel;Ljava/util/List;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher2/LauncherModel$35;->this$0:Lcom/android/launcher2/LauncherModel;
 
-    iput-object p2, p0, Lcom/android/launcher2/LauncherModel$35;->val$list:Ljava/util/ArrayList;
+    iput-object p2, p0, Lcom/android/launcher2/LauncherModel$35;->val$removedFinal:Ljava/util/List;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -41,30 +41,13 @@
 .method public run()V
     .locals 3
 
-    iget-object v1, p0, Lcom/android/launcher2/LauncherModel$35;->this$0:Lcom/android/launcher2/LauncherModel;
+    sget-object v0, Lcom/android/launcher2/MenuAppModel;->INSTANCE:Lcom/android/launcher2/MenuAppModel;
 
-    iget-object v1, v1, Lcom/android/launcher2/LauncherModel;->mCallbacks:Ljava/lang/ref/WeakReference;
+    const/4 v1, 0x0
 
-    if-eqz v1, :cond_0
+    iget-object v2, p0, Lcom/android/launcher2/LauncherModel$35;->val$removedFinal:Ljava/util/List;
 
-    iget-object v1, p0, Lcom/android/launcher2/LauncherModel$35;->this$0:Lcom/android/launcher2/LauncherModel;
+    invoke-virtual {v0, v1, v2}, Lcom/android/launcher2/MenuAppModel;->appsAddedOrRemoved(Ljava/util/List;Ljava/util/List;)V
 
-    iget-object v1, v1, Lcom/android/launcher2/LauncherModel;->mCallbacks:Ljava/lang/ref/WeakReference;
-
-    invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/launcher2/LauncherModel$Callbacks;
-
-    if-eqz v0, :cond_0
-
-    const-string v1, "removed"
-
-    iget-object v2, p0, Lcom/android/launcher2/LauncherModel$35;->val$list:Ljava/util/ArrayList;
-
-    invoke-interface {v0, v1, v2}, Lcom/android/launcher2/LauncherModel$Callbacks;->bindPackagesChanged(Ljava/lang/String;Ljava/util/ArrayList;)V
-
-    :cond_0
     return-void
 .end method

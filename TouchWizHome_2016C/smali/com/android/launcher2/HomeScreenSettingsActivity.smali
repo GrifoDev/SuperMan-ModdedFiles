@@ -78,32 +78,6 @@
     return-object v0
 .end method
 
-.method private setupTransparentSystemBar(Landroid/view/Window;)V
-    .locals 2
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p1, v0}, Landroid/view/Window;->setStatusBarColor(I)V
-
-    invoke-virtual {p1}, Landroid/view/Window;->getDecorView()Landroid/view/View;
-
-    move-result-object v0
-
-    invoke-virtual {p1}, Landroid/view/Window;->getDecorView()Landroid/view/View;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/view/View;->getSystemUiVisibility()I
-
-    move-result v1
-
-    or-int/lit16 v1, v1, 0x2000
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setSystemUiVisibility(I)V
-
-    return-void
-.end method
-
 
 # virtual methods
 .method public onBackPressed()V
@@ -442,12 +416,6 @@
     iget-object v2, v2, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
 
     iput-object v2, p0, Lcom/android/launcher2/HomeScreenSettingsActivity;->mlocale:Ljava/util/Locale;
-
-    invoke-virtual {p0}, Lcom/android/launcher2/HomeScreenSettingsActivity;->getWindow()Landroid/view/Window;
-
-    move-result-object v2
-
-    invoke-direct {p0, v2}, Lcom/android/launcher2/HomeScreenSettingsActivity;->setupTransparentSystemBar(Landroid/view/Window;)V
 
     return-void
 

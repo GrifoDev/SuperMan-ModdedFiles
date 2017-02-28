@@ -2323,7 +2323,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/launcher2/HomeScreenOptionMenu;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    const v20, 0x7f090288
+    const v20, 0x7f090289
 
     move-object/from16 v0, v16
 
@@ -2417,7 +2417,7 @@
 
     move-result-object v20
 
-    const v21, 0x7f09029b
+    const v21, 0x7f09029c
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3040,7 +3040,7 @@
 
     move-result-object v2
 
-    const v4, 0x7f090288
+    const v4, 0x7f090289
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4045,7 +4045,7 @@
 .method public setEditTextBg()V
     .locals 9
 
-    const v8, 0x7f0200fd
+    const v8, 0x7f0200ff
 
     invoke-virtual {p0}, Lcom/android/launcher2/HomeScreenOptionMenu;->getContext()Landroid/content/Context;
 
@@ -4081,7 +4081,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f09029b
+    const v7, 0x7f09029c
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4176,7 +4176,7 @@
 .method public setEditTextBg(Z)V
     .locals 6
 
-    const v5, 0x7f0200fd
+    const v5, 0x7f0200ff
 
     const v4, 0x7f02001c
 
@@ -4206,7 +4206,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f09029b
+    const v4, 0x7f09029c
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4368,7 +4368,7 @@
 
     move-result-object v5
 
-    const v9, 0x7f090366
+    const v9, 0x7f09036a
 
     invoke-virtual {v5, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4380,7 +4380,7 @@
 
     move-result v0
 
-    const v9, 0x7f090364
+    const v9, 0x7f090368
 
     invoke-virtual {v5, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4410,7 +4410,7 @@
 
     iget v1, v9, Landroid/util/DisplayMetrics;->density:F
 
-    const v9, 0x7f090368
+    const v9, 0x7f09036c
 
     invoke-virtual {v5, v9}, Landroid/content/res/Resources;->getDimension(I)F
 

@@ -135,7 +135,7 @@
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">%sウィジェットは既にホーム画面に追加されています。</string>
     <string name="open_folder">フォルダを開く</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">アプリを表示</string>
     <string name="option_menu_contact_up">お問い合わせ</string>
     <string name="option_tray_screengrid">画面​グリッド</string>
     <string name="options_home_set_theme">テーマ</string>

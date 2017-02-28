@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher2/LauncherModel;->addShortcutToFolderHomeOnly(Landroid/content/Context;Landroid/content/ComponentName;Lcom/android/launcher2/compat/UserHandleCompat;Lcom/android/launcher2/HomeFolderItem;ILcom/android/launcher2/LauncherModel$Callbacks;ZLcom/android/launcher2/BaseItem$Type;)Z
+    value = Lcom/android/launcher2/LauncherModel;->deleteFestivalPage(Lcom/android/launcher2/Launcher;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,24 +20,20 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher2/LauncherModel;
 
-.field final synthetic val$folderItem:Lcom/android/launcher2/HomeFolderItem;
+.field final synthetic val$app:Lcom/android/launcher2/Launcher;
 
-.field final synthetic val$item:Lcom/android/launcher2/HomeShortcutItem;
-
-.field final synthetic val$screen:I
+.field final synthetic val$festivalAppWidgets:Ljava/util/List;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher2/LauncherModel;Lcom/android/launcher2/HomeFolderItem;Lcom/android/launcher2/HomeShortcutItem;I)V
+.method constructor <init>(Lcom/android/launcher2/LauncherModel;Lcom/android/launcher2/Launcher;Ljava/util/List;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher2/LauncherModel$14;->this$0:Lcom/android/launcher2/LauncherModel;
 
-    iput-object p2, p0, Lcom/android/launcher2/LauncherModel$14;->val$folderItem:Lcom/android/launcher2/HomeFolderItem;
+    iput-object p2, p0, Lcom/android/launcher2/LauncherModel$14;->val$app:Lcom/android/launcher2/Launcher;
 
-    iput-object p3, p0, Lcom/android/launcher2/LauncherModel$14;->val$item:Lcom/android/launcher2/HomeShortcutItem;
-
-    iput p4, p0, Lcom/android/launcher2/LauncherModel$14;->val$screen:I
+    iput-object p3, p0, Lcom/android/launcher2/LauncherModel$14;->val$festivalAppWidgets:Ljava/util/List;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -47,15 +43,13 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/launcher2/LauncherModel$14;->val$folderItem:Lcom/android/launcher2/HomeFolderItem;
+    iget-object v0, p0, Lcom/android/launcher2/LauncherModel$14;->val$app:Lcom/android/launcher2/Launcher;
 
-    iget-object v1, p0, Lcom/android/launcher2/LauncherModel$14;->val$item:Lcom/android/launcher2/HomeShortcutItem;
+    iget-object v1, p0, Lcom/android/launcher2/LauncherModel$14;->val$festivalAppWidgets:Ljava/util/List;
 
-    iget v2, p0, Lcom/android/launcher2/LauncherModel$14;->val$screen:I
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/launcher2/HomeFolderItem;->addItemAt(Lcom/android/launcher2/BaseItem;I)V
+    invoke-virtual {v0, v1}, Lcom/android/launcher2/Launcher;->bindHomeDeleteFestivalPage(Ljava/util/List;)V
 
     return-void
 .end method

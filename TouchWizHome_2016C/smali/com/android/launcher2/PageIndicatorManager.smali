@@ -140,7 +140,7 @@
 
     move-result-object v3
 
-    const v5, 0x7f020069
+    const v5, 0x7f02006b
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -156,7 +156,7 @@
 
     sput v5, Lcom/android/launcher2/PageIndicatorManager;->mPageIndicatorHeight:I
 
-    const v5, 0x7f02006b
+    const v5, 0x7f02006d
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -177,7 +177,7 @@
     iput-object v5, p0, Lcom/android/launcher2/PageIndicatorManager;->mFestivalPageIndicator:Landroid/graphics/drawable/Drawable;
 
     :cond_0
-    const v5, 0x7f02006a
+    const v5, 0x7f02006c
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -185,7 +185,7 @@
 
     iput-object v5, p0, Lcom/android/launcher2/PageIndicatorManager;->mHeadlinesPageIndicator:Landroid/graphics/drawable/Drawable;
 
-    const v5, 0x7f02006c
+    const v5, 0x7f02006e
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -207,7 +207,7 @@
 
     iput p4, p0, Lcom/android/launcher2/PageIndicatorManager;->mMaxVisiblePages:I
 
-    const v5, 0x7f090287
+    const v5, 0x7f090288
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

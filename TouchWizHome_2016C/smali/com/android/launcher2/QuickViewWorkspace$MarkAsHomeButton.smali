@@ -60,7 +60,7 @@
 
     invoke-virtual {p0, v1}, Lcom/android/launcher2/QuickViewWorkspace$MarkAsHomeButton;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    const v1, 0x7f020084
+    const v1, 0x7f020086
 
     invoke-virtual {p0, v1}, Lcom/android/launcher2/QuickViewWorkspace$MarkAsHomeButton;->setBackgroundResource(I)V
 

@@ -360,6 +360,8 @@
     <dimen name="moveApps_edgeMargin">17.0dip</dimen>
     <dimen name="folder_multi_header_text_height">30.0dip</dimen>
     <dimen name="folder_multi_icon_text_size">14.0dip</dimen>
+    <dimen name="folder_multi_search_bar_layout_height">56.0dip</dimen>
+    <dimen name="folder_multi_title_layout_height">58.0dip</dimen>
     <dimen name="appsearch_font_size">14.0sp</dimen>
     <dimen name="appsearch_back_down_width">64.0dip</dimen>
     <dimen name="appsearch_grid_cell_height">117.0dip</dimen>
@@ -370,12 +372,10 @@
     <dimen name="appsearch_list_item_text_size">14.0dip</dimen>
     <dimen name="appsearch_result_margin_top">56.0dip</dimen>
     <dimen name="appsearch_searchview_height">56.0dip</dimen>
+    <dimen name="folder_multi_icon_checkbox_size">25.0dip</dimen>
     <dimen name="moveApps_intro_text_size">18.0dip</dimen>
     <dimen name="folder_multi_header_margin_end">37.0dip</dimen>
     <dimen name="folder_multi_header_margin_start">14.0dip</dimen>
-    <dimen name="folder_multi_icon_checkbox_size">25.0dip</dimen>
-    <dimen name="folder_multi_search_bar_layout_height">56.0dip</dimen>
-    <dimen name="folder_multi_title_layout_height">58.0dip</dimen>
     <dimen name="home_zero_page_dual_image_gap">32.0dip</dimen>
     <dimen name="home_zero_page_dual_image_height">299.0dip</dimen>
     <dimen name="home_zero_page_dual_image_width">230.0dip</dimen>

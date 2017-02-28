@@ -1319,7 +1319,7 @@
 
     iget-object v0, p0, Lcom/android/launcher2/utils/HomeBlurUtil;->mResources:Landroid/content/res/Resources;
 
-    const v1, 0x7f0902c2
+    const v1, 0x7f0902c4
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1363,7 +1363,7 @@
 
     iget-object v0, p0, Lcom/android/launcher2/utils/HomeBlurUtil;->mResources:Landroid/content/res/Resources;
 
-    const v1, 0x7f0902c2
+    const v1, 0x7f0902c4
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

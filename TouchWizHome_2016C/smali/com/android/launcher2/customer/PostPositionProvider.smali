@@ -1273,25 +1273,66 @@
 .method public insert(Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;
     .locals 12
 
-    const-wide/16 v10, 0x0
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
-    const/4 v6, 0x0
+    move-result v3
 
-    iget-object v7, p0, Lcom/android/launcher2/customer/PostPositionProvider;->mDB:Landroid/database/sqlite/SQLiteDatabase;
+    invoke-static {}, Landroid/os/Process;->myUid()I
+
+    move-result v8
+
+    if-eq v3, v8, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/launcher2/customer/PostPositionProvider;->getContext()Landroid/content/Context;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v3
+
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v8
+
+    invoke-virtual {v3, v8}, Landroid/content/pm/PackageManager;->getNameForUid(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v3, "com.sec.android.easyMover.Agent"
+
+    invoke-virtual {v3, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    const-string v3, "com.samsung.android.app.omcagent"
+
+    invoke-virtual {v3, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_6
+
+    :cond_0
+    iget-object v3, p0, Lcom/android/launcher2/customer/PostPositionProvider;->mDB:Landroid/database/sqlite/SQLiteDatabase;
 
     const-string v8, "PositionInfo"
 
-    invoke-virtual {v7, v8, v6, p2}, Landroid/database/sqlite/SQLiteDatabase;->insert(Ljava/lang/String;Ljava/lang/String;Landroid/content/ContentValues;)J
+    const/4 v9, 0x0
 
-    move-result-wide v2
+    invoke-virtual {v3, v8, v9, p2}, Landroid/database/sqlite/SQLiteDatabase;->insert(Ljava/lang/String;Ljava/lang/String;Landroid/content/ContentValues;)J
 
-    const-string v7, "CUSTOMER.PostPosition"
+    move-result-wide v4
+
+    const-string v3, "CUSTOMER.PostPosition"
 
     new-instance v8, Ljava/lang/StringBuilder;
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v8, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v4, v5}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     move-result-object v8
 
@@ -1315,127 +1356,163 @@
 
     move-result-object v8
 
-    invoke-static {v7, v8}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v8}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    cmp-long v7, v2, v10
+    const-wide/16 v8, 0x0
 
-    if-lez v7, :cond_5
+    cmp-long v3, v4, v8
+
+    if-lez v3, :cond_7
 
     invoke-static {}, Lcom/android/launcher2/customer/PostPosition;->getInstance()Lcom/android/launcher2/customer/PostPosition;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1}, Lcom/android/launcher2/customer/PostPosition;->getSharedPrefInfo()Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;
+    invoke-virtual {v2}, Lcom/android/launcher2/customer/PostPosition;->getSharedPrefInfo()Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;
 
-    move-result-object v6
+    move-result-object v3
 
-    invoke-virtual {v6}, Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;->isEnabled()J
+    invoke-virtual {v3}, Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;->isEnabled()J
 
-    move-result-wide v6
+    move-result-wide v8
 
-    cmp-long v6, v6, v10
+    const-wide/16 v10, 0x0
 
-    if-gez v6, :cond_0
+    cmp-long v3, v8, v10
 
-    invoke-virtual {v1}, Lcom/android/launcher2/customer/PostPosition;->getSharedPrefInfo()Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;
+    if-gez v3, :cond_1
 
-    move-result-object v6
+    invoke-virtual {v2}, Lcom/android/launcher2/customer/PostPosition;->getSharedPrefInfo()Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;
+
+    move-result-object v3
 
     const-wide/16 v8, 0x1
 
-    invoke-virtual {v6, v8, v9}, Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;->init(J)V
+    invoke-virtual {v3, v8, v9}, Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;->init(J)V
 
-    invoke-virtual {v1}, Lcom/android/launcher2/customer/PostPosition;->checkAndEnableProvider()V
-
-    :cond_0
-    const-wide/16 v4, 0x0
-
-    const-string v6, "itemType"
-
-    invoke-virtual {p2, v6}, Landroid/content/ContentValues;->containsKey(Ljava/lang/String;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_1
-
-    const-string v6, "itemType"
-
-    invoke-virtual {p2, v6}, Landroid/content/ContentValues;->getAsLong(Ljava/lang/String;)Ljava/lang/Long;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/Long;->longValue()J
-
-    move-result-wide v4
+    invoke-virtual {v2}, Lcom/android/launcher2/customer/PostPosition;->checkAndEnableProvider()V
 
     :cond_1
-    sget-object v6, Lcom/android/launcher2/customer/PostPositionProvider$ITEM_TYPE;->WIDGET:Lcom/android/launcher2/customer/PostPositionProvider$ITEM_TYPE;
+    const-wide/16 v6, 0x0
 
-    invoke-virtual {v6}, Lcom/android/launcher2/customer/PostPositionProvider$ITEM_TYPE;->ordinal()I
+    const-string v3, "itemType"
 
-    move-result v6
+    invoke-virtual {p2, v3}, Landroid/content/ContentValues;->containsKey(Ljava/lang/String;)Z
 
-    int-to-long v6, v6
+    move-result v3
 
-    cmp-long v6, v4, v6
+    if-eqz v3, :cond_2
 
-    if-nez v6, :cond_3
+    const-string v3, "itemType"
 
-    iget-object v6, p0, Lcom/android/launcher2/customer/PostPositionProvider;->mWidgetList:Ljava/util/ArrayList;
+    invoke-virtual {p2, v3}, Landroid/content/ContentValues;->getAsLong(Ljava/lang/String;)Ljava/lang/Long;
 
-    if-nez v6, :cond_2
+    move-result-object v3
 
-    new-instance v6, Ljava/util/ArrayList;
+    invoke-virtual {v3}, Ljava/lang/Long;->longValue()J
 
-    invoke-direct {v6}, Ljava/util/ArrayList;-><init>()V
-
-    iput-object v6, p0, Lcom/android/launcher2/customer/PostPositionProvider;->mWidgetList:Ljava/util/ArrayList;
+    move-result-wide v6
 
     :cond_2
-    iget-object v6, p0, Lcom/android/launcher2/customer/PostPositionProvider;->mWidgetList:Ljava/util/ArrayList;
+    sget-object v3, Lcom/android/launcher2/customer/PostPositionProvider$ITEM_TYPE;->WIDGET:Lcom/android/launcher2/customer/PostPositionProvider$ITEM_TYPE;
 
-    const-string v7, "componentName"
+    invoke-virtual {v3}, Lcom/android/launcher2/customer/PostPositionProvider$ITEM_TYPE;->ordinal()I
 
-    invoke-virtual {p2, v7}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
+    move-result v3
 
-    move-result-object v7
+    int-to-long v8, v3
 
-    invoke-virtual {v6, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    cmp-long v3, v6, v8
+
+    if-nez v3, :cond_4
+
+    iget-object v3, p0, Lcom/android/launcher2/customer/PostPositionProvider;->mWidgetList:Ljava/util/ArrayList;
+
+    if-nez v3, :cond_3
+
+    new-instance v3, Ljava/util/ArrayList;
+
+    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v3, p0, Lcom/android/launcher2/customer/PostPositionProvider;->mWidgetList:Ljava/util/ArrayList;
 
     :cond_3
-    const-string v6, "componentName"
+    iget-object v3, p0, Lcom/android/launcher2/customer/PostPositionProvider;->mWidgetList:Ljava/util/ArrayList;
 
-    invoke-virtual {p2, v6}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
+    const-string v8, "componentName"
 
-    move-result-object v6
+    invoke-virtual {p2, v8}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v3, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    :cond_4
+    const-string v3, "componentName"
+
+    invoke-virtual {p2, v3}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
 
     invoke-static {}, Lcom/android/launcher2/customer/PostPositionProvider$ITEM_TYPE;->values()[Lcom/android/launcher2/customer/PostPositionProvider$ITEM_TYPE;
 
-    move-result-object v7
+    move-result-object v8
 
-    long-to-int v8, v4
+    long-to-int v9, v6
 
-    aget-object v7, v7, v8
+    aget-object v8, v8, v9
 
-    invoke-virtual {p0, v6, v7}, Lcom/android/launcher2/customer/PostPositionProvider;->getItemRecord(Ljava/lang/String;Lcom/android/launcher2/customer/PostPositionProvider$ITEM_TYPE;)Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;
+    invoke-virtual {p0, v3, v8}, Lcom/android/launcher2/customer/PostPositionProvider;->getItemRecord(Ljava/lang/String;Lcom/android/launcher2/customer/PostPositionProvider$ITEM_TYPE;)Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-eqz v0, :cond_4
+    if-eqz v1, :cond_5
 
-    iget-boolean v6, v0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeAdd:Z
+    iget-boolean v3, v1, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeAdd:Z
 
-    if-eqz v6, :cond_4
+    if-eqz v3, :cond_5
 
-    const/4 v6, 0x0
+    const/4 v3, 0x0
 
-    invoke-virtual {v1, v0, v6}, Lcom/android/launcher2/customer/PostPosition;->runHomeAdd(Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;Z)V
-
-    :cond_4
-    sget-object v6, Lcom/android/launcher2/customer/PostPositionProvider;->CONTENT_URI:Landroid/net/Uri;
+    invoke-virtual {v2, v1, v3}, Lcom/android/launcher2/customer/PostPosition;->runHomeAdd(Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;Z)V
 
     :cond_5
-    return-object v6
+    sget-object v3, Lcom/android/launcher2/customer/PostPositionProvider;->CONTENT_URI:Landroid/net/Uri;
+
+    :goto_0
+    return-object v3
+
+    :cond_6
+    const-string v3, "CUSTOMER.PostPosition"
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v9, "SAPP doesn\'t alllow to insert item for your app : "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v3, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v3, 0x0
+
+    goto :goto_0
+
+    :cond_7
+    const/4 v3, 0x0
+
+    goto :goto_0
 .end method
 
 .method public onCreate()Z

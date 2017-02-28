@@ -194,15 +194,11 @@
 
     invoke-direct {v5, v2}, Ljava/lang/String;-><init>([C)V
 
-    sget-object v6, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
-
-    invoke-virtual {p2, v6}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
     move-result-object v6
 
-    sget-object v7, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
-
-    invoke-virtual {v5, v7}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
     move-result-object v7
 
@@ -241,17 +237,13 @@
     goto/16 :goto_0
 
     :cond_3
-    sget-object v6, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
-
-    invoke-virtual {p2, v6}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
     move-result-object v6
 
     iget-object v7, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$SearchListAdapter;->mSearchText:Ljava/lang/String;
 
-    sget-object v8, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
-
-    invoke-virtual {v7, v8}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
     move-result-object v7
 

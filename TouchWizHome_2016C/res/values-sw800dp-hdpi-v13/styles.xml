@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MenuIcon.FolderItem" parent="@style/MenuIcon">
+        <item name="android:textSize">@dimen/menu_icon_textsize</item>
+        <item name="android:textColor">#fffafafa</item>
+        <item name="android:paddingTop">@dimen/open_folder_appicon_padding_top</item>
+        <item name="android:layout_marginTop">@dimen/folder_icon_marginTop</item>
+        <item name="android:shadowDy">1.0</item>
+        <item name="android:shadowRadius">1.0</item>
+        <item name="android:drawablePadding">2.0dip</item>
+        <item name="destination">folderItem</item>
+    </style>
+</resources>

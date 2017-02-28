@@ -1283,14 +1283,12 @@
     return v0
 .end method
 
-.method private isValidIndex(I)Z
+.method private isValidIndex(II)Z
     .locals 1
 
     if-ltz p1, :cond_0
 
-    sget v0, Lcom/android/launcher2/LauncherApplication;->sScreenCountNormal:I
-
-    if-ge p1, v0, :cond_0
+    if-ge p1, p2, :cond_0
 
     const/4 v0, 0x1
 
@@ -3009,7 +3007,7 @@
 .end method
 
 .method public onCreate()V
-    .locals 20
+    .locals 22
 
     invoke-super/range {p0 .. p0}, Landroid/app/Application;->onCreate()V
 
@@ -3017,13 +3015,13 @@
 
     invoke-static {}, Lcom/android/launcher2/ZeroPageUtils;->getInstance()Lcom/android/launcher2/ZeroPageUtils;
 
-    move-result-object v17
+    move-result-object v19
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/LauncherApplication;->getApplicationContext()Landroid/content/Context;
 
-    move-result-object v18
+    move-result-object v20
 
-    invoke-virtual/range {v17 .. v18}, Lcom/android/launcher2/ZeroPageUtils;->initZeroPageFeature(Landroid/content/Context;)V
+    invoke-virtual/range {v19 .. v20}, Lcom/android/launcher2/ZeroPageUtils;->initZeroPageFeature(Landroid/content/Context;)V
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/LauncherApplication;->getResources()Landroid/content/res/Resources;
 
@@ -3031,153 +3029,159 @@
 
     invoke-static/range {p0 .. p0}, Landroid/view/ViewConfiguration;->get(Landroid/content/Context;)Landroid/view/ViewConfiguration;
 
-    move-result-object v17
+    move-result-object v19
 
-    invoke-virtual/range {v17 .. v17}, Landroid/view/ViewConfiguration;->hasPermanentMenuKey()Z
+    invoke-virtual/range {v19 .. v19}, Landroid/view/ViewConfiguration;->hasPermanentMenuKey()Z
 
-    move-result v17
+    move-result v19
 
-    if-nez v17, :cond_0
+    if-nez v19, :cond_0
 
-    const v17, 0x7f0c0019
+    const v19, 0x7f0c0019
 
-    move/from16 v0, v17
+    move/from16 v0, v19
 
     invoke-virtual {v13, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
-    move-result v17
+    move-result v19
 
-    if-eqz v17, :cond_13
+    if-eqz v19, :cond_13
 
     :cond_0
-    const/16 v17, 0x1
+    const/16 v19, 0x1
 
     :goto_0
-    sput-boolean v17, Lcom/android/launcher2/LauncherApplication;->sHasMenuKey:Z
+    sput-boolean v19, Lcom/android/launcher2/LauncherApplication;->sHasMenuKey:Z
 
     invoke-static/range {p0 .. p0}, Landroid/view/ViewConfiguration;->get(Landroid/content/Context;)Landroid/view/ViewConfiguration;
 
-    move-result-object v17
+    move-result-object v19
 
-    invoke-virtual/range {v17 .. v17}, Landroid/view/ViewConfiguration;->hasPermanentMenuKey()Z
+    invoke-virtual/range {v19 .. v19}, Landroid/view/ViewConfiguration;->hasPermanentMenuKey()Z
 
-    move-result v17
+    move-result v19
 
-    if-nez v17, :cond_14
+    if-nez v19, :cond_14
 
-    const/16 v17, 0x4
+    const/16 v19, 0x4
 
-    invoke-static/range {v17 .. v17}, Landroid/view/KeyCharacterMap;->deviceHasKey(I)Z
+    invoke-static/range {v19 .. v19}, Landroid/view/KeyCharacterMap;->deviceHasKey(I)Z
 
-    move-result v17
+    move-result v19
 
-    if-nez v17, :cond_14
+    if-nez v19, :cond_14
 
-    const/16 v17, 0x1
+    const/16 v19, 0x1
 
     :goto_1
-    sput-boolean v17, Lcom/android/launcher2/LauncherApplication;->sHasSoftKey:Z
+    sput-boolean v19, Lcom/android/launcher2/LauncherApplication;->sHasSoftKey:Z
 
     invoke-virtual {v13}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
 
-    move-result-object v17
+    move-result-object v19
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v19
 
     iget v0, v0, Landroid/content/res/Configuration;->screenLayout:I
 
-    move/from16 v17, v0
+    move/from16 v19, v0
 
-    and-int/lit8 v15, v17, 0xf
+    and-int/lit8 v17, v19, 0xf
 
-    const/16 v17, 0x1
+    const/16 v19, 0x1
 
     move/from16 v0, v17
 
-    if-ne v15, v0, :cond_15
+    move/from16 v1, v19
 
-    const/16 v17, 0x1
+    if-ne v0, v1, :cond_15
+
+    const/16 v19, 0x1
 
     :goto_2
-    sput-boolean v17, Lcom/android/launcher2/LauncherApplication;->sIsScreenSmall:Z
+    sput-boolean v19, Lcom/android/launcher2/LauncherApplication;->sIsScreenSmall:Z
 
-    const/16 v17, 0x3
-
-    move/from16 v0, v17
-
-    if-eq v15, v0, :cond_1
-
-    const/16 v17, 0x4
+    const/16 v19, 0x3
 
     move/from16 v0, v17
 
-    if-ne v15, v0, :cond_16
+    move/from16 v1, v19
+
+    if-eq v0, v1, :cond_1
+
+    const/16 v19, 0x4
+
+    move/from16 v0, v17
+
+    move/from16 v1, v19
+
+    if-ne v0, v1, :cond_16
 
     :cond_1
-    const/16 v17, 0x1
+    const/16 v19, 0x1
 
     :goto_3
-    sput-boolean v17, Lcom/android/launcher2/LauncherApplication;->sIsScreenLarge:Z
+    sput-boolean v19, Lcom/android/launcher2/LauncherApplication;->sIsScreenLarge:Z
 
     invoke-virtual {v13}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
-    move-result-object v17
+    move-result-object v19
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v19
 
     iget v0, v0, Landroid/util/DisplayMetrics;->density:F
 
-    move/from16 v17, v0
+    move/from16 v19, v0
 
-    sput v17, Lcom/android/launcher2/LauncherApplication;->sScreenDensity:F
+    sput v19, Lcom/android/launcher2/LauncherApplication;->sScreenDensity:F
 
-    const v17, 0x7f0c0003
+    const v19, 0x7f0c0003
 
-    move/from16 v0, v17
+    move/from16 v0, v19
 
     invoke-virtual {v13, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
-    move-result v17
+    move-result v19
 
-    sput-boolean v17, Lcom/android/launcher2/LauncherApplication;->sIsTabletLayout:Z
+    sput-boolean v19, Lcom/android/launcher2/LauncherApplication;->sIsTabletLayout:Z
 
-    const/16 v17, 0x2
+    const/16 v19, 0x2
 
-    move/from16 v0, v17
+    move/from16 v0, v19
 
     new-array v3, v0, [I
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/LauncherApplication;->getApplicationContext()Landroid/content/Context;
 
-    move-result-object v17
+    move-result-object v19
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v19
 
     invoke-static {v0, v3}, Lcom/android/launcher2/Utilities;->loadCurentGridSize(Landroid/content/Context;[I)V
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/LauncherApplication;->getApplicationContext()Landroid/content/Context;
 
-    move-result-object v17
+    move-result-object v19
 
-    const/16 v18, 0x0
+    const/16 v20, 0x0
 
-    aget v18, v3, v18
+    aget v20, v3, v20
 
-    const/16 v19, 0x1
+    const/16 v21, 0x1
 
-    aget v19, v3, v19
+    aget v21, v3, v21
 
-    invoke-static/range {v17 .. v19}, Lcom/android/launcher2/Utilities;->storeGridLayoutPreference(Landroid/content/Context;II)V
+    invoke-static/range {v19 .. v21}, Lcom/android/launcher2/Utilities;->storeGridLayoutPreference(Landroid/content/Context;II)V
 
-    new-instance v17, Lcom/android/launcher2/ThemeLoader;
+    new-instance v19, Lcom/android/launcher2/ThemeLoader;
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/LauncherApplication;->getApplicationContext()Landroid/content/Context;
 
-    move-result-object v18
+    move-result-object v20
 
-    invoke-direct/range {v17 .. v18}, Lcom/android/launcher2/ThemeLoader;-><init>(Landroid/content/Context;)V
+    invoke-direct/range {v19 .. v20}, Lcom/android/launcher2/ThemeLoader;-><init>(Landroid/content/Context;)V
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v19
 
     move-object/from16 v1, p0
 
@@ -3187,30 +3191,30 @@
 
     invoke-static {}, Lcom/android/launcher2/LauncherFeature;->supportFolderLock()Z
 
-    move-result v17
+    move-result v19
 
-    if-eqz v17, :cond_2
+    if-eqz v19, :cond_2
 
     invoke-static/range {p0 .. p0}, Lcom/android/launcher2/FolderLock;->getInstance(Landroid/content/Context;)Lcom/android/launcher2/FolderLock;
 
-    move-result-object v17
+    move-result-object v19
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v19
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/launcher2/LauncherApplication;->mFolderLock:Lcom/android/launcher2/FolderLock;
 
-    sget-boolean v17, Lcom/android/launcher2/LauncherApplication;->mEnableFolderLock:Z
+    sget-boolean v19, Lcom/android/launcher2/LauncherApplication;->mEnableFolderLock:Z
 
-    if-nez v17, :cond_2
+    if-nez v19, :cond_2
 
     invoke-static/range {p0 .. p0}, Lcom/android/launcher2/LauncherApplication;->setEnableFolderLock(Landroid/content/Context;)V
 
     :cond_2
-    sget-object v17, Lcom/android/launcher2/MenuAppModel;->INSTANCE:Lcom/android/launcher2/MenuAppModel;
+    sget-object v19, Lcom/android/launcher2/MenuAppModel;->INSTANCE:Lcom/android/launcher2/MenuAppModel;
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v19
 
     move-object/from16 v1, p0
 
@@ -3220,23 +3224,23 @@
 
     iget-object v0, v0, Lcom/android/launcher2/LauncherApplication;->mMenuAppModel:Lcom/android/launcher2/MenuAppModel;
 
-    move-object/from16 v17, v0
+    move-object/from16 v19, v0
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v19
 
     move-object/from16 v1, p0
 
     invoke-virtual {v0, v1}, Lcom/android/launcher2/MenuAppModel;->setLauncherApplication(Lcom/android/launcher2/LauncherApplication;)V
 
-    new-instance v17, Lcom/android/launcher2/PkgResCache;
+    new-instance v19, Lcom/android/launcher2/PkgResCache;
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v19
 
     move-object/from16 v1, p0
 
     invoke-direct {v0, v1}, Lcom/android/launcher2/PkgResCache;-><init>(Lcom/android/launcher2/LauncherApplication;)V
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v19
 
     move-object/from16 v1, p0
 
@@ -3244,35 +3248,35 @@
 
     invoke-static {}, Lcom/android/launcher2/LauncherFeature;->supportFestivalPage()Z
 
-    move-result v17
+    move-result v19
 
-    sput-boolean v17, Lcom/android/launcher2/LauncherApplication;->sFestivalPageLauncher:Z
+    sput-boolean v19, Lcom/android/launcher2/LauncherApplication;->sFestivalPageLauncher:Z
 
-    new-instance v17, Lcom/android/launcher2/LauncherModel;
+    new-instance v19, Lcom/android/launcher2/LauncherModel;
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/launcher2/LauncherApplication;->mPkgResCache:Lcom/android/launcher2/PkgResCache;
 
-    move-object/from16 v18, v0
+    move-object/from16 v20, v0
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v19
 
     move-object/from16 v1, p0
 
-    move-object/from16 v2, v18
+    move-object/from16 v2, v20
 
     invoke-direct {v0, v1, v2}, Lcom/android/launcher2/LauncherModel;-><init>(Lcom/android/launcher2/LauncherApplication;Lcom/android/launcher2/PkgResCache;)V
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v19
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/launcher2/LauncherApplication;->mModel:Lcom/android/launcher2/LauncherModel;
 
-    sget-object v17, Lcom/android/launcher2/WorkspaceSpanCalculator;->INSTANCE:Lcom/android/launcher2/WorkspaceSpanCalculator;
+    sget-object v19, Lcom/android/launcher2/WorkspaceSpanCalculator;->INSTANCE:Lcom/android/launcher2/WorkspaceSpanCalculator;
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v19
 
     move-object/from16 v1, p0
 
@@ -3282,9 +3286,9 @@
 
     iget-object v0, v0, Lcom/android/launcher2/LauncherApplication;->mSpanCalculator:Lcom/android/launcher2/WorkspaceSpanCalculator;
 
-    move-object/from16 v17, v0
+    move-object/from16 v19, v0
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v19
 
     move-object/from16 v1, p0
 
@@ -3298,9 +3302,9 @@
 
     iget-object v0, v0, Lcom/android/launcher2/LauncherApplication;->mModel:Lcom/android/launcher2/LauncherModel;
 
-    move-object/from16 v17, v0
+    move-object/from16 v19, v0
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v19
 
     invoke-virtual {v9, v0}, Lcom/android/launcher2/compat/LauncherAppsCompat;->addOnAppsChangedCallback(Lcom/android/launcher2/compat/LauncherAppsCompat$OnAppsChangedCallbackCompat;)V
 
@@ -3308,32 +3312,32 @@
 
     invoke-direct {v7}, Landroid/content/IntentFilter;-><init>()V
 
-    const-string v17, "android.intent.action.CONFIGURATION_CHANGED"
+    const-string v19, "android.intent.action.CONFIGURATION_CHANGED"
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v19
 
     invoke-virtual {v7, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    sget-boolean v17, Lcom/android/launcher2/LauncherApplication;->sFestivalPageLauncher:Z
+    sget-boolean v19, Lcom/android/launcher2/LauncherApplication;->sFestivalPageLauncher:Z
 
-    if-eqz v17, :cond_3
+    if-eqz v19, :cond_3
 
-    const-string v17, "com.sec.android.widget.myeventwidget.FESTIVAL_CANCEL_ACTION"
+    const-string v19, "com.sec.android.widget.myeventwidget.FESTIVAL_CANCEL_ACTION"
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v19
 
     invoke-virtual {v7, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
     :cond_3
     invoke-static {}, Lcom/android/launcher2/LauncherFeature;->supportSprintExtension()Z
 
-    move-result v17
+    move-result v19
 
-    if-eqz v17, :cond_4
+    if-eqz v19, :cond_4
 
-    const-string v17, "com.sec.sprextension.FORCE_LAUNCHER_REFRESH"
+    const-string v19, "com.sec.sprextension.FORCE_LAUNCHER_REFRESH"
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v19
 
     invoke-virtual {v7, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
@@ -3342,11 +3346,11 @@
 
     iget-object v0, v0, Lcom/android/launcher2/LauncherApplication;->mModel:Lcom/android/launcher2/LauncherModel;
 
-    move-object/from16 v17, v0
+    move-object/from16 v19, v0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v19
 
     invoke-virtual {v0, v1, v7}, Lcom/android/launcher2/LauncherApplication;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
@@ -3354,15 +3358,15 @@
 
     invoke-direct {v7}, Landroid/content/IntentFilter;-><init>()V
 
-    const-string v17, "android.intent.action.STK_TITLE_IS_LOADED"
+    const-string v19, "android.intent.action.STK_TITLE_IS_LOADED"
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v19
 
     invoke-virtual {v7, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    const-string v17, "package"
+    const-string v19, "package"
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v19
 
     invoke-virtual {v7, v0}, Landroid/content/IntentFilter;->addDataScheme(Ljava/lang/String;)V
 
@@ -3370,29 +3374,29 @@
 
     iget-object v0, v0, Lcom/android/launcher2/LauncherApplication;->mModel:Lcom/android/launcher2/LauncherModel;
 
-    move-object/from16 v17, v0
+    move-object/from16 v19, v0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v19
 
     invoke-virtual {v0, v1, v7}, Lcom/android/launcher2/LauncherApplication;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    const-string v17, "rootbadgefeature"
+    const-string v19, "rootbadgefeature"
 
-    invoke-static/range {v17 .. v17}, Lcom/android/launcher2/Utilities;->isSupportCHNFeature(Ljava/lang/String;)Z
+    invoke-static/range {v19 .. v19}, Lcom/android/launcher2/Utilities;->isSupportCHNFeature(Ljava/lang/String;)Z
 
-    move-result v17
+    move-result v19
 
-    if-eqz v17, :cond_5
+    if-eqz v19, :cond_5
 
     new-instance v7, Landroid/content/IntentFilter;
 
     invoke-direct {v7}, Landroid/content/IntentFilter;-><init>()V
 
-    const-string v17, "com.sec.intent.action.SYSSCOPESTATUS"
+    const-string v19, "com.sec.intent.action.SYSSCOPESTATUS"
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v19
 
     invoke-virtual {v7, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
@@ -3400,11 +3404,11 @@
 
     iget-object v0, v0, Lcom/android/launcher2/LauncherApplication;->mModel:Lcom/android/launcher2/LauncherModel;
 
-    move-object/from16 v17, v0
+    move-object/from16 v19, v0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v19
 
     invoke-virtual {v0, v1, v7}, Lcom/android/launcher2/LauncherApplication;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
@@ -3413,33 +3417,33 @@
 
     move-result-object v14
 
-    sget-object v17, Lcom/android/launcher2/LauncherSettings$Favorites;->CONTENT_URI:Landroid/net/Uri;
+    sget-object v19, Lcom/android/launcher2/LauncherSettings$Favorites;->CONTENT_URI:Landroid/net/Uri;
 
-    const/16 v18, 0x1
+    const/16 v20, 0x1
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/launcher2/LauncherApplication;->mFavoritesObserver:Landroid/database/ContentObserver;
 
-    move-object/from16 v19, v0
+    move-object/from16 v21, v0
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v19
 
-    move/from16 v1, v18
+    move/from16 v1, v20
 
-    move-object/from16 v2, v19
+    move-object/from16 v2, v21
 
     invoke-virtual {v14, v0, v1, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    const-string v17, "com.sec.android.app.launcher.prefs"
+    const-string v19, "com.sec.android.app.launcher.prefs"
 
-    const/16 v18, 0x0
+    const/16 v20, 0x0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v19
 
-    move/from16 v2, v18
+    move/from16 v2, v20
 
     invoke-virtual {v0, v1, v2}, Lcom/android/launcher2/LauncherApplication;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
@@ -3449,78 +3453,78 @@
 
     move-result-object v4
 
-    const-string v17, "screencount.briefing"
+    const-string v19, "screencount.briefing"
 
-    const/16 v18, 0x0
+    const/16 v20, 0x0
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v19
 
-    move/from16 v1, v18
+    move/from16 v1, v20
 
     invoke-interface {v11, v0, v1}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
 
-    move-result v17
+    move-result v19
 
-    sput v17, Lcom/android/launcher2/LauncherApplication;->sScreenCountBriefing:I
+    sput v19, Lcom/android/launcher2/LauncherApplication;->sScreenCountBriefing:I
 
-    const v17, 0x7f0b004a
+    const v19, 0x7f0b004a
 
-    move/from16 v0, v17
+    move/from16 v0, v19
 
     invoke-virtual {v13, v0}, Landroid/content/res/Resources;->getInteger(I)I
 
-    move-result v17
+    move-result v19
 
-    sput v17, Lcom/android/launcher2/LauncherApplication;->sMaxScreenCount:I
+    sput v19, Lcom/android/launcher2/LauncherApplication;->sMaxScreenCount:I
 
     invoke-static {}, Lcom/android/launcher2/LauncherApplication;->isHomeOnlyModeEnabled()Z
 
-    move-result v17
+    move-result v19
 
-    if-eqz v17, :cond_17
+    if-eqz v19, :cond_17
 
-    const-string v17, "screencount.homeonly"
+    const-string v19, "screencount.homeonly"
 
-    const/16 v18, 0x0
+    const/16 v20, 0x0
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v19
 
-    move/from16 v1, v18
+    move/from16 v1, v20
 
     invoke-interface {v11, v0, v1}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
 
-    move-result v17
+    move-result v19
 
-    sput v17, Lcom/android/launcher2/LauncherApplication;->sScreenCountNormal:I
+    sput v19, Lcom/android/launcher2/LauncherApplication;->sScreenCountNormal:I
 
     :goto_4
-    sget v17, Lcom/android/launcher2/LauncherApplication;->sScreenCountNormal:I
+    sget v19, Lcom/android/launcher2/LauncherApplication;->sScreenCountNormal:I
 
-    if-gtz v17, :cond_7
+    if-gtz v19, :cond_7
 
-    const-string v17, "CscFeature_Launcher_TotalPageCount"
+    const-string v19, "CscFeature_Launcher_TotalPageCount"
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v19
 
     invoke-virtual {v4, v0}, Lcom/samsung/android/feature/SemCscFeature;->getInt(Ljava/lang/String;)I
 
-    move-result v17
+    move-result v19
 
-    sput v17, Lcom/android/launcher2/LauncherApplication;->sScreenCountNormal:I
+    sput v19, Lcom/android/launcher2/LauncherApplication;->sScreenCountNormal:I
 
-    sget v17, Lcom/android/launcher2/LauncherApplication;->sScreenCountNormal:I
+    sget v19, Lcom/android/launcher2/LauncherApplication;->sScreenCountNormal:I
 
-    if-gtz v17, :cond_6
+    if-gtz v19, :cond_6
 
-    const v17, 0x7f0b0002
+    const v19, 0x7f0b0002
 
-    move/from16 v0, v17
+    move/from16 v0, v19
 
     invoke-virtual {v13, v0}, Landroid/content/res/Resources;->getInteger(I)I
 
-    move-result v17
+    move-result v19
 
-    sput v17, Lcom/android/launcher2/LauncherApplication;->sScreenCountNormal:I
+    sput v19, Lcom/android/launcher2/LauncherApplication;->sScreenCountNormal:I
 
     :cond_6
     invoke-interface {v11}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
@@ -3529,17 +3533,17 @@
 
     invoke-static {}, Lcom/android/launcher2/LauncherApplication;->isHomeOnlyModeEnabled()Z
 
-    move-result v17
+    move-result v19
 
-    if-eqz v17, :cond_18
+    if-eqz v19, :cond_18
 
-    const-string v17, "screencount.homeonly"
+    const-string v19, "screencount.homeonly"
 
-    sget v18, Lcom/android/launcher2/LauncherApplication;->sScreenCountNormal:I
+    sget v20, Lcom/android/launcher2/LauncherApplication;->sScreenCountNormal:I
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v19
 
-    move/from16 v1, v18
+    move/from16 v1, v20
 
     invoke-interface {v6, v0, v1}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
 
@@ -3547,151 +3551,179 @@
     invoke-interface {v6}, Landroid/content/SharedPreferences$Editor;->apply()V
 
     :cond_7
-    const-string v17, "homescreenindex"
+    const-string v19, "screencount"
 
-    const/16 v18, -0x1
+    const/16 v20, 0x0
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v19
 
-    move/from16 v1, v18
-
-    invoke-interface {v11, v0, v1}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
-
-    move-result v17
-
-    sput v17, Lcom/android/launcher2/LauncherApplication;->sScreenIndexNormal:I
-
-    const-string v17, "homescreenindex.homeonly"
-
-    const/16 v18, -0x1
-
-    move-object/from16 v0, v17
-
-    move/from16 v1, v18
+    move/from16 v1, v20
 
     invoke-interface {v11, v0, v1}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
 
-    move-result v17
+    move-result v15
 
-    sput v17, Lcom/android/launcher2/LauncherApplication;->sScreenIndexNormal_homeOnly:I
+    const-string v19, "screencount.homeonly"
 
-    sget v17, Lcom/android/launcher2/LauncherApplication;->sScreenIndexNormal:I
+    const/16 v20, 0x0
+
+    move-object/from16 v0, v19
+
+    move/from16 v1, v20
+
+    invoke-interface {v11, v0, v1}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
+
+    move-result v16
+
+    const-string v19, "homescreenindex"
+
+    const/16 v20, -0x1
+
+    move-object/from16 v0, v19
+
+    move/from16 v1, v20
+
+    invoke-interface {v11, v0, v1}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
+
+    move-result v19
+
+    sput v19, Lcom/android/launcher2/LauncherApplication;->sScreenIndexNormal:I
+
+    const-string v19, "homescreenindex.homeonly"
+
+    const/16 v20, -0x1
+
+    move-object/from16 v0, v19
+
+    move/from16 v1, v20
+
+    invoke-interface {v11, v0, v1}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
+
+    move-result v19
+
+    sput v19, Lcom/android/launcher2/LauncherApplication;->sScreenIndexNormal_homeOnly:I
+
+    sget v19, Lcom/android/launcher2/LauncherApplication;->sScreenIndexNormal:I
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
-    invoke-direct {v0, v1}, Lcom/android/launcher2/LauncherApplication;->isValidIndex(I)Z
+    invoke-direct {v0, v1, v15}, Lcom/android/launcher2/LauncherApplication;->isValidIndex(II)Z
 
-    move-result v17
+    move-result v19
 
-    if-eqz v17, :cond_8
+    if-eqz v19, :cond_8
 
-    sget v17, Lcom/android/launcher2/LauncherApplication;->sScreenIndexNormal_homeOnly:I
+    sget v19, Lcom/android/launcher2/LauncherApplication;->sScreenIndexNormal_homeOnly:I
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
-    invoke-direct {v0, v1}, Lcom/android/launcher2/LauncherApplication;->isValidIndex(I)Z
+    move/from16 v2, v16
 
-    move-result v17
+    invoke-direct {v0, v1, v2}, Lcom/android/launcher2/LauncherApplication;->isValidIndex(II)Z
 
-    if-nez v17, :cond_d
+    move-result v19
+
+    if-nez v19, :cond_d
 
     :cond_8
-    const-string v17, "CscFeature_Launcher_DefaultPageNumber"
+    const-string v19, "CscFeature_Launcher_DefaultPageNumber"
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v19
 
     invoke-virtual {v4, v0}, Lcom/samsung/android/feature/SemCscFeature;->getInt(Ljava/lang/String;)I
 
-    move-result v16
+    move-result v18
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v16
+    move/from16 v1, v18
 
-    invoke-direct {v0, v1}, Lcom/android/launcher2/LauncherApplication;->isValidIndex(I)Z
+    invoke-direct {v0, v1, v15}, Lcom/android/launcher2/LauncherApplication;->isValidIndex(II)Z
 
-    move-result v17
+    move-result v19
 
-    if-eqz v17, :cond_9
+    if-eqz v19, :cond_9
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/LauncherApplication;->isKnoxMode()Z
 
-    move-result v17
+    move-result v19
 
-    if-eqz v17, :cond_a
+    if-eqz v19, :cond_a
 
     :cond_9
-    const v17, 0x7f0b0046
+    const v19, 0x7f0b0046
 
-    move/from16 v0, v17
+    move/from16 v0, v19
 
     invoke-virtual {v13, v0}, Landroid/content/res/Resources;->getInteger(I)I
 
-    move-result v16
+    move-result v18
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v16
+    move/from16 v1, v18
 
-    invoke-direct {v0, v1}, Lcom/android/launcher2/LauncherApplication;->isValidIndex(I)Z
+    invoke-direct {v0, v1, v15}, Lcom/android/launcher2/LauncherApplication;->isValidIndex(II)Z
 
-    move-result v17
+    move-result v19
 
-    if-nez v17, :cond_a
+    if-nez v19, :cond_a
 
-    const/16 v16, 0x0
+    const/16 v18, 0x0
 
     :cond_a
     invoke-interface {v11}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v6
 
-    sget v17, Lcom/android/launcher2/LauncherApplication;->sScreenIndexNormal:I
+    sget v19, Lcom/android/launcher2/LauncherApplication;->sScreenIndexNormal:I
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
-    invoke-direct {v0, v1}, Lcom/android/launcher2/LauncherApplication;->isValidIndex(I)Z
+    invoke-direct {v0, v1, v15}, Lcom/android/launcher2/LauncherApplication;->isValidIndex(II)Z
 
-    move-result v17
+    move-result v19
 
-    if-nez v17, :cond_b
+    if-nez v19, :cond_b
 
-    sput v16, Lcom/android/launcher2/LauncherApplication;->sScreenIndexNormal:I
+    sput v18, Lcom/android/launcher2/LauncherApplication;->sScreenIndexNormal:I
 
-    const-string v17, "homescreenindex"
+    const-string v19, "homescreenindex"
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v19
 
-    move/from16 v1, v16
+    move/from16 v1, v18
 
     invoke-interface {v6, v0, v1}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
 
     :cond_b
-    sget v17, Lcom/android/launcher2/LauncherApplication;->sScreenIndexNormal_homeOnly:I
+    sget v19, Lcom/android/launcher2/LauncherApplication;->sScreenIndexNormal_homeOnly:I
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
-    invoke-direct {v0, v1}, Lcom/android/launcher2/LauncherApplication;->isValidIndex(I)Z
+    move/from16 v2, v16
 
-    move-result v17
+    invoke-direct {v0, v1, v2}, Lcom/android/launcher2/LauncherApplication;->isValidIndex(II)Z
 
-    if-nez v17, :cond_c
+    move-result v19
 
-    sput v16, Lcom/android/launcher2/LauncherApplication;->sScreenIndexNormal_homeOnly:I
+    if-nez v19, :cond_c
 
-    const-string v17, "homescreenindex.homeonly"
+    sput v18, Lcom/android/launcher2/LauncherApplication;->sScreenIndexNormal_homeOnly:I
 
-    move-object/from16 v0, v17
+    const-string v19, "homescreenindex.homeonly"
 
-    move/from16 v1, v16
+    move-object/from16 v0, v19
+
+    move/from16 v1, v18
 
     invoke-interface {v6, v0, v1}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
 
@@ -3699,78 +3731,78 @@
     invoke-interface {v6}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
     :cond_d
-    sget-boolean v17, Lcom/android/launcher2/LauncherApplication;->sFestivalPageLauncher:Z
+    sget-boolean v19, Lcom/android/launcher2/LauncherApplication;->sFestivalPageLauncher:Z
 
-    if-eqz v17, :cond_f
+    if-eqz v19, :cond_f
 
-    const v17, 0x7f0b0049
+    const v19, 0x7f0b0049
 
-    move/from16 v0, v17
+    move/from16 v0, v19
 
     invoke-virtual {v13, v0}, Landroid/content/res/Resources;->getInteger(I)I
 
-    move-result v17
+    move-result v19
 
-    sput v17, Lcom/android/launcher2/LauncherApplication;->sMaxFestivalScreenCount:I
+    sput v19, Lcom/android/launcher2/LauncherApplication;->sMaxFestivalScreenCount:I
 
-    const-string v17, "screencount.festival"
+    const-string v19, "screencount.festival"
 
-    const/16 v18, 0x0
+    const/16 v20, 0x0
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v19
 
-    move/from16 v1, v18
-
-    invoke-interface {v11, v0, v1}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
-
-    move-result v17
-
-    sput v17, Lcom/android/launcher2/LauncherApplication;->sScreenCountFestival:I
-
-    const-string v17, "screenmode.festival"
-
-    const/16 v18, 0x0
-
-    move-object/from16 v0, v17
-
-    move/from16 v1, v18
+    move/from16 v1, v20
 
     invoke-interface {v11, v0, v1}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
 
-    move-result v17
+    move-result v19
 
-    sput v17, Lcom/android/launcher2/LauncherApplication;->sScreenModeForFestival:I
+    sput v19, Lcom/android/launcher2/LauncherApplication;->sScreenCountFestival:I
 
-    sget v17, Lcom/android/launcher2/LauncherApplication;->sScreenCountFestival:I
+    const-string v19, "screenmode.festival"
 
-    if-ltz v17, :cond_e
+    const/16 v20, 0x0
 
-    sget v17, Lcom/android/launcher2/LauncherApplication;->sScreenCountFestival:I
+    move-object/from16 v0, v19
 
-    sget v18, Lcom/android/launcher2/LauncherApplication;->sMaxFestivalScreenCount:I
+    move/from16 v1, v20
 
-    move/from16 v0, v17
+    invoke-interface {v11, v0, v1}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
 
-    move/from16 v1, v18
+    move-result v19
+
+    sput v19, Lcom/android/launcher2/LauncherApplication;->sScreenModeForFestival:I
+
+    sget v19, Lcom/android/launcher2/LauncherApplication;->sScreenCountFestival:I
+
+    if-ltz v19, :cond_e
+
+    sget v19, Lcom/android/launcher2/LauncherApplication;->sScreenCountFestival:I
+
+    sget v20, Lcom/android/launcher2/LauncherApplication;->sMaxFestivalScreenCount:I
+
+    move/from16 v0, v19
+
+    move/from16 v1, v20
 
     if-le v0, v1, :cond_f
 
     :cond_e
-    const/16 v17, 0x0
+    const/16 v19, 0x0
 
-    sput v17, Lcom/android/launcher2/LauncherApplication;->sScreenCountFestival:I
+    sput v19, Lcom/android/launcher2/LauncherApplication;->sScreenCountFestival:I
 
     invoke-interface {v11}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v6
 
-    const-string v17, "screencount.festival"
+    const-string v19, "screencount.festival"
 
-    sget v18, Lcom/android/launcher2/LauncherApplication;->sScreenCountFestival:I
+    sget v20, Lcom/android/launcher2/LauncherApplication;->sScreenCountFestival:I
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v19
 
-    move/from16 v1, v18
+    move/from16 v1, v20
 
     invoke-interface {v6, v0, v1}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
 
@@ -3779,9 +3811,9 @@
     :cond_f
     invoke-static {}, Lcom/android/launcher2/LauncherFeature;->supportSprintExtension()Z
 
-    move-result v17
+    move-result v19
 
-    if-eqz v17, :cond_10
+    if-eqz v19, :cond_10
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/LauncherApplication;->getLauncherProvider()Lcom/android/launcher2/LauncherProvider;
 
@@ -3796,9 +3828,9 @@
     :cond_10
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/LauncherApplication;->getApplicationContext()Landroid/content/Context;
 
-    move-result-object v17
+    move-result-object v19
 
-    invoke-virtual/range {v17 .. v17}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual/range {v19 .. v19}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v10
 
@@ -3806,26 +3838,26 @@
 
     invoke-virtual {v10}, Landroid/content/pm/PackageManager;->isSafeMode()Z
 
-    move-result v17
+    move-result v19
 
-    sput-boolean v17, Lcom/android/launcher2/LauncherApplication;->mIsSafeMode:Z
+    sput-boolean v19, Lcom/android/launcher2/LauncherApplication;->mIsSafeMode:Z
 
     :cond_11
-    sget-object v17, Lcom/android/launcher2/BadgeCache;->BADGE_URI:Landroid/net/Uri;
+    sget-object v19, Lcom/android/launcher2/BadgeCache;->BADGE_URI:Landroid/net/Uri;
 
-    const/16 v18, 0x1
+    const/16 v20, 0x1
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/launcher2/LauncherApplication;->mBadgeObserver:Landroid/database/ContentObserver;
 
-    move-object/from16 v19, v0
+    move-object/from16 v21, v0
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v19
 
-    move/from16 v1, v18
+    move/from16 v1, v20
 
-    move-object/from16 v2, v19
+    move-object/from16 v2, v21
 
     invoke-virtual {v14, v0, v1, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
@@ -3833,40 +3865,40 @@
 
     iget-object v0, v0, Lcom/android/launcher2/LauncherApplication;->mModel:Lcom/android/launcher2/LauncherModel;
 
-    move-object/from16 v17, v0
+    move-object/from16 v19, v0
 
-    invoke-virtual/range {v17 .. v17}, Lcom/android/launcher2/LauncherModel;->reloadBadges()V
+    invoke-virtual/range {v19 .. v19}, Lcom/android/launcher2/LauncherModel;->reloadBadges()V
 
     invoke-static {}, Lcom/android/launcher2/LauncherFeature;->supportGalaxyLabs()Z
 
-    move-result v17
+    move-result v19
 
-    if-eqz v17, :cond_12
+    if-eqz v19, :cond_12
 
     invoke-direct/range {p0 .. p0}, Lcom/android/launcher2/LauncherApplication;->checkGalaxyLabsSetting()V
 
-    sget-object v17, Lcom/android/launcher2/LauncherApplication;->galaxyLabs_uri:Landroid/net/Uri;
+    sget-object v19, Lcom/android/launcher2/LauncherApplication;->galaxyLabs_uri:Landroid/net/Uri;
 
-    const/16 v18, 0x1
+    const/16 v20, 0x1
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/launcher2/LauncherApplication;->galaxyLabsSettingObserver:Landroid/database/ContentObserver;
 
-    move-object/from16 v19, v0
+    move-object/from16 v21, v0
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v19
 
-    move/from16 v1, v18
+    move/from16 v1, v20
 
-    move-object/from16 v2, v19
+    move-object/from16 v2, v21
 
     invoke-virtual {v14, v0, v1, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
     :cond_12
-    const/16 v17, 0x1
+    const/16 v19, 0x1
 
-    sput-boolean v17, Lcom/android/launcher2/LauncherApplication;->sIsTheFisrt:Z
+    sput-boolean v19, Lcom/android/launcher2/LauncherApplication;->sIsTheFisrt:Z
 
     move-object/from16 v0, p0
 
@@ -3876,17 +3908,17 @@
 
     new-instance v8, Landroid/content/Intent;
 
-    const-class v17, Lcom/android/launcher2/LauncherService;
+    const-class v19, Lcom/android/launcher2/LauncherService;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v19
 
     invoke-direct {v8, v0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    const-string v17, "com.sec.android.intent.action.REQUEST_MAKE_DISABLE_APP_LIST"
+    const-string v19, "com.sec.android.intent.action.REQUEST_MAKE_DISABLE_APP_LIST"
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v19
 
     invoke-virtual {v8, v0}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
@@ -3901,50 +3933,50 @@
     return-void
 
     :cond_13
-    const/16 v17, 0x0
+    const/16 v19, 0x0
 
     goto/16 :goto_0
 
     :cond_14
-    const/16 v17, 0x0
+    const/16 v19, 0x0
 
     goto/16 :goto_1
 
     :cond_15
-    const/16 v17, 0x0
+    const/16 v19, 0x0
 
     goto/16 :goto_2
 
     :cond_16
-    const/16 v17, 0x0
+    const/16 v19, 0x0
 
     goto/16 :goto_3
 
     :cond_17
-    const-string v17, "screencount"
+    const-string v19, "screencount"
 
-    const/16 v18, 0x0
+    const/16 v20, 0x0
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v19
 
-    move/from16 v1, v18
+    move/from16 v1, v20
 
     invoke-interface {v11, v0, v1}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
 
-    move-result v17
+    move-result v19
 
-    sput v17, Lcom/android/launcher2/LauncherApplication;->sScreenCountNormal:I
+    sput v19, Lcom/android/launcher2/LauncherApplication;->sScreenCountNormal:I
 
     goto/16 :goto_4
 
     :cond_18
-    const-string v17, "screencount"
+    const-string v19, "screencount"
 
-    sget v18, Lcom/android/launcher2/LauncherApplication;->sScreenCountNormal:I
+    sget v20, Lcom/android/launcher2/LauncherApplication;->sScreenCountNormal:I
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v19
 
-    move/from16 v1, v18
+    move/from16 v1, v20
 
     invoke-interface {v6, v0, v1}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
 
@@ -3953,11 +3985,11 @@
     :catch_0
     move-exception v5
 
-    const-string v17, "LauncherApplication"
+    const-string v19, "LauncherApplication"
 
-    const-string v18, "start LauncherService failed!"
+    const-string v20, "start LauncherService failed!"
 
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v19 .. v20}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {v5}, Ljava/lang/Exception;->printStackTrace()V
 

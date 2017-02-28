@@ -6440,6 +6440,44 @@
     return-void
 .end method
 
+.method public bindIsDragOnGoing()Z
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher2/Launcher;->mHomeView:Lcom/android/launcher2/HomeView;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/launcher2/Launcher;->mHomeView:Lcom/android/launcher2/HomeView;
+
+    invoke-virtual {v0}, Lcom/android/launcher2/HomeView;->getWorkspace()Lcom/android/launcher2/Workspace;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/launcher2/Launcher;->mHomeView:Lcom/android/launcher2/HomeView;
+
+    invoke-virtual {v0}, Lcom/android/launcher2/HomeView;->getWorkspace()Lcom/android/launcher2/Workspace;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/launcher2/Workspace;->isStartDragStarted()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
 .method public bindPackagesChanged(Ljava/lang/String;Ljava/util/ArrayList;)V
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
@@ -18926,7 +18964,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f0902c2
+    const v13, 0x7f0902c4
 
     invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -19162,7 +19200,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f0902c2
+    const v13, 0x7f0902c4
 
     invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
     :try_end_4

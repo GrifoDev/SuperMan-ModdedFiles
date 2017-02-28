@@ -113,7 +113,7 @@
 
     invoke-virtual {v11, v1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    sget-object v11, Lcom/android/launcher2/LauncherModel$36;->$SwitchMap$com$android$launcher2$BaseItem$Type:[I
+    sget-object v11, Lcom/android/launcher2/LauncherModel$37;->$SwitchMap$com$android$launcher2$BaseItem$Type:[I
 
     iget-object v12, v1, Lcom/android/launcher2/HomeItem;->mType:Lcom/android/launcher2/BaseItem$Type;
 

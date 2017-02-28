@@ -168,6 +168,7 @@
     <dimen name="home_5x5_cellWidth_port">60.0dip</dimen>
     <dimen name="home_pageMarginLeftOffset">8.5dip</dimen>
     <dimen name="menuWidgets_widgetFolderOpen_folder_padding_left">8.0dip</dimen>
+    <dimen name="menu_edit_button_text_height">40.0dip</dimen>
     <dimen name="menuwidget_dim_marginbottom">3.0dip</dimen>
     <dimen name="moveApps_cellWidth">58.0dip</dimen>
     <dimen name="moveApps_containerHeight">70.0dip</dimen>

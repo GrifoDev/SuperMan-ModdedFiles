@@ -1549,7 +1549,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0903a7
+    const v1, 0x7f0903ab
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1557,7 +1557,7 @@
 
     iput v1, p0, Lcom/android/launcher2/QuickView;->mTouchSlop:I
 
-    const v1, 0x7f0903a6
+    const v1, 0x7f0903aa
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1617,7 +1617,7 @@
 
     iput v2, v1, Landroid/graphics/Rect;->bottom:I
 
-    const v1, 0x7f0902c2
+    const v1, 0x7f0902c4
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1999,7 +1999,7 @@
 
     iget v1, v4, Landroid/content/res/Configuration;->orientation:I
 
-    const v4, 0x7f0903a7
+    const v4, 0x7f0903ab
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2007,7 +2007,7 @@
 
     iput v4, p0, Lcom/android/launcher2/QuickView;->mTouchSlop:I
 
-    const v4, 0x7f0903a6
+    const v4, 0x7f0903aa
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

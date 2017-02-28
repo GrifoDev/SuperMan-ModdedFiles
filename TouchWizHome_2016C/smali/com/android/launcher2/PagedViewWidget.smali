@@ -508,15 +508,11 @@
 
     invoke-direct {v5, v2}, Ljava/lang/String;-><init>([C)V
 
-    sget-object v6, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
-
-    invoke-virtual {p1, v6}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
     move-result-object v6
 
-    sget-object v7, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
-
-    invoke-virtual {v5, v7}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
     move-result-object v7
 
@@ -555,15 +551,11 @@
     goto :goto_0
 
     :cond_2
-    sget-object v6, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
-
-    invoke-virtual {p1, v6}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
     move-result-object v6
 
-    sget-object v7, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
-
-    invoke-virtual {p2, v7}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
     move-result-object v7
 

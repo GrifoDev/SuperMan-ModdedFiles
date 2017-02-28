@@ -2922,7 +2922,7 @@
 
     move-result-object v20
 
-    const v21, 0x7f09028b
+    const v21, 0x7f09028c
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2934,7 +2934,7 @@
 
     move-result-object v20
 
-    const v21, 0x7f0902b2
+    const v21, 0x7f0902b3
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3009,7 +3009,7 @@
     goto :goto_1
 
     :cond_2
-    const v20, 0x7f09028c
+    const v20, 0x7f09028d
 
     move-object/from16 v0, v17
 
@@ -3340,7 +3340,7 @@
 
     iget-object v1, p0, Lcom/android/launcher2/WidgetFolder;->mPagedView:Lcom/android/launcher2/WidgetFolderPagedView;
 
-    const v2, 0x7f09028c
+    const v2, 0x7f09028d
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3408,7 +3408,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f02007e
+    const v2, 0x7f020080
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

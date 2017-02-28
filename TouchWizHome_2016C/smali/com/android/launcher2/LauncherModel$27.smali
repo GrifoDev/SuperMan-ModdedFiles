@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher2/LauncherModel;->findNearVacantCell(Landroid/content/Context;ZZZIII)[I
+    value = Lcom/android/launcher2/LauncherModel;->findVacantCell(Landroid/content/Context;ZZZ)[I
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -22,18 +22,14 @@
 
 .field final synthetic val$launcher:Lcom/android/launcher2/Launcher;
 
-.field final synthetic val$screenCount:I
-
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher2/LauncherModel;Lcom/android/launcher2/Launcher;I)V
+.method constructor <init>(Lcom/android/launcher2/LauncherModel;Lcom/android/launcher2/Launcher;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher2/LauncherModel$27;->this$0:Lcom/android/launcher2/LauncherModel;
 
     iput-object p2, p0, Lcom/android/launcher2/LauncherModel$27;->val$launcher:Lcom/android/launcher2/Launcher;
-
-    iput p3, p0, Lcom/android/launcher2/LauncherModel$27;->val$screenCount:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -43,21 +39,13 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 1
 
     iget-object v0, p0, Lcom/android/launcher2/LauncherModel$27;->val$launcher:Lcom/android/launcher2/Launcher;
 
     iget-object v0, v0, Lcom/android/launcher2/Launcher;->mHomeView:Lcom/android/launcher2/HomeView;
 
-    invoke-virtual {v0}, Lcom/android/launcher2/HomeView;->getWorkspace()Lcom/android/launcher2/Workspace;
-
-    move-result-object v0
-
-    iget v1, p0, Lcom/android/launcher2/LauncherModel$27;->val$screenCount:I
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/launcher2/Workspace;->insertWorkspaceScreen(IZ)Lcom/android/launcher2/CellLayout;
+    invoke-virtual {v0}, Lcom/android/launcher2/HomeView;->addPage()V
 
     iget-object v0, p0, Lcom/android/launcher2/LauncherModel$27;->val$launcher:Lcom/android/launcher2/Launcher;
 

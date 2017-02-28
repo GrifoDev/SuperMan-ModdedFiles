@@ -469,9 +469,9 @@
     <dimen name="moveApps_cellGapX">18.0dip</dimen>
     <dimen name="folder_multi_header_text_height">34.0dip</dimen>
     <dimen name="folder_multi_icon_text_size">20.0dip</dimen>
+    <dimen name="folder_multi_icon_checkbox_size">32.0dip</dimen>
     <dimen name="folder_multi_header_margin_end">48.0dip</dimen>
     <dimen name="folder_multi_header_margin_start">16.0dip</dimen>
-    <dimen name="folder_multi_icon_checkbox_size">32.0dip</dimen>
     <dimen name="folder_multi_header_margin_bottom">3.0dip</dimen>
     <dimen name="folder_multi_header_text_size">16.0sp</dimen>
 </resources>

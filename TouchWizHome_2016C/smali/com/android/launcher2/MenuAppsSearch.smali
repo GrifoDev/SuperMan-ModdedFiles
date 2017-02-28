@@ -374,7 +374,7 @@
     iput v3, p0, Lcom/android/launcher2/MenuAppsSearch;->mIconSize:I
 
     :goto_1
-    const v3, 0x7f0902cb
+    const v3, 0x7f0902cd
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1451,7 +1451,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0902c8
+    const v10, 0x7f0902ca
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1511,7 +1511,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f09027f
+    const v10, 0x7f090280
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1609,7 +1609,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0902ae
+    const v10, 0x7f0902af
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1625,7 +1625,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0902c9
+    const v10, 0x7f0902cb
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1694,7 +1694,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0902c9
+    const v10, 0x7f0902cb
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1748,7 +1748,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0902c8
+    const v10, 0x7f0902ca
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1780,7 +1780,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0902c9
+    const v10, 0x7f0902cb
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1825,7 +1825,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0902c8
+    const v10, 0x7f0902ca
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1933,7 +1933,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0902c8
+    const v10, 0x7f0902ca
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3323,7 +3323,7 @@
 
     new-instance v2, Lcom/android/launcher2/MenuAppsSearch$9;
 
-    invoke-direct {v2, p0, v0}, Lcom/android/launcher2/MenuAppsSearch$9;-><init>(Lcom/android/launcher2/MenuAppsSearch;Landroid/view/inputmethod/InputMethodManager;)V
+    invoke-direct {v2, p0}, Lcom/android/launcher2/MenuAppsSearch$9;-><init>(Lcom/android/launcher2/MenuAppsSearch;)V
 
     const-wide/16 v4, 0x96
 

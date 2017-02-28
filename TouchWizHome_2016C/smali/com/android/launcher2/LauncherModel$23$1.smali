@@ -1,4 +1,4 @@
-.class Lcom/android/launcher2/LauncherModel$22$1;
+.class Lcom/android/launcher2/LauncherModel$23$1;
 .super Ljava/lang/Object;
 .source "LauncherModel.java"
 
@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher2/LauncherModel$22;->run()V
+    value = Lcom/android/launcher2/LauncherModel$23;->run()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field final synthetic this$1:Lcom/android/launcher2/LauncherModel$22;
+.field final synthetic this$1:Lcom/android/launcher2/LauncherModel$23;
 
 .field final synthetic val$appItems:Ljava/util/List;
 
@@ -28,16 +28,16 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher2/LauncherModel$22;Ljava/lang/ref/WeakReference;Ljava/util/List;Ljava/util/List;)V
+.method constructor <init>(Lcom/android/launcher2/LauncherModel$23;Ljava/lang/ref/WeakReference;Ljava/util/List;Ljava/util/List;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/launcher2/LauncherModel$22$1;->this$1:Lcom/android/launcher2/LauncherModel$22;
+    iput-object p1, p0, Lcom/android/launcher2/LauncherModel$23$1;->this$1:Lcom/android/launcher2/LauncherModel$23;
 
-    iput-object p2, p0, Lcom/android/launcher2/LauncherModel$22$1;->val$origCallbacks:Ljava/lang/ref/WeakReference;
+    iput-object p2, p0, Lcom/android/launcher2/LauncherModel$23$1;->val$origCallbacks:Ljava/lang/ref/WeakReference;
 
-    iput-object p3, p0, Lcom/android/launcher2/LauncherModel$22$1;->val$appItems:Ljava/util/List;
+    iput-object p3, p0, Lcom/android/launcher2/LauncherModel$23$1;->val$appItems:Ljava/util/List;
 
-    iput-object p4, p0, Lcom/android/launcher2/LauncherModel$22$1;->val$homeItems:Ljava/util/List;
+    iput-object p4, p0, Lcom/android/launcher2/LauncherModel$23$1;->val$homeItems:Ljava/util/List;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -49,9 +49,9 @@
 .method public run()V
     .locals 3
 
-    iget-object v1, p0, Lcom/android/launcher2/LauncherModel$22$1;->this$1:Lcom/android/launcher2/LauncherModel$22;
+    iget-object v1, p0, Lcom/android/launcher2/LauncherModel$23$1;->this$1:Lcom/android/launcher2/LauncherModel$23;
 
-    iget-object v1, v1, Lcom/android/launcher2/LauncherModel$22;->this$0:Lcom/android/launcher2/LauncherModel;
+    iget-object v1, v1, Lcom/android/launcher2/LauncherModel$23;->this$0:Lcom/android/launcher2/LauncherModel;
 
     iget-object v1, v1, Lcom/android/launcher2/LauncherModel;->mCallbacks:Ljava/lang/ref/WeakReference;
 
@@ -63,7 +63,7 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lcom/android/launcher2/LauncherModel$22$1;->val$origCallbacks:Ljava/lang/ref/WeakReference;
+    iget-object v1, p0, Lcom/android/launcher2/LauncherModel$23$1;->val$origCallbacks:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
@@ -77,9 +77,9 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v1, p0, Lcom/android/launcher2/LauncherModel$22$1;->val$appItems:Ljava/util/List;
+    iget-object v1, p0, Lcom/android/launcher2/LauncherModel$23$1;->val$appItems:Ljava/util/List;
 
-    iget-object v2, p0, Lcom/android/launcher2/LauncherModel$22$1;->val$homeItems:Ljava/util/List;
+    iget-object v2, p0, Lcom/android/launcher2/LauncherModel$23$1;->val$homeItems:Ljava/util/List;
 
     invoke-interface {v0, v1, v2}, Lcom/android/launcher2/LauncherModel$Callbacks;->bindBadgeUpdated(Ljava/util/List;Ljava/util/List;)V
 

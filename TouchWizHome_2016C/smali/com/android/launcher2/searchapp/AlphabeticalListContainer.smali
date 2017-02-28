@@ -2122,6 +2122,12 @@
 
     if-eqz v4, :cond_2
 
+    invoke-static {}, Lcom/android/launcher2/LauncherFeature;->disableFullyHideKeypad()Z
+
+    move-result v4
+
+    if-nez v4, :cond_2
+
     iget-object v4, p0, Lcom/android/launcher2/searchapp/AlphabeticalListContainer;->mSipHideListener:Lcom/android/launcher2/searchapp/SearchAppListFragment$SipHideListener;
 
     invoke-interface {v4}, Lcom/android/launcher2/searchapp/SearchAppListFragment$SipHideListener;->onSipHide()V
@@ -3097,7 +3103,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0903ad
+    const v10, 0x7f0903b1
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimension(I)F
 

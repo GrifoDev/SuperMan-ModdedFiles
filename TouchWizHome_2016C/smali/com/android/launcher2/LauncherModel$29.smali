@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher2/LauncherModel;->loadAllAppsWithoutBinding(Lcom/android/launcher2/Folder;)V
+    value = Lcom/android/launcher2/LauncherModel;->findNearVacantCell(Landroid/content/Context;ZZZIII)[I
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,16 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher2/LauncherModel;
 
-.field final synthetic val$folder:Lcom/android/launcher2/Folder;
+.field final synthetic val$launcher:Lcom/android/launcher2/Launcher;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher2/LauncherModel;Lcom/android/launcher2/Folder;)V
+.method constructor <init>(Lcom/android/launcher2/LauncherModel;Lcom/android/launcher2/Launcher;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher2/LauncherModel$29;->this$0:Lcom/android/launcher2/LauncherModel;
 
-    iput-object p2, p0, Lcom/android/launcher2/LauncherModel$29;->val$folder:Lcom/android/launcher2/Folder;
+    iput-object p2, p0, Lcom/android/launcher2/LauncherModel$29;->val$launcher:Lcom/android/launcher2/Launcher;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -39,41 +39,33 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 1
 
-    iget-object v1, p0, Lcom/android/launcher2/LauncherModel$29;->this$0:Lcom/android/launcher2/LauncherModel;
+    iget-object v0, p0, Lcom/android/launcher2/LauncherModel$29;->val$launcher:Lcom/android/launcher2/Launcher;
 
-    iget-boolean v1, v1, Lcom/android/launcher2/LauncherModel;->mAllAppsLoaded:Z
+    iget-object v0, v0, Lcom/android/launcher2/Launcher;->mHomeView:Lcom/android/launcher2/HomeView;
 
-    if-nez v1, :cond_0
+    invoke-virtual {v0}, Lcom/android/launcher2/HomeView;->addPage()V
 
-    iget-object v1, p0, Lcom/android/launcher2/LauncherModel$29;->this$0:Lcom/android/launcher2/LauncherModel;
+    iget-object v0, p0, Lcom/android/launcher2/LauncherModel$29;->val$launcher:Lcom/android/launcher2/Launcher;
 
-    iget-object v1, v1, Lcom/android/launcher2/LauncherModel;->mMenuAppLoader:Lcom/android/launcher2/MenuAppLoader;
+    iget-object v0, v0, Lcom/android/launcher2/Launcher;->mHomeView:Lcom/android/launcher2/HomeView;
 
-    const/4 v2, 0x0
+    invoke-virtual {v0}, Lcom/android/launcher2/HomeView;->isQuickViewWorkspaceOpened()Z
 
-    invoke-virtual {v1, v2}, Lcom/android/launcher2/MenuAppLoader;->loadAllItems(I)Ljava/util/Map;
-
-    move-result-object v0
+    move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lcom/android/launcher2/LauncherModel$29;->this$0:Lcom/android/launcher2/LauncherModel;
+    iget-object v0, p0, Lcom/android/launcher2/LauncherModel$29;->val$launcher:Lcom/android/launcher2/Launcher;
 
-    const/4 v2, 0x1
+    iget-object v0, v0, Lcom/android/launcher2/Launcher;->mHomeView:Lcom/android/launcher2/HomeView;
 
-    iput-boolean v2, v1, Lcom/android/launcher2/LauncherModel;->mAllAppsLoaded:Z
+    invoke-virtual {v0}, Lcom/android/launcher2/HomeView;->getQuickViewWorkspace()Lcom/android/launcher2/QuickViewWorkspace;
 
-    iget-object v1, p0, Lcom/android/launcher2/LauncherModel$29;->this$0:Lcom/android/launcher2/LauncherModel;
+    move-result-object v0
 
-    iget-object v1, v1, Lcom/android/launcher2/LauncherModel;->mHandler:Lcom/android/launcher2/DeferredHandler;
-
-    new-instance v2, Lcom/android/launcher2/LauncherModel$29$1;
-
-    invoke-direct {v2, p0, v0}, Lcom/android/launcher2/LauncherModel$29$1;-><init>(Lcom/android/launcher2/LauncherModel$29;Ljava/util/Map;)V
-
-    invoke-virtual {v1, v2}, Lcom/android/launcher2/DeferredHandler;->post(Ljava/lang/Runnable;)V
+    invoke-virtual {v0}, Lcom/android/launcher2/QuickViewWorkspace;->updateAddScreen()V
 
     :cond_0
     return-void

@@ -1,120 +1,70 @@
-.class synthetic Lcom/android/launcher2/LauncherModel$36;
+.class Lcom/android/launcher2/LauncherModel$36;
 .super Ljava/lang/Object;
 .source "LauncherModel.java"
 
+# interfaces
+.implements Ljava/lang/Runnable;
+
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/launcher2/LauncherModel;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/launcher2/LauncherModel;->removeUnRestoredAppsItems(Landroid/content/Context;Lcom/android/launcher2/compat/LauncherAppsCompat;Landroid/content/ContentResolver;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
+    accessFlags = 0x0
     name = null
 .end annotation
 
 
-# static fields
-.field static final synthetic $SwitchMap$com$android$launcher2$BaseItem$Type:[I
+# instance fields
+.field final synthetic this$0:Lcom/android/launcher2/LauncherModel;
+
+.field final synthetic val$list:Ljava/util/ArrayList;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method constructor <init>(Lcom/android/launcher2/LauncherModel;Ljava/util/ArrayList;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/launcher2/LauncherModel$36;->this$0:Lcom/android/launcher2/LauncherModel;
+
+    iput-object p2, p0, Lcom/android/launcher2/LauncherModel$36;->val$list:Ljava/util/ArrayList;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public run()V
     .locals 3
 
-    invoke-static {}, Lcom/android/launcher2/BaseItem$Type;->values()[Lcom/android/launcher2/BaseItem$Type;
+    iget-object v1, p0, Lcom/android/launcher2/LauncherModel$36;->this$0:Lcom/android/launcher2/LauncherModel;
+
+    iget-object v1, v1, Lcom/android/launcher2/LauncherModel;->mCallbacks:Ljava/lang/ref/WeakReference;
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/launcher2/LauncherModel$36;->this$0:Lcom/android/launcher2/LauncherModel;
+
+    iget-object v1, v1, Lcom/android/launcher2/LauncherModel;->mCallbacks:Ljava/lang/ref/WeakReference;
+
+    invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
     move-result-object v0
 
-    array-length v0, v0
+    check-cast v0, Lcom/android/launcher2/LauncherModel$Callbacks;
 
-    new-array v0, v0, [I
+    if-eqz v0, :cond_0
 
-    sput-object v0, Lcom/android/launcher2/LauncherModel$36;->$SwitchMap$com$android$launcher2$BaseItem$Type:[I
+    const-string v1, "removed"
 
-    :try_start_0
-    sget-object v0, Lcom/android/launcher2/LauncherModel$36;->$SwitchMap$com$android$launcher2$BaseItem$Type:[I
+    iget-object v2, p0, Lcom/android/launcher2/LauncherModel$36;->val$list:Ljava/util/ArrayList;
 
-    sget-object v1, Lcom/android/launcher2/BaseItem$Type;->HOME_FOLDER:Lcom/android/launcher2/BaseItem$Type;
+    invoke-interface {v0, v1, v2}, Lcom/android/launcher2/LauncherModel$Callbacks;->bindPackagesChanged(Ljava/lang/String;Ljava/util/ArrayList;)V
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
-
-    move-result v1
-
-    const/4 v2, 0x1
-
-    aput v2, v0, v1
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_3
-
-    :goto_0
-    :try_start_1
-    sget-object v0, Lcom/android/launcher2/LauncherModel$36;->$SwitchMap$com$android$launcher2$BaseItem$Type:[I
-
-    sget-object v1, Lcom/android/launcher2/BaseItem$Type;->HOME_APPLICATION:Lcom/android/launcher2/BaseItem$Type;
-
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
-
-    move-result v1
-
-    const/4 v2, 0x2
-
-    aput v2, v0, v1
-    :try_end_1
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_2
-
-    :goto_1
-    :try_start_2
-    sget-object v0, Lcom/android/launcher2/LauncherModel$36;->$SwitchMap$com$android$launcher2$BaseItem$Type:[I
-
-    sget-object v1, Lcom/android/launcher2/BaseItem$Type;->HOME_SHORTCUT:Lcom/android/launcher2/BaseItem$Type;
-
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
-
-    move-result v1
-
-    const/4 v2, 0x3
-
-    aput v2, v0, v1
-    :try_end_2
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_1
-
-    :goto_2
-    :try_start_3
-    sget-object v0, Lcom/android/launcher2/LauncherModel$36;->$SwitchMap$com$android$launcher2$BaseItem$Type:[I
-
-    sget-object v1, Lcom/android/launcher2/BaseItem$Type;->HOME_WIDGET:Lcom/android/launcher2/BaseItem$Type;
-
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
-
-    move-result v1
-
-    const/4 v2, 0x4
-
-    aput v2, v0, v1
-    :try_end_3
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_0
-
-    :goto_3
+    :cond_0
     return-void
-
-    :catch_0
-    move-exception v0
-
-    goto :goto_3
-
-    :catch_1
-    move-exception v0
-
-    goto :goto_2
-
-    :catch_2
-    move-exception v0
-
-    goto :goto_1
-
-    :catch_3
-    move-exception v0
-
-    goto :goto_0
 .end method

@@ -183,7 +183,7 @@
         <meta-data android:name="rcpFileCopier" android:value=""/>
         <meta-data android:name="samsung.galaxylabs.crystal" android:resource="@xml/crystal_info"/>
         <meta-data android:name="com.samsung.android.icon_container.has_icon_container" android:value="true"/>
-        <meta-data android:name="SPDE.build.signature" android:value="3164242/9672956/2016-release/TouchWizHome-500000-5.7.81"/>
+        <meta-data android:name="SPDE.build.signature" android:value="3234146/9887628/2016-release/TouchWizHome-500000-5.7.92"/>
         <meta-data android:name="SPDE.env.version" android:value="2.1.3/L24.2.16/24.2.9"/>
     </application>
 </manifest>

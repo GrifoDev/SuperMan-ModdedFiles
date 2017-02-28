@@ -158,6 +158,9 @@
     .end annotation
 .end method
 
+.method public abstract bindIsDragOnGoing()Z
+.end method
+
 .method public abstract bindPackagesChanged(Ljava/lang/String;Ljava/util/ArrayList;)V
     .annotation system Ldalvik/annotation/Signature;
         value = {
