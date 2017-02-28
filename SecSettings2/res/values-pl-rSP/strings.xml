@@ -4992,7 +4992,7 @@ Niy bydziesz przijmować żodnych gŏdek, wiadōmości abo nowin ani słyszeć a
     <string name="suggestion_remove">Wyciep</string>
     <string name="ota_disable_automatic_update">Autom. aktualizuj system</string>
     <string name="usage">Użycie</string>
-    <string name="cellular_data_usage">Wykorzystanie danych kom.</string>
+    <string name="cellular_data_usage">Użycie danych mobilnych</string>
     <string name="wifi_data_usage">Wykorzystan. danych Wi-Fi</string>
     <string name="ethernet_data_usage">Wykorzys. danych Ethernet</string>
     <string name="wifi">Wi-Fi</string>
