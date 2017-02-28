@@ -47,6 +47,29 @@
 
     iget-object v1, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager$NameChangedHandler;->this$0:Lcom/android/settingslib/bluetooth/BluetoothEventManager;
 
+    invoke-static {v1}, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->-get3(Lcom/android/settingslib/bluetooth/BluetoothEventManager;)Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->getBluetoothState()I
+
+    move-result v1
+
+    const/16 v2, 0xc
+
+    if-eq v1, v2, :cond_0
+
+    const-string/jumbo v1, "BluetoothEventManager"
+
+    const-string/jumbo v2, "Bluetooth is not enabled yet. will not update device name"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_0
+    iget-object v1, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager$NameChangedHandler;->this$0:Lcom/android/settingslib/bluetooth/BluetoothEventManager;
+
     invoke-static {v1}, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->-get1(Lcom/android/settingslib/bluetooth/BluetoothEventManager;)Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
 
     move-result-object v1
@@ -55,7 +78,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
 
     const-string/jumbo v1, "BluetoothEventManager"
 
@@ -88,7 +111,7 @@
     :goto_0
     return-void
 
-    :cond_0
+    :cond_1
     iget-object v1, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager$NameChangedHandler;->this$0:Lcom/android/settingslib/bluetooth/BluetoothEventManager;
 
     invoke-static {v1}, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->-get1(Lcom/android/settingslib/bluetooth/BluetoothEventManager;)Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;

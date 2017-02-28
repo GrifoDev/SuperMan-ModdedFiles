@@ -1342,6 +1342,12 @@
 
     if-nez v1, :cond_0
 
+    const-string/jumbo v0, "CachedBluetoothDevice"
+
+    const-string/jumbo v3, "updateProfiles :: uuids is null"
+
+    invoke-static {v0, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
     return v11
 
     :cond_0
@@ -1352,6 +1358,12 @@
     move-result-object v2
 
     if-nez v2, :cond_1
+
+    const-string/jumbo v0, "CachedBluetoothDevice"
+
+    const-string/jumbo v3, "updateProfiles :: localUuids is null"
+
+    invoke-static {v0, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return v11
 
