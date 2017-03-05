@@ -12423,11 +12423,11 @@
 
     invoke-static {v3, v4, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v1
+    move-result v2
 
-    if-eq v1, v5, :cond_td
+    if-eq v2, v5, :cond_td
 
-    iput v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mKeyguardMaxNotificationCount:I
+    iput v2, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mKeyguardMaxNotificationCount:I
 
     :cond_td
 
