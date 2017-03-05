@@ -37,8 +37,6 @@
 
     const/4 v1, 0x1
 
-    invoke-virtual {v0, v1}, Landroid/app/ActionBar;->setDisplayHomeAsUpEnabled(Z)V
-
     return-void
 .end method
 
