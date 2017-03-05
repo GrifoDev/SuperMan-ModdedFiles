@@ -1712,7 +1712,7 @@
 
 .method public static isSupportWakeOnFingerPrint()Z
     .locals 5
-    
+
     const-string v0, "wake_on_finger"
 
     const/4 v1, 0x0
@@ -1721,7 +1721,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_mw
+    if-nez v0, :cond_2
 
     const/4 v2, 0x1
 
@@ -1787,8 +1787,8 @@
     const/4 v1, 0x0
 
     return v1
-    
-    :cond_mw
+
+    :cond_2
     const/4 v2, 0x1
 
     const-string/jumbo v1, "/sys/class/fingerprint/fingerprint/adm"
@@ -1825,14 +1825,14 @@
 
     invoke-static {v1, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz v0, :cond_m0
+    if-eqz v0, :cond_3
 
     invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
 
     move-result v1
 
-    :goto_m0
-    if-nez v1, :cond_m1
+    :goto_1
+    if-nez v1, :cond_4
 
     const-string/jumbo v1, "1"
 
@@ -1840,16 +1840,16 @@
 
     move-result v1
 
-    if-eqz v1, :cond_m1
+    if-eqz v1, :cond_4
 
     return v2
 
-    :cond_m0
+    :cond_3
     move v1, v2
 
-    goto :goto_m0
+    goto :goto_1
 
-    :cond_m1
+    :cond_4
     const/4 v1, 0x1
 
     return v1

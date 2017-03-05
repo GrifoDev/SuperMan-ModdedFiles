@@ -1087,4 +1087,5 @@
     <item type="id" name="recents_matrix_anim">false</item>
     <item type="id" name="gif_animation">false</item>
     <item type="id" name="backgroundImageView">false</item>
+    <item type="id" name="qs_brightness_container">false</item>
 </resources>

@@ -7664,6 +7664,20 @@
 
 
 # virtual methods
+.method allowTransparency()Z
+    .locals 2
+
+    const-string v0, "unlock_notification_colors"
+
+    const v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public canChildBeDismissed(Landroid/view/View;)Z
     .locals 3
 
@@ -11831,7 +11845,11 @@
 .end method
 
 .method public updateBackgroundDimming()V
-    .locals 9
+    .locals 10
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->allowTransparency()Z
+
+    move-result v9
 
     const/high16 v6, 0x3f800000    # 1.0f
 
@@ -11911,8 +11929,16 @@
     goto :goto_0
 
     :cond_2
+    if-nez v9, :cond_3
+
     const/high16 v4, 0x437f0000    # 255.0f
 
+    goto :goto_1
+
+    :cond_3
+    const/4 v4, 0x0
+
+    :goto_1
     mul-float/2addr v4, v0
 
     invoke-static {v3}, Landroid/graphics/Color;->alpha(I)I
@@ -11929,8 +11955,16 @@
 
     iget v5, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->mBackgroundFadeAmount:F
 
+    if-nez v9, :cond_4
+
     iget v6, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->mBgColor:I
 
+    goto :goto_2
+
+    :cond_4
+    const/4 v6, 0x0
+
+    :goto_2
     invoke-static {v6}, Landroid/graphics/Color;->red(I)I
 
     move-result v6
@@ -11953,8 +11987,16 @@
 
     iget v6, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->mBackgroundFadeAmount:F
 
+    if-nez v9, :cond_5
+
     iget v7, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->mBgColor:I
 
+    goto :goto_3
+
+    :cond_5
+    const/4 v7, 0x0
+
+    :goto_3
     invoke-static {v7}, Landroid/graphics/Color;->green(I)I
 
     move-result v7
@@ -11977,6 +12019,16 @@
 
     iget v7, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->mBackgroundFadeAmount:F
 
+    if-nez v9, :cond_6
+
+    iget v8, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->mBgColor:I
+
+    goto :goto_4
+
+    :cond_6
+    const/4 v8, 0x0
+
+    :goto_4
     iget v8, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->mBgColor:I
 
     invoke-static {v8}, Landroid/graphics/Color;->blue(I)I

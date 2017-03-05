@@ -14399,69 +14399,135 @@
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->registerObserver()V
 
+    move-object/from16 v0, p0
+
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setUpClockColor()V
+
+    move-object/from16 v0, p0
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setUpClockLeftColor()V
 
+    move-object/from16 v0, p0
+
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setUpClockCenterColor()V
+
+    move-object/from16 v0, p0
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setUpAllColors()V
 
+    move-object/from16 v0, p0
+
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setUpStatusIconsColor()V
+
+    move-object/from16 v0, p0
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setBatteryPercentColor()V
 
+    move-object/from16 v0, p0
+
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setUpNotificationIconsColor()V
+
+    move-object/from16 v0, p0
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setBatteryBarSbOnly()V
 
+    move-object/from16 v0, p0
+
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->set3Minitbattery()V
+
+    move-object/from16 v0, p0
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->set3Minitclock()V
 
+    move-object/from16 v0, p0
+
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->HideStockClockView()V
+
+    move-object/from16 v0, p0
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->HideKeyguardStockBattery()V
 
+    move-object/from16 v0, p0
+
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->HideStockBattery()V
+
+    move-object/from16 v0, p0
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->updateGifAnimationView()V
 
+    move-object/from16 v0, p0
+
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->updateKygrdHideLeftSignal()V
+
+    move-object/from16 v0, p0
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->allowHeaderColorChange()Z
 
+    move-object/from16 v0, p0
+
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setHeaderTextColor()V
+
+    move-object/from16 v0, p0
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setHeaderBackgroundColor()V
 
+    move-object/from16 v0, p0
+
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setHeaderIconColor()V
+
+    move-object/from16 v0, p0
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->allowQsColorChange()Z
 
+    move-object/from16 v0, p0
+
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setQsBackgroundColor()V
+
+    move-object/from16 v0, p0
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setQsTextColor()V
 
+    move-object/from16 v0, p0
+
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setQsIconOnColor()V
+
+    move-object/from16 v0, p0
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setQsIconOffColor()V
 
+    move-object/from16 v0, p0
+
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setQsDividerColor()V
+
+    move-object/from16 v0, p0
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setQsDragHandleBackgroundColor()V
 
+    move-object/from16 v0, p0
+
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setQsDragHandleIconColor()V
+
+    move-object/from16 v0, p0
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setQsSearchBackgroundColor()V
 
+    move-object/from16 v0, p0
+
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setQsSearchTextColor()V
+
+    move-object/from16 v0, p0
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->updateSFinderView()V
 
+    move-object/from16 v0, p0
+
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->allowNotificationColorChange()Z
 
+    move-object/from16 v0, p0
+
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setNotifFooterBackgroundColor()V
+
+    move-object/from16 v0, p0
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setNotifFooterTextColor()V
 
