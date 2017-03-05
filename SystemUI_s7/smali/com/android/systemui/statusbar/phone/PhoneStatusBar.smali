@@ -12427,7 +12427,7 @@
 
     if-eq v2, v5, :cond_td
 
-    iput v2, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mKeyguardMaxNotificationCount:I
+    iput v2, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mMaxAllowedKeyguardNotifications:I
 
     :cond_td
 
