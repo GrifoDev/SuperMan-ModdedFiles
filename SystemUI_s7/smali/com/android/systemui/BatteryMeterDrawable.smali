@@ -737,6 +737,8 @@
 
     iput v6, p0, Lcom/android/systemui/BatteryMeterDrawable;->mIntrinsicHeight:I
 
+    invoke-virtual {p0}, Lcom/android/systemui/BatteryMeterDrawable;->update_battery_colors()V
+
     return-void
 
     :cond_1
@@ -4242,6 +4244,30 @@
 
     invoke-virtual {v0, v1, v3, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
+    const-string/jumbo v1, "battery_color"
+
+    invoke-static {v1}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/systemui/BatteryMeterDrawable;->mSettingObserver:Lcom/android/systemui/BatteryMeterDrawable$SettingObserver;
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v0, v1, v3, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
+    const-string/jumbo v1, "battery_color_dark"
+
+    invoke-static {v1}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/systemui/BatteryMeterDrawable;->mSettingObserver:Lcom/android/systemui/BatteryMeterDrawable$SettingObserver;
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v0, v1, v3, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
     invoke-direct {p0}, Lcom/android/systemui/BatteryMeterDrawable;->updateShowPercent()V
 
     iget-object v0, p0, Lcom/android/systemui/BatteryMeterDrawable;->mBatteryController:Lcom/android/systemui/statusbar/policy/BatteryController;
@@ -4480,5 +4506,50 @@
     goto :goto_1
 
     :cond_3
+    invoke-virtual {p0}, Lcom/android/systemui/BatteryMeterDrawable;->invalidateSelf()V
+
+    :cond_4
+    return-void
+.end method
+
+.method public update_battery_colors()V
+    .locals 5
+
+    iget-object v1, p0, Lcom/android/systemui/BatteryMeterDrawable;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const v3, -0x1
+
+    const-string/jumbo v2, "battery_color"
+
+    invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v3
+
+    iput v3, p0, Lcom/android/systemui/BatteryMeterDrawable;->mLightModeFillColor:I
+
+    const v3, -0xddddde
+
+    const-string/jumbo v2, "battery_color_dark"
+
+    invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v3
+
+    iput v3, p0, Lcom/android/systemui/BatteryMeterDrawable;->mDarkModeFillColor:I
+
+    iget v0, p0, Lcom/android/systemui/BatteryMeterDrawable;->mOldDarkIntensity:F
+
+    const v3, -0x1
+
+    int-to-float v3, v3
+
+    iput v3, p0, Lcom/android/systemui/BatteryMeterDrawable;->mOldDarkIntensity:F
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/BatteryMeterDrawable;->setDarkIntensity(F)V
+
     return-void
 .end method

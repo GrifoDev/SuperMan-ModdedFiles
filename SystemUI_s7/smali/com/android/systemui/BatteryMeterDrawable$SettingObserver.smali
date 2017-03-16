@@ -48,5 +48,9 @@
 
     invoke-static {v0}, Lcom/android/systemui/BatteryMeterDrawable;->-wrap0(Lcom/android/systemui/BatteryMeterDrawable;)V
 
+    iget-object v0, p0, Lcom/android/systemui/BatteryMeterDrawable$SettingObserver;->this$0:Lcom/android/systemui/BatteryMeterDrawable;
+
+    invoke-virtual {v0}, Lcom/android/systemui/BatteryMeterDrawable;->update_battery_colors()V
+
     return-void
 .end method
