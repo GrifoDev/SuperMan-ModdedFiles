@@ -2709,7 +2709,7 @@
 .end method
 
 .method updateBlurBackgroundImageView()V
-    .locals 5
+    .locals 8
 
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -2727,26 +2727,38 @@
 
     const v2, 0x8
 
-    const v3, 0x7f130477
+    const-string v5, "blur_background_image_view_recents"
 
-    invoke-virtual {p0, v3}, Lcom/android/systemui/recents/RecentsActivity;->findViewById(I)Landroid/view/View;
+    const-string v6, "id"
+
+    invoke-static {v5, v6}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v7
+
+    invoke-virtual {p0, v7}, Lcom/android/systemui/recents/RecentsActivity;->findViewById(I)Landroid/view/View;
 
     move-result-object v4
 
-    invoke-virtual {v4, v2}, Landroid/widget/RelativeLayout;->setVisibility(I)V
+    invoke-virtual {v4, v2}, Landroid/view/View;->setVisibility(I)V
 
     goto/16 :goto_0
 
     :cond_0
     const v2, 0x3
 
-    const v3, 0x7f130477
+    const-string v5, "blur_background_image_view_recents"
 
-    invoke-virtual {p0, v3}, Lcom/android/systemui/recents/RecentsActivity;->findViewById(I)Landroid/view/View;
+    const-string v6, "id"
+
+    invoke-static {v5, v6}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v7
+
+    invoke-virtual {p0, v7}, Lcom/android/systemui/recents/RecentsActivity;->findViewById(I)Landroid/view/View;
 
     move-result-object v4
 
-    invoke-virtual {v4, v2}, Landroid/widget/RelativeLayout;->setVisibility(I)V
+    invoke-virtual {v4, v2}, Landroid/view/View;->setVisibility(I)V
 
     :goto_0
     return-void

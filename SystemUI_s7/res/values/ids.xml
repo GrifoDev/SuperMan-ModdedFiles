@@ -1088,7 +1088,10 @@
     <item type="id" name="gif_animation">false</item>
     <item type="id" name="backgroundImageView">false</item>
     <item type="id" name="qs_brightness_container">false</item>
-    <item type="id" name="wave_ram">false</item>
     <item type="id" name="gid_info_ram">false</item>
     <item type="id" name="blur_background_image_view_recents">false</item>
+    <item type="id" name="recents_time_layout">false</item>
+    <item type="id" name="recents_clock">false</item>
+    <item type="id" name="recents_date">false</item>
+    <item type="id" name="view_flipper_text_slide">false</item>
 </resources>
