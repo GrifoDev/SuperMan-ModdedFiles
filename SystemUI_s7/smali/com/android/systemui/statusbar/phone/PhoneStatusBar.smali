@@ -12425,12 +12425,11 @@
 
     move-result v2
 
-    if-eq v2, v5, :cond_td
+    if-eq v2, v5, :cond_1
 
     iput v2, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mMaxAllowedKeyguardNotifications:I
 
-    :cond_td
-
+    :cond_1
     const v2, 0x7f0d038f
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getFloat(I)F
