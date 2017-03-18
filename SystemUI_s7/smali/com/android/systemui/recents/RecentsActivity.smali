@@ -2610,6 +2610,8 @@
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/recents/RecentsActivity;->updateMatrixAnim()V
 
+    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/recents/RecentsActivity;->updateBlurBackgroundImageView()V
+
     return-void
 
     :cond_3
@@ -2703,6 +2705,50 @@
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/recents/events/EventBus;->send(Lcom/android/systemui/recents/events/EventBus$Event;)V
 
+    return-void
+.end method
+
+.method updateBlurBackgroundImageView()V
+    .locals 5
+
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "blur_background_image_visible"
+
+    const/4 v2, 0x0
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const v2, 0x8
+
+    const v3, 0x7f130477
+
+    invoke-virtual {p0, v3}, Lcom/android/systemui/recents/RecentsActivity;->findViewById(I)Landroid/view/View;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v2}, Landroid/widget/RelativeLayout;->setVisibility(I)V
+
+    goto/16 :goto_0
+
+    :cond_0
+    const v2, 0x3
+
+    const v3, 0x7f130477
+
+    invoke-virtual {p0, v3}, Lcom/android/systemui/recents/RecentsActivity;->findViewById(I)Landroid/view/View;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v2}, Landroid/widget/RelativeLayout;->setVisibility(I)V
+
+    :goto_0
     return-void
 .end method
 

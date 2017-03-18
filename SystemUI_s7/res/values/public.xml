@@ -9364,6 +9364,9 @@
     <public type="id" name="gif_animation" id="0x7f130472" />
     <public type="id" name="backgroundImageView" id="0x7f130473" />
     <public type="id" name="qs_brightness_container" id="0x7f130474" />
+    <public type="id" name="wave_ram" id="0x7f130475" />
+    <public type="id" name="gid_info_ram" id="0x7f130476" />
+    <public type="id" name="blur_background_image_view_recents" id="0x7f130477" />
     <public type="plurals" name="status_bar_accessibility_recent_apps" id="0x7f140000" />
     <public type="plurals" name="kg_password_wrong_pin_code" id="0x7f140001" />
     <public type="plurals" name="kg_password_wrong_puk_code" id="0x7f140002" />

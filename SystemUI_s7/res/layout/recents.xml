@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
   xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.systemui.recents.BlurBackgroundImageView android:id="@id/blur_background_image_view_recents" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="centerCrop" />
     <com.ther.recents.MatrixEffect android:id="@id/recents_matrix_anim" android:layout_width="fill_parent" android:layout_height="fill_parent" />
     <ViewStub android:id="@id/recents_view_stub" android:inflatedId="@id/recents_view_inflate" android:layout_width="fill_parent" android:layout_height="fill_parent" />
     <ViewStub android:layout_gravity="center|top" android:id="@id/incompatible_app_overlay_stub" android:layout="@layout/recents_incompatible_app_overlay" android:inflatedId="@id/incompatible_app_overlay" android:layout_width="fill_parent" android:layout_height="128.0dip" />
