@@ -153,8 +153,6 @@
 
 .field public static final UNSTABLE_PROVIDER_DIED_TRANSACTION:I = 0x2f
 
-.field public static final UPDATE_ASSET_OVERLAY_PATH:I = 0x3e
-
 .field public static final UPDATE_PACKAGE_COMPATIBILITY_INFO_TRANSACTION:I = 0x29
 
 .field public static final UPDATE_TIME_PREFS_TRANSACTION:I = 0x34
@@ -750,14 +748,6 @@
 .end method
 
 .method public abstract unstableProviderDied(Landroid/os/IBinder;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract updateOverlayPath(Ljava/lang/String;Ljava/lang/String;I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

@@ -2296,7 +2296,7 @@
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const/16 v0, 0x12a
+    const/16 v0, 0x14b
 
     new-array v0, v0, [Ljava/lang/String;
 
@@ -4085,6 +4085,204 @@
     const-string/jumbo v1, "device_info_date_time_settings"
 
     const/16 v2, 0x129
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "mobile_network_settings"
+
+    const/16 v2, 0x12a
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "simcard_management"
+
+    const/16 v2, 0x12b
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "sim_status"
+
+    const/16 v2, 0x12c
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "imei_info"
+
+    const/16 v2, 0x12d
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "wifi_ip_address"
+
+    const/16 v2, 0x12e
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "wifi_mac_address"
+
+    const/16 v2, 0x12f
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "bt_address"
+
+    const/16 v2, 0x130
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "ethernet_mac_address"
+
+    const/16 v2, 0x131
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "serial_number"
+
+    const/16 v2, 0x132
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "up_time"
+
+    const/16 v2, 0x133
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "wimax_mac_address"
+
+    const/16 v2, 0x134
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "sysscope_status"
+
+    const/16 v2, 0x135
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "installment_balance"
+
+    const/16 v2, 0x136
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "operator_name"
+
+    const/16 v2, 0x137
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "signal_strength"
+
+    const/16 v2, 0x138
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "network_type"
+
+    const/16 v2, 0x139
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "latest_area_info"
+
+    const/16 v2, 0x13a
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "service_state"
+
+    const/16 v2, 0x13b
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "roaming_state"
+
+    const/16 v2, 0x13c
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "data_state"
+
+    const/16 v2, 0x13d
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "mmsc_server_acg"
+
+    const/16 v2, 0x13e
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "sim_lock_status_kddi"
+
+    const/16 v2, 0x13f
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "sim_state_status"
+
+    const/16 v2, 0x140
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "sim_state_code"
+
+    const/16 v2, 0x141
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "meid_number"
+
+    const/16 v2, 0x142
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "imei"
+
+    const/16 v2, 0x143
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "imei_sv"
+
+    const/16 v2, 0x144
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "_imei0"
+
+    const/16 v2, 0x145
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "_imei_sv0"
+
+    const/16 v2, 0x146
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "_imei1"
+
+    const/16 v2, 0x147
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "_imei_sv1"
+
+    const/16 v2, 0x148
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "icc_id"
+
+    const/16 v2, 0x149
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "ims_reg"
+
+    const/16 v2, 0x14a
 
     aput-object v1, v0, v2
 

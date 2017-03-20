@@ -3118,63 +3118,247 @@
 .end method
 
 .method public final startPreloading()V
-    .locals 4
+    .locals 7
 
-    sget-object v1, Landroid/content/res/ResourcesImpl;->sSync:Ljava/lang/Object;
+    sget-object v2, Landroid/content/res/ResourcesImpl;->sSync:Ljava/lang/Object;
 
-    monitor-enter v1
+    monitor-enter v2
 
     :try_start_0
-    sget-boolean v0, Landroid/content/res/ResourcesImpl;->sPreloaded:Z
+    sget-boolean v1, Landroid/content/res/ResourcesImpl;->sPreloaded:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance v1, Ljava/lang/IllegalStateException;
 
-    const-string/jumbo v2, "Resources already preloaded"
+    const-string/jumbo v3, "Resources already preloaded"
 
-    invoke-direct {v0, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v3}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
-    monitor-exit v1
+    monitor-exit v2
 
-    throw v0
+    throw v1
 
     :cond_0
-    const/4 v0, 0x1
-
     :try_start_1
-    sput-boolean v0, Landroid/content/res/ResourcesImpl;->sPreloaded:Z
+    const-string/jumbo v1, "WQHD,FHD,HD"
 
-    const/4 v0, 0x1
+    invoke-virtual {v1}, Ljava/lang/String;->isEmpty()Z
 
-    iput-boolean v0, p0, Landroid/content/res/ResourcesImpl;->mPreloading:Z
+    move-result v1
 
-    iget-object v0, p0, Landroid/content/res/ResourcesImpl;->mConfiguration:Landroid/content/res/Configuration;
+    if-nez v1, :cond_2
 
-    sget v2, Landroid/util/DisplayMetrics;->DENSITY_DEVICE:I
+    invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
 
-    iput v2, v0, Landroid/content/res/Configuration;->densityDpi:I
+    move-result-object v1
 
-    const/4 v0, 0x0
+    const-string/jumbo v3, "SEC_FLOATING_FEATURE_COMMON_SUPPORT_HIGH_PERFORMANCE_MODE"
 
-    const/4 v2, 0x0
+    const/4 v4, 0x0
+
+    invoke-virtual {v1, v3, v4}, Lcom/samsung/android/feature/SemFloatingFeature;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    const-string/jumbo v1, "High"
+
+    invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "SEC_FLOATING_FEATURE_COMMON_CONFIG_DEF_PERFORMANCE_MODE"
+
+    invoke-virtual {v3, v4}, Lcom/samsung/android/feature/SemFloatingFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v1, v3}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_2
+
+    const-string/jumbo v1, "persist.sys.display_density"
 
     const/4 v3, 0x0
 
-    invoke-virtual {p0, v0, v2, v3}, Landroid/content/res/ResourcesImpl;->updateConfiguration(Landroid/content/res/Configuration;Landroid/util/DisplayMetrics;Landroid/content/res/CompatibilityInfo;)V
+    invoke-static {v1, v3}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
+
+    move-result v1
+
+    if-nez v1, :cond_2
+
+    sget v1, Landroid/util/DisplayMetrics;->DENSITY_DEVICE:I
+
+    const/16 v3, 0x230
+
+    if-lt v1, v3, :cond_1
+
+    const/4 v0, 0x1
+
+    :goto_0
+    const/4 v1, 0x1
+
+    sput-boolean v1, Landroid/content/res/ResourcesImpl;->sPreloaded:Z
+
+    const/4 v1, 0x1
+
+    iput-boolean v1, p0, Landroid/content/res/ResourcesImpl;->mPreloading:Z
+
+    iget-object v3, p0, Landroid/content/res/ResourcesImpl;->mConfiguration:Landroid/content/res/Configuration;
+
+    if-eqz v0, :cond_3
+
+    sget v1, Landroid/util/DisplayMetrics;->DENSITY_DEVICE:I
+
+    int-to-float v1, v1
+
+    const/high16 v4, 0x3f800000    # 1.0f
+
+    mul-float/2addr v1, v4
+
+    float-to-int v1, v1
+
+    :goto_1
+    iput v1, v3, Landroid/content/res/Configuration;->densityDpi:I
+
+    const/4 v1, 0x0
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x0
+
+    invoke-virtual {p0, v1, v3, v4}, Landroid/content/res/ResourcesImpl;->updateConfiguration(Landroid/content/res/Configuration;Landroid/util/DisplayMetrics;Landroid/content/res/CompatibilityInfo;)V
+
+    const-string/jumbo v1, "Resources"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "[ResourcesImpl] startPreloading() isPerformanceModeAtFirstBoot="
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, " densityDpi="
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    iget-object v4, p0, Landroid/content/res/ResourcesImpl;->mConfiguration:Landroid/content/res/Configuration;
+
+    iget v4, v4, Landroid/content/res/Configuration;->densityDpi:I
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, " DisplayMetrics.DENSITY_DEVICE="
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    sget v4, Landroid/util/DisplayMetrics;->DENSITY_DEVICE:I
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, " supportPerformanceMode="
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
+
+    move-result-object v4
+
+    const-string/jumbo v5, "SEC_FLOATING_FEATURE_COMMON_SUPPORT_HIGH_PERFORMANCE_MODE"
+
+    const/4 v6, 0x0
+
+    invoke-virtual {v4, v5, v6}, Lcom/samsung/android/feature/SemFloatingFeature;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, " ModeType="
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
+
+    move-result-object v4
+
+    const-string/jumbo v5, "SEC_FLOATING_FEATURE_COMMON_CONFIG_DEF_PERFORMANCE_MODE"
+
+    invoke-virtual {v4, v5}, Lcom/samsung/android/feature/SemFloatingFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v1, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    monitor-exit v1
+    monitor-exit v2
 
     return-void
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
+
+    :cond_2
+    const/4 v0, 0x0
+
+    goto/16 :goto_0
+
+    :cond_3
+    :try_start_2
+    const-string/jumbo v1, "persist.sys.display_density"
+
+    sget v4, Landroid/util/DisplayMetrics;->DENSITY_DEVICE:I
+
+    invoke-static {v1, v4}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    move-result v1
+
+    goto :goto_1
 .end method
 
 .method public updateConfiguration(Landroid/content/res/Configuration;Landroid/util/DisplayMetrics;Landroid/content/res/CompatibilityInfo;)V

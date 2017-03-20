@@ -1176,10 +1176,6 @@
 
     or-int/2addr v1, p1
 
-    const/high16 v2, 0x10000
-
-    or-int/2addr v1, v2
-
     const/high16 v2, 0x20000000
 
     or-int/2addr v1, v2

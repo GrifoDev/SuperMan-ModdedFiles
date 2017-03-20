@@ -3335,6 +3335,14 @@
     return-void
 .end method
 
+.method public setOverlayDirs([Ljava/lang/String;)V
+    .locals 0
+
+    iput-object p1, p0, Landroid/app/LoadedApk;->mOverlayDirs:[Ljava/lang/String;
+
+    return-void
+.end method
+
 .method public updateApplicationInfo(Landroid/content/pm/ApplicationInfo;Ljava/util/List;)V
     .locals 17
     .annotation system Ldalvik/annotation/Signature;

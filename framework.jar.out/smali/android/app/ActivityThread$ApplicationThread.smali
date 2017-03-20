@@ -1298,7 +1298,7 @@
 
     const/16 v4, 0x6e
 
-    invoke-static {v3, v4, v1}, Landroid/app/ActivityThread;->-wrap35(Landroid/app/ActivityThread;ILjava/lang/Object;)V
+    invoke-static {v3, v4, v1}, Landroid/app/ActivityThread;->-wrap34(Landroid/app/ActivityThread;ILjava/lang/Object;)V
 
     return-void
 .end method
@@ -1324,7 +1324,7 @@
 
     const/16 v1, 0x85
 
-    invoke-static {v0, v1, p2, p1}, Landroid/app/ActivityThread;->-wrap36(Landroid/app/ActivityThread;ILjava/lang/Object;I)V
+    invoke-static {v0, v1, p2, p1}, Landroid/app/ActivityThread;->-wrap35(Landroid/app/ActivityThread;ILjava/lang/Object;I)V
 
     return-void
 .end method
@@ -1359,7 +1359,7 @@
 
     const/4 v5, 0x1
 
-    invoke-static/range {v0 .. v5}, Landroid/app/ActivityThread;->-wrap37(Landroid/app/ActivityThread;ILjava/lang/Object;IIZ)V
+    invoke-static/range {v0 .. v5}, Landroid/app/ActivityThread;->-wrap36(Landroid/app/ActivityThread;ILjava/lang/Object;IIZ)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1406,7 +1406,7 @@
 
     const/4 v5, 0x1
 
-    invoke-static/range {v0 .. v5}, Landroid/app/ActivityThread;->-wrap37(Landroid/app/ActivityThread;ILjava/lang/Object;IIZ)V
+    invoke-static/range {v0 .. v5}, Landroid/app/ActivityThread;->-wrap36(Landroid/app/ActivityThread;ILjava/lang/Object;IIZ)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1529,7 +1529,7 @@
     :goto_0
     const/16 v1, 0x87
 
-    invoke-static/range {v0 .. v5}, Landroid/app/ActivityThread;->-wrap37(Landroid/app/ActivityThread;ILjava/lang/Object;IIZ)V
+    invoke-static/range {v0 .. v5}, Landroid/app/ActivityThread;->-wrap36(Landroid/app/ActivityThread;ILjava/lang/Object;IIZ)V
 
     return-void
 
@@ -1609,7 +1609,7 @@
 
     const/4 v5, 0x1
 
-    invoke-static/range {v0 .. v5}, Landroid/app/ActivityThread;->-wrap37(Landroid/app/ActivityThread;ILjava/lang/Object;IIZ)V
+    invoke-static/range {v0 .. v5}, Landroid/app/ActivityThread;->-wrap36(Landroid/app/ActivityThread;ILjava/lang/Object;IIZ)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1656,7 +1656,7 @@
 
     const/4 v5, 0x1
 
-    invoke-static/range {v0 .. v5}, Landroid/app/ActivityThread;->-wrap37(Landroid/app/ActivityThread;ILjava/lang/Object;IIZ)V
+    invoke-static/range {v0 .. v5}, Landroid/app/ActivityThread;->-wrap36(Landroid/app/ActivityThread;ILjava/lang/Object;IIZ)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1730,7 +1730,7 @@
     :goto_0
     const/16 v2, 0x7f
 
-    invoke-static {v1, v2, p2, v0, p3}, Landroid/app/ActivityThread;->-wrap38(Landroid/app/ActivityThread;ILjava/lang/Object;II)V
+    invoke-static {v1, v2, p2, v0, p3}, Landroid/app/ActivityThread;->-wrap37(Landroid/app/ActivityThread;ILjava/lang/Object;II)V
 
     return-void
 
@@ -1759,7 +1759,7 @@
 
     const/16 v2, 0x8f
 
-    invoke-static {v1, v2, v0}, Landroid/app/ActivityThread;->-wrap35(Landroid/app/ActivityThread;ILjava/lang/Object;)V
+    invoke-static {v1, v2, v0}, Landroid/app/ActivityThread;->-wrap34(Landroid/app/ActivityThread;ILjava/lang/Object;)V
 
     return-void
 .end method
@@ -1780,7 +1780,7 @@
     :goto_0
     const/16 v3, 0x7d
 
-    invoke-static {v1, v3, v2, v0}, Landroid/app/ActivityThread;->-wrap36(Landroid/app/ActivityThread;ILjava/lang/Object;I)V
+    invoke-static {v1, v3, v2, v0}, Landroid/app/ActivityThread;->-wrap35(Landroid/app/ActivityThread;ILjava/lang/Object;I)V
 
     return-void
 
@@ -1839,7 +1839,7 @@
 
     const/16 v2, 0x7d0
 
-    invoke-static {v1, v2, p1, p2}, Landroid/app/ActivityThread;->-wrap36(Landroid/app/ActivityThread;ILjava/lang/Object;I)V
+    invoke-static {v1, v2, p1, p2}, Landroid/app/ActivityThread;->-wrap35(Landroid/app/ActivityThread;ILjava/lang/Object;I)V
 
     return-void
 .end method
@@ -1856,7 +1856,7 @@
     :goto_0
     const/16 v2, 0x94
 
-    invoke-static {v1, v2, p1, v0}, Landroid/app/ActivityThread;->-wrap36(Landroid/app/ActivityThread;ILjava/lang/Object;I)V
+    invoke-static {v1, v2, p1, v0}, Landroid/app/ActivityThread;->-wrap35(Landroid/app/ActivityThread;ILjava/lang/Object;I)V
 
     return-void
 
@@ -1887,7 +1887,7 @@
 
     const/16 v2, 0x79
 
-    invoke-static {v1, v2, v0}, Landroid/app/ActivityThread;->-wrap35(Landroid/app/ActivityThread;ILjava/lang/Object;)V
+    invoke-static {v1, v2, v0}, Landroid/app/ActivityThread;->-wrap34(Landroid/app/ActivityThread;ILjava/lang/Object;)V
 
     return-void
 .end method
@@ -1899,7 +1899,7 @@
 
     const/16 v1, 0x93
 
-    invoke-static {v0, v1, p1}, Landroid/app/ActivityThread;->-wrap35(Landroid/app/ActivityThread;ILjava/lang/Object;)V
+    invoke-static {v0, v1, p1}, Landroid/app/ActivityThread;->-wrap34(Landroid/app/ActivityThread;ILjava/lang/Object;)V
 
     return-void
 .end method
@@ -1913,7 +1913,7 @@
 
     const/16 v1, 0x76
 
-    invoke-static {v0, v1, p1}, Landroid/app/ActivityThread;->-wrap35(Landroid/app/ActivityThread;ILjava/lang/Object;)V
+    invoke-static {v0, v1, p1}, Landroid/app/ActivityThread;->-wrap34(Landroid/app/ActivityThread;ILjava/lang/Object;)V
 
     return-void
 .end method
@@ -1925,7 +1925,7 @@
 
     const/16 v1, 0x86
 
-    invoke-static {v0, v1, p1}, Landroid/app/ActivityThread;->-wrap35(Landroid/app/ActivityThread;ILjava/lang/Object;)V
+    invoke-static {v0, v1, p1}, Landroid/app/ActivityThread;->-wrap34(Landroid/app/ActivityThread;ILjava/lang/Object;)V
 
     return-void
 .end method
@@ -1947,7 +1947,7 @@
 
     const/16 v2, 0x80
 
-    invoke-static {v1, v2, v0}, Landroid/app/ActivityThread;->-wrap35(Landroid/app/ActivityThread;ILjava/lang/Object;)V
+    invoke-static {v1, v2, v0}, Landroid/app/ActivityThread;->-wrap34(Landroid/app/ActivityThread;ILjava/lang/Object;)V
 
     return-void
 .end method
@@ -1999,7 +1999,7 @@
 
     const/16 v2, 0x72
 
-    invoke-static {v1, v2, v0}, Landroid/app/ActivityThread;->-wrap35(Landroid/app/ActivityThread;ILjava/lang/Object;)V
+    invoke-static {v1, v2, v0}, Landroid/app/ActivityThread;->-wrap34(Landroid/app/ActivityThread;ILjava/lang/Object;)V
 
     return-void
 .end method
@@ -2016,7 +2016,7 @@
     :goto_0
     const/16 v2, 0x6d
 
-    invoke-static {v1, v2, p1, v0, p3}, Landroid/app/ActivityThread;->-wrap38(Landroid/app/ActivityThread;ILjava/lang/Object;II)V
+    invoke-static {v1, v2, p1, v0, p3}, Landroid/app/ActivityThread;->-wrap37(Landroid/app/ActivityThread;ILjava/lang/Object;II)V
 
     return-void
 
@@ -2041,7 +2041,7 @@
 
     const/16 v2, 0x81
 
-    invoke-static {v1, v2, v0}, Landroid/app/ActivityThread;->-wrap35(Landroid/app/ActivityThread;ILjava/lang/Object;)V
+    invoke-static {v1, v2, v0}, Landroid/app/ActivityThread;->-wrap34(Landroid/app/ActivityThread;ILjava/lang/Object;)V
 
     return-void
 .end method
@@ -2053,7 +2053,7 @@
 
     const/16 v1, 0x95
 
-    invoke-static {v0, v1, p1}, Landroid/app/ActivityThread;->-wrap35(Landroid/app/ActivityThread;ILjava/lang/Object;)V
+    invoke-static {v0, v1, p1}, Landroid/app/ActivityThread;->-wrap34(Landroid/app/ActivityThread;ILjava/lang/Object;)V
 
     return-void
 .end method
@@ -2067,7 +2067,7 @@
 
     const/4 v2, 0x0
 
-    invoke-static {v0, v1, v2}, Landroid/app/ActivityThread;->-wrap35(Landroid/app/ActivityThread;ILjava/lang/Object;)V
+    invoke-static {v0, v1, v2}, Landroid/app/ActivityThread;->-wrap34(Landroid/app/ActivityThread;ILjava/lang/Object;)V
 
     return-void
 .end method
@@ -2079,7 +2079,7 @@
 
     const/16 v1, 0x91
 
-    invoke-static {v0, v1, p1}, Landroid/app/ActivityThread;->-wrap35(Landroid/app/ActivityThread;ILjava/lang/Object;)V
+    invoke-static {v0, v1, p1}, Landroid/app/ActivityThread;->-wrap34(Landroid/app/ActivityThread;ILjava/lang/Object;)V
 
     return-void
 .end method
@@ -2170,7 +2170,7 @@
 
     const/16 v3, 0x64
 
-    invoke-static {v2, v3, v1}, Landroid/app/ActivityThread;->-wrap35(Landroid/app/ActivityThread;ILjava/lang/Object;)V
+    invoke-static {v2, v3, v1}, Landroid/app/ActivityThread;->-wrap34(Landroid/app/ActivityThread;ILjava/lang/Object;)V
 
     return-void
 .end method
@@ -2195,7 +2195,7 @@
 
     const/16 v2, 0x9a
 
-    invoke-static {v1, v2, v0}, Landroid/app/ActivityThread;->-wrap35(Landroid/app/ActivityThread;ILjava/lang/Object;)V
+    invoke-static {v1, v2, v0}, Landroid/app/ActivityThread;->-wrap34(Landroid/app/ActivityThread;ILjava/lang/Object;)V
 
     return-void
 .end method
@@ -2209,7 +2209,7 @@
 
     const/4 v2, 0x0
 
-    invoke-static {v0, v1, v2}, Landroid/app/ActivityThread;->-wrap35(Landroid/app/ActivityThread;ILjava/lang/Object;)V
+    invoke-static {v0, v1, v2}, Landroid/app/ActivityThread;->-wrap34(Landroid/app/ActivityThread;ILjava/lang/Object;)V
 
     return-void
 .end method
@@ -2231,7 +2231,7 @@
     :goto_0
     const/16 v2, 0x98
 
-    invoke-static {v1, v2, p1, v0}, Landroid/app/ActivityThread;->-wrap36(Landroid/app/ActivityThread;ILjava/lang/Object;I)V
+    invoke-static {v1, v2, p1, v0}, Landroid/app/ActivityThread;->-wrap35(Landroid/app/ActivityThread;ILjava/lang/Object;I)V
 
     return-void
 
@@ -2267,7 +2267,7 @@
 
     const/16 v2, 0x70
 
-    invoke-static {v1, v2, v0}, Landroid/app/ActivityThread;->-wrap35(Landroid/app/ActivityThread;ILjava/lang/Object;)V
+    invoke-static {v1, v2, v0}, Landroid/app/ActivityThread;->-wrap34(Landroid/app/ActivityThread;ILjava/lang/Object;)V
 
     return-void
 .end method
@@ -2283,7 +2283,7 @@
 
     const/16 v2, 0x92
 
-    invoke-static {v0, v2, v1}, Landroid/app/ActivityThread;->-wrap35(Landroid/app/ActivityThread;ILjava/lang/Object;)V
+    invoke-static {v0, v2, v1}, Landroid/app/ActivityThread;->-wrap34(Landroid/app/ActivityThread;ILjava/lang/Object;)V
 
     return-void
 .end method
@@ -2322,7 +2322,7 @@
 
     move v4, p4
 
-    invoke-static/range {v0 .. v5}, Landroid/app/ActivityThread;->-wrap39(Landroid/app/ActivityThread;ILjava/lang/Object;III)V
+    invoke-static/range {v0 .. v5}, Landroid/app/ActivityThread;->-wrap38(Landroid/app/ActivityThread;ILjava/lang/Object;III)V
 
     return-void
 
@@ -2354,7 +2354,7 @@
     :goto_0
     const/16 v2, 0x99
 
-    invoke-static {v1, v2, p1, v0}, Landroid/app/ActivityThread;->-wrap36(Landroid/app/ActivityThread;ILjava/lang/Object;I)V
+    invoke-static {v1, v2, p1, v0}, Landroid/app/ActivityThread;->-wrap35(Landroid/app/ActivityThread;ILjava/lang/Object;I)V
 
     return-void
 
@@ -2407,7 +2407,7 @@
 
     const/16 v3, 0x71
 
-    invoke-static {v2, v3, v1}, Landroid/app/ActivityThread;->-wrap35(Landroid/app/ActivityThread;ILjava/lang/Object;)V
+    invoke-static {v2, v3, v1}, Landroid/app/ActivityThread;->-wrap34(Landroid/app/ActivityThread;ILjava/lang/Object;)V
 
     return-void
 .end method
@@ -2498,7 +2498,7 @@
 
     move-object v2, p1
 
-    invoke-static/range {v0 .. v5}, Landroid/app/ActivityThread;->-wrap39(Landroid/app/ActivityThread;ILjava/lang/Object;III)V
+    invoke-static/range {v0 .. v5}, Landroid/app/ActivityThread;->-wrap38(Landroid/app/ActivityThread;ILjava/lang/Object;III)V
 
     return-void
 
@@ -2533,7 +2533,7 @@
 
     const/16 v2, 0x6c
 
-    invoke-static {v1, v2, v0}, Landroid/app/ActivityThread;->-wrap35(Landroid/app/ActivityThread;ILjava/lang/Object;)V
+    invoke-static {v1, v2, v0}, Landroid/app/ActivityThread;->-wrap34(Landroid/app/ActivityThread;ILjava/lang/Object;)V
 
     return-void
 .end method
@@ -2559,7 +2559,7 @@
 
     const/16 v2, 0x73
 
-    invoke-static {v1, v2, v0}, Landroid/app/ActivityThread;->-wrap35(Landroid/app/ActivityThread;ILjava/lang/Object;)V
+    invoke-static {v1, v2, v0}, Landroid/app/ActivityThread;->-wrap34(Landroid/app/ActivityThread;ILjava/lang/Object;)V
 
     return-void
 .end method
@@ -2576,7 +2576,7 @@
     :goto_0
     const/16 v2, 0x89
 
-    invoke-static {v1, v2, p1, v0}, Landroid/app/ActivityThread;->-wrap36(Landroid/app/ActivityThread;ILjava/lang/Object;I)V
+    invoke-static {v1, v2, p1, v0}, Landroid/app/ActivityThread;->-wrap35(Landroid/app/ActivityThread;ILjava/lang/Object;I)V
 
     return-void
 
@@ -2608,7 +2608,7 @@
 
     move v4, p3
 
-    invoke-static/range {v0 .. v5}, Landroid/app/ActivityThread;->-wrap39(Landroid/app/ActivityThread;ILjava/lang/Object;III)V
+    invoke-static/range {v0 .. v5}, Landroid/app/ActivityThread;->-wrap38(Landroid/app/ActivityThread;ILjava/lang/Object;III)V
 
     return-void
 
@@ -2625,7 +2625,7 @@
 
     const/16 v1, 0x74
 
-    invoke-static {v0, v1, p1}, Landroid/app/ActivityThread;->-wrap35(Landroid/app/ActivityThread;ILjava/lang/Object;)V
+    invoke-static {v0, v1, p1}, Landroid/app/ActivityThread;->-wrap34(Landroid/app/ActivityThread;ILjava/lang/Object;)V
 
     return-void
 .end method
@@ -2639,7 +2639,7 @@
 
     const/4 v2, 0x0
 
-    invoke-static {v0, v1, v2}, Landroid/app/ActivityThread;->-wrap35(Landroid/app/ActivityThread;ILjava/lang/Object;)V
+    invoke-static {v0, v1, v2}, Landroid/app/ActivityThread;->-wrap34(Landroid/app/ActivityThread;ILjava/lang/Object;)V
 
     return-void
 .end method
@@ -2656,7 +2656,7 @@
     :goto_0
     const/16 v2, 0x90
 
-    invoke-static {v1, v2, p1, v0}, Landroid/app/ActivityThread;->-wrap36(Landroid/app/ActivityThread;ILjava/lang/Object;I)V
+    invoke-static {v1, v2, p1, v0}, Landroid/app/ActivityThread;->-wrap35(Landroid/app/ActivityThread;ILjava/lang/Object;I)V
 
     return-void
 
@@ -2675,7 +2675,7 @@
 
     const/4 v2, 0x0
 
-    invoke-static {v0, v1, v2, p1}, Landroid/app/ActivityThread;->-wrap36(Landroid/app/ActivityThread;ILjava/lang/Object;I)V
+    invoke-static {v0, v1, v2, p1}, Landroid/app/ActivityThread;->-wrap35(Landroid/app/ActivityThread;ILjava/lang/Object;I)V
 
     return-void
 .end method
@@ -2695,7 +2695,7 @@
 
     const/16 v2, 0x7a
 
-    invoke-static {v1, v2, v0}, Landroid/app/ActivityThread;->-wrap35(Landroid/app/ActivityThread;ILjava/lang/Object;)V
+    invoke-static {v1, v2, v0}, Landroid/app/ActivityThread;->-wrap34(Landroid/app/ActivityThread;ILjava/lang/Object;)V
 
     return-void
 .end method
@@ -2710,7 +2710,7 @@
     const/16 v0, 0x69
 
     :goto_0
-    invoke-static {v1, v0, p1}, Landroid/app/ActivityThread;->-wrap35(Landroid/app/ActivityThread;ILjava/lang/Object;)V
+    invoke-static {v1, v0, p1}, Landroid/app/ActivityThread;->-wrap34(Landroid/app/ActivityThread;ILjava/lang/Object;)V
 
     return-void
 
@@ -2727,7 +2727,7 @@
 
     const/16 v1, 0x8a
 
-    invoke-static {v0, v1, p1}, Landroid/app/ActivityThread;->-wrap35(Landroid/app/ActivityThread;ILjava/lang/Object;)V
+    invoke-static {v0, v1, p1}, Landroid/app/ActivityThread;->-wrap34(Landroid/app/ActivityThread;ILjava/lang/Object;)V
 
     return-void
 .end method
@@ -2789,7 +2789,7 @@
 
     const/16 v1, 0x834
 
-    invoke-static {v0, v1, p1}, Landroid/app/ActivityThread;->-wrap35(Landroid/app/ActivityThread;ILjava/lang/Object;)V
+    invoke-static {v0, v1, p1}, Landroid/app/ActivityThread;->-wrap34(Landroid/app/ActivityThread;ILjava/lang/Object;)V
 
     return-void
 .end method
@@ -2856,7 +2856,7 @@
 
     const/4 v2, 0x0
 
-    invoke-static {v0, v1, v2}, Landroid/app/ActivityThread;->-wrap35(Landroid/app/ActivityThread;ILjava/lang/Object;)V
+    invoke-static {v0, v1, v2}, Landroid/app/ActivityThread;->-wrap34(Landroid/app/ActivityThread;ILjava/lang/Object;)V
 
     return-void
 .end method
@@ -2873,7 +2873,7 @@
 
     const/16 v3, 0x97
 
-    invoke-static {v1, v3, v2}, Landroid/app/ActivityThread;->-wrap35(Landroid/app/ActivityThread;ILjava/lang/Object;)V
+    invoke-static {v1, v3, v2}, Landroid/app/ActivityThread;->-wrap34(Landroid/app/ActivityThread;ILjava/lang/Object;)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -2893,31 +2893,7 @@
 
     const/16 v1, 0x8e
 
-    invoke-static {v0, v1, p1}, Landroid/app/ActivityThread;->-wrap35(Landroid/app/ActivityThread;ILjava/lang/Object;)V
-
-    return-void
-.end method
-
-.method public final updateOverlayPath(Ljava/lang/String;Ljava/lang/String;I)V
-    .locals 5
-
-    const/16 v4, 0x9b
-
-    const/4 v2, 0x0
-
-    const/4 v3, 0x0
-
-    invoke-static {v2, v4, p3, v3}, Landroid/os/Message;->obtain(Landroid/os/Handler;III)Landroid/os/Message;
-
-    move-result-object v0
-
-    new-instance v1, Landroid/util/Pair;
-
-    invoke-direct {v1, p1, p2}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
-
-    iget-object v2, p0, Landroid/app/ActivityThread$ApplicationThread;->this$0:Landroid/app/ActivityThread;
-
-    invoke-static {v2, v4, v1, p3}, Landroid/app/ActivityThread;->-wrap36(Landroid/app/ActivityThread;ILjava/lang/Object;I)V
+    invoke-static {v0, v1, p1}, Landroid/app/ActivityThread;->-wrap34(Landroid/app/ActivityThread;ILjava/lang/Object;)V
 
     return-void
 .end method
@@ -2937,7 +2913,7 @@
 
     const/16 v2, 0x8b
 
-    invoke-static {v1, v2, v0}, Landroid/app/ActivityThread;->-wrap35(Landroid/app/ActivityThread;ILjava/lang/Object;)V
+    invoke-static {v1, v2, v0}, Landroid/app/ActivityThread;->-wrap34(Landroid/app/ActivityThread;ILjava/lang/Object;)V
 
     return-void
 .end method

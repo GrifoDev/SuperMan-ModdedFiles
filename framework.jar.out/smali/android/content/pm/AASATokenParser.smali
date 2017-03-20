@@ -3771,7 +3771,7 @@
 .end method
 
 .method public AASA_VerifyToken(Ljava/lang/String;Ljava/lang/String;)Z
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -3780,16 +3780,14 @@
 
     const/4 v0, 0x1
 
-    const/4 v1, 0x0
-
-    invoke-virtual {p0, p1, p2, v0, v1}, Landroid/content/pm/AASATokenParser;->AASA_VerifyToken(Ljava/lang/String;Ljava/lang/String;ZZ)Z
+    invoke-virtual {p0, p1, p2, v0}, Landroid/content/pm/AASATokenParser;->AASA_VerifyToken(Ljava/lang/String;Ljava/lang/String;Z)Z
 
     move-result v0
 
     return v0
 .end method
 
-.method public AASA_VerifyToken(Ljava/lang/String;Ljava/lang/String;ZZ)Z
+.method public AASA_VerifyToken(Ljava/lang/String;Ljava/lang/String;Z)Z
     .locals 38
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -4164,9 +4162,9 @@
     return v35
 
     :sswitch_0
-    if-eqz v19, :cond_e
+    if-eqz v19, :cond_d
 
-    if-eqz v18, :cond_b
+    if-eqz v18, :cond_a
 
     const-string/jumbo v35, "AASATokenParser"
 
@@ -4200,16 +4198,13 @@
 
     invoke-static/range {v35 .. v36}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz p4, :cond_a
-
     invoke-direct/range {p0 .. p1}, Landroid/content/pm/AASATokenParser;->writeBlockApkList(Ljava/lang/String;)V
 
-    :cond_a
     const/16 v35, 0x0
 
     return v35
 
-    :cond_b
+    :cond_a
     const-string/jumbo v35, "AASATokenParser"
 
     new-instance v36, Ljava/lang/StringBuilder;
@@ -4254,7 +4249,7 @@
 
     move-result v35
 
-    if-eqz v35, :cond_d
+    if-eqz v35, :cond_c
 
     const-string/jumbo v35, "ADVANCEDDIGEST"
 
@@ -4291,7 +4286,7 @@
 
     invoke-interface {v0, v1, v2}, Lorg/xmlpull/v1/XmlPullParser;->setInput(Ljava/io/InputStream;Ljava/lang/String;)V
 
-    :cond_c
+    :cond_b
     :goto_4
     :sswitch_1
     invoke-virtual/range {v33 .. v33}, Ljava/util/ArrayList;->clear()V
@@ -4305,7 +4300,7 @@
 
     move/from16 v0, v35
 
-    if-ge v11, v0, :cond_1a
+    if-ge v11, v0, :cond_19
 
     invoke-virtual {v6, v11}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
@@ -4325,7 +4320,7 @@
 
     move-result v35
 
-    if-eqz v35, :cond_19
+    if-eqz v35, :cond_18
 
     invoke-static {}, Lorg/xmlpull/v1/XmlPullParserFactory;->newInstance()Lorg/xmlpull/v1/XmlPullParserFactory;
 
@@ -4359,7 +4354,7 @@
 
     goto :goto_5
 
-    :cond_d
+    :cond_c
     const-string/jumbo v35, "DIGEST"
 
     move-object/from16 v0, v35
@@ -4409,7 +4404,7 @@
 
     return v35
 
-    :cond_e
+    :cond_d
     :try_start_6
     const-string/jumbo v35, "PACKAGE"
 
@@ -4429,7 +4424,7 @@
 
     move/from16 v35, v0
 
-    if-nez v35, :cond_f
+    if-nez v35, :cond_e
 
     const-string/jumbo v35, "ADVANCEDDIGEST"
 
@@ -4443,7 +4438,7 @@
 
     move-result v35
 
-    if-eqz v35, :cond_10
+    if-eqz v35, :cond_f
 
     const-string/jumbo v35, "ADVANCEDDIGEST"
 
@@ -4480,7 +4475,7 @@
 
     invoke-interface {v0, v1, v2}, Lorg/xmlpull/v1/XmlPullParser;->setInput(Ljava/io/InputStream;Ljava/lang/String;)V
 
-    :cond_f
+    :cond_e
     const-string/jumbo v35, "MODELS"
 
     move-object/from16 v0, v35
@@ -4531,7 +4526,7 @@
 
     return v35
 
-    :cond_10
+    :cond_f
     :try_start_7
     const-string/jumbo v35, "DIGEST"
 
@@ -4542,7 +4537,7 @@
     goto :goto_6
 
     :sswitch_2
-    if-eqz v19, :cond_15
+    if-eqz v19, :cond_14
 
     const-string/jumbo v35, "PACKAGE"
 
@@ -4586,9 +4581,58 @@
 
     move-result v35
 
-    if-eqz v35, :cond_11
+    if-eqz v35, :cond_10
 
     const-string/jumbo v35, "MODELS"
+
+    move-object/from16 v0, v35
+
+    invoke-virtual {v6, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    :cond_10
+    invoke-static {}, Lorg/xmlpull/v1/XmlPullParserFactory;->newInstance()Lorg/xmlpull/v1/XmlPullParserFactory;
+
+    move-result-object v28
+
+    invoke-virtual/range {v28 .. v28}, Lorg/xmlpull/v1/XmlPullParserFactory;->newPullParser()Lorg/xmlpull/v1/XmlPullParser;
+
+    move-result-object v27
+
+    new-instance v35, Ljava/io/ByteArrayInputStream;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/content/pm/AASATokenParser;->mTokenContents:[B
+
+    move-object/from16 v36, v0
+
+    invoke-direct/range {v35 .. v36}, Ljava/io/ByteArrayInputStream;-><init>([B)V
+
+    const/16 v36, 0x0
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v35
+
+    move-object/from16 v2, v36
+
+    invoke-interface {v0, v1, v2}, Lorg/xmlpull/v1/XmlPullParser;->setInput(Ljava/io/InputStream;Ljava/lang/String;)V
+
+    const-string/jumbo v35, "CARRIERS"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v27
+
+    move-object/from16 v2, v35
+
+    invoke-direct {v0, v1, v2}, Landroid/content/pm/AASATokenParser;->checkExistTAG(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)Z
+
+    move-result v35
+
+    if-eqz v35, :cond_11
+
+    const-string/jumbo v35, "CARRIERS"
 
     move-object/from16 v0, v35
 
@@ -4623,7 +4667,7 @@
 
     invoke-interface {v0, v1, v2}, Lorg/xmlpull/v1/XmlPullParser;->setInput(Ljava/io/InputStream;Ljava/lang/String;)V
 
-    const-string/jumbo v35, "CARRIERS"
+    const-string/jumbo v35, "EXPIRED"
 
     move-object/from16 v0, p0
 
@@ -4637,7 +4681,7 @@
 
     if-eqz v35, :cond_12
 
-    const-string/jumbo v35, "CARRIERS"
+    const-string/jumbo v35, "EXPIRED"
 
     move-object/from16 v0, v35
 
@@ -4672,7 +4716,7 @@
 
     invoke-interface {v0, v1, v2}, Lorg/xmlpull/v1/XmlPullParser;->setInput(Ljava/io/InputStream;Ljava/lang/String;)V
 
-    const-string/jumbo v35, "EXPIRED"
+    const-string/jumbo v35, "SERIALNUMBER"
 
     move-object/from16 v0, p0
 
@@ -4686,7 +4730,7 @@
 
     if-eqz v35, :cond_13
 
-    const-string/jumbo v35, "EXPIRED"
+    const-string/jumbo v35, "SERIALNUMBER"
 
     move-object/from16 v0, v35
 
@@ -4721,58 +4765,9 @@
 
     invoke-interface {v0, v1, v2}, Lorg/xmlpull/v1/XmlPullParser;->setInput(Ljava/io/InputStream;Ljava/lang/String;)V
 
-    const-string/jumbo v35, "SERIALNUMBER"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v27
-
-    move-object/from16 v2, v35
-
-    invoke-direct {v0, v1, v2}, Landroid/content/pm/AASATokenParser;->checkExistTAG(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)Z
-
-    move-result v35
-
-    if-eqz v35, :cond_14
-
-    const-string/jumbo v35, "SERIALNUMBER"
-
-    move-object/from16 v0, v35
-
-    invoke-virtual {v6, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    :cond_14
-    invoke-static {}, Lorg/xmlpull/v1/XmlPullParserFactory;->newInstance()Lorg/xmlpull/v1/XmlPullParserFactory;
-
-    move-result-object v28
-
-    invoke-virtual/range {v28 .. v28}, Lorg/xmlpull/v1/XmlPullParserFactory;->newPullParser()Lorg/xmlpull/v1/XmlPullParser;
-
-    move-result-object v27
-
-    new-instance v35, Ljava/io/ByteArrayInputStream;
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/content/pm/AASATokenParser;->mTokenContents:[B
-
-    move-object/from16 v36, v0
-
-    invoke-direct/range {v35 .. v36}, Ljava/io/ByteArrayInputStream;-><init>([B)V
-
-    const/16 v36, 0x0
-
-    move-object/from16 v0, v27
-
-    move-object/from16 v1, v35
-
-    move-object/from16 v2, v36
-
-    invoke-interface {v0, v1, v2}, Lorg/xmlpull/v1/XmlPullParser;->setInput(Ljava/io/InputStream;Ljava/lang/String;)V
-
     goto/16 :goto_4
 
-    :cond_15
+    :cond_14
     const-string/jumbo v35, "PACKAGE"
 
     move-object/from16 v0, v35
@@ -4791,7 +4786,7 @@
 
     move/from16 v35, v0
 
-    if-nez v35, :cond_c
+    if-nez v35, :cond_b
 
     const-string/jumbo v35, "ADVANCEDDIGEST"
 
@@ -4805,7 +4800,7 @@
 
     move-result v35
 
-    if-eqz v35, :cond_16
+    if-eqz v35, :cond_15
 
     const-string/jumbo v35, "ADVANCEDDIGEST"
 
@@ -4825,7 +4820,7 @@
 
     invoke-virtual {v6, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_16
+    :cond_15
     invoke-static {}, Lorg/xmlpull/v1/XmlPullParserFactory;->newInstance()Lorg/xmlpull/v1/XmlPullParserFactory;
 
     move-result-object v28
@@ -4932,7 +4927,7 @@
 
     move/from16 v35, v0
 
-    if-nez v35, :cond_17
+    if-nez v35, :cond_16
 
     const-string/jumbo v35, "DIGEST"
 
@@ -4940,7 +4935,7 @@
 
     invoke-virtual {v6, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_17
+    :cond_16
     const-string/jumbo v35, "MODELS"
 
     move-object/from16 v0, v35
@@ -4991,7 +4986,7 @@
 
     move/from16 v35, v0
 
-    if-nez v35, :cond_18
+    if-nez v35, :cond_17
 
     const-string/jumbo v35, "ADVANCEDDIGEST"
 
@@ -4999,7 +4994,7 @@
 
     invoke-virtual {v6, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_18
+    :cond_17
     const-string/jumbo v35, "MODELS"
 
     move-object/from16 v0, v35
@@ -5014,7 +5009,7 @@
 
     goto/16 :goto_4
 
-    :cond_19
+    :cond_18
     const-string/jumbo v35, "AASATokenParser"
 
     const-string/jumbo v36, " Token does not have value"
@@ -5025,7 +5020,7 @@
 
     return v35
 
-    :cond_1a
+    :cond_19
     const/16 v30, 0x0
 
     const/4 v13, 0x0
@@ -5051,7 +5046,7 @@
 
     move/from16 v0, v35
 
-    if-ge v11, v0, :cond_34
+    if-ge v11, v0, :cond_33
 
     invoke-virtual {v6, v11}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
@@ -5065,7 +5060,7 @@
 
     move-result v35
 
-    if-eqz v35, :cond_1c
+    if-eqz v35, :cond_1b
 
     move-object/from16 v0, v33
 
@@ -5083,7 +5078,7 @@
 
     move-result v35
 
-    if-eqz v35, :cond_1b
+    if-eqz v35, :cond_1a
 
     const-string/jumbo v35, "AASATokenParser"
 
@@ -5113,13 +5108,13 @@
 
     add-int/lit8 v30, v30, 0x1
 
-    :cond_1b
+    :cond_1a
     :goto_8
     add-int/lit8 v11, v11, 0x1
 
     goto :goto_7
 
-    :cond_1c
+    :cond_1b
     invoke-virtual {v6, v11}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v35
@@ -5132,7 +5127,7 @@
 
     move-result v35
 
-    if-eqz v35, :cond_1e
+    if-eqz v35, :cond_1d
 
     const/4 v15, 0x0
 
@@ -5143,7 +5138,7 @@
 
     move/from16 v0, v35
 
-    if-ge v15, v0, :cond_1b
+    if-ge v15, v0, :cond_1a
 
     move-object/from16 v0, v33
 
@@ -5175,7 +5170,7 @@
 
     move-result v35
 
-    if-eqz v35, :cond_1d
+    if-eqz v35, :cond_1c
 
     add-int/lit8 v30, v30, 0x1
 
@@ -5185,12 +5180,12 @@
 
     invoke-static/range {v35 .. v36}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_1d
+    :cond_1c
     add-int/lit8 v15, v15, 0x1
 
     goto :goto_9
 
-    :cond_1e
+    :cond_1d
     invoke-virtual {v6, v11}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v35
@@ -5203,7 +5198,7 @@
 
     move-result v35
 
-    if-eqz v35, :cond_1f
+    if-eqz v35, :cond_1e
 
     const-string/jumbo v35, "AASATokenParser"
 
@@ -5211,7 +5206,7 @@
 
     invoke-static/range {v35 .. v36}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz p2, :cond_1b
+    if-eqz p2, :cond_1a
 
     move-object/from16 v0, v33
 
@@ -5229,13 +5224,13 @@
 
     move-result v35
 
-    if-eqz v35, :cond_1b
+    if-eqz v35, :cond_1a
 
     add-int/lit8 v30, v30, 0x1
 
     goto :goto_8
 
-    :cond_1f
+    :cond_1e
     invoke-virtual {v6, v11}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v35
@@ -5248,7 +5243,7 @@
 
     move-result v35
 
-    if-eqz v35, :cond_20
+    if-eqz v35, :cond_1f
 
     const-string/jumbo v35, "AASATokenParser"
 
@@ -5260,7 +5255,7 @@
 
     goto/16 :goto_8
 
-    :cond_20
+    :cond_1f
     invoke-virtual {v6, v11}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v35
@@ -5273,15 +5268,15 @@
 
     move-result v35
 
-    if-eqz v35, :cond_23
+    if-eqz v35, :cond_22
 
-    if-eqz v19, :cond_22
+    if-eqz v19, :cond_21
 
     invoke-direct/range {p0 .. p0}, Landroid/content/pm/AASATokenParser;->advancedCheckHash()Ljava/lang/String;
 
     move-result-object v5
 
-    if-eqz v5, :cond_21
+    if-eqz v5, :cond_20
 
     move-object/from16 v0, v33
 
@@ -5295,7 +5290,7 @@
 
     move-result v35
 
-    if-eqz v35, :cond_21
+    if-eqz v35, :cond_20
 
     const-string/jumbo v35, "AASATokenParser"
 
@@ -5307,7 +5302,7 @@
 
     goto/16 :goto_8
 
-    :cond_21
+    :cond_20
     const-string/jumbo v36, "AASATokenParser"
 
     new-instance v35, Ljava/lang/StringBuilder;
@@ -5368,7 +5363,7 @@
 
     goto/16 :goto_8
 
-    :cond_22
+    :cond_21
     move-object/from16 v0, v33
 
     invoke-virtual {v0, v11}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -5385,7 +5380,7 @@
 
     move-result v35
 
-    if-eqz v35, :cond_1b
+    if-eqz v35, :cond_1a
 
     const-string/jumbo v35, "AASATokenParser"
 
@@ -5397,7 +5392,7 @@
 
     goto/16 :goto_8
 
-    :cond_23
+    :cond_22
     invoke-virtual {v6, v11}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v35
@@ -5410,13 +5405,13 @@
 
     move-result v35
 
-    if-eqz v35, :cond_25
+    if-eqz v35, :cond_24
 
     invoke-direct/range {p0 .. p0}, Landroid/content/pm/AASATokenParser;->advancedCheckHash()Ljava/lang/String;
 
     move-result-object v5
 
-    if-eqz v5, :cond_24
+    if-eqz v5, :cond_23
 
     move-object/from16 v0, v33
 
@@ -5430,7 +5425,7 @@
 
     move-result v35
 
-    if-eqz v35, :cond_24
+    if-eqz v35, :cond_23
 
     const-string/jumbo v35, "AASATokenParser"
 
@@ -5442,7 +5437,7 @@
 
     goto/16 :goto_8
 
-    :cond_24
+    :cond_23
     const-string/jumbo v36, "AASATokenParser"
 
     new-instance v35, Ljava/lang/StringBuilder;
@@ -5503,7 +5498,7 @@
 
     goto/16 :goto_8
 
-    :cond_25
+    :cond_24
     invoke-virtual {v6, v11}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v35
@@ -5516,9 +5511,9 @@
 
     move-result v35
 
-    if-eqz v35, :cond_27
+    if-eqz v35, :cond_26
 
-    if-nez v13, :cond_26
+    if-nez v13, :cond_25
 
     const/4 v13, 0x1
 
@@ -5532,7 +5527,7 @@
 
     goto/16 :goto_8
 
-    :cond_26
+    :cond_25
     move-object/from16 v0, v33
 
     invoke-virtual {v0, v11}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -5551,7 +5546,7 @@
 
     move-result v35
 
-    if-eqz v35, :cond_1b
+    if-eqz v35, :cond_1a
 
     add-int/lit8 v30, v30, 0x1
 
@@ -5559,7 +5554,7 @@
 
     goto/16 :goto_8
 
-    :cond_27
+    :cond_26
     invoke-virtual {v6, v11}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v35
@@ -5572,9 +5567,9 @@
 
     move-result v35
 
-    if-eqz v35, :cond_29
+    if-eqz v35, :cond_28
 
-    if-eqz v13, :cond_28
+    if-eqz v13, :cond_27
 
     move-object/from16 v0, v33
 
@@ -5594,7 +5589,7 @@
 
     move-result v35
 
-    if-eqz v35, :cond_1b
+    if-eqz v35, :cond_1a
 
     add-int/lit8 v30, v30, 0x1
 
@@ -5602,7 +5597,7 @@
 
     goto/16 :goto_8
 
-    :cond_28
+    :cond_27
     const/4 v13, 0x1
 
     move-object/from16 v0, v33
@@ -5615,7 +5610,7 @@
 
     goto/16 :goto_8
 
-    :cond_29
+    :cond_28
     invoke-virtual {v6, v11}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v35
@@ -5628,7 +5623,7 @@
 
     move-result v35
 
-    if-eqz v35, :cond_2d
+    if-eqz v35, :cond_2c
 
     const-string/jumbo v36, "AASATokenParser"
 
@@ -5675,7 +5670,7 @@
     .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_1
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_7 .. :try_end_7} :catch_2
 
-    if-eqz v14, :cond_2c
+    if-eqz v14, :cond_2b
 
     :try_start_8
     move-object/from16 v0, v33
@@ -5702,7 +5697,7 @@
 
     move/from16 v1, v36
 
-    if-le v0, v1, :cond_2a
+    if-le v0, v1, :cond_29
 
     const-string/jumbo v35, "AASATokenParser"
 
@@ -5714,7 +5709,7 @@
 
     return v35
 
-    :cond_2a
+    :cond_29
     new-instance v35, Ljava/text/SimpleDateFormat;
 
     const-string/jumbo v36, "yyyyMMdd"
@@ -5745,7 +5740,7 @@
 
     move/from16 v1, v36
 
-    if-le v0, v1, :cond_2b
+    if-le v0, v1, :cond_2a
 
     const-string/jumbo v35, "AASATokenParser"
 
@@ -5761,7 +5756,7 @@
 
     return v35
 
-    :cond_2b
+    :cond_2a
     add-int/lit8 v30, v30, 0x1
 
     add-int/lit8 v30, v30, 0x1
@@ -5782,7 +5777,7 @@
 
     return v35
 
-    :cond_2c
+    :cond_2b
     const/4 v14, 0x1
 
     move-object/from16 v0, v33
@@ -5797,7 +5792,7 @@
 
     goto/16 :goto_8
 
-    :cond_2d
+    :cond_2c
     invoke-virtual {v6, v11}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v35
@@ -5810,7 +5805,7 @@
 
     move-result v35
 
-    if-eqz v35, :cond_31
+    if-eqz v35, :cond_30
 
     const-string/jumbo v36, "AASATokenParser"
 
@@ -5857,7 +5852,7 @@
     .catch Ljava/io/IOException; {:try_start_9 .. :try_end_9} :catch_1
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_9 .. :try_end_9} :catch_2
 
-    if-eqz v14, :cond_30
+    if-eqz v14, :cond_2f
 
     :try_start_a
     move-object/from16 v0, v33
@@ -5884,7 +5879,7 @@
 
     move/from16 v1, v36
 
-    if-le v0, v1, :cond_2e
+    if-le v0, v1, :cond_2d
 
     const-string/jumbo v35, "AASATokenParser"
 
@@ -5896,7 +5891,7 @@
 
     return v35
 
-    :cond_2e
+    :cond_2d
     new-instance v35, Ljava/text/SimpleDateFormat;
 
     const-string/jumbo v36, "yyyyMMdd"
@@ -5927,7 +5922,7 @@
 
     move/from16 v1, v36
 
-    if-le v0, v1, :cond_2f
+    if-le v0, v1, :cond_2e
 
     const-string/jumbo v35, "AASATokenParser"
 
@@ -5943,7 +5938,7 @@
 
     return v35
 
-    :cond_2f
+    :cond_2e
     add-int/lit8 v30, v30, 0x1
 
     goto/16 :goto_8
@@ -5962,7 +5957,7 @@
 
     return v35
 
-    :cond_30
+    :cond_2f
     const/4 v14, 0x1
 
     move-object/from16 v0, v33
@@ -5975,7 +5970,7 @@
 
     goto/16 :goto_8
 
-    :cond_31
+    :cond_30
     invoke-virtual {v6, v11}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v35
@@ -5988,7 +5983,7 @@
 
     move-result v35
 
-    if-eqz v35, :cond_32
+    if-eqz v35, :cond_31
 
     const-string/jumbo v36, "AASATokenParser"
 
@@ -6036,7 +6031,7 @@
 
     goto/16 :goto_8
 
-    :cond_32
+    :cond_31
     invoke-virtual {v6, v11}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v35
@@ -6049,7 +6044,7 @@
 
     move-result v35
 
-    if-eqz v35, :cond_33
+    if-eqz v35, :cond_32
 
     move-object/from16 v0, v33
 
@@ -6089,7 +6084,7 @@
 
     goto/16 :goto_8
 
-    :cond_33
+    :cond_32
     invoke-virtual {v6, v11}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v35
@@ -6102,7 +6097,7 @@
 
     move-result v35
 
-    if-eqz v35, :cond_1b
+    if-eqz v35, :cond_1a
 
     const-string/jumbo v36, "AASATokenParser"
 
@@ -6152,7 +6147,7 @@
 
     goto/16 :goto_8
 
-    :cond_34
+    :cond_33
     invoke-virtual {v6}, Ljava/util/ArrayList;->size()I
 
     move-result v35
@@ -6161,9 +6156,9 @@
 
     move/from16 v1, v30
 
-    if-ne v0, v1, :cond_39
+    if-ne v0, v1, :cond_38
 
-    if-nez v12, :cond_35
+    if-nez v12, :cond_34
 
     const-string/jumbo v35, "AASATokenParser"
 
@@ -6175,7 +6170,7 @@
 
     return v35
 
-    :cond_35
+    :cond_34
     new-instance v32, Ljava/util/ArrayList;
 
     invoke-direct/range {v32 .. v32}, Ljava/util/ArrayList;-><init>()V
@@ -6194,7 +6189,7 @@
 
     move-result v35
 
-    if-eqz v35, :cond_36
+    if-eqz v35, :cond_35
 
     invoke-static {}, Lorg/xmlpull/v1/XmlPullParserFactory;->newInstance()Lorg/xmlpull/v1/XmlPullParserFactory;
 
@@ -6224,12 +6219,12 @@
 
     invoke-interface {v0, v1, v2}, Lorg/xmlpull/v1/XmlPullParser;->setInput(Ljava/io/InputStream;Ljava/lang/String;)V
 
-    :cond_36
+    :cond_35
     invoke-virtual/range {v32 .. v32}, Ljava/util/ArrayList;->size()I
 
     move-result v35
 
-    if-nez v35, :cond_37
+    if-nez v35, :cond_36
 
     const-string/jumbo v35, "AASATokenParser"
 
@@ -6241,7 +6236,7 @@
 
     return v35
 
-    :cond_37
+    :cond_36
     move-object/from16 v0, v32
 
     move-object/from16 v1, p2
@@ -6250,7 +6245,7 @@
 
     move-result v35
 
-    if-eqz v35, :cond_38
+    if-eqz v35, :cond_37
 
     const-string/jumbo v35, "AASATokenParser"
 
@@ -6282,7 +6277,7 @@
 
     return v35
 
-    :cond_38
+    :cond_37
     const-string/jumbo v35, "AASATokenParser"
 
     new-instance v36, Ljava/lang/StringBuilder;
@@ -6313,7 +6308,7 @@
 
     return v35
 
-    :cond_39
+    :cond_38
     const-string/jumbo v35, "AASATokenParser"
 
     const-string/jumbo v36, " Fail: auth"

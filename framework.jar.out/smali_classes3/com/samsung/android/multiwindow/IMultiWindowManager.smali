@@ -87,6 +87,14 @@
     .end annotation
 .end method
 
+.method public abstract hasDockedStack()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract isExpandedDockedStack()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {

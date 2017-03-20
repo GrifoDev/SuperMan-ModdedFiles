@@ -96,7 +96,7 @@
 
     move-result-object v3
 
-    invoke-static {v0, v2, v3}, Landroid/app/ActivityThread;->-wrap40(Landroid/app/ActivityThread;Landroid/content/Context;Landroid/os/LocaleList;)V
+    invoke-static {v0, v2, v3}, Landroid/app/ActivityThread;->-wrap39(Landroid/app/ActivityThread;Landroid/content/Context;Landroid/os/LocaleList;)V
 
     iget-object v0, p0, Landroid/app/ActivityThread$3;->this$0:Landroid/app/ActivityThread;
 
@@ -123,7 +123,7 @@
 
     const/16 v2, 0x76
 
-    invoke-static {v0, v2, p1}, Landroid/app/ActivityThread;->-wrap35(Landroid/app/ActivityThread;ILjava/lang/Object;)V
+    invoke-static {v0, v2, p1}, Landroid/app/ActivityThread;->-wrap34(Landroid/app/ActivityThread;ILjava/lang/Object;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 

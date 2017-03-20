@@ -360,6 +360,32 @@
     return-object v1
 .end method
 
+.method public hasDockedStack()Z
+    .locals 2
+
+    :try_start_0
+    invoke-static {}, Lcom/samsung/android/multiwindow/MultiWindowManager;->getDefault()Lcom/samsung/android/multiwindow/IMultiWindowManager;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Lcom/samsung/android/multiwindow/IMultiWindowManager;->hasDockedStack()Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    invoke-static {v0}, Lcom/samsung/android/multiwindow/MultiWindowManager;->warningException(Ljava/lang/Exception;)V
+
+    const/4 v1, 0x0
+
+    return v1
+.end method
+
 .method public isExpandedDockedStack()Z
     .locals 2
 

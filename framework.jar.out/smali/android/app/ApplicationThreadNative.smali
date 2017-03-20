@@ -58,7 +58,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 140
+    .locals 139
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -155,7 +155,7 @@
 
     if-eqz v5, :cond_3
 
-    const/16 v135, 0x1
+    const/16 v134, 0x1
 
     :goto_3
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
@@ -164,7 +164,7 @@
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v135
+    move/from16 v1, v134
 
     invoke-virtual {v0, v6, v1, v9}, Landroid/app/ApplicationThreadNative;->scheduleStopActivity(Landroid/os/IBinder;ZI)V
 
@@ -173,7 +173,7 @@
     return v5
 
     :cond_3
-    const/16 v135, 0x0
+    const/16 v134, 0x0
 
     goto :goto_3
 
@@ -194,12 +194,12 @@
 
     if-eqz v5, :cond_4
 
-    const/16 v135, 0x1
+    const/16 v134, 0x1
 
     :goto_4
     move-object/from16 v0, p0
 
-    move/from16 v1, v135
+    move/from16 v1, v134
 
     invoke-virtual {v0, v6, v1}, Landroid/app/ApplicationThreadNative;->scheduleWindowVisibility(Landroid/os/IBinder;Z)V
 
@@ -208,7 +208,7 @@
     return v5
 
     :cond_4
-    const/16 v135, 0x0
+    const/16 v134, 0x0
 
     goto :goto_4
 
@@ -229,12 +229,12 @@
 
     if-eqz v5, :cond_5
 
-    const/16 v136, 0x1
+    const/16 v135, 0x1
 
     :goto_5
     move-object/from16 v0, p0
 
-    move/from16 v1, v136
+    move/from16 v1, v135
 
     invoke-virtual {v0, v6, v1}, Landroid/app/ApplicationThreadNative;->scheduleSleeping(Landroid/os/IBinder;Z)V
 
@@ -243,7 +243,7 @@
     return v5
 
     :cond_5
-    const/16 v136, 0x0
+    const/16 v135, 0x0
 
     goto :goto_5
 
@@ -273,7 +273,7 @@
     :goto_6
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readBundle()Landroid/os/Bundle;
 
-    move-result-object v131
+    move-result-object v130
 
     move-object/from16 v0, p0
 
@@ -281,7 +281,7 @@
 
     move/from16 v2, v27
 
-    move-object/from16 v3, v131
+    move-object/from16 v3, v130
 
     invoke-virtual {v0, v6, v1, v2, v3}, Landroid/app/ApplicationThreadNative;->scheduleResumeActivity(Landroid/os/IBinder;IZLandroid/os/Bundle;)V
 
@@ -840,7 +840,7 @@
 
     if-eqz v5, :cond_10
 
-    const/16 v127, 0x1
+    const/16 v126, 0x1
 
     :goto_e
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
@@ -851,7 +851,7 @@
 
     move-object/from16 v1, v30
 
-    move/from16 v2, v127
+    move/from16 v2, v126
 
     move/from16 v3, v47
 
@@ -862,7 +862,7 @@
     return v5
 
     :cond_10
-    const/16 v127, 0x0
+    const/16 v126, 0x0
 
     goto :goto_e
 
@@ -1360,7 +1360,7 @@
 
     invoke-virtual {v0, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    const/16 v126, 0x0
+    const/16 v125, 0x0
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
@@ -1376,14 +1376,14 @@
 
     invoke-interface {v5, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    move-result-object v126
+    move-result-object v125
 
-    check-cast v126, Landroid/net/ProxyInfo;
+    check-cast v125, Landroid/net/ProxyInfo;
 
     :cond_19
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v126
+    move-object/from16 v1, v125
 
     invoke-virtual {v0, v1}, Landroid/app/ApplicationThreadNative;->setHttpProxy(Landroid/net/ProxyInfo;)V
 
@@ -1417,7 +1417,7 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    move-result-object v132
+    move-result-object v131
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStringArray()[Ljava/lang/String;
 
@@ -1431,7 +1431,7 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v132
+    move-object/from16 v1, v131
 
     move-object/from16 v2, v90
 
@@ -1466,7 +1466,7 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    move-result-object v132
+    move-result-object v131
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStringArray()[Ljava/lang/String;
 
@@ -1480,7 +1480,7 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v132
+    move-object/from16 v1, v131
 
     move-object/from16 v2, v90
 
@@ -1642,14 +1642,14 @@
 
     if-ne v5, v11, :cond_1f
 
-    const/16 v128, 0x1
+    const/16 v127, 0x1
 
     :goto_1b
     move-object/from16 v0, p0
 
     move-object/from16 v1, v17
 
-    move/from16 v2, v128
+    move/from16 v2, v127
 
     invoke-virtual {v0, v6, v1, v2}, Landroid/app/ApplicationThreadNative;->scheduleActivityConfigurationChanged(Landroid/os/IBinder;Landroid/content/res/Configuration;Z)V
 
@@ -1658,7 +1658,7 @@
     return v5
 
     :cond_1f
-    const/16 v128, 0x0
+    const/16 v127, 0x0
 
     goto :goto_1b
 
@@ -1706,12 +1706,12 @@
 
     if-eqz v5, :cond_20
 
-    const/16 v137, 0x1
+    const/16 v136, 0x1
 
     :goto_1c
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v123
+    move-result v122
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
@@ -1734,11 +1734,11 @@
     :goto_1d
     move-object/from16 v0, p0
 
-    move/from16 v1, v137
+    move/from16 v1, v136
 
     move-object/from16 v2, v28
 
-    move/from16 v3, v123
+    move/from16 v3, v122
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/app/ApplicationThreadNative;->profilerControl(ZLandroid/app/ProfilerInfo;I)V
 
@@ -1747,7 +1747,7 @@
     return v5
 
     :cond_20
-    const/16 v137, 0x0
+    const/16 v136, 0x0
 
     goto :goto_1c
 
@@ -1874,13 +1874,13 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStringArray()[Ljava/lang/String;
 
-    move-result-object v119
+    move-result-object v118
 
     move-object/from16 v0, p0
 
     move/from16 v1, v103
 
-    move-object/from16 v2, v119
+    move-object/from16 v2, v118
 
     invoke-virtual {v0, v1, v2}, Landroid/app/ApplicationThreadNative;->dispatchPackageBroadcast(I[Ljava/lang/String;)V
 
@@ -1897,11 +1897,11 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v117
+    move-result-object v116
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v117
+    move-object/from16 v1, v116
 
     invoke-virtual {v0, v1}, Landroid/app/ApplicationThreadNative;->scheduleCrash(Ljava/lang/String;)V
 
@@ -1922,12 +1922,12 @@
 
     if-eqz v5, :cond_22
 
-    const/16 v116, 0x1
+    const/16 v115, 0x1
 
     :goto_1e
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v120
+    move-result-object v119
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
@@ -1950,9 +1950,9 @@
     :goto_1f
     move-object/from16 v0, p0
 
-    move/from16 v1, v116
+    move/from16 v1, v115
 
-    move-object/from16 v2, v120
+    move-object/from16 v2, v119
 
     move-object/from16 v3, v107
 
@@ -1963,7 +1963,7 @@
     return v5
 
     :cond_22
-    const/16 v116, 0x0
+    const/16 v115, 0x0
 
     goto :goto_1e
 
@@ -1989,7 +1989,7 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v122
+    move-result-object v121
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStringArray()[Ljava/lang/String;
 
@@ -2005,7 +2005,7 @@
 
     move-object/from16 v1, v98
 
-    move-object/from16 v2, v122
+    move-object/from16 v2, v121
 
     move-object/from16 v3, v90
 
@@ -2036,11 +2036,11 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readBundle()Landroid/os/Bundle;
 
-    move-result-object v134
+    move-result-object v133
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v134
+    move-object/from16 v1, v133
 
     invoke-virtual {v0, v1}, Landroid/app/ApplicationThreadNative;->setCoreSettings(Landroid/os/Bundle;)V
 
@@ -2057,7 +2057,7 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v121
+    move-result-object v120
 
     sget-object v5, Landroid/content/res/CompatibilityInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -2071,7 +2071,7 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v121
+    move-object/from16 v1, v120
 
     move-object/from16 v2, v104
 
@@ -2090,11 +2090,11 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v115
+    move-result v114
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v115
+    move/from16 v1, v114
 
     invoke-virtual {v0, v1}, Landroid/app/ApplicationThreadNative;->scheduleTrimMemory(I)V
 
@@ -2381,11 +2381,11 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    move-result-object v125
+    move-result-object v124
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v125
+    move-object/from16 v1, v124
 
     invoke-virtual {v0, v1}, Landroid/app/ApplicationThreadNative;->unstableProviderDied(Landroid/os/IBinder;)V
 
@@ -2408,25 +2408,25 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    move-result-object v129
+    move-result-object v128
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v130
+    move-result v129
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v133
+    move-result v132
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, v99
 
-    move-object/from16 v2, v129
+    move-object/from16 v2, v128
 
-    move/from16 v3, v130
+    move/from16 v3, v129
 
-    move/from16 v4, v133
+    move/from16 v4, v132
 
     invoke-virtual {v0, v1, v2, v3, v4}, Landroid/app/ApplicationThreadNative;->requestAssistContextExtras(Landroid/os/IBinder;Landroid/os/IBinder;II)V
 
@@ -2455,14 +2455,14 @@
 
     if-ne v5, v11, :cond_2d
 
-    const/16 v139, 0x1
+    const/16 v138, 0x1
 
     :goto_2c
     move-object/from16 v0, p0
 
     move-object/from16 v1, v30
 
-    move/from16 v2, v139
+    move/from16 v2, v138
 
     invoke-virtual {v0, v1, v2}, Landroid/app/ApplicationThreadNative;->scheduleTranslucentConversionComplete(Landroid/os/IBinder;Z)V
 
@@ -2473,7 +2473,7 @@
     return v5
 
     :cond_2d
-    const/16 v139, 0x0
+    const/16 v138, 0x0
 
     goto :goto_2c
 
@@ -2488,13 +2488,13 @@
 
     move-result-object v30
 
-    new-instance v118, Landroid/app/ActivityOptions;
+    new-instance v117, Landroid/app/ActivityOptions;
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readBundle()Landroid/os/Bundle;
 
     move-result-object v5
 
-    move-object/from16 v0, v118
+    move-object/from16 v0, v117
 
     invoke-direct {v0, v5}, Landroid/app/ActivityOptions;-><init>(Landroid/os/Bundle;)V
 
@@ -2502,7 +2502,7 @@
 
     move-object/from16 v1, v30
 
-    move-object/from16 v2, v118
+    move-object/from16 v2, v117
 
     invoke-virtual {v0, v1, v2}, Landroid/app/ApplicationThreadNative;->scheduleOnNewActivityOptions(Landroid/os/IBinder;Landroid/app/ActivityOptions;)V
 
@@ -2521,11 +2521,11 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v138
+    move-result v137
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v138
+    move/from16 v1, v137
 
     invoke-virtual {v0, v1}, Landroid/app/ApplicationThreadNative;->setProcessState(I)V
 
@@ -2548,13 +2548,13 @@
 
     invoke-interface {v5, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    move-result-object v124
+    move-result-object v123
 
-    check-cast v124, Landroid/content/pm/ProviderInfo;
+    check-cast v123, Landroid/content/pm/ProviderInfo;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v124
+    move-object/from16 v1, v123
 
     invoke-virtual {v0, v1}, Landroid/app/ApplicationThreadNative;->scheduleInstallProvider(Landroid/content/pm/ProviderInfo;)V
 
@@ -2897,7 +2897,7 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v122
+    move-result-object v121
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStringArray()[Ljava/lang/String;
 
@@ -2911,7 +2911,7 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v122
+    move-object/from16 v1, v121
 
     move-object/from16 v2, v90
 
@@ -2940,39 +2940,6 @@
 
     invoke-virtual {v0, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v120
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v49
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v114
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v120
-
-    move-object/from16 v2, v49
-
-    move/from16 v3, v114
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/app/ApplicationThreadNative;->updateOverlayPath(Ljava/lang/String;Ljava/lang/String;I)V
-
-    const/4 v5, 0x1
-
-    return v5
-
-    :sswitch_40
-    const-string/jumbo v5, "android.app.IApplicationThread"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v30
@@ -2995,7 +2962,7 @@
 
     return v5
 
-    :sswitch_41
+    :sswitch_40
     const-string/jumbo v5, "android.app.IApplicationThread"
 
     move-object/from16 v0, p2
@@ -3004,19 +2971,17 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readBundle()Landroid/os/Bundle;
 
-    move-result-object v134
+    move-result-object v133
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v134
+    move-object/from16 v1, v133
 
     invoke-virtual {v0, v1}, Landroid/app/ApplicationThreadNative;->setMultiWindowSettings(Landroid/os/Bundle;)V
 
     const/4 v5, 0x1
 
     return v5
-
-    nop
 
     :sswitch_data_0
     .sparse-switch
@@ -3079,12 +3044,11 @@
         0x3b -> :sswitch_3b
         0x3c -> :sswitch_3c
         0x3d -> :sswitch_1f
-        0x3e -> :sswitch_3f
         0x5dd -> :sswitch_17
-        0xbba -> :sswitch_40
+        0xbba -> :sswitch_3f
         0xbbb -> :sswitch_3d
         0xbbc -> :sswitch_3e
         0xbc2 -> :sswitch_18
-        0xc1d -> :sswitch_41
+        0xc1d -> :sswitch_40
     .end sparse-switch
 .end method

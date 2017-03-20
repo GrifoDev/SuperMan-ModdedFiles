@@ -30,25 +30,27 @@
 
 .field static final TRANSACTION_changeFreeformMode:I = 0x11
 
-.field static final TRANSACTION_completeToggleSplitScreen:I = 0x23
+.field static final TRANSACTION_completeToggleSplitScreen:I = 0x24
 
-.field static final TRANSACTION_enterFreeformTask:I = 0x28
+.field static final TRANSACTION_enterFreeformTask:I = 0x29
 
 .field static final TRANSACTION_exitMultiWindow:I = 0x2
 
-.field static final TRANSACTION_getFreeformTasks:I = 0x1c
+.field static final TRANSACTION_getFreeformTasks:I = 0x1d
 
-.field static final TRANSACTION_getImeTargetFreeformTaskId:I = 0x24
+.field static final TRANSACTION_getImeTargetFreeformTaskId:I = 0x25
 
-.field static final TRANSACTION_getMultiWindowModeStates:I = 0x25
+.field static final TRANSACTION_getMultiWindowModeStates:I = 0x26
 
-.field static final TRANSACTION_getTopRunningTaskInfo:I = 0x2b
+.field static final TRANSACTION_getTopRunningTaskInfo:I = 0x2c
+
+.field static final TRANSACTION_hasDockedStack:I = 0x18
 
 .field static final TRANSACTION_isExpandedDockedStack:I = 0x17
 
-.field static final TRANSACTION_isForceResizable:I = 0x29
+.field static final TRANSACTION_isForceResizable:I = 0x2a
 
-.field static final TRANSACTION_isSnapViewRunning:I = 0x20
+.field static final TRANSACTION_isSnapViewRunning:I = 0x21
 
 .field static final TRANSACTION_makeGhostFreeform:I = 0x3
 
@@ -62,7 +64,7 @@
 
 .field static final TRANSACTION_moveActivityTaskToBack:I = 0x7
 
-.field static final TRANSACTION_moveMultiWindowTasksToFullScreen:I = 0x1b
+.field static final TRANSACTION_moveMultiWindowTasksToFullScreen:I = 0x1c
 
 .field static final TRANSACTION_registerMultiWindowDividerPanelListener:I = 0x9
 
@@ -72,41 +74,41 @@
 
 .field static final TRANSACTION_registerMultiWindowServiceCallback:I = 0xb
 
-.field static final TRANSACTION_removeFreeformTasks:I = 0x1d
+.field static final TRANSACTION_removeFreeformTasks:I = 0x1e
 
 .field static final TRANSACTION_removeTaskIfNeeded:I = 0x12
 
-.field static final TRANSACTION_reportMinimizeContainerBounds:I = 0x1e
+.field static final TRANSACTION_reportMinimizeContainerBounds:I = 0x1f
 
-.field static final TRANSACTION_setAutoResizingEnabled:I = 0x19
+.field static final TRANSACTION_setAutoResizingEnabled:I = 0x1a
 
 .field static final TRANSACTION_setDividerButtonsDimLayer:I = 0x14
 
-.field static final TRANSACTION_setDockedStackDividerButtonsTouchRegion:I = 0x18
+.field static final TRANSACTION_setDockedStackDividerButtonsTouchRegion:I = 0x19
 
 .field static final TRANSACTION_setLaunchBounds:I = 0xe
 
-.field static final TRANSACTION_setMultiWindowEnabledForUser:I = 0x1a
+.field static final TRANSACTION_setMultiWindowEnabledForUser:I = 0x1b
 
 .field static final TRANSACTION_setSlideMode:I = 0xd
 
-.field static final TRANSACTION_setSnapView:I = 0x1f
+.field static final TRANSACTION_setSnapView:I = 0x20
 
-.field static final TRANSACTION_shouldLaunchAsMultiInstance:I = 0x2a
+.field static final TRANSACTION_shouldLaunchAsMultiInstance:I = 0x2b
 
-.field static final TRANSACTION_showRecentApps:I = 0x22
+.field static final TRANSACTION_showRecentApps:I = 0x23
 
 .field static final TRANSACTION_slideFreeform:I = 0xf
 
 .field static final TRANSACTION_slideOrUnslideAllFreeform:I = 0x10
 
-.field static final TRANSACTION_startDividerDragging:I = 0x26
+.field static final TRANSACTION_startDividerDragging:I = 0x27
 
 .field static final TRANSACTION_startResizingFreeformTask:I = 0x15
 
-.field static final TRANSACTION_stopDividerDragging:I = 0x27
+.field static final TRANSACTION_stopDividerDragging:I = 0x28
 
-.field static final TRANSACTION_swapSnapTasks:I = 0x21
+.field static final TRANSACTION_swapSnapTasks:I = 0x22
 
 .field static final TRANSACTION_unregisterMultiWindowDividerPanelListener:I = 0xa
 
@@ -983,37 +985,29 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/multiwindow/IMultiWindowManager$Stub;->hasDockedStack()Z
 
-    move-result v26
-
-    if-eqz v26, :cond_d
-
-    sget-object v26, Landroid/graphics/Rect;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    move-object/from16 v0, v26
-
-    move-object/from16 v1, p2
-
-    invoke-interface {v0, v1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v6
-
-    check-cast v6, Landroid/graphics/Rect;
-
-    :goto_d
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v6}, Lcom/samsung/android/multiwindow/IMultiWindowManager$Stub;->setDockedStackDividerButtonsTouchRegion(Landroid/graphics/Rect;)V
+    move-result v25
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v25, :cond_d
+
+    const/16 v26, 0x1
+
+    :goto_d
+    move-object/from16 v0, p3
+
+    move/from16 v1, v26
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     const/16 v26, 0x1
 
     return v26
 
     :cond_d
-    const/4 v6, 0x0
+    const/16 v26, 0x0
 
     goto :goto_d
 
@@ -1032,9 +1026,52 @@
 
     if-eqz v26, :cond_e
 
-    const/4 v13, 0x1
+    sget-object v26, Landroid/graphics/Rect;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    move-object/from16 v0, v26
+
+    move-object/from16 v1, p2
+
+    invoke-interface {v0, v1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/graphics/Rect;
 
     :goto_e
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v6}, Lcom/samsung/android/multiwindow/IMultiWindowManager$Stub;->setDockedStackDividerButtonsTouchRegion(Landroid/graphics/Rect;)V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/16 v26, 0x1
+
+    return v26
+
+    :cond_e
+    const/4 v6, 0x0
+
+    goto :goto_e
+
+    :sswitch_1a
+    const-string/jumbo v26, "com.samsung.android.multiwindow.IMultiWindowManager"
+
+    move-object/from16 v0, p2
+
+    move-object/from16 v1, v26
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v26
+
+    if-eqz v26, :cond_f
+
+    const/4 v13, 0x1
+
+    :goto_f
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v13}, Lcom/samsung/android/multiwindow/IMultiWindowManager$Stub;->setAutoResizingEnabled(Z)V
@@ -1045,12 +1082,12 @@
 
     return v26
 
-    :cond_e
+    :cond_f
     const/4 v13, 0x0
 
-    goto :goto_e
+    goto :goto_f
 
-    :sswitch_1a
+    :sswitch_1b
     const-string/jumbo v26, "com.samsung.android.multiwindow.IMultiWindowManager"
 
     move-object/from16 v0, p2
@@ -1071,11 +1108,11 @@
 
     move-result v26
 
-    if-eqz v26, :cond_f
+    if-eqz v26, :cond_10
 
     const/16 v21, 0x1
 
-    :goto_f
+    :goto_10
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v22
@@ -1096,12 +1133,12 @@
 
     return v26
 
-    :cond_f
+    :cond_10
     const/16 v21, 0x0
 
-    goto :goto_f
+    goto :goto_10
 
-    :sswitch_1b
+    :sswitch_1c
     const-string/jumbo v26, "com.samsung.android.multiwindow.IMultiWindowManager"
 
     move-object/from16 v0, p2
@@ -1118,7 +1155,7 @@
 
     return v26
 
-    :sswitch_1c
+    :sswitch_1d
     const-string/jumbo v26, "com.samsung.android.multiwindow.IMultiWindowManager"
 
     move-object/from16 v0, p2
@@ -1149,7 +1186,7 @@
 
     return v26
 
-    :sswitch_1d
+    :sswitch_1e
     const-string/jumbo v26, "com.samsung.android.multiwindow.IMultiWindowManager"
 
     move-object/from16 v0, p2
@@ -1172,49 +1209,6 @@
 
     return v26
 
-    :sswitch_1e
-    const-string/jumbo v26, "com.samsung.android.multiwindow.IMultiWindowManager"
-
-    move-object/from16 v0, p2
-
-    move-object/from16 v1, v26
-
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v26
-
-    if-eqz v26, :cond_10
-
-    sget-object v26, Landroid/graphics/Rect;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    move-object/from16 v0, v26
-
-    move-object/from16 v1, p2
-
-    invoke-interface {v0, v1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v6
-
-    check-cast v6, Landroid/graphics/Rect;
-
-    :goto_10
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v6}, Lcom/samsung/android/multiwindow/IMultiWindowManager$Stub;->reportMinimizeContainerBounds(Landroid/graphics/Rect;)V
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    const/16 v26, 0x1
-
-    return v26
-
-    :cond_10
-    const/4 v6, 0x0
-
-    goto :goto_10
-
     :sswitch_1f
     const-string/jumbo v26, "com.samsung.android.multiwindow.IMultiWindowManager"
 
@@ -1230,14 +1224,57 @@
 
     if-eqz v26, :cond_11
 
-    const/4 v13, 0x1
+    sget-object v26, Landroid/graphics/Rect;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    move-object/from16 v0, v26
+
+    move-object/from16 v1, p2
+
+    invoke-interface {v0, v1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/graphics/Rect;
 
     :goto_11
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v6}, Lcom/samsung/android/multiwindow/IMultiWindowManager$Stub;->reportMinimizeContainerBounds(Landroid/graphics/Rect;)V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/16 v26, 0x1
+
+    return v26
+
+    :cond_11
+    const/4 v6, 0x0
+
+    goto :goto_11
+
+    :sswitch_20
+    const-string/jumbo v26, "com.samsung.android.multiwindow.IMultiWindowManager"
+
+    move-object/from16 v0, p2
+
+    move-object/from16 v1, v26
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v26
 
     if-eqz v26, :cond_12
+
+    const/4 v13, 0x1
+
+    :goto_12
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v26
+
+    if-eqz v26, :cond_13
 
     sget-object v26, Landroid/graphics/Rect;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -1251,7 +1288,7 @@
 
     check-cast v16, Landroid/graphics/Rect;
 
-    :goto_12
+    :goto_13
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v20
@@ -1270,17 +1307,17 @@
 
     return v26
 
-    :cond_11
-    const/4 v13, 0x0
-
-    goto :goto_11
-
     :cond_12
-    const/16 v16, 0x0
+    const/4 v13, 0x0
 
     goto :goto_12
 
-    :sswitch_20
+    :cond_13
+    const/16 v16, 0x0
+
+    goto :goto_13
+
+    :sswitch_21
     const-string/jumbo v26, "com.samsung.android.multiwindow.IMultiWindowManager"
 
     move-object/from16 v0, p2
@@ -1295,11 +1332,11 @@
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v25, :cond_13
+    if-eqz v25, :cond_14
 
     const/16 v26, 0x1
 
-    :goto_13
+    :goto_14
     move-object/from16 v0, p3
 
     move/from16 v1, v26
@@ -1310,12 +1347,12 @@
 
     return v26
 
-    :cond_13
+    :cond_14
     const/16 v26, 0x0
 
-    goto :goto_13
+    goto :goto_14
 
-    :sswitch_21
+    :sswitch_22
     const-string/jumbo v26, "com.samsung.android.multiwindow.IMultiWindowManager"
 
     move-object/from16 v0, p2
@@ -1332,7 +1369,7 @@
 
     return v26
 
-    :sswitch_22
+    :sswitch_23
     const-string/jumbo v26, "com.samsung.android.multiwindow.IMultiWindowManager"
 
     move-object/from16 v0, p2
@@ -1349,7 +1386,7 @@
 
     return v26
 
-    :sswitch_23
+    :sswitch_24
     const-string/jumbo v26, "com.samsung.android.multiwindow.IMultiWindowManager"
 
     move-object/from16 v0, p2
@@ -1366,7 +1403,7 @@
 
     return v26
 
-    :sswitch_24
+    :sswitch_25
     const-string/jumbo v26, "com.samsung.android.multiwindow.IMultiWindowManager"
 
     move-object/from16 v0, p2
@@ -1391,7 +1428,7 @@
 
     return v26
 
-    :sswitch_25
+    :sswitch_26
     const-string/jumbo v26, "com.samsung.android.multiwindow.IMultiWindowManager"
 
     move-object/from16 v0, p2
@@ -1422,7 +1459,7 @@
 
     return v26
 
-    :sswitch_26
+    :sswitch_27
     const-string/jumbo v26, "com.samsung.android.multiwindow.IMultiWindowManager"
 
     move-object/from16 v0, p2
@@ -1439,7 +1476,7 @@
 
     return v26
 
-    :sswitch_27
+    :sswitch_28
     const-string/jumbo v26, "com.samsung.android.multiwindow.IMultiWindowManager"
 
     move-object/from16 v0, p2
@@ -1456,7 +1493,7 @@
 
     return v26
 
-    :sswitch_28
+    :sswitch_29
     const-string/jumbo v26, "com.samsung.android.multiwindow.IMultiWindowManager"
 
     move-object/from16 v0, p2
@@ -1479,67 +1516,6 @@
 
     return v26
 
-    :sswitch_29
-    const-string/jumbo v26, "com.samsung.android.multiwindow.IMultiWindowManager"
-
-    move-object/from16 v0, p2
-
-    move-object/from16 v1, v26
-
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v26
-
-    if-eqz v26, :cond_14
-
-    sget-object v26, Landroid/content/pm/ActivityInfo;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    move-object/from16 v0, v26
-
-    move-object/from16 v1, p2
-
-    invoke-interface {v0, v1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Landroid/content/pm/ActivityInfo;
-
-    :goto_14
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v5}, Lcom/samsung/android/multiwindow/IMultiWindowManager$Stub;->isForceResizable(Landroid/content/pm/ActivityInfo;)Z
-
-    move-result v25
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    if-eqz v25, :cond_15
-
-    const/16 v26, 0x1
-
-    :goto_15
-    move-object/from16 v0, p3
-
-    move/from16 v1, v26
-
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
-
-    const/16 v26, 0x1
-
-    return v26
-
-    :cond_14
-    const/4 v5, 0x0
-
-    goto :goto_14
-
-    :cond_15
-    const/16 v26, 0x0
-
-    goto :goto_15
-
     :sswitch_2a
     const-string/jumbo v26, "com.samsung.android.multiwindow.IMultiWindowManager"
 
@@ -1553,7 +1529,7 @@
 
     move-result v26
 
-    if-eqz v26, :cond_16
+    if-eqz v26, :cond_15
 
     sget-object v26, Landroid/content/pm/ActivityInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -1567,20 +1543,20 @@
 
     check-cast v5, Landroid/content/pm/ActivityInfo;
 
-    :goto_16
+    :goto_15
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v5}, Lcom/samsung/android/multiwindow/IMultiWindowManager$Stub;->shouldLaunchAsMultiInstance(Landroid/content/pm/ActivityInfo;)Z
+    invoke-virtual {v0, v5}, Lcom/samsung/android/multiwindow/IMultiWindowManager$Stub;->isForceResizable(Landroid/content/pm/ActivityInfo;)Z
 
     move-result v25
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v25, :cond_17
+    if-eqz v25, :cond_16
 
     const/16 v26, 0x1
 
-    :goto_17
+    :goto_16
     move-object/from16 v0, p3
 
     move/from16 v1, v26
@@ -1591,17 +1567,78 @@
 
     return v26
 
-    :cond_16
+    :cond_15
     const/4 v5, 0x0
+
+    goto :goto_15
+
+    :cond_16
+    const/16 v26, 0x0
 
     goto :goto_16
 
+    :sswitch_2b
+    const-string/jumbo v26, "com.samsung.android.multiwindow.IMultiWindowManager"
+
+    move-object/from16 v0, p2
+
+    move-object/from16 v1, v26
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v26
+
+    if-eqz v26, :cond_17
+
+    sget-object v26, Landroid/content/pm/ActivityInfo;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    move-object/from16 v0, v26
+
+    move-object/from16 v1, p2
+
+    invoke-interface {v0, v1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/content/pm/ActivityInfo;
+
+    :goto_17
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v5}, Lcom/samsung/android/multiwindow/IMultiWindowManager$Stub;->shouldLaunchAsMultiInstance(Landroid/content/pm/ActivityInfo;)Z
+
+    move-result v25
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v25, :cond_18
+
+    const/16 v26, 0x1
+
+    :goto_18
+    move-object/from16 v0, p3
+
+    move/from16 v1, v26
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/16 v26, 0x1
+
+    return v26
+
     :cond_17
-    const/16 v26, 0x0
+    const/4 v5, 0x0
 
     goto :goto_17
 
-    :sswitch_2b
+    :cond_18
+    const/16 v26, 0x0
+
+    goto :goto_18
+
+    :sswitch_2c
     const-string/jumbo v26, "com.samsung.android.multiwindow.IMultiWindowManager"
 
     move-object/from16 v0, p2
@@ -1677,6 +1714,7 @@
         0x29 -> :sswitch_29
         0x2a -> :sswitch_2a
         0x2b -> :sswitch_2b
+        0x2c -> :sswitch_2c
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

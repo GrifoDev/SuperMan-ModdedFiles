@@ -595,15 +595,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap32(Landroid/app/ActivityThread;Ljava/lang/String;Ljava/lang/String;I)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3}, Landroid/app/ActivityThread;->handleUpdateOverlayPath(Ljava/lang/String;Ljava/lang/String;I)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap33(Landroid/app/ActivityThread;Landroid/app/ActivityThread$UpdateCompatibilityData;)V
+.method static synthetic -wrap32(Landroid/app/ActivityThread;Landroid/app/ActivityThread$UpdateCompatibilityData;)V
     .locals 0
 
     invoke-direct {p0, p1}, Landroid/app/ActivityThread;->handleUpdatePackageCompatibilityInfo(Landroid/app/ActivityThread$UpdateCompatibilityData;)V
@@ -611,7 +603,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap34(Landroid/app/ActivityThread;Landroid/os/IBinder;Z)V
+.method static synthetic -wrap33(Landroid/app/ActivityThread;Landroid/os/IBinder;Z)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Landroid/app/ActivityThread;->handleWindowVisibility(Landroid/os/IBinder;Z)V
@@ -619,7 +611,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap35(Landroid/app/ActivityThread;ILjava/lang/Object;)V
+.method static synthetic -wrap34(Landroid/app/ActivityThread;ILjava/lang/Object;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Landroid/app/ActivityThread;->sendMessage(ILjava/lang/Object;)V
@@ -627,7 +619,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap36(Landroid/app/ActivityThread;ILjava/lang/Object;I)V
+.method static synthetic -wrap35(Landroid/app/ActivityThread;ILjava/lang/Object;I)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3}, Landroid/app/ActivityThread;->sendMessage(ILjava/lang/Object;I)V
@@ -635,7 +627,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap37(Landroid/app/ActivityThread;ILjava/lang/Object;IIZ)V
+.method static synthetic -wrap36(Landroid/app/ActivityThread;ILjava/lang/Object;IIZ)V
     .locals 0
 
     invoke-direct/range {p0 .. p5}, Landroid/app/ActivityThread;->sendMessage(ILjava/lang/Object;IIZ)V
@@ -643,7 +635,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap38(Landroid/app/ActivityThread;ILjava/lang/Object;II)V
+.method static synthetic -wrap37(Landroid/app/ActivityThread;ILjava/lang/Object;II)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3, p4}, Landroid/app/ActivityThread;->sendMessage(ILjava/lang/Object;II)V
@@ -651,10 +643,18 @@
     return-void
 .end method
 
-.method static synthetic -wrap39(Landroid/app/ActivityThread;ILjava/lang/Object;III)V
+.method static synthetic -wrap38(Landroid/app/ActivityThread;ILjava/lang/Object;III)V
     .locals 0
 
     invoke-direct/range {p0 .. p5}, Landroid/app/ActivityThread;->sendMessage(ILjava/lang/Object;III)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap39(Landroid/app/ActivityThread;Landroid/content/Context;Landroid/os/LocaleList;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Landroid/app/ActivityThread;->updateLocaleListFromAppContext(Landroid/content/Context;Landroid/os/LocaleList;)V
 
     return-void
 .end method
@@ -663,14 +663,6 @@
     .locals 0
 
     invoke-direct {p0, p1}, Landroid/app/ActivityThread;->handleBindService(Landroid/app/ActivityThread$BindServiceData;)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap40(Landroid/app/ActivityThread;Landroid/content/Context;Landroid/os/LocaleList;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Landroid/app/ActivityThread;->updateLocaleListFromAppContext(Landroid/content/Context;Landroid/os/LocaleList;)V
 
     return-void
 .end method
@@ -11560,104 +11552,6 @@
     throw v4
 .end method
 
-.method private handleUpdateOverlayPath(Ljava/lang/String;Ljava/lang/String;I)V
-    .locals 3
-
-    iget-object v0, p0, Landroid/app/ActivityThread;->mBoundApplication:Landroid/app/ActivityThread$AppBindData;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Landroid/app/ActivityThread;->mBoundApplication:Landroid/app/ActivityThread$AppBindData;
-
-    iget-object v0, v0, Landroid/app/ActivityThread$AppBindData;->info:Landroid/app/LoadedApk;
-
-    if-nez v0, :cond_1
-
-    :cond_0
-    const-string/jumbo v0, "ActivityThread"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "Bound aplication is null .. for "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, " . Not updating overlay path"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_1
-    iget-object v0, p0, Landroid/app/ActivityThread;->mBoundApplication:Landroid/app/ActivityThread$AppBindData;
-
-    iget-object v0, v0, Landroid/app/ActivityThread$AppBindData;->info:Landroid/app/LoadedApk;
-
-    iget-object v0, v0, Landroid/app/LoadedApk;->mResources:Landroid/content/res/Resources;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Landroid/app/ActivityThread;->mBoundApplication:Landroid/app/ActivityThread$AppBindData;
-
-    iget-object v0, v0, Landroid/app/ActivityThread$AppBindData;->info:Landroid/app/LoadedApk;
-
-    iget-object v0, v0, Landroid/app/LoadedApk;->mResources:Landroid/content/res/Resources;
-
-    invoke-virtual {v0}, Landroid/content/res/Resources;->getAssets()Landroid/content/res/AssetManager;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    if-eqz p3, :cond_2
-
-    iget-object v0, p0, Landroid/app/ActivityThread;->mBoundApplication:Landroid/app/ActivityThread$AppBindData;
-
-    iget-object v0, v0, Landroid/app/ActivityThread$AppBindData;->info:Landroid/app/LoadedApk;
-
-    iget-object v0, v0, Landroid/app/LoadedApk;->mResources:Landroid/content/res/Resources;
-
-    invoke-virtual {v0}, Landroid/content/res/Resources;->getAssets()Landroid/content/res/AssetManager;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Landroid/content/res/AssetManager;->removeOverlayPath(Ljava/lang/String;)I
-
-    :goto_0
-    return-void
-
-    :cond_2
-    iget-object v0, p0, Landroid/app/ActivityThread;->mBoundApplication:Landroid/app/ActivityThread$AppBindData;
-
-    iget-object v0, v0, Landroid/app/ActivityThread$AppBindData;->info:Landroid/app/LoadedApk;
-
-    iget-object v0, v0, Landroid/app/LoadedApk;->mResources:Landroid/content/res/Resources;
-
-    invoke-virtual {v0}, Landroid/content/res/Resources;->getAssets()Landroid/content/res/AssetManager;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Landroid/content/res/AssetManager;->addOverlayPath(Ljava/lang/String;)I
-
-    goto :goto_0
-.end method
-
 .method private handleUpdatePackageCompatibilityInfo(Landroid/app/ActivityThread$UpdateCompatibilityData;)V
     .locals 3
 
@@ -15343,6 +15237,145 @@
     return-void
 .end method
 
+.method private updatePackageInfosLocked(Landroid/util/ArrayMap;)V
+    .locals 10
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/util/ArrayMap",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/lang/ref/WeakReference",
+            "<",
+            "Landroid/app/LoadedApk;",
+            ">;>;)V"
+        }
+    .end annotation
+
+    const/4 v6, 0x0
+
+    invoke-virtual {p1}, Landroid/util/ArrayMap;->values()Ljava/util/Collection;
+
+    move-result-object v5
+
+    invoke-interface {v5}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v4
+
+    :cond_0
+    :goto_0
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_2
+
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/lang/ref/WeakReference;
+
+    if-eqz v3, :cond_1
+
+    invoke-virtual {v3}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/app/LoadedApk;
+
+    move-object v2, v5
+
+    :goto_1
+    if-eqz v2, :cond_0
+
+    :try_start_0
+    invoke-static {}, Landroid/app/ActivityThread;->getPackageManager()Landroid/content/pm/IPackageManager;
+
+    move-result-object v5
+
+    invoke-virtual {v2}, Landroid/app/LoadedApk;->getPackageName()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+
+    move-result v8
+
+    const/4 v9, 0x0
+
+    invoke-interface {v5, v7, v9, v8}, Landroid/content/pm/IPackageManager;->getApplicationInfo(Ljava/lang/String;II)Landroid/content/pm/ApplicationInfo;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v5, "ActivityThread"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "Resetting overlays for "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v2}, Landroid/app/LoadedApk;->getPackageName()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    const-string/jumbo v8, " overlays = "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    iget-object v8, v0, Landroid/content/pm/ApplicationInfo;->resourceDirs:[Ljava/lang/String;
+
+    invoke-static {v8}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v5, v7}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v5, v0, Landroid/content/pm/ApplicationInfo;->resourceDirs:[Ljava/lang/String;
+
+    invoke-virtual {v2, v5}, Landroid/app/LoadedApk;->setOverlayDirs([Ljava/lang/String;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v1
+
+    invoke-virtual {v1}, Landroid/os/RemoteException;->printStackTrace()V
+
+    goto :goto_0
+
+    :cond_1
+    move-object v2, v6
+
+    goto :goto_1
+
+    :cond_2
+    return-void
+.end method
+
 .method private updateVisibility(Landroid/app/ActivityThread$ActivityClientRecord;Z)V
     .locals 4
 
@@ -15769,6 +15802,31 @@
     monitor-enter v1
 
     :try_start_0
+    iget-object v0, p0, Landroid/app/ActivityThread;->mConfiguration:Landroid/content/res/Configuration;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/app/ActivityThread;->mConfiguration:Landroid/content/res/Configuration;
+
+    invoke-virtual {v0, p1}, Landroid/content/res/Configuration;->diff(Landroid/content/res/Configuration;)I
+
+    move-result v0
+
+    const/high16 v2, 0x10000
+
+    and-int/2addr v0, v2
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/app/ActivityThread;->mPackages:Landroid/util/ArrayMap;
+
+    invoke-direct {p0, v0}, Landroid/app/ActivityThread;->updatePackageInfosLocked(Landroid/util/ArrayMap;)V
+
+    iget-object v0, p0, Landroid/app/ActivityThread;->mResourcePackages:Landroid/util/ArrayMap;
+
+    invoke-direct {p0, v0}, Landroid/app/ActivityThread;->updatePackageInfosLocked(Landroid/util/ArrayMap;)V
+
+    :cond_0
     iget-object v0, p0, Landroid/app/ActivityThread;->mResourcesManager:Landroid/app/ResourcesManager;
 
     const/4 v2, 0x0
@@ -17688,6 +17746,31 @@
 
     :cond_2
     :try_start_1
+    iget-object v0, p0, Landroid/app/ActivityThread;->mConfiguration:Landroid/content/res/Configuration;
+
+    if-eqz v0, :cond_3
+
+    iget-object v0, p0, Landroid/app/ActivityThread;->mConfiguration:Landroid/content/res/Configuration;
+
+    invoke-virtual {v0, p1}, Landroid/content/res/Configuration;->diff(Landroid/content/res/Configuration;)I
+
+    move-result v0
+
+    const/high16 v4, 0x10000
+
+    and-int/2addr v0, v4
+
+    if-eqz v0, :cond_3
+
+    iget-object v0, p0, Landroid/app/ActivityThread;->mPackages:Landroid/util/ArrayMap;
+
+    invoke-direct {p0, v0}, Landroid/app/ActivityThread;->updatePackageInfosLocked(Landroid/util/ArrayMap;)V
+
+    iget-object v0, p0, Landroid/app/ActivityThread;->mResourcePackages:Landroid/util/ArrayMap;
+
+    invoke-direct {p0, v0}, Landroid/app/ActivityThread;->updatePackageInfosLocked(Landroid/util/ArrayMap;)V
+
+    :cond_3
     iget-object v0, p0, Landroid/app/ActivityThread;->mResourcesManager:Landroid/app/ResourcesManager;
 
     invoke-virtual {v0, p1, p2}, Landroid/app/ResourcesManager;->applyConfigurationToResourcesLocked(Landroid/content/res/Configuration;Landroid/content/res/CompatibilityInfo;)Z
@@ -17712,7 +17795,7 @@
 
     iget-object v0, p0, Landroid/app/ActivityThread;->mConfiguration:Landroid/content/res/Configuration;
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_4
 
     new-instance v0, Landroid/content/res/Configuration;
 
@@ -17720,7 +17803,7 @@
 
     iput-object v0, p0, Landroid/app/ActivityThread;->mConfiguration:Landroid/content/res/Configuration;
 
-    :cond_3
+    :cond_4
     iget-object v0, p0, Landroid/app/ActivityThread;->mConfiguration:Landroid/content/res/Configuration;
 
     invoke-virtual {v0, p1}, Landroid/content/res/Configuration;->isOtherSeqNewer(Landroid/content/res/Configuration;)Z
@@ -17729,15 +17812,15 @@
 
     move-result v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_5
 
-    if-nez p2, :cond_4
+    if-nez p2, :cond_5
 
     monitor-exit v3
 
     return-void
 
-    :cond_4
+    :cond_5
     :try_start_2
     iget-object v0, p0, Landroid/app/ActivityThread;->mConfiguration:Landroid/content/res/Configuration;
 
@@ -17765,13 +17848,13 @@
 
     and-int/2addr v0, v9
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_6
 
     invoke-virtual {v11}, Landroid/content/res/Resources$Theme;->rebase()V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    :cond_5
+    :cond_6
     monitor-exit v3
 
     invoke-virtual {p0, v12, p1}, Landroid/app/ActivityThread;->collectComponentCallbacks(ZLandroid/content/res/Configuration;)Ljava/util/ArrayList;
@@ -17780,7 +17863,7 @@
 
     invoke-static {v9}, Landroid/app/ActivityThread;->freeTextLayoutCachesIfNeeded(I)V
 
-    if-eqz v8, :cond_7
+    if-eqz v8, :cond_8
 
     invoke-virtual {v8}, Ljava/util/ArrayList;->size()I
 
@@ -17789,7 +17872,7 @@
     const/4 v10, 0x0
 
     :goto_0
-    if-ge v10, v6, :cond_7
+    if-ge v10, v6, :cond_8
 
     invoke-virtual {v8, v10}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
@@ -17799,7 +17882,7 @@
 
     instance-of v0, v1, Landroid/app/Activity;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_7
 
     move-object v7, v1
 
@@ -17831,7 +17914,7 @@
 
     throw v0
 
-    :cond_6
+    :cond_7
     move-object v0, p0
 
     move-object v3, p1
@@ -17842,7 +17925,7 @@
 
     goto :goto_1
 
-    :cond_7
+    :cond_8
     return-void
 .end method
 
