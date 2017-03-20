@@ -1,5 +1,5 @@
 Signature-Version: 1.0
-SHA-256-Digest-Manifest: xnC6DvYbVa+pHg7KOjujgwAMNdKH834AdKg5bUekh0k=
+SHA-256-Digest-Manifest: OilEkdkD3ETFeeg9vkgu8DJ2Pjhb+A4UkpoXUOyu4+0=
 Created-By: 1.0 (Android SignApk)
 
 Name: res/drawable-xxhdpi-v4/home_folder_textfield_bg.9.qmg
@@ -308,7 +308,7 @@ Name: res/animator/bottom_bar_show.xml
 SHA-256-Digest: LbMlBo+SksiGVOSVdDz9Of1OQ6m0KS07oVmThsKkGUg=
 
 Name: SEC-INF/buildinfo.xml
-SHA-256-Digest: xnTk+ACODe6WIw2+8zixyQA2xaKgWUv8+GuqevCjrro=
+SHA-256-Digest: NSa8xD+z2M4DTWH4vmFWxT5s5bMK9RxXpE8W+ohzl4A=
 
 Name: res/xml/crystal_info.xml
 SHA-256-Digest: ArDn2oNN9XT5izn88cH884lOcj2YNsrKSt/CBKwi8yY=
