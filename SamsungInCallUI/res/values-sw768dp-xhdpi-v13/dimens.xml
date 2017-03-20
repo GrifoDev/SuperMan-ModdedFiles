@@ -141,7 +141,6 @@
     <dimen name="indicator_area_height">24.0dip</dimen>
     <dimen name="reject_call_with_message_create_icon_margin_left">14.0dip</dimen>
     <dimen name="reject_call_with_message_handler_margin">192.0dip</dimen>
-    <dimen name="reject_call_with_message_sliding_drawer_top_offset">10.0dip</dimen>
     <dimen name="reject_call_with_msg_create_text_size">18.0sp</dimen>
     <dimen name="reject_call_with_msg_item_divider_margin">18.0dip</dimen>
     <dimen name="reject_call_with_msg_list_item_text_size">18.0sp</dimen>

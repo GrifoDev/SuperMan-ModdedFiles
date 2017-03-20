@@ -72,6 +72,8 @@
     <string name="BirthDay_remainedDays1">Birthday tomorrow</string>
     <string name="BirthDay_remainedDays7">Birthday in 1 week</string>
     <string name="BirthDay_remainedDaysEtc">Birthday in %d days</string>
+    <string name="DivertToVoice_disable">Video calls not available for this number. Try voice call now instead?</string>
+    <string name="DivertToVoice_enable">Video calls not available for this number. Switching to voice call…</string>
     <string name="Lunar_anniversary_passedDays1">Lunar anniv. yesterday</string>
     <string name="Lunar_anniversary_remainedDays0">Lunar anniv. Today</string>
     <string name="Lunar_anniversary_remainedDays1">Lunar anniv. Tomorrow</string>
@@ -160,7 +162,7 @@
     <string name="captured">Captured.</string>
     <string name="card_title_dialing_for_quick_panel">Dialing…</string>
     <string name="card_title_dialing_to_korea">Calling South Korea</string>
-    <string name="card_title_wifi_call_ended">Wi-Fi call ended</string>
+    <string name="card_title_wifi_call_ended"><cst>Wi-Fi</cst> call ended</string>
     <string name="cdnip_service_prefix">My number</string>
     <string name="chat">Chat</string>
     <string name="chat_aim">Chat using AIM</string>
@@ -191,7 +193,7 @@
     <string name="data_usage_limit_dialog_message">"The data limit you had set for your phone has been reached. To check your data usage, go to Settings > Data usage.
 This video call is now using data and Mobile data will be turned off when the call has ended. Do you want to continue your call?"</string>
     <string name="data_usage_limit_dialog_message_default">The data usage that you set on your phone is about to reach its limit. This video call requires data.</string>
-    <string name="data_usage_limit_dialog_message_tmo">Data limit that you have set on your phone has reached and data is turned off. Video call requires a data connection. Turn on mobile data or connect to any available Wi-Fi network.</string>
+    <string name="data_usage_limit_dialog_message_tmo">Data limit that you have set on your phone has reached and data is turned off. Video call requires a data connection. Turn on mobile data or connect to any available <cst>Wi-Fi</cst> network.</string>
     <string name="date_day">Day</string>
     <string name="decline">Decline</string>
     <string name="description_create_message">Compose new message</string>
@@ -252,9 +254,12 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="high_quality_sound">HD</string>
     <string name="imLabelsGroup">IM account</string>
     <string name="inCallLabel_Sec">Call</string>
-    <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
+    <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over <cst>Wi-Fi</cst> not allowed in this location.</string>
+    <string name="incall_decline_other_secondary_device">Other secondary device in use.</string>
+    <string name="incall_decline_service_not_allowed">Service not allowed in this location.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">All available lines for (MDN) are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">All available lines for %s are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
+    <string name="incall_decline_transferred_to_another_device">Call has been transferred to another device.</string>
     <string name="incall_error_supp_service_switch">Unable to switch calls.</string>
     <string name="incall_extra_volume_disabled_BT">Unable to use extra volume range while Bluetooth headset is connected.</string>
     <string name="incall_extra_volume_disabled_HAC">Unable to turn on Extra volume while Hearing aids turned on.</string>
@@ -474,6 +479,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="outgoing_img_video">Videos</string>
     <string name="payphone_sbm">Payphone</string>
     <string name="phoneLabelsGroup">Phone</string>
+    <string name="phone_voice_recording_failed_by_secure_call">Cannot record secure call.</string>
     <string name="phonetype_additional">Additional number</string>
     <string name="photoring_block_toast">Contact blocked from sending media to you via photo ring.</string>
     <string name="photoring_toast_mobile_data_off">There may be Photoring content sent by the other party that you cannot see because mobile data access is blocked.</string>
@@ -516,8 +522,13 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="recently_use_sim_for_callback">Recently used SIM</string>
     <string name="record_notification_button_text_close">Close</string>
     <string name="record_notification_button_text_record_list">Recordings</string>
+    <string name="record_notification_button_text_storage">Storage</string>
     <string name="record_notification_content">Tap RECORDINGS to view your recorded calls.</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">Your <cst>device</cst> storage is full. A partial recording of the call has been saved.</string>
+    <string name="record_notification_content_unable_to_record">There is not enough space in your <cst>device</cst> storage. Delete some files and try again.</string>
     <string name="record_notification_title">Call recorded</string>
+    <string name="record_notification_title_not_to_record_entire_call">Entire call not recorded</string>
+    <string name="record_notification_title_unable_to_record">Unable to record call</string>
     <string name="record_text">REC</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -632,6 +643,7 @@ Camera"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">Double tap to open list.</string>
     <string name="sec_showme_text">Show me</string>
     <string name="second_screen_hold_text">%d on hold</string>
+    <string name="section_contacts_only_summary">Create and manage contacts.</string>
     <string name="select_callback_sim_card">Select callback SIM card</string>
     <string name="select_callback_sim_card_content">The last call or message to or from this number did not use the preferred SIM card for calls. Select which SIM card to use.</string>
     <string name="select_from_gallery">Select from Gallery</string>
@@ -701,7 +713,7 @@ Camera"</string>
     <string name="unknown_cdma">Unavailable</string>
     <string name="usa_att_connected_as_voice">Call connected as voice only.</string>
     <string name="usa_att_data_usage_charge_alert">Your Data Usage that you set on your device is about to reach its limit. Your Video call requires data.</string>
-    <string name="usa_att_lte_to_wifi_handover_fail_toast">Call cannot be placed over Wi-Fi, connecting over cellular network. Voice and data charges will apply.</string>
+    <string name="usa_att_lte_to_wifi_handover_fail_toast">Call cannot be placed over <cst>Wi-Fi</cst>, connecting over cellular network. Voice and data charges will apply.</string>
     <string name="usa_att_modify_receive_to_video">Select video mode</string>
     <string name="usa_att_select_call_type_incoming_video_call">Tap below to select call type.</string>
     <string name="usa_gsm_cannot_be_changed_during_conference">Call type cannot be changed during conference calls.</string>
@@ -725,7 +737,7 @@ one-way video"</string>
     <string name="usa_vzw_modify_request_to_receive_oneway_video">Asking %s to receive One-way Video</string>
     <string name="usa_vzw_modify_requesting_video_calling">Asking %s for Video Calling…</string>
     <string name="usa_vzw_near_end_turned_camera_on">Camera has been turned back on.</string>
-    <string name="usa_vzw_notify_continue_call_with_wifi">Continuing call using Wi-Fi.</string>
+    <string name="usa_vzw_notify_continue_call_with_wifi">Continuing call using <cst>Wi-Fi</cst>.</string>
     <string name="usa_vzw_reject_upgrade_request">%s cannot receive video calls at this time.</string>
     <string name="usa_vzw_reject_upgrade_request_cs_call">The call cannot switch to Video at this time.</string>
     <string name="usa_vzw_reject_upgrade_request_data_setting_off">Unable to switch to Video when Mobile data is turned off.</string>
@@ -741,16 +753,16 @@ one-way video"</string>
     <string name="usa_vzw_video_call_hold_from_other_party">%s has put the call on hold.</string>
     <string name="usa_vzw_video_incoming_during_wifi_video">Answering as a voice call will end current call.</string>
     <string name="usa_vzw_voice_incoming_during_wifi_video">Answering incoming call will end current call.</string>
-    <string name="usa_vzw_volte_weak_wifi_during_epdg_text">The Wi-Fi signal is not strong enough to continue the call. Using mobile networks to continue your call will use your data plan.</string>
+    <string name="usa_vzw_volte_weak_wifi_during_epdg_text">The <cst>Wi-Fi</cst> signal is not strong enough to continue the call. Using mobile networks to continue your call will use your data plan.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Use Mobile Data</string>
-    <string name="usa_vzw_volte_weak_wifi_text">"We tried, but we can’t switch your video call to Wi-Fi at this time.
+    <string name="usa_vzw_volte_weak_wifi_text">We tried, but we can’t switch your video call to <cst>Wi-Fi</cst>" at this time.
 
 Your video call is still running on the mobile network. (Data usage applies if you choose to continue.)"</string>
     <string name="usa_vzw_volte_weak_wifi_toast">Your video call is still running on the mobile network. Data usage applies.</string>
-    <string name="usa_vzw_vowifi_wifi_low_signal_text">"The Wi-Fi signal was not strong enough to continue your video call.
+    <string name="usa_vzw_vowifi_wifi_low_signal_text">The <cst>Wi-Fi</cst>" signal was not strong enough to continue your video call.
 
 Your video call is now running on the mobile network. (Data usage applies if you choose to continue.)"</string>
-    <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Wi-Fi connection lost. Call ended.</string>
+    <string name="usa_vzw_vowifi_wifi_signal_lost_toast"><cst>Wi-Fi</cst> connection lost. Call ended.</string>
     <string name="vibo_operator_name">T Star</string>
     <string name="video_alert_show_never_again">Do not show again</string>
     <string name="video_calling_incoming">Video calling</string>

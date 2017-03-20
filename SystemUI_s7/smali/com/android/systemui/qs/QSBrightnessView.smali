@@ -102,7 +102,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040142
+    const v1, 0x7f040144
 
     invoke-virtual {v0, v1, p0, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -248,6 +248,20 @@
 
 
 # virtual methods
+.method HideSlider()Z
+    .locals 2
+
+    const-string v0, "hide_brightness_slider"
+
+    const v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v0
+
+    return v0
+.end method
+
 .method allowQsColorChange()Z
     .locals 2
 
@@ -688,18 +702,4 @@
     sput v0, Lcom/android/systemui/qs/QSBrightnessView;->mQsBrightnessIconColor:I
 
     return-void
-.end method
-
-.method HideSlider()Z
-    .locals 2
-
-    const-string v0, "hide_brightness_slider"
-
-    const v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
-
-    move-result v0
-
-    return v0
 .end method

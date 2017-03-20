@@ -72,6 +72,8 @@
     <string name="BirthDay_remainedDays1">Doglan güni ertir</string>
     <string name="BirthDay_remainedDays7">Doglan güni 1 hepdeden</string>
     <string name="BirthDay_remainedDaysEtc">Doglan güni %d günden</string>
+    <string name="DivertToVoice_disable">Bu belgi üçin wideo jaňlary elýeterli däl. Munuň ýerine häzir ses jaňyny synanyşyň.</string>
+    <string name="DivertToVoice_enable">Bu belgi üçin wideo jaňlary elýeterli däl. Ses jaňyna geçýar . . .</string>
     <string name="Lunar_anniversary_passedDays1">Düýn aý ýylöwrümi</string>
     <string name="Lunar_anniversary_remainedDays0">Aý ýylöwr. Şu gün</string>
     <string name="Lunar_anniversary_remainedDays1">Aý ýylöwr. Ertir</string>
@@ -98,7 +100,7 @@
     <string name="add_reminder">Ýatladj. goş</string>
     <string name="agree">Ylalaşýaryn</string>
     <string name="am_cover_toggle_string">Jaňy almak ýa-da ret etmek üçin gapagy açyň.</string>
-    <string name="am_device_memory_full_warning">Unable to use Auto answer with message. There is not enough space in your device storage to save voice messages. Delete some items and try again.</string>
+    <string name="am_device_memory_full_warning">Hatly awto-jogap ulanyp bolmaýar. Enjam ammaryňyzda sesli hat ýazdyrmaga ýer ýok. Käbir zatlary öçürip synanyşyň.</string>
     <string name="another_device_pickup_message">Another device picked up this call.</string>
     <string name="answering_memo_Playing_text">Jogap haty okalýar…</string>
     <string name="answering_memo_Recording_text">Hat ýazdyrylýar…</string>
@@ -113,8 +115,8 @@
     <string name="call_drug_up_panel_for_kk">Çalt hat ibermek we gelýän jaňy ret etmek üçin, HAT IBER düwmesini ýokaryk süýräň.</string>
     <string name="call_drug_up_panel_for_kk_tts">Gelýän jaňy ret eden wagtyňyz, ret ediş hatyny ibermek üçin “jaňy hat bilen ret et” panelini ýokaryk süýräň.</string>
     <string name="call_ended_toast">Jaň gutardy</string>
-    <string name="call_forwarded_to">Call forwarded to:</string>
-    <string name="call_forwarding_from">Call forwarded from:</string>
+    <string name="call_forwarded_to">Jaň şuňa gönükdirildi:</string>
+    <string name="call_forwarding_from">Jaň şundan gönükdirildi:</string>
     <string name="call_incoming_voice_call2">Jaňy almak üçin, %s basyň.</string>
     <string name="call_incoming_voice_call2_tts">Jaňy almak üçin, jaňy al düwmesine basyň.</string>
     <string name="call_incoming_voice_call3">Jaň ret etmek üçin, %s basyň.</string>
@@ -139,20 +141,20 @@
     <string name="call_menu_during_call_list6_tts">Sesi gataltmak üçin goşmaça ses düwmesine basyň.</string>
     <string name="call_menu_during_call_list7">Başga birine jaň edip, ony häzirki jaňa goşmak üçin, %s basyň.</string>
     <string name="call_menu_during_call_list7_tts">Başga birine jaň edip, ony häzirki jaňa goşmak üçin, goş düwmesine basyň.</string>
-    <string name="call_out_duration">Call out duration</string>
+    <string name="call_out_duration">Çykyş jaň möhleti</string>
     <string name="call_twophone_one_phone">Asyl belgi</string>
     <string name="call_twophone_two_phone">Ikinji belgi</string>
     <string name="caller_info_card_last_call_log_title">Iň soňky jaň</string>
     <string name="caller_info_card_last_message_title">Iň soňky hat</string>
     <string name="caller_info_card_memo_title">Jaň wagtynda ýat döredildi</string>
-    <string name="callsettings_hold_key_record_calls_notify">Press and hold Hold key to start or stop recording</string>
+    <string name="callsettings_hold_key_record_calls_notify">Ýazga geçirmegi başlatmak ýa-da duruzmak üçin Saklaw düwmesini basyp sakla</string>
     <string name="callsettings_rejectmessage_list1">Bagyşlaň, şu wagt bolmaz. Soň jaň ederin.</string>
     <string name="callsettings_rejectmessage_list2">Men ýygnakda.</string>
     <string name="callsettings_rejectmessage_list3">Men synpda.</string>
     <string name="callsettings_rejectmessage_list4">Men kinoteatrda</string>
     <string name="callsettings_rejectmessage_list5">Men sürýärin.</string>
-    <string name="camera_off">Camera turned off.</string>
-    <string name="camera_on">Camera turned on.</string>
+    <string name="camera_off">Kamera ýapyk.</string>
+    <string name="camera_on">Kamera açyk.</string>
     <string name="camera_security_enter">Howpsuzlyk düzgün Kamera ulanmagyny gadagan edýär.</string>
     <string name="camera_start_failed">Kamera amala aşmady</string>
     <string name="cancel">Ýatyr</string>
@@ -200,7 +202,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="description_secOnscreenVideoCallText">Wideo jaňy</string>
     <string name="description_secOnscreenViewContactText">Kontakt maglumatlary göruň</string>
     <string name="device_info_not_available">Elýeterli däl</string>
-    <string name="dial_warning">Unable to dial.</string>
+    <string name="dial_warning">Aýlap bolmaýar.</string>
     <string name="dialling_video_call">Wideo-jaň aýlamak</string>
     <string name="dialpad_2_sub_letters">ABC</string>
     <string name="dialpad_3_sub_letters">DEF</string>
@@ -253,8 +255,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="imLabelsGroup">IM hasaby</string>
     <string name="inCallLabel_Sec">Jaň</string>
     <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
+    <string name="incall_decline_other_secondary_device">Other secondary device in use.</string>
+    <string name="incall_decline_service_not_allowed">Service not allowed in this location.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">All available lines for (MDN) are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">All available lines for %s are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
+    <string name="incall_decline_transferred_to_another_device">Call has been transferred to another device.</string>
     <string name="incall_error_supp_service_switch">Jaňlary özara geçirmek başartmaýar</string>
     <string name="incall_extra_volume_disabled_BT">Bluetooth nauşnigi dakylgy mahaly aşa gaty sesi ulanyp bolanok.</string>
     <string name="incall_extra_volume_disabled_HAC">Eşidiş goldawy işjeňleşdirilen bolsa, goşmaça sesi işjeňleşdirip bolmaýar.</string>
@@ -265,7 +270,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="incall_popup_call_remove_title_vzw">Hide shortcut</string>
     <string name="incall_popup_ended">Soňlandyryldy</string>
     <string name="incall_spam_call_block">Belgini bekle</string>
-    <string name="incall_spam_call_reject">Add to Black list</string>
+    <string name="incall_spam_call_reject">Gara sanawa goş</string>
     <string name="incall_spam_call_reject_toast">Telefon belgisi Bekleme sanawyna goşuldy.</string>
     <string name="incall_spam_call_report">Belgi habar ber</string>
     <string name="incall_transfer_call">Jaňy geçir</string>
@@ -413,11 +418,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="kt_nomal_quality_video_call_3g">Jaň üçin diňe adaty hil elýeterli. Beýleki tarapyň enjamy 3G toruna çäklendirilen.</string>
     <string name="label_notes">Bellikler</string>
     <string name="label_sip_address">Internet jaňy</string>
-    <string name="legal_popup_content">"Having trouble using time-consuming voice response call centers? IVR(Interactive Voice Response) call screen menu provides the perfect environment to use call centers by displaying the service menu on your screen.
+    <string name="legal_popup_content">"Wagtyňy alýan sesli jogaply jaň merkezlerini ulanyp kösenýäňizmi? IVR (Interaktiw sesli jogap) jaň ekrany menýusy ekranyňyzda hyzmat menýusyny görkezip, jaň merkezlerini ulanar ýaly ajaýyp gurşaw üpjün edýär.
 
-IVR call screen menu uses contents provided by a third party service provider called Dianhuabang. By using IVR call screen menu, you agree to Dianhuabang’s %1$sTerms and Conditions%2$s."</string>
+IVR jaň ekrany menýusy Dianhuabang diýilýän üçünji tarap hyzmat üpjün ediji tarapyndan üpjün edilýän materiallary ulanýar. IVR jaň ekrany menýusyny ulanmak bilen, siz Dianhuabang %1$sŞertleri we Düzgünleri%2$s bilen ylalaşýarsyňyz."</string>
     <string name="legal_popup_terms_conditions">Düzgünler we şertler</string>
-    <string name="legal_pupup_title">Legal information</string>
+    <string name="legal_pupup_title">Ýuridik maglumat</string>
     <string name="lock_screen_during_call_double_tab">Gulpy açmak üçin iki gezek degiň</string>
     <string name="long_click_guide">Açmak/ýapmak üçin basyp saklaň.</string>
     <string name="low_batt_upgrade_disallowed">Wideo jaňyna geçip bolanok. Batareýanyň güýji pes.</string>
@@ -434,7 +439,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="memory_full_msg">Ýeterlik ýat ýok</string>
     <string name="message_greeting">Salam</string>
     <string name="modify_to_video_start">Wideo jaňyna jogap talap edilýär. . .</string>
-    <string name="modify_to_voice_start">Switching to voice call…</string>
+    <string name="modify_to_voice_start">Sesli jaňa geçilýär…</string>
     <string name="msg_for_video_show_never_again">Käbir faýl formatlary goldanylmady. Galereýada diňe goldanylan faýllar görkeziler.</string>
     <string name="mt_vt_not_possible">%s cannot receive video calls at this time. You will now be connected through a voice call.</string>
     <string name="nameLabelsGroup">Adyna görä</string>
@@ -451,7 +456,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="name_suffix">At suffiks</string>
     <string name="network_message_no_answer">Jogap ýok</string>
     <string name="nicknameLabelsGroup">Lakam</string>
-    <string name="not_enable_to_video">Video calls are not available while Emergency mode is enabled.</string>
+    <string name="not_enable_to_video">Gyssagly tertip açyk wagty, wideo jaňlar elýeterli bolmaýar.</string>
     <string name="not_enable_to_video_emergencymode">Gyssagly tertip açyk wagty, wideo jaň edip ýa-da alyp bolmaýar.</string>
     <string name="notification_action_answer">Jogap ber</string>
     <string name="notification_of_sub_number_empty_body">Alternatiw belgileri görmek üçin, SIM karta köp-belgi hyzmatyna ýazylyp, täzeden synanyşyň.</string>
@@ -461,7 +466,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="onscreenBluetoothTextOn_att">Telefona geçir</string>
     <string name="onscreenBluetoothTextOn_tmo">Telefona geçir</string>
     <string name="onscreenWebexText">WebEx</string>
-    <string name="open_folder_for_speakeroff">To turn off the speakerphone, open the flip phone.</string>
+    <string name="open_folder_for_speakeroff">Spikerfony ýapmak, epilýän telefony açyň.</string>
     <string name="open_the_cover">Örtügi açyň.</string>
     <string name="open_the_cover_incoming">Wideo jaňa jogap bermek ýa-da ony ret etmek üçin üstüni açyň.</string>
     <string name="open_the_cover_modify_call">Jaň edilýän tarap wideo jaňa geçmek isleýär. Haýyşy kabul/ret etmek üçin gapagy açyň.</string>
@@ -474,6 +479,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="outgoing_img_video">Wideolar</string>
     <string name="payphone_sbm">Töleg telefon</string>
     <string name="phoneLabelsGroup">Telefon</string>
+    <string name="phone_voice_recording_failed_by_secure_call">Goragly jaňy ýazga geçirip bolmaýar.</string>
     <string name="phonetype_additional">Goşmaça belgi</string>
     <string name="photoring_block_toast">Foto ring-iň üsti bilen mediany size iýbermekden kontakt blokirlenen.</string>
     <string name="photoring_toast_mobile_data_off">Siziň görüp bilmeýän, başgasy tarapyndan iberilen Photoring mazmuny bolup biler, sebäbi ykjam maglumatlara giriş bökdelen.</string>
@@ -491,7 +497,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="prepareOtherVideo">Wideo surat taýýarlanylýar…</string>
     <string name="previous_call_is_held_when_you_accept_call">Şu wagtky jaň täze jaňy alanyňyzda garaşar.</string>
     <string name="private_num_cdma">Çäklendirilen</string>
-    <string name="private_num_sbm">Withheld number</string>
+    <string name="private_num_sbm">Saklanylan belgi</string>
     <string name="quick_panel_title_video_call">Wideo jaňy</string>
     <string name="quick_panel_title_voice_call">Ses Jaňlary</string>
     <string name="quick_panel_title_volte_call">VoLTE jaň</string>
@@ -516,8 +522,13 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="recently_use_sim_for_callback">Soňky ulanylan SIM</string>
     <string name="record_notification_button_text_close">Ýap</string>
     <string name="record_notification_button_text_record_list">Ýazgylar</string>
+    <string name="record_notification_button_text_storage">Ýygnaýjy</string>
     <string name="record_notification_content">Ýazga geçirilen jaňlaryňyzy görmek üçin, ÝAZGYLAR-a basyň.</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">Enjam ammaryňyz doly. Jaňyň bölekleýin ýazgysy ýazdyryldy.</string>
+    <string name="record_notification_content_unable_to_record">Enjamyň ammarynda ýeterlik ýer ýok. Käbir faýllary öçürip, täzeden synanyşyň.</string>
     <string name="record_notification_title">Jaň ýazyldy</string>
+    <string name="record_notification_title_not_to_record_entire_call">Tutuş jaň ýazga geçirilmedi</string>
+    <string name="record_notification_title_unable_to_record">Jaňy ýazga geçirip bolmaýar</string>
     <string name="record_text">REC</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -591,7 +602,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="secOnscreenMenuSwitchToPhoneText_tmo">Telefona geçir</string>
     <string name="secOnscreenMenuSwitchToVideoCallText">Wideo jaňyna geçir</string>
     <string name="secOnscreenMenuSwitchToVoiceCallText">Sesli jaňa geçir</string>
-    <string name="secOnscreenMenuSwitchVideoDisplay">Switch video displays</string>
+    <string name="secOnscreenMenuSwitchVideoDisplay">Wideo displeýleri çalyş</string>
     <string name="secOnscreenMenuUnmuteText">Sessiz režimden çyk</string>
     <string name="secOnscreenMenuVideoConfCallText">Täze gatnaşyjylary çagyr</string>
     <string name="secOnscreenMenuViewInFullScreenText">Uly ekranda görmek</string>
@@ -632,6 +643,7 @@ Camera"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">Sanawy açmak üçin barmagyňyzy iki gezek degriň.</string>
     <string name="sec_showme_text">Maňa görkez</string>
     <string name="second_screen_hold_text">%d saklawy</string>
+    <string name="section_contacts_only_summary">Create and manage contacts.</string>
     <string name="select_callback_sim_card">Yzyna-jaň SIM karty saýla</string>
     <string name="select_callback_sim_card_content">Şu belgiden giden ýa-da şu belgä gelen soňky jaň ýa-da habar üçin saýlanan SIM karta ulanylmady. Haýsy SIM kartany ulanmalydygyny saýlaň.</string>
     <string name="select_from_gallery">Galereýadan saýla</string>
@@ -671,12 +683,12 @@ Camera"</string>
     <string name="spam_call_report_dialog_spam">Spam</string>
     <string name="spam_call_report_dialog_taxis">Taksiler</string>
     <string name="spam_call_reported_as">%s diýip habar ber</string>
-    <string name="spam_call_resported_as_by_you">Reported as %s by you</string>
+    <string name="spam_call_resported_as_by_you">%s diýip habar berdiňiz</string>
     <string name="spam_call_resported_count">(%d gezek)</string>
-    <string name="spam_call_type_and_count">Reported as %1$s %2$d times</string>
+    <string name="spam_call_type_and_count">%2$d gezek %1$s diýlip habar berildi</string>
     <string name="sub_number_item">Alternatiwa %d</string>
-    <string name="suguden_guide_do_not_show_again_dcm">Do not show again</string>
-    <string name="suguden_guide_main_text_dcm">Answer the call by bringing the device close to your ear.</string>
+    <string name="suguden_guide_do_not_show_again_dcm">Indi görkezme</string>
+    <string name="suguden_guide_main_text_dcm">Enjamy gulagyňyza golaýladyp, jaňa jogap beriň.</string>
     <string name="swipe_left">Çepe syryň.</string>
     <string name="swipe_right">Saga syryň.</string>
     <string name="swipe_right_to_answer_call_with_video">Jaňy wideoly almak üçin, saga syryň.</string>
@@ -697,7 +709,7 @@ Camera"</string>
     <string name="tty_mode_option_title">TTY režimi</string>
     <string name="tutorial_incoming_call_app_answer">Jaňy almak üçin basyň.</string>
     <string name="tutorial_incoming_call_app_reject">Jaňy ret etmek üçin basyň.</string>
-    <string name="twmobile_operator_name">TW Mobile</string>
+    <string name="twmobile_operator_name">TW Mobil</string>
     <string name="unknown_cdma">Elýetersiz</string>
     <string name="usa_att_connected_as_voice">Call connected as voice only.</string>
     <string name="usa_att_data_usage_charge_alert">Your Data Usage that you set on your device is about to reach its limit. Your Video call requires data.</string>
@@ -751,7 +763,7 @@ Your video call is still running on the mobile network. (Data usage applies if y
 
 Your video call is now running on the mobile network. (Data usage applies if you choose to continue.)"</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Wi-Fi connection lost. Call ended.</string>
-    <string name="vibo_operator_name">T Star</string>
+    <string name="vibo_operator_name">T Ýyldyz</string>
     <string name="video_alert_show_never_again">Gaýtadan görkezme</string>
     <string name="video_calling_incoming">Video calling</string>
     <string name="video_calls_temporarily_not_available">Wideo jaňlar wagtlaýynça elýeterli däl. Jaň sesli jaňa geçdi.</string>
@@ -767,5 +779,5 @@ Your video call is now running on the mobile network. (Data usage applies if you
     <string name="waiting_call_dialog_dismiss_toast">Jaň, %1$s tarapyndan kesildi. %2$s bilen jaň dowam etdirilýär…</string>
     <string name="waiting_call_dialog_message">Jaňa jogap ber</string>
     <string name="websiteLabelsGroup">Web salgysy</string>
-    <string name="yellow_pages">Yellow Pages</string>
+    <string name="yellow_pages">Sary sahypalar</string>
 </resources>

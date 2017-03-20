@@ -2329,7 +2329,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/recents/views/TaskViewHeader;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f05c0
+    const v2, 0x7f0f05c1
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2346,7 +2346,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/recents/views/TaskViewHeader;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f05c1
+    const v2, 0x7f0f05c2
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

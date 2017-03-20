@@ -119,6 +119,8 @@
     <string name="BirthDay_remainedDays1">내일 생일</string>
     <string name="BirthDay_remainedDays7">1주 후 생일</string>
     <string name="BirthDay_remainedDaysEtc">%d일 후 생일</string>
+    <string name="DivertToVoice_disable">영상통화가 불가능한 번호입니다. 음성통화로 전환할까요?</string>
+    <string name="DivertToVoice_enable">영상통화가 불가능한 번호입니다. 음성통화로 전환합니다.</string>
     <string name="Lunar_anniversary_passedDays1">어제 기념일(음력)</string>
     <string name="Lunar_anniversary_remainedDays0">오늘 기념일(음력)</string>
     <string name="Lunar_anniversary_remainedDays1">내일 기념일(음력)</string>
@@ -300,8 +302,11 @@
     <string name="imLabelsGroup">IM 계정</string>
     <string name="inCallLabel_Sec">통화</string>
     <string name="incall_decline_emergency_wifi_not_allow">Wi-Fi로 긴급전화를 걸 수 있는 지역이 아닙니다.</string>
+    <string name="incall_decline_other_secondary_device">다른 보조 디바이스가 사용 중입니다.</string>
+    <string name="incall_decline_service_not_allowed">서비스 지역이 아닙니다.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">모든 MDN을 사용 중입니다. 전화를 걸려면 휴대전화 또는 태블릿에서 현재 통화 1건을 종료하세요.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">모든 %s 번호를 사용 중입니다. 전화를 걸려면 휴대전화 또는 태블릿에서 현재 통화 1건을 종료하세요.</string>
+    <string name="incall_decline_transferred_to_another_device">전화를 다른 디바이스로 착신전환했습니다.</string>
     <string name="incall_error_supp_service_switch">통화를 전환할 수 없습니다.</string>
     <string name="incall_extra_volume_disabled_BT">블루투스 헤드셋이 연결된 경우 추가 음량 높이기 기능을 실행할 수 없습니다.</string>
     <string name="incall_extra_volume_disabled_HAC">보청기 사용 기능 실행 중에는 추가 음량 높이기 기능을 실행할 수 없습니다.</string>
@@ -521,6 +526,7 @@ IVR 통화 화면 메뉴는 제3자 서비스 제공자인 Dianhuabang에서 제
     <string name="outgoing_img_video">동영상</string>
     <string name="payphone_sbm">공중전화</string>
     <string name="phoneLabelsGroup">전화번호</string>
+    <string name="phone_voice_recording_failed_by_secure_call">보안 통화 중에는 녹음할 수 없습니다.</string>
     <string name="phonetype_additional">추가번호</string>
     <string name="photoring_block_toast">포토링 수신이 차단되었습니다.</string>
     <string name="photoring_toast_mobile_data_off">상대방이 보낸 포토링 컨텐츠가 있을 수 있으나 모바일 데이터 접속이 차단되어 보실 수 없습니다.</string>
@@ -563,8 +569,13 @@ IVR 통화 화면 메뉴는 제3자 서비스 제공자인 Dianhuabang에서 제
     <string name="recently_use_sim_for_callback">최근에 사용한 SIM 카드</string>
     <string name="record_notification_button_text_close">닫기</string>
     <string name="record_notification_button_text_record_list">녹음 파일</string>
+    <string name="record_notification_button_text_storage">저장공간</string>
     <string name="record_notification_content">녹음된 통화 내용을 확인하려면 녹음 파일 버튼을 누르세요.</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">디바이스 저장공간이 모두 사용 중입니다. 일부 통화 내용만 녹음된 상태입니다.</string>
+    <string name="record_notification_content_unable_to_record">디바이스에 저장공간이 부족합니다. 일부 파일을 삭제한 후 다시 시도하세요.</string>
     <string name="record_notification_title">통화 녹음 완료</string>
+    <string name="record_notification_title_not_to_record_entire_call">전체 통화 녹음 안 됨</string>
+    <string name="record_notification_title_unable_to_record">통화를 녹음할 수 없음</string>
     <string name="record_text">녹음</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -679,6 +690,7 @@ IVR 통화 화면 메뉴는 제3자 서비스 제공자인 Dianhuabang에서 제
     <string name="sec_popup_reject_call_with_msg_content_description_open">목록을 열려면 두 번 누르세요.</string>
     <string name="sec_showme_text">내 영상 보이기</string>
     <string name="second_screen_hold_text">%d명 대기</string>
+    <string name="section_contacts_only_summary">새 연락처를 추가하고 관리합니다.</string>
     <string name="select_callback_sim_card">콜백 SIM 카드 선택</string>
     <string name="select_callback_sim_card_content">이 번호와의 최근 통화 및 메시지에서 우선 사용하도록 설정된 SIM 카드를 사용하지 않았습니다. 어떤 SIM 카드를 사용할 것인지 선택하세요.</string>
     <string name="select_from_gallery">갤러리에서 선택</string>
@@ -814,8 +826,6 @@ IVR 통화 화면 메뉴는 제3자 서비스 제공자인 Dianhuabang에서 제
     <string name="waiting_call_dialog_message">전화받기</string>
     <string name="websiteLabelsGroup">웹 주소</string>
     <string name="yellow_pages">옐로우 페이지</string>
-    <string name="DivertToVoice_disable">영상통화가 불가능한 번호입니다. 음성통화로 전환할까요?</string>
-    <string name="DivertToVoice_enable">영상통화가 불가능한 번호입니다. 음성통화로 전환합니다.</string>
     <string name="RAD_roaming_LGT_customer_center">LGU+ 로밍고객센터</string>
     <string name="intcall_voice_noti">국제 전화</string>
     <string name="kor_psvt_invite_timeout_ktt_uicc">(무응답)상대방과의 영상통화 이용이 원할하지 않아 음성통화로 연결을 시도합니다.</string>

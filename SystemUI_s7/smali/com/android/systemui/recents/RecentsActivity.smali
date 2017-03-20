@@ -1518,7 +1518,7 @@
 
     invoke-virtual {v4, p0}, Lcom/android/systemui/recents/model/RecentsPackageMonitor;->register(Landroid/content/Context;)V
 
-    const v4, 0x7f040112
+    const v4, 0x7f040114
 
     invoke-virtual {p0, v4}, Lcom/android/systemui/recents/RecentsActivity;->setContentView(I)V
 
@@ -1538,7 +1538,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/recents/RecentsActivity;->mRecentsViewStub:Landroid/view/ViewStub;
 
-    const v5, 0x7f040120
+    const v5, 0x7f040122
 
     invoke-virtual {v4, v5}, Landroid/view/ViewStub;->setLayoutResource(I)V
 
@@ -1821,7 +1821,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/recents/RecentsActivity;->mRecentsViewStub:Landroid/view/ViewStub;
 
-    const v5, 0x7f040129
+    const v5, 0x7f04012b
 
     invoke-virtual {v4, v5}, Landroid/view/ViewStub;->setLayoutResource(I)V
 
@@ -1886,9 +1886,9 @@
 .method public onEnterAnimationComplete()V
     .locals 10
 
-    const v9, 0x7f0f05cb
+    const v9, 0x7f0f05cc
 
-    const v8, 0x7f0f05ca
+    const v8, 0x7f0f05cb
 
     const v5, 0x7f020437
 
@@ -1969,9 +1969,9 @@
 
     const v3, 0x7f020435
 
-    const v4, 0x7f0f05c5
+    const v4, 0x7f0f05c6
 
-    const v5, 0x7f0f05c6
+    const v5, 0x7f0f05c7
 
     invoke-virtual {v2, v3, v4, v5, v6}, Lcom/android/systemui/recents/views/AbstractHelpPopup;->addContent(IIII)V
 
@@ -2046,7 +2046,7 @@
 
     const v3, 0x7f020436
 
-    const v4, 0x7f0f05c9
+    const v4, 0x7f0f05ca
 
     invoke-virtual {v2, v3, v8, v8, v4}, Lcom/android/systemui/recents/views/AbstractHelpPopup;->addContent(IIII)V
 
@@ -2062,9 +2062,9 @@
 
     iget-object v2, p0, Lcom/android/systemui/recents/RecentsActivity;->mHelpPopup:Lcom/android/systemui/recents/views/AbstractHelpPopup;
 
-    const v3, 0x7f0f05cc
+    const v3, 0x7f0f05cd
 
-    const v4, 0x7f0f05cc
+    const v4, 0x7f0f05cd
 
     invoke-virtual {v2, v5, v3, v4, v6}, Lcom/android/systemui/recents/views/AbstractHelpPopup;->addContent(IIII)V
 

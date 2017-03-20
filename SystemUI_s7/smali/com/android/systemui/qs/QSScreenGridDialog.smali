@@ -61,7 +61,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSScreenGridDialog;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0f0596
+    const v4, 0x7f0f0597
 
     invoke-virtual {v0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -71,7 +71,7 @@
 
     invoke-virtual {p0, v2}, Lcom/android/systemui/qs/QSScreenGridDialog;->setCanceledOnTouchOutside(Z)V
 
-    const v0, 0x7f040106
+    const v0, 0x7f040108
 
     invoke-static {p1, v0, v11}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -169,7 +169,7 @@
 
     invoke-direct {v0, p0}, Lcom/android/systemui/qs/QSScreenGridDialog$2;-><init>(Lcom/android/systemui/qs/QSScreenGridDialog;)V
 
-    const v2, 0x7f0f0598
+    const v2, 0x7f0f0599
 
     invoke-virtual {p0, v2, v0}, Lcom/android/systemui/qs/QSScreenGridDialog;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)V
 

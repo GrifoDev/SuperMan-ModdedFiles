@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/qs/tiles/WifiCallingTile;->handleClick()V
+    value = Lcom/android/systemui/qs/tiles/WifiCallingTile;->changeState(Z)Z
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -41,7 +41,7 @@
 
     const/4 v1, 0x1
 
-    invoke-static {v0, v1}, Lcom/android/systemui/qs/tiles/WifiCallingTile;->-wrap2(Lcom/android/systemui/qs/tiles/WifiCallingTile;Z)V
+    invoke-static {v0, v1}, Lcom/android/systemui/qs/tiles/WifiCallingTile;->-wrap3(Lcom/android/systemui/qs/tiles/WifiCallingTile;Z)V
 
     return-void
 .end method

@@ -92,6 +92,8 @@
     <string name="BirthDay_remainedDays1">Bihar urtebetetzea da</string>
     <string name="BirthDay_remainedDays7">Urtebetetzea astebete barru</string>
     <string name="BirthDay_remainedDaysEtc">Urtebetetzea %d egun barru</string>
+    <string name="DivertToVoice_disable">Bideo deiak ez daude erabilgarri zenbaki honentzat. Probatu ahots deia orain?</string>
+    <string name="DivertToVoice_enable">Bideo deiak ez daude erabilgarri zenbaki honentzat. Ahots deira aldatzen…</string>
     <string name="Lunar_anniversary_passedDays1">Ilargi urtemuga: atzo</string>
     <string name="Lunar_anniversary_remainedDays0">Ilargi urtemuga: gaur</string>
     <string name="Lunar_anniversary_remainedDays1">Ilargi urtemuga: bihar</string>
@@ -273,8 +275,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="imLabelsGroup">IM kontua</string>
     <string name="inCallLabel_Sec">Deia</string>
     <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
+    <string name="incall_decline_other_secondary_device">Other secondary device in use.</string>
+    <string name="incall_decline_service_not_allowed">Service not allowed in this location.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">All available lines for (MDN) are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">All available lines for %s are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
+    <string name="incall_decline_transferred_to_another_device">Call has been transferred to another device.</string>
     <string name="incall_error_supp_service_switch">Ezin dira deiak pasatu</string>
     <string name="incall_extra_volume_disabled_BT">Ezin da bolumen gehigarri tartea erabili Bluetooth aurikularrak konektatuta badaude</string>
     <string name="incall_extra_volume_disabled_HAC">Ezin da Bolumen osagarria gaitu entzungailuak gaituta badaude.</string>
@@ -433,11 +438,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="kt_nomal_quality_video_call_3g">Dei honetarako kalitate arrunta soilik dago erabilgarri. Beste alderdiaren gailua 3G sarera dago murriztuta.</string>
     <string name="label_notes">Oharrak</string>
     <string name="label_sip_address">Internet deia</string>
-    <string name="legal_popup_content">"Having trouble using time-consuming voice response call centers? IVR(Interactive Voice Response) call screen menu provides the perfect environment to use call centers by displaying the service menu on your screen.
+    <string name="legal_popup_content">"Denbora asko eskatzen duten ahots erantzuneko dei zentroak erabiltzeko arazoak al dituzu? IVR (ahots erantzun interaktiboa) deien pantailaren menuak dei zentroak erabiltzeko ingurune perfektua eskaintzen du, zerbitzu menua zure pantailan erakutsita.
 
-IVR call screen menu uses contents provided by a third party service provider called Dianhuabang. By using IVR call screen menu, you agree to Dianhuabang’s %1$sTerms and Conditions%2$s."</string>
+IVR deien pantailaren menuak Dianhuabang izeneko hirugarren zerbitzu hornitzaileak emandako edukiak erabiltzen ditu. IVR deien pantailaren menua erabiltzeko Dianhuabang-en %1$sZehaztapenak eta baldintzak%2$s onartu beharko dituzu."</string>
     <string name="legal_popup_terms_conditions">Zehaztapenak eta baldintzak</string>
-    <string name="legal_pupup_title">Legal information</string>
+    <string name="legal_pupup_title">Lege informazioa</string>
     <string name="lock_screen_during_call_double_tab">Ukitu bi aldiz desblokeatzeko</string>
     <string name="long_click_guide">Ukitu eta eutsi pizteko/itzaltzeko.</string>
     <string name="low_batt_upgrade_disallowed">Ezin da bideo deira aldatu. Bateria baxu.</string>
@@ -494,6 +499,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="outgoing_img_video">Bideoak</string>
     <string name="payphone_sbm">Telefono publikoa</string>
     <string name="phoneLabelsGroup">Telefonoa</string>
+    <string name="phone_voice_recording_failed_by_secure_call">Ezin da gorde dei segururik.</string>
     <string name="phonetype_additional">Zenbaki gehigarria</string>
     <string name="photoring_block_toast">Kontaktua blokeatuta dago eta ezin dizu multimedia bidali photo ring bidez</string>
     <string name="photoring_toast_mobile_data_off">Beste alderdiak bidalitako ikusi ezin duzun argazki doinuaren edukia dago, datu sarbide mugikorra blokeatuta dagoenez.</string>
@@ -536,8 +542,13 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="recently_use_sim_for_callback">Berriki erabilitako SIMa</string>
     <string name="record_notification_button_text_close">Itxi</string>
     <string name="record_notification_button_text_record_list">Grabaketak</string>
+    <string name="record_notification_button_text_storage">Biltegiratzea</string>
     <string name="record_notification_content">Ukitu GRABAKETAK grabatutako deiak ikusteko.</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">Gailuaren biltegia beteta dago. Deiaren grabaketaren zati bat baino ez da gorde.</string>
+    <string name="record_notification_content_unable_to_record">Ez dago behar adina memoria gailuan. Ezabatu fitxategi batzuk eta saiatu berriz.</string>
     <string name="record_notification_title">Grabatu da deia</string>
+    <string name="record_notification_title_not_to_record_entire_call">Ez da grabatu dei osoa</string>
+    <string name="record_notification_title_unable_to_record">Ezin da grabatu deia</string>
     <string name="record_text">REC</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -652,6 +663,7 @@ Camera"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">Ukitu bi aldiz zerrenda irekitzeko.</string>
     <string name="sec_showme_text">Erakutsi</string>
     <string name="second_screen_hold_text">%d egonean</string>
+    <string name="section_contacts_only_summary">Create and manage contacts.</string>
     <string name="select_callback_sim_card">Hautatu deia itzultzeko SIM txartela</string>
     <string name="select_callback_sim_card_content">Ez da erabili deietarako SIM txartel hobetsia zenbaki honetatik jasotako edo bidalitako azken dei edo mezuan. Hautatu erabili nahi duzun SIM txartela.</string>
     <string name="select_from_gallery">Hautatu Galeriatik</string>

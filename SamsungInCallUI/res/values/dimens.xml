@@ -176,8 +176,6 @@
     <dimen name="sec_incoming_call_popup_buttons_padding">10.0dip</dimen>
     <dimen name="sec_multiparty_call_info_height">102.0dip</dimen>
     <dimen name="sec_multiparty_call_photo_top_margin">18.5dip</dimen>
-    <dimen name="sec_multiparty_secondary_call_info_width">160.0dip</dimen>
-    <dimen name="sec_multiparty_secondary_call_info_width_no_merge_kor">160.0dip</dimen>
     <dimen name="sec_primary_call_name_maxwidth">292.0dip</dimen>
     <dimen name="sec_primary_call_no_contact_name_margin_top">47.0dip</dimen>
     <dimen name="sec_primary_call_photo_margin_bottom">6.0dip</dimen>
@@ -330,8 +328,6 @@
     <dimen name="sec_modify_state_info_banner_top_margin">197.0dip</dimen>
     <dimen name="sec_multiparty_call_button_height">53.0dip</dimen>
     <dimen name="sec_multiparty_call_distance_between_photo">102.0dip</dimen>
-    <dimen name="sec_multiparty_secondary_call_info_width_merge_vzw">210.0dip</dimen>
-    <dimen name="sec_multiparty_secondary_call_info_width_no_merge_vzw">260.0dip</dimen>
     <dimen name="sec_multiparty_video_button_container_right_margin">35.0dip</dimen>
     <dimen name="sec_multiparty_video_call_button_text_size">12.0dip</dimen>
     <dimen name="sec_multiparty_video_call_distance_between_photo">417.0dip</dimen>
@@ -493,7 +489,6 @@
     <dimen name="reject_call_with_message_create_icon_margin_left">24.0dip</dimen>
     <dimen name="reject_call_with_message_handler_margin">36.0dip</dimen>
     <dimen name="reject_call_with_message_sliding_drawer_bottom_offset">0.0dip</dimen>
-    <dimen name="reject_call_with_message_sliding_drawer_top_offset">24.0dip</dimen>
     <dimen name="reject_call_with_msg_create_text_size">17.0sp</dimen>
     <dimen name="reject_call_with_msg_item_divider_margin">18.0dip</dimen>
     <dimen name="reject_call_with_msg_list_item_text_size">17.0sp</dimen>
@@ -856,10 +851,9 @@
     <dimen name="sec_multiparty_call_one_button_container_width">80.0dip</dimen>
     <dimen name="sec_multiparty_call_photo_left_margin">24.0dip</dimen>
     <dimen name="sec_multiparty_call_photo_size">40.0dip</dimen>
-    <dimen name="sec_multiparty_call_two_button_container_width">136.0dip</dimen>
+    <dimen name="sec_multiparty_call_two_button_container_width">126.0dip</dimen>
     <dimen name="sec_multiparty_manage_button_end_margin">20.0dip</dimen>
     <dimen name="sec_multiparty_name_text_size">23.0dip</dimen>
-    <dimen name="sec_multiparty_primary_call_name_max_width">190.0dip</dimen>
     <dimen name="sec_multiparty_secondary_icon_margin_top">2.0dip</dimen>
     <dimen name="sec_primary_video_incall_name_margin">10.0dip</dimen>
     <dimen name="sec_quick_panel_button_margin_end">6.0dip</dimen>
@@ -1078,6 +1072,12 @@
     <dimen name="empty_message_top_margin">48.0dip</dimen>
     <dimen name="enriched_call_content_height">253.0dip</dimen>
     <dimen name="enriched_call_content_topmargin">267.0dip</dimen>
+    <dimen name="enriched_call_map_image_layout_topmargin">83.0dip</dimen>
+    <dimen name="enriched_call_popup_window_height">583.0dip</dimen>
+    <dimen name="enriched_call_popup_window_horizontal_margin">170.0dip</dimen>
+    <dimen name="enriched_call_popup_window_horizontal_margin_image_only">37.0dip</dimen>
+    <dimen name="enriched_call_popup_window_vertital_margin">583.0dip</dimen>
+    <dimen name="enriched_call_popup_window_width">340.0dip</dimen>
     <dimen name="floating_action_button_dialpad_margin_bottom_offset">4.0dip</dimen>
     <dimen name="floating_action_button_height">56.0dip</dimen>
     <dimen name="floating_action_button_list_bottom_padding">88.0dip</dimen>
@@ -1154,6 +1154,7 @@
     <dimen name="person_contact_context_message_text_size">16.0sp</dimen>
     <dimen name="person_contact_context_message_vertical_padding">7.0dip</dimen>
     <dimen name="reject_call_with_message_sliding_drawer_height">460.0dip</dimen>
+    <dimen name="reject_call_with_message_sliding_drawer_top_offset">260.0dip</dimen>
     <dimen name="reject_call_with_msg_item_list_margin_bottom">65.0dip</dimen>
     <dimen name="reject_volte_video_call_with_message_handler_horizontal_margin">36.0dip</dimen>
     <dimen name="reject_volte_video_call_with_message_handler_width">327.0dip</dimen>
@@ -1434,6 +1435,9 @@
     <dimen name="sec_video_vga_arrow_width_onehand">24.0dip</dimen>
     <dimen name="sec_video_vga_button_horizontal_margin_multiwindow">12.0dip</dimen>
     <dimen name="sec_video_vga_button_size_multiwindow">30.0dip</dimen>
+    <dimen name="sec_video_vga_call_info_area_endcall_height">220.0dip</dimen>
+    <dimen name="sec_video_vga_call_info_area_incoming_cnap_and_cdnip_height">95.0dip</dimen>
+    <dimen name="sec_video_vga_call_info_area_incoming_cnap_or_cdnip_height">111.0dip</dimen>
     <dimen name="sec_video_vga_dialpad_digits_height_multiwindow">40.0dip</dimen>
     <dimen name="sec_video_vga_dialpad_digits_text_margin_end_multiwindow">6.0dip</dimen>
     <dimen name="sec_video_vga_dialpad_digits_text_margin_start_multiwindow">48.0dip</dimen>

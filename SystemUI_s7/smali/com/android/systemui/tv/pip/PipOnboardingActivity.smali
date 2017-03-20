@@ -50,7 +50,7 @@
 
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    const v0, 0x7f04016b
+    const v0, 0x7f04016d
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/tv/pip/PipOnboardingActivity;->setContentView(I)V
 

@@ -281,7 +281,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/RedPacketTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f0660
+    const v1, 0x7f0f0661
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -452,7 +452,7 @@
     :cond_0
     iget-object v3, p0, Lcom/android/systemui/qs/tiles/RedPacketTile;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f04016f
+    const v4, 0x7f040171
 
     invoke-static {v3, v4, v5}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -466,7 +466,7 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    const v3, 0x7f0f0660
+    const v3, 0x7f0f0661
 
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setText(I)V
 
@@ -595,7 +595,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/qs/tiles/RedPacketTile;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0f0661
+    const v4, 0x7f0f0662
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -605,7 +605,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/qs/tiles/RedPacketTile;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0f0662
+    const v4, 0x7f0f0663
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -663,7 +663,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/RedPacketTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f065f
+    const v1, 0x7f0f0660
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -807,7 +807,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/RedPacketTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f065f
+    const v1, 0x7f0f0660
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

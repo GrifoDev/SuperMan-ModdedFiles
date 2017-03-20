@@ -24,7 +24,7 @@
 
 .field public static final abc_search_view:I = 0x7f040018
 
-.field public static final support_simple_spinner_dropdown_item:I = 0x7f040162
+.field public static final support_simple_spinner_dropdown_item:I = 0x7f040164
 
 
 # direct methods

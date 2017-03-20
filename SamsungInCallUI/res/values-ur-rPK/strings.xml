@@ -92,6 +92,8 @@
     <string name="BirthDay_remainedDays1">آئندہ کل یوم پیدائش</string>
     <string name="BirthDay_remainedDays7">سالگرہ 1 ہفتے میں</string>
     <string name="BirthDay_remainedDaysEtc">سالگرہ %d دنوں میں</string>
+    <string name="DivertToVoice_disable">اس نمبر کے لئے ویڈیو کالز دستیاب نہیں ہیں۔ اس کے بجائے اب وائس کال کی کوشش کریں؟</string>
+    <string name="DivertToVoice_enable">اس نمبر کے لئے ویڈیو کالز دستیاب نہیں ہیں۔ وائس کال پر سوئچ کررہا ہے…</string>
     <string name="Lunar_anniversary_passedDays1">قمری سالگرہ گزشتہ کل</string>
     <string name="Lunar_anniversary_remainedDays0">قمری سالگرہ آج</string>
     <string name="Lunar_anniversary_remainedDays1">قمری سالگرہ آنے والا کل</string>
@@ -107,7 +109,7 @@
     <string name="RAD_mofat_call_center">MOFAT call center</string>
     <string name="RAD_roaming_KT_customer_center">‏Olleh رومنگ کسٹمر خدمات</string>
     <string name="RAD_roaming_customer_center">T Roaming call center</string>
-    <string name="SS_CONTENTS_SHARING_STOPPED_BATTERY_LOW">مشمول شراکت رک گئی۔ بیٹری کمزور ہے۔</string>
+    <string name="SS_CONTENTS_SHARING_STOPPED_BATTERY_LOW">مشمول شیئرنگ رک گئی۔ بیٹری کمزور ہے۔</string>
     <string name="SS_UNABLE_TO_RECEIVE_FILE_IT_EXCEEDS_MAXIMUM_FILE_SIZE">فائل وصول کرنے سے قاصر۔ یہ فائل کے انتہائی سائز سے بڑھ گئی ہے۔</string>
     <string name="TS_ADD_REASON_BUTTON_ABB_VODA">ایک وجہ شامل کریں</string>
     <string name="TS_IMPORTANT_CALL_BODY_VODA">اہم کال</string>
@@ -118,7 +120,7 @@
     <string name="add_reminder">یاد دھانی شامل کریں</string>
     <string name="agree">منظور</string>
     <string name="am_cover_toggle_string">کال کا جواب دینے یا مسترد کرنے کیلیے سرورق کھولیں۔</string>
-    <string name="am_device_memory_full_warning">Unable to use Auto answer with message. There is not enough space in your device storage to save voice messages. Delete some items and try again.</string>
+    <string name="am_device_memory_full_warning">پیغام کے ساتھ خودکار جواب استعمال کرنے سے قاصر۔ وائس پیغامات محفوظ کرنے کے لیے آپ کے آلہ کے ذخیرہ میں کافی جگہ نہیں ہے۔ کچھ اشیاء حذف کرکے دوبارہ کوشش کریں۔</string>
     <string name="another_device_pickup_message">Another device picked up this call.</string>
     <string name="answering_memo_Playing_text">پیغام کا جواب دینا پلے کررہا ہے…</string>
     <string name="answering_memo_Recording_text">پیغامات ریکارڈ کررہا ہے…</string>
@@ -171,8 +173,8 @@
     <string name="callsettings_rejectmessage_list3">میں کلاس میں ہوں</string>
     <string name="callsettings_rejectmessage_list4">میں سنیما پر ہوں</string>
     <string name="callsettings_rejectmessage_list5">میں گاڑی چلا رہا ہوں</string>
-    <string name="camera_off">Camera turned off.</string>
-    <string name="camera_on">Camera turned on.</string>
+    <string name="camera_off">کیمرہ آف کردیا گیاہے۔</string>
+    <string name="camera_on">کیمرہ آن کردیا گيا ہے۔</string>
     <string name="camera_security_enter">سلامتی پالیسی کے تحت کیمرے کے استعمال پر پابندی ہے</string>
     <string name="camera_start_failed">کیمرہ ناکام۔</string>
     <string name="cancel">منسوخ</string>
@@ -203,7 +205,7 @@
     <string name="cover_redial_call_image_widget_description">کال کرنے کے لیے دو انگلیوں سے بائیں یا دائیں جانب ہلکی سی ضرب لگائیں۔</string>
     <string name="cover_third_call_incoming">کال کا جواب دینے سے موجودہ کال ختم ہوجائے گی۔</string>
     <string name="ctc_full_operator_name">China Telecom</string>
-    <string name="cu_operator_name">China Unicom</string>
+    <string name="cu_operator_name">چین یونیکوم</string>
     <string name="current_call_with_held_call">%s کے ساتھ آپ کی کال ہولڈ پر ہے</string>
     <string name="data_usage_charge_alert">Video calling requires the use of both data and voice minutes over the mobile network. Charges may apply.</string>
     <string name="data_usage_limit_dialog_continue_call">Continue call</string>
@@ -220,7 +222,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="description_secOnscreenVideoCallText">ویڈیو کال</string>
     <string name="description_secOnscreenViewContactText">روابط کی تفصیل دکھیں</string>
     <string name="device_info_not_available">دستیاب نہیں ہے</string>
-    <string name="dial_warning">Unable to dial.</string>
+    <string name="dial_warning">ڈائل کرنے سے قاصر۔</string>
     <string name="dialling_video_call">ویڈیو کال ڈائل کر رہا ہے</string>
     <string name="dialpad_2_sub_letters">ABC</string>
     <string name="dialpad_3_sub_letters">DEF</string>
@@ -273,8 +275,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="imLabelsGroup">‏IM اکاؤنٹ</string>
     <string name="inCallLabel_Sec">کال</string>
     <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
+    <string name="incall_decline_other_secondary_device">Other secondary device in use.</string>
+    <string name="incall_decline_service_not_allowed">Service not allowed in this location.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">All available lines for (MDN) are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">All available lines for %s are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
+    <string name="incall_decline_transferred_to_another_device">Call has been transferred to another device.</string>
     <string name="incall_error_supp_service_switch">کالیں تبدیل کرنے سے قاصر۔</string>
     <string name="incall_extra_volume_disabled_BT">اضافی والیوم حد استعمال کرنے سے قاصر جس دوران بلیو ٹوتھ ھیڈسیٹ جڑا ہوا ہو۔</string>
     <string name="incall_extra_volume_disabled_HAC">ہیئرنگ ایڈس فعال ہونے کی صورت میں اضافی والیوم فعال کرنے میں ناکام۔</string>
@@ -433,11 +438,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="kt_nomal_quality_video_call_3g">کال کے لئے صرف عام معیار دستیاب ہے۔ دیگر فریق کے آلہ کو 3G نیٹ ورک پر محدود کردیا گیا ہے۔</string>
     <string name="label_notes">نوٹس</string>
     <string name="label_sip_address">انٹرنیٹ کال</string>
-    <string name="legal_popup_content">"Having trouble using time-consuming voice response call centers? IVR(Interactive Voice Response) call screen menu provides the perfect environment to use call centers by displaying the service menu on your screen.
+    <string name="legal_popup_content">"کیا وقت صرف کرنے والے وائس ریسپونس کال سینٹروں کو استعمال کرنے میں پریشانی کا سامنا ہے؟ IVR(تفاعلی وائس ریسپونس) کال اسکرین مینیو آپ کے اسکرین پر خدمت مینیو کو ڈسپلے کر کے کال سینٹرز استعمال کرنے کیلئے مکمل ماحول فراہم کرتا ہے۔
 
-IVR call screen menu uses contents provided by a third party service provider called Dianhuabang. By using IVR call screen menu, you agree to Dianhuabang’s %1$sTerms and Conditions%2$s."</string>
+IVR کال اسکرین مینیو ایک تیسرے فریق خدمت فراہم کنندہ کے فراہم کردہ مشمول استعمال کرتا ہے جس کو Dianhuabang کہا جاتا ہے۔ IVR کال اسکرین مینیو استعمال کرنے سے، آپ Dianhuabang کے %1$sشرائط اور ضوابط%2$s سے متفق ہوتے ہیں۔"</string>
     <string name="legal_popup_terms_conditions">شرائط اور ضوابط</string>
-    <string name="legal_pupup_title">Legal information</string>
+    <string name="legal_pupup_title">قانونی معلومات</string>
     <string name="lock_screen_during_call_double_tab">انلاک کرنے کے لئے دوہری تھپکی دیں</string>
     <string name="long_click_guide">آن/آف کرنے کے لئے ٹیپ کریں اور ہولڈ کریں</string>
     <string name="low_batt_upgrade_disallowed">ویڈیو کال پر سوئچ کرنے سے قاصر۔ بیٹری کمزور۔</string>
@@ -454,7 +459,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="memory_full_msg">کافی میموری نہیں ہے</string>
     <string name="message_greeting">مبارکباد</string>
     <string name="modify_to_video_start">ویڈیو کال پر سوئچ کی درخواست کررہا ہے…</string>
-    <string name="modify_to_voice_start">Switching to voice call…</string>
+    <string name="modify_to_voice_start">صوتی کال میں تبدیل کیا جارہا ہے…</string>
     <string name="msg_for_video_show_never_again">کچھ فائل اوضاع کی تائید نہیں کرتا۔ صرف تائید شدہ فائلیں گیلری میں دکھائی جائیں گی۔</string>
     <string name="mt_vt_not_possible">%s cannot receive video calls at this time. You will now be connected through a voice call.</string>
     <string name="nameLabelsGroup">نام</string>
@@ -471,7 +476,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="name_suffix">نام کے بعد</string>
     <string name="network_message_no_answer">جواب نہیں</string>
     <string name="nicknameLabelsGroup">نک نام</string>
-    <string name="not_enable_to_video">Video calls are not available while Emergency mode is enabled.</string>
+    <string name="not_enable_to_video">ایمرجنسی موڈ اہل ہوجانے کے وقت ویڈیو کالز دستیاب نہیں ہیں۔</string>
     <string name="not_enable_to_video_emergencymode">ایمرجنسی موڈ اہل ہونے پر ویڈیو کال کرنے یا وصول کرنے سے قاصر۔</string>
     <string name="notification_action_answer">جواب دیں</string>
     <string name="notification_of_sub_number_empty_body">متبادل نمبرز دیکھنے کے لیے، SIM کارڈ ملٹی-نمبر خدمت کے رکن بنیں اور دوبارہ کوشش کریں۔</string>
@@ -494,10 +499,11 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="outgoing_img_video">ویڈیوز</string>
     <string name="payphone_sbm">پے فون</string>
     <string name="phoneLabelsGroup">فون</string>
+    <string name="phone_voice_recording_failed_by_secure_call">محفوظ کال ریکارڈ نہیں کرسکتے۔</string>
     <string name="phonetype_additional">اضافی نمبر</string>
-    <string name="photoring_block_toast">اس رابطے کو فوٹو رِنگ کے ذریعے آپ تک میڈیا بھیجنے سے روک دیا گیا ہے۔</string>
-    <string name="photoring_toast_mobile_data_off">دوسرے فریق کی جانب سے بھیجا گیا ایسا فوٹورنک مواد بھی ہو سکتا ہے جسے آپ نہیں دیکھ سکتے کیونکہ موبائل ڈیٹا رسائی مسدود ہے۔</string>
-    <string name="photoring_unblock_toast">اس رابطے کو فوٹو رِنگ کے ذریعے آپ تک میڈیا بھیجنے کے لیے کھول دیا گیا ہے۔</string>
+    <string name="photoring_block_toast">اس رابطہ کو فوٹو رِنگ کے ذریعے آپ تک میڈیا بھیجنے سے روک دیا گیا ہے۔</string>
+    <string name="photoring_toast_mobile_data_off">دوسرے فریق کی جانب سے بھیجا گیا ایسا فوٹورنک مشمول بھی ہو سکتا ہے جسے آپ نہیں دیکھ سکتے کیونکہ موبائل ڈیٹا رسائی مسدود ہے۔</string>
+    <string name="photoring_unblock_toast">اس رابطہ کو فوٹو رِنگ کے ذریعے آپ تک میڈیا بھیجنے کے لیے کھول دیا گیا ہے۔</string>
     <string name="photoring_unblock_toast_2nd">اس رابطہ سے بھیجی گئی میڈیا آپ کو اگلی مرتبہ موصول ہوگی جب وہ آپ کو کال کریں گے</string>
     <string name="popup_start_record_during_alerting">کال جڑنے کے بعد ریکارڈنگ شروع ہوگی۔</string>
     <string name="postalLabelsGroup">ایڈریس</string>
@@ -511,7 +517,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="prepareOtherVideo">ویڈیو تصویر کی تیاری کررہا ہے…</string>
     <string name="previous_call_is_held_when_you_accept_call">آپ کے نئی کال قبول کرنے پر موجودہ کال ھولڈ پر رکھ دی جائے گی</string>
     <string name="private_num_cdma">محدود</string>
-    <string name="private_num_sbm">Withheld number</string>
+    <string name="private_num_sbm">روکا ہوا نمبر</string>
     <string name="quick_panel_title_video_call">ویڈیو کال</string>
     <string name="quick_panel_title_voice_call">وائس کال</string>
     <string name="quick_panel_title_volte_call">‏VoLTE کال</string>
@@ -536,8 +542,13 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="recently_use_sim_for_callback">فی الحال SIM استعمال کیا گیا</string>
     <string name="record_notification_button_text_close">بند کریں</string>
     <string name="record_notification_button_text_record_list">ریکارڈنگز</string>
+    <string name="record_notification_button_text_storage">ذخیرہ</string>
     <string name="record_notification_content">اپنے ریکارڈ کردہ کالز کو دیکھنے کے لیے [ریکارڈنگز] پر تھپکی دیں۔</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">آپ کے آلہ کا ذخیرہ مکمل ہے۔ کال کے ریکارڈنگ کا ایک جزو محفوظ ہوگيا ہے۔</string>
+    <string name="record_notification_content_unable_to_record">آپ کے آلے کے ذخیرہ میں کافی جگہ نہیں ہے۔ کچھ فائلز حذف کریں اور دوبارہ کوشش کریں۔</string>
     <string name="record_notification_title">ریکارڈ کردہ کال</string>
+    <string name="record_notification_title_not_to_record_entire_call">تمام کال ریکارڈ نہیں کی گئی ہے</string>
+    <string name="record_notification_title_unable_to_record">کال ریکارڈ کرنے سے قاصر</string>
     <string name="record_text">ریکارڈ</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -611,7 +622,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="secOnscreenMenuSwitchToPhoneText_tmo">فون پر منتقل کریں</string>
     <string name="secOnscreenMenuSwitchToVideoCallText">وڈیو کال میں تبدل کریں</string>
     <string name="secOnscreenMenuSwitchToVoiceCallText">صوتی کال پر سوئچ کریں</string>
-    <string name="secOnscreenMenuSwitchVideoDisplay">Switch video displays</string>
+    <string name="secOnscreenMenuSwitchVideoDisplay">ویڈیو ڈسپلے کو سوئچ کریں</string>
     <string name="secOnscreenMenuUnmuteText">آواز بحال</string>
     <string name="secOnscreenMenuVideoConfCallText">نئے شریک کو مدعو کریں</string>
     <string name="secOnscreenMenuViewInFullScreenText">پوری سکرین میں دیکھیں</string>
@@ -652,11 +663,12 @@ Camera"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">فہرست کھولنے کیلئے دو بار تھپتھپائیں۔</string>
     <string name="sec_showme_text">مجھے دکھائیں</string>
     <string name="second_screen_hold_text">%d ہولڈ پر</string>
+    <string name="section_contacts_only_summary">Create and manage contacts.</string>
     <string name="select_callback_sim_card">کال بیک SIM کارڈ منتخب کریں</string>
     <string name="select_callback_sim_card_content">اس نمبر سے آخری کال یا پیغام کالز کے لیے ترجیحی SIM کارڈ کا استعمال نہیں ہوا ہے۔ استعمال کے لیے SIM کارڈ منتخب کریں۔</string>
     <string name="select_from_gallery">گیلری سے منتخب کریں</string>
     <string name="select_sim_for_call">کال کرنے کیلئے SIM منتخب کریں</string>
-    <string name="send_file_via_filetransfer">فائل شراکت براستہ فائل منتقلی</string>
+    <string name="send_file_via_filetransfer">فائل شیئر براستہ فائل منتقلی</string>
     <string name="send_msg">پیغام بھیجیں</string>
     <string name="settings_defalut_glance_reply">میں ابھی آپ کی کال کا جواب نہیں دے سکتا۔ میں آپ سے جلد ہی بات کروں گا۔</string>
     <string name="settings_glance_reply">فوری جواب</string>
@@ -693,10 +705,10 @@ Camera"</string>
     <string name="spam_call_reported_as">بطور %s رپورٹ کردہ</string>
     <string name="spam_call_resported_as_by_you">Reported as %s by you</string>
     <string name="spam_call_resported_count">(%d بار)</string>
-    <string name="spam_call_type_and_count">Reported as %1$s %2$d times</string>
+    <string name="spam_call_type_and_count">%1$s %2$d اوقات کے طورپر رپورٹ کی گئی</string>
     <string name="sub_number_item">متبادل %d</string>
-    <string name="suguden_guide_do_not_show_again_dcm">Do not show again</string>
-    <string name="suguden_guide_main_text_dcm">Answer the call by bringing the device close to your ear.</string>
+    <string name="suguden_guide_do_not_show_again_dcm">دوبارہ نہ دکھائیں</string>
+    <string name="suguden_guide_main_text_dcm">آلہ کو اپنے کان کے قریب لاکر کال کا جواب دیں۔</string>
     <string name="swipe_left">بائیں سوائپ کریں۔</string>
     <string name="swipe_right">دائيں سوائپ کریں۔</string>
     <string name="swipe_right_to_answer_call_with_video">ویڈیو کال کا جواب دینے کے لیے دائیں سوائپ کریں۔</string>
@@ -778,7 +790,7 @@ Your video call is now running on the mobile network. (Data usage applies if you
     <string name="video_calls_temporarily_not_available_tmo">Video calling is unavailable.</string>
     <string name="video_paused_info_text">Video paused</string>
     <string name="video_saved">ویڈیو %s میں محفوظ ہو گیا۔</string>
-    <string name="video_saved_by_memory_full">آلہ میں کافی اسٹوریج نہیں ہے۔ ویڈیو %s میں محفوظ ہو گیا۔</string>
+    <string name="video_saved_by_memory_full">آلہ میں کافی ذخیرہ نہیں ہے۔ ویڈیو %s میں محفوظ ہو گیا۔</string>
     <string name="voiceonly">Voice only</string>
     <string name="waiting_call_dialog_Ending">%s کے ساتھ کال ختم کریں</string>
     <string name="waiting_call_dialog_Holding">%s کو ہولڈ پر رکھیں</string>

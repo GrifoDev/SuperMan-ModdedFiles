@@ -191,7 +191,7 @@
 
     new-instance v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;
 
-    const v4, 0x7f0f0458
+    const v4, 0x7f0f0459
 
     const/4 v5, 0x0
 

@@ -119,6 +119,8 @@
     <string name="BirthDay_remainedDays1">Gimtadienis rytoj</string>
     <string name="BirthDay_remainedDays7">Gimtadienis po 1 sav.</string>
     <string name="BirthDay_remainedDaysEtc">Gimtadienis po %d d.</string>
+    <string name="DivertToVoice_disable">Vaizdo skambučiai šiuo numeriu negalimi. Bandyti atlikti balso skambutį dabar?</string>
+    <string name="DivertToVoice_enable">Vaizdo skambučiai šiuo numeriu negalimi. Perjungiama į balso skambutį…</string>
     <string name="Lunar_anniversary_passedDays1">Mėnulio sukaktis vakar</string>
     <string name="Lunar_anniversary_remainedDays0">Mėnulio suk.: Šiandien</string>
     <string name="Lunar_anniversary_remainedDays1">Mėnulio sukak.: Ryt</string>
@@ -145,7 +147,7 @@
     <string name="add_reminder">Prid. primin.</string>
     <string name="agree">Sutikti</string>
     <string name="am_cover_toggle_string">Atidar. dangt. ir atsil. / atmest. skambutį.</string>
-    <string name="am_device_memory_full_warning">Unable to use Auto answer with message. There is not enough space in your device storage to save voice messages. Delete some items and try again.</string>
+    <string name="am_device_memory_full_warning">Pranešimams naudoti automatinio atsakymo negalima. Įrenginio saugykloje nepakanka vietos balso pranešimams. Ištrinkite kelis elementus ir bandykite dar kartą.</string>
     <string name="another_device_pickup_message">Another device picked up this call.</string>
     <string name="answering_memo_Playing_text">Leidžiama atsiliepimo žinutė…</string>
     <string name="answering_memo_Recording_text">Įrašoma žinutė…</string>
@@ -160,8 +162,8 @@
     <string name="call_drug_up_panel_for_kk">Vilkdami mygtuką SIŲSTI ŽINUTĘ aukštyn greitai išsiųsite žinutę ir atmesite skambutį.</string>
     <string name="call_drug_up_panel_for_kk_tts">Vilkite aukštyn atmetamą skambutį su pranešimų skydeliu, kad atmetus gaunamą skambutį būtų išsiųsta skambučio atmetimo žinutė.</string>
     <string name="call_ended_toast">Pokalbis baigtas.</string>
-    <string name="call_forwarded_to">Call forwarded to:</string>
-    <string name="call_forwarding_from">Call forwarded from:</string>
+    <string name="call_forwarded_to">Skambutis peradresuotas:</string>
+    <string name="call_forwarding_from">Skambutis peradresuotas iš:</string>
     <string name="call_incoming_voice_call2">Jei norite atsiliepti į skambutį, bakstelėkite %s.</string>
     <string name="call_incoming_voice_call2_tts">Bakstelėkite atsiliepimo mygtuką ir atsiliepkite.</string>
     <string name="call_incoming_voice_call3">Bakst. %s ir atmesk. skambutį.</string>
@@ -186,20 +188,20 @@
     <string name="call_menu_during_call_list6_tts">Bakstelėkite papildomo garsumo mygtuką ir padidinkite garsumą.</string>
     <string name="call_menu_during_call_list7">Jei norite skambinti kitam asmeniui ir pridėti jį prie dabartinio skambučio, bakstelėkite %s.</string>
     <string name="call_menu_during_call_list7_tts">Jei norite skambinti kitam asmeniui ir pridėti jį prie dabartinio skambučio, bakstelėkite pridėjimo mygtuką.</string>
-    <string name="call_out_duration">Call out duration</string>
+    <string name="call_out_duration">Iškvietimo trukmė</string>
     <string name="call_twophone_one_phone">Pradinis numeris</string>
     <string name="call_twophone_two_phone">Kitas numeris</string>
     <string name="caller_info_card_last_call_log_title">Vėliausias skam.</string>
     <string name="caller_info_card_last_message_title">Vėliausios žinutės</string>
     <string name="caller_info_card_memo_title">Įrašas sukurtas skambučio metu</string>
-    <string name="callsettings_hold_key_record_calls_notify">Press and hold Hold key to start or stop recording</string>
+    <string name="callsettings_hold_key_record_calls_notify">Paspauskite ir laikykite nuspaudę sulaikymo mygtuką, jei norite pradėti arba sustabdyti įrašymą</string>
     <string name="callsettings_rejectmessage_list1">Atsiprašau, negaliu kalbėti. Skambinkite vėliau.</string>
     <string name="callsettings_rejectmessage_list2">Aš susitikime.</string>
     <string name="callsettings_rejectmessage_list3">Esu paskaitoje.</string>
     <string name="callsettings_rejectmessage_list4">Esu kine.</string>
     <string name="callsettings_rejectmessage_list5">Vairuoju.</string>
-    <string name="camera_off">Camera turned off.</string>
-    <string name="camera_on">Camera turned on.</string>
+    <string name="camera_off">Fotoaparatas išjungtas.</string>
+    <string name="camera_on">Fotoaparatas įjungtas.</string>
     <string name="camera_security_enter">Saugos strategija riboja naudojimąsi fotoaparatu.</string>
     <string name="camera_start_failed">Fotoaparatas neveikia.</string>
     <string name="cancel">Atšaukti</string>
@@ -247,7 +249,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="description_secOnscreenVideoCallText">Vaizdo skambutis</string>
     <string name="description_secOnscreenViewContactText">Peržiūrėti informaciją apie adresatą</string>
     <string name="device_info_not_available">Neprieinamas</string>
-    <string name="dial_warning">Unable to dial.</string>
+    <string name="dial_warning">Negalima paskambinti.</string>
     <string name="dialling_video_call">Jungiamas vaizdo skambutis</string>
     <string name="dialpad_2_sub_letters">ABC</string>
     <string name="dialpad_3_sub_letters">DEF</string>
@@ -300,8 +302,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="imLabelsGroup">IM paskyra</string>
     <string name="inCallLabel_Sec">Skambutis</string>
     <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
+    <string name="incall_decline_other_secondary_device">Other secondary device in use.</string>
+    <string name="incall_decline_service_not_allowed">Service not allowed in this location.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">All available lines for (MDN) are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">All available lines for %s are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
+    <string name="incall_decline_transferred_to_another_device">Call has been transferred to another device.</string>
     <string name="incall_error_supp_service_switch">Skambučių perjungti neįmanoma.</string>
     <string name="incall_extra_volume_disabled_BT">Neįmanoma naudoti papildomo garso diapazono, kai prijungtos „Bluetooth“ ausinės.</string>
     <string name="incall_extra_volume_disabled_HAC">Įjungus klausos aparatą funkcijos „Papildomas garsumas“ neįmanoma įjungti.</string>
@@ -312,7 +317,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="incall_popup_call_remove_title_vzw">Hide shortcut</string>
     <string name="incall_popup_ended">Baigta</string>
     <string name="incall_spam_call_block">Blokuoti numerį</string>
-    <string name="incall_spam_call_reject">Add to Black list</string>
+    <string name="incall_spam_call_reject">Įtraukti į juodąjį sąr.</string>
     <string name="incall_spam_call_reject_toast">Telefono numeris pridėtas prie blokuojamųjų sąrašo.</string>
     <string name="incall_spam_call_report">Pranešt apie nr.</string>
     <string name="incall_transfer_call">Perkelti skambutį</string>
@@ -460,11 +465,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="kt_nomal_quality_video_call_3g">Skambutis gali būti tik įprastos kokybės. Kitos šalies prietaisui draudžiama naudotis 3G tinklu.</string>
     <string name="label_notes">Pastabos</string>
     <string name="label_sip_address">Internetinis skambutis</string>
-    <string name="legal_popup_content">"Having trouble using time-consuming voice response call centers? IVR(Interactive Voice Response) call screen menu provides the perfect environment to use call centers by displaying the service menu on your screen.
+    <string name="legal_popup_content">"Kyla problemų naudojant daug laiko užimančius balso atsakus skambučių centruose? Su IVR (interaktyvusis balso atsakas) skambučių centrais naudotis paprasčiau, nes paslaugų meniu gali būti rodomas skambučio ekrane.
 
-IVR call screen menu uses contents provided by a third party service provider called Dianhuabang. By using IVR call screen menu, you agree to Dianhuabang’s %1$sTerms and Conditions%2$s."</string>
+IVR skambučių ekrano meniu naudoja turinį, teikiamą trečiosios šalies – „Dianhuabang“. Naudodamiesi IVR skambučių ekrano meniu patvirtinate, kad sutinkate su „Dianhuabang“ %1$ssąlygomis ir nuostatomis%2$s."</string>
     <string name="legal_popup_terms_conditions">Nuostatos ir sąlygos</string>
-    <string name="legal_pupup_title">Legal information</string>
+    <string name="legal_pupup_title">Teisinė informacija</string>
     <string name="lock_screen_during_call_double_tab">Bakstelėkite dukart, kad atrakintumėte</string>
     <string name="long_click_guide">Bakstelėkite ir laikykite, kad įjungtumėte / išjungtumėte</string>
     <string name="low_batt_upgrade_disallowed">Neįmanoma perjungti vaizdo skambučio. Senka akumuliatorius.</string>
@@ -481,7 +486,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="memory_full_msg">Nepakanka atminties</string>
     <string name="message_greeting">Pasisveikinimas</string>
     <string name="modify_to_video_start">Prašoma įjungti vaizdo skambutį…</string>
-    <string name="modify_to_voice_start">Switching to voice call…</string>
+    <string name="modify_to_voice_start">Įjungiamas balso skambutis…</string>
     <string name="msg_for_video_show_never_again">Kai kurie failų formatai nepalaikomi. Galerijoje bus rodomi tik palaikomi failai.</string>
     <string name="mt_vt_not_possible">%s cannot receive video calls at this time. You will now be connected through a voice call.</string>
     <string name="nameLabelsGroup">Vardas</string>
@@ -498,7 +503,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="name_suffix">Vardo sufiksas</string>
     <string name="network_message_no_answer">Neatsako</string>
     <string name="nicknameLabelsGroup">Slapyvardis</string>
-    <string name="not_enable_to_video">Video calls are not available while Emergency mode is enabled.</string>
+    <string name="not_enable_to_video">Kol įjungtas pavojaus režimas, vaizdo skambučiais naudotis negalima.</string>
     <string name="not_enable_to_video_emergencymode">Veikiant pavojaus režimui negalima atlikti ar priimti vaizdo skambučių.</string>
     <string name="notification_action_answer">Atsiliepti</string>
     <string name="notification_of_sub_number_empty_body">Norėdami peržiūrėti alternatyvius numerius, užsakykite SIM kortelei kelių numerių paslaugą ir bandykite dar kartą.</string>
@@ -508,7 +513,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="onscreenBluetoothTextOn_att">Prisijungti prie telefono</string>
     <string name="onscreenBluetoothTextOn_tmo">Prisijungti prie telefono</string>
     <string name="onscreenWebexText">WebEx</string>
-    <string name="open_folder_for_speakeroff">To turn off the speakerphone, open the flip phone.</string>
+    <string name="open_folder_for_speakeroff">Jei norite išjungti garsiakalbį, atidarykite telefono dangtelį.</string>
     <string name="open_the_cover">Atidaryti dangtelį.</string>
     <string name="open_the_cover_incoming">Atidarykite viršelį ir atsiliepkite ar atmeskite vaizdo skambutį.</string>
     <string name="open_the_cover_modify_call">Šalis, kuriai skambinama, nori įjungti vaizdo skambutį. Jei norite priimti / atšaukti užklausą, atidarykite dangtelį.</string>
@@ -521,6 +526,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="outgoing_img_video">Vaizdo įrašai</string>
     <string name="payphone_sbm">Telefono automatas</string>
     <string name="phoneLabelsGroup">Telefonas</string>
+    <string name="phone_voice_recording_failed_by_secure_call">Negalima įrašyti saugaus skambučio.</string>
     <string name="phonetype_additional">Papildomas numeris</string>
     <string name="photoring_block_toast">Adresatas užblokuotas ir jam neleidžiama jums siųsti medijos per nuotraukų žiedą.</string>
     <string name="photoring_toast_mobile_data_off">Tai gali būti „Photoring“ turinys, kurį atsiuntė kita šalis ir kurio jūs negalite matyti dėl užblokuotos mobiliųjų duomenų prieigos.</string>
@@ -538,7 +544,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="prepareOtherVideo">Ruošiamas vaizdo įrašo vaizdas…</string>
     <string name="previous_call_is_held_when_you_accept_call">Dabartinis skambutis bus sulaikytas, kai atsiliepsite į kitą skambutį.</string>
     <string name="private_num_cdma">Apribota</string>
-    <string name="private_num_sbm">Withheld number</string>
+    <string name="private_num_sbm">Sulaikytas numeris</string>
     <string name="quick_panel_title_video_call">Vaizdo skambutis</string>
     <string name="quick_panel_title_voice_call">Balso skambutis</string>
     <string name="quick_panel_title_volte_call">„VoLTE“ skambutis</string>
@@ -563,8 +569,13 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="recently_use_sim_for_callback">Neseniai naudota SIM</string>
     <string name="record_notification_button_text_close">Uždaryti</string>
     <string name="record_notification_button_text_record_list">Įrašai</string>
+    <string name="record_notification_button_text_storage">Saugykla</string>
     <string name="record_notification_content">Bakstelėkite ĮRAŠAI ir peržiūrėkite įrašytus skambučius.</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">Jūsų įrenginio atmintis pilna. Išsaugotas dalinis skambučių įrašas.</string>
+    <string name="record_notification_content_unable_to_record">Įrenginio atmintyje nepakanka vietos. Ištrinkite kelis failus ir bandykite vėl.</string>
     <string name="record_notification_title">Skambutis įrašytas</string>
+    <string name="record_notification_title_not_to_record_entire_call">Visas pokalbis nebuvo įrašytas</string>
+    <string name="record_notification_title_unable_to_record">Neįmanoma įrašyti skambučio</string>
     <string name="record_text">ĮRAŠ.</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -639,7 +650,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="secOnscreenMenuSwitchToPhoneText_tmo">Prisijungti prie telefono</string>
     <string name="secOnscreenMenuSwitchToVideoCallText">Perjungti į vaizdo skambutį</string>
     <string name="secOnscreenMenuSwitchToVoiceCallText">Perjung. balso skam.</string>
-    <string name="secOnscreenMenuSwitchVideoDisplay">Switch video displays</string>
+    <string name="secOnscreenMenuSwitchVideoDisplay">Vaizdo ekranų perjungimas</string>
     <string name="secOnscreenMenuUnmuteText">Įjungti garsą</string>
     <string name="secOnscreenMenuVideoConfCallText">Pakviesti naują dalyvį</string>
     <string name="secOnscreenMenuViewInFullScreenText">Peržiūrėti visame ekrane</string>
@@ -680,6 +691,7 @@ Camera"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">Bakstelėkite du kartus ir atidarykite sąrašą.</string>
     <string name="sec_showme_text">Rodyti</string>
     <string name="second_screen_hold_text">%d sulaik.</string>
+    <string name="section_contacts_only_summary">Create and manage contacts.</string>
     <string name="select_callback_sim_card">Pasirinkite perskambinimo SIM kortelę</string>
     <string name="select_callback_sim_card_content">Paskutiniam skambučiui ar žinutei į arba iš šio numerio nebuvo naudojama skambučiais pageidaujama SIM kortelė. Pasirinkite, kurią SIM kortelę naudoti.</string>
     <string name="select_from_gallery">Rinktis iš galerijos</string>
@@ -719,12 +731,12 @@ Camera"</string>
     <string name="spam_call_report_dialog_spam">Šlamštas</string>
     <string name="spam_call_report_dialog_taxis">Taksi</string>
     <string name="spam_call_reported_as">Pranešta kaip apie %s</string>
-    <string name="spam_call_resported_as_by_you">Reported as %s by you</string>
+    <string name="spam_call_resported_as_by_you">Jūs pranešėte kaip %s</string>
     <string name="spam_call_resported_count">(%d kart.)</string>
-    <string name="spam_call_type_and_count">Reported as %1$s %2$d times</string>
+    <string name="spam_call_type_and_count">Pranešta kaip %1$s %2$d kartus (-ų)</string>
     <string name="sub_number_item">Alternatyvus %d</string>
-    <string name="suguden_guide_do_not_show_again_dcm">Do not show again</string>
-    <string name="suguden_guide_main_text_dcm">Answer the call by bringing the device close to your ear.</string>
+    <string name="suguden_guide_do_not_show_again_dcm">Neberodyti</string>
+    <string name="suguden_guide_main_text_dcm">Atsiliepkite į skambutį pakeldami ragelį prie ausies.</string>
     <string name="swipe_left">Braukite kairėn.</string>
     <string name="swipe_right">Braukite dešinėn.</string>
     <string name="swipe_right_to_answer_call_with_video">Jei norite skambinti su vaizdu, braukite į dešinę.</string>
@@ -815,5 +827,5 @@ Your video call is now running on the mobile network. (Data usage applies if you
     <string name="waiting_call_dialog_dismiss_toast">Pokalbį baigė %1$s. Skambutis su %2$s atnaujinamas…</string>
     <string name="waiting_call_dialog_message">Atsiliepti į skambutį</string>
     <string name="websiteLabelsGroup">Tinklalapio adresas</string>
-    <string name="yellow_pages">Yellow Pages</string>
+    <string name="yellow_pages">Geltonieji puslapiai</string>
 </resources>

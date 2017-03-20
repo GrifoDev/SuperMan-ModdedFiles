@@ -92,6 +92,8 @@
     <string name="BirthDay_remainedDays1">Ծննդյան օրը՝ վաղը</string>
     <string name="BirthDay_remainedDays7">Ծննդյան օր՝ 1 շաբաթից</string>
     <string name="BirthDay_remainedDaysEtc">Ծննդյան օր՝ %d օրից</string>
+    <string name="DivertToVoice_disable">Տեսազանգերը մատչելի չեն այս համարի համար. փոխարենը հիմա փորձե՞լ ձայնազանգ</string>
+    <string name="DivertToVoice_enable">Տեսազանգերը մատչելի չեն այս համարի համար. փոխվում է ձայնազանգի…</string>
     <string name="Lunar_anniversary_passedDays1">Լուսնային տարեդարձ՝ երեկ</string>
     <string name="Lunar_anniversary_remainedDays0">Լուսն. տարեդարձ՝ այսօր</string>
     <string name="Lunar_anniversary_remainedDays1">Լուսն. տարեդարձ՝ վաղը</string>
@@ -118,7 +120,7 @@
     <string name="add_reminder">Ավլցնել հշցմ</string>
     <string name="agree">Հմձայն եմ</string>
     <string name="am_cover_toggle_string">Բացեք շապիկը՝ կանչին պատասխ. կամ մերժ. հր:</string>
-    <string name="am_device_memory_full_warning">Unable to use Auto answer with message. There is not enough space in your device storage to save voice messages. Delete some items and try again.</string>
+    <string name="am_device_memory_full_warning">Անհնար է օգտագործել Ինքնապատասխան՝ հաղորդագրությամբ: Ձեր սարքի պահոցում բավարար տեղ չկա ձայնահաղորդագրությունները պահպանելու համար: Վերացրեք որոշ տարրեր և նորից փորձեք:</string>
     <string name="another_device_pickup_message">Another device picked up this call.</string>
     <string name="answering_memo_Playing_text">Նվագարկվում է պատասխանի հաղորդագրությունը…</string>
     <string name="answering_memo_Recording_text">Գրանցվում է հաղորդագրությունը…</string>
@@ -133,8 +135,8 @@
     <string name="call_drug_up_panel_for_kk">ՈՒՂԱՐԿԵԼ ՀԱՂՈՐԴԱԳՐՈՒԹՅՈՒՆ կոճակը քարշեք վեր՝ արագ հղգրն ուղարկելու և մտ. կանչ մերժելու հր:</string>
     <string name="call_drug_up_panel_for_kk_tts">«Մերժել կանչը հաղորդագրությամբ» վահանակը քարշեք դեպի վեր՝ կանչի մերժման հաղորդագրություն ուղարկելու համար, եթե մտից կանչ եք մերժում:</string>
     <string name="call_ended_toast">Զանգն ավարտված է:</string>
-    <string name="call_forwarded_to">Call forwarded to:</string>
-    <string name="call_forwarding_from">Call forwarded from:</string>
+    <string name="call_forwarded_to">Կանչը փոխանցվել է այս համարին՝</string>
+    <string name="call_forwarding_from">Կանչը փոխանցողը՝</string>
     <string name="call_incoming_voice_call2">Թակեք %s՝ կանչին պատասխանելու համար:</string>
     <string name="call_incoming_voice_call2_tts">Թակեք «պատասխանել կանչին» կոճակը՝ կանչին պատասխանելու համար:</string>
     <string name="call_incoming_voice_call3">Թակեք %s՝ կանչ մերժելու համար:</string>
@@ -159,20 +161,20 @@
     <string name="call_menu_during_call_list6_tts">Հպեք լրացուցիչ ձայնի կոճակը` ձայնը բարձրացնելու համար:</string>
     <string name="call_menu_during_call_list7">Թակեք %s՝ մեկ այլ անձի զանգահարելու և նրան ընթացիկ կանչին ավելացնելու համար:</string>
     <string name="call_menu_during_call_list7_tts">Թակեք «ավելացնել կանչ» կոճակը՝ մեկ այլ անձի զանգահարելու և նրան ընթացիկ կանչին ավելացնելու համար:</string>
-    <string name="call_out_duration">Call out duration</string>
+    <string name="call_out_duration">Պատասխան կանչի տևողությունը</string>
     <string name="call_twophone_one_phone">Սկզբնական համար</string>
     <string name="call_twophone_two_phone">Երկրորդ համարը</string>
     <string name="caller_info_card_last_call_log_title">Ամենավերջին կանչ</string>
     <string name="caller_info_card_last_message_title">Վերջին հաղորդագրությունը</string>
     <string name="caller_info_card_memo_title">Հուշագիր է ստեղծվել կանչի ընթացքում</string>
-    <string name="callsettings_hold_key_record_calls_notify">Press and hold Hold key to start or stop recording</string>
+    <string name="callsettings_hold_key_record_calls_notify">Տեսագրումը սկսելու կամ դադարեցնելու համար սեղմեք և պահեք «Պահել» ստեղնը</string>
     <string name="callsettings_rejectmessage_list1">Կներեք, այս պահին չեմ կարող խոսել: Նորից զանգեք ավելի ուշ:</string>
     <string name="callsettings_rejectmessage_list2">Ես հանդիպման եմ:</string>
     <string name="callsettings_rejectmessage_list3">Ես դասարանում եմ:</string>
     <string name="callsettings_rejectmessage_list4">Ես կինոյում եմ:</string>
     <string name="callsettings_rejectmessage_list5">Ես վարում եմ:</string>
-    <string name="camera_off">Camera turned off.</string>
-    <string name="camera_on">Camera turned on.</string>
+    <string name="camera_off">Խցիկն անջատված է:</string>
+    <string name="camera_on">Խցիկը միացված է:</string>
     <string name="camera_security_enter">Անվտանգության քաղաքականությունը սահմանափակում է Խցիկի օգտագործումը:</string>
     <string name="camera_start_failed">Տեսախցիկը ձախողվեց:</string>
     <string name="cancel">Չեղարկել</string>
@@ -220,7 +222,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="description_secOnscreenVideoCallText">Վիդեո կանչ</string>
     <string name="description_secOnscreenViewContactText">Դիտել կոնտակտի մանրամասները</string>
     <string name="device_info_not_available">Մատչելի չէ</string>
-    <string name="dial_warning">Unable to dial.</string>
+    <string name="dial_warning">Անհնար է համարը հավաքել:</string>
     <string name="dialling_video_call">Տեսականչի կատարում</string>
     <string name="dialpad_2_sub_letters">ABC</string>
     <string name="dialpad_3_sub_letters">DEF</string>
@@ -273,8 +275,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="imLabelsGroup">IM հաշիվ</string>
     <string name="inCallLabel_Sec">Զանգ</string>
     <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
+    <string name="incall_decline_other_secondary_device">Other secondary device in use.</string>
+    <string name="incall_decline_service_not_allowed">Service not allowed in this location.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">All available lines for (MDN) are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">All available lines for %s are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
+    <string name="incall_decline_transferred_to_another_device">Call has been transferred to another device.</string>
     <string name="incall_error_supp_service_switch">Անհնար է փոխանջատել կանչերը:</string>
     <string name="incall_extra_volume_disabled_BT">Անհնար է օգտագործել ձայնի լրացուցիչ ուժգնության տիրույթը, երբ Bluetooth գլխային հեռախոսը միացված է:</string>
     <string name="incall_extra_volume_disabled_HAC">Անհնար է ընձեռել Ձայնի լրացուցիչ ուժգնություն, երբ Լսողական ապարատներն ընձեռված են:</string>
@@ -285,7 +290,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="incall_popup_call_remove_title_vzw">Hide shortcut</string>
     <string name="incall_popup_ended">Ավարտվեց</string>
     <string name="incall_spam_call_block">Արգլփակել համարը</string>
-    <string name="incall_spam_call_reject">Add to Black list</string>
+    <string name="incall_spam_call_reject">Ավելացնել Սև ցուցակին</string>
     <string name="incall_spam_call_reject_toast">Հեռախոսահամարն ավելացվեց Արգելափակվածների ցանկում:</string>
     <string name="incall_spam_call_report">Հղրդլ հմրի մասին</string>
     <string name="incall_transfer_call">Փոխանցել կանչը</string>
@@ -433,11 +438,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="kt_nomal_quality_video_call_3g">Միայն նորմալ որակ է մատչելի կանչի համար: Մյուս կողմի սարքը սահմանափակված է 3G ցանցով:</string>
     <string name="label_notes">Նշումներ</string>
     <string name="label_sip_address">Ինտերնետային կանչ</string>
-    <string name="legal_popup_content">"Having trouble using time-consuming voice response call centers? IVR(Interactive Voice Response) call screen menu provides the perfect environment to use call centers by displaying the service menu on your screen.
+    <string name="legal_popup_content">"Դժվարանու՞մ եք օգտվել ձայնային պատասխանի համակարգով աշխատող ժամանակատար հեռախոսային կենտրոններից: IVR (Interactive Voice Response - ինտերակտիվ ձայնային պատասխան) կանչի էկրանի ընտրացանկը, ցուցադրելով ծառայության ընտրացանկը էկրանին, կատարյալ միջավայր է ապահովում հեռախոսային կենտրոններից օգտվելու համար:
 
-IVR call screen menu uses contents provided by a third party service provider called Dianhuabang. By using IVR call screen menu, you agree to Dianhuabang’s %1$sTerms and Conditions%2$s."</string>
+IVR կանչի էկրանի ընտրացանկն օգտագործում է երրորդ կողմ հանդիսացող ծառայության մատակարարի՝ Dianhuabang ընկերության տրամադրած բովանդակությունը: Օգտագործելով IVR կանչի էկրանի ընտրացանկը՝ դուք ընդունում եք Dianhuabang-ի %1$sԴրույթները և պայմանները%2$s:"</string>
     <string name="legal_popup_terms_conditions">Դրույթներ և պայմաններ</string>
-    <string name="legal_pupup_title">Legal information</string>
+    <string name="legal_pupup_title">Իրավական տեղեկություններ</string>
     <string name="lock_screen_during_call_double_tab">Կրկնակի թակեք արգելաբացելու համար</string>
     <string name="long_click_guide">Թակեք և պահեք՝ միացնելու կամ անջատելու համար</string>
     <string name="low_batt_upgrade_disallowed">Անհնար է փոխել տեսազանգի: Մարտկոցը նստած է:</string>
@@ -454,7 +459,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="memory_full_msg">Հիշողություն բավ. չէ</string>
     <string name="message_greeting">Ողջույն</string>
     <string name="modify_to_video_start">Կատարվում է տեսազանգի փոխելու հարցում…</string>
-    <string name="modify_to_voice_start">Switching to voice call…</string>
+    <string name="modify_to_voice_start">Փոխվում է ձայնականչի…</string>
     <string name="msg_for_video_show_never_again">Ֆայլի որոշ ձևաչափեր ապահովված չեն: Միայն ապահովվող ֆայլերը կցուցադրվեն Պատկերասրահում:</string>
     <string name="mt_vt_not_possible">%s cannot receive video calls at this time. You will now be connected through a voice call.</string>
     <string name="nameLabelsGroup">Անուն</string>
@@ -471,7 +476,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="name_suffix">Անվան վերջածանց</string>
     <string name="network_message_no_answer">Պատասխան չկա</string>
     <string name="nicknameLabelsGroup">Մականուն</string>
-    <string name="not_enable_to_video">Video calls are not available while Emergency mode is enabled.</string>
+    <string name="not_enable_to_video">Տեսականչերը մատչելի չեն, քանի դեռ Արտակարգ իրավիճակի ռեժիմն ընձեռված է:</string>
     <string name="not_enable_to_video_emergencymode">Անհնար է տեսականչեր կատարել կամ ստանալ, քանի դեռ Արտակարգ իրավիճակի ռեժիմն ընձեռված է:</string>
     <string name="notification_action_answer">Պատասխան</string>
     <string name="notification_of_sub_number_empty_body">Այլընտրանքային համարներ դիտելու համար բաժանորդագրվեք SIM քարտի բազմահամար ծառայությանը և նորից փորձեք:</string>
@@ -481,7 +486,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="onscreenBluetoothTextOn_att">Փոխարկել հեռախոսի</string>
     <string name="onscreenBluetoothTextOn_tmo">Փոխարկել հեռախոսի</string>
     <string name="onscreenWebexText">WebEx</string>
-    <string name="open_folder_for_speakeroff">To turn off the speakerphone, open the flip phone.</string>
+    <string name="open_folder_for_speakeroff">Բարձրախոսն անջատելու համար բացեք ծալովի հեռախոսը:</string>
     <string name="open_the_cover">Բացեք կափարիչը:</string>
     <string name="open_the_cover_incoming">Բացեք շապիկը՝ տեսականչին պատասխանելու կամ այն մերժելու համար:</string>
     <string name="open_the_cover_modify_call">Կանչվող կողմն ուզում է փոխել տեսականչի: Բացեք շապիկը՝ հարցումն ընդունելու կամ մերժելու համար</string>
@@ -494,6 +499,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="outgoing_img_video">Տեսահոլովակներ</string>
     <string name="payphone_sbm">Հանրային հեռախոս</string>
     <string name="phoneLabelsGroup">Հեռախոս</string>
+    <string name="phone_voice_recording_failed_by_secure_call">Հնարավոր չէ ապահով կանչ ձայնագրել:</string>
     <string name="phonetype_additional">Լրացուցիչ համար</string>
     <string name="photoring_block_toast">Կոնտակտին չի թույլատրվում ուղարկել ձեզ մեդիա ֆոտո րինգով:</string>
     <string name="photoring_toast_mobile_data_off">Կարող է լինել մյուս կողմի ուղարկած Photoring բովանդակություն, որը չեք կարող տեսնել, որովհետև մուտքը դեպի շարժական տվյալներ արգելափակված է:</string>
@@ -511,7 +517,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="prepareOtherVideo">Տեսապատկերը նախապատրաստվում է…</string>
     <string name="previous_call_is_held_when_you_accept_call">Ընթացիկ զանգը կհետաձգվի, երբ նոր զանգ ընդունեք:</string>
     <string name="private_num_cdma">Արգելված է</string>
-    <string name="private_num_sbm">Withheld number</string>
+    <string name="private_num_sbm">Պահված համար</string>
     <string name="quick_panel_title_video_call">Վիդեո կանչ</string>
     <string name="quick_panel_title_voice_call">Ձայնային զանգ</string>
     <string name="quick_panel_title_volte_call">VoLTE զանգ</string>
@@ -536,8 +542,13 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="recently_use_sim_for_callback">Վերջերս օգտագործված SIM</string>
     <string name="record_notification_button_text_close">Փակել</string>
     <string name="record_notification_button_text_record_list">Ձայնգրություններ</string>
+    <string name="record_notification_button_text_storage">Պահոց</string>
     <string name="record_notification_content">Թակեք ՁԱՅՆԱԳՐՈՒԹՅՈՒՆՆԵՐ՝ ձայնագրված կանչերը դիտելու համար:</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">Ձեր սարքի պահոցը լցված է: Պահպանվել է կանչի մասնակի գրառումը:</string>
+    <string name="record_notification_content_unable_to_record">Ձեր սարքի պահոցում բավարար տեղ չկա: Վերացրեք որոշ ֆայլեր և նորից փորձեք:</string>
     <string name="record_notification_title">Կանչը ձայնագրվեց</string>
+    <string name="record_notification_title_not_to_record_entire_call">Կանչ ամբողջությամբ չի գրանցվել</string>
+    <string name="record_notification_title_unable_to_record">Անհնար է ձայնագրել կանչը</string>
     <string name="record_text">Ձայնագրել</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -612,7 +623,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="secOnscreenMenuSwitchToPhoneText_tmo">Փոխարկել հեռախոսի</string>
     <string name="secOnscreenMenuSwitchToVideoCallText">Փոխարկել տեսականչի</string>
     <string name="secOnscreenMenuSwitchToVoiceCallText">Փոխել ձայնականչի</string>
-    <string name="secOnscreenMenuSwitchVideoDisplay">Switch video displays</string>
+    <string name="secOnscreenMenuSwitchVideoDisplay">Փոխել տեսանյութի ցուցադրումները</string>
     <string name="secOnscreenMenuUnmuteText">Ձայնը միացնել</string>
     <string name="secOnscreenMenuVideoConfCallText">Հրավիրել նոր մասնակցի</string>
     <string name="secOnscreenMenuViewInFullScreenText">Դիտել լրիվ էկրանով</string>
@@ -653,6 +664,7 @@ Camera"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">Կրկնակի թակեք՝ ցանկը բացելու համար:</string>
     <string name="sec_showme_text">Ցուցադրել ինձ</string>
     <string name="second_screen_hold_text">%d` սպասող</string>
+    <string name="section_contacts_only_summary">Create and manage contacts.</string>
     <string name="select_callback_sim_card">Ընտրել հետկանչի SIM քարտ</string>
     <string name="select_callback_sim_card_content">Այս համարից կամ համարին կատարված վերջին կանչը կամ հաղորդագրությունը չի օգտագործել կանչերի համար նախընտրելի SIM քարտ: Ընտրեք, թե որ SIM քարտն օգտագործվի:</string>
     <string name="select_from_gallery">Ընտրել Պատկերասրահից</string>
@@ -692,12 +704,12 @@ Camera"</string>
     <string name="spam_call_report_dialog_spam">Սպամ</string>
     <string name="spam_call_report_dialog_taxis">Տաքսի</string>
     <string name="spam_call_reported_as">Հաղորդվել է որպես %s</string>
-    <string name="spam_call_resported_as_by_you">Reported as %s by you</string>
+    <string name="spam_call_resported_as_by_you">Ձեր կողմից զեկուցվել է որպես %s</string>
     <string name="spam_call_resported_count">(%d անգամ)</string>
-    <string name="spam_call_type_and_count">Reported as %1$s %2$d times</string>
+    <string name="spam_call_type_and_count">Հաղորդվել է որպես %1$s %2$d անգամ</string>
     <string name="sub_number_item">Այլընտրանքային %d</string>
-    <string name="suguden_guide_do_not_show_again_dcm">Do not show again</string>
-    <string name="suguden_guide_main_text_dcm">Answer the call by bringing the device close to your ear.</string>
+    <string name="suguden_guide_do_not_show_again_dcm">Այլևս ցույց չտալ</string>
+    <string name="suguden_guide_main_text_dcm">Պատասխանեք կանչին՝ սարքն ականջին մոտեցնելով:</string>
     <string name="swipe_left">Մատը սահեցրեք ձախ:</string>
     <string name="swipe_right">Մատը սահեցրեք աջ:</string>
     <string name="swipe_right_to_answer_call_with_video">Մատը սահեցրեք աջ՝ կանչին տեսանյութով պատասխանելու համար:</string>
@@ -788,5 +800,5 @@ Your video call is now running on the mobile network. (Data usage applies if you
     <string name="waiting_call_dialog_dismiss_toast">%1$sն ավարտեց կանչը: Վերսկսվում է կանչը %2$sի հետ…</string>
     <string name="waiting_call_dialog_message">Պատասխանել կանչին</string>
     <string name="websiteLabelsGroup">Կայքի հասցեն</string>
-    <string name="yellow_pages">Yellow Pages</string>
+    <string name="yellow_pages">Դեղին էջեր</string>
 </resources>

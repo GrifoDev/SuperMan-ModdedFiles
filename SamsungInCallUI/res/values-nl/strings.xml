@@ -119,6 +119,8 @@
     <string name="BirthDay_remainedDays1">Morgen jarig</string>
     <string name="BirthDay_remainedDays7">Verjaardag over 1 week</string>
     <string name="BirthDay_remainedDaysEtc">Verjaardag over %d dagen</string>
+    <string name="DivertToVoice_disable">Video-oproepen niet beschikbaar voor dit nummer. Nu in plaats daarvan spraakoproep proberen?</string>
+    <string name="DivertToVoice_enable">Video-oproepen niet beschikbaar voor dit nummer. Overschakelen naar spraakoproep…</string>
     <string name="Lunar_anniversary_passedDays1">Feestdag maankalender gisteren</string>
     <string name="Lunar_anniversary_remainedDays0">Jubileum maan vandaag</string>
     <string name="Lunar_anniversary_remainedDays1">Jubileum maan morgen</string>
@@ -300,8 +302,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="imLabelsGroup">IM-account</string>
     <string name="inCallLabel_Sec">Oproepen</string>
     <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
+    <string name="incall_decline_other_secondary_device">Other secondary device in use.</string>
+    <string name="incall_decline_service_not_allowed">Service not allowed in this location.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">All available lines for (MDN) are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">All available lines for %s are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
+    <string name="incall_decline_transferred_to_another_device">Call has been transferred to another device.</string>
     <string name="incall_error_supp_service_switch">Kan niet afwisselen tussen oproepen.</string>
     <string name="incall_extra_volume_disabled_BT">Kan extra volumebereik niet gebruiken wanneer Bluetooth-headset is aangesloten.</string>
     <string name="incall_extra_volume_disabled_HAC">Kan Extra volume niet activeren wanneer Gehoorapparaten is ingeschakeld.</string>
@@ -521,6 +526,7 @@ Schermmenu IVR-oproep gebruikt inhoud van een externe serviceleverancier, Dianhu
     <string name="outgoing_img_video">"Video's"</string>
     <string name="payphone_sbm">Munttelefoon</string>
     <string name="phoneLabelsGroup">Telefoon</string>
+    <string name="phone_voice_recording_failed_by_secure_call">Kan veilige oproep niet vastleggen.</string>
     <string name="phonetype_additional">Extra nummer</string>
     <string name="photoring_block_toast">Contact geblokkeerd voor het naar u verzenden van media via fotobellen.</string>
     <string name="photoring_toast_mobile_data_off">Mogelijk heeft de andere partij Photoring-inhoud verzonden die u niet kunt zien omdat mobiele gegevenstoegang is geblokkeerd.</string>
@@ -543,7 +549,7 @@ Schermmenu IVR-oproep gebruikt inhoud van een externe serviceleverancier, Dianhu
     <string name="quick_panel_title_voice_call">Spraakoproep</string>
     <string name="quick_panel_title_volte_call">Bellen via 4G</string>
     <string name="quick_panel_title_volte_call_skt">HD Voice-oproep</string>
-    <string name="quick_panel_title_volte_call_vzw">Advanced Calling</string>
+    <string name="quick_panel_title_volte_call_vzw">Geavanceerd bellen</string>
     <string name="rcs_share">Delen</string>
     <string name="rcs_share_donot_send_my_video">Mij verbergen</string>
     <string name="rcs_share_image">Verzoek accepteren?</string>
@@ -563,8 +569,13 @@ Schermmenu IVR-oproep gebruikt inhoud van een externe serviceleverancier, Dianhu
     <string name="recently_use_sim_for_callback">Recent gebruikte SIM</string>
     <string name="record_notification_button_text_close">Sluiten</string>
     <string name="record_notification_button_text_record_list">Opnamen</string>
+    <string name="record_notification_button_text_storage">Opslag</string>
     <string name="record_notification_content">Tik op OPNAMES om uw opgenomen oproepen weer te geven.</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">De apparaatopslag is vol. Een gedeeltelijke opname van de oproep is opgeslagen.</string>
+    <string name="record_notification_content_unable_to_record">Er is onvold. ruimte in uw apparaatgeheugen. Verw. een aantal best. en probeer opn.</string>
     <string name="record_notification_title">Opgenomen oproep</string>
+    <string name="record_notification_title_not_to_record_entire_call">Hele oproep niet vastgelegd</string>
+    <string name="record_notification_title_unable_to_record">Kan gesprek niet opnemen</string>
     <string name="record_text">REC</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -679,6 +690,7 @@ Camera"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">Tik tweemaal om de lijst te openen.</string>
     <string name="sec_showme_text">Mij tonen</string>
     <string name="second_screen_hold_text">%d in wacht</string>
+    <string name="section_contacts_only_summary">Create and manage contacts.</string>
     <string name="select_callback_sim_card">SIM-kaart voor terugbellen selecteren</string>
     <string name="select_callback_sim_card_content">Bij de laatste oproep of het laatste bericht naar of van dit nummer is niet de gewenste SIM-kaart voor oproepen gebruikt. Selecteer welke SIM-kaart u wilt gebruiken.</string>
     <string name="select_from_gallery">Selecteren uit galerie</string>

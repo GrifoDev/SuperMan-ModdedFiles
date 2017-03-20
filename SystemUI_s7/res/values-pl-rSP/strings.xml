@@ -283,6 +283,7 @@ S motor."</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">Fōnkcyje %1$s i %2$s niy mogōm być załōnczōne bez jedyn czas. Fōnkcyjŏ %3$s ôstanie wyłōczōnŏ.</string>
     <string name="aod_show_popup_description">%s i niżyj pokŏzane ôpcyje niy śmiōm być załōnczōne bez jedyn czas. Niżyj pokŏzane ôpcyje ôstanōm wyłōnczōne.</string>
     <string name="wificalling_show_popup_use_location_inform">Zepniyńcia bez nec Wi-Fi muszōm mieć informacyjo ô Twojij lokalizacyji. Bydymy zbiyrać anōnimowe dane ô lokalizacyji i posyłać ône do Google i Twojigo dostŏwcy usug. Coby mieć wiyncyj informacyji, pogŏdej ze swoim dostowcōm usug.</string>
+    <string name="wificalling_show_popup_use_location_inform_ftm">Informacje dotyczące lokalizacji mogą być wysyłane do firmy Google i Twojego operatora w celu nawiązania połączeń z siecią Wi-Fi, niezależenie od tego, czy aktywowano funkcję lokalizacji.</string>
     <string name="wificalling_show_popup_enable_location_title">Załōnczanie lokalizacyji</string>
     <string name="wificalling_show_popup_enable_location_message">Zepniyńcia bez nec Wi-Fi potrzebujōm informacyji ô Twojij lokalizacyji. Lokalizacyjo bydzie załōnczōno. Bydymy zbiyrać anōnimowe dane ô lokalizacyji i posyłać ône do Google i Twojigo dostŏwcy usug. Coby mieć wiyncyj informacyji, pogŏdej ze swoim dostowcōm usug.</string>
     <string name="personal_mode_popup_diable_msg_while_afw_profile">Tryb prywatny niyma dostympny w profilu roboczym.</string>
@@ -651,6 +652,23 @@ UHQ"</string>
     <string name="uhq_mode_noti_text">Poprŏw rozdziylczość klangu dlŏ muzyki i filmōw, coby dostać lepszŏ jakość, kej słuchŏsz.</string>
     <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
     <string name="assistance_app_setting_item_none">Żŏdyn</string>
+    <string name="wfc_enable_dialog_opv_title">WITAMY W USŁUDZE Wi-Fi CALLING</string>
+    <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling to usługa świadczona przez Twojego operatora, Orange Polska S.A.
+Zapoznaj się z opisem tej usługi przygotowanym przez Twojego operatora."</string>
+    <string name="wfc_enable_dialog_opv_body1">Usługa Wi-Fi Calling pozwala na wykonywanie i odbieranie połączeń telefonicznych poprzez połączenie internetowe w dowolnej sieci Wi-Fi, również w sytuacji, w której jesteś poza zasięgiem sieci operatora komórkowego. Od momentu, gdy usługa zostanie przez Ciebie włączona na Twoim numerze abonenckim, za każdym razem, kiedy telefon połączy się z siecią Wi-Fi, połączenia telefoniczne będą realizowane za pośrednictwem Wi-Fi Calling. Będzie to sygnalizowane specjalną ikonką na pasku powiadomień.</string>
+    <string name="wfc_enable_dialog_opv_body2">"W przypadku, gdy połączenie z Wi-Fi będzie słabej jakości lub telefon wyjdzie z zasięgu Wi-Fi, będzie realizował połączenia głosowe z użyciem sieci komórkowej.
+
+Korzystanie z Wi-Fi Calling w Polsce podlega tym samym zasadom rozliczania co połączenia za pośrednictwem sieci komórkowej, tzn. połączenia przychodzące są bezpłatne. Wykonywanie połączeń wychodzących, jeśli korzysta się z Wi-Fi Calling poza terytorium Polski, może wiązać się z naliczaniem opłat zgodnie z cennikiem oferty, z której korzystasz.
+
+Powyższe nie wyłącza ewentualnych opłat za korzystanie z sieci Wi-Fi, z którą się połączysz."</string>
+    <string name="wfc_enable_dialog_opv_body3">"Jeśli wybierzesz przycisk [Akceptuję], a Twój telefon połączy się z siecią Wi-Fi, usługa Wi-Fi Calling zostanie aktywowana. W każdej chwili możesz zablokować możliwość wykonywania połączeń Wi-Fi Calling poprzez odpowiednią opcję w menu Twojego telefonu.
+
+Szczegółowe informacje na temat usługi Wi-Fi Calling znajdziesz na www.orange.pl/wificalling.
+
+Zwracamy uwagę, że aby umożliwić skierowanie Twoich połączeń na numery alarmowe, np. 112, do najbliższego centrum powiadamiania ratunkowego, połączenia takie w usłudze Wi-Fi Calling będą realizowane za pośrednictwem sieci operatora komórkowego, w zasięgu której będzie znajdował się Twój telefon. Dopiero w sytuacjach, gdy sieć komórkowa nie będzie dostępna, połączenia alarmowe będą realizowane za pośrednictwem Wi-Fi Calling. Niestety, w takim przypadku nie będziemy dysponować informacją na temat Twojej lokalizacji, dlatego może okazać się, że centrum powiadamiania ratunkowego, do którego przekierujemy Twoje połączenie, nie będzie najbliższym takim centrum względem miejsca, z którego dzwonisz."</string>
+    <string name="wfc_enable_dialog_opv_body4">W związku z korzystaniem przez Ciebie z Wi-Fi Calling my (czyli Orange Polska S.A., działając jako administrator Twoich danych osobowych) będziemy przetwarzać dane o numerze i rodzaju urządzenia, z użyciem którego będziesz korzystać z Wi-Fi Calling, rodzaju wykorzystywanego oprogramowania na urządzeniu, zakończeniu sieci (w tym o adresie IP i o kraju, do którego adres ten jest przypisany), z którego będziesz się łączyć z Wi-Fi Calling, a także czasie i długości trwania połączeń w celu wykonania i rozliczenia usługi, rozpatrzenia reklamacji, a także w celu wykonania obowiązków ustawowych. Będziemy przetwarzać te dane przez czas trwania łączącej nas z Tobą umowy o świadczenie usług telekomunikacyjnych, a po jej zakończeniu – w okresie dochodzenia roszczeń lub wykonywania innych zadań przewidzianych w przepisach prawa. Podanie danych jest dobrowolne, ale niezbędne do skorzystania z usługi. Przysługuje Ci prawo dostępu do treści danych i ich poprawiania.</string>
+    <string name="wfc_enable_dialog_opv_body5">Nasze dane to: Orange Polska S.A., Aleje Jerozolimskie 160, 02-326 Warszawa; spółka wpisana do Rejestru Przedsiębiorców prowadzonego przez Sąd Rejonowy dla m.st. Warszawy XII Wydział Gospodarczy Krajowego Rejestru Sądowego pod numerem 0000010681; NIP 526-02-50-995; z kapitałem zakładowym wynoszącym 3 937 072 437 zł, pokrytym w całości.</string>
+    <string name="wfc_enable_dialog_opv_btn">Akceptuję</string>
     <string name="keyguard_password_enter_pin_code">Wpisz kod PIN.</string>
     <string name="keyguard_password_wrong_pin_code">Niyprawy kod PIN.</string>
     <string name="keyguard_charged">W pełni naładowana</string>

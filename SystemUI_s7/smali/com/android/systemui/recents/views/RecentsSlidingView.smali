@@ -107,7 +107,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f040117
+    const v1, 0x7f040119
 
     invoke-static {v0, v1, v3}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -239,7 +239,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mStrRecents:Ljava/lang/String;
 
-    const v1, 0x7f0f05d9
+    const v1, 0x7f0f05da
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

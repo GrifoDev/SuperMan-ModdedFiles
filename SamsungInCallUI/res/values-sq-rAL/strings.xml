@@ -92,6 +92,8 @@
     <string name="BirthDay_remainedDays1">Datëlindja nesër</string>
     <string name="BirthDay_remainedDays7">Datëlindja pas 1 jave</string>
     <string name="BirthDay_remainedDaysEtc">Datëlindja pas %d ditësh</string>
+    <string name="DivertToVoice_disable">Thirrjet video nuk disponohen për këtë numër. Të provoj thirrjen zanore tani?</string>
+    <string name="DivertToVoice_enable">Thirrjet video nuk disponohen për këtë numër. Po kaloj në thirrje zanore…</string>
     <string name="Lunar_anniversary_passedDays1">Përvjetori hënor dje</string>
     <string name="Lunar_anniversary_remainedDays0">Përvjetori hënor Sot</string>
     <string name="Lunar_anniversary_remainedDays1">Përvjet. hënor Nesër</string>
@@ -273,8 +275,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="imLabelsGroup">Llogaria IM</string>
     <string name="inCallLabel_Sec">Telefonatë</string>
     <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
+    <string name="incall_decline_other_secondary_device">Other secondary device in use.</string>
+    <string name="incall_decline_service_not_allowed">Service not allowed in this location.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">All available lines for (MDN) are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">All available lines for %s are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
+    <string name="incall_decline_transferred_to_another_device">Call has been transferred to another device.</string>
     <string name="incall_error_supp_service_switch">Nuk mund te këmbej telefonatat.</string>
     <string name="incall_extra_volume_disabled_BT">Nuk mund të përdor interval shtesë të volumit sa kohë që është lidhur kufja Bluetooth.</string>
     <string name="incall_extra_volume_disabled_HAC">Nuk mund të aftësoj Volumin shtesë kur janë aftësuar Aparatet e dëgjimit.</string>
@@ -433,11 +438,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="kt_nomal_quality_video_call_3g">Për thirrjen disponohet vetëm cilësi normale. Pajisja e palës tjetër mund të përdorë vetëm rrjetin 3G.</string>
     <string name="label_notes">Shënime</string>
     <string name="label_sip_address">Thirrje në internet</string>
-    <string name="legal_popup_content">"Having trouble using time-consuming voice response call centers? IVR(Interactive Voice Response) call screen menu provides the perfect environment to use call centers by displaying the service menu on your screen.
+    <string name="legal_popup_content">"Je mërzitur duke humbur kohë kur komunikon me qendra telefonike të përgjigjes me zë? Menuja IVR (Përgjigje zanore interaktive) në ekranin e thirrjes ofron mjedisin optimal për të përdorur qendrat telefonike, duke shfaqur menunë e shërbimeve në ekran.
 
-IVR call screen menu uses contents provided by a third party service provider called Dianhuabang. By using IVR call screen menu, you agree to Dianhuabang’s %1$sTerms and Conditions%2$s."</string>
+Menuja e ekranit të thirrjes IVR përdor materiale nga një ofrues shërbimesh të një pale të tretë, e quajtur Dianhuabang. Duke përdorur menunë e ekranit të thirrjes IVR ti pranon %1$sTermat dhe Kushtet%2$s e Dianhuabang-ut."</string>
     <string name="legal_popup_terms_conditions">Termat dhe Kushtet</string>
-    <string name="legal_pupup_title">Legal information</string>
+    <string name="legal_pupup_title">Informacioni juridik</string>
     <string name="lock_screen_during_call_double_tab">Dy-trokit për të zhbllokuar</string>
     <string name="long_click_guide">Trokit dhe mbaj për të ndezur/fikur.</string>
     <string name="low_batt_upgrade_disallowed">Nuk mund të kaloj në thirrje video. Bateria e dobët.</string>
@@ -494,6 +499,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="outgoing_img_video">Videot</string>
     <string name="payphone_sbm">Telefon publik</string>
     <string name="phoneLabelsGroup">Telefon</string>
+    <string name="phone_voice_recording_failed_by_secure_call">Nuk mund të regjistrosh thirrje të sigurt.</string>
     <string name="phonetype_additional">Numër shtesë</string>
     <string name="photoring_block_toast">Kontaktit iu bllokua dërgimi i mediave tek ti përmes unazës së fotove.</string>
     <string name="photoring_toast_mobile_data_off">Mund të ketë materiale Photoring të dërguara nga pala tjetër që ti nuk i sheh dot, ngaqë është bllokuar aksesi në të dhënat celulare.</string>
@@ -536,8 +542,13 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="recently_use_sim_for_callback">SIM përdorur së fundi</string>
     <string name="record_notification_button_text_close">Mbyll</string>
     <string name="record_notification_button_text_record_list">Regjistrimet</string>
+    <string name="record_notification_button_text_storage">Arkivimi</string>
     <string name="record_notification_content">Trokit mbi REGJISTRIMET për të parë thirrjet e regjistruara.</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">Magazina e pajisjes është plot. U ruajt një regjistrim i pjesshëm i thirrjes.</string>
+    <string name="record_notification_content_unable_to_record">S’ka mjaft hapësirë në magazinën e pajisjes. Hiq ndonjë skedar dhe provo sërish.</string>
     <string name="record_notification_title">Thirrja u regjistrua</string>
+    <string name="record_notification_title_not_to_record_entire_call">Nuk u regjistrua gjithë thirrja</string>
+    <string name="record_notification_title_unable_to_record">"S'mund ta regjistroj thirrjen"</string>
     <string name="record_text">REC</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -652,6 +663,7 @@ Camera"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">Dy-trokit për të hapur listën.</string>
     <string name="sec_showme_text">Trego</string>
     <string name="second_screen_hold_text">%d në pritje</string>
+    <string name="section_contacts_only_summary">Create and manage contacts.</string>
     <string name="select_callback_sim_card">Zgjidh kartën SIM për kthim-thirrjen</string>
     <string name="select_callback_sim_card_content">Thirrja ose mesazhi i fundit drejt këtij numri ose që andej nuk përdorën kartën SIM të preferuar për thirrjet. Përzgjidh se cilën kartë SIM do të përdorësh.</string>
     <string name="select_from_gallery">Zgjidh nga Galeria</string>

@@ -119,6 +119,8 @@
     <string name="BirthDay_remainedDays1">আগামীকাল জন্মদিন</string>
     <string name="BirthDay_remainedDays7">জন্মদিন 1 সপ্তাহে</string>
     <string name="BirthDay_remainedDaysEtc">জন্মদিন %d দিনে</string>
+    <string name="DivertToVoice_disable">এই নম্বরটির জন্য ভিডিও কল নেই। এর পরিবর্তে ভয়েস কল করার চেষ্টা করবেন?</string>
+    <string name="DivertToVoice_enable">এই নম্বরটির জন্য ভিডিও কল নেই। ভয়েস কলে স্যুইচ করা হচ্ছে…</string>
     <string name="Lunar_anniversary_passedDays1">চান্দ্র বার্ষিকী গতকাল</string>
     <string name="Lunar_anniversary_remainedDays0">চান্দ্র বার্ষিকী আজ</string>
     <string name="Lunar_anniversary_remainedDays1">চান্দ্র বার্ষিকী আগামীকাল</string>
@@ -300,8 +302,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="imLabelsGroup">IM অ্যাকাউন্ট</string>
     <string name="inCallLabel_Sec">কল</string>
     <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
+    <string name="incall_decline_other_secondary_device">Other secondary device in use.</string>
+    <string name="incall_decline_service_not_allowed">Service not allowed in this location.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">All available lines for (MDN) are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">All available lines for %s are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
+    <string name="incall_decline_transferred_to_another_device">Call has been transferred to another device.</string>
     <string name="incall_extra_volume_disabled_BT">ব্লুটুথ হেডসেট সংযোগ থাকাকালীন অতিরিক্ত স্বরপ্রাবল্যের সীমা ব্যবহার করা সম্ভব নয়।</string>
     <string name="incall_extra_volume_disabled_HAC">হিয়ারিং এইড সক্রিয় থাকাকালীন অতিরিক্ত স্বরপ্রাবল্য সক্রিয় করা সম্ভব নয়।</string>
     <string name="incall_extra_volume_disabled_HAC_vzw">হিয়ারিং এইড সক্রিয় থাকাকালীন অতিরিক্ত স্বরপ্রাবল্য সক্রিয় করা সম্ভব নয়।</string>
@@ -459,11 +464,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="kt_nomal_quality_video_call_3g">কলের জন্য শুধুমাত্র সাধারণ মান ব্যবহারযোগ্য। অপর পক্ষের ডিভাইস 3G নেটওয়ার্কে সীমাবদ্ধ।</string>
     <string name="label_notes">নোটগুলো</string>
     <string name="label_sip_address">ইন্টারনেট কল</string>
-    <string name="legal_popup_content">"Having trouble using time-consuming voice response call centers? IVR(Interactive Voice Response) call screen menu provides the perfect environment to use call centers by displaying the service menu on your screen.
+    <string name="legal_popup_content">"সময়-ক্ষেপণকারী ভয়েস রেসপন্সড কল সেন্টার ব্যবহার করতে সমস্যা হচ্ছে? আপনার স্ক্রিনে পরিষেবার মেন্যু প্রদর্শনের মাধ্যমে IVR (Interactive Voice Response) কলের স্ক্রিন মেন্যু কল সেন্টার ব্যবহারের যথাযথ পরিবেশ প্রদান করে।
 
-IVR call screen menu uses contents provided by a third party service provider called Dianhuabang. By using IVR call screen menu, you agree to Dianhuabang’s %1$sTerms and Conditions%2$s."</string>
+IVR কল স্ক্রিন মেন্যু Dianhuabang নামের একটি তৃতীয়-পক্ষীয় সার্ভিস প্রোভাইডার কর্তৃক প্রদত্ত কন্টেন্ট ব্যবহার করে থাকে। IVR কল স্ক্রিন মেন্যু ব্যবহারের দ্বারা আপনি Dianhuabang এর %1$sবিধি এবং শর্তাবলীর%2$s প্রতি সম্মতি জ্ঞাপন করছেন।"</string>
     <string name="legal_popup_terms_conditions">বিধি ও শর্তাবলী</string>
-    <string name="legal_pupup_title">Legal information</string>
+    <string name="legal_pupup_title">আইনি তথ্য</string>
     <string name="lock_screen_during_call_double_tab">আনলক করতে দুবার ট্যাপ করুন</string>
     <string name="long_click_guide">চালু/বন্ধ করতে ট্যাপ করে ধরে থাকুন।</string>
     <string name="low_batt_upgrade_disallowed">ভিডিও কলে স্যুইচ করা সম্ভব নয়। ব্যাটারি স্বল্প।</string>
@@ -520,6 +525,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="outgoing_img_video">ভিডিও</string>
     <string name="payphone_sbm">পে ফোন</string>
     <string name="phoneLabelsGroup">ফোন</string>
+    <string name="phone_voice_recording_failed_by_secure_call">নিরাপদ কল রেকর্ড করা যাবে না৷</string>
     <string name="phonetype_additional">অতিরিক্ত নম্বর</string>
     <string name="photoring_block_toast">পরিচিতি আপনাকে ফটো রিংয়ের মাধ্যমে মিডিয়া প্রেরণ করতে অবরুদ্ধ আছে।</string>
     <string name="photoring_toast_mobile_data_off">অন্য পক্ষ দ্বারা প্রেরিত ফটোরিং সামগ্রী থাকতে পারে যা মোবাইল ডেটা অ্যাকসেস অবরুদ্ধ থাকার কারণে আপনি দেখতে পারছেন না।</string>
@@ -562,8 +568,13 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="recently_use_sim_for_callback">সম্প্রতি ব্যবহৃত সিম</string>
     <string name="record_notification_button_text_close">বন্ধ</string>
     <string name="record_notification_button_text_record_list">রেকর্ডিংসমূহ</string>
+    <string name="record_notification_button_text_storage">স্টোরেজ</string>
     <string name="record_notification_content">আপনার রেকর্ড করা কলগুলো দেখতে ‘রেকর্ডিং’-এ ট্যাপ করুন৷</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">আপনার ডিভাইসের স্টোরেজ পূর্ণ৷ কলের একটি আংশিক রেকর্ডিং সংরক্ষিত হয়েছে৷</string>
+    <string name="record_notification_content_unable_to_record">আপনার ডিভাইসের স্টোরেজে পর্যাপ্ত জায়গা নেই। কিছু ফাইল মুছে আবার চেষ্টা করুন।</string>
     <string name="record_notification_title">কল রেকর্ড করা হয়েছে</string>
+    <string name="record_notification_title_not_to_record_entire_call">সম্পূর্ণ কল রেকর্ড হয়নি</string>
+    <string name="record_notification_title_unable_to_record">কল রেকর্ড করতে অক্ষম</string>
     <string name="record_text">রেকর্ড</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -571,7 +582,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="reject_call_with_msg">বার্তাসহ কল প্রত্যাখ্যান করুন</string>
     <string name="reject_call_with_msg_content_description_close">তালিকাটি বন্ধ করতে নীচে সোয়াইপ করুন।</string>
     <string name="reject_call_with_msg_content_description_open">তালিকাটি খুলতে উপরে সোয়াইপ করুন।</string>
-    <string name="reject_call_with_msg_content_item_description">বার্তা প্রেরণ করতে দুবার ট্যাপ করুন।</string>
+    <string name="reject_call_with_msg_content_item_description">বার্তা পাঠাতে দুবার ট্যাপ করুন।</string>
     <string name="reject_call_with_msg_tts">Reject call with message</string>
     <string name="rejected_call_notification_action_reminder">রিমাইন্ডার সেট করুন</string>
     <string name="rejected_call_notification_title">Rejected call</string>
@@ -678,6 +689,7 @@ Camera"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">তালিকাটি খুলতে দুবার ট্যাপ করুন।</string>
     <string name="sec_showme_text">আমাকে দেখান</string>
     <string name="second_screen_hold_text">%d হোল্ডে আছে</string>
+    <string name="section_contacts_only_summary">Create and manage contacts.</string>
     <string name="select_callback_sim_card">কলব্যাক সিম কার্ড নির্বাচন করুন</string>
     <string name="select_callback_sim_card_content">এই নম্বরে আসা বা এটি থেকে পাঠানো শেষ কল বা মেসেজটি ‘কলের জন্য অগ্রগণ্য সিম’ ব্যবহার করেনি৷ কোন সিম কার্ড ব্যবহার করবেন তা নির্বাচন করুন৷</string>
     <string name="select_from_gallery">গ্যালারি থেকে নির্বাচন করুন</string>

@@ -119,6 +119,8 @@
     <string name="BirthDay_remainedDays1">Fødselsdag i morgen</string>
     <string name="BirthDay_remainedDays7">Fødselsdag om 1 uge</string>
     <string name="BirthDay_remainedDaysEtc">Fødselsdag om %d dage</string>
+    <string name="DivertToVoice_disable">Videoopkald er ikke tilgængelige for dette nummer. Prøv stemmeopkald nu i stedet?</string>
+    <string name="DivertToVoice_enable">Videoopkald er ikke tilgængelige for dette nummer. Skifter til stemmeopkald …</string>
     <string name="Lunar_anniversary_passedDays1">Månemærkedag i går</string>
     <string name="Lunar_anniversary_remainedDays0">Månemærkedag i dag</string>
     <string name="Lunar_anniversary_remainedDays1">Månemærkedag i morgen</string>
@@ -300,8 +302,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="imLabelsGroup">IM-konto</string>
     <string name="inCallLabel_Sec">Opkald</string>
     <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
+    <string name="incall_decline_other_secondary_device">Other secondary device in use.</string>
+    <string name="incall_decline_service_not_allowed">Service not allowed in this location.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">All available lines for (MDN) are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">All available lines for %s are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
+    <string name="incall_decline_transferred_to_another_device">Call has been transferred to another device.</string>
     <string name="incall_error_supp_service_switch">Kunne ikke skifte opkald.</string>
     <string name="incall_extra_volume_disabled_BT">Kan ikke bruge ekstra volumeninternal, mens Bluetooth-headset er tilsluttet.</string>
     <string name="incall_extra_volume_disabled_HAC">Kunne ikke aktivere ekstra lydstyrke, når høreapparat er aktiveret.</string>
@@ -521,6 +526,7 @@ IVR-opkaldsskærmmenuen bruger indhold, som er leveret af tredjepartsserviceudby
     <string name="outgoing_img_video">Video</string>
     <string name="payphone_sbm">Betalingstelefon</string>
     <string name="phoneLabelsGroup">Telefon</string>
+    <string name="phone_voice_recording_failed_by_secure_call">Sikkert opkald kan ikke optages.</string>
     <string name="phonetype_additional">Ekstra nummer</string>
     <string name="photoring_block_toast">Kontakt blokeret fra at sende medier til dig via fotoopkald.</string>
     <string name="photoring_toast_mobile_data_off">Den anden part kan have sendt Fotoopkald-indhold til dig, som du ikke kan se, da adgang til mobile data er blokeret.</string>
@@ -563,8 +569,13 @@ IVR-opkaldsskærmmenuen bruger indhold, som er leveret af tredjepartsserviceudby
     <string name="recently_use_sim_for_callback">Senest brugte SIM-kort</string>
     <string name="record_notification_button_text_close">Luk</string>
     <string name="record_notification_button_text_record_list">Optagelser</string>
+    <string name="record_notification_button_text_storage">Lagring</string>
     <string name="record_notification_content">Tryk på OPTAGELSER for at se de opkald, du har optaget.</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">Din enheds lager er fyldt. Der er blevet gemt en delvis optagelse.</string>
+    <string name="record_notification_content_unable_to_record">Der er ikke nok plads i enhedslageret. Slet nogle filer, og prøv igen.</string>
     <string name="record_notification_title">Opkaldet er blevet optaget</string>
+    <string name="record_notification_title_not_to_record_entire_call">Hele opkaldet blev ikke optaget</string>
+    <string name="record_notification_title_unable_to_record">Kan ikke optage opkald</string>
     <string name="record_text">OP.</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -679,6 +690,7 @@ Camera"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">Dobbelttryk for at åbne liste.</string>
     <string name="sec_showme_text">Vis mig</string>
     <string name="second_screen_hold_text">%d på hold</string>
+    <string name="section_contacts_only_summary">Create and manage contacts.</string>
     <string name="select_callback_sim_card">Vælg SIM-kort til tilbagekald</string>
     <string name="select_callback_sim_card_content">Det sidste opkald eller den sidste besked fra dette nummer benyttede ikke det foretrukne SIM-kort for opkald. Vælg, hvilket SIM-kort du vil bruge.</string>
     <string name="select_from_gallery">Vælg fra Galleri</string>

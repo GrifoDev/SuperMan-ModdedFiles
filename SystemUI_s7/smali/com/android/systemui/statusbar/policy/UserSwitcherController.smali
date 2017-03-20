@@ -961,7 +961,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0f048a
+    const v5, 0x7f0f048b
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -973,7 +973,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0f048b
+    const v5, 0x7f0f048c
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -993,7 +993,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0f048c
+    const v5, 0x7f0f048d
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1186,7 +1186,7 @@
 
     if-eqz v1, :cond_3
 
-    const v1, 0x7f0f0480
+    const v1, 0x7f0f0481
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1376,7 +1376,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0f0480
+    const v5, 0x7f0f0481
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

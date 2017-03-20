@@ -72,6 +72,8 @@
     <string name="BirthDay_remainedDays1">Breithlá amárach</string>
     <string name="BirthDay_remainedDays7">Breithlá i gceann 7 lá</string>
     <string name="BirthDay_remainedDaysEtc">Breithlá i gceann %d lá</string>
+    <string name="DivertToVoice_disable">Níl glaonna físe ar fáil don uimhir seo. Triail glao gutha anois ina ionad?</string>
+    <string name="DivertToVoice_enable">Níl glaonna físe ar fáil don uimhir seo. Ag aistriú go glao gutha…</string>
     <string name="Lunar_anniversary_passedDays1">Lá cinn bliana gealaí inné</string>
     <string name="Lunar_anniversary_remainedDays0">Lá cinn b. gealaí inniu</string>
     <string name="Lunar_anniversary_remainedDays1">Lá cinn b. gealaí amárach</string>
@@ -95,7 +97,7 @@
     <string name="accept">Glac leis</string>
     <string name="account_phone">Gléas</string>
     <string name="active_calls">Glao gníomhach</string>
-    <string name="add_reminder">Meabhraigh</string>
+    <string name="add_reminder">Cuir meabhrú.</string>
     <string name="agree">Aontaim</string>
     <string name="am_cover_toggle_string">Oscail clúdach le glao a fhreag./diúltú dó.</string>
     <string name="am_device_memory_full_warning">Unable to use Auto answer with message. There is not enough space in your device storage to save voice messages. Delete some items and try again.</string>
@@ -253,8 +255,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="imLabelsGroup">Cuntas IM</string>
     <string name="inCallLabel_Sec">Glaoigh</string>
     <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
+    <string name="incall_decline_other_secondary_device">Other secondary device in use.</string>
+    <string name="incall_decline_service_not_allowed">Service not allowed in this location.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">All available lines for (MDN) are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">All available lines for %s are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
+    <string name="incall_decline_transferred_to_another_device">Call has been transferred to another device.</string>
     <string name="incall_error_supp_service_switch">Ní féidir glaonna a aistriú.</string>
     <string name="incall_extra_volume_disabled_BT">Ní féidir raon airde breise a úsáid agus gléas cinn Bluetooth ceangailte.</string>
     <string name="incall_extra_volume_disabled_HAC">Ní féidir Airde bhreise a chumasú agus Áiseanna éisteachta cumasaithe.</string>
@@ -413,11 +418,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="kt_nomal_quality_video_call_3g">Níl ach gnáthcháilíocht ar fáil don ghlao. Ní féidir le gléas an pháirtí eile ach líonra 3G a rochtain.</string>
     <string name="label_notes">Nótaí</string>
     <string name="label_sip_address">Glao Idirlín</string>
-    <string name="legal_popup_content">"Having trouble using time-consuming voice response call centers? IVR(Interactive Voice Response) call screen menu provides the perfect environment to use call centers by displaying the service menu on your screen.
+    <string name="legal_popup_content">"Deacrachtaí agat le hionaid glaonna freagartha gutha a chuireann do chuid ama amú? Tugann Roghchlár IVR (Freagairt Ghutha Idirghníomhach) ar an scáileán glao an timpeallacht fhoirfe le hionaid glaonna a úsáid trí roghchlár na seirbhíse a thaispeáint ar do scáileán.
 
-IVR call screen menu uses contents provided by a third party service provider called Dianhuabang. By using IVR call screen menu, you agree to Dianhuabang’s %1$sTerms and Conditions%2$s."</string>
+Úsáideann Roghchlár IVR ar an scáileán glao inneachar arna chur ar fáil ag soláthraí seirbhíse tríú páirtí darb ainm Dianhuabang. Trí Roghchlár IVR ar an scáileán glao a úsáid, tá tú ag aontú le %1$sTéarmaí agus Coinníollacha%2$s Dianhuabang."</string>
     <string name="legal_popup_terms_conditions">Téarmaí agus Coinníollacha</string>
-    <string name="legal_pupup_title">Legal information</string>
+    <string name="legal_pupup_title">Faisnéis dhlíthiúil</string>
     <string name="lock_screen_during_call_double_tab">Déthapáil le díghlasáil</string>
     <string name="long_click_guide">Tapáil agus coinnigh le casadh air/as.</string>
     <string name="low_batt_upgrade_disallowed">Ní féidir aistriú go glao físe. Ceallra lag.</string>
@@ -474,6 +479,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="outgoing_img_video">Físeáin</string>
     <string name="payphone_sbm">Íocfón</string>
     <string name="phoneLabelsGroup">Fón</string>
+    <string name="phone_voice_recording_failed_by_secure_call">Ní féidir glao slán a thaifeadadh.</string>
     <string name="phonetype_additional">Uimhir bhreise</string>
     <string name="photoring_block_toast">Tá bac curtha ar an teagmhálaí ó mheáin a sheoladh chugat trí ghlao grianghraif.</string>
     <string name="photoring_toast_mobile_data_off">Is feidir go bhfuil inneachar Photoring ann a sheol páirtí eile atá dofheicthe agat mar go bhfuil bac ar rochtain ar shonraí móibíleacha.</string>
@@ -516,8 +522,13 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="recently_use_sim_for_callback">SIM a úsáideadh le déanaí</string>
     <string name="record_notification_button_text_close">Dún</string>
     <string name="record_notification_button_text_record_list">Taifeadtaí</string>
+    <string name="record_notification_button_text_storage">Stóras</string>
     <string name="record_notification_content">Tapáil TAIFEADTAÍ le hamharc ar do ghlaonna taifeadta.</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">Tá stóras do ghléis lán. Tá páirt-taifeadadh ar an nglao sábháilte.</string>
+    <string name="record_notification_content_unable_to_record">Níl go leor spáis i stóras do ghléis. Scrios roinnt comhad agus triail arís.</string>
     <string name="record_notification_title">Glao taifeadta</string>
+    <string name="record_notification_title_not_to_record_entire_call">Níor taifeadadh an glao ar fad</string>
+    <string name="record_notification_title_unable_to_record">Ní féidir glao a thaifeadadh</string>
     <string name="record_text">TAIF</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -632,6 +643,7 @@ Camera"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">Déthapáil le liosta a oscailt.</string>
     <string name="sec_showme_text">Taispeáin dom</string>
     <string name="second_screen_hold_text">%d ar fionraí</string>
+    <string name="section_contacts_only_summary">Create and manage contacts.</string>
     <string name="select_callback_sim_card">Roghnaigh cárta SIM aisghlaoch</string>
     <string name="select_callback_sim_card_content">Níor úsáid an glao nó an teachtaireacht dheireanach chuig an uimhir seo nó uaithi an cárta SIM atá sainroghnaithe do ghlaonna. Roghnaigh cén cárta SIM a úsáidfear.</string>
     <string name="select_from_gallery">Roghnaigh ó Ghailearaí</string>

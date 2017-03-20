@@ -92,6 +92,8 @@
     <string name="BirthDay_remainedDays1">ხვალინდელი დაბადების დღე</string>
     <string name="BirthDay_remainedDays7">დაბადების დღემდე 1 კვირაა</string>
     <string name="BirthDay_remainedDaysEtc">დაბადების დღემდე %d დღეა</string>
+    <string name="DivertToVoice_disable">ვიდეო ზარები არ მუშაობს ამ ნომერზე. ცდით ხმოვან ზარს სანაცვლოდ?</string>
+    <string name="DivertToVoice_enable">ვიდეო ზარები არ მუშაობს ამ ნომერზე. სრულდება ხმოვან ზარზე გადართვა…</string>
     <string name="Lunar_anniversary_passedDays1">გუშინ იყო იუბილე მთვარის კალენდრით</string>
     <string name="Lunar_anniversary_remainedDays0">მთვარის იუბილე დღეს</string>
     <string name="Lunar_anniversary_remainedDays1">მთვარის იუბილე ხვალ</string>
@@ -118,7 +120,7 @@
     <string name="add_reminder">შეხსენ. დამ.</string>
     <string name="agree">თანხმობა</string>
     <string name="am_cover_toggle_string">გადახსენით, რომ უპასუხოთ ან უარყოთ ზარი.</string>
-    <string name="am_device_memory_full_warning">Unable to use Auto answer with message. There is not enough space in your device storage to save voice messages. Delete some items and try again.</string>
+    <string name="am_device_memory_full_warning">შეტყობინებასთან ავტო პასუხის გამოყენება ვერ მოხერხდა. მოწყობილობის მეხსიერებაში ხმოვანი შეტყობინებების შესანახად საკმარისი ადგილი არ არის. წაშალეთ ზოგიერთი რამ და ისევ სცადეთ.</string>
     <string name="another_device_pickup_message">Another device picked up this call.</string>
     <string name="answering_memo_Playing_text">გაშვებულია საპასუხო შეტყობინება…</string>
     <string name="answering_memo_Recording_text">იწერება შეტყობინება…</string>
@@ -133,8 +135,8 @@
     <string name="call_drug_up_panel_for_kk">„შეტყობინების გაგზავნის“ ღილაკი აიტანეთ ზემოთ, რომ გაგზავნოთ შეტყობინება და უარყოთ ზარი.</string>
     <string name="call_drug_up_panel_for_kk_tts">თითით გადაიტანეთ ზემოთ ზარის უარყოფისა და შეტყობინების გაგზავნის დაფა, რომ გაგზავნოთ ზარის უარყოფის შეტყობინება, როდესაც უარყოფთ შემოსულ ზარს.</string>
     <string name="call_ended_toast">ზარი დასრულდა.</string>
-    <string name="call_forwarded_to">Call forwarded to:</string>
-    <string name="call_forwarding_from">Call forwarded from:</string>
+    <string name="call_forwarded_to">ზარი გადამისამართდა - კენ:</string>
+    <string name="call_forwarding_from">ზარი გადამისამართდა - დან:</string>
     <string name="call_incoming_voice_call2">შეეხეთ ნიშანს %s და უპასუხეთ ზარს.</string>
     <string name="call_incoming_voice_call2_tts">ზარზე საპასუხოდ შეეხეთ ზარზე პასუხის ღილაკს.</string>
     <string name="call_incoming_voice_call3">ზარის უარყოფისთვის აირჩიეთ %s.</string>
@@ -159,20 +161,20 @@
     <string name="call_menu_during_call_list6_tts">ხმის გასაზრდელად შეეხეთ დამატებითი ხმის ღილაკს.</string>
     <string name="call_menu_during_call_list7">შეეხეთ ნიშანს %s, რომ დაურეკოთ სხვას და დაამატოთ იგი მიმდინარე ზარზე.</string>
     <string name="call_menu_during_call_list7_tts">შეეხეთ ზარის დამატების ღილაკს, რომ დაურეკოთ სხვას და დაამატოთ იგი მიმდინარე ზარზე.</string>
-    <string name="call_out_duration">Call out duration</string>
+    <string name="call_out_duration">საპასუხო სიგნალის ხანგრძლივობა</string>
     <string name="call_twophone_one_phone">თავდაპირველი ნომერი</string>
     <string name="call_twophone_two_phone">მეორე ნომერი</string>
     <string name="caller_info_card_last_call_log_title">ბოლო ზარი</string>
     <string name="caller_info_card_last_message_title">ბოლო შეტყობინება</string>
     <string name="caller_info_card_memo_title">ზარის დროს შექმნილი შეხსენება</string>
-    <string name="callsettings_hold_key_record_calls_notify">Press and hold Hold key to start or stop recording</string>
+    <string name="callsettings_hold_key_record_calls_notify">ჩაწერის დასაწყებად ან გასაჩერებლად, ხანგრძლივად დააწექით „დაყოვნების ღილაკს“</string>
     <string name="callsettings_rejectmessage_list1">უკაცრავად, ახლა ვერ ვილაპარაკებ. მოგვიანებით გადმომირეკეთ.</string>
     <string name="callsettings_rejectmessage_list2">კრებაზე ვარ.</string>
     <string name="callsettings_rejectmessage_list3">კლასში ვარ.</string>
     <string name="callsettings_rejectmessage_list4">კინოში ვარ.</string>
     <string name="callsettings_rejectmessage_list5">საჭესთან ვარ.</string>
-    <string name="camera_off">Camera turned off.</string>
-    <string name="camera_on">Camera turned on.</string>
+    <string name="camera_off">კამერა გამორთულია.</string>
+    <string name="camera_on">კამერა ისევ ჩაირთო.</string>
     <string name="camera_security_enter">უსაფრთხოების პოლიტიკა ზღუდავს კამერის გამოყენებას.</string>
     <string name="camera_start_failed">კამერა ვერ ამუშავდა.</string>
     <string name="cancel">გაუქმება</string>
@@ -220,7 +222,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="description_secOnscreenVideoCallText">ვიდეოზარი</string>
     <string name="description_secOnscreenViewContactText">საკონტაქტო მონაცემების დათვალიერება</string>
     <string name="device_info_not_available">მიუწვდომელია</string>
-    <string name="dial_warning">Unable to dial.</string>
+    <string name="dial_warning">აკრეფა შეუძლებელია.</string>
     <string name="dialling_video_call">ვიდეოზარის განხორციელება</string>
     <string name="dialpad_2_sub_letters">ABC</string>
     <string name="dialpad_3_sub_letters">DEF</string>
@@ -273,8 +275,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="imLabelsGroup">IM ანგარიში</string>
     <string name="inCallLabel_Sec">დარეკვა</string>
     <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
+    <string name="incall_decline_other_secondary_device">Other secondary device in use.</string>
+    <string name="incall_decline_service_not_allowed">Service not allowed in this location.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">All available lines for (MDN) are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">All available lines for %s are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
+    <string name="incall_decline_transferred_to_another_device">Call has been transferred to another device.</string>
     <string name="incall_error_supp_service_switch">შეუძლებელია ზარების გადართვა.</string>
     <string name="incall_extra_volume_disabled_BT">ხმის დამატებით სიმაღლეს ვერ გამოიყენებთ, როცა მიერთებულია Bluetooth გარნიტურა.</string>
     <string name="incall_extra_volume_disabled_HAC">ხმის სიმაღლის დამატებითი გაზრდა ვერ გააქტიურება, როდესაც ჩართულია სასმენი აპარატების რეჟიმი.</string>
@@ -285,7 +290,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="incall_popup_call_remove_title_vzw">Hide shortcut</string>
     <string name="incall_popup_ended">დასრულდა</string>
     <string name="incall_spam_call_block">ნომრის დაბლოკვა</string>
-    <string name="incall_spam_call_reject">Add to Black list</string>
+    <string name="incall_spam_call_reject">შავ სიაში დამატება</string>
     <string name="incall_spam_call_reject_toast">ტელეფონის ნომერი დაემატა დაბლოკილთა სიაში.</string>
     <string name="incall_spam_call_report">ნომრის მოხსენება</string>
     <string name="incall_transfer_call">ზარის გადაცემა</string>
@@ -433,11 +438,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="kt_nomal_quality_video_call_3g">მხოლოდ ნორმალური ხარისხის კლავიატურის გამოყენება შეგიძლიათ ამ ზარისთვის. მეორე მხარის მოწყობილობა იყენებს მხოლოდ 3G ქსელს.</string>
     <string name="label_notes">შენიშვნები</string>
     <string name="label_sip_address">ინტერნეტ-ზარი</string>
-    <string name="legal_popup_content">"Having trouble using time-consuming voice response call centers? IVR(Interactive Voice Response) call screen menu provides the perfect environment to use call centers by displaying the service menu on your screen.
+    <string name="legal_popup_content">"მოგბეზრდათ დიდი დროის წამღები ავტომოპასუხე ქოლ-ცენტრებით სარგებლობა? IVR (ინტერაქტიული ავტომოპასუხე) ზარის ეკრანული მენიუ უზრუნველყოფს სრულყოფილ გარემოს ქოლ-ცენტრებით სარგებლობისთვის, სერვისის მენიუს ეკრანზე ჩვენებით.
 
-IVR call screen menu uses contents provided by a third party service provider called Dianhuabang. By using IVR call screen menu, you agree to Dianhuabang’s %1$sTerms and Conditions%2$s."</string>
+IVR ზარის ეკრანული მენიუ იყენებს შიგთავსს, რომელსაც უზრუნველყოფს მესამე მხარის სერვისის პროვაიდერი Dianhuabang. IVR ზარის ეკრანული მენიუს გამოყენებით თქვენ ეთანხმებით Dianhuabang-ის %1$sწესებსა და პირობებს%2$s."</string>
     <string name="legal_popup_terms_conditions">წესები და პირობები</string>
-    <string name="legal_pupup_title">Legal information</string>
+    <string name="legal_pupup_title">იურიდიული ინფორმაცია</string>
     <string name="lock_screen_during_call_double_tab">ორჯერ შეეხეთ და გაიხსნება</string>
     <string name="long_click_guide">ხანგრძლივად დააჭირეთ ჩასართავად ან გამოსართავად</string>
     <string name="low_batt_upgrade_disallowed">ვიდეო ზარზე გადართვა შეუძლებელია. კვების ელემენტი იცლება.</string>
@@ -454,7 +459,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="memory_full_msg">მეხსიერება არ ყოფნის</string>
     <string name="message_greeting">მისალმება</string>
     <string name="modify_to_video_start">იგზავნება ვიდეო ზარზე გადართვის მოთხოვნა…</string>
-    <string name="modify_to_voice_start">Switching to voice call…</string>
+    <string name="modify_to_voice_start">სრულდება ხმოვან ზარზე გადართვა…</string>
     <string name="msg_for_video_show_never_again">ზოგიერთი ფაილის ფორმატი არაა გათვალისწინებული. გალერეაში გამოჩნდება მხოლოდ გათვალისწინებული ფაილები.</string>
     <string name="mt_vt_not_possible">%s cannot receive video calls at this time. You will now be connected through a voice call.</string>
     <string name="nameLabelsGroup">სახელი</string>
@@ -471,7 +476,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="name_suffix">სახელის სუფიქსი</string>
     <string name="network_message_no_answer">პასუხი არ არის</string>
     <string name="nicknameLabelsGroup">მეტსახელი</string>
-    <string name="not_enable_to_video">Video calls are not available while Emergency mode is enabled.</string>
+    <string name="not_enable_to_video">ვიდეო ზარები არაა ხელმისაწვდომი სანამ ჩართულია საგანგებო რეჟიმი.</string>
     <string name="not_enable_to_video_emergencymode">ვიდეოზარების გაგზავნა და მიღება შეუძლებელია, როდესაც ჩართულია „საგანგებო რეჟიმი“.</string>
     <string name="notification_action_answer">პასუხი</string>
     <string name="notification_of_sub_number_empty_body">ალტერნატიული ნომრების სანახავად, გამოიწერეთ SIM ბარათის მრავალნომრიანი სერვისი და ისევ სცადეთ.</string>
@@ -481,7 +486,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="onscreenBluetoothTextOn_att">გადართვა ტელეფონზე</string>
     <string name="onscreenBluetoothTextOn_tmo">გადართვა ტელეფონზე</string>
     <string name="onscreenWebexText">WebEx</string>
-    <string name="open_folder_for_speakeroff">To turn off the speakerphone, open the flip phone.</string>
+    <string name="open_folder_for_speakeroff">სპიკერფონის გამოსართავად, გახსენით გასახსნელი ტელეფონი.</string>
     <string name="open_the_cover">გადახსენით საფარი.</string>
     <string name="open_the_cover_incoming">გადახსენით ტელეფონი, რომ უპასუხოთ ვიდეოზარს ან უარყოთ იგი.</string>
     <string name="open_the_cover_modify_call">ზარის განმხორციელებელი მხარე ითხოვს ვიდეო ზარზე გადართვას. გადახსენით ტელეფონი, რომ უპასუხოთ დააკმაყოფილოთ ან უარყოთ მოთხოვნა</string>
@@ -494,6 +499,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="outgoing_img_video">ვიდეოები</string>
     <string name="payphone_sbm">ტაქსოფონი</string>
     <string name="phoneLabelsGroup">ტელეფონი</string>
+    <string name="phone_voice_recording_failed_by_secure_call">დაცული ზარის ჩაწერა შეუძლებელია.</string>
     <string name="phonetype_additional">დამატებითი ნომერი</string>
     <string name="photoring_block_toast">კონტაქტისთვის დაბლოკილია მედიის გამოგზავნა თქვენთვის, ფოტოთი დარეკვით.</string>
     <string name="photoring_toast_mobile_data_off">აქ შეიძლება იყოს მეორე მხარის მიერ გამოგზავნილი Photoring მასალა, რომელსაც ვერ ხედავთ, რადგან დაბლოკილია მობილურ მონაცემებზე წვდომა.</string>
@@ -511,7 +517,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="prepareOtherVideo">მზადდება ვიდეო გამოსახულება…</string>
     <string name="previous_call_is_held_when_you_accept_call">მიმდინარე ზარი შეყოვნდება, როდესაც მიიღებთ ახალ ზარს.</string>
     <string name="private_num_cdma">შეზღუდულია</string>
-    <string name="private_num_sbm">Withheld number</string>
+    <string name="private_num_sbm">ნომრის უარყოფა</string>
     <string name="quick_panel_title_video_call">ვიდეოზარი</string>
     <string name="quick_panel_title_voice_call">ხმოვანი ზარი</string>
     <string name="quick_panel_title_volte_call">VoLTE ზარი</string>
@@ -536,8 +542,13 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="recently_use_sim_for_callback">ბოლოდროს გამოყენებული SIM</string>
     <string name="record_notification_button_text_close">დახურვა</string>
     <string name="record_notification_button_text_record_list">ჩანაწერები</string>
+    <string name="record_notification_button_text_storage">მეხსიერება</string>
     <string name="record_notification_content">ჩაწერილი ზარების სანახავად, შეეხეთ „ჩანაწერებს“.</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">მოწყობილობის მეხსიერება სავსეა. ზარის ნაწილობრივი ჩანაწერი შენახულია.</string>
+    <string name="record_notification_content_unable_to_record">მოწყობილობაში არ არის საკმარისი ადგილი. წაშალეთ ზოგიერთი ფაილი და ისევ სცადეთ.</string>
     <string name="record_notification_title">ზარი ჩაწერილია</string>
+    <string name="record_notification_title_not_to_record_entire_call">მთლიანი ზარი არ არის ჩაწერილი</string>
+    <string name="record_notification_title_unable_to_record">ზარს ვერ ჩაწერთ</string>
     <string name="record_text">ჩაწერა</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -612,7 +623,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="secOnscreenMenuSwitchToPhoneText_tmo">გადართვა ტელეფონზე</string>
     <string name="secOnscreenMenuSwitchToVideoCallText">ვიდეო ზარზე გადართვა</string>
     <string name="secOnscreenMenuSwitchToVoiceCallText">გადართე ხმოვან ზარზე</string>
-    <string name="secOnscreenMenuSwitchVideoDisplay">Switch video displays</string>
+    <string name="secOnscreenMenuSwitchVideoDisplay">ვიდეო ჩვენებებზე გადართვა</string>
     <string name="secOnscreenMenuUnmuteText">ხმის ჩართვა</string>
     <string name="secOnscreenMenuVideoConfCallText">ახალი მონაწილეების მოწვევა</string>
     <string name="secOnscreenMenuViewInFullScreenText">მთელ ეკრანზე დათვალიერება</string>
@@ -653,6 +664,7 @@ Camera"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">შეეხეთ ორჯერ და გახსენით სია.</string>
     <string name="sec_showme_text">მიჩვენე</string>
     <string name="second_screen_hold_text">%d იცდის</string>
+    <string name="section_contacts_only_summary">Create and manage contacts.</string>
     <string name="select_callback_sim_card">აირჩიეთ გადმორეკვის SIM ბარათი</string>
     <string name="select_callback_sim_card_content">ბოლო ზარის ან შეტყობინებისთვის, რომელიც გაიგზავნა ამ ნომერზე ან ამ ნომრიდან, არ იყო გამოყენებული ზარებისთვის უპირატესი SIM ბარათი. აირჩიეთ გამოსაყენებელი SIM.</string>
     <string name="select_from_gallery">აირჩიეთ გალერიიდან</string>
@@ -692,12 +704,12 @@ Camera"</string>
     <string name="spam_call_report_dialog_spam">სპამი</string>
     <string name="spam_call_report_dialog_taxis">ტაქსი</string>
     <string name="spam_call_reported_as">დასახელებულია, როგორც %s</string>
-    <string name="spam_call_resported_as_by_you">Reported as %s by you</string>
+    <string name="spam_call_resported_as_by_you">თქვენ დაასახელეთ როგორც %s</string>
     <string name="spam_call_resported_count">(%d-ჯერ)</string>
-    <string name="spam_call_type_and_count">Reported as %1$s %2$d times</string>
+    <string name="spam_call_type_and_count">აღრიცხულია როგორც %1$s %2$d-ჯერ</string>
     <string name="sub_number_item">ალტერნატიული %d</string>
-    <string name="suguden_guide_do_not_show_again_dcm">Do not show again</string>
-    <string name="suguden_guide_main_text_dcm">Answer the call by bringing the device close to your ear.</string>
+    <string name="suguden_guide_do_not_show_again_dcm">აღარ მაჩვენო</string>
+    <string name="suguden_guide_main_text_dcm">უპასუხეთ ზარს მოწყობილობის ყურთან ახლოს მიტანით.</string>
     <string name="swipe_left">გადაუსვი მარცხნივ.</string>
     <string name="swipe_right">გადაუსვი მარჯვნივ.</string>
     <string name="swipe_right_to_answer_call_with_video">გადაუსვით თითი მარჯვნივ, რომ უპასუხოთ ზარს ვიდეოთი.</string>
@@ -788,5 +800,5 @@ Your video call is now running on the mobile network. (Data usage applies if you
     <string name="waiting_call_dialog_dismiss_toast">ზარი დაასრულა %1$s-მ. გრძელდება ზარი %2$s-თან…</string>
     <string name="waiting_call_dialog_message">პასუხი ზარზე</string>
     <string name="websiteLabelsGroup">ვებგვერდის მისამართი</string>
-    <string name="yellow_pages">Yellow Pages</string>
+    <string name="yellow_pages">ყვითელი პრესა</string>
 </resources>

@@ -52,19 +52,19 @@
 
 .field public static final keyguard_wallpaper_preview_activity:I = 0x7f040077
 
-.field public static final servicebox_music_page:I = 0x7f040148
+.field public static final servicebox_music_page:I = 0x7f04014a
 
-.field public static final servicebox_music_page_big:I = 0x7f040149
+.field public static final servicebox_music_page_big:I = 0x7f04014b
 
-.field public static final servicebox_music_page_expand:I = 0x7f04014a
+.field public static final servicebox_music_page_expand:I = 0x7f04014c
 
-.field public static final servicebox_music_page_small:I = 0x7f04014b
+.field public static final servicebox_music_page_small:I = 0x7f04014d
 
-.field public static final servicebox_today_event_item_big:I = 0x7f04014d
+.field public static final servicebox_today_event_item_big:I = 0x7f04014f
 
-.field public static final servicebox_today_event_item_small:I = 0x7f04014e
+.field public static final servicebox_today_event_item_small:I = 0x7f040150
 
-.field public static final servicebox_today_main_small:I = 0x7f040150
+.field public static final servicebox_today_main_small:I = 0x7f040152
 
 
 # direct methods

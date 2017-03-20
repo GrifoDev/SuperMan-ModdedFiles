@@ -119,6 +119,8 @@
     <string name="BirthDay_remainedDays1">Γενέθλια αύριο</string>
     <string name="BirthDay_remainedDays7">Γενέθλια σε 1 εβδομάδα</string>
     <string name="BirthDay_remainedDaysEtc">Γενέθλια σε %d ημέρες</string>
+    <string name="DivertToVoice_disable">Οι κλήσεις βίντεο δεν είναι διαθέσιμες για αυτόν τον αριθμό. Να γίνει φωνητική κλήση τώρα;</string>
+    <string name="DivertToVoice_enable">Οι κλήσεις βίντεο δεν είναι διαθέσιμες για αυτόν τον αριθμό. Αλλαγή σε φωνητική κλήση…</string>
     <string name="Lunar_anniversary_passedDays1">Επέτειος σεληνιακού ημερολογίου εχθές</string>
     <string name="Lunar_anniversary_remainedDays0">Επέτ. σελ. ημ. Σήμερα</string>
     <string name="Lunar_anniversary_remainedDays1">Επέτ. σελ. ημ. Αύριο</string>
@@ -300,8 +302,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="imLabelsGroup">Λογαριασμός IM</string>
     <string name="inCallLabel_Sec">Κλήση</string>
     <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
+    <string name="incall_decline_other_secondary_device">Other secondary device in use.</string>
+    <string name="incall_decline_service_not_allowed">Service not allowed in this location.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">All available lines for (MDN) are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">All available lines for %s are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
+    <string name="incall_decline_transferred_to_another_device">Call has been transferred to another device.</string>
     <string name="incall_error_supp_service_switch">Δεν ήταν δυνατή η εναλλαγή μεταξύ κλήσεων.</string>
     <string name="incall_extra_volume_disabled_BT">Δεν είναι δυνατή η χρήση του εύρους επιπλέον έντασης όταν είναι συνδεδεμένα ακουστικά Bluetooth.</string>
     <string name="incall_extra_volume_disabled_HAC">Δεν είναι δυνατή η ενεργοποίηση της επιπλέον έντασης, όταν είναι ενεργά τα βοηθήματα ακοής.</string>
@@ -460,11 +465,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="kt_nomal_quality_video_call_3g">Είναι διαθέσιμη μόνο η κανονική ποιότητα για την κλήση. Η συσκευή του άλλου μέρους περιορίζεται σε δίκτυα 3G.</string>
     <string name="label_notes">Σημειώσεις</string>
     <string name="label_sip_address">Κλήση Internet</string>
-    <string name="legal_popup_content">"Having trouble using time-consuming voice response call centers? IVR(Interactive Voice Response) call screen menu provides the perfect environment to use call centers by displaying the service menu on your screen.
+    <string name="legal_popup_content">"Σας δυσκολεύουν τα τηλεφωνικά κέντρα επικοινωνίας που απαιτούν πολύ χρόνο; Το μενού οθόνης κλήσης IVR (Διαδραστική φωνητική απόκριση) αποτελεί το ιδανικό περιβάλλον χρήσης των τηλεφωνικών κέντρων, εμφανίζοντας το μενού της υπηρεσίας στην οθόνη σας.
 
-IVR call screen menu uses contents provided by a third party service provider called Dianhuabang. By using IVR call screen menu, you agree to Dianhuabang’s %1$sTerms and Conditions%2$s."</string>
+Το μενού οθόνης κλήσης IVR χρησιμοποιεί περιεχόμενο που παρέχεται από τρίτο πάροχο υπηρεσιών, την Dianhuabang. Χρησιμοποιώντας το μενού οθόνης κλήσης IVR, συμφωνείτε με τους %1$sΌρους και προϋποθέσεις%2$s της Dianhuabang."</string>
     <string name="legal_popup_terms_conditions">Όροι και Προϋποθέσεις</string>
-    <string name="legal_pupup_title">Legal information</string>
+    <string name="legal_pupup_title">Νομικές πληροφορίες</string>
     <string name="lock_screen_during_call_double_tab">Διπλό πάτημα για ξεκλείδωμα</string>
     <string name="long_click_guide">Πατήστε παρατεταμένα για ενεργοποίηση/απενεργοποίηση.</string>
     <string name="low_batt_upgrade_disallowed">Δεν είναι δυνατή η αλλαγή σε κλήση βίντεο. Χαμηλή στάθμη μπαταρίας.</string>
@@ -521,6 +526,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="outgoing_img_video">Βίντεο</string>
     <string name="payphone_sbm">Καρτοτηλέφωνο</string>
     <string name="phoneLabelsGroup">Τηλέφωνο</string>
+    <string name="phone_voice_recording_failed_by_secure_call">Δεν είναι δυνατή η καταγραφή της ασφαλούς κλήσης.</string>
     <string name="phonetype_additional">Πρόσθετος αριθμός</string>
     <string name="photoring_block_toast">Αποκλεισμός επαφής για την αποστολή πολυμέσων μέσω του δακτυλίου φωτογραφιών.</string>
     <string name="photoring_toast_mobile_data_off">Το άλλο μέρος ενδέχεται να σας έχει στείλει περιεχόμενο από το Photoring το οποίο δεν μπορείτε να δείτε επειδή η πρόσβαση στα δεδομένα κινητής τηλεφωνίας έχει αποκλειστεί.</string>
@@ -563,8 +569,13 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="recently_use_sim_for_callback">SIM που χρησιμ. πρόσφατα</string>
     <string name="record_notification_button_text_close">Κλείσιμο</string>
     <string name="record_notification_button_text_record_list">Εγγραφές</string>
+    <string name="record_notification_button_text_storage">Αποθήκευση</string>
     <string name="record_notification_content">Πατήστε ΕΓΓΡΑΦΕΣ για να δείτε τις κλήσεις που εγγράψατε.</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">Ο χώρος αποθήκ. της συσκ. είναι πλήρης. Αποθ. μόνο ένα μέρος της εγγραφ. κλήσης.</string>
+    <string name="record_notification_content_unable_to_record">Η χώρος αποθήκευσης στη συσκευή δεν επαρκεί. Διαγράψτε αρχεία και δοκιμάστε ξανά.</string>
     <string name="record_notification_title">Η κλήση εγγράφηκε</string>
+    <string name="record_notification_title_not_to_record_entire_call">Δεν έγινε καταγραφή ολόκληρης της κλήσης</string>
+    <string name="record_notification_title_unable_to_record">Αδύνατη η εγγραφή της κλήσης</string>
     <string name="record_text">ΕΓΓ</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -679,6 +690,7 @@ Camera"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">Πατήστε δύο φορές για άνοιγμα της λίστας.</string>
     <string name="sec_showme_text">Εμφάνιση</string>
     <string name="second_screen_hold_text">%d σε ανα.</string>
+    <string name="section_contacts_only_summary">Create and manage contacts.</string>
     <string name="select_callback_sim_card">Επιλογή κάρτας SIM για επιστροφή κλήσης</string>
     <string name="select_callback_sim_card_content">Η τελευταία κλήση ή μήνυμα προς ή από αυτόν τον αριθμό δεν χρησιμοποίησε την προτιμώμενη κάρτα SIM για κλήσεις. Επιλέξτε ποια κάρτα SIM θα χρησιμοποιείται.</string>
     <string name="select_from_gallery">Επιλογή από τη Συλλογή</string>

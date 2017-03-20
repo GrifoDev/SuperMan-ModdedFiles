@@ -119,6 +119,8 @@
     <string name="BirthDay_remainedDays1">Natalici demà</string>
     <string name="BirthDay_remainedDays7">Natalici en 1 setmana</string>
     <string name="BirthDay_remainedDaysEtc">Natalici en %d dies</string>
+    <string name="DivertToVoice_disable">Videotrucades no disponibles per a aquest número. Intentar trucada de veu en lloc seu ara?</string>
+    <string name="DivertToVoice_enable">Videotrucades no disponibles per a aquest número. Canviant a trucada de veu…</string>
     <string name="Lunar_anniversary_passedDays1">"L'aniversari lunar va ser ahir"</string>
     <string name="Lunar_anniversary_remainedDays0">"L'aniver lunar és avui"</string>
     <string name="Lunar_anniversary_remainedDays1">"L'aniver lunar és demà"</string>
@@ -300,8 +302,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="imLabelsGroup">Compte MI</string>
     <string name="inCallLabel_Sec">Trucar</string>
     <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
+    <string name="incall_decline_other_secondary_device">Other secondary device in use.</string>
+    <string name="incall_decline_service_not_allowed">Service not allowed in this location.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">All available lines for (MDN) are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">All available lines for %s are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
+    <string name="incall_decline_transferred_to_another_device">Call has been transferred to another device.</string>
     <string name="incall_error_supp_service_switch">No es poden intercanviar trucades</string>
     <string name="incall_extra_volume_disabled_BT">"No es pot utilitzar l'interval de volum extra mentre l'auricular Bluetooth està connectat"</string>
     <string name="incall_extra_volume_disabled_HAC">No es pot habilitar el Volum extra mentre les Ajudes auditives estan habilitades.</string>
@@ -460,11 +465,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="kt_nomal_quality_video_call_3g">"Només està disponible la qualitat normal per a la trucada. El dispositiu de l'altra part està restringit a la xarxa 3G."</string>
     <string name="label_notes">Notes</string>
     <string name="label_sip_address">"Trucada d'Internet"</string>
-    <string name="legal_popup_content">"Having trouble using time-consuming voice response call centers? IVR(Interactive Voice Response) call screen menu provides the perfect environment to use call centers by displaying the service menu on your screen.
+    <string name="legal_popup_content">"Té algun problema amb l’ús dels centres de trucades amb resposta de veu que requereixen molt de temps? El menú de la pantalla de trucades d’IVR (respostes interactives de veu) proporciona l’entorn perfecte per utilitzar els centres de trucades mostrant el menú del servei a la pantalla.
 
-IVR call screen menu uses contents provided by a third party service provider called Dianhuabang. By using IVR call screen menu, you agree to Dianhuabang’s %1$sTerms and Conditions%2$s."</string>
+El menú de la pantalla de trucades d’IVR utilitza el contingut proporcionat per un proveïdor de serveis de tercers anomenat Dianhuabang. En utilitzar el menú de la pantalla de trucades d’IVR, accepta les %1$sCondicions d’ús%2$s de Dianhuabang."</string>
     <string name="legal_popup_terms_conditions">"Condicions d'ús"</string>
-    <string name="legal_pupup_title">Legal information</string>
+    <string name="legal_pupup_title">Informació legal</string>
     <string name="lock_screen_during_call_double_tab">Toqui dos cops per desbloquejar</string>
     <string name="long_click_guide">Mantingui tocat per activar/desactivar.</string>
     <string name="low_batt_upgrade_disallowed">No es pot canviar a videotrucada. Bateria baixa.</string>
@@ -521,6 +526,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="outgoing_img_video">Vídeos</string>
     <string name="payphone_sbm">Telèfon de pagament</string>
     <string name="phoneLabelsGroup">Telèfon</string>
+    <string name="phone_voice_recording_failed_by_secure_call">No es pot registrar la trucada segura.</string>
     <string name="phonetype_additional">Número addicional</string>
     <string name="photoring_block_toast">"S'ha bloquejat l'enviament de multimèdia del contacte cap a vostè mitjançant photo ring."</string>
     <string name="photoring_toast_mobile_data_off">"Hi pot haver contingut de Trucada fotogràfica enviat per la tercera part que no pot veure perquè l'accés de dades mòbils està bloquejat."</string>
@@ -563,8 +569,13 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="recently_use_sim_for_callback">SIM utilitzada recentment</string>
     <string name="record_notification_button_text_close">Tancar</string>
     <string name="record_notification_button_text_record_list">Gravacions</string>
+    <string name="record_notification_button_text_storage">Emmagatzematge</string>
     <string name="record_notification_content">Toqui GRAVACIONS per veure les trucades gravades.</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">"L'emmagatzematge dispositiu està ple. S'ha desat gravació parcial de la trucada."</string>
+    <string name="record_notification_content_unable_to_record">No hi ha prou espai emmagatzem disposit. Esborr alguns fitxers i torni a intentar.</string>
     <string name="record_notification_title">Trucada gravada</string>
+    <string name="record_notification_title_not_to_record_entire_call">"No s'ha gravat tota la trucada"</string>
+    <string name="record_notification_title_unable_to_record">No es pot gravar la trucada</string>
     <string name="record_text">REC</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -679,6 +690,7 @@ Camera"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">Toqui dos cops per obrir la llista.</string>
     <string name="sec_showme_text">Mostrar-me</string>
     <string name="second_screen_hold_text">%d en esp</string>
+    <string name="section_contacts_only_summary">Create and manage contacts.</string>
     <string name="select_callback_sim_card">Seleccionar targeta SIM per tornar trucada</string>
     <string name="select_callback_sim_card_content">"L'última trucada o missatge a o d'aquest número no ha utilitzat la targeta SIM preferida per a trucades. Seleccioni quina targeta SIM vol utilitzar."</string>
     <string name="select_from_gallery">Seleccionar a Galeria</string>

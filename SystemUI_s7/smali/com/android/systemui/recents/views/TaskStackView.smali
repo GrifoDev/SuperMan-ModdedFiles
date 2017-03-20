@@ -2390,7 +2390,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/views/TaskStackView;->mInflater:Landroid/view/LayoutInflater;
 
-    const v1, 0x7f040122
+    const v1, 0x7f040124
 
     const/4 v2, 0x0
 
@@ -6393,7 +6393,7 @@
 
     if-eqz p5, :cond_7
 
-    const v4, 0x7f0f044e
+    const v4, 0x7f0f044f
 
     :goto_0
     if-eqz p6, :cond_5
@@ -6410,7 +6410,7 @@
     return-void
 
     :cond_7
-    const v4, 0x7f0f044f
+    const v4, 0x7f0f0450
 
     goto :goto_0
 
@@ -6477,7 +6477,7 @@
 
     new-instance v3, Lcom/android/systemui/recents/events/ui/AllTaskViewsDismissedEvent;
 
-    const v4, 0x7f0f044f
+    const v4, 0x7f0f0450
 
     const/4 v5, 0x1
 

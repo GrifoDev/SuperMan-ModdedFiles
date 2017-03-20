@@ -462,7 +462,7 @@
 
     iget-object v5, p0, Lcom/android/systemui/qs/tiles/CastTile;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0f05b9
+    const v6, 0x7f0f05ba
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -518,7 +518,7 @@
 .method public isAvailable()Z
     .locals 1
 
-    const/4 v0, 0x0
+    const/4 v0, 0x1
 
     return v0
 .end method

@@ -119,6 +119,8 @@
     <string name="BirthDay_remainedDays1">Holnap születésnap</string>
     <string name="BirthDay_remainedDays7">Születésnap 1 hét múlva</string>
     <string name="BirthDay_remainedDaysEtc">Születésnap %d nap múlva</string>
+    <string name="DivertToVoice_disable">A szám nem teszi lehetővé a videohívást. Próbálkozik most inkább hanghívással?</string>
+    <string name="DivertToVoice_enable">A szám nem teszi lehetővé a videohívást. Átkapcsolás hanghívásra…</string>
     <string name="Lunar_anniversary_passedDays1">Lunáris évforduló tegnap</string>
     <string name="Lunar_anniversary_remainedDays0">Lunáris évforduló ma</string>
     <string name="Lunar_anniversary_remainedDays1">Lunáris évford. holnap</string>
@@ -276,7 +278,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="emailLabelsGroup">E-mail</string>
     <string name="email_custom">E-mail küldése ide: %s</string>
     <string name="email_home">E-mail az otthoni címre</string>
-    <string name="email_mobile">E-mail a mobil címére</string>
+    <string name="email_mobile">E-mail- a mobil címére</string>
     <string name="email_work">E-mail a munkahelyi címre</string>
     <string name="emergency_lost">Elveszett eszközök bejelentőközpontja</string>
     <string name="end">Befejez</string>
@@ -300,8 +302,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="imLabelsGroup">Csevegőfiók</string>
     <string name="inCallLabel_Sec">Hívás</string>
     <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
+    <string name="incall_decline_other_secondary_device">Other secondary device in use.</string>
+    <string name="incall_decline_service_not_allowed">Service not allowed in this location.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">All available lines for (MDN) are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">All available lines for %s are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
+    <string name="incall_decline_transferred_to_another_device">Call has been transferred to another device.</string>
     <string name="incall_error_supp_service_switch">Nem lehet átkapcsolni a hívásokat.</string>
     <string name="incall_extra_volume_disabled_BT">Csatlakoztatott Bluetooth-fejhallgató mellett nem használható a többlethangerő.</string>
     <string name="incall_extra_volume_disabled_HAC">Nem engedélyezhető a többlethangerő, amíg engedélyezve van a hallókészülékek funkció.</string>
@@ -460,11 +465,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="kt_nomal_quality_video_call_3g">Csak normál minőség érhető el a hívásnál. A másik fél eszköze 3G hálózatra van korlátozva.</string>
     <string name="label_notes">Jegyzetek</string>
     <string name="label_sip_address">Internetes hívás</string>
-    <string name="legal_popup_content">"Having trouble using time-consuming voice response call centers? IVR(Interactive Voice Response) call screen menu provides the perfect environment to use call centers by displaying the service menu on your screen.
+    <string name="legal_popup_content">"Nehézkesnek és hosszadalmasnak tartja a hívóközpontok hangalapú válaszrendszerének használatát? Az IVR (automatikus hangbemondásos ügyfélszolgálati rendszer) hívásképernyő-menüje tökéletes környezetet biztosít a hívóközpontok szolgáltatási menüjének megjelenítéséhez és használatához a képernyőn.
 
-IVR call screen menu uses contents provided by a third party service provider called Dianhuabang. By using IVR call screen menu, you agree to Dianhuabang’s %1$sTerms and Conditions%2$s."</string>
+Az IVR hívásképernyő-menüje a Dianhuabang nevű szolgáltató harmadik fél által biztosított tartalmakat használ. Az IVR hívásképernyő-menüje használatával Ön elfogadja a Dianhuabang %1$sHasználati feltételeit%2$s."</string>
     <string name="legal_popup_terms_conditions">Feltételek</string>
-    <string name="legal_pupup_title">Legal information</string>
+    <string name="legal_pupup_title">Jogi információk</string>
     <string name="lock_screen_during_call_double_tab">Érintse meg kétszer a feloldáshoz</string>
     <string name="long_click_guide">Tartsa rajta az ujját a be- vagy kikapcsoláshoz.</string>
     <string name="low_batt_upgrade_disallowed">Nem lehet videohívásra kapcsolni. Az akkumulátor lemerült.</string>
@@ -501,7 +506,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="not_enable_to_video">Video calls are not available while Emergency mode is enabled.</string>
     <string name="not_enable_to_video_emergencymode">Vészhelyzet üzemmódban nem lehet videóhívásokat indítani és fogadni.</string>
     <string name="notification_action_answer">Fogad</string>
-    <string name="notification_of_sub_number_empty_body">Alternatív számok megjelenítéséhez fizessen elő a többszámos SIM kártya szolgáltatásra, és próbálja újra.</string>
+    <string name="notification_of_sub_number_empty_body">Alternatív számok megjelenítéséhez fizessen elő a többszámos SIM-kártya szolgáltatásra, és próbálja újra.</string>
     <string name="notification_of_sub_number_empty_title">Nem található alternatív szám</string>
     <string name="onscreenBluetoothTextOff">Átvált BT fülhallgatóra</string>
     <string name="onscreenBluetoothTextOn">Átvált telefonra</string>
@@ -521,9 +526,10 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="outgoing_img_video">Videók</string>
     <string name="payphone_sbm">Telefonfülke</string>
     <string name="phoneLabelsGroup">Telefon</string>
+    <string name="phone_voice_recording_failed_by_secure_call">A biztonságos hívások nem rögzíthetők.</string>
     <string name="phonetype_additional">További szám</string>
     <string name="photoring_block_toast">Blokkolta a partner azon lehetőségét, hogy a fényképgyűrű használatával médiát küldjön Önnek.</string>
-    <string name="photoring_toast_mobile_data_off">Lehet, hogy a másik fél olyan fotógyűrű-tartalmat küldött, amelyet Ön a mobil internetkapcsolat-hozzáférés blokkolása miatt nem tud megtekinteni.</string>
+    <string name="photoring_toast_mobile_data_off">Lehet, hogy a másik fél olyan fotógyűrű-tartalmat küldött, amelyet Ön a mobilinternet-kapcsolat-hozzáférés blokkolása miatt nem tud megtekinteni.</string>
     <string name="photoring_unblock_toast">Feloldotta a partner azon lehetőségének blokkolását, hogy a fényképgyűrű használatával médiát küldjön Önnek.</string>
     <string name="photoring_unblock_toast_2nd">A partner által küldött médiát akkor tölti majd le az eszköz, amikor a partner a legközelebb felhívja Önt</string>
     <string name="popup_start_record_during_alerting">A hívás kapcsolása után megkezdődik a rögzítés.</string>
@@ -563,8 +569,13 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="recently_use_sim_for_callback">Legutóbb használt SIM</string>
     <string name="record_notification_button_text_close">Bezárás</string>
     <string name="record_notification_button_text_record_list">Felvételek</string>
+    <string name="record_notification_button_text_storage">Tárhely</string>
     <string name="record_notification_content">A rögzített hívásokat a FELVÉTELEK gombbal tekintheti meg.</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">Az eszköz tárhelye megtelt. A mentett felvétel nem tartalmazza a teljes hívást.</string>
+    <string name="record_notification_content_unable_to_record">Nincs elég hely az eszköz tárhelyén. Töröljön néhány fájlt, és próbálja újra.</string>
     <string name="record_notification_title">Rögzítette a hívást</string>
+    <string name="record_notification_title_not_to_record_entire_call">Nem sikerült a teljes hívást rögzíteni</string>
+    <string name="record_notification_title_unable_to_record">Nem lehet rögzíteni a hívást</string>
     <string name="record_text">Felv</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -628,7 +639,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="secOnscreenMenuShowMeText">Mutass</string>
     <string name="secOnscreenMenuSpeakerOffText">Hangsz. kikapcsolása</string>
     <string name="secOnscreenMenuSpeakerOnText">Hangszóró bekapcsolása</string>
-    <string name="secOnscreenMenuStartRecordText">Videofelvétel</string>
+    <string name="secOnscreenMenuStartRecordText">Videófelvétel</string>
     <string name="secOnscreenMenuStopRecordText">Leállít</string>
     <string name="secOnscreenMenuSwitchCameraText">Kameraváltás</string>
     <string name="secOnscreenMenuSwitchToHeadsetText">Átvált BT fülhallgatóra</string>
@@ -679,6 +690,7 @@ Camera"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">Érintse meg kétszer a lista megnyitásához.</string>
     <string name="sec_showme_text">Mutass</string>
     <string name="second_screen_hold_text">%d tartva</string>
+    <string name="section_contacts_only_summary">Create and manage contacts.</string>
     <string name="select_callback_sim_card">SIM-kártya kiválasztása a visszahíváshoz</string>
     <string name="select_callback_sim_card_content">Az erre a számra irányuló vagy onnan érkező legutóbbi hívás vagy üzenet nem a preferált hívási SIM-kártyát használta. Válassza ki a használni kívánt SIM-kártyát.</string>
     <string name="select_from_gallery">Kivál. a Galériából</string>

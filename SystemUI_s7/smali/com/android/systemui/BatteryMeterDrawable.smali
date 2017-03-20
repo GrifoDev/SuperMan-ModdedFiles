@@ -385,7 +385,7 @@
 
     invoke-direct {p0}, Lcom/android/systemui/BatteryMeterDrawable;->updateShowPercent()V
 
-    const v6, 0x7f0f0460
+    const v6, 0x7f0f0461
 
     invoke-virtual {p1, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -4508,7 +4508,6 @@
     :cond_3
     invoke-virtual {p0}, Lcom/android/systemui/BatteryMeterDrawable;->invalidateSelf()V
 
-    :cond_4
     return-void
 .end method
 

@@ -102,8 +102,6 @@
     <dimen name="sec_incoming_call_popup_buttons_padding">20.0dip</dimen>
     <dimen name="sec_multiparty_call_info_height">68.0dip</dimen>
     <dimen name="sec_multiparty_call_photo_top_margin">14.0dip</dimen>
-    <dimen name="sec_multiparty_secondary_call_info_width">148.0dip</dimen>
-    <dimen name="sec_multiparty_secondary_call_info_width_no_merge_kor">180.0dip</dimen>
     <dimen name="sec_primary_call_name_maxwidth">292.0dip</dimen>
     <dimen name="sec_primary_call_no_contact_name_margin_top">36.0dip</dimen>
     <dimen name="sec_primary_call_photo_margin_bottom">1.0px</dimen>
@@ -145,4 +143,5 @@
     <dimen name="sec_video_vga_video_resize_margin_left">88.0dip</dimen>
     <dimen name="sec_video_vga_video_resize_margin_top">156.0dip</dimen>
     <dimen name="sec_video_vga_video_resize_width">142.0dip</dimen>
+    <dimen name="sec_call_popup_landscape_width">640.0dip</dimen>
 </resources>

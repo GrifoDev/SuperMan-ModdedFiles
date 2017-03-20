@@ -72,6 +72,8 @@
     <string name="BirthDay_remainedDays1">Birthday tomorrow</string>
     <string name="BirthDay_remainedDays7">Birthday in 1 week</string>
     <string name="BirthDay_remainedDaysEtc">Birthday in %d days</string>
+    <string name="DivertToVoice_disable">Video calls not available for this number. Try voice call now instead?</string>
+    <string name="DivertToVoice_enable">Video calls not available for this number. Switching to voice call…</string>
     <string name="Lunar_anniversary_passedDays1">Lunar anniv. yesterday</string>
     <string name="Lunar_anniversary_remainedDays0">Lunar anniv. Today</string>
     <string name="Lunar_anniversary_remainedDays1">Lunar anniv. Tomorrow</string>
@@ -253,8 +255,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="imLabelsGroup">IM account</string>
     <string name="inCallLabel_Sec">Call</string>
     <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
+    <string name="incall_decline_other_secondary_device">Other secondary device in use.</string>
+    <string name="incall_decline_service_not_allowed">Service not allowed in this location.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">All available lines for (MDN) are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">All available lines for %s are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
+    <string name="incall_decline_transferred_to_another_device">Call has been transferred to another device.</string>
     <string name="incall_error_supp_service_switch">Unable to switch calls.</string>
     <string name="incall_extra_volume_disabled_BT">Unable to use extra volume range while Bluetooth headset is connected.</string>
     <string name="incall_extra_volume_disabled_HAC">Unable to enable Extra volume while Hearing aids enabled.</string>
@@ -474,6 +479,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="outgoing_img_video">Videos</string>
     <string name="payphone_sbm">Pay phone</string>
     <string name="phoneLabelsGroup">Phone</string>
+    <string name="phone_voice_recording_failed_by_secure_call">Cannot record secure call.</string>
     <string name="phonetype_additional">Additional number</string>
     <string name="photoring_block_toast">Contact blocked from sending media to you via photo ring.</string>
     <string name="photoring_toast_mobile_data_off">There may be Photoring content sent by the other party that you cannot see because mobile data access is blocked.</string>
@@ -516,8 +522,13 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="recently_use_sim_for_callback">Recently used SIM</string>
     <string name="record_notification_button_text_close">Close</string>
     <string name="record_notification_button_text_record_list">Recordings</string>
+    <string name="record_notification_button_text_storage">Storage</string>
     <string name="record_notification_content">Tap RECORDINGS to view your recorded calls.</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">Your device storage is full. A partial recording of the call has been saved.</string>
+    <string name="record_notification_content_unable_to_record">There is not enough space in your device storage. Delete some files and try again.</string>
     <string name="record_notification_title">Call recorded</string>
+    <string name="record_notification_title_not_to_record_entire_call">Entire call not recorded</string>
+    <string name="record_notification_title_unable_to_record">Unable to record call</string>
     <string name="record_text">REC</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -632,6 +643,7 @@ Camera"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">Double tap to open list.</string>
     <string name="sec_showme_text">Show me</string>
     <string name="second_screen_hold_text">%d on hold</string>
+    <string name="section_contacts_only_summary">Create and manage contacts.</string>
     <string name="select_callback_sim_card">Select callback SIM card</string>
     <string name="select_callback_sim_card_content">The last call or message to or from this number did not use the preferred SIM card for calls. Select which SIM card to use.</string>
     <string name="select_from_gallery">Select from Gallery</string>

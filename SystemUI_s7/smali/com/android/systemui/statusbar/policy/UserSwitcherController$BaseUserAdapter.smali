@@ -224,7 +224,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0f0482
+    const v0, 0x7f0f0483
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -233,7 +233,7 @@
     return-object v0
 
     :cond_0
-    const v0, 0x7f0f0480
+    const v0, 0x7f0f0481
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -246,7 +246,7 @@
 
     if-eqz v0, :cond_2
 
-    const v0, 0x7f0f047e
+    const v0, 0x7f0f047f
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

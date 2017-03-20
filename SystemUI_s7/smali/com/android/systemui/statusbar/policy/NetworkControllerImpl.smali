@@ -2109,13 +2109,13 @@
 
     if-eqz v8, :cond_2
 
-    const v8, 0x7f0f0665
+    const v8, 0x7f0f0666
 
     invoke-virtual {v3, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v7
 
-    const v8, 0x7f0f0667
+    const v8, 0x7f0f0668
 
     invoke-virtual {v3, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2221,13 +2221,13 @@
 
     if-eqz v8, :cond_3
 
-    const v8, 0x7f0f0664
+    const v8, 0x7f0f0665
 
     invoke-virtual {v3, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v7
 
-    const v8, 0x7f0f0666
+    const v8, 0x7f0f0667
 
     invoke-virtual {v3, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2248,13 +2248,13 @@
 
     if-eqz v8, :cond_4
 
-    const v8, 0x7f0f0682
+    const v8, 0x7f0f0683
 
     invoke-virtual {v3, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v7
 
-    const v8, 0x7f0f0683
+    const v8, 0x7f0f0684
 
     invoke-virtual {v3, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2265,13 +2265,13 @@
     goto/16 :goto_1
 
     :cond_4
-    const v8, 0x7f0f0663
+    const v8, 0x7f0f0664
 
     invoke-virtual {v3, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v7
 
-    const v8, 0x7f0f0666
+    const v8, 0x7f0f0667
 
     invoke-virtual {v3, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2298,7 +2298,7 @@
 
     iget-object v9, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mContext:Landroid/content/Context;
 
-    const v10, 0x7f0f0684
+    const v10, 0x7f0f0685
 
     invoke-virtual {v9, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -6065,7 +6065,7 @@
     :cond_2
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f066b
+    const v1, 0x7f0f066c
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -6311,7 +6311,7 @@
     :cond_3
     iget-object v2, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0f066b
+    const v3, 0x7f0f066c
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

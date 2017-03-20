@@ -119,6 +119,8 @@
     <string name="BirthDay_remainedDays1">Yarın doğum günü</string>
     <string name="BirthDay_remainedDays7">1 hafta sonra doğum günü</string>
     <string name="BirthDay_remainedDaysEtc">%d gün sonra doğum günü</string>
+    <string name="DivertToVoice_disable">Bu numara için görüntülü arama kullanılamıyor. Bunun yerine sesli arama denensin mi?</string>
+    <string name="DivertToVoice_enable">Bu numara için görüntülü arama kullanılamıyor. Sesli aramaya geçiliyor…</string>
     <string name="Lunar_anniversary_passedDays1">Ay takvimine göre yıl dön. dün</string>
     <string name="Lunar_anniversary_remainedDays0">Ay tkvmne gre yl dön. Bgn</string>
     <string name="Lunar_anniversary_remainedDays1">Ay tkvmne gre yl dön. Yrn</string>
@@ -145,7 +147,7 @@
     <string name="add_reminder">Htrltcı ekle</string>
     <string name="agree">Onayla</string>
     <string name="am_cover_toggle_string">Aramyı yanıtlmk veya reddtmk içn kapağı açn.</string>
-    <string name="am_device_memory_full_warning">Unable to use Auto answer with message. There is not enough space in your device storage to save voice messages. Delete some items and try again.</string>
+    <string name="am_device_memory_full_warning">Mesajla otomatik yanıtla özelliği kullanılamıyor. Sesli mesajları kaydetmek için cihazınızın hafızasında yeterli alan yok. Bazı öğeleri silip tekrar deneyin.</string>
     <string name="another_device_pickup_message">Another device picked up this call.</string>
     <string name="answering_memo_Playing_text">Cevaplama mesajı çalınıyor…</string>
     <string name="answering_memo_Recording_text">Mesaj kaydediliyor…</string>
@@ -160,8 +162,8 @@
     <string name="call_drug_up_panel_for_kk">Hızlı mesaj gönderip gelen aramayı reddetmek için MESAJ GÖNDER tuşunu yukarı sürükleyin.</string>
     <string name="call_drug_up_panel_for_kk_tts">Gelen bir aramayı reddettiğinizde arama reddetme mesajı göndermek için aramayı mesajla reddet panelini yukarı sürükleyin.</string>
     <string name="call_ended_toast">Arama sonlandırıldı.</string>
-    <string name="call_forwarded_to">Call forwarded to:</string>
-    <string name="call_forwarding_from">Call forwarded from:</string>
+    <string name="call_forwarded_to">Arama şuraya yönlendirildi:</string>
+    <string name="call_forwarding_from">Arama şuradan yönlendirildi:</string>
     <string name="call_incoming_voice_call2">Arama yanıtlamak için %s simgesine dokunun.</string>
     <string name="call_incoming_voice_call2_tts">Arama yanıtlamak için aramayı yanıtla tuşuna dokunun.</string>
     <string name="call_incoming_voice_call3">Arama reddi içn %s öğsne dknn.</string>
@@ -186,20 +188,20 @@
     <string name="call_menu_during_call_list6_tts">Sesi düzeyini artırmak için ekstra ses düzeyi tuşuna dokunun.</string>
     <string name="call_menu_during_call_list7">Başka bir kişiyi aramak ve bu kişiyi geçerli aramaya eklemek için %s simgesine dokunun.</string>
     <string name="call_menu_during_call_list7_tts">Başka bir kişiyi aramak ve bu kişiyi mevcut aramaya eklemek için arama ekle tuşuna dokunun.</string>
-    <string name="call_out_duration">Call out duration</string>
+    <string name="call_out_duration">Çağrı süresi</string>
     <string name="call_twophone_one_phone">Orijinal numara</string>
     <string name="call_twophone_two_phone">İkinci numara</string>
     <string name="caller_info_card_last_call_log_title">En son arama</string>
     <string name="caller_info_card_last_message_title">En son mesaj</string>
     <string name="caller_info_card_memo_title">Arama sırasında not oluşturuldu</string>
-    <string name="callsettings_hold_key_record_calls_notify">Press and hold Hold key to start or stop recording</string>
+    <string name="callsettings_hold_key_record_calls_notify">Kaydı başlatmak veya durdurmak için Beklet tuşunu basılı tutun</string>
     <string name="callsettings_rejectmessage_list1">Üzgünüm, şu anda konuşamıyorum. Daha sonra tekrar arayın.</string>
     <string name="callsettings_rejectmessage_list2">Toplantıdayım.</string>
     <string name="callsettings_rejectmessage_list3">Dersteyim.</string>
     <string name="callsettings_rejectmessage_list4">Sinemadayım.</string>
     <string name="callsettings_rejectmessage_list5">Araç kullanıyorum.</string>
-    <string name="camera_off">Camera turned off.</string>
-    <string name="camera_on">Camera turned on.</string>
+    <string name="camera_off">Kamera kapatıldı.</string>
+    <string name="camera_on">Kamera açıldı.</string>
     <string name="camera_security_enter">Güvenlik ilkesi Kamera kullanımını kısıtlıyor.</string>
     <string name="camera_start_failed">Kamera başarısız.</string>
     <string name="cancel">İptal</string>
@@ -247,7 +249,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="description_secOnscreenVideoCallText">Video arama</string>
     <string name="description_secOnscreenViewContactText">Kişi detaylarını göster</string>
     <string name="device_info_not_available">Kullanılamaz</string>
-    <string name="dial_warning">Unable to dial.</string>
+    <string name="dial_warning">Aranamıyor.</string>
     <string name="dialling_video_call">Görüntülü arama yapılıyor</string>
     <string name="dialpad_2_sub_letters">ABC</string>
     <string name="dialpad_3_sub_letters">DEF</string>
@@ -300,8 +302,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="imLabelsGroup">IM hesabı</string>
     <string name="inCallLabel_Sec">Arama</string>
     <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
+    <string name="incall_decline_other_secondary_device">Other secondary device in use.</string>
+    <string name="incall_decline_service_not_allowed">Service not allowed in this location.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">All available lines for (MDN) are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">All available lines for %s are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
+    <string name="incall_decline_transferred_to_another_device">Call has been transferred to another device.</string>
     <string name="incall_error_supp_service_switch">Aramalar arasında geçiş yapılamıyor.</string>
     <string name="incall_extra_volume_disabled_BT">Bluetooth kulaklık takılıyken ekstra ses düzeyi aralığı kullanılamıyor.</string>
     <string name="incall_extra_volume_disabled_HAC">İşitme cihazı etkinken Ekstra ses etkinleştirilemez.</string>
@@ -312,7 +317,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="incall_popup_call_remove_title_vzw">Hide shortcut</string>
     <string name="incall_popup_ended">Sonlandı</string>
     <string name="incall_spam_call_block">Numarayı engelle</string>
-    <string name="incall_spam_call_reject">Add to Black list</string>
+    <string name="incall_spam_call_reject">Kara listeye ekle</string>
     <string name="incall_spam_call_reject_toast">Telefon numarası Engelleme listesine eklendi.</string>
     <string name="incall_spam_call_report">Numarayı bildir</string>
     <string name="incall_transfer_call">Aramayı aktar</string>
@@ -460,9 +465,9 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="kt_nomal_quality_video_call_3g">Arama için yalnızca normal kalite seçeneği mevcut. Diğer tarafın cihazı, 3G ağına sınırlandırıldı.</string>
     <string name="label_notes">Notlar</string>
     <string name="label_sip_address">İnternet araması</string>
-    <string name="legal_popup_content">"Having trouble using time-consuming voice response call centers? IVR(Interactive Voice Response) call screen menu provides the perfect environment to use call centers by displaying the service menu on your screen.
+    <string name="legal_popup_content">"Zaman tüketen telesekreter kullanan çağrı merkezlerini kullanmakta sorun mu yaşıyorsunuz? IVR (Etkileşimli Sesli Yanıt) arama ekranı menüsü, ekranınızda hizmet menüsünü görüntülemek suretiyle çağrı merkezlerinin kullanımında mükemmel ortamı sağlar.
 
-IVR call screen menu uses contents provided by a third party service provider called Dianhuabang. By using IVR call screen menu, you agree to Dianhuabang’s %1$sTerms and Conditions%2$s."</string>
+IVR arama ekranı menüsünde, Dianhuabang adlı üçüncü taraf hizmet sağlayıcı tarafından sağlanan içerik kullanılmaktadır. IVR arama ekranı menüsünü kullanmakla Dianhuabang’ın %1$sHüküm ve Koşullarını%2$s kabul edersiniz."</string>
     <string name="legal_popup_terms_conditions">Hüküm ve koşullar</string>
     <string name="legal_pupup_title">Yasal bilgi</string>
     <string name="lock_screen_during_call_double_tab">Kilidi açmak için çift dokunun</string>
@@ -481,7 +486,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="memory_full_msg">Yeterli bellek yok</string>
     <string name="message_greeting">Selamlama</string>
     <string name="modify_to_video_start">Görüntülü görüşmeye geçiş talep ediliyor…</string>
-    <string name="modify_to_voice_start">Switching to voice call…</string>
+    <string name="modify_to_voice_start">Sesli aramaya geçiliyor…</string>
     <string name="msg_for_video_show_never_again">"Bazı dosya biçimleri desteklenmiyor. Sadece desteklenen dosyalar Galeri'de gösterilecek."</string>
     <string name="mt_vt_not_possible">%s cannot receive video calls at this time. You will now be connected through a voice call.</string>
     <string name="nameLabelsGroup">İsim</string>
@@ -498,7 +503,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="name_suffix">Ad soneki</string>
     <string name="network_message_no_answer">Cevap yok</string>
     <string name="nicknameLabelsGroup">Takma Ad</string>
-    <string name="not_enable_to_video">Video calls are not available while Emergency mode is enabled.</string>
+    <string name="not_enable_to_video">Acil durum modu etkinken görüntülü aramalar kullanılamaz.</string>
     <string name="not_enable_to_video_emergencymode">Acil durum modu etkinken görüntülü arama yapılamaz veya alınamaz.</string>
     <string name="notification_action_answer">Yanıtla</string>
     <string name="notification_of_sub_number_empty_body">Alternatif numaraları görüntülemek için bir SIM kart çoklu numara servisine üye olup tekrar deneyin.</string>
@@ -508,7 +513,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="onscreenBluetoothTextOn_att">Telefona geç</string>
     <string name="onscreenBluetoothTextOn_tmo">Telefona geç</string>
     <string name="onscreenWebexText">WebEx</string>
-    <string name="open_folder_for_speakeroff">To turn off the speakerphone, open the flip phone.</string>
+    <string name="open_folder_for_speakeroff">Hoparlörü kapatmak için çevirmeli telefonu açın.</string>
     <string name="open_the_cover">Kapağı açın.</string>
     <string name="open_the_cover_incoming">Görüntülü aramayı yanıtlamak veya reddetmek için kapağı açın.</string>
     <string name="open_the_cover_modify_call">Aranan taraf görüntülü görüşmeye geçmek istiyor. Talebi kabul etmek/reddetmek için kapağı açın.</string>
@@ -521,6 +526,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="outgoing_img_video">Videolar</string>
     <string name="payphone_sbm">Ankesörlü telefon</string>
     <string name="phoneLabelsGroup">Telefon</string>
+    <string name="phone_voice_recording_failed_by_secure_call">Güvenli arama kaydedilemiyor.</string>
     <string name="phonetype_additional">Ek numara</string>
     <string name="photoring_block_toast">Kişilerin PhotoRing yoluyla size medya göndermesi engellendi</string>
     <string name="photoring_toast_mobile_data_off">Diğer tarafın gönderdiği ve mobil veri erişimi bloke edildiği için göremeyeceğiniz Photoring içerikleri olabilir.</string>
@@ -538,7 +544,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="prepareOtherVideo">Video görüntüsü hazırlanıyor…</string>
     <string name="previous_call_is_held_when_you_accept_call">Yeni bir aramayı kabul ettiğinizde geçerli arama beklemeye alınacak.</string>
     <string name="private_num_cdma">Kısıtlı</string>
-    <string name="private_num_sbm">Withheld number</string>
+    <string name="private_num_sbm">Gizli numara</string>
     <string name="quick_panel_title_video_call">Video arama</string>
     <string name="quick_panel_title_voice_call">Sesli arama</string>
     <string name="quick_panel_title_volte_call">VoLTE araması</string>
@@ -563,8 +569,13 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="recently_use_sim_for_callback">Son kullanılan SIM</string>
     <string name="record_notification_button_text_close">Kapat</string>
     <string name="record_notification_button_text_record_list">Kayıtlar</string>
+    <string name="record_notification_button_text_storage">Kayıt yeri</string>
     <string name="record_notification_content">"Kayıtlı aramalarınızı görüntülemek için KAYITLAR'a dokunun."</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">Cihazınızın hafızası dolu. Aramanın bir kısmı kaydedildi.</string>
+    <string name="record_notification_content_unable_to_record">Cihazınızın hafızasında yeterli alan yok. Bazı dosyaları silip tekrar deneyin.</string>
     <string name="record_notification_title">Arama kaydedildi</string>
+    <string name="record_notification_title_not_to_record_entire_call">Aramanın tamamı kaydedilmedi</string>
+    <string name="record_notification_title_unable_to_record">Arama kaydedilemiyor</string>
     <string name="record_text">REC</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -638,7 +649,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="secOnscreenMenuSwitchToPhoneText_tmo">Telefona geç</string>
     <string name="secOnscreenMenuSwitchToVideoCallText">Görüntülü görüşmeye geç</string>
     <string name="secOnscreenMenuSwitchToVoiceCallText">Sesli aramaya geç</string>
-    <string name="secOnscreenMenuSwitchVideoDisplay">Switch video displays</string>
+    <string name="secOnscreenMenuSwitchVideoDisplay">Video ekranlarını değiştir</string>
     <string name="secOnscreenMenuUnmuteText">Sesi aç</string>
     <string name="secOnscreenMenuVideoConfCallText">Yeni kişi davet edin</string>
     <string name="secOnscreenMenuViewInFullScreenText">Tam ekran görüntüle</string>
@@ -679,6 +690,7 @@ Camera"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">Listeyi açmak için çift dokunun.</string>
     <string name="sec_showme_text">Göster</string>
     <string name="second_screen_hold_text">%d beklmde</string>
+    <string name="section_contacts_only_summary">Create and manage contacts.</string>
     <string name="select_callback_sim_card">Geri arama SIM kartını seç</string>
     <string name="select_callback_sim_card_content">Bu numaraya giden veya bu numaradan gelen son arama ya da mesajda, aramalar için tercih edilen SIM kart kullanılmadı. Kullanılacak SIM kartı seçin.</string>
     <string name="select_from_gallery">Galeriden seç</string>
@@ -718,12 +730,12 @@ Camera"</string>
     <string name="spam_call_report_dialog_spam">Spam</string>
     <string name="spam_call_report_dialog_taxis">Taksi</string>
     <string name="spam_call_reported_as">%s olarak bildirildi</string>
-    <string name="spam_call_resported_as_by_you">Reported as %s by you</string>
+    <string name="spam_call_resported_as_by_you">Sizin tarafınızdan %s olarak bildirildi</string>
     <string name="spam_call_resported_count">(%d kez)</string>
-    <string name="spam_call_type_and_count">Reported as %1$s %2$d times</string>
+    <string name="spam_call_type_and_count">%1$s %2$d kez olarak bildirildi</string>
     <string name="sub_number_item">Alternatif %d</string>
-    <string name="suguden_guide_do_not_show_again_dcm">Do not show again</string>
-    <string name="suguden_guide_main_text_dcm">Answer the call by bringing the device close to your ear.</string>
+    <string name="suguden_guide_do_not_show_again_dcm">Tekrar gösterme</string>
+    <string name="suguden_guide_main_text_dcm">Cihazı kulağınıza yakınlaştırarak aramayı yanıtlayın.</string>
     <string name="swipe_left">Sola kaydırın.</string>
     <string name="swipe_right">Sağa kaydırın.</string>
     <string name="swipe_right_to_answer_call_with_video">Aramayı videoyla yanıtlamak için sağa kaydırın.</string>
@@ -814,5 +826,5 @@ Your video call is now running on the mobile network. (Data usage applies if you
     <string name="waiting_call_dialog_dismiss_toast">Arama %1$s tarafından sonlandırıldı. %2$s ile arama sürdürülüyor…</string>
     <string name="waiting_call_dialog_message">Aramayı yanıtla</string>
     <string name="websiteLabelsGroup">Web adresi</string>
-    <string name="yellow_pages">Yellow Pages</string>
+    <string name="yellow_pages">Sarı Sayfalar</string>
 </resources>

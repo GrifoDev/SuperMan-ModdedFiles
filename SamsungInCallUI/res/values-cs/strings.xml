@@ -119,6 +119,8 @@
     <string name="BirthDay_remainedDays1">Narozeniny zítra</string>
     <string name="BirthDay_remainedDays7">Narozeniny za 1 týden</string>
     <string name="BirthDay_remainedDaysEtc">Narozeniny za %d dnů</string>
+    <string name="DivertToVoice_disable">Videohovory nejsou pro toto číslo k dispozici. Chcete zkusit hlasový hovor?</string>
+    <string name="DivertToVoice_enable">Videohovory nejsou pro toto číslo k dispozici. Přepínání na hlasový hovor…</string>
     <string name="Lunar_anniversary_passedDays1">Lunární výročí včera</string>
     <string name="Lunar_anniversary_remainedDays0">Lunární výročí Dnes</string>
     <string name="Lunar_anniversary_remainedDays1">Lunární výročí Zítra</string>
@@ -300,8 +302,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="imLabelsGroup">Účet chatu</string>
     <string name="inCallLabel_Sec">Volat</string>
     <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
+    <string name="incall_decline_other_secondary_device">Other secondary device in use.</string>
+    <string name="incall_decline_service_not_allowed">Service not allowed in this location.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">All available lines for (MDN) are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">All available lines for %s are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
+    <string name="incall_decline_transferred_to_another_device">Call has been transferred to another device.</string>
     <string name="incall_error_supp_service_switch">Nelze přepínat hovory.</string>
     <string name="incall_extra_volume_disabled_BT">Když jsou připojená sluchátka Bluetooth, nelze použít dodatečnou hlasitost.</string>
     <string name="incall_extra_volume_disabled_HAC">Když jsou zapnutá Sluchadla, nelze zapnout Dodatečnou hlasitost.</string>
@@ -460,11 +465,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="kt_nomal_quality_video_call_3g">Pro tento hovor je k dispozici pouze normální kvalita. Zařízení druhé strany je omezeno na síť 3G.</string>
     <string name="label_notes">Poznámky</string>
     <string name="label_sip_address">Internetový hovor</string>
-    <string name="legal_popup_content">"Having trouble using time-consuming voice response call centers? IVR(Interactive Voice Response) call screen menu provides the perfect environment to use call centers by displaying the service menu on your screen.
+    <string name="legal_popup_content">"Máte problémy s časově náročnými hlasovými systémy telefonních center? Menu obrazovky hovoru IVR (Interactive Voice Response) nabízí perfektní prostředí pro komunikaci s telefonními centry, protože na obrazovce zobrazuje menu služby.
 
-IVR call screen menu uses contents provided by a third party service provider called Dianhuabang. By using IVR call screen menu, you agree to Dianhuabang’s %1$sTerms and Conditions%2$s."</string>
+Menu obrazovky hovoru IVR používá obsah poskytovaný nezávislým poskytovatelem služeb, společností Dianhuabang. Použitím menu obrazovky hovoru IVR potvrdíte souhlas se %1$sSmluvními podmínkami%2$s společnosti Dianhuabang."</string>
     <string name="legal_popup_terms_conditions">Smluvní podmínky</string>
-    <string name="legal_pupup_title">Legal information</string>
+    <string name="legal_pupup_title">Právní informace</string>
     <string name="lock_screen_during_call_double_tab">Poklepáním odemkněte</string>
     <string name="long_click_guide">Klepnutím a přidržením zapnete/vypnete.</string>
     <string name="low_batt_upgrade_disallowed">Nelze přepnout na videohovor. Slabá baterie.</string>
@@ -521,6 +526,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="outgoing_img_video">Videa</string>
     <string name="payphone_sbm">Tel. automat</string>
     <string name="phoneLabelsGroup">Čísla kontaktu</string>
+    <string name="phone_voice_recording_failed_by_secure_call">Zabezpečený hovor nelze nahrát.</string>
     <string name="phonetype_additional">Další číslo</string>
     <string name="photoring_block_toast">Kontakt byl zablokován a nemůže vám posílat multimédia prostřednictvím vyzvánění s fotografií.</string>
     <string name="photoring_toast_mobile_data_off">Druhá strana vám pravděpodobně zaslala obsah Photoring, který nemůžete zobrazit, protože je blokován přístup k mobilním datům.</string>
@@ -563,8 +569,13 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="recently_use_sim_for_callback">Naposledy použitá SIM</string>
     <string name="record_notification_button_text_close">Zavřít</string>
     <string name="record_notification_button_text_record_list">Nahrávky</string>
+    <string name="record_notification_button_text_storage">Úložiště</string>
     <string name="record_notification_content">Klepnutím na tlačítko NAHRÁVKY zobrazíte nahrané hovory.</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">Paměť zařízení je plná. Byla uložena částečná nahrávka hovoru.</string>
+    <string name="record_notification_content_unable_to_record">V paměti není dostatek volného místa. Odstraňte některé soubory a opakujte akci.</string>
     <string name="record_notification_title">Hovor byl nahrán</string>
+    <string name="record_notification_title_not_to_record_entire_call">Nebyl nahrán celý hovor</string>
+    <string name="record_notification_title_unable_to_record">Hovor nelze nahrát</string>
     <string name="record_text">REC</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -679,6 +690,7 @@ Camera"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">Poklepáním otevřete seznam.</string>
     <string name="sec_showme_text">Zobrazit</string>
     <string name="second_screen_hold_text">%d přidrž.</string>
+    <string name="section_contacts_only_summary">Create and manage contacts.</string>
     <string name="select_callback_sim_card">Vyberte SIM kartu pro zpětné volání</string>
     <string name="select_callback_sim_card_content">Poslední hovor nebo zpráva zahrnující toto číslo nepoužily preferovanou SIM kartu pro hovory. Vyberte SIM kartu, kterou chcete použít.</string>
     <string name="select_from_gallery">Vyberte z Galerie</string>

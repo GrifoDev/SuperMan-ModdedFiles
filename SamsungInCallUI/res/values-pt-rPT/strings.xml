@@ -119,6 +119,8 @@
     <string name="BirthDay_remainedDays1">Aniversário amanhã</string>
     <string name="BirthDay_remainedDays7">Aniv. daqui a 1 semana</string>
     <string name="BirthDay_remainedDaysEtc">Aniv. daqui a %d dias</string>
+    <string name="DivertToVoice_disable">Chamadas de vídeo indisponíveis para este número. Tentar chamada de voz agora em substituição?</string>
+    <string name="DivertToVoice_enable">Chamadas de vídeo indisponíveis para este número. A mudar para chamada de voz…</string>
     <string name="Lunar_anniversary_passedDays1">Aniv. lunar ontem</string>
     <string name="Lunar_anniversary_remainedDays0">Aniv. lunar: Hoje</string>
     <string name="Lunar_anniversary_remainedDays1">Aniv. lunar: Amanhã</string>
@@ -300,8 +302,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="imLabelsGroup">Conta MI</string>
     <string name="inCallLabel_Sec">Chamada</string>
     <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
+    <string name="incall_decline_other_secondary_device">Other secondary device in use.</string>
+    <string name="incall_decline_service_not_allowed">Service not allowed in this location.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">All available lines for (MDN) are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">All available lines for %s are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
+    <string name="incall_decline_transferred_to_another_device">Call has been transferred to another device.</string>
     <string name="incall_error_supp_service_switch">Impossível alternar chamadas.</string>
     <string name="incall_extra_volume_disabled_BT">Impossível utilizar o intervalo de volume extra enquanto o auricular Bluetooth estiver ligado.</string>
     <string name="incall_extra_volume_disabled_HAC">Impossível activar o volume Extra quando os Aparelhos auditivos estão activados.</string>
@@ -521,6 +526,7 @@ O menu do ecrã de chamadas IVR utiliza conteúdos disponibilizados por um forne
     <string name="outgoing_img_video">Vídeos</string>
     <string name="payphone_sbm">Telefone pago</string>
     <string name="phoneLabelsGroup">Telefone</string>
+    <string name="phone_voice_recording_failed_by_secure_call">Impossível gravar chamada segura.</string>
     <string name="phonetype_additional">Número adicional</string>
     <string name="photoring_block_toast">O envio de multimédia via Photo Ring, por parte deste contacto, está bloqueado.</string>
     <string name="photoring_toast_mobile_data_off">Pode haver conteúdo Photoring enviado pela outra pessoa que não possa ser visto por si porque o acesso a dados móveis está bloqueado.</string>
@@ -563,8 +569,13 @@ O menu do ecrã de chamadas IVR utiliza conteúdos disponibilizados por um forne
     <string name="recently_use_sim_for_callback">SIM utilizado recentemente</string>
     <string name="record_notification_button_text_close">Fechar</string>
     <string name="record_notification_button_text_record_list">Gravações</string>
+    <string name="record_notification_button_text_storage">Armazenamento</string>
     <string name="record_notification_content">Toque em GRAVAÇÕES para ver as suas chamadas gravadas.</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">Armazenamento do dispositivo cheio. Foi guardada uma gravação parcial da chamada.</string>
+    <string name="record_notification_content_unable_to_record">Sem espaço suficiente no armazenamento do disp. Elimine ficheiros e tente novamente.</string>
     <string name="record_notification_title">Chamada gravada</string>
+    <string name="record_notification_title_not_to_record_entire_call">Chamada não gravada na totalidade</string>
+    <string name="record_notification_title_unable_to_record">Impossível gravar chamada</string>
     <string name="record_text">GRAVAR</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -679,6 +690,7 @@ Camera"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">Toque duas vezes para abrir a lista.</string>
     <string name="sec_showme_text">Exibir</string>
     <string name="second_screen_hold_text">%d espera</string>
+    <string name="section_contacts_only_summary">Create and manage contacts.</string>
     <string name="select_callback_sim_card">Seleccionar cartão SIM de rechamada</string>
     <string name="select_callback_sim_card_content">A última chamada ou mensagem de ou para este número não utilizou o cartão SIM preferido para chamadas. Seleccione o cartão SIM a utilizar.</string>
     <string name="select_from_gallery">Seleccionar da Galeria</string>

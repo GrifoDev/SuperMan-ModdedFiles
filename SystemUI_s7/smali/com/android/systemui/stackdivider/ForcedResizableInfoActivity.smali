@@ -38,7 +38,7 @@
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 4
 
-    const v3, 0x7f0f05b1
+    const v3, 0x7f0f05b2
 
     const/4 v2, 0x0
 
@@ -70,7 +70,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextAppearance(I)V
 
-    const v1, 0x7f0f05b3
+    const v1, 0x7f0f05b4
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 

@@ -72,6 +72,8 @@
     <string name="BirthDay_remainedDays1">কালিলৈ জন্মদিন</string>
     <string name="BirthDay_remainedDays7">1 সপ্তাহত জন্মদিন</string>
     <string name="BirthDay_remainedDaysEtc">%d দিনত জন্মদিন</string>
+    <string name="DivertToVoice_disable">"এই নম্বৰৰ বাবে ভিডিঅ' কল উপলভ্য নহয়৷ ইয়াৰ পৰিবৰ্তে এতিয়া মাত কল কৰিব নেকি?"</string>
+    <string name="DivertToVoice_enable">"এই নম্বৰৰ বাবে ভিডিঅ' কল উপলভ্য নহয়৷ মাত কললৈ সলনি কৰি আছে…"</string>
     <string name="Lunar_anniversary_passedDays1">চান্দ্ৰ বাৰ্ষিকী যোৱাকালি</string>
     <string name="Lunar_anniversary_remainedDays0">চান্দ্ৰ বাৰ্ষিকী আজি</string>
     <string name="Lunar_anniversary_remainedDays1">চান্দ্ৰ বাৰ্ষিকী অহাকালিলৈ</string>
@@ -98,7 +100,7 @@
     <string name="add_reminder">স্মাৰক যোগ কৰক</string>
     <string name="agree">একমত</string>
     <string name="am_cover_toggle_string">"কলৰ উত্তৰ বা নাকচ কৰিবলৈ ক'ভাৰ খোলক৷"</string>
-    <string name="am_device_memory_full_warning">Unable to use Auto answer with message. There is not enough space in your device storage to save voice messages. Delete some items and try again.</string>
+    <string name="am_device_memory_full_warning">মেচেজৰ সৈতে স্বয়ং উত্তৰ ব্যৱহাৰ কৰাত অক্ষম। মাত মেচেজ সংৰক্ষণ কৰিবলৈ আপোনাৰ ডিভাইচ সংগ্ৰহণত পৰ্যাপ্ত স্থান নাই। কিছু আইটেম বিলোপ কৰক আৰু পুনঃচেষ্টা কৰক।</string>
     <string name="another_device_pickup_message">Another device picked up this call.</string>
     <string name="answering_memo_Playing_text">প্ৰত্যুত্তৰ মেচেজ চলি আছে…</string>
     <string name="answering_memo_Recording_text">মেচেজ ৰেকৰ্ড কৰি আছে…</string>
@@ -151,8 +153,8 @@
     <string name="callsettings_rejectmessage_list3">মই শ্ৰেণীত আছো৷</string>
     <string name="callsettings_rejectmessage_list4">মই চিনেমা চাই আছো৷</string>
     <string name="callsettings_rejectmessage_list5">মই গাড়ী চলাই আছো৷</string>
-    <string name="camera_off">Camera turned off.</string>
-    <string name="camera_on">Camera turned on.</string>
+    <string name="camera_off">কেমেৰা অফ হৈছে।</string>
+    <string name="camera_on">কেমেৰা অন হৈছে।</string>
     <string name="camera_security_enter">কেমেৰা ব্যৱহাৰৰ নিৰাপত্তা আঁচনি প্ৰতিবন্ধিত৷</string>
     <string name="camera_start_failed">কেমেৰা বিফল হৈছে৷</string>
     <string name="cancel">বাতিল</string>
@@ -183,7 +185,7 @@
     <string name="cover_redial_call_image_widget_description">কল কৰিবলৈ দুটা আঙুলিৰে বাওঁফালে বা সোঁফালে ঘহাঁওক৷</string>
     <string name="cover_third_call_incoming">উত্তৰ দিয়া কলে সক্ৰিয় কল সমাপ্ত কৰিব৷</string>
     <string name="ctc_full_operator_name">China Telecom</string>
-    <string name="cu_operator_name">China Unicom</string>
+    <string name="cu_operator_name">চীনা ইউনিকম</string>
     <string name="current_call_with_held_call">"%sৰ সৈতে আপোনাৰ কল হ'ল্ডত আছে৷"</string>
     <string name="data_usage_charge_alert">Video calling requires the use of both data and voice minutes over the mobile network. Charges may apply.</string>
     <string name="data_usage_limit_dialog_continue_call">Continue call</string>
@@ -200,7 +202,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="description_secOnscreenVideoCallText">"ভিডিঅ' কল"</string>
     <string name="description_secOnscreenViewContactText">সম্পৰ্ক বিশদ-বিৱৰণসমূহ দৰ্শন কৰক</string>
     <string name="device_info_not_available">উপলভ্য নহয়</string>
-    <string name="dial_warning">Unable to dial.</string>
+    <string name="dial_warning">ডায়েল কৰাত অক্ষম।</string>
     <string name="dialling_video_call">"ভিডিঅ' কল ডায়েল কৰি আছে"</string>
     <string name="dialpad_2_sub_letters">ABC</string>
     <string name="dialpad_3_sub_letters">DEF</string>
@@ -253,8 +255,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="imLabelsGroup">IM একাউণ্ট</string>
     <string name="inCallLabel_Sec">কল</string>
     <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
+    <string name="incall_decline_other_secondary_device">Other secondary device in use.</string>
+    <string name="incall_decline_service_not_allowed">Service not allowed in this location.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">All available lines for (MDN) are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">All available lines for %s are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
+    <string name="incall_decline_transferred_to_another_device">Call has been transferred to another device.</string>
     <string name="incall_error_supp_service_switch">কল সলনা-সলনি কৰিবলৈ অক্ষম৷</string>
     <string name="incall_extra_volume_disabled_BT">ব্লুটুথ হেডচেট সংযোগ হৈ থকাৰ সময়ত অতিৰিক্ত ভলিউম দূৰত্বত ব্যৱহাৰ কৰিবলৈ অক্ষম৷</string>
     <string name="incall_extra_volume_disabled_HAC">হিয়েৰিং এইডচ সক্ষম হৈ থকাৰ সময়ত অতিৰিক্ত ভলিউম সক্ষম কৰিবলৈ অক্ষম৷</string>
@@ -413,11 +418,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="kt_nomal_quality_video_call_3g">কলৰ কাৰণে কেৱল স্বাভাৱিক গুণমান উপলব্ধ৷ অন্য পাৰ্টিৰ ডিভাইচ 3G নেটৱৰ্কলৈ প্ৰতিবন্ধিত৷</string>
     <string name="label_notes">টোকা</string>
     <string name="label_sip_address">ইণ্টাৰনেট কল</string>
-    <string name="legal_popup_content">"Having trouble using time-consuming voice response call centers? IVR(Interactive Voice Response) call screen menu provides the perfect environment to use call centers by displaying the service menu on your screen.
+    <string name="legal_popup_content">"সময়-ব্যয় হোৱা ধ্বনি সঁহাৰি কল চেণ্টাৰসমূহ ব্যৱহাৰ কৰাত সমস্যা পাইছে নেকি? IVR (ইণ্টাৰেক্টিভ ভইচ ৰেচপঞ্চ) কল স্ক্ৰীণ মেনুয়ে আপোনাৰ স্ক্ৰীণত সেৱা মেনু প্ৰদৰ্শন কৰি কল চেণ্টাৰসমূহ ব্যৱহাৰ কৰিবলৈ উপযুক্ত পৰিৱেশ প্ৰদান কৰে৷
 
-IVR call screen menu uses contents provided by a third party service provider called Dianhuabang. By using IVR call screen menu, you agree to Dianhuabang’s %1$sTerms and Conditions%2$s."</string>
+IVR কল চেণ্টাৰ মেনুয়ে Dianhuabang নামৰ এটা তৃতীয় পক্ষৰ সেৱা প্ৰদানকাৰীৰ দ্বাৰা প্ৰদান কৰা সামগ্ৰীসমূহ ব্যৱহাৰ কৰে৷ IVR কল চেণ্টাৰ মেনু ব্যৱহাৰ কৰি, আপুনি Dianhuabang-ৰ %1$sনিয়ম আৰু চৰ্তাৱলী%2$s-লৈ সহমত প্ৰদান কৰিছে৷"</string>
     <string name="legal_popup_terms_conditions">নিয়ম আৰু চৰ্ত্তসমূহ</string>
-    <string name="legal_pupup_title">Legal information</string>
+    <string name="legal_pupup_title">আইনসন্মত তথ্য</string>
     <string name="lock_screen_during_call_double_tab">আনলক কৰিবলৈ দুবাৰ টিপক</string>
     <string name="long_click_guide">অন/অফ কৰিবৰ বাবে টিপক আৰু ধৰি থাকক৷</string>
     <string name="low_batt_upgrade_disallowed">"ভিডিঅ' কললৈ সলনি-সলনি কৰিবলৈ অক্ষম৷ বেটাৰী নিম্ন৷"</string>
@@ -434,7 +439,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="memory_full_msg">"মেম'ৰী পৰ্যাপ্ত নহয়"</string>
     <string name="message_greeting">অভিবাদন</string>
     <string name="modify_to_video_start">"ভিডিঅ' কললৈ সলনি কৰিবলৈ অনুৰোধ কৰি আছে…"</string>
-    <string name="modify_to_voice_start">Switching to voice call…</string>
+    <string name="modify_to_voice_start">মাত কললৈ সলনি কৰি আছে…</string>
     <string name="msg_for_video_show_never_again">"কিছুমান ফাইল সজ্জা সমৰ্থিত নহয়৷ কেৱল সমৰ্থিত ফাইল গেলেৰীত দেখুওৱা হ'ব"</string>
     <string name="mt_vt_not_possible">%s cannot receive video calls at this time. You will now be connected through a voice call.</string>
     <string name="nameLabelsGroup">নাম</string>
@@ -451,7 +456,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="name_suffix">নাম প্ৰত্যয়</string>
     <string name="network_message_no_answer">উত্তৰ নাই</string>
     <string name="nicknameLabelsGroup">উপনাম</string>
-    <string name="not_enable_to_video">Video calls are not available while Emergency mode is enabled.</string>
+    <string name="not_enable_to_video">"জৰুৰীকালীন ম'ড সক্ষম হৈ থাকোতে ভিডিঅ' কল উপলব্ধ নহয়।"</string>
     <string name="not_enable_to_video_emergencymode">"জৰুৰীকালীন ম'ড সক্ষম হৈ থকাৰ সময়ত ভিডিঅ' কল কৰাত বা প্ৰাপ্ত কৰাত অক্ষম।"</string>
     <string name="notification_action_answer">উত্তৰ</string>
     <string name="notification_of_sub_number_empty_body">বৈকল্পিক নম্বৰসমূহ দৰ্শন কৰিবলৈ, এটা SIM কাৰ্ড মাল্টি-নম্বৰ সেৱালৈ ছাবস্ক্ৰাইব কৰক আৰু পুনঃচেষ্টা কৰক৷</string>
@@ -474,6 +479,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="outgoing_img_video">"ভিডিঅ'সমূহ"</string>
     <string name="payphone_sbm">ফোনত পৰিশোধ কৰক</string>
     <string name="phoneLabelsGroup">ফোন</string>
+    <string name="phone_voice_recording_failed_by_secure_call">সুৰক্ষিত কল ৰেকৰ্ড কৰিব নোৱাৰে।</string>
     <string name="phonetype_additional">অতিৰিক্ত নম্বৰ</string>
     <string name="photoring_block_toast">ফটো ৰিংৰ মাধ্যমেদি আপোনালৈ মিডিয়া প্ৰেৰণ কৰা সম্পৰ্কক অৱৰোধ কৰা হৈছে৷</string>
     <string name="photoring_toast_mobile_data_off">"তাত ম'বাইল ডাটা প্ৰৱেশ অৱৰোধিত হৈ থকাৰ কাৰণে আপুনি চাব নোৱাৰা কোনো অন্য পক্ষৰ দ্বাৰা প্ৰেৰণ কৰা ফটোযুক্ত সমল থাকিব পাৰে৷"</string>
@@ -491,7 +497,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="prepareOtherVideo">"ভিডিঅ' প্ৰতিচ্ছবি প্ৰস্তুত কৰি আছে…"</string>
     <string name="previous_call_is_held_when_you_accept_call">"আপুনি এটা নতুন কল গ্ৰহণ কৰাৰ সময়ত চলি থকা কল হ'ল্ডত ৰখা হ'ব৷"</string>
     <string name="private_num_cdma">প্ৰতিবন্ধিত</string>
-    <string name="private_num_sbm">Withheld number</string>
+    <string name="private_num_sbm">উহ্য কৰা নম্বৰ</string>
     <string name="quick_panel_title_video_call">"ভিডিঅ' কল"</string>
     <string name="quick_panel_title_voice_call">মাত কল</string>
     <string name="quick_panel_title_volte_call">VoLTE কল</string>
@@ -516,8 +522,13 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="recently_use_sim_for_callback">শেহতীয়াকৈ ব্যৱহাৰ কৰা SIM</string>
     <string name="record_notification_button_text_close">বন্ধ কৰক</string>
     <string name="record_notification_button_text_record_list">ৰেকৰ্ডিং</string>
+    <string name="record_notification_button_text_storage">সংগ্ৰহ</string>
     <string name="record_notification_content">আপোনাৰ ৰেকৰ্ড হোৱা কল দৰ্শন কৰিবলৈ “ৰেকৰ্ডিং” টিপক।</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">আপোনাৰ ডিভাইচ সংগ্ৰহণ ভৰ্তি। কলৰ এটা আংশিক ৰেকৰ্ডিং সংৰক্ষণ কৰা হৈছে।</string>
+    <string name="record_notification_content_unable_to_record">আপোনাৰ ডিভাইচ সংগ্ৰহণত পৰ্যাপ্ত স্থান নাই। কিছু ফাইল বিলোপ কৰক আৰু পুনঃচেষ্টা কৰক।</string>
     <string name="record_notification_title">কল ৰেকৰ্ড হৈছে</string>
+    <string name="record_notification_title_not_to_record_entire_call">সমগ্ৰ কল ৰেকৰ্ড নহয়</string>
+    <string name="record_notification_title_unable_to_record">কল ৰেকৰ্ড কৰাত অক্ষম</string>
     <string name="record_text">ৰেকৰ্ড</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">0:00:00</string>
@@ -591,7 +602,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="secOnscreenMenuSwitchToPhoneText_tmo">ফোনলৈ চুইটচ কৰক</string>
     <string name="secOnscreenMenuSwitchToVideoCallText">"ভিডিঅ' কললৈ সলনি কৰক"</string>
     <string name="secOnscreenMenuSwitchToVoiceCallText">মাত কললৈ সলনি কৰক</string>
-    <string name="secOnscreenMenuSwitchVideoDisplay">Switch video displays</string>
+    <string name="secOnscreenMenuSwitchVideoDisplay">"ভিডিঅ'ৰ প্ৰদৰ্শন সলনি কৰক"</string>
     <string name="secOnscreenMenuUnmuteText">আনমিউট কৰক</string>
     <string name="secOnscreenMenuVideoConfCallText">নতুন অংশগ্ৰহণকাৰীক আমন্ত্ৰণ জনাওক</string>
     <string name="secOnscreenMenuViewInFullScreenText">সম্পূৰ্ণ স্ক্ৰীণত দৰ্শন কৰক</string>
@@ -632,6 +643,7 @@ Camera"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">সূচী বন্ধ কৰিবৰ বাবে দুবাৰ টিপক৷</string>
     <string name="sec_showme_text">মোক দেখুৱাওক</string>
     <string name="second_screen_hold_text">"%d হ'ল্ডত"</string>
+    <string name="section_contacts_only_summary">Create and manage contacts.</string>
     <string name="select_callback_sim_card">কলবেক SIM কাৰ্ড চয়ন কৰক</string>
     <string name="select_callback_sim_card_content">এই নম্বৰত বা ইয়াৰ পৰা অন্তিম কল বা মেচেজ কলৰ বাবে অগ্ৰাধিকাৰ SIM কাৰ্ড ব্যৱহাৰ হোৱা নাই। ব্যৱহাৰ কৰিবলৈ যিখন SIM কাৰ্ড তাক চয়ন কৰক।</string>
     <string name="select_from_gallery">গেলেৰীৰ পৰা চয়ন কৰক</string>
@@ -673,10 +685,10 @@ Camera"</string>
     <string name="spam_call_reported_as">%s-ৰ ৰূপত ৰিপৰ্ট কৰিছে</string>
     <string name="spam_call_resported_as_by_you">Reported as %s by you</string>
     <string name="spam_call_resported_count">(%d বাৰ)</string>
-    <string name="spam_call_type_and_count">Reported as %1$s %2$d times</string>
+    <string name="spam_call_type_and_count">"%1$s-ৰ ৰূপত %2$d বাৰ ৰিপ'ৰ্ট কৰা হৈছে"</string>
     <string name="sub_number_item">বৈকল্পিক %d</string>
-    <string name="suguden_guide_do_not_show_again_dcm">Do not show again</string>
-    <string name="suguden_guide_main_text_dcm">Answer the call by bringing the device close to your ear.</string>
+    <string name="suguden_guide_do_not_show_again_dcm">পুনঃ নেদেখুৱাব</string>
+    <string name="suguden_guide_main_text_dcm">ডিভাইচটো আপোনাৰ কাণৰ ওচৰলৈ লৈ গৈ কলৰ উত্তৰ দিয়ক।</string>
     <string name="swipe_left">বাওঁফাললৈ ঘঁহাওক৷</string>
     <string name="swipe_right">সোঁফাললৈ ঘহাঁওক৷</string>
     <string name="swipe_right_to_answer_call_with_video">"ভিডিঅ'ৰ সৈতে কলৰ উত্তৰ দিবলৈ সোঁফালে ঘহাঁওক।"</string>

@@ -60,7 +60,7 @@
     <string name="onscreenMuteText">အသံတိတ်</string>
     <string name="onscreenOverflowText">နောက်ထပ် ရွေးချယ်ရန်များ</string>
     <string name="onscreenShowDialpadText">ဖုန်းခေါ်ရန်နေရာ</string>
-    <string name="onscreenSwapCallsText">Swap</string>
+    <string name="onscreenSwapCallsText">လဲပါ</string>
     <string name="onscreenSwitchCameraText">ကင်မရာ ပြောင်းပါ</string>
     <string name="onscreenVideoCallText">ဗီဒီယို ဖုန်းခေါ်ဆိုမှု</string>
     <string name="overflowAddMenuItemText">ဖုန်းခေါ်ဆိုမှု ထည့်ပါ</string>
@@ -92,6 +92,8 @@
     <string name="BirthDay_remainedDays1">မနက်ဖြန် မွေးနေ့</string>
     <string name="BirthDay_remainedDays7">၁ ပါတ်အတွင်း မွေးနေ့</string>
     <string name="BirthDay_remainedDaysEtc">%d ရက်အတွင်း မွေးနေ့</string>
+    <string name="DivertToVoice_disable">ဤနံပါတ်သို့ ဗီဒီယိုဖြင့် ခေါ်၍မရပါ။ အသံဖြင့်ခေါ်ကြည့်မလား?</string>
+    <string name="DivertToVoice_enable">ဤနံပါတ်သို့ ဗီဒီယိုဖြင့် ခေါ်၍မရပါ။ အသံခေါ်ဆိုမှုသို့ ပြောင်းနေသည်…</string>
     <string name="Lunar_anniversary_passedDays1">မနေ့က လဆိုင်ရာ နှစ်ပါတ်လည်</string>
     <string name="Lunar_anniversary_remainedDays0">လဆိုင်ရာ နှစ်လည် ယနေ့</string>
     <string name="Lunar_anniversary_remainedDays1">လဆိုင်ရာ နှစ်လည် မနက်ဖြန်</string>
@@ -118,7 +120,7 @@
     <string name="add_reminder">သတိပေးချက် ထည့်ပါ</string>
     <string name="agree">သဘောတူညီ</string>
     <string name="am_cover_toggle_string">ခေါ်ဆိုမှုကို ဖြေရန် (သို့) ငြင်းပယ်ရန် အဖုံးကို ဖွင့်ပါ။</string>
-    <string name="am_device_memory_full_warning">Unable to use Auto answer with message. There is not enough space in your device storage to save voice messages. Delete some items and try again.</string>
+    <string name="am_device_memory_full_warning">မက်ဆေ့ချ်ဖြင့် အော်တိုဖြေကြားမှုကို အသုံးပြု၍မရနိုင်ပါ။ အသံမက်ဆေ့ချ်များကို သိမ်းရန် သင့်စက်သိုလှောင်ခန်းထဲတွင် နေရာလွတ်အလုံအလောက်မရှိပါ။ အိုင်တမ်အချို့ကို ဖျက်ပစ်ပြီး ထပ်မံကြိုးစားပါ။</string>
     <string name="another_device_pickup_message">Another device picked up this call.</string>
     <string name="answering_memo_Playing_text">အဖြေပေးခြင်း မက်ဆေ့ချ်များကို ဖွင့်နေသည်…</string>
     <string name="answering_memo_Recording_text">မက်ဆေ့ချ်များကို ဖမ်းယူနေသည်…</string>
@@ -133,8 +135,8 @@
     <string name="call_drug_up_panel_for_kk">အမြန်မက်ဆေ့ချ်တစ်ခုပေးပို့ရန်နှင့် အဝင်ခေါ်ဆိုမှုတစ်ခုကို ငြင်းပယ်ရန် မက်ဆေ့ချ်ပေးပို့ပါ ခလုတ်ကို အထက်သို့ဆွဲယူပါ။</string>
     <string name="call_drug_up_panel_for_kk_tts">အဝင်ဖုန်းတစ်ခုကို သင် ပယ်ချသည့် အနေနှင့် ဖုန်း-ပယ်ချခြင်း မက်ဆေ့ချ် တစ်ခုကို ပို့ရန်အတွက် မက်ဆေ့ချ်အကန့်နှင့် အတူ ဖုန်းပယ်ချခြင်းကို အထက်ဘက်သို့ ဆွဲတင်ပါ။</string>
     <string name="call_ended_toast">ဖုန်းခေါ်ဆိုမှု ပြီးဆုံးပါပြီ။</string>
-    <string name="call_forwarded_to">Call forwarded to:</string>
-    <string name="call_forwarding_from">Call forwarded from:</string>
+    <string name="call_forwarded_to">သို့ ဖုန်းခေါ်ဆိုမှုကို လိုင်းလွှဲပြောင်းထားသည် :</string>
+    <string name="call_forwarding_from">ဖုန်းခေါ်ဆိုမှုကို လိုင်းလွှဲပြောင်းသူ :</string>
     <string name="call_incoming_voice_call2">ဖုန်းခေါ်ဆိုမှု တစ်ခုကို ဖြေကြားရန် %s ကို နှိပ်ပါ။</string>
     <string name="call_incoming_voice_call2_tts">ဖုန်းခေါ်ဆိုမှု တစ်ခုကို ဖြေကြားရန် ဖုန်းဖြေကြားခြင်းခလုတ်ကို နှိပ်ပါ။</string>
     <string name="call_incoming_voice_call3">ခေါ်ဆိုမှုတစ်ခုကို ပယ်ချရန် %s ကိုနှိပ်ပါ။</string>
@@ -165,14 +167,14 @@
     <string name="caller_info_card_last_call_log_title">နောက်ဆုံး ခေါ်ဆိုထားမှု</string>
     <string name="caller_info_card_last_message_title">လတ်တလောအကျဆုံး မက်ဆေ့ချ်</string>
     <string name="caller_info_card_memo_title">ဖုန်းခေါ်စဉ်အတွင်း ဖန်တီးထားသည့် မီမို</string>
-    <string name="callsettings_hold_key_record_calls_notify">Press and hold Hold key to start or stop recording</string>
+    <string name="callsettings_hold_key_record_calls_notify">ရုပ်သံဖမ်းယူမှုကို စတင် (သို့) ရပ်ရန် ကိုင်ထားခလုတ်ကို ဖိ၍ နှိပ်ထားပါ</string>
     <string name="callsettings_rejectmessage_list1">ဝမ်းနည်းပါတယ်၊ အခု စကားပြောဖို့ မဖြစ်နိုင်သေးပါ။ နောက်မှ ပြန်ခေါ်ပါ။</string>
     <string name="callsettings_rejectmessage_list2">ကျွန်တော် အစည်းအဝေး တက်နေ။</string>
     <string name="callsettings_rejectmessage_list3">ကျွန်ုပ် အတန်းထဲမှာ ရောက်နေပါသည်။</string>
     <string name="callsettings_rejectmessage_list4">ကျွန်ုပ် ရုပ်ရှင်ရုံမှာ ရောက်နေသည်။</string>
     <string name="callsettings_rejectmessage_list5">ကျွန်ုပ် ကားမောင်းနေပါသည်။</string>
-    <string name="camera_off">Camera turned off.</string>
-    <string name="camera_on">Camera turned on.</string>
+    <string name="camera_off">ကင်မရာ ပိတ်ထားသည်။</string>
+    <string name="camera_on">ကင်မရာဖွင့်ထားသည်။</string>
     <string name="camera_security_enter">လုံခြုံရေး မူဝါဒသည် ကင်မရာသုံးခြင်းကို ကန့်သတ်ထားပါသည်။</string>
     <string name="camera_start_failed">ကင်မရာ မအောင်မြင်ပါ။</string>
     <string name="cancel">ပယ်ဖျက်ပါ</string>
@@ -220,7 +222,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="description_secOnscreenVideoCallText">ဗီဒီယို ဖုန်းခေါ်ဆိုမှု</string>
     <string name="description_secOnscreenViewContactText">အဆက်အသွယ် အသေးစိတ်အချက်များကို ကြည့်ရှုပါ</string>
     <string name="device_info_not_available">မရနိုင်ပါ</string>
-    <string name="dial_warning">Unable to dial.</string>
+    <string name="dial_warning">ဖုန်းခေါ်မရပါ။</string>
     <string name="dialling_video_call">ဗီဒီယိုဖုန်း ခေါ်ဆိုနေသည်</string>
     <string name="dialpad_2_sub_letters">ABC</string>
     <string name="dialpad_3_sub_letters">DEF</string>
@@ -273,8 +275,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="imLabelsGroup">IM အကောင့်</string>
     <string name="inCallLabel_Sec">ဖုန်းခေါ်မှု</string>
     <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
+    <string name="incall_decline_other_secondary_device">Other secondary device in use.</string>
+    <string name="incall_decline_service_not_allowed">Service not allowed in this location.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">All available lines for (MDN) are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">All available lines for %s are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
+    <string name="incall_decline_transferred_to_another_device">Call has been transferred to another device.</string>
     <string name="incall_error_supp_service_switch">ဖုန်းခေါ်ဆိုမှုကို ကူးပြောင်း၍မရပါ။</string>
     <string name="incall_extra_volume_disabled_BT">ဘလူးတုသ် နားကြပ်ကို ဆက်ထားလျှင် အပိုအသံ အတိုးအကျယ် ပမာဏကို သုံးမရပါ။</string>
     <string name="incall_extra_volume_disabled_HAC">နားလေးသူသုံးသော နားကြပ်များကို ဖွင့်ထားစဉ်မှာ ပုံမှန်ထက် ပိုသော အသံပမာဏကို ဖွင့်လို့ မရနိုင်ပါ။</string>
@@ -285,7 +290,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="incall_popup_call_remove_title_vzw">Hide shortcut</string>
     <string name="incall_popup_ended">ရပ်သွားသည်</string>
     <string name="incall_spam_call_block">နံပါတ် ပိတ်ဆီးပါ</string>
-    <string name="incall_spam_call_reject">Add to Black list</string>
+    <string name="incall_spam_call_reject">အမည်ပျက်စာရင်းသို့ ထည့်ပါ</string>
     <string name="incall_spam_call_reject_toast">ပိတ်ဆီး စာရင်းသို့ ဖုန်းနံပါတ် ထည့်ထားသည်။</string>
     <string name="incall_spam_call_report">နံပါတ်ကို အစီရင်ခံပါ</string>
     <string name="incall_transfer_call">ခေါ်ဆိုမှု လွှဲပြောင်းပါ</string>
@@ -433,11 +438,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="kt_nomal_quality_video_call_3g">ခေါ်ဆိုမှုအတွက် ပုံမှန် အရည်အသွေးသာ ရနိုင်သည်။ အခြား ကြားခံ ကိရိယာသည် 3G ကွန်ယက်သို့ ကန့်သတ်ထားသည်။</string>
     <string name="label_notes">မှတ်ချက်များ</string>
     <string name="label_sip_address">အင်တာနက် ဖုန်းခေါ်ဆိုမှု</string>
-    <string name="legal_popup_content">"Having trouble using time-consuming voice response call centers? IVR(Interactive Voice Response) call screen menu provides the perfect environment to use call centers by displaying the service menu on your screen.
+    <string name="legal_popup_content">"အသံဖြင့် တုံ့ပြန်မှုပေးသည့်စင်တာများကြောင့် အချိန်ကုန်ပြီး အခက်အခဲဖြစ်နေပါသလား။ IVR (Interactive Voice Response) ဖုန်းခေါ်ဆိုမှု ဖန်သားပြင် မီနူးမှ သင့် ဖန်သားပြင်ပေါ်တွင် ဝန်ဆောင်မှု မီနူး ပြသခြင်းဖြင့် ဖုန်းခေါ်ဆို စင်တာများ အသုံးပြုဖို့ ပြီးပြည့်စုံသည့် အနေအထားကို ပေးသည်။
 
-IVR call screen menu uses contents provided by a third party service provider called Dianhuabang. By using IVR call screen menu, you agree to Dianhuabang’s %1$sTerms and Conditions%2$s."</string>
+IVR ဖုန်းခေါ်ဆို ဖန်သားပြင် မီနူးသည် Dianhuabang ဟုခေါ်သော တတိယအဖွဲ့အစည်း ဝန်ဆောင်မှုပေးသူမှ ပံ့ပိုးပေးသည့် အကြောင်းအရာများကို အသုံးပြုသည်။ IVR ဖုန်းခေါ်ဆို ဖန်သားပြင် မီနူးကို အသုံးပြုခြင်းအားဖြင့် သင်သည် Dianhuabang ၏ %1$sစည်းကမ်းသတ်မှတ်ချက်များ%2$sကို သဘောတူသည်။"</string>
     <string name="legal_popup_terms_conditions">စည်းမျဉ်းကန့်သတ်ချက်များ</string>
-    <string name="legal_pupup_title">Legal information</string>
+    <string name="legal_pupup_title">ဥပဒေ အချက်အလက်</string>
     <string name="lock_screen_during_call_double_tab">လော့ဒ်ဖြုတ်ရန် နှစ်ကြိမ်ဆက်တိုက် နှိပ်ပါ</string>
     <string name="long_click_guide">ဖွင့်ရန်/ပိတ်ရန် နှိပ်၍ကိုင်ထားပါ</string>
     <string name="low_batt_upgrade_disallowed">ဗီဒီယို ခေါ်ဆိုမှုသို့ ပြောင်းမရပါ။ ဘက်ထရီ အားနည်းနေသည်။</string>
@@ -454,7 +459,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="memory_full_msg">မှတ်ဉာဏ် မလုံလောက်ပါ</string>
     <string name="message_greeting">နှုတ်ခွန်းဆက်သခြင်း</string>
     <string name="modify_to_video_start">ဗီဒီယို ဖုန်းခေါ်မှုဆီကို ပြောင်းပေးရန် တောင်းဆို….</string>
-    <string name="modify_to_voice_start">Switching to voice call…</string>
+    <string name="modify_to_voice_start">အသံခေါ်ဆိုမှုသို့ ပြောင်းနေသည်…</string>
     <string name="msg_for_video_show_never_again">ဖိုင် ဖော်မတ်အချို့ကို ပံ့ပိုးမှု မရှိပါ။ ပံ့ပိုးထားသော ဖိုင်များသာ ပြခန်းထဲတွင် ပြထားမည်။</string>
     <string name="mt_vt_not_possible">%s cannot receive video calls at this time. You will now be connected through a voice call.</string>
     <string name="nameLabelsGroup">အမည်</string>
@@ -471,7 +476,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="name_suffix">အမည် နောက်ဆက်</string>
     <string name="network_message_no_answer">အဖြေမရှိပါ။</string>
     <string name="nicknameLabelsGroup">နာမည်ပြောင်</string>
-    <string name="not_enable_to_video">Video calls are not available while Emergency mode is enabled.</string>
+    <string name="not_enable_to_video">အရေးပေါ်အနေအထားကို ဖွင့်ထားချိန်တွင် ဗီဒီယိုခေါ်ဆိုမှုများကို မရရှိနိုင်ပါ။</string>
     <string name="not_enable_to_video_emergencymode">အရေးပေါ် အနေအထားဖွင့်ထားစဉ် ဗီဒီယို ခေါ်ဆိုမှုများ ပြုလုပ် (သို့) လက်ခံ၍ မရနိုင်ပါ။</string>
     <string name="notification_action_answer">အဖြေ</string>
     <string name="notification_of_sub_number_empty_body">အခြား နံပါတ်များကိုကြည့်ရန်အတွက် SIM ကဒ် နံပါတ်-မျိုးစုံ ဝန်ဆောင်မှုတခုသို့ စာရင်းသွင်းမှာယူပြီး ထပ်မံကြိုးစားပါ။</string>
@@ -481,7 +486,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="onscreenBluetoothTextOn_att">ဖုန်းသို့ပြောင်းပါ</string>
     <string name="onscreenBluetoothTextOn_tmo">ဖုန်းသို့ပြောင်းပါ</string>
     <string name="onscreenWebexText">WebEx</string>
-    <string name="open_folder_for_speakeroff">To turn off the speakerphone, open the flip phone.</string>
+    <string name="open_folder_for_speakeroff">စပီကာဖုန်းကို ပိတ်ရန် ဖလစ်ဖုန်းကိုဖွင့်ပါ။</string>
     <string name="open_the_cover">အဖုံးဖွင့်ပါ</string>
     <string name="open_the_cover_incoming">ဗီဒီယို ခေါ်ဆိုမှု ဖြေရန် (သို့) ငြင်းပယ်ရန် အဖုံးဖွင့်ပါ။</string>
     <string name="open_the_cover_modify_call">ဖုန်းခေါ်သူက ဗီဒီယိုဖုန်းခေါ်မှုဆီကို ပြောင်းချင်သည်။ တောင်းခံချက်ကို လက်ခံရန်/ငြင်းပယ်ရန် အဖုံးကို ဖွင့်ပါ။</string>
@@ -494,6 +499,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="outgoing_img_video">ဗီဒီယိုများ</string>
     <string name="payphone_sbm">Pay phone</string>
     <string name="phoneLabelsGroup">ဖုန်း</string>
+    <string name="phone_voice_recording_failed_by_secure_call">စိတ်ချရသည့် ခေါ်ဖုန်းကို အသံသွင်း၍မရပါ။</string>
     <string name="phonetype_additional">အပိုဆောင်း နံပါတ်</string>
     <string name="photoring_block_toast">သင့်ထံ ဓာတ်ပုံကွင်းမှတဆင့် မီဒီယာ ပို့ခြင်းမှ အဆက်အသွယ်ကို ပိတ်ဆီးထားသည်။</string>
     <string name="photoring_toast_mobile_data_off">မိုဘိုင်း ဒေတာ ဝင်ရောက်မှု ပိတ်ဆီးထား၍ သင် မမြင်နိုင်သည့် အခြားပါတီမှ ပို့လိုက်သော ဓာတ်ပုံလုပ်ခြင်း ပါဝင်မှု ရှိနိုင်သည်။</string>
@@ -511,7 +517,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="prepareOtherVideo">ဗွီဒီယို ပုံ ပြင်နေဆဲ…</string>
     <string name="previous_call_is_held_when_you_accept_call">သင်က ခေါ်ဆိုမှု အသစ်တစ်ခုကို လက်ခံလိုက်ပါက လက်ရှိ ခေါ်ဆိုမှုမှာ စောင့်ဆိုင်းရန် စီစဉ်ပေးလိမ့်မည်။</string>
     <string name="private_num_cdma">ကန့်သတ်ထားသော</string>
-    <string name="private_num_sbm">Withheld number</string>
+    <string name="private_num_sbm">အမည်မသိ နံပါတ်</string>
     <string name="quick_panel_title_video_call">ဗီဒီယို ဖုန်းခေါ်ဆိုမှု</string>
     <string name="quick_panel_title_voice_call">ဖုန်းခေါ်ဆိုမှု</string>
     <string name="quick_panel_title_volte_call">VoLTE ဖုန်းခေါ်မှု</string>
@@ -536,8 +542,13 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="recently_use_sim_for_callback">လတ်တလော သုံးထားသည့် SIM</string>
     <string name="record_notification_button_text_close">ပိတ်ပါ</string>
     <string name="record_notification_button_text_record_list">မှတ်တမ်းတင်မှုများ</string>
+    <string name="record_notification_button_text_storage">သိုလှောင်ခန်း</string>
     <string name="record_notification_content">မှတ်တမ်းတင်ထားသည့် ​ခေါ်ဆိုမှုများကိုကြည့်ရှုရန် “မှတ်တမ်းတင်မှုများ” ကိုနှိပ်ပါ။</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">သင့်ကိရိယာသိုလှောင်ခန်း ပြည့်နေသည်။ ခေါ်ဖုန်း တစ်ဝက်တစ်ပျက် အသံဖမ်းထားသည်ကို သိမ်းဆည်းထားသည်။</string>
+    <string name="record_notification_content_unable_to_record">သင့်ကိရိယာ သိုလှောင်ခန်းထဲ နေရာ မလောက်ပါ။ ဖိုင်အချို့ကို ဖျက်ပြီး ထပ်ကြိုးစားပါ။</string>
     <string name="record_notification_title">ခေါ်ဆိုမှုကို မှတ်တမ်းတင်ထားသည်</string>
+    <string name="record_notification_title_not_to_record_entire_call">ခေါ်ဖုန်းတစ်ခုလုံးကို အသံဖမ်းမထားပါ</string>
+    <string name="record_notification_title_unable_to_record">ဖုန်းပြောနေမှုကို အသံဖမ်းယူ၍ မရနိုင်ပါ</string>
     <string name="record_text">REC</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -611,7 +622,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="secOnscreenMenuSwitchToPhoneText_tmo">ဖုန်းသို့ပြောင်းပါ</string>
     <string name="secOnscreenMenuSwitchToVideoCallText">ဗွီဒီယို ဖုန်းခေါ်ဆိုမှုများသို့ ကူးပြောင်းပါ</string>
     <string name="secOnscreenMenuSwitchToVoiceCallText">အသံဖုန်းသို့ ကူးပြောင်းပါ</string>
-    <string name="secOnscreenMenuSwitchVideoDisplay">Switch video displays</string>
+    <string name="secOnscreenMenuSwitchVideoDisplay">ဗီဒီယိုပြသမှုများကို ပြောင်းပါ</string>
     <string name="secOnscreenMenuUnmuteText">အသံပိတ်ထားခြင်းကို ပြန်ဖွင့်ပါ</string>
     <string name="secOnscreenMenuVideoConfCallText">ပါဝင်သူ အသစ် ဖိတ်ခေါ်ပါ</string>
     <string name="secOnscreenMenuViewInFullScreenText">ဖန်သားပြင် အပြည့် ကြည့်ပါ</string>
@@ -652,6 +663,7 @@ Camera"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">စာရင်း ဖွင့်ရန် နှစ်ချက် နှိပ်ပါ။</string>
     <string name="sec_showme_text">ကျွန်တော်ကို ပြပါ</string>
     <string name="second_screen_hold_text">ဖုန်းစောင့်နေသူ %d ဦး</string>
+    <string name="section_contacts_only_summary">Create and manage contacts.</string>
     <string name="select_callback_sim_card">ပြန်လည်ခေါ်ဆိုမှု SIM ကဒ် ရွေးချယ်ပါ</string>
     <string name="select_callback_sim_card_content">ဤနံပါတ်သို့ (သို့) ဤနံပါတ်မှ နောက်ဆုံးခေါ်ဆိုမှု (သို့) မက်ဆေ့ချ်သည် ခေါ်ဆိုမှုများအတွက် ဦးစားပေး SIM ကဒ်ကို အသုံးပြုထားခြင်း မရှိပါ။ အသုံးပြုမည့် SIM ကဒ် ရွေးချယ်ပါ။</string>
     <string name="select_from_gallery">ပြခန်းမှ ရွေးပါ</string>
@@ -666,8 +678,8 @@ Camera"</string>
     <string name="settings_glance_reply_text">အမြန် စာပြန် မက်ဆေ့ချ်များ</string>
     <string name="settings_subappbar_switch_off">ပိတ်</string>
     <string name="settings_subappbar_switch_on">ဖွင့်</string>
-    <string name="slide_left_to_reject_content_description">Swipe left to decline.</string>
-    <string name="slide_right_to_answer_content_description">Swipe right to answer.</string>
+    <string name="slide_left_to_reject_content_description">လက်မခံရန် ဘယ်ဘက်သို့ပွတ်ဆွဲပါ။</string>
+    <string name="slide_right_to_answer_content_description">ဖြေရန် ညာဘက် ပွတ်ဆွဲပါ။</string>
     <string name="smart_call_block_button">ပိတ်ဆီးပါ</string>
     <string name="smart_call_block_msg">နံပါတ် ပိတ်ဆီးပါ</string>
     <string name="smart_call_block_report_number">နံပါတ်ကို ပိတ်ဆို့ပါ/တိုင်ကြားပါ</string>
@@ -691,12 +703,12 @@ Camera"</string>
     <string name="spam_call_report_dialog_spam">ကြော်ငြာ</string>
     <string name="spam_call_report_dialog_taxis">တက္ကစီများ</string>
     <string name="spam_call_reported_as">%s အဖြစ် အစီရင်ခံထားသည်</string>
-    <string name="spam_call_resported_as_by_you">Reported as %s by you</string>
+    <string name="spam_call_resported_as_by_you">%s အဖြစ် သင် တိုင်ကြားထားသည်</string>
     <string name="spam_call_resported_count">(%d ကြိမ်)</string>
-    <string name="spam_call_type_and_count">Reported as %1$s %2$d times</string>
+    <string name="spam_call_type_and_count">%1$s %2$d ကြိမ်အဖြစ် တင်ပြထားသည်</string>
     <string name="sub_number_item">အခြားရွေးစရာ %d</string>
-    <string name="suguden_guide_do_not_show_again_dcm">Do not show again</string>
-    <string name="suguden_guide_main_text_dcm">Answer the call by bringing the device close to your ear.</string>
+    <string name="suguden_guide_do_not_show_again_dcm">ထပ်မပြပါတော့နှင့်</string>
+    <string name="suguden_guide_main_text_dcm">ကိရိယာကို သင့်နားအနီးသို့ကပ်ခြင်းဖြင့် ဖုန်းဖြေပါ။</string>
     <string name="swipe_left">ဝဲဖက် ပွတ်လွှဲပါ။</string>
     <string name="swipe_right">ညာဘက်သို့ ပွတ်ဆွဲပါ။</string>
     <string name="swipe_right_to_answer_call_with_video">ခေါ်ဆိုမှုကို ဗီဒီယိုဖြင့် ဖြေကြားရန် ညာဘက်သို့ ပွတ်ဆွဲပါ။</string>
@@ -787,5 +799,5 @@ Your video call is now running on the mobile network. (Data usage applies if you
     <string name="waiting_call_dialog_dismiss_toast">%1$s မှာ ဖုန်းခေါ်ဆိုမှု ပြီးဆုံးခဲ့သည်။ %2$s နှင့် ပြောရန် ဖုန်းပြန်ခေါ်နေဆဲ…</string>
     <string name="waiting_call_dialog_message">ဖုန်းကို ဖြေပါ</string>
     <string name="websiteLabelsGroup">၀က်ဘ် လိပ်စာ</string>
-    <string name="yellow_pages">Yellow Pages</string>
+    <string name="yellow_pages">လမ်းညွှန်စာအုပ်</string>
 </resources>

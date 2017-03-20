@@ -128,6 +128,8 @@
 
 .field public static final IS_XJP_POPUP:Z
 
+.field public static final IS_XSA_POPUP:Z
+
 .field public static final MAX_SIGNAL_LEVEL:I
 
 .field public static final PLMN_INFO_BRANDING:Ljava/lang/String;
@@ -2281,6 +2283,16 @@
 
     sput-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_SER_POPUP:Z
 
+    const-string/jumbo v0, "XSA"
+
+    sget-object v3, Lcom/android/systemui/SystemUIRune;->CONFIG_QS_POPUP_BRANDING:Ljava/lang/String;
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_XSA_POPUP:Z
+
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_NAVIGATIONBAR:Z
 
     if-eqz v0, :cond_29
@@ -2653,7 +2665,11 @@
 
     if-nez v0, :cond_9
 
-    sget-boolean v2, Lcom/android/systemui/SystemUIRune;->IS_SER_POPUP:Z
+    sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_SER_POPUP:Z
+
+    if-nez v0, :cond_9
+
+    sget-boolean v2, Lcom/android/systemui/SystemUIRune;->IS_XSA_POPUP:Z
 
     :cond_9
     sput-boolean v2, Lcom/android/systemui/SystemUIRune;->SUPPORT_QS_WFC_REFRESH_BY_SIM:Z

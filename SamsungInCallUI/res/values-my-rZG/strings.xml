@@ -72,6 +72,8 @@
     <string name="BirthDay_remainedDays1">မနက္ျဖန္ ေမြးေန႔</string>
     <string name="BirthDay_remainedDays7">၁ ပါတ္အတြင္း ေမြးေန႔</string>
     <string name="BirthDay_remainedDaysEtc">%d ရက္အတြင္း ေမြးေန႔</string>
+    <string name="DivertToVoice_disable">ဤနံပါတ္သို႔ ဗြီဒီယိုျဖင့္ ေခၚ၍မရပါ။ အသံျဖင့ ္ေခၚၾကည့္မလား?</string>
+    <string name="DivertToVoice_enable">ဤနံပါတ္သို႔ ဗြီဒီယိုျဖင့္ ေခၚ၍မရပါ။ အသံေခၚဆိုမႈသို႔ ေျပာင္းေနသည္…</string>
     <string name="Lunar_anniversary_passedDays1">ယမန္ေန႔က လဆိုင္ရာ ႏွစ္ပါတ္လည္</string>
     <string name="Lunar_anniversary_remainedDays0">လဆိုင္ရာ ႏွစ္လည္ ယေန႔</string>
     <string name="Lunar_anniversary_remainedDays1">လဆိုင္ရာ ႏွစ္လည္ မနက္ျဖန္</string>
@@ -98,7 +100,7 @@
     <string name="add_reminder">သတိေပးခ်က္ ထည့္ပါ</string>
     <string name="agree">သေဘာတူညီ</string>
     <string name="am_cover_toggle_string">ေခၚဆိုမႈကို ေျဖရန္ (သို႔) ျငင္းပယ္ရန္ အဖုံးကို ဖြင့္ပါ။</string>
-    <string name="am_device_memory_full_warning">Unable to use Auto answer with message. There is not enough space in your device storage to save voice messages. Delete some items and try again.</string>
+    <string name="am_device_memory_full_warning">မက္ေဆ့ခ်္ျဖင့္ ေအာ္တိုေျဖၾကားမႈကို အသုံးျပဳ၍မရႏိုင္ပါ။ အသံမက္ေဆ့ခ်္မ်ားကို သိမ္းရန္ သင့္စက္သုိေလွာင္ခန္းထဲတြင္ ေနရာလြတ္အလုံအေလာက္မရွိပါ။ အုိင္တမ္အခ်ဳိ႕ကုိ ဖ်က္ပစ္ၿပီး ထပ္မံၾကိဳးစားပါ။</string>
     <string name="another_device_pickup_message">Another device picked up this call.</string>
     <string name="answering_memo_Playing_text">အေျဖေပးျခင္း မက္ေဆ့ခ်္မ်ားကို ဖြင့္ေနသည္…</string>
     <string name="answering_memo_Recording_text">မက္ေဆ့ခ်္မ်ားကို ဖမ္းယူေနသည္…</string>
@@ -113,8 +115,8 @@
     <string name="call_drug_up_panel_for_kk">အျမန္မက္ေဆ့ခ္်တစ္ခုေပးပို႔ရန္ႏွင့္ အဝင္ေခၚဆိုမႈတစ္ခုကို ျငင္းပယ္ရန္ မက္ေဆ့ခ္်ေပးပို႔ပါ ခလုတ္ကို အထက္သို႔ဆြဲယူပါ။</string>
     <string name="call_drug_up_panel_for_kk_tts">အဝင္ဖုန္းတစ္ခုကို သင္ ပယ္ခ်သည့္ အေနႏွင့္ ဖုန္း-ပယ္ခ်ျခင္း မက္ေဆ့ခ်္ တစ္ခုကို ပို႔ရန္အတြက္ မက္ေဆ့ခ်္အကန္႔ႏွင့္ အတူ ဖုန္းပယ္ခ်ျခင္းကို အထက္ဘက္သို႔ ဆြဲတင္ပါ။</string>
     <string name="call_ended_toast">ဖုန္းေခၚဆုိမႈ ၿပီးဆုံးပါၿပီ။</string>
-    <string name="call_forwarded_to">Call forwarded to:</string>
-    <string name="call_forwarding_from">Call forwarded from:</string>
+    <string name="call_forwarded_to">သုိ႔ ဖုန္းေခၚဆုိမႈကုိ လုိင္းလႊဲေျပာင္းထားသည္ :</string>
+    <string name="call_forwarding_from">ဖုန္းေခၚဆုိမႈကုိ လုိင္းလႊဲေျပာင္းသူ :</string>
     <string name="call_incoming_voice_call2">ဖုန္းေခၚဆိုမႈ တစ္ခုကို ေျဖၾကားရန္ %s ကို ႏွိပ္ပါ။</string>
     <string name="call_incoming_voice_call2_tts">ဖုန္းေခၚဆိုမႈ တစ္ခုကို ေျဖၾကားရန္ ဖုန္းေျဖၾကားျခင္းခလုတ္ကို ႏွိပ္ပါ။</string>
     <string name="call_incoming_voice_call3">ေခၚဆိုမႈတစ္ခုကို ပယ္ခ်ရန္ %s ကိုႏွိပ္ပါ။</string>
@@ -145,14 +147,14 @@
     <string name="caller_info_card_last_call_log_title">လတ္တေလာအက်ဆုံး ေခၚဆိုမႈ</string>
     <string name="caller_info_card_last_message_title">လတ္တေလာအက်ဆုံး မက္ေဆ့ခ္်</string>
     <string name="caller_info_card_memo_title">ဖုန္းေခၚစဥ္အတြင္း ဖန္တီးထားသည့္ မီမို</string>
-    <string name="callsettings_hold_key_record_calls_notify">Press and hold Hold key to start or stop recording</string>
+    <string name="callsettings_hold_key_record_calls_notify">႐ုပ္သံဖမ္းယူမႈကုိ စတင္ (သုိ႔) ရပ္ရန္ ကုိင္ထားခလုတ္ကုိ ဖိ၍ ႏွိပ္ထားပါ</string>
     <string name="callsettings_rejectmessage_list1">ဝမ္းနည္းပါတယ္၊ အခု စကားေျပာဖို႔ မျဖစ္ႏိုင္ေသးပါ။ ေနာက္မွ ျပန္ေခၚပါ။</string>
     <string name="callsettings_rejectmessage_list2">ကြ်န္ေတာ္ အစည္းအေ၀း တက္ေန။</string>
     <string name="callsettings_rejectmessage_list3">ကၽြန္ေတာ္ အတန္းထဲမွာ။</string>
     <string name="callsettings_rejectmessage_list4">ကြ်န္ေတာ္ ႐ုပ္ရွင္႐ုံမွာ။</string>
     <string name="callsettings_rejectmessage_list5">ကၽြန္ေတာ္ ကားေမာင္းေန။</string>
-    <string name="camera_off">Camera turned off.</string>
-    <string name="camera_on">Camera turned on.</string>
+    <string name="camera_off">ကင္မရာ ပိတ္ထားသည္။</string>
+    <string name="camera_on">ကင္မရာဖြင့္ထားသည္။</string>
     <string name="camera_security_enter">လံုၿခံဳေရး မူဝါဒသည္ ကင္မရာသံုးျခင္းကို ကန္႔သတ္ထားပါသည္။</string>
     <string name="camera_start_failed">ကင္မရာ မေအာင္ျမင္ပါ။</string>
     <string name="cancel">ပယ္ဖ်က္ပါ</string>
@@ -200,7 +202,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="description_secOnscreenVideoCallText">ဗီဒီယို ဖုန္းေခၚဆိုမႈ</string>
     <string name="description_secOnscreenViewContactText">ဆက္သြယ္ရန္ အေသးစိတ္အခ်က္အလက္မ်ားကို ၾကည္ပါမည္</string>
     <string name="device_info_not_available">မရႏိုင္ပါ</string>
-    <string name="dial_warning">Unable to dial.</string>
+    <string name="dial_warning">ဖုန္းေခၚမရပါ။</string>
     <string name="dialling_video_call">ဗီဒီယိုဖုန္း ေခၚဆိုေနသည္</string>
     <string name="dialpad_2_sub_letters">ABC</string>
     <string name="dialpad_3_sub_letters">DEF</string>
@@ -253,8 +255,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="imLabelsGroup">IM အေကာင့္</string>
     <string name="inCallLabel_Sec">ဖုန္းေခၚမႈ</string>
     <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
+    <string name="incall_decline_other_secondary_device">Other secondary device in use.</string>
+    <string name="incall_decline_service_not_allowed">Service not allowed in this location.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">All available lines for (MDN) are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">All available lines for %s are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
+    <string name="incall_decline_transferred_to_another_device">Call has been transferred to another device.</string>
     <string name="incall_error_supp_service_switch">ဖုန္းေခၚဆုိမႈကုိ ကူးေျပညင္း၍မရပါ။</string>
     <string name="incall_extra_volume_disabled_BT">ဘလူးတုသ္ နားၾကပ္ကို ဆက္ထားလွ်င္ အပိုအသံ အတိုးအက်ယ္ ပမာဏကို သံုးမရပါ။</string>
     <string name="incall_extra_volume_disabled_HAC">နားေလးသူသံုးေသာ နားၾကပ္မ်ားကို ဖြင့္ထားစဥ္မွာ ပံုမွန္ထက္ ပိုေသာ အသံပမာဏကို ဖြင့္လို႔ မရႏိုင္ပါ။</string>
@@ -265,7 +270,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="incall_popup_call_remove_title_vzw">Hide shortcut</string>
     <string name="incall_popup_ended">ရပ္သြားသည္</string>
     <string name="incall_spam_call_block">နံပါတ္ ပိတ္ဆီးပါ</string>
-    <string name="incall_spam_call_reject">Add to Black list</string>
+    <string name="incall_spam_call_reject">အမည္ပ်က္စာရင္းသို႔ ထည့္ပါ</string>
     <string name="incall_spam_call_reject_toast">ပိတ္ဆီး စာရင္းသို႔ ဖုန္းနံပါတ္ ထည့္ထားသည္။</string>
     <string name="incall_spam_call_report">နံပါတ္ကို အစီရင္ခံပါ</string>
     <string name="incall_transfer_call">ေခၚဆိုမႈ လႊဲေျပာင္းပါ</string>
@@ -413,11 +418,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="kt_nomal_quality_video_call_3g">ေခၚဆိုမႈအတြက္ ပံုမွန္ အရည္အေသြးသာ ရႏိုင္သည္။ အျခား ၾကားခံ ကိရိယာသည္ 3G ကြန္ယက္သို႔ ကန္႔သတ္ထားသည္။</string>
     <string name="label_notes">မွတ္ခ်က္မ်ား</string>
     <string name="label_sip_address">အင္တာနက္ ဖုန္းေခၚဆိုမႈ</string>
-    <string name="legal_popup_content">"Having trouble using time-consuming voice response call centers? IVR(Interactive Voice Response) call screen menu provides the perfect environment to use call centers by displaying the service menu on your screen.
+    <string name="legal_popup_content">"အသံျဖင့္ တုံ႔ျပန္မႈေပးသည့္စင္တာမ်ားေၾကာင့္ အခ်ိန္ကုန္ၿပီး အခက္အခဲျဖစ္ေနပါသလား။ IVR (Interactive Voice Response) ဖုန္းေခၚဆိုမႈ ဖန္သားျပင္ မီႏူးမွ သင့္ ဖန္သားျပင္ေပၚတြင္ ဝန္ေဆာင္မႈ မီႏူး ျပသျခင္းျဖင့္ ဖုန္းေခၚဆို စင္တာမ်ား အသံုးျပဳဖို႔ ၿပီးျပည့္စံုသည့္ အေနအထားကို ေပးသည္။
 
-IVR call screen menu uses contents provided by a third party service provider called Dianhuabang. By using IVR call screen menu, you agree to Dianhuabang’s %1$sTerms and Conditions%2$s."</string>
+IVR ဖုန္းေခၚဆို ဖန္သားျပင္ မီႏူးသည္ Dianhuabang ဟုေခၚေသာ တတိယအဖြဲ႕အစည္း ဝန္ေဆာင္မႈေပးသူမွ ပံ့ပိုးေပးသည့္ အေၾကာင္းအရာမ်ားကို အသံုးျပဳသည္။ IVR ဖုန္းေခၚဆို ဖန္သားျပင္ မီႏူးကို အသံုးျပဳျခင္းအားျဖင့္ သင္သည္ Dianhuabang ၏ %1$sစည္းကမ္းသတ္မွတ္ခ်က္မ်ား%2$sကို သေဘာတူသည္။"</string>
     <string name="legal_popup_terms_conditions">စည္းမ်ဥ္းကန္႔သတ္ခ်က္မ်ား</string>
-    <string name="legal_pupup_title">Legal information</string>
+    <string name="legal_pupup_title">တရားဝင္ အခ်က္အလက္</string>
     <string name="lock_screen_during_call_double_tab">ေလာ့ဒ္ျဖဳတ္ရန္ ႏွစ္ႀကိမ္ဆက္တုိက္ ႏွိပ္ပါ</string>
     <string name="long_click_guide">ဖြင့္ရန္/ပိတ္ရန္ ႏွိပ္၍ကိုင္ထားပါ</string>
     <string name="low_batt_upgrade_disallowed">ဗြီဒီယုိ ေခၚဆိုမႈသို႔ ေျပာင္းမရပါ။ ဘက္ထရီ အားနည္းေနသည္္။</string>
@@ -434,7 +439,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="memory_full_msg">မွတ္ဥာဏ္ မလံုေလာက္ပါ</string>
     <string name="message_greeting">ႏႈတ္ခြန္းဆက္သျခင္း</string>
     <string name="modify_to_video_start">ဗီဒီယို ဖုန္းေခၚမႈဆီကို ေျပာင္းေပးရန္ ေတာင္းဆို….</string>
-    <string name="modify_to_voice_start">Switching to voice call…</string>
+    <string name="modify_to_voice_start">အသံေခၚဆိုမႈသို႔ ေျပာင္းေနသည္…</string>
     <string name="msg_for_video_show_never_again">ဖိုင္ ေဖာ္မတ္အခ်ဳိ႕ကို ပံ့ပိုးမႈ မရွိပါ။ ပံ့ပိုးထားေသာ ဖိုင္မ်ားသာ ျပခန္းထဲတြင္ ျပထားမည္။</string>
     <string name="mt_vt_not_possible">%s cannot receive video calls at this time. You will now be connected through a voice call.</string>
     <string name="nameLabelsGroup">အမည္</string>
@@ -451,7 +456,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="name_suffix">အမည္ ေနာက္ဆက္</string>
     <string name="network_message_no_answer">အေျဖမရွိပါ။</string>
     <string name="nicknameLabelsGroup">အလြယ္ေခၚ အမည္</string>
-    <string name="not_enable_to_video">Video calls are not available while Emergency mode is enabled.</string>
+    <string name="not_enable_to_video">အေရးေပၚအေနအထားကို ဖြင့္ထားခ်ိန္တြင္ ဗီဒီယိုေခၚဆိုမႈမ်ားကို မရရွိႏိုင္ပါ။</string>
     <string name="not_enable_to_video_emergencymode">အေရးေပၚ အေနအထားဖြင့္ထားစဥ္ ဗီဒီယို ေခၚဆိုမႈမ်ား ျပဳလုပ္ (သို႔) လက္ခံ၍ မရႏိုင္ပါ။</string>
     <string name="notification_action_answer">အေျဖ</string>
     <string name="notification_of_sub_number_empty_body">အျခား နံပါတ္မ်ားကိုၾကည့္ရန္အတြက္ SIM ကဒ္ နံပါတ္-မ်ဳိးစံု ၀န္ေဆာင္မႈတခုသို႕ စာရင္းသြင္းမွာယူၿပီး ထပ္မံႀကိဳးစားပါ။</string>
@@ -461,7 +466,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="onscreenBluetoothTextOn_att">ဖုန္းသုိ႔ေျပာင္းပါ</string>
     <string name="onscreenBluetoothTextOn_tmo">ဖုန္းသုိ႔ေျပာင္းပါ</string>
     <string name="onscreenWebexText">WebEx</string>
-    <string name="open_folder_for_speakeroff">To turn off the speakerphone, open the flip phone.</string>
+    <string name="open_folder_for_speakeroff">စပီကာဖုန္​းကို ပိတ္​ရန ္​ဖလစ္​ဖုန္​းကိုဖြင္​့ပါ။</string>
     <string name="open_the_cover">အဖံုးဖြင့္ပါ</string>
     <string name="open_the_cover_incoming">ဗီဒီယို ေခၚဆိုမႈ ေျဖရန္ (သို႔) ျငင္းပယ္ရန္ အဖံုးဖြင့္ပါ။</string>
     <string name="open_the_cover_modify_call">ဖုန္းေခၚသူက ဗီဒီယိုဖုန္းေခၚမႈဆီကို ေျပာင္းခ်င္သည္။ ေတာင္းခံခ်က္ကို လက္ခံရန္/ျငင္းပယ္ရန္ အဖံုးကို ဖြင့္ပါ။</string>
@@ -474,6 +479,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="outgoing_img_video">ဗီဒီယိုမ်ား</string>
     <string name="payphone_sbm">Pay phone</string>
     <string name="phoneLabelsGroup">ဖုန္း</string>
+    <string name="phone_voice_recording_failed_by_secure_call">စိတ္ခ်ရသည့္ ေခၚဖုန္းကို အသံသြင္း၍မရပါ။</string>
     <string name="phonetype_additional">အပိုေဆာင္း နံပါတ္</string>
     <string name="photoring_block_toast">သင့္ထံ ဓာတ္ပံုကြင္းမွတဆင့္ မီဒီယာ ပို႔ျခင္းမွ အဆက္အသြယ္ကို ပိတ္ဆီးထားသည္။</string>
     <string name="photoring_toast_mobile_data_off">မိုဘိုင္း ေဒတာ ဝင္ေရာက္မႈ ပိတ္ဆီးထား၍ သင္ မျမင္ႏိုင္သည့္ အျခားပါတီမွ ပို႔လိုက္ေသာ ဓာတ္ပံုလုပ္ျခင္း ပါဝင္မႈ ရွိႏိုင္သည္။</string>
@@ -491,7 +497,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="prepareOtherVideo">ဗြီဒီယို ပုံ ျပင္ေနဆဲ…</string>
     <string name="previous_call_is_held_when_you_accept_call">သင္က ေခၚဆိုမႈ အသစ္တစ္ခုကို လက္ခံလိုက္ပါက လက္ရွိ ေခၚဆိုမႈမွာ ေစာင့္ဆိုင္းရန္ စီစဥ္ေပးလိမ့္မည္။</string>
     <string name="private_num_cdma">ကန္႔သတ္ထားေသာ</string>
-    <string name="private_num_sbm">Withheld number</string>
+    <string name="private_num_sbm">အမည္မသိ နံပါတ္</string>
     <string name="quick_panel_title_video_call">ဗီဒီယို ဖုန္းေခၚဆိုမႈ</string>
     <string name="quick_panel_title_voice_call">ဖုန္းေခၚဆိုမွု</string>
     <string name="quick_panel_title_volte_call">VoLTE ဖုန္းေခၚမႈ</string>
@@ -516,8 +522,13 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="recently_use_sim_for_callback">လတ္တေလာ သံုးထားသည့္ SIM</string>
     <string name="record_notification_button_text_close">ပိတ္ပါ</string>
     <string name="record_notification_button_text_record_list">မွတ္တမ္းတင္မႈမ်ား</string>
+    <string name="record_notification_button_text_storage">သုိေလွာင္ခန္း</string>
     <string name="record_notification_content">မွတ္တမ္းတင္ထားသည့္ ေခၚဆိုမႈမ်ားကိုၾကည့္႐ႈရန္ “မွတ္တမ္းတင္မႈမ်ား” ကိုႏွိပ္ပါ။</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">သင့္ကိရိယာသိုေလွာင္ခန္း ျပည့္ေနသည္။ ေခၚဖုန္း တစ္ဝက္တစ္ပ်က္ အသံဖမ္းထားသည္ကို သိမ္းဆည္းထားသည္။</string>
+    <string name="record_notification_content_unable_to_record">သင့္ကိရိယာ သိုေလွာင္ခန္းထဲ ေနရာ မေလာက္ပါ။ ဖိုင္အခ်ိဳ႕ကုိ ဖ်က္ၿပီး ထပ္ၾကိဳးစားပါ။</string>
     <string name="record_notification_title">ေခၚဆိုမႈကို မွတ္တမ္းတင္ထားသည္</string>
+    <string name="record_notification_title_not_to_record_entire_call">ေခၚဖုန္းတစ္ခုလုံးကို အသံဖမ္းမထားပါ</string>
+    <string name="record_notification_title_unable_to_record">ဖုန္းေျပာေနမႈကုိ အသံဖမ္းယူ၍ မရႏုိင္ပါ</string>
     <string name="record_text">REC</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -591,7 +602,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="secOnscreenMenuSwitchToPhoneText_tmo">ဖုန္းသုိ႔ေျပာင္းပါ</string>
     <string name="secOnscreenMenuSwitchToVideoCallText">ဗီြဒီယုိ ဖုန္းေခၚဆုိမႈမ်ားသုိ႔ ကူးေျပာင္းပါ</string>
     <string name="secOnscreenMenuSwitchToVoiceCallText">အသံဖုန္းသို႔ ကူးေျပာင္းပါ</string>
-    <string name="secOnscreenMenuSwitchVideoDisplay">Switch video displays</string>
+    <string name="secOnscreenMenuSwitchVideoDisplay">ဗီဒီယိုျပသမႈမ်ားကို ေျပာင္းပါ</string>
     <string name="secOnscreenMenuUnmuteText">အသံပိတ္ထားျခင္းကို ျပန္ဖြင့္ပါ</string>
     <string name="secOnscreenMenuVideoConfCallText">ပါဝင္သူ အသစ္ ဖိတ္ေခၚပါ</string>
     <string name="secOnscreenMenuViewInFullScreenText">ဖန္သားျပင္ အျပည့္ ၾကည့္ပါ</string>
@@ -632,6 +643,7 @@ Camera"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">စာရင္း ဖြင့္ရန္ ႏွစ္ခ်က္ ႏွိပ္ပါ။</string>
     <string name="sec_showme_text">ကြ်န္ေတာ္ကုိ ျပပါ</string>
     <string name="second_screen_hold_text">ဖုန္းေစာင့္ေနသူ %d ဦး</string>
+    <string name="section_contacts_only_summary">Create and manage contacts.</string>
     <string name="select_callback_sim_card">ျပန္လည္ေခၚဆိုမႈ SIM ကဒ္ ေရြးခ်ယ္ပါ</string>
     <string name="select_callback_sim_card_content">ဤနံပါတ္သို႔ (သို႔) ဤနံပါတ္မွ ေနာက္ဆုံးေခၚဆိုမႈ (သို႔) မက္ေဆ့ခ္်သည္ ေခၚဆိုမႈမ်ားအတြက္ ဦးစားေပး SIM ကဒ္ကို အသုံးျပဳထားျခင္း မရွိပါ။ အသုံးျပဳမည့္ SIM ကဒ္ ေရြးခ်ယ္ပါ။</string>
     <string name="select_from_gallery">ျပခန္းမွ ေရြးပါ</string>
@@ -647,7 +659,7 @@ Camera"</string>
     <string name="settings_subappbar_switch_off">ပိတ္</string>
     <string name="settings_subappbar_switch_on">ဖြင့္</string>
     <string name="slide_left_to_reject_content_description">လက္မခံရန္ ဘယ္ဘက္သို႔ပြတ္ဆြဲပါ။</string>
-    <string name="slide_right_to_answer_content_description">Swipe right to answer.</string>
+    <string name="slide_right_to_answer_content_description">ေျဖရန္ ညာဘက္ ပြတ္ဆြဲပါ။</string>
     <string name="smart_call_block_button">ပိတ္ဆီးပါ</string>
     <string name="smart_call_block_msg">နံပါတ္ ပိတ္ဆီးပါ</string>
     <string name="smart_call_block_report_number">နံပါတ္ကုိ ပိတ္ဆုိ႔ပါ/တုိင္ၾကားပါ</string>
@@ -671,12 +683,12 @@ Camera"</string>
     <string name="spam_call_report_dialog_spam">ေၾကာ္ျငာ</string>
     <string name="spam_call_report_dialog_taxis">တကၠစီမ်ား</string>
     <string name="spam_call_reported_as">%s အျဖစ္ အစီရင္ခံထားသည္</string>
-    <string name="spam_call_resported_as_by_you">Reported as %s by you</string>
+    <string name="spam_call_resported_as_by_you">%s အျဖစ္ သင္ တုိင္ၾကားထားသည္</string>
     <string name="spam_call_resported_count">(%d ႀကိမ္)</string>
-    <string name="spam_call_type_and_count">Reported as %1$s %2$d times</string>
+    <string name="spam_call_type_and_count">%1$s %2$d ႀကိမ္အျဖစ္ တင္ျပထားသည္</string>
     <string name="sub_number_item">အျခားေရြးစရာ %d</string>
-    <string name="suguden_guide_do_not_show_again_dcm">Do not show again</string>
-    <string name="suguden_guide_main_text_dcm">Answer the call by bringing the device close to your ear.</string>
+    <string name="suguden_guide_do_not_show_again_dcm">ထပ္မျပပါေတာ့ႏွင့္</string>
+    <string name="suguden_guide_main_text_dcm">ကိရိယာကို သင့္နားအနီးသို႔ကပ္ျခင္းျဖင့္ ဖုန္းေျဖပါ။</string>
     <string name="swipe_left">ဝဲဖက္ ပြတ္လႊဲပါ။</string>
     <string name="swipe_right">ညာဘက္သို႔ ပြတ္ဆြဲပါ။</string>
     <string name="swipe_right_to_answer_call_with_video">ေခၚဆိုမႈကို ဗီဒီယိုျဖင့္ ေျဖၾကားရန္ ညာဘက္သို႔ ပြတ္ဆြဲပါ။</string>
@@ -767,5 +779,5 @@ Your video call is now running on the mobile network. (Data usage applies if you
     <string name="waiting_call_dialog_dismiss_toast">%1$s မွာ ဖုန္းေခၚဆိုမႈ ၿပီးဆုံးခဲ့သည္။ %2$s ႏွင့္ ေျပာရန္ ဖုန္းျပန္ေခၚေနဆဲ…</string>
     <string name="waiting_call_dialog_message">ဖုန္းကို ေျဖပါ</string>
     <string name="websiteLabelsGroup">၀က္ဘ္ လိပ္စာ</string>
-    <string name="yellow_pages">Yellow Pages</string>
+    <string name="yellow_pages">လမ္းညႊန္စာအုပ္</string>
 </resources>

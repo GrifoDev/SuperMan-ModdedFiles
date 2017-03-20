@@ -119,6 +119,8 @@
     <string name="BirthDay_remainedDays1">Sinh nhật vào ngày mai</string>
     <string name="BirthDay_remainedDays7">Sinh nhật trong 1 tuần</string>
     <string name="BirthDay_remainedDaysEtc">Sinh nhật trong %d ngày</string>
+    <string name="DivertToVoice_disable">Cuộc gọi video không có sẵn cho số này. Thay vào đó, thử cuộc gọi thoại bây giờ?</string>
+    <string name="DivertToVoice_enable">Cuộc gọi video không có sẵn cho số này. Chuyển sang cuộc gọi thoại…</string>
     <string name="Lunar_anniversary_passedDays1">Lễ kỷ niệm âm lịch hôm qua</string>
     <string name="Lunar_anniversary_remainedDays0">Lễ kỷ niệm Hôm nay</string>
     <string name="Lunar_anniversary_remainedDays1">Lễ kỷ niệm Ngày mai</string>
@@ -300,8 +302,11 @@ Cuộc gọi video này đang sử dụng dữ liệu và Dữ liệu di động
     <string name="imLabelsGroup">Tài khoản IM</string>
     <string name="inCallLabel_Sec">Cuộc gọi</string>
     <string name="incall_decline_emergency_wifi_not_allow">Cuộc gọi khẩn cấp qua Wi-Fi không được phép ở vị trí này.</string>
+    <string name="incall_decline_other_secondary_device">Thiết bị phụ khác đang được dùng.</string>
+    <string name="incall_decline_service_not_allowed">Dịch vụ không được phép ở địa điểm này.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">Tất cả đường dây có sẵn cho (MDN) đang được dùng. Để gọi điện, hãy ngắt một trong các cuộc gọi trên điện thoại di động hoặc máy tính bảng.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">Tất cả đường dây có sẵn cho %s đang được dùng. Để gọi điện, hãy ngắt một trong các cuộc gọi trên điện thoại di động hoặc máy tính bảng.</string>
+    <string name="incall_decline_transferred_to_another_device">Cuộc gọi đã được chuyển tiếp đến thiết bị khác.</string>
     <string name="incall_error_supp_service_switch">Không cho phép chuyển cuộc gọi.</string>
     <string name="incall_extra_volume_disabled_BT">Không thể sử dụng Tăng âm lượng khi đang kết nối bộ tai nghe Bluetooth.</string>
     <string name="incall_extra_volume_disabled_HAC">Không thể bật Tăng âm lượng khi đang bật Trợ thính.</string>
@@ -521,6 +526,7 @@ Menu màn hình cuộc gọi IVR sử dụng nội dung được cung cấp bở
     <string name="outgoing_img_video">Video</string>
     <string name="payphone_sbm">Điện thoại trả phí</string>
     <string name="phoneLabelsGroup">Điện thoại</string>
+    <string name="phone_voice_recording_failed_by_secure_call">Không thể ghi âm cuộc gọi bảo mật.</string>
     <string name="phonetype_additional">Số phụ</string>
     <string name="photoring_block_toast">Danh bạ bị chặn gửi media cho bạn qua photo ring.</string>
     <string name="photoring_toast_mobile_data_off">Có thể có nội dung Photoring được gửi bởi bên khác mà bạn không thể nhìn thấy vì truy cập dữ liệu di động bị chặn.</string>
@@ -563,8 +569,13 @@ Menu màn hình cuộc gọi IVR sử dụng nội dung được cung cấp bở
     <string name="recently_use_sim_for_callback">SIM đã dùng gần đây</string>
     <string name="record_notification_button_text_close">Đóng</string>
     <string name="record_notification_button_text_record_list">Bản ghi âm</string>
+    <string name="record_notification_button_text_storage">Lưu trữ</string>
     <string name="record_notification_content">Chạm BẢN GHI ÂM để xem các cuộc gọi đã ghi âm của bạn.</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">Bộ nhớ thiết bị của bạn đã đầy. Một phần ghi âm của cuộc gọi đã được lưu.</string>
+    <string name="record_notification_content_unable_to_record">Không đủ dung lượng trong bộ nhớ thiết bị của bạn. Hãy xóa một số file và thử lại.</string>
     <string name="record_notification_title">Đã ghi âm cuộc gọi</string>
+    <string name="record_notification_title_not_to_record_entire_call">Toàn bộ cuộc gọi chưa được ghi âm</string>
+    <string name="record_notification_title_unable_to_record">Không thể ghi âm cuộc gọi</string>
     <string name="record_text">REC</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">0:00:00</string>
@@ -679,6 +690,7 @@ một chiều"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">Chạm hai lần để mở danh sách.</string>
     <string name="sec_showme_text">Hiển thị</string>
     <string name="second_screen_hold_text">%d đang chờ</string>
+    <string name="section_contacts_only_summary">Tạo và quản lý danh bạ.</string>
     <string name="select_callback_sim_card">Chọn thẻ SIM gọi lại</string>
     <string name="select_callback_sim_card_content">Cuộc gọi hoặc tin nhắn cuối cùng đến số này hoặc từ số này đã không dùng thẻ SIM ưu tiên cho cuộc gọi. Hãy chọn thẻ SIM cần sử dụng.</string>
     <string name="select_from_gallery">Chọn từ Bộ sưu tập</string>

@@ -119,6 +119,8 @@
     <string name="BirthDay_remainedDays1">Завтра день народження</string>
     <string name="BirthDay_remainedDays7">День народж. за тиждень</string>
     <string name="BirthDay_remainedDaysEtc">День народж. за %d дні(в)</string>
+    <string name="DivertToVoice_disable">Відеовиклики недоступні для цього номера. Спробувати здійснити голосовий виклик?</string>
+    <string name="DivertToVoice_enable">Відеовиклики недоступні для цього номера. Переключення в режим голосового виклику…</string>
     <string name="Lunar_anniversary_passedDays1">Річниця за міс. календ. вчора</string>
     <string name="Lunar_anniversary_remainedDays0">Річн.за міс.кал.:сьог.</string>
     <string name="Lunar_anniversary_remainedDays1">Річн.за міс.кал: завт.</string>
@@ -145,7 +147,7 @@
     <string name="add_reminder">Дод. нагад.</string>
     <string name="agree">Згоден(а)</string>
     <string name="am_cover_toggle_string">Відк. кришку, щоб прийняти або відх. виклик.</string>
-    <string name="am_device_memory_full_warning">Unable to use Auto answer with message. There is not enough space in your device storage to save voice messages. Delete some items and try again.</string>
+    <string name="am_device_memory_full_warning">Неможливо використати повідомлення для автоматичної відповіді. На пристрої недостатньо місця для збереження голосових повідомлень. Видаліть частину об’єктів та спробуйте ще раз.</string>
     <string name="another_device_pickup_message">Another device picked up this call.</string>
     <string name="answering_memo_Playing_text">Відтворення повідомлення у відповідь…</string>
     <string name="answering_memo_Recording_text">Записування повідомлення…</string>
@@ -160,8 +162,8 @@
     <string name="call_drug_up_panel_for_kk">Перетягніть кнопку НАДІСЛ. ПОВІДОМЛЕННЯ вгору, щоб надісл. швидке повід. та відх. виклик.</string>
     <string name="call_drug_up_panel_for_kk_tts">У разі відхилення вхідного виклику перетягніть панель повідомлень про відхилення виклику вгору, щоб надіслати повідомлення про відхилення виклику.</string>
     <string name="call_ended_toast">Виклик завершено.</string>
-    <string name="call_forwarded_to">Call forwarded to:</string>
-    <string name="call_forwarding_from">Call forwarded from:</string>
+    <string name="call_forwarded_to">Виклик переадресовано на:</string>
+    <string name="call_forwarding_from">Виклик переадресовано від:</string>
     <string name="call_incoming_voice_call2">Натисніть %s, щоб відповісти на виклик.</string>
     <string name="call_incoming_voice_call2_tts">Натисніть кнопку «Відповідь на виклик», щоб відповісти на виклик.</string>
     <string name="call_incoming_voice_call3">Торкн. %s, щоб відхил. виклик.</string>
@@ -186,20 +188,20 @@
     <string name="call_menu_during_call_list6_tts">Торкніться кнопки додаткової гучності, щоб збільшити гучність.</string>
     <string name="call_menu_during_call_list7">Натисніть %s, щоб зателефонувати іншим особам і приєднати їх до поточного виклику.</string>
     <string name="call_menu_during_call_list7_tts">Натисніть кнопку «Додати виклик», щоб зателефонувати іншим особам і приєднати їх до поточного виклику.</string>
-    <string name="call_out_duration">Call out duration</string>
+    <string name="call_out_duration">Тривалість виклику</string>
     <string name="call_twophone_one_phone">Основний номер</string>
     <string name="call_twophone_two_phone">Другий номер</string>
     <string name="caller_info_card_last_call_log_title">Останні виклики</string>
     <string name="caller_info_card_last_message_title">Останнє повідомлення</string>
     <string name="caller_info_card_memo_title">Під час виклику створено нагадування</string>
-    <string name="callsettings_hold_key_record_calls_notify">Press and hold Hold key to start or stop recording</string>
+    <string name="callsettings_hold_key_record_calls_notify">Натисніть і утримуйте клавішу утримання, щоб розпочати або зупинити запис</string>
     <string name="callsettings_rejectmessage_list1">Пробачте, зараз я не можу розмовляти. Передзвоніть пізніше.</string>
     <string name="callsettings_rejectmessage_list2">На нараді.</string>
     <string name="callsettings_rejectmessage_list3">На занятті.</string>
     <string name="callsettings_rejectmessage_list4">Я в кінотеатрі.</string>
     <string name="callsettings_rejectmessage_list5">За кермом.</string>
-    <string name="camera_off">Camera turned off.</string>
-    <string name="camera_on">Camera turned on.</string>
+    <string name="camera_off">Камеру вимкнено.</string>
+    <string name="camera_on">Камеру ввімкнено.</string>
     <string name="camera_security_enter">Використання камери обмежено політикою безпеки.</string>
     <string name="camera_start_failed">Збій камери.</string>
     <string name="cancel">Скасувати</string>
@@ -218,7 +220,7 @@
     <string name="chat_qq">Чат за допомогою QQ</string>
     <string name="chat_skype">Чат за допомогою Skype</string>
     <string name="chat_yahoo">Чат за допомогою Yahoo! Messenger</string>
-    <string name="chunghwa_operator_name">Chunghwa</string>
+    <string name="chunghwa_operator_name">Чунхва</string>
     <string name="cmcc_operator_name">CMCC</string>
     <string name="conference_maximum_participants_reached">Досягнуто максимальної кількості учасників (%d).</string>
     <string name="conferencing_dialog_Available_for_VoiceCalls">Conferencing is only available for voice calls.</string>
@@ -247,7 +249,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="description_secOnscreenVideoCallText">Відеовиклик</string>
     <string name="description_secOnscreenViewContactText">Переглянути контактні дані</string>
     <string name="device_info_not_available">Недоступно</string>
-    <string name="dial_warning">Unable to dial.</string>
+    <string name="dial_warning">Неможливо набрати номер.</string>
     <string name="dialling_video_call">Набір відеовиклику</string>
     <string name="dialpad_2_sub_letters">ABC</string>
     <string name="dialpad_3_sub_letters">DEF</string>
@@ -300,8 +302,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="imLabelsGroup">Обліковий запис чату</string>
     <string name="inCallLabel_Sec">Виклики</string>
     <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
+    <string name="incall_decline_other_secondary_device">Other secondary device in use.</string>
+    <string name="incall_decline_service_not_allowed">Service not allowed in this location.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">All available lines for (MDN) are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">All available lines for %s are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
+    <string name="incall_decline_transferred_to_another_device">Call has been transferred to another device.</string>
     <string name="incall_error_supp_service_switch">Неможливо переключитися між викликами.</string>
     <string name="incall_extra_volume_disabled_BT">Неможливо скористатися додатковим діапазоном гучності за підключеної гарнітури Bluetooth.</string>
     <string name="incall_extra_volume_disabled_HAC">Неможливо ввімкнути додаткову гучність під час використання слухових апаратів.</string>
@@ -312,7 +317,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="incall_popup_call_remove_title_vzw">Hide shortcut</string>
     <string name="incall_popup_ended">Заверш.</string>
     <string name="incall_spam_call_block">Блокувати номер</string>
-    <string name="incall_spam_call_reject">Add to Black list</string>
+    <string name="incall_spam_call_reject">Додати до «чорн.спис.»</string>
     <string name="incall_spam_call_reject_toast">Номер телефону додано до списку блокування.</string>
     <string name="incall_spam_call_report">Номер звіту</string>
     <string name="incall_transfer_call">Переадресація виклику</string>
@@ -460,11 +465,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="kt_nomal_quality_video_call_3g">Для виклику доступна лише нормальна якість. Пристрій іншої сторони обмежено мережею 3G.</string>
     <string name="label_notes">Примітки</string>
     <string name="label_sip_address">Інтернет-виклик</string>
-    <string name="legal_popup_content">"Having trouble using time-consuming voice response call centers? IVR(Interactive Voice Response) call screen menu provides the perfect environment to use call centers by displaying the service menu on your screen.
+    <string name="legal_popup_content">"Утомилися від кол-центрів із голосовими відповідями, які забирають багато часу? Скористайтесь IVR, інтерактивним автовідповідачем з екранним меню. Це чудове рішення для взаємодії з кол-центрами.
 
-IVR call screen menu uses contents provided by a third party service provider called Dianhuabang. By using IVR call screen menu, you agree to Dianhuabang’s %1$sTerms and Conditions%2$s."</string>
+У меню IVR використовується вміст від стороннього постачальника послуг — Dianhuabang. Користуючись екранним меню IVR, ви приймаєте %1$sУмови та положення%2$s Dianhuabang."</string>
     <string name="legal_popup_terms_conditions">Умови та положення</string>
-    <string name="legal_pupup_title">Legal information</string>
+    <string name="legal_pupup_title">Юридична інформація</string>
     <string name="lock_screen_during_call_double_tab">Двічі натисніть для розблокування</string>
     <string name="long_click_guide">Натисніть і утримуйте, щоб увімкнути або вимкнути</string>
     <string name="low_batt_upgrade_disallowed">Неможливо переключитися в режим відеовиклику. Акумулятор розряджено.</string>
@@ -481,7 +486,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="memory_full_msg">Недостатньо пам’яті</string>
     <string name="message_greeting">Привітання</string>
     <string name="modify_to_video_start">Запит на переключення в режим відеовиклику…</string>
-    <string name="modify_to_voice_start">Switching to voice call…</string>
+    <string name="modify_to_voice_start">Перемикання на голосовий виклик…</string>
     <string name="msg_for_video_show_never_again">Деякі формати файлів не підтримуються. У галереї відображатимуться лише підтримувані файли.</string>
     <string name="mt_vt_not_possible">%s cannot receive video calls at this time. You will now be connected through a voice call.</string>
     <string name="nameLabelsGroup">"Iм'я"</string>
@@ -498,7 +503,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="name_suffix">Суфікс імені</string>
     <string name="network_message_no_answer">Немає відповіді</string>
     <string name="nicknameLabelsGroup">Псевдонім</string>
-    <string name="not_enable_to_video">Video calls are not available while Emergency mode is enabled.</string>
+    <string name="not_enable_to_video">Відеовиклики недоступні в екстреному режимі.</string>
     <string name="not_enable_to_video_emergencymode">Неможливо здійснювати або отримувати відеовиклики. Увімкнено екстрений режим.</string>
     <string name="notification_action_answer">Відповісти</string>
     <string name="notification_of_sub_number_empty_body">Щоб переглянути альтернативні номери, підпишіться на службу обслуговування SIM-карт із підтримкою декількох номерів і спробуйте ще раз.</string>
@@ -508,7 +513,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="onscreenBluetoothTextOn_att">Переключитися на телефон</string>
     <string name="onscreenBluetoothTextOn_tmo">Переключитися на телефон</string>
     <string name="onscreenWebexText">WebEx</string>
-    <string name="open_folder_for_speakeroff">To turn off the speakerphone, open the flip phone.</string>
+    <string name="open_folder_for_speakeroff">Для вимкнення динаміку відкрийте розкладний телефон.</string>
     <string name="open_the_cover">Відкрийте кришку.</string>
     <string name="open_the_cover_incoming">Відкрийте кришку для відповіді або відхилення відеовиклику.</string>
     <string name="open_the_cover_modify_call">Абонент хоче перейти в режим відеовиклику. Відкрийте кришку, щоб прийняти/відхилити запит</string>
@@ -521,6 +526,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="outgoing_img_video">Відео</string>
     <string name="payphone_sbm">Телефон-автомат</string>
     <string name="phoneLabelsGroup">Телефон</string>
+    <string name="phone_voice_recording_failed_by_secure_call">Неможливо записати захищений виклик.</string>
     <string name="phonetype_additional">Додатковий номер</string>
     <string name="photoring_block_toast">Надсилання медіафайла за допомогою смарт-кільця заблоковано для цього контакту.</string>
     <string name="photoring_toast_mobile_data_off">Вміст Photoring, надісланий іншим користувачем, може не відображатися через блокування доступу до мобільних даних.</string>
@@ -538,7 +544,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="prepareOtherVideo">Підготовка відео…</string>
     <string name="previous_call_is_held_when_you_accept_call">Поточний виклик буде переведено на утримання у разі відповіді на новий виклик.</string>
     <string name="private_num_cdma">Обмежено</string>
-    <string name="private_num_sbm">Withheld number</string>
+    <string name="private_num_sbm">Прихований номер</string>
     <string name="quick_panel_title_video_call">Відеовиклик</string>
     <string name="quick_panel_title_voice_call">Голосовий виклик</string>
     <string name="quick_panel_title_volte_call">Виклик VoLTE</string>
@@ -563,8 +569,13 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="recently_use_sim_for_callback">Нещодавня SIM</string>
     <string name="record_notification_button_text_close">Закрити</string>
     <string name="record_notification_button_text_record_list">Записи</string>
+    <string name="record_notification_button_text_storage">"Пам'ять"</string>
     <string name="record_notification_content">Торкніться ЗАПИСИ, щоб переглянути записані виклики.</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">Пам’ять пристрою заповнено. Збережено частковий запис виклику.</string>
+    <string name="record_notification_content_unable_to_record">Недостатньо місця у пам’яті пристрою. Видаліть деякі файли та спробуйте ще раз.</string>
     <string name="record_notification_title">Виклик записано</string>
+    <string name="record_notification_title_not_to_record_entire_call">Виклик записано не повністю</string>
+    <string name="record_notification_title_unable_to_record">Неможливо записати виклик</string>
     <string name="record_text">Запис</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -639,7 +650,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="secOnscreenMenuSwitchToPhoneText_tmo">Переключитися на телефон</string>
     <string name="secOnscreenMenuSwitchToVideoCallText">Переключитися в режим відеовиклику</string>
     <string name="secOnscreenMenuSwitchToVoiceCallText">Пер. в реж.гол.викл.</string>
-    <string name="secOnscreenMenuSwitchVideoDisplay">Switch video displays</string>
+    <string name="secOnscreenMenuSwitchVideoDisplay">Перемкнути відео</string>
     <string name="secOnscreenMenuUnmuteText">Увімк. звук</string>
     <string name="secOnscreenMenuVideoConfCallText">Запросити нового учасника</string>
     <string name="secOnscreenMenuViewInFullScreenText">Перегляд у повноекранному режимі</string>
@@ -680,6 +691,7 @@ Camera"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">Двічі натисніть, щоб відкрити список.</string>
     <string name="sec_showme_text">Показати мене</string>
     <string name="second_screen_hold_text">%d на утр.</string>
+    <string name="section_contacts_only_summary">Create and manage contacts.</string>
     <string name="select_callback_sim_card">Вибір SIM-картки для зворотного дзвінка</string>
     <string name="select_callback_sim_card_content">Пріоритетну SIM-карту для викликів не було використано для останнього виклику або повідомлення на цей номер або з нього. Виберіть, яку SIM-карту використовувати.</string>
     <string name="select_from_gallery">Вибрати з галереї</string>
@@ -719,12 +731,12 @@ Camera"</string>
     <string name="spam_call_report_dialog_spam">Спам</string>
     <string name="spam_call_report_dialog_taxis">Таксі</string>
     <string name="spam_call_reported_as">Повідомлено, як про %s</string>
-    <string name="spam_call_resported_as_by_you">Reported as %s by you</string>
+    <string name="spam_call_resported_as_by_you">Відмічено вами як %s</string>
     <string name="spam_call_resported_count">(%d рази(-ів))</string>
-    <string name="spam_call_type_and_count">Reported as %1$s %2$d times</string>
+    <string name="spam_call_type_and_count">Позначено як %1$s таку кількість разів: %2$d</string>
     <string name="sub_number_item">Альтернативний %d</string>
-    <string name="suguden_guide_do_not_show_again_dcm">Do not show again</string>
-    <string name="suguden_guide_main_text_dcm">Answer the call by bringing the device close to your ear.</string>
+    <string name="suguden_guide_do_not_show_again_dcm">Більше не показувати</string>
+    <string name="suguden_guide_main_text_dcm">Щоб відповісти на виклик, піднесіть пристрій до вуха.</string>
     <string name="swipe_left">Проведіть вліво.</string>
     <string name="swipe_right">Проведіть вправо.</string>
     <string name="swipe_right_to_answer_call_with_video">Проведіть вправо, щоб відповісти на виклик з відео.</string>
@@ -815,5 +827,5 @@ Your video call is now running on the mobile network. (Data usage applies if you
     <string name="waiting_call_dialog_dismiss_toast">Виклик завершено абонентом %1$s. Поновлення виклику за допомогою %2$s…</string>
     <string name="waiting_call_dialog_message">Відповідь на виклик</string>
     <string name="websiteLabelsGroup">Веб-адреса</string>
-    <string name="yellow_pages">Yellow Pages</string>
+    <string name="yellow_pages">Жовті сторінки</string>
 </resources>

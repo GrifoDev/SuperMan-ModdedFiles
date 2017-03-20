@@ -51,7 +51,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/WifiCallingTile$2;->this$0:Lcom/android/systemui/qs/tiles/WifiCallingTile;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/tiles/WifiCallingTile;->-wrap0(Lcom/android/systemui/qs/tiles/WifiCallingTile;)Z
+    invoke-static {v1}, Lcom/android/systemui/qs/tiles/WifiCallingTile;->-wrap1(Lcom/android/systemui/qs/tiles/WifiCallingTile;)Z
 
     move-result v1
 
@@ -59,7 +59,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lcom/android/systemui/qs/tiles/WifiCallingTile;->-wrap1(Lcom/android/systemui/qs/tiles/WifiCallingTile;Ljava/lang/Object;)V
+    invoke-static {v0, v1}, Lcom/android/systemui/qs/tiles/WifiCallingTile;->-wrap2(Lcom/android/systemui/qs/tiles/WifiCallingTile;Ljava/lang/Object;)V
 
     return-void
 .end method

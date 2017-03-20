@@ -420,14 +420,14 @@
 
     if-eqz v0, :cond_7
 
-    const v8, 0x7f0f040e
+    const v8, 0x7f0f040f
 
     :goto_4
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_DCM_POPUP:Z
 
     if-eqz v0, :cond_8
 
-    const v7, 0x7f0f040f
+    const v7, 0x7f0f0410
 
     :goto_5
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/LocationTile;->mContext:Landroid/content/Context;
@@ -461,7 +461,7 @@
     goto :goto_3
 
     :cond_7
-    const v8, 0x7f0f040b
+    const v8, 0x7f0f040c
 
     goto :goto_4
 
@@ -472,12 +472,12 @@
 
     if-eqz v0, :cond_9
 
-    const v7, 0x7f0f040d
+    const v7, 0x7f0f040e
 
     goto :goto_5
 
     :cond_9
-    const v7, 0x7f0f040c
+    const v7, 0x7f0f040d
 
     goto :goto_5
 

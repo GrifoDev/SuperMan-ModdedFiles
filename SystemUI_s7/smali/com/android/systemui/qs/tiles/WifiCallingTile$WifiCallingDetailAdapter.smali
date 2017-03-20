@@ -505,9 +505,28 @@
     return v2
 
     :cond_0
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/WifiCallingTile$WifiCallingDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/WifiCallingTile;
+
+    invoke-static {v2, p1}, Lcom/android/systemui/qs/tiles/WifiCallingTile;->-wrap0(Lcom/android/systemui/qs/tiles/WifiCallingTile;Z)Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/WifiCallingTile$WifiCallingDetailAdapter;->getToggleState()Ljava/lang/Boolean;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v2
+
+    return v2
+
+    :cond_1
     iget-object v2, p0, Lcom/android/systemui/qs/tiles/WifiCallingTile$WifiCallingDetailAdapter;->mRadioGroup:Landroid/widget/RadioGroup;
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3
 
     iget-object v2, p0, Lcom/android/systemui/qs/tiles/WifiCallingTile$WifiCallingDetailAdapter;->mRadioGroup:Landroid/widget/RadioGroup;
 
@@ -518,7 +537,7 @@
     const/4 v1, 0x0
 
     :goto_0
-    if-ge v1, v0, :cond_2
+    if-ge v1, v0, :cond_3
 
     iget-object v2, p0, Lcom/android/systemui/qs/tiles/WifiCallingTile$WifiCallingDetailAdapter;->mRadioGroup:Landroid/widget/RadioGroup;
 
@@ -536,7 +555,7 @@
 
     check-cast v2, Landroid/widget/RadioButton;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_2
 
     const v3, 0x7f1001f6
 
@@ -547,15 +566,11 @@
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     const v3, 0x7f1001f7
 
     goto :goto_1
 
-    :cond_2
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/WifiCallingTile$WifiCallingDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/WifiCallingTile;
-
-    invoke-static {v2, p1}, Lcom/android/systemui/qs/tiles/WifiCallingTile;->-wrap2(Lcom/android/systemui/qs/tiles/WifiCallingTile;Z)V
-
+    :cond_3
     return p1
 .end method

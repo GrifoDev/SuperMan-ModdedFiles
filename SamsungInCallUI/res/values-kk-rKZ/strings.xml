@@ -92,6 +92,8 @@
     <string name="BirthDay_remainedDays1">Туған күн - ертең</string>
     <string name="BirthDay_remainedDays7">Туған күн 1 апта ішінде</string>
     <string name="BirthDay_remainedDaysEtc">Туған күн %d күн ішінде</string>
+    <string name="DivertToVoice_disable">Бейне қоңыраулар бұл нөмірге қол жетімді емес. Оның орнына бейне қоңырау шалып көру керек пе?</string>
+    <string name="DivertToVoice_enable">Бейне қоңыраулар бұл нөмірге қол жетімді емес. Бейне қоңырауға ауысуда…</string>
     <string name="Lunar_anniversary_passedDays1">Кешегі ай жылдығы</string>
     <string name="Lunar_anniversary_remainedDays0">Ай жылд. Бүгін</string>
     <string name="Lunar_anniversary_remainedDays1">Ай жылд. Ертең</string>
@@ -118,7 +120,7 @@
     <string name="add_reminder">Еске сал.қ-у</string>
     <string name="agree">Келісемін</string>
     <string name="am_cover_toggle_string">Қоңырау алу не алмау үшін жабынды ашыңыз.</string>
-    <string name="am_device_memory_full_warning">Unable to use Auto answer with message. There is not enough space in your device storage to save voice messages. Delete some items and try again.</string>
+    <string name="am_device_memory_full_warning">“Хабармен авто жауап беру” функциясын пайдалану мүмкін болмады. Дауыстық хабарларды сақтау үшін құрылғы жадында бос орын жеткіліксіз. Кейбір элементтерді жойып, әрекетті қайталаңыз.</string>
     <string name="another_device_pickup_message">Another device picked up this call.</string>
     <string name="answering_memo_Playing_text">Жауап хабары ойнатылуда…</string>
     <string name="answering_memo_Recording_text">Хабар жазылуда…</string>
@@ -133,8 +135,8 @@
     <string name="call_drug_up_panel_for_kk">Шұғыл хабар жіберу және кіріс қоңырауын қабылдамау үшін, ХАБАР ЖІБЕРУ жоғарыға сүйреңіз.</string>
     <string name="call_drug_up_panel_for_kk_tts">Кіріс қоңырауын қабылдамағандықтан, қоңырауды қабылдамау хабарын жіберу үшін, қоңырауды хабар арқылы қабылдамау тақтасын жоғары қарай сүйреңіз.</string>
     <string name="call_ended_toast">Қоңырау аяқталды.</string>
-    <string name="call_forwarded_to">Call forwarded to:</string>
-    <string name="call_forwarding_from">Call forwarded from:</string>
+    <string name="call_forwarded_to">Шығыс қоңырау бағыты өзгертілді:</string>
+    <string name="call_forwarding_from">Кіріс қоңырау бағыты өзгертілді:</string>
     <string name="call_incoming_voice_call2">Қоңырауға жауап беру үшін, %s белгішесін түртіңіз.</string>
     <string name="call_incoming_voice_call2_tts">Қоңырауға жауап беру үшін қоңырауға жауап беру түймесін түртіңіз.</string>
     <string name="call_incoming_voice_call3">Қабылдамау үшін, %s түртіңіз.</string>
@@ -159,20 +161,20 @@
     <string name="call_menu_during_call_list6_tts">Дыбыс деңгейін көбейту үшін қосымша дыбыс деңгейі түймесін түртіңіз.</string>
     <string name="call_menu_during_call_list7">Басқа адамға қоңырау шалып, оларға ағымдағы қоңырауды қосу үшін, %s белгішесін түртіңіз.</string>
     <string name="call_menu_during_call_list7_tts">Басқа адамға қоңырау шалу және оларға ағымдағы қоңырауды қосу үшін, “Қоңырау қосу” түймесін түртіңіз.</string>
-    <string name="call_out_duration">Call out duration</string>
+    <string name="call_out_duration">Қоңырау ұзақтығы</string>
     <string name="call_twophone_one_phone">Негізгі нөмір</string>
     <string name="call_twophone_two_phone">Екінші нөмір</string>
     <string name="caller_info_card_last_call_log_title">Ең соңғы қоңырау</string>
     <string name="caller_info_card_last_message_title">Ең соңғы хабар</string>
     <string name="caller_info_card_memo_title">Қоңырау кезінде жазба жасалды</string>
-    <string name="callsettings_hold_key_record_calls_notify">Press and hold Hold key to start or stop recording</string>
+    <string name="callsettings_hold_key_record_calls_notify">Жазуды бастау немесе тоқтату үшін “Ұстау” пернесін басып тұрыңыз</string>
     <string name="callsettings_rejectmessage_list1">Қазір сөйлесе алмаймын. Маған кейінірек қоңырау шалыңыз.</string>
     <string name="callsettings_rejectmessage_list2">Мен жиналыстамын.</string>
     <string name="callsettings_rejectmessage_list3">Мен сыныптамын.</string>
     <string name="callsettings_rejectmessage_list4">Мен кинотеатрдамын.</string>
     <string name="callsettings_rejectmessage_list5">Мен сусын ішіп отырмын.</string>
-    <string name="camera_off">Camera turned off.</string>
-    <string name="camera_on">Camera turned on.</string>
+    <string name="camera_off">Камера өшірілді.</string>
+    <string name="camera_on">Камера қосылды.</string>
     <string name="camera_security_enter">Қауіпсіздік саясаты камера пайдаланылуын шектейді.</string>
     <string name="camera_start_failed">Камера үзіліп кетті.</string>
     <string name="cancel">Тоқтату</string>
@@ -220,7 +222,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="description_secOnscreenVideoCallText">Бейне қоңырау</string>
     <string name="description_secOnscreenViewContactText">Контакт туралы ақпарат</string>
     <string name="device_info_not_available">Қол жетім. емес</string>
-    <string name="dial_warning">Unable to dial.</string>
+    <string name="dial_warning">Теру мүмкін болмады.</string>
     <string name="dialling_video_call">Бейне қоңырау нөмірін теру</string>
     <string name="dialpad_2_sub_letters">ABC</string>
     <string name="dialpad_3_sub_letters">DEF</string>
@@ -273,8 +275,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="imLabelsGroup">IM есептік жазбасы</string>
     <string name="inCallLabel_Sec">Қоңырау</string>
     <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
+    <string name="incall_decline_other_secondary_device">Other secondary device in use.</string>
+    <string name="incall_decline_service_not_allowed">Service not allowed in this location.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">All available lines for (MDN) are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">All available lines for %s are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
+    <string name="incall_decline_transferred_to_another_device">Call has been transferred to another device.</string>
     <string name="incall_error_supp_service_switch">Қоңырауларды ауыстырып қосу мүмкін емес.</string>
     <string name="incall_extra_volume_disabled_BT">Bluetooth гарнитурасы қосылғанда қосымша дыбыс қаттылығын пайдалану мүмкін емес.</string>
     <string name="incall_extra_volume_disabled_HAC">Есту көмектері қосылған кезде қосымша дауыс деңгейін қосу мүмкін емес.</string>
@@ -285,7 +290,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="incall_popup_call_remove_title_vzw">Hide shortcut</string>
     <string name="incall_popup_ended">Аяқталды</string>
     <string name="incall_spam_call_block">Нөмірді бұғаттау</string>
-    <string name="incall_spam_call_reject">Add to Black list</string>
+    <string name="incall_spam_call_reject">Қара тізімге қосу</string>
     <string name="incall_spam_call_reject_toast">Телефон нөмірі “Бұғаттау” тізіміне қосылды.</string>
     <string name="incall_spam_call_report">Нөмірді хабарлау</string>
     <string name="incall_transfer_call">Қоңырауды тасымалдау</string>
@@ -433,11 +438,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="kt_nomal_quality_video_call_3g">Қоңырау үшін тек қалыпты сапа қолжетімді. Басқа тарап құрылғысы 3G желісіне шектелген.</string>
     <string name="label_notes">Ескертулер</string>
     <string name="label_sip_address">Интернет қоңырауы</string>
-    <string name="legal_popup_content">"Having trouble using time-consuming voice response call centers? IVR(Interactive Voice Response) call screen menu provides the perfect environment to use call centers by displaying the service menu on your screen.
+    <string name="legal_popup_content">"Уақыт алатын дауыстық жауап анықтама қызметін пайдаланумен қиындықтар бар ма? IVR (Интерактивті дауыс мәзірі) қоңыраулар экранының мәзірі экраныңызда қызмет мәзірін пайдалану арқылы анықтама қызметтерін пайдалануға тамаша ортаны ұсынады.
 
-IVR call screen menu uses contents provided by a third party service provider called Dianhuabang. By using IVR call screen menu, you agree to Dianhuabang’s %1$sTerms and Conditions%2$s."</string>
+IVR қоңыраулар экранының мәзірі “Dianhuabang” деп аталатын үшінші тараптағы қызметті жеткізуші қамтамасыз ететін мазмұнды пайдаланады. IVR қоңыраулар экранының мәзірін пайдалану арқылы сіз Dianhuabang %1$sшарттары мен талаптарымен%2$s келісесіз."</string>
     <string name="legal_popup_terms_conditions">Талаптар мен шарттар</string>
-    <string name="legal_pupup_title">Legal information</string>
+    <string name="legal_pupup_title">Құқықтық ақпарат</string>
     <string name="lock_screen_during_call_double_tab">Құлыптан босату үшін екі рет түрту</string>
     <string name="long_click_guide">Қосу/өшіру үшін түртіп, ұстап тұрыңыз</string>
     <string name="low_batt_upgrade_disallowed">Бейне қоңырауға ауысу мүмкін емес. Батарея заряды аз.</string>
@@ -454,7 +459,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="memory_full_msg">Жад жеткіліксіз</string>
     <string name="message_greeting">Сәлемдесу</string>
     <string name="modify_to_video_start">Бейне қоңырауға ауысу сұралуда…</string>
-    <string name="modify_to_voice_start">Switching to voice call…</string>
+    <string name="modify_to_voice_start">Дауыстық қоңырауға ауысуда…</string>
     <string name="msg_for_video_show_never_again">Кейбір файл форматтары қолданылмайды. Тек қолданылатын файлдар галереядан көрсетіледі.</string>
     <string name="mt_vt_not_possible">%s cannot receive video calls at this time. You will now be connected through a voice call.</string>
     <string name="nameLabelsGroup">Аты</string>
@@ -471,7 +476,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="name_suffix">Атының жұрнағы</string>
     <string name="network_message_no_answer">Жауап жоқ</string>
     <string name="nicknameLabelsGroup">Лақап ат</string>
-    <string name="not_enable_to_video">Video calls are not available while Emergency mode is enabled.</string>
+    <string name="not_enable_to_video">Бейне қоңыраулар “Төтенше жағдай режимі” қосулы кезде қолжетімді емес.</string>
     <string name="not_enable_to_video_emergencymode">“Төтенше жағдай” режимі қосулы кезде, бейне қоңыраулар шалу не қабылдау мүмкін емес.</string>
     <string name="notification_action_answer">Жауап беру</string>
     <string name="notification_of_sub_number_empty_body">Балама нөмірлерді көру үшін, SIM картаның бірнеше нөмір қызметіне жазылыңыз және әрекетті қайталаңыз.</string>
@@ -481,7 +486,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="onscreenBluetoothTextOn_att">Телефонға қосу</string>
     <string name="onscreenBluetoothTextOn_tmo">Телефонға қосу</string>
     <string name="onscreenWebexText">WebEx</string>
-    <string name="open_folder_for_speakeroff">To turn off the speakerphone, open the flip phone.</string>
+    <string name="open_folder_for_speakeroff">Спикерфонды өшіру үшін жазылмалы ұялы телефонды ашыңыз.</string>
     <string name="open_the_cover">Қақпағын ашу.</string>
     <string name="open_the_cover_incoming">Бейне қоңырауға жауап беру немесе қабылдамау үшін, мұқабаны ашу.</string>
     <string name="open_the_cover_modify_call">Қоңырау шалынған тарап бейне қоңырауға ауысқысы келеді. Сұрауды қабылдау/қабылдамау үшін мұқабаны ашыңыз</string>
@@ -494,6 +499,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="outgoing_img_video">Бейнежазбалар</string>
     <string name="payphone_sbm">Телефонға төлеу</string>
     <string name="phoneLabelsGroup">Телефон</string>
+    <string name="phone_voice_recording_failed_by_secure_call">Құпияландырылған қоңырауды жазу мүмкін емес.</string>
     <string name="phonetype_additional">Қосымша нөмір</string>
     <string name="photoring_block_toast">Контактіге фотосурет шеңбері арқылы мультимедия жіберуге тыйым салынды.</string>
     <string name="photoring_toast_mobile_data_off">Мобильді деректерге кіру блокталғандықтан, көру мүмкін болмаған басқа тарап арқылы жіберілген Photoring мазмұны болуы мүмкін.</string>
@@ -511,7 +517,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="prepareOtherVideo">Бейне суретті дайындауда…</string>
     <string name="previous_call_is_held_when_you_accept_call">Жаңа қоңырауды қабылдағанда ағымдағы қоңырау ұстаулы күйге қойылады.</string>
     <string name="private_num_cdma">Шектелген</string>
-    <string name="private_num_sbm">Withheld number</string>
+    <string name="private_num_sbm">Ұстаулы нөмір</string>
     <string name="quick_panel_title_video_call">Бейне қоңырау</string>
     <string name="quick_panel_title_voice_call">Дауыс қоңырауы</string>
     <string name="quick_panel_title_volte_call">VoLTE қоңырау</string>
@@ -536,8 +542,13 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="recently_use_sim_for_callback">Соңғы пайдаланылған SIM</string>
     <string name="record_notification_button_text_close">Жабу</string>
     <string name="record_notification_button_text_record_list">Жазбалар</string>
+    <string name="record_notification_button_text_storage">Сақтау орны</string>
     <string name="record_notification_content">Жазылған қоңырауларды көру үшін, ЖАЗБАЛАР түймесін түртіңіз.</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">Құрылғыңыздың жады толы. Қоңыраудың жартылай жазбасы сақталды.</string>
+    <string name="record_notification_content_unable_to_record">Құрылғы жадында бос орын жеткіліксіз. Кейбір файлдарды жойып, әрекетті қайталаңыз.</string>
     <string name="record_notification_title">Қоңырау жазылды</string>
+    <string name="record_notification_title_not_to_record_entire_call">Қоңырау толық жазылмады</string>
+    <string name="record_notification_title_unable_to_record">Қоңырауды жазу мүмкін болмады</string>
     <string name="record_text">ЖАЗУ</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -611,7 +622,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="secOnscreenMenuSwitchToPhoneText_tmo">Телефонға қосу</string>
     <string name="secOnscreenMenuSwitchToVideoCallText">Бейнеқоңырауға өту</string>
     <string name="secOnscreenMenuSwitchToVoiceCallText">Дауыс. қоң-ға ауысу</string>
-    <string name="secOnscreenMenuSwitchVideoDisplay">Switch video displays</string>
+    <string name="secOnscreenMenuSwitchVideoDisplay">Бейне дисплейлерін ауыстыру</string>
     <string name="secOnscreenMenuUnmuteText">Дыбысын қосу</string>
     <string name="secOnscreenMenuVideoConfCallText">Жаңа қатысушы шақыру</string>
     <string name="secOnscreenMenuViewInFullScreenText">Толық экранда көру</string>
@@ -652,6 +663,7 @@ Camera"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">Тізімді ашу үшін, екі рет түртіңіз.</string>
     <string name="sec_showme_text">Маған көрсету</string>
     <string name="second_screen_hold_text">%d ұстал.</string>
+    <string name="section_contacts_only_summary">Create and manage contacts.</string>
     <string name="select_callback_sim_card">Кері қоңырау шалу SIM картасын таңдау</string>
     <string name="select_callback_sim_card_content">Осы нөмірге шалынған/жіберілген не осы нөмірден келген ең соңғы қоңырау немесе хабар қоңыраулар үшін таңдалған SIM картаны пайдаланбады. Пайдаланылатын SIM картаны таңдаңыз.</string>
     <string name="select_from_gallery">Галереядан таңдау</string>
@@ -691,12 +703,12 @@ Camera"</string>
     <string name="spam_call_report_dialog_spam">Спам</string>
     <string name="spam_call_report_dialog_taxis">Такси санаты</string>
     <string name="spam_call_reported_as">%s ретінде хабарланды</string>
-    <string name="spam_call_resported_as_by_you">Reported as %s by you</string>
+    <string name="spam_call_resported_as_by_you">Сіз %s ретінде хабарлағансыз</string>
     <string name="spam_call_resported_count">(%d рет)</string>
-    <string name="spam_call_type_and_count">Reported as %1$s %2$d times</string>
+    <string name="spam_call_type_and_count">%1$s ретінде %2$d рет есеп берілді</string>
     <string name="sub_number_item">Балама %d</string>
-    <string name="suguden_guide_do_not_show_again_dcm">Do not show again</string>
-    <string name="suguden_guide_main_text_dcm">Answer the call by bringing the device close to your ear.</string>
+    <string name="suguden_guide_do_not_show_again_dcm">Қайта көрсетпеу</string>
+    <string name="suguden_guide_main_text_dcm">Құрылғыны құлағыңызға жақындату арқылы қоңырауға жауап беріңіз.</string>
     <string name="swipe_left">Солға жылжытыңыз.</string>
     <string name="swipe_right">Оңға сипаңыз.</string>
     <string name="swipe_right_to_answer_call_with_video">Қоңырауға бейнемен жауап беру үшін, оңға қарай сипаңыз.</string>
@@ -787,5 +799,5 @@ Your video call is now running on the mobile network. (Data usage applies if you
     <string name="waiting_call_dialog_dismiss_toast">Қоңырау %1$s арқылы аяқталды. %2$s контактісімен болған қоңырауды жалғастыруда…</string>
     <string name="waiting_call_dialog_message">Жауа қоңырауы</string>
     <string name="websiteLabelsGroup">Веб-мекенжай</string>
-    <string name="yellow_pages">Yellow Pages</string>
+    <string name="yellow_pages">Сары беттер</string>
 </resources>

@@ -92,6 +92,8 @@
     <string name="BirthDay_remainedDays1">Afmæli á morgun</string>
     <string name="BirthDay_remainedDays7">Afmæli eftir viku</string>
     <string name="BirthDay_remainedDaysEtc">Afmæli eftir %d daga</string>
+    <string name="DivertToVoice_disable">Myndsímtöl eru ekki í boði fyrir þetta númer. Viltu reyna raddsímtal í staðinn?</string>
+    <string name="DivertToVoice_enable">Myndsímtöl eru ekki í boði fyrir þetta númer. Skipti yfir í raddsímtal…</string>
     <string name="Lunar_anniversary_passedDays1">Tunglafmæli: í gær</string>
     <string name="Lunar_anniversary_remainedDays0">Tunglafmæli í dag</string>
     <string name="Lunar_anniversary_remainedDays1">Tunglafmæli á morgun</string>
@@ -273,8 +275,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="imLabelsGroup">Spjallreikningur</string>
     <string name="inCallLabel_Sec">Símtal</string>
     <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
+    <string name="incall_decline_other_secondary_device">Other secondary device in use.</string>
+    <string name="incall_decline_service_not_allowed">Service not allowed in this location.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">All available lines for (MDN) are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">All available lines for %s are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
+    <string name="incall_decline_transferred_to_another_device">Call has been transferred to another device.</string>
     <string name="incall_error_supp_service_switch">Mistókst að skipta á milli símtala.</string>
     <string name="incall_extra_volume_disabled_BT">Ekki hægt að nota aukahljóðstyrk þegar Bluetooth höfuðtól eru tengd.</string>
     <string name="incall_extra_volume_disabled_HAC">Ekki er hægt að kveikja á auknum hljóðstyrk þegar heyrnartæki eru virk.</string>
@@ -433,11 +438,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="kt_nomal_quality_video_call_3g">Venjuleg gæði eru aðeins í boði fyrir þetta símtal. Hinn aðilinn getur bara notað 3G-símkerfi.</string>
     <string name="label_notes">Athugasemdir</string>
     <string name="label_sip_address">Netsímtal</string>
-    <string name="legal_popup_content">"Having trouble using time-consuming voice response call centers? IVR(Interactive Voice Response) call screen menu provides the perfect environment to use call centers by displaying the service menu on your screen.
+    <string name="legal_popup_content">"Áttu í vandræðum vegna tímafrekra símavera sem notast við raddskipanir? Símtalavalmynd IVR (Interactive Voice Response) býður upp á fullkomið umhverfi fyrir símtöl í þjónustuver með því að birta þjónustuvalmyndir á skjánum.
 
-IVR call screen menu uses contents provided by a third party service provider called Dianhuabang. By using IVR call screen menu, you agree to Dianhuabang’s %1$sTerms and Conditions%2$s."</string>
+IVR-símatalavalmyndin notar efni sem veitt er af þriðja aðila sem nefnist Dianhuabang. Með því að nota ICV-símatalavalmyndina samþykkir þú %1$sskilmála%2$s Dianhuabang."</string>
     <string name="legal_popup_terms_conditions">Skilmálar</string>
-    <string name="legal_pupup_title">Legal information</string>
+    <string name="legal_pupup_title">Lagaleg atriði</string>
     <string name="lock_screen_during_call_double_tab">Pikkaðu tvisvar til að opna</string>
     <string name="long_click_guide">Haltu fingri á skjánum til að kveikja/slökkva.</string>
     <string name="low_batt_upgrade_disallowed">Ekki hægt að skipta í myndsímtal. Lítil hleðsla á rafhlöðu.</string>
@@ -494,6 +499,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="outgoing_img_video">Myndskeið</string>
     <string name="payphone_sbm">Almenningssími</string>
     <string name="phoneLabelsGroup">Sími</string>
+    <string name="phone_voice_recording_failed_by_secure_call">Ekki er hægt að taka upp öruggt símtal.</string>
     <string name="phonetype_additional">Viðbótarnúmer</string>
     <string name="photoring_block_toast">Tengiliður hefur verið útilokaður frá því að senda þér efni þegar hringt er með mynd.</string>
     <string name="photoring_toast_mobile_data_off">Viðmælandinn kann að hafa sent myndhringingarefni sem þú sérð ekki vegna þess að lokað er fyrir aðgang að farsímagögnum.</string>
@@ -536,8 +542,13 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="recently_use_sim_for_callback">Nýlega notað SIM-kort</string>
     <string name="record_notification_button_text_close">Loka</string>
     <string name="record_notification_button_text_record_list">Upptökur</string>
+    <string name="record_notification_button_text_storage">Geymsla</string>
     <string name="record_notification_content">Pikkaðu á UPPTÖKUR til að skoða upptökur símtala.</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">Geymsla tækisins er full. Upptaka af hluta af símtalinu var vistuð.</string>
+    <string name="record_notification_content_unable_to_record">Of lítið pláss er í geymslu tækisins. Eyddu nokkrum skrám og reyndu aftur.</string>
     <string name="record_notification_title">Símtal tekið upp</string>
+    <string name="record_notification_title_not_to_record_entire_call">Ekki tókst að taka allt símtalið upp</string>
+    <string name="record_notification_title_unable_to_record">Ekki hægt að taka upp símtal</string>
     <string name="record_text">Taka upp</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">0</string>
@@ -652,6 +663,7 @@ Camera"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">Pikkaðu tvisvar til að opna listann.</string>
     <string name="sec_showme_text">Sýna mér</string>
     <string name="second_screen_hold_text">%d í bið</string>
+    <string name="section_contacts_only_summary">Create and manage contacts.</string>
     <string name="select_callback_sim_card">Velja SIM-kort fyrir svarhringingu</string>
     <string name="select_callback_sim_card_content">Síðasta símtal eða síðustu skilaboð í eða úr þessu númeri notuðu ekki valið SIM-kort fyrir símtöl. Veldu hvort SIM-kortið á að nota.</string>
     <string name="select_from_gallery">Velja úr galleríi</string>

@@ -143,7 +143,7 @@
 
     aput-object v6, v5, v7
 
-    const v6, 0x7f0f04c7
+    const v6, 0x7f0f04c8
 
     invoke-virtual {v4, v6, v5}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -157,7 +157,7 @@
 
     iget-object v4, v4, Lcom/android/systemui/volume/VolumeUI;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0f04c8
+    const v5, 0x7f0f04c9
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

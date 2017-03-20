@@ -76,7 +76,6 @@
     <dimen name="sec_incoming_call_popup_buttons_padding">32.0dip</dimen>
     <dimen name="sec_multiparty_call_info_height">120.0dip</dimen>
     <dimen name="sec_multiparty_call_photo_top_margin">26.399994dip</dimen>
-    <dimen name="sec_multiparty_secondary_call_info_width">210.0dip</dimen>
     <dimen name="sec_primary_call_name_maxwidth">379.0dip</dimen>
     <dimen name="sec_primary_call_photo_margin_bottom">6.0dip</dimen>
     <dimen name="sec_video_call_button_container">595.0dip</dimen>
@@ -173,7 +172,6 @@
     <dimen name="conference_call_manager_mobilekeyboard_height">270.0dip</dimen>
     <dimen name="conference_call_manager_onehandmode_hight">375.0dip</dimen>
     <dimen name="dialpad_key_subletters_padding_top_onehand">10.0dip</dimen>
-    <dimen name="reject_call_with_message_sliding_drawer_top_offset">7.0dip</dimen>
     <dimen name="reject_call_with_msg_create_text_size">19.0sp</dimen>
     <dimen name="reject_call_with_msg_list_item_text_size">19.0sp</dimen>
     <dimen name="sec_call_banner_height_onehand_portrait">372.0dip</dimen>

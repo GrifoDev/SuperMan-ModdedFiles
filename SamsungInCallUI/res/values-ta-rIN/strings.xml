@@ -119,6 +119,8 @@
     <string name="BirthDay_remainedDays1">நாளை பிறந்தநாள்</string>
     <string name="BirthDay_remainedDays7">1 வாரத்தில் பிறந்தநாள்</string>
     <string name="BirthDay_remainedDaysEtc">%d நாட்களில் பிறந்தநாள்</string>
+    <string name="DivertToVoice_disable">நிகழ்பட அழைப்புகள் இந்த எண்ணுக்கு கிடைக்கவில்லை. குரல் அழைப்புக்கு முயற்சிக்கவா?</string>
+    <string name="DivertToVoice_enable">நிகழ்பட அழைப்புகள் இந்த எண்ணுக்கு கிடைக்கவில்லை. குரல் அழைப்புக்கு மாறுகிறது…</string>
     <string name="Lunar_anniversary_passedDays1">நேற்று சந்திர ஆண்டு நிறைவு</string>
     <string name="Lunar_anniversary_remainedDays0">இன்று சந்திர சந்திர ஆண்டு</string>
     <string name="Lunar_anniversary_remainedDays1">நாளை சந்திர ஆண்டு நிறைவு</string>
@@ -145,7 +147,7 @@
     <string name="add_reminder">நினைவூட்டலைச் சேர்க்கவும்</string>
     <string name="agree">ஏற்பு</string>
     <string name="am_cover_toggle_string">அழைப்பு. பதிலளிக்க அல். தவிர்க்க, உறை திற.</string>
-    <string name="am_device_memory_full_warning">Unable to use Auto answer with message. There is not enough space in your device storage to save voice messages. Delete some items and try again.</string>
+    <string name="am_device_memory_full_warning">தகவலுடன் தானியக்க பதிலை பயன்படுத்த இயலாது. உங்கள் சாதன சேமிப்பகத்தில் குரல் தகவல்களைச் சேமிப்பதற்கான போதுமான இடமில்லை. சில உருப்படிகளை நீக்கி, மீண்டும் முயலுக.</string>
     <string name="another_device_pickup_message">Another device picked up this call.</string>
     <string name="answering_memo_Playing_text">தக. பதிலளிப்பை இயக்குகிறது…</string>
     <string name="answering_memo_Recording_text">தகவல் பதிகிறது…</string>
@@ -198,8 +200,8 @@
     <string name="callsettings_rejectmessage_list3">நான் வகுப்பில் உள்ளேன்.</string>
     <string name="callsettings_rejectmessage_list4">நான் சினிமாவில் இருக்கிறேன்.</string>
     <string name="callsettings_rejectmessage_list5">நான் வண்டி ஓட்டுகிறேன்.</string>
-    <string name="camera_off">Camera turned off.</string>
-    <string name="camera_on">Camera turned on.</string>
+    <string name="camera_off">கேமரா ஆஃப் செய்யப்பட்டது.</string>
+    <string name="camera_on">கேமரா ஆன் செய்யப்பட்டது.</string>
     <string name="camera_security_enter">கேமரா பயன்படுத்துவதை பாதுகாப்பு கொள்கை தடைசெய்கிறது.</string>
     <string name="camera_start_failed">கேமரா தோல்வி.</string>
     <string name="cancel">ரத்து</string>
@@ -230,7 +232,7 @@
     <string name="cover_redial_call_image_widget_description">அழைக்க, இரு விரல்களால் இடது அல்லது வலதுபுறம் ஸ்வைப் செய்யவும்.</string>
     <string name="cover_third_call_incoming">அழைப்புக்கு பதிலளித்தல் செயலில் உள்ள அழைப்பை நிறுத்தும்.</string>
     <string name="ctc_full_operator_name">China Telecom</string>
-    <string name="cu_operator_name">China Unicom</string>
+    <string name="cu_operator_name">சீனா யுனிகாம்</string>
     <string name="current_call_with_held_call">%s உடனான உங்கள் அழைப்பு காத்திருப்பில் உள்ளது.</string>
     <string name="data_usage_charge_alert">Video calling requires the use of both data and voice minutes over the mobile network. Charges may apply.</string>
     <string name="data_usage_limit_dialog_continue_call">Continue call</string>
@@ -247,7 +249,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="description_secOnscreenVideoCallText">நிகழ்பட அழைப்பு</string>
     <string name="description_secOnscreenViewContactText">தொடர்பு விவரங்களை காண்க</string>
     <string name="device_info_not_available">கிடைக்கவில்லை</string>
-    <string name="dial_warning">Unable to dial.</string>
+    <string name="dial_warning">டயல் செய்ய இயலவில்லை.</string>
     <string name="dialling_video_call">நிகழ்பட அழைப்பை டயல்செய்கிறது</string>
     <string name="dialpad_2_sub_letters">ABC</string>
     <string name="dialpad_3_sub_letters">DEF</string>
@@ -300,8 +302,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="imLabelsGroup">IM கணக்கு</string>
     <string name="inCallLabel_Sec">அழைப்பு</string>
     <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
+    <string name="incall_decline_other_secondary_device">Other secondary device in use.</string>
+    <string name="incall_decline_service_not_allowed">Service not allowed in this location.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">All available lines for (MDN) are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">All available lines for %s are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
+    <string name="incall_decline_transferred_to_another_device">Call has been transferred to another device.</string>
     <string name="incall_error_supp_service_switch">அழைப்புகளை மாற்ற இயலாது.</string>
     <string name="incall_extra_volume_disabled_BT">ப்ளூடூத் ஹெட்செட் இணைக்கப்பட்டிருக்கும் பொழுது கூடுதல் ஒலியளவு வரம்பைப் பயன்படுத்த இயலாது.</string>
     <string name="incall_extra_volume_disabled_HAC">கேட்டல் கருவிகள் செயல்படுத்தப்பட்டிருக்கையில் கூடுதல் ஒலியளவை செயல்படுத்த இயலாது.</string>
@@ -460,11 +465,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="kt_nomal_quality_video_call_3g">அழைப்பிற்கு சாதாரண தரம் மட்டுமே கிடைக்கிறது. 3G நெட்வொர்க்கில் மற்ற தரப்பினரின் சாதனம் தடைசெய்யப்பட்டது.</string>
     <string name="label_notes">குறிப்புகள்</string>
     <string name="label_sip_address">இணைய அழைப்பு</string>
-    <string name="legal_popup_content">"Having trouble using time-consuming voice response call centers? IVR(Interactive Voice Response) call screen menu provides the perfect environment to use call centers by displaying the service menu on your screen.
+    <string name="legal_popup_content">"அதிக நேரத்தைக் எடுத்துக் கொள்ளும் குரல் பதிலளிப்பு அழைப்பு மையங்களைப் பயன்படுத்துவதில் சிக்கல் உள்ளதா? IVR (ஊடாடும் குரல் பதிலளிப்பு) அழைப்புத் திரை மெனு உங்கள் திரையில் சேவை மெனுவைக் காட்டி அழைப்பு மையங்களைப் பயன்படுத்துவதற்கான சிறந்த சூழலை அளிக்கிறது.
 
-IVR call screen menu uses contents provided by a third party service provider called Dianhuabang. By using IVR call screen menu, you agree to Dianhuabang’s %1$sTerms and Conditions%2$s."</string>
+IVR அழைப்புத் திரை மெனு, Dianhuabang என்ற மூன்றாம் தரப்புச் சேவை வழங்குநரால் வழங்கப்படும் உள்ளடக்கத்தைப் பயன்படுத்துகிறது. IVR அழைப்புத் திரை மெனுவைப் பயன்படுத்துவதன் மூலம், Dianhuabang-இன் %1$sவிதிகள் மற்றும் நிபந்தனைகளை%2$s ஏற்கிறீர்கள்."</string>
     <string name="legal_popup_terms_conditions">விதிகளும் நிபந்தனைகளும்</string>
-    <string name="legal_pupup_title">Legal information</string>
+    <string name="legal_pupup_title">சட்டப்பூர்வ விவரம்</string>
     <string name="lock_screen_during_call_double_tab">பூட்டுநீக்கவென இருமுறை டேப் செய்யவும்</string>
     <string name="long_click_guide">இயக்க/அணைக்க டேப் செய்து பிடிக்கவும்.</string>
     <string name="low_batt_upgrade_disallowed">நிகழ்பட அழைப்பிற்கு மாற இயலாது. குறைந்த மின்கலம்.</string>
@@ -481,7 +486,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="memory_full_msg">போதுமான நினைவகம் இல்லை</string>
     <string name="message_greeting">வாழ்த்து</string>
     <string name="modify_to_video_start">நிகழ்பட அழைப்புக்கு மாற கோருகிறது…</string>
-    <string name="modify_to_voice_start">Switching to voice call…</string>
+    <string name="modify_to_voice_start">குரல் அழைப்புக்கு மாறுகிறது…</string>
     <string name="msg_for_video_show_never_again">சில கோப்பு வடிவங்கள் துணைபுரிவதில்லை. துணைப்புரியும் கோப்புகள் மட்டுமே கேலரியில் காட்டப்படும்.</string>
     <string name="mt_vt_not_possible">%s cannot receive video calls at this time. You will now be connected through a voice call.</string>
     <string name="nameLabelsGroup">பெயர்</string>
@@ -498,7 +503,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="name_suffix">பெயர் பின்னொட்டு</string>
     <string name="network_message_no_answer">பதில் இல்லை</string>
     <string name="nicknameLabelsGroup">புனைப்பெயர்</string>
-    <string name="not_enable_to_video">Video calls are not available while Emergency mode is enabled.</string>
+    <string name="not_enable_to_video">அவசரநிலை முறை செயல்படுத்தப்பட்டிருக்கும் போது நிகழ்பட அழைப்புகள் கிடைக்காது.</string>
     <string name="not_enable_to_video_emergencymode">அவசர முறை செயல்படுத்தப்பட்டிருக்கையில் நிகழ்பட அழைப்புகளை செய்யவோ அல்லது பெறவோ இயலாது.</string>
     <string name="notification_action_answer">பதில்</string>
     <string name="notification_of_sub_number_empty_body">மாற்று எண்களைக் காண, SIM அட்டை பல-எண் சேவைக்கு சந்தாப்படுத்தி, மீண்டும் முயலவும்.</string>
@@ -521,6 +526,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="outgoing_img_video">நிகழ்படங்கள்</string>
     <string name="payphone_sbm">கட்டண ஃபோன்</string>
     <string name="phoneLabelsGroup">ஃபோன்</string>
+    <string name="phone_voice_recording_failed_by_secure_call">பாதுகாப்பான அழைப்பைப் பதிவுசெய்ய இயலாது.</string>
     <string name="phonetype_additional">கூடுதல் எண்</string>
     <string name="photoring_block_toast">புகைப்பட ரிங் வழியாக உங்களுக்கு ஊடகம் அனுப்புவதை தொடர்பானது தடுக்கப்பட்டது.</string>
     <string name="photoring_toast_mobile_data_off">மற்றவர் ஃபோட்டோரிங் உள்ளடக்கத்தை அனுப்பியிருக்கலாம், மொபைல் தரவு அணுகல் தடுக்கப்பட்டுள்ளதால் நீங்கள் அவற்றைக் காண இயலாது.</string>
@@ -538,7 +544,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="prepareOtherVideo">நிகழ்பட படிமம் தயாராகிறது…</string>
     <string name="previous_call_is_held_when_you_accept_call">புதிய அழைப்பை நீங்கள் ஏற்கும் போது நடப்பு அழைப்பு காத்திருப்பில் வைக்கப்படும்.</string>
     <string name="private_num_cdma">தடைசெய்யப்பட்டது</string>
-    <string name="private_num_sbm">Withheld number</string>
+    <string name="private_num_sbm">நிறுத்திவைக்கப்பட்ட எண்</string>
     <string name="quick_panel_title_video_call">நிகழ்பட அழைப்பு</string>
     <string name="quick_panel_title_voice_call">குரல் அழைப்பு</string>
     <string name="quick_panel_title_volte_call">VoLTE அழைப்பு</string>
@@ -563,8 +569,13 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="recently_use_sim_for_callback">சமீபத்தில் உபயோகித்த SIM</string>
     <string name="record_notification_button_text_close">மூடுக</string>
     <string name="record_notification_button_text_record_list">பதிவுகள்</string>
+    <string name="record_notification_button_text_storage">சேமிப்பகம்</string>
     <string name="record_notification_content">பதியப்பட்ட அழைப்புகளை பார்க்க “பதிவுகள்” என்பதை டேப் செய்க.</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">உங்கள் சாதன சேமிப்பகம் நிரம்பியுள்ளது. அழைப்பின் ஒரு பகுதி சேமிக்கப்பட்டுள்ளது.</string>
+    <string name="record_notification_content_unable_to_record">உங்கள் சாதனச் சேமிப்பகத்தில் போதுமான இடமில்லை. சில கோப்புகளை நீக்கிவிட்டு மீண்டும் முயலவும்.</string>
     <string name="record_notification_title">அழைப்பு பதிவுசெய்யப்பட்டது</string>
+    <string name="record_notification_title_not_to_record_entire_call">முழு அழைப்பும் பதிவு செய்யப்படவில்லை</string>
+    <string name="record_notification_title_unable_to_record">அழைப்பைப் பதிவு செய்ய இயலாது</string>
     <string name="record_text">பதிவு</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -638,7 +649,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="secOnscreenMenuSwitchToPhoneText_tmo">ஃபோனுக்கு மாற்று</string>
     <string name="secOnscreenMenuSwitchToVideoCallText">நிகழ்பட அழைப்பிற்கு மாறுக</string>
     <string name="secOnscreenMenuSwitchToVoiceCallText">குரல் அழை. மாறுக</string>
-    <string name="secOnscreenMenuSwitchVideoDisplay">Switch video displays</string>
+    <string name="secOnscreenMenuSwitchVideoDisplay">நிகழ்பட காட்சிகளை மாற்றவும்</string>
     <string name="secOnscreenMenuUnmuteText">ஒலிதடுப்பு நீக்குக</string>
     <string name="secOnscreenMenuVideoConfCallText">புதிய பங்கேற்பாளரை அழைக்கவும்</string>
     <string name="secOnscreenMenuViewInFullScreenText">முழுத் திரையில் காண்க</string>
@@ -679,6 +690,7 @@ Camera"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">பட்டியலைத் திறக்கவென இருமுறை டேப் செய்யவும்.</string>
     <string name="sec_showme_text">என்னை காண்பி</string>
     <string name="second_screen_hold_text">%d பிடிப்பில்</string>
+    <string name="section_contacts_only_summary">Create and manage contacts.</string>
     <string name="select_callback_sim_card">திரும்ப அழைக்கும் SIM அட்டையை தேர்வு செய்யவும்</string>
     <string name="select_callback_sim_card_content">இறுதி அழைப்பு அல்லது தகவல் அல்லது இந்த எண்ணில் இருந்து அழைப்புகளுக்கு விரும்பப்பட்ட SIM அட்டையிலிருந்து பயன்படுத்த வேண்டாம். எந்த SIM அட்டையை பயன்படுத்த வேண்டுமென்று தேர்வு செய்யவும்.</string>
     <string name="select_from_gallery">கேலரியிலிருந்து தேர்வுசெய்க</string>
@@ -720,10 +732,10 @@ Camera"</string>
     <string name="spam_call_reported_as">%s-ஆக புகாரளிக்கப்பட்டது</string>
     <string name="spam_call_resported_as_by_you">Reported as %s by you</string>
     <string name="spam_call_resported_count">(%d முறைகள்)</string>
-    <string name="spam_call_type_and_count">Reported as %1$s %2$d times</string>
+    <string name="spam_call_type_and_count">%1$s-ஆக %2$d முறை புகாரளிக்கப்பட்டது</string>
     <string name="sub_number_item">மாற்று %d</string>
-    <string name="suguden_guide_do_not_show_again_dcm">Do not show again</string>
-    <string name="suguden_guide_main_text_dcm">Answer the call by bringing the device close to your ear.</string>
+    <string name="suguden_guide_do_not_show_again_dcm">மீண்டும் காட்ட வேண்டாம்</string>
+    <string name="suguden_guide_main_text_dcm">சாதனத்தை காதிற்கு அருகே கொண்டு வருவதன் மூலம் அழைப்புக்கு பதிலளிக்கவும்.</string>
     <string name="swipe_left">இடதுபுறம் ஸ்வைப் செய்க.</string>
     <string name="swipe_right">வலமாக ஸ்வைப் செய்.</string>
     <string name="swipe_right_to_answer_call_with_video">நிகழ்படத்துடன் அழைப்புக்குப் பதிலளிக்க வலது புறமாக ஸ்வைப் செய்யவும்.</string>

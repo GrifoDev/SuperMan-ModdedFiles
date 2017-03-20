@@ -240,7 +240,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f04011a
+    const v2, 0x7f04011c
 
     invoke-virtual {v0, v2, p0, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -3798,7 +3798,7 @@
     return-void
 
     :cond_1
-    const v0, 0x7f0f044e
+    const v0, 0x7f0f044f
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/recents/views/RecentsView;->showEmptyView(I)V
 

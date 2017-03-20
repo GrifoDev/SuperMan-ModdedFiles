@@ -1799,7 +1799,7 @@
 .method private updateSanitizedTextForKnox(Lcom/android/systemui/statusbar/NotificationData$Entry;Landroid/view/View;)V
     .locals 8
 
-    const v7, 0x7f0f0499
+    const v7, 0x7f0f049a
 
     const/4 v5, 0x1
 
@@ -3910,7 +3910,7 @@
 
     check-cast v30, Landroid/view/LayoutInflater;
 
-    const v5, 0x7f04015f
+    const v5, 0x7f040161
 
     const/4 v6, 0x0
 
@@ -4732,7 +4732,7 @@
 
     iget-object v8, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mContext:Landroid/content/Context;
 
-    const v9, 0x7f0f04b5
+    const v9, 0x7f0f04b6
 
     invoke-virtual {v8, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -4744,7 +4744,7 @@
 
     iget-object v8, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mContext:Landroid/content/Context;
 
-    const v9, 0x7f0f04b6
+    const v9, 0x7f0f04b7
 
     invoke-virtual {v8, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -4780,7 +4780,7 @@
 
     iget-object v8, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mContext:Landroid/content/Context;
 
-    const v9, 0x7f0f04b7
+    const v9, 0x7f0f04b8
 
     invoke-virtual {v8, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -4794,7 +4794,7 @@
 
     iget-object v8, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mContext:Landroid/content/Context;
 
-    const v9, 0x7f0f04b8
+    const v9, 0x7f0f04b9
 
     invoke-virtual {v8, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

@@ -119,6 +119,8 @@
     <string name="BirthDay_remainedDays1">Slavi rođendan sutra</string>
     <string name="BirthDay_remainedDays7">Rođendan je za 1 nedelju</string>
     <string name="BirthDay_remainedDaysEtc">Rođendan je za %d dana</string>
+    <string name="DivertToVoice_disable">Video pozivi nisu dostupni za ovaj broj. Pokušati sada glasovni poziv umesto toga?</string>
+    <string name="DivertToVoice_enable">Video pozivi nisu dostupni za ovaj broj. Prelazak na glasovni poziv…</string>
     <string name="Lunar_anniversary_passedDays1">Lunarna godišnjica je bila juče</string>
     <string name="Lunar_anniversary_remainedDays0">Lunar. god. je danas</string>
     <string name="Lunar_anniversary_remainedDays1">Lunar. god. je sutra</string>
@@ -300,8 +302,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="imLabelsGroup">Nalog za trenutne poruke</string>
     <string name="inCallLabel_Sec">Poziv</string>
     <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
+    <string name="incall_decline_other_secondary_device">Other secondary device in use.</string>
+    <string name="incall_decline_service_not_allowed">Service not allowed in this location.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">All available lines for (MDN) are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">All available lines for %s are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
+    <string name="incall_decline_transferred_to_another_device">Call has been transferred to another device.</string>
     <string name="incall_error_supp_service_switch">Nemoguće razmeniti pozive.</string>
     <string name="incall_extra_volume_disabled_BT">Nije moguće koristiti raspon dodatne jačine zvuka dok su povezane Bluetooth slušalice.</string>
     <string name="incall_extra_volume_disabled_HAC">Dodatna jačina zvuka ne može da se omogući kada su omogućeni Slušni aparati.</string>
@@ -460,11 +465,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="kt_nomal_quality_video_call_3g">Samo normalan kvalitet je dostupan za poziv. Uređaj sagovornika može da koristi samo 3G mrežu.</string>
     <string name="label_notes">Beleške</string>
     <string name="label_sip_address">Internet poziv</string>
-    <string name="legal_popup_content">"Having trouble using time-consuming voice response call centers? IVR(Interactive Voice Response) call screen menu provides the perfect environment to use call centers by displaying the service menu on your screen.
+    <string name="legal_popup_content">"Imate problema sa korišćenjem govornog automata pozivnih centara koji oduzima vreme? Meni govornog automata (IVR, Interactive Voice Response) na ekranu sa pozivima obezbeđuje savršeno okruženje za korišćenje pozivnih centara tako što će se na ekranu prikazati meni sa uslugama.
 
-IVR call screen menu uses contents provided by a third party service provider called Dianhuabang. By using IVR call screen menu, you agree to Dianhuabang’s %1$sTerms and Conditions%2$s."</string>
+Meni govornog automata (IVR) na ekranu sa pozivima koristi sadržaj koji obezbeđuje nezavisni provajder usluge pod nazivom Dianhuabang. Korišćenjem menija govornog automata (IVR) na ekranu sa pozivima prihvatate %1$sUslove korišćenja%2$s kompanije Dianhuabang."</string>
     <string name="legal_popup_terms_conditions">Uslovi korišćenja</string>
-    <string name="legal_pupup_title">Legal information</string>
+    <string name="legal_pupup_title">Pravne informacije</string>
     <string name="lock_screen_during_call_double_tab">Dvaput kucni za otključavanje</string>
     <string name="long_click_guide">Kucni i zadrži za uključivanje/isključivanje.</string>
     <string name="low_batt_upgrade_disallowed">Nije moguće preći na video poziv. Baterija je prazna.</string>
@@ -521,6 +526,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="outgoing_img_video">Video zapisi</string>
     <string name="payphone_sbm">Telefon koji se plaća</string>
     <string name="phoneLabelsGroup">Brojevi za kontakt</string>
+    <string name="phone_voice_recording_failed_by_secure_call">Ne može da se snimi bezbedan poziv.</string>
     <string name="phonetype_additional">Dodatni broj</string>
     <string name="photoring_block_toast">Kontaktu je zabranjeno da ti šalje medije putem foto-zvuka.</string>
     <string name="photoring_toast_mobile_data_off">Možda je druga strana poslala sadržaj usluge Photoring koji ti ne možeš da vidiš jer je blokiran pristup podacima na mobilnom uređaju.</string>
@@ -563,8 +569,13 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="recently_use_sim_for_callback">Nedavno korišćen SIM</string>
     <string name="record_notification_button_text_close">Zatvori</string>
     <string name="record_notification_button_text_record_list">Snimci</string>
+    <string name="record_notification_button_text_storage">Memorija</string>
     <string name="record_notification_content">Kucnite na SNIMCI da biste prikazali snimljene pozive.</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">Memorija uređaja je puna. Delimičan snimak poziva je sačuvan.</string>
+    <string name="record_notification_content_unable_to_record">Nedovoljno prostora u memoriji uređaja. Izbrišite neke fajlove i pokušajte ponovo.</string>
     <string name="record_notification_title">Poziv je snimljen</string>
+    <string name="record_notification_title_not_to_record_entire_call">Kompletan poziv nije snimljen</string>
+    <string name="record_notification_title_unable_to_record">Nije moguće snimiti poziv</string>
     <string name="record_text">SNIM</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -679,6 +690,7 @@ Camera"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">Dvaput kucni za otvaranje liste.</string>
     <string name="sec_showme_text">Pokaži me</string>
     <string name="second_screen_hold_text">Čeka: %d</string>
+    <string name="section_contacts_only_summary">Create and manage contacts.</string>
     <string name="select_callback_sim_card">Izaberite SIM karticu za povratni poziv</string>
     <string name="select_callback_sim_card_content">Poslednji poziv ili poruka za ovaj broj ili od njega nisu koristili prioritetnu SIM karticu za pozive. Izaberite SIM karticu koju ćete da koristite.</string>
     <string name="select_from_gallery">Izaberi iz Galerije</string>

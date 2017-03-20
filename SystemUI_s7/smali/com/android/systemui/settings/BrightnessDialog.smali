@@ -39,7 +39,7 @@
 
     invoke-virtual {v2, v3}, Landroid/view/Window;->requestFeature(I)Z
 
-    const v3, 0x7f04010e
+    const v3, 0x7f040110
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/settings/BrightnessDialog;->setContentView(I)V
 

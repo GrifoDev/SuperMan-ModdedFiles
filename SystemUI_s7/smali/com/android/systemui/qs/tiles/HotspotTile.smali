@@ -609,7 +609,7 @@
 
     if-eqz v1, :cond_2
 
-    const v0, 0x7f0f04f0
+    const v0, 0x7f0f04f1
 
     :goto_0
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mWifiManager:Landroid/net/wifi/WifiManager;
@@ -630,7 +630,7 @@
 
     if-eqz v1, :cond_5
 
-    const v0, 0x7f0f04f5
+    const v0, 0x7f0f04f6
 
     :cond_1
     :goto_1
@@ -705,7 +705,7 @@
 
     if-eqz v1, :cond_3
 
-    const v0, 0x7f0f04f1
+    const v0, 0x7f0f04f2
 
     goto :goto_0
 
@@ -714,17 +714,17 @@
 
     if-eqz v1, :cond_4
 
-    const v0, 0x7f0f04ef
+    const v0, 0x7f0f04f0
 
     goto :goto_0
 
     :cond_4
-    const v0, 0x7f0f04ee
+    const v0, 0x7f0f04ef
 
     goto :goto_0
 
     :cond_5
-    const v0, 0x7f0f04f4
+    const v0, 0x7f0f04f5
 
     goto :goto_1
 .end method

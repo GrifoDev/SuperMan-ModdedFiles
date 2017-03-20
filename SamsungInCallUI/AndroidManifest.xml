@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:sharedUserId="android.uid.phone" coreApp="true" package="com.samsung.android.incallui" platformBuildVersionCode="24" platformBuildVersionName="7.0">
+    <protected-broadcast android:name="com.android.phone.CALLER_NAME"/>
+    <protected-broadcast android:name="com.android.phone.ACTION_HD_VOICE_CALL"/>
+    <protected-broadcast android:name="com.sec.android.phone.action.ACTION_CALL_TIME"/>
     <permission android:label="QUICK_REPLY_NOTIFICATION" android:name="com.samsung.android.incallui.edge.QUICK_REPLY_NOTIFICATION" android:protectionLevel="signatureOrSystem"/>
     <permission android:label="UPDATE_MUTE_STATUS" android:name="com.sec.android.phone.permission.UPDATE_MUTE_STATUS" android:protectionLevel="signatureOrSystem"/>
     <uses-permission android:name="com.sec.android.phone.permission.UPDATE_MUTE_STATUS"/>
@@ -9,6 +12,7 @@
     <permission android:name="com.android.incallui.permission.MAPS_RECEIVE" android:protectionLevel="signature"/>
     <permission android:label="SEND_SA_LOGGING" android:name="com.samsung.android.incallui.SEND_SA_LOGGING" android:protectionLevel="signatureOrSystem"/>
     <permission android:label="MCID_SERVICE" android:name="com.android.incallui.service.MCIDService" android:protectionLevel="signature"/>
+    <permission android:name="com.samsung.android.phone.permission.PHONE_VOICE_RECORDER_TOGGLE" android:protectionLevel="signature"/>
     <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER"/>
@@ -138,6 +142,7 @@
     <uses-permission android:name="com.samsung.smartcall.permission.SMART_CALL_ITEM"/>
     <uses-permission android:name="com.sec.spp.permission.TOKEN_693697a3f04163a6e53f66fa9dbf0cd3e8a9d6face40e7e2483ff106fd22d9afeac596df74ae93d22dfcf4ee978cc6e2782983287695126f18c7ae1c64903e85e71e9fc814ac7d83bf74445e733a98db281d631362ddcc2c1a8228c379d98cbf447c28c9d8405c5ef7e68927f3bd926e722b5a7de234da85d3141bc7b185a1fe"/>
     <uses-permission android:name="android.permission.MANAGE_ACTIVITY_STACKS"/>
+    <uses-permission android:name="com.samsung.android.phone.permission.PHONE_VOICE_RECORDER_TOGGLE"/>
     <application android:allowBackup="false" android:hardwareAccelerated="true" android:icon="@mipmap/ic_phone" android:label="@string/phoneAppLabel" android:largeHeap="true" android:name="com.android.incallui.InCallApp" android:supportsRtl="true">
         <meta-data android:name="com.samsung.android.icon_container.has_icon_container" android:value="true"/>
         <meta-data android:name="com.samsung.android.sdk.multiwindow.enable" android:value="true"/>
@@ -281,7 +286,7 @@
         <uses-library android:name="com.sec.imslibrary" android:required="false"/>
         <uses-library android:name="TmoWfcUtils" android:required="false"/>
         <uses-library android:name="imsmanager" android:required="false"/>
-        <meta-data android:name="SPDE.build.signature" android:value="3183868/9725418/release/SamsungInCallUI-201000-2.0.82"/>
+        <meta-data android:name="SPDE.build.signature" android:value="3334897/10274627/release/SamsungInCallUI-201000-2.1.07"/>
         <meta-data android:name="SPDE.env.version" android:value="2.1.3/L24.2.16/24.2.9"/>
     </application>
 </manifest>

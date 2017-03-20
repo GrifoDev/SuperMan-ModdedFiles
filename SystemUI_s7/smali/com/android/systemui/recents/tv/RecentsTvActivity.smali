@@ -682,7 +682,7 @@
 
     invoke-virtual {v4, p0}, Lcom/android/systemui/recents/model/RecentsPackageMonitor;->register(Landroid/content/Context;)V
 
-    const v4, 0x7f04011e
+    const v4, 0x7f040120
 
     invoke-virtual {p0, v4}, Lcom/android/systemui/recents/tv/RecentsTvActivity;->setContentView(I)V
 

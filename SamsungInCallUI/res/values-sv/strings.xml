@@ -119,6 +119,8 @@
     <string name="BirthDay_remainedDays1">Födelsedag i morgon</string>
     <string name="BirthDay_remainedDays7">Födelsedag om 1 vecka</string>
     <string name="BirthDay_remainedDaysEtc">Födelsedag om %d dagar</string>
+    <string name="DivertToVoice_disable">Videosamtal är inte tillgängligt för detta nummer. Vill du försöka med röstsamtal i stället?</string>
+    <string name="DivertToVoice_enable">Videosamtal är inte tillgängligt för detta nummer. Växlar till röstsamtal…</string>
     <string name="Lunar_anniversary_passedDays1">Månårsdag i går</string>
     <string name="Lunar_anniversary_remainedDays0">Månårsdag: I dag</string>
     <string name="Lunar_anniversary_remainedDays1">Månårsdag: I morgon</string>
@@ -300,8 +302,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="imLabelsGroup">IM-konto</string>
     <string name="inCallLabel_Sec">Samtal</string>
     <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
+    <string name="incall_decline_other_secondary_device">Other secondary device in use.</string>
+    <string name="incall_decline_service_not_allowed">Service not allowed in this location.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">All available lines for (MDN) are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">All available lines for %s are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
+    <string name="incall_decline_transferred_to_another_device">Call has been transferred to another device.</string>
     <string name="incall_error_supp_service_switch">Kan inte växla mellan samtal.</string>
     <string name="incall_extra_volume_disabled_BT">Det går inte att använda extravolymintervallet när ett Bluetooth-headset är anslutet.</string>
     <string name="incall_extra_volume_disabled_HAC">Det går inte att aktivera Extra volym när Hörapparat är aktiverat.</string>
@@ -460,11 +465,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="kt_nomal_quality_video_call_3g">Endast normal kvalitet är tillgänglig för samtalet. Den andra partens enhet är begränsad till 3G.</string>
     <string name="label_notes">Anteckningar</string>
     <string name="label_sip_address">Internetsamtal</string>
-    <string name="legal_popup_content">"Having trouble using time-consuming voice response call centers? IVR(Interactive Voice Response) call screen menu provides the perfect environment to use call centers by displaying the service menu on your screen.
+    <string name="legal_popup_content">"Har du problem med tidskrävande talsvarstjänster hos call centers? Samtalsskärmmenyn IVR (interaktiva talsvar) är en perfekt miljö för samtalscenter genom att tjänstemenyn visas på din skärm.
 
-IVR call screen menu uses contents provided by a third party service provider called Dianhuabang. By using IVR call screen menu, you agree to Dianhuabang’s %1$sTerms and Conditions%2$s."</string>
+Samtalsskärmmenyn IVR använder innehåll som tillhandahålls av en tredjepartsleverantör av tjänster, Dianhuabang. Genom att använda samtalsskärmmenyn IVR accepterar du Dianhuabangs %1$sVillkor%2$s."</string>
     <string name="legal_popup_terms_conditions">Villkor</string>
-    <string name="legal_pupup_title">Legal information</string>
+    <string name="legal_pupup_title">Juridisk information</string>
     <string name="lock_screen_during_call_double_tab">Dubbeltryck för att låsa upp</string>
     <string name="long_click_guide">Tryck och håll nedtryckt för att slå av/på.</string>
     <string name="low_batt_upgrade_disallowed">Det går inte att växla till videosamtal. Låg batterinivå.</string>
@@ -521,6 +526,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="outgoing_img_video">Videoklipp</string>
     <string name="payphone_sbm">Telefonautomat</string>
     <string name="phoneLabelsGroup">Telefon</string>
+    <string name="phone_voice_recording_failed_by_secure_call">Det går inte att spela in säkert samtal.</string>
     <string name="phonetype_additional">Ytterligare nummer</string>
     <string name="photoring_block_toast">Kontakten har blockerats från att skicka media till dig via fotoring.</string>
     <string name="photoring_toast_mobile_data_off">Det kan finnas Fotoring-innehåll som skickats av den andra parten som du inte kan se på grund av att åtkomst till mobildata är blockerad.</string>
@@ -563,8 +569,13 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="recently_use_sim_for_callback">Nyligen använt SIM-kort</string>
     <string name="record_notification_button_text_close">Stäng</string>
     <string name="record_notification_button_text_record_list">Inspelningar</string>
+    <string name="record_notification_button_text_storage">Lagring</string>
     <string name="record_notification_content">Tryck på INSPELNINGAR om du vill se dina inspelade samtal.</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">Enhetens lagringsutrymme är fullt. Inspelning av delar av samtalet har sparats.</string>
+    <string name="record_notification_content_unable_to_record">Lagringsenheten har för lite utrymme. Ta bort några filer och försök igen.</string>
     <string name="record_notification_title">Samtal inspelat</string>
+    <string name="record_notification_title_not_to_record_entire_call">Hela samtalet spelades inte in</string>
+    <string name="record_notification_title_unable_to_record">Det går inte att spela in samtalet</string>
     <string name="record_text">INSP</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -679,6 +690,7 @@ Camera"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">Dubbeltryck för att öppna listan.</string>
     <string name="sec_showme_text">Visa mig</string>
     <string name="second_screen_hold_text">%d park.</string>
+    <string name="section_contacts_only_summary">Create and manage contacts.</string>
     <string name="select_callback_sim_card">Välj SIM-kort för motringning</string>
     <string name="select_callback_sim_card_content">Det sista samtalet eller meddelandet till eller från det här numret använde inte det prioriterade SIM-kortet för samtal. Välj vilket SIM-kort du vill använda.</string>
     <string name="select_from_gallery">Välj i Galleri</string>

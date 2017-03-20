@@ -92,6 +92,8 @@
     <string name="BirthDay_remainedDays1">రేపు పుట్టినరోజు</string>
     <string name="BirthDay_remainedDays7">1 వారంలో పుట్టినరోజు</string>
     <string name="BirthDay_remainedDaysEtc">%d రోజుల్లో పుట్టినరోజు</string>
+    <string name="DivertToVoice_disable">ఈ నంబర్‌కు వీడియో కాల్‌లు అందుబాటులో లేవు. బదులుగా ఇప్పుడు వాయిస్ కాల్ ప్రయత్నించాలా?</string>
+    <string name="DivertToVoice_enable">ఈ నంబర్‌ కు వీడియో కాల్‌లు అందుబాటులో లేవు. వాయిస్ కాల్‌కు మారుతుంది…</string>
     <string name="Lunar_anniversary_passedDays1">లూనార్ వార్షికో. నిన్న</string>
     <string name="Lunar_anniversary_remainedDays0">లూనార్ వార్షికో. నేడు</string>
     <string name="Lunar_anniversary_remainedDays1">లూనార్ వార్షికో. రేపు</string>
@@ -118,7 +120,7 @@
     <string name="add_reminder">రిమైండర్‌ని జోడించు</string>
     <string name="agree">ఆమోదించు</string>
     <string name="am_cover_toggle_string">కవర్ తెరిచి కాల్ మాట్లాడు లేదా తిరస్కరించు.</string>
-    <string name="am_device_memory_full_warning">Unable to use Auto answer with message. There is not enough space in your device storage to save voice messages. Delete some items and try again.</string>
+    <string name="am_device_memory_full_warning">సందేశంతో స్వీయ సమాధానాన్ని ఉపయోగించడం సాధ్యం కాదు. వాయిస్ సందేశాలను సేవ్ చేయడానికి మీ పరికరంలో తగినంత నిల్వ లేదు. కొన్ని అంశాలను తొలగించి, మళ్లీ ప్రయత్నించండి.</string>
     <string name="another_device_pickup_message">Another device picked up this call.</string>
     <string name="answering_memo_Playing_text">సమాధానం ఇచ్చే సందేశాన్ని ప్లే చేస్తుంది…</string>
     <string name="answering_memo_Recording_text">సందేశాన్ని రికార్డ్ చేస్తుంది…</string>
@@ -171,8 +173,8 @@
     <string name="callsettings_rejectmessage_list3">నేను తరగతిలో ఉన్నాను.</string>
     <string name="callsettings_rejectmessage_list4">నేను సినిమా హాలులో ఉన్నాను.</string>
     <string name="callsettings_rejectmessage_list5">నేను డ్రైవ్ చేస్తున్నాను.</string>
-    <string name="camera_off">Camera turned off.</string>
-    <string name="camera_on">Camera turned on.</string>
+    <string name="camera_off">కెమెరా ఆఫ్ చేయబడింది.</string>
+    <string name="camera_on">కెమెరా ఆన్ చేయబడింది.</string>
     <string name="camera_security_enter">కెమెరా యొక్క ఉపయోగంను భద్రత పాలసీ పరిమితం చేస్తుంది.</string>
     <string name="camera_start_failed">కెమెరా విఫలమైంది.</string>
     <string name="cancel">రద్దు</string>
@@ -203,7 +205,7 @@
     <string name="cover_redial_call_image_widget_description">కాల్ చేయడం కోసం రెండు వేళ్లతో ఎడమకు లేదా కుడికి స్వైప్ చేయండి.</string>
     <string name="cover_third_call_incoming">కాల్‌కు సమాధానం ఇవ్వడం ద్వారా ప్రస్తుత కాల్ ముగుస్తుంది.</string>
     <string name="ctc_full_operator_name">China Telecom</string>
-    <string name="cu_operator_name">China Unicom</string>
+    <string name="cu_operator_name">చైనా యునికామ్</string>
     <string name="current_call_with_held_call">మీ కాల్ %sతో హోల్డ్‌లో ఉంది.</string>
     <string name="data_usage_charge_alert">Video calling requires the use of both data and voice minutes over the mobile network. Charges may apply.</string>
     <string name="data_usage_limit_dialog_continue_call">Continue call</string>
@@ -220,7 +222,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="description_secOnscreenVideoCallText">వీడియో కాల్</string>
     <string name="description_secOnscreenViewContactText">పరిచయ వివరాలను వీక్షించండి</string>
     <string name="device_info_not_available">అందుబాటులో లేదు</string>
-    <string name="dial_warning">Unable to dial.</string>
+    <string name="dial_warning">డయల్ చేయడం సాధ్యం కాలేదు.</string>
     <string name="dialling_video_call">వీడియో కాల్‌ను డయల్ చేస్తోంది</string>
     <string name="dialpad_2_sub_letters">ABC</string>
     <string name="dialpad_3_sub_letters">DEF</string>
@@ -273,8 +275,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="imLabelsGroup">IM ఖాతా</string>
     <string name="inCallLabel_Sec">కాల్</string>
     <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
+    <string name="incall_decline_other_secondary_device">Other secondary device in use.</string>
+    <string name="incall_decline_service_not_allowed">Service not allowed in this location.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">All available lines for (MDN) are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">All available lines for %s are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
+    <string name="incall_decline_transferred_to_another_device">Call has been transferred to another device.</string>
     <string name="incall_error_supp_service_switch">కాల్స్ మారడానికి సాధ్యం కాలేదు.</string>
     <string name="incall_extra_volume_disabled_BT">బ్లూటూత్ హెడ్‌సెట్ కనెక్ట్ చేసినప్పుడు అదనపు వాల్యూమ్ స్థాయిని ఉపయోగించలేరు.</string>
     <string name="incall_extra_volume_disabled_HAC">వినికిడి సాధనాలు ప్రారంభించబడినప్పుడు అదనపు వాల్యూమ్‌ని ప్రారంభించడం సాధ్యం కాదు.</string>
@@ -433,11 +438,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="kt_nomal_quality_video_call_3g">కాల్‌కు సాధారణ నాణ్యత మాత్రమే అందుబాటులో ఉంది. మరో పక్షం యొక్క పరికరం 3G నెట్‌వర్క్‌కు పరిమితం చేయబడింది.</string>
     <string name="label_notes">గమనికలు</string>
     <string name="label_sip_address">ఇంటర్నెట్ కాల్</string>
-    <string name="legal_popup_content">"Having trouble using time-consuming voice response call centers? IVR(Interactive Voice Response) call screen menu provides the perfect environment to use call centers by displaying the service menu on your screen.
+    <string name="legal_popup_content">"ఎక్కువ-సమయం తీసుకునే వాయిస్ ప్రతిస్పందన కాల్ సెంటర్‌లను ఉపయోగించడంలో సమస్య ఉందా? IVR (పారస్పరిక వాయిస్ ప్రతిస్పందన) కాల్ స్క్రీన్ మెను ప్రదతాలు మీ స్క్రీన్‌లో సేవా మెనుని ప్రదర్శించడం ద్వారా కాల్ సెంటర్‌లు ఉపయోగానికి ఉత్తమంగా ఉంటుంది.
 
-IVR call screen menu uses contents provided by a third party service provider called Dianhuabang. By using IVR call screen menu, you agree to Dianhuabang’s %1$sTerms and Conditions%2$s."</string>
+Dianhuabang అనే మూడవ పక్ష సేవా ప్రదాత ద్వారా అందించబడే కంటెంట్‌లను IVR కాల్ స్క్రీన్ మెను ఉపయోగిస్తుంది. IVR కాల్ స్క్రీన్ మెనుని ఉపయోగించడం ద్వారా మీరు Dianhuabang యొక్క %1$sనిబంధనలు మరియు షరతుల%2$sకు అంగీకరిస్తున్నారు."</string>
     <string name="legal_popup_terms_conditions">నిబంధనలు మరియు షరతులు</string>
-    <string name="legal_pupup_title">Legal information</string>
+    <string name="legal_pupup_title">చట్టపరమైన సమాచారం</string>
     <string name="lock_screen_during_call_double_tab">అన్‌లాక్ చేయడానికి డబుల్ ట్యాప్ చేయండి</string>
     <string name="long_click_guide">ఆన్/ఆఫ్‌ను నొక్కి పట్టుకోండి.</string>
     <string name="low_batt_upgrade_disallowed">వీడియో కాల్‌కు మారడం సాధ్యం కాదు. బ్యాటరీ తక్కువగా ఉంది.</string>
@@ -454,7 +459,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="memory_full_msg">తగినంత మెమరీ లేదు</string>
     <string name="message_greeting">గ్రీటింగ్</string>
     <string name="modify_to_video_start">వీడియో కాల్‌కు మార్పును అభ్యర్థిస్తోంది…</string>
-    <string name="modify_to_voice_start">Switching to voice call…</string>
+    <string name="modify_to_voice_start">వాయిస్ కాల్‌కి మార్పబడుతోంది…</string>
     <string name="msg_for_video_show_never_again">కొన్ని ఫైల్ ఫార్మాట్‌ల మద్దతు లేదు. గ్యాలరీలో మద్దతు ఫైళ్లు మాత్రమే చూపబడుతాయి.</string>
     <string name="mt_vt_not_possible">%s cannot receive video calls at this time. You will now be connected through a voice call.</string>
     <string name="nameLabelsGroup">పేరు</string>
@@ -471,7 +476,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="name_suffix">పేరు సఫిక్స్</string>
     <string name="network_message_no_answer">సమాధానం లేదు</string>
     <string name="nicknameLabelsGroup">మారుపేరు</string>
-    <string name="not_enable_to_video">Video calls are not available while Emergency mode is enabled.</string>
+    <string name="not_enable_to_video">అత్యవసర మోడ్ ప్రారంభించబడినప్పుడు వీడియో కాల్‌లు అందుబాటులో లేవు.</string>
     <string name="not_enable_to_video_emergencymode">అత్యవసర మోడ్ ప్రారంభించబడినప్పుడు వీడియో కాల్‌లను చేయడం లేదా స్వీకరించడం సాధ్యం కాదు.</string>
     <string name="notification_action_answer">సమాధానం</string>
     <string name="notification_of_sub_number_empty_body">ప్రత్యామ్నాయ నంబర్‌లను వీక్షించడం కోసం, SIM కార్డ్ బహుళ-నంబర్ సేవకు సభ్యత్వం పొంది, మళ్లీ ప్రయత్నించండి.</string>
@@ -494,6 +499,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="outgoing_img_video">వీడియోలు</string>
     <string name="payphone_sbm">పే ఫోన్</string>
     <string name="phoneLabelsGroup">ఫోన్</string>
+    <string name="phone_voice_recording_failed_by_secure_call">సురక్షిత కాల్‌ను రికార్డ్ చేయడం సాధ్యం కాదు.</string>
     <string name="phonetype_additional">అదనపు నంబర్</string>
     <string name="photoring_block_toast">ఫోటో రింగ్ ద్వారా మీకు మీడియాని పంపడం నుండి కంటెంట్ నిరోధించబడింది.</string>
     <string name="photoring_toast_mobile_data_off">మొబైల్ డేటా ప్రాప్తి నిరోధించబడిన కారణంగా మీరు చూడలేని మూడవ పక్షం పంపిన ఫోటోరింగ్ కంటెంట్ ఉండి ఉండవచ్చు.</string>
@@ -511,7 +517,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="prepareOtherVideo">వీడియో చిత్రాన్ని సిద్ధం చేస్తోంది…</string>
     <string name="previous_call_is_held_when_you_accept_call">మీరు కొత్త కాల్‌ను ఆమోదించినప్పుడు ప్రస్తుత కాల్ హోల్డ్‌లో ఉంచబడుతుంది.</string>
     <string name="private_num_cdma">పరిమితం చేయబడింది</string>
-    <string name="private_num_sbm">Withheld number</string>
+    <string name="private_num_sbm">నిరోధించిన నంబర్</string>
     <string name="quick_panel_title_video_call">వీడియో కాల్</string>
     <string name="quick_panel_title_voice_call">వాయిస్ కాల్</string>
     <string name="quick_panel_title_volte_call">VoLTE కాల్</string>
@@ -536,8 +542,13 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="recently_use_sim_for_callback">ఇటీవలి ఉపయోగించిన SIM</string>
     <string name="record_notification_button_text_close">మూసివేయి</string>
     <string name="record_notification_button_text_record_list">రికార్డింగ్‌లు</string>
+    <string name="record_notification_button_text_storage">నిల్వచేయు</string>
     <string name="record_notification_content">మీ రికార్డ్ చేసిన కాల్‌లను వీక్షించడానికి “రికార్డింగ్‌లు” ట్యాప్ చేయండి.</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">మీ పరికరం నిండింది. కాల్ యొక్క పాక్షిక రికార్డింగ్ సేవ్ చేయబడింది.</string>
+    <string name="record_notification_content_unable_to_record">మీ పరికర నిల్వలో తగినంత స్థలం లేదు. కొన్ని ఫైల్‌లను తొలగించి, మళ్లీ ప్రయత్నించండి.</string>
     <string name="record_notification_title">కాల్ రికార్డ్ చేయబడింది</string>
+    <string name="record_notification_title_not_to_record_entire_call">పూర్తి కాల్ రికార్డ్ చేయబడలేదు</string>
+    <string name="record_notification_title_unable_to_record">కాల్‌ని రికార్డ్ చేయడం సాధ్యం కాదు</string>
     <string name="record_text">రికా</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -611,7 +622,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="secOnscreenMenuSwitchToPhoneText_tmo">ఫోన్‌ కు మారు</string>
     <string name="secOnscreenMenuSwitchToVideoCallText">వీడియో కాల్‌కు మారు</string>
     <string name="secOnscreenMenuSwitchToVoiceCallText">వాయిస్ కాల్‌కు మార్చు</string>
-    <string name="secOnscreenMenuSwitchVideoDisplay">Switch video displays</string>
+    <string name="secOnscreenMenuSwitchVideoDisplay">వీడియో ప్రదర్శనలకు మార్చండి</string>
     <string name="secOnscreenMenuUnmuteText">అన్‌మ్యూట్</string>
     <string name="secOnscreenMenuVideoConfCallText">కొత్తగా పాల్గొనేవారిని ఆహ్వానించండి</string>
     <string name="secOnscreenMenuViewInFullScreenText">పూర్తి స్క్రీన్‌లో చూడండి</string>
@@ -652,6 +663,7 @@ Camera"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">జాబితాని తెరవడానికి డబుల్ ట్యాప్ చేయండి.</string>
     <string name="sec_showme_text">నాకు చూపు</string>
     <string name="second_screen_hold_text">%d హోల్డ్‌లో ఉంది</string>
+    <string name="section_contacts_only_summary">Create and manage contacts.</string>
     <string name="select_callback_sim_card">కాల్‌బ్యాక్ SIM కార్డుని ఎంచుకోండి</string>
     <string name="select_callback_sim_card_content">ఈ నంబర్‌కు లేదా దాని నుండి వచ్చిన చివరి కాల్ లేదా సందేశం కాల్‌ల కోసం ప్రాధాన్యతా SIM కార్డ్‌ని ఉపయోగించదు. ఏ SIMని ఉపయోగించాలో ఎంచుకోండి.</string>
     <string name="select_from_gallery">గ్యాలరీ నుండి ఎంచుకోండి</string>
@@ -693,10 +705,10 @@ Camera"</string>
     <string name="spam_call_reported_as">%s వలె నివేదించబడింది</string>
     <string name="spam_call_resported_as_by_you">Reported as %s by you</string>
     <string name="spam_call_resported_count">(%d సార్లు)</string>
-    <string name="spam_call_type_and_count">Reported as %1$s %2$d times</string>
+    <string name="spam_call_type_and_count">%1$s %2$d సార్ల వలె నివేదించబడింది</string>
     <string name="sub_number_item">ప్రత్యామ్నాయ %d</string>
-    <string name="suguden_guide_do_not_show_again_dcm">Do not show again</string>
-    <string name="suguden_guide_main_text_dcm">Answer the call by bringing the device close to your ear.</string>
+    <string name="suguden_guide_do_not_show_again_dcm">మళ్లీ చూపవద్దు</string>
+    <string name="suguden_guide_main_text_dcm">పరికరాన్ని మీ చెవి దగ్గర పెట్టుకుని కాల్‌కు సమాధానం ఇవ్వండి.</string>
     <string name="swipe_left">ఎడమవైపుకి స్వైప్ చేయండి.</string>
     <string name="swipe_right">కుడికి స్వైప్ చేయి.</string>
     <string name="swipe_right_to_answer_call_with_video">వీడియోతో కాల్‌కు సమాధానం ఇవ్వడానికి కుడివైపుకి స్వైప్ చేయండి.</string>

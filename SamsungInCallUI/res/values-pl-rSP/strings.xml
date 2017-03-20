@@ -72,6 +72,8 @@
     <string name="BirthDay_remainedDays1">Jutro geburtstag</string>
     <string name="BirthDay_remainedDays7">Geburtstag za tygodni: 1</string>
     <string name="BirthDay_remainedDaysEtc">Geburtstag za dni: %d</string>
+    <string name="DivertToVoice_disable">Wideo gŏdki niydostympne dlŏ tego nōmeru. Chcesz przełōnaczyć na normalnŏ gŏdka?</string>
+    <string name="DivertToVoice_enable">Wideo gŏdki niydostympne dlŏ tego nōmeru. Przełōnaczo na normalnŏ gŏdka….</string>
     <string name="Lunar_anniversary_passedDays1">Rocznica w kalyndŏrzu ksiynżycowym: wczora</string>
     <string name="Lunar_anniversary_remainedDays0">Rocz.w kal. ks.: dziś</string>
     <string name="Lunar_anniversary_remainedDays1">Rocz.w kal. ks.: jutro</string>
@@ -253,8 +255,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="imLabelsGroup">Kōnto IM</string>
     <string name="inCallLabel_Sec">Połōnczynia</string>
     <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
+    <string name="incall_decline_other_secondary_device">Other secondary device in use.</string>
+    <string name="incall_decline_service_not_allowed">Service not allowed in this location.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">All available lines for (MDN) are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">All available lines for %s are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
+    <string name="incall_decline_transferred_to_another_device">Call has been transferred to another device.</string>
     <string name="incall_error_supp_service_switch">Niy idzie przełōnaczyć połōnczyń.</string>
     <string name="incall_extra_volume_disabled_BT">Niy idzie użyć dodatkowego zakresu głośności, kej je podłōnczōny zestŏw suchawkowy Bluetooth.</string>
     <string name="incall_extra_volume_disabled_HAC">Niy dŏ się zepnōńć ôpcyji Dodatkowa głośność, kej je zepniyntŏ ôpcyjŏ Aparaty suchowe.</string>
@@ -413,11 +418,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="kt_nomal_quality_video_call_3g">Ta gŏdka je do chycynio ino w jakości normalnyj. Maszina godajōncego je ôgraniczōno do neca 3G.</string>
     <string name="label_notes">Notatki</string>
     <string name="label_sip_address">Internetowŏ gŏdka</string>
-    <string name="legal_popup_content">"Having trouble using time-consuming voice response call centers? IVR(Interactive Voice Response) call screen menu provides the perfect environment to use call centers by displaying the service menu on your screen.
+    <string name="legal_popup_content">"Masz problemy z korzystaniem z centrów obsługi klienta stosujących odpowiedzi głosowe, które zajmują dużo czasu? Menu IVR (interaktywnych odpowiedzi głosowych) ekranu połączeń umożliwia łatwe korzystanie z centrów obsługi klienta przez wyświetlanie menu usługi na ekranie.
 
-IVR call screen menu uses contents provided by a third party service provider called Dianhuabang. By using IVR call screen menu, you agree to Dianhuabang’s %1$sTerms and Conditions%2$s."</string>
+Menu IVR ekranu połączeń korzysta z treści dostarczanych przez zewnętrznego dostawcę usług, firmę Dianhuabang. Używając menu IVR ekranu połączeń, zgadzasz się na %1$sZasady i warunki%2$s firmy Dianhuabang."</string>
     <string name="legal_popup_terms_conditions">Prawidła i warōnki</string>
-    <string name="legal_pupup_title">Legal information</string>
+    <string name="legal_pupup_title">Informacje prawne</string>
     <string name="lock_screen_during_call_double_tab">Tyknij dwa rŏzy, coby ôdblokować.</string>
     <string name="long_click_guide">Tyknij i trzimej, coby załōnczyć/wyłōnczyć.</string>
     <string name="low_batt_upgrade_disallowed">Niy idzie przelyźć do połōnczyniŏ wideo. Bateryjŏ rozładowanŏ.</string>
@@ -474,6 +479,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="outgoing_img_video">Filmy</string>
     <string name="payphone_sbm">Autōmat telefōniczny</string>
     <string name="phoneLabelsGroup">Telefōn</string>
+    <string name="phone_voice_recording_failed_by_secure_call">Nie można nagrywać połączeń zabezpieczonych.</string>
     <string name="phonetype_additional">Dodatkowy nōmer</string>
     <string name="photoring_block_toast">Kōntakt mŏ zakōzane przisyłaniy Ci co bez PhotoRing.</string>
     <string name="photoring_toast_mobile_data_off">Możno fto inkszy posłoł co bez PhotoRing, a niy idzie tego zŏbŏczyć skiż zawartego dostympu do mobilnych danych.</string>
@@ -516,8 +522,13 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="recently_use_sim_for_callback">Niydŏwno używ. karta SIM</string>
     <string name="record_notification_button_text_close">Zawrzij</string>
     <string name="record_notification_button_text_record_list">Nagrania</string>
+    <string name="record_notification_button_text_storage">Dōmyślnŏ pamiynć</string>
     <string name="record_notification_content">Tyknij ôpcyji NAGRANIA, coby pokŏzać nagrane gŏdki.</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">Pamiyńć masziny je pōłnŏ. Zachowano po tajli nagrane gŏdki.</string>
+    <string name="record_notification_content_unable_to_record">Niy ma tela miyjsca w pamiyńci masziny. Wyciep niykere pliki i wybadej zajś.</string>
     <string name="record_notification_title">Nagrano gŏdka</string>
+    <string name="record_notification_title_not_to_record_entire_call">Niy nagrano cŏłkiyj gŏdki</string>
+    <string name="record_notification_title_unable_to_record">Niy idzie nagrywać gŏdki</string>
     <string name="record_text">REC</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -632,6 +643,7 @@ Camera"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">Tyknij dwa rŏzy, coby ôdewrzić wykŏz.</string>
     <string name="sec_showme_text">Pokŏż mie</string>
     <string name="second_screen_hold_text">Chycōne: %d</string>
+    <string name="section_contacts_only_summary">Create and manage contacts.</string>
     <string name="select_callback_sim_card">Ôbiyranie karty SIM do gŏdek nazŏd</string>
     <string name="select_callback_sim_card_content">U ôstatniyj gŏdki abo wiadōmości abo z tygo nōmeru niy użyto preferowanyj karty SIM dlŏ gŏdek. Ôbier karta SIM do użyciŏ.</string>
     <string name="select_from_gallery">Wybier z Galeryji</string>

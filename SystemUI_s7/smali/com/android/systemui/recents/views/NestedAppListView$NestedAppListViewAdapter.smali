@@ -121,7 +121,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/recents/views/NestedAppListView$NestedAppListViewAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v3, 0x7f040114
+    const v3, 0x7f040116
 
     const/4 v4, 0x0
 

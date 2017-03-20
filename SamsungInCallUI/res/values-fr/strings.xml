@@ -119,6 +119,8 @@
     <string name="BirthDay_remainedDays1">Anniversaire demain</string>
     <string name="BirthDay_remainedDays7">Annivers. dans 1 semaine</string>
     <string name="BirthDay_remainedDaysEtc">Annivers. dans %d jours</string>
+    <string name="DivertToVoice_disable">Appels visio non disponibles pour ce numéro. Essayer un appel vocal ?</string>
+    <string name="DivertToVoice_enable">Appels visio non disponibles pour ce numéro. Passage en mode appel vocal…</string>
     <string name="Lunar_anniversary_passedDays1">Anniversaire lunaire, hier</string>
     <string name="Lunar_anniversary_remainedDays0">Anniv. lunaire auj.</string>
     <string name="Lunar_anniversary_remainedDays1">Anniv. lunaire demain</string>
@@ -300,8 +302,11 @@ Cet appel visio utilise maintenant des données. Les données mobiles seront dé
     <string name="imLabelsGroup">Compte de mess. inst.</string>
     <string name="inCallLabel_Sec">Appels</string>
     <string name="incall_decline_emergency_wifi_not_allow">"Les appels d'urgence via Wi-Fi ne sont pas autorisés dans ce lieu."</string>
+    <string name="incall_decline_other_secondary_device">"Un autre appareil secondaire est en cours d'utilisation."</string>
+    <string name="incall_decline_service_not_allowed">"Le service n'est pas autorisé à cet emplacement."</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">"Toutes les lignes disponibles pour (MDN) sont en cours d'utilisation. Pour passer un appel, mettez fin à un des appels sur votre téléphone mobile ou votre tablette."</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">"Toutes les lignes disponibles pour %s sont en cours d'utilisation. Pour passer un appel, mettez fin à un des appels sur votre téléphone mobile ou votre tablette."</string>
+    <string name="incall_decline_transferred_to_another_device">"L'appel a été transféré sur un autre appareil."</string>
     <string name="incall_error_supp_service_switch">"Commutation d'appel impossible"</string>
     <string name="incall_extra_volume_disabled_BT">"Impossible d'utiliser la fonction de volume supplémentaire lorsque des écouteurs Bluetooth sont branchés."</string>
     <string name="incall_extra_volume_disabled_HAC">"Impossible d'activer Volume supplémentaire lorsque les prothèses auditives sont activées."</string>
@@ -483,7 +488,7 @@ Le menu de l'écran des appels SVI utilise le contenu fourni par un fournisseur 
     <string name="modify_to_video_start">Demande de passage en mode appel visio…</string>
     <string name="modify_to_voice_start">Switching to voice call…</string>
     <string name="msg_for_video_show_never_again">Certains formats de fichier ne sont pas pris en charge. Seuls les fichiers pris en charge seront affichés dans la Galerie.</string>
-    <string name="mt_vt_not_possible">"%s ne peut pas recevoir d'appels visio actuellement. Vous allez maintenant être mis en relation via un appel vocal."</string>
+    <string name="mt_vt_not_possible">"% ne peut pas recevoir d'appel vidéo pour l'instant. La communication sera acheminée par appel vocal."</string>
     <string name="nameLabelsGroup">Nom</string>
     <string name="name_family">Nom</string>
     <string name="name_given">Prénom</string>
@@ -521,6 +526,7 @@ Le menu de l'écran des appels SVI utilise le contenu fourni par un fournisseur 
     <string name="outgoing_img_video">Vidéos</string>
     <string name="payphone_sbm">Téléphone public</string>
     <string name="phoneLabelsGroup">Téléphone</string>
+    <string name="phone_voice_recording_failed_by_secure_call">"Impossible d'enregistrer l'appel sécurisé."</string>
     <string name="phonetype_additional">Numéro supplémentaire</string>
     <string name="photoring_block_toast">Contact interdit de vous envoyer du contenu média via le mur de photos.</string>
     <string name="photoring_toast_mobile_data_off">"Il se peut qu'il y ait du contenu Photoring envoyé par un tiers que vous ne puissiez pas voir en raison d'un blocage de l'accès aux données mobiles."</string>
@@ -563,8 +569,13 @@ Le menu de l'écran des appels SVI utilise le contenu fourni par un fournisseur 
     <string name="recently_use_sim_for_callback">SIM récemment utilisée</string>
     <string name="record_notification_button_text_close">Fermer</string>
     <string name="record_notification_button_text_record_list">Enregistrements</string>
+    <string name="record_notification_button_text_storage">Stockage</string>
     <string name="record_notification_content">Appuyez sur ENREGISTREMENTS pour afficher appels enregistrés.</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">"Espace de stockage de l'appareil saturé. L'appel a été enregistré partiellement."</string>
+    <string name="record_notification_content_unable_to_record">"L'espace est insuffisant sur votre appareil. Supprimez des fichiers et réessayez."</string>
     <string name="record_notification_title">Appel enregistré</string>
+    <string name="record_notification_title_not_to_record_entire_call">Appel enregistré partiellement</string>
+    <string name="record_notification_title_unable_to_record">"Impossible d'enregistrer l'appel"</string>
     <string name="record_text">ENREG</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -679,6 +690,7 @@ sens uniq."</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">Appuyez deux fois pour ouvrir la liste.</string>
     <string name="sec_showme_text">"M'afficher"</string>
     <string name="second_screen_hold_text">%d en att.</string>
+    <string name="section_contacts_only_summary">Créez et gérez des contacts.</string>
     <string name="select_callback_sim_card">Sélection de la carte SIM pour les rappels</string>
     <string name="select_callback_sim_card_content">"Le dernier appel ou message qui a été reçu ou passé/envoyé depuis ce numéro de téléphone n'a pas utilisé la carte SIM préférée pour les appels. Sélectionnez la carte SIM à utiliser."</string>
     <string name="select_from_gallery">Sélect. dans galerie</string>

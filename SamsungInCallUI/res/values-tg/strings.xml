@@ -72,6 +72,8 @@
     <string name="BirthDay_remainedDays1">Пагоҳ зодрӯз</string>
     <string name="BirthDay_remainedDays7">Зодрӯз баъди 1 ҳафта</string>
     <string name="BirthDay_remainedDaysEtc">Зодрӯз баъди %d рӯз</string>
+    <string name="DivertToVoice_disable">Зангҳои видеоӣ барои ин рақам дастрас нестанд. Ба ҷои он акнун занги овозӣ мезанед?</string>
+    <string name="DivertToVoice_enable">Зангҳои видеоӣ барои ин рақам дастрас нестанд. Гузариш ба занги овозӣ…</string>
     <string name="Lunar_anniversary_passedDays1">Солгарди қамарӣ. дирӯз</string>
     <string name="Lunar_anniversary_remainedDays0">Солгарди қамарӣ. Имрӯз</string>
     <string name="Lunar_anniversary_remainedDays1">Солгарди қамарӣ. Пагоҳ</string>
@@ -98,7 +100,7 @@
     <string name="add_reminder">Ёдрас илов к</string>
     <string name="agree">Розиам</string>
     <string name="am_cover_toggle_string">Барои ҷавоб додан ба зангҳо ва рад к. онҳо.</string>
-    <string name="am_device_memory_full_warning">Unable to use Auto answer with message. There is not enough space in your device storage to save voice messages. Delete some items and try again.</string>
+    <string name="am_device_memory_full_warning">Ҷавоби худкорро бо паёмҳо истифода бурда наметавонад. Барои захира намудани паёмҳои овозӣ, дар захирагоҳи дастгоҳи шумо ҷои кофӣ нест. Баъзе ҷузъҳоро нест карда, кӯшишро такрор кунед.</string>
     <string name="another_device_pickup_message">Another device picked up this call.</string>
     <string name="answering_memo_Playing_text">Паёми ҷавоб пахш карда мешавад…</string>
     <string name="answering_memo_Recording_text">Паём сабт карда мешавад…</string>
@@ -113,8 +115,8 @@
     <string name="call_drug_up_panel_for_kk">Барои паёми зуд фрстдн ва зангҳои дрмдро рад к-н, тугмаи ПАЁМ ФИРИСТОДАН-ро ба боло кашед.</string>
     <string name="call_drug_up_panel_for_kk_tts">Занги радшударо бо панели паём ба самти боло кашида, ҳангоми рад кардани ягон занги даромад паёми радди занг фиристед.</string>
     <string name="call_ended_toast">Занг анҷом ёфт</string>
-    <string name="call_forwarded_to">Call forwarded to:</string>
-    <string name="call_forwarding_from">Call forwarded from:</string>
+    <string name="call_forwarded_to">Бозфиристии занг ба:</string>
+    <string name="call_forwarding_from">Бозфиристии занг аз:</string>
     <string name="call_incoming_voice_call2">Барои ҷавоб додан ба занг %s-ро зарба занед.</string>
     <string name="call_incoming_voice_call2_tts">Барои ҷавоб додан ба занг тугмаи ҷавоб додан ба зангро зарба занед.</string>
     <string name="call_incoming_voice_call3">Барои зангро рад к-н, %s з.з.</string>
@@ -139,20 +141,20 @@
     <string name="call_menu_during_call_list6_tts">Баро баланд кардани садо тугмаи баландии садои изофиро зарба занед.</string>
     <string name="call_menu_during_call_list7">Барои ба каси дигаре занг задан ва ба занги ҷорӣ илова кардани ӯ %s -ро зарба занед.</string>
     <string name="call_menu_during_call_list7_tts">Барои ба каси дигаре занг задан ва ба занги ҷорӣ илова кардани ӯ тугмаи иловаи зангро зарба занед.</string>
-    <string name="call_out_duration">Call out duration</string>
+    <string name="call_out_duration">Давомнокии занги баромад</string>
     <string name="call_twophone_one_phone">Рақами аслӣ</string>
     <string name="call_twophone_two_phone">Рақами дуюм</string>
     <string name="caller_info_card_last_call_log_title">Занги охирин</string>
     <string name="caller_info_card_last_message_title">Паёми охирин</string>
     <string name="caller_info_card_memo_title">Ёддошти дар давоми сӯҳбат эҷодшуда</string>
-    <string name="callsettings_hold_key_record_calls_notify">Press and hold Hold key to start or stop recording</string>
+    <string name="callsettings_hold_key_record_calls_notify">Барои оғоз ва анҷоми сабт Тугмаи боздоштро пахш карда нигоҳ доред</string>
     <string name="callsettings_rejectmessage_list1">Бубахшед, ман ҳозир гап зада наметавонам. Дертар занг занед.</string>
     <string name="callsettings_rejectmessage_list2">Ман дар маҷлисам</string>
     <string name="callsettings_rejectmessage_list3">Ман дар дарсам.</string>
     <string name="callsettings_rejectmessage_list4">Ман дар синамо</string>
     <string name="callsettings_rejectmessage_list5">Ман дар сари рул.</string>
-    <string name="camera_off">Camera turned off.</string>
-    <string name="camera_on">Camera turned on.</string>
+    <string name="camera_off">Камера хомӯш карда шудааст.</string>
+    <string name="camera_on">Камера фурӯзон карда шудааст.</string>
     <string name="camera_security_enter">Сиёсати амният истифодаи Камераро маҳдуд мекунад.</string>
     <string name="camera_start_failed">Камера ноком шуд.</string>
     <string name="cancel">Бекор кардан</string>
@@ -171,7 +173,7 @@
     <string name="chat_qq">Чат бо истифодаи QQ</string>
     <string name="chat_skype">Чат бо истифодаи Skype</string>
     <string name="chat_yahoo">Чат бо истифодаи Yahoo! Messenger</string>
-    <string name="chunghwa_operator_name">Chunghwa</string>
+    <string name="chunghwa_operator_name">Чунгва</string>
     <string name="cmcc_operator_name">CMCC</string>
     <string name="conference_maximum_participants_reached">Ба шумораи максималии иштирокчиён (%d) расидед</string>
     <string name="conferencing_dialog_Available_for_VoiceCalls">Conferencing is only available for voice calls.</string>
@@ -200,7 +202,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="description_secOnscreenVideoCallText">Занги видеоӣ</string>
     <string name="description_secOnscreenViewContactText">Дидани тафсилоти алоқа</string>
     <string name="device_info_not_available">Дастрас нест</string>
-    <string name="dial_warning">Unable to dial.</string>
+    <string name="dial_warning">Рақамчинӣ ғайриимкон аст.</string>
     <string name="dialling_video_call">Рақамчинии занги видеоӣ</string>
     <string name="dialpad_2_sub_letters">ABC</string>
     <string name="dialpad_3_sub_letters">DEF</string>
@@ -253,8 +255,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="imLabelsGroup">Ҳисоби ПФ</string>
     <string name="inCallLabel_Sec">Занг</string>
     <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
+    <string name="incall_decline_other_secondary_device">Other secondary device in use.</string>
+    <string name="incall_decline_service_not_allowed">Service not allowed in this location.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">All available lines for (MDN) are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">All available lines for %s are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
+    <string name="incall_decline_transferred_to_another_device">Call has been transferred to another device.</string>
     <string name="incall_error_supp_service_switch">Гузариш байни зангҳо ғайриимкон аст.</string>
     <string name="incall_extra_volume_disabled_BT">Вақте ки шлемофони BT пайваст аст, доираи баландии садои изофиро илова карда наметавонад.</string>
     <string name="incall_extra_volume_disabled_HAC">Ҳангоми фаъол будани Дастгоҳи шунавоӣ Баландии садои изофиро фаъол карда наметавонад.</string>
@@ -265,7 +270,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="incall_popup_call_remove_title_vzw">Hide shortcut</string>
     <string name="incall_popup_ended">Анҷомёфта</string>
     <string name="incall_spam_call_block">Мамнуъ к. рақам</string>
-    <string name="incall_spam_call_reject">Add to Black list</string>
+    <string name="incall_spam_call_reject">Илова ба Рӯйхати сиёҳ</string>
     <string name="incall_spam_call_reject_toast">Рақами телефон ба Рӯйхати мамнуъ илова карда шуд.</string>
     <string name="incall_spam_call_report">Рақами гузориш</string>
     <string name="incall_transfer_call">Интиқоли занг</string>
@@ -413,11 +418,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="kt_nomal_quality_video_call_3g">Барои занг танҳо сифати муқаррарӣ дастрас аст. Дастгоҳи тарафи дигар бо шабакаи 3G маҳдуд аст.</string>
     <string name="label_notes">Эзоҳҳо</string>
     <string name="label_sip_address">Занги интернетӣ</string>
-    <string name="legal_popup_content">"Having trouble using time-consuming voice response call centers? IVR(Interactive Voice Response) call screen menu provides the perfect environment to use call centers by displaying the service menu on your screen.
+    <string name="legal_popup_content">"Оё шумо бо истифодаи марказҳои занг бо посухи овозии вақтгир мушкилӣ доред? Менюи экрани занги IVR (Посухи интерактивии овозӣ) барои истифода бурдани марказҳои занг муҳити мукаммалро тавассути намоиш додани менюи хизматрасонӣ дар экрани шумо пешниҳод менамояд.
 
-IVR call screen menu uses contents provided by a third party service provider called Dianhuabang. By using IVR call screen menu, you agree to Dianhuabang’s %1$sTerms and Conditions%2$s."</string>
+Менюи экрани занги IVR муҳтавоеро истифода мебарад, ки аз ҷониби таҳвилгари хизматрасониҳои тарафи сеюм бо номи Dianhuabang пешниҳод карда мешавад. Бо истифода бурдани менюи экрани занги IVR, шумо бо %1$sШарту шароити%2$s Dianhuabang розӣ мешавед."</string>
     <string name="legal_popup_terms_conditions">Шарту шароит</string>
-    <string name="legal_pupup_title">Legal information</string>
+    <string name="legal_pupup_title">Маълумоти ҳуқуқӣ</string>
     <string name="lock_screen_during_call_double_tab">Барои озод кардан, ду маротиба зарба занед</string>
     <string name="long_click_guide">Барои фурӯзон/хомӯш кардан зарба занед.</string>
     <string name="low_batt_upgrade_disallowed">Ба занги видеоӣ гузашта наметавонад. Барқи батарея кам аст.</string>
@@ -434,7 +439,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="memory_full_msg">Хотира кофӣ нест</string>
     <string name="message_greeting">Таҳният</string>
     <string name="modify_to_video_start">Дархости гузариш ба занги видеоӣ…</string>
-    <string name="modify_to_voice_start">Switching to voice call…</string>
+    <string name="modify_to_voice_start">Гузариш ба занги овозӣ…</string>
     <string name="msg_for_video_show_never_again">Баъзе форматҳои файл дастгирӣ намешаванд. Дар Нигористон танҳои файлҳои дастгиришаванда нишон дода мешаванд.</string>
     <string name="mt_vt_not_possible">%s cannot receive video calls at this time. You will now be connected through a voice call.</string>
     <string name="nameLabelsGroup">Ном</string>
@@ -451,7 +456,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="name_suffix">Суффикси ном</string>
     <string name="network_message_no_answer">Ягон ҷавоб нест</string>
     <string name="nicknameLabelsGroup">Тахаллус</string>
-    <string name="not_enable_to_video">Video calls are not available while Emergency mode is enabled.</string>
+    <string name="not_enable_to_video">Ҳангоми фаъол гардидани Реҷаи фавкулодда, Зангҳои видеоӣ дастнорас мебошанд.</string>
     <string name="not_enable_to_video_emergencymode">Ҳангоми фаъол будани реҷаи Фавқулода оғоз ва қабули зангҳои видеоӣ ғайриимкон аст.</string>
     <string name="notification_action_answer">Ҷавоб</string>
     <string name="notification_of_sub_number_empty_body">Барои намоиш додани рақамҳои эҳтиётӣ, ба хидмати SIM-корти чандрақама обуна шавед ва аз нав кӯшиш кунед.</string>
@@ -461,7 +466,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="onscreenBluetoothTextOn_att">Гузариш ба телефон</string>
     <string name="onscreenBluetoothTextOn_tmo">Гузариш ба телефон</string>
     <string name="onscreenWebexText">WebEx</string>
-    <string name="open_folder_for_speakeroff">To turn off the speakerphone, open the flip phone.</string>
+    <string name="open_folder_for_speakeroff">Спикерфонро хомӯш кунед, телефони қатшавандаро кушоед.</string>
     <string name="open_the_cover">Муқоваро кушоед.</string>
     <string name="open_the_cover_incoming">Барои ба зангҳои видеоӣ ҷавоб додан ё онҳоро рад кардан, муқоваро кушоед.</string>
     <string name="open_the_cover_modify_call">Тарафи гиранда мехоҳад ба занги видеоӣ гузарад. Барои қабул/рад кардани дархост сарпӯшро кушоед.</string>
@@ -474,6 +479,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="outgoing_img_video">Видеоҳо</string>
     <string name="payphone_sbm">Таксофон</string>
     <string name="phoneLabelsGroup">Телефон</string>
+    <string name="phone_voice_recording_failed_by_secure_call">Занги амнро сабт кардан мумкин нест.</string>
     <string name="phonetype_additional">Рақами иловагӣ</string>
     <string name="photoring_block_toast">Алоқа аз фиристодани мултимедиа ба шумо ба воситаи ҳалқаи суратҳо пешгирӣ карда шуд.</string>
     <string name="photoring_toast_mobile_data_off">Тарафи дигар метавонад мӯҳтавои Ҳалқаи суратҳо фиристода бошад, ки бо сабаби баста будани дастрасӣ ба иттилооти мобилӣ наметавонад намоиш дода шавад.</string>
@@ -491,7 +497,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="prepareOtherVideo">Омодасозии тасвири видеоӣ…</string>
     <string name="previous_call_is_held_when_you_accept_call">Занги ҷорӣ ҳангоми қабул кардани занги нав нигоҳ дошта мешавад.</string>
     <string name="private_num_cdma">Маҳдуд</string>
-    <string name="private_num_sbm">Withheld number</string>
+    <string name="private_num_sbm">Рақами боздоштшуда</string>
     <string name="quick_panel_title_video_call">Занги видеоӣ</string>
     <string name="quick_panel_title_voice_call">Занги oвозӣ</string>
     <string name="quick_panel_title_volte_call">Занги VoLTE</string>
@@ -516,8 +522,13 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="recently_use_sim_for_callback">SIM-и ба наздикӣ истиф.</string>
     <string name="record_notification_button_text_close">Пӯшидан</string>
     <string name="record_notification_button_text_record_list">Сабтҳо</string>
+    <string name="record_notification_button_text_storage">Захирагоҳ</string>
     <string name="record_notification_content">Барои зангҳои сабт кардаи худро дидан, САБТҲО-ро зарба з-д.</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">Захирагоҳи дастгоҳи шумо пур аст. Сабти нопурраи занг захира шуд.</string>
+    <string name="record_notification_content_unable_to_record">Дар захирагоҳи дастгоҳ ҷои кофӣ нест. Якчанд файлро нест к, кӯшишро такрор к.</string>
     <string name="record_notification_title">Занг сабт шуд</string>
+    <string name="record_notification_title_not_to_record_entire_call">Занг пурра сабт нашуд</string>
+    <string name="record_notification_title_unable_to_record">Сабт кардани занг ғайриимкон аст</string>
     <string name="record_text">САБТ</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -592,7 +603,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="secOnscreenMenuSwitchToPhoneText_tmo">Гузариш ба телефон</string>
     <string name="secOnscreenMenuSwitchToVideoCallText">Гузариш ба занги видеоӣ</string>
     <string name="secOnscreenMenuSwitchToVoiceCallText">Гузрш ба знги овозӣ</string>
-    <string name="secOnscreenMenuSwitchVideoDisplay">Switch video displays</string>
+    <string name="secOnscreenMenuSwitchVideoDisplay">Гузариш ба дисплейҳои видеоӣ</string>
     <string name="secOnscreenMenuUnmuteText">Садодор кардан</string>
     <string name="secOnscreenMenuVideoConfCallText">Даъват кардани иштирокчии нав</string>
     <string name="secOnscreenMenuViewInFullScreenText">Намоиш дар экрани пурра</string>
@@ -633,6 +644,7 @@ Camera"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">Барои кушодани рӯйхат ду бор зарба занед.</string>
     <string name="sec_showme_text">Маро нишон бидеҳ</string>
     <string name="second_screen_hold_text">Бздшт. %d</string>
+    <string name="section_contacts_only_summary">Create and manage contacts.</string>
     <string name="select_callback_sim_card">SIM-корти занги бозгашт интихоб кунед</string>
     <string name="select_callback_sim_card_content">Барои амалӣ гардонидани занг ё паёми охирин ба ё аз ин рақам SIM-корти афзал барои зангҳо истифода бурда нашуд. SIM-кортеро барои истифода интихоб кунед.</string>
     <string name="select_from_gallery">Интихоб аз Нигористон</string>
@@ -672,12 +684,12 @@ Camera"</string>
     <string name="spam_call_report_dialog_spam">Спам</string>
     <string name="spam_call_report_dialog_taxis">Таксиҳо</string>
     <string name="spam_call_reported_as">Ҳамчун %s хабар дода шуд</string>
-    <string name="spam_call_resported_as_by_you">Reported as %s by you</string>
+    <string name="spam_call_resported_as_by_you">Ҳамчун %s аз ҷониби шумо хабар дода шуд</string>
     <string name="spam_call_resported_count">(%d маротиба)</string>
-    <string name="spam_call_type_and_count">Reported as %1$s %2$d times</string>
+    <string name="spam_call_type_and_count">Ҳамчун %1$s %2$d маротиба хабар дода шуд</string>
     <string name="sub_number_item">%d-и эҳтиётӣ</string>
-    <string name="suguden_guide_do_not_show_again_dcm">Do not show again</string>
-    <string name="suguden_guide_main_text_dcm">Answer the call by bringing the device close to your ear.</string>
+    <string name="suguden_guide_do_not_show_again_dcm">Дигар нишон надиҳед</string>
+    <string name="suguden_guide_main_text_dcm">Барои ҷавоб додани занг дастгоҳро ба гӯшатон наздик биёред.</string>
     <string name="swipe_left">Ба чап молед.</string>
     <string name="swipe_right">Ба рост молед.</string>
     <string name="swipe_right_to_answer_call_with_video">Ба рост молида, ба занг бо видео ҷавоб диҳед.</string>
@@ -698,7 +710,7 @@ Camera"</string>
     <string name="tty_mode_option_title">Реҷаи TTY</string>
     <string name="tutorial_incoming_call_app_answer">Барои ҷавоб додан ба занг зарба занед.</string>
     <string name="tutorial_incoming_call_app_reject">Барои рад кардани занг зарба занед.</string>
-    <string name="twmobile_operator_name">TW Mobile</string>
+    <string name="twmobile_operator_name">TW-и мобилӣ</string>
     <string name="unknown_cdma">Дастнорас</string>
     <string name="usa_att_connected_as_voice">Call connected as voice only.</string>
     <string name="usa_att_data_usage_charge_alert">Your Data Usage that you set on your device is about to reach its limit. Your Video call requires data.</string>
@@ -768,5 +780,5 @@ Your video call is now running on the mobile network. (Data usage applies if you
     <string name="waiting_call_dialog_dismiss_toast">%1$s зангро хотима дод. Аз нав шурӯъ кардани занг бо %2$s…</string>
     <string name="waiting_call_dialog_message">Ҷавоб додан</string>
     <string name="websiteLabelsGroup">Суроғаи Интернет</string>
-    <string name="yellow_pages">Yellow Pages</string>
+    <string name="yellow_pages">Саҳифаҳои зард</string>
 </resources>

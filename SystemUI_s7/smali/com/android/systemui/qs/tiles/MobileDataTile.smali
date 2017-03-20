@@ -611,7 +611,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/MobileDataTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f0402
+    const v1, 0x7f0f0403
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -619,7 +619,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/MobileDataTile;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f0403
+    const v2, 0x7f0f0404
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -706,7 +706,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/MobileDataTile;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f040a
+    const v2, 0x7f0f040b
 
     invoke-static {v0, v2, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -915,7 +915,7 @@
 
     const v3, 0x104000a
 
-    const v6, 0x7f0f03fa
+    const v6, 0x7f0f03fb
 
     const/high16 v8, 0x1040000
 
@@ -967,7 +967,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/MobileDataTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f0404
+    const v1, 0x7f0f0405
 
     invoke-static {v0, v1, v5}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -1131,7 +1131,7 @@
 
     if-eqz v0, :cond_8
 
-    const v7, 0x7f0f03ff
+    const v7, 0x7f0f0400
 
     :goto_2
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/MobileDataTile;->mContext:Landroid/content/Context;
@@ -1165,7 +1165,7 @@
     goto :goto_0
 
     :cond_8
-    const v7, 0x7f0f03fe
+    const v7, 0x7f0f03ff
 
     goto :goto_2
 
@@ -1174,7 +1174,7 @@
 
     if-eqz v0, :cond_a
 
-    const v7, 0x7f0f0401
+    const v7, 0x7f0f0402
 
     :goto_3
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/MobileDataTile;->mContext:Landroid/content/Context;
@@ -1206,7 +1206,7 @@
     goto :goto_0
 
     :cond_a
-    const v7, 0x7f0f0400
+    const v7, 0x7f0f0401
 
     goto :goto_3
 
@@ -1235,7 +1235,7 @@
 
     if-eqz v0, :cond_c
 
-    const v7, 0x7f0f03fd
+    const v7, 0x7f0f03fe
 
     :goto_4
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/MobileDataTile;->mContext:Landroid/content/Context;
@@ -1269,7 +1269,7 @@
     goto/16 :goto_0
 
     :cond_c
-    const v7, 0x7f0f03fc
+    const v7, 0x7f0f03fd
 
     goto :goto_4
 
@@ -1278,12 +1278,12 @@
 
     if-eqz v0, :cond_e
 
-    const v7, 0x7f0f0409
+    const v7, 0x7f0f040a
 
     goto :goto_4
 
     :cond_e
-    const v7, 0x7f0f03fb
+    const v7, 0x7f0f03fc
 
     goto :goto_4
 

@@ -119,6 +119,8 @@
     <string name="BirthDay_remainedDays1">День рождения завтра</string>
     <string name="BirthDay_remainedDays7">День рожд. через 1 нед.</string>
     <string name="BirthDay_remainedDaysEtc">День рожд. через %d дн.</string>
+    <string name="DivertToVoice_disable">Видеовызовы для этого номера недоступны. Выполнить голосовой вызов?</string>
+    <string name="DivertToVoice_enable">Видеовызовы для этого номера недоступны. Переключение на голосовой вызов…</string>
     <string name="Lunar_anniversary_passedDays1">Годовщина по лун. календ. вчера</string>
     <string name="Lunar_anniversary_remainedDays0">Год.по лун.кал сег.</string>
     <string name="Lunar_anniversary_remainedDays1">Год.по лун.кал. завтр.</string>
@@ -145,7 +147,7 @@
     <string name="add_reminder">Доб. напом.</string>
     <string name="agree">Принять</string>
     <string name="am_cover_toggle_string">Откр. крышку, чтобы принять или откл. вызов.</string>
-    <string name="am_device_memory_full_warning">Unable to use Auto answer with message. There is not enough space in your device storage to save voice messages. Delete some items and try again.</string>
+    <string name="am_device_memory_full_warning">Невозможно использовать сообщение для автоматического ответа. В памяти устройства недостаточно места для сохранения голосовых сообщений. Удалите часть объектов и повторите попытку.</string>
     <string name="another_device_pickup_message">Another device picked up this call.</string>
     <string name="answering_memo_Playing_text">Воспроизведение ответного сообщения…</string>
     <string name="answering_memo_Recording_text">Запись сообщения…</string>
@@ -198,8 +200,8 @@
     <string name="callsettings_rejectmessage_list3">Я на занятиях.</string>
     <string name="callsettings_rejectmessage_list4">Я в кинотеатре.</string>
     <string name="callsettings_rejectmessage_list5">Я за рулем.</string>
-    <string name="camera_off">Camera turned off.</string>
-    <string name="camera_on">Camera turned on.</string>
+    <string name="camera_off">Камера отключена.</string>
+    <string name="camera_on">Камера включена.</string>
     <string name="camera_security_enter">Политика безопасности ограничивает использование камеры.</string>
     <string name="camera_start_failed">Сбой камеры.</string>
     <string name="cancel">Отмена</string>
@@ -247,7 +249,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="description_secOnscreenVideoCallText">Видеовызов</string>
     <string name="description_secOnscreenViewContactText">Сведения о контакте</string>
     <string name="device_info_not_available">Недоступно</string>
-    <string name="dial_warning">Unable to dial.</string>
+    <string name="dial_warning">Невозможно набрать номер.</string>
     <string name="dialling_video_call">Набор видеовызова.</string>
     <string name="dialpad_2_sub_letters">ABC</string>
     <string name="dialpad_3_sub_letters">DEF</string>
@@ -300,8 +302,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="imLabelsGroup">Учетная запись чата</string>
     <string name="inCallLabel_Sec">Вызовы</string>
     <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
+    <string name="incall_decline_other_secondary_device">Other secondary device in use.</string>
+    <string name="incall_decline_service_not_allowed">Service not allowed in this location.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">All available lines for (MDN) are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">All available lines for %s are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
+    <string name="incall_decline_transferred_to_another_device">Call has been transferred to another device.</string>
     <string name="incall_error_supp_service_switch">Не удается переключить вызовы.</string>
     <string name="incall_extra_volume_disabled_BT">Невозможно использовать дополнительный диапазон громкости, если подключена гарнитура Bluetooth.</string>
     <string name="incall_extra_volume_disabled_HAC">Невозможно включить дополнительную громкость при использовании слухового аппарата.</string>
@@ -481,7 +486,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="memory_full_msg">Недостаточно памяти</string>
     <string name="message_greeting">Приветствие</string>
     <string name="modify_to_video_start">Отправлено предложение переключиться на видеовызов…</string>
-    <string name="modify_to_voice_start">Switching to voice call…</string>
+    <string name="modify_to_voice_start">Переключение на голосовой вызов…</string>
     <string name="msg_for_video_show_never_again">Некоторые форматы файлов не поддерживаются. В коллекции будут показаны только поддерживаемые файлы.</string>
     <string name="mt_vt_not_possible">%s cannot receive video calls at this time. You will now be connected through a voice call.</string>
     <string name="nameLabelsGroup">Имя</string>
@@ -498,7 +503,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="name_suffix">Именной суффикс</string>
     <string name="network_message_no_answer">Нет ответа</string>
     <string name="nicknameLabelsGroup">Псевдоним</string>
-    <string name="not_enable_to_video">Video calls are not available while Emergency mode is enabled.</string>
+    <string name="not_enable_to_video">Видеовызовы недоступны в экстренном режиме.</string>
     <string name="not_enable_to_video_emergencymode">Невозможно совершать или принимать видеовызовы в экстренном режиме.</string>
     <string name="notification_action_answer">Ответить</string>
     <string name="notification_of_sub_number_empty_body">Чтобы просмотреть другие номера, подпишитесь на службу нескольких номеров для SIM-карты и повторите попытку.</string>
@@ -521,6 +526,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="outgoing_img_video">Видео</string>
     <string name="payphone_sbm">Телефон-автомат</string>
     <string name="phoneLabelsGroup">Телефон</string>
+    <string name="phone_voice_recording_failed_by_secure_call">Невозможно записать защищенный вызов.</string>
     <string name="phonetype_additional">Дополнительный номер</string>
     <string name="photoring_block_toast">Контакт больше не сможет отправлять вам мультимедиа через фотозвонки.</string>
     <string name="photoring_toast_mobile_data_off">Возможно, вы не можете просмотреть содержимое Photoring, отправленное другим абонентом, так как доступ к мобильным данным заблокирован.</string>
@@ -538,7 +544,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="prepareOtherVideo">Подготовка видео…</string>
     <string name="previous_call_is_held_when_you_accept_call">При принятии нового вызова текущий будет переведен на удержание.</string>
     <string name="private_num_cdma">Ограниченный</string>
-    <string name="private_num_sbm">Withheld number</string>
+    <string name="private_num_sbm">Скрытый номер</string>
     <string name="quick_panel_title_video_call">Видеовызов</string>
     <string name="quick_panel_title_voice_call">Голосовой вызов</string>
     <string name="quick_panel_title_volte_call">Вызов VoLTE</string>
@@ -563,8 +569,13 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="recently_use_sim_for_callback">Недавняя SIM</string>
     <string name="record_notification_button_text_close">Закрыть</string>
     <string name="record_notification_button_text_record_list">Записи</string>
+    <string name="record_notification_button_text_storage">Память</string>
     <string name="record_notification_content">Коснитесь ЗАПИСИ, чтобы просмотреть записанные вызовы.</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">Память устройства заполнена. Сохранена частичная запись звонка.</string>
+    <string name="record_notification_content_unable_to_record">Недостаточно места в пам. устр. Удалите несколько файлов и повторите попытку.</string>
     <string name="record_notification_title">Вызов записан</string>
+    <string name="record_notification_title_not_to_record_entire_call">Вызов записан не полностью</string>
+    <string name="record_notification_title_unable_to_record">Не удается записать вызов</string>
     <string name="record_text">ЗАПИСЬ</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -638,7 +649,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="secOnscreenMenuSwitchToPhoneText_tmo">Переключить на телефон</string>
     <string name="secOnscreenMenuSwitchToVideoCallText">Переключиться на видеовызов</string>
     <string name="secOnscreenMenuSwitchToVoiceCallText">Пер. на голос. вызов</string>
-    <string name="secOnscreenMenuSwitchVideoDisplay">Switch video displays</string>
+    <string name="secOnscreenMenuSwitchVideoDisplay">Переключить видео</string>
     <string name="secOnscreenMenuUnmuteText">Включить микрофон</string>
     <string name="secOnscreenMenuVideoConfCallText">Пригласить нового участника</string>
     <string name="secOnscreenMenuViewInFullScreenText">Просмотр в полноэкранном режиме</string>
@@ -679,6 +690,7 @@ Camera"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">Дважды нажмите, чтобы открыть список.</string>
     <string name="sec_showme_text">Показать</string>
     <string name="second_screen_hold_text">Удерж.: %d</string>
+    <string name="section_contacts_only_summary">Create and manage contacts.</string>
     <string name="select_callback_sim_card">Выбор SIM-карты для обратного звонка</string>
     <string name="select_callback_sim_card_content">Приоритетная SIM-карта для вызовов не использовалась для последнего вызова или сообщения на этот номер или с него. Выберите, какую SIM-карту использовать.</string>
     <string name="select_from_gallery">Выбрать из галереи</string>
@@ -722,8 +734,8 @@ Camera"</string>
     <string name="spam_call_resported_count">(%d раз)</string>
     <string name="spam_call_type_and_count">Помечено как %1$s следующее число раз: %2$d</string>
     <string name="sub_number_item">Другой %d</string>
-    <string name="suguden_guide_do_not_show_again_dcm">Do not show again</string>
-    <string name="suguden_guide_main_text_dcm">Answer the call by bringing the device close to your ear.</string>
+    <string name="suguden_guide_do_not_show_again_dcm">Больше не показывать</string>
+    <string name="suguden_guide_main_text_dcm">Чтобы ответить на вызов, поднесите устройство к уху.</string>
     <string name="swipe_left">Проведите влево.</string>
     <string name="swipe_right">Проведите вправо.</string>
     <string name="swipe_right_to_answer_call_with_video">Проведите вправо для ответа на вызов с видео.</string>

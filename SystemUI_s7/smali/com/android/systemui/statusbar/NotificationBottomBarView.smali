@@ -218,7 +218,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationBottomBarView;->mNotiSettingButton:Landroid/widget/TextView;
 
-    const v1, 0x7f0f0659
+    const v1, 0x7f0f065a
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 

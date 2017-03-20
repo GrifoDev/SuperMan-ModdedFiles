@@ -3212,7 +3212,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mStackScroller:Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;
 
-    const v2, 0x7f04015b
+    const v2, 0x7f04015d
 
     const/4 v3, 0x0
 
@@ -3244,7 +3244,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mStackScroller:Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;
 
-    const v2, 0x7f04015e
+    const v2, 0x7f040160
 
     const/4 v3, 0x0
 
@@ -4230,7 +4230,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f040153
+    const v7, 0x7f040155
 
     invoke-virtual {v6, v7, v5, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -11804,7 +11804,7 @@
 .method protected inflateStatusBarWindow(Landroid/content/Context;)V
     .locals 2
 
-    const v0, 0x7f040161
+    const v0, 0x7f040163
 
     const/4 v1, 0x0
 

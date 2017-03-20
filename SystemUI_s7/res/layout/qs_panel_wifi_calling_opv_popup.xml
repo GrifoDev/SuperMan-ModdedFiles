@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:id="@id/scrollView" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="24.0dip" android:layout_marginBottom="24.0dip" android:fillViewport="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="24.0dip" android:layout_marginRight="24.0dip">
+        <TextView android:textSize="15.0sp" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/wfc_enable_dialog_opv_body0" android:singleLine="false" />
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="8.0dip" android:layout_marginTop="8.0dip">
+            <TextView android:textSize="15.0sp" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/wfc_enable_dialog_opv_body1" android:singleLine="false" />
+            <TextView android:textSize="15.0sp" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/wfc_enable_dialog_opv_body2" android:singleLine="false" />
+            <TextView android:textSize="15.0sp" android:autoLink="web" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/wfc_enable_dialog_opv_body3" android:singleLine="false" />
+            <TextView android:textSize="15.0sp" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/wfc_enable_dialog_opv_body4" android:singleLine="false" />
+            <TextView android:textSize="15.0sp" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/wfc_enable_dialog_opv_body5" android:singleLine="false" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

@@ -119,6 +119,8 @@
     <string name="BirthDay_remainedDays1">Рожден ден утре</string>
     <string name="BirthDay_remainedDays7">Рожден ден след 1 седмица</string>
     <string name="BirthDay_remainedDaysEtc">Рожден ден след %d дни</string>
+    <string name="DivertToVoice_disable">Видео повикванията не са достъпни за този номер. Опит за гласово повикване сега вместо това?</string>
+    <string name="DivertToVoice_enable">Видео повикванията не са достъпни за този номер. Превключване на гласово повикване…</string>
     <string name="Lunar_anniversary_passedDays1">Лунна годишнина вчера</string>
     <string name="Lunar_anniversary_remainedDays0">Лунна годишнина днес</string>
     <string name="Lunar_anniversary_remainedDays1">Лунна годишнина утре</string>
@@ -300,8 +302,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="imLabelsGroup">Акаунт за незабавни съоб.</string>
     <string name="inCallLabel_Sec">Повикване</string>
     <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
+    <string name="incall_decline_other_secondary_device">Other secondary device in use.</string>
+    <string name="incall_decline_service_not_allowed">Service not allowed in this location.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">All available lines for (MDN) are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">All available lines for %s are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
+    <string name="incall_decline_transferred_to_another_device">Call has been transferred to another device.</string>
     <string name="incall_error_supp_service_switch">Не може да се превключат повикванията.</string>
     <string name="incall_extra_volume_disabled_BT">Не може да се използва допълнителна сила на звука, докато има свързана Bluetooth слушалка.</string>
     <string name="incall_extra_volume_disabled_HAC">Допълнителна сила на звука не може да се активира, когато е активиран Слухов апарат.</string>
@@ -460,11 +465,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="kt_nomal_quality_video_call_3g">За повикването е достъпно само нормално. Устройството на другата страна е ограничено за 3G мрежа.</string>
     <string name="label_notes">Бележки</string>
     <string name="label_sip_address">Разговор през Интернет</string>
-    <string name="legal_popup_content">"Having trouble using time-consuming voice response call centers? IVR(Interactive Voice Response) call screen menu provides the perfect environment to use call centers by displaying the service menu on your screen.
+    <string name="legal_popup_content">"Имате ли проблем с използването на кол-центрове, където чакате дълго за гласов отговор? „IVR меню за екран при разговор“ (IVR; Interactive Voice Response) предоставя перфектната среда да използвате кол-центрове, като показвате менюто на услугите на екрана си.
 
-IVR call screen menu uses contents provided by a third party service provider called Dianhuabang. By using IVR call screen menu, you agree to Dianhuabang’s %1$sTerms and Conditions%2$s."</string>
+„IVR меню за екран при разговор“ използва съдържание, предоставено от доставчик на услуги, явяващ се трето лице, наречен Dianhuabang. С използването на „IVR меню за екран при разговор“ Вие се съгласявате с %1$sПравилата и условията%2$s на Dianhuabang."</string>
     <string name="legal_popup_terms_conditions">Правила и условия</string>
-    <string name="legal_pupup_title">Legal information</string>
+    <string name="legal_pupup_title">Правна информация</string>
     <string name="lock_screen_during_call_double_tab">Чукнете двукратно, за да отключите</string>
     <string name="long_click_guide">Чукнете и задръжте, за да включите/изключите.</string>
     <string name="low_batt_upgrade_disallowed">Не може да се превключи към видео разговор. Батерията е изтощена.</string>
@@ -521,6 +526,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="outgoing_img_video">Видеоклипове</string>
     <string name="payphone_sbm">Телефонен автомат</string>
     <string name="phoneLabelsGroup">Телефон</string>
+    <string name="phone_voice_recording_failed_by_secure_call">Не може да се запише защитен разговор.</string>
     <string name="phonetype_additional">Допълнителен номер</string>
     <string name="photoring_block_toast">Контактът е блокиран и не може да ви изпраща мултимедия през пръстена за снимки.</string>
     <string name="photoring_toast_mobile_data_off">Може да има съдържание на Photoring, изпратено от другата страна, което не може да видите, защото достъпът до мобилни данни е блокиран.</string>
@@ -563,8 +569,13 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="recently_use_sim_for_callback">Скоро използвана SIM</string>
     <string name="record_notification_button_text_close">Затвори</string>
     <string name="record_notification_button_text_record_list">Записи</string>
+    <string name="record_notification_button_text_storage">Устройство за съхранение на данни</string>
     <string name="record_notification_content">Докоснете ЗАПИСИ, за да прегледате записаните разговори.</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">Паметта на устройството е пълна. Записан е частичен запис на разговора.</string>
+    <string name="record_notification_content_unable_to_record">Няма достатъчно място в паметта на устр. Изтрийте някои файлове и опитайте отново.</string>
     <string name="record_notification_title">Разговорът е записан</string>
+    <string name="record_notification_title_not_to_record_entire_call">Не е записан целият разговор</string>
+    <string name="record_notification_title_unable_to_record">Не може да се запише разговор</string>
     <string name="record_text">Запис</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -679,6 +690,7 @@ Camera"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">Чукнете двукратно, за да отворите списъка.</string>
     <string name="sec_showme_text">Покажи мe</string>
     <string name="second_screen_hold_text">%d задърж.</string>
+    <string name="section_contacts_only_summary">Create and manage contacts.</string>
     <string name="select_callback_sim_card">Избор на SIM карта за обратно повикване</string>
     <string name="select_callback_sim_card_content">Последното повикване или съобщение към или от този номер не е използвало предпочитаната SIM карта за разговори. Изберете коя SIM карта да се използва.</string>
     <string name="select_from_gallery">Избор от галерията</string>

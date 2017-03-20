@@ -135,7 +135,7 @@
 
     if-eqz p1, :cond_0
 
-    const v2, 0x7f04013d
+    const v2, 0x7f04013f
 
     :goto_0
     const/4 v4, 0x0
@@ -234,7 +234,7 @@
 
     check-cast v2, Landroid/widget/TextView;
 
-    const v3, 0x7f0f04be
+    const v3, 0x7f0f04bf
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
 
@@ -286,7 +286,7 @@
     return-void
 
     :cond_0
-    const v2, 0x7f04013a
+    const v2, 0x7f04013c
 
     goto/16 :goto_0
 

@@ -119,6 +119,8 @@
     <string name="BirthDay_remainedDays1">Zajtra má narodeniny</string>
     <string name="BirthDay_remainedDays7">Narodeniny za 1 týždeň</string>
     <string name="BirthDay_remainedDaysEtc">Narodeniny za %d dní</string>
+    <string name="DivertToVoice_disable">Pre toto číslo nie sú k dispozícii videohovory. Skúsiť teraz namiesto toho hlasový hovor?</string>
+    <string name="DivertToVoice_enable">Pre toto číslo nie sú k dispozícii videohovory. Prepína sa na hlasový hovor…</string>
     <string name="Lunar_anniversary_passedDays1">Lunárne výročie včera</string>
     <string name="Lunar_anniversary_remainedDays0">Lunárne výr. dnes</string>
     <string name="Lunar_anniversary_remainedDays1">Lunárne výr. zajtra</string>
@@ -300,8 +302,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="imLabelsGroup">Konto okamžitých správ</string>
     <string name="inCallLabel_Sec">Hovor</string>
     <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
+    <string name="incall_decline_other_secondary_device">Other secondary device in use.</string>
+    <string name="incall_decline_service_not_allowed">Service not allowed in this location.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">All available lines for (MDN) are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">All available lines for %s are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
+    <string name="incall_decline_transferred_to_another_device">Call has been transferred to another device.</string>
     <string name="incall_error_supp_service_switch">Hovory sa nedajú prepnúť.</string>
     <string name="incall_extra_volume_disabled_BT">Keď sú pripojené slúchadlá s mikrofónom Bluetooth, nemožno použiť rozsah extra hlasitosti.</string>
     <string name="incall_extra_volume_disabled_HAC">Keď sú povolené načúvacie pomôcky, nemožno zapnúť možnosť Extra hlasitosť.</string>
@@ -460,11 +465,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="kt_nomal_quality_video_call_3g">Pre hovor je k dispozícii iba normálna kvalita. Zariadenie druhého účastníka je obmedzené na sieť 3G.</string>
     <string name="label_notes">Poznámky</string>
     <string name="label_sip_address">Internetový hovor</string>
-    <string name="legal_popup_content">"Having trouble using time-consuming voice response call centers? IVR(Interactive Voice Response) call screen menu provides the perfect environment to use call centers by displaying the service menu on your screen.
+    <string name="legal_popup_content">"Máte problémy s používaním telefonických centier so zdĺhavou hlasovou odozvou? Menu IHO (interaktívna hlasová odozva) na obrazovke hovoru poskytuje dokonalé prostredie na používanie telefonických centier tým, že zobrazuje menu služby na obrazovke.
 
-IVR call screen menu uses contents provided by a third party service provider called Dianhuabang. By using IVR call screen menu, you agree to Dianhuabang’s %1$sTerms and Conditions%2$s."</string>
+Menu IHO na obrazovke hovoru používa obsah, ktorý poskytuje externý subjekt, spoločnosť Dianhuabang. Používaním menu IHO na obrazovke hovoru vyjadrujete svoj súhlas s dokumentom %1$sPodmienky a požiadavky%2$s spoločnosti Dianhuabang."</string>
     <string name="legal_popup_terms_conditions">Ustanovenia a podmienky</string>
-    <string name="legal_pupup_title">Legal information</string>
+    <string name="legal_pupup_title">Právne informácie</string>
     <string name="lock_screen_during_call_double_tab">Dvojitým ťuknutím vykonáte odomknutie</string>
     <string name="long_click_guide">Ťuknutím a podržaním môžete vykonať zapnutie/vypnutie.</string>
     <string name="low_batt_upgrade_disallowed">Nemožno prepnúť na videohovor. Batéria je takmer vybitá.</string>
@@ -521,6 +526,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="outgoing_img_video">Videá</string>
     <string name="payphone_sbm">Telefónny automat</string>
     <string name="phoneLabelsGroup">Telefón</string>
+    <string name="phone_voice_recording_failed_by_secure_call">Zabezpečený hovor sa nedá nahrať.</string>
     <string name="phonetype_additional">Doplnkové číslo</string>
     <string name="photoring_block_toast">Kontakt má zablokované odosielanie médií pre vás prostredníctvom fotografického prstenca.</string>
     <string name="photoring_toast_mobile_data_off">Druhá strana mohla odoslať obsah funkcie Fotografický prstenec, ktorý nemusíte vidieť, pretože prístup cez mobilné dátové pripojenie je blokované.</string>
@@ -563,8 +569,13 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="recently_use_sim_for_callback">Naposledy použitá SIM</string>
     <string name="record_notification_button_text_close">Zavrieť</string>
     <string name="record_notification_button_text_record_list">Nahrávky</string>
+    <string name="record_notification_button_text_storage">Úložisko</string>
     <string name="record_notification_content">Ťuknutím na položku NAHRÁVKY môžete zobraziť nahraté hovory.</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">Úložisko zariadenia je plné. Uložila sa čiastočná nahrávka hovoru.</string>
+    <string name="record_notification_content_unable_to_record">V úložisku zariadenia je málo miesta. Odstráňte niektoré súbory a skúste to znova.</string>
     <string name="record_notification_title">Hovor sa nahral</string>
+    <string name="record_notification_title_not_to_record_entire_call">Nezaznamenal sa celý hovor</string>
+    <string name="record_notification_title_unable_to_record">Hovor sa nedá nahrať</string>
     <string name="record_text">ZÁZNAM</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -679,6 +690,7 @@ Camera"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">Dvojitým ťuknutím otvoríte zoznam.</string>
     <string name="sec_showme_text">Zobraziť ma</string>
     <string name="second_screen_hold_text">%d podrž.</string>
+    <string name="section_contacts_only_summary">Create and manage contacts.</string>
     <string name="select_callback_sim_card">Vyberte kartu SIM pre spätné volanie</string>
     <string name="select_callback_sim_card_content">Pre posledný hovor alebo správu na toho číslo alebo z neho sa nepoužila preferovaná karta SIM pre hovory. Vyberte, ktorá karta SIM sa má použiť.</string>
     <string name="select_from_gallery">Vybrať z galérie</string>

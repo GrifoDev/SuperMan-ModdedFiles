@@ -119,6 +119,8 @@
     <string name="BirthDay_remainedDays1">Syntymäpäivä huomenna</string>
     <string name="BirthDay_remainedDays7">Syntymäp. 1 viikon kul.</string>
     <string name="BirthDay_remainedDaysEtc">Syntymäp. %d päivän kul.</string>
+    <string name="DivertToVoice_disable">Videopuhelut eivät ole käytettävissä tässä numerossa. Yritetäänkö sen sijaan äänipuhelua?</string>
+    <string name="DivertToVoice_enable">Videopuhelut eivät ole käytettävissä tässä numerossa. Vaihdetaan äänipuheluun…</string>
     <string name="Lunar_anniversary_passedDays1">Kuuvuosipäivä eilen</string>
     <string name="Lunar_anniversary_remainedDays0">Kuuvuosipäivä tänään</string>
     <string name="Lunar_anniversary_remainedDays1">Kuuvuosipäivä huomenna</string>
@@ -300,8 +302,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="imLabelsGroup">Pikaviestitili</string>
     <string name="inCallLabel_Sec">Puhelu</string>
     <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
+    <string name="incall_decline_other_secondary_device">Other secondary device in use.</string>
+    <string name="incall_decline_service_not_allowed">Service not allowed in this location.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">All available lines for (MDN) are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">All available lines for %s are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
+    <string name="incall_decline_transferred_to_another_device">Call has been transferred to another device.</string>
     <string name="incall_error_supp_service_switch">Puheluita ei voi vaihtaa.</string>
     <string name="incall_extra_volume_disabled_BT">Lisävoimakkuusaluetta ei voi käyttää, kun Bluetooth-kuulokemikrofoni on yhdistetty.</string>
     <string name="incall_extra_volume_disabled_HAC">Lisävoimakkuus-toimintoa ei voi ottaa käyttöön, kun Kuulolaitteet-toiminto on käytössä.</string>
@@ -521,6 +526,7 @@ IVR-puhelunäytön valikko käyttää kolmannen osapuolen tarjoajan Dianhuabangi
     <string name="outgoing_img_video">Videot</string>
     <string name="payphone_sbm">Kolikkopuhelin</string>
     <string name="phoneLabelsGroup">Puhelin</string>
+    <string name="phone_voice_recording_failed_by_secure_call">Suojattua puhelua ei voi tallentaa.</string>
     <string name="phonetype_additional">Muu numero</string>
     <string name="photoring_block_toast">Yhteyshenkilöä on estetty lähettämästä sinulle mediasisältöä valokuvasoiton kautta.</string>
     <string name="photoring_toast_mobile_data_off">Toinen osapuoli on voinut lähettää Photoring-sisältöä, jota et näe, sillä mobiilidatan käyttö on estetty.</string>
@@ -563,8 +569,13 @@ IVR-puhelunäytön valikko käyttää kolmannen osapuolen tarjoajan Dianhuabangi
     <string name="recently_use_sim_for_callback">Viimeksi käytetty SIM</string>
     <string name="record_notification_button_text_close">Sulje</string>
     <string name="record_notification_button_text_record_list">Tallenteet</string>
+    <string name="record_notification_button_text_storage">Tallennustila</string>
     <string name="record_notification_content">Näytä tallennetut puhelut napauttamalla TALLENTEET.</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">Laitteen tallennustila on täynnä. Puhelusta on tehty osittainen tallenne.</string>
+    <string name="record_notification_content_unable_to_record">Laitteen muistissa ei ole tarpeeksi tilaa. Poista tiedostoja ja yritä uudelleen.</string>
     <string name="record_notification_title">Puhelu tallennettu</string>
+    <string name="record_notification_title_not_to_record_entire_call">Koko puhelua ei tallennettu</string>
+    <string name="record_notification_title_unable_to_record">Puhelua ei voi tallentaa</string>
     <string name="record_text">REC</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -680,6 +691,7 @@ Camera"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">Avaa luettelo kaksoisnapauttamalla.</string>
     <string name="sec_showme_text">Näytä oma kuva</string>
     <string name="second_screen_hold_text">%d pidossa</string>
+    <string name="section_contacts_only_summary">Create and manage contacts.</string>
     <string name="select_callback_sim_card">Valitse SIM-kortti takaisinsoitolle</string>
     <string name="select_callback_sim_card_content">Edellisessä tähän numeroon lähtevässä tai tästä numerosta tulevassa puhelussa tai viestissä ei käytetty puheluiden ensisijaista SIM-korttia. Valitse käytettävä kortti.</string>
     <string name="select_from_gallery">Valitse galleriasta</string>

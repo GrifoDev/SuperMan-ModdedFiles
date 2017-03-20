@@ -160,7 +160,7 @@
 
     iput-object v5, p0, Lcom/android/systemui/recents/RecentsImpl;->mDummyStackView:Lcom/android/systemui/recents/views/TaskStackView;
 
-    const v5, 0x7f040123
+    const v5, 0x7f040125
 
     const/4 v6, 0x0
 

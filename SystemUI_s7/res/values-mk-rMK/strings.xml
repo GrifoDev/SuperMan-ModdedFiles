@@ -849,6 +849,7 @@ S мотор"</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">%1$s и %2$s не може да се вклучени истовремено. %3$s ќе се исклучи.</string>
     <string name="aod_show_popup_description">%s и опциите подолу не може да се активни истовремено. Опциите подолу ќе се исклучат.</string>
     <string name="wificalling_show_popup_use_location_inform">На Повикувањето Wi-Fi му треба да ги користи Вашите информации за локацијата. Ќе се собираат и праќаат анонимни податоци за локацијата до Google и до Вашиот оператор. Контактирајте со својот оператор за детали.</string>
+    <string name="wificalling_show_popup_use_location_inform_ftm">Вашите информации поврзани со локацијата може да се пратат до Google и до Вашиот оператор за да воспоставите Wi-Fi повици, без разлика дали сте ја активирале локалната функција или не.</string>
     <string name="wificalling_show_popup_enable_location_title">Овозможи Локација</string>
     <string name="wificalling_show_popup_enable_location_message">На Повикувањето Wi-Fi му треба да ги користи Вашите информации за локацијата. Ќе се овозможи Локација. Ќе се собираат и праќаат анонимни податоци за локацијата до Google и до Вашиот оператор. Контактирајте со својот оператор за детали.</string>
     <string name="personal_mode_popup_diable_msg_while_afw_profile">Приватниот режим не е достапен во работен профил.</string>
@@ -1585,6 +1586,23 @@ If you turn mobile data back on, you may be charged for data usage by your carri
     <string name="uhq_mode_noti_text">Подобрете ја звучната резолуција на музиката и видеата за почисто доживување при слушањето.</string>
     <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
     <string name="assistance_app_setting_item_none">Ништо</string>
+    <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
+    <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
+Please read the description of the service provided by your operator:"</string>
+    <string name="wfc_enable_dialog_opv_body1">Wi-Fi Calling service enables you to make and receive voice calls over any Wi-Fi internet connection, even in a situation where you are outside any mobile network’s coverage. Once the service is active for your mobile number, every time you connect to a Wi-Fi network, your voice calls will be performed using Wi-Fi Calling. This will be indicated to you by a dedicated icon on the notification bar.</string>
+    <string name="wfc_enable_dialog_opv_body2">"If your Wi-Fi connection is of poor quality or your device is outside a Wi-Fi network’s coverage, your phone will make calls using an available mobile network.
+
+Calls you make with Wi-Fi Calling in Poland are charged in the same way as your regular mobile calls in your mobile tariff plan. Incoming calls in Poland are free of charge. If you make Wi-Fi Calling calls outside Poland your calls may be charged a price specified in your mobile tariff plan’s price list.
+
+Notwithstanding, your Wi-Fi connections may be charged independently by the provider of your Wi-Fi connection."</string>
+    <string name="wfc_enable_dialog_opv_body3">"Once you press the [I ACCEPT] button and your phone connects to a Wi-Fi network, your Wi-Fi Calling service will be activated. You can disable Wi-Fi Calling at any time using the phone menu.
+
+Detailed information about your Wi-Fi Calling service can be found at www.orange.pl/wificalling.
+
+Please note that in order to enable your emergency calls (e.g., such as 112 calls) to be routed to the closest emergency centre suitable for your actual location, your emergency calls made while the Wi-Fi Calling service is enabled will be carried by your device through any mobile network available at a given moment. Only in cases where no mobile network is available will an emergency call be routed via the Wi-Fi Calling service. Unfortunately, in such cases we will not know your precise location and therefore your emergency call may not be routed to the emergency centre closest to your actual location."</string>
+    <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
+    <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
+    <string name="wfc_enable_dialog_opv_btn">Прифаќам</string>
     <string name="car_lockscreen_disclaimer_title">Возете безбедно</string>
     <string name="car_lockscreen_disclaimer_text">Секогаш бидете известени за условите за возење и почитувајте ги важечките закони. Насоките може да бидат неточни, нецелосни, опасни, несоодветни, забранети или да вклучуваат премин преку административни области. Бизнис информациите исто така може да бидат неточни или нецелосни. Податоците не се даваат во реално време и не може да се гарантира точноста на локацијата. Не ракувајте со вашиот мобилен уред и не користете апликации што не се наменети за Android Auto додека возите.</string>
     <string name="pip_close">Затвори PIP</string>

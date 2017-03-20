@@ -119,6 +119,8 @@
     <string name="BirthDay_remainedDays1">Bursdag i morgen</string>
     <string name="BirthDay_remainedDays7">Bursdag om 1 uke</string>
     <string name="BirthDay_remainedDaysEtc">Bursdag om %d dager</string>
+    <string name="DivertToVoice_disable">Videoanrop er ikke tilgjengelig for dette nummeret. Prøve taleanrop nå i stedet?</string>
+    <string name="DivertToVoice_enable">Videoanrop er ikke tilgjengelig for dette nummeret. Bytter til taleanrop…</string>
     <string name="Lunar_anniversary_passedDays1">Månemerkedag i går</string>
     <string name="Lunar_anniversary_remainedDays0">Månemerkedag i dag</string>
     <string name="Lunar_anniversary_remainedDays1">Månemerkedag i morgen</string>
@@ -300,8 +302,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="imLabelsGroup">Direktemeldingskonto</string>
     <string name="inCallLabel_Sec">Anrop</string>
     <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
+    <string name="incall_decline_other_secondary_device">Other secondary device in use.</string>
+    <string name="incall_decline_service_not_allowed">Service not allowed in this location.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">All available lines for (MDN) are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">All available lines for %s are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
+    <string name="incall_decline_transferred_to_another_device">Call has been transferred to another device.</string>
     <string name="incall_error_supp_service_switch">Kan ikke bytte samtale.</string>
     <string name="incall_extra_volume_disabled_BT">Kan ikke bruke ekstra volumområde mens et Bluetooth-hodesett er koblet til.</string>
     <string name="incall_extra_volume_disabled_HAC">Kan ikke aktivere Ekstra volum når Høreapparater er aktivert.</string>
@@ -358,7 +363,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="kor_psvt_session_403_cause2065">Kan ikke foreta anrop. Det oppstod en midlertidig nettverksfeil. Deaktiver 3G-/4G-datanettverk i Innstillinger, aktiver det igjen og prøv på nytt.</string>
     <string name="kor_psvt_session_403_cause2065_single">Kan ikke foreta tale- eller videoanrop. Hvis problemet vedvarer etter omstart av enheten, kontakter du kundeservicesenteret (%s).</string>
     <string name="kor_psvt_session_403_cause2065_vzw">Kan ikke foreta anrop. Det oppstod en midlertidig nettverksfeil. Deaktiver 3G-/4G-datanettverk i Innstillinger, aktiver det igjen og prøv på nytt.</string>
-    <string name="kor_psvt_session_403_cause4021">Gruppesamtaler krever et abonnement på en tjenesteplan. Kontakt kundesenteret for å abonnere.</string>
+    <string name="kor_psvt_session_403_cause4021">Gruppesamtaler krever et abonnement på en tjenesteabonnement. Kontakt kundesenteret for å abonnere.</string>
     <string name="kor_psvt_session_403_cause4021_single">Enheten er ikke registrert. Slå av enheten, og slå den deretter på igjen. Hvis denne meldingen vises på nytt, må du kontakte kundesenteret (%s).</string>
     <string name="kor_psvt_session_403_cause4053">Nettverk er ikke tilgjengelig, eller dette nummeret er sperret fra å foreta utgående anrop</string>
     <string name="kor_psvt_session_403_cause4053_single">Kan ikke foreta anrop. Kontakt kundesenteret (%s).</string>
@@ -427,7 +432,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="kor_volte_session_403_cause2065">Kan ikke foreta anrop. Det oppstod en midlertidig nettverksfeil. Deaktiver 3G-/4G-datanettverk i Innstillinger, aktiver det igjen og prøv på nytt.</string>
     <string name="kor_volte_session_403_cause2065_single">Kan ikke foreta tale- eller videoanrop. Hvis problemet vedvarer etter omstart av enheten, kontakter du kundeservicesenteret (%s).</string>
     <string name="kor_volte_session_403_cause2065_vzw">Kan ikke foreta anrop. Det oppstod en midlertidig nettverksfeil. Deaktiver 3G-/4G-datanettverk i Innstillinger, aktiver det igjen og prøv på nytt.</string>
-    <string name="kor_volte_session_403_cause4021">Gruppesamtaler krever et abonnement på en tjenesteplan. Kontakt kundesenteret for å abonnere.</string>
+    <string name="kor_volte_session_403_cause4021">Gruppesamtaler krever et abonnement på en tjenesteabonnement. Kontakt kundesenteret for å abonnere.</string>
     <string name="kor_volte_session_403_cause4021_single">Enheten er ikke registrert. Slå av enheten, og slå den deretter på igjen. Hvis denne meldingen vises på nytt, må du kontakte kundesenteret (%s).</string>
     <string name="kor_volte_session_403_cause4053">Nettverk er ikke tilgjengelig, eller dette nummeret er sperret fra å foreta utgående anrop</string>
     <string name="kor_volte_session_403_cause4053_single">Kan ikke foreta anrop. Kontakt kundesenteret (%s).</string>
@@ -460,11 +465,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="kt_nomal_quality_video_call_3g">Bare normal kvalitet er tilgjengelig for anropet. Enheten til den andre parten er begrenset til 3G-nettverk.</string>
     <string name="label_notes">Notater</string>
     <string name="label_sip_address">Internett-samtale</string>
-    <string name="legal_popup_content">"Having trouble using time-consuming voice response call centers? IVR(Interactive Voice Response) call screen menu provides the perfect environment to use call centers by displaying the service menu on your screen.
+    <string name="legal_popup_content">"Har du problem med tidkrevende telefontjenester som benytter telesvar? Skjermmenyen for IVR-samtaler (interaktivt talesvar-samtaler) viser tjenestemenyen på skjermen og gjør det dermed enklere å bruke telefontjenester.
 
-IVR call screen menu uses contents provided by a third party service provider called Dianhuabang. By using IVR call screen menu, you agree to Dianhuabang’s %1$sTerms and Conditions%2$s."</string>
+Skjermmenyen for IVR-samtaler bruker innhold som leveres av en tredjeparts tjenesteleverandør med navnet Dianhuabang. Ved å bruke skjermmenyen for IVR-samtaler godtar du Dianhuabangs %1$sVilkår og Betingelser%2$s."</string>
     <string name="legal_popup_terms_conditions">Vilkår og betingelser</string>
-    <string name="legal_pupup_title">Legal information</string>
+    <string name="legal_pupup_title">Juridisk informasjon</string>
     <string name="lock_screen_during_call_double_tab">Trykk raskt to ganger for å låse opp</string>
     <string name="long_click_guide">Trykk på og hold for å slå av/på.</string>
     <string name="low_batt_upgrade_disallowed">Kan ikke bytte til videoanrop. Lavt batterinivå.</string>
@@ -521,6 +526,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="outgoing_img_video">Video</string>
     <string name="payphone_sbm">Telefonkiosk</string>
     <string name="phoneLabelsGroup">Telefon</string>
+    <string name="phone_voice_recording_failed_by_secure_call">Kan ikke ta opp sikker samtale.</string>
     <string name="phonetype_additional">Ekstra nummer</string>
     <string name="photoring_block_toast">Kontakten er blokkert fra å sende medier til deg via bildering.</string>
     <string name="photoring_toast_mobile_data_off">Det kan hende at den andre parten har sendt Photoring-innhold som du ikke kan se fordi tilgangen til mobildata er blokkert.</string>
@@ -563,8 +569,13 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="recently_use_sim_for_callback">Nylig brukt SIM-kort</string>
     <string name="record_notification_button_text_close">Lukk</string>
     <string name="record_notification_button_text_record_list">Opptak</string>
+    <string name="record_notification_button_text_storage">Lagring</string>
     <string name="record_notification_content">Trykk på OPPTAK for å vise samtaler som er tatt opp.</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">Enhetslagringen er full. Et delvis opptak av samtalen er lagret.</string>
+    <string name="record_notification_content_unable_to_record">Det er ikke nok plass i enhetslagringen. Slett noen filer, og prøv igjen.</string>
     <string name="record_notification_title">Samtale er tatt opp</string>
+    <string name="record_notification_title_not_to_record_entire_call">Hele samtalen ble ikke tatt opp</string>
+    <string name="record_notification_title_unable_to_record">Kan ikke ta opp samtale</string>
     <string name="record_text">REC</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -679,6 +690,7 @@ Camera"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">Trykk raskt to ganger for å åpne liste.</string>
     <string name="sec_showme_text">Vis meg</string>
     <string name="second_screen_hold_text">%d på vent</string>
+    <string name="section_contacts_only_summary">Create and manage contacts.</string>
     <string name="select_callback_sim_card">Velg SIM-kort for tilbakeringing</string>
     <string name="select_callback_sim_card_content">Den siste samtalen eller meldingen til eller fra dette nummeret brukte ikke det foretrukne SIM-kortet for anrop. Velg hvilket SIM-kort som skal brukes.</string>
     <string name="select_from_gallery">Velg fra Galleri</string>

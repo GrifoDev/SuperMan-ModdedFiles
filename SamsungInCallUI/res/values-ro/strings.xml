@@ -119,6 +119,8 @@
     <string name="BirthDay_remainedDays1">Zi de naștere mâine</string>
     <string name="BirthDay_remainedDays7">Zi naștere peste 1 săpt.</string>
     <string name="BirthDay_remainedDaysEtc">Zi naștere peste %d zile</string>
+    <string name="DivertToVoice_disable">Apelurile video nu sunt disponibile pentru acest număr. În schimb, încercați apelul vocal?</string>
+    <string name="DivertToVoice_enable">Apelurile video nu sunt disponibile pentru acest număr. Se comută la apelul vocal…</string>
     <string name="Lunar_anniversary_passedDays1">Aniversare lunară ieri</string>
     <string name="Lunar_anniversary_remainedDays0">Aniv. lunară astăzi</string>
     <string name="Lunar_anniversary_remainedDays1">Aniv. lunară mâine</string>
@@ -300,8 +302,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="imLabelsGroup">Cont IM</string>
     <string name="inCallLabel_Sec">Apel</string>
     <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
+    <string name="incall_decline_other_secondary_device">Other secondary device in use.</string>
+    <string name="incall_decline_service_not_allowed">Service not allowed in this location.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">All available lines for (MDN) are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">All available lines for %s are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
+    <string name="incall_decline_transferred_to_another_device">Call has been transferred to another device.</string>
     <string name="incall_error_supp_service_switch">Imposibil de comutat între apeluri</string>
     <string name="incall_extra_volume_disabled_BT">Nu se poate utiliza intervalul de volum suplimentar când casca Bluetooth este conectată.</string>
     <string name="incall_extra_volume_disabled_HAC">Nu se poate activa Volumul suplimentar când sunt activate Protezele auditive.</string>
@@ -460,11 +465,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="kt_nomal_quality_video_call_3g">Pentru acest apel este disponibilă numai calitatea normală. Dispozitivul celeilalte părți este restricționat la rețeaua 3G.</string>
     <string name="label_notes">Note</string>
     <string name="label_sip_address">Apel Internet</string>
-    <string name="legal_popup_content">"Having trouble using time-consuming voice response call centers? IVR(Interactive Voice Response) call screen menu provides the perfect environment to use call centers by displaying the service menu on your screen.
+    <string name="legal_popup_content">"Aveți probleme atunci când folosiți centrele de relații cu clienții cu răspuns vocal care necesită mult timp? Meniul ecranului de apel IVR (Răspuns vocal interactiv) furnizează mediul perfect pentru utilizarea centrelor de relații cu clienții prin afișarea meniului pentru serviciu pe ecranul dvs.
 
-IVR call screen menu uses contents provided by a third party service provider called Dianhuabang. By using IVR call screen menu, you agree to Dianhuabang’s %1$sTerms and Conditions%2$s."</string>
+Meniul ecranului de apel IVR utilizează conținuturile furnizate de un furnizor de servicii terț numit Dianhuabang. Prin utilizarea meniului ecranului de apel IVR, sunteți de acord cu %1$sTermenii și condițiile%2$s Dianhuabang."</string>
     <string name="legal_popup_terms_conditions">Termeni şi condiţii</string>
-    <string name="legal_pupup_title">Legal information</string>
+    <string name="legal_pupup_title">Informații juridice</string>
     <string name="lock_screen_during_call_double_tab">Atingeți de două ori pentru deblocare</string>
     <string name="long_click_guide">Atingeți lung pentru a porni/opri.</string>
     <string name="low_batt_upgrade_disallowed">Nu se poate comuta la apelul video. Baterie descărcată.</string>
@@ -521,6 +526,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="outgoing_img_video">Videoclipuri</string>
     <string name="payphone_sbm">Telefon public</string>
     <string name="phoneLabelsGroup">Telefon</string>
+    <string name="phone_voice_recording_failed_by_secure_call">Nu se poate înregistra apelul securizat.</string>
     <string name="phonetype_additional">Număr suplimentar</string>
     <string name="photoring_block_toast">Contactul nu vă poate trimite conținut media prin apelul foto.</string>
     <string name="photoring_toast_mobile_data_off">Este posibil să existe conținut de Apel foto trimis de cealaltă parte, pe care nu îl puteți vedea, deoarece accesul la datele mobile este blocat.</string>
@@ -563,8 +569,13 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="recently_use_sim_for_callback">Cartelă SIM util. recent</string>
     <string name="record_notification_button_text_close">Închide</string>
     <string name="record_notification_button_text_record_list">Înregistrări</string>
+    <string name="record_notification_button_text_storage">Stocare</string>
     <string name="record_notification_content">Atingeți ÎNREGISTRĂRI pt. a vizualiza apelurile înregistrate.</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">Sp. de stocare al disp. este plin. A fost salvată o înreg. parțială a apelului.</string>
+    <string name="record_notification_content_unable_to_record">Sp. din mem. disp. este insuficient. Ștergeți câteva fișiere și încercați din nou.</string>
     <string name="record_notification_title">Apel înregistrat</string>
+    <string name="record_notification_title_not_to_record_entire_call">Nu a fost înregistrat întregul apel</string>
+    <string name="record_notification_title_unable_to_record">Nu se poate înregistra apelul</string>
     <string name="record_text">Înregistrare</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -572,7 +583,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="reject_call_with_msg">Respingere apel cu mesaj</string>
     <string name="reject_call_with_msg_content_description_close">Glisați în jos pentru a închide lista.</string>
     <string name="reject_call_with_msg_content_description_open">Glisați în sus pentru a deschide lista.</string>
-    <string name="reject_call_with_msg_content_item_description">Atingeţi de două ori pentru a trimite mesajul.</string>
+    <string name="reject_call_with_msg_content_item_description">Atingeți de două ori pentru a trimite mesajul.</string>
     <string name="reject_call_with_msg_tts">Respingere apel cu mesaj</string>
     <string name="rejected_call_notification_action_reminder">Setare memento</string>
     <string name="rejected_call_notification_title">Apel respins</string>
@@ -679,6 +690,7 @@ Camera"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">Atingeți de două ori pentru a deschide lista.</string>
     <string name="sec_showme_text">Afișare</string>
     <string name="second_screen_hold_text">%d în așt.</string>
+    <string name="section_contacts_only_summary">Create and manage contacts.</string>
     <string name="select_callback_sim_card">Selectare cartelă SIM apelare inversă</string>
     <string name="select_callback_sim_card_content">Cel mai recent apel sau mesaj de la sau către acest număr nu a utilizat cartela SIM preferată pentru apeluri. Selectați cartela SIM pe care doriți să o utilizați.</string>
     <string name="select_from_gallery">Selectare din Galerie</string>

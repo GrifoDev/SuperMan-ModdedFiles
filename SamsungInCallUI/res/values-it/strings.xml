@@ -119,6 +119,8 @@
     <string name="BirthDay_remainedDays1">Compleanno domani</string>
     <string name="BirthDay_remainedDays7">Compleanno tra 1 sett.</string>
     <string name="BirthDay_remainedDaysEtc">Compleanno tra %d giorni</string>
+    <string name="DivertToVoice_disable">Videochiamate non disponibili per questo numero. Provare a effettuare una chiamata vocale?</string>
+    <string name="DivertToVoice_enable">Videochiamate non disponibili per questo numero. Passaggio alla chiamata vocale in corso…</string>
     <string name="Lunar_anniversary_passedDays1">Anniversario lunare ieri</string>
     <string name="Lunar_anniversary_remainedDays0">Annivers. lunare: oggi</string>
     <string name="Lunar_anniversary_remainedDays1">Anniv. lunare: domani</string>
@@ -300,8 +302,11 @@ Questa videochiamata sta adesso utilizzando i dati e la connessione dati verrà 
     <string name="imLabelsGroup">Account Instant Messenger</string>
     <string name="inCallLabel_Sec">Chiamata</string>
     <string name="incall_decline_emergency_wifi_not_allow">Le chiamate di emergenza sulla rete Wi-Fi non sono consentite in questa posizione.</string>
+    <string name="incall_decline_other_secondary_device">Altro dispositivo secondario in uso.</string>
+    <string name="incall_decline_service_not_allowed">Servizio non consentito in questa posizione.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">Tutte le linee per (MDN) sono in uso. Per effettuare una chiamata, terminare una chiamata sul telefono cellulare o sul tablet.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">Tutte le linee disponibili per %s sono in uso. Per effettuare una chiamata, terminate una delle chiamate sul telefono cellulare o sul tablet.</string>
+    <string name="incall_decline_transferred_to_another_device">La chiamata è stata trasferita su un altro dispositivo.</string>
     <string name="incall_error_supp_service_switch">Impossibile passare da una chiamata all`altra.</string>
     <string name="incall_extra_volume_disabled_BT">"Impossibile utilizzare l'intervallo di volume aggiuntivo quando l'auricolare Bluetooth è connesso."</string>
     <string name="incall_extra_volume_disabled_HAC">Impossibile attivare Volume aggiuntivo se gli apparecchi acustici sono attivati.</string>
@@ -521,6 +526,7 @@ Il menu a schermo della chiamata IVR utilizza contenuti forniti da un fornitore 
     <string name="outgoing_img_video">Video</string>
     <string name="payphone_sbm">Telefono a pagamento</string>
     <string name="phoneLabelsGroup">Telefono</string>
+    <string name="phone_voice_recording_failed_by_secure_call">Impossibile registrare la chiamata sicura.</string>
     <string name="phonetype_additional">Numero aggiuntivo</string>
     <string name="photoring_block_toast">"L'invio di contenuti multimediali con Photo Ring da parte di questo contatto è stato bloccato."</string>
     <string name="photoring_toast_mobile_data_off">"Potreste non essere in grado di visualizzare gli eventuali contenuti di Photoring inviati dall'altra parte, perché l'accesso ai dati cellulare è bloccato."</string>
@@ -563,8 +569,13 @@ Il menu a schermo della chiamata IVR utilizza contenuti forniti da un fornitore 
     <string name="recently_use_sim_for_callback">SIM utilizzata di recente</string>
     <string name="record_notification_button_text_close">Chiudi</string>
     <string name="record_notification_button_text_record_list">Registrazioni</string>
+    <string name="record_notification_button_text_storage">Memoria</string>
     <string name="record_notification_content">Toccate REGISTRAZIONI per vedere le chiamate registrate.</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">Memoria dispositivo piena. Registrazione parziale della chiamata salvata.</string>
+    <string name="record_notification_content_unable_to_record">Spazio nella memoria del dispositivo insufficiente. Eliminate dei file e riprovate.</string>
     <string name="record_notification_title">Chiamata registrata</string>
+    <string name="record_notification_title_not_to_record_entire_call">Chiamata intera non registrata</string>
+    <string name="record_notification_title_unable_to_record">Impossibile registrare chiamata</string>
     <string name="record_text">REG</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -679,6 +690,7 @@ a 1 via"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">"Toccate due volte per aprire l'elenco."</string>
     <string name="sec_showme_text">Mostra</string>
     <string name="second_screen_hold_text">%d in att.</string>
+    <string name="section_contacts_only_summary">Create e gestite i contatti.</string>
     <string name="select_callback_sim_card">Seleziona scheda SIM per richiamata</string>
     <string name="select_callback_sim_card_content">"Per l'ultima chiamata o l'ultimo messaggio per o da questo numero non è stata utilizzata la scheda SIM preferita per le chiamate. Selezionate la scheda SIM da utilizzare."</string>
     <string name="select_from_gallery">Seleziona da Galleria</string>

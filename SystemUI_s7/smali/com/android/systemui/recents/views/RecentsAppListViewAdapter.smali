@@ -161,7 +161,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0f05da
+    const v1, 0x7f0f05db
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -175,7 +175,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0f05db
+    const v1, 0x7f0f05dc
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -582,7 +582,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v3, 0x7f040114
+    const v3, 0x7f040116
 
     invoke-virtual {v2, v3, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -598,7 +598,7 @@
     :pswitch_0
     iget-object v2, p0, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v3, 0x7f040116
+    const v3, 0x7f040118
 
     invoke-virtual {v2, v3, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -613,7 +613,7 @@
     :pswitch_1
     iget-object v2, p0, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v3, 0x7f040115
+    const v3, 0x7f040117
 
     invoke-virtual {v2, v3, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 

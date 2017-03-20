@@ -92,6 +92,8 @@
     <string name="BirthDay_remainedDays1">Sünnipäev on homme</string>
     <string name="BirthDay_remainedDays7">Sünnipäev 1 nädala pärast</string>
     <string name="BirthDay_remainedDaysEtc">Sünnipäev %d päeva pärast</string>
+    <string name="DivertToVoice_disable">Videokõned pole selle numbri puhul saadaval. Kas proovida hoopis häälkõnet?</string>
+    <string name="DivertToVoice_enable">Videokõned pole selle numbri puhul saadaval. Lülitumine häälkõnele…</string>
     <string name="Lunar_anniversary_passedDays1">Lunaarne aastapäev eile</string>
     <string name="Lunar_anniversary_remainedDays0">Lun. aastap. täna</string>
     <string name="Lunar_anniversary_remainedDays1">Lun. aastap. homme</string>
@@ -118,7 +120,7 @@
     <string name="add_reminder">Lisa meeld.</string>
     <string name="agree">Nõustu</string>
     <string name="am_cover_toggle_string">Avage kaas, et vastata või keelduda.</string>
-    <string name="am_device_memory_full_warning">Unable to use Auto answer with message. There is not enough space in your device storage to save voice messages. Delete some items and try again.</string>
+    <string name="am_device_memory_full_warning">Automaatset sõnumiga vastamist ei saa kasutada. Häälsõnumi salvestamiseks pole teie seadme mälus piisavalt ruumi. Kustutage mõned üksused ja proovige uuesti.</string>
     <string name="another_device_pickup_message">Another device picked up this call.</string>
     <string name="answering_memo_Playing_text">Vastamise sõnumi esitamine…</string>
     <string name="answering_memo_Recording_text">Sõnumi salvestamine…</string>
@@ -133,8 +135,8 @@
     <string name="call_drug_up_panel_for_kk">Lohistage nuppu SAADA SÕNUM üles, et saata kiirsõnum ja keelduda saabuvast kõnest.</string>
     <string name="call_drug_up_panel_for_kk_tts">Lohistage kõnest keeldumise sõnumi paneeli ülespoole, et saata saabuvast kõnest keeldumisel kõnest keeldumise sõnumit.</string>
     <string name="call_ended_toast">Kõne on lõpetatud.</string>
-    <string name="call_forwarded_to">Call forwarded to:</string>
-    <string name="call_forwarding_from">Call forwarded from:</string>
+    <string name="call_forwarded_to">Kõne suunatud numbril:</string>
+    <string name="call_forwarding_from">Kõne suunatud numbrilt:</string>
     <string name="call_incoming_voice_call2">Toksake ikooni %s, et vastata kõnele.</string>
     <string name="call_incoming_voice_call2_tts">Kõnele vastamiseks toksake kõnele vastamise nuppu.</string>
     <string name="call_incoming_voice_call3">Toks. val. %s, et kõn. keeld.</string>
@@ -159,20 +161,20 @@
     <string name="call_menu_during_call_list6_tts">Toksake lisahelitugevuse nuppu, et suurendada helitugevust.</string>
     <string name="call_menu_during_call_list7">Toksake ikooni %s, et helistada teisele inimesele ja kaasata teda pooleliolevasse kõnesse.</string>
     <string name="call_menu_during_call_list7_tts">Toksake kõne lisamise nuppu, et helistada teisele inimesele ja lisada teda pooleliolevasse kõnesse.</string>
-    <string name="call_out_duration">Call out duration</string>
+    <string name="call_out_duration">Väljuva kõne kestus</string>
     <string name="call_twophone_one_phone">Algnumber</string>
     <string name="call_twophone_two_phone">Teine number</string>
     <string name="caller_info_card_last_call_log_title">Viimane kõne</string>
     <string name="caller_info_card_last_message_title">Kõige viimane sõnum</string>
     <string name="caller_info_card_memo_title">Kõne ajal loodud memo</string>
-    <string name="callsettings_hold_key_record_calls_notify">Press and hold Hold key to start or stop recording</string>
+    <string name="callsettings_hold_key_record_calls_notify">Salvestamise alustamiseks ja lõpetamiseks vajutage ja hoidke all hoidmisklahvi</string>
     <string name="callsettings_rejectmessage_list1">Vabandust, ma ei saa praegu rääkida. Helista hiljem.</string>
     <string name="callsettings_rejectmessage_list2">Olen koosolekul.</string>
     <string name="callsettings_rejectmessage_list3">Olen tunnis.</string>
     <string name="callsettings_rejectmessage_list4">Olen kinos.</string>
     <string name="callsettings_rejectmessage_list5">Ma sõidan.</string>
-    <string name="camera_off">Camera turned off.</string>
-    <string name="camera_on">Camera turned on.</string>
+    <string name="camera_off">Kaamera on välja lülitatud.</string>
+    <string name="camera_on">Kaamera on sisse lülitatud.</string>
     <string name="camera_security_enter">Turvalisuse poliis piirab kaamera kasutuse.</string>
     <string name="camera_start_failed">Kaamera nurjus.</string>
     <string name="cancel">Tühista</string>
@@ -203,7 +205,7 @@
     <string name="cover_redial_call_image_widget_description">Libistage helistamiseks kahe sõrmega vasakule või paremale.</string>
     <string name="cover_third_call_incoming">Kõnele vastamine lõpetab aktiivse kõne.</string>
     <string name="ctc_full_operator_name">China Telecom</string>
-    <string name="cu_operator_name">China Unicom</string>
+    <string name="cu_operator_name">China unicom</string>
     <string name="current_call_with_held_call">Kone kontaktiga %s jaetakse ootele.</string>
     <string name="data_usage_charge_alert">Video calling requires the use of both data and voice minutes over the mobile network. Charges may apply.</string>
     <string name="data_usage_limit_dialog_continue_call">Continue call</string>
@@ -220,7 +222,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="description_secOnscreenVideoCallText">Videokõne</string>
     <string name="description_secOnscreenViewContactText">Kuva kontaktandmed</string>
     <string name="device_info_not_available">Pole saadaval</string>
-    <string name="dial_warning">Unable to dial.</string>
+    <string name="dial_warning">Ei saa valida.</string>
     <string name="dialling_video_call">Videokõne valimine</string>
     <string name="dialpad_2_sub_letters">ABC</string>
     <string name="dialpad_3_sub_letters">DEF</string>
@@ -273,8 +275,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="imLabelsGroup">IM-konto</string>
     <string name="inCallLabel_Sec">Kõne</string>
     <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
+    <string name="incall_decline_other_secondary_device">Other secondary device in use.</string>
+    <string name="incall_decline_service_not_allowed">Service not allowed in this location.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">All available lines for (MDN) are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">All available lines for %s are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
+    <string name="incall_decline_transferred_to_another_device">Call has been transferred to another device.</string>
     <string name="incall_error_supp_service_switch">Kõnesid ei saa vahetada.</string>
     <string name="incall_extra_volume_disabled_BT">Lisahelitugevuse ulatust ei saa kasutada, kui BT-peakomplekt on ühendatud.</string>
     <string name="incall_extra_volume_disabled_HAC">Lisahelitugevust ei saa aktiveerida, kui kuuldeaparaat on aktiveeritud.</string>
@@ -285,7 +290,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="incall_popup_call_remove_title_vzw">Hide shortcut</string>
     <string name="incall_popup_ended">Lõp.-tud</string>
     <string name="incall_spam_call_block">Blokeeri number</string>
-    <string name="incall_spam_call_reject">Add to Black list</string>
+    <string name="incall_spam_call_reject">Lisa musta nimekirja</string>
     <string name="incall_spam_call_reject_toast">Telefoninumber lisati blokeeritute loendisse.</string>
     <string name="incall_spam_call_report">Teavita numbrist</string>
     <string name="incall_transfer_call">Kõne edastamine</string>
@@ -433,11 +438,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="kt_nomal_quality_video_call_3g">Kõne puhul on saadaval ainult tavaline kvaliteet. Teise osapoole seade on piiratud 3G-võrku.</string>
     <string name="label_notes">Märkused</string>
     <string name="label_sip_address">Internetikõne</string>
-    <string name="legal_popup_content">"Having trouble using time-consuming voice response call centers? IVR(Interactive Voice Response) call screen menu provides the perfect environment to use call centers by displaying the service menu on your screen.
+    <string name="legal_popup_content">"Kas teil on probleeme ajakulukate häälvastustega kõnekeskustega suhtlemisel? IVR-i (Interactive Voice Response – Interaktiivne kõnevastus) kõnekuva menüü pakub täiuslikku keskkonda kõnekeskuste kasutamiseks, kuvades teie ekraanil teenuse menüü.
 
-IVR call screen menu uses contents provided by a third party service provider called Dianhuabang. By using IVR call screen menu, you agree to Dianhuabang’s %1$sTerms and Conditions%2$s."</string>
+IVR-i kõnekuvamenüü kasutab muu osapoole teenusepakkuja Dianhuabang pakutavat sisu. IVR-i kõnekuvamenüüd kasutades nõustute Dianhuabangi %1$stingimustega%2$s."</string>
     <string name="legal_popup_terms_conditions">Tingimused</string>
-    <string name="legal_pupup_title">Legal information</string>
+    <string name="legal_pupup_title">Juriidiline teave</string>
     <string name="lock_screen_during_call_double_tab">Toksake kaks korda, et avada</string>
     <string name="long_click_guide">Toksake ja hoidke sõrme nupul, et lülitada sisse/välja</string>
     <string name="low_batt_upgrade_disallowed">Videokõnele ei saa lülituda. Aku on tühi.</string>
@@ -454,7 +459,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="memory_full_msg">Mälu pole piisavalt</string>
     <string name="message_greeting">Tervitus</string>
     <string name="modify_to_video_start">Videokõnele lülitumise taotlemine…</string>
-    <string name="modify_to_voice_start">Switching to voice call…</string>
+    <string name="modify_to_voice_start">Lülitumine häälkõnele…</string>
     <string name="msg_for_video_show_never_again">Mõningaid failivorminguid ei toetata. Galeriis näidatakse ainult toetatud faile.</string>
     <string name="mt_vt_not_possible">%s cannot receive video calls at this time. You will now be connected through a voice call.</string>
     <string name="nameLabelsGroup">Nimi</string>
@@ -471,7 +476,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="name_suffix">Nime järelliide</string>
     <string name="network_message_no_answer">Ei vasta</string>
     <string name="nicknameLabelsGroup">Hüüdnimi</string>
-    <string name="not_enable_to_video">Video calls are not available while Emergency mode is enabled.</string>
+    <string name="not_enable_to_video">Videokõned pole saadaval, kui hädaabirežiim on aktiveeritud.</string>
     <string name="not_enable_to_video_emergencymode">Videokõnesid ei saa teha ega vastu võtta, kui aktiveeritud on hädaabirežiim.</string>
     <string name="notification_action_answer">Vasta</string>
     <string name="notification_of_sub_number_empty_body">Alternatiivsete numbrite kuvamiseks tellige SIM-kaardi mitmiknumbri teenus ja proovige uuesti.</string>
@@ -481,7 +486,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="onscreenBluetoothTextOn_att">Lülita telefonile</string>
     <string name="onscreenBluetoothTextOn_tmo">Lülita telefonile</string>
     <string name="onscreenWebexText">WebEx</string>
-    <string name="open_folder_for_speakeroff">To turn off the speakerphone, open the flip phone.</string>
+    <string name="open_folder_for_speakeroff">Valjuhääldi väljalülitamiseks avage telefoni klapp.</string>
     <string name="open_the_cover">Avage klapp.</string>
     <string name="open_the_cover_incoming">Avage kaas, et vastata videokõnele või sellest keelduda.</string>
     <string name="open_the_cover_modify_call">Teine osapool soovib lülituda videokõnele. Avage kaas, et nõustuda taotlusega või sellest keelduda.</string>
@@ -494,6 +499,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="outgoing_img_video">Videod</string>
     <string name="payphone_sbm">Taksofon</string>
     <string name="phoneLabelsGroup">Telefon</string>
+    <string name="phone_voice_recording_failed_by_secure_call">Turvalist kõnet ei saa salvestada.</string>
     <string name="phonetype_additional">Lisanumber</string>
     <string name="photoring_block_toast">Kontakti poolt fotoringi kaudu saadetav meedium on blokeeritud.</string>
     <string name="photoring_toast_mobile_data_off">Teine osapool võib olla saatnud teenuse Photoring sisu, kuid te ei näe seda, kuna mobiilse andmeside juurdepääs on blokeeritud.</string>
@@ -511,7 +517,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="prepareOtherVideo">Videopildi ettevalmistamine…</string>
     <string name="previous_call_is_held_when_you_accept_call">Aktiivne kone pannakse ootele, kui vastate uuele konele.</string>
     <string name="private_num_cdma">Piiratud</string>
-    <string name="private_num_sbm">Withheld number</string>
+    <string name="private_num_sbm">Varjatud number</string>
     <string name="quick_panel_title_video_call">Videokõne</string>
     <string name="quick_panel_title_voice_call">Häälkõne</string>
     <string name="quick_panel_title_volte_call">VoLTE kõne</string>
@@ -536,8 +542,13 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="recently_use_sim_for_callback">Hiljuti kasutatud SIM</string>
     <string name="record_notification_button_text_close">Sulge</string>
     <string name="record_notification_button_text_record_list">Salvestised</string>
+    <string name="record_notification_button_text_storage">Hoiundamine</string>
     <string name="record_notification_content">Toksake valikut SALVESTISED, et vaadata salvestatud kõnesid.</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">Teie seadme mälu on täis. Kõnest salvestati osa.</string>
+    <string name="record_notification_content_unable_to_record">Teie seadme mälus pole piisavalt ruumi. Kustutage mõned failid ja proovige uuesti.</string>
     <string name="record_notification_title">Kõne on salvestatud</string>
+    <string name="record_notification_title_not_to_record_entire_call">Kogu kõnet ei salvestatud</string>
+    <string name="record_notification_title_unable_to_record">Kõnet ei saa salvestada</string>
     <string name="record_text">Salv.</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -611,7 +622,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="secOnscreenMenuSwitchToPhoneText_tmo">Lülita telefonile</string>
     <string name="secOnscreenMenuSwitchToVideoCallText">Lülitu ümber videokõnele</string>
     <string name="secOnscreenMenuSwitchToVoiceCallText">Lülitu häälkõnele</string>
-    <string name="secOnscreenMenuSwitchVideoDisplay">Switch video displays</string>
+    <string name="secOnscreenMenuSwitchVideoDisplay">Vaheta videokuvasid</string>
     <string name="secOnscreenMenuUnmuteText">Taasta heli</string>
     <string name="secOnscreenMenuVideoConfCallText">Kutsu uus osaleja</string>
     <string name="secOnscreenMenuViewInFullScreenText">Kuva täisekraanil</string>
@@ -652,6 +663,7 @@ Camera"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">Toksake kaks korda, et avada loendit.</string>
     <string name="sec_showme_text">Näita mind</string>
     <string name="second_screen_hold_text">%d ootel</string>
+    <string name="section_contacts_only_summary">Create and manage contacts.</string>
     <string name="select_callback_sim_card">Tagasihelistuse SIM-kaardi valimine</string>
     <string name="select_callback_sim_card_content">Viimane kõne või sõnum sellele numbrile või sellelt numbrilt ei kasutanud kõnede jaoks eelistatud SIM-kaarti. Valige, millist SIM-kaarti kasutada.</string>
     <string name="select_from_gallery">Vali galeriist</string>
@@ -691,12 +703,12 @@ Camera"</string>
     <string name="spam_call_report_dialog_spam">Rämps</string>
     <string name="spam_call_report_dialog_taxis">Taksod</string>
     <string name="spam_call_reported_as">Teavitatud kui %s</string>
-    <string name="spam_call_resported_as_by_you">Reported as %s by you</string>
+    <string name="spam_call_resported_as_by_you">Teavitasite kui %s</string>
     <string name="spam_call_resported_count">(%d korda)</string>
-    <string name="spam_call_type_and_count">Reported as %1$s %2$d times</string>
+    <string name="spam_call_type_and_count">Teavitatud kui %1$s %2$d korda</string>
     <string name="sub_number_item">Alternatiiv %d</string>
-    <string name="suguden_guide_do_not_show_again_dcm">Do not show again</string>
-    <string name="suguden_guide_main_text_dcm">Answer the call by bringing the device close to your ear.</string>
+    <string name="suguden_guide_do_not_show_again_dcm">Ära näita enam</string>
+    <string name="suguden_guide_main_text_dcm">Kõnele vastamiseks tooge seade kõrva lähedale.</string>
     <string name="swipe_left">Libist. vasakule.</string>
     <string name="swipe_right">Libist. paremale.</string>
     <string name="swipe_right_to_answer_call_with_video">Libistage paremale, et vastata kõnele koos videoga.</string>
@@ -787,5 +799,5 @@ Your video call is now running on the mobile network. (Data usage applies if you
     <string name="waiting_call_dialog_dismiss_toast">%1$s lõpetas kõne. Kõne taastamine kontaktiga %2$s…</string>
     <string name="waiting_call_dialog_message">Vasta kõnele</string>
     <string name="websiteLabelsGroup">Veebiaadress</string>
-    <string name="yellow_pages">Yellow Pages</string>
+    <string name="yellow_pages">Kollased leheküljed</string>
 </resources>

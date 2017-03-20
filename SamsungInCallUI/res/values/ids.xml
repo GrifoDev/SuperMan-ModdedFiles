@@ -763,6 +763,7 @@
     <item type="id" name="slash">false</item>
     <item type="id" name="mk_cityid">false</item>
     <item type="id" name="carrierImage">false</item>
+    <item type="id" name="labelAndNumber_dummy">false</item>
     <item type="id" name="thirdPriority_layout">false</item>
     <item type="id" name="smart_call_info">false</item>
     <item type="id" name="smart_call_status_message_stub">false</item>
@@ -1010,6 +1011,7 @@
     <item type="id" name="extraPlannerButton">false</item>
     <item type="id" name="extraMemoButton">false</item>
     <item type="id" name="callPlusImageMap_incall_popup">false</item>
+    <item type="id" name="crane_popup_close_icon">false</item>
     <item type="id" name="callPlusMap_incall_popup">false</item>
     <item type="id" name="call_plus_address_popup">false</item>
     <item type="id" name="primary_call_info_banner_container">false</item>

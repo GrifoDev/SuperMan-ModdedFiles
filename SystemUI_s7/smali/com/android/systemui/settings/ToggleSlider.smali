@@ -297,7 +297,7 @@
 
     iput-object p1, p0, Lcom/android/systemui/settings/ToggleSlider;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f040143
+    const v3, 0x7f040145
 
     invoke-static {p1, v3, p0}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
 

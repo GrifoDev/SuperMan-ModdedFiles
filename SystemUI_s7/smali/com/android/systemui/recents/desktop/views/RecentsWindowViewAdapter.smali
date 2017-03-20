@@ -647,7 +647,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f04012c
+    const v3, 0x7f04012e
 
     const/4 v4, 0x0
 

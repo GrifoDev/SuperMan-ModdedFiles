@@ -92,6 +92,8 @@
     <string name="BirthDay_remainedDays1">Aniversário amanhã</string>
     <string name="BirthDay_remainedDays7">Aniversário em 1 semana</string>
     <string name="BirthDay_remainedDaysEtc">Aniversário em %d dias</string>
+    <string name="DivertToVoice_disable">Videochamadas indisponíveis para este número. Tentar chamada de voz agora?</string>
+    <string name="DivertToVoice_enable">Videochamadas indisponíveis para este número. Alterando para chamada de voz…</string>
     <string name="Lunar_anniversary_passedDays1">Aniversário lunar ontem</string>
     <string name="Lunar_anniversary_remainedDays0">Aniv. lunar: hoje</string>
     <string name="Lunar_anniversary_remainedDays1">Aniv. lunar: amanhã</string>
@@ -273,8 +275,11 @@ Agora esta videochamada está usando dados, e os Dados móveis serão desativado
     <string name="imLabelsGroup">Conta de IM</string>
     <string name="inCallLabel_Sec">Chamadas</string>
     <string name="incall_decline_emergency_wifi_not_allow">Chamadas de emergência por Wi-Fi não permitidas nesta localização.</string>
+    <string name="incall_decline_other_secondary_device">Outro aparelho secundário está em uso.</string>
+    <string name="incall_decline_service_not_allowed">Serviço não permitido nesta localização.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">Todas as linhas disponíveis para (MDN) estão em uso. Para fazer uma chamada, desligue uma das chamadas no seu telefone celular ou tablet.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">Todas as linhas disponíveis para %s estão em uso. Para fazer uma chamada, desligue uma das chamadas no seu telefone celular ou tablet.</string>
+    <string name="incall_decline_transferred_to_another_device">A chamada foi transferida para outro aparelho.</string>
     <string name="incall_error_supp_service_switch">Impossível alternar chamadas.</string>
     <string name="incall_extra_volume_disabled_BT">Não é possível usar a variação de volume extra enquanto os fones Bluetooth estão conectados.</string>
     <string name="incall_extra_volume_disabled_HAC">Não é possível ativar o Volume adicional enquanto o aparelho auditivo está ativado.</string>
@@ -433,11 +438,11 @@ Agora esta videochamada está usando dados, e os Dados móveis serão desativado
     <string name="kt_nomal_quality_video_call_3g">Somente a qualidade normal está disponível para a chamada. O aparelho da outra parte está restrito à rede 3G.</string>
     <string name="label_notes">Notas</string>
     <string name="label_sip_address">Chamada de Internet</string>
-    <string name="legal_popup_content">"Having trouble using time-consuming voice response call centers? IVR(Interactive Voice Response) call screen menu provides the perfect environment to use call centers by displaying the service menu on your screen.
+    <string name="legal_popup_content">"Problemas ao usar os demorados call centers de resposta de voz? O menu da tela de chamada IVR (Interactive Voice Response) fornece o ambiente perfeito para usar call centers exibindo o menu de serviço na tela.
 
-IVR call screen menu uses contents provided by a third party service provider called Dianhuabang. By using IVR call screen menu, you agree to Dianhuabang’s %1$sTerms and Conditions%2$s."</string>
+Esse recurso usa conteúdos fornecidos por uma operadora de terceiros chamada Dianhuabang. Ao usar o menu da tela de chamada IVR, você concorda com os %1$sTermos e Condições%2$s da Dianhuabang."</string>
     <string name="legal_popup_terms_conditions">Termos e Condições</string>
-    <string name="legal_pupup_title">Legal information</string>
+    <string name="legal_pupup_title">Informações legais</string>
     <string name="lock_screen_during_call_double_tab">Toque duas vezes para desbloquear</string>
     <string name="long_click_guide">Mantenha pressionado para ligar ou desligar.</string>
     <string name="low_batt_upgrade_disallowed">Não é possível alterar para chamada de vídeo. Bateria fraca.</string>
@@ -494,6 +499,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="outgoing_img_video">Vídeos</string>
     <string name="payphone_sbm">Telefone pago</string>
     <string name="phoneLabelsGroup">Telefone</string>
+    <string name="phone_voice_recording_failed_by_secure_call">Não é possível gravar a chamada segura.</string>
     <string name="phonetype_additional">Número adicional</string>
     <string name="photoring_block_toast">Contato bloqueado para envio de mídia para você via círculo de fotos.</string>
     <string name="photoring_toast_mobile_data_off">Pode existir conteúdo do Photoring enviado pelo outro participante que você não pode ver porque o acesso aos dados móveis está bloqueado.</string>
@@ -536,8 +542,13 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="recently_use_sim_for_callback">Chip usado recentemente</string>
     <string name="record_notification_button_text_close">Fechar</string>
     <string name="record_notification_button_text_record_list">Gravações</string>
+    <string name="record_notification_button_text_storage">Armazenamento</string>
     <string name="record_notification_content">Toque em GRAVAÇÕES para exibir suas chamadas gravadas.</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">O armazenam. do aparelho está cheio. Uma gravação parcial da chamada foi salva.</string>
+    <string name="record_notification_content_unable_to_record">Sem espaço no armazenamento do aparelho. Exclua alguns arquivos e tente novamente.</string>
     <string name="record_notification_title">Chamada gravada</string>
+    <string name="record_notification_title_not_to_record_entire_call">Não foi possível gravar a chamada inteira</string>
+    <string name="record_notification_title_unable_to_record">Não foi possível gravar a chamada</string>
     <string name="record_text">GRAVAR</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -616,7 +627,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="secOnscreenMenuVideoConfCallText">Convidar novo participante</string>
     <string name="secOnscreenMenuViewInFullScreenText">Exibir em tela inteira</string>
     <string name="secOnscreenMenuViewInOriginalSizeText">Exibir no tamanho original</string>
-    <string name="secOnscreenMergeText">Unir</string>
+    <string name="secOnscreenMergeText">Combinar</string>
     <string name="secOnscreenMessageText">Msg.</string>
     <string name="secOnscreenMinimiseWindowText">Minimizar janela</string>
     <string name="secOnscreenMoreButton">Mais</string>
@@ -652,6 +663,7 @@ unidirec."</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">Toque duas vezes para abrir a lista.</string>
     <string name="sec_showme_text">Exibir</string>
     <string name="second_screen_hold_text">%d espera</string>
+    <string name="section_contacts_only_summary">Crie e gerencie contatos.</string>
     <string name="select_callback_sim_card">Selecionar chip de retorno de chamada</string>
     <string name="select_callback_sim_card_content">A última chamada ou mensagem para/deste número não usou o chip preferencial para as chamadas. Selecione qual chip será usado.</string>
     <string name="select_from_gallery">Selecionar da Galeria</string>

@@ -92,6 +92,8 @@
     <string name="BirthDay_remainedDays1">Ertaga tug‘ilgan kun</string>
     <string name="BirthDay_remainedDays7">Tug‘ilgan 1 haftada</string>
     <string name="BirthDay_remainedDaysEtc">Tug‘ilgan kun %d kunda</string>
+    <string name="DivertToVoice_disable">Ushbu raqam uchun video qo‘ng‘iroqlardan foydalanib bo‘lmaydi. Uning o‘rniga ovozli qo‘ng‘iroqdan foydalanilsinmi?</string>
+    <string name="DivertToVoice_enable">Ushbu raqam uchun video qo‘ng‘iroqlardan foydalanib bo‘lmaydi. Ovozli qo‘ng‘iroqqa o‘tilmoqda…</string>
     <string name="Lunar_anniversary_passedDays1">Oy kal. yubil. kecha</string>
     <string name="Lunar_anniversary_remainedDays0">Yubiley. Bugun</string>
     <string name="Lunar_anniversary_remainedDays1">Yubiley. Ertaga</string>
@@ -118,7 +120,7 @@
     <string name="add_reminder">Eslat. qo‘sh</string>
     <string name="agree">Roziman</string>
     <string name="am_cover_toggle_string">Qo‘ng‘. jav.ber yoki rad et. u-n qopq. och.</string>
-    <string name="am_device_memory_full_warning">Unable to use Auto answer with message. There is not enough space in your device storage to save voice messages. Delete some items and try again.</string>
+    <string name="am_device_memory_full_warning">Xabar bilan avtomatik javob berish funksiyasidan foydalanib bo‘lmaydi. Ovozli xabarlarni saqlash uchun qurilmada yetarli joy yo‘q. Ba’zi fayllarni o‘chiring va qayta urinib ko‘ring.</string>
     <string name="another_device_pickup_message">Another device picked up this call.</string>
     <string name="answering_memo_Playing_text">Javob xabari o‘ynatilmoqda…</string>
     <string name="answering_memo_Recording_text">Xabar yozib olinmoqda…</string>
@@ -133,8 +135,8 @@
     <string name="call_drug_up_panel_for_kk">Tezkor xbr yubor. va kiruvchi qo‘n-ni rad etish u-n XABAR YUBORISH tgm. yuqoriga suring.</string>
     <string name="call_drug_up_panel_for_kk_tts">Kiruvchi qo‘ng‘iroqni rad etganingizda qo‘ng‘iroqni rad etish xabarini yuborish uchun xabar bilan rad etish panelini yuqoriga suring.</string>
     <string name="call_ended_toast">Qo‘ng‘iroq yakunlandi.</string>
-    <string name="call_forwarded_to">Call forwarded to:</string>
-    <string name="call_forwarding_from">Call forwarded from:</string>
+    <string name="call_forwarded_to">Qo‘ng‘iroq quyidagiga yo‘naltirildi:</string>
+    <string name="call_forwarding_from">Qo‘ng‘iroq quyidagidan yo‘naltirildi:</string>
     <string name="call_incoming_voice_call2">Qo‘ngiroqqa javob berish uchun %sga teging.</string>
     <string name="call_incoming_voice_call2_tts">Qo‘ng‘iroqqa javob berish uchun qo‘ng‘iroqqa javob berish tugmasiga teging.</string>
     <string name="call_incoming_voice_call3">Qo‘n. rad etish u-n %s’ga teg.</string>
@@ -159,20 +161,20 @@
     <string name="call_menu_during_call_list6_tts">Ovoz balandligini ko‘tarish uchun baland ovoz tugmasiga teging.</string>
     <string name="call_menu_during_call_list7">Boshqa odamga qo‘ng‘iroq qilish va ularni joriy qo‘ng‘iroqqa qo‘shish uchun %sga teging.</string>
     <string name="call_menu_during_call_list7_tts">Boshqa odamga qo‘ng‘iroq qilish va ularni joriy qo‘ng‘iroqqa qo‘shish uchun qo‘ng‘iroq qo‘shish tugmasiga teging.</string>
-    <string name="call_out_duration">Call out duration</string>
+    <string name="call_out_duration">Chaqiruv davomiyligi</string>
     <string name="call_twophone_one_phone">Haqiqiy raqam</string>
     <string name="call_twophone_two_phone">Ikkinchi raqami</string>
     <string name="caller_info_card_last_call_log_title">Oxirgi qo‘n-q</string>
     <string name="caller_info_card_last_message_title">Eng oxirgi xabar</string>
     <string name="caller_info_card_memo_title">Yozuv qo‘ng‘iroq vaqtida yaratildi</string>
-    <string name="callsettings_hold_key_record_calls_notify">Press and hold Hold key to start or stop recording</string>
+    <string name="callsettings_hold_key_record_calls_notify">Yozib olishni boshlash yoki to‘xtatish uchun Ushlab turish tugmasini bosib turing</string>
     <string name="callsettings_rejectmessage_list1">Kechirasiz, hozir gaplasha olmayman. Keyin qo‘ng‘iroq qilaman.</string>
     <string name="callsettings_rejectmessage_list2">Men uchrashuvdaman.</string>
     <string name="callsettings_rejectmessage_list3">Men darsdaman.</string>
     <string name="callsettings_rejectmessage_list4">Men kinoteatrdaman.</string>
     <string name="callsettings_rejectmessage_list5">Men ruldaman.</string>
-    <string name="camera_off">Camera turned off.</string>
-    <string name="camera_on">Camera turned on.</string>
+    <string name="camera_off">Kamera o‘chirilgan.</string>
+    <string name="camera_on">Kamera yoqilgan.</string>
     <string name="camera_security_enter">Xavfsizlik qonun-qoidalari Kameradan foydalanishni cheklaydi.</string>
     <string name="camera_start_failed">Kamera xatosi.</string>
     <string name="cancel">Bekor qilish</string>
@@ -191,7 +193,7 @@
     <string name="chat_qq">QQ yordamida suhbatlashish</string>
     <string name="chat_skype">Skype yordamida suhbatlashish</string>
     <string name="chat_yahoo">Yahoo! Messenger yordamida suhbatlashish</string>
-    <string name="chunghwa_operator_name">Chunghwa</string>
+    <string name="chunghwa_operator_name">Chunxva</string>
     <string name="cmcc_operator_name">CMCC</string>
     <string name="conference_maximum_participants_reached">Ishtirokchilar soni ruxsat etilgan maksimal miqdorga (%d) yetdi.</string>
     <string name="conferencing_dialog_Available_for_VoiceCalls">Conferencing is only available for voice calls.</string>
@@ -220,7 +222,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="description_secOnscreenVideoCallText">Video qo‘ng‘iroq</string>
     <string name="description_secOnscreenViewContactText">Kontakt tafsilotlarini ko‘rib chiqish</string>
     <string name="device_info_not_available">Mavjud emas</string>
-    <string name="dial_warning">Unable to dial.</string>
+    <string name="dial_warning">Terib bo‘lmaydi.</string>
     <string name="dialling_video_call">Video qo‘ng‘iroq terilmoqda</string>
     <string name="dialpad_2_sub_letters">ABC</string>
     <string name="dialpad_3_sub_letters">DEF</string>
@@ -273,8 +275,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="imLabelsGroup">IM hisob qaydnomasi</string>
     <string name="inCallLabel_Sec">Qo‘ng‘iroq</string>
     <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
+    <string name="incall_decline_other_secondary_device">Other secondary device in use.</string>
+    <string name="incall_decline_service_not_allowed">Service not allowed in this location.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">All available lines for (MDN) are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">All available lines for %s are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
+    <string name="incall_decline_transferred_to_another_device">Call has been transferred to another device.</string>
     <string name="incall_error_supp_service_switch">Qo‘ng‘iroqlarni almashib bo‘lmaydi.</string>
     <string name="incall_extra_volume_disabled_BT">Bluetooth quloqlik ulanganda, qo‘shimcha ovoz balandligidan foydalanib bo‘lmaydi.</string>
     <string name="incall_extra_volume_disabled_HAC">Eshitish apparatlari yoqilganda, Baland ovozni yoqib bo‘lmaydi.</string>
@@ -285,7 +290,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="incall_popup_call_remove_title_vzw">Hide shortcut</string>
     <string name="incall_popup_ended">Tugadi</string>
     <string name="incall_spam_call_block">Raqamni bloklash</string>
-    <string name="incall_spam_call_reject">Add to Black list</string>
+    <string name="incall_spam_call_reject">Qora ro‘yxatga qo‘shish</string>
     <string name="incall_spam_call_reject_toast">Telefon raqami Bloklash ro‘yxatiga qo‘shildi.</string>
     <string name="incall_spam_call_report">Rqm haqida hsbt</string>
     <string name="incall_transfer_call">Qo‘ng‘iroqni yo‘naltirish</string>
@@ -433,11 +438,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="kt_nomal_quality_video_call_3g">Qo‘ng‘iroq uchun faqat normal sifatdan foydalanish mumkin. Boshqa tomon qurilmasi 3G tarmoqqa cheklangan.</string>
     <string name="label_notes">Eslatmalar</string>
     <string name="label_sip_address">Internet qo‘ng‘irog‘i</string>
-    <string name="legal_popup_content">"Having trouble using time-consuming voice response call centers? IVR(Interactive Voice Response) call screen menu provides the perfect environment to use call centers by displaying the service menu on your screen.
+    <string name="legal_popup_content">"Ovoz bilan javob qaytaradigan chaqiruv markazlari uchun vaqtingiz behuda ketyaptimi? IVR (interaktiv ovozli javob) chaqiruv ekrani menyusi ekraningizga xizmat menyusini joylash orqali sizga chaqiruv markazlaridan ajoyib muhitda foydalanish imkonini beradi.
 
-IVR call screen menu uses contents provided by a third party service provider called Dianhuabang. By using IVR call screen menu, you agree to Dianhuabang’s %1$sTerms and Conditions%2$s."</string>
+IVR chaqiruv ekrani menyusida Dianhuabang deb nomlangan uchinchi tomon xizmat provayderi taqdim etgan kontent ishlatiladi. IVR chaqiruv ekrani menyusidan foydalanish orqali siz Dianhuabang %1$sshartlari va qoidalariga%2$s rozilik bildirgan hisoblanasiz."</string>
     <string name="legal_popup_terms_conditions">Muddat va shartlar</string>
-    <string name="legal_pupup_title">Legal information</string>
+    <string name="legal_pupup_title">Huquqiy ma’lumotlar</string>
     <string name="lock_screen_during_call_double_tab">Blokdan chiqarish uchun ikki marta teging</string>
     <string name="long_click_guide">Yoqish/o‘chirish uchun bosib turing</string>
     <string name="low_batt_upgrade_disallowed">Video qo‘ng‘iroqqa o‘tib bo‘lmaydi. Batareya quvvati kam.</string>
@@ -454,7 +459,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="memory_full_msg">Xotira yetarli emas</string>
     <string name="message_greeting">Salomlashish</string>
     <string name="modify_to_video_start">Video qo‘ng‘iroqqa o‘tish so‘ralmoqda…</string>
-    <string name="modify_to_voice_start">Switching to voice call…</string>
+    <string name="modify_to_voice_start">Ovozli qo‘ng‘iroqqa o‘tilmoqda…</string>
     <string name="msg_for_video_show_never_again">Ba’zi fayl formatlari qo‘llab-quvvatlanmaydi. Galereyada faqatgina qo‘llab-quvvatlanadigan fayllar ko‘rsatiladi.</string>
     <string name="mt_vt_not_possible">%s cannot receive video calls at this time. You will now be connected through a voice call.</string>
     <string name="nameLabelsGroup">Ism</string>
@@ -471,7 +476,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="name_suffix">Ism suffiksi</string>
     <string name="network_message_no_answer">Javob yo‘q</string>
     <string name="nicknameLabelsGroup">Nik</string>
-    <string name="not_enable_to_video">Video calls are not available while Emergency mode is enabled.</string>
+    <string name="not_enable_to_video">Favqulodda rejim yoqilgan paytda video qo‘ng‘iroqlarni amalga oshirib bo‘lmaydi.</string>
     <string name="not_enable_to_video_emergencymode">Favqulodda rejim yoqilgan vaqtda video qo‘ng‘iroqlarni amalga oshirib yoki qabul qilib bo‘lmaydi.</string>
     <string name="notification_action_answer">Javob</string>
     <string name="notification_of_sub_number_empty_body">Muqobil raqamlarni ko‘rib chiqish uchun SIM-karta ko‘p raqam xizmatiga obuna bo‘ling va qayta urinib ko‘ring.</string>
@@ -481,7 +486,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="onscreenBluetoothTextOn_att">Telefonga o‘tish</string>
     <string name="onscreenBluetoothTextOn_tmo">Telefonga o‘tish</string>
     <string name="onscreenWebexText">WebEx</string>
-    <string name="open_folder_for_speakeroff">To turn off the speakerphone, open the flip phone.</string>
+    <string name="open_folder_for_speakeroff">Dinamikni o‘chirish uchun qopqog‘i ochiladigan telefonni oching.</string>
     <string name="open_the_cover">Qopqoqni oching.</string>
     <string name="open_the_cover_incoming">Video qo‘ng‘iroqqa javob berish yoki uni rad etish uchun qopqoqni oching.</string>
     <string name="open_the_cover_modify_call">Qo‘ng‘iroq qilgan tomon video qo‘ng‘iroqqa almashishni xohlamoqda. So‘rovni qabul qilish/rad etish uchun qopqoqni oching</string>
@@ -494,6 +499,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="outgoing_img_video">Videolar</string>
     <string name="payphone_sbm">Pulli telefon</string>
     <string name="phoneLabelsGroup">Telefon</string>
+    <string name="phone_voice_recording_failed_by_secure_call">Xavfsiz qo‘ng‘iroqni yozib olib bo‘lmaydi.</string>
     <string name="phonetype_additional">Qo‘shimcha raqam</string>
     <string name="photoring_block_toast">Kontakt Sizga rasm halqasi orqali media yuborishdan bloklandi.</string>
     <string name="photoring_toast_mobile_data_off">Sizda boshqa tomondan yuborilgan Photoring tarkibiga ega bo‘lishingiz mumkin, chunki mobil ma’lumotga kirish bloklangan.</string>
@@ -511,7 +517,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="prepareOtherVideo">Video tasvirini tayyorlash…</string>
     <string name="previous_call_is_held_when_you_accept_call">Yangi qo‘ng‘iroqni qabul qilganingizda, joriy qo‘ng‘iroq kutish rejimiga qo‘yiladi.</string>
     <string name="private_num_cdma">Cheklangan</string>
-    <string name="private_num_sbm">Withheld number</string>
+    <string name="private_num_sbm">Taqiqlangan raqam</string>
     <string name="quick_panel_title_video_call">Video qo‘ng‘iroq</string>
     <string name="quick_panel_title_voice_call">Ovozli qo‘ng‘iroq</string>
     <string name="quick_panel_title_volte_call">VoLTE qo‘ng‘irog‘i</string>
@@ -536,8 +542,13 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="recently_use_sim_for_callback">Oxirgi ish-gan SIM-karta</string>
     <string name="record_notification_button_text_close">Yopish</string>
     <string name="record_notification_button_text_record_list">Yozuvlar</string>
+    <string name="record_notification_button_text_storage">Xotira</string>
     <string name="record_notification_content">Yozib olingan qo‘n-ni ko‘rish u-n YOZUVLAR tugmasiga teging.</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">Qurilmangiz xotirasi to‘la. Qisman yozib olingan qo‘ng‘iroq saqlandi.</string>
+    <string name="record_notification_content_unable_to_record">Qurilmada yetarli joy mavjud emas. Ba’zi fayllarni o‘chiring va qayta urining.</string>
     <string name="record_notification_title">Qo‘ng‘iroq yozib olindi</string>
+    <string name="record_notification_title_not_to_record_entire_call">Qo‘ng‘iroq to‘liq yozib olinmadi</string>
+    <string name="record_notification_title_unable_to_record">Qo‘ng‘iroqni yozib bo‘lmaydi</string>
     <string name="record_text">OV/YOZ</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -612,7 +623,7 @@ qo‘shish"</string>
     <string name="secOnscreenMenuSwitchToPhoneText_tmo">Telefonga o‘tish</string>
     <string name="secOnscreenMenuSwitchToVideoCallText">Video qo‘ng‘iroqqa o‘tish</string>
     <string name="secOnscreenMenuSwitchToVoiceCallText">Ovoz. qo‘n-qa o‘tish</string>
-    <string name="secOnscreenMenuSwitchVideoDisplay">Switch video displays</string>
+    <string name="secOnscreenMenuSwitchVideoDisplay">Video ekranlarini almashtir</string>
     <string name="secOnscreenMenuUnmuteText">Ovozni yoqish</string>
     <string name="secOnscreenMenuVideoConfCallText">Yangi ishtirokchilarni taklif qilish</string>
     <string name="secOnscreenMenuViewInFullScreenText">To‘liq ekranda ko‘rish</string>
@@ -653,6 +664,7 @@ Camera"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">Ro‘yxatni ochish uchun ikki marta teging.</string>
     <string name="sec_showme_text">Meni ko‘rsatish</string>
     <string name="second_screen_hold_text">%d kutish</string>
+    <string name="section_contacts_only_summary">Create and manage contacts.</string>
     <string name="select_callback_sim_card">Qo‘ng‘iroq qaytariladigan SIM-kartani tanlang</string>
     <string name="select_callback_sim_card_content">Ushbu raqamga yuborilgan yoki undan olingan so‘nggi qo‘ng‘iroq yoki xabar qo‘ng‘iroqlar uchun afzal ko‘rilgan SIM-kartadan foydalanmadi. Foydalanish uchun SIM-karta tanlang.</string>
     <string name="select_from_gallery">Galereyadan tanlash</string>
@@ -692,12 +704,12 @@ Camera"</string>
     <string name="spam_call_report_dialog_spam">Spam</string>
     <string name="spam_call_report_dialog_taxis">Taksilar</string>
     <string name="spam_call_reported_as">%s sifatida xabar berildi</string>
-    <string name="spam_call_resported_as_by_you">Reported as %s by you</string>
+    <string name="spam_call_resported_as_by_you">Siz %s sifatida xabar berdingiz</string>
     <string name="spam_call_resported_count">(%d marta)</string>
-    <string name="spam_call_type_and_count">Reported as %1$s %2$d times</string>
+    <string name="spam_call_type_and_count">%1$s %2$d sifatida xabar berildi</string>
     <string name="sub_number_item">Muqobil %d</string>
-    <string name="suguden_guide_do_not_show_again_dcm">Do not show again</string>
-    <string name="suguden_guide_main_text_dcm">Answer the call by bringing the device close to your ear.</string>
+    <string name="suguden_guide_do_not_show_again_dcm">Boshqa ko‘rsatma</string>
+    <string name="suguden_guide_main_text_dcm">Qurilmani qulog‘ingizga yaqin tutib, qo‘ng‘iroqqa javob bering.</string>
     <string name="swipe_left">Chapga suring.</string>
     <string name="swipe_right">O‘ngga suring.</string>
     <string name="swipe_right_to_answer_call_with_video">Qo‘ng‘iroqqa video bilan javob berish uchun o‘ngga suring.</string>
@@ -788,5 +800,5 @@ Your video call is now running on the mobile network. (Data usage applies if you
     <string name="waiting_call_dialog_dismiss_toast">Qo‘ng‘iroq %1$s tomonidan yakunlandi. %2$s bilan qo‘ng‘iroq tiklanmoqda…</string>
     <string name="waiting_call_dialog_message">Qo‘ng‘iroqqa javob berish</string>
     <string name="websiteLabelsGroup">Veb-manzil</string>
-    <string name="yellow_pages">Yellow Pages</string>
+    <string name="yellow_pages">Sariq sahifalar</string>
 </resources>

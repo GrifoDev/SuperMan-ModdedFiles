@@ -119,6 +119,8 @@
     <string name="BirthDay_remainedDays1">Hat morgen Geburtstag.</string>
     <string name="BirthDay_remainedDays7">Geburtstag in 1 Woche</string>
     <string name="BirthDay_remainedDaysEtc">Geburtstag in %d Tagen</string>
+    <string name="DivertToVoice_disable">Videoanrufe für diese Nummer nicht verfügbar. Jetzt stattdessen Sprachanruf versuchen?</string>
+    <string name="DivertToVoice_enable">Videoanrufe für diese Nummer nicht verfügbar. Wechseln zu Sprachanruf…</string>
     <string name="Lunar_anniversary_passedDays1">Mondkalenderjahrestag war gestern</string>
     <string name="Lunar_anniversary_remainedDays0">Jahrestag Mondkal. heute</string>
     <string name="Lunar_anniversary_remainedDays1">Jahrest. Mondkal. morgen</string>
@@ -300,8 +302,11 @@ Dieser Videoanruf verwendet jetzt Daten und mobile Daten werden ausgeschaltet, s
     <string name="imLabelsGroup">IM-Konto</string>
     <string name="inCallLabel_Sec">Anruf</string>
     <string name="incall_decline_emergency_wifi_not_allow">Notrufe über WLAN sind an diesem Standort nicht erlaubt.</string>
+    <string name="incall_decline_other_secondary_device">Ein anderes Sekundärgerät wird bereits verwendet.</string>
+    <string name="incall_decline_service_not_allowed">Dienst an diesem Standort nicht zulässig.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">Alle verfügbaren Verbindungen für (MDN) werden bereits verwendet. Wenn Sie einen Anruf tätigen möchten, beenden Sie einen der Anrufe auf Ihrem Mobiltelefon oder Tablet.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">Alle verfügbaren Verbindungen für %s werden bereits verwendet. Wenn Sie einen Anruf tätigen möchten, beenden Sie einen der Anrufe auf Ihrem Mobiltelefon oder Tablet.</string>
+    <string name="incall_decline_transferred_to_another_device">Der Anruf wurde zu einem anderen Gerät übertragen.</string>
     <string name="incall_error_supp_service_switch">Wechseln zwischen Anrufen nicht möglich</string>
     <string name="incall_extra_volume_disabled_BT">Zusätzlicher Lautstärkebereich kann nicht verwendet werden, solange ein Bluetooth-Headset verwendet wird</string>
     <string name="incall_extra_volume_disabled_HAC">Wenn Hörgeräte aktiviert sind, kann Extralautstärke nicht aktiviert werden.</string>
@@ -521,6 +526,7 @@ Das Bildschirmmenü für IVR-Anruf nutzt Inhalte eines Drittanbieters namens Dia
     <string name="outgoing_img_video">Videos</string>
     <string name="payphone_sbm">Öffentliches Telefon</string>
     <string name="phoneLabelsGroup">Telefon</string>
+    <string name="phone_voice_recording_failed_by_secure_call">Sicherer Anruf kann nicht aufgenommen werden.</string>
     <string name="phonetype_additional">Zusätzliche Nummer</string>
     <string name="photoring_block_toast">Kontakt für das Senden von Medien an Sie über Foto-Anruf gesperrt.</string>
     <string name="photoring_toast_mobile_data_off">Möglicherweise hat die andere Seite Foto-Anruf-Inhalte gesendet, die Sie nicht sehen können, da der Zugriff auf mobile Daten gesperrt ist.</string>
@@ -563,8 +569,13 @@ Das Bildschirmmenü für IVR-Anruf nutzt Inhalte eines Drittanbieters namens Dia
     <string name="recently_use_sim_for_callback">Kürzlich verwendete SIM</string>
     <string name="record_notification_button_text_close">Schließen</string>
     <string name="record_notification_button_text_record_list">Aufnahmen</string>
+    <string name="record_notification_button_text_storage">Speicher</string>
     <string name="record_notification_content">Tippen Sie zur Anzeige der angenommenen Anrufe auf „AUFNAHMEN“.</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">Ihr Gerätespeicher ist voll. Nur ein Teil des Anrufs wurde aufgenommen.</string>
+    <string name="record_notification_content_unable_to_record">Nicht genügend Gerätespeicher. Löschen Sie Dateien und versuchen Sie es erneut.</string>
     <string name="record_notification_title">Anruf aufgenommen</string>
+    <string name="record_notification_title_not_to_record_entire_call">Keine Aufnahme des gesamten Anrufs</string>
+    <string name="record_notification_title_unable_to_record">Anrufaufnahme nicht möglich</string>
     <string name="record_text">REC</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -679,6 +690,7 @@ Kamera"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">Zweimal tippen, um die Liste zu öffnen.</string>
     <string name="sec_showme_text">Mich anzeigen</string>
     <string name="second_screen_hold_text">%d paus.</string>
+    <string name="section_contacts_only_summary">Kontakte erstellen und verwalten.</string>
     <string name="select_callback_sim_card">Auswahl der Rückruf-SIM-Karte</string>
     <string name="select_callback_sim_card_content">Beim letzten Anruf oder der letzten Nachricht an diese oder von dieser Nummer wurde nicht die bevorzugte SIM-Karte für Anrufe verwendet. Wählen Sie die zu verwendende SIM-Karte aus.</string>
     <string name="select_from_gallery">Aus Galerie auswählen</string>

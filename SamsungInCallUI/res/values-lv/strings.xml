@@ -119,6 +119,8 @@
     <string name="BirthDay_remainedDays1">Rīt dzimšanas diena</string>
     <string name="BirthDay_remainedDays7">Dzimš. diena pēc 1 ned.</string>
     <string name="BirthDay_remainedDaysEtc">Dzimš. diena pēc %d dien.</string>
+    <string name="DivertToVoice_disable">Šim numuram videozvani nav pieejami. Vai veikt tagad balss zvanu?</string>
+    <string name="DivertToVoice_enable">Šim numuram videozvani nav pieejami. Pārslēdzas uz balss zvanu…</string>
     <string name="Lunar_anniversary_passedDays1">Lun. jubil. vakar</string>
     <string name="Lunar_anniversary_remainedDays0">Lunārā jubileja šodien</string>
     <string name="Lunar_anniversary_remainedDays1">Lunārā jubileja rīt</string>
@@ -145,7 +147,7 @@
     <string name="add_reminder">Piev. atgād.</string>
     <string name="agree">Piekrist</string>
     <string name="am_cover_toggle_string">Lai atb. uz zvanu vai noraidītu, atv. vāku.</string>
-    <string name="am_device_memory_full_warning">Unable to use Auto answer with message. There is not enough space in your device storage to save voice messages. Delete some items and try again.</string>
+    <string name="am_device_memory_full_warning">Nevar izmantot automātisko atbildētāju ar ziņu. Ierīces krātuvē nepietiek vietas, lai saglabātu balss ziņas. Izdzēsiet dažus objektus un mēģiniet vēlreiz.</string>
     <string name="another_device_pickup_message">Another device picked up this call.</string>
     <string name="answering_memo_Playing_text">Atskaņo atbildes ziņu…</string>
     <string name="answering_memo_Recording_text">Ieraksta ziņu…</string>
@@ -160,8 +162,8 @@
     <string name="call_drug_up_panel_for_kk">Velciet pogu SŪTĪT ZIŅU uz augšu, lai nosūtītu ātru ziņu un noraidītu ienākošo zvanu.</string>
     <string name="call_drug_up_panel_for_kk_tts">Velciet zvana atteikšanas paneli uz augšu, lai sūtītu zvana atteikuma ziņu, kad noraidāt ienākošo zvanu.</string>
     <string name="call_ended_toast">Zvans pabeigts.</string>
-    <string name="call_forwarded_to">Call forwarded to:</string>
-    <string name="call_forwarding_from">Call forwarded from:</string>
+    <string name="call_forwarded_to">Zvans pāradresēts uz:</string>
+    <string name="call_forwarding_from">Zvans pāradresēts no:</string>
     <string name="call_incoming_voice_call2">Pieskarieties pie %s, lai atbildētu uz zvanu.</string>
     <string name="call_incoming_voice_call2_tts">Pieskarieties zvana atbildēšanas pogai, lai atbildētu uz zvanu.</string>
     <string name="call_incoming_voice_call3">Piesk. pie %s, lai nor. zvanu.</string>
@@ -186,20 +188,20 @@
     <string name="call_menu_during_call_list6_tts">Pieskarieties papildu skaļuma regulēšanas pogai, lai palielinātu skaļumu.</string>
     <string name="call_menu_during_call_list7">Pieskarieties pie %s, lai zvanītu citai personai un pievienotu to aktīvajai sarunai.</string>
     <string name="call_menu_during_call_list7_tts">Pieskarieties pogai Pievienot zvanu, lai zvanītu citai personai un pievienotu to aktīvajai sarunai.</string>
-    <string name="call_out_duration">Call out duration</string>
+    <string name="call_out_duration">Izsaukuma ilgums</string>
     <string name="call_twophone_one_phone">Sākotnējais numurs</string>
     <string name="call_twophone_two_phone">Otrs numurs</string>
     <string name="caller_info_card_last_call_log_title">Pēdējais zvans</string>
     <string name="caller_info_card_last_message_title">Jaunākā ziņa</string>
     <string name="caller_info_card_memo_title">Sarunas laikā izveidota atgādne</string>
-    <string name="callsettings_hold_key_record_calls_notify">Press and hold Hold key to start or stop recording</string>
+    <string name="callsettings_hold_key_record_calls_notify">Nospiediet noturēšanas taustiņu un turiet, lai sāktu vai pārtrauktu ierakstīšanu</string>
     <string name="callsettings_rejectmessage_list1">Diemžēl šobrīd nevaru runāt. Piezvaniet vēlāk.</string>
     <string name="callsettings_rejectmessage_list2">Esmu sapulcē.</string>
     <string name="callsettings_rejectmessage_list3">Esmu nodarbībā.</string>
     <string name="callsettings_rejectmessage_list4">Esmu kinoteātrī.</string>
     <string name="callsettings_rejectmessage_list5">Esmu pie stūres.</string>
-    <string name="camera_off">Camera turned off.</string>
-    <string name="camera_on">Camera turned on.</string>
+    <string name="camera_off">Kamera ir izslēgta.</string>
+    <string name="camera_on">Kamera ir ieslēgta.</string>
     <string name="camera_security_enter">Drošības politika ierobežo kameras lietošanu.</string>
     <string name="camera_start_failed">Kameras kļūme.</string>
     <string name="cancel">Atcelt</string>
@@ -247,7 +249,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="description_secOnscreenVideoCallText">Videozvans</string>
     <string name="description_secOnscreenViewContactText">Skatīt kontaktinformāciju</string>
     <string name="device_info_not_available">Nav pieejams</string>
-    <string name="dial_warning">Unable to dial.</string>
+    <string name="dial_warning">Nevar izsaukt.</string>
     <string name="dialling_video_call">Veic videozvanu</string>
     <string name="dialpad_2_sub_letters">ABC</string>
     <string name="dialpad_3_sub_letters">DEF</string>
@@ -300,8 +302,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="imLabelsGroup">IM konts</string>
     <string name="inCallLabel_Sec">Zvans</string>
     <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
+    <string name="incall_decline_other_secondary_device">Other secondary device in use.</string>
+    <string name="incall_decline_service_not_allowed">Service not allowed in this location.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">All available lines for (MDN) are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">All available lines for %s are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
+    <string name="incall_decline_transferred_to_another_device">Call has been transferred to another device.</string>
     <string name="incall_error_supp_service_switch">Nevar pārslēgt zvanus.</string>
     <string name="incall_extra_volume_disabled_BT">Ja ir pievienota Bluetooth austiņa, papildu skaļuma līmeni nevar izmantot.</string>
     <string name="incall_extra_volume_disabled_HAC">Nevar aktivizēt papildu skaļumu, kamēr ir aktivizēti dzirdes aparāti.</string>
@@ -312,7 +317,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="incall_popup_call_remove_title_vzw">Hide shortcut</string>
     <string name="incall_popup_ended">Pabeigts</string>
     <string name="incall_spam_call_block">Bloķēt numuru</string>
-    <string name="incall_spam_call_reject">Add to Black list</string>
+    <string name="incall_spam_call_reject">Pievienot melnajam sar.</string>
     <string name="incall_spam_call_reject_toast">Tālruņa numurs ir pievienots bloķēto sarakstam.</string>
     <string name="incall_spam_call_report">Ziņot par numuru</string>
     <string name="incall_transfer_call">Pārsūtīt zvanu</string>
@@ -460,11 +465,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="kt_nomal_quality_video_call_3g">Zvanam pieejama tikai parasta kvalitāte. Otras puses ierīci var lietot tikai 3G tīklā.</string>
     <string name="label_notes">Piezīmes</string>
     <string name="label_sip_address">Interneta zvans</string>
-    <string name="legal_popup_content">"Having trouble using time-consuming voice response call centers? IVR(Interactive Voice Response) call screen menu provides the perfect environment to use call centers by displaying the service menu on your screen.
+    <string name="legal_popup_content">"Vai radušās problēmas, izmantojot laikietilpīgus balss atbildes zvanu centrus? IVR (Interactive Voice Response — interaktīva balss atbilde) zvana ekrāna izvēlne nodrošina perfektu vidi zvanu centru izmantošanai, ekrānā parādot pakalpojuma izvēlni.
 
-IVR call screen menu uses contents provided by a third party service provider called Dianhuabang. By using IVR call screen menu, you agree to Dianhuabang’s %1$sTerms and Conditions%2$s."</string>
+IVR zvana ekrāna izvēlne izmanto saturu, ko nodrošina trešās puses pakalpojumu sniedzējs Dianhuabang. Izmantojot IVR zvana ekrāna izvēlni, jūs piekrītat Dianhuabang %1$sLietošanas noteikumiem un nosacījumiem%2$s."</string>
     <string name="legal_popup_terms_conditions">Noteikumi un nosacījumi</string>
-    <string name="legal_pupup_title">Legal information</string>
+    <string name="legal_pupup_title">Juridiskā informācija</string>
     <string name="lock_screen_during_call_double_tab">Veiciet dubultskārienu, lai atbloķētu</string>
     <string name="long_click_guide">Pieskarieties un turiet, lai ieslēgtu/izslēgtu</string>
     <string name="low_batt_upgrade_disallowed">Nevar pārslēgties uz videozvanu. Zems akumulatora uzlādes līmenis.</string>
@@ -481,7 +486,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="memory_full_msg">Nepietiek atmiņas</string>
     <string name="message_greeting">Sveiciens</string>
     <string name="modify_to_video_start">Pieprasa pārslēgšanos uz videozvanu…</string>
-    <string name="modify_to_voice_start">Switching to voice call…</string>
+    <string name="modify_to_voice_start">Pārslēdzas uz balss zvanu…</string>
     <string name="msg_for_video_show_never_again">Daži failu formāti netiek atbalstīti. Galerijā tiks rādīti tikai atbalstītie faili.</string>
     <string name="mt_vt_not_possible">%s cannot receive video calls at this time. You will now be connected through a voice call.</string>
     <string name="nameLabelsGroup">Vārds</string>
@@ -498,7 +503,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="name_suffix">Tituls</string>
     <string name="network_message_no_answer">Neatbild</string>
     <string name="nicknameLabelsGroup">Segvārds</string>
-    <string name="not_enable_to_video">Video calls are not available while Emergency mode is enabled.</string>
+    <string name="not_enable_to_video">Videozvani nav pieejami laikā, kad ir aktivizēts ārkārtas režīms.</string>
     <string name="not_enable_to_video_emergencymode">Nevar veikt vai saņemt videozvanus, kad ir aktivizēts ārkārtas režīms.</string>
     <string name="notification_action_answer">Atbildēt</string>
     <string name="notification_of_sub_number_empty_body">Lai skatītu alternatīvos numurus, abonējiet SIM kartes vairāku numuru pakalpojumu un mēģiniet vēlreiz.</string>
@@ -508,7 +513,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="onscreenBluetoothTextOn_att">Pārslēgt uz tālruni</string>
     <string name="onscreenBluetoothTextOn_tmo">Pārslēgt uz tālruni</string>
     <string name="onscreenWebexText">WebEx</string>
-    <string name="open_folder_for_speakeroff">To turn off the speakerphone, open the flip phone.</string>
+    <string name="open_folder_for_speakeroff">Lai izslēgtu skaļruni, atveriet atvāžamo tālruni.</string>
     <string name="open_the_cover">Atveriet pārsegu.</string>
     <string name="open_the_cover_incoming">Atveriet pārsegu, lai atbildētu vai noraidītu videozvanu.</string>
     <string name="open_the_cover_modify_call">Adresāts vēlas pārslēgties uz videozvanu. Lai pieņemtu/noraidītu pieprasījumu, atveriet vāku.</string>
@@ -521,6 +526,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="outgoing_img_video">Video</string>
     <string name="payphone_sbm">Taksofons</string>
     <string name="phoneLabelsGroup">Tālrunis</string>
+    <string name="phone_voice_recording_failed_by_secure_call">Nevar ierakstīt drošu zvanu.</string>
     <string name="phonetype_additional">Papildu numurs</string>
     <string name="photoring_block_toast">Kontaktam nav atļauts sūtīt jums multivides saturu, izmantojot fotoattēlu apli.</string>
     <string name="photoring_toast_mobile_data_off">Iespējams, ka jums ir nosūtīts Photoring saturs, kuru nevarat skatīt, jo ir bloķēta piekļuve mobilajiem datiem.</string>
@@ -538,7 +544,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="prepareOtherVideo">Sagatavo video attēlu…</string>
     <string name="previous_call_is_held_when_you_accept_call">Pieņemot jaunu zvanu, pašreizējā saruna tiks aizturēta.</string>
     <string name="private_num_cdma">Aizliegts</string>
-    <string name="private_num_sbm">Withheld number</string>
+    <string name="private_num_sbm">Slēpts numurs</string>
     <string name="quick_panel_title_video_call">Videozvans</string>
     <string name="quick_panel_title_voice_call">Balss zvans</string>
     <string name="quick_panel_title_volte_call">VoLTE zvans</string>
@@ -563,8 +569,13 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="recently_use_sim_for_callback">Nesen lietotā SIM karte</string>
     <string name="record_notification_button_text_close">Aizvērt</string>
     <string name="record_notification_button_text_record_list">Ieraksti</string>
+    <string name="record_notification_button_text_storage">Krātuve</string>
     <string name="record_notification_content">Pieskarieties pie IERAKSTI, lai skatītu ierakstītās sarunas.</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">Ierīces krātuve ir pilna. Saglabāts daļējs sarunas ieraksts.</string>
+    <string name="record_notification_content_unable_to_record">Ierīces krātuvē nepietiek vietas. Izdzēsiet dažus failus un mēģiniet vēlreiz.</string>
     <string name="record_notification_title">Zvans ir ierakstīts</string>
+    <string name="record_notification_title_not_to_record_entire_call">Visa saruna nav ierakstīta</string>
+    <string name="record_notification_title_unable_to_record">Nevar ierakstīt sarunu</string>
     <string name="record_text">IER.</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -639,7 +650,7 @@ notikumu"</string>
     <string name="secOnscreenMenuSwitchToPhoneText_tmo">Pārslēgt uz tālruni</string>
     <string name="secOnscreenMenuSwitchToVideoCallText">Pārslēgt uz videozvanu</string>
     <string name="secOnscreenMenuSwitchToVoiceCallText">Pārsl.uz balss zvanu</string>
-    <string name="secOnscreenMenuSwitchVideoDisplay">Switch video displays</string>
+    <string name="secOnscreenMenuSwitchVideoDisplay">Pārslēgt video displejus</string>
     <string name="secOnscreenMenuUnmuteText">Ieslēgt skaņu</string>
     <string name="secOnscreenMenuVideoConfCallText">Uzaicināt jaunu dalībnieku</string>
     <string name="secOnscreenMenuViewInFullScreenText">Skatīt pilnekrāna režīmā</string>
@@ -680,6 +691,7 @@ Camera"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">Lai atvērtu sarakstu, veiciet dubultskārienu.</string>
     <string name="sec_showme_text">Rādīt mani</string>
     <string name="second_screen_hold_text">%d aiztur.</string>
+    <string name="section_contacts_only_summary">Create and manage contacts.</string>
     <string name="select_callback_sim_card">Izvēlieties atzvanīšanas SIM karti</string>
     <string name="select_callback_sim_card_content">Pēdējam zvanam vai ziņai no šī numura vai uz to netika izmantota ieteicamā SIM karte zvaniem. Izvēlieties, kuru SIM karti izmantot.</string>
     <string name="select_from_gallery">Izvēl. no galerijas</string>
@@ -719,12 +731,12 @@ Camera"</string>
     <string name="spam_call_report_dialog_spam">Nevēlams</string>
     <string name="spam_call_report_dialog_taxis">Taksometri</string>
     <string name="spam_call_reported_as">Ziņots par: %s</string>
-    <string name="spam_call_resported_as_by_you">Reported as %s by you</string>
+    <string name="spam_call_resported_as_by_you">Jūsu ziņots kā %s</string>
     <string name="spam_call_resported_count">(%d reizes)</string>
-    <string name="spam_call_type_and_count">Reported as %1$s %2$d times</string>
+    <string name="spam_call_type_and_count">Ziņots kā %1$s %2$d reizes</string>
     <string name="sub_number_item">Alternatīvais %d</string>
-    <string name="suguden_guide_do_not_show_again_dcm">Do not show again</string>
-    <string name="suguden_guide_main_text_dcm">Answer the call by bringing the device close to your ear.</string>
+    <string name="suguden_guide_do_not_show_again_dcm">Vairs nerādīt</string>
+    <string name="suguden_guide_main_text_dcm">Atbildiet uz zvanu, pieliekot ierīci pie auss.</string>
     <string name="swipe_left">Velciet pa kreisi.</string>
     <string name="swipe_right">Pavelciet pa labi.</string>
     <string name="swipe_right_to_answer_call_with_video">Pavelciet pa labi, lai atbildētu uz zvanu ar video.</string>
@@ -815,5 +827,5 @@ Your video call is now running on the mobile network. (Data usage applies if you
     <string name="waiting_call_dialog_dismiss_toast">%1$s beidza sarunu. Atjauno sarunu ar %2$s…</string>
     <string name="waiting_call_dialog_message">Atbildēšana uz zvanu</string>
     <string name="websiteLabelsGroup">Tīmekļa adrese</string>
-    <string name="yellow_pages">Yellow Pages</string>
+    <string name="yellow_pages">Dzeltenās lapas</string>
 </resources>

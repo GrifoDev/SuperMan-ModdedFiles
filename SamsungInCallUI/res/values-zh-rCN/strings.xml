@@ -119,6 +119,8 @@
     <string name="BirthDay_remainedDays1">明天生日</string>
     <string name="BirthDay_remainedDays7">距生日还有 1 周</string>
     <string name="BirthDay_remainedDaysEtc">距生日还有 %d 天</string>
+    <string name="DivertToVoice_disable">该联系人无法接通视频通话。是否立即尝试语音呼叫？</string>
+    <string name="DivertToVoice_enable">该联系人无法接通视频通话。正在切换至语音通话…</string>
     <string name="Lunar_anniversary_passedDays1">昨天是农历周年纪念日。</string>
     <string name="Lunar_anniversary_remainedDays0">今天是农历周年纪念日</string>
     <string name="Lunar_anniversary_remainedDays1">明天是农历周年纪念日</string>
@@ -207,7 +209,7 @@
     <string name="captured">已截图</string>
     <string name="card_title_dialing_for_quick_panel">拨号中…</string>
     <string name="card_title_dialing_to_korea">拨打至韩国。</string>
-    <string name="card_title_wifi_call_ended">Wi-Fi 通话已结束</string>
+    <string name="card_title_wifi_call_ended"><cst>Wi-Fi</cst> 通话已结束</string>
     <string name="cdnip_service_prefix">本机号码</string>
     <string name="chat">聊天</string>
     <string name="chat_aim">使用AIM聊天</string>
@@ -238,7 +240,7 @@
     <string name="data_usage_limit_dialog_message">"已达到您为手机设置的流量限制。若要查看您的流量使用量，请进入【设置】>【 流量使用量】。
 此视频通话现在正使用流量，通话结束后，将关闭手机流量。是否想要继续通话？"</string>
     <string name="data_usage_limit_dialog_message_default">即将达到您在手机上设置的流量使用量限制。此视频通话需要使用流量。</string>
-    <string name="data_usage_limit_dialog_message_tmo">已达到您在手机上设置的流量限制，数据已关闭。视频通话需要数据连接。请打开移动数据或连接至任何可用 Wi-Fi 网络。</string>
+    <string name="data_usage_limit_dialog_message_tmo">已达到您在手机上设置的流量限制，数据已关闭。视频通话需要数据连接。请打开移动数据或连接至任何可用 <cst>Wi-Fi</cst> 网络。</string>
     <string name="date_day">日</string>
     <string name="decline">拒绝</string>
     <string name="description_create_message">编写新信息</string>
@@ -299,9 +301,12 @@
     <string name="high_quality_sound">高清</string>
     <string name="imLabelsGroup">即时信息帐户</string>
     <string name="inCallLabel_Sec">通话</string>
-    <string name="incall_decline_emergency_wifi_not_allow">此位置不允许通过 Wi-Fi 拨打紧急电话。</string>
+    <string name="incall_decline_emergency_wifi_not_allow">此位置不允许通过 <cst>Wi-Fi</cst> 拨打紧急电话。</string>
+    <string name="incall_decline_other_secondary_device">其他辅助设备正在使用中</string>
+    <string name="incall_decline_service_not_allowed">此位置不提供该服务</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">(MDN) 的所有可用线路均在使用中。若要进行通话，请在手机或平板电脑上挂断其中一个通话。</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">%s的所有可用线路均在使用中。若要拨打电话，请在手机或平板电脑上挂断其中一个电话。</string>
+    <string name="incall_decline_transferred_to_another_device">通话已转移至另一设备</string>
     <string name="incall_error_supp_service_switch">无法切换通话。</string>
     <string name="incall_extra_volume_disabled_BT">已连接蓝牙耳机时，无法使用【增强音量】。</string>
     <string name="incall_extra_volume_disabled_HAC">已启用【听力辅助工具】时，无法启用【增强音量】。</string>
@@ -521,6 +526,7 @@
     <string name="outgoing_img_video">视频</string>
     <string name="payphone_sbm">投币式公用电话</string>
     <string name="phoneLabelsGroup">电话</string>
+    <string name="phone_voice_recording_failed_by_secure_call">不能录制安全通话</string>
     <string name="phonetype_additional">其他号码</string>
     <string name="photoring_block_toast">联系人已阻止通过照片墙向您发送媒体。</string>
     <string name="photoring_toast_mobile_data_off">可能是对方发送的 Photoring 内容无法查看，因为移动数据访问已被阻止。</string>
@@ -563,8 +569,13 @@
     <string name="recently_use_sim_for_callback">最近使用的 SIM 卡</string>
     <string name="record_notification_button_text_close">关闭</string>
     <string name="record_notification_button_text_record_list">录音列表</string>
+    <string name="record_notification_button_text_storage">存储</string>
     <string name="record_notification_content">若要查看通话录音，请点击【录音列表】。</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">您的设备存储已满。仅保存了部分通话录音。</string>
+    <string name="record_notification_content_unable_to_record">您的设备存储空间不足。请删除部分文件并重试。</string>
     <string name="record_notification_title">通话录音完成</string>
+    <string name="record_notification_title_not_to_record_entire_call">无法录制整个通话</string>
+    <string name="record_notification_title_unable_to_record">无法录制通话</string>
     <string name="record_text">录制</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -604,7 +615,7 @@
     <string name="secOnscreenExtraVolumeText">增强音量</string>
     <string name="secOnscreenGalleryText">相册</string>
     <string name="secOnscreenHideCallOption">隐藏通话选项</string>
-    <string name="secOnscreenInternetText">互联网</string>
+    <string name="secOnscreenInternetText">浏览器</string>
     <string name="secOnscreenInternetText_vzw">浏览器</string>
     <string name="secOnscreenKeypadHideText">隐藏</string>
     <string name="secOnscreenKeypadText">拨号盘</string>
@@ -679,6 +690,7 @@
     <string name="sec_popup_reject_call_with_msg_content_description_open">双击以打开列表。</string>
     <string name="sec_showme_text">显示自己</string>
     <string name="second_screen_hold_text">%d 个保持中</string>
+    <string name="section_contacts_only_summary">新建和管理联系人。</string>
     <string name="select_callback_sim_card">选择回拨 SIM 卡</string>
     <string name="select_callback_sim_card_content">与此号码之间的上一次通话或信息未使用首选 SIM 卡，请选择要用于通话的 SIM 卡。</string>
     <string name="select_from_gallery">从相册中选择</string>
@@ -748,7 +760,7 @@
     <string name="unknown_cdma">不适用</string>
     <string name="usa_att_connected_as_voice">通话仅以语音连接</string>
     <string name="usa_att_data_usage_charge_alert">您在手机上设置的数据使用量即将达到限制。您的视频通话需要使用数据。</string>
-    <string name="usa_att_lte_to_wifi_handover_fail_toast">无法通过 Wi-Fi 拨打电话，正在通过手机网络连接。本次通话将产生语音和流量费用。</string>
+    <string name="usa_att_lte_to_wifi_handover_fail_toast">无法通过 <cst>Wi-Fi</cst> 拨打电话，正在通过手机网络连接。本次通话将产生语音和流量费用。</string>
     <string name="usa_att_modify_receive_to_video">选择视频模式</string>
     <string name="usa_att_select_call_type_incoming_video_call">点击下方以选择通话类型。</string>
     <string name="usa_gsm_cannot_be_changed_during_conference">电话会议期间无法更改通话类型。</string>
@@ -772,10 +784,10 @@
     <string name="usa_vzw_modify_request_to_receive_oneway_video">正在要求%s接收单向视频</string>
     <string name="usa_vzw_modify_requesting_video_calling">正在邀请 %s 进行视频通话…</string>
     <string name="usa_vzw_near_end_turned_camera_on">已重新打开【相机】。</string>
-    <string name="usa_vzw_notify_continue_call_with_wifi">使用 Wi-Fi 继续通话</string>
+    <string name="usa_vzw_notify_continue_call_with_wifi">使用 <cst>Wi-Fi</cst> 继续通话</string>
     <string name="usa_vzw_reject_upgrade_request">%s目前无法接听视频通话。</string>
     <string name="usa_vzw_reject_upgrade_request_cs_call">当前无法切换至视频通话。</string>
-    <string name="usa_vzw_reject_upgrade_request_data_setting_off">手机流量关闭时，无法切换至视频通话。</string>
+    <string name="usa_vzw_reject_upgrade_request_data_setting_off">移动数据关闭时，无法切换至视频通话。</string>
     <string name="usa_vzw_reject_upgrade_request_video_setting_off">视频通话关闭时，无法切换至视频通话。</string>
     <string name="usa_vzw_reject_upgrade_request_volte_setting_off">高级通话关闭时，无法切换至视频通话。</string>
     <string name="usa_vzw_secondary_is_hold">%s 保留中。</string>
@@ -788,16 +800,16 @@
     <string name="usa_vzw_video_call_hold_from_other_party">%s已保留通话。</string>
     <string name="usa_vzw_video_incoming_during_wifi_video">以语音通话接听将结束当前通话。</string>
     <string name="usa_vzw_voice_incoming_during_wifi_video">接听来电将结束当前通话。</string>
-    <string name="usa_vzw_volte_weak_wifi_during_epdg_text">Wi-Fi 信号强度不足以继续通话。使用移动网络继续进行通话将使用您的流量。</string>
+    <string name="usa_vzw_volte_weak_wifi_during_epdg_text"><cst>Wi-Fi</cst> 信号强度不足以继续通话。使用移动网络继续进行通话将使用您的流量。</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">使用移动数据</string>
-    <string name="usa_vzw_volte_weak_wifi_text">"我们已尝试将您的视频通话切换至 Wi-Fi，但此时无法完成切换。
+    <string name="usa_vzw_volte_weak_wifi_text">我们已尝试将您的视频通话切换至 <cst>Wi-Fi</cst>"，但此时无法完成切换。
 
 您的视频通话仍在使用移动网络。(如果您选择继续，将使用您的流量。)"</string>
     <string name="usa_vzw_volte_weak_wifi_toast">您的视频通话仍在移动网络上运行。（将产生数据使用量。）</string>
-    <string name="usa_vzw_vowifi_wifi_low_signal_text">"Wi-Fi 信号强度不足以继续视频通话。
+    <string name="usa_vzw_vowifi_wifi_low_signal_text"><cst>Wi-Fi</cst>" 信号强度不足以继续视频通话。
 
 您的视频通话正在使用移动网络。(如果您选择继续，将使用您的流量。)"</string>
-    <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Wi-Fi 连接丢失。通话已结束。</string>
+    <string name="usa_vzw_vowifi_wifi_signal_lost_toast"><cst>Wi-Fi</cst> 连接丢失。通话已结束。</string>
     <string name="vibo_operator_name">台湾之星</string>
     <string name="video_alert_show_never_again">不再显示</string>
     <string name="video_calling_incoming">视频通话</string>

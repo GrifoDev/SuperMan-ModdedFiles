@@ -34,7 +34,7 @@
 .method public run()V
     .locals 11
 
-    const v10, 0x7f0f0673
+    const v10, 0x7f0f0674
 
     iget-object v3, p0, Lcom/android/systemui/qs/DataUsageView$2;->this$0:Lcom/android/systemui/qs/DataUsageView;
 

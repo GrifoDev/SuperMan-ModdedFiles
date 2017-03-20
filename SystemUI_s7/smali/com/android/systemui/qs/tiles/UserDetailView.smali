@@ -31,7 +31,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f04010b
+    const v1, 0x7f04010d
 
     invoke-virtual {v0, v1, p1, p2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 

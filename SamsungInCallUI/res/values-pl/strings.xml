@@ -119,6 +119,8 @@
     <string name="BirthDay_remainedDays1">Jutro urodziny</string>
     <string name="BirthDay_remainedDays7">Urodziny za tygodni: 1</string>
     <string name="BirthDay_remainedDaysEtc">Urodziny za dni: %d</string>
+    <string name="DivertToVoice_disable">Połączenia wideo niedostępne dla tego numeru. Nawiązać teraz połączenie głosowe?</string>
+    <string name="DivertToVoice_enable">Połączenia wideo niedostępne dla tego numeru. Przełączanie na połączenie głosowe…</string>
     <string name="Lunar_anniversary_passedDays1">Rocznica w kalendarzu księżycowym: wczoraj</string>
     <string name="Lunar_anniversary_remainedDays0">Rocz.w kal. ks.: dziś</string>
     <string name="Lunar_anniversary_remainedDays1">Rocz.w kal. ks.: jutro</string>
@@ -300,8 +302,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="imLabelsGroup">Konto IM</string>
     <string name="inCallLabel_Sec">Połączenia</string>
     <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
+    <string name="incall_decline_other_secondary_device">Other secondary device in use.</string>
+    <string name="incall_decline_service_not_allowed">Service not allowed in this location.</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">All available lines for (MDN) are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">All available lines for %s are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
+    <string name="incall_decline_transferred_to_another_device">Call has been transferred to another device.</string>
     <string name="incall_error_supp_service_switch">Nie można przełączać połączeń.</string>
     <string name="incall_extra_volume_disabled_BT">Nie można użyć dodatkowego zakresu głośności, jeśli podłączony jest zestaw słuchawkowy Bluetooth.</string>
     <string name="incall_extra_volume_disabled_HAC">Nie można włączyć opcji Dodatkowa głośność, gdy włączona jest opcja Aparaty słuchowe.</string>
@@ -460,11 +465,11 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="kt_nomal_quality_video_call_3g">To połączenie jest dostępne tylko w jakości normalnej. Urządzenie rozmówcy jest ograniczone do sieci 3G.</string>
     <string name="label_notes">Notatki</string>
     <string name="label_sip_address">Połączenie internetowe</string>
-    <string name="legal_popup_content">"Having trouble using time-consuming voice response call centers? IVR(Interactive Voice Response) call screen menu provides the perfect environment to use call centers by displaying the service menu on your screen.
+    <string name="legal_popup_content">"Masz problemy z korzystaniem z centrów obsługi klienta stosujących odpowiedzi głosowe, które zajmują dużo czasu? Menu IVR (interaktywnych odpowiedzi głosowych) ekranu połączeń umożliwia łatwe korzystanie z centrów obsługi klienta przez wyświetlanie menu usługi na ekranie.
 
-IVR call screen menu uses contents provided by a third party service provider called Dianhuabang. By using IVR call screen menu, you agree to Dianhuabang’s %1$sTerms and Conditions%2$s."</string>
+Menu IVR ekranu połączeń korzysta z treści dostarczanych przez zewnętrznego dostawcę usług, firmę Dianhuabang. Używając menu IVR ekranu połączeń, zgadzasz się na %1$sZasady i warunki%2$s firmy Dianhuabang."</string>
     <string name="legal_popup_terms_conditions">Zasady i warunki</string>
-    <string name="legal_pupup_title">Legal information</string>
+    <string name="legal_pupup_title">Informacje prawne</string>
     <string name="lock_screen_during_call_double_tab">Dotknij dwukrotnie, aby odblokować</string>
     <string name="long_click_guide">Dotknij i przytrzymaj, aby włączyć/wyłączyć.</string>
     <string name="low_batt_upgrade_disallowed">Nie można przejść do połączenia wideo. Bateria rozładowana.</string>
@@ -521,6 +526,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="outgoing_img_video">Filmy</string>
     <string name="payphone_sbm">Automat telefoniczny</string>
     <string name="phoneLabelsGroup">Telefon</string>
+    <string name="phone_voice_recording_failed_by_secure_call">Nie można nagrywać połączeń zabezpieczonych.</string>
     <string name="phonetype_additional">Dodatkowy numer</string>
     <string name="photoring_block_toast">Zablokowano możliwość wysyłania plików multimedialnych za pomocą usługi Photo ring dla kontaktu.</string>
     <string name="photoring_toast_mobile_data_off">Inny użytkownik mógł wysłać zawartość z serwisu Photoring, której nie można zobaczyć, ponieważ dostęp do danych mobilnych jest zablokowany.</string>
@@ -563,8 +569,13 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="recently_use_sim_for_callback">Ostatnio używ. karta SIM</string>
     <string name="record_notification_button_text_close">Zamknij</string>
     <string name="record_notification_button_text_record_list">Nagrania</string>
+    <string name="record_notification_button_text_storage">Domyślna pamięć</string>
     <string name="record_notification_content">Dotknij opcji NAGRANIA, aby wyświetlić nagrane połączenia.</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">Pamięć urządzenia jest pełna. Zapisano częściowe nagranie połączenia.</string>
+    <string name="record_notification_content_unable_to_record">Za mało miejsca w pamięci urządzenia. Usuń niektóre pliki i spróbuj ponownie.</string>
     <string name="record_notification_title">Nagrano połączenie</string>
+    <string name="record_notification_title_not_to_record_entire_call">Nie nagrano całego połączenia</string>
+    <string name="record_notification_title_unable_to_record">Nie można nagrywać połączenia</string>
     <string name="record_text">Nagrywanie</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
@@ -679,6 +690,7 @@ Camera"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">Dotknij dwukrotnie, aby otworzyć listę.</string>
     <string name="sec_showme_text">Pokaż mnie</string>
     <string name="second_screen_hold_text">Zaw.: %d</string>
+    <string name="section_contacts_only_summary">Create and manage contacts.</string>
     <string name="select_callback_sim_card">Wybór karty SIM do oddzwaniania</string>
     <string name="select_callback_sim_card_content">W przypadku ostatniego połączenia lub wiadomości do lub z tego numeru nie użyto preferowanej karty SIM dla połączeń. Wybierz kartę SIM do użycia.</string>
     <string name="select_from_gallery">Wybierz z Galerii</string>

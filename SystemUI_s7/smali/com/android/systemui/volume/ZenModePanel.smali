@@ -480,7 +480,7 @@
     :pswitch_0
     iget-object v2, p0, Lcom/android/systemui/volume/ZenModePanel;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0f0472
+    const v3, 0x7f0f0473
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -505,7 +505,7 @@
 
     aput-object v4, v3, v5
 
-    const v4, 0x7f0f04b9
+    const v4, 0x7f0f04ba
 
     invoke-virtual {v2, v4, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -518,7 +518,7 @@
     :pswitch_1
     iget-object v2, p0, Lcom/android/systemui/volume/ZenModePanel;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0f0471
+    const v3, 0x7f0f0472
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -529,7 +529,7 @@
     :pswitch_2
     iget-object v2, p0, Lcom/android/systemui/volume/ZenModePanel;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0f0473
+    const v3, 0x7f0f0474
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1349,7 +1349,7 @@
     if-eqz v16, :cond_4
 
     :cond_2
-    const v13, 0x7f0f04f8
+    const v13, 0x7f0f04f9
 
     :cond_3
     :goto_0
@@ -1384,7 +1384,7 @@
 
     if-gez v16, :cond_3
 
-    const v13, 0x7f0f04f9
+    const v13, 0x7f0f04fa
 
     goto :goto_0
 
@@ -1437,7 +1437,7 @@
 
     if-eqz v10, :cond_a
 
-    const v12, 0x7f0f04fa
+    const v12, 0x7f0f04fb
 
     :goto_3
     invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/volume/ZenModePanel;->getResources()Landroid/content/res/Resources;
@@ -1513,7 +1513,7 @@
     goto :goto_2
 
     :cond_a
-    const v12, 0x7f0f04fb
+    const v12, 0x7f0f04fc
 
     goto :goto_3
 .end method
@@ -3349,7 +3349,7 @@
 
     if-eqz v3, :cond_a
 
-    const v5, 0x7f0f0465
+    const v5, 0x7f0f0466
 
     :goto_5
     invoke-virtual {v8, v5}, Landroid/widget/TextView;->setText(I)V
@@ -3416,12 +3416,12 @@
 
     if-eqz v5, :cond_b
 
-    const v5, 0x7f0f0467
+    const v5, 0x7f0f0468
 
     goto :goto_5
 
     :cond_b
-    const v5, 0x7f0f0468
+    const v5, 0x7f0f0469
 
     goto :goto_5
 
@@ -3459,9 +3459,9 @@
 
     move-result-object v1
 
-    const v2, 0x7f0f0474
+    const v2, 0x7f0f0475
 
-    const v3, 0x7f0f0470
+    const v3, 0x7f0f0471
 
     invoke-virtual {v0, v2, v3, v1}, Lcom/android/systemui/volume/SegmentedButtons;->addButton(IILjava/lang/Object;)V
 
@@ -3473,9 +3473,9 @@
 
     move-result-object v1
 
-    const v2, 0x7f0f0476
+    const v2, 0x7f0f0477
 
-    const v3, 0x7f0f0473
+    const v3, 0x7f0f0474
 
     invoke-virtual {v0, v2, v3, v1}, Lcom/android/systemui/volume/SegmentedButtons;->addButton(IILjava/lang/Object;)V
 
@@ -3487,9 +3487,9 @@
 
     move-result-object v1
 
-    const v2, 0x7f0f0475
+    const v2, 0x7f0f0476
 
-    const v3, 0x7f0f0472
+    const v3, 0x7f0f0473
 
     invoke-virtual {v0, v2, v3, v1}, Lcom/android/systemui/volume/SegmentedButtons;->addButton(IILjava/lang/Object;)V
 

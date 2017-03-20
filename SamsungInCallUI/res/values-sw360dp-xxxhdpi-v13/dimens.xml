@@ -124,8 +124,6 @@
     <dimen name="sec_incall_under_button_margin_top">132.0dip</dimen>
     <dimen name="sec_multiparty_call_info_height">102.0dip</dimen>
     <dimen name="sec_multiparty_call_photo_top_margin">18.5dip</dimen>
-    <dimen name="sec_multiparty_secondary_call_info_width">160.0dip</dimen>
-    <dimen name="sec_multiparty_secondary_call_info_width_no_merge_kor">160.0dip</dimen>
     <dimen name="sec_primary_call_name_maxwidth">328.0dip</dimen>
     <dimen name="sec_primary_call_no_contact_name_margin_top">47.0dip</dimen>
     <dimen name="sec_primary_call_photo_margin_bottom">6.0dip</dimen>
@@ -275,8 +273,6 @@
     <dimen name="sec_modify_state_info_banner_top_margin">186.0dip</dimen>
     <dimen name="sec_multiparty_call_button_height">53.0dip</dimen>
     <dimen name="sec_multiparty_call_distance_between_photo">102.0dip</dimen>
-    <dimen name="sec_multiparty_secondary_call_info_width_merge_vzw">210.0dip</dimen>
-    <dimen name="sec_multiparty_secondary_call_info_width_no_merge_vzw">260.0dip</dimen>
     <dimen name="sec_multiparty_video_button_container_right_margin">35.0dip</dimen>
     <dimen name="sec_multiparty_video_call_button_text_size">13.0dip</dimen>
     <dimen name="sec_multiparty_video_call_distance_between_photo">417.0dip</dimen>
@@ -435,7 +431,6 @@
     <dimen name="reject_call_with_message_create_icon_margin_left">24.0dip</dimen>
     <dimen name="reject_call_with_message_handler_margin">36.0dip</dimen>
     <dimen name="reject_call_with_message_sliding_drawer_bottom_offset">0.0dip</dimen>
-    <dimen name="reject_call_with_message_sliding_drawer_top_offset">24.0dip</dimen>
     <dimen name="reject_call_with_msg_create_text_size">17.0sp</dimen>
     <dimen name="reject_call_with_msg_item_divider_margin">18.0dip</dimen>
     <dimen name="reject_call_with_msg_list_item_text_size">17.0sp</dimen>

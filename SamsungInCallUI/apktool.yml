@@ -3,44 +3,20 @@ apkFileName: SamsungInCallUI.apk
 compressionType: false
 doNotCompress:
 - arsc
-- pio
-- res/drawable-ldrtl-xxxhdpi-v17/abc_spinner_mtrl_am_alpha.9.qmg
 - webp
-- res/drawable-xxhdpi-v4/abc_ab_share_pack_mtrl_alpha.9.qmg
-- res/drawable-xxhdpi-v4/abc_cab_background_top_mtrl_alpha.9.qmg
-- res/drawable-xxhdpi-v4/abc_list_divider_mtrl_alpha.9.qmg
-- res/drawable-xxhdpi-v4/abc_list_focused_holo.9.qmg
-- res/drawable-xxhdpi-v4/abc_list_longpressed_holo.9.qmg
-- res/drawable-xxhdpi-v4/abc_list_pressed_holo_dark.9.qmg
-- res/drawable-xxhdpi-v4/abc_list_pressed_holo_light.9.qmg
-- res/drawable-xxhdpi-v4/abc_list_selector_disabled_holo_dark.9.qmg
-- res/drawable-xxhdpi-v4/abc_list_selector_disabled_holo_light.9.qmg
 - res/drawable-xxhdpi-v4/abc_menu_hardkey_panel_mtrl_mult.9.qmg
 - res/drawable-xxhdpi-v4/abc_popup_background_mtrl_mult.9.qmg
-- res/drawable-xxhdpi-v4/abc_scrubber_primary_mtrl_alpha.9.qmg
-- res/drawable-xxhdpi-v4/abc_scrubber_track_mtrl_alpha.9.qmg
-- res/drawable-xxhdpi-v4/abc_textfield_activated_mtrl_alpha.9.qmg
-- res/drawable-xxhdpi-v4/abc_textfield_default_mtrl_alpha.9.qmg
-- res/drawable-xxhdpi-v4/abc_textfield_search_activated_mtrl_alpha.9.qmg
-- res/drawable-xxhdpi-v4/abc_textfield_search_default_mtrl_alpha.9.qmg
 - qio
 - qmg
-- res/drawable-xxhdpi-v4/help_popup_picker_bg.9.qmg
-- res/drawable-xxhdpi-v4/list_section_divider_holo_custom.9.qmg
+- pio
 - res/drawable-xxhdpi-v4/rcs_popup_full_dark.9.qmg
 - res/drawable-xxhdpi-v4/tw_btn_default_mtrl.9.qmg
 - res/drawable-xxhdpi-v4/tw_label_toast_frame_mtrl.9.qmg
-- res/drawable-xxhdpi-v4/tw_section_divider_mtrl.9.qmg
-- res/drawable-xxhdpi-v4/tw_sub_action_bar_bg_mtrl.9.qmg
 - res/drawable-xxhdpi-v4/tw_toast_frame_mtrl.9.qmg
-- res/drawable-xxhdpi-v4/videocall_incoming_bg_message.9.qmg
 - res/drawable-xxhdpi-v4/voicecall_incoming_bg_message.9.qmg
-- res/drawable-xxhdpi-v4/voicecall_sendmesage_bg.9.qmg
 - res/drawable-xxxhdpi-v4/abc_btn_switch_to_on_mtrl_00001.9.qmg
 - res/drawable-xxxhdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.qmg
-- res/drawable-xxxhdpi-v4/abc_spinner_mtrl_am_alpha.9.qmg
 - res/drawable-xxxhdpi-v4/abc_switch_track_mtrl_alpha.9.qmg
-- res/drawable-xxxhdpi-v4/abc_tab_indicator_mtrl_alpha.9.qmg
 isFrameworkApk: false
 packageInfo:
   forcedPackageId: '127'
@@ -74,6 +50,7 @@ unknownFiles:
   com/google/i18n/phonenumbers/data/PhoneNumberAlternateFormatsProto_49: '8'
   com/google/i18n/phonenumbers/data/PhoneNumberAlternateFormatsProto_505: '8'
   com/google/i18n/phonenumbers/data/PhoneNumberAlternateFormatsProto_506: '8'
+  com/google/i18n/phonenumbers/data/PhoneNumberAlternateFormatsProto_52: '8'
   com/google/i18n/phonenumbers/data/PhoneNumberAlternateFormatsProto_54: '8'
   com/google/i18n/phonenumbers/data/PhoneNumberAlternateFormatsProto_55: '8'
   com/google/i18n/phonenumbers/data/PhoneNumberAlternateFormatsProto_58: '8'
@@ -1025,8 +1002,8 @@ unknownFiles:
   com/google/i18n/phonenumbers/geocoding/data/373_en: '8'
   com/google/i18n/phonenumbers/geocoding/data/373_ro: '8'
   com/google/i18n/phonenumbers/geocoding/data/373_ru: '8'
-  com/google/i18n/phonenumbers/geocoding/data/374_am: '8'
   com/google/i18n/phonenumbers/geocoding/data/374_en: '8'
+  com/google/i18n/phonenumbers/geocoding/data/374_hy: '8'
   com/google/i18n/phonenumbers/geocoding/data/374_ru: '8'
   com/google/i18n/phonenumbers/geocoding/data/375_be: '8'
   com/google/i18n/phonenumbers/geocoding/data/375_en: '8'
@@ -1074,6 +1051,7 @@ unknownFiles:
   com/google/i18n/phonenumbers/geocoding/data/64_en: '8'
   com/google/i18n/phonenumbers/geocoding/data/66_en: '8'
   com/google/i18n/phonenumbers/geocoding/data/66_th: '8'
+  com/google/i18n/phonenumbers/geocoding/data/675_en: '8'
   com/google/i18n/phonenumbers/geocoding/data/686_en: '8'
   com/google/i18n/phonenumbers/geocoding/data/688_en: '8'
   com/google/i18n/phonenumbers/geocoding/data/7_en: '8'
@@ -1138,5 +1116,5 @@ usesFramework:
   tag: null
 version: 2.2.2
 versionInfo:
-  versionCode: '208201000'
-  versionName: 2.0.82
+  versionCode: '210701000'
+  versionName: 2.1.07

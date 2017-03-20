@@ -119,6 +119,8 @@
     <string name="BirthDay_remainedDays1">明天生日</string>
     <string name="BirthDay_remainedDays7">1 週內生日</string>
     <string name="BirthDay_remainedDaysEtc">%d 天後生日</string>
+    <string name="DivertToVoice_disable">此號碼無法使用視訊通話。立刻改用語音通話嗎？</string>
+    <string name="DivertToVoice_enable">此號碼無法使用視訊通話。正在切換至語音通話…</string>
     <string name="Lunar_anniversary_passedDays1">農曆紀念日：昨天</string>
     <string name="Lunar_anniversary_remainedDays0">農曆紀念日：今天</string>
     <string name="Lunar_anniversary_remainedDays1">農曆紀念日：明天</string>
@@ -300,8 +302,11 @@
     <string name="imLabelsGroup">IM 帳號</string>
     <string name="inCallLabel_Sec">通話</string>
     <string name="incall_decline_emergency_wifi_not_allow">此位置不允許經 Wi-Fi 撥打緊急通話。</string>
+    <string name="incall_decline_other_secondary_device">另一部次要裝置正在使用中。</string>
+    <string name="incall_decline_service_not_allowed">服務無法於此位置使用。</string>
     <string name="incall_decline_simultaneous_call_limit_vzw">所有 (MDN) 可用線路均在使用中。若要撥打電話，請掛斷行動電話或平板上的其中一個通話。</string>
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">所有%s可用線路均在使用中。若要撥打電話，請掛斷行動電話或平板上的其中一個通話。</string>
+    <string name="incall_decline_transferred_to_another_device">已將來電轉接到另一部裝置。</string>
     <string name="incall_error_supp_service_switch">無法切換通話。</string>
     <string name="incall_extra_volume_disabled_BT">藍牙耳機連接時無法使用 [增強音量範圍]。</string>
     <string name="incall_extra_volume_disabled_HAC">[助聽器] 啟用時無法啟用 [最大音量]。</string>
@@ -521,6 +526,7 @@
     <string name="outgoing_img_video">影片</string>
     <string name="payphone_sbm">付費電話</string>
     <string name="phoneLabelsGroup">電話</string>
+    <string name="phone_voice_recording_failed_by_secure_call">無法記錄安全通話。</string>
     <string name="phonetype_additional">其他號碼</string>
     <string name="photoring_block_toast">已封鎖該聯絡人透過環狀相片傳送媒體給您的權限。</string>
     <string name="photoring_toast_mobile_data_off">可能有從其他方傳送的 Photoring 內容，但是您看不到，因為行動資料存取已被封鎖。</string>
@@ -563,8 +569,13 @@
     <string name="recently_use_sim_for_callback">最近使用的 SIM 卡</string>
     <string name="record_notification_button_text_close">關閉</string>
     <string name="record_notification_button_text_record_list">錄音列表</string>
+    <string name="record_notification_button_text_storage">儲存位置</string>
     <string name="record_notification_content">輕觸 [錄音列表] 來檢視您錄製的通話。</string>
+    <string name="record_notification_content_unable_not_to_record_entire_call">您的裝置儲存空間已滿。已儲存部分通話錄音。</string>
+    <string name="record_notification_content_unable_to_record">裝置儲存空間不足。請刪除部分檔案然後重試。</string>
     <string name="record_notification_title">通話已錄音</string>
+    <string name="record_notification_title_not_to_record_entire_call">無法錄製整段通話</string>
+    <string name="record_notification_title_unable_to_record">無法錄製通話</string>
     <string name="record_text">錄製</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">0:00:00</string>
@@ -679,6 +690,7 @@
     <string name="sec_popup_reject_call_with_msg_content_description_open">輕觸兩下來開啟清單。</string>
     <string name="sec_showme_text">顯示我</string>
     <string name="second_screen_hold_text">%d 保留中</string>
+    <string name="section_contacts_only_summary">建立並管理聯絡人。</string>
     <string name="select_callback_sim_card">選擇回撥 SIM 卡</string>
     <string name="select_callback_sim_card_content">由此號碼撥打或接收的上一次通話或訊息未使用慣用 SIM 卡。請選擇要使用的 SIM 卡。</string>
     <string name="select_from_gallery">從媒體瀏覽器選取</string>

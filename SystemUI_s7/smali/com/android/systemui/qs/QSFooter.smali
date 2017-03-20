@@ -182,7 +182,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f04010f
+    const v1, 0x7f040111
 
     const/4 v2, 0x0
 
@@ -362,7 +362,7 @@
 .method private getMessage(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZ)Ljava/lang/String;
     .locals 6
 
-    const v5, 0x7f0f04a9
+    const v5, 0x7f0f04aa
 
     const/4 v4, 0x2
 
@@ -384,7 +384,7 @@
 
     aput-object p3, v1, v3
 
-    const v2, 0x7f0f04b3
+    const v2, 0x7f0f04b4
 
     invoke-virtual {v0, v2, v1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -422,7 +422,7 @@
 
     aput-object p3, v1, v4
 
-    const v2, 0x7f0f04b2
+    const v2, 0x7f0f04b3
 
     invoke-virtual {v0, v2, v1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -435,7 +435,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSFooter;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f04b0
+    const v1, 0x7f0f04b1
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -450,7 +450,7 @@
 
     aput-object p3, v1, v2
 
-    const v2, 0x7f0f04af
+    const v2, 0x7f0f04b0
 
     invoke-virtual {v0, v2, v1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -469,7 +469,7 @@
 
     aput-object p4, v1, v3
 
-    const v2, 0x7f0f04b1
+    const v2, 0x7f0f04b2
 
     invoke-virtual {v0, v2, v1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -539,12 +539,12 @@
 
     if-eqz p1, :cond_0
 
-    const v0, 0x7f0f04a4
+    const v0, 0x7f0f04a5
 
     return v0
 
     :cond_0
-    const v0, 0x7f0f04a6
+    const v0, 0x7f0f04a7
 
     return v0
 .end method
@@ -580,7 +580,7 @@
 
     if-eqz v2, :cond_0
 
-    const v2, 0x7f0f04a0
+    const v2, 0x7f0f04a1
 
     iput v2, p0, Lcom/android/systemui/qs/QSFooter;->mFooterTextId:I
 
@@ -606,7 +606,7 @@
 
     if-eqz v1, :cond_2
 
-    const v2, 0x7f0f04a3
+    const v2, 0x7f0f04a4
 
     :goto_1
     iput v2, p0, Lcom/android/systemui/qs/QSFooter;->mFooterTextId:I
@@ -636,7 +636,7 @@
     goto :goto_0
 
     :cond_2
-    const v2, 0x7f0f04a2
+    const v2, 0x7f0f04a3
 
     goto :goto_1
 

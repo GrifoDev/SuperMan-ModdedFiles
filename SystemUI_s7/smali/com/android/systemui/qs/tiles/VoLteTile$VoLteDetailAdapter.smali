@@ -77,7 +77,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile$VoLteDetailAdapter;->mSummary:Landroid/widget/TextView;
 
-    const v1, 0x7f0f0440
+    const v1, 0x7f0f0441
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
