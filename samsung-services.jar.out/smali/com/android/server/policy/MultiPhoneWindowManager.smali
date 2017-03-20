@@ -76,6 +76,27 @@
     return v0
 .end method
 
+.method public hasDockedStack()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SAMSUNG_MULTIWINDOW_DYNAMIC_ENABLED:Z
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/policy/MultiPhoneWindowManager;->mMultiWindowManager:Lcom/samsung/android/multiwindow/MultiWindowManager;
+
+    invoke-virtual {v0}, Lcom/samsung/android/multiwindow/MultiWindowManager;->hasDockedStack()Z
+
+    move-result v0
+
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
 .method public isExpandedDockedStack()Z
     .locals 1
 

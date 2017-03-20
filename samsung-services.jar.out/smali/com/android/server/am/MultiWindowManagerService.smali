@@ -6616,7 +6616,11 @@
 .end method
 
 .method public getMinTaskDimensions(Landroid/graphics/Point;Landroid/content/pm/ActivityInfo;)V
-    .locals 5
+    .locals 7
+
+    const/high16 v6, 0x3f000000    # 0.5f
+
+    const/4 v5, 0x0
 
     if-eqz p1, :cond_1
 
@@ -6663,18 +6667,42 @@
     :cond_2
     mul-int v3, v2, v0
 
-    sget v4, Landroid/util/DisplayMetrics;->DENSITY_DEVICE_STABLE:I
+    iget-object v4, p0, Lcom/android/server/am/MultiWindowManagerService;->mActivityManager:Lcom/android/server/am/ActivityManagerService;
 
-    div-int v2, v3, v4
+    iget-object v4, v4, Lcom/android/server/am/ActivityManagerService;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
+
+    invoke-virtual {v4, v5}, Lcom/android/server/wm/WindowManagerService;->getInitialDisplayDensity(I)I
+
+    move-result v4
+
+    div-int/2addr v3, v4
+
+    int-to-float v3, v3
+
+    add-float/2addr v3, v6
+
+    float-to-int v2, v3
 
     goto :goto_0
 
     :cond_3
     mul-int v3, v1, v0
 
-    sget v4, Landroid/util/DisplayMetrics;->DENSITY_DEVICE_STABLE:I
+    iget-object v4, p0, Lcom/android/server/am/MultiWindowManagerService;->mActivityManager:Lcom/android/server/am/ActivityManagerService;
 
-    div-int v1, v3, v4
+    iget-object v4, v4, Lcom/android/server/am/ActivityManagerService;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
+
+    invoke-virtual {v4, v5}, Lcom/android/server/wm/WindowManagerService;->getInitialDisplayDensity(I)I
+
+    move-result v4
+
+    div-int/2addr v3, v4
+
+    int-to-float v3, v3
+
+    add-float/2addr v3, v6
+
+    float-to-int v1, v3
 
     goto :goto_1
 .end method
@@ -7743,6 +7771,20 @@
     monitor-exit v4
 
     throw v3
+.end method
+
+.method public hasDockedStack()Z
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/am/MultiWindowManagerService;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
+
+    iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mMultiWindowManagerInternal:Lcom/android/server/wm/IMultiWindowManagerInternalBridge;
+
+    invoke-interface {v0}, Lcom/android/server/wm/IMultiWindowManagerInternalBridge;->hasDockedStack()Z
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public init()V
