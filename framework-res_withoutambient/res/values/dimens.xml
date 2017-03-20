@@ -208,7 +208,6 @@
     <dimen name="tw_fota_upgade_msg_progress_margin_bottom">16.0dip</dimen>
     <dimen name="knox_app_icon_width">58.0dip</dimen>
     <dimen name="knox_app_icon_height">58.0dip</dimen>
-    <item type="dimen" name="APKTOOL_DUMMY_d2">false</item>
     <dimen name="timepicker_text_inset_inner">58.0dip</dimen>
     <dimen name="timepicker_radial_picker_dimen">296.0dip</dimen>
     <dimen name="floating_window_margin_left">16.0dip</dimen>
@@ -921,4 +920,5 @@
     <dimen name="magnifier_handler_touch_area_height">28.0dip</dimen>
     <dimen name="magnifier_handler_touch_area_width">110.0dip</dimen>
     <dimen name="magnifier_new_frame_width_height">4.0dip</dimen>
+    <item type="dimen" name="APKTOOL_DUMMY_d2">false</item>
 </resources>
