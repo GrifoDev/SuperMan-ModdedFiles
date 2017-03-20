@@ -2106,6 +2106,30 @@
     :goto_3
     or-int/2addr v0, v11
 
+    iget-object v11, p0, Lcom/android/server/wm/WindowAnimator;->mService:Lcom/android/server/wm/WindowManagerService;
+
+    iget-object v11, v11, Lcom/android/server/wm/WindowManagerService;->mPolicy:Landroid/view/WindowManagerPolicy;
+
+    check-cast v11, Lcom/android/server/policy/PhoneWindowManager;
+
+    invoke-virtual {v11}, Lcom/android/server/policy/PhoneWindowManager;->getSamsungPolicy()Lcom/android/server/policy/SamsungWindowManagerPolicy;
+
+    move-result-object v11
+
+    invoke-interface {v11}, Lcom/android/server/policy/SamsungWindowManagerPolicy;->getAppsShowWhenLockedLw()Ljava/util/ArrayList;
+
+    move-result-object v11
+
+    invoke-virtual {p1}, Lcom/android/server/wm/WindowState;->getAppToken()Landroid/view/IApplicationToken;
+
+    move-result-object v12
+
+    invoke-virtual {v11, v12}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+
+    move-result v11
+
+    or-int/2addr v0, v11
+
     if-eqz v1, :cond_2
 
     iget-object v11, p1, Lcom/android/server/wm/WindowState;->mAppToken:Lcom/android/server/wm/AppWindowToken;
@@ -2246,12 +2270,12 @@
     :cond_9
     const/4 v0, 0x0
 
-    goto :goto_2
+    goto/16 :goto_2
 
     :cond_a
     const/4 v11, 0x0
 
-    goto :goto_3
+    goto/16 :goto_3
 
     :cond_b
     iget-object v11, p1, Lcom/android/server/wm/WindowState;->mAttachedWindow:Lcom/android/server/wm/WindowState;
@@ -2286,7 +2310,7 @@
     :cond_d
     const/4 v11, 0x0
 
-    goto :goto_4
+    goto/16 :goto_4
 
     :cond_e
     const/4 v7, 0x0

@@ -91,7 +91,7 @@
     :try_start_1
     iget-object v3, p0, Lcom/android/server/PersistentDataBlockService$1;->this$0:Lcom/android/server/PersistentDataBlockService;
 
-    invoke-static {v3}, Lcom/android/server/PersistentDataBlockService;->-get3(Lcom/android/server/PersistentDataBlockService;)Ljava/lang/Object;
+    invoke-static {v3}, Lcom/android/server/PersistentDataBlockService;->-get4(Lcom/android/server/PersistentDataBlockService;)Ljava/lang/Object;
 
     move-result-object v4
 
@@ -350,7 +350,7 @@
     :try_start_1
     iget-object v5, p0, Lcom/android/server/PersistentDataBlockService$1;->this$0:Lcom/android/server/PersistentDataBlockService;
 
-    invoke-static {v5}, Lcom/android/server/PersistentDataBlockService;->-get3(Lcom/android/server/PersistentDataBlockService;)Ljava/lang/Object;
+    invoke-static {v5}, Lcom/android/server/PersistentDataBlockService;->-get4(Lcom/android/server/PersistentDataBlockService;)Ljava/lang/Object;
 
     move-result-object v6
 
@@ -570,7 +570,7 @@
     :try_start_1
     iget-object v6, p0, Lcom/android/server/PersistentDataBlockService$1;->this$0:Lcom/android/server/PersistentDataBlockService;
 
-    invoke-static {v6}, Lcom/android/server/PersistentDataBlockService;->-get3(Lcom/android/server/PersistentDataBlockService;)Ljava/lang/Object;
+    invoke-static {v6}, Lcom/android/server/PersistentDataBlockService;->-get4(Lcom/android/server/PersistentDataBlockService;)Ljava/lang/Object;
 
     move-result-object v7
 
@@ -830,7 +830,7 @@
 
     iget-object v0, p0, Lcom/android/server/PersistentDataBlockService$1;->this$0:Lcom/android/server/PersistentDataBlockService;
 
-    invoke-static {v0}, Lcom/android/server/PersistentDataBlockService;->-get3(Lcom/android/server/PersistentDataBlockService;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/PersistentDataBlockService;->-get4(Lcom/android/server/PersistentDataBlockService;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -868,7 +868,7 @@
 
     iget-object v1, p0, Lcom/android/server/PersistentDataBlockService$1;->this$0:Lcom/android/server/PersistentDataBlockService;
 
-    invoke-static {v1}, Lcom/android/server/PersistentDataBlockService;->-get3(Lcom/android/server/PersistentDataBlockService;)Ljava/lang/Object;
+    invoke-static {v1}, Lcom/android/server/PersistentDataBlockService;->-get4(Lcom/android/server/PersistentDataBlockService;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -899,10 +899,30 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :cond_0
+    :goto_0
     monitor-exit v2
 
     return-void
+
+    :cond_0
+    :try_start_1
+    iget-object v1, p0, Lcom/android/server/PersistentDataBlockService$1;->this$0:Lcom/android/server/PersistentDataBlockService;
+
+    const/4 v3, 0x0
+
+    invoke-static {v1, v3}, Lcom/android/server/PersistentDataBlockService;->-set0(Lcom/android/server/PersistentDataBlockService;Z)Z
+
+    invoke-static {}, Lcom/android/server/PersistentDataBlockService;->-get0()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string/jumbo v3, "persistent partition now wiped and unwritable"
+
+    invoke-static {v1, v3}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_0
 
     :catchall_0
     move-exception v1
@@ -1000,15 +1020,46 @@
 
     iget-object v7, p0, Lcom/android/server/PersistentDataBlockService$1;->this$0:Lcom/android/server/PersistentDataBlockService;
 
-    invoke-static {v7}, Lcom/android/server/PersistentDataBlockService;->-get3(Lcom/android/server/PersistentDataBlockService;)Ljava/lang/Object;
+    invoke-static {v7}, Lcom/android/server/PersistentDataBlockService;->-get4(Lcom/android/server/PersistentDataBlockService;)Ljava/lang/Object;
 
     move-result-object v8
 
     monitor-enter v8
 
+    :try_start_1
+    iget-object v7, p0, Lcom/android/server/PersistentDataBlockService$1;->this$0:Lcom/android/server/PersistentDataBlockService;
+
+    invoke-static {v7}, Lcom/android/server/PersistentDataBlockService;->-get3(Lcom/android/server/PersistentDataBlockService;)Z
+
+    move-result v7
+
+    if-nez v7, :cond_1
+
+    invoke-static {v6}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+
+    monitor-exit v8
+
+    return v12
+
+    :catch_0
+    move-exception v1
+
+    invoke-static {}, Lcom/android/server/PersistentDataBlockService;->-get0()Ljava/lang/String;
+
+    move-result-object v7
+
+    const-string/jumbo v8, "partition not available?"
+
+    invoke-static {v7, v8, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    return v12
+
+    :cond_1
     const/16 v7, 0x20
 
-    :try_start_1
+    :try_start_2
     new-array v0, v7, [B
 
     const/4 v7, 0x0
@@ -1024,11 +1075,11 @@
     invoke-virtual {v6, v7}, Ljava/io/DataOutputStream;->write([B)V
 
     invoke-virtual {v6}, Ljava/io/DataOutputStream;->flush()V
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_2
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    :try_start_2
+    :try_start_3
     invoke-static {v6}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
     iget-object v7, p0, Lcom/android/server/PersistentDataBlockService$1;->this$0:Lcom/android/server/PersistentDataBlockService;
@@ -1037,33 +1088,20 @@
 
     move-result v7
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_2
 
     array-length v7, p1
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
     monitor-exit v8
 
     return v7
 
-    :catch_0
-    move-exception v1
-
-    invoke-static {}, Lcom/android/server/PersistentDataBlockService;->-get0()Ljava/lang/String;
-
-    move-result-object v7
-
-    const-string/jumbo v8, "partition not available?"
-
-    invoke-static {v7, v8, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    return v12
-
     :catch_1
     move-exception v2
 
-    :try_start_3
+    :try_start_4
     invoke-static {}, Lcom/android/server/PersistentDataBlockService;->-get0()Ljava/lang/String;
 
     move-result-object v7
@@ -1071,13 +1109,13 @@
     const-string/jumbo v9, "failed writing to the persistent data block"
 
     invoke-static {v7, v9, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
-
-    :try_start_4
-    invoke-static {v6}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
     :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+
+    :try_start_5
+    invoke-static {v6}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_1
 
     monitor-exit v8
 
@@ -1086,12 +1124,12 @@
     :catchall_0
     move-exception v7
 
-    :try_start_5
+    :try_start_6
     invoke-static {v6}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
     throw v7
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_1
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_1
 
     :catchall_1
     move-exception v7
@@ -1100,7 +1138,7 @@
 
     throw v7
 
-    :cond_1
+    :cond_2
     monitor-exit v8
 
     return v12

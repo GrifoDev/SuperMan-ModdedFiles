@@ -12479,86 +12479,178 @@
 .end method
 
 .method public setTestProviderLocation(Ljava/lang/String;Landroid/location/Location;Ljava/lang/String;)V
-    .locals 7
+    .locals 8
 
     invoke-direct {p0, p3}, Lcom/android/server/LocationManagerService;->canCallerAccessMockLocation(Ljava/lang/String;)Z
 
-    move-result v3
+    move-result v4
 
-    if-nez v3, :cond_0
+    if-nez v4, :cond_0
 
     return-void
 
     :cond_0
-    iget-object v4, p0, Lcom/android/server/LocationManagerService;->mLock:Ljava/lang/Object;
+    iget-object v5, p0, Lcom/android/server/LocationManagerService;->mLock:Ljava/lang/Object;
 
-    monitor-enter v4
+    monitor-enter v5
 
     :try_start_0
-    iget-object v3, p0, Lcom/android/server/LocationManagerService;->mMockProviders:Ljava/util/HashMap;
+    iget-object v4, p0, Lcom/android/server/LocationManagerService;->mMockProviders:Ljava/util/HashMap;
 
-    invoke-virtual {v3, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v4, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v3
 
-    check-cast v2, Lcom/android/server/location/MockProvider;
+    check-cast v3, Lcom/android/server/location/MockProvider;
 
-    if-nez v2, :cond_1
+    if-nez v3, :cond_1
 
-    new-instance v3, Ljava/lang/IllegalArgumentException;
+    new-instance v4, Ljava/lang/IllegalArgumentException;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "Provider \""
+    const-string/jumbo v7, "Provider \""
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v6
 
-    const-string/jumbo v6, "\" unknown"
+    const-string/jumbo v7, "\" unknown"
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-direct {v3, v5}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v4, v6}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v3
+    throw v4
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :catchall_0
-    move-exception v3
+    move-exception v4
 
-    monitor-exit v4
+    monitor-exit v5
 
-    throw v3
+    throw v4
 
     :cond_1
     :try_start_1
+    new-instance v2, Landroid/location/Location;
+
+    invoke-direct {v2, p2}, Landroid/location/Location;-><init>(Landroid/location/Location;)V
+
+    const/4 v4, 0x1
+
+    invoke-virtual {v2, v4}, Landroid/location/Location;->setIsFromMockProvider(Z)V
+
+    invoke-virtual {p2}, Landroid/location/Location;->getProvider()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_2
+
+    invoke-virtual {p2}, Landroid/location/Location;->getProvider()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {p1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_3
+
+    :cond_2
+    :goto_0
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v0
 
-    invoke-virtual {v2, p2}, Lcom/android/server/location/MockProvider;->setLocation(Landroid/location/Location;)V
+    invoke-virtual {v3, v2}, Lcom/android/server/location/MockProvider;->setLocation(Landroid/location/Location;)V
 
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    monitor-exit v4
+    monitor-exit v5
 
     return-void
+
+    :cond_3
+    const/4 v4, 0x3
+
+    :try_start_2
+    new-array v4, v4, [Ljava/lang/Object;
+
+    const-string/jumbo v6, "33091107"
+
+    const/4 v7, 0x0
+
+    aput-object v6, v4, v7
+
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v6
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    const/4 v7, 0x1
+
+    aput-object v6, v4, v7
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string/jumbo v7, "!="
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {p2}, Landroid/location/Location;->getProvider()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    const/4 v7, 0x2
+
+    aput-object v6, v4, v7
+
+    const v6, 0x534e4554
+
+    invoke-static {v6, v4}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    goto :goto_0
 .end method
 
 .method public setTestProviderStatus(Ljava/lang/String;ILandroid/os/Bundle;JLjava/lang/String;)V

@@ -708,7 +708,11 @@
 
     invoke-static {v4}, Landroid/os/Process;->setThreadPriority(I)V
 
-    sget-object v10, Lcom/android/server/pm/PackageManagerService;->mPackages:Landroid/util/ArrayMap;
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/pm/PackageManagerService$PackageHandler;->this$0:Lcom/android/server/pm/PackageManagerService;
+
+    iget-object v10, v4, Lcom/android/server/pm/PackageManagerService;->mPackages:Landroid/util/ArrayMap;
 
     monitor-enter v10
 
@@ -984,7 +988,11 @@
     const/16 v18, 0x1
 
     :goto_7
-    sget-object v10, Lcom/android/server/pm/PackageManagerService;->mPackages:Landroid/util/ArrayMap;
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/pm/PackageManagerService$PackageHandler;->this$0:Lcom/android/server/pm/PackageManagerService;
+
+    iget-object v10, v4, Lcom/android/server/pm/PackageManagerService;->mPackages:Landroid/util/ArrayMap;
 
     monitor-enter v10
 
@@ -1408,7 +1416,11 @@
 
     invoke-static {v4}, Landroid/os/Process;->setThreadPriority(I)V
 
-    sget-object v10, Lcom/android/server/pm/PackageManagerService;->mPackages:Landroid/util/ArrayMap;
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/pm/PackageManagerService$PackageHandler;->this$0:Lcom/android/server/pm/PackageManagerService;
+
+    iget-object v10, v4, Lcom/android/server/pm/PackageManagerService;->mPackages:Landroid/util/ArrayMap;
 
     monitor-enter v10
 
@@ -1465,7 +1477,11 @@
 
     invoke-static {v4}, Landroid/os/Process;->setThreadPriority(I)V
 
-    sget-object v10, Lcom/android/server/pm/PackageManagerService;->mPackages:Landroid/util/ArrayMap;
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/pm/PackageManagerService$PackageHandler;->this$0:Lcom/android/server/pm/PackageManagerService;
+
+    iget-object v10, v4, Lcom/android/server/pm/PackageManagerService;->mPackages:Landroid/util/ArrayMap;
 
     monitor-enter v10
 
@@ -1553,7 +1569,11 @@
 
     invoke-static {v4}, Landroid/os/Process;->setThreadPriority(I)V
 
-    sget-object v10, Lcom/android/server/pm/PackageManagerService;->mPackages:Landroid/util/ArrayMap;
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/pm/PackageManagerService$PackageHandler;->this$0:Lcom/android/server/pm/PackageManagerService;
+
+    iget-object v10, v4, Lcom/android/server/pm/PackageManagerService;->mPackages:Landroid/util/ArrayMap;
 
     monitor-enter v10
 

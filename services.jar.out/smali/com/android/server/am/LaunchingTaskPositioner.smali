@@ -361,7 +361,9 @@
 .end method
 
 .method private getFinalHeight(Landroid/content/pm/ActivityInfo$WindowLayout;)I
-    .locals 4
+    .locals 5
+
+    const/4 v4, 0x0
 
     iget v1, p0, Lcom/android/server/am/LaunchingTaskPositioner;->mDefaultFreeformHeight:I
 
@@ -379,13 +381,31 @@
 
     iget-object v2, v2, Lcom/android/server/am/ActivityManagerService;->mConfiguration:Landroid/content/res/Configuration;
 
-    iget v0, v2, Landroid/content/res/Configuration;->densityDpi:I
+    iget v2, v2, Landroid/content/res/Configuration;->densityDpi:I
 
-    mul-int v2, v1, v0
+    int-to-float v0, v2
 
-    sget v3, Landroid/util/DisplayMetrics;->DENSITY_DEVICE_STABLE:I
+    int-to-float v2, v1
 
-    div-int v1, v2, v3
+    mul-float/2addr v2, v0
+
+    iget-object v3, p0, Lcom/android/server/am/LaunchingTaskPositioner;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v3, v3, Lcom/android/server/am/ActivityManagerService;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
+
+    invoke-virtual {v3, v4}, Lcom/android/server/wm/WindowManagerService;->getInitialDisplayDensity(I)I
+
+    move-result v3
+
+    int-to-float v3, v3
+
+    div-float/2addr v2, v3
+
+    const/high16 v3, 0x3f000000    # 0.5f
+
+    add-float/2addr v2, v3
+
+    float-to-int v1, v2
 
     :cond_0
     iget v2, p1, Landroid/content/pm/ActivityInfo$WindowLayout;->heightFraction:F
@@ -415,7 +435,9 @@
 .end method
 
 .method private getFinalWidth(Landroid/content/pm/ActivityInfo$WindowLayout;)I
-    .locals 4
+    .locals 5
+
+    const/4 v4, 0x0
 
     iget v1, p0, Lcom/android/server/am/LaunchingTaskPositioner;->mDefaultFreeformWidth:I
 
@@ -433,13 +455,31 @@
 
     iget-object v2, v2, Lcom/android/server/am/ActivityManagerService;->mConfiguration:Landroid/content/res/Configuration;
 
-    iget v0, v2, Landroid/content/res/Configuration;->densityDpi:I
+    iget v2, v2, Landroid/content/res/Configuration;->densityDpi:I
 
-    mul-int v2, v1, v0
+    int-to-float v0, v2
 
-    sget v3, Landroid/util/DisplayMetrics;->DENSITY_DEVICE_STABLE:I
+    int-to-float v2, v1
 
-    div-int v1, v2, v3
+    mul-float/2addr v2, v0
+
+    iget-object v3, p0, Lcom/android/server/am/LaunchingTaskPositioner;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v3, v3, Lcom/android/server/am/ActivityManagerService;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
+
+    invoke-virtual {v3, v4}, Lcom/android/server/wm/WindowManagerService;->getInitialDisplayDensity(I)I
+
+    move-result v3
+
+    int-to-float v3, v3
+
+    div-float/2addr v2, v3
+
+    const/high16 v3, 0x3f000000    # 0.5f
+
+    add-float/2addr v2, v3
+
+    float-to-int v1, v2
 
     :cond_0
     iget v2, p1, Landroid/content/pm/ActivityInfo$WindowLayout;->widthFraction:F

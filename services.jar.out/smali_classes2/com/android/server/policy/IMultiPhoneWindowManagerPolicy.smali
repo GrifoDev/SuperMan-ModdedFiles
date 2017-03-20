@@ -7,6 +7,9 @@
 .method public abstract adjustImmersiveFlags(Landroid/view/WindowManagerPolicy$WindowState;Landroid/view/WindowManagerPolicy$WindowState;)I
 .end method
 
+.method public abstract hasDockedStack()Z
+.end method
+
 .method public abstract isExpandedDockedStack()Z
 .end method
 

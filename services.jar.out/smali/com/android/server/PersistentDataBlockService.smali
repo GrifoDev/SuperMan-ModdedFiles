@@ -44,6 +44,12 @@
 
 .field private final mDataBlockFile:Ljava/lang/String;
 
+.field private mIsWritable:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = "mLock"
+    .end annotation
+.end field
+
 .field private final mLock:Ljava/lang/Object;
 
 .field private final mService:Landroid/os/IBinder;
@@ -74,12 +80,28 @@
     return-object v0
 .end method
 
-.method static synthetic -get3(Lcom/android/server/PersistentDataBlockService;)Ljava/lang/Object;
+.method static synthetic -get3(Lcom/android/server/PersistentDataBlockService;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/server/PersistentDataBlockService;->mIsWritable:Z
+
+    return v0
+.end method
+
+.method static synthetic -get4(Lcom/android/server/PersistentDataBlockService;)Ljava/lang/Object;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/PersistentDataBlockService;->mLock:Ljava/lang/Object;
 
     return-object v0
+.end method
+
+.method static synthetic -set0(Lcom/android/server/PersistentDataBlockService;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/server/PersistentDataBlockService;->mIsWritable:Z
+
+    return p1
 .end method
 
 .method static synthetic -wrap0(Lcom/android/server/PersistentDataBlockService;)Z
@@ -210,6 +232,10 @@
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/server/PersistentDataBlockService;->mAllowedUid:I
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/server/PersistentDataBlockService;->mIsWritable:Z
 
     new-instance v0, Lcom/android/server/PersistentDataBlockService$1;
 

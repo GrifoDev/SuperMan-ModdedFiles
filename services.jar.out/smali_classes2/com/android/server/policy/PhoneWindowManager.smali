@@ -7389,11 +7389,11 @@
 
     iget-object v0, v0, Lcom/android/server/policy/PhoneWindowManager;->mWindowManagerInternal:Landroid/view/WindowManagerInternal;
 
-    move-object/from16 v33, v0
+    move-object/from16 v34, v0
 
-    const/16 v34, 0x3
+    const/16 v35, 0x3
 
-    invoke-virtual/range {v33 .. v34}, Landroid/view/WindowManagerInternal;->isStackVisible(I)Z
+    invoke-virtual/range {v34 .. v35}, Landroid/view/WindowManagerInternal;->isStackVisible(I)Z
 
     move-result v9
 
@@ -7401,11 +7401,11 @@
 
     iget-object v0, v0, Lcom/android/server/policy/PhoneWindowManager;->mWindowManagerInternal:Landroid/view/WindowManagerInternal;
 
-    move-object/from16 v33, v0
+    move-object/from16 v34, v0
 
-    const/16 v34, 0x2
+    const/16 v35, 0x2
 
-    invoke-virtual/range {v33 .. v34}, Landroid/view/WindowManagerInternal;->isStackVisible(I)Z
+    invoke-virtual/range {v34 .. v35}, Landroid/view/WindowManagerInternal;->isStackVisible(I)Z
 
     move-result v13
 
@@ -7413,79 +7413,84 @@
 
     iget-object v0, v0, Lcom/android/server/policy/PhoneWindowManager;->mWindowManagerInternal:Landroid/view/WindowManagerInternal;
 
-    move-object/from16 v33, v0
+    move-object/from16 v34, v0
 
-    invoke-virtual/range {v33 .. v33}, Landroid/view/WindowManagerInternal;->isDockedDividerResizing()Z
+    invoke-virtual/range {v34 .. v34}, Landroid/view/WindowManagerInternal;->isDockedDividerResizing()Z
 
-    move-result v28
+    move-result v29
 
-    sget-boolean v33, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SAMSUNG_MULTIWINDOW_DYNAMIC_ENABLED:Z
+    sget-boolean v34, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SAMSUNG_MULTIWINDOW_DYNAMIC_ENABLED:Z
 
-    if-eqz v33, :cond_f
+    if-eqz v34, :cond_e
 
-    if-nez v9, :cond_e
+    move-object/from16 v0, p0
 
-    move/from16 v33, v28
+    iget-object v0, v0, Lcom/android/server/policy/PhoneWindowManager;->mMultiPhoneWindowManager:Lcom/android/server/policy/IMultiPhoneWindowManagerPolicy;
 
-    :goto_0
-    move/from16 v0, v33
+    move-object/from16 v34, v0
+
+    invoke-interface/range {v34 .. v34}, Lcom/android/server/policy/IMultiPhoneWindowManagerPolicy;->hasDockedStack()Z
+
+    move-result v16
+
+    move/from16 v0, v16
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Lcom/android/server/policy/PhoneWindowManager;->mForceShowSystemBars:Z
 
-    :goto_1
+    :goto_0
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/server/policy/PhoneWindowManager;->mForceShowSystemBars:Z
 
-    move/from16 v33, v0
+    move/from16 v34, v0
 
-    if-eqz v33, :cond_0
+    if-eqz v34, :cond_0
 
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/server/policy/PhoneWindowManager;->mForceStatusBarFromKeyguard:Z
 
-    move/from16 v33, v0
+    move/from16 v34, v0
 
-    if-eqz v33, :cond_11
+    if-eqz v34, :cond_10
 
     :cond_0
     const/4 v12, 0x0
 
-    :goto_2
+    :goto_1
     invoke-virtual/range {p0 .. p0}, Lcom/android/server/policy/PhoneWindowManager;->isStatusBarKeyguard()Z
 
-    move-result v33
+    move-result v34
 
-    if-eqz v33, :cond_1
+    if-eqz v34, :cond_1
 
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/server/policy/PhoneWindowManager;->mHideLockScreen:Z
 
-    move/from16 v33, v0
+    move/from16 v34, v0
 
-    if-eqz v33, :cond_12
+    if-eqz v34, :cond_11
 
     :cond_1
     move-object/from16 v0, p0
 
     iget-object v15, v0, Lcom/android/server/policy/PhoneWindowManager;->mTopFullscreenOpaqueWindowState:Landroid/view/WindowManagerPolicy$WindowState;
 
-    :goto_3
+    :goto_2
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/policy/PhoneWindowManager;->mSPWM:Lcom/android/server/policy/SamsungWindowManagerPolicy;
 
-    move-object/from16 v33, v0
+    move-object/from16 v34, v0
 
-    invoke-interface/range {v33 .. v33}, Lcom/android/server/policy/SamsungWindowManagerPolicy;->needUpdateSystemBarsForCoverLw()Z
+    invoke-interface/range {v34 .. v34}, Lcom/android/server/policy/SamsungWindowManagerPolicy;->needUpdateSystemBarsForCoverLw()Z
 
-    move-result v33
+    move-result v34
 
-    if-eqz v33, :cond_2
+    if-eqz v34, :cond_2
 
     move-object/from16 v0, p0
 
@@ -7496,9 +7501,9 @@
 
     iget-object v0, v0, Lcom/android/server/policy/PhoneWindowManager;->mStatusBarController:Lcom/android/server/policy/StatusBarController;
 
-    move-object/from16 v33, v0
+    move-object/from16 v34, v0
 
-    move-object/from16 v0, v33
+    move-object/from16 v0, v34
 
     move/from16 v1, p3
 
@@ -7512,9 +7517,9 @@
 
     iget-object v0, v0, Lcom/android/server/policy/PhoneWindowManager;->mNavigationBarController:Lcom/android/server/policy/BarController;
 
-    move-object/from16 v33, v0
+    move-object/from16 v34, v0
 
-    move-object/from16 v0, v33
+    move-object/from16 v0, v34
 
     move/from16 v1, p3
 
@@ -7528,19 +7533,19 @@
 
     iget-object v0, v0, Lcom/android/server/policy/PhoneWindowManager;->mStatusBarController:Lcom/android/server/policy/StatusBarController;
 
-    move-object/from16 v33, v0
+    move-object/from16 v34, v0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/policy/PhoneWindowManager;->mTopDockedOpaqueWindowState:Landroid/view/WindowManagerPolicy$WindowState;
 
-    move-object/from16 v34, v0
-
-    const/16 v35, 0x0
+    move-object/from16 v35, v0
 
     const/16 v36, 0x0
 
-    invoke-virtual/range {v33 .. v36}, Lcom/android/server/policy/StatusBarController;->applyTranslucentFlagLw(Landroid/view/WindowManagerPolicy$WindowState;II)I
+    const/16 v37, 0x0
+
+    invoke-virtual/range {v34 .. v37}, Lcom/android/server/policy/StatusBarController;->applyTranslucentFlagLw(Landroid/view/WindowManagerPolicy$WindowState;II)I
 
     move-result v10
 
@@ -7548,115 +7553,115 @@
 
     iget-object v0, v0, Lcom/android/server/policy/PhoneWindowManager;->mTopFullscreenOpaqueWindowState:Landroid/view/WindowManagerPolicy$WindowState;
 
-    move-object/from16 v33, v0
+    move-object/from16 v34, v0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v33
+    move-object/from16 v1, v34
 
     invoke-direct {v0, v1}, Lcom/android/server/policy/PhoneWindowManager;->drawsSystemBarBackground(Landroid/view/WindowManagerPolicy$WindowState;)Z
 
-    move-result v33
+    move-result v34
 
-    if-eqz v33, :cond_13
+    if-eqz v34, :cond_12
 
-    const/high16 v33, 0x40000000    # 2.0f
+    const/high16 v34, 0x40000000    # 2.0f
 
-    and-int v33, v33, p3
+    and-int v34, v34, p3
 
-    if-nez v33, :cond_13
+    if-nez v34, :cond_12
 
     const/4 v14, 0x1
 
-    :goto_4
+    :goto_3
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/policy/PhoneWindowManager;->mTopDockedOpaqueWindowState:Landroid/view/WindowManagerPolicy$WindowState;
 
-    move-object/from16 v33, v0
+    move-object/from16 v34, v0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v33
+    move-object/from16 v1, v34
 
     invoke-direct {v0, v1}, Lcom/android/server/policy/PhoneWindowManager;->drawsSystemBarBackground(Landroid/view/WindowManagerPolicy$WindowState;)Z
 
-    move-result v33
+    move-result v34
 
-    if-eqz v33, :cond_14
+    if-eqz v34, :cond_13
 
-    const/high16 v33, 0x40000000    # 2.0f
+    const/high16 v34, 0x40000000    # 2.0f
 
-    and-int v33, v33, v10
+    and-int v34, v34, v10
 
-    if-nez v33, :cond_14
+    if-nez v34, :cond_13
 
     const/4 v8, 0x1
 
-    :goto_5
+    :goto_4
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/policy/PhoneWindowManager;->mMultiPhoneWindowManager:Lcom/android/server/policy/IMultiPhoneWindowManagerPolicy;
 
-    move-object/from16 v33, v0
+    move-object/from16 v34, v0
 
-    invoke-interface/range {v33 .. v33}, Lcom/android/server/policy/IMultiPhoneWindowManagerPolicy;->isExpandedDockedStack()Z
+    invoke-interface/range {v34 .. v34}, Lcom/android/server/policy/IMultiPhoneWindowManagerPolicy;->isExpandedDockedStack()Z
 
-    move-result v33
+    move-result v34
 
-    if-eqz v33, :cond_3
+    if-eqz v34, :cond_3
 
     or-int/lit8 p3, p3, 0x4
 
     :cond_3
     invoke-interface/range {p1 .. p1}, Landroid/view/WindowManagerPolicy$WindowState;->getAttrs()Landroid/view/WindowManager$LayoutParams;
 
-    move-result-object v33
+    move-result-object v34
 
-    move-object/from16 v0, v33
+    move-object/from16 v0, v34
 
     iget v0, v0, Landroid/view/WindowManager$LayoutParams;->type:I
 
-    move/from16 v32, v0
+    move/from16 v33, v0
 
-    const/16 v33, 0x7d0
+    const/16 v34, 0x7d0
 
-    move/from16 v0, v32
+    move/from16 v0, v33
 
-    move/from16 v1, v33
+    move/from16 v1, v34
 
-    if-ne v0, v1, :cond_15
+    if-ne v0, v1, :cond_14
 
-    const/16 v29, 0x1
+    const/16 v30, 0x1
 
-    :goto_6
-    if-eqz v29, :cond_4
+    :goto_5
+    if-eqz v30, :cond_4
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/server/policy/PhoneWindowManager;->isStatusBarKeyguard()Z
 
-    move-result v33
+    move-result v34
 
-    if-eqz v33, :cond_16
+    if-eqz v34, :cond_15
 
     :cond_4
-    :goto_7
-    if-eqz v14, :cond_19
+    :goto_6
+    if-eqz v14, :cond_18
 
-    if-eqz v8, :cond_19
+    if-eqz v8, :cond_18
 
     or-int/lit8 p3, p3, 0x8
 
-    const v33, -0x40000001    # -1.9999999f
+    const v34, -0x40000001    # -1.9999999f
 
-    and-int p3, p3, v33
+    and-int p3, p3, v34
 
     :cond_5
-    :goto_8
+    :goto_7
     move-object/from16 v0, p0
 
     move/from16 v1, p3
 
-    move/from16 v2, v28
+    move/from16 v2, v29
 
     invoke-direct {v0, v1, v9, v13, v2}, Lcom/android/server/policy/PhoneWindowManager;->configureNavBarOpacity(IZZZ)I
 
@@ -7666,118 +7671,118 @@
 
     and-int/lit16 v0, v0, 0x1000
 
-    move/from16 v33, v0
+    move/from16 v34, v0
 
-    if-eqz v33, :cond_1b
+    if-eqz v34, :cond_1a
 
-    const/16 v20, 0x1
+    const/16 v21, 0x1
 
-    :goto_9
+    :goto_8
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/policy/PhoneWindowManager;->mTopFullscreenOpaqueWindowState:Landroid/view/WindowManagerPolicy$WindowState;
 
-    move-object/from16 v33, v0
+    move-object/from16 v34, v0
 
-    if-eqz v33, :cond_1d
+    if-eqz v34, :cond_1c
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/policy/PhoneWindowManager;->mTopFullscreenOpaqueWindowState:Landroid/view/WindowManagerPolicy$WindowState;
 
-    move-object/from16 v33, v0
+    move-object/from16 v34, v0
 
-    const/16 v34, 0x0
+    const/16 v35, 0x0
 
-    invoke-static/range {v33 .. v34}, Lcom/android/server/policy/PolicyControl;->getWindowFlags(Landroid/view/WindowManagerPolicy$WindowState;Landroid/view/WindowManager$LayoutParams;)I
+    invoke-static/range {v34 .. v35}, Lcom/android/server/policy/PolicyControl;->getWindowFlags(Landroid/view/WindowManagerPolicy$WindowState;Landroid/view/WindowManager$LayoutParams;)I
 
-    move-result v33
+    move-result v34
 
-    move/from16 v0, v33
+    move/from16 v0, v34
 
     and-int/lit16 v0, v0, 0x400
 
-    move/from16 v33, v0
+    move/from16 v34, v0
 
-    if-eqz v33, :cond_1c
+    if-eqz v34, :cond_1b
+
+    const/16 v19, 0x1
+
+    :goto_9
+    and-int/lit8 v34, p3, 0x4
+
+    if-eqz v34, :cond_1d
 
     const/16 v18, 0x1
 
     :goto_a
-    and-int/lit8 v33, p3, 0x4
+    and-int/lit8 v34, p3, 0x2
 
-    if-eqz v33, :cond_1e
+    if-eqz v34, :cond_1e
 
     const/16 v17, 0x1
 
     :goto_b
-    and-int/lit8 v33, p3, 0x2
-
-    if-eqz v33, :cond_1f
-
-    const/16 v16, 0x1
-
-    :goto_c
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/policy/PhoneWindowManager;->mStatusBar:Landroid/view/WindowManagerPolicy$WindowState;
 
-    move-object/from16 v33, v0
+    move-object/from16 v34, v0
 
-    if-eqz v33, :cond_24
+    if-eqz v34, :cond_23
 
-    if-nez v29, :cond_20
+    if-nez v30, :cond_1f
 
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/server/policy/PhoneWindowManager;->mForceShowSystemBars:Z
 
-    move/from16 v33, v0
+    move/from16 v34, v0
 
-    if-nez v33, :cond_23
+    if-nez v34, :cond_22
 
-    if-nez v18, :cond_21
+    if-nez v19, :cond_20
 
-    if-eqz v17, :cond_22
+    if-eqz v18, :cond_21
 
-    move/from16 v31, v20
+    move/from16 v32, v21
 
-    :goto_d
+    :goto_c
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/policy/PhoneWindowManager;->mMultiPhoneWindowManager:Lcom/android/server/policy/IMultiPhoneWindowManagerPolicy;
 
-    move-object/from16 v33, v0
+    move-object/from16 v34, v0
 
-    invoke-interface/range {v33 .. v33}, Lcom/android/server/policy/IMultiPhoneWindowManagerPolicy;->isExpandedDockedStack()Z
+    invoke-interface/range {v34 .. v34}, Lcom/android/server/policy/IMultiPhoneWindowManagerPolicy;->isExpandedDockedStack()Z
 
-    move-result v33
+    move-result v34
 
-    if-eqz v33, :cond_6
+    if-eqz v34, :cond_6
 
-    const/16 v31, 0x1
+    const/16 v32, 0x1
 
     :cond_6
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/policy/PhoneWindowManager;->mNavigationBar:Landroid/view/WindowManagerPolicy$WindowState;
 
-    move-object/from16 v33, v0
+    move-object/from16 v34, v0
 
-    if-eqz v33, :cond_7
+    if-eqz v34, :cond_7
 
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/server/policy/PhoneWindowManager;->mForceShowSystemBars:Z
 
-    move/from16 v33, v0
+    move/from16 v34, v0
 
-    if-eqz v33, :cond_25
+    if-eqz v34, :cond_24
 
     :cond_7
-    const/16 v30, 0x0
+    const/16 v31, 0x0
 
-    :goto_e
+    :goto_d
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v24
@@ -7790,9 +7795,9 @@
 
     const-wide/16 v36, 0x0
 
-    cmp-long v33, v34, v36
+    cmp-long v34, v34, v36
 
-    if-eqz v33, :cond_27
+    if-eqz v34, :cond_26
 
     move-object/from16 v0, p0
 
@@ -7804,60 +7809,60 @@
 
     const-wide/16 v36, 0x7530
 
-    cmp-long v33, v34, v36
+    cmp-long v34, v34, v36
 
-    if-gtz v33, :cond_26
+    if-gtz v34, :cond_25
 
-    const/16 v26, 0x1
+    const/16 v27, 0x1
 
-    :goto_f
-    if-eqz v26, :cond_8
+    :goto_e
+    if-eqz v27, :cond_8
 
-    if-eqz v16, :cond_8
+    if-eqz v17, :cond_8
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/server/policy/PhoneWindowManager;->isStatusBarKeyguard()Z
 
-    move-result v33
+    move-result v34
 
-    if-eqz v33, :cond_28
+    if-eqz v34, :cond_27
 
     :cond_8
-    :goto_10
+    :goto_f
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/policy/PhoneWindowManager;->mStatusBarController:Lcom/android/server/policy/StatusBarController;
 
-    move-object/from16 v33, v0
+    move-object/from16 v34, v0
 
-    invoke-virtual/range {v33 .. v33}, Lcom/android/server/policy/StatusBarController;->isTransientShowRequested()Z
+    invoke-virtual/range {v34 .. v34}, Lcom/android/server/policy/StatusBarController;->isTransientShowRequested()Z
 
-    move-result v33
+    move-result v34
 
-    if-eqz v33, :cond_9
+    if-eqz v34, :cond_9
 
-    if-eqz v31, :cond_29
+    if-eqz v32, :cond_28
 
     :cond_9
     const/4 v7, 0x0
 
-    :goto_11
+    :goto_10
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/policy/PhoneWindowManager;->mNavigationBarController:Lcom/android/server/policy/BarController;
 
-    move-object/from16 v33, v0
+    move-object/from16 v34, v0
 
-    invoke-virtual/range {v33 .. v33}, Lcom/android/server/policy/BarController;->isTransientShowRequested()Z
+    invoke-virtual/range {v34 .. v34}, Lcom/android/server/policy/BarController;->isTransientShowRequested()Z
 
-    move-result v33
+    move-result v34
 
-    if-eqz v33, :cond_2b
+    if-eqz v34, :cond_2a
 
-    if-eqz v30, :cond_2a
+    if-eqz v31, :cond_29
 
     const/4 v6, 0x0
 
-    :goto_12
+    :goto_11
     if-nez v7, :cond_a
 
     if-nez v6, :cond_a
@@ -7866,9 +7871,9 @@
 
     iget-boolean v0, v0, Lcom/android/server/policy/PhoneWindowManager;->mForceShowSystemBars:Z
 
-    move/from16 v33, v0
+    move/from16 v34, v0
 
-    if-eqz v33, :cond_b
+    if-eqz v34, :cond_b
 
     :cond_a
     invoke-direct/range {p0 .. p0}, Lcom/android/server/policy/PhoneWindowManager;->clearClearableFlagsLw()V
@@ -7880,44 +7885,44 @@
 
     and-int/lit16 v0, v0, 0x800
 
-    move/from16 v33, v0
+    move/from16 v34, v0
 
-    if-eqz v33, :cond_2c
+    if-eqz v34, :cond_2b
 
-    const/16 v19, 0x1
+    const/16 v20, 0x1
 
-    :goto_13
+    :goto_12
     move/from16 v0, p3
 
     and-int/lit16 v0, v0, 0x1000
 
-    move/from16 v33, v0
+    move/from16 v34, v0
 
-    if-eqz v33, :cond_2d
+    if-eqz v34, :cond_2c
 
-    const/16 v20, 0x1
+    const/16 v21, 0x1
+
+    :goto_13
+    if-nez v20, :cond_2d
+
+    move/from16 v22, v21
 
     :goto_14
-    if-nez v19, :cond_2e
+    if-eqz v17, :cond_c
 
-    move/from16 v21, v20
-
-    :goto_15
-    if-eqz v16, :cond_c
-
-    if-eqz v21, :cond_2f
+    if-eqz v22, :cond_2e
 
     :cond_c
-    :goto_16
+    :goto_15
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/policy/PhoneWindowManager;->mStatusBarController:Lcom/android/server/policy/StatusBarController;
 
-    move-object/from16 v33, v0
+    move-object/from16 v34, v0
 
-    move-object/from16 v0, v33
+    move-object/from16 v0, v34
 
-    move/from16 v1, v31
+    move/from16 v1, v32
 
     move/from16 v2, p2
 
@@ -7933,7 +7938,7 @@
 
     invoke-direct {v0, v1}, Lcom/android/server/policy/PhoneWindowManager;->isImmersiveMode(I)Z
 
-    move-result v23
+    move-result v26
 
     move-object/from16 v0, p0
 
@@ -7941,47 +7946,47 @@
 
     invoke-direct {v0, v1}, Lcom/android/server/policy/PhoneWindowManager;->isImmersiveMode(I)Z
 
-    move-result v22
+    move-result v23
 
     if-eqz p1, :cond_d
 
-    move/from16 v0, v23
+    move/from16 v0, v26
 
-    move/from16 v1, v22
+    move/from16 v1, v23
 
     if-eq v0, v1, :cond_d
 
     invoke-interface/range {p1 .. p1}, Landroid/view/WindowManagerPolicy$WindowState;->getOwningPackage()Ljava/lang/String;
 
-    move-result-object v27
+    move-result-object v28
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/policy/PhoneWindowManager;->mImmersiveModeConfirmation:Lcom/android/server/policy/ImmersiveModeConfirmation;
 
-    move-object/from16 v33, v0
+    move-object/from16 v34, v0
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/server/policy/PhoneWindowManager;->isUserSetupComplete()Z
 
-    move-result v34
+    move-result v35
 
     invoke-interface/range {p1 .. p1}, Landroid/view/WindowManagerPolicy$WindowState;->getSystemUiVisibility()I
 
-    move-result v35
+    move-result v36
 
-    invoke-static/range {v35 .. v35}, Lcom/android/server/policy/PhoneWindowManager;->isNavBarEmpty(I)Z
+    invoke-static/range {v36 .. v36}, Lcom/android/server/policy/PhoneWindowManager;->isNavBarEmpty(I)Z
 
-    move-result v35
+    move-result v36
 
-    move-object/from16 v0, v33
+    move-object/from16 v0, v34
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v28
 
-    move/from16 v2, v22
+    move/from16 v2, v23
 
-    move/from16 v3, v34
+    move/from16 v3, v35
 
-    move/from16 v4, v35
+    move/from16 v4, v36
 
     invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/server/policy/ImmersiveModeConfirmation;->immersiveModeChangedLw(Ljava/lang/String;ZZZ)V
 
@@ -7990,11 +7995,11 @@
 
     iget-object v0, v0, Lcom/android/server/policy/PhoneWindowManager;->mNavigationBarController:Lcom/android/server/policy/BarController;
 
-    move-object/from16 v33, v0
+    move-object/from16 v34, v0
 
-    move-object/from16 v0, v33
+    move-object/from16 v0, v34
 
-    move/from16 v1, v30
+    move/from16 v1, v31
 
     move/from16 v2, p2
 
@@ -8007,155 +8012,155 @@
     return p3
 
     :cond_e
-    const/16 v33, 0x1
+    if-nez v9, :cond_f
 
-    goto/16 :goto_0
+    if-nez v13, :cond_f
 
-    :cond_f
-    if-nez v9, :cond_10
+    move/from16 v34, v29
 
-    if-nez v13, :cond_10
-
-    move/from16 v33, v28
-
-    :goto_17
-    move/from16 v0, v33
+    :goto_16
+    move/from16 v0, v34
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Lcom/android/server/policy/PhoneWindowManager;->mForceShowSystemBars:Z
 
-    goto/16 :goto_1
+    goto/16 :goto_0
+
+    :cond_f
+    const/16 v34, 0x1
+
+    goto :goto_16
 
     :cond_10
-    const/16 v33, 0x1
+    const/4 v12, 0x1
 
-    goto :goto_17
+    goto/16 :goto_1
 
     :cond_11
-    const/4 v12, 0x1
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/android/server/policy/PhoneWindowManager;->mStatusBar:Landroid/view/WindowManagerPolicy$WindowState;
 
     goto/16 :goto_2
 
     :cond_12
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Lcom/android/server/policy/PhoneWindowManager;->mStatusBar:Landroid/view/WindowManagerPolicy$WindowState;
+    iget-object v0, v0, Lcom/android/server/policy/PhoneWindowManager;->mTopFullscreenOpaqueWindowState:Landroid/view/WindowManagerPolicy$WindowState;
+
+    move-object/from16 v34, v0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v34
+
+    invoke-direct {v0, v1}, Lcom/android/server/policy/PhoneWindowManager;->forcesDrawStatusBarBackground(Landroid/view/WindowManagerPolicy$WindowState;)Z
+
+    move-result v14
 
     goto/16 :goto_3
 
     :cond_13
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/policy/PhoneWindowManager;->mTopFullscreenOpaqueWindowState:Landroid/view/WindowManagerPolicy$WindowState;
-
-    move-object/from16 v33, v0
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v33
-
-    invoke-direct {v0, v1}, Lcom/android/server/policy/PhoneWindowManager;->forcesDrawStatusBarBackground(Landroid/view/WindowManagerPolicy$WindowState;)Z
-
-    move-result v14
-
-    goto/16 :goto_4
-
-    :cond_14
-    move-object/from16 v0, p0
-
     iget-object v0, v0, Lcom/android/server/policy/PhoneWindowManager;->mTopDockedOpaqueWindowState:Landroid/view/WindowManagerPolicy$WindowState;
 
-    move-object/from16 v33, v0
+    move-object/from16 v34, v0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v33
+    move-object/from16 v1, v34
 
     invoke-direct {v0, v1}, Lcom/android/server/policy/PhoneWindowManager;->forcesDrawStatusBarBackground(Landroid/view/WindowManagerPolicy$WindowState;)Z
 
     move-result v8
 
+    goto/16 :goto_4
+
+    :cond_14
+    const/16 v30, 0x0
+
     goto/16 :goto_5
 
     :cond_15
-    const/16 v29, 0x0
-
-    goto/16 :goto_6
-
-    :cond_16
     const/16 v11, 0x3806
 
-    sget-boolean v33, Lcom/samsung/android/framework/feature/NavigationBarFeatures;->SUPPORT_LIGHT_NAVIGATION_BAR:Z
+    sget-boolean v34, Lcom/samsung/android/framework/feature/NavigationBarFeatures;->SUPPORT_LIGHT_NAVIGATION_BAR:Z
 
-    if-eqz v33, :cond_17
+    if-eqz v34, :cond_16
 
     const/16 v11, 0x3816
 
-    :cond_17
+    :cond_16
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/server/policy/PhoneWindowManager;->mHideLockScreen:Z
 
-    move/from16 v33, v0
+    move/from16 v34, v0
 
-    if-eqz v33, :cond_18
+    if-eqz v34, :cond_17
 
-    const/high16 v33, -0x40000000    # -2.0f
+    const/high16 v34, -0x40000000    # -2.0f
 
-    or-int v11, v11, v33
+    or-int v11, v11, v34
 
-    :cond_18
+    :cond_17
     not-int v0, v11
 
-    move/from16 v33, v0
+    move/from16 v34, v0
 
-    and-int v33, v33, p3
+    and-int v34, v34, p3
 
-    and-int v34, p2, v11
+    and-int v35, p2, v11
 
-    or-int p3, v33, v34
+    or-int p3, v34, v35
 
-    goto/16 :goto_7
+    goto/16 :goto_6
 
-    :cond_19
+    :cond_18
     invoke-direct/range {p0 .. p0}, Lcom/android/server/policy/PhoneWindowManager;->areTranslucentBarsAllowed()Z
 
-    move-result v33
+    move-result v34
 
-    if-nez v33, :cond_1a
+    if-nez v34, :cond_19
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/policy/PhoneWindowManager;->mStatusBar:Landroid/view/WindowManagerPolicy$WindowState;
 
-    move-object/from16 v33, v0
+    move-object/from16 v34, v0
 
-    move-object/from16 v0, v33
+    move-object/from16 v0, v34
 
-    if-eq v15, v0, :cond_1a
+    if-eq v15, v0, :cond_19
 
-    :goto_18
-    const v33, -0x40000009    # -1.9999989f
+    :goto_17
+    const v34, -0x40000009    # -1.9999989f
 
-    and-int p3, p3, v33
+    and-int p3, p3, v34
+
+    goto/16 :goto_7
+
+    :cond_19
+    if-eqz v12, :cond_5
+
+    goto :goto_17
+
+    :cond_1a
+    const/16 v21, 0x0
 
     goto/16 :goto_8
 
-    :cond_1a
-    if-eqz v12, :cond_5
-
-    goto :goto_18
-
     :cond_1b
-    const/16 v20, 0x0
+    const/16 v19, 0x0
 
     goto/16 :goto_9
 
     :cond_1c
-    const/16 v18, 0x0
+    const/16 v19, 0x0
 
-    goto/16 :goto_a
+    goto/16 :goto_9
 
     :cond_1d
     const/16 v18, 0x0
@@ -8168,60 +8173,55 @@
     goto/16 :goto_b
 
     :cond_1f
-    const/16 v16, 0x0
+    const/16 v32, 0x1
 
     goto/16 :goto_c
 
     :cond_20
-    const/16 v31, 0x1
+    const/16 v32, 0x1
 
-    goto/16 :goto_d
+    goto/16 :goto_c
 
     :cond_21
-    const/16 v31, 0x1
+    const/16 v32, 0x0
 
-    goto/16 :goto_d
+    goto/16 :goto_c
 
     :cond_22
-    const/16 v31, 0x0
+    const/16 v32, 0x0
 
-    goto/16 :goto_d
+    goto/16 :goto_c
 
     :cond_23
-    const/16 v31, 0x0
+    const/16 v32, 0x0
 
-    goto/16 :goto_d
+    goto/16 :goto_c
 
     :cond_24
-    const/16 v31, 0x0
+    if-eqz v17, :cond_7
+
+    move/from16 v31, v21
 
     goto/16 :goto_d
 
     :cond_25
-    if-eqz v16, :cond_7
-
-    move/from16 v30, v20
+    const/16 v27, 0x0
 
     goto/16 :goto_e
 
     :cond_26
-    const/16 v26, 0x0
+    const/16 v27, 0x0
 
-    goto/16 :goto_f
+    goto/16 :goto_e
 
     :cond_27
-    const/16 v26, 0x0
-
-    goto/16 :goto_f
-
-    :cond_28
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/server/policy/PhoneWindowManager;->mKeyguardDrawComplete:Z
 
-    move/from16 v33, v0
+    move/from16 v34, v0
 
-    if-eqz v33, :cond_8
+    if-eqz v34, :cond_8
 
     const-wide/16 v34, 0x0
 
@@ -8235,70 +8235,60 @@
 
     iget-object v0, v0, Lcom/android/server/policy/PhoneWindowManager;->mStatusBarController:Lcom/android/server/policy/StatusBarController;
 
-    move-object/from16 v33, v0
+    move-object/from16 v34, v0
 
-    invoke-virtual/range {v33 .. v33}, Lcom/android/server/policy/StatusBarController;->showTransient()V
+    invoke-virtual/range {v34 .. v34}, Lcom/android/server/policy/StatusBarController;->showTransient()V
 
     invoke-static/range {p3 .. p3}, Lcom/android/server/policy/PhoneWindowManager;->isNavBarEmpty(I)Z
 
-    move-result v33
+    move-result v34
 
-    if-nez v33, :cond_8
+    if-nez v34, :cond_8
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/policy/PhoneWindowManager;->mNavigationBarController:Lcom/android/server/policy/BarController;
 
-    move-object/from16 v33, v0
+    move-object/from16 v34, v0
 
-    invoke-virtual/range {v33 .. v33}, Lcom/android/server/policy/BarController;->showTransient()V
+    invoke-virtual/range {v34 .. v34}, Lcom/android/server/policy/BarController;->showTransient()V
+
+    goto/16 :goto_f
+
+    :cond_28
+    move/from16 v7, v18
 
     goto/16 :goto_10
 
     :cond_29
-    move/from16 v7, v17
+    const/4 v6, 0x1
 
     goto/16 :goto_11
 
     :cond_2a
-    const/4 v6, 0x1
+    const/4 v6, 0x0
 
-    goto/16 :goto_12
+    goto/16 :goto_11
 
     :cond_2b
-    const/4 v6, 0x0
+    const/16 v20, 0x0
 
     goto/16 :goto_12
 
     :cond_2c
-    const/16 v19, 0x0
+    const/16 v21, 0x0
 
     goto/16 :goto_13
 
     :cond_2d
-    const/16 v20, 0x0
+    const/16 v22, 0x1
 
     goto/16 :goto_14
 
     :cond_2e
-    const/16 v21, 0x1
-
-    goto/16 :goto_15
-
-    :cond_2f
     invoke-interface/range {p1 .. p1}, Landroid/view/WindowManagerPolicy$WindowState;->getBaseType()I
 
-    move-result v33
-
-    move-object/from16 v0, p0
-
-    move/from16 v1, v33
-
-    invoke-virtual {v0, v1}, Lcom/android/server/policy/PhoneWindowManager;->windowTypeToLayerLw(I)I
-
-    move-result v33
-
-    const/16 v34, 0x7e6
+    move-result v34
 
     move-object/from16 v0, p0
 
@@ -8308,15 +8298,25 @@
 
     move-result v34
 
-    move/from16 v0, v33
+    const/16 v35, 0x7e6
 
-    move/from16 v1, v34
+    move-object/from16 v0, p0
+
+    move/from16 v1, v35
+
+    invoke-virtual {v0, v1}, Lcom/android/server/policy/PhoneWindowManager;->windowTypeToLayerLw(I)I
+
+    move-result v35
+
+    move/from16 v0, v34
+
+    move/from16 v1, v35
 
     if-le v0, v1, :cond_c
 
     and-int/lit8 p3, p3, -0x3
 
-    goto/16 :goto_16
+    goto/16 :goto_15
 .end method
 
 .method private updateSystemUiVisibilityLw()I

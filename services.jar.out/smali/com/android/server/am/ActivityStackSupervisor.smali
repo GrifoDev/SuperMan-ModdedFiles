@@ -17353,7 +17353,7 @@
 .end method
 
 .method final startActivityFromRecentsInner(ILandroid/os/Bundle;)I
-    .locals 30
+    .locals 32
 
     if-eqz p2, :cond_0
 
@@ -17377,31 +17377,50 @@
 
     const/4 v4, -0x1
 
+    :try_start_0
     move-object/from16 v0, p0
 
     move/from16 v1, p1
 
     invoke-virtual {v0, v1, v3, v4}, Lcom/android/server/am/ActivityStackSupervisor;->anyTaskForIdLocked(IZI)Lcom/android/server/am/TaskRecord;
 
-    move-result-object v29
+    move-result-object v31
 
-    if-eqz v29, :cond_2
+    if-eqz v31, :cond_2
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v31
 
     iget-object v3, v0, Lcom/android/server/am/TaskRecord;->intent:Landroid/content/Intent;
 
     if-eqz v3, :cond_2
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v31
 
     iget-object v3, v0, Lcom/android/server/am/TaskRecord;->intent:Landroid/content/Intent;
 
-    const-string/jumbo v4, "useBBCAppLock"
+    invoke-virtual {v3}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
-    const/4 v6, 0x0
+    move-result-object v23
 
-    invoke-virtual {v3, v4, v6}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    if-eqz v23, :cond_2
+
+    const-string/jumbo v3, "useBBCAppLock"
+
+    move-object/from16 v0, v23
+
+    invoke-virtual {v0, v3}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    const-string/jumbo v3, "useBBCAppLock"
+
+    const/4 v4, 0x0
+
+    move-object/from16 v0, v23
+
+    invoke-virtual {v0, v3, v4}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result v3
 
@@ -17413,15 +17432,15 @@
 
     iget-object v3, v3, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v31
 
     iget-object v4, v0, Lcom/android/server/am/TaskRecord;->intent:Landroid/content/Intent;
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v31
 
     iget v6, v0, Lcom/android/server/am/TaskRecord;->userId:I
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v31
 
     iget-object v10, v0, Lcom/android/server/am/TaskRecord;->realActivity:Landroid/content/ComponentName;
 
@@ -17430,6 +17449,8 @@
     move-result-object v10
 
     invoke-static {v3, v4, v6, v10}, Lcom/android/server/BBCManagerService;->startActivityBBCAppLockFromRecents(Landroid/content/Context;Landroid/content/Intent;ILjava/lang/String;)I
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v3
 
@@ -17444,6 +17465,15 @@
     const/4 v5, -0x1
 
     goto :goto_1
+
+    :catch_0
+    move-exception v20
+
+    sget-object v3, Lcom/android/server/am/ActivityStackSupervisor;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v4, "Applock not supported for intents containing custom class"
+
+    invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_2
     if-nez v5, :cond_3
@@ -17481,11 +17511,11 @@
     throw v3
 
     :cond_3
-    const/16 v25, 0x0
+    const/16 v27, 0x0
 
-    const/16 v25, 0x0
+    const/16 v27, 0x0
 
-    if-eqz v25, :cond_4
+    if-eqz v27, :cond_4
 
     const/4 v3, 0x2
 
@@ -17527,9 +17557,9 @@
     invoke-virtual {v3, v4, v6}, Lcom/android/server/wm/WindowManagerService;->prepareAppTransition(IZ)V
 
     :cond_5
-    move/from16 v26, v5
+    move/from16 v28, v5
 
-    const/16 v24, 0x0
+    const/16 v26, 0x0
 
     sget-boolean v3, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SAMSUNG_MULTIWINDOW_DYNAMIC_ENABLED:Z
 
@@ -17547,16 +17577,16 @@
 
     if-eqz v3, :cond_7
 
-    const/16 v24, 0x1
+    const/16 v26, 0x1
 
     :goto_2
     const/4 v3, -0x1
 
     if-ne v5, v3, :cond_6
 
-    if-eqz v24, :cond_9
+    if-eqz v26, :cond_9
 
-    const/16 v26, 0x2
+    const/16 v28, 0x2
 
     :cond_6
     :goto_3
@@ -17566,7 +17596,7 @@
 
     move/from16 v1, p1
 
-    move/from16 v2, v26
+    move/from16 v2, v28
 
     invoke-virtual {v0, v1, v3, v2}, Lcom/android/server/am/ActivityStackSupervisor;->anyTaskForIdLocked(IZI)Lcom/android/server/am/TaskRecord;
 
@@ -17619,17 +17649,17 @@
     throw v3
 
     :cond_7
-    const/16 v24, 0x0
+    const/16 v26, 0x0
 
     goto :goto_2
 
     :cond_8
-    const/16 v24, 0x0
+    const/16 v26, 0x0
 
     goto :goto_2
 
     :cond_9
-    const/16 v26, 0x1
+    const/16 v28, 0x1
 
     goto :goto_3
 
@@ -17652,7 +17682,7 @@
 
     if-eqz v3, :cond_b
 
-    if-eqz v24, :cond_11
+    if-eqz v26, :cond_11
 
     :cond_b
     :goto_4
@@ -17668,19 +17698,19 @@
 
     if-ne v3, v4, :cond_c
 
-    if-eqz v24, :cond_14
+    if-eqz v26, :cond_14
 
     :cond_c
     :goto_5
     invoke-virtual/range {p0 .. p0}, Lcom/android/server/am/ActivityStackSupervisor;->getFocusedStack()Lcom/android/server/am/ActivityStack;
 
-    move-result-object v23
+    move-result-object v25
 
-    if-eqz v23, :cond_15
+    if-eqz v25, :cond_15
 
-    invoke-virtual/range {v23 .. v23}, Lcom/android/server/am/ActivityStack;->topActivity()Lcom/android/server/am/ActivityRecord;
+    invoke-virtual/range {v25 .. v25}, Lcom/android/server/am/ActivityStack;->topActivity()Lcom/android/server/am/ActivityRecord;
 
-    move-result-object v28
+    move-result-object v30
 
     :goto_6
     const/4 v3, -0x1
@@ -17732,7 +17762,7 @@
 
     invoke-virtual {v3}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
-    move-result-object v20
+    move-result-object v21
 
     :goto_7
     move-object/from16 v0, p0
@@ -17743,7 +17773,7 @@
 
     const-string/jumbo v4, "DOPK"
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     invoke-interface {v3, v4, v0}, Lcom/android/server/am/IMultiWindowManagerServiceBridge;->logMultiWindowBehavior(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -17753,7 +17783,7 @@
 
     if-eqz v3, :cond_f
 
-    if-eqz v25, :cond_19
+    if-eqz v27, :cond_19
 
     :cond_f
     :goto_9
@@ -17828,9 +17858,9 @@
 
     move-result-object v7
 
-    if-eqz v28, :cond_1b
+    if-eqz v30, :cond_1b
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v30
 
     iget-object v3, v0, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
 
@@ -17845,7 +17875,7 @@
 
     const/4 v8, 0x2
 
-    move-object/from16 v10, v28
+    move-object/from16 v10, v30
 
     invoke-virtual/range {v6 .. v11}, Lcom/android/server/am/ActivityStarter;->postStartActivityUncheckedProcessing(Lcom/android/server/am/ActivityRecord;IILcom/android/server/am/ActivityRecord;Lcom/android/server/am/ActivityStack;)V
 
@@ -17864,31 +17894,31 @@
 
     new-array v0, v3, [Ljava/lang/String;
 
-    move-object/from16 v22, v0
+    move-object/from16 v24, v0
 
     const/4 v3, 0x2
 
     new-array v0, v3, [Ljava/lang/String;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
     const-string/jumbo v3, "SPBY"
 
     const/4 v4, 0x0
 
-    aput-object v3, v22, v4
+    aput-object v3, v24, v4
 
     const-string/jumbo v3, "Recents"
 
     const/4 v4, 0x0
 
-    aput-object v3, v21, v4
+    aput-object v3, v22, v4
 
     const-string/jumbo v3, "SPPA"
 
     const/4 v4, 0x1
 
-    aput-object v3, v22, v4
+    aput-object v3, v24, v4
 
     const/4 v3, 0x3
 
@@ -17921,7 +17951,7 @@
     :goto_b
     const/4 v4, 0x1
 
-    aput-object v3, v21, v4
+    aput-object v3, v22, v4
 
     const/4 v4, 0x1
 
@@ -17929,7 +17959,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    aget-object v6, v21, v4
+    aget-object v6, v22, v4
 
     invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -17964,7 +17994,7 @@
 
     move-result-object v3
 
-    aput-object v3, v21, v4
+    aput-object v3, v22, v4
 
     move-object/from16 v0, p0
 
@@ -17972,9 +18002,9 @@
 
     iget-object v3, v3, Lcom/android/server/am/ActivityManagerService;->mMultiWindowManager:Lcom/android/server/am/IMultiWindowManagerServiceBridge;
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v24
 
-    move-object/from16 v1, v21
+    move-object/from16 v1, v22
 
     invoke-interface {v3, v0, v1}, Lcom/android/server/am/IMultiWindowManagerServiceBridge;->logMultiWindowBehavior([Ljava/lang/String;[Ljava/lang/String;)V
 
@@ -18008,17 +18038,17 @@
     goto/16 :goto_5
 
     :cond_15
-    const/16 v28, 0x0
+    const/16 v30, 0x0
 
     goto/16 :goto_6
 
     :cond_16
-    const/16 v20, 0x0
+    const/16 v21, 0x0
 
     goto/16 :goto_7
 
     :cond_17
-    if-eqz v24, :cond_e
+    if-eqz v26, :cond_e
 
     move-object/from16 v0, v18
 
@@ -18032,7 +18062,7 @@
 
     invoke-virtual {v3}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
-    move-result-object v20
+    move-result-object v21
 
     :goto_d
     move-object/from16 v0, p0
@@ -18043,19 +18073,19 @@
 
     const-string/jumbo v4, "FFEP"
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     invoke-interface {v3, v4, v0}, Lcom/android/server/am/IMultiWindowManagerServiceBridge;->logMultiWindowBehavior(Ljava/lang/String;Ljava/lang/String;)V
 
     goto/16 :goto_8
 
     :cond_18
-    const-string/jumbo v20, "null"
+    const-string/jumbo v21, "null"
 
     goto :goto_d
 
     :cond_19
-    if-nez v24, :cond_1a
+    if-nez v26, :cond_1a
 
     move-object/from16 v0, v18
 
@@ -18130,7 +18160,7 @@
 
     invoke-virtual/range {v6 .. v18}, Lcom/android/server/am/ActivityManagerService;->startActivityInPackage(ILjava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/os/IBinder;Ljava/lang/String;IILandroid/os/Bundle;ILandroid/app/IActivityContainer;Lcom/android/server/am/TaskRecord;)I
 
-    move-result v27
+    move-result v29
 
     const/4 v3, 0x3
 
@@ -18145,7 +18175,7 @@
     invoke-direct {v0, v3}, Lcom/android/server/am/ActivityStackSupervisor;->setResizingDuringAnimation(I)V
 
     :cond_1d
-    return v27
+    return v29
 .end method
 
 .method startSpecificActivityLocked(Lcom/android/server/am/ActivityRecord;ZZ)V

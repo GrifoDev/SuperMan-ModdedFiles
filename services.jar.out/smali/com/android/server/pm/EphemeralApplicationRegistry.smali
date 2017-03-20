@@ -427,7 +427,7 @@
 
     iget-object v5, p0, Lcom/android/server/pm/EphemeralApplicationRegistry;->mService:Lcom/android/server/pm/PackageManagerService;
 
-    sget-object v5, Lcom/android/server/pm/PackageManagerService;->mPackages:Landroid/util/ArrayMap;
+    iget-object v5, v5, Lcom/android/server/pm/PackageManagerService;->mPackages:Landroid/util/ArrayMap;
 
     invoke-virtual {v5}, Landroid/util/ArrayMap;->size()I
 
@@ -440,7 +440,7 @@
 
     iget-object v5, p0, Lcom/android/server/pm/EphemeralApplicationRegistry;->mService:Lcom/android/server/pm/PackageManagerService;
 
-    sget-object v5, Lcom/android/server/pm/PackageManagerService;->mPackages:Landroid/util/ArrayMap;
+    iget-object v5, v5, Lcom/android/server/pm/PackageManagerService;->mPackages:Landroid/util/ArrayMap;
 
     invoke-virtual {v5, v0}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
 

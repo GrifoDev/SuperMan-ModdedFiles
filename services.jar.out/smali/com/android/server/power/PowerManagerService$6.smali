@@ -32,52 +32,67 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 5
+    .locals 6
 
-    iget-object v1, p0, Lcom/android/server/power/PowerManagerService$6;->this$0:Lcom/android/server/power/PowerManagerService;
+    iget-object v2, p0, Lcom/android/server/power/PowerManagerService$6;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    invoke-static {v1}, Lcom/android/server/power/PowerManagerService;->-get34(Lcom/android/server/power/PowerManagerService;)Ljava/lang/Object;
+    invoke-static {v2}, Lcom/android/server/power/PowerManagerService;->-get34(Lcom/android/server/power/PowerManagerService;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v3
 
-    monitor-enter v2
+    monitor-enter v3
 
     :try_start_0
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    const-string/jumbo v1, "ResponseAxT9Info"
+    const-string/jumbo v2, "ResponseAxT9Info"
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/server/power/PowerManagerService$6;->this$0:Lcom/android/server/power/PowerManagerService;
-
-    const-string/jumbo v3, "AxT9IME.isVisibleWindow"
-
-    const/4 v4, 0x0
-
-    invoke-virtual {p2, v3, v4}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
-
-    move-result v3
-
-    iput-boolean v3, v1, Lcom/android/server/power/PowerManagerService;->mIsSipVisible:Z
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    :try_start_1
+    iget-object v2, p0, Lcom/android/server/power/PowerManagerService$6;->this$0:Lcom/android/server/power/PowerManagerService;
+
+    const-string/jumbo v4, "AxT9IME.isVisibleWindow"
+
+    const/4 v5, 0x0
+
+    invoke-virtual {p2, v4, v5}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+
+    move-result v4
+
+    iput-boolean v4, v2, Lcom/android/server/power/PowerManagerService;->mIsSipVisible:Z
+    :try_end_1
+    .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
     :cond_0
-    monitor-exit v2
+    :goto_0
+    monitor-exit v3
 
     return-void
 
-    :catchall_0
+    :catch_0
     move-exception v1
 
-    monitor-exit v2
+    :try_start_2
+    invoke-virtual {v1}, Ljava/lang/RuntimeException;->printStackTrace()V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    throw v1
+    goto :goto_0
+
+    :catchall_0
+    move-exception v2
+
+    monitor-exit v3
+
+    throw v2
 .end method

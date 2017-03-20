@@ -636,7 +636,7 @@
 
     iget-object v0, p0, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->mService:Lcom/android/server/pm/PackageManagerService;
 
-    sget-object v0, Lcom/android/server/pm/PackageManagerService;->mPackages:Landroid/util/ArrayMap;
+    iget-object v0, v0, Lcom/android/server/pm/PackageManagerService;->mPackages:Landroid/util/ArrayMap;
 
     invoke-virtual {v0, p1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -5665,7 +5665,11 @@
 
     move-object/from16 v172, v0
 
-    sget-object v173, Lcom/android/server/pm/PackageManagerService;->mPackages:Landroid/util/ArrayMap;
+    move-object/from16 v0, v172
+
+    iget-object v0, v0, Lcom/android/server/pm/PackageManagerService;->mPackages:Landroid/util/ArrayMap;
+
+    move-object/from16 v173, v0
 
     monitor-enter v173
 
@@ -5818,7 +5822,11 @@
 
     move-object/from16 v172, v0
 
-    sget-object v173, Lcom/android/server/pm/PackageManagerService;->mPackages:Landroid/util/ArrayMap;
+    move-object/from16 v0, v172
+
+    iget-object v0, v0, Lcom/android/server/pm/PackageManagerService;->mPackages:Landroid/util/ArrayMap;
+
+    move-object/from16 v173, v0
 
     monitor-enter v173
 
@@ -11293,14 +11301,14 @@
 
     iget-object v7, p0, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->mService:Lcom/android/server/pm/PackageManagerService;
 
-    sget-object v8, Lcom/android/server/pm/PackageManagerService;->mPackages:Landroid/util/ArrayMap;
+    iget-object v8, v7, Lcom/android/server/pm/PackageManagerService;->mPackages:Landroid/util/ArrayMap;
 
     monitor-enter v8
 
     :try_start_0
     iget-object v7, p0, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->mService:Lcom/android/server/pm/PackageManagerService;
 
-    sget-object v7, Lcom/android/server/pm/PackageManagerService;->mPackages:Landroid/util/ArrayMap;
+    iget-object v7, v7, Lcom/android/server/pm/PackageManagerService;->mPackages:Landroid/util/ArrayMap;
 
     invoke-virtual {v7}, Landroid/util/ArrayMap;->values()Ljava/util/Collection;
 

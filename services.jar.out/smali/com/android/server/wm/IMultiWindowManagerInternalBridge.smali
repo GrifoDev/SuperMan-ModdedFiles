@@ -190,6 +190,9 @@
 .method public abstract handleScreenFreezeAnimationReady()I
 .end method
 
+.method public abstract hasDockedStack()Z
+.end method
+
 .method public abstract hasFakedRelaunchAnimTokensLocked(Lcom/android/server/wm/AppWindowToken;)Z
 .end method
 

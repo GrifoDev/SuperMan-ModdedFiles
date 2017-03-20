@@ -784,12 +784,6 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/server/am/UserController;->mService:Lcom/android/server/am/ActivityManagerService;
-
-    invoke-virtual {v2}, Lcom/android/server/am/ActivityManagerService;->AASAsetFirstWorkingVal()V
-
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v2
