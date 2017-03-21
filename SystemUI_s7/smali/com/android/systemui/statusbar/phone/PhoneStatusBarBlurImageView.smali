@@ -6,6 +6,8 @@
 # static fields
 .field static ALPHA:I
 
+.field static COLOR:I
+
 .field private static final DEBUG:Z
 
 .field static DIVIDE:F
@@ -52,6 +54,14 @@
     const/16 v0, 0x80
 
     sput v0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarBlurImageView;->ALPHA:I
+
+    const-string v0, "#00000000"
+
+    invoke-static {v0}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
+
+    move-result v0
+
+    sput v0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarBlurImageView;->COLOR:I
 
     const/4 v0, 0x0
 
@@ -134,6 +144,20 @@
     move-result v3
 
     sput v3, Lcom/android/systemui/statusbar/phone/PhoneStatusBarBlurImageView;->ALPHA:I
+
+    const-string v2, "#00000000"
+
+    invoke-static {v2}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string v1, "blur_background_color"
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v3
+
+    sput v3, Lcom/android/systemui/statusbar/phone/PhoneStatusBarBlurImageView;->COLOR:I
 
     return-void
 .end method
@@ -1081,6 +1105,10 @@
 
     invoke-virtual {v14, v0, v4, v6, v7}, Landroid/graphics/Canvas;->drawARGB(IIII)V
 
+    sget v7, Lcom/android/systemui/statusbar/phone/PhoneStatusBarBlurImageView;->COLOR:I
+
+    invoke-virtual {v14, v7}, Landroid/graphics/Canvas;->drawColor(I)V
+
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v18
@@ -1362,6 +1390,12 @@
 
     invoke-virtual {v4, v0, v1, v2, v3}, Landroid/graphics/Canvas;->drawARGB(IIII)V
 
+    sget v21, Lcom/android/systemui/statusbar/phone/PhoneStatusBarBlurImageView;->COLOR:I
+
+    move/from16 v2, v21
+
+    invoke-virtual {v4, v2}, Landroid/graphics/Canvas;->drawColor(I)V
+
     invoke-virtual {v4, v14, v15, v5, v11}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Paint;)V
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBarBlurImageView;->getContext()Landroid/content/Context;
@@ -1435,6 +1469,12 @@
     move/from16 v3, v21
 
     invoke-virtual {v4, v0, v1, v2, v3}, Landroid/graphics/Canvas;->drawARGB(IIII)V
+
+    sget v21, Lcom/android/systemui/statusbar/phone/PhoneStatusBarBlurImageView;->COLOR:I
+
+    move/from16 v2, v21
+
+    invoke-virtual {v4, v2}, Landroid/graphics/Canvas;->drawColor(I)V
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
