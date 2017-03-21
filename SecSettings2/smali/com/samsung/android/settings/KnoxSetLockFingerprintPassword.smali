@@ -581,7 +581,7 @@
     :cond_2
     iget-object v4, p0, Lcom/samsung/android/settings/KnoxSetLockFingerprintPassword;->mHeading:Landroid/widget/TextView;
 
-    const v5, 0x7f0b1391
+    const v5, 0x7f0b1392
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(I)V
 
@@ -1158,7 +1158,7 @@
 
     aput-object v28, v27, v29
 
-    const v28, 0x7f0b1098
+    const v28, 0x7f0b1099
 
     move-object/from16 v0, p0
 
@@ -1211,7 +1211,7 @@
 
     aput-object v28, v27, v29
 
-    const v28, 0x7f0b109b
+    const v28, 0x7f0b109c
 
     move-object/from16 v0, p0
 
@@ -1272,7 +1272,7 @@
     if-le v6, v0, :cond_e
 
     :cond_d
-    const v27, 0x7f0b109f
+    const v27, 0x7f0b10a0
 
     move-object/from16 v0, p0
 
@@ -1394,7 +1394,7 @@
 
     if-gtz v27, :cond_15
 
-    const v27, 0x7f0b109d
+    const v27, 0x7f0b109e
 
     move-object/from16 v0, p0
 
@@ -1433,7 +1433,7 @@
 
     if-le v0, v1, :cond_24
 
-    const v27, 0x7f0b10a4
+    const v27, 0x7f0b10a5
 
     move-object/from16 v0, p0
 
@@ -1928,7 +1928,7 @@
     :cond_20
     if-nez v18, :cond_23
 
-    const v27, 0x7f0b10a0
+    const v27, 0x7f0b10a1
 
     move-object/from16 v0, p0
 
@@ -1955,7 +1955,7 @@
 
     if-nez v21, :cond_24
 
-    const v27, 0x7f0b10a1
+    const v27, 0x7f0b10a2
 
     move-object/from16 v0, p0
 
@@ -1992,7 +1992,7 @@
 
     if-eqz v27, :cond_25
 
-    const v27, 0x7f0b109b
+    const v27, 0x7f0b109c
 
     :goto_6
     const/16 v28, 0x1
@@ -2030,7 +2030,7 @@
     return-object v27
 
     :cond_25
-    const v27, 0x7f0b109c
+    const v27, 0x7f0b109d
 
     goto :goto_6
 

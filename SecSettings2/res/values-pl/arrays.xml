@@ -345,6 +345,11 @@
         <item>Limit czasu</item>
         <item>Niepowodzenie</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Pytaj</item>
+        <item>Nigdy nie zezwalaj</item>
+        <item>Zawsze zezwalaj</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>Krótki (0.5 s)</item>
         <item>Średni (1.0 s)</item>

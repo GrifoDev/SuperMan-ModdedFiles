@@ -39,7 +39,7 @@
 .method public showConnectingError(Landroid/content/Context;Ljava/lang/String;)V
     .locals 1
 
-    const v0, 0x7f0b10c2
+    const v0, 0x7f0b10c3
 
     invoke-static {p1, p2, v0}, Lcom/android/settings/bluetooth/Utils;->showError(Landroid/content/Context;Ljava/lang/String;I)V
 

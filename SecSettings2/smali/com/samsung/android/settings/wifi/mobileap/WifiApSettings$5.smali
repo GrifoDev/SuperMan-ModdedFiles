@@ -263,7 +263,7 @@
 
     invoke-direct {v2, p0}, Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings$5$2;-><init>(Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings$5;)V
 
-    const v3, 0x7f0b0fd8
+    const v3, 0x7f0b0fd9
 
     invoke-virtual {v1, v3, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

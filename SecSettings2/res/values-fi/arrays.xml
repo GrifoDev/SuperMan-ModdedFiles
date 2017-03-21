@@ -345,6 +345,11 @@
         <item>Aikakatkaisu</item>
         <item>Epäonnistui</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Kysy</item>
+        <item>Älä salli koskaan</item>
+        <item>Salli aina</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>Lyhyt (0,5 sekuntia)</item>
         <item>Keskipitkä (1,0 sekuntia)</item>

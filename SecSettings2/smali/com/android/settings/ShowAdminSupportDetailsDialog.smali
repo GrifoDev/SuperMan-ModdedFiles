@@ -345,7 +345,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0fd9
+    const v1, 0x7f0b0fda
 
     invoke-virtual {v0, v1, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

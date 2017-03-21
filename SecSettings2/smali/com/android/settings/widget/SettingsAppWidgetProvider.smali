@@ -600,7 +600,7 @@
 
     const v9, 0x7f110723
 
-    const v8, 0x7f0b15d7
+    const v8, 0x7f0b15d8
 
     const/4 v7, 0x1
 
@@ -630,7 +630,7 @@
 
     new-array v4, v7, [Ljava/lang/Object;
 
-    const v5, 0x7f0b15d8
+    const v5, 0x7f0b15d9
 
     invoke-virtual {p1, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -698,7 +698,7 @@
 
     new-array v4, v7, [Ljava/lang/Object;
 
-    const v5, 0x7f0b15d9
+    const v5, 0x7f0b15da
 
     invoke-virtual {p1, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -732,7 +732,7 @@
 
     new-array v4, v7, [Ljava/lang/Object;
 
-    const v5, 0x7f0b15da
+    const v5, 0x7f0b15db
 
     invoke-virtual {p1, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -755,7 +755,7 @@
     :cond_2
     new-array v4, v7, [Ljava/lang/Object;
 
-    const v5, 0x7f0b15db
+    const v5, 0x7f0b15dc
 
     invoke-virtual {p1, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

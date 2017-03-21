@@ -345,6 +345,11 @@
         <item>Tempo de espera</item>
         <item>Incorrecto</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Solicitar</item>
+        <item>Non permitir nunca</item>
+        <item>Permitir sempre</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>Curto (0,5 segundos)</item>
         <item>Medio (1,0 segundos)</item>

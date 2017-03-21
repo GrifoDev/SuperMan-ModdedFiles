@@ -1165,7 +1165,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/notification/VolumeSettings;->mRingOrNotificationPreference:Lcom/android/settings/notification/SecVolumeSeekBarPreference;
 
-    const v4, 0x7f0b11e9
+    const v4, 0x7f0b11ea
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/notification/VolumeSettings;->getString(I)Ljava/lang/String;
 

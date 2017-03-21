@@ -227,7 +227,7 @@
 .method private handleEvent(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 13
 
-    const v10, 0x7f0b1144
+    const v10, 0x7f0b1145
 
     const/16 v12, 0xca
 
@@ -599,7 +599,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/mobileap/WpsApDialog;->mTextView:Landroid/widget/TextView;
 
-    const v1, 0x7f0b113e
+    const v1, 0x7f0b113f
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -649,13 +649,13 @@
 
     sput-boolean v0, Lcom/android/settings/wifi/WifiSettings;->mWpsInProgress:Z
 
-    const v0, 0x7f0b113d
+    const v0, 0x7f0b113e
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/wifi/mobileap/WpsApDialog;->setTitle(I)V
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/mobileap/WpsApDialog;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0b117b
+    const v1, 0x7f0b117c
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -693,7 +693,7 @@
 .method protected onStart()V
     .locals 13
 
-    const v12, 0x7f0b1144
+    const v12, 0x7f0b1145
 
     const/16 v11, 0xca
 

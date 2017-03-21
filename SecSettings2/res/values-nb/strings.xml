@@ -1040,7 +1040,7 @@ Selv om Smart bilde av skjermen er deaktivert, har du tilgang til funksjonene vi
     <string name="about_phone">Om telefonen</string>
     <string name="theme_settings">Tema</string>
     <string name="wifi_calling_title">"Wi-Fi-
-anrop"</string>
+tale"</string>
     <string name="tab_category_connections">Tilkoblinger</string>
     <string name="festival_effect_settings_title">Festivaleffekt</string>
     <string name="user_manual">Brukerhåndbok</string>
@@ -5197,4 +5197,5 @@ Du vil ikke motta noen anrop, meldinger eller varsler, og alarmer vil ikke lyde,
     <string name="ucm_loading">Åpner…</string>
     <string name="font">Skrift</string>
     <string name="sdcard_encrypt_err_storage">Det er ikke nok ledig plass på SD-kortet. Cirka %1$s %2$s er nødvendig. Slett noen filer, og prøv igjen.</string>
+    <string name="wifi_unknown_secured_ap">Ukjent sikkerhetstype. Du kan ikke koble til dette tilgangspunktet.</string>
 </resources>

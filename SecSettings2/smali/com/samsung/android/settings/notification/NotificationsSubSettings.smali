@@ -1518,7 +1518,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b177a
+    const v0, 0x7f0b177b
 
     return v0
 .end method
@@ -2970,7 +2970,7 @@
 
     const-string/jumbo v2, "extra_prefs_set_back_text"
 
-    const v3, 0x7f0b162d
+    const v3, 0x7f0b162e
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/notification/NotificationsSubSettings;->getString(I)Ljava/lang/String;
 
@@ -3564,7 +3564,7 @@
 
     iget-object v4, v0, Lcom/samsung/android/settings/notification/NotificationsSubSettings;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0b11ed
+    const v6, 0x7f0b11ee
 
     invoke-virtual {v4, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -4437,7 +4437,7 @@
 
     iget-object v4, v0, Lcom/samsung/android/settings/notification/NotificationsSubSettings;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0b11ed
+    const v6, 0x7f0b11ee
 
     invoke-virtual {v4, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

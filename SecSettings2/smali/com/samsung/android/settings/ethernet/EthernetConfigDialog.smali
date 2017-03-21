@@ -709,7 +709,7 @@
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/ethernet/EthernetConfigDialog;->setInverseBackgroundForced(Z)V
 
-    const v0, 0x7f0b130c
+    const v0, 0x7f0b130d
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -719,7 +719,7 @@
 
     invoke-virtual {p0, v1, v0, p0}, Lcom/samsung/android/settings/ethernet/EthernetConfigDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
 
-    const v0, 0x7f0b130d
+    const v0, 0x7f0b130e
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

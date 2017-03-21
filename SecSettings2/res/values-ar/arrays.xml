@@ -345,6 +345,11 @@
         <item>مهلة الشاشة</item>
         <item>غير ناجح</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>السؤال</item>
+        <item>عدم السماح مطلقا</item>
+        <item>السماح دوما</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>قصيرة (٠.٥ ثانية)</item>
         <item>متوسطة (١.٠ ثانية)</item>

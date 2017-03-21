@@ -450,7 +450,7 @@
 .method private WifiDirectTts(Z)V
     .locals 5
 
-    const v3, 0x7f0b112e
+    const v3, 0x7f0b112f
 
     const v4, 0x7f0b0227
 
@@ -1066,7 +1066,7 @@
 
     move-result v0
 
-    const v1, 0x7f0b1130
+    const v1, 0x7f0b1131
 
     invoke-interface {p1, v3, v4, v3, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1078,7 +1078,7 @@
 
     if-eqz v1, :cond_0
 
-    const v1, 0x7f0b1765
+    const v1, 0x7f0b1766
 
     invoke-interface {p1, v3, v6, v3, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1291,7 +1291,7 @@
 
     if-nez v0, :cond_0
 
-    const v0, 0x7f0b1138
+    const v0, 0x7f0b1139
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->addMessagePreference(I)V
 
@@ -1447,7 +1447,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mAddPreference:Landroid/preference/Preference;
 
-    const v1, 0x7f0b1127
+    const v1, 0x7f0b1128
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setTitle(I)V
 
@@ -2506,7 +2506,7 @@
     goto :goto_a
 
     :pswitch_2
-    const v5, 0x7f0b1110
+    const v5, 0x7f0b1111
 
     move-object/from16 v0, p0
 
@@ -4106,7 +4106,7 @@
 
     const/4 v6, 0x0
 
-    const v3, 0x7f0b112e
+    const v3, 0x7f0b112f
 
     const/4 v2, 0x0
 
@@ -4410,7 +4410,7 @@
 
     if-nez v5, :cond_3
 
-    const v5, 0x7f0b110b
+    const v5, 0x7f0b110c
 
     invoke-virtual {v0, v5}, Landroid/app/ActionBar;->setTitle(I)V
 
@@ -4694,7 +4694,7 @@
     return-void
 
     :pswitch_0
-    const v1, 0x7f0b110f
+    const v1, 0x7f0b1110
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->addMessagePreference(I)V
 
@@ -4987,7 +4987,7 @@
     return-void
 
     :cond_1
-    const v6, 0x7f0b1137
+    const v6, 0x7f0b1138
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->getText(I)Ljava/lang/CharSequence;
 
@@ -5055,7 +5055,7 @@
 
     invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const v6, 0x7f0b111d
+    const v6, 0x7f0b111e
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->getText(I)Ljava/lang/CharSequence;
 
@@ -5450,7 +5450,7 @@
 .method protected startWifiConfigSettings()V
     .locals 10
 
-    const v3, 0x7f0b1183
+    const v3, 0x7f0b1184
 
     const/4 v2, 0x0
 

@@ -345,6 +345,11 @@
         <item>Pertraukos laikas</item>
         <item>Nepavyko</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Paklausti</item>
+        <item>Niekada neleisti</item>
+        <item>Visada leisti</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>Trumpai (0.5 sek.)</item>
         <item>Vidutiniškai (1.0 sek.)</item>

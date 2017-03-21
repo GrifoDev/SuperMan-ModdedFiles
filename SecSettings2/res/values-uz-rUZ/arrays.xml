@@ -345,6 +345,11 @@
         <item>Taym-aut</item>
         <item>Muvaffaqiyatsiz</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>So‘rash</item>
+        <item>Hech qachon ruxs. ber.</item>
+        <item>Doim ruxsat berish</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>Qisqa (0.5 soniya)</item>
         <item>O‘rtacha (1.0 soniya)</item>

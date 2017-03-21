@@ -1695,7 +1695,7 @@
     :cond_2
     iget-object v2, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b1251
+    const v3, 0x7f0b1252
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1809,7 +1809,7 @@
 .method private updateTile(Lcom/android/settingslib/drawer/Tile;)Lcom/android/settingslib/drawer/Tile;
     .locals 2
 
-    const v1, 0x7f0b11e2
+    const v1, 0x7f0b11e3
 
     iget-object v0, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
 
@@ -2611,7 +2611,7 @@
 
     iget-object v9, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
 
-    const v10, 0x7f0b1216
+    const v10, 0x7f0b1217
 
     invoke-virtual {v9, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2681,7 +2681,7 @@
 
     iget-object v9, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
 
-    const v10, 0x7f0b101a
+    const v10, 0x7f0b101b
 
     invoke-virtual {v9, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

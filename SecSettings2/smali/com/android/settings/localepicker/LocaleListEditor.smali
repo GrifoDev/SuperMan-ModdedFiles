@@ -313,13 +313,13 @@
 
     invoke-direct {v2, v3}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f0b0fc9
+    const v3, 0x7f0b0fca
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v2
 
-    const v3, 0x7f0b0fca
+    const v3, 0x7f0b0fcb
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -374,7 +374,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0fc8
+    const v3, 0x7f0b0fc9
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -443,7 +443,7 @@
 
     if-eqz v3, :cond_3
 
-    const v3, 0x7f0b1671
+    const v3, 0x7f0b1672
 
     invoke-interface {v0, v3}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
 
@@ -580,7 +580,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b146f
+    const v3, 0x7f0b1470
 
     invoke-virtual {v2, v3}, Landroid/app/Activity;->setTitle(I)V
 

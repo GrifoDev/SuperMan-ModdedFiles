@@ -669,7 +669,7 @@
     :cond_1
     iget-object v0, p0, Lcom/samsung/android/settings/nfc/NfcEnabler;->mAndroidBeam:Lcom/android/settingslib/SecRestrictedSettingsSwitchPreference;
 
-    const v1, 0x7f0b18af
+    const v1, 0x7f0b18b0
 
     invoke-virtual {v0, v1}, Lcom/android/settingslib/SecRestrictedSettingsSwitchPreference;->setSummary(I)V
 
@@ -686,7 +686,7 @@
     :cond_3
     iget-object v0, p0, Lcom/samsung/android/settings/nfc/NfcEnabler;->mAndroidBeam:Lcom/android/settingslib/SecRestrictedSettingsSwitchPreference;
 
-    const v1, 0x7f0b18ae
+    const v1, 0x7f0b18af
 
     invoke-virtual {v0, v1}, Lcom/android/settingslib/SecRestrictedSettingsSwitchPreference;->setSummary(I)V
 
@@ -702,9 +702,9 @@
 .method private handleNfcStateChanged(I)V
     .locals 6
 
-    const v5, 0x7f0b18af
+    const v5, 0x7f0b18b0
 
-    const v4, 0x7f0b18ae
+    const v4, 0x7f0b18af
 
     const/4 v3, 0x1
 
@@ -1846,7 +1846,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/nfc/NfcEnabler;->mAndroidBeam:Lcom/android/settingslib/SecRestrictedSettingsSwitchPreference;
 
-    const v5, 0x7f0b18ae
+    const v5, 0x7f0b18af
 
     invoke-virtual {v4, v5}, Lcom/android/settingslib/SecRestrictedSettingsSwitchPreference;->setSummary(I)V
 
@@ -1905,7 +1905,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/nfc/NfcEnabler;->mAndroidBeam:Lcom/android/settingslib/SecRestrictedSettingsSwitchPreference;
 
-    const v5, 0x7f0b18af
+    const v5, 0x7f0b18b0
 
     invoke-virtual {v4, v5}, Lcom/android/settingslib/SecRestrictedSettingsSwitchPreference;->setSummary(I)V
 

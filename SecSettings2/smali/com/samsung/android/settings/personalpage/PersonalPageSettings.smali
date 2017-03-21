@@ -375,7 +375,7 @@
 
     invoke-direct {v4, p0}, Lcom/samsung/android/settings/personalpage/PersonalPageSettings$5;-><init>(Lcom/samsung/android/settings/personalpage/PersonalPageSettings;)V
 
-    const v5, 0x7f0b13b1
+    const v5, 0x7f0b13b2
 
     invoke-virtual {v3, v5, v4}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -1429,7 +1429,7 @@
     :pswitch_2
     iget-object v0, p0, Lcom/samsung/android/settings/personalpage/PersonalPageSettings;->mLockTypePref:Landroid/preference/Preference;
 
-    const v1, 0x7f0b1068
+    const v1, 0x7f0b1069
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -1438,7 +1438,7 @@
     :pswitch_3
     iget-object v0, p0, Lcom/samsung/android/settings/personalpage/PersonalPageSettings;->mLockTypePref:Landroid/preference/Preference;
 
-    const v1, 0x7f0b106a
+    const v1, 0x7f0b106b
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -1447,7 +1447,7 @@
     :pswitch_4
     iget-object v0, p0, Lcom/samsung/android/settings/personalpage/PersonalPageSettings;->mLockTypePref:Landroid/preference/Preference;
 
-    const v1, 0x7f0b106c
+    const v1, 0x7f0b106d
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setSummary(I)V
 

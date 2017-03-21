@@ -186,6 +186,11 @@
         <item>Limit czasu</item>
         <item>Niyudane</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Pytej</item>
+        <item>Nigdy niy dozwolej</item>
+        <item>Zŏwdy dozwolej</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>Krōtki (0.5 s)</item>
         <item>Strzedni (1.0 s)</item>

@@ -1001,7 +1001,7 @@
 
     iget-object v2, v0, Lcom/samsung/android/settings/powersaving/PowerModeChangeDialogActivity;->mApply:Lcom/samsung/android/settings/widget/RoundButtonView;
 
-    const v3, 0x7f0b13ed
+    const v3, 0x7f0b13ee
 
     move-object/from16 v0, p0
 
@@ -1099,7 +1099,7 @@
 
     iget-object v2, v0, Lcom/samsung/android/settings/powersaving/PowerModeChangeDialogActivity;->mCancel:Lcom/samsung/android/settings/widget/RoundButtonView;
 
-    const v3, 0x7f0b0fd8
+    const v3, 0x7f0b0fd9
 
     move-object/from16 v0, p0
 

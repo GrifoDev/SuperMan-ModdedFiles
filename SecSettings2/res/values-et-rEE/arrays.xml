@@ -345,6 +345,11 @@
         <item>Ajalõpp</item>
         <item>Nurjunud</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Küsi</item>
+        <item>Ära luba kunagi</item>
+        <item>Luba alati</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>Lühike (0.5 sekundit)</item>
         <item>Keskmine (1.0 sekundit)</item>

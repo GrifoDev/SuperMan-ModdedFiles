@@ -37,15 +37,6 @@
     throw v0
 
     :pswitch_0
-    const v0, 0x7f0b1822
-
-    invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-
-    :pswitch_1
     const v0, 0x7f0b1823
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
@@ -54,8 +45,17 @@
 
     return-object v0
 
-    :pswitch_2
+    :pswitch_1
     const v0, 0x7f0b1824
+
+    invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+
+    :pswitch_2
+    const v0, 0x7f0b1825
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

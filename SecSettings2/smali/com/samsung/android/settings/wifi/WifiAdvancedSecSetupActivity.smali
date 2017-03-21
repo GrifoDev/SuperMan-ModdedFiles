@@ -289,7 +289,7 @@
 .method private refreshWifiInfo()V
     .locals 8
 
-    const v7, 0x7f0b1278
+    const v7, 0x7f0b1279
 
     const/4 v2, 0x0
 
@@ -855,7 +855,7 @@
     :catch_0
     move-exception v2
 
-    const v5, 0x7f0b1121
+    const v5, 0x7f0b1122
 
     invoke-static {v1, v5, v8}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

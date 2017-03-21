@@ -881,7 +881,7 @@
 
     sput-object v0, Lcom/android/settings/SettingsActivity;->SAMSUNG_ENTRY_FRAGMENTS:[Ljava/lang/String;
 
-    const/16 v0, 0x5b
+    const/16 v0, 0x5c
 
     new-array v0, v0, [Ljava/lang/String;
 
@@ -1782,6 +1782,16 @@
     move-result-object v1
 
     const/16 v2, 0x5a
+
+    aput-object v1, v0, v2
+
+    const-class v1, Lcom/android/settings/UserCredentialsSettings;
+
+    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object v1
+
+    const/16 v2, 0x5b
 
     aput-object v1, v0, v2
 
@@ -3827,13 +3837,13 @@
 
     if-eqz v0, :cond_0
 
-    const v1, 0x7f0b107c
+    const v1, 0x7f0b107d
 
     :goto_0
     return v1
 
     :cond_0
-    const v1, 0x7f0b107b
+    const v1, 0x7f0b107c
 
     goto :goto_0
 .end method
@@ -4793,7 +4803,7 @@
     move v7, v4
 
     :goto_1
-    const v5, 0x7f0b17d9
+    const v5, 0x7f0b17da
 
     move-object v0, p0
 
@@ -6778,7 +6788,7 @@
 
     iget-object v2, v0, Lcom/android/settings/SettingsActivity;->mLeftPaneToolbar:Landroid/widget/Toolbar;
 
-    const v5, 0x7f0b0fdd
+    const v5, 0x7f0b0fde
 
     invoke-virtual {v2, v5}, Landroid/widget/Toolbar;->setTitle(I)V
 
@@ -7611,7 +7621,7 @@
 
     if-eqz v2, :cond_22
 
-    const v2, 0x7f0b0fdd
+    const v2, 0x7f0b0fde
 
     move-object/from16 v0, p0
 
@@ -7817,7 +7827,7 @@
 
     const/4 v9, 0x0
 
-    const v10, 0x7f0b17d8
+    const v10, 0x7f0b17d9
 
     const/4 v11, 0x0
 
@@ -8317,7 +8327,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0b1220
+    const v0, 0x7f0b1221
 
     invoke-virtual {p0, v0}, Lcom/android/settings/SettingsActivity;->getString(I)Ljava/lang/String;
 

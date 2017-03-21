@@ -345,6 +345,11 @@
         <item>Časový limit</item>
         <item>Neúspěšně</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Zeptat se</item>
+        <item>Nikdy nepovolit</item>
+        <item>Vždy povolit</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>Krátce (0,5 s)</item>
         <item>Středně (1,0 s)</item>

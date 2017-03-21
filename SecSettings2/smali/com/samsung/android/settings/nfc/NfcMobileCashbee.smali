@@ -82,7 +82,7 @@
 
     if-ne p1, v2, :cond_1
 
-    const v0, 0x7f0b1a75    # 1.8490006E38f
+    const v0, 0x7f0b1a76    # 1.8490008E38f
 
     :goto_0
     if-eqz v0, :cond_0
@@ -93,7 +93,7 @@
     return-void
 
     :cond_1
-    const v0, 0x7f0b1a76    # 1.8490008E38f
+    const v0, 0x7f0b1a77
 
     goto :goto_0
 .end method

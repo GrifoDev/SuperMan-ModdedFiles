@@ -1789,7 +1789,7 @@
     move-result-object v0
 
     :goto_0
-    const v2, 0x7f0b1020
+    const v2, 0x7f0b1021
 
     invoke-virtual {p0, v2}, Lcom/android/settings/fingerprint/RegisterFingerprint;->getString(I)Ljava/lang/String;
 

@@ -123,7 +123,7 @@
 
     invoke-direct {v4, p0}, Lcom/samsung/android/settings/TRoamingSettings$NetworkNotAvailableFragment$2;-><init>(Lcom/samsung/android/settings/TRoamingSettings$NetworkNotAvailableFragment;)V
 
-    const v5, 0x7f0b1412
+    const v5, 0x7f0b1413
 
     invoke-virtual {v0, v5, v4}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

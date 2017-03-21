@@ -100,7 +100,7 @@
 
     const-string/jumbo v8, ":settings:show_fragment_title_resid"
 
-    const v9, 0x7f0b18dc
+    const v9, 0x7f0b18dd
 
     invoke-virtual {v4, v8, v9}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 

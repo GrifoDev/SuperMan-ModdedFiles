@@ -723,7 +723,7 @@
 
     if-eqz v23, :cond_3
 
-    const v23, 0x7f0b19fe
+    const v23, 0x7f0b19ff
 
     move-object/from16 v0, p0
 
@@ -769,7 +769,7 @@
 
     invoke-direct/range {v19 .. v19}, Landroid/text/SpannableStringBuilder;-><init>()V
 
-    const v23, 0x7f0b19ff
+    const v23, 0x7f0b1a00
 
     move-object/from16 v0, p0
 
@@ -779,7 +779,7 @@
 
     move-result-object v8
 
-    const v23, 0x7f0b1a00
+    const v23, 0x7f0b1a01
 
     move-object/from16 v0, p0
 
@@ -821,7 +821,7 @@
 
     move-result-object v23
 
-    const v24, 0x7f0b1a01
+    const v24, 0x7f0b1a02
 
     move-object/from16 v0, p0
 
@@ -861,7 +861,7 @@
 
     move-result-object v23
 
-    const v24, 0x7f0b1a11
+    const v24, 0x7f0b1a12
 
     move-object/from16 v0, p0
 
@@ -911,7 +911,7 @@
 
     move-result-object v23
 
-    const v24, 0x7f0b1a02
+    const v24, 0x7f0b1a03
 
     move-object/from16 v0, p0
 
@@ -947,7 +947,7 @@
 
     if-eqz v23, :cond_4
 
-    const v23, 0x7f0b1a03
+    const v23, 0x7f0b1a04
 
     move-object/from16 v0, p0
 
@@ -968,63 +968,6 @@
     invoke-virtual {v0, v1}, Landroid/text/SpannableStringBuilder;->append(Ljava/lang/CharSequence;)Landroid/text/SpannableStringBuilder;
 
     :cond_4
-    const-string/jumbo v23, "\n"
-
-    move-object/from16 v0, v19
-
-    move-object/from16 v1, v23
-
-    invoke-virtual {v0, v1}, Landroid/text/SpannableStringBuilder;->append(Ljava/lang/CharSequence;)Landroid/text/SpannableStringBuilder;
-
-    move-result-object v23
-
-    const v24, 0x7f0b1a14
-
-    move-object/from16 v0, p0
-
-    move/from16 v1, v24
-
-    invoke-virtual {v0, v1}, Lcom/android/settings/notification/NotificationStation;->getString(I)Ljava/lang/String;
-
-    move-result-object v24
-
-    invoke-static/range {v24 .. v24}, Lcom/android/settings/notification/NotificationStation;->bold(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-
-    move-result-object v24
-
-    invoke-virtual/range {v23 .. v24}, Landroid/text/SpannableStringBuilder;->append(Ljava/lang/CharSequence;)Landroid/text/SpannableStringBuilder;
-
-    move-result-object v23
-
-    move-object/from16 v0, v23
-
-    invoke-virtual {v0, v8}, Landroid/text/SpannableStringBuilder;->append(Ljava/lang/CharSequence;)Landroid/text/SpannableStringBuilder;
-
-    iget v0, v15, Landroid/app/Notification;->defaults:I
-
-    move/from16 v23, v0
-
-    and-int/lit8 v23, v23, 0x1
-
-    if-eqz v23, :cond_d
-
-    const v23, 0x7f0b1a16
-
-    move-object/from16 v0, p0
-
-    move/from16 v1, v23
-
-    invoke-virtual {v0, v1}, Lcom/android/settings/notification/NotificationStation;->getString(I)Ljava/lang/String;
-
-    move-result-object v23
-
-    move-object/from16 v0, v19
-
-    move-object/from16 v1, v23
-
-    invoke-virtual {v0, v1}, Landroid/text/SpannableStringBuilder;->append(Ljava/lang/CharSequence;)Landroid/text/SpannableStringBuilder;
-
-    :goto_6
     const-string/jumbo v23, "\n"
 
     move-object/from16 v0, v19
@@ -1061,11 +1004,68 @@
 
     move/from16 v23, v0
 
+    and-int/lit8 v23, v23, 0x1
+
+    if-eqz v23, :cond_d
+
+    const v23, 0x7f0b1a17
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v23
+
+    invoke-virtual {v0, v1}, Lcom/android/settings/notification/NotificationStation;->getString(I)Ljava/lang/String;
+
+    move-result-object v23
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v23
+
+    invoke-virtual {v0, v1}, Landroid/text/SpannableStringBuilder;->append(Ljava/lang/CharSequence;)Landroid/text/SpannableStringBuilder;
+
+    :goto_6
+    const-string/jumbo v23, "\n"
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v23
+
+    invoke-virtual {v0, v1}, Landroid/text/SpannableStringBuilder;->append(Ljava/lang/CharSequence;)Landroid/text/SpannableStringBuilder;
+
+    move-result-object v23
+
+    const v24, 0x7f0b1a16
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v24
+
+    invoke-virtual {v0, v1}, Lcom/android/settings/notification/NotificationStation;->getString(I)Ljava/lang/String;
+
+    move-result-object v24
+
+    invoke-static/range {v24 .. v24}, Lcom/android/settings/notification/NotificationStation;->bold(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+
+    move-result-object v24
+
+    invoke-virtual/range {v23 .. v24}, Landroid/text/SpannableStringBuilder;->append(Ljava/lang/CharSequence;)Landroid/text/SpannableStringBuilder;
+
+    move-result-object v23
+
+    move-object/from16 v0, v23
+
+    invoke-virtual {v0, v8}, Landroid/text/SpannableStringBuilder;->append(Ljava/lang/CharSequence;)Landroid/text/SpannableStringBuilder;
+
+    iget v0, v15, Landroid/app/Notification;->defaults:I
+
+    move/from16 v23, v0
+
     and-int/lit8 v23, v23, 0x2
 
     if-eqz v23, :cond_f
 
-    const v23, 0x7f0b1a16
+    const v23, 0x7f0b1a17
 
     move-object/from16 v0, p0
 
@@ -1093,7 +1093,7 @@
 
     move-result-object v23
 
-    const v24, 0x7f0b1a04
+    const v24, 0x7f0b1a05
 
     move-object/from16 v0, p0
 
@@ -1143,7 +1143,7 @@
 
     move-result-object v23
 
-    const v24, 0x7f0b1a05
+    const v24, 0x7f0b1a06
 
     move-object/from16 v0, p0
 
@@ -1188,7 +1188,7 @@
 
     move-result-object v23
 
-    const v24, 0x7f0b1a06
+    const v24, 0x7f0b1a07
 
     move-object/from16 v0, p0
 
@@ -1266,7 +1266,7 @@
 
     move-result-object v23
 
-    const v24, 0x7f0b1a07
+    const v24, 0x7f0b1a08
 
     move-object/from16 v0, p0
 
@@ -1316,7 +1316,7 @@
 
     move-result-object v23
 
-    const v24, 0x7f0b1a08
+    const v24, 0x7f0b1a09
 
     move-object/from16 v0, p0
 
@@ -1364,7 +1364,7 @@
 
     move-result-object v23
 
-    const v24, 0x7f0b1a09
+    const v24, 0x7f0b1a0a
 
     move-object/from16 v0, p0
 
@@ -1415,7 +1415,7 @@
 
     move-result-object v23
 
-    const v24, 0x7f0b1a0a
+    const v24, 0x7f0b1a0b
 
     move-object/from16 v0, p0
 
@@ -1466,7 +1466,7 @@
 
     move-result-object v23
 
-    const v24, 0x7f0b1a0b
+    const v24, 0x7f0b1a0c
 
     move-object/from16 v0, p0
 
@@ -1529,7 +1529,7 @@
 
     move-result-object v23
 
-    const v24, 0x7f0b1a0c
+    const v24, 0x7f0b1a0d
 
     move-object/from16 v0, p0
 
@@ -1592,7 +1592,7 @@
 
     move-result-object v23
 
-    const v24, 0x7f0b1a0d
+    const v24, 0x7f0b1a0e
 
     move-object/from16 v0, p0
 
@@ -1630,7 +1630,7 @@
 
     move-result-object v23
 
-    const v24, 0x7f0b1a09
+    const v24, 0x7f0b1a0a
 
     move-object/from16 v0, p0
 
@@ -1680,7 +1680,7 @@
 
     move-result-object v23
 
-    const v24, 0x7f0b1a0e
+    const v24, 0x7f0b1a0f
 
     move-object/from16 v0, p0
 
@@ -1773,7 +1773,7 @@
     return-object v23
 
     :cond_e
-    const v23, 0x7f0b1a17
+    const v23, 0x7f0b1a18
 
     :try_start_1
     move-object/from16 v0, p0
@@ -1850,7 +1850,7 @@
     goto :goto_a
 
     :cond_11
-    const v23, 0x7f0b1a17
+    const v23, 0x7f0b1a18
 
     move-object/from16 v0, p0
 
@@ -1887,7 +1887,7 @@
 
     move-result-object v23
 
-    const v24, 0x7f0b1a18
+    const v24, 0x7f0b1a19
 
     move-object/from16 v0, p0
 
@@ -1916,7 +1916,7 @@
 
     move-result-object v23
 
-    const v24, 0x7f0b1a19
+    const v24, 0x7f0b1a1a
 
     move-object/from16 v0, p0
 
@@ -1951,7 +1951,7 @@
 
     move-result-object v23
 
-    const v24, 0x7f0b1a0f
+    const v24, 0x7f0b1a10
 
     move-object/from16 v0, p0
 
@@ -2012,7 +2012,7 @@
 
     move-result-object v23
 
-    const v24, 0x7f0b1a10
+    const v24, 0x7f0b1a11
 
     move-object/from16 v0, p0
 
@@ -2165,7 +2165,7 @@
 
     move-result-object v23
 
-    const v24, 0x7f0b1a12
+    const v24, 0x7f0b1a13
 
     move-object/from16 v0, p0
 
@@ -2207,7 +2207,7 @@
 
     move-result-object v23
 
-    const v24, 0x7f0b1a13
+    const v24, 0x7f0b1a14
 
     move-object/from16 v0, p0
 

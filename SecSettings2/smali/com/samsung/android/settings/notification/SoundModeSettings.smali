@@ -957,7 +957,7 @@
 
     iget-object v7, p0, Lcom/samsung/android/settings/notification/SoundModeSettings;->mContext:Landroid/content/Context;
 
-    const v8, 0x7f0b11e2
+    const v8, 0x7f0b11e3
 
     invoke-virtual {v7, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

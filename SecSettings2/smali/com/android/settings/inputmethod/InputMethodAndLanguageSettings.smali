@@ -343,7 +343,7 @@
 
     iget-object v4, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mSpellCheckCachedPref:Landroid/preference/Preference;
 
-    const v5, 0x7f0b18af
+    const v5, 0x7f0b18b0
 
     invoke-virtual {v4, v5}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -1035,7 +1035,7 @@
     goto :goto_2
 
     :cond_4
-    const v10, 0x7f0b1493
+    const v10, 0x7f0b1494
 
     invoke-virtual {v9, v10}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -1424,7 +1424,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b146d
+    const v1, 0x7f0b146e
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->setTitle(I)V
 
@@ -1771,7 +1771,7 @@
 
     const-string/jumbo v9, ":settings:show_fragment_title_resid"
 
-    const v10, 0x7f0b1704
+    const v10, 0x7f0b1705
 
     invoke-virtual {v4, v9, v10}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
@@ -2264,7 +2264,7 @@
 
     :cond_1
     :goto_1
-    const v10, 0x7f0b18af
+    const v10, 0x7f0b18b0
 
     invoke-virtual {v7, v10}, Landroid/preference/Preference;->setSummary(I)V
 

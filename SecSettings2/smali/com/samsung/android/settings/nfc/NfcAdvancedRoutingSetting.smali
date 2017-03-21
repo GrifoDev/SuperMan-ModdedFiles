@@ -906,7 +906,7 @@
 
     invoke-direct {v3, p0, p1, v1}, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting$1;-><init>(Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;Ljava/lang/String;I)V
 
-    const v4, 0x7f0b18df
+    const v4, 0x7f0b18e0
 
     invoke-virtual {v2, v4, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

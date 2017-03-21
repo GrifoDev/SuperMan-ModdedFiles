@@ -61,7 +61,7 @@
 
     const v3, 0x7f0b067c
 
-    const v4, 0x7f0b109a
+    const v4, 0x7f0b109b
 
     const v5, 0x7f0b06fa
 
@@ -73,7 +73,7 @@
 
     const-string/jumbo v4, "NeedToConfirm"
 
-    const v7, 0x7f0b10a5
+    const v7, 0x7f0b10a6
 
     move v5, v9
 
@@ -87,7 +87,7 @@
 
     const-string/jumbo v4, "ConfirmWrong"
 
-    const v7, 0x7f0b109a
+    const v7, 0x7f0b109b
 
     move v5, v10
 

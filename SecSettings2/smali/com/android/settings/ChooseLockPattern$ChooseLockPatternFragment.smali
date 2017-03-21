@@ -2533,7 +2533,7 @@
 
     iget-object v8, p0, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;->mChooseLockSettingsHelper:Lcom/android/settings/ChooseLockSettingsHelper;
 
-    const v9, 0x7f0b105f
+    const v9, 0x7f0b1060
 
     invoke-virtual {p0, v9}, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;->getString(I)Ljava/lang/String;
 
@@ -2620,7 +2620,7 @@
 
     new-array v10, v10, [Ljava/lang/Object;
 
-    const v11, 0x7f0b1068
+    const v11, 0x7f0b1069
 
     invoke-virtual {p0, v11}, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;->getString(I)Ljava/lang/String;
 
@@ -2908,7 +2908,7 @@
 
     iget-object v2, p0, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;->mHeaderText:Landroid/widget/TextView;
 
-    const v3, 0x7f0b13aa
+    const v3, 0x7f0b13ab
 
     invoke-virtual {p0, v3}, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;->getString(I)Ljava/lang/String;
 

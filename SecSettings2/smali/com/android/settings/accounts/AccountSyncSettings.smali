@@ -276,7 +276,7 @@
 
     aput-object v3, v5, v7
 
-    const v6, 0x7f0b166c
+    const v6, 0x7f0b166d
 
     invoke-virtual {p0, v6, v5}, Lcom/android/settings/accounts/AccountSyncSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -777,7 +777,7 @@
 
     if-eqz v2, :cond_1
 
-    const v5, 0x7f0b120e
+    const v5, 0x7f0b120f
 
     :goto_1
     const/4 v6, 0x1
@@ -810,7 +810,7 @@
     goto :goto_0
 
     :cond_1
-    const v5, 0x7f0b120f
+    const v5, 0x7f0b1210
 
     goto :goto_1
 .end method
@@ -1041,7 +1041,7 @@
     :goto_6
     if-nez v22, :cond_a
 
-    const v28, 0x7f0b1653
+    const v28, 0x7f0b1654
 
     move-object/from16 v0, v24
 
@@ -1177,7 +1177,7 @@
     :cond_a
     if-eqz v5, :cond_b
 
-    const v28, 0x7f0b1656
+    const v28, 0x7f0b1657
 
     move-object/from16 v0, v24
 
@@ -1220,7 +1220,7 @@
 
     aput-object v26, v29, v30
 
-    const v30, 0x7f0b1655
+    const v30, 0x7f0b1656
 
     move-object/from16 v0, v28
 
@@ -2324,7 +2324,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b177c
+    const v0, 0x7f0b177d
 
     return v0
 .end method
@@ -2650,7 +2650,7 @@
 .method public onCreateDialog(I)Landroid/app/Dialog;
     .locals 8
 
-    const v7, 0x7f0b1664
+    const v7, 0x7f0b1665
 
     const v6, 0x104000a
 
@@ -2705,7 +2705,7 @@
     if-lt v2, v5, :cond_2
 
     :cond_0
-    const v1, 0x7f0b1669
+    const v1, 0x7f0b166a
 
     :goto_0
     new-instance v2, Landroid/app/AlertDialog$Builder;
@@ -2743,7 +2743,7 @@
     return-object v0
 
     :cond_2
-    const v1, 0x7f0b1668
+    const v1, 0x7f0b1669
 
     goto :goto_0
 
@@ -2768,7 +2768,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b166a
+    const v3, 0x7f0b166b
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -2793,13 +2793,13 @@
 
     invoke-direct {v2, v3}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f0b166d
+    const v3, 0x7f0b166e
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v2
 
-    const v3, 0x7f0b166e
+    const v3, 0x7f0b166f
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -2845,7 +2845,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b1664
+    const v3, 0x7f0b1665
 
     invoke-virtual {p0, v3}, Lcom/android/settings/accounts/AccountSyncSettings;->getString(I)Ljava/lang/String;
 

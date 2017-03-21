@@ -345,6 +345,11 @@
         <item>Час чакання</item>
         <item>Не ўдалося</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Запыт</item>
+        <item>Ніколі не дазваляць</item>
+        <item>Заўжды дазваляць</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>Кароткая (0.5 секунды)</item>
         <item>Сярэдняя (1.0 секунды)</item>

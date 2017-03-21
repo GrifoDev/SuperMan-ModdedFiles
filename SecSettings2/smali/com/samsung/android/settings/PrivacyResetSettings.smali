@@ -545,7 +545,7 @@
 .method private updateAutoRestartSummary(Z)V
     .locals 2
 
-    const v0, 0x7f0b18ae
+    const v0, 0x7f0b18af
 
     invoke-static {}, Lcom/android/settings/Utils;->isSupportGraceUX()Z
 
@@ -593,7 +593,7 @@
     goto :goto_1
 
     :cond_2
-    const v0, 0x7f0b18af
+    const v0, 0x7f0b18b0
 
     goto :goto_2
 .end method

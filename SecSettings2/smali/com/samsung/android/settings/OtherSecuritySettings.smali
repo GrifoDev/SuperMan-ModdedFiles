@@ -742,7 +742,7 @@
 
     move-result-object v23
 
-    const v24, 0x7f0b1234
+    const v24, 0x7f0b1235
 
     invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -766,7 +766,7 @@
 
     move-result-object v23
 
-    const v24, 0x7f0b1233
+    const v24, 0x7f0b1234
 
     invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -902,7 +902,7 @@
 
     move-result-object v23
 
-    const v24, 0x7f0b18ae
+    const v24, 0x7f0b18af
 
     invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1066,7 +1066,7 @@
 
     if-eqz v22, :cond_12
 
-    const v17, 0x7f0b15ea
+    const v17, 0x7f0b15eb
 
     :goto_3
     move/from16 v0, v17
@@ -1474,7 +1474,7 @@
     goto/16 :goto_2
 
     :cond_12
-    const v17, 0x7f0b15eb
+    const v17, 0x7f0b15ec
 
     goto/16 :goto_3
 
@@ -1833,7 +1833,7 @@
     :sswitch_0
     new-array v1, v4, [Ljava/lang/Object;
 
-    const v2, 0x7f0b106a
+    const v2, 0x7f0b106b
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/OtherSecuritySettings;->getString(I)Ljava/lang/String;
 
@@ -1850,7 +1850,7 @@
     :sswitch_1
     new-array v1, v4, [Ljava/lang/Object;
 
-    const v2, 0x7f0b106c
+    const v2, 0x7f0b106d
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/OtherSecuritySettings;->getString(I)Ljava/lang/String;
 
@@ -1879,7 +1879,7 @@
 
     new-array v1, v4, [Ljava/lang/Object;
 
-    const v2, 0x7f0b1068
+    const v2, 0x7f0b1069
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/OtherSecuritySettings;->getString(I)Ljava/lang/String;
 
@@ -2312,7 +2312,7 @@
 
     if-eqz p1, :cond_2
 
-    const v0, 0x7f0b18ae
+    const v0, 0x7f0b18af
 
     :goto_1
     invoke-virtual {v3, v0}, Lcom/samsung/android/settings/SettingsSwitchPreference;->setSummary(I)V
@@ -2343,7 +2343,7 @@
     goto :goto_0
 
     :cond_2
-    const v0, 0x7f0b18af
+    const v0, 0x7f0b18b0
 
     goto :goto_1
 
@@ -2448,7 +2448,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b1783
+    const v0, 0x7f0b1784
 
     return v0
 .end method

@@ -55,7 +55,7 @@
 
     iget-object v0, p0, Lcom/android/settings/print/PrintServiceSettingsFragment$6;->this$0:Lcom/android/settings/print/PrintServiceSettingsFragment;
 
-    const v1, 0x7f0b1533
+    const v1, 0x7f0b1534
 
     invoke-virtual {v0, v1}, Lcom/android/settings/print/PrintServiceSettingsFragment;->getString(I)Ljava/lang/String;
 
@@ -101,7 +101,7 @@
 
     iget-object v1, p0, Lcom/android/settings/print/PrintServiceSettingsFragment$6;->this$0:Lcom/android/settings/print/PrintServiceSettingsFragment;
 
-    const v2, 0x7f0b1534
+    const v2, 0x7f0b1535
 
     invoke-virtual {v1, v2}, Lcom/android/settings/print/PrintServiceSettingsFragment;->getString(I)Ljava/lang/String;
 

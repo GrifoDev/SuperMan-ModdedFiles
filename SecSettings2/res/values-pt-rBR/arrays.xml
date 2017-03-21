@@ -345,6 +345,11 @@
         <item>Limite de tempo</item>
         <item>Malsucedido</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Perguntar</item>
+        <item>Nunca permitir</item>
+        <item>Permitir sempre</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>Curto (0,5 segundo)</item>
         <item>Médio (1,0 segundo)</item>

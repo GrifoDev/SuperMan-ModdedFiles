@@ -186,6 +186,11 @@
         <item>කාලය අවසන්</item>
         <item>අසාර්ථක</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>අසන්න</item>
+        <item>කිසිදාක ඉඩ නොදෙන්න</item>
+        <item>සැමවිටම ඉඩ දෙන්න</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>කෙටි (තත්පර 0.5)</item>
         <item>මධ්‍යම (තත්පර 1.0)</item>

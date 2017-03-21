@@ -345,6 +345,11 @@
         <item>సమయం ముగిసింది</item>
         <item>విఫలము</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>అడుగు</item>
+        <item>ఎప్పుడూ అనుమతించవద్దు</item>
+        <item>ఎల్లప్పుడూ అనుమతించు</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>తక్కువ (0.5 సెకన్లు)</item>
         <item>మధ్యస్థం (1.0 సెకన్)</item>

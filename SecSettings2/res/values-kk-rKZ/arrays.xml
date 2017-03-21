@@ -345,6 +345,11 @@
         <item>Уақыты аяқталды</item>
         <item>Сәтсіз</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Сұрау</item>
+        <item>Ешқашан рұсат бермеу</item>
+        <item>Әрқашан рұқсат беру</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>Қысқа (0.5 секунд)</item>
         <item>Орташа (1.0 секунд)</item>

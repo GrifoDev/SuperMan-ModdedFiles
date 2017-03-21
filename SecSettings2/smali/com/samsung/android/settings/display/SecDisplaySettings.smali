@@ -2608,7 +2608,7 @@
     :cond_1
     iget-object v4, p0, Lcom/samsung/android/settings/display/SecDisplaySettings;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0b14d6
+    const v5, 0x7f0b14d7
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3079,7 +3079,7 @@
 
     if-eqz v4, :cond_8
 
-    const v4, 0x7f0b18ae
+    const v4, 0x7f0b18af
 
     :goto_5
     invoke-virtual {v5, v4}, Lcom/samsung/android/settings/SettingsSwitchPreference;->setSummary(I)V
@@ -3087,7 +3087,7 @@
     goto :goto_4
 
     :cond_8
-    const v4, 0x7f0b18af
+    const v4, 0x7f0b18b0
 
     goto :goto_5
 .end method
@@ -4421,7 +4421,7 @@
 
     if-eqz v10, :cond_1
 
-    const v10, 0x7f0b19b2
+    const v10, 0x7f0b19b3
 
     invoke-virtual {p0, v10}, Lcom/samsung/android/settings/display/SecDisplaySettings;->getString(I)Ljava/lang/String;
 
@@ -4541,7 +4541,7 @@
 
     aput-object v11, v10, v12
 
-    const v11, 0x7f0b121c
+    const v11, 0x7f0b121d
 
     invoke-virtual {p0, v11, v10}, Lcom/samsung/android/settings/display/SecDisplaySettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -4613,7 +4613,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b1769
+    const v0, 0x7f0b176a
 
     return v0
 .end method
@@ -4754,7 +4754,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/display/SecDisplaySettings;->mLinkedData3:Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;
 
-    const v6, 0x7f0b146c
+    const v6, 0x7f0b146d
 
     iput v6, v5, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->titleRes:I
 
@@ -4956,7 +4956,7 @@
 
     if-eqz v29, :cond_0
 
-    const v29, 0x7f0b1216
+    const v29, 0x7f0b1217
 
     move/from16 v0, v29
 
@@ -6700,7 +6700,7 @@
 
     move-object/from16 v29, v0
 
-    const v30, 0x7f0b1858
+    const v30, 0x7f0b1859
 
     move/from16 v0, v30
 
@@ -6712,7 +6712,7 @@
 
     aput-object v30, v29, v31
 
-    const v30, 0x7f0b1859
+    const v30, 0x7f0b185a
 
     move/from16 v0, v30
 
@@ -10179,7 +10179,7 @@
 
     if-eqz v30, :cond_30
 
-    const v30, 0x7f0b18ae
+    const v30, 0x7f0b18af
 
     :goto_1f
     move-object/from16 v0, v31
@@ -11468,7 +11468,7 @@
 
     if-eqz v20, :cond_17
 
-    const v22, 0x7f0b18ae
+    const v22, 0x7f0b18af
 
     :goto_2
     move-object/from16 v0, v23
@@ -11701,7 +11701,7 @@
 
     if-eqz v16, :cond_1a
 
-    const v22, 0x7f0b18ae
+    const v22, 0x7f0b18af
 
     :goto_5
     move-object/from16 v0, v23
@@ -12598,7 +12598,7 @@
     goto/16 :goto_4
 
     :cond_1a
-    const v22, 0x7f0b18af
+    const v22, 0x7f0b18b0
 
     goto/16 :goto_5
 
@@ -12730,7 +12730,7 @@
 
     if-eqz v22, :cond_21
 
-    const v22, 0x7f0b18ae
+    const v22, 0x7f0b18af
 
     :goto_11
     move-object/from16 v0, v23
@@ -12805,7 +12805,7 @@
     goto/16 :goto_a
 
     :cond_21
-    const v22, 0x7f0b18af
+    const v22, 0x7f0b18b0
 
     goto :goto_11
 
@@ -13177,7 +13177,7 @@
 
     invoke-virtual {v0, v5}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    const v9, 0x7f0b121a
+    const v9, 0x7f0b121b
 
     invoke-virtual {v0, v9}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 

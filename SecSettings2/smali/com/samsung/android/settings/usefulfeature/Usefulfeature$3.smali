@@ -34,9 +34,9 @@
 .method public onChange(Z)V
     .locals 11
 
-    const v7, 0x7f0b18af
+    const v7, 0x7f0b18b0
 
-    const v6, 0x7f0b18ae
+    const v6, 0x7f0b18af
 
     const/4 v10, 0x1
 

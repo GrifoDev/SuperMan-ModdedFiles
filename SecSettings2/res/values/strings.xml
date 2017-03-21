@@ -4130,9 +4130,9 @@ Receiving SMS"</string>
     <string name="data_usage_reminder_item_summary">Receive notifications showing the amount of data used by apps when the device was locked for more than %d minutes.</string>
     <string name="data_usage_reminder_description">The following applications used %s of data in total while the device was locked:</string>
     <string name="google_settings_popup_msg">Only a limited number of Google settings are available. Some actions may not work.</string>
-    <item type="string" name="APKTOOL_DUMMY_efc">false</item>
     <item type="string" name="APKTOOL_DUMMY_efd">false</item>
     <item type="string" name="APKTOOL_DUMMY_efe">false</item>
+    <item type="string" name="APKTOOL_DUMMY_eff">false</item>
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="create">Create</string>
@@ -7244,9 +7244,9 @@ To ensure the most up-to-date protection, enable automatic updates by accepting 
     <string name="rom_name">Rom Name</string>
     <string name="rom_name_details">SuperMan-Rom</string>
     <string name="rom_ver">Rom Version</string>
-    <string name="rom_ver_details">V2.3</string>
+    <string name="rom_ver_details">V2.4</string>
     <string name="rom_date">Rom Date</string>
-    <string name="rom_date_details">02.03.17</string>
+    <string name="rom_date_details">25.03.17</string>
     <string name="rom_developer">Rom Developer</string>
     <string name="rom_developer_name">Tkkg1994</string>
     <string name="autostarts_title">Autostarts</string>

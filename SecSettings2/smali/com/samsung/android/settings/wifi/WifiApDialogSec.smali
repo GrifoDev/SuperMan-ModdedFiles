@@ -3324,7 +3324,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mSsid:Landroid/widget/EditText;
 
-    const v11, 0x7f0b114a
+    const v11, 0x7f0b114b
 
     invoke-virtual {v10, v11}, Landroid/widget/EditText;->setHint(I)V
 
@@ -3639,7 +3639,7 @@
 
     :cond_1
     :goto_0
-    const v10, 0x7f0b1179
+    const v10, 0x7f0b117a
 
     invoke-virtual {v3, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3651,7 +3651,7 @@
 
     invoke-virtual {p0, v12, v10, v11}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
 
-    const v10, 0x7f0b117b
+    const v10, 0x7f0b117c
 
     invoke-virtual {v3, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -5394,7 +5394,7 @@
 
     invoke-direct {v2, p0}, Lcom/samsung/android/settings/wifi/WifiApDialogSec$6;-><init>(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)V
 
-    const v3, 0x7f0b1412
+    const v3, 0x7f0b1413
 
     invoke-virtual {v0, v3, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

@@ -345,6 +345,11 @@
         <item>Taimauts</item>
         <item>Neveiksmīgi</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Jautāt</item>
+        <item>Nekad neatļaut</item>
+        <item>Atļaut vienmēr</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>Īsi (0.5 sekundes)</item>
         <item>Vidēji (1 sekunde)</item>

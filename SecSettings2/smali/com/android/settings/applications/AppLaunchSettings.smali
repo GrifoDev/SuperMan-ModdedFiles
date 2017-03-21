@@ -122,7 +122,7 @@
 
     new-array v3, v8, [Ljava/lang/CharSequence;
 
-    const v4, 0x7f0b1902
+    const v4, 0x7f0b1903
 
     invoke-virtual {p0, v4}, Lcom/android/settings/applications/AppLaunchSettings;->getString(I)Ljava/lang/String;
 
@@ -130,7 +130,7 @@
 
     aput-object v4, v3, v5
 
-    const v4, 0x7f0b1903
+    const v4, 0x7f0b1904
 
     invoke-virtual {p0, v4}, Lcom/android/settings/applications/AppLaunchSettings;->getString(I)Ljava/lang/String;
 
@@ -138,7 +138,7 @@
 
     aput-object v4, v3, v6
 
-    const v4, 0x7f0b1904
+    const v4, 0x7f0b1905
 
     invoke-virtual {p0, v4}, Lcom/android/settings/applications/AppLaunchSettings;->getString(I)Ljava/lang/String;
 
@@ -416,7 +416,7 @@
 
     if-nez p1, :cond_0
 
-    const v2, 0x7f0b18ff
+    const v2, 0x7f0b1900
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -427,7 +427,7 @@
     :cond_0
     if-ne p1, v2, :cond_1
 
-    const v1, 0x7f0b1900
+    const v1, 0x7f0b1901
 
     :goto_0
     new-array v2, v2, [Ljava/lang/Object;
@@ -445,7 +445,7 @@
     return-object v2
 
     :cond_1
-    const v1, 0x7f0b1901
+    const v1, 0x7f0b1902
 
     goto :goto_0
 .end method
@@ -642,7 +642,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b18d6
+    const v3, 0x7f0b18d7
 
     const/4 v6, 0x0
 

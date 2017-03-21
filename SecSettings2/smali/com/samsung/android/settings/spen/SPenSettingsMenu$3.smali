@@ -34,7 +34,7 @@
 .method public onChange(Z)V
     .locals 6
 
-    const v3, 0x7f0b18ae
+    const v3, 0x7f0b18af
 
     const/4 v1, 0x1
 
@@ -164,7 +164,7 @@
     goto :goto_3
 
     :cond_4
-    const v3, 0x7f0b18af
+    const v3, 0x7f0b18b0
 
     goto :goto_4
 .end method

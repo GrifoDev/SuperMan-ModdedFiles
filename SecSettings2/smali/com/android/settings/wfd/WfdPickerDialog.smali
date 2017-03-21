@@ -388,7 +388,7 @@
 
     invoke-direct {v5, p0}, Lcom/android/settings/wfd/WfdPickerDialog$1;-><init>(Lcom/android/settings/wfd/WfdPickerDialog;)V
 
-    const v6, 0x7f0b0fd8
+    const v6, 0x7f0b0fd9
 
     invoke-virtual {v1, v6, v5}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

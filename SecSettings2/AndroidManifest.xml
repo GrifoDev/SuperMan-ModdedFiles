@@ -322,7 +322,7 @@
                 <action android:name="com.android.settings.action.SETTINGS"/>
             </intent-filter>
             <meta-data android:name="com.android.settings.category" android:value="com.android.settings.category.wireless"/>
-            <meta-data android:name="com.android.settings.support" android:value="VZW,UPSM,KNOXCUSTOM_PROKIOSK,KIOSKCONTAINER"/>
+            <meta-data android:name="com.android.settings.support" android:value="VZW,UPSM,KNOXCUSTOM_KIOSK,KIOSKCONTAINER"/>
             <meta-data android:name="com.android.settings.tileid" android:value="wifi_settings"/>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS" android:value="com.android.settings.wifi.WifiSettings"/>
             <meta-data android:name="com.android.settings.PRIMARY_PROFILE_CONTROLLED" android:value="true"/>
@@ -606,7 +606,7 @@
                 <action android:name="com.android.settings.action.SETTINGS"/>
             </intent-filter>
             <meta-data android:name="com.android.settings.category" android:value="com.android.settings.category.wireless"/>
-            <meta-data android:name="com.android.settings.support" android:value="VZW,UPSM,KNOXCUSTOM_PROKIOSK,KIOSKCONTAINER"/>
+            <meta-data android:name="com.android.settings.support" android:value="VZW,UPSM,KNOXCUSTOM_KIOSK,KIOSKCONTAINER"/>
             <meta-data android:name="com.android.settings.tileid" android:value="bluetooth_settings"/>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS" android:value="com.android.settings.bluetooth.BluetoothSettings"/>
             <meta-data android:name="voicecommand" android:resource="@string/bluetooth_settings_title" android:value="@string/bluetooth_settings_title"/>
@@ -1536,7 +1536,7 @@
                 <action android:name="com.android.settings.action.SETTINGS"/>
             </intent-filter>
             <meta-data android:name="com.android.settings.category" android:value="com.android.settings.category.personal"/>
-            <meta-data android:name="com.android.settings.support" android:value="VZW,UPSM,KNOXCUSTOM_PROKIOSK,KIOSKCONTAINER"/>
+            <meta-data android:name="com.android.settings.support" android:value="VZW,UPSM,KNOXCUSTOM_KIOSK,KIOSKCONTAINER"/>
             <meta-data android:name="com.android.settings.tileid" android:value="location_settings"/>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS" android:value="com.android.settings.location.LocationSettings"/>
             <meta-data android:name="com.android.settings.PRIMARY_PROFILE_CONTROLLED" android:value="true"/>
@@ -1613,6 +1613,19 @@
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS" android:value="com.android.settings.TrustedCredentialsSettings"/>
             <meta-data android:name="com.android.settings.PRIMARY_PROFILE_CONTROLLED" android:value="true"/>
             <meta-data android:name="com.android.settings.TOP_LEVEL_TILE_ID" android:value="security_settings"/>
+        </activity>
+        <activity android:label="@string/user_credentials" android:name="com.android.settings.Settings$UserCredentialsSettingsActivity" android:taskAffinity="">
+            <intent-filter android:priority="1">
+                <action android:name="com.android.settings.USER_CREDENTIALS"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.android.settings.SHORTCUT"/>
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS" android:value="com.android.settings.UserCredentialsSettings"/>
+            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID" android:resource="@id/security_settings"/>
         </activity>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:icon="@drawable/ic_settings_cloud_and_account" android:label="@string/cloud_and_accounts_title" android:name="com.android.settings.Settings$CloudAccountSettingsActivity" android:parentActivityName="com.android.settings.Settings" android:taskAffinity="com.android.settings">
             <intent-filter android:priority="1">
@@ -3458,7 +3471,7 @@
             </intent-filter>
             <meta-data android:name="com.android.settings.category" android:value="com.android.settings.category.wireless"/>
             <meta-data android:name="com.android.settings.tileid" android:value="connections_settings"/>
-            <meta-data android:name="com.android.settings.support" android:value="GLOBAL,KNOXCUSTOM_PROKIOSK,KIOSKCONTAINER"/>
+            <meta-data android:name="com.android.settings.support" android:value="GLOBAL,KNOXCUSTOM_KIOSK,KIOSKCONTAINER"/>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS" android:value="com.samsung.android.settings.ConnectionsSettings"/>
             <meta-data android:name="com.android.settings.PRIMARY_PROFILE_CONTROLLED" android:value="true"/>
             <meta-data android:name="com.sec.android.PRIMARY_KNOX_CONTROLLED" android:value="true"/>

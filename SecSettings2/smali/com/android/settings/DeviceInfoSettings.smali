@@ -778,7 +778,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0f06
+    const v3, 0x7f0b0f07
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -801,7 +801,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0f06
+    const v3, 0x7f0b0f07
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4004,7 +4004,7 @@
 
     move-result-object v29
 
-    const v30, 0x7f0b170d
+    const v30, 0x7f0b170e
 
     invoke-virtual/range {v29 .. v30}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -5526,7 +5526,7 @@
 
     move-result-object v29
 
-    const v30, 0x7f0b170c
+    const v30, 0x7f0b170d
 
     invoke-virtual/range {v29 .. v30}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -5539,7 +5539,7 @@
 
     move-result-object v29
 
-    const v30, 0x7f0b170b
+    const v30, 0x7f0b170c
 
     invoke-virtual/range {v29 .. v30}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -5634,7 +5634,7 @@
 
     move-result-object v29
 
-    const v30, 0x7f0b0f06
+    const v30, 0x7f0b0f07
 
     move-object/from16 v0, p0
 
@@ -5698,7 +5698,7 @@
 
     move-result-object v29
 
-    const v30, 0x7f0b0f06
+    const v30, 0x7f0b0f07
 
     move-object/from16 v0, p0
 
@@ -6067,7 +6067,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b1772
+    const v0, 0x7f0b1773
 
     return v0
 .end method
@@ -6829,7 +6829,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b0f07
+    const v7, 0x7f0b0f08
 
     invoke-static {v6, v7, v9}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -6939,7 +6939,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b0f08
+    const v7, 0x7f0b0f09
 
     invoke-static {v6, v7, v9}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -7725,7 +7725,7 @@
 
     invoke-direct {v8, p0}, Lcom/android/settings/DeviceInfoSettings$10;-><init>(Lcom/android/settings/DeviceInfoSettings;)V
 
-    const v9, 0x7f0b0fd8
+    const v9, 0x7f0b0fd9
 
     invoke-virtual {v7, v9, v8}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

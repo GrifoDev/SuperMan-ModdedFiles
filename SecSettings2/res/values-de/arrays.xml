@@ -62,39 +62,27 @@
     </string-array>
     <string-array name="window_animation_scale_entries">
         <item>Animation aus</item>
-        <item>Animationsmaßstab: 0,25x</item>
         <item>Animationsmaßstab: 0,5x</item>
-        <item>Animationsmaßstab: 0,75x</item>
         <item>Animationsmaßstab: 1x</item>
-        <item>Animationsmaßstab: 1,25x</item>
         <item>Animationsmaßstab: 1,5x</item>
-        <item>Animationsmaßstab: 1,75x</item>
         <item>Animationsmaßstab: 2x</item>
         <item>Animationsmaßstab: 5x</item>
         <item>Animationsmaßstab: 10x</item>
     </string-array>
     <string-array name="transition_animation_scale_entries">
         <item>Animation aus</item>
-        <item>Animationsmaßstab: 0,25x</item>
         <item>Animationsmaßstab: 0,5x</item>
-        <item>Animationsmaßstab: 0,75x</item>
         <item>Animationsmaßstab: 1x</item>
-        <item>Animationsmaßstab: 1,25x</item>
         <item>Animationsmaßstab: 1,5x</item>
-        <item>Animationsmaßstab: 1,75x</item>
         <item>Animationsmaßstab: 2x</item>
         <item>Animationsmaßstab: 5x</item>
         <item>Animationsmaßstab: 10x</item>
     </string-array>
     <string-array name="animator_duration_scale_entries">
         <item>Animation aus</item>
-        <item>Animationsmaßstab: 0,25x</item>
         <item>Animationsmaßstab: 0,5x</item>
-        <item>Animationsmaßstab: 0,75x</item>
         <item>Animationsmaßstab: 1x</item>
-        <item>Animationsmaßstab: 1,25x</item>
         <item>Animationsmaßstab: 1,5x</item>
-        <item>Animationsmaßstab: 1,75x</item>
         <item>Animationsmaßstab: 2x</item>
         <item>Animationsmaßstab: 5x</item>
         <item>Animationsmaßstab: 10x</item>
@@ -356,6 +344,11 @@
         <item>Verbunden</item>
         <item>Timeout</item>
         <item>Nicht erfolgreich</item>
+    </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Fragen</item>
+        <item>Nie zulassen</item>
+        <item>Immer zulassen</item>
     </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>Kurz (0,5 Sekunden)</item>

@@ -785,7 +785,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b1779
+    const v0, 0x7f0b177a
 
     return v0
 .end method
@@ -1517,7 +1517,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b16ef
+    const v3, 0x7f0b16f0
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
 

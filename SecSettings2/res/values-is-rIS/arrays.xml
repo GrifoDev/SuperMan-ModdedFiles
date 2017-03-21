@@ -345,6 +345,11 @@
         <item>Tímalokun</item>
         <item>Mistókst</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Spyrja</item>
+        <item>Leyfa aldrei</item>
+        <item>Leyfa alltaf</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>Stutt (0,5 sekúndur)</item>
         <item>Miðlungs (1,0 sekúnda)</item>

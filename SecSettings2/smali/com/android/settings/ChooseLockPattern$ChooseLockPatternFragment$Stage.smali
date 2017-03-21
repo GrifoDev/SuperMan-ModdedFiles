@@ -69,7 +69,7 @@
 
     const/4 v2, 0x0
 
-    const v3, 0x7f0b13aa
+    const v3, 0x7f0b13ab
 
     const v4, 0x7f0b09e5
 
@@ -91,9 +91,9 @@
 
     const/4 v2, 0x1
 
-    const v3, 0x7f0b13bf
+    const v3, 0x7f0b13c0
 
-    const v4, 0x7f0b13bf
+    const v4, 0x7f0b13c0
 
     const/4 v7, -0x1
 
@@ -113,9 +113,9 @@
 
     const/4 v2, 0x2
 
-    const v3, 0x7f0b13ad
+    const v3, 0x7f0b13ae
 
-    const v4, 0x7f0b13ad
+    const v4, 0x7f0b13ae
 
     const/4 v7, -0x1
 
@@ -135,9 +135,9 @@
 
     const/4 v2, 0x3
 
-    const v3, 0x7f0b13ae
+    const v3, 0x7f0b13af
 
-    const v4, 0x7f0b13ae
+    const v4, 0x7f0b13af
 
     const/4 v7, -0x1
 
@@ -157,9 +157,9 @@
 
     const/4 v2, 0x4
 
-    const v3, 0x7f0b13af
+    const v3, 0x7f0b13b0
 
-    const v4, 0x7f0b13af
+    const v4, 0x7f0b13b0
 
     const/4 v7, -0x1
 
@@ -179,9 +179,9 @@
 
     const/4 v2, 0x5
 
-    const v3, 0x7f0b13a6
+    const v3, 0x7f0b13a7
 
-    const v4, 0x7f0b13a6
+    const v4, 0x7f0b13a7
 
     const/4 v7, -0x1
 
@@ -201,9 +201,9 @@
 
     const/4 v2, 0x6
 
-    const v3, 0x7f0b13b0
+    const v3, 0x7f0b13b1
 
-    const v4, 0x7f0b13ae
+    const v4, 0x7f0b13af
 
     const/4 v7, -0x1
 

@@ -331,7 +331,7 @@
 
     iget-object v6, p0, Lcom/android/settings/users/RestrictedProfileSettings;->mUser:Landroid/os/UserHandle;
 
-    const v4, 0x7f0b1015
+    const v4, 0x7f0b1016
 
     move-object v1, p0
 

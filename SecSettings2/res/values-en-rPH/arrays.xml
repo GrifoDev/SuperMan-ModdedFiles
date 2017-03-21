@@ -186,6 +186,11 @@
         <item>Timeout</item>
         <item>Unsuccessful</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Ask</item>
+        <item>Never allow</item>
+        <item>Always allow</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>Short (0.5 seconds)</item>
         <item>Medium (1.0 second)</item>

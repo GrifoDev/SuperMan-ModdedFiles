@@ -4426,7 +4426,7 @@
 
     move-result-object v16
 
-    const v17, 0x7f0b1412
+    const v17, 0x7f0b1413
 
     invoke-virtual/range {v16 .. v17}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -4448,7 +4448,7 @@
 
     move-result-object v16
 
-    const v17, 0x7f0b1413
+    const v17, 0x7f0b1414
 
     invoke-virtual/range {v16 .. v17}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -4631,7 +4631,7 @@
 
     if-nez v4, :cond_0
 
-    const v4, 0x7f0b10f4
+    const v4, 0x7f0b10f5
 
     invoke-virtual {v2, v4}, Lcom/android/settings/wfd/WifiDisplaySettings$WifiDisplayPreference;->setSummary(I)V
 
@@ -6096,7 +6096,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b10f7
+    const v6, 0x7f0b10f8
 
     invoke-virtual {v5, v6}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -6106,13 +6106,13 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b10f9
+    const v6, 0x7f0b10fa
 
     invoke-virtual {v5, v6, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v5
 
-    const v6, 0x7f0b10f8
+    const v6, 0x7f0b10f9
 
     invoke-virtual {v5, v6, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -6310,7 +6310,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b1785
+    const v0, 0x7f0b1786
 
     return v0
 .end method

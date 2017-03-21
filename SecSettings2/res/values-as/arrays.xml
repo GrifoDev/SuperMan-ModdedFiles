@@ -186,6 +186,11 @@
         <item>সময় সম্পাপ্ত</item>
         <item>অসফল</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>সোধক</item>
+        <item>কেতিয়াও অনুমতি নিদিব</item>
+        <item>সদায় অনুমতি</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>চুটি (0.5 ছেকেণ্ড)</item>
         <item>মধ্যম (1.0 ছেকেণ্ড)</item>

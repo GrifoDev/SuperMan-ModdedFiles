@@ -345,6 +345,11 @@
         <item>वेळ संपली</item>
         <item>अयशस्वी</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>विचारा</item>
+        <item>कधीही परवानगी नाही</item>
+        <item>नेहमी परवानगी द्या</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>संक्षिप्‍त (0.5 सेकंद)</item>
         <item>मध्‍यम (1.0 सेकंद)</item>

@@ -642,7 +642,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b1769
+    const v0, 0x7f0b176a
 
     return v0
 .end method
@@ -875,14 +875,14 @@
 
     if-eqz v10, :cond_8
 
-    const v6, 0x7f0b18ba
+    const v6, 0x7f0b18bb
 
     :goto_6
     const/4 v10, 0x2
 
     new-array v10, v10, [Ljava/lang/CharSequence;
 
-    const v11, 0x7f0b18b7
+    const v11, 0x7f0b18b8
 
     invoke-virtual {v0, v11}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -956,7 +956,7 @@
 
     new-array v10, v10, [Ljava/lang/CharSequence;
 
-    const v11, 0x7f0b1858
+    const v11, 0x7f0b1859
 
     invoke-virtual {v0, v11}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -966,7 +966,7 @@
 
     aput-object v11, v10, v12
 
-    const v11, 0x7f0b1859
+    const v11, 0x7f0b185a
 
     invoke-virtual {v0, v11}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -1115,12 +1115,12 @@
 
     if-ne v10, v11, :cond_9
 
-    const v6, 0x7f0b18b8
+    const v6, 0x7f0b18b9
 
     goto/16 :goto_6
 
     :cond_9
-    const v6, 0x7f0b18b9
+    const v6, 0x7f0b18ba
 
     goto/16 :goto_6
 

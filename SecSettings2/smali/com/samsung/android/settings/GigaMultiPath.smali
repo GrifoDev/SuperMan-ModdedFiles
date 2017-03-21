@@ -797,7 +797,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/GigaMultiPath;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b10b2
+    const v3, 0x7f0b10b3
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1384,7 +1384,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/GigaMultiPath;->mProgressDialog:Landroid/app/ProgressDialog;
 
-    const v1, 0x7f0b0f21
+    const v1, 0x7f0b0f22
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/GigaMultiPath;->getText(I)Ljava/lang/CharSequence;
 

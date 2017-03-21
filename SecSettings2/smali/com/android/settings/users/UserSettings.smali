@@ -355,7 +355,7 @@
 
     if-ne p1, v2, :cond_1
 
-    const v0, 0x7f0b1732
+    const v0, 0x7f0b1733
 
     invoke-virtual {p0, v0}, Lcom/android/settings/users/UserSettings;->getString(I)Ljava/lang/String;
 
@@ -377,7 +377,7 @@
     return-void
 
     :cond_1
-    const v0, 0x7f0b1733
+    const v0, 0x7f0b1734
 
     :try_start_1
     invoke-virtual {p0, v0}, Lcom/android/settings/users/UserSettings;->getString(I)Ljava/lang/String;
@@ -544,7 +544,7 @@
 
     aput-object p1, v3, v4
 
-    const v4, 0x7f0b171c
+    const v4, 0x7f0b171d
 
     invoke-virtual {p0, v4, v3}, Lcom/android/settings/users/UserSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -992,7 +992,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b179c
+    const v3, 0x7f0b179d
 
     const/4 v4, 0x0
 
@@ -1727,7 +1727,7 @@
 
     if-eqz v4, :cond_4
 
-    const v4, 0x7f0b171b
+    const v4, 0x7f0b171c
 
     invoke-virtual {v2, v4}, Lcom/android/settings/users/UserPreference;->setSummary(I)V
 
@@ -1761,7 +1761,7 @@
 
     if-eqz v4, :cond_d
 
-    const v4, 0x7f0b1719
+    const v4, 0x7f0b171a
 
     invoke-virtual {v2, v4}, Lcom/android/settings/users/UserPreference;->setSummary(I)V
 
@@ -1852,7 +1852,7 @@
     goto/16 :goto_4
 
     :cond_d
-    const v4, 0x7f0b1718
+    const v4, 0x7f0b1719
 
     invoke-virtual {v2, v4}, Lcom/android/settings/users/UserPreference;->setSummary(I)V
 
@@ -1865,7 +1865,7 @@
 
     if-eqz v4, :cond_5
 
-    const v4, 0x7f0b1715
+    const v4, 0x7f0b1716
 
     invoke-virtual {v2, v4}, Lcom/android/settings/users/UserPreference;->setSummary(I)V
 
@@ -2249,7 +2249,7 @@
 
     aput-object v6, v5, v7
 
-    const v6, 0x7f0b171f
+    const v6, 0x7f0b1720
 
     move-object/from16 v0, p0
 
@@ -2350,7 +2350,7 @@
 .method public getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b1781
+    const v0, 0x7f0b1782
 
     return v0
 .end method
@@ -2638,7 +2638,7 @@
 
     iget-object v0, p0, Lcom/android/settings/users/UserSettings;->mMePreference:Lcom/android/settings/users/UserPreference;
 
-    const v4, 0x7f0b171b
+    const v4, 0x7f0b171c
 
     invoke-virtual {v0, v4}, Lcom/android/settings/users/UserPreference;->setSummary(I)V
 
@@ -2681,7 +2681,7 @@
 
     iget-object v0, p0, Lcom/android/settings/users/UserSettings;->mAddUser:Lcom/android/settings/DimmableIconPreference;
 
-    const v4, 0x7f0b1714
+    const v4, 0x7f0b1715
 
     invoke-virtual {v0, v4}, Lcom/android/settings/DimmableIconPreference;->setTitle(I)V
 
@@ -2850,7 +2850,7 @@
 
     invoke-direct {v5, v0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v7, 0x7f0b172c
+    const v7, 0x7f0b172d
 
     invoke-virtual {v5, v7}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -2891,7 +2891,7 @@
 
     move-result v20
 
-    const v21, 0x7f0b1725
+    const v21, 0x7f0b1726
 
     const-string/jumbo v5, "VZW"
 
@@ -2923,7 +2923,7 @@
 
     invoke-direct {v5, v0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v7, 0x7f0b1724
+    const v7, 0x7f0b1725
 
     invoke-virtual {v5, v7}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -2979,13 +2979,13 @@
 
     invoke-direct {v5, v0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v7, 0x7f0b1727
+    const v7, 0x7f0b1728
 
     invoke-virtual {v5, v7}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v5
 
-    const v7, 0x7f0b1728
+    const v7, 0x7f0b1729
 
     invoke-virtual {v5, v7}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -2997,13 +2997,13 @@
 
     invoke-direct {v7, v0}, Lcom/android/settings/users/UserSettings$8;-><init>(Lcom/android/settings/users/UserSettings;)V
 
-    const v8, 0x7f0b172a
+    const v8, 0x7f0b172b
 
     invoke-virtual {v5, v8, v7}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v5
 
-    const v7, 0x7f0b172b
+    const v7, 0x7f0b172c
 
     const/4 v8, 0x0
 
@@ -3024,7 +3024,7 @@
 
     invoke-direct {v5, v0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v7, 0x7f0b1729
+    const v7, 0x7f0b172a
 
     invoke-virtual {v5, v7}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -3067,7 +3067,7 @@
 
     const-string/jumbo v5, "title"
 
-    const v7, 0x7f0b1722
+    const v7, 0x7f0b1723
 
     move-object/from16 v0, p0
 
@@ -3079,7 +3079,7 @@
 
     const-string/jumbo v5, "summary"
 
-    const v7, 0x7f0b1720
+    const v7, 0x7f0b1721
 
     move-object/from16 v0, p0
 
@@ -3095,7 +3095,7 @@
 
     const-string/jumbo v5, "title"
 
-    const v7, 0x7f0b1723
+    const v7, 0x7f0b1724
 
     move-object/from16 v0, p0
 
@@ -3107,7 +3107,7 @@
 
     const-string/jumbo v5, "summary"
 
-    const v7, 0x7f0b1721
+    const v7, 0x7f0b1722
 
     move-object/from16 v0, p0
 
@@ -3159,7 +3159,7 @@
 
     invoke-direct/range {v4 .. v9}, Landroid/widget/SimpleAdapter;-><init>(Landroid/content/Context;Ljava/util/List;I[Ljava/lang/String;[I)V
 
-    const v5, 0x7f0b171e
+    const v5, 0x7f0b171f
 
     move-object/from16 v0, v16
 
@@ -3194,7 +3194,7 @@
 
     move-result-object v5
 
-    const v7, 0x7f0b1716
+    const v7, 0x7f0b1717
 
     invoke-virtual {v5, v7}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -3206,7 +3206,7 @@
 
     invoke-direct {v7, v0}, Lcom/android/settings/users/UserSettings$11;-><init>(Lcom/android/settings/users/UserSettings;)V
 
-    const v8, 0x7f0b1717
+    const v8, 0x7f0b1718
 
     invoke-virtual {v5, v8, v7}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -3233,13 +3233,13 @@
 
     invoke-direct {v5, v0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v7, 0x7f0b173e
+    const v7, 0x7f0b173f
 
     invoke-virtual {v5, v7}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v5
 
-    const v7, 0x7f0b173f
+    const v7, 0x7f0b1740
 
     invoke-virtual {v5, v7}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -3251,7 +3251,7 @@
 
     invoke-direct {v7, v0}, Lcom/android/settings/users/UserSettings$12;-><init>(Lcom/android/settings/users/UserSettings;)V
 
-    const v8, 0x7f0b1671
+    const v8, 0x7f0b1672
 
     invoke-virtual {v5, v8, v7}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -3329,7 +3329,7 @@
 
     move-result-object v13
 
-    const v11, 0x7f0b1015
+    const v11, 0x7f0b1016
 
     move-object/from16 v8, p0
 

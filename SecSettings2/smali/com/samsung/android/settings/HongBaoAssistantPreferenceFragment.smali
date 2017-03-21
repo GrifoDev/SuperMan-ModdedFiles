@@ -203,7 +203,7 @@
     :cond_0
     iget-object v2, p0, Lcom/samsung/android/settings/HongBaoAssistantPreferenceFragment;->mNotificationSound:Landroid/preference/SwitchPreference;
 
-    const v3, 0x7f0b18af
+    const v3, 0x7f0b18b0
 
     invoke-virtual {v2, v3}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -704,7 +704,7 @@
     :cond_2
     iget-object v3, p0, Lcom/samsung/android/settings/HongBaoAssistantPreferenceFragment;->mNotificationSound:Landroid/preference/SwitchPreference;
 
-    const v5, 0x7f0b18af
+    const v5, 0x7f0b18b0
 
     invoke-virtual {v3, v5}, Landroid/preference/SwitchPreference;->setSummary(I)V
 

@@ -345,6 +345,11 @@
         <item>সময়সীমা সমাপ্ত</item>
         <item>অসফল</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>জিজ্ঞাসা করুন</item>
+        <item>কখনও অনুমতি দিবেন না</item>
+        <item>সর্বদা অনুমতি দিবেন</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>সংক্ষিপ্ত (0.5 সেকেন্ড)</item>
         <item>মাঝারি (1.0 সেকেন্ড)</item>

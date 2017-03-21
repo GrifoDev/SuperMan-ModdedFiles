@@ -2069,7 +2069,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/TRoamingSettings;->mMobileTRoaming:Landroid/preference/Preference;
 
-    const v3, 0x7f0b198a
+    const v3, 0x7f0b198b
 
     invoke-virtual {v2, v3}, Landroid/preference/Preference;->setSummary(I)V
 

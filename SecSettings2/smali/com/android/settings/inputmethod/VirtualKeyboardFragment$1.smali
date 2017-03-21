@@ -45,7 +45,7 @@
 
     const/4 v8, 0x0
 
-    const v22, 0x7f0b1480
+    const v22, 0x7f0b1481
 
     move-object/from16 v0, p1
 

@@ -1796,7 +1796,7 @@
 .method private refreshWifiInfo()V
     .locals 8
 
-    const v7, 0x7f0b1278
+    const v7, 0x7f0b1279
 
     const/4 v2, 0x0
 
@@ -1933,7 +1933,7 @@
 
     invoke-direct {v2, p0}, Lcom/android/settings/wifi/AdvancedWifiSettings$7;-><init>(Lcom/android/settings/wifi/AdvancedWifiSettings;)V
 
-    const v3, 0x7f0b0fd8
+    const v3, 0x7f0b0fd9
 
     invoke-virtual {v0, v3, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -3302,7 +3302,7 @@
     :catch_1
     move-exception v5
 
-    const v18, 0x7f0b1121
+    const v18, 0x7f0b1122
 
     const/16 v19, 0x0
 
@@ -3477,7 +3477,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f0b1111
+    const v19, 0x7f0b1112
 
     const/16 v20, 0x0
 

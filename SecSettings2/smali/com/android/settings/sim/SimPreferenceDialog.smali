@@ -253,7 +253,7 @@
 
     iget-object v10, p0, Lcom/android/settings/sim/SimPreferenceDialog;->mBuilder:Landroid/app/AlertDialog$Builder;
 
-    const v11, 0x7f0b17c2
+    const v11, 0x7f0b17c3
 
     invoke-virtual {v6, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -291,7 +291,7 @@
 
     invoke-direct {v11, p0, v8}, Lcom/android/settings/sim/SimPreferenceDialog$2;-><init>(Lcom/android/settings/sim/SimPreferenceDialog;Landroid/widget/Spinner;)V
 
-    const v12, 0x7f0b0fd9
+    const v12, 0x7f0b0fda
 
     invoke-virtual {v10, v12, v11}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -301,7 +301,7 @@
 
     invoke-direct {v11, p0}, Lcom/android/settings/sim/SimPreferenceDialog$3;-><init>(Lcom/android/settings/sim/SimPreferenceDialog;)V
 
-    const v12, 0x7f0b0fd8
+    const v12, 0x7f0b0fd9
 
     invoke-virtual {v10, v12, v11}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

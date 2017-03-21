@@ -202,7 +202,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b188d
+    const v2, 0x7f0b188e
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -214,7 +214,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b188e
+    const v2, 0x7f0b188f
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -226,7 +226,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b188f
+    const v2, 0x7f0b1890
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -481,7 +481,7 @@
 
     aput-object v5, v4, v6
 
-    const v5, 0x7f0b1897
+    const v5, 0x7f0b1898
 
     invoke-virtual {v3, v5, v4}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -836,7 +836,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/notification/ZenModeDNDPrioritySettings;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0b187e
+    const v1, 0x7f0b187f
 
     const/4 v2, 0x0
 

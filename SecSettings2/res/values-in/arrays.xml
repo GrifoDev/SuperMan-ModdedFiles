@@ -345,6 +345,11 @@
         <item>Waktu habis</item>
         <item>Gagal</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Tanya</item>
+        <item>Jangan bolehkan</item>
+        <item>Selalu bolehkan</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>Pendek (0,5 detik)</item>
         <item>Menengah (1,0 detik)</item>

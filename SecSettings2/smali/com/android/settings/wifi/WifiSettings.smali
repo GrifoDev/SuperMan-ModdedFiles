@@ -463,7 +463,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b1773
+    const v0, 0x7f0b1774
 
     return v0
 .end method
@@ -963,7 +963,7 @@
 
     const/4 v4, 0x7
 
-    const v5, 0x7f0b1132
+    const v5, 0x7f0b1133
 
     invoke-interface {p1, v6, v4, v6, v5}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1106,7 +1106,7 @@
 
     const/16 v4, 0x8
 
-    const v5, 0x7f0b1134
+    const v5, 0x7f0b1135
 
     invoke-interface {p1, v6, v4, v6, v5}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1165,7 +1165,7 @@
     if-nez v4, :cond_a
 
     :cond_f
-    const v4, 0x7f0b1135
+    const v4, 0x7f0b1136
 
     invoke-interface {p1, v6, v8, v6, v4}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1182,7 +1182,7 @@
 
     const/16 v4, 0xa
 
-    const v5, 0x7f0b1136
+    const v5, 0x7f0b1137
 
     invoke-interface {p1, v6, v4, v6, v5}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
 

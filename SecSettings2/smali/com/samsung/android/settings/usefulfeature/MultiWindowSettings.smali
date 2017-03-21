@@ -641,9 +641,9 @@
 .method public onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
     .locals 10
 
-    const v6, 0x7f0b18af
+    const v6, 0x7f0b18b0
 
-    const v5, 0x7f0b18ae
+    const v5, 0x7f0b18af
 
     const/4 v4, 0x1
 
@@ -826,11 +826,11 @@
 .method public onResume()V
     .locals 10
 
-    const v4, 0x7f0b18ae
+    const v4, 0x7f0b18af
 
     const/4 v9, 0x0
 
-    const v5, 0x7f0b18af
+    const v5, 0x7f0b18b0
 
     const/4 v8, 0x0
 

@@ -345,6 +345,11 @@
         <item>Timeout</item>
         <item>Hindi matagumpay</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Tanungin</item>
+        <item>Huwag payagan kailanman</item>
+        <item>Palaging payagan</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>Maikli (0.5 segundo)</item>
         <item>Katamtaman (1.0 segundo)</item>

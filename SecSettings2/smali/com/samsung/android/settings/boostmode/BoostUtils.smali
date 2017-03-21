@@ -1948,7 +1948,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b13ed
+    const v3, 0x7f0b13ee
 
     move-object/from16 v0, p0
 

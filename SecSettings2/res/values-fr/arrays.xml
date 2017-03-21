@@ -357,6 +357,11 @@
         <item>Expiration</item>
         <item>Échec</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Demander</item>
+        <item>Ne jamais autoriser</item>
+        <item>Toujours autoriser</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>Court (0,5 seconde)</item>
         <item>Moyen (1 seconde)</item>

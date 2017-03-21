@@ -345,6 +345,11 @@
         <item>הזמן תם</item>
         <item>ללא הצלחה</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>שאל</item>
+        <item>אף פעם אל תאפשר</item>
+        <item>אפשר תמיד</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>קצרה (0.5 שניות)</item>
         <item>בינונית (1.0 שניות)</item>

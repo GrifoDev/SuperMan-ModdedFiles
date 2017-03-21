@@ -385,7 +385,7 @@
 
     invoke-direct {v1, p0}, Lcom/samsung/android/settings/fmm/FindMyMobileSettings$5;-><init>(Lcom/samsung/android/settings/fmm/FindMyMobileSettings;)V
 
-    const v2, 0x7f0b1412
+    const v2, 0x7f0b1413
 
     invoke-virtual {v0, v2, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -395,7 +395,7 @@
 
     invoke-direct {v1, p0}, Lcom/samsung/android/settings/fmm/FindMyMobileSettings$6;-><init>(Lcom/samsung/android/settings/fmm/FindMyMobileSettings;)V
 
-    const v2, 0x7f0b0fd8
+    const v2, 0x7f0b0fd9
 
     invoke-virtual {v0, v2, v1}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -475,7 +475,7 @@
 
     invoke-direct {v3, p0}, Lcom/samsung/android/settings/fmm/FindMyMobileSettings$8;-><init>(Lcom/samsung/android/settings/fmm/FindMyMobileSettings;)V
 
-    const v4, 0x7f0b1412
+    const v4, 0x7f0b1413
 
     invoke-virtual {v2, v4, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -485,7 +485,7 @@
 
     invoke-direct {v3, p0}, Lcom/samsung/android/settings/fmm/FindMyMobileSettings$9;-><init>(Lcom/samsung/android/settings/fmm/FindMyMobileSettings;)V
 
-    const v4, 0x7f0b0fd8
+    const v4, 0x7f0b0fd9
 
     invoke-virtual {v2, v4, v3}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -585,7 +585,7 @@
     :cond_1
     iget-object v2, p0, Lcom/samsung/android/settings/fmm/FindMyMobileSettings;->mSamsungAccountPref:Landroid/preference/Preference;
 
-    const v3, 0x7f0b1648
+    const v3, 0x7f0b1649
 
     invoke-virtual {v2, v3}, Landroid/preference/Preference;->setTitle(I)V
 
@@ -693,7 +693,7 @@
 
     move-result-object v2
 
-    const v4, 0x7f0b18ae
+    const v4, 0x7f0b18af
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -812,7 +812,7 @@
 
     move-result-object v2
 
-    const v4, 0x7f0b18af
+    const v4, 0x7f0b18b0
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1308,7 +1308,7 @@
 
     iget-object v7, p0, Lcom/samsung/android/settings/fmm/FindMyMobileSettings;->mGoogleLocationService:Landroid/preference/SwitchPreference;
 
-    const v8, 0x7f0b1367
+    const v8, 0x7f0b1368
 
     invoke-virtual {v7, v8}, Landroid/preference/SwitchPreference;->setTitle(I)V
 

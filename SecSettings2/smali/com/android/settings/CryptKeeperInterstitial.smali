@@ -816,9 +816,9 @@
     :cond_0
     sparse-switch v3, :sswitch_data_0
 
-    const v4, 0x7f0b18cc
+    const v4, 0x7f0b18cd
 
-    const v2, 0x7f0b18cf
+    const v2, 0x7f0b18d0
 
     :goto_0
     invoke-virtual {p0}, Lcom/android/settings/CryptKeeperInterstitial;->getActivity()Landroid/app/Activity;
@@ -887,9 +887,9 @@
     return-object v5
 
     :sswitch_0
-    const v4, 0x7f0b18cb
+    const v4, 0x7f0b18cc
 
-    const v2, 0x7f0b18ce
+    const v2, 0x7f0b18cf
 
     goto :goto_0
 
@@ -901,9 +901,9 @@
     goto :goto_0
 
     :sswitch_2
-    const v4, 0x7f0b18ca
+    const v4, 0x7f0b18cb
 
-    const v2, 0x7f0b18cd
+    const v2, 0x7f0b18ce
 
     goto :goto_0
 
@@ -1302,7 +1302,7 @@
     :cond_0
     const v2, 0x7f0b065a
 
-    const v1, 0x7f0b18bd
+    const v1, 0x7f0b18be
 
     sparse-switch v11, :sswitch_data_0
 
@@ -1310,10 +1310,10 @@
 
     if-ne v5, v13, :cond_e
 
-    const v9, 0x7f0b18c3
+    const v9, 0x7f0b18c4
 
     :goto_0
-    const v4, 0x7f0b18c6
+    const v4, 0x7f0b18c7
 
     :goto_1
     move-object/from16 v0, p0
@@ -1332,7 +1332,7 @@
 
     iget-object v13, v0, Lcom/android/settings/CryptKeeperInterstitial;->mChangePWButton:Landroid/widget/Button;
 
-    const v14, 0x7f0b18bd
+    const v14, 0x7f0b18be
 
     invoke-virtual {v13, v14}, Landroid/widget/Button;->setText(I)V
 
@@ -1564,10 +1564,10 @@
 
     if-ne v5, v13, :cond_7
 
-    const v9, 0x7f0b18c2
+    const v9, 0x7f0b18c3
 
     :goto_6
-    const v4, 0x7f0b18c5
+    const v4, 0x7f0b18c6
 
     goto/16 :goto_1
 
@@ -1581,7 +1581,7 @@
     goto :goto_6
 
     :cond_8
-    const v9, 0x7f0b18bf
+    const v9, 0x7f0b18c0
 
     goto :goto_6
 
@@ -1616,10 +1616,10 @@
 
     if-ne v5, v13, :cond_b
 
-    const v9, 0x7f0b18c1
+    const v9, 0x7f0b18c2
 
     :goto_8
-    const v4, 0x7f0b18c4
+    const v4, 0x7f0b18c5
 
     goto/16 :goto_1
 
@@ -1633,7 +1633,7 @@
     goto :goto_8
 
     :cond_c
-    const v9, 0x7f0b18be
+    const v9, 0x7f0b18bf
 
     goto :goto_8
 
@@ -1644,9 +1644,9 @@
 
     if-eqz v7, :cond_d
 
-    const v9, 0x7f0b18be
+    const v9, 0x7f0b18bf
 
-    const v4, 0x7f0b18c6
+    const v4, 0x7f0b18c7
 
     goto/16 :goto_1
 
@@ -1687,7 +1687,7 @@
     goto/16 :goto_0
 
     :cond_f
-    const v9, 0x7f0b18c0
+    const v9, 0x7f0b18c1
 
     goto/16 :goto_0
 

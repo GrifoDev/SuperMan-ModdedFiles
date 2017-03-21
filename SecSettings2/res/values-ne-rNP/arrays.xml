@@ -345,6 +345,11 @@
         <item>टाइमाउट</item>
         <item>असफल</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>सोध</item>
+        <item>कहिल्यै नमान्नुहोस्</item>
+        <item>सधैँ स्वीकारनुहोस्</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>छोटो (0.5 सेकेन्ड)</item>
         <item>मध्यम (1.0 सेकेन्ड)</item>

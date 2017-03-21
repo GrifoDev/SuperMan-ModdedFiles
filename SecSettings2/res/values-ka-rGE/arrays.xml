@@ -345,6 +345,11 @@
         <item>დრო ამოიწურა</item>
         <item>ვერ შესრულდა</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>მკითხე</item>
+        <item>არასდროს ჰქონდეს ნება</item>
+        <item>მუდამ ნებადართული</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>ხანმოკლე (0.5 წამი)</item>
         <item>საშუალო (1.0 წამი)</item>

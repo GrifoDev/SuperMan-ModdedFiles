@@ -814,7 +814,7 @@
 .method private showNotificationDialog()Z
     .locals 11
 
-    const v10, 0x7f0b0fe0
+    const v10, 0x7f0b0fe1
 
     const v9, 0x104000a
 
@@ -1382,7 +1382,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/smartbonding/SmartBondingEnabler;->mSwitchPref:Landroid/preference/SwitchPreference;
 
-    const v2, 0x7f0b18ae
+    const v2, 0x7f0b18af
 
     invoke-virtual {v1, v2}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -1406,7 +1406,7 @@
     :cond_7
     iget-object v1, p0, Lcom/samsung/android/settings/smartbonding/SmartBondingEnabler;->mSwitchPref:Landroid/preference/SwitchPreference;
 
-    const v2, 0x7f0b18af
+    const v2, 0x7f0b18b0
 
     invoke-virtual {v1, v2}, Landroid/preference/SwitchPreference;->setSummary(I)V
 

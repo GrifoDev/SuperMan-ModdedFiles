@@ -254,7 +254,7 @@
 
     if-gt v0, v9, :cond_8
 
-    const v9, 0x7f0b1068
+    const v9, 0x7f0b1069
 
     invoke-virtual {p0, v9}, Lcom/samsung/android/settings/KnoxFingerprintNotice;->getString(I)Ljava/lang/String;
 
@@ -477,7 +477,7 @@
 
     if-ge v0, v9, :cond_9
 
-    const v9, 0x7f0b106a
+    const v9, 0x7f0b106b
 
     invoke-virtual {p0, v9}, Lcom/samsung/android/settings/KnoxFingerprintNotice;->getString(I)Ljava/lang/String;
 
@@ -486,7 +486,7 @@
     goto/16 :goto_0
 
     :cond_9
-    const v9, 0x7f0b106c
+    const v9, 0x7f0b106d
 
     invoke-virtual {p0, v9}, Lcom/samsung/android/settings/KnoxFingerprintNotice;->getString(I)Ljava/lang/String;
 
@@ -781,7 +781,7 @@
 
     new-array v7, v8, [Ljava/lang/Object;
 
-    const v8, 0x7f0b1068
+    const v8, 0x7f0b1069
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/KnoxFingerprintNotice;->getString(I)Ljava/lang/String;
 
@@ -882,7 +882,7 @@
 
     new-array v7, v8, [Ljava/lang/Object;
 
-    const v8, 0x7f0b1068
+    const v8, 0x7f0b1069
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/KnoxFingerprintNotice;->getString(I)Ljava/lang/String;
 
@@ -917,7 +917,7 @@
 
     new-array v7, v8, [Ljava/lang/Object;
 
-    const v8, 0x7f0b106a
+    const v8, 0x7f0b106b
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/KnoxFingerprintNotice;->getString(I)Ljava/lang/String;
 
@@ -942,7 +942,7 @@
 
     new-array v7, v8, [Ljava/lang/Object;
 
-    const v8, 0x7f0b106a
+    const v8, 0x7f0b106b
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/KnoxFingerprintNotice;->getString(I)Ljava/lang/String;
 
@@ -973,7 +973,7 @@
 
     new-array v7, v8, [Ljava/lang/Object;
 
-    const v8, 0x7f0b106c
+    const v8, 0x7f0b106d
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/KnoxFingerprintNotice;->getString(I)Ljava/lang/String;
 
@@ -998,7 +998,7 @@
 
     new-array v7, v8, [Ljava/lang/Object;
 
-    const v8, 0x7f0b106c
+    const v8, 0x7f0b106d
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/KnoxFingerprintNotice;->getString(I)Ljava/lang/String;
 

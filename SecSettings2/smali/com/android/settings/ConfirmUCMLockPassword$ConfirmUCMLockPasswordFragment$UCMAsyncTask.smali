@@ -781,7 +781,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b1a37
+    const v9, 0x7f0b1a38
 
     invoke-virtual {v8, v9}, Landroid/widget/TextView;->setText(I)V
 
@@ -804,7 +804,7 @@
 
     iget-object v9, p0, Lcom/android/settings/ConfirmUCMLockPassword$ConfirmUCMLockPasswordFragment$UCMAsyncTask;->this$1:Lcom/android/settings/ConfirmUCMLockPassword$ConfirmUCMLockPasswordFragment;
 
-    const v10, 0x7f0b1a33
+    const v10, 0x7f0b1a34
 
     invoke-virtual {v9, v10}, Lcom/android/settings/ConfirmUCMLockPassword$ConfirmUCMLockPasswordFragment;->getString(I)Ljava/lang/String;
 
@@ -918,7 +918,7 @@
 
     iget-object v9, p0, Lcom/android/settings/ConfirmUCMLockPassword$ConfirmUCMLockPasswordFragment$UCMAsyncTask;->this$1:Lcom/android/settings/ConfirmUCMLockPassword$ConfirmUCMLockPasswordFragment;
 
-    const v10, 0x7f0b1a36
+    const v10, 0x7f0b1a37
 
     invoke-virtual {v9, v10}, Lcom/android/settings/ConfirmUCMLockPassword$ConfirmUCMLockPasswordFragment;->getString(I)Ljava/lang/String;
 

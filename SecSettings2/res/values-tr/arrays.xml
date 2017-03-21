@@ -345,6 +345,11 @@
         <item>Zaman aşımı</item>
         <item>Başarısız</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Sor</item>
+        <item>Hiçbir zaman izin verme</item>
+        <item>Daima izin ver</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>Kısa (0,5 saniye)</item>
         <item>Orta (1,0 saniye)</item>

@@ -1100,7 +1100,7 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f0b1099
+    const v1, 0x7f0b109a
 
     invoke-virtual {p0, v1, v0}, Lcom/android/settings/ChooseLockPassword$ChooseLockPasswordFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1154,7 +1154,7 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f0b1098
+    const v1, 0x7f0b1099
 
     invoke-virtual {p0, v1, v0}, Lcom/android/settings/ChooseLockPassword$ChooseLockPasswordFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1382,7 +1382,7 @@
 
     if-eqz v6, :cond_b
 
-    const v6, 0x7f0b1098
+    const v6, 0x7f0b1099
 
     :goto_4
     new-array v7, v7, [Ljava/lang/Object;
@@ -1408,7 +1408,7 @@
     goto :goto_3
 
     :cond_b
-    const v6, 0x7f0b1099
+    const v6, 0x7f0b109a
 
     goto :goto_4
 
@@ -2122,7 +2122,7 @@
     if-le v6, v0, :cond_e
 
     :cond_d
-    const v29, 0x7f0b109f
+    const v29, 0x7f0b10a0
 
     move-object/from16 v0, p0
 
@@ -2244,7 +2244,7 @@
 
     if-gtz v29, :cond_15
 
-    const v29, 0x7f0b109d
+    const v29, 0x7f0b109e
 
     move-object/from16 v0, p0
 
@@ -2283,7 +2283,7 @@
 
     if-le v0, v1, :cond_24
 
-    const v29, 0x7f0b10a4
+    const v29, 0x7f0b10a5
 
     move-object/from16 v0, p0
 
@@ -2778,7 +2778,7 @@
     :cond_20
     if-nez v19, :cond_23
 
-    const v29, 0x7f0b10a0
+    const v29, 0x7f0b10a1
 
     move-object/from16 v0, p0
 
@@ -2805,7 +2805,7 @@
 
     if-nez v22, :cond_24
 
-    const v29, 0x7f0b10a1
+    const v29, 0x7f0b10a2
 
     move-object/from16 v0, p0
 
@@ -2865,7 +2865,7 @@
 
     if-eqz v29, :cond_26
 
-    const v29, 0x7f0b109b
+    const v29, 0x7f0b109c
 
     :goto_7
     const/16 v30, 0x1
@@ -2903,7 +2903,7 @@
     return-object v29
 
     :cond_26
-    const v29, 0x7f0b109c
+    const v29, 0x7f0b109d
 
     goto :goto_7
 
@@ -2940,7 +2940,7 @@
 
     if-eqz v29, :cond_28
 
-    const v29, 0x7f0b10a3
+    const v29, 0x7f0b10a4
 
     :goto_8
     move-object/from16 v0, p0
@@ -2954,7 +2954,7 @@
     return-object v29
 
     :cond_28
-    const v29, 0x7f0b109e
+    const v29, 0x7f0b109f
 
     goto :goto_8
 
@@ -7289,7 +7289,7 @@
 
     iget-object v13, v0, Lcom/android/settings/ChooseLockPassword$ChooseLockPasswordFragment;->mChooseLockSettingsHelper:Lcom/android/settings/ChooseLockSettingsHelper;
 
-    const v14, 0x7f0b105f
+    const v14, 0x7f0b1060
 
     move-object/from16 v0, p0
 
@@ -7352,7 +7352,7 @@
 
     if-eqz v13, :cond_1e
 
-    const v7, 0x7f0b138b
+    const v7, 0x7f0b138c
 
     :goto_8
     invoke-static {}, Lcom/android/settings/ChooseLockPassword;->-get8()Z
@@ -7590,7 +7590,7 @@
 
     if-eqz v13, :cond_17
 
-    const v13, 0x7f0b106c
+    const v13, 0x7f0b106d
 
     move-object/from16 v0, p0
 
@@ -7620,7 +7620,7 @@
     goto/16 :goto_4
 
     :cond_17
-    const v13, 0x7f0b106a
+    const v13, 0x7f0b106b
 
     move-object/from16 v0, p0
 
@@ -7719,17 +7719,17 @@
 
     if-eqz v13, :cond_1d
 
-    const v7, 0x7f0b138b
+    const v7, 0x7f0b138c
 
     goto/16 :goto_7
 
     :cond_1d
-    const v7, 0x7f0b138d
+    const v7, 0x7f0b138e
 
     goto/16 :goto_7
 
     :cond_1e
-    const v7, 0x7f0b138d
+    const v7, 0x7f0b138e
 
     goto/16 :goto_8
 

@@ -41,9 +41,9 @@
 .method public setListening(Z)V
     .locals 6
 
-    const v4, 0x7f0b1378
+    const v4, 0x7f0b1379
 
-    const v3, 0x7f0b125d
+    const v3, 0x7f0b125e
 
     if-eqz p1, :cond_0
 
@@ -211,7 +211,7 @@
 
     aput-object v4, v3, v5
 
-    const v4, 0x7f0b19b1
+    const v4, 0x7f0b19b2
 
     invoke-virtual {v2, v4, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

@@ -1531,7 +1531,7 @@
 
     if-gtz v11, :cond_7
 
-    const v11, 0x7f0b19d8
+    const v11, 0x7f0b19d9
 
     :goto_1
     const/4 v13, 0x2
@@ -1643,7 +1643,7 @@
     goto/16 :goto_0
 
     :cond_7
-    const v11, 0x7f0b19d9
+    const v11, 0x7f0b19da
 
     goto :goto_1
 
@@ -2391,7 +2391,7 @@
     :cond_d
     if-eqz v1, :cond_21
 
-    const v8, 0x7f0b19d5
+    const v8, 0x7f0b19d6
 
     :goto_9
     iput v8, p0, Lcom/android/settings/datausage/DataUsageSummary;->mDataUsageTemplate:I
@@ -2628,12 +2628,12 @@
     :cond_21
     if-eqz v2, :cond_22
 
-    const v8, 0x7f0b19d6
+    const v8, 0x7f0b19d7
 
     goto/16 :goto_9
 
     :cond_22
-    const v8, 0x7f0b19d7
+    const v8, 0x7f0b19d8
 
     goto/16 :goto_9
 .end method

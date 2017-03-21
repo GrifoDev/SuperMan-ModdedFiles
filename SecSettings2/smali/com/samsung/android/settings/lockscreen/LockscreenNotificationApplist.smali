@@ -440,14 +440,14 @@
 .method private getLockOptionValues(I)I
     .locals 3
 
-    const v2, 0x7f0b1836
+    const v2, 0x7f0b1837
 
     if-eq p1, v2, :cond_0
 
     const/4 v0, 0x1
 
     :goto_0
-    const v2, 0x7f0b1834
+    const v2, 0x7f0b1835
 
     if-ne p1, v2, :cond_1
 
@@ -1195,7 +1195,7 @@
 
     invoke-virtual {v8, v11}, Lcom/samsung/android/settings/lockscreen/LockNotiRestrictedPreference;->semSetSummaryColorToColorPrimaryDark(Z)V
 
-    const v8, 0x7f0b1834
+    const v8, 0x7f0b1835
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/lockscreen/LockscreenNotificationApplist;->getString(I)Ljava/lang/String;
 
@@ -1213,7 +1213,7 @@
 
     invoke-direct {p0, v4, v5, v8}, Lcom/samsung/android/settings/lockscreen/LockscreenNotificationApplist;->setRestrictedIfNotificationFeaturesDisabled(Ljava/lang/CharSequence;Ljava/lang/CharSequence;I)V
 
-    const v8, 0x7f0b1835
+    const v8, 0x7f0b1836
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/lockscreen/LockscreenNotificationApplist;->getString(I)Ljava/lang/String;
 
@@ -1231,7 +1231,7 @@
 
     invoke-direct {p0, v2, v3, v8}, Lcom/samsung/android/settings/lockscreen/LockscreenNotificationApplist;->setRestrictedIfNotificationFeaturesDisabled(Ljava/lang/CharSequence;Ljava/lang/CharSequence;I)V
 
-    const v8, 0x7f0b1836
+    const v8, 0x7f0b1837
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/lockscreen/LockscreenNotificationApplist;->getString(I)Ljava/lang/String;
 
@@ -1337,7 +1337,7 @@
 
     if-nez v1, :cond_1
 
-    const v2, 0x7f0b1836
+    const v2, 0x7f0b1837
 
     :goto_0
     iput v2, p0, Lcom/samsung/android/settings/lockscreen/LockscreenNotificationApplist;->mLockOptionResID:I
@@ -1367,12 +1367,12 @@
     :cond_1
     if-eqz v0, :cond_2
 
-    const v2, 0x7f0b1834
+    const v2, 0x7f0b1835
 
     goto :goto_0
 
     :cond_2
-    const v2, 0x7f0b1835
+    const v2, 0x7f0b1836
 
     goto :goto_0
 .end method

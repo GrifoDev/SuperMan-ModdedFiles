@@ -672,7 +672,7 @@
 
     invoke-direct {v1, p0}, Lcom/android/settings/ChooseLockSettingsHelper;-><init>(Landroid/app/Activity;)V
 
-    const v0, 0x7f0b1020
+    const v0, 0x7f0b1021
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/iris/IrisLockSettings;->getString(I)Ljava/lang/String;
 
@@ -1467,7 +1467,7 @@
 
     invoke-direct {v4, p0}, Lcom/samsung/android/settings/iris/IrisLockSettings$5;-><init>(Lcom/samsung/android/settings/iris/IrisLockSettings;)V
 
-    const v5, 0x7f0b13b3
+    const v5, 0x7f0b13b4
 
     invoke-virtual {v0, v5, v4}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

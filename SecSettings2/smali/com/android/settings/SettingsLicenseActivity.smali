@@ -15,7 +15,7 @@
 .method private showErrorAndFinish()V
     .locals 2
 
-    const v0, 0x7f0b1385
+    const v0, 0x7f0b1386
 
     const/4 v1, 0x1
 
@@ -148,7 +148,7 @@
 
     const-string/jumbo v4, "android.intent.extra.TITLE"
 
-    const v5, 0x7f0b1384
+    const v5, 0x7f0b1385
 
     invoke-virtual {p0, v5}, Lcom/android/settings/SettingsLicenseActivity;->getString(I)Ljava/lang/String;
 

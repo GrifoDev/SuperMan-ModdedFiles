@@ -214,7 +214,7 @@
     :sswitch_0
     new-array v1, v4, [Ljava/lang/Object;
 
-    const v2, 0x7f0b106a
+    const v2, 0x7f0b106b
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/accessibility/ToggleAccessControlPreferenceFragment;->getString(I)Ljava/lang/String;
 
@@ -231,7 +231,7 @@
     :sswitch_1
     new-array v1, v4, [Ljava/lang/Object;
 
-    const v2, 0x7f0b106c
+    const v2, 0x7f0b106d
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/accessibility/ToggleAccessControlPreferenceFragment;->getString(I)Ljava/lang/String;
 
@@ -260,7 +260,7 @@
 
     new-array v1, v4, [Ljava/lang/Object;
 
-    const v2, 0x7f0b1068
+    const v2, 0x7f0b1069
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/accessibility/ToggleAccessControlPreferenceFragment;->getString(I)Ljava/lang/String;
 

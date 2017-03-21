@@ -345,6 +345,11 @@
         <item>સમયસમાપ્ત</item>
         <item>નિષ્ફળ</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>પૂછો</item>
+        <item>ક્યારેય છૂટ આપશો નહીં</item>
+        <item>હંમેશા છૂટ આપો</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>ટૂંકો (0.5 સેકન્ડ્સ)</item>
         <item>મધ્યમ (1.0 સેકન્ડ)</item>

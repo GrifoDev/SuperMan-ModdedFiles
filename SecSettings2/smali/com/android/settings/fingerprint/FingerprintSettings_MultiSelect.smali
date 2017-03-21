@@ -1051,7 +1051,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b15dd
+    const v8, 0x7f0b15de
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1776,7 +1776,7 @@
     return-void
 
     :sswitch_0
-    const v4, 0x7f0b106a
+    const v4, 0x7f0b106b
 
     invoke-virtual {p0, v4}, Lcom/android/settings/fingerprint/FingerprintSettings_MultiSelect;->getString(I)Ljava/lang/String;
 
@@ -1785,7 +1785,7 @@
     goto :goto_0
 
     :sswitch_1
-    const v4, 0x7f0b106c
+    const v4, 0x7f0b106d
 
     invoke-virtual {p0, v4}, Lcom/android/settings/fingerprint/FingerprintSettings_MultiSelect;->getString(I)Ljava/lang/String;
 
@@ -1794,7 +1794,7 @@
     goto :goto_0
 
     :sswitch_2
-    const v4, 0x7f0b1068
+    const v4, 0x7f0b1069
 
     invoke-virtual {p0, v4}, Lcom/android/settings/fingerprint/FingerprintSettings_MultiSelect;->getString(I)Ljava/lang/String;
 
@@ -3408,7 +3408,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b1786
+    const v0, 0x7f0b1787
 
     return v0
 .end method
@@ -4053,7 +4053,7 @@
 
     const/4 v10, 0x0
 
-    const v11, 0x7f0b0f4c
+    const v11, 0x7f0b0f4d
 
     invoke-interface {p1, v8, v9, v10, v11}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 

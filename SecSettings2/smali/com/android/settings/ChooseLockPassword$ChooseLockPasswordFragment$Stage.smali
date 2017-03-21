@@ -57,17 +57,17 @@
 
     const/4 v2, 0x0
 
-    const v3, 0x7f0b138b
+    const v3, 0x7f0b138c
 
-    const v4, 0x7f0b138b
+    const v4, 0x7f0b138c
 
-    const v5, 0x7f0b138d
+    const v5, 0x7f0b138e
 
-    const v6, 0x7f0b138d
+    const v6, 0x7f0b138e
 
     const v7, 0x7f0b08c7
 
-    const v8, 0x7f0b109a
+    const v8, 0x7f0b109b
 
     invoke-direct/range {v0 .. v8}, Lcom/android/settings/ChooseLockPassword$ChooseLockPasswordFragment$Stage;-><init>(Ljava/lang/String;IIIIIII)V
 
@@ -89,7 +89,7 @@
 
     const v7, 0x7f0b08c8
 
-    const v8, 0x7f0b10a5
+    const v8, 0x7f0b10a6
 
     invoke-direct/range {v0 .. v8}, Lcom/android/settings/ChooseLockPassword$ChooseLockPasswordFragment$Stage;-><init>(Ljava/lang/String;IIIIIII)V
 
@@ -101,17 +101,17 @@
 
     const/4 v2, 0x2
 
-    const v3, 0x7f0b1391
+    const v3, 0x7f0b1392
 
-    const v4, 0x7f0b1391
+    const v4, 0x7f0b1392
 
-    const v5, 0x7f0b1392
+    const v5, 0x7f0b1393
 
-    const v6, 0x7f0b1392
+    const v6, 0x7f0b1393
 
     const v7, 0x7f0b08c9
 
-    const v8, 0x7f0b109a
+    const v8, 0x7f0b109b
 
     invoke-direct/range {v0 .. v8}, Lcom/android/settings/ChooseLockPassword$ChooseLockPasswordFragment$Stage;-><init>(Ljava/lang/String;IIIIIII)V
 

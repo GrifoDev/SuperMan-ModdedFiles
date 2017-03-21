@@ -345,6 +345,11 @@
         <item>Tamat masa</item>
         <item>Tidak berjaya</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Tanya</item>
+        <item>Jangan sekali-kali benarkan</item>
+        <item>Sentiasa benarkan</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>Pendek (0.5 saat)</item>
         <item>Sederhana (1.0 saat)</item>

@@ -357,6 +357,11 @@
         <item>Timeout</item>
         <item>Non riuscita</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Chiedi</item>
+        <item>Non consentire mai</item>
+        <item>Consenti sempre</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>Breve (0,5 secondi)</item>
         <item>Medio (1,0 secondi)</item>

@@ -505,7 +505,7 @@
 
     iget-object v0, p0, Lcom/android/settings/CredentialStorage$ResetKeyStoreAndKeyChain;->this$0:Lcom/android/settings/CredentialStorage;
 
-    const v1, 0x7f0b15f5
+    const v1, 0x7f0b15f6
 
     invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -523,7 +523,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settings/CredentialStorage$ResetKeyStoreAndKeyChain;->this$0:Lcom/android/settings/CredentialStorage;
 
-    const v1, 0x7f0b15f6
+    const v1, 0x7f0b15f7
 
     invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

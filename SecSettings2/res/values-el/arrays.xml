@@ -345,6 +345,11 @@
         <item>Τέλος χρόνου</item>
         <item>Ανεπιτυχής</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Ερώτηση</item>
+        <item>Δεν επιτρέπεται ποτέ</item>
+        <item>Επιτρέπεται πάντα</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>Μικρή (0,5 δευτερόλεπτα)</item>
         <item>Μεσαία (1 δευτερόλεπτο)</item>

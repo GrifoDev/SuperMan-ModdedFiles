@@ -345,6 +345,11 @@
         <item>Expirare</item>
         <item>Eșuat</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Solicitare</item>
+        <item>Niciodată permis</item>
+        <item>Permis întotdeauna</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>Scurt (0,5 secunde)</item>
         <item>Mediu (1,0 secunde)</item>

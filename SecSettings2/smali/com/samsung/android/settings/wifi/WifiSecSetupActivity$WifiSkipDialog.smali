@@ -86,7 +86,7 @@
 
     invoke-direct {v2, p0}, Lcom/samsung/android/settings/wifi/WifiSecSetupActivity$WifiSkipDialog$1;-><init>(Lcom/samsung/android/settings/wifi/WifiSecSetupActivity$WifiSkipDialog;)V
 
-    const v3, 0x7f0b117d
+    const v3, 0x7f0b117e
 
     invoke-virtual {v1, v3, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -96,7 +96,7 @@
 
     invoke-direct {v2, p0}, Lcom/samsung/android/settings/wifi/WifiSecSetupActivity$WifiSkipDialog$2;-><init>(Lcom/samsung/android/settings/wifi/WifiSecSetupActivity$WifiSkipDialog;)V
 
-    const v3, 0x7f0b117c
+    const v3, 0x7f0b117d
 
     invoke-virtual {v1, v3, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

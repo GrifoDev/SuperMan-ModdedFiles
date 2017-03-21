@@ -576,7 +576,7 @@
 
     aput-object v1, v3, v4
 
-    const v4, 0x7f0b18b4
+    const v4, 0x7f0b18b5
 
     invoke-virtual {p0, v4, v3}, Lcom/android/settings/accounts/AccountSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -633,7 +633,7 @@
 
     invoke-direct {v0, v1}, Lcom/android/settings/DimmableIconPreference;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0b1648
+    const v1, 0x7f0b1649
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DimmableIconPreference;->setTitle(I)V
 
@@ -665,7 +665,7 @@
 
     invoke-direct {v1, v2}, Landroid/preference/Preference;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0b1a29
+    const v2, 0x7f0b1a2a
 
     invoke-virtual {v1, v2}, Landroid/preference/Preference;->setTitle(I)V
 
@@ -719,7 +719,7 @@
 
     invoke-direct {v0, v1}, Landroid/preference/Preference;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0b164c
+    const v1, 0x7f0b164d
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setTitle(I)V
 
@@ -885,7 +885,7 @@
 
     iget-object v3, p0, Lcom/android/settings/accounts/AccountSettings;->mProfileNotAvailablePreference:Landroid/preference/Preference;
 
-    const v4, 0x7f0b1649
+    const v4, 0x7f0b164a
 
     invoke-virtual {v3, v4}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -963,7 +963,7 @@
 
     aput-object v2, v4, v5
 
-    const v5, 0x7f0b120c
+    const v5, 0x7f0b120d
 
     invoke-virtual {p0, v5, v4}, Lcom/android/settings/accounts/AccountSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1079,7 +1079,7 @@
 
     check-cast v3, Lcom/android/settings/AccessiblePreferenceCategory;
 
-    const v4, 0x7f0b120d
+    const v4, 0x7f0b120e
 
     invoke-virtual {p0, v4}, Lcom/android/settings/accounts/AccountSettings;->getString(I)Ljava/lang/String;
 
@@ -1457,7 +1457,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b1a29
+    const v3, 0x7f0b1a2a
 
     move-object v5, v4
 
@@ -1595,7 +1595,7 @@
 
     if-eqz v4, :cond_1
 
-    const v4, 0x7f0b16af
+    const v4, 0x7f0b16b0
 
     :goto_3
     invoke-interface {v2, v4}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
@@ -1609,7 +1609,7 @@
     goto :goto_0
 
     :cond_1
-    const v4, 0x7f0b16ad
+    const v4, 0x7f0b16ae
 
     goto :goto_3
 

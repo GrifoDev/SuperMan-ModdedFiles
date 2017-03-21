@@ -345,6 +345,11 @@
         <item>"Temps d'espera"</item>
         <item>No ha funcionat</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Preguntar</item>
+        <item>No permetre mai</item>
+        <item>Permetre sempre</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>Curt (0,5 segons)</item>
         <item>Mitjà (1,0 segon)</item>

@@ -491,7 +491,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b14d6
+    const v7, 0x7f0b14d7
 
     invoke-virtual {p0, v7}, Lcom/samsung/android/settings/spen/SPenSettingsMenu;->getString(I)Ljava/lang/String;
 
@@ -766,7 +766,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b14d6
+    const v7, 0x7f0b14d7
 
     invoke-virtual {p0, v7}, Lcom/samsung/android/settings/spen/SPenSettingsMenu;->getString(I)Ljava/lang/String;
 
@@ -2138,9 +2138,9 @@
 .method public onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
     .locals 12
 
-    const v9, 0x7f0b18af
+    const v9, 0x7f0b18b0
 
-    const v8, 0x7f0b18ae
+    const v8, 0x7f0b18af
 
     const/4 v6, 0x1
 
@@ -3569,9 +3569,9 @@
 .method public onResume()V
     .locals 9
 
-    const v6, 0x7f0b18af
+    const v6, 0x7f0b18b0
 
-    const v5, 0x7f0b18ae
+    const v5, 0x7f0b18af
 
     const/4 v3, 0x1
 

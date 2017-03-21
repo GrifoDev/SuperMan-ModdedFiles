@@ -345,6 +345,11 @@
         <item>တိုင်းမ်အောက်</item>
         <item>မအောင်မြင်ပါ</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>မေးပါ</item>
+        <item>မည်သည့်အခါမှ ခွင့်မပြုပါနှင့်</item>
+        <item>အမြဲ ခွင့်ပြုပါ</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>တိုသော (၀.၅ စက္ကန့်)</item>
         <item>အလတ်စား (၁.၀ စက္ကန့်)</item>

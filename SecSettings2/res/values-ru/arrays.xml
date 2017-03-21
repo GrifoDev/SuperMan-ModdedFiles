@@ -345,6 +345,11 @@
         <item>Время истекло</item>
         <item>Сбой</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Запросить</item>
+        <item>Никогда не разрешать</item>
+        <item>Всегда разрешать</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>Короткая (0.5 с)</item>
         <item>Средняя (1 с)</item>

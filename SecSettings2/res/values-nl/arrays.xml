@@ -357,6 +357,11 @@
         <item>Time-out</item>
         <item>Niet geslaagd</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Vragen</item>
+        <item>Nooit toestaan</item>
+        <item>Altijd toestaan</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>Kort (0,5 seconde)</item>
         <item>Gemiddeld (1,0 seconde)</item>

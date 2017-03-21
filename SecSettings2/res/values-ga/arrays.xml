@@ -186,6 +186,11 @@
         <item>Am istigh</item>
         <item>Níor éirigh leis</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Iarr</item>
+        <item>Ná ceadaigh riamh</item>
+        <item>Ceadaigh i gcónaí</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>Gearr (0.5 soicind)</item>
         <item>Meánach (1.0 soicind)</item>

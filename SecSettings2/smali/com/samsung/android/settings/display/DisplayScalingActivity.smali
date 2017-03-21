@@ -2755,7 +2755,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/display/DisplayScalingActivity;->mSaveButton:Landroid/widget/Button;
 
-    const v2, 0x7f0b170f
+    const v2, 0x7f0b1710
 
     invoke-virtual {v1, v2}, Landroid/widget/Button;->setText(I)V
 

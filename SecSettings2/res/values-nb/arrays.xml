@@ -345,6 +345,11 @@
         <item>Tidsavbrudd</item>
         <item>Mislykket</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Spør</item>
+        <item>Aldri tillat</item>
+        <item>Alltid tillat</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>Kort (0,5 sekund)</item>
         <item>Middels (1,0 sekund)</item>

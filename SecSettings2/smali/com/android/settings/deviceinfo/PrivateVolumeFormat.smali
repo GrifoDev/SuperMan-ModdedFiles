@@ -139,7 +139,7 @@
 
     aput-object v6, v5, v7
 
-    const v6, 0x7f0b12bf
+    const v6, 0x7f0b12c0
 
     invoke-virtual {p0, v6, v5}, Lcom/android/settings/deviceinfo/PrivateVolumeFormat;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

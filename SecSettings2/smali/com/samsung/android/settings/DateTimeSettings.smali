@@ -892,7 +892,7 @@
 
     iget-object v8, p0, Lcom/samsung/android/settings/DateTimeSettings;->mAutoTimePref:Lcom/android/settingslib/SecRestrictedSwitchPreference;
 
-    const v11, 0x7f0b0ff9
+    const v11, 0x7f0b0ffa
 
     invoke-virtual {v8, v11}, Lcom/android/settingslib/SecRestrictedSwitchPreference;->setSummary(I)V
 

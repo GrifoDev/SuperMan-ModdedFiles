@@ -164,7 +164,7 @@
     return-object p1
 
     :cond_0
-    const v0, 0x7f0b1489
+    const v0, 0x7f0b148a
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

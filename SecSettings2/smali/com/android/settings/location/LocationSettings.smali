@@ -387,7 +387,7 @@
 
     invoke-virtual {v5, p1}, Lcom/android/settingslib/SecRestrictedSwitchPreference;->setEnabled(Z)V
 
-    const v3, 0x7f0b18af
+    const v3, 0x7f0b18b0
 
     if-nez p1, :cond_2
 
@@ -407,7 +407,7 @@
 
     if-eqz v2, :cond_4
 
-    const v3, 0x7f0b18af
+    const v3, 0x7f0b18b0
 
     :goto_2
     iget-object v4, p0, Lcom/android/settings/location/LocationSettings;->mManagedProfileSwitch:Lcom/android/settingslib/SecRestrictedSwitchPreference;
@@ -430,7 +430,7 @@
     goto :goto_1
 
     :cond_4
-    const v3, 0x7f0b18ae
+    const v3, 0x7f0b18af
 
     goto :goto_2
 .end method
@@ -752,7 +752,7 @@
 
     if-eqz v17, :cond_6
 
-    const v17, 0x7f0b135b
+    const v17, 0x7f0b135c
 
     move/from16 v0, v17
 
@@ -876,7 +876,7 @@
     goto/16 :goto_1
 
     :cond_6
-    const v17, 0x7f0b135c
+    const v17, 0x7f0b135d
 
     move/from16 v0, v17
 
@@ -972,7 +972,7 @@
 
     invoke-virtual {v5, v0}, Landroid/preference/Preference;->setLayoutResource(I)V
 
-    const v17, 0x7f0b1359
+    const v17, 0x7f0b135a
 
     move/from16 v0, v17
 
@@ -1054,22 +1054,22 @@
     return v0
 
     :pswitch_0
-    const v0, 0x7f0b1357
+    const v0, 0x7f0b1358
 
     return v0
 
     :pswitch_1
-    const v0, 0x7f0b1356
+    const v0, 0x7f0b1357
 
     return v0
 
     :pswitch_2
-    const v0, 0x7f0b1355
+    const v0, 0x7f0b1356
 
     return v0
 
     :pswitch_3
-    const v0, 0x7f0b1354
+    const v0, 0x7f0b1355
 
     return v0
 
@@ -1202,7 +1202,7 @@
 .method public getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b1782
+    const v0, 0x7f0b1783
 
     return v0
 .end method
@@ -1309,7 +1309,7 @@
 
     const/4 v0, 0x1
 
-    const v1, 0x7f0b1361
+    const v1, 0x7f0b1362
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1552,7 +1552,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b1362
+    const v3, 0x7f0b1363
 
     const/4 v6, 0x0
 

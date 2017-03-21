@@ -345,6 +345,11 @@
         <item>Таймаут</item>
         <item>Неуспешно</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Питай</item>
+        <item>Никога не разрешавай</item>
+        <item>Винаги разрешавай</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>Кратко (0,5 секунди)</item>
         <item>Средно (1,0 секунда)</item>

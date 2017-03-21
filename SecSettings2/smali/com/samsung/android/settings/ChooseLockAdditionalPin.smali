@@ -286,7 +286,7 @@
     if-eqz v1, :cond_3
 
     :cond_1
-    const v1, 0x7f0b138b
+    const v1, 0x7f0b138c
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/ChooseLockAdditionalPin;->getText(I)Ljava/lang/CharSequence;
 

@@ -427,7 +427,7 @@
 
     if-eqz v3, :cond_9
 
-    const v3, 0x7f0b18ae
+    const v3, 0x7f0b18af
 
     :goto_4
     invoke-virtual {v4, v3}, Landroid/preference/PreferenceScreen;->setSummary(I)V
@@ -499,7 +499,7 @@
     goto :goto_6
 
     :cond_9
-    const v3, 0x7f0b18af
+    const v3, 0x7f0b18b0
 
     goto :goto_4
 
@@ -1205,7 +1205,7 @@
     :cond_3
     iget-object v1, p0, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->mOwnerInfo:Lcom/samsung/android/settingslib/RestrictedPreference;
 
-    const v2, 0x7f0b100e
+    const v2, 0x7f0b100f
 
     invoke-virtual {v1, v2}, Lcom/samsung/android/settingslib/RestrictedPreference;->setSummary(I)V
 
@@ -1677,7 +1677,7 @@
     return v0
 
     :cond_a
-    const v0, 0x7f0b100f
+    const v0, 0x7f0b1010
 
     invoke-static {v0}, Lcom/samsung/android/settings/lockscreen/OwnerInfo;->newInstance(I)Lcom/samsung/android/settings/lockscreen/OwnerInfo;
 

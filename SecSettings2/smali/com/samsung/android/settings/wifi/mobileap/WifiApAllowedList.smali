@@ -1346,7 +1346,7 @@
 
     invoke-direct {v2, p0}, Lcom/samsung/android/settings/wifi/mobileap/WifiApAllowedList$7;-><init>(Lcom/samsung/android/settings/wifi/mobileap/WifiApAllowedList;)V
 
-    const v3, 0x7f0b0fd8
+    const v3, 0x7f0b0fd9
 
     invoke-virtual {v1, v3, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -1528,7 +1528,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApAllowedList;->mCount:Landroid/widget/TextView;
 
-    const v2, 0x7f0b0f5f
+    const v2, 0x7f0b0f60
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 
@@ -2917,7 +2917,7 @@
 
     invoke-direct {v0, p0}, Lcom/samsung/android/settings/wifi/mobileap/WifiApAllowedList$13;-><init>(Lcom/samsung/android/settings/wifi/mobileap/WifiApAllowedList;)V
 
-    const v1, 0x7f0b1671
+    const v1, 0x7f0b1672
 
     invoke-virtual {v7, v1, v0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -2950,7 +2950,7 @@
 
     const/4 v2, 0x0
 
-    const v0, 0x7f0b1671
+    const v0, 0x7f0b1672
 
     invoke-interface {p1, v2, v1, v2, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 

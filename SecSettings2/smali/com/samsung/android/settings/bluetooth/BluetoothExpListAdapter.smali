@@ -1312,7 +1312,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0b10d1    # 1.8485E38f
+    const v2, 0x7f0b10d2
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1351,7 +1351,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0b10d0
+    const v2, 0x7f0b10d1    # 1.8485E38f
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

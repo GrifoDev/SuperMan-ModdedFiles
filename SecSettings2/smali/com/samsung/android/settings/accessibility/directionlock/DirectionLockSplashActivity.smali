@@ -779,7 +779,7 @@
 
     const-string/jumbo v2, "com.android.settings.ChooseLockGeneric$ChooseLockGenericFragment"
 
-    const v3, 0x7f0b105f
+    const v3, 0x7f0b1060
 
     const/16 v4, 0x7b
 

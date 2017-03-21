@@ -186,6 +186,11 @@
         <item>Taým-aut</item>
         <item>Şowsuz</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Sora</item>
+        <item>Hiç rugsat berme</item>
+        <item>Hemişe rugsat ber</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>Gysga (0.5 sek.)</item>
         <item>Ortaça dowamlylyk (1.0 sek.)</item>

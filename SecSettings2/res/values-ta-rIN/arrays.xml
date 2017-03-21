@@ -345,6 +345,11 @@
         <item>நேரமுடிவு</item>
         <item>தோல்வி</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>கேட்கவும்</item>
+        <item>எப்போதும் அனுமதி இல்லை</item>
+        <item>எப்போதும் அனுமதி</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>குறுகிய (0.5 வினாடிகள்)</item>
         <item>நடுத்தரம் (1.0 வினாடி)</item>

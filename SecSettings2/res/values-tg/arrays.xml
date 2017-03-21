@@ -186,6 +186,11 @@
         <item>Хотимаи вақт</item>
         <item>Номуваффақ</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Пурсидан</item>
+        <item>Ҳеҷ гоҳ иҷозат надиҳед</item>
+        <item>Ҳамеша иҷозат диҳед</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>Кӯтоҳ (0.5 сония)</item>
         <item>Миёна (1.0 сония)</item>

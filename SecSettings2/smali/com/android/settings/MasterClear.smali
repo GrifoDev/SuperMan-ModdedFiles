@@ -1276,7 +1276,7 @@
 
     move-result-object v19
 
-    const v20, 0x7f0b0fc1
+    const v20, 0x7f0b0fc2
 
     invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1392,7 +1392,7 @@
 
     check-cast v11, Landroid/widget/TextView;
 
-    const v18, 0x7f0b1263
+    const v18, 0x7f0b1264
 
     move/from16 v0, v18
 
@@ -1412,7 +1412,7 @@
 
     check-cast v10, Landroid/widget/TextView;
 
-    const v18, 0x7f0b1264
+    const v18, 0x7f0b1265
 
     move/from16 v0, v18
 
@@ -2388,7 +2388,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b131f
+    const v3, 0x7f0b1320
 
     const/4 v6, 0x0
 

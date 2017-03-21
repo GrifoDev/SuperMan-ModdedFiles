@@ -345,6 +345,11 @@
         <item>وقت ختم ہونا</item>
         <item>ناکام</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>پوچھیں</item>
+        <item>کبھی بھی اجازت نہ دیں</item>
+        <item>اجازت دیں</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>مختصر (0.5 سیکنڈ)</item>
         <item>متوسط (1.0 سیکنڈ)</item>

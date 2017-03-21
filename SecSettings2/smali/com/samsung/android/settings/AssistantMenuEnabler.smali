@@ -780,7 +780,7 @@
 
     invoke-direct {v3, p0}, Lcom/samsung/android/settings/AssistantMenuEnabler$2;-><init>(Lcom/samsung/android/settings/AssistantMenuEnabler;)V
 
-    const v4, 0x7f0b1413
+    const v4, 0x7f0b1414
 
     invoke-virtual {v2, v4, v3}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

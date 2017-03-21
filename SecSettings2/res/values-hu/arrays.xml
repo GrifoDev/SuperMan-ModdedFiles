@@ -345,6 +345,11 @@
         <item>Időkorlát</item>
         <item>Sikertelen</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Kérés</item>
+        <item>Sosem engedélyezi</item>
+        <item>Mindig engedélyezi</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>Rövid (0,5 másodperc)</item>
         <item>Közepes (1,0 másodperc)</item>

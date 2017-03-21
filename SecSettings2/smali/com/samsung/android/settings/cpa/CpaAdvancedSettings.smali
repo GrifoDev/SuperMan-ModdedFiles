@@ -789,7 +789,7 @@
 
     iget-object v6, p0, Lcom/samsung/android/settings/cpa/CpaAdvancedSettings;->mRes:Landroid/content/res/Resources;
 
-    const v7, 0x7f0b1310
+    const v7, 0x7f0b1311
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1757,7 +1757,7 @@
 
     move-result-object v4
 
-    const v6, 0x7f0b12ef    # 1.84861E38f
+    const v6, 0x7f0b12f0
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2014,7 +2014,7 @@
 
     invoke-direct {v1, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0b130e
+    const v2, 0x7f0b130f
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -2053,7 +2053,7 @@
 
     invoke-direct {v1, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0b1111
+    const v2, 0x7f0b1112
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -2666,7 +2666,7 @@
 
     invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0b130e
+    const v1, 0x7f0b130f
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 

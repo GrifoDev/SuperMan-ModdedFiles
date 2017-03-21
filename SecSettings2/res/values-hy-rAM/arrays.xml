@@ -345,6 +345,11 @@
         <item>Պարապուրդ</item>
         <item>Անհաջող</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Հարցնել</item>
+        <item>Երբեք չթույլատրել</item>
+        <item>Միշտ թույլատրել</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>Կարճ (0.5 վայրկյան)</item>
         <item>Միջին (1.0 վայրկյան)</item>

@@ -345,6 +345,11 @@
         <item>സമയം കഴിഞ്ഞു</item>
         <item>വിജയകരമല്ല</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>ചോദിക്കുക</item>
+        <item>ഒരിക്കലും അനുവദിക്കരുത്</item>
+        <item>എപ്പോഴും അനുവദിക്കണോ</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>ഹ്രസ്വം (0.5 സെക്കന്‍റ്)</item>
         <item>ഇടത്തരം (1.0 സെക്കന്‍റ്)</item>

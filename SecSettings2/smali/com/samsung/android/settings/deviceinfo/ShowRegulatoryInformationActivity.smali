@@ -134,7 +134,7 @@
 
     iput-object p0, p0, Lcom/samsung/android/settings/deviceinfo/ShowRegulatoryInformationActivity;->mContext:Landroid/content/Context;
 
-    const v8, 0x7f0b137b
+    const v8, 0x7f0b137c
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/deviceinfo/ShowRegulatoryInformationActivity;->setTitle(I)V
 

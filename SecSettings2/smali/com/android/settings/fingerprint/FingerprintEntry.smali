@@ -239,7 +239,7 @@
 
     iput-boolean v0, p0, Lcom/android/settings/fingerprint/FingerprintEntry;->mIsWaitingResult:Z
 
-    const v0, 0x7f0b1020
+    const v0, 0x7f0b1021
 
     invoke-virtual {p0, v0}, Lcom/android/settings/fingerprint/FingerprintEntry;->getString(I)Ljava/lang/String;
 

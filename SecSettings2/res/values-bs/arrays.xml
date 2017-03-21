@@ -186,6 +186,11 @@
         <item>Vremensko prekoračenje</item>
         <item>Neuspješno</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Pitaj</item>
+        <item>Ne dozvoli nikada</item>
+        <item>Uvijek dozvoli</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>Kratko (0,5 sekundi)</item>
         <item>Srednje (1,0 sekunda)</item>

@@ -345,6 +345,11 @@
         <item>Afatpritja</item>
         <item>Pa sukses</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Pyet</item>
+        <item>Kurrë mos lejo</item>
+        <item>Gjithnjë lejo</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>Shkurt (0.5 sekonda)</item>
         <item>Mesatare (1.0 sekondë)</item>

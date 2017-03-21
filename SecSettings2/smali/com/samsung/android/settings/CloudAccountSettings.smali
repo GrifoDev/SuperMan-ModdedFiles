@@ -170,7 +170,7 @@
 
     iput-object v0, v1, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->intent:Landroid/content/Intent;
 
-    const v2, 0x7f0b1019
+    const v2, 0x7f0b101a
 
     iput v2, v1, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->titleRes:I
 

@@ -345,6 +345,11 @@
         <item>Завсарлага</item>
         <item>Амжилтгүй</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Асуух</item>
+        <item>Хэзээ ч бүү зөвшөөр</item>
+        <item>Байнга зөвшөөр</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>Богино (0,5 секунд)</item>
         <item>Дунд (1,0 секунд)</item>

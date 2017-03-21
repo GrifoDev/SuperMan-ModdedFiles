@@ -169,7 +169,7 @@
     :pswitch_0
     iget-object v0, p0, Lcom/samsung/android/settings/location/LocationSettingsEnabler;->mSwitchPref:Landroid/preference/SwitchPreference;
 
-    const v1, 0x7f0b1357
+    const v1, 0x7f0b1358
 
     invoke-virtual {v0, v1}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -178,7 +178,7 @@
     :pswitch_1
     iget-object v0, p0, Lcom/samsung/android/settings/location/LocationSettingsEnabler;->mSwitchPref:Landroid/preference/SwitchPreference;
 
-    const v1, 0x7f0b1356
+    const v1, 0x7f0b1357
 
     invoke-virtual {v0, v1}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -242,7 +242,7 @@
     :cond_3
     iget-object v0, p0, Lcom/samsung/android/settings/location/LocationSettingsEnabler;->mSwitchPref:Landroid/preference/SwitchPreference;
 
-    const v1, 0x7f0b1355
+    const v1, 0x7f0b1356
 
     invoke-virtual {v0, v1}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -306,7 +306,7 @@
     :cond_6
     iget-object v0, p0, Lcom/samsung/android/settings/location/LocationSettingsEnabler;->mSwitchPref:Landroid/preference/SwitchPreference;
 
-    const v1, 0x7f0b1354
+    const v1, 0x7f0b1355
 
     invoke-virtual {v0, v1}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -638,7 +638,7 @@
 
     invoke-direct {v9, p0}, Lcom/samsung/android/settings/location/LocationSettingsEnabler$4;-><init>(Lcom/samsung/android/settings/location/LocationSettingsEnabler;)V
 
-    const v10, 0x7f0b1412
+    const v10, 0x7f0b1413
 
     invoke-virtual {v2, v10, v9}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -646,7 +646,7 @@
 
     invoke-direct {v9, p0, p1}, Lcom/samsung/android/settings/location/LocationSettingsEnabler$5;-><init>(Lcom/samsung/android/settings/location/LocationSettingsEnabler;Ljava/lang/Object;)V
 
-    const v10, 0x7f0b1413
+    const v10, 0x7f0b1414
 
     invoke-virtual {v2, v10, v9}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

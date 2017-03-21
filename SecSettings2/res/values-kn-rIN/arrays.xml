@@ -345,6 +345,11 @@
         <item>ಟೈಮ್ ಔಟ್‌</item>
         <item>ಅಸಫಲ</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>ಕೇಳಿ</item>
+        <item>ಎಂದಿಗೂ ಅನುಮತಿಸಬೇಡಿ</item>
+        <item>ಯಾವಾಗಲೂ ಅನುಮತಿಸಿ</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>ಅಲ್ಪ (0.5 ಸೆಕೆಂಡುಗಳು)</item>
         <item>ಮಧ್ಯಮ (1.0 ಸೆಕೆಂಡು)</item>

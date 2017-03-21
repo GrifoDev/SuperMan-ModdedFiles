@@ -251,7 +251,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/deviceinfo/simlockstatus/SimLockStatus;->mRes:Landroid/content/res/Resources;
 
-    const v2, 0x7f0b18e2
+    const v2, 0x7f0b18e3
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -272,7 +272,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/deviceinfo/simlockstatus/SimLockStatus;->mRes:Landroid/content/res/Resources;
 
-    const v2, 0x7f0b0f06
+    const v2, 0x7f0b0f07
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -880,7 +880,7 @@
 
     invoke-virtual {v3, v0}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    const v4, 0x7f0b17ca
+    const v4, 0x7f0b17cb
 
     invoke-virtual {v3, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 

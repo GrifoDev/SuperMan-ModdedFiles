@@ -345,6 +345,11 @@
         <item>超时</item>
         <item>未成功</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>询问</item>
+        <item>从不允许</item>
+        <item>总是允许</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>短 (0.5 秒)</item>
         <item>中 (1.0 秒)</item>

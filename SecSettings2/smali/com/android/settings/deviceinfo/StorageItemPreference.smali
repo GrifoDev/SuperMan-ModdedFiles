@@ -61,7 +61,7 @@
 
     sget-object v2, Lcom/android/settings/deviceinfo/StorageItemPreference;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b127f
+    const v3, 0x7f0b1280
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -75,7 +75,7 @@
 
     sget-object v2, Lcom/android/settings/deviceinfo/StorageItemPreference;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b127d
+    const v3, 0x7f0b127e
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

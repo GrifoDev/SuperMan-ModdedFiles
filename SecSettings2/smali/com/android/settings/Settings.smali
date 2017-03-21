@@ -153,6 +153,7 @@
         Lcom/android/settings/Settings$UsageAccessSettingsActivity;,
         Lcom/android/settings/Settings$UsefulFeatureActivity;,
         Lcom/android/settings/Settings$UsefulFeatureMainActivity;,
+        Lcom/android/settings/Settings$UserCredentialsSettingsActivity;,
         Lcom/android/settings/Settings$UserDictionarySettingsActivity;,
         Lcom/android/settings/Settings$UserSettingsActivity;,
         Lcom/android/settings/Settings$VZWManageApplicationsActivity;,

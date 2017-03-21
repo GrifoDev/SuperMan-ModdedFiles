@@ -345,6 +345,11 @@
         <item>ໝົດເວລາ</item>
         <item>ບໍ່ສໍາເລັດ</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>ຖາມ</item>
+        <item>ບໍ່ເຄີຍອະນຸຍາດ</item>
+        <item>ອະນຸຍາດທຸກຄັ້ງ</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>ສັ້ນ (0.5 ວິນາທີ)</item>
         <item>ປານກາງ (1.0 ວິນາທີ)</item>

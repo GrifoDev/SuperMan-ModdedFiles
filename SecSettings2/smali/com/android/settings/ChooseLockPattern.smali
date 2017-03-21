@@ -785,7 +785,7 @@
     if-eqz v3, :cond_6
 
     :cond_5
-    const v3, 0x7f0b138c
+    const v3, 0x7f0b138d
 
     invoke-virtual {p0, v3}, Lcom/android/settings/ChooseLockPattern;->getText(I)Ljava/lang/CharSequence;
 

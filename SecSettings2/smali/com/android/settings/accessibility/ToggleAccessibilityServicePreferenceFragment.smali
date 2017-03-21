@@ -399,7 +399,7 @@
 .method private createConfirmCredentialReasonMessage()Ljava/lang/String;
     .locals 4
 
-    const v0, 0x7f0b1515
+    const v0, 0x7f0b1516
 
     iget-object v1, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
@@ -445,12 +445,12 @@
     return-object v1
 
     :sswitch_0
-    const v0, 0x7f0b1513
+    const v0, 0x7f0b1514
 
     goto :goto_0
 
     :sswitch_1
-    const v0, 0x7f0b1514
+    const v0, 0x7f0b1515
 
     goto :goto_0
 
@@ -531,7 +531,7 @@
 
     aput-object v19, v18, v20
 
-    const v19, 0x7f0b1511
+    const v19, 0x7f0b1512
 
     move-object/from16 v0, p0
 
@@ -588,7 +588,7 @@
 
     aput-object v19, v18, v20
 
-    const v19, 0x7f0b150f
+    const v19, 0x7f0b1510
 
     move-object/from16 v0, p0
 
@@ -695,7 +695,7 @@
 
     invoke-direct {v0, v1, v2}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->setCapabilitiesText(Landroid/widget/TextView;Z)V
 
-    const v18, 0x7f0b1516
+    const v18, 0x7f0b1517
 
     move-object/from16 v0, p0
 
@@ -917,7 +917,7 @@
     goto/16 :goto_0
 
     :cond_2
-    const v18, 0x7f0b1517
+    const v18, 0x7f0b1518
 
     move-object/from16 v0, p0
 
@@ -2337,7 +2337,7 @@
 
     aput-object v18, v17, v19
 
-    const v18, 0x7f0b1519
+    const v18, 0x7f0b151a
 
     move-object/from16 v0, p0
 
@@ -2447,7 +2447,7 @@
 
     move-result-object v16
 
-    const v17, 0x7f0b16f8
+    const v17, 0x7f0b16f9
 
     move-object/from16 v0, v16
 
@@ -2548,7 +2548,7 @@
 
     move-result-object v16
 
-    const v17, 0x7f0b1462
+    const v17, 0x7f0b1463
 
     move-object/from16 v0, v16
 
@@ -2852,7 +2852,7 @@
 
     move-result-object v16
 
-    const v17, 0x7f0b1462
+    const v17, 0x7f0b1463
 
     move-object/from16 v0, v16
 
@@ -3432,7 +3432,7 @@
 
     move-result-object v16
 
-    const v17, 0x7f0b1413
+    const v17, 0x7f0b1414
 
     move-object/from16 v0, v16
 

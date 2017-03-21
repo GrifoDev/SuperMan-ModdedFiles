@@ -2512,7 +2512,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b0f24
+    const v3, 0x7f0b0f25
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2528,7 +2528,7 @@
     return-void
 
     :pswitch_0
-    const v3, 0x7f0b0f22
+    const v3, 0x7f0b0f23
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2537,7 +2537,7 @@
     goto :goto_0
 
     :pswitch_1
-    const v3, 0x7f0b0f21
+    const v3, 0x7f0b0f22
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2546,7 +2546,7 @@
     goto :goto_0
 
     :pswitch_2
-    const v3, 0x7f0b0f20
+    const v3, 0x7f0b0f21
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2555,7 +2555,7 @@
     goto :goto_0
 
     :pswitch_3
-    const v3, 0x7f0b0f23
+    const v3, 0x7f0b0f24
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2595,13 +2595,13 @@
 
     move-result-wide v4
 
-    const v3, 0x7f0b0f25
+    const v3, 0x7f0b0f26
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    const v3, 0x7f0b0f26
+    const v3, 0x7f0b0f27
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2823,7 +2823,7 @@
 
     invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v12, 0x7f0b0f29
+    const v12, 0x7f0b0f2a
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2854,7 +2854,7 @@
 
     move-result-object v10
 
-    const v12, 0x7f0b0f2a
+    const v12, 0x7f0b0f2b
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3245,7 +3245,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0f24
+    const v2, 0x7f0b0f25
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3261,15 +3261,6 @@
     return-void
 
     :pswitch_0
-    const v2, 0x7f0b0f1d
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :pswitch_1
     const v2, 0x7f0b0f1e
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
@@ -3278,8 +3269,17 @@
 
     goto :goto_0
 
-    :pswitch_2
+    :pswitch_1
     const v2, 0x7f0b0f1f
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :pswitch_2
+    const v2, 0x7f0b0f20
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3298,7 +3298,7 @@
 .method private final updatePingState()V
     .locals 5
 
-    const v4, 0x7f0b0f24
+    const v4, 0x7f0b0f25
 
     invoke-virtual {p0}, Lcom/android/settings/RadioInfo;->getResources()Landroid/content/res/Resources;
 
@@ -3422,7 +3422,7 @@
 .method private final updateProperties()V
     .locals 4
 
-    const v3, 0x7f0b0f24
+    const v3, 0x7f0b0f25
 
     invoke-virtual {p0}, Lcom/android/settings/RadioInfo;->getResources()Landroid/content/res/Resources;
 
@@ -3502,7 +3502,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b0f24
+    const v3, 0x7f0b0f25
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3523,7 +3523,7 @@
 
     iget-object v3, p0, Lcom/android/settings/RadioInfo;->roamingState:Landroid/widget/TextView;
 
-    const v4, 0x7f0b0f1b
+    const v4, 0x7f0b0f1c
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(I)V
 
@@ -3539,7 +3539,7 @@
     return-void
 
     :pswitch_0
-    const v3, 0x7f0b0f17
+    const v3, 0x7f0b0f18
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3548,7 +3548,7 @@
     goto :goto_0
 
     :pswitch_1
-    const v3, 0x7f0b0f19
+    const v3, 0x7f0b0f1a
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3557,7 +3557,7 @@
     goto :goto_0
 
     :pswitch_2
-    const v3, 0x7f0b0f1a
+    const v3, 0x7f0b0f1b
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3568,7 +3568,7 @@
     :cond_0
     iget-object v3, p0, Lcom/android/settings/RadioInfo;->roamingState:Landroid/widget/TextView;
 
-    const v4, 0x7f0b0f1c
+    const v4, 0x7f0b0f1d
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(I)V
 
@@ -3625,7 +3625,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b0f27
+    const v5, 0x7f0b0f28
 
     invoke-virtual {v0, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3655,7 +3655,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b0f28
+    const v5, 0x7f0b0f29
 
     invoke-virtual {v0, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4164,7 +4164,7 @@
 
     const/4 v2, 0x0
 
-    const v0, 0x7f0b0fa4
+    const v0, 0x7f0b0fa5
 
     invoke-interface {p1, v2, v2, v2, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -4180,7 +4180,7 @@
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setAlphabeticShortcut(C)Landroid/view/MenuItem;
 
-    const v0, 0x7f0b0f13
+    const v0, 0x7f0b0f14
 
     invoke-interface {p1, v3, v3, v2, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -4192,7 +4192,7 @@
 
     const/4 v0, 0x2
 
-    const v1, 0x7f0b0f14
+    const v1, 0x7f0b0f15
 
     invoke-interface {p1, v3, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -4204,7 +4204,7 @@
 
     const/4 v0, 0x3
 
-    const v1, 0x7f0b0f15
+    const v1, 0x7f0b0f16
 
     invoke-interface {p1, v3, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -4216,7 +4216,7 @@
 
     const/4 v0, 0x4
 
-    const v1, 0x7f0b0f16
+    const v1, 0x7f0b0f17
 
     invoke-interface {p1, v3, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -4228,7 +4228,7 @@
 
     const/4 v0, 0x5
 
-    const v1, 0x7f0b0f10
+    const v1, 0x7f0b0f11
 
     invoke-interface {p1, v3, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -4297,14 +4297,14 @@
     return v3
 
     :pswitch_1
-    const v3, 0x7f0b0f10
+    const v3, 0x7f0b0f11
 
     invoke-interface {v0, v3}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
 
     goto :goto_0
 
     :pswitch_2
-    const v3, 0x7f0b0f0f
+    const v3, 0x7f0b0f10
 
     invoke-interface {v0, v3}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
 

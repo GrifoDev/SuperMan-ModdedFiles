@@ -1644,7 +1644,7 @@
     :cond_0
     iget-object v0, p0, Lcom/samsung/android/settings/PrivacySettings;->mConfigure:Landroid/preference/PreferenceScreen;
 
-    const v1, 0x7f0b1607
+    const v1, 0x7f0b1608
 
     invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -1743,7 +1743,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b160a
+    const v2, 0x7f0b160b
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1766,7 +1766,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b1608
+    const v2, 0x7f0b1609
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -1801,7 +1801,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b1609
+    const v2, 0x7f0b160a
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1834,7 +1834,7 @@
 .method private updateAutoRestartSummary(Z)V
     .locals 2
 
-    const v0, 0x7f0b18ae
+    const v0, 0x7f0b18af
 
     invoke-static {}, Lcom/android/settings/Utils;->isSupportGraceUX()Z
 
@@ -1882,7 +1882,7 @@
     goto :goto_1
 
     :cond_2
-    const v0, 0x7f0b18af
+    const v0, 0x7f0b18b0
 
     goto :goto_2
 .end method
@@ -2215,7 +2215,7 @@
 
     if-eqz v1, :cond_9
 
-    const v13, 0x7f0b18ae
+    const v13, 0x7f0b18af
 
     :goto_8
     invoke-virtual {v14, v13}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
@@ -2238,7 +2238,7 @@
     goto/16 :goto_3
 
     :cond_9
-    const v13, 0x7f0b18af
+    const v13, 0x7f0b18b0
 
     goto :goto_8
 
@@ -2348,7 +2348,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b177e
+    const v0, 0x7f0b177f
 
     return v0
 .end method
@@ -2398,7 +2398,7 @@
 
     invoke-direct {v2}, Landroid/os/Bundle;-><init>()V
 
-    const v3, 0x7f0b131f
+    const v3, 0x7f0b1320
 
     move-object v5, v4
 

@@ -1079,7 +1079,7 @@
 
     aput-object v6, v4, v5
 
-    const v6, 0x7f0b1099
+    const v6, 0x7f0b109a
 
     invoke-virtual {p0, v6, v4}, Lcom/samsung/android/settings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1185,7 +1185,7 @@
 
     aput-object v7, v6, v5
 
-    const v5, 0x7f0b1099
+    const v5, 0x7f0b109a
 
     invoke-virtual {p0, v5, v6}, Lcom/samsung/android/settings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1212,7 +1212,7 @@
 
     aput-object v7, v6, v5
 
-    const v5, 0x7f0b109c
+    const v5, 0x7f0b109d
 
     invoke-virtual {p0, v5, v6}, Lcom/samsung/android/settings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1249,7 +1249,7 @@
     if-le v0, v6, :cond_3
 
     :cond_2
-    const v5, 0x7f0b109f
+    const v5, 0x7f0b10a0
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment;->getString(I)Ljava/lang/String;
 
@@ -1316,7 +1316,7 @@
     if-lez v4, :cond_9
 
     :cond_8
-    const v5, 0x7f0b109d
+    const v5, 0x7f0b109e
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment;->getString(I)Ljava/lang/String;
 
@@ -1363,7 +1363,7 @@
 
     if-eqz v5, :cond_e
 
-    const v5, 0x7f0b109e
+    const v5, 0x7f0b109f
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment;->getString(I)Ljava/lang/String;
 

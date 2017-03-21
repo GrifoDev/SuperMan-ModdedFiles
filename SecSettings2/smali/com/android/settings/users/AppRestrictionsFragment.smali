@@ -494,7 +494,7 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f0b17a1
+    const v1, 0x7f0b17a2    # 1.848854E38f
 
     invoke-virtual {p0, v1, v0}, Lcom/android/settings/users/AppRestrictionsFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -511,7 +511,7 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f0b179f
+    const v1, 0x7f0b17a0
 
     invoke-virtual {p0, v1, v0}, Lcom/android/settings/users/AppRestrictionsFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -524,7 +524,7 @@
 
     if-eqz v0, :cond_2
 
-    const v0, 0x7f0b17a0
+    const v0, 0x7f0b17a1
 
     invoke-virtual {p0, v0}, Lcom/android/settings/users/AppRestrictionsFragment;->getString(I)Ljava/lang/String;
 

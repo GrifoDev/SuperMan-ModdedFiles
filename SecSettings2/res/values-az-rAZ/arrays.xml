@@ -345,6 +345,11 @@
         <item>Vaxt tamamlandı</item>
         <item>Uğursuz</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Soruş</item>
+        <item>Heç vaxt icazə verməyin</item>
+        <item>Həmişə icazə verin</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>Qısa (0.5 saniyə)</item>
         <item>Orta (1.0 saniyə)</item>

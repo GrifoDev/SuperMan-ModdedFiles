@@ -345,6 +345,11 @@
         <item>Timeout</item>
         <item>Mislykkedes</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Spørg</item>
+        <item>Tilad aldrig</item>
+        <item>Tillad altid</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>Kort (0,5 sekunder)</item>
         <item>Mellem (1,0 sekund)</item>

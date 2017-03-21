@@ -651,7 +651,7 @@
     :cond_0
     iget-object v4, p0, Lcom/samsung/android/settings/activekey/ActiveKeySettings;->mShortPress:Landroid/preference/PreferenceScreen;
 
-    const v5, 0x7f0b18af
+    const v5, 0x7f0b18b0
 
     invoke-virtual {v4, v5}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -669,7 +669,7 @@
     :cond_1
     iget-object v4, p0, Lcom/samsung/android/settings/activekey/ActiveKeySettings;->mLongPress:Landroid/preference/PreferenceScreen;
 
-    const v5, 0x7f0b18af
+    const v5, 0x7f0b18b0
 
     invoke-virtual {v4, v5}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -689,7 +689,7 @@
     :cond_2
     iget-object v4, p0, Lcom/samsung/android/settings/activekey/ActiveKeySettings;->mDoublePress:Landroid/preference/PreferenceScreen;
 
-    const v5, 0x7f0b18af
+    const v5, 0x7f0b18b0
 
     invoke-virtual {v4, v5}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 

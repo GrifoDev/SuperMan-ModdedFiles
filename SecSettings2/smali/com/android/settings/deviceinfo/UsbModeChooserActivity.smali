@@ -521,7 +521,7 @@
     return v0
 
     :pswitch_2
-    const v0, 0x7f0b193d
+    const v0, 0x7f0b193e
 
     return v0
 
@@ -531,7 +531,7 @@
     return v0
 
     :pswitch_4
-    const v0, 0x7f0b1945
+    const v0, 0x7f0b1946
 
     return v0
 
@@ -588,7 +588,7 @@
     return v0
 
     :pswitch_2
-    const v0, 0x7f0b193d
+    const v0, 0x7f0b193e
 
     return v0
 
@@ -598,7 +598,7 @@
     return v0
 
     :pswitch_4
-    const v0, 0x7f0b1944
+    const v0, 0x7f0b1945
 
     return v0
 
@@ -645,32 +645,32 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0b190a
+    const v0, 0x7f0b190b
 
     return v0
 
     :cond_0
-    const v0, 0x7f0b193a
+    const v0, 0x7f0b193b
 
     return v0
 
     :pswitch_2
-    const v0, 0x7f0b193c
+    const v0, 0x7f0b193d
 
     return v0
 
     :pswitch_3
-    const v0, 0x7f0b193f
+    const v0, 0x7f0b1940
 
     return v0
 
     :pswitch_4
-    const v0, 0x7f0b1942
+    const v0, 0x7f0b1943
 
     return v0
 
     :pswitch_5
-    const v0, 0x7f0b1947
+    const v0, 0x7f0b1948
 
     return v0
 
@@ -712,32 +712,32 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0b190a
+    const v0, 0x7f0b190b
 
     return v0
 
     :cond_0
-    const v0, 0x7f0b193a
+    const v0, 0x7f0b193b
 
     return v0
 
     :pswitch_2
-    const v0, 0x7f0b193c
+    const v0, 0x7f0b193d
 
     return v0
 
     :pswitch_3
-    const v0, 0x7f0b193e
+    const v0, 0x7f0b193f
 
     return v0
 
     :pswitch_4
-    const v0, 0x7f0b1941
+    const v0, 0x7f0b1942
 
     return v0
 
     :pswitch_5
-    const v0, 0x7f0b1946
+    const v0, 0x7f0b1947
 
     return v0
 
@@ -1057,7 +1057,7 @@
 
     invoke-direct {v1, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v4, 0x7f0b1949
+    const v4, 0x7f0b194a    # 1.84894E38f
 
     invoke-virtual {v1, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -1081,7 +1081,7 @@
 
     invoke-direct {v4, p0}, Lcom/android/settings/deviceinfo/UsbModeChooserActivity$6;-><init>(Lcom/android/settings/deviceinfo/UsbModeChooserActivity;)V
 
-    const v5, 0x7f0b0fd8
+    const v5, 0x7f0b0fd9
 
     invoke-virtual {v1, v5, v4}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

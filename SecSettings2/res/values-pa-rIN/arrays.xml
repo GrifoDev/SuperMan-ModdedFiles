@@ -345,6 +345,11 @@
         <item>ਸਮਾਂ ਸਮਾਪਤ</item>
         <item>ਅਸਫਲ</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>ਪੁੱਛੋ</item>
+        <item>ਕਦੇ ਇਜਾਜ਼ਤ ਨਾ ਦਿਉ</item>
+        <item>ਹਮੇਸ਼ਾ ਇਜਾਜ਼ਤ ਦਿਓ</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>ਛੋਟੀ (0.5 ਸਕਿੰਟ)</item>
         <item>ਮੱਧਮ (1.0 ਸਕਿੰਟ)</item>

@@ -690,7 +690,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b183e
+    const v3, 0x7f0b183f
 
     move-object v5, v4
 
@@ -1514,7 +1514,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b11e8
+    const v1, 0x7f0b11e9
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->setTitle(I)V
 
@@ -1686,7 +1686,7 @@
 
     const/4 v1, 0x2
 
-    const v2, 0x7f0b15e8
+    const v2, 0x7f0b15e9
 
     invoke-interface {p1, v3, v1, v3, v2}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 

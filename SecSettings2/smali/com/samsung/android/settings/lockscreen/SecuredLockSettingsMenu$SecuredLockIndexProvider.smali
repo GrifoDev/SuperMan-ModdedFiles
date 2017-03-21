@@ -322,7 +322,7 @@
     return-object v7
 
     :cond_3
-    const v9, 0x7f0b100a
+    const v9, 0x7f0b100b
 
     invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

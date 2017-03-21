@@ -371,7 +371,7 @@
 
     if-eqz v2, :cond_1
 
-    const v2, 0x7f0b172d
+    const v2, 0x7f0b172e
 
     const/4 v3, 0x1
 
@@ -431,7 +431,7 @@
 
     invoke-direct {v0, p0}, Lcom/android/settings/ChooseLockSettingsHelper;-><init>(Landroid/app/Activity;)V
 
-    const v2, 0x7f0b105f
+    const v2, 0x7f0b1060
 
     invoke-virtual {p0, v2}, Lcom/android/settings/accounts/AddAccountSettings;->getString(I)Ljava/lang/String;
 

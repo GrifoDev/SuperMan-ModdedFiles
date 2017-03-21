@@ -610,7 +610,7 @@
     return-object v1
 
     :sswitch_0
-    const v2, 0x7f0b1068
+    const v2, 0x7f0b1069
 
     invoke-virtual {p0, v2}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getString(I)Ljava/lang/String;
 
@@ -619,7 +619,7 @@
     goto :goto_0
 
     :sswitch_1
-    const v2, 0x7f0b106a
+    const v2, 0x7f0b106b
 
     invoke-virtual {p0, v2}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getString(I)Ljava/lang/String;
 
@@ -628,7 +628,7 @@
     goto :goto_0
 
     :sswitch_2
-    const v2, 0x7f0b106c
+    const v2, 0x7f0b106d
 
     invoke-virtual {p0, v2}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getString(I)Ljava/lang/String;
 
@@ -2018,13 +2018,13 @@
 
     if-eqz v0, :cond_0
 
-    const v1, 0x7f0b107c
+    const v1, 0x7f0b107d
 
     :goto_0
     return v1
 
     :cond_0
-    const v1, 0x7f0b107b
+    const v1, 0x7f0b107c
 
     goto :goto_0
 .end method
@@ -2975,7 +2975,7 @@
 .method private setLockTypeSummary(Landroid/preference/PreferenceScreen;)V
     .locals 12
 
-    const v11, 0x7f0b1068
+    const v11, 0x7f0b1069
 
     const v10, 0x7f0b0816
 
@@ -3130,7 +3130,7 @@
 
     new-array v4, v7, [Ljava/lang/Object;
 
-    const v5, 0x7f0b106a
+    const v5, 0x7f0b106b
 
     invoke-virtual {p0, v5}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getString(I)Ljava/lang/String;
 
@@ -3147,7 +3147,7 @@
     goto :goto_1
 
     :cond_3
-    const v4, 0x7f0b106a
+    const v4, 0x7f0b106b
 
     invoke-virtual {p0, v4}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getString(I)Ljava/lang/String;
 
@@ -3191,7 +3191,7 @@
     :cond_4
     new-array v4, v7, [Ljava/lang/Object;
 
-    const v5, 0x7f0b106c
+    const v5, 0x7f0b106d
 
     invoke-virtual {p0, v5}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getString(I)Ljava/lang/String;
 
@@ -3229,7 +3229,7 @@
     goto/16 :goto_1
 
     :cond_6
-    const v4, 0x7f0b106c
+    const v4, 0x7f0b106d
 
     invoke-virtual {p0, v4}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getString(I)Ljava/lang/String;
 
@@ -4906,7 +4906,7 @@
 
     invoke-virtual {v0, v1}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
 
-    const v22, 0x7f0b1073
+    const v22, 0x7f0b1074
 
     move-object/from16 v0, v19
 
@@ -5209,7 +5209,7 @@
 
     invoke-virtual {v0, v1}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
 
-    const v22, 0x7f0b1073
+    const v22, 0x7f0b1074
 
     move-object/from16 v0, v19
 
@@ -8740,7 +8740,7 @@
     invoke-virtual/range {v19 .. v20}, Lcom/samsung/android/settingslib/RestrictedPreference;->setDisabledByAdmin(Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)V
 
     :cond_3c
-    const v19, 0x7f0b1073
+    const v19, 0x7f0b1074
 
     move-object/from16 v0, v16
 
@@ -8796,7 +8796,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b177d
+    const v0, 0x7f0b177e
 
     return v0
 .end method
@@ -11843,7 +11843,7 @@
 
     move-result-object v6
 
-    const v9, 0x7f0b105a
+    const v9, 0x7f0b105b
 
     invoke-virtual {v6, v9}, Landroid/app/Activity;->setTitle(I)V
 
@@ -12115,7 +12115,7 @@
     :goto_c
     if-nez v3, :cond_1b
 
-    const v6, 0x7f0b105f
+    const v6, 0x7f0b1060
 
     invoke-virtual {p0, v6}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->getString(I)Ljava/lang/String;
 

@@ -345,6 +345,11 @@
         <item>Thời gian chờ</item>
         <item>Không thành công</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Hỏi</item>
+        <item>Không cho phép</item>
+        <item>Luôn cho phép</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>Ngắn (0.5 giây)</item>
         <item>Trung bình (1.0 giây)</item>

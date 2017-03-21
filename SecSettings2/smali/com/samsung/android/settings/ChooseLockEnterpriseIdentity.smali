@@ -928,7 +928,7 @@
 
     aput-object v9, v8, v10
 
-    const v9, 0x7f0b1098
+    const v9, 0x7f0b1099
 
     invoke-virtual {p0, v9, v8}, Lcom/samsung/android/settings/ChooseLockEnterpriseIdentity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -961,7 +961,7 @@
 
     aput-object v9, v8, v10
 
-    const v9, 0x7f0b109b
+    const v9, 0x7f0b109c
 
     invoke-virtual {p0, v9, v8}, Lcom/samsung/android/settings/ChooseLockEnterpriseIdentity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1006,7 +1006,7 @@
     if-le v0, v8, :cond_a
 
     :cond_9
-    const v8, 0x7f0b109f
+    const v8, 0x7f0b10a0
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/ChooseLockEnterpriseIdentity;->getString(I)Ljava/lang/String;
 

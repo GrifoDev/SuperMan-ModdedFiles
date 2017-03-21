@@ -34,9 +34,9 @@
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 10
 
-    const v5, 0x7f0b18ae
+    const v5, 0x7f0b18af
 
-    const v6, 0x7f0b18af
+    const v6, 0x7f0b18b0
 
     const/4 v9, 0x0
 

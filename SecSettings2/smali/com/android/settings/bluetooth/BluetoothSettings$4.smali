@@ -1204,7 +1204,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b10e3
+    const v3, 0x7f0b10e4
 
     const/4 v4, 0x0
 
@@ -1265,7 +1265,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b10e3
+    const v3, 0x7f0b10e4
 
     const/4 v4, 0x0
 

@@ -321,7 +321,7 @@
 
     const/4 v0, 0x1
 
-    const v1, 0x7f0b1958
+    const v1, 0x7f0b1959
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -331,7 +331,7 @@
 
     const/4 v0, 0x2
 
-    const v1, 0x7f0b1959
+    const v1, 0x7f0b195a
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -493,7 +493,7 @@
 
     if-eqz v3, :cond_0
 
-    const v3, 0x7f0b1952
+    const v3, 0x7f0b1953
 
     :goto_0
     invoke-virtual {v6, v3}, Landroid/preference/PreferenceGroup;->setTitle(I)V
@@ -536,7 +536,7 @@
     goto :goto_1
 
     :cond_0
-    const v3, 0x7f0b1951
+    const v3, 0x7f0b1952
 
     goto :goto_0
 

@@ -186,6 +186,11 @@
         <item>ସମୟ ଶେଷ</item>
         <item>ଅସଫଳ</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>ପଚାରନ୍ତୁ</item>
+        <item>କେବେ ଅନୁମତି କରନ୍ତୁ ନାହିଁ</item>
+        <item>ସର୍ବଦା ଅନୁମତି</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>ଅଳ୍ପ (0.5 ସେକେଣ୍ଡ୍)</item>
         <item>ମଧ୍ୟମ (1.0 ସେକେଣ୍ଡ୍)</item>

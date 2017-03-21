@@ -2727,7 +2727,7 @@
 
     const/4 v12, 0x0
 
-    const v13, 0x7f0b1127
+    const v13, 0x7f0b1128
 
     invoke-interface {v9, v10, v11, v12, v13}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2743,7 +2743,7 @@
 
     const/4 v12, 0x0
 
-    const v13, 0x7f0b112a
+    const v13, 0x7f0b112b
 
     invoke-interface {v9, v10, v11, v12, v13}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2769,7 +2769,7 @@
 
     const/4 v12, 0x0
 
-    const v13, 0x7f0b112c
+    const v13, 0x7f0b112d
 
     invoke-interface {v9, v10, v11, v12, v13}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2802,7 +2802,7 @@
 
     const/4 v12, 0x0
 
-    const v13, 0x7f0b111f
+    const v13, 0x7f0b1120
 
     invoke-interface {v9, v10, v11, v12, v13}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2856,7 +2856,7 @@
 
     const/4 v12, 0x0
 
-    const v13, 0x7f0b1765
+    const v13, 0x7f0b1766
 
     invoke-interface {v9, v10, v11, v12, v13}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
     :try_end_0
@@ -3181,7 +3181,7 @@
 
     const/4 v3, 0x0
 
-    const v5, 0x7f0b1130
+    const v5, 0x7f0b1131
 
     move-object v0, p0
 
@@ -3299,9 +3299,9 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v1, 0x7f0b117f
+    const v1, 0x7f0b1180
 
-    const v2, 0x7f0b117f
+    const v2, 0x7f0b1180
 
     invoke-static {v2}, Lcom/samsung/android/settings/wifi/WifiSecSetupActivity$WifiSkipDialog;->newInstance(I)Lcom/samsung/android/settings/wifi/WifiSecSetupActivity$WifiSkipDialog;
 

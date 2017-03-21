@@ -414,13 +414,13 @@
 
     if-eqz v1, :cond_2
 
-    const v1, 0x7f0b13a1
+    const v1, 0x7f0b13a2
 
     :goto_0
     return v1
 
     :cond_2
-    const v1, 0x7f0b139b
+    const v1, 0x7f0b139c
 
     goto :goto_0
 
@@ -429,7 +429,7 @@
 
     if-eqz v2, :cond_4
 
-    const v1, 0x7f0b139e
+    const v1, 0x7f0b139f
 
     :cond_4
     return v1
@@ -942,7 +942,7 @@
     :cond_2
     iget-object v0, p0, Lcom/android/settings/ConfirmLockPattern$ConfirmLockPatternFragment;->mHeaderTextView:Landroid/widget/TextView;
 
-    const v1, 0x7f0b138f
+    const v1, 0x7f0b1390
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -994,7 +994,7 @@
     :cond_4
     iget-object v0, p0, Lcom/android/settings/ConfirmLockPattern$ConfirmLockPatternFragment;->mDetailsTextView:Landroid/widget/TextView;
 
-    const v1, 0x7f0b13a6
+    const v1, 0x7f0b13a7
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -1159,7 +1159,7 @@
 .method protected getLastTryErrorMessage()I
     .locals 1
 
-    const v0, 0x7f0b1093
+    const v0, 0x7f0b1094
 
     return v0
 .end method

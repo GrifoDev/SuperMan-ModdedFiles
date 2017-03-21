@@ -43,7 +43,7 @@
 .method static constructor <clinit>()V
     .locals 8
 
-    const v7, 0x7f0b109a
+    const v7, 0x7f0b109b
 
     const/4 v6, 0x2
 
@@ -67,7 +67,7 @@
 
     const v2, 0x7f0b0868
 
-    const v3, 0x7f0b10a5
+    const v3, 0x7f0b10a6
 
     invoke-direct {v0, v1, v5, v2, v3}, Lcom/samsung/android/settings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment$Stage;-><init>(Ljava/lang/String;III)V
 
@@ -77,7 +77,7 @@
 
     const-string/jumbo v1, "ConfirmWrong"
 
-    const v2, 0x7f0b1392
+    const v2, 0x7f0b1393
 
     invoke-direct {v0, v1, v6, v2, v7}, Lcom/samsung/android/settings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment$Stage;-><init>(Ljava/lang/String;III)V
 

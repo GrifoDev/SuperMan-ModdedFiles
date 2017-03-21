@@ -805,7 +805,7 @@
 
     const/4 v4, 0x0
 
-    const v5, 0x7f0b19e6
+    const v5, 0x7f0b19e7
 
     move-object v6, v3
 

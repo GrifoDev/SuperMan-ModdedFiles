@@ -51,7 +51,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/ConnectionsSettings$SummaryProvider;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b110b
+    const v3, 0x7f0b110c
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -73,7 +73,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/ConnectionsSettings$SummaryProvider;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b10b3
+    const v3, 0x7f0b10b4
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -95,7 +95,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/ConnectionsSettings$SummaryProvider;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b1676
+    const v3, 0x7f0b1677
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -117,7 +117,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/ConnectionsSettings$SummaryProvider;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b0fe0
+    const v3, 0x7f0b0fe1
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

@@ -548,7 +548,7 @@
 
     iput-object p0, v0, Lcom/android/internal/app/AlertController$AlertParams;->mPositiveButtonListener:Landroid/content/DialogInterface$OnClickListener;
 
-    const v1, 0x7f0b0fd8
+    const v1, 0x7f0b0fd9
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/ModePreviewTablet;->getString(I)Ljava/lang/String;
 
@@ -556,7 +556,7 @@
 
     iput-object v1, v0, Lcom/android/internal/app/AlertController$AlertParams;->mNegativeButtonText:Ljava/lang/CharSequence;
 
-    const v1, 0x7f0b1412
+    const v1, 0x7f0b1413
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/ModePreviewTablet;->getString(I)Ljava/lang/String;
 

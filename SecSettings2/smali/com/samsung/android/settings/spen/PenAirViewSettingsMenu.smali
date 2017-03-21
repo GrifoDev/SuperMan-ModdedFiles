@@ -422,7 +422,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b14d6
+    const v7, 0x7f0b14d7
 
     invoke-virtual {p0, v7}, Lcom/samsung/android/settings/spen/PenAirViewSettingsMenu;->getString(I)Ljava/lang/String;
 

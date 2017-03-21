@@ -116,7 +116,7 @@
 
     const/4 v0, 0x1
 
-    const v1, 0x7f0b122a
+    const v1, 0x7f0b122b
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -197,7 +197,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b122a
+    const v3, 0x7f0b122b
 
     const/4 v6, 0x0
 
@@ -286,7 +286,7 @@
 
     invoke-direct {v2, p0}, Lcom/samsung/android/settings/multisound/MultiSoundSettings$1;-><init>(Lcom/samsung/android/settings/multisound/MultiSoundSettings;)V
 
-    const v3, 0x7f0b122a
+    const v3, 0x7f0b122b
 
     invoke-virtual {v0, v3, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

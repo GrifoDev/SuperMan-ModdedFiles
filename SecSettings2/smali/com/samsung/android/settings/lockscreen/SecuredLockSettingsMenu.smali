@@ -551,13 +551,13 @@
     :cond_c
     iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mLockAfter:Lcom/samsung/android/settings/SettingsListPreference;
 
-    const v11, 0x7f0b100a
+    const v11, 0x7f0b100b
 
     invoke-virtual {v10, v11}, Lcom/samsung/android/settings/SettingsListPreference;->setTitle(I)V
 
     iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mLockAfter:Lcom/samsung/android/settings/SettingsListPreference;
 
-    const v11, 0x7f0b100a
+    const v11, 0x7f0b100b
 
     invoke-virtual {v10, v11}, Lcom/samsung/android/settings/SettingsListPreference;->setDialogTitle(I)V
 
@@ -2245,7 +2245,7 @@
     goto :goto_2
 
     :cond_4
-    const v14, 0x7f0b100b
+    const v14, 0x7f0b100c
 
     goto :goto_3
 
@@ -3531,7 +3531,7 @@
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    const v4, 0x7f0b121a
+    const v4, 0x7f0b121b
 
     invoke-virtual {v0, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 

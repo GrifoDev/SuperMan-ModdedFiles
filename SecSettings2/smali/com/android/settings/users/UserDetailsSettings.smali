@@ -215,7 +215,7 @@
 .method public onCreate(Landroid/os/Bundle;)V
     .locals 8
 
-    const v7, 0x7f0b1741
+    const v7, 0x7f0b1742
 
     const/4 v4, 0x1
 

@@ -92,7 +92,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b1778
+    const v0, 0x7f0b1779
 
     return v0
 .end method
@@ -1036,7 +1036,7 @@
 .method public onManageMobilePlanClick()V
     .locals 13
 
-    const v12, 0x7f0b134e
+    const v12, 0x7f0b134f
 
     const/4 v9, 0x0
 
@@ -1244,7 +1244,7 @@
 
     if-eqz v8, :cond_5
 
-    const v8, 0x7f0b134d
+    const v8, 0x7f0b134e
 
     invoke-virtual {v6, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1289,7 +1289,7 @@
 
     if-nez v8, :cond_8
 
-    const v8, 0x7f0b134f
+    const v8, 0x7f0b1350
 
     invoke-virtual {v6, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1300,7 +1300,7 @@
     goto/16 :goto_0
 
     :cond_8
-    const v8, 0x7f0b1350
+    const v8, 0x7f0b1351
 
     invoke-virtual {v6, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

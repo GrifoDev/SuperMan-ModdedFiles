@@ -2100,9 +2100,9 @@
     return-void
 
     :cond_16
-    const v4, 0x7f0b18ae
+    const v4, 0x7f0b18af
 
-    const v2, 0x7f0b18af
+    const v2, 0x7f0b18b0
 
     const v5, 0x7f0b0ba6
 
@@ -2305,7 +2305,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/GigaLteSettings;->progressDialog:Landroid/app/ProgressDialog;
 
-    const v1, 0x7f0b0f21
+    const v1, 0x7f0b0f22
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/GigaLteSettings;->getText(I)Ljava/lang/CharSequence;
 

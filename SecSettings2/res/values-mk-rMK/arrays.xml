@@ -345,6 +345,11 @@
         <item>Дозволено време</item>
         <item>Неуспешно</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>Прашувај</item>
+        <item>Не дозволувај никогаш</item>
+        <item>Дозволувај секогаш</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>Кратко (0,5 секунди)</item>
         <item>Средно (1 секунда)</item>

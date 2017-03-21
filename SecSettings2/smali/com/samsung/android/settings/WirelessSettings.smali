@@ -1054,7 +1054,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b1778
+    const v0, 0x7f0b1779
 
     return v0
 .end method
@@ -1418,7 +1418,7 @@
 
     move-object/from16 v32, v0
 
-    const v33, 0x7f0b18af
+    const v33, 0x7f0b18b0
 
     invoke-virtual/range {v32 .. v33}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -1428,7 +1428,7 @@
 
     move-object/from16 v32, v0
 
-    const v33, 0x7f0b18af
+    const v33, 0x7f0b18b0
 
     invoke-virtual/range {v32 .. v33}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -4165,7 +4165,7 @@
 
     iget-object v15, v0, Lcom/samsung/android/settings/WirelessSettings;->mScreenSharingReady:Landroid/preference/PreferenceScreen;
 
-    const v16, 0x7f0b18af
+    const v16, 0x7f0b18b0
 
     invoke-virtual/range {v15 .. v16}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -4203,7 +4203,7 @@
 
     if-eqz v15, :cond_17
 
-    const v15, 0x7f0b18ae
+    const v15, 0x7f0b18af
 
     :goto_6
     invoke-virtual {v10, v15}, Landroid/preference/PreferenceScreen;->setSummary(I)V
@@ -4366,7 +4366,7 @@
     goto :goto_7
 
     :cond_17
-    const v15, 0x7f0b18af
+    const v15, 0x7f0b18b0
 
     goto/16 :goto_6
 

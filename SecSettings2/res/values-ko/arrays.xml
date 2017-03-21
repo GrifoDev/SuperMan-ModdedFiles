@@ -345,6 +345,11 @@
         <item>시간 제한</item>
         <item>완료 안 됨</item>
     </string-array>
+    <string-array name="security_settings_premium_sms_values">
+        <item>묻기</item>
+        <item>허용 안 함</item>
+        <item>항상 허용</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>짧게(0.5초)</item>
         <item>중간(1.0초)</item>

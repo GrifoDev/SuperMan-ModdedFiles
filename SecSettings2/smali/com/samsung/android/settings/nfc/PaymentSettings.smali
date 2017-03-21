@@ -444,7 +444,7 @@
     return-void
 
     :cond_3
-    const v2, 0x7f0b1a70    # 1.8489996E38f
+    const v2, 0x7f0b1a71    # 1.8489998E38f
 
     invoke-interface {p1, v5, v5, v6, v2}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -635,7 +635,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b1750
+    const v3, 0x7f0b1751
 
     const/4 v5, 0x0
 
@@ -850,7 +850,7 @@
 
     invoke-direct {v2, v3, v4}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;I)V
 
-    const v3, 0x7f0b1a6e    # 1.8489992E38f
+    const v3, 0x7f0b1a6f    # 1.8489994E38f
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/nfc/PaymentSettings;->getString(I)Ljava/lang/String;
 

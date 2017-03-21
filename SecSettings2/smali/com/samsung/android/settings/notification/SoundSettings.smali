@@ -943,7 +943,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b11e2
+    const v5, 0x7f0b11e3
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/notification/SoundSettings;->getString(I)Ljava/lang/String;
 
@@ -1116,7 +1116,7 @@
 .method private refreshDNDmode()V
     .locals 9
 
-    const v4, 0x7f0b18ae
+    const v4, 0x7f0b18af
 
     const/4 v5, 0x1
 
@@ -1256,7 +1256,7 @@
     return-void
 
     :cond_4
-    const v3, 0x7f0b18af
+    const v3, 0x7f0b18b0
 
     goto :goto_0
 
@@ -1286,7 +1286,7 @@
 .method private refreshSoundMode()V
     .locals 9
 
-    const v8, 0x7f0b11e2
+    const v8, 0x7f0b11e3
 
     const v7, 0x7f0b09d0
 
@@ -2227,7 +2227,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b177a
+    const v0, 0x7f0b177b
 
     return v0
 .end method
@@ -2979,7 +2979,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b11e2
+    const v9, 0x7f0b11e3
 
     invoke-virtual {v8, v9}, Landroid/app/Activity;->setTitle(I)V
 
@@ -3957,7 +3957,7 @@
 
     const-string/jumbo v4, "extra_prefs_set_back_text"
 
-    const v5, 0x7f0b162d
+    const v5, 0x7f0b162e
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/notification/SoundSettings;->getString(I)Ljava/lang/String;
 
