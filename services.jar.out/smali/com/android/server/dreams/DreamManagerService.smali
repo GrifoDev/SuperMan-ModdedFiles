@@ -912,7 +912,7 @@
 
     sget-boolean v3, Landroid/os/Build;->IS_DEBUGGABLE:Z
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_3
 
     const-string/jumbo v3, "debug.doze.component"
 
@@ -948,13 +948,32 @@
 
     const-string/jumbo v4, "doze_enabled"
 
+    const/4 v5, 0x0
+
+    invoke-static {v3, v4, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    const-string v1, "com.android.systemui/com.android.systemui.doze.DozeService"
+
+    :cond_1
+    iget-object v3, p0, Lcom/android/server/dreams/DreamManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "doze_enabled"
+
     const/4 v5, 0x1
 
     invoke-static {v3, v4, v5, p1}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_4
 
     const/4 v0, 0x1
 
@@ -963,23 +982,23 @@
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_2
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     invoke-static {v1}, Landroid/content/ComponentName;->unflattenFromString(Ljava/lang/String;)Landroid/content/ComponentName;
 
     move-result-object v2
 
-    :cond_1
+    :cond_2
     return-object v2
 
-    :cond_2
+    :cond_3
     move-object v1, v2
 
     goto :goto_0
 
-    :cond_3
+    :cond_4
     const/4 v0, 0x0
 
     goto :goto_1

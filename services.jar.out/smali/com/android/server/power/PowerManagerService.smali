@@ -8545,6 +8545,34 @@
     return-void
 .end method
 
+.method private handleDozeParams(Z)Z
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/server/power/PowerManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "doze_enabled"
+
+    const v2, 0x0
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x1
+
+    goto :goto_0
+.end method
+
 .method private handleInputDeviceLightOnByScreenOn()V
     .locals 3
 
@@ -12180,9 +12208,11 @@
 .end method
 
 .method private readConfigurationLocked()V
-    .locals 3
+    .locals 4
 
     const/4 v2, 0x1
+
+    const/4 v3, 0x0
 
     iget-object v1, p0, Lcom/android/server/power/PowerManagerService;->mContext:Landroid/content/Context;
 
@@ -12192,9 +12222,11 @@
 
     iput-boolean v2, p0, Lcom/android/server/power/PowerManagerService;->mDecoupleHalAutoSuspendModeFromDisplayConfig:Z
 
-    const/4 v1, 0x0
+    invoke-direct {p0, v3}, Lcom/android/server/power/PowerManagerService;->handleDozeParams(Z)Z
 
-    iput-boolean v1, p0, Lcom/android/server/power/PowerManagerService;->mDecoupleHalInteractiveModeFromDisplayConfig:Z
+    move-result v3
+
+    iput-boolean v3, p0, Lcom/android/server/power/PowerManagerService;->mDecoupleHalInteractiveModeFromDisplayConfig:Z
 
     iput-boolean v2, p0, Lcom/android/server/power/PowerManagerService;->mWakeUpWhenPluggedOrUnpluggedConfig:Z
 
@@ -12278,7 +12310,11 @@
 
     move-result v1
 
-    iput-boolean v1, p0, Lcom/android/server/power/PowerManagerService;->mDozeAfterScreenOffConfig:Z
+    invoke-direct {p0, v3}, Lcom/android/server/power/PowerManagerService;->handleDozeParams(Z)Z
+
+    move-result v3
+
+    iput-boolean v3, p0, Lcom/android/server/power/PowerManagerService;->mDozeAfterScreenOffConfig:Z
 
     const v1, 0x10e0084
 

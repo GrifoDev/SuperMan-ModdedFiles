@@ -1304,6 +1304,12 @@
 
     move-object/from16 v0, p0
 
+    invoke-direct {v0, v2}, Lcom/android/server/display/DisplayPowerController;->handleDozeParams(Z)Z
+
+    move-result v2
+
+    move-object/from16 v0, p0
+
     iput-boolean v2, v0, Lcom/android/server/display/DisplayPowerController;->mAllowAutoBrightnessWhileDozingConfig:Z
 
     const/16 v2, 0x7d0
@@ -4829,6 +4835,34 @@
     const/4 v0, -0x1
 
     return v0
+.end method
+
+.method private handleDozeParams(Z)Z
+    .locals 3
+
+    iget-object v1, p0, Lcom/android/server/display/DisplayPowerController;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string/jumbo v0, "doze_enabled"
+
+    const/4 v2, 0x0
+
+    invoke-static {v1, v0, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x1
+
+    goto :goto_0
 .end method
 
 .method private handleProximitySensorEvent(JZ)V
