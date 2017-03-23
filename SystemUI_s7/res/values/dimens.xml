@@ -1118,7 +1118,7 @@
     <dimen name="theme_dual_textclock_bg_image_height">97.0dip</dimen>
     <dimen name="theme_single_imageclock_digit_height">85.0dip</dimen>
     <dimen name="theme_dual_imageclock_digit_height">40.0dip</dimen>
-    <dimen name="servicebox_page_small_height">201.0dip</dimen>
+    <dimen name="servicebox_page_small_height">220.0dip</dimen>
     <dimen name="servicebox_page_expanded_height">332.0dip</dimen>
     <dimen name="servicebox_page_scover_height">146.0dip</dimen>
     <dimen name="servicebox_page_mkcover_height">159.0dip</dimen>
