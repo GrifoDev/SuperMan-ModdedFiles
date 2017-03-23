@@ -424,4 +424,8 @@
     <color name="dot_out_stroke_color">#ff8b8b8b</color>
     <color name="kg_set_as_wallpaper_text_color">#fffafafa</color>
     <color name="kg_set_as_wallpaper_text_shadow_color">#b3000000</color>
+    <color name="killer_meminfo_background">#ff373737</color>
+    <color name="killer_meminfo_front">#ff25e100</color>
+    <color name="killer_meminfo_full_front">#ffff5400</color>
+    <color name="killer_meminfo_txt">#ffffffff</color>
 </resources>

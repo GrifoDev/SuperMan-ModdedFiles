@@ -14558,6 +14558,10 @@
 
     move-object/from16 v0, p0
 
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->updateKeyguardText()V
+
+    move-object/from16 v0, p0
+
     const/4 v7, 0x0
 
     const-string v8, "left_signal"
@@ -15877,6 +15881,17 @@
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->updateSFinderView()V
 
     :cond_23
+    const-string v0, "lockscreen_guide_text"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_24
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->updateKeyguardText()V
+
+    :cond_24
     return-void
 .end method
 
@@ -17208,6 +17223,10 @@
     invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     const-string v4, "hide_sfinder"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string v4, "lockscreen_guide_text"
 
     invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
@@ -22484,6 +22503,55 @@
     move v4, v3
 
     goto/16 :goto_4
+.end method
+
+.method updateKeyguardText()V
+    .locals 3
+
+    const-string v0, "lockscreen_guide_text"
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const v0, 0x8
+
+    goto :goto_0
+
+    :cond_0
+    const v0, 0x0
+
+    :goto_0
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
+
+    const v2, 0x7f130148
+
+    invoke-virtual {v1, v2}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_1
+
+    invoke-virtual {v2, v0}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mKeyguardStatusBar:Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;
+
+    const v2, 0x7f130148
+
+    invoke-virtual {v1, v2}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_1
+
+    invoke-virtual {v2, v0}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    :cond_1
+    return-void
 .end method
 
 .method protected updateKnoxCustomStatusBarText()V

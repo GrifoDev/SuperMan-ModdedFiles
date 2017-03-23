@@ -1091,4 +1091,6 @@
     <item type="id" name="gid_info_ram">false</item>
     <item type="id" name="blur_background_image_view_recents">false</item>
     <item type="id" name="view_flipper_text_slide">false</item>
+    <item type="id" name="killer_mem_info">false</item>
+    <item type="id" name="killer_clean_button">false</item>
 </resources>
